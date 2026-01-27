@@ -4,79 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3654FD2D8DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:51:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE5BD2D8DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:51:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n/lKgEYg6bpWqqJ6YLjWkTk+fez50N6AhBdNhJubuDM=; b=JlX2ypueXvIVj7Gqgu8UCVtQdw
-	JDdswjDmUdDrvtItgu1fdJI+NL/jOsuyJint7RdruGPrNYTXhKvkkbQiUC3DZfYHbCQCcaSkWrWJK
-	C/l4JdzfKAA/K6hnw/OUuPDGqo6gHdGYibeo2yVmVdO+DUtNTqNJcoagNmm/cdv/UasXov1hUkHIB
-	xB6WE6OEP1NITVs/ninll3fLztrgcXUSgvk0nO7RoRYHgWdS/CYhCn6bHo6xwsEoEx6VVR//+R+rQ
-	VU9wO8lZcs0ZbC9VP6KN+8vRbU4gkDnaFD5IQ4QoTpDloNxYHEMXdajySFw7JhEv0eOcErMCYQGPD
-	VHvPzbqg==;
+	bh=cQ81IiPYrQXDGtzL2McmgLf7a6F5SEWyTDwzthxfSqQ=; b=ytbpThAU2Mw5vBJnbyfkQUC5Ja
+	l5v7mNIBzsnLcEUN7SsRyyQMcTqFNB3G7eWFJ+FLGnsiROQh2RF1l6LjvJBrZSh71ZbjUTJCinoV0
+	7yy1gX/JOrbgOCnUKraa5uSrS+kKlWN3lIBc0t9ecIbVNsXqZ4VzFaENaDCYW54QTHjuuZk3J9lNT
+	CVgdjpx24E8YEBq3/g0FA8mgcn2lI45YViYMwuU7X0W7RHKEqfqdVkWvuhitRfW3/U/EAf4udgu0y
+	B7CygzqLPiuM/HAiUB7i6zMWZng/KKSsfowmaaWzjcyUxObr+ynnq2XHvIeEHSM4K37/N3m0LQv2n
+	Hk3xu3Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfjH-0000000DzqJ-3vPY;
-	Tue, 27 Jan 2026 09:51:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vkfjc-0000000Dzv6-19Mh;
+	Tue, 27 Jan 2026 09:51:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfjG-0000000Dzq1-10SC
+	id 1vkfjZ-0000000Dzto-2ceD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 09:51:22 +0000
+	Tue, 27 Jan 2026 09:51:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 532ED60171
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:51:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A725C16AAE
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:51:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8ECB842B66;
+	Tue, 27 Jan 2026 09:51:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CFD9C116C6;
+	Tue, 27 Jan 2026 09:51:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769507481;
-	bh=FGhVpDtMVZVm3tb6KxliGgMLN0Evi2bHotKWpU75YQM=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=TTTTZgsPRIOHFQSKDpAGDG4oaplDbO1l8xdmHLXajWLKrZQEa9BjEb3uyc/wlTV/7
-	 GrzuwR8nXJIt/kC0eOK6mcrKqyucgNbT/xJGEW6MtSN921jFTFXLesgOkm9qDpoVrX
-	 gw/MzXKa8sr5VlmVP1Blyu4YVruLkgasNVjOiE3Y8fbh3JCaVL2rvUgzwRsDlPJw9F
-	 9YdSmsYRrPARFg2/JE/GYXytu1Nk5wmpm4+eBzHacPohrZjUzQxldLf+mKmkoc0nYM
-	 rVivhUGF11aDcZdRdsJtTeuZl9Z3DVvlXOBpzD/CM0tnhV8pQ+Ykuc6CZjVWOVmV3K
-	 jgD12cdVMSubw==
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-59dd263bf42so6003445e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 01:51:20 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVdmWByZlCIAKPbxMNBCjye2QbdA/qjlH33DT6Ut799lxTsxtyTqGsmDHzd7oIBwgibsjwXFD0R5yUFKitMC4Xs@lists.infradead.org
-X-Gm-Message-State: AOJu0YybCh8qaocV82fj/1Il8tgyXYlyyKNH/Rw/52xigu6P68BQGOVa
-	MpDHD5RP/qvJ3+3PwSXls9vtg0ZlLXZlj0LLKHzw/S+63okzRzhk019coUFDIytamAHsRqtDYmV
-	TOdaPZtFlL79gN9Dml5ejlV6mCYrkkfAKBSHyYlSutA==
-X-Received: by 2002:a05:6512:124e:b0:59d:cda0:8b70 with SMTP id
- 2adb3069b0e04-59e0412dcb0mr548455e87.52.1769507479645; Tue, 27 Jan 2026
- 01:51:19 -0800 (PST)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 27 Jan 2026 01:51:17 -0800
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 27 Jan 2026 01:51:17 -0800
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260123-dev-b4-aaeon-mcu-driver-v2-3-9f4c00bfb5cb@bootlin.com>
+	s=k20201202; t=1769507500;
+	bh=fHNDf98UfSxZP/5620ThKlWUIXX7A+obJ7tl3F71J2M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Aa/8qJY0e6xOLcJGlkXtsRB5yaIEhLxJRgDjRIt77AeIOoU+yBZvFSDMePfS4/uIQ
+	 Q7n4zXIUfPoGXGk8df0O9mZjh+Bw2QapijH5i4+yCJ2PwRl/LRVu94XfTia5ttLAa0
+	 APU/YyYxVQCi8MT3MK2oJfj0YHvTUClco4CwSXGUDp1lbqLE6oENK7ODxshuua+YSd
+	 mY758ebI6rofXlCT4W4YqjG2NzdZ2+57k2qlWxuMVbt9Jw/ueHp3XgnGacusaxp/2v
+	 m129Og3jFuXkv7Kv6NW/ALo3/YsM8GXD1t5zFVCjmXwL1iC1B8XgUej5cZBKQ19/CS
+	 g5BhrKLr3KVaA==
+Date: Tue, 27 Jan 2026 10:51:38 +0100
+From: Thierry Reding <thierry.reding@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Thierry Reding <thierry.reding@gmail.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, arm@kernel.org, soc@kernel.org, 
+	Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: Re: [GIT PULL 1/4] dt-bindings: Changes for v6.20-rc1
+Message-ID: <aXiJGxVnYxRuHIMv@orome>
+References: <20260118080304.2646387-1-thierry.reding@gmail.com>
+ <20260122-hidden-goat-of-excellence-a43b9f@quoll>
+ <CAMuHMdUZqJa3KEWZReA734=ZV98JTD=HPztkszEe6ARFWiuhww@mail.gmail.com>
+ <aXIVmW_mjb0AdDwe@orome>
+ <684526d5-f1ac-46d5-b147-1fb906ba2248@kernel.org>
 MIME-Version: 1.0
-References: <20260123-dev-b4-aaeon-mcu-driver-v2-0-9f4c00bfb5cb@bootlin.com> <20260123-dev-b4-aaeon-mcu-driver-v2-3-9f4c00bfb5cb@bootlin.com>
-Date: Tue, 27 Jan 2026 01:51:17 -0800
-X-Gmail-Original-Message-ID: <CAMRc=McYKZ8TY9wAhZ3sZtYRNJhoh2VfQ+6FA=+VRwstpWQOHg@mail.gmail.com>
-X-Gm-Features: AZwV_QhnJ3-HaFivIkkQZJQTm3GV_7xh9A9lzaVebFHWLuaiyt9Faz2iUZq47wY
-Message-ID: <CAMRc=McYKZ8TY9wAhZ3sZtYRNJhoh2VfQ+6FA=+VRwstpWQOHg@mail.gmail.com>
-Subject: Re: [PATCH v2 3/5] mfd: aaeon: Add SRG-IMX8PL MCU driver
-To: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, 
-	=?UTF-8?B?SsOpcsOpbWllIERhdXRoZXJpYmVz?= <jeremie.dautheribes@bootlin.com>, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="4zipssenwoagfsy7"
+Content-Disposition: inline
+In-Reply-To: <684526d5-f1ac-46d5-b147-1fb906ba2248@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260127_015141_707669_7B287EF7 
+X-CRM114-Status: GOOD (  31.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,235 +78,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 23 Jan 2026 10:54:32 +0100, "Thomas Perrot (Schneider
-Electric)" <thomas.perrot@bootlin.com> said:
-> Add Multi-Function Device (MFD) driver for the Aaeon SRG-IMX8PL
-> embedded controller. This driver provides the core I2C communication
-> interface and registers child devices (GPIO and watchdog controllers).
->
-> The MCU firmware version is queried during probe and logged for
-> diagnostic purposes. All I2C transactions are serialized using a mutex
-> to ensure proper communication with the microcontroller.
->
-> Co-developed-by: J=C3=A9r=C3=A9mie Dautheribes (Schneider Electric) <jere=
-mie.dautheribes@bootlin.com>
-> Signed-off-by: J=C3=A9r=C3=A9mie Dautheribes (Schneider Electric) <jeremi=
-e.dautheribes@bootlin.com>
-> Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.=
-com>
-> ---
 
-[snip]
+--4zipssenwoagfsy7
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [GIT PULL 1/4] dt-bindings: Changes for v6.20-rc1
+MIME-Version: 1.0
 
- +++ b/drivers/mfd/aaeon-mcu.c
-> @@ -0,0 +1,129 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Aaeon MCU driver
-> + *
-> + * Copyright (C) 2025 Bootlin
-> + * Author: J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootlin.co=
-m>
-> + * Author: Thomas Perrot <thomas.perrot@bootlin.com>
-> + */
-> +
-> +#include <linux/err.h>
-> +#include <linux/i2c.h>
-> +#include <linux/mfd/aaeon-mcu.h>
-> +#include <linux/mfd/core.h>
-> +#include <linux/platform_device.h>
-> +
-> +#define AAEON_MCU_FW_VERSION	0x76
-> +
-> +static struct mfd_cell aaeon_mcu_devs[] =3D {
+On Fri, Jan 23, 2026 at 08:43:44AM +0100, Krzysztof Kozlowski wrote:
+> On 22/01/2026 13:20, Thierry Reding wrote:
+> > On Thu, Jan 22, 2026 at 12:02:04PM +0100, Geert Uytterhoeven wrote:
+> >> Hi Krzysztof,
+> >>
+> >> On Thu, 22 Jan 2026 at 11:08, Krzysztof Kozlowski <krzk@kernel.org> wr=
+ote:
+> >>> On Sun, Jan 18, 2026 at 09:03:00AM +0100, Thierry Reding wrote:
+> >>>> The following changes since commit 8f0b4cce4481fb22653697cced8d0d040=
+27cb1e8:
+> >>>>
+> >>>>   Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+> >>>>
+> >>>> are available in the Git repository at:
+> >>>>
+> >>>>   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags=
+/tegra-for-6.20-dt-bindings
+> >>>>
+> >>>> for you to fetch changes up to b2788f6320722d6059f849f35a77eb082608c=
+627:
+> >>>>
+> >>>>   ASoC: dt-bindings: realtek,rt5640: Document port node (2026-01-17 =
+01:58:18 +0100)
+> >>>>
+> >>>> Thanks,
+> >>>> Thierry
+> >>>>
+> >>>> ----------------------------------------------------------------
+> >>>> dt-bindings: Changes for v6.20-rc1
+> >>>>
+> >>>> This series updates various DT bindings for Tegra architecture,
+> >>>> primarily focusing on schema validation fixes and new feature
+> >>>> documentation for Tegra234 and Tegra264 SoCs. Key changes include
+> >>>> correcting realtek,rt5640 audio codec bindings (adding missing ports,
+> >>>> clocks, and jack-detect sources), converting Tegra20 NAND bindings to
+> >>>> YAML, and updating memory, DMA, and IOMMU definitions for Tegra264
+> >>>> (introducing CMDQV and DBB clock support). Additionally, it resolves
+> >>>> legacy warnings for Tegra30/132 display and VI interfaces.
+> >>>
+> >>> Same comment as was for Geert, I am surprised to see DT bindings as
+> >>> separate pull and I see drivers were alerady merged, so I will defer
+> >>> entire Tegra pull to Arnd.
+> >>
+> >> The soc tree used to have a separate branch for dt-bindings.
+> >> Hence several soc submaintainers still use that split for their PRs.
+> >=20
+> > Yeah. I usually also only put things in the PR for ARM SoC that have no
+> > related driver changes (fixups, conversions, ...) and therefore nobody
+> > else feels responsible for picking up.
+>=20
+> Why these are still separate? There are few options here:
+> 1. These were needed by the drivers you sent in pull: should be in that
+> driver pull. It seems Geert confirmed this was the case with Renesas.
+> BTW, checkpatch asks for that somewhat - you will have checkpatch
+> warning of undocumented compatibles and you are not suppose to have such
+> warnings.
 
-Can be const.
+Yes, most of the time they'll be in this type of pull request and I
+don't usually apply them when they are in this category.
 
-> +	{
-> +		.name =3D "aaeon-mcu-wdt",
-> +	},
-> +	{
-> +		.name =3D "aaeon-mcu-gpio",
-> +	},
-> +};
-> +
-> +static int aaeon_mcu_read_version(struct device *dev, u8 index, u8 *vers=
-ion)
-> +{
-> +	u8 cmd[3] =3D { AAEON_MCU_FW_VERSION, index, 0x00 };
-> +
-> +	return aaeon_mcu_i2c_xfer(dev, cmd, sizeof(cmd), version, sizeof(*versi=
-on));
-> +}
-> +
-> +static int aaeon_mcu_print_fw_version(struct i2c_client *client)
-> +{
-> +	struct device *dev =3D &client->dev;
-> +	u8 major, minor;
-> +	int ret;
-> +
-> +	ret =3D aaeon_mcu_read_version(dev, 0x00, &major);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret =3D aaeon_mcu_read_version(dev, 0x01, &minor);
-> +	if (ret)
-> +		return ret;
-> +
-> +	dev_info(dev, "firmware version: v%d.%d\n", major, minor);
+> 2. These were needed by the new DTS you sent in pull: should be in that
+> DTS pull.
 
-I would drop this entirely or demote it to dev_dbg(), there's no reason for
-a successfully probed device to yell about it.
+This happens sometimes. In that case what I will usually do is have them
+on a separate branch that is merged into the branch with the DTS changes
+so that they are separate but the dependency is explicit.
 
-> +
-> +	return 0;
-> +}
-> +
-> +int aaeon_mcu_i2c_xfer(struct device *dev,
-> +		       const u8 *cmd, int cmd_len,
-> +		       u8 *rsp, int rsp_len)
-> +{
-> +	struct i2c_client *client =3D to_i2c_client(dev);
-> +	struct aaeon_mcu_dev *mcu =3D i2c_get_clientdata(client);
-> +	int ret;
-> +
-> +	mutex_lock(&mcu->i2c_lock);
-> +
-> +	ret =3D i2c_master_send(client, cmd, cmd_len);
-> +	if (ret < 0)
-> +		goto unlock;
-> +
-> +	ret =3D i2c_master_recv(client, rsp, rsp_len);
-> +	if (ret < 0)
-> +		goto unlock;
-> +
-> +	if (ret !=3D rsp_len) {
-> +		dev_err(dev,
-> +			"i2c recv count error (expected: %d, actual: %d)\n",
-> +			rsp_len, ret);
-> +		ret =3D -EIO;
-> +		goto unlock;
-> +	}
-> +
-> +	ret =3D 0;
-> +
-> +unlock:
+> 3. These were not needed by anything yet or they document compatibles
+> already in the tree: that's the only case I imagine having them on
+> separate branch. You can take such bindings when subsystem maintainers
+> do not - they ignore them. 90% of bindings in this pull are not like that!
 
-Just use guard(mutex) from cleanup.h and drop the label.
+This is typically the majority of patches that end up in the Tegra
+dt-bindings branch. It's random assortments of things that nobody seems
+to feel responsible for and they concern primarily Tegra, so I consider
+the Tegra tree to be the fallback and will vacuum these up.
 
-> +	mutex_unlock(&mcu->i2c_lock);
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(aaeon_mcu_i2c_xfer);
-> +
-> +static int aaeon_mcu_probe(struct i2c_client *client)
-> +{
-> +	struct aaeon_mcu_dev *mcu;
-> +	int ret;
-> +
-> +	mcu =3D devm_kzalloc(&client->dev, sizeof(*mcu), GFP_KERNEL);
-> +	if (!mcu)
-> +		return -ENOMEM;
-> +
-> +	i2c_set_clientdata(client, mcu);
-> +	mcu->dev =3D &client->dev;
-> +	mutex_init(&mcu->i2c_lock);
+In this particular case I was heavily relying on Patchwork and missed
+that Mark had already applied them. Jon pointed it out to me, and so did
+Rob, so I removed them. Unfortunately, I didn't send out an updated PR
+in time, so Arnd ended up pulling this into ARM SoC.
 
-For lock debugging purposes it's better to destroy the mutex too. Or use
-devm_mutex_init().
+Let me check in with Arnd to see if that one PR can be backed out, so we
+can iron this out.
 
-> +
-> +	ret =3D aaeon_mcu_print_fw_version(client);
-> +	if (ret) {
-> +		dev_err(&client->dev, "unable to read firmware version\n");
-> +		return ret;
-> +	}
-> +
-> +	return devm_mfd_add_devices(mcu->dev, PLATFORM_DEVID_NONE, aaeon_mcu_de=
-vs,
-> +				    ARRAY_SIZE(aaeon_mcu_devs), NULL, 0, NULL);
-> +}
-> +
-> +static const struct of_device_id aaeon_mcu_of_match[] =3D {
-> +	{ .compatible =3D "aaeon,srg-imx8pl-mcu" },
-> +	{},
-> +};
-> +
+Thierry
 
-Unneeded newline.
+--4zipssenwoagfsy7
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> +MODULE_DEVICE_TABLE(of, aaeon_mcu_of_match);
-> +
-> +static struct i2c_driver aaeon_mcu_driver =3D {
-> +	.driver =3D {
-> +		.name =3D "aaeon_mcu",
-> +		.of_match_table =3D aaeon_mcu_of_match,
-> +	},
-> +	.probe =3D aaeon_mcu_probe,
-> +};
-> +
+-----BEGIN PGP SIGNATURE-----
 
-Same here.
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAml4iqkACgkQ3SOs138+
+s6H//A//Sgq9M8Nb3DnMTwj6xOLWTSrty3XpzgLqTud6s2j5MLPaQGnmUf+FWZYI
++Tj+YToZBG2Lt5pF3kbmWjAedbfqEQX27f4XlJFuazxdQXOjjx4EjDUdhKVvJaA3
+bH0JhOLOq225sLB1SqSDNewDJDxTXkc4FTrL/cevxR7hlC6tWTLtLoauQa18AYKG
+wSz1nCseXHsXKWWWlFAnio6oPvIg4lN0h2AbcO6TwFUl4lWC4AID0cK3WScvmwos
+j3Rj8aziEV8sFBfAHEu1pJ0ZuOlYnLg4FC/vMyhpm17zYfkk9BxO9xfguZ0i6BPI
+iXlvadk93zSDqTrgJHcoHE9A0EvxSEWL40Qgoph4dPxPhZ7mZRYHBKcqT2uR0Y+h
+rBx/ZXKre6zyP4uQhKpWAImFQ3Qxwkk1lrRzAT/whK0EYXpzhtUH8IMyZLFCRSBd
+IEUZOHKXGM0df6JdRWuOllAyYCTIDDjMKVvZdn0uFlzRTnK7a5O/JOVbyvbpFqbx
+vTyPSmIe7dl7PtE6y+lmWlia+NaGKpg2IE7lOzwV147A3X1i2wM/pVSderi5Woyj
+4zXcNXZRNHty3iPtpqhVpdwkq/Zwz7nTDvcPA4PbeQchek+FOJIeIuaVphS+A4/f
+zIPtw+JH92AcZIO2lZJp5ERxGb56Xf1/qUSLyZxRl0OF+ECkbms=
+=QO4O
+-----END PGP SIGNATURE-----
 
-> +module_i2c_driver(aaeon_mcu_driver);
-> +
-> +MODULE_DESCRIPTION("Aaeon MCU Driver");
-> +MODULE_AUTHOR("J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootli=
-n.com>");
-> +MODULE_LICENSE("GPL");
-> diff --git a/include/linux/mfd/aaeon-mcu.h b/include/linux/mfd/aaeon-mcu.=
-h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..c9dc7a9adbc86c489f03a550e=
-7776d3b1da4e7b2
-> --- /dev/null
-> +++ b/include/linux/mfd/aaeon-mcu.h
-> @@ -0,0 +1,31 @@
-> +/* SPDX-License-Identifier: GPL-2.0-or-later */
-> +/*
-> + * Aaeon MCU driver definitions
-> + *
-> + * Copyright (C) 2025 Bootlin
-> + * Author: J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootlin.co=
-m>
-> + * Author: Thomas Perrot <thomas.perrot@bootlin.com>
-> + */
-> +
-> +#ifndef __LINUX_MFD_AAEON_MCU_H
-> +#define __LINUX_MFD_AAEON_MCU_H
-> +
-> +#include <linux/mutex.h>
-> +#include <linux/types.h>
-> +
-> +/**
-> + * struct aaeon_mcu_dev - Internal representation of the Aaeon MCU
-> + * @dev: Pointer to kernel device structure
-> + * @i2c_lock: Mutex to serialize I2C bus access
-> + */
-> +
-
-Kerneldocs should be attached to the struct they describe. But...
-
-> +struct aaeon_mcu_dev {
-> +	struct device *dev;
-> +	struct mutex i2c_lock;
-> +};
-
-... you don't seem to need to export this structure. You don't use it at al=
-l
-in the subsequent GPIO patch.
-
-> +
-> +int aaeon_mcu_i2c_xfer(struct device *dev,
-> +		       const u8 *cmd, int cmd_len,
-> +		       u8 *rsp, int rsp_len);
-> +
-> +#endif /*  __LINUX_MFD_AAEON_MCU_H */
->
-> --
-> 2.52.0
->
->
-
-Bart
+--4zipssenwoagfsy7--
 
