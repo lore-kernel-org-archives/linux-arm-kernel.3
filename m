@@ -4,104 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9EE9D2D8FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 11:02:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F3CAD2D8F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 11:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PhbuZflrYoZI1s9xrK2220SYSdiXayJsomDwy3Z3JgA=; b=VUjBzn4cM8Z7KzdeHonTu6l1Xj
-	BC0OOZ+B1cIOnTu8w6X8RykQwc2d0HhzRpAFw76DVqXOMZy8qGJkG7lYcCmxnWjXoZlBuPcrMVUEg
-	kAts+0KZmqjlZMm4YiULm0dXRHzhXqKl1+fqhIvyeJLMvxTmoz2ZVCPUXXysrAzlPYqYd+0FYOf44
-	0Afhj5yFVg/5qx41jVCHAz2NqTUbs32jCstSkgjgMkJbVImXDy3fzjNIvljLXkvPetHn41Qq0lVGm
-	2zLIoncqq6jsJ7ph4F7tEwUtYhoP74T4IV2n5IsLe693rYNR2wmotMcaL4VOgTcKf+NHQSGkooduz
-	E+HpQD0w==;
+	bh=OqeEVMZrY/b1NpZNa3oOu9VBtor2/8rkEIETkYfILLc=; b=kmaXqVQUB99neFKDTBmRDpfrib
+	NcwACeL7TrHpw+tJOWae3CTQkKfBP90mTKsvGutWyS7KfsiM2/TB/g2idnAK3UsJ7WD2O0xMqjs8r
+	Uvx9GR19QMRrTGPhCdHe9phTvtp0Ks357UYoBU6YJUK/owoh0cKCMtQqztNF1gMjdxlSklO5YR0GL
+	yavwTMDuzpwLudWbgQRs01Cmy04Mh/ySKzHKjvAdF8fYNtneS4yLB+Hji7+WentQjl+SM4Rs6HFum
+	v4ZJaZtsfTmcBCzMYTgB4BiDr6wHKIDU9iuXKuqOjtRkBavyl1mJJYbPGpwT4926X6pJ8C5TPnnQg
+	QNZgDxrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkgpd-0000000E73E-3yiZ;
-	Tue, 27 Jan 2026 11:02:01 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1vkgpj-0000000E74e-18IX;
+	Tue, 27 Jan 2026 11:02:07 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkgpb-0000000E72U-0yDW
+	id 1vkgpc-0000000E72g-31ZF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 11:02:00 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-59de38466c2so5722113e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 03:01:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769511715; cv=none;
+	Tue, 27 Jan 2026 11:02:02 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-59dd34f8120so6614931e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 03:02:00 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769511719; cv=none;
         d=google.com; s=arc-20240605;
-        b=bfihQfu9UB3AVp5Y4+PnsvMUf8YpGPfB6jPOcHbxgaMamjNtEjzv5tg+92QcG/9e4A
-         u8MFxZjx/lrVje6eLTbmDLdcN1/m9ps1och7akw4+61Q5hjx4CZsp/4UH0vgHqCkLPog
-         f8q0m5cEa0WBYaeiwdVAvTe96rWa+iBZ6GT9/HDdeSryHcmOBLUk5gzMbqgcDNUmgCeK
-         VU5fi8vF3m+OJApG3hAsLhNNkAopVzkTZtniVhB92+Owd9IwZISp0/2VU6iZp03LL+6X
-         oPOTYFiZzeMI7a6rmAtU6AZcd8PhnH46nGDDUeM1FxrC0X4UUNF2yyaldE2lONyozEPm
-         ksOA==
+        b=Nxql5gGUxqwq+/69Ax2VSZVz+Zz1TfOKZvE6M7jYnwimkAW0FQAuwkXeDwjdYHJyjd
+         ticPMQZ+uKBRuIPXjNl3na6XQtUxfEw/p8g0M7YBpBX3cwaDrcnOOOx01W5Xbgcvbpef
+         ojCM174G/3ELsD2IPp6rpWY5K73jrbczAZ5CO9qqGzcpwBo7pc9oxGGq3RRfkoqtiC68
+         g2wHu45kOOx08JiJumj+xdwAlEiFOY2piVBtj8Qux2TgVkm4uLVHDDgKbQGTxPjb77cS
+         DtWVb0rdV+OPOP0GWTCpCsToMeowNy5yS6parCdZTeM7epiSgDPU5rEhvSIxKs0NwLoz
+         wNUg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=PhbuZflrYoZI1s9xrK2220SYSdiXayJsomDwy3Z3JgA=;
-        fh=E625lgveLD+dlxs1onOqK1MWI7PLX3a0/PD31+yWPV0=;
-        b=hpcjjIxHue9QG+4i+n8c5pdOjA5ntexUMjTsFIdkYJcPMJwkML4w9PLPo8ZBi6XRGN
-         O3QhbZAy1V9fygcJNeKsTI+7eTWp0EI0fa3j2P6Nu60VP5nseoIDoqTRhEl6yDRUEozP
-         4J3Z88v+1h459EJ1U5BoBBf9ytNdGQOHeQtM67BDk7DdqwA4Jmz2J5yhoQMvFuV4X/xM
-         kUZQmmwEMG7APLop2hF8kcCNinhFi59Ia6qX8/nU7nA5b5iPBJb4BoaprfvBJKqR6mhs
-         4ehGgThoj+swDelPlO2+09Bm0A/S/0ofbmIoCL99BOEH2lgOnBiobSQNN3799x4ppJiW
-         KeBg==;
+        bh=OqeEVMZrY/b1NpZNa3oOu9VBtor2/8rkEIETkYfILLc=;
+        fh=P8/Y1jt2RTFdqaQOlLtB0wVmlOimi/Xi17G/vGMdHFY=;
+        b=WJn/Jty4IOmSDpDkio3oYK09JWgG2zJxYy2YonUwnv9dnQ8dYrBhS8rERTyyXQ/vEe
+         3zJNmtVo0z/Hl9J0iBvfv37aGQafvhOilp4AV+BgO1EiT1f2SSTzw8nlvQvi9lgw6KQQ
+         FrG4EZu4J9j0N0CMQuZHVD06Z023KxepShDEW6Wc/X0sI1dUHhKR8lMsGXXWXnhfAYa+
+         rKo59Kae4loxuGM+q5hH1NdVeFbgB+GGJQAs3eHyEszd0/iYUoPYz8Um8SjZWdw8x4YG
+         QiaWZFEsMkLd19p7UP8PIpBS2uugDYShYU5qa2jKMcGkbx78FnBENpt/2fQPfAt5twXT
+         11fQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769511715; x=1770116515; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1769511719; x=1770116519; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=PhbuZflrYoZI1s9xrK2220SYSdiXayJsomDwy3Z3JgA=;
-        b=gW7zYUEHmfDaZu1Xj1Uj/6CKD7YVa88W2yQguO+AFbi2TmdbzOYkpdu0IrbgrBkeRA
-         X4zsjKGcaJFOHzSkrdVXXGiXka2TrwKexqEiX4QdfS/iCMqx+6TV3IQ21QkF4h/9m9lS
-         9omDiTfW9IGvEOwAFCEYSGGkhREnBo1Rg7NYJsWOWV1GEyfhP6JEF1LUmz8j69RObrc2
-         a/Wm7qYtZ2ExqFEEIQw7P+ViFLQoo1WrOl0qMs8Gjj997xrG9TiRuWa9IeVD6LkZWejV
-         C+KrZEDgbABVBTaHHL/++hnS7uu+QSxO/6bqPWZlO+y/B680QjGq2GtKdk2Tng7EQrK/
-         vnsw==
+        bh=OqeEVMZrY/b1NpZNa3oOu9VBtor2/8rkEIETkYfILLc=;
+        b=V2KNmWQUzktRMe8OnnxypmbzbERWOQdkB0AElOxKP+GAN9VwSloVWTjkKkyESWonX1
+         0BHPnKK40IHRs+HjnUoKKVr9pXn34AmG7Fr6gatafxjQ9466u3ov0fWyWYCMgd1mO0Ig
+         7TQ/HQubBG6nNLf+S9N+kSvvOGh9T3bFT9lmg7Zb0ra1UxPSn6nDShBr/8tzqCjtC8fe
+         jiAnrq7qKsJJFyI/q22VEf/xQJ2BhVyoTkcO6KFirU757EpzMzi8AKwmzHAs3H/uTkj/
+         PXjG36o2gv8qz1dI1LWekakVZvD7Dwpis+bb/b0yl+3RrZVspIKl2WSsrRSAP6dfntd/
+         Nymw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769511715; x=1770116515;
+        d=1e100.net; s=20230601; t=1769511719; x=1770116519;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PhbuZflrYoZI1s9xrK2220SYSdiXayJsomDwy3Z3JgA=;
-        b=b9wVEhfqwt7ibHDPVwsV2SCDlSAZ7jiaflH5KHBvZDc+7fauGuAkz+X5+bB0GpWb6V
-         bf+kwYIe5v0aB7vGVzj546tC1SGsZHU6vmK+3d+GZ4m3qgIwzCV73KWAKxvnsbpVqxnf
-         kImW9l3pXofnyAD48RSiriXKZzJJbVuolDWMSED5VliS04SQPtYVDRrgweXIt8k6SGk9
-         rK40Sg+zs2X3iJ5DY3SwXNEaioEdl0MOdUQcgmSE40lrh7/NlIkHMjDBmaf8Tprqt/LV
-         RsexOEBjwLXfn23kHLJLfZoWBCa+Rk0YEpi3haNMP+VcEDY4nKHaKTk/poIasP5fhZ8+
-         /47A==
-X-Forwarded-Encrypted: i=1; AJvYcCWDS2VOqlz6gQ7nfT0ZPo3kDqLkKTp64XaaKKvNbfpHh9AlEg9eqtk/nS05gEeA1LFhX911gMyv6JbpCO6LlZ35@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhckChcUiQeUxiq33YSUOnIc1xOjwEruYOfUmv+1klzc3WQ3OZ
-	JXv0PJnirThfQ5SUQGVW8yl7buvRMhlH7RDQ22aksegTpQaaIMKojLpc/AIPFoYBxQKYzWKyI+x
-	RJ80k8GXZvuBZyyMpNlFN12LPo9W7bkt0hIQyAqTgoA==
-X-Gm-Gg: AZuq6aJGykPFUdCa5ak30qUz5VS6TlOntvMguYayLpHptUEt6X/6EQmIsrxzVMrnJVG
-	pgCHW3Oe1Djs5u2kzm4+90yQKYkwpj4eAevhDfWHm8/PV+CAqkfx3GedkSO/oLji4Z5eT4dNTx/
-	gA3wgRgq+1Z91Ex5571DEqqSqsxTy6jko6Hrb5VgFgx1Fqp4OL+Q9kirTcE1CMTP2ePskzsunN9
-	MLMhIDrVxxgwSP8YkNIZxXwicWB8bSGhBzddYnmIlShDW+aRaMqO6hC1RYj9m03h1osPhfH
-X-Received: by 2002:a05:6512:2510:b0:59d:fbea:2c05 with SMTP id
- 2adb3069b0e04-59e04025390mr519384e87.24.1769511714445; Tue, 27 Jan 2026
- 03:01:54 -0800 (PST)
+        bh=OqeEVMZrY/b1NpZNa3oOu9VBtor2/8rkEIETkYfILLc=;
+        b=tV1qlsXkvHOSpsX55CZI1ngMTD3MaXHbqXZVNWIPkbgW2jd4PIa5JUupMe7BKM+T+U
+         n0gDO0HCCyEyZlDsfOQTXCsnBfMwjrH5xXazjs+SjBAaBZhD94ySHFh7BbntwoTJqtQe
+         p+tmRI8NQr2txvukhOgflYYvVAwYTn6jUInjwp9qz9Nnwu6mYuy0pmm9pIaPCeMy56UP
+         BOX+r0oawp8mfbAUJxlt8ZC5u8ln09b1O4Jj99YUxitWgU6CymhL7+PYTh2txz9a164E
+         TgCvQkJjODUjhvueMca4U+rzXiJtytphOELG34y5WL6OhH4kSrt8Fvv4umYdEa1Cd7HU
+         bxLA==
+X-Forwarded-Encrypted: i=1; AJvYcCXUagUDUrAODSZdNzQK7rVAp5MFHX5SZP0abCfrbKPwv/B9wk0EQeC0enRQJQkRiSwP1kcc6u5lwvxcCwx0hal4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEcyxJzSbZ31I7vD2n5pUX7LlYmJ6yj7Nf1aYCMdz5JuRUdA87
+	bs6PNdZMk9CyIDsZHWPzUCT3aNsMosIa/9oumk6dqz8Ww2c7wBoFEPDwDZLRcJJIJ2bQUsQ0A6z
+	JmxDxn2qJ0MMrzFzbuFRFo5V7sYe6vWW0kJoVFwlBRg==
+X-Gm-Gg: AZuq6aJ1xMVcC8doQYFNJ5028czAkgCnci6iA9gHds/HOSjz/9wn66yczuWvG0+1dBj
+	hdgo2BgnFp7pC2j+Zk5MixtFmMCoszcNf24fy6oms3D+G8ixaAWHElpmXo1d/eNHJzg9xJR/Tg8
+	fF3hkqC+eJ8yTuh5SOrUIKoiz4iw54NMczXhkQfK0plaQMfjkGSunsdOnDhzdsY7cCyfJ3m1OQo
+	Ur0dH0FX3D638f5tjdHw/2RRZTWmdVA9tCDaQ5XyoI0Bwz12z872Dx8rczv6v9cIJuQQ94Xd6zd
+	ov6VaU4=
+X-Received: by 2002:a05:6512:3407:b0:59e:39b:f46f with SMTP id
+ 2adb3069b0e04-59e0402f27fmr590217e87.43.1769511718237; Tue, 27 Jan 2026
+ 03:01:58 -0800 (PST)
 MIME-Version: 1.0
-References: <20260123095342.272505-1-yangzh0906@thundersoft.com>
-In-Reply-To: <20260123095342.272505-1-yangzh0906@thundersoft.com>
+References: <1769171049-74327-1-git-send-email-shawn.lin@rock-chips.com>
+In-Reply-To: <1769171049-74327-1-git-send-email-shawn.lin@rock-chips.com>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 27 Jan 2026 12:01:18 +0100
-X-Gm-Features: AZwV_QjQJQRTg1ti0bxzkqTQwuY-jbSIMpY2vglnNnSJTkeJy2p56e4qMngTfno
-Message-ID: <CAPDyKFroOi-7Dir_H2fPX9Ne6zFeM4=XD0eMMrX+iJ_si1n2sA@mail.gmail.com>
-Subject: Re: [PATCH v5 0/6] mmc: add support for BST C1200 SDHCI controller
-To: Albert Yang <yangzh0906@thundersoft.com>
-Cc: Adrian Hunter <adrian.hunter@intel.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Ge Gordon <gordon.ge@bst.ai>, 
-	Arnd Bergmann <arnd@arndb.de>, BST Linux Kernel Upstream Group <bst-upstream@bstai.top>, linux-mmc@vger.kernel.org, 
+Date: Tue, 27 Jan 2026 12:01:21 +0100
+X-Gm-Features: AZwV_QjWKWIZU3kG6heS5jQbYm2iHh9G7GKnI8uUsEJZ2hAre5A9ItHgOfjtB5Y
+Message-ID: <CAPDyKFq_=7SS5RWyFXYjec3hTFdwN2_aKAt5O6SqgBuYxFh7Ew@mail.gmail.com>
+Subject: Re: [PATCH v2 0/3] Remove deprecated mshc alias support from dw_mmc
+To: Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Wei Xu <xuwei5@hisilicon.com>, linux-mmc@vger.kernel.org, 
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+	Jaehoon Chung <jh80.chung@samsung.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_030159_309653_7DCD6A1B 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20260127_030200_782566_DB5CFCA9 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,92 +115,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 23 Jan 2026 at 10:53, Albert Yang <yangzh0906@thundersoft.com> wrote:
->
-> This series adds MMC/eMMC controller support for Black Sesame Technologies
-> C1200 SoC. BST is a leading automotive-grade computing SoC provider focusing
-> on intelligent driving, computer vision, and AI capabilities for ADAS and
-> autonomous driving applications. More information: https://bst.ai
->
-> == Background ==
->
-> This is the MMC portion split from the original v4 series [1] following
-> feedback from Arnd Bergmann [2]. The platform support (vendor-prefix,
-> SoC bindings, Kconfig ARCH_BST, base DTS, defconfig ARCH_BST) has already
-> been merged into Linux 6.19 through the SoC tree [3].
->
-> == Series Overview ==
->
-> Patch 1: dt-bindings: mmc: add binding for BST DWCMSHC SDHCI controller
-> Patch 2: mmc: sdhci: allow drivers to pre-allocate bounce buffer
-> Patch 3: mmc: sdhci: add Black Sesame Technologies BST C1200 controller driver
-> Patch 4: arm64: dts: bst: enable eMMC controller in C1200 CDCU1.0 board
-> Patch 5: arm64: defconfig: enable BST SDHCI controller
-> Patch 6: MAINTAINERS: add MMC files to BST entry
->
-> == Testing ==
->
->   - checkpatch.pl: PASS (all patches)
->   - dt_binding_check: PASS
->   - dtbs_check (CHECK_DTBS=y): PASS
->   - Build tested with ARCH=arm64 defconfig
->
-> == Changes since v4 ==
->
->   - Split: Platform patches merged separately via SoC tree; this series is
->     MMC-only, submitted to MMC maintainers
->
->   DT binding (patch 1):
->   - Rename file from bst,dwcmshc-sdhci.yaml to bst,c1200-sdhci.yaml
->   - Fix example compatible string to match property definition
->
->   Driver (patch 3):
->   - Fix compatible string to match dt-bindings (bst,c1200-sdhci)
->   - Simplify clock divider calculation with clearer frequency range logic
->   - Add linux/bits.h and linux/bitfield.h headers
->   - Remove unused linux/ioport.h header
->   - Rename SDHCI_TUNING_COUNT to BST_TUNING_COUNT
->   - Rename BST_EMMC_CTRL_BIT2 to BST_EMMC_CTRL_RST_N
->   - Fix BST_DEFAULT_MAX_FREQ from 2MHz to 200MHz
->   - Convert kernel-doc to regular comments (per Adrian Hunter)
->   - Add sdhci_bst_free_bounce_buffer() helper (per Adrian Hunter)
+On Fri, 23 Jan 2026 at 13:24, Shawn Lin <shawn.lin@rock-chips.com> wrote:
 >
 >
-> == References ==
+> The support for the mshc alias has long been deprecated[1], as the mmc core
+> already provides standard alias support for obtaining the controller ID[2].
+> With mshc aliases removed from the last Rk3036 plaform[3], the only remaining
+> users are the HiSilicon hi3660-hikey960 and hi3670-hikey970 boards. This patch
+> series removes support for mshc from the dwmmc driver and updates the DTS files
+> for the hi3660-hikey960 and hi3670-hikey970 to use the standard mmc alias instead.
+> Considering that the hikey960 and hikey970 are open development boards, users are
+> expected to use newer kernels, and the need to adapt old DTBs to new kernels is
+> relatively low. Therefore, backward compatibility of DTBs is likely not a major
+> concern here.
 >
-> [1] v4: https://lore.kernel.org/lkml/20250923-v4-patch-final-v1-0-2283ad7cbf88@thundersoft.com/
-> [2] Split: https://lore.kernel.org/lkml/09b1318e-21dc-4354-8733-866b70696295@app.fastmail.com/
-> [3] Merged via soc-newsoc-6.19
+> [1] https://lore.kernel.org/linux-rockchip/20211124184603.3897245-1-john@metanate.com/
+> [2] Documentation/devicetree/bindings/mmc/mmc-controller.yaml
+> [3] https://lore.kernel.org/linux-rockchip/c6feab79-5b73-413b-a94f-9d1b2fa6df43@gmail.com/
 >
-> Albert Yang (6):
->   dt-bindings: mmc: add binding for BST DWCMSHC SDHCI controller
->   mmc: sdhci: allow drivers to pre-allocate bounce buffer
->   mmc: sdhci: add Black Sesame Technologies BST C1200 controller driver
->   arm64: dts: bst: enable eMMC controller in C1200 CDCU1.0 board
->   arm64: defconfig: enable BST SDHCI controller
->   MAINTAINERS: add MMC files to BST entry
 >
->  .../bindings/mmc/bst,c1200-sdhci.yaml         |  70 +++
->  MAINTAINERS                                   |   2 +
->  .../dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts    |  19 +
->  arch/arm64/boot/dts/bst/bstc1200.dtsi         |  18 +
->  arch/arm64/configs/defconfig                  |   1 +
->  drivers/mmc/host/Kconfig                      |  14 +
->  drivers/mmc/host/Makefile                     |   1 +
->  drivers/mmc/host/sdhci-of-bst.c               | 521 ++++++++++++++++++
->  drivers/mmc/host/sdhci.c                      |   7 +
->  9 files changed, 653 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mmc/bst,c1200-sdhci.yaml
->  create mode 100644 drivers/mmc/host/sdhci-of-bst.c
+> Changes in v2:
+> - Fix a warning(lkp)
+> - reorder patch sequence
 >
-> base-commit: 0f61b1860cc3f52aef9036d7235ed1f017632193
+> Shawn Lin (3):
+>   arm64: dts: hisilicon: hikey960/970: Convert to use standard mmc alias
+>   mmc: dw_mmc-k3: Remove mshc alias support
+>   mmc: dw_mmc: Remove mshc alias support
+>
+>  arch/arm64/boot/dts/hisilicon/hi3660-hikey960.dts |  4 ++--
+>  arch/arm64/boot/dts/hisilicon/hi3670-hikey970.dts |  4 ++--
+>  drivers/mmc/host/dw_mmc-k3.c                      | 23 ++++++++---------------
+>  drivers/mmc/host/dw_mmc.c                         |  9 +++------
+>  4 files changed, 15 insertions(+), 25 deletions(-)
+>
 > --
-> 2.43.0
+> 2.7.4
 >
 
-Patch 1 to 3 and patch 6 applied for next, thanks!
-
-The DTS patches (patch 4 and patch 5) should be picked up by the SoC maintainer.
+The series applied for next, thanks!
 
 Kind regards
 Uffe
