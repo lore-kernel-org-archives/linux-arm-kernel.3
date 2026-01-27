@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89E77D2FEDD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E5AD2FED9
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 18:55:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=X1E/cvogoyHb3UckPwxzDKOamoBYfYupIi47Sarf+k4=; b=bsg9alBQcElePrLszzjU+Isw4O
-	d1QKqSu6o2S/o391u9RTdW4LNuDcsLQsgjngT+QUDXXtmCWuqvsfFKXBHVsFZMgRiSJoct2pVLnOT
-	7N0UbjU3GnausVs3X7HAgDOHLOXc12L5M4fscl4XdKk7TW/ZkEDemNo8Pk7XjxqGozVwXKdZJr7Yx
-	0UtzFUs6xoyEH/CrYDYS6Tg4QHhUzs7HJDbCsxptFmyQekB1OQ85xGeHhz6UdQcWw9+UXJ3KHsqKw
-	m14EukI7GM/lwAlsmDh+fsI7r+Nn9HvJn9FwtxGSo71WhZSPA021yI419JrbylTsspvGN7iCzQnIJ
-	sm5oR7nw==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QRAgmPNpWoc+nCU1Jjr8ZmJcdC+MLAVr11ZcIO7gM6A=; b=y50zS9bFsDiEvXMiKiFKnKHVRU
+	FrRU3+jbTsSLuEWBicvhuQZ7QEo9q5yHbgCDotlFj2QT62smIadh135I1Lar6PQkw/pCBaxjRdHqO
+	3WqzELqZnZrA9BWda2hWlr7svuD8tY4in8NF3n3/p1bComL68LfvgahB+A22U710JV4tQSq1eYUK9
+	8Ej7FHQsbQO/sxbg60rToytKHlVMIcBB/c79CneoL8r2HHlEwvbe7FwubHLYPDiu1R+eFCn1uAFn3
+	Uudy3cqcON7F5yVmJ9ZEIuIljhQjxbq9K+RDSTb5tjp+3K7rrroz+joxO692V62DS3plZXKahaR05
+	tjpjW80w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkoE6-0000000Er5H-201k;
-	Tue, 27 Jan 2026 18:55:46 +0000
-Received: from mail-westus3azon11011061.outbound.protection.outlook.com ([40.107.208.61] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1vkoE7-0000000Er6K-0WNH;
+	Tue, 27 Jan 2026 18:55:47 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkoDv-0000000Er0k-2l5z
+	id 1vkoE1-0000000Er2k-3dIb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 18:55:37 +0000
+	Tue, 27 Jan 2026 18:55:43 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=y/RqzE+hFyIcMf00ot3hq+GNQSfo8F8Y5sPrscYB50Md5wDx6vAwzyXCkHa/glF6wxSlZHlR0cT7xmSSP96TALcWz2jwDCXMWsVIBn28F8b8qoPCJLk0w4sxJzwIZrGvu2+bDyWjbS4ltDXgQSkXCqHyKZf8YWKAi0cn10yd4BMxef6NH4leLTUzDcJVC3kOoLDXLSQfVpcR/cQriqZdX2z4mzMCV7F4L/qpP/8U2ph8uJLCbC8ri9UqH7uVyBhYLkWcSWoC46qS/hBcaQWkJN4oQdg/anC57WvGatpLhAMNjeh1ipYe6ccxmbalUqUdcglmaP/69592iOBLoRa13w==
+ b=Lf90MbjrYGDR22u0s3WAJMd49e+JBql+GMfORrWYynXEszcMikCOOBpHIpSMCtGRWXnv/nfFDTE83G5A2CKGPbtNsHeH1n9n2AWPqxGkZJTTVshbA6bWa3AssamRBPuosGiUzD1jtVDUfCYraHKgOaHL/XNpfYfE8eyGGUoR1VopY3oVyxPpmy7JMpckvtLSrECnjgaeUIicjlYIyT3LKIvN+e/IFDjbJsWsOd9AwYkOoOs38gBHnA+v1saoM4kHquESGrawOoTY38X6oduTgoMyO5qQAePBqK2tKR+D+e2c0Q/4KThrUnRkZnhkYXzPqFO8LiWmPLwDaojDo/tzrw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=X1E/cvogoyHb3UckPwxzDKOamoBYfYupIi47Sarf+k4=;
- b=tdV9oabmp1XGStaO36yk/t9GooC4qFdNqAuWWEwRDLJH/mw25s6bZSalavQUoArUTPgQ9VLUVIS8qvyRdbY04stKfkQjBsRbymRhecA2RidroO0Chnn0fsItNuvQfv883mBWPqAMajx0TeMODVs0PMvm2/ugSUGrvOZ41C+xbDzDKHF+OE1p5zCWc1XT/vmUezAS+BQQ3btQFXhBBlDERSuxQ0x31W5ddlKC8AgqehcUa7UExi1IExWxailQ2Zyq/2YlAcAcEtHTS5I+3Glxn4fMCpelzkVpMiBpN9gslgtDPN0FRbxjUJupJeaQ0HIlinARhtVRUCf8EoOW3P4xbQ==
+ bh=QRAgmPNpWoc+nCU1Jjr8ZmJcdC+MLAVr11ZcIO7gM6A=;
+ b=uEGcmZGXSBUQ++8nNQ5ImqblpO9O4vsTXJsk7RXplsd9c0QmiKFcMgqJQ11ayMi8vklnvRSMd8GX24RbOsjKK6r+QRD3N5uehs4Pc0ZprR60IhtKqWt7enwMslZhySX8dRLKc2ZMG0st3Tqm7SvAzKmwEFvLwRI9GjKpaPbTbfanFeQ/gf8sCkFvcyUqcZTdI3Sl772DcJQj30XEx37XpiyElcC6/jYlmnM8lyw1prDPI3cvotNorV5MpBO48/Q5M6RQFrdmrb5GQGIvpN/zOBgepN3b/ftATy1dlsDhAOHbTIREuQUgd9wUfkbe6V5opb0klRN4JVzQDUXexCYspQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=X1E/cvogoyHb3UckPwxzDKOamoBYfYupIi47Sarf+k4=;
- b=lWEfISrPy0N/2frTkuPLVEufYtkaXvnQtCOfs3C0Z9P9hRF2vXHZ0m/tyNEWez0hjYRvb53m9tZERwF0FygZF1QmdL2PiyUQZR8g2dfVuD/KSYYInFXdZODFUZcJ9Awyn8e6sPrvb+3GocHifpZStlxLAT+9ac1tFOqdOgzf6DQACZ05JQVp/VfgCRGZ8i2XhiyUZTDjMgXLlW5vLEYsDBl9Uk7iGBkGv5u8wKdGPEU5k362AaQtvgVFxeIn7lunWijgNJHkcZZwL9FBQ8JAzeibMy87AEGT1MfrC5CykrOeuGt3t8Nwif+9u8TO/BCiwnRnbXXHBFD0n0REoAR8OQ==
-Received: from BL1PR13CA0236.namprd13.prod.outlook.com (2603:10b6:208:2bf::31)
- by DM6PR12MB4219.namprd12.prod.outlook.com (2603:10b6:5:217::14) with
+ bh=QRAgmPNpWoc+nCU1Jjr8ZmJcdC+MLAVr11ZcIO7gM6A=;
+ b=QrV8lKkvxQH7VQYok5JvoEeVQS7yk0XJHl0/YfiusCKEYXZFtPZaTJouK417ZchyXQA2LqnASfEbBMw6XVXCNC5sryOju9lZOtrruMQmXSsXB0wTfeCPSe2jQVYpgV3cauNbCl9LXJf6o0qoD0dwxUGV3V7ZQlYqVZdcDRa2mqfXckdy7c1NEBtLfI8hoM3JhrUdQAiS+oCzkMLTelAt0AKAW2OWOP9Y+BZoWAOkrkeJAx7IR5JtgLb65y8Ocr5XE5w+184JXZkpoKJRfCIkNQXYKkhqGGmdu5/AtwyxfH5T8Lq1ItNXe6aZZ4BU/YhgDbXhuQq05c2iKcxQdQZ5fw==
+Received: from SJ0PR03CA0175.namprd03.prod.outlook.com (2603:10b6:a03:338::30)
+ by DS0PR12MB7928.namprd12.prod.outlook.com (2603:10b6:8:14c::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Tue, 27 Jan
- 2026 18:55:27 +0000
-Received: from BL6PEPF0001AB75.namprd02.prod.outlook.com
- (2603:10b6:208:2bf:cafe::14) by BL1PR13CA0236.outlook.office365.com
- (2603:10b6:208:2bf::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.7 via Frontend Transport; Tue,
- 27 Jan 2026 18:54:50 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Tue, 27 Jan
+ 2026 18:55:32 +0000
+Received: from SJ1PEPF00002320.namprd03.prod.outlook.com
+ (2603:10b6:a03:338:cafe::8d) by SJ0PR03CA0175.outlook.office365.com
+ (2603:10b6:a03:338::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.16 via Frontend Transport; Tue,
+ 27 Jan 2026 18:55:23 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
 Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL6PEPF0001AB75.mail.protection.outlook.com (10.167.242.168) with Microsoft
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SJ1PEPF00002320.mail.protection.outlook.com (10.167.242.86) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.3 via Frontend Transport; Tue, 27 Jan 2026 18:55:27 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ 15.20.9564.3 via Frontend Transport; Tue, 27 Jan 2026 18:55:32 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 27 Jan
- 2026 10:55:05 -0800
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 10:55:12 -0800
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 27 Jan
- 2026 10:55:04 -0800
+ 2026 10:55:12 -0800
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.14) by mail.nvidia.com
  (10.129.68.10) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Tue, 27 Jan 2026 10:55:04 -0800
+ Transport; Tue, 27 Jan 2026 10:55:11 -0800
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: <will@kernel.org>
 CC: <jean-philippe@linaro.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
@@ -81,64 +81,66 @@ CC: <jean-philippe@linaro.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
 	<peterz@infradead.org>, <kevin.tian@intel.com>, <praan@google.com>,
 	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v11 0/8] iommu/arm-smmu-v3: Introduce an RCU-protected invalidation array
-Date: Tue, 27 Jan 2026 10:54:52 -0800
-Message-ID: <cover.1769539310.git.nicolinc@nvidia.com>
+Subject: [PATCH v11 6/8] iommu/arm-smmu-v3: Populate smmu_domain->invs when attaching masters
+Date: Tue, 27 Jan 2026 10:54:58 -0800
+Message-ID: <c5347db627ee7c1ab601b2fc73587e59fb2c42ee.1769539310.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1769539310.git.nicolinc@nvidia.com>
+References: <cover.1769539310.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB75:EE_|DM6PR12MB4219:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2ff40f1a-b710-4f40-08c1-08de5dd5a2d8
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002320:EE_|DS0PR12MB7928:EE_
+X-MS-Office365-Filtering-Correlation-Id: fc668462-5c19-49e9-3b39-08de5dd5a5c6
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|82310400026|36860700013|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?a+qA+/0yoCjGsAMMuXZr0jLzJ5gmsfZ5G/pOJ5ajccyV92lfST/UivzZEUtz?=
- =?us-ascii?Q?r1VS8KWcNrILc44JrlOsqX0HCdUmy3WBVgxjKZv8vPUs2kgTexn0JCd4Y6VL?=
- =?us-ascii?Q?CUgnvT+iRKGXhpCNpjl4sBfTki4iVQKvtpxX2+ydm1NX62J5ayqyh4EWIlfa?=
- =?us-ascii?Q?/VhCzfqcTQKEiRjl7J9t/nnCCGsIJUGro287caDzAthbBHJEikkSx4VA5Tca?=
- =?us-ascii?Q?2rvQexmDLM3IQuIVIS8/TTNO9lJUl7WW7H83NkBmOm4baOBMCZlaNEQOEGf4?=
- =?us-ascii?Q?tVfjbuHFggoRHLjVa5r0kqBfyZy+k4zpiLbSx/0uCVcZul9+MMInLIQXgfcY?=
- =?us-ascii?Q?4GJmCs4oGrzILwbT2kdiVdc4exOQ58ILYQieAkXLFK1voSHA5WFTAFPj5pMa?=
- =?us-ascii?Q?RcL65N/JnRGvM4sJbRl3HJyhGyu25yfIqAmppaT2eyw2CFldEA5Ihu0vAChR?=
- =?us-ascii?Q?daFb+hn1cnia3c8mGkX5cRzB7e9q29MbIwMe/vFReKqvXaOWq0sUnwGnw7xc?=
- =?us-ascii?Q?fFvKAzuNZDc8QgalRl9w7Nh8swzHRjd+Ak1mK6r7cMqiwdCb9t4XDdwdUhBc?=
- =?us-ascii?Q?SpkUZbFcQ1AAnLqKN1c4LpVQK7sTS3qKaX7YcFhpUfgEko7z9hC4DjRnXNeU?=
- =?us-ascii?Q?9S6Gz8otxme2/7WfKmX4EPSsdkKRKN+Y+1WeVz6X5Dg7RFAN6ccdSQ4vhgpY?=
- =?us-ascii?Q?XA0b6QFaSZZd0cWmrz80hi3LS6haMuSNKR++KRCORj/+RtkfMNODH5MF1pMv?=
- =?us-ascii?Q?qT9K8neehbf/OhzfLIShyv+3ahQ/5p3bO3DWZNzfg0rQh5aMbkgOXs01OwTn?=
- =?us-ascii?Q?aFH8pgIRXvKlphFTpOMOtNIxzBDmRULZUINpYrnppnaNihruuU3qq7AWOiRz?=
- =?us-ascii?Q?OoYNni3Z4Km6efv9Qs1idSwUiSaY5n9ur93yNr0/ErWz3DEG4ynbvVs8ysRY?=
- =?us-ascii?Q?apf19OG/Ksys5dtB4DWI+cmrWYiWtGs12HLtfK70dvTfyXnS+ed2Ua3laFZy?=
- =?us-ascii?Q?Deat3cS6W7wVBzkJi67UfUvgqAd+ypjTXj2GBA3FqB7xxI8fwTWXghNOPdIu?=
- =?us-ascii?Q?My1kGyzG871m2tIvdXu8kTdXxULFrf2xVKnxYpygRW//sD+hQ6+7jz0r7+Xa?=
- =?us-ascii?Q?YoGSpnYFU+Omi2Nzlfh8jk8oVwJ9YcDT30/LIcHLz2Ce+q8N54KRYuHFP+FK?=
- =?us-ascii?Q?AkNgUWcXLlvdvjAg5nJ1RBdDDf2iqv9XzIQjWyy7wa/bznNl3NLCLY11yw2b?=
- =?us-ascii?Q?XSFRkxzn9cQKgL6XxFnWGG+CRgg9scG4kjuEXJ3V3IZUKzezjezbXPL0h6dK?=
- =?us-ascii?Q?2N9m5DBpUzy2A8joWk7a5aqP5NUBi5H1or4esvDYRSBHlOIsiusgLzua+TTv?=
- =?us-ascii?Q?op2BwbXb2C+8Lv/j6lYx/htv/JMftx44y3sTssVnoRYUE39NbVXTkBCA7+4Q?=
- =?us-ascii?Q?TkEWKH5j8Bj3Z67eSXSABj4Dt4fPicEy8E/vdxNCkRP9bEiKLaMX1LSYMJRq?=
- =?us-ascii?Q?tNl2LWsfxPrSMLtZJbjcdin3+Io2ct+NTHbVQjIM7+f0o2AyZpMNJ2Ia5XDj?=
- =?us-ascii?Q?cgRFF52N0s2fpT/YYGsQ1G7j69rCM6Qwi767sA04E4iKoapBsyb/FOMTcrgC?=
- =?us-ascii?Q?Ie53cKN3zChDbzZeWMCCBWWzO2BAr6yw05pt2rRoRslzgaEDB2oaWUFarhm8?=
- =?us-ascii?Q?g55FiA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(82310400026)(36860700013)(13003099007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ejiJyYBsk4FTBIcb4ZepxKJ6GIJRiBymFoHVHyeiDt7PT+6w3AHgZKrY5WBe?=
+ =?us-ascii?Q?8dRnJEPUO6KzdZd+SYRR/7khQZhOBHx9bJIpdPgTZv8dtaaP2bUb0rKKz6Mf?=
+ =?us-ascii?Q?INgfoEOWOdF1S3JFP9jEb2KScSrpHKWVzY9gzdCS5RaV+6D27uinZkqDXVEa?=
+ =?us-ascii?Q?+mlJayO+acBfFlsbQGSDQa60M2e5Vl2LDOTUftQjUiYpp3UJpjAH/yp22E2X?=
+ =?us-ascii?Q?mZ4PzVSomitx0QSXHogAHAtj4vEKBNwHJBXLqxg020WfISUiVZKnCeBYO+Kc?=
+ =?us-ascii?Q?W9nNbtyh6Vy850mAQ0olUdWsxK1PFm5G8dhRfpLUDdkMcBebv8urUWYcKdq4?=
+ =?us-ascii?Q?rp64ZbuwTLxIHCRCO5Dq8jF7porK/b+KL2ihCXyK9CEtnaY5wBIRprI4Dl7Z?=
+ =?us-ascii?Q?ZT3DC0WW7L6MbJNWpdD6KBNKfVIxAvZ4bl8rcweeBBWOMqSAGQVgRqiI/F/h?=
+ =?us-ascii?Q?VCkxXDavV5erTGh7/QFGFB4zNUm7OWfz70baQXN/LC5u2Z2uCNL3vrVLxZJb?=
+ =?us-ascii?Q?/j+mVloOgGyHIC5NouY8LAjQTeV9GTd5ZGlL31WjRSU6LPRIsxKF+RAh8Mcg?=
+ =?us-ascii?Q?uo7zHcsh63OPcxi7AVUZbXO3y9yeSacFEk5IVf4OUVu3yH839WwHswY62E12?=
+ =?us-ascii?Q?vnfYpxJpb0N+ZLzcSmanIDAJNg02cfgM/tihRf58gCQV52SHjmkueALdU00j?=
+ =?us-ascii?Q?hjBpGQiAQuwrzBm5S9J90FlNhV5l/Gu46nNdAWdR93rznR9YlcSZ0btzCf1u?=
+ =?us-ascii?Q?MG47Ku5gILu3ciP+4bwQeEgVKzsQDYpWNUnKrrNd/ajfj6lt3BspErQFLSgz?=
+ =?us-ascii?Q?FpVbPDtUoaRWAH47yLVAgfuZFKS0isKDR1F5YjcHLzq9g680b/DEhlajyfwa?=
+ =?us-ascii?Q?hasWtYAZxKD+cuaEMhCgD54ObdW2CG1f2XyweVIdmnRogC9udWuzVfMk2ef0?=
+ =?us-ascii?Q?tTeKrWbOfawQSa1RY7/z+fTkULZfQ7usbA9G2FkDN4HVDQLi91vTS891OWdT?=
+ =?us-ascii?Q?1CbNtd7u4x8faHmQx7DGgtsKHIrzf2VqSRkUw6h+43hmEsTFQKi6XfnQ6TH9?=
+ =?us-ascii?Q?FjLZimgCsx6lBTY3CiDY4EupY/n+6FX6+BRy4oPsqkQ2Sa/FdwQGJ6KZ2WNW?=
+ =?us-ascii?Q?AwsORj01/brtIhd0RNviCRhQlHZpIiFBB+OT3eFA5lDW5RpGzkLhooAn2Xpz?=
+ =?us-ascii?Q?1JV30lJKKoas0WbjG7DhUYQme79Rl4PnNXs4C21I7ZEJUoxSMewklNR/1THV?=
+ =?us-ascii?Q?z7rZy13ITDWBNABtq6UhcJ6SNHbaM2dsxkWr6ZoC0zSQLYQOu2gaS+U1kVKA?=
+ =?us-ascii?Q?203G12bmm1Jsi9XfLNdFB5kC+RAk5tEddxf7YVmBMMUN71Pbd+898gsdNjxh?=
+ =?us-ascii?Q?PWtubdGkZUFMYIGit6aiYp8Dr0MHHxZOiyaVVzVRTDIgJZbrmBC3Vr9t+wt5?=
+ =?us-ascii?Q?2lX2Iu3zCwYeoM6VnQlWwBbugbytmNNc2u7sgMAm/ftrKZlPH4sjRVEflUxv?=
+ =?us-ascii?Q?kC4wCcj6fYg4S5BAHr8z/EEpjQ87CQ6Q+QcJaWCHONk/sLUff1RunsdSZbi+?=
+ =?us-ascii?Q?nZnlXhU0Ew2szWOFbaInHNoR+ckkEypzl70YlBTHXSA7QWGMqT5mY0cKYUAb?=
+ =?us-ascii?Q?EWZgV+icJ+wMZwKpXMxSGJrurrkHHyceg/NKHKbsjvbfa/kLAoDOXp+xVqC0?=
+ =?us-ascii?Q?sT7FVQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jan 2026 18:55:27.3226
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jan 2026 18:55:32.3520
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2ff40f1a-b710-4f40-08c1-08de5dd5a2d8
+X-MS-Exchange-CrossTenant-Network-Message-Id: fc668462-5c19-49e9-3b39-08de5dd5a5c6
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB75.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002320.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4219
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7928
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_105535_720525_A01D5B1C 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20260127_105541_968021_C81019E7 
+X-CRM114-Status: GOOD (  25.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,178 +155,409 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a work based on Jason's design and algorithm. This implementation
-follows his initial draft and revising as well.
+Update the invs array with the invalidations required by each domain type
+during attachment operations.
 
-The new arm_smmu_invs array is an RCU-protected array, mutated when device
-attach to the domain, iterated when an invalidation is required for IOPTE
-changes in this domain. This keeps the current invalidation efficiency of
-a smb_mb() followed by a conditional rwlock replacing the atomic/spinlock
-combination.
+Only an SVA domain or a paging domain will have an invs array:
+ a. SVA domain will add an INV_TYPE_S1_ASID per SMMU and an INV_TYPE_ATS
+    per SID
 
-A new data structure is defined for the array and its entry, representing
-invalidation operations, such as S1_ASID, S2_VMID, and ATS. The algorithm
-adds and deletes array entries efficiently and also keeps the array sorted
-so as to group similar invalidations into batches.
+ b. Non-nesting-parent paging domain with no ATS-enabled master will add
+    a single INV_TYPE_S1_ASID or INV_TYPE_S2_VMID per SMMU
 
-During an invalidation, a new invalidation function iterates domain->invs,
-and converts each entry to the corresponding invalidation command(s). This
-new function is fully compatible with all the existing use cases, allowing
-a simple rework/replacement.
+ c. Non-nesting-parent paging domain with ATS-enabled master(s) will do
+    (b) and add an INV_TYPE_ATS per SID
 
-Some races to keep in mind:
+ d. Nesting-parent paging domain will add an INV_TYPE_S2_VMID followed by
+    an INV_TYPE_S2_VMID_S1_CLEAR per vSMMU. For an ATS-enabled master, it
+    will add an INV_TYPE_ATS_FULL per SID
 
-1) A domain can be shared across SMMU instances. When an SMMU instance is
-   removed, the updated invs array has to be sync-ed via synchronize_rcu()
-   to prevent an concurrent invalidation routine that is accessing the old
-   array from issuing commands to the removed SMMU instance.
+ Note that case #d prepares for a future implementation of VMID allocation
+ which requires a followup series for S2 domain sharing. So when a nesting
+ parent domain is attached through a vSMMU instance using a nested domain.
+ VMID will be allocated per vSMMU instance v.s. currectly per S2 domain.
 
-2) When there are concurrent IOPTE changes (followed by invalidations) and
-   a domain attachment, the new attachment must not become out of sync at
-   the HW level, meaning that an STE store and invalidation array load must
-   be sequenced by the CPU's memory model.
+The per-domain invalidation is not needed until the domain is attached to
+a master (when it starts to possibly use TLB). This will make it possible
+to attach the domain to multiple SMMUs and avoid unnecessary invalidation
+overhead during teardown if no STEs/CDs refer to the domain. It also means
+that when the last device is detached, the old domain must flush its ASID
+or VMID, since any new iommu_unmap() call would not trigger invalidations
+given an empty domain->invs array.
 
-3) When an ATS-enabled device attaches to a blocking domain, the core code
-   requires a hard fence to ensure all ATS invalidations to the device are
-   completed. Relying on RCU alone requires calling synchronize_rcu() that
-   can be too slow. Instead, when ATS is in use, hold a conditional rwlock
-   till all concurrent invalidations are finished.
+Introduce some arm_smmu_invs helper functions for building scratch arrays,
+preparing and installing old/new domain's invalidation arrays.
 
-Related future work and dependent projects:
+Co-developed-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  17 ++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 262 +++++++++++++++++++-
+ 2 files changed, 278 insertions(+), 1 deletion(-)
 
- * NVIDIA is building systems with > 10 SMMU instances where > 8 are being
-   used concurrently in a single VM. So having 8 copies of an identical S2
-   page table is not efficient. Instead, all vSMMU instances should check
-   compatibility on a shared S2 iopt, to eliminate 7 copies.
-
-   Previous attempt based on the list/spinlock design:
-     iommu/arm-smmu-v3: Allocate vmid per vsmmu instead of s2_parent
-     https://lore.kernel.org/all/cover.1744692494.git.nicolinc@nvidia.com/
-   now can adopt this invs array, avoiding adding complex lists/locks.
-
- * The guest support for BTM requires temporarily invalidating two ASIDs
-   for a single instance. When it renumbers ASIDs this can now be done via
-   the invs array.
-
- * SVA with multiple devices being used by a single process (NVIDIA today
-   has 4-8) sequentially iterates the invalidations through all instances.
-   This ignores the HW concurrency available in each instance. It would be
-   nice to not spin on each sync but go forward and issue batches to other
-   instances also. Reducing to a single SVA domain shared across instances
-   is required to look at this.
-
-This is on Github:
-https://github.com/nicolinc/iommufd/commits/arm_smmu_invs-v11
-
-Changelog
-v11:
- * Use read_lock_irqsave()
- * Pass in iommu_domain to arm_smmu_attach_prepare_invs() to ease a
-   followup series
-v10:
- * Rebase on arm/smmu/updates
- * Add Reviewed-by from Pranjal
- * Fix typo in kdoc and update comments
- * Add dma_wmb() in arm_smmu_write_entry()
- * Drop free_fn from arm_smmu_invs_unref()
- * Replace refcount_t users with WRITE_ONCE/READ_ONCE()
- * Verify num_trashes in arm_smmu_v3_invs_test_verify()
-v9:
- * Set cur->ssid correctly in arm_smmu_master_build_inv()
- * Add comments for INV_TYPE_S1_ASID in arm_smmu_master_build_inv()
-v8:
- https://lore.kernel.org/all/cover.1766013662.git.nicolinc@nvidia.com/
- * Update comments for smp_mb() in arm_smmu_install_new/old_domain_invs()
-v7:
- https://lore.kernel.org/all/cover.1765850465.git.nicolinc@nvidia.com/
- * Rebase on v6.19-rc1
- * Fix has_ats in arm_smmu_invs_merge()
- * Fix a re-attach case with a different ats_enabled
- * Constify the inv parameter in arm_smmu_inv_is_ats()
- * Update kunit test data to be closer to real-world use cases
- * Clean up SVA domain's invs in arm_smmu_blocking_set_dev_pasid()
-v6:
- https://lore.kernel.org/all/cover.1764119291.git.nicolinc@nvidia.com/
- * Fix typo in kdocs
- * Fix arm_smmu_domain_free() in SVA
- * Add arm_smmu_master_build_inv() helper
- * Add max_invs and __counted_by(max_invs)
- * Return NULL if arm_smmu_invs_alloc() fails
- * Sort master->streams instead of fwspec->ids
- * s/flush_fn/free_fn (prepare for future patches)
- * s/arm_smmu_invs_flush_iotlb_tags/arm_smmu_inv_flush_iotlb_tag
- * Define arm_smmu_invs macros and helpers to reduce duplications
- * Save num_trashes in "struct arm_smmu_invs" (to avoid a re-scan)
- * Move smp_mb() in install() to PATCH-6 that adds the pairing barrier
-   and description
-v5:
- https://lore.kernel.org/all/cover.1762588839.git.nicolinc@nvidia.com/
- * Add Reviewed/Acked-by from Jason and Balbir
- * Add two inline comments
- * Move cmp after the trash entry validation
- * Batch commands in arm_smmu_inv_size_too_big case
- * Replace kfree_rcu() with kfree() in arm_smmu_domain_free()
-v4:
- https://lore.kernel.org/all/cover.1761590851.git.nicolinc@nvidia.com/
- * Fix build errors with CONFIG_KUNIT=n
- * Fix uninitialized cmp in arm_smmu_invs_unref()
- * Add missing "__rcu" in struct arm_smmu_inv_state
- * Add missing rcu_derference_protected() in arm_smmu_domain_free()
- * Bisect two paths for the conditional lock in arm_smmu_domain_inv_range()
-   to fix a sparse waring
-v3:
- https://lore.kernel.org/all/cover.1760555863.git.nicolinc@nvidia.com/
- * Add Reviewed/Acked-by from Jason and Balbir
- * Rebase on v6.18-rc1
- * Drop arm_smmu_invs_dbg()
- * Improve kdocs and inline/commit comments
- * Rename arm_smmu_invs_cmp to arm_smmu_inv_cmp
- * Rename arm_smmu_invs_merge_cmp to arm_smmu_invs_cmp
- * Call arm_smmu_invs_flush_iotlb_tags() from arm_smmu_invs_unref()
- * Unconditionally trim the invs->num_invs inside arm_smmu_invs_unref(),
-   and simplify arm_smmu_install_old_domain_invs().
-v2:
- https://lore.kernel.org/all/cover.1757373449.git.nicolinc@nvidia.com/
- * Rebase on v6.17-rc5
- * Improve kdocs and inline comments
- * Add arm_smmu_invs_dbg() for tracing
- * Use users refcount to replace todel flag
- * Initialize num_invs in arm_smmu_invs_alloc()
- * Add a struct arm_smmu_inv_state to group invs pointers
- * Add in struct arm_smmu_invs two flags (has_ats and old)
- * Rename master->invs to master->build_invs, and sort the array
- * Rework arm_smmu_domain_inv_range() and arm_smmu_invs_end_batch()
- * Copy entries by struct arm_smmu_inv in arm_smmu_master_build_invs()
- * Add arm_smmu_invs_flush_iotlb_tags() for IOTLB flush by last device
- * Rework three invs mutation helpers, and prioritize use the in-place
-   mutation for detach
- * Take writer's lock unconditionally but keep it short, and only take
-   reader's lock conditionally on a has_ats flag
-v1:
- https://lore.kernel.org/all/cover.1755131672.git.nicolinc@nvidia.com/
-
-Thanks
-Nicolin
-
-Jason Gunthorpe (1):
-  iommu/arm-smmu-v3: Introduce a per-domain arm_smmu_invs array
-
-Nicolin Chen (7):
-  iommu/arm-smmu-v3: Add a missing dma_wmb() for hitless STE update
-  iommu/arm-smmu-v3: Explicitly set smmu_domain->stage for SVA
-  iommu/arm-smmu-v3: Add an inline arm_smmu_domain_free()
-  iommu/arm-smmu-v3: Pre-allocate a per-master invalidation array
-  iommu/arm-smmu-v3: Populate smmu_domain->invs when attaching masters
-  iommu/arm-smmu-v3: Add arm_smmu_invs based arm_smmu_domain_inv_range()
-  iommu/arm-smmu-v3: Perform per-domain invalidations using
-    arm_smmu_invs
-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   | 142 ++-
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   |  35 +-
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  |  92 ++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 928 +++++++++++++++---
- 4 files changed, 1012 insertions(+), 185 deletions(-)
-
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index 5e0e5055af1e..83d7e4952dff 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -1102,6 +1102,21 @@ static inline bool arm_smmu_master_canwbs(struct arm_smmu_master *master)
+ 	       IOMMU_FWSPEC_PCI_RC_CANWBS;
+ }
+ 
++/**
++ * struct arm_smmu_inv_state - Per-domain invalidation array state
++ * @invs_ptr: points to the domain->invs (unwinding nesting/etc.) or is NULL if
++ *            no change should be made
++ * @old_invs: the original invs array
++ * @new_invs: for new domain, this is the new invs array to update domain->invs;
++ *            for old domain, this is the master->build_invs to pass in as the
++ *            to_unref argument to an arm_smmu_invs_unref() call
++ */
++struct arm_smmu_inv_state {
++	struct arm_smmu_invs __rcu **invs_ptr;
++	struct arm_smmu_invs *old_invs;
++	struct arm_smmu_invs *new_invs;
++};
++
+ struct arm_smmu_attach_state {
+ 	/* Inputs */
+ 	struct iommu_domain *old_domain;
+@@ -1111,6 +1126,8 @@ struct arm_smmu_attach_state {
+ 	ioasid_t ssid;
+ 	/* Resulting state */
+ 	struct arm_smmu_vmaster *vmaster;
++	struct arm_smmu_inv_state old_domain_invst;
++	struct arm_smmu_inv_state new_domain_invst;
+ 	bool ats_enabled;
+ };
+ 
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 5a0a8b136352..2114af1dd5ed 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -3143,6 +3143,121 @@ static void arm_smmu_disable_iopf(struct arm_smmu_master *master,
+ 		iopf_queue_remove_device(master->smmu->evtq.iopf, master->dev);
+ }
+ 
++static struct arm_smmu_inv *
++arm_smmu_master_build_inv(struct arm_smmu_master *master,
++			  enum arm_smmu_inv_type type, u32 id, ioasid_t ssid,
++			  size_t pgsize)
++{
++	struct arm_smmu_invs *build_invs = master->build_invs;
++	struct arm_smmu_inv *cur, inv = {
++		.smmu = master->smmu,
++		.type = type,
++		.id = id,
++		.pgsize = pgsize,
++	};
++
++	if (WARN_ON(build_invs->num_invs >= build_invs->max_invs))
++		return NULL;
++	cur = &build_invs->inv[build_invs->num_invs];
++	build_invs->num_invs++;
++
++	*cur = inv;
++	switch (type) {
++	case INV_TYPE_S1_ASID:
++		/*
++		 * For S1 page tables the driver always uses VMID=0, and the
++		 * invalidation logic for this type will set it as well.
++		 */
++		if (master->smmu->features & ARM_SMMU_FEAT_E2H) {
++			cur->size_opcode = CMDQ_OP_TLBI_EL2_VA;
++			cur->nsize_opcode = CMDQ_OP_TLBI_EL2_ASID;
++		} else {
++			cur->size_opcode = CMDQ_OP_TLBI_NH_VA;
++			cur->nsize_opcode = CMDQ_OP_TLBI_NH_ASID;
++		}
++		break;
++	case INV_TYPE_S2_VMID:
++		cur->size_opcode = CMDQ_OP_TLBI_S2_IPA;
++		cur->nsize_opcode = CMDQ_OP_TLBI_S12_VMALL;
++		break;
++	case INV_TYPE_S2_VMID_S1_CLEAR:
++		cur->size_opcode = cur->nsize_opcode = CMDQ_OP_TLBI_NH_ALL;
++		break;
++	case INV_TYPE_ATS:
++	case INV_TYPE_ATS_FULL:
++		cur->size_opcode = cur->nsize_opcode = CMDQ_OP_ATC_INV;
++		cur->ssid = ssid;
++		break;
++	}
++
++	return cur;
++}
++
++/*
++ * Use the preallocated scratch array at master->build_invs, to build a to_merge
++ * or to_unref array, to pass into a following arm_smmu_invs_merge/unref() call.
++ *
++ * Do not free the returned invs array. It is reused, and will be overwritten by
++ * the next arm_smmu_master_build_invs() call.
++ */
++static struct arm_smmu_invs *
++arm_smmu_master_build_invs(struct arm_smmu_master *master, bool ats_enabled,
++			   ioasid_t ssid, struct arm_smmu_domain *smmu_domain)
++{
++	const bool nesting = smmu_domain->nest_parent;
++	size_t pgsize = 0, i;
++
++	iommu_group_mutex_assert(master->dev);
++
++	master->build_invs->num_invs = 0;
++
++	/* Range-based invalidation requires the leaf pgsize for calculation */
++	if (master->smmu->features & ARM_SMMU_FEAT_RANGE_INV)
++		pgsize = __ffs(smmu_domain->domain.pgsize_bitmap);
++
++	switch (smmu_domain->stage) {
++	case ARM_SMMU_DOMAIN_SVA:
++	case ARM_SMMU_DOMAIN_S1:
++		if (!arm_smmu_master_build_inv(master, INV_TYPE_S1_ASID,
++					       smmu_domain->cd.asid,
++					       IOMMU_NO_PASID, pgsize))
++			return NULL;
++		break;
++	case ARM_SMMU_DOMAIN_S2:
++		if (!arm_smmu_master_build_inv(master, INV_TYPE_S2_VMID,
++					       smmu_domain->s2_cfg.vmid,
++					       IOMMU_NO_PASID, pgsize))
++			return NULL;
++		break;
++	default:
++		WARN_ON(true);
++		return NULL;
++	}
++
++	/* All the nested S1 ASIDs have to be flushed when S2 parent changes */
++	if (nesting) {
++		if (!arm_smmu_master_build_inv(
++			    master, INV_TYPE_S2_VMID_S1_CLEAR,
++			    smmu_domain->s2_cfg.vmid, IOMMU_NO_PASID, 0))
++			return NULL;
++	}
++
++	for (i = 0; ats_enabled && i < master->num_streams; i++) {
++		/*
++		 * If an S2 used as a nesting parent is changed we have no
++		 * option but to completely flush the ATC.
++		 */
++		if (!arm_smmu_master_build_inv(
++			    master, nesting ? INV_TYPE_ATS_FULL : INV_TYPE_ATS,
++			    master->streams[i].id, ssid, 0))
++			return NULL;
++	}
++
++	/* Note this build_invs must have been sorted */
++
++	return master->build_invs;
++}
++
+ static void arm_smmu_remove_master_domain(struct arm_smmu_master *master,
+ 					  struct iommu_domain *domain,
+ 					  ioasid_t ssid)
+@@ -3172,6 +3287,135 @@ static void arm_smmu_remove_master_domain(struct arm_smmu_master *master,
+ 	kfree(master_domain);
+ }
+ 
++/*
++ * During attachment, the updates of the two domain->invs arrays are sequenced:
++ *  1. new domain updates its invs array, merging master->build_invs
++ *  2. new domain starts to include the master during its invalidation
++ *  3. master updates its STE switching from the old domain to the new domain
++ *  4. old domain still includes the master during its invalidation
++ *  5. old domain updates its invs array, unreferencing master->build_invs
++ *
++ * For 1 and 5, prepare the two updated arrays in advance, handling any changes
++ * that can possibly failure. So the actual update of either 1 or 5 won't fail.
++ * arm_smmu_asid_lock ensures that the old invs in the domains are intact while
++ * we are sequencing to update them.
++ */
++static int arm_smmu_attach_prepare_invs(struct arm_smmu_attach_state *state,
++					struct iommu_domain *new_domain)
++{
++	struct arm_smmu_domain *old_smmu_domain =
++		to_smmu_domain_devices(state->old_domain);
++	struct arm_smmu_domain *new_smmu_domain =
++		to_smmu_domain_devices(new_domain);
++	struct arm_smmu_master *master = state->master;
++	ioasid_t ssid = state->ssid;
++
++	/*
++	 * At this point a NULL domain indicates the domain doesn't use the
++	 * IOTLB, see to_smmu_domain_devices().
++	 */
++	if (new_smmu_domain) {
++		struct arm_smmu_inv_state *invst = &state->new_domain_invst;
++		struct arm_smmu_invs *build_invs;
++
++		invst->invs_ptr = &new_smmu_domain->invs;
++		invst->old_invs = rcu_dereference_protected(
++			new_smmu_domain->invs,
++			lockdep_is_held(&arm_smmu_asid_lock));
++		build_invs = arm_smmu_master_build_invs(
++			master, state->ats_enabled, ssid, new_smmu_domain);
++		if (!build_invs)
++			return -EINVAL;
++
++		invst->new_invs =
++			arm_smmu_invs_merge(invst->old_invs, build_invs);
++		if (IS_ERR(invst->new_invs))
++			return PTR_ERR(invst->new_invs);
++	}
++
++	if (old_smmu_domain) {
++		struct arm_smmu_inv_state *invst = &state->old_domain_invst;
++
++		invst->invs_ptr = &old_smmu_domain->invs;
++		/* A re-attach case might have a different ats_enabled state */
++		if (new_smmu_domain == old_smmu_domain)
++			invst->old_invs = state->new_domain_invst.new_invs;
++		else
++			invst->old_invs = rcu_dereference_protected(
++				old_smmu_domain->invs,
++				lockdep_is_held(&arm_smmu_asid_lock));
++		/* For old_smmu_domain, new_invs points to master->build_invs */
++		invst->new_invs = arm_smmu_master_build_invs(
++			master, master->ats_enabled, ssid, old_smmu_domain);
++	}
++
++	return 0;
++}
++
++/* Must be installed before arm_smmu_install_ste_for_dev() */
++static void
++arm_smmu_install_new_domain_invs(struct arm_smmu_attach_state *state)
++{
++	struct arm_smmu_inv_state *invst = &state->new_domain_invst;
++
++	if (!invst->invs_ptr)
++		return;
++
++	rcu_assign_pointer(*invst->invs_ptr, invst->new_invs);
++	kfree_rcu(invst->old_invs, rcu);
++}
++
++static void arm_smmu_inv_flush_iotlb_tag(struct arm_smmu_inv *inv)
++{
++	struct arm_smmu_cmdq_ent cmd = {};
++
++	switch (inv->type) {
++	case INV_TYPE_S1_ASID:
++		cmd.tlbi.asid = inv->id;
++		break;
++	case INV_TYPE_S2_VMID:
++		/* S2_VMID using nsize_opcode covers S2_VMID_S1_CLEAR */
++		cmd.tlbi.vmid = inv->id;
++		break;
++	default:
++		return;
++	}
++
++	cmd.opcode = inv->nsize_opcode;
++	arm_smmu_cmdq_issue_cmd_with_sync(inv->smmu, &cmd);
++}
++
++/* Should be installed after arm_smmu_install_ste_for_dev() */
++static void
++arm_smmu_install_old_domain_invs(struct arm_smmu_attach_state *state)
++{
++	struct arm_smmu_inv_state *invst = &state->old_domain_invst;
++	struct arm_smmu_invs *old_invs = invst->old_invs;
++	struct arm_smmu_invs *new_invs;
++
++	lockdep_assert_held(&arm_smmu_asid_lock);
++
++	if (!invst->invs_ptr)
++		return;
++
++	arm_smmu_invs_unref(old_invs, invst->new_invs);
++	/*
++	 * When an IOTLB tag (the first entry in invs->new_invs) is no longer used,
++	 * it means the ASID or VMID will no longer be invalidated by map/unmap and
++	 * must be cleaned right now. The rule is that any ASID/VMID not in an invs
++	 * array must be left cleared in the IOTLB.
++	 */
++	if (!READ_ONCE(invst->new_invs->inv[0].users))
++		arm_smmu_inv_flush_iotlb_tag(&invst->new_invs->inv[0]);
++
++	new_invs = arm_smmu_invs_purge(old_invs);
++	if (!new_invs)
++		return;
++
++	rcu_assign_pointer(*invst->invs_ptr, new_invs);
++	kfree_rcu(old_invs, rcu);
++}
++
+ /*
+  * Start the sequence to attach a domain to a master. The sequence contains three
+  * steps:
+@@ -3229,12 +3473,16 @@ int arm_smmu_attach_prepare(struct arm_smmu_attach_state *state,
+ 				     arm_smmu_ats_supported(master);
+ 	}
+ 
++	ret = arm_smmu_attach_prepare_invs(state, new_domain);
++	if (ret)
++		return ret;
++
+ 	if (smmu_domain) {
+ 		if (new_domain->type == IOMMU_DOMAIN_NESTED) {
+ 			ret = arm_smmu_attach_prepare_vmaster(
+ 				state, to_smmu_nested_domain(new_domain));
+ 			if (ret)
+-				return ret;
++				goto err_unprepare_invs;
+ 		}
+ 
+ 		master_domain = kzalloc(sizeof(*master_domain), GFP_KERNEL);
+@@ -3282,6 +3530,8 @@ int arm_smmu_attach_prepare(struct arm_smmu_attach_state *state,
+ 			atomic_inc(&smmu_domain->nr_ats_masters);
+ 		list_add(&master_domain->devices_elm, &smmu_domain->devices);
+ 		spin_unlock_irqrestore(&smmu_domain->devices_lock, flags);
++
++		arm_smmu_install_new_domain_invs(state);
+ 	}
+ 
+ 	if (!state->ats_enabled && master->ats_enabled) {
+@@ -3301,6 +3551,8 @@ int arm_smmu_attach_prepare(struct arm_smmu_attach_state *state,
+ 	kfree(master_domain);
+ err_free_vmaster:
+ 	kfree(state->vmaster);
++err_unprepare_invs:
++	kfree(state->new_domain_invst.new_invs);
+ 	return ret;
+ }
+ 
+@@ -3332,6 +3584,7 @@ void arm_smmu_attach_commit(struct arm_smmu_attach_state *state)
+ 	}
+ 
+ 	arm_smmu_remove_master_domain(master, state->old_domain, state->ssid);
++	arm_smmu_install_old_domain_invs(state);
+ 	master->ats_enabled = state->ats_enabled;
+ }
+ 
+@@ -3513,12 +3766,19 @@ static int arm_smmu_blocking_set_dev_pasid(struct iommu_domain *new_domain,
+ {
+ 	struct arm_smmu_domain *smmu_domain = to_smmu_domain(old_domain);
+ 	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
++	struct arm_smmu_attach_state state = {
++		.master = master,
++		.old_domain = old_domain,
++		.ssid = pasid,
++	};
+ 
+ 	mutex_lock(&arm_smmu_asid_lock);
++	arm_smmu_attach_prepare_invs(&state, NULL);
+ 	arm_smmu_clear_cd(master, pasid);
+ 	if (master->ats_enabled)
+ 		arm_smmu_atc_inv_master(master, pasid);
+ 	arm_smmu_remove_master_domain(master, &smmu_domain->domain, pasid);
++	arm_smmu_install_old_domain_invs(&state);
+ 	mutex_unlock(&arm_smmu_asid_lock);
+ 
+ 	/*
 -- 
 2.43.0
 
