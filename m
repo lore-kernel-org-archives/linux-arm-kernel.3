@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91021D2D8E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 10:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7161CD2D8DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 10:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yiwzb3Kd4GaoYhZC40kyu9KY8tSClogbdJZYCenQQk4=; b=diM4rOrHSj+VZ1OSLUhfmtqrH0
-	+G6D+d6iW/6xW+Uc/Y0SDL0p6I+CLNqDBs7PWGLjid0LIFcbhXsJfiNNqGpk2xXqJxF3svf6AIqk1
-	f/3+IG1XrVaillBIPOd5dn4GAQ4EHAmgsKn2EZY/jbIzOkewPnXccEWcl4Nyg99rMH2JHuq/J/Gsc
-	LdChgjDzIcC+Y7WLMcO1s9q4Ms3Zyd2SDKt7F2X6rYI9vkO2zvZNWAastq7GuEarGdb/Ux8Tx6POO
-	lCP9gDZhk8rE9/iB3wpsxNobUQ9qpUvvDZ9hqmbAj84B1/QHpCXW2xH9p5Lf9qiFwwxskVg5zMesq
-	yaOtlqcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hp+TTvw8edYCKTipUaExrNryIrTxMO7JlP9MrjW4Ydw=; b=uPJ0npEDAXqqRCG3RtzDs1nbA6
+	gxqRO2QxXjoR14mpxzjbos18NOyAFZgtkNewr3s7/lFH/qFLFVK5csO08WmXACxj5rB6Se3284CbV
+	r9HPrlhqMZ4QzJ3KaZX6tSsSXkHdLtnOYiAVC2ynM9ELbEcCyec5rOAOQoGG6XiUPOyNUT3cZ3o69
+	yuTOR+wot+QJEaT2sNPBL5vSwfb+cSiPBspPmkZ3MXvA2FerkDskoa+k7GgnnUFf0MH3apwGPXDaf
+	d6rNFK2JzK7shi9rnsGHiFH59GCkdlGWBO7G4ilU6aLvbJwUduSXdnE8dnEcV78AErrRGiLhV9vHX
+	/X8SIhNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfu6-0000000E0nw-1yow;
-	Tue, 27 Jan 2026 10:02:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfu5-0000000E0np-1C78
+	id 1vkfvX-0000000E0yC-23Fg;
+	Tue, 27 Jan 2026 10:04:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkfvU-0000000E0xa-33gh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 10:02:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 837B7600AD;
-	Tue, 27 Jan 2026 10:02:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC902C116C6;
-	Tue, 27 Jan 2026 10:02:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769508152;
-	bh=HWNG6t4bLDI150f5FrT5PWxgTiyUBMXs8EoDIcMXM94=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DLjZAn62EoTrUYXfPb3/szKLY14XSI7jYICGN+szXRBoI8LBYMyPjn63t75jStVAI
-	 m3Ep9160QTR+/q3tNhOqfmOhuTzWdpWk/xxL3DIivngIBoHIp2aSj32tAUUVtzER/Y
-	 7L13kalhXya2ouDBTnpCK9CKAJ3fFv5b6EkFkOzFBP/9i4vDAufQQvuYLcplMORMwH
-	 VOkR8UoLubJJqwaeJF6i+or+6t1Gi7jjusQEWqr8PqOUhl3c6Tt7ogp9m2n4tthd0y
-	 /NaktrbYcDvOPXtUpF6//YQn6hHXf+X17ukxVX/WbXeyn0jwLcoGm8n2YiQse4fLtX
-	 TQcPctB8h8S+g==
-Date: Tue, 27 Jan 2026 11:02:29 +0100
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Thierry Reding <thierry.reding@gmail.com>, arm@kernel.org, 
-	soc@kernel.org, Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL 1/4] dt-bindings: Changes for v6.20-rc1
-Message-ID: <aXiK_37WeNBrB037@orome>
-References: <20260118080304.2646387-1-thierry.reding@gmail.com>
- <53d3a98f-3ad8-43c0-9094-39f229a5b698@kernel.org>
+	Tue, 27 Jan 2026 10:04:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2672F1655;
+	Tue, 27 Jan 2026 02:03:53 -0800 (PST)
+Received: from [10.57.94.246] (unknown [10.57.94.246])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D4FF23F73F;
+	Tue, 27 Jan 2026 02:03:57 -0800 (PST)
+Message-ID: <427d39c1-ab02-4a66-a0ba-d4fb98ab72d6@arm.com>
+Date: Tue, 27 Jan 2026 10:03:56 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="chtvw53wng52x7jg"
-Content-Disposition: inline
-In-Reply-To: <53d3a98f-3ad8-43c0-9094-39f229a5b698@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 01/10] arm64: Move the zero page to rodata
+Content-Language: en-GB
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, will@kernel.org,
+ catalin.marinas@arm.com, mark.rutland@arm.com,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
+ Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org
+References: <20260126092630.1800589-12-ardb+git@google.com>
+ <20260126092630.1800589-13-ardb+git@google.com>
+ <3d59a8d9-a382-48d8-b79c-f5c23e86c1b7@arm.com>
+ <CAMj1kXF4k9EstLkxdNje_rwTehdu2MYvyh7n+4GoMWNcjcHYcA@mail.gmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <CAMj1kXF4k9EstLkxdNje_rwTehdu2MYvyh7n+4GoMWNcjcHYcA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260127_020400_834351_FFDBD6A6 
+X-CRM114-Status: GOOD (  17.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,147 +71,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 27/01/2026 09:49, Ard Biesheuvel wrote:
+> On Tue, 27 Jan 2026 at 10:34, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>
+>> On 26/01/2026 09:26, Ard Biesheuvel wrote:
+>>> From: Ard Biesheuvel <ardb@kernel.org>
+>>>
+>>> The zero page should contain only zero bytes, and so mapping it
+>>> read-write is unnecessary. Combine it with reserved_pg_dir, which lives
+>>> in the read-only region of the kernel, and already serves a similar
+>>> purpose.
+>>>
+>>> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+>>> ---
+>>>  arch/arm64/kernel/vmlinux.lds.S | 1 +
+>>>  arch/arm64/mm/mmu.c             | 3 +--
+>>>  2 files changed, 2 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
+>>> index ad6133b89e7a..b2a093f5b3fc 100644
+>>> --- a/arch/arm64/kernel/vmlinux.lds.S
+>>> +++ b/arch/arm64/kernel/vmlinux.lds.S
+>>> @@ -229,6 +229,7 @@ SECTIONS
+>>>  #endif
+>>>
+>>>       reserved_pg_dir = .;
+>>> +     empty_zero_page = .;
+>>>       . += PAGE_SIZE;
+>>>
+>>>       swapper_pg_dir = .;
+>>
+>> Isn't there a magic macro for getting from swapper to reserved? That will need
+>> updating?
+>>
+> 
+> Why? This just adds an alias to refer to the same allocation.
 
---chtvw53wng52x7jg
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [GIT PULL 1/4] dt-bindings: Changes for v6.20-rc1
-MIME-Version: 1.0
+Oh yes, sorry I completely missed that. And you've even stated it in the commit
+log...
 
-On Fri, Jan 23, 2026 at 08:47:24AM +0100, Krzysztof Kozlowski wrote:
-> On 18/01/2026 09:03, Thierry Reding wrote:
-> > Hi ARM SoC maintainers,
-> >=20
-> > The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027c=
-b1e8:
-> >=20
-> >   Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
-> >=20
-> > are available in the Git repository at:
-> >=20
-> >   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/te=
-gra-for-6.20-dt-bindings
-> >=20
-> > for you to fetch changes up to b2788f6320722d6059f849f35a77eb082608c627:
-> >=20
-> >   ASoC: dt-bindings: realtek,rt5640: Document port node (2026-01-17 01:=
-58:18 +0100)
-> >=20
-> > Thanks,
-> > Thierry
-> >=20
-> > ----------------------------------------------------------------
-> > dt-bindings: Changes for v6.20-rc1
-> >=20
-> > This series updates various DT bindings for Tegra architecture,
-> > primarily focusing on schema validation fixes and new feature
-> > documentation for Tegra234 and Tegra264 SoCs. Key changes include
-> > correcting realtek,rt5640 audio codec bindings (adding missing ports,
-> > clocks, and jack-detect sources), converting Tegra20 NAND bindings to
-> > YAML, and updating memory, DMA, and IOMMU definitions for Tegra264
-> > (introducing CMDQV and DBB clock support). Additionally, it resolves
-> > legacy warnings for Tegra30/132 display and VI interfaces.
-> >=20
-> > ----------------------------------------------------------------
-> > Ashish Mhetre (1):
-> >       dt-bindings: iommu: Add NVIDIA Tegra CMDQV support
-> >=20
-> > Charan Pedumuru (1):
-> >       dt-bindings: mtd: nvidia,tegra20-nand: convert to DT schema
->=20
-> This should go via MTD. I think Miquel is not ignoring bindings.
+I'm struggling to see where this gets zeroed though? I assume it must be zeroed
+before the old empty_zero_page would have been so everything works fine?
 
-I think this was standalone and hadn't seen any response from MTD, so I
-vacuumed it up like I usually do.
+Assuming yes, then:
 
-> >=20
-> > Jon Hunter (4):
-> >       dt-bindings: tegra: pmc: Update aotag as an optional aperture
->=20
-> ...
->=20
-> >       ASoC: dt-bindings: realtek,rt5640: Document mclk
-> >       ASoC: dt-bindings: realtek,rt5640: Update jack-detect
-> >       ASoC: dt-bindings: realtek,rt5640: Document port node
->=20
-> No, Mark always promptly picks up bindings patches, so I do not
-> understand why these are here. These should go via subsystem maintainer.
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 
-There's no clear pattern amongst subsystem maintainers, and given that I
-make a final pass towards the end of the -rc5 week, I will usually look
-at what patches haven't been picked up yet and apply them, provided that
-they have a Reviewed-by/Acked-by from a DT maintainer.
+> 
+>> /*
+>>  *  Open-coded (swapper_pg_dir - reserved_pg_dir) as this cannot be calculated
+>>  *  until link time.
+>>  */
+>> #define RESERVED_SWAPPER_OFFSET (PAGE_SIZE)
+>>
+>>
+>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>> index 9ae7ce00a7ef..c36422a3fae2 100644
+>>> --- a/arch/arm64/mm/mmu.c
+>>> +++ b/arch/arm64/mm/mmu.c
+>>> @@ -66,9 +66,8 @@ long __section(".mmuoff.data.write") __early_cpu_boot_status;
+>>>
+>>>  /*
+>>>   * Empty_zero_page is a special page that is used for zero-initialized data
+>>> - * and COW.
+>>> + * and COW. Defined in the linker script.
+>>>   */
+>>> -unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)] __page_aligned_bss;
+>>>  EXPORT_SYMBOL(empty_zero_page);
+>>
+>> What's the benefit of giving it it's own place in the linker script vs just
+>> declaring it as const and having it placed in the rodata?
+>>
+> 
+> Because it collapses the two into one.
 
-In this case I missed Mark's reply since it was posted to the cover
-letter and therefore didn't show up in Patchwork (I don't know if newer
-versions of patchwork track this somehow, the instance on ozlabs
-certainly doesn't). I'll work on a way to better track this.
-
-> > Svyatoslav Ryhel (2):
-> >       dt-bindings: display: tegra: document Tegra132 MIPI calibration d=
-evice
-> >       dt-bindings: display: tegra: document Tegra30 VI and VIP
-> >=20
-> > Thierry Reding (1):
-> >       dt-bindings: memory: tegra: Document DBB clock for Tegra264
->=20
-> And this one was never publicly acknowledged that you applied it and
-> lead to ACTUAL warning/review comment from my side postponing your other
-> patch.
-
-Sometimes I forget to send out acknowledgements. I haven't found a good
-and reliable way to automate this.
-
-> If you took this patch for DTS, then it must be on the DTS branch BEFORE
-> the DTS uses it. There is explicit rule about this in writing bindings.
-> You even sent it like that, look:
-> https://lore.kernel.org/all/176856655186.139432.6919318227218814446.b4-ty=
-@nvidia.com/
-> 1/3: DT binding
-> 2/3: driver
-> 3/3: DTS
->=20
-> so why a correct posting you would disorganize and break the
-> bisectability rule by applying binding separate?
-
-As I explained earlier, I usually do exactly that, except that I keep
-the branch separate and pull the dt-bindings branch into the DTS branch
-as a dependency. I might have missed the dependency this time.
-
->=20
-> >=20
-> > sheetal (1):
-> >       dt-bindings: dma: Update ADMA bindings for tegra264
->=20
-> Vinod also picks up such bindings. If this is for DTS then should be in
-> DTS branch.
-
-Same as for the MTD patch, there were no related DTS or driver changes,
-and there was no message that this was applied, so I picked it up while
-I was going over the list of pending patches.
-
-Thierry
-
---chtvw53wng52x7jg
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAml4jTIACgkQ3SOs138+
-s6GOuA//Z7nPcCe2ob7LORQw5yKFtcUUnwdDMBeVFsCE1a3KEHFowGkX54Mu1HSp
-NP3w3HlXWRrLz/a1/qWJ8A3bHN8l8oMM/ygXx2HfWJKLSyb+nA3eI2WoMVO8OBLe
-Kbl7h+Kaq2opo35jKxFwTGqIz4+UWWFl4nb41DqRv1RMSH/07+7Vu2PtPDoLYs4P
-3PsAp2nGNyLTpmzJ5HhKiM8srRybBUDxMc9mfHQ3qfWRyZIasupVMcJzAqJ85t6y
-ERxQmiR3Bc31IM//SgPd4UMsAu4+h/aZiZs6dLC0O3p/p2pTHpcFYIR+4VCjKboZ
-RyVWARDqCN1o7X+h4QOQry6INnfYRYVv8ijxeCafkss6d8PPtmnJuX3bQ9VYWSp9
-xDq8TpYPvaW/3l6FqhOdyWqLWuY0HW2vW0b6xmiMEk8uApV34k6i5vRXt50CiBNV
-uIS+FyCtZgoYhcfVFW4KU917ZnzybZ+oeF9R6JBaRqf2idxPpp2P0PK/NA6e+xYo
-aml4iH3DNlqcoEbbF0Tb+lI3/M5aSzBTXSOo7HoI1OMiGTDET88FEWUcozfSXPq/
-yVrAEm8MaXKHvbrEt8Oow1xNY+VZWJvSZ+fiivPqza955sehlypypmtKL8jLCkYR
-ehoM5cykwJAXRw8ZtAnLT4R65dbMUSPUO/ESUubark3uruhXXoc=
-=qz6T
------END PGP SIGNATURE-----
-
---chtvw53wng52x7jg--
 
