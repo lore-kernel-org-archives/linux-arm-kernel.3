@@ -4,73 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3032DD2F00D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 12:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F58D2F000
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 12:52:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OLEIphBuwiCI4Q+wjDY7yvdGl/mzbImG+fV1xIKwe+8=; b=zqb0jmzyKCGH5qz6kJPSYWCddh
-	f7YkqwMswYNiY8ax/pBVstdi99yfDF3DWKK3OSLjLNQbPT6pzkX0I9eTX6+XKXqnVnS05wgQoZmZV
-	vKqvkrUO3FsggRjPR2XIGJrU9e3paanQi+D79tqv/Q9UI44+vPuO0GEPEO/PZX14Blfb1F0dPXTX+
-	aGSPe606Yq/4hfMR7x/qbNm3D7e4HkEqYyl2TThErdcVBQ8x9YHfdpFjN45MaZcxGaTjMGJNnFHrY
-	mp6QsAtx/ba3lORn8oFtl2IsQvLyAd+80c0FUH38NnRIKzP3BvwUNosgNrMdSJ1KimXg3OQZw5eDc
-	IfsdgX1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SsdH1y505GhLPjMnsHMbX2sIWisbKcoprAK7MDfkzDY=; b=TB0eY06yDldgwWiREewPnLNuWJ
+	IavhYqXwFGQRcIZyIdDD6HHxaxCccDBpbZTFkoWITXICLv7d7RiT3JO+3C9ey0pRReamkZXZcyg5g
+	YoO1PaVEw+kXdZdhtHhto46UjnJPY59hi+gaaICod95cVh/PEBlMEinmh6mRgQJE4K4ODFsT4+oNn
+	uWfr/22mB6ITu2DOdrFXcgwzkQGt9Fw2MxhEywVI0RUUKtcCWC0Gut5LX36eCcue05An3JvH+gmju
+	bAw61nm39iUUAEVHoYgGxCF3Z/Yb6oJr3jzizzcCleKC0pDL5KSgpmq/BSFf9ShaZ8kXys/Sj8Ikl
+	vz8GMS0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkiSB-0000000EGRK-29Z6;
-	Tue, 27 Jan 2026 12:46:00 +0000
-Received: from sinmsgout03.his.huawei.com ([119.8.177.38])
+	id 1vkiYB-0000000EGtM-2Vdm;
+	Tue, 27 Jan 2026 12:52:07 +0000
+Received: from inva021.nxp.com ([92.121.34.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkiS2-0000000EGQH-2xla
+	id 1vkiY6-0000000EGsc-0J4B
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 12:45:54 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=OLEIphBuwiCI4Q+wjDY7yvdGl/mzbImG+fV1xIKwe+8=;
-	b=DxoSt981sOYiN/cO+3wq3Y95MlPoUZ/uqoMb1Nbi4J9dCwXVN11GGacRSprEiGuT2clOkTA6+
-	vftw0YA/dUsK+oqqKADw4Zl1aK9yXQoqnykRTpKW6IP5g9za0FYo6zrdrCYpJFnVqwevs1ztQj+
-	7cZgNrQ2hzddnTwgerbiHEk=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.33])
-	by sinmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4f0lS920smzN0dD;
-	Tue, 27 Jan 2026 20:43:05 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4f0lVM4VtvzJ46bP;
-	Tue, 27 Jan 2026 20:44:59 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id 87BCE40569;
-	Tue, 27 Jan 2026 20:45:35 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 27 Jan
- 2026 12:45:34 +0000
-Date: Tue, 27 Jan 2026 12:45:33 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-CC: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, Catalin
- Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, Linus
- Torvalds <torvalds@linux-foundation.org>, Oliver Upton
-	<oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, "Dev Jain"
-	<dev.jain@arm.com>, Linu Cherian <Linu.Cherian@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 11/13] arm64: mm: More flags for __flush_tlb_range()
-Message-ID: <20260127124533.0000302e@huawei.com>
-In-Reply-To: <20260119172202.1681510-12-ryan.roberts@arm.com>
-References: <20260119172202.1681510-1-ryan.roberts@arm.com>
-	<20260119172202.1681510-12-ryan.roberts@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 27 Jan 2026 12:52:03 +0000
+Received: from inva021.nxp.com (localhost [127.0.0.1])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 582862015BF;
+	Tue, 27 Jan 2026 13:51:58 +0100 (CET)
+Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 372B72015BB;
+	Tue, 27 Jan 2026 13:51:58 +0100 (CET)
+Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
+	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 7C9FF20383;
+	Tue, 27 Jan 2026 13:51:57 +0100 (CET)
+Date: Tue, 27 Jan 2026 13:51:58 +0100
+From: Jan Petrous <jan.petrous@oss.nxp.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 2/4] dt-bindings: net: nxp,s32-dwmac: Declare
+ per-queue interrupts
+Message-ID: <aXi07hPBrl7EYezi@lsv051416.swis.nl-cdc01.nxp.com>
+References: <20260123-dwmac_multi_irq-v3-0-cc53f2be8961@oss.nxp.com>
+ <20260123-dwmac_multi_irq-v3-2-cc53f2be8961@oss.nxp.com>
+ <20260123-dinner-aloft-e57deb6c546a@spud>
+ <aXdiNb92B4HH+ZFt@lsv051416.swis.nl-cdc01.nxp.com>
+ <20260126-blinker-secluding-a745f60caccb@spud>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260126-blinker-secluding-a745f60caccb@spud>
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_044552_730515_88106E3A 
-X-CRM114-Status: GOOD (  34.16  )
+X-CRM114-CacheID: sfid-20260127_045202_377983_60A7DD91 
+X-CRM114-Status: GOOD (  22.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,244 +87,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 Jan 2026 17:21:58 +0000
-Ryan Roberts <ryan.roberts@arm.com> wrote:
-
-> Refactor function variants with "_nosync", "_local" and "_nonotify" into
-> a single __always_inline implementation that takes flags and rely on
-> constant folding to select the parts that are actually needed at any
-> given callsite, based on the provided flags.
+On Mon, Jan 26, 2026 at 08:00:33PM +0000, Conor Dooley wrote:
+> On Mon, Jan 26, 2026 at 01:46:45PM +0100, Jan Petrous wrote:
+> > On Fri, Jan 23, 2026 at 05:13:03PM +0000, Conor Dooley wrote:
+> > > On Fri, Jan 23, 2026 at 11:09:55AM +0100, Jan Petrous via B4 Relay wrote:
+> > > > From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+> > > > 
+> > > > The DWMAC IP on NXP S32G/R SoCs has connected queue-based IRQ lines,
+> > > > set them to allow using Multi-IRQ mode when supported.
+> > > 
+> > > The binding only supports s32{g,r} devices, why is the existing minimum
+> > > retained? What devices are going to not have all 11 interrupts
+> > > connected?
+> > > 
+> > 
+> > The original idea was to support backward compatibility, as older DTs
+> > didn't contain queue-based interrupt lines described.
+> > 
+> > But now, when you asked, I started to think it is not needed,
+> > the requirement for backward compatibility is managed inside the driver
+> > and yaml shall describe the hardware not used configuration.
 > 
-> Flags all live in the tlbf_t (TLB flags) type; TLBF_NONE (0) continues
-> to provide the strongest semantics (i.e. evict from walk cache,
-> broadcast, synchronise and notify). Each flag reduces the strength in
-> some way; TLBF_NONOTIFY, TLBF_NOSYNC and TLBF_NOBROADCAST are added to
-> complement the existing TLBF_NOWALKCACHE.
-
-Unless I'm missing something the case of TLBF_NOBROADCAST but not
-TLBF_NOWALKCACHE isn't currently used.
-  
-I wonder if bringing that in with a user will make it easier to see what
-is going on.
-
-Otherwise, 3 vs 2 underscores? Can we come up with something easier
-to read than that?
-
+> Just to be clear, cos the last portion of that "yaml shall..." isn't to
+> me, you mean that the driver will support 1 or 11 interrupts but you
+> will make the binding only allow 11? That would be fine.
+> Just note in the commit message that all of these devices have the 11
+> interrupts.
 > 
-> The result is a clearer, simpler, more powerful API.
-> 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> ---
->  arch/arm64/include/asm/tlbflush.h | 107 +++++++++++++++++++-----------
->  arch/arm64/mm/contpte.c           |   9 ++-
->  2 files changed, 74 insertions(+), 42 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index 1ad1c864e1f8..f03831cd8719 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -107,6 +107,12 @@ static inline unsigned long get_trans_granule(void)
->  
->  typedef void (*tlbi_op)(u64 arg);
->  
-> +static __always_inline void vae1(u64 arg)
-> +{
-> +	__tlbi(vae1, arg);
-> +	__tlbi_user(vae1, arg);
-> +}
-> +
->  static __always_inline void vae1is(u64 arg)
->  {
->  	__tlbi(vae1is, arg);
-> @@ -275,7 +281,10 @@ static inline void __tlbi_level(tlbi_op op, u64 addr, u32 level)
->   *		no invalidation may take place. In the case where the level
->   *		cannot be easily determined, the value TLBI_TTL_UNKNOWN will
->   *		perform a non-hinted invalidation. flags may be TLBF_NONE (0) or
-> - *		TLBF_NOWALKCACHE (elide eviction of walk cache entries).
-> + *		any combination of TLBF_NOWALKCACHE (elide eviction of walk
-> + *		cache entries), TLBF_NONOTIFY (don't call mmu notifiers),
-> + *		TLBF_NOSYNC (don't issue trailing dsb) and TLBF_NOBROADCAST
-> + *		(only perform the invalidation for the local cpu).
->   *
->   *	local_flush_tlb_page(vma, addr)
->   *		Local variant of flush_tlb_page().  Stale TLB entries may
-> @@ -285,12 +294,6 @@ static inline void __tlbi_level(tlbi_op op, u64 addr, u32 level)
->   *		Same as local_flush_tlb_page() except MMU notifier will not be
->   *		called.
->   *
-> - *	local_flush_tlb_contpte(vma, addr)
-> - *		Invalidate the virtual-address range
-> - *		'[addr, addr+CONT_PTE_SIZE)' mapped with contpte on local CPU
-> - *		for the user address space corresponding to 'vma->mm'.  Stale
-> - *		TLB entries may remain in remote CPUs.
-> - *
->   *	Finally, take a look at asm/tlb.h to see how tlb_flush() is implemented
->   *	on top of these routines, since that is our interface to the mmu_gather
->   *	API as used by munmap() and friends.
-> @@ -435,6 +438,12 @@ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
->   *    operations can only span an even number of pages. We save this for last to
->   *    ensure 64KB start alignment is maintained for the LPA2 case.
->   */
-> +static __always_inline void rvae1(u64 arg)
-> +{
-> +	__tlbi(rvae1, arg);
-> +	__tlbi_user(rvae1, arg);
-> +}
-> +
->  static __always_inline void rvae1is(u64 arg)
->  {
->  	__tlbi(rvae1is, arg);
-> @@ -541,15 +550,23 @@ typedef unsigned __bitwise tlbf_t;
->  /* Invalidate tlb entries only, leaving the page table walk cache intact. */
->  #define TLBF_NOWALKCACHE	((__force tlbf_t)BIT(0))
->  
-> -static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
-> -				     unsigned long start, unsigned long end,
-> -				     unsigned long stride, int tlb_level,
-> -				     tlbf_t flags)
-> +/* Skip the trailing dsb after issuing tlbi. */
-> +#define TLBF_NOSYNC		((__force tlbf_t)BIT(1))
-> +
-> +/* Suppress tlb notifier callbacks for this flush operation. */
-> +#define TLBF_NONOTIFY		((__force tlbf_t)BIT(2))
-> +
-> +/* Perform the tlbi locally without broadcasting to other CPUs. */
-> +#define TLBF_NOBROADCAST	((__force tlbf_t)BIT(3))
-> +
-> +static __always_inline void ___flush_tlb_range(struct vm_area_struct *vma,
 
-Can we come up with anything better for naming than more underscores?
+Well, all those supported devices have 11 interrupts connected (1x MAC),
+then 5x RX (queue0..queue4) and  5x TX (queue0..queue4).
 
-My eyes skipped over there being 3 here rather than 2 and I got rather confused
-as a result.  Maybe at least make it excessive and go from 2 to 4+?
+Until now, the driver was using on MAC IRQ, so the only one shared line.
+Now, we are enabling support for per-queue interrupts, what means for
+supported SoCs up to 11 IRQs as the DWMAC IP on S32G/R has 5 queues.
 
-> +					unsigned long start, unsigned long end,
-> +					unsigned long stride, int tlb_level,
-> +					tlbf_t flags)
->  {
-> +	struct mm_struct *mm = vma->vm_mm;
->  	unsigned long asid, pages;
->  
-> -	start = round_down(start, stride);
-> -	end = round_up(end, stride);
->  	pages = (end - start) >> PAGE_SHIFT;
->  
->  	if (__flush_tlb_range_limit_excess(pages, stride)) {
-> @@ -557,17 +574,41 @@ static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
->  		return;
->  	}
->  
-> -	dsb(ishst);
-> +	if (!(flags & TLBF_NOBROADCAST))
-> +		dsb(ishst);
-> +	else
-> +		dsb(nshst);
-> +
->  	asid = ASID(mm);
->  
-> -	if (flags & TLBF_NOWALKCACHE)
-> -		__flush_s1_tlb_range_op(vale1is, start, pages, stride,
-> -				     asid, tlb_level);
-> -	else
-> +	switch (flags & (TLBF_NOWALKCACHE | TLBF_NOBROADCAST)) {
-> +	case TLBF_NONE:
->  		__flush_s1_tlb_range_op(vae1is, start, pages, stride,
-> -				     asid, tlb_level);
-> +					asid, tlb_level);
-> +		break;
-> +	case TLBF_NOWALKCACHE:
-> +		__flush_s1_tlb_range_op(vale1is, start, pages, stride,
-> +					asid, tlb_level);
-> +		break;
-> +	case TLBF_NOBROADCAST:
-> +		__flush_s1_tlb_range_op(vae1, start, pages, stride,
-> +					asid, tlb_level);
-> +		break;
-> +	case TLBF_NOWALKCACHE | TLBF_NOBROADCAST:
-> +		__flush_s1_tlb_range_op(vale1, start, pages, stride,
-> +					asid, tlb_level);
-> +		break;
-> +	}
-> +
-> +	if (!(flags & TLBF_NONOTIFY))
-> +		mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, end);
->  
-> -	mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, end);
-> +	if (!(flags & TLBF_NOSYNC)) {
-> +		if (!(flags & TLBF_NOBROADCAST))
-> +			dsb(ish);
-> +		else
-> +			dsb(nsh);
-> +	}
->  }
->  
->  static inline void __flush_tlb_range(struct vm_area_struct *vma,
-> @@ -575,24 +616,9 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
->  				     unsigned long stride, int tlb_level,
->  				     tlbf_t flags)
->  {
-> -	__flush_tlb_range_nosync(vma->vm_mm, start, end, stride,
-> -				 tlb_level, flags);
-> -	dsb(ish);
-> -}
-> -
-> -static inline void local_flush_tlb_contpte(struct vm_area_struct *vma,
-> -					   unsigned long addr)
-> -{
-> -	unsigned long asid;
-> -
-> -	addr = round_down(addr, CONT_PTE_SIZE);
-> -
-> -	dsb(nshst);
-> -	asid = ASID(vma->vm_mm);
-> -	__flush_s1_tlb_range_op(vale1, addr, CONT_PTES, PAGE_SIZE, asid, 3);
-> -	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, addr,
-> -						    addr + CONT_PTE_SIZE);
-> -	dsb(nsh);
-> +	start = round_down(start, stride);
-> +	end = round_up(end, stride);
-> +	___flush_tlb_range(vma, start, end, stride, tlb_level, flags);
->  }
->  
->  static inline void flush_tlb_range(struct vm_area_struct *vma,
-> @@ -645,7 +671,10 @@ static inline void __flush_tlb_kernel_pgtable(unsigned long kaddr)
->  static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
->  		struct mm_struct *mm, unsigned long start, unsigned long end)
->  {
-> -	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, 3, TLBF_NOWALKCACHE);
-> +	struct vm_area_struct vma = { .vm_mm = mm, .vm_flags = 0 };
-> +
-> +	__flush_tlb_range(&vma, start, end, PAGE_SIZE, 3,
-> +			  TLBF_NOWALKCACHE | TLBF_NOSYNC);
->  }
->  
->  static inline bool __pte_flags_need_flush(ptdesc_t oldval, ptdesc_t newval)
-> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-> index 1a12bb728ee1..ec17a0e70415 100644
-> --- a/arch/arm64/mm/contpte.c
-> +++ b/arch/arm64/mm/contpte.c
-> @@ -527,8 +527,8 @@ int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
->  		 * eliding the trailing DSB applies here.
->  		 */
->  		addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
-> -		__flush_tlb_range_nosync(vma->vm_mm, addr, addr + CONT_PTE_SIZE,
-> -					 PAGE_SIZE, 3, TLBF_NOWALKCACHE);
-> +		__flush_tlb_range(vma, addr, addr + CONT_PTE_SIZE,
-> +				  PAGE_SIZE, 3, TLBF_NOWALKCACHE | TLBF_NOSYNC);
->  	}
->  
->  	return young;
-> @@ -623,7 +623,10 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
->  			__ptep_set_access_flags(vma, addr, ptep, entry, 0);
->  
->  		if (dirty)
-> -			local_flush_tlb_contpte(vma, start_addr);
-> +			__flush_tlb_range(vma, start_addr,
-> +					  start_addr + CONT_PTE_SIZE,
-> +					  PAGE_SIZE, 3,
-> +					  TLBF_NOWALKCACHE | TLBF_NOBROADCAST);
->  	} else {
->  		__contpte_try_unfold(vma->vm_mm, addr, ptep, orig_pte);
->  		__ptep_set_access_flags(vma, addr, ptep, entry, dirty);
+The driver can still opearate on this one shared IRQ mode, but
+if the DT node configuration describes all IRQs, then the driver switch
+to multi-IRQ mode. What allows better distribution of processor core
+load.
+
+So the 11 IRQs are the maximum value, in the case when all queues are
+used. But I can imagine some other use-cases, when not all queues
+are enabled, ie. only queue0 and quque1. In that case, the driver will
+use some subset of all IRQs.
+That means that DT can contain only lesser interrupt list then maximum.
+
+I feel like having "minItems: 1" shall cover such use-case.
+
+BR.
+/Jan
 
 
