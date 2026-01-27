@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F3BCD19515
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80919D13C1B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KwXi2iEKt4ohjBom3MHhPfGwFDePZQVICIeAID/Bs64=; b=ogwGOMKa4h+tl1BFh8VukYUQsZ
-	DHXehSe1Cw7/siIMgSx5z9P0fxBefWPuaemBmXYipUEteMrMpqHBDXLReu2R22vVLQdpjUoRlrnzD
-	/gSTrUReScpwYOLwt9ri1Y7QUC/07VS/Pk66GwAQSh/qzPX8ktvct5rOHtq++uIuznSKBj1Qfr8Hy
-	rJGrbynQDvyBqi8qHQof/16i5kfjBqMRur0t/Hktfm8uHn2Yn1waSlgMoAF7H5d6bCTvzieGCn1HY
-	i9egkymeALsPtQ0ATfq34do+t4lSVy/sHqt+ZabgjpDX3sUHkgWJKCgs5tm1msCtI9v+5yLjtqeXq
-	nO5wOsHw==;
+	bh=7GJKa7xLlmSaeeYe4REc3fsB2deMuanDC2PSrKRfYtg=; b=QH2M5jup1xMYZeDY2wi76T1EsT
+	FXohgUfzCQXJRoQ/NtmDdfe3kL/o+r8IzhJo6nUdxxrGx1vBCrjQ0DQDZ+t6U7f0wtZicbKRdI8m4
+	fz0GBp/zMaZoc2IAtdt50VVv2U0oa1VDNd83FjqPLdEsE22xLxfEauKDnbE0D5QvaCmvuB3BovJ9k
+	0HnJJXA8aLWfXFsnVjuomywmG8UoxdQqsGiY9HkbCW3D8+L01b06xmxcM4PsGr/VsxfnidE+AGsh4
+	/0nD6a0EE+i+Di3cw60VSc4ct+Yt86m5w+OSeV+dmtnxe5AhmXtPJFoEgNgB6G3VCQGEtnsi2CODX
+	1JYkZ4tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfU8-0000000Dx2s-0cpG;
-	Tue, 27 Jan 2026 09:35:44 +0000
+	id 1vkfUa-0000000Dx6G-27Zg;
+	Tue, 27 Jan 2026 09:36:12 +0000
 Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfU3-0000000Dx2O-2eCZ
+	id 1vkfUW-0000000Dx5b-0XUE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 09:35:43 +0000
+	Tue, 27 Jan 2026 09:36:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769506539; x=1801042539;
+  t=1769506568; x=1801042568;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=u9fgX4gOpXlnZ/mXQcZ3TbVrsG5fbHhYBvVFFPW/45E=;
-  b=FN3hgyMAg41lqIcOEI6H8q8tx+45cEsU8TLJw9oqmK8jqxWX/QDaDdq6
-   bC0sW/l9mcfYC3nVDdtRtMhRy21ZOHvZ/caAL9yAm7ge+fOY+WGbhGtlY
-   w8qmbLb50LJ5nwL3vGNVxGfED0acdXfEBTlhqkXPuERTe2KBaYMCXnHeh
-   gJZ0A2rySdXoFvTmsPdL1fV/RoWDHXJG+azZahkDTawkfVtgwTasxE1n5
-   ykRnUwdxfCZSF8+Ni2UhkfkJOyxV0WDm0Kj2tPUeNBU626adtbEKFfh9X
-   YxtTeYBNLG/c9cCYtGDizjY08boBqhlOOaAbTReDo5WhN9qWyzTT3/0jt
-   g==;
-X-CSE-ConnectionGUID: pQW1RDTERq2cBfgwoh1M0Q==
-X-CSE-MsgGUID: wp+gTVRORCC0XpuOTjRJVw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11683"; a="70591257"
+  bh=B7DFX5lqbjM4djzDpxG9RwFOYzDx+Gb3DTdEDYClDgY=;
+  b=fk91wynQeY5HY6m85CjKxll84cRN1lAgZhUn4WigcsGFI4fsH5bcGNP9
+   fqbAGihz18cj7S/9IQ4DAEJhkbLGAjEE4Le2l6VtxIWf87c62VDYsGea/
+   9pwLLExQ4Loeo5yYYABMAiGVne3sBVrrozGXxqfSbrMjZt+7c8fnCUtXq
+   m1QRtYlHlra76k2Lx4G/kxdHLcQRvauV9oamMca/2zZ+9RHMUkGeHgUZD
+   Li6fv30TsQUKACtDuKy0wro5x1wTpwWsYDNWwm5KOObPguL0pR7ZaaHpw
+   Rn70hlAxhlYU8YAnWfT3rYVsVLfVd+xlrZjgNXbodk/jFP+lideCd80KV
+   Q==;
+X-CSE-ConnectionGUID: Kw1A28XVRNOqjjxL3MQTkg==
+X-CSE-MsgGUID: xQjexuESRNSbI0s4wT4icQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11683"; a="70591296"
 X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
-   d="scan'208";a="70591257"
+   d="scan'208";a="70591296"
 Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:35:39 -0800
-X-CSE-ConnectionGUID: YSXB+yfTQSuClfxtWBR2zA==
-X-CSE-MsgGUID: dA66sZBFQn2pvXbzeSQpag==
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:36:07 -0800
+X-CSE-ConnectionGUID: guJ6KiTnRaiQ+vatan35aw==
+X-CSE-MsgGUID: ZsJuwkAhRx+Hvslj9xkPuw==
 X-ExtLoop1: 1
 Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.245.248])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:35:36 -0800
-Date: Tue, 27 Jan 2026 11:35:34 +0200
+  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:36:05 -0800
+Date: Tue, 27 Jan 2026 11:36:03 +0200
 From: Andy Shevchenko <andriy.shevchenko@intel.com>
 To: abdurrahman@nexthop.ai
 Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
@@ -61,19 +61,20 @@ Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, info@mocean-labs.com,
 	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
 	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v5 3/6] i2c: xiic: switch to devres managed APIs
-Message-ID: <aXiG5p9BQ-vkAgbV@smile.fi.intel.com>
+Subject: Re: [PATCH v5 2/6] i2c: xiic: make the clock optional
+Message-ID: <aXiHAzsmQ46mYTbF@smile.fi.intel.com>
 References: <20260126-i2c-xiic-v5-0-88a16a28721c@nexthop.ai>
- <20260126-i2c-xiic-v5-3-88a16a28721c@nexthop.ai>
+ <20260126-i2c-xiic-v5-2-88a16a28721c@nexthop.ai>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260126-i2c-xiic-v5-3-88a16a28721c@nexthop.ai>
+In-Reply-To: <20260126-i2c-xiic-v5-2-88a16a28721c@nexthop.ai>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_013541_957173_26A3B4C0 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20260127_013608_915271_3DA179A7 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,61 +89,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 05:08:18PM +0000, Abdurrahman Hussain via B4 Relay wrote:
+On Mon, Jan 26, 2026 at 05:08:17PM +0000, Abdurrahman Hussain via B4 Relay wrote:
 
-> Simplify the error code paths by switching to devres managed helper
-> functions.
+> The xiic driver is designed to operate without explicit clock configuration
+> when clocks are not specified in the firmware. This functionality is
+> already implemented in xiic_setclk(), which performs an early return when
+> either i2c_clk or input_clk are zero:
+> 
+> This condition is satisfied when clocks are missing, as clk_get_rate(NULL)
+> returns zero, allowing the driver to rely on hardware-configured timing.
 
-Thanks for the update, my comments below.
-
-...
-
-> +	ret = devm_mutex_init(dev, &i2c->lock);
-> +	if (ret < 0)
-
-Why ' < 0'?
-
-> +		return ret;
-
-...
-
-> +	ret = devm_pm_runtime_set_active_enabled(dev);
-> +	if (ret < 0)
-
-Ditto.
-
-> +		return ret;
-
-...
-
->  	if (ret < 0) {
->  		dev_err_probe(&pdev->dev, ret, "Cannot claim IRQ\n");
-> -		goto err_pm_disable;
-> +		return ret;
-
-		return dev_err_probe(...);
-
->  	}
-
-...
-
->  	ret = xiic_reinit(i2c);
->  	if (ret < 0) {
->  		dev_err_probe(&pdev->dev, ret, "Cannot xiic_reinit\n");
-
-Ditto.
-
-> -		goto err_pm_disable;
-> +		return ret;
->  	}
-
-...
-
->  	dev_dbg(&pdev->dev, "mmio %08lx irq %d scl clock frequency %d\n",
->  		(unsigned long)res->start, irq, i2c->i2c_clk);
-
-Side note, consider using %pR instead of ugly casting for resources.
-(separate change).
+Bingo!
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 
 -- 
 With Best Regards,
