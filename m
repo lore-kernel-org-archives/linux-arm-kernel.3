@@ -4,83 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2E09D2FEF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 21:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42FC0D2FEF5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 22:12:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MsGunHqUs2STdmqxGd5hiAtRlOXAptQU2J22m1qy7BU=; b=qNK1aVhvDsQDBv/r7OySf2e493
-	D4f+Hxl4uiZ8NbFIzA8rcfZ01vwUHrsoTiTYrY+fJPC7JcLSybAgHODqc/fKZwzLlCMKGdEwWCdpq
-	2q9z0suN/iTY0fKxkY9w56GU7aE0ljP6l+C2k4rFS55JgwljxcuTk1676Wa+mksscOwR5BlWNUqi3
-	SFdknDK8FhS6BaMv7AqsryjkJywNxm2xp8YF37hvX7uQJcvvFfYUNQXwYS9Btji/Jf1GLCq0kd8df
-	P15roBhphpRmYnhGnkLx5SzIxnTUGJIG++jPEBVwuUAPQpcocgA4lwbmwe6oKKYsVDEtdIlxlt08+
-	T+OMFwzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WlQt+ss1G8efG2qofo6jb6A9w0j4Ayb6P7iOr7JnFrA=; b=R1misl4e8OEZoLk6O1gVnCGWwp
+	18QCSFrAPTP30nQg5ikBdLhVsXjhtYumRPpxEgqM/u2G5XBEbp4jg2U22wa9qtBppT6Qn+rBr8S2g
+	7XYHTnVnszElcxV3F0QELrPyLiTML/6B1cUc/qiVIISfnhFdXT/A87EZLiOE2AHgkfOPvv9dNGGJN
+	KFNPiqbnaZ+nroe3NcBaIQkovRW1HGBDQ0LOpIXhfhWw/syTAQzvocY2uJwpIsjrkCuzeIRveLBVW
+	2/zKUpYX2FEwy3WHhcr0HWnItNfce2hPTakihSPwWglKDvU00lRQSdnxT7bXhbxAyPlmMjJ0LOOg4
+	rYloyJuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkqtz-0000000F4no-41L4;
-	Tue, 27 Jan 2026 21:47:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vkrIL-0000000F5lq-1FPh;
+	Tue, 27 Jan 2026 22:12:21 +0000
+Received: from sender4-pp-e109.zoho.com ([136.143.188.109])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkqtw-0000000F4mQ-0ZFH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 27 Jan 2026 21:47:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=MsGunHqUs2STdmqxGd5hiAtRlOXAptQU2J22m1qy7BU=; b=E+J0H9bUfozlj/zwWr2p4xRtdg
-	qdlFvSMz/WmGijN4j3lpu2FAOry+pcEecrTEUdJap8s2s8SuFHv15XDr1AK63JXj9C0Eisc4PZyrx
-	nvzuC+bVUk59lADjEOsxmZguN+H4zW03XI572C7DK2cJh8L/ycfqdz9IZEJ4JDP7IW2KE2wBgECvZ
-	crZdd4FZdslJ9RRUXbAllWeyegB0opIFfqDTga4pelyHmZhEVjd5eW/FKgGdvtEDRMTDZp7+kgxs4
-	6b8TZtLMHMz8BhogDZKgm2e6h6YFXWyaESaEHULc62v7JD+VJ9eghO5xenTZiYDk21m0boJB/d38+
-	D0y1+JbA==;
-Received: from relay.smtp-ext.broadcom.com ([192.19.166.231])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkqtr-00000007eee-1y9U
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 21:47:07 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id B7644C000733;
-	Tue, 27 Jan 2026 13:46:59 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com B7644C000733
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1769550419;
-	bh=L374EcJRAc/qEjuY/FVQi+JhFU4/ncCIa2WaXKx/r3M=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oHRqNqF+tyTHzIkMeUB9UZc25HkYip9O6CkZnbM8l9jwsOw3W7/6DgUtc3ABp0Lro
-	 Z7GNoVn2am/w2ZNt0f6/qEVhS6sZuOIWuogId44csbP7CF2lkUfAsCM34uRRgrVBXb
-	 5KOcHb/haul/M3f7Ta63rDD+jEcnLZ+UJq7KTyC8=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 9174D199D2;
-	Tue, 27 Jan 2026 13:46:59 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: linux-kernel@vger.kernel.org
-Cc: Doug Berger <opendmb@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	linux-gpio@vger.kernel.org (open list:GPIO SUBSYSTEM),
-	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE)
-Subject: [PATCH v2 2/3] gpio: brcmstb: implement irq_mask_ack
-Date: Tue, 27 Jan 2026 13:46:55 -0800
-Message-ID: <20260127214656.447333-3-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260127214656.447333-1-florian.fainelli@broadcom.com>
-References: <20260127214656.447333-1-florian.fainelli@broadcom.com>
+	id 1vkrII-0000000F5kx-2qdB;
+	Tue, 27 Jan 2026 22:12:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769551931; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=KWWGP3eQkiPTtzLBHpgVlyQavNZ+Eratv6VCREuHhGkd+yJ55INII+aCXslQf+O8tBA1yr4s+hK9J5R7a/FWXGZekbGPDdJ9a7kIMPILKgNmWynXNMaI9ZJ1xa025w6CsXtzA9GGwp9pfuDXieXVfpIv3uAamtwtlXKzh+aBfwY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1769551931; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=WlQt+ss1G8efG2qofo6jb6A9w0j4Ayb6P7iOr7JnFrA=; 
+	b=WVYweafi6F15VKpZgZt2+jpwkjmkdjU/wxswjMv0BB4LsWuHukg/m6JSDzr7Z2fSq+yJMb68F2Pg3FLHgugDBHerLSXA1YfLI4ui7DrVw2k0L9LJEPrfu1d3vAHZSy6YERIwHjODgQX9tWTVeEy7+WZEOJ1SSBvOzoZL7HP7xuQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769551931;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=WlQt+ss1G8efG2qofo6jb6A9w0j4Ayb6P7iOr7JnFrA=;
+	b=jOaQpXakYiSid0wpQGxBiKmIkORxIDMIw7i1baza6GrPASuNvhwtlvU2AAx3NreE
+	WLwk9Y64V/yHOeXMYYsgae1kiqdVH8McECYk6cjxJw1JTldVJF2mGIKauCQpXrDJFmc
+	x8+BmDK/8RxTNTQIl1Fd8y/wuGdeBBG1TYzszUWI=
+Received: by mx.zohomail.com with SMTPS id 1769551930714470.1972618683276;
+	Tue, 27 Jan 2026 14:12:10 -0800 (PST)
+Received: by venus (Postfix, from userid 1000)
+	id 66C98180DC7; Tue, 27 Jan 2026 23:12:03 +0100 (CET)
+Date: Tue, 27 Jan 2026 23:12:03 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Sjoerd Simons <sjoerd.simons@collabora.com>, linux-sound@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 04/10] ASoC: rockchip: spdif: Use dev_err_probe
+Message-ID: <aXk31GTmK_5wUQ9t@venus>
+References: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-0-a7c547072bbb@collabora.com>
+ <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-4-a7c547072bbb@collabora.com>
+ <CABjd4YxVQfp=ZuovBhAzqX9pDBnBmntQoxkr5vXnToPc3pRARw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="zckbwwqnfppx2fwi"
+Content-Disposition: inline
+In-Reply-To: <CABjd4YxVQfp=ZuovBhAzqX9pDBnBmntQoxkr5vXnToPc3pRARw@mail.gmail.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.1.1.4.3/269.526.30
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_214703_817271_7D7E4B82 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20260127_141218_774096_02A172D0 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,97 +85,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Doug Berger <opendmb@gmail.com>
 
-The irq_mask_ack operation is slightly more efficient than doing
-irq_mask and irq_ack separately.
+--zckbwwqnfppx2fwi
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 04/10] ASoC: rockchip: spdif: Use dev_err_probe
+MIME-Version: 1.0
 
-More importantly for this driver it bypasses the check of
-irqd_irq_masked ensuring a previously masked but still active
-interrupt gets remasked if unmasked at the hardware level. This
-allows the driver to more efficiently unmask the wake capable
-interrupts when quiescing without needing to enable the irqs
-individually to clear the irqd_irq_masked state.
+Hello Alexey,
 
-Signed-off-by: Doug Berger <opendmb@gmail.com>
-Co-developed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
----
- drivers/gpio/gpio-brcmstb.c | 29 ++++++++++++++++++++++++-----
- 1 file changed, 24 insertions(+), 5 deletions(-)
+On Tue, Jan 27, 2026 at 09:31:18PM +0400, Alexey Charkov wrote:
+> >         ret =3D devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
+> > -       if (ret) {
+> > -               dev_err(&pdev->dev, "Could not register PCM\n");
+> > -               return ret;
+> > -       }
+> > +       if (ret)
+> > +               dev_err_probe(&pdev->dev, ret, "Could not register PCM\=
+n");
+>=20
+> Shouldn't this one return the error code, instead of falling through
+> to 'return 0'?
 
-diff --git a/drivers/gpio/gpio-brcmstb.c b/drivers/gpio/gpio-brcmstb.c
-index 2352d099709c..bf0192b82276 100644
---- a/drivers/gpio/gpio-brcmstb.c
-+++ b/drivers/gpio/gpio-brcmstb.c
-@@ -1,5 +1,5 @@
- // SPDX-License-Identifier: GPL-2.0-only
--// Copyright (C) 2015-2017 Broadcom
-+// Copyright (C) 2015-2017, 2026 Broadcom
- 
- #include <linux/bitops.h>
- #include <linux/gpio/driver.h>
-@@ -95,15 +95,13 @@ static int brcmstb_gpio_hwirq_to_offset(irq_hw_number_t hwirq,
- 	return hwirq - bank->chip.gc.offset;
- }
- 
--static void brcmstb_gpio_set_imask(struct brcmstb_gpio_bank *bank,
--		unsigned int hwirq, bool enable)
-+static void __brcmstb_gpio_set_imask(struct brcmstb_gpio_bank *bank,
-+				    unsigned int hwirq, bool enable)
- {
- 	struct brcmstb_gpio_priv *priv = bank->parent_priv;
- 	u32 mask = BIT(brcmstb_gpio_hwirq_to_offset(hwirq, bank));
- 	u32 imask;
- 
--	guard(gpio_generic_lock_irqsave)(&bank->chip);
--
- 	imask = gpio_generic_read_reg(&bank->chip,
- 				      priv->reg_base + GIO_MASK(bank->id));
- 	if (enable)
-@@ -114,6 +112,13 @@ static void brcmstb_gpio_set_imask(struct brcmstb_gpio_bank *bank,
- 			       priv->reg_base + GIO_MASK(bank->id), imask);
- }
- 
-+static void brcmstb_gpio_set_imask(struct brcmstb_gpio_bank *bank,
-+		unsigned int hwirq, bool enable)
-+{
-+	guard(gpio_generic_lock_irqsave)(&bank->chip);
-+	__brcmstb_gpio_set_imask(bank, hwirq, enable);
-+}
-+
- static int brcmstb_gpio_to_irq(struct gpio_chip *gc, unsigned offset)
- {
- 	struct brcmstb_gpio_priv *priv = brcmstb_gpio_gc_to_priv(gc);
-@@ -135,6 +140,19 @@ static void brcmstb_gpio_irq_mask(struct irq_data *d)
- 	brcmstb_gpio_set_imask(bank, d->hwirq, false);
- }
- 
-+static void brcmstb_gpio_irq_mask_ack(struct irq_data *d)
-+{
-+	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-+	struct brcmstb_gpio_bank *bank = gpiochip_get_data(gc);
-+	struct brcmstb_gpio_priv *priv = bank->parent_priv;
-+	u32 mask = BIT(brcmstb_gpio_hwirq_to_offset(d->hwirq, bank));
-+
-+	guard(gpio_generic_lock_irqsave)(&bank->chip);
-+	__brcmstb_gpio_set_imask(bank, d->hwirq, false);
-+	gpio_generic_write_reg(&bank->chip,
-+			       priv->reg_base + GIO_STAT(bank->id), mask);
-+}
-+
- static void brcmstb_gpio_irq_unmask(struct irq_data *d)
- {
- 	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-@@ -471,6 +489,7 @@ static int brcmstb_gpio_irq_setup(struct platform_device *pdev,
- 	priv->irq_chip.name = dev_name(dev);
- 	priv->irq_chip.irq_disable = brcmstb_gpio_irq_mask;
- 	priv->irq_chip.irq_mask = brcmstb_gpio_irq_mask;
-+	priv->irq_chip.irq_mask_ack = brcmstb_gpio_irq_mask_ack;
- 	priv->irq_chip.irq_unmask = brcmstb_gpio_irq_unmask;
- 	priv->irq_chip.irq_ack = brcmstb_gpio_irq_ack;
- 	priv->irq_chip.irq_set_type = brcmstb_gpio_irq_set_type;
--- 
-2.43.0
+Yes, good catch. I will fix that up in v2.
 
+Thanks,
+
+-- Sebastian
+
+--zckbwwqnfppx2fwi
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAml5OC8ACgkQ2O7X88g7
++poEWQ/+Px2Z+QDfvYva4Nx6YQX53SGZ5rb10Dyq8gZfaZ0jK2fV5/EADqsmV9kK
+PqTkajCE8T7S6VtsoaodMNlBNqJk4SkcGltYYW7op440nNaK4GG4s4eyWwluqiER
+F4U4X8vgNoOqhziacZOvgDtZeWPDwK9fVg1a9u8nlDBDpsXJusmnzmk0GMtd93Dg
+fPG2Dgi+gysuJvv52lm0/M47hgKH9jDhw8oDTBERlu/RLFsbjDuBQ4Q3Mfci75JK
+dVygcLJ+NNtNfVWpJWPtQ77eHTKSraZ+l90sJFKzj3+LBfTeU2lUqlxqU2AShEqE
+h579dBFVQXfaqnFmLPpxKtf1WF08/7cBLKtSugUuHHrNFQVzYpMy/LQpn/UXj1H+
+hEf5aRlVlHDIBaZcLjLvabN9ygVjgXtkdwjP1/0qQUVmQupQFOnmiInotZ+Hi0xG
+YhgOqJnGmB8AfYtnu95tGrBwGl9Cln4+q/Wvzr2kpQ+xPB6GZtq/vSCoMZ0ouROs
+UmkjUyMUYJ1R7Vy16O8p+Ip5te03mZydnfO9ROG8bBVL75bIUO5+nJHSU2PryhES
+OI2jw6JIQuHv0STZc8mnez5V51gwHgFClAegrgm7F/NN2096HhZmJ0062nm4OosA
+DMau/+v77SY6wLlB975j1bcGISNtkCBnR4LD8rrhw6L8cwq3Tnc=
+=T0r/
+-----END PGP SIGNATURE-----
+
+--zckbwwqnfppx2fwi--
 
