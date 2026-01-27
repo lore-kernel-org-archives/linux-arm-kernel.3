@@ -4,69 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE965D2FED2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 18:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F3CD2FED2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 18:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1e4oSHFrcFoT6MCe9M2loFr8ezu3DpCgZa4h2G9Bg+c=; b=DhOq2tHjwDBsaLt0wdQFsn/P3/
-	ipKHD+/TosTR6r5y29h3wsj+kOx0nUoHFJ4c5vn936YbCtzxw/uwBTc+mcm74YZRowCV0nsM7m/OH
-	KCUAAeP1gbHZJEsgMq8K/h7V3LzJ5ySWNX3DP+zGcubUFju5kZpPVynWCePIpLSEUAKE10HygtZDy
-	P/201LAr9QLT1z1KSVh+WlzuntPpfRuBM3cQZ+gjUI13d2uL5udjB2d4VpZddFDEh50jQl4Bzzsof
-	5096w5SgkDTnL+Q2Cs8dmuTlkYXhHXNbChupBQcYsp40+9WHPg53HOsodn9jy3BbupjEdfO1pn+fh
-	Yy3tAVTg==;
+	bh=9EsUegwYvh5X0cWkaY9RCge07+sCBL++7IVOrlemteE=; b=LVIxuHwFPgzDa1CQOnG4djYxc8
+	FSGlF4shvAqOa34tufFAHIDfIDUqv9s5MkhSJMoi6GtblVx/Xarm/arN7CQWX+U2ijbYLVr6amRJT
+	N+fCw6KUXWpJduZhwUFRzrScDUp7sGrXS7gFlMdPHesoP7aAkGfffK2ix9ITWIHS666xFt+TGuqlL
+	SIZIadUacHPFuMjwToxgXF+Dj+SYpN7KewzIiU6SUxCaNINK5ZEKtB1bvFT9i3i9GvqSyF3zAlhwy
+	vQV0vNPCxCcZ+JgX3QulSjmQcZq6bJdWTNHVwoMFLJFsO3R0Z1dHruV89fAlZRyFJ09PXBcvcFb6N
+	Yr1gcfOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vko5Y-0000000Eq9J-0aGI;
-	Tue, 27 Jan 2026 18:46:56 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vko5V-0000000Eq8Y-14gA
+	id 1vkoDw-0000000Er1T-2yFO;
+	Tue, 27 Jan 2026 18:55:36 +0000
+Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkoDu-0000000Er00-0Fhi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 18:46:54 +0000
-Received: from skinsburskii.localdomain (c-98-225-44-182.hsd1.wa.comcast.net [98.225.44.182])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 87A2D20B7165;
-	Tue, 27 Jan 2026 10:46:51 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 87A2D20B7165
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1769539612;
-	bh=1e4oSHFrcFoT6MCe9M2loFr8ezu3DpCgZa4h2G9Bg+c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KfA8t0ycPr0ZXVV61FD2wHGv1yA+vaVu70mo5o6KiWjFcAr+6XBmpjL8fPsaWPagS
-	 dTjjYbjChgBB8NMthtRP4QM/ttne2XxdMchgBZKeeF8Cwn1hxRNkEx3JK56tLSu8i/
-	 +rmmRqnHQgLPb7G0Q49P0YjegKtxxCjcCd9Laclw=
-Date: Tue, 27 Jan 2026 10:46:49 -0800
-From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-To: Mukesh R <mrathor@linux.microsoft.com>
-Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-pci@vger.kernel.org, linux-arch@vger.kernel.org,
-	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
-	decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com,
-	will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
-	nunodasneves@linux.microsoft.com, mhklinux@outlook.com,
-	romank@linux.microsoft.com
-Subject: Re: [PATCH v0 12/15] x86/hyperv: Implement hyperv virtual iommu
-Message-ID: <aXkIGfos4l0kv_lF@skinsburskii.localdomain>
-References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
- <20260120064230.3602565-13-mrathor@linux.microsoft.com>
- <aXAZ-r1PeUBAHwaK@skinsburskii.localdomain>
- <54fd73b9-ade6-f1bb-08fc-17571aeadb20@linux.microsoft.com>
- <aXeO7wh7bpacJ1Sk@skinsburskii.localdomain>
- <c40e6dc8-8e42-b0f3-f8e5-3c637adb7f13@linux.microsoft.com>
+	Tue, 27 Jan 2026 18:55:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=c0kx925A3Ia4MxTkuhsvTs/IKcy0nEy31i7FB+/DyYkTtEH9EtSy9gn1DzR48UUvvg8IUv839BMiOcAJzbmh6FFGunbp+ZtsTOQSZXfzl/Cmg56xujK132UNz07QH4u3CIZUCDkCzDwg9eP8dv8za4JFObni7bpA2ne11ozyNkJ2ZPIvxmvcV3nJfSPCcIC6h7GfSD7HvYWriEScexPMzyh2ynm3/zbNhVtEkwEQXBfgWOUct68/N7yineYyABgXTXOzVbY8JeJ6yrEVJ0A635PAAFj1nkWL7r4vpUi8BpEJqFilwqwIj/xRcqq/nrcMqLAy2HFGRj/LaHn0Am9XLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9EsUegwYvh5X0cWkaY9RCge07+sCBL++7IVOrlemteE=;
+ b=AWWNgCWBZZCNuU7byFNbK6j63etl14oorK1RZcAsd7OKxYrHf9T6+3CeA/qcBb9BtaYGDJFPi2+rArHPoRAIpEp8LgdEVU29JhKzDJJwj5+ax6MPXIxE39FKzY0HJmkTHAysA588Hgna933cmFeqnqvg5FfAe59YvUax4T5BZE/zyeYe29/IQy1hVGUxVPfGvJZLgNjHt20i7dahTCLHUkq+CqVVOCfkpPkkYVmVWdg8TAgP+ESvOtooI3dWjM5wJNVZQrdm0TrzYLOkT1Q7gf8flJ7wYVKbL+FzgYd9WHVeNPxqFCVv8aqIxfNjaGh1agVMiUEfiTZm5IMn6Nk2JA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9EsUegwYvh5X0cWkaY9RCge07+sCBL++7IVOrlemteE=;
+ b=RAqbfJIA9iRP9TUImth60gFLAKB6Jv8bitn7OQhSuXWCK8yLFI6sTGiH96PuJSPHos45D0ITp63VfznDdU+ZHzm6ZvTEWeJKBo+DSB6RsRqEEkrZdwG3psbzgHjOqpu4p+t1sDs3NpqvNkZAn+8UaoRqJLNlzwjZXhCrdA/QKW2ir4H1pgFSaHdCV0J8HtopJAmIZFZW/Sj+a/zv2qcLjNyHBxF0YM3nQw6B+rewA2sqTVSsQLcCSxfOOpqCyNkLFrjClzP0UJKQ8pqCr8oV5NSKw/WLNEECXRe2O0iXXWJh7ZzyteD6WH6dCd+2uP612zWuRj2zuJpkIURUggrPIA==
+Received: from SJ0PR05CA0153.namprd05.prod.outlook.com (2603:10b6:a03:339::8)
+ by CH3PR12MB8210.namprd12.prod.outlook.com (2603:10b6:610:129::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Tue, 27 Jan
+ 2026 18:55:27 +0000
+Received: from SJ1PEPF00002321.namprd03.prod.outlook.com
+ (2603:10b6:a03:339:cafe::99) by SJ0PR05CA0153.outlook.office365.com
+ (2603:10b6:a03:339::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.7 via Frontend Transport; Tue,
+ 27 Jan 2026 18:55:23 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SJ1PEPF00002321.mail.protection.outlook.com (10.167.242.91) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.3 via Frontend Transport; Tue, 27 Jan 2026 18:55:26 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 27 Jan
+ 2026 10:55:09 -0800
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 27 Jan
+ 2026 10:55:08 -0800
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.14) by mail.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Tue, 27 Jan 2026 10:55:07 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <will@kernel.org>
+CC: <jean-philippe@linaro.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<jgg@nvidia.com>, <balbirs@nvidia.com>, <miko.lenczewski@arm.com>,
+	<peterz@infradead.org>, <kevin.tian@intel.com>, <praan@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH v11 3/8] iommu/arm-smmu-v3: Add an inline arm_smmu_domain_free()
+Date: Tue, 27 Jan 2026 10:54:55 -0800
+Message-ID: <7e0e6c59e2cdcbdb9eeab642e878749dc6468807.1769539310.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1769539310.git.nicolinc@nvidia.com>
+References: <cover.1769539310.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c40e6dc8-8e42-b0f3-f8e5-3c637adb7f13@linux.microsoft.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002321:EE_|CH3PR12MB8210:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0864eae8-7352-4a08-0e48-08de5dd5a282
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?J08BWCBTvn4E0iy8oaf/JsPrHrwzrMG0uUDLSghnAHxTNqYyIG9L9ZRdzB/F?=
+ =?us-ascii?Q?N64bfX4jWTwBR4SZiEu0zq7+LE1BmukcvPXD6Em6HNDzPBzkgtaP8r7edATC?=
+ =?us-ascii?Q?O2ziwKv9a+1zGUBvxZ5R+fIDZnEv60n4TA41UKG4h5b/Q4zwW1wyL/IJ5bkN?=
+ =?us-ascii?Q?yaysfwpAipEtGpUPchBzPWqxbvIylFEpshvZcbEDZs4cxJ0ZDWjfIWK46LaS?=
+ =?us-ascii?Q?n9OEjanxQlMAiZOPkgMBVNZPy9akJKt8Q3a9QfdGw+nqz/6b0wDg1KM5NMaA?=
+ =?us-ascii?Q?S29KtNju1D+1ywLVO6vS/cCe/5fp3wQrQAtbiq4ZkNbjirDE/ebQXgk2Jml7?=
+ =?us-ascii?Q?m8GWP1A6ZhcUQxpoTUZTEnPXTMbBsU50Mszba8wfSZmyudjVkYjj25zC+rq+?=
+ =?us-ascii?Q?IucQxJlVfcCGr9ScmpbGi3v2WvJn4EsEaV/AahQZLn30FF/i0/IiBACOwLzL?=
+ =?us-ascii?Q?qtdtoYHuQOydDM28+wr97HDGmcqInHeOSzHD6iXK0y1o5s1kEnm4HcJkzX00?=
+ =?us-ascii?Q?VDk1QegSII11l7+zOlDSIF7SjjLX3dDRgsp6kLmsx3xxMK/FaXy+S/dl4PBY?=
+ =?us-ascii?Q?A8bTAO+jHqhkxh8PpSd6mrhFfqXcJflKTaUc5I9v0xpRCKNX2HAVMW6KVZ8M?=
+ =?us-ascii?Q?9PoZMpEYDiheGjpb+/DnnCqN0oaV7ynIy3Pn4DXfJemRLcr+KdpleE1OqUTf?=
+ =?us-ascii?Q?+x8A5dz0lyFSYhx/PRHejyx8whQDM0ZPmOybMNKA8Gf85DsKLlldObsOnOwB?=
+ =?us-ascii?Q?poXiTOpfU2GtnuXHEZ9ZlsZTGhxAFlI2FdaI0pXNWsG5BnHIpm0coRgQaeWA?=
+ =?us-ascii?Q?H1I3XYDq7Hw0hUr/Qf3XPaKb9iD4f8w0Nm4xs89m7HLRQQChgyHJM5Ts/IIR?=
+ =?us-ascii?Q?u6HNyKh3N7Gx2hFiyo0cUE+0VRPicAuNG/qXjnkDx3ON+Z1i1lhfRM4VsZ2y?=
+ =?us-ascii?Q?WHHymdZYBbrsjN9UwyyRnrjCFP6+9OMBvWLlz44VLrEtYZcGC8WISgTM5uLf?=
+ =?us-ascii?Q?g85thJOQSWOAgmeZaKJl/uMj5qG13wPe7yPg1TLzow0QaQ9BLEve+W2hWYZ2?=
+ =?us-ascii?Q?Kh/2m26BFpXMe6GjoJBcpyJPjVi8InC3SSN0DtiBWTslaGM9E5sawyVR+MyK?=
+ =?us-ascii?Q?ZF8gpPaokX8MfBZixbSHq4D12kEV5KPvj1dvUUQ1v42uvKTTfH2YjlLipKXf?=
+ =?us-ascii?Q?8SAuQzmN5Ct+8RcaG4TA8uvARRaZzIReuPphvn0PfWhRejKLCwCWylLlY/1y?=
+ =?us-ascii?Q?ZRLa2t2GfXOdbySUsKhp6EnQhx26w1OrWOyev2dzQqSfPdYkL7DwPA9fpQSk?=
+ =?us-ascii?Q?ow2SHwwqo6FF4y5gqRwqdfUj9eAcyGN3eYGeUiKmNjya9wjSFb2Y8iuLxq3o?=
+ =?us-ascii?Q?u22SpBFJv+W9cyc3E/BAfmcyQM/8veujHHuyLe74ZU6kgxiNj8y8FEwPiy6t?=
+ =?us-ascii?Q?VxcY48P7IPzHrsu9or/JwGhBDKGycclUIsQar/zYx7urWfvPhUFOiXngNxgu?=
+ =?us-ascii?Q?PUPhxGx76sWclhC1Yweq4Tlr+2ei6qzLM3zB/O17ul5CW7YcBFViiYVTDKmf?=
+ =?us-ascii?Q?iSuieftlENIlM5XIu32aV2Ardri0DjXH8cvOWAp7qVObVY9eJQpmqsk5zZL8?=
+ =?us-ascii?Q?pzk+JE8Uc/dwEFmmCUCs7BviDO3jR9TRzNtpoKwvwnM1k66AYvm/nw+JfGje?=
+ =?us-ascii?Q?c+stFg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jan 2026 18:55:26.8716
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0864eae8-7352-4a08-0e48-08de5dd5a282
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002321.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8210
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_104653_325317_F7334508 
-X-CRM114-Status: GOOD (  36.65  )
+X-CRM114-CacheID: sfid-20260127_105534_094630_5E714758 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,101 +155,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 07:02:29PM -0800, Mukesh R wrote:
-> On 1/26/26 07:57, Stanislav Kinsburskii wrote:
-> > On Fri, Jan 23, 2026 at 05:26:19PM -0800, Mukesh R wrote:
-> > > On 1/20/26 16:12, Stanislav Kinsburskii wrote:
-> > > > On Mon, Jan 19, 2026 at 10:42:27PM -0800, Mukesh R wrote:
-> > > > > From: Mukesh Rathor <mrathor@linux.microsoft.com>
-> > > > > 
-> > > > > Add a new file to implement management of device domains, mapping and
-> > > > > unmapping of iommu memory, and other iommu_ops to fit within the VFIO
-> > > > > framework for PCI passthru on Hyper-V running Linux as root or L1VH
-> > > > > parent. This also implements direct attach mechanism for PCI passthru,
-> > > > > and it is also made to work within the VFIO framework.
-> > > > > 
-> > > > > At a high level, during boot the hypervisor creates a default identity
-> > > > > domain and attaches all devices to it. This nicely maps to Linux iommu
-> > > > > subsystem IOMMU_DOMAIN_IDENTITY domain. As a result, Linux does not
-> > > > > need to explicitly ask Hyper-V to attach devices and do maps/unmaps
-> > > > > during boot. As mentioned previously, Hyper-V supports two ways to do
-> > > > > PCI passthru:
-> > > > > 
-> > > > >     1. Device Domain: root must create a device domain in the hypervisor,
-> > > > >        and do map/unmap hypercalls for mapping and unmapping guest RAM.
-> > > > >        All hypervisor communications use device id of type PCI for
-> > > > >        identifying and referencing the device.
-> > > > > 
-> > > > >     2. Direct Attach: the hypervisor will simply use the guest's HW
-> > > > >        page table for mappings, thus the host need not do map/unmap
-> > > > >        device memory hypercalls. As such, direct attach passthru setup
-> > > > >        during guest boot is extremely fast. A direct attached device
-> > > > >        must be referenced via logical device id and not via the PCI
-> > > > >        device id.
-> > > > > 
-> > > > > At present, L1VH root/parent only supports direct attaches. Also direct
-> > > > > attach is default in non-L1VH cases because there are some significant
-> > > > > performance issues with device domain implementation currently for guests
-> > > > > with higher RAM (say more than 8GB), and that unfortunately cannot be
-> > > > > addressed in the short term.
-> > > > > 
-> > > > 
-> > > > <snip>
-> > > > 
-> > 
-> > <snip>
-> > 
-> > > > > +static void hv_iommu_detach_dev(struct iommu_domain *immdom, struct device *dev)
-> > > > > +{
-> > > > > +	struct pci_dev *pdev;
-> > > > > +	struct hv_domain *hvdom = to_hv_domain(immdom);
-> > > > > +
-> > > > > +	/* See the attach function, only PCI devices for now */
-> > > > > +	if (!dev_is_pci(dev))
-> > > > > +		return;
-> > > > > +
-> > > > > +	if (hvdom->num_attchd == 0)
-> > > > > +		pr_warn("Hyper-V: num_attchd is zero (%s)\n", dev_name(dev));
-> > > > > +
-> > > > > +	pdev = to_pci_dev(dev);
-> > > > > +
-> > > > > +	if (hvdom->attached_dom) {
-> > > > > +		hv_iommu_det_dev_from_guest(hvdom, pdev);
-> > > > > +
-> > > > > +		/* Do not reset attached_dom, hv_iommu_unmap_pages happens
-> > > > > +		 * next.
-> > > > > +		 */
-> > > > > +	} else {
-> > > > > +		hv_iommu_det_dev_from_dom(hvdom, pdev);
-> > > > > +	}
-> > > > > +
-> > > > > +	hvdom->num_attchd--;
-> > > > 
-> > > > Shouldn't this be modified iff the detach succeeded?
-> > > 
-> > > We want to still free the domain and not let it get stuck. The purpose
-> > > is more to make sure detach was called before domain free.
-> > > 
-> > 
-> > How can one debug subseqent errors if num_attchd is decremented
-> > unconditionally? In reality the device is left attached, but the related
-> > kernel metadata is gone.
-> 
-> Error is printed in case of failed detach. If there is panic, at least
-> you can get some info about the device. Metadata in hypervisor is
-> around if failed.
-> 
+There will be a bit more things to free than smmu_domain itself. So keep a
+simple inline function in the header to share aross files.
 
-With this approach the only thing left is a kernel message.
-But if the state is kept intact, one could collect a kernel core and
-analyze it.
+Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Acked-by: Balbir Singh <balbirs@nvidia.com>
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 5 +++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 5 +++--
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 4 ++--
+ 3 files changed, 10 insertions(+), 4 deletions(-)
 
-And note, that there won't be a hypervisor core by default: our main
-context with the usptreamed version of the driver is L1VH and a kernel
-core is the only thing a third party customer can provide for our
-analysis.
-
-Thanks,
-Stanislav
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index 24894b163004..cfbedb76c8ba 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -956,6 +956,11 @@ extern struct mutex arm_smmu_asid_lock;
+ 
+ struct arm_smmu_domain *arm_smmu_domain_alloc(void);
+ 
++static inline void arm_smmu_domain_free(struct arm_smmu_domain *smmu_domain)
++{
++	kfree(smmu_domain);
++}
++
+ void arm_smmu_clear_cd(struct arm_smmu_master *master, ioasid_t ssid);
+ struct arm_smmu_cd *arm_smmu_get_cd_ptr(struct arm_smmu_master *master,
+ 					u32 ssid);
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+index 6097f1f540d8..440ad8cc07de 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+@@ -197,7 +197,8 @@ static void arm_smmu_mm_release(struct mmu_notifier *mn, struct mm_struct *mm)
+ 
+ static void arm_smmu_mmu_notifier_free(struct mmu_notifier *mn)
+ {
+-	kfree(container_of(mn, struct arm_smmu_domain, mmu_notifier));
++	arm_smmu_domain_free(
++		container_of(mn, struct arm_smmu_domain, mmu_notifier));
+ }
+ 
+ static const struct mmu_notifier_ops arm_smmu_mmu_notifier_ops = {
+@@ -365,6 +366,6 @@ struct iommu_domain *arm_smmu_sva_domain_alloc(struct device *dev,
+ err_asid:
+ 	xa_erase(&arm_smmu_asid_xa, smmu_domain->cd.asid);
+ err_free:
+-	kfree(smmu_domain);
++	arm_smmu_domain_free(smmu_domain);
+ 	return ERR_PTR(ret);
+ }
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index a55f9ae95411..6beffa8e7c74 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -2560,7 +2560,7 @@ static void arm_smmu_domain_free_paging(struct iommu_domain *domain)
+ 			ida_free(&smmu->vmid_map, cfg->vmid);
+ 	}
+ 
+-	kfree(smmu_domain);
++	arm_smmu_domain_free(smmu_domain);
+ }
+ 
+ static int arm_smmu_domain_finalise_s1(struct arm_smmu_device *smmu,
+@@ -3427,7 +3427,7 @@ arm_smmu_domain_alloc_paging_flags(struct device *dev, u32 flags,
+ 	return &smmu_domain->domain;
+ 
+ err_free:
+-	kfree(smmu_domain);
++	arm_smmu_domain_free(smmu_domain);
+ 	return ERR_PTR(ret);
+ }
+ 
+-- 
+2.43.0
 
 
