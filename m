@@ -4,57 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80AEED2FEDF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 21:10:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABB92D2FEDF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 21:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=06zlAZa7hbk9CvagUK6jhYkK9NnVqMe4ifEML7jt2/8=; b=lAFD6ntuBtHq6o0saoJ46upVPk
-	z0hcBVyIcFlxxZvJNJ8Akznkuxlu4myewzu0iQlNmzfOcaQvTql3AkWJa+kZjzcD+4R/iTOomf2N2
-	xIq8dPHKtbPp2i3yqm/z2bsZLt51Goq7K6EaxMLjg5WC7eqy7baH3b6jRTZ7RwbAfChS4FDSnnxjZ
-	G2pk1tE5uYMcRdaI3yL9ZbHI8i3uI0lrRPgdUd7FccWvLiy+ybJu/u9Ed44XZA0sQPNAeu08dluUh
-	IN8IHrQ3SM9WU+bRB9RO5Hqc/zFPzt1QL9E/Ycoq1uG1X/OXmQMS0MLczWLRRFzVQH/G4ve0rosMe
-	k9yLkG3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8uFl3oKDfdgDVsrVPaUfSdATDprU9YfXfQFaxta9O1U=; b=G6oM5fKms3i0FbcVzOaZsnzeSF
+	dlXZEWU7JqWpD0CMhKQ+imHNKgVXPY0PiRYu9Qi1cjCFUuTHC6gDFV9m/4HajfrTx/+iPpifUdA5s
+	ZoSalQfXfTA8kH49Nk0V+48HcqQMNmk0tMUS+YDulekle0e13nBQ6qC1RY2Ip3iiWGplrnNk17Rcv
+	hEKHjASqD18mzwXLj55FCkPHfo9wOPPi/Vq8WObJxIvakY6kvw3OCFPMfDuND2xdYj4/3ZqO6NKzZ
+	KbTYrrnAFmYWuCY0ZsdKRiwcXIMh26n2sJ08qBY2LAqtycDFyaASgcYt5ax1NK6jvGHqshVgQp7f/
+	vH/Kh2ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkqKE-0000000F39r-3KuC;
-	Tue, 27 Jan 2026 21:10:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vkqX4-0000000F3pk-0Rfg;
+	Tue, 27 Jan 2026 21:23:30 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkqKD-0000000F39i-2v7p
+	id 1vkqX1-0000000F3pM-3mJc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 21:10:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 793BC601E6;
-	Tue, 27 Jan 2026 21:10:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D20AFC116C6;
-	Tue, 27 Jan 2026 21:10:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1769548212;
-	bh=bEhhEMYTusyoE3Pt2j/yJCfV/O/oj7aLwzklTeebDOk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=0U5TKjCQFQYaM9JwOuHCeADxxD2gPIFZovPeFnK/yXYIMTVhEPaIO64M/LzyWCbJw
-	 5vCSIMRHJRW8NyvmqLgzWB3vnL0UcUUeiObBVLyCWfFwbFO9/dTVJIZub47DgV7vSD
-	 wa62q3FjRc6stXkFkGwjNybjSGYucV3utpJ6HcbY=
-Date: Tue, 27 Jan 2026 13:10:11 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Jinjiang Tu <tujinjiang@huawei.com>
-Cc: <david@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
- <zengheng4@huawei.com>, <ryan.roberts@arm.com>,
- <anshuman.khandual@arm.com>, <wangkefeng.wang@huawei.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>
-Subject: Re: [PATCH v2] arm64: mm: fix pass user prot to ioremap_prot in
- generic_access_phys
-Message-Id: <20260127131011.e33438112280b49a018c758c@linux-foundation.org>
-In-Reply-To: <20260127090129.412084-1-tujinjiang@huawei.com>
-References: <20260127090129.412084-1-tujinjiang@huawei.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	Tue, 27 Jan 2026 21:23:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769549008; x=1801085008;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=j/bEiAaLxiyNGE+l2ZoC6cQsleLGLQuu/EyYdye+BFM=;
+  b=CGpg3HiDjYO8InReeue4V0rNVONS4CbeDzs06wi8dH1nOSq1LBEb+ol/
+   ufwPR6fs8FV4zt/4SPt3HjYTlY6pBLL2C6vxwoZlEVJlEtk+Ey6chtVlp
+   XMP1iDjLY5QcGwPmRAh0qK0nLXXtVtR2gLujUrfYipFJ8ECBPeXyehPOx
+   IeO3E8FPUbaEKW3UmJeL4wI3TT+Dvq8IPQet6Ql5o5VrzVxPBlCwqLN5Z
+   mnofkUwrMTMjkXowVZ5nu7O93FKvZQNNt3cSnNvhwLmXiwdSNOgAquUZU
+   3zb0g260OIHGAMZ9abeFjP9UmapSo0GQjJRTScOfiV8r1acX6fS5e2uBI
+   Q==;
+X-CSE-ConnectionGUID: k9iWt2K4RpKp2VT4tUYDlQ==
+X-CSE-MsgGUID: h9+M5mNTTJybmAbDzUirKA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="74380483"
+X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
+   d="scan'208";a="74380483"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 13:23:26 -0800
+X-CSE-ConnectionGUID: U0rKPD/dRZal4lvLbz2Yxg==
+X-CSE-MsgGUID: JKAPTkMgQF+hD+HkK1dkYA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
+   d="scan'208";a="212628840"
+Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.245.248])
+  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 13:23:23 -0800
+Date: Tue, 27 Jan 2026 23:23:20 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: abdurrahman@nexthop.ai
+Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, info@mocean-labs.com,
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v6 0/7] i2c: xiic: use generic device property accessors
+Message-ID: <aXksyEkisTZdiByx@smile.fi.intel.com>
+References: <20260127-i2c-xiic-v6-0-e82e2f6f657c@nexthop.ai>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260127-i2c-xiic-v6-0-e82e2f6f657c@nexthop.ai>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260127_132328_010209_6DE9EF37 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,21 +89,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 27 Jan 2026 17:01:29 +0800 Jinjiang Tu <tujinjiang@huawei.com> wrote:
-
-> The root cause is that generic_access_phys() passes a user pte to
-> ioremap_prot(), the user pte sets PTE_USER and PTE_NG bits.  Consequently,
-> any subsequent kernel-mode access to the remapped address raises a fault.
+On Tue, Jan 27, 2026 at 09:03:54PM +0000, Abdurrahman Hussain via B4 Relay wrote:
+> Switch to generic device property accessors.
 > 
-> To fix it, define arch_mk_kernel_prot() to convert user prot to kernel
-> prot for arm64, and call arch_mk_kernel_prot() in generic_access_phys(),
-> so that a user prot is passed to ioremap_prot().
+> Switch to managed devm_ functions to simplify error handling.
+> 
+> Make the clock optional since the driver is designed to operate without
+> explicit configuration in firmware thus making it useful on platforms
+> where clock is not or cannot be provided.
 
-MM changes are Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
+Why the heck you ignored my tags?!
 
-Thanks.  I assume the arm maintainers will process this.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-> Fixes: 893dea9ccd08 ("arm64: Add HAVE_IOREMAP_PROT support")
 
-huh, three years.
 
