@@ -4,93 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65198D2F031
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 13:57:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D02A5D2F031
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 13:58:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=75PQCFMMISya6miWyFTo5NFlD+yMTmEC4MBoTSgZA6E=; b=wxbJvrBV5oWMkbiLpGarhvm17O
-	G/GVmlPzCTXAjmLsUKUW8N8n38qLRX96wl+fxWj4yqUbQtny7HQefcZy5Y6IJdSeSiO1P3YblPp0u
-	RXQTGU7SvwQuE0nz0GvFvzEnLACWxY5P+bBe5vW7JfZhSuiik0rXGjkVeP1K1DRiU0iX5doLOH2Ed
-	YUiRe90YCY8fGIEjP1GBc1EGLX41zORlZ7CDNkbKhh0Y9iRflKJUUQqMWjYjG696gi+cMS6kKUUoy
-	cJpxGZSWPuFj9YHWY8K1Rbxa4jqYBIvv3q65qR2lT7/2/L+pg2J8ai/ptZhksMXrycREPLvFSBpyg
-	qILRR2OQ==;
+	bh=n++yDm7ssI9or4aRbyQsKwBqgsEaJvYdqeRPo39ZTIY=; b=CrE08PQeO8T2bad6GIxqNaae4R
+	hWnqZjYeBByk9ggpvhlilpdB6hW9Q0tuN8JfgF/Qj+MI0SZpMAmP3ySKl2AEUB68oKF26cOTFsUz1
+	euZC/r6irjYjDUXVy2uW2ANrv5lLJIXj9Jd8XGk45OSgU/ZJ2yIMlRilNS4jhMTWxwako/57vOXtr
+	wg/Uno+K10obuH87kFWgstMDdouwuSoVtja+JOatY4pq2wZBNtBOlPTWumYpjBpec3iJIvjcuDAO3
+	tu5QFGe3XBO1TAAU/3LIph8pSHAx62VDN0zS5JWpi1oG/DRN6mk5VGxovI9FKIkxto/lcKggiOIvL
+	nDkYU0dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkjZR-0000000ELTU-44FV;
-	Tue, 27 Jan 2026 13:57:29 +0000
-Received: from mail-vk1-f171.google.com ([209.85.221.171])
+	id 1vkjaS-0000000ELnM-3Ic7;
+	Tue, 27 Jan 2026 13:58:32 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkjZP-0000000ELSr-1XFB
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 13:57:29 +0000
-Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-5635f3eff8aso1277605e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 05:57:26 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769522246; x=1770127046;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=75PQCFMMISya6miWyFTo5NFlD+yMTmEC4MBoTSgZA6E=;
-        b=KQHtn2BUQmkmcLurwdcm9NjVq29clDw3WqTgGD0Ibpetj+XL5ui4cuIYasRFWFNF31
-         TmE/EKs229niPSBptCDdOVTpP8YiOa0tg2I8RhE+5Tq4EWyi9LMW3bn80ulqpZr52lad
-         ox/R4PDKwElBYMjQ/w+rjkUFcMGH2OyWrUdxsHdizDmcWybSGjdHnvxZvg77caYguB2R
-         pOzb6u9p8qESEIv1i0mtY0a+r2plaldStk5OrqRmQ7/Qf2BOVtPWvatdb6brJqYYRKzi
-         UKGG2W+V62uV+y4gBqdlSnEFyjVGqIfuHp9wQW/7siRLC6i7fk/hVR+SElmkSTJodBDO
-         cKEw==
-X-Forwarded-Encrypted: i=1; AJvYcCWR/ZuRt7Uzq7QEvKKdwByo1065FXNFPQzBWNFxE4aIN2GSzeOAgqQWwbDdFoBMv/OUS4d6xNOv76D1uWHfHIbw@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpZqKAjQoeI0hWndo+nE3d3SqIgekBgXieRKF28tQlH5R1DGmv
-	PtvulXOv66jNHCpvxiHahEa95B3qIJgyMmhbOoL8FNrylqyWas1hUySM5uvSA0fW
-X-Gm-Gg: AZuq6aKN0V6almCEtLXU+skiqWneNNvQdjGk4i75dTVDFm71zmA5wwO7a33UYJObZ3s
-	dQhq0FgoFDg1VPARHX33xuOV5FGZ6VpIPlDTwpoBtArFTFClDrQjrbwRWdT20f1sgZZrG4c6I2g
-	2WQ1zHiU9nY+jFCkj9KIktkCBz05LdmXetlkIfHD1jxffVR2FM2sz5M8RlEvwqZmu5mJa/1DXfp
-	fgFUIcKFL/6v7XIZGRA44511QKWRpLBDhJ3wXd4U5UjhfOpfaNuqAXcBD5d+3ZkhTRi8pBhhWz+
-	yGwWVAZQfaSphIyBumDnwnEP+9TWQn01PVnYpLLmcSxLCcFxfNxyRyvZNrUpD9TqFLLULGfAs8S
-	yuiKQi7ewioDYXW0u2DWZa2ZY6oUdg24abJdK/iZ4DrNo75zHKsSUiMRHS9o2INIuaH5NmjK6Zr
-	yhAK8w0ouH/6+dGjKqGSmV1NEC6v1dR/5vyDU33p9WqIZqKYCxg4QLaLGkonhOrag=
-X-Received: by 2002:a05:6122:8c12:b0:559:5dbe:fe29 with SMTP id 71dfb90a1353d-566794c400cmr411183e0c.2.1769522245324;
-        Tue, 27 Jan 2026 05:57:25 -0800 (PST)
-Received: from mail-vk1-f170.google.com (mail-vk1-f170.google.com. [209.85.221.170])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5663fa632e3sm2272441e0c.4.2026.01.27.05.57.24
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 Jan 2026 05:57:24 -0800 (PST)
-Received: by mail-vk1-f170.google.com with SMTP id 71dfb90a1353d-56638fca064so1417599e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 05:57:24 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXNDlm5QyAHoCOY9ImCs7PXUB8leNiUG2e1A7TDPGyWP0uk1GJm6nezURLBtJqxsCAuNcn+AwHstOT9qCXE6bXS@lists.infradead.org
-X-Received: by 2002:a05:6122:78b:b0:563:8339:6201 with SMTP id
- 71dfb90a1353d-566795e7f59mr418577e0c.17.1769522244153; Tue, 27 Jan 2026
- 05:57:24 -0800 (PST)
+	id 1vkjaL-0000000ELkO-1xmI;
+	Tue, 27 Jan 2026 13:58:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769522305; x=1801058305;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version:content-transfer-encoding;
+  bh=og59pwZnyOqe7PNgzDbUl3i3pkVIgIempTHbdxTELvk=;
+  b=KVc1UpHbtCBQ5eY+dMTxHSTCLs+H4VENdPD9mM2OdP0fOW3FUpggJxg8
+   RULsiPBAaPhg8Ppzji3V1h6sXEfFOdSsW70ryJbKVlk0+/EkPd9L4tcW1
+   aDGt5hC8jac42cTtUx+IoUGQY21W9uXCM0tkc/TbYgrAjrictWZgsMsSa
+   fghts4ANmDhmN1wWeychArAL/4Y4BberOy76zYkGg8+83JLhYD3RQY/Ki
+   Krru2aMEV9PRwb7+EFleKm+Ye3i5qVX+bu5DRHX4eSfj8+2k6b7Waep0p
+   5pY60Zo2SlmUMSclapcN2a4ICo6Aw0ZOiDGRMEw3QjEqoj4M91/8tNGBx
+   A==;
+X-CSE-ConnectionGUID: btez0BeATFuZYtAHw4xPVg==
+X-CSE-MsgGUID: MzGkm4iAQeKB3iBOworFcQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="73302725"
+X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
+   d="scan'208";a="73302725"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 05:58:22 -0800
+X-CSE-ConnectionGUID: BCzws0wPRNOMRGWv4OMbDg==
+X-CSE-MsgGUID: 9fMvMzQpQUu7qdSrTcjCXw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
+   d="scan'208";a="207876830"
+Received: from mjarzebo-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.246.148])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 05:58:16 -0800
+From: Jani Nikula <jani.nikula@linux.intel.com>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>, Heiko
+ =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan
+ <andy.yan@rock-chips.com>, Louis
+ Chauvet <louis.chauvet@bootlin.com>, Haneen Mohammed
+ <hamohammed.sa@gmail.com>, Melissa Wen <melissa.srw@gmail.com>
+Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ =?utf-8?Q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>,
+ Diederik de Haas
+ <diederik@cknow-tech.com>, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>
+Subject: Re: [PATCH v5 1/4] uapi: Provide DIV_ROUND_CLOSEST()
+In-Reply-To: <20260127-rk3588-bgcolor-v5-1-b25aa8613211@collabora.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
+ 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
+References: <20260127-rk3588-bgcolor-v5-0-b25aa8613211@collabora.com>
+ <20260127-rk3588-bgcolor-v5-1-b25aa8613211@collabora.com>
+Date: Tue, 27 Jan 2026 15:58:13 +0200
+Message-ID: <baf075b2370a13cddd597a3d421b5f39290d87a4@intel.com>
 MIME-Version: 1.0
-References: <20260126172503.238724-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <aXeuR_YLoAFYEAVi@shell.armlinux.org.uk> <CA+V-a8t5RKY9vyFDg0V3AWcBovBdWbcvqdPeiPYmHRA8v2=UGQ@mail.gmail.com>
-In-Reply-To: <CA+V-a8t5RKY9vyFDg0V3AWcBovBdWbcvqdPeiPYmHRA8v2=UGQ@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 27 Jan 2026 14:57:13 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXOMMyYrbPr8H3O+oj7QeGg324jXdV1QUaUhQF4sxTyfg@mail.gmail.com>
-X-Gm-Features: AZwV_QgbBo9gCTeM_9WEMxs9EnfZIFfAoe0fWXmaoPkXJK4PoXh0OCn_st1Xl0A
-Message-ID: <CAMuHMdXOMMyYrbPr8H3O+oj7QeGg324jXdV1QUaUhQF4sxTyfg@mail.gmail.com>
-Subject: Re: [RFC PATCH net-next] net: stmmac: Preserve bootloader MAC address
- across unconditional reset
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Geert Uytterhoeven <geert+renesas@glider.be>, netdev@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_055727_415271_631CB0B3 
-X-CRM114-Status: GOOD (  21.27  )
+X-CRM114-CacheID: sfid-20260127_055825_681393_AF923F81 
+X-CRM114-Status: GOOD (  19.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,40 +97,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Prabhakar,
+On Tue, 27 Jan 2026, Cristian Ciocaltea <cristian.ciocaltea@collabora.com> =
+wrote:
+> Currently DIV_ROUND_CLOSEST() is only available for the kernel via
+> include/linux/math.h.
+>
+> Expose it to userland as well by adding __KERNEL_DIV_ROUND_CLOSEST() as
+> a common definition in uapi.
+>
+> Additionally, ensure it allows building ISO C applications by switching
+> from the 'typeof' GNU extension to the ISO-friendly __typeof__.
 
-On Tue, 27 Jan 2026 at 14:39, Lad, Prabhakar <prabhakar.csengg@gmail.com> w=
-rote:
-> On Mon, Jan 26, 2026 at 6:11=E2=80=AFPM Russell King (Oracle)
-> <linux@armlinux.org.uk> wrote:
-> > On Mon, Jan 26, 2026 at 05:25:03PM +0000, Prabhakar wrote:
-> > where "local-mac-address" states the MAC address to be used for eth0,
-> > as specified by the boot loader.
-> >
-> Thanks for the pointer, I will use the above-mentioned method with
-> which we won't be needing this patch on the RZ/T2H platform.
+I am not convinced that it's a good idea to make the implementation of
+kernel DIV_ROUND_CLOSEST() part of the kernel UAPI, which is what this
+change effectively does.
 
-This should already work out-of-the-box, as
-arch/arm64/boot/dts/renesas/rzt2h-n2h-evk-common.dtsi already has:
+I'd at least like to get an ack from Andy Shevchenko first (Cc'd).
 
-    aliases {
-            ethernet3 =3D &gmac1;
-            ethernet2 =3D &gmac2;
 
-So just make sure to set the "eth2addr" and "eth3addr" environment
-variables in U-Boot.
+BR,
+Jani.
 
-Gr{oetje,eeting}s,
-
-                        Geert
+> Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
+> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+>  include/linux/math.h       | 18 +-----------------
+>  include/uapi/linux/const.h | 17 +++++++++++++++++
+>  2 files changed, 18 insertions(+), 17 deletions(-)
+>
+> diff --git a/include/linux/math.h b/include/linux/math.h
+> index 6dc1d1d32fbc..1e8fb3efbc8c 100644
+> --- a/include/linux/math.h
+> +++ b/include/linux/math.h
+> @@ -89,23 +89,7 @@
+>  }							\
+>  )
+>=20=20
+> -/*
+> - * Divide positive or negative dividend by positive or negative divisor
+> - * and round to closest integer. Result is undefined for negative
+> - * divisors if the dividend variable type is unsigned and for negative
+> - * dividends if the divisor variable type is unsigned.
+> - */
+> -#define DIV_ROUND_CLOSEST(x, divisor)(			\
+> -{							\
+> -	typeof(x) __x =3D x;				\
+> -	typeof(divisor) __d =3D divisor;			\
+> -	(((typeof(x))-1) > 0 ||				\
+> -	 ((typeof(divisor))-1) > 0 ||			\
+> -	 (((__x) > 0) =3D=3D ((__d) > 0))) ?		\
+> -		(((__x) + ((__d) / 2)) / (__d)) :	\
+> -		(((__x) - ((__d) / 2)) / (__d));	\
+> -}							\
+> -)
+> +#define DIV_ROUND_CLOSEST __KERNEL_DIV_ROUND_CLOSEST
+>  /*
+>   * Same as above but for u64 dividends. divisor must be a 32-bit
+>   * number.
+> diff --git a/include/uapi/linux/const.h b/include/uapi/linux/const.h
+> index b8f629ef135f..471877322f47 100644
+> --- a/include/uapi/linux/const.h
+> +++ b/include/uapi/linux/const.h
+> @@ -50,4 +50,21 @@
+>=20=20
+>  #define __KERNEL_DIV_ROUND_UP(n, d) (((n) + (d) - 1) / (d))
+>=20=20
+> +/*
+> + * Divide positive or negative dividend by positive or negative divisor
+> + * and round to closest integer. Result is undefined for negative
+> + * divisors if the dividend variable type is unsigned and for negative
+> + * dividends if the divisor variable type is unsigned.
+> + */
+> +#define __KERNEL_DIV_ROUND_CLOSEST(x, divisor)(		\
+> +{							\
+> +	__typeof__(x) __x =3D x;				\
+> +	__typeof__(divisor) __d =3D divisor;		\
+> +	(((__typeof__(x))-1) > 0 ||			\
+> +	 ((__typeof__(divisor))-1) > 0 ||		\
+> +	 (((__x) > 0) =3D=3D ((__d) > 0))) ?		\
+> +		(((__x) + ((__d) / 2)) / (__d)) :	\
+> +		(((__x) - ((__d) / 2)) / (__d));	\
+> +}							\
+> +)
+>  #endif /* _UAPI_LINUX_CONST_H */
 
 --=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+Jani Nikula, Intel
 
