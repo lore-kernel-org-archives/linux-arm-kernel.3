@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 248DCD19515
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5AEFD19515
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eOm7lxyY1Tc3UFUw/xoRTNbb5KRa+LpVsi+cTsx+qLc=; b=ROS5lEikBKtmVgTz3oiOYvwOxy
-	g9l5+ixE1/Eq/doRDbXy9qs/TadenyRiThAzmBgiLe0s2znFEFgbgkYnHBK4n+6HVvDApyPZg/kvr
-	0YECzh0xu9O5+YZLINxkmwokKzWapXVXQv9UkHr6rYqLWhJPtSX5Xdk0858kTGC+47/82XtpB20iY
-	XKZdh9f1EHXDq3IF0F0XP4cqh1Dwd0TIllBMQAsL94eMrL5ObA7RaQFExZc6ibOyv4xzqv6TBTGFv
-	NCmQ2vfRF1S6/hlgzFQWFzsDpweT5d5VJDJHrCG+nAr/e+xy5Xj6T0hAQY4aQF88VUJV9SZrgjhou
-	DM4ZcgNA==;
+	bh=BoZ90IXP/6E5Rt+WwFGibQn+JvYiki36dLMqWIs5a68=; b=yJkmWLhfHEkuDyci8LN7sQbrkD
+	i/W/QS4qFTHEpWHRgv7h0fnHUqxK+56sidqK3p6Hb2P0mkO0oxzvNZPuwjXeao3Nosazd30Xi+JId
+	/WdOHV9u3/RA6DHFB7w6eu1elq2KWhGxRKxbeKqTnFCZqlnjJA7qMRL4VQjqOFr3HmG8wp7CzZxnU
+	tra97m52RKjJC+YC1k0m6tqx0M5NpWEIoYBrfeF5jJhBBYZwwXkvu4I+R+Od6uVHWoUMbsyV0ISrI
+	gGkuPmlC6y8KmS2cP163bn0wGZOcc2G5M9rkthrzZC/AY/MR/DuBVgSg8Sk+KE4Li3nmDtOxBq1Gs
+	9aPL+Xmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfZO-0000000DyAd-1wYV;
-	Tue, 27 Jan 2026 09:41:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vkfZU-0000000DyC6-3HdE;
+	Tue, 27 Jan 2026 09:41:16 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfZK-0000000DyA2-2Ze6
+	id 1vkfZP-0000000DyB3-2f3Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 09:41:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B059E41AD1
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:41:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92666C16AAE
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:41:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769506865;
-	bh=eOm7lxyY1Tc3UFUw/xoRTNbb5KRa+LpVsi+cTsx+qLc=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=VqQqBU6oOkBOQIAHVVW9j3hspWpF3dWPTc8PDMc0z3BnutT6XrF0gEu/A5aHeC7y+
-	 87PKqdGjSaJQjLG7RR+OXStps51moVlqUjIpIH9q2HdJ5VP47dOngle4zLGm+vUKl5
-	 XKO5jetR1+UlqoX++ljJOtnH52HD2YahKoo2RC9xSmqY7zKiv1iSXvJMmkd2LmxfCU
-	 Cxn+ca0RzOokoptk4L1xJT8n99P9A/NLJa6a5eQ1HcFmiW2DUia74m52P7lItZXV3U
-	 YNmbhhYc44wfhiuUmBiVkpfajXXKCCBht6dlpN74+7gaAVuHjnNziquOJmGtspaZam
-	 9bnqesQ55ImeA==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-59b76844f89so5210477e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 01:41:05 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX9tYZaPSi2BY+4ds7mDmTjE2LbBnsjpsNwa/oCkndWPiKtwllhs4fBe5E3aBOv499tAI8VHp4nLe0kfK0t55rp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyok1rfiQrxSXqaaexe2yzPwAWrOMitmFvvXfBslYdgnHnavQaV
-	2wil8dAjLcSW5msrv7k5caT0CMqI+5YBcaWmZEkomQ1m3pgbSpYtJuRe18zjpnJgQ5q+hLe064E
-	pK+f/U1xUyTtHNNDOntmsXJQQafBsvHHZUdxHYocLBg==
-X-Received: by 2002:a05:6512:1315:b0:59d:d659:661a with SMTP id
- 2adb3069b0e04-59e0401fc28mr534674e87.13.1769506864295; Tue, 27 Jan 2026
- 01:41:04 -0800 (PST)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 27 Jan 2026 01:41:03 -0800
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 27 Jan 2026 01:41:03 -0800
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260122-sound-cleanup-v1-1-0a91901609b8@nxp.com>
+	Tue, 27 Jan 2026 09:41:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769506871; x=1801042871;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=wIXG/8Eo//+j0yiImQIH97d8+3mFCxfZi9vJb7DS8pc=;
+  b=aKJhygLO4dDyOrAr+jCMauvQkd/+fE9LG9fECa513roVcQr0zFjIoyMU
+   WCbdqFfkvp6dUwXFcSl8rvfF9W/fmc5ZQ9FbeNr/9eZvENiVFB8k2KeKN
+   8XDiuFPoOA6WxgOKo0F49/1hK9OlyVPnuXsXeYwZWtjBdlnduCn9e8spM
+   fVsQyG+qKM9XppIo1aUIw+n7QBtibsEo9S9NJckH3SzV4QMebOv3j7LZT
+   0/FxNTZvrdtlZp9bLwwbnKpxX6ohniZ0znWAIdIQqafpz0+mwtF9Z0XLn
+   uO++s+ib3O3LEiplCSNZDheT+JnGa8jjE7+GN9bFrNv7dNWwBaJtmH8K0
+   w==;
+X-CSE-ConnectionGUID: P9nyN4jiTmyIP0xo/3N1qQ==
+X-CSE-MsgGUID: Rym8gNU2Qda6az0PBs9BIQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11683"; a="58270411"
+X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
+   d="scan'208";a="58270411"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:41:11 -0800
+X-CSE-ConnectionGUID: fAXHViZGSHCLuNfjHWBb0w==
+X-CSE-MsgGUID: BFlrLTLRQT2o9ar23b41uw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
+   d="scan'208";a="212475873"
+Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.245.248])
+  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:41:08 -0800
+Date: Tue, 27 Jan 2026 11:41:05 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: abdurrahman@nexthop.ai
+Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, info@mocean-labs.com,
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v5 5/6] i2c: xiic: switch to generic device property
+ accessors
+Message-ID: <aXiIMUUWREUT8tm_@smile.fi.intel.com>
+References: <20260126-i2c-xiic-v5-0-88a16a28721c@nexthop.ai>
+ <20260126-i2c-xiic-v5-5-88a16a28721c@nexthop.ai>
 MIME-Version: 1.0
-References: <20260122-sound-cleanup-v1-0-0a91901609b8@nxp.com> <20260122-sound-cleanup-v1-1-0a91901609b8@nxp.com>
-Date: Tue, 27 Jan 2026 01:41:03 -0800
-X-Gmail-Original-Message-ID: <CAMRc=McPYmbWJuK5CJp3Q1guWJJOHYJvn46RWGs4T=QTPuSyzg@mail.gmail.com>
-X-Gm-Features: AZwV_QjxuGgyv_lskuObHAVoLkrg1Z68koiUm97tVl4rp42X06QqGdyJPsB5dj4
-Message-ID: <CAMRc=McPYmbWJuK5CJp3Q1guWJJOHYJvn46RWGs4T=QTPuSyzg@mail.gmail.com>
-Subject: Re: [PATCH 1/4] ASoC: codec: Remove ak4641
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Peng Fan <peng.fan@nxp.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Daniel Mack <daniel@zonque.org>, 
-	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
-	Andy Shevchenko <andriy.shevchenko@intel.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260126-i2c-xiic-v5-5-88a16a28721c@nexthop.ai>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_014106_674420_FE50FC8F 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20260127_014111_684569_A56C82A9 
+X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,25 +92,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 22 Jan 2026 13:44:57 +0100, "Peng Fan (OSS)"
-<peng.fan@oss.nxp.com> said:
-> From: Peng Fan <peng.fan@nxp.com>
->
-> Since commit d6df7df7ae5a0 ("ARM: pxa: remove unused board files"), there
-> has been no in-tree user of the AK4641 codec driver. The last user
-> (HP iPAQ hx4700) was a non-DT PXA board file that instantiated the device
-> via I2C board data; that code was removed as part of the PXA board-file
-> purge.
->
-> The AK4641 driver was introduced ~2011 and still probes only via the I2C
-> device-ID table ('.id_table'), without an 'of_match_table', so there are
-> no upstream Devicetree users to retain. With no in-tree users left, remove
-> the driver.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
+On Mon, Jan 26, 2026 at 05:08:20PM +0000, Abdurrahman Hussain via B4 Relay wrote:
 
-Yes, please!
+> Use generic device property accessors.
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+
+One nit-pick below.
+
+...
+
+> -	ret = devm_request_threaded_irq(&pdev->dev, irq, NULL,
+> -					xiic_process, IRQF_ONESHOT,
+> -					pdev->name, i2c);
+> +	ret = devm_request_threaded_irq(dev, irq, NULL, xiic_process,
+> +					IRQF_ONESHOT, pdev->name, i2c);
+
+>  
+
+Also drop this blank line.
+
+>  	if (ret < 0)
+>  		return ret;
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
