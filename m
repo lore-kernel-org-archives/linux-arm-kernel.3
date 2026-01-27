@@ -4,140 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57317D2F036
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 14:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A82C0C88E41
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 15:00:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LWpVchwqvdGyEWC9dq5KQLLm6bzYdAUNcEvylYGhyMk=; b=4VQlz1fwU1a4HeZAeKLIy2aTcY
-	TcnVep4ZDJYauVK6y061anrdD+BGObJa1elBjzb4gZLov4MKZ9WSitff/pzq5DKTE7kfrl/Y2a73P
-	EltEWva++sjsuhJ/N9vCkqqIjJ2O9bgugY97Eo0BPVo8DUfbCK/9DuGtxbZneY2uDDn26ag+MyTSE
-	Uge9CYC6YZ1LY5kEB9dCVBlIjAFSxl7ei6A9HtuedITFOhO/wJksCfWuwaxREunR+7lO4Mb5xj1TL
-	nd+52j7eoK0eOl9BqSWud/IRZPBL8Is/5x1AtEr13cvfwGW1191dU+EDCATroiml2yEgRF6EOVkhO
-	lYoKUWUA==;
+	bh=nBhaGMOj5bUxjNaWq858sVY9IhVOxOUymhuhpjvaCug=; b=pl2ee7QD8tTzZ8mxT91wfJHFfq
+	zb5B6pRg1pDz+ZMgShXmDyRx6fMsJWhVW3Wn+S/WvA9DL3H/4oHTDbVvIV4iVzgecvR9Qui2uIk56
+	//sVIhoY/eBRm98FSk3CyqVyN7AiVknZNhbo0+FaFmYHufltcAMIII7QjFVZlrt6dn9MvLg+igsl4
+	56md82T8ephRiU545OVu2F5jO0WeTbVTv+vSXufaWkXLkHcLSEHBZcQ58HZPAruzvEUAdFh979ScV
+	xLFmts4IR1N1riAxT0LlxkuKFFRBHxszVo6JFNC9JVjnlEsnCgySF9DtPCIkIg5BQsSKSKN+87ugB
+	hey/uj+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkkW4-0000000EUD1-2WPM;
-	Tue, 27 Jan 2026 14:58:05 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vkkY2-0000000EUOi-1Luf;
+	Tue, 27 Jan 2026 15:00:06 +0000
+Received: from mail-westeuropeazon11011001.outbound.protection.outlook.com ([52.101.70.1] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkkW1-0000000EUCB-02UV
+	id 1vkkXz-0000000EUNx-3o5c
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 14:58:02 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60RAOo2I171359
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 14:58:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=LWpVchwqvdGyEWC9dq5KQLLm
-	6bzYdAUNcEvylYGhyMk=; b=JfZPlapfYbLDmW8jIqIUG1zzsRs6BdzYsI20J1Ga
-	vpqifUaODyp/EbBsE7VGur1lPvpwW2LyLCCFu9I9wj22Hc9AhTiXQrKopV5k0Teq
-	R2GHzgjEQhEZnhP/yJV39yPxTvSDUm3uEQXB8csExTNm5EFWRdThOxM2rIRWZjSF
-	lgmeGNIPVSSdJYSop2kWFXzJgUBarZXUnJMiTbjdzPTUWIl7z3yKiORpQP41xppw
-	2UW04TuaCRTUoHoF9aX7whiNoViKOmS5QqbJZe6DyAvoRmxvYgOWzrpfyNfBujJ1
-	jO40wm+ddDMn7K30vv0vgDucLij7LxCP8PCy5FRB8JEDuQ==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bxf3a37jt-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 14:58:00 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-352c7f19acaso4423759a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 06:58:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1769525880; x=1770130680; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LWpVchwqvdGyEWC9dq5KQLLm6bzYdAUNcEvylYGhyMk=;
-        b=KfdUodu7fxc/ufVQiKbA/Q7lPbF5yUoIbkVapLh6Y4s2wfX0wTsdsCDRdPqAT1kiVw
-         m0trzN5RuIX7TjoenTqfMjAczVjFbcoTD6enWbHG+596mtFpmip8zpVLTZI9iQ0Clztr
-         8Qk3LYd3FkdYaLZNFcp6Adw2vuNUqyaBLTXAzk/OOzQ1Ju5TVVQAFIZiioo+CbeyK6mA
-         jDAEx4EwIshqMRj7Ckxyp/hHa7zLD77bygamqRtVZgpU/dtQgCMdXXl83JWcbiMckiL8
-         z3VK3zV80fQQ/+kFJoXHJ+s28GeQpiV6zQoXEQvd4uUjeRmj9fQmMEFhxi89XLheDvDE
-         Ec2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769525880; x=1770130680;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LWpVchwqvdGyEWC9dq5KQLLm6bzYdAUNcEvylYGhyMk=;
-        b=SUaUdvnr1+lPba3ZeNNP9yH152pFP+TpVlF4WDZ4046ekGdB4f3Ponowmdt3jLrx5S
-         IviIE7Iemzj9jTdgPW1dE+DWzFc1TRje7O/NXXzexF4CoZ9nd/5Trll4hK6+7FGK34Iw
-         x9HsA55eMP/9IvvOLP4chrN0/xFpkkKkaOOpAPeF2sft1XBqK732PkWId1TEvkqCNdz9
-         EFiOOpifoZZ4TJ/v2IAcleoVXg2aiwMSYAwkrgSB5w9dtJsr1njLhmDv0rmlj57l3k1U
-         hcuGcVhEQGe/ymbSookSvWzn/cAuX561Ize6Wn4936huY9NaOyrBIyT1IendlXAo69q9
-         7i2A==
-X-Forwarded-Encrypted: i=1; AJvYcCVXOI5+l3z5VIdMbm8B2IUIh6hs5gKj810WziEaOlG2gv1nc8dJaJOG59M3SMDxNGXP8UrAwh4o65IF8yCpAlzh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzR1eTahr0zP2T802B1x6egUDPWjJANwqoPfR1Vu396+O47ZDql
-	JuayWlTXuEcP5sSQW21YQNWm4UOo1tXmfasedqs92maZ/X2vGLyK5uwOYRPllTekW8N6nRqPuPT
-	DAcKVLWJEUUwtpD40+IPf/kAHY1yShHvUY13YGYzzJD9tPhmYfcxglmxDUCI6Fp8Z627/mK7iy1
-	ZJ6g==
-X-Gm-Gg: AZuq6aJx8frkU0DG3N6X8TOmzL/lU7ytF145gQzS1TfjzTXt+ANDxbvWSdGnXaH3qUk
-	8m5PaUTeS8ZwgPwbnyl+Hl2ydqqdmi0kVrpfeiIU3YVQ4hKlWrfpUmMm4r3BlJMAQWK+OV1Cv+P
-	+5SPHyINCnb/V8DzNbHyR0EPZvInFKilKaN2QaGM9VEYcFLiLT4mMydR1/KTc5cOVixEj3Zk429
-	uIdMNR1ohPpuss/Avs2wUMqJZLOn9xrXtvtQhU7SBg4pQ+aDJihIaWWux6Kq1WoENpezxVvluSb
-	Xm/Lq1UFrfaeFgVV3ny0rHMf6be+t/1ubmP7bLDXoi0CS4ohmJ0FEkCkVsDvzcIwyhhGGKCahQz
-	Abk8LwvqJFKo5fpN25r3g/MQ=
-X-Received: by 2002:a17:90b:5627:b0:34a:47d0:9a82 with SMTP id 98e67ed59e1d1-353fed70718mr2006697a91.23.1769525879558;
-        Tue, 27 Jan 2026 06:57:59 -0800 (PST)
-X-Received: by 2002:a17:90b:5627:b0:34a:47d0:9a82 with SMTP id 98e67ed59e1d1-353fed70718mr2006667a91.23.1769525878954;
-        Tue, 27 Jan 2026 06:57:58 -0800 (PST)
-Received: from oss.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3536b050e08sm4712102a91.1.2026.01.27.06.57.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jan 2026 06:57:58 -0800 (PST)
-Date: Tue, 27 Jan 2026 20:27:50 +0530
-From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        linux-phy@lists.infradead.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
-        Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next v2 00/14] net: stmmac: SerDes, PCS, BASE-X, and
- inband goodies
-Message-ID: <aXjSbu6L6ICYOPiJ@oss.qualcomm.com>
-References: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
- <aXN5BFXMshnhwBQ7@oss.qualcomm.com>
- <aXPo5R1Q-qWG3r3l@shell.armlinux.org.uk>
+	Tue, 27 Jan 2026 15:00:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mqoyN18fwIlfZsuiBoqJ6V3kwj7n6vdnYvU4an7TMkoAzTXbU4pzVyyWWjyRzGM3jQwzf7NCrrL42D1HuEz2V+Av4EgUaBdQfRZ3+fclIKSEnmz1emoz6K9vlmM20O9eo3/H2Earjep0kH1sJqu5VmVxW8rX4JxJRJpvvGAjF3gjJsPFpu3EmMjuAg2XjsZEbMTCxZUfdEKRJ3+jyFKoONX3Ct+byAp9h9lNeBXEOkVp4Da/foJ8ZJrKqvBLLUtHiWFycFQPDSECVQudH5M1YZs7d492/yv5Gdrm8p4NHVGaBX1pPPuR4Mu3915TkA1r/QJpEl/33dAfj5e4JGiPVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nBhaGMOj5bUxjNaWq858sVY9IhVOxOUymhuhpjvaCug=;
+ b=Oyv3oBVrVRDLy8Z6e2rzcat4ZSMzAmrqVPOerfpMKVv0k1d+5J6Pxdeq7eRH7xKdqDTSV0cWaXZom0D4eVGs4F6kEQfp/b60hzzVFVglvy30guFaHjn7DLxWeOAGKga0AkLce9ChSEyzRh4ob8WGHLmtGC5KcwYUbaGzHml1A2EjtiS2mqNfTkPPDYR0lAW1ExAiRcG3KRzSY2MocWRL1Bld6W2hsikUuJSDpG54CfB8xjeNOvJJMaGXGz24nXQ/jb+WOfrVP+v3T2JvVEm6yBRBAk5LQPQzWvkz3elSLqAerMSwymNgocHmzkKD1KVfxVfdipKhwwO8nkgjoyFWSw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nBhaGMOj5bUxjNaWq858sVY9IhVOxOUymhuhpjvaCug=;
+ b=hBh6B0gvEKVmO55198bQTXDdrPbc2YMqBZ39Qqz9oBdoBA8q8aRsOGDKmcJbISmTuMX1mA410Eo/QUMQHfTtjz3WIJFIAsUOmxF4AqoEndCy0tORiJfn8SYk+k27irqlhEz1im2U69R8IUtc4jZ2RpD1gQdhgFABa33cTmL+UwRn3iJZ/XitYHBa+0T+0XoW08Ss7Spe/PhOZP4LBYjX/jhnLYfdwJlXNRw3vB764TrB3pjxNluiTmYkygkeSoutA9DTTGwjF+AwvWu4wX5AtkNXKtfT7zEgEVyc1+yz8v3Gjx2FmnuVu/2h6eAYK190c4qIDZ2QuqvumQ4yS9v6zg==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by GVXPR04MB11477.eurprd04.prod.outlook.com (2603:10a6:150:287::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.16; Tue, 27 Jan
+ 2026 14:59:56 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%5]) with mapi id 15.20.9542.010; Tue, 27 Jan 2026
+ 14:59:56 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Lukasz Majewski <lukma@nabladev.com>, Abel Vesa <abelvesa@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v3] clk: vf610: Add support for the Ethernet switch clocks
+Thread-Topic: [PATCH v3] clk: vf610: Add support for the Ethernet switch
+ clocks
+Thread-Index: AQHcj2o9owi9wp337k+9ravv356CkLVmG7gg
+Date: Tue, 27 Jan 2026 14:59:56 +0000
+Message-ID: <PAXPR04MB845936115A4DA73A9042650C8890A@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20260127085150.3040586-1-lukma@nabladev.com>
+In-Reply-To: <20260127085150.3040586-1-lukma@nabladev.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|GVXPR04MB11477:EE_
+x-ms-office365-filtering-correlation-id: 7d465e9a-61ea-4f3e-91ed-08de5db4bc04
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|1800799024|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?3iEP28ay3iXeJELtEZRNrIW/kBDdNNlzHM4b8Xao7oESt2MGXnLzYeXaDJc+?=
+ =?us-ascii?Q?y5ejnaeB7P392juTVrcRGiN2C9KkVt+FRrtKPs6xPdGbp76tCKglMXGzkiOx?=
+ =?us-ascii?Q?i9TE/MvCacpL9NdVGrv20sjuC2VhcYUJC5h32WWIQ4OTY7SvWcNpbts05Zcm?=
+ =?us-ascii?Q?3iyPxes+Uz6BuJB23qhFZdqadfT4ZZnzTrZsbfT4qrCLMm7XlobAERVS8rIe?=
+ =?us-ascii?Q?Cj854UgQM+vAH3BhBueGdbYrQF7tHpOylMBEmilQnGrdzqmMLGWE1dFWniSM?=
+ =?us-ascii?Q?6B/cp08RL1p6hXk5IfSbNURRYpZOwKH8NTHuPAW8tR7rHwuiqMA4SSYG0Tb1?=
+ =?us-ascii?Q?x8dPi0y0IYyrXnoRRDOtvFHfTTT7nEM5AbRa/A60hTM7Wdb/bmLo+vY0uI+s?=
+ =?us-ascii?Q?R+w27JuzrCOSPoTH6qyw/NRgIYc+Qp/0dlhusQ/U1NjbdKvTA4aZtRH65xtE?=
+ =?us-ascii?Q?Pzp5mBCtPNpbEBPDynWZYwlSfHXSIG1hAARxVoQnEVygQD1VImXJ3vC2lCLV?=
+ =?us-ascii?Q?SOuJ2mZv0W2jFh8AX62KhijpcajOpglemb0oM88VPmTH7y9yxElgZKOH+jRq?=
+ =?us-ascii?Q?3c1S7S4Rpg4MHC3zAVS/ny8pDLnmzaqXh7d9VYd0z8wab5sougdd6Z5x9xbg?=
+ =?us-ascii?Q?AmE+x3DH+WT0U5pNoosnUXdEY9Xj+iOt1Oyt5acADFwJ662YaUXMboGM+IbX?=
+ =?us-ascii?Q?8emZXSCBo53gsms3iEV9B8iTYrTtM2wMVt+blygoF5/5rQnwCTNlhODbt4su?=
+ =?us-ascii?Q?vGAvwSg6Qb/nIq1SAHSz7p3Ecz4RP9VoVJmdAhCkkeIUWThzeIl0AufPiP18?=
+ =?us-ascii?Q?2dmUZYXvs5N/i0wa1A0axa8J9/7bBbiqoR7yxt9kk51rj3lHjk1BiQTWM/TL?=
+ =?us-ascii?Q?foxjkGRQlnWGGVYAofKDPO1ETbo7bDKMDPq/DXE/l9jX+vfSQ7c0NHjU9LT2?=
+ =?us-ascii?Q?PqfQRiKZuL5VTOb6ODPLAWWQf+BBqgm8vKPkVjKQsNJRNIkwddkjZgsjl8SC?=
+ =?us-ascii?Q?wv/3MxHKf8VdTYEzosCwwxI9/OMOLJ+FwbUB73OPwsb2BL4mynmB2Sd1WGcd?=
+ =?us-ascii?Q?juEkyX3F5C+fIGZFcl/VJsLEchH6vRFHqByhTR6XTG57WwcEldEfLAfTdTsc?=
+ =?us-ascii?Q?4XXLMbxHInodrFKQ0uYb/VWC8CT/Vh4wrMTc1nx6wDOYw/wtZCJaaMgmGKEP?=
+ =?us-ascii?Q?FDDetRhRmnBbLVz57HmrGUttFWzrEmboz2jjmp9m1rK/3tPxBU4wMhuTsT6j?=
+ =?us-ascii?Q?XQtfjNqZTDGBx+wi8WhV3KJTTTH8j4l0Ot4C9uQPcilzi8huxrmzUAHeroxc?=
+ =?us-ascii?Q?/VI/dIGBxaTrCYUyQz3A0HVWeExCHIxiwabxLqzJgc/2NqRLGfNEYJMPDTOI?=
+ =?us-ascii?Q?d5REI2WK840zVmNrL4voF4BAiHgK9l2UNdYcU98FEN3d6yeiKaJmd7oOW5o9?=
+ =?us-ascii?Q?8jln2OvSAkYT8JdOL42JLfLTWkY0pvZnPbXPd8mVaJ2hQU3KEFbLay70TEGs?=
+ =?us-ascii?Q?/PbZMfC0Vf6AFNfPmhS6ZnwhuCu5fN7QQ1HA305Pa5hFid9AnSkv3tAW2hpr?=
+ =?us-ascii?Q?yBVRDERsO1ODPW3LN5J/ZrSSR25Cya8xnAJt5TW0T/SoHBRs+Qc0ZloyEZHp?=
+ =?us-ascii?Q?nGew5kouLPP86RfjYLS5Un0=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?i0LMZfqdcbKkpGeNZ6iuzujrCUXCO+dVk5ET5AYIjEK3yj9lOOsvPsLug1pk?=
+ =?us-ascii?Q?zRs999Qt+6rd/aE7HpIin15jK/bz8rA+VS8JQi3Xr3SymxofehR3HdfQdK2c?=
+ =?us-ascii?Q?A2Nc9SvUFcTpeUGQCG5r9m+hJXqSPmVV87mHwGiZ/YTMeenQyREs8Lnvzv4G?=
+ =?us-ascii?Q?jfODzY026iFgogdhf7LaoGHXTXAQPc8L1UlkszudSQGX7jRjqM7848tYg4wG?=
+ =?us-ascii?Q?ArdMl4LwvZboIhVTPIPaV4x1toOMmN8GGGzg8YJey2WhjYYuy8svhbKn9o8M?=
+ =?us-ascii?Q?bepFJQA8x2zOKucRSHUfw2Oclsa2KrcnDPJWgnPOckZl1Mktll6OMMTilCGo?=
+ =?us-ascii?Q?BylXCwtfdXiVYVZ7K9uIlu+stbxM/+VNzsoMNyTQarD/wvc1qPsCDAOI13N9?=
+ =?us-ascii?Q?VWJiRdgl8W9SkViq15USY1Y0EvRF4RwS4/An5SoF4VzVRBpc8iE1HOzputsA?=
+ =?us-ascii?Q?cwcmJ/TaqwTZw+9XqTaU0b2/iMiKmgBYeVwYW0TH4PQ/GSlgzvxZbGVmPnmI?=
+ =?us-ascii?Q?S/zOhVuIB5ZXrLZvkDBw1b+NMuqybI7q1eL5oxdnkqSnMpdHUQ840WoL8Tfn?=
+ =?us-ascii?Q?896yhhSD5silvqjQ3OAJp7+kuV4+pk+8irjRne3MA/qDccYIxbZQe2TPmJ6+?=
+ =?us-ascii?Q?PlN3O8pWVjcnqjfZEwD6c1Sz67ADWlVjjN5Z446cYn5G9wcJG08l6S3/KWe2?=
+ =?us-ascii?Q?sz7g4ddZHrYUUvXkuX53qWvrWe0ckrVxaVDaDCSMMRue9EJG+wNLn+RXY2t5?=
+ =?us-ascii?Q?yPoNwZOzDLVqC56hSnhpu2yS/3vJAXayTDUpcA3k8eryvX2bKjql8V37MakZ?=
+ =?us-ascii?Q?l/bg0ogt7j2XRbBqUZMK1PGlXqMG65HVGDMG8iJzN/wqSLNTm5aGfjZc4nRP?=
+ =?us-ascii?Q?zSDmgenuJZE+jNT+mQA6H+f89d4hV1/DbvlJQtZjhAz7S+9i4luqSKtmD52A?=
+ =?us-ascii?Q?t+uZejy15WuvEOEmiwbyOkkhddbHHTz7Qc4kXz7jN4UKoQ6r4e89YzcqWuIb?=
+ =?us-ascii?Q?Fk88b/NtmUK0gslz7Co/zypLo8oiWhoJcqOXof1SyX6jR+M05YBlM+d4QWMB?=
+ =?us-ascii?Q?Ior3YlDCxZCYUUstxVNAwtmxInGNwNyNd81r0JV+Lw9p2YJ+Rg0XuNbw5qzT?=
+ =?us-ascii?Q?zXVjJHxt+H3UjH+fk0e39Gmig+87KcJxFJlct5u3ZnVRUobtt7CFdtMNiXzu?=
+ =?us-ascii?Q?pUq152QZwAhgCsbDdB3i5N2cQyEXskhb01NA4erPB8ZGS30RdTMHO4zBNp6s?=
+ =?us-ascii?Q?sbp3enbVE8i6alYb/e9Uvxxqa7OW9ZlnCbJiPesXJK3quutgRH3EQi+42die?=
+ =?us-ascii?Q?lHzjFZ5otyj8o6ACxEEf7gXROhPlRGc3p6e558nzB4+H2CTaKAHTd4L5F4lX?=
+ =?us-ascii?Q?n3qjizd4O3hlRsHy3tFLca2ykrxxin/21ED28qFiqGczQujS70wcgGQYc9/i?=
+ =?us-ascii?Q?ZzEIfkMe7cHtVK/H4dfg4WR0ofD8YHYOnzfVbf/c9B/UAEtNxfeOfA4i53rD?=
+ =?us-ascii?Q?tKmMxfAjHbz0R3fL3Esun154J5N//SaMYRibMYaivAPdbBn+VPTg1SKfiWKx?=
+ =?us-ascii?Q?URtRPy6bXWDl2JHKKkqiMKBUckTHhk4opDAgLKecxvQzFsKpdwNM+UJjabDl?=
+ =?us-ascii?Q?w0xsgHLYriglVglRgKQcO3mUPYLBpjXa7fSA5G1wjv6pcWJkS5Wy3tQHNfBM?=
+ =?us-ascii?Q?Rzo39FpFTa5c2/T/z7u531T2n4T95EF+cFcAVyTvcSjbffH1?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aXPo5R1Q-qWG3r3l@shell.armlinux.org.uk>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI3MDEyMyBTYWx0ZWRfX3UztobfbEose
- NTokQq72temg6St1lAZvK+mqUfqGlgycYfB896kwha2OfRq7+Z/Me+Uv1T3U+UqrhH/WW51xGdr
- DbDHqLREwrtz/ArZkd/G9AdwbOdaQwtihwiOacnoTJEEgjMOoRYGOVzF01gWb7TBsAmxc73b/Rl
- Oh/529PLT/na2zUG/F+NtxACJef1+r5Udyx9yTBuL/ndOTRnplhgwrLIE5tqe0JYLr77SIk+3OU
- 8EShbplK/eZeQnsmFYGlu5QzEFdRwNYC5WKf8DDmVDPgrdAc0eBorN4y962gchIdOx2QSE9E2OZ
- vP/l2D1tga00hxcNs3V74/cwA7pp62JN8bsfB9HZlLPVgeyePlxtsZrkc671zt7nFlUQpIFOY/k
- RjZN5wnNxkcC+Pj/tXKbR0qTbDNpKr4hZpinsgF6VPVfOyOsiXjaVH9LPBVn4nkcRU6EEw12ZTP
- ttSSPn3W349G+Hgi+wQ==
-X-Proofpoint-ORIG-GUID: bc7BrVf69KIBQZH_cyjb9BeNbTAjrezr
-X-Proofpoint-GUID: bc7BrVf69KIBQZH_cyjb9BeNbTAjrezr
-X-Authority-Analysis: v=2.4 cv=a6k9NESF c=1 sm=1 tr=0 ts=6978d278 cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=-kEnI-koradUIOcFO3kA:9 a=CjuIK1q_8ugA:10
- a=uKXjsCUrEbL0IQVhDsJ9:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-01-27_03,2026-01-27_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 phishscore=0 lowpriorityscore=0 adultscore=0
- priorityscore=1501 bulkscore=0 suspectscore=0 clxscore=1015 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601270123
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7d465e9a-61ea-4f3e-91ed-08de5db4bc04
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Jan 2026 14:59:56.2610
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: AKsrhB3AzMAJqM40BOAnOn3vKVaezVcF1YD9SVfDhjvkbRK3o+/ja45zeEiUQRBqv2Tz9XoSya5lNlc6hrclFw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB11477
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_065801_058599_3CEE989C 
-X-CRM114-Status: GOOD (  30.42  )
+X-CRM114-CacheID: sfid-20260127_070003_975696_7D81CF61 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,141 +172,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 23, 2026 at 09:32:21PM +0000, Russell King (Oracle) wrote:
-> 
-> and the failing store is the one for that last line of C code - in
-> other words, pcs = NULL.
-> 
-> This means that mac_select_pcs() returned NULL when being asked
-> "which PCS should be used for 2500base-X" ?
-> 
-> This suggests that the SerDes detection of support for 2500BASE-X
-> isn't working, meaning that stmmac_mac_select_pcs() ends up returning
-> NULL, rather than &priv->integrated_pcs->pcs.
-> 
-> That would only happen if:
-> 
->                 /* Only allow 2500Base-X if the SerDes has support. */
->                 ret = dwmac_serdes_validate(priv, PHY_INTERFACE_MODE_2500BASEX);
->                 if (ret == 0)
->                         __set_bit(PHY_INTERFACE_MODE_2500BASEX,
->                                   spcs->pcs.supported_interfaces);
-> 
-> fails, meaning we don't set that interface mode for the PCS.
-> dwmac_serdes_validate() calls phy_validate() for PHY_MODE_ETHERNET
-> with the PHY interface mode as the sub mode.
-> 
-> Patch 3 adds the required methods to phy-qcom-sgmii-eth.c to allow
-> phy_validate() to indicate whether this is supported or not:
-> 
->         .validate       = qcom_dwmac_sgmii_phy_validate,
-> 
-> and its implementation is:
-> 
->         int ret = qcom_dwmac_sgmii_phy_speed(mode, submode);
-> 
->         return ret < 0 ? ret : 0;
-> 
-> where qcom_dwmac_sgmii_phy_speed() is:
-> 
->         if (mode != PHY_MODE_ETHERNET)
->                 return -EINVAL;
-> 
->         if (submode == PHY_INTERFACE_MODE_SGMII ||
->             submode == PHY_INTERFACE_MODE_1000BASEX)
->                 return SPEED_1000;
-> 
->         if (submode == PHY_INTERFACE_MODE_2500BASEX)
->                 return SPEED_2500;
-> 
->         return -EINVAL;
-> 
-> So, this should be returning a positive integer (SPEED_2500), which
-> should cause phy_validate(serdes, PHY_MODE_ETHERNET,
-> PHY_INTERFACE_MODE_2500BASEX, NULL) to return success (zero). That
-> should result in PHY_INTERFACE_MODE_2500BASEX being set in
-> spcs->pcs.supported_interfaces, and thus &priv->integrated_pcs->pcs
-> being returned for PHY_INTERFACE_MODE_2500BASEX.
-> 
-> Is the particular hardware you're running this oopsing test on not
-> using a SerDes PHY? If that's the case, how does it switch between
-> 2.5Gbps and 1Gbps data rate on the SerDes?
-> 
+Hi Lukasz,
 
-It is using the same SerDes PHY (qcom_dwmac_sgmii_phy_driver).
+> Subject: [PATCH v3] clk: vf610: Add support for the Ethernet switch
+> clocks
+>=20
+> The vf610 device has built in the MoreThanIP L2 switch. For proper
+> operation it is required to enable ESW and MAC table lookup clocks.
+>=20
+> The MAC table spans from 0x400E_C000 for 0x4000 and it is necessary
+> to provide clocks for each AIPS1-"slot", which size is 0x1000 (hence
+> four separate entries).
+>=20
+> Those can be enabled via clock gating CCM_CCGR10 register
+> (0x4006_B068).
+>=20
+> This patch also adds VF610_CLK_ESW and
+> VF610_CLK_ESW_MAC_TAB{0123} macros definitions for L2 switch.
+>=20
+> The VF610_CLK_END has been removed from dt-bindings, as its
+> number had to be increased when MTIP L2 switch clocks were added,
+> and defined locally in clk-vf610.c driver.
+>=20
+> Signed-off-by: Lukasz Majewski <lukma@nabladev.com>
+> ---
+> Changes for v2:
+> - Squash clock DT bindings to this single patch
 
-I added additional debug prints, and I think the crash is due to
-BMSR_ESTATEN not being set in GMAC_AN_STATUS.
+Sorry for not being clear in last comment, dt-binding
+update should be in a separate patch. So please
+separate into two patches in one patchset.
 
-During pcs_init, BIT(8) of GMAC_AN_STATUS is 0:
-[    7.985913] [DBG] GMAC_AN_STATUS = 8
-
-Therefore, this check:
-	if (readl(spcs->base + GMAC_AN_STATUS) & BMSR_ESTATEN) {
-		__set_bit(PHY_INTERFACE_MODE_1000BASEX,
-			  spcs->pcs.supported_interfaces);
-
-		/* Only allow 2500Base-X if the SerDes has support. */
-		ret = dwmac_serdes_validate(priv, PHY_INTERFACE_MODE_2500BASEX);
-		if (ret == 0)
-			__set_bit(PHY_INTERFACE_MODE_2500BASEX,
-				  spcs->pcs.supported_interfaces);
-	}
-fails, and PHY_INTERFACE_MODE_2500BASEX never gets set in
-pcs.supported_interfaces. Pardon my naivete, but does the
-BMSR_ESTATEN bit not being set break some standard?
-
-If I remove the check, the NULL pointer dereference is not observed
-anymore. Although the SerDes link is still unstable.
-
-I also tried enabling comma detect during dwmac_integrated_pcs_config,
-but I am still seeing the Tx timeouts. I remember that when I had
-tested the patches in October (without the SerDes driver changes),
-the link state used to flap, but the data path became functional
-after the link stabilized.
-
-	Ayaan
-
----
-Full Logs (Speed Change: 1G -> 2.5G)
-[  244.817499] qcom-ethqos 23040000.ethernet eth1: pcs link down
-[  257.066210] dwmac: PCS configuration changed from phylink by glue, please report: 0x00040000 -> 0x00041000
-[  257.076143] dwmac:      ANE 0 -> 1
-[  257.079668] qcom-ethqos 23040000.ethernet eth1: Link is Up - 1Gbps/Full - flow control off
-[  264.260852] qcom-ethqos 23040000.ethernet eth1: NETDEV WATCHDOG: CPU: 7: transmit queue 3 timed out 5472 ms
-[  264.271394] qcom-ethqos 23040000.ethernet eth1: Reset adapter.
-[  264.280493] qcom-ethqos 23040000.ethernet eth1: phy link down 2500base-x/Unknown/Unknown/none/off/nolpi
-[  264.842309] qcom-ethqos 23040000.ethernet eth1: Timeout accessing MAC_VLAN_Tag_Filter
-[  264.850391] qcom-ethqos 23040000.ethernet eth1: failed to kill vid 0081/0
-[  264.857547] qcom-ethqos 23040000.ethernet eth1: Register MEM_TYPE_PAGE_POOL RxQ-0
-[  264.865795] qcom-ethqos 23040000.ethernet eth1: Register MEM_TYPE_PAGE_POOL RxQ-1
-[  264.873939] qcom-ethqos 23040000.ethernet eth1: Register MEM_TYPE_PAGE_POOL RxQ-2
-[  264.882111] qcom-ethqos 23040000.ethernet eth1: Register MEM_TYPE_PAGE_POOL RxQ-3
-[  265.792807] qcom-ethqos 23040000.ethernet eth1: PHY stmmac-0:08 uses interfaces 4,23,27, validating 23
-[  265.802389] [DBG] stmmac_mac_select_pcs - testing for 23 (2500base-x) on priv->integrated_pcs->pcs.supported_interfaces = 4
-[  265.802399] qcom-ethqos 23040000.ethernet eth1:  interface 23 (2500base-x) rate match pause supports 0-7,9,13-14,47
-[  265.824572] qcom-ethqos 23040000.ethernet eth1: PHY [stmmac-0:08] driver [Aquantia AQR115C] (irq=334)
-[  265.834055] qcom-ethqos 23040000.ethernet eth1: phy: sgmii setting supported 00000000,00000000,00008000,000062ff advertising 00000000,00000000,00008000,000062ff
-[  265.852828] [DBG] qcom_dwmac_sgmii_phy_speed called with mode=15, submode=4
-[  265.852837] [DBG] qcom_dwmac_sgmii_phy_validate - qcom_dwmac_sgmii_phy_speed returned 1000
-[  265.868580] qcom-ethqos 23040000.ethernet eth1: Enabling Safety Features
-[  265.884237] qcom-ethqos 23040000.ethernet eth1: IEEE 1588-2008 Advanced Timestamp supported
-[  265.893946] qcom-ethqos 23040000.ethernet eth1: registered PTP clock
-[  265.900561] qcom-ethqos 23040000.ethernet eth1: configuring for phy/sgmii link mode
-[  265.908451] qcom-ethqos 23040000.ethernet eth1: major config, requested phy/sgmii
-[  265.916159] [DBG] stmmac_mac_select_pcs - testing for 4 (sgmii) on priv->integrated_pcs->pcs.supported_interfaces = 4
-[  265.916166] qcom-ethqos 23040000.ethernet eth1: interface sgmii inband modes: pcs=03 phy=03
-[  265.935652] qcom-ethqos 23040000.ethernet eth1: major config, active phy/outband/sgmii
-[  265.943795] qcom-ethqos 23040000.ethernet eth1: phylink_mac_config: mode=phy/sgmii/none adv=00000000,00000000,00000000,00000000 pause=00
-[  265.956407] [DBG] qcom_dwmac_sgmii_phy_speed called with mode=15, submode=4
-[  265.956408] [DBG] qcom_dwmac_sgmii_phy_set_mode - qcom_dwmac_sgmii_phy_speed returned 1000
-[  265.976997] qcom-ethqos 23040000.ethernet eth1: phy link down 2500base-x/Unknown/Unknown/none/off/nolpi
-[  270.556001] qcom-ethqos 23040000.ethernet eth1: phy link up 2500base-x/2.5Gbps/Full/none/off/nolpi
-[  270.567649] qcom-ethqos 23040000.ethernet eth1: major config, requested phy/2500base-x
-[  270.575823] [DBG] stmmac_mac_select_pcs - testing for 23 (2500base-x) on priv->integrated_pcs->pcs.supported_interfaces = 4
-[  270.575831] qcom-ethqos 23040000.ethernet eth1: mac_select_pcs returned NULL
-[  270.594521] qcom-ethqos 23040000.ethernet eth1: interface 2500base-x inband modes: pcs=00 phy=00
-[  270.603554] qcom-ethqos 23040000.ethernet eth1: major config, active phy/outband/2500base-x
-[  270.612286] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000010
+Thanks,
+Peng.
 
 
