@@ -4,94 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C8DD2FECE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 17:59:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ACCED2FEC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 17:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WXQLAHVKOq8T4zWobG4KuuypQi16GgCGUfWQ2Xeqgb4=; b=qt9Tfn2B89/viSdIjaX2EBIzT0
-	sF3lC284bAP6OzuXv00huymIX73aBxPU/PvtbLzdpSbMtdPBdZ6qDUiBSl1ANpgpQ4CtSu1g9/dS2
-	gKcD7BwmpJBpxOA4yLy3jKYC42KO+14WJbM4XFhMOr9liiapzGe/8/JZlXyTyVunUcB+0beWNwnt1
-	SjEk6iE7WyauUBE/j/ErocSBFRbd5AtFY0Uu5zQ27ngyYFJDK+PtH78XAc0onYpwJuamcJdHH42Ew
-	c8A9NBCZEhJOGPU3IKdDM/Z80OTef3bO5LRtjkA7QkSlg6/wNuWNiWtaY+f/kmtXJBSDQHYLxwaQL
-	FZ5Tp5mQ==;
+	bh=UOQZvYTAv//pcJPda837MTWpR+PvpurRjquFigTQ1OA=; b=Y3MQmjTCW26eCbpR9Ybd2hVXxV
+	kmSzFe5bY2B6Xt9DMonX4366Ar8nO7i/vB9bYoW0W1xeLIaprDODqib/6T3lZ/2MaJ8WfVcocyqpk
+	qtG6HS5Rn1qMPZXyJWepfXekSpUdjxfT1ze/hiU9H0KW6PFxWwhZA4WMBaYD0EuvmsfdrFKO2VNCA
+	Ja8TAooOlUWg1YYB37bcJ3wdS0kJO2t5xvibP3dA2vFeVC7JNSoGpMQYpplkTmbE5y2/tECgS1YsD
+	aMngii5hAhvA7Us/DSr95A+SL6ybZspttrssnaj74JrCnMdttDkDYbiwgqAMQvCU8piAF3M1N9n1M
+	hLnvMbYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vknLU-0000000ElSP-2Yhq;
-	Tue, 27 Jan 2026 17:59:20 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1vknLf-0000000ElVi-23F1;
+	Tue, 27 Jan 2026 17:59:31 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vknLS-0000000ElRB-09ET
+	id 1vknLY-0000000ElTU-34oD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 17:59:19 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-5014b5d8551so17261cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:59:16 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769536756; cv=none;
+	Tue, 27 Jan 2026 17:59:29 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-5014b5d8551so17371cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:59:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769536763; cv=none;
         d=google.com; s=arc-20240605;
-        b=ChKeDdK+mlWBK3XIhXKHDpR3sFRANdM8K2ZHWjoguHd2Mgt1Z4bAX2/WlVr2ULCsMu
-         ItbeP0BVgiNIPyRATMeH1FAp///GX8bV8fxkfm10kPvNMjY7ZZ0LC+LNVV2TFQ/7r69t
-         F8SWLel3KQpW2rmgo8fiuZm6AqsfRH8X0R4tVfd5zhy9KcoPQwKO7aLTvDYEo693cclM
-         unP6ISe76UWJFyD3oz72Pveqc5bZBwPIengTV0Xxvl4urd/ALRn1+BOXhMzy1Kg93Uq+
-         +jitiRHYC1BKDmsgQ+viUQ4RyG6PsJp5YxRabq6N4p3qNBQGthOA465YAFu3AbZMkIfE
-         Xkbw==
+        b=ezf7cfCp9sfTHZZBbJgEGimKi+PCICuTJ2uLEytdn8G91M9Gv1LcP3L3u8pCmHE6nh
+         uBhMWy7nRd1L4T2jhuIgDfvhsJoNYmEhWgZ5lLJNZs5Ze8oQxIxOdn6PBJJfqphWyPYx
+         VTxx9H49Q/fgZh924YR57i0y+aBRWHkmHZd2lQ8xPTCGEfl9vm+gGabi+NKp9N9C5ere
+         1C4wJ1VqTAHmpCN8t+L8HzPMsvZBLQrP5aFiIbrKRrDUirfWrzo40zmhwxbeNdPSinVQ
+         kNAe15Q6Sbja/VWB3teyHYhSFxkvwJC1sXC3VtWb3awpEKy1B0Jg6Y/SUShlQPOa+5+7
+         7oew==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=WXQLAHVKOq8T4zWobG4KuuypQi16GgCGUfWQ2Xeqgb4=;
-        fh=CKLgEx5JdKrGxIoiJuVq9WDBUfTbkraxCvp66orwNOU=;
-        b=latJwMRB02ryhHzRHVQCDnZ2F5ciGEDDgWiQ5Jjz7LNBDTZVoqfEs2Wi9tIFt3qkjz
-         JOlnTBvt/nAwmWfO6Hy7wc0iBddEc+wmS8KwQaCjjZIjsakAFsOAD1bpM2b7SvQMfz3y
-         39ooPCvETT1bhHePPc/6Wgs1o6h97Q9ESEenxYT+WAzBRLKyxcR6gYuII/fOypPmDf6b
-         dK7t+vRYXiP/Uoz4VrPkqvVicoUPzqI2AZRmRA+59XYkkONZd6ybOvwFdwjjzs9kic+I
-         ZYac+mg1sOfERkChwvC8JeU3B4pWa0Vw3f+UVWYlwJWaV+RcJ15tx1Lf5n2QmrkTEGCG
-         GMcA==;
+        bh=UOQZvYTAv//pcJPda837MTWpR+PvpurRjquFigTQ1OA=;
+        fh=gU2YjBjQpx3oTyv5Et2Sczi6pAnh4roCvYqhxXN+YgY=;
+        b=SVMbUNrfkA5D1jlKoSK4zERLfiI9I/kNNp1JSRZwsiCBm3wQzMoIBhRmu/mGiswqk7
+         0LEZ2+cSx95y0yRrmvJMasiXdOdMf5DGIisGI/GRAqYL/y7Ob60IRnTRqp8F0OLPYkiS
+         cwMX511r9Rm1T1YZF5fVt2SmtUEdaxS0dTQWhT4EQpzRrR1gz2KiAE9dC6q6tdX5t5KI
+         B+xwHAzztkSLMtmW0CgfUAkTA1suFhIuRk1pLmaeeYCWzMD7fyiA5fVA7eEDkA8mrZGb
+         xgMHlK68sraVmGlKPYi4kiyT2Bu0nkSK1jweKvVpoT++RWjvF0vbTBa10IdCQYaaC0DP
+         OrSg==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769536756; x=1770141556; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1769536763; x=1770141563; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=WXQLAHVKOq8T4zWobG4KuuypQi16GgCGUfWQ2Xeqgb4=;
-        b=CVNyMyQ6CEmTUOfBsBe/vcy8cO4t6pNCNvGivlhATp41aMZm6ZNyyl3owuqG+qlDjX
-         EGKOAOCPEL39j9Ah7hNFwVtZEcF77MQ0tuvaPo4vHmtmxsV61PhGfZSJ/uEwb5LSb/uo
-         Ol3R5illzU82xOh3osWpCWJFs9zrlp0bXIPgCqwxU68Amk/Xue9CS8qAIpSo4H+oHuCc
-         SN9Mcz2oV9+YuL3c5pmsu5JTpTufdu+1+5IHPSb1AQZbNPhCbHpyKUlnjl0XlHrM6Ms1
-         traQxI4KT78SEJFRfIYGYI25teBuFgsmUzZi2XP/xT2xRYJEaooKrJq5dD0zRne22mzz
-         4NfQ==
+        bh=UOQZvYTAv//pcJPda837MTWpR+PvpurRjquFigTQ1OA=;
+        b=stCfKHXYWCodVpyTK356/bAi0l2OOgjE5Pt8KYFSPTkw5VxxaFh+PpyA16GtMlCx9E
+         FY/k18Qx8g/vUeKuOiZrfDqClBPdHNQ0WdmrDWfih7gCkR6REOe+/kYZzYM6g6Nr1LuU
+         46Km+hcYNz2xjz+ogqPe3u7hM5YL7ughWOUWOYjLmP4WK9hmOJ6OOSV/Ir7ssAMrOwwj
+         nleCcznksn5h9DdjRg51XrudYqPDPDD0tbfWC81j3pzKOrtyqitlOB4qF7XB5dNFkC8C
+         qjA5afcMAmFZHfELuGLq9ospBHPZ+5wF1ok+NUMR0OgIkGABfRMdKH/nZc4y/xGqgTY5
+         GREA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769536756; x=1770141556;
+        d=1e100.net; s=20230601; t=1769536763; x=1770141563;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=WXQLAHVKOq8T4zWobG4KuuypQi16GgCGUfWQ2Xeqgb4=;
-        b=pUIYErv+ZmmHzKjXgJC+FphL6bySUUPUbvDrPTFv/aXJooJ01ipCW80rN9ar88cWnp
-         pUPxZf5gGwwgsXb/AgXxikEHKDUC3ksGhf9D5SD59Mio3NAkWM9a3nojuqqwRzGhMbTk
-         9+HBAFdOFvdDy4R2TdU1WJzfyVg+vSlpFyzUvknYIyKh2yIzMYiTQr2kDkxLb4hAQG8F
-         uAnLHsDgEDEjRO9IGIejoc4wpGqcPpF14jipuakgLGX2EBHjFLPRVjoY3cSr0Kn6ahkX
-         C9n78SldrKCHiKO6vHakXKFtbWdNMs9UclCbsArrwxI0bnJr4W3erjcYwrEC0GI4VKcs
-         lsKA==
-X-Forwarded-Encrypted: i=1; AJvYcCXIU3JFt6q6dyreoRP4baf6FBHbcUJN9oT0d0bpuuvyMB8zHsUlevhSMH3iUEPxuz+NGqq+EeQlfXU4fs1N8D7c@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzSDIUNz5Dwqcwh0730Z65QRf48zny+NcPDdXKPz0yx/MpTEDM
-	wDTTh5jmGUuA0JgsDa9nIXExnex9FCOWqYgifxwEcZJ8QexIWuYZirg+rIzD8xSvo27zUKKmI54
-	Wn4Ku8pXyu/T0PHvlwx4kbm3+TxMYXauuIZANPKvO
-X-Gm-Gg: AZuq6aK1xye0nFFgdbm21rzNbIAsYyNa748nXO2aKkhjZ8i8DqNq2cPQQH0z79rxQ19
-	EYYdMTloarf92eSxNn9NEqN+/A9ENwWyD7hfBcOJWcHW6Q0fPMFSLKCAth4Jl1kt1kFvuh15WQN
-	Ch99i6eo1AMtm0HpI2T0KPP+MSs2R1TTRIx5I8bVtD85OEI9IodeHbZz65En7F4KoN1w2qKGh2D
-	4pqI+vnUvzkrWuxUSDKcbrnc36NKO4w+UK3Z1S4syugp0xGHBKZsb5zw554NUoHFRLHPl4m
-X-Received: by 2002:ac8:7d89:0:b0:501:3b94:bcae with SMTP id
- d75a77b69052e-5032f479773mr10069921cf.8.1769536755734; Tue, 27 Jan 2026
- 09:59:15 -0800 (PST)
+        bh=UOQZvYTAv//pcJPda837MTWpR+PvpurRjquFigTQ1OA=;
+        b=qDUkVGmsgE+YRYSCwEbgf3mBgN+yM38u7a8seuY/fllYrf/Va40C4Z23BoqFmWY/g5
+         pq4BuclPkwfE/qQyzfCboP7Eis8P4orU8ec3EL0GQIyFkWeY8/NvKJC6qb9A07evl/kz
+         k0ltceuoE+ORf9ar//SclwWCcpmV2hD1puFwKPxsHZhDTnJv44tSqKayhqs2zsNzqfQA
+         m8lM8FHw6DjBFJL8cnCAXoZHYK3NgNY23dE/0k4smtF4CYqxlXlu2KES0sKhz4RdwAnq
+         0mNHfXjeU1VeP+zI8U1fp8ssFaCv2qX+OrMz+88pA69M6ItQwJ2N7dEWqDNo42kwcKSi
+         luPA==
+X-Forwarded-Encrypted: i=1; AJvYcCWoSB7OZtv1QPzHUEs1291Umfz8wNGGhcBsVBioh275fD7QRzJlAf0IWBdNiHIG9+q3D+j7jP/Lnup3OjjueUrH@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIHmiiNPGIT2UZcO+dFkkN7+2lX7CjDgKATFAdiXZJZAAMcICe
+	jh+WwPFFnRd+r+zrPlnZRhe3bnskY/UOzVNKZ1X8rVoB2YASrb2JJ6W5GQ2ksDBZ3hk9Q8/PJ43
+	8m0TiXa0WsvRXTRg/sP6BvcnUAOos/oXQrUvTxojg
+X-Gm-Gg: AZuq6aJCypPv7iQlxwzTQgSAFWskVlKjEUwPjz0YgcngENMJqy1T+PvGtZlG35bj7aJ
+	o1ncRKBl1+Oi7WgIetq0ALplTCBg52TueOajnG9EvFPfLY9zR0niXSkZ5LODUWsem00hGNUVlv/
+	G9CR1Ln8TScv5UxwmLzoNpQCUe9J5Xa3o1cw0Lo/VtnMe9uMk0KZRfJFMwuH7P3ZoeBkQg50+ZS
+	9406mEAMrpEXVzm5+/LQV6xgo9yKgxOf1oKsXbw+rQHI0M/SvDjINiO5ZDXFVOTWYN1Q/Oo
+X-Received: by 2002:ac8:5acd:0:b0:4ed:ff77:1a85 with SMTP id
+ d75a77b69052e-5032f523d2cmr9890351cf.17.1769536763293; Tue, 27 Jan 2026
+ 09:59:23 -0800 (PST)
 MIME-Version: 1.0
-References: <20260126121655.1641736-1-maz@kernel.org> <20260126121655.1641736-7-maz@kernel.org>
-In-Reply-To: <20260126121655.1641736-7-maz@kernel.org>
+References: <20260126121655.1641736-1-maz@kernel.org> <20260126121655.1641736-8-maz@kernel.org>
+In-Reply-To: <20260126121655.1641736-8-maz@kernel.org>
 From: Fuad Tabba <tabba@google.com>
-Date: Tue, 27 Jan 2026 17:58:38 +0000
-X-Gm-Features: AZwV_QhS3T7BGI_KLXpUw2zt_uf_weVG0r6EiuX_Phs-QUEKVVf5BCeOHp72BZA
-Message-ID: <CA+EHjTzU=rNQd7YU9O+ombTsZgTHgFThe6BGP20ii2xC2V473Q@mail.gmail.com>
-Subject: Re: [PATCH 06/20] KVM: arm64: Inherit RESx bits from FGT register descriptors
+Date: Tue, 27 Jan 2026 17:58:46 +0000
+X-Gm-Features: AZwV_QhifucCrTaCB27apGhiPavJg-rm3JFwqkfMUM-JyXvNsgDNJJ3r6uYLx6U
+Message-ID: <CA+EHjTzk_0n+Z3+WmHz0no+dJAcAxCtJgQFFs9hHG4WAw0rX=A@mail.gmail.com>
+Subject: Re: [PATCH 07/20] KVM: arm64: Allow RES1 bits to be inferred from configuration
 To: Marc Zyngier <maz@kernel.org>
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
@@ -100,8 +100,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Catalin Marinas <catalin.marinas@arm.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_095918_086735_C33E16FD 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20260127_095928_533980_D19B317A 
+X-CRM114-Status: GOOD (  20.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,88 +118,60 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Mon, 26 Jan 2026 at 12:17, Marc Zyngier <maz@kernel.org> wrote:
 >
-> The FGT registers have their computed RESx bits stashed in specific
-> descriptors, which we can easily use when computing the masks used
-> for the guest.
->
-> This removes a bit of boilerplate code.
+> So far, when a bit field is tied to an unsupported feature, we set
+> it as RES0. This is almost forrect, but there are a few exceptions
+> where the bits become RES1.
+
+You need to correct forrect :)
+
+> Add a AS_RES1 qualifier that instruct the RESx computing code to
+> simply do that.
 >
 > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/config.c | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> index 8d152605999ba..6a4674fabf865 100644
+> --- a/arch/arm64/kvm/config.c
+> +++ b/arch/arm64/kvm/config.c
+> @@ -24,6 +24,7 @@ struct reg_bits_to_feat_map {
+>  #define        CALL_FUNC       BIT(1)  /* Needs to evaluate tons of crap */
+>  #define        FIXED_VALUE     BIT(2)  /* RAZ/WI or RAO/WI in KVM */
+>  #define        MASKS_POINTER   BIT(3)  /* Pointer to fgt_masks struct instead of bits */
+> +#define        AS_RES1         BIT(4)  /* RES1 when not supported */
+>
+>         unsigned long   flags;
+>
+> @@ -1316,8 +1317,12 @@ struct resx __compute_fixed_bits(struct kvm *kvm,
+>                 else
+>                         match = idreg_feat_match(kvm, &map[i]);
+>
+> -               if (!match || (map[i].flags & FIXED_VALUE))
+> -                       resx.res0 |= reg_feat_map_bits(&map[i]);
+> +               if (!match || (map[i].flags & FIXED_VALUE)) {
+> +                       if (map[i].flags & AS_RES1)
+> +                               resx.res1 |= reg_feat_map_bits(&map[i]);
+> +                       else
+> +                               resx.res0 |= reg_feat_map_bits(&map[i]);
+> +               }
+
+checkpatch is complaining about whitespaces here. I can't blame it.
+
+With those fixed, looks good to me.
 
 Reviewed-by: Fuad Tabba <tabba@google.com>
 
 Cheers,
 /fuad
 
+>         }
+>
+>         return resx;
 
-> ---
->  arch/arm64/kvm/config.c | 16 +++++-----------
->  1 file changed, 5 insertions(+), 11 deletions(-)
->
-> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-> index a907195bd44b6..8d152605999ba 100644
-> --- a/arch/arm64/kvm/config.c
-> +++ b/arch/arm64/kvm/config.c
-> @@ -1344,6 +1344,11 @@ struct resx compute_reg_resx_bits(struct kvm *kvm,
->         resx = compute_resx_bits(kvm, r->bit_feat_map, r->bit_feat_map_sz,
->                                  require, exclude);
->
-> +       if (r->feat_map.flags & MASKS_POINTER) {
-> +               resx.res0 |= r->feat_map.masks->res0;
-> +               resx.res1 |= r->feat_map.masks->res1;
-> +       }
-> +
->         tmp = compute_resx_bits(kvm, &r->feat_map, 1, require, exclude);
->
->         resx.res0 |= tmp.res0;
-> @@ -1424,47 +1429,36 @@ struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg)
->         switch (reg) {
->         case HFGRTR_EL2:
->                 resx = compute_reg_resx_bits(kvm, &hfgrtr_desc, 0, 0);
-> -               resx.res1 |= HFGRTR_EL2_RES1;
->                 break;
->         case HFGWTR_EL2:
->                 resx = compute_reg_resx_bits(kvm, &hfgwtr_desc, 0, 0);
-> -               resx.res1 |= HFGWTR_EL2_RES1;
->                 break;
->         case HFGITR_EL2:
->                 resx = compute_reg_resx_bits(kvm, &hfgitr_desc, 0, 0);
-> -               resx.res1 |= HFGITR_EL2_RES1;
->                 break;
->         case HDFGRTR_EL2:
->                 resx = compute_reg_resx_bits(kvm, &hdfgrtr_desc, 0, 0);
-> -               resx.res1 |= HDFGRTR_EL2_RES1;
->                 break;
->         case HDFGWTR_EL2:
->                 resx = compute_reg_resx_bits(kvm, &hdfgwtr_desc, 0, 0);
-> -               resx.res1 |= HDFGWTR_EL2_RES1;
->                 break;
->         case HAFGRTR_EL2:
->                 resx = compute_reg_resx_bits(kvm, &hafgrtr_desc, 0, 0);
-> -               resx.res1 |= HAFGRTR_EL2_RES1;
->                 break;
->         case HFGRTR2_EL2:
->                 resx = compute_reg_resx_bits(kvm, &hfgrtr2_desc, 0, 0);
-> -               resx.res1 |= HFGRTR2_EL2_RES1;
->                 break;
->         case HFGWTR2_EL2:
->                 resx = compute_reg_resx_bits(kvm, &hfgwtr2_desc, 0, 0);
-> -               resx.res1 |= HFGWTR2_EL2_RES1;
->                 break;
->         case HFGITR2_EL2:
->                 resx = compute_reg_resx_bits(kvm, &hfgitr2_desc, 0, 0);
-> -               resx.res1 |= HFGITR2_EL2_RES1;
->                 break;
->         case HDFGRTR2_EL2:
->                 resx = compute_reg_resx_bits(kvm, &hdfgrtr2_desc, 0, 0);
-> -               resx.res1 |= HDFGRTR2_EL2_RES1;
->                 break;
->         case HDFGWTR2_EL2:
->                 resx = compute_reg_resx_bits(kvm, &hdfgwtr2_desc, 0, 0);
-> -               resx.res1 |= HDFGWTR2_EL2_RES1;
->                 break;
->         case HCRX_EL2:
->                 resx = compute_reg_resx_bits(kvm, &hcrx_desc, 0, 0);
+
+
 > --
 > 2.47.3
 >
