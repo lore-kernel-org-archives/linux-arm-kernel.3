@@ -4,56 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CD59D2F033
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 15:07:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC27D2F033
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 15:09:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l4IA7bQ/Xb6V31/kvvDbltJz/U3IdIydhc7X00SWdok=; b=BPfHEHqgewa7ZG
-	gGuTsfVygeZtjVCDfoaYgR0R+rPeLdjZAzUgMlplNbtBadVKkhFvOBi0sBfNO7cVxrkq27TVXv2TH
-	IqEWvJP2OGo2iTVI5y0JOZc8IUJ3mVhWsB3JOsHa3hJzgZJkkcMN68vOQt7rrmhuTUT0HyZiM87Hy
-	+Dxzrpap8q4ncJLjH5YuiINfVHl5EHHxTdJtgeviNObsCcm9Zc0ogsZKtAGpi8d8QCxqqC0JHoXlR
-	uAIlmGbuanOtcTsVulKv1up16Vv2Y0pjJY6bEt8Jb93Y8TTYf67UziiGVZx1e/unGSxRDtX04agEE
-	lqs/Eb+kmHlyeT4n7WmA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d2babtF7ooebO14DpKN8o4x/SKFLxlPlN7o39up2dbM=; b=W9wKp2CPyXj0uJQzpllDoSJDkZ
+	pbiNyISbmvqwNMe17emdM+oTbXLmDDVWPleCZVVim3QfnatcfZ+seET8IUAoDdRJL5lN1RVex97Tx
+	MERcF68qJguesbDDoIaVlvV7xLfFBcRDvd3cbwTDPE/esicIgFtLGkpOCEe9hoqH3RjPFYGqxVRkj
+	LNOnp3u7xMLqrOJtXM20DQsK9Y5VWKdjCLlZatYflBcB8hpCXmSLmdKlKu6XBGobQB733fVapxZB3
+	OJ7bIE471mIjXHjPx9kOdo07RQNUu+DKaurZhJxyI+Jh7LUzTiIG4gVz+X6oV5RrG5Cf7SWaIMp46
+	DQbVsVuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkkew-0000000EV9V-22dN;
-	Tue, 27 Jan 2026 15:07:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkkes-0000000EV8o-3GP5
+	id 1vkkga-0000000EVJ3-42ol;
+	Tue, 27 Jan 2026 15:08:56 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkkgZ-0000000EVIh-2DjQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 15:07:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E29FB1595;
-	Tue, 27 Jan 2026 07:07:01 -0800 (PST)
-Received: from [10.57.52.3] (unknown [10.57.52.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 869BF3F632;
-	Tue, 27 Jan 2026 07:07:00 -0800 (PST)
-Message-ID: <0f6212c1-7034-42f4-ba77-10e9ec52a4f5@arm.com>
-Date: Tue, 27 Jan 2026 16:06:58 +0100
+	Tue, 27 Jan 2026 15:08:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yDSdALs5MNrR+bm4hNY+fhoXzLwF/caKUYdcxpUkcvcKQy50zldwIWPCflJKNGJFqqQPB8xC9IDEEx3poa/Fx/xll0grcuq4e9GpAtcCPd7eYFfY2jnJgpC8zppC89uHdgCHhYUDyOxO7m9cQOhr4oxOQD8ohPGYIRohctzijPDP5bVgJ8GbnnNNMXVrMFJyYJinQp168ACm9ZGq3T94F88KZxDlVcy+06UlwvUJm3rOxuDjVI9zpaZQ274NaclBg7CmTHtpCJRQdRMhEAgoZ0zO/ib20t342lHVdnxpBiRWE/NByo0nigzGyZEk3fnDV+96D2i3ote6S/0TkZIG8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=d2babtF7ooebO14DpKN8o4x/SKFLxlPlN7o39up2dbM=;
+ b=MuKG5/Z9PiCTrTuKLfjfhVWFtkIHvotLnFaWM0CNYlXQKxCtI363nJ2ZFO5vYbrtYkZu+MmfMro9JnImwIuFrL/SD0CoN2KAQaaYOlNIW9mDXepuPevff9xiEDFPfUuESN5FjKQPkrUZxIKks09rr3YJUcSYvI9I+TSYHoaNBRuLOjx1dwHQl52BkTPKjd44mgMN23oZcha9/nFs8wMX+lqVVwrrG/h6cmWuZcV+nE0n2uvpKDGU6ZnjiBIzoOb3j+MxHL2txCPU9eDXJuhQGW8Jh4SynPfTgWWH9vwUdeytxoRNURhuKl513INSa5p0wKn92UygXkWWCgqKMcHjrQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=d2babtF7ooebO14DpKN8o4x/SKFLxlPlN7o39up2dbM=;
+ b=bRVAUYIFiHpGJEyxo9/CvL3ULro/aLAJv/7ekDfEWU8ZN+RjLozZOY5FxICHR9xWQBK0/3hYs76PNrDww0CVgC/q1Pf+eFa7pqAPw/A5tjc0K1MIzGmzN10XSu0TQm/LkJ3/NeOXL32wN1LNtxdKr3g0zyd/nAteZRTr8synRa6JUVs+punNExJCwgiA2k9sJbdTaPgqbuT53n6yOQFqaiEQTuhMv3DJNLR4SrnKrrKwPpVl2cz3HwdniVLMEQfKolpuBM4fd3XpAWtpxgxsisvzpe/jh0UK307abi8+ELeVHe5KNKUBq8CYt+nYMoKGP3l79DjeG1WqLz2gsMHn3A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by SJ0PR12MB6688.namprd12.prod.outlook.com (2603:10b6:a03:47d::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.16; Tue, 27 Jan
+ 2026 15:08:49 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9542.015; Tue, 27 Jan 2026
+ 15:08:49 +0000
+Date: Tue, 27 Jan 2026 11:08:48 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jpb@kernel.org,
+	praan@google.com, miko.lenczewski@arm.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, patches@lists.linux.dev
+Subject: Re: [PATCH v2 01/10] iommu/arm-smmu-v3: Store IOTLB cache tags in
+ struct arm_smmu_attach_state
+Message-ID: <20260127150848.GG1134360@nvidia.com>
+References: <cover.1769044718.git.nicolinc@nvidia.com>
+ <40ecdf7e0766004c5d3a4bd086cb22cf08254237.1769044718.git.nicolinc@nvidia.com>
+ <20260126204443.GX1134360@nvidia.com>
+ <aXgvzoPJDej7HEAm@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aXgvzoPJDej7HEAm@Asurada-Nvidia>
+X-ClientProxiedBy: MN2PR20CA0058.namprd20.prod.outlook.com
+ (2603:10b6:208:235::27) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 05/16] arm64: ptrace: Move rseq_syscall() before
- audit_syscall_exit()
-To: Jinjie Ruan <ruanjinjie@huawei.com>, Will Deacon <will@kernel.org>
-References: <20251222114737.1334364-1-ruanjinjie@huawei.com>
- <20251222114737.1334364-6-ruanjinjie@huawei.com>
- <aXe6W69Esd1NLEU8@willie-the-truck>
- <28e54f74-9b3d-4c3c-9172-ceb429e7fcbe@arm.com>
- <4891191c-d1c3-6985-c2ea-1b29deb8abe1@huawei.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <4891191c-d1c3-6985-c2ea-1b29deb8abe1@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SJ0PR12MB6688:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2ca0508a-236d-4319-1645-08de5db5f96b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dKIbAJ9Tqm0B/eItRFvU1MO4A6SVV+lEBb5GYnDwuXUrBm0Q/rtWnaqi+tdX?=
+ =?us-ascii?Q?YeEM9bMGMhnQItZpg7VCd/pzA/LmvD4AqHWcFQ74GAEoCmQiRMcPHyU7exCu?=
+ =?us-ascii?Q?Ia/RznMIiqMJ60JscodHhwg75Ri+I0dpbyXzYUxnSXS0uDEwjXQuGOiHstnc?=
+ =?us-ascii?Q?zOz/SxQqpVyL4vzCNZxLCfgXstk7uMscgx+Ifn6WJ35ycGuOMVd7lz4pG2d7?=
+ =?us-ascii?Q?XW7vhid1WvKWJr+VHZTFG6chHQUP0jZT+luJONgrvhU7TErIOtBrwHJZjZ2g?=
+ =?us-ascii?Q?4eoKuaBZCr2SpRRUNORzQ+c7WlOv89kpLF9vxc90GKxCuT7QTHwIvyRSQzw/?=
+ =?us-ascii?Q?FF/5/aMGRsxzwlBQZySMLu9t/N5ZaVlbBHm6+RsxlNPtFWGnLtEzF5yClNnr?=
+ =?us-ascii?Q?B9XeFGHuJHQD6Bi56UwmiZdKo86VR1a+ITP42if+UeOkgqQeeNMAxxG2yui1?=
+ =?us-ascii?Q?eDi7YSTYx8oC7LvXdX/S9c4MvHyrowizfMMaPrZD+39jpaynSgvi0YOUnhua?=
+ =?us-ascii?Q?7tw7nioZ6brnwDKWIWuG/rasC6Ffdr0tbrd1471zgj3XE5BKRGK4DRWqBRNr?=
+ =?us-ascii?Q?upgf1FznAsOVe6YR01L8YF1uQCIGFBswbWVsf8szdpvtmDv/M6JRINV1BIqU?=
+ =?us-ascii?Q?kHRxaaKUaBZEm8D5fNC8rbHDiytd8VjGMSfu6UedWEXiE7ZVBWKmwRzuET4B?=
+ =?us-ascii?Q?KyWw/Psjyy5uq9ibJtstXwdKe8DVb3p/Qea0wKTTuj0X8eLXy7qmqasqVuEv?=
+ =?us-ascii?Q?5/jxvXr2s2T418FPTVn7RhJYfPGxJSACRmeAqbLH3xHHJaiC9BVEuwzh4kuM?=
+ =?us-ascii?Q?GBKQs/3mJpFxExRPtIArGMVZo3rsmm1qVNc7MPA77GxVfsJ5TBR0hs+/tCyW?=
+ =?us-ascii?Q?ILkjV1XFo7zho4vyQfh/M35ei7g4m+Pm+E0SOj+Z/Dar2j6JgYLwKUgR6MyR?=
+ =?us-ascii?Q?b86dxFPu2dHEgsPLme1Ig30E8jZaeqDnZKUjTTkoqhvKRZCrFc3lQtMUYFWh?=
+ =?us-ascii?Q?vtVXV5CrOgm7w/jtY9lU1LB+opvV1QV3RsIg1INQ+p0X+oPDabDRGDUSBZrt?=
+ =?us-ascii?Q?Mhj5evioKNhNvODLD3SgA7HiTOEyJs/nWbDqZso+6Npg8U5yshtMzEfTSP7H?=
+ =?us-ascii?Q?xBC5bMByEcN1GObDyScel/kNYSvU6eLwlSLzGwB4w7TsBRg/E+or+HeBvNIi?=
+ =?us-ascii?Q?svtLDOwOuK87Nw1hUjW0v59ZYyfmUPfnyYwSqGLJVnFQBfC3P6LwRRIBeSUw?=
+ =?us-ascii?Q?v0v08Rm4MdKqumIiMQIMXKBsX6ycE3evsXYQgyd6CeFXgkvlXbk2jDT40fDW?=
+ =?us-ascii?Q?U3tzoIBJZ4rCAztcpzjgsufK95augyT1zpz3AZnu+OBwCLUrwT4g6hyxTdcu?=
+ =?us-ascii?Q?840/fo0VtSoi+cRJtU07K106cgtCHxgspbkMobhZrPwH3mcvVWvKsbhPNMK6?=
+ =?us-ascii?Q?CLMeJWa+3JUYAqlnxjD/KjbWgedW02Q5dz5+HvnKIhaExdoMAMwNOlhBEals?=
+ =?us-ascii?Q?7yopkZJYG8fVEKxt1hiLhFellc6YbmJZi8q+x09KB9+UprJE9IEs4KmRYVsU?=
+ =?us-ascii?Q?4EeJHKKYfnnhmMK8xE4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3k3wH4xRizlMlj+7o/pfB13snwy95qXOR3Yt+36vrEx6FZGpyKESyDA3quIm?=
+ =?us-ascii?Q?YY0pif4yxo2ufooefQnNPZRmFZF/TzVLWhBtjxH9Gg2hkiphVS1fgBOD3GHo?=
+ =?us-ascii?Q?NZZ/T84yzZWt+kX5DWtnSd1FImICWtofgBXVYWf7b12Iqy64mzmejDRqC2vH?=
+ =?us-ascii?Q?QhJdLAaM8t7/WFZtC2FbRJRLGtDlWBcrRDzn0mxmFgls4A6EniBvUYf95egU?=
+ =?us-ascii?Q?uYpGqTEyxBsl/Vsqc75qVviKIgxRDltB6hlId8ii6+oKg4/FDaaPtgaL/usR?=
+ =?us-ascii?Q?aMyCN5Lq5VdA6jO//llVkZnlkoFQMarRQ6MAjrgm8nHUi2lqDhnzyYPtqcVk?=
+ =?us-ascii?Q?W2vyqbiNPsdPFuppn0SexbtAtTsA+Ew4mh2ftVYRnFSncskpKQnpfxYTE5Ec?=
+ =?us-ascii?Q?rwwOUo+VLB9vzLgxvMLw/DC509gQ0uvUPB4Kjh18yniU0xox1Lav1PpMlQQT?=
+ =?us-ascii?Q?APz4Nbb6bi6UAHausSCwp/irv3+KJcc053wjG6HQLzfBevzSTHd8Oh7Ry8kq?=
+ =?us-ascii?Q?i+zSugiF73fi0DzP/uxB12lMiLPFOqW6/mCNE0IvNJ3WVoAsCXK9J0bmSi5T?=
+ =?us-ascii?Q?jku10bn9uOMe+/N0wGzsYWNVYc/Egukc18XxuEpmcve0gyMrbY5MR7j0x1yJ?=
+ =?us-ascii?Q?fOcFi/Bz2tyTstPt23hB2auFrgxNO4pjApni6aJnxxVTiMb6+mSFqjk8RVIo?=
+ =?us-ascii?Q?iZ2ZL3imouscU7zNpAURby/M2gdhHjBhWkFC3NnO+72+HNJwzUxuIwsrPkI1?=
+ =?us-ascii?Q?qqv39GE2B8PmIHjuNNn4zximamBI7TWUZpj/HkWi+nusLwy9g7MQBpVk05Gz?=
+ =?us-ascii?Q?rERTBfkgRRrsYfF3wzcEc84cD8FtwgLjBoJWwqtYQS/yjVNgMTCTdl39mYkK?=
+ =?us-ascii?Q?Tm5C1Rw8mXyFkK9vTbbTHViYejyQTPyMsmAe7ly2V7Lgr9rrz+wBHlQj8BCo?=
+ =?us-ascii?Q?ciep938ch0rpgml8RY0RVVmoDFBLDD7gpjentbnBLcBXCc4Yt6VM/DQou9Qg?=
+ =?us-ascii?Q?L8zO7VSCn/zxjj/ShQQmd3chPsx0iiylxmbsYclGKW/Q6bwGbgdpRP8hN0YH?=
+ =?us-ascii?Q?pruteXzZLQHuqrx+AOw5pP0SrO2UUQj9suCfdZJBcqLp/i7iS9k0igQNSaa+?=
+ =?us-ascii?Q?/w2FfeYu7f1resiJfSEPdftQ4j9d1H3D7PvdBFsbqfSFb6kiw9w8I/yUFwC3?=
+ =?us-ascii?Q?rFZ2PdZ9jNKa+SSQMgYGn+lNmP62UcbJAEHyh5slAYix7eBftWbp6rJKk9IA?=
+ =?us-ascii?Q?40fra0qp7mFaI/+TNm4RJIaf452uFfZxoehY7BM3yaN+ll6KG12zD9JNpllo?=
+ =?us-ascii?Q?c3mPb7YBI1VRYADi26xGWC7rBeZX6b2QVnfxpsYV56u5fqqej1nn/fLED2K5?=
+ =?us-ascii?Q?kzzGWGtU2jBz8oAMR3m8zWyt7Afw0z5qgEHcfMnwy0VQekPcxcUkmZw6l1XJ?=
+ =?us-ascii?Q?GAR0I2ZbfjFDtn70MRZGGwkFC3Rco5J55Ca0nKfDhtyq7Z56GkGfnjsST0gL?=
+ =?us-ascii?Q?WaojkuOcgl4j/AQZRgkS4UTpIqETWFh+1RpZcQLJlI59ukkGSEqWWw3oBPYr?=
+ =?us-ascii?Q?APsrmZrlsw7OdW/jXuAniMzk3ULfve/mWWEx1THgHdA9j9HY8lsM4njlAsp1?=
+ =?us-ascii?Q?N6fArvTxgdQ9lTvWAwon3gvG44gbVlKMtMRShGcLmA/YZ/ecxCmdmX90N8i0?=
+ =?us-ascii?Q?y2jFFsuIHiu/8EFvgCcxZQKvX0t9Z8oyp2hhhuBnKQ3zGnCx/CszbkWRQxJa?=
+ =?us-ascii?Q?35AECejAkg=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2ca0508a-236d-4319-1645-08de5db5f96b
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jan 2026 15:08:48.9967
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MV4sDnOlfiHkQmwguxtNconuHm5amEIIYlXvJ8bu9b+2CT6QpUe7oWaxmS5iguJc
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6688
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_070711_664301_5650B06A 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260127_070855_590406_A4AA7160 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,29 +164,44 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ldv@strace.io, song@kernel.org, linux-kselftest@vger.kernel.org, shuah@kernel.org, kees@kernel.org, linux-arm-kernel@lists.infradead.org, kmal@cock.li, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, charlie@rivosinc.com, pengcan@kylinos.cn, broonie@kernel.org, luto@kernel.org, tglx@linutronix.de, richard.weiyang@gmail.com, dvyukov@google.com, wad@chromium.org, oleg@redhat.com, linux-kernel@vger.kernel.org, liqiang01@kylinos.cn, akpm@linux-foundation.org, reddybalavignesh9979@gmail.com, macro@orcam.me.uk
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/01/2026 12:34, Jinjie Ruan wrote:
->> [...]
->>
->>>  I'm also concerned that rseq_debug_update_user_cs()
->>> operates on instruction_pointer(regs) which is something that can be
->>> chaned by ptrace.
->> Isn't that true regardless of where rseq_syscall() is called on the
->> syscall exit path, though?
-> My understanding is that if instruction_pointer(regs) is hijacked and
-> modified via ptrace at the syscall exit (ptrace_report_syscall_exit()),
-> this modification will not be observed by rseq. Specifically, in the
-> generic entry syscall exit path, rseq_syscall() is unable to detect such
-> a PC modification.
+On Mon, Jan 26, 2026 at 07:23:58PM -0800, Nicolin Chen wrote:
+> On Mon, Jan 26, 2026 at 04:44:43PM -0400, Jason Gunthorpe wrote:
+> > On Wed, Jan 21, 2026 at 05:24:19PM -0800, Nicolin Chen wrote:
+> > > +int arm_smmu_domain_get_iotlb_tag(struct arm_smmu_domain *smmu_domain,
+> > > +				  struct arm_smmu_device *smmu,
+> > > +				  struct arm_smmu_inv *tag)
+> > > +{
+> > > +	/* Decide the type of the iotlb cache tag */
+> > > +	switch (smmu_domain->stage) {
+> > > +	case ARM_SMMU_DOMAIN_SVA:
+> > > +	case ARM_SMMU_DOMAIN_S1:
+> > > +		tag->type = INV_TYPE_S1_ASID;
+> > > +		break;
+> > > +	case ARM_SMMU_DOMAIN_S2:
+> > > +		tag->type = INV_TYPE_S2_VMID;
+> > > +		break;
+> > > +	default:
+> > > +		return -EINVAL;
+> > > +	}
+> > > +
+> > > +	tag->smmu = smmu;
+> > > +
+> > > +	if (tag->type == INV_TYPE_S1_ASID)
+> > > +		tag->id = smmu_domain->cd.asid;
+> > > +	else
+> > > +		tag->id = smmu_domain->s2_cfg.vmid;
+> > 
+> > Would be tidier to move these up into the case
+> 
+> This will act as a fake allocation path in PATCh-3 and eventually
+> get replaced with a real allocation piece in PATCH-4. So, I wrote
+> like this in a transitory manner.
 
-Good point. So concretely that means that currently on arm64, one could
-make the rseq debug check pass/fail by using the syscall exit trap to
-modify PC. OTOH this is impossible with generic entry because the rseq
-check is performed first. I'm not sure this is a feature anyone has even
-noticed, but it is a user-visible change indeed.
+I'd still write it in the nice way, you can remove the lines later
+when you add the allocation logic.
 
-- Kevin
+Jason
 
