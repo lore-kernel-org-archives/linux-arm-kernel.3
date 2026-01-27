@@ -4,145 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F554D2F031
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 13:57:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65198D2F031
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 13:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZGi4zuBCR99YTFcaaij6GMhicjZy4PQwZg2IB9CApsU=; b=Gl9/4S9qbiC8wIQVeJiP4K1pjz
-	nvQXbWOfwX3HRgSPa0FPjv+S/QV5mdlxQksuQ4q8CNGp3cU2WXJcbdgHpvkrcQCMP0o8up6OJ/CKX
-	KoQIhdW5Z/fZWml5R2ysQiZh5U08Bi8kLRIzvljJXui3dVPCH3MP7dLKLUiDt59zioIdJOdlvedp3
-	02s5lvhXj+vwXqUcTwvcarBNlYeMtvclR8XdYqqwJvDNjfOp/Carac2G1LqOEBmXdtCkJ0cTsLRbh
-	RcFfyucr4akxzkLQqMLrTWIszVypOXHUuaquKTBKSFJza39Ad0kz7g+WQoODgXNsXGFWLi5bveY5t
-	otwHCSgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=75PQCFMMISya6miWyFTo5NFlD+yMTmEC4MBoTSgZA6E=; b=wxbJvrBV5oWMkbiLpGarhvm17O
+	G/GVmlPzCTXAjmLsUKUW8N8n38qLRX96wl+fxWj4yqUbQtny7HQefcZy5Y6IJdSeSiO1P3YblPp0u
+	RXQTGU7SvwQuE0nz0GvFvzEnLACWxY5P+bBe5vW7JfZhSuiik0rXGjkVeP1K1DRiU0iX5doLOH2Ed
+	YUiRe90YCY8fGIEjP1GBc1EGLX41zORlZ7CDNkbKhh0Y9iRflKJUUQqMWjYjG696gi+cMS6kKUUoy
+	cJpxGZSWPuFj9YHWY8K1Rbxa4jqYBIvv3q65qR2lT7/2/L+pg2J8ai/ptZhksMXrycREPLvFSBpyg
+	qILRR2OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkjZ4-0000000ELPS-2VN6;
-	Tue, 27 Jan 2026 13:57:06 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1vkjZR-0000000ELTU-44FV;
+	Tue, 27 Jan 2026 13:57:29 +0000
+Received: from mail-vk1-f171.google.com ([209.85.221.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkjZ2-0000000ELOz-3jLU
+	id 1vkjZP-0000000ELSr-1XFB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 13:57:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m3okMVdK+gZTDFqTU0kzFGh5vsmPWlvWfg0jmCFHj+BUdFFBNQ8uxF57sBwXukJn41VoiKMir+LEkKap/8PNZalQ24sL7W0pDnSpTVStHGzdvQDxFrPF/oXrujqnBA9Cr/u1qOVl1F1S2dBDUKQqG0Rer81hCOQQrvy4olUI1/OSq5BGvfC/lHFe1KwvrBgsvdMbD81VgpSeHkhmFw3AFjxURDD2SiIyMmN539AeoQGBwVI64zqKcr8UwwWZNfkOtTbaG4R9Cav5axTpW1dnI6pbMG1PPV9ucntb3vc/ObvjgckvRyWPSMtu2W1YTLQoCLBivQs6+hy4bKOFQFSM8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZGi4zuBCR99YTFcaaij6GMhicjZy4PQwZg2IB9CApsU=;
- b=yrlgAbWwDUXwdttD8OFEFfz8kTuGm885H1oIbfsrEuu+f4sdd5e4UDJWyJCkYXXTmAnez5lt4T2yg8Ei2G6EFFaC2lb9lLhg+gLRDZK3So64LlVazbKXdzpeT1ApD+Vn67cEbltfGOSlt1tgxryHgAe1N9k3l7cQERErB+L9wxKCVsklVU6HEm4rTTvUKtF+0JVbhbu2T3r6kQYnurtNO0Zhm3h8lskt3DuAd2QVMffbKBRu7L5EOH37ujzEg6yKjiy2k2SzEicVWY3tShXRPPaZkVPQwSRdrqhYu5NQqrfzpV8/fojr3O4XBotq5J4+uZgvWfxazL+5ox6GGsLskQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZGi4zuBCR99YTFcaaij6GMhicjZy4PQwZg2IB9CApsU=;
- b=Uw0hmLTj2/1ecAtADctHIZ3x+3t9ogkL6wMQIk5j3sSm0RU8KeyQiKS+4s9VsFivC5gVsurWdOnBL5EX+52iB8LD+4Z+sZigbg9XS4cTnIQLARzjgNAhUwsZZEvk8bfdOojzRRmDvVvSOb5orybXKoW8JCfKndYvp67Qf/iWF9k=
-Received: from BL0PR05CA0026.namprd05.prod.outlook.com (2603:10b6:208:91::36)
- by CH0PR10MB4827.namprd10.prod.outlook.com (2603:10b6:610:df::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Tue, 27 Jan
- 2026 13:56:58 +0000
-Received: from MN1PEPF0000F0DF.namprd04.prod.outlook.com
- (2603:10b6:208:91:cafe::54) by BL0PR05CA0026.outlook.office365.com
- (2603:10b6:208:91::36) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.7 via Frontend Transport; Tue,
- 27 Jan 2026 13:56:24 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- MN1PEPF0000F0DF.mail.protection.outlook.com (10.167.242.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.3 via Frontend Transport; Tue, 27 Jan 2026 13:56:57 +0000
-Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 27 Jan
- 2026 07:56:48 -0600
-Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 27 Jan
- 2026 07:56:48 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 27 Jan 2026 07:56:48 -0600
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60RDulSj256745;
-	Tue, 27 Jan 2026 07:56:47 -0600
-Date: Tue, 27 Jan 2026 19:26:46 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-CC: <linux-pm@vger.kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/3] pmdomain: core: Show latency/residency for domain
- idle states in debugfs
-Message-ID: <20260127135646.7o6bq7ptfh3gak2x@lcpd911>
-References: <20260119143121.161583-1-ulf.hansson@linaro.org>
- <20260119143121.161583-3-ulf.hansson@linaro.org>
+	Tue, 27 Jan 2026 13:57:29 +0000
+Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-5635f3eff8aso1277605e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 05:57:26 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769522246; x=1770127046;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=75PQCFMMISya6miWyFTo5NFlD+yMTmEC4MBoTSgZA6E=;
+        b=KQHtn2BUQmkmcLurwdcm9NjVq29clDw3WqTgGD0Ibpetj+XL5ui4cuIYasRFWFNF31
+         TmE/EKs229niPSBptCDdOVTpP8YiOa0tg2I8RhE+5Tq4EWyi9LMW3bn80ulqpZr52lad
+         ox/R4PDKwElBYMjQ/w+rjkUFcMGH2OyWrUdxsHdizDmcWybSGjdHnvxZvg77caYguB2R
+         pOzb6u9p8qESEIv1i0mtY0a+r2plaldStk5OrqRmQ7/Qf2BOVtPWvatdb6brJqYYRKzi
+         UKGG2W+V62uV+y4gBqdlSnEFyjVGqIfuHp9wQW/7siRLC6i7fk/hVR+SElmkSTJodBDO
+         cKEw==
+X-Forwarded-Encrypted: i=1; AJvYcCWR/ZuRt7Uzq7QEvKKdwByo1065FXNFPQzBWNFxE4aIN2GSzeOAgqQWwbDdFoBMv/OUS4d6xNOv76D1uWHfHIbw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpZqKAjQoeI0hWndo+nE3d3SqIgekBgXieRKF28tQlH5R1DGmv
+	PtvulXOv66jNHCpvxiHahEa95B3qIJgyMmhbOoL8FNrylqyWas1hUySM5uvSA0fW
+X-Gm-Gg: AZuq6aKN0V6almCEtLXU+skiqWneNNvQdjGk4i75dTVDFm71zmA5wwO7a33UYJObZ3s
+	dQhq0FgoFDg1VPARHX33xuOV5FGZ6VpIPlDTwpoBtArFTFClDrQjrbwRWdT20f1sgZZrG4c6I2g
+	2WQ1zHiU9nY+jFCkj9KIktkCBz05LdmXetlkIfHD1jxffVR2FM2sz5M8RlEvwqZmu5mJa/1DXfp
+	fgFUIcKFL/6v7XIZGRA44511QKWRpLBDhJ3wXd4U5UjhfOpfaNuqAXcBD5d+3ZkhTRi8pBhhWz+
+	yGwWVAZQfaSphIyBumDnwnEP+9TWQn01PVnYpLLmcSxLCcFxfNxyRyvZNrUpD9TqFLLULGfAs8S
+	yuiKQi7ewioDYXW0u2DWZa2ZY6oUdg24abJdK/iZ4DrNo75zHKsSUiMRHS9o2INIuaH5NmjK6Zr
+	yhAK8w0ouH/6+dGjKqGSmV1NEC6v1dR/5vyDU33p9WqIZqKYCxg4QLaLGkonhOrag=
+X-Received: by 2002:a05:6122:8c12:b0:559:5dbe:fe29 with SMTP id 71dfb90a1353d-566794c400cmr411183e0c.2.1769522245324;
+        Tue, 27 Jan 2026 05:57:25 -0800 (PST)
+Received: from mail-vk1-f170.google.com (mail-vk1-f170.google.com. [209.85.221.170])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5663fa632e3sm2272441e0c.4.2026.01.27.05.57.24
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 27 Jan 2026 05:57:24 -0800 (PST)
+Received: by mail-vk1-f170.google.com with SMTP id 71dfb90a1353d-56638fca064so1417599e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 05:57:24 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXNDlm5QyAHoCOY9ImCs7PXUB8leNiUG2e1A7TDPGyWP0uk1GJm6nezURLBtJqxsCAuNcn+AwHstOT9qCXE6bXS@lists.infradead.org
+X-Received: by 2002:a05:6122:78b:b0:563:8339:6201 with SMTP id
+ 71dfb90a1353d-566795e7f59mr418577e0c.17.1769522244153; Tue, 27 Jan 2026
+ 05:57:24 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260119143121.161583-3-ulf.hansson@linaro.org>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0DF:EE_|CH0PR10MB4827:EE_
-X-MS-Office365-Filtering-Correlation-Id: cb3ad883-0f25-416f-437e-08de5dabefdc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Nu459BjAYLJLFMUbnSBrNmZSd730qZ6nlJwxaOB9/Dxp6flMKBxrgdaSsE8X?=
- =?us-ascii?Q?g1+PVS1D8dO+iHF8F+xtgyTfhk+Mis+AHBipV90wg/w9W97EVeOs5s3XJ0WS?=
- =?us-ascii?Q?xr+F5054aKixiKk1dKUyV7LIiPhnzg37wKhNbFAt8FwURcI87EBHmDonW9lG?=
- =?us-ascii?Q?mvQpgzgoJoGCBsVRghP2wEhG3JIu8e/KeNguh3u9jFIuJDuIMdf1SfbKlncS?=
- =?us-ascii?Q?usgkQ+gyKqZtcDELxbLSGj9QqJ3ue5cRWEhcnUpS2H556R8NvH17oxCLVzOB?=
- =?us-ascii?Q?SXbj6kqhYGUvucMqWYUiIKuRjUN9z3JRdaGjjcikfeuGqr8CLR5EIsM0R4so?=
- =?us-ascii?Q?/NVZhArdGSeGRyOk7Vw5SolIyM3DG6lqVMJzJdZRXtLpGZcGlwvNR11Pgpvu?=
- =?us-ascii?Q?na/H1Ppgzwm/hAvE48TnrWuQHsIQ0QKAycRZ6IzIirtNHjJgZw1VUYgI7ZLQ?=
- =?us-ascii?Q?i3EjiT1snI93ebVjWTS3aE1XloQdlqWy/fqheJCxZEvWMLBMwqpZoarfOIbs?=
- =?us-ascii?Q?M3L11Nu3OMQoAqLOYg5mXjGBTqOclsSKZEeYOShmM2u9vxP2IAP1yriUC0G5?=
- =?us-ascii?Q?adIgbXAbnQgWMPYv5uZ5jvctVTijkYjxkM3Xpv2yzDhp7WkjSow9UQWkzTg4?=
- =?us-ascii?Q?MVHGzvptxrl3V1YJqK4OnYh3pO2v+iAyPz1nq28PZnBbhLqEESyrFkHFRlmE?=
- =?us-ascii?Q?YGQV8Ad/HpbBKZnIgvwPY9zEZIwFENq+0AzwGRdW8yMYFuqExBgsN75fRBNl?=
- =?us-ascii?Q?p41C5W1FOq3oGdVeiaJVpD107MvOUGgISwT/33eh9G/L+xE/W+5vAH1iIa7K?=
- =?us-ascii?Q?ZYVOSeZk6drEd+ojVrt666VgfxlgnvFMBeZ5r9ndgfuyLcO/fgvRv8Dvz+UO?=
- =?us-ascii?Q?LTD6W4dUfsQn9IIsyEXQSS+tUDkcYNKfifrvMsAM1t6eU7EJdQkW7jSefq+6?=
- =?us-ascii?Q?FxHXTN/DZfJGpwb1rvR0NSBiYdawQE/0+XZxCEmNW+nAJok626pYf16gXRXC?=
- =?us-ascii?Q?WqP1D0Mcj1pwyScdx5GXl3krpVd8ascDcrWDkrmgsQbUswT2PuDOg4kwvjE9?=
- =?us-ascii?Q?Ehy8wkyIYQucn+owbNGQDjEAKNhSN9AF+99bOaPqA/nGSkcs1oGwY847v/3d?=
- =?us-ascii?Q?Y9mC07tZPHsvmm9bLv3bOk9naZjSYYgnjmunqrsYiA13vv9CrejSjIJe6ki7?=
- =?us-ascii?Q?HAESdGstksOl+qxq58NrUpIiQ3RFrxHI3wK3J2J6rcbnNrkxXVDh/QqGu0Zq?=
- =?us-ascii?Q?AMI+irSMQHATcew0GSpHGW6k4IbhWSDBtCf8AE2EJ/19eV1WBtIB3V5Ekq3G?=
- =?us-ascii?Q?dz9zz7qx6ErntZhm5E0cqdzeYY40ruWwv6ZaUx+1SLT7BCMSNVvmmWmnoElQ?=
- =?us-ascii?Q?vj6lUMyjxVZ1nk4yqGNsBF19RA+2FIVufV7AoO3qkJe/6hbZ/uVy27oY28Dv?=
- =?us-ascii?Q?+InZQnhy8oPJWLCQAazeHpLgL9XACGH1ihdpAd+OdqPXk5PNLT+YrzrEwVIM?=
- =?us-ascii?Q?6hTfarTIoAFGnuK3LXMCqdVIuZSBSIH17GSmftOLL6Qd7zWLYfX1jRdgImRX?=
- =?us-ascii?Q?wqHxO0zn+zMKQInBZQPUkgEscHgiWsT9yHL76W3YB+iTTa0qb+qvTCpsDKlk?=
- =?us-ascii?Q?XYC3k5GpAcnG3WRXXLDZ6pbaImF9GmzLVaKgrX0d8JJCmBaktDlodAhy5DFi?=
- =?us-ascii?Q?F6s9Lw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jan 2026 13:56:57.6762
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: cb3ad883-0f25-416f-437e-08de5dabefdc
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0DF.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR10MB4827
+References: <20260126172503.238724-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <aXeuR_YLoAFYEAVi@shell.armlinux.org.uk> <CA+V-a8t5RKY9vyFDg0V3AWcBovBdWbcvqdPeiPYmHRA8v2=UGQ@mail.gmail.com>
+In-Reply-To: <CA+V-a8t5RKY9vyFDg0V3AWcBovBdWbcvqdPeiPYmHRA8v2=UGQ@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 27 Jan 2026 14:57:13 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdXOMMyYrbPr8H3O+oj7QeGg324jXdV1QUaUhQF4sxTyfg@mail.gmail.com>
+X-Gm-Features: AZwV_QgbBo9gCTeM_9WEMxs9EnfZIFfAoe0fWXmaoPkXJK4PoXh0OCn_st1Xl0A
+Message-ID: <CAMuHMdXOMMyYrbPr8H3O+oj7QeGg324jXdV1QUaUhQF4sxTyfg@mail.gmail.com>
+Subject: Re: [RFC PATCH net-next] net: stmmac: Preserve bootloader MAC address
+ across unconditional reset
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Geert Uytterhoeven <geert+renesas@glider.be>, netdev@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_055704_929346_AC33118A 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20260127_055727_415271_631CB0B3 
+X-CRM114-Status: GOOD (  21.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,53 +105,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Jan 19, 2026 at 15:31:14 +0100, Ulf Hansson wrote:
-> Similar to how cpuidle provides the values for latency and residency for
-> CPU's idle states through sysfs, let's make the corresponding data for PM
-> domain's idle states available for user space, via genpd's debugfs support.
-> 
-> Suggested-by: Dhruva Gole <d-gole@ti.com>
-> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
-> ---
->  drivers/pmdomain/core.c | 15 ++++++++++++---
->  1 file changed, 12 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-> index 919dff2081d6..bf512ff0857d 100644
-> --- a/drivers/pmdomain/core.c
-> +++ b/drivers/pmdomain/core.c
-> @@ -3809,15 +3809,24 @@ static int idle_states_desc_show(struct seq_file *s, void *data)
->  	if (ret)
->  		return -ERESTARTSYS;
->  
-> -	seq_puts(s, "State  Name\n");
-> +	seq_puts(s, "State  Latency(us)  Residency(us)  Name\n");
->  
->  	for (i = 0; i < genpd->state_count; i++) {
->  		struct genpd_power_state *state = &genpd->states[i];
-> +		u64 latency, residency;
->  		char state_name[7];
->  
-> +		latency = state->power_off_latency_ns +
-> +			state->power_on_latency_ns;
-> +		do_div(latency, NSEC_PER_USEC);
-> +
-> +		residency = state->residency_ns;
-> +		do_div(residency, NSEC_PER_USEC);
-> +
->  		snprintf(state_name, ARRAY_SIZE(state_name), "S%-5d", i);
-> -		seq_printf(s, "%-6s %s\n",
-> -			   state_name, state->name ?: "N/A");
-> +		seq_printf(s, "%-6s %-12llu %-14llu %s\n",
-> +			   state_name, latency, residency,
-> +			   state->name ?: "N/A");
+Hi Prabhakar,
 
-Much needed indeed, thanks!!
+On Tue, 27 Jan 2026 at 14:39, Lad, Prabhakar <prabhakar.csengg@gmail.com> w=
+rote:
+> On Mon, Jan 26, 2026 at 6:11=E2=80=AFPM Russell King (Oracle)
+> <linux@armlinux.org.uk> wrote:
+> > On Mon, Jan 26, 2026 at 05:25:03PM +0000, Prabhakar wrote:
+> > where "local-mac-address" states the MAC address to be used for eth0,
+> > as specified by the boot loader.
+> >
+> Thanks for the pointer, I will use the above-mentioned method with
+> which we won't be needing this patch on the RZ/T2H platform.
 
-Reviewed-by: Dhruva Gole <d-gole@ti.com>
+This should already work out-of-the-box, as
+arch/arm64/boot/dts/renesas/rzt2h-n2h-evk-common.dtsi already has:
 
--- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+    aliases {
+            ethernet3 =3D &gmac1;
+            ethernet2 =3D &gmac2;
+
+So just make sure to set the "eth2addr" and "eth3addr" environment
+variables in U-Boot.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
