@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDDC3D19515
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:39:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 248DCD19515
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:41:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oZ1nqRttscRDb16nvyQHmnYUcs+BHGQLI8sK1OBlzmU=; b=IcAfsNT0CCbSuR0QwpWww7tpwe
-	f+p5Td4FI/WQGnNJOr1NZNWP7Ozc82yMOYc5Xu7ScxAebeslk+bY9g/d9CduRhoGAFRuu0tmYgNyZ
-	nzcUFNwjz6B/PTysdsNBuvyXBGfy8fQ1gNbIFH7XIAiL/6UfYXRFZm9afNk1SPdwDTm1W4WXNWEo8
-	V8WGARK/VvIfprFe956BVitG7Elpx2pLVC3FHta8M2z80JX5S7YmbGJR3O6YV+xuJt4llMVYdkfiT
-	Vi3PvMNgMcxdjRfMlOosLC6h2NEtPj9ZxdILK5fY6eu6UWIpekOLZCCARE/4OJx2oHQu4d8X+Hooz
-	oaYU+/WA==;
+	bh=eOm7lxyY1Tc3UFUw/xoRTNbb5KRa+LpVsi+cTsx+qLc=; b=ROS5lEikBKtmVgTz3oiOYvwOxy
+	g9l5+ixE1/Eq/doRDbXy9qs/TadenyRiThAzmBgiLe0s2znFEFgbgkYnHBK4n+6HVvDApyPZg/kvr
+	0YECzh0xu9O5+YZLINxkmwokKzWapXVXQv9UkHr6rYqLWhJPtSX5Xdk0858kTGC+47/82XtpB20iY
+	XKZdh9f1EHXDq3IF0F0XP4cqh1Dwd0TIllBMQAsL94eMrL5ObA7RaQFExZc6ibOyv4xzqv6TBTGFv
+	NCmQ2vfRF1S6/hlgzFQWFzsDpweT5d5VJDJHrCG+nAr/e+xy5Xj6T0hAQY4aQF88VUJV9SZrgjhou
+	DM4ZcgNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfXf-0000000Dxob-2VDV;
-	Tue, 27 Jan 2026 09:39:23 +0000
-Received: from s3.sipsolutions.net ([2a01:4f8:242:246e::2] helo=sipsolutions.net)
+	id 1vkfZO-0000000DyAd-1wYV;
+	Tue, 27 Jan 2026 09:41:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfXd-0000000Dxn9-0APf;
-	Tue, 27 Jan 2026 09:39:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
-	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
-	Resent-Cc:Resent-Message-ID; bh=oZ1nqRttscRDb16nvyQHmnYUcs+BHGQLI8sK1OBlzmU=;
-	t=1769506760; x=1770716360; b=SjdqwJJwqwjDGi9atwB7JbG1zOAscLkkxKZo5zDz/bdj2+c
-	fhJYWClTNISP2owmCB3CyCZaxY8TCRCGhW0CSTB1oDvDxLmk7HICTLo+Gv79M77hTDLCxsz/3X9MI
-	iQyMoM+L4NdrzojRp7sQ1YgWWzBVzQzzWO9oGyS/is1Gsmn8DzSoW5Wmjyg1y3Ait9/pLYNSbCtHN
-	esD706CxSOnKInB5Y+cn2QpggMuvL5Pi9gceaa4E+IZSdpTFtFRO060Cpheb9bZhIF7kPTUXNNXWr
-	qq1HxpMVylTIxdCO0956EdZJkl2+ASMmMBs6KgtTpOS03nuXv/whu0JznqgQq7AA==;
-Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.98.2)
-	(envelope-from <johannes@sipsolutions.net>)
-	id 1vkfXV-00000004vNm-2gYa;
-	Tue, 27 Jan 2026 10:39:13 +0100
-Message-ID: <3a70b1e233d413b8b812d4c16dd0263f3ff4557f.camel@sipsolutions.net>
-Subject: Re: [PATCH wireless-next v2 1/2] wifi: mac80211: Add eMLSR/eMLMR
- action frame parsing support
-From: Johannes Berg <johannes@sipsolutions.net>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Ryder Lee <ryder.lee@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, 	linux-wireless@vger.kernel.org,
- Felix Fietkau <nbd@nbd.name>, Shayne Chen	 <shayne.chen@mediatek.com>,
- Christian Marangi <ansuelsmth@gmail.com>, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Date: Tue, 27 Jan 2026 10:39:12 +0100
-In-Reply-To: <aXiHUlHmrKz8JgXS@lore-desk> (sfid-20260127_103728_074617_E1C38CA6)
-References: <20260125-mac80211-emlsr-v2-0-466329d61c88@kernel.org>
-	 <20260125-mac80211-emlsr-v2-1-466329d61c88@kernel.org>
-	 <01e62344994a34daae0666b3873aa98e72fb5850.camel@sipsolutions.net>
-	 <aXftjdCtqnQk69ys@lore-desk>
-	 <b592a6c9a8f59f112b2221b9a46568769b1e9dcd.camel@sipsolutions.net>
-	 <aXiHUlHmrKz8JgXS@lore-desk> (sfid-20260127_103728_074617_E1C38CA6)
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+	id 1vkfZK-0000000DyA2-2Ze6
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 Jan 2026 09:41:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B059E41AD1
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:41:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92666C16AAE
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:41:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769506865;
+	bh=eOm7lxyY1Tc3UFUw/xoRTNbb5KRa+LpVsi+cTsx+qLc=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=VqQqBU6oOkBOQIAHVVW9j3hspWpF3dWPTc8PDMc0z3BnutT6XrF0gEu/A5aHeC7y+
+	 87PKqdGjSaJQjLG7RR+OXStps51moVlqUjIpIH9q2HdJ5VP47dOngle4zLGm+vUKl5
+	 XKO5jetR1+UlqoX++ljJOtnH52HD2YahKoo2RC9xSmqY7zKiv1iSXvJMmkd2LmxfCU
+	 Cxn+ca0RzOokoptk4L1xJT8n99P9A/NLJa6a5eQ1HcFmiW2DUia74m52P7lItZXV3U
+	 YNmbhhYc44wfhiuUmBiVkpfajXXKCCBht6dlpN74+7gaAVuHjnNziquOJmGtspaZam
+	 9bnqesQ55ImeA==
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-59b76844f89so5210477e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 01:41:05 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCX9tYZaPSi2BY+4ds7mDmTjE2LbBnsjpsNwa/oCkndWPiKtwllhs4fBe5E3aBOv499tAI8VHp4nLe0kfK0t55rp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyok1rfiQrxSXqaaexe2yzPwAWrOMitmFvvXfBslYdgnHnavQaV
+	2wil8dAjLcSW5msrv7k5caT0CMqI+5YBcaWmZEkomQ1m3pgbSpYtJuRe18zjpnJgQ5q+hLe064E
+	pK+f/U1xUyTtHNNDOntmsXJQQafBsvHHZUdxHYocLBg==
+X-Received: by 2002:a05:6512:1315:b0:59d:d659:661a with SMTP id
+ 2adb3069b0e04-59e0401fc28mr534674e87.13.1769506864295; Tue, 27 Jan 2026
+ 01:41:04 -0800 (PST)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 27 Jan 2026 01:41:03 -0800
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 27 Jan 2026 01:41:03 -0800
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260122-sound-cleanup-v1-1-0a91901609b8@nxp.com>
 MIME-Version: 1.0
-X-malware-bazaar: not-scanned
+References: <20260122-sound-cleanup-v1-0-0a91901609b8@nxp.com> <20260122-sound-cleanup-v1-1-0a91901609b8@nxp.com>
+Date: Tue, 27 Jan 2026 01:41:03 -0800
+X-Gmail-Original-Message-ID: <CAMRc=McPYmbWJuK5CJp3Q1guWJJOHYJvn46RWGs4T=QTPuSyzg@mail.gmail.com>
+X-Gm-Features: AZwV_QjxuGgyv_lskuObHAVoLkrg1Z68koiUm97tVl4rp42X06QqGdyJPsB5dj4
+Message-ID: <CAMRc=McPYmbWJuK5CJp3Q1guWJJOHYJvn46RWGs4T=QTPuSyzg@mail.gmail.com>
+Subject: Re: [PATCH 1/4] ASoC: codec: Remove ak4641
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Peng Fan <peng.fan@nxp.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Daniel Mack <daniel@zonque.org>, 
+	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	Andy Shevchenko <andriy.shevchenko@intel.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_013921_078778_48D9AFA0 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20260127_014106_674420_FE50FC8F 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,32 +90,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2026-01-27 at 10:37 +0100, Lorenzo Bianconi wrote:
->=20
-> > OK, I guess the memcpy was right after all:
-> >=20
-> > =C2=A0=C2=A0=C2=A0An AP affiliated with the AP MLD that receives an EML=
- Operating Mode
-> > =C2=A0=C2=A0=C2=A0Notification frame from a non-AP STA affiliated with =
-the non-AP MLD
-> > =C2=A0=C2=A0=C2=A0should send an EML Operating Mode Notification frame =
-to confirm the
-> > =C2=A0=C2=A0=C2=A0mode switch at the AP MLD to the non-AP STA with EML =
-Control field
-> > =C2=A0=C2=A0=C2=A0set to the same value as EML Control field in the rec=
-eived EML
-> > =C2=A0=C2=A0=C2=A0Operating Mode Notification frame from the non-AP STA=
- before the
-> > =C2=A0=C2=A0=C2=A0transition timeout expires.
-> >=20
-> > But I think better restrict memcpy() then to just the EML Control field
-> > and build the action header etc. directly.
->=20
-> I guess we can just memcpy() control field + link_bitmap (if present) +
-> eMLMR Supported MCS and NSS Set subfiled (if present). Agree?
+On Thu, 22 Jan 2026 13:44:57 +0100, "Peng Fan (OSS)"
+<peng.fan@oss.nxp.com> said:
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> Since commit d6df7df7ae5a0 ("ARM: pxa: remove unused board files"), there
+> has been no in-tree user of the AK4641 codec driver. The last user
+> (HP iPAQ hx4700) was a non-DT PXA board file that instantiated the device
+> via I2C board data; that code was removed as part of the PXA board-file
+> purge.
+>
+> The AK4641 driver was introduced ~2011 and still probes only via the I2C
+> device-ID table ('.id_table'), without an 'of_match_table', so there are
+> no upstream Devicetree users to retain. With no in-tree users left, remove
+> the driver.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
 
-Well, the link bitmap and MCS set subfields are all _part_ of the EML
-Control field, so I'd not phrase it that way, but yes.
+Yes, please!
 
-johannes
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
