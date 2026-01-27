@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D8ACD2594B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 07:16:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 799C2D25955
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 07:16:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ecu5YJerF7ppjEFjoeyqLO82/b5nn1WtdkAH1BLTIA0=; b=re7QyDkENg8UD8PuNG7dwB9eBm
-	muROoWy82xP9Coa8GQ6wMt/ld4dBlo58b+JOheP4y77gytbS9sWM/i16XFmsDWpQ9++ogvV6GouXB
-	PDhSWdftMWl52esKbK0KKqaFvHS7bdDraJdncNCYg9LTOcD/ILCoB9kYvelXTbXbmeQD8uUs+wzq+
-	D9vtrYv7HUjzXfjUEvDG8NTIFyTqarRXc3g6eG6CXEFe4xcuwUShEtmkrJnvuHjyaZ/fTkGSxk86Q
-	hsbXEyo9p+2W2FaWZNIZSZWGYn1xhTdSvlo00Yw6hvLr+Ts4oyEJFF0vpi4NJk51AKaDGcoVZpuv6
-	bSw9NHPg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EGC1e7GTJ+gs5YLdBWssdAfqY7NGH0UJX4m8BTmPg/I=; b=tm/f528+KfwTOXuVUhcAH9K4Jk
+	CAojstFugqcPoBduKPjVswzlahybRs31OihpgFsJ10tOjNhiwpXQ21Hxs5urMavaiXkhNXeyV3VJa
+	iHqyoPMsau5mEBfCeordKaA+F7pw7LYdP/WFF+1NB2wVUMm6kclu+XPqo+Mt3f9qL/9IUVxwcu6Si
+	7jyFHN2OjiOMhXD1No3eR/G/Vth8ICHMjQzcEO2kCQMdbPaCIvfod7qfrgI7ypSpuJrEbQduzE9N6
+	ASLXZjbB2nHDopJJFv0AEaAcFNnP4fm6t01i8fYzUaPrrHp+VNvh8+kEx9oa0UfEu28QcbxllsPJG
+	OkwsA+5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkdJ8-0000000Dl6c-0pfC;
-	Tue, 27 Jan 2026 07:16:14 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1vkdJI-0000000Dl98-1vUk;
+	Tue, 27 Jan 2026 07:16:24 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkdJ5-0000000Dl5w-2MLi
+	id 1vkdJD-0000000Dl7j-2KQO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 07:16:12 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2a07f8dd9cdso38669895ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 23:16:11 -0800 (PST)
+	Tue, 27 Jan 2026 07:16:23 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2a0c09bb78cso37525385ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 23:16:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769498171; x=1770102971; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ecu5YJerF7ppjEFjoeyqLO82/b5nn1WtdkAH1BLTIA0=;
-        b=im9CDbDCprLLDsYSFbpLWszIejfwJ1mNSDo1xbRXj8ieOKhoRBRANQPq+gZxhsVyBz
-         7XzDm7J/tOKxGMmUD0FKn6Xkk9BBaEEL8J7j7h+OfAkF5XW0Tsz+BBfj+TTfznHisqHQ
-         T22jD/15rUNWIb88B4pEG0+7QRg2d/kCDK4kwjgqicMALNLkzOhMYtLBqEAZXjuv+KeO
-         FXpJmVQRZUlLddUGcyeJtj3/pN1p3AtgVOAV/lNwNScXERrLCX9SSvzAQ+7XjpkpQ3iq
-         gca8MRxVH1JhgK3JG/SX4dzolg+RON4m4MN/4f+9jvqwJlIXwIKFPRtfRnE0PSTXH4Lg
-         7Liw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769498171; x=1770102971;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1769498178; x=1770102978; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ecu5YJerF7ppjEFjoeyqLO82/b5nn1WtdkAH1BLTIA0=;
-        b=KPhKcxrw/jRnQK17TK9524VlZ0SmPWPt9qLbbBi6bktB1jhpjQYUPiA/z1PANxtScX
-         W3SWhSfVVfesxttDMFdGbczto2fiRsA0z24N1EmPP30RxGxobGjRjKMcvGQMktaWJrOx
-         bfqAMEcfdTj9DkwxTZoQv/eIorVYc13L+m9YMnTSlZWJL1fsoF0d9QnUwadxV4IWRE5a
-         fa/ASBEHbyb6spkt1FclnxM5XZ4EaTUgm0BM3gSwVLJ/0xguw1ASZPdoHowYt5olpjuW
-         L0zekipZOvlWgUaYXd7JoEYxJ9ioPhtIhF9enLJoZ1dveTAD3vAegpGXjTH0g/Rtb2UT
-         s9zQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUsjLewkWJYXk9Vg3aJBk8sUkTh9igYBju34xatjiUsPh25DeL6zPmBzIRAO+FXfQ1AqOEtMvsVjnitph++QBDA@lists.infradead.org
-X-Gm-Message-State: AOJu0YwohrMa0NdJzbzZMd3XQx2EBJgPWsyuda6q8W4R/j9THkyjnTYw
-	tlHM+IFtpzigTxxRnqyP4r6FJbO3Alxo7yhyaWx9baAoCAMLUYhxSm3R
-X-Gm-Gg: AZuq6aK3rn5RoBRnVVVbVxc/j9Cm8JfGKqsv+hS1bsrcl76tyiC1hVi5Y09vVZJ9Aba
-	ow4tDpHfcUONxgYZHqm6eiViK73SqAP9BqwVzOjua0O5++qSsYnJ7EWm886GrT2l23vImM2dPOL
-	zwE8UoZHexcCYVlJAgPrwt4HusDKshjKqxlnfvUIs+NUQNNGSW9ptkdLJTcLOZC+jQCxuvjVyJD
-	sklBwFmkEQAJ2oK+jCPl/oJOlOgSeapRIaBhM7zjBFoIB/yg0J9ZUkl01fEOwpBBtknV/PBZHXu
-	CNM4M7FX2UrwD8Oeks5XjRp9FJnfxPVGdmTR2phNnA21esSw0oEz+KUOvE0LyXumdqMx5W+SHR6
-	7DsnMqdNxZLF22tu4smnc7TafmrYz3w5FRvvwLlNEla4zfiCOxtWzDjUS9lSTWx/5EqS05+Bl+e
-	RD3DYN/3NBCu8uq9MRnn0DD8Rb4EsU/YakTec2j0+nkXP6d/1b
-X-Received: by 2002:a17:903:3545:b0:297:c048:fb60 with SMTP id d9443c01a7336-2a870d5d5e3mr7523855ad.25.1769498170464;
-        Mon, 26 Jan 2026 23:16:10 -0800 (PST)
+        bh=EGC1e7GTJ+gs5YLdBWssdAfqY7NGH0UJX4m8BTmPg/I=;
+        b=CKWLE6ludm7F9SHcSnca+NOBC0ADZ+tRQ9Pzg9U/TQQcPHe/mgxacBTaKhsdNZXGWC
+         6DN+d9EhdO5+DWRKBZ+o6LxyPR1LGxEVsXXxOqPlbE+MittfHs4jcj4iZcmLyeBY0FTB
+         HKWnGQ6d4ZxgKWms0y7sCbmbzqAK5NZYGb4rDUQ1+wJHgu3FKFtmFSrnGibZqAIkXpNl
+         NZhiGpkzMAm9cH8ReoAxpOmoZZDaMfrA4UjMuTnz428TSWx0of7QvjRrmxSH9IyJDSUs
+         xb2whu1HAx6aGmvHF1sWTu+MZQNmrW7rHE8AVb/3nmcqFb1CA+A6IEZ5Yk5MrDGY0SY4
+         03mQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769498178; x=1770102978;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=EGC1e7GTJ+gs5YLdBWssdAfqY7NGH0UJX4m8BTmPg/I=;
+        b=XZpqYDMmVXTCyDra9DicOiuGsWn/AVf7a5FlMWJRTj7xHzrijQWM0Ywm/HhIqcw7jm
+         x+7Im+wi+YGuJIZ7k8iVFyQrH8GHm/kCfzVKRNXgnp1UIfbzNIYryWRIMHs/3s+ae1OK
+         Zj4oNy6Zm+ZDxdz5k2yZyg/FeU0uN1yypLwNKGeDLHJBDzUAmk+pHlnUeSJfOSwuhORd
+         BVH9aMvjGlorPkzoLFyGi7UjcRpjMsmpV6wOxfMF9IVBjTy3bP0qiww3eNBp9sNV3apD
+         EvEekdh7oisVGY6c1H65NgMJoYtqIw9bIWdgB17rv/ZvRFE8PfVtDWAEBm6d+UkHr5ZD
+         qoHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUHcdiEQYJCxRRdLmlyPT313ck4VfckmRt0PJktWhKFs32+UkpwFPrMMzFzgiieLJtASPRXDN95lDKWyYofhb+R@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTJSfn0rws5lyKndRotcGm4tePYmf9eTwJo60uLSSvExA/N0oj
+	G/UkorYS43mkYBEzv1OXAbPZWK9tzJ7NJ7wcQCusowY4eGuJme05y+Bm
+X-Gm-Gg: AZuq6aJZbhGrQFJ6aTr8mYgNxdR9nwJt48D8DmIEe0d/IYPBIY/Dl4aCFqE6jGXVX0R
+	BtPzC4wGhBnqHdL437m5pGPK6ZaglhJNeP/7fm7TJ88a+QKHKphzidWEq1CQLZY4gU5asvWxFY+
+	/UpvzzFrx/zU76wdeiC9gqvBsDyCegEhLwWFBjW/CNmA2ACZrZM+rKCKoImUa98YbhRsn2JZkI/
+	neZ8DQt4c5Pa/WPXM5+p4tPUV9JhK2SD0cuQggxOD4pnEb2bHSukPcltSuGiTDPNWEFJOJnUoKu
+	AE3VUBJIGubQHXE2So4jIdPSoygIGp2Falc2GiCTqiHX1yiPeHcgTbzLRRScPEzRBFtoKDMHtaM
+	1L3h9Vu6TIszlOnkLydYXi0gu33zBomsWttbr+s2XBtGx5Nzo2vUkqUXsQ8ot3kj+27z3HnK6A7
+	1+CS9t7UuhI7voi8UTRf86TMOzEr7x/MSE+TeouzCZ+MLBj6/dcCEm85wu4Y4=
+X-Received: by 2002:a17:903:189:b0:29e:fc06:b8a5 with SMTP id d9443c01a7336-2a87130b27bmr8439315ad.18.1769498178413;
+        Mon, 26 Jan 2026 23:16:18 -0800 (PST)
 Received: from cn1dhc-k02 (125-227-180-151.hinet-ip.hinet.net. [125.227.180.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a802fb063esm106160505ad.85.2026.01.26.23.16.08
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a802fb063esm106160505ad.85.2026.01.26.23.16.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Jan 2026 23:16:10 -0800 (PST)
+        Mon, 26 Jan 2026 23:16:18 -0800 (PST)
 From: Yu-Chun Lin <eleanor15x@gmail.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -82,17 +83,20 @@ Cc: afaerber@suse.de,
 	linux-kernel@vger.kernel.org,
 	cy.huang@realtek.com,
 	stanley_chang@realtek.com,
-	eleanor.lin@realtek.com
-Subject: [PATCH RESEND v3 0/2] arm64: dts: Add support for Kent SoC family
-Date: Tue, 27 Jan 2026 15:13:59 +0800
-Message-ID: <20260127071530.25426-1-eleanor15x@gmail.com>
+	eleanor.lin@realtek.com,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH RESEND v3 1/2] dt-bindings: arm: realtek: Add Kent Soc family compatibles
+Date: Tue, 27 Jan 2026 15:14:00 +0800
+Message-ID: <20260127071530.25426-2-eleanor15x@gmail.com>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260127071530.25426-1-eleanor15x@gmail.com>
+References: <20260127071530.25426-1-eleanor15x@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_231611_632435_ACA1D21A 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20260126_231619_601519_2B8C9BEA 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,57 +113,102 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yu-Chun Lin <eleanor.lin@realtek.com>
 
-Hello,
+Define compatible strings for Realtek RTD1501s, RTD1861b and RTD1920s.
 
-This patch series adds initial Device Tree support for Realtek's Kent SoC
-family, including the RTD1501S, RTD1861B, and RTD1920S variants with their
-respective evaluation boards.
+Additionally, convert legacy DTS-style comments to YAML description
+properties, following the pattern from the ARM bindings conversion series
+[1].
 
-The series includes:
+[1] https://lore.kernel.org/lkml/20200622125527.24207-2-afaerber@suse.de/
 
-1. Adds compatible strings for the Kent family.
-2. Add Device Tree files for the Kent SoC, TD1501S Phantom EVB (8GB),
-RTD1861B Krypton EVB (8GB), and RTD1920S Smallville EVB (4GB).
-
-The patches have been validated with 'make dtbs_check' and
-'dt_binding_check' to ensure compliance with DT schema and successful
-compilation.
-
-Cheers,
-Yu-Chun
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 ---
-Because I haven't received a response from Andreas Färber for over two months,
-as suggested by Arnd, I am bypassing the currently listed maintainer and
-sending to soc@lists.linux.dev.
+ .../devicetree/bindings/arm/realtek.yaml      | 42 +++++++++++++------
+ 1 file changed, 30 insertions(+), 12 deletions(-)
 
-Yu-Chun Lin (2):
-  dt-bindings: arm: realtek: Add Kent Soc family compatibles
-  arm64: dts: realtek: Add Kent SoC and EVB device trees
-
- .../devicetree/bindings/arm/realtek.yaml      |  42 +++--
- arch/arm64/boot/dts/realtek/Makefile          |   7 +-
- arch/arm64/boot/dts/realtek/kent.dtsi         | 166 ++++++++++++++++++
- arch/arm64/boot/dts/realtek/rtd1501.dtsi      |  12 ++
- .../boot/dts/realtek/rtd1501s-phantom-8gb.dts |  25 +++
- .../boot/dts/realtek/rtd1501s-phantom.dtsi    | 118 +++++++++++++
- arch/arm64/boot/dts/realtek/rtd1861.dtsi      |  12 ++
- .../boot/dts/realtek/rtd1861b-krypton-8gb.dts |  25 +++
- .../boot/dts/realtek/rtd1861b-krypton.dtsi    |  72 ++++++++
- arch/arm64/boot/dts/realtek/rtd1920.dtsi      |  12 ++
- .../dts/realtek/rtd1920s-smallville-4gb.dts   |  23 +++
- .../boot/dts/realtek/rtd1920s-smallville.dtsi | 128 ++++++++++++++
- 12 files changed, 626 insertions(+), 16 deletions(-)
- create mode 100644 arch/arm64/boot/dts/realtek/kent.dtsi
- create mode 100644 arch/arm64/boot/dts/realtek/rtd1501.dtsi
- create mode 100644 arch/arm64/boot/dts/realtek/rtd1501s-phantom-8gb.dts
- create mode 100644 arch/arm64/boot/dts/realtek/rtd1501s-phantom.dtsi
- create mode 100644 arch/arm64/boot/dts/realtek/rtd1861.dtsi
- create mode 100644 arch/arm64/boot/dts/realtek/rtd1861b-krypton-8gb.dts
- create mode 100644 arch/arm64/boot/dts/realtek/rtd1861b-krypton.dtsi
- create mode 100644 arch/arm64/boot/dts/realtek/rtd1920.dtsi
- create mode 100644 arch/arm64/boot/dts/realtek/rtd1920s-smallville-4gb.dts
- create mode 100644 arch/arm64/boot/dts/realtek/rtd1920s-smallville.dtsi
-
+diff --git a/Documentation/devicetree/bindings/arm/realtek.yaml b/Documentation/devicetree/bindings/arm/realtek.yaml
+index ddd9a85099e9..be529490640c 100644
+--- a/Documentation/devicetree/bindings/arm/realtek.yaml
++++ b/Documentation/devicetree/bindings/arm/realtek.yaml
+@@ -14,21 +14,21 @@ properties:
+     const: '/'
+   compatible:
+     oneOf:
+-      # RTD1195 SoC based boards
+-      - items:
++      - description: RTD1195 SoC based boards
++        items:
+           - enum:
+               - mele,x1000 # MeLE X1000
+               - realtek,horseradish # Realtek Horseradish EVB
+           - const: realtek,rtd1195
+ 
+-      # RTD1293 SoC based boards
+-      - items:
++      - description: RTD1293 SoC based boards
++        items:
+           - enum:
+               - synology,ds418j # Synology DiskStation DS418j
+           - const: realtek,rtd1293
+ 
+-      # RTD1295 SoC based boards
+-      - items:
++      - description: RTD1295 SoC based boards
++        items:
+           - enum:
+               - mele,v9 # MeLE V9
+               - probox2,ava # ProBox2 AVA
+@@ -36,25 +36,43 @@ properties:
+               - zidoo,x9s # Zidoo X9S
+           - const: realtek,rtd1295
+ 
+-      # RTD1296 SoC based boards
+-      - items:
++      - description: RTD1296 SoC based boards
++        items:
+           - enum:
+               - synology,ds418 # Synology DiskStation DS418
+           - const: realtek,rtd1296
+ 
+-      # RTD1395 SoC based boards
+-      - items:
++      - description: RTD1395 SoC based boards
++        items:
+           - enum:
+               - bananapi,bpi-m4 # Banana Pi BPI-M4
+               - realtek,lion-skin # Realtek Lion Skin EVB
+           - const: realtek,rtd1395
+ 
+-      # RTD1619 SoC based boards
+-      - items:
++      - description: RTD1501s SoC based boards
++        items:
++          - enum:
++              - realtek,phantom # Realtek Phantom EVB (8GB)
++          - const: realtek,rtd1501s
++
++      - description: RTD1619 SoC based boards
++        items:
+           - enum:
+               - realtek,mjolnir # Realtek Mjolnir EVB
+           - const: realtek,rtd1619
+ 
++      - description: RTD1861b SoC based boards
++        items:
++          - enum:
++              - realtek,krypton # Realtek Krypton EVB (8GB)
++          - const: realtek,rtd1861b
++
++      - description: RTD1920s SoC based boards
++        items:
++          - enum:
++              - realtek,smallville # Realtek Smallville EVB (4GB)
++          - const: realtek,rtd1920s
++
+ additionalProperties: true
+ 
+ ...
 -- 
 2.34.1
 
