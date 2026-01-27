@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A450D2D8F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 10:39:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F34F5D2D8EF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 10:41:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jfjLESDE0GhoTCQW840zs2QuoDtqV/3LL0EvmWi0pa4=; b=LkEjPrUEP3vkFHXc5WvA7kRqPN
-	nKVFsY6mQ4nOE2Yencj2d9XBMlbjyO2tL7EvhvLgRei72o5CQREzGk7UbxrrzA+J4SL6IALawhGXm
-	T1xux6l8vegF/1Plolfwc97PwX5Y2ZtZ5eCK7I0f2WT4vjBxQxTwCCwxKLA9OLXlOIrSxbh0jUcEb
-	L2eWnmTA4ysN9nGfxHc4GAWSLr/MXzGTGnN6C2EBcDwJFCQe3JS4fzASDg6JWkMsf9edbPidIH3+J
-	lObujv2i7v+sUhn47SL5c1ds8tFdU6oJ5t3tudNv2yP5XCJR4RNstFGCjA1EgnTmb4ouxePS+oTHt
-	K5ONmNsQ==;
+	bh=plMf9h9RRrWIfr1YQMIkAu7K7EOrzNmCwzrHRbeI3ys=; b=0Bi1lCh+rcXVQfxBf9cz1+Jk/i
+	a9NH1p88PQopHX7lJlNyVh0GcWv9F51CinWDx9MSY6yC+XZuoxYRQt9JSBb74ja7J32fHFdnzXgKd
+	LhlsLWa7pq59hSI1N+PcgJrhfgbSqDE3Q178Z/nZ5if9/ioqE4AfRyBZMpRzY0Jz+IecL23QodJGV
+	uIBm8bg6bJIIEPwKpZ2bkDFG6ENCGIBMwY6hDl/N9kAznL3yQbNAs1yzHDgN9kv6nt5fDXE39tPf6
+	gHcoTlYrzGoh+eakmPt9oE2qyfrN/sOfhvAT8C7gjVdz91NKGuM/tbnFpfE1H5fwyvFEUYHf35RMJ
+	Eyph5qEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkgUB-0000000E4Vr-1r1k;
-	Tue, 27 Jan 2026 10:39:51 +0000
+	id 1vkgVf-0000000E4fE-3S2i;
+	Tue, 27 Jan 2026 10:41:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkgU9-0000000E4VM-0Iwp
+	id 1vkgVd-0000000E4eu-1erY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 10:39:50 +0000
+	Tue, 27 Jan 2026 10:41:22 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6FB991595;
-	Tue, 27 Jan 2026 02:39:41 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DD5E91595;
+	Tue, 27 Jan 2026 02:41:13 -0800 (PST)
 Received: from [10.57.94.246] (unknown [10.57.94.246])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E6B9D3F73F;
-	Tue, 27 Jan 2026 02:39:45 -0800 (PST)
-Message-ID: <1bd6e787-00af-4d4c-a882-a0b8fb7f6a2f@arm.com>
-Date: Tue, 27 Jan 2026 10:39:44 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8E5813F73F;
+	Tue, 27 Jan 2026 02:41:18 -0800 (PST)
+Message-ID: <bb451854-0edd-4197-b1b0-50d1f1582c0b@arm.com>
+Date: Tue, 27 Jan 2026 10:41:16 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/10] arm64: mm: Don't abuse memblock NOMAP to check
- for overlaps
+Subject: Re: [PATCH v2 09/10] arm64: mm: Map the kernel data/bss read-only in
+ the linear map
 Content-Language: en-GB
 To: Ard Biesheuvel <ardb@kernel.org>
 Cc: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org,
@@ -48,16 +48,16 @@ Cc: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org,
  Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
  Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org
 References: <20260126092630.1800589-12-ardb+git@google.com>
- <20260126092630.1800589-20-ardb+git@google.com>
- <d0f2df03-21da-473f-ab89-64a964c18f08@arm.com>
- <CAMj1kXGsedZnV7GJZqo6Yfb4mi6YpMCu=fnHOwDib8-OxBij2g@mail.gmail.com>
+ <20260126092630.1800589-21-ardb+git@google.com>
+ <62b1723a-2ff3-4cac-ad99-a0e8d388ef12@arm.com>
+ <CAMj1kXHh2X0fWSZtN_xYQCwwwWKFJfBXaCec-BGXp3FDhE6S5g@mail.gmail.com>
 From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <CAMj1kXGsedZnV7GJZqo6Yfb4mi6YpMCu=fnHOwDib8-OxBij2g@mail.gmail.com>
+In-Reply-To: <CAMj1kXHh2X0fWSZtN_xYQCwwwWKFJfBXaCec-BGXp3FDhE6S5g@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_023949_271767_AA2491C7 
-X-CRM114-Status: GOOD (  26.08  )
+X-CRM114-CacheID: sfid-20260127_024121_589320_FD3F16D1 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,89 +72,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/01/2026 10:27, Ard Biesheuvel wrote:
-> On Tue, 27 Jan 2026 at 11:21, Ryan Roberts <ryan.roberts@arm.com> wrote:
+On 27/01/2026 10:36, Ard Biesheuvel wrote:
+> On Tue, 27 Jan 2026 at 11:33, Ryan Roberts <ryan.roberts@arm.com> wrote:
 >>
 >> On 26/01/2026 09:26, Ard Biesheuvel wrote:
 >>> From: Ard Biesheuvel <ardb@kernel.org>
 >>>
->>> Now that the DRAM mapping routines respect existing table mappings and
->>> contiguous block and page mappings, it is no longer needed to fiddle
->>> with the memblock tables to set and clear the NOMAP attribute. Instead,
->>> map the kernel text and rodata alias first, avoiding contiguous
->>> mappings, so that they will not be added later when mapping the
->>> memblocks.
->>
->> Should we do something similar for kfence? Currently we have
->> arm64_kfence_alloc_pool() which marks some memory NOMAP then
->> arm64_kfence_map_pool() which PTE-maps it and clears NOMAP. Presumably we could
->> rationalize into a single function that does it all, prior to mapping the bulk
->> of the linear map?
->>
-> 
-> Yeah, good point - I did not spot that but I will address it in the
-> next revision.
-> 
+>>> On systems where the bootloader adheres to the original arm64 boot
+>>> protocol, the placement of the kernel in the physical address space is
+>>> highly predictable, and this makes the placement of its linear alias in
+>>> the kernel virtual address space equally predictable, given the lack of
+>>> randomization of the linear map.
+>>>
+>>> The linear aliases of the kernel text and rodata regions are already
+>>> mapped read-only, but the kernel data and bss are mapped read-write in
+>>> this region. This is not needed, so map them read-only as well.
+>>>
+>>> Note that the statically allocated kernel page tables do need to be
+>>> modifiable via the linear map, so leave these mapped read-write.
 >>>
 >>> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 >>> ---
->>>  arch/arm64/mm/mmu.c | 27 ++++++++------------
->>>  1 file changed, 10 insertions(+), 17 deletions(-)
+>>>  arch/arm64/include/asm/sections.h |  1 +
+>>>  arch/arm64/mm/mmu.c               | 10 ++++++++--
+>>>  2 files changed, 9 insertions(+), 2 deletions(-)
 >>>
+>>> diff --git a/arch/arm64/include/asm/sections.h b/arch/arm64/include/asm/sections.h
+>>> index 51b0d594239e..f7fe2bcbfd03 100644
+>>> --- a/arch/arm64/include/asm/sections.h
+>>> +++ b/arch/arm64/include/asm/sections.h
+>>> @@ -23,6 +23,7 @@ extern char __irqentry_text_start[], __irqentry_text_end[];
+>>>  extern char __mmuoff_data_start[], __mmuoff_data_end[];
+>>>  extern char __entry_tramp_text_start[], __entry_tramp_text_end[];
+>>>  extern char __relocate_new_kernel_start[], __relocate_new_kernel_end[];
+>>> +extern char __pgdir_start[];
+>>>
+>>>  static inline size_t entry_tramp_text_size(void)
+>>>  {
 >>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>> index 80587cd47ce7..18415d4743bf 100644
+>>> index 18415d4743bf..fdbbb018adc5 100644
 >>> --- a/arch/arm64/mm/mmu.c
 >>> +++ b/arch/arm64/mm/mmu.c
->>> @@ -1149,12 +1149,17 @@ static void __init map_mem(void)
->>>               flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
->>>
->>>       /*
->>> -      * Take care not to create a writable alias for the
->>> -      * read-only text and rodata sections of the kernel image.
->>> -      * So temporarily mark them as NOMAP to skip mappings in
->>> -      * the following for-loop
->>> +      * Map the linear alias of the [_text, __init_begin) interval
->>> +      * as non-executable now, and remove the write permission in
->>> +      * mark_linear_text_alias_ro() above (which will be called after
->>> +      * alternative patching has completed). This makes the contents
->>> +      * of the region accessible to subsystems such as hibernate,
->>> +      * but protects it from inadvertent modification or execution.
->>> +      * Note that contiguous mappings cannot be remapped in this way,
->>> +      * so we should avoid them here.
+>>> @@ -1122,7 +1122,9 @@ static void __init map_mem(void)
+>>>  {
+>>>       static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
+>>>       phys_addr_t kernel_start = __pa_symbol(_text);
+>>> -     phys_addr_t kernel_end = __pa_symbol(__init_begin);
+>>> +     phys_addr_t init_begin = __pa_symbol(__init_begin);
+>>> +     phys_addr_t init_end = __pa_symbol(__init_end);
+>>> +     phys_addr_t kernel_end = __pa_symbol(__pgdir_start);
+>>>       phys_addr_t start, end;
+>>>       phys_addr_t early_kfence_pool;
+>>>       int flags = NO_EXEC_MAPPINGS;
+>>> @@ -1158,7 +1160,9 @@ static void __init map_mem(void)
+>>>        * Note that contiguous mappings cannot be remapped in this way,
+>>>        * so we should avoid them here.
 >>>        */
->>> -     memblock_mark_nomap(kernel_start, kernel_end - kernel_start);
->>> +     __map_memblock(kernel_start, kernel_end, PAGE_KERNEL,
+>>> -     __map_memblock(kernel_start, kernel_end, PAGE_KERNEL,
+>>> +     __map_memblock(kernel_start, init_begin, PAGE_KERNEL,
+>>> +                    flags | NO_CONT_MAPPINGS);
+>>> +     __map_memblock(init_end, kernel_end, PAGE_KERNEL,
+>>>                      flags | NO_CONT_MAPPINGS);
+>>
+>> I'm probably being dumb again... why map [init_end, kernel_end) RW here, only to
+>> remap RO below? Why not just map RO here?
+>>
+> 
+> Because the loop that iterates over the memblocks will remap it RW
+> again anyway, so whether we map RW or RO at this point is irrelevant.
+> This call just needs to occur here to ensure that no block mappings
+> needs to be broken up later.
+
+Ahh yes, got it.
+
+> 
+> 
+>>>
+>>>       /* map all the memory banks */
+>>> @@ -1172,6 +1176,8 @@ static void __init map_mem(void)
+>>>                              flags);
+>>>       }
+>>>
+>>> +     __map_memblock(init_end, kernel_end, PAGE_KERNEL_RO,
 >>> +                    flags | NO_CONT_MAPPINGS);
 >>
->> So the reason to disallow cont mappings is because we need to modify the
->> permissions later? It _is_ safe to change permissions on a live contiguous
->> mapping in this way. That was clarified in the architecture a couple of years
->> back and we rely on it for contpte_wrprotect_ptes(); see comment there.
+>> This seems iffy since __map_memblock() doesn't flush the tlb. If you want to
+>> update an existing mapping you want to be calling update_mapping_prot() right?
 >>
 > 
-> OK, good to know - I was hoping to get your take on this ...
-> 
->> I think we could relax this?
->>
-> 
-> OK, I suppose that means that we can drop the NO_CONT_MAPPINGS here,
-> but we still need to map the kernel text/rodata alias initially to
-> ensure that no block mappings are created that would need to broken
-> down, right?
-
-Yes, but...
-
-I think your intent is that the multiple __map_memblock() calls are just
-controlling the allowed leaf mapping sizes. It becomes problematic if the 2
-calls use different permissions... which they do.
-
-PAGE_KERNEL vs pgprot_tagged(PAGE_KERNEL).
-
-Is it possible that the text/rodata section ends up tagged, which is not intended?
-
-Thanks,
-Ryan
-
-
+> Fair enough - I'll use that here.
 
 
