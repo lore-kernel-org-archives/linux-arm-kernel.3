@@ -4,63 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FD49D2D8E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 10:05:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A15D2D8E4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 10:06:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gCTwTWEX67ilNdlINoN1P7SjCbg/78kQnJXa+X+DnlQ=; b=OgF1jyVdv6AtU6lyCW7loyhc9D
-	2qhzOfhMBIDmpySatS25yB/w98TPitySDjiNZAwe+eTPxjD1cZUmeLBcEduyVG8zJRBi7SilqbqeG
-	dsUfuf7swkpTXuuCORqGH3dMomkaZ/SNnzv1lEAwm+yVWWCZa3lJEx8bahQWNfXLc01R2Bp26IUT4
-	dQ5PPddSCB/BvEzJ84eZAaPlibi7io1vnlwV3a9S0qAsmFnKMccsZrShtTFEIy7rj6hTPxs1rWFjw
-	uIb7dyQxG36I+Q0vcKmRQzT5eVWL9BLlS+xonD6xmwTMmgB1CcfSvAmT5uYqgy+8oFZNvMNfKi5DA
-	2FAKQvHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9Wole5ho7651JplGDv9D5i9KHGrs6q2yQQ7MphUqJ9I=; b=WeziC4ArfCJrK+T1uI3VqKfR6D
+	gzRSwnaTty2aK2doL2f4pthWpkq2aXiNklhCNtUl3T2TA75c6U5iykxhlR09iKp5qRU2hrhIyAyx9
+	bgbQIPyhd9eBrJKzINjgfBBNr+s33qBOE0AwxY2jLpwIs8UdSlEeyjBnWADLCoC5SxWMpy5WQPzn5
+	X/sWOLlSjplKG8opbijEaKohJxDp/na1Z+Ur1fzOx/9cLnnaSs2usAzNNnq/HYr0qnuW8uzTLf2kK
+	Q8Hsiw5WHM7O75CrYIrgiOOPDfiqtQmzAdOWvN3G6BIadC8gwQtTrdrpTg8fzRHNZW1N8NXRgEhhf
+	+niBjX6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfws-0000000E175-3Vq4;
-	Tue, 27 Jan 2026 10:05:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfwp-0000000E16V-1GdM
+	id 1vkfxz-0000000E1F5-2Nx4;
+	Tue, 27 Jan 2026 10:06:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkfxu-0000000E1Dj-1deD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 10:05:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9911441B0B;
-	Tue, 27 Jan 2026 10:05:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 276AFC116C6;
-	Tue, 27 Jan 2026 10:05:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769508322;
-	bh=lnv5v2fg4/DdlahzuPZPpsYPybhX62DGJmyUbVctMYI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aXAPdLbarZH2A7vHoDIUlTYJ9dtoBeJKz1kpsSU4fbEWe8dFYdGiSu00hOCNhNSR9
-	 DH/p8hVkWspY5oiNWVt4RlYLuMTRQ+6Glt6wlP8erokLEUgouj2f7ibGy6xtVzobC5
-	 A/VhAtJ3hdEqGDeo6kd2OFiUvLezxB2JqbPXsAzxn4NFg/9Ya9A5dQpbSJrRCD4HIL
-	 PKqNvwMy8iGQ56nSwku1Ui2D39WEElwIHCvsaMOQxjZnCGTp5MzQxx5Rac0BHbp1eu
-	 wh5HUOmrOAqTk/Q25S7T/eNi4b3BzVGldujrwnveP1+ibtzdlhO4UgVEiN1DKBcYMK
-	 IABkh0HNYN/DA==
-Date: Tue, 27 Jan 2026 11:05:20 +0100
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Thierry Reding <thierry.reding@gmail.com>, arm@kernel.org, 
-	soc@kernel.org, Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>
-Subject: Re: [GIT PULL 1/4] dt-bindings: Changes for v6.20-rc1
-Message-ID: <aXiNaDGyN2oiIR6O@orome>
-References: <20260118080304.2646387-1-thierry.reding@gmail.com>
- <53d3a98f-3ad8-43c0-9094-39f229a5b698@kernel.org>
- <3b81369e-8cc7-4e9f-98ca-e6f528e1cab8@kernel.org>
+	Tue, 27 Jan 2026 10:06:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2DF801595;
+	Tue, 27 Jan 2026 02:06:22 -0800 (PST)
+Received: from [10.57.94.246] (unknown [10.57.94.246])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CFB193F73F;
+	Tue, 27 Jan 2026 02:06:26 -0800 (PST)
+Message-ID: <005012a8-bfcc-4049-9ff2-adecf3a89c53@arm.com>
+Date: Tue, 27 Jan 2026 10:06:25 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7zmgzmlgkhcad7vw"
-Content-Disposition: inline
-In-Reply-To: <3b81369e-8cc7-4e9f-98ca-e6f528e1cab8@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 06/10] arm64: mm: Remove bogus stop condition from
+ map_mem() loop
+Content-Language: en-GB
+To: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org,
+ catalin.marinas@arm.com, mark.rutland@arm.com,
+ Ard Biesheuvel <ardb@kernel.org>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
+ Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org
+References: <20260126092630.1800589-12-ardb+git@google.com>
+ <20260126092630.1800589-18-ardb+git@google.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260126092630.1800589-18-ardb+git@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_020523_378416_3C7F1FC6 
-X-CRM114-Status: GOOD (  15.80  )
+X-CRM114-CacheID: sfid-20260127_020630_471331_5E718DEE 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,65 +70,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 26/01/2026 09:26, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> The memblock API guarantees that start is not greater than or equal to
+> end, so there is no need to test it. And if were, it is doubtful that
+> breaking out of the loop would be a reasonable course of action here
+> (rather than attempting to map the remaining regions)
+> 
+> So let's drop this check.
 
---7zmgzmlgkhcad7vw
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [GIT PULL 1/4] dt-bindings: Changes for v6.20-rc1
-MIME-Version: 1.0
+If start were greater than end, I think it's a pretty safe bet that
+__map_memblock() would do something horrible.
 
-On Fri, Jan 23, 2026 at 08:52:58AM +0100, Krzysztof Kozlowski wrote:
-> On 23/01/2026 08:47, Krzysztof Kozlowski wrote:
-> >=20
-> >>
-> >> Jon Hunter (4):
-> >>       dt-bindings: tegra: pmc: Update aotag as an optional aperture
-> >=20
-> > ...
-> >=20
-> >>       ASoC: dt-bindings: realtek,rt5640: Document mclk
-> >>       ASoC: dt-bindings: realtek,rt5640: Update jack-detect
-> >>       ASoC: dt-bindings: realtek,rt5640: Document port node
-> >=20
-> > No, Mark always promptly picks up bindings patches, so I do not
-> > understand why these are here. These should go via subsystem maintainer.
->=20
-> Heh, and Mark actually did take them on 9th of Jan, so you just
-> duplicated the patches by taking them one week later. Mark also sends TY
-> letters so you were notified these are picked up.
->=20
-> Also Rob was fixing the same in separate patchset and Mark also took
-> these, but then Mark handles the conflicts since its all in his own tree.
->=20
-> These should have never been picked up one week later after Mark to
-> Tegra soc tree. Please drop.
+But if memblock makes the guarantee you claim I agree it's preferable to
+declutter the code:
 
-Okay, I'll apologize a third time for this. Sorry for neglecting to
-double-check the mailing list and relying solely on Patchwork. I promise
-to do better next time.
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 
-Thierry
+> 
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> ---
+>  arch/arm64/mm/mmu.c | 2 --
+>  1 file changed, 2 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index d7faa98f427c..377bdc4d84a1 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1158,8 +1158,6 @@ static void __init map_mem(pgd_t *pgdp)
+>  
+>  	/* map all the memory banks */
+>  	for_each_mem_range(i, &start, &end) {
+> -		if (start >= end)
+> -			break;
+>  		/*
+>  		 * The linear map must allow allocation tags reading/writing
+>  		 * if MTE is present. Otherwise, it has the same attributes as
 
---7zmgzmlgkhcad7vw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAml4jeAACgkQ3SOs138+
-s6FUQw//XuMr2GmVCEV7IsKoQMxS07o7BYY+4hO9faPqq+5/xlvflf5dRknmAA2O
-BO5QMHylyB9TmQIz+2/ut/ulfTr0vUiAPuWxgax6raeYdFlqKAqGnnPD70MmY9tS
-uq3E2p596jmkgHz60kwTY2JQjF3DN95mbcb3avnNrDK9d31YjIuVqP5m7mGuNS3y
-kBlkn1Q71CS1F/UkUliwfdWj57fMnGWErH/mFjq0i9puB/Ky9zA0gffd/mfG4+7I
-oalkKmvW8V/iNgUQ4JI7nZcBclNEpuqMoOFw2HUpoXdEB0C925GybJvPoe6yIbQE
-rKhu4xns5iGWy8wrqojllhhvtjME85OWHcFXzxohNymaRsNOq7RdNa927uFXEcvD
-OcjLtTE2GrssmY3VSB5NWMe823/2DjJuokczu7lEuBF8UhgpcwtlJTaW/j8dO+yI
-r82kDgTofKMAV2pDrhzA3ibdREjieEHN83MjtVZxhGSkrYq8x1DNBgKtu6cRW5/k
-pNgXXcyOhi2NMztjTi8SHiXbF8Aha8gOEkbSrr5eqOnwpaaxJvMBxKSmTuRcsXVK
-KQJSNKc3OxkQFTIm5pq/cKntpvBuUDw/B7taXcyF8amWJ6sXOyrmnKY+8Qxqilpe
-3ZjOwg0yjyuGnoqXmgLW4wjsf1XcA/sJcaFXZQX09bR3zghTNis=
-=96RW
------END PGP SIGNATURE-----
-
---7zmgzmlgkhcad7vw--
 
