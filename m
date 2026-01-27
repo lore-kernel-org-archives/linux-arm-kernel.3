@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A0FCD13C1B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:38:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67513D13C1B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:39:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1SPwDp31xuURn5O8xpFVfUZEJIeCSV4mqEXYsNyRU6M=; b=QJju179mLz6HajqkqFwEGqmAHh
-	q/H9d+ScoUnjhUAuxOCh9EpdpYJE1sYvaWeGNWIokXUkij9rJ68+A+TVBGHxqJbM33HQcJCA+qSB8
-	vIGJbugkfB7vQGmELAKY6EUhE6Mf8tQXcsXdOufEKZInOTRCK0eLaLzjqk1+Kv8DzWcIg8suHw3zF
-	TOE9DA/iv3FKywqrjwnU3aGM9yakhmyepK1cZNFqYTjj1qfgFh/c+ypiNPJ1Evz+LYAzSDshxRfAf
-	BQvAHOeJK1kqHorhHm5UjmKCSPLFjjYU3rKiBMayQndIfSNd2Ib4+uknu80cSsZe8PaSaKpPIt5KI
-	hJgcspcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qPtozfuxc6h5ObQODLIoMHu2MVy1vQa38AyUtSxAe1c=; b=xaCAyzL7vC2mG1JSZBeq2z3F+W
+	Hc7MJSAwm/Da+7/zoMWFshEs0XHcx9Nm6L07oN5h4PWxesecSGUgU/mKGWsw9bvkIfs+l5w62X0dc
+	ZJu0zgJTvUx2lzhbOufsEUY5RHfMeTQsTb8J3HiXyMAqbFL8a888E6nDm7d1lNDy/TPzaVKC3pdIJ
+	SjBqtpvQq4Dl2n2rdc0AVi09mXuH/GLYDnlJyH14RqTj+r3E3G55tl9ocagAkIfi8xKCqchnUFNG/
+	58qurb4WRaeYUL/Tf7qr+jGDosEQNjq4aqQ5amrjVK3SvrQlg7FjK93Eah3gVAH576V8t3IGP0OZS
+	5NcYtQ/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfX9-0000000Dxcv-391W;
-	Tue, 27 Jan 2026 09:38:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vkfXX-0000000Dxld-0ME0;
+	Tue, 27 Jan 2026 09:39:16 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfX7-0000000DxcU-2yyB
+	id 1vkfXU-0000000Dxke-0v0N
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 09:38:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 00ED944399
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:38:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8D9FC2BCB2
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:38:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769506728;
-	bh=AcR5zocr/5NXdXgf8kLx9UzhMZgfu0y6OzDuBzaSEBs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=FFfr2b3WJj63ZLybMwJSVI8nLM7GkMoJ7DS128OPj3Ur/Ck6gvvD+T/0YyIrqN7jk
-	 IfER4ehyxf6hJpkpnkCV8Zv+VPKiwakmdbdHFmOKQcNJhMM3LGHuTrNkBL7ymtOH5m
-	 qcCORynpVi93O+bVbgEea35z06s5o4oQAsYwrbCam4tABwcHIvrUmdX1jCFE8Q+hee
-	 +ZbkYAH4gQZkAI6j2Iiw7Odlfq9PKcSinNI14gqPDp4jzvVEm2sd3B7zLiHZZL/sJv
-	 HjWsgTbM7YZuZiJNLcZY6pC8YxVrm+tkTpfO+X2FHAzvxxPJGJzodPuLpppUDo7k0u
-	 9vcWqq8WieY+g==
-Received: by mail-yx1-f47.google.com with SMTP id 956f58d0204a3-6496a048323so2478599d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 01:38:48 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCW9ULjkmRoWXxIXFLXUZS9yrtxeOK80PQT/k3xOyMWZ3vzjtI9MUx0lPIBgMreDTVfpimPp91dQ4DlPuHI1gpsM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxU8O2Ia0wddaRctnUG84YcPsqurpzreDIBxmnn1Aq00IqoMO39
-	3HH1ZHBYJa3SL7kcr0Hz2nncAII9iDm2Hs9rKxyAk5EnEamHQOxcYU6yTLfwdzlY8kABCbcMJWj
-	Yv2br5bf1aXH+nyO2Vwk1DMX56qfXLc0=
-X-Received: by 2002:a05:690e:118b:b0:649:5e99:ce3a with SMTP id
- 956f58d0204a3-6498fbf1c3dmr591413d50.32.1769506728263; Tue, 27 Jan 2026
- 01:38:48 -0800 (PST)
+	Tue, 27 Jan 2026 09:39:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769506752; x=1801042752;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0H0A1G/t2czBhckAV5bQ3Z3fhdMMfySyBYFXGzClirc=;
+  b=m6aYYqgimOLQ1BI02wVUpRNGpO7kCJSveFQgOKDtfnIpyTukmDo6QZQj
+   O/JFQCU4tTD2Vj/iljAyXZusrf/obViqueXEYbiCjSzCV/0u8nAUBUIcf
+   cHK8ZlRj9Klf2UjZa5uiWkT0JVSRKJpSqvQEn8tkd33jDC5amJgSbG6fL
+   4nQyQ08DAtsNVEedBbAA/Id0xipcYXN4jSxtC+HV9XM/GzcLl1rkdRU1r
+   9b4htbdj+y2yxLk1q4YrouFYpAUG96M644dLfbfzOBg+nCraE/iFQcVFN
+   o1DS8OFNlrtg4vSp7x2c5A/dI6weH0r3ythO0S8Bs+dBXGOrU5B8U6dRe
+   A==;
+X-CSE-ConnectionGUID: Ft+/782jScya9hkyGKhTeQ==
+X-CSE-MsgGUID: 3OpsNx9KTvCS3lqy7tXTjA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11683"; a="70591624"
+X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
+   d="scan'208";a="70591624"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:39:11 -0800
+X-CSE-ConnectionGUID: 0SkoKUduTUCGAiPFvI9HNw==
+X-CSE-MsgGUID: tGE2q9KeSt6oYs33nFTn6w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
+   d="scan'208";a="212787380"
+Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.245.248])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:39:08 -0800
+Date: Tue, 27 Jan 2026 11:39:06 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: abdurrahman@nexthop.ai
+Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, info@mocean-labs.com,
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v5 3/6] i2c: xiic: switch to devres managed APIs
+Message-ID: <aXiHunnXmHb8oqTN@smile.fi.intel.com>
+References: <20260126-i2c-xiic-v5-0-88a16a28721c@nexthop.ai>
+ <20260126-i2c-xiic-v5-3-88a16a28721c@nexthop.ai>
+ <aXiG5p9BQ-vkAgbV@smile.fi.intel.com>
 MIME-Version: 1.0
-References: <20260121142047.10887-1-shawnguo@kernel.org>
-In-Reply-To: <20260121142047.10887-1-shawnguo@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 27 Jan 2026 10:38:37 +0100
-X-Gmail-Original-Message-ID: <CAD++jLmjr-XSZJgJrD7cgga2US6EUwzPWZGTsdwff_ZngWbX3w@mail.gmail.com>
-X-Gm-Features: AZwV_QjxNyEYQ3cox-qvZu6uGhFsKYJM8HbpE99pr-bqcEaSY_2yQ4dJQVfr56E
-Message-ID: <CAD++jLmjr-XSZJgJrD7cgga2US6EUwzPWZGTsdwff_ZngWbX3w@mail.gmail.com>
-Subject: Re: [PATCH] MAINTAINERS: Replace Shawn with Frank as i.MX platform maintainer
-To: Shawn Guo <shawnguo@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, kernel@pengutronix.de, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aXiG5p9BQ-vkAgbV@smile.fi.intel.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_013849_789217_35BC720E 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20260127_013912_305322_1FC69AD1 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,28 +91,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 3:20=E2=80=AFPM Shawn Guo <shawnguo@kernel.org> wro=
-te:
+On Tue, Jan 27, 2026 at 11:35:38AM +0200, Andy Shevchenko wrote:
+> On Mon, Jan 26, 2026 at 05:08:18PM +0000, Abdurrahman Hussain via B4 Relay wrote:
 
-> Shawn is no longer interested in maintaining i.MX platform, and would lik=
-e
-> to step down.  On the other hand, Frank seems to be the best successor
-> for this role.
->
->  - He has been one of the most outstanding contributors to i.MX platform
->    in the recent years.
->
->  - He has been actively working as a co-maintainer reviewing i.MX
->    patches and keep the platform support in good shape.
->
->  - He works for NXP and could be the bridge and coordinator between
->    NXP internal developers and community contributors.
->
-> Signed-off-by: Shawn Guo <shawnguo@kernel.org>
+...
 
-Acked-by: Linus Walleij <linusw@kernel.org>
-Exciting to see what will come next, long time no see Shawn!
+> >  	if (ret < 0) {
+> >  		dev_err_probe(&pdev->dev, ret, "Cannot claim IRQ\n");
+> > -		goto err_pm_disable;
+> > +		return ret;
+> 
+> 		return dev_err_probe(...);
 
-Yours,
-Linus Walleij
+Actually you are right as here we remove the message in the next patch,
+so discard my previous comment.
+
+> >  	}
+
+...
+
+> >  	ret = xiic_reinit(i2c);
+> >  	if (ret < 0) {
+> >  		dev_err_probe(&pdev->dev, ret, "Cannot xiic_reinit\n");
+> 
+> Ditto.
+> 
+> > -		goto err_pm_disable;
+> > +		return ret;
+
+But here it will stay, so
+
+		return dev_err_probe(dev, ret, "Cannot xiic_reinit\n");
+
+> >  	}
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
