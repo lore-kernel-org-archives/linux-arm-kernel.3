@@ -4,98 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF27D2FEE1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 20:42:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D07D2FEE1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 20:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y76INJz49l6c3foMm04ZUQu2Dm0oObzGN1DVFxd18LA=; b=dtlxHET87ZrIqWcmf8DIoBFnQs
-	tNkGrihS9n+KUsNikRpmSZSkkfS+uq+Nh1izuYIAk17WnFZWyswatHAeH3sioRyET2s9QV+OvEALV
-	TXUrboplRa5QHpFPHTMQ2EhlznuChpRxL8OZSX9cNV2AVn2Y8/Ad4rL+benAymPcURIQG3VQ454L2
-	qFS+IoGM7s7OIepy0SZwngEPwohuL14YImwFTQXLE/tdBTlYD4i2pEvxpGf32UfLECDiMjy+9w06F
-	clVO1w0nG7M5QUIrUA0b4pJd5FZj/SLhf/Yl5OkKkKfjJZIvEzI1TR+GLCGeOqiX79aUcOJAp4E3q
-	m33WFxOQ==;
+	bh=YQ9Ft2CaIACN+o82o2+7Ae0BQcTFJZbQnncad82auSU=; b=Aq76Nn3lUxhvlkqFq+YFfC3m55
+	oO9ad4qMAseg6bN2VfuKvMRgSbaLpx8H/ezcqYTlYcmGtdp4pOiY+PssYTjBlR4SgexShOlwBEUox
+	GwPVT4oZQg650PulHZzaiaZJ4DZuGtC8Gox7UdtoPiAPvBKRHlRKR6RMl3U2UgOVp9SOeaDezr9Lo
+	623+QOiGdvJy5Mi/y19eEYVZuTozWv2R93JIJfExNjxRs5C0JolU57svwo0REPQ2RM8J/Di9ZqxdG
+	10Lk3dpMXO11BXqynpoxjguE9NvpEU6+BAxMJs6/7V9mjckeNeqkxapSST84pNSGfMCyWod6mavEN
+	OfTaOCug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkptN-0000000F1RH-2THB;
-	Tue, 27 Jan 2026 20:42:29 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1vkpyP-0000000F1mN-2mIS;
+	Tue, 27 Jan 2026 20:47:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkptL-0000000F1Qh-273D
+	id 1vkpyN-0000000F1mG-47eZ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 27 Jan 2026 20:47:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=YQ9Ft2CaIACN+o82o2+7Ae0BQcTFJZbQnncad82auSU=; b=DlndefuewtRJOYsgUO3pVvYShA
+	03WOUkzeJrDtBPvlhe1lSUY6fHf/7HwsyQEItLDwDG1FwBxKnZuKankWIXocPqIbbl0YcOK7KQRLm
+	mWJLgqE3jCja4ZASw+QKZPonskYBtjcaS22mQYrgmQuzxnezjZVQZkeHr7gLyuhsB99q2ZvWHjYNt
+	zzalN8WTmTCPb73jhkW+r1eIy8KkhRDtOdNCm1fHx4huSUxwdi3f2RFN2AYXyClJkXEyUvo6vOFd2
+	v8Ei0ktwMJ8NS37fxjtMau71YzyZnFjtOpZtD+MeiK2EgAwFIkSx6gLYMkVpsoQ1X6t+E4hCyr9Ie
+	zliUn3Qg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkpyK-00000007bGQ-2RGp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 20:42:28 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-43591b55727so5824507f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 12:42:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769546545; x=1770151345; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Y76INJz49l6c3foMm04ZUQu2Dm0oObzGN1DVFxd18LA=;
-        b=GfMIhkWjx2k8FlLr6AlbAiVDO1X18LFdC7gb/QQhKtQ8Tc6Emld+kDv9cW2NS6d4Ak
-         OlBmFnmE8N0YsWX7o06Dl08QCFE7EzcXHhdFiugDc83AXg04El/q48XjLRwGtxw6lM1L
-         CJ5O33rLG+HZSMgF0IF0fmGHb/T9djRTO6flJFz2JGUlhS1EaR2pmc3XTSPoq0QRpgdL
-         /bVZzGK/EE2SI2sPHwS1aeNERXY78qZnCRMM47Mc0/k3Js0L5+B3fxkHhkbcthcfQIVl
-         i4BrVFF7OxlY0XKu6d2bCbnZ05qO0qFOEy6MAVwwY2vOaZkJmNjcOzr1hAbG7aTUouP8
-         BfOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769546545; x=1770151345;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Y76INJz49l6c3foMm04ZUQu2Dm0oObzGN1DVFxd18LA=;
-        b=ZBDdcYYoKOUZ3jINfuPUBReUOJH+mplzQS+RURgdZJJNeaBSWTPJ60EOtU4tMT6Ewo
-         IQZG6A1S8FO+t8O0pUHBlw22AOCIWRYBKIqS1Ty0f4lmdaZnOnVFGY+bNK3OyUXNxir0
-         yCxhhRBleJ1qPoQ4Am/Q5TZ+eNE78xs16nskknin6q+bwKFlFr1CjpI6Vmc9qJ2Z99bN
-         9zl9ye+P1Mc9MB5Dviv6SdjGZanfk/jIPC0pExA3isXc2vscYoEoTdb09AM+YYsUn7E3
-         URTKlzdWRr/8ftQUGMIC3czj9N2RZVJXgixDzAKhwooX1GUlmO7/x+qldFomtcho046l
-         gsng==
-X-Forwarded-Encrypted: i=1; AJvYcCWCKMsfL10GSBy9BEv9Zovlgj07IdpCCIbtKRKtSkSbyle8sfqlHVDyvVblYIlEmFdVKy4VAdiq28Hktl92pjM6@lists.infradead.org
-X-Gm-Message-State: AOJu0YybJAAhgLMP+d0MQamipvfDrlzgow9Zf8PrhizIcmFw1JkmubZA
-	mTg7tm87VDlTeQXhKi0uXKPI12beYTfp6ehAWas+I/VCT6RP4dSD+GhG
-X-Gm-Gg: AZuq6aIGOMpcZlGKPvQlStIVNY0Suas3MDkyF4KGzZJUxa1BKRMl/HciDqGO2E9HtPZ
-	0ZgBi3Dx7qTJzzTtZ8W+VpUo/dR0wbWomJi03l9U1woQwT+gYMhYIy9PRfH3oOgi+4vlX6OtcEx
-	dTGJiBzoYNvDhhfodRR2soFj8Sr95U0/Z1S6yN6sZrFvK2WdE4BTakiPGFzMJT7i5AFqrVcCmNl
-	I0mrYQ6kB5F/hG+nkVJRNfD7YIi1BZcY3sdAUgiidORy6yG8N+fHaBME7B9P1yZkUw7NXfRbvSJ
-	z+nEEKg6tAcdfN3IlPW4iRh9HJ1kE7ZAFFS/oLi7MMPEKBFka19aav3D5oDQcFSRhiR36JObMNh
-	qt3wgzaHfu42v6Yn9y/CUnKlTENzKT+TN0uT5H7VsoadXfqrK/XvIXzdUj3iKXMFBvEu4KuTw8u
-	CLtgvyKkXMcSy5VjWV96Of7HIuVkB1p+ciVo3brnNcrd2M/5mjB8HW
-X-Received: by 2002:a05:600c:c16b:b0:47d:264e:b35a with SMTP id 5b1f17b1804b1-48069c1a85bmr30848435e9.13.1769540070008;
-        Tue, 27 Jan 2026 10:54:30 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48066bee687sm126914635e9.5.2026.01.27.10.54.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jan 2026 10:54:29 -0800 (PST)
-Date: Tue, 27 Jan 2026 18:54:24 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Marco Elver <elver@google.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Peter Zijlstra <peterz@infradead.org>,
- Will Deacon <will@kernel.org>, Ingo Molnar <mingo@kernel.org>, Thomas
- Gleixner <tglx@linutronix.de>, Boqun Feng <boqun.feng@gmail.com>, Waiman
- Long <longman@redhat.com>, Bart Van Assche <bvanassche@acm.org>,
- llvm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] arm64: Optimize __READ_ONCE() with CONFIG_LTO=y
-Message-ID: <20260127185424.39d801ea@pumpkin>
-In-Reply-To: <CANpmjNP6qRm0M9Za-=Lm8N87o-GukO5nQeAVpW=bbXRnip4Fvg@mail.gmail.com>
-References: <20260126002936.2676435-1-elver@google.com>
-	<20260126002936.2676435-3-elver@google.com>
-	<d3295c84-da15-4695-8110-7e04cfaf1419@app.fastmail.com>
-	<aXfGcIpeXQNRUI-A@elver.google.com>
-	<7478d2cf-9636-45c8-8ffa-8e3a3ba9baf8@app.fastmail.com>
-	<CANpmjNNWoSdE_Lo9CJV3sAR+j8qz3_sq7LoaqYO6cVuOtdTBzA@mail.gmail.com>
-	<20260127143026.32429f32@pumpkin>
-	<CANpmjNP6qRm0M9Za-=Lm8N87o-GukO5nQeAVpW=bbXRnip4Fvg@mail.gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Tue, 27 Jan 2026 20:47:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1C4351515;
+	Tue, 27 Jan 2026 12:47:28 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4B9943F5CA;
+	Tue, 27 Jan 2026 12:47:33 -0800 (PST)
+Message-ID: <5aea412c-9c7f-4692-af3e-79937956ef8c@arm.com>
+Date: Tue, 27 Jan 2026 20:47:31 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 5/5] kselftests/resctrl: Add support for CAT test on
+ ARM
+To: Shaopeng Tan <tan.shaopeng@fujitsu.com>, fenghuay@nvidia.com,
+ reinette.chatre@intel.com, james.morse@arm.com, shuah@kernel.org
+Cc: linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260123044034.141247-1-tan.shaopeng@fujitsu.com>
+ <20260123044034.141247-6-tan.shaopeng@fujitsu.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20260123044034.141247-6-tan.shaopeng@fujitsu.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_124227_561537_EA57CABA 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20260127_204736_913855_BDA6009B 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,47 +82,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 27 Jan 2026 16:04:45 +0100
-Marco Elver <elver@google.com> wrote:
+Hi Shaopeng,
 
-...
-> I think the bigger issue was 'volatile': "Passing a volatile-qualified
-> pointer to READ_ONCE() is an absolute
-> trainwreck for code generation [...]" per dee081bf8f82.
+On 1/23/26 04:40, Shaopeng Tan wrote:
+> Currently, CAT test is limited to Intel architectures.
+> Add cache cleaning and enable result checking for Arm architectures.
 > 
-> While the above with the temporary is gone for the asm-generic
-> version, the arm64 LTO still has the temporary and we need some
-> qualifier-stripping helper.
+> Signed-off-by: Shaopeng Tan <tan.shaopeng@fujitsu.com>
+> ---
+>  tools/testing/selftests/resctrl/cat_test.c | 2 +-
+>  tools/testing/selftests/resctrl/fill_buf.c | 4 ++++
+>  2 files changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/tools/testing/selftests/resctrl/cat_test.c b/tools/testing/selftests/resctrl/cat_test.c
+> index e1b30ab4cef5..58b1590695d1 100644
+> --- a/tools/testing/selftests/resctrl/cat_test.c
+> +++ b/tools/testing/selftests/resctrl/cat_test.c
+> @@ -113,7 +113,7 @@ static int check_results(struct resctrl_val_param *param, const char *cache_type
+>  		ret = show_results_info(sum_llc_perf_miss, bits,
+>  					alloc_size / 64,
+>  					MIN_DIFF_PERCENT_PER_BIT * (bits - 1),
+> -					runs, get_vendor() == ARCH_INTEL,
+> +					runs, (get_vendor() == ARCH_INTEL || get_vendor() == ARCH_ARM),
+>  					&prev_avg_llc_val);
+>  		if (ret)
+>  			fail = 1;
+> diff --git a/tools/testing/selftests/resctrl/fill_buf.c b/tools/testing/selftests/resctrl/fill_buf.c
+> index 19a01a52dc1a..dbbf80d22f42 100644
+> --- a/tools/testing/selftests/resctrl/fill_buf.c
+> +++ b/tools/testing/selftests/resctrl/fill_buf.c
+> @@ -35,6 +35,10 @@ static void cl_flush(void *p)
+>  #if defined(__i386) || defined(__x86_64)
+>  	asm volatile("clflush (%0)\n\t"
+>  		     : : "r"(p) : "memory");
+> +#elif defined(__aarch64__)
+> +	__asm__ __volatile__("dc civac, %0\n\t"
+> +		     : : "r" (p) : "memory");
+> +
 
-I've done some real experiments, see https://www.godbolt.org/z/n9f91dGe3
+This is only guaranteed to clean and invalidate to the point of
+coherence, PoC. On Grace I expect this is L3/slc and so the cache line
+there in L3/slc is likely not invalidated or pushed to DRAM.
 
-If you don't strip the volatile you get a 'trainwreck'.
-Visible on godbolt for the short sub-structure function f_v_s().
-Fixable using __unqual_typeof__().
+The dsb() for synchronization is missing for aarch64 in sb().
 
-But the code for anything over 8 bytes is also a trainwreck.
-eg: for an int[4] in a sub-structure:
-	return __READ_ONCE(s->s_i).i[2];
-f_s_i:
-        sub     sp, sp, #16
-        ldr     x8, [x0, #56]
-        str     x8, [sp, #8]
-        ldr     w8, [x0, #64]
-        str     w8, [sp, #4]
-        ldr     w9, [x0, #68]
-        mov     w0, w8
-        str     w9, [sp], #16
-        ret
-(The same code for a char[4] is fine...)
+>  #endif
+>  }
+>  
 
-For integral types you can get a variable of the unqualified
-type with:
-	auto v = (typeof(x))0;
-but that doesn't help here because the code needs to read short structures.
+Thanks,
 
-For long structures member by member access will give better code.
-I'm not sure they should be allowed.
-(and there may not be any.)
+Ben
 
-	David
 
