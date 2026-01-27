@@ -4,89 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A739D2F000
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 12:45:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3032DD2F00D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 12:46:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J9/EIz4N/PqvzPN862/dmJctkdzBuE9L42PE6AXKKCs=; b=NX0gsbOXABl9l5X3wklWun3668
-	TJd5YVaAghQ7nGGFWUrJ1oGIj8x8z2r/hfGKfYZ39owai/QcFbrO7hF+S7FNuzpHlS/h2BFPYwdgK
-	jJdKgG6Ufi66pns4ldnZB8hunzWsX+bcIyVtw7+czj/nHYcnvnbbnuApp91d5egR6p8Ybuh54lbFB
-	dD+Lr48pCoBdatvJqi9w/9XDAJfyXEpaZtQujsbofsMRoNWx1w0xeK/1R9KkQTsBnVf4iTyOnpWuj
-	E+2Lxlh5yR98HgdYAIXlt1FNysBBAfz2UMe1Vh+DbsQ0A43q+GHdfiLKJBgJDv8jcauaLbqPJLrFi
-	SPrJJbMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OLEIphBuwiCI4Q+wjDY7yvdGl/mzbImG+fV1xIKwe+8=; b=zqb0jmzyKCGH5qz6kJPSYWCddh
+	f7YkqwMswYNiY8ax/pBVstdi99yfDF3DWKK3OSLjLNQbPT6pzkX0I9eTX6+XKXqnVnS05wgQoZmZV
+	vKqvkrUO3FsggRjPR2XIGJrU9e3paanQi+D79tqv/Q9UI44+vPuO0GEPEO/PZX14Blfb1F0dPXTX+
+	aGSPe606Yq/4hfMR7x/qbNm3D7e4HkEqYyl2TThErdcVBQ8x9YHfdpFjN45MaZcxGaTjMGJNnFHrY
+	mp6QsAtx/ba3lORn8oFtl2IsQvLyAd+80c0FUH38NnRIKzP3BvwUNosgNrMdSJ1KimXg3OQZw5eDc
+	IfsdgX1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkiRa-0000000EGNJ-0fn3;
-	Tue, 27 Jan 2026 12:45:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vkiSB-0000000EGRK-29Z6;
+	Tue, 27 Jan 2026 12:46:00 +0000
+Received: from sinmsgout03.his.huawei.com ([119.8.177.38])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkiRS-0000000EGMr-3kAB
+	id 1vkiS2-0000000EGQH-2xla
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 12:45:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 52A93419E6;
-	Tue, 27 Jan 2026 12:45:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AACFEC116C6;
-	Tue, 27 Jan 2026 12:45:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769517909;
-	bh=ofe10jGZoPAqJE9FQOSEtDptbVaYpx/CGbuhre/HHNI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZqptSIfLm29TLryUzU52GQpI9Y5j/egT2jG8/oQhaPPiFuy2brZcTTjX8upURbbwK
-	 O2avXbgCiqu9oze4K2pbYNChHpLvtm1Jz9vMFgmPsvm1Qg+qCGw0xz/oS/xiGbbAQa
-	 SpjcCq8AzzyIPMh00tl2Kgj9nT4Pwz/av8vbzs9TI8IvS0TbBOA5TPk5EJhldEKCd8
-	 z9JwUU8X8St7FkUL33asPHS0EmzbQdBqKLrg7pOsDN/QpZKsgStUPPRJtFFRc43nWE
-	 6CsKod/Uczqk8wBl9Y2/65PFXOSK8XPZjs8cgK1siNQjv5//Rrl9afMnIDi/jt4EBR
-	 gt2lbSbmoncAQ==
-Date: Tue, 27 Jan 2026 13:45:06 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Michal Hocko <mhocko@suse.com>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chen Ridong <chenridong@huawei.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
-	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
-	linux-mm@kvack.org, linux-pci@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 03/33] memcg: Prepare to protect against concurrent
- isolated cpuset change
-Message-ID: <aXizUsfywjtIIN50@localhost.localdomain>
-References: <20260125224541.50226-1-frederic@kernel.org>
- <20260125224541.50226-4-frederic@kernel.org>
- <aXeZQoSHJ9QX7B6W@tiehlicka>
+	Tue, 27 Jan 2026 12:45:54 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=OLEIphBuwiCI4Q+wjDY7yvdGl/mzbImG+fV1xIKwe+8=;
+	b=DxoSt981sOYiN/cO+3wq3Y95MlPoUZ/uqoMb1Nbi4J9dCwXVN11GGacRSprEiGuT2clOkTA6+
+	vftw0YA/dUsK+oqqKADw4Zl1aK9yXQoqnykRTpKW6IP5g9za0FYo6zrdrCYpJFnVqwevs1ztQj+
+	7cZgNrQ2hzddnTwgerbiHEk=
+Received: from frasgout.his.huawei.com (unknown [172.18.146.33])
+	by sinmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4f0lS920smzN0dD;
+	Tue, 27 Jan 2026 20:43:05 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.18.224.83])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4f0lVM4VtvzJ46bP;
+	Tue, 27 Jan 2026 20:44:59 +0800 (CST)
+Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
+	by mail.maildlp.com (Postfix) with ESMTPS id 87BCE40569;
+	Tue, 27 Jan 2026 20:45:35 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
+ (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 27 Jan
+ 2026 12:45:34 +0000
+Date: Tue, 27 Jan 2026 12:45:33 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+CC: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, Linus
+ Torvalds <torvalds@linux-foundation.org>, Oliver Upton
+	<oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, "Dev Jain"
+	<dev.jain@arm.com>, Linu Cherian <Linu.Cherian@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 11/13] arm64: mm: More flags for __flush_tlb_range()
+Message-ID: <20260127124533.0000302e@huawei.com>
+In-Reply-To: <20260119172202.1681510-12-ryan.roberts@arm.com>
+References: <20260119172202.1681510-1-ryan.roberts@arm.com>
+	<20260119172202.1681510-12-ryan.roberts@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aXeZQoSHJ9QX7B6W@tiehlicka>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
+ dubpeml500005.china.huawei.com (7.214.145.207)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_044513_256390_41A5A18D 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20260127_044552_730515_88106E3A 
+X-CRM114-Status: GOOD (  34.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,51 +85,244 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Mon, Jan 26, 2026 at 05:41:38PM +0100, Michal Hocko a écrit :
-> On Sun 25-01-26 23:45:10, Frederic Weisbecker wrote:
-> > The HK_TYPE_DOMAIN housekeeping cpumask will soon be made modifiable at
-> > runtime. In order to synchronize against memcg workqueue to make sure
-> > that no asynchronous draining is pending or executing on a newly made
-> > isolated CPU, target and queue a drain work under the same RCU critical
-> > section.
-> > 
-> > Whenever housekeeping will update the HK_TYPE_DOMAIN cpumask, a memcg
-> > workqueue flush will also be issued in a further change to make sure
-> > that no work remains pending after a CPU has been made isolated.
-> > 
-> > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> > ---
-> >  mm/memcontrol.c | 21 +++++++++++++++++----
-> >  1 file changed, 17 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-> > index be810c1fbfc3..2289a0299331 100644
-> > --- a/mm/memcontrol.c
-> > +++ b/mm/memcontrol.c
-> > @@ -2003,6 +2003,19 @@ static bool is_memcg_drain_needed(struct memcg_stock_pcp *stock,
-> >  	return flush;
-> >  }
-> >  
-> > +static void schedule_drain_work(int cpu, struct work_struct *work)
-> > +{
-> > +	/*
-> > +	 * Protect housekeeping cpumask read and work enqueue together
-> > +	 * in the same RCU critical section so that later cpuset isolated
-> > +	 * partition update only need to wait for an RCU GP and flush the
-> > +	 * pending work on newly isolated CPUs.
-> > +	 */
-> > +	guard(rcu)();
-> > +	if (!cpu_is_isolated(cpu))
-> > +		schedule_work_on(cpu, work);
+On Mon, 19 Jan 2026 17:21:58 +0000
+Ryan Roberts <ryan.roberts@arm.com> wrote:
+
+> Refactor function variants with "_nosync", "_local" and "_nonotify" into
+> a single __always_inline implementation that takes flags and rely on
+> constant folding to select the parts that are actually needed at any
+> given callsite, based on the provided flags.
 > 
-> Shouldn't this in the guarded rcu section?
+> Flags all live in the tlbf_t (TLB flags) type; TLBF_NONE (0) continues
+> to provide the strongest semantics (i.e. evict from walk cache,
+> broadcast, synchronise and notify). Each flag reduces the strength in
+> some way; TLBF_NONOTIFY, TLBF_NOSYNC and TLBF_NOBROADCAST are added to
+> complement the existing TLBF_NOWALKCACHE.
 
-This is what guard(rcu)() does, right?
-Or am I missing something?
+Unless I'm missing something the case of TLBF_NOBROADCAST but not
+TLBF_NOWALKCACHE isn't currently used.
+  
+I wonder if bringing that in with a user will make it easier to see what
+is going on.
 
-Thanks.
+Otherwise, 3 vs 2 underscores? Can we come up with something easier
+to read than that?
 
--- 
-Frederic Weisbecker
-SUSE Labs
+> 
+> The result is a clearer, simpler, more powerful API.
+> 
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> ---
+>  arch/arm64/include/asm/tlbflush.h | 107 +++++++++++++++++++-----------
+>  arch/arm64/mm/contpte.c           |   9 ++-
+>  2 files changed, 74 insertions(+), 42 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> index 1ad1c864e1f8..f03831cd8719 100644
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -107,6 +107,12 @@ static inline unsigned long get_trans_granule(void)
+>  
+>  typedef void (*tlbi_op)(u64 arg);
+>  
+> +static __always_inline void vae1(u64 arg)
+> +{
+> +	__tlbi(vae1, arg);
+> +	__tlbi_user(vae1, arg);
+> +}
+> +
+>  static __always_inline void vae1is(u64 arg)
+>  {
+>  	__tlbi(vae1is, arg);
+> @@ -275,7 +281,10 @@ static inline void __tlbi_level(tlbi_op op, u64 addr, u32 level)
+>   *		no invalidation may take place. In the case where the level
+>   *		cannot be easily determined, the value TLBI_TTL_UNKNOWN will
+>   *		perform a non-hinted invalidation. flags may be TLBF_NONE (0) or
+> - *		TLBF_NOWALKCACHE (elide eviction of walk cache entries).
+> + *		any combination of TLBF_NOWALKCACHE (elide eviction of walk
+> + *		cache entries), TLBF_NONOTIFY (don't call mmu notifiers),
+> + *		TLBF_NOSYNC (don't issue trailing dsb) and TLBF_NOBROADCAST
+> + *		(only perform the invalidation for the local cpu).
+>   *
+>   *	local_flush_tlb_page(vma, addr)
+>   *		Local variant of flush_tlb_page().  Stale TLB entries may
+> @@ -285,12 +294,6 @@ static inline void __tlbi_level(tlbi_op op, u64 addr, u32 level)
+>   *		Same as local_flush_tlb_page() except MMU notifier will not be
+>   *		called.
+>   *
+> - *	local_flush_tlb_contpte(vma, addr)
+> - *		Invalidate the virtual-address range
+> - *		'[addr, addr+CONT_PTE_SIZE)' mapped with contpte on local CPU
+> - *		for the user address space corresponding to 'vma->mm'.  Stale
+> - *		TLB entries may remain in remote CPUs.
+> - *
+>   *	Finally, take a look at asm/tlb.h to see how tlb_flush() is implemented
+>   *	on top of these routines, since that is our interface to the mmu_gather
+>   *	API as used by munmap() and friends.
+> @@ -435,6 +438,12 @@ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+>   *    operations can only span an even number of pages. We save this for last to
+>   *    ensure 64KB start alignment is maintained for the LPA2 case.
+>   */
+> +static __always_inline void rvae1(u64 arg)
+> +{
+> +	__tlbi(rvae1, arg);
+> +	__tlbi_user(rvae1, arg);
+> +}
+> +
+>  static __always_inline void rvae1is(u64 arg)
+>  {
+>  	__tlbi(rvae1is, arg);
+> @@ -541,15 +550,23 @@ typedef unsigned __bitwise tlbf_t;
+>  /* Invalidate tlb entries only, leaving the page table walk cache intact. */
+>  #define TLBF_NOWALKCACHE	((__force tlbf_t)BIT(0))
+>  
+> -static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
+> -				     unsigned long start, unsigned long end,
+> -				     unsigned long stride, int tlb_level,
+> -				     tlbf_t flags)
+> +/* Skip the trailing dsb after issuing tlbi. */
+> +#define TLBF_NOSYNC		((__force tlbf_t)BIT(1))
+> +
+> +/* Suppress tlb notifier callbacks for this flush operation. */
+> +#define TLBF_NONOTIFY		((__force tlbf_t)BIT(2))
+> +
+> +/* Perform the tlbi locally without broadcasting to other CPUs. */
+> +#define TLBF_NOBROADCAST	((__force tlbf_t)BIT(3))
+> +
+> +static __always_inline void ___flush_tlb_range(struct vm_area_struct *vma,
+
+Can we come up with anything better for naming than more underscores?
+
+My eyes skipped over there being 3 here rather than 2 and I got rather confused
+as a result.  Maybe at least make it excessive and go from 2 to 4+?
+
+> +					unsigned long start, unsigned long end,
+> +					unsigned long stride, int tlb_level,
+> +					tlbf_t flags)
+>  {
+> +	struct mm_struct *mm = vma->vm_mm;
+>  	unsigned long asid, pages;
+>  
+> -	start = round_down(start, stride);
+> -	end = round_up(end, stride);
+>  	pages = (end - start) >> PAGE_SHIFT;
+>  
+>  	if (__flush_tlb_range_limit_excess(pages, stride)) {
+> @@ -557,17 +574,41 @@ static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
+>  		return;
+>  	}
+>  
+> -	dsb(ishst);
+> +	if (!(flags & TLBF_NOBROADCAST))
+> +		dsb(ishst);
+> +	else
+> +		dsb(nshst);
+> +
+>  	asid = ASID(mm);
+>  
+> -	if (flags & TLBF_NOWALKCACHE)
+> -		__flush_s1_tlb_range_op(vale1is, start, pages, stride,
+> -				     asid, tlb_level);
+> -	else
+> +	switch (flags & (TLBF_NOWALKCACHE | TLBF_NOBROADCAST)) {
+> +	case TLBF_NONE:
+>  		__flush_s1_tlb_range_op(vae1is, start, pages, stride,
+> -				     asid, tlb_level);
+> +					asid, tlb_level);
+> +		break;
+> +	case TLBF_NOWALKCACHE:
+> +		__flush_s1_tlb_range_op(vale1is, start, pages, stride,
+> +					asid, tlb_level);
+> +		break;
+> +	case TLBF_NOBROADCAST:
+> +		__flush_s1_tlb_range_op(vae1, start, pages, stride,
+> +					asid, tlb_level);
+> +		break;
+> +	case TLBF_NOWALKCACHE | TLBF_NOBROADCAST:
+> +		__flush_s1_tlb_range_op(vale1, start, pages, stride,
+> +					asid, tlb_level);
+> +		break;
+> +	}
+> +
+> +	if (!(flags & TLBF_NONOTIFY))
+> +		mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, end);
+>  
+> -	mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, end);
+> +	if (!(flags & TLBF_NOSYNC)) {
+> +		if (!(flags & TLBF_NOBROADCAST))
+> +			dsb(ish);
+> +		else
+> +			dsb(nsh);
+> +	}
+>  }
+>  
+>  static inline void __flush_tlb_range(struct vm_area_struct *vma,
+> @@ -575,24 +616,9 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
+>  				     unsigned long stride, int tlb_level,
+>  				     tlbf_t flags)
+>  {
+> -	__flush_tlb_range_nosync(vma->vm_mm, start, end, stride,
+> -				 tlb_level, flags);
+> -	dsb(ish);
+> -}
+> -
+> -static inline void local_flush_tlb_contpte(struct vm_area_struct *vma,
+> -					   unsigned long addr)
+> -{
+> -	unsigned long asid;
+> -
+> -	addr = round_down(addr, CONT_PTE_SIZE);
+> -
+> -	dsb(nshst);
+> -	asid = ASID(vma->vm_mm);
+> -	__flush_s1_tlb_range_op(vale1, addr, CONT_PTES, PAGE_SIZE, asid, 3);
+> -	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, addr,
+> -						    addr + CONT_PTE_SIZE);
+> -	dsb(nsh);
+> +	start = round_down(start, stride);
+> +	end = round_up(end, stride);
+> +	___flush_tlb_range(vma, start, end, stride, tlb_level, flags);
+>  }
+>  
+>  static inline void flush_tlb_range(struct vm_area_struct *vma,
+> @@ -645,7 +671,10 @@ static inline void __flush_tlb_kernel_pgtable(unsigned long kaddr)
+>  static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
+>  		struct mm_struct *mm, unsigned long start, unsigned long end)
+>  {
+> -	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, 3, TLBF_NOWALKCACHE);
+> +	struct vm_area_struct vma = { .vm_mm = mm, .vm_flags = 0 };
+> +
+> +	__flush_tlb_range(&vma, start, end, PAGE_SIZE, 3,
+> +			  TLBF_NOWALKCACHE | TLBF_NOSYNC);
+>  }
+>  
+>  static inline bool __pte_flags_need_flush(ptdesc_t oldval, ptdesc_t newval)
+> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+> index 1a12bb728ee1..ec17a0e70415 100644
+> --- a/arch/arm64/mm/contpte.c
+> +++ b/arch/arm64/mm/contpte.c
+> @@ -527,8 +527,8 @@ int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
+>  		 * eliding the trailing DSB applies here.
+>  		 */
+>  		addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
+> -		__flush_tlb_range_nosync(vma->vm_mm, addr, addr + CONT_PTE_SIZE,
+> -					 PAGE_SIZE, 3, TLBF_NOWALKCACHE);
+> +		__flush_tlb_range(vma, addr, addr + CONT_PTE_SIZE,
+> +				  PAGE_SIZE, 3, TLBF_NOWALKCACHE | TLBF_NOSYNC);
+>  	}
+>  
+>  	return young;
+> @@ -623,7 +623,10 @@ int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
+>  			__ptep_set_access_flags(vma, addr, ptep, entry, 0);
+>  
+>  		if (dirty)
+> -			local_flush_tlb_contpte(vma, start_addr);
+> +			__flush_tlb_range(vma, start_addr,
+> +					  start_addr + CONT_PTE_SIZE,
+> +					  PAGE_SIZE, 3,
+> +					  TLBF_NOWALKCACHE | TLBF_NOBROADCAST);
+>  	} else {
+>  		__contpte_try_unfold(vma->vm_mm, addr, ptep, orig_pte);
+>  		__ptep_set_access_flags(vma, addr, ptep, entry, dirty);
+
 
