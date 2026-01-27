@@ -4,68 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F27D25959
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 08:04:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD2A3D25959
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 08:07:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h+1+uhzaNgtaSPXCQF2LP7SSvxe54i1i/2urVLgEc/g=; b=u52G6M+ESkQbZ029jieXKDmmef
-	gX1trghEPeCFXpxsAD0xkwwnUPAaG+DtsRRTmXyAC2bCkwwxsg66kD9qDsB2X+M6SIZinbSliPf1H
-	Aixulms0GFdJNDY958pY4avLiwtvfqtmGUAvqBxGTYufrb2+HVgKeK+CoIIOQHKy1CDT6XYvMZ5qU
-	LIIdeEusif7OLklau8t3EYuojCeFXwcTW6hQQ+n1rvCdOL5bFNfeF2yCux365HytyesTBVbv/l3eL
-	d/x2iQyqBxTNRuh/7LzcYt0LD9Z15GdAC/D0CrIOfauqbolfdJmKwpbOC1pIsWddNmGjPWXYRNBEx
-	ceB2Z3ZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dBd9iAsdM0uDnGnSqriuSE9SRmgRVRur+Y8Lpy/FyVo=; b=XeQcq1FHgQtiNaeye/DbmjtY4G
+	2aCgCc+ADdXKFG7LuVZsYJ76csVNBdjg36Vgpymg9TSHG1cwFJTiElSa/EXxbjCA36htOLU+9dp3g
+	W4ev6rmBWGdX9r78sPD8wQB9l581sxX0oGZXUd94HwOoDgoqBpYbZEdp4/9shPgVN4hBSdpdKcxc0
+	QDgW1JG02OIrWQ8J6Mk9VfNcuVxKF2HmavCEWziFxxZF1d0oR0dezqqbFnI9himvN/hY7duvC64fb
+	ulFAhxWT9dwJQaq4p7U7v3xdkPqLZslbbfMihpYuh5jKUFnlx9t5pznRbhhMJLL8/IZsiJsIhFD89
+	egyTE8+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vke3U-0000000DoTW-3SgB;
-	Tue, 27 Jan 2026 08:04:08 +0000
-Received: from s3.sipsolutions.net ([2a01:4f8:242:246e::2] helo=sipsolutions.net)
+	id 1vke6q-0000000DogE-22bH;
+	Tue, 27 Jan 2026 08:07:36 +0000
+Received: from mail-eastusazon11011059.outbound.protection.outlook.com ([52.101.52.59] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vke3R-0000000DoSZ-3arH;
-	Tue, 27 Jan 2026 08:04:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
-	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
-	Resent-Cc:Resent-Message-ID; bh=h+1+uhzaNgtaSPXCQF2LP7SSvxe54i1i/2urVLgEc/g=;
-	t=1769501045; x=1770710645; b=c0cJ1y84A72yheZChnr/VfG/l9YUZk2XehTTZxXtxeA+UiF
-	GnXDwM7K8KDW7vgCXw8TCvyzpJUtSLQLUsLPhazw/63oC2V3Ay2xT2XEtzp8GX+3BSpkIOx/rCtsU
-	cnk/zzt3uh5HKzISXaZYjqzynLsDz/RlPz7j6LcP0+U/mGGzZS3Ds1lDqiRACHC6vJ+g/9NEZJc2o
-	RLDTfHzAXzV/SIiBvuNzrzMQc+buh5B7HwrBs9IPrKwj/wwvWhH2oKOsIvVy4nwsBikzMBcGw4NLL
-	bpjI89Gn6dDeMmLo+hq/V7AXofM6GvHFE54arcHt0+mLe7tPZGWO01u945ynpi1w==;
-Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.98.2)
-	(envelope-from <johannes@sipsolutions.net>)
-	id 1vke3I-00000004tNs-02NE;
-	Tue, 27 Jan 2026 09:03:56 +0100
-Message-ID: <b592a6c9a8f59f112b2221b9a46568769b1e9dcd.camel@sipsolutions.net>
-Subject: Re: [PATCH wireless-next v2 1/2] wifi: mac80211: Add eMLSR/eMLMR
- action frame parsing support
-From: Johannes Berg <johannes@sipsolutions.net>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Ryder Lee <ryder.lee@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, 	linux-wireless@vger.kernel.org,
- Felix Fietkau <nbd@nbd.name>, Shayne Chen	 <shayne.chen@mediatek.com>,
- Christian Marangi <ansuelsmth@gmail.com>, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Date: Tue, 27 Jan 2026 09:02:28 +0100
-In-Reply-To: <aXftjdCtqnQk69ys@lore-desk> (sfid-20260126_234123_580390_07BE70DF)
-References: <20260125-mac80211-emlsr-v2-0-466329d61c88@kernel.org>
-	 <20260125-mac80211-emlsr-v2-1-466329d61c88@kernel.org>
-	 <01e62344994a34daae0666b3873aa98e72fb5850.camel@sipsolutions.net>
-	 <aXftjdCtqnQk69ys@lore-desk> (sfid-20260126_234123_580390_07BE70DF)
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+	id 1vke6o-0000000Dofg-2m1z
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 Jan 2026 08:07:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lSnAZN6Iau8+Kp6uAUlmubmH9klxrZAYDpOOBHgAOx4VvWLvnsZJ4vRVZfbqQJWUmBWffFm9pah2hEKT/cuwrNLAmZBFyzCHVgOvdTcVjp/OFb0stnbXK1SRfOazwchzTuDgpUTCRjtkI36GdXCP52gIjnbpxakmLuCr+vhyQJjPjJIVgNONuyqAD99AwHHLScKc6ClqslfuGppHxrXKqk4a4WtdKOiPifXsEQ98jy4S36WzRsMeyq0y5wNtasdwXpOODyleXfmEFoz5KUB40C664oI0os6gY9NStgrEROF0OIJvnA3hIYhhiMf8XSxJYsNDX7+DhjeYZJQbBebyYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dBd9iAsdM0uDnGnSqriuSE9SRmgRVRur+Y8Lpy/FyVo=;
+ b=Q96q6hMRHPadSupg3ezTxPHhwjPkB4ezWNsoeqzIDOHSpSev3qBa5EoEo8APQ2CSWviJwezS1qzopzIdtMNNxJ+nwzL/KjYMXwJQiP/g5+oIr6tUSJhj5hWAAdxVKZvqPNz1snql/JyemRY/GN11r/TTb9ByPaKxUlJvi0uu8nkzPHF49DywyGF0js+iLe1LLus7W8BfsWWD6LokOp5KJDoCMwNeNaVbt/ILzjZhhisdNMU2Y0OHuR7pVXBdbagxF8sX6/R/7E8hgAyp7S5ojyYj752KKrlMUXvXSfXeQYqLGdCxGLoZmHhmnRsjbgGXzF3HdzC4EgaTtXj9EAD7QA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dBd9iAsdM0uDnGnSqriuSE9SRmgRVRur+Y8Lpy/FyVo=;
+ b=DGsfWoftAog9bJq3oYUfDT4/6UQ3iwlU6NSRj+h5uaHvlrpPRebWV+MAUPypJ/j9j1yEZMt1dGYYbRxWVpNcdGOP+5zJkDp1gVbkUbG6gVJ5YQUP96FnMW7H/rl/zJP2rJe8nJzCRYzn2miKJ7n54dGcYS3+831EG+THiQo3vINahXV2bZtqnI2O2FIa0ghIhYSyvwNiw2tUUkihpOwgW+Oe1vNRJkDpDP0SKIByqNBHI0esbctm8iTxL+RG9FY1SZpdySsFDNNDjUWbQj5UkviiXVTmWH/1Odmb+HEm+hjw5oO6qHM09mHflgHhs3lW3IZy2uQKgtHJDNICCX7YTg==
+Received: from BN9PR03CA0634.namprd03.prod.outlook.com (2603:10b6:408:13b::9)
+ by DS7PR12MB6309.namprd12.prod.outlook.com (2603:10b6:8:96::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Tue, 27 Jan
+ 2026 08:07:25 +0000
+Received: from BN3PEPF0000B06E.namprd21.prod.outlook.com
+ (2603:10b6:408:13b:cafe::1d) by BN9PR03CA0634.outlook.office365.com
+ (2603:10b6:408:13b::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.16 via Frontend Transport; Tue,
+ 27 Jan 2026 08:07:25 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BN3PEPF0000B06E.mail.protection.outlook.com (10.167.243.73) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9587.0 via Frontend Transport; Tue, 27 Jan 2026 08:07:24 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 27 Jan
+ 2026 00:07:10 -0800
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 27 Jan
+ 2026 00:07:07 -0800
+Received: from sumitg-l4t.nvidia.com (10.127.8.14) by mail.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Tue, 27 Jan 2026 00:07:03 -0800
+From: Sumit Gupta <sumitg@nvidia.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <zhanjie9@hisilicon.com>,
+	<zhenglifeng1@huawei.com>, <viresh.kumar@linaro.org>, <rafael@kernel.org>,
+	<beata.michalska@arm.com>, <pierre.gondois@arm.com>,
+	<ionela.voinescu@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>
+CC: <treding@nvidia.com>, <jonathanh@nvidia.com>, <bbasu@nvidia.com>,
+	<sumitg@nvidia.com>
+Subject: [PATCH] arm64: topology: Fix false warning in counters_read_on_cpu() for same-CPU reads
+Date: Tue, 27 Jan 2026 13:37:00 +0530
+Message-ID: <20260127080700.3565546-1-sumitg@nvidia.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-malware-bazaar: not-scanned
+X-NVConfidentiality: public
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B06E:EE_|DS7PR12MB6309:EE_
+X-MS-Office365-Filtering-Correlation-Id: 427c725f-c8d6-4d1a-bbb8-08de5d7b1b2f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|1800799024|36860700013|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?f096rxUs+XVtb9etbe9dtpB6dUteQ949mbRFTpaOZKSf+8FENQ5F9NW9K6GJ?=
+ =?us-ascii?Q?LCnGxSSwZlG4ldfck6urm6947oAzeGwB+49qTLpSk+C7HqPURMpJOzFpFp8h?=
+ =?us-ascii?Q?3PYeiq4f1fuFT6bTIzmgNHr/ZCQB0Jm210xOW4RMxs+cNHViRMdbhxd9dlPk?=
+ =?us-ascii?Q?9yWOKB2RacsSWfecNsya/0IBM+wtIqDLMVIsbc+UvtL0R0U/jy3c1VSG/em/?=
+ =?us-ascii?Q?Zx/ZUaKfY9RI1HiCBNFaEI9Eq7YCjMm//+0knDpq8JmeQEKJguaEYiC/TEIp?=
+ =?us-ascii?Q?TC9I7ZTHNarLLC+gn9lAKoLX20xYPP1ZVh/7COupt+XElROqvzZQKWe5mkG1?=
+ =?us-ascii?Q?17/JoFn4KGNVYQtEux8fAkrRbL5yd2ZG+7J8MR+zS/wLHEkxbiMhMNKtV6eX?=
+ =?us-ascii?Q?N93Q5EVU8MhysyW1fF/V73+n9jbK+Ice/p4qIVoEwnZtb+VZXoGtHi8ItzFB?=
+ =?us-ascii?Q?lCjAaXbf7qqpxoUZl3IXgP9lUs8svO9VuP4IO6LmhdylECS0Awri9VSOO8Zj?=
+ =?us-ascii?Q?o5lTRJTG3cKQRL7TRz9f2wifs04i6t2wfM5beOmmX3pKsAJKh6Cwm8au1Tuv?=
+ =?us-ascii?Q?xRyHpyInsG2Y/CPgPFn+2CeF1VIMP+Yq7rWhskWhKJ2Rn1/HieVIwBilOnQ2?=
+ =?us-ascii?Q?Sm/SWKfYEVHQL2lqlOzMMueGwPglgxWgy9o/ao/m2SYXQMOFJISp/cV9h9Hb?=
+ =?us-ascii?Q?TF0+QDvhL1k/j7QmoorLoSfehe8eg1pFl22ce/IxebI6tfckd/jnR10mT+m7?=
+ =?us-ascii?Q?4IgQH+pMFTMUo7lHnmqtgwKKGBq3UG67eCs3uvh4B0bwLcnALi3WBTr55DZx?=
+ =?us-ascii?Q?Yl5bBkTOuLfcaslghPAyj46OHuu49XdvzI9X+TIfy4qzIhd8gtTMxKepgd6C?=
+ =?us-ascii?Q?bYUernUQ+zEio2860zIHoNFN8/fNkcstBsXqFgfLaJFf5AWrhQlg/QOBmqoK?=
+ =?us-ascii?Q?TEhrKZlp4nJnizovhHcw2dXwCf1Us8/jJz2XvMkGjD0lhfMob3L6nwgvypqw?=
+ =?us-ascii?Q?FUvsYOHlcBEjpg3OlhUQlbhGFm8yWb+oQPfb6PKde6ckAESal0hoRk6rgc1o?=
+ =?us-ascii?Q?rKBDWlr1E5zVtUGEXNwJz9dqXVAK6nzCE058SISCvQRvVxX7ADGI7T8LbC2W?=
+ =?us-ascii?Q?Kg5YsADq77KJGr+B+1JjhclHq8J4f5+Gz3+OoSAJfsE0xd5KvWmTP9y4RDCm?=
+ =?us-ascii?Q?QyFVDo84MJ3f7e63oNd06Gwwp8srY/p7PShY7VY2m02obO+hWxbGSFmHgDIq?=
+ =?us-ascii?Q?Q5Oq3JqhlsANNbfRlZIteAdUdSDosLD+6Kt8moa4V+Lwc55gvUlXfvO1EnWv?=
+ =?us-ascii?Q?tS0pnSbxeKRiwimNRZ42sOvpDtqwAM8qGI1FLXzPE8uq9RbWnjUYSb3gVzin?=
+ =?us-ascii?Q?fqfmctqeKLNEMcDtvbqZwrHUX2lbb/P4+gKNyPHBz9pvxnFnZXQo19Di700z?=
+ =?us-ascii?Q?mBRMsmmmklVb8HQ/ucOoq/AqSn+2Z1aJyI52taynRmJ4taKvP39iw6UixIBf?=
+ =?us-ascii?Q?811ZK0zlKex23POYYESnsbcSg9DSLy4d74l5GlrlGUOoeJ8CXebMR4FJ4pe7?=
+ =?us-ascii?Q?sodNDp6r+yzmV4SWYu8wdM3CmB7wZp7U/EqzzJ5H8T2wfsB3ViwM2ii5fa+D?=
+ =?us-ascii?Q?/FGWk9Ja/Pk5RDnga4l59EIJE/LRB8m2t5qFhH6Zuea7N4PxvKyAIxv2Sbxx?=
+ =?us-ascii?Q?AbvSWiVDKIiBI074SdbuDYv5Dv4=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(1800799024)(36860700013)(921020);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jan 2026 08:07:24.9772
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 427c725f-c8d6-4d1a-bbb8-08de5d7b1b2f
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B06E.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6309
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_000405_922872_F69D4F37 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20260127_000734_723655_D9D7FCF6 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +156,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2026-01-26 at 23:41 +0100, Lorenzo Bianconi wrote:
->=20
-> > Per spec I'm also not sure what the MCS map should be when it's not
-> > included in the frame?
->=20
-> IIUC the mcs map value are supposed to be in Operation mode notification =
-frame
-> just for eMLMR. I think the driver should check if the bit is set in
-> ieee80211_eml_params control field to verify if mcs_map_bw values are val=
-id.
+The counters_read_on_cpu() function warns when called with IRQs disabled
+to prevent deadlock in smp_call_function_single(). However, this warning
+is spurious when reading counters on the current CPU since no IPI is
+needed for same-CPU reads.
 
-Yeah you're right, the MCS Map is always present if EMLMR Mode is set to
-1. I thought it was also optional and then what values should you use?
+Commit 12eb8f4fff24 ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks
+for non-PCC regs") changed the CPPC Frequency Invariance Engine to read
+AMU counters directly from the scheduler tick for non-PCC register
+spaces (like FFH), instead of deferring to a kthread. This means
+counters_read_on_cpu() is now called with IRQs disabled from the tick
+handler, triggering the warning:
 
-Can't mac80211 validate the values?
+| WARNING: arch/arm64/kernel/topology.c:410 at counters_read_on_cpu
+| ...
+| Call trace:
+|  counters_read_on_cpu+0x88/0xa8 (P)
+|  cpc_read_ffh+0xdc/0x148
+|  cpc_read+0x260/0x518
+|  cppc_get_perf_ctrs+0xf0/0x398
+|  __cppc_scale_freq_tick+0x4c/0x148 [cppc_cpufreq]
+|  cppc_scale_freq_tick+0x44/0x88 [cppc_cpufreq]
+|  topology_scale_freq_tick+0x34/0x58
+|  sched_tick+0x58/0x300
+|  update_process_times+0xcc/0x120
+|  tick_nohz_handler+0xa8/0x260
+|  __hrtimer_run_queues+0x154/0x360
+|  hrtimer_interrupt+0xf4/0x2b0
+|  arch_timer_handler_phys+0x4c/0x78
+|  ....
+|  CPPC Cpufreq:__cppc_scale_freq_tick: failed to read perf counters
+|  ....
 
-> Reading the standard, it is not clear to me if mcs map values are suppose=
-d to be
-> added in the Notification frame sent by the AP. What do you think?
+Fix this by calling the counter read function directly for same-CPU
+case, bypassing smp_call_function_single() entirely. Use get_cpu() to
+disable preemption as the counter read functions call this_cpu_has_cap()
+which requires a non-preemptible context.
 
-Hmm. I thought no, but then the language says it's present when the
-EMLMR Mode is set to 1, so ... it would have to be? Strange, because
-it's not really defined (well) in this direction.
+Fixes: 12eb8f4fff24 ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks for non-PCC regs")
+Signed-off-by: Sumit Gupta <sumitg@nvidia.com>
+---
+ arch/arm64/kernel/topology.c | 21 +++++++++++++++++++--
+ 1 file changed, 19 insertions(+), 2 deletions(-)
 
-OK, I guess the memcpy was right after all:
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index 539b38935182..57b71f403007 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -401,12 +401,29 @@ static inline
+ int counters_read_on_cpu(int cpu, smp_call_func_t func, u64 *val)
+ {
+ 	/*
+-	 * Abort call on counterless CPU or when interrupts are
+-	 * disabled - can lead to deadlock in smp sync call.
++	 * Abort call on counterless CPU.
+ 	 */
+ 	if (!cpu_has_amu_feat(cpu))
+ 		return -EOPNOTSUPP;
+ 
++	/*
++	 * For same-CPU reads, call the function directly since no IPI
++	 * is needed and this is safe even with IRQs disabled.
++	 * Use get_cpu() to disable preemption as the counter read
++	 * functions call this_cpu_has_cap() which requires a
++	 * non-preemptible context.
++	 */
++	if (cpu == get_cpu()) {
++		func(val);
++		put_cpu();
++		return 0;
++	}
++	put_cpu();
++
++	/*
++	 * Reading from a remote CPU requires IRQs enabled to avoid
++	 * deadlock in smp_call_function_single().
++	 */
+ 	if (WARN_ON_ONCE(irqs_disabled()))
+ 		return -EPERM;
+ 
+-- 
+2.34.1
 
-   An AP affiliated with the AP MLD that receives an EML Operating Mode
-   Notification frame from a non-AP STA affiliated with the non-AP MLD
-   should send an EML Operating Mode Notification frame to confirm the
-   mode switch at the AP MLD to the non-AP STA with EML Control field
-   set to the same value as EML Control field in the received EML
-   Operating Mode Notification frame from the non-AP STA before the
-   transition timeout expires.
-
-But I think better restrict memcpy() then to just the EML Control field
-and build the action header etc. directly.
-
-johannes
 
