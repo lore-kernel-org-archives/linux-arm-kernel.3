@@ -4,122 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64596D34095
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 15:52:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D336ED34095
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 15:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0OxxS5n1xieZUpH8YohdiA+9VRXqomSLAoDHyJVmPjo=; b=tgEvt60XHuk0jdMdfyQQXerIS6
-	mOrtUY/Yufh0ltnr6UyTs3b9BJ5vJA1U+RHmCdt6L7nbrdRRAYZcgfzC2ET066Al9GWly5EiFU+/U
-	wbVQ6Jyb1PUdBUuEtpKkicLIw/CSUN/uNcMPh8DQV6gXUF5wIxpuWLCPp817Dk2hlCKcOPR4ahIkx
-	yBAYxHrO4IAv7ShXKtosf+xDNpuyzTk1Q6q/Pvj5NTQA6rFw/BH8k5s6EmtxHPNNobT2KWfQ/x1Hf
-	82RPE5JaMnZCPTvanOmmX4CHg45rBM9w+ZaP7uibUqFSjcMzi5fzX1P4pbcjdVHuyB0muJQm09A4e
-	KKCRYv+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mdjGxuEW0WnDn6G9gnMVeIPJ3u/i1K8ZcFBcJ8h4M4U=; b=znbDintXyXhMOD7S4N/jRQTw7n
+	WN4Ydgk2sqO//xCfCegFOCI2Shp3BFEgj0lHgAc1xeDKkvRopl5S623R/1lCWA3gFaJbcnPkRmslL
+	WrB2iUPZBSWp8AfcFU8FjxcJt5SnifPoQ4R8OUjzvbxvucGEQC00N0xwk6tjGgZ+7KsLsGHY6PBgJ
+	xz+f2TuQhQN/+B/DjYmkAYgE6x+um8UvB1GJkNn6UnL1mSCpREpnJpajHPHTgq7Yyx6i+aP38qPxT
+	APeRJHV8QwDTTXonSQKDSoYjDwb5BOFqDWB8J9+Q0EYVjbmmyznup+5DTgfuVbImf6O6Bas9jx3lC
+	HB2TOY8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklMD-0000000Ea3J-3awR;
-	Tue, 27 Jan 2026 15:51:57 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1vklPh-0000000EaM9-3J4E;
+	Tue, 27 Jan 2026 15:55:33 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklMB-0000000Ea2u-3H1f;
-	Tue, 27 Jan 2026 15:51:56 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 60R7WMWC008927;
-	Tue, 27 Jan 2026 15:51:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=0OxxS5n1xieZUpH8YohdiA+9VRXqom
-	SLAoDHyJVmPjo=; b=R2OZ3tNd9SFjbhgmya+gAkR1LeSUyxH/4qTui9x0/Uant4
-	+He/E+9jhq17CXdAWqvn5tlXSBsBIY0k423Lv7jq6+YfHZeVMd54Yo78qQxKVPuq
-	dd6+jAI5VodjgFmoPT7n1593r1Fb9KKf6vYGR1TGJZ3ta6ySO2jEKN+/Q8hmskV6
-	M8b11DKp4JlY2KTeW8cYzln1cfyON+Phmgew57hSVAbypNIaxaMdvoh0QMqa7FG9
-	hBGIKEIipRzww0uYI0TSD1KqYz0ocdD/Bq8GtccsOZugDFGRaiamzsY71sb3mD3g
-	D02I83U0zVNelxPrFSiVffd8VmGWOQFku/D27YOQ==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bvnr64dmr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 27 Jan 2026 15:51:44 +0000 (GMT)
-Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 60RFhAPC013427;
-	Tue, 27 Jan 2026 15:51:43 GMT
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bvnr64dmn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 27 Jan 2026 15:51:43 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 60RD696c019647;
-	Tue, 27 Jan 2026 15:51:42 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4bw9dn18ec-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 27 Jan 2026 15:51:42 +0000
-Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 60RFpc0B25821738
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 27 Jan 2026 15:51:38 GMT
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4FDCE20040;
-	Tue, 27 Jan 2026 15:51:38 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1F2062004B;
-	Tue, 27 Jan 2026 15:51:38 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue, 27 Jan 2026 15:51:38 +0000 (GMT)
-Date: Tue, 27 Jan 2026 16:51:36 +0100
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Andrew Donnellan <ajd@linux.ibm.com>
-Cc: linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org,
-        Pasha Tatashin <pasha.tatashin@soleen.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Nicholas Piggin <npiggin@gmail.com>, Rohan McLure <rmclure@nvidia.com>,
-        Christophe Leroy <chleroy@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
-        x86@kernel.org, Nicholas Miehlbradt <nicholas@linux.ibm.com>,
-        Sweet Tea Dorminy <sweettea-kernel@dorminy.me>,
-        Andrew Donnellan <andrew+kernel@donnellan.id.au>,
-        Srish Srinivasan <ssrish@linux.ibm.com>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v18 10/12] powerpc/mm: Implement *_user_accessible_page()
- for ptes
-Message-ID: <20260127155136.2808076Add-agordeev@linux.ibm.com>
-References: <20251219-pgtable_check_v18rebase-v18-0-755bc151a50b@linux.ibm.com>
- <20251219-pgtable_check_v18rebase-v18-10-755bc151a50b@linux.ibm.com>
+	id 1vklPb-0000000EaLC-0tz5
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 Jan 2026 15:55:31 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-48069a48629so8282985e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 07:55:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769529325; cv=none;
+        d=google.com; s=arc-20240605;
+        b=DzXFkCn97FmXjglhwzYbGgPEKC1zA+s6FRRNN2Lkdiw1Hv1f7f3pbpq//QE1IdYjZb
+         lexhlVxZ+7no1RvXFtQmBPkkEMjOU+FGhQPEN7kdN1gXV3N1SjrJVy2OEFpojiH8uNSG
+         qH9DdjpfGKMP2h5mGXzY/D8pcAH0U2oyarRWXyrEWwiJ+rX1M5CxJQMxbmhAeIXWFb2o
+         BNdMZ0AVw2fnrkN0LJ+EfouSVdExHP6rm3btb2pLBJbiv2DZKwtkowezGRKM5jyjgWXy
+         qlsuiiun4maMtUhFAW8uOFDCzMP8/fjdgkrn4kIjkBSpnfx2SA/xQW5IId9yTYu2wG3c
+         adAQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=mdjGxuEW0WnDn6G9gnMVeIPJ3u/i1K8ZcFBcJ8h4M4U=;
+        fh=YdybkmQMSGSZfa9mwqiIGHXmao6DdMhYf2TF4tYea8U=;
+        b=KlsYTvfzGKg818VDa8dsR3uug4qR6LzHDa121oHlHfOJxLIWJFb5FJiSaUsU7YaXUF
+         +h6UyCcCJkdf3/d7wlaGGwVNYK1iGRpQDcitQRo89vDUo2PFe1XQsuSbtdS8Qxa6n/yp
+         /ncMX7uPJ62aYzBzpVu15PhB8vjd3zX31M8WtUgm5FVxbVGUxvqk+uzYTIITCPQmTLOQ
+         HhdeS72djaqxUj4gUrBvMCNUw6biu1ziEeWHyP1A1aTTh8+wCa4atLTI05t4rLtDSR/v
+         OZFhjsw6xw3X3CW4Z9NiGs9dZNw3WC1LX3j0QeNVFHQ7wnbcUkeC+aGVx4ERIpFrZ8q9
+         35Pg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769529325; x=1770134125; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mdjGxuEW0WnDn6G9gnMVeIPJ3u/i1K8ZcFBcJ8h4M4U=;
+        b=nc4FKliAvYuLi8daqtDUOeZGCLO6lwK+vqW33hEJ9FHHIotjMGimt0IQ8fE/lxJhZw
+         4mqFbrPcey9zY7/DDFe84syAUUqm/brv6pvW1fzoM9PveqyaRVn2dYUHRbwv9bSKylFF
+         MSaecS4YOcYh0PGXjpbLx0AsBpTiu1hTvvlxpO2aTHzX/yMZOafgQ4IxWbEGaLelt8D5
+         ZTQeO9om3c3O7zLz2fTi8yB7F/cfAr6oMsiKxsN9iELCQoIakCQ4oM+26v8AnA8GXypj
+         t3hUe+R1Yj93jQFbF7ozmHCitAtcjl3yP6IWvmKgkxQ2AuR4G5SP+UHc40gHyCCVH1AV
+         QvRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769529325; x=1770134125;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=mdjGxuEW0WnDn6G9gnMVeIPJ3u/i1K8ZcFBcJ8h4M4U=;
+        b=UT0lORjZlVGE5IUBeAkc3AEgKCZ1hEgmiJnUDtSP0Senhfodn/E26pOVpWKkKZt5sJ
+         NQWQM7RF3ZXK8s4OjLCAzgOiAY5EtHDLIw7OF9R9XTK+LDOY6jb/7ROsbXILRRnrrNOp
+         i4pnxsOuVGYSgEvn0JIiqewA8BY1hWAlrZyS1zlEYNOblMUTNTVcQXqoBfCkqS82Lfzp
+         zf2YqCjDTd49+qFSwlGzzKrfz1BTvVyJlJTcAORz7aOhr9X3hfakRcSLFHLNEfO3UIpe
+         qAl0f+T0UWzGlZVgJmiTUEUymDtmhFlxIVTrtxYbdx6HpP2qZilFI+neeE6KEbfXdY0m
+         EA2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW5AQmrR2yPpRbXNiZF5ttwrk6MrAy2Zfjg68B9DkcyfuKOhz1fFKKD2ValFrdL7144HcSiR/JPbRwLaP8a041T@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZWGIi5PeximfRfJEGe8PUFZSlYyFDJsoKxXEoKQ2LIZca8QzP
+	Er5oj0XxZEdY+vMw9kWg2QkAzbH1rOcgW6h7HhDJMtG+7tHvfALPmuuZDnE872XXKYRDy+HcFMF
+	BCl9Y7x/2wzEV65YmniMQ+FfugjIToaA=
+X-Gm-Gg: AZuq6aKsXs9GqqrsQEEZJyIWipCWA70OE6AkBrXd1sO0n5Z2W3pMNH9EWoTAKQnUHhp
+	K3os2kyO4/yfHuxDOuegR15XqF2YmHzu6LcqnDORrSkKxYKGLBu3vXYKPVu2Tj/JLQ9r46HLaKj
+	HHI3kLJoL9O2kebde1ZqR2I527U/mAeuEsJBziyx+WzWRQuij35ZxZI3Ad5PaaEH+jIXfKrJxGW
+	KwjV1zRv7Vh3BLa1hEimlxqjSKYOSxoFKKKaLLKJiJFUHGsljtwCc5cGiU8fkczcnWIkpa3lD7j
+	7wEvxxt4f4ozkjcFWu47Md8i2WiW2x33rMoKSuF/DV1eiWv+SukIgSJiwQ==
+X-Received: by 2002:a05:6000:186e:b0:42b:55a1:2158 with SMTP id
+ ffacd0b85a97d-435dd0304a0mr3286115f8f.17.1769529324882; Tue, 27 Jan 2026
+ 07:55:24 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251219-pgtable_check_v18rebase-v18-10-755bc151a50b@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI3MDEyOSBTYWx0ZWRfXxChMywYP3CXN
- le5d6yn3Qq6MfjN6zC+Z+DQqleCzkUqKSkhMwpJSnn1Mj3zS2dO0nICsNnXEMtWsE3vyb83rzjQ
- 6kso4VpQ4wBoGpfXa+uDicwe3s/Tx9G27+lBkSjIdnBpBe924kovkU2wInK8zp4fCnVcBOZS31H
- BJ3DIi34TvoRR/5d3SQODO1mtpcggsmfvH/oLD96EUws0DAq+gksrBtgsBJS82RwOsHFmTzrNBL
- CNwOe0QD3sOFuH+hrRzC0HuLjsyg7NKVHQVFym8CqHd55vAIbLaoGLE/k7/e/ZOrw+hMYWVP7oQ
- 3uUxUrs0HYHgzU6E9dLRct4A1ePYLRq2MVcmQ4XlAiQw0ogB0VlRgK8V/qrltGoxEmwPlQvaIpZ
- oDSvwJEhdafxFukf2IRJrEZNbsOh1QhzlSOcS3BDkUFas4hDHNqKbsmPKpZG1pCe2JqB0joy895
- KqtIgfb/A4B51Vjsq2g==
-X-Proofpoint-GUID: 8EJeeV34r0_XNIY9EmhfW46Wh100FMUs
-X-Proofpoint-ORIG-GUID: Bk5rloqyZadRkxusHYTPbD17s7SpVN9w
-X-Authority-Analysis: v=2.4 cv=X+Vf6WTe c=1 sm=1 tr=0 ts=6978df10 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=kj9zAlcOel0A:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=cPWeadVanShsLn6B-a8A:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-01-27_03,2026-01-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 impostorscore=0 lowpriorityscore=0
- clxscore=1011 spamscore=0 adultscore=0 malwarescore=0 bulkscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2601150000
- definitions=main-2601270129
+References: <20260126172503.238724-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <aXeuR_YLoAFYEAVi@shell.armlinux.org.uk> <CA+V-a8t5RKY9vyFDg0V3AWcBovBdWbcvqdPeiPYmHRA8v2=UGQ@mail.gmail.com>
+ <CAMuHMdXOMMyYrbPr8H3O+oj7QeGg324jXdV1QUaUhQF4sxTyfg@mail.gmail.com>
+In-Reply-To: <CAMuHMdXOMMyYrbPr8H3O+oj7QeGg324jXdV1QUaUhQF4sxTyfg@mail.gmail.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Tue, 27 Jan 2026 15:54:57 +0000
+X-Gm-Features: AZwV_QiFFOxc86MsSOA1lIfzqIqjtoa3ZePZV2eq56xOKDzBCZT0iVVI9LGkicc
+Message-ID: <CA+V-a8sQTRZOFk=KASum4Gi4cKK7NdLZu1W0n4ZyWPuKGSc9uQ@mail.gmail.com>
+Subject: Re: [RFC PATCH net-next] net: stmmac: Preserve bootloader MAC address
+ across unconditional reset
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Geert Uytterhoeven <geert+renesas@glider.be>, netdev@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_075155_937895_437A794A 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20260127_075529_192253_F338CB3B 
+X-CRM114-Status: GOOD (  18.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,49 +127,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 19, 2025 at 04:09:42AM +1100, Andrew Donnellan wrote:
+Hi Geert,
 
-Hi All,
+On Tue, Jan 27, 2026 at 1:57=E2=80=AFPM Geert Uytterhoeven <geert@linux-m68=
+k.org> wrote:
+>
+> Hi Prabhakar,
+>
+> On Tue, 27 Jan 2026 at 14:39, Lad, Prabhakar <prabhakar.csengg@gmail.com>=
+ wrote:
+> > On Mon, Jan 26, 2026 at 6:11=E2=80=AFPM Russell King (Oracle)
+> > <linux@armlinux.org.uk> wrote:
+> > > On Mon, Jan 26, 2026 at 05:25:03PM +0000, Prabhakar wrote:
+> > > where "local-mac-address" states the MAC address to be used for eth0,
+> > > as specified by the boot loader.
+> > >
+> > Thanks for the pointer, I will use the above-mentioned method with
+> > which we won't be needing this patch on the RZ/T2H platform.
+>
+> This should already work out-of-the-box, as
+> arch/arm64/boot/dts/renesas/rzt2h-n2h-evk-common.dtsi already has:
+>
+>     aliases {
+>             ethernet3 =3D &gmac1;
+>             ethernet2 =3D &gmac2;
+>
+> So just make sure to set the "eth2addr" and "eth3addr" environment
+> variables in U-Boot.
+>
+Agreed, it was just that the aliases in Linux and u-boot didn't match
+up (Ive notified the BSP team to update it accordingly).
 
-...
-> Page table checking depends on architectures providing an
-> implementation of p{te,md,ud}_user_accessible_page.
-...
-> +static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-> +{
-> +	return pte_present(pte) && !is_kernel_addr(addr);
-> +}
-
-We looked into implementing this for s390 and for us the only possible
-user vs kernel entry attribute is comparing mm to init_mm. The generic
-code already does that, but I am not sure whether such check alone is
-enough.
-
-But it occured to me that we could implement e.g. ARCH_SUPPORTS_PTC_USER_PAGE
-that adds an extra field to struct page_table_check:
-
-struct page_table_check {
-	atomic_t anon_map_count;
-	atomic_t file_map_count;
-#ifdef CONFIG_ARCH_SUPPORTS_PTC_USER_PAGE
-	bool user_page;
-#endif
-};
-
-Page Table Extensions already used by PTC, so that would fit pretty natural.
-Once a page is mapped into a user process it would be marked as user_page,
-while p{te,md,ud}_user_accessible_page() could go generic:
-
-static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-{
-	return pte_present(pte) && page_table_check_is_user_page(pte);
-}
-...
-
-I guess, many architectures without viable p.._user() support could benefit
-from that.
-
-But I am not sure whether is it doable, so opinions are very welcomed!
-
-Thanks!
+Cheers,
+Prabhakar
 
