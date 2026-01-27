@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3417DD3409C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 16:09:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 688CBD3409B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 16:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=q+eQpvZcIHMJ+DM5l/PWrPzpT4wb2zMZwzxhd7OXn4M=; b=4+9hdR1QOFd0wU
-	fDQ5+B9aybdtK3TPsii9GlTatzupD/pYzRlyPq8HveIg1XwObGHc2dWIU965/KMjxB2HuIm8BTr5d
-	4AQ3yJIb8TFwjgrEzG9cO/IAq85Gyf6F9W+60MOgxnTBobrT9ZRTPU/u+YWcD4oeKRaiKZtayQFtp
-	9YWGitl9qBXZnKQzf2XI6WgabgNbKdU1cy8HhIT8Ed0DT2APDCrSwTBykQAYTt4ZeRa0kanTaioX8
-	BWA2R4wwojGynwYyXTEwNGE3GA1C44bYUXh6xXOv2ByeCm7S7hGrtQGvbFYo+HzQVMO9BwI+WApEH
-	SvyXMBWXcskaM21o28Jg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kKvnpjGXBkcD+ZLlwRtix5hempbJ/yQXes2bZ7PnlIg=; b=n+nky0CIMs/3tR5WW6Gxm6b8K5
+	C/ZjGV4NsA6P5GC7MHYU3JzpoBIUhuR6B+f6GHf7CmWgwsX5JW+/BGyMeIfGHCwIts4jD5x4ggkU7
+	n0ikxR9rXPRA87nbLjjxSXjO/SiiBJ7tDs2VVK+Ymno2zRtoALwqYq0jrsdgccWL7J2uByQ8Zk2eu
+	1kewY7sln/M8/U5dnGTa2IwaOqPR0GQjtiNpJ5MaPnlMLPN0SbMrmwvJWppWsNTeEDRiiEg/mfa3f
+	b7wvLWROrIk3j+bxRGU90Looej5xzAoX8SqnBTbJb0+oF5z8TM3fejtCFInGpLFXbzxL322tDyaMt
+	UFxizrNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklcd-0000000Ec0r-0LM3;
-	Tue, 27 Jan 2026 16:08:55 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vklco-0000000Ec7x-1FjE;
+	Tue, 27 Jan 2026 16:09:06 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklca-0000000Ebyr-2tUm;
-	Tue, 27 Jan 2026 16:08:54 +0000
+	id 1vklca-0000000Ebyq-37zC;
+	Tue, 27 Jan 2026 16:08:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1769530129;
-	bh=/T2aZbWQYbxx98eibpJB5+OY5gsOeKfgeJT1TgQzpek=;
-	h=From:Subject:Date:To:Cc:From;
-	b=UKgTf2Twc2fnwyI/icMXZcMnylUOmuNu1vNOiXeFXyDf/c3UQXtUO/913C9wzd9NA
-	 hBL3REXTAFoxOab1Bvp58iTmRtejVL4WxWD0rGBAn0Ui3Ivs/V/PMM7w0WKB/EO3/i
-	 9NpiqhKApGX6T8odQo1BXW5muOSK2nf8mv1x/dpSskO8M0Eo8N7OcIzQ//YwuMT8H/
-	 cBf5wpkclFvb+qjjMa5jVc6nXPAWzwcECWMAb7hedwn9ghwTQzq9BEFRbC/9AA8RAs
-	 H2SeozwPwuhDZqo5Sx0lpS98Tf7ch9xHutqIgHawt2o3ix2/O1oahtR4HvZWDnTkCI
-	 AT72WVx+us2+Q==
+	bh=Iq2VyvqCDRD+eOJzowyqd7ph1sHZmTOb8jsOzunp67A=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=TiDdEB8QVq/0sI1aLavwo8vsvkM40TSysHbTG1m+kfYqzT8NpBd9d8evg8jaA6BpG
+	 kcsxh0pWjeB1FCe6iU3eeKxPIv5XoKXPZfOcCUYiGtTOHBiTMjXmC359I5A85quBfY
+	 Rmq0IopNL+ur+Wj2K5UzqD6eM87lMc/t79sokmNfU5y+Pg0/O0N5DAa8jet3rsHdcf
+	 eCZ+ZI3CgyCHdrwAdMfv83Sa8RC7FOcHobs1LSb7hpnU2CWz9gll+JY+vswn5ZBX2T
+	 bknpjcZ6nm1fFNA8o4kRZACscrcg1+xtJOefIAFJEPx5MD0FOPCQxqsg6WuzLlbHhX
+	 Ql1FrFX2UOmBA==
 Received: from jupiter.universe (dyndsl-091-248-210-071.ewe-ip-backbone.de [91.248.210.71])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8C09D17E14F2;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7B55F17E13A3;
 	Tue, 27 Jan 2026 17:08:49 +0100 (CET)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 32A01480044; Tue, 27 Jan 2026 17:08:49 +0100 (CET)
+	id 34DAD48004C; Tue, 27 Jan 2026 17:08:49 +0100 (CET)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: [PATCH 00/10] ASoC: rockchip: spdif: Cleanups and port features
- from Rockchip's BSP kernel
-Date: Tue, 27 Jan 2026 17:08:20 +0100
-Message-Id: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-0-a7c547072bbb@collabora.com>
+Date: Tue, 27 Jan 2026 17:08:21 +0100
+Subject: [PATCH 01/10] ASoC: rockchip: spdif: Use device_get_match_data()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPTieGkC/x2NQQqDMBAAvyJ77kKMGmm/UnpIN6suLWvI0lIR/
- 97gceYws4NxETa4NTsU/orJqhXaSwO0RJ0ZJVUG73xwrQ9YVnrRIhktJ5mQ3hz1kzFqwqdVuyk
- hXXvXDezH0DuopVx4kt95uT+O4w8kwA1adQAAAA==
-X-Change-ID: 20260126-rockchip-spdif-cleanup-and-bsp-sync-c94035e27640
+Message-Id: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-1-a7c547072bbb@collabora.com>
+References: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-0-a7c547072bbb@collabora.com>
+In-Reply-To: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-0-a7c547072bbb@collabora.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
  Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
  Heiko Stuebner <heiko@sntech.de>
@@ -64,29 +61,28 @@ Cc: Alexey Charkov <alchark@gmail.com>,
  Sjoerd Simons <sjoerd.simons@collabora.com>, linux-sound@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-kernel@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Sugar Zhang <sugar.zhang@rock-chips.com>, Zohn Ni <zohn.ni@rock-chips.com>
+ Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1733;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1245;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=/T2aZbWQYbxx98eibpJB5+OY5gsOeKfgeJT1TgQzpek=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGl44xA77Bb6AfgV7b7ypFRt0LyLnZnYGdS1f
- uKYvaJHNwMGlYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJpeOMQAAoJENju1/PI
- O/qaq5IP/3id/KXkGg9KLhhF27rU4MPk19/mdz3R/A+pjTuvzU1dvkPaB0aKEGtBYxtKSTh2TJ+
- K64fpjV5m2NwNoB04K+kZ6g/qz8Aawm7oCb8KYwatXMtjkW82ilN49Erc6K/EDSxo1Tyr3xzBff
- IpeVw/e+Pu8oSUa8vmHuySCpx1nfvz8EuG7um9mAEMPWqdzXjZwE3msDCVCt0UlM9cruiXGYv0K
- BsaCyMoWUCdvFmhjjOmeskGepwE5eWwmUZ39lfqnH72kP3iC79cd5AXreYNfFnbfwkCYK69DjB5
- Y8lCIqPRnQZJpLOt4DjC3Kf8iNeHEAFsMj3quJ2Ky4c85L1IR55VF7qMpcGzDJmG9fSu+Qwo9PA
- BFDo1y5fIPpH/grZ58IcvgcH51Y0LzdewvJBG+jA7Btd5ZvwfxiwIZPky+Pq1fMURB+mYHvwrh+
- CqGj05g7M4Csyc7kOdZ0lDSnurBX98k72/M2UycWFcv3TxMhjqBFlnUvntcshhIP0B4prAFrDgZ
- Snh+36fCbQSoqBYO75W/U9eYln218UCbqA4YulSS3LOPYsmE0u2F2HDwwhqKFH1pEQp2lWWZf5z
- A+AlRZwHY9aFBsJANEdMTjzA5+3HkPOqpXUoZ9VlyRZEmrCZXf6hbnuaZlb5KqID/C3yA2lqSUG
- OEo57gxIY2juolWLuoN807w==
+ bh=Iq2VyvqCDRD+eOJzowyqd7ph1sHZmTOb8jsOzunp67A=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGl44xCf1j2If8tTNlgV8n7uXSuFYC/p3QxUU
+ bybJfh832iXw4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJpeOMQAAoJENju1/PI
+ O/qaQs0P/2Au25vX/YHqS9vK0Zt6ZaacazF4cuccFVreJ7ip83Ww7yCU3FfRktpaWbxqAUBInFk
+ pmZVEgaWzSUsYTV7rR8HtCce2fh3lpm+4X8Bgo325liLJb7vKBzLVbxF0VjksbVzNmIbIN2RYo9
+ yskS4nam+Oa3NPixdn8TFgnEjy17GhQVz9Ih7ezL46iXqOrfs63zpJ+9gq5QK2ZF9E1ln0X5k5X
+ 6YGAL4r9PjL4/FF8dgk0lyqUGDjv+r+gvan+2vpt7mrt6mTd4Xy/YT+L2ZctrvvdGyiw4yAEA3N
+ GFHLO6/JHVIhqaT8CcvwDLiA63kD4xh9N8u0Xu9C47R84wijn80lyqXefNmx7l1CtY9QKvlsZZc
+ x+UUUhljFQTr5hVI3OUbJCm+B4qAAgqebSjayhWmmAfdpFY/EyWcIR8Gox5u/EXPRXwY6cPD6Tu
+ 0SvvYQSs59bIi3EstXiVJ/IccQENTHnU/eHJMqoxgzvYEaIjrDGLhiMZpeq4fP+eu1SyBdCGfAh
+ cD1Gu7Zi1rKCAsccEw8qEkbioIzqq7AFNgRJWNXdEyxY+zNAS5Ef65B2GiIYIr/Rfc0siuCr3tv
+ x0N5V5uIbmP1Rp/i1fwE8rzvtsk0TY38fb8nN/o2L/yigMbXxoGHZhgsHf5nLAzIsbE88yVCfLQ
+ lQL1iRbVDL7+gSLHv5Zw3/w==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_080852_916089_F732EF0E 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20260127_080852_964665_B94F3A22 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,43 +97,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I'm currently working on DisplayPort audio support for the Rockchip
-RK3588/RK3576 SoCs, which preferrably use S/PDIF as DAI source.
-
-Apparently the upstream Rockchip S/PDIF driver is lacking a couple of
-features right now, which are necessary to get things going (i.e.
-setting the sysclk from the machine driver). I found the missing bits
-in Rockchip's 6.1 BSP kernel and ported them over. This series effectly
-brings the mainline kernel on-par with the BSP driver, but also contains
-a couple of cleanup patches of my own to bring the driver to the modern
-age.
+Use device_get_match_data(), so that the probe routine does not
+directly reference the of_match_table. This allows moving the
+table at the end of the file where most recent drivers have it.
 
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
-Sebastian Reichel (5):
-      ASoC: rockchip: spdif: Use device_get_match_data()
-      ASoC: rockchip: spdif: Move DT compatible table
-      ASoC: rockchip: spdif: Fully convert to device managed resources
-      ASoC: rockchip: spdif: Use dev_err_probe
-      ASoC: rockchip: spdif: Convert to FIELD_PREP
+ sound/soc/rockchip/rockchip_spdif.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Sugar Zhang (5):
-      ASoC: rockchip: spdif: Improve sample rate support
-      ASoC: rockchip: spdif: Swap PCM and DAI component registration order
-      ASoC: rockchip: spdif: Add support for set mclk rate
-      ASoC: rockchip: spdif: Add support for format S32_LE
-      ASoC: rockchip: spdif: Fill IEC958 CS info per params
+diff --git a/sound/soc/rockchip/rockchip_spdif.c b/sound/soc/rockchip/rockchip_spdif.c
+index d365168934dc..23f14274a6e0 100644
+--- a/sound/soc/rockchip/rockchip_spdif.c
++++ b/sound/soc/rockchip/rockchip_spdif.c
+@@ -283,14 +283,14 @@ static const struct regmap_config rk_spdif_regmap_config = {
+ static int rk_spdif_probe(struct platform_device *pdev)
+ {
+ 	struct device_node *np = pdev->dev.of_node;
++	enum rk_spdif_type spdif_type;
+ 	struct rk_spdif_dev *spdif;
+-	const struct of_device_id *match;
+ 	struct resource *res;
+ 	void __iomem *regs;
+ 	int ret;
+ 
+-	match = of_match_node(rk_spdif_match, np);
+-	if (match->data == (void *)RK_SPDIF_RK3288) {
++	spdif_type = (uintptr_t) device_get_match_data(&pdev->dev);
++	if (spdif_type == RK_SPDIF_RK3288) {
+ 		struct regmap *grf;
+ 
+ 		grf = syscon_regmap_lookup_by_phandle(np, "rockchip,grf");
 
- sound/soc/rockchip/Kconfig          |   1 +
- sound/soc/rockchip/rockchip_spdif.c | 224 ++++++++++++++++++++++--------------
- sound/soc/rockchip/rockchip_spdif.h |  57 +++++----
- 3 files changed, 175 insertions(+), 107 deletions(-)
----
-base-commit: 63804fed149a6750ffd28610c5c1c98cce6bd377
-change-id: 20260126-rockchip-spdif-cleanup-and-bsp-sync-c94035e27640
-
-Best regards,
 -- 
-Sebastian Reichel <sebastian.reichel@collabora.com>
+2.51.0
 
 
