@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7139BD2D8F9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 11:03:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 856C5D2D8F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 11:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N1lvjaqhQkj8mEhgS24AJuAb84AsUGZxYBbZPk8F7T0=; b=uAS1QxS5WZ37tq
-	JZkzuQCHED61RY9LdGCSc9nkul44pVQpDvrcDw8byBQEnsdELMOxvc4HEShHHfvDNE77X65xCUZ6u
-	6ZoqPIAFDWWyAvwdNqEvw/wdpftPsodoZuZeYsTsKozS7hysRVURVwFL8wxLwMbEQCDLz1ZfrlVD1
-	/wZob8HxpyLyLd1asK+c8tNXwu0DcghcqSKJgCno2EFJlcG/9rVX5FxBNTpbjSw+7SaX2Q+4h0jwl
-	yVdiwHspzNLWWCXZCCNa3apC1Sg6AWf68a2owYkOK8mJ70gSWQ9G9s07hUZY0UBrzhDV2pU/2I3Cc
-	ubKOg/o/+YB5JZN89DnA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AmMOKN2qirqA2KNNzaLYt6+LCGkhJTLmZz5dG7ntt0s=; b=NJjbMc1C/ms49MamXu7hAzvG9p
+	OUbqutv1K47iqm1UPNLMsmetC10iXIy9HJWe3gWA5hQT6vnqu6yDy+PyVmKUNCpI8EGE8PFSHoczn
+	51AUH/bLYDy+SeVYk1330ZLTnRSFTPynb44xXOPPK9/LqhGaRdb0laAI3nUgKj3VEvGaYl1T7tFOf
+	/ma2PQXbWTshwZug3PohepZV2+CorVNJxOJR183UJQWTNY4H14+cdvbxWV/MUONTXNZ+YsQkgQknO
+	vsKzab4KiEmWBoMlJucjO9X1n+pGf56uDOHA7mKL7a8rWLwiNKld4UV0/86tqap2trYnQZ/bG2NxK
+	0CvgF0PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkgqe-0000000E7GG-3Mee;
-	Tue, 27 Jan 2026 11:03:04 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1vkgr5-0000000E7M8-0bA7;
+	Tue, 27 Jan 2026 11:03:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkgqX-0000000E7BZ-1RK8
+	id 1vkgqu-0000000E7KY-1F3m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 11:02:59 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=N1lvjaqhQkj8mEhgS24AJuAb84AsUGZxYBbZPk8F7T0=;
-	b=QwPX77kTAsPwEGUrVO4XKyg2YdoWDEWGAFhgbz7Ies+eHt/UsfIeyjihwTY4t4E0HZjIXkQ/a
-	spYLNzK4fiuuiJACK7ymK7g6u2GjAMSV5316vf9LN8VKUFu2VSitTuDGq5ZCkBKGM1EZIqDAc4+
-	KczS/IDtVMrt0z5qDVCO/w0=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4f0j7t5Z0Zz12LD7;
-	Tue, 27 Jan 2026 18:58:50 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 92A6D40567;
-	Tue, 27 Jan 2026 19:02:45 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 27 Jan 2026 19:02:41 +0800
-Message-ID: <a1f8a28e-84c3-dcf1-26d6-edbb37a5b750@huawei.com>
-Date: Tue, 27 Jan 2026 19:02:39 +0800
+	Tue, 27 Jan 2026 11:03:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 47FE160127
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 11:03:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3B56C4AF0B
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 11:03:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769511799;
+	bh=2zl+QHThtfZjXts0MeAz4C6OC5tpxFYl74GDP/a4psU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=RQJ1hv5xcVN1fPSKnBiuM1DkSaOGPWKS2cqyrdGBvX15FHK4meoa6oiTn0GP1+/su
+	 duxH+jNnt5u2tO3jdvBLW3TYsKwizh5gyusGgFSg65PH1mRnGRAh7dhpyIIh/iWOEv
+	 qD2VRnb6zAcJjcCn/AFKVjzTzpts54IQQZIZdfjCnGgJn8I8KVap9LHpMLT1rQU5Eq
+	 1NBE5DW58dw9SLbwFOSoouZK1qi/spD1OB7p5ZvRj3TLAToJ4aiBjeY6qd3UES7Y34
+	 V/hDvauLT9czIXopkcffArRlPizhPXbTynoSdfXgcPdpHsa+wIVpluWhfrFwuS0Kpj
+	 pywDwIQ563PQg==
+Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2a12ebe4b74so54176515ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 03:03:18 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWB547F9gpMzVXptNcsRYKAAWQkZHYmlI7RI3hUVxSBE7MOqytCRpv1op78QBi7TSXW1S7WZ04ApKQnWxAqVo4P@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNolJ9ksdVdWNKbI9AlkVk3dq1cJ51onIyvnzJ9EZDpL375Rwf
+	rFwJOiTLLGS+5CDjSnlHJZtPG8s3c15IMbR7pVgnAf+M+3ZEX51tgHeGw9pJOr6J3GaAuYHd6Xb
+	Q+U1Ylq/yTtMUXmTW/GBnIiJPemNE+Tk=
+X-Received: by 2002:a17:903:8cd:b0:2a7:ca83:5b7a with SMTP id
+ d9443c01a7336-2a870db1634mr13667515ad.18.1769511798451; Tue, 27 Jan 2026
+ 03:03:18 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v10 04/16] arm64/ptrace: Refactor
- syscall_trace_enter/exit()
-Content-Language: en-US
-To: Kevin Brodsky <kevin.brodsky@arm.com>, Will Deacon <will@kernel.org>
-References: <20251222114737.1334364-1-ruanjinjie@huawei.com>
- <20251222114737.1334364-5-ruanjinjie@huawei.com>
- <aXeZdh3CtznU8u6L@willie-the-truck>
- <4f07254d-b158-a1ce-69a7-4fa4b0f339c1@huawei.com>
- <532b42e2-3417-4e0f-af59-8c79521c34a3@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <532b42e2-3417-4e0f-af59-8c79521c34a3@arm.com>
+References: <20260126092630.1800589-12-ardb+git@google.com>
+ <20260126092630.1800589-20-ardb+git@google.com> <d0f2df03-21da-473f-ab89-64a964c18f08@arm.com>
+ <CAMj1kXGsedZnV7GJZqo6Yfb4mi6YpMCu=fnHOwDib8-OxBij2g@mail.gmail.com>
+ <1bd6e787-00af-4d4c-a882-a0b8fb7f6a2f@arm.com> <CAMj1kXEJPPWe4JE7SBYuQMcdTwQHvPqBO9Djj=tcW3DsNknkpw@mail.gmail.com>
+ <678f6b3f-8d1a-4253-8125-28b8ee89842b@arm.com>
+In-Reply-To: <678f6b3f-8d1a-4253-8125-28b8ee89842b@arm.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Tue, 27 Jan 2026 12:03:07 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXHA_ndSDVtJ+obzh1ijPd_vuKQTiA+S1xZ=aqOcnbitmA@mail.gmail.com>
+X-Gm-Features: AZwV_QhWBxfymrsXCgAe2ln0V05e7v6FCgkhTR5LOPngaK-F6uDSwWmEBOeeCTU
+Message-ID: <CAMj1kXHA_ndSDVtJ+obzh1ijPd_vuKQTiA+S1xZ=aqOcnbitmA@mail.gmail.com>
+Subject: Re: [PATCH v2 08/10] arm64: mm: Don't abuse memblock NOMAP to check
+ for overlaps
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, Liz Prucka <lizprucka@google.com>, 
+	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>, 
+	linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_030257_822540_D37B8B58 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,48 +83,131 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ldv@strace.io, song@kernel.org, linux-kselftest@vger.kernel.org, shuah@kernel.org, kees@kernel.org, linux-arm-kernel@lists.infradead.org, kmal@cock.li, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, charlie@rivosinc.com, pengcan@kylinos.cn, broonie@kernel.org, luto@kernel.org, tglx@linutronix.de, richard.weiyang@gmail.com, dvyukov@google.com, wad@chromium.org, oleg@redhat.com, linux-kernel@vger.kernel.org, liqiang01@kylinos.cn, akpm@linux-foundation.org, reddybalavignesh9979@gmail.com, macro@orcam.me.uk
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 27 Jan 2026 at 12:00, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>
+> On 27/01/2026 10:47, Ard Biesheuvel wrote:
+> > On Tue, 27 Jan 2026 at 11:39, Ryan Roberts <ryan.roberts@arm.com> wrote:
+> >>
+> >> On 27/01/2026 10:27, Ard Biesheuvel wrote:
+> >>> On Tue, 27 Jan 2026 at 11:21, Ryan Roberts <ryan.roberts@arm.com> wrote:
+> >>>>
+> >>>> On 26/01/2026 09:26, Ard Biesheuvel wrote:
+> >>>>> From: Ard Biesheuvel <ardb@kernel.org>
+> >>>>>
+> >>>>> Now that the DRAM mapping routines respect existing table mappings and
+> >>>>> contiguous block and page mappings, it is no longer needed to fiddle
+> >>>>> with the memblock tables to set and clear the NOMAP attribute. Instead,
+> >>>>> map the kernel text and rodata alias first, avoiding contiguous
+> >>>>> mappings, so that they will not be added later when mapping the
+> >>>>> memblocks.
+> >>>>
+> >>>> Should we do something similar for kfence? Currently we have
+> >>>> arm64_kfence_alloc_pool() which marks some memory NOMAP then
+> >>>> arm64_kfence_map_pool() which PTE-maps it and clears NOMAP. Presumably we could
+> >>>> rationalize into a single function that does it all, prior to mapping the bulk
+> >>>> of the linear map?
+> >>>>
+> >>>
+> >>> Yeah, good point - I did not spot that but I will address it in the
+> >>> next revision.
+> >>>
+> >>>>>
+> >>>>> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> >>>>> ---
+> >>>>>  arch/arm64/mm/mmu.c | 27 ++++++++------------
+> >>>>>  1 file changed, 10 insertions(+), 17 deletions(-)
+> >>>>>
+> >>>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> >>>>> index 80587cd47ce7..18415d4743bf 100644
+> >>>>> --- a/arch/arm64/mm/mmu.c
+> >>>>> +++ b/arch/arm64/mm/mmu.c
+> >>>>> @@ -1149,12 +1149,17 @@ static void __init map_mem(void)
+> >>>>>               flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+> >>>>>
+> >>>>>       /*
+> >>>>> -      * Take care not to create a writable alias for the
+> >>>>> -      * read-only text and rodata sections of the kernel image.
+> >>>>> -      * So temporarily mark them as NOMAP to skip mappings in
+> >>>>> -      * the following for-loop
+> >>>>> +      * Map the linear alias of the [_text, __init_begin) interval
+> >>>>> +      * as non-executable now, and remove the write permission in
+> >>>>> +      * mark_linear_text_alias_ro() above (which will be called after
+> >>>>> +      * alternative patching has completed). This makes the contents
+> >>>>> +      * of the region accessible to subsystems such as hibernate,
+> >>>>> +      * but protects it from inadvertent modification or execution.
+> >>>>> +      * Note that contiguous mappings cannot be remapped in this way,
+> >>>>> +      * so we should avoid them here.
+> >>>>>        */
+> >>>>> -     memblock_mark_nomap(kernel_start, kernel_end - kernel_start);
+> >>>>> +     __map_memblock(kernel_start, kernel_end, PAGE_KERNEL,
+> >>>>> +                    flags | NO_CONT_MAPPINGS);
+> >>>>
+> >>>> So the reason to disallow cont mappings is because we need to modify the
+> >>>> permissions later? It _is_ safe to change permissions on a live contiguous
+> >>>> mapping in this way. That was clarified in the architecture a couple of years
+> >>>> back and we rely on it for contpte_wrprotect_ptes(); see comment there.
+> >>>>
+> >>>
+> >>> OK, good to know - I was hoping to get your take on this ...
+> >>>
+> >>>> I think we could relax this?
+> >>>>
+> >>>
+> >>> OK, I suppose that means that we can drop the NO_CONT_MAPPINGS here,
+> >>> but we still need to map the kernel text/rodata alias initially to
+> >>> ensure that no block mappings are created that would need to broken
+> >>> down, right?
+> >>
+> >> Yes, but...
+> >>
+> >> I think your intent is that the multiple __map_memblock() calls are just
+> >> controlling the allowed leaf mapping sizes.
+> >
+> > Indeed.
+> >
+> >> It becomes problematic if the 2
+> >> calls use different permissions... which they do.
+> >>
+> >> PAGE_KERNEL vs pgprot_tagged(PAGE_KERNEL).
+> >>
+> >> Is it possible that the text/rodata section ends up tagged, which is not intended?
+> >>
+> >
+> >
+> > OK so toggling the R/O attribute on a live contiguous mapping is
+> > permitted (provided that ultimately, the entire contiguous region is
+> > updated accordingly) but the same doesn't apply to MT_NORMAL vs
+> > MT_NORMAL_TAGGED, right?
+>
+> This is the rule:
+>
+> RJQQTC
+> For a TLB lookup in a contiguous region mapped by translation table entries that
+> have consistent values for the Contiguous bit, but have the OA, attributes, or
+> permissions misprogrammed, that TLB lookup is permitted to produce an OA, access
+> permissions, and memory attributes that are consistent with any one of the
+> programmed translation table values.
+>
+> So, yes, it is fine to modify the attributes (and I assume the memory type
+> counts as attributes) on the live mapping...
+>
 
+OK.
 
-On 2026/1/27 17:43, Kevin Brodsky wrote:
-> On 27/01/2026 04:01, Jinjie Ruan wrote:
->>> I understand that you're gradually making the arch code more similar to
->>> the core code so that we can switch over to it, but I'm struggling to
->>> understand why syscall_trace_enter() takes the 'syscall' argument.
->>>
->>> Even the core code just seems to use it as a local variable, which it
->>> overrides before it ever uses it. What am I missing?
->> Hi,
->>
->> You're absolutely right. The 'syscall' parameter is indeed treated as a
->> local variable and gets overridden before any real use. Should we
->> refactor to remove the parameter entirely in generic entry?
-> 
-> I noticed this as well, removing it from the generic function would make
-> sense. AFAICT that removal could be propagated quite far in fact:
-> syscall_enter_from_user_mode_work(), syscall_enter_from_user_mode(),
-> even arch implementation (do_syscall_64() on x86).
+> >
+> > So let's use just the same prot and flags for the initial mapping, and
+> > use MT_NORMAL_TAGGED when we remap the text alias R/O.
+>
+> ...but that wasn't my point. I belive the intent is that all of the linear map
+> uses MT_NORMAL_TAGGED except for the kernel text and rodata, which uses
+> MT_NORMAL. In some configs (e.g. force_pte_mapping() == true), your change will
+> result in all the linear map, including text and rodata being MT_NORMAL_TAGGED.
+>
 
-Not really, it is the default return value of
-syscall_enter_from_user_mode_work() as below, so we only need to remove
-the parameter in syscall_trace_enter().
-
-static __always_inline long syscall_enter_from_user_mode_work(struct
-pt_regs *regs, long syscall)
-{
-	unsigned long work = READ_ONCE(current_thread_info()->syscall_work);
-
-       if (work & SYSCALL_WORK_ENTER)
-            syscall = syscall_trace_enter(regs, work);
-
-      return syscall;
-}
-
-
-> 
-> - Kevin
-> 
+I didn't think that would matter tbh. But if it does, are we fine as
+long as we change it back to MT_NORMAL by the time we remap the region
+read-only?
 
