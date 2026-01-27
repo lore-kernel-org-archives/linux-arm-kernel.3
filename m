@@ -4,109 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DD49D2D8E4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 10:08:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBDF1D2D8E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 10:10:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bpxQmfY9VK7T+Y3W6DWNgC6rQuK+Ld0siGTt5w9irRg=; b=0etJNBlguA5DvXVpc/U4twmkfs
-	R6VVLTrDxEipY/97ZIzdBsom+pUEadpM4GkiQZNg5mHBDQ2N1lo+s0gDjt6FzTspF4QOmX7LLGzUH
-	S0Nq+7FGVJA9Br7/Eyc8HV+xhfO5dlpXgFTogybZRNX8Of7r/I0sQvV1uWBXmD8jnMaC8bK6RRZ6E
-	1TJQMJ4BtIEW6ENjR4m8+3GVzigIyQnmkxXZv2d7hwoqOYUDbT+OKEGgYv57LqcNdGtr0hAEoLqn3
-	u6ZVNlVeBCeD1zDY0vvGZUX/IBm0t+C+5q1vEbjFzrerG4FcnzbKN1NJpgTyoYaCbyaFGMU2/hGa4
-	RdxNgp4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kKviwgEmWHsQnrzQDjTsxjCmthmvFhSBQCaJ3jESCJ4=; b=pJqsft+vdlC88/5dARRHoFFik1
+	+YAPAHBbGSxZYL0AkZPl9gb1NBpW2exU2RjW0k63ACDtOwTyDKVNHF8E/EH5NUDDZWZ9zqBEAHwjz
+	H7GoGkbJAed4XaqFI6TmAoF44VCAbEv0RtuqfceXhzjm61LNhF7p3TYyjk/gLmaE5blGf7fnLClLX
+	kbUOs0h7O5ewtM3Vah9qBP/TYtsCIl/l4ODRtcpOWr69QTmbRWymVaXlHv0gelMZ1UYAhzO/OjTUY
+	OwAqQUfqdIuq6l9NSJ+sb8Spywx6kUlIAaCdVxxJDvSVo7o6tch7nAPR734APzxg93Ul+gZmo/jmo
+	Q5jXWppQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfzc-0000000E1V5-0vf8;
-	Tue, 27 Jan 2026 10:08:16 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfzZ-0000000E1Th-1U7d
+	id 1vkg1n-0000000E1jV-3WAe;
+	Tue, 27 Jan 2026 10:10:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkg1k-0000000E1j4-2QLj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 10:08:14 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-65378ba2ff7so8282705a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 02:08:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769508491; cv=none;
-        d=google.com; s=arc-20240605;
-        b=NvUznoaUn6ysGDCJhqjJVuNrbexJTO5LgEpc9p63q0SSfZTQGdukaqakz/gtT7XI0B
-         Uh/Oqv7LfIGDaOgZHmlw3ZNXtJ370TEuX0dzXp/gFgCeb95uYYn5iPi21AeulGw+/R6O
-         yKrAqaIVnHo7vVtgeVZQew5e8oCg2cA5fcGSVDWwIPvemLkmDn7+pPDvyp7/SK7rIo1l
-         7i+Lh2egaUXq1ul0+TXL2rhDk79vXuq9S9MrHwHqRdk9IJIvJAOqn/aAWf1lCJnWGSeq
-         D+C6mkkb/LI0UYWoddeFfhBkCJ5Zgfva345XPQbbplOCYuygQK+duToRp2NnYHnxbr3d
-         DDJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=bpxQmfY9VK7T+Y3W6DWNgC6rQuK+Ld0siGTt5w9irRg=;
-        fh=t/mCJwXTpkYV3G5MRt97+PqfGa5kh2wPI93hiSugcBU=;
-        b=LWnAhwB8J01pj675h3Y8EV9Hjvj9jZpb9+CPhaTMHi871GmVn9iznG+iUbQOGGVOt1
-         X6XxOLnp5GCzdJDYrZfRFy3KqVY0Ta4Ps8G5e3tFrHRw5KdmW30/oJsJ6nVNUPA+Uj/j
-         KKYnt1NuXRueKCU5pkL8uuUSImxNoUhky3xGRoi1M1xMJSPLgRTuiYyLo3we/99MHLW4
-         CbZp7l6NHeqSu/rUBB2dTaVnydt1D/K6SVVhkZy87Ln2zgyz4d15K0BQMq+PVNEk7AYu
-         XRoH+CVuerw3NaHDEaHk7QQyMB5Fo77U7VVxEj20/stT+nBV4ZnrBfQ5MSUrwHEUZ9fC
-         PVxg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769508491; x=1770113291; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=bpxQmfY9VK7T+Y3W6DWNgC6rQuK+Ld0siGTt5w9irRg=;
-        b=aVSSXOGel9E6hwNsNG9fePrBVGRlZ6QNvKhq4b5zx135d8Q0VE4mHoRgr3c+MtkuvQ
-         BnMOGLcMXSqG461GBKezdkpLCmZMVPr58GuRd4T5LIjNds+xLMihqHhc9CV2svf0znAE
-         ppSUPaMCjBYVyYaqIXw1fAnUexgls3T7bzCoXntADJOPZwJo33wPPb5x9OPeMCnUDdXU
-         MuHSCtuazRAwELuyR9Tf9G50I9qTGUUBBAFshPTlqWJcLf5X+n7/4vA1W9SW+J6MqNmA
-         zSMuWIf633AWNvT/7rkaVovG+TIQnj7w+XHkOw6q7e5L/Gt/2F3N6Jz6c0EaSBsfGTdM
-         C2ww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769508491; x=1770113291;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bpxQmfY9VK7T+Y3W6DWNgC6rQuK+Ld0siGTt5w9irRg=;
-        b=S35c3AU26PvFDeJeLzJzvGfWL16e1Enyet6qkjrjZ8q1ZLT+WOgAeRWFly4Q+7x7CM
-         YnX5Ju5BddLSLXLeMaJ+eBZ+1jneuMovZoxSWlqskatX5YOIL3XoPYoXr7Q/XFwNvO5T
-         mlad+VrP3J2kgT7FDEbNWzBbqXWPbVsTLCHnlgP6WXnx9t6vZRi9l8xigKudpmdUNiK7
-         YqSpiDxmLcgrJ81GU/MRUqYhzZwC2d/TBtvhouvtOIVppNRbme+zpI/qcWQ5ZHt0QeZg
-         tgLlEu59HSpUSbdJyoO6rSZvDG1mFhxUV0tpgsk3n2ofIO36CL1cauFPwilmZA1aot6Q
-         dulQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV7nICrKfDyGCo0rolQZZrepZUr7SohrZs8HbhQ0JWxWpMv6SqBwmRe/++d98r1UYlliG8dsrZNs0xKNzBLlVJv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1C3ILfbvkbnYqeSKKH+y8zBF25DS48bdm+97bQDMVURL2GKiS
-	ODAtQIRJyeOEBuNr9wEc+qfbmYf8DjLFAcNRDvA2HJQ2ruAh5Cj+lyDzn45PUPLpg1rOwLZOXM3
-	hnuPfycjiqlJ75z66DQTHqow6RojddMW4/v88YI0D4g==
-X-Gm-Gg: AZuq6aKNHLAzhbv1vHQZ0spxa8eJ0lC/zeOCShmogXf0tlTL25jdgPvc6Tk15diT0lF
-	ruxI+1i0WaCNPZtVNHerPeSEy3FKIk5fJPuz/Q3Cv3hzK9wv8pHzAwzn07v36OvA32saZLl+Bb4
-	tYJ0ZP+bBr7mdvZu9NzLAqTm+QfjmTeloOyEv7/henIbOMf8gcy4xCk45DsX/OZhZ01r8c7Oi2U
-	KgOpxTh/9CRUyySuK6FvJhV+ZTsxwXfSwt0ysJIckciUIaWbJVK90MCKiaJcIRIR/AkROwh28Cz
-	hMSaET1OiYFQ885205XAj6qQ
-X-Received: by 2002:a05:6402:1d50:b0:64b:6e44:217 with SMTP id
- 4fb4d7f45d1cf-658a5f8e7cdmr891417a12.0.1769508490979; Tue, 27 Jan 2026
- 02:08:10 -0800 (PST)
+	Tue, 27 Jan 2026 10:10:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A18521595;
+	Tue, 27 Jan 2026 02:10:20 -0800 (PST)
+Received: from [10.57.94.246] (unknown [10.57.94.246])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4F6283F73F;
+	Tue, 27 Jan 2026 02:10:25 -0800 (PST)
+Message-ID: <49dfb613-3075-4b55-8873-9b72aa4de85c@arm.com>
+Date: Tue, 27 Jan 2026 10:10:23 +0000
 MIME-Version: 1.0
-References: <20260126092159.815968-1-vincent.guittot@linaro.org>
- <20260126092159.815968-3-vincent.guittot@linaro.org> <69592713b7bd419e23df458734ca78070a83e8ac.camel@pengutronix.de>
-In-Reply-To: <69592713b7bd419e23df458734ca78070a83e8ac.camel@pengutronix.de>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Tue, 27 Jan 2026 11:07:59 +0100
-X-Gm-Features: AZwV_QiOrd8cMHRoDNLhWiUkjdTQ9Am6xMiRSspZlgdv4qBzTDeeYROI1wjEMTk
-Message-ID: <CAKfTPtD+EZ+apAnS7tccY5UrQx3EWXb4j33F_5SkHY80akxz-A@mail.gmail.com>
-Subject: Re: [PATCH 2/4] phy: s32g: Add serdes subsystem phy
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: vkoul@kernel.org, neil.armstrong@linaro.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, s32@nxp.com, 
-	linux@armlinux.org.uk, ghennadi.procopciuc@nxp.com, 
-	bogdan-gabriel.roman@nxp.com, Ionut.Vicovan@nxp.com, 
-	alexandru-catalin.ionita@nxp.com, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
-	Frank.li@nxp.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/10] arm64: mm: Drop redundant pgd_t* argument from
+ map_mem()
+Content-Language: en-GB
+To: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org,
+ catalin.marinas@arm.com, mark.rutland@arm.com,
+ Ard Biesheuvel <ardb@kernel.org>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
+ Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org
+References: <20260126092630.1800589-12-ardb+git@google.com>
+ <20260126092630.1800589-19-ardb+git@google.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260126092630.1800589-19-ardb+git@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_020813_405651_F4CF8088 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20260127_021028_771390_B21DCDAD 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,59 +70,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 26 Jan 2026 at 14:11, Philipp Zabel <p.zabel@pengutronix.de> wrote:
->
-> On Mo, 2026-01-26 at 10:21 +0100, Vincent Guittot wrote:
-> > s32g SoC family includes 2 serdes subsystems which are made of one PCIe
-> > controller, 2 XPCS and one Phy. The Phy got 2 lanes that can be configure
-> > to output PCIe lanes and/or SGMII.
-> >
-> > Implement PCIe phy support
-> >
-> > Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> > Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> > Co-developed-by: Alexandru-Catalin Ionita <alexandru-catalin.ionita@nxp.com>
-> > Signed-off-by: Alexandru-Catalin Ionita <alexandru-catalin.ionita@nxp.com>
-> > Co-developed-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-> > Signed-off-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-> > Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> > Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> > Co-developed-by: Bogdan Roman <bogdan-gabriel.roman@nxp.com>
-> > Signed-off-by: Bogdan Roman <bogdan-gabriel.roman@nxp.com>
-> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > ---
-> >  drivers/phy/freescale/Kconfig               |   9 +
-> >  drivers/phy/freescale/Makefile              |   1 +
-> >  drivers/phy/freescale/phy-nxp-s32g-serdes.c | 569 ++++++++++++++++++++
-> >  3 files changed, 579 insertions(+)
-> >  create mode 100644 drivers/phy/freescale/phy-nxp-s32g-serdes.c
-> >
-> [...]
-> > diff --git a/drivers/phy/freescale/phy-nxp-s32g-serdes.c b/drivers/phy/freescale/phy-nxp-s32g-serdes.c
-> > new file mode 100644
-> > index 000000000000..8336c868c8dc
-> > --- /dev/null
-> > +++ b/drivers/phy/freescale/phy-nxp-s32g-serdes.c
-> > @@ -0,0 +1,569 @@
-> [...]
-> > +static int s32g_serdes_get_ctrl_resources(struct platform_device *pdev, struct s32g_serdes *serdes)
-> > +{
-> [...]
-> > +     ctrl->rst = devm_reset_control_get(dev, "serdes");
->
-> Please use devm_reset_control_get_exclusive() directly.
+On 26/01/2026 09:26, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> __map_memblock() and map_mem() always operate on swapper_pg_dir, so
+> there is no need to pass around a pgd_t pointer between them.
+> 
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 
-Okay
+nice simplification:
 
->
-> [...]
-> > +static int s32g_serdes_get_pcie_resources(struct platform_device *pdev, struct s32g_serdes *serdes)
-> > +{
-> [...]
-> > +     pcie->rst = devm_reset_control_get(dev, "pcie");
->
-> Same here.
->
-> regards
-> Philipp
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+
+> ---
+>  arch/arm64/mm/mmu.c | 25 ++++++++++----------
+>  1 file changed, 12 insertions(+), 13 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 377bdc4d84a1..80587cd47ce7 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1020,11 +1020,11 @@ static void update_mapping_prot(phys_addr_t phys, unsigned long virt,
+>  	flush_tlb_kernel_range(virt, virt + size);
+>  }
+>  
+> -static void __init __map_memblock(pgd_t *pgdp, phys_addr_t start,
+> -				  phys_addr_t end, pgprot_t prot, int flags)
+> +static void __init __map_memblock(phys_addr_t start, phys_addr_t end,
+> +				  pgprot_t prot, int flags)
+>  {
+> -	early_create_pgd_mapping(pgdp, start, __phys_to_virt(start), end - start,
+> -				 prot, early_pgtable_alloc, flags);
+> +	early_create_pgd_mapping(swapper_pg_dir, start, __phys_to_virt(start),
+> +				 end - start, prot, early_pgtable_alloc, flags);
+>  }
+>  
+>  void __init mark_linear_text_alias_ro(void)
+> @@ -1072,13 +1072,13 @@ static phys_addr_t __init arm64_kfence_alloc_pool(void)
+>  	return kfence_pool;
+>  }
+>  
+> -static void __init arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp)
+> +static void __init arm64_kfence_map_pool(phys_addr_t kfence_pool)
+>  {
+>  	if (!kfence_pool)
+>  		return;
+>  
+>  	/* KFENCE pool needs page-level mapping. */
+> -	__map_memblock(pgdp, kfence_pool, kfence_pool + KFENCE_POOL_SIZE,
+> +	__map_memblock(kfence_pool, kfence_pool + KFENCE_POOL_SIZE,
+>  			pgprot_tagged(PAGE_KERNEL),
+>  			NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS);
+>  	memblock_clear_nomap(kfence_pool, KFENCE_POOL_SIZE);
+> @@ -1114,11 +1114,11 @@ bool arch_kfence_init_pool(void)
+>  #else /* CONFIG_KFENCE */
+>  
+>  static inline phys_addr_t arm64_kfence_alloc_pool(void) { return 0; }
+> -static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp) { }
+> +static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool) { }
+>  
+>  #endif /* CONFIG_KFENCE */
+>  
+> -static void __init map_mem(pgd_t *pgdp)
+> +static void __init map_mem(void)
+>  {
+>  	static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
+>  	phys_addr_t kernel_start = __pa_symbol(_text);
+> @@ -1163,7 +1163,7 @@ static void __init map_mem(pgd_t *pgdp)
+>  		 * if MTE is present. Otherwise, it has the same attributes as
+>  		 * PAGE_KERNEL.
+>  		 */
+> -		__map_memblock(pgdp, start, end, pgprot_tagged(PAGE_KERNEL),
+> +		__map_memblock(start, end, pgprot_tagged(PAGE_KERNEL),
+>  			       flags);
+>  	}
+>  
+> @@ -1177,10 +1177,9 @@ static void __init map_mem(pgd_t *pgdp)
+>  	 * Note that contiguous mappings cannot be remapped in this way,
+>  	 * so we should avoid them here.
+>  	 */
+> -	__map_memblock(pgdp, kernel_start, kernel_end,
+> -		       PAGE_KERNEL, NO_CONT_MAPPINGS);
+> +	__map_memblock(kernel_start, kernel_end, PAGE_KERNEL, NO_CONT_MAPPINGS);
+>  	memblock_clear_nomap(kernel_start, kernel_end - kernel_start);
+> -	arm64_kfence_map_pool(early_kfence_pool, pgdp);
+> +	arm64_kfence_map_pool(early_kfence_pool);
+>  }
+>  
+>  void mark_rodata_ro(void)
+> @@ -1402,7 +1401,7 @@ static void __init create_idmap(void)
+>  
+>  void __init paging_init(void)
+>  {
+> -	map_mem(swapper_pg_dir);
+> +	map_mem();
+>  
+>  	memblock_allow_resize();
+>  
+
 
