@@ -4,145 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A20A3D25924
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 03:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D23D25923
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 03:07:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ItuYqzZWzA/Z3U4wcfz0YROqGSZl50/WH43Vd1lJUW4=; b=MghL9YlT2IhII64N4g0HScn2xK
-	k9KLyH+aTdIVkqQ3kUVDjCs5EDN0zsAbDnv7Omfq2i/PtgRHTSZ4crzO6ZQseBYoGReNskX1OQXpX
-	4JoogN4uEpjp0OFXtd6Nm3olWeLLzPUpogDiidlTTyPzcT8k0zHVxxCVFPli36BQZC8BO5gyKLVbk
-	vVkuYAbNtMUpVFJYCdrRCxNto/toKze2H4lmJIZbLFREGwuZVHdVRqmOhTZ5ciGgSt8Mer/rcQVrz
-	Q2v7iYi1MRbMZrJwlPC0HQfZYDPTuBajKQBWpDHLFVQJSSVhNF3b9Afs/eJ36GFpoWkKjaf5guulF
-	o46VgT4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yzwQy7rEVgdF+HrGfCLWwO3wIrPqCjxjn0gpwCDGQI8=; b=rg6GPX7QD5ILSm5aNGIei+LQZq
+	rjJ5dILT5axdpeMXrcDDSN4RQqZ45osZXOqB9XZf75ESTuf3YfU50rWryQ3MT0yoITMChTwzlzpN+
+	JLlkDwaRXzZsMezHqN+JDLZKEb2q4Zb67+kLjF9f6T0cfqAn4h6bDOV+2X2Udny5dZkSNHh3UT9Pi
+	ElJGNnhFlBlXHOscwZ0ktCgqy/6pc89y5Ekym4yUiFzoJ0zxPMzK04ESADQeegEOQRov6gs2cI5uM
+	2ytI4eq0KgmyIKVxw6C7MWeUpJlPJiDsmdmOmD4qWfeOTDvW3N/yM2nLIkb8dXR136ISbqWw1ldR3
+	URfLmG4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkZPi-0000000DYPl-1k2X;
-	Tue, 27 Jan 2026 03:06:46 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkZPg-0000000DYPQ-2dPe
+	id 1vkZQM-0000000DYUk-37V4;
+	Tue, 27 Jan 2026 03:07:26 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkZQK-0000000DYU7-1EdM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 03:06:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vDj9QqHFt0LHgFJDh/wh5sIhe4GLYX9Bs5jbxsO1bOwV7TMEGhOy8F10uqopYZUEsRmb0wnlH8ksj3gSkgMD4J3c93u3wGZP4LwNiUqUX9h0IXpH6nfSOYD33XL9COaKLSpvqfrNpZFmOVrUuQPeRJnaCBa5eJ9RuioDKA/5SJti8Xxl9dfcYvQTUwBHUK88cmeS0RbzEFo4HNCXdpCqrZwp8dhw9KmAQ2yvkKHhx0hsurCTO9o3Q8LGMXw0fTM9iXlpf/ftWSdYoi2favSDAJrNKPfZP0cjgy/Y/i+dHJr5MzKGsHkydwCgFxELKfPEOC+7cB4kqMacrgfjhADKkA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ItuYqzZWzA/Z3U4wcfz0YROqGSZl50/WH43Vd1lJUW4=;
- b=quBrYbVr8jB6gTvt7gW/74+YIyrawdt9yBv9d+XMU2m5jSBv8T/xM9GC87jwmsVnBmqxlDg0/Xw+Q8QA0ZGhfRvoD9lyTCslkL5aImUwT7ctJ1BJSledcurKEjhfGpZ00zslrtCIsqcLg3NOTDTG3oqCJkMdjI5GP+jNmRTzIdVuZQk9JaUEQWIfW+3wa3gYVvQk9npmxabtPMtDjNh3CwfKb0QpDuZltB5DloPzO9Er+RAaditMw0pyYxccRDRqXXnhb0wXhPno32S5uuQwy7K1/xrj1mOqzQJpHVw/++2SToeOF3KY2mPYUfnbFZ+QJkgfzwh7Bbyfy+KKYQ4jjQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ItuYqzZWzA/Z3U4wcfz0YROqGSZl50/WH43Vd1lJUW4=;
- b=GqvHViTpoA3IzY1N9/R7BT46N1NNe4z0y7edntjHUTu0jwPrhhy2+x/fxViOwA2Pz2nAnuvSbiCS8tlvaWCwS5zzWZGX6MsezFa9oRLggqOKaNoNwEgDd4l2a2oKNZl7lg8J+Q09oh2hAQE9/XLjWKR6wePT5LshjfOBiYlgoWMjCJPUkCQwjWzXblFuko1PKkLwXIxl6598PlADmX4AD8etxLmWwe9BQJsYuPPHiZowouoQGxH6Yd1PhvUIQ3EwQxhW2i4++c3rNgf8RTWDOBpVLLlF0ns4EF/9detUc0tgZctpxQStRzBTflwtFbzKc93Mpmy4H7L/XUovzjSq5w==
-Received: from SA9PR13CA0042.namprd13.prod.outlook.com (2603:10b6:806:22::17)
- by IA1PR12MB8336.namprd12.prod.outlook.com (2603:10b6:208:3fc::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Tue, 27 Jan
- 2026 03:06:38 +0000
-Received: from SN1PEPF00036F42.namprd05.prod.outlook.com
- (2603:10b6:806:22:cafe::c6) by SA9PR13CA0042.outlook.office365.com
- (2603:10b6:806:22::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.6 via Frontend Transport; Tue,
- 27 Jan 2026 03:06:33 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SN1PEPF00036F42.mail.protection.outlook.com (10.167.248.26) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.3 via Frontend Transport; Tue, 27 Jan 2026 03:06:37 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 26 Jan
- 2026 19:06:26 -0800
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 26 Jan
- 2026 19:06:26 -0800
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com (10.129.68.10)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 26 Jan 2026 19:06:25 -0800
-Date: Mon, 26 Jan 2026 19:06:24 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<jpb@kernel.org>, <praan@google.com>, <miko.lenczewski@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>
-Subject: Re: [PATCH v2 06/10] iommu/arm-smmu-v3: Allocate vmid in
- arm_vsmmu_init
-Message-ID: <aXgrsJeXB3bpFQqK@Asurada-Nvidia>
-References: <cover.1769044718.git.nicolinc@nvidia.com>
- <3f7c5b84c4f8605688ac08fc2ea2dab08a3c5c0c.1769044718.git.nicolinc@nvidia.com>
- <20260126211636.GB1134360@nvidia.com>
+	Tue, 27 Jan 2026 03:07:25 +0000
+Received: from [192.168.0.88] (192-184-212-33.fiber.dynamic.sonic.net [192.184.212.33])
+	by linux.microsoft.com (Postfix) with ESMTPSA id CBBD820B7165;
+	Mon, 26 Jan 2026 19:07:22 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com CBBD820B7165
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1769483243;
+	bh=yzwQy7rEVgdF+HrGfCLWwO3wIrPqCjxjn0gpwCDGQI8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pZJhWzCmT2NGW1FMC2+dvSHIgcziga0eOCSpxOie6uflWTAPvTU2h/Zy3+schEeVq
+	 TfvnAVtcHTyAnY1BYF8xxbdq64phCs5B1rp6nMgLXNvHlRi/WaS0lmkWzNxko4e5j0
+	 3fYJNKTkf4IDb0pnpzR5YnpA1779LY3/Zd83pGGA=
+Message-ID: <f39a501e-478f-66ff-26c8-229ca3991f4f@linux.microsoft.com>
+Date: Mon, 26 Jan 2026 19:07:22 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260126211636.GB1134360@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF00036F42:EE_|IA1PR12MB8336:EE_
-X-MS-Office365-Filtering-Correlation-Id: 892c2b39-0508-45ec-664f-08de5d511631
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?t94IkakZdyxP6vMhwmCao2Ey9L2efmn4J8Qn4HGK3EZDxkE9b2bqDZdM4U9V?=
- =?us-ascii?Q?8ixZL3949An6UYpAesGGkwv6BhMMTa1gJrUpGRuwWoBzw7hpDWU/k7CMyoKV?=
- =?us-ascii?Q?lIR1bAJivsuf0tMaeat9y2pi5l83i26omEls37hwqHdC6iOCKMbeB1WrpTIu?=
- =?us-ascii?Q?up8OQ81KnqvGQ9lHf5RF/MxQxvHLrmUZhon6s8oZmsSbgcZUboyl6/zt1Ksd?=
- =?us-ascii?Q?VeIxi5HgvPM/KE8j2e6A9gCzaHOtzarFwygJC/W677kRFCVptHOjnYwXpRKk?=
- =?us-ascii?Q?qle70z/B/78fhwopQM13WBec6WBIQDAUB/6lpktPSHyj8KXN4UyKa4J0quzT?=
- =?us-ascii?Q?pv71BDyf/wtxgQWBcYH/gY3hh3PpwaDaHVf6OHfHK62M14egD4TOJx0U6ioR?=
- =?us-ascii?Q?kfStKD7LYWq/sdfpHKaM8g4+DWoqcTtEpRF06KZ6HEZXlj9w76hpbSmJCqL5?=
- =?us-ascii?Q?GQHEZ9/YyVcTk9wVF9HV/ifIuWMPdD1Pw4WAmx+dbIOWp/+clzjmJZnbr3KZ?=
- =?us-ascii?Q?zidRSY8Tfguuvpf2XD3vVyicIzu2xZYx/I2GqJ8VsP2UUQ8oGSncFRWRRcVE?=
- =?us-ascii?Q?7W0dCx/KXsIw3qCcgxkFMlnyTeowMRG/Mejw5EVOqY/2XCXDrI0l/7ad7ob8?=
- =?us-ascii?Q?5KlnwCY3y6FSn0TsfqZAm3pnKHKE8MznfkcEYPIUuWxoNkjmKsG3E3ohagMd?=
- =?us-ascii?Q?k3q9B+1oEb2b40948ikobjB40MW7Bhw2AGP8tNbYXw0CCXUfyzSh/j1w+w88?=
- =?us-ascii?Q?WlECjYj27qVTDEW2HT3DR/mPRra8dL3f1iNu+J9cZAcRJloCV1+RMdFcVkLl?=
- =?us-ascii?Q?DOkgZESRHItJrw9Cqe1rEnEdGqobrEbuIUH74EOTcZV7gDGvoijBzh2oD1sr?=
- =?us-ascii?Q?Q3RXonVHGrpSGLP1+MWSnnSsxGvYbeLpGHzDpWlVsDT+eQYPORsIoxZiKAo0?=
- =?us-ascii?Q?511MXI40GvzIYLM+uNHd9MiC9N1PDCwsG6Nl8zj7rEkVvEKi6puoe4k+U++x?=
- =?us-ascii?Q?5CSFK9+MIZ/s/aF6/+rioCoN6NVR5rfTLQ7Wc8kTkPm4gC+sjKRF+WC6XXwb?=
- =?us-ascii?Q?gGvvtCGn7/Y4F3UjXRFiqkIPHQP8JzfrmXPqnjUykaCWLUinOUViHdV/w5FT?=
- =?us-ascii?Q?jlJrdRPU9M5FIYGcZT3UN17icNlpz47reJVW2wJWAfWkjqItZcxs4iWMLTVT?=
- =?us-ascii?Q?jsvHNLaLHWirEiFMM2+54NohGcIDV+Moh7TqdFdEGnRaLmSJ9vn/fF96sW4q?=
- =?us-ascii?Q?gh8X9KDM3ULu4KkavooAAHTO95inJQkm2UKsk8Lw2CMe2VL2HP85pPY/9xVo?=
- =?us-ascii?Q?klZlNCqSz5BWt45Bv4VxA18MK6e0ZeN6JmJExOUWwrdI1CgwhHjArn6jNNfT?=
- =?us-ascii?Q?f6XUVMSxasHK7lk2VdA+MZBvBaz1/M0/iDkRox2Tfgwh5HTGRiT1oPHm2wRd?=
- =?us-ascii?Q?8PJ7tQSgEKuc8wIRqK0JQdwGL82+SuPMphNff2BjlcP+0ykBxS41tXpgwqHX?=
- =?us-ascii?Q?CXw2HoFfWCC5TbQdUArC5juvYtMt4d1lmW0Sar9NbfCdhhKg3/L1VTAcsY/8?=
- =?us-ascii?Q?hZTy5t/PNL4VUmgiq/TNmoUWXF12GV4SLRUuXB5/Waa7MIGhvHBC1JMUk44g?=
- =?us-ascii?Q?YcKX91U82wlvuFiGUehxVOj+dqh7jKJ1JuT8SSspzGh/9FHDZGFvxk2JEK66?=
- =?us-ascii?Q?IXMUIw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jan 2026 03:06:37.7872
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 892c2b39-0508-45ec-664f-08de5d511631
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F42.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8336
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.13.1
+Subject: Re: [PATCH v0 15/15] mshv: Populate mmio mappings for PCI passthru
+Content-Language: en-US
+To: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-pci@vger.kernel.org, linux-arch@vger.kernel.org, kys@microsoft.com,
+ haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
+ longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
+ lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+ robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
+ nunodasneves@linux.microsoft.com, mhklinux@outlook.com
+References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
+ <20260120064230.3602565-16-mrathor@linux.microsoft.com>
+ <aXAxmYm4zbOzGztz@skinsburskii.localdomain>
+ <45e7a4c0-f1d8-b8b4-8c03-56d06845323b@linux.microsoft.com>
+ <aXevWXolgNrrLltF@skinsburskii.localdomain>
+From: Mukesh R <mrathor@linux.microsoft.com>
+In-Reply-To: <aXevWXolgNrrLltF@skinsburskii.localdomain>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_190644_691473_E1F72149 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20260126_190724_373871_14FE571F 
+X-CRM114-Status: GOOD (  27.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,43 +82,226 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 05:16:36PM -0400, Jason Gunthorpe wrote:
-> On Wed, Jan 21, 2026 at 05:24:24PM -0800, Nicolin Chen wrote:
-> > VMID owned by a vSMMU should be allocated in the viommu_init callback, as
-> > HW like tegra241-cmdqv needs to setup VINTF with the VMID.
+On 1/26/26 10:15, Stanislav Kinsburskii wrote:
+> On Fri, Jan 23, 2026 at 06:19:15PM -0800, Mukesh R wrote:
+>> On 1/20/26 17:53, Stanislav Kinsburskii wrote:
+>>> On Mon, Jan 19, 2026 at 10:42:30PM -0800, Mukesh R wrote:
+>>>> From: Mukesh Rathor <mrathor@linux.microsoft.com>
+>>>>
+>>>> Upon guest access, in case of missing mmio mapping, the hypervisor
+>>>> generates an unmapped gpa intercept. In this path, lookup the PCI
+>>>> resource pfn for the guest gpa, and ask the hypervisor to map it
+>>>> via hypercall. The PCI resource pfn is maintained by the VFIO driver,
+>>>> and obtained via fixup_user_fault call (similar to KVM).
+>>>>
+>>>> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+>>>> ---
+>>>>    drivers/hv/mshv_root_main.c | 115 ++++++++++++++++++++++++++++++++++++
+>>>>    1 file changed, 115 insertions(+)
+>>>>
+>>>> diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
+>>>> index 03f3aa9f5541..4c8bc7cd0888 100644
+>>>> --- a/drivers/hv/mshv_root_main.c
+>>>> +++ b/drivers/hv/mshv_root_main.c
+>>>> @@ -56,6 +56,14 @@ struct hv_stats_page {
+>>>>    	};
+>>>>    } __packed;
+>>>> +bool hv_nofull_mmio;   /* don't map entire mmio region upon fault */
+>>>> +static int __init setup_hv_full_mmio(char *str)
+>>>> +{
+>>>> +	hv_nofull_mmio = true;
+>>>> +	return 0;
+>>>> +}
+>>>> +__setup("hv_nofull_mmio", setup_hv_full_mmio);
+>>>> +
+>>>>    struct mshv_root mshv_root;
+>>>>    enum hv_scheduler_type hv_scheduler_type;
+>>>> @@ -612,6 +620,109 @@ mshv_partition_region_by_gfn(struct mshv_partition *partition, u64 gfn)
+>>>>    }
+>>>>    #ifdef CONFIG_X86_64
+>>>> +
+>>>> +/*
+>>>> + * Check if uaddr is for mmio range. If yes, return 0 with mmio_pfn filled in
+>>>> + * else just return -errno.
+>>>> + */
+>>>> +static int mshv_chk_get_mmio_start_pfn(struct mshv_partition *pt, u64 gfn,
+>>>> +				       u64 *mmio_pfnp)
+>>>> +{
+>>>> +	struct vm_area_struct *vma;
+>>>> +	bool is_mmio;
+>>>> +	u64 uaddr;
+>>>> +	struct mshv_mem_region *mreg;
+>>>> +	struct follow_pfnmap_args pfnmap_args;
+>>>> +	int rc = -EINVAL;
+>>>> +
+>>>> +	/*
+>>>> +	 * Do not allow mem region to be deleted beneath us. VFIO uses
+>>>> +	 * useraddr vma to lookup pci bar pfn.
+>>>> +	 */
+>>>> +	spin_lock(&pt->pt_mem_regions_lock);
+>>>> +
+>>>> +	/* Get the region again under the lock */
+>>>> +	mreg = mshv_partition_region_by_gfn(pt, gfn);
+>>>> +	if (mreg == NULL || mreg->type != MSHV_REGION_TYPE_MMIO)
+>>>> +		goto unlock_pt_out;
+>>>> +
+>>>> +	uaddr = mreg->start_uaddr +
+>>>> +		((gfn - mreg->start_gfn) << HV_HYP_PAGE_SHIFT);
+>>>> +
+>>>> +	mmap_read_lock(current->mm);
+>>>
+>>> Semaphore can't be taken under spinlock.
 > 
-> Even the architected SMMU needs this, the VMS (not implemented in
-> Linux) should all share the same VMID for the same VM.
-
-But for standard SMMU, the allocation/sharing could happen at the
-device attachment to a nested (maybe bypass proxy) domain, right?
-
-vmid is only needed for STE (attach) and invalidation.
-
-Or do you see some other case where vmid must be allocated during
-viommu_init?
-
-> > +void arm_vsmmu_destroy(struct iommufd_viommu *viommu)
-> > +{
-> > +	struct arm_vsmmu *vsmmu = container_of(viommu, struct arm_vsmmu, core);
-> > +
-> > +	mutex_lock(&arm_smmu_asid_lock);
-> > +	ida_free(&vsmmu->smmu->vmid_map, vsmmu->vmid);
-> > +	mutex_unlock(&arm_smmu_asid_lock);
+>>
+>> Yeah, something didn't feel right here and I meant to recheck, now regret
+>> rushing to submit the patch.
+>>
+>> Rethinking, I think the pt_mem_regions_lock is not needed to protect
+>> the uaddr because unmap will properly serialize via the mm lock.
+>>
+>>
+>>>> +	vma = vma_lookup(current->mm, uaddr);
+>>>> +	is_mmio = vma ? !!(vma->vm_flags & (VM_IO | VM_PFNMAP)) : 0;
+>>>
+>>> Why this check is needed again?
+>>
+>> To make sure region did not change. This check is under lock.
+>>
 > 
-> Need a comment explaining where the flush is.
+> How can this happen? One can't change VMA type without unmapping it
+> first. And unmapping it leads to a kernel MMIO region state dangling
+> around without corresponding user space mapping.
 
-Ack.
+Right, and vm_flags would not be mmio expected then.
 
-> It looks like arm_smmu_iotlb_tag_free() does the free in the case of
-> INV_TYPE_S2_VMID_VSMMU?
+> This is similar to dangling pinned regions and should likely be
+> addressed the same way by utilizing MMU notifiers to destpoy memoty
+> regions is VMA is detached.
+
+I don't think we need that. Either it succeeds if the region did not
+change at all, or just fails.
+
+
+>>> The region type is stored on the region itself.
+>>> And the type is checked on the caller side.
+>>>
+>>>> +	if (!is_mmio)
+>>>> +		goto unlock_mmap_out;
+>>>> +
+>>>> +	pfnmap_args.vma = vma;
+>>>> +	pfnmap_args.address = uaddr;
+>>>> +
+>>>> +	rc = follow_pfnmap_start(&pfnmap_args);
+>>>> +	if (rc) {
+>>>> +		rc = fixup_user_fault(current->mm, uaddr, FAULT_FLAG_WRITE,
+>>>> +				      NULL);
+>>>> +		if (rc)
+>>>> +			goto unlock_mmap_out;
+>>>> +
+>>>> +		rc = follow_pfnmap_start(&pfnmap_args);
+>>>> +		if (rc)
+>>>> +			goto unlock_mmap_out;
+>>>> +	}
+>>>> +
+>>>> +	*mmio_pfnp = pfnmap_args.pfn;
+>>>> +	follow_pfnmap_end(&pfnmap_args);
+>>>> +d
+>>>> +unlock_mmap_out:
+>>>> +	mmap_read_unlock(current->mm);
+>>>> +unlock_pt_out:
+>>>> +	spin_unlock(&pt->pt_mem_regions_lock);
+>>>> +	return rc;
+>>>> +}
+>>>> +
+>>>> +/*
+>>>> + * At present, the only unmapped gpa is mmio space. Verify if it's mmio
+>>>> + * and resolve if possible.
+>>>> + * Returns: True if valid mmio intercept and it was handled, else false
+>>>> + */
+>>>> +static bool mshv_handle_unmapped_gpa(struct mshv_vp *vp)
+>>>> +{
+>>>> +	struct hv_message *hvmsg = vp->vp_intercept_msg_page;
+>>>> +	struct hv_x64_memory_intercept_message *msg;
+>>>> +	union hv_x64_memory_access_info accinfo;
+>>>> +	u64 gfn, mmio_spa, numpgs;
+>>>> +	struct mshv_mem_region *mreg;
+>>>> +	int rc;
+>>>> +	struct mshv_partition *pt = vp->vp_partition;
+>>>> +
+>>>> +	msg = (struct hv_x64_memory_intercept_message *)hvmsg->u.payload;
+>>>> +	accinfo = msg->memory_access_info;
+>>>> +
+>>>> +	if (!accinfo.gva_gpa_valid)
+>>>> +		return false;
+>>>> +
+>>>> +	/* Do a fast check and bail if non mmio intercept */
+>>>> +	gfn = msg->guest_physical_address >> HV_HYP_PAGE_SHIFT;
+>>>> +	mreg = mshv_partition_region_by_gfn(pt, gfn);
+>>>
+>>> This call needs to be protected by the spinlock.
+>>
+>> This is sorta fast path to bail. We recheck under partition lock above.
+>>
 > 
-> But this patch doesn't have that code yet. So maybe this should be
-> merged with the next patch..
+> Accessing the list of regions without lock is unsafe.
 
-Or maybe I should re-order the sequence of the patches. I'll see
-what works the best.
+I am not sure why? This check is done by a vcpu thread, so regions
+will not have just gone away.
 
-Thanks
-Nicolin
+Thanks,
+-Mukesh
+
+
+> Thanks,
+> Stanislav
+> 
+>> Thanks,
+>> -Mukesh
+>>
+>>
+>>> Thanks,
+>>> Stanislav
+>>>
+>>>> +	if (mreg == NULL || mreg->type != MSHV_REGION_TYPE_MMIO)
+>>>> +		return false;
+>>>> +
+>>>> +	rc = mshv_chk_get_mmio_start_pfn(pt, gfn, &mmio_spa);
+>>>> +	if (rc)
+>>>> +		return false;
+>>>> +
+>>>> +	if (!hv_nofull_mmio) {		/* default case */
+>>>> +		gfn = mreg->start_gfn;
+>>>> +		mmio_spa = mmio_spa - (gfn - mreg->start_gfn);
+>>>> +		numpgs = mreg->nr_pages;
+>>>> +	} else
+>>>> +		numpgs = 1;
+>>>> +
+>>>> +	rc = hv_call_map_mmio_pages(pt->pt_id, gfn, mmio_spa, numpgs);
+>>>> +
+>>>> +	return rc == 0;
+>>>> +}
+>>>> +
+>>>>    static struct mshv_mem_region *
+>>>>    mshv_partition_region_by_gfn_get(struct mshv_partition *p, u64 gfn)
+>>>>    {
+>>>> @@ -666,13 +777,17 @@ static bool mshv_handle_gpa_intercept(struct mshv_vp *vp)
+>>>>    	return ret;
+>>>>    }
+>>>> +
+>>>>    #else  /* CONFIG_X86_64 */
+>>>> +static bool mshv_handle_unmapped_gpa(struct mshv_vp *vp) { return false; }
+>>>>    static bool mshv_handle_gpa_intercept(struct mshv_vp *vp) { return false; }
+>>>>    #endif /* CONFIG_X86_64 */
+>>>>    static bool mshv_vp_handle_intercept(struct mshv_vp *vp)
+>>>>    {
+>>>>    	switch (vp->vp_intercept_msg_page->header.message_type) {
+>>>> +	case HVMSG_UNMAPPED_GPA:
+>>>> +		return mshv_handle_unmapped_gpa(vp);
+>>>>    	case HVMSG_GPA_INTERCEPT:
+>>>>    		return mshv_handle_gpa_intercept(vp);
+>>>>    	}
+>>>> -- 
+>>>> 2.51.2.vfs.0.1
+>>>>
+
 
