@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77DA0D2F023
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 13:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EB0BD2F024
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 13:11:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1xf8RROWmvCfyZlwoPL04txmW2w3MORmkL6T8EP6k5k=; b=GJN+RKo8j7Cb+PPa0ZCtvN+zYD
-	MKO6N78GlMdCWzVM/ahk4XTccM/2FuPmUBZEoiM+Xnx1ljeYrZu3n9c4gya9U4Dv7A9PlTZDlsFDX
-	QXImrcbbhZsHrPDCz6nOEnjubClN5CXcPqYz45PWf6QeFuasCIm43v3ABo+bzEftkq+OQppc5WRLm
-	Uzaq+uAASvp8wKZnlx4BiWTvYAw1/jHLjBQ5/WlOpcxcRs3tfsZQhR6McgGCUj8iJWCHqQdQwXuDq
-	8EljEbpZQXg1jJFaaORUQuDM6SqP5LxhEtK43UCMuQePWdjtYV7h5oRfpvP+u7MBg0CPSoGDLrpoD
-	FRFQr0Hw==;
+	bh=drRx2SqfbaK5PNp/rPvvkzqlNVfAxYsbBu8xT8DC8tQ=; b=EDEJpMrLyL5BN7vPeR/3weii7G
+	z+MFfUML4vJat+bioJ+j/eVjz/2fNRRq7OsY3GlX7imBsZt5Uq2AUDaKi45xwEo1BNmOPSSHcjtZz
+	oKt0VNcboHtKCAnJki0w2YBWzn2+vYxQnx4zaOcUgRN7FZtlFmI9fC0GQDJM61eQu3QHP3wInxaUa
+	FNpfqbxJ8agcc7eVnVlSGyFrNyMoZ2fO7X1J8kCqC/rDc2PDVlNw1I6ZRc/0DB7wrq3DKTPfMMjUu
+	PhVj72A8UQq7WYImK+mJcEFUn3pSEESqCz3crvSxlFMGKGPDQpCTF9ApCHeGmN8q+f3zRKgqnrkxv
+	nTPPUARQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkinp-0000000EI1Y-2AcI;
-	Tue, 27 Jan 2026 13:08:17 +0000
-Received: from inva021.nxp.com ([92.121.34.21])
+	id 1vkiqT-0000000EIAm-09JN;
+	Tue, 27 Jan 2026 13:11:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkinn-0000000EI1B-1YKD
+	id 1vkiqQ-0000000EIAP-2nN4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 13:08:16 +0000
-Received: from inva021.nxp.com (localhost [127.0.0.1])
-	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 76A9020295F;
-	Tue, 27 Jan 2026 14:08:13 +0100 (CET)
-Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
-	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 5C3EA20295E;
-	Tue, 27 Jan 2026 14:08:13 +0100 (CET)
-Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
-	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id A168D20405;
-	Tue, 27 Jan 2026 14:08:12 +0100 (CET)
-Date: Tue, 27 Jan 2026 14:08:13 +0100
-From: Jan Petrous <jan.petrous@oss.nxp.com>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: robh@kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	conor+dt@kernel.org, devicetree@vger.kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de,
-	mcoquelin.stm32@gmail.com, kernel@pengutronix.de, pabeni@redhat.com,
-	edumazet@google.com, andrew+netdev@lunn.ch, chester62515@gmail.com,
-	s32@nxp.com, linux-kernel@vger.kernel.org,
-	ghennadi.procopciuc@oss.nxp.com, festevam@gmail.com,
-	alexandre.torgue@foss.st.com, davem@davemloft.net,
-	krzk+dt@kernel.org, mbrugger@suse.com, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [v3,4/4] stmmac: s32: enable support for Multi-IRQ mode
-Message-ID: <aXi4vRvcCa+8LSKt@lsv051416.swis.nl-cdc01.nxp.com>
-References: <20260123-dwmac_multi_irq-v3-4-cc53f2be8961@oss.nxp.com>
- <20260125221405.3395497-1-kuba@kernel.org>
+	Tue, 27 Jan 2026 13:10:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 201674021B;
+	Tue, 27 Jan 2026 13:10:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82885C116C6;
+	Tue, 27 Jan 2026 13:10:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769519457;
+	bh=FoR/91tcqgCb9bTR8L2/y9tPEOUImDArbq74MY9GZJk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NdQ1q9QI17PW5NfnHxAzQjLhh2LExwOy9wC8v76Gio946pTDCJGZw6O6ena8Z4Vrv
+	 6f66Lrwt+Mg4kSVYPERTLDCAgheP2gyrLLLscUdmb8mIBPSZREnqMdx47x7ttlMSD5
+	 cf3WeQC/ygUsSJv9wNsO0wA2DESJGH3c5BCr/X2ArvuVqx8VBGaoubchiESdkpnIF3
+	 9GmjcShtAejjI9iHc6BGiVIhJ6Ij6q6xm4KoKUaiHLzLtzcROjd1hbgMFQXApwZLNL
+	 I2DnPaScgVCVfwYW2O7qO2ctL/0uilMDBxYwd8mKMEJOfXTXpuivqxxQIK+FBkq1dx
+	 2dHlmuo8pLNrw==
+Date: Tue, 27 Jan 2026 13:10:51 +0000
+From: Will Deacon <will@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Robin Murphy <robin.murphy@arm.com>, Nicolin Chen <nicolinc@nvidia.com>,
+	bhelgaas@google.com, joro@8bytes.org, praan@google.com,
+	baolu.lu@linux.intel.com, kevin.tian@intel.com,
+	miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org
+Subject: Re: [PATCH RFCv1 3/3] iommu/arm-smmu-v3: Allow ATS to be always on
+Message-ID: <aXi5W-7b2odQQtqy@willie-the-truck>
+References: <cover.1768624180.git.nicolinc@nvidia.com>
+ <09cb6be1f8f7472a2f1ccab72154cc6e22cf570b.1768624181.git.nicolinc@nvidia.com>
+ <aXdgljWHHPVMTmya@willie-the-truck>
+ <20260126172020.GP1134360@nvidia.com>
+ <0a60797a-fbb9-4a83-adc6-ad62baf5915b@arm.com>
+ <20260126190935.GV1134360@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260125221405.3395497-1-kuba@kernel.org>
-X-Virus-Scanned: ClamAV using ClamSMTP
+In-Reply-To: <20260126190935.GV1134360@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_050815_543601_329695FA 
-X-CRM114-Status: GOOD (  19.80  )
+X-CRM114-CacheID: sfid-20260127_051058_744322_F49A6DB2 
+X-CRM114-Status: GOOD (  24.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,50 +80,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 25, 2026 at 02:14:05PM -0800, Jakub Kicinski wrote:
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
+On Mon, Jan 26, 2026 at 03:09:35PM -0400, Jason Gunthorpe wrote:
+> On Mon, Jan 26, 2026 at 06:49:07PM +0000, Robin Murphy wrote:
+> > (assuming SSIDSIZE > 0 and it does anything at all - note that strictly we
+> > cannot assume this bypass trick is *always* possible, since an SMMU is
+> > permitted to support ATS without supporting SubStreams).
 > 
-> For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
-> ---
-> stmmac: s32: enable support for Multi-IRQ mode
+> Yes, I think Nicolin has captured those conditions in computing
+> it... We don't have a logic to disable bypass in that case though.
 > 
-> This patch enables Multi-IRQ mode for the S32 DWMAC driver when both
-> multi-queue and per-queue IRQs are configured. The driver now selects
-> between Multi-IRQ and MAC IRQ modes based on device tree configuration.
+> > > So, I think a CD table pointer to a fully invalid L1 table of at least
+> > > size 1 should be OK?
+> > > 
+> > > Or stated another way, why would ie be OK to have a 1 level table with
+> > > an non-valid CD table entry for SSID0 but not OK to have a 2 level
+> > > table that returns non-valid at the first walk?
+> > 
+> > S1ContextPtr itself is reachable since S1 is enabled, so it cannot point to
+> > nonsense. But the S1DSS==Bypass behaviour does state:
 > 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-> > index 5a485ee98fa7..342091045714 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> > "Note: Such a transaction does not fetch a CD, and therefore does not report
+> > F_CD_FETCH, C_BAD_CD or a stage 2 Translation-related fault with CLASS ==
+> > CD."
 > 
-> [ ... ]
+> Yes
 > 
-> > @@ -149,6 +149,16 @@ static int s32_dwmac_probe(struct platform_device *pdev)
-> >  	plat->core_type = DWMAC_CORE_GMAC4;
-> >  	plat->pmt = 1;
-> >  	plat->flags |= STMMAC_FLAG_SPH_DISABLE;
-> > +
-> > +	/* Check for multi-IRQ config. Assumption: symetrical rx/tx queues */
-> > +	if (plat->rx_queues_to_use > 1 &&
-> > +	    (res.rx_irq[0] >= 0 || res.tx_irq[0] >= 0)) {
->                         ^^^^            ^^^^
+> However, taken together:
+>  * S1CDMax is set to substream 0 only
+>  * S1DSS is set such that "does not fetch a CD" for SSID = 0
+>  * SSID >0 doesn't fetch CDs because of S1CDMax
 > 
-> Should these checks be "> 0" instead of ">= 0"?
-> 
-> stmmac_get_platform_resources() initializes the res structure with
-> memset(0), then only writes positive IRQ values when per-queue IRQs are
-> found in the device tree. If no "rx-queue-0" or "tx-queue-0" interrupt
-> names are defined, rx_irq[0] and tx_irq[0] remain 0 from the memset.
+> Then it seems to be saying that it will never use S1ContextPtr? ie it
+> is IGNORED?
 
-The AI is wrong on this statesment. The loop reading IRQs from DT
-in stmmac_get_platform_resources() returns also negative value
-for missed queue IRQ line. And this is used as flag if multi-IRQ
-can be enabled or not.
+Right, I think the critical question is whether that setting of S1DSS
+(0b01) means that STE.S1ContextPtr is considered "invalid". The spec
+doesn't call this out explicitly but the "translation procedure charts"
+seem to indicate that it doesn't use the CD for anything...
 
-But I must agree that the comparition shall not include 0 as valid
-value for IRQ, so I will fix it in v4.
+It would be good to get some clarification from Arm about this
+particular case.
 
-Thanks.
-/Jan
+Will
 
