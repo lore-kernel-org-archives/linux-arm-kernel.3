@@ -4,85 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D02A5D2F031
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 13:58:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 935DBD2F033
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 14:03:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n++yDm7ssI9or4aRbyQsKwBqgsEaJvYdqeRPo39ZTIY=; b=CrE08PQeO8T2bad6GIxqNaae4R
-	hWnqZjYeBByk9ggpvhlilpdB6hW9Q0tuN8JfgF/Qj+MI0SZpMAmP3ySKl2AEUB68oKF26cOTFsUz1
-	euZC/r6irjYjDUXVy2uW2ANrv5lLJIXj9Jd8XGk45OSgU/ZJ2yIMlRilNS4jhMTWxwako/57vOXtr
-	wg/Uno+K10obuH87kFWgstMDdouwuSoVtja+JOatY4pq2wZBNtBOlPTWumYpjBpec3iJIvjcuDAO3
-	tu5QFGe3XBO1TAAU/3LIph8pSHAx62VDN0zS5JWpi1oG/DRN6mk5VGxovI9FKIkxto/lcKggiOIvL
-	nDkYU0dg==;
+	bh=xritG435HQ6RC2wWMwUy4qKHz1FW1so7WuycV++ue9U=; b=Cx3bTp/xijZnO2FulS6Zs0qvPh
+	w3TbOuzYCytPVDFTqpbMzXMZq1OPkWxMbEJKswnjhUNoa2sHHUlamGBYpA2DVER4Mkf0Qa77x2HWD
+	UgneeQO2yTARCOfiAk7bQ2scu8aQ1VcnLbKAl0VydkXLS2XI0IyOG9uyFtafMVE2pGsx+xhkIuHX/
+	RIzALJd0gDqQYWc1SzE2BMGZHx+vrFlUCKdE2vB2O51/ZfFuSP4kR4p/j8+Gelcjxq4cCKlj7sz+L
+	dDJelWiAlJgKYpQoOEQLCTstDpxKo3FcPsXEPqolnTJj2ji2nzTVNtEryB0yFQIH3w4VxWie6c/BD
+	EaL3d+Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkjaS-0000000ELnM-3Ic7;
-	Tue, 27 Jan 2026 13:58:32 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkjaL-0000000ELkO-1xmI;
-	Tue, 27 Jan 2026 13:58:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769522305; x=1801058305;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version:content-transfer-encoding;
-  bh=og59pwZnyOqe7PNgzDbUl3i3pkVIgIempTHbdxTELvk=;
-  b=KVc1UpHbtCBQ5eY+dMTxHSTCLs+H4VENdPD9mM2OdP0fOW3FUpggJxg8
-   RULsiPBAaPhg8Ppzji3V1h6sXEfFOdSsW70ryJbKVlk0+/EkPd9L4tcW1
-   aDGt5hC8jac42cTtUx+IoUGQY21W9uXCM0tkc/TbYgrAjrictWZgsMsSa
-   fghts4ANmDhmN1wWeychArAL/4Y4BberOy76zYkGg8+83JLhYD3RQY/Ki
-   Krru2aMEV9PRwb7+EFleKm+Ye3i5qVX+bu5DRHX4eSfj8+2k6b7Waep0p
-   5pY60Zo2SlmUMSclapcN2a4ICo6Aw0ZOiDGRMEw3QjEqoj4M91/8tNGBx
-   A==;
-X-CSE-ConnectionGUID: btez0BeATFuZYtAHw4xPVg==
-X-CSE-MsgGUID: MzGkm4iAQeKB3iBOworFcQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="73302725"
-X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
-   d="scan'208";a="73302725"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 05:58:22 -0800
-X-CSE-ConnectionGUID: BCzws0wPRNOMRGWv4OMbDg==
-X-CSE-MsgGUID: 9fMvMzQpQUu7qdSrTcjCXw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
-   d="scan'208";a="207876830"
-Received: from mjarzebo-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.246.148])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 05:58:16 -0800
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>, Heiko
- =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan
- <andy.yan@rock-chips.com>, Louis
- Chauvet <louis.chauvet@bootlin.com>, Haneen Mohammed
- <hamohammed.sa@gmail.com>, Melissa Wen <melissa.srw@gmail.com>
-Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- =?utf-8?Q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>,
- Diederik de Haas
- <diederik@cknow-tech.com>, Andy Shevchenko
- <andriy.shevchenko@linux.intel.com>
-Subject: Re: [PATCH v5 1/4] uapi: Provide DIV_ROUND_CLOSEST()
-In-Reply-To: <20260127-rk3588-bgcolor-v5-1-b25aa8613211@collabora.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
- 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
-References: <20260127-rk3588-bgcolor-v5-0-b25aa8613211@collabora.com>
- <20260127-rk3588-bgcolor-v5-1-b25aa8613211@collabora.com>
-Date: Tue, 27 Jan 2026 15:58:13 +0200
-Message-ID: <baf075b2370a13cddd597a3d421b5f39290d87a4@intel.com>
+	id 1vkjfc-0000000EMJY-0MJF;
+	Tue, 27 Jan 2026 14:03:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkjfZ-0000000EMJA-0fM0
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 Jan 2026 14:03:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E5F3C1595;
+	Tue, 27 Jan 2026 06:03:40 -0800 (PST)
+Received: from [10.1.37.210] (XHFQ2J9959.cambridge.arm.com [10.1.37.210])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 738653F73F;
+	Tue, 27 Jan 2026 06:03:45 -0800 (PST)
+Message-ID: <8184baab-8774-4a73-8cee-d8d3e22553c0@arm.com>
+Date: Tue, 27 Jan 2026 14:03:43 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 12/13] arm64: mm: Wrap flush_tlb_page() around
+ ___flush_tlb_range()
+Content-Language: en-GB
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>,
+ Dev Jain <dev.jain@arm.com>, Linu Cherian <Linu.Cherian@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260119172202.1681510-1-ryan.roberts@arm.com>
+ <20260119172202.1681510-13-ryan.roberts@arm.com>
+ <20260127125933.00006101@huawei.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260127125933.00006101@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_055825_681393_AF923F81 
-X-CRM114-Status: GOOD (  19.86  )
+X-CRM114-CacheID: sfid-20260127_060349_324066_17B90901 
+X-CRM114-Status: GOOD (  27.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,91 +72,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 27 Jan 2026, Cristian Ciocaltea <cristian.ciocaltea@collabora.com> =
-wrote:
-> Currently DIV_ROUND_CLOSEST() is only available for the kernel via
-> include/linux/math.h.
->
-> Expose it to userland as well by adding __KERNEL_DIV_ROUND_CLOSEST() as
-> a common definition in uapi.
->
-> Additionally, ensure it allows building ISO C applications by switching
-> from the 'typeof' GNU extension to the ISO-friendly __typeof__.
+On 27/01/2026 12:59, Jonathan Cameron wrote:
+> On Mon, 19 Jan 2026 17:21:59 +0000
+> Ryan Roberts <ryan.roberts@arm.com> wrote:
+> 
+>> Flushing a page from the tlb is just a special case of flushing a range.
+>> So let's rework flush_tlb_page() so that it simply wraps
+>> ___flush_tlb_range(). While at it, let's also update the API to take the
+>> same flags that we use when flushing a range. This allows us to delete
+>> all the ugly "_nosync", "_local" and "_nonotify" variants.
+>>
+>> Thanks to constant folding, all of the complex looping and tlbi-by-range
+>> options get eliminated so that the generated code for flush_tlb_page()
+>> looks very similar to the previous version.
+>>
+>> Reviewed-by: Linu Cherian <linu.cherian@arm.com>
+>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> 
+> So this does include the use of the
+> 
+> Case TLBF_NOBROADCAST from previous patch, but only whilst (I think)
+> slightly changing behavior.
+> 
+> Gah.  I'm regretting looking at this series. The original code is really hard to
+> read :)  Rather you than me to fix it!
+> 
+>>  static inline void flush_tlb_kernel_range(unsigned long start, unsigned long end)
+>>  {
+>>  	const unsigned long stride = PAGE_SIZE;
+>> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+>> index be9dab2c7d6a..f91aa686f142 100644
+>> --- a/arch/arm64/mm/fault.c
+>> +++ b/arch/arm64/mm/fault.c
+>> @@ -239,7 +239,7 @@ int __ptep_set_access_flags(struct vm_area_struct *vma,
+>>  	 * flush_tlb_fix_spurious_fault().
+>>  	 */
+>>  	if (dirty)
+>> -		local_flush_tlb_page(vma, address);
+>> +		__flush_tlb_page(vma, address, TLBF_NOBROADCAST);
+> 
+> Ultimately I think this previously did __tlbi(vale1) and now does __tlbi(vae1)
+> Original call was to __local_flush_tlb_page_notify_nosync()
 
-I am not convinced that it's a good idea to make the implementation of
-kernel DIV_ROUND_CLOSEST() part of the kernel UAPI, which is what this
-change effectively does.
+No not quite; the new code is still doing __tlbi(vale1).
 
-I'd at least like to get an ack from Andy Shevchenko first (Cc'd).
+The trick is that the __flush_tlb_page() wrapper unconditionally adds
+TLBF_NOWALKCACHE to the flags. Since this API is operating on a *page* it is
+implicit that we should only be evicting a leaf entry (as per the old
+implementation).
 
+You'll see I've also updated the documentation to make that clear in tlbflush.h.
 
-BR,
-Jani.
+Now that you have raised it, I can see how it might be confusing though, since
+__flush_tlb_page() does not explicitly have TLBF_NOWALKCACHE. We could require
+all __flush_tlb_page() callers to explicitly pass TLBF_NOWALKCACHE if you think
+that helps? It would still be implicit for flush_tlb_page() (the generic kernel
+API) though.
 
-> Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
->  include/linux/math.h       | 18 +-----------------
->  include/uapi/linux/const.h | 17 +++++++++++++++++
->  2 files changed, 18 insertions(+), 17 deletions(-)
->
-> diff --git a/include/linux/math.h b/include/linux/math.h
-> index 6dc1d1d32fbc..1e8fb3efbc8c 100644
-> --- a/include/linux/math.h
-> +++ b/include/linux/math.h
-> @@ -89,23 +89,7 @@
->  }							\
->  )
->=20=20
-> -/*
-> - * Divide positive or negative dividend by positive or negative divisor
-> - * and round to closest integer. Result is undefined for negative
-> - * divisors if the dividend variable type is unsigned and for negative
-> - * dividends if the divisor variable type is unsigned.
-> - */
-> -#define DIV_ROUND_CLOSEST(x, divisor)(			\
-> -{							\
-> -	typeof(x) __x =3D x;				\
-> -	typeof(divisor) __d =3D divisor;			\
-> -	(((typeof(x))-1) > 0 ||				\
-> -	 ((typeof(divisor))-1) > 0 ||			\
-> -	 (((__x) > 0) =3D=3D ((__d) > 0))) ?		\
-> -		(((__x) + ((__d) / 2)) / (__d)) :	\
-> -		(((__x) - ((__d) / 2)) / (__d));	\
-> -}							\
-> -)
-> +#define DIV_ROUND_CLOSEST __KERNEL_DIV_ROUND_CLOSEST
->  /*
->   * Same as above but for u64 dividends. divisor must be a 32-bit
->   * number.
-> diff --git a/include/uapi/linux/const.h b/include/uapi/linux/const.h
-> index b8f629ef135f..471877322f47 100644
-> --- a/include/uapi/linux/const.h
-> +++ b/include/uapi/linux/const.h
-> @@ -50,4 +50,21 @@
->=20=20
->  #define __KERNEL_DIV_ROUND_UP(n, d) (((n) + (d) - 1) / (d))
->=20=20
-> +/*
-> + * Divide positive or negative dividend by positive or negative divisor
-> + * and round to closest integer. Result is undefined for negative
-> + * divisors if the dividend variable type is unsigned and for negative
-> + * dividends if the divisor variable type is unsigned.
-> + */
-> +#define __KERNEL_DIV_ROUND_CLOSEST(x, divisor)(		\
-> +{							\
-> +	__typeof__(x) __x =3D x;				\
-> +	__typeof__(divisor) __d =3D divisor;		\
-> +	(((__typeof__(x))-1) > 0 ||			\
-> +	 ((__typeof__(divisor))-1) > 0 ||		\
-> +	 (((__x) > 0) =3D=3D ((__d) > 0))) ?		\
-> +		(((__x) + ((__d) / 2)) / (__d)) :	\
-> +		(((__x) - ((__d) / 2)) / (__d));	\
-> +}							\
-> +)
->  #endif /* _UAPI_LINUX_CONST_H */
+> 
+> I'd like to see that sort of change called out and explained in the patch description.
+> It's a broader scoped flush so not a bug, but still a functional change.
 
---=20
-Jani Nikula, Intel
+As I say, the emitted code is the same. It's my new API that's the problem here...
+
+Thanks,
+Ryan
+
+> 
+>>  	return 1;
+>>  }
+>>  
+> 
+
 
