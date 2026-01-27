@@ -4,63 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5EADD2594F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 15:17:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E410D25931
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 15:21:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=53BvYz3/SPRYq30mBJV+ceu/2Ei+ykQW7AqcHlbYuOw=; b=pWS+bDMniONh7YcO97HkHdsecg
-	ovJxD9c14mSpuh2dxmQ5+JxxZdajB6+gMYpk+WjXOdJXsp9wLkR8SeYQHOXD1BhmuQwcU29IXq+0Q
-	WsefxDN5YfNCWEsXkv5F/mFQ3vZE08wPKJ4s799LvXQasHRVDhu3E2X/6vEHXLhoR74+8aKVSHBCs
-	cilTr0GQf+VhUlDgxWvmy2b+lThMoRT1zf+60jTiMVIaeFN8eQeZ/QsQ5NaeZiE0v1lhWgVIbFi0i
-	2dEROfdd5V2wkLgYqcFVRAdLrqUZZIxtDhsU9PnzAO362ExRNYPJbFXp4herfoLxGtzCJq6/qYIzp
-	Mgt7eoVg==;
+	bh=naGEpDNYDaXGHhJAE4TwVjdVuEzUP3s5tDCBxkUlRGM=; b=KmUwdDRrBs+G3Uidifnl114Ebw
+	1Ky8VoDnsRMbpaRSonIBFNHqLkTBXmjkeMuyeEx0Cf4DqMo43X/QVjI9IM/LNRRa8AQ/4EZX4LrVu
+	3sjzJTuB4OHBbOwAGSw7Wd/4XM+FVsiNHvrpiPaxCzPvB+hGGqP5wrWA6w+XOxqo0wFD512Fi4kXw
+	/yOZ9htpRy5YrlwCHfnInnq1PRPJMeKW7/9BbvjkWTFnXOfSXYvsyYneoVjOsLlj1fJSkak21+TUf
+	xZL1hYlQBMOT2t2yxqlDfld/SM8MgEV6VpVyeuMKxwTesJZH4SrxvJxxYqksyocRzb/fyBLFJn102
+	ye9Z3iog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkkp5-0000000EWZy-3Qs4;
-	Tue, 27 Jan 2026 15:17:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkkoz-0000000EWXT-3U22
+	id 1vkksZ-0000000EXMt-16Ga;
+	Tue, 27 Jan 2026 15:21:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkksX-0000000EXMH-0NuU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 15:17:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F29B2600AD;
-	Tue, 27 Jan 2026 15:17:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81194C116C6;
-	Tue, 27 Jan 2026 15:17:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769527056;
-	bh=06YFaYPc4N1f9nnWVb6MYBol7sp8w7ue49DiDGANxVs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sHES0NxaudMq/qmeoTiz0aeclmGvJfz6FxHT6K36GqTbqX7FuX2L4MAYRvyv2v4+X
-	 BO8l5M8snhZ8zh6nJ9R9fVzCk1PGKpa0Si8inyfomPFntwM/9OBbQEYi5+xV2hK9Zt
-	 qRMHdYlFhrhArQZJJNNQoMB/UGmUjNpyKB0ttAxROg3Q8JEWRMqN2ZeLs4Yh2y8GiJ
-	 RTfouRyNIM2aGEtnaMuLeCyPstykfmMm75Sb8mUaDNqSZNW1KN9ronMaiveSfvW+A5
-	 qi47mLikdVZfjQDeb5VjMW11aG3f+FEG8+eJlswA8Muqs7glrWyhKuZxH4fXd5YFwx
-	 ZeZoJNND0LucQ==
-Date: Tue, 27 Jan 2026 09:17:35 -0600
-From: Rob Herring <robh@kernel.org>
-To: "Kevin Hilman (TI)" <khilman@baylibre.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC v5 1/2] pmdomain: core: support domain hierarchy via
- power-domain-map
-Message-ID: <20260127151735.GA1699112-robh@kernel.org>
-References: <20260122-pmdomain-hierarchy-onecell-v5-0-76855ec856bd@baylibre.com>
- <20260122-pmdomain-hierarchy-onecell-v5-1-76855ec856bd@baylibre.com>
+	Tue, 27 Jan 2026 15:21:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B518B1596;
+	Tue, 27 Jan 2026 07:21:08 -0800 (PST)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C39643F632;
+	Tue, 27 Jan 2026 07:21:13 -0800 (PST)
+Date: Tue, 27 Jan 2026 15:21:08 +0000
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <tabba@google.com>, Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH 06/20] KVM: arm64: Inherit RESx bits from FGT register
+ descriptors
+Message-ID: <20260127152108.GA2685766@e124191.cambridge.arm.com>
+References: <20260126121655.1641736-1-maz@kernel.org>
+ <20260126121655.1641736-7-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260122-pmdomain-hierarchy-onecell-v5-1-76855ec856bd@baylibre.com>
+In-Reply-To: <20260126121655.1641736-7-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260127_072117_189656_9229B037 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,54 +67,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 05:14:00PM -0800, Kevin Hilman (TI) wrote:
-> Add of_genpd_[add|remove]_subdomain_map() helper functions to support
-> hierarchical PM domains defined by using power-domains-map
+On Mon, Jan 26, 2026 at 12:16:40PM +0000, Marc Zyngier wrote:
+> The FGT registers have their computed RESx bits stashed in specific
+> descriptors, which we can easily use when computing the masks used
+> for the guest.
+> 
+> This removes a bit of boilerplate code.
 
-power-domain-map. No 's'.
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 
-> property (c.f. nexus node maps in DT spec, section 2.5.1).
 > 
-> This enables PM domain providers with #power-domain-cells > 0 to
-> establish subdomain relationships via the power-domain-map property,
-> which was not previously possible.
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/config.c | 16 +++++-----------
+>  1 file changed, 5 insertions(+), 11 deletions(-)
 > 
-> These new helper functions:
-> - uses an OF helper to iterate to over entries in power-domain-map
-> - For each mapped entry: extracts child specifier, resolves parent phandle,
->   extracts parent specifier args, and establishes subdomain relationship
-> - Calls genpd_[add|remove]_subdomain() with proper gpd_list_lock mutex protection
+> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> index a907195bd44b6..8d152605999ba 100644
+> --- a/arch/arm64/kvm/config.c
+> +++ b/arch/arm64/kvm/config.c
+> @@ -1344,6 +1344,11 @@ struct resx compute_reg_resx_bits(struct kvm *kvm,
+>  	resx = compute_resx_bits(kvm, r->bit_feat_map, r->bit_feat_map_sz,
+>  				 require, exclude);
+>  
+> +	if (r->feat_map.flags & MASKS_POINTER) {
+> +		resx.res0 |= r->feat_map.masks->res0;
+> +		resx.res1 |= r->feat_map.masks->res1;
+> +	}
+> +
+>  	tmp = compute_resx_bits(kvm, &r->feat_map, 1, require, exclude);
+>  
+>  	resx.res0 |= tmp.res0;
+> @@ -1424,47 +1429,36 @@ struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg)
+>  	switch (reg) {
+>  	case HFGRTR_EL2:
+>  		resx = compute_reg_resx_bits(kvm, &hfgrtr_desc, 0, 0);
+> -		resx.res1 |= HFGRTR_EL2_RES1;
+>  		break;
+>  	case HFGWTR_EL2:
+>  		resx = compute_reg_resx_bits(kvm, &hfgwtr_desc, 0, 0);
+> -		resx.res1 |= HFGWTR_EL2_RES1;
+>  		break;
+>  	case HFGITR_EL2:
+>  		resx = compute_reg_resx_bits(kvm, &hfgitr_desc, 0, 0);
+> -		resx.res1 |= HFGITR_EL2_RES1;
+>  		break;
+>  	case HDFGRTR_EL2:
+>  		resx = compute_reg_resx_bits(kvm, &hdfgrtr_desc, 0, 0);
+> -		resx.res1 |= HDFGRTR_EL2_RES1;
+>  		break;
+>  	case HDFGWTR_EL2:
+>  		resx = compute_reg_resx_bits(kvm, &hdfgwtr_desc, 0, 0);
+> -		resx.res1 |= HDFGWTR_EL2_RES1;
+>  		break;
+>  	case HAFGRTR_EL2:
+>  		resx = compute_reg_resx_bits(kvm, &hafgrtr_desc, 0, 0);
+> -		resx.res1 |= HAFGRTR_EL2_RES1;
+>  		break;
+>  	case HFGRTR2_EL2:
+>  		resx = compute_reg_resx_bits(kvm, &hfgrtr2_desc, 0, 0);
+> -		resx.res1 |= HFGRTR2_EL2_RES1;
+>  		break;
+>  	case HFGWTR2_EL2:
+>  		resx = compute_reg_resx_bits(kvm, &hfgwtr2_desc, 0, 0);
+> -		resx.res1 |= HFGWTR2_EL2_RES1;
+>  		break;
+>  	case HFGITR2_EL2:
+>  		resx = compute_reg_resx_bits(kvm, &hfgitr2_desc, 0, 0);
+> -		resx.res1 |= HFGITR2_EL2_RES1;
+>  		break;
+>  	case HDFGRTR2_EL2:
+>  		resx = compute_reg_resx_bits(kvm, &hdfgrtr2_desc, 0, 0);
+> -		resx.res1 |= HDFGRTR2_EL2_RES1;
+>  		break;
+>  	case HDFGWTR2_EL2:
+>  		resx = compute_reg_resx_bits(kvm, &hdfgwtr2_desc, 0, 0);
+> -		resx.res1 |= HDFGWTR2_EL2_RES1;
+>  		break;
+>  	case HCRX_EL2:
+>  		resx = compute_reg_resx_bits(kvm, &hcrx_desc, 0, 0);
+> -- 
+> 2.47.3
 > 
-> Example from k3-am62l.dtsi:
-> 
->   scmi_pds: protocol@11 {
->       #power-domain-cells = <1>;
->       power-domain-map = <15 &MAIN_PD>,  /* TIMER0 */
->                          <19 &WKUP_PD>;  /* WKUP_TIMER0 */
->   };
-> 
->   MAIN_PD: power-controller-main {
->       #power-domain-cells = <0>;
->   };
-> 
->   WKUP_PD: power-controller-main {
->       #power-domain-cells = <0>;
->   };
-> 
-> This allows SCMI power domain 15 to become a subdomain of MAIN_PD, and
-> domain 19 to become a subdomain of WKUP_PD.
-
-One concern I have here is generally *-map is transparent meaning when 
-you lookup <&scmi_pds 15>, &MAIN_PD is returned as the provider. It's 
-also possible to have a map point to another map until you get to the 
-final provider. The only way we have to support both behaviors is the 
-consumer has to specify (i.e. with of_parse_phandle_with_args_map() vs. 
-of_parse_phandle_with_args()), but the consumer shouldn't really know 
-this detail.
-
-Maybe a transparent map of power-domains would never make sense. IDK. If 
-so, then there's not really any issue since the pmdomain core handles 
-everyone the same way.
-
-Rob
 
