@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9838D25920
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 02:43:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D024D25921
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 02:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qZPJA+GKSfS6A3u4jgkqnZAkiPeOjVCRngtZ24Z+P+I=; b=nFJSRBAsUtEu3WS37dM88N8ANe
-	ZZKnXH0Eq5via+r8KNsL/JnUTHX/j9/GjldMD1TkepXzzDBf32EKla7gPzKWRKMh0T0VuxyTzvye9
-	cf74wlEYd96UK7Hz33BI2l14sjqgp24YFEP0cRje1y0gcSdKlfl52Yl3eXSUpaqcEBtVMMnHct1mL
-	uVXJ0FWgZYmcNl8BTFkmwz7Y8zpVzkE9XkLAdxpXe1GCY3c0yzG8SWZhPIGlxcPeb7SxvG8HVZpAN
-	VzTyNMkphMlkem53A5MKCSw+dTUI+o6VBkC88vPpfGoqD1qDv4EjembYMrO4bnAvzmZ7ceSbDiqQi
-	d24cunKA==;
+	bh=k7kT7FIASxnKruzwo7e82b+7l9rC3y2r57xnfSrZR70=; b=TnOpzsN7YJ78MKZaq4SQcguEM1
+	zqtmq/QIiqoaKoiBPBNoW9moghSOVemlPbX8xJzMEGqOld21BQQCE4hBnVB0k4994Um/+Yc5k3lhZ
+	jjY94qPPSeq0faKk15sbExCAC8L9qDWhiRvMddAEpR2SW7tv5tP3P8I7w/mfvR3IPOQqJVfQF9DGE
+	CEH1NThYSJYoVX/mKRxKUi4P+IwARugGz4cMdlhWHMn9hK5fHWzhs+cyMG/9lqzhfUV18G6hHX+6x
+	BNhUHrcmLHgZQDvAN3tif2qH8nR27Elo58wCSbzeFm+uW8OgbxGXWVnxaaMiw6HtZPfKYmFWJ09Z2
+	QyLrSIog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkZ3C-0000000DVig-201i;
-	Tue, 27 Jan 2026 02:43:30 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1vkZ3L-0000000DVxM-0m2O;
+	Tue, 27 Jan 2026 02:43:39 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkZ2z-0000000DVUp-20zy;
-	Tue, 27 Jan 2026 02:43:19 +0000
-X-UUID: edc05288fb2911f0a16f0188aa809bee-20260126
+	id 1vkZ34-0000000DVZ7-3VDJ;
+	Tue, 27 Jan 2026 02:43:23 +0000
+X-UUID: ee88e2f2fb2911f0ad39f32c34db0b1c-20260126
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=qZPJA+GKSfS6A3u4jgkqnZAkiPeOjVCRngtZ24Z+P+I=;
-	b=JWyLCC8IIc0BrSrpcJ5quyG/y4j72d4Mn2GL0IJZYUAmNARi2Ih+7zGYEIo5QXRetbM6ElULeFBDV7SmrpZ9IHhcUj1OBzo8IWHQMY+Gu0AQy5hyKrzklXGsachpYDuQgsfj8ambHhRnJ137oMaR17GIPUuRtuONKH7XdBDPO5Y=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=k7kT7FIASxnKruzwo7e82b+7l9rC3y2r57xnfSrZR70=;
+	b=aZvY3PYsw7lodoHJAtRPkFjkQi31Im1H6xNiS/nogtH3YX/MtuHn9pvGuAdgVH6yDQH3tq469MnIrvwX0VVcF8qEJfoTVJJ0b+LbqGHE4Q8ka6gpSdDypAdkoup+IT9Nps1Zyu5vQxLQV7mqq7LQJtP61YotIvaMDFnUcMq7vwU=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.11,REQID:a4ddba70-dd28-422f-aff1-644d25fdcd0b,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:89c9d04,CLOUDID:380d985a-a957-4259-bcca-d3af718d7034,B
+X-CID-O-INFO: VERSION:1.3.11,REQID:17a955e3-6d2a-4d5b-92a1-9c1dfbed0f2b,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:89c9d04,CLOUDID:670d985a-a957-4259-bcca-d3af718d7034,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
 	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
 	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -42,18 +42,18 @@ X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: edc05288fb2911f0a16f0188aa809bee-20260126
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
+X-UUID: ee88e2f2fb2911f0ad39f32c34db0b1c-20260126
+Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw02.mediatek.com
 	(envelope-from <kyrie.wu@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 743903826; Mon, 26 Jan 2026 19:43:14 -0700
+	with ESMTP id 1283456792; Mon, 26 Jan 2026 19:43:16 -0700
 Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Tue, 27 Jan 2026 10:43:12 +0800
+ 15.2.2562.29; Tue, 27 Jan 2026 10:43:13 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Tue, 27 Jan 2026 10:43:11 +0800
+ 15.2.2562.29 via Frontend Transport; Tue, 27 Jan 2026 10:43:12 +0800
 From: Kyrie Wu <kyrie.wu@mediatek.com>
 To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
 	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
@@ -68,11 +68,10 @@ To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
 CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
-	<andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>, Krzysztof
- Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v7 09/10] dt-bindings: media: Add MT8189 mediatek,vcodec-encoder
-Date: Tue, 27 Jan 2026 10:42:46 +0800
-Message-ID: <20260127024248.18406-10-kyrie.wu@mediatek.com>
+	<andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>
+Subject: [PATCH v7 10/10] media: mediatek: encoder: Add MT8189 encoder compatible data
+Date: Tue, 27 Jan 2026 10:42:47 +0800
+Message-ID: <20260127024248.18406-11-kyrie.wu@mediatek.com>
 X-Mailer: git-send-email 2.46.0
 In-Reply-To: <20260127024248.18406-1-kyrie.wu@mediatek.com>
 References: <20260127024248.18406-1-kyrie.wu@mediatek.com>
@@ -81,8 +80,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_184317_524731_F51227B1 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20260126_184322_882365_1E33DEF9 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,41 +96,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add MT8189 encoder compatible string to distinguish former ICs
-MTK's. Compared with MT8196, the maximum resolution of MT8189
-encoder is only 4K, and the fps is only 30, which cannot reach
-the highest parameter of MT8196: level6.2, 8K@60fps.
-Compared with MT8188, the level can only support 5.1, which is less
-than 5.2 of MT8188. But the maximum bitrate is 100Mbps, which is twice
-that of MT8188. And MT8189 could support NBM mode.
+add MT8189 compatible data to initialize platform data for encoder.
 
 Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../devicetree/bindings/media/mediatek,vcodec-encoder.yaml      | 2 ++
- 1 file changed, 2 insertions(+)
+ .../mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c   | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-index bb4dbf23ccc5..7f355470b63c 100644
---- a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-+++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-@@ -22,6 +22,7 @@ properties:
-               - mediatek,mt8173-vcodec-enc
-               - mediatek,mt8183-vcodec-enc
-               - mediatek,mt8188-vcodec-enc
-+              - mediatek,mt8189-vcodec-enc
-               - mediatek,mt8192-vcodec-enc
-               - mediatek,mt8195-vcodec-enc
-               - mediatek,mt8196-vcodec-enc
-@@ -100,6 +101,7 @@ allOf:
-             enum:
-               - mediatek,mt8183-vcodec-enc
-               - mediatek,mt8188-vcodec-enc
-+              - mediatek,mt8189-vcodec-enc
-               - mediatek,mt8192-vcodec-enc
-               - mediatek,mt8195-vcodec-enc
+diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+index 86d0ab03f151..5e203caa47d4 100644
+--- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
++++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+@@ -469,6 +469,19 @@ static const struct mtk_vcodec_enc_pdata mt8196_pdata = {
+ 	.set_dma_bit_mask = true,
+ };
  
++static const struct mtk_vcodec_enc_pdata mt8189_pdata = {
++	.venc_model_num = 8189,
++	.capture_formats = mtk_video_formats_capture_h264,
++	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
++	.output_formats = mtk_video_formats_output,
++	.num_output_formats = ARRAY_SIZE(mtk_video_formats_output),
++	.min_bitrate = 64,
++	.max_bitrate = 100000000,
++	.core_id = VENC_SYS,
++	.uses_common_fw_iface = true,
++	.set_dma_bit_mask = true,
++};
++
+ static const struct of_device_id mtk_vcodec_enc_match[] = {
+ 	{.compatible = "mediatek,mt8173-vcodec-enc",
+ 			.data = &mt8173_avc_pdata},
+@@ -479,6 +492,7 @@ static const struct of_device_id mtk_vcodec_enc_match[] = {
+ 	{.compatible = "mediatek,mt8192-vcodec-enc", .data = &mt8192_pdata},
+ 	{.compatible = "mediatek,mt8195-vcodec-enc", .data = &mt8195_pdata},
+ 	{.compatible = "mediatek,mt8196-vcodec-enc", .data = &mt8196_pdata},
++	{.compatible = "mediatek,mt8189-vcodec-enc", .data = &mt8189_pdata},
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, mtk_vcodec_enc_match);
 -- 
 2.45.2
 
