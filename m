@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA078D46BE1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 17:34:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AEC6D46BE5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 17:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ozQXOHXvtQuF4Vzt0ntyV+NPGSwkEALzq+rw9H3FRc=; b=rwSa73NLeEgsuhE92fg3upGsts
-	LuzRfYYSqfPNLJUu17Q66IVBjC66rSiifvQIRnJbyQyTdYxtJFLOO5lwb0ASPh7Dei6uUGbFlbqg/
-	KsjtndDQF3TQv9+XR+06OG4t9ASK1I8/qoG2bYDAKEsmhjW9l8jG+Gfesl2tI8/tPqjn6mX3lsqhG
-	tpgTsXsU1Zsn31Sb17xhPzt4ReSrUZmUBr0+TQE7Bjjh5OAG4NRxHkAEgdk+QBCB71m26NAfLeLJD
-	jL4SJ+FqEh0nMeLB4jjNKaZMuXsPpCXVT8sYyJ62TB3hdeMLBs6fDRllMsbqama3Vkq0G5v5fDdTl
-	euX1ABmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2OUpzyWYenoPbaV0IkxeyyDfxafU9gExLRttDDgCmxM=; b=oGT7ELsVKPqdOUYx5uGNE+haop
+	mwV36ufF7f0hQ+b94W3wSNyhWE+EPVgINUWcWmTfH46wMj8tj/11EPFneuGxguRoa49WXgrAqgr+r
+	VRgqlbW8hG9kKO2WFlHbnxbZaepQ8VcIXEjr6H1POhZrkYkO5Lmu1N6XV6VFWmELrja4Cr6mmTV4B
+	HifrD+twl0fnfVKhdrp/LqekO4Hb5dW1xMCIPCY5pPJL2clK6WX0fqyisZ2uhIEfepI0cQVgntDb8
+	KVT7JIz9E97M2x34MLgzXwvOV24+HQJwl9+Q/3eKHXTQw2OR2f05wolBUlEAUwhUf6dfC8MC/oE7v
+	8KmcN1ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl9Qj-0000000GVNb-3Zf5;
-	Wed, 28 Jan 2026 17:34:13 +0000
-Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
+	id 1vl9Zp-0000000GW1C-01o8;
+	Wed, 28 Jan 2026 17:43:37 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl9Qh-0000000GVIM-0c5l
+	id 1vl9Zn-0000000GW0p-1pxq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 17:34:12 +0000
-Message-ID: <a10afa70-29b7-48ab-b241-8b0f602abe2f@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1769621633;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3ozQXOHXvtQuF4Vzt0ntyV+NPGSwkEALzq+rw9H3FRc=;
-	b=uY2/PtmTw/9BwPivyf1nZfOzbC8E99t8ADk6GgnTUqPT4lIwNKg2C75dwdIlsJLf40K3N8
-	0BJrqxKHaAZV9d+NovCaCz8zMMVlVOnWArddOz7q6bpfj+ncxX+rhmlDQcpmxGFZ1nG4xi
-	nsSt379RaIKWU4gIZN3fo3zz7630mto=
-Date: Wed, 28 Jan 2026 09:33:44 -0800
+	Wed, 28 Jan 2026 17:43:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769622216; x=1801158216;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=g1jAkOyBexOK0ZIsA6MWbUTp4PeGmeSSzmktzpC4sZg=;
+  b=RWLHydsPC18A6uOgX9ju2XY44+6UFsW0rU/WJpIjFHbknDXHryVzG25y
+   e8zaYISXLB/wNrFcz2xo/HrK7yBXObN57QOaEHZSmgfzchonlbzdcusOw
+   0vQuF41g0PeeLTfRT/VwjxB/UMpDcx/ayXBudV+iR8bLCfJmT7fDUE48H
+   tUlPREG2vY0qAn86e19eXaBjesM+5MMbhi/fDYN08o0Lubdp3Fc46cPHv
+   ZqZ6JO/jAjQIEQp/Bgs1eX/qqR+H/zL9miHoYbsOqt1GacZ6crvyAmLea
+   /XFHnf7WK6n/3I8FS/MuIbYfN4U0Okba4NpOG1yUTU3ldKVJF4W+lzCLW
+   w==;
+X-CSE-ConnectionGUID: EM6wAhEITEmquyKKGBnxaA==
+X-CSE-MsgGUID: qlutJL2lTiKm06IlCOmUIg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11685"; a="96304446"
+X-IronPort-AV: E=Sophos;i="6.21,258,1763452800"; 
+   d="scan'208";a="96304446"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jan 2026 09:43:35 -0800
+X-CSE-ConnectionGUID: lXx90f1VRK+eSlHmKMrAxw==
+X-CSE-MsgGUID: /7RCZ1ZZRD+YePQfVNi8Xw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,258,1763452800"; 
+   d="scan'208";a="231278422"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 28 Jan 2026 09:43:32 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vl9Zg-00000000ae8-3lP1;
+	Wed, 28 Jan 2026 17:43:28 +0000
+Date: Thu, 29 Jan 2026 01:43:05 +0800
+From: kernel test robot <lkp@intel.com>
+To: Gary Yang <gary.yang@cixtech.com>, lee@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
+	peter.chen@cixtech.com
+Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	cix-kernel-upstream@cixtech.com, Gary Yang <gary.yang@cixtech.com>
+Subject: Re: [PATCH v4 2/3] reset: cix: add support for cix sky1 resets
+Message-ID: <202601290142.8FfZLLZk-lkp@intel.com>
+References: <20260128093611.1932770-3-gary.yang@cixtech.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next v2 1/3] bpf: Add bpf_arch_supports_fsession()
-To: Chris Mason <clm@meta.com>, bot+bpf-ci@kernel.org, bpf@vger.kernel.org,
- Alexei Starovoitov <ast@kernel.org>
-Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
- martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
- yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
- sdf@fomichev.me, haoluo@google.com, jolsa@kernel.org, puranjay@kernel.org,
- xukuohai@huaweicloud.com, catalin.marinas@arm.com, will@kernel.org,
- shuah@kernel.org, menglong8.dong@gmail.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, kernel-patches-bot@fb.com,
- martin.lau@kernel.org
-References: <20260128150112.8873-2-leon.hwang@linux.dev>
- <e64c4137e7f262e6fdab272e8ee44c8a129a36eb6d0186914375d6ba20d88474@mail.kernel.org>
- <65231eeb-1f00-4af2-9234-a290ea3f6585@meta.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Ihor Solodrai <ihor.solodrai@linux.dev>
-In-Reply-To: <65231eeb-1f00-4af2-9234-a290ea3f6585@meta.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260128093611.1932770-3-gary.yang@cixtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_093411_329881_F1E9DD03 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20260128_094335_487715_480CAF49 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,36 +90,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/28/26 7:35 AM, Chris Mason wrote:
-> 
-> 
-> On 1/28/26 10:26 AM, bot+bpf-ci@kernel.org wrote:
->>> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
->>> index 5a075e06cf..070ba80e39 100644
->>> --- a/arch/x86/net/bpf_jit_comp.c
->>> +++ b/arch/x86/net/bpf_jit_comp.c
->>> @@ -4112,3 +4112,8 @@ bool bpf_jit_supports_timed_may_goto(void)
->>>  {
->>>  	return true;
->>>  }
->>> +
->>> +bool bpf_jit_supports_fsession(void)
->>        ^^^^^^^^^^^^^^^^^^^^^^^^^^
->> This is the actual function name in the code.
-> 
-> Ihor, I think the script parsing review-inline.txt chopped off the
-> part of the review where AI was complaining about the commit message?
+Hi Gary,
 
-This is the email body pre-processing in KPD, yes.
+kernel test robot noticed the following build warnings:
 
-At some point we decided to remove the commit message before sending
-an email, but now that AI reviews the messages too, I think we should
-just send the generated review-inline.txt as is.
+[auto build test WARNING on robh/for-next]
+[also build test WARNING on lee-leds/for-leds-next linus/master v6.19-rc7 next-20260127]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Alexei, wdyt?
+url:    https://github.com/intel-lab-lkp/linux/commits/Gary-Yang/dt-bindings-reset-add-sky1-reset-controller/20260128-174335
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20260128093611.1932770-3-gary.yang%40cixtech.com
+patch subject: [PATCH v4 2/3] reset: cix: add support for cix sky1 resets
+config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20260129/202601290142.8FfZLLZk-lkp@intel.com/config)
+compiler: alpha-linux-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260129/202601290142.8FfZLLZk-lkp@intel.com/reproduce)
 
-> 
-> [...]
-> 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601290142.8FfZLLZk-lkp@intel.com/
 
+All warnings (new ones prefixed by >>):
+
+>> drivers/reset/reset-sky1.c:322:35: warning: 'sky1_src_config' defined but not used [-Wunused-const-variable=]
+     322 | static const struct regmap_config sky1_src_config[] = {
+         |                                   ^~~~~~~~~~~~~~~
+
+
+vim +/sky1_src_config +322 drivers/reset/reset-sky1.c
+
+   321	
+ > 322	static const struct regmap_config sky1_src_config[] = {
+   323		{
+   324			.reg_bits = 32,
+   325			.val_bits = 32,
+   326			.reg_stride = 4,
+   327			.name = "src",
+   328		},
+   329	};
+   330	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
