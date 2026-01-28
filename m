@@ -4,66 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EE01D25B54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 13:04:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E9F4D25B59
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 13:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U34sK8t9dyQs7r7wOE98lggD9iHAg9/I2hGnLJ+IDVQ=; b=DHC3GVH0cN7tb2fCIRwljz0SVz
-	Vo/lX9bFaWwDFqYcpAeon6qo1wzVD++ngDrIn6tFPNRU1wMCRX7iKTy9HN1YiHFJ+7ODrp1EPoDhX
-	E+RJ7c5sAs8j7fit6SsCbrD9HULgxw85V5bpGP8MrtWQnPwIC5fXhAE9XwUl/l6myB/IaOV+GohsI
-	2vHpLHPqlhmgMqcl8H9986NWQq4J9Iu58iDC56oFVV+eNKsircupZKoKfT6w2c6MelLFRNexSXsyu
-	stY+FXhI2Mrlv3/r6WnV/mkuwXxGXegyp7j8/+l3Pu2p+It1C5sjrfRrvEaDQOJGhC6ZZe3K/Of1c
-	408qgXkA==;
+	bh=PHC9d4iBnP6d8vUklQyXq6MEfYoMZmnRC1t50t/vJiQ=; b=toBCSZqIFiqqnCW68bxdP+/P+U
+	/x2NaZ0ZQOf2i87zc6Yj36eO0Up1UEJDprJ6uZt+n7GdqFnRk8upPHTEc07Jv0f5lv9POpzNgD+pa
+	S9+u0SCPhMHpXJvWzVP+LE1Kjrph5UhsfEVCkPc2ntBrMb/LoOXbmYfQftxMngawUxRwZXLSeBOKp
+	mfUCyDHPSEHsOM2u7ewGbppaOCEKwAquE16Jpw56kvxPyDl8uTQztSTQLSvznE//usPqIhiQEhcj/
+	vkr1zYNbbN8qhLjfn2HJpaIM5nmCZGO2xRW+UA3cA848piYbim7vXbjPsu04ZQaGXRX1YaQ+UEQB9
+	BISyJAWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl5Df-0000000G25T-08I7;
-	Wed, 28 Jan 2026 13:04:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vl5Er-0000000G2D4-1zYT;
+	Wed, 28 Jan 2026 13:05:41 +0000
+Received: from mail-eastusazon11012064.outbound.protection.outlook.com ([52.101.53.64] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl5Dc-0000000G24g-1yN8
+	id 1vl5Ep-0000000G2CP-21uq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 13:04:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD4B5408DE;
-	Wed, 28 Jan 2026 13:04:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5123C4CEF1;
-	Wed, 28 Jan 2026 13:04:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769605463;
-	bh=xE4iu5iJ6zbcF/HPfqdjVHU/BxKxQM4masrNQBgrmsE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kFA5ETdwvJ0U9pyb9idC0lLtra94o6Jh1gMklmr1DJMd2IrIVz/BLzGF9hKz1CAHo
-	 MPufivEwXiyFoxslljmNmMYZKKq2fnX4JY+LlsuNQ59P/Ce4ky4qomb7rwM4x6wlPt
-	 KD1hYpmcS4bmgMJnOP3Pjj3Hq+4HWQesJIDNP753V5ByihljUbBxxp5AUJSXqAN/Q/
-	 +Gisk9UH4Jxm7G/xCVXoG5cgxRP7Uw+rJXzb54A5s/JWfJOGNuKdeuldp/uBjX/UGa
-	 BcCXYLAcPngOozhGonxzxhrQCRJ2/CcH8bcxjA8evYOmJwSQDzYHtQNxTivdetu69T
-	 O282PvT1er2Nw==
-Date: Wed, 28 Jan 2026 13:04:17 +0000
-From: Will Deacon <will@kernel.org>
-To: Jie Zhan <zhanjie9@hisilicon.com>
-Cc: Sumit Gupta <sumitg@nvidia.com>, catalin.marinas@arm.com,
-	zhenglifeng1@huawei.com, viresh.kumar@linaro.org, rafael@kernel.org,
-	beata.michalska@arm.com, pierre.gondois@arm.com,
-	ionela.voinescu@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-tegra@vger.kernel.org, treding@nvidia.com,
-	jonathanh@nvidia.com, bbasu@nvidia.com
-Subject: Re: [PATCH] arm64: topology: Fix false warning in
- counters_read_on_cpu() for same-CPU reads
-Message-ID: <aXoJUYDrhuJgkXEr@willie-the-truck>
-References: <20260127080700.3565546-1-sumitg@nvidia.com>
- <3c6d58b2-b4c9-4dc7-a705-b7626e127f33@hisilicon.com>
-MIME-Version: 1.0
+	Wed, 28 Jan 2026 13:05:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=b1DBhjMefr1cgOUZfZV+bo6FZTcQiXTZazIH/Xi6sy8GT2o4K84LrDn+Z+/l+sIHZyYMvuacVolvasP4cuEm3IhXoKZpC5QbSAx018ZU+I/tS7enSmko6SydHDDuU/EBeP11Jj3exxNGTxmfKCJQwAEglsJUuIYEtkkQqGXzsEszF19nsROijkfu9erGARuvNW+abONL8YVvMaHfKqyDY93iq7oVL7pc395TA6/bY+9tHxT8XIU+FxU4xDggjlqlh12fuzpEWe0V9mAh6fakCRuIqZF3G+pHBsFNpcWu3xoo367tZHPtjOMc0Rf6hexj2NjwZNoQdkQHqX8M0abXrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PHC9d4iBnP6d8vUklQyXq6MEfYoMZmnRC1t50t/vJiQ=;
+ b=p7tJBdQnKK1EA7zwYIkcRdHYIagaJ8IsZ5XgH/4HUpceKvLPBrkUqUYuHEnt0YRLYYVLZb9iCx4Cp37ly4AcjH3XpJJc4zXUqRNlns1CSIonzruUFkbe4qyppmJ7MRdhXo2NiDkeboIC3d2K9iAkmozPdvUokJsoDFrBrIBcBIrusso0crd8h1KRRwruUQhqFJf5Zc5YiU3/TpuEn4SpcWF3Ntdwxk3WBuLO9lxu6+PGXF0jxLzfR+qkmGT1qUvMcGkacajISAOfJZyyW9WGdoS5VbjmVZcAddGoERx8d7X1SCatKwemNhoGypX+30sYZoE1TFi+EP4+ho7zlA5wbg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PHC9d4iBnP6d8vUklQyXq6MEfYoMZmnRC1t50t/vJiQ=;
+ b=pJqsHAjyrHDV5S1zNlCFMwhmTp2eq5JvGvoNlU2OXVK5JDtckFIn99PjVojum0w8S11kQNrVjllf2MCJToNhC6X5QHDwDgjVm1kDbC8DLq/FvGTaeMoFI5hnFiUma/RjWA603mZWMkvSdDvl7XKED/dBqCXgqteRnBBdyM+nbji6D4xww67haWgW4SSJT21KIBnobGb/2WKTDzaBeSH3eb2tC6avSGHpNIwMy1U4CykTGn3l4Lw9aowQGPuTMM5APydTyGFhcBhsq3jHyGmYAvyCvcVZU0NAoXYbFfilrANJRwc4Mef8lPUJUkC1S4at7j+CHHF+J/K7MDx9uRcELA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by CH3PR12MB9123.namprd12.prod.outlook.com (2603:10b6:610:1a4::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.16; Wed, 28 Jan
+ 2026 13:05:21 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9542.015; Wed, 28 Jan 2026
+ 13:05:21 +0000
+Date: Wed, 28 Jan 2026 09:05:20 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: dan.j.williams@intel.com
+Cc: "Tian, Kevin" <kevin.tian@intel.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"praan@google.com" <praan@google.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>
+Subject: Re: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Message-ID: <20260128130520.GV1134360@nvidia.com>
+References: <d1768bb6384050a23769f20ca28216f520f77e26.1768624181.git.nicolinc@nvidia.com>
+ <BL1PR11MB5271F0BDC68C2D7F172122E98C96A@BL1PR11MB5271.namprd11.prod.outlook.com>
+ <20260121100307.00004e60@huawei.com>
+ <20260121130315.GE1134360@nvidia.com>
+ <6971b9406d069_1d33100df@dwillia2-mobl4.notmuch>
+ <20260122131432.GJ1134360@nvidia.com>
+ <69727e7ded712_3095100ab@dwillia2-mobl4.notmuch>
+ <BN9PR11MB527649A0049CA195E7BCF9218C90A@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <20260127150440.GF1134360@nvidia.com>
+ <69795d0366a9_1d33100d3@dwillia2-mobl4.notmuch>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <3c6d58b2-b4c9-4dc7-a705-b7626e127f33@hisilicon.com>
+In-Reply-To: <69795d0366a9_1d33100d3@dwillia2-mobl4.notmuch>
+X-ClientProxiedBy: MN0P223CA0018.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:208:52b::35) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH3PR12MB9123:EE_
+X-MS-Office365-Filtering-Correlation-Id: b0c7e1d4-93d3-4c2a-f824-08de5e6de45f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Q+HsWzlEavd5Nje5RzRLtXPm1ZM6l3P5Jm2Ic8wYhw4zfANx0KS+o1UfZ2kR?=
+ =?us-ascii?Q?LOqWkDjTTUdMwNt5o3nHNytdutQZcl+5/PtTaEtRoxWxR9TfHtvp+UFbcISy?=
+ =?us-ascii?Q?544+qzO8hxjs6PhxSqbIHbZCAf1/lcDk7HjV0RAlOs39RHLJHeYLrlSujPD0?=
+ =?us-ascii?Q?pqbWlMBBuvQTi3CoOc6BfJLp8sGix+CwBO9wO1XW6tfsoeYsxPn8IwB1oXdZ?=
+ =?us-ascii?Q?RRJtNHT5iZJaVu4bndZyDB44hoFP+hKUamUTPLQKutCcwf6hZTqltEgXIyYK?=
+ =?us-ascii?Q?MRC9frg/XcMXmos6DfQKjDDxfl8OiNJ+KqEsePK34MMmIdQNFxlSGgqGQ6sI?=
+ =?us-ascii?Q?FnobDXaFuobHDn8lYTOkPTiTRZRQ4s1k03nLToTMtLrX01maptm7cWUxDsuJ?=
+ =?us-ascii?Q?y9/XtVmmgy+OK/wpeZMF99UhZsJ1x8nRGvE06K1tUS79mQ1g1YFr/h9PyK0P?=
+ =?us-ascii?Q?2QYlt3ciGSdNp8WWPIx8MZ1Hiv2xwApeehYgTKliuMecMdcnQXjtiIttgMv0?=
+ =?us-ascii?Q?jJtjGHz3E8tJecJjBqDXEsJzJ7yCQZM4O3y2x86V5qMffVqsV0Ojy35bCWrl?=
+ =?us-ascii?Q?8j3bmy82Q+cvP1a3Ho2Pj/To9at4rATBUJpDQT0CHRNeZWNBtHkFS3QaXB6i?=
+ =?us-ascii?Q?w0YDnC2uubRbsvH1AP+gwlgHeaelA1A2RVHjJFX4UHih4A2LfsGrRuY4okoc?=
+ =?us-ascii?Q?0hPq1+BqpCb9GQ5yBNCT32nWQaZPRRMMev+MjPdoJjPn6bqA3Rj37bfLtf5H?=
+ =?us-ascii?Q?InxGkxsQ5iS4yZimtowUJUHVIB5hVTwvkUnQdPgYnPVjKxXJG/K1W79gGMxD?=
+ =?us-ascii?Q?IjBJfftrEJeCOC0SnLr9MGmqzYCaCyMiZvq8JtSIuNTwXACChLQOP0CBuf9A?=
+ =?us-ascii?Q?jVPQt/h3ZOUm9cXq0ML0Wn3oXb0Ov21wHygThyXg+9OvNKSbkK3HlgEHHJmH?=
+ =?us-ascii?Q?0KKIkZHMzpprjrG1r3+UARTnWMy9N5PdfXjSYo8OkK7pKnmR5Mr4f1kxW3Ch?=
+ =?us-ascii?Q?o5uoVqnHqV8ygP5YjpdfBduoM+KQl6rmYOUjXqUcSG+l/pX0MqSiquar21h3?=
+ =?us-ascii?Q?wVNE0IkruhKTCAQ4PbHyBjB5dbFyQtlXCpzcCOMLghZqKnC8YfdZ5atF4iPC?=
+ =?us-ascii?Q?wYb3rLaLZg8UgYykeMndQ8o5cmLk0/mlN2kT7SuqcrkRaxOQCYPv+svZWwvS?=
+ =?us-ascii?Q?f9O5kz2CdCfe6hYcYypmsXQMV4aj30VerbmAw0k8xV5bn+y/vmBkERX9OrWq?=
+ =?us-ascii?Q?kXV/K2iqN/uz1RjDaEEu/7NlO6GQaTnUqemK1SR7eIJotNq8KilZr7xpsEgX?=
+ =?us-ascii?Q?mrI5SVMSuBIdInb4YDArSC5CBCX/UFAOBuAe68sN4/Abog1SjTj0h04EwGZb?=
+ =?us-ascii?Q?mMoRzdQqqLKPOspSOPP2Bz279SSPmB2KCx5n0I4Kcxmc96Hqh780Zs4evn7T?=
+ =?us-ascii?Q?dEQt/kfaWKoMh0bgC58KTAc5WQik4r0a9w5T6YQeozWXk4Mu0SOf9Dtn9wVI?=
+ =?us-ascii?Q?XbyKSwPXzTyfuhAfVIlxx4HZFp8hWhymHAaXZify/8EouazcD3y5O6lh1hN4?=
+ =?us-ascii?Q?jGhk/rBSHvJMX5BtwP4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Tkbg5LGrWJwXWfjTakZDZA2L06sxvnzJfoLYYpJWwP+yCnyVkpTocJpb0Q5M?=
+ =?us-ascii?Q?Zh2mzhidvBDh0Sqee2DygaZU4yRA+ZmuFt4QNbjvNBm+jQeBB63FzZjkemXb?=
+ =?us-ascii?Q?mIdyomQAGUAZiDjTckHZBLxGCpK3iNAMW2G+73KSSV4qpK7c83vqpClunJGj?=
+ =?us-ascii?Q?IrGry2O85mFM7v56vqKaF37sFxBVLBdtmQl28BjAt9tWSnKGu591fdqdZVKz?=
+ =?us-ascii?Q?jXVwqqQs2kdfjhig5baP90T2pKOwe+1JwKi/HztL0d+turPJSS4YMNMyP6/y?=
+ =?us-ascii?Q?g6NYq644zToUaB//qbWHCIKUEOXzgOXYX5rZlw9o55flsXFoW1BZCi4qqpVC?=
+ =?us-ascii?Q?kTyYSszdLOUbFPsA7mu0yeS1O/FNZE21lDXs+wiM4PKBpSsJirH2Y8pf+x49?=
+ =?us-ascii?Q?GvESqqHst6WmhxjQkmRSABUft0UBJqnH4cXgNACIU67gThY05GIJeBOzaimn?=
+ =?us-ascii?Q?hy9m5ozHzluxSAK4DNx6I8/YsftsjHF7ghoMjLh/m7X1fis/9lBhloFJAxcE?=
+ =?us-ascii?Q?5RIgTKXfo2jcwyfpjB18p2jMG6R/beyORCHHiT3yZCnemDbtqD5QNrUUgd9x?=
+ =?us-ascii?Q?Et5XyVyVXzgRbjuwK7LLj1ydz6fgTiOnOl2oTDbHR4AZ5+nAtZLtqVD7pLro?=
+ =?us-ascii?Q?hD7RjfPg4Qg0OxLuIy4+QOv/f8q0gcu3UWXBrsnLpNqEqCp0bSn3Kx0/7OwJ?=
+ =?us-ascii?Q?QfexaaxunemjCoYLegOj4bqxtjl5rpPhTxoS8vwuzB95qApgQ5UfWB7vRhrr?=
+ =?us-ascii?Q?5m/VEl4z+7ZezWVyDGVkTERBVRMb9KP//yk5JL54Bj7pYfJNztnLaNA8XQpF?=
+ =?us-ascii?Q?5e9gpRNRTQAaTEvPE+WPLnJhvj2kkZbibZLUh63b8fQ3M8nZbAn4UFGZIF18?=
+ =?us-ascii?Q?S7yuGjUfSIKtgYm/qz+y0P/K6gwXb2WPjNXj01OBTby3NwugI0VacWf+QA6K?=
+ =?us-ascii?Q?iyB5sRJK/568N1pDnP09X75b3nzlqFf+BWC2eK8oboTwBG6tcvjqmnDRl0Md?=
+ =?us-ascii?Q?GDX8OM9ksp+HZeioR8FWD4DGdWtkuSxNnZfHfTMXpX0A7B2bVXhcFV73VlHQ?=
+ =?us-ascii?Q?lEAX3t6LktczfjGZbEU0GPvYL8hk2x1KsqnbChEy1NPQ++AmKx7ylydz2QNs?=
+ =?us-ascii?Q?L7YdrZjRRY5fX6ctDjMk6u8N7enPE76CIRh+JSWNgoyTSef+Kmn9pTai1BYk?=
+ =?us-ascii?Q?8YqL/QKJfQJTyXvMTtQzhftxc/60pIotAz9vLu2k6mwWZY52mYCRvv4qZB67?=
+ =?us-ascii?Q?nTpiTFEAC6rUx5+7mdi5VPVhp7/b6ewe12rRPH+w42febMyDkRxUtnyUOQc3?=
+ =?us-ascii?Q?fpiBYAqDntAR/R0Ie1nPx6umKua+EWLJdMzFZwMue1b97TKF4mBLqx5/w6Qg?=
+ =?us-ascii?Q?0eDpUkrEM1D/jAiHon0t9uaA5D/Qv9Dfba5rbyZrpPYMpjJGJxvmlbWNnzgk?=
+ =?us-ascii?Q?U3puCEpoSw+6zrRlOYQnKSa/J0fl1a3C4ScM9rJHLBHqFRPjLk6JOhJalou3?=
+ =?us-ascii?Q?+S8chv/2UFWXu7bGxRwi5l1c5DkXdTtnX2dxAHclyQPUYOXVG/mAoD21DOsJ?=
+ =?us-ascii?Q?Sg32yyBAKfWWjqNk6IOUPBfziPCn0HuzqcDK5dLiNM2TNf6g3sXsvneb6rqo?=
+ =?us-ascii?Q?NeVFeR0YChQ8+nv74lKdQLn5lMpZKY/5EeV2pIoVkbB/HheQPS8BT+165rvP?=
+ =?us-ascii?Q?FonH9uPSnp830LpGCM5X6d7WM/dH8gtr61pw4LKNDz3LuDD9TZx0X6MI6gY8?=
+ =?us-ascii?Q?PB0jvf1miA=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b0c7e1d4-93d3-4c2a-f824-08de5e6de45f
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2026 13:05:21.1673
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0l3+LA6ihcPiSbObOybc+bz7IZA8fgZD/wVvBs8MsdiSZVyl5YzxrLR51uxdkO/V
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9123
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_050424_548035_1F5D0812 
-X-CRM114-Status: GOOD (  20.82  )
+X-CRM114-CacheID: sfid-20260128_050539_522691_6F5738A3 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,65 +184,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 06:50:42PM +0800, Jie Zhan wrote:
-> On 1/27/2026 4:07 PM, Sumit Gupta wrote:
-> > The counters_read_on_cpu() function warns when called with IRQs disabled
-> > to prevent deadlock in smp_call_function_single(). However, this warning
-> > is spurious when reading counters on the current CPU since no IPI is
-> > needed for same-CPU reads.
-> > 
-> > Commit 12eb8f4fff24 ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks
-> > for non-PCC regs") changed the CPPC Frequency Invariance Engine to read
-> > AMU counters directly from the scheduler tick for non-PCC register
-> > spaces (like FFH), instead of deferring to a kthread. This means
-> > counters_read_on_cpu() is now called with IRQs disabled from the tick
-> > handler, triggering the warning:
-> > 
-> > | WARNING: arch/arm64/kernel/topology.c:410 at counters_read_on_cpu
-> > | ...
-> > | Call trace:
-> > |  counters_read_on_cpu+0x88/0xa8 (P)
-> > |  cpc_read_ffh+0xdc/0x148
-> > |  cpc_read+0x260/0x518
-> > |  cppc_get_perf_ctrs+0xf0/0x398
-> > |  __cppc_scale_freq_tick+0x4c/0x148 [cppc_cpufreq]
-> > |  cppc_scale_freq_tick+0x44/0x88 [cppc_cpufreq]
-> > |  topology_scale_freq_tick+0x34/0x58
-> > |  sched_tick+0x58/0x300
-> > |  update_process_times+0xcc/0x120
-> > |  tick_nohz_handler+0xa8/0x260
-> > |  __hrtimer_run_queues+0x154/0x360
-> > |  hrtimer_interrupt+0xf4/0x2b0
-> > |  arch_timer_handler_phys+0x4c/0x78
-> > |  ....
-> > |  CPPC Cpufreq:__cppc_scale_freq_tick: failed to read perf counters
-> > |  ....
-> > 
-> > Fix this by calling the counter read function directly for same-CPU
-> > case, bypassing smp_call_function_single() entirely. Use get_cpu() to
-> > disable preemption as the counter read functions call this_cpu_has_cap()
-> > which requires a non-preemptible context.
-> > 
-> > Fixes: 12eb8f4fff24 ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks for non-PCC regs")
-> > Signed-off-by: Sumit Gupta <sumitg@nvidia.com>
+On Tue, Jan 27, 2026 at 04:49:07PM -0800, dan.j.williams@intel.com wrote:
+> > Yes, ARM took the position that ATS should be left disabled for
+> > IDENTITY both because of SMMU constraints and also because it made
+> > some sense that you wouldn't want ATS overhead just to get a 1:1
+> > translation.
 > 
-> Reviewed-by: Jie Zhan <zhanjie9@hisilicon.com>
-> 
-> Looks fine for me except for the minor comment wrapping.
-> 
-> Thanks for spotting this.
-> I may have missed the warning log in the FFH test.
-> 
-> This happens during the short window in cpufreq_policy_online() between
-> driver->init() and the CREATE_POLICY notifier that gets AMU FIE ready.
-> After that, CPPC FIE will be stopped.
-> 
-> Ideally this can be merged together with Viresh's PR since the CPPC FIE
-> changes are there.
-> https://lore.kernel.org/all/j4qdid7iqmng4gzb5ozefemjkep3wx2b5z2yki5tnqc3vzvzf4@kvrnarvdod5p/
+> Does this mean that ARM already today does not enable ATS until driver
+> attach, or is incremental work needed for that capability?
 
-Right, looks like this should go via Rafael but if it doesn't make the merge
-window then I can pick it up at -rc1 (please remind me :)
+All of the iommu drivers setup an iommu translation and enable ATS
+before any driver is bound.
 
-Will
+We would need to do more work in the core to leave the translation
+blocked when there is no driver. I don't think it is that difficult
+
+> > Drivers need to ensure that ATS is disabled at PCI and Translated
+> > requestes blocked in IOMMU HW while a BLOCKED domain is attached.
+> 
+> "Drivers" here meaning IOMMU drivers, right?
+
+Yes
+
+Jason
 
