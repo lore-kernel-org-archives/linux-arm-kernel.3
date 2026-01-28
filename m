@@ -4,89 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B859D46C04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 21:23:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8989ED46C08
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 21:41:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZMLVQkjt0m3jqSNYOC481vG6R4cAFLtNHdlE/5eHfzg=; b=csdfJUh94b+ylGoDSfP44dISDV
-	gyAzHxwCgkoWKFQeb+tXfYnZw6zq2eOqfkL664gxyGOZaLaUsieJ1ImiZPjxnnWONz81yN1uUMXr7
-	0SHAqGAYiOWPiKG+uxpgDvUwOLogbB+8w/5iCB2n57uWEvhS/LTsv/dG87M7a5N7zXYvk6azNmIYF
-	zk33S5+ANt6NtZOkH3DLO8AIFurT2FuOh/vRbGkVQwMVfyeQrh1aPZDxfgfe2slHlArCu5ieHT69q
-	LsJxaISPhEjfYTjjmLvcQANu8pwz7hneouBz07BFFsVTbhAEmfd3B2+Ta6mpRwPUEBkS842vX7Ixk
-	2rRDMECA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cDIB0vB7AhOs2BLhO1BR5gGspK/qucCwKMUy1zrKhRM=; b=XGqxP84oYQ2nG4WFIwWKEXIljW
+	X87USLCLSxVxv53GYFNn3eFjNEIASwM9LN+qyMPQLNaNDHf76ZjZQgwGJYeeTcBtvoq6zHNWCOx1Z
+	/rprduIH13LYGaxKgpM/F0Du6zt0+aJg5JBeydJOQeIIlDoSKAQx6QnDYVU/mh73yTztv63YlcZPV
+	ONHOyHXQ6NYM9j7SfSfAoYFcQuZGyBJMlJnC0ULiKwxYD0LJOCZdlEcZlo4StqEKFnEKk8ReEdjfY
+	efdZhzir5sj1sG5Bw43LYWICpiFqPbA2j+t9KzkpByJcw0MVPobY0Z0QbnghQ51ojpJtGLT+oENdc
+	sRnJKkLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlD0F-0000000GqGP-2jk9;
-	Wed, 28 Jan 2026 21:23:09 +0000
-Received: from mail-dy1-f202.google.com ([74.125.82.202])
+	id 1vlDIK-0000000GqqE-3JH5;
+	Wed, 28 Jan 2026 21:41:48 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlD0A-0000000GqFB-1VAs
+	id 1vlDII-0000000Gqpn-0E4v
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 21:23:03 +0000
-Received: by mail-dy1-f202.google.com with SMTP id 5a478bee46e88-2b6b9c1249fso525885eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 13:23:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769635381; x=1770240181; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZMLVQkjt0m3jqSNYOC481vG6R4cAFLtNHdlE/5eHfzg=;
-        b=Zv7/DJiQHOyMqxIS18N+0KOJdT288+lsziLXX6U8ogPNDfyiU9xHchZgG1hLTuxYD9
-         yFMs7qV8pafGSnsawf3qPSqVJa2XVMhY6bSs5FHqtICCOf1COHqMq2lzoaW6r1X/TkYN
-         U2M5ftIuvmzHvpD7ut/6fLdrn9Z8bBmC7JO1B727JJ44gwwMFX6AmVCqhJgcX/Z39cq8
-         hpbuHi3PebToP756YWCrWkLFxVyYIgr0gr+XB9WEf7Y5SehTIoKeoIuTsDz3tHkqAQqw
-         TVw60Iqa1NKWC4FjUGwzmX3wCM4ygj9iinRalp0/LSrRYC+rSYPRWZe6TZSQ7OryD1dp
-         caqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769635381; x=1770240181;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZMLVQkjt0m3jqSNYOC481vG6R4cAFLtNHdlE/5eHfzg=;
-        b=PdAmjWVb381FbqBqyNHQmjC7Al4HkfYO951q6L/xbsG/zC3kYFZpr+Sjvq29jvwAQR
-         ofVVIaQxXX4wkXkQJTPtXuK8N1FwOdECOtzhdqbfhwpWoBWE3WqM20pIPP86krTg/CwL
-         OnAwqZCF5FlBiLep9cKhgqj2pvy/pTWWh2cfmKogt5gTnzb/KHBAGRFojSTScytl68pk
-         aAGoLzaN1HPHaah550Ya9muSvbaPxiOysEGvzd1lEC/uHxSH4ztMmZ79H29wl4T3zlND
-         rjNH2jZdj7+8qWq6dPcyy6ovjCQuwSZXH7RCsGnbN7Mvo/ReKtLkXgZ65Wj9OS0mLH+U
-         jLgw==
-X-Forwarded-Encrypted: i=1; AJvYcCWwYVkNHFIHS04w0wgSzMgXWg98gIsKtuiOZICFQv5hrxRpPQOmbJeec7ziHL0QYVfKnjUj3awHGdRCwCVokLTL@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVeQjsj3ee1+OdZMJynpD+XRRrZcMhwMQyiAtV7iHu8jcvRxAP
-	VGrebt+nyXDSJeFJjhFhIl16+JS22IHoOqSqA+cB3ddanyiEo4lpzBcpL+dKQu+u9D0BHPRoy9k
-	yaEDDWg==
-X-Received: from dlbqk7.prod.google.com ([2002:a05:7022:ec87:b0:121:ac3c:21fe])
- (user=royluo job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:aa6:b0:11c:b3ae:c9f1
- with SMTP id a92af1059eb24-124a005f29amr4013133c88.1.1769635380815; Wed, 28
- Jan 2026 13:23:00 -0800 (PST)
-Date: Wed, 28 Jan 2026 21:22:53 +0000
-Mime-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIACx+emkC/1WMQQrDIBBFrxJmXYsjIWhXvUfJItqJGWhj0SAJw
- bvXuuvy/f94JySKTAlu3QmRMicOawV16cAt0+pJ8LMyKKkGiQrFSvsmrOkNauMmN/dQ1U+kmfe WecDPgLGuC6ctxKO1M7bvP5NRoHCo5aCtNGjN3YfgX3R14Q1jKeULh6SdiZ8AAAA=
-X-Change-Id: 20260121-next-b949189cacf4
-X-Developer-Key: i=royluo@google.com; a=ed25519; pk=nTq1n8WcJActRWe1s8jdcy+TzpTK4a+IYRCIWvQfq5k=
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769635379; l=1872;
- i=royluo@google.com; s=20251120; h=from:subject:message-id;
- bh=8xH4IQmMfR9c9jcVFAJY2hsd6wxCeTQFe70KrSkvl+w=; b=LZ5VqZJrkv+XgN3hBBFqILY3EJnoB9fW4PusyWmGQVIp0/q5vbTOUH82B9ql04LuwDe4v9Sfr
- hqIIifUwbBTCo0pHZN66s5GMKXPbUPuJGfJQ1GE5BfQ1kbV3gD3zeya
-X-Mailer: b4 0.14.2
-Message-ID: <20260128-next-v2-1-624bdae8e6d0@google.com>
-Subject: [PATCH next v2] phy: google: fix build dependency for Google Tensor
- USB PHY
-From: Roy Luo <royluo@google.com>
-To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, 
-	"=?utf-8?q?Andr=C3=A9_Draszik?=" <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
-Cc: linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	kernel test robot <lkp@intel.com>, Roy Luo <royluo@google.com>
-Content-Type: text/plain; charset="utf-8"
+	Wed, 28 Jan 2026 21:41:47 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4f1bM53WPdz9tcL;
+	Wed, 28 Jan 2026 22:41:37 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1769636497;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cDIB0vB7AhOs2BLhO1BR5gGspK/qucCwKMUy1zrKhRM=;
+	b=JLCusINLF0xMJU0r42tPdKk3vsQCkFdrzletJCjCw88aVglZm7fCelyDbJNyWwSXm0xmiU
+	N7vtrt+wh7EV1bAGip9RrOtpBdUNXHmya3efrhFTZnGAPq92HUOOD4mM4m+J+LdF3WaYb+
+	NwlNoYrsTArjSvA9IqjoETarX9+XIixExQsxfJ9UMrCHckrs1h4i/8BhSvUxyvu/7C/b7v
+	734N5c4nm6ZexUE0JXKjKzPwL7TS4TwMGk7XTZ8BTTmf3RETmpf027xO+Jm8aR6J2KcOJr
+	7OnXoa+72psSiZ2mEroGSjuCxAI/eJDooclLpOehAj5jIqYfmmQeD6UGeZ6u0g==
+Date: Wed, 28 Jan 2026 22:41:25 +0100
+From: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukasz.majewski@mailbox.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: festevam@gmail.com, linux-arm-kernel@lists.infradead.org,
+ s.hauer@pengutronix.de, kernel@pengutronix.de, horms@kernel.org,
+ shawnguo@kernel.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+ conor+dt@kernel.org, devicetree@vger.kernel.org, wahrenst@gmx.net,
+ pabeni@redhat.com, davem@davemloft.net, netdev@vger.kernel.org,
+ richardcochran@gmail.com, edumazet@google.com, andrew+netdev@lunn.ch,
+ robh@kernel.org, krzk+dt@kernel.org, andrew@lunn.ch
+Subject: Re: [net-next,v20,2/7] net: mtip: The L2 switch driver for imx287
+Message-ID: <20260128224125.246bcf41@wsk>
+In-Reply-To: <20260128022549.4151341-1-kuba@kernel.org>
+References: <20260126103400.1683125-3-lukasz.majewski@mailbox.org>
+	<20260128022549.4151341-1-kuba@kernel.org>
+Organization: mailbox.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
+X-MBO-RS-ID: aaf4d6ce372ae19696f
+X-MBO-RS-META: obpg57tttc6kknksryg9wmtuwgikhh91
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_132302_400228_888CB429 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20260128_134146_247847_473A2071 
+X-CRM114-Status: GOOD (  31.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,55 +83,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Google Tensor USB PHY driver uses the Type-C switch framework to
-handle orientation changes. However, the Kconfig did not specify a
-dependency on the TYPEC framework, leading to undefined reference
-errors when building for architectures or configurations where
-CONFIG_TYPEC is configured as a module while CONFIG_PHY_GOOGLE_USB
-is configured as built-in.
+Hi Jakub,
 
-Add 'depends on TYPEC' to the PHY_GOOGLE_USB entry to ensure all
-required symbols are available during linking, and 'COMPILE_TEST'
-to expand test coverage.
+> This is an AI-generated review
 
-Fixes: cbce66669c82 ("phy: Add Google Tensor SoC USB PHY driver")
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202601210825.ELrpQeED-lkp@int=
-el.com/
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
-Signed-off-by: Roy Luo <royluo@google.com>
----
-Changes in v2:
-- Add '(TYPEC=3Dn && COMPILE_TEST)' to build dependency to expand test
-  coverage as suggested by Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-- Keep Peter's Reviewed-by tag because the change suggested by Andr=C3=A9
-  is a trivial improvement.
-- Link to v1: https://lore.kernel.org/r/20260121-next-v1-1-c18068b091b9@goo=
-gle.com
----
- drivers/phy/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+AI is going to take the "Maintainer's" job :D
 
-diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-index 142e7b0ef2efb9209781800ee47b820a91b115ae..29953c911deda5fd3c43aef6da2=
-8d96954a22f8d 100644
---- a/drivers/phy/Kconfig
-+++ b/drivers/phy/Kconfig
-@@ -49,6 +49,7 @@ config GENERIC_PHY_MIPI_DPHY
-=20
- config PHY_GOOGLE_USB
- 	tristate "Google Tensor SoC USB PHY driver"
-+	depends on TYPEC || (TYPEC=3Dn && COMPILE_TEST)
- 	select GENERIC_PHY
- 	help
- 	  Enable support for the USB PHY on Google Tensor SoCs, starting with
+> of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
+>=20
+> For local reproduction steps see
+> https://netdev-ai.bots.linux.dev/ai-local.html ---
+> net: mtip: The L2 switch driver for imx287
+>=20
+> This patch adds support for the More Than IP L2 switch embedded in the
+> imx287 SoC. It creates a two-port switch driver that can be used
+> interchangeably with the FEC driver.
+>=20
+> > diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+> > b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c new file mode
+> > 100644 index 000000000000..03c5163d6508
+> > --- /dev/null
+> > +++ b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c =20
+>=20
+> [ ... ]
+>=20
+> > +static void mtip_netif_stop_queues(struct switch_enet_private *fep)
+> > +{
+> > +	for (int i =3D 0; i < SWITCH_EPORT_NUMBER; i++)
+> > +		netif_stop_queue(fep->ndev[0]); =20
+>                                       ^^^
+>=20
+> Should this be fep->ndev[i] instead of fep->ndev[0]? The loop iterates
+> with variable i but always uses index 0, so port 1's queue is never
+> stopped.
 
----
-base-commit: 8bb92fd7a04077925c8330f46a6ab44c80ca59f4
-change-id: 20260121-next-b949189cacf4
+Ech.... I will fix it.
 
-Best regards,
+>=20
+> > +}
+> > +
+> > +static void mtip_netif_wake_queues(struct switch_enet_private *fep)
+> > +{
+> > +	for (int i =3D 0; i < SWITCH_EPORT_NUMBER; i++)
+> > +		netif_wake_queue(fep->ndev[0]); =20
+>                                       ^^^
+>=20
+> Same here - should this be fep->ndev[i]?
+>=20
+
+The same here.
+
+> > +} =20
+>=20
+> [ ... ]
+>=20
+> > +static int mtip_mii_probe(struct net_device *dev)
+> > +{
+> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > +	struct switch_enet_private *fep =3D priv->fep;
+> > +	struct phy_device *phy_dev =3D NULL;
+> > +	int port_idx =3D priv->portnum - 1;
+> > +
+> > +	if (fep->phy_np[port_idx]) {
+> > +		phy_dev =3D of_phy_connect(dev,
+> > fep->phy_np[port_idx],
+> > +					 &mtip_adjust_link, 0,
+> > +
+> > fep->phy_interface[port_idx]);
+> > +		if (!phy_dev) {
+> > +			netdev_err(dev, "Unable to connect to
+> > phy\n");
+> > +			return -ENODEV;
+> > +		}
+> > +	}
+> > +
+> > +	phy_set_max_speed(phy_dev, 100); =20
+>                           ^^^^^^^
+>=20
+> If fep->phy_np[port_idx] is NULL (no phy-handle in DT for this port),
+> the if block is skipped and phy_dev remains NULL. Can this cause a
+> NULL pointer dereference in phy_set_max_speed()?
+
+No. The mtip_mii_probe() is only called in mtip_open(), which is called
+only when netdevice's DT node is correctly parsed in the
+mtip_sw_probe().
+
+>=20
+> > +	fep->phy_dev[port_idx] =3D phy_dev; =20
+>=20
+> [ ... ]
+>=20
+> > +static int mtip_parse_of(struct switch_enet_private *fep,
+> > +			 struct device_node *np)
+> > +{
+> > +	struct device_node *p;
+> > +	unsigned int port_num;
+> > +	int ret =3D 0;
+> > +
+> > +	p =3D of_get_child_by_name(np, "ethernet-ports");
+> > +
+> > +	for_each_available_child_of_node_scoped(p, port) {
+> > +		if (of_property_read_u32(port, "reg", &port_num))
+> > +			continue;
+> > +
+> > +		if (port_num > SWITCH_EPORT_NUMBER) { =20
+>                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>=20
+> This only validates the upper bound. If the device tree contains
+> reg =3D <0>, would fep->mac[port_num - 1] access fep->mac[-1]? Perhaps
+> the check should also verify port_num is at least 1?
+>=20
+
+In the:
+./Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+
+one can have only ethernet-ports set to [12].
+
+In the current tree - some switches start numbering from 0, other from
+1.
+
+I would opt for keeping things as they are now...
+
+> > +			dev_err(&fep->pdev->dev,
+> > +				"%s: The switch supports up to %d
+> > ports!\n",
+> > +				__func__, SWITCH_EPORT_NUMBER);
+> > +			goto of_get_err;
+> > +		}
+> > +
+> > +		fep->n_ports =3D port_num;
+> > +		ret =3D of_get_mac_address(port, &fep->mac[port_num
+> > - 1][0]); =20
+>=20
+> [ ... ]
+>=20
+> > +	ret =3D mtip_mii_init(fep, pdev);
+> > +	if (ret) {
+> > +		dev_err(&pdev->dev, "%s: Cannot init phy bus
+> > (%d)!\n", __func__,
+> > +			ret);
+> > +		goto dma_free_coherent_memory;
+> > +	}
+> > +
+> > +	ret =3D mtip_ndev_init(fep, pdev);
+> > +	if (ret) {
+> > +		dev_err(&pdev->dev, "%s: Failed to create virtual
+> > ndev (%d)\n",
+> > +			__func__, ret);
+> > +		goto mdiobus_free_memory;
+> > +	} =20
+>=20
+> [ ... ]
+>=20
+> > + mdiobus_free_memory:
+> > +	mdiobus_free(fep->mii_bus); =20
+>=20
+> mtip_mii_init() calls of_mdiobus_register() which registers the bus.
+> Should mdiobus_unregister() be called here before mdiobus_free()?
+> Compare with mtip_mii_remove() which does call mdiobus_unregister().
+>=20
+
++1
+
+The mdiobus_unregister() is missing.
+
+I will add it.
+
+> > + dma_free_coherent_memory:
+> > +	dma_free_coherent(&fep->pdev->dev, PAGE_SIZE,
+> > fep->rx_bd_base,
+> > +			  fep->bd_dma);
+> > +	fep->rx_bd_base =3D NULL;
+> > +	fep->tx_bd_base =3D NULL;
+> > +
+> > +	return ret;
+> > +}
+> > +
+> > +static void mtip_sw_remove(struct platform_device *pdev)
+> > +{
+> > +	struct switch_enet_private *fep =3D
+> > platform_get_drvdata(pdev); +
+> > +	mtip_ndev_cleanup(fep);
+> > +
+> > +	mtip_mii_remove(fep);
+> > +
+> > +	timer_delete_sync(&fep->timer_mgnt);
+> > +	platform_set_drvdata(pdev, NULL);
+> > +} =20
+>=20
+> mtip_sw_probe() allocates DMA memory with dma_alloc_coherent() in
+> mtip_switch_dma_init(), but mtip_sw_remove() does not appear to free
+> it. Is this a memory leak on driver removal?
+
+Yes. The dma_free_coherent() is missing.
+
+I will add it for v21.
+
 --=20
-Roy Luo <royluo@google.com>
+Best regards,
 
+=C5=81ukasz Majewski
 
