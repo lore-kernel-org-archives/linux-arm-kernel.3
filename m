@@ -4,57 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B4E1D3F074
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 15:20:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05A02D3F07A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 15:22:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oh7ZPhsMfLZpyfWAhrjwlzweoNrg4ytkjCHodc1OMBo=; b=O4pm2MdCkb4ovBL4qzf1iL3mzg
-	aN0G1T6fvZQSovoLCNUXtzjoK/rDKvI3TyT4KyZ7s8kOrcoUmumQ/hHAlHMzbGYw/ts5pUaSFYzk0
-	aXEyIPzcv5VwX+qstq6vFkbYUf4KXF1n+tQKneC3zugZlz/KIv4myEozmwCAkAki36Qrk/DfbL5Ou
-	RdwLCQRyjSLEIPnbf2ZJO7Q5cNIcXFWkCcxX5XjEfj0czVQcMkNHxYxa68c9jSI0dimorIn2Ij8xo
-	syQaR+64orlPjt4TESic+wJWK6FTNl9cRg2x5gX2dUn5nPECRzwuEwYROnaKds0Oxs3tGeQDDHOTw
-	2vz0iHWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2w9sBWk8JNeGdOm1HJr2J+OoTFrNt1DP2d5ft9PGrns=; b=i5CKDdnlbkqp0cvx5gRUQOa5eB
+	csbJEZAaSjox+O0ddzVf5Bznz6d402LlRiBv/N+4iGhxvgNOg8m0H9FQY6aC4bLVPaVePgERfvG42
+	68Zk536prpxE9hAu+Q7iyTS+m2BbFLWrBNrEh6t37RlQtH6xrzu6B29bilsWt2UKyJQJ7mdLAsTTS
+	KGLGNeX2w74szXF7yw19u47tny3nDM4UKLj8PxMBZN/Vt0gk22SoADjT/5TUZSDb+rCnzcdelYsTY
+	JcQ8+g768ov9qmQ6BI/2kDzBcy2siqu8V/tCvm3LON05YnCy4UVBr9NR8w0tAo1I8LDVT21MQld9W
+	d9zO+FJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl7L5-0000000GGIX-0JlT;
-	Wed, 28 Jan 2026 15:20:15 +0000
+	id 1vl7Mh-0000000GGf1-2Stu;
+	Wed, 28 Jan 2026 15:21:55 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl7L3-0000000GGHf-2SOD
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 15:20:13 +0000
+	id 1vl7Mg-0000000GGeq-0pNW;
+	Wed, 28 Jan 2026 15:21:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A80116001A;
-	Wed, 28 Jan 2026 15:20:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5CEDC4CEF7;
-	Wed, 28 Jan 2026 15:20:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9DE4C60007;
+	Wed, 28 Jan 2026 15:21:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 207F9C4CEF1;
+	Wed, 28 Jan 2026 15:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769613612;
-	bh=n5r/uUVLuNiFYvHFPNXrYj+DESSqzslGS1XqaqDCoPM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=uOQNpUVNNZKRvk1Pa2JvusSosDc32YrYzAu/YhJ8p+K+OI3Syeltdx44Uy9qxKwVz
-	 9d/6xiGIB0yKhdMW1zl3mhlrbUc7U9aTIsrGYsdF5ruEXH6qSzPun8viohS5PPrQUo
-	 PY0T9xNmTkcZuWWIe3i8WLGXFdsnMcLNkbRYu3uY3B2w2ieIwchOnYXCDfV9Fhph9V
-	 WzbCZyLnB4RwQSTlWCmE8VXr4rjKa0YqX5+QoQ97nc4srmNH0ImOK3h5Vq1LZD72tZ
-	 fzsmTVj7UbGIbmcBQ2ehpHTzNK703f5sn1dnV3bNnAZwzaGKN1XJdICFhFy/TMjtcu
-	 YqaYzsy//JyOQ==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Christian Marangi <ansuelsmth@gmail.com>
-Subject: [GIT PULL] Qualcomm driver fix for v6.19
-Date: Wed, 28 Jan 2026 09:20:10 -0600
-Message-ID: <20260128152011.2091082-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.52.0
+	s=k20201202; t=1769613713;
+	bh=2Zsk/TGT8bvlH30c7bRKqZGLnaPYjVqj8G+Sc2lAWs4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kCZyoRxWNUIsCCMvdJMuVqsPnyFOgo0Dz+j9bCO81IaGAqfmRP6E44MZtGOE54wz7
+	 PYx/pXKywHFPviblAtG93DMrCus/kadmva8+7KlzrBbCnVugfC95tzvjP1XLdnjdNo
+	 E4XMqICu81Fu2hY1rtmKhAS3QCrzhAJGyyugx9J5C/JSGH0ADLPXBE/KVG/uV5YTl6
+	 yO6QwXUNHnZyT46k6AX7ObD35jhWtv+zhUSaZd5hMDCJRv7CNxVrjaVHvn99fkWG2o
+	 siuie3dlrJ8w9/LWTb4cl+uv6CGAxeZF53EjoS/iAnFEAJ414Is2wq56qfF5GdvhTV
+	 78gZ/GgLBYN2w==
+Date: Wed, 28 Jan 2026 15:21:47 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Yassine Oudjana <y.oudjana@protonmail.com>,
+	Laura Nao <laura.nao@collabora.com>,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
+	kernel@collabora.com, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v3 1/5] clk: Respect CLK_OPS_PARENT_ENABLE during recalc
+Message-ID: <9ed19fb1-258f-44c4-b816-73c0d7d28a6e@sirena.org.uk>
+References: <20251010-mtk-pll-rpm-v3-0-fb1bd15d734a@collabora.com>
+ <6678782.DvuYhMxLoT@workhorse>
+ <daa1906b-a112-4158-aec2-ad1d29b4fe35@sirena.org.uk>
+ <5050249.GXAFRqVoOG@steina-w>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Md653eiPAQTQmKBd"
+Content-Disposition: inline
+In-Reply-To: <5050249.GXAFRqVoOG@steina-w>
+X-Cookie: I brake for chezlogs!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,31 +84,37 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
+--Md653eiPAQTQmKBd
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+On Wed, Jan 28, 2026 at 03:55:54PM +0100, Alexander Stein wrote:
 
-are available in the Git repository at:
+> This is for TQMa8MPxL/MBa8MPxL:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-fixes-for-6.19
+> [    1.452788] __clk_core_init: enabling parent audio_pll1_out for clkout1_sel
+> [    1.457677] __clk_core_init: disabling parent audio_pll1_out for clkout1_sel
+> [    1.464270] __clk_core_init: enabling parent audio_pll1_out for clkout2_sel
+> [    1.471760] __clk_core_init: disabling parent audio_pll1_out for clkout2_sel
+> [    1.478360] __clk_core_init: enabling parent sys_pll2_500m for arm_a53_div
+> [    1.485259] __clk_core_init: disabling parent sys_pll2_500m for arm_a53_div
 
-for you to fetch changes up to f2090ebdb59d0546cbd7b55d9dd63a77133efc03:
+As expected same result on i.MX8MP-EVK.
 
-  soc: qcom: smem: fix qcom_smem_is_available and check if __smem is valid (2026-01-28 09:10:53 -0600)
+--Md653eiPAQTQmKBd
+Content-Type: application/pgp-signature; name="signature.asc"
 
-----------------------------------------------------------------
-Qualcomm driver fix for v6.19
+-----BEGIN PGP SIGNATURE-----
 
-The changes to the logic in the Qualcomm SMEM driver for separating
-"failed to probe" from "not yet probed", did not change the
-qcom_smem_is_available() function, with the result that clients sees
-SMEM as always available. Clients might then proceed to interact with
-SMEM in codepaths that aren't suited to cope with -EPROBE_DEFER.
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAml6KYoACgkQJNaLcl1U
+h9BdDAf+LJ1ulqGfbkvZOnVZ4oTowdg5gj2J/KhpHUh8wswREs3lsK+zE2HYPJqD
+xzLz9colzYFWtcunlROoy6O4ypwx1NUnXp/zjQ7+cCwyOWVUpdbnHA6e/MPoEgVw
+6ZtqmrqFRP8g8UagGfHwCaZ3PYpq5U5fXCCeh7COP3t16QxETZ7GpjQbJ1vSDtQD
+zxvr7MIYQ4qcYNcQuFCruyRzm6JexqF36jElGYOzkePJbpQDyEAv1lJc9EhDPszb
+Om/NNCgD3RbHcGlmRNhc2vG3HfR/5EY7rx+NrcMeoY5V07n0ZN+SgUDd5NdI+bw4
+BDl9pXjpcl8S+/VV6CBMuiIKSj1qYA==
+=YfRa
+-----END PGP SIGNATURE-----
 
-----------------------------------------------------------------
-Christian Marangi (1):
-      soc: qcom: smem: fix qcom_smem_is_available and check if __smem is valid
-
- drivers/soc/qcom/smem.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+--Md653eiPAQTQmKBd--
 
