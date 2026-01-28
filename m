@@ -4,109 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F01ABD35690
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 08:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0035D35692
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 08:45:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B66d3ujh7h0A/WS6d2XbPk4tiEtVkdJvMPjnQVBm9iU=; b=AUo+tsSE9CG0znESObUTZHTnBF
-	Fj8qA2sVi80TI6WkjVj0wddFnYZkZli7Z7Tt4z825txbzRH7vCyJzkMFtLu7gZsmjBYfJGu8fwJCm
-	KwQ/yFhhjTk9opSGEQlHpDMHT2Eg7FCbsu7MUKYBvfkR5O/LcWiZCcjIFFoA9kBkmMm0dQSZYwB4B
-	KQpweqjbbjP39KQ5yd/Hh/GebKcKoNFofy+S2dGnjYIvkgwujYnl8Yl/ngN5ijabKU+Phe0cfieUN
-	7QE2eWru8fJyt+Ha5vPmFK+GkObhqk/gVTRS5WXALEDI0kdhl7n9m5BojipujwCJ5jcudNDNzN2kP
-	md2gBKFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yzZ5aaJur2cGbo3tv1Z3AlCZuGpqhSu9RlDH7L/IIPI=; b=mNoQMw/057S4JLIfVUoLh2p6TK
+	8sg5bme17ETNv6HkTImIA+zT1hQBOXqIEGR+3dUnN/wkQ+OUb0+CYLxM5S8FP5rgJYouTiDL9YA0c
+	sG8rzvnINkGRYf1xPOCaNJgOc0wfzrG5vwH3ojfGAObcclAY/wQVyyR3AyVlpYu9v+mqH5ZQKMgdi
+	+mpSN386k2weNgGxuUmM5XfWWF5PP/tCldQOHDbLSB33awFoN+4ENoD7OpujIqxs7sPuGY7JBmiH8
+	KRBgJqvC8KULkD80X8Ivu7TUj0mAuEeyl0mywHUTUbiugVB6benInnqxFskvNVqTA7vmhMT3nPf65
+	somvVGDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl15N-0000000Fg5c-17SQ;
-	Wed, 28 Jan 2026 08:39:37 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1vl1Am-0000000FgUs-1oZS;
+	Wed, 28 Jan 2026 08:45:15 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl15K-0000000Fg5D-2bRI
+	id 1vl1Ah-0000000FgUK-43UW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 08:39:35 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-432da746749so3637306f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 00:39:34 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769589573; cv=none;
-        d=google.com; s=arc-20240605;
-        b=FmKvSgkN5AMQwqZ1pOglt+Qst93KAgrqwa/YUtsv7BXpxhWphvBs4MnqQe2YakNOqv
-         k+qsM9mooxxoKD+XzOhluGX0ad/L7d5DqTerI9X3SOcMxjvaIPjCMTSwoV+uLawYlSuj
-         5tYRaEy9+84kGS5EOAj+/PV5desKsWsp58UJ36tXj86t/jEH8KPmbsVTMMIKRC6dW7uG
-         VA0pwRZ7V4RSdULkUrlxH1cIIJ+/bEZQvrFgVV+zuKy/SXoGSpfSJC5+gnX6xFiimM0H
-         +LzTaH1vHJrVPdiixzGPwgcZx+XZYixemUiBqO/h+6EKMunTMc8vlTEXnwQ+JPECEDa7
-         YyBw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=B66d3ujh7h0A/WS6d2XbPk4tiEtVkdJvMPjnQVBm9iU=;
-        fh=n8Gqa1WfLdQtWFUr6DCG/eQoqOvwG8hlQ5SM0Z7WUts=;
-        b=JOZxP8SWuFIoZHtfcR4OPQSwFPiiqDYWD71HL9fb/xMpv/Kb4JBDl0MWZPx1GiOPxg
-         pnoFMHi42xk3kP4qijxncjcrbeXtNkvmoNyoK0tiufeBcctObDWz2PhS3yNSRIyd5xSp
-         lYOz3D5WwU2gKKwuLngH1D12oDj0flQ+vCqnm8gyaDgd2IQrb+ooZLzYyOWciN+XOUoR
-         myMIFvlhYvTJ9U30rRLWSOW+F3Yr4VccmTgOZmWbJhqRM82oxIkfb5qBAdv0iKY4LQ+m
-         uJDI578jiaTh2OyklB9RLALIi3BF8YnsOOTpnWDApcjf4iVOJW7z5KXCBvWWjlk7qAez
-         8q+g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 28 Jan 2026 08:45:11 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-48069a48629so15201345e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 00:45:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769589573; x=1770194373; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=B66d3ujh7h0A/WS6d2XbPk4tiEtVkdJvMPjnQVBm9iU=;
-        b=RQYn23D/cGG00ojVTcNRdDwrFxQr3CgKEubqMtxPFbW8UwffcEKcUwOtxprMid1Oqn
-         fSFBWckTAQuQkaZUqXLPp3NtI6RrhXdTS3zMduXQZTC1hiDAd1VCNPcGhaon549VikSV
-         E97XHRdTH6ks2gF8itvVepy8lgKTcK3449lCkrSE3atY+XciKSg2VSso0HMHnk+wBgGu
-         Atu3inbRz2megy3eZro4D39IyKF3XDo8Fo1OF/VNpg79khUXOf8oMoXXvgjtGriyTf9Q
-         tr+ciGER3cjzZ9m5bZkN5pSY2csf91TfCjLkAK6PPpinF3HAnG1nXNNapmJHpLZBBLtK
-         /xIw==
+        d=suse.com; s=google; t=1769589905; x=1770194705; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=yzZ5aaJur2cGbo3tv1Z3AlCZuGpqhSu9RlDH7L/IIPI=;
+        b=KC9FMTAfVvxg4bZmevt6+hMJ0LjWn/ViqILN1JiDGNOX09a6wVslS0WpgvQu+WlJn9
+         AmYfEV5CJx7lWcV39Nmvu8pAb4Gznp/tab6yxbCzr7RHry8mxEKsRKlckV2BSdlAGHan
+         8UItnpev0N8Z2pfXkb9lSng7cDSriM7DZ+PPPJbF6XUeOwgEoOWy2etxW/h03DLbznB3
+         zsDYoSfgUdztT2wvopqluXAuylTQMJo02z4hEILv/aPpmtGAqxMYyJvrMaXo6CeT1mbw
+         ib9w9R0dKpz63vtJo809b898+tlTxAZH9w/QDcudV3GSlEFhYK4GSzumFtccpCZfj0kj
+         YT8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769589573; x=1770194373;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=B66d3ujh7h0A/WS6d2XbPk4tiEtVkdJvMPjnQVBm9iU=;
-        b=sPnAY/jGDy2N2TsSx9XFwmxLqNoEhwn4R1IM04zgHoIKWu1QPu8R8aV+YLLooKGtEi
-         Ilg5w+DHTR81rVDMiY0TkGKewTP8XAOPVRxXOdCI2S2yLoiTyC/SnmCLDQjbLVJBFjEQ
-         0VWjyIcyWdSrm63x3lZdkyZ7/fQamIYtkoCNCmgdhyjGBIocVL8pMgmhmwkmeLK0KF2I
-         ol07KtAfKbjBjxFlvsuUE125Xsc0ApAiMHIBXABe8hjiWO9b0i5341PfQA50RV6kgxRw
-         yYZcYiuiSJS5blSFx5ja4u6hmoErbUxc96siYDUB4439768i8C1KSKUN+ijlam6fOsjr
-         CsBg==
-X-Forwarded-Encrypted: i=1; AJvYcCVRW6GncUMqXmvGzHDXfuNUHyLV68rzHA0d0cGYYOv162Tw6OfbvAuNJUIJUbgrNsAKY0XGgh2a23CiU9WD24gO@lists.infradead.org
-X-Gm-Message-State: AOJu0YyILQQWduhJUSSOBd3apjLeB98REWEUaSIQtHLpYKjl2n4rQG13
-	NsWRNOwq3w5g6+LX1u3tp2QdfcVaECbzXsGzDNHBN4kjDIZSQiJh5wdvnj39Yny0kICEZrAlNov
-	hCQD9/HZzNLUP9ab85MEDG/ejx4a4rNA=
-X-Gm-Gg: AZuq6aJ8jP9NutP0Mv0gY5ltTGkuWMgtMaNuD/jr/38SUCjAA99f+BIVDsYdrsVtQxh
-	Om7uy9XNvK2+YVKSgflUkqizm716ZX3G28G9QtMx7uyWl2zvrGQiavD487ci4Q78EvESDmtLICP
-	WbQYiQnFLgE+LFDB5LFjdZZf+XbeNAMv+AuZlNFZWrv8mwmK0TPWQmINIld9G/59GAk+6RXAdkX
-	izL4KhJQIVBDJDZ0N8y2GgB3ebEyS1gTVtqhz2Um3FKExZnoWHM+9l1OrlMRQsFkKRoMKhDexnO
-	OJ665jU=
-X-Received: by 2002:a05:6000:2906:b0:432:857d:e425 with SMTP id
- ffacd0b85a97d-435dd0a40a4mr6149417f8f.30.1769589572469; Wed, 28 Jan 2026
- 00:39:32 -0800 (PST)
+        d=1e100.net; s=20230601; t=1769589905; x=1770194705;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=yzZ5aaJur2cGbo3tv1Z3AlCZuGpqhSu9RlDH7L/IIPI=;
+        b=UIqNK9+MhYwMEOPDtr+mlPeYrHeM1NGRpT5w9T2T7/x9MEbKrN/k7WBsGyq9mE3N+x
+         +pfm25KHjvTrt6OkpIyHZ4vD8XEOBgrjW9pWRA1+v9X4ZZUGEhyb9hCX5Y5kNtqC+RFP
+         KymGHmqjBM7vjeZWxXIo7jui8+tMh7mamruZ52rkHHEz7en6gQgRIKBCj0e0a8F2E99c
+         QhbH6j7VeeFGV1OiAHbXHReQDh3w+8qxnxYo9bKSSBPRyz/dCTPNw9fWU3usbR2rfiDs
+         vMi/WLZfgLdDrqsqWv5CXoJ4sIw5WKVbn35FP9hb1wWdTfXwEvKzssMzYaRyUG7H2ILL
+         f5RQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV34OqA7CLpMtHQLPOJWRV8Guf5HKsVz7szsUoVjFMYcd++QhzlRG8Xjn/cnEoSvqjaFXDgfu6fQJRFNWFnwAzB@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbnLqe6L0u1KfVpmPCpCIM/KaR8iuFw9Ksb7didKN44H6AjqWu
+	aMlxkQ7C72/yPHKJsquxNb4BaE4563puejYvD+YayjVQ8CkhlWRMnKDufOUqt/TdGY4=
+X-Gm-Gg: AZuq6aIdqi5Ga/R9LFx6hhkJNBEDJkM4hjBV/hN86UK3Fvq0jRL6tTd+hs9Lj4+XaRT
+	CEQEUisFB49ubb9dcKLlWdpTxO2ec78c8+A/LANVsL0kNUlJXT5EeEzM5reTWuJxScMcZ+LGFgU
+	KgIU8MvExxsQgqwKaMXkfkIdyItCNAOt5EA8WUbr06WgM8ORdTLAjh4VqpJCW1hCegprFkPY4nt
+	dLeq41AHTNspe/46Kyc/Vz0E2aDVfbHl1arjRGPcxTrPsospY/zo61W7rMim8zLzDvwj60UOZ47
+	zQ2KWutjbkk85mU06oqHI5AwxWzE9/NA8uf6R9poU+ekHwrrbvJytdShvEwYNg4hKDCJ8z9//9t
+	3+UZBhhS97FeEekI8VmQVkvR2Uw9uYZkchooY/zE6xFLRTLLLKNesxg8axzbS6/jiVfZDZlrNtC
+	NaJvAiwnFj6Xu8Qzq9cvhP0xzU
+X-Received: by 2002:a05:600c:4e12:b0:480:6873:b2f6 with SMTP id 5b1f17b1804b1-48069c557d0mr54819185e9.20.1769589905328;
+        Wed, 28 Jan 2026 00:45:05 -0800 (PST)
+Received: from localhost (109-81-26-156.rct.o2.cz. [109.81.26.156])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48066bee7d0sm121124905e9.4.2026.01.28.00.45.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Jan 2026 00:45:04 -0800 (PST)
+Date: Wed, 28 Jan 2026 09:45:03 +0100
+From: Michal Hocko <mhocko@suse.com>
+To: Frederic Weisbecker <frederic@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Chen Ridong <chenridong@huawei.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Muchun Song <muchun.song@linux.dev>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+	linux-mm@kvack.org, linux-pci@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 03/33] memcg: Prepare to protect against concurrent
+ isolated cpuset change
+Message-ID: <aXnMj1phN3TJZkNz@tiehlicka>
+References: <20260125224541.50226-1-frederic@kernel.org>
+ <20260125224541.50226-4-frederic@kernel.org>
+ <aXeZQoSHJ9QX7B6W@tiehlicka>
+ <aXizUsfywjtIIN50@localhost.localdomain>
 MIME-Version: 1.0
-References: <20260127025740.2601841-1-onlywig@gmail.com> <20260128050549.3337279-1-onlywig@gmail.com>
- <20260128050549.3337279-2-onlywig@gmail.com> <aXmsbbt9T5ZRGtES@shlinux89>
-In-Reply-To: <aXmsbbt9T5ZRGtES@shlinux89>
-From: Wig Cheng <onlywig@gmail.com>
-Date: Wed, 28 Jan 2026 16:39:19 +0800
-X-Gm-Features: AZwV_QisDOJPdzB7hBtncbVdr6RMWIjbixaTB16D-guHWsWAMozPqEa1RjRA1NY
-Message-ID: <CAPStFe7-1++d79LEnh0=ozkZrU7n8_FWx_cx8_YUc7UhOt48hw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/1] arm64: dts: freescale: add pixpaper display
- overlay for i.MX93 FRDM
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: shawnguo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	zaq14760@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aXizUsfywjtIIN50@localhost.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_003934_717344_14098881 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20260128_004509_437978_36A49F23 
+X-CRM114-Status: GOOD (  23.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,142 +129,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Peng Fan <peng.fan@oss.nxp.com> =E6=96=BC 2026=E5=B9=B41=E6=9C=8828=E6=97=
-=A5=E9=80=B1=E4=B8=89 =E4=B8=8B=E5=8D=882:28=E5=AF=AB=E9=81=93=EF=BC=9A
->
-> On Wed, Jan 28, 2026 at 01:05:49PM +0800, Wig Cheng wrote:
-> >Enable Open-EP Community pixpaper-213-c support on NXP i.MX93.
-> >
-> >Signed-off-by: Wig Cheng <onlywig@gmail.com>
-> >---
-> > arch/arm64/boot/dts/freescale/Makefile        |  4 ++
-> > .../freescale/imx93-11x11-frdm-pixpaper.dtso  | 51 +++++++++++++++++++
-> > 2 files changed, 55 insertions(+)
-> > create mode 100644 arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpa=
-per.dtso
-> >
-> >diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dt=
-s/freescale/Makefile
-> >index ce8f937c2315..c2727f8061e2 100644
-> >--- a/arch/arm64/boot/dts/freescale/Makefile
-> >+++ b/arch/arm64/boot/dts/freescale/Makefile
-> >@@ -398,6 +398,10 @@ dtb-$(CONFIG_ARCH_MXC) +=3D imx93-9x9-qsb-i3c.dtb
-> >
-> > dtb-$(CONFIG_ARCH_MXC) +=3D imx93-11x11-evk.dtb
-> > dtb-$(CONFIG_ARCH_MXC) +=3D imx93-11x11-frdm.dtb
-> >+
-> >+imx93-11x11-frdm-pixpaper-dtbs +=3D imx93-11x11-frdm.dtb imx93-11x11-fr=
-dm-pixpaper.dtbo
-> >+dtb-$(CONFIG_ARCH_MXC) +=3D imx93-11x11-frdm-pixpaper.dtb
-> >+
-> > dtb-$(CONFIG_ARCH_MXC) +=3D imx93-14x14-evk.dtb
-> > dtb-$(CONFIG_ARCH_MXC) +=3D imx93-kontron-bl-osm-s.dtb
-> > dtb-$(CONFIG_ARCH_MXC) +=3D imx93-phyboard-nash.dtb
-> >diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dts=
-o b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso
-> >new file mode 100644
-> >index 000000000000..1111503b08af
-> >--- /dev/null
-> >+++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso
-> >@@ -0,0 +1,51 @@
-> >+// SPDX-License-Identifier: GPL-2.0
-> >+/*
-> >+ * Device Tree Overlay for Mayqueen (Open-EP Community) pixpaper displa=
-y
-> >+ * support on NXP FRDM i.MX 93 Development Board
-> >+ *
-> >+ * Copyright (C) 2026 Wig Cheng <onlywig@gmail.com>
-> >+ */
-> >+
-> >+#include <dt-bindings/gpio/gpio.h>
-> >+#include "imx93-pinfunc.h"
-> >+
-> >+/dts-v1/;
-> >+/plugin/;
-> >+
-> >+&iomuxc {
-> >+      pinctrl_lpspi3: lpspi3grp {
-> >+              fsl,pins =3D <
-> >+                      MX93_PAD_GPIO_IO08__GPIO2_IO08          0x3fe /* =
-SPI3 CE0 */
-> >+                      MX93_PAD_GPIO_IO09__LPSPI3_SIN          0x3fe /* =
-SPI3 MISO */
-> >+                      MX93_PAD_GPIO_IO10__LPSPI3_SOUT         0x3fe /* =
-SPI3 MOSI */
-> >+                      MX93_PAD_GPIO_IO11__LPSPI3_SCK          0x3fe /* =
-SPI3 CLK */
-> >+              >;
-> >+      };
-> >+
-> >+      pinctrl_epd_ctrl: epdctrlgrp {
-> >+              fsl,pins =3D <
-> >+                      MX93_PAD_GPIO_IO05__GPIO2_IO05          0x31e /* =
-DC pin */
-> >+                      MX93_PAD_GPIO_IO06__GPIO2_IO06          0x31e /* =
-RESET pin */
-> >+                      MX93_PAD_GPIO_IO26__GPIO2_IO26          0x31e /* =
-BUSY pin */
-> >+              >;
-> >+      };
-> >+};
-> >+
-> >+&lpspi3 {
-> >+      #address-cells =3D <1>;
-> >+      #size-cells =3D <0>;
->
-> The above two properties are in imx93_91_common.dtsi lpspi3 node, no need=
- to
-> duplicate them.
->
-> Regards
-> Peng
->
-> >+      pinctrl-names =3D "default";
-> >+      pinctrl-0 =3D <&pinctrl_lpspi3>, <&pinctrl_epd_ctrl>;
-> >+      cs-gpios =3D <&gpio2 8 GPIO_ACTIVE_LOW>;
-> >+      fsl,spi-num-chipselects =3D <1>;
-> >+      status =3D "okay";
-> >+
-> >+      display@0 {
-> >+              compatible =3D "mayqueen,pixpaper";
-> >+              reg =3D <0>;
-> >+              spi-max-frequency =3D <5000000>;
-> >+              reset-gpios =3D <&gpio2 6 GPIO_ACTIVE_HIGH>;
-> >+              dc-gpios =3D <&gpio2 5 GPIO_ACTIVE_HIGH>;
-> >+              busy-gpios =3D <&gpio2 26 GPIO_ACTIVE_HIGH>;
-> >+      };
-> >+};
-> >--
-> >2.43.0
-> >
+On Tue 27-01-26 13:45:06, Frederic Weisbecker wrote:
+> Le Mon, Jan 26, 2026 at 05:41:38PM +0100, Michal Hocko a écrit :
+> > On Sun 25-01-26 23:45:10, Frederic Weisbecker wrote:
+> > > The HK_TYPE_DOMAIN housekeeping cpumask will soon be made modifiable at
+> > > runtime. In order to synchronize against memcg workqueue to make sure
+> > > that no asynchronous draining is pending or executing on a newly made
+> > > isolated CPU, target and queue a drain work under the same RCU critical
+> > > section.
+> > > 
+> > > Whenever housekeeping will update the HK_TYPE_DOMAIN cpumask, a memcg
+> > > workqueue flush will also be issued in a further change to make sure
+> > > that no work remains pending after a CPU has been made isolated.
+> > > 
+> > > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> > > ---
+> > >  mm/memcontrol.c | 21 +++++++++++++++++----
+> > >  1 file changed, 17 insertions(+), 4 deletions(-)
+> > > 
+> > > diff --git a/mm/memcontrol.c b/mm/memcontrol.c
+> > > index be810c1fbfc3..2289a0299331 100644
+> > > --- a/mm/memcontrol.c
+> > > +++ b/mm/memcontrol.c
+> > > @@ -2003,6 +2003,19 @@ static bool is_memcg_drain_needed(struct memcg_stock_pcp *stock,
+> > >  	return flush;
+> > >  }
+> > >  
+> > > +static void schedule_drain_work(int cpu, struct work_struct *work)
+> > > +{
+> > > +	/*
+> > > +	 * Protect housekeeping cpumask read and work enqueue together
+> > > +	 * in the same RCU critical section so that later cpuset isolated
+> > > +	 * partition update only need to wait for an RCU GP and flush the
+> > > +	 * pending work on newly isolated CPUs.
+> > > +	 */
+> > > +	guard(rcu)();
+> > > +	if (!cpu_is_isolated(cpu))
+> > > +		schedule_work_on(cpu, work);
+> > 
+> > Shouldn't this in the guarded rcu section?
+> 
+> This is what guard(rcu)() does, right?
+> Or am I missing something?
 
-Hi Peng,
+I am probably misreading the patch. But I've had the following in mind
 
-Thank you for the review. I understand that #address-cells and #size-cells
-are already defined in imx91_93_common.dtsi for the lpspi3 node.
-
-However, these properties need to be present in the overlay file for proper
-DTC compilation. When compiling a device tree overlay (.dtbo), the DTC
-compiler cannot see the properties defined in the base DTB. Without these
-properties in the overlay, the build generates warnings:
-
-    Warning (reg_format): /fragment@1/__overlay__/display@0:reg: property h=
-as
-    invalid length (4 bytes) (#address-cells =3D=3D 2, #size-cells =3D=3D 1=
-)
-
-    Warning (avoid_default_addr_size): /fragment@1/__overlay__/display@0:
-    Relying on default #address-cells value
-
-This is a known limitation of overlay compilation, and other overlay files
-in the kernel tree follow the same pattern. For example:
-  - arch/arm64/boot/dts/freescale/imx8mm-kontron-bl-lte.dtso (line 78-79)
-  - arch/arm64/boot/dts/freescale/imx93-9x9-qsb-i3c.dtso (line 22-23)
-
-These properties in the overlay don't conflict with the base dtb, they are
-merged correctly at runtime. The duplication is necessary only for clean
-compilation of the overlay, thanks a lot!
-
-Regards,
-Wig
+	scoped_guard(rcu) {
+		if (!cpu_is_isolated(cpu))
+			schedule_work_on(cpu, work);
+	}
+-- 
+Michal Hocko
+SUSE Labs
 
