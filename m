@@ -4,76 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7C42D35696
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:10:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67430D35697
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:15:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O+XrW4k5epiAxYyQWxolP9CdYG+5jWSB8YXfa97drgM=; b=JTdRNZUXGREiegC7AN/Yn1PFSD
-	CxoillYLRSil45gYdrsAGK/pz7nBeEC145qU8oNUyllRd4o3jMUuqhLvr60KfvtSBysnjxwQSWMFj
-	aI0SYNhOpVnM7SIaWms1MJPkerDKZPlOcdvK8yEY4l9gAy7hrr2LeyRIaGOvhvyfq8AQADfMWZY1e
-	DU0BaHUFloXkaPxyqCMdJiobaE7FZHrPEeJoLn0AyzZgAwh4xiA7gIVOv+pSWpcsMqdOQ8F4NW9HE
-	8b3Ax8j6OaZciOmw9DGGfaPW9OY59VNnYmNxlCBZ0Q5Qye0ceXEPYbdSsjiE0Al/WtMsZtrb6X5pH
-	4jUo0PRg==;
+	bh=hhu5VGoYuY+2APKnCn4qVYkCFA/S4HA43b3PtaHWhkw=; b=AbXTn52qp1QtFpzXRso8t0ljiZ
+	aLOzpz9gHYSvPoHz4zT57LW1gjs20ePrp4dUPDfPcpbUOSYokJheh1Ua0RdqA9wum66z8B/bcP0Xs
+	8+nbB4va7DaiIoVUFkbkovswgzJhk7vsc4b5J6hFMuUxPMn2VE1tg8ecOnmDUBk+ZndH6h2ry4X1f
+	geios0CG3LhC7n3UAFnuu45VUuok4+oCzmiOB5Z0w1I7ToHHD9eDtSk9f7bNNuZORgJgqAkdjaSvb
+	z5mqRJcaZTn9I75HsvTb8N0vxck0rJ/HcpWsknfqJX2djnnVF+0LRE7iSA/09RC9zupF9lXN/DPQm
+	xk742tFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1ZM-0000000Fim2-0zvx;
-	Wed, 28 Jan 2026 09:10:36 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1vl1e3-0000000FjGw-10NE;
+	Wed, 28 Jan 2026 09:15:27 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1ZE-0000000Fik9-3GiR
+	id 1vl1dz-0000000FjGI-29hV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 09:10:35 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=O+XrW4k5epiAxYyQWxolP9CdYG+5jWSB8YXfa97drgM=;
-	b=e6oNIkiu1+7o3lFWO1HaNNSCyiA9PhM2YNveAbVUWynnqCJRglfmHjFoqNRsbH+54mri71ZXR
-	jW8JDBCqY+mSXg0mdD5k00imBuDu+t1g3oV7zf1GzIXKUCDUO4sOiRMlLZ6p6x7BEQ9w2PwLsAI
-	cGplGXAGefuNlLkNXacWJv4=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4f1GcD2n8HzmV7H;
-	Wed, 28 Jan 2026 17:06:52 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 046094056B;
-	Wed, 28 Jan 2026 17:10:21 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 28 Jan 2026 17:10:17 +0800
-Message-ID: <3407c779-9e7e-8f90-353f-c2b58992aae2@huawei.com>
-Date: Wed, 28 Jan 2026 17:10:15 +0800
+	Wed, 28 Jan 2026 09:15:26 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60S92Dca3387386
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 09:15:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	hhu5VGoYuY+2APKnCn4qVYkCFA/S4HA43b3PtaHWhkw=; b=IOQmCH/ufW4viTrX
+	TaPxc6VZycFh8Rzoq5DgV4SGdIiSG0d75PmMyeNdZ980/H9M9Q0AorKl4QNSuDLm
+	tZPLeF/asFbIJ/dLycpc4Yz8gxvmijVeoyQwHmTlQP9uo7ZaBc4a/w3fiYNJu3kg
+	b8RMXx5UIr0hyRyGROHMa7Gz/LOJN4IJdLd1LzEKxjHXiWKjvbBLlpENOQq6GDgv
+	MisyeA1ZYmBcRmqjwGAjgcYnf8LW/LAbKQzz6Gg5noeGM2lII7Iw5S37oNsX5OxW
+	ZvU8H9UeSORzX0//N7Sp9beU7sNyPEEDAOaJ7rvXFqFK1UlJXPvy5hqsNEsCLTFU
+	j5ycQA==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4by1dfttjs-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 09:15:21 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8c5e166fb75so1704916485a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 01:15:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1769591721; x=1770196521; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hhu5VGoYuY+2APKnCn4qVYkCFA/S4HA43b3PtaHWhkw=;
+        b=LDHWln0hoMCFyXqAjtx1mhHeC90uoV0LezVgCQ/ln72hlJMNOqQID8bLa1yQfw96Lw
+         qsBFQSzheEKKxEdrEzcrd29fQCgeOxq0ZHCpZVzbGbSJcalZDKDX/u2DtpURARhhS6nk
+         8wX3y9PDAblrtapNGmpdR1PaeConVAlDRbXy+mj+sVeo7CfnLltIoHC8fyCRmbHersXz
+         Zn2pGE8Xkb/9ePpUIybXFTMHPa6UIL7kCzaB3858uo6YzLf13TpueFjyjeYA5R0vvFyG
+         RapkGH17xXgzTQlDj9N7SfABLNFnzpIuw0hzydHa9uoXnWW60QMxTFyEVNgGa7Uj3So0
+         JRCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769591721; x=1770196521;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=hhu5VGoYuY+2APKnCn4qVYkCFA/S4HA43b3PtaHWhkw=;
+        b=cMBA5m0H7usGqRElQcrqoJakBhFoF3+KQMY2sRcLkzkj9vq8v/+oohptY7wdpOAPZx
+         zJ8FyXSHQs8+6cWuCI7KgCHZmIY6l0cvhzQge8hzogXQYmczHMkjZtsF0yB/L/KkuhCh
+         +VUj9R5UMEeblq8/3qOv1RLXEB64qxtH+PkrBuekIE3o2Ja0EbqwIMVLIF70Gh/ISAem
+         n62CbcjWio9XfTGdX6XkJCIYSTejZvEztfwHUGfLyQ5mtbLmL3JmIuSaPYhqf2ZY2n/S
+         1I9R+d7V1XHgtCWSNjJhe4Pl4pwDBP6Xa30MpKl6BfttyF7etH8UurJ9ExByi422M/JY
+         yLFA==
+X-Forwarded-Encrypted: i=1; AJvYcCVIKjtV+18eE/+7P1dRILXz/G29ELWu5lGs2rZeyX4gw1DgY+dy5yo4IcRTayBcAkvIXL+GRjmSnGB5xGcGFNLb@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJ0p8aaEUwZPy4eRK0r3OVATXSqBGvlXSHynom8r+ixpqQBmYd
+	OaEEg33Oq8XwhcXClA9st3KRK8koIXV1YchxVUfJxcMxqcokO+bFTJPa6W86gQaXOnlyOftNwEO
+	xWjhSJAIXml2HTlV9ImYYG4ayJAHgvw2Ahh1qom9lTDVcfYD8VZJmI4xa5myqmD6+wjUVr250R+
+	SaBA==
+X-Gm-Gg: AZuq6aKm6gCehi9iABDgntPGlqGcfHD2lTqFrgP2Q17SsvBrn3s/2pPXhNsBCk/chWC
+	6XK7+vrl1e3Va/+uD4rWDE4/w7t6x0m1UXr8x1KUN+E4wcVpCA8EGAOPIp+Jo3iZXpmRDCvOF1t
+	bYdbLHzyHdSwnxwHFSSQYFJ04mXYnQuYFK8ARAWVeicWjnElI5/aeU/XUvaHYRxmEh4y+em/3fP
+	tYsiHYtELZU9Sit5GN19NABOmUhxBgv7u2tjsqxbdEDUQCcf87KwoIIzaEpsMVSiOdV+B2vrQhN
+	Ef335FreaNAPxEC+mgqqk/hlFW2XYB7IboDOtdzdaaFgnwjpQk/eIFRXDOZzlq6Anq80h0dBjGO
+	km4I2koUFAzZMe9kh3f91R62x2R44UZMRnzJMpw==
+X-Received: by 2002:a05:620a:2844:b0:8c5:2e1b:7913 with SMTP id af79cd13be357-8c70b841f60mr586868785a.25.1769591720616;
+        Wed, 28 Jan 2026 01:15:20 -0800 (PST)
+X-Received: by 2002:a05:620a:2844:b0:8c5:2e1b:7913 with SMTP id af79cd13be357-8c70b841f60mr586866185a.25.1769591720177;
+        Wed, 28 Jan 2026 01:15:20 -0800 (PST)
+Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:6cbc:dfde:e62d:3195])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48066c4f3edsm114757505e9.15.2026.01.28.01.15.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Jan 2026 01:15:19 -0800 (PST)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: linux-kernel@vger.kernel.org,
+        Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        Doug Berger <opendmb@gmail.com>,
+        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+        Linus Walleij <linusw@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Andy Shevchenko <andy.shevchenko@gmail.com>,
+        Christophe Leroy <chleroy@kernel.org>, linux-gpio@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: (subset) [PATCH v2 0/3] gpio: brcmstb: Bug fixes and wake-up interrupt improvements
+Date: Wed, 28 Jan 2026 10:15:17 +0100
+Message-ID: <176959169745.11014.2711672747307592197.b4-ty@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260127214656.447333-1-florian.fainelli@broadcom.com>
+References: <20260127214656.447333-1-florian.fainelli@broadcom.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v2] arm64: kexec: Add support for crashkernel CMA
- reservation
-Content-Language: en-US
-To: Mike Rapoport <rppt@kernel.org>
-CC: <ardb@kernel.org>, <leitao@debian.org>, <corbet@lwn.net>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <akpm@linux-foundation.org>,
-	<bp@alien8.de>, <mingo@kernel.org>, <pawan.kumar.gupta@linux.intel.com>,
-	<feng.tang@linux.alibaba.com>, <kees@kernel.org>, <elver@google.com>,
-	<arnd@arndb.de>, <fvdl@google.com>, <lirongqing@baidu.com>,
-	<bhelgaas@google.com>, <bhe@redhat.com>, <dave.hansen@linux.intel.com>,
-	<cfsworks@gmail.com>, <osandov@fb.com>, <sourabhjain@linux.ibm.com>,
-	<jbohac@suse.cz>, <ryan.roberts@arm.com>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20260126081334.699147-1-ruanjinjie@huawei.com>
- <aXnJd_Xghj9JLsnK@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <aXnJd_Xghj9JLsnK@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI4MDA3NSBTYWx0ZWRfXxy0Ww7YRmmf4
+ dbW6BWle4fWZT7iZHQoxHTVgwBGHoLT4UnhSNs2LM08Jzd4fFjoE3XQ/pvjXs3QshxQcODcjA+8
+ Xhzl9HmiDhWMG1cZajtjWH4PHhiNTS6ZT26xAXsT3SSU+ajDKVQ9QzmfoyhkVOsTG52FMWkS5Rx
+ pF2+0FjpG7Oi9JO7d/esoEw3wqkGZOs9FnGobue1S25lrCBiXh5U9X0t7O8bmEPI2Me96dR9O63
+ XBno6txx3De3CyYYC4Ioe+OTESlYNiyrOSBHKTFRQ9HnMy3Q5LBG7mRVCOT0dtRvpH5RFHChFk4
+ LMx1UHpG2VqLvYtluA+cyGMeNu8GtU+R+lZUeDNwnLL8ER9l/CSH0DTo2723aCiO7WCmKb3KFsM
+ +fn//5ulWuCo8S3jqIp7XJhM0oFUbHyNXpDrse1BOKtbcyfJ9zZPUUYwS2gRQBpWMSCU7rMdoN/
+ en9xYWnsK+e0ubAPmwQ==
+X-Proofpoint-GUID: KsNrXnu4pVojwMzomYpBdA68lzSW0j0K
+X-Proofpoint-ORIG-GUID: KsNrXnu4pVojwMzomYpBdA68lzSW0j0K
+X-Authority-Analysis: v=2.4 cv=YeuwJgRf c=1 sm=1 tr=0 ts=6979d3a9 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=05lQHlDK7r49ThUfEH8A:9 a=QEXdDO2ut3YA:10
+ a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-01-28_01,2026-01-27_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 spamscore=0 bulkscore=0 adultscore=0 priorityscore=1501
+ suspectscore=0 phishscore=0 clxscore=1015 impostorscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601280075
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_011029_835447_FD435BFD 
-X-CRM114-Status: GOOD (  25.52  )
+X-CRM114-CacheID: sfid-20260128_011523_673946_E6E738AF 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,167 +150,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 2026/1/28 16:31, Mike Rapoport wrote:
-> On Mon, Jan 26, 2026 at 04:13:34PM +0800, Jinjie Ruan wrote:
->> Commit 35c18f2933c5 ("Add a new optional ",cma" suffix to the
->> crashkernel= command line option") and commit ab475510e042 ("kdump:
->> implement reserve_crashkernel_cma") added CMA support for kdump
->> crashkernel reservation.
->>
->> Crash kernel memory reservation wastes production resources if too
->> large, risks kdump failure if too small, and faces allocation difficulties
->> on fragmented systems due to contiguous block constraints. The new
->> CMA-based crashkernel reservation scheme splits the "large fixed
->> reservation" into a "small fixed region + large CMA dynamic region": the
->> CMA memory is available to userspace during normal operation to avoid
->> waste, and is reclaimed for kdump upon crash—saving memory while
->> improving reliability.
->>
->> So extend crashkernel CMA reservation support to arm64. The following
->> changes are made to enable CMA reservation:
->>
->> - Parse and obtain the CMA reservation size along with other crashkernel
->>   parameters.
->> - Call reserve_crashkernel_cma() to allocate the CMA region for kdump.
->> - Include the CMA-reserved ranges for kdump kernel to use.
->> - Exclude the CMA-reserved ranges from the crash kernel memory to
->>   prevent them from being exported through /proc/vmcore.
->>
->> Update kernel-parameters.txt to document CMA support for crashkernel on
->> arm64 architecture.
+On Tue, 27 Jan 2026 13:46:53 -0800, Florian Fainelli wrote:
+> This patch series corrects the HW interrupt to the bank mapping logic to
+> be more robust and do not assume any particular order.
 > 
-> I'm looking at this and at almost identical patch for riscv 
-> https://lore.kernel.org/all/20260126080738.696723-1-ruanjinjie@huawei.com
-> and it feels wrong that we have duplicate the code that excludes cma
-> ranges.
-> CMA ranges are known to the crash_core and I don't see why we cannot
-> exclude them there.
-
-Youa are right, x86 and powerpc has similar implementations that
-excludes crashkernel cma ranges.
-
-x86 [1]
-
-+	for (i = 0; i < crashk_cma_cnt; ++i) {
-+		ret = crash_exclude_mem_range(cmem, crashk_cma_ranges[i].start,
-+					      crashk_cma_ranges[i].end);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-
-But powerpc [2] is a little different which uses a wrapper for
-crash_exclude_mem_range() and more check and realloc_mem_ranges().
-
-+	for (i = 0; i < crashk_cma_cnt; ++i) {
-+		ret = crash_exclude_mem_range_guarded(mem_ranges,
-crashk_cma_ranges[i].start,
-+					      crashk_cma_ranges[i].end);
-+		if (ret)
-+			goto out;
-+	}
-
-[1]: https://lore.kernel.org/all/ZWEAWMJtesa3O9M5@dwarf.suse.cz/
-[2]:
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b4a96ab50f368afc2360ff539a20254ca2c9a889
-
->  
->> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->> ---
->> v2:
->> - Free cmem in prepare_elf_headers()
->> - Add the mtivation.
->> ---
->>  Documentation/admin-guide/kernel-parameters.txt |  2 +-
->>  arch/arm64/kernel/machine_kexec_file.c          | 15 ++++++++++++++-
->>  arch/arm64/mm/init.c                            |  5 +++--
->>  3 files changed, 18 insertions(+), 4 deletions(-)
->>
->> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
->> index 1058f2a6d6a8..36bb642a7edd 100644
->> --- a/Documentation/admin-guide/kernel-parameters.txt
->> +++ b/Documentation/admin-guide/kernel-parameters.txt
->> @@ -1119,7 +1119,7 @@ Kernel parameters
->>  			It will be ignored when crashkernel=X,high is not used
->>  			or memory reserved is below 4G.
->>  	crashkernel=size[KMG],cma
->> -			[KNL, X86, ppc] Reserve additional crash kernel memory from
->> +			[KNL, X86, ARM64, ppc] Reserve additional crash kernel memory from
->>  			CMA. This reservation is usable by the first system's
->>  			userspace memory and kernel movable allocations (memory
->>  			balloon, zswap). Pages allocated from this memory range
->> diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
->> index 410060ebd86d..ef6ce9aaba80 100644
->> --- a/arch/arm64/kernel/machine_kexec_file.c
->> +++ b/arch/arm64/kernel/machine_kexec_file.c
->> @@ -48,7 +48,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
->>  	u64 i;
->>  	phys_addr_t start, end;
->>  
->> -	nr_ranges = 2; /* for exclusion of crashkernel region */
->> +	nr_ranges = 2 + crashk_cma_cnt; /* for exclusion of crashkernel region */
->>  	for_each_mem_range(i, &start, &end)
->>  		nr_ranges++;
->>  
->> @@ -64,6 +64,12 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
->>  		cmem->nr_ranges++;
->>  	}
->>  
->> +	for (i = 0; i < crashk_cma_cnt; i++) {
->> +		cmem->ranges[cmem->nr_ranges].start = crashk_cma_ranges[i].start;
->> +		cmem->ranges[cmem->nr_ranges].end = crashk_cma_ranges[i].end;
->> +		cmem->nr_ranges++;
->> +	}
->> +
->>  	/* Exclude crashkernel region */
->>  	ret = crash_exclude_mem_range(cmem, crashk_res.start, crashk_res.end);
->>  	if (ret)
->> @@ -75,6 +81,13 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
->>  			goto out;
->>  	}
->>  
->> +	for (i = 0; i < crashk_cma_cnt; ++i) {
->> +		ret = crash_exclude_mem_range(cmem, crashk_cma_ranges[i].start,
->> +					      crashk_cma_ranges[i].end);
->> +		if (ret)
->> +			goto out;
->> +	}
->> +
->>  	ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
->>  
->>  out:
->> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
->> index 524d34a0e921..28165d94af08 100644
->> --- a/arch/arm64/mm/init.c
->> +++ b/arch/arm64/mm/init.c
->> @@ -96,8 +96,8 @@ phys_addr_t __ro_after_init arm64_dma_phys_limit;
->>  
->>  static void __init arch_reserve_crashkernel(void)
->>  {
->> +	unsigned long long crash_base, crash_size, cma_size = 0;
->>  	unsigned long long low_size = 0;
->> -	unsigned long long crash_base, crash_size;
->>  	bool high = false;
->>  	int ret;
->>  
->> @@ -106,11 +106,12 @@ static void __init arch_reserve_crashkernel(void)
->>  
->>  	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
->>  				&crash_size, &crash_base,
->> -				&low_size, NULL, &high);
->> +				&low_size, &cma_size, &high);
->>  	if (ret)
->>  		return;
->>  
->>  	reserve_crashkernel_generic(crash_size, crash_base, low_size, high);
->> +	reserve_crashkernel_cma(cma_size);
->>  }
->>  
->>  static phys_addr_t __init max_zone_phys(phys_addr_t zone_limit)
->> -- 
->> 2.34.1
->>
+> The last two patches improve the handling of early wake-up conditions
+> and makes it more robust so we can use those during "s2idle".
 > 
+> Changes in v2:
+> 
+> [...]
+
+I queued this up for fixes, the rest can wait until v7.0-rc1.
+
+[1/3] gpio: brcmstb: correct hwirq to bank map
+      https://git.kernel.org/brgl/c/b2cf569ed81e7574d4287eaf3b2c38690a934d34
+
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
