@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61140D35668
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 02:26:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC24D35666
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 02:26:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XyTO77UfUW0dgs4QM32VWI21FBjKdwVAkrYFWMpJrc8=; b=uywWyej4Pwg4H2KUaokLxsFQ6f
-	VEBZSUImchqaM8y14HZAOVowiCepsXjSi4rE+bHPG2pqTlukEor1H4ymS+CL9LLsjjKlM/LH+v1Ye
-	YvJytoIflLsRfIXExGodKJHAavGk+v0peK2gM4qfPJFUifPJ+v5NU+/JopsAO3xAomai/nGA+zu6o
-	cIYC/y2wKHRtriStUEQgbAEYbkXos4LKQwhELXPt0WHr7s3+8gCjGC19J3OkTIg/3iD7HKbRiCGYi
-	L+7N2vn2FE2gsg0K3uMU9wpp9ZwoysjthSHsiqfQDRbN+iToafk8AluLUneTHoJgTX0arudgmxFqF
-	of84fEdA==;
+	bh=0Gl4hGtCQ5x6KQhmJaDiXMA9jzWT2O+n+v/Xr8viABg=; b=Y8POiKkHnix6LWBsIroJ4+xzG6
+	2F694n/+D0zmnnQDKhh2ekratogmJmkXCCWw0G/zjjvuM9ixnVaSkT6F7u9LQiX0JoRnT9qsE3Kg5
+	HjKrFAXe/kgEjEyWgyTXbsAoxSUrgnJ+n/nifH/OsHcgd1Nosc4XS3unfXtBagAidh6xOymyv6NMF
+	WYcVPGWrQrKh5mgPTvNgSQjBwOyxbVFR+Ept/mdmbOEOWnYMDD0g2RMFUw4hUtM6tiLTUHy0NTpsf
+	Kj3ffL67FKymKJ4NhN0tMCgXQNopJua2HK58gVpHO+pwAJU4eD7w8FUyClwqpu//5+6CK3yS+tUQw
+	5F5vy7fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkvFs-0000000FJB4-2Egi;
-	Wed, 28 Jan 2026 02:26:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vkvG9-0000000FJEj-3ij3;
+	Wed, 28 Jan 2026 02:26:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkvFp-0000000FJAI-1Ekd
+	id 1vkvFs-0000000FJAW-081K
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 02:26:01 +0000
+	Wed, 28 Jan 2026 02:26:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B783160121;
-	Wed, 28 Jan 2026 02:26:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AD74C116C6;
-	Wed, 28 Jan 2026 02:25:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0D0956012A;
+	Wed, 28 Jan 2026 02:26:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2E6CC116C6;
+	Wed, 28 Jan 2026 02:26:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769567160;
-	bh=Q+EuPQIrMDkumGQDIIroCkKxLufMqB23kQAquVtEFq0=;
+	s=k20201202; t=1769567162;
+	bh=vMscZPC7Wm4F8hG6O11Kv6/ikZ5BwfwyLFx3n8gvzBM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=iL0l/Alk/1GYjL6VN8j/jYe67HWVmXuY+ofgPTdFrcTTNYACh63kDrZrJNOvxBAQl
-	 5ZLab1ljSqWSkCnVzyfTFYlqxsofkU/A10PuuZBt3ZRlJn5/CQSrbco1NaamcbyOIf
-	 z9gZ9bP1nqmvwLm+WgPXasmlom75eBuBmrd5LAuMoOOsFIij3guuA3GFIJKiZZlRwJ
-	 xE91JTbm0GzFhu85dyr3Ok+58lUXhW8HuIAwTF8Ex/tMWB8QcoRH3bHGDSINYKW7WZ
-	 CxlXADypXwdv1vosUR2zL7wrfFcAY66XTSVpfGxrtklZ81b5sY0R/Rhofc1hrpgrmd
-	 6D0heWtJHO4Cw==
+	b=jCNRmhuBQjbShiqbz4z31FkueWSDBPkmtn1rJxqTFBzXspIPjbGEAzVXLDAgd1efr
+	 MSmmHPpxVDjmAGRVjCh+xx4fIXRbNFWWs6DrHvU+hYAn2hmQvK5SlOlOrMCO4rGt8c
+	 iVX3yrMsqOv6g4ch0owr09ljYZH1PwA8p83eVN01KtGUe5mBbBlLe6hPVK1jUXPcyK
+	 DcpBM3873zFsafatju0/8VHGPhTm2abxt7qA9izTm+MBpKpQHvW9ihrpTu6d/heT9a
+	 XiRVZT97S0cFs5Prmkkk9L2F+IswfLtg+WQZmF+7jm8iqa7Pj0T5VH+uR+RojW+L0b
+	 abTanKCTBrgtg==
 From: Jakub Kicinski <kuba@kernel.org>
 To: lukasz.majewski@mailbox.org
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -65,12 +65,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	robh@kernel.org,
 	krzk+dt@kernel.org,
 	andrew@lunn.ch
-Subject: Re: [net-next,v20,4/7] net: mtip: Add net_device_ops functions to the L2 switch driver
-Date: Tue, 27 Jan 2026 18:25:58 -0800
-Message-ID: <20260128022558.4151582-1-kuba@kernel.org>
+Subject: Re: [net-next,v20,7/7] net: mtip: Extend the L2 switch driver for imx287 with bridge operations
+Date: Tue, 27 Jan 2026 18:26:00 -0800
+Message-ID: <20260128022600.4151612-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260126103400.1683125-5-lukasz.majewski@mailbox.org>
-References: <20260126103400.1683125-5-lukasz.majewski@mailbox.org>
+In-Reply-To: <20260126103400.1683125-8-lukasz.majewski@mailbox.org>
+References: <20260126103400.1683125-8-lukasz.majewski@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -92,43 +92,88 @@ email has considered the AI review valid, or at least plausible.
 
 For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
 ---
-net: mtip: Add net_device_ops functions to the L2 switch driver
+net: mtip: Extend the L2 switch driver for imx287 with bridge operations
 
-This patch adds the net_device_ops callback implementations for the MTIP
-L2 switch driver including transmit, timeout handling, multicast setup,
-MAC address configuration, and port parent ID retrieval.
+This patch adds bridge operations support to the MTIP L2 switch driver,
+enabling hardware offloading for packet switching when a bridge is
+created on the switch interfaces.
 
-> diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
-> index 9c21a3d29c1c..a6424ee1a9d9 100644
-> --- a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
-> +++ b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+> diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
+> new file mode 100644
+> index 000000000000..f961b9cc4e6a
+> --- /dev/null
+> +++ b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
 
 [ ... ]
 
-> +static netdev_tx_t mtip_start_xmit_port(struct sk_buff *skb,
-> +					struct net_device *dev, int port)
+> +static int mtip_ndev_port_link(struct net_device *ndev,
+> +			       struct net_device *br_ndev,
+> +			       struct netlink_ext_ack *extack)
+> +{
+> +	struct mtip_ndev_priv *priv = netdev_priv(ndev), *other_priv;
+> +	struct switch_enet_private *fep = priv->fep;
+> +	struct net_device *other_ndev;
+> +	int err;
+> +
+> +	/* Check if one port of MTIP switch is already bridged */
+> +	if (fep->br_members && !fep->br_offload) {
+> +		/* Get the second bridge ndev */
+> +		other_ndev = fep->ndev[fep->br_members - 1];
+> +		other_priv = netdev_priv(other_ndev);
+> +		if (other_priv->master_dev != br_ndev) {
+> +			NL_SET_ERR_MSG_MOD(extack,
+> +					   "L2 offloading only possible for the same bridge!");
+> +			return notifier_from_errno(-EOPNOTSUPP);
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Should this return -EOPNOTSUPP instead of notifier_from_errno(-EOPNOTSUPP)?
+The caller mtip_netdevice_event() already wraps the return value with
+notifier_from_errno(ret), so double-wrapping corrupts the return value.
+
+Looking at similar drivers like cpsw_new.c (cpsw_netdevice_port_link),
+the pattern is to return raw errno values here and let the event handler
+do the conversion.
+
+> +		}
+> +
+> +		fep->br_offload = 1;
+> +		mtip_switch_dis_port_separation(fep);
+> +		mtip_clear_atable(fep);
+> +	}
+> +
+> +	if (!priv->master_dev)
+> +		priv->master_dev = br_ndev;
+> +
+> +	fep->br_members |= BIT(priv->portnum - 1);
+> +
+> +	err = switchdev_bridge_port_offload(ndev, ndev, NULL, NULL, NULL,
+> +					    false, extack);
+> +	if (err) {
+> +		dev_err(&ndev->dev, "can't offload bridge port %s [err: %d]\n",
+> +			ndev->name, err);
+> +		return err;
+> +	}
+
+If switchdev_bridge_port_offload() fails, the state changes made earlier
+in the function (br_offload, br_members, master_dev, and the hardware
+configuration via mtip_switch_dis_port_separation and mtip_clear_atable)
+are not rolled back.
+
+Looking at cpsw_new.c for reference, it modifies br_members after the
+switchdev call succeeds, avoiding the need for rollback. Could the state
+updates here be reordered to happen after switchdev_bridge_port_offload()
+returns successfully?
+
+[ ... ]
+
+> +static int mtip_netdevice_event(struct notifier_block *unused,
+> +				unsigned long event, void *ptr)
 > +{
 
 [ ... ]
 
-> +	/* Push the data cache so the CPM does not get stale memory
-> +	 * data.
-> +	 */
-> +	bdp->cbd_bufaddr = dma_map_single(&fep->pdev->dev, bufaddr,
-> +					  MTIP_SWITCH_TX_FRSIZE,
-> +					  DMA_TO_DEVICE);
-
-The dma_map_single() call here creates a DMA mapping, but mtip_switch_tx()
-at this point in the series is an empty stub that never calls
-dma_unmap_single(). Is the intention for this to be resolved by a later
-patch in the series? Looking ahead, a4c3fa1c66c9 ("net: mtip: Add
-mtip_switch_{rx|tx} functions to the L2 switch driver") does add the full
-TX completion handler with the dma_unmap_single() call. However, this
-commit on its own could cause DMA resource exhaustion if used standalone
-(e.g., during bisection).
-
-Would it make sense to merge these two patches together, or at minimum
-have a note in the commit message explaining the dependency?
+> +	return notifier_from_errno(ret);
+> +}
 
 [ ... ]
 
