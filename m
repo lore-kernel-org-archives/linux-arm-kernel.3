@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A40D35690
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 08:32:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9067ED35691
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 08:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C6r4Jon7CZ7YeQ1Z/oQhBvDL/rU8h1YhWVcs9bAvAfw=; b=2Ul7WCLRINlCHsW7a7oXg8dS+g
-	SlmRBggFN2uuR76UFDfH2PWIcI+sSNQ8TV3O5FxYQZDqbBx+UozeVZFWbvGBD/7PG0Ycw+/YAzjKO
-	T4mQ6U4/dvyJBLgFL6E6pB4cJs/8Xl+21fIvTas7M25SAFh/oS6Nsbmd+EO6SdRrqI4HQvB9KNj/D
-	vNZOSLt2uh8fd+i1dPltwU8CY6snvpVFBPUxEx0M9agoHclrWmA9gaW05aPOfv4UIJFLCeN2w4j+h
-	EPn0Y8TLyQyALBDhodeQiFiejPWcaL9BQOWthIGJI3kOSQZmbvKfn4jx3ydOCDRAZDnMWpnVDtk4x
-	J3EAwxZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q3R30d+5fKmqKbAPWypPmQzkA4SsVPnLS8LHH+omZd8=; b=nQ4L6n0Vo2JZbGnA9A174CtFbM
+	809pkkN/i6/H5qH7YA8AFP3e/wwNJTnOqguKdSpf6oG58UHNnpOkPl+Mxraq1d4VSccl3MoXJQLrq
+	K4hs0ic9CQd1hqZ/IcbZQuK/T8Wspn0fXNUKDjpCnAlJzgaEKiLyBn3RSQOtzqMcfmpLtNVqw9xU4
+	xUDpBNeganrzcrakgSu/XlE2dY9XT06XR08U4bEi3ZTtydpQWIBFo8slUTUYV/C6rWOUUQQP9qSkI
+	06UKHXasnGmzauGkMZp75105CDdZLqN0TlvxuXS31Oem8jh4d/w9Qi1/TfpDZXg+10pbgERDbFOTJ
+	KZkChOQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl0y8-0000000Ffix-42xf;
-	Wed, 28 Jan 2026 08:32:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vl0yL-0000000FflU-1VQ3;
+	Wed, 28 Jan 2026 08:32:21 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl0y5-0000000FfiQ-3K6u
+	id 1vl0yI-0000000Ffkk-3KeR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 08:32:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8D4CA4446F;
-	Wed, 28 Jan 2026 08:32:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00DD4C4CEF1;
-	Wed, 28 Jan 2026 08:31:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769589123;
-	bh=MIu53TNJT0oYRJMg60HbP3DOZ0cZyH4Xd+NMgQs6Nec=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bw/oUTvhB6gWXSudQa1AB0m+S9WAXgkPU6Njvqa4zFpA23y9kpL8zHHiXOOelOIuj
-	 Wrwdx5cmCXxnvnBe9jGMNxWBZ+tMMVAkXuL6xoblNIfeQVy+h2ujR3bCqqjZEkheWb
-	 TbviHdHpUdYiuSyCqAEYkFOnTVKFrRejH3+BBFuEOauCgYpiVM+ynpCT5njyqaPCSR
-	 zdiy6aUHyDTeA4SlhajejnJDWljHJ8Mv+kpD6Ebf53Jh+SJQcuvFMMMWRd/csBMYxE
-	 E0nxvWdxUbtfAnTpKYwZEp9lUiNfgdl4F7NvgH27OUXiVGasrmu31TrM/SQwi5e+Xt
-	 Fnxac7mac9+UQ==
-Date: Wed, 28 Jan 2026 10:31:51 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: ardb@kernel.org, leitao@debian.org, corbet@lwn.net,
-	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
-	bp@alien8.de, mingo@kernel.org, pawan.kumar.gupta@linux.intel.com,
-	feng.tang@linux.alibaba.com, kees@kernel.org, elver@google.com,
-	arnd@arndb.de, fvdl@google.com, lirongqing@baidu.com,
-	bhelgaas@google.com, bhe@redhat.com, dave.hansen@linux.intel.com,
-	cfsworks@gmail.com, osandov@fb.com, sourabhjain@linux.ibm.com,
-	jbohac@suse.cz, ryan.roberts@arm.com, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] arm64: kexec: Add support for crashkernel CMA
- reservation
-Message-ID: <aXnJd_Xghj9JLsnK@kernel.org>
-References: <20260126081334.699147-1-ruanjinjie@huawei.com>
+	Wed, 28 Jan 2026 08:32:20 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 44FDA109759;
+	Wed, 28 Jan 2026 09:32:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1769589136;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Q3R30d+5fKmqKbAPWypPmQzkA4SsVPnLS8LHH+omZd8=;
+	b=HVnfX9MW9g5NgVjIht5pFJzcmD9sGDIMGDHhxvBZS12lucHWLpph3c7P2bIexJZ6bvAnUK
+	aVtXvA6V5cX8Eos4cqgh5Ru7SGAl/Pm6+Uj6THKrjD5UimXi4Y3Ls8ve8lS8nfgddDCceE
+	qhmMlgCxs0N5SEtcqs/k/S35olcIjwr6XnFcUg8uWp4sl7gvag6gEUvnQ4yYG88t8FBs2E
+	9JLUKSDOkg5WbmuMm33L6FF8SOx/unto9rk1BbCZGVq+ojkucGhJmONvnR/Tw1fy0bHUir
+	dhDcG91qxmkc7cuaj1vu0665gWFh8P7I4TZvd8zEZ6oLIFFbMIRNLRsus3djSA==
+Date: Wed, 28 Jan 2026 09:32:07 +0100
+From: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukma@nabladev.com>
+To: Peng Fan <peng.fan@nxp.com>, Andrew Lunn <andrew@lunn.ch>
+Cc: Abel Vesa <abelvesa@kernel.org>, Michael Turquette
+ <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, "linux-clk@vger.kernel.org"
+ <linux-clk@vger.kernel.org>, "devicetree@vger.kernel.org"
+ <devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "imx@lists.linux.dev"
+ <imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3] clk: vf610: Add support for the Ethernet switch
+ clocks
+Message-ID: <20260128093207.6b4c864b@wsk>
+In-Reply-To: <PAXPR04MB845936115A4DA73A9042650C8890A@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20260127085150.3040586-1-lukma@nabladev.com>
+	<PAXPR04MB845936115A4DA73A9042650C8890A@PAXPR04MB8459.eurprd04.prod.outlook.com>
+Organization: Nabla
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260126081334.699147-1-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_003205_877800_3EED9C03 
-X-CRM114-Status: GOOD (  31.69  )
+X-CRM114-CacheID: sfid-20260128_003219_057420_4E19CAEF 
+X-CRM114-Status: GOOD (  22.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,138 +82,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 04:13:34PM +0800, Jinjie Ruan wrote:
-> Commit 35c18f2933c5 ("Add a new optional ",cma" suffix to the
-> crashkernel= command line option") and commit ab475510e042 ("kdump:
-> implement reserve_crashkernel_cma") added CMA support for kdump
-> crashkernel reservation.
-> 
-> Crash kernel memory reservation wastes production resources if too
-> large, risks kdump failure if too small, and faces allocation difficulties
-> on fragmented systems due to contiguous block constraints. The new
-> CMA-based crashkernel reservation scheme splits the "large fixed
-> reservation" into a "small fixed region + large CMA dynamic region": the
-> CMA memory is available to userspace during normal operation to avoid
-> waste, and is reclaimed for kdump upon crash—saving memory while
-> improving reliability.
-> 
-> So extend crashkernel CMA reservation support to arm64. The following
-> changes are made to enable CMA reservation:
-> 
-> - Parse and obtain the CMA reservation size along with other crashkernel
->   parameters.
-> - Call reserve_crashkernel_cma() to allocate the CMA region for kdump.
-> - Include the CMA-reserved ranges for kdump kernel to use.
-> - Exclude the CMA-reserved ranges from the crash kernel memory to
->   prevent them from being exported through /proc/vmcore.
-> 
-> Update kernel-parameters.txt to document CMA support for crashkernel on
-> arm64 architecture.
+Hi Peng,
 
-I'm looking at this and at almost identical patch for riscv 
-https://lore.kernel.org/all/20260126080738.696723-1-ruanjinjie@huawei.com
-and it feels wrong that we have duplicate the code that excludes cma
-ranges.
-CMA ranges are known to the crash_core and I don't see why we cannot
-exclude them there.
- 
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
-> v2:
-> - Free cmem in prepare_elf_headers()
-> - Add the mtivation.
-> ---
->  Documentation/admin-guide/kernel-parameters.txt |  2 +-
->  arch/arm64/kernel/machine_kexec_file.c          | 15 ++++++++++++++-
->  arch/arm64/mm/init.c                            |  5 +++--
->  3 files changed, 18 insertions(+), 4 deletions(-)
+> Hi Lukasz,
 > 
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index 1058f2a6d6a8..36bb642a7edd 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -1119,7 +1119,7 @@ Kernel parameters
->  			It will be ignored when crashkernel=X,high is not used
->  			or memory reserved is below 4G.
->  	crashkernel=size[KMG],cma
-> -			[KNL, X86, ppc] Reserve additional crash kernel memory from
-> +			[KNL, X86, ARM64, ppc] Reserve additional crash kernel memory from
->  			CMA. This reservation is usable by the first system's
->  			userspace memory and kernel movable allocations (memory
->  			balloon, zswap). Pages allocated from this memory range
-> diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
-> index 410060ebd86d..ef6ce9aaba80 100644
-> --- a/arch/arm64/kernel/machine_kexec_file.c
-> +++ b/arch/arm64/kernel/machine_kexec_file.c
-> @@ -48,7 +48,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
->  	u64 i;
->  	phys_addr_t start, end;
->  
-> -	nr_ranges = 2; /* for exclusion of crashkernel region */
-> +	nr_ranges = 2 + crashk_cma_cnt; /* for exclusion of crashkernel region */
->  	for_each_mem_range(i, &start, &end)
->  		nr_ranges++;
->  
-> @@ -64,6 +64,12 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
->  		cmem->nr_ranges++;
->  	}
->  
-> +	for (i = 0; i < crashk_cma_cnt; i++) {
-> +		cmem->ranges[cmem->nr_ranges].start = crashk_cma_ranges[i].start;
-> +		cmem->ranges[cmem->nr_ranges].end = crashk_cma_ranges[i].end;
-> +		cmem->nr_ranges++;
-> +	}
-> +
->  	/* Exclude crashkernel region */
->  	ret = crash_exclude_mem_range(cmem, crashk_res.start, crashk_res.end);
->  	if (ret)
-> @@ -75,6 +81,13 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
->  			goto out;
->  	}
->  
-> +	for (i = 0; i < crashk_cma_cnt; ++i) {
-> +		ret = crash_exclude_mem_range(cmem, crashk_cma_ranges[i].start,
-> +					      crashk_cma_ranges[i].end);
-> +		if (ret)
-> +			goto out;
-> +	}
-> +
->  	ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
->  
->  out:
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index 524d34a0e921..28165d94af08 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -96,8 +96,8 @@ phys_addr_t __ro_after_init arm64_dma_phys_limit;
->  
->  static void __init arch_reserve_crashkernel(void)
->  {
-> +	unsigned long long crash_base, crash_size, cma_size = 0;
->  	unsigned long long low_size = 0;
-> -	unsigned long long crash_base, crash_size;
->  	bool high = false;
->  	int ret;
->  
-> @@ -106,11 +106,12 @@ static void __init arch_reserve_crashkernel(void)
->  
->  	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
->  				&crash_size, &crash_base,
-> -				&low_size, NULL, &high);
-> +				&low_size, &cma_size, &high);
->  	if (ret)
->  		return;
->  
->  	reserve_crashkernel_generic(crash_size, crash_base, low_size, high);
-> +	reserve_crashkernel_cma(cma_size);
->  }
->  
->  static phys_addr_t __init max_zone_phys(phys_addr_t zone_limit)
-> -- 
-> 2.34.1
+> > Subject: [PATCH v3] clk: vf610: Add support for the Ethernet switch
+> > clocks
+> > 
+> > The vf610 device has built in the MoreThanIP L2 switch. For proper
+> > operation it is required to enable ESW and MAC table lookup clocks.
+> > 
+> > The MAC table spans from 0x400E_C000 for 0x4000 and it is necessary
+> > to provide clocks for each AIPS1-"slot", which size is 0x1000 (hence
+> > four separate entries).
+> > 
+> > Those can be enabled via clock gating CCM_CCGR10 register
+> > (0x4006_B068).
+> > 
+> > This patch also adds VF610_CLK_ESW and
+> > VF610_CLK_ESW_MAC_TAB{0123} macros definitions for L2 switch.
+> > 
+> > The VF610_CLK_END has been removed from dt-bindings, as its
+> > number had to be increased when MTIP L2 switch clocks were added,
+> > and defined locally in clk-vf610.c driver.
+> > 
+> > Signed-off-by: Lukasz Majewski <lukma@nabladev.com>
+> > ---
+> > Changes for v2:
+> > - Squash clock DT bindings to this single patch  
 > 
+> Sorry for not being clear in last comment, dt-binding
+> update should be in a separate patch. So please
+> separate into two patches in one patchset.
+> 
+
+Ok, so I will add dt-binding as a separate comment and as Andrew asked
+I will add comment to vf610-clock.h about VF610_CLK_END being moved to
+clock driver as a "local" definition.
+
+> Thanks,
+> Peng.
+> 
+
+
 
 -- 
-Sincerely yours,
-Mike.
+Best regards,
+
+Lukasz Majewski
+
+--
+Nabla Software Engineering GmbH
+HRB 40522 Augsburg
+Phone: +49 821 45592596
+E-Mail: office@nabladev.com
+Managing Director : Stefano Babic
 
