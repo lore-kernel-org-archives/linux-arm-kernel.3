@@ -4,182 +4,208 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67B43D35661
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 00:50:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7453CD35661
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 00:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eQKBWKXJut+eQy+GgMzVO0K+qybhYmpW8h04L1Fy9oQ=; b=q21NNcEYf2qbi/qOTotgln7y4y
-	HTF5ltzLD4osOYwXobZ8IRtwpiTEo2O5UyEjL3h4MzO8jrvkDG3vc2dC50mTF+VIqH9GUE3qLG6dk
-	0EnViwoslHh4P3Ciz+tJEuRkGKKToAiJVpQBdszpRPyjNhEEehX+yPZpgytdB/4xmysNw2cN5U6hG
-	re8G3SQLIbYQwMWpkC6D4QpakMiBHubL/iLEc+pKHHHBe/lHkMHHRF+ZUU2e7A9nHIB5ieaIIWP35
-	o0/ZkBL6Q0o2CdIovh+Mo3LxyfUMlgErdSEpjJSlsKwQ1VxNWNiToSbF+JecfW2M4I6KcbsrIqiJz
-	FMGpfUiw==;
+	bh=Pg7Lk7VdkZVZTPZbtMPP4E906Eu7JMc0DPk2TIGrItU=; b=zmC5rLR1+LEhovS4fwNosuNJRk
+	SPPASb9mVlAfPuvdJ76Ja7opENiX1OOvqVrkTi6wyo7vz4o6y8BafQirvcLorDH4ay2//6gmY6YMi
+	ht8Sj7WzSPA+JLt7VxWQWdJwXEWeCGPAhZGCOUfO1x99UhGxgSJd5f4s+9zVudYZKUDDRUJCZFC0Y
+	KfnZ5on/Z5Tbl7vkJ+n+25EOcDOZR0aJgRB5CVNPfFqosx/zM0mRDXrH6CiJug2C8RCy/r1lnVkHO
+	LDK83EHqVF9FjWz8MgFSFeiZSwF+Sjo11uqrNLQlwKU/Py9T+YFohe8+Ma/3uL7adZ0xCZ9n2P2+u
+	hQ/WY/PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vktlb-0000000FEMn-1rzn;
-	Wed, 28 Jan 2026 00:50:43 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1vktss-0000000FEp2-3U0V;
+	Wed, 28 Jan 2026 00:58:14 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vktlY-0000000FEMK-362u
+	id 1vktso-0000000FEog-1bNA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 00:50:41 +0000
+	Wed, 28 Jan 2026 00:58:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769561890; x=1801097890;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=llw28GzpniFsb/gVxY0ahIvJjlHX954Z+ecHASF5zTY=;
+  b=AZNV24VFudISn3NapLMUU3XfCrAp4ZcXosxki2jB3FFyk0DtJjysRIk1
+   s70Lcw83ipSfJXjt2CgU5IgP0CL2sb8n8HV8wd12N43EPU8BReMsKg/ip
+   tCyYx4fNRgfiFPR8bP8JgC0+cvbY5w/eKX6KYid9Q+toM77egl47nZ0+v
+   YV31AIQXMiHJX6+BKiLobl4rfTubEyQzPdguoTmf4nMCn3wNoyrN0XAlD
+   b9FF7Q2v1RaG8G/2//d6ACeiZ/VSs2FlwQUT/L6FmrvEkz0HUkJhE55nk
+   Dasp074SdXJAS0A7kRiqnyPNhDwqkgSi8xJ0PoUY2NE8uQvbKVDWMLIAB
+   Q==;
+X-CSE-ConnectionGUID: 2iXmcWJ4RR2CPNf7XQJuhA==
+X-CSE-MsgGUID: 8U+ZIKN+Rga4VNPx/o3nYA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="81403248"
+X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
+   d="scan'208";a="81403248"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 16:58:08 -0800
+X-CSE-ConnectionGUID: NqcZMtWXTfO3WnM5Sebk+w==
+X-CSE-MsgGUID: 3QtS3JyVT+qaT3LIoQ2IwA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
+   d="scan'208";a="207261334"
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 16:58:08 -0800
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.35; Tue, 27 Jan 2026 16:58:07 -0800
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.35 via Frontend Transport; Tue, 27 Jan 2026 16:58:07 -0800
+Received: from BYAPR05CU005.outbound.protection.outlook.com (52.101.85.20) by
+ edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.35; Tue, 27 Jan 2026 16:58:07 -0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PvoLBA9VFThGHwUWr6EV3SkvX9v07G5pl/10WwT/8w4BfE6HkYrGUOucKk/k9xEI4sQ7/UIW5zDZaVxR9cpSkV6K9kJ1JXqA64NPygnO6wnvR7ve8T2LCdSilYKqy13uTsX35zIh/67cNZA98WGgBo0BoM3UP76/Qs/hrcuQr4A3mFP5p6ay12AuZvDpGK83nBaq2KmdRE028f2/yvB8AXhfVOTXqjF0GNVhfEdUFnQCVB6xyA0Dz7DGWf3bb7aRBfp+V9isoMLnKWCdbw7e0aGujtQeZrAgfC8GEaReKiDhAR/s4pXctky1LycXVbCx8UGrIjg+mWE+ePojqJrd+Q==
+ b=C8Yg/Go9aNsue0Ql5xVyDgFa5epWSTx23LC6ObOYeW7XhjXzzNJAuB0DRTiWQl5uovPh364I2BB2nsjymDY9sbBoWyvJbl4+fBTgp3MJIpd1pcle2ggQfZ1oYPYjwllokffHXpXV4B5xKN9PT65RhG4mcWLofI6uxtAIJiH6uhhXi6XyYX4YEfv2GJWpRXfYM97LZZ0rD3565TRb1vlFqHLWjIiPQz4S1OCrrNEE9vM8M7gtUVz2xxrKvlOipR3LgAPHWO7DqmZNMxqoIJRjyJhFzSuARiRmsL6sKJPVQt6LDitxjIgqhiG8BPmDZsUZ+ew6HwMVGmBkfVsK4wbpag==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eQKBWKXJut+eQy+GgMzVO0K+qybhYmpW8h04L1Fy9oQ=;
- b=rUp8hs472CrVFDTAbS9oMY5+PRrVXLTktUDkMppm3zC4br7oZwFy/sVxTg1i/s8vG0S+WUGUUyTVTZZl1aFaqVY2UuSZvWAQ980N+/7S11c7OzzEvR0hfcQP7zlL+jWlzoksy/20akE9hZQvxQwZkBSoYxFIv3XtSbJYbKjzLrIY1wS9b/N1Z4QWfMshWXYkMalyLhRirNWNk94MRSPPtiJej1q+jyAuc9D1W3e5hyM2mA580/21L2E0xuB68GGxsGNZj+J+dpuOhx8j3+n6N3moR1fhJFkHxwYoNXf9ZMe8hXGAJ3S5lGUl3hh9NtFJbfg9lysfTF2Xz+aeCt0V0Q==
+ bh=Pg7Lk7VdkZVZTPZbtMPP4E906Eu7JMc0DPk2TIGrItU=;
+ b=FnaQhohTvNEhcr57HEKAMYtVp165EJ3GfH18Av6c1W70jQzUkv2RuxPxQX5HV1Ov+OM4+Of2lNQSMRRfYD6v2T3Wy3qQjqHa4Gl2NF9Chh63KuxsdQm2zBRFKdJDBzpaFFGMUpvnoYcoUgn81QqjohyJ8p/0iM/X3qv9Er0h1450hnnAKF9EzhzHZcvpS0q/TU0AWXw+VQ0LBB3aJKFCbML49KIv07O0m54rS5vM+W/PkV8+Pl/EgzCArNOEEMBldw99hVwMiv4JO8NnTmiNBDtz1R2b7qZFUDWpyUd+kIyXwHZo8m6To40sOnZ9PpFtR8q78elNgoGVeuMa3ctsMA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eQKBWKXJut+eQy+GgMzVO0K+qybhYmpW8h04L1Fy9oQ=;
- b=fY4t69IHhJ7DhcWrs/tAs5Xjz36ju/jRzbWZJtNO3DU07LofmsbMUBzs845Cb9+S7p0dyYTkowZSYey/B+FplEryXe6bG90Bba4k7pTHhRW6UQ4iKWkVtoofKyGDCzTmZzr3SOSyevxklL96nz/6BO8nMfhPcW7UF+IfdZXvAPs=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- SN7PR01MB8133.prod.exchangelabs.com (2603:10b6:806:353::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.7; Wed, 28 Jan 2026 00:50:34 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::46eb:64a3:667c:c1a0%4]) with mapi id 15.20.9564.006; Wed, 28 Jan 2026
- 00:50:34 +0000
-Message-ID: <6dd16954-1b63-4179-9666-564d0a3090b6@os.amperecomputing.com>
-Date: Tue, 27 Jan 2026 16:50:30 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v5 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-To: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: catalin.marinas@arm.com, cl@gentwo.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260107002944.2940963-1-yang@os.amperecomputing.com>
- <aWZYXhrT6D2M-7-N@willie-the-truck>
- <bdd7bd07-dbed-432e-ae87-dc6381c05ddd@arm.com>
- <70b37582-fd26-4d23-a6d6-9a98e3f2eecf@os.amperecomputing.com>
- <b3122ea6-7bbc-4c07-b329-3355bbb16db9@arm.com>
- <a0aeed19-02d2-4d74-b82a-f906dc41e240@os.amperecomputing.com>
- <aXd2rud1E0Gff8-2@willie-the-truck>
- <04f816f9-5533-4fe1-99b0-cd405caac485@os.amperecomputing.com>
- <aXe5WHBdHLEnh-Bp@willie-the-truck>
- <f0214a9b-74bc-4ef5-95db-670802ceca4a@os.amperecomputing.com>
- <67570fb2-bde3-43e8-8661-ab62444b2626@arm.com>
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by CY8PR11MB6818.namprd11.prod.outlook.com (2603:10b6:930:62::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Wed, 28 Jan
+ 2026 00:58:00 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::f997:762f:f079:134f]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::f997:762f:f079:134f%5]) with mapi id 15.20.9542.010; Wed, 28 Jan 2026
+ 00:58:00 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: "Williams, Dan J" <dan.j.williams@intel.com>, Jonathan Cameron
+	<jonathan.cameron@huawei.com>, Nicolin Chen <nicolinc@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "bhelgaas@google.com" <bhelgaas@google.com>,
+	"joro@8bytes.org" <joro@8bytes.org>, "praan@google.com" <praan@google.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "linux-cxl@vger.kernel.org"
+	<linux-cxl@vger.kernel.org>
+Subject: RE: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Thread-Topic: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Thread-Index: AQHch228OMA01jUUyEiv70mzhaALBrVcR9QggAAjmICAADJUgIABF8EAgAB9uwCAAG1mgIAHDgXwgAB/AgCAAJ1EwA==
+Date: Wed, 28 Jan 2026 00:57:59 +0000
+Message-ID: <BN9PR11MB52760F8EE835B4D06BAF0C248C91A@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1768624180.git.nicolinc@nvidia.com>
+ <d1768bb6384050a23769f20ca28216f520f77e26.1768624181.git.nicolinc@nvidia.com>
+ <BL1PR11MB5271F0BDC68C2D7F172122E98C96A@BL1PR11MB5271.namprd11.prod.outlook.com>
+ <20260121100307.00004e60@huawei.com> <20260121130315.GE1134360@nvidia.com>
+ <6971b9406d069_1d33100df@dwillia2-mobl4.notmuch>
+ <20260122131432.GJ1134360@nvidia.com>
+ <69727e7ded712_3095100ab@dwillia2-mobl4.notmuch>
+ <BN9PR11MB527649A0049CA195E7BCF9218C90A@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <20260127150440.GF1134360@nvidia.com>
+In-Reply-To: <20260127150440.GF1134360@nvidia.com>
+Accept-Language: en-US
 Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <67570fb2-bde3-43e8-8661-ab62444b2626@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CY5P221CA0065.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:930:4::35) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|CY8PR11MB6818:EE_
+x-ms-office365-filtering-correlation-id: eda2ebd0-449a-428a-1db3-08de5e084861
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?+Rz22xK6EnYZJJLlqh1zDMWNsKAn/mS916WbzB0C2JvhQzUL2GmXT2PYNstQ?=
+ =?us-ascii?Q?JehI01/j1xZltD/CX8Pml5Fsy1DdkfT+efTaGwrew/J3jT/KM7jQS5Rj+DrB?=
+ =?us-ascii?Q?tQ2kQxSALi85RgttS0MnumxDlPeormW4MY1DA07Trr5GJyDHflB/myOcEIY+?=
+ =?us-ascii?Q?/91oVqS+V8eQqV5xKQmue0awnNXTMolFLDUFrR/I2zk0rmWnpOTbrjhil0aL?=
+ =?us-ascii?Q?fddfSM8a8cloUkx2LtCjgfaHuP3GAn15QIsUC3q4Y3WU8TexVTvO8y9d8W5o?=
+ =?us-ascii?Q?YkFZebjwaUToqvuZdOqJ4NIx0Y7BJYLrpx2adh78ukCidRX9vAlrOZ6MAJiC?=
+ =?us-ascii?Q?2FaU0kVa3A24a3YaDH88t7v0lvzZty+KMNsOCPiuOpPk0OEKwxV0kACI5SSm?=
+ =?us-ascii?Q?i53uPHM7gPrzOZZloqN78iMORqi0k7sd6Z9ttQEIfBZ3mIrlZzUE0EchwxOo?=
+ =?us-ascii?Q?CGN4MkgF4p+Ww4Lrhd9M1jM1ScWcRfH0nC8BfqIIPMya6sc/H/+jVqnxyOQA?=
+ =?us-ascii?Q?Fqw3Bxp7Y6HFwSaJACCpHKmGkIRbhXtDPwoLrTaaKEctUY10t2+Zi1asamBP?=
+ =?us-ascii?Q?vxPOIvF5iBbzqnZJfnHupjXWOulFHhuAk1uvS1MLQMBZ4qhLuXVvfyA889/D?=
+ =?us-ascii?Q?jx7X2uf55+ThA4wCaCmm4L3SuKuWPBlhF92GTkaPi+L7Eu911jkwaJRZiYXA?=
+ =?us-ascii?Q?0xnNg8oOmVYGClmZMfRCLOmF1vyX/iX0cfVDCnP0tsqtZBxBkkWk9ADKmmnk?=
+ =?us-ascii?Q?F64LLJrJ9odR/NVOucaF1p3Srj57Km/0HNF+1wLJQPGXk50et0p1HPO6YN4D?=
+ =?us-ascii?Q?uK5Rr4BelD1ECH8YQLbe5ybgj7hGzJDAWgudluw+xghhDTGrbvTzloWvMTPg?=
+ =?us-ascii?Q?0C072QDQJJjUII4Ds1SIssk4xj4LjPUX5s6TvVfW5EzWJppu9dBRNm9NtYsC?=
+ =?us-ascii?Q?Hq8+nPbrfiWDkA/7f6BoLuFxQfrXnkAdRZei9k4Rgzqs9S/ymlVcePsAFlKr?=
+ =?us-ascii?Q?2ZzfSDFYOQNft0bFixtEP5JhBfpcKKMje7+NKWbOm4g1LaIxHz9bIzDrA+rA?=
+ =?us-ascii?Q?mDZIkmTZcTnHTzoVOuETWuSi2NHfkOV8kS7rM/6z3GdjthcYWMIZ+Vm4HA2E?=
+ =?us-ascii?Q?9Dx8Uh95pPFXHyb/9x3VEKu2axdH+6l/RsEkYPitS/80M9IWPWlHx2uTvPC7?=
+ =?us-ascii?Q?kBNi4jkv9/i3cXv0rJMyU7duRauZXq4CZvrQW4M+BfgtQijB8R5axhLZ1TIa?=
+ =?us-ascii?Q?QlVrgkfRI6Zg4u5IylCgt1r5rOqUnUJA6MqC7hVN77YCcOlCVfIKe63MD3Jl?=
+ =?us-ascii?Q?TGieX5YApbQDPt9HM4JeoGF/HTF8sVtzzuO0jTcRC66OQ5L0EHsGwRQwje1/?=
+ =?us-ascii?Q?Xsw5hQwpmXL/dj8fKIISdNQRfntjjbhMCAVoTy2xmegL8xCk6MjqyQpdgL7S?=
+ =?us-ascii?Q?ap7RWMH/qoLaGhdlkBWxCrQINuXeg/lVotp7Q3PzXU044ntL0brsHu1KiIDv?=
+ =?us-ascii?Q?+LvkR8vERKtku4YfnIl3pc+99vVT1W4E01sC31BEUUMEhNMcOxe/XgZbkc5p?=
+ =?us-ascii?Q?kVVaBZhAkiShBVfW+1tEkgRT975lFbxzE25CU216C5sdHu0DjRQCCvI/k/5w?=
+ =?us-ascii?Q?5UwHBAjXHCrgFb1t9X2C61Y=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?MILDdRK1UoKtPwR4Qt6xz152VlPVm4/BzlucnGGbZEy/WhQ2ZbvwuHpt/5oY?=
+ =?us-ascii?Q?GM4/OqKkrsmcg21icUFbvX9RKqkptyU1KMKaAurdjwAtCPprtDKLzICl1Fj1?=
+ =?us-ascii?Q?K1vG0Vi6vZijzuBByG8ndI4S61Hi1BUkxrSP27UQXwEeX3J3JVNuDVNXUeLY?=
+ =?us-ascii?Q?uwgoCVAdlG5fPjqGDZt5QPT/A8j2MT/tU/23yDmSOzqHkBvcrTFJcSeX6I7O?=
+ =?us-ascii?Q?iTQbno5xPzpLL7rAtmQgoewC1lC9hyIQUlRy5TdC+sVC1C/H9Urnrm2n5nRG?=
+ =?us-ascii?Q?5zA1+l6/miaZIlCv/h+JJpfxRmnSFjqtmi9UXDZpLLIh37ugX2xdjVZdXPPO?=
+ =?us-ascii?Q?QOSlKNvi2YzdwXk5l2SYSDiTB7mlbQ0RHuJOIeYFwzogmS8J8NVla4Kpi4qA?=
+ =?us-ascii?Q?U56pR8xCTlyw0l+a+0XJerS9oRRyhWROY6BX3YFNqCN2gidO+MNRuiYwJi9Y?=
+ =?us-ascii?Q?Wik5fV0BM7I6RcbFcA4DVxU/PxOo7lv2jkOiOij9woF5UktM8laCV1FmdDwT?=
+ =?us-ascii?Q?PZmDqVtq0HWry6HFlC/TbrlBK85B/SZ3nQeks5jdK8IoKNb3+yMFxxy/Zq/N?=
+ =?us-ascii?Q?279X1fTJyCIGLZxOSBbcxJA76u2v3lKPtt2vvXI1+jUpRB4wI7BswhNCCJM7?=
+ =?us-ascii?Q?zboZTiE5XHfSBVWqo8fmZrw+mqoKqQCcpNig2PJhejPMcioTgjC9tGUL51KJ?=
+ =?us-ascii?Q?YRtPtDrsuV6m2WckOnsRrBPPZ7/ByU6SVIA2gSOkZXHCRBHNJhKx/yBTM2oX?=
+ =?us-ascii?Q?HJX55Rlf1yMLBA6+bKwBrsJ7IAevQdoeogiKT7aHqOi6vb4Rci916z1Tznn8?=
+ =?us-ascii?Q?SyZpfDmR55ywapsIDQ/5GL6sRXPfPoZSVFvh5sP5C9fW08T0DOSk+h/xvMa5?=
+ =?us-ascii?Q?qVjKP6iVN3NSsauHgFytRUN3KdMVT6MPo/0VJSZqEe2eqklS8r+GAdCkv86A?=
+ =?us-ascii?Q?3tkLifo4sVUMSo6QDzDRuV9eQC/t5T5ryLrZ6DgYEPAj6PztfIFBhqAcoDmK?=
+ =?us-ascii?Q?rY5qWJ58hcTvnQWbI/GM/4HrY73Pvc7W8E5x4Is8AcaqDp1q5ziKOzx+nIUa?=
+ =?us-ascii?Q?4UFoMQdGwoff1VzZ4FYohUxfNXkcOHIxB/NvYn12xdTwCz7LxFdCKh9mEX+2?=
+ =?us-ascii?Q?nrH91eieEUUaTZk6PEcuZzljB6InKaOGTCX47UU8G3QccRDERjp1DEbsD8LV?=
+ =?us-ascii?Q?rehbdN12H/AYH63x7PbYPDOubjdeFjiXKsxN5dwwFealtofxAGEkXeYfjsip?=
+ =?us-ascii?Q?NhdID9IHBV35ch3Uh6tD1nwaZgKfuOrSJLo6L4p2fVm852dxgZ9m+pZrQ3An?=
+ =?us-ascii?Q?LWvoX0Z3LNdephR7GOiWD7NuWminDONAqXJ9jJJ+3E02vOrMJ3EThpt+8o4M?=
+ =?us-ascii?Q?PMlxKVHCe+TH8layj/y1VRBTWIOwCJRSsqPbKXt9xw+nliKUJa6OR97ziF3c?=
+ =?us-ascii?Q?BlJ21EITdtaJA2g1yCxGeVEaWS4qrYxGg6hWBZcWTh6GuynBNYuggBV6NFMV?=
+ =?us-ascii?Q?6KWfvfhf72qwdWCWEysbojiKbBirw4DkZyYDA85exWQm/0/kZ0R/RuPDDPeg?=
+ =?us-ascii?Q?1VtVa6/5sQCCiXbBk+oCicpB9rz+tRoN3hbg5nuwM0j/BSG385Vu48sQrwSD?=
+ =?us-ascii?Q?dVZr+dbmQpRmWzVz9E0h4rVvHwuvO4w45LtcTbgm4Y6cKhAhi6UOh5IZAf8V?=
+ =?us-ascii?Q?rylnnkOoiklxosyVCGc4KxHujcUR7yyRTFFjeELIRNMW1dSgEejgWD7b7Okg?=
+ =?us-ascii?Q?DvuEOpD0xg=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|SN7PR01MB8133:EE_
-X-MS-Office365-Filtering-Correlation-Id: 41a1cb96-f5ca-44e8-3fe4-08de5e073e63
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?azZNQ1U4Q0JsN2ZrSTM3S0ExUmowZjViMk9KZm16U2tRQWs2VFBjM3h2QnU1?=
- =?utf-8?B?VTdLTnVkZ25OckVvZUh0MFE1aE1CaTZucmRoWG5ZQTBCMHJwbmxWQ1lla1RO?=
- =?utf-8?B?bjk5b0dGMUhZTjM4VklzSEowL2ZQZDJ6bnRublcrdEJKdVdYd2VIbHJRVHVw?=
- =?utf-8?B?d3FKNGxYZ2tMRTJSaDRYM0Izamp5WlhMbVRDNjhoYW1xTWQzNEFFSVJvRllv?=
- =?utf-8?B?WGtHakNKV0JiZm8wQmVkaVpMYVkrN0VXVjdHVXQzT2F6WEhSLzl0ajBsRnFY?=
- =?utf-8?B?VEUvckY3RnMvYnpIMVhjMVVZdVY0YTVSS3RMNHZxKyt5L2d0NDRCeitoaEgz?=
- =?utf-8?B?dFcwTldOYnhVSDNZdE5RdmxZSUU1UUt3cCt3ZnZiVnJ4TWNRYXFibUg4bVBj?=
- =?utf-8?B?dnMyK1dHMmxNT1VlQkNWV0ZLb2JVa1pTcVd2WkFjZ2RaSFR6NkpHcW5UMDUx?=
- =?utf-8?B?SGYycGh3WWVZRFo1NWVXa1RPbmJjNlhkWXYxc3JZVTQvOXJyVHRPL1NpbkZo?=
- =?utf-8?B?bVorZ0Mvb1poTU1XbWZuZFNiNk1UY1lqbGZzc1UrSkVINzN5djYzb0tUNmpl?=
- =?utf-8?B?TXdETlBXRkFNRG9sd2x5RGVCa1hNZWN6V1pUb3ljQzY4NGFZRVNaZFlBTnN4?=
- =?utf-8?B?UURYQVRTc0JheFhNaFVuTXZJR2w5RGdwZGlEYXVQN2dRZEczcXdGMzRpQXVK?=
- =?utf-8?B?RTJUdEZ1UThWK0tHaFZYZkJYQUxCK2N5eG9XaHBvZVRtNjY5dmtuaUdidlIv?=
- =?utf-8?B?V0gwVTJQaDB4bm81WmtQbHZqcXA5NDd6VkRTL2g3bkxxQ2tObmNGSmcrZGR1?=
- =?utf-8?B?TW5PZ3N5c3VYWnJoWHRCYVpwM0RDZng3UEFmVGNSdWU3Y29INHZwRWRyRU1j?=
- =?utf-8?B?OG1Wd3phNEhVN1RLUXJmL2lyUU1EdFoxenNKRGt2Qm95aHN1T212ZGlFVVk2?=
- =?utf-8?B?NFZhanAybWJZUTkzZlBMWnhQV0diRnplTFFxZm1IOHgxWUgyckozVVNmMWEr?=
- =?utf-8?B?SS94OStqbStNRXdjdzRKZFYrZHVEODRmNnNTWEF6THF1T2pvUkZEVnNsZ3Zl?=
- =?utf-8?B?eUhadzdhWHFrbDYwOEJBd3BWL0h4UThRUE1uSWJucDNvVUVyYWJlamVoVDdi?=
- =?utf-8?B?QllQbFpYOFViSzk2V3JEbURrZUdhUjQwZm94V3gvZUxFN1J2NkpmSmdadzVQ?=
- =?utf-8?B?QjBxUlVFVUJsemQwUE9RL3ZkclU4R2gvT3IvM3R3elgwdzZjM3dNVVhVck9U?=
- =?utf-8?B?cS8wZ0xURjR4YmZOWWt2TWNuQmVLZEpUekhzeW4rQVZ6aFhTYnlWQmZETXFS?=
- =?utf-8?B?dVdSTS9Kd01sODIxQ3lSakNaR1I4RG1yYWk5d1JsQ0htMnFWQTRRQXM1WTRE?=
- =?utf-8?B?WERzSkwweGl2ZHFhMk1sdGd0c3dzdGdhVTZ3RFp3UExHNFVSNVY4SzM0Tmly?=
- =?utf-8?B?SFEvbE1TNS9WSytwc0JrV3Y2b0R5QWtYVlF5THNkNzZ1YXJwenpPaVArejFG?=
- =?utf-8?B?RXFtZ01NUExlUUVpU3JDQWhXMkNsclNVVmUra2h0Q1dveCtkTTNpNTdmUE1w?=
- =?utf-8?B?anY5YllCRlIzT0ZlQUtUUExqVVFvQVgrd3pMZngyWFdqMjFKSG1YOVpNU3Vn?=
- =?utf-8?B?dTJMMXFJa2paekMrTkc2T05TenphNVl4WHRxSXlybU5LVldnbFN6ankvU1NZ?=
- =?utf-8?B?ZVNSbXdKVWZVUlphWHBmckp5UzN0SnZzaC9QYVdxczJlQ0J2S2pJQnM5Rzhh?=
- =?utf-8?B?b2ZWT2JldnVYdGtrMTgrRWtOakZ6OU05VHhZeUdKQWpoRkdqRnZBOUpqaXYw?=
- =?utf-8?B?bE9POXM1c2d4OWEvcEp5U25BU1NEckJ0RUVwellLcEZNbmdnWHBvb3owQTd5?=
- =?utf-8?B?d3JiVEFlRGlIU2txZW01YllxSXRZRkp1VkNmWjRybXU1cFpGcWQyR09wZmxu?=
- =?utf-8?B?MDRHWG1PNjBScVpRVjhkbWlxMTI5YzlJVlptc29xTE81SmYvZVcyWDNRZ2Er?=
- =?utf-8?B?UFJYN3djdTdXZERzYnVMeDNGNCszbFViWFoxdmFpamM0b0pESi9nem12RXlP?=
- =?utf-8?B?TzRCVXpNNVhOYTVKRC9Za29vOUFkQ2QxWThEMXB1WEI0TktOeDRLSVJRczU1?=
- =?utf-8?Q?mibI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZEdnMFdHK2FTekNveHJHOGE4NU43RmovZTJmelhIZFVzaFhsdyt6WTJtN29h?=
- =?utf-8?B?aXYwN2JlUEQ0VDllaXpyR0RVYmpMeGlUWFFWV2FScmkzdjJGeVVSZGw1QzA3?=
- =?utf-8?B?KzlLZHZHbVNkdVdPN2h3UGZmN0VkUFRVK1haUFk2ZVNmZWs1REwvbXBrQm5I?=
- =?utf-8?B?Q2ZFLzRjdG5hSGpjNkZ3WVpwOEhPanU1djg2VVMyOFV3TUw0ZVBRZDd2bWpo?=
- =?utf-8?B?QlFqYWcrM1MxN2QrTWl5c1VCL25Ndm5NT25KVUFUUXpPN0YrQjNqd0xoNWtu?=
- =?utf-8?B?NzVZZENOa29rOVF6MUtXMFBDQmZFYWozR0FFUWF4YkhKakE2MDRjVjVKZ2FE?=
- =?utf-8?B?WEt4RjBCQ1FUdFFTR2ZhWlZEK0lJYlJNcFBBaTVFUzlXRWRlNTNGcWd6Zm4z?=
- =?utf-8?B?OVF2TTZzZVJqVHFaTlpWYWtVQjZIbmRFaFgvd1RjcGFMZUJDWXVxTEFBYSti?=
- =?utf-8?B?S0pCWmxYYlcrcTNyOFBXNnFzVWdYTEFsL1Ayd1YyYVoxdzNHV01JUjdVWHh4?=
- =?utf-8?B?TEphdmpkRkRSbEdySFpRU3EzUklyeFltV1EwUS9ha29yYUdESm43K095MFR4?=
- =?utf-8?B?dng4S3g5c2JSdHNaWHAvRnY5M0ZqV0hWY3R2WnNTZDZHMXppT01qczA5WWlV?=
- =?utf-8?B?T2IvbHlnUTdTdy8zQUZhSk9mRnE2UFZZYmZFcnVsZ3lJczhhbE5ZVFBKQjhy?=
- =?utf-8?B?U1VWL2xXUExKN213UWpLMmZ6YWtsQmpvSkhtYnpZME11WnM3Q1VNSFJKd0tZ?=
- =?utf-8?B?Wm5QRmlvQ1RnREFGVDkyOStic1RNSlZ4QmF4NTlvWUtFL1ppL0gxblIwMERX?=
- =?utf-8?B?YVpiN3NnVnJVVi90YkMremdEcitQcmIvWmdQbnV5L3dtQnUyV2NIQ250RkZH?=
- =?utf-8?B?QnFYbW9EZ3ZaRnlIQlhnL2MwalMzb294VjZDTWtrRHpaVVh1N3V6NXdLSUls?=
- =?utf-8?B?bjVnRHg3ajdUMTh6MElvWHJkL0wzSjFlTUZPa1FXZzlCVi82UU5CTTliMFl2?=
- =?utf-8?B?dWhHM3JTYmRZOFY0ZStsZ2NVMlorcGZJV3pqdmhnODVCajFlOXBSaUY3MUMx?=
- =?utf-8?B?TkJocjQvRzJIb2JQdTF2VFdRY05xeVAwQWk2VHJQTUkxSFB4VWRRc3ZXVUhI?=
- =?utf-8?B?VFFoU2IzZmFsY1RXYXpKRUdHdjNjcHNESjExT2hIWUNRMFBtb0ttd1d1cU1R?=
- =?utf-8?B?WXMvMG82bHEwaU5EckZzU0tUMjUxYy9uUzRjQjZKV0JCMFJZS1RXTU5Va2hk?=
- =?utf-8?B?ZlExajV4RytJU1hDYnBMSHYwanNWZ3ZMSkUvMmlNcGxpaGwrdElpZDd3Q2xl?=
- =?utf-8?B?OXJ3U0kyRGtmOU5WQmJ1UmwyZlc0RDU0bTlrS3lFYXF2TzQ4L1MybTFNUHZo?=
- =?utf-8?B?SUE5WWNtMzRBR1d2alMrMVZhZXFUK2R6c2pnUmJjMVY3bktDL0k3dUl3UGVs?=
- =?utf-8?B?OE9PMURPQktXTGttYWN1ZGpac2ZTeXpmTkhaMXY5RkxTUlU3MmhqdEhNQlBn?=
- =?utf-8?B?eG1idHovcnN5ZWgrY0hMMFFpM0cvOHovUTBjc3dVNzNUb0MycUZ5UnFUMnBn?=
- =?utf-8?B?TjFDbWF2azZlL2c5cE5TdUplWlFYWjFUNnI5azBEeTdGZ0ZrN1h4NjA2V3hM?=
- =?utf-8?B?eEthYVRvUGVMQ1BZTTFGTlFwK0x4N2kvVWRwaWl3amkxWjdFRStvdGZKcXZX?=
- =?utf-8?B?aEhrOUhoTi9Ed1oxWEZoQ0sxTVR2Y1VuN0VnMGl6Zk10SmlYU1drYVJlN2Ru?=
- =?utf-8?B?L0lCaU96aUMwcllBQmZMN1JETWVtempFeXBBa3hpekFETS9DNXBpUktkNkpi?=
- =?utf-8?B?bTFVLytmSHoyM3RqL01EMUphbTl6b0l2SG91TW1pT1o1amVJUUk4cFZrS0t0?=
- =?utf-8?B?TEFsR0hWSndxZlhlb1RWbW0rUjl1dVZyc2xuZVVDQ1R0b2J4SGpKY1FkbjRC?=
- =?utf-8?B?bWJHZHdUak0rQ1dCN29qTHhRV0ZTak1TeXYydmZ4b21NeXMvRWYzbXlvTUhS?=
- =?utf-8?B?ckEyK3VLSXExRjFSakFSOVBHeVVoT2JSVGJSVzAxZXBPSTdqQ1VZcHRRZExT?=
- =?utf-8?B?VEtodGVCckc4U3k5cVdhbWhrMFlrNmNtaER2WnY0M1p4UkNTYXkydnNPckhx?=
- =?utf-8?B?d29KejJBZCthZHFnbjVDVk1XUlFYWk85d1A4MEVqNmNDdTQxdHBJeXN5dUo0?=
- =?utf-8?B?NnE4eXhIUzRPSGgycU5XajNuZ3JpYXF6YWxPNWRjUzd2YjR2M1hCMkg2ekth?=
- =?utf-8?B?QXFZdUZDdjYzb2V4eFdpUTVxdy8zd085TVdHRjdkbU5rMkc4YkZ6NHA2MkpZ?=
- =?utf-8?B?TnNqTjluNG1uR0N0N1ppNEFuNFNCWHJXSkI3eGM2VUwzQVN6N2JZVUlMWnoy?=
- =?utf-8?Q?LYvuu0J7yzpZx1Us=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 41a1cb96-f5ca-44e8-3fe4-08de5e073e63
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2026 00:50:34.0548
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eda2ebd0-449a-428a-1db3-08de5e084861
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Jan 2026 00:57:59.9974
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hsHaYnPk1F/hunb4H49TBVm7h0zZlFCbwRGa10TgIsOAetbLO1k5LR5S51JRYKgNTdRwDPfRqmSAha0FFYFdu/vNTBw+ELEK+oA22OGdUHM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR01MB8133
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: nZIEJEq46VKHOeHGSHdXmkibjTUXJICUSMVVltsMRqFm/czslQ0wja4/jcjU5nY6KAm+qYuowpCjQz7nwvS4jQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR11MB6818
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_165040_831210_51823F49 
-X-CRM114-Status: GOOD (  24.15  )
+X-CRM114-CacheID: sfid-20260127_165810_491174_A41DACB1 
+X-CRM114-Status: GOOD (  35.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,161 +220,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> From: Jason Gunthorpe <jgg@nvidia.com>
+> Sent: Tuesday, January 27, 2026 11:05 PM
+>=20
+> On Tue, Jan 27, 2026 at 08:10:06AM +0000, Tian, Kevin wrote:
+> > > From: Williams, Dan J <dan.j.williams@intel.com>
+> > > Sent: Friday, January 23, 2026 3:46 AM
+> > >
+> > > Jason Gunthorpe wrote:
+> > > > On Wed, Jan 21, 2026 at 09:44:32PM -0800, dan.j.williams@intel.com
+> > > wrote:
+> > > > > I do not immediately see what is wrong with requiring userspace
+> policy
+> > > > > opt-in. That naturally gets replaced by installing the device's
+> > > > > certificate (for native PCI CMA), authenticating the device with =
+the
+> > > > > TSM (for PCI IDE), or obviated by secure-ATS if that arrives.
+> > > >
+> > > > I think that goes back to the discussion about not loading drivers
+> > > > before validating the device.
+> > > >
+> > > > It would also make alot of sense to leave the IOMMU blocking until =
+the
+> > > > driver is loaded for these secure situations. The blocking translat=
+ion
+> > > > should block ATS too.
+> > > >
+> > > > Then the flow you are describing will work well:
+> > > >
+> > > > 1) At pre-boot the IOMMU will block all DMA including Translated.
+> > > > 2) The OS activates the IOMMU driver and keeps blocking.
+> > > > 3) Instead of immediately binding a default domain the IOMMU core
+> > > >    leaves the translation blocking.
+> > > > 4) The OS defers loading the driver to userspace.
+> > > > 5) Userspace measures the device and "accepts" it by loading the
+> > > >    driver
+> > > > 6) IOMMU core attaches a non-blocking default domain and activates
+> ATS
+> > >
+> > > That works for me. Give the paranoid the ability to have a point wher=
+e
+> they
+> > > can
+> > > be assured that the shields were not lowered prematurely.
+> >
+> > Jason described the flow as "for these secure situations", i.e. not a g=
+eneral
+> > requirement for cxl.cache, but iiuc Dan may instead want userspace poli=
+cy
+> > opt-in to be default (and with CMA/TSM etc. it gets easier)?
+>=20
+> I think the general strategy has been to push userspace to do security
+> decisions before binding drivers. So we have a plan for confidential
+> compute VMs, and if there is interest then we can probably re-use that
+> plan in all other cases.
 
+make sense
 
-On 1/27/26 12:57 AM, Ryan Roberts wrote:
-> On 26/01/2026 20:50, Yang Shi wrote:
->>
->> On 1/26/26 10:58 AM, Will Deacon wrote:
->>> On Mon, Jan 26, 2026 at 09:55:06AM -0800, Yang Shi wrote:
->>>> On 1/26/26 6:14 AM, Will Deacon wrote:
->>>>> On Thu, Jan 22, 2026 at 01:59:54PM -0800, Yang Shi wrote:
->>>>>> On 1/22/26 6:43 AM, Ryan Roberts wrote:
->>>>>>> On 21/01/2026 22:44, Yang Shi wrote:
->>>>>>>> On 1/21/26 9:23 AM, Ryan Roberts wrote:
->>>>>>> But it looks like all the higher level users will only ever unplug in the
->>>>>>> same
->>>>>>> granularity that was plugged in (I might be wrong but that's the sense I
->>>>>>> get).
->>>>>>>
->>>>>>> arm64 adds the constraint that it won't unplug any memory that was present at
->>>>>>> boot - see prevent_bootmem_remove_notifier().
->>>>>>>
->>>>>>> So in practice this is probably safe, though perhaps brittle.
->>>>>>>
->>>>>>> Some options:
->>>>>>>
->>>>>>>      - leave it as is and worry about it if/when something shifts and hits the
->>>>>>>        problem.
->>>>>> Seems like the most simple way :-)
->>>>>>
->>>>>>>      - Enhance prevent_bootmem_remove_notifier() to reject unplugging
->>>>>>> memory blocks
->>>>>>>        whose boundaries are within leaf mappings.
->>>>>> I don't quite get why we should enhance prevent_bootmem_remove_notifier().
->>>>>> If I read the code correctly, it just simply reject offline boot memory.
->>>>>> Offlining a single memory block is fine. If you check the boundaries there,
->>>>>> will it prevent from offlining a single memory block?
->>>>>>
->>>>>> I think you need enhance try_remove_memory(). But kernel may unmap linear
->>>>>> mapping by memory blocks if altmap is used. So you should need an extra page
->>>>>> table walk with the start and the size of unplugged dimm before removing the
->>>>>> memory to tell whether the boundaries are within leaf mappings or not IIUC.
->>>>>> Can it be done in arch_remove_memory()? It seems not because
->>>>>> arch_remove_memory() may be called on memory block granularity if altmap is
->>>>>> used.
->>>>>>
->>>>>>>      - For non-bbml2_noabort systems, map hotplug memory with a new flag to
->>>>>>> ensure
->>>>>>>        that leaf mappings are always <= memory_block_size_bytes(). For
->>>>>>>        bbml2_noabort, split at the block boundaries before doing the
->>>>>>> unmapping.
->>>>>> The linear mapping will be at most 128M (4K page size), it sounds sub
->>>>>> optimal IMHO.
->>>>>>
->>>>>>> Given I don't think this can happen in practice, probably the middle
->>>>>>> option is
->>>>>>> the best? There is no runtime impact and it will give us a warning if it ever
->>>>>>> does happen in future.
->>>>>>>
->>>>>>> What do you think?
->>>>>> I agree it can't happen in practice, so why not just take option #1 given
->>>>>> the complexity added by option #2?
->>>>> It still looks broken in the case that a region that was mapped with the
->>>>> contiguous bit is then unmapped. The sequence seems to iterate over
->>>>> each contiguous PTE, zapping the entry and doing the TLBI while the
->>>>> other entries in the contiguous range remain intact. I don't think
->>>>> that's sufficient to guarantee that you don't have stale TLB entries
->>>>> once you've finished processing the whole range.
->>>>>
->>>>> For example, imagine you have an L1 TLB that only supports 4k entries
->>>>> and an L2 TLB that supports 64k entries. Let's say that the contiguous
->>>>> range is mapped by pte0 ... pte15 and we've zapped and invalidated
->>>>> pte0 ... pte14. At that point, I think the hardware is permitted to use
->>>>> the last remaining contiguous pte (pte15) to allocate a 64k entry in the
->>>>> L2 TLB covering the whole range. A (speculative) walk via one of the
->>>>> virtual addresses translated by pte0 ... pte14 could then hit that entry
->>>>> and fill a 4k entry into the L1 TLB. So at the end of the sequence, you
->>>>> could presumably still access the first 60k of the range thanks to stale
->>>>> entries in the L1 TLB?
->>>> It is a little bit hard for me to understand how come a (speculative) walk
->>>> could happen when we reach here.
->>>>
->>>> Before we reach here, IIUC kernel has:
->>>>
->>>>    * offlined all the page blocks. It means they are freed and isolated from
->>>> buddy allocator, even pfn walk (for example, compaction) should not reach
->>>> them at all.
->>>>    * vmemmap has been eliminated. So no struct page available.
->>>>
->>>>   From kernel point of view, they are nonreachable now. Did I miss and/or
->>>> misunderstand something?
->>> I'm talking about hardware speculation. It's mapped as normal memory so
->>> the CPU can speculate from it. We can't really reason about the bounds
->>> of that, especially in a world with branch predictors and history-based
->>> prefetchers.
->> OK. If it could happen, I think the suggestions from you and Ryan should work IIUC:
->>
->> Clear all the entries in the cont range, then invalidate TLB for the whole range.
->>
->> I can come up with a patch or Ryan would like to take it?
-> Hi,
->
-> There are 2 separate issues that have been raised here and I think we are
-> conflating them a bit...
->
->
-> 1: The contiguous range teardown + tlbi issue that Will raised. That is
-> definitely a problem and needs to be fixed. (though I think prior to the BBML2
-> dynamic linear block mapping support it would be rare in practice; probably it
-> would only affect cont-pmd mappings for 16K and 64K base page configs. With
-> BBML2 dynamic linear block mapping support, this can happen for contiguous
-> mappings at all levels with all base page sizes).
->
-> I roughed out a patch to hoist out the tlbis and issue as a single range after
-> clearing all the pgtable entries. I think this will be MUCH faster and will
-> solve the contiguous issue too. The one catch is that this only works for linear
-> map and the same helpers are used for the vmemmap. For the latter we also free
-> the memory, so the tlbis need to happen before the freeing. But vmemmap doesn't
-> use contiguous mappings so I've added a warning checking that and use a
-> different scheme based on whether we are freeing or not.
->
-> Anshuman has kindly agreed to knock the patch into shape and do the testing.
-> Hopefully he can post shortly.
->
->
-> 2: hot-unplugging a range that starts or terminates in the middle of a large
-> leaf mapping. The low level hot-unplug implementation allows unplugging any
-> range of memory as long as it is section size aligned (128M). So theoretically
-> you could have a 1G PUD leaf mapping and try to unplug 128M from the middle of
-> it. In practice this doesn't happen because all the users of the hot-unplug code
-> group memory into devices. If you add a range, you can only remove that same
-> range. When adding, we will guarrantee that the leaf mappings exactly map the
-> range, so the same guarrantee can be given for hot-remove.
->
-> BUT, that feels fragile to me. I'd like to add a check in
-> prevent_bootmem_remove_notifier() to ensure that the proposed unplug range is
-> exactly covered by leaf mappings, and if it isn't, warn and reject. This will
-> allow us to fail safe for a tiny amount of overhead (which will be made up for
-> many, many times over by hoisting the tlbis batching the barriers in 1.).
->
-> Anshuman has also kindly agreed to put a patch together for that.
+>=20
+> > At a glance cxl.cache devices have gained ATS enabled automatically in
+> > most cases (same as for all other ats-capable PCI devices):
+>=20
+> Yes.
+>=20
+> > - ARM: ATS is enabled automatically when attaching the default domain
+> >   to the device in certain configurations, and this series tries to aut=
+o
+> >   enable it in a missing configuration
+>=20
+> Yes, ARM took the position that ATS should be left disabled for
+> IDENTITY both because of SMMU constraints and also because it made
+> some sense that you wouldn't want ATS overhead just to get a 1:1
+> translation.
+>=20
+> > - AMD: ATS is enabled at domain attach time
+>=20
+> I'd argue this is an error and it should work like ARM
+>=20
+> > - Intel: ATS is enabled when a device is probed by intel-iommu driver
+> >   (incompatible with the suggested flow)
+>=20
+> This is definately not a good choice :)
+>=20
+> IMHO it is security required that the IOMMU driver block Translated
+> requests while a BLOCKED domain is attached, and while the IOMMU is
+> refusing ATS then device's ATS enable should be disabled.
 
-Thanks for the update. Look forward to seeing the patches from Anshuman 
-soon.
+It was made that way by commit 5518f239aff1 ("iommu/vt-d: Move
+scalable mode ATS enablement to probe path "). The old policy was
+same as AMD side, and changed to current way so domain change=20
+in RID won't affect the ATS requirement for PASIDs.
 
-Thanks,
-Yang
+But I agree BLOCKED is special. Ideally there is no reason to have
+RID attached to a BLOCKED domain while PASIDs are not
+blocked... oh, wait
 
->
->
-> Thanks,
-> Ryan
->
->
->> Thanks,
->> Yang
->>
->>> Will
+there is one scenario, e.g. VFIO allows domains attached to RID and
+PASIDs being changed independently. It's a sane situation to have
+userspace change RID domain via attach/detach/re-attach, while
+PASID domains are still active. 'detach' will attach RID to a BLOCKED
+domain, then disabling ATS in that window may break PASIDs.
 
+How does ARM address this scenario? Is it more suitable to have
+a new interface specific for driver bind/unbind to enable/disable
+ATS instead of toggling it based on BLOCKED?
+
+>=20
+> > Given above already shipped in distributions, probably we have to keep
+> > them for compatibility (implying this series makes sense to fix a gap
+> > in existing policy), then treat the suggested flow as an enhancement
+> > for future?
+>=20
+> I don't think we have a compatability issue here, just a security
+> one.
+
+'compatibility issue' if auto-enabling is completely removed with
+userspace opt-in as the only way. But since it's not the case, then
+yes it's more a security one.
+
+>=20
+> Drivers need to ensure that ATS is disabled at PCI and Translated
+> requestes blocked in IOMMU HW while a BLOCKED domain is attached.
+>=20
+> Drivers can choose if they want to enable ATS for IDENTITY or not,
+> (recommend not for performance and consistency).
+>=20
+> Jason
 
