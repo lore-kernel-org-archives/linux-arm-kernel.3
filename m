@@ -4,172 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E96D25B59
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 13:12:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B4AAD25B5A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 13:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ib7FKgwNyIsCnKITa3sMUGFshQAus9ki/XfHJdsCMYM=; b=0y9e2uudb0hYiGpaKraiBIOY0l
-	NmdKSWosP8mWArv6vuc1pG48lmSkTPzn1XQu+ys6RtLHGoJ1k9GP4AmOOKOlbaKcHwxiFhSyMyslm
-	mHGNSv9GmQKGDbTAbdNsTi5c6CimyXpIBfNDpheR55jKaYHX6ssxyxod1ABgY5i5WmTVgu2McCFPG
-	ImCXgarOWl64SRelxQDcxQB5iSi6PxnlZuzf5LtjnE8EsC8YaVK1gs762LdrvuTGlzdCCKsKDIS0R
-	HtOFwPrsNUGuXrycUIvyCA6HL4DGi3TdWvEa1652OlQjdrr70bE09fp+e4MqZbgIxcFeSu7LBYJLe
-	C4sF0EkQ==;
+	bh=J9u3Q5Z41Dz7dplKmi42lTe+fp6KTmSeoXgeuWZDyP8=; b=dcKH00HvRj4gQ4zV/KvRljA6BP
+	mH8LWA3ytmUdfnhrEoc/fqqtmFIycSN0tDKtKaG5bS+ZJJSsHdFO4g+unRTnDC2sHlshutgVcRJgj
+	c7dW5FChMEKLzcyKKEJX1vEhuLGILR739xRSz5UJjs9JOxXT+HRfPekfqO2ISjf62PEH853QSqjmG
+	7fTA3RjNWimbKRqIWC6FRSJG9L2RUYXvRZ0P8n1gwT8HF4asz/2Iim8tjo+0XfgpS2dVPXO3BnlCK
+	hz6PHj0VrkgNlUQK1844B0CDodR0xgQzy7j0xwjgm3QjKzqTM5gde92G7NHfMU33lJefJxGyrhXyx
+	v5lmPgTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl5L2-0000000G2ed-1klv;
-	Wed, 28 Jan 2026 13:12:04 +0000
-Received: from mail-westus3azon11011018.outbound.protection.outlook.com ([40.107.208.18] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1vl5NF-0000000G2mh-3ojS;
+	Wed, 28 Jan 2026 13:14:21 +0000
+Received: from mail-northeuropeazon11011060.outbound.protection.outlook.com ([52.101.65.60] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl5Kz-0000000G2eF-3cTc
+	id 1vl5ND-0000000G2lv-08md
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 13:12:03 +0000
+	Wed, 28 Jan 2026 13:14:20 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GN7ZiVCg/yCjlwKQwaVjXOO2SPdpEaxofoxXNGV1PHPSwXRgzcRm7QNqSi3druHCaYYJoLuUR8LrK2GZ3kbY1m+JlZ2tQ78w3vXKEk/hBQNKeh+yvcE6T5pE828E0zF+Dzl0DpMLAzTwTjjm2ecB5yzsoIvI2vvg6z0q0OJhsYXDFIvTN1AP4HWhWfG7MzR4WFd5y6omHINK8t7anYyRf15/pG009tcRc6k9h3qTlbylQOUTo+q47JldvDSLypXlDy/CmzbLlwNB039+IYrfLr3dKy5PyzblloZN9q+/utVUL0Nv1HDmsN96BQtF1QdspLSHzrSi52Zx91W5jqQjDQ==
+ b=dLptPFuTmBYT0S/lK90NFenQvocqco66LIkPHyopeMjF7Wz45IHwf438ZE/DvsfmGY1RMSLyVdW3FSFm7xLDMcyP1N82ce3mgbPBcB3RgBWVewUM3QZxqvRgx/NMSBwd2W4iBpgD/6Kxr61bL4/EjH8agOeYvzNkzQNFD2UvAb1PRIdgJq76w8CO+IEBqUTtiZDgyd+XPDjmmaeS3bzv9u3H/OxjsR3sWGd5kZuq/9nz1iRxZmSwRzLipwe2NuZBwouEDbU20wd27MjCYws/6mSVavPa+a+DcHOk1d+iVHVhXnuHqgHMVfeWwU9tdmHcgz3ESoqLK+a7afyF5ZgDYw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ib7FKgwNyIsCnKITa3sMUGFshQAus9ki/XfHJdsCMYM=;
- b=q5UIa+EM5tGSmzWIGMp5c08kl4JuAVNPpBSAF4j9LqSq7eFT/laPBcej2O5NAMbrQXdD8wR4/7plpELAHTNjMewW/0kwM5U8r6rHPWVYlo94j0xMvtm7HUr2bCRT1DDc7GHo8qhHLls+5DOMip0x8WTZ+TLt6kN2ApdYKvFedM1zBKqiP5xPXQ/PMEqunXvDhUJrFDnaqy0lRTG9zA78MqkxY8EjH+PO807E/oE+j92NeK1Ks26AHwNwTmC66FZSUnAeVXVwuRJWUco+Z3Fo4YSESzHq8eQzO0DbbeT0abcAcw/sYI/Njy6VmN9U6jNxGd68xulrX/395jEDEHtpUQ==
+ bh=J9u3Q5Z41Dz7dplKmi42lTe+fp6KTmSeoXgeuWZDyP8=;
+ b=cONkZ7DAfYEy78swaA2yQykmkWBKbtKSty3T3CdT20aOuRn6n6d/5gU/vN9CWnXD8VoHtnsFUiWF+5atA4Sr2AfWZibKngKKhmxIS03EcU9SuvjNW2+Pfhk0rn1vq60yiYI2cW+T333t6zX5cMO2HM/PufSRGz2ugA5e4VlQMFAjwktm2usUTcWrLUVp8nxFe/6kHcFYKeI8RHpacdYqJ1WTQjJgdLweO4RydZNgQmu2WxJXNBD2VmcC3wbPZ28T4x568q+pN0cVK9WTxNOqIPmwJCyNL5GB1AVVHrqHML0XeVu8pUC8ZWM0tvjPdqKo/7W70+Fza6OX/eSHck/RqQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ib7FKgwNyIsCnKITa3sMUGFshQAus9ki/XfHJdsCMYM=;
- b=tzeVe60WLS8qHjsaw3vm7KTiDxZQHO4XK/BtuF7A5MzzxiQiCkzhNzL0jvwbuTPqXIq1VHzm+8tgyHEeBtCXrQ9fmokZ6V8w0/qxySjAk0XVfL1uxs9yio9RNaemdDwczo37V4ronIQxk2P/yBvhaxppdsw42kXos6Hbgxm2Ssot3fX8aBCt3kHGzLtJbdEsvUEWZtayv44l8Y5e0JzU3Kx6DUslO42QCxC40l/hGBbqckQZ6ptC9JiHTGEac2o7MB6BqOpoj5FgzUgSOcftDMVTVX9iv8eMMNbKEnPo7Hmp6kgCSNfEONc1ejKQNtit4d/7yyl8UpZh4zDqJSK+4g==
+ bh=J9u3Q5Z41Dz7dplKmi42lTe+fp6KTmSeoXgeuWZDyP8=;
+ b=TyeBeTDCuvDKXvGRJMXgnN5+9y5NISJQwvV8kaK09dZ6eo/V7Ysa/ZnRb0l5OKzIzoQCJpwQHrD3ZdumTdUpr/5IhBDufJS/d6CbSEKok5NKTRL6xHFpNRMCn1wTuiulRp26W0vxlF1fizc73PjtQyuipbWOwJidCRD5mwQFnEQE/FVE1FeQpcpYrSMutjtRPZ5XcEGTv3ebD7X7ScyDS3KDqQAoft56+5jvR++P5PkPmsV/W49AdyduDYAqvO8bYqoxZCfR7ujvz6RnfdVtkYYe63eZLU9+AjmFpy37STQsVpMydySnvsqvCR/MGZHTDAG5q2WppMi3PwsNwNPF1Q==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by IA1PR12MB7615.namprd12.prod.outlook.com (2603:10b6:208:428::17) with
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
+ by DBAPR04MB7288.eurprd04.prod.outlook.com (2603:10a6:10:1a3::21) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.8; Wed, 28 Jan
- 2026 13:11:54 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9542.015; Wed, 28 Jan 2026
- 13:11:54 +0000
-Date: Wed, 28 Jan 2026 09:11:53 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-Cc: "Williams, Dan J" <dan.j.williams@intel.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"joro@8bytes.org" <joro@8bytes.org>,
-	"praan@google.com" <praan@google.com>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>
-Subject: Re: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
-Message-ID: <20260128131153.GW1134360@nvidia.com>
-References: <d1768bb6384050a23769f20ca28216f520f77e26.1768624181.git.nicolinc@nvidia.com>
- <BL1PR11MB5271F0BDC68C2D7F172122E98C96A@BL1PR11MB5271.namprd11.prod.outlook.com>
- <20260121100307.00004e60@huawei.com>
- <20260121130315.GE1134360@nvidia.com>
- <6971b9406d069_1d33100df@dwillia2-mobl4.notmuch>
- <20260122131432.GJ1134360@nvidia.com>
- <69727e7ded712_3095100ab@dwillia2-mobl4.notmuch>
- <BN9PR11MB527649A0049CA195E7BCF9218C90A@BN9PR11MB5276.namprd11.prod.outlook.com>
- <20260127150440.GF1134360@nvidia.com>
- <BN9PR11MB52760F8EE835B4D06BAF0C248C91A@BN9PR11MB5276.namprd11.prod.outlook.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Wed, 28 Jan
+ 2026 13:14:13 +0000
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9542.010; Wed, 28 Jan 2026
+ 13:14:13 +0000
+Date: Wed, 28 Jan 2026 15:14:09 +0200
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: "Malladi, Meghana" <m-malladi@ti.com>
+Cc: vadim.fedorenko@linux.dev, horms@kernel.org, jacob.e.keller@intel.com,
+	afd@ti.com, pmohan@couthit.com, basharath@couthit.com,
+	rogerq@kernel.org, danishanwar@ti.com, pabeni@redhat.com,
+	kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
+	andrew+netdev@lunn.ch, linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, srk@ti.com,
+	Vignesh Raghavendra <vigneshr@ti.com>
+Subject: Re: [PATCH net-next 2/2] net: ti: icssg-prueth: Add ethtool ops for
+ Frame Preemption MAC Merge
+Message-ID: <20260128131409.wesidsk3z7ixptyg@skbuf>
+References: <20260107125111.2372254-1-m-malladi@ti.com>
+ <20260107125111.2372254-1-m-malladi@ti.com>
+ <20260107125111.2372254-3-m-malladi@ti.com>
+ <20260107125111.2372254-3-m-malladi@ti.com>
+ <20260112181436.4s5ceywwembn674r@skbuf>
+ <931bb43b-fbba-4423-9a20-122602b3b630@ti.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <BN9PR11MB52760F8EE835B4D06BAF0C248C91A@BN9PR11MB5276.namprd11.prod.outlook.com>
-X-ClientProxiedBy: BL6PEPF00013DF6.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:22e:400:0:1001:0:a) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+In-Reply-To: <931bb43b-fbba-4423-9a20-122602b3b630@ti.com>
+X-ClientProxiedBy: VI1PR04CA0073.eurprd04.prod.outlook.com
+ (2603:10a6:802:2::44) To AM9PR04MB8585.eurprd04.prod.outlook.com
+ (2603:10a6:20b:438::13)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA1PR12MB7615:EE_
-X-MS-Office365-Filtering-Correlation-Id: 35957043-eb24-4f3a-0557-08de5e6ecef6
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|DBAPR04MB7288:EE_
+X-MS-Office365-Filtering-Correlation-Id: 50f7fa4b-05ba-48e6-4ff3-08de5e6f215c
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?yQr0IqVf+V/gUBPDKhc5njKh9GF2cSKjkWRLJLt1ry5ferGfQ6C/loczDaCD?=
- =?us-ascii?Q?Iys0AwiLL8Zk8bMO/Ycw19EA4+qGVPjFsB8ZJx6Vn78Sw7sAks/VzQ1/jixc?=
- =?us-ascii?Q?sbhOqtqFaEemFtJKgbCiwXGBix0V3EwoSwM8BI+jXEy8LuhruoyUdN9Fs1hr?=
- =?us-ascii?Q?ejzfgF995h0uGtbiQ9yHtSKdH+i3jPVbIDwwoeHoo+DFTpQI67ijMLv6ZJo4?=
- =?us-ascii?Q?VgMCDfohRBS4Rx2cANH1ETL2yWQGICAs23SgWPMcFbJVNIN5TwHxrB7jDlaa?=
- =?us-ascii?Q?8OzNcA9E/zNi8Ex4KwmrCsidsRZngU/KqUetxLt800somuWsriD7cpPlP2QU?=
- =?us-ascii?Q?QpHV4ppREbo67d2+E6vWwqvLNEbQvE2L4pihpbY71JkqlaJpodAwrG43aq66?=
- =?us-ascii?Q?66Vbet84i9FcgO3IZg76PtiLg3Z986eZW7tmk8I/YwuNqQ/odvH18mFWhl2C?=
- =?us-ascii?Q?PXMuiEcKiaFCoTsr9kxAfTGrYiM9g3X3EsO4e/vF7KbUKn8hTL9UtceQIF5K?=
- =?us-ascii?Q?jPRd5c/zPGKXbuKhYE5N8Vrdd47XSZoUn1vNOTLlGeQMEmz8vVbNHcZortPK?=
- =?us-ascii?Q?why16qRVa/SmVPGWNHFPTQ0hSTdsW+SWIMFwefeJFv3XAz3AGfQq7lruNq29?=
- =?us-ascii?Q?9zma6UUZH/ydDOiJx2RVeqrwEchAIipPbFYdGwmrv1JrRL9wprrp/cDOCa51?=
- =?us-ascii?Q?Wu1CqdYMSxfaq3QruPMStAFS7dvqW3xOG6i85niVZfiCTPbDayc8Nn7Y9BV8?=
- =?us-ascii?Q?YownM8orGO9SCDnQPICGMaQ4+7iR2faojsyUV7oNgGjhhQSayBiNR4Gt93F9?=
- =?us-ascii?Q?5hknQCTCiMb1ppnOEg1DFJV76Xy/oOODQ6jv0kNHbhdI7eUJgM8f/Z5LfK93?=
- =?us-ascii?Q?7Hw3kz5rrOg5JBTv9/riQhAA3UatI3xkNs5jxQvKeGLTcxgwxvnSbMMzJDid?=
- =?us-ascii?Q?kOPX7fwNk5pz/4EoTz3R6djg0uhF9OTTT5bnTzfRDkIrs4bk//WK9w9r6S8R?=
- =?us-ascii?Q?67XrU86hqvxiF1EGRSp2Dyj2qjKKtpF0rl3MlWkrATEhbZ0H3uqlIHWBPMr2?=
- =?us-ascii?Q?bbjy25zRdFvr3bbbJkF5BT+/85L76ZTI+C2L92hij8H0jma+RcNGVANbf6OF?=
- =?us-ascii?Q?rUm8wTWvieiZLzxA9vQ6wUh+g7S7Sj9dZ8vL9z7N0AgPT9fqlgP979mM+cZW?=
- =?us-ascii?Q?mjQX8a8PWZieHafL+PainsQyu600aLlv/SMX/vNvXriOU7sQrdAtlHie4QX5?=
- =?us-ascii?Q?eumbplecX25SN8cA01Vb6lk85ewo8N5CPFxQXIJ2iPAD2t7n7IKY1TmKzXcZ?=
- =?us-ascii?Q?hMetgg1BDk/Q+cK5wlsRRVGXjBoBYQEc4fo5Oc7JMsmfJVpmGHGKdVzlmNlE?=
- =?us-ascii?Q?ZEoU8XaSAX86AeGsWaIFMxhg82L1u/VWiQqRcGQjkvQgu1sDj054xv0iGY3t?=
- =?us-ascii?Q?lVsSzR+Bxp+SdFkFn7KKnFS0GEFwYg5vzs6VSvvAE+QWdOZOCHixDmPz21Wq?=
- =?us-ascii?Q?v7nCaK/bTib3kO25DjNyYyJP/pwoeLmXoCq/qrTfF7SHYa1beAM0PDi6N9On?=
- =?us-ascii?Q?+/8vvQRnt+eoRR09xpA=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aCUfM25OjRONmj5lk17PIGenjbITrUUN3/CgyFv61PULRM1j6rgMLXaYMLwP?=
- =?us-ascii?Q?fRJfpuRcPBeLLqPBlMzDHFkH167ZCC5sbgTzbhA2eZz8+1pOUdNU+BiIFPmQ?=
- =?us-ascii?Q?5tpYJWpK65KJEQqJuKHGF3QbSjby+6mo4qVKyQQUhVI6AUmx8w6xMCrxwiH6?=
- =?us-ascii?Q?+adzvH87RDyuUejN23gmQePjFf/Ur81pBZgx0QXV7Z/DBNxMnFYYVW0SrFF/?=
- =?us-ascii?Q?vVnKJJL+1PXY6tbxQtAvUY/0dDCp96r8Y/ydspmbBso82ivAjprShH/LxAVv?=
- =?us-ascii?Q?dnE66vDcP+YobwiqU2sO1LJ7NMhVV4BuW4l8XG263oj8CziOPm5qMK8mbNPM?=
- =?us-ascii?Q?aMhegyxl3/otkTIxkpEh+SP2IABpCD3oRBF7P1GuKwTx+lsHTTnzdy6Ed2/n?=
- =?us-ascii?Q?a1FrSLxOa6EzQLfSGCFRdMzCnboNs2UrdARYoP+7HiPfx6N/RtMIOc/voIXc?=
- =?us-ascii?Q?B8F9ejuwwVZ7TtCIj7ZzTeUxFe/pWXIh0fzGVPbLK92bUkYVz0obYcawBUIx?=
- =?us-ascii?Q?o0rFtcpdm88yb7pv0frv6AaBLrm+cZd2CCj9BPN7huKrciwkTFCUfTXwXNKk?=
- =?us-ascii?Q?CScP+kvkumz9z+9bVerREDd6JO8ZG8f31qRMg6dfM4M2t305Lh9T/z1jujlB?=
- =?us-ascii?Q?cu/5EwtHC+Odv865QRIIMDwHz6qMrFxv4GpnpgwMUSOgl860Xg61d4D7C8I9?=
- =?us-ascii?Q?0duAAkMZNieJ7EAZeo1uu0ki5ibMSqUGeiEk+w+MMhV72efS2dW4GGXdS38U?=
- =?us-ascii?Q?WVL2FpZz3DHMrsuy5F1ufwzKQz4wLblSM6wfSLHJdlzPAblVP9BtuPrADfuS?=
- =?us-ascii?Q?aPh2d2AWFPYvR/DDKfgPxV0iE1nWdPoWdh3Kulsrf7CQT/Yc2XRKVIm/lVIc?=
- =?us-ascii?Q?JFzpkgYvxOVKyIT3TyA1dnkGgMg/k9cOfkBpDwsh6wOBYLO5fgnps2srzter?=
- =?us-ascii?Q?9MFCVIPjNWVfqT9kWWv5ydKvcL88GH3pHnDuqHu2coK4JShU/XkIN7EXUbr/?=
- =?us-ascii?Q?JS+odjHsu8aCvr8Bbv+hdcTM5XTLu/arCK1Hi7JuuS2NawRkwDTp1pTWJK5i?=
- =?us-ascii?Q?CTI0N8pU8ONyTHGurRS48WCXXUDfI/9D2kpK9tOP91zDa1Evcf5PqirvgnCW?=
- =?us-ascii?Q?LcRjmdP0frWIOgfrnKsiU90046KJB1z17smT6Vm3noCJPGCQuyEWLWJHzTXO?=
- =?us-ascii?Q?UsM4Eq1OqZ0i03iOktNCsrI4Wb7XzqZgvsEXejPrsLB5ROUpVJvd87sUvRtA?=
- =?us-ascii?Q?11fl3uZLbksuoVxKTjvJ1lj4trPsW4rInKlnj2UiTnxQ1VJTnYL+QfKcK1fr?=
- =?us-ascii?Q?//7JlaOT2Gem0e1e3+DfWMQIC4l5sTboeabW5L8ENjPajCRlWqkr7KiT6S63?=
- =?us-ascii?Q?42tq9f3x658lR1BRNNbFAD4rEc2cnE6dwdUUzs4Pvnx/VyDOSy7t4BiZE570?=
- =?us-ascii?Q?2pP5so+myk2XbrAU880NEYiEJAfJlFO4GEAtRn/zXSL2UoIDk2bf7BLCTaHU?=
- =?us-ascii?Q?rqLhk2rEAprGWzSc+6dtuAyR7a5dCyXumw3o2VNjm3PWLO2AJgAG43sYYIXH?=
- =?us-ascii?Q?FhHAL8OTCdikTzgf68iQlhlr1SERUaD+BwI0XawrHe04bI3eMP2k1IKw4uk/?=
- =?us-ascii?Q?u5hv7ZnFHnH6lHFgaGqTgzypFCph2Zr5yiaQxyykyi89JWLhkLRimkPXx28U?=
- =?us-ascii?Q?xrEv1TO65Ln4flHOYWvmVdaGdQxEsxQ32dwOJJP7bLZBkaB4DFcN9bFf9aZS?=
- =?us-ascii?Q?5t89bHanZw=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 35957043-eb24-4f3a-0557-08de5e6ecef6
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|19092799006|10070799003|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jBTHajYr0dIv6k8LTmsm0NLT0cG8QhTPbyYA0EL/GLqP7eotLCnoDGTBUsmD?=
+ =?us-ascii?Q?QfJWWap6SPN2JyigRHBgBUaLuNlGjD+/NKHOyxotFtY3oTGZSDKbzHSOLU+j?=
+ =?us-ascii?Q?UNkY1RmlmfgdCM3JNGw8RGWXoMPofwZsmb+f5mnmCdUcbspagz4rfkmrB4fN?=
+ =?us-ascii?Q?yNsZtEmNNFCXKQ5VLHeC6EHl6vTZKha33F6DGhTPwg0xw2HSl6mGf0jNNE9I?=
+ =?us-ascii?Q?h0IVWqSdFsvdDL7FsGyHAyN0qMoTiGG7TeweaPEQ5fqB/iUoZi7udvveZKnu?=
+ =?us-ascii?Q?vrHjMLIZuZFzSPThnuJ5VKtAld8KLqdJsXp+RneXBsZq+MLX+dSaqTnvjV+b?=
+ =?us-ascii?Q?v1+6tEBnEJOpzwRg+adKCEiV6CSF8qQGrdVtO88REfGdxkMmiAFBwVzFlO3s?=
+ =?us-ascii?Q?LH5x0XsVkwVey48/pHv4Kvvp32+/IciFlWU3Gj1LsA0MGXhAAB07Qtc2k8oQ?=
+ =?us-ascii?Q?US6DBaFh/lCgHGCZn4EP87/oOmTpgq5qL7Dq/dG24P+zayU1q46f/Y5Cuovd?=
+ =?us-ascii?Q?c5LGqVSEw4aUr+KbklkPhAMpxBKlCLoOqTQ7GhYK/szdwxOBf38ODv5Ll78M?=
+ =?us-ascii?Q?9pp+1C2/x/wtr9gdLtYDHLc+/187CAoPYTw9WHLvGXq9Iji03YmjgU+2wHi0?=
+ =?us-ascii?Q?P94TbOAzTLjxN2w3H0YHC7XSmUhA5+oTkgOj+MgM3GeDckrCpwLdorJzb+9z?=
+ =?us-ascii?Q?qGDqYSB1fqtdDrcfvQPBdsTBHw3oeZEtnc7i0XYQRqvHiluS1LIlW6b41P1W?=
+ =?us-ascii?Q?UXojMX/zapP9rdm+34CU/joxBF3fMozabB2wxIbaasCXWtEPm22ihyuVCmQk?=
+ =?us-ascii?Q?RWEAl0FwpSMvHi8B1rZSCvnfFXeAz5PXyvl9dn06INzWTTbqMYwknxP8i5QF?=
+ =?us-ascii?Q?fUJS+dGZcVk7St3ibDK8zdpAZt1kxM7+C+GvPlJIZDFtS40CTS9uHOmhSeQG?=
+ =?us-ascii?Q?0pp9kvHN+C1wMxLdJ3PmWrC+E7PcUKA5kgilW1e5Lt9lmTtevhT57umqrN7t?=
+ =?us-ascii?Q?vSPCZ+4+cllEjkUhl6EfuHEpn9mCVgdchOF+Zon/Bt5n3KpRoOfX8H89bijN?=
+ =?us-ascii?Q?XSkWBA1ehujRdSszc/yC+5kKFPvywgzx8KgNiN52p0oVDCWK4NmNdDUby0Au?=
+ =?us-ascii?Q?Gj6/UxW5qn+ynYCv89U0MTjXj3ip6yhHPcbDTxD6v0rmATSP6Dtm8T91FJnr?=
+ =?us-ascii?Q?0yCScRxblQ6ZTQxytik9Sb5ljtDXNT0d7bogZfsq8aiQx8liBdQ7lxXYQE+a?=
+ =?us-ascii?Q?q/3RwLdGqyu9WB6ORPAwUVknDyIlE98AAI8uJZU79LSC3C9/rd0Q7tbFEbQb?=
+ =?us-ascii?Q?6xkZwPgHed0yjT22pZOFri4duPq2Z4MkHv1pzP0b6DGR0LfABCUr6TnlhAgg?=
+ =?us-ascii?Q?rRpCc+UZovjSXz0Eni/Umkr28dKwwnNo99f3i5x00a+UAC0vUyAFBUTK6ULu?=
+ =?us-ascii?Q?GGVshRTqD1y3yTFj3/Xz8khsWsJFQt5C0qr4K9nBVjbjHN1/bkCNfmb2DrRD?=
+ =?us-ascii?Q?o8uwaRS/fNipsUMYs59A7URxG8LWYEXTP+MN83xIaT2mGJnMcjEY3eFL6yjC?=
+ =?us-ascii?Q?AVz2dpYU0QcnZuGcWLqw8SEbEmX3XpcP0BhAxHQg?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(19092799006)(10070799003)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IueQJvj4aGSeJGtu3unCEt/EViMN4hOSQGWwXMH2bUzrAWtU6hGxpmkbbure?=
+ =?us-ascii?Q?04GIRq8HmppPtD4IGCQLDRbji63p8VRAG/SJJiFHNmxcec6SfjZLOikv/HcE?=
+ =?us-ascii?Q?eKC7PLTfEwlJn8qYFWYCM6K9ortwLdfm+w3LuGNaxSdG8mNkQApkvi3Rfqtl?=
+ =?us-ascii?Q?zceMW4CnumcHUrVtiaV+zHEK7rXcVl4cYZMtRRfoJQNQ7Iz8VT7Ch8+I2K4O?=
+ =?us-ascii?Q?IXmIfTw/vHNPYlbhVGNddVLprRyE39jzOHalxAZuHBx5WD+6frUIoZLCzkkn?=
+ =?us-ascii?Q?KDaeAuT0IN79j9lmNAxpLsvZav0n6VfRdjh55uSdeUlb3IVcLDgERmYIVTTX?=
+ =?us-ascii?Q?6KVslExFgiUG2Tz5ONvL1FlY71u+kRb4ridEmfoiKDrAO65RDGZypIbHR0YD?=
+ =?us-ascii?Q?lyoPZks5a8ICOn1DydKBJmqf9cKH1n1AE9Ik7/40DuBjy/V9WTJUIaHDPBqo?=
+ =?us-ascii?Q?vK2uJt7rivt7+xlLnwkIrujGMEk3+gHWb/Uaj4mfd2FR4GfI4zAFxbPL4V1E?=
+ =?us-ascii?Q?HQIxG1FUAkwZ34EE0XjQvmNhmrp8lq/8wv0rTQZ676tmPYtZYQgUd9wYl0V5?=
+ =?us-ascii?Q?L+vxlgcvc4NJwjlbyjzOaImnSu8FVUjrMWMODp22eySyuaTvxvDQJ0ngQvDp?=
+ =?us-ascii?Q?q+WRf5J3RdlaBJ4VzzQFo1fy3n3E8zhfohPTh1l1jidNqf/YVjfXzDo/rZBr?=
+ =?us-ascii?Q?JxPV6BJJ3hP+vie88xnz6UN2wyILhvOK94aR5K8+uD8HWEt3aDgXJx5M/mRX?=
+ =?us-ascii?Q?bIji8uaCxz5iReTXRcdMa4iORZjiYUg7NgI1beVOS51F89E98GI00HZGqXyj?=
+ =?us-ascii?Q?0dgybw5lScRgYTGIn4fJiDBD/lr6e6/4itibo7J/9Op8TwvD1ZN+WVRMupOK?=
+ =?us-ascii?Q?MtmT6WOSbtIR/QuRJF5lhOwT9Ij1EwD5ZOhSktEsVn/2viUhTHenqwgXDxur?=
+ =?us-ascii?Q?mndSipGsDMC4uRtfAy5g/kU0khhy80VDGnLGFu7d4dLyxTzwgN38MWNShHNJ?=
+ =?us-ascii?Q?pmH7AnsLVql/RcvCd6agJ3BMv48LCsGGrqxjPKk/LE6BCHZ20XILMv60CXzs?=
+ =?us-ascii?Q?0LUekJtBqJyLw67h2jxkpdEbdDqlbpiYHGy30gNlHm0ZFSADH4qm/2Fx7KGy?=
+ =?us-ascii?Q?pFPZlpDNp0fEYcdDNFYGddmCn99tItWL5jStwFB9uipcuT9o61bpK6ctUT3Z?=
+ =?us-ascii?Q?2hsEhxbECJXSIAjWfn1QGwFGsj8FcQ8DK1hwREDgcRqbZyPkAx6UafnVqmdf?=
+ =?us-ascii?Q?w/m9jnsY0WcY/c9gHVERzKo05dT2dAn+RlJi8+6XP8g3Ass03m0T5RXNWYgP?=
+ =?us-ascii?Q?UJFOqd5FwcMbL3VX8NdXqScO754aTVxOd3cm0ypMpmed0DHTpsX3JqLMdL12?=
+ =?us-ascii?Q?wF+7CFvpggli4qS8/tyxKXDmpDkjtq1Uq2FT1wHgbp5KNB91Exima3eQMmSt?=
+ =?us-ascii?Q?ZcqdcJ4AbV8bTsBPpvjFIZbzwmkyyf0cADeAs2wfeX6yLsiBXxwYgD7w29P2?=
+ =?us-ascii?Q?Y5//zKsp4gGlYL/Mx+LPh8iYNBL8eEEg9TT6rCpvCzSctX2JbBBxggWgrjYo?=
+ =?us-ascii?Q?8EkExOZpO6NMG7aKqR17SHoefVJf57A6vZgv/zNzT8w3tjj5qtIjGy1WtULa?=
+ =?us-ascii?Q?+ZIvbYajx0NyCUNKJW/4R1DkKTbspoRslKl/1Bs28XtvnL5fUlizL0wa2MOi?=
+ =?us-ascii?Q?y65+5/IBMv6/eOMITTKHXTkrM4HuKGe2COtjSWX+7SLGne1+aL36rBFEFe3D?=
+ =?us-ascii?Q?Uh8HXN5sBKObBpVEfitWwazzl4gnoEQvOnP8MZbfgzZ5EevB1RrqR+NBvoWl?=
+X-MS-Exchange-AntiSpam-MessageData-1: 8WLe3Gy0Qa5DJA==
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 50f7fa4b-05ba-48e6-4ff3-08de5e6f215c
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2026 13:11:54.6956
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2026 13:14:13.0103
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0KLN0XJ5wWbARn6JFj2jBImBBTir0JshF4NsGRkwKNwhl7NHPyfRL+nO1+rPNwQq
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7615
+X-MS-Exchange-CrossTenant-UserPrincipalName: /IhY/BItANBu+O//HIE80reAbgHqogaYfKrMT9gMVcNI427INpGfGH/epJ6+6eBKnVrl2E5wc3mNRIaDN7+ugQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7288
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_051202_146871_1556659A 
-X-CRM114-Status: GOOD (  20.22  )
+X-CRM114-CacheID: sfid-20260128_051419_077172_8EF2CFF8 
+X-CRM114-Status: GOOD (  32.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,42 +172,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 12:57:59AM +0000, Tian, Kevin wrote:
-> > > - Intel: ATS is enabled when a device is probed by intel-iommu driver
-> > >   (incompatible with the suggested flow)
+On Wed, Jan 28, 2026 at 06:32:05PM +0530, Malladi, Meghana wrote:
+> > > diff --git a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
+> > > index b715af21d23a..ceca6d6ec0f4 100644
+> > > --- a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
+> > > +++ b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
+> > > @@ -294,6 +294,61 @@ static int emac_set_per_queue_coalesce(struct net_device *ndev, u32 queue,
+> > >   	return 0;
+> > >   }
+> > > +static int emac_get_mm(struct net_device *ndev, struct ethtool_mm_state *state)
+> > > +{
+> > > +	struct prueth_emac *emac = netdev_priv(ndev);
+> > > +	struct prueth_qos_iet *iet = &emac->qos.iet;
+> > > +	void __iomem *config;
+> > > +
+> > > +	config = emac->dram.va + ICSSG_CONFIG_OFFSET;
+> > > +
+> > > +	state->tx_enabled = iet->fpe_enabled;
 > > 
-> > This is definately not a good choice :)
-> > 
-> > IMHO it is security required that the IOMMU driver block Translated
-> > requests while a BLOCKED domain is attached, and while the IOMMU is
-> > refusing ATS then device's ATS enable should be disabled.
+> > I would expect state->tx_enabled to be returned from
+> > iet->fpe_configured, aka from the same variable in which tx_enabled was
+> > saved in emac_set_mm(). In case it's not clear, ethtool saves state in
+> > the device driver and expects that state to be later returned in the
+> > get() callback.
 > 
-> It was made that way by commit 5518f239aff1 ("iommu/vt-d: Move
-> scalable mode ATS enablement to probe path "). The old policy was
-> same as AMD side, and changed to current way so domain change 
-> in RID won't affect the ATS requirement for PASIDs.
+> Ok got it, will fix it in v2. I am aware that ethtool saves state in the
+> device driver which will be returned in the get() callback but didn't know
+> that should be the case every time.
 
-That's a legimiate thing, but always on is a heavy handed solution.
+Driver, hardware or firmware. But certainly the state returned in get()
+must have some relationship with the state previously set in set().
+iet->fpe_enabled has no relationship with state->tx_enabled; it
+represents more or less the "tx_active" state.
 
-The driver should track what is going on with the PASID and enable ATS
-if required.
+> > > +	state->tx_active = readb(config + PRE_EMPTION_ACTIVE_TX) ? true : false;
+> > > +	state->verify_enabled = readb(config + PRE_EMPTION_ENABLE_VERIFY) ? true : false;
+> > > +	state->verify_time = iet->verify_time_ms;
+> > 
+> > Why are some values returned from firmware and others from driver memory?
+> 
+> Sure, I will store all the values in the driver memory and return from them.
+> But should that be the case all the time ?
 
-Which also solves this:
+Not necessarily, this implementation is just very inconsistent overall
+and that raised the question whether there's any reason behind it.
 
-> there is one scenario, e.g. VFIO allows domains attached to RID and
-> PASIDs being changed independently. It's a sane situation to have
-> userspace change RID domain via attach/detach/re-attach, while
-> PASID domains are still active. 'detach' will attach RID to a BLOCKED
-> domain, then disabling ATS in that window may break PASIDs.
- 
-> How does ARM address this scenario? Is it more suitable to have
-> a new interface specific for driver bind/unbind to enable/disable
-> ATS instead of toggling it based on BLOCKED?
+> > > +
+> > > +	return 0;
+> > > +}
+> > > +
+> > > +static int emac_set_mm(struct net_device *ndev, struct ethtool_mm_cfg *cfg,
+> > > +		       struct netlink_ext_ack *extack)
+> > > +{
+> > > +	struct prueth_emac *emac = netdev_priv(ndev);
+> > > +	struct prueth_qos_iet *iet = &emac->qos.iet;
+> > > +
+> > > +	if (!cfg->pmac_enabled)
+> > > +		netdev_err(ndev, "preemptible MAC is always enabled");
+> > 
+> > missing \n, OR use NL_SET_ERR_MSG_MOD(extack) which doesn't need \n.
+> > Doing the latter is preferable, because the driver still accepts the
+> > command while not modifying its internal state, and ethtool prints the
+> > extack as warning if the return code was 0.
+> > The catch is that openlldp sets pmac_enabled=false on exit, and that
+> > would otherwise generate a noisy netdev_err() in your proposal (but
+> > would be silent with the extack):
+> > https://github.com/intel/openlldp/blob/master/lldp_8023.c#L443-L444
+> > 
+> 
+> Ok makes sense, thanks for pointing this out.
+> 
+> > > +
+> > > +	iet->verify_time_ms = cfg->verify_time;
+> > > +	iet->tx_min_frag_size = cfg->tx_min_frag_size;
+> > > +
+> > > +	iet->fpe_configured = cfg->tx_enabled;
+> > > +	iet->mac_verify_configured = cfg->verify_enabled;
+> > 
+> > Changes to the verification parameters should retrigger the verification
+> > state machine, even if the link did not flap. Also, changes to the
+> > ENABLED state should similarly be applied right away.
+> 
+> .set_mm() will return -EBUSY if the interfaces are up.
 
-And is what SMMUv3 is doing already. With an IDENTITY translation on
-the RID it starts out with ATS disabled and switches to IDENTITY with
-ATS enabled when the first PASID appears. Switches back when the PASID
-goes away.
+So it won't work with the openlldp stack?
+tools/testing/selftests/drivers/net/hw/ethtool_mm.sh won't pass either?
+(see h1_create() and h2_create())
 
-Jason
+I think adding such limitation will put the icssg in a world of its own,
+technically implementing the same API as other network controllers but
+practically not usable with the same scripts and tools.
 
