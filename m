@@ -4,117 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAB75D46BFB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 20:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E2D4D46BFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 20:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=07rf/uTuwqt/mx7z+xU8g3Kvog0c3ZDUc5m6W+iA6DE=; b=EhtI4tONSbEYkB64LxpLNgeHY6
-	sUg/aoAYzoi3H0gsUMUUpOdBIVKAgQtjelCCjezvpW1O6j8MkXk4durVEqiX1oAqSj8S9JOpA5f3j
-	7vjaFtxcf45vm527yEYs44Tm0pP8ftJWdu8Te4oxPXmXzUcrJPGHcfCG8ig+LRf2/u225utLurjn4
-	g76Cx5CXBkwO/5ROFQt28rFAy6yNXpw/s70LugWN8oYJA22QyROC8VtdkBRKoTySZL68OyZ50MrfW
-	8rGBG9Y1OXg8Tn113trYwFmzjQoeBhMsLqqX3fPdMlN6sXC5Di9YNdkxUERRSeZaR8XMqjlyumk3a
-	ty17MhdQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xSpcBA8PE/QFRkRmf1Tiwdq7sxrOhpi43Y0N5xmGRqI=; b=M1soTSo2f3bMgY9iREEA5uV39/
+	YN0ny+TGIRW9npzu8pGIxNXuhfJ0XHKkoz+WEJyBquPSBVZlHLsHneRQg5YIJA4xbV2XSkb5HGG5/
+	SSiB3ApsRNAjUeuwOPA+AeWhAEUp0duTgdBjjq0PxzeXi/qHXFIsYPP/iyJjvf65S5EjUpumll1nf
+	KohhUrIC3xah5t3q1LGa7s4trLd1ZgvJ6NfHfufnyRAzQtzzBjwTa42pkGp4oP2PsnaMHBFvGEl3j
+	3fTPBfJgtBvhyjo+/vLfGwrSO1motveGmizB1zF3NQANN44XeDFskbqV/tStpOP2frd5K/TFS1lUM
+	1o6G3Zww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlCCv-0000000GlmM-3gwR;
-	Wed, 28 Jan 2026 20:32:09 +0000
+	id 1vlCFl-0000000Gm7h-0Pu1;
+	Wed, 28 Jan 2026 20:35:05 +0000
 Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlCCt-0000000Gll7-1luM
+	id 1vlCFj-0000000Gm75-1pQX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 20:32:08 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-42fbc305882so213086f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 12:32:06 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769632325; cv=none;
-        d=google.com; s=arc-20240605;
-        b=N7VrcC8zzESqZbVUcucAnKLbZmw4TaRWTvy5XuOsPfchpeoGNpHa48xX+QxaSERBYW
-         iD0eD4qA6qU9QDkjqQ8H/k26g9Qu+j7mphRh8aEtsFOVzTSJFaZ5lstZmcB8twuC3p8s
-         0ps3q9/pvFz1EGlVeQRzUXsEiRCc6gxJRp5xtT372BeXz8rI/BSjkefwMcu+v/QgbN2J
-         qO2xxNdiO+Sx/oWTmumOVUNqd9Lcti+WT7GCmmhoWtlZQgIMgHXotlwwdJzPP18yBRuJ
-         N1L5ChWLA5uo3uxusJX+3yrVkiNZN0GWbv6e3ebPU+AXD/K2wNN6/OaDofbAkuYjtask
-         NTcg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=07rf/uTuwqt/mx7z+xU8g3Kvog0c3ZDUc5m6W+iA6DE=;
-        fh=nFwI54Y4+7Cf36HmweqPwiHArFl7z7/zxuPHQt7F+cY=;
-        b=SURerPtAJoG8WKX4WGYoSpcFTJve2gjzYMsZMSYdhn7ZrLqrzB0iiCFkVbcXTEj9uX
-         YBGTJR2aI+qRiGkP4VXqPDB2pnRkH44/RAAdyrKbpUy5G1ToGcdkvvLTsdWa4SWVBGQ4
-         zW4fW/CySCdtpWhbEXfiuyZRd1R0ZiGgvcgFc8i5mSzwz1RifnC1C/1QcBhmXUeoo52O
-         5b9hGRpYcTmGsF8EfFQQ2SelAFt0ttLFa61AcQ9v0QkibhMUeMdLCsVdtbLEXkumuEP7
-         wJP2L3t8TaegX/0Xi21ku52wBoGGOnxEsu1eUtGJj+5jWrqUdWGcBiU35Kea6zk7jYJu
-         N/sg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 28 Jan 2026 20:35:04 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-42fbbc3df8fso217989f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 12:35:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769632325; x=1770237125; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=07rf/uTuwqt/mx7z+xU8g3Kvog0c3ZDUc5m6W+iA6DE=;
-        b=A5hfhP0iOjTxy1hBt52YG03TJXRxxLt2/MMisOhNiv3KK5v6L380rlDRMKFJJ5Wo/S
-         Ffy5wcduCUrGXH7x9X60NScqgNswuckUs7IeAHQoq1bP8YOUKQiD+hSQ4sqQBtn8rD9D
-         pbjBr3RW3zI7OsMG2n7eYVyPElouSfhdces9Qoc6G0lvjtPF1fziI4Kn6ZU6BHSmg4VS
-         8jEYAPBD0/GmXkuZOzYWvqbRO5TKvjTRjdDZzvmYWGNKglj3YIfau2a64+9QXYgqWRX/
-         oSAULRIa93v3vYP/aCZ8QEqA4+hIjAAjiutKsTAY/8gJ4faK8HTCZRpxzUGMTLqtWTB7
-         FFdA==
+        d=gmail.com; s=20230601; t=1769632501; x=1770237301; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=xSpcBA8PE/QFRkRmf1Tiwdq7sxrOhpi43Y0N5xmGRqI=;
+        b=eFfCxGbW28JRCn5EpolWNK1x+mgNu90aWowEIwPxTAkxqEZbqQ4D0GQTaHW6lxxiiX
+         4hJcVeGaDgf90pgLpnxf0jsfcc4hOeswSLrtURwLgbx9VIczBqKev2ZfFm7L9CJCquoD
+         z56t8AmtGN9tisB9iUK350yIVyitR83RtuD7s8PC5rSGHMvE/SpwkUOczjD+kx0C9Zdq
+         UpeLwfRURxDnikbp6o1AUNLn1ujOAcauK9hecN+RWjEH4hrKY9LCWWvJ6Z4RB6OnIAmH
+         FjgeKp4H/PGJsjc9blNloMb0/F9CPAULplinyf+mLO8/pPCutdL+sa8XmOO/wJqkKftk
+         mjow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769632325; x=1770237125;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=07rf/uTuwqt/mx7z+xU8g3Kvog0c3ZDUc5m6W+iA6DE=;
-        b=IpfhZoVQphSBgRq4G5USJbIVgeRdL8hi9FCXM/f8Q/G2UVXT+Mq4odUtbV19a+9V2B
-         co7NXMiRFrvspMiTDezRnGOZw1VcSvxZRx3ROSQ7MVuJ0B1JCqcQaFHmY/XlgCjZ4Xzp
-         TxGn/YyB2cUmli8dVl8oMD1fxyYkW/jgVZRyq3J62n6idhy6s7/pPbowmhHcAv4HAUyw
-         dR714V6SVedrhP2ifZITYH+dlGFL8+c8Rh4LT49+ejuQxgyp2Ts0UIAk26vKv4hXM/qX
-         LRDJ8r3mifWGyZMXhnLnuom41DFdGl10jAs54fQ0y4hxRAbiQI4XPdacn6KnqIr0Fall
-         DlFg==
-X-Forwarded-Encrypted: i=1; AJvYcCVjNDlcrx342RKRYKhSUpSVye0osjYUOuTnU6/aLKAKbmFWeaNn4XGAf9lm625vsWFszc26wT5+bfLOd/aoJa+S@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5cQnLpPuJ7I/jUSiqmYPQL99G2E3M0dr0Qg/SbR2zCeuEFHUk
-	mXG8NuhgK93eC1Nmmkw80rsSfuExKEFHPfCFJqe9/1Njb66iRPeRcPmh7YNyOwdweqDO90WD5F7
-	XPHJHKipYmeS13Y1N/R0nmXV/obAjXUA=
-X-Gm-Gg: AZuq6aL3maKoRHy/IIbzlNAmhBdiIFFxEPVa0vDloCaFiZj84kMEFI4w40KAGQy/Hyy
-	li4I5loa/bqUpZLAeWMnmMvzTGCupl4UGinCBhzf0muYC4uDt/kYXXai3mOD0gPN3rXhz6YDwhS
-	NWGSFw4x6N4Ht2u55WWxUGT4VytvvYlJBSCm30ZbyBsEUsCuujiS/8KfT/wPM9LNp9N1SK1pZ+N
-	ToOw8a8UWire3m82O01r2EtQAZqUVmOpid6iBj2jyFZor/uTN+YHmQTNfrHlAHrdCU5+sZ1Yr7d
-	kFH8oVL6n7IKPfUZMTNkBc7yn5nRXIJ/wHumHPaWv0lrQiOg4xPgdWebHoFwHCeEjIMikl7pmkz
-	x3yG5ptMazbrqSA==
-X-Received: by 2002:a05:6000:2404:b0:435:9653:e154 with SMTP id
- ffacd0b85a97d-435dd074b2bmr9812358f8f.27.1769632325304; Wed, 28 Jan 2026
- 12:32:05 -0800 (PST)
+        d=1e100.net; s=20230601; t=1769632501; x=1770237301;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xSpcBA8PE/QFRkRmf1Tiwdq7sxrOhpi43Y0N5xmGRqI=;
+        b=klp4ped5Lemiy9x28+cnqnNa8Er+wG+rYJZgEvYpAwDgrUi3E5t3icdIm1zvPRmjCM
+         /dMqz0aJ6+6lKD+wT7TfvIZT8DDQW8FNbHreMZUw/9UeUgGbkVlxr6llfiJMl92ylVM8
+         Dg9IhEsLQVEWuag4EnCn1cXN/KuJRvJEJSLgvq5QPPw3FrIoGNnYdIRuhOLR6Dnk6/Dx
+         quYYX5ZdevD4h/ZHOR7I6gcA6zkPmxfUzGngOUdUxpIa5usydNSRkGA0dNNQ3VJ4n9e8
+         fXYLs1Wqe8IlZ0byrG0s88S2s4zUD78xc7PRUsvHwxIvOrMNt1bSjymYM/m8VeHuhElv
+         8AZg==
+X-Gm-Message-State: AOJu0YwxztgeSy5MeJL9E8teIpL1hJh154EwnxMFKzsWO9A1xR/p94Q+
+	4PcxUiAmFtytyLVNdD+JZW51XgcJwLynOyfQ1C3rdmgeb75/IuuWU1JfqsafLwl/
+X-Gm-Gg: AZuq6aKtH3bcBUx9ONSxOyzqwQNKD/rPVkpxZN2F2td4cRHoWQVUM1ZW40qxPZztJXb
+	nPMNMFqDmdiyVfy+3ToY/OIuH45lC5+Gh0BXp3nG38w2hhFIUU6Zz+SYSSLlhklKOUOGmxwIDIw
+	Iyl/3q2Rju5NiBLeQ8eUncle627tpW3jUo1VE+ic2PEUricd+vUiMtfW1eykuaGAYOmco1WasE+
+	5k7jHtJoTG5VYxMSnVqAtcNplc5xtkJztviJ/9vDZ+eRwpahTX/UpfOAmU/zdg/l25suU5L4PNW
+	eQX/HbWxnZtjQBsQ1eUaEM6h1gDwdZ7nRz/DHuVlfBE0H4unHbvtWcZKyjLHTRhFFIYgI1XL/b/
+	K2umL87KZawMkdy9vyb7vbWpGPK4wkICIpMJKRd1i470jGjGAb21c+KhrxdOHabj02uvukmtNTl
+	8Prsnp9x4PKn2lk+8bI/zn1nmy
+X-Received: by 2002:a05:6000:2c11:b0:435:9612:2d24 with SMTP id ffacd0b85a97d-435dd1cc5acmr9922322f8f.53.1769632501132;
+        Wed, 28 Jan 2026 12:35:01 -0800 (PST)
+Received: from strix.doe.home ([197.250.227.106])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e10ee04csm9577644f8f.12.2026.01.28.12.34.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Jan 2026 12:35:00 -0800 (PST)
+From: =?UTF-8?q?Stefan=20D=C3=B6singer?= <stefandoesinger@gmail.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: soc@lists.linux.dev,
+	linus.walleij@linaro.org,
+	Jun Nie <jun.nie@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Drew Fustini <fustini@kernel.org>
+Subject: [RFC PATCH v2 0/7] Add support for ZTE zx297520v3
+Date: Wed, 28 Jan 2026 23:34:48 +0300
+Message-ID: <20260128203455.38569-1-stefandoesinger@gmail.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-References: <20260128150112.8873-2-leon.hwang@linux.dev> <e64c4137e7f262e6fdab272e8ee44c8a129a36eb6d0186914375d6ba20d88474@mail.kernel.org>
- <65231eeb-1f00-4af2-9234-a290ea3f6585@meta.com> <a10afa70-29b7-48ab-b241-8b0f602abe2f@linux.dev>
- <CAADnVQJV=e2VgQzkpsUQwexhaVZMs7uXHCe1Fa6VwbVNUMPghA@mail.gmail.com> <7dbcc5d5-476b-46e5-9e4b-b260d24a51a1@linux.dev>
-In-Reply-To: <7dbcc5d5-476b-46e5-9e4b-b260d24a51a1@linux.dev>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Wed, 28 Jan 2026 12:31:54 -0800
-X-Gm-Features: AZwV_QieHaFto3G-1e8bEUtCESnVn4_ZZwARjehTdXUH1XxE0kv7X3Eh3iZgKp8
-Message-ID: <CAADnVQKdZo4Qm0z-qedkfQHZhq+tW4MuRSzM5-zAGYX-ZQTiaQ@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 1/3] bpf: Add bpf_arch_supports_fsession()
-To: Ihor Solodrai <ihor.solodrai@linux.dev>
-Cc: Chris Mason <clm@meta.com>, bot+bpf-ci@kernel.org, bpf <bpf@vger.kernel.org>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Eduard <eddyz87@gmail.com>, 
-	Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, 
-	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
-	Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Puranjay Mohan <puranjay@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
-	Menglong Dong <menglong8.dong@gmail.com>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, kernel-patches-bot@fb.com, 
-	Martin KaFai Lau <martin.lau@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_123207_490121_7894B586 
-X-CRM114-Status: GOOD (  25.17  )
+X-CRM114-CacheID: sfid-20260128_123503_510502_9D7F691D 
+X-CRM114-Status: GOOD (  29.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,61 +98,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 11:09=E2=80=AFAM Ihor Solodrai <ihor.solodrai@linux=
-.dev> wrote:
->
-> On 1/28/26 10:49 AM, Alexei Starovoitov wrote:
-> > On Wed, Jan 28, 2026 at 9:34=E2=80=AFAM Ihor Solodrai <ihor.solodrai@li=
-nux.dev> wrote:
-> >>
-> >> On 1/28/26 7:35 AM, Chris Mason wrote:
-> >>>
-> >>>
-> >>> On 1/28/26 10:26 AM, bot+bpf-ci@kernel.org wrote:
-> >>>>> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_com=
-p.c
-> >>>>> index 5a075e06cf..070ba80e39 100644
-> >>>>> --- a/arch/x86/net/bpf_jit_comp.c
-> >>>>> +++ b/arch/x86/net/bpf_jit_comp.c
-> >>>>> @@ -4112,3 +4112,8 @@ bool bpf_jit_supports_timed_may_goto(void)
-> >>>>>  {
-> >>>>>     return true;
-> >>>>>  }
-> >>>>> +
-> >>>>> +bool bpf_jit_supports_fsession(void)
-> >>>>        ^^^^^^^^^^^^^^^^^^^^^^^^^^
-> >>>> This is the actual function name in the code.
-> >>>
-> >>> Ihor, I think the script parsing review-inline.txt chopped off the
-> >>> part of the review where AI was complaining about the commit message?
-> >>
-> >> This is the email body pre-processing in KPD, yes.
-> >>
-> >> At some point we decided to remove the commit message before sending
-> >> an email, but now that AI reviews the messages too, I think we should
-> >> just send the generated review-inline.txt as is.
-> >>
-> >> Alexei, wdyt?
-> >
-> > I think KPD is only supposed to trim the header until 'diff ..' line.
-> > In this case there is no 'diff', so I'm not sure why it trimmed so much=
-.
->
-> There is. Here is the PR comment with the review:
-> https://github.com/kernel-patches/bpf/pull/10868#issuecomment-3811930805
->
-> KPD trimmed everything before the first "> diff" occurrence, as expected.
->
-> I'll try to fix this up in KPD. We should probably search for the first
-> line starting with "> " (a quote start) to trim the header correctly.
->
-> Alternatively, AI can be prompted to avoid generating the header in
-> review-inline.txt, but that's probably less reliable. And maybe it is
-> useful for local runs, idk.
+Hi,
 
-I see. let's then strip the first 4 lines ?
-(commit, author, subj) ?
+In the past few weeks I worked on booting my own kernel on ZTE/Sanechip's 
+zx297520v3 SoC. This SoC is a relative of the zx296718 that was once 
+supported by the kernel. It is in use in a lot of LTE to WiFi routers in 
+Africa, China and Eastern Europe, although some devices were sold or 
+distributed by ISPs in the EU too. My goal is to make OpenWRT run on these 
+devices.
 
-tbh this one was unusual. If it repeats then yeah '> diff' is a wrong marke=
-r.
+I would like to ask for comments on these 7 patches to make sure they are 
+going in the right direction. They are the bare minimum to get the kernel 
+to start and run an interactive busybox on the UART.
+
+Here are a few questions that I couldn't answer myself:
+
+1) The GIC is a GICv3, but there are some extra registers (probably on a 
+different chip) to switch PPIs and SPIs between level high/level low or 
+rising edge/falling edge. The only device where this matters appears to 
+the timer. It uses level low IRQs, but the GIC has PPIs configured to 
+level-high by default. By setting some non-standard registers, I can get 
+the PPIs to level-low and the timer works OK. Is there any precedence on 
+how to handle this? I am tempted to make a zte,zx29-gic-v3 .compatible 
+glue that sets the PPIs to level-low on init.
+
+2) The boot loader doesn't set up the secure/non-secure world properly and 
+doesn't enable register access to the GIC CPU interface. I found the 
+Raspberry Pi 3 boot stub as a good guidance and put sample code in 
+Documentation/arch/arm/zte/zx297520v3.rst . An e.g. OpenWRT build for this 
+device would have to include a similar setup sequence that it runs from 
+U-Boot before jumping to the kernel. Did I miss any alternatives here?
+
+3) The SoC has clock and reset controls in the same MMIO space, even the 
+same 32 bit registers. What is the preferred way to handle this? Two 
+separate clk and reset drivers that write into the same place? One 
+multifunction driver that exposes clock and resets? One syscon that 
+contains the reg values and two separate clk and reset drivers that 
+consume the syscon?
+
+4) The CPU is a Cortex A53 running in arm32 mode (in the shipped firmware 
+too). It doesn't appear to have an FPU. Reading FPSID results in an 
+exception (so vfpmodule.c/vfp_init says VFP is not available). I tried 
+enabling p10 and p11 in NSACR, but without success. NSACR seems to always 
+read 0 too. Is this really a Cortex A53 without FPU or did I miss 
+something?
+
+5) Relatedly, are there any advantages to running in arm64 mode? The 
+devices are relatively memory constrained (64mb), so the larger binary 
+size from 64 bit pointers is probably a negative, while the larger 
+register set might be a positive. I doubt switching to arm64 mode is 
+possible at all, but I'm nevertheless curious.
+
+6) The old removed zx29 code used "zte," as the vendor for the 
+compatibles. Sanechips is a subsidiary of ZTE that designed these chips. 
+Are there any preferences for either "zte," or "sanechips,"?
+
+As for the rest of the hardware, my entire patchset can be found here: 
+https://gitlab.com/stefandoesinger/zx297520-kernel/ . So far 3 people from 
+the OpenWRT community are helping with testing on different routers (Tecno 
+TR118, ZTE K10, ZLT S10 in addition to my D-Link DWR932 and HGSD R310).
+
+USB: Standard dwc2 WiFi: rtl8192, but in the SDIO version. I hacked sdio 
+into rtl8xxxu but it'll need major cleanup. ethernet: STMicro stmmac. ZTE 
+wrote their own driver for it. I spent a week re-implementing it before I 
+was able to match the HW to stmmac. SDIO: standard dw-mshc NAND: A 128 MB 
+SPI NAND chip connected to a homebrew QSPI controller. The driver is 
+copypasta from stm32-qspi, but the hardware registers seem incompatible 
+LTE: A Cortex M0 is doing the heavy lifting and talks to the main CPU via 
+RPMsg. I hope to be able to handle this in userspace, but I haven't looked 
+into it yet. clk, pinctrl, pmdomain: My own code based on the zx2967xx 
+code.
+
+Patch changelog v2: checkpatch.pl fixes.
+
+Stefan Dösinger (7):
+  ARM: zte: Add zx297520v3 platform support.
+  dt-bindings: arm: Add zx297520v3 board binding.
+  ARM: dts: Add D-Link DWR-932M support.
+  ARM: zte: Add support for zx29 low level debug.
+  ARM: dts: Add an armv7 timer for zx297520v3.
+  ARM: zte: Bring back ZX29 UART support.
+  ARM: dts: Declare UART1 on zx297520v3 boards.
+
+ Documentation/arch/arm/zte/zx297520v3.rst     | 106 ++++++++++++++++++
+ .../devicetree/bindings/arm/zx29.yaml         |  20 ++++
+ MAINTAINERS                                   |   6 +
+ arch/arm/Kconfig                              |   2 +
+ arch/arm/Kconfig.debug                        |  12 ++
+ arch/arm/Makefile                             |   1 +
+ arch/arm/boot/dts/Makefile                    |   1 +
+ arch/arm/boot/dts/zte/Makefile                |   3 +
+ arch/arm/boot/dts/zte/dlink-dwr-932m.dts      |  21 ++++
+ arch/arm/boot/dts/zte/zx297520v3.dtsi         |  83 ++++++++++++++
+ arch/arm/include/debug/pl01x.S                |   7 ++
+ arch/arm/mach-zte/Kconfig                     |  23 ++++
+ arch/arm/mach-zte/Makefile                    |   2 +
+ arch/arm/mach-zte/zx297520v3.c                |  19 ++++
+ drivers/tty/serial/amba-pl011.c               |  37 ++++++
+ include/linux/amba/bus.h                      |   6 +
+ 16 files changed, 349 insertions(+)
+ create mode 100644 Documentation/arch/arm/zte/zx297520v3.rst
+ create mode 100644 Documentation/devicetree/bindings/arm/zx29.yaml
+ create mode 100644 arch/arm/boot/dts/zte/Makefile
+ create mode 100644 arch/arm/boot/dts/zte/dlink-dwr-932m.dts
+ create mode 100644 arch/arm/boot/dts/zte/zx297520v3.dtsi
+ create mode 100644 arch/arm/mach-zte/Kconfig
+ create mode 100644 arch/arm/mach-zte/Makefile
+ create mode 100644 arch/arm/mach-zte/zx297520v3.c
+
+
+base-commit: 7d0a66e4bb9081d75c82ec4957c50034cb0ea449
+-- 
+2.52.0
+
 
