@@ -4,140 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C24D5D3F083
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 16:48:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3281D3F098
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 16:52:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NxpP64Jo3ISqOedMpw7nBc++9OWyKJZEeSyktb7Rxas=; b=STVNDVocEbZNpxXNKH1NDB9Lzz
-	lQfFT6LICSw0Pem5CgOtLQevlrmXxRsTgL6dx/eQGXtwkxsSZZiGC6Re56G5bk7hzm9kSfHmMYKyB
-	lo2C715Voi6g+AyQEY+cSBf7wdrnBfOUURKeRdzbbzsQW5Hw5kVMGJyYxlyI+YVBguItSBMuE4fPu
-	48Ojf5HhmwFUi9tYmMT42hhWX6bhNsrQE1OCaNjHehjYb9QXF5UgenPbwYfUpWCAEyyHkIAqbfE4T
-	hcdCyqPutt3TnedCD7VyFRottF3M/VA6UoUOrORUR8mZDOSJ7a28ei/Ahg5q/+TXDHyUORLpjH23Y
-	TbHIlLOA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LX9gDx3KFBF5yxVstQOoU+G8u/eBTnZN64aCXHiziSg=; b=mc3NcfRkymBtdbAab3DLWYtqEM
+	YxC1ynp8igFFKdk3VkSSMvhG4k+ldPHuW277N2N+1agARoBuX1YEtZZmHX945p2N19qYBC+e9+aMd
+	FUSg0T62o0zQcBdE06aM4pfYxx/Aj3pbw8mat2gZDKk8wDw0MF65v0O+XL3piZ29iCgEzNJb3UTXN
+	d/GxCdh+G/6I0c8cLFIE/zCo4lutppYWJTokXT+msJ/e7sXh/gH2BWbYLaK1Dxh8yeB7bYP3SE2JN
+	MDX6XC2Wy08EaJS64vLr0QfmIuHon5N5SxFLhWy4ZN0pIbRC7BGFHJq8i99TZRRmY6HWdVA60q5Mz
+	xOneIkGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl8iK-0000000GQBQ-2aOK;
-	Wed, 28 Jan 2026 16:48:20 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vl8md-0000000GQam-0c7O;
+	Wed, 28 Jan 2026 16:52:47 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl8iH-0000000GQAq-35Lu
+	id 1vl8mZ-0000000GQZx-1MMt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 16:48:19 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60SFeHGf3246846
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 16:48:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	NxpP64Jo3ISqOedMpw7nBc++9OWyKJZEeSyktb7Rxas=; b=VfBQTrRR71tT+QHJ
-	ADITeT4Na/MRQ8jGTYFyk4wBz4qhQ1uPjOWFNfuIJc+1zybZ+LyxuA48b+LrayNg
-	yfQFONJ/jTZYe86TeY938lhvW2Y9U2nZpGjDfQR9o0H6RH7kAG2neQUvm2GNDAot
-	SRNYFTQXyn0iIoEFb1YcoGGqaDd+TEYtB1SDUU3O1JJAdMuw4EBfCatAoJJJNAiu
-	k11tpG7lxBefCu0O6LqVvX9OTGh5a/zTr0pr22XajasEo3zJ5kBcjFKFIFxnRIdL
-	3lljt1fadot5asEnnhqIODc8Z3n8oLDaRXNjozgNsCG5aNLs/y4hji4SxiSs9oDi
-	j0OWxg==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bydfk26xe-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 16:48:16 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-35301003062so16319680a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 08:48:15 -0800 (PST)
+	Wed, 28 Jan 2026 16:52:46 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2a871daa98fso14496215ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 08:52:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769619162; cv=none;
+        d=google.com; s=arc-20240605;
+        b=kwTvMQ6Gb07qFmdqmyCMcMwpQb9TOLkqJn9akLdYwK8UXdgO3gdirt4hfV3tzY0I0c
+         xlM4COB9/EnzoYVhcahZG0NpJjNjJZk0TaebZmcXwQDIh8zHzGDYn5gXnPFPhPczr94T
+         CCJD6i3YBb6Ibxds3I6azqA9vahxUd6D3DrfEGNzyEZ7H0lpc5s0mxP/HXV7i80Dr42V
+         aJYuqPd5C+wHGoQs94mj+AeitQABYetx67L+JqdNESBrIs875WlMPbbnO9h9jQwwl/4O
+         L8oTVItDP8M6WDdMdgVZ2Gw/PnevNJkNH2I5Vob+j69uK6gy8JaCsBVKJYBJs4exrieC
+         lA4Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=LX9gDx3KFBF5yxVstQOoU+G8u/eBTnZN64aCXHiziSg=;
+        fh=xXCHXPBtPkVGlMJHBnz2QHjghl+i2OIjbQsm390gduQ=;
+        b=QkzQDTdGY6ICuPrh67mT/yr2J4RL8DD7j2KvvriZi2BkZrhHfOnlmjd2NiGx4SCrC+
+         dbKtwK8EEKcnrI4dwu66zj/nloARNpagIqNYE51z0kQcdb0+JllWvQAMgYdGbM+uHlRK
+         X4QmO27prdMOMUCQ2X19z8sKFTEHNJ3e13KXm6FsloIIZNQv+61V+a4/UjImPnxesV/5
+         kGN9UmfZ9ekutxiMKX6F2hNox5wGt/mikvv3wmMQLVGfNwlvn44a42YBNmD6sNreh2KP
+         9hywEBcwYyq96SdOH9l+xKX9yfKYavnRdvY+sTEsJ3wIZtzFldIhwYDJVuNhS8rnL+19
+         NZkA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1769618895; x=1770223695; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=NxpP64Jo3ISqOedMpw7nBc++9OWyKJZEeSyktb7Rxas=;
-        b=cD+7fZt6H7BEpf4KVdiVdYQkci+ueC/V8o06GfWPAX6skj35fYH9tJr3TtekVRNBOX
-         0o9L71cJ+AGjYSN2ig5O4/1+jaaTtHB/qkrt7dBK0FLsxQWrBN5YDb74jRGv1GogsC1Y
-         nG2yzc4cJfLkGT1jJ9v/MiFJukGcnDu3kxNJQ2/OHNdJ8qMAouCQin/FCYAONmRDFcTr
-         y901qrcDOvps2X2QwRWs/TTzdPJp1wK3JiB8YW9zWbj8A1QpunriwmBSI7bmWdIHTrTB
-         yK7RCcrbuuvyelwDsEt2JGANHBgjW6VWdJhg1ucKc8819LCVzH2MTzYNmcPoC9FZVT3Q
-         nwRg==
+        d=gmail.com; s=20230601; t=1769619162; x=1770223962; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LX9gDx3KFBF5yxVstQOoU+G8u/eBTnZN64aCXHiziSg=;
+        b=I4pgcGmNdhOPl+RRkBJamW79e9+yy5ATKznN5EETEbpihjTDh7jVpjvfh/CBYunZOo
+         e/C3dMQguGpoV2162BfILzCOtosmHb8H2EDwkQKV9iEE6bmMrxFREVBs2a66F7zCFfnL
+         /xYuINOgb5/guekOqrkW7NOMxXgvX1IFUHSRyq4rlak5fYTUZJw63LJtlLycVxAQtVe2
+         a4O+9FSuCy7IpmNydyZHzDIPXE58MtEgxfYIMaJslqswnw71gglkYY2y/EqAVM4HAmCm
+         obu0Q4KuKm0G9AF80GWZ7CgZ0dpmZkHV85/iOVYEebG6yP/S4/JxyTFgpjADvUt+X2eu
+         UqAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769618895; x=1770223695;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NxpP64Jo3ISqOedMpw7nBc++9OWyKJZEeSyktb7Rxas=;
-        b=M7pl7oGFKJtg3O1RdVJZFgDH4n/HzZQ2QyzATwjEeEn/BJ5yeeoVrxXDwjNp6AGF2S
-         Oh9s3NLxsZ4VyhCKpxofj/wFJsgxkrbjGxcZFqae2tnvgq8ATVX7hfVsuv2fkGf2Aqvj
-         rZ2Ed6vI9lfNOOsLS3YyIXkP+XqKjeD4/gNJDErt/9vyWSXVlN8x14uxkjNfhE7ktT9b
-         8Vgp/o65Dz8EtCgS1zT0M6yovImp+x+SdI75huvyT48dMSqYEvfLSRod28d4HifLaKkl
-         MDlJcvgOVZ55PG8cdEr978WthHQ9+ibVQgkUW4AI23haRl1jig6kfGgbaJdaciWX0DVQ
-         e7pg==
-X-Forwarded-Encrypted: i=1; AJvYcCV+e4o1uM8yRXMpo9xD1mkaUEBXIpOeavLUXqp7VRiix2LlFBvGmiTMlUUa8+6RCzhqn7IWZFShu30G7kWJfq0V@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgTwVTEk1fZqqOZ3pTUG9fUHkWYxJofp6S3i4NbKOWXiXZCEjL
-	SbaFRM1JXakimIirZl7ttGx0C9bXLbwSpqNh4AF4vU6avXGh3pf+kmG7WfdQOgMAotCcRDx+TNY
-	9vvQlHVH3HRenebV0etQjVjShGu7y+lpDETBief2LemhiVLClfVKmyQZ7Z63nulJbi+QKWzuHFe
-	KNLQ==
-X-Gm-Gg: AZuq6aI+JH68sJwa+wQOusuCb+u1kEIgOIfHJCAPECmWfcph/gLJac7hN6KiczraFs4
-	/05e0gZkgoK2xqM/XdKN+LWlST6aMsEqx5zyCKboXXOyIiAMcMCIkjzOzXSR3ILutLNrRQd3iKj
-	k6H4N1Qw1GP0fSzAKMaCN52Mnx91Muq0Fa5a+tyKfLjx1ocDXYMQlmve9bMbbotm95oRWCYst7b
-	a9nWYGDUw8cJxxQUf0l0u1OuoIEts/6rRwqwfcuG0Wl4adkd8sqG5K8fNfkk3tJLphGJieQV5lX
-	NC2cth4QYaTFNIhvdicoPAXD+CPi3TSok6Z0urTJGVLgA5ZI14XJsD7ZUQYkFYOZ+pQyKhYQTs4
-	ekNT8bj9y+AMc1giEI5hET7/1dOB7ecD0DS0c6g==
-X-Received: by 2002:a17:90b:50c8:b0:340:b908:9665 with SMTP id 98e67ed59e1d1-353fed94929mr5548599a91.37.1769618895109;
-        Wed, 28 Jan 2026 08:48:15 -0800 (PST)
-X-Received: by 2002:a17:90b:50c8:b0:340:b908:9665 with SMTP id 98e67ed59e1d1-353fed94929mr5548575a91.37.1769618894628;
-        Wed, 28 Jan 2026 08:48:14 -0800 (PST)
-Received: from [192.168.0.195] ([49.204.27.196])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3540f3cc7c6sm2995577a91.10.2026.01.28.08.48.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 Jan 2026 08:48:14 -0800 (PST)
-Message-ID: <7d1fe730-1858-4250-93b3-81108fc4a0ff@oss.qualcomm.com>
-Date: Wed, 28 Jan 2026 22:18:06 +0530
+        d=1e100.net; s=20230601; t=1769619162; x=1770223962;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=LX9gDx3KFBF5yxVstQOoU+G8u/eBTnZN64aCXHiziSg=;
+        b=AGp/0kczku8ZlyAKKs7s/xYB0cAVXZsD2S3nX3pf9y0Q3CSshhfUxyetCJBg/3U/xq
+         aIYBMcKArEJrf9oAl9WLs0VHH97DSLIGV3q1Gv3+tFLRsegEQ9yQWG1yI5sg99VFMn6R
+         pgrunxIDU8Vlsrr5tzRmB1GYmElGZpQB14qh8GpzDuQoKqn719JMe0SmHN3G8zIMpDqr
+         oS9NlwdqhaxnB5xBXOh5mUudQ7KTzAgC5h9nkH2y/6EE/+Eq1y2P6U/NSXSYUvGYDqZw
+         2BU7uuvOmZefgFI8HazwynhQxMChxIUc12h+9pkOa/nZzucmSz0nWqyChrIlCwzyvPHG
+         TyXg==
+X-Forwarded-Encrypted: i=1; AJvYcCUhjcayj4NgQa8NpuqU46sQBCZ8nAertU0ytnJC03a/mHi2Erjm5bVE147SmzSrxbr8yobH6euTIV18tW2/SJkz@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKrk3aQQqo7EUcxqr6tJfxcSnxqVFD+KORZ1A6OdZORbGwuBfU
+	tnP13vHWAKxxfHNA51qAkxkofGdKXNJMOZN4R4xbHpqfmY55aTm9oUQ0oeBG+pxKufCepxGr6eD
+	1rcxvcoW+4n32ybIAqkI2ZsQMSNnMsg==
+X-Gm-Gg: AZuq6aJvzn4HAPoMkm58024HtbTsAUhqjV1gahfdut1gq2z0SGfhoaKMCaoE2VojeLk
+	sj3MWBvGhRHdpW4YbzxF+3OkncGuV7pQB3KbuGS4gcs7eBE2WU8n5KhmBxgFK8f9/LfiQx1P0Jk
+	bpFzQSNW6wLosXIVZ8XicLqfl08SgWUGa1gZ970Bkh6hP61fp+NLYFQTs6pX8g05xvbCbdfkJVR
+	AenpcDJIKfH/nmVkCSiQxc8QiMokz/CLJta0pUVN2bfMBhG2xoV/GWv5DYl+ldYRj5lmyD0
+X-Received: by 2002:a17:903:249:b0:2a5:99e9:569d with SMTP id
+ d9443c01a7336-2a870d6483fmr54239625ad.18.1769619161524; Wed, 28 Jan 2026
+ 08:52:41 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clk: qcom: sm8750: Constify 'qcom_cc_desc' in SM8750
- camcc
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd
- <sboyd@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260128154306.133047-2-krzysztof.kozlowski@oss.qualcomm.com>
-Content-Language: en-US
-From: Taniya Das <taniya.das@oss.qualcomm.com>
-In-Reply-To: <20260128154306.133047-2-krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI4MDEzOCBTYWx0ZWRfXzqIy+fcyUjZ3
- VwaB7Q/jf9LlnKG1pr2oBDeQEiQtLsUhzz6n/XgfMQOknn8W22cFxtAWiMDILhNFGOS1OCvsHXk
- BcH/9fzGmDJat0Rr+Jcc3Y/JnaDmoOdORL6VjSON8TyRJrkcp3J+eg9d716h5oqD1lmma10nICS
- kmwXg98ieCUwp+3GDus3p2i2vZVkm03Wt4uGKk+JuIUhSunRPhQqJ/IzZAJrtP5nwGO4atq0njX
- mRz//GShMGq5UKfCtSItvCjyi6LmHQSLvlg3gRcQeg5X25UpQqYkIalHw/pfhxG7A+z8zaV+E4q
- P5Pcy8ABMEXbt7ZdwyO3pfubhTr40+pleecl5u3RNuDFYAGvT/BISZlrQUfrVE1EAd8iOzRQFsG
- LEOEdZ8TtLAnwGZK1ljNtxkI1lva0OajiOYc/inJyoSPY0ZSUvy3fv1LunR+Q+Y/pnX6y08mmTy
- ZWzc42tnKoowvxWB8Zg==
-X-Authority-Analysis: v=2.4 cv=XfWEDY55 c=1 sm=1 tr=0 ts=697a3dd0 cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=HFDkwTpxXVET2aFY52jhbw==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=LBVU2G7aICa-vlctToYA:9
- a=QEXdDO2ut3YA:10 a=iS9zxrgQBfv6-_F4QbHw:22
-X-Proofpoint-GUID: rIkqinA7tWx9WzqUZEFgU62uk46bZIrv
-X-Proofpoint-ORIG-GUID: rIkqinA7tWx9WzqUZEFgU62uk46bZIrv
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-01-28_03,2026-01-28_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 clxscore=1015 impostorscore=0 phishscore=0 priorityscore=1501
- suspectscore=0 adultscore=0 bulkscore=0 lowpriorityscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601280138
+References: <20250427142500.151925-1-privatesub2@gmail.com> <aXJTqzZaBrCMnTvv@shepard>
+In-Reply-To: <aXJTqzZaBrCMnTvv@shepard>
+From: =?UTF-8?B?0JDQu9C10LrRgdCw0L3QtNGAINCo0YPQsdC40L0=?= <privatesub2@gmail.com>
+Date: Wed, 28 Jan 2026 19:52:29 +0300
+X-Gm-Features: AZwV_QjtfqpOuCyYtNE1xKe0593NpcMxJ89wFPIBopBcRc0tp-flqstJbbXGRk0
+Message-ID: <CAF4idN=h9u2LX8Oa9_LcyM9ANUNtLbPTMyn_pHbZVBCXc5Orvg@mail.gmail.com>
+Subject: Re: [PATCH v12 0/3] Add support for Allwinner PWM on D1/T113s/R329 SoCs
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: linux-kernel@vger.kernel.org, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Cheo Fusi <fusibrandon13@gmail.com>, linux-pwm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_084817_899202_685E0716 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20260128_085243_369262_4DD24FAF 
+X-CRM114-Status: GOOD (  29.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,22 +122,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Paul,
 
-On 1/28/2026 9:13 PM, Krzysztof Kozlowski wrote:
-> 'struct qcom_cc_desc' is passed to qcom_cc_map() and
-> qcom_cc_really_probe() only as pointer to const, so make the memory
-> const for safety.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
->  drivers/clk/qcom/cambistmclkcc-sm8750.c | 2 +-
->  drivers/clk/qcom/camcc-sm8750.c         | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
+Thanks a lot for the detailed review and for testing on A133 - great
+to hear it works there as well.
 
-Reviewed-by: Taniya Das <taniya.das@oss.qualcomm.com>
+Good point about the naming. I can rename the driver to sun8i-pwm and
+send a new patch series.
 
--- 
-Thanks,
-Taniya Das
+Thanks again for the pointers and the context.
 
+Thanks again,
+Aleksandr
+
+=D1=87=D1=82, 22 =D1=8F=D0=BD=D0=B2. 2026=E2=80=AF=D0=B3. =D0=B2 19:43, Pau=
+l Kocialkowski <paulk@sys-base.io>:
+>
+> Hi Aleksandr,
+>
+> On Sun 27 Apr 25, 17:24, Aleksandr Shubin wrote:
+> > Aleksandr Shubin (3):
+> >   dt-bindings: pwm: Add binding for Allwinner D1/T113-S3/R329 PWM
+> >     controller
+> >   pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM support
+> >   riscv: dts: allwinner: d1: Add pwm node
+> >
+> >  .../bindings/pwm/allwinner,sun20i-pwm.yaml    |  84 ++++
+> >  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  12 +
+> >  drivers/pwm/Kconfig                           |  10 +
+> >  drivers/pwm/Makefile                          |   1 +
+> >  drivers/pwm/pwm-sun20i.c                      | 379 ++++++++++++++++++
+> >  5 files changed, 486 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun=
+20i-pwm.yaml
+> >  create mode 100644 drivers/pwm/pwm-sun20i.c
+>
+> Thanks for your work on this driver!
+>
+> For context, this PWM controller seems to be a second-generation design f=
+rom
+> Allwinner, which is found in the following chips: V5, A50, H616, V536, T7=
+, A133,
+> V833, R329, D1/T113, R128, V851, A523 and A733.
+>
+> I've tested your driver on A133, which works fine too. It seems that H616=
+ uses
+> a similar (but slightly different) register layout.
+>
+> In case you've missed it, there's a follow-up series adding H616 support =
+at:
+> https://patchwork.ozlabs.org/project/linux-pwm/list/?series=3D409036&arch=
+ive=3Dboth&state=3D*
+>
+> And there's also a standalone effort (which I've redirected to your serie=
+s) at:
+> https://patchwork.ozlabs.org/project/linux-pwm/list/?series=3D485644&arch=
+ive=3Dboth&state=3D*
+>
+> Now given that the new controller was introduced with the V5 (sun8iw12) f=
+rom
+> 2018, I think it would be a bit confusing to keep the sun20i-pwm name.
+>
+> How about renaming the driver to sun8i-pwm instead? That would be more
+> consistent with how other second generation designs from Allwinner are us=
+ually
+> called in Linux and makes it more clear that it also targets sun8i and su=
+n50i
+> chips, in addition to sun20i.
+>
+> All the best,
+>
+> Paul
+>
+> --
+> Paul Kocialkowski,
+>
+> Independent contractor - sys-base - https://www.sys-base.io/
+> Free software developer - https://www.paulk.fr/
+>
+> Expert in multimedia, graphics and embedded hardware support with Linux.
 
