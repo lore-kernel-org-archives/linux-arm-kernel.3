@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD213D46BFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 20:35:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1062ED46BFB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 20:35:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TG/VYLW8d8WUt5vElKzMRZGMulWbxOL8O7SIiAnHR0Q=; b=zSiifwBgCt6u8b4k9NCl1ChL/u
-	Hhde9Z3O2hMzjR76nXYmyVp271I/ZSlhPIM5DOTzt8Alg6xx61J8hyhsoE+wfVj8T7VVmdSXAtXUV
-	FfNp+CEYqhbaK7Jg83tnk0jprKX9c5JEGQBkJHZAlDM08yQtvZxZwLA9AROwE+/R7zazxCA6HUH2/
-	m8gtKuwUO1dooi5UXQWF4y7M9aaESAOjLFeo8nl7ynlRjzeaeSj3ZfkyS+eQUM1MSnr9mGbn+nyuV
-	JZ2/X3fqK4XHlRJyGKl4AadMbz6XTIMSJTP2sLuKzyzJl5Do86StQ4BDy91kFdFw3+qAzZIobXNnG
-	TUYqSxMw==;
+	bh=MGGndKjUsdib5KMo11y7V39NR6PErPC0l6mWsxXuQFY=; b=kzDGehMY+XWM7gG1WACCDIQqYo
+	R6qBfU16to9VIilOV/Z4xx0ASwXCv0fa25Pne3hT85R73NtVNcUYifHTCeR02zGrEYObIsbec1CRj
+	3CchwhQ6qkLLsZ7EK51WIRKZ2x/kXBA04QXzDAmVK3K83c49SbZPPXMpsdL2VQteLrBRLDknuNqBZ
+	jHmRfzYRDvqCZ1eNeQ3tUcEO292KFX9NcUSfCyWU+pgZG9zD+ysAr8mQOvtVu15R6NINoxCnfH8Bu
+	zai68Ib58tk49OGnPBnTu8tHAbE6DFoGTEtCR7Lt10i6jhmqNVAz+KgO5JzesGgJEuVe7RfhiVj5H
+	c6B9jZtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlCG4-0000000GmHW-1ZdO;
-	Wed, 28 Jan 2026 20:35:24 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1vlCGJ-0000000GmRH-2EDs;
+	Wed, 28 Jan 2026 20:35:39 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlCFv-0000000GmDM-3v3q
+	id 1vlCFy-0000000GmEe-20SR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 20:35:17 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-435a11957f6so232501f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 12:35:15 -0800 (PST)
+	Wed, 28 Jan 2026 20:35:23 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-42fb5810d39so174248f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 12:35:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769632514; x=1770237314; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1769632517; x=1770237317; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=TG/VYLW8d8WUt5vElKzMRZGMulWbxOL8O7SIiAnHR0Q=;
-        b=dBfKdNKXlplbWaAoO21eXVYrRdfVc/hnPs6OYOreVnPgp7yG/U+J3yAMtqsa2ZCFpf
-         qw4ZP0AZjSCCg8gpfsQrnuhwFyL7iOQdLhFp+PHJPxx5jXVH8xHfwTqaqcox3R4JnQX4
-         lfcMDpNqd0oZLhwAcfHjkUYXCsKZmOMjtq5n9OlqFcvi+5/+QQ1T8OUHi8CWUNNxcm7R
-         xKv6EHnoGF+LwuEmdN8yymVF5JEjA9LisROC1hK1zu4dvL2xFxywNKRNo/N+FSaWwD1y
-         EqdsdGF4GbxtVERbCsLfGWCQuHicwGjgMUKMOJWLbpXLjQoyC4gHb+1c6X8xumACIBCG
-         XtMg==
+        bh=MGGndKjUsdib5KMo11y7V39NR6PErPC0l6mWsxXuQFY=;
+        b=QQYsKCOG1YMtKl+fj52d9qSkKXGJ2QeFfiFxc5Yp3BcJwC2VQibMlzYpdtMLNlYisM
+         NLW7AkrmNkiXUOPfWSU0Y0Qsfaq5H/5myfizCkMwkss34V7yV3QVJX6eqS5DXlrlBotX
+         Gj316RT5XlnM1LSFm1HnKjQA7hBpJZ5h83XjwPfGd/T2maiqok6FGhi+CnoUNVLwU1sN
+         P44N41karDBFL5zGb16mUep1b2lQ0wJzC6mCQL1Y0F6eIpyDR2xAQBNfOvBXXVncUqJa
+         gY8whxsRhw9ZWqQv24PTDavHeWnXdS9SG9fLBS3DFYa77CXX2XlyI50g4lOsKHtkHCXU
+         nTmQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769632514; x=1770237314;
+        d=1e100.net; s=20230601; t=1769632517; x=1770237317;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=TG/VYLW8d8WUt5vElKzMRZGMulWbxOL8O7SIiAnHR0Q=;
-        b=Y75cltx2DCYGQNO7QnTYRdIWQWNBtLm2q7q5gC7wu7tezo5MPWaJLfJIc5ekmHqN4Y
-         ZiowSJM00a0oXuNefGHLjfTMuMLaQwjorT60odncTgQDPUjW4JzS4bSRpKW7KsmB1fqK
-         ig8vrtjVeuZ4PtK0DS11F9hpi8rXBvEEG/NiOxRokrm5i9B5PSUQS76ENSAHZV89NWnk
-         aNCxtI7ZRUnKQ0FIoFRp37vpZHwKLB0dlufDDtww5shTmkINkCkNBL5Txu7MJBvsf3ib
-         Yy8IWtKj6FEghCV00jl+UQOiJDJ9m/DQGAusWaNkRkp24R39NTzlkdUIxfEKXLQtRxlV
-         gE9g==
-X-Gm-Message-State: AOJu0YxIsj0rvxK1Fe5vzOxIhTQb7Izr9A3WgcKhxc+VleRwVzjDXO3z
-	1r27h4cFOVPhs7W8q58c6ytgB0PwDuZ5G0CvcklhiHF1z3LuvQT3khSqf3DtCtMr
-X-Gm-Gg: AZuq6aL7pSaSrHV9Njjd5N4QAv4rh5F5ke0ZTvtYwqvlw0mw7x+WbHCMx6C4B0vBGmv
-	6v36B7PFLlzuF11Av0Y46kiLBPLC/mZTCJZQ5QONxlMUF8RWqLwM7NALEhFdvqZj1hGIpHv8M/I
-	Ge+TNk+KJ4217zapCr58dNrzDkzuOT0xmfC9g6CiyxsDW0p3lx+I9DfiXgkuceptbhV96OX26bN
-	mR8uzXbpuLc7Jf84HmB4gcvntn3tDxuWiaYTwdJb0KFoVYpqiJ4Qt9s/BOzTsGysZ9orCF1hq7o
-	EmJ1n+zYPKbV0DKYRVPwpfrJ7KX3ovn6wF6b1IPx2wHJSbnc1O278e2FSYQB7IQYwlD8zw9+NJU
-	yxOaQxCyxftxImqV8t1UHFE/kB8YwhOFeSHksLo3nT/Y/nGVKOt17XbvWFGIHsRxOiQ2XgdCm4n
-	LKwBiwOfi00/THwzDMpVBZ8XQWLNnhqf9WNGU=
-X-Received: by 2002:a05:6000:2c04:b0:432:da3b:5941 with SMTP id ffacd0b85a97d-435dd030495mr8986801f8f.21.1769632513968;
-        Wed, 28 Jan 2026 12:35:13 -0800 (PST)
+        bh=MGGndKjUsdib5KMo11y7V39NR6PErPC0l6mWsxXuQFY=;
+        b=ezJ6YTo8i4nWb3c5kBvXRh9C1oSz7ZjNMt8tV7hqNjX+ghVxjVENCodXVy4GVwvdoz
+         aUQ5tLuOWwyxlgg+UrYXNhESuZJDRuwt5FB65oovGMejlTgqwX8Srvrz2gI83HGEL+ta
+         zjbSZfzmA5O1UOHf6M4XXVfblvJhcvORN/7o+g8HZgQo0cgBZpfUyqLDwiHoSP7mIm42
+         D8RFxs9689B6wvSuUeW8691NLP5mBc5DQ3HfI4bDEp491orO1jhfUrU2MjAGmWDBVsCx
+         v4j2rZmg6r7SCNBa44PDpWaRv+XufQ2BAs+RytQFOGnx4fn9Tn/Md1rNHdo8vYB7V60E
+         zcnw==
+X-Gm-Message-State: AOJu0YwFF+Pny50n12Few5nSTTnt36Ke0LF1rvzo34Hqf7gYLL3St4H1
+	6hkqEVDqoqgmae4UGEPP7Xaiyhb/+uoIY16lCjoXq8K+ukRSk4kDIGAMyICCokfo
+X-Gm-Gg: AZuq6aLxowwaf5UBxHVca6r2zAd1BbhMuFSOzK/kxv8I2SHfSRpMlnAWYh5siIJdEWs
+	WuYe1Vn3osAh6KuXfGUuCY0kmtQOqpDsOjBJSbXWXSWLpY9GTSSXfy3APnoeYJEdSCcCcxTwk7+
+	gv0rWG34f78X8vvemIJN/1IO1lgkn+mUJ0wZ3LtiwnpXM1VCWcNBjlsVM7mJeptNoCeGFv0H+95
+	wsIXIizUV/JvIujw7G+vZndcX8O1i3uvXBOc+6csUxTd0NRhPSl6VNGvoEM5H0kwogtUci2Ws8j
+	Y+PAc+cbOWf83CzCmVT19IvDGChqsvCzcwOp843zfRCtWGQoM0xb4SY0i2wdVvtiwhwlUDXE7tm
+	PXRbbkxhCPHU5V5TsxKwE5RWk14Bx4+ZmakKx4mfptQgKx61BvmGvMBezbmS8DKbnEbKgDld69M
+	sbZZn7kJDqG8EH9eWaDTIfOmFI
+X-Received: by 2002:a5d:5d13:0:b0:435:a7fa:24ae with SMTP id ffacd0b85a97d-435dd06f9d2mr8766859f8f.18.1769632516779;
+        Wed, 28 Jan 2026 12:35:16 -0800 (PST)
 Received: from strix.doe.home ([197.250.227.106])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e10ee04csm9577644f8f.12.2026.01.28.12.35.11
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e10ee04csm9577644f8f.12.2026.01.28.12.35.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Jan 2026 12:35:13 -0800 (PST)
+        Wed, 28 Jan 2026 12:35:16 -0800 (PST)
 From: =?UTF-8?q?Stefan=20D=C3=B6singer?= <stefandoesinger@gmail.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: soc@lists.linux.dev,
@@ -75,9 +75,9 @@ Cc: soc@lists.linux.dev,
 	Jun Nie <jun.nie@linaro.org>,
 	Arnd Bergmann <arnd@arndb.de>,
 	Drew Fustini <fustini@kernel.org>
-Subject: [RFC PATCH v2 5/7] ARM: dts: Add an armv7 timer for zx297520v3.
-Date: Wed, 28 Jan 2026 23:34:53 +0300
-Message-ID: <20260128203455.38569-6-stefandoesinger@gmail.com>
+Subject: [RFC PATCH v2 6/7] ARM: zte: Bring back ZX29 UART support.
+Date: Wed, 28 Jan 2026 23:34:54 +0300
+Message-ID: <20260128203455.38569-7-stefandoesinger@gmail.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260128203455.38569-1-stefandoesinger@gmail.com>
 References: <20260128203455.38569-1-stefandoesinger@gmail.com>
@@ -85,8 +85,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_123515_988332_1EF63187 
-X-CRM114-Status: GOOD (  16.39  )
+X-CRM114-CacheID: sfid-20260128_123522_695910_8745E297 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,59 +101,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The stock kernel does not use this timer, but it seems to work fine. The
-board has other board-specific timers that would need a driver and I see
-no reason to bother with them since the arm standard timer works.
-
-The caveat is the non-standard GIC setup needed to handle the timer's
-level-low PPI.
+This is based on code removed in commit 89d4f98ae90d ("ARM: remove zte
+zx platform"). I did not bring back the zx29-uart .compatible as the
+arm,primecell-periphid does the job.
 
 Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
 ---
- arch/arm/boot/dts/zte/zx297520v3.dtsi | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+ drivers/tty/serial/amba-pl011.c | 37 +++++++++++++++++++++++++++++++++
+ include/linux/amba/bus.h        |  6 ++++++
+ 2 files changed, 43 insertions(+)
 
-diff --git a/arch/arm/boot/dts/zte/zx297520v3.dtsi b/arch/arm/boot/dts/zte/zx297520v3.dtsi
-index d6c71d52b26c..ecd07f3fb8b3 100644
---- a/arch/arm/boot/dts/zte/zx297520v3.dtsi
-+++ b/arch/arm/boot/dts/zte/zx297520v3.dtsi
-@@ -24,6 +24,15 @@ soc {
- 		interrupt-parent = <&gic>;
- 		ranges;
- 
-+		/* The GIC has a non-standard way of configuring ints between level-low/level
-+		 * high or rising edge/falling edge at 0xf2202070 and onwards. See AP_INT_MODE_BASE
-+		 * and AP_PPI_MODE_REG in the ZTE kernel, although the offsets in the kernel source
-+		 * seem wrong.
-+		 *
-+		 * Everything defaults to active-high/rising edge, but the timer is active-low. We
-+		 * currently rely on the boot loader to change timer IRQs to active-low for us for
-+		 * now.
-+		 */
- 		gic: interrupt-controller@f2000000 {
- 			compatible = "arm,gic-v3";
- 			interrupt-controller;
-@@ -33,5 +42,20 @@ gic: interrupt-controller@f2000000 {
- 			reg = <0xf2000000 0x10000>,
- 			      <0xf2040000 0x20000>;
- 		};
-+
-+		timer {
-+			compatible = "arm,armv7-timer";
-+			interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-+				<GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-+				<GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-+				<GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-+			clock-frequency = <26000000>;
-+			interrupt-parent = <&gic>;
-+			/* I don't think uboot sets CNTVOFF and the stock kernel doesn't use the
-+			 * arm timer at all. Since this is a single CPU system I don't think it
-+			 * really matters that the offset is random though.
-+			 */
-+			arm,cpu-registers-not-fw-configured;
-+		};
- 	};
+diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
+index 7f17d288c807..858a0edd3e3b 100644
+--- a/drivers/tty/serial/amba-pl011.c
++++ b/drivers/tty/serial/amba-pl011.c
+@@ -216,6 +216,38 @@ static struct vendor_data vendor_st = {
+ 	.get_fifosize		= get_fifosize_st,
  };
+ 
++static const u16 pl011_zte_offsets[REG_ARRAY_SIZE] = {
++	[REG_DR] = ZX_UART011_DR,
++	[REG_FR] = ZX_UART011_FR,
++	[REG_LCRH_RX] = ZX_UART011_LCRH,
++	[REG_LCRH_TX] = ZX_UART011_LCRH,
++	[REG_IBRD] = ZX_UART011_IBRD,
++	[REG_FBRD] = ZX_UART011_FBRD,
++	[REG_CR] = ZX_UART011_CR,
++	[REG_IFLS] = ZX_UART011_IFLS,
++	[REG_IMSC] = ZX_UART011_IMSC,
++	[REG_RIS] = ZX_UART011_RIS,
++	[REG_MIS] = ZX_UART011_MIS,
++	[REG_ICR] = ZX_UART011_ICR,
++	[REG_DMACR] = ZX_UART011_DMACR,
++};
++
++static unsigned int get_fifosize_zte(struct amba_device *dev)
++{
++	return 16;
++}
++
++static struct vendor_data vendor_zte = {
++	.reg_offset		= pl011_zte_offsets,
++	.access_32b		= true,
++	.ifls			= UART011_IFLS_RX4_8 | UART011_IFLS_TX4_8,
++	.fr_busy		= ZX_UART01x_FR_BUSY,
++	.fr_dsr			= ZX_UART01x_FR_DSR,
++	.fr_cts			= ZX_UART01x_FR_CTS,
++	.fr_ri			= ZX_UART011_FR_RI,
++	.get_fifosize		= get_fifosize_zte,
++};
++
+ /* Deals with DMA transactions */
+ 
+ struct pl011_dmabuf {
+@@ -3081,6 +3113,11 @@ static const struct amba_id pl011_ids[] = {
+ 		.mask	= 0x00ffffff,
+ 		.data	= &vendor_st,
+ 	},
++	{
++		.id	= AMBA_LINUX_ID(0x00, 0x1, 0xffe),
++		.mask	= 0x00ffffff,
++		.data	= &vendor_zte,
++	},
+ 	{ 0, 0 },
+ };
+ 
+diff --git a/include/linux/amba/bus.h b/include/linux/amba/bus.h
+index 9946276aff73..854c962d70f5 100644
+--- a/include/linux/amba/bus.h
++++ b/include/linux/amba/bus.h
+@@ -103,8 +103,14 @@ enum amba_vendor {
+ 	AMBA_VENDOR_ST = 0x80,
+ 	AMBA_VENDOR_QCOM = 0x51,
+ 	AMBA_VENDOR_LSI = 0xb6,
++	AMBA_VENDOR_LINUX = 0xfe,	/* This value is not official */
+ };
+ 
++/* This is used to generate pseudo-ID for AMBA device */
++#define AMBA_LINUX_ID(conf, rev, part) \
++	(((conf) & 0xff) << 24 | ((rev) & 0xf) << 20 | \
++	AMBA_VENDOR_LINUX << 12 | ((part) & 0xfff))
++
+ extern const struct bus_type amba_bustype;
+ 
+ #define to_amba_device(d)	container_of_const(d, struct amba_device, dev)
 -- 
 2.52.0
 
