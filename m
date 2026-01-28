@@ -4,63 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA16D46BFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 20:37:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C46FAD46BFB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 20:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qI/u+wkA8pzVkT9AYwzmJYN6OZP9r7VF738GZdx84J8=; b=gPUrcXrBlC8yfNSJ2bfHOtdBPc
-	h5+A+EmXpCtytBFmVe/bnzn86xbCl7tF0ZXN5/Uc2SA2kyNAuvuZGQQQAFckaU/P9uj51EtvaNQy8
-	zEbTLoBGzmBQ7zqar6LQxFK20CYBLzzJwpRJhBxlpVzjoMkV5nX/m8I59JYlv9RzRI+mZezfMSoT3
-	nDdYt699VZwLvLxrboEjeoWoXdXKTIv5erHSPbAsQoI3kD6dMm2hfNWJ0xboeERpJecalsJCnzFLZ
-	8U6mbL0ETzVT6XCUgQsKhoQWfhbfXandg3gYjIPDYY5KtQ0hQmHmB6+dkXkUZfrofAwnFlwFK9K8D
-	oUeXzcNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9o2UjNmkLouzNQAKF/2VvJmVq6pcaEAibnvqOK9vuE8=; b=AIEqXaWJ56m3EE/UVBp5HpCXwK
+	UJSeJu6uHSsbxW/yo1sPBdn0X9O3rVoFmlukHbapqLclsmx0ghdFT6RJsww9x+MLiVeDim8ll6JE4
+	kinBnYzIFS6GnlcIiMF7/fTxlNGIndtvImATm8EFPFiVmgwcnJpDltG4YS0wGsAgpYBn2FzrktBbw
+	f8qNR+zLeGq00sGrRnpalJLouE0Bbr1Deeu8z2g6qeNv/sIaeOoN6yATZxmz0EKm4A06HEdm65Lfl
+	z9zId1WfrOb+ivb4z440J/uyhORqQ8yD5gUFiRr+MPQItXlGNnc+7Fp0moqnBfvYfm/dr4+bv9pj8
+	NSBXtUDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlCI4-0000000Gn0Z-3gqV;
-	Wed, 28 Jan 2026 20:37:28 +0000
-Received: from smtprelay0010.hostedemail.com ([216.40.44.10] helo=relay.hostedemail.com)
+	id 1vlCSh-0000000GnfH-1mkN;
+	Wed, 28 Jan 2026 20:48:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlCI2-0000000Gn07-0TXG
+	id 1vlCSf-0000000GnfA-2fxi
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 28 Jan 2026 20:48:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=9o2UjNmkLouzNQAKF/2VvJmVq6pcaEAibnvqOK9vuE8=; b=g3m97K+gh7E/lurQ2EHAhsZyIc
+	ktwBIJfjkMwqJPgJ6uWDQFmM5L1HJ03uVGkzySCPRTgS9Dbz1V6KRIiat46VKFADtwnuwgoDduLVb
+	43y/v65tBhhqYtzIE4hHSxXbh5DHupzAMuSZSFdvuBOaryD/apGDAEBxfTT2WYK94ryDWlEntyNQD
+	rSQ4SJWIusYCiSx9YTNWUmYsBIHwBcmDhjqElpgdAwcb/X6wREd7GMWLessdGMylvDpWvN+ZWfpHg
+	PdTMugLDg3eeD+3uL00lAXusITduVb4kzpY7Z8HYG95KXy5YbhUmf3XoEAj4sFOIt3nkOuT8c2ZBO
+	vSIYr3aw==;
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlCSc-00000009Mzy-1ei8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 20:37:27 +0000
-Received: from omf08.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay03.hostedemail.com (Postfix) with ESMTP id 10D87BACBD;
-	Wed, 28 Jan 2026 20:37:20 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf08.hostedemail.com (Postfix) with ESMTPA id 5351D20026;
-	Wed, 28 Jan 2026 20:37:16 +0000 (UTC)
-Date: Wed, 28 Jan 2026 15:37:25 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
- linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
- joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
- kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- jstultz@google.com, qperret@google.com, will@kernel.org,
- aneesh.kumar@kernel.org, kernel-team@android.com,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v10 05/30] tracing: Introduce trace remotes
-Message-ID: <20260128153725.56e801c0@gandalf.local.home>
-In-Reply-To: <20260126104419.1649811-6-vdonnefort@google.com>
-References: <20260126104419.1649811-1-vdonnefort@google.com>
-	<20260126104419.1649811-6-vdonnefort@google.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Wed, 28 Jan 2026 20:48:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YzzXxsnvqqiB6PFvCuKuH/EVo5wKqxG07yZmvZAduYcdmUqVGjLIwngvyCUWKsXqbAvy5jAzHFZXzqT+O2Tg89eFd8UJ1I7NOQOcvqy1TwPGzm4LZ6ob9UBXm9rRWuD16FEBNsHfVqkyJnj/VFR4dn5cAG1oEzfV1JZEHGwuGPM9QsEpV2p8v3wyaLdJl6lU1xUHcB+jJmrPjKi/4DHQtzdqQHajBdBICgNrwQqddaDKinEi/29h5g8QlaxE53NCMbXPCcbO6ZLJyQzmoAq3XtImZtuImIBsDDHPOS4TTXvml3d17/NNHUYF2Pc3unve686ZuV/gK3z654zKy0OOrg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9o2UjNmkLouzNQAKF/2VvJmVq6pcaEAibnvqOK9vuE8=;
+ b=d1g0zyWqKEqD2NaOjOx8fAOFOUYOHrxVbg1VDKzkEJBPJqE2ZVhGKch7gqhaieqsxf/T55CEk4dqzeAfKy++raWMhcEYqD/zEwZ9FDmJzIH2VStr4jm77M6ROu/I9no128n88mazVQI7B+SsIpT84ZN78o4/KE91agXzCvwKjGnFEpkQj2S5N4owcSLXljP3cW7MUNuuy+QJbxSLq3s0/kuDYSYp7ibgK1gqPCCQkv+YA40IdOQGe3NGwG+m85RCiYbgcO6S0owP/hKZWRDy1nb+HhQQAecyLj9ObKewetLrbtC/lv/gTcLqG55lx0BN2F5V484epf2c+7y2tiOSfg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9o2UjNmkLouzNQAKF/2VvJmVq6pcaEAibnvqOK9vuE8=;
+ b=S0DXJjYrKx9Ydj3kOsdUfE3sPgyxA6lFfy4VObDLyMDbG9LtHe0GkiIL4i4gbrrh/+PO3n7qAsCOuoPDIhop9cu/6PYiGJxYexIJWjZiQcVCVkzwAN884oPainWbWJ2sAOpaIl+JpmM8UNEpB8tCL2rvYcuHDQII84cEr1eUmSl553Z3zC3jx1M8Gyi1dcQeAslK9pVhMz3nUvID8Q6Fwm9oaROf5Dil0CZT6kXeqNKRD7NBt4LJW0PTSpOkcy748w7aPCSbTEUkgv6IAWcqOel+hMCd6D/OKYoVJyPQN4RvPsfRCpNgGa/2H7Z9A1135yFgq0Fz3VRAD8I8P2kGfg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by GV1PR04MB10797.eurprd04.prod.outlook.com (2603:10a6:150:20d::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Wed, 28 Jan
+ 2026 20:48:16 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9520.005; Wed, 28 Jan 2026
+ 20:48:16 +0000
+Date: Wed, 28 Jan 2026 15:48:08 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: ming.qian@oss.nxp.com
+Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
+	mirela.rabulea@oss.nxp.com, nicolas@ndufresne.ca,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, xiahong.bao@nxp.com, eagle.zhou@nxp.com,
+	linux-imx@nxp.com, imx@lists.linux.dev, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] media: imx-jpeg: Add encoder V1 support for i.MX952
+Message-ID: <aXp2CHEX+YCHogjW@lizhi-Precision-Tower-5810>
+References: <20260127073702.1782-1-ming.qian@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260127073702.1782-1-ming.qian@oss.nxp.com>
+X-ClientProxiedBy: PH0PR07CA0051.namprd07.prod.outlook.com
+ (2603:10b6:510:e::26) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Server: rspamout06
-X-Rspamd-Queue-Id: 5351D20026
-X-Stat-Signature: scjjj34ejpo8p63oqkqp8pwnu69wo154
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1/tQSaCQ/kbHKv4AKesdqQg9at+NZ9UW34=
-X-HE-Tag: 1769632636-833049
-X-HE-Meta: U2FsdGVkX1+PXL5P+2z0NQATjdCVHVPBqharGA1VqQvqSuXihZKzEDPgQZw69kb71D35qQ8EYpsvHjQlZ/aLjqrnCpGkIMKRhBFjerJdQFeYOTdkm6LDvkFMaToOWRwK3V/P/G5EgUai88UA4Cb3jyqbjqeyR/mwnqrZSpho8PT6+lSvWEuhDcQ/l663XiLRtGS41VzfdXhZ15Zg5idBMUlVXjgcvsZBOgyDnb0C1LP0i2ecq+RVgFqF1b1ixJii/kHsBXfzikzQgjH5RstFvz7zN7OAA8lfj9ElaZJ2Nm1Zk4yTKOsK9cXnYHfETDCHBQ/R0u4IvYJbsDiB7sQ9kxLUAErmajgK
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV1PR04MB10797:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2b1d6e75-e509-4ba5-5eb4-08de5eae8f7a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|19092799006|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?AWlwmwFERMXAdB4RT9byULVdOkC7de6kZfuu/5zUr7PTx5w6bzB56R5XbbhG?=
+ =?us-ascii?Q?6MELGk7YZNNIcTNyZxb4PHqhbg1ZEtufzfZWfvrhO4VdFfz0/h1pzoRGj6Ic?=
+ =?us-ascii?Q?cCWaG6fUh4rK0kpG5n1y6tMoHi/iRhU5dM23keXLrK/F9rHx9hx2lfL24Qqj?=
+ =?us-ascii?Q?JKWym1ipDdKB0HRpLe152rCg9vHKMpSaqMOtYOryzaAb+1ZUnjdIc9J6mOpg?=
+ =?us-ascii?Q?8sZxjUypiypPYo6zid6iI5ZIoDK0fa7YVr+dzbUJ3rXhd3/ZZ3unE4Jsdylc?=
+ =?us-ascii?Q?UIx21HSLzZLazmk+B9tTzdxbld1GffNdA+9TxwGjVyBif5lS1BhdzwUEeGvT?=
+ =?us-ascii?Q?mUW1j8u2YyHYL703JCqXttJf9H7jWi/m7MNvWhViVlnBjGee0QTmobVGI0sH?=
+ =?us-ascii?Q?fIjEB//UkiQbqKNy6kHVqgSg1YadHPAFGNsgeaNflM2ZBigIxe58iGaNj5D7?=
+ =?us-ascii?Q?ShTrOsZsMtDt/lnViVQKcTJqjrJBoWlGSnZa1k8qmeqogTzKLSdND2Yw49tQ?=
+ =?us-ascii?Q?5Itet1rktO7rOORZQMzAcEKF0I2Zb4JcdbwK94iHYnB+SCG7csWKYHB0W1R1?=
+ =?us-ascii?Q?cpjoEBDASe3aBmdAdxXYIMdIkmT0sk7kGBaRa+5tR1iPpjTzaw4ypwZypCmR?=
+ =?us-ascii?Q?A7BKHk7FbfQR5mW7pd9458kKO147+/Z05+356MGTwMWujRE5fxOAru1NxmXh?=
+ =?us-ascii?Q?sG1i2xhQpGEvaYj/UZsQoeK0RVliF2Tez39QCXW40ClBxQerjmB3LgZaBKmJ?=
+ =?us-ascii?Q?dneV1QEc70oge/9Nr3KeMoJK0CPDHvAJBRmN5IgPPg7Riayrag4kez9FiRO6?=
+ =?us-ascii?Q?hy+0PVqoM/qAED24R3gHG37TZxcwZazZ/Wn7dwBuQaLtTNgxb17Odbdhzaz2?=
+ =?us-ascii?Q?pamTCox7p6SPErFlAV1SB5EJnMjREgrSHU6kJJMddK0kNlc2B98Rhp7eBOTo?=
+ =?us-ascii?Q?s+Wk+2y+0j4LIeWrAUHB+Aec1Ri/Egmn3Ra6xY4fMXLopix//wEi2RF5SvEU?=
+ =?us-ascii?Q?j1ygaChf0nkqrjs4sQ1w0mw58ZqT5gIO/HjKlxgu79bHSPMKUl9I9NH0rkJl?=
+ =?us-ascii?Q?lrao6bHPb4mRO17x3fgJhA3v4epj75jfd8wIQJIoPf+v+nIyuUMK+3rn86Lf?=
+ =?us-ascii?Q?4Apzw9WcxSFG0liD4GGhbIU2g4EPgQeMJvBoOafi3Ziiv2OVve5ba4DUTB5U?=
+ =?us-ascii?Q?KfFzpxH0Kdv8EpUhTgF9qX80Jev/9CrsvUQnhG+n5WukUT51TGpnFpRqVWNJ?=
+ =?us-ascii?Q?m6UPfPZqg7X4NOnAFZ4QFXUMPwMoNM8cIZ2h/RHPPSJDtyREXs3n0D1KIJaa?=
+ =?us-ascii?Q?CRgjhwKdA8HprHaQTWugZ+37m2kZBe0BoeL5s+hFKrvxQudRVUDpDidpZJ1J?=
+ =?us-ascii?Q?qYIWShEFScAJmhztI6Vlq9eNpnC4NzHDMwiBgwweOPROr9s5Wi/JEdZSYzO0?=
+ =?us-ascii?Q?edjy30BHyvYYEU/tsCp1BeCN0DI4pZELrIQp6WrnM3hOx7TsMiWalMDb5X41?=
+ =?us-ascii?Q?YOwTrY/bKHSUIS23qxmZbjcqrjQb7mTIoClBy62X/HwKVMiUVLEoshV/G76+?=
+ =?us-ascii?Q?rQIE1Tp5tX9I4LCxUWN8HUNn2+GZ5dYQXJtiZysLpyswoJUqzNDwkP6tSxC3?=
+ =?us-ascii?Q?pUpEjfVAwa0/8NL3sxcIN7A=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?suMxAPKcBnxZWXrfTnZ24zbOw4L7GCuURb0qbBVc1wCWHp669kGW3Tid8/Kp?=
+ =?us-ascii?Q?1DFUPntqi06PFkpBxzcQ8amV1tDAlUOuRBLk4ISfl1lPT1QeyZDjdWXiE8XI?=
+ =?us-ascii?Q?TAEb12o4rCaycyTT/2YsgAbjfjHuCJc2o5VUkMdoZnRkdKlKFpzic8A0u2E7?=
+ =?us-ascii?Q?Pc7FKJEIgl6ju+65c3lvK3AhoG3qpx2H6Rufmkq4XfuPFwROcpAx1wGP0r9M?=
+ =?us-ascii?Q?1pA0Jyn5gj/K1L3rvJvac/ll0+7dz88lMYPeSwPQ63cSIgHf/Siry3WVbTNH?=
+ =?us-ascii?Q?yXmGglqpjCz1zc2GvycX0xi/SOekWR2sYSNKSQKD8zpbCXTFPbH+crhjrU9H?=
+ =?us-ascii?Q?HQ/kIqtTeNVBjIgYGuY+yvbE1yJbozVy96H0we7jPaYehrwljgIg5cg+Jxmt?=
+ =?us-ascii?Q?v29tERPJ7XMb2Z24OENTrTz+xiNyW71Gjr51BrZ+1gJEYy32JGBLeFxdZJt7?=
+ =?us-ascii?Q?ruNqHMyeleY+/rjdOoiIMPVCNPtq/vNPbi1XwMCk9MrEfgh1Rz7UcH8hbf/w?=
+ =?us-ascii?Q?179MAn6tsw41dibkw16I3ei7CDmgOQE9wnyz3aUJL3/HbgKbBDIZkcdh9Ait?=
+ =?us-ascii?Q?QOoPbG5SHt6cOyidv2+mxosiP9lOeH8IJ4hsa5fRuPdLV6FKoJRaLwu2Fv2C?=
+ =?us-ascii?Q?y22hKd+1GpdkCdb+Iku2YhdKodM8omHg4xPCwqoniJuZ0xYZYBe8VK6DinmB?=
+ =?us-ascii?Q?Frycv8aPEqRStXfJXHnEFeYsBiFRK0fJ4Z3CMIz0uCc5OBB4YkpQZPEvayPe?=
+ =?us-ascii?Q?d2gsSG0tZz5wwkt/6iok9d65UDSEns6FADpxy8CduPWm7BUDdpx7Ix066g8s?=
+ =?us-ascii?Q?XgcqcqpbnJwYhQoRZVC3QCu/VURluyBQwH8sdtbfNcQQhZWYiCwKNWwIw30+?=
+ =?us-ascii?Q?LdBi+WVl53pHubfJ9ipbDfmNPx0TG5AzBwLv3F6uRgXERcjTnGZleXoMsaJU?=
+ =?us-ascii?Q?ieKlAAPk+ciYeAf21NtqimzS6LgOrZSwpnGYuD/E3XVqtq9/6d5M300dcSZE?=
+ =?us-ascii?Q?095/eZRrrslQBQ3IL1zsdJsFubHjtfgLrVk8zqxS6buu/dZQ2evWDP1uQZ5t?=
+ =?us-ascii?Q?L4na/uwdA3wGLZoVI75l1VAd7VpjYIAXUqcy+7LdI0ALm6Lun7XvIX6OLfOq?=
+ =?us-ascii?Q?3fyevc4ku1AkK/SMfkK2YNncU0Jb7ufJygYSbkpWDvNMEg6kO1Nq2eVrTRBp?=
+ =?us-ascii?Q?7HQxBINmPBLMRoYRp2lKpR1PPopQLk8pv8S+WlFMlq1Nskd8NGdXiTrULc5F?=
+ =?us-ascii?Q?eru6DHO7eo4WjCMvXrCUP5mirTLt5CELQMDiqzIAwOt6V/SARoM77OLT/qh7?=
+ =?us-ascii?Q?RoYdrLh+DbTxwpnqx2qyyt1TrpOlV075+MiyvMnQ5MAw1n343r1JWimHM36E?=
+ =?us-ascii?Q?PJSnavFbEJZqD/lsydWXbVpLlzpRnlXpUbZB8YGsFF7ELdqOxEa+TtacTjtI?=
+ =?us-ascii?Q?gQthOLs5CcS6mNc/NAT0QK67UnbNFNexY+tjam6d87E6J1QivgXuhb8LtQFe?=
+ =?us-ascii?Q?Xz4Ixqf4eTGpC2sZmWEBL4iZRUDV79FD2DQuUuvZ1wvz+3UyGdZwpjvh6K8V?=
+ =?us-ascii?Q?orbbGjbiD+nhJqrCv8WoKDQAKo+gXRcwgOmh5ekPvSKf2jnuQEcskIIeZoWL?=
+ =?us-ascii?Q?DBVgC3AmisqE9Sd/8ViCfdcSrUMIZvQwVsr8mj67vnhMhSZPpLt1VOY1gCRC?=
+ =?us-ascii?Q?zTh11DouW8ViOXi1THQ8pGRwWUMETHaYRmf9rT0cyM1g9VtpENMPgkAyc3hM?=
+ =?us-ascii?Q?NCC3GhHJxA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2b1d6e75-e509-4ba5-5eb4-08de5eae8f7a
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2026 20:48:16.0216
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: m1DvvymwxLnLmkHvawEuVn6aEMDfDVj7KHKCkq44qDYRYSxjXhJPCWpp8+knz2JC6k+gWQWpR+mZhy0iE+/MOw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10797
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_123726_219395_C122F1D8 
-X-CRM114-Status: GOOD (  34.58  )
+X-CRM114-CacheID: sfid-20260128_204822_752334_EBD06452 
+X-CRM114-Status: GOOD (  31.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,392 +180,379 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 26 Jan 2026 10:43:54 +0000
-Vincent Donnefort <vdonnefort@google.com> wrote:
+On Tue, Jan 27, 2026 at 03:37:00PM +0800, ming.qian@oss.nxp.com wrote:
+> From: Ming Qian <ming.qian@oss.nxp.com>
+>
+> The i.MX952 SoC features an upgraded JPEG encoder (version 1) with
+> enhanced descriptor-based configuration capabilities.
+>
+> The hardware version can be determined by reading the
+> version register.
+>
+> The v1 encoder uses an expanded descriptor format that allows
+> configuring all encoding parameters, including JPEG quality,
+> directly in the descriptor. This eliminates the manual
+> configuration phase required by v0 and reduces the interrupt
+> count from two to one per frame.
+>
+> V0 encoding flow:
+>   1. Write quality to registers -> trigger config interrupt
+>   2. Start encoding -> trigger completion interrupt
+>
+> V1 encoding flow:
+>   1. Configure descriptor with all parameters including quality
+>   2. Start encoding -> trigger completion interrupt
 
-> diff --git a/include/linux/trace_remote.h b/include/linux/trace_remote.h
-> new file mode 100644
-> index 000000000000..feb3433c2128
-> --- /dev/null
-> +++ b/include/linux/trace_remote.h
-> @@ -0,0 +1,80 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +
-> +#ifndef _LINUX_TRACE_REMOTE_H
-> +#define _LINUX_TRACE_REMOTE_H
-> +
-> +#include <linux/ring_buffer.h>
-> +
-> +/**
-> + * struct trace_remote_callbacks - Callbacks used by Tracefs to control the remote
-> + *
-> + * @load_trace_buffer:  Called before Tracefs accesses the trace buffer for the first
-> + *			time. Must return a &trace_buffer_desc
-> + *			(most likely filled with trace_remote_alloc_buffer())
-> + * @unload_trace_buffer:
-> + *			Called once Tracefs has no use for the trace buffer
-> + *			(most likely call trace_remote_free_buffer())
-> + * @enable_tracing:	Called on Tracefs tracing_on. It is expected from the
-> + *			remote to allow writing.
-> + * @swap_reader_page:	Called when Tracefs consumes a new page from a
-> + *			ring-buffer. It is expected from the remote to isolate a
-> + *			new reader-page from the @cpu ring-buffer.
-> + */
-> +struct trace_remote_callbacks {
-> +	struct trace_buffer_desc *(*load_trace_buffer)(unsigned long size, void *priv);
-> +	void	(*unload_trace_buffer)(struct trace_buffer_desc *desc, void *priv);
-> +	int	(*enable_tracing)(bool enable, void *priv);
-> +	int	(*swap_reader_page)(unsigned int cpu, void *priv);
-> +};
-> +
-> +/**
-> + * trace_remote_register() - Register a Tracefs remote
-> + *
-> + * A trace remote is an entity, outside of the kernel (most likely firmware or
-> + * hypervisor) capable of writing events into a Tracefs compatible ring-buffer.
-> + * The kernel would then act as a reader.
-> + *
-> + * The registered remote will be found under the Tracefs directory
-> + * remotes/<name>.
-> + *
-> + * @name:	Name of the remote, used for the Tracefs remotes/ directory.
-> + * @cbs:	Set of callbacks used to control the remote.
-> + * @priv:	Private data, passed to each callback from @cbs.
-> + * @events:	Array of events. &remote_event.name and &remote_event.id must be
-> + *		filled by the caller.
-> + * @nr_events:	Number of events in the @events array.
-> + *
-> + * Return: 0 on success, negative error code on failure.
-> + */
-> +int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv);
+AI polished commit message
 
-Nit, but kerneldoc goes before the functions and not before their prototypes.
+jpeg: imx: add support for JPEG encoder v1 descriptor configuration
 
+Support the upgraded JPEG encoder v1 found on i.MX952 SoC.
 
-> +
-> +/**
-> + * trace_remote_alloc_buffer() - Dynamically allocate a trace buffer
-> + *
-> + * Helper to dynamically allocate a set of pages (enough to cover @buffer_size)
-> + * for each CPU from @cpumask and fill @desc. Most likely called from
-> + * &trace_remote_callbacks.load_trace_buffer.
-> + *
-> + * @desc:		Uninitialized trace_buffer_desc
-> + * @desc_size:		Size of the trace_buffer_desc. Must be at least equal to
-> + *			trace_buffer_desc_size()
-> + * @buffer_size:	Size in bytes of each per-CPU ring-buffer
-> + * @cpumask:		CPUs to allocate a ring-buffer for
-> + *
-> + * Return: 0 on success, negative error code on failure.
-> + */
-> +int trace_remote_alloc_buffer(struct trace_buffer_desc *desc, size_t desc_size, size_t buffer_size,
-> +			      const struct cpumask *cpumask);
-> +
-> +/**
-> + * trace_remote_free_buffer() - Free trace buffer allocated with
-> + *				trace_remote_alloc_buffer()
-> + *
-> + * Most likely called from &trace_remote_callbacks.unload_trace_buffer.
-> + *
-> + * @desc:	Descriptor of the per-CPU ring-buffers, originally filled by
-> + *		trace_remote_alloc_buffer()
-> + */
-> +void trace_remote_free_buffer(struct trace_buffer_desc *desc);
-> +
-> +#endif
-> diff --git a/kernel/trace/Kconfig b/kernel/trace/Kconfig
-> index bfa2ec46e075..135edf143073 100644
-> --- a/kernel/trace/Kconfig
-> +++ b/kernel/trace/Kconfig
-> @@ -1278,4 +1278,7 @@ config HIST_TRIGGERS_DEBUG
->  
->  source "kernel/trace/rv/Kconfig"
->  
-> +config TRACE_REMOTE
-> +	bool
-> +
->  endif # FTRACE
-> diff --git a/kernel/trace/Makefile b/kernel/trace/Makefile
-> index fc5dcc888e13..6e75d710fc25 100644
-> --- a/kernel/trace/Makefile
-> +++ b/kernel/trace/Makefile
-> @@ -127,4 +127,5 @@ obj-$(CONFIG_FPROBE_EVENTS) += trace_fprobe.o
->  obj-$(CONFIG_TRACEPOINT_BENCHMARK) += trace_benchmark.o
->  obj-$(CONFIG_RV) += rv/
->  
-> +obj-$(CONFIG_TRACE_REMOTE) += trace_remote.o
->  libftrace-y := ftrace.o
-> diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
-> index 8bd4ec08fb36..1fcbdea992d2 100644
-> --- a/kernel/trace/trace.c
-> +++ b/kernel/trace/trace.c
-> @@ -9356,7 +9356,7 @@ static struct dentry *tracing_dentry_percpu(struct trace_array *tr, int cpu)
->  	return tr->percpu_dir;
->  }
->  
-> -static struct dentry *
-> +struct dentry *
->  trace_create_cpu_file(const char *name, umode_t mode, struct dentry *parent,
->  		      void *data, long cpu, const struct file_operations *fops)
+Detect the encoder hardware version via the version register.
+
+The v1 encoder uses an expanded descriptor format that allows all encoding
+parameters, including JPEG quality, to be configured directly in the
+descriptor.
+
+This removes the manual register-based configuration step required by v0
+and reduces the interrupt count from two to one per frame.
+
+>
+> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+> ---
+>  .../media/platform/nxp/imx-jpeg/mxc-jpeg-hw.c | 10 +-
+>  .../media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h |  4 +-
+>  .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 92 ++++++++++++++++---
+>  .../media/platform/nxp/imx-jpeg/mxc-jpeg.h    | 24 ++++-
+>  4 files changed, 112 insertions(+), 18 deletions(-)
+>
+> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.c
+> index 9a6e8b332e12..97a6e1426ba2 100644
+> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.c
+> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.c
+> @@ -2,7 +2,7 @@
+>  /*
+>   * i.MX8QXP/i.MX8QM JPEG encoder/decoder v4l2 driver
+>   *
+> - * Copyright 2018-2019 NXP
+> + * Copyright 2018-2026 NXP
+>   */
+>
+>  #include <linux/delay.h>
+> @@ -189,3 +189,11 @@ void mxc_jpeg_clr_desc(void __iomem *reg, int slot)
 >  {
-> diff --git a/kernel/trace/trace.h b/kernel/trace/trace.h
-> index b6d42fe06115..fdbcd068ba38 100644
-> --- a/kernel/trace/trace.h
-> +++ b/kernel/trace/trace.h
-> @@ -680,6 +680,12 @@ struct dentry *trace_create_file(const char *name,
->  				 struct dentry *parent,
->  				 void *data,
->  				 const struct file_operations *fops);
-> +struct dentry *trace_create_cpu_file(const char *name,
-> +				     umode_t mode,
-> +				     struct dentry *parent,
-> +				     void *data,
-> +				     long cpu,
-> +				     const struct file_operations *fops);
->  
->  
+>  	writel(0, reg + MXC_SLOT_OFFSET(slot, SLOT_NXT_DESCPT_PTR));
+>  }
+> +
+> +int mxc_jpeg_get_version(void __iomem *reg)
+> +{
+> +	u32 regval;
+> +
+> +	regval = readl(reg + GLB_CTRL);
+> +	return GLB_CTRL_CUR_VERSION(regval);
+> +}
+> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
+> index adb93e977be9..e9c7573f0fe4 100644
+> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
+> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
+> @@ -2,7 +2,7 @@
+>  /*
+>   * i.MX8QXP/i.MX8QM JPEG encoder/decoder v4l2 driver
+>   *
+> - * Copyright 2018-2019 NXP
+> + * Copyright 2018-2026 NXP
+>   */
+>
+>  #ifndef _MXC_JPEG_HW_H
+> @@ -73,6 +73,7 @@
+>  #define GLB_CTRL_DEC_GO					(0x1 << 2)
+>  #define GLB_CTRL_L_ENDIAN(le)				((le) << 3)
+>  #define GLB_CTRL_SLOT_EN(slot)				(0x1 << ((slot) + 4))
+> +#define GLB_CTRL_CUR_VERSION(r)				FIELD_GET(0xF0000, r)
+
+0xF0000 use GEN_MASK(16, 23)
+
+>
+>  /* COM_STAUS fields */
+>  #define COM_STATUS_DEC_ONGOING(r)		(((r) & (1 << 31)) >> 31)
+> @@ -129,4 +130,5 @@ void mxc_jpeg_set_res(struct mxc_jpeg_desc *desc, u16 w, u16 h);
+>  void mxc_jpeg_set_line_pitch(struct mxc_jpeg_desc *desc, u32 line_pitch);
+>  void mxc_jpeg_set_desc(u32 desc, void __iomem *reg, int slot);
+>  void mxc_jpeg_clr_desc(void __iomem *reg, int slot);
+> +int mxc_jpeg_get_version(void __iomem *reg);
+
+Only use at mxc_jpeg_runtime_resume(), it can be removed here and it can
+be static in C file.
+
+>  #endif
+> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+> index b558700d1d96..9624eea2450d 100644
+> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+> @@ -37,7 +37,7 @@
+>   *
+>   * This is inspired by the drivers/media/platform/samsung/s5p-jpeg driver
+>   *
+> - * Copyright 2018-2019 NXP
+> + * Copyright 2018-2026 NXP
+>   */
+>
+>  #include <linux/kernel.h>
+> @@ -64,6 +64,12 @@
+>  #include "mxc-jpeg-hw.h"
+>  #include "mxc-jpeg.h"
+>
+> +#define call_void_jpeg_enc_ops(jpeg, op, args...)			\
+> +	do {								\
+> +		if ((jpeg)->enc_cfg_ops && (jpeg)->enc_cfg_ops->op)	\
+> +			(jpeg)->enc_cfg_ops->op(args);			\
+> +	} while (0)
+> +
+>  static const struct mxc_jpeg_fmt mxc_formats[] = {
+>  	{
+>  		.name		= "JPEG",
+> @@ -1030,11 +1036,7 @@ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
+>
+>  	if (jpeg->mode == MXC_JPEG_ENCODE &&
+>  	    ctx->enc_state == MXC_JPEG_ENC_CONF) {
+> -		q_data = mxc_jpeg_get_q_data(ctx, V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE);
+> -		ctx->enc_state = MXC_JPEG_ENCODING;
+> -		dev_dbg(dev, "Encoder config finished. Start encoding...\n");
+> -		mxc_jpeg_enc_set_quality(dev, reg, ctx->jpeg_quality);
+> -		mxc_jpeg_enc_mode_go(dev, reg, mxc_jpeg_is_extended_sequential(q_data->fmt));
+> +		call_void_jpeg_enc_ops(jpeg, exit_config_mode, ctx);
+>  		goto job_unlock;
+>  	}
+>  	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed &&
+> @@ -1272,6 +1274,7 @@ static void mxc_jpeg_config_dec_desc(struct vb2_buffer *out_buf,
+>
+>  	jpeg_src_buf = vb2_to_mxc_buf(src_buf);
+>
+> +	ctx->extseq = mxc_jpeg_is_extended_sequential(jpeg_src_buf->fmt);
+>  	/* setup the decoding descriptor */
+>  	desc->next_descpt_ptr = 0; /* end of chain */
+>  	q_data_cap = mxc_jpeg_get_q_data(ctx, cap_type);
+> @@ -1335,9 +1338,15 @@ static void mxc_jpeg_config_enc_desc(struct vb2_buffer *out_buf,
+>  	struct mxc_jpeg_q_data *q_data;
+>  	enum mxc_jpeg_image_format img_fmt;
+>  	int w, h;
+> +	bool extseq;
+>
+>  	q_data = mxc_jpeg_get_q_data(ctx, src_buf->vb2_queue->type);
+> +	extseq = mxc_jpeg_is_extended_sequential(q_data->fmt);
+> +
+> +	ctx->extseq = extseq;
+>
+> +	memset(desc, 0, sizeof(struct mxc_jpeg_desc));
+> +	memset(cfg_desc, 0, sizeof(struct mxc_jpeg_desc));
+>  	jpeg->slot_data.cfg_stream_size =
+>  			mxc_jpeg_setup_cfg_stream(cfg_stream_vaddr,
+>  						  q_data->fmt->fourcc,
+> @@ -1348,11 +1357,6 @@ static void mxc_jpeg_config_enc_desc(struct vb2_buffer *out_buf,
+>  	cfg_desc->next_descpt_ptr = desc_handle | MXC_NXT_DESCPT_EN;
+>
+>  	cfg_desc->buf_base0 = jpeg->slot_data.cfg_stream_handle;
+> -	cfg_desc->buf_base1 = 0;
+> -	cfg_desc->line_pitch = 0;
+> -	cfg_desc->stm_bufbase = 0; /* no output expected */
+> -	cfg_desc->stm_bufsize = 0x0;
+> -	cfg_desc->imgsize = 0;
+>  	cfg_desc->stm_ctrl = STM_CTRL_CONFIG_MOD(1);
+>  	cfg_desc->stm_ctrl |= STM_CTRL_BITBUF_PTR_CLR(1);
+>
+> @@ -1372,11 +1376,14 @@ static void mxc_jpeg_config_enc_desc(struct vb2_buffer *out_buf,
+>  	desc->stm_ctrl = STM_CTRL_CONFIG_MOD(0) |
+>  			 STM_CTRL_IMAGE_FORMAT(img_fmt);
+>  	desc->stm_ctrl |= STM_CTRL_BITBUF_PTR_CLR(1);
+> -	if (mxc_jpeg_is_extended_sequential(q_data->fmt))
+> +	if (extseq)
+>  		desc->stm_ctrl |= STM_CTRL_PIXEL_PRECISION;
+>  	else
+>  		desc->stm_ctrl &= ~STM_CTRL_PIXEL_PRECISION;
+>  	mxc_jpeg_addrs(desc, src_buf, dst_buf, 0);
+> +
+> +	call_void_jpeg_enc_ops(jpeg, setup_desc, ctx);
+> +
+>  	dev_dbg(jpeg->dev, "cfg_desc:\n");
+>  	print_descriptor_info(jpeg->dev, cfg_desc);
+>  	dev_dbg(jpeg->dev, "enc desc:\n");
+> @@ -1388,6 +1395,54 @@ static void mxc_jpeg_config_enc_desc(struct vb2_buffer *out_buf,
+>  	mxc_jpeg_set_desc(cfg_desc_handle, reg, slot);
+>  }
+>
+> +static void mxc_jpeg_enc_start_config_manually(struct mxc_jpeg_ctx *ctx)
+> +{
+> +	struct mxc_jpeg_dev *jpeg = ctx->mxc_jpeg;
+> +	void __iomem *reg = jpeg->base_reg;
+> +	struct device *dev = jpeg->dev;
+> +
+> +	ctx->enc_state = MXC_JPEG_ENC_CONF;
+> +	mxc_jpeg_enc_mode_conf(dev, reg, ctx->extseq);
+> +}
+> +
+> +static void mxc_jpeg_enc_finish_config_manually(struct mxc_jpeg_ctx *ctx)
+> +{
+> +	struct mxc_jpeg_dev *jpeg = ctx->mxc_jpeg;
+> +	void __iomem *reg = jpeg->base_reg;
+> +	struct device *dev = jpeg->dev;
+> +
+> +	ctx->enc_state = MXC_JPEG_ENCODING;
+> +	dev_dbg(dev, "Encoder config finished. Start encoding...\n");
+> +	mxc_jpeg_enc_set_quality(dev, reg, ctx->jpeg_quality);
+> +	mxc_jpeg_enc_mode_go(dev, reg, ctx->extseq);
+> +}
+> +
+> +static void mxc_jpeg_enc_configure_desc(struct mxc_jpeg_ctx *ctx)
+> +{
+> +	struct mxc_jpeg_dev *jpeg = ctx->mxc_jpeg;
+> +	struct mxc_jpeg_desc *desc = jpeg->slot_data.desc;
+> +	struct mxc_jpeg_desc *cfg_desc = jpeg->slot_data.cfg_desc;
+> +
+> +	ctx->enc_state = MXC_JPEG_ENCODING;
+> +	cfg_desc->mode = (ctx->extseq) ? 0xb0 : 0xa0;
+> +	cfg_desc->cfg_mode = 0x3ff;
+> +
+> +	desc->mode = (ctx->extseq) ? 0x150 : 0x140;
+> +	desc->cfg_mode = 0x3ff;
+> +	desc->quality = ctx->jpeg_quality;
+> +	desc->lumth = 0xffff;
+> +	desc->chrth = 0xffff;
+> +}
+> +
+> +static const struct mxc_jpeg_enc_ops mxc_jpeg_enc_cfg_ops_v0 = {
+> +	.enter_config_mode = mxc_jpeg_enc_start_config_manually,
+> +	.exit_config_mode = mxc_jpeg_enc_finish_config_manually
+> +};
+> +
+> +static const struct mxc_jpeg_enc_ops mxc_jpeg_enc_cfg_ops_v1 = {
+> +	.setup_desc = mxc_jpeg_enc_configure_desc
+> +};
+> +
+>  static const struct mxc_jpeg_fmt *mxc_jpeg_get_sibling_format(const struct mxc_jpeg_fmt *fmt)
+>  {
+>  	int i;
+> @@ -1593,12 +1648,10 @@ static void mxc_jpeg_device_run(void *priv)
+>
+>  	if (jpeg->mode == MXC_JPEG_ENCODE) {
+>  		dev_dbg(dev, "Encoding on slot %d\n", ctx->slot);
+> -		ctx->enc_state = MXC_JPEG_ENC_CONF;
+>  		mxc_jpeg_config_enc_desc(&dst_buf->vb2_buf, ctx,
+>  					 &src_buf->vb2_buf, &dst_buf->vb2_buf);
+>  		/* start config phase */
+> -		mxc_jpeg_enc_mode_conf(dev, reg,
+> -				       mxc_jpeg_is_extended_sequential(q_data_out->fmt));
+> +		call_void_jpeg_enc_ops(jpeg, enter_config_mode, ctx);
+>  	} else {
+>  		dev_dbg(dev, "Decoding on slot %d\n", ctx->slot);
+>  		print_mxc_buf(jpeg, &src_buf->vb2_buf, 0);
+> @@ -3006,6 +3059,15 @@ static int mxc_jpeg_runtime_resume(struct device *dev)
+>  		return ret;
+>  	}
+>
+> +	if (jpeg->mode == MXC_JPEG_ENCODE) {
+> +		if (!jpeg->enc_cfg_ops) {
+> +			if (mxc_jpeg_get_version(jpeg->base_reg) == 0)
+> +				jpeg->enc_cfg_ops = &mxc_jpeg_enc_cfg_ops_v0;
+> +			else
+> +				jpeg->enc_cfg_ops = &mxc_jpeg_enc_cfg_ops_v1;
+
+This should only do once at probe.
+
+> +		}
+> +	}
+> +
+>  	return 0;
+>  }
+>
+> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
+> index 9c5b4f053ded..8e68dcde9613 100644
+> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
+> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
+> @@ -2,7 +2,7 @@
+>  /*
+>   * i.MX8QXP/i.MX8QM JPEG encoder/decoder v4l2 driver
+>   *
+> - * Copyright 2018-2019 NXP
+> + * Copyright 2018-2026 NXP
+>   */
+>
+>  #include <media/v4l2-ctrls.h>
+> @@ -81,6 +81,17 @@ struct mxc_jpeg_desc {
+>  	u32 stm_bufsize;
+>  	u32 imgsize;
+>  	u32 stm_ctrl;
+> +	/* below parameters are valid for v1 */
+> +	u32 mode;
+> +	u32 cfg_mode;
+> +	u32 quality;
+> +	u32 rc_regs_sel;
+> +	u32 lumth;
+> +	u32 chrth;
+> +	u32 nomfrsize_lo;
+> +	u32 nomfrsize_hi;
+> +	u32 ofbsize_lo;
+> +	u32 ofbsize_hi;
+
+Do you only use one desc each time? if desc is array based, it will impact
+v0.
+
+>  } __packed;
+>
+>  struct mxc_jpeg_q_data {
+> @@ -105,6 +116,7 @@ struct mxc_jpeg_ctx {
+>  	unsigned int			source_change;
+>  	bool				need_initial_source_change_evt;
+>  	bool				header_parsed;
+> +	bool				extseq;
+>  	struct v4l2_ctrl_handler	ctrl_handler;
+>  	u8				jpeg_quality;
+>  	struct delayed_work		task_timer;
+> @@ -125,6 +137,15 @@ struct mxc_jpeg_slot_data {
+>  	dma_addr_t cfg_dec_daddr;
+>  };
+>
+> +struct mxc_jpeg_enc_ops {
+> +	/* Manual configuration (v0 hardware) - two-phase process */
+> +	void (*enter_config_mode)(struct mxc_jpeg_ctx *ctx);
+> +	void (*exit_config_mode)(struct mxc_jpeg_ctx *ctx);
+> +
+> +	/* Descriptor-based configuration (v1 hardware) - single-phase */
+> +	void (*setup_desc)(struct mxc_jpeg_ctx *ctx);
+
+You use callback, suppose callback name should be the same for v0 and v1.
+
+for example:
+
+	void (*setup_config)()
+	void (*clean_config)()
+
+v0	enter_config_mode() -> .setup_config
+	exit_config_mode() -> .clean_config
+
+v1
+	setup_desc -> .setup_config
+	NULL -> .clean_config.
+
+Frank
+
+> +};
+> +
+>  struct mxc_jpeg_dev {
+>  	spinlock_t			hw_lock; /* hardware access lock */
+>  	unsigned int			mode;
+> @@ -142,6 +163,7 @@ struct mxc_jpeg_dev {
+>  	struct device			**pd_dev;
+>  	struct device_link		**pd_link;
+>  	struct gen_pool			*sram_pool;
+> +	const struct mxc_jpeg_enc_ops	*enc_cfg_ops;
+>  };
+>
 >  /**
-> diff --git a/kernel/trace/trace_remote.c b/kernel/trace/trace_remote.c
-> new file mode 100644
-> index 000000000000..3d80ff98fd90
-> --- /dev/null
-> +++ b/kernel/trace/trace_remote.c
-> @@ -0,0 +1,570 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2025 - Google LLC
-> + * Author: Vincent Donnefort <vdonnefort@google.com>
-> + */
-> +
-> +#include <linux/kstrtox.h>
-> +#include <linux/lockdep.h>
-> +#include <linux/mutex.h>
-> +#include <linux/tracefs.h>
-> +#include <linux/trace_remote.h>
-> +#include <linux/trace_seq.h>
-> +#include <linux/types.h>
-> +
-> +#include "trace.h"
-> +
-> +#define TRACEFS_DIR		"remotes"
-> +#define TRACEFS_MODE_WRITE	0640
-> +#define TRACEFS_MODE_READ	0440
-> +
-> +struct trace_remote_iterator {
-> +	struct trace_remote		*remote;
-> +	struct trace_seq		seq;
-> +	struct delayed_work		poll_work;
-> +	unsigned long			lost_events;
-> +	u64				ts;
-> +	int				cpu;
-> +	int				evt_cpu;
-> +};
-> +
-> +struct trace_remote {
-> +	struct trace_remote_callbacks	*cbs;
-> +	void				*priv;
-> +	struct trace_buffer		*trace_buffer;
-> +	struct trace_buffer_desc	*trace_buffer_desc;
-> +	unsigned long			trace_buffer_size;
-> +	struct ring_buffer_remote	rb_remote;
-> +	struct mutex			lock;
-> +	unsigned int			nr_readers;
-> +	unsigned int			poll_ms;
-> +	bool				tracing_on;
-> +};
-> +
-> +static bool trace_remote_loaded(struct trace_remote *remote)
-> +{
-> +	return remote->trace_buffer;
-
-Nit, but since you are returning a bool, make it obvious that is what you
-want:
-
-	return !!remote->trace_buffer;
-
-
-
-> +}
-> +
-> +static int trace_remote_load(struct trace_remote *remote)
-> +{
-> +	struct ring_buffer_remote *rb_remote = &remote->rb_remote;
-> +
-> +	lockdep_assert_held(&remote->lock);
-> +
-> +	if (trace_remote_loaded(remote))
-> +		return 0;
-> +
-> +	remote->trace_buffer_desc = remote->cbs->load_trace_buffer(remote->trace_buffer_size,
-> +								   remote->priv);
-> +	if (IS_ERR(remote->trace_buffer_desc))
-> +		return PTR_ERR(remote->trace_buffer_desc);
-
-Hmm, on error, should we reset remote->trace_buffer_desc to NULL?
-
-Just to be safe. Could just do:
-
-	struct trace_buffer_desc *desc;
-
-	desc = remote->cbs->load_trace_buffer(remote->trace_buffer_size, remote->priv);
-	if (IS_ERR(desc))
-		return PTR_ERR(desc);
-
-	rb_remote->desc = desc;
-
-
-> +
-> +	rb_remote->desc = remote->trace_buffer_desc;
-> +	rb_remote->swap_reader_page = remote->cbs->swap_reader_page;
-> +	rb_remote->priv = remote->priv;
-> +	remote->trace_buffer = ring_buffer_alloc_remote(rb_remote);
-> +	if (!remote->trace_buffer) {
-> +		remote->cbs->unload_trace_buffer(remote->trace_buffer_desc, remote->priv);
-
-		remote->cbs->unload_trace_buffer(desc, remote->priv);
-
-> +		return -ENOMEM;
-> +	}
-
-	remote->trace_buffer_desc = desc;
-
-Only set it on success.
-
-> +
-> +	return 0;
-> +}
-> +
-> +static void trace_remote_try_unload(struct trace_remote *remote)
-> +{
-> +	lockdep_assert_held(&remote->lock);
-> +
-> +	if (!trace_remote_loaded(remote))
-> +		return;
-> +
-> +	/* The buffer is being read or writable */
-> +	if (remote->nr_readers || remote->tracing_on)
-> +		return;
-> +
-> +	/* The buffer has readable data */
-> +	if (!ring_buffer_empty(remote->trace_buffer))
-> +		return;
-> +
-> +	ring_buffer_free(remote->trace_buffer);
-> +	remote->trace_buffer = NULL;
-> +	remote->cbs->unload_trace_buffer(remote->trace_buffer_desc, remote->priv);
-> +}
-> +
-> +static int trace_remote_enable_tracing(struct trace_remote *remote)
-> +{
-> +	int ret;
-> +
-> +	lockdep_assert_held(&remote->lock);
-> +
-> +	if (remote->tracing_on)
-> +		return 0;
-> +
-> +	ret = trace_remote_load(remote);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = remote->cbs->enable_tracing(true, remote->priv);
-> +	if (ret) {
-> +		trace_remote_try_unload(remote);
-> +		return ret;
-> +	}
-> +
-> +	remote->tracing_on = true;
-> +
-> +	return 0;
-> +}
-> +
-> +static int trace_remote_disable_tracing(struct trace_remote *remote)
-> +{
-> +	int ret;
-> +
-> +	lockdep_assert_held(&remote->lock);
-> +
-> +	if (!remote->tracing_on)
-> +		return 0;
-> +
-> +	ret = remote->cbs->enable_tracing(false, remote->priv);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ring_buffer_poll_remote(remote->trace_buffer, RING_BUFFER_ALL_CPUS);
-> +	remote->tracing_on = false;
-> +	trace_remote_try_unload(remote);
-
-> +
-> +	return 0;
-> +}
-> +
-> +static ssize_t
-> +tracing_on_write(struct file *filp, const char __user *ubuf, size_t cnt, loff_t *ppos)
-> +{
-> +	struct trace_remote *remote = filp->private_data;
-> +	unsigned long val;
-> +	int ret;
-> +
-> +	ret = kstrtoul_from_user(ubuf, cnt, 10, &val);
-> +	if (ret)
-> +		return ret;
-> +
-> +	guard(mutex)(&remote->lock);
-> +
-> +	ret = val ? trace_remote_enable_tracing(remote) : trace_remote_disable_tracing(remote);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return cnt;
-> +}
-> +static int tracing_on_show(struct seq_file *s, void *unused)
-> +{
-> +	struct trace_remote *remote = s->private;
-> +
-> +	seq_printf(s, "%d\n", remote->tracing_on);
-> +
-> +	return 0;
-> +}
-> +DEFINE_SHOW_STORE_ATTRIBUTE(tracing_on);
-> +
-> +static ssize_t buffer_size_kb_write(struct file *filp, const char __user *ubuf, size_t cnt,
-> +				    loff_t *ppos)
-> +{
-> +	struct trace_remote *remote = filp->private_data;
-> +	unsigned long val;
-> +	int ret;
-> +
-> +	ret = kstrtoul_from_user(ubuf, cnt, 10, &val);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* KiB to Bytes */
-> +	if (!val || check_shl_overflow(val, 10, &val))
-> +		return -EINVAL;
-> +
-> +	guard(mutex)(&remote->lock);
-> +
-> +	remote->trace_buffer_size = val;
-
-Should this be allowed to change when it is already loaded?
-
--- Steve
-
-> +
-> +	return cnt;
-> +}
-> +
-> +static int buffer_size_kb_show(struct seq_file *s, void *unused)
-> +{
-> +	struct trace_remote *remote = s->private;
-> +
-> +	seq_printf(s, "%lu (%s)\n", remote->trace_buffer_size >> 10,
-> +		   trace_remote_loaded(remote) ? "loaded" : "unloaded");
-> +
-> +	return 0;
-> +}
-> +DEFINE_SHOW_STORE_ATTRIBUTE(buffer_size_kb);
-> +
-
+>
+> base-commit: c824345288d11e269ce41b36c105715bc2286050
+> prerequisite-patch-id: 0000000000000000000000000000000000000000
+> --
+> 2.52.0
+>
 
