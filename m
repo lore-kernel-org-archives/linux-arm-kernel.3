@@ -4,104 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23539D46BEF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 18:33:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4904FD46BEE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 18:36:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kfg6UdscjkpEoTOhSlRT2LAj46aYr5XBfZJkEddMCkI=; b=Kx8uApeghhacHp+Iz+fTiqRdti
-	EKg2ahyE92ALEPufp0z2yp0YWMcHxz8LgIpiP/In+qdsVpYk2rJ1jAeyI7dVvNBtqigFp83ARDhdm
-	K6jkx0qdbthAeTMa7dq8Cjb37RfCi4MSVAjiT7aKxKDakV8Sx7KXYwaaRggC7q5tn/JTBpVnQXIqF
-	9iUZDD/QMgQdHqTjBYwY4/fED4U/lY/Ha5N7lmwP22FJB28lHQF0ySHTdLzqGneteCjnNqfxXmEO7
-	g0BhiZV4y7nQfFH1U2U/s+iYOmfMAnj0bgwMrPaxE/g+XyRzPkIFhPBasGmZqbg/9pHOkEwwMQkti
-	2wesXplg==;
+	bh=PqYFGGqJD8SUb7R/XjVwcBfqGXXBn7bIii7vOX44hFY=; b=BSKR+V/qt2Q4/pZRj6iDipKIQw
+	UywWsG/lQRN9ud1HF5wJ4KcOjWcm2ekp9CZGTJaSlnfTxD+7gHOcU3cRqx+L/1+Lt/szHF7zelNZ7
+	smicxjhewe/AxUIV30scya/ZO+6P5I18xkRhAmcoWiH0xBpxAs4cGFLA9giaijsIo4iqnPZMjcMVh
+	2S933WT3DZX/KCvOdm4jnTAt468rG51MCwlLUgRBuUcHx00RXgaKwxfb4euf8bKTNTpDMU0LqdXx3
+	zzmrGxv/ji6AIXgscEZugOjbhjG7i738juYEQT6TuYMCdgl2boHe0igK5Ymvc1MHSq5TQ4qgL5b8i
+	eIJA/QkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlALc-0000000GcgO-1EOM;
-	Wed, 28 Jan 2026 18:33:00 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1vlAOb-0000000Gcur-0Yov;
+	Wed, 28 Jan 2026 18:36:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlALZ-0000000Gcfh-03Iu
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 18:32:58 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-42fed090e5fso159985f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 10:32:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769625174; x=1770229974; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Kfg6UdscjkpEoTOhSlRT2LAj46aYr5XBfZJkEddMCkI=;
-        b=goJPWIojQglFciBmSOJRNxUafZpMQ8ZsES47xNHDaDv5qhCa8hJRtRAKmU2TPQUUjt
-         VT+55UvVE8D3LODEnQYOvQdk8ysUZ6KyVWlR5ACQmXh9qBMiqr5NMLKfiFYNB4xBslbt
-         hOfxl3cjJf9WNOwfmm9UFJ/QVrpnopLK3BAQlNj33Q+mSaO5wLZh43bc9ZPIiNClNZYJ
-         FgLsKQSRFRzjPAmBnCbnTtIsmuQuhqp6oBA5Q9iIYZai0um5eqbHG6A3mtn3BOKe2gFa
-         t3ucW1Y5Z0eIEtX4aP6pAqZAgBvNF7Ve4rf+cvwLmmHOoWqeca4Y77YKJ3V+EIIGu5D1
-         NxIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769625174; x=1770229974;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Kfg6UdscjkpEoTOhSlRT2LAj46aYr5XBfZJkEddMCkI=;
-        b=rsxdRzYlwHPubZWrv/ApWvHXAuDTNeGMIPl6OlOMC2c/8GwxwABpgIkFxABP0oiQrE
-         AE3O3uocN3OZl17RInwDoYrfULVkjYiAlejGKhrWYW0ehekMbSNxBQkAMJn8+Fq1mnJa
-         hHPVe50g2jE11QQv8RE1zfM6BMYB0EW23Ld2PV7Z7/eodzi7M3dWiCiu3n7EHr1BF6Js
-         UIbZO4nMaj+oF1AOQWOBm9vHgcNbXRsh8taemYTdcZxXjBcb5iz8+PjJf2ZDPFVzR/eo
-         go+lugqnEWjVJFH4qbKcJXygHy2DvCnzk8joJwq05Cv8hsej45veAmAPUBZb1quiGM4p
-         aO4w==
-X-Forwarded-Encrypted: i=1; AJvYcCUKxl8kKrP0SZ8nk6NYmmUJpGMyQQ2cTZTgSlRqOkYnyVdr7F+9spRfr7CU4hkimYjoHuo1xRFVfndKi+LbvpZO@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjaCANgqf0LQTafzn7WVbuH+/KJMxuWgpn/YEp2YhS1xQqD/w7
-	1QRGzM1ZxM4tMtVxiJaxg9X3aqVGr/ia5Eu+XWh5ysgamBtO5XzYLa6L
-X-Gm-Gg: AZuq6aKninqQRK5X5Dznr//+aAU8F8VrpZ9srd4iQWCq/IoOSsh3Kxd4S5f/VOLYF4j
-	UuNC3wVLBjgAiSp4AIvwn5HrFJnouQj8jCEcOJf/gCY8eYHmfKFvJ9rNvFpxslNnZWMn66lSzoa
-	GAB2CzwhPvJI1rIQc1l5hm9W95aB+ZyH/iufyPLP+BSSTbAX6Cpxwf9gzfYck01q6Zq0uKQq0ED
-	nhEYB3eP2kPxXsO8f4RRhT6ObQm1FXJHsjCagAWxlU4/37xdl5pgHHQQmlxSIJFTPxMY6F2s7Jg
-	g6Bkw/qGeKhiLCvw/iiCWfbGJQDra/GzHsz8iFvdBFyBHkWZOiGvWRzisC3Z5ED8CuguaBD8G+3
-	JeZ81fuZJHGK4gZyj8kpbXwLgB1jTs+9/3ZhU4MgyEQElUAIcMSAyMgUpJVbtfzMZSXv94ngiDO
-	zGfMy0t05SMyIGdKvR1TMJIE6ulrUh3cud3uS9GiMjsgW8Jr0whM3z
-X-Received: by 2002:a05:6000:3113:b0:435:9241:37c2 with SMTP id ffacd0b85a97d-435dd01e23fmr8152542f8f.9.1769625174058;
-        Wed, 28 Jan 2026 10:32:54 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e131ce64sm9165906f8f.26.2026.01.28.10.32.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Jan 2026 10:32:53 -0800 (PST)
-Date: Wed, 28 Jan 2026 18:32:51 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
- <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael
- Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Heiko
- Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander
- Gordeev <agordeev@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, Kees Cook <kees@kernel.org>, "Gustavo A. R.
- Silva" <gustavoars@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Mark Rutland
- <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, Jeremy Linton
- <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v4 2/3] prandom: Add __always_inline version of
- prandom_u32_state()
-Message-ID: <20260128183251.7177c345@pumpkin>
-In-Reply-To: <670c2b78-02e2-4617-80d9-3c896077f02a@arm.com>
-References: <20260119130122.1283821-1-ryan.roberts@arm.com>
-	<20260119130122.1283821-3-ryan.roberts@arm.com>
-	<aXpArjZ1QQowshnA@zx2c4.com>
-	<670c2b78-02e2-4617-80d9-3c896077f02a@arm.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	id 1vlAOX-0000000GcuT-0muB;
+	Wed, 28 Jan 2026 18:36:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1BE6643926;
+	Wed, 28 Jan 2026 18:35:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99B64C4CEF1;
+	Wed, 28 Jan 2026 18:35:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769625359;
+	bh=XbNIP04prbl4GAz3lpJ67AlR+JvU+oeMJJ4orRFR/vk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fKaW6E0I+uSaD18j6ICbYT+M7tzDOIZL7YewvT7gYQrJkHoUUFkc4poXZMYo8MmCD
+	 PpSnbBB/QIRFYm06+/IRSpoydH/28B8C1hcyN/YQ4S3DQErS7YgHNFCV4ZZKH1yI57
+	 F+yuGlJpNMcIes6Ynr0fazjD49WfCU22WJok3gCSzdsprAdPUPUXab/idjfoeU1X4m
+	 ruRaZz5cg84ylT18hYxgFdehF4YqKYtnEd0+hoNeeSF/2FqO3kIDfEmkjs85Tqg99g
+	 kl2xHVdqKkHq3JI6pkTbOfoNINwgzPmkycRsd5xZqcbxIlzFEloJpXHgBtnclo3/dx
+	 wN82AsEjX8uRQ==
+Message-ID: <a09292b2-0c40-497f-8270-b089e499f97d@kernel.org>
+Date: Wed, 28 Jan 2026 19:35:53 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND v3 1/2] dt-bindings: arm: realtek: Add Kent Soc
+ family compatibles
+To: Yu-Chun Lin <eleanor15x@gmail.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, james.tai@realtek.com, soc@lists.linux.dev
+Cc: afaerber@suse.de, arnd@arndb.de, linux-arm-kernel@lists.infradead.org,
+ linux-realtek-soc@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, cy.huang@realtek.com,
+ stanley_chang@realtek.com, eleanor.lin@realtek.com,
+ Conor Dooley <conor.dooley@microchip.com>
+References: <20260127071530.25426-1-eleanor15x@gmail.com>
+ <20260127071530.25426-2-eleanor15x@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260127071530.25426-2-eleanor15x@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_103257_084863_D942076B 
-X-CRM114-Status: GOOD (  32.59  )
+X-CRM114-CacheID: sfid-20260128_103602_383936_1868DA98 
+X-CRM114-Status: UNSURE (   5.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,63 +122,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 28 Jan 2026 17:33:19 +0000
-Ryan Roberts <ryan.roberts@arm.com> wrote:
-
-> On 28/01/2026 17:00, Jason A. Donenfeld wrote:
-> > On Mon, Jan 19, 2026 at 01:01:09PM +0000, Ryan Roberts wrote:  
-> >> We will shortly use prandom_u32_state() to implement kstack offset
-> >> randomization and some arches need to call it from non-instrumentable
-> >> context. So let's implement prandom_u32_state() as an out-of-line
-> >> wrapper around a new __always_inline prandom_u32_state_inline(). kstack
-> >> offset randomization will use this new version.
-> >>
-> >> Acked-by: Mark Rutland <mark.rutland@arm.com>
-> >> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> >> ---
-> >>  include/linux/prandom.h | 20 ++++++++++++++++++++
-> >>  lib/random32.c          |  8 +-------
-> >>  2 files changed, 21 insertions(+), 7 deletions(-)
-> >>
-> >> diff --git a/include/linux/prandom.h b/include/linux/prandom.h
-> >> index ff7dcc3fa105..801188680a29 100644
-> >> --- a/include/linux/prandom.h
-> >> +++ b/include/linux/prandom.h
-> >> @@ -17,6 +17,26 @@ struct rnd_state {
-> >>  	__u32 s1, s2, s3, s4;
-> >>  };
-> >>  
-> >> +/**
-> >> + * prandom_u32_state_inline - seeded pseudo-random number generator.
-> >> + * @state: pointer to state structure holding seeded state.
-> >> + *
-> >> + * This is used for pseudo-randomness with no outside seeding.
-> >> + * For more random results, use get_random_u32().
-> >> + * For use only where the out-of-line version, prandom_u32_state(), cannot be
-> >> + * used (e.g. noinstr code).
-
-If you are going to respin:
-		(e.g. noinst or performance critical code).
-
-	David
-
-> >> + */
-> >> +static __always_inline u32 prandom_u32_state_inline(struct rnd_state *state)  
-> > 
-> > This is pretty bikesheddy and I'm not really entirely convinced that my
-> > intuition is correct here, but I thought I should at least ask. Do you
-> > think this would be better called __prandom_u32_state(), where the "__"
-> > is kind of a, "don't use this directly unless you know what you're doing
-> > because it's sort of internal"? It seems like either we make this inline
-> > for everybody, or if there's a good reason for having most users use the
-> > non-inline version, then we should be careful that new users don't use
-> > the inline version. I was thinking the __ would help with that.  
+On 27/01/2026 08:14, Yu-Chun Lin wrote:
+> From: Yu-Chun Lin <eleanor.lin@realtek.com>
 > 
-> I'm certainly happy to do that, if that's your preference. I have to respin this
-> anyway, given the noinstr issue.
+> Define compatible strings for Realtek RTD1501s, RTD1861b and RTD1920s.
 > 
-> > 
-> > Jason  
+> Additionally, convert legacy DTS-style comments to YAML description
+> properties, following the pattern from the ARM bindings conversion series
+> [1].
 > 
+> [1] https://lore.kernel.org/lkml/20200622125527.24207-2-afaerber@suse.de/
+> 
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> ---
+
+Arnd, FWIW:
+
+Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
+
+Best regards,
+Krzysztof
 
 
