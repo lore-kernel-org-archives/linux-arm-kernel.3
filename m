@@ -4,105 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11C47D3F094
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 16:40:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C2A4D3F083
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 16:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iYk18bX7cRzr0uBEytpgIQTDx3Sgm8mS05n6bJfcUrs=; b=oX+iQ52q8Z/5nqBmSCD9+sb+u0
-	J2EMSFEFglc2ca+e/w6ahOe1Rfq9CsZkcSZl4+KvDoh3esH+r6sUjB4P2kadW2PR9iYUteLq/j8io
-	364AMw3peG2ueSFQEceNKbVGKM50irNagpxMY3uM33NPWPeapEquKi5smEJA4DoQOmmAmx8i3mVbW
-	vFRp5pAJkp0lQGxqC3aImf3IxdcFF8hvl1pgts8GTtvdwf0LpEpnqO9f62fCcKXRWG1D5Ds20J2R8
-	vss7VY77V3QqoKobud24PJVtSB1FO6W/rfJmeN6c6OIf7r4CF1H6XvL2XKKdCdBBwW5XBYGyvd+Mc
-	Z4xQUQgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Bi67lUR55FbWPlTgymd150A4JhPiS8nXb84sLy5L0U=; b=h2idW6IEXIXPWUU++ILa7N29wm
+	ykLzhjyrcFw/8Vr/Mg9S8FjVhpUWghctwjnxGE2gZXv1qFM9LgzZKUUTYTXlWJwT+0rkzZpaOhkxz
+	30zmsgHiZ41y+M+8T8mwWGyoVOgeHMwdMbcN4x1+IXvgMonB9ZG9I6iGS9dHORdO7FTTzgWXl1IAI
+	+3AWAj1P01hm5/sxD5yetM6r5KmnqHanImUrrhET+QpbVPX4Dmgk5ZqNf9yOHAi8VqrGNvcZBAsJl
+	fyoaDiD+LOQxSETEJlp69G2nknQVYflxt6vB2Z+53A34gTQZ2lIzJ8ktV1juL6YhS3Ev7zmxTHPxM
+	LyAAYfpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl8ag-0000000GPbk-475n;
-	Wed, 28 Jan 2026 16:40:27 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1vl8ht-0000000GQ7N-1Gs4;
+	Wed, 28 Jan 2026 16:47:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl8af-0000000GPbB-14XL
+	id 1vl8hs-0000000GQ7H-2Sw7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 16:40:26 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-bde0f62464cso442a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 08:40:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1769618424; x=1770223224; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iYk18bX7cRzr0uBEytpgIQTDx3Sgm8mS05n6bJfcUrs=;
-        b=UhRCLhEcaOWLWX9LzTosSL2woxsT0xHJ98bmSFSl7DP4tS47Wq+mYMymjMZbpLY1Fg
-         lVTXoSyNRe+j7rJ14hz+ZhgFdV4pvns4IyPckLnP/H6uH6JSc7x6KmefNRHKR04cYTbo
-         e+4Mxkhl1NDFs0CU198CD6H7Mj88tlE7eozjMJw87XaNCJx45uzvaAiTURvMpsgEwbbC
-         caKihLe0/eteb29D5LKqmabWsP9GTme0cdDPFoxxVOOdXO9QkO5OrI0ddJiu09TGSy6+
-         HDn35YRKAzW1EBF8pc01WxtDsUp3QrbFUUr83mSKeltsc88JtiStzPNthL5HonoJPz0q
-         sf5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769618424; x=1770223224;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iYk18bX7cRzr0uBEytpgIQTDx3Sgm8mS05n6bJfcUrs=;
-        b=li02QgPUyHzGeNfOATagAg75gFHdInxnXWcnIRhAdSP2ByGDRSTZArWY0yx5p4bV8y
-         clKnaeTzUcRVDTCfrwvn677mjSCAtMEbI5/SIdWLksdtStuPUSeYQ00MSKBkP4cOy5Jt
-         4DIAxshJXg5rNoxiAmOqVl527pjBUPQS49vgF8KdTDJlmpMOftJ39rAJeL8H56Ws0ERn
-         y0NdbLoo+Z7jlUwJt1zgMCUgSAcdPHUSXpz894Gn9v43E2Gd8KEBSA13/99ms/tOaazW
-         keSjs2JFG/jMAIsryp7oOXri8hF4B5PJ01Z8LOHyEoDh/tM64k20lzTuXcSwyfrgteCJ
-         XHqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW48zGkHT/s/Nb4y8K+Uu5CvmrVeK2lJBPhxBilG59y4i1WjnN7YwZh9V3mHL6aCqrza3l9/mu2fHkt2vNlZK/T@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOUrdeaEwwOKHDgxtloyzBldFh+qpoC06DnwIU3xLpJci1tQFd
-	nWpJ3N+liWYeuzAtj+TIDkRDdWKHIu7bFm8+INe2KEGdSmx6IAnrLY+7JEaNbOe9RVo=
-X-Gm-Gg: AZuq6aIhHrSoZh6PRMPiwiCnGJcQtXVj/BgP7ITp7Dd+eG+HjflhRk+GH/4kk5sZsVU
-	qXiQiLBW67qn9zC6Q+N8CBvWVTpj+jwiGcEeJbjdFWl0MyfEBDOxBdA8Cfg0P2IqDkT3bJUsmL5
-	jY8lO0SOFBw7TZ8g0/q7qTqPr8aYKrSjjuB2Eum5S+3wAEqqn8UJsis/vwL98WA6w3tZDda1SHs
-	DyhEXm1eAKFjwV4Y6vcdtWyMiPPArSgwOIN1mmxvR2R2XDAOE5zBbMCJdnTDqH+V+9oifmuGQR3
-	l8DWT3DqLZ9NmHfXqVWNIHZo7WLzMYdgTOxwy646z1SOxvRtkLtf6CbeYGxo+OBkzwp+7RJ6dEC
-	70RQMP7X74beWTSmWKF/6Lyki/WZ/rdfHgdWQixdsG1Pz4awc/LJqpMeXyXSA6tWFSrjsQgjBtp
-	CN6qvWkz2adiRVgo/JBA6EkVPAUVIuPKlLTE7BExPA0IsBxQ==
-X-Received: by 2002:a17:90b:3c11:b0:352:c995:808a with SMTP id 98e67ed59e1d1-353fecda875mr5481744a91.14.1769618423968;
-        Wed, 28 Jan 2026 08:40:23 -0800 (PST)
-Received: from smtpclient.apple ([2601:602:8700:e32a:245f:3d9c:239d:6b19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-353f61e0007sm5993765a91.12.2026.01.28.08.40.22
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 28 Jan 2026 08:40:23 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
-Subject: Re: [PATCH v6 1/7] dt-bindings: i2c: xiic: make clocks optional
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-In-Reply-To: <aXoul5n9sA1UmqoS@smile.fi.intel.com>
-Date: Wed, 28 Jan 2026 08:40:11 -0800
-Cc: Michal Simek <michal.simek@amd.com>,
- Andrew Lunn <andrew@lunn.ch>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Andi Shyti <andi.shyti@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- info@mocean-labs.com,
- linux-arm-kernel@lists.infradead.org,
- linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <E2D1B484-CBF0-4763-908C-DF293332D2B1@nexthop.ai>
-References: <20260127-i2c-xiic-v6-0-e82e2f6f657c@nexthop.ai>
- <20260127-i2c-xiic-v6-1-e82e2f6f657c@nexthop.ai>
- <20260128-remarkable-airborne-chihuahua-a1a16c@quoll>
- <66c7435c-a936-413e-a016-c860d448c971@amd.com>
- <fc00f8cf-b566-4694-82fe-76010d2f7c78@lunn.ch>
- <aXog-KBw7Bp-VEC4@smile.fi.intel.com>
- <5dc423be-c1f4-4a59-abcc-807f63b25f3f@amd.com>
- <aXoul5n9sA1UmqoS@smile.fi.intel.com>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-X-Mailer: Apple Mail (2.3864.300.41.1.7)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_084025_305256_F9DDA8B9 
-X-CRM114-Status: GOOD (  19.62  )
+	Wed, 28 Jan 2026 16:47:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AD1DA6001A;
+	Wed, 28 Jan 2026 16:47:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63E13C116C6;
+	Wed, 28 Jan 2026 16:47:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769618871;
+	bh=khVIv1qokt8EydR+iWBqZYjiiVSQkftreadhBsB8SBY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=aUcelpKqkT3/iXgxoD3lhQhBWBXwBiNiil4AkxSvO/XrNFqYQXlfA5LzT+9WPi8bo
+	 yuFJdHBd14kamuk11R6PxEGYcVE9o5pREU5FlUgZZf2+OcX7D/8NJ+rFJ0NLbpbqaU
+	 a4E4+InHd1SYdgJSU5L1v/GrJs2YPMVSNlHIZEVh+YPwoy3uxsVYeOaqxukolI6prO
+	 Zq9T83LroW3qeOMpp66lMALimg46NDDofXY4KnnwGxkBHMf8EgnqDUO/ixuTchvAay
+	 qYG7IWLySWO69Uor6OjwH5+fc22FpvjUVexQ4qKw/GnmP7V/VpxMJqcOscqa6OHvmV
+	 NzWnhaB+UGeTg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vl8ho-00000006T2w-46sY;
+	Wed, 28 Jan 2026 16:47:49 +0000
+Date: Wed, 28 Jan 2026 16:47:48 +0000
+Message-ID: <86cy2tbs5n.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Raghavendra Rao Ananta <rananta@google.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Mingwei Zhang <mizhang@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org
+Subject: Re: [PATCH 0/3] KVM: arm64: Reschedule as needed when destroying the stage-2 page-tables
+In-Reply-To: <20251113052452.975081-1-rananta@google.com>
+References: <20251113052452.975081-1-rananta@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: rananta@google.com, oupton@kernel.org, mizhang@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,78 +84,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 13 Nov 2025 05:24:49 +0000,
+Raghavendra Rao Ananta <rananta@google.com> wrote:
+> 
+> Hello,
+> 
+> When destroying a fully-mapped 128G VM abruptly, the following scheduler
+> warning is observed:
+> 
+>   sched: CPU 0 need_resched set for > 100018840 ns (100 ticks) without schedule
+>   CPU: 0 UID: 0 PID: 9617 Comm: kvm_page_table_ Tainted: G O 6.16.0-smp-DEV #3 NONE
+>   Tainted: [O]=OOT_MODULE
+>   Call trace:
+>       show_stack+0x20/0x38 (C)
+>       dump_stack_lvl+0x3c/0xb8
+>       dump_stack+0x18/0x30
+>       resched_latency_warn+0x7c/0x88
+>       sched_tick+0x1c4/0x268
+>       update_process_times+0xa8/0xd8
+>       tick_nohz_handler+0xc8/0x168
+>       __hrtimer_run_queues+0x11c/0x338
+>       hrtimer_interrupt+0x104/0x308
+>       arch_timer_handler_phys+0x40/0x58
+>       handle_percpu_devid_irq+0x8c/0x1b0
+>       generic_handle_domain_irq+0x48/0x78
+>       gic_handle_irq+0x1b8/0x408
+>       call_on_irq_stack+0x24/0x30
+>       do_interrupt_handler+0x54/0x78
+>       el1_interrupt+0x44/0x88
+>       el1h_64_irq_handler+0x18/0x28
+>       el1h_64_irq+0x84/0x88
+>       stage2_free_walker+0x30/0xa0 (P)
+>       __kvm_pgtable_walk+0x11c/0x258
+>       __kvm_pgtable_walk+0x180/0x258
+>       __kvm_pgtable_walk+0x180/0x258
+>       __kvm_pgtable_walk+0x180/0x258
+>       kvm_pgtable_walk+0xc4/0x140
+>       kvm_pgtable_stage2_destroy+0x5c/0xf0
+>       kvm_free_stage2_pgd+0x6c/0xe8
+>       kvm_uninit_stage2_mmu+0x24/0x48
+>       kvm_arch_flush_shadow_all+0x80/0xa0
+>       kvm_mmu_notifier_release+0x38/0x78
+>       __mmu_notifier_release+0x15c/0x250
+>       exit_mmap+0x68/0x400
+>       __mmput+0x38/0x1c8
+>       mmput+0x30/0x68
+>       exit_mm+0xd4/0x198
+>       do_exit+0x1a4/0xb00
+>       do_group_exit+0x8c/0x120
+>       get_signal+0x6d4/0x778
+>       do_signal+0x90/0x718
+>       do_notify_resume+0x70/0x170
+>       el0_svc+0x74/0xd8
+>       el0t_64_sync_handler+0x60/0xc8
+>       el0t_64_sync+0x1b0/0x1b8
+> 
+> The host kernel was running with CONFIG_PREEMPT_NONE=y, and since the
+> page-table walk operation takes considerable amount of time for a VM
+> with such a large number of PTEs mapped, the warning is seen.
+> 
+> To mitigate this, split the walk into smaller ranges, by checking for
+> cond_resched() between each range. Since the path is executed during
+> VM destruction, after the page-table structure is unlinked from the
+> KVM MMU, relying on cond_resched_rwlock_write() isn't necessary.
+> 
+> Patch-1 kills the assumption that the page-table hierarchy under the
+> table is free (in stage2_free_walker()). Instead, drop and clear the
+> references only on empty tables.
+> 
+> Patch-2 splits the kvm_pgtable_stage2_destroy() function into separate
+> 'walk' and 'free PGD' parts.
+> 
+> Patch-3 leverages the split and performs the walk periodically over
+> smaller ranges and calls cond_resched() between them.
+> 
+> The series was originally posted and merged [1], but was later reverted
+> due to syzkaller catching a UAF bug [2]. This series fixes the issue, and
+> the original need_resched warning is addressed.
+> 
+> [1]: https://lore.kernel.org/all/175582091313.1266576.4329884314263043118.b4-ty@linux.dev/
+> [2]: https://lore.kernel.org/all/20250910180930.3679473-1-oliver.upton@linux.dev/ 
+> 
+> Oliver Upton (1):
+>   KVM: arm64: Only drop references on empty tables in stage2_free_walker
+> 
+> Raghavendra Rao Ananta (2):
+>   KVM: arm64: Split kvm_pgtable_stage2_destroy()
+>   KVM: arm64: Reschedule as needed when destroying the stage-2
+>     page-tables
+> 
+>  arch/arm64/include/asm/kvm_pgtable.h | 30 +++++++++++++
+>  arch/arm64/include/asm/kvm_pkvm.h    |  4 +-
+>  arch/arm64/kvm/hyp/pgtable.c         | 63 +++++++++++++++++++++++-----
+>  arch/arm64/kvm/mmu.c                 | 36 +++++++++++++++-
+>  arch/arm64/kvm/pkvm.c                | 11 ++++-
+>  5 files changed, 129 insertions(+), 15 deletions(-)
+> 
+> 
+> base-commit: dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa
 
+As a heads-up: I am suspecting this series to break my NV guests in a
+pretty bad way. L2 and L3 guests are getting stuck, L0 and L1 barf on
+S2 PTs that are being destroyed. This stinks of TLB invalidation going
+very wrong, which would result in S2 management going similarly
+sideways.  I still need to work out whether that is just triggering
+something bad somewhere else.
 
-> On Jan 28, 2026, at 7:43=E2=80=AFAM, Andy Shevchenko =
-<andriy.shevchenko@intel.com> wrote:
->=20
-> On Wed, Jan 28, 2026 at 04:00:30PM +0100, Michal Simek wrote:
->> On 1/28/26 15:45, Andy Shevchenko wrote:
->>> On Wed, Jan 28, 2026 at 03:34:02PM +0100, Andrew Lunn wrote:
->>>> On Wed, Jan 28, 2026 at 12:21:41PM +0100, Michal Simek wrote:
->>>>> On 1/28/26 11:37, Krzysztof Kozlowski wrote:
->>>>>> On Tue, Jan 27, 2026 at 09:03:55PM +0000, Abdurrahman Hussain =
-wrote:
->>>>>>> The xiic driver is designed to operate without explicit clock =
-configuration
->>>>>>=20
->>>>>> And if you change this in the driver, then you change bindings?
->>>>>>=20
->>>>>> You miss here explanation based on hardware - how does the =
-hardware work
->>>>>> if nothing ticks it clocks?
->>>>>=20
->>>>> Hardware obviously have clock input which needs to be connected. =
-Without it
->>>>> it won't work.
->>>>=20
->>>> Should ACPI potential limitations be making the DT description less
->>>> accurate?
->>>>=20
->>>> Would it not be better that the driver has an DT binding and an =
-ACPI
->>>> binding? Where there are common properties, common functions can be
->>>> used to retrieve them. However, if ACPI lacks usable clocks, use =
-the
->>>> of_ method to get the clock from DT, and skip it for ACPI.
->>>=20
->>> Why should we use of_ methods? If this is required we can check the =
-type of
->>> fwnode and act accordingly, but I think this should go deeper into =
-some
->>> treewide available helpers, because now some drivers repeat the =
-mantra.
->>>=20
->>> But how do the driver get the clock frequency (if needed for some =
-register
->>> settings and/or calculations)? DT seems to have well established =
-property
->>> 'clock-frequency' for that. Can we consider it as "ACPI binding" as =
-well?
->>=20
->> "clock-frequency" property in i2c is used for selecting i2c speed =
-100/400kHz.
->>=20
->> Clock frequency in this driver is about describing clock coming to IP =
-itself.
->> Documentation/devicetree/bindings/i2c/xlnx,xps-iic-2.00.a.yaml
->=20
-> Ah, I see, then is_of_node() probably is the compromise how to deal =
-with
-> this setup.
->=20
+For what it is worth, this reproduces on both M2 and QC machines.
 
-Thanks for all the feedback!
+Thanks,
 
-So, if everyone agrees, I can make the changes to:
+	M.
 
-- Remove the DT bindings change.
-- Make the driver fetch the clock only on OF by checking is_of_node().
-
-Does this sound acceptable?
-
-Best regards,
-Abdurrahman
-
-
+-- 
+Without deviation from the norm, progress is not possible.
 
