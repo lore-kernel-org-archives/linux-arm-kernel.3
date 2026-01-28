@@ -4,77 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24DB9D2592A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 10:59:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99FEBD35693
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 11:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EGBTNGnmTxwMKDHsZMSMTT/mAkSrcZT730/nj1ps4ck=; b=2vQRVhRzzHDZ8eCGxPloGlTbxh
-	ZmPDOt5gmGOGh+L5utCTb47TihiG+gcTSu9f2n5ntWFP8FA7sndjEvPDbJbombzzS6Ksj2g6ftVbH
-	6WjSFXGfX2N1e1l8zGtEpPHZ3CZOJsdwd97F4JNQHbC6LTv70ObexdLUtF71w596quWWkUg8zpLVE
-	BHIqO0Sw1ozs7+j0LKu0R5tgBQQ3vxOW67UwAFkKsKceK/0kNdA0PJOWXCpZPEMKwG4ZxumfzR0bT
-	DNwKtbI0+LE1xeaaX0wIRaTTM7prtADXksTbranB4V2SMMln7sirROPTkj2u0rh/Grh4hS0sErcGV
-	TAQ0EtcQ==;
+	bh=YgY+VD1JPRIDshJVjlRkrGjJN6ik2chDgUKnN7ZWi98=; b=RPMuPBy9kH6eNxpxh5CBl0aEdO
+	01MMK+Vda0uyRrJ2OvuG6VtztBbBCtZKoFzPv9zBTzLaq6pLKcz8+pxMn+Y8KXNsJlOgYriVCdffM
+	gd6JdRakOuWNyPgLrEVYmFaIR39tPmxW15lzbyy7IL4BrSlFpbxEYN0G9i7dCdzC/0vYfV0hlP5QR
+	BlvDVdZX63/th47Ove0B4w55FLdFVQN1F7NfvyTQsBxzTmSqpBkRfEavVWPXeMmUNBt9Ghh9Z5Hqw
+	5jjsaMkU6eDd3ivgVWCAL8GKSlgvNiFK8p+tqNZgV5vLvpwHT45otM8Kot8oEZYo3v5jNAEINeG98
+	UrH43HXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl3GG-0000000FssZ-2ZS5;
-	Wed, 28 Jan 2026 10:59:00 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vl3Iu-0000000FtHc-3w8a;
+	Wed, 28 Jan 2026 11:01:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl3GE-0000000Fspk-3UQL;
-	Wed, 28 Jan 2026 10:58:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=EGBTNGnmTxwMKDHsZMSMTT/mAkSrcZT730/nj1ps4ck=; b=sAs4uHaqj/eILKLiSvLRLGbGBw
-	lXuPAVJBPWgHm2vpJxoAlCbiWnYdTfuJhWQJ3y/pnwzodn/QhmW9we7R3mcN9iXjbSHIY2t87E/Xh
-	8DM0/dkS2L3/af1Cigcen5LhkRCq8bG/8bzuZ3eIg2mIep4jHPAKC/mpWgXhv32Hhk4L/CrAsF9A9
-	N5NJCFMVuPA/+oSfBycuiqhh+Kc4l8dHuIn2HRQLrc9WjY5bekltn2HnUNGBJf93cWYiyH0XMA6W2
-	hFHrvWyRD1iLhausbhXVCu/vgdvxFITS6uUmUK5m6/d+0dt/d7tLIi6gn+OPY8ADWAIPzzlEwsLTO
-	Terzf0wg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42812 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vl3G7-000000007GL-1MhJ;
-	Wed, 28 Jan 2026 10:58:51 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vl3G5-00000006v3X-2zfD;
-	Wed, 28 Jan 2026 10:58:49 +0000
-In-Reply-To: <aXnrzIbZN-gaZTia@shell.armlinux.org.uk>
-References: <aXnrzIbZN-gaZTia@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Jakub Kicinski <kuba@kernel.org>,
+	id 1vl3Iu-0000000FtHW-0h97
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 Jan 2026 11:01:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4EB126001A;
+	Wed, 28 Jan 2026 11:01:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE88EC4CEF1;
+	Wed, 28 Jan 2026 11:01:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769598103;
+	bh=Evsupp5FNJNP5BJNiK4ytm0+NzTNTkn2FDzFf2nf0vQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=nU96+Ytt+ws2tZy7+KxRNVw3X6ma/ZHPFb/GoBAVnFO3hzbWXAhddEUZLa/xcGPUJ
+	 wmXuVAvL2U+xRcF+9HMsZnJS1wxUkQDWg+YYTrnYGNzpr/0v6uFN00piaNa6jaGGB3
+	 v4IxiJVetEcjSCWfzlCxx00FJCxBrwX527IRf2p33xBztV3ii8+9ddAZGl2eg0u6RE
+	 vj98QEskBtxXppCcORfYrKmuBoNB7BKW1WgmysuikAxe+YDIQfeozDqd+jO3XmT457
+	 CzLnoGqa1+oEpn1dwPwyUPulT++RFOK4v3Upx/OoxVrtSjrBPsXoYouJ+kK8iWkMvX
+	 wH4DEylcBcedA==
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+To: qiang.zhao@nxp.com,
+	Chen Ni <nichen@iscas.ac.cn>
+Cc: Christophe Leroy <chleroy@kernel.org>,
+	linuxppc-dev@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [PATCH net-next 3/3] net: stmmac: rk: add SoC specific ->init()
- method
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] soc: fsl: qe: qe_ports_ic: Consolidate chained IRQ handler install/remove
+Date: Wed, 28 Jan 2026 12:01:31 +0100
+Message-ID: <176959784390.2069162.369898481051336357.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20260119055715.889001-1-nichen@iscas.ac.cn>
+References: <20260119055715.889001-1-nichen@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vl3G5-00000006v3X-2zfD@rmk-PC.armlinux.org.uk>
-Date: Wed, 28 Jan 2026 10:58:49 +0000
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_025858_880985_A5D7F5BC 
-X-CRM114-Status: GOOD (  10.25  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=654; i=chleroy@kernel.org; h=from:subject:message-id; bh=K9TS4tuJrDcMF5FTNg6KgLVB8p+qHIx8ZqaAHWUIO10=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWRWvumxj483P6ueMo35k8g/4/OP/NWV1R48sr71USYvK /oMg9K6jlIWBjEuBlkxRZbj/7l3zej6kpo/dZc+zBxWJpAhDFycAjCRw4sZGaZcWl9c/Yj/5Lrf i9J+hS7J3sxXwmnlPHlN8kdP84f9YesY/krVrf7DJmjZPHvb5qmK/+9t3c17pmLrYcPGpBR+hqO zjBkB
+X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,42 +74,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a SoC specific init method.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+On Mon, 19 Jan 2026 13:57:15 +0800, Chen Ni wrote:
+> The driver currently sets the handler data and the chained handler in
+> two separate steps. This creates a theoretical race window where an
+> interrupt could fire after the handler is set but before the data is
+> assigned, leading to a NULL pointer dereference.
+> 
+> Replace the two calls with irq_set_chained_handler_and_data() to set
+> both the handler and its data atomically under the irq_desc->lock.
+> 
+> [...]
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index 976d42fd90df..ea01c5965cbb 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -35,6 +35,7 @@ struct rk_reg_speed_data {
- };
- 
- struct rk_gmac_ops {
-+	int (*init)(struct rk_priv_data *bsp_priv);
- 	void (*set_to_rgmii)(struct rk_priv_data *bsp_priv,
- 			     int tx_delay, int rx_delay);
- 	void (*set_to_rmii)(struct rk_priv_data *bsp_priv);
-@@ -1618,6 +1619,15 @@ static struct rk_priv_data *rk_gmac_setup(struct platform_device *pdev,
- 
- 	bsp_priv->dev = dev;
- 
-+	if (ops->init) {
-+		ret = ops->init(bsp_priv);
-+		if (ret) {
-+			reset_control_put(bsp_priv->phy_reset);
-+			dev_err_probe(dev, ret, "failed to init BSP\n");
-+			return ERR_PTR(ret);
-+		}
-+	}
-+
- 	return bsp_priv;
- }
- 
+Applied, thanks!
+
+[1/1] soc: fsl: qe: qe_ports_ic: Consolidate chained IRQ handler install/remove
+
+Best regards,
 -- 
-2.47.3
-
+Christophe Leroy (CS GROUP) <chleroy@kernel.org>
 
