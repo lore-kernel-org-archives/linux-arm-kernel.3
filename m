@@ -4,152 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B38D3F074
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 15:24:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DADE2D3F07A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 15:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f8g50lr9ahcwDFL2MccPqtuuAdsIb6D8UEyJNnhmjUs=; b=A1dldQAuDCrQ6asygtFWx0mfJ4
-	TVYorF+FFU2DaEJCjZniW/uBDQduU8x8nWyZfEA643XO0DMt+numeohN2wnK3ECuIuptxZq2xxUiy
-	iyJzddo+heB2WeIWGyX5xQgPkH+kUbWR2JD08LaAYf6np66wPKc/jiZIyOBvCFXbob7L7xSb386RD
-	B2z4kHBxniGJwvbu/MlUcV1ox+94cSe7h9o7G2phklOOGmB/8lScaVYKd87avIoC1awc02NkAv9M8
-	oLiYWoDrjU3rjTpY5sfsYUiImJ0+6kOI0i0Lw4hA6KcxMvW/N8LWfpdArSzefsuWP/qgBAJVtppzv
-	99jAP9Iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xRay3Vursv60IOvZlH+eNockW+N8+jbMH24O+Il/+jY=; b=J4+CDKH3NdqO4BFxs9GyKuYgg3
+	E0gP0tV5e8KZ2pCetE8iFdv8/9SVsLakP7a92G41NjogCFUuPIUcRjShYrK9AEPdC2AqcH+xH8916
+	e0njLNSMMKTidPKkn0nzFjKcfllyl2BteQWYlbWlEH790AD25u11Q2E1O8SwNeoP1fTUJa1J75tHi
+	iyzIOYq0H8Y2qEF4Ukvk/lP0KUfxSBER2321iHyzIt1RBpquJmziuSCk7REt0ebE3k49EXLIoQs2z
+	U4bJrt7YQUyj6qnmA01KRiLqMORZfv8wUs6RODmL0GQer5bWR1gMHvieOSQN+LMGUYFWYim4GoXNO
+	kyHkgn2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl7PV-0000000GH06-1Zll;
-	Wed, 28 Jan 2026 15:24:49 +0000
-Received: from mail-northeuropeazon11011027.outbound.protection.outlook.com ([52.101.65.27] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vl7QL-0000000GH61-42JW;
+	Wed, 28 Jan 2026 15:25:41 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl7PR-0000000GGzX-1qQw
+	id 1vl7QJ-0000000GH5Q-15VX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 15:24:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YR5GnHZpRHdqRrDnFujZwL/Hs6O2LpOuj8fo01qQlUWm6AfopGPVdxrFwWkAV14w2RWOuFBxKa+9l4K8d847suLGVhFRdopRmMrecG2phKhvSZXKY/bjmoJLmZckqf7AlR5nUb/a27mkNaerOLxhlcP1uSPKw+2oAatfpma08P/eHj+pPHMOgcQm1ZTxhFDNGpvp+jGSR8/ljUB2PndfFekek4zu4PCUY4OK69eCR6R5pmdvClHrZK/gqZdi3Bgw8z2qNfSmJZaCpSxPxPRWAyNuJPBcLVvY+UsuVzJjD+9c/CGY0TP7svWzs+c1GJUoJ2wrPHmxlrP/c+tKsHvu7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=f8g50lr9ahcwDFL2MccPqtuuAdsIb6D8UEyJNnhmjUs=;
- b=tzfvUvPv0kMNpP5M9nGt7S8Vald+NrYNAg1eeRqlKEqZoY3nk/xJLkES7yDYreyQlI3LCwjlckV1NtlymdLQ5yBWJEcIEzHKg5lF9JdACfi63QtHyVL8fmxvvFJ3N9mNoPj/v4FDUNOiCNGVo/9XcpMUKOtpa9+xE4vHZRwRx4y+5eOPvRV6zT7xMbfTEgjtiBkwmnK7NyU1kqzG+nu0myuMKllPZsLHhZDfir9zgwxeL0k3eZrgSvY81AlAzeRq/WgfjVlU/mGCoYPW+mA8Lr7Rtg46dPHmzsvbtjucTivjTEB6R+r3UwE42yB4meKBZWdtnjCvbj+vfGs4aonShg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f8g50lr9ahcwDFL2MccPqtuuAdsIb6D8UEyJNnhmjUs=;
- b=LCOFYNouDzCa0jSrU/7JEA1JnSPysilXtlNBR68b46E/H0MyVh613aZHsdDW/BTcEXo4Cu4RQbYF6cKEt/GKuN0Q0CGSxwwAetqH3qNDnkcVMi1o+DiQ8XSGU/Y3ceOGt96jQI6uj0l3hWx3eU5j7WflzAjAEZ30m61mLwVBpKxMDzHNxS3lITlgi2dXEdSR+ExgR2CKt7sx1QbmMD27mnueJ6+kal9t45x+ODRQL58OR+eQzQdSgDyBwTtSW0IMqSyUbTFkO5ta9KnphdSJphbPG8vTVUv2ltF1IeNColfuwo1n+T+w9aBKdjkU2W3PmDcQwiIwzQlHKajqe1frkw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by VI0PR04MB10662.eurprd04.prod.outlook.com (2603:10a6:800:26c::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Wed, 28 Jan
- 2026 15:24:36 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9520.005; Wed, 28 Jan 2026
- 15:24:36 +0000
-Date: Wed, 28 Jan 2026 10:24:29 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: ziniu.wang_1@nxp.com
-Cc: shawnguo@kernel.org, s.hauer@pengutronix.de, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, kernel@pengutronix.de,
-	festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] arm64: dts: imx93-9x9-qsb: change usdhc tuning step
- for eMMC and SD
-Message-ID: <aXoqLd1QngxAzkz4@lizhi-Precision-Tower-5810>
-References: <20260128073532.2904161-1-ziniu.wang_1@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260128073532.2904161-1-ziniu.wang_1@nxp.com>
-X-ClientProxiedBy: PH8PR21CA0004.namprd21.prod.outlook.com
- (2603:10b6:510:2ce::11) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Wed, 28 Jan 2026 15:25:40 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-823210d1d8eso2725269b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 07:25:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769613938; x=1770218738; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xRay3Vursv60IOvZlH+eNockW+N8+jbMH24O+Il/+jY=;
+        b=mE3M0PkorzmbOqApuPU1GuboLpCfKTVtIMgzzDJwtEy46ePjc/uLakvW3pEo1J49U6
+         j5RoPgxMX/wvcpQB8Z+RFzIhcOUlrGedqhzsmxLTCwBuQWCnbvzbta7ltPpg8shsCpx0
+         k6Z0/K3yldW5JAF/vhzkrAP/MJQ7TyAma43R8U9AFBft8hydNU1ppQLkzJsknBchujXF
+         CMDBXytZA0dkNA+vXJOrs3p5RQcCpI4gk9N7vXOYKa5+UFXpcl7Cd8+et4V+g1T4Sd81
+         YG/StKt/F+OBsbUVTuAJdoVu/q8LdtHBaDtiMhvsw2uiK4zPo1SMWECFKn7GCaCWN3jf
+         w58Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769613938; x=1770218738;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xRay3Vursv60IOvZlH+eNockW+N8+jbMH24O+Il/+jY=;
+        b=A0AaL9mFsWsi8Ba5/dFoTiXVnX3le0IZetRY68oeVgW4cZUrGo932qEvATy/4p4ULj
+         +Sfik7jNjspb5izvctYyNKM8qw06CjHh5Q3zJwUoB/I000z30/Volu3MjBjTjL0vfraE
+         Kn0Ea/lKSuL1hpZG5FNVBuIoYcA1ybcemC3BKVAAAFxpYXU8je+kfy63XbRbSTxU4dd5
+         LywAaEIqgxo3oVSZBo9XzcCHs5ceZuDhTlLwjawDwXkm1PzvJ4VYF2OlDtYHD2BR1RbR
+         DT9Sza0/LVUvWN+bH6Rmye5O/+buE2yzMG8+xPbwC+bhax8LDiZkwXqeW2UjUSxUpdBT
+         WyPA==
+X-Forwarded-Encrypted: i=1; AJvYcCXbay5rk0/1gBikoF1rjurQdlA7KTcjvv3BKye1KZCGZ177HytxtDsEjddpUeUtAJNbdFpAWINQ2ZAJQylmZ/Ld@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhvBzL+wop69JuuQwugjFVxyodj4sRVh4lREBujXvUgJ1zw+Ft
+	DlZcuN5vwdpZyAT/OYRrQRgso3pxCRmZ512OpeWfGcH5OC/zfGIgjTAG
+X-Gm-Gg: AZuq6aKhlWrVNPuVdz1sjCYObUf9xTeA5hQ6zhxvNGo3/Tn3h7v9Ny63gmo/hdz8bvc
+	nDF7Ryc8etXMn+E7eIBOL5osw3LNtoTo9bFWWN0xoSXq1ES7hqCY244V56sVS2kEeZ58etuK5/s
+	NAbxdtyxUV8A0SStfW6HmmMUcRsiMs9SS/Vl3cs3MA/EHIpSKoUjDTOn8y0C6MbrjSK+6FNMAv7
+	7GQ2+RgwBp74KFRL/kpZ93k3pBPDQrcaboZ/V511G57DN5qWxPO0t/99T54IZ3/EFC4oNztgVGK
+	zZRQcWmc5qDyOrtjLsMIztmRyFIX0KNQvClUP+IzypJmXTuw33Ihai3cSTOgS20W3rxrhPIu+R1
+	GIHzTp23YyDmL2zhsT/eCFvsl6kYNjglw5/sp/FLukkV1dLIyaV9ugMAuhW1ZQ2dqUOjWKk/zPW
+	PJS4DVsG7bBniPDmsHvdZ36oky
+X-Received: by 2002:a05:6a00:22c7:b0:81f:3d13:e070 with SMTP id d2e1a72fcca58-82369147791mr5966140b3a.12.1769613937562;
+        Wed, 28 Jan 2026 07:25:37 -0800 (PST)
+Received: from [172.20.10.5] ([117.20.154.122])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82379b58f38sm3121727b3a.24.2026.01.28.07.25.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 28 Jan 2026 07:25:36 -0800 (PST)
+Message-ID: <8dd73aac-3c98-4bde-966d-2251dc794073@gmail.com>
+Date: Wed, 28 Jan 2026 23:25:27 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI0PR04MB10662:EE_
-X-MS-Office365-Filtering-Correlation-Id: c5a3a33c-424c-4bf9-b36e-08de5e81588d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5j2R+a/mxFm4TnSTINFamVE/2w/bGmGs4d+R0gNFohbMIP9eUnESfnAmnfCQ?=
- =?us-ascii?Q?Md+tPwlnQJpl9Yxk9etlZm4rBIno5xG6UVr3CGGAjW8bWYUGG40xuAbkJo7O?=
- =?us-ascii?Q?ho3AedupKUk9laHD5JYAB0OTDQ6PW/X+hj9CGdmWKeXa/LXiHHRRC9T+xlBf?=
- =?us-ascii?Q?aJaqqcVcEvh93EJnx0sjD/V374TePU7ria+OhdLsZmPuGY4Yf74K+dJgBuGl?=
- =?us-ascii?Q?lUYOv4YqvBXL0LUuHb0F1IujZoTfwTXvZFP81SZMHZVwPD2KJ6OgqPUTT7ND?=
- =?us-ascii?Q?m5we8WtOm7ELL74efCnD9zH5hYpvfNtQyVO3yDPAWKuDDWZlQYo0VtXNGSLL?=
- =?us-ascii?Q?zVWrsl6wn24D4xha3L8grTfsS/5hRGeXzcs5NMva1w8iUq1zwRlUg9qaBsGN?=
- =?us-ascii?Q?q8bezC/mCBUGfe5ObRO7fyxpDKbH2IWpRGhReILEUe04DDo5lFmfqP9IayQe?=
- =?us-ascii?Q?92SMpCiBZoq7doeTHLnXWm0BuZJ1nvU8ZNLenji8fGFnjrfmmD5EOH0epRm3?=
- =?us-ascii?Q?owidJTPmTx+oCqlpvsAja1URW2+SZvluFrh4jsqug8ePXx2fVksDpY0UtAuV?=
- =?us-ascii?Q?G96Fmr9qYfmZ1zMubhOr+AWvbUHbbno9ozSWmgdNaRWtzMgQtxndNeaihN28?=
- =?us-ascii?Q?Kzj5BqqGmxkviHvbh06baLDhsCPbHdU5ZZstbZx6OESOJEmOZylUN57n9ger?=
- =?us-ascii?Q?4cwprvTO4Qnls7/odpwstMYLse2qRuW87+LMIELBrwPfFrekMNVZU+zE6x4w?=
- =?us-ascii?Q?1IEyrZvUT2RZJnzR14kNqXj+kjJYr6ROm93wmvhHNzPkNCeQqqNUWSvPAUzi?=
- =?us-ascii?Q?lB1bNZvBJQKBHUzEqDgO9YuPCQOIObQje6XTM/cEWxJuK0fespcY9EWgCezl?=
- =?us-ascii?Q?9Hg7EO2sWQntsb0oQ88T671IfBznzYrqxgdEmw0HyQQ797m5Da6i7UixEmxM?=
- =?us-ascii?Q?Fxw4x+bLOgQs9dBwwXyWrsXyntNc1XXDDd1pROxS4W//WUxZHpnidHhZ26Xm?=
- =?us-ascii?Q?E7ouWRh/4L8uOpL3cp4OgCR6U1x5fIcoGjrMdmbJqDrqFzT7NRulk85iwvjX?=
- =?us-ascii?Q?Hut4cXca1NGBmFrTaLMHjEDajwTY01Ts1UqYi6+4hui5lA1xyOcwMkuOpMBh?=
- =?us-ascii?Q?tcDw1bKAoqXenY0HHuJDuKG1E8KyLCsG4nxVzdzHL/FzQtsA9STv9uf6B1yZ?=
- =?us-ascii?Q?klWSlSySZqnXEtMK/Ato1LXoE71tweBn1yk6NIBgfavFbDJVTlTzR8+S2cQa?=
- =?us-ascii?Q?pTktOh8ZWb0kT47e9fB2xjrsGXWe2bvBDWcLmRSuz741BIGqJk97lfgLWw/o?=
- =?us-ascii?Q?ngzrEFLLXk4lTYv8w10YDYMGcblxaXzqVKL6wfGt7j6nzb8bFGLDwLpiEauV?=
- =?us-ascii?Q?4IvitwYuU6iC3ht6qQN0h2eW7cGj+XR2CVTO+8eAW+BY4wXDwM0TuLPqnKw1?=
- =?us-ascii?Q?c0/4acmkScF3qQebFrxy8cB8p39DyYMidbFDu8uMDIscefJfmSe0TMhQS26x?=
- =?us-ascii?Q?XWuvd5dRlJHfbPlrTRPS/HmUBVKFotIgD/Y9i+EQZkkoc43tyRbaKNWrEmny?=
- =?us-ascii?Q?hy3R4dgXcpo6EMrY9DRF3E73DH/WRerHDp65FN5iBwy78wp5HB/Vv3UDUvG6?=
- =?us-ascii?Q?xr/FKkY7DbfnilIEhbEYOoo=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?K03xKAZEw6CNpoflV2hnacgZCi6M4chYhQ8Tdpf7tCft+HoWfkA4ytMnUJ1b?=
- =?us-ascii?Q?DjkHIlFE5J2CEvbkVVZxs9nDc3dcM8A0rF6Byco1IRqef060A4/Xj2XmA6Kb?=
- =?us-ascii?Q?tQ2BEFD7yWjSD+f5fvTOr2OKs1LEHiwl+6FFbtlXDZyshOQ3zBSzGbEAJkIO?=
- =?us-ascii?Q?oDr8BNon6SMwByY6ypd9np9nd0DljsrSyhS5oR95NVU4GJC9a3bHn3d8rDim?=
- =?us-ascii?Q?zgTppSHutVFOBA/4vTa+iRBPLNDcUkg3STjlDok4M4y3hYG9f0ZBy0rueB/r?=
- =?us-ascii?Q?4cz1gLmDLInP00aTLcgo6pnhhJqGcx8+FIsTGQsse5I1rjaB6ub7Lfq0+zJB?=
- =?us-ascii?Q?vqgz/KcnsMfqYRlnrNXAJPwlxqraHVfP2crNi1pHA4MecdeFSgMwJn9eIIiX?=
- =?us-ascii?Q?lUFxFvh4JO/1yBhiwJr26X6Om3DpkUHD0/ZUnk3EgdAVwW8vC0TZ+Y6Lpv10?=
- =?us-ascii?Q?8TI7ti2aIlso6UVqz5K9C6/tYpB8LFVeWUk/VKYrR5Rfp7Qpxovi3jWkN0wb?=
- =?us-ascii?Q?siphANso1ulewu/u5mWFwwQyWFm6XTs2gkMNh06dUqbaMjshdCHvwB8wGd4W?=
- =?us-ascii?Q?HJkmkSNtwvwT+s5c71PigfeSiG0L3mrKoP3g0U84jHnOeF6ABCbAaWsdHsrw?=
- =?us-ascii?Q?ZRb9SMmg5HCad2N4E5BJQnAtsZp78QIIifYVzQNvzLRWUrHpHBhyegsH+9kF?=
- =?us-ascii?Q?M8iPmj6JWuZZnTDTlhpguK/33H+H3CDo5t0OjTXJdNRqK5E+jJ2sMcaK33al?=
- =?us-ascii?Q?PKuCUA67pTQiGxwXtY5V98ndTLMnRnSEgI3ZnBs+zpsW6uqwJkmhLoqrV5lb?=
- =?us-ascii?Q?WSQ7T6dXHPdEhD3O3aLxlXR5ZE11SpU2Dv3VKQt6y2DTcbGjuckKZiT49kfj?=
- =?us-ascii?Q?9zm9BMA8dHXEDxs/k5BqTgGw1UvBWhYjtG0CjypJkkueW/F9T1tEPGLFAc75?=
- =?us-ascii?Q?PRDGWZcDBgpM6rVgH5P1RZMiLMy5/i4ZfDm4ur+g77oKJCbRfNwN87klqEuX?=
- =?us-ascii?Q?Em1s4NkQeycv6WFS84Rb3Y8Nzx9qKxkkanrT68NYnhIztfkJRtiaj3K641kK?=
- =?us-ascii?Q?fkmDHjR1Gcw19JofTaM2NhFGvZtn01huNg79Q4advdWhsCr5Y2bbuYxUz+Ki?=
- =?us-ascii?Q?237VNZ2gXIARt0Gr4L/fTHa04vjv+ukmb0PxPvxdgavyH5haCoEn0eNRKX9O?=
- =?us-ascii?Q?Wa8sk6aeO4aKi4+Q1yzR1wJEi5EtM+rUEw3jM5g1gDHf1lXitIbyx0QEizG8?=
- =?us-ascii?Q?/R6xTwjdnlG4kB8dCn/El9W1a7LdBx4W5vOMOfs91C3BVF5jRa145dFFpaN4?=
- =?us-ascii?Q?Uund1zKHXbkFXgxqpSsLW+YxL9UqyharyKnqKD1mU9w4lDg8Y+1eiyRoCE3I?=
- =?us-ascii?Q?TVxOk6zHDdS7ipN8X88hENnqkS3RPbtQSsgN3Vumz0h1EEuM81BqrfEm0VJV?=
- =?us-ascii?Q?7hEd1t3RvJ6iJNUw5uKYqZ9Slb6GSOgUaNamgqCwZnRjSFPP8sWH2WU/qHXl?=
- =?us-ascii?Q?Gj5iKYxC4PUVv+NYsIKHfXV97oKXSo5UT1qbrxM3kEYJcri7ENUWbg9QGWKJ?=
- =?us-ascii?Q?HMakrRwdeSJLd85QER+jclMTFRRSCKaaHN0ykytBpdSz/5QOX2S1htSWBBlR?=
- =?us-ascii?Q?K4UIvFNIa6fZcBlIkje5KykyjCSLUdXDJT4Yy/QidfX/JGUYtdN4VBfOWwE4?=
- =?us-ascii?Q?0qiKhxA+rAm53UDLTiD3v31YPZLGLo6zLx96bReQ61NCxECTDLrc0kmjY0Fs?=
- =?us-ascii?Q?WHW2XDSanQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c5a3a33c-424c-4bf9-b36e-08de5e81588d
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2026 15:24:36.4103
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2ZzKY+CIyPX91NiegWCy+zz9yy31TzzfY72YN84lwIW8O+PZb2t5sL7qYBhFmkkTBjJif0gx6TtxAfrwfjSRcQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10662
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v2 1/3] bpf: Add bpf_arch_supports_fsession()
+To: Leon Hwang <leon.hwang@linux.dev>, bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
+ <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
+ Xu Kuohai <xukuohai@huaweicloud.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Shuah Khan <shuah@kernel.org>, Menglong Dong <menglong8.dong@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, kernel-patches-bot@fb.com
+References: <20260128150112.8873-1-leon.hwang@linux.dev>
+ <20260128150112.8873-2-leon.hwang@linux.dev>
+Content-Language: en-US
+From: Leon Hwang <hffilwlqm@gmail.com>
+In-Reply-To: <20260128150112.8873-2-leon.hwang@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_072445_486632_EC673931 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20260128_072539_311071_57E7D355 
+X-CRM114-Status: GOOD (  20.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,50 +113,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 03:35:30PM +0800, ziniu.wang_1@nxp.com wrote:
-> From: Luke Wang <ziniu.wang_1@nxp.com>
->
-> For eMMC and SD, there are two tuning pass windows and the gap between
-> those two windows may only have one cell. If tuning step > 1, the gap may
-> just be skipped and host assumes those two windows as a continuous
-> windows. This will cause a bad delay cell near the gap to be selected.
+Sorry about the subject.
 
-Suppose you meet problem with default settings. It'd better descript what
-problem you met.
+It should be "bpf: Add bpf_jit_supports_fsession()".
 
->
-> For SDIO, the gap is big enough, default tuning step is fine.
 
-For SDIO, the gap is sufficiently large, so the default tuning step does
-not cause this issue.
-
->
-> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
+On 2026/1/28 23:01, Leon Hwang wrote:
+> fsession programs can currently be loaded on architectures that do not
+> implement fsession support, which leads to runtime errors instead of a
+> clean verifier rejection.
+> 
+> For example, running fsession selftests on arm64 before fsession support
+> is added results in:
+> 
+> test_fsession_basic:PASS:fsession_test__open_and_load 0 nsec
+> test_fsession_basic:PASS:fsession_attach 0 nsec
+> check_result:FAIL:test_run_opts err unexpected error: -14 (errno 14)
+> 
+> Introduce bpf_arch_supports_fsession() to explicitly gate fsession usage
+> based on architecture support. Architectures without fsession support
+> will now fail program load with -EOPNOTSUPP, allowing selftests to skip
+> cleanly instead of errors at runtime.
+> 
+> x86 declares fsession support, while the default implementation returns
+> false.
+> 
+> Fixes: 2d419c44658f ("bpf: add fsession support")
+> Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
 > ---
->  arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
-> index 0852067eab2c..197c8f8b7f66 100644
-> --- a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
-> @@ -507,6 +507,7 @@ &usdhc1 {
->  	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
->  	bus-width = <8>;
->  	non-removable;
-> +	fsl,tuning-step = <1>;
->  	status = "okay";
->  };
->
-> @@ -519,6 +520,7 @@ &usdhc2 {
->  	vmmc-supply = <&reg_usdhc2_vmmc>;
->  	bus-width = <4>;
->  	no-mmc;
-> +	fsl,tuning-step = <1>;
->  	status = "okay";
->  };
->
-> --
-> 2.34.1
->
+>  arch/x86/net/bpf_jit_comp.c                   |  5 +++
+>  include/linux/filter.h                        |  1 +
+>  kernel/bpf/core.c                             |  5 +++
+>  kernel/bpf/verifier.c                         |  3 ++
+>  .../selftests/bpf/prog_tests/fsession_test.c  | 32 ++++++++++++++-----
+>  5 files changed, 38 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
+> index 5a075e06cf45..070ba80e39d7 100644
+> --- a/arch/x86/net/bpf_jit_comp.c
+> +++ b/arch/x86/net/bpf_jit_comp.c
+> @@ -4112,3 +4112,8 @@ bool bpf_jit_supports_timed_may_goto(void)
+>  {
+>  	return true;
+>  }
+> +
+> +bool bpf_jit_supports_fsession(void)
+> +{
+> +	return true;
+> +}
+> diff --git a/include/linux/filter.h b/include/linux/filter.h
+> index fd54fed8f95f..4e1cb4f91f49 100644
+> --- a/include/linux/filter.h
+> +++ b/include/linux/filter.h
+> @@ -1167,6 +1167,7 @@ bool bpf_jit_supports_arena(void);
+>  bool bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena);
+>  bool bpf_jit_supports_private_stack(void);
+>  bool bpf_jit_supports_timed_may_goto(void);
+> +bool bpf_jit_supports_fsession(void);
+>  u64 bpf_arch_uaddress_limit(void);
+>  void arch_bpf_stack_walk(bool (*consume_fn)(void *cookie, u64 ip, u64 sp, u64 bp), void *cookie);
+>  u64 arch_bpf_timed_may_goto(void);
+> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+> index e0b8a8a5aaa9..3b1eb632bf7c 100644
+> --- a/kernel/bpf/core.c
+> +++ b/kernel/bpf/core.c
+> @@ -3142,6 +3142,11 @@ bool __weak bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena)
+>  	return false;
+>  }
+>  
+> +bool __weak bpf_jit_supports_fsession(void)
+> +{
+> +	return false;
+> +}
+> +
+>  u64 __weak bpf_arch_uaddress_limit(void)
+>  {
+>  #if defined(CONFIG_64BIT) && defined(CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE)
+> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+> index c2f2650db9fd..6f867ebf78d1 100644
+> --- a/kernel/bpf/verifier.c
+> +++ b/kernel/bpf/verifier.c
+> @@ -24872,6 +24872,9 @@ int bpf_check_attach_target(struct bpf_verifier_log *log,
+>  	case BPF_TRACE_FENTRY:
+>  	case BPF_TRACE_FEXIT:
+>  	case BPF_TRACE_FSESSION:
+> +		if (prog->expected_attach_type == BPF_TRACE_FSESSION &&
+> +		    !bpf_jit_supports_fsession())
+> +			return -EOPNOTSUPP;
+>  		if (!btf_type_is_func(t)) {
+>  			bpf_log(log, "attach_btf_id %u is not a function\n",
+>  				btf_id);
+> diff --git a/tools/testing/selftests/bpf/prog_tests/fsession_test.c b/tools/testing/selftests/bpf/prog_tests/fsession_test.c
+> index 0c4b428e1cee..a299aeb8cc2e 100644
+> --- a/tools/testing/selftests/bpf/prog_tests/fsession_test.c
+> +++ b/tools/testing/selftests/bpf/prog_tests/fsession_test.c
+> @@ -29,8 +29,16 @@ static void test_fsession_basic(void)
+>  	struct fsession_test *skel = NULL;
+>  	int err;
+>  
+> -	skel = fsession_test__open_and_load();
+> -	if (!ASSERT_OK_PTR(skel, "fsession_test__open_and_load"))
+> +	skel = fsession_test__open();
+> +	if (!ASSERT_OK_PTR(skel, "fsession_test__open"))
+> +		return;
+> +
+> +	err = fsession_test__load(skel);
+> +	if (err == -EOPNOTSUPP) {
+> +		test__skip();
+> +		goto cleanup;
+> +	}
+> +	if (!ASSERT_OK(err, "fsession_test__load"))
+>  		goto cleanup;
+>  
+>  	err = fsession_test__attach(skel);
+> @@ -47,8 +55,16 @@ static void test_fsession_reattach(void)
+>  	struct fsession_test *skel = NULL;
+>  	int err;
+>  
+> -	skel = fsession_test__open_and_load();
+> -	if (!ASSERT_OK_PTR(skel, "fsession_test__open_and_load"))
+> +	skel = fsession_test__open();
+> +	if (!ASSERT_OK_PTR(skel, "fsession_test__open"))
+> +		return;
+> +
+> +	err = fsession_test__load(skel);
+> +	if (err == -EOPNOTSUPP) {
+> +		test__skip();
+> +		goto cleanup;
+> +	}
+> +	if (!ASSERT_OK(err, "fsession_test__load"))
+>  		goto cleanup;
+>  
+>  	/* first attach */
+> @@ -94,6 +110,10 @@ static void test_fsession_cookie(void)
+>  	bpf_program__set_autoload(skel->progs.test6, false);
+>  
+>  	err = fsession_test__load(skel);
+> +	if (err == -EOPNOTSUPP) {
+> +		test__skip();
+> +		goto cleanup;
+> +	}
+>  	if (!ASSERT_OK(err, "fsession_test__load"))
+>  		goto cleanup;
+>  
+> @@ -111,10 +131,6 @@ static void test_fsession_cookie(void)
+>  
+>  void test_fsession_test(void)
+>  {
+> -#if !defined(__x86_64__)
+> -	test__skip();
+> -	return;
+> -#endif
+>  	if (test__start_subtest("fsession_test"))
+>  		test_fsession_basic();
+>  	if (test__start_subtest("fsession_reattach"))
+
 
