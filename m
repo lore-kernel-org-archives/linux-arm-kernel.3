@@ -4,87 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21754D35698
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC6ACD35698
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:54:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UhictCb8sRjeYvfEBeQy6sDAlQBoPgZY72iuGxy1yf0=; b=STqwIJ0Wzuhtg7vVgHSsyfg2Vk
-	neD6tbkXfepWhtkxxvSseem4buw2tAD+sZ8gMoS1wa4bk1Z/0ZmEF1IbrZEeRkmUu7XUOYSdc5crS
-	dj6Lo8ZB4poii4f10sYSwX3Llr7TQh2ZCZ5t9zFPp+D/4sZha4D9Dlmc22Dk9uCbE1dv0WBWs3HJ0
-	t7ZpbsiNrKEpD2tu+XRI7RELn6/KqS7ssknq9aO2k/Npgh0minrLAL0qPVKsr3KEIJOx7lIVZVI9l
-	stkXD5DsuZUU6z5mueDYpZGxdL4XVG7Vzd5JfbfS7dOWBpiPSDbmvdiiQbpA7Oy/RRMCmyXznBIc2
-	fg9JtaPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bvsllvRxaSRJovqhkHtFHrVWBKQNv1To0hacwlFk6IM=; b=KA78hUZAIUOkhkM37xVYGkPEjH
+	/7edxbGJihM9ixW3dWlthNWbxxdDk+6UUdPKF7JWigtQZw6i2n6aVKWu4jzdGIwVir+QwwFRa91EE
+	Qt7ppyiVbDWGCInDr2dFbYAqY3x2e5qrxu6hxC06a09NZhcqZE+0A+MjzUe1D7c5XUBPtVIbkvmta
+	ZhFHPjiKO1L+LK7JKHzyZ14mAmdtcbdSDd0kgdzaTZIdU1+grlxtUzgUlEPG7aZ/aAJElTv/Ay0ZB
+	xQtQgfgjtHxXXK8O3mN1ZEShZ05addzPlmSDbl/SDQ/5tMsLElzjXBPgtyGNS1ILkUvhVH//8F9l8
+	GB88t54g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl2EZ-0000000FmGu-0CaM;
-	Wed, 28 Jan 2026 09:53:11 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vl2FR-0000000FmMz-2sqR;
+	Wed, 28 Jan 2026 09:54:05 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl2EV-0000000FmGV-430m;
-	Wed, 28 Jan 2026 09:53:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1769593982;
-	bh=vr1IpjsppjvWE/p2emkhB1rpnvnBV8VpHY5/IN7FEzs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MT4bhqjZXbv6XCbzGcAoPi4Gya9NPY16Q89TwSaa81gBDfiTwuN9LfosCOBMVxcit
-	 LZ9CAuatyL4Lbl541UEsL4cJXn7oIqZrrUN8bjj0gjggHVRYlmgxvo1cLGjwU2zHgY
-	 MlHB981uLUCXcSSVrhtgrnRvgXbjkTdfhpXYQS5VXXYZwGsZyZL+eLKzd4bCcurz79
-	 6P23n+nZlT+YZoR5GfIcrVM7K2tAeeXjSonQF8iMsSNBfvD2uqC+Zu3rXiFJ+jY4DR
-	 FcOuKmY5cJQSDRPixZ2VuRkhxOi59YscHAo4Z1qQZmriiS7zzve2jqs8SAP7X7J4Wx
-	 gs4WXzwFyzEmg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1B96717E0E4C;
-	Wed, 28 Jan 2026 10:53:02 +0100 (CET)
-Message-ID: <8b1c78db-12fc-4f06-bf2b-49b47f24850a@collabora.com>
-Date: Wed, 28 Jan 2026 10:53:01 +0100
+	id 1vl2FN-0000000FmMI-3FvH
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 Jan 2026 09:54:03 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-47ee07570deso50892995e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 01:54:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1769594039; x=1770198839; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=bvsllvRxaSRJovqhkHtFHrVWBKQNv1To0hacwlFk6IM=;
+        b=c5ll1rX0rzAfs8QrIXuzj69ypKlJCxaFQuFO13EpsRBuFcaFosTyAtJIr/qPN8fpmj
+         bhRNn8JQckFfFKd2XUpyB95xdizZ5w9aLVRWg9DEadGKuzADnZLX/UQZD5xN/0x9QoTr
+         LtJNVZtYuVynHXbcpMTxDb/okPtVxbqbtaqUBSg0mGvBgHXjHHZxmRRWEB3R0lXSSGwE
+         CSJa8wSguZXnKHkqzLnjxCA5CIlSbRTDlvqmTr9BWYbN9/tYMERnW8BK/00+d1R4SmGK
+         aHfzritxewSjkdEbnI+TMKN2trE1nnS0f8KiX/5/0tPOzJgGwUy7DWJh4irw0vqp5/JK
+         cVfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769594039; x=1770198839;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bvsllvRxaSRJovqhkHtFHrVWBKQNv1To0hacwlFk6IM=;
+        b=rlhXUG85HPl/DYRwlOC0HcjnSSgAFGW7/0hkdePJUu4UFv0gwBmVMdAgaBDM+1Oxca
+         dSmqXRWLEfGDoZfSCxGfmVAMa0e1LhzQc+2GOhCVL3FERt4AM6h6gEwxVOBiAdJuNJPx
+         J5LOKAZAkgG5XF5/POcaJzenCvseABg7Bsvg/A2skuK5VUNteM3SNoVPngXOkn37EMps
+         swVlQNLAJV0jS71/ud+2KVwExUNZIT7VGKGT2URnSLrlvqtY1S+vrjVQAREcuhEVfaWT
+         7S0XMm38CrIeaLw5GWckwu4F1po2/4y3BStpPwuyi8QU28SOYrOnVcTY/7tLVO8UJ4gw
+         6Wfg==
+X-Forwarded-Encrypted: i=1; AJvYcCV14gSJ92lLjfagVe8cxa556WEqezFZ5tcEmNFtXu2h1TUU3sryLFk8RYMjcmjZPzkZFIXFuT3w6hv99m2R7zjn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxf6KBsYnBqX+EAcXzsUnkKiiJ6Rxk44daSF6oHqSuyf+CKB5kb
+	V6JkN3YiM00UEW12cXIoRc07miiIoe6vfZea6XAIPis4nJQ9XCt/j59B9uODDk98lO4=
+X-Gm-Gg: AZuq6aI2e3HeEvBbk1mSSni1yoIBjDL8pe5csMjXyffdC4DVE6ke5XMnAvDpT5uQzIF
+	b5xryLfmvLSdws6KrqX3BGrHJp8BahIGw/0TUBSj+0Fjppk7p8YqjgsVbuwWc3nzvfCb8F7NDB1
+	7Hs4jOM5MYlZhKf54Juvchh32C8PoIZDyCiISnd5KO+LfmTK29+YDC4cih1wN2SEzLYfRNRqJ7q
+	LiOgz72U7PemAu3yBRmo7FEVQTRKEo2HzH7KOdPUqA14+qGDqZHtGkrTNl22iwH8aR/GyrM8/VL
+	iu0Z4OnIVDMalaOcs0FXchr5kExeG/CpbwqVrPikBpRpFIbsaVkKFrSuR9OaD4jemnI18uUPB3j
+	6cT71KOkwx2zWuQ3gUpAW4pek2H+zYG61qy4pOeUKwnmQmzUqmPjoqoiwUiYTGGd9DeYihExq85
+	DKYBUT+Truov7uBQiq
+X-Received: by 2002:a05:600c:83c4:b0:47e:e946:3a57 with SMTP id 5b1f17b1804b1-48069ca552amr51714835e9.36.1769594039364;
+        Wed, 28 Jan 2026 01:53:59 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e1354205sm5836437f8f.41.2026.01.28.01.53.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Jan 2026 01:53:58 -0800 (PST)
+Date: Wed, 28 Jan 2026 12:53:55 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Chester Lin <chester62515@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	imx@lists.linux.dev, Jakub Kicinski <kuba@kernel.org>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Matthias Brugger <mbrugger@suse.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>
+Subject: [PATCH v5 0/3] s32g: Use a syscon for GPR
+Message-ID: <cover.1769592679.git.dan.carpenter@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 05/10] media: mediatek: vcodec: Add Decoder profile &
- level Initialization
-To: =?UTF-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- =?UTF-8?B?R2VvcmdlIFN1biAo5a2Z5p6XKQ==?= <George.Sun@mediatek.com>,
- =?UTF-8?B?VGlmZmFueSBMaW4gKOael+aFp+ePiik=?= <tiffany.lin@mediatek.com>,
- "nhebert@chromium.org" <nhebert@chromium.org>,
- "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "mchehab@kernel.org" <mchehab@kernel.org>,
- "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
- "nicolas.dufresne@collabora.com" <nicolas.dufresne@collabora.com>,
- =?UTF-8?B?WXVuZmVpIERvbmcgKOiRo+S6kemjnik=?= <Yunfei.Dong@mediatek.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- =?UTF-8?B?SXJ1aSBXYW5nICjnjovnkZ4p?= <Irui.Wang@mediatek.com>,
- "robh@kernel.org" <robh@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
- =?UTF-8?B?QW5kcmV3LUNUIENoZW4gKOmZs+aZuui/qik=?=
- <Andrew-CT.Chen@mediatek.com>
-Cc: "andrzejtp2010@gmail.com" <andrzejtp2010@gmail.com>,
- "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
- =?UTF-8?B?WWlsb25nIFpob3UgKOWRqOaYk+m+mSk=?= <Yilong.Zhou@mediatek.com>
-References: <20260127024248.18406-1-kyrie.wu@mediatek.com>
- <20260127024248.18406-6-kyrie.wu@mediatek.com>
- <4a6e111d-49ef-449d-af9d-b0bd4fb468a5@collabora.com>
- <54689bc16875b979147c021123c2546aacb7541e.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <54689bc16875b979147c021123c2546aacb7541e.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_015308_247338_0D6BBEC8 
-X-CRM114-Status: GOOD (  21.75  )
+X-CRM114-CacheID: sfid-20260128_015401_845158_AEF96189 
+X-CRM114-Status: GOOD (  16.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,260 +112,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 28/01/26 08:45, Kyrie Wu (吴晗) ha scritto:
-> On Tue, 2026-01-27 at 13:07 +0100, AngeloGioacchino Del Regno wrote:
->> Il 27/01/26 03:42, Kyrie Wu ha scritto:
->>> This commit initializes codec profile & level for VDEC. It sets
->>> default values for H264, H265, and VP9 codecs across multiple
->>> chipset configurations.
->>>
->>
->> The previous patch "Refactor decoder profile and level handling" will
->> break the
->> driver if this patch is not also applied at the same time.
->>
->> The change looks good, but you should squash 05/10 in 04/10, and
->> assign the params
->> that you're adding here along with the refactoring, so that you get
->> one single
->> patch that, if applied, doesn't break anything as it doesn't depend
->> on additional
->> (future, as this is number 5) patch.
->>
->> Please squash
->>
->> Cheers,
->> Angelo
-> 
-> Dear Angelo,
-> 
-> The 04/10 and 05/10 were designed in one patch in v6,
-> but Nicolas thought that refactor patch and configuration
-> were two different changes, should separate them in this
-> comments:
-> https://patchwork.linuxtv.org/project/linux-media/patch/20251202074038.3173-5-kyrie.wu@mediatek.com/
+The s32g devices have a GPR register region which holds a number of
+miscellaneous registers.  Currently only the stmmac/dwmac-s32.c uses
+anything from there and we just add a line to the device tree to
+access that GMAC_0_CTRL_STS register:
 
-Even though in this case I disagree with Nicolas, I'm the mediatek maintainer,
-not a linux-media maintainer... so... let's go with whatever the media
-maintainers think it's best.
+                        reg = <0x4033c000 0x2000>, /* gmac IP */
+                              <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
 
-> 
-> In my mind, refactor profile and level setting and assign
-> former ICs' parameters could merge into same patch. The
-> configuration of MT8189 should split to another one, because
-> it is a new setting.
-> 
-> Do you agree with my opinion? I look forward to your further reply.
-> 
+I have included the whole list of registers below.
 
-I agree with your opinion, but if linux-media maintainers want those two
-patches separated as you just did, I will raise my hands, so...
+We still have to maintain backwards compatibility to this format,
+of course, but it would be better to access these registers through a
+syscon.  Putting all the registers together is more organized and shows
+how the hardware actually is implemented.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com
+Secondly, in some versions of this chipset those registers can only be
+accessed via SCMI.  It's relatively straight forward to handle this
+by writing a syscon driver and registering it with of_syscon_register_regmap()
+but it's complicated to deal with if the registers aren't grouped
+together.
 
-...because when the two patches are applied at the same time, there's no
-breakage. But I want to still repeat my stance on this: single patches
-should never depend on subsequent patches to avoid regressions (and I know
-you agree as your previous version was compliant with that stance).
+Changes since v4:
+* Return an error if regmap_write() fails
+* Add Rob's Reviewed-by tag to the yaml patch.
 
-Cheers,
-Angelo
+Changes since v3:
+* Fix the yaml file format
+* Add netdev to the CC list on all emails so the CI triggers
 
-> Thanks.
-> 
-> Regards,
-> Kyrie.
-> 
-> 
->>
->>> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
->>> ---
->>>    .../vcodec/decoder/mtk_vcodec_dec_stateful.c  | 12 +++
->>>    .../vcodec/decoder/mtk_vcodec_dec_stateless.c | 84
->>> +++++++++++++++++++
->>>    2 files changed, 96 insertions(+)
->>>
->>> diff --git
->>> a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_sta
->>> teful.c
->>> b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_sta
->>> teful.c
->>> index 8ddb61670dc6..a47906b9d717 100644
->>> ---
->>> a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_sta
->>> teful.c
->>> +++
->>> b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_sta
->>> teful.c
->>> @@ -619,4 +619,16 @@ const struct mtk_vcodec_dec_pdata
->>> mtk_vdec_8173_pdata = {
->>>    	.is_subdev_supported = false,
->>>    	.hw_arch = MTK_VDEC_PURE_SINGLE_CORE,
->>>    	.chip_name = 8173,
->>> +	.h264_params = {
->>> +		.level = V4L2_MPEG_VIDEO_H264_LEVEL_4_1,
->>> +		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH,
->>> +	},
->>> +	.h265_params = {
->>> +		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_4,
->>> +		.profile =
->>> V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE,
->>> +	},
->>> +	.vp9_params = {
->>> +		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_4_0,
->>> +		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_1,
->>> +	},
->>>    };
->>> diff --git
->>> a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_sta
->>> teless.c
->>> b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_sta
->>> teless.c
->>> index a1f419202a24..b571c4ed3f79 100644
->>> ---
->>> a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_sta
->>> teless.c
->>> +++
->>> b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_sta
->>> teless.c
->>> @@ -830,6 +830,18 @@ const struct mtk_vcodec_dec_pdata
->>> mtk_vdec_8183_pdata = {
->>>    	.is_subdev_supported = false,
->>>    	.hw_arch = MTK_VDEC_PURE_SINGLE_CORE,
->>>    	.chip_name = 8183,
->>> +	.h264_params = {
->>> +		.level = V4L2_MPEG_VIDEO_H264_LEVEL_4_2,
->>> +		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH,
->>> +	},
->>> +	.h265_params = {
->>> +		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_4,
->>> +		.profile =
->>> V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE,
->>> +	},
->>> +	.vp9_params = {
->>> +		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_4_0,
->>> +		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_1,
->>> +	},
->>>    };
->>>    
->>>    /* This platform data is used for one lat and one core
->>> architecture. */
->>> @@ -869,24 +881,72 @@ const struct mtk_vcodec_dec_pdata
->>> mtk_vdec_8188_pdata = {
->>>    	MTK_STATELESS_DEC_DATA,
->>>    	.hw_arch = MTK_VDEC_LAT_SINGLE_CORE,
->>>    	.chip_name = 8188,
->>> +	.h264_params = {
->>> +		.level = V4L2_MPEG_VIDEO_H264_LEVEL_5_2,
->>> +		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH_10,
->>> +	},
->>> +	.h265_params = {
->>> +		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_5_1,
->>> +		.profile = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
->>> +	},
->>> +	.vp9_params = {
->>> +		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_5_1,
->>> +		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_2,
->>> +	},
->>>    };
->>>    
->>>    const struct mtk_vcodec_dec_pdata mtk_vdec_8192_pdata = {
->>>    	MTK_STATELESS_DEC_DATA,
->>>    	.hw_arch = MTK_VDEC_LAT_SINGLE_CORE,
->>>    	.chip_name = 8192,
->>> +	.h264_params = {
->>> +		.level = V4L2_MPEG_VIDEO_H264_LEVEL_5_2,
->>> +		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH,
->>> +	},
->>> +	.h265_params = {
->>> +		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_4,
->>> +		.profile =
->>> V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE,
->>> +	},
->>> +	.vp9_params = {
->>> +		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_5_1,
->>> +		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_1,
->>> +	},
->>>    };
->>>    
->>>    const struct mtk_vcodec_dec_pdata mtk_vdec_8195_pdata = {
->>>    	MTK_STATELESS_DEC_DATA,
->>>    	.hw_arch = MTK_VDEC_LAT_SINGLE_CORE,
->>>    	.chip_name = 8195,
->>> +	.h264_params = {
->>> +		.level = V4L2_MPEG_VIDEO_H264_LEVEL_6_0,
->>> +		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH_10,
->>> +	},
->>> +	.h265_params = {
->>> +		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_5_2,
->>> +		.profile = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
->>> +	},
->>> +	.vp9_params = {
->>> +		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_5_2,
->>> +		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_2,
->>> +	},
->>>    };
->>>    
->>>    const struct mtk_vcodec_dec_pdata mtk_vdec_8196_pdata = {
->>>    	MTK_STATELESS_DEC_DATA,
->>>    	.hw_arch = MTK_VDEC_LAT_SINGLE_CORE,
->>>    	.chip_name = 8196,
->>> +	.h264_params = {
->>> +		.level = V4L2_MPEG_VIDEO_H264_LEVEL_6_0,
->>> +		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH_10,
->>> +	},
->>> +	.h265_params = {
->>> +		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_5_2,
->>> +		.profile = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
->>> +	},
->>> +	.vp9_params = {
->>> +		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_5_2,
->>> +		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_2,
->>> +	},
->>>    };
->>>    
->>>    const struct mtk_vcodec_dec_pdata mtk_vdec_single_core_pdata = {
->>> @@ -910,6 +970,18 @@ const struct mtk_vcodec_dec_pdata
->>> mtk_vdec_8186_pdata = {
->>>    	MTK_STATELESS_DEC_DATA,
->>>    	.hw_arch = MTK_VDEC_PURE_SINGLE_CORE,
->>>    	.chip_name = 8186,
->>> +	.h264_params = {
->>> +		.level = V4L2_MPEG_VIDEO_H264_LEVEL_4_2,
->>> +		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH,
->>> +	},
->>> +	.h265_params = {
->>> +		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_4,
->>> +		.profile =
->>> V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE,
->>> +	},
->>> +	.vp9_params = {
->>> +		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_4_1,
->>> +		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_1,
->>> +	},
->>>    };
->>>    
->>>    const struct mtk_vcodec_dec_pdata mtk_vdec_8189_pdata = {
->>> @@ -928,4 +1000,16 @@ const struct mtk_vcodec_dec_pdata
->>> mtk_vdec_8189_pdata = {
->>>    	.is_subdev_supported = true,
->>>    	.hw_arch = MTK_VDEC_PURE_SINGLE_CORE,
->>>    	.chip_name = 8189,
->>> +	.h264_params = {
->>> +		.level = V4L2_MPEG_VIDEO_H264_LEVEL_5_2,
->>> +		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH_10,
->>> +	},
->>> +	.h265_params = {
->>> +		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_4,
->>> +		.profile =
->>> V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE,
->>> +	},
->>> +	.vp9_params = {
->>> +		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_5_2,
->>> +		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_2,
->>> +	},
->>>    };
->>
->>
+Changes since v2:
+* Improve the documentation in .../bindings/net/nxp,s32-dwmac.yaml
+* "[PATCH v2 2/4] dt-bindings: mfd: syscon: Document the GPR syscon
+  for the NXP S32 SoCs" was applied so drop it.
+
+Changes since v1:
+* Add imx@lists.linux.dev to the CC list.
+* Fix forward porting bug.  s/PHY_INTF_SEL_RGMII/S32_PHY_INTF_SEL_RGMII/
+* Use the correct SoC names nxp,s32g2-gpr and nxp,s32g3-gpr instead of
+  nxp,s32g-gpr which is the SoC family.
+* Fix the phandle name by adding the vendor prefix
+* Fix the documentation for the phandle
+* Remove #address-cells and #size-cells from the syscon block
+
+Here is the whole list of registers in the GPR region
+
+Starting from 0x4007C000
+
+0  Software-Triggered Faults (SW_NCF)
+4  GMAC Control (GMAC_0_CTRL_STS)
+28 CMU Status 1 (CMU_STATUS_REG1)
+2C CMUs Status 2 (CMU_STATUS_REG2)
+30 FCCU EOUT Override Clear (FCCU_EOUT_OVERRIDE_CLEAR_REG)
+38 SRC POR Control (SRC_POR_CTRL_REG)
+54 GPR21 (GPR21)
+5C GPR23 (GPR23)
+60 GPR24 Register (GPR24)
+CC Debug Control (DEBUG_CONTROL)
+F0 Timestamp Control (TIMESTAMP_CONTROL_REGISTER)
+F4 FlexRay OS Tick Input Select (FLEXRAY_OS_TICK_INPUT_SELECT_REG)
+FC GPR63 Register (GPR63)
+
+Starting from 0x4007CA00
+
+0  Coherency Enable for PFE Ports (PFE_COH_EN)
+4  PFE EMAC Interface Mode (PFE_EMACX_INTF_SEL)
+20 PFE EMACX Power Control (PFE_PWR_CTRL)
+28 Error Injection on Cortex-M7 AHB and AXI Pipe (CM7_TCM_AHB_SLICE)
+2C Error Injection AHBP Gasket Cortex-M7 (ERROR_INJECTION_AHBP_GASKET_CM7)
+40 LLCE Subsystem Status (LLCE_STAT)
+44 LLCE Power Control (LLCE_CTRL)
+48 DDR Urgent Control (DDR_URGENT_CTRL)
+4C FTM Global Load Control (FLXTIM_CTRL)
+50 FTM LDOK Status (FLXTIM_STAT)
+54 Top CMU Status (CMU_STAT)
+58 Accelerator NoC No Pending Trans Status (NOC_NOPEND_TRANS)
+90 SerDes RD/WD Toggle Control (PCIE_TOGGLE)
+94 SerDes Toggle Done Status (PCIE_TOGGLEDONE_STAT)
+E0 Generic Control 0 (GENCTRL0)
+E4 Generic Control 1 (GENCTRL1)
+F0 Generic Status 0 (GENSTAT0)
+FC Cortex-M7 AXI Parity Error and AHBP Gasket Error Alarm (CM7_AXI_AHBP_GASKET_ERROR_ALARM)
+
+Starting from 4007C800
+
+4  GPR01 Register (GPR01)
+30 GPR12 Register (GPR12)
+58 GPR22 Register (GPR22)
+70 GPR28 Register (GPR28)
+74 GPR29 Register (GPR29)
+
+Starting from 4007CB00
+
+4 WKUP Pad Pullup/Pulldown Select (WKUP_PUS)
+
+Dan Carpenter (3):
+  net: stmmac: s32: use a syscon for S32_PHY_INTF_SEL_RGMII
+  dt-bindings: net: nxp,s32-dwmac: Use the GPR syscon
+  dts: s32g: Add GPR syscon region
+
+ .../bindings/net/nxp,s32-dwmac.yaml           | 13 +++++++++
+ arch/arm64/boot/dts/freescale/s32g2.dtsi      |  6 ++++
+ arch/arm64/boot/dts/freescale/s32g3.dtsi      |  6 ++++
+ .../net/ethernet/stmicro/stmmac/dwmac-s32.c   | 28 +++++++++++++++----
+ 4 files changed, 47 insertions(+), 6 deletions(-)
+
+-- 
+2.51.0
 
 
