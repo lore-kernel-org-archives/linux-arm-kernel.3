@@ -4,55 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D47CFD46BEF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 19:01:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B34FAD46BF4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 19:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y7ixvs9SjVU/C4VAAsX3lvuUJ8ZvAu9S9zoeDiQHuKU=; b=nJ/AUHK+mES2K2c6y58anzDhxj
-	1LInuQHrwrsqa2MWtLyfPQotTejAlcBvUN2CDaM+6Bj9wlI8CN9eZl5xGYop/FNF2qtk9tcuD3+P5
-	UyJm0pNGMB9X7EX1os5YRj7iCPPBAZakNy9Nsy5V4ehn1V+aAU2AxJb0Komax9Zy8UN8+Zbe8K5TV
-	4625ut3RB0wfTAVtprYHlaTIpz0EVP7GRHoW9fJnEvJSYKigztndMGUyg2jx2LyMx7iwepwrK3TIq
-	E9e5A+nzKk9xeeCWO5KzBr9C2WRTgcG/MlaFO1qgTBk903itI84ICoAjE2oxnYWqL6lFFSxWbFE2Z
-	Usy1KmQA==;
+	bh=Uoce2O4bq+uQodOB69TrcPt+OZtvkCKYOFmKW88WqjE=; b=pWNYniVHpge0P0ZLxEpKJcgxKo
+	rGUYoHLnnckKnId/NkNZCprsJeFudCeVOjp0M+egGt2T4YjWSBSt86Jm35ha1ra4+KgWZZOYAs/HR
+	7U4j7B4JudDDiVrZvyNAqsXyEhCyrS0f3NI9TeS0+XHymFsOSZvbxaJXZlQxFrtB8eRvJE8q39eTA
+	h+sXG4yDphcF1d5YRuManwW4MKWML4Uh/NDfyUvvnbis3wKGV9a/KeMnhu5EixlXI6WVMmdlnzk2f
+	TPZYSuz0MRb5v+iSJGUAd4nZA5abTr2eVHLG0pl+ooU6F+li6utLStV0q9a9z3Y/HqKl6pOhP5y6b
+	WoHam3+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlAnB-0000000Gf0P-2sTB;
-	Wed, 28 Jan 2026 19:01:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vlAuh-0000000GfN2-1nhV;
+	Wed, 28 Jan 2026 19:09:15 +0000
+Received: from out-184.mta0.migadu.com ([91.218.175.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlAn7-0000000Gezv-1j3N;
-	Wed, 28 Jan 2026 19:01:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 830F660007;
-	Wed, 28 Jan 2026 19:01:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26C71C4CEF1;
-	Wed, 28 Jan 2026 19:01:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769626884;
-	bh=n34TAjuaUJNq368XZLmuh46Sjt4jj9OJ3xPmOcHju38=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=C8w2mvSqqOv6CNJooWdWwnMODpl641zH6FL4vTpgMjRx34EvM9qL//KZoVYqmVwQr
-	 V6V0P5e1YDea3DWFmUsl+x1oMwNTe2zUS6dKUAWeT7RixPfgiCU/7di9qvJCBGXTJC
-	 hpAr6nOsVvFDkue6E7q7/axgb0P3PEIg16XjCW7/A6o/XeXlAaF3W0C1C8RPk1sb+t
-	 FHNmfFEyooZOZ9bvKOLJgTJXss8jw0JMDsG1rx/N/A2MaegXoGs4GVqb0Ak6e0bdUJ
-	 e3D3ST4S/1fPQtZLjzAblj7sTvVRxPR67coMBhPVIHX64yhlEwQV5lOkEp0LSkQf3O
-	 YRbj1SwAQFH5w==
-Content-Type: text/plain; charset="utf-8"
+	id 1vlAud-0000000GfMd-2uVS
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 Jan 2026 19:09:14 +0000
+Message-ID: <7dbcc5d5-476b-46e5-9e4b-b260d24a51a1@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1769627347;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Uoce2O4bq+uQodOB69TrcPt+OZtvkCKYOFmKW88WqjE=;
+	b=QQfkmD5lsHJq3o87CYC128K2gTqM8Je0n3mmDb7+VkG836yXHnF3KY7huFJiwuXOFZwF6+
+	84fkXG22+popIKJZno2KmoEGOUfWcQ8vQiZtngJ54CILBc359vKQ7gzGPFZ8B1BKhImMSl
+	PryoO/gGwx1UTolmy4wP1qSn/KnXi4E=
+Date: Wed, 28 Jan 2026 11:08:54 -0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <3745487.e9J7NaK4W3@workhorse>
-References: <20251010-mtk-pll-rpm-v3-0-fb1bd15d734a@collabora.com> <6678782.DvuYhMxLoT@workhorse> <daa1906b-a112-4158-aec2-ad1d29b4fe35@sirena.org.uk> <3745487.e9J7NaK4W3@workhorse>
-Subject: Re: [PATCH v3 1/5] clk: Respect CLK_OPS_PARENT_ENABLE during recalc
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Michael Turquette <mturquette@baylibre.com>, Dong Aisheng <aisheng.dong@nxp.com>, Matthias Brugger <matthias.bgg@gmail.com>, Yassine Oudjana <y.oudjana@protonmail.com>, Laura Nao <laura.nao@collabora.com>, =?utf-8?q?N=C3=ADcolas?= F. R. A. Prado <nfraprado@collabora.com>, Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>, kernel@collabora.com, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-To: Mark Brown <broonie@kernel.org>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Wed, 28 Jan 2026 12:01:22 -0700
-Message-ID: <176962688200.4027.9869545980331892869@lazor>
-User-Agent: alot/0.11
+Subject: Re: [PATCH bpf-next v2 1/3] bpf: Add bpf_arch_supports_fsession()
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+ Chris Mason <clm@meta.com>
+Cc: bot+bpf-ci@kernel.org, bpf <bpf@vger.kernel.org>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Eduard <eddyz87@gmail.com>,
+ Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
+ Xu Kuohai <xukuohai@huaweicloud.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Shuah Khan <shuah@kernel.org>, Menglong Dong <menglong8.dong@gmail.com>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ LKML <linux-kernel@vger.kernel.org>,
+ "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
+ kernel-patches-bot@fb.com, Martin KaFai Lau <martin.lau@kernel.org>
+References: <20260128150112.8873-2-leon.hwang@linux.dev>
+ <e64c4137e7f262e6fdab272e8ee44c8a129a36eb6d0186914375d6ba20d88474@mail.kernel.org>
+ <65231eeb-1f00-4af2-9234-a290ea3f6585@meta.com>
+ <a10afa70-29b7-48ab-b241-8b0f602abe2f@linux.dev>
+ <CAADnVQJV=e2VgQzkpsUQwexhaVZMs7uXHCe1Fa6VwbVNUMPghA@mail.gmail.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Ihor Solodrai <ihor.solodrai@linux.dev>
+In-Reply-To: <CAADnVQJV=e2VgQzkpsUQwexhaVZMs7uXHCe1Fa6VwbVNUMPghA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260128_110911_884460_C2771414 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,59 +87,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Nicolas Frattaroli (2026-01-28 09:04:55)
-> On Wednesday, 28 January 2026 15:47:08 Central European Standard Time Mar=
-k Brown wrote:
-> >=20
-> > For the Avenger96 that says:
-> >=20
-> > [    0.347816] __clk_core_init: enabling parent ck_hse for ck_per
-> > [    0.352230] __clk_core_init: disabling parent ck_hse for ck_per
-> > [    0.358207] __clk_core_init: enabling parent pll1_p for ck_mpu
-> > [    0.364005] __clk_core_init: disabling parent pll1_p for ck_mpu
-> >=20
-> > https://lava.sirena.org.uk/scheduler/job/2412562#L563
-> >=20
->=20
-> Okay, on this one, there may be a problem in the clock tree.
-> ck_mpu is marked CLK_IS_CRITICAL, but its parent, pll1_p, is not. Clock
-> core doesn't seem to check whether any children of a clock are marked as
-> critical before disabling it.
->=20
-> I'm not super familiar with the intended semantics of critical clocks.
-> If we need to manually mark all parents of critical clocks as critical
-> as well, then a (potentially partial) fix for the Avenger96 might be:
->=20
+On 1/28/26 10:49 AM, Alexei Starovoitov wrote:
+> On Wed, Jan 28, 2026 at 9:34 AM Ihor Solodrai <ihor.solodrai@linux.dev> wrote:
+>>
+>> On 1/28/26 7:35 AM, Chris Mason wrote:
+>>>
+>>>
+>>> On 1/28/26 10:26 AM, bot+bpf-ci@kernel.org wrote:
+>>>>> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
+>>>>> index 5a075e06cf..070ba80e39 100644
+>>>>> --- a/arch/x86/net/bpf_jit_comp.c
+>>>>> +++ b/arch/x86/net/bpf_jit_comp.c
+>>>>> @@ -4112,3 +4112,8 @@ bool bpf_jit_supports_timed_may_goto(void)
+>>>>>  {
+>>>>>     return true;
+>>>>>  }
+>>>>> +
+>>>>> +bool bpf_jit_supports_fsession(void)
+>>>>        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+>>>> This is the actual function name in the code.
+>>>
+>>> Ihor, I think the script parsing review-inline.txt chopped off the
+>>> part of the review where AI was complaining about the commit message?
+>>
+>> This is the email body pre-processing in KPD, yes.
+>>
+>> At some point we decided to remove the commit message before sending
+>> an email, but now that AI reviews the messages too, I think we should
+>> just send the generated review-inline.txt as is.
+>>
+>> Alexei, wdyt?
+> 
+> I think KPD is only supposed to trim the header until 'diff ..' line.
+> In this case there is no 'diff', so I'm not sure why it trimmed so much.
 
-Marking parents critical hasn't been strictly necessary so far because
-we've been relying on the prepare/enable count on a critical child to
-keep the parent prepared/enabled.
+There is. Here is the PR comment with the review:
+https://github.com/kernel-patches/bpf/pull/10868#issuecomment-3811930805
 
->=20
-> I just looked for CLK_IS_CRITICAL clocks in that file that have the
-> CLK_OPS_PARENT_ENABLE flag, and marked their PLL parents as critical
-> as well.
->=20
-> An alternate approach would be to skip the parent enable/disable pair
-> in the problematic patch in __clk_core_init for clocks that are marked
-> as critical, because if the parent wasn't on for a critical clock then
-> we wouldn't be in that function, we would be dead.
+KPD trimmed everything before the first "> diff" occurrence, as expected.
 
-The parent may not be known yet in __clk_core_init() because we lazily
-find parents. Putting it another way, we can get to the recalc_rate()
-call in __clk_core_init() for a clk with CLK_OPS_PARENT_ENABLE when the
-parent pointer is NULL. This hasn't been a problem because when we adopt
-the orphan clk the rate is recalculated (see
-clk_core_reparent_orphans_nolock()).
+I'll try to fix this up in KPD. We should probably search for the first
+line starting with "> " (a quote start) to trim the header correctly.
 
-I don't see an easy way out of this problem because in general we need
-to know a clk with CLK_OPS_PARENT_ENABLE is parented enough to be able
-to read the registers when calling clk_ops like recalc_rate() (and
-probably get_parent() as well meaning that clk_op can't touch
-hardware?). Maybe the simplest approach is to skip any sort of hardware
-access when this flag is set during setup and reparenting.
+Alternatively, AI can be prompted to avoid generating the header in
+review-inline.txt, but that's probably less reliable. And maybe it is
+useful for local runs, idk.
 
-BTW, I don't know what this patch is actually fixing, so I'm going to
-revert it. When it is resubmitted please describe the problem you're
-seeing.
+> 
+> commit sha...
+> Author: ...
+> 
+> are useless in email reply, so we should still trim them.
+
 
