@@ -4,181 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCF50D35664
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 01:50:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C153D35664
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 01:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IQ5hl6wodZ1nqUFjX+7oNh1cxV7h6TG5eWtn25Aj/Jo=; b=kYJWllfzXW7wc6AIxQak70cA0r
-	FunzZofO1uM5SXYwnmGI0btj02eYd47fXkzA2zBh5U1X0U9JgP7d9RVKK+Jx3BdECoabMCA7H/gdf
-	LXnbUTXbRoNNd4avoN1Wn6ftRl66ChWQRNJHi2sJ4GuJ+flKh853GlLLZB5q1JSFdmoKDQqmiXzEF
-	FzNNmQR2R/5WoGkmWqqf6WI3ZNr44DFE2cliJNgTB3vGJyR+DLCtIAjIeNsWi9vjP4m3RFzPqV4zX
-	aPSbWeSkdPdEpKRCOV1rU4IsaoPv97v3RTxFgbhCAKsZZ9CnCMp7IaJcaJaZfD/EoMvGZDu1afwiY
-	vY6Mgieg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T6QnvioEAXPy/LTiOQAeKcnIAykdQxgXZDbFaA+d1WE=; b=fxqsGoQqT9zV6RAlhGxRxRE59O
+	bHsmXid24WDUkGtyXL69kB2gmVWs3mdWYIj0siwqjzddRlZ/1Hu4h7jBAqjYWcQ1hkqHnj/OtqPI9
+	XIrm4B6uz05DeGIZ6OJyRetgCUaDzjlpjJy8jy/dSsybvZDIyQN5/oH8G9BQewuFtwPJHteH1LuBC
+	AEV5g7CS9nyebPQYFf+OTdmzupogAnRw0+WXYSSn4zbm0BQTrtdVVpXtu7+mPvfQgs0J2dw8X3rrT
+	nUoUBk/RobRen0x6CdScH/6rOqWLLnz7Y92yzs2XkbyyjnB8ajv2YjnPJhuptsihbmrJOU+olgHkP
+	ZeIig/IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkugx-0000000FGwe-0rUQ;
-	Wed, 28 Jan 2026 01:49:59 +0000
-Received: from mail-francecentralazon11013043.outbound.protection.outlook.com ([40.107.162.43] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vkumO-0000000FH9i-3xhu;
+	Wed, 28 Jan 2026 01:55:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkugu-0000000FGvq-1O5W
+	id 1vkumN-0000000FH9a-2dBQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 01:49:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dtczWgs4M3uStbLoXF0xvdNJVMB8AzCkd1Hvw0ID3plwAJdcv45HljRGiVDvVj+N+Ph8Bax5XeDHoGTJoC2Z8oq/asiVW+O8ZKdVRuqa2O4T40dZSfP5OwigsSPxa5Q8A6cpaEUuBG4tw6nRgGoUB8m8Lm2mSTv4HvH9IQ/yeaGSG33pjeaU6izPkekSirB3oR5UnYkgYNNyLMXjeqkQo9DiLbfL6jHmmLre5/PGYoXPWDWxEySeG5z/n+5s396c5ctvEqzVbNr9NRoLjwtL81v3ARl+Op4l2G9aRE4z4fEtbQ076jKsdKj4VXPDaUhavLL7/n6Ks6PURWD/mNmLxQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IQ5hl6wodZ1nqUFjX+7oNh1cxV7h6TG5eWtn25Aj/Jo=;
- b=mQRVXwT8INHbaT2EsKsBCE/zSL0Hpd/Np2mKESyIuzmQ/eWJvURJf2olupEQ0HjTNwGNRQYZsJwsxg1sGy5qFWrlvyd6iNhy7clSOOP3Z7SEbbajs8n9H0PO/gjJSLzrI8Dowed2IJDxjX8AgppPhj8bPcsykFXO+lT6LMCh6LuuGjLnEpCVMEU+K2vvb4z/K6pisQF78NhKHz2rHAxMFPUjHaG4dW7KyPpw8vl6nBxMd8XtfG/11r4B8LG/GHqD0XUlUdafi1An3oJGnoBjz0shf+KnEG1Mq/lj4Z9sJ+yc/ojGZ3tqM2y4UVMvd/FonpWWpVt2cwgsgrVz7tGKnA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IQ5hl6wodZ1nqUFjX+7oNh1cxV7h6TG5eWtn25Aj/Jo=;
- b=PGLCBTGyPUJ2HzLrqUhKG3fBLvoimWQBcDK1xbxqkBUxmomwoX0LSuNgXGBrxHAyCRM+UUfAi1WlluTpx3JDF2M+1KyCY2945h3IJyKzAS5SJKO7P3/gEY1IvLAjVt/zQcNxfFpU4wbEyASnQJchNaspwna63JRL+susoBaE2amOeHVDR9ZCpJqaDT4gsZQOUA1eDcdc6uiR9q31gy2TgQH6dJPc4zIAosHxZ2upqdHA3E++c2ZL/3rCfcSirKxZUdC2ndPYYvqws9Qkl15vLEW2/jiFE7rn909P1Ej1V5ePE+nJ/Pbi88U2JXcyRWm5274SoHwwn0dSncvBegtLRA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by VI0PR04MB10209.eurprd04.prod.outlook.com (2603:10a6:800:244::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Wed, 28 Jan
- 2026 01:49:48 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64%4]) with mapi id 15.20.9542.015; Wed, 28 Jan 2026
- 01:49:48 +0000
-Message-ID: <f11d4407-9951-40a3-bde5-583ca1ca5bc5@nxp.com>
-Date: Wed, 28 Jan 2026 09:50:38 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: (subset) [PATCH 0/3] drm/bridge: imx: A few fixes
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260123-imx8qxp-drm-bridge-fixes-v1-0-8bb85ada5866@nxp.com>
- <176951374753.94588.10653964166300906894.b4-ty@bootlin.com>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <176951374753.94588.10653964166300906894.b4-ty@bootlin.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI1PR02CA0038.apcprd02.prod.outlook.com
- (2603:1096:4:1f6::15) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	Wed, 28 Jan 2026 01:55:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 96D60600AA;
+	Wed, 28 Jan 2026 01:55:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31507C116C6;
+	Wed, 28 Jan 2026 01:55:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769565334;
+	bh=CP/qnvB6fXOxVLAIQC9mjygAeI/xPgo7d+fUUVeDfKo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=FVyxCgwPXJrlaMWB4T5cTDCSpuj4TlfoPEmeYd0jetk9q6NjTz2UhPfMxzo0WRoeo
+	 SCrtXVLFyEPzKl4ffv6QPcTd5QNetW3iMCbtv0/QTl8VYFzXzGHp/6ycgNfKlj2CjU
+	 RUfBOKDt/sItxsq05wvH4OSNkZFyi0oTQR6eh/7a8S+cj/qljlPKbzQd18KUMxlukg
+	 JPllKMscdntViFRqlQ/TmUT5JSVAavP34GKnwymsDRKlST2cYyKEIC0UdT7zKFhPyu
+	 JslZO5gi971aqdKHeAXOzhk8AHE888EqxZE7LPK/PQWToJrjp4gj2S9t4OPflrQ+5g
+	 qw4Bvya7VAwNQ==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Elad Nachman <enachman@marvell.com>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] arm/arm64: dts: marvell: Drop unused .dtsi
+Date: Tue, 27 Jan 2026 19:55:20 -0600
+Message-ID: <20260128015521.3694910-1-robh@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|VI0PR04MB10209:EE_
-X-MS-Office365-Filtering-Correlation-Id: b3a47369-f1e8-46cf-2c1e-08de5e0f850a
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|19092799006|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Yk1LQ0FVR1h6R05YTzVCWk11b1lEK2dUZENGUjF6R3VzK3cwQ1VmR0xHM1Vy?=
- =?utf-8?B?d1lreEQ2cWVLNjl1L0ZwUUE4K2R5Z1ZQZXQvRVNYd0t2bVVyR1I5dzNtdDJn?=
- =?utf-8?B?Vjgrbk45NGF2VXRSSFBucVRpbFpDelI0NWpScUs2ZDd0L2dtUzlEM0NMSjNB?=
- =?utf-8?B?NEcwa1h2NjV0RXIvR2dsK0pFNjhPV053Q3ZqMUlsT2gyUEhTcVc5K2tiajRL?=
- =?utf-8?B?dDN1L1djZGo2Z2NtMVRFWGlPc1lhUE1GQkZFT0pVQVhYdGlNeDE1WHRnMEM2?=
- =?utf-8?B?Y2RZYzY5aWdxSDFvZGxWVGd1TC9FYmpCYVdoZDFMblBMbTkxdG51T0ltRXZK?=
- =?utf-8?B?K29GMHFwcTNCMnVDelNlUjdYMWlPNnNKYzFTWVFRZ2FqZEpDSW51ZFJjRUlN?=
- =?utf-8?B?NVlGczJ3L2hmU0Ira2E0eHIvUCs4blNEOWl0WVFhenE3c2VBNWNvWGdqVU13?=
- =?utf-8?B?L1FCelVMcjZpc04wUXAzd2Y3bmxoNUpVL2NBNmY1MmJaaGRPYjlxODZ1VHRk?=
- =?utf-8?B?Y1BLekZpekJVVGxhK3NRUURBY1Q3dTVrWnJwb0dZMldlK3pldXBOdmEraGY0?=
- =?utf-8?B?d2ZiUzJKeHk5eDBpaWpJWGkzR2loUWpsbjNqeXZDaHpmWlN2S28zK3cxME5C?=
- =?utf-8?B?d2NpOEdEVGFaM0IrV1RUQlBGM2NKRTM1WUlKeVJIODcrTVljbVJKZU9HRmZi?=
- =?utf-8?B?NWM4alJLMmFEYXZhOEllWHJEWVorOElTNnBqWDN1T1MvM2U5T0d6d1FFdnl1?=
- =?utf-8?B?WitXb0VzSDNrRGVtTE5KSHRza0NiK0JOaXhJSkNsRU9iQU1RM3IvVUhYSUZy?=
- =?utf-8?B?NDF4WmpOOHc2a1N0R0pnZTBtVGtYKzlzdVViWEkrZXVOaVIxcUQyWW4ydzhj?=
- =?utf-8?B?OFV4bFJ2bnh3N24xOENoWGRvTFRTcjRKcWpzY2ZZNm5aM3lxK1pRTHJLMEha?=
- =?utf-8?B?MDZ2K0NKYm1YZW5WZHFqbDJFd1R3RkdYVVFMQlRlQkIzajhvODVNdVBlUmVt?=
- =?utf-8?B?dHJOZk4yS0JuQlh4VHhOSHdTdENGaVNjVFlIUVBvdkpXYmFhMWlyWDdCQTBy?=
- =?utf-8?B?SWE5R1huclJhN0paNHRGQ2kyS29lc2hDakFlN2haSXdhd2xZV2xVVUh3VXJ6?=
- =?utf-8?B?dDJJdnRTV1BuT2ljS0NoQXE2UWRrTDcrTURIMEdpaVlRd2Frb0YvR1Zrb0d6?=
- =?utf-8?B?YnVDR3VMSC9lNERmeVpwRHhub3BHUXVoUytKVi9RVVNTaWc5cGhEQ29INWJa?=
- =?utf-8?B?QUN0Z2czVlFNZE4yWm9PcmJDQnlWaC9uMi84Tnk0U1FheElLeEJjK3crcmZs?=
- =?utf-8?B?MEphMGpHWGQxb3hIOFhwaHM1WlJSbXNMZnI0eGlCbHQ1SGxkaEJCbllObXhB?=
- =?utf-8?B?ektidlhrQVpSUm4vN0NFMk93cXFBRVY1bTE5Ym5VZ3RjY2R6QTQ0SWR4K3Vn?=
- =?utf-8?B?SnNWaG1PN2pYVjBKQWlmK3cyeTRrajVjeERsTjFjcWNrVmcweFlRYzNPOG03?=
- =?utf-8?B?T3U5UXpTR2hRV0Z2ZWpVdlhJdVNyaWQxMWlQNCtzRE5GU09mTGl1dU5waGt3?=
- =?utf-8?B?d25VWGNHenAyeHZKdGNGS2NEUzBQaXRpQ1cxdUhIalRHY3k1YVBKbUg0eGJY?=
- =?utf-8?B?QytqVWZoYXpKenNhQ1JyZ04zS094c1MzMWFHVmE5OUE0RWZQMnhOMDZOT1U4?=
- =?utf-8?B?clhTRzk4MTZqNzBldUlzM2lHVmh2c1ZPVjRlYU5Ic0hKSm9ZaUNyWGRKRU9n?=
- =?utf-8?B?TU81TGRIUGgvaXlGM3AvSVVhN09WMHh6ODFoV295RTdkdUsrc2h5MzhVeC9B?=
- =?utf-8?B?RW00TUJySTdJUnppZkVQMmVHRUtsSUo5SVdLem5GeHRodkZFU0JzSTM2UkEw?=
- =?utf-8?B?ZTlCUXZld2dYWXZpK0RaQ2IxdFJHaEx4Z25hbDNnaHdPVzlDSlVGcXF2RHh0?=
- =?utf-8?B?WTc2amg0VFRCY04wTS91Qk9yVFlqV1Jrd2pGK3dBQ3ArQmNJM1MyVHRENUxs?=
- =?utf-8?B?ZEtRQndmbzNEQmFqQVZNSEpkUDQ0LzMxeVRwNWxNTFIrdzdOa0lrRG9udTNO?=
- =?utf-8?B?MmJ1bjVSeTJYeXJ1T253b0NjZWY3eDhzM0ZRaGo2NXBmcVdDb3FEaUcwQmdF?=
- =?utf-8?B?WG5CM0tUNlJNMWNPSWVFZmF2djFXRit0WDltYTRrNm0xNzlJZlR6YThhV1di?=
- =?utf-8?B?MEE9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(19092799006)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N25QdktJQ09JdUl2bndER2F6WFdVaDcwelEwb2NLQ2RRSEJFWlNmV1B1Z1A5?=
- =?utf-8?B?NTdkWjFLR1dLNWRRYkI3NXNwV2U3RGIwVm14NFppTnJRdGpSYXhmNVhVczRO?=
- =?utf-8?B?SlhKZy9oN3dsWmxnbkgyalBpbURoQWpib01xNEg2Q3BTT2tiSjlsQmZMM29C?=
- =?utf-8?B?Ukp0MHBMSnVNR0daYzBTU0wwS1JVK2tYelpkdzRIb1hFT0hvNDNyeTNqa2Nx?=
- =?utf-8?B?YmM4UmxMMTEyanBQay9USFV1T3hCQTdiMkh6Nys5cmdXeUhRNjR2TzBpV0da?=
- =?utf-8?B?QU5RSDAvU1RJVlRFUVpJNDgvUmdFcGF3U3l3aGV5dW4xTXRINHdlTlNKMm50?=
- =?utf-8?B?czg3M052cUVmSVdGdEtzaWdzaHpLNjIwN2FzZXlTV0ZMQzlZT29IZHVpUTRP?=
- =?utf-8?B?OHZzR0gyR0xGWklFNjkvQkhOTWlZZ1Q5U1o4M0hrVTBETTlHdjlaUlNZVVQ5?=
- =?utf-8?B?TFNoY202QklUd1FFZ3V3WXo1SkQxak93NGV5OXhseW4rQVRlNU1nYis2cHJX?=
- =?utf-8?B?eSs1azQwSzVWS0xNREFZSVFYaE4vS1lrTWhjRk5oalhXeStHZCtNc3V4KzJh?=
- =?utf-8?B?eXlHVlRaYWRjQTM5QVpkRi9MMW1yYTZxL0ZaeG1YaHg0czFWVFhFZVhxeWYw?=
- =?utf-8?B?M2VCZmwweUZleGpMcTFFZGQxNG1wSS8wVGd3cE5WRG13L1ozOFFZZFdUZlJw?=
- =?utf-8?B?RVgxSUl1U1d5QXNGVXdZODFHQUdzM0JVMGxBT0JBMVo1TndrS1hOSUpObzJQ?=
- =?utf-8?B?VzFBdHhIeE1Gc2U3T1NSTWdYZWhtcnM4ZXArMndSZXpnc2QrL2c1SEdrSkUz?=
- =?utf-8?B?ODFrd3JOZDhjdGx2ZU5UZUg5eEdBNVFEaHdRODRFRHY5T2gxQVU5akZjWGhm?=
- =?utf-8?B?RkZWRnhoZUxlYzVkVDI1bU5LV3hlUzJEQlhQWnlFQU0rbnhpaUpadEF2a1do?=
- =?utf-8?B?SlhDdisxUlFzWldreDJQaWhvTTl6REZEWmlDM1h6bll4ZEVLVmV0UjRuSGJa?=
- =?utf-8?B?cS9OY2w4Zm5KTlM3S1BKL2UzRDhIdWlnRjZtMGRPdVpoMXZuaDJ6S2hBRGJ1?=
- =?utf-8?B?bUpaQlpIVFJpS2gxeEVnay9pZzFtVlA5aytLZFlhRU1jYmI1REpmblYzUUp1?=
- =?utf-8?B?eWhoOWEzajFIZlZGV1EvbGFEMDJqK0xESVIxYmNMQWwzb3MraTRJR1F4OUFy?=
- =?utf-8?B?QlZMMWFrTUpoRnpJSTNrS3o4cHFvcmJxTk94WkRtMUZNVHN5VXYwMFJZVjRG?=
- =?utf-8?B?UStSYlRTOHBrcjlqeFloek9WV1BGby9jRmJESFpaTVVONFRzejFwWkxER2FS?=
- =?utf-8?B?aG5kRmxsaENHUzhHWkN6OFp3YjZXdmxQRGNpZVRVMFRMUHBVaDdtak5nKzRh?=
- =?utf-8?B?VndsWm9ubFJ5Yk9lc2I1YWhHcytQM0Nza1ZCYnpGTEZYZjl5TWVwRWxIdCty?=
- =?utf-8?B?dDk3UTZyYkNjY09mY092L0cxOVYyTE5TQnBoejFVVTVGalhxTXB2ai82a0d1?=
- =?utf-8?B?NzY3RFJ3ZVRHL040bmdNaFAxQytQY2N4N01Xa3diZS8yS1RrQWw1UXlQR2xs?=
- =?utf-8?B?U015VEcyVVQydkNUdUExaWtLVy9GME5GQmc0YWh3SUNyOU1IUE5YcGtDTlYy?=
- =?utf-8?B?RFF2LzkxZUhIVDhVeDVhcURwM0pKMCt3c0RINms1bk5DQWsyZWxTVUpCelFE?=
- =?utf-8?B?YjFBZEZUUngyOS9PY0JWbTUvK3QyNTdDWm10ZW1raW01ckVGRDVlWW9KdFA2?=
- =?utf-8?B?VzByRDUrTWJCdW1CMnVreTJxOSt3bUJsMTB0UXlqd05mak5rWVZ6TEp5YlNw?=
- =?utf-8?B?OVpORzE3c2pUck9yVjROSHROQ1NGRDBzdnZJNGV3UThDM0pxRGx3WWJnY2o4?=
- =?utf-8?B?SUs4R1MyYVFraDVLZStyUlQyK0dLZHdSZnJCOFVhSUhvVWt0RGtHT1RpMHBL?=
- =?utf-8?B?ZWRudjBjTWJaWGJwTzhIb1Y1NEtkQXFQUjBEMENJT1pRaU9CcG16OVVUWkpV?=
- =?utf-8?B?WVM5RzdmejJGVFlwS0lsTE0vOFZBNXdjQ29raXlwVzVBNmQ4VnpsaWVacHVa?=
- =?utf-8?B?ZW1xemkvZFkrQllWQno0cWFScmlZeTh3OURlaDBMQTFVV3BBeGFHdGl5UnYv?=
- =?utf-8?B?OWw0MVlaRlFQanhudFM1UmJwNzM4MExySGJMREVTMTRmVU4vT3JHL3ZpOGQ1?=
- =?utf-8?B?RDlDb2tiSUt6d0cvYVFtdHp0RC9XU3lOY1FGQ2lORlJIRVFpYW9FeFVZMXpr?=
- =?utf-8?B?bDQ2Tk1SQWc3Wm13bTI0MUpTcnB5UC9paTRnMlBjdUpIam1wazRNSmtoRWVN?=
- =?utf-8?B?eFdIWUJZVmtxK1FIVzhRcVZjaFZCc3lqWkdiaUcwTGt2K1Y2SE9uZz09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b3a47369-f1e8-46cf-2c1e-08de5e0f850a
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2026 01:49:48.4514
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tUOJpMmbf49VmKKbAXVFW5rKiBOHEO/fLxcWY0J70gtLhbFFotMJpKvIvRQ748EX8vfWHeZwOnIAVUjlH98aCg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10209
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_174956_416841_79AC2A59 
-X-CRM114-Status: GOOD (  11.83  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,29 +72,306 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
+These .dtsi files are not included anywhere in the tree and can't be
+tested.
 
-On Tue, Jan 27, 2026 at 12:35:47PM +0100, Luca Ceresoli wrote:
-> 
-> On Fri, 23 Jan 2026 17:22:14 +0800, Liu Ying wrote:
->> This patch series contains 3 bug fixes for i.MX8QXP DRM bridges.
->> Each patch fixes a NULL pointer dereference issue and stands alone.
->>
->>
-> 
-> Applied, thanks!
-> 
-> [1/3] drm/bridge: imx8qxp-ldb: Fix NULL pointer dereference in imx8qxp_ldb_bridge_destroy()
->       commit: 852c68bf42965ee38b465d2d6f7b965eb0b5dc1d
-> [2/3] drm/bridge: imx8qxp-pxl2dpi: Fix NULL pointer dereference in imx8qxp_pxl2dpi_bridge_destroy()
->       commit: db7e7ea838c916ee4cdf26bee126fd36f58295dc
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+v2:
+ - Keep armada-7020.dtsi and armada-ap806-dual.dtsi which now
+   have a user.
+---
+ arch/arm/boot/dts/marvell/armada-380.dtsi     | 148 ------------------
+ arch/arm64/boot/dts/marvell/armada-8020.dtsi  |  20 ---
+ .../dts/marvell/cn9130-db-comexpress.dtsi     |  96 ------------
+ 3 files changed, 264 deletions(-)
+ delete mode 100644 arch/arm/boot/dts/marvell/armada-380.dtsi
+ delete mode 100644 arch/arm64/boot/dts/marvell/armada-8020.dtsi
+ delete mode 100644 arch/arm64/boot/dts/marvell/cn9130-db-comexpress.dtsi
 
-Any reason why patch 3/3 is not applied?
-
-> 
-> Best regards,
-
+diff --git a/arch/arm/boot/dts/marvell/armada-380.dtsi b/arch/arm/boot/dts/marvell/armada-380.dtsi
+deleted file mode 100644
+index e94f22b0e9b5..000000000000
+--- a/arch/arm/boot/dts/marvell/armada-380.dtsi
++++ /dev/null
+@@ -1,148 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+-/*
+- * Device Tree Include file for Marvell Armada 380 SoC.
+- *
+- * Copyright (C) 2014 Marvell
+- *
+- * Lior Amsalem <alior@marvell.com>
+- * Gregory CLEMENT <gregory.clement@free-electrons.com>
+- * Thomas Petazzoni <thomas.petazzoni@free-electrons.com>
+- */
+-
+-#include "armada-38x.dtsi"
+-
+-/ {
+-	model = "Marvell Armada 380 family SoC";
+-	compatible = "marvell,armada380";
+-
+-	cpus {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		enable-method = "marvell,armada-380-smp";
+-
+-		cpu@0 {
+-			device_type = "cpu";
+-			compatible = "arm,cortex-a9";
+-			reg = <0>;
+-		};
+-	};
+-
+-	soc {
+-		internal-regs {
+-			pinctrl@18000 {
+-				compatible = "marvell,mv88f6810-pinctrl";
+-			};
+-		};
+-
+-		pcie {
+-			compatible = "marvell,armada-370-pcie";
+-			status = "disabled";
+-			device_type = "pci";
+-
+-			#address-cells = <3>;
+-			#size-cells = <2>;
+-
+-			msi-parent = <&mpic>;
+-			bus-range = <0x00 0xff>;
+-
+-			ranges =
+-			       <0x82000000 0 0x80000 MBUS_ID(0xf0, 0x01) 0x80000 0 0x00002000
+-				0x82000000 0 0x40000 MBUS_ID(0xf0, 0x01) 0x40000 0 0x00002000
+-				0x82000000 0 0x44000 MBUS_ID(0xf0, 0x01) 0x44000 0 0x00002000
+-				0x82000000 0 0x48000 MBUS_ID(0xf0, 0x01) 0x48000 0 0x00002000
+-				0x82000000 0x1 0     MBUS_ID(0x08, 0xe8) 0 1 0 /* Port 0 MEM */
+-				0x81000000 0x1 0     MBUS_ID(0x08, 0xe0) 0 1 0 /* Port 0 IO  */
+-				0x82000000 0x2 0     MBUS_ID(0x04, 0xe8) 0 1 0 /* Port 1 MEM */
+-				0x81000000 0x2 0     MBUS_ID(0x04, 0xe0) 0 1 0 /* Port 1 IO  */
+-				0x82000000 0x3 0     MBUS_ID(0x04, 0xd8) 0 1 0 /* Port 2 MEM */
+-				0x81000000 0x3 0     MBUS_ID(0x04, 0xd0) 0 1 0 /* Port 2 IO  */>;
+-
+-			/* x1 port */
+-			pcie@1,0 {
+-				device_type = "pci";
+-				assigned-addresses = <0x82000800 0 0x80000 0 0x2000>;
+-				reg = <0x0800 0 0 0 0>;
+-				#address-cells = <3>;
+-				#size-cells = <2>;
+-				interrupt-names = "intx";
+-				interrupts-extended = <&gic GIC_SPI 29 IRQ_TYPE_LEVEL_HIGH>;
+-				#interrupt-cells = <1>;
+-				ranges = <0x82000000 0 0 0x82000000 0x1 0 1 0
+-					  0x81000000 0 0 0x81000000 0x1 0 1 0>;
+-				bus-range = <0x00 0xff>;
+-				interrupt-map-mask = <0 0 0 7>;
+-				interrupt-map = <0 0 0 1 &pcie1_intc 0>,
+-						<0 0 0 2 &pcie1_intc 1>,
+-						<0 0 0 3 &pcie1_intc 2>,
+-						<0 0 0 4 &pcie1_intc 3>;
+-				marvell,pcie-port = <0>;
+-				marvell,pcie-lane = <0>;
+-				clocks = <&gateclk 8>;
+-				status = "disabled";
+-
+-				pcie1_intc: interrupt-controller {
+-					interrupt-controller;
+-					#interrupt-cells = <1>;
+-				};
+-			};
+-
+-			/* x1 port */
+-			pcie@2,0 {
+-				device_type = "pci";
+-				assigned-addresses = <0x82001000 0 0x40000 0 0x2000>;
+-				reg = <0x1000 0 0 0 0>;
+-				#address-cells = <3>;
+-				#size-cells = <2>;
+-				interrupt-names = "intx";
+-				interrupts-extended = <&gic GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
+-				#interrupt-cells = <1>;
+-				ranges = <0x82000000 0 0 0x82000000 0x2 0 1 0
+-					  0x81000000 0 0 0x81000000 0x2 0 1 0>;
+-				bus-range = <0x00 0xff>;
+-				interrupt-map-mask = <0 0 0 7>;
+-				interrupt-map = <0 0 0 1 &pcie2_intc 0>,
+-						<0 0 0 2 &pcie2_intc 1>,
+-						<0 0 0 3 &pcie2_intc 2>,
+-						<0 0 0 4 &pcie2_intc 3>;
+-				marvell,pcie-port = <1>;
+-				marvell,pcie-lane = <0>;
+-				clocks = <&gateclk 5>;
+-				status = "disabled";
+-
+-				pcie2_intc: interrupt-controller {
+-					interrupt-controller;
+-					#interrupt-cells = <1>;
+-				};
+-			};
+-
+-			/* x1 port */
+-			pcie@3,0 {
+-				device_type = "pci";
+-				assigned-addresses = <0x82001800 0 0x44000 0 0x2000>;
+-				reg = <0x1800 0 0 0 0>;
+-				#address-cells = <3>;
+-				#size-cells = <2>;
+-				interrupt-names = "intx";
+-				interrupts-extended = <&gic GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
+-				#interrupt-cells = <1>;
+-				ranges = <0x82000000 0 0 0x82000000 0x3 0 1 0
+-					  0x81000000 0 0 0x81000000 0x3 0 1 0>;
+-				bus-range = <0x00 0xff>;
+-				interrupt-map-mask = <0 0 0 7>;
+-				interrupt-map = <0 0 0 1 &pcie3_intc 0>,
+-						<0 0 0 2 &pcie3_intc 1>,
+-						<0 0 0 3 &pcie3_intc 2>,
+-						<0 0 0 4 &pcie3_intc 3>;
+-				marvell,pcie-port = <2>;
+-				marvell,pcie-lane = <0>;
+-				clocks = <&gateclk 6>;
+-				status = "disabled";
+-
+-				pcie3_intc: interrupt-controller {
+-					interrupt-controller;
+-					#interrupt-cells = <1>;
+-				};
+-			};
+-		};
+-	};
+-};
+diff --git a/arch/arm64/boot/dts/marvell/armada-8020.dtsi b/arch/arm64/boot/dts/marvell/armada-8020.dtsi
+deleted file mode 100644
+index b6fc18876093..000000000000
+--- a/arch/arm64/boot/dts/marvell/armada-8020.dtsi
++++ /dev/null
+@@ -1,20 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+-/*
+- * Copyright (C) 2016 Marvell Technology Group Ltd.
+- *
+- * Device Tree file for the Armada 8020 SoC, made of an AP806 Dual and
+- * two CP110.
+- */
+-
+-#include "armada-ap806-dual.dtsi"
+-#include "armada-80x0.dtsi"
+-
+-/* The RTC requires external oscillator. But on Aramda 80x0, the RTC clock
+- * in CP master is not connected (by package) to the oscillator. So
+- * disable it. However, the RTC clock in CP slave is connected to the
+- * oscillator so this one is let enabled.
+- */
+-
+-&cp0_rtc {
+-	status = "disabled";
+-};
+diff --git a/arch/arm64/boot/dts/marvell/cn9130-db-comexpress.dtsi b/arch/arm64/boot/dts/marvell/cn9130-db-comexpress.dtsi
+deleted file mode 100644
+index 028496ebc473..000000000000
+--- a/arch/arm64/boot/dts/marvell/cn9130-db-comexpress.dtsi
++++ /dev/null
+@@ -1,96 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+-/*
+- * Copyright (C) 2023 Marvell International Ltd.
+- *
+- * Device tree for the CN9130-DB Com Express CPU module board.
+- */
+-
+-#include "cn9130-db.dtsi"
+-
+-/ {
+-	model = "Marvell Armada CN9130-DB COM EXPRESS type 7 CPU module board";
+-	compatible = "marvell,cn9130-cpu-module", "marvell,cn9130",
+-		     "marvell,armada-ap807-quad", "marvell,armada-ap807";
+-
+-};
+-
+-&ap0_reg_sd_vccq {
+-	regulator-max-microvolt = <1800000>;
+-	states = <1800000 0x1 1800000 0x0>;
+-	/delete-property/ gpios;
+-};
+-
+-&cp0_reg_usb3_vbus0 {
+-	/delete-property/ gpio;
+-};
+-
+-&cp0_reg_usb3_vbus1 {
+-	/delete-property/ gpio;
+-};
+-
+-&cp0_reg_sd_vcc {
+-	status = "disabled";
+-};
+-
+-&cp0_reg_sd_vccq {
+-	status = "disabled";
+-};
+-
+-&cp0_sdhci0 {
+-	status = "disabled";
+-};
+-
+-&cp0_eth0 {
+-	status = "disabled";
+-};
+-
+-&cp0_eth1 {
+-	status = "okay";
+-	phy = <&phy0>;
+-	phy-mode = "rgmii-id";
+-};
+-
+-&cp0_eth2 {
+-	status = "disabled";
+-};
+-
+-&cp0_mdio {
+-	status = "okay";
+-	pinctrl-0 = <&cp0_ge_mdio_pins>;
+-	phy0: ethernet-phy@0 {
+-		status = "okay";
+-	};
+-};
+-
+-&cp0_syscon0 {
+-	cp0_pinctrl: pinctrl {
+-		compatible = "marvell,cp115-standalone-pinctrl";
+-
+-		cp0_ge_mdio_pins: ge-mdio-pins {
+-			marvell,pins = "mpp40", "mpp41";
+-			marvell,function = "ge";
+-		};
+-	};
+-};
+-
+-&cp0_sdhci0 {
+-	status = "disabled";
+-};
+-
+-&cp0_spi1 {
+-	status = "okay";
+-};
+-
+-&cp0_usb3_0 {
+-	status = "okay";
+-	usb-phy = <&cp0_usb3_0_phy0>;
+-	phy-names = "usb";
+-	/delete-property/ phys;
+-};
+-
+-&cp0_usb3_1 {
+-	status = "okay";
+-	usb-phy = <&cp0_usb3_0_phy1>;
+-	phy-names = "usb";
+-	/delete-property/ phys;
+-};
 -- 
-Regards,
-Liu Ying
+2.51.0
+
 
