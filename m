@@ -4,58 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72924D3F07A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 15:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2A4AD3F07F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 15:12:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1VRoc2YFdE9DFkhhmguCqDLwGt5PKcH0Wcb7rnX8sH4=; b=lxNR9hhwKF6GXz/S3kyo/D3Ntp
-	ZdToFVEiiz8U9p2J8mHiDe8abLEBYkH8DsS5EmvFAuIMqP54CmiDi+rmMxKKdQjrYXd1rcg7Jbtqm
-	pjhN8MQlBvd5fMbZN4ChfAH+6r97Qn5lwkFOye+Ewkbt4N45uOMJ4UFDEPNEturK0McPbZOPtm0kn
-	ee+D8IO3N9ijKsz0Dg7DvrTmCalesVO12+tfAtSISdbPTCmLDxkUcZSSC+lTHurrk45ZpT+V6jvnF
-	YZTx73uWJu1N6J7r7/M60FSo46Ro76R9PSHSVgmLE89wH1fHhnoPLure+F2aoL1DvqS7+1Aqmbn7w
-	kwCFn3tg==;
+	bh=ALFCnKNIjU92vIOqARFDumsZNiNub2RwVFsfXGZgRqA=; b=hu0Xg/XicpoNK4cEvVDZ8npVsU
+	oKgdyTbYcsmBBMCaQQuE/PGnQHc0IUnqY4WOcdgPNIFCMF820wFLR8XVk9EmLnMENjvKlisYc9iWY
+	D875FcCW14Cg80CDFsjIshJkrj9cwqmD7WxU5GDPW3vZFwOdqxOFvOgq1VwfqYUsUQsjDWUVTj+Ie
+	/MvVTIXGjA+CdbDUHN3mE7bAdscXgzx+WFdeq6BEy/pRzAo8zBiS611ICLa8+VgehQ6xtGk4oFXHd
+	q59mGu+c6uxtNrQPjy4wNjzFiumA9VtC8loQC33ZU9xWn7kiIwYtk4fSDsadK7gsTZZv9X0ih26Sj
+	GxyVOuUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl750-0000000GEk2-3NDC;
-	Wed, 28 Jan 2026 15:03:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vl7D4-0000000GFSt-36zr;
+	Wed, 28 Jan 2026 15:11:58 +0000
+Received: from mail-francecentralazon11013041.outbound.protection.outlook.com ([40.107.162.41] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl74z-0000000GEjl-1Hg4
+	id 1vl7D1-0000000GFSC-3dxq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 15:03:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A5F0E600AD;
-	Wed, 28 Jan 2026 15:03:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D50F6C4CEF1;
-	Wed, 28 Jan 2026 15:03:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769612616;
-	bh=SRI/Bhj5iQxuWLS2Y73G5XTyLHgrFBNxPOnmb5dA5zw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=OLoWLJsBoBmxjaPnML7nSJiQA7OyXqjyx9+FFNnMGrWMtj0npzizD/S2bk7uWQilu
-	 QKNftvWLH3Y6gdgWqydGgLNuZuQCQY2GlGgbfKKRUuCIzCsDdSHN0e8oXfIr78lagR
-	 0FZY/Y+BSJdYk28ky7M+iP5T7PLDkEXcbZmNHrLapwqFFLRhUjmhI3UKIXVqPuxlYp
-	 LNOVofO+XbrABJfpedRhk/2wgR0v+F+iOvlc6oW6jecMLCugPZTtEBXhK/mo+KFTtA
-	 FNYc8i1dS1tr9w1mWJrlwrdirbj/MynnZlggUokTfs5B2zd3EAwTPBXBzHX/dqQZ84
-	 XaO6R/2XYGvdw==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Rudraksha Gupta <guptarud@gmail.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Subject: [GIT PULL] More Qualcomm Arm32 DeviceTree updated for v6.20
-Date: Wed, 28 Jan 2026 09:03:34 -0600
-Message-ID: <20260128150334.2089748-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.52.0
+	Wed, 28 Jan 2026 15:11:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ipie6DFDJwDubsyfoOJPR6m1zSR5Hq094blqKDvV0J2PWdjNtLa3OKA9tpMDrysNPAFMIOTRf1e7DkyIfrAOZzar8DTXEOyzmJM8r1YCYf+QD63LuznObwf6UFu+a+uVOmRGkJdIvwt3NNEPrgkN0fLHe72UTVqy1eLHF6tWB1HaNbvIzyBRzUwD2uwTYfq//kiqTYDw6iakYyLN2B4OApwhlQ6fLbmTd09o114uOhiqxgVDkEq81tgl97aFJh/0QFTYKRt7YAm4J8MpsaiiyvG72wX2/pmZ6eaDsZ+jvlEDtLN/Cz7k5Xs+8q4Tf8+c8q3DFzIcvPgA1J8ox+QbDg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ALFCnKNIjU92vIOqARFDumsZNiNub2RwVFsfXGZgRqA=;
+ b=XqhCWAoWMXXb6+ufHgjTAyu6hKrJjG8pWNp+5KDAF9yPbiXTBBP9yZLHDbD4f8vukkhjUp9bEoi70+rly1CTAiGln3J7xTnXzs/Xm7p4sciyVXbZhrN+lmcMOyPK7fM6kh209oUBjAWt5mJVuRsaNle6vBjKySXVCimMQHBkvhCUSULszR+IVLijCtSQa9URBfJPYsqLigEWqWU3an7Hyh73UfkTK9TSdE75q+Tk5zDbGIAMOkgz5Te8VP9CUvsZzaJFDOHl4GX8AjYGSWxXSEh16hBeVeZpPENi3BVb3Z6WCqfR/sYmZcc8/XnkB1/uafnyzbdX5GXyt1SDh7Sp0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ALFCnKNIjU92vIOqARFDumsZNiNub2RwVFsfXGZgRqA=;
+ b=TDZ1jHXaYUOqYJWjg6lOurXl0xgQqAbiJOl53GGycy9uaZZrBbxyJWyJ1leeKZTsBJKsBbb1yUro5mHsDn+pbTFK+2PsbT4F8dS3sF6VBiaBcKesQuSAl8w4ybr/ZMtQYRBgxYyNkGx4iwLTQcjdmn6Rd4DyzH3maHxKA3FoX9DQNdatedf4qNetSJipp/CHpyRo5zraTUnwZMvgKbtyF+ZGFr31OIDFwnHN0/bqRqGCVVOR/+cddqp/jmM4wibTR+qfwlRTq+8ze7TVRqeqHs2psqS6Mojc7HUzbkEXSc/Wfoyii6S4SLPN35uAut5bwPzJXH11VmN39v8fMHOchw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AS8PR04MB8450.eurprd04.prod.outlook.com (2603:10a6:20b:346::5)
+ by AM9PR04MB8100.eurprd04.prod.outlook.com (2603:10a6:20b:3e3::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.8; Wed, 28 Jan
+ 2026 15:11:49 +0000
+Received: from AS8PR04MB8450.eurprd04.prod.outlook.com
+ ([fe80::d3ed:eac:1f17:e9bd]) by AS8PR04MB8450.eurprd04.prod.outlook.com
+ ([fe80::d3ed:eac:1f17:e9bd%6]) with mapi id 15.20.9564.006; Wed, 28 Jan 2026
+ 15:11:48 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Date: Wed, 28 Jan 2026 23:11:25 +0800
+Subject: [PATCH] pmdomain: imx: Fix i.MX8MP VPU_H1 power up sequence
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260128-imx8mp-vc8000e-pm-v1-1-6c171451c732@nxp.com>
+X-B4-Tracking: v=1; b=H4sIABwnemkC/x3MPQqAMAxA4atIZgOx1Bq8ijj4EzVDtbQggvTuF
+ sdveO+FJFElQV+9EOXWpNdZ0NQVLMd07oK6FoMh46gxjOof9gHvhYlIMHi0pmNxq+W5tVC6EGX
+ T538OY84fMGksAWMAAAA=
+X-Change-ID: 20260128-imx8mp-vc8000e-pm-4278e6d48b54
+To: Ulf Hansson <ulf.hansson@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Lucas Stach <l.stach@pengutronix.de>, 
+ Jacky Bai <ping.bai@nxp.com>, Frank Li <frank.li@nxp.com>
+Cc: linux-pm@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Peng Fan <peng.fan@nxp.com>, stable@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: SI2PR01CA0034.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::9) To AS8PR04MB8450.eurprd04.prod.outlook.com
+ (2603:10a6:20b:346::5)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8450:EE_|AM9PR04MB8100:EE_
+X-MS-Office365-Filtering-Correlation-Id: 661d7c0f-a954-4806-b961-08de5e7f8e90
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|1800799024|52116014|7416014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RjkzcFg3c3FxNjFjYXdYNDFCN25sd1Q5ZHJseDVlMndpaHo4Qjcwa0thL3dJ?=
+ =?utf-8?B?MGd4dmNqanByWDBpYUJOb0dnN2xpUUVWS2NMc2Q0V2lqcER0SElWbEVkVVc3?=
+ =?utf-8?B?TlNoNGR3OUE1ZDZvYVBQNGZQbE1rTGVzWStTTFVqNFZ4T1lDL1QyUStBOWlB?=
+ =?utf-8?B?NW5yLzNsVmNpVmRueDFxVWMwUXkxL2NCNlMvR1o2SWdVTnptT1FZRmJYZGhT?=
+ =?utf-8?B?ZXdHcXdSR3VyN0JDNFRYSlpib3hOZjF1Z3lWaGgyc0J0NTJ0aE9PZ0JoNlps?=
+ =?utf-8?B?TE1xbGVqbnFydzIzb1NoTGlWQTdNMzdMR21Ed29EUENhbVVuSVFwemtyMTBK?=
+ =?utf-8?B?Rjl3TG8ycFRpaEVVRFY4bkxUSnRoM1BVdzVaV3NxSmdyMjYybVVTTHNvVE9s?=
+ =?utf-8?B?bGhZS0hwNHd6aU9QKy8rVGZENnpLV0tSRzF3UThJWTRMNm5QRTVZQkgyRmFT?=
+ =?utf-8?B?VHcyV3FzQlNhT2IwcmFQQXlnb0dwUTQ5ajRsVy9tL0grRWUraC9RNENTOVkx?=
+ =?utf-8?B?aXh1UlF0dndGK2RFTnNpbjdxNVVzRFp4QzBUQWNLTjJGSlNmb0xyci9wMGI4?=
+ =?utf-8?B?TmRzR1JlamtvYUJLNjF4MnF2bEdmdU5hMzh6enl6b3BUbnpqczVpdmduampN?=
+ =?utf-8?B?Vko4ZmM0Ym1kOVl0Y0tWVTRXQXMzWjFBdG5sc0hPc0ZmaXNXaEF1SWw4OWow?=
+ =?utf-8?B?am5sekNmc3VSdDR1bEtLZlVXaFRYakFseW84Vko0c3M5anhoK3NMNUo1STZP?=
+ =?utf-8?B?eERLUjVTdEwycjIrSXdLTHlTdTRMVmdrbDRxVGMzWXdVbW9jTjdlcVRLZk9F?=
+ =?utf-8?B?OGV0Sm5Xa2NZZkxvbmVBeFNDM0dKMU5yOHk0cXc5RkpqaFZiSE80dG1UUkV1?=
+ =?utf-8?B?UUQxS2pCSVE5RTZRMmdCSTArYXdHQ0tva1RNempJZ0l3b2hpSXYvREt4RVdR?=
+ =?utf-8?B?eXVkUlM0bWJQM0ROWHlHRlNCMTIvM0JscW13NDN1SWcwNXViRFJzUHRVREZI?=
+ =?utf-8?B?d3dDZHdXTTZvQjNWQ05uTHhzVWR1ZGJoemR1M2VaaTdlV3p0Z1VQVGVSRVg0?=
+ =?utf-8?B?MWdtdm4xOW0ySXM0ZDVLUjl4SUFLVWRUeG9WL1M2TWt2V0xra2R4aUVEQnRq?=
+ =?utf-8?B?RjZyeTZ0cVRXdjJmUkg2ay9FaURJcEVmRytmOUFRU0tjRkpsY1UxeUxaWHl1?=
+ =?utf-8?B?a3NQR05TaFVqeTNLWmdYbENhTWN1cDJnY1BwdzArZmJpazRUN0xoQ3VWR1Ra?=
+ =?utf-8?B?bERkVXJWTmNKMkU2N0VrU3k3UjJMd1h0UExwbXF0VjdFMjcrRktERExENGJx?=
+ =?utf-8?B?eEZKUUtzSE9HTnRKa2E5SnYzcWM3MVBsV1FMbW0wSDZGYU1yd3pNS0Y4cnpW?=
+ =?utf-8?B?K3JkeXFaR2tnSFV1OUp6QTZxUGFwdHBRaDhwTDZreHNJTmp0cVJNc0hQSUZR?=
+ =?utf-8?B?SzBtTUUyUU9rMXFWaVE3REZJV0kreDFJRTFhTmQvU2d4WXVRNmM1cWU4UGoz?=
+ =?utf-8?B?TVBNOTNFODFCcHZEQ2JBRElyb2tLeFFEMGFSejZHVEprd2ZaUEc2VEZCVWRx?=
+ =?utf-8?B?WStQaVNxUjF0bXhuTXJiWHFuYnpxTG5WNnBQS0FWZVBrVEM4Q3hXNnZ1QjFX?=
+ =?utf-8?B?T1VmaG0wakdVSE45ZCtRMm55UUtkZm53YW91M1RsczlQNmpZckRSSFVXOWJz?=
+ =?utf-8?B?VmZGNTlmYmdLSFp1WlpScDA3bnNDbVVTNmJ2OFh5WUpCVUV6am43ejBmc090?=
+ =?utf-8?B?SmxHTkNvdldVRXh1d1p1US9DS1ErS0Y1bDdJd29WV1pndWlMZDNlWE1yQmgz?=
+ =?utf-8?B?ZXc3cjZTRUZ6T2lRby9kanlQdkNNVkpTaFdIbG04QTJXa3o2UVIxYWYyWGVF?=
+ =?utf-8?B?SENtTjdNbllBTnZVQ2M3M29SVFFxVDNkZjJIUWtpRDJHRTh0V2xwa3YydWlC?=
+ =?utf-8?B?anlITS9kQjJDakNNSDZHSFFWZllIdFpCMFpsUUc3TFBSejBXNkhpL2ZpWGVO?=
+ =?utf-8?B?akhjUkM1eVRURE5tM2Y5b0VWMU5ORDRSSHVOU2o3WEFjVUordmQ0U2ZhWWNs?=
+ =?utf-8?B?eFBJNjlQYWpYRlRWMlNycjVKTlAxeEhvSHgybVd5ejhqMHorYWNXaFZaK0do?=
+ =?utf-8?B?cEZ2OWFTTDIzZnUzZXNzdlpxZjVtVlp5aDJURUZ4SWY0dlhpY2M0aHpHUFFv?=
+ =?utf-8?Q?kM2pFXbqUCNZMeJ7tta/2IA=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8450.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(1800799024)(52116014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RC85Wm1uWHYxWU96bTBIbWV0eER4b3E3OVFTMFV1WXFZZTJsN0o3SENrME1p?=
+ =?utf-8?B?VGQ4RVVJOVBSdU0za1N5clJBSER1WjByekkvTHRHdFF2QjVabEppbHFMRmFw?=
+ =?utf-8?B?NUh1b2hVN1RENlFFUzFMZE9yNTBuQ2ZqUFVNR3c0S09Yc0FFVzRpQWpyWndr?=
+ =?utf-8?B?TzN4VE1taVZoRklndUkwTHUrZ2J4Nm03Z1NubGx2bVFDK2d6MlZSUTc4VE9S?=
+ =?utf-8?B?eGJzTy9VQnlJME0waXpBY3B0TVJqZExMUTVQN2JKckVjTmVXTTFJckhQbFRr?=
+ =?utf-8?B?QUJINTNxMGttZUdEbEZHditUV2JtY0dsUW9XSWVwUFZQUVpIbndwVERHdndH?=
+ =?utf-8?B?WFg2VFBJZ21GSkR1MnF2NDVqQWw3OEc2ZlNhV1BubHA4eVp4c2ErTHNPaGxy?=
+ =?utf-8?B?T0VrSGxSeHcwTEwveWp5MlQ2aEFlYTlDN2xVSTBmMXd5dzZGTDAvWXdVZFpS?=
+ =?utf-8?B?Wk5ub2UrR3pYTXVuTXQwaGVTSDl3U0JMZVFIaEdBQSszdTB1ZGFQckF5L1ND?=
+ =?utf-8?B?cCtWbVdEMTZ3cWVURGE0TkJzS0lleGNCMGsvWlR6ZG4zN2lXdDM3S0tSdjZu?=
+ =?utf-8?B?S1J0L1h5UjVYYjg2VmcxSXI3VnB0MXp0ZUt4TjBseGFYanE0MzFQVjd5Szln?=
+ =?utf-8?B?dE4yU0NKVUwwelJSMXcvdXRmdG43aVJpOFRWWXlSbVBoV1lmbWExTTRwbmsx?=
+ =?utf-8?B?QVdVaXRmU1FrVUw5T2wxOVdMcE5yd3FkRFJEMVJHeGEyUlQ0V0pHN21kR0Nv?=
+ =?utf-8?B?S2pBMzJBdGR3YndkZ2xONnNCb1R5dEdNNmZFdkZOUW1iMmxZU3VMQTBMYnhs?=
+ =?utf-8?B?U3BQWSs3Y2JTY21GLzBhRWsvVmtvME9CVlpQdkRuUDJMeGo5ekpnWU9BaGQ2?=
+ =?utf-8?B?eW5kSjQweFlvby9aNGZzNkJCSXVEMWNVUjZkaWR3ZDRHOHZ1Z1J3c0dzbElw?=
+ =?utf-8?B?anRHM0tlWXNUbHlINVZkVlJKWUZQKy9rbjBuN2lyYXdpRnpsU3o4a2NnUTNN?=
+ =?utf-8?B?eTdDYUZGa3ZGdU9pdHVhM3MrejFYSGtiS2VadmFweFhXUy9OektaT1NQVHAr?=
+ =?utf-8?B?MVNCcVRMRHM3VFA3Sk1GZ1hObEJlTk1WNVpLWjBpOUM5OHVnZThkSDRyL2Ji?=
+ =?utf-8?B?aEhoUTNNbzZobko4SmYzbUlYL0s0dnZNeThOMzBOaE4yUis3SE1DVWJyZlFj?=
+ =?utf-8?B?Qjc4TlI5YW1KMS9makI4UmNhQUVWMXYvdEpVT0RORWRvNW15cWFMZjJYSXNG?=
+ =?utf-8?B?aGhkaCtzSzM5NzhrSXZFRlFIN3FZbFkvck81RVc5Qzd6UTdHRGpKREJHS0RZ?=
+ =?utf-8?B?SmsxbmZSUnhiMm5jeC9CeERkaGlmc3VTaFNsaS8yaUpOY0xXY3pRTDNaVXVy?=
+ =?utf-8?B?bHBQQlpvaDBzQXBUcFluYUNiVEVtejk2TGpvc1VOaVRNVjhLTVBkblNUUDl5?=
+ =?utf-8?B?STdCZi9xNTNTZytDdXljSy9UbUxUWFgxYldXVFgrbmM5MEJsRWJGRjdqbVJL?=
+ =?utf-8?B?NzRxVTVMYVJoZXExN3RzZklaUjJZc2tHSjNldEdHYlAzZUN4eWUwVHpvOWdL?=
+ =?utf-8?B?eGtJWVVML2s0SjFGbE9MWU1yemZQbW9qcmgwUnpEV1RkaTEzU3QrZlRTQnQx?=
+ =?utf-8?B?NE5xMm1MekNrdEo3RjVoSkFrOG9HV1E5ZDhUMjFQeTdxMytuM0JiRllncUcy?=
+ =?utf-8?B?MzViU3dIWkJkSHpDdHhMcGVUdHEwSkh0cXNmekFqNkJDV1BXMmhQMm1LZGRl?=
+ =?utf-8?B?UDlOOVl4Tko4enl4RE9RZjYzN3lzTGVJaEpnYWw4S2pZYW8xbmw1VVVLQjJy?=
+ =?utf-8?B?MTdnZjlqdkE5ZEZ6RVNxM0V0SEdhb0lZVGFacHNydmVmdDNkaHFtZ1B2Z1lU?=
+ =?utf-8?B?NERYdTd1SkNTMmxhLzh0TUFpNEFNQmNmbmFhTWJ0OWVMRlpkN2NwU1VFclZ2?=
+ =?utf-8?B?OXpYV29zdnJrUVIrNUpTU21EVzhxa3NOVWFTNzh3WVAwK2ZHL2dIQWJaL0pT?=
+ =?utf-8?B?eHdqeUhtNUk3ODM4S0d4YVpzZklQTTVZRE45QURjSnhnc29LTXMycXgvQjZE?=
+ =?utf-8?B?dG9qZFZ3SGpBdGVvK0lmc2YvYjR6Q0Q4Sm1hZXc3WGF2ZytSK0NSZzNQUWdE?=
+ =?utf-8?B?bElFZzlGRDMwSkV5QnZFeG91c2JMejJ5YXJESm5BVkFzaTFMNlBqRHV6V2Jz?=
+ =?utf-8?B?UXpldmRZeE0zTDFyTHE2U1dPdzUra0FHekFqelJwQ01uYjkvVFhHbklBRS9Z?=
+ =?utf-8?B?cG01YnpiNTBTdFZTb3UyT24zUzlrbDgycC83eVgyMEY0N1g5SXhQUEtSWEZX?=
+ =?utf-8?B?WGZ3Y2EwYXNMY0s2N01QME82Tnk0eVVCeTltY2d4RzJEcWY5Slkzdz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 661d7c0f-a954-4806-b961-08de5e7f8e90
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8450.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2026 15:11:48.1136
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HkpGSFAcg6bQv9r3e6XbJ0hZToE84MO/WhcYzLnmrChzgal+/qnj8X7oek+WgJ89GDS5DQEFSZIazNEOFAWhcw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8100
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260128_071155_922261_5124D2F3 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,42 +190,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Peng Fan <peng.fan@nxp.com>
 
-The following changes since commit df7c440c904f754d8c94863a910d99e7ed8bbda9:
+Per errata:
+ERR050531: VPU_NOC power down handshake may hang during VC8000E/VPUMIX
+power up/down cycling.
+Description: VC8000E reset de-assertion edge and AXI clock may have a
+timing issue.
+Workaround: Set bit2 (vc8000e_clk_en) of BLK_CLK_EN_CSR to 0 to gate off
+both AXI clock and VC8000E clock sent to VC8000E and AXI clock sent to
+VPU_NOC m_v_2 interface during VC8000E power up(VC8000E reset is
+de-asserted by HW)
 
-  ARM: dts: qcom: msm8974: Start using rpmpd for power domains (2026-01-19 09:40:32 -0600)
+Add a bool variable is_errata_err050531 in
+'struct imx8m_blk_ctrl_domain_data' to represent whether the workaround
+is needed. If is_errata_err050531 is true, first clear the clk before
+powering up gpc, then enable the clk after powering up gpc.
 
-are available in the Git repository at:
+While at here, using imx8mm_vpu_power_notifier() is wrong, as it ungates
+the VPU clocks to provide the ADB clock, which is necessary on i.MX8MM,
+but on i.MX8MP there is a separate gate (bit 3) for the NoC. So add
+imx8mp_vpu_power_notifier() for i.MX8MP.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm32-for-6.20-2
+Fixes: a1a5f15f7f6cb ("soc: imx: imx8m-blk-ctrl: add i.MX8MP VPU blk ctrl")
+Cc: stable@vger.kernel.org
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+ drivers/pmdomain/imx/imx8m-blk-ctrl.c | 37 +++++++++++++++++++++++++++++++++--
+ 1 file changed, 35 insertions(+), 2 deletions(-)
 
-for you to fetch changes up to 4506cdf52a806be0d9e1b1c0b6c9bc2909ca8b1c:
+diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+index 74bf4936991d7c36346797d8b646dad40085fc2d..5b26b7c2c43172817d5e407a7d85eb6c5400d5a8 100644
+--- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
++++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+@@ -54,6 +54,7 @@ struct imx8m_blk_ctrl_domain_data {
+ 	 * register.
+ 	 */
+ 	u32 mipi_phy_rst_mask;
++	bool is_errata_err050531;
+ };
+ 
+ #define DOMAIN_MAX_CLKS 4
+@@ -108,7 +109,11 @@ static int imx8m_blk_ctrl_power_on(struct generic_pm_domain *genpd)
+ 		dev_err(bc->dev, "failed to enable clocks\n");
+ 		goto bus_put;
+ 	}
+-	regmap_set_bits(bc->regmap, BLK_CLK_EN, data->clk_mask);
++
++	if (data->is_errata_err050531)
++		regmap_clear_bits(bc->regmap, BLK_CLK_EN, data->clk_mask);
++	else
++		regmap_set_bits(bc->regmap, BLK_CLK_EN, data->clk_mask);
+ 
+ 	/* power up upstream GPC domain */
+ 	ret = pm_runtime_get_sync(domain->power_dev);
+@@ -117,6 +122,9 @@ static int imx8m_blk_ctrl_power_on(struct generic_pm_domain *genpd)
+ 		goto clk_disable;
+ 	}
+ 
++	if (data->is_errata_err050531)
++		regmap_set_bits(bc->regmap, BLK_CLK_EN, data->clk_mask);
++
+ 	/* wait for reset to propagate */
+ 	udelay(5);
+ 
+@@ -514,9 +522,34 @@ static const struct imx8m_blk_ctrl_domain_data imx8mp_vpu_blk_ctl_domain_data[]
+ 	},
+ };
+ 
++static int imx8mp_vpu_power_notifier(struct notifier_block *nb,
++				     unsigned long action, void *data)
++{
++	struct imx8m_blk_ctrl *bc = container_of(nb, struct imx8m_blk_ctrl,
++						 power_nb);
++
++	if (action == GENPD_NOTIFY_ON) {
++		/*
++		 * On power up we have no software backchannel to the GPC to
++		 * wait for the ADB handshake to happen, so we just delay for a
++		 * bit. On power down the GPC driver waits for the handshake.
++		 */
++
++		udelay(5);
++
++		/* set "fuse" bits to enable the VPUs */
++		regmap_set_bits(bc->regmap, 0x8, 0xffffffff);
++		regmap_set_bits(bc->regmap, 0xc, 0xffffffff);
++		regmap_set_bits(bc->regmap, 0x10, 0xffffffff);
++		regmap_set_bits(bc->regmap, 0x14, 0xffffffff);
++	}
++
++	return NOTIFY_OK;
++}
++
+ static const struct imx8m_blk_ctrl_data imx8mp_vpu_blk_ctl_dev_data = {
+ 	.max_reg = 0x18,
+-	.power_notifier_fn = imx8mm_vpu_power_notifier,
++	.power_notifier_fn = imx8mp_vpu_power_notifier,
+ 	.domains = imx8mp_vpu_blk_ctl_domain_data,
+ 	.num_domains = ARRAY_SIZE(imx8mp_vpu_blk_ctl_domain_data),
+ };
 
-  ARM: dts: qcom: switch to RPMPD_* indices (2026-01-21 15:05:03 -0600)
+---
+base-commit: 4f938c7d3b25d87b356af4106c2682caf8c835a2
+change-id: 20260128-imx8mp-vc8000e-pm-4278e6d48b54
 
-----------------------------------------------------------------
-More Qualcomm Arm32 DeviceTree updated for v6.20
+Best regards,
+-- 
+Peng Fan <peng.fan@nxp.com>
 
-MSM8226 is switched to generic RPMPD_ indices, to allow dropping the
-duplicate platform-specific constants.
-
-On MSM8960 two additional GSBIs and I2C controllers are introduced.
-Accelerometer, Magnetometer, NFC and Light/Proximity sensors are then
-enabled on the Samsung Galaxy Express.
-
-----------------------------------------------------------------
-Dmitry Baryshkov (1):
-      ARM: dts: qcom: switch to RPMPD_* indices
-
-Rudraksha Gupta (5):
-      ARM: dts: qcom: msm8960: Add GSBI2 & GSBI7
-      ARM: dts: qcom: msm8960: expressatt: Add Light/Proximity Sensor
-      ARM: dts: qcom: msm8960: expressatt: Add NFC
-      ARM: dts: qcom: msm8960: expressatt: Add Magnetometer
-      ARM: dts: qcom: msm8960: expressatt: Add Accelerometer
-
- arch/arm/boot/dts/qcom/qcom-msm8226.dtsi           |   4 +-
- .../dts/qcom/qcom-msm8960-samsung-expressatt.dts   | 109 +++++++++++++++++++++
- arch/arm/boot/dts/qcom/qcom-msm8960.dtsi           |  96 ++++++++++++++++++
- 3 files changed, 207 insertions(+), 2 deletions(-)
 
