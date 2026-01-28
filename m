@@ -4,148 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 020BCD35690
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:36:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFF0D35697
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qgx/OZovnYaqJbXU8yLMLwe/etamtsRy8FltMyp7ndQ=; b=kVgR440tqGQlgprZdr+Ow73t6G
-	EJv8zxzPIG5/8uatVETXFhXHBy/EaVp9Veg0yYQgSXipjcB5AXz6tXXQCYttXwQaMDzMkirAfTOOj
-	VHpM2Eq28GUYj+ceDVo/Hh6Z0iiF3Yl1PEhlImxwipyb/X5b8K29flci8RqOyKjZtdxvGV3F9B1d8
-	dADKLHSQelqQTWMI5DXOegx3UVm7CAVu8y9lcmlQTE5TQjiMKtGSP3WHsJ9RQmaz2QdLtPOmUmhkf
-	Tlev/nZA5typOGuBtIxXHT0zW0lvsDJLt41lg14NbJO7/HxpUZwiZOGpgq7BhPsiP15IxVeAde8ED
-	14SE6UQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DhF98Nun2om+lYN0JL6mwSJXbtKFe/yYyeyl1TtEz3I=; b=paEVTpjABYb+fGH3hFNj+lHb3p
+	NHTtpu74pg9HNXLcz5ZyCuRi656wNcghXZQjUPBqIQiHzhBRydCfF2hGe9A9H/f/vTvAnfHsrv0cw
+	wWxdJd/lxmYBBJcgY8qwIhZKT3CJQ7RHeT2u8IAfEK8Jd2m84IJTOxdmmROrl5nNcKSa4qdfz+qaw
+	4tjHa8gFePmlE1pLLBuztv+YVi0qNilCABuvzGNWLi9ZQuvefSVyfIG0trxVjIh2xCWWVulbhnJ8x
+	lHUaQXk4b+7EgW+oyMcnZETDquQYEeONW4DP+UjTljtYk0IJ9M0KclsYzJ+mt5A6Uu6c+PwGprNy9
+	7fcyPnCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1yS-0000000Fl9r-3WRp;
-	Wed, 28 Jan 2026 09:36:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vl1yc-0000000FlES-2r9s;
+	Wed, 28 Jan 2026 09:36:42 +0000
+Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1yR-0000000Fl8y-0IBD
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 28 Jan 2026 09:36:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=qgx/OZovnYaqJbXU8yLMLwe/etamtsRy8FltMyp7ndQ=; b=lWYWid/qQteMTYJD3tPkBHOtl0
-	FkoM79UVlDFNiEf4pmJdD5DWM5J70IUZHNPU1FDDrOVy0gbTsEeQQJUn4bL/Eq6BiWU2rATP95aQA
-	8MEAea5+oOzxak34at3fIofiYTmpoxsEPfH/Lx/wl3l/aqJwBqGVqmyXb+CZYfNSL4pdt+HXGMwA1
-	ofw+jOLIkntIN/dEs0WDJ8x3/3KCuaeruuzfN8nCsebThOgXPo8WE6uf+Ueof9206AW8iOu+XReF2
-	sccGbgpGSrmxqYlrpB0f6uD/9ufS+Jgd+a+1ZAlH/KH1qMNPpNfcTn0iGujn/4rlx187sgMjKjQe+
-	YwWzbE5Q==;
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1yN-00000008EzH-0xYU
+	id 1vl1yW-0000000FlAz-2Sdc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 09:36:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j1IpCa30cKnAgBnOB5Q93WFLso/JXLPxUs30hBDnjxcM6g2F+soCoGEoLXFfmjfV5nYNf26OtCX4hvqUImEqQZ9Qp2F5a/I1W9Cva2D4ZIm+gof5sKKyVPa+77Vm8PNif9jwyMRmjXnxhjY2keVZIfu7bDyb52hagZv3eqcERqk0jUEeMwKWBYYNwWjJjRzvAts5RbA7KmB0hudkUCrTgJEJO9EKciN+g0Mf6dee/+W10UVvjKsvFIqKHZaRJV8xnR8WwW5MID4a0Y/SfTktn1KmAN8Fv3aeOmZxTan8+jyxQzSKRpztVvc/vQRRnfH3n8ZfNv+/GHQWtdInPLCuAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qgx/OZovnYaqJbXU8yLMLwe/etamtsRy8FltMyp7ndQ=;
- b=ne5xJLpWu/jrbYIx4eGLbYOlTSr/wjya9UlhpKuUA6gwb0fyHvv7PH62PDgvJ4L7N+m+BHfV5LLPqRk0l0Xl5q6XzzL4YC6w0sSTFfIJy1q21OQiLRQjIBod3yIGnKKvzc8+8Z1AZzALPqskkzzydGtStA+7W05sRLhc8dRn69BQbSQnxDtrqBddIIR0JwLWpz1ru/zOuYMh27Bw9BJt0jAJdDZmLp5zJjKU3ioILy6RLSC+cUvkhZYo9oNkx+YKt2xHsk+YvRXzkVAJt0ZWvVBcAnmn4TcozNcsNXiuaa6Y9d++iHLfqDMXoZPdVuwFMjlH/dUgICHatoBBLeNrDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI2PR02CA0020.apcprd02.prod.outlook.com (2603:1096:4:195::7) by
- KL1PR06MB6428.apcprd06.prod.outlook.com (2603:1096:820:f6::11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9542.15; Wed, 28 Jan 2026 09:36:14 +0000
-Received: from SG2PEPF000B66CA.apcprd03.prod.outlook.com
- (2603:1096:4:195:cafe::cd) by SI2PR02CA0020.outlook.office365.com
- (2603:1096:4:195::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.7 via Frontend Transport; Wed,
- 28 Jan 2026 09:36:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66CA.mail.protection.outlook.com (10.167.240.22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.3 via Frontend Transport; Wed, 28 Jan 2026 09:36:12 +0000
-Received: from localhost.localdomain (unknown [172.16.64.196])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 269BB4350715;
-	Wed, 28 Jan 2026 17:36:12 +0800 (CST)
-From: Gary Yang <gary.yang@cixtech.com>
-To: lee@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	p.zabel@pengutronix.de,
-	peter.chen@cixtech.com
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	cix-kernel-upstream@cixtech.com,
-	Gary Yang <gary.yang@cixtech.com>
-Subject: [PATCH v4 3/3] arm64: dts: cix: add support for cix sky1 resets
-Date: Wed, 28 Jan 2026 17:36:11 +0800
-Message-ID: <20260128093611.1932770-4-gary.yang@cixtech.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20260128093611.1932770-1-gary.yang@cixtech.com>
-References: <20260128093611.1932770-1-gary.yang@cixtech.com>
+	Wed, 28 Jan 2026 09:36:37 +0000
+Received: by mail-wr1-x442.google.com with SMTP id ffacd0b85a97d-43284ed32a0so3925807f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 01:36:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1769592994; x=1770197794; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=DhF98Nun2om+lYN0JL6mwSJXbtKFe/yYyeyl1TtEz3I=;
+        b=KQvZNemcrKVpJ6XpGsCueQZnE8IeIKDE7Ft93c+7pKHMTADvucgP8oyNg6EQJ8UOLA
+         TQm5jpAAe2Zp0jc+VXkbtkfcsI3WOcj8yKtKVJc9401IIJMV0gNQ+ksGPTst+YQ4OWKc
+         zGXGioCYGCW4t4rwgf+hDC7sL8LzVpdjJVwt9POW1a+b4pHGVe9UA17V00ieNQesYWIg
+         UDwIAFhw1XAIsDd/g3QSEABrFAa0aOjlgtonAi1Iii2ydf95giB+XNCQYVqewuaO1Uug
+         msy6VVdvzqJj4ZlOj15jMn7loSMDeHosTU110G54FS4Yun336ml6spsvtm4ZYJ232IMH
+         yXPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769592994; x=1770197794;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DhF98Nun2om+lYN0JL6mwSJXbtKFe/yYyeyl1TtEz3I=;
+        b=npuXGgexVDEFZSuN8/Dzez/QcTNB0ePELNkaDrWupiJxQeT4BU3krA97Plj3EJv2kl
+         zlxDMoZPkra3nXvZbSBJAVotazD92r7wYmqyTV83uR1mSCS/n1HBNK4VkqYOUZCtTUg4
+         AvwL7rAUr6HdXIbzbLOECfcM7eYSOS6dc5U2/5z4viGAUdMRKqxZG50J6fQ/JPJevUsa
+         pGxxrmRaxNipAySMpMpYuOicNyK33Cpdi+K85KmqqanBfUhYSmhLlHubA84hOHX3gY+6
+         EssF8Rot7u0QUYWq6hdV5ESNpmu4B4ij9jZ8ptUD9Zflu8gNoDJOiWbS21QCeB9I2Jvz
+         nA3A==
+X-Forwarded-Encrypted: i=1; AJvYcCUHW5qlVK9j08nUrC8MEgSLKxIX1wWdBBaNxHG3Kppa0Qv8U+rtSNiXlYtTrD72Sv7pFXW9Bb3TKzwVdG0xqD9/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtzADzHXH/FpRqVGDpXCiOFgBW9GbyfKgAVjGrNvqURMoRIQhN
+	/3oSoSMll3tvTua/eAlLJg9wSLNPhwEtilen69A64mF7g94OV826DKIkBXoRi8nojXk=
+X-Gm-Gg: AZuq6aKQsNneU/YMlz756qArvDqNuPMwqOMDakS8oePz2eYT5WNJHIWhtq2NOrIwtpa
+	JNP6AgGTiwkIkTrplxDHURDun3axIpaTe1izEKRokMjNVgYbX/Op014tJti+vgBbzwgYLNsVfHZ
+	sEWddsl0Qepc1/MBI+EKcaPpp5CTwezI2Arm0NzKyxN5bXPzGHrIsZnvwz87uvFAt5SHeRGoeaJ
+	XbEA8BmAjONLX0uG8DIfsE2QhEF3mVfVclIMp50Gh1RAwWGmAvKodgys+B07kCXJwgPlrFLeLlm
+	grCp5lq8+m6htUQShFWEXvonYLlyJ+mjfNI+fD35EK/S0TJLQr5Cjvd3Y62esad2stjYFD+IQHE
+	IpRymKetUQoSfGaRjXMmBZ51w7b6+x2Z0Y0aqIXuV27EQBA/wti4aH02xI1HjCXXXcyxrdDRvbb
+	/RWJQvdtbGgelPkeQqpdb4FGUeDb4=
+X-Received: by 2002:a5d:5f43:0:b0:435:907f:e439 with SMTP id ffacd0b85a97d-435dd05c4bamr6010824f8f.18.1769592994091;
+        Wed, 28 Jan 2026 01:36:34 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e10e4762sm5489795f8f.6.2026.01.28.01.36.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 28 Jan 2026 01:36:33 -0800 (PST)
+Message-ID: <40988c57-ee6f-4693-afe4-2615dc43f395@linaro.org>
+Date: Wed, 28 Jan 2026 09:36:32 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] perf vendor events arm64: Add Tegra410 Olympus PMU events
+To: Ian Rogers <irogers@google.com>, Besar Wicaksono <bwicaksono@nvidia.com>
+Cc: john.g.garry@oracle.com, will@kernel.org, mike.leach@linaro.org,
+ leo.yan@linux.dev, mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
+ jolsa@kernel.org, adrian.hunter@intel.com, peterz@infradead.org,
+ mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
+ linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ tmakin@nvidia.com, vsethi@nvidia.com, rwiley@nvidia.com, skelley@nvidia.com,
+ ywan@nvidia.com, treding@nvidia.com, jonathanh@nvidia.com, mochs@nvidia.com
+References: <20260127225909.3296202-1-bwicaksono@nvidia.com>
+ <CAP-5=fUxhbR1xs1f9mrkcUXZZNLrVqDG0ebhwW--WtgVRnNxNw@mail.gmail.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <CAP-5=fUxhbR1xs1f9mrkcUXZZNLrVqDG0ebhwW--WtgVRnNxNw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CA:EE_|KL1PR06MB6428:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: e622345c-7274-49cb-eb3c-08de5e50ad28
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bBe0tCbngmeuB59O2SmhzhuJ/coTqjU9eT+2yZo9u7BdaL3YBvsNX4sWSIKg?=
- =?us-ascii?Q?EE8v0kOXtmXkU7zavnduksCuSq/o6NibCP+bBwU2AdaswTWJshg0ViGAOVt8?=
- =?us-ascii?Q?9uni38GFvta+QU3D1BVju1XEcINnBbnU2eSik0PnAvfC5pEezQ13jI+LHiuQ?=
- =?us-ascii?Q?PvdSvc73X4RW2OsvX3axY9auUT/A++eVyzyzNfL8kNT9Gu3jz9yVJIrQpUEC?=
- =?us-ascii?Q?JOejPGzypjXRW/EJFMKb3Vz2QSJCk4MOScEXN9X2gSuTj9BDMwixFWUN1rdE?=
- =?us-ascii?Q?WvF2tNCjls4cz1r6Dh5mcm8IKGhHRLoJtYfh5+EMgKTomEJR7+jDJ0j0sUcg?=
- =?us-ascii?Q?neLxxSOIl5Q/txMzZpyS3EMxSX0YDikDk9c8tyxschFP9L95CFg8azm0E+dG?=
- =?us-ascii?Q?e8f/McduXxQBwppWvllvtW9hMtUBFiwISUiw4kSvlii/nhSmUBiTlKk6CaB/?=
- =?us-ascii?Q?e5dV5rwz5VYLSbWf735JA1Cm5VvMvrnaVW/fG08eSjjzuuiGzAS5PfqHP5Oh?=
- =?us-ascii?Q?WiH65OK+VTJBqtNYeM0kJhXUHlQa6jg0oQVVrHG/7fY8vG1HXTwNCqeTN0bU?=
- =?us-ascii?Q?zFjRUzAlp5Ej4VKe1HFW3LM9EjABDg7Q6fnfTbp3ckwak30vJ68R58J9m2BT?=
- =?us-ascii?Q?V3TvFvUEwpTCxLxCMjWAWxpoHuTSYzIe9AD5xbKaSnd0y5ggt7ZgZvIhnERe?=
- =?us-ascii?Q?3bXyQsHdIWkAns0/2CtDU2cbxph3HyuKyqvX/yadWp+oNnUAJLDWPTcnEJ7v?=
- =?us-ascii?Q?WZGUB/8QBxTaCcGFDr+xvtzJ/SwWlhzv+YfooCRsX/4xKrvBuwpxOUxG+J5e?=
- =?us-ascii?Q?6+rRBO8rkUIw9141yGMKNy2x+9to5vDqM9DNL0OOj2EvxRetWDvsavKfuqKY?=
- =?us-ascii?Q?SQkvNhGbvDtFoKgqH8024mmX357g6LWDK4EqU8v0+itFNW0dpH0inLdkoRvU?=
- =?us-ascii?Q?hi8uRd2zu9pZ7qliUse6ZtypI39d5ho+8/Nrnm+gGyEHnVe10LC1MuJQpBaS?=
- =?us-ascii?Q?6kFXk6GpRwf9lYjgcbwpEQDBvsNoTkwN2qvmGDADy0d6eW9T3QtGrnwgzuxd?=
- =?us-ascii?Q?w5KrTp8UgY4chfQYMMXgwTi3aE//ZdlgaRxkmpQ9CKoHnOOMZXbW/9sCkljC?=
- =?us-ascii?Q?1HAhvNwKDMVg6l+SGBerKEzJPWJt/FgqQwb/tQq2Ln2tW0J//s8b/DctQ/7D?=
- =?us-ascii?Q?WinEWAGhYAWAsrk4aQFJ7h1axaNhcW+wBE353UnI/XNA3vMhUSvNO2FcQLzN?=
- =?us-ascii?Q?lt7fbUc/KCFhetxheafYDuosjMThyMKIMJwIk6LwafPPMvXm/XONANfPFafl?=
- =?us-ascii?Q?d69PfI9rJaqzw7U/07RSzwQiQ+7SK4tjEuCNiIK/vd4lSZBLZhMNBFYJot/f?=
- =?us-ascii?Q?qYBJg7QbDwKS89iXTASQkImfx2J2CTBXVzDTGYX9WMlpDAOAxB5tLv6Dbftt?=
- =?us-ascii?Q?CJfWmz0n4lNJDS8MVVAarL4OKvwGuDKOlb/J1yAt83DK1cC0PiayjG0ex6yt?=
- =?us-ascii?Q?jXqHrCpaPMSwBGAjZWNhcunzdSvkUwdci9eIIIpj4AIB6zNQ9jVVZU9HYg7U?=
- =?us-ascii?Q?oayuGyguHcsYYE1J+5TNUAVOr4/ZXsPGe3R9KC/HYsLXyyhrxTKgz9Pn4bNe?=
- =?us-ascii?Q?BQAWjnXXWAgP3C5RHAMel8PY0Ld4mKq9sO/rcyyKiF9L3efhQucIwMFMUbUP?=
- =?us-ascii?Q?VvnWNQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(1800799024);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2026 09:36:12.6861
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e622345c-7274-49cb-eb3c-08de5e50ad28
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CA.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB6428
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_093627_523768_ED138EB2 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20260128_013636_676657_A42E1351 
+X-CRM114-Status: GOOD (  23.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,58 +108,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are two reset conctrollers on Cix Sky1 Soc.
-One is located in S0 domain, and the other is located
-in S0 and S5 domain.
 
-Signed-off-by: Gary Yang <gary.yang@cixtech.com>
-Link: https://lore.kernel.org/r/20251124063235.952136-4-gary.yang@cixtech.com
-Signed-off-by: Peter Chen <peter.chen@cixtech.com>
----
- arch/arm64/boot/dts/cix/sky1.dtsi | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
-index 64b76905cbff..45c008bf580a 100644
---- a/arch/arm64/boot/dts/cix/sky1.dtsi
-+++ b/arch/arm64/boot/dts/cix/sky1.dtsi
-@@ -348,6 +348,17 @@ i3c1: i3c@4100000 {
- 			status = "disabled";
- 		};
- 
-+		syscon: syscon@4160000 {
-+			compatible = "cix,sky1-system-controller", "syscon",
-+				   "simple-mfd";
-+			reg = <0x0 0x4160000 0x0 0x100>;
-+
-+			src_fch: reset-controller {
-+				compatible = "cix,sky1-rst-fch";
-+				#reset-cells = <1>;
-+			};
-+		};
-+
- 		iomuxc: pinctrl@4170000 {
- 			compatible = "cix,sky1-pinctrl";
- 			reg = <0x0 0x04170000 0x0 0x1000>;
-@@ -568,6 +579,17 @@ ppi_partition1: interrupt-partition-1 {
- 			};
- 		};
- 
-+		s5_syscon: s5-syscon@16000000 {
-+			compatible = "cix,sky1-s5-system-controller", "syscon",
-+				   "simple-mfd";
-+			reg = <0x0 0x16000000 0x0 0x1000>;
-+
-+			src: reset-controller {
-+				compatible = "cix,sky1-rst";
-+				#reset-cells = <1>;
-+			};
-+		};
-+
- 		iomuxc_s5: pinctrl@16007000 {
- 			compatible = "cix,sky1-pinctrl-s5";
- 			reg = <0x0 0x16007000 0x0 0x1000>;
--- 
-2.49.0
+On 28/01/2026 8:03 am, Ian Rogers wrote:
+> On Tue, Jan 27, 2026 at 3:00 PM Besar Wicaksono <bwicaksono@nvidia.com> wrote:
+>>
+>> Add JSON files for NVIDIA Tegra410 Olympus core PMU events.
+>> Also updated the common-and-microarch.json.
+>>
+>> Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
+>> ---
+>>   .../arch/arm64/common-and-microarch.json      |  90 +++
+>>   tools/perf/pmu-events/arch/arm64/mapfile.csv  |   1 +
+>>   .../arch/arm64/nvidia/t410/branch.json        |  45 ++
+>>   .../arch/arm64/nvidia/t410/brbe.json          |   6 +
+>>   .../arch/arm64/nvidia/t410/bus.json           |  48 ++
+>>   .../arch/arm64/nvidia/t410/exception.json     |  62 ++
+>>   .../arch/arm64/nvidia/t410/fp_operation.json  |  78 ++
+>>   .../arch/arm64/nvidia/t410/general.json       |  15 +
+>>   .../arch/arm64/nvidia/t410/l1d_cache.json     | 122 +++
+>>   .../arch/arm64/nvidia/t410/l1i_cache.json     | 114 +++
+>>   .../arch/arm64/nvidia/t410/l2d_cache.json     | 134 ++++
+>>   .../arch/arm64/nvidia/t410/ll_cache.json      | 107 +++
+>>   .../arch/arm64/nvidia/t410/memory.json        |  46 ++
+>>   .../arch/arm64/nvidia/t410/metrics.json       | 722 ++++++++++++++++++
+>>   .../arch/arm64/nvidia/t410/misc.json          | 646 ++++++++++++++++
+>>   .../arch/arm64/nvidia/t410/retired.json       |  94 +++
+>>   .../arch/arm64/nvidia/t410/spe.json           |  42 +
+>>   .../arm64/nvidia/t410/spec_operation.json     | 230 ++++++
+>>   .../arch/arm64/nvidia/t410/stall.json         | 145 ++++
+>>   .../arch/arm64/nvidia/t410/tlb.json           | 158 ++++
+>>   20 files changed, 2905 insertions(+)
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/branch.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/brbe.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/bus.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/exception.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/fp_operation.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/general.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/l1d_cache.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/l1i_cache.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/l2d_cache.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/ll_cache.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/memory.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/metrics.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/misc.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/retired.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/spe.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/spec_operation.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/stall.json
+>>   create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/tlb.json
+>>
+>> diff --git a/tools/perf/pmu-events/arch/arm64/common-and-microarch.json b/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
+>> index 468cb085d879..6af15776ff17 100644
+>> --- a/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
+>> +++ b/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
+>> @@ -179,6 +179,11 @@
+>>           "EventName": "BUS_CYCLES",
+>>           "BriefDescription": "Bus cycle"
+>>       },
+>> +    {
+>> +        "EventCode": "0x001E",
+>> +        "EventName": "CHAIN",
+>> +        "BriefDescription": "Chain a pair of event counters."
+>> +    },
+> 
+> Cool stuff :-)
+> 
+> For wider counters AMD does something similar, but should this be an
+> implementation detail rather than an exposed event? How does it
+> operate as an event?
+> 
+
+CHAIN should be excluded from the json, it's used internally by the 
+driver when you want 64 bit counters. Userspace can't use it because it 
+can't control where counters are placed to make sure they're adjacent.
+
+> [snip]
+>> diff --git a/tools/perf/pmu-events/arch/arm64/mapfile.csv b/tools/perf/pmu-events/arch/arm64/mapfile.csv
+>> index bb3fa8a33496..7f0eaa702048 100644
+>> --- a/tools/perf/pmu-events/arch/arm64/mapfile.csv
+>> +++ b/tools/perf/pmu-events/arch/arm64/mapfile.csv
+>> @@ -46,3 +46,4 @@
+>>   0x00000000500f0000,v1,ampere/emag,core
+>>   0x00000000c00fac30,v1,ampere/ampereone,core
+>>   0x00000000c00fac40,v1,ampere/ampereonex,core
+>> +0x000000004e0f0100,v1,nvidia/t410,core
+>> diff --git a/tools/perf/pmu-events/arch/arm64/nvidia/t410/branch.json b/tools/perf/pmu-events/arch/arm64/nvidia/t410/branch.json
+>> new file mode 100644
+>> index 000000000000..532bc59dc573
+>> --- /dev/null
+>> +++ b/tools/perf/pmu-events/arch/arm64/nvidia/t410/branch.json
+>> @@ -0,0 +1,45 @@
+>> +[
+>> +    {
+>> +        "ArchStdEvent": "BR_MIS_PRED",
+>> +        "PublicDescription": "The Event counts Branches which are speculatively executed and mis-predicted."
+> 
+> nit: The capitalization on Event and Branches, as well as other words,
+> is a little unusual.
+> 
+
+If there's nothing specific to this CPU then the public description 
+could be left out entierly. The common strings already say the same 
+thing as this:
+
+     {
+         "PublicDescription": "Mispredicted or not predicted branch
+                               speculatively executed",
+         "EventCode": "0x10",
+         "EventName": "BR_MIS_PRED",
+         "BriefDescription": "Mispredicted or not predicted branch
+                              speculatively executed"
+     },
+
+
+> [snip]
+>> diff --git a/tools/perf/pmu-events/arch/arm64/nvidia/t410/metrics.json b/tools/perf/pmu-events/arch/arm64/nvidia/t410/metrics.json
+>> new file mode 100644
+>> index 000000000000..18c2fd58ee9e
+>> --- /dev/null
+>> +++ b/tools/perf/pmu-events/arch/arm64/nvidia/t410/metrics.json
+>> @@ -0,0 +1,722 @@
+>> +[
+>> +    {
+>> +        "MetricName": "backend_bound",
+>> +        "MetricExpr": "100 * (STALL_SLOT_BACKEND / CPU_SLOT)",
+>> +        "BriefDescription": "This metric is the percentage of total slots that were stalled due to resource constraints in the backend of the processor.",
+>> +        "ScaleUnit": "1percent of slots",
+>> +        "MetricGroup": "TopdownL1"
+> 
+> Note, on x86 we place TopdownL1 in the Default metric group so it is
+> shown by `perf stat` when it isn't given events or metrics to compute.
+> Perhaps you want to do something similar?
+> https://web.git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tree/tools/perf/pmu-events/arch/x86/icelake/icl-metrics.json?h=tmp.perf-tools-next#n116
+> 
+> Thanks,
+> Ian
+
+That's currently true for the Arm topdown metrics in sbsa.json, but we 
+probably don't actually want this because there aren't enough counters 
+for the perf stat defaults plus topdown and it results in multiplexing 
+and bad results.
+
+I was planning to change it but we also don't currently expose the 
+number of counters available either...
+
 
 
