@@ -4,158 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10E25D3567B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 06:28:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C67D35688
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 07:13:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KRC7kFruF68+GL55KGebS4rRnp2hL9GgyutB3jkPPoc=; b=IqdIjTW8BeeO4NsvKjMSZYmvqA
-	/EgIjVdsb9yOik8cXjwvtG1Z9z3bhMFHgrL9NhRFX0bJFX3bTBhHfcp2+SVf+WIYFuQYr0nvsknsY
-	XGO3X4qpturuJ/4ceGbVK1PKMb2SQnTqoVpdhBC1JVZeZX2GHFwthSxNvnCgpp4AmQtCxP2EYeFP7
-	nHysFBc+W2indvHULSy7t+lT/QuhMpJIZStC2B/tNwfEFP5a+8C/uJM0OMZcoZR2P0RpaVfPJlaoV
-	R7+Yhk94kFC6Lf44e4qd0qL++JST40CP5osOgncKgPTGvih3DqGrjJ86+7Jtj6TxeUX6+PQPYwUr3
-	55qhg92Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lDrDHaxzPUqDOGHtSAjw8UIOY7PPSYbUnoNgzHvr5I0=; b=Z01Q0ko+mC1gMX86BeX5X19RtI
+	ksv5rQozZETyfsf0EQu/ukylVcFoeFp5oCsZPeK3bI//sw2TPeIbI3KEXCAX6lIzrL7oYc8bbOgiH
+	e85VtAXUUn7Io0AWsyIGR0439rj1Xpxajr7kuC+5ynlspIO9M5HCbq1S0Xkaw22CrVu8JOkIAfgko
+	M9GYyvIOiHU973lwF1z2Kw1Bmd60vVsWry+IUaqcAzmKxrRwC5Zu+3Hfx1sgHUhgXpDlfLm2EqEnD
+	Owx0gGu+F9ie8VxTsyyQWGM3KacSyt4Cz0fcIBhhiNT9glhLNJCi0yv+bADrMbcIBwi/kHliXW084
+	QMWYJygg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkz28-0000000FXWe-1JCl;
-	Wed, 28 Jan 2026 06:28:08 +0000
-Received: from mail-swedencentralazon11013027.outbound.protection.outlook.com ([52.101.83.27] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vkzjm-0000000FYbC-0TN7;
+	Wed, 28 Jan 2026 07:13:14 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkz25-0000000FXWL-41rX
+	id 1vkzji-0000000FYal-1Xvd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 06:28:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BO5cdnMzVqbvtvJGZ9Uosf4rn5kvLox4uVO00Cqsf92WlmpFFoDVYyiqPCK2ARZ/pKUdVW2yK4ZdKWIisKlgJXyfqecseASGCEBoX5X0A7PCi6vWYyjn82U2v8LRKYfLaZU8CFBOTeC9PXjXqrz5UmUQ3rxXxaW893U8UnG5XOlu8H8cq4Wtu6kWSiMEwGMNs8vXSXzIMi1e/F375lZ2AuSfwlJfuyoIdSCetXuQ6hIk3F9r75R9B2fSPRynmEdwApxnONTqhxdHIQH1IVuopgaLubP/FUlzqQxMK8Wb+9B0a1Y+9wwgI6rSNdzp8comq+FybNx3Be1IdNR025CSCA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KRC7kFruF68+GL55KGebS4rRnp2hL9GgyutB3jkPPoc=;
- b=Izf3kPajV2Crg3Cl/9kc0z0pXKaaDd20CDkPc3Ee4mbwOoYrPli/gGkE0iaDhwc5SltIOlNTTBfgMaCPn7W/KAxuMrFKQvu53WHcRsGiG5JgomyUrSOsjTozAi4jZSIX+qCF9e+dKqc2rYIZJP2ijdCQpY9B7dUFUrha9CwS65eQ9uvgmVtF1jEUOA9gFlHhJveqZylOjdlyON04cAejNVAk8etSzP9HxtGtsNhJ5H1PF2HUlXwjSV0qromX2B7XYEj0dMMHkuU67sexBvWnjrQvm3Y8WHIav99qWq3mCE4nDTLuORjczBAISmodOSnrLouaiWMgjSW9OehtMJQigg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KRC7kFruF68+GL55KGebS4rRnp2hL9GgyutB3jkPPoc=;
- b=uT/SNCc53UQinfqo9NCyGR63d1nPD24lhd3IIcwYJzU8ZS3iX6wfjQASA+ak461udrQF4f/KT8JSGhpm8iM1U3n2SbSSMOMGvtpN5u5NWOpoYMHWBzVILO7O/h661/TM25di0xGx1inv3JfHuylc7nhGPWV0S80xD9qYCJY344/4K5RVV6uL9cBIlLWXZxDeo9fEkE+LvU/tCyhi96NkiphIoXtqTTMYje4C9pp5gzM0pxabFVb0HIgwXd0uYiFTr7/0koAN7eGctq/hX0UTzbFe/+Eq0ONhgz8+byYh/WjE1aX0hD+dIkZu0UTrWs2E4P7WhmHnzvJuZU7Q9VsnTg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AS8PR04MB8450.eurprd04.prod.outlook.com (2603:10a6:20b:346::5)
- by VI1PR04MB6863.eurprd04.prod.outlook.com (2603:10a6:803:12f::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.16; Wed, 28 Jan
- 2026 06:28:00 +0000
-Received: from AS8PR04MB8450.eurprd04.prod.outlook.com
- ([fe80::d3ed:eac:1f17:e9bd]) by AS8PR04MB8450.eurprd04.prod.outlook.com
- ([fe80::d3ed:eac:1f17:e9bd%6]) with mapi id 15.20.9564.006; Wed, 28 Jan 2026
- 06:28:00 +0000
-Date: Wed, 28 Jan 2026 14:27:57 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Wig Cheng <onlywig@gmail.com>
-Cc: shawnguo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	zaq14760@gmail.com
-Subject: Re: [PATCH v2 1/1] arm64: dts: freescale: add pixpaper display
- overlay for i.MX93 FRDM
-Message-ID: <aXmsbbt9T5ZRGtES@shlinux89>
-References: <20260127025740.2601841-1-onlywig@gmail.com>
- <20260128050549.3337279-1-onlywig@gmail.com>
- <20260128050549.3337279-2-onlywig@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260128050549.3337279-2-onlywig@gmail.com>
-X-ClientProxiedBy: SGAP274CA0020.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b6::32)
- To AS8PR04MB8450.eurprd04.prod.outlook.com (2603:10a6:20b:346::5)
+	Wed, 28 Jan 2026 07:13:12 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=lDrDHaxzPUqDOGHtSAjw8UIOY7PPSYbUnoNgzHvr5I0=;
+	b=GNnmKJXMOHfYxhNgVBD7aQXjjtZO1CwYmiFKicdhYA6iwUIQjplxkGPLDZ4VvWG0Au+0kgJ/6
+	3bLirJmYGft9AUlO4U5m2sXFWL3IYjb1AgWi1zrTFAJ+M5YnT1v5GjvmtbE3GozIddRJ9kXs2Vk
+	cBVcPYqEiLnA567zo+XIgzo=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4f1D0H4cJyz12LDP;
+	Wed, 28 Jan 2026 15:09:03 +0800 (CST)
+Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
+	by mail.maildlp.com (Postfix) with ESMTPS id E85124056C;
+	Wed, 28 Jan 2026 15:12:57 +0800 (CST)
+Received: from [10.174.179.179] (10.174.179.179) by
+ kwepemr500001.china.huawei.com (7.202.194.229) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 28 Jan 2026 15:12:57 +0800
+Message-ID: <c78b76c5-8709-44d0-85c3-feccd41b2ddd@huawei.com>
+Date: Wed, 28 Jan 2026 15:12:56 +0800
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8450:EE_|VI1PR04MB6863:EE_
-X-MS-Office365-Filtering-Correlation-Id: 68a1f14d-7154-4bc2-f099-08de5e3661d5
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|7416014|366016|376014|52116014|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8x0bps2Q4002Nhpzg1hb0hFPcaWzxykECN8WeaDLJmX07j004SECjwHtKL4M?=
- =?us-ascii?Q?YO+41h/PeK4ALAs/orNwEMzgY7DXQJa74jzTbKMCFF5tMvTurFxEOjFtBAX7?=
- =?us-ascii?Q?Bnf/yU/jHt1KUqFMhsXN6gJxGoQytXt+iNHnZ58nNrKLnwtnw0g/Aw/w70UV?=
- =?us-ascii?Q?sXuenS8C7fziyhUnR5f2hpCDagAppzHtWu1reCw+c8kLn1YJya92lS58EeOC?=
- =?us-ascii?Q?cxIeD+CRBhioo/kMEUPD5XtRFwcG66T1d5yRdoa7Ks+rczO5TfLi2gqeiqaJ?=
- =?us-ascii?Q?fMoOouypfZAvGbYSIBRUoWKuEKMn9ZSeLxiy7xbf5s8o+0gfFlViOK1EkiFQ?=
- =?us-ascii?Q?FcGAplbPLs0ZtPXlw4PaCF41kNa8Jz+5T7w9QkyvVkPOrqgSHjSKEIFSOYlT?=
- =?us-ascii?Q?P/BXWyT+rYS/jJsoXYlNaWBpCNsNxh1MXSJnXB2T1a2D1uRqsJRjXPnidNjj?=
- =?us-ascii?Q?A48yysvjA9BxW2Ene5FhFDMDvmEPIJZERkN6YDQgAjL/rvZcSjroeEIkQPVf?=
- =?us-ascii?Q?OXMjaIE1vyrPQGXIIMI6z/WfivcfiAMTXspgtncQ2oomn//ALXy56D876SnN?=
- =?us-ascii?Q?mV4GCAHxZSGOb+N8tdQDu17v3o84UGgpx8Ml6+XvEZDZw3XRCvqfuizOel0p?=
- =?us-ascii?Q?DLFt3JhxEjX+gOEkX7AShBzNg0r/HbI5wkfbELoad79jCancN0Gp5bnUO7gX?=
- =?us-ascii?Q?4x432cACU9cNrk0KS2LGLQnZVQzc2rEm01p8+Yo5Dc9tVqrYa22GD+pzxJI6?=
- =?us-ascii?Q?hxkEmaCd4PMAGBYjrqqFyJBNGPhhEhLqgb9IdXoO02UfbxIFNMiKHutKqdze?=
- =?us-ascii?Q?XQ3bGdrBfuZBtTpK6+vEh/grruTQ6OURsQds8+3xN6Y8XoabQDze3j3P4H/5?=
- =?us-ascii?Q?CXNCp06utb5rS2SX33751KI9L5YDiniZqQF+pLmL+rEPlnjnRf2FNctJtVhj?=
- =?us-ascii?Q?C4+XE1OTLgFCyUG1WUwW5JKP779hfil2+b1LBvB+fzaDO2+G4v3V08CFscip?=
- =?us-ascii?Q?qpeTG+CSE0RPLL3c19upiFykj9HLfXSiPlhrdTQEsbTQwiFGUjKowAdEoAqQ?=
- =?us-ascii?Q?1bk8wqZCeOaZ+L4RIQQ0svlhjlZHMACInDh6jVfogtk9M8YRy4PTNMSy7s8G?=
- =?us-ascii?Q?qzqLvmovpQaExkue9j3FCJDVYaOEdusjYtbk/67umYDoSZ405wusg7q/CJuA?=
- =?us-ascii?Q?MaeqHPq4dkOZH5iMBhpSOSeejad8UhsMna9W85L5bNiBtgnPLS9sQbr73dHC?=
- =?us-ascii?Q?RQmb51dujXkGyNyIyaYfdJejeqk3o5rTkrSIQtST0OTwAnoK/7Q0jBoa3EeD?=
- =?us-ascii?Q?04faR8FCjFv+UzBssUQ1j+JtEzSF3e/l+T3GowoJ2smzR0M/XdmZv9xw/klz?=
- =?us-ascii?Q?Hp7QlBU9roW6KnhNH0GP3+r1AAjc3TNJv5JBdGSJnUhSKF3oi+bKTWHYkwLK?=
- =?us-ascii?Q?oSJAsxB8bm6ZydxQR6JK9Sep8puWR60zWIqpoa6fwkUhtJC15/bfmxI2SDl/?=
- =?us-ascii?Q?K9l+idfK0YyvvzBFbmTaOXvPfZahvMiw7BhTJQ902iZ7zSnURzfVx2iTvnya?=
- =?us-ascii?Q?q9FKtK3Wk5clgrVMMMex+N9qf18eiU60c++cG/v2in/vwnWMrzupO+in90oi?=
- =?us-ascii?Q?X2zz3Jniltn1vqRpRT5tbDk=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8450.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(366016)(376014)(52116014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?p2MdT6vtiZ5SJN9A7gnyCoAd6RM0wRL3pwNMEpNdl92loewV423LaJn4r9NN?=
- =?us-ascii?Q?ddKiQqjPDaR84VQbDLq+Jc3SVn0bri8/NHmDHQGHwJUd8dfD0YmhIarRJZ1Z?=
- =?us-ascii?Q?0tZs3HlEyNSOc9220aVa4yXMJ6GGfK+GuNZK4oyfi2NCV7i97DfC/pJCfxCF?=
- =?us-ascii?Q?CD+W0Y+xcybGm9G3H8Fzvlf2D/R+jQN+f2BVLOR+R6wkspdk34rTpNqE9l/V?=
- =?us-ascii?Q?dhl2f7flkbN36oLdipk8HeL8U8w9X8XKIcKLGLGj/vDrCwDA5rclwgpZpwWp?=
- =?us-ascii?Q?0ToxD9Co6Cx9pc6nq/GXpyNLMl3Hy6urlqi1NpAqmZRFQ1A/LvJ1YXfu+zEw?=
- =?us-ascii?Q?DpQV7HYdhQq1Z6A8IFh81lmF7BYFyl01e3lzjdVIlZ/i554vxqZECoLmCAQW?=
- =?us-ascii?Q?cYs+2lIOYGA5QAp5Tvhl1f3WSIJoDv7f/TvGRZ3DfNCGCecW+w8QTNlstsaq?=
- =?us-ascii?Q?GhHxyCHfqrd1eDgUeeu0X3lXuFUhyqU4AqSjpZ/r1b2t+8KKGqUONRaB/EDL?=
- =?us-ascii?Q?pUN38Uf2S8cMfab6Z9pWlERQjKAj7ZdteFgxFYFI2z7LmcoqhhHsYUjonUbL?=
- =?us-ascii?Q?Ujw/8kf4PxpfdQzaqquVw+cLcJqi2azBg9vet2PG3yqMAM8lDzXSLULJ8I8I?=
- =?us-ascii?Q?HmXgVEmUomGP+1oc1WjZPFk4J3WtxYv5rESIlgfmrU33afZ7FE+Sm+nd2w+h?=
- =?us-ascii?Q?fZQ5DutG/JrSUukk84w991qaj0SL6HGK4a1ar7Fjo0kD/Amw9WPyLGYAVzy/?=
- =?us-ascii?Q?/wDq7v+yL3tK0W89jMz2La40DjCFHNOcz4XWoQOnMzpfJDNJ3y35VuRAO8/Z?=
- =?us-ascii?Q?gbfsfaBUkpqPmLRRUsdUuR6uAmUL0zXcoECmZaKI+dIeIgmcXp/M3206sVat?=
- =?us-ascii?Q?voOCyX6G8azeJ0kdFsC/T/Ki0diHW/lwsjUEEGlY75lhgABkvbgRxJkAsPiw?=
- =?us-ascii?Q?d2DVsmmrVoIsuyTZvb8GUpiITz13rwGElFVNFKTnlydjoUe0zEPK5WuVyo0y?=
- =?us-ascii?Q?hclkQxiKUtaOSZ1WM83ZShpB2on9sm5HMUU+fh0WaEQYBqCxB0QV1L67mVYz?=
- =?us-ascii?Q?9vLq4gsOU7ubsljseanuvI8cSv4KO6JL9N4CTWtSfR9vToEHGQ0ZzyGW9o4E?=
- =?us-ascii?Q?zUeWeyk0V3mc4fo52JBTAKA7NGIJWGItRGxINnMUM9Mctf+S9F9qVeLutd+5?=
- =?us-ascii?Q?4dMB5HrhTxJW0vFtqKE2r49mVe7dAuh27qGlwX4sYOtGCd+ZVbbWP2Zfy0Xf?=
- =?us-ascii?Q?XRB1TWCblX6w1wNYYkqHtoXfqugvoQ/qyvobMpuJRVKuQvgXq6dphB8jEPph?=
- =?us-ascii?Q?r/HJKfko+be07A0N6zd1FNCrIcJBuqIYAc7/RO+hk/yq5EkGv5iMSk0QQLym?=
- =?us-ascii?Q?HpXWII5ekDteQLzoEAKrBc3BUPG3COaKi0QxYE7QLPjrL2VMNzJFrgwG72oM?=
- =?us-ascii?Q?U3X7bs4kYTintObZIpr9e0nVeaKqYuMH5Qhz1V0NKAMd04ZJAFH18F3j7Qxa?=
- =?us-ascii?Q?q0q0Mr0EWKVF1Is2ORBYmVv3nsPVCPcxU1di9aqE40o6myHH8T2TCXVmQzHj?=
- =?us-ascii?Q?yVfB9A4deedrdFug7zQlE4RdIBEXnZxdAqD8eMf00dEe1lFzY/f0r0q1dItA?=
- =?us-ascii?Q?DqsotdYsH1J8alZKHLVvA5ihliWMB6pVZmt7UjRmgzQ0LJrdfKBxzo8dhvwv?=
- =?us-ascii?Q?LpvXNOxMJ8hJZgwWMxIrBUVToWlWrdB9QR3kk4xbTogLj2xnGGaD3DWJ7N7p?=
- =?us-ascii?Q?neUtWx5nKQ=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 68a1f14d-7154-4bc2-f099-08de5e3661d5
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8450.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2026 06:28:00.2742
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ADiNARiFfbUsNEprb52NKG/bH3PCHyZLMZRPD5Okx6M333BOEDypXchD1jSg2SadzfA53dCPS/PrnYRGQGSlBw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6863
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: mm: fix pass user prot to ioremap_prot in
+ generic_access_phys
+To: <akpm@linux-foundation.org>, <david@kernel.org>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <zengheng4@huawei.com>,
+	<ryan.roberts@arm.com>, <anshuman.khandual@arm.com>,
+	<wangkefeng.wang@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mm@kvack.org>
+References: <20260127090129.412084-1-tujinjiang@huawei.com>
+From: Jinjiang Tu <tujinjiang@huawei.com>
+In-Reply-To: <20260127090129.412084-1-tujinjiang@huawei.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.179.179]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemr500001.china.huawei.com (7.202.194.229)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_222806_007575_D65EDCFD 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260127_231311_062925_F5F888EE 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,96 +80,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 01:05:49PM +0800, Wig Cheng wrote:
->Enable Open-EP Community pixpaper-213-c support on NXP i.MX93.
->
->Signed-off-by: Wig Cheng <onlywig@gmail.com>
->---
-> arch/arm64/boot/dts/freescale/Makefile        |  4 ++
-> .../freescale/imx93-11x11-frdm-pixpaper.dtso  | 51 +++++++++++++++++++
-> 2 files changed, 55 insertions(+)
-> create mode 100644 arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso
->
->diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
->index ce8f937c2315..c2727f8061e2 100644
->--- a/arch/arm64/boot/dts/freescale/Makefile
->+++ b/arch/arm64/boot/dts/freescale/Makefile
->@@ -398,6 +398,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb-i3c.dtb
-> 
-> dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-evk.dtb
-> dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-frdm.dtb
->+
->+imx93-11x11-frdm-pixpaper-dtbs += imx93-11x11-frdm.dtb imx93-11x11-frdm-pixpaper.dtbo
->+dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-frdm-pixpaper.dtb
->+
-> dtb-$(CONFIG_ARCH_MXC) += imx93-14x14-evk.dtb
-> dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
-> dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
->diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso
->new file mode 100644
->index 000000000000..1111503b08af
->--- /dev/null
->+++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso
->@@ -0,0 +1,51 @@
->+// SPDX-License-Identifier: GPL-2.0
->+/*
->+ * Device Tree Overlay for Mayqueen (Open-EP Community) pixpaper display
->+ * support on NXP FRDM i.MX 93 Development Board
->+ *
->+ * Copyright (C) 2026 Wig Cheng <onlywig@gmail.com>
->+ */
->+
->+#include <dt-bindings/gpio/gpio.h>
->+#include "imx93-pinfunc.h"
->+
->+/dts-v1/;
->+/plugin/;
->+
->+&iomuxc {
->+	pinctrl_lpspi3: lpspi3grp {
->+		fsl,pins = <
->+			MX93_PAD_GPIO_IO08__GPIO2_IO08		0x3fe /* SPI3 CE0 */
->+			MX93_PAD_GPIO_IO09__LPSPI3_SIN		0x3fe /* SPI3 MISO */
->+			MX93_PAD_GPIO_IO10__LPSPI3_SOUT		0x3fe /* SPI3 MOSI */
->+			MX93_PAD_GPIO_IO11__LPSPI3_SCK		0x3fe /* SPI3 CLK */
->+		>;
->+	};
->+
->+	pinctrl_epd_ctrl: epdctrlgrp {
->+		fsl,pins = <
->+			MX93_PAD_GPIO_IO05__GPIO2_IO05		0x31e /* DC pin */
->+			MX93_PAD_GPIO_IO06__GPIO2_IO06		0x31e /* RESET pin */
->+			MX93_PAD_GPIO_IO26__GPIO2_IO26		0x31e /* BUSY pin */
->+		>;
->+	};
->+};
->+
->+&lpspi3 {
->+	#address-cells = <1>;
->+	#size-cells = <0>;
 
-The above two properties are in imx93_91_common.dtsi lpspi3 node, no need to
-duplicate them.
-
-Regards
-Peng
-
->+	pinctrl-names = "default";
->+	pinctrl-0 = <&pinctrl_lpspi3>, <&pinctrl_epd_ctrl>;
->+	cs-gpios = <&gpio2 8 GPIO_ACTIVE_LOW>;
->+	fsl,spi-num-chipselects = <1>;
->+	status = "okay";
->+
->+	display@0 {
->+		compatible = "mayqueen,pixpaper";
->+		reg = <0>;
->+		spi-max-frequency = <5000000>;
->+		reset-gpios = <&gpio2 6 GPIO_ACTIVE_HIGH>;
->+		dc-gpios = <&gpio2 5 GPIO_ACTIVE_HIGH>;
->+		busy-gpios = <&gpio2 26 GPIO_ACTIVE_HIGH>;
->+	};
->+};
->-- 
->2.43.0
+在 2026/1/27 17:01, Jinjiang Tu 写道:
+> Here is a syzkaller error log:
+>    [0000000020ffc000] pgd=080000010598d403, p4d=080000010598d403, pud=0800000125ddb403,
+>                       pmd=080000007833c403, pte=01608000007fcfcf
+>    Unable to handle kernel read from unreadable memory at virtual address ffff80008ea89000
+>    KASAN: probably user-memory-access in range [0x0000000475448000-0x0000000475448007]
+>    Mem abort info:
+>      ESR = 0x000000009600000f
+>      EC = 0x25: DABT (current EL), IL = 32 bits
+>      SET = 0, FnV = 0
+>      EA = 0, S1PTW = 0
+>      FSC = 0x0f: level 3 permission fault
+>    Data abort info:
+>      ISV = 0, ISS = 0x0000000f, ISS2 = 0x00000000
+>      CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+>      GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+>    swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000001244aa000
+>    [ffff80008ea89000] pgd=100000013ffff403, p4d=100000013ffff403, pud=100000013fffe403,
+> 		     pmd=100000010a453403, pte=01608000007fcfcf
+>    Internal error: Oops: 000000009600000f [#1] SMP
+>    Modules linked in: team
+>    CPU: 1 PID: 10840 Comm: syz.9.83 Kdump: loaded Tainted: G
+>    Hardware name: QEMU KVM Virtual Machine, BIOS 0.0.0 02/06/2015
+>    pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>    pc : __memcpy_fromio+0x80/0xf8
+>    lr : generic_access_phys+0x20c/0x2b8
+>    sp : ffff8000a0507960
+>    x29: ffff8000a0507960 x28: 1ffff000140a0f44 x27: ffff00003833cfe0
+>    x26: 0000000000000000 x25: 0000000000001000 x24: 0010000000000001
+>    x23: ffff80008ea89000 x22: ffff00004ea63000 x21: 0000000000001000
+>    x20: ffff80008ea89000 x19: ffff00004ea62000 x18: 0000000000000000
+>    x17: 0000000000000000 x16: 0000000000000000 x15: ffff8000806f1e3c
+>    x14: ffff8000806f1d44 x13: 0000000041b58ab3 x12: ffff7000140a0f23
+>    x11: 1ffff000140a0f22 x10: ffff7000140a0f22 x9 : ffff800080579d24
+>    x8 : 0000000000000004 x7 : 0000000000000003 x6 : 0000000000000001
+>    x5 : ffff8000a0507910 x4 : ffff7000140a0f22 x3 : dfff800000000000
+>    x2 : 0000000000001000 x1 : ffff80008ea89000 x0 : ffff00004ea62000
+>    Call trace:
+>      __memcpy_fromio+0x80/0xf8
+>      generic_access_phys+0x20c/0x2b8
+>      __access_remote_vm+0x46c/0x5b8
+>      access_remote_vm+0x18/0x30
+>      environ_read+0x238/0x3e8
+>      vfs_read+0xe4/0x2b0
+>      ksys_read+0xcc/0x178
+>      __arm64_sys_read+0x4c/0x68
+>      invoke_syscall+0x68/0x1a0
+>      el0_svc_common.constprop.0+0x11c/0x150
+>      do_el0_svc+0x38/0x50
+>      el0_svc+0x50/0x258
+>      el0t_64_sync_handler+0xc0/0xc8
+>      el0t_64_sync+0x1a4/0x1a8
+>    Code: 91002339 aa1403f7 8b190276 d503201f (f94002f8)
 >
+> The local syzkaller first maps I/O address from /dev/mem to userspace,
+> overiding the stack vma with MAP_FIXED flag. As a result, when reading
+> /proc/$pid/environ, generic_access_phys() is called to access the region,
+> which triggers a PAN permission-check fault and causes a kernel access
+> fault.
+>
+> The root cause is that generic_access_phys() passes a user pte to
+> ioremap_prot(), the user pte sets PTE_USER and PTE_NG bits.  Consequently,
+> any subsequent kernel-mode access to the remapped address raises a fault.
+>
+> To fix it, define arch_mk_kernel_prot() to convert user prot to kernel
+> prot for arm64, and call arch_mk_kernel_prot() in generic_access_phys(),
+> so that a user prot is passed to ioremap_prot().
+>
+> Fixes: 893dea9ccd08 ("arm64: Add HAVE_IOREMAP_PROT support")
+> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+> Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
+> ---
+> Change since v1:
+>   * fix in ther caller generic_access_phys(), suggested by Catalin Marinas.
+>
+>   arch/arm64/include/asm/io.h | 11 +++++++++++
+>   mm/memory.c                 | 12 +++++++++++-
+>   2 files changed, 22 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
+> index 83e03abbb2ca..fe8607eafab6 100644
+> --- a/arch/arm64/include/asm/io.h
+> +++ b/arch/arm64/include/asm/io.h
+> @@ -267,6 +267,17 @@ int arm64_ioremap_prot_hook_register(const ioremap_prot_hook_t hook);
+>   
+>   #define ioremap_prot ioremap_prot
+>   
+> +#define arch_mk_kernel_prot arch_mk_kernel_prot
+> +static inline pgprot_t arch_mk_kernel_prot(pgprot_t user_prot)
+> +{
+> +	unsigned long kernel_prot_val;
+> +
+> +	kernel_prot_val = _PAGE_KERNEL & ~(PTE_WRITE | PTE_ATTRINDX_MASK);
+> +	kernel_prot_val |= pgprot_val(user_prot) & (PTE_WRITE | PTE_ATTRINDX_MASK);
+> +
+> +	return __pgprot(kernel_prot_val);
+> +}
+
+I found I misunderstand the READ/WRITE permisson here.
+If the pte is writeale, the PTE_WRITE is 1, and PTE_RDONLY means dirty or not (With DBM).
+If the pte is read-only, the PTE_WRITE is 0, and PTE_RDONLY is 1.
+
+Since generic_access_phys() have checked if the user can write with:
+
+		if ((write & FOLL_WRITE) && !pte_write(pte))
+		return -EINVAL;
+
+So, maybe we could always grant writable permission, just as x86's ioremap() does?
+
+Thanks.
+
+> +
+>   #define _PAGE_IOREMAP PROT_DEVICE_nGnRE
+>   
+>   #define ioremap_wc(addr, size)	\
+> diff --git a/mm/memory.c b/mm/memory.c
+> index da360a6eb8a4..68fcfc3bbad8 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -6836,6 +6836,14 @@ void follow_pfnmap_end(struct follow_pfnmap_args *args)
+>   EXPORT_SYMBOL_GPL(follow_pfnmap_end);
+>   
+>   #ifdef CONFIG_HAVE_IOREMAP_PROT
+> +#ifndef arch_mk_kernel_prot
+> +#define arch_mk_kernel_prot arch_mk_kernel_prot
+> +static inline pgprot_t arch_mk_kernel_prot(pgprot_t user_prot)
+> +{
+> +	return user_prot;
+> +}
+> +#endif
+> +
+>   /**
+>    * generic_access_phys - generic implementation for iomem mmap access
+>    * @vma: the vma to access
+> @@ -6853,6 +6861,7 @@ int generic_access_phys(struct vm_area_struct *vma, unsigned long addr,
+>   {
+>   	resource_size_t phys_addr;
+>   	pgprot_t prot = __pgprot(0);
+> +	pgprot_t kernel_prot;
+>   	void __iomem *maddr;
+>   	int offset = offset_in_page(addr);
+>   	int ret = -EINVAL;
+> @@ -6870,7 +6879,8 @@ int generic_access_phys(struct vm_area_struct *vma, unsigned long addr,
+>   	if ((write & FOLL_WRITE) && !writable)
+>   		return -EINVAL;
+>   
+> -	maddr = ioremap_prot(phys_addr, PAGE_ALIGN(len + offset), prot);
+> +	kernel_prot = arch_mk_kernel_prot(prot);
+> +	maddr = ioremap_prot(phys_addr, PAGE_ALIGN(len + offset), kernel_prot);
+>   	if (!maddr)
+>   		return -ENOMEM;
+>   
 
