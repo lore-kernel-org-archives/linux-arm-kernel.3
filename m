@@ -4,110 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CED46D3F07F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 15:29:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2759ED3F080
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 15:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UPKPga53xpyighTMnHkLajEw2ErfI+ituE30lMR+eVk=; b=uGaaL1V8rBlCGHaqz/NNIgP1eZ
-	tr23ab9Fnce8fWmJ4XbxSX4CHcyWgh5/zQygz8WskCgvN65o6XM9hnjVAQ84Xf7CECGn8Jh4QyUre
-	V9UG6KhfbOBbf3wKbVqHPuaMWcyn8bkxs8PXADQqsg7QRenjPAltqR1igD8HQLCZP/qQggcjUxeow
-	WSmXXn+H5kWnGJ/bYRokk4Lmpvd8bev6sSlEIR00DDONGoJtKH6NJPfTg0PJzPwUmCa1cOhdrkVxy
-	xCahv2hbOXN6wDJ2c0sGiEZv0Ozrtyz9p+FBqtDMYJ/7hKiSinx8QA7F2IX/AA9QLVWr2m0ykUPlZ
-	kqDXclFg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SSf7OSoSkFISB26vx0stP0q2opk88sKXgsIZt4pSwHI=; b=GminBYEaBUUhaVU0zJCdr3hXcI
+	8Qmth/7MFqv2blgqrSRbQcwt5E1KHd2BIrUN3WNv0B9PtW+wZ+neNi2RcmQJo1TflUulpoLP/cqp9
+	ATBgIxZ1NCqOg+sGkhwIjl+//rhlYpOWR3MANXoT+ZsBZz2OhNmP/yL8Kw7mfRatRo+XApfrFWqjd
+	ThxhFT/lyYgoWMhhCGAwiLSLsqU1UK/6AubN1uqEGbkZor/Yg1ZX/Eh0qRzNHtxcqpbbaDayZUoik
+	4JT29ozrXd4LQ88CAl6hfJfEc9JMhOdI4KdId9Dsq+a+7eYk0EgvqwwDzmAF/+kPA06y8pctfQSZb
+	Ffw73Zzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl7TT-0000000GHfV-3H3K;
-	Wed, 28 Jan 2026 15:28:55 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vl7VP-0000000GHvQ-3ieu;
+	Wed, 28 Jan 2026 15:30:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl7TQ-0000000GHeC-38Kq
+	id 1vl7VN-0000000GHuG-0hgG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 15:28:54 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 2739F581;
-	Wed, 28 Jan 2026 16:28:13 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1769614093;
-	bh=KXkhfxwOJwwccUZ3eM65o25FEFAyZU2TYAFxNwiz168=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=B5Lxwlvn5KGFSJHaABSUhleTA/xIdNHqTwERQnq1g5ZCXWBcnS9+J936yaBafYimU
-	 9fan0XIxIPN2BMl+9D3mP1a8q3ioMnJUD6bRTy48UsrRe//NcGOAhpMd+OrkEH2NgF
-	 b89juJfh+jC5rsl/NxnkX8rxwWzyzeOLLhtcY4EU=
-Message-ID: <91f53ccc-69a6-4e31-9d8f-c4267bb4b8ab@ideasonboard.com>
-Date: Wed, 28 Jan 2026 17:28:47 +0200
+	Wed, 28 Jan 2026 15:30:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 18E8C438E3;
+	Wed, 28 Jan 2026 15:30:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECEEDC4CEF1;
+	Wed, 28 Jan 2026 15:30:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769614252;
+	bh=J991PkmjZ7cA51EaGuqYRzLfi0O3QuM9Zcdo95J/bZs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Ey0Cgf/BeMmcHmj9Po1fk/yF9Z/LBh3tzQRGuNTcualGu6dgs18PGcZT73ljIOQwN
+	 rdc/+4WGYKPAV9tbIwjeb8CmxBxJfrUS9SDW+ffmc1NoJBgrXEPj+XiZ/c6xaw850m
+	 YC96uVsb6/HqeAIjUe9AX/wv78r5RaNCHHAgP5qrQzW7D8o7xT4OVvONxmGcrc7cSm
+	 Ykg7R+STzZgnSSZBkSdcYr6TQZMN8+pNEKGEggAYbQz3WGbHIV9ZuV2Jlbc/21HeGA
+	 RsuFwGbkJRTs0c7LyJQusnjcDXiqHZrQE/nnu3Lf3zKTjMNiGfBYlACA6+l2oJtvTP
+	 ppQsiycLvJEsQ==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Luca Weiss <luca@lucaweiss.eu>,
+	Abel Vesa <abel.vesa@oss.qualcomm.com>,
+	Alexey Klimov <alexey.klimov@linaro.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	David Heidelberg <david@ixit.cz>,
+	Jie Gan <jie.gan@oss.qualcomm.com>,
+	Luca Weiss <luca.weiss@fairphone.com>,
+	Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>
+Subject: [GIT PULL] More Qualcomm Arm64 DeviceTree updates for v6.20
+Date: Wed, 28 Jan 2026 09:30:50 -0600
+Message-ID: <20260128153050.2092039-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 09/11] drm: xlnx: zynqmp: Add support for Y8 and
- Y10_P32
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Vishal Sagar <vishal.sagar@amd.com>,
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Pekka Paalanen <ppaalanen@gmail.com>
-References: <20251201-xilinx-formats-v7-0-1e1558adfefc@ideasonboard.com>
- <20251201-xilinx-formats-v7-9-1e1558adfefc@ideasonboard.com>
- <20260128121046.GI2558360@killaraus>
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Content-Language: en-US
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <20260128121046.GI2558360@killaraus>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_072852_952748_525CF8E5 
-X-CRM114-Status: GOOD (  25.38  )
+X-CRM114-CacheID: sfid-20260128_073053_245444_C05A20CF 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,99 +80,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On 28/01/2026 14:10, Laurent Pinchart wrote:
-> Hi Tomi,
-> 
-> Thank you for the patch.
-> 
-> On Mon, Dec 01, 2025 at 02:18:51PM +0200, Tomi Valkeinen wrote:
->> Add support for Y8 and Y10_P32 formats. We also need to add new csc
->> matrices for the y-only formats.
->>
->> Reviewed-by: Vishal Sagar <vishal.sagar@amd.com>
->> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
->> ---
->>  drivers/gpu/drm/xlnx/zynqmp_disp.c | 26 +++++++++++++++++++++++++-
->>  1 file changed, 25 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
->> index 1dc77f2e4262..fe111fa8cc13 100644
->> --- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
->> +++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
->> @@ -307,6 +307,16 @@ static const struct zynqmp_disp_format avbuf_vid_fmts[] = {
->>  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YV16CI_10,
->>  		.swap		= false,
->>  		.sf		= scaling_factors_101010,
->> +	}, {
->> +		.drm_fmt	= DRM_FORMAT_Y8,
->> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_MONO,
->> +		.swap		= false,
->> +		.sf		= scaling_factors_888,
->> +	}, {
->> +		.drm_fmt	= DRM_FORMAT_Y10_P32,
->> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YONLY_10,
->> +		.swap		= false,
->> +		.sf		= scaling_factors_101010,
->>  	},
->>  };
->>  
->> @@ -697,6 +707,16 @@ static const u32 csc_sdtv_to_rgb_offsets[] = {
->>  	0x0, 0x1800, 0x1800
->>  };
->>  
-> 
-> A comment here to explain why the 1.0 value is in the third column
-> instead of the expected first column would be good.
+The following changes since commit fc12767c19d49663b13ba2def6e4674df041c8a2:
 
-Sure.
+  dt-bindings: mailbox: qcom: Add IPCC support for Kaanapali and Glymur Platforms (2026-01-17 15:35:17 -0600)
 
->> +static const u16 csc_sdtv_to_rgb_yonly_matrix[] = {
->> +	0x0, 0x0, 0x1000,
->> +	0x0, 0x0, 0x1000,
->> +	0x0, 0x0, 0x1000,
->> +};
->> +
->> +static const u32 csc_sdtv_to_rgb_yonly_offsets[] = {
->> +	0x0, 0x0, 0x0
->> +};
->> +
->>  /**
->>   * zynqmp_disp_blend_set_output_format - Set the output format of the blender
->>   * @disp: Display controller
->> @@ -846,7 +866,11 @@ static void zynqmp_disp_blend_layer_enable(struct zynqmp_disp *disp,
->>  				ZYNQMP_DISP_V_BLEND_LAYER_CONTROL(layer->id),
->>  				val);
->>  
->> -	if (layer->drm_fmt->is_yuv) {
->> +	if (layer->drm_fmt->format == DRM_FORMAT_Y8 ||
->> +	    layer->drm_fmt->format == DRM_FORMAT_Y10_P32) {
-> 
-> We could replace is_yuv with a type enum to avoid checking the format
-> here, and use a switch statement. Up to you.
-True, but I'm not sure it helps too much here at the moment. I tried a
-few different kinds of enums (for channels, RGB/YUV/Y, and for CSC type
-DEFAULT/YUV/Y) and a boolean (is_y_only) to zynqmp_disp_format, but I
-wasn't sure if they really fit (especially considering we already have
-is_yuv in the DRM format).
+are available in the Git repository at:
 
-Furthermore, if we at some point add configurable color ranges and
-encodings, the code has to change and I'm not sure what enum, if any,
-makes sense there.
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm64-for-6.20-2
 
- Tomi
+for you to fetch changes up to 78c13dac18cf0e6f6cbc6ea85d4f967e6cca9562:
 
-> With those issues addressed,
-> 
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> 
->> +		coeffs = csc_sdtv_to_rgb_yonly_matrix;
->> +		offsets = csc_sdtv_to_rgb_yonly_offsets;
->> +	} else if (layer->drm_fmt->is_yuv) {
->>  		coeffs = csc_sdtv_to_rgb_matrix;
->>  		offsets = csc_sdtv_to_rgb_offsets;
->>  	} else {
-> 
+  arm64: dts: qcom: sm6115: Add CX_MEM/DBGC GPU regions (2026-01-21 13:15:50 -0600)
 
+----------------------------------------------------------------
+More Qualcomm Arm64 DeviceTree updates for v6.20
+
+Enable ADSP FastRPC and add missing GPU memory regions on Agatti.
+Also add the missing GPU regions on SM6115.
+
+Describe the application subsystem watchdog on Hamoa and enable this in
+the EL2 configurations.
+
+Add the camera control interface (CCI) I2C controller on MSM8953, and
+describe the camera regulators and the camera EEPROM on Fairphone FP3.
+
+Specify clock frequency for the i2c4 bus on OnePlus 6, to silence the
+warnings about missing frequency definition.
+
+Add FastRPC and associated heap memory, as well as Coresight, on SM8750
+
+Switch a variety of platforms to use the generic RPMPD_ constants,
+instead of target-specific duplicated, to allow us to drop these from
+the header files.
+
+Drop the invalid opp-shared on the QUP OPP table for Talos.
+
+----------------------------------------------------------------
+Abel Vesa (3):
+      dt-bindings: watchdog: Document X1E80100 compatible
+      arm64: dts: qcom: hamoa: Add the APSS watchdog
+      arm64: dts: qcom: x1-el2: Enable the APSS watchdog
+
+Alexey Klimov (2):
+      arm64: dts: qcom: sm8750: add memory node for adsp fastrpc
+      arm64: dts: qcom: sm8750: add ADSP fastrpc-compute-cb nodes
+
+David Heidelberg (1):
+      arm64: dts: qcom: oneplus-enchilada: Specify i2c4 clock frequency
+
+Dmitry Baryshkov (2):
+      arm64: dts: qcom: agatti: enable FastRPC on the ADSP
+      arm64: dts: qcom: switch to RPMPD_* indices
+
+Jie Gan (1):
+      arm64: qcom: dts: sm8750: add coresight nodes
+
+Konrad Dybcio (2):
+      arm64: dts: qcom: agatti: Add CX_MEM/DBGC GPU regions
+      arm64: dts: qcom: sm6115: Add CX_MEM/DBGC GPU regions
+
+Luca Weiss (5):
+      arm64: dts: qcom: msm8953: Re-sort tlmm pinctrl states
+      arm64: dts: qcom: msm8953: Add CCI nodes
+      arm64: dts: qcom: sdm632-fairphone-fp3: Add camera fixed regulators
+      arm64: dts: qcom: sdm632-fairphone-fp3: Enable CCI and add EEPROM
+      arm64: dts: qcom: sm6350: Add clocks for aggre1 & aggre2 NoC
+
+Viken Dadhaniya (1):
+      arm64: dts: qcom: talos: Drop opp-shared from QUP OPP table
+
+ .../devicetree/bindings/watchdog/qcom-wdt.yaml     |    1 +
+ arch/arm64/boot/dts/qcom/agatti.dtsi               |   49 +-
+ arch/arm64/boot/dts/qcom/hamoa.dtsi                |    8 +
+ arch/arm64/boot/dts/qcom/msm8916.dtsi              |    8 +-
+ arch/arm64/boot/dts/qcom/msm8917.dtsi              |   10 +-
+ arch/arm64/boot/dts/qcom/msm8937.dtsi              |   12 +-
+ arch/arm64/boot/dts/qcom/msm8953.dtsi              |  516 +++----
+ arch/arm64/boot/dts/qcom/msm8976.dtsi              |    4 +-
+ arch/arm64/boot/dts/qcom/msm8998.dtsi              |   16 +-
+ arch/arm64/boot/dts/qcom/sdm630.dtsi               |   16 +-
+ arch/arm64/boot/dts/qcom/sdm632-fairphone-fp3.dts  |   57 +
+ arch/arm64/boot/dts/qcom/sdm660.dtsi               |    2 +-
+ .../boot/dts/qcom/sdm845-oneplus-enchilada.dts     |    2 +
+ arch/arm64/boot/dts/qcom/sm6115.dtsi               |    8 +-
+ arch/arm64/boot/dts/qcom/sm6125.dtsi               |   12 +-
+ arch/arm64/boot/dts/qcom/sm6350.dtsi               |    3 +
+ arch/arm64/boot/dts/qcom/sm8750.dtsi               | 1431 +++++++++++++++++---
+ arch/arm64/boot/dts/qcom/talos.dtsi                |    1 -
+ arch/arm64/boot/dts/qcom/x1-el2.dtso               |    4 +
+ 19 files changed, 1694 insertions(+), 466 deletions(-)
 
