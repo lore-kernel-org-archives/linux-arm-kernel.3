@@ -4,88 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEBEED35662
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 08:04:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8207AD35692
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 08:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l8xWNa3sJRoci5cobBLnkBCZuXBaueJ9M3BhZ4R4R4k=; b=inG/IyPen9HdqSTnfSJ8z20Yp+
-	/r/Md73+OK6fHd1mWE4N6v++T01SbHwJjs/4iG9p6+J6cdVCNa0TUbJw3V//uYOvBDlxTb2X6+8/J
-	iVVEJY+m+JxxjZl7NOK9GsUnSPwTXATpsi/yoKvvn0AfUiYLsyocMp3HDGaR387029WSuQpC4uKQx
-	Bg77Tlr4WAqWQxqHZHri2bLStzrwPH0b6rgxwYxXgrMg6bQvb7PyrWKr5F1JBnAup/DlR73LScHXB
-	UxaXHrpn7i/wZJbY37YK1+7kJpOJCBAbkm+u4AUBqNWUJrayvjzykieBZC3eSrM2lV08rSj7hA1cL
-	762gPV4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OH4d2I7xBxJ2GcRhoUrtJK5IDeLU1wf9SLrAA3PohCs=; b=i+oKHOxvNDQbGVlXI+KTp57YgQ
+	B3wrcOrFsx30IqtCGFiqMSvCTFJYI6YQsj7GWgo3BPcwiWNGP/3KOeyAzyDRnQ6VfSAEpAQcpwkKB
+	oEAeIUGwlerbMKG2M5P1kBwrb9NAUtUP6HUjNeiQCSC9dp0wBVONQEFL6lTMwU8q4h3dlzPhL3Wov
+	5FbBIVAYZ7IkC4ixo2pgzCN/1Hu7RZ4ysk2d3uPfhUxOEmSeLKQuO8X6CabqY2gD0zPhhJqJN2qdG
+	iNFnjx3OFDyJzADgEQosQe4LNK3SpCdV0ZgGjutuYRCRs7GDrWoUb022JAH+Q1nmOb4/w8HnzIoyC
+	P33OEuIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl0XR-0000000Fdf7-0ixg;
-	Wed, 28 Jan 2026 08:04:33 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1vl0kW-0000000Feso-168b;
+	Wed, 28 Jan 2026 08:18:04 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl0XO-0000000FdeQ-1JGC;
-	Wed, 28 Jan 2026 08:04:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769587471; x=1801123471;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=GLHR9Oji25H8PWtTnK/W4m8foIL9bmCXlju4UvxDK6A=;
-  b=XOUrh5s/EqvnxL7iC6HgzDWqATzlm8SlMVx2grsqHCo54eNvpB/sHPCr
-   D07oYffKIHng/DmWjw9A8x9JoOLufR3aXazQYbgIQQgYJqgUOrMAfLWgP
-   efWPImJbklZ7Bj0CDAJ2c+t2uaQl6le+pdhO2+hgfS3lKR5LPqSi7if8X
-   PYKQqGzhL0G57vQriZJ4iuH08wEze+v8dAiSQ2yJrHZMfSl2BdbZD7xsy
-   lYHgViR+pOotqO63rip1ux3k34HYycpX+Fkm2KK+m0e+WrwWyLozBqTho
-   ct2x3qtGYtmiCgNvxwJuCYaejeSW4Rb3BGFLRUeaGz+a6IZANZJyUT/EZ
-   Q==;
-X-CSE-ConnectionGUID: W6TU8WN7ScicO/rT427VNg==
-X-CSE-MsgGUID: xwuCbSTRQT2KNEDjWcuSpA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="81902897"
-X-IronPort-AV: E=Sophos;i="6.21,258,1763452800"; 
-   d="scan'208";a="81902897"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jan 2026 00:04:29 -0800
-X-CSE-ConnectionGUID: r47TGrPESxueej+cbjruFQ==
-X-CSE-MsgGUID: XJnnVpXQTRON3gjVxjVkYQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,258,1763452800"; 
-   d="scan'208";a="207820384"
-Received: from gliu7x-mobl.ccr.corp.intel.com (HELO [10.238.3.150]) ([10.238.3.150])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jan 2026 00:04:23 -0800
-Message-ID: <bfe942c5-d051-4000-9baf-36bfcd0d2b21@linux.intel.com>
-Date: Wed, 28 Jan 2026 16:04:20 +0800
-MIME-Version: 1.0
+	id 1vl0kT-0000000Feph-3UEF
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 Jan 2026 08:18:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HKA02yLac1KhkgZT12w8CDZ4vG0EvP98+5v+dOGdMW8R8iEH80rDSaMwGB/8wcG7NE4Jvtq0P6scbfr/R8L/HuswyjgEd4z61Qw2PQgyN1ucAy+ioRMc7TacA546FAm7anCLUjC7p3ULD/QNFy9I35uyF4AUc7T26kqDDDgjdDVCPkP0umSmArTnYSIcweSc8q/fsdOgtrEzHZoCwypuiBAWiGOgwSogo9+WkRbOrI1w2EyeNZOCdWK9vcyM5OgZrQcWt9dM/GdWw1/1tF/S1tw5TQvn09uzS/X1z+GSBgbN4xrchJIdZu4MeQrJH8X9+pYKsjo9dXHQC7tdQbVp4Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OH4d2I7xBxJ2GcRhoUrtJK5IDeLU1wf9SLrAA3PohCs=;
+ b=BgkIL7eqLYHhln/D2DY9hZ9kZevxXuE72zQlRDwJv25h4ogRUz0wbltMcr4QNslUPxQ7MNcN+frFat+lltVKagNAvvzp5atdbd9c7Sc1vIVBA6Z41mjaYclJa7f5/hj6HHUEPbyAl7k8VgMRfej4X8+LWN1cL8MbdgSFgEiMay1bNr9kFo4CESDUS51QvWwVATSVX/VRrCIWcwR5wplMERwzvnD2SdhIXH3Hky1xUpVK7wk4ux01qGzcUl4XJHzup4rgFAxJVEqBg70OFQUTTEvR6w15JvWVmua542RdyK97+NfGcr2CnNnuHrO5FbmJWCNgujFth6QiNs+wYM0cAQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OH4d2I7xBxJ2GcRhoUrtJK5IDeLU1wf9SLrAA3PohCs=;
+ b=gg9lRpMeCVUenvjg+bfPBqQ1h/7akhzcUDTBpYuEBFubccbyFdSrpt3AlITIHxVS8a5vOhYoiLU2mbNAVPyRG6UVmousgYeAGwBvHNPYbvVv+oZ8gDVpfSaKaObVWa+81IsxEmj1GZkq6rX9sfM6gsmj2mJKYON6BqQbSLyutfRX8hSw/iSFSUkQ3dC4tGZ2Yf/lVSeGmyNJLsscbft741irqWfieNgck6q5sCyZmHK8C6W8wXVlMHfPlEewbuVYsTGp6dwQ0WO5Ucm6RvWZ6nYKuE3x19Ev/higDE8S2JjE5YUA//wUGPGYWTkQmMuhumfKFUslW1MtQ2VZe/oDCg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA6PR04MB11910.eurprd04.prod.outlook.com
+ (2603:10a6:102:516::16) by AM0PR04MB7153.eurprd04.prod.outlook.com
+ (2603:10a6:208:1a0::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.16; Wed, 28 Jan
+ 2026 08:17:55 +0000
+Received: from PA6PR04MB11910.eurprd04.prod.outlook.com
+ ([fe80::d3f0:3c24:f717:4989]) by PA6PR04MB11910.eurprd04.prod.outlook.com
+ ([fe80::d3f0:3c24:f717:4989%4]) with mapi id 15.20.9542.010; Wed, 28 Jan 2026
+ 08:17:54 +0000
+Message-ID: <c8536c80-2f58-4eae-9336-436d772206df@nxp.com>
+Date: Wed, 28 Jan 2026 09:17:52 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [Patch v2 2/3] perf regs: Remove __weak attributive
- arch__xxx_reg_mask() functions
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
- James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>,
- Guo Ren <guoren@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, linux-perf-users@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Zide Chen <zide.chen@intel.com>, Falcon Thomas <thomas.falcon@intel.com>,
- Dapeng Mi <dapeng1.mi@intel.com>, Xudong Hao <xudong.hao@intel.com>
-References: <20260127070259.2720468-1-dapeng1.mi@linux.intel.com>
- <20260127070259.2720468-3-dapeng1.mi@linux.intel.com>
- <CAP-5=fWxxp8vai33kvxf_45v6TUebWR5g3njEnRMQTP=Bx-Gww@mail.gmail.com>
- <9f88ff32-c699-4587-885e-316a914a5d78@linux.intel.com>
- <CAP-5=fV9idT0tTqqToQMohTSZyVeyx9XMY2J1tHkTeQYnfV-hQ@mail.gmail.com>
+Subject: Re: [EXT] Re: [RFC v1 00/11] Add iMX95 neoisp driver
+To: Michael Riesch <michael.riesch@collabora.com>,
+ julien.vuillaumier@nxp.com, alexi.birlinger@nxp.com, daniel.baluta@nxp.com,
+ peng.fan@nxp.com, frank.li@nxp.com, jacopo.mondi@ideasonboard.com,
+ laurent.pinchart@ideasonboard.com, mchehab@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+ s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260123080938.3367348-1-antoine.bouyer@nxp.com>
+ <544a98f3-d451-4ca1-b7d0-0b0a1238f66a@collabora.com>
 Content-Language: en-US
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <CAP-5=fV9idT0tTqqToQMohTSZyVeyx9XMY2J1tHkTeQYnfV-hQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: Antoine Bouyer <antoine.bouyer@nxp.com>
+In-Reply-To: <544a98f3-d451-4ca1-b7d0-0b0a1238f66a@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AS4P195CA0031.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:20b:65a::10) To PA6PR04MB11910.eurprd04.prod.outlook.com
+ (2603:10a6:102:516::16)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA6PR04MB11910:EE_|AM0PR04MB7153:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1dd21b6b-85ce-476c-630d-08de5e45bc8d
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|7416014|1800799024|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?M0dkUWErSDNLRGlUenZCcVJ4MjF0QmNucXlJd1hnU3k5T1FsbmlDTlQ2SWhm?=
+ =?utf-8?B?M1FCemxlMTBtWEdzNGdkNS9CVWhsY1llbDRybVFMWmVmL3A1VnFHUWQydS9v?=
+ =?utf-8?B?WjgxQk1ERys5LzRqWkx3cHdqMEhLWGRsVHJqVFBQZ1VDdVk0SU1aOFg1Rm16?=
+ =?utf-8?B?ejVhQ0d4WitHTU0xeTJqYW14V2U4QXFmd1lRRDBoWFNMZG9USm9NUUM3eVlo?=
+ =?utf-8?B?U1R0c094YkprdGZOUGVqYm1DZlhrU3ZwdU5XL0xKVnBqTVA5RS8xdTU5aHgx?=
+ =?utf-8?B?Q0xsMTE5b3pPaEt2TW1tKzUvdjZRTFlwb2xQckNNTE9UZnMwVFQvRUpNalJP?=
+ =?utf-8?B?M0wvZ1B2dncwL2ZsZUc3K24xRTJsRGEvdmlOaTljbEJyUzZFR0hKNkJ2b2NC?=
+ =?utf-8?B?UkZJUE9CZGgxdVU2YVdnWnRYZlgvalRlQWw1bWRhOUpadis3cGdGek1pbU9m?=
+ =?utf-8?B?Yko4aVlReSs1Wm5UZFhESHA3K0xBV2VOMG5Zc1VxLzBiSXhpOEpmdzFRN3BG?=
+ =?utf-8?B?L2V6VFRYOUtQUUlmRjB3d1gzY1pTaUZoVXpIcTJnMjJHRlAzTGg5YWo1NjBX?=
+ =?utf-8?B?eHdwVVZGT3A0ZFF6UDlwRWdLeEt1Uk5FWGhOTFQ5QmkzMHhuZVpJYVdXVE5C?=
+ =?utf-8?B?RXc5Z0Z0WG9WZ3V3aVZhSDY5NklKSytVLzNWS2VKcWEwS2VDem5idGg0bkND?=
+ =?utf-8?B?SmQrbkRvWndLb3dXb2RuMGJwM1pveTVsSFcxMFFBb3h6QmFJT3laNS9SRGQ4?=
+ =?utf-8?B?QXNpcUVxWEJ4VXlyb2pCWG5yTFg5YjZWZDg3TjhiYUo5K3NreW9MeFFoZUp1?=
+ =?utf-8?B?dCs5VFhKWjUvTUNhWFFiRkVqWm45NjRhc2Z4c0V5YUN6QlM0V3Y4cG1qdGVW?=
+ =?utf-8?B?VVNacTkwdjVIaDU0SW9qSDcxZUtid3NEMzZJQndKcXlXa1dkNG81T2RJN29u?=
+ =?utf-8?B?dWxRcDYwM3YzT0pVQmVIWFNzOEpJdkFKTkJZMFFSei84MWpsanhQcmpmM002?=
+ =?utf-8?B?elR0d1RYbzR1eG9sNnBkOVFlUWVvaWtaQzl1QjBzazRaQzdIWWtoOFJvYkk3?=
+ =?utf-8?B?NTNjdm9WdktZaFVOM1ZudjkyRlNlVFBoSndYUmszL0cyVy9XNmozdWJKbCsv?=
+ =?utf-8?B?eFd0d1JZZkJvTnpudmVKUnhqSkEwUVFHdE9VVmxjTklRUVVNczVIUmcwQmlt?=
+ =?utf-8?B?S1BrK3F3dStYWTRKb2pNVGtjajdZcXJvcWhtMjlYYzNDM1NpY0VRdUVNeGQ3?=
+ =?utf-8?B?OENiWU5WUitYanBiSGVqeE0wcmhma2lZTzdhRi9jRFgzbHVFRVE0TGRLTW5w?=
+ =?utf-8?B?WGlqUGQ0dTE4TFE4emcyK3l1ZGp4bm9HRC90VU41aFVsR3d1S1BieHFwUjRB?=
+ =?utf-8?B?YjUzT0NHYXNRMHpnb0hvWUhTMk00SGpCNXIvVzRpY2JXbU9MeXp2YWdGZkdX?=
+ =?utf-8?B?aEIvdXNiWThRd0tqOXZrSTFyRE02KzhCSzcwdWViRVJKMS9RUStMcUQvTFhX?=
+ =?utf-8?B?RTE1cWpSWW9zVWdQZlY4K1MwYTFDeFZENmp2MmdjVlRPMGljUkVBV1dwSUI5?=
+ =?utf-8?B?NkFjbFFwemtnREVlS0NDNTJXcXNEdUo5L0twOTdUaHMvcmIxWnpvVncyVzh3?=
+ =?utf-8?B?U1ppa29QUXRzNVdVaE9FcHVZWUdpYkhmMmdpZjdPd3pKY1plejFISmlqRlpr?=
+ =?utf-8?B?RGNLZUY0WTYwN3VpSG5lVXFzSmtpMjBTb3pacXd0cGtSSWg2cU9wVmQ4T1JX?=
+ =?utf-8?B?bG9Zc1J6ZWt0MGJYS2RIMlFyK3FHL3kvZi9pSGFRTVFOUVlmYlRKZFNGekRl?=
+ =?utf-8?B?UW5mb3daa0V4dXFIWGE5WmU5cTg2VU11akVOMmtMajFwNER5NVJRM1I3UGsw?=
+ =?utf-8?B?UytMTmFOb1psK3NyZXVxYUs3MjIyajB2azRjT2UzdVJ4dDNiS1ZsYndIZ2xx?=
+ =?utf-8?B?N3loV1F2SFRHb2xnWVRrK3l1QzZUaHJmbm1KbHdTTE5ya3lXR3ZaUzgxSUNa?=
+ =?utf-8?B?ajJrZ0ttR1pnWEtIWUVoZExkVUtYckZjRGhoSXNhYTdoK0lZdm1QTlBXdnJV?=
+ =?utf-8?B?N1RWRFNvNXcwLzVhTllZSkR5aFkzZTRPZzRnSDhTa3dvTWIyWWNOSlo4cVRz?=
+ =?utf-8?B?VW5yOS82RC9OUjJSa2JBVHFCc1F4VlAzeHJJU0FleEpiR1Q3aGY4V3RGTXBk?=
+ =?utf-8?B?RXc9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA6PR04MB11910.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(7416014)(1800799024)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OXhaN291cU9yS3JIR0JVQjJYRmowMzN4djc0Q09JYTN1blVLTzFDT0Q2eXh6?=
+ =?utf-8?B?c3VpUTFQWlZjbUFjOXQyRURvbmllWmV1Z3pWQkJiQzVOL1JSb0tLVGlJSjFL?=
+ =?utf-8?B?YWhiUzlvRWNCUHZaNjBhamgzV3RZUWZab0FaeWhMcnVlVjI3RXdJS3ZEUmZt?=
+ =?utf-8?B?ZXFndkxWSHoyaVJIMVlneUtTODlDMUxlaTZNZHZ6QmF6d1FsbC82Y2VpMlNt?=
+ =?utf-8?B?dXIyQVZPTXkyV0ZOY2MybW1GWjdKWlB6YVNSTVZaVGs5dDE4SGFVVmQwVHpO?=
+ =?utf-8?B?K1cvQktjeGZRR0FjRDlZRy96NWNNemxaRzFJS2lMbEpON0FHYVVsQzRVTmZJ?=
+ =?utf-8?B?cDZ0ZlEyTTgzek9VeDZlaXlselFKTEtQbXBwZUdFR0d2KzVYYUIzbWpBdlNs?=
+ =?utf-8?B?ZzQ5YjZoYzlGaGplMXloZ04zekREWEZ0N2I3WjgyWStpR0t1MDV4WEIvdUgr?=
+ =?utf-8?B?WkFMWHA0d0poWVp0VDlyci9LSjloY3haaWh6M04zR0dOSXAxOFdLRU9MejVp?=
+ =?utf-8?B?T3BqdThsVmJtSER6b3IvUUlNZnJkUFhzS3hUQzZDa2pQRGZRc1ZtTnZkTFZV?=
+ =?utf-8?B?YTNLaWwxbXZaTThHYWsxZFc5dS9GUS9Na3JoY3NrK2x6clJzVGlSVFBHbzhn?=
+ =?utf-8?B?dDRCY1J1YkdFaWhRd2dDdjFvV1picUhnQmpEazlHUy9MMVB3TXh3TjRmcGxQ?=
+ =?utf-8?B?Sk1LakltUzllNHJJRWsrWllIQ2ZqMjgwckQ5Mkk1MFA3YnAydytuWVF5ZFM4?=
+ =?utf-8?B?Mm5ZeGF2YXVWaUNNS0EyOGQrMGtGOXZzRVRZWjFWbWdQMGdqdDNJc3lSMzFQ?=
+ =?utf-8?B?TFZXMlcvcUZMQUdTellUalN5c1dqQUNNcDFITXlEWDZCR3RtWnNoTURHVnBD?=
+ =?utf-8?B?ZDVBalA0c3VmcCtiR05Lb0pMVHh4N1pzTCtoR21iZ2FGYStvSmxFY0NyRDBG?=
+ =?utf-8?B?KzZXelRuU0kvZlpaTExKVEdoejJ3eFRibVlZWE5ONk04ZEd5bFdSRUdnb0w5?=
+ =?utf-8?B?R3RxMkV4a1piRnEwQVQzK0t0VmhVd2U0V2hrejFLZWFTaEQrbFVqZUJzMys5?=
+ =?utf-8?B?d1dJdlZGbWJ6ekRFeWlrZ2JROFVuY3NmOW5zQnc3MENvQUZTa3E0c0EvMytI?=
+ =?utf-8?B?ajdLdjVKVWo4THFYNWdKVmkwQTJjVGpZNGJRaTB3QnYrRWxmYThTSktwMFov?=
+ =?utf-8?B?YVlRQVFxZnN0d1BkOTNlNVozS29ZWGhLbWlHVVMyZm43b1FZek9hU0tQK3FW?=
+ =?utf-8?B?bzhyejkwTkNlRkVtL2VSV2NRYjlNQ1p0K3dQV1V3dFB3V0pNSElWZ0pPUTBj?=
+ =?utf-8?B?VFlrOC9DWkIzbTB0blgvcExPVnkzUTg3NTFHR0ZOU1JueCtkRGxreFBuS1Zr?=
+ =?utf-8?B?Rkg4RnRZKzg1ajQwZEwwaVBpYWU1RWZZMGpPbitKS3NLWHcySWk1WEw3eFNy?=
+ =?utf-8?B?bHFTOFBORytPWlpxbjVEb1dsLzN6blhSY2l6cXpGM3JTSFlxakpUZzV2U01U?=
+ =?utf-8?B?cFZaVnJ2V3pmTThkcXVISk5FbFhldy9MQjcrOFYrOUlEODgraVBrUkRVUDEx?=
+ =?utf-8?B?UjZsMVhaOWIvZk1uRjVkMEY2cE9hT3p2RW94bmgzYlEwNWhrQnVmVnpndHpK?=
+ =?utf-8?B?am02aXpVL3BCR0p5TllTam9RSWgvdlVHZS9oUk1GODFvS2Z3T1ljUEo0T2Ni?=
+ =?utf-8?B?QlArK1UzMUZDdldVZGdXcVRLWTVLN1RCd1loMXlZUzg0RVR4MmVyakl5cC9i?=
+ =?utf-8?B?NzdoMnBwb29LZnQyU0hTcGwyc1JwZ29YRGRYdVIyMlFwbXNGU3I4enI0OVFX?=
+ =?utf-8?B?cVliUzEyYTBPbXAva0tnMUpmb2hjdXcvdHcvbVhyKzhKUm1DeWp0NHZ4VHhM?=
+ =?utf-8?B?TjE4Mkl6WTBQa04yN1JlSXloamRrS1RtR3dmZ3JoS0dUTU9FcHg1cU1mTE1s?=
+ =?utf-8?B?UTcrZVNhdk1CdlltSTQ4aUVlRzR3OUpYOFc3c2dpLzJxMkx6ZjFaZjdwTVVx?=
+ =?utf-8?B?N3g2WmZmRUtZM3FkRnJmeE9OV2U2VXp0cm1ZRjByRVA4c055VnpNODNic3Vk?=
+ =?utf-8?B?RzBHVlFqdVYyODZ0UGp5VzJaM0FPdWpxSis5UFpJdGh4M29oSDdjWVNOMFRi?=
+ =?utf-8?B?UXYvZ0tYemhidEl2c0VsUjV4Qlc2ck5WaUF3UUFnOUQ5NUlvYk14QWd5UXJ3?=
+ =?utf-8?B?Q1Z5UEFjNk9sNERqd0MwaHp2RzBoWWxwME1oSGZVejVienUzMnU1dkRZUFpM?=
+ =?utf-8?B?REsxNERZOXQ1Tms2RlpONS9DTDIrTk9ndVo1S0FXK2xEQytrZTB1SDYwR3VI?=
+ =?utf-8?B?N2tHdllGWk11cjE2L3BvL2JiWFFyOFVFbkV3OXRXdG5HdmlLZGp3dz09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1dd21b6b-85ce-476c-630d-08de5e45bc8d
+X-MS-Exchange-CrossTenant-AuthSource: PA6PR04MB11910.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2026 08:17:54.6018
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qGAqnqH0Uu1bs91z80IkDDz1uWmLWn81kpBSf+QbJ6EziIA6XaSXm65eJtl2it17hkrXj86xntnJsaINa85q0A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7153
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_000430_487404_00802A62 
-X-CRM114-Status: GOOD (  16.49  )
+X-CRM114-CacheID: sfid-20260128_001802_178690_32A182A9 
+X-CRM114-Status: GOOD (  27.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,1026 +188,1027 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Michael
 
-On 1/28/2026 3:32 PM, Ian Rogers wrote:
-> On Tue, Jan 27, 2026 at 6:03 PM Mi, Dapeng <dapeng1.mi@linux.intel.com> wrote:
+On 1/26/26 10:44 AM, Michael Riesch wrote:
+> 
+> 
+> Hi Antoine,
+> 
+> On 1/23/26 09:09, Antoine Bouyer wrote:
+>> Hi all,
 >>
->> On 1/28/2026 12:46 AM, Ian Rogers wrote:
->>> On Mon, Jan 26, 2026 at 11:06 PM Dapeng Mi <dapeng1.mi@linux.intel.com> wrote:
->>>> Currently, some architecture-specific perf-regs functions, such as
->>>> arch__intr_reg_mask() and arch__user_reg_mask(), are defined with the
->>>> __weak attribute. This approach ensures that only functions matching
->>>> the architecture of the build/run host are compiled and executed,
->>>> reducing build time and binary size.
->>>>
->>>> However, this __weak attribute restricts these functions to be called
->>>> only on the same architecture, preventing cross-architecture
->>>> functionality. For example, a perf.data file captured on x86 cannot be
->>>> parsed on an ARM platform.
->>>>
->>>> To address this limitation, this patch removes the __weak attribute from
->>>> these perf-regs functions. The architecture-specific code is moved from
->>>> the arch/ directory to the util/perf-regs-arch/ directory. The
->>>> appropriate architectural functions are then called based on the EM_HOST.
->>>>
->>>> No functional changes are intended.
->>>>
->>>> Suggested-by: Ian Rogers <irogers@google.com>
->>>> Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
->>>> ---
->>>>  tools/perf/arch/arm/util/Build                |  2 -
->>>>  tools/perf/arch/arm/util/perf_regs.c          | 13 ---
->>>>  tools/perf/arch/arm64/util/perf_regs.c        | 36 ---------
->>>>  tools/perf/arch/csky/Build                    |  1 -
->>>>  tools/perf/arch/csky/util/Build               |  1 -
->>>>  tools/perf/arch/csky/util/perf_regs.c         | 13 ---
->>>>  tools/perf/arch/loongarch/util/Build          |  1 -
->>>>  tools/perf/arch/loongarch/util/perf_regs.c    | 13 ---
->>>>  tools/perf/arch/mips/util/Build               |  1 -
->>>>  tools/perf/arch/mips/util/perf_regs.c         | 13 ---
->>>>  tools/perf/arch/powerpc/util/perf_regs.c      | 47 -----------
->>>>  tools/perf/arch/riscv/include/perf_regs.h     |  7 +-
->>>>  tools/perf/arch/riscv/util/Build              |  1 -
->>>>  tools/perf/arch/riscv/util/perf_regs.c        | 13 ---
->>>>  tools/perf/arch/s390/util/Build               |  1 -
->>>>  tools/perf/arch/s390/util/perf_regs.c         | 13 ---
->>>>  tools/perf/arch/x86/util/perf_regs.c          | 48 -----------
->>>>  tools/perf/util/evsel.c                       |  4 +-
->>>>  tools/perf/util/parse-regs-options.c          |  2 +-
->>>>  .../util/perf-regs-arch/perf_regs_aarch64.c   | 51 +++++++++++-
->>>>  .../perf/util/perf-regs-arch/perf_regs_arm.c  |  7 +-
->>>>  .../perf/util/perf-regs-arch/perf_regs_csky.c |  7 +-
->>>>  .../util/perf-regs-arch/perf_regs_loongarch.c |  7 +-
->>>>  .../perf/util/perf-regs-arch/perf_regs_mips.c |  7 +-
->>>>  .../util/perf-regs-arch/perf_regs_powerpc.c   | 70 +++++++++++++++-
->>>>  .../util/perf-regs-arch/perf_regs_riscv.c     |  7 +-
->>>>  .../perf/util/perf-regs-arch/perf_regs_s390.c |  7 +-
->>>>  .../perf/util/perf-regs-arch/perf_regs_x86.c  | 60 +++++++++++++-
->>>>  tools/perf/util/perf_regs.c                   | 80 ++++++++++++++++++-
->>>>  tools/perf/util/perf_regs.h                   | 22 ++++-
->>>>  30 files changed, 319 insertions(+), 236 deletions(-)
->>>>  delete mode 100644 tools/perf/arch/arm/util/perf_regs.c
->>>>  delete mode 100644 tools/perf/arch/csky/Build
->>>>  delete mode 100644 tools/perf/arch/csky/util/Build
->>>>  delete mode 100644 tools/perf/arch/csky/util/perf_regs.c
->>>>  delete mode 100644 tools/perf/arch/loongarch/util/perf_regs.c
->>>>  delete mode 100644 tools/perf/arch/mips/util/perf_regs.c
->>>>  delete mode 100644 tools/perf/arch/riscv/util/perf_regs.c
->>>>  delete mode 100644 tools/perf/arch/s390/util/perf_regs.c
->>> 8 files deleted is pretty awesome from my pov. Thanks!
->> Yeah. Besides the reduction of files, another benefit (which could be more
->> important) is that all perf-regs related arch-specific code currently are
->> in a same place.
+>> This RFC patch series introduces the NXP Neo Image Signal Processor (ISP)
+>> driver, used in the NXP i.MX95 SoC and future devices in the i.MX9 family.
+>> The series also includes updates to the generic v4l2-isp interface to
+>> support extended statistics required by the Neo ISP.
 >>
+>> The Neo ISP processes one or more camera streams, converting RAW formats
+>> into YUV or RGB outputs. Its architecture is largely influenced by the
+>> PISP driver. The hardware supports up to eight contexts, with three sink
+>> pads (main input, HDR input, and parameter buffers) and three source pads
+>> (RGB output, IR output, and statistics metadata).
 >>
->>>> diff --git a/tools/perf/arch/arm/util/Build b/tools/perf/arch/arm/util/Build
->>>> index 3291f893b943..b94bf3c5279a 100644
->>>> --- a/tools/perf/arch/arm/util/Build
->>>> +++ b/tools/perf/arch/arm/util/Build
->>>> @@ -1,5 +1,3 @@
->>>> -perf-util-y += perf_regs.o
->>>> -
->>>>  perf-util-$(CONFIG_LOCAL_LIBUNWIND)    += unwind-libunwind.o
->>>>
->>>>  perf-util-y += pmu.o auxtrace.o cs-etm.o
->>>> diff --git a/tools/perf/arch/arm/util/perf_regs.c b/tools/perf/arch/arm/util/perf_regs.c
->>>> deleted file mode 100644
->>>> index 03a5bc0cf64c..000000000000
->>>> --- a/tools/perf/arch/arm/util/perf_regs.c
->>>> +++ /dev/null
->>>> @@ -1,13 +0,0 @@
->>>> -// SPDX-License-Identifier: GPL-2.0
->>>> -#include "perf_regs.h"
->>>> -#include "../../../util/perf_regs.h"
->>>> -
->>>> -uint64_t arch__intr_reg_mask(void)
->>>> -{
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> -
->>>> -uint64_t arch__user_reg_mask(void)
->>>> -{
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> diff --git a/tools/perf/arch/arm64/util/perf_regs.c b/tools/perf/arch/arm64/util/perf_regs.c
->>>> index 9bb768e1bea1..47f58eaba032 100644
->>>> --- a/tools/perf/arch/arm64/util/perf_regs.c
->>>> +++ b/tools/perf/arch/arm64/util/perf_regs.c
->>>> @@ -103,39 +103,3 @@ int arch_sdt_arg_parse_op(char *old_op, char **new_op)
->>>>
->>>>         return SDT_ARG_VALID;
->>>>  }
->>>> -
->>>> -uint64_t arch__intr_reg_mask(void)
->>>> -{
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> -
->>>> -uint64_t arch__user_reg_mask(void)
->>>> -{
->>>> -       struct perf_event_attr attr = {
->>>> -               .type                   = PERF_TYPE_HARDWARE,
->>>> -               .config                 = PERF_COUNT_HW_CPU_CYCLES,
->>>> -               .sample_type            = PERF_SAMPLE_REGS_USER,
->>>> -               .disabled               = 1,
->>>> -               .exclude_kernel         = 1,
->>>> -               .sample_period          = 1,
->>>> -               .sample_regs_user       = PERF_REGS_MASK
->>>> -       };
->>>> -       int fd;
->>>> -
->>>> -       if (getauxval(AT_HWCAP) & HWCAP_SVE)
->>>> -               attr.sample_regs_user |= SMPL_REG_MASK(PERF_REG_ARM64_VG);
->>>> -
->>>> -       /*
->>>> -        * Check if the pmu supports perf extended regs, before
->>>> -        * returning the register mask to sample.
->>>> -        */
->>>> -       if (attr.sample_regs_user != PERF_REGS_MASK) {
->>>> -               event_attr_init(&attr);
->>>> -               fd = sys_perf_event_open(&attr, 0, -1, -1, 0);
->>>> -               if (fd != -1) {
->>>> -                       close(fd);
->>>> -                       return attr.sample_regs_user;
->>>> -               }
->>>> -       }
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> diff --git a/tools/perf/arch/csky/Build b/tools/perf/arch/csky/Build
->>>> deleted file mode 100644
->>>> index e63eabc2c8f4..000000000000
->>>> --- a/tools/perf/arch/csky/Build
->>>> +++ /dev/null
->>>> @@ -1 +0,0 @@
->>>> -perf-util-y += util/
->>>> diff --git a/tools/perf/arch/csky/util/Build b/tools/perf/arch/csky/util/Build
->>>> deleted file mode 100644
->>>> index 6b2d0e021b11..000000000000
->>>> --- a/tools/perf/arch/csky/util/Build
->>>> +++ /dev/null
->>>> @@ -1 +0,0 @@
->>>> -perf-util-y += perf_regs.o
->>>> diff --git a/tools/perf/arch/csky/util/perf_regs.c b/tools/perf/arch/csky/util/perf_regs.c
->>>> deleted file mode 100644
->>>> index 2cf7a54106e0..000000000000
->>>> --- a/tools/perf/arch/csky/util/perf_regs.c
->>>> +++ /dev/null
->>>> @@ -1,13 +0,0 @@
->>>> -// SPDX-License-Identifier: GPL-2.0
->>>> -#include "perf_regs.h"
->>>> -#include "../../util/perf_regs.h"
->>>> -
->>>> -uint64_t arch__intr_reg_mask(void)
->>>> -{
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> -
->>>> -uint64_t arch__user_reg_mask(void)
->>>> -{
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> diff --git a/tools/perf/arch/loongarch/util/Build b/tools/perf/arch/loongarch/util/Build
->>>> index 0aa31986ecb5..0c958c8e0718 100644
->>>> --- a/tools/perf/arch/loongarch/util/Build
->>>> +++ b/tools/perf/arch/loongarch/util/Build
->>>> @@ -1,5 +1,4 @@
->>>>  perf-util-y += header.o
->>>> -perf-util-y += perf_regs.o
->>>>
->>>>  perf-util-$(CONFIG_LOCAL_LIBUNWIND) += unwind-libunwind.o
->>>>  perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
->>>> diff --git a/tools/perf/arch/loongarch/util/perf_regs.c b/tools/perf/arch/loongarch/util/perf_regs.c
->>>> deleted file mode 100644
->>>> index 03a5bc0cf64c..000000000000
->>>> --- a/tools/perf/arch/loongarch/util/perf_regs.c
->>>> +++ /dev/null
->>>> @@ -1,13 +0,0 @@
->>>> -// SPDX-License-Identifier: GPL-2.0
->>>> -#include "perf_regs.h"
->>>> -#include "../../../util/perf_regs.h"
->>>> -
->>>> -uint64_t arch__intr_reg_mask(void)
->>>> -{
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> -
->>>> -uint64_t arch__user_reg_mask(void)
->>>> -{
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> diff --git a/tools/perf/arch/mips/util/Build b/tools/perf/arch/mips/util/Build
->>>> index 691fa2051958..818b808a8247 100644
->>>> --- a/tools/perf/arch/mips/util/Build
->>>> +++ b/tools/perf/arch/mips/util/Build
->>>> @@ -1,2 +1 @@
->>>> -perf-util-y += perf_regs.o
->>>>  perf-util-$(CONFIG_LOCAL_LIBUNWIND) += unwind-libunwind.o
->>>> diff --git a/tools/perf/arch/mips/util/perf_regs.c b/tools/perf/arch/mips/util/perf_regs.c
->>>> deleted file mode 100644
->>>> index 2cf7a54106e0..000000000000
->>>> --- a/tools/perf/arch/mips/util/perf_regs.c
->>>> +++ /dev/null
->>>> @@ -1,13 +0,0 @@
->>>> -// SPDX-License-Identifier: GPL-2.0
->>>> -#include "perf_regs.h"
->>>> -#include "../../util/perf_regs.h"
->>>> -
->>>> -uint64_t arch__intr_reg_mask(void)
->>>> -{
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> -
->>>> -uint64_t arch__user_reg_mask(void)
->>>> -{
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> diff --git a/tools/perf/arch/powerpc/util/perf_regs.c b/tools/perf/arch/powerpc/util/perf_regs.c
->>>> index 779073f7e992..93f929fc32e3 100644
->>>> --- a/tools/perf/arch/powerpc/util/perf_regs.c
->>>> +++ b/tools/perf/arch/powerpc/util/perf_regs.c
->>>> @@ -123,50 +123,3 @@ int arch_sdt_arg_parse_op(char *old_op, char **new_op)
->>>>
->>>>         return SDT_ARG_VALID;
->>>>  }
->>>> -
->>>> -uint64_t arch__intr_reg_mask(void)
->>>> -{
->>>> -       struct perf_event_attr attr = {
->>>> -               .type                   = PERF_TYPE_HARDWARE,
->>>> -               .config                 = PERF_COUNT_HW_CPU_CYCLES,
->>>> -               .sample_type            = PERF_SAMPLE_REGS_INTR,
->>>> -               .precise_ip             = 1,
->>>> -               .disabled               = 1,
->>>> -               .exclude_kernel         = 1,
->>>> -       };
->>>> -       int fd;
->>>> -       u32 version;
->>>> -       u64 extended_mask = 0, mask = PERF_REGS_MASK;
->>>> -
->>>> -       /*
->>>> -        * Get the PVR value to set the extended
->>>> -        * mask specific to platform.
->>>> -        */
->>>> -       version = (((mfspr(SPRN_PVR)) >>  16) & 0xFFFF);
->>>> -       if (version == PVR_POWER9)
->>>> -               extended_mask = PERF_REG_PMU_MASK_300;
->>>> -       else if ((version == PVR_POWER10) || (version == PVR_POWER11))
->>>> -               extended_mask = PERF_REG_PMU_MASK_31;
->>>> -       else
->>>> -               return mask;
->>>> -
->>>> -       attr.sample_regs_intr = extended_mask;
->>>> -       attr.sample_period = 1;
->>>> -       event_attr_init(&attr);
->>>> -
->>>> -       /*
->>>> -        * check if the pmu supports perf extended regs, before
->>>> -        * returning the register mask to sample.
->>>> -        */
->>>> -       fd = sys_perf_event_open(&attr, 0, -1, -1, 0);
->>>> -       if (fd != -1) {
->>>> -               close(fd);
->>>> -               mask |= extended_mask;
->>>> -       }
->>>> -       return mask;
->>>> -}
->>>> -
->>>> -uint64_t arch__user_reg_mask(void)
->>>> -{
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> diff --git a/tools/perf/arch/riscv/include/perf_regs.h b/tools/perf/arch/riscv/include/perf_regs.h
->>>> index 89d5bbb8d2b8..af7a1b47bf66 100644
->>>> --- a/tools/perf/arch/riscv/include/perf_regs.h
->>>> +++ b/tools/perf/arch/riscv/include/perf_regs.h
->>>> @@ -10,10 +10,15 @@
->>>>
->>>>  #define PERF_REGS_MASK ((1ULL << PERF_REG_RISCV_MAX) - 1)
->>>>  #define PERF_REGS_MAX  PERF_REG_RISCV_MAX
->>>> +
->>>> +#if defined(__riscv_xlen)
->>>>  #if __riscv_xlen == 64
->>>> -#define PERF_SAMPLE_REGS_ABI    PERF_SAMPLE_REGS_ABI_64
->>>> +#define PERF_SAMPLE_REGS_ABI   PERF_SAMPLE_REGS_ABI_64
->>>>  #else
->>>>  #define PERF_SAMPLE_REGS_ABI   PERF_SAMPLE_REGS_ABI_32
->>>>  #endif
->>>> +#else
->>>> +#define PERF_SAMPLE_REGS_ABI   PERF_SAMPLE_REGS_NONE
->>>> +#endif
->>>>
->>>>  #endif /* ARCH_PERF_REGS_H */
->>>> diff --git a/tools/perf/arch/riscv/util/Build b/tools/perf/arch/riscv/util/Build
->>>> index 628b9ebd418b..da5b12e7f862 100644
->>>> --- a/tools/perf/arch/riscv/util/Build
->>>> +++ b/tools/perf/arch/riscv/util/Build
->>>> @@ -1,4 +1,3 @@
->>>> -perf-util-y += perf_regs.o
->>>>  perf-util-y += header.o
->>>>
->>>>  perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
->>>> diff --git a/tools/perf/arch/riscv/util/perf_regs.c b/tools/perf/arch/riscv/util/perf_regs.c
->>>> deleted file mode 100644
->>>> index 2cf7a54106e0..000000000000
->>>> --- a/tools/perf/arch/riscv/util/perf_regs.c
->>>> +++ /dev/null
->>>> @@ -1,13 +0,0 @@
->>>> -// SPDX-License-Identifier: GPL-2.0
->>>> -#include "perf_regs.h"
->>>> -#include "../../util/perf_regs.h"
->>>> -
->>>> -uint64_t arch__intr_reg_mask(void)
->>>> -{
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> -
->>>> -uint64_t arch__user_reg_mask(void)
->>>> -{
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> diff --git a/tools/perf/arch/s390/util/Build b/tools/perf/arch/s390/util/Build
->>>> index 5391d26fedd4..3b09c058e0ec 100644
->>>> --- a/tools/perf/arch/s390/util/Build
->>>> +++ b/tools/perf/arch/s390/util/Build
->>>> @@ -1,6 +1,5 @@
->>>>  perf-util-y += header.o
->>>>  perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
->>>> -perf-util-y += perf_regs.o
->>>>
->>>>  perf-util-y += machine.o
->>>>  perf-util-y += pmu.o
->>>> diff --git a/tools/perf/arch/s390/util/perf_regs.c b/tools/perf/arch/s390/util/perf_regs.c
->>>> deleted file mode 100644
->>>> index 2cf7a54106e0..000000000000
->>>> --- a/tools/perf/arch/s390/util/perf_regs.c
->>>> +++ /dev/null
->>>> @@ -1,13 +0,0 @@
->>>> -// SPDX-License-Identifier: GPL-2.0
->>>> -#include "perf_regs.h"
->>>> -#include "../../util/perf_regs.h"
->>>> -
->>>> -uint64_t arch__intr_reg_mask(void)
->>>> -{
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> -
->>>> -uint64_t arch__user_reg_mask(void)
->>>> -{
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> diff --git a/tools/perf/arch/x86/util/perf_regs.c b/tools/perf/arch/x86/util/perf_regs.c
->>>> index a7ca4154fdf9..41141cebe226 100644
->>>> --- a/tools/perf/arch/x86/util/perf_regs.c
->>>> +++ b/tools/perf/arch/x86/util/perf_regs.c
->>>> @@ -233,51 +233,3 @@ int arch_sdt_arg_parse_op(char *old_op, char **new_op)
->>>>
->>>>         return SDT_ARG_VALID;
->>>>  }
->>>> -
->>>> -uint64_t arch__intr_reg_mask(void)
->>>> -{
->>>> -       struct perf_event_attr attr = {
->>>> -               .type                   = PERF_TYPE_HARDWARE,
->>>> -               .config                 = PERF_COUNT_HW_CPU_CYCLES,
->>>> -               .sample_type            = PERF_SAMPLE_REGS_INTR,
->>>> -               .sample_regs_intr       = PERF_REG_EXTENDED_MASK,
->>>> -               .precise_ip             = 1,
->>>> -               .disabled               = 1,
->>>> -               .exclude_kernel         = 1,
->>>> -       };
->>>> -       int fd;
->>>> -       /*
->>>> -        * In an unnamed union, init it here to build on older gcc versions
->>>> -        */
->>>> -       attr.sample_period = 1;
->>>> -
->>>> -       if (perf_pmus__num_core_pmus() > 1) {
->>>> -               struct perf_pmu *pmu = NULL;
->>>> -               __u64 type = PERF_TYPE_RAW;
->>>> -
->>>> -               /*
->>>> -                * The same register set is supported among different hybrid PMUs.
->>>> -                * Only check the first available one.
->>>> -                */
->>>> -               while ((pmu = perf_pmus__scan_core(pmu)) != NULL) {
->>>> -                       type = pmu->type;
->>>> -                       break;
->>>> -               }
->>>> -               attr.config |= type << PERF_PMU_TYPE_SHIFT;
->>>> -       }
->>>> -
->>>> -       event_attr_init(&attr);
->>>> -
->>>> -       fd = sys_perf_event_open(&attr, 0, -1, -1, 0);
->>>> -       if (fd != -1) {
->>>> -               close(fd);
->>>> -               return (PERF_REG_EXTENDED_MASK | PERF_REGS_MASK);
->>>> -       }
->>>> -
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> -
->>>> -uint64_t arch__user_reg_mask(void)
->>>> -{
->>>> -       return PERF_REGS_MASK;
->>>> -}
->>>> diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
->>>> index 5ac1a05601b1..a36528fd41c6 100644
->>>> --- a/tools/perf/util/evsel.c
->>>> +++ b/tools/perf/util/evsel.c
->>>> @@ -1055,13 +1055,13 @@ static void __evsel__config_callchain(struct evsel *evsel, struct record_opts *o
->>>>                         evsel__set_sample_bit(evsel, REGS_USER);
->>>>                         evsel__set_sample_bit(evsel, STACK_USER);
->>>>                         if (opts->sample_user_regs &&
->>>> -                           DWARF_MINIMAL_REGS(e_machine) != arch__user_reg_mask()) {
->>>> +                           DWARF_MINIMAL_REGS(e_machine) != perf_user_reg_mask(EM_HOST)) {
->>>>                                 attr->sample_regs_user |= DWARF_MINIMAL_REGS(e_machine);
->>>>                                 pr_warning("WARNING: The use of --call-graph=dwarf may require all the user registers, "
->>>>                                            "specifying a subset with --user-regs may render DWARF unwinding unreliable, "
->>>>                                            "so the minimal registers set (IP, SP) is explicitly forced.\n");
->>>>                         } else {
->>>> -                               attr->sample_regs_user |= arch__user_reg_mask();
->>>> +                               attr->sample_regs_user |= perf_user_reg_mask(EM_HOST);
->>> Fwiw, I think this is why for dwarf unwinding on x86 we're sampling
->>> the XMM registers which is probably too much. I think the mask that's
->>> really wanted here is the mask of all callee-save registers or,
->>> because maybe there's inter-procedural optimizations, all GPRs.
->> Yes, XMM are definitely not needed for dwarf unwinding. After supporting
->> the APX eGPRs, we can do a further investigation for this place.
->>
->>
->>>>                         }
->>>>                         attr->sample_stack_user = param->dump_size;
->>>>                         attr->exclude_callchain_user = 1;
->>>> diff --git a/tools/perf/util/parse-regs-options.c b/tools/perf/util/parse-regs-options.c
->>>> index c0d0ef9fd495..2af6e4ad2a34 100644
->>>> --- a/tools/perf/util/parse-regs-options.c
->>>> +++ b/tools/perf/util/parse-regs-options.c
->>>> @@ -70,7 +70,7 @@ __parse_regs(const struct option *opt, const char *str, int unset, bool intr)
->>>>         if (!str)
->>>>                 return -1;
->>>>
->>>> -       mask = intr ? arch__intr_reg_mask() : arch__user_reg_mask();
->>>> +       mask = intr ? perf_intr_reg_mask(EM_HOST) : perf_user_reg_mask(EM_HOST);
->>>>
->>>>         /* because str is read-only */
->>>>         s = os = strdup(str);
->>>> diff --git a/tools/perf/util/perf-regs-arch/perf_regs_aarch64.c b/tools/perf/util/perf-regs-arch/perf_regs_aarch64.c
->>>> index 9dcda80d310f..21a432671f04 100644
->>>> --- a/tools/perf/util/perf-regs-arch/perf_regs_aarch64.c
->>>> +++ b/tools/perf/util/perf-regs-arch/perf_regs_aarch64.c
->>>> @@ -1,7 +1,56 @@
->>>>  // SPDX-License-Identifier: GPL-2.0
->>>> +#include <errno.h>
->>>> +#include <regex.h>
->>>> +#include <string.h>
->>>> +#include <sys/auxv.h>
->>>> +#include <linux/kernel.h>
->>>> +#include <linux/zalloc.h>
->>>>
->>>> +#include "../debug.h"
->>>> +#include "../event.h"
->>>>  #include "../perf_regs.h"
->>>> -#include "../../../arch/arm64/include/uapi/asm/perf_regs.h"
->>>> +#include "../../perf-sys.h"
->>>> +#include "../../arch/arm64/include/perf_regs.h"
->>> I'm a little worried about switching from the asm to the arch file
->>> because of conflicting definitions from the host machine doing the
->>> compilation. I see we need PERF_REGS_MASK which is typically:
->>> #define PERF_REGS_MASK  ((1ULL << PERF_REG_<arch>_MAX) - 1)
->>> Perhaps we can have in the asm header:
->>> #define PERF_REGS_<arch>_MASK  ((1ULL << PERF_REG_<arch>_MAX) - 1)
->>> Perhaps that's just later cleanup.
->> The "asm/perf_regs.h" has been nested into the
->> "arch/xxx/include/perf_regs.h". IMO, it should be safe and reasonable to
->> include the perf tools header file "arch/xxx/include/perf_regs.h" for the
->> perf-regs related source code.
->>
->> It works to add "PERF_REGS_<arch>_MASK" into the UAPI asm header, but since
->> the macros are never called in kernel code, I suppose maintainters would
->> not like it.
->>
->>
->>>> +
->>>> +#define SMPL_REG_MASK(b) (1ULL << (b))
->>>> +
->>>> +#ifndef HWCAP_SVE
->>>> +#define HWCAP_SVE      (1 << 22)
->>>> +#endif
->>>> +
->>>> +uint64_t __perf_reg_mask_arm64(bool intr)
->>>> +{
->>>> +       struct perf_event_attr attr = {
->>>> +               .type                   = PERF_TYPE_HARDWARE,
->>>> +               .config                 = PERF_COUNT_HW_CPU_CYCLES,
->>>> +               .sample_type            = PERF_SAMPLE_REGS_USER,
->>>> +               .disabled               = 1,
->>>> +               .exclude_kernel         = 1,
->>>> +               .sample_period          = 1,
->>>> +               .sample_regs_user       = PERF_REGS_MASK
->>>> +       };
->>>> +       int fd;
->>>> +
->>>> +       if (intr)
->>>> +               return PERF_REGS_MASK;
->>>> +
->>>> +       if (getauxval(AT_HWCAP) & HWCAP_SVE)
->>>> +               attr.sample_regs_user |= SMPL_REG_MASK(PERF_REG_ARM64_VG);
->>>> +
->>>> +       /*
->>>> +        * Check if the pmu supports perf extended regs, before
->>>> +        * returning the register mask to sample.
->>>> +        */
->>> I know this is just a copy-paste but I think it'd be a little more readable as:
->>> ```
->>>         /*
->>>         * Check if the pmu supports perf extended regs, before
->>>         * returning the register mask to sample. Open the event
->>>         * on the perf process to check this.
->>>         */
->>> ```
->> Sure. Thanks.
->>
->>
->>>> +       if (attr.sample_regs_user != PERF_REGS_MASK) {
->>>> +               event_attr_init(&attr);
->>>> +               fd = sys_perf_event_open(&attr, 0, -1, -1, 0);
->>> Similarly:
->>> ```
->>> fd = sys_perf_event_open(&attr, /*pid=*/0, /*cpu=*/-1,
->>> /*group_fd=*/-1, /*flags=*/0);
->>> ```
->> Sure.
->>
->>
->>>> +               if (fd != -1) {
->>>> +                       close(fd);
->>>> +                       return attr.sample_regs_user;
->>>> +               }
->>>> +       }
->>>> +       return PERF_REGS_MASK;
->>>> +}
->>>>
->>>>  const char *__perf_reg_name_arm64(int id)
->>>>  {
->>>> diff --git a/tools/perf/util/perf-regs-arch/perf_regs_arm.c b/tools/perf/util/perf-regs-arch/perf_regs_arm.c
->>>> index e29d130a587a..184d6e248dfc 100644
->>>> --- a/tools/perf/util/perf-regs-arch/perf_regs_arm.c
->>>> +++ b/tools/perf/util/perf-regs-arch/perf_regs_arm.c
->>>> @@ -1,7 +1,12 @@
->>>>  // SPDX-License-Identifier: GPL-2.0
->>>>
->>>>  #include "../perf_regs.h"
->>>> -#include "../../../arch/arm/include/uapi/asm/perf_regs.h"
->>>> +#include "../../arch/arm/include/perf_regs.h"
->>> Similar comment on PERF_REGS_MASK as above, no action necessary.
->>>
->>>> +
->>>> +uint64_t __perf_reg_mask_arm(bool intr __maybe_unused)
->>>> +{
->>>> +       return PERF_REGS_MASK;
->>>> +}
->>>>
->>>>  const char *__perf_reg_name_arm(int id)
->>>>  {
->>>> diff --git a/tools/perf/util/perf-regs-arch/perf_regs_csky.c b/tools/perf/util/perf-regs-arch/perf_regs_csky.c
->>>> index 75b461ef2eba..36cafa6a4c42 100644
->>>> --- a/tools/perf/util/perf-regs-arch/perf_regs_csky.c
->>>> +++ b/tools/perf/util/perf-regs-arch/perf_regs_csky.c
->>>> @@ -1,7 +1,12 @@
->>>>  // SPDX-License-Identifier: GPL-2.0
->>>>
->>>>  #include "../perf_regs.h"
->>>> -#include "../../arch/csky/include/uapi/asm/perf_regs.h"
->>>> +#include "../../arch/csky/include/perf_regs.h"
->>>> +
->>>> +uint64_t __perf_reg_mask_csky(bool intr __maybe_unused)
->>>> +{
->>>> +       return PERF_REGS_MASK;
->>>> +}
->>>>
->>>>  const char *__perf_reg_name_csky(int id)
->>>>  {
->>>> diff --git a/tools/perf/util/perf-regs-arch/perf_regs_loongarch.c b/tools/perf/util/perf-regs-arch/perf_regs_loongarch.c
->>>> index 043f97f4e3ac..478ee889afa1 100644
->>>> --- a/tools/perf/util/perf-regs-arch/perf_regs_loongarch.c
->>>> +++ b/tools/perf/util/perf-regs-arch/perf_regs_loongarch.c
->>>> @@ -1,7 +1,12 @@
->>>>  // SPDX-License-Identifier: GPL-2.0
->>>>
->>>>  #include "../perf_regs.h"
->>>> -#include "../../../arch/loongarch/include/uapi/asm/perf_regs.h"
->>>> +#include "../../arch/loongarch/include/perf_regs.h"
->>>> +
->>>> +uint64_t __perf_reg_mask_loongarch(bool intr __maybe_unused)
->>>> +{
->>>> +       return PERF_REGS_MASK;
->>>> +}
->>>>
->>>>  const char *__perf_reg_name_loongarch(int id)
->>>>  {
->>>> diff --git a/tools/perf/util/perf-regs-arch/perf_regs_mips.c b/tools/perf/util/perf-regs-arch/perf_regs_mips.c
->>>> index 793178fc3c78..c5a475f6ec64 100644
->>>> --- a/tools/perf/util/perf-regs-arch/perf_regs_mips.c
->>>> +++ b/tools/perf/util/perf-regs-arch/perf_regs_mips.c
->>>> @@ -1,7 +1,12 @@
->>>>  // SPDX-License-Identifier: GPL-2.0
->>>>
->>>>  #include "../perf_regs.h"
->>>> -#include "../../../arch/mips/include/uapi/asm/perf_regs.h"
->>>> +#include "../../arch/mips/include/perf_regs.h"
->>>> +
->>>> +uint64_t __perf_reg_mask_mips(bool intr __maybe_unused)
->>>> +{
->>>> +       return PERF_REGS_MASK;
->>>> +}
->>>>
->>>>  const char *__perf_reg_name_mips(int id)
->>>>  {
->>>> diff --git a/tools/perf/util/perf-regs-arch/perf_regs_powerpc.c b/tools/perf/util/perf-regs-arch/perf_regs_powerpc.c
->>>> index 08636bb09a3a..5211cc0c4e81 100644
->>>> --- a/tools/perf/util/perf-regs-arch/perf_regs_powerpc.c
->>>> +++ b/tools/perf/util/perf-regs-arch/perf_regs_powerpc.c
->>>> @@ -1,7 +1,75 @@
->>>>  // SPDX-License-Identifier: GPL-2.0
->>>>
->>>> +#include <errno.h>
->>>> +#include <string.h>
->>>> +#include <regex.h>
->>>> +#include <linux/zalloc.h>
->>>> +
->>>> +#include "../debug.h"
->>>> +#include "../event.h"
->>>> +#include "../header.h"
->>>>  #include "../perf_regs.h"
->>>> -#include "../../../arch/powerpc/include/uapi/asm/perf_regs.h"
->>>> +#include "../../perf-sys.h"
->>>> +#include "../../arch/powerpc/util/utils_header.h"
->>>> +#include "../../arch/powerpc/include/perf_regs.h"
->>>> +
->>>> +#include <linux/kernel.h>
->>>> +
->>>> +#define PVR_POWER9             0x004E
->>>> +#define PVR_POWER10            0x0080
->>>> +#define PVR_POWER11            0x0082
->>>> +
->>>> +#if defined(__powerpc64__) && defined(__powerpc__)
->>> This is morally the same as the arch directory, I'm guessing that
->>> missing definitions are an issue? Would having the asm #include fix
->>> this?
->> The aim of adding this "#if" is to avoid the building error caused by the
->> "mfspr" instruction which exists only on powerpc. Since the function
->> __perf_reg_mask_powerpc() would never be called on non-powerpc platforms
->> right now, I think it should be fine.
-> Thanks, I remember now. Probably worth a comment.
+>> At this stage, both legacy (fixed-size) and extensible (dynamic-size)
+>> parameter/statistics buffers are supported through the generic v4l2-isp
+>> framework, similar to rkisp1 and Mali-C55. The driver currently supports
+>> M2M operation; direct CSI-to-ISP streaming is not yet implemented.
+> 
+> How do you envisage the direct CSI-to-ISP streaming shall be supported?
 
-Sure. Thanks.
+At this stage, this streaming mode still needs to be evaluated on 
+neoisp. We should follow the integration model used by existing ISP 
+drivers to avoid duplicating solutions.
 
+Below are my initial thoughts on the specific points you raised:
 
->
-> Ian
->
->>>> +uint64_t __perf_reg_mask_powerpc(bool intr)
->>>> +{
->>>> +       struct perf_event_attr attr = {
->>>> +               .type                   = PERF_TYPE_HARDWARE,
->>>> +               .config                 = PERF_COUNT_HW_CPU_CYCLES,
->>>> +               .sample_type            = PERF_SAMPLE_REGS_INTR,
->>>> +               .precise_ip             = 1,
->>>> +               .disabled               = 1,
->>>> +               .exclude_kernel         = 1,
->>>> +       };
->>>> +       int fd;
->>>> +       u32 version;
->>>> +       u64 extended_mask = 0, mask = PERF_REGS_MASK;
->>>> +
->>>> +       if (!intr)
->>>> +               return PERF_REGS_MASK;
->>>> +
->>>> +       /*
->>>> +        * Get the PVR value to set the extended
->>>> +        * mask specific to platform.
->>>> +        */
->>>> +       version = (((mfspr(SPRN_PVR)) >>  16) & 0xFFFF);
->>>> +       if (version == PVR_POWER9)
->>>> +               extended_mask = PERF_REG_PMU_MASK_300;
->>>> +       else if ((version == PVR_POWER10) || (version == PVR_POWER11))
->>>> +               extended_mask = PERF_REG_PMU_MASK_31;
->>>> +       else
->>>> +               return mask;
->>>> +
->>>> +       attr.sample_regs_intr = extended_mask;
->>>> +       attr.sample_period = 1;
->>>> +       event_attr_init(&attr);
->>>> +
->>>> +       /*
->>>> +        * check if the pmu supports perf extended regs, before
->>>> +        * returning the register mask to sample.
->>>> +        */
->>>> +       fd = sys_perf_event_open(&attr, 0, -1, -1, 0);
->>> This code feels awfully familiar :-) Similar comments to the arm64 case.
->> Sure.
+>   - How shall the final media graph(s) look like?
+
+The media entities would remain mostly identical, except for the absence 
+of ISI. The topology would be a direct linkg from 
+sensor->csi->formatter->neoisp.
+
+>   - How many media devices are registered and which driver registers it
+>     or them?
+
+That will be part of the evaluation. My initial assumption is that 
+neoisp would be the appropriate component to register the media device 
+in this mode, since ISI is not involved, and ISI currently performs the 
+registration in the M2M configuration.
+
+>   - How can the user decide whether direct (csi2isp) or indirect
+>     (mem2mem) streaming shall be used?
+
+That will also be part of the evaluation. From dts would be my first 
+option, but may prevent using both modes on same platform then.
+
+> 
+> While it is certainly OK to introduce this support only at a later
+> stage, it makes sense to consider this right from the start to avoid
+> some nasty changes e.g. in how this hardware is exposed to user space.
+> 
+> Also, we are facing a similiar challenge with recent Rockchip ISP
+> hardware (RK3588, RK3576, ...) and it would be great to hear your
+> thoughts about that.
+
+Is there an existing discussion thread available on this topic? I would 
+be very interested in following it.
+
+Thanks
+Antoine
+
+> 
+> Thanks in advance and best regards,
+> Michael
+> 
 >>
+>> This series is posted as RFC because extending the v4l2-isp interface may
+>> overlap with ongoing work. If similar development already exists, I am
+>> happy to rebase or adapt the series accordingly. If preferred, the series
+>> can also be split into two parts: the v4l2-isp rework and the Neo ISP
+>> driver introduction.
 >>
->>>> +       if (fd != -1) {
->>>> +               close(fd);
->>>> +               mask |= extended_mask;
->>>> +       }
->>>> +       return mask;
->>>> +}
->>>> +#else
->>>> +uint64_t __perf_reg_mask_powerpc(bool intr __maybe_unused)
->>>> +{
->>>> +       return PERF_REGS_MASK;
->>>> +}
->>>> +#endif
->>>>
->>>>  const char *__perf_reg_name_powerpc(int id)
->>>>  {
->>>> diff --git a/tools/perf/util/perf-regs-arch/perf_regs_riscv.c b/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
->>>> index 337b687c655d..5b5f21fcba8c 100644
->>>> --- a/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
->>>> +++ b/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
->>>> @@ -1,7 +1,12 @@
->>>>  // SPDX-License-Identifier: GPL-2.0
->>>>
->>>>  #include "../perf_regs.h"
->>>> -#include "../../../arch/riscv/include/uapi/asm/perf_regs.h"
->>>> +#include "../../arch/riscv/include/perf_regs.h"
->>>> +
->>>> +uint64_t __perf_reg_mask_riscv(bool intr __maybe_unused)
->>>> +{
->>>> +       return PERF_REGS_MASK;
->>>> +}
->>>>
->>>>  const char *__perf_reg_name_riscv(int id)
->>>>  {
->>>> diff --git a/tools/perf/util/perf-regs-arch/perf_regs_s390.c b/tools/perf/util/perf-regs-arch/perf_regs_s390.c
->>>> index d69bba881080..c61df24edf0f 100644
->>>> --- a/tools/perf/util/perf-regs-arch/perf_regs_s390.c
->>>> +++ b/tools/perf/util/perf-regs-arch/perf_regs_s390.c
->>>> @@ -1,7 +1,12 @@
->>>>  // SPDX-License-Identifier: GPL-2.0
->>>>
->>>>  #include "../perf_regs.h"
->>>> -#include "../../../arch/s390/include/uapi/asm/perf_regs.h"
->>>> +#include "../../arch/s390/include/perf_regs.h"
->>>> +
->>>> +uint64_t __perf_reg_mask_s390(bool intr __maybe_unused)
->>>> +{
->>>> +       return PERF_REGS_MASK;
->>>> +}
->>>>
->>>>  const char *__perf_reg_name_s390(int id)
->>>>  {
->>>> diff --git a/tools/perf/util/perf-regs-arch/perf_regs_x86.c b/tools/perf/util/perf-regs-arch/perf_regs_x86.c
->>>> index 708954a9d35d..d319106dc7b2 100644
->>>> --- a/tools/perf/util/perf-regs-arch/perf_regs_x86.c
->>>> +++ b/tools/perf/util/perf-regs-arch/perf_regs_x86.c
->>>> @@ -1,7 +1,65 @@
->>>>  // SPDX-License-Identifier: GPL-2.0
->>>>
->>>> +#include <errno.h>
->>>> +#include <string.h>
->>>> +#include <regex.h>
->>>> +#include <linux/kernel.h>
->>>> +#include <linux/zalloc.h>
->>>> +
->>>> +#include "../debug.h"
->>>> +#include "../event.h"
->>>> +#include "../pmu.h"
->>>> +#include "../pmus.h"
->>>>  #include "../perf_regs.h"
->>>> -#include "../../../arch/x86/include/uapi/asm/perf_regs.h"
->>>> +#include "../../perf-sys.h"
->>>> +#include "../../arch/x86/include/perf_regs.h"
->>>> +
->>>> +uint64_t __perf_reg_mask_x86(bool intr)
->>>> +{
->>>> +       struct perf_event_attr attr = {
->>>> +               .type                   = PERF_TYPE_HARDWARE,
->>>> +               .config                 = PERF_COUNT_HW_CPU_CYCLES,
->>>> +               .sample_type            = PERF_SAMPLE_REGS_INTR,
->>>> +               .sample_regs_intr       = PERF_REG_EXTENDED_MASK,
->>>> +               .precise_ip             = 1,
->>>> +               .disabled               = 1,
->>>> +               .exclude_kernel         = 1,
->>>> +       };
->>>> +       int fd;
->>>> +
->>>> +       if (!intr)
->>>> +               return PERF_REGS_MASK;
->>>> +
->>>> +       /*
->>>> +        * In an unnamed union, init it here to build on older gcc versions
->>>> +        */
->>>> +       attr.sample_period = 1;
->>>> +
->>>> +       if (perf_pmus__num_core_pmus() > 1) {
->>>> +               struct perf_pmu *pmu = NULL;
->>>> +               __u64 type = PERF_TYPE_RAW;
->>>> +
->>>> +               /*
->>>> +                * The same register set is supported among different hybrid PMUs.
->>>> +                * Only check the first available one.
->>>> +                */
->>>> +               while ((pmu = perf_pmus__scan_core(pmu)) != NULL) {
->>>> +                       type = pmu->type;
->>>> +                       break;
->>>> +               }
->>>> +               attr.config |= type << PERF_PMU_TYPE_SHIFT;
->>>> +       }
->>>> +
->>>> +       event_attr_init(&attr);
->>>> +
->>>> +       fd = sys_perf_event_open(&attr, 0, -1, -1, 0);
->>> It'd be nice not to remember what the magic 0, -1, -1, 0 means :-)
->> Sure.
+>> A few checkpatch warnings in v4l2-ioctl.c remain intentionally to stay
+>> consistent with the existing style in that file.
 >>
+>> Testing was performed on the i.MX95 EVK using the media/next kernel in
+>> standalone M2M mode. End-to-end camera-to-ISP capture has been validated
+>> using the downstream NXP kernel, as some hardware dependencies are not
+>> yet upstreamed.
 >>
->>>> +       if (fd != -1) {
->>>> +               close(fd);
->>>> +               return (PERF_REG_EXTENDED_MASK | PERF_REGS_MASK);
->>>> +       }
->>>> +
->>>> +       return PERF_REGS_MASK;
->>>> +}
->>>>
->>>>  const char *__perf_reg_name_x86(int id)
->>>>  {
->>>> diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
->>>> index f21148478db1..900929cff4b5 100644
->>>> --- a/tools/perf/util/perf_regs.c
->>>> +++ b/tools/perf/util/perf_regs.c
->>>> @@ -13,14 +13,86 @@ int __weak arch_sdt_arg_parse_op(char *old_op __maybe_unused,
->>>>         return SDT_ARG_SKIP;
->>>>  }
->>>>
->>>> -uint64_t __weak arch__intr_reg_mask(void)
->>>> +uint64_t perf_intr_reg_mask(uint16_t e_machine)
->>>>  {
->>>> -       return 0;
->>>> +       uint64_t mask = 0;
->>>> +
->>>> +       switch (e_machine) {
->>>> +       case EM_ARM:
->>>> +               mask = __perf_reg_mask_arm(/*intr=*/true);
->>>> +               break;
->>>> +       case EM_AARCH64:
->>>> +               mask = __perf_reg_mask_arm64(/*intr=*/true);
->>>> +               break;
->>>> +       case EM_CSKY:
->>>> +               mask = __perf_reg_mask_csky(/*intr=*/true);
->>>> +               break;
->>>> +       case EM_LOONGARCH:
->>>> +               mask = __perf_reg_mask_loongarch(/*intr=*/true);
->>>> +               break;
->>>> +       case EM_MIPS:
->>>> +               mask = __perf_reg_mask_mips(/*intr=*/true);
->>>> +               break;
->>>> +       case EM_PPC:
->>>> +       case EM_PPC64:
->>>> +               mask = __perf_reg_mask_powerpc(/*intr=*/true);
->>>> +               break;
->>>> +       case EM_RISCV:
->>>> +               mask = __perf_reg_mask_riscv(/*intr=*/true);
->>>> +               break;
->>>> +       case EM_S390:
->>>> +               mask = __perf_reg_mask_s390(/*intr=*/true);
->>>> +               break;
->>>> +       case EM_386:
->>>> +       case EM_X86_64:
->>>> +               mask = __perf_reg_mask_x86(/*intr=*/true);
->>>> +               break;
->>>> +       default:
->>> Probably worth a debug statement here, like:
->>> pr_debug("Unknown ELF machine %d, interrupt sampling register mask
->>> will be empty.\n");
->> Sure.
+>> Thanks,
+>> Antoine
 >>
+>> ---
+>> Here are v4l2-compliance test results:
 >>
->>>> +               break;
->>>> +       }
->>>> +
->>>> +       return mask;
->>>>  }
->>>>
->>>> -uint64_t __weak arch__user_reg_mask(void)
->>>> +uint64_t perf_user_reg_mask(uint16_t e_machine)
->>>>  {
->>>> -       return 0;
->>>> +       uint64_t mask = 0;
->>>> +
->>>> +       switch (e_machine) {
->>>> +       case EM_ARM:
->>>> +               mask = __perf_reg_mask_arm(/*intr=*/false);
->>>> +               break;
->>>> +       case EM_AARCH64:
->>>> +               mask = __perf_reg_mask_arm64(/*intr=*/false);
->>>> +               break;
->>>> +       case EM_CSKY:
->>>> +               mask = __perf_reg_mask_csky(/*intr=*/false);
->>>> +               break;
->>>> +       case EM_LOONGARCH:
->>>> +               mask = __perf_reg_mask_loongarch(/*intr=*/false);
->>>> +               break;
->>>> +       case EM_MIPS:
->>>> +               mask = __perf_reg_mask_mips(/*intr=*/false);
->>>> +               break;
->>>> +       case EM_PPC:
->>>> +       case EM_PPC64:
->>>> +               mask = __perf_reg_mask_powerpc(/*intr=*/false);
->>>> +               break;
->>>> +       case EM_RISCV:
->>>> +               mask = __perf_reg_mask_riscv(/*intr=*/false);
->>>> +               break;
->>>> +       case EM_S390:
->>>> +               mask = __perf_reg_mask_s390(/*intr=*/false);
->>>> +               break;
->>>> +       case EM_386:
->>>> +       case EM_X86_64:
->>>> +               mask = __perf_reg_mask_x86(/*intr=*/false);
->>>> +               break;
->>>> +       default:
->>> Similarly:
->>> pr_debug("Unknown ELF machine %d, user sampling register mask will be
->>> empty.\n");
->> Sure. Thanks.
+>> v4l2-compliance 1.28.1-5233, 64 bits, 64-bit time_t
+>> v4l2-compliance SHA: fc15e229d9d3 2024-07-23 19:22:15
 >>
+>> Compliance test for neoisp device /dev/media0:
 >>
->>> Thanks!
->>> Ian
->>>
->>>> +               break;
->>>> +       }
->>>> +
->>>> +       return mask;
->>>>  }
->>>>
->>>>  const char *perf_reg_name(int id, uint16_t e_machine)
->>>> diff --git a/tools/perf/util/perf_regs.h b/tools/perf/util/perf_regs.h
->>>> index 2c2a8de6912d..8531584bc1b1 100644
->>>> --- a/tools/perf/util/perf_regs.h
->>>> +++ b/tools/perf/util/perf_regs.h
->>>> @@ -13,37 +13,55 @@ enum {
->>>>  };
->>>>
->>>>  int arch_sdt_arg_parse_op(char *old_op, char **new_op);
->>>> -uint64_t arch__intr_reg_mask(void);
->>>> -uint64_t arch__user_reg_mask(void);
->>>> +uint64_t perf_intr_reg_mask(uint16_t e_machine);
->>>> +uint64_t perf_user_reg_mask(uint16_t e_machine);
->>>>
->>>>  const char *perf_reg_name(int id, uint16_t e_machine);
->>>>  int perf_reg_value(u64 *valp, struct regs_dump *regs, int id);
->>>>  uint64_t perf_arch_reg_ip(uint16_t e_machine);
->>>>  uint64_t perf_arch_reg_sp(uint16_t e_machine);
->>>> +
->>>> +uint64_t __perf_reg_mask_arm64(bool intr);
->>>>  const char *__perf_reg_name_arm64(int id);
->>>>  uint64_t __perf_reg_ip_arm64(void);
->>>>  uint64_t __perf_reg_sp_arm64(void);
->>>> +
->>>> +uint64_t __perf_reg_mask_arm(bool intr);
->>>>  const char *__perf_reg_name_arm(int id);
->>>>  uint64_t __perf_reg_ip_arm(void);
->>>>  uint64_t __perf_reg_sp_arm(void);
->>>> +
->>>> +uint64_t __perf_reg_mask_csky(bool intr);
->>>>  const char *__perf_reg_name_csky(int id);
->>>>  uint64_t __perf_reg_ip_csky(void);
->>>>  uint64_t __perf_reg_sp_csky(void);
->>>> +
->>>> +uint64_t __perf_reg_mask_loongarch(bool intr);
->>>>  const char *__perf_reg_name_loongarch(int id);
->>>>  uint64_t __perf_reg_ip_loongarch(void);
->>>>  uint64_t __perf_reg_sp_loongarch(void);
->>>> +
->>>> +uint64_t __perf_reg_mask_mips(bool intr);
->>>>  const char *__perf_reg_name_mips(int id);
->>>>  uint64_t __perf_reg_ip_mips(void);
->>>>  uint64_t __perf_reg_sp_mips(void);
->>>> +
->>>> +uint64_t __perf_reg_mask_powerpc(bool intr);
->>>>  const char *__perf_reg_name_powerpc(int id);
->>>>  uint64_t __perf_reg_ip_powerpc(void);
->>>>  uint64_t __perf_reg_sp_powerpc(void);
->>>> +
->>>> +uint64_t __perf_reg_mask_riscv(bool intr);
->>>>  const char *__perf_reg_name_riscv(int id);
->>>>  uint64_t __perf_reg_ip_riscv(void);
->>>>  uint64_t __perf_reg_sp_riscv(void);
->>>> +
->>>> +uint64_t __perf_reg_mask_s390(bool intr);
->>>>  const char *__perf_reg_name_s390(int id);
->>>>  uint64_t __perf_reg_ip_s390(void);
->>>>  uint64_t __perf_reg_sp_s390(void);
->>>> +
->>>> +uint64_t __perf_reg_mask_x86(bool intr);
->>>>  const char *__perf_reg_name_x86(int id);
->>>>  uint64_t __perf_reg_ip_x86(void);
->>>>  uint64_t __perf_reg_sp_x86(void);
->>>> --
->>>> 2.34.1
->>>>
+>> Media Driver Info:
+>>        Driver name      : neoisp
+>>        Model            : neoisp
+>>        Serial           :
+>>        Bus info         : platform:4ae00000.isp
+>>        Media version    : 6.19.0
+>>        Hardware revision: 0x00000002 (2)
+>>        Driver version   : 6.19.0
+>>
+>> Required ioctls:
+>>        test MEDIA_IOC_DEVICE_INFO: OK
+>>        test invalid ioctls: OK
+>>
+>> Allow for multiple opens:
+>>        test second /dev/media0 open: OK
+>>        test MEDIA_IOC_DEVICE_INFO: OK
+>>        test for unlimited opens: OK
+>>
+>> Media Controller ioctls:
+>>        test MEDIA_IOC_G_TOPOLOGY: OK
+>>        Entities: 7 Interfaces: 7 Pads: 12 Links: 13
+>>        test MEDIA_IOC_ENUM_ENTITIES/LINKS: OK
+>>        test MEDIA_IOC_SETUP_LINK: OK
+>>
+>> Total for neoisp device /dev/media0: 8, Succeeded: 8, Failed: 0, Warnings: 0
+>> --------------------------------------------------------------------------------
+>> Compliance test for neoisp device /dev/video0:
+>>
+>> Driver Info:
+>>        Driver name      : neoisp
+>>        Card type        : neoisp
+>>        Bus info         : platform:4ae00000.isp
+>>        Driver version   : 6.19.0
+>>        Capabilities     : 0x8ca03000
+>>                Video Capture Multiplanar
+>>                Video Output Multiplanar
+>>                Metadata Capture
+>>                Metadata Output
+>>                Streaming
+>>                Extended Pix Format
+>>                Device Capabilities
+>>        Device Caps      : 0x04202000
+>>                Video Output Multiplanar
+>>                Streaming
+>>                Extended Pix Format
+>> Media Driver Info:
+>>        Driver name      : neoisp
+>>        Model            : neoisp
+>>        Serial           :
+>>        Bus info         : platform:4ae00000.isp
+>>        Media version    : 6.19.0
+>>        Hardware revision: 0x00000002 (2)
+>>        Driver version   : 6.19.0
+>> Interface Info:
+>>        ID               : 0x0300000a
+>>        Type             : V4L Video
+>> Entity Info:
+>>        ID               : 0x00000008 (8)
+>>        Name             : neoisp-input0
+>>        Function         : V4L2 I/O
+>>        Pad 0x01000009   : 0: Source
+>>          Link 0x0200000c: to remote pad 0x1000002 of entity 'neoisp' (Image Signal Processor): Data, Enabled, Immutable
+>>
+>> Required ioctls:
+>>        test MC information (see 'Media Driver Info' above): OK
+>>        test VIDIOC_QUERYCAP: OK
+>>        test invalid ioctls: OK
+>>
+>> Allow for multiple opens:
+>>        test second /dev/video0 open: OK
+>>        test VIDIOC_QUERYCAP: OK
+>>        test VIDIOC_G/S_PRIORITY: OK
+>>        test for unlimited opens: OK
+>>
+>> Debug ioctls:
+>>        test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+>>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+>>
+>> Input ioctls:
+>>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+>>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+>>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+>>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+>>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+>>
+>> Output ioctls:
+>>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+>>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+>>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+>>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+>>
+>> Input/Output configuration ioctls:
+>>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+>>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+>>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+>>        test VIDIOC_G/S_EDID: OK (Not Supported)
+>>
+>> Control ioctls:
+>>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK (Not Supported)
+>>        test VIDIOC_QUERYCTRL: OK (Not Supported)
+>>        test VIDIOC_G/S_CTRL: OK (Not Supported)
+>>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK (Not Supported)
+>>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK (Not Supported)
+>>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+>>        Standard Controls: 0 Private Controls: 0
+>>
+>> Format ioctls:
+>>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+>>        test VIDIOC_G/S_PARM: OK (Not Supported)
+>>        test VIDIOC_G_FBUF: OK (Not Supported)
+>>        test VIDIOC_G_FMT: OK
+>>        test VIDIOC_TRY_FMT: OK
+>>        test VIDIOC_S_FMT: OK
+>>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+>>        test Cropping: OK
+>>        test Composing: OK (Not Supported)
+>>        test Scaling: OK
+>>
+>> Codec ioctls:
+>>        test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+>>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+>>        test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+>>
+>> Buffer ioctls:
+>>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+>>        test CREATE_BUFS maximum buffers: OK
+>>        test VIDIOC_REMOVE_BUFS: OK
+>>        test VIDIOC_EXPBUF: OK
+>>        test Requests: OK (Not Supported)
+>>
+>> Total for neoisp device /dev/video0: 48, Succeeded: 48, Failed: 0, Warnings: 0
+>> --------------------------------------------------------------------------------
+>> Compliance test for neoisp device /dev/video1:
+>>
+>> Driver Info:
+>>        Driver name      : neoisp
+>>        Card type        : neoisp
+>>        Bus info         : platform:4ae00000.isp
+>>        Driver version   : 6.19.0
+>>        Capabilities     : 0x8ca03000
+>>                Video Capture Multiplanar
+>>                Video Output Multiplanar
+>>                Metadata Capture
+>>                Metadata Output
+>>                Streaming
+>>                Extended Pix Format
+>>                Device Capabilities
+>>        Device Caps      : 0x04202000
+>>                Video Output Multiplanar
+>>                Streaming
+>>                Extended Pix Format
+>> Media Driver Info:
+>>        Driver name      : neoisp
+>>        Model            : neoisp
+>>        Serial           :
+>>        Bus info         : platform:4ae00000.isp
+>>        Media version    : 6.19.0
+>>        Hardware revision: 0x00000002 (2)
+>>        Driver version   : 6.19.0
+>> Interface Info:
+>>        ID               : 0x03000010
+>>        Type             : V4L Video
+>> Entity Info:
+>>        ID               : 0x0000000e (14)
+>>        Name             : neoisp-input1
+>>        Function         : V4L2 I/O
+>>        Pad 0x0100000f   : 0: Source
+>>          Link 0x02000012: to remote pad 0x1000003 of entity 'neoisp' (Image Signal Processor): Data
+>>
+>> Required ioctls:
+>>        test MC information (see 'Media Driver Info' above): OK
+>>        test VIDIOC_QUERYCAP: OK
+>>        test invalid ioctls: OK
+>>
+>> Allow for multiple opens:
+>>        test second /dev/video1 open: OK
+>>        test VIDIOC_QUERYCAP: OK
+>>        test VIDIOC_G/S_PRIORITY: OK
+>>        test for unlimited opens: OK
+>>
+>> Debug ioctls:
+>>        test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+>>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+>>
+>> Input ioctls:
+>>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+>>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+>>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+>>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+>>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+>>
+>> Output ioctls:
+>>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+>>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+>>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+>>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+>>
+>> Input/Output configuration ioctls:
+>>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+>>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+>>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+>>        test VIDIOC_G/S_EDID: OK (Not Supported)
+>>
+>> Control ioctls:
+>>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK (Not Supported)
+>>        test VIDIOC_QUERYCTRL: OK (Not Supported)
+>>        test VIDIOC_G/S_CTRL: OK (Not Supported)
+>>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK (Not Supported)
+>>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK (Not Supported)
+>>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+>>        Standard Controls: 0 Private Controls: 0
+>>
+>> Format ioctls:
+>>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+>>        test VIDIOC_G/S_PARM: OK (Not Supported)
+>>        test VIDIOC_G_FBUF: OK (Not Supported)
+>>        test VIDIOC_G_FMT: OK
+>>        test VIDIOC_TRY_FMT: OK
+>>        test VIDIOC_S_FMT: OK
+>>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+>>        test Cropping: OK
+>>        test Composing: OK (Not Supported)
+>>        test Scaling: OK
+>>
+>> Codec ioctls:
+>>        test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+>>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+>>        test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+>>
+>> Buffer ioctls:
+>>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+>>        test CREATE_BUFS maximum buffers: OK
+>>        test VIDIOC_REMOVE_BUFS: OK
+>>        test VIDIOC_EXPBUF: OK
+>>        test Requests: OK (Not Supported)
+>>
+>> Total for neoisp device /dev/video1: 48, Succeeded: 48, Failed: 0, Warnings: 0
+>> --------------------------------------------------------------------------------
+>> Compliance test for neoisp device /dev/video2:
+>>
+>> Driver Info:
+>>        Driver name      : neoisp
+>>        Card type        : neoisp
+>>        Bus info         : platform:4ae00000.isp
+>>        Driver version   : 6.19.0
+>>        Capabilities     : 0x8ca03000
+>>                Video Capture Multiplanar
+>>                Video Output Multiplanar
+>>                Metadata Capture
+>>                Metadata Output
+>>                Streaming
+>>                Extended Pix Format
+>>                Device Capabilities
+>>        Device Caps      : 0x0c200000
+>>                Metadata Output
+>>                Streaming
+>>                Extended Pix Format
+>> Media Driver Info:
+>>        Driver name      : neoisp
+>>        Model            : neoisp
+>>        Serial           :
+>>        Bus info         : platform:4ae00000.isp
+>>        Media version    : 6.19.0
+>>        Hardware revision: 0x00000002 (2)
+>>        Driver version   : 6.19.0
+>> Interface Info:
+>>        ID               : 0x03000016
+>>        Type             : V4L Video
+>> Entity Info:
+>>        ID               : 0x00000014 (20)
+>>        Name             : neoisp-params
+>>        Function         : V4L2 I/O
+>>        Pad 0x01000015   : 0: Source
+>>          Link 0x02000018: to remote pad 0x1000004 of entity 'neoisp' (Image Signal Processor): Data, Enabled
+>>
+>> Required ioctls:
+>>        test MC information (see 'Media Driver Info' above): OK
+>>        test VIDIOC_QUERYCAP: OK
+>>        test invalid ioctls: OK
+>>
+>> Allow for multiple opens:
+>>        test second /dev/video2 open: OK
+>>        test VIDIOC_QUERYCAP: OK
+>>        test VIDIOC_G/S_PRIORITY: OK
+>>        test for unlimited opens: OK
+>>
+>> Debug ioctls:
+>>        test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+>>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+>>
+>> Input ioctls:
+>>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+>>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+>>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+>>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+>>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+>>
+>> Output ioctls:
+>>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+>>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+>>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+>>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+>>
+>> Input/Output configuration ioctls:
+>>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+>>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+>>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+>>        test VIDIOC_G/S_EDID: OK (Not Supported)
+>>
+>> Control ioctls:
+>>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK (Not Supported)
+>>        test VIDIOC_QUERYCTRL: OK (Not Supported)
+>>        test VIDIOC_G/S_CTRL: OK (Not Supported)
+>>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK (Not Supported)
+>>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK (Not Supported)
+>>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+>>        Standard Controls: 0 Private Controls: 0
+>>
+>> Format ioctls:
+>>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+>>        test VIDIOC_G/S_PARM: OK (Not Supported)
+>>        test VIDIOC_G_FBUF: OK (Not Supported)
+>>        test VIDIOC_G_FMT: OK
+>>        test VIDIOC_TRY_FMT: OK
+>>        test VIDIOC_S_FMT: OK
+>>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+>>        test Cropping: OK (Not Supported)
+>>        test Composing: OK (Not Supported)
+>>        test Scaling: OK (Not Supported)
+>>
+>> Codec ioctls:
+>>        test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+>>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+>>        test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+>>
+>> Buffer ioctls:
+>>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+>>        test CREATE_BUFS maximum buffers: OK
+>>        test VIDIOC_REMOVE_BUFS: OK
+>>        test VIDIOC_EXPBUF: OK
+>>        test Requests: OK (Not Supported)
+>>
+>> Total for neoisp device /dev/video2: 48, Succeeded: 48, Failed: 0, Warnings: 0
+>> --------------------------------------------------------------------------------
+>> Compliance test for neoisp device /dev/video3:
+>>
+>> Driver Info:
+>>        Driver name      : neoisp
+>>        Card type        : neoisp
+>>        Bus info         : platform:4ae00000.isp
+>>        Driver version   : 6.19.0
+>>        Capabilities     : 0x8ca03000
+>>                Video Capture Multiplanar
+>>                Video Output Multiplanar
+>>                Metadata Capture
+>>                Metadata Output
+>>                Streaming
+>>                Extended Pix Format
+>>                Device Capabilities
+>>        Device Caps      : 0x04201000
+>>                Video Capture Multiplanar
+>>                Streaming
+>>                Extended Pix Format
+>> Media Driver Info:
+>>        Driver name      : neoisp
+>>        Model            : neoisp
+>>        Serial           :
+>>        Bus info         : platform:4ae00000.isp
+>>        Media version    : 6.19.0
+>>        Hardware revision: 0x00000002 (2)
+>>        Driver version   : 6.19.0
+>> Interface Info:
+>>        ID               : 0x0300001c
+>>        Type             : V4L Video
+>> Entity Info:
+>>        ID               : 0x0000001a (26)
+>>        Name             : neoisp-frame
+>>        Function         : V4L2 I/O
+>>        Pad 0x0100001b   : 0: Sink
+>>          Link 0x0200001e: from remote pad 0x1000005 of entity 'neoisp' (Image Signal Processor): Data, Enabled
+>>
+>> Required ioctls:
+>>        test MC information (see 'Media Driver Info' above): OK
+>>        test VIDIOC_QUERYCAP: OK
+>>        test invalid ioctls: OK
+>>
+>> Allow for multiple opens:
+>>        test second /dev/video3 open: OK
+>>        test VIDIOC_QUERYCAP: OK
+>>        test VIDIOC_G/S_PRIORITY: OK
+>>        test for unlimited opens: OK
+>>
+>> Debug ioctls:
+>>        test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+>>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+>>
+>> Input ioctls:
+>>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+>>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+>>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+>>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+>>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+>>
+>> Output ioctls:
+>>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+>>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+>>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+>>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+>>
+>> Input/Output configuration ioctls:
+>>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+>>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+>>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+>>        test VIDIOC_G/S_EDID: OK (Not Supported)
+>>
+>> Control ioctls:
+>>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK (Not Supported)
+>>        test VIDIOC_QUERYCTRL: OK (Not Supported)
+>>        test VIDIOC_G/S_CTRL: OK (Not Supported)
+>>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK (Not Supported)
+>>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK (Not Supported)
+>>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+>>        Standard Controls: 0 Private Controls: 0
+>>
+>> Format ioctls:
+>>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+>>        test VIDIOC_G/S_PARM: OK (Not Supported)
+>>        test VIDIOC_G_FBUF: OK (Not Supported)
+>>        test VIDIOC_G_FMT: OK
+>>        test VIDIOC_TRY_FMT: OK
+>>        test VIDIOC_S_FMT: OK
+>>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+>>        test Cropping: OK (Not Supported)
+>>        test Composing: OK (Not Supported)
+>>        test Scaling: OK
+>>
+>> Codec ioctls:
+>>        test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+>>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+>>        test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+>>
+>> Buffer ioctls:
+>>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+>>        test CREATE_BUFS maximum buffers: OK
+>>        test VIDIOC_REMOVE_BUFS: OK
+>>        test VIDIOC_EXPBUF: OK
+>>        test Requests: OK (Not Supported)
+>>
+>> Total for neoisp device /dev/video3: 48, Succeeded: 48, Failed: 0, Warnings: 0
+>> --------------------------------------------------------------------------------
+>> Compliance test for neoisp device /dev/video4:
+>>
+>> Driver Info:
+>>        Driver name      : neoisp
+>>        Card type        : neoisp
+>>        Bus info         : platform:4ae00000.isp
+>>        Driver version   : 6.19.0
+>>        Capabilities     : 0x8ca03000
+>>                Video Capture Multiplanar
+>>                Video Output Multiplanar
+>>                Metadata Capture
+>>                Metadata Output
+>>                Streaming
+>>                Extended Pix Format
+>>                Device Capabilities
+>>        Device Caps      : 0x04201000
+>>                Video Capture Multiplanar
+>>                Streaming
+>>                Extended Pix Format
+>> Media Driver Info:
+>>        Driver name      : neoisp
+>>        Model            : neoisp
+>>        Serial           :
+>>        Bus info         : platform:4ae00000.isp
+>>        Media version    : 6.19.0
+>>        Hardware revision: 0x00000002 (2)
+>>        Driver version   : 6.19.0
+>> Interface Info:
+>>        ID               : 0x03000022
+>>        Type             : V4L Video
+>> Entity Info:
+>>        ID               : 0x00000020 (32)
+>>        Name             : neoisp-ir
+>>        Function         : V4L2 I/O
+>>        Pad 0x01000021   : 0: Sink
+>>          Link 0x02000024: from remote pad 0x1000006 of entity 'neoisp' (Image Signal Processor): Data
+>>
+>> Required ioctls:
+>>        test MC information (see 'Media Driver Info' above): OK
+>>        test VIDIOC_QUERYCAP: OK
+>>        test invalid ioctls: OK
+>>
+>> Allow for multiple opens:
+>>        test second /dev/video4 open: OK
+>>        test VIDIOC_QUERYCAP: OK
+>>        test VIDIOC_G/S_PRIORITY: OK
+>>        test for unlimited opens: OK
+>>
+>> Debug ioctls:
+>>        test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+>>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+>>
+>> Input ioctls:
+>>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+>>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+>>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+>>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+>>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+>>
+>> Output ioctls:
+>>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+>>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+>>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+>>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+>>
+>> Input/Output configuration ioctls:
+>>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+>>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+>>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+>>        test VIDIOC_G/S_EDID: OK (Not Supported)
+>>
+>> Control ioctls:
+>>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK (Not Supported)
+>>        test VIDIOC_QUERYCTRL: OK (Not Supported)
+>>        test VIDIOC_G/S_CTRL: OK (Not Supported)
+>>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK (Not Supported)
+>>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK (Not Supported)
+>>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+>>        Standard Controls: 0 Private Controls: 0
+>>
+>> Format ioctls:
+>>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+>>        test VIDIOC_G/S_PARM: OK (Not Supported)
+>>        test VIDIOC_G_FBUF: OK (Not Supported)
+>>        test VIDIOC_G_FMT: OK
+>>        test VIDIOC_TRY_FMT: OK
+>>        test VIDIOC_S_FMT: OK
+>>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+>>        test Cropping: OK (Not Supported)
+>>        test Composing: OK (Not Supported)
+>>        test Scaling: OK
+>>
+>> Codec ioctls:
+>>        test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+>>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+>>        test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+>>
+>> Buffer ioctls:
+>>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+>>        test CREATE_BUFS maximum buffers: OK
+>>        test VIDIOC_REMOVE_BUFS: OK
+>>        test VIDIOC_EXPBUF: OK
+>>        test Requests: OK (Not Supported)
+>>
+>> Total for neoisp device /dev/video4: 48, Succeeded: 48, Failed: 0, Warnings: 0
+>> --------------------------------------------------------------------------------
+>> Compliance test for neoisp device /dev/video5:
+>>
+>> Driver Info:
+>>        Driver name      : neoisp
+>>        Card type        : neoisp
+>>        Bus info         : platform:4ae00000.isp
+>>        Driver version   : 6.19.0
+>>        Capabilities     : 0x8ca03000
+>>                Video Capture Multiplanar
+>>                Video Output Multiplanar
+>>                Metadata Capture
+>>                Metadata Output
+>>                Streaming
+>>                Extended Pix Format
+>>                Device Capabilities
+>>        Device Caps      : 0x04a00000
+>>                Metadata Capture
+>>                Streaming
+>>                Extended Pix Format
+>> Media Driver Info:
+>>        Driver name      : neoisp
+>>        Model            : neoisp
+>>        Serial           :
+>>        Bus info         : platform:4ae00000.isp
+>>        Media version    : 6.19.0
+>>        Hardware revision: 0x00000002 (2)
+>>        Driver version   : 6.19.0
+>> Interface Info:
+>>        ID               : 0x03000028
+>>        Type             : V4L Video
+>> Entity Info:
+>>        ID               : 0x00000026 (38)
+>>        Name             : neoisp-stats
+>>        Function         : V4L2 I/O
+>>        Pad 0x01000027   : 0: Sink
+>>          Link 0x0200002a: from remote pad 0x1000007 of entity 'neoisp' (Image Signal Processor): Data, Enabled
+>>
+>> Required ioctls:
+>>        test MC information (see 'Media Driver Info' above): OK
+>>        test VIDIOC_QUERYCAP: OK
+>>        test invalid ioctls: OK
+>>
+>> Allow for multiple opens:
+>>        test second /dev/video5 open: OK
+>>        test VIDIOC_QUERYCAP: OK
+>>        test VIDIOC_G/S_PRIORITY: OK
+>>        test for unlimited opens: OK
+>>
+>> Debug ioctls:
+>>        test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+>>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+>>
+>> Input ioctls:
+>>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+>>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+>>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+>>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+>>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+>>
+>> Output ioctls:
+>>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+>>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+>>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+>>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+>>
+>> Input/Output configuration ioctls:
+>>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+>>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+>>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+>>        test VIDIOC_G/S_EDID: OK (Not Supported)
+>>
+>> Control ioctls:
+>>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK (Not Supported)
+>>        test VIDIOC_QUERYCTRL: OK (Not Supported)
+>>        test VIDIOC_G/S_CTRL: OK (Not Supported)
+>>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK (Not Supported)
+>>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK (Not Supported)
+>>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+>>        Standard Controls: 0 Private Controls: 0
+>>
+>> Format ioctls:
+>>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+>>        test VIDIOC_G/S_PARM: OK (Not Supported)
+>>        test VIDIOC_G_FBUF: OK (Not Supported)
+>>        test VIDIOC_G_FMT: OK
+>>        test VIDIOC_TRY_FMT: OK
+>>        test VIDIOC_S_FMT: OK
+>>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+>>        test Cropping: OK (Not Supported)
+>>        test Composing: OK (Not Supported)
+>>        test Scaling: OK (Not Supported)
+>>
+>> Codec ioctls:
+>>        test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+>>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+>>        test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+>>
+>> Buffer ioctls:
+>>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+>>        test CREATE_BUFS maximum buffers: OK
+>>        test VIDIOC_REMOVE_BUFS: OK
+>>        test VIDIOC_EXPBUF: OK
+>>        test Requests: OK (Not Supported)
+>>
+>> Total for neoisp device /dev/video5: 48, Succeeded: 48, Failed: 0, Warnings: 0
+>> --------------------------------------------------------------------------------
+>> Compliance test for neoisp device /dev/v4l-subdev0:
+>>
+>> Driver Info:
+>>        Driver version   : 6.19.0
+>>        Capabilities     : 0x00000000
+>>        Client Capabilities: 0x0000000000000002
+>> interval-uses-which Media Driver Info:
+>>        Driver name      : neoisp
+>>        Model            : neoisp
+>>        Serial           :
+>>        Bus info         : platform:4ae00000.isp
+>>        Media version    : 6.19.0
+>>        Hardware revision: 0x00000002 (2)
+>>        Driver version   : 6.19.0
+>> Interface Info:
+>>        ID               : 0x0300002c
+>>        Type             : V4L Sub-Device
+>> Entity Info:
+>>        ID               : 0x00000001 (1)
+>>        Name             : neoisp
+>>        Function         : Image Signal Processor
+>>        Pad 0x01000002   : 0: Sink
+>>          Link 0x0200000c: from remote pad 0x1000009 of entity 'neoisp-input0' (V4L2 I/O): Data, Enabled, Immutable
+>>        Pad 0x01000003   : 1: Sink
+>>          Link 0x02000012: from remote pad 0x100000f of entity 'neoisp-input1' (V4L2 I/O): Data
+>>        Pad 0x01000004   : 2: Sink
+>>          Link 0x02000018: from remote pad 0x1000015 of entity 'neoisp-params' (V4L2 I/O): Data, Enabled
+>>        Pad 0x01000005   : 3: Source
+>>          Link 0x0200001e: to remote pad 0x100001b of entity 'neoisp-frame' (V4L2 I/O): Data, Enabled
+>>        Pad 0x01000006   : 4: Source
+>>          Link 0x02000024: to remote pad 0x1000021 of entity 'neoisp-ir' (V4L2 I/O): Data
+>>        Pad 0x01000007   : 5: Source
+>>          Link 0x0200002a: to remote pad 0x1000027 of entity 'neoisp-stats' (V4L2 I/O): Data, Enabled
+>>
+>> Required ioctls:
+>>        test MC information (see 'Media Driver Info' above): OK
+>>        test VIDIOC_SUDBEV_QUERYCAP: OK
+>>        test invalid ioctls: OK
+>>
+>> Allow for multiple opens:
+>>        test second /dev/v4l-subdev0 open: OK
+>>        test VIDIOC_SUBDEV_QUERYCAP: OK
+>>        test for unlimited opens: OK
+>>
+>> Debug ioctls:
+>>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+>>
+>> Input ioctls:
+>>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+>>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+>>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+>>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+>>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+>>
+>> Output ioctls:
+>>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+>>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+>>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+>>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+>>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+>>
+>> Input/Output configuration ioctls:
+>>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+>>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+>>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+>>        test VIDIOC_G/S_EDID: OK (Not Supported)
+>>
+>> Sub-Device ioctls (Sink Pad 0):
+>>        Try Stream 0
+>>        test Try VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/FRAME_INTERVAL: OK (Not Supported)
+>>        test Try VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+>>        test Try VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+>>        Active Stream 0
+>>        test Active VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/FRAME_INTERVAL: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_FRAME_INTERVAL: OK (Not Supported)
+>>
+>> Sub-Device ioctls (Sink Pad 1):
+>>        Try Stream 0
+>>        test Try VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/FRAME_INTERVAL: OK (Not Supported)
+>>        test Try VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+>>        test Try VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+>>        Active Stream 0
+>>        test Active VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/FRAME_INTERVAL: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_FRAME_INTERVAL: OK (Not Supported)
+>>
+>> Sub-Device ioctls (Sink Pad 2):
+>>        Try Stream 0
+>>        test Try VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/FRAME_INTERVAL: OK (Not Supported)
+>>        test Try VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+>>        test Try VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+>>        Active Stream 0
+>>        test Active VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/FRAME_INTERVAL: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_FRAME_INTERVAL: OK (Not Supported)
+>>
+>> Sub-Device ioctls (Source Pad 3):
+>>        Try Stream 0
+>>        test Try VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/FRAME_INTERVAL: OK (Not Supported)
+>>        test Try VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+>>        test Try VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+>>        Active Stream 0
+>>        test Active VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/FRAME_INTERVAL: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_FRAME_INTERVAL: OK (Not Supported)
+>>
+>> Sub-Device ioctls (Source Pad 4):
+>>        Try Stream 0
+>>        test Try VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/FRAME_INTERVAL: OK (Not Supported)
+>>        test Try VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+>>        test Try VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+>>        Active Stream 0
+>>        test Active VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/FRAME_INTERVAL: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_FRAME_INTERVAL: OK (Not Supported)
+>>
+>> Sub-Device ioctls (Source Pad 5):
+>>        Try Stream 0
+>>        test Try VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/FRAME_INTERVAL: OK (Not Supported)
+>>        test Try VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+>>        test Try VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+>>        Active Stream 0
+>>        test Active VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/FRAME_INTERVAL: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+>>        test Active VIDIOC_SUBDEV_G/S_FRAME_INTERVAL: OK (Not Supported)
+>>
+>> Control ioctls:
+>>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+>>        test VIDIOC_QUERYCTRL: OK
+>>        test VIDIOC_G/S_CTRL: OK
+>>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+>>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
+>>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+>>        Standard Controls: 1 Private Controls: 1
+>>
+>> Format ioctls:
+>>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK (Not Supported)
+>>        test VIDIOC_G/S_PARM: OK (Not Supported)
+>>        test VIDIOC_G_FBUF: OK (Not Supported)
+>>        test VIDIOC_G_FMT: OK (Not Supported)
+>>        test VIDIOC_TRY_FMT: OK (Not Supported)
+>>        test VIDIOC_S_FMT: OK (Not Supported)
+>>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+>>        test Cropping: OK (Not Supported)
+>>        test Composing: OK (Not Supported)
+>>        test Scaling: OK (Not Supported)
+>>
+>> Codec ioctls:
+>>        test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+>>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+>>        test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+>>
+>> Buffer ioctls:
+>>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK (Not Supported)
+>>        test CREATE_BUFS maximum buffers: OK
+>>        test VIDIOC_REMOVE_BUFS: OK
+>>        test VIDIOC_EXPBUF: OK (Not Supported)
+>>        test Requests: OK (Not Supported)
+>>
+>> Total for neoisp device /dev/v4l-subdev0: 88, Succeeded: 88, Failed: 0, Warnings: 0
+>>
+>> Grand Total for neoisp device /dev/media0: 384, Succeeded: 384, Failed: 0, Warnings: 0
+>>
+>> ---
+>> Antoine Bouyer (11):
+>>    media: uapi: v4l2-isp: Add v4l2 ISP extensible statistics definitions
+>>    media: v4l2-isp: Add helper function to compute extended stats size
+>>    media: Documentation: uapi: Update V4L2 ISP for extensible stats
+>>    media: Documentation: Add NXP neoisp driver documentation
+>>    dt-bindings: media: Add nxp neoisp support
+>>    media: v4l2-ctrls: Add user control base for NXP neoisp controls
+>>    media: Add meta formats supported by NXP neoisp driver
+>>    media: uapi: Add NXP NEOISP user interface header file
+>>    media: platform: Add NXP Neoisp Image Signal Processor
+>>    media: platform: neoisp: Add debugfs support
+>>    arm64: dts: freescale: imx95: Add NXP neoisp device tree node
+>>
+>>   .../admin-guide/media/nxp-neoisp-diagram.dot  |   22 +
+>>   .../admin-guide/media/nxp-neoisp.dot          |   16 +
+>>   .../admin-guide/media/nxp-neoisp.rst          |  189 ++
+>>   .../admin-guide/media/v4l-drivers.rst         |    1 +
+>>   .../devicetree/bindings/media/nxp,neoisp.yaml |   65 +
+>>   .../userspace-api/media/v4l/meta-formats.rst  |    1 +
+>>   .../media/v4l/metafmt-nxp-neoisp.rst          |  114 +
+>>   .../userspace-api/media/v4l/v4l2-isp.rst      |   42 +-
+>>   MAINTAINERS                                   |    9 +
+>>   .../boot/dts/freescale/imx95-19x19-evk.dts    |    4 +
+>>   arch/arm64/boot/dts/freescale/imx95.dtsi      |   11 +
+>>   drivers/media/platform/nxp/Kconfig            |    1 +
+>>   drivers/media/platform/nxp/Makefile           |    1 +
+>>   drivers/media/platform/nxp/neoisp/Kconfig     |   15 +
+>>   drivers/media/platform/nxp/neoisp/Makefile    |    8 +
+>>   drivers/media/platform/nxp/neoisp/neoisp.h    |  270 ++
+>>   .../media/platform/nxp/neoisp/neoisp_ctx.c    | 2798 +++++++++++++++++
+>>   .../media/platform/nxp/neoisp/neoisp_ctx.h    |   85 +
+>>   .../platform/nxp/neoisp/neoisp_debugfs.c      |  503 +++
+>>   .../media/platform/nxp/neoisp/neoisp_fmt.h    |  509 +++
+>>   drivers/media/platform/nxp/neoisp/neoisp_hw.h |  577 ++++
+>>   .../media/platform/nxp/neoisp/neoisp_main.c   | 1999 ++++++++++++
+>>   .../media/platform/nxp/neoisp/neoisp_nodes.h  |   60 +
+>>   .../media/platform/nxp/neoisp/neoisp_regs.h   | 2501 +++++++++++++++
+>>   drivers/media/v4l2-core/v4l2-ioctl.c          |    4 +
+>>   include/media/v4l2-isp.h                      |   13 +
+>>   include/uapi/linux/media/nxp/nxp_neoisp.h     | 1968 ++++++++++++
+>>   include/uapi/linux/media/v4l2-isp.h           |   85 +
+>>   include/uapi/linux/v4l2-controls.h            |    6 +
+>>   include/uapi/linux/videodev2.h                |    6 +
+>>   30 files changed, 11880 insertions(+), 3 deletions(-)
+>>   create mode 100644 Documentation/admin-guide/media/nxp-neoisp-diagram.dot
+>>   create mode 100644 Documentation/admin-guide/media/nxp-neoisp.dot
+>>   create mode 100644 Documentation/admin-guide/media/nxp-neoisp.rst
+>>   create mode 100644 Documentation/devicetree/bindings/media/nxp,neoisp.yaml
+>>   create mode 100644 Documentation/userspace-api/media/v4l/metafmt-nxp-neoisp.rst
+>>   create mode 100644 drivers/media/platform/nxp/neoisp/Kconfig
+>>   create mode 100644 drivers/media/platform/nxp/neoisp/Makefile
+>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp.h
+>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp_ctx.c
+>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp_ctx.h
+>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp_debugfs.c
+>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp_fmt.h
+>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp_hw.h
+>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp_main.c
+>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp_nodes.h
+>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp_regs.h
+>>   create mode 100644 include/uapi/linux/media/nxp/nxp_neoisp.h
+>>
+> 
+
 
