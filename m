@@ -4,90 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B1E9D3569E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 10:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A9C2D3569E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 10:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6QAm6MI5fA78tiaivTj0SYN9DSoGLWLa4UU9wdUW4qU=; b=jAFrRZDkhydRguC1aGHLYJunF3
-	AxCcURkLQUcgh4xAww5b55E8eis/XnCQIuAnLmx3MPgfLMKzXbCmW6dgtf6FZBJdvMvYtjoT1RwUs
-	fNEue3yiPxWuXxu0pQ/7tIw4uxm5ezg5/z8ndkN7jcNHDdDiO2jZlv9OF3WdI4lq0dv4dKcATdBYc
-	G5PaKFx/j9I8laZZoz13hOQvwF71bMTubqPl36SGa/C5JWYlSRfh28qfT3vWYjgROQ9zdvqv3nkKt
-	hz2GU/BuUrb9L6saqSKG5rog9UCvNvDHOsAG29Em6Qngn9o1BX6PHNi+74fdHedU44CqG/BMFx26A
-	F8mXAeAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mFTuDiU8Vo0BWz7M+z3udd6nhM1Sv2pMgRAh1jtNodg=; b=jq2IgT89XzLIvEK+R49rhckBZr
+	6qAiipBeI9DZm9FqaAKzOM/kI3CSG6JujNJzTphVUWWwSAGq6+0TiRRGl9FgGq6SCAiGZMkbpECnB
+	P8dFKP+ow9YP0VfxQBt7jS0rUsPiO5+1O4UEPaYBetg+BLjZipleci+sIVrEWMQSSRhH9T0Yvj0Gn
+	Y1ZaiufDZCFIHabWVqPh0P8jdUIMeD5XY2TO4rXMivhbvozUz/QwSxxwWSRHfrh2LmlKn1Qm2kmEU
+	kvWKMrZkTbXlB00dq1BMPbMuZ+Bkf2/LU4jO5zEjGFjxB8fEvEPYA210NeYR4UUBiiaHNuxM5pPru
+	14WbN1bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl2xl-0000000FqTg-18iZ;
-	Wed, 28 Jan 2026 10:39:53 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1vl32L-0000000Fqhu-2As3;
+	Wed, 28 Jan 2026 10:44:37 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl2xi-0000000FqTI-2g7e;
-	Wed, 28 Jan 2026 10:39:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=6QAm6MI5fA78tiaivTj0SYN9DSoGLWLa4UU9wdUW4qU=; b=sSRjEGbtOkoBGsVLkZiC7oaRCi
-	bDf+ZwdPCR8aAbuJm6b4Bzx0wNQ+JZtmA5KLnyTiks6mIDGjd2bvT+3yY/Ls0cD4HDTmpaO454qdH
-	+In8ccdHGl/HGO18tbDPV5owsRMySuHvARUWtKX+X4nBF3wR2duCCWC7E00TY4d1uuIgwFQk/n2SW
-	KxyZmofRfEMGKud4ddMMPwRF9paJrvrBofmqa2UcDu/+k5hRugJ0It0nrZ6tPXrTHvZHT4tKrrMgV
-	/j2WB6iM0C3CZTSHEY7HrqYapZLMGUxMS1GXCJO52Cp3FGt6TgnwmhXwJkY1qa9GUAzpnQx2+slMa
-	mNz8i6+Q==;
-Received: from [187.36.210.68] (helo=[192.168.1.103])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1vl2xV-00Aq1Y-06; Wed, 28 Jan 2026 11:39:37 +0100
-Message-ID: <224913c8-52a6-4b3f-a375-e1b4fcc0c142@igalia.com>
-Date: Wed, 28 Jan 2026 07:39:30 -0300
+	id 1vl32I-0000000Fqh1-0tEu;
+	Wed, 28 Jan 2026 10:44:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=mFTuDiU8Vo0BWz7M+z3udd6nhM1Sv2pMgRAh1jtNodg=; b=jUnMIGjJB8N/e3tmB1dhe6jNHy
+	QW80cUOaOEVJYbU8vdhPqd/MwxyQqSDoLi4OgOmqpOZ2B+u3hnP/S9+JtEC9ly43ycYrgRJny8aYM
+	u3f13NjG8X3vh1S71+NuN+A0GqvZ9mNCnJPJc2V8JpRPHWibszpXQhalLbLMb55atsWSrZmdtm0rz
+	jtlnej22Ri5hDarpvZrBhXvB00zfMYdphVlGur4/QpBaUQnB9KwmJk8JZZIRvB5/Qx0VvGY05Z8mJ
+	LSMVN3+qc7FlXECUb904BRi3XSOfCOpeMXY5020pSd6mI1rAdCrXXQCdjWfDWo792/AwZ8e9gUoAM
+	+DfaI8PA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:44758)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vl31Z-000000007Bf-3r94;
+	Wed, 28 Jan 2026 10:43:50 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vl31L-000000006uC-3EYm;
+	Wed, 28 Jan 2026 10:43:35 +0000
+Date: Wed, 28 Jan 2026 10:43:35 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yao Zi <ziyao@disroot.org>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next v3 3/3] net: stmmac: Add glue layer for Spacemit
+ K3 SoC
+Message-ID: <aXnoV3Ay0uCc3HGQ@shell.armlinux.org.uk>
+References: <20260128072931.875041-1-inochiama@gmail.com>
+ <20260128072931.875041-4-inochiama@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: broadcom: bcm2712: Add V3D device node
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Stefan Wahren <wahrenst@gmx.net>,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- kernel-dev@igalia.com
-References: <20260114120610.82531-1-mcanal@igalia.com>
-From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-Content-Language: en-US
-Autocrypt: addr=mcanal@igalia.com; keydata=
- xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
- /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
- gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
- SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
- G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
- AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
- dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
- P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
- O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
- GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
- 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
- FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
- TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
- Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
- 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
- LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
- T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
- wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
- zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
- it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
- Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
- uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
- raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
-In-Reply-To: <20260114120610.82531-1-mcanal@igalia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260128072931.875041-4-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_023950_970368_C9EBBCF9 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20260128_024434_629035_ACD1E8EB 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,76 +106,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Florian,
-
-Just a quick ping on this patch. Did you get a chance to review it?
-
-Best regards,
-- Maíra
-
-On 14/01/26 09:04, Maíra Canal wrote:
-> Commits 0ad5bc1ce463 ("drm/v3d: fix up register addresses for V3D 7.x")
-> and 6fd9487147c4 ("drm/v3d: add brcm,2712-v3d as a compatible V3D device")
-> added driver support for V3D on BCM2712, but the corresponding device
-> tree node is still missing.
-> 
-> Add the V3D device tree node to the BCM2712 DTS.
-> 
-> Signed-off-by: Maíra Canal <mcanal@igalia.com>
-> 
-> ---
-> v1 -> v2:
-> 
-> - Rebased on top of linux-next (Stefan Wahren)
-> - Fixed node's address (2000000 -> 1002000000) (Stefan Wahren)
-> - Link to v1: https://lore.kernel.org/linux-devicetree/20260113192902.48046-2-mcanal@igalia.com/
-> ---
->   .../boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi    |  4 ++++
->   arch/arm64/boot/dts/broadcom/bcm2712.dtsi          | 14 ++++++++++++++
->   2 files changed, 18 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-> index 7d4742ebe247..97522c6803c5 100644
-> --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-> @@ -247,3 +247,7 @@ &pcie1 {
->   &pcie2 {
->   	status = "okay";
->   };
+On Wed, Jan 28, 2026 at 03:29:29PM +0800, Inochi Amaoto wrote:
+> +#include <linux/clk.h>
+> +#include <linux/math.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/module.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/property.h>
+> +#include <linux/regmap.h>
 > +
-> +&v3d {
-> +	clocks = <&firmware_clocks 5>;
-> +};
-> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-> index 330a121ebfcb..661668ef7419 100644
-> --- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-> +++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-> @@ -1,5 +1,6 @@
->   // SPDX-License-Identifier: (GPL-2.0 OR MIT)
->   #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/soc/bcm2835-pm.h>
->   
->   / {
->   	compatible = "brcm,bcm2712";
-> @@ -642,6 +643,19 @@ mip1: msi-controller@1000131000 {
->   			msi-ranges = <&gicv2 GIC_SPI 247 IRQ_TYPE_EDGE_RISING 8>;
->   			brcm,msi-offset = <8>;
->   		};
+> +#include "stmmac_platform.h"
 > +
-> +		v3d: gpu@1002000000 {
-> +			compatible = "brcm,2712-v3d";
-> +			reg = <0x10 0x02000000 0x00 0x4000>,
-> +			      <0x10 0x02008000 0x00 0x6000>,
-> +			      <0x10 0x02030800 0x00 0x0700>;
-> +			reg-names = "hub", "core0", "sms";
-> +
-> +			power-domains = <&pm BCM2835_POWER_DOMAIN_GRAFX_V3D>;
-> +			resets = <&pm BCM2835_RESET_V3D>;
-> +			interrupts = <GIC_SPI 250 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 249 IRQ_TYPE_LEVEL_HIGH>;
-> +		};
->   	};
->   
->   	vc4: gpu {
+> +/* ctrl register bits */
+> +#define PHY_INTF_RGMII			BIT(3)
+> +#define PHY_INTF_MII			BIT(4)
 
+Please add a suitable prefix for these.
+
+> +
+> +#define WAKE_IRQ_EN			BIT(9)
+> +#define PHY_IRQ_EN			BIT(12)
+
+While you're renaming the PHY_INTF_*, you might wish to also add the
+same prefix here to identify that they're all part of the same register.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
