@@ -4,136 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 589B0D3F08F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 16:07:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB815D3F08E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 16:11:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5wT74JYFNoQcS4wI1iniyZimQN/JHMCSXvXZOTbFCAs=; b=DF4TbA7E89Tj/FRwLVrEydVN6b
-	Gi2VEffabHcoDHOl9KYUcoMDr23pDji96cu3wq3h/n1RYRe3RVTR6OmiuZMsxBFYgnVrU2lhqRAvW
-	7O5TchJinCUz6RiORv8h5XHqcUmBqhZjdGZvvmXnmwnOhVZnja2njcItabTQrnQ9mZDdUSZrLMPLS
-	85KU/pE7msbXUDOLtZuV55HtvXFdVv5q9AvdQ6r/q+IfKOSNasQwOlvFI2B682KcNEZDBE+3CWtaU
-	5Xvj6uQ4SrYUncDZfVhotVU6msNGTX1fr/fjQ4gwknVPSB9WWxigIY+smDIvEN+R5v4W5CKiYtyec
-	bEpzuTLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZNtEsD/7Ir/dUUyhxp9vhIGp+bMH6wePQ4vuvyFT4dU=; b=hSS52hKg+sCaOi
+	rCijv6BicfshjPsnR8eH3IFe5e71yP0wlxHBbauoNuar56WNeeNFjJfUqaI7IJJsBaD12R0myX1nZ
+	xYBjXU1Pz1luwvIvwKQshMXFneQ2Qj7hFDsKcASz77p1+v+AakyKrKkmhSpisYa1VJfj19GBfqZ+u
+	eRCeGp0cq9uaIjvfJWW2kmNwhBslZZjDQZiDdT9DoXtykclxba3bBct+DDkD2TN3fW8GjcRKhlROb
+	GWKHYlzG8s4qClMIBaiQTRulM31YwwVPIRlX7cOVPV58ezignS/Q04M4AYv8DmyhRn178+JXUfCs2
+	UjYGDWfykDlxJP0sfodg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl84Q-0000000GLVK-2GzG;
-	Wed, 28 Jan 2026 16:07:06 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vl88A-0000000GLs5-2F8X;
+	Wed, 28 Jan 2026 16:10:58 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl84N-0000000GLUd-3O1t
+	id 1vl887-0000000GLqV-1hCa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 16:07:04 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60SFhx4g3442331
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 16:07:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=5wT74JYFNoQcS4wI1iniyZim
-	QN/JHMCSXvXZOTbFCAs=; b=DbEQJlZUCQ0DWI/iv0RwoFK7HTXK+pjbIfWIdguG
-	mQWQTkBX0zYy75o3Le2DjFYlhdXmkn1VgL+MmaIhWeJ13JwylSNZwzATp1ePlewD
-	z9neIrgr/RG38y3yvKTTCGospOkypsDkgbLtfHMq/alPqYUYEqWAsRfK6VDLTFIS
-	aHxY0CyUt1EqlIHZy1LgXqIwPIWOz4gfD5HhznSy2ydxtsGsFV7TI8TxKl9v5iYI
-	SMHLpV2aGr19koOv5ptwhEIAPmjpFnmBG0C5LR0AMvyljm165Vr+N8RDgJvcHgG3
-	ZqJBBW+zLOtSoEKi7+/xlRv4Yi2owlLbEkiLXHYRQv/6Gw==
-Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4byanajf0j-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 16:07:03 +0000 (GMT)
-Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-56626b89e83so7237215e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 08:07:03 -0800 (PST)
+	Wed, 28 Jan 2026 16:10:56 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-b8710c9cddbso850174266b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 08:10:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1769616422; x=1770221222; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5wT74JYFNoQcS4wI1iniyZimQN/JHMCSXvXZOTbFCAs=;
-        b=fAbMKR4vKn2zqVr/WjEYSaYvU6ovJYLMhMbZxQk8i/5ItGoi3skkLvbes2B2VKiKNy
-         x6njo3qKolNo/6Lw3U3lfy3eNznxpC87O+XhVUxA3KRTDsClGafT2fNtEApIyE0JHPWb
-         qNOKg3J52/tYlq9ARkwoYY9AUiUvXEU1XD/MTxD+br/jm9dzfFiekmLx0Tauvo2VtCc9
-         vdJkrF3EZca8+ehBGbMSRD5KsCtzda8klNMMabXhQCE1LK6yArK6odYTpgWyK0jXX7gB
-         SDfebhvueMkSk62GoDtEYgQacJsCVlIrH3rIYabHAnWfXsVA1ecnMuu69p1/givvJnKY
-         TtpA==
+        d=linaro.org; s=google; t=1769616653; x=1770221453; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZNtEsD/7Ir/dUUyhxp9vhIGp+bMH6wePQ4vuvyFT4dU=;
+        b=Ygjbp04jTzBRbVhGTcMM4vFkmZfVdlqFfEeMItwJPo6JqXjmJBWTCKUEJPDhadUKVx
+         wPVw9xOpKGvogLKOKK/FhaOe5NMxXI8Q8zIQWPzXuBpQ7BUuPD7yE9PZQo7bg5ZWwI2x
+         DaXI2e906uCngZX805mZO7Cmt3/UdKLgEFUH2YgMZD93MgS+2R1+1ySWxvxa0d0+66yl
+         vnHSRJoVqcwOIwHpORt0TdKReDVVnGhAuMOdsrRYrKe8z3ULJNf3gk5gC4PF2IS8FLd2
+         Is1NVcaH6a7lf5lXzf6bSuNRk3JuQfBwAmKyt4BdLr+mPOBAKgcqM2Zp0fUYn4SIfG9Q
+         fpPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769616422; x=1770221222;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5wT74JYFNoQcS4wI1iniyZimQN/JHMCSXvXZOTbFCAs=;
-        b=rdxQUlnJ2c6diuQSQKQfBiNiXmJSjr540YbTrS4R5fYLmy4R4CphmBaymExsqvnE4b
-         CE20wTiRsoiVppqsa5JeevLPcJwuZDgE67GRQPh7NeGQaswC8drvaUnp1dkgzUzAmYAV
-         P10Ty5/L0y+lx1vqneIqDbgIellZRKLYVPl+oxF2m5F5L9w9uMtiWFKVjbahAu/T5xU9
-         TkL/omy5/p2rMSOOm/MuK4w7HsXi/DwYVg3OyYOkb9zxVyZlbgovjKBf3LhlZf0nTaXK
-         cFe8wPsN27yMXqaPWcbm1SaxlcA40gyasefdK8a2Z04EuKQXPXnFTYP0vOtIqHR8Aqeo
-         UOQg==
-X-Forwarded-Encrypted: i=1; AJvYcCU/aayFe7XO7+PxsXgR7TPdySsx0xGImHtDbumzHveJDV96/iwWaDu/iIs+3IXB/hR4Eqz5HeOSNJDLf1b1wzzI@lists.infradead.org
-X-Gm-Message-State: AOJu0YzC5wrCHEXfx0BOwtLabj7OsmzxfVtGAxIGF+ebh/FFFyxtA7Mj
-	H+Ccf6t6iVFmeYP6dRIEzC+Uu5G6gQlqdoy74Vc975a6BcavMVgO9Y/bn9Y/Vrr9GwxtcrqD+Yj
-	MBmXwU1ou0pPSeDr7EH8icIU9qByNpUgXyROTm3AEBFKJdA0pH82e1+E2JbHlHuyPmrxmWkO+yC
-	sQ5w==
-X-Gm-Gg: AZuq6aJ67NYIVulfCp9Md+ayfM06XrFmAdzGtwppuIU9L1Xtked1xOr/b5WgFoKGN5x
-	szAOYumw+JM/qegUjGWQELS2bliHsfCXAqIYfIj1EV45iO7XHkn1t9ocOBbeNh6Zla+lLS0zH0j
-	8kvKONjq+xxpNuFQgd4E367EZQRvWyITnGQdJ4YsKZrFBYO0iIk05JkbH+MP1JIReuF81Iohl83
-	oyBl/N3Tqa87ntkh9I64ScOH9i09PeFLGGVFoLoGr6x22cSOLz2mEm/iIqsc6NllzfGNECo8ilp
-	dsSy/YOW/qTo+hoM85oVcdPcus9U4x8TelsjK4vuWQoTjOUmM+7Ieb/pQIi/eISlyFWi74HeZrq
-	qwbLH8qnHhcqpqXDcdgiNGoPWY5Vb+xnRHVaGg7+S+l/4hDf3L1nAYhv8BqIZlL127kGRF5Xvqf
-	UaVub0wMUxQpjY09cjl+DHqok=
-X-Received: by 2002:a05:6122:7c7:b0:563:5070:ab4b with SMTP id 71dfb90a1353d-566795c542cmr1437741e0c.14.1769616422296;
-        Wed, 28 Jan 2026 08:07:02 -0800 (PST)
-X-Received: by 2002:a05:6122:7c7:b0:563:5070:ab4b with SMTP id 71dfb90a1353d-566795c542cmr1437707e0c.14.1769616421853;
-        Wed, 28 Jan 2026 08:07:01 -0800 (PST)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38627876ab6sm3997671fa.49.2026.01.28.08.06.59
+        d=1e100.net; s=20230601; t=1769616653; x=1770221453;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZNtEsD/7Ir/dUUyhxp9vhIGp+bMH6wePQ4vuvyFT4dU=;
+        b=U5UsUV8lziJQ3g+gKZqiDKo5UHrX/Qe3QJ35xsSyzjYQvvIAJ/rWvBemXBiGSgbi3L
+         cve/XpgRVJBKAk7ML805KXHCold/WdZMlBOoACXBrQAvF61HKEqx7vF9YF1gvPqmzUz6
+         IDmTUwFjgu8i1hdWZ6ibqacXM5IDPtXVGYKYq7dnuEb3bUKx2I4jLtZ5MSEPvL83fZPi
+         D5syRl30MdZorbXeWicZxTihQBS2eAMuEgxfT428IQCBBJE9JEzHdOb6mxJCwtZGxPWr
+         qNf7GFjA8s5yRl8sOFpodRRCzGJRFL86Ch17+iVlclOe+TPlugfui42eaSgBT4+dvBvO
+         Npzw==
+X-Forwarded-Encrypted: i=1; AJvYcCUFQLlb6VJF4UIZ4yAhctz4laAvZekGvR1I/h14hB5GCDllO3T8N//G6oqOTD4fdfgHMIbJjiBSCuEB98ZLLG03@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3kMtfRsIMObVH8ZUkKOG4P3StUOSGo1BRpf6NDmiUaZZJspc3
+	RfmvE2Ty6uasn82SvXNCg1OzdR7Pkt1rJUN+g8EjIbA1EYLSC5tDMm2SjLK4SayD2Sg=
+X-Gm-Gg: AZuq6aKhw+masneQppPDfMbKGU6tjhPUZLRYfvAKo6tAMpPjsDttJM1vNMxrsEkcpYT
+	gH5qpzxmOB1rRxuN8xovNvEvN1r6/Y+Dw/NbDEIWJAXQNtAVOcsjzOmo+3vqEuY0PStkwJm5v3h
+	mcLKSyMzl/3Cc58rW3k1r//CFD6PnNEGHxUi+qJXWeewNuDcsL4m13aEj412Ns92FITKHfDTf61
+	zSdrwXDzk4jn9sZLLT8mb43FrbxV9znzJ/IhgY45Kx8HtbZZ6GqeAhskkJRcltN7dIa+fiN7yU8
+	k2NaRNVsEfsKYkSWV9sEDbOuhDD2/CK90ysxfKARPvDNeEMbHVpyPrbG1ns3ikHcHB4Nmx8eP8u
+	iy+H1bvfLNk6luO0v8sv180VsKBY9ZmGHsHQNasTMQedKLcEMcGVWK7wzseSdUME+tD03loz+Lt
+	4pAq9k31GAbekeW1osaL2oWfhwvQkF+Iw74dPaUXvYY3vLsWXiqqOFJmNWNYl6nBr+kGrv6yB4p
+	Cjqog==
+X-Received: by 2002:a17:907:da6:b0:b76:b632:1123 with SMTP id a640c23a62f3a-b8dab33b16dmr439788766b.42.1769616652975;
+        Wed, 28 Jan 2026 08:10:52 -0800 (PST)
+Received: from puffmais2.c.googlers.com (244.175.141.34.bc.googleusercontent.com. [34.141.175.244])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8dbf1c021fsm148553366b.49.2026.01.28.08.10.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Jan 2026 08:07:00 -0800 (PST)
-Date: Wed, 28 Jan 2026 18:06:57 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clk: qcom: sm8750: Constify 'qcom_cc_desc' in SM8750
- camcc
-Message-ID: <mpb5lca5n63vyp725nfvhzcyckjzfw3qxhjrwrhsxvbaykkcta@lhq6t2guwm7y>
-References: <20260128154306.133047-2-krzysztof.kozlowski@oss.qualcomm.com>
+        Wed, 28 Jan 2026 08:10:52 -0800 (PST)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Subject: [PATCH v4 00/10] pmdomain: samsung: add support for Google GS101
+Date: Wed, 28 Jan 2026 16:10:49 +0000
+Message-Id: <20260128-gs101-pd-v4-0-cbe7bd5a4060@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260128154306.133047-2-krzysztof.kozlowski@oss.qualcomm.com>
-X-Proofpoint-GUID: 4rDjxDeENDhqe3fYuI761XEVqDYXwQ1A
-X-Proofpoint-ORIG-GUID: 4rDjxDeENDhqe3fYuI761XEVqDYXwQ1A
-X-Authority-Analysis: v=2.4 cv=N58k1m9B c=1 sm=1 tr=0 ts=697a3427 cx=c_pps
- a=JIY1xp/sjQ9K5JH4t62bdg==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=LBVU2G7aICa-vlctToYA:9 a=CjuIK1q_8ugA:10
- a=tNoRWFLymzeba-QzToBc:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI4MDEzMiBTYWx0ZWRfX93yRk6IoQoQH
- Vmd0c7ojYPiobsUoOmCIW08NHf3rGIKFKvoMEhCKhW/tjUcT8qZ7tCrtf8r8JR2/oqeagnARTn9
- 4yoqphswiQpuygXXONHVsqP4T+7UG1plhIJnWsHfkNesKnSLOgLDD1IOdKluQgMN26j43vRixDl
- Vy3VXpW+LSeNnzmZSkS7BKEg0CBpYxnZzGZaVDrycdYLKmcXJTNwesiDjfYiiiA7VTNoCl4XYD4
- K7J+LA3Jw3+G7RKIt1k73mB2J7xybAboZYz1P+OTcx5l2ldCX8xCrXPs5T34zgCWTBsio6iy7i2
- 0MmVNKdrmn0xcdVhHincLQmtoHLbVyzrFZ25q62UMBFkAcXxP+EB/8uD/S50oCK8O4LsGZFeg6d
- AeQhm/8opOt8kpYVWUxbGckntYQo0Xl4lbxIc+hf+BX4mDtv7ih6efcaw7SZWPnIIvMe0aDEsps
- ti/5FQ/Ga915j45koEA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-01-28_03,2026-01-28_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 suspectscore=0 lowpriorityscore=0 priorityscore=1501
- malwarescore=0 bulkscore=0 adultscore=0 clxscore=1015 impostorscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
- definitions=main-2601280132
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAo1emkC/2WNSwrCMBBAryJZG5l8bIwr7yEu8m0D0pREglJ6d
+ 9OCGHEz8IZ5b2aUXQouo/NuRsmVkEMcK/D9DplBjb3DwVZGFOiRABDcZ1LnZLHl1khhBagTR/V
+ 8Ss6H55a63ioPIT9iem3lQtbtJ9J9I4VgwB6MBgPEKaEv9zCqFA8x9WitFNqasjFpNZnnqrOaK
+ s/kn8kak7Q/WTWFZiCkYLJz4sdcluUNl9IgBxUBAAA=
+X-Change-ID: 20251001-gs101-pd-d4dc97d70a84
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Ulf Hansson <ulf.hansson@linaro.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>, 
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pm@vger.kernel.org, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_080703_845746_1C54B7C8 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20260128_081055_478437_C8BFFC7D 
+X-CRM114-Status: GOOD (  17.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,22 +114,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 04:43:07PM +0100, Krzysztof Kozlowski wrote:
-> 'struct qcom_cc_desc' is passed to qcom_cc_map() and
-> qcom_cc_really_probe() only as pointer to const, so make the memory
-> const for safety.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
->  drivers/clk/qcom/cambistmclkcc-sm8750.c | 2 +-
->  drivers/clk/qcom/camcc-sm8750.c         | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
-> 
+Hi,
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+This series adds support for the power domains on Google GS101.
 
+There are a few differences compared to SoCs already supported by this
+driver:
+* register access does not work via plain ioremap() / readl() /
+  writel().
+  Instead, the regmap created by the PMU driver must be used (which
+  uses Arm SMCC calls under the hood).
+* DTZPC: a call needs to be made before and after power domain off/on,
+  to inform the EL3 firmware of the request.
+* power domains can and are fed by a regulator rail and therefore
+  regulator control needed be implemented.
 
+Bullet points 2 and 3 are new compared to previous versions of this
+series, and related changes are in patches 1, 2, 9, and 10. I can merge
+patch 9 (SMC call) into the gs101 patch (patch 7) if preferred, but for
+now I kept them independent to make it easier to see changes compared
+to previous versions of this series, and because patch 8 actually
+applies to not only gs101, but to many newer Exynos SoCs, and to make
+the two patches themselves easier to review and reason about.
+
+The DT update to add the new required properties on gs101 will be
+posted separately.
+
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
+---
+Changes in v4:
+- drop unneeded or already merged patches
+- drop patch "pmdomain: samsung: convert to regmap_read_poll_timeout()"
+  as Marek reported issues on some platforms
+- rebase
+- DTZPC related changes
+- Link to v3: https://lore.kernel.org/r/20251016-gs101-pd-v3-0-7b30797396e7@linaro.org
+
+Changes in v3:
+- use additionalProperties, not unevaluatedProperties in patch 2
+- fix path in $id in patch 2 (Rob)
+- drop comment around 'select' in patch 2 (Rob)
+- collect tags
+- Link to v2: https://lore.kernel.org/r/20251009-gs101-pd-v2-0-3f4a6db2af39@linaro.org
+
+Changes in v2:
+- Krzysztof:
+  - move google,gs101-pmu binding into separate file
+  - mark devm_kstrdup_const() patch as fix
+  - use bool for need_early_sync_state
+  - merge patches 8 and 10 from v1 series into one patch
+- collect tags
+- Link to v1: https://lore.kernel.org/r/20251006-gs101-pd-v1-0-f0cb0c01ea7b@linaro.org
+
+---
+André Draszik (10):
+      dt-bindings: soc: google: add google,gs101-dtzpc
+      dt-bindings: power: samsung: add google,gs101-pd
+      dt-bindings: soc: samsung: exynos-pmu: move gs101-pmu into separate binding
+      dt-bindings: soc: google: gs101-pmu: allow power domains as children
+      pmdomain: samsung: convert to using regmap
+      pmdomain: samsung: don't hard-code offset for registers to 0 and 4
+      pmdomain: samsung: add support for google,gs101-pd
+      pmdomain: samsung: use dev_err() instead of pr_err()
+      pmdomain: samsung: implement SMC to save / restore TZ config
+      pmdomain: samsung: implement domain-supply regulator
+
+ .../devicetree/bindings/power/pd-samsung.yaml      |  29 ++-
+ .../bindings/soc/google/google,gs101-dtzpc.yaml    |  42 ++++
+ .../bindings/soc/google/google,gs101-pmu.yaml      |  97 ++++++++
+ .../bindings/soc/samsung/exynos-pmu.yaml           |  20 --
+ MAINTAINERS                                        |   2 +
+ drivers/pmdomain/samsung/exynos-pm-domains.c       | 254 ++++++++++++++++++---
+ 6 files changed, 395 insertions(+), 49 deletions(-)
+---
+base-commit: e3b32dcb9f23e3c3927ef3eec6a5842a988fb574
+change-id: 20251001-gs101-pd-d4dc97d70a84
+
+Best regards,
 -- 
-With best wishes
-Dmitry
+André Draszik <andre.draszik@linaro.org>
+
 
