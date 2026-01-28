@@ -4,72 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5345D46C06
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 21:56:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F48D46C0A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 22:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eBZD4epMES0NdK+WxDlXWeM4FddXXNNOQ9YNWAox1JI=; b=lrcW1afXGUz7XIociuXGulR8Ks
-	Z3+KI6KebiJUyOJW4uDdo6WZQQgOaSX8sg/U9A9VFWejom/haYrciXpNgXc3t1rQBy6zMKk3dmkGC
-	PSx3PKou9OgyWpFTnHP8LTW46DXLGnvN89MB3NvHQnG+LM2ahDe38YjAWfu7XCya8xSBBcrb1qasg
-	KUkJTKZUySZspTVvXyhADiJ1FzaNRb1ZlxAP9f1GbBXlYJg33U7EEAjBWRPgTqWrKTPVZ5+jI48k3
-	2UEqFKVnwubxKaQo6jRUOrea/JBPyOVHt0Li1kZUCy6pY9QyZ60duKVYsomrpB/ZTauxdZdO+EE6a
-	qZyKIEQg==;
+	bh=8UhMJ0xKlVz0a7BlwVvXrSz12Jbk/HvXb373WDUkSrk=; b=RIW2MMVzIXdyb+SpDfcdtCm1v+
+	Rq3r+2oINY1+0a8/4FLp6x5IQK2xx+OqDh5fll5nu/jZlt+cV3irujmSGBwBnbKizMREFk3fQ4kZv
+	U4EW5Ad4Ri/+koh8Qe+prYVpVzfRtipVIlM6OFBIwqlcqjmIomIGb7nRKXilssQQsX2aUARPWkpQF
+	TZzamiz/iCXSVuy5LmH7B+ScdiGS4MoDWxJXV3Fijk1hFU7RCAVf8ClXbjJAOmlxcbRioiyHsvgBI
+	lxC52cSKbZ0o3dA81lG7EAkW+XcZiItfwiEY5KSNFlv6CIEHrMWtbkXYU6YGkpc3GXnA5c1Vh4g+f
+	JazzF5Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlDVw-0000000GrXd-1dkN;
-	Wed, 28 Jan 2026 21:55:52 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1vlDab-0000000GrjB-0M5P;
+	Wed, 28 Jan 2026 22:00:41 +0000
+Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlDVq-0000000GrXG-3D15
+	id 1vlDaU-0000000GriZ-2BF9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 21:55:50 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4f1bgK6bvKz9tRk;
-	Wed, 28 Jan 2026 22:55:41 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1769637341;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eBZD4epMES0NdK+WxDlXWeM4FddXXNNOQ9YNWAox1JI=;
-	b=TaJgEHQlYscWxauinYwsmlhF2sJliF0ML/RKfyh0FeGPnYJ23Pg4U8+quRx3YpICZdsvwL
-	hEjlSryZJ3JHzgW5WdshCJG+41enbyqom9M5kz+x7xoEYMEbkaPCcHfFofE8oeIAuf30NT
-	ghTJvCQIN0rYoB9GbTUu823V3S64+M20mUSW1lEn0lBjt6sgWc1ptI0OpxWHUHkWbR6sc+
-	s85lSEUwBQ4gvRxkr+545gMeUC94wTLIuRccJdoK2XVSSYD4DGAXkEVaMSZ2EhWATCL+iV
-	gj6bITMHm6BV0beA0wKJiAIe8WJUIjG/Od9CmffBDkdjp7pbRF8vE6RSHnJ3OQ==
-Date: Wed, 28 Jan 2026 22:55:33 +0100
-From: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukasz.majewski@mailbox.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: festevam@gmail.com, linux-arm-kernel@lists.infradead.org,
- s.hauer@pengutronix.de, kernel@pengutronix.de, horms@kernel.org,
- shawnguo@kernel.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org,
- conor+dt@kernel.org, devicetree@vger.kernel.org, wahrenst@gmx.net,
- pabeni@redhat.com, davem@davemloft.net, netdev@vger.kernel.org,
- richardcochran@gmail.com, edumazet@google.com, andrew+netdev@lunn.ch,
- robh@kernel.org, krzk+dt@kernel.org, andrew@lunn.ch
-Subject: Re: [net-next,v20,4/7] net: mtip: Add net_device_ops functions to
- the L2 switch driver
-Message-ID: <20260128225533.39665c74@wsk>
-In-Reply-To: <20260128022558.4151582-1-kuba@kernel.org>
-References: <20260126103400.1683125-5-lukasz.majewski@mailbox.org>
-	<20260128022558.4151582-1-kuba@kernel.org>
-Organization: mailbox.org
+	Wed, 28 Jan 2026 22:00:40 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.phl.internal (Postfix) with ESMTP id A91E1EC0252;
+	Wed, 28 Jan 2026 17:00:30 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Wed, 28 Jan 2026 17:00:30 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1769637630;
+	 x=1769724030; bh=8UhMJ0xKlVz0a7BlwVvXrSz12Jbk/HvXb373WDUkSrk=; b=
+	Vuk4lMUI/POEfPTmp4MR1IIIYQBhzcqzMh9y5+BnGlhCvJFPXWzrkHQ5bdujuXDm
+	jHgUtAyMTaHooRq2HGC7YCTx/EmmzRQYrmycXK9MBwCMVEe2LB31Ib2QGbQVrpTw
+	BtxZKPfOibN1NamuYxNwgPLxkAJz9jBjWpq7UBHrAyshC5NTrAfvheUEpaNjoe6P
+	XycK4i/PukF2x0of5+jaMSV8DdhaB38Pelh+8tLmgFCQqqibYmimdYkWV7dBJSzT
+	tmUBDToIuiJJG9qA3OPbDBgCUKQHg1ts9UH5dAAb0YGHnjJoxMSArgI8pfT98CBE
+	/K/ZFM2LyFBdtEVQ0UB48g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1769637630; x=
+	1769724030; bh=8UhMJ0xKlVz0a7BlwVvXrSz12Jbk/HvXb373WDUkSrk=; b=f
+	hVua3WHPhdsh3aMCBqX9LLqRRd7d3viH+PTG3UX2Gd5aOSQpndV/SxosXo0SGv+H
+	kjkMx6necYMkdfgHjQOF9KzvSZjF1WxgN9U95ilY/ltIt0GkFT2YKdM7MrRV49r/
+	04aS60dOkICimuhBDkNpCQwlT3zIynqIVRaawLTS2+inKmporTAKFItD/ORT7AAF
+	xJxz05djsCORKC/u746Vo6uSu3IEkW8Z2bPbjmzHa7T0URPHAfX6p+AonG4mBNeI
+	HR5qEMoClxTrsHfDt4hIl/2rR6AXpaGe9x80lEQxqDu7/5kzxMzwpv/HEfbzI9QO
+	k1riSIfUx2owlfvs45hnA==
+X-ME-Sender: <xms:_oZ6aeN8iyQ08vjMn-WXPkwn723Yt42qlbJRET1cL2--KfGpAKCeOQ>
+    <xme:_oZ6aXzyarjlvqp4IX7b9fQXU3cZpwfbhduTIv6CODvLN63QrC08MaoNV9aJy1lYa
+    sKAxmo0IxKlinYXalfadPNYm9LbaS47FqlWx1KIdVZjx8xSuCxxTg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdduieeggeeiucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhepvdfhvdekueduveffffetgfdvveefvdelhedvvdegjedvfeehtdeggeevheefleej
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepiedpmhhouggvpehsmhhtphhouhht
+    pdhrtghpthhtohepshhtvghfrghnughovghsihhnghgvrhesghhmrghilhdrtghomhdprh
+    gtphhtthhopehfuhhsthhinhhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehjuhhn
+    rdhnihgvsehlihhnrghrohdrohhrghdprhgtphhtthhopehlihhnuhhsrdifrghllhgvih
+    hjsehlihhnrghrohdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgv
+    lheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehsohgtsehlih
+    hsthhsrdhlihhnuhigrdguvghv
+X-ME-Proxy: <xmx:_oZ6aVsoozEV9idojAcMgMaWMqYMd07QwrFNb8G0nB4kZfofh4WYMQ>
+    <xmx:_oZ6aZYPzmXImuJykVzwFvyjIZywyFFcAfgeR-DmSplrGljgdC-fdw>
+    <xmx:_oZ6aXzdDftPZMYIW8otmVJTxyy_mk1QFhkvJmFkT9POOdsJX8Y2dQ>
+    <xmx:_oZ6aRi6Ag_4TxVrDdMlZL_ZeY05eq8MelD7AAoryyu8gDgx8rUFQg>
+    <xmx:_oZ6aeHMo5CMFzds1JEGWqNithUYp26cjJf5IWPK4IjrwKQ-kP1aE0-D>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 5D2AA700065; Wed, 28 Jan 2026 17:00:30 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+X-ThreadId: Agif6myIRndF
+Date: Wed, 28 Jan 2026 23:00:08 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: =?UTF-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: soc@lists.linux.dev, "Linus Walleij" <linus.walleij@linaro.org>,
+ "Jun Nie" <jun.nie@linaro.org>, "Drew Fustini" <fustini@kernel.org>
+Message-Id: <b94d1ea2-8092-4692-a5ec-02d83ae1c1a2@app.fastmail.com>
+In-Reply-To: <20260128203455.38569-1-stefandoesinger@gmail.com>
+References: <20260128203455.38569-1-stefandoesinger@gmail.com>
+Subject: Re: [RFC PATCH v2 0/7] Add support for ZTE zx297520v3
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-X-MBO-RS-ID: 7d006a684c6f407a7af
-X-MBO-RS-META: z11xxedxwyc1eh8qc7t7nd5s3ut5si6k
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_135547_649022_265AB32B 
-X-CRM114-Status: GOOD (  21.62  )
+X-CRM114-CacheID: sfid-20260128_140039_010420_5250898D 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,74 +113,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
+On Wed, Jan 28, 2026, at 21:34, Stefan D=C3=B6singer wrote:
 
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
->=20
-> For local reproduction steps see
-> https://netdev-ai.bots.linux.dev/ai-local.html ---
-> net: mtip: Add net_device_ops functions to the L2 switch driver
->=20
-> This patch adds the net_device_ops callback implementations for the
-> MTIP L2 switch driver including transmit, timeout handling, multicast
-> setup, MAC address configuration, and port parent ID retrieval.
->=20
-> > diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
-> > b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c index
-> > 9c21a3d29c1c..a6424ee1a9d9 100644 ---
-> > a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c +++
-> > b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c =20
->=20
-> [ ... ]
->=20
-> > +static netdev_tx_t mtip_start_xmit_port(struct sk_buff *skb,
-> > +					struct net_device *dev,
-> > int port) +{ =20
->=20
-> [ ... ]
->=20
-> > +	/* Push the data cache so the CPM does not get stale memory
-> > +	 * data.
-> > +	 */
-> > +	bdp->cbd_bufaddr =3D dma_map_single(&fep->pdev->dev, bufaddr,
-> > +					  MTIP_SWITCH_TX_FRSIZE,
-> > +					  DMA_TO_DEVICE); =20
->=20
-> The dma_map_single() call here creates a DMA mapping, but
-> mtip_switch_tx() at this point in the series is an empty stub that
-> never calls dma_unmap_single().
+> 4) The CPU is a Cortex A53 running in arm32 mode (in the shipped firmw=
+are=20
+> too). It doesn't appear to have an FPU. Reading FPSID results in an=20
+> exception (so vfpmodule.c/vfp_init says VFP is not available). I tried=20
+> enabling p10 and p11 in NSACR, but without success. NSACR seems to alw=
+ays=20
+> read 0 too. Is this really a Cortex A53 without FPU or did I miss=20
+> something?
 
-Yes.
+I've never seen a Cortex-A53 without FPU and NEON, but since this
+is optional, it was a matter of time before we got one ;-)
 
-> Is the intention for this to be
-> resolved by a later patch in the series? Looking ahead, a4c3fa1c66c9
-> ("net: mtip: Add mtip_switch_{rx|tx} functions to the L2 switch
-> driver") does add the full TX completion handler with the
-> dma_unmap_single() call. However, this commit on its own could cause
-> DMA resource exhaustion if used standalone (e.g., during bisection).
->=20
+I assume that you were in EL3 when you tried to write to NSACR?
+From EL2/EL1 it would still appear the same as not-implemented
+even if it is there but disabled in EL3.
 
-The MTIP Kconfig define would not be available at this point of the
-series.
+> 5) Relatedly, are there any advantages to running in arm64 mode? The=20
+> devices are relatively memory constrained (64mb), so the larger binary=20
+> size from 64 bit pointers is probably a negative, while the larger=20
+> register set might be a positive. I doubt switching to arm64 mode is=20
+> possible at all, but I'm nevertheless curious.
 
-The split is done as part of the agreement of how that large driver
-shall be added.
+Support for 64-bit cores is actually quite rudimentary in 32-bit
+more, as we are missing a lot of the errata workarounds and ARMv8
+specific features in the kernel. If you can figure out how to
+use 64-bit kernel mode, that would be ideal. There is a
+noticeably higher memory usage even with 32-bit userspace though,
+so you'd lose several megabytes of memory as you said, and 64-bit
+userspace would be impossible since the aarch64 toolchain only
+supports hardfloat.
 
-The mtip_switch_rx|tx is a stub at this point to ease the review.
+You would also have to deal with a practical problem in OpenWRT,
+which as far as I know does not support building kernel
+and userland with different toolchains.
 
-> Would it make sense to merge these two patches together, or at minimum
-> have a note in the commit message explaining the dependency?
->=20
+> 6) The old removed zx29 code used "zte," as the vendor for the=20
+> compatibles. Sanechips is a subsidiary of ZTE that designed these chip=
+s.=20
+> Are there any preferences for either "zte," or "sanechips,"?
 
-@Jakub - If possible I would keep things as they are now.
+I would stay with the previously used one
 
-> [ ... ]
-
-
-
---=20
-Best regards,
-
-=C5=81ukasz Majewski
+      Arnd
 
