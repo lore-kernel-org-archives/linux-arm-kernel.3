@@ -4,91 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD0E4D25B45
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 11:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B11D25B45
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 11:28:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kGHzgo46JPR+trobxc3T2Vae69I3rJusIBD5JwJaaJ0=; b=hKQQrFWUCHZRfqMjWPvQgSwBVn
-	ueWvLk+3kDm5G2JY/9EiDZ57Vz8shGzi0RCV+63FgTXNudwz5b7yA1OxYqkuuizFq7HgPJDh9i+jO
-	v05dw7cOJy9A4Wf8lj2cmvcsW5SKhSKvnCMTM98dbGm8wPbgDlmgcOeoKvFDC8u8Q1lIaNTPvLoEe
-	FqRrOzVTuIIFr/QzZM2lxk0wN7yII47cNuPpMy52FP/Fytp6qlGEPjbJ17MdIcZo2l+DWrAzJGe0e
-	ynIFw2p25IMZ08eTfafpdN7NCfa3Qs/Af9lFxu4TT9JzocK/1cNbIapGAeozsli8PRCRqgPktyk4e
-	PsGHrEXA==;
+	bh=pr5QgnStPy8shftc1YgvtP+RNy22asbXYtKGGSGXcSI=; b=USBrdC5hePwPtcQPeDBI+XRIbl
+	w2qItx0DLdOau5XGQKnYurltdlXmupafJlEsueLq9OXS7vHcSRLTHz7i3xJ9/4j+AdUWpLdS/sZZH
+	NhvL0ZaLtXjFSKwJZB9NeaL5k3oOkeUsHhKD0NdzKns+pgtfBxVGIYRLpwDXQm1dtYZHcHG1MI3QG
+	JsJWtNt9LiYJYx94gxytRFb18vUQ3LgypN+yoxn3n6oFP7HkSncMsObyaRAqFi95TG8Tdc9QbNm+f
+	EH3CbbNTHiF/p5sOnhzPFCjyuHR0bu8YeBnNpy6aQzY43kHAHF7jGY+oW7sX0kJZqFSqG0OvLJmE1
+	p4A6/X5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl3hp-0000000FvXd-1CbZ;
-	Wed, 28 Jan 2026 11:27:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vl3iE-0000000FvbJ-2Txy;
+	Wed, 28 Jan 2026 11:27:54 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl3hm-0000000FvXJ-2eXZ
+	id 1vl3iB-0000000FvZv-1MNt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 11:27:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D7A25408DE;
-	Wed, 28 Jan 2026 11:27:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E518C4CEF1;
-	Wed, 28 Jan 2026 11:27:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769599645;
-	bh=5tl5UulReo9mfeinlsXovMEDngKOqoqnKHsMOgA3XXg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mz3C0iEmV05LCiMxqUUPC533EAwv7WtBXo/e17SkoRbQxRl6PaujEVCoYs/2hjxld
-	 Rk7+xGr7CUVtQH4qnGr1qBw93vhwI/1w1f7KLWmfMjMzjjmYM5aD0RmCa5DG/p28+B
-	 YWbry/suM5VuO9bHjWh/Qz3LEpn8slbnOrPzoasYeOollKP8VyQ2bmXL/ZrU2lWNVU
-	 WHZrERuRiGcHUvO9u1yHv0hska3Jv63+efynKRaT//NMkDFfSZgfNBBzik7HMSXTF9
-	 2KkIlAzlGUFQCOTdWtbPwX1bqJo/m6NEQ/fLxKKINz2jZmzHqIXGP6KWkqGr7wXJim
-	 bxRx2rrIFbokw==
-Date: Wed, 28 Jan 2026 12:27:22 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Michal Hocko <mhocko@suse.com>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chen Ridong <chenridong@huawei.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
-	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
-	linux-mm@kvack.org, linux-pci@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 03/33] memcg: Prepare to protect against concurrent
- isolated cpuset change
-Message-ID: <aXnymtIZSc-fw1b8@localhost.localdomain>
-References: <20260125224541.50226-1-frederic@kernel.org>
- <20260125224541.50226-4-frederic@kernel.org>
- <aXeZQoSHJ9QX7B6W@tiehlicka>
- <aXizUsfywjtIIN50@localhost.localdomain>
- <aXnMj1phN3TJZkNz@tiehlicka>
+	Wed, 28 Jan 2026 11:27:53 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vl3hi-00061y-Vb; Wed, 28 Jan 2026 12:27:22 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vl3hi-002uKI-1I;
+	Wed, 28 Jan 2026 12:27:21 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vl3hh-000000009M7-2kXq;
+	Wed, 28 Jan 2026 12:27:21 +0100
+Message-ID: <c4c546df215cbf4fc42bca58500a94140a5d6bf3.camel@pengutronix.de>
+Subject: Re: [PATCH v4 2/3] reset: cix: add support for cix sky1 resets
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Gary Yang <gary.yang@cixtech.com>, lee@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, peter.chen@cixtech.com
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, cix-kernel-upstream@cixtech.com
+Date: Wed, 28 Jan 2026 12:27:21 +0100
+In-Reply-To: <20260128093611.1932770-3-gary.yang@cixtech.com>
+References: <20260128093611.1932770-1-gary.yang@cixtech.com>
+	 <20260128093611.1932770-3-gary.yang@cixtech.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aXnMj1phN3TJZkNz@tiehlicka>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_032726_737610_72FD5884 
-X-CRM114-Status: GOOD (  25.44  )
+X-CRM114-CacheID: sfid-20260128_032751_362850_E191E70E 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,66 +78,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Wed, Jan 28, 2026 at 09:45:03AM +0100, Michal Hocko a écrit :
-> On Tue 27-01-26 13:45:06, Frederic Weisbecker wrote:
-> > Le Mon, Jan 26, 2026 at 05:41:38PM +0100, Michal Hocko a écrit :
-> > > On Sun 25-01-26 23:45:10, Frederic Weisbecker wrote:
-> > > > The HK_TYPE_DOMAIN housekeeping cpumask will soon be made modifiable at
-> > > > runtime. In order to synchronize against memcg workqueue to make sure
-> > > > that no asynchronous draining is pending or executing on a newly made
-> > > > isolated CPU, target and queue a drain work under the same RCU critical
-> > > > section.
-> > > > 
-> > > > Whenever housekeeping will update the HK_TYPE_DOMAIN cpumask, a memcg
-> > > > workqueue flush will also be issued in a further change to make sure
-> > > > that no work remains pending after a CPU has been made isolated.
-> > > > 
-> > > > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> > > > ---
-> > > >  mm/memcontrol.c | 21 +++++++++++++++++----
-> > > >  1 file changed, 17 insertions(+), 4 deletions(-)
-> > > > 
-> > > > diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-> > > > index be810c1fbfc3..2289a0299331 100644
-> > > > --- a/mm/memcontrol.c
-> > > > +++ b/mm/memcontrol.c
-> > > > @@ -2003,6 +2003,19 @@ static bool is_memcg_drain_needed(struct memcg_stock_pcp *stock,
-> > > >  	return flush;
-> > > >  }
-> > > >  
-> > > > +static void schedule_drain_work(int cpu, struct work_struct *work)
-> > > > +{
-> > > > +	/*
-> > > > +	 * Protect housekeeping cpumask read and work enqueue together
-> > > > +	 * in the same RCU critical section so that later cpuset isolated
-> > > > +	 * partition update only need to wait for an RCU GP and flush the
-> > > > +	 * pending work on newly isolated CPUs.
-> > > > +	 */
-> > > > +	guard(rcu)();
-> > > > +	if (!cpu_is_isolated(cpu))
-> > > > +		schedule_work_on(cpu, work);
-> > > 
-> > > Shouldn't this in the guarded rcu section?
-> > 
-> > This is what guard(rcu)() does, right?
-> > Or am I missing something?
-> 
-> I am probably misreading the patch. But I've had the following in mind
-> 
-> 	scoped_guard(rcu) {
-> 		if (!cpu_is_isolated(cpu))
-> 			schedule_work_on(cpu, work);
-> 	}
+On Mi, 2026-01-28 at 17:36 +0800, Gary Yang wrote:
+> There are two reset controllers on Cix Sky1 Soc.
+> One is located in S0 domain, and the other is located
+> in S0 and S5 domain.
+>=20
+> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+> Link: https://lore.kernel.org/r/20251124063235.952136-3-gary.yang@cixtech=
+.com
+> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
+> ---
+>  drivers/reset/Kconfig      |   7 +
+>  drivers/reset/Makefile     |   1 +
+>  drivers/reset/reset-sky1.c | 376 +++++++++++++++++++++++++++++++++++++
+>  3 files changed, 384 insertions(+)
+>  create mode 100644 drivers/reset/reset-sky1.c
+>=20
+[...]
+> diff --git a/drivers/reset/reset-sky1.c b/drivers/reset/reset-sky1.c
+> new file mode 100644
+> index 000000000000..92e34b48f041
+> --- /dev/null
+> +++ b/drivers/reset/reset-sky1.c
+> @@ -0,0 +1,376 @@
+[...]
+> +static const struct regmap_config sky1_src_config[] =3D {
+> +	{
+> +		.reg_bits =3D 32,
+> +		.val_bits =3D 32,
+> +		.reg_stride =3D 4,
+> +		.name =3D "src",
+> +	},
+> +};
 
-guard(...)() protects everything that follows within the same block
-(here the whole function) whereas scoped_guard only applies to the
-following scope (here what is inside the {} in your example).
+This looks unused.
 
-So both work.
-
-Thanks.
-
--- 
-Frederic Weisbecker
-SUSE Labs
+regards
+Philipp
 
