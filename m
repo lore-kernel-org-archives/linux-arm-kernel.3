@@ -4,72 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CADA2D3F076
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 14:53:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 355BDD3F079
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 14:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SRRmzUcl3QCWzjfZvki5P1hK7gUe1445xJIOO0knKok=; b=P1Buw1QOKch9WP
-	AQOWoyifClaIzJ2p3hSyqW4y4g8qdLV7PW9b0Qypnj0WTky+Y0kfHgEmYC0rR8s/y7EGZZRopj1m3
-	aysaN1vBt/WyWVvw9nLyXV7fm1s4zsJiiDAiA/4EiQUhNe4jSsrDmU46ViARQlEYvuFVzAMW+c2Xg
-	X68amF4qyqd10IsR8heSh7QdJKKV+YF02LkOll68SEB5v6IHQvr9QL6ua1TDMayVbVKh0wbga3xqp
-	remLCibIjDBPTS6sA9BoajuCpoeXMm3GSdYqMWh/M31f2f4HXMQYEBmADzKnfqBdFRaVgyQ+gccLe
-	O4MDjrAIyEvQ188zp3ww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WWPwn53Ol9ekWVCB9lvcHfUbRZPKdy+NP8fTOLLEeiQ=; b=UQanf+e/tiklPrmKZsIo3zn0Ol
+	Q3fFB7t69ROa46DsWo5ggk5kWoeCQqn8bTG3HL9c8KRazL0ZYMkrXmBZZO0BXRgl58/MHrG2gxFNg
+	YCPtEQBdd9JAarx0utLGd/WTzDx60bQqTH26xiOMfflpn/2bjrIqSQbmwsPUrVWzlvLQZJ8xhzoY6
+	WvCCzKC5AORFS8yx8BgLgpwELFIjZIgyHPN6TXAaUDzPTkwCILBedoxmdfO0EdIiAXJVeDspaHDZ/
+	+G/DoqW3BdY9B81G8h9+U3woSfFrae0nF6Xc9t0j0CvCYUZPLFNH5LIq8ui+qIH8Jfea79zdZn3sK
+	JvuvBLDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl6vQ-0000000GDKD-2WDb;
-	Wed, 28 Jan 2026 14:53:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vl6x6-0000000GDWA-49zf;
+	Wed, 28 Jan 2026 14:55:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl6vP-0000000GDJx-1SeP
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 28 Jan 2026 14:53:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=SRRmzUcl3QCWzjfZvki5P1hK7gUe1445xJIOO0knKok=; b=UX3TK7zEotbIV3FbuS54ccHmQ3
-	s7OgsUlKzDj8NQS/X7T7OWFQG9mcjNHnXzDpAtrlytJJGHURPHUcWCg++pBX66WdMow7WIiHPcmXL
-	JjUDENYafqQ4EvaQOZc7AIBB8qZL4KsyWQZ6GSeIVvmhTlpNp2mNT1OLM8wxgtSfvhw/Dmx/nTgLu
-	uDPX9gWPuMD45ELp5ZF0iulhUgLEh9gQKFUK9DCUXvtoh+y0PhhxcIUGI7Ceanjk67u6Q2Yc/P+QS
-	RBR35T3pyoPlIsbir/Kn+sygRRm1GaU1g/gkUsyPlQtbpEOVz4sRtKGb1yT6b2sv6xCwWG6dqkt4e
-	lBAyo3eg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl6vL-00000008ltv-1YQk
+	id 1vl6x5-0000000GDVz-1kIX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 14:53:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 614011515;
-	Wed, 28 Jan 2026 06:53:30 -0800 (PST)
-Received: from [10.44.160.85] (e126510-lin.lund.arm.com [10.44.160.85])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 563313F73F;
-	Wed, 28 Jan 2026 06:53:31 -0800 (PST)
-Message-ID: <647fe97e-e8c1-464f-bbc7-39dac0bda6b2@arm.com>
-Date: Wed, 28 Jan 2026 15:53:28 +0100
+	Wed, 28 Jan 2026 14:55:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D19B06000A;
+	Wed, 28 Jan 2026 14:55:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91530C4CEF1;
+	Wed, 28 Jan 2026 14:55:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769612126;
+	bh=UZhcBjbG4OlySfIhFDxqIUaepkapWzNZkH8yaYRq/qI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n88qhjuiNnwo2tLONNdy+YL/EBTtX1WWN5jyA0LMx2ukeoPKd8Q/LoIw9LldznPPS
+	 qidWz0BRAQD3qsAtWJgYDpMF4criLJrG7Vnb0Wf5PSKEAo/wNfyuk6EYT+saa8eexA
+	 5iUodmrtGO86gEbdlfHH7e4yS+TB2nkgfmJagKsIkCyvVVpiVARjlDPaXbrpac3iH1
+	 Mx6SeKx85B0dnrttpKjVAyIxo5Vo2+6buV39pSM/uprz7fO7g/TUOtdPhdmhEAGaW+
+	 0cT4QtJ9bkDMypi8uJwyFh6V39QLVCBOczXwz1oSIpcUr5fbaN/nzAxaPHvvCci9IS
+	 K9kGY1z2Hi3oQ==
+Date: Wed, 28 Jan 2026 08:55:23 -0600
+From: Bjorn Andersson <andersson@kernel.org>
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Cc: Jingoo Han <jingoohan1@gmail.com>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com
+Subject: Re: [PATCH 0/3] PCI: qcom: Add D3cold support
+Message-ID: <leonjtaswjzgibn4p5rmgegtad4fhi2y47qwtagilewebm3o4y@pc6eydqfujm4>
+References: <20260128-d3cold-v1-0-dd8f3f0ce824@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 05/16] arm64: ptrace: Move rseq_syscall() before
- audit_syscall_exit()
-To: Jinjie Ruan <ruanjinjie@huawei.com>, Will Deacon <will@kernel.org>
-References: <20251222114737.1334364-1-ruanjinjie@huawei.com>
- <20251222114737.1334364-6-ruanjinjie@huawei.com>
- <aXe6W69Esd1NLEU8@willie-the-truck>
- <28e54f74-9b3d-4c3c-9172-ceb429e7fcbe@arm.com>
- <4891191c-d1c3-6985-c2ea-1b29deb8abe1@huawei.com>
- <0f6212c1-7034-42f4-ba77-10e9ec52a4f5@arm.com>
- <6ff5d366-3a2d-089b-5ac7-e40b81a8664c@huawei.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <6ff5d366-3a2d-089b-5ac7-e40b81a8664c@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_145339_602353_51F51ADB 
-X-CRM114-Status: GOOD (  12.72  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260128-d3cold-v1-0-dd8f3f0ce824@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,46 +69,78 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ldv@strace.io, song@kernel.org, linux-kselftest@vger.kernel.org, shuah@kernel.org, kees@kernel.org, linux-arm-kernel@lists.infradead.org, kmal@cock.li, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, charlie@rivosinc.com, pengcan@kylinos.cn, broonie@kernel.org, luto@kernel.org, tglx@linutronix.de, richard.weiyang@gmail.com, dvyukov@google.com, wad@chromium.org, oleg@redhat.com, linux-kernel@vger.kernel.org, liqiang01@kylinos.cn, akpm@linux-foundation.org, reddybalavignesh9979@gmail.com, macro@orcam.me.uk
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/01/2026 02:09, Jinjie Ruan wrote:
->
-> On 2026/1/27 23:06, Kevin Brodsky wrote:
->> On 27/01/2026 12:34, Jinjie Ruan wrote:
->>>> [...]
->>>>
->>>>>  I'm also concerned that rseq_debug_update_user_cs()
->>>>> operates on instruction_pointer(regs) which is something that can be
->>>>> chaned by ptrace.
->>>> Isn't that true regardless of where rseq_syscall() is called on the
->>>> syscall exit path, though?
->>> My understanding is that if instruction_pointer(regs) is hijacked and
->>> modified via ptrace at the syscall exit (ptrace_report_syscall_exit()),
->>> this modification will not be observed by rseq. Specifically, in the
->>> generic entry syscall exit path, rseq_syscall() is unable to detect such
->>> a PC modification.
->> Good point. So concretely that means that currently on arm64, one could
->> make the rseq debug check pass/fail by using the syscall exit trap to
->> modify PC. OTOH this is impossible with generic entry because the rseq
->> check is performed first. I'm not sure this is a feature anyone has even
->> noticed, but it is a user-visible change indeed.
-> After digging into the ptrace code, I found that ptrace does not modify
-> instruction_pointer(regs) on the syscall exit path; it only changes the
-> return value as below.
-> Therefore, if my understanding is correct, Will's concern does not apply
-> here.
->
-> ptrace_set_syscall_info()
->   -> ptrace_set_syscall_info_exit()
->      -> syscall_set_return_value(child, regs, 0, rval)
+On Wed, Jan 28, 2026 at 05:10:40PM +0530, Krishna Chaitanya Chundru wrote:
+> This series adds a common helper to determine when a PCIe host bridge
+> can safely enter D3cold, converts the DesignWare host driver to use that
+> helper, and enables D3cold support for Qualcomm PCIe controllers.
+> 
 
-I'm not following, how is that related to the call to
-ptrace_report_syscall_exit()? That eventually results in a call to
-ptrace_stop() (via ptrace_notify()), which synchronously causes the
-tracee to sleep and allows the tracer to issue ptrace commands, e.g.
-setting PC.
+You only modify qcom_pcie_deinit_2_7_0() so which targets is this
+expected to work on and which targets have you tested it on. How can I
+test it and what outcome should I expect?
 
-- Kevin
+> The first patch introduces pci_host_common_can_enter_d3cold() in
+> pci-host-common. The helper walks all devices on the bridge's bus and
+> only allows the host bridge to enter D3cold if all PCIe endpoints are
+> already in PCI_D3hot. For devices that may wake the system, it
+> additionally requires that the device support PME wakeup from D3cold
+> (via WAKE#). Devices without wakeup enabled are not restricted by this
+> check and may be left in D3cold.
+> 
+> The second patch updates the DesignWare host driver to use this common
+> helper in dw_pcie_suspend_noirq(). Previously, the driver skipped
+> putting the link into L2 / device D3cold whenever L1 ASPM was enabled,
+> since some devices (e.g. NVMe) expect low resume latency and may not
+> tolerate deeper power states. However, such devices typically remain in
+> D0 and are already covered by the helper's requirement that all
+> endpoints be in D3hot before the host bridge may enter D3cold. Using the
+> shared helper removes this coarse heuristic and centralizes the D3cold
+> eligibility policy.
+> 
+> The third patch enables D3cold support for Qualcomm PCIe controllers. It
+> adds pme_turn_off() support and switches to the DesignWare common
+> suspend/resume methods for device D3cold entry and exit. If the
+> controller is not kept in D3cold, the existing paths are used so that
+> ICC votes, OPP votes, and other resources remain managed as before. In
+> addition, qcom_pcie_deinit_2_7_0() is updated to explicitly disable
+> PCIe clocks and resets in the controller, and the now-unused "suspended"
+> flag is removed from struct qcom_pcie.
+> 
+
+This is effectively just duplicating the commit messages. Lacking from
+both is a good explanation of the problem statement, but that might just
+be me not getting it?
+
+Could you please help me understand what the actual outcome of this
+series is? I was under the impression that this work would lead us
+towards unblocking CXPC, but the other patch you sent will prevent CXPC.
+
+Regards,
+Bjorn
+
+> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+> ---
+> Krishna Chaitanya Chundru (3):
+>       PCI: host-common: Add shared D3cold eligibility helper for host bridges
+>       PCI: dwc: Use common D3cold eligibility helper in suspend path
+>       PCI: qcom: Add D3cold support
+> 
+>  drivers/pci/controller/dwc/pcie-designware-host.c |   7 +-
+>  drivers/pci/controller/dwc/pcie-designware.h      |   1 +
+>  drivers/pci/controller/dwc/pcie-qcom.c            | 114 +++++++++++++---------
+>  drivers/pci/controller/pci-host-common.c          |  29 ++++++
+>  drivers/pci/controller/pci-host-common.h          |   2 +
+>  5 files changed, 101 insertions(+), 52 deletions(-)
+> ---
+> base-commit: 590a64365d9bcc13ee644a3e73ffdc3df26cf23c
+> change-id: 20251229-d3cold-bf99921960bb
+> 
+> Best regards,
+> -- 
+> Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+> 
+> 
 
