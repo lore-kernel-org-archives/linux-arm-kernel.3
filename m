@@ -4,68 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A9B4D3F071
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 14:40:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 189BBD3F073
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 14:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h8/roDMuAI3mjNMk79AAC8/rqNfFUvWo6eWVQC2sG7Y=; b=P8gUKHQgJbCAPHQAq9Xi8v4S7V
-	A5osjUJfwudNpKAGyFS/lI/09b6gEtqchyZq/TJwUjR3gIM950ZkWKCt7e8vd8wPXltGqf5XqKjmo
-	sAv+tF0ojSnCt/3Q/j4gBk9pXu2f8yoSRnXjOGELorikRB36BxMPy+/PUjLndpw0Yvr/gI1CN7X/5
-	5TTSq2cDq/gP0FR3g7TYHq8j+3+x4v3uYfeUYop+AMckJogbEiPOysNiaX0gB43qjwsTdIozFa/i/
-	QncemHA0PgiUK4nMPBuS/sxCQ1yEIR5z9axcWFkVwwLtV99JPBuhmj6FhZK3Y27651ZtkIFhMpBqs
-	c4SGPYow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qzQW4x9GvHfNuuUCAGvznnJeLzhvnRmnz1hEJUjOKEo=; b=cu2+d3JVYRgWuu/kjnCZ6uqsnc
+	JHqgEazqIOfZVJVHL4XndTtMbLNhq6qWCMEtPxMFEbc3EhbTNzpWqjxvjWea64vCOAXWM3kWC1o6Z
+	FzpvQPNiGvFryLcgcM3IWZxPUH2QMM2+Ps/mvVbpYb54SqbjL2y63kLImr86j5KQxzaknL5J4PjVZ
+	HufdGiNjJEYKNQ3obW8/vY4CGtWYACSvI0LOmRUjgXSeJtv/77VFO6DCN1fMzMobQtDdcQd9pQ1/A
+	8lr4AeTf1dOE1d8yAq2R7NjMMYL656KVzbOG72YCOWPaQs67e2dfCng2KTRSbgau5K+j+fk3tDD+B
+	/AD6ql4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl6iT-0000000GC1p-2vlX;
-	Wed, 28 Jan 2026 14:40:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vl6jx-0000000GCDE-0Mcx;
+	Wed, 28 Jan 2026 14:41:53 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl6iR-0000000GC1P-3Hvc
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 14:40:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C9E3860054;
-	Wed, 28 Jan 2026 14:40:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E38B3C4CEF1;
-	Wed, 28 Jan 2026 14:40:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769611218;
-	bh=+V397SMOrDC+3Vm5YyGZsLbYiiKsHSTZGmiMS9Hv5tk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BNz+YEYxF1GK7BXs8jSLwQ6tQ1HibxFjFu/ueuSYEh0cgIPWocxBbZ0x4z0TQ5xte
-	 JO52DEOQXcciYMuwwFFc5XG0YEhkL2a1Gf6tnfNmcCobrK56aUBPl713yuPlGzHPta
-	 7BB4SbDoMZO6Kj40fS1ukucf5blFXggRNCkyOBNie/PyTqZ3cQ19pSE/DR8YoRVShf
-	 CmlgqFIzj1+HWFWRfjFT6r9yRu4eLDzLqH5/HwtxBSdmkjn/g+dD9/zJ22qACfndqg
-	 Wra50E8Hd0h+sEpJDBLDKpmKXbg+ZlA0cuXyCjErhhv3jk4q3AFx+j95GYRgUj0RqO
-	 rU3XBBRi8hK2g==
-Date: Wed, 28 Jan 2026 14:40:13 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Michal Simek <michal.simek@amd.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Abdurrahman Hussain <abdurrahman@nexthop.ai>,
-	Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, info@mocean-labs.com,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v6 1/7] dt-bindings: i2c: xiic: make clocks optional
-Message-ID: <20260128-uncivil-precut-84f8e37b7f2c@spud>
-References: <20260127-i2c-xiic-v6-0-e82e2f6f657c@nexthop.ai>
- <20260127-i2c-xiic-v6-1-e82e2f6f657c@nexthop.ai>
- <20260128-remarkable-airborne-chihuahua-a1a16c@quoll>
- <66c7435c-a936-413e-a016-c860d448c971@amd.com>
- <fc00f8cf-b566-4694-82fe-76010d2f7c78@lunn.ch>
+	id 1vl6ju-0000000GCCd-3Up8;
+	Wed, 28 Jan 2026 14:41:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1769611307;
+	bh=wAlJzcsh4bYcVJgHM5D12nidM5/BBv4ehJTvbKYkBXY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VskxW8cQHOvCgDxJWR5jQb0a7ljthDHhE46HFb7V4NWE6bTMUh6bjUOb1KcTt6PTd
+	 OfzE5i91d4FrRg9WNrAl2lnzH9E9r6bdVxrIQsPIqM9h6+YcP6bTiWsJW/wrrYDmwJ
+	 Y3G67ScEvLw1gUGY95KVXXTy6eGqvjyNOzMyl7jOsm/KtPiw5WOrKOe3sHSYDRZfOZ
+	 VXl1i208d5j8uSPWvNq/Eg+BDvw7de3GtWhcKmlvkrQOSpO5auDnncpnfhwIyS4Ubd
+	 C4imqDlgX1frq8W75CH7TG6jk0608gPt3GzB8SDRa7GFxiD1BvTHLYB9DXSwj0CxpK
+	 wwCq2kwH3nodg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A919017E0699;
+	Wed, 28 Jan 2026 15:41:46 +0100 (CET)
+Message-ID: <92cabfc7-b35c-4ed8-9654-c4ef52bcbe03@collabora.com>
+Date: Wed, 28 Jan 2026 15:41:46 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="aCmLzXhnGY6FeQEX"
-Content-Disposition: inline
-In-Reply-To: <fc00f8cf-b566-4694-82fe-76010d2f7c78@lunn.ch>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 05/10] media: mediatek: vcodec: Add Decoder profile &
+ level Initialization
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ =?UTF-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ =?UTF-8?B?R2VvcmdlIFN1biAo5a2Z5p6XKQ==?= <George.Sun@mediatek.com>,
+ =?UTF-8?B?VGlmZmFueSBMaW4gKOael+aFp+ePiik=?= <tiffany.lin@mediatek.com>,
+ "nhebert@chromium.org" <nhebert@chromium.org>,
+ "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "mchehab@kernel.org" <mchehab@kernel.org>,
+ "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
+ =?UTF-8?B?WXVuZmVpIERvbmcgKOiRo+S6kemjnik=?= <Yunfei.Dong@mediatek.com>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ =?UTF-8?B?SXJ1aSBXYW5nICjnjovnkZ4p?= <Irui.Wang@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
+ =?UTF-8?B?QW5kcmV3LUNUIENoZW4gKOmZs+aZuui/qik=?=
+ <Andrew-CT.Chen@mediatek.com>
+Cc: "andrzejtp2010@gmail.com" <andrzejtp2010@gmail.com>,
+ "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+ =?UTF-8?B?WWlsb25nIFpob3UgKOWRqOaYk+m+mSk=?= <Yilong.Zhou@mediatek.com>
+References: <20260127024248.18406-1-kyrie.wu@mediatek.com>
+ <20260127024248.18406-6-kyrie.wu@mediatek.com>
+ <4a6e111d-49ef-449d-af9d-b0bd4fb468a5@collabora.com>
+ <54689bc16875b979147c021123c2546aacb7541e.camel@mediatek.com>
+ <8b1c78db-12fc-4f06-bf2b-49b47f24850a@collabora.com>
+ <d00d4dc685d76273ea99c9b90897602617c53abb.camel@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <d00d4dc685d76273ea99c9b90897602617c53abb.camel@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260128_064151_026948_6B3268CF 
+X-CRM114-Status: GOOD (  22.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,56 +101,291 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Il 28/01/26 14:39, Nicolas Dufresne ha scritto:
+> Hi,
+> 
+> Le mercredi 28 janvier 2026 à 10:53 +0100, AngeloGioacchino Del Regno a écrit :
+>> Il 28/01/26 08:45, Kyrie Wu (吴晗) ha scritto:
+>>> On Tue, 2026-01-27 at 13:07 +0100, AngeloGioacchino Del Regno wrote:
+>>>> Il 27/01/26 03:42, Kyrie Wu ha scritto:
+>>>>> This commit initializes codec profile & level for VDEC. It sets
+>>>>> default values for H264, H265, and VP9 codecs across multiple
+>>>>> chipset configurations.
+>>>>>
+>>>>
+>>>> The previous patch "Refactor decoder profile and level handling" will
+>>>> break the
+>>>> driver if this patch is not also applied at the same time.
+>>>>
+>>>> The change looks good, but you should squash 05/10 in 04/10, and
+>>>> assign the params
+>>>> that you're adding here along with the refactoring, so that you get
+>>>> one single
+>>>> patch that, if applied, doesn't break anything as it doesn't depend
+>>>> on additional
+>>>> (future, as this is number 5) patch.
+>>>>
+>>>> Please squash
+>>>>
+>>>> Cheers,
+>>>> Angelo
+>>>
+>>> Dear Angelo,
+>>>
+>>> The 04/10 and 05/10 were designed in one patch in v6,
+>>> but Nicolas thought that refactor patch and configuration
+>>> were two different changes, should separate them in this
+>>> comments:
+>>> https://patchwork.linuxtv.org/project/linux-media/patch/20251202074038.3173-5-kyrie.wu@mediatek.com/
+>>
+>> Even though in this case I disagree with Nicolas, I'm the mediatek maintainer,
+>> not a linux-media maintainer... so... let's go with whatever the media
+>> maintainers think it's best.
+> 
+> No need to disagree, I was not very clear in my reply indeed. What I want to see
+> is the added MT8189 configuration in isolation. So when I said two patches, the
+> first one should reorganize the code for existing platform, without breaking it,
+> and the second should add MT8189 support. I will have a read at these two patch
+> to understand what is being done wrong, and can provide further feedback later.
+> 
+> The commit description in v6 was only saying that it was adding a configuration
+> for MT8189.
+> 
 
---aCmLzXhnGY6FeQEX
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Re-reading what I wrote - my words could be misunderstood as well, so - just in
+case anyone did: sorry, that wasn't meant as any form of attack and was purely
+about sharing an opinion in a friendlier way than what appears from my previous
+words. Eh, writing emails fast .... :-P
 
-On Wed, Jan 28, 2026 at 03:34:02PM +0100, Andrew Lunn wrote:
-> On Wed, Jan 28, 2026 at 12:21:41PM +0100, Michal Simek wrote:
-> >=20
-> >=20
-> > On 1/28/26 11:37, Krzysztof Kozlowski wrote:
-> > > On Tue, Jan 27, 2026 at 09:03:55PM +0000, Abdurrahman Hussain wrote:
-> > > > The xiic driver is designed to operate without explicit clock confi=
-guration
-> > >=20
-> > > And if you change this in the driver, then you change bindings?
-> > >=20
-> > > You miss here explanation based on hardware - how does the hardware w=
-ork
-> > > if nothing ticks it clocks?
-> >=20
-> > Hardware obviously have clock input which needs to be connected. Withou=
-t it
-> > it won't work.
->=20
-> Should ACPI potential limitations be making the DT description less
-> accurate?
+Btw.
 
-We absolutely should not be cocking up bindings because ACPI requires
-less complete descriptions.
+Happy to see that we're on the same page.
 
-> Would it not be better that the driver has an DT binding and an ACPI
-> binding? Where there are common properties, common functions can be
-> used to retrieve them. However, if ACPI lacks usable clocks, use the
-> of_ method to get the clock from DT, and skip it for ACPI.
->=20
->     Andrew
->=20
->=20
+Cheers,
+Angelo
 
---aCmLzXhnGY6FeQEX
-Content-Type: application/pgp-signature; name="signature.asc"
+> Nicolas
+> 
+>>
+>>>
+>>> In my mind, refactor profile and level setting and assign
+>>> former ICs' parameters could merge into same patch. The
+>>> configuration of MT8189 should split to another one, because
+>>> it is a new setting.
+>>>
+>>> Do you agree with my opinion? I look forward to your further reply.
+>>>
+>>
+>> I agree with your opinion, but if linux-media maintainers want those two
+>> patches separated as you just did, I will raise my hands, so...
+>>
+>> Reviewed-by: AngeloGioacchino Del Regno
+>> <angelogioacchino.delregno@collabora.com
+>>
+>> ...because when the two patches are applied at the same time, there's no
+>> breakage. But I want to still repeat my stance on this: single patches
+>> should never depend on subsequent patches to avoid regressions (and I know
+>> you agree as your previous version was compliant with that stance).
+>>
+>> Cheers,
+>> Angelo
+>>
+>>> Thanks.
+>>>
+>>> Regards,
+>>> Kyrie.
+>>>
+>>>
+>>>>
+>>>>> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+>>>>> ---
+>>>>>     .../vcodec/decoder/mtk_vcodec_dec_stateful.c  | 12 +++
+>>>>>     .../vcodec/decoder/mtk_vcodec_dec_stateless.c | 84
+>>>>> +++++++++++++++++++
+>>>>>     2 files changed, 96 insertions(+)
+>>>>>
+>>>>> diff --git
+>>>>> a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_sta
+>>>>> teful.c
+>>>>> b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_sta
+>>>>> teful.c
+>>>>> index 8ddb61670dc6..a47906b9d717 100644
+>>>>> ---
+>>>>> a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_sta
+>>>>> teful.c
+>>>>> +++
+>>>>> b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_sta
+>>>>> teful.c
+>>>>> @@ -619,4 +619,16 @@ const struct mtk_vcodec_dec_pdata
+>>>>> mtk_vdec_8173_pdata = {
+>>>>>     	.is_subdev_supported = false,
+>>>>>     	.hw_arch = MTK_VDEC_PURE_SINGLE_CORE,
+>>>>>     	.chip_name = 8173,
+>>>>> +	.h264_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_H264_LEVEL_4_1,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH,
+>>>>> +	},
+>>>>> +	.h265_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_4,
+>>>>> +		.profile =
+>>>>> V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE,
+>>>>> +	},
+>>>>> +	.vp9_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_4_0,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_1,
+>>>>> +	},
+>>>>>     };
+>>>>> diff --git
+>>>>> a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_sta
+>>>>> teless.c
+>>>>> b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_sta
+>>>>> teless.c
+>>>>> index a1f419202a24..b571c4ed3f79 100644
+>>>>> ---
+>>>>> a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_sta
+>>>>> teless.c
+>>>>> +++
+>>>>> b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_sta
+>>>>> teless.c
+>>>>> @@ -830,6 +830,18 @@ const struct mtk_vcodec_dec_pdata
+>>>>> mtk_vdec_8183_pdata = {
+>>>>>     	.is_subdev_supported = false,
+>>>>>     	.hw_arch = MTK_VDEC_PURE_SINGLE_CORE,
+>>>>>     	.chip_name = 8183,
+>>>>> +	.h264_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_H264_LEVEL_4_2,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH,
+>>>>> +	},
+>>>>> +	.h265_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_4,
+>>>>> +		.profile =
+>>>>> V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE,
+>>>>> +	},
+>>>>> +	.vp9_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_4_0,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_1,
+>>>>> +	},
+>>>>>     };
+>>>>>     
+>>>>>     /* This platform data is used for one lat and one core
+>>>>> architecture. */
+>>>>> @@ -869,24 +881,72 @@ const struct mtk_vcodec_dec_pdata
+>>>>> mtk_vdec_8188_pdata = {
+>>>>>     	MTK_STATELESS_DEC_DATA,
+>>>>>     	.hw_arch = MTK_VDEC_LAT_SINGLE_CORE,
+>>>>>     	.chip_name = 8188,
+>>>>> +	.h264_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_H264_LEVEL_5_2,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH_10,
+>>>>> +	},
+>>>>> +	.h265_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_5_1,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
+>>>>> +	},
+>>>>> +	.vp9_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_5_1,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_2,
+>>>>> +	},
+>>>>>     };
+>>>>>     
+>>>>>     const struct mtk_vcodec_dec_pdata mtk_vdec_8192_pdata = {
+>>>>>     	MTK_STATELESS_DEC_DATA,
+>>>>>     	.hw_arch = MTK_VDEC_LAT_SINGLE_CORE,
+>>>>>     	.chip_name = 8192,
+>>>>> +	.h264_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_H264_LEVEL_5_2,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH,
+>>>>> +	},
+>>>>> +	.h265_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_4,
+>>>>> +		.profile =
+>>>>> V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE,
+>>>>> +	},
+>>>>> +	.vp9_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_5_1,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_1,
+>>>>> +	},
+>>>>>     };
+>>>>>     
+>>>>>     const struct mtk_vcodec_dec_pdata mtk_vdec_8195_pdata = {
+>>>>>     	MTK_STATELESS_DEC_DATA,
+>>>>>     	.hw_arch = MTK_VDEC_LAT_SINGLE_CORE,
+>>>>>     	.chip_name = 8195,
+>>>>> +	.h264_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_H264_LEVEL_6_0,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH_10,
+>>>>> +	},
+>>>>> +	.h265_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_5_2,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
+>>>>> +	},
+>>>>> +	.vp9_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_5_2,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_2,
+>>>>> +	},
+>>>>>     };
+>>>>>     
+>>>>>     const struct mtk_vcodec_dec_pdata mtk_vdec_8196_pdata = {
+>>>>>     	MTK_STATELESS_DEC_DATA,
+>>>>>     	.hw_arch = MTK_VDEC_LAT_SINGLE_CORE,
+>>>>>     	.chip_name = 8196,
+>>>>> +	.h264_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_H264_LEVEL_6_0,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH_10,
+>>>>> +	},
+>>>>> +	.h265_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_5_2,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
+>>>>> +	},
+>>>>> +	.vp9_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_5_2,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_2,
+>>>>> +	},
+>>>>>     };
+>>>>>     
+>>>>>     const struct mtk_vcodec_dec_pdata mtk_vdec_single_core_pdata = {
+>>>>> @@ -910,6 +970,18 @@ const struct mtk_vcodec_dec_pdata
+>>>>> mtk_vdec_8186_pdata = {
+>>>>>     	MTK_STATELESS_DEC_DATA,
+>>>>>     	.hw_arch = MTK_VDEC_PURE_SINGLE_CORE,
+>>>>>     	.chip_name = 8186,
+>>>>> +	.h264_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_H264_LEVEL_4_2,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH,
+>>>>> +	},
+>>>>> +	.h265_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_4,
+>>>>> +		.profile =
+>>>>> V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE,
+>>>>> +	},
+>>>>> +	.vp9_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_4_1,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_1,
+>>>>> +	},
+>>>>>     };
+>>>>>     
+>>>>>     const struct mtk_vcodec_dec_pdata mtk_vdec_8189_pdata = {
+>>>>> @@ -928,4 +1000,16 @@ const struct mtk_vcodec_dec_pdata
+>>>>> mtk_vdec_8189_pdata = {
+>>>>>     	.is_subdev_supported = true,
+>>>>>     	.hw_arch = MTK_VDEC_PURE_SINGLE_CORE,
+>>>>>     	.chip_name = 8189,
+>>>>> +	.h264_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_H264_LEVEL_5_2,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_H264_PROFILE_HIGH_10,
+>>>>> +	},
+>>>>> +	.h265_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_HEVC_LEVEL_4,
+>>>>> +		.profile =
+>>>>> V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE,
+>>>>> +	},
+>>>>> +	.vp9_params = {
+>>>>> +		.level = V4L2_MPEG_VIDEO_VP9_LEVEL_5_2,
+>>>>> +		.profile = V4L2_MPEG_VIDEO_VP9_PROFILE_2,
+>>>>> +	},
+>>>>>     };
+>>>>
+>>>>
 
------BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaXofygAKCRB4tDGHoIJi
-0kiCAQDNKNbaUn79Xc6x4BQryiWSp2li7RJKHh5XJCPManEc3QD+JINgu6NOEuXs
-KJEnNeT2aVLtmcNMS0KMi6CR6HkRUgg=
-=YpjJ
------END PGP SIGNATURE-----
-
---aCmLzXhnGY6FeQEX--
 
