@@ -4,67 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 441FFD35698
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02917D35690
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:36:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K9v5lvOeAbnU5WRkV8e9FAHwjqaCgL1App5Bln83ChE=; b=I+H1vZp49LT4GgRJxYHdfubf7Z
-	CYIWLGrlvpjbLaB7ntDUOYrIFujqDTgB+QwdOeg0Z0VLhkuKA1Kg0sd8QS5ZVDqKm2HDefdTL1qfJ
-	VaTgdLNN4iiETZHNz6/7zskCOV7HPf3G3aaC9O2/vU1M1HBlrCnBnZybdmGIlF+jHEzEGbbbO/9Jw
-	kszXJDInPkJrIJk0pc1R3tYUY2XxVSCMbTFd3JlzrrSugmYOpgLWtaRu+egjS6P92LT0hnd6UD+9v
-	3186Oc12Js7oxVW7jugFELIrKrEonzgy2B02bzSZJpY9ifNlEcqqzT3kzqx25et0reWr96Z0PTRur
-	8d3fHzYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9J8IjRO72ss3pLogidHmdXMN3kvnYuBHnPfjnynlNWY=; b=vssaDimu2NhpVOKrARpE5u/uMy
+	XJpWzDrqfm9C4HWsvBhLmgF9slRpkq04B1+CytSBPO7L/Qx+yGuw4UEKQpt+Kx21RWqsSsTobjaJm
+	/3yUk9th/L1eZi+qTKXnnXi9Chn0IiRJV10w9Hxby1qYSpo7bZmLLBhkCDm+SX00NW/dd9wXG/elH
+	i+b+0+H+P7p5apgseY4sVnmfrxBTLYb3uLXvPW9NYfEDXkEFFWRYs289oyR4Qr3xlp92I5dbAZs9o
+	7b4aN/8YNVacmC5hVgOCBLlOxkvjf+n2KL9aP5lPPDQPGHPqw/+apT6nOPTeXUuXrfXiyj7aIwihT
+	T3NYi0cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1nb-0000000FkSP-2Ay5;
-	Wed, 28 Jan 2026 09:25:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vl1yL-0000000Fl7c-0KS4;
+	Wed, 28 Jan 2026 09:36:25 +0000
+Received: from mail-japanwestazon11022128.outbound.protection.outlook.com ([40.107.75.128] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1nZ-0000000FkSG-2gXR
+	id 1vl1yG-0000000Fl5i-1Kj3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 09:25:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 67526600AA;
-	Wed, 28 Jan 2026 09:25:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9D00C4CEF1;
-	Wed, 28 Jan 2026 09:25:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769592316;
-	bh=NOYUzAYOaQDLTtBB91+2pLZKvr04FAxNg/6BUtcW8aU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EpTbuYAL5IAPWPvdsK/lVylxFhuznKwArTPCxaxNlbm6TeghX4LEUY2EY8Tr40fgZ
-	 s3y/+08DEkG7+VltextLP64GqASv9orzxSqgu79+Z89MUwcr/Gy+5l24Jq0ESZIYjd
-	 Yyw7X64kgIoHd1wO/v92yKqV4W94UQoAmNRg+TTgbhI1fRcbL4d3qIY4nOV/5M4Z+K
-	 MBOq3DFvjVyFiXUv7mJiiFwHqfEXT2gG3FZd6IjFzw7UplYzVFUFI23dPOMyd+iDsZ
-	 iKMJdsYztI8EgAZktEpm7J0pedv99v9o3HMQ03me2UT1XLcGXXGJt2rixME8r5PCRA
-	 H7sxJy+jTPjPA==
-Date: Wed, 28 Jan 2026 11:25:04 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: ardb@kernel.org, leitao@debian.org, corbet@lwn.net,
-	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
-	bp@alien8.de, mingo@kernel.org, pawan.kumar.gupta@linux.intel.com,
-	feng.tang@linux.alibaba.com, kees@kernel.org, elver@google.com,
-	arnd@arndb.de, fvdl@google.com, lirongqing@baidu.com,
-	bhelgaas@google.com, bhe@redhat.com, dave.hansen@linux.intel.com,
-	cfsworks@gmail.com, osandov@fb.com, sourabhjain@linux.ibm.com,
-	jbohac@suse.cz, ryan.roberts@arm.com, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] arm64: kexec: Add support for crashkernel CMA
- reservation
-Message-ID: <aXnV8HBOzTTWBbsI@kernel.org>
-References: <20260126081334.699147-1-ruanjinjie@huawei.com>
- <aXnJd_Xghj9JLsnK@kernel.org>
- <3407c779-9e7e-8f90-353f-c2b58992aae2@huawei.com>
+	Wed, 28 Jan 2026 09:36:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JJyXQWVLAi07tZFmHaAQ+duerpxnbqvb0O1+/ccIHKFVBfzRNKEVq+Gu0WmL5bv5qN/bcEhEJn9XdDIUGjcaGoZuLINjIq8RxHpwRg0qumJa3aTPmeIxJtgcSY1XTsa7u5UN/Huhe0BfNsvL6ZiibqNT6Mpl8rkb90g4UzgNsLJhu4Ae8fxYaV1DQiRmL9Snk/1hAiLwuPEXyJUaOfww4ID5UUpptu/uVxc9rnt8kDd+jGW37IpdK/kmCdDRljFIUeYqh7KGZsSs01C4NCOtU1euSZufcWIuBGVCDC7L35lYqAB1kiGfT3Qa9m6DWZpgxtA9ArvlUIcqFGThaGqJaA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9J8IjRO72ss3pLogidHmdXMN3kvnYuBHnPfjnynlNWY=;
+ b=OTyEVM0C6Ura1W4rAElLLQPt92almMNLfFgER2UtDCquiD/4qBWxi6f71U7sW7Q/TC1osWaH3ORLj7vouRxPdi0zuaEOqvUgaDB59LKYhOVfbXtbO2H0K43+Tdc4dFAcqqiNsGyLIsN8IzePATgBXLg/Up0xdA9D+2Ck2Hm/jPwsk28Rb/c8Mv5vb7bvCF7rQ6mZc8Wmg933oCXY9SeSmhU4CyW+/oHxCrPexknlzaTq3PbVIoCHO2y7+qwiR0627NMw4vIG8Vxk3QgwK9tIAYafIq2ETElI/sc5b9NO6n7/XxjGWhFL2tTelwWNIFfm1+JaajwqWGVGc1sNdG2ihg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SG2PR04CA0200.apcprd04.prod.outlook.com (2603:1096:4:187::15)
+ by TY0PR06MB5008.apcprd06.prod.outlook.com (2603:1096:400:1bf::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Wed, 28 Jan
+ 2026 09:36:13 +0000
+Received: from SG2PEPF000B66CD.apcprd03.prod.outlook.com
+ (2603:1096:4:187:cafe::5) by SG2PR04CA0200.outlook.office365.com
+ (2603:1096:4:187::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.7 via Frontend Transport; Wed,
+ 28 Jan 2026 09:36:11 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CD.mail.protection.outlook.com (10.167.240.27) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.3 via Frontend Transport; Wed, 28 Jan 2026 09:36:12 +0000
+Received: from localhost.localdomain (unknown [172.16.64.196])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id EAD734350705;
+	Wed, 28 Jan 2026 17:36:11 +0800 (CST)
+From: Gary Yang <gary.yang@cixtech.com>
+To: lee@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	p.zabel@pengutronix.de,
+	peter.chen@cixtech.com
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	cix-kernel-upstream@cixtech.com,
+	Gary Yang <gary.yang@cixtech.com>
+Subject: [PATCH v4 0/3] Add support for Cix Sky1 resets
+Date: Wed, 28 Jan 2026 17:36:08 +0800
+Message-ID: <20260128093611.1932770-1-gary.yang@cixtech.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <3407c779-9e7e-8f90-353f-c2b58992aae2@huawei.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CD:EE_|TY0PR06MB5008:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 3bc2739a-fd59-4362-07c4-08de5e50ad0c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?o7eTCG7baYnor3hGFG51Nx338XPuQiBWhK2Gq4BUpcKD95aFL+lw2jkpeCV3?=
+ =?us-ascii?Q?+WfBeMbzWzSCMD+UslT0yOpBY1CEWsYw5SapTMhW5tond7BjRwcJUvsdlP/X?=
+ =?us-ascii?Q?GvgIfL6hqhW8BSPPswupxS22oFs5QKuNwfJ58nGIo+ffZZCEfthxUnpWed/p?=
+ =?us-ascii?Q?nWEFtA85DD2lrc+vyP08Q/YaspyW0YEyimy/O2izlTVIXFo51YyLyEQtXHgN?=
+ =?us-ascii?Q?3/3sT92MNuIOJ7d56o0kGgBnybj2T9JRspZpux7MHTlX/xAfXrMjc0VNQhHs?=
+ =?us-ascii?Q?TvdoxJRbNNCPwPp95FSb/BgmJCB9sed7r47quSSr92TCBECS/y769ByZvVdf?=
+ =?us-ascii?Q?IuLJpO1i7d+1aQLjHk0RZIB/Df+Zpx6ojlSFaVMgJUohG4Z+hTGPOM+U3fO+?=
+ =?us-ascii?Q?zjNsg7MFDjZ82Og9U0Ndkd/vEwEr9Z9uCgPZU91THwGfrq351HBF30yyA4bX?=
+ =?us-ascii?Q?24820mU1Shz9ZYjW+iucG9Cva+TrywCKhCa9KpvSgVVSmWcLGP+8cM5knyZ4?=
+ =?us-ascii?Q?R0Z1+vUnN8cIiVFL42cDTgIKErATlSTuu1hSemoboW8zIDjJLz1RUJDdcaAy?=
+ =?us-ascii?Q?xJPYXrLrYWonzbn5iEM7KuLyorjzGqc8F8/PDdHeP50A9eoJAF5uRUZf1H9N?=
+ =?us-ascii?Q?OOoT5QNr69gKAFE6LLSHX/NF2Ty6gT6vq2UcxZEPPf64cY/1ucix4mF/Piru?=
+ =?us-ascii?Q?CheLJ0UN22MxZNFNQDViptTfXj6qyrhMC2rE4Wtkj3nIFMx61MNzOaAZl1cw?=
+ =?us-ascii?Q?44RE4heYnFmgMEIPCoTSyvoNgb1hc8v0+F5rWcsuWeh2lldTjqQPls7IB990?=
+ =?us-ascii?Q?B3WDfQ+Smg8j3iSJuCDJ87YzfGWmWqdxuzeQNNS1l1VY/6lN6Xjr+2NQQIPQ?=
+ =?us-ascii?Q?lrzD6m4OnK3BjH9WkVVYGL2+QUm80YaqNDJtDUnw9ECV0EqezGIhzzRiAeXz?=
+ =?us-ascii?Q?ZdmoHrHYOXXOlUpsl+HoGB/PtuqYb0p+vJd8zqmP58T7NmiUXdjpwZkciBLi?=
+ =?us-ascii?Q?a+t+0B7mjOun7XHDNfyRdIYM+KrBRfsVI70M45uWckF2F/dYvNgdDqOQkD6B?=
+ =?us-ascii?Q?88FjPd6uw7VdcGp9nQR+5Mx67qhiz3DhvW4771kkTtOtZhH8ExV3oeDvvcRf?=
+ =?us-ascii?Q?R0s2zY/SgjGXl9M9owH+g9V79H+JY9tnvGQXoGD3LMZLTLYlAskxg5uDMWKG?=
+ =?us-ascii?Q?kGtT7TnM403NPLET7NE9Zf470QPbFMoSRJBtk78Sn35FhMFJFCBhrm/tpCJ0?=
+ =?us-ascii?Q?ArQohvkpzRrn8Yf5fBXBFkMPJLst+gwXL3Wd/yIWqnALC/nvqH8u7BbF2fKg?=
+ =?us-ascii?Q?+MymQyNSTu4A6apIPk7GRP5MrQMUBXfgdy1WzhZZuzzFU4lftSOA4pNSzqsq?=
+ =?us-ascii?Q?rRTVirk+MAI/HkSVrVtgRYjjTFnH44HX9prFygFveNHdJerO39+09/T3Ef3I?=
+ =?us-ascii?Q?7Jh7i+spGS5+E9Uw7Ddi55YKPrQrp9zG/ESax2Fchzb177LWtP1b10nbpAN0?=
+ =?us-ascii?Q?LBcwAOu8KOoxfuBFwV+bHMnCpIistuVN7juER/7KZQVBwXMclNIZQKYMLVXV?=
+ =?us-ascii?Q?6XwqDZRxq515mlI0UluTQ+tneibW/EVLDxImoGKuggsaQjK8oeZ3p7623GnP?=
+ =?us-ascii?Q?tfGDkFmmL+zaKdNxcWQnI9ljJRepfqVYmHfoXTCBrcwadslWFaOfgDRX5Efj?=
+ =?us-ascii?Q?WYSZ8A=3D=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700013)(82310400026);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2026 09:36:12.5192
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3bc2739a-fd59-4362-07c4-08de5e50ad0c
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CD.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5008
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260128_013620_356556_3B6442F9 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,83 +144,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 05:10:15PM +0800, Jinjie Ruan wrote:
-> 
-> 
-> On 2026/1/28 16:31, Mike Rapoport wrote:
-> > On Mon, Jan 26, 2026 at 04:13:34PM +0800, Jinjie Ruan wrote:
-> >> Commit 35c18f2933c5 ("Add a new optional ",cma" suffix to the
-> >> crashkernel= command line option") and commit ab475510e042 ("kdump:
-> >> implement reserve_crashkernel_cma") added CMA support for kdump
-> >> crashkernel reservation.
-> >>
-> >> Crash kernel memory reservation wastes production resources if too
-> >> large, risks kdump failure if too small, and faces allocation difficulties
-> >> on fragmented systems due to contiguous block constraints. The new
-> >> CMA-based crashkernel reservation scheme splits the "large fixed
-> >> reservation" into a "small fixed region + large CMA dynamic region": the
-> >> CMA memory is available to userspace during normal operation to avoid
-> >> waste, and is reclaimed for kdump upon crash—saving memory while
-> >> improving reliability.
-> >>
-> >> So extend crashkernel CMA reservation support to arm64. The following
-> >> changes are made to enable CMA reservation:
-> >>
-> >> - Parse and obtain the CMA reservation size along with other crashkernel
-> >>   parameters.
-> >> - Call reserve_crashkernel_cma() to allocate the CMA region for kdump.
-> >> - Include the CMA-reserved ranges for kdump kernel to use.
-> >> - Exclude the CMA-reserved ranges from the crash kernel memory to
-> >>   prevent them from being exported through /proc/vmcore.
-> >>
-> >> Update kernel-parameters.txt to document CMA support for crashkernel on
-> >> arm64 architecture.
-> > 
-> > I'm looking at this and at almost identical patch for riscv 
-> > https://lore.kernel.org/all/20260126080738.696723-1-ruanjinjie@huawei.com
-> > and it feels wrong that we have duplicate the code that excludes cma
-> > ranges.
-> > CMA ranges are known to the crash_core and I don't see why we cannot
-> > exclude them there.
-> 
-> Youa are right, x86 and powerpc has similar implementations that
-> excludes crashkernel cma ranges.
-> 
-> x86 [1]
-> 
-> +	for (i = 0; i < crashk_cma_cnt; ++i) {
-> +		ret = crash_exclude_mem_range(cmem, crashk_cma_ranges[i].start,
-> +					      crashk_cma_ranges[i].end);
-> +		if (ret)
-> +			return ret;
-> +	}
+Patch 1: Add yaml file for Cix Sky1 resets
+Patch 2: Add driver codes for Cix Sky1 resets
+Patch 3: Add dts nodes for Cix Sky1 resets
 
-So if this loop was in crash_prepare_elf64_headers() it would work for
-arm64, riscv and x86, right?
+v4 changes:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-rst.yaml
+scripts/checkpatch.pl 000*.patch
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+- add syscon
+- refine reset driver
+- fix dt-bindings style
 
-> +
-> +	return 0;
-> 
-> But powerpc [2] is a little different which uses a wrapper for
-> crash_exclude_mem_range() and more check and realloc_mem_ranges().
-> 
-> +	for (i = 0; i < crashk_cma_cnt; ++i) {
-> +		ret = crash_exclude_mem_range_guarded(mem_ranges,
-> crashk_cma_ranges[i].start,
-> +					      crashk_cma_ranges[i].end);
-> +		if (ret)
-> +			goto out;
-> +	}
+v3 changes:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-rst.yaml
+scripts/checkpatch.pl 000*.patch
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+- remove syscon
 
-As for powerpc crash_exclude_mem_range_guarded() could only check if
-mem_ranges is large enough and reallocate and then actual exclusion in
-crash_prepare_elf64_headers() should also work.
+v2 changes:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-rst.yaml
+scripts/checkpatch.pl 000*.patch
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+- fix dt-bindings style
+- refine reset driver
 
-> [1]: https://lore.kernel.org/all/ZWEAWMJtesa3O9M5@dwarf.suse.cz/
-> [2]:
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b4a96ab50f368afc2360ff539a20254ca2c9a889
+Gary Yang (3):
+  dt-bindings: reset: add sky1 reset controller
+  reset: cix: add support for cix sky1 resets
+  arm64: dts: cix: add support for cix sky1 resets
+
+ .../devicetree/bindings/mfd/syscon.yaml       |   7 +
+ .../bindings/reset/cix,sky1-rst.yaml          |  46 +++
+ .../soc/cix/cix,sky1-system-controller.yaml   |  48 +++
+ arch/arm64/boot/dts/cix/sky1.dtsi             |  22 +
+ drivers/reset/Kconfig                         |   7 +
+ drivers/reset/Makefile                        |   1 +
+ drivers/reset/reset-sky1.c                    | 376 ++++++++++++++++++
+ include/dt-bindings/reset/cix,sky1-rst-fch.h  |  42 ++
+ include/dt-bindings/reset/cix,sky1-rst.h      | 164 ++++++++
+ 9 files changed, 713 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml
+ create mode 100644 Documentation/devicetree/bindings/soc/cix/cix,sky1-system-controller.yaml
+ create mode 100644 drivers/reset/reset-sky1.c
+ create mode 100644 include/dt-bindings/reset/cix,sky1-rst-fch.h
+ create mode 100644 include/dt-bindings/reset/cix,sky1-rst.h
 
 -- 
-Sincerely yours,
-Mike.
+2.49.0
+
 
