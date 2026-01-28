@@ -4,91 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03BF4D46BEB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 18:50:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74FF5D46BEB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 18:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8t6SLqjvsNW00Dj2Hjf4deNPVV8qylbppXyHu+3S3LI=; b=E/6x6jS/OoGZOJOmTgJuAldSY1
-	J+Tcm7yMN3W3iQjqf9mM02uPXRxNDhOEvjpT4mVR3zC2QGMlI/H/scLhjDUPZ9Wv0DxMqNYWKZjM0
-	RZOijlNRWVeCTBg09d+whX39+Vd6QITF1f99+v6sx1Kqti0rX74Imy9qUfk31tXVadym0faNC0rBv
-	f2kT7YRYQSJyzQ2ylj0H5q44ARJh6OA8FzxuPaDxqQqYOMmm6Ip5Ql0+WoDgQoK+B7iRAellzuhLj
-	eMIuaL6Gi6ch6zW7frofnvi5hkMNz/h5vJRqvIa/9BQ3J+a0cb/CwANVqEPrkmd12bEHGnv7tltHe
-	FcPHiTyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MpI0AA06COlD1WraW5BKwKp+FBjfc+PTuL+WVyqRsI0=; b=cncyJtJyHmjIsU/FQhrGPTo5lZ
+	tK+u/jyKa1PXLCvGoFeHViGHIT0lM9GGiPmFQ+SapfHM6Z7H8OjAz7mDngEAa2uOf8/w9WLnYNkVx
+	Fpm3YlWbyZTZCiX1JNLXdY/nh4b6LmQHionqa9YXMQk7tYFZtVGRycM/fZNolKd6aKnjo9cOpU6cm
+	l8kzAEpv/1Dsa5ndJLsnUv+RFFIdumIJc4iprY/gYGAlWatCr8/cb8oikpJeB52JlLx8gn1DbTWH9
+	11WDReVbUoAmJuIFKpIzUp9z/GKnKl7apXAFA6cCU77YeROPzO1WZD0Z9DrWKd8BRsPKwAG612qov
+	VIGtWmwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlAc1-0000000Ge1g-3Wlk;
-	Wed, 28 Jan 2026 18:49:57 +0000
-Received: from mail-qk1-f178.google.com ([209.85.222.178])
+	id 1vlAfT-0000000GeMg-0S3m;
+	Wed, 28 Jan 2026 18:53:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlAbz-0000000Ge0v-15vt
+	id 1vlAfR-0000000GeM4-2G06
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 18:49:56 +0000
-Received: by mail-qk1-f178.google.com with SMTP id af79cd13be357-8c6ac42b91eso22668685a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 10:49:54 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769626193; x=1770230993;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8t6SLqjvsNW00Dj2Hjf4deNPVV8qylbppXyHu+3S3LI=;
-        b=t7n46Vp63uTgU8vRwqqYFnl7tH8ZgsdIqFl3V8h680TlH3yhn1tz9C/dPKWSm+9kUB
-         Zc4wQBt1etwh1svM84yctuSUh8oH2z9UJrop2FASzWhNt1vrAxahSLI0YhgJst9OH7Qf
-         JJlnavAwTQ7SiwIZslLSrdsqBhyXQIBuXmp1DV8bWg2wJ0CCEHzZR97CttK8MdIQTU0z
-         NlpSBMc72E6PqNYV6UXixI6DxCkJd1pqUkP9cEw90iCHRlK1luQoSvO2Vkk+WFDX4JnP
-         TckR2B8SWSTsX7pxRk6MPgvZPwwZuRWyBL77SdzGBwpu+y1VwriucL+mF0bbLk9yrHWr
-         7HCw==
-X-Forwarded-Encrypted: i=1; AJvYcCV+2AEQummTHAvKG4U2MXlSgbbOgfuJzXXKIU9CY0Yg3r7llVYRUiGyadWL6pE3f+2rNzoodLAhV6gLz3/gBHcf@lists.infradead.org
-X-Gm-Message-State: AOJu0YzyXgjNluYnNZ+ui/Sr+SXAtGtd1piTXhbtgzrCvXP40rY2WSor
-	rxBAhd+yyvAGcqMg43SIEjDxAgRBOxAi1D8FUMRhCAxnXlffzTerjm6lMCGS0Ir6
-X-Gm-Gg: AZuq6aLoG25VMTOSLWkT+BbQVS675CJLxfgZA3ZbYsclDvC0CuZOl87YyGkIuC3d702
-	tr3EfyilUBXor0uXA88F81wpsDytV/rMG/pVDXII7Y0gPJGn5nt50Z19n4d1QDmbcDyddAjsjoA
-	PrNoDXASMdoygq3SMhoID4nxXlUxKnbsmsKG90RnKqjYchmFguErwfU3+ksv0swyWFYFsZpCN4r
-	2gA1lpvYRrWs8is51FGw8cHKXb3Yl5QCZXQd3X4Qt7h2MpMvCrg3bk0MYw77Z2IbpwJWTlUTGTV
-	s9TKpmUewd0YgNpQk0IrY1gtxdS8RCHHOj13E466yequFlGR3OP289q0b3stru59txYQzR4D+KD
-	+cGSGAQVAVs/n24WNF9OELASXrAVIP3ek+knAb0OEBFpxS2OmdErXQoU+JilpFnffFj1UE+foXV
-	lTdMLfkHANKLlUTNrkbCGzsdbkIp4lU9rhkl/NAV1W9ZIMIl/fl5mO
-X-Received: by 2002:a05:620a:3199:b0:8c6:770c:40d8 with SMTP id af79cd13be357-8c70b8713f1mr736394485a.40.1769626193217;
-        Wed, 28 Jan 2026 10:49:53 -0800 (PST)
-Received: from mail-qk1-f173.google.com (mail-qk1-f173.google.com. [209.85.222.173])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c711b7b380sm244710785a.10.2026.01.28.10.49.52
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 Jan 2026 10:49:52 -0800 (PST)
-Received: by mail-qk1-f173.google.com with SMTP id af79cd13be357-8c6af798a83so25542585a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 10:49:52 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVkw4rikskqEBXcWAKP9Bx1qxAv9JkUOlLLCWhdHWp1w5IY9gh9+hN0nUoVYXs5kHwdU87deipgaWV1hqX+0eId@lists.infradead.org
-X-Received: by 2002:a05:6102:948:b0:5f1:72a7:f879 with SMTP id
- ada2fe7eead31-5f72378e7a1mr2207053137.28.1769625713444; Wed, 28 Jan 2026
- 10:41:53 -0800 (PST)
+	Wed, 28 Jan 2026 18:53:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 000F0437AA;
+	Wed, 28 Jan 2026 18:53:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBB3DC4CEF1;
+	Wed, 28 Jan 2026 18:53:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769626408;
+	bh=yFHOHZMOXVxvRtbHF7gk60yEvpM0WrLueT3WfFNtHVg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=u2zc81VV7bTjIRfxwPZ4L+s/a1cZykmHoVcosUls0+soPStXjK2sbPAvQ4UH4byf2
+	 nHKbU5HNQPb3Nl/p2qXiAKWb/56KPXbpmdKnlSlxTpx8N/ZHWhsOG1CljF2lGKoqV/
+	 yYdDbHwxai9qxtLlt++HFH7Z/EXRfl8p6s0S7NgZdbMzthFFaBuhbLoCiwWC3lja6B
+	 IpoKZtuIF0zMy/OTGdBy22j98B300jzSevqKznmqy+svJ8kjyVHDQkUlT8UheREvD6
+	 zWLJKoSmxrv3ul8pUm9veFxjkYhrQkQHiGdODEhAZSxeLXjF9YlaHl/fnQ08Y5N0G9
+	 luA2fj8+DHzDQ==
+Message-ID: <fcde4ec6-b3ad-439a-bff8-b060fe075f97@kernel.org>
+Date: Wed, 28 Jan 2026 19:53:23 +0100
 MIME-Version: 1.0
-References: <20260128125850.425264-1-biju.das.jz@bp.renesas.com>
-In-Reply-To: <20260128125850.425264-1-biju.das.jz@bp.renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 28 Jan 2026 19:41:42 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdUgnVcwo3b=zQx0wVcH53dm6kBz3nQ5T0DZat4KxastuQ@mail.gmail.com>
-X-Gm-Features: AZwV_QggK5aoCgxDwMwUamFclvyMAvDW7y1KAlSqyJcViMQkB2_vluWrOqhRb1Y
-Message-ID: <CAMuHMdUgnVcwo3b=zQx0wVcH53dm6kBz3nQ5T0DZat4KxastuQ@mail.gmail.com>
-Subject: Re: [PATCH net-next 0/8] Add support for Renesas RZ/G3L GBETH
-To: Biju <biju.das.au@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Richard Cochran <richardcochran@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Magnus Damm <magnus.damm@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 00/10] pmdomain: samsung: add support for Google GS101
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>,
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>
+References: <20260128-gs101-pd-v4-0-cbe7bd5a4060@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260128-gs101-pd-v4-0-cbe7bd5a4060@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_104955_310150_D5D832FF 
-X-CRM114-Status: GOOD (  22.08  )
+X-CRM114-CacheID: sfid-20260128_105329_640885_6DAF6DD3 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,43 +124,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Biju,
+On 28/01/2026 17:10, André Draszik wrote:
+> Hi,
+> 
+> This series adds support for the power domains on Google GS101.
+> 
+> There are a few differences compared to SoCs already supported by this
+> driver:
+> * register access does not work via plain ioremap() / readl() /
+>   writel().
+>   Instead, the regmap created by the PMU driver must be used (which
+>   uses Arm SMCC calls under the hood).
+> * DTZPC: a call needs to be made before and after power domain off/on,
+>   to inform the EL3 firmware of the request.
+> * power domains can and are fed by a regulator rail and therefore
+>   regulator control needed be implemented.
+> 
 
-On Wed, 28 Jan 2026 at 13:58, Biju <biju.das.au@gmail.com> wrote:
-> From: Biju Das <biju.das.jz@bp.renesas.com>
->
-> The Renesas RZ/G3L GBETH IP uses Synopsys DesignWare MAC version 5.30
-> compared to other Renesas SoC such as RZ/V2H that use MAC version 5.20.
->
-> The RZ/G3L GBETH requires an extra clock compared to RZ/G3E and has pps
-> interrupts. Document the Renesas RZ/G3L GBETH IP in bindings and enable
-> the Gigabit Ethernet Interface (GBETH0) populated on the RZ/G3L SMARC
-> EVK. The eth1, pincontrol definitions and hotplug support will be added
-> later.
->
-> Biju Das (8):
->   dt-bindings: net: renesas,rzv2h-gbeth: Document Renesas RZ/G3L SoC
->   net: stmmac: dwmac-renesas-gbeth: Add support for RZ/G3L SoC
->   clk: renesas: rzg2l: Drop a check in rzg3s_cpg_pll_clk_recalc_rate()
->   clk: renesas: rzg2l: Add support for enabling PLLs
->   clk: renesas: r8a08g046: Add support for PLL6 clk
->   clk: renesas: r9a08g046: Add clock and reset signals for the GBETH IPs
->   arm64: dts: renesas: r9a08g046: Add GBETH nodes
->   arm64: dts: renesas: rzg3l-smarc-som: Enable eth0 (GBETH) interface
 
-Thanks for your series!
+Thank you for the patch. My tree is currently closed for new features
+till the end of the merge window. I will review and/or apply the patch
+then. If I misjudged this patch and this is a fix, please let me know.
 
-Please don't include "net-next" tags in patches that are not meant
-to be applied to the net-next tree.
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Best regards,
+Krzysztof
 
