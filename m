@@ -4,72 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 329D3D2FEF4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 00:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 832AFD2FEFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 00:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QolpyuSNpM8vB6JteCfgWGOP9WSVZu+T+TWne5mDtLI=; b=ymlemt/bWAa3aPKtLcxawf04bf
-	kdz/5iaUYq2ecECg+HURX3mOXRDUoNNYa1w9ex8OMkdQzAxQYfFh4fW16qSSUo8IrwUlTTWEqIL/r
-	2GEm7MC4YcY509sDVbMzNAA736CulW0yBV+k63OJJk5xTFNRyIcHHAiIQvbfR73V6ORTwPorF9Glv
-	Xvf9HQCr/gIAbBfnTsu8L+iF3EMV+8RfKoHvsiY7iSczNka0bpeDc78CabFaR7Bf910La52Wk2SjS
-	cqW+JBVbndNH5BoYusFGpgTY4sj5JcNF46/lEMvcoHCSkvyFuTLTGKIXPXj3NS4EXcMXDC2KM8lFu
-	d7o168Qw==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z4MPZ6aQ2kOGAGPtTfC8ElZcBs2Ixiq0W0L4uS7OjCw=; b=3oojlh6TZtme2BjXGspElWWvVT
+	pQEs355c4ab1uKNZJu/KzDA6dCHrqPiI5qvOOJEdegSeagMEywMS0Lk6bLh9V0xtcJbuhztqm1YN8
+	CMliQPFsGRRRel9SdYYZ8qnxDsY0LalfW69U/5p05Hbhi2DXrBwZ5BHjayYxv9jPUWAGtbD9S0/dd
+	y17uB3FctQBdq433qMSjqVEB/s1Hp6bkXlLcLPVjLfju0IhYK8VlZNKp4IDimZhKksNnhc0RIDnTI
+	MnVzNkGYFUYdD47AH2mbOnmCtj/k4PUXPbuIn30FtkQfQU0oiohkSmYmbAnGbxZf8SEcdpbxO8Div
+	G3NNjRxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vktAQ-0000000FC9q-3EjZ;
-	Wed, 28 Jan 2026 00:12:18 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vktYg-0000000FDOg-1UAM;
+	Wed, 28 Jan 2026 00:37:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vktAN-0000000FC91-1AVk
+	id 1vktYf-0000000FDOZ-1hxu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 00:12:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1769559132;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=QolpyuSNpM8vB6JteCfgWGOP9WSVZu+T+TWne5mDtLI=;
-	b=Ng8ppl3/wW6F21ZwLjzFrtV0HV+aDLLGGv8PWWLOqouoi0A3/ZGps8ykRFMsptBBFWJSHq
-	Wap13e+AbrmChl/ockUQoGEKIiJKZYzeWmyOjsJIohnLvgR0Yu8NvxyH5X1ZvUjusBCVTk
-	AnBg5mA7vZZZAk0EFiEE/Gtf4D9OpkY=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-350-zQ3Et6IsMb-FHPzfhCaEvA-1; Tue,
- 27 Jan 2026 19:12:08 -0500
-X-MC-Unique: zQ3Et6IsMb-FHPzfhCaEvA-1
-X-Mimecast-MFC-AGG-ID: zQ3Et6IsMb-FHPzfhCaEvA_1769559127
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BE3DD1956094;
-	Wed, 28 Jan 2026 00:12:06 +0000 (UTC)
-Received: from [172.20.12.215] (unknown [10.30.44.139])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 8A75C195419A;
-	Wed, 28 Jan 2026 00:12:05 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.19.0-rc7,
- upstream-arm-next, d773de4e)
-Date: Wed, 28 Jan 2026 00:12:05 -0000
-To: will@kernel.org, linux-arm-kernel@lists.infradead.org,
- catalin.marinas@arm.com
+	Wed, 28 Jan 2026 00:37:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7423A60007;
+	Wed, 28 Jan 2026 00:37:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3B21C116C6;
+	Wed, 28 Jan 2026 00:37:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769560640;
+	bh=3HKL1uGM12hoyqBDnBz72rYrhDDgXcv6Fn/aZXK0xx4=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=pS/E3Jj+p3TvOmNrgN86e4nKrI6A5a9Io56PUSW2vMEjiWILlMgm0CoHCgytgTf28
+	 vplIlSXAywsVbwFdINDnUi3xH0/zn6qO3CSTKeF1puGU9oOuHBpFGazy3IgVxUGpBs
+	 PUZafb1vLxI55N45DcEDeZJps3raa4KJQxG/7Ty/xDVMd6tzIu4YR1gIcvjkRh2W4Z
+	 w3BboQvraE/U+atqOXw/PqFZhGK9MHn3cgDl6X0RteRGAhwU07a7/ne/AaVqiR8BKx
+	 pEnef0S/Acba3ai/ZlpMLMIioK8Al1NVDvLwxhS/fNkW5bNX/Sw4B8U/LXpb96OvS6
+	 7Mp5JwNj+D3Kw==
+From: Mark Brown <broonie@kernel.org>
+To: fengzheng923@gmail.com, lgirdwood@gmail.com, perex@perex.cz, 
+ tiwai@suse.com, wens@kernel.org, jernej.skrabec@gmail.com, 
+ samuel@sholland.org, Chen Ni <nichen@iscas.ac.cn>
+Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+In-Reply-To: <20260127033250.2044608-1-nichen@iscas.ac.cn>
+References: <20260127033250.2044608-1-nichen@iscas.ac.cn>
+Subject: Re: [PATCH] ASoC: sunxi: sun50i-dmic: Add missing check for
+ devm_regmap_init_mmio
+Message-Id: <176956063766.1483098.13549944935065058916.b4-ty@kernel.org>
+Date: Wed, 28 Jan 2026 00:37:17 +0000
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-Message-Id: <83596.126012719120800461@us-mta-350.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 6PpMQHf4VX20tY23v9YGB7xOZl7Iz3UOOH97oOZgb5w_1769559127
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_161215_416157_920C6B96 
-X-CRM114-Status: UNSURE (   6.91  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-47773
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +72,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Tue, 27 Jan 2026 11:32:50 +0800, Chen Ni wrote:
+> Add check for the return value of devm_regmap_init_mmio() and return the
+> error if it fails in order to catch the error.
+> 
+> 
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+Applied to
 
-Tested-by: CKI Project <cki-project@redhat.com>
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
+Thanks!
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2289062244
+[1/1] ASoC: sunxi: sun50i-dmic: Add missing check for devm_regmap_init_mmio
+      commit: 74823db9ba2e13f3ec007b354759b3d8125e462c
 
-One or more kernel tests failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
-res
-            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
-            Affected tests:
-                Hardware - Firmware test suite [aarch64]
-        Issue: [aarch64][coresight_etm4x][kernel 5.19.0] coresight-etm4x: p=
-robe of ARMHC500:20 failed with error -17
-            URL: https://lore.kernel.org/all/CA+QYu4ogiTa1V20aqxFqBrMH0z927=
-YNNN2O=3DCKma+=3DM_8E81iQ@mail.gmail.com/
-            Affected tests:
-                Boot test [aarch64]
-                Reboot test [aarch64]
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+Thanks,
+Mark
 
 
