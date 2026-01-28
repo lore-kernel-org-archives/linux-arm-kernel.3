@@ -4,81 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09006D35666
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 02:28:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6CDDD35663
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 02:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BYLo5dPNAy3hTk6Iv3SLrLkvk1w9STY5rT12OSXJS28=; b=3YcEp4i5I7JRq74VIY+Dkd72zh
-	XEoAhPfc7iOxZC099g6A1WE9EAXhkjAT1gTXB7pdR4ln1br9tc3owBjjWu5myiKra2J+g6v+R983y
-	MoHJz8BT0Ph66qlPfh5Xk73eJhr/27G37GydToSJUGpGdf47iE2u/dH48cmjZDA6B0AkOqsZAr9GI
-	hzn5GIQhkYycSg+X7DEnldQT+ntlQM+DcsjpbRETXSvXoW2UWLJIa0N4VAaW+jNXrgH0jxnnPV5xs
-	37bz/WP/RVUoiPdujo0Yqr+iD/22783pEqHh6AGjgiLsPPSlxz+2uuvxuQZM7bDeJl/pNviXvf//i
-	DKnsdTKA==;
+	bh=94xHD81YZAGf/HXdtDlXReKH75U2Eas87A/SvvcBSMQ=; b=2wwKKRfyPaLhZOQK7u4JNu/xOT
+	8KALzd/gRKN5LvMERsCLKTmtks/HMStx9YHN28FhSUvrzxVNoPhsPRXU0NzAI3xDZf9PmD/5vaiEu
+	lY/T22tocHHrx1UHTln8ZXeCeeL4sj9GTxw5cQhNr8i7mV9wZx3EvggTcmsiRFYERHrWHiq2wPNpf
+	yjwv2XRPq99wCUBBqevd1GuAHUXWQJKy2tG5T6yPZmdXEIy0wIzPnErCFTReaxqppNR4AUOhpAap6
+	902pQkvN4Z5zmyK6RIx+HpSEu4e5HEveg+A5gc9HO+M/mT+cOjE6oiJrmmh8Enp7kyT2bsLKxzhDc
+	Nlt7UzEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkvHy-0000000FJZ2-1BjA;
-	Wed, 28 Jan 2026 02:28:14 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1vkvIr-0000000FJgw-3eNe;
+	Wed, 28 Jan 2026 02:29:09 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkvHw-0000000FJYf-0sir
+	id 1vkvIp-0000000FJgI-257u
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 02:28:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769567292; x=1801103292;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=AsLaV6WjLigGQB+1fL0zxdBAPWzCg6IZSXz0Q9HxAG8=;
-  b=JQIhNAyT/l0MdqE5FS+0uokeWUkYeMu9WENXfnMhl09vj0iTiddrJZ8v
-   qiL2Mze7eo8DFteI09+v5jYgKHQsyA8NvskseibfjqOBG5iySm79nHbrB
-   XpfrpjCeBHiy9xFoZaxwofu+9RaJaSRMeSwLKmO8HP+PKdW5JzgjTsR8S
-   RKT9f9GKfXEVMN3rN8WpYA8TXbss12ulmyFfGONUsnEBbiPYexPeOgFJk
-   uUZEQJbHihFxZBGiOprphQG2rWoE9NW8szCmYrUAtUrmGNUlahfW3py1s
-   rUIZionkKNyuQlFk5rWhdtDTDSJYT7wpRX5LPrHH0PRd5bzsX8jdIadmQ
-   w==;
-X-CSE-ConnectionGUID: joIRRkw0RP+9sobJjfvIVg==
-X-CSE-MsgGUID: tOmkkq0aQhSpFgPYtndRTA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="81881454"
-X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
-   d="scan'208";a="81881454"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 18:28:11 -0800
-X-CSE-ConnectionGUID: Y8t6OJ+RTyODRg9E9tlaNw==
-X-CSE-MsgGUID: 1pnRvin1TRWKvOKkPfe5QA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
-   d="scan'208";a="207277691"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 27 Jan 2026 18:28:07 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vkvHo-00000000Z8y-1XK9;
-	Wed, 28 Jan 2026 02:28:04 +0000
-Date: Wed, 28 Jan 2026 10:27:05 +0800
-From: kernel test robot <lkp@intel.com>
-To: Joey Lu <a0987203069@gmail.com>, airlied@gmail.com, simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, ychuang3@nuvoton.com, schung@nuvoton.com,
-	yclu4@nuvoton.com, a0987203069@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] drm/nuvoton: add MA35D1 display controller driver
-Message-ID: <202601281037.qP5gX0kK-lkp@intel.com>
-References: <20260126085727.2568958-4-a0987203069@gmail.com>
+	Wed, 28 Jan 2026 02:29:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ltiWosH+kzhh7YoDgfGPDCuEpv/gPECqRbIWES+/KsD4VNA+Zi/yA11SCJVXYFoCkCXiSEvO+jdfXkMhcea/7jNPoniNlKAMIIz/zcx6KS7dAsFaFcgwndrdGbPF7eVWvkOS3kVWWJDDxPA0jC9/dj6sQCOxo2vP/SSit/kOpjosfAq0k6A0Sy+O1kv/eUW7HnujazAMo5dqutivDWXaZjcWdwfL2PkjRYf7xhX/r/4Jd12FTFTU+o6R+6jpW3dcsVozj7rnlFVFoTLMxmJytR6Hs9aZ1syV7zDyFYhwUuPP5EodjK/vMm1FpvW8tP/Gkvmv67vfvZlZpQTbl6X9EA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=94xHD81YZAGf/HXdtDlXReKH75U2Eas87A/SvvcBSMQ=;
+ b=Rt400Hg8h0T0aQwxxfaVTjje1VhtNtX2Oi/TYOcsA89uksckY6VBNSWTcNyeM5fdWC3AFjPwM9GevqtPQJZxkrgqvNr9C4Fy0SlxqI2WDd4fBkFcCHsbbdWZ+NgeuxUh/xqcDUIqOcOcSlQs2+LnttDSinBJcR8LEnBI+fTqRDUcOcSOYN9NOb0+by+/Zp8AFLToUiorDaPGxrKBQd0dnJbOlW5zpBOjFp7g6D0JX5stb48vZ6HqeMoQF4YpJvIznP9qd6lGTpcXkqQEswZ7lQ8jeR98VaVfkspl+YqIiNQkx7TyP16yX1NQ3q9Usxeef8lUyzIK0yjkLSZaFErU6Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=94xHD81YZAGf/HXdtDlXReKH75U2Eas87A/SvvcBSMQ=;
+ b=mRfcvW+o8n+SCLYeOWbXW7EmFWWvJ7x5NB17h2+Z5MTifn/jOg9p63v0EBgs+wxiFEklCSghzfBLPFOW9Bcaiy8gecP3niRiv+ZJzcMxtwH/V12PlzLdhBPx9zfvAQE3P0+32pOY60KT4jr3WLZT/HioM6arze/gcILqZ+msyY3zLzipKaxwzAj6DzLJaL0+v2DVIZYFkNZ0SMhKek3MhNvg9rBGAq7wn+ybQbIHCXG9PRxg97eSIU/06MOI4BUnxpgsLAo7tltaCU5lZJHLifTx9VDqiLyVRdBsJqOp398d0zNvnsy5u215FRfKekfneMUzMbUf32l+2X844LCGUw==
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by DB9PR04MB9820.eurprd04.prod.outlook.com
+ (2603:10a6:10:4c3::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Wed, 28 Jan
+ 2026 02:29:01 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::2943:c36f:6a8c:81f7]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::2943:c36f:6a8c:81f7%5]) with mapi id 15.20.9542.015; Wed, 28 Jan 2026
+ 02:29:01 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: Frank Li <frank.li@nxp.com>
+CC: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, Daniel
+ Baluta <daniel.baluta@nxp.com>, "dario.binacchi@amarulasolutions.com"
+	<dario.binacchi@amarulasolutions.com>, "alexander.stein@ew.tq-group.com"
+	<alexander.stein@ew.tq-group.com>, "Markus.Niebel@tq-group.com"
+	<Markus.Niebel@tq-group.com>, "matthias.schiffer@tq-group.com"
+	<matthias.schiffer@tq-group.com>, "y.moog@phytec.de" <y.moog@phytec.de>,
+	"josua@solid-run.com" <josua@solid-run.com>, Francesco Dolcini
+	<francesco.dolcini@toradex.com>, "primoz.fiser@norik.com"
+	<primoz.fiser@norik.com>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH V3 3/3] arm64: dts: imx93: Add i.MX93 Wireless EVK board
+ support
+Thread-Topic: [PATCH V3 3/3] arm64: dts: imx93: Add i.MX93 Wireless EVK board
+ support
+Thread-Index: AQHcj2hLqvBLl1/I3kCqDi58hno50LVmTjwAgACNomA=
+Date: Wed, 28 Jan 2026 02:29:01 +0000
+Message-ID: <VI0PR04MB12114E416E4A20D14983E68F69291A@VI0PR04MB12114.eurprd04.prod.outlook.com>
+References: <20260127083727.1839605-1-sherry.sun@nxp.com>
+ <20260127083727.1839605-4-sherry.sun@nxp.com>
+ <aXj8vuEnrr2ul6rg@lizhi-Precision-Tower-5810>
+In-Reply-To: <aXj8vuEnrr2ul6rg@lizhi-Precision-Tower-5810>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|DB9PR04MB9820:EE_
+x-ms-office365-filtering-correlation-id: 4fb7e0fc-65b0-4759-7e4b-08de5e14ffcf
+x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|19092799006|366016|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?yeq85GkAxjpmWNgl+1aUinKw2L/x2yHccxgrVxXBLZKwfikRQZV9VYAjFOVQ?=
+ =?us-ascii?Q?uNEvmw8+nzRJYvICXv7fplidrtt36XZ0YmEbxQlWebkjhDj6y2sKHQQ2qeRv?=
+ =?us-ascii?Q?53bT21Whv4Fm4T/3UGFkYRi5zhb4rMJC+IVj/TCefB5N10pCOiDY9sshho3n?=
+ =?us-ascii?Q?mkjYWbZs1b3U+lNZhPnAGnFxexksGeo7LNQIsPlEuILWxXdf2mgp97APYkrt?=
+ =?us-ascii?Q?nf2bEUVdb8+OgU0OsDq3f+SULeR+gQx33IsMMzLwHwwptx22KexIDXJQrX3E?=
+ =?us-ascii?Q?lU0Fv+A67s8UrL7xD4qQ3oNN7NkUxP/3aasLO1HwOs2o+NVPvEU4iNIp3S5U?=
+ =?us-ascii?Q?cM702dQFgf+7QnWDFQmKYTAsEWhrLNjPmCCRfFQ5NNdOh7D/5hK8qstqkIFM?=
+ =?us-ascii?Q?JPF9qdLFrD3gQhM4eAeOVxkttwRyx7xNDVG0JFAjpYBD1sdmALKZo/eZvlZr?=
+ =?us-ascii?Q?ut0qqJx/S2ylffNFIYL8MxUqC2SRpHLQQ+DzTILnJkVVR3j1VGyCkBmhhJml?=
+ =?us-ascii?Q?JcaZ5KRr2cGDbIMWukeu2Z1FhsUWjYcRYP51xx75SCN1CsHyLue6sDMONcV1?=
+ =?us-ascii?Q?vKWOyaRS1wKfUGpyyaUhimAgwH0bHU8o+CqUvN2KjjlpepVLxSGmevEDKV08?=
+ =?us-ascii?Q?ywFqoTCypdOeQIBT9krTkSX6JssZ3qAWYyHI3lZPZC3GYn9WGYKjgS5ItPTy?=
+ =?us-ascii?Q?IdxmPGmQH8y9vR6Qgg6GYlWjucPS8I5zjsaYzCulntx2yoHly0j1Ns0iKaEB?=
+ =?us-ascii?Q?WY+spHLLGYLLn6y1K6ifHmC+OB2KnAGfZKGUnUanqyCnNMVJoBSLjsrRhPen?=
+ =?us-ascii?Q?ZxhxdbT5oz6NfLmobOgqt1rznAxcFWt+PD2UUbdj7/FjG6ou58fEur59sKtJ?=
+ =?us-ascii?Q?Ul30700VcP70+xvJVX20z0X2jVJE17ySYhiAWnfZ0ub0RzmSG9krfOYzvoBs?=
+ =?us-ascii?Q?wM0Kg8dJmzlxJBWxxf3kr8PyotcKMh3h4NjiuNLmgNAOwQRAIoXN2JTjMaW/?=
+ =?us-ascii?Q?0rqwO4cryvv0gXGGZNCS3XcFh/RrZf4ualK3fthGKWLDuwKgfbwT3g02NmuH?=
+ =?us-ascii?Q?Dvzkng8LQ6hWObsksAPGxU3f1S42wsEbSjKJt8SoMNr9gjR3IkOQwEihokq7?=
+ =?us-ascii?Q?7tk66htAgMcSHLJYwWLm4M8p0AGSx44stwa7fd4PsSV+kF6DPVwtfkMzt8ZC?=
+ =?us-ascii?Q?KQKNf9TvgChrM9gbulPl03pIk2J/H1yd/ma8M7J1AQAjVOlRgdBBWTl5Vsyw?=
+ =?us-ascii?Q?dwF0KwEosR1OetocYF1XFZYUMlPton9fq9HBJS+Eg6OJwiWJ7MA2elZ9ZTKN?=
+ =?us-ascii?Q?taT9JCbF8lPtB56JuIXxfBZb6qeZcbJPJe/hhaaXRHtSf38IJiYwNSYBiCC8?=
+ =?us-ascii?Q?9xbgmUKWeLrA57K9pGkqt3dD41q5Ss0UyHjuEXSdTXQr02FNZU1JACMU5zZm?=
+ =?us-ascii?Q?bEcQJSHYLI870W6dh/g2DTNDZaKvntc7fgob8WWbu68THWm19+txskBTPqCx?=
+ =?us-ascii?Q?vGMCO1CVtS6qFhizsbIISb+pAObjHB3GJd0OW91r6NIzQMDP4tPoaHhL909r?=
+ =?us-ascii?Q?tCRfWkkM7M7bOisFdC3M4sc9ZNxOn+K009ssXXEHIsr78k1LPjFecNpy7CtF?=
+ =?us-ascii?Q?4bBRoQIUmg8foliG2oRh4HY=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(19092799006)(366016)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?K78/C4qNsPluQbmFfdDonpwKQKShcgMYBkrG04tjI6Ymu3suGT4f9kn8stq2?=
+ =?us-ascii?Q?NtJm9VB/AfZVPMbcxWq0np6Pr+jMBcqUzY3bfqd+Nmktdh5bgDGx+QTZbXGE?=
+ =?us-ascii?Q?fID7oUA+R7FOXvDaWzBLpwV2cB6Ebbb2J1sep+7x50tgF4p/MpUsxQYdGFxr?=
+ =?us-ascii?Q?6UWnNbSJqoTxt78u3pQOPsQrwBRSUVuVTGuxSmvldy48W7slJ4CTacwXyQ2p?=
+ =?us-ascii?Q?aH+TBQsyfTXmWyqyGPtiJkV9OE8Vip7Vq3rbBpqf/e41H+n4QQNuyNKP8Bd6?=
+ =?us-ascii?Q?sAW083g0TmjsL6Eeq27acKLr3zHgsxlGNfwSxNPsfj1XuRGV5CACBqpOZhQn?=
+ =?us-ascii?Q?pK/hbOYY9xq3rjuQYLitV9BZDW9H/3bJGEK4HQQTXo5hJv+HLUk8mS/PDWYp?=
+ =?us-ascii?Q?wd3OUNZ1EGU2HnCl2Di/BIkRRCor78UdeQGARIDzpBkM7SnbT/VmGJec8zXV?=
+ =?us-ascii?Q?hLTPt3V5lCBzMa4HOWlzXjicl2Tf9cwRN8IH+zhEss7i0DBx0QTd0+gSO8FM?=
+ =?us-ascii?Q?abvXATr+eIQXKXDjIoSOwO5abf5pM/kieGuuTkTePN/N/4pLWQypDBfqUKJf?=
+ =?us-ascii?Q?qb5xzr26eJJMN1VL5uczg4zmZBJmuPgGSkaTZjQytjKQ9GDz2+EMZLGPdzti?=
+ =?us-ascii?Q?7+lv4RYFfYv1LuRjjuFFBjjhvJ0gNoQdmXpzk1DA/FV7BDIRNxXzDDLPUG0c?=
+ =?us-ascii?Q?ePPVHrfCgjM2HuwvcrXJhcbLYS7bAdg3uMtPVD7OaOMKoin3HpmKorsVHgii?=
+ =?us-ascii?Q?GhNZLrvQ34sXZ7S54ay5pbXP38izqvizT/2QA2FiwriWNSI6DQDxh947KEW/?=
+ =?us-ascii?Q?3o/rITywEnDKhflyZehT7M8jV+SgCbxEj6RaBf4fDaWXX3zX1CgpFiaiOJpD?=
+ =?us-ascii?Q?YyAkETDv7E/dSqrhSw8VCvXDzV8S7CB7g4um7XRA7jTUpBqkiOqFOin1AHOX?=
+ =?us-ascii?Q?ATa6z96Qh0g3kaUDLM1Nz88ho1RrLhvXbvnR5ZHYFtM43w/XZz9m+Eh+W8xj?=
+ =?us-ascii?Q?nV4NOUOG6NTca9QuU8dy/EjwTq2cI4YtUSj1DMQDYRGTjVQV/9+Sf6G9RDN/?=
+ =?us-ascii?Q?UDEq0I7OGl+MrHuCTae6N4AdhAZTHQQ3DX+JkVW8Y5b7T8HUENpgWx2bWRjU?=
+ =?us-ascii?Q?5HBlFfno+DUDSR5Me8yDYuqRHzPhjTC7gdSbb8bZ5yrRKgPMU1ZI9u8Xc2hE?=
+ =?us-ascii?Q?+FiV6Tsks6Wg7CscBFT1ogGNuapi/9pnrEUCXDVrINFn59ROzC6D3oFL9Xz6?=
+ =?us-ascii?Q?HetPq735d9zvu7igogwxmZst5J5UbsSpeTVNri0GF4XUkaRN3mBt1bdgyA16?=
+ =?us-ascii?Q?uhvGdsXXtr3EjUt91mK53tkFD1qIs1M54L2SakhvSDj9GaUqoXhhEyRAjo2A?=
+ =?us-ascii?Q?futQqugGhF9ByBcmfqKLARc6/gGd56UT5ew7oiJbDIr5KgniCImZEZNDxwfz?=
+ =?us-ascii?Q?vcEmufxFWDQRyPhlmD9H1oNP1HIy6720MX1MJ4HwvWJL3DO0TbbbsFmSIGCk?=
+ =?us-ascii?Q?Ay6i3aEdJYlwM1+C0Zzp8M3lax8A6nhFPLh1qHGR9j+7MraI3PUTuPSz8Htl?=
+ =?us-ascii?Q?8pFJ6GImtk2rifzL8WnOt7Cg/8+LxeHWhSDq3IRrEtZubA8jt6G9HrfaHXKU?=
+ =?us-ascii?Q?RDOco3xdOfMDFa1t4mhK2BHABESahXQ65O4EQa5f6CdC4Ju+ixgBMWWp6sGn?=
+ =?us-ascii?Q?q4eF8KvkshijbQE25pzWK2EchBJc2/1oGHCSie4E4692ZmE1?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260126085727.2568958-4-a0987203069@gmail.com>
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4fb7e0fc-65b0-4759-7e4b-08de5e14ffcf
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Jan 2026 02:29:01.7314
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 6FMbUw8Lw+obvlEYOiVZt6ILN7C/Dr/rocIsSq5YuuVUX88kkCPwrULDLyqYI+iPK2TowUHy81dO8DJU/Yop+w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9820
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_182812_314082_AED914A7 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20260127_182907_677528_095E78CB 
+X-CRM114-Status: GOOD (  23.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,87 +183,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Joey,
 
-kernel test robot noticed the following build errors:
+> On Tue, Jan 27, 2026 at 04:37:27PM +0800, Sherry Sun wrote:
+> > i.MX93 Wireless SiP is created by integrating i.MX93 and IW610 WLCSP
+> > (Wi-Fi + BLE + 802.15.4). And i.MX93 Wireless EVK board with the
+> > i.MX93
+>=20
+> I think most important is that need common part for SIP.
+>=20
+> Create one imx93w-sip.dtsi for wireless part. So other vendor can reuse i=
+t if
+> they use this sip part.
 
-[auto build test ERROR on drm-misc/drm-misc-next]
-[also build test ERROR on drm/drm-next]
-[cannot apply to robh/for-next linus/master v6.19-rc7 next-20260127]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Hi Frank,
+Okay, thanks for the suggestion. Will add imx93w-sip.dtsi (or name it imx93=
+w.dtsi) in V4.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Joey-Lu/dt-bindings-display-nuvoton-add-MA35D1-DCU-binding/20260126-170258
-base:   https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
-patch link:    https://lore.kernel.org/r/20260126085727.2568958-4-a0987203069%40gmail.com
-patch subject: [PATCH 3/3] drm/nuvoton: add MA35D1 display controller driver
-config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20260128/202601281037.qP5gX0kK-lkp@intel.com/config)
-compiler: alpha-linux-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260128/202601281037.qP5gX0kK-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601281037.qP5gX0kK-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from drivers/gpu/drm/nuvoton/ma35_drm.h:18,
-                    from drivers/gpu/drm/nuvoton/ma35_plane.c:23:
-   drivers/gpu/drm/nuvoton/ma35_plane.c: In function 'ma35_layer_blend_mode_select':
->> drivers/gpu/drm/nuvoton/ma35_plane.h:141:9: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
-     141 |         FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_ONE)
-         |         ^~~~~~~~~~
-   drivers/gpu/drm/nuvoton/ma35_plane.c:177:24: note: in expansion of macro 'MA35_BLEND_MODE_SRC'
-     177 |                 *reg = MA35_BLEND_MODE_SRC;
-         |                        ^~~~~~~~~~~~~~~~~~~
---
-   drivers/gpu/drm/nuvoton/ma35_crtc.c: In function 'ma35_crtc_atomic_enable':
->> drivers/gpu/drm/nuvoton/ma35_crtc.c:97:15: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
-      97 |         reg = FIELD_PREP(MA35_DISPLAY_TOTAL_MASK, mode->htotal) |
-         |               ^~~~~~~~~~
-   drivers/gpu/drm/nuvoton/ma35_crtc.c: In function 'ma35_crtc_get_scanout_position':
->> drivers/gpu/drm/nuvoton/ma35_crtc.c:228:17: error: implicit declaration of function 'FIELD_GET' [-Wimplicit-function-declaration]
-     228 |         *hpos = FIELD_GET(MA35_DISPLAY_CURRENT_X, reg);
-         |                 ^~~~~~~~~
-
-
-vim +/FIELD_PREP +141 drivers/gpu/drm/nuvoton/ma35_plane.h
-
-   137	
-   138	/* configs for blend modes */
-   139	#define MA35_BLEND_MODE_CLEAR	0
-   140	#define MA35_BLEND_MODE_SRC	\
- > 141		FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_ONE)
-   142	#define MA35_BLEND_MODE_DST \
-   143		FIELD_PREP(MA35_DST_BLENDING_MODE, MA35_ALPHA_BLEND_ONE)
-   144	#define MA35_BLEND_MODE_SRC_OVER \
-   145		(FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_ONE) | \
-   146		FIELD_PREP(MA35_DST_BLENDING_MODE, MA35_ALPHA_BLEND_INVERSED))
-   147	#define MA35_BLEND_MODE_DST_OVER \
-   148		(FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_INVERSED) | \
-   149		FIELD_PREP(MA35_DST_BLENDING_MODE, MA35_ALPHA_BLEND_ONE))
-   150	#define MA35_BLEND_MODE_SRC_IN \
-   151		FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_NORMAL)
-   152	#define MA35_BLEND_MODE_DST_IN \
-   153		FIELD_PREP(MA35_DST_BLENDING_MODE, MA35_ALPHA_BLEND_NORMAL)
-   154	#define MA35_BLEND_MODE_SRC_OUT \
-   155		FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_INVERSED)
-   156	#define MA35_BLEND_MODE_DST_OUT \
-   157		FIELD_PREP(MA35_DST_BLENDING_MODE, MA35_ALPHA_BLEND_INVERSED)
-   158	#define MA35_BLEND_MODE_SRC_ATOP \
-   159		(FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_NORMAL) | \
-   160		FIELD_PREP(MA35_DST_BLENDING_MODE, MA35_ALPHA_BLEND_INVERSED))
-   161	#define MA35_BLEND_MODE_DST_ATOP \
-   162		(FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_INVERSED) | \
-   163		FIELD_PREP(MA35_DST_BLENDING_MODE, MA35_ALPHA_BLEND_NORMAL))
-   164	#define MA35_BLEND_MODE_XOR \
-   165		(FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_INVERSED) | \
-   166		FIELD_PREP(MA35_DST_BLENDING_MODE, MA35_ALPHA_BLEND_INVERSED))
-   167	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best Regards
+Sherry
+>=20
+> Frank
+>=20
+> > Wireless SiP basically reuse the i.MX93 11x11 EVK board, with some
+> > minor functional and pin connection differences. Reuse the new
+> > imx93-evk-common.dtsi and add the board-specific changes here.
+> >
+> > Here are the detailed differences between i.MX93 Wireless EVK and
+> > i.MX93
+> > 11x11 EVK board.
+> >
+> > Function differences:
+> > Function	i.MX93W EVK			i.MX93 EVK
+> > WIFI/BT		IW610 in i.MX93W		IW612 M.2 module
+> > MQS		N				Y
+> > PDM MIC		N				Y
+> > M.2		N				Y
+> > RPi 40-pin HDR	Limited support(pin conflict) 	Y
+> >
+> > Pin connection differences:
+> > Function  Signal name	i.MX93W EVK		i.MX93 EVK
+> > WIFI/BT	  SPI_FRM	SAI1_TXFS (spi1.PCS0)	GPIO_IO08
+> (spi3.PCS0)
+> > 	  SPI_TXD	SAI1_TXC (spi1.SIN)	GPIO_IO09 (spi3.SIN)
+> > 	  SPI_RXD	SAI1_RXD0 (spi1.SOUT)	GPIO_IO10 (spi3.SOUT)
+> > 	  SPI_CLK	SAI1_TXD0 (spi1.SCK)	GPIO_IO11 (spi3.SCK)
+> > 	  SPI_INT	CCM_CLKO1		on-board IO expander
+> > 	  NB_WAKE_IN	PDM_CLK			on-module IO
+> expander
+> > 	  WL_WAKE_IN	PDM_BIT_STREAM0		on-module IO
+> expander
+> > 	  IND_RST_WL	PDM_BIT_STREAM1		on-module IO
+> expander
+> > 	  IND_RST_NB	GPIO_IO28		on-module IO expander
+> > 	  PDn		GPIO_IO29		on-module IO expander
+> > 	  NB_WAKE_OUT	GPIO_IO14		on-board IO
+> expander
+> > 	  WL_WAKE_OUT	GPIO_IO15		CCM_CLKO1
+> > I2C3	  I2C3_SDA	GPIO_IO00		GPIO_IO28
+> > 	  I2C3_SCL	GPIO_IO01		GPIO_IO29
+> >
+> > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> > ---
+> >  arch/arm64/boot/dts/freescale/Makefile       |  1 +
+> >  arch/arm64/boot/dts/freescale/imx93w-evk.dts | 52
+> > ++++++++++++++++++++
+> >  2 files changed, 53 insertions(+)
+> >  create mode 100644 arch/arm64/boot/dts/freescale/imx93w-evk.dts
+> >
+> > diff --git a/arch/arm64/boot/dts/freescale/Makefile
+> > b/arch/arm64/boot/dts/freescale/Makefile
+> > index 700bab4d3e60..d0ea746c59b8 100644
+> > --- a/arch/arm64/boot/dts/freescale/Makefile
+> > +++ b/arch/arm64/boot/dts/freescale/Makefile
+> > @@ -418,6 +418,7 @@ dtb-$(CONFIG_ARCH_MXC) +=3D imx93-9x9-qsb-
+> i3c.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx93-11x11-evk.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx93-11x11-frdm.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx93-14x14-evk.dtb
+> > +dtb-$(CONFIG_ARCH_MXC) +=3D imx93w-evk.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx93-kontron-bl-osm-s.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx93-phyboard-nash.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx93-phyboard-segin.dtb diff --git
+> > a/arch/arm64/boot/dts/freescale/imx93w-evk.dts
+> > b/arch/arm64/boot/dts/freescale/imx93w-evk.dts
+> > new file mode 100644
+> > index 000000000000..ea76d5df84a1
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/freescale/imx93w-evk.dts
+> > @@ -0,0 +1,52 @@
+> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > +/*
+> > + * Copyright 2026 NXP
+> > + */
+> > +
+> > +/dts-v1/;
+> > +
+> > +#include "imx93-evk-common.dtsi"
+> > +
+> > +/ {
+> > +	model =3D "NXP i.MX93W EVK board";
+> > +	compatible =3D "fsl,imx93-wireless-evk", "fsl,imx93"; };
+> > +
+> > +&reg_usdhc3_vmmc {
+> > +	pinctrl-0 =3D <&pinctrl_reg_usdhc3_vmmc>;
+> > +	pinctrl-names =3D "default";
+> > +	gpio =3D <&gpio2 29 GPIO_ACTIVE_HIGH>; };
+> > +
+> > +&usdhc3_pwrseq {
+> > +	pinctrl-0 =3D <&pinctrl_usdhc3_pwrseq>;
+> > +	pinctrl-names =3D "default";
+> > +	reset-gpios =3D <&gpio1 10 GPIO_ACTIVE_LOW>; };
+> > +
+> > +&iomuxc {
+> > +	pinctrl_lpi2c3: lpi2c3grp {
+> > +		fsl,pins =3D <
+> > +			MX93_PAD_GPIO_IO00__LPI2C3_SDA
+> 	0x40000b9e
+> > +			MX93_PAD_GPIO_IO01__LPI2C3_SCL
+> 	0x40000b9e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_reg_usdhc3_vmmc: regusdhc3vmmcgrp {
+> > +		fsl,pins =3D <
+> > +			MX93_PAD_GPIO_IO29__GPIO2_IO29
+> 	0x31e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_usdhc3_pwrseq: usdhc3pwrseqgrp {
+> > +		fsl,pins =3D <
+> > +			MX93_PAD_PDM_BIT_STREAM1__GPIO1_IO10
+> 	0x31e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_usdhc3_wlan: usdhc3wlangrp {
+> > +		fsl,pins =3D <
+> > +			MX93_PAD_GPIO_IO15__GPIO2_IO15
+> 	0x31e
+> > +		>;
+> > +	};
+> > +};
+> > --
+> > 2.37.1
+> >
 
