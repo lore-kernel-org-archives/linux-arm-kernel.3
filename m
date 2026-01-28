@@ -4,117 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C954ED35697
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E998AD35697
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uKUvT1UkLVoSBo2GeUIFsYzGNbYkZ2w4SGalbBin6yo=; b=w9YI57sbObqPnQrHQIpMe4bxM9
-	IFYgpESU5cL94usOwechwOdy0jvAR6M9VHNRRXm6T1XZahtHKlkRB8TxZOp9yk2fWoTfmUvzx7izx
-	ks+QEXDdGoVCESnV8XOCvZ+4Kd6VkjmLe8gN3d9AQupzwYDe33/foSH5e931b+2I2iJfWbhiunmMz
-	JTof5S9jwkicEaqYdsoXLWUhrUmAqfWW5k41vAd96CsZIPI02Fu1i2i6xxyexAVyX3mKjIcCj7m/p
-	icH/uzIhGcLppeqsPPDTcNpzuh+6YUVNYVJ/S3U3GA960zuy95+i1z2r5G3ZUwLdUBBemSyEC6OOW
-	kHo10Ivw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ct8sI2WRSNk3ZOKENigRW0x3nFmzYEtkBfh/fT3KTnM=; b=FIhBC3NoquFvodcaGlDkSXg88c
+	e9rpMLbiI4BCrmKE2mm5lJgKwrAPv+MhCEkLvUAbUJdmvkYgtjPGZ2ve0SPTFt7yxQdeuRDoHXRgd
+	EE2i04Kl2AHzR9XvmszyISHCiWSJwQBU2ErvzI+OzUC/p3LlL49H4SorU+Z1eHbQiwcR3Qks/kCLi
+	iPjATyEwwmOSG+sKyh7YrpbXkMsTbAWxPQM0bEiXqkFwSi+SS9g8wJek093kATaLijkgdlBihuCvE
+	p5kjdO201Vw/tXvQYYAZ/g+6obNjhnxkLyNG/3tXzLx4z4iaUJUBzCMzGFzaIpVkvQRQAMsmFJnV7
+	brhjcsTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1eH-0000000FjJM-2G1W;
-	Wed, 28 Jan 2026 09:15:41 +0000
-Received: from mail-dl1-x1230.google.com ([2607:f8b0:4864:20::1230])
+	id 1vl1fy-0000000FjZb-3jvR;
+	Wed, 28 Jan 2026 09:17:26 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1eE-0000000FjIP-3sOm
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 09:15:40 +0000
-Received: by mail-dl1-x1230.google.com with SMTP id a92af1059eb24-12336c0a8b6so2190957c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 01:15:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769591738; x=1770196538; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=uKUvT1UkLVoSBo2GeUIFsYzGNbYkZ2w4SGalbBin6yo=;
-        b=eRAqYX9McQAzMbcBWf9+/0WR5DSIcrBi0DpkyVphYEkwbHP46RGPYFxlv0qooKZEFi
-         5Pa/bkQ/XV42cGQUaxrt/hilQhnccap4E3Xf98mDB7Y7Sth3af5QBBxNbjLLY2k6hwnl
-         uhSwRf9jBNfOybviQyt2meFqEgI9P+V0CBnExU5THZUJyxKM2aSKZpH/1nzW+1rJ9KHA
-         aj/eHNDMmFa7IOr0tlLBUyL3F1p26/x/5yXWW2F3duL7W3omeN0wL5jYPwP1f/3t5MUC
-         cQ6L+yf2EE8knC5OiKbGWrTNJuShaHtG4qN76iouIyjBnxbCaPnPEHmdupxxdYuaeU/7
-         pbrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769591738; x=1770196538;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uKUvT1UkLVoSBo2GeUIFsYzGNbYkZ2w4SGalbBin6yo=;
-        b=fyMCJaI3ygu1MFDEPtmXOiaoayLeQcuwLldgZPRqXiWjcR82MLFS3JlCTt7T1UGP5u
-         r8AO0dJB910cWmCTkSj6VnY8mm8ENd3coI0z5o9ykgR4gNbngSckLT+oUW1Luo0EXmpp
-         r1IKdZkn+hkOpzBTlftQwmFWtCsJ5j9ynfOGsPeiZmhHy1nmiUdJ66aVRKe2zN+7oAgL
-         xJ03/GTfaur1X67lfnyGoK2UyXJsAFL3pwKAesGgzoIAYqfB0Rj8GTCqzQnfQG71KufU
-         bWE8PkDwbN4QpqRxJlwrDoofe06rr0af0CEMjSJaVTi5KJxkxatxdzNXZhnGLBRJWrC0
-         YRog==
-X-Forwarded-Encrypted: i=1; AJvYcCVfD+pcdgl3a3/f/rkwfu/MpB0RQANdUfCzKEt5CaW0XzlwOSI2Yd2OFRy43C4B/J7aUR1f6ablJ9gsu3OapsXQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywk/O5LEvO1c3HheOzcnK8ru0l/evGg0DHzf8AEqxTCD1/mXle5
-	qNl261OoVMhHfNyOqtmm0vSqWWaR60M+LCldpVQXaIV1vFxLrAFjtP+TJldzXw==
-X-Gm-Gg: AZuq6aKw32qLEFpodcH/fBimgq5pjKSJOgLbWFRLZqNd+dRQyDgPAUYaS+tpJ1hJyge
-	O/FapEKqH9jPUUf2qpzW5AJ4HmV0hSTwvmIhn10FubBAnovfXDVH1U4zgkVCkj4nqYtQkQBb3jS
-	IHXUSXQVzDVGfVHi5tpqZi6n2NXKCiLtRVc71lKB+yvGXgIQjt3uaKfYSxKcmLpeV2ItMO8aALh
-	sUhh0/xeGTm2sx9sOg4bcs/sFBQZOgEAjjP+wkzn7MC6vC94BxrTyCcnN3BG7/nOM95rSRD0OIi
-	MFgB6bjQsdkj7pZjIKpGUiUf0JY4ESSlOBdVmKd2/DHYyy/bA7LhjBkE8j33hsfNfNN0dty71sr
-	9J1YZQAh9mqjKSF7+nbtxxZ7x1H2LCPvZBe2EhLVUZJ1Md3b4kFpr4wGSY6ws2Tg0UgkrkE9kBR
-	nM4dI7gnofDg==
-X-Received: by 2002:a05:7300:6d08:b0:2b7:2664:aeae with SMTP id 5a478bee46e88-2b78da0b4a8mr2419091eec.37.1769585393102;
-        Tue, 27 Jan 2026 23:29:53 -0800 (PST)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-124a9d6b658sm1374769c88.3.2026.01.27.23.29.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jan 2026 23:29:52 -0800 (PST)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Yixun Lan <dlan@gentoo.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Yao Zi <ziyao@disroot.org>,
-	Yanteng Si <siyanteng@cqsoftware.com.cn>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Shangjuan Wei <weishangjuan@eswincomputing.com>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH net-next v3 0/3] riscv: spacemit: Add ethernet support for K3
-Date: Wed, 28 Jan 2026 15:29:26 +0800
-Message-ID: <20260128072931.875041-1-inochiama@gmail.com>
-X-Mailer: git-send-email 2.52.0
+	id 1vl1fr-0000000FjYC-1Fwk;
+	Wed, 28 Jan 2026 09:17:25 +0000
+Received: from [192.168.0.109] (unknown [123.118.222.47])
+	by APP-01 (Coremail) with SMTP id qwCowAD3nmr+03lp6YiOBg--.8714S2;
+	Wed, 28 Jan 2026 17:16:46 +0800 (CST)
+Message-ID: <f73fc83c-b38d-4974-ba3c-80c5e5556e7e@iscas.ac.cn>
+Date: Wed, 28 Jan 2026 17:16:46 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 3/3] net: stmmac: Add glue layer for Spacemit
+ K3 SoC
+To: Inochi Amaoto <inochiama@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Yao Zi <ziyao@disroot.org>, Yanteng Si <siyanteng@cqsoftware.com.cn>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+ Chen-Yu Tsai <wens@kernel.org>,
+ Shangjuan Wei <weishangjuan@eswincomputing.com>,
+ Boon Khai Ng <boon.khai.ng@altera.com>,
+ Quentin Schulz <quentin.schulz@cherry.de>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, Longbin Li <looong.bin@gmail.com>
+References: <20260128072931.875041-1-inochiama@gmail.com>
+ <20260128072931.875041-4-inochiama@gmail.com>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <20260128072931.875041-4-inochiama@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowAD3nmr+03lp6YiOBg--.8714S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWrW5Wr48GF4xGryDuF17KFg_yoW5uFWkpF
+	WrJF97KrWqyF4fAw4IyFZrZFn3Zr47tr17ur1ftryfGFn5Jr95Wr1FkrWxGr1xCrZ3Ja48
+	Z3Wfu3W3Wa9F93DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7CjxVAaw2AFwI0_Wrv_ZF1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26rWY6r4UJwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
+	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
+	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
+	UI43ZEXa7IUYQeOtUUUUU==
+X-Originating-IP: [123.118.222.47]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_011538_984156_3F87B6DA 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20260128_011722_946585_DD6C5B8E 
+X-CRM114-Status: GOOD (  22.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,50 +103,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial support for ethernet controller of the Spacemit K3 SoC.
-This ethernet controller is almost a standard Synopsys DesignWare
-MAC (version 5.40a). This controller require a syscon device to
-configure some basic features, like interface type and internal delay.
+Hi Inochi,
 
-Change from v2:
-- https://lore.kernel.org/netdev/20260121071315.940130-1-inochiama@gmail.com
-patch 1:
-1. remove not needed compatible for select
-2. drop empty line in "spacemit,apmu" properties
-3. add spacemit,apmu properties to required.
-patch 3:
-1. remove misused phy_fix_phy_mode_for_mac_delays.
-2. use local tx clock instead of the clk_tx_i in the dwmac.
+I have some comments below.
 
-Change from v1:
-- https://lore.kernel.org/netdev/20260120043609.910302-1-inochiama@gmail.com
-patch 1:
-1. remove phy clock
-patch 3:
-1. improve comment and include something special about Spacmit K3 dwmac
-2. reorder the included file
-3. fix wrong delay macro used in spacemit_dwmac_set_delay.
-4. add check for maximum supported delay.
-5. use DIV_ROUND_CLOSEST to calculate best delay configuration.
-6. use assign for the ctrl register initial value.
-7. fix input when calling of_property_read_u32().
+On 1/28/26 15:29, Inochi Amaoto wrote:
+> The etherenet controller on Spacemit K3 SoC is Synopsys DesignWare
+Typo: etherenet -> ethernet
+> MAC (version 5.40a), with the following special point:
+Nit: point -> points 
+> 1. The rate of the tx clock line is auto changed when the mac speed
+>    rate is changed, and no need for changing the input tx clock.
+> 2. This controller require a extra syscon device to configure the
+>    interface type, enable wake up interrupt and delay configuration
+>    if needed.
+>
+> Add Spacemit dwmac driver support on the Spacemit K3 SoC.
+>
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 +
+>  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+>  .../ethernet/stmicro/stmmac/dwmac-spacemit.c  | 218 ++++++++++++++++++
+>  3 files changed, 231 insertions(+)
+>  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
+>
+> [...]
+>
+> +
+> +/* dline register bits */
+> +#define RGMII_RX_DLINE_EN		BIT(0)
+> +#define RGMII_RX_DLINE_STEP		GENMASK(5, 4)
+> +#define RGMII_RX_DLINE_CODE		GENMASK(15, 8)
+> +#define RGMII_TX_DLINE_EN		BIT(16)
+> +#define RGMII_TX_DLINE_STEP		GENMASK(21, 20)
+> +#define RGMII_TX_DLINE_CODE		GENMASK(31, 24)
+> +
+> +#define MAX_DLINE_DELAY_CODE		0xff
+> +#define MAX_WORKED_DELAY		2800
+> +
+> +/* Note: the delay step value is at 0.1ps */
+> +static const unsigned int k3_delay_step_10x[4] = {
+> +	367, 493, 559, 685
+> +};
+> +
+> +static int spacemit_dwmac_set_delay(struct regmap *apmu,
+> +				    unsigned int dline_offset,
+> +				    unsigned int tx_code, unsigned int tx_config,
+> +				    unsigned int rx_code, unsigned int rx_config)
+> +{
+> +	unsigned int mask, val;
+> +
+> +	mask = RGMII_TX_DLINE_STEP | RGMII_TX_DLINE_CODE | RGMII_TX_DLINE_EN |
+> +	       RGMII_RX_DLINE_STEP | RGMII_RX_DLINE_CODE | RGMII_RX_DLINE_EN;
+> +	val = FIELD_PREP(RGMII_TX_DLINE_STEP, tx_config) |
+> +	      FIELD_PREP(RGMII_TX_DLINE_CODE, tx_code) | RGMII_TX_DLINE_EN |
+> +	      FIELD_PREP(RGMII_RX_DLINE_STEP, rx_config) |
+> +	      FIELD_PREP(RGMII_RX_DLINE_CODE, rx_code) | RGMII_RX_DLINE_EN;
+> +
+> +	return regmap_update_bits(apmu, dline_offset, mask, val);
+> +}
+> +
+> +static int spacemit_dwmac_detected_delay_value(unsigned int delay,
+> +					       unsigned int *config)
+> +{
+> +	unsigned int best_delay = 0;
+> +	unsigned int best_config = 0;
+> +	int best_code = 0;
+> +	int i;
+> +
+> +	if (delay == 0)
+> +		return 0;
+> +
+> +	if (delay > MAX_WORKED_DELAY)
+> +		return -EINVAL;
+> +
+> +	/*
+> +	 * Note K3 require a specific factor for calculate
+> +	 * the delay, in this scenario it is 0.9. So the
+> +	 * formula is code * step / 10 * 0.9
+> +	 */
+> +	for (i = 0; i < ARRAY_SIZE(k3_delay_step_10x); i++) {
+> +		unsigned int step = k3_delay_step_10x[i];
+> +		int code = DIV_ROUND_CLOSEST(delay * 10 * 10, step * 9);
+> +		unsigned int tmp = code * step * 9 / 10 / 10;
+> +
+> +		if (abs(tmp - delay) < abs(best_delay - delay)) {
+> +			best_code = code;
+> +			best_delay = tmp;
+> +			best_config = i;
+> +		}
+> +	}
+> +
+> +	*config = best_config;
+> +
+> +	return best_code;
 
-Inochi Amaoto (3):
-  dt-bindings: net: Add support for Spacemit K3 dwmac
-  net: stmmac: platform: Add snps,dwmac-5.40a IP compatible string
-  net: stmmac: Add glue layer for Spacemit K3 SoC
+Is this really necessary? For K1 I just used the smallest step size.
 
- .../devicetree/bindings/net/snps,dwmac.yaml   |   2 +
- .../bindings/net/spacemit,k3-dwmac.yaml       | 103 +++++++++
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 +
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-spacemit.c  | 218 ++++++++++++++++++
- .../ethernet/stmicro/stmmac/stmmac_platform.c |   1 +
- 6 files changed, 337 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
-
---
-2.52.0
+It seems to me you have, for the smallest step size, about 36.7ps * 0.9
+= 33ps per step. Theoretically speaking that lets you fine tune the
+delay to within 1% of the 2ns total required RGMII delay (MAC + PCB +
+PHY). In practice this number shouldn't be that marginal. 
 
 
