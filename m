@@ -4,64 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3873D35693
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 10:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22136D35693
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 10:52:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A6AufGzCauozU62AVkZNeaJiFmyszDBPGtNBvMtZMz8=; b=EV/L3yoP9rYA3tHIlHCqbRP3fI
-	akhRrVpu61x1F3wOPpR4Y1vO6ySNL00fzvIJFSW1ER4+Ux2hulA18OYPStvVbuIhBbl9t2jIYJb5E
-	iHZvR/AiSKI2pARkr+J9zRFuiXVAVROQj6Pv4P9rbl/pzCbmFZxKV2Qb9BFibsm1y4fxH2L4e5HH4
-	crsL4N/ByV4W0W2HXektz0E2p7yyxkxHlVA4zFpXEFDM+bgHDfwVpQR1IkF60fFsMgvRYosZGLQJZ
-	jE3eFhmM0Uoo+hUD7c2RnuB+PEd5KPA/1xKfEx/diFBtJbYbmOF4cHDpZTKMFr11Nlc1DNfPLFCRu
-	UoIbQZUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y4pbQczQO/V2vi2j+wymLlENbnTlsLtagplMs9AL1aE=; b=TXjrIIr6hqz1pbR8iFa6HriV6o
+	e4tZxuiBEMHrZz+ZHQHaktFNgiU0yQUtidLJ0REX15wkjw+AusfdW84BFqlb4ZEH90h/Dmi7GnIYb
+	yMkb6Rg6BJjGOPkDheT7CPGzDJrzV74uzd0JQMGKNPerF1t6eUQMHi6B9MNmXiLHfgmvJJ0SUOJSo
+	TTri21jInW5gQn0JdHi62UshaeIqo7yMFxw2g9k8fmKvaQ11ESWr9GYKSzSq72tTb/ATRpRQ66qh1
+	/UxRX7XgH25hAG3xyftNdRuERk0Mc7AMnnCfJfuW1LZZUjbRrkXS6/4DmiT7JDP83OExwyVqhocvf
+	fnY0+NGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl38c-0000000Fruf-1EIS;
-	Wed, 28 Jan 2026 10:51:07 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1vl3A6-0000000Fs31-1ojt;
+	Wed, 28 Jan 2026 10:52:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl38W-0000000Fru0-0rS4
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 10:51:03 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4f1JqY2ps8z12LDY;
-	Wed, 28 Jan 2026 18:46:49 +0800 (CST)
-Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9731240538;
-	Wed, 28 Jan 2026 18:50:43 +0800 (CST)
-Received: from [10.67.121.58] (10.67.121.58) by kwepemf200017.china.huawei.com
- (7.202.181.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 28 Jan
- 2026 18:50:42 +0800
-Message-ID: <3c6d58b2-b4c9-4dc7-a705-b7626e127f33@hisilicon.com>
-Date: Wed, 28 Jan 2026 18:50:42 +0800
+	id 1vl3A4-0000000Fs2W-2hDE;
+	Wed, 28 Jan 2026 10:52:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:Content-Type:
+	Date:Sender:Reply-To:Content-ID:Content-Description;
+	bh=Y4pbQczQO/V2vi2j+wymLlENbnTlsLtagplMs9AL1aE=; b=R6CLK2tmPwzR57vEE0Oi9LFXH6
+	XROW9xD8rD4IIgxjdTjgTUQfz5WwrYHqUERQ9AAeF1dFozsXPZsmv58yoN1iUXSYUY/c5Fq9VhnYg
+	fMqAcM68TxpRUXW71AYhVRENYeNiuwoNqAgi1Mb+gRGGKmjfGZ5UOHgZba9JZNZJhbFWJULQQyf0L
+	BBYI8No0DfcG73D/Z7jh7guAAEV8SaidS397wFJ2L70psdkpFN2ZkY+O2gKe2dcBtSP8oXisHPz+2
+	+FzTd3ITpMnx4CPvq+hhvz4WeT8OSdJcdvbCk550zyeoI/Vp6ozdrCyaqornMbhJ0nyutMW3p4Hzi
+	oO1icMCQ==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vl3A0-00000008LbP-3ypl;
+	Wed, 28 Jan 2026 10:52:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D163343CD0;
+	Wed, 28 Jan 2026 10:52:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B58EC4CEF1;
+	Wed, 28 Jan 2026 10:52:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769597550;
+	bh=tucQhTlV8za1lu8MMrRqeJJ31gz69ypAvVJoriihhkE=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=ViEGIoH8WISDNhvOrX04vjPKG2JsdeQzC++K+VPDpBjbApVieCzQdka6GCKlJJZQM
+	 kJma+zcQwuo0OVZDkJ15DjXbzkJ9jCcPYFv4ZlKyk1P9KnmzLQuxjdWdoLG47nEIi/
+	 zDbiLcOCm7Dj8/UDWp4qXwoh+OOdf+L3B0wjytpMZK6giYRDkSx+hHnimaxwvwfELy
+	 OLDor3AvwD6N+RNTuPJXi6Y3MM9lSyGyv0Z99LeemMHZfyE7wejSGsaHHCdxLWt2ES
+	 SxedeNVs95NdSTuG1A+uh5Pq9Tj0kMP2VBUO0csiNlt3bDroJsfIcRiQ3H/JGbcUtO
+	 KJ8VHi9KMczbw==
+Date: Wed, 28 Jan 2026 04:52:29 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: topology: Fix false warning in
- counters_read_on_cpu() for same-CPU reads
-To: Sumit Gupta <sumitg@nvidia.com>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <zhenglifeng1@huawei.com>, <viresh.kumar@linaro.org>,
-	<rafael@kernel.org>, <beata.michalska@arm.com>, <pierre.gondois@arm.com>,
-	<ionela.voinescu@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-tegra@vger.kernel.org>
-CC: <treding@nvidia.com>, <jonathanh@nvidia.com>, <bbasu@nvidia.com>
-References: <20260127080700.3565546-1-sumitg@nvidia.com>
-Content-Language: en-US
-From: Jie Zhan <zhanjie9@hisilicon.com>
-In-Reply-To: <20260127080700.3565546-1-sumitg@nvidia.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.58]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemf200017.china.huawei.com (7.202.181.10)
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-riscv@lists.infradead.org, Albert Ou <aou@eecs.berkeley.edu>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Yao Zi <ziyao@disroot.org>, 
+ Longbin Li <looong.bin@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, 
+ Choong Yong Liang <yong.liang.choong@linux.intel.com>, 
+ Yixun Lan <dlan@gentoo.org>, Quentin Schulz <quentin.schulz@cherry.de>, 
+ Jakub Kicinski <kuba@kernel.org>, devicetree@vger.kernel.org, 
+ Paolo Abeni <pabeni@redhat.com>, Conor Dooley <conor+dt@kernel.org>, 
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+ Paul Walmsley <pjw@kernel.org>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+ Boon Khai Ng <boon.khai.ng@altera.com>, 
+ Yanteng Si <siyanteng@cqsoftware.com.cn>, spacemit@lists.linux.dev, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Richard Cochran <richardcochran@gmail.com>, 
+ Shangjuan Wei <weishangjuan@eswincomputing.com>, 
+ Eric Dumazet <edumazet@google.com>, netdev@vger.kernel.org, 
+ Chen-Yu Tsai <wens@kernel.org>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Jose Abreu <joabreu@synopsys.com>, 
+ "David S. Miller" <davem@davemloft.net>
+To: Inochi Amaoto <inochiama@gmail.com>
+In-Reply-To: <20260128072931.875041-2-inochiama@gmail.com>
+References: <20260128072931.875041-1-inochiama@gmail.com>
+ <20260128072931.875041-2-inochiama@gmail.com>
+Message-Id: <176959754960.624625.3292309980701778789.robh@kernel.org>
+Subject: Re: [PATCH net-next v3 1/3] dt-bindings: net: Add support for
+ Spacemit K3 dwmac
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_025100_590010_E7C76973 
-X-CRM114-Status: GOOD (  24.53  )
+X-CRM114-CacheID: sfid-20260128_105233_498370_6D6317C2 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,105 +110,47 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-Hi Sumit,
-
-On 1/27/2026 4:07 PM, Sumit Gupta wrote:
-> The counters_read_on_cpu() function warns when called with IRQs disabled
-> to prevent deadlock in smp_call_function_single(). However, this warning
-> is spurious when reading counters on the current CPU since no IPI is
-> needed for same-CPU reads.
+On Wed, 28 Jan 2026 15:29:27 +0800, Inochi Amaoto wrote:
+> The GMAC IP on Spacemit K3 is almost a standard Synopsys DesignWare
+> MAC (version 5.40a) with some extra clock.
 > 
-> Commit 12eb8f4fff24 ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks
-> for non-PCC regs") changed the CPPC Frequency Invariance Engine to read
-> AMU counters directly from the scheduler tick for non-PCC register
-> spaces (like FFH), instead of deferring to a kthread. This means
-> counters_read_on_cpu() is now called with IRQs disabled from the tick
-> handler, triggering the warning:
+> Add necessary compatible string for this device.
 > 
-> | WARNING: arch/arm64/kernel/topology.c:410 at counters_read_on_cpu
-> | ...
-> | Call trace:
-> |  counters_read_on_cpu+0x88/0xa8 (P)
-> |  cpc_read_ffh+0xdc/0x148
-> |  cpc_read+0x260/0x518
-> |  cppc_get_perf_ctrs+0xf0/0x398
-> |  __cppc_scale_freq_tick+0x4c/0x148 [cppc_cpufreq]
-> |  cppc_scale_freq_tick+0x44/0x88 [cppc_cpufreq]
-> |  topology_scale_freq_tick+0x34/0x58
-> |  sched_tick+0x58/0x300
-> |  update_process_times+0xcc/0x120
-> |  tick_nohz_handler+0xa8/0x260
-> |  __hrtimer_run_queues+0x154/0x360
-> |  hrtimer_interrupt+0xf4/0x2b0
-> |  arch_timer_handler_phys+0x4c/0x78
-> |  ....
-> |  CPPC Cpufreq:__cppc_scale_freq_tick: failed to read perf counters
-> |  ....
-> 
-> Fix this by calling the counter read function directly for same-CPU
-> case, bypassing smp_call_function_single() entirely. Use get_cpu() to
-> disable preemption as the counter read functions call this_cpu_has_cap()
-> which requires a non-preemptible context.
-> 
-> Fixes: 12eb8f4fff24 ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks for non-PCC regs")
-> Signed-off-by: Sumit Gupta <sumitg@nvidia.com>
-
-Reviewed-by: Jie Zhan <zhanjie9@hisilicon.com>
-
-Looks fine for me except for the minor comment wrapping.
-
-Thanks for spotting this.
-I may have missed the warning log in the FFH test.
-
-This happens during the short window in cpufreq_policy_online() between
-driver->init() and the CREATE_POLICY notifier that gets AMU FIE ready.
-After that, CPPC FIE will be stopped.
-
-Ideally this can be merged together with Viresh's PR since the CPPC FIE
-changes are there.
-https://lore.kernel.org/all/j4qdid7iqmng4gzb5ozefemjkep3wx2b5z2yki5tnqc3vzvzf4@kvrnarvdod5p/
-
-Jie
-
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 > ---
->  arch/arm64/kernel/topology.c | 21 +++++++++++++++++++--
->  1 file changed, 19 insertions(+), 2 deletions(-)
+>  .../devicetree/bindings/net/snps,dwmac.yaml   |   2 +
+>  .../bindings/net/spacemit,k3-dwmac.yaml       | 103 ++++++++++++++++++
+>  2 files changed, 105 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
 > 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index 539b38935182..57b71f403007 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -401,12 +401,29 @@ static inline
->  int counters_read_on_cpu(int cpu, smp_call_func_t func, u64 *val)
->  {
->  	/*
-> -	 * Abort call on counterless CPU or when interrupts are
-> -	 * disabled - can lead to deadlock in smp sync call.
-> +	 * Abort call on counterless CPU.
->  	 */
->  	if (!cpu_has_amu_feat(cpu))
->  		return -EOPNOTSUPP;
->  
-> +	/*
-> +	 * For same-CPU reads, call the function directly since no IPI
-> +	 * is needed and this is safe even with IRQs disabled.
-> +	 * Use get_cpu() to disable preemption as the counter read
-> +	 * functions call this_cpu_has_cap() which requires a
-> +	 * non-preemptible context.
-> +	 */
-Wrap at 80 chars?
-> +	if (cpu == get_cpu()) {
-> +		func(val);
-> +		put_cpu();
-> +		return 0;
-> +	}
-> +	put_cpu();
-> +
-> +	/*
-> +	 * Reading from a remote CPU requires IRQs enabled to avoid
-> +	 * deadlock in smp_call_function_single().
-> +	 */
->  	if (WARN_ON_ONCE(irqs_disabled()))
->  		return -EPERM;
->  
+
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.example.dtb: ethernet@cac80000 (spacemit,k3-dwmac): compatible: ['spacemit,k3-dwmac', 'snps,dwmac-5.40a'] does not contain items matching the given schema
+	from schema $id: http://devicetree.org/schemas/net/snps,dwmac.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.example.dtb: ethernet@cac80000 (spacemit,k3-dwmac): compatible: ['spacemit,k3-dwmac', 'snps,dwmac-5.40a'] does not contain items matching the given schema
+	from schema $id: http://devicetree.org/schemas/net/spacemit,k3-dwmac.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.example.dtb: ethernet@cac80000 (spacemit,k3-dwmac): Unevaluated properties are not allowed ('phy-handle', 'phy-mode' were unexpected)
+	from schema $id: http://devicetree.org/schemas/net/spacemit,k3-dwmac.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260128072931.875041-2-inochiama@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
