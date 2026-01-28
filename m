@@ -4,75 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCBC2D46BE9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 19:32:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987C7D46BF9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 19:55:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zzAg8lqJi8CGVltcQNciuUESfJS837OPRMaiUqjansc=; b=LI7uWZr64pqfbfTFRuU0Vu2Rf5
-	sgoMLTb6I0xuutLPoTKt49yOHZucz+sbaYk2UoMqnr8PfHhpEfFYdj5BVkaQUtvCf3uE/yixcPGSO
-	FukuOyfYjEdYYNheoFCUmpDXTBxNSAnVDa7bkW9JC+ew8ftMlegu8sfxrNOCvbWevGdbOwbm1D7aU
-	KqLOPJTbIOmcikpQu0m1/mJySwLhaTkwl7mjsmgSKtHVIQ3R+lL6SSPxvARV9CFcz6C10G4KvO/wa
-	V23a3x+Ck5Co0ZPiTjzSSqOLa41ZI+/BXnLDuBz3UUCYoYPlSZlfYAl/oXKt91zOLQHEaZP+r3IO8
-	nhP/kf+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AMPpmAiEeKnABQZWG2K0fMDDlaSVP3CPzjJC/u/T4xI=; b=SrgBlY3JEvYxIivdL3bu+gdBBI
+	RUid2CvaoziQXDnLdIPUggZcYKmSD5gsGNedLzbJ1wn5QuxbU+yD3QoJhkiDnyBe+LrSlB1neHaDg
+	NmgY+Vl2bswX3pGFeptSpTPM1H8LAr52W6+CYHDnpW3aMWycH9KxXS9vBAJZbfQiK7vkgSsk6Td4G
+	gcFZwV+q5F9xviZY/1IR8U0t39RvGLcOVjSUvOA3PnRlHcfIS44iEkJJjmza4nr5lA0lpMVvrXWFU
+	FjatYNfTfYzAqNXeJmtqnlNJDQhQeMqE/G/Rc+DNfeByaIFOh25LW/weSfJHoZBV0l6CvISqUU60Y
+	38ZM/pTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlBHC-0000000GgRW-3gDK;
-	Wed, 28 Jan 2026 19:32:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vlBct-0000000GhU7-2y1Y;
+	Wed, 28 Jan 2026 19:54:55 +0000
+Received: from mail-westeuropeazon11013028.outbound.protection.outlook.com ([52.101.72.28] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlBHA-0000000GgRM-3Xv9
+	id 1vlBcr-0000000GhTn-0C6r
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 19:32:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B076760007
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 19:32:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67C75C116C6
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 19:32:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769628747;
-	bh=IiwbjnmVlSFLLrr2f6Lv3b3fMnBrMPaG/Tsycyd1dhw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Kb+HaArR3As0IcZgqbCe+RnxV2EHO9zDCjJVspz1Gyu8t4fLAV2MFdEME3Q/jLAzI
-	 J2XxBHPZ8ZIEEA0kSvX7Sc5LcHqQyrW8TZMOI+m+fsQ7P3SFRW0GLznGSyRHnO8poP
-	 0fNHarOjwQgy3kYg406g817vo5xceHtpKf8TqEAcaqK7TtR58CkSx73TdRNsebqbpt
-	 shc6ulsSEgK9+P9OhmItB9cOT+1uTw+8QQqSH9LnN8xNqRCepVOaNY2CgS/IcIT8C7
-	 VUN9pE/7ZlSActDkW/xSdbij3TvhsOdarYoXTeM1ejfREh4Z/NQrRuxTnbNYzzR/O2
-	 g/r3xB72zmNdw==
-Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-655af782859so463267a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 11:32:27 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWDCt0ZNed+cIeBXPxMaTnc68hIrgwfZo1T5cfq429ss1Lzl2kZ6Jk2zpuEEkuRWvn9KslmzgcJL+StSZXnqYt3@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQ46fTkBXFf6kP8bzpP5W6q3Y5h+boo9QYv16sRzcTGylzQzay
-	U6aYiLllbUV3hUoe4+hdx/mxHp7lGw2OIwBzccO3+T29kGeEi49qSb6eGlAhO0Wzgsm/sg08ii9
-	z4WqoUQHZBy09lp5c1/1FGZ6VlNsUPqI=
-X-Received: by 2002:a05:6402:3481:b0:653:9849:df10 with SMTP id
- 4fb4d7f45d1cf-658a60a2a1fmr3733526a12.26.1769628745986; Wed, 28 Jan 2026
- 11:32:25 -0800 (PST)
+	Wed, 28 Jan 2026 19:54:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=P3/umoAbaKBZLPWM1UBmE8pA+cKlQmmcx6DCa/e/UhbQaOZKYSBAUmMDdeNfB3mhPldbemk50Z19Yp0VHNN/FCexoSucPJHIRK583ap/Iykkd+B12E70b9I0hC0lba7Kbq9Coh6FAfoIkKYfQWtyDFHy+mZFAb0OFNzzzWgtWEURsZu6kXBAZYFimS41UhjLaAj4hqvcaNt+ZL1GnsMumSMFjKyDgwWcrmO75D0HKDDO3oksso8iqDYM5Jjw/c+cAkXoP23Ngi9bhwnPCpLt2jsjxfOEAZkLhrexZ6bc9Dp7d5uM6qOb0weWqI83gKzTbA6C8SYo/knHP831WxgM0Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AMPpmAiEeKnABQZWG2K0fMDDlaSVP3CPzjJC/u/T4xI=;
+ b=K+Twp7tzBFPpT5vrmQqm8JwpVSR3ILiLnnYkU9hJnefuwQMAIfsVscr9D/Fa41M0Nf8LGpHoaMPWeaIIGlfWuqhVFU8y93hEUqszHyziP/LbZHRIsJFB3QNG2olktxMIwxLQWH4b2t9WAuSitSwjL3eefw2rI7sO5VGZl1Vn4RHxiN3V87jC+gf7SWNOG4LaHWrmoaCe6coMdrEAfQh6Kjc3L7upub2oRNZYBYT4yeTOj+joWUfLVXJVI65IRlGIkPWKOpOG01EqGiIg5RWIgKFKh30i7P06FbffM5hTi+tyBTDuYShB6d5nDH6rHV0wNqlxCafhUGs8jxoK7lmA6w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AMPpmAiEeKnABQZWG2K0fMDDlaSVP3CPzjJC/u/T4xI=;
+ b=K1SzTj1LjmlNek31apxSu9eR8YlDIuqssmDzvh0BQpjQoUEY44QoThbg7ZZLqIiCY040ynzVo2RmOowK4T/4pN3R3o14yb1QMPs+KjnX8FBj15dUISua5NguCYnEmsQ1QGYxoNv12P/c8YHTX7lmbdjteim9bAn7DxWcY1X9/EZ3QfwpUQe5iRPf4odYvaXvWpcQf/tsn7jN4HjZaUt/k9CZ7mAedfCOfnM55gXJj6lUasmwrEYiZr7rZU85Pr/LiQL/SEgQHwwjD8Vxq6u9EYVIKmNOyYYYdpVaylBtCDrSJ7scoydv6YI/AMqJPSHtei7rVf78nBGtdF7gguTYQg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DU0PR04MB9275.eurprd04.prod.outlook.com (2603:10a6:10:356::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Wed, 28 Jan
+ 2026 19:54:48 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9520.005; Wed, 28 Jan 2026
+ 19:54:47 +0000
+Date: Wed, 28 Jan 2026 14:54:39 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Vladimir Zapolskiy <vz@mleia.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"moderated list:ARM/LPC32XX SOC SUPPORT" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>, imx@lists.linux.dev
+Subject: Re: [RESEND v2 1/1] dt-bindings: arm: lpc: add missed lpc43xx board
+Message-ID: <aXppf+3Nm7zsYaWE@lizhi-Precision-Tower-5810>
+References: <20251015184846.2509016-1-Frank.Li@nxp.com>
+ <b75b30d4-e33e-4620-bc37-56b36612364c@mleia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b75b30d4-e33e-4620-bc37-56b36612364c@mleia.com>
+X-ClientProxiedBy: BYAPR21CA0030.namprd21.prod.outlook.com
+ (2603:10b6:a03:114::40) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-References: <20260128150112.8873-1-leon.hwang@linux.dev>
-In-Reply-To: <20260128150112.8873-1-leon.hwang@linux.dev>
-From: Puranjay Mohan <puranjay@kernel.org>
-Date: Wed, 28 Jan 2026 19:32:12 +0000
-X-Gmail-Original-Message-ID: <CANk7y0j-RYyRRGOe+twJxebtW+mW1bPPWjR32FFQwtLZYgqbMQ@mail.gmail.com>
-X-Gm-Features: AZwV_Qiswo9Qd3heR-XulOgpYmPZU3b8UEXHtqM39bOgPFTkq8gNQ7vCrLWrxoc
-Message-ID: <CANk7y0j-RYyRRGOe+twJxebtW+mW1bPPWjR32FFQwtLZYgqbMQ@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 0/3] bpf, arm64: Add fsession support
-To: Leon Hwang <leon.hwang@linux.dev>
-Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
-	Menglong Dong <menglong8.dong@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	kernel-patches-bot@fb.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU0PR04MB9275:EE_
+X-MS-Office365-Filtering-Correlation-Id: 38d9bdb4-b60d-40a9-c10b-08de5ea7172f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|52116014|376014|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mlfpUR1hzp1k2asZjXUsvVy0xDPhEKSxEv7koj8sK506n3zDYJXHEqh68t1K?=
+ =?us-ascii?Q?Xcv2UYUkUFZKqSUB1gZQ4B49Hg8aOptjYHFzltwYIyW53HOp9VmrAQefWbwD?=
+ =?us-ascii?Q?zK5TSCu5qXXBwQ4dM9wPH5IDTWKEI1bXsnZznpdHcWmFM2+y8SUcYjEDhiFI?=
+ =?us-ascii?Q?+8H7A5V/GWA2ryVqJE+ZmXAUhFPPpjS8P1obWC9IEg8/EfMsPwGxR5Nr293w?=
+ =?us-ascii?Q?vh/1gm8hOYUogMl8uwyEPoYvJg6sTgSWiagHTZFCc7k8LuHOUi2fsasqu5+F?=
+ =?us-ascii?Q?zEqxQTmJCbx8UXg1RQWkt/Kc1r9wUHPrAEi8F7mhopVDmt+nux6DtYE+uqNp?=
+ =?us-ascii?Q?zUaUHWpw3tFhW3rSvkboPylM2Rg2pTPK1ROFAmCJSg4WO/G98vQ8dyeZPmDS?=
+ =?us-ascii?Q?7AiJe/rv7N97oVF2AcY9JFD6oGZTGBYRFRysggQz1BnS1oFNLJqtum1KOxon?=
+ =?us-ascii?Q?CTCLidLu1FPUCSWk50ef5HGacjjZOtWKOxhZbMOREaj/xQcJlTW5IYaYnmIx?=
+ =?us-ascii?Q?DK4DdPIhGpdyrtk3ZvnFfuaqFMgT2PXTGqXPn767ni9YLyp6AuXtZtg5cLXU?=
+ =?us-ascii?Q?Dj9eWwbGsy8h1zH/sWiWsd8xpOMst4ViMmfkn6ZWxNnJQfBAirhlmMC+LTUx?=
+ =?us-ascii?Q?0Y8G7yXWv6WpUFyMe+PnUCPlnSTeHIeIQ7sOxNOhzVhGE3bcQYUZZ/QygfW4?=
+ =?us-ascii?Q?EaG/yjjlcB6r4l1O8ANDy7FLKcfcJpQ7C4+rat24gz62j4aPTESDtg4WUJ0j?=
+ =?us-ascii?Q?Swd65mBbfVUbGtEni211VIEcy5plLBEBjgj2iIerCmw0gdkSD7st1piqPart?=
+ =?us-ascii?Q?BeiKw/DG+csTtM8j9U01Xa+vp0qYb5Dgzt0Mu+9nRbsgMghm2GLgwg21RQS1?=
+ =?us-ascii?Q?Ow9bPC0ANdJKzG/emOmv0DFCOXGS4nY/IlRYqMeTBIqAtLsutpU7L+/fPcBz?=
+ =?us-ascii?Q?60NS7vlY5gJfRqn/uPzwi4miqXao6xJ0Kek+Qzl7Bxsec+nOdyXhl5AQpgcX?=
+ =?us-ascii?Q?/tC40o1Um7iCPpMkPUYkflqJsbe6G3VGSN5ASWBA4j41RYANFUgDb2coiNxS?=
+ =?us-ascii?Q?FQUItcKDCSB3mCDCPETZVFo9J8v5oac+6IFKmBl4Hyh+CMTXMb0k2+JDJAUX?=
+ =?us-ascii?Q?35G79Hk8T70CQ4S6+1MYA29p5qXdkGL8IQ5Oc+mO3uBy4A+jmC+RsF0TAzQn?=
+ =?us-ascii?Q?kKlHEsTZIYilZ1nxgiU6vzUq/ZG3578CG2DweWIb2vzNyv6o8SvH+/fAMuAh?=
+ =?us-ascii?Q?oqfA3iTvwd3YwX3chaJ9LoMmQnoePiWgt4KhS9qhTblU+Rv2/qW6htRKj8ku?=
+ =?us-ascii?Q?8KwxfimP2KU+WMuptAO+7VUh/+k5cqi9zQk+S6uDiymNAO7eT9IILBmM6Vos?=
+ =?us-ascii?Q?3NwvidtFV9d8s17n+cRBgHtyiirjRPjyWm9Ci86IaCkXBGSkHkORiqcQj+Qj?=
+ =?us-ascii?Q?wjFpz0zJwoJSeajSVjAt2G5HToi76k0SUHgMnik8PpeTiz4BvB1HegMAipeb?=
+ =?us-ascii?Q?QsQehYG4M87PGkOgjjszNi5v6UAJvbN9xKvDbs6210wicSpZ8Lq3Od9Z7pdq?=
+ =?us-ascii?Q?HxIcbJDyVt5fCetOY9IhA7RnZ/IBmzl0Q6W+lesqQJjE2TGNHdqiSXRKnAnT?=
+ =?us-ascii?Q?JAh9SzY3zY9KxYeB9s0hLGU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(52116014)(376014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?U5Q7FVbH7MjKOrVWH8h0pMqVdUCfTxTvhSlQ8/cVqUAjXoPVm7Q7fUrRkCi1?=
+ =?us-ascii?Q?T8SXIeMji4lhPxBCCgkO6gdE5spMwD0Z2vy8gXQVO2+r/dBszRnVdbF1JGT+?=
+ =?us-ascii?Q?+jtnO0TYc7Q2AqHVaDLVnwS3pG9LH92ODabbnfIMWD+cvFTWTqlNiJybrNzu?=
+ =?us-ascii?Q?KnffnNiGAmFeZeCjEV0gDTxaytJRT5yJUJANcDNlX6WefmQsSuJTXPEkTegl?=
+ =?us-ascii?Q?eg0nDrQMvgRZIRExFa9y9OAHLqrAkWwKsmvKGiG5phJCryceyqaiOJJJ5Aaz?=
+ =?us-ascii?Q?Uwy4/1qEmABYpOP9NroOAjdhH+hkDxNzhVDO11JW3FewXNsNUnyu7+tQiUaY?=
+ =?us-ascii?Q?9dbap+Gf3Yf6Csn9DChEljvNm1juiyrkZ+EyIuKB1185eiG5aIg25x9FmuXX?=
+ =?us-ascii?Q?BQtWT5z0s8Cu3IKxFRxyg1L+vuto95G/PGrcdhtiWKaBlXYmueZALkyKa9Yr?=
+ =?us-ascii?Q?3FaCsf14lDmI9nzD5uOCuJF2yY2YDf/1RwQymUBgA1Iencjy982BGqZ9aHkY?=
+ =?us-ascii?Q?bAj7XUELX6E01W9s5whiVpzDf8tUgLl3hFxDfIBxDzptitEuhit9f/2w/INs?=
+ =?us-ascii?Q?r1WuXR6QGyq2H3H1MdzbbtJQXH49bMDKvceGjhbnzzFsQM+P+eq7x+f+t1ZH?=
+ =?us-ascii?Q?rvnrElP8cU+CtwJUvt+FOSbo9tDnDlqDRE7PgDZQ2tiYAEnc9uSlqXLlfQwV?=
+ =?us-ascii?Q?YtJe04K1B7pu1/a34t0vovGLC4WwDPrIcB8iN0Ev9HGaOmJgihCUogcw4rY9?=
+ =?us-ascii?Q?qLdRpvxAr6pZqeO0+VPcTdJbZ6PP7abWfo++fO+bm5ZsOsvHbVLTCZBds6/i?=
+ =?us-ascii?Q?82FQdWxS1TjSYZOvRx8m3CyYtb5bTPNqFooko6+hsKtYvs5Ioxa4NTYFJDJ6?=
+ =?us-ascii?Q?uDEXyA7V+Oc0mH3hgCSMeyAAfSH1E+16YLrFStrVKEhy6lSoY82d7V76UQqc?=
+ =?us-ascii?Q?q0LDJuxspgKoiEzMau04L5NU63w6amK2IKC1z9/JrCX5Ob3uazRzxoytrQKc?=
+ =?us-ascii?Q?chv6MwfQY2buBtZX19fGo8RIgUZNjuZt8iHgucj/AT72qWunxrZ0QbUhOBG7?=
+ =?us-ascii?Q?+CW42QJhxikQQL651K2Bv+n7YIYhNODt4UFv+ZoOwBhkdXdmtqUkhWzBJpVZ?=
+ =?us-ascii?Q?XCZiun5FJw7xpw4xZSnzicVmBGndakxPsuYkObypkG+LrlmwpSDFoFDElKkM?=
+ =?us-ascii?Q?5H5gpPZyXEI2AcmZ+pBCk5Rey6A4XWpFxieUGM9+uZXeLDWoUPPzO6f/xj1q?=
+ =?us-ascii?Q?Y4setX0PFcvty5/847UcTVQA0v9L5eNksj7gHUm+73fCNbNbfx145yAQQnPv?=
+ =?us-ascii?Q?ICSo3jyRZvGM4HUAsBqqd0BtyUSxieBx+bRdZR6i9GQEm888yW/3ItygEmuA?=
+ =?us-ascii?Q?xrqX8+IBrMM1s8twrPMBx1CcU4YYvITfy8SizFcjeg2H8f0oQ6Rz/8yLBt5H?=
+ =?us-ascii?Q?/1mbJz/yBTkeCkYzAIZ8iOwOW2u12l58If4yFMRKYAckykIthKZXs5E0gUbm?=
+ =?us-ascii?Q?KzsbAp68AY49Ra1sPP4JE+dQorlGrQSA3pcLwm4bP1ELoo0FaSEfuOhwmE95?=
+ =?us-ascii?Q?ZvUcvm+hUUQjZPQ9FkdUhGTPOR9tqd5O3ayHqnnrIfdqOP4dwI+eB2f2caWe?=
+ =?us-ascii?Q?eW2XYWOYQKgR+Ul8WQzWWBHLmpGqSbd8zUIXc92lTLRIncHziuXwVjvp11Tv?=
+ =?us-ascii?Q?swyvsa/oG9BOKLExmJtxuyeIShunUYl9Z+rIcJsGIiVSiMXAvVMyGOMeNDTQ?=
+ =?us-ascii?Q?T25qyOKfHA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 38d9bdb4-b60d-40a9-c10b-08de5ea7172f
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2026 19:54:47.6555
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZyRH3UFwlKDtwi/yW2NBnWDSZ0U5MhGhUSjbONJ96rfoVZtz22N/3HcX8K67oZO7b1DSl/QFOQhrnfCF//GFkA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9275
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260128_115453_098506_01862EB4 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,45 +166,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 3:01=E2=80=AFPM Leon Hwang <leon.hwang@linux.dev> w=
-rote:
+On Wed, Oct 15, 2025 at 10:48:47PM +0300, Vladimir Zapolskiy wrote:
+> Hi Frank,
 >
-> Similar to commit 98770bd4e6df ("bpf,x86: add fsession support for x86_64=
-"),
-> add fsession support on arm64.
+> On 10/15/25 21:48, Frank Li wrote:
+> > Add missed legancy lpc43xx board compatible string to fix below CHECK_DTB
+> > warnings:
+> > arch/arm/boot/dts/nxp/lpc/lpc4337-ciaa.dtb: /: failed to match any schema with compatible: ['ciaa,lpc4337', 'nxp,lpc4337', 'nxp,lpc4350']
+> >
+> > Reviewed-by: Vladimir Zapolskiy <vz@mleia.com>
+> > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
 >
-> Patch #1 adds bpf_arch_supports_fsession() to prevent fsession loading
-> on architectures that do not implement fsession support.
+> I'll take it for v6.19, thank you.
 >
-> Patch #2 implements fsession support in the arm64 BPF JIT trampoline.
->
-> Patch #3 enables the relevant selftests on arm64, including get_func_ip,
-> and get_func_args.
->
-> All enabled tests pass on arm64:
->
->  cd tools/testing/selftests/bpf
->  ./test_progs -t fsession
->  #135/1   fsession_test/fsession_test:OK
->  #135/2   fsession_test/fsession_reattach:OK
->  #135/3   fsession_test/fsession_cookie:OK
->  #135     fsession_test:OK
->  Summary: 1/3 PASSED, 0 SKIPPED, 0 FAILED
->
->  ./test_progs -t get_func
->  #138     get_func_args_test:OK
->  #139     get_func_ip_test:OK
->  Summary: 2/0 PASSED, 0 SKIPPED, 0 FAILED
->
-> Changes:
-> v1 -> v2:
-> * Add bpf_arch_supports_fsession().
->
+> If you have any other changes in the queue, please feel free to send them also.
 
-Please fix the commit message issue detected by AI and then
+Vladimir Zapolskiy:
 
-For the series:
+	look like you missed this patch.
 
-Acked-by: Puranjay Mohan <puranjay@kernel.org>
-Tested-by: Puranjay Mohan <puranjay@kernel.org>
+Frank
+
+>
+> > ---
+> > Resend
+> > - colloect R-b tags.
+> >
+> > change in v2
+> > - move to nxp lpc32xx.yaml
+> > - fix ea,lpc4357-developers-kit include lpc4337
+> > ---
+> >   .../devicetree/bindings/arm/nxp/lpc32xx.yaml  | 22 +++++++++++++++++++
+> >   1 file changed, 22 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml b/Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml
+> > index 6b7f5e6f99cfb..1e290f16a7a50 100644
+> > --- a/Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml
+> > +++ b/Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml
+> > @@ -22,5 +22,27 @@ properties:
+> >                 - phytec,phy3250
+> >             - const: nxp,lpc3250
+> > +      - items:
+> > +          - enum:
+> > +              - ea,lpc4357-developers-kit
+> > +          - const: nxp,lpc4357
+> > +          - const: nxp,lpc4350
+> > +
+> > +      - items:
+> > +          - enum:
+> > +              - ciaa,lpc4337
+> > +          - const: nxp,lpc4337
+> > +          - const: nxp,lpc4350
+> > +
+> > +      - items:
+> > +          - enum:
+> > +              - hitex,lpc4350-eval-board
+> > +          - const: nxp,lpc4350
+> > +
+> > +      - items:
+> > +          - enum:
+> > +              - myir,myd-lpc4357
+> > +          - const: nxp,lpc4357
+> > +
+> >   additionalProperties: true
+> >   ...
+>
+> --
+> Best wishes,
+> Vladimir
 
