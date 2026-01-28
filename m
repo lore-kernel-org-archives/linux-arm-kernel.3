@@ -4,103 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29B2CD46BEE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 18:48:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E1CD46BEE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 18:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dWwOymaw7rmfNmeCU5SWxIpAD1DeWcTmOxU+NPD3N1g=; b=WzEWyXQQYLne4FgWA0JffrD0uv
-	FxtKyX8qSqA39IjRZZTmZKe/m/Osbrkjz4B+Wz+av5HFi1Sevf7bxuMQFNKgtZooOaxBSu/T9A0Jb
-	BbsHQXSQWNQIvx+2+UotQZG7v+9ZC6WbA0P6RfRMZeceFeudeZXkyfLbVbJq4JRgd/6WJU5Ky4Iw1
-	6tS6vOHRdn9ZJ9UCT3ItlZJALxYnhaMlqKqQdHZ7FBMqqlIICzFSFzWlDW8gRpH/MTeIKETX5OCaM
-	ZILoubdcTtGF3d8F/ljN1foy0q0UCeX62tkCdu8W2Qm8O6fs9ZfF5ELi0VLcxT8zdop065zaAfz+D
-	5zn02uSg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qGOxMm1K5WN+JT4uUn9nzJwvV/NU3i9BH4DGHjnCuXY=; b=13eequZINZva3Wu+0Ng3vYiXYg
+	b0iCsZQMJux4qTGZMcBoDC0CgUr0ym6M+WK/zOFR2L+30147tqmH9yCHBpBNrERDXL71tk2sihz9v
+	n1su/AfL1MLQUbSwNisYty+JYVs4dHGOk7c1tv3GBpDdfoczdJ1VoNbYRQuzFhPA4eQA6uKtO1GBc
+	M5lPqAFU0En3slf3Ub+cb1IyXbIX4/MFXmAz4DlF6MfVEHixZZwA5VgtM/Jm0egSQlH4DLu4Ct0+A
+	tjGAdExao2c48Nzg/uEO8WE2qKFbC7JrKxn70CPryVybzMFEvctod6f+i6Y2sHjxXVUn9iLvRurxL
+	tC1NU8fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlAaY-0000000GdqN-2epj;
-	Wed, 28 Jan 2026 18:48:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vlAbg-0000000GdyX-2APy;
+	Wed, 28 Jan 2026 18:49:36 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlAaW-0000000Gdq1-3OCa
+	id 1vlAbd-0000000Gdxy-1iqZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 18:48:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 236E4406DF
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 18:48:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1978DC4CEF1;
-	Wed, 28 Jan 2026 18:48:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769626104;
-	bh=DwmoMkW02KgPmXpKlWuIgYCDvsf8n9DSy3uxJrBURIk=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=szEFWbSeWm2yTLi9Bb1lSB7YH6xFhos8EagPUF2UsuHlNIdhT6/MBsTPlSBJAEST/
-	 WhPUdMzJtTsv1fA2h/Md53/YWG+g7QfgYQUYUNXHOPsEmlP4L1cfusUeKMStlTY1dC
-	 a/xpJxq5LSD+DFtNjNLXbhyli7maYpmc42zTgT9Ek8rnyX80xdsZMrNt/pmppAo/X7
-	 ++N5BpXXjBzdSVcqJ+Zb/n78fTaxcI23FoRiuG1SvBKNeeFCD4XNj7TZeJDh1QJ8jh
-	 usJDrhl1isRarHt6H9oDEc4Jx6gYFoNHdTk9oL+bdt6xJ1i3caj1WenjK0CdGSnJqo
-	 MEZEd4K52QNtQ==
-Message-ID: <2b81a667-adad-4960-bc48-f60fbf740620@kernel.org>
-Date: Wed, 28 Jan 2026 19:48:21 +0100
+	Wed, 28 Jan 2026 18:49:34 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-47fedb7c68dso1644255e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 10:49:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769626171; cv=none;
+        d=google.com; s=arc-20240605;
+        b=esKxEmqhJzwAs0nWb8eMZeX6eXt27+R3sgYftwkz5FisMBMKP0mHE7dWQhgwxZTpSg
+         liUFoqVvw2BROWB1mWZybGrC3QwZH1/BRmbyDhoLa5JTwyVjsB5Yxz6N6NRzpjCm1QhO
+         7/v2Xn2aduI1TPpxB5IlZtuFSoyNwTc6lC73ZWWzy7dWyga5Kaqcykv9Axy9NruC1ueF
+         vyXVw+PMAQe+GqY53pBAjtR4yG0xRkEc8uCJmt/W4G02ozglkhariH7/vtFtGnP6jxQa
+         QO5NN2jQggKn1eBRf725yiWsChPU9Rwbz2ENUQN65Y61Bewrll01WdgH09UZGQnlVVlm
+         6czw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=qGOxMm1K5WN+JT4uUn9nzJwvV/NU3i9BH4DGHjnCuXY=;
+        fh=PPUUIOgv4XYTaECoglgoWqUMvBfSnD0JZlHHHz0/Etk=;
+        b=Ca6Y1ZDEqplnzSFG+Kt4ce4xA6iN2oKxOYP07sAxXmdYT/NJph/tLr2jC0pgTlqZT2
+         lgXTmgGJw8FsOfwbf+Zpw4E/EfDrgS1HqDMtvYD0fkk2YT2rZrMfm84xZKEQae2HWD6P
+         hAjP36O09lMFy68qp8z8onWaXHq6lNMgfnxy4HNxqy0vXSp+EHUZIIL8ZBxITzUtT3qp
+         yEr+nD3LWL0DxLPmM8IDT5uHLonUiybJX4QOh55+dYRp9kLWLKL3Y9HF8yllNfkkXr6L
+         sUcFWevsMrcs8hqyiqAM2RVTuFlRkZC1YNBUocO0Xysoj95xIRBwljj8mcsfPeiZ8IJv
+         +twQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769626171; x=1770230971; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qGOxMm1K5WN+JT4uUn9nzJwvV/NU3i9BH4DGHjnCuXY=;
+        b=Uq+kF3P4Hhjs0skfZquokwURMSPKu7bIyMjpJPuW1ujjoGRcixayS6D1iM0JWmp7yU
+         gtjUl+y3QeS/WVuLlNfm0lj7x7yzbgpYXNMdzQDo2oRkNe4ZsLV8l2Aj6yWu52CsosQs
+         hh80G7mx3ZoKGpk3qu/RETptHnG6ZELgCh+aJyhr39sucxsslMshBf4b7uAvk9auRLXL
+         LzqOys94F4FFWW9efONA4xzbyFFW7McDborgxZ3nS0Mz2/0bb329YxzGjOsD/EuQktLv
+         HlG5mOzwOruUddl9ummFsFiPWd4jL2ky5F8fNkmqZo3xEVwmtVCvV9/bTTpi6fbHZgX6
+         PAkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769626171; x=1770230971;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=qGOxMm1K5WN+JT4uUn9nzJwvV/NU3i9BH4DGHjnCuXY=;
+        b=uUz1gxlYS41URXHZAB3wTDlGEJUuVcXw9ycu78mngp1nPDCGTUrRmQab/qV5h86qKP
+         9cEIIj+pliXMn+A8j01U6xIPskm/RGp81Njhsl7TngLZzrjEDAW9dE3VALPn87oaflXq
+         Mu9WB69BRaN2wqbsH9YiZd0d4uVM0egQ3XsQpLx8+kSnopCwTfvdI2gIxZrLHnMKWUTW
+         LHY42rTCIsHigFZteOiPPCJrBb5vYh1mwQazIKFgMWcr/ucSWrKhn5enxtmCL4wkYyxD
+         qiuiQvTN18UAqHQiqUtzpuv1lpH91t1/pwcV8qAv/9/ajp0SnFrcKAURgFaZjIbn1l41
+         H4zA==
+X-Forwarded-Encrypted: i=1; AJvYcCXWsofquxz3y6nd7AelP+c90JShTq1cj/BLG21rTFzcNZFOFavLjE0mJ+5ycKw6tCNR0GEA7sPSjS+ThYvqoznb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyi/L3dsUS7qGBJfWbuWcMkdqzjACspoJPRt5C3ubR/qpnADcTN
+	W10s1FzW9VikX7z032T3nF5JGkukGhu26Evp+s+mGOxxwM6KiyVOf+xfuLHI9A4bV23e+e6udzt
+	i91QswsHOMuvBkktW9zij/PLpfDeJYGI=
+X-Gm-Gg: AZuq6aLFChR66hdKPB9Ye6klbal6zRaUt10IEtSRCBnKFV9xSfjk0FP8t7N0BvbIOMr
+	uDkY2nnlhtOpJvGW3bhlwzd6cvOaZapZPmYOJiTu/h2DwxSIxQs73s8i5LuZX/LMLw9s1ieR6Wd
+	5kq6bLjdOG+hecgtSM/vBNz7c/7lnMClXr5UmHApNaTGNwK+jmxKRIA5SfMRwU3ed/RIwY3BhCd
+	Mmyl3SA/F5j7kIJ33t/hp4ejV3FU3dRBbAO83yxRNv/07szpShQX1fwEGNoUHm/58HjZsDHi6eW
+	2mSeF8xCkqdnmpm4W+Tkvc2EWdDUD2WU8PfGnmOCcXdhxPL3YfioIY4EFfN7nYNk67wcP5zPCFD
+	4qXBSaXq7T95ulg==
+X-Received: by 2002:a05:600c:4f82:b0:480:4d39:84b3 with SMTP id
+ 5b1f17b1804b1-48069bfabe7mr87977985e9.6.1769626170838; Wed, 28 Jan 2026
+ 10:49:30 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL] arm/arm64: dts: socfpga: updates for v6.20
-To: Dinh Nguyen <dinguyen@kernel.org>, linux-arm-kernel@lists.infradead.org,
- soc@lists.linux.dev
-References: <20260124200118.2789128-1-dinguyen@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260124200118.2789128-1-dinguyen@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260128150112.8873-2-leon.hwang@linux.dev> <e64c4137e7f262e6fdab272e8ee44c8a129a36eb6d0186914375d6ba20d88474@mail.kernel.org>
+ <65231eeb-1f00-4af2-9234-a290ea3f6585@meta.com> <a10afa70-29b7-48ab-b241-8b0f602abe2f@linux.dev>
+In-Reply-To: <a10afa70-29b7-48ab-b241-8b0f602abe2f@linux.dev>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Wed, 28 Jan 2026 10:49:19 -0800
+X-Gm-Features: AZwV_Qikusk2Q6YhJBvTgmuieIgLLJz7FiVhBc9lpkAd7bZar_-wkLjd4ZlAf6c
+Message-ID: <CAADnVQJV=e2VgQzkpsUQwexhaVZMs7uXHCe1Fa6VwbVNUMPghA@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v2 1/3] bpf: Add bpf_arch_supports_fsession()
+To: Ihor Solodrai <ihor.solodrai@linux.dev>
+Cc: Chris Mason <clm@meta.com>, bot+bpf-ci@kernel.org, bpf <bpf@vger.kernel.org>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Eduard <eddyz87@gmail.com>, 
+	Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, 
+	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
+	Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Puranjay Mohan <puranjay@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
+	Menglong Dong <menglong8.dong@gmail.com>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, kernel-patches-bot@fb.com, 
+	Martin KaFai Lau <martin.lau@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_104824_915029_B562D2FC 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20260128_104933_464391_71F44205 
+X-CRM114-Status: GOOD (  18.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,60 +128,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/01/2026 21:01, Dinh Nguyen wrote:
-> The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
-> 
->   Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
-> 
-> are available in the Git repository at:
-> 
->   git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux.git tags/socfpga_dts_updates_for_v6.20
-> 
-> for you to fetch changes up to 1a457681c075e1bd894df753087cb4268ce9f9e9:
-> 
->   arm64: dts: intel: agilex5: Add simple-bus node on top of dma controller node (2026-01-02 07:52:44 -0600)
-> 
-> ----------------------------------------------------------------
-> SoCFPGA DTS updates for v6.20
-> - dt-bindings updates:
-> 	- Add dma-coherent for cdns,hp-nfc and snps,dw-axi-dmac
-> 	- Add intel,socfpga-agilex5-socdk-modular for the Agilex5 mod board
-> 	- Move entries in intel,socfpga.yaml into altera.yaml
-> 	- Add syscon as a fallback for sys-mgr
-> 
-> - Add dma-cohrerent property for Agilex5 NAND and DMA
-> - Add support for the Agilex5 modular board
-> - Add IOMMUS property for ethernet nodes for Agilex5
-> - Use lowercase hex for dts files
-> - Add #address-cells and #size-cells for sram
-> - Fix dtbs_check warning for fpga-region
-> - Move dma controller node for Agilex5 under simple-bus
-> 
-> ----------------------------------------------------------------
-> Dinh Nguyen (4):
->       dt-bindings: arm: altera: combine Intel's SoCFPGA into altera.yaml
->       dt-bindings: altera: document syscon as fallback for sys-mgr
->       ARM: dts: socfpga: add #address-cells and #size-cells for sram node
->       ARM: dts: socfpga: fix dtbs_check warning for fpga-region
-> 
-> Khairul Anuar Romli (4):
->       dt-bindings: mtd: cdns,hp-nfc: Add dma-coherent property
->       dt-bindings: dma: snps,dw-axi-dmac: add dma-coherent property
+On Wed, Jan 28, 2026 at 9:34=E2=80=AFAM Ihor Solodrai <ihor.solodrai@linux.=
+dev> wrote:
+>
+> On 1/28/26 7:35 AM, Chris Mason wrote:
+> >
+> >
+> > On 1/28/26 10:26 AM, bot+bpf-ci@kernel.org wrote:
+> >>> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.=
+c
+> >>> index 5a075e06cf..070ba80e39 100644
+> >>> --- a/arch/x86/net/bpf_jit_comp.c
+> >>> +++ b/arch/x86/net/bpf_jit_comp.c
+> >>> @@ -4112,3 +4112,8 @@ bool bpf_jit_supports_timed_may_goto(void)
+> >>>  {
+> >>>     return true;
+> >>>  }
+> >>> +
+> >>> +bool bpf_jit_supports_fsession(void)
+> >>        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+> >> This is the actual function name in the code.
+> >
+> > Ihor, I think the script parsing review-inline.txt chopped off the
+> > part of the review where AI was complaining about the commit message?
+>
+> This is the email body pre-processing in KPD, yes.
+>
+> At some point we decided to remove the commit message before sending
+> an email, but now that AI reviews the messages too, I think we should
+> just send the generated review-inline.txt as is.
+>
+> Alexei, wdyt?
 
+I think KPD is only supposed to trim the header until 'diff ..' line.
+In this case there is no 'diff', so I'm not sure why it trimmed so much.
 
-These are not SoC patches, unless maintainers are unresponsive which I
-believe is not a case here, so they should not be going via this tree.
+commit sha...
+Author: ...
 
-None of this, merged on 15th Dec, was fed to linux-next, so you don't
-even know if this conflicts with maintainer trees thus pushing conflict
-discover unto soc tree.
-
-Not being in the next is already a problem but gets more serious when
-taking other subsystem patches.
-
-That's my comment, but Arnd was looking at these whether to merge.
-
-Best regards,
-Krzysztof
-
+are useless in email reply, so we should still trim them.
 
