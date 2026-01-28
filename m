@@ -4,75 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC24D35666
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 02:26:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09006D35666
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 02:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Gl4hGtCQ5x6KQhmJaDiXMA9jzWT2O+n+v/Xr8viABg=; b=Y8POiKkHnix6LWBsIroJ4+xzG6
-	2F694n/+D0zmnnQDKhh2ekratogmJmkXCCWw0G/zjjvuM9ixnVaSkT6F7u9LQiX0JoRnT9qsE3Kg5
-	HjKrFAXe/kgEjEyWgyTXbsAoxSUrgnJ+n/nifH/OsHcgd1Nosc4XS3unfXtBagAidh6xOymyv6NMF
-	WYcVPGWrQrKh5mgPTvNgSQjBwOyxbVFR+Ept/mdmbOEOWnYMDD0g2RMFUw4hUtM6tiLTUHy0NTpsf
-	Kj3ffL67FKymKJ4NhN0tMCgXQNopJua2HK58gVpHO+pwAJU4eD7w8FUyClwqpu//5+6CK3yS+tUQw
-	5F5vy7fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BYLo5dPNAy3hTk6Iv3SLrLkvk1w9STY5rT12OSXJS28=; b=3YcEp4i5I7JRq74VIY+Dkd72zh
+	XEoAhPfc7iOxZC099g6A1WE9EAXhkjAT1gTXB7pdR4ln1br9tc3owBjjWu5myiKra2J+g6v+R983y
+	MoHJz8BT0Ph66qlPfh5Xk73eJhr/27G37GydToSJUGpGdf47iE2u/dH48cmjZDA6B0AkOqsZAr9GI
+	hzn5GIQhkYycSg+X7DEnldQT+ntlQM+DcsjpbRETXSvXoW2UWLJIa0N4VAaW+jNXrgH0jxnnPV5xs
+	37bz/WP/RVUoiPdujo0Yqr+iD/22783pEqHh6AGjgiLsPPSlxz+2uuvxuQZM7bDeJl/pNviXvf//i
+	DKnsdTKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkvG9-0000000FJEj-3ij3;
-	Wed, 28 Jan 2026 02:26:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vkvHy-0000000FJZ2-1BjA;
+	Wed, 28 Jan 2026 02:28:14 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkvFs-0000000FJAW-081K
+	id 1vkvHw-0000000FJYf-0sir
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 02:26:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0D0956012A;
-	Wed, 28 Jan 2026 02:26:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2E6CC116C6;
-	Wed, 28 Jan 2026 02:26:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769567162;
-	bh=vMscZPC7Wm4F8hG6O11Kv6/ikZ5BwfwyLFx3n8gvzBM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jCNRmhuBQjbShiqbz4z31FkueWSDBPkmtn1rJxqTFBzXspIPjbGEAzVXLDAgd1efr
-	 MSmmHPpxVDjmAGRVjCh+xx4fIXRbNFWWs6DrHvU+hYAn2hmQvK5SlOlOrMCO4rGt8c
-	 iVX3yrMsqOv6g4ch0owr09ljYZH1PwA8p83eVN01KtGUe5mBbBlLe6hPVK1jUXPcyK
-	 DcpBM3873zFsafatju0/8VHGPhTm2abxt7qA9izTm+MBpKpQHvW9ihrpTu6d/heT9a
-	 XiRVZT97S0cFs5Prmkkk9L2F+IswfLtg+WQZmF+7jm8iqa7Pj0T5VH+uR+RojW+L0b
-	 abTanKCTBrgtg==
-From: Jakub Kicinski <kuba@kernel.org>
-To: lukasz.majewski@mailbox.org
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	festevam@gmail.com,
+	Wed, 28 Jan 2026 02:28:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769567292; x=1801103292;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=AsLaV6WjLigGQB+1fL0zxdBAPWzCg6IZSXz0Q9HxAG8=;
+  b=JQIhNAyT/l0MdqE5FS+0uokeWUkYeMu9WENXfnMhl09vj0iTiddrJZ8v
+   qiL2Mze7eo8DFteI09+v5jYgKHQsyA8NvskseibfjqOBG5iySm79nHbrB
+   XpfrpjCeBHiy9xFoZaxwofu+9RaJaSRMeSwLKmO8HP+PKdW5JzgjTsR8S
+   RKT9f9GKfXEVMN3rN8WpYA8TXbss12ulmyFfGONUsnEBbiPYexPeOgFJk
+   uUZEQJbHihFxZBGiOprphQG2rWoE9NW8szCmYrUAtUrmGNUlahfW3py1s
+   rUIZionkKNyuQlFk5rWhdtDTDSJYT7wpRX5LPrHH0PRd5bzsX8jdIadmQ
+   w==;
+X-CSE-ConnectionGUID: joIRRkw0RP+9sobJjfvIVg==
+X-CSE-MsgGUID: tOmkkq0aQhSpFgPYtndRTA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="81881454"
+X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
+   d="scan'208";a="81881454"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 18:28:11 -0800
+X-CSE-ConnectionGUID: Y8t6OJ+RTyODRg9E9tlaNw==
+X-CSE-MsgGUID: 1pnRvin1TRWKvOKkPfe5QA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
+   d="scan'208";a="207277691"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 27 Jan 2026 18:28:07 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vkvHo-00000000Z8y-1XK9;
+	Wed, 28 Jan 2026 02:28:04 +0000
+Date: Wed, 28 Jan 2026 10:27:05 +0800
+From: kernel test robot <lkp@intel.com>
+To: Joey Lu <a0987203069@gmail.com>, airlied@gmail.com, simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, ychuang3@nuvoton.com, schung@nuvoton.com,
+	yclu4@nuvoton.com, a0987203069@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	horms@kernel.org,
-	shawnguo@kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	wahrenst@gmx.net,
-	pabeni@redhat.com,
-	davem@davemloft.net,
-	netdev@vger.kernel.org,
-	richardcochran@gmail.com,
-	edumazet@google.com,
-	andrew+netdev@lunn.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	andrew@lunn.ch
-Subject: Re: [net-next,v20,7/7] net: mtip: Extend the L2 switch driver for imx287 with bridge operations
-Date: Tue, 27 Jan 2026 18:26:00 -0800
-Message-ID: <20260128022600.4151612-1-kuba@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260126103400.1683125-8-lukasz.majewski@mailbox.org>
-References: <20260126103400.1683125-8-lukasz.majewski@mailbox.org>
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] drm/nuvoton: add MA35D1 display controller driver
+Message-ID: <202601281037.qP5gX0kK-lkp@intel.com>
+References: <20260126085727.2568958-4-a0987203069@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260126085727.2568958-4-a0987203069@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260127_182812_314082_AED914A7 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,93 +93,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
+Hi Joey,
 
-For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
----
-net: mtip: Extend the L2 switch driver for imx287 with bridge operations
+kernel test robot noticed the following build errors:
 
-This patch adds bridge operations support to the MTIP L2 switch driver,
-enabling hardware offloading for packet switching when a bridge is
-created on the switch interfaces.
+[auto build test ERROR on drm-misc/drm-misc-next]
+[also build test ERROR on drm/drm-next]
+[cannot apply to robh/for-next linus/master v6.19-rc7 next-20260127]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
-> new file mode 100644
-> index 000000000000..f961b9cc4e6a
-> --- /dev/null
-> +++ b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
+url:    https://github.com/intel-lab-lkp/linux/commits/Joey-Lu/dt-bindings-display-nuvoton-add-MA35D1-DCU-binding/20260126-170258
+base:   https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
+patch link:    https://lore.kernel.org/r/20260126085727.2568958-4-a0987203069%40gmail.com
+patch subject: [PATCH 3/3] drm/nuvoton: add MA35D1 display controller driver
+config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20260128/202601281037.qP5gX0kK-lkp@intel.com/config)
+compiler: alpha-linux-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260128/202601281037.qP5gX0kK-lkp@intel.com/reproduce)
 
-[ ... ]
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601281037.qP5gX0kK-lkp@intel.com/
 
-> +static int mtip_ndev_port_link(struct net_device *ndev,
-> +			       struct net_device *br_ndev,
-> +			       struct netlink_ext_ack *extack)
-> +{
-> +	struct mtip_ndev_priv *priv = netdev_priv(ndev), *other_priv;
-> +	struct switch_enet_private *fep = priv->fep;
-> +	struct net_device *other_ndev;
-> +	int err;
-> +
-> +	/* Check if one port of MTIP switch is already bridged */
-> +	if (fep->br_members && !fep->br_offload) {
-> +		/* Get the second bridge ndev */
-> +		other_ndev = fep->ndev[fep->br_members - 1];
-> +		other_priv = netdev_priv(other_ndev);
-> +		if (other_priv->master_dev != br_ndev) {
-> +			NL_SET_ERR_MSG_MOD(extack,
-> +					   "L2 offloading only possible for the same bridge!");
-> +			return notifier_from_errno(-EOPNOTSUPP);
-                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+All errors (new ones prefixed by >>):
 
-Should this return -EOPNOTSUPP instead of notifier_from_errno(-EOPNOTSUPP)?
-The caller mtip_netdevice_event() already wraps the return value with
-notifier_from_errno(ret), so double-wrapping corrupts the return value.
+   In file included from drivers/gpu/drm/nuvoton/ma35_drm.h:18,
+                    from drivers/gpu/drm/nuvoton/ma35_plane.c:23:
+   drivers/gpu/drm/nuvoton/ma35_plane.c: In function 'ma35_layer_blend_mode_select':
+>> drivers/gpu/drm/nuvoton/ma35_plane.h:141:9: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
+     141 |         FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_ONE)
+         |         ^~~~~~~~~~
+   drivers/gpu/drm/nuvoton/ma35_plane.c:177:24: note: in expansion of macro 'MA35_BLEND_MODE_SRC'
+     177 |                 *reg = MA35_BLEND_MODE_SRC;
+         |                        ^~~~~~~~~~~~~~~~~~~
+--
+   drivers/gpu/drm/nuvoton/ma35_crtc.c: In function 'ma35_crtc_atomic_enable':
+>> drivers/gpu/drm/nuvoton/ma35_crtc.c:97:15: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
+      97 |         reg = FIELD_PREP(MA35_DISPLAY_TOTAL_MASK, mode->htotal) |
+         |               ^~~~~~~~~~
+   drivers/gpu/drm/nuvoton/ma35_crtc.c: In function 'ma35_crtc_get_scanout_position':
+>> drivers/gpu/drm/nuvoton/ma35_crtc.c:228:17: error: implicit declaration of function 'FIELD_GET' [-Wimplicit-function-declaration]
+     228 |         *hpos = FIELD_GET(MA35_DISPLAY_CURRENT_X, reg);
+         |                 ^~~~~~~~~
 
-Looking at similar drivers like cpsw_new.c (cpsw_netdevice_port_link),
-the pattern is to return raw errno values here and let the event handler
-do the conversion.
 
-> +		}
-> +
-> +		fep->br_offload = 1;
-> +		mtip_switch_dis_port_separation(fep);
-> +		mtip_clear_atable(fep);
-> +	}
-> +
-> +	if (!priv->master_dev)
-> +		priv->master_dev = br_ndev;
-> +
-> +	fep->br_members |= BIT(priv->portnum - 1);
-> +
-> +	err = switchdev_bridge_port_offload(ndev, ndev, NULL, NULL, NULL,
-> +					    false, extack);
-> +	if (err) {
-> +		dev_err(&ndev->dev, "can't offload bridge port %s [err: %d]\n",
-> +			ndev->name, err);
-> +		return err;
-> +	}
+vim +/FIELD_PREP +141 drivers/gpu/drm/nuvoton/ma35_plane.h
 
-If switchdev_bridge_port_offload() fails, the state changes made earlier
-in the function (br_offload, br_members, master_dev, and the hardware
-configuration via mtip_switch_dis_port_separation and mtip_clear_atable)
-are not rolled back.
+   137	
+   138	/* configs for blend modes */
+   139	#define MA35_BLEND_MODE_CLEAR	0
+   140	#define MA35_BLEND_MODE_SRC	\
+ > 141		FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_ONE)
+   142	#define MA35_BLEND_MODE_DST \
+   143		FIELD_PREP(MA35_DST_BLENDING_MODE, MA35_ALPHA_BLEND_ONE)
+   144	#define MA35_BLEND_MODE_SRC_OVER \
+   145		(FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_ONE) | \
+   146		FIELD_PREP(MA35_DST_BLENDING_MODE, MA35_ALPHA_BLEND_INVERSED))
+   147	#define MA35_BLEND_MODE_DST_OVER \
+   148		(FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_INVERSED) | \
+   149		FIELD_PREP(MA35_DST_BLENDING_MODE, MA35_ALPHA_BLEND_ONE))
+   150	#define MA35_BLEND_MODE_SRC_IN \
+   151		FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_NORMAL)
+   152	#define MA35_BLEND_MODE_DST_IN \
+   153		FIELD_PREP(MA35_DST_BLENDING_MODE, MA35_ALPHA_BLEND_NORMAL)
+   154	#define MA35_BLEND_MODE_SRC_OUT \
+   155		FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_INVERSED)
+   156	#define MA35_BLEND_MODE_DST_OUT \
+   157		FIELD_PREP(MA35_DST_BLENDING_MODE, MA35_ALPHA_BLEND_INVERSED)
+   158	#define MA35_BLEND_MODE_SRC_ATOP \
+   159		(FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_NORMAL) | \
+   160		FIELD_PREP(MA35_DST_BLENDING_MODE, MA35_ALPHA_BLEND_INVERSED))
+   161	#define MA35_BLEND_MODE_DST_ATOP \
+   162		(FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_INVERSED) | \
+   163		FIELD_PREP(MA35_DST_BLENDING_MODE, MA35_ALPHA_BLEND_NORMAL))
+   164	#define MA35_BLEND_MODE_XOR \
+   165		(FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_INVERSED) | \
+   166		FIELD_PREP(MA35_DST_BLENDING_MODE, MA35_ALPHA_BLEND_INVERSED))
+   167	
 
-Looking at cpsw_new.c for reference, it modifies br_members after the
-switchdev call succeeds, avoiding the need for rollback. Could the state
-updates here be reordered to happen after switchdev_bridge_port_offload()
-returns successfully?
-
-[ ... ]
-
-> +static int mtip_netdevice_event(struct notifier_block *unused,
-> +				unsigned long event, void *ptr)
-> +{
-
-[ ... ]
-
-> +	return notifier_from_errno(ret);
-> +}
-
-[ ... ]
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
