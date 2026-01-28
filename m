@@ -4,76 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F67FD46BEE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 18:40:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C028D46BF0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 18:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X/4xNgZc1irIgWz2/dXYtoRGvJYT5RtuSmiXMRgYKOM=; b=m1VPJJDcx+fX9WIvb/4DEY/tq6
-	Cdc4nVdxV/OUN9NbWgZSXvUqtDc8rB7UC2/77AH+QHmT/DpHkxmw/bKXUk/sbBkT2MunKZoteGqqD
-	dN3ymYhUjmZmgTI0+kbwMbvqhqDF5O5xpWg+u8+jcNqz3PE3xFToc1SKJZsmpR8E0WHXzT9aq6IJH
-	eoFWbxKU8/S/6P5BpKeW/rYE73KzAlb/rCTlPNr5RUNYsiYELXNO6rzFD4v10wdged3w0rMIjiR7y
-	T4PJG7+kw1EZ698EQfcHMdwVv6FCtAroNu239I8bsHlYcy+rRd8iRh+jq5lqOHW1NyNrFx6HlNzr8
-	XDzHv4Qw==;
+	bh=8UBOY6mQOWFrwQqGTgEEY8Z089hYPig6gyW8AgaVcQQ=; b=V/Vq95efTmDm+RkZjY1Skis2Bn
+	lNS2ljT9oIi1wxf1r+eG7bqQYx0d7mL9tCUY60qt7uIjckqpOO3f1Q0/FWMlLDJeaLAzTKYUJNuyd
+	LJYauLASfjANmCWBS/juBSP2zoTO8NHMQ/MK1WSZRlpJDQKKgLQ+SUT0is5LdnXm2CFWBGU68rBkn
+	3e6KY6V8E3BVKSdgXX0/NNHJMguatz+knosBTv+J5gl6t52e+ei3OG46T7P6T4Gv9ykXOW8pNRiQ0
+	wRitiu1lDmG15ddRRML0p39cFMO/1MYrVQP7XOdzbUl1gjr5hSsOTSjSinu2AXk8XjnvBufcX78IS
+	oRQOnZZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlASS-0000000Gd88-2QYo;
-	Wed, 28 Jan 2026 18:40:04 +0000
-Received: from sender4-pp-g123.zoho.com ([136.143.188.123])
+	id 1vlAUI-0000000GdPL-219K;
+	Wed, 28 Jan 2026 18:41:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlASP-0000000Gd6c-0xbL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 18:40:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769625583; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=R++kYFz7gCfMdJMHUcVO2B3uN2gmHB0yIcDza4Rf3UliSC5Ao/2sxbpS2P8j4CCUBALZLflkdQ/ip3fPL400fYRU2djpHiEtUMU5TOP4axFpWahn5qO9MKc3bEIaA1ETeBbsQvTDr2Srhb2PP3bVrWw+SzGikLsRXoOX/TCYI1w=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769625583; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=X/4xNgZc1irIgWz2/dXYtoRGvJYT5RtuSmiXMRgYKOM=; 
-	b=CGzyu1Tl/RcMSxBQ7bdKYz2TR7FYWJevUKhvA5v1NG7oMRBIazhs8IRU/MrzJ93+nwulpDCV78ms1TLV2LBdl6pfU23LJg18Lqf46sq1a8pE/ei5/OxcZ4N/3R0lGzljIL7v8ZXOVWJ8H1HJQE1xeiEglRLtcVGi39+J9+Atn4E=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769625583;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=X/4xNgZc1irIgWz2/dXYtoRGvJYT5RtuSmiXMRgYKOM=;
-	b=MRp5K8mzfg8OF/g/+voqgixFXJN+bIP9cpHNWJwE0xdj4h0Yt/0BwdlFAnAPXBmo
-	OCf9l06Y3IBPnb4QgMvRB3KCSvDFXoMXhQaiRZyaicQ2ROqkGtuYKfJdxKtYllYsOgA
-	ezQrCvPJLaTsR9cdGUbfIW+9m8kRKUQ/l4Lrrcmw=
-Received: by mx.zohomail.com with SMTPS id 1769625582177877.4278006459197;
-	Wed, 28 Jan 2026 10:39:42 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Wed, 28 Jan 2026 19:38:51 +0100
-Subject: [PATCH 2/2] clk: imx8mp: Mark arm_a53_div as critical
+	id 1vlAUG-0000000GdOy-2i06;
+	Wed, 28 Jan 2026 18:41:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C614F442DD;
+	Wed, 28 Jan 2026 18:41:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D5D9C4CEF1;
+	Wed, 28 Jan 2026 18:41:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769625715;
+	bh=2HSz51MYu6bE9JUeVNOIbB4l0qGxAkvxgkTqyl5c900=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=R9nH0cRhcCPOR9WerIDa4eLGtZ//hGIHbxVz2XDT54Rcyt5hCC+4DhrxzXKFvyz6j
+	 ZpapsmJoA/hvwFgIbKx0mqCz9KSfySGsJ6LfWp8cFOaFaaWKHvHieNa7Toc9URHiQI
+	 UIZdyG9Thv/7rtvy2OHPM6RDw6ZOsgfUVdY6iOCVb49XUlpB5P+ZnOZ7EhM+gUQXqZ
+	 1RG0TIgnJCuBika+c78roQf8RpWReNVzEeVwTsKVckH8ayd6HEvMDw715a1bXLAcqJ
+	 iUDhzaSD3Hofcg0SirGeFOxxSZjoUbB1ke3Cpu8xskIEdkrH/DNOzGjCeOv1VdvC7s
+	 r684Gr4EnlXAA==
+Message-ID: <b3df3e1d-0aa7-4161-a7ae-0a2dfbd34cd5@kernel.org>
+Date: Wed, 28 Jan 2026 19:41:50 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND v3 2/2] arm64: dts: realtek: Add Kent SoC and EVB
+ device trees
+To: Yu-Chun Lin <eleanor15x@gmail.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, james.tai@realtek.com, soc@lists.linux.dev
+Cc: afaerber@suse.de, arnd@arndb.de, linux-arm-kernel@lists.infradead.org,
+ linux-realtek-soc@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, cy.huang@realtek.com,
+ stanley_chang@realtek.com, eleanor.lin@realtek.com
+References: <20260127071530.25426-1-eleanor15x@gmail.com>
+ <20260127071530.25426-3-eleanor15x@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260127071530.25426-3-eleanor15x@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260128-ops-parent-enable-fix-v1-2-ff39cc37f98d@collabora.com>
-References: <20260128-ops-parent-enable-fix-v1-0-ff39cc37f98d@collabora.com>
-In-Reply-To: <20260128-ops-parent-enable-fix-v1-0-ff39cc37f98d@collabora.com>
-To: Mark Brown <broonie@kernel.org>, 
- Alexander Stein <alexander.stein@ew.tq-group.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Chen-Yu Tsai <wenst@chromium.org>, Abel Vesa <abelvesa@kernel.org>, 
- Peng Fan <peng.fan@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
- kernel@collabora.com, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_104001_359308_CA2C49DD 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20260128_104156_729247_A5B2458A 
+X-CRM114-Status: UNSURE (   7.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,60 +121,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It appears the i.MX8MP does not like when arm_a53_div, or rather the
-parent it depends on, sys_pll2_500m, is briefly turned off during
-__clk_core_init.
+On 27/01/2026 08:14, Yu-Chun Lin wrote:
+> +
+> +	reserved_memory: reserved-memory {
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges;
 
-In the past, this clock driver could get away with not declaring the
-clock as critical, as nothing ever fiddled with its parent that early
-on. However, after Commit 669917676e93 ("clk: Respect
-CLK_OPS_PARENT_ENABLE during recalc"), this changed.
+Earlier (I removed it from the context) nodes are not ordered according
+to DTS coding style.
 
-In order to guarantee that it keeps its parent enabled during
-__clk_core_init if it sets the flag CLK_OPS_PARENT_ENABLE, the clock
-must be marked as critical.
+> +
+> +		linux,cma {
+> +			compatible = "shared-dma-pool";
+> +			alignment = <0x0 0x400000>;
+> +			alloc-ranges = <0x0 0x0 0x0 0x20000000>;
+> +			size = <0x0 0x2000000>;
+> +			reusable;
+> +			linux,cma-default;
+> +		};
+> +	};
+> +
+> +	cpu_opps: opp-table-cpu {
 
-Fixes: 669917676e93 ("clk: Respect CLK_OPS_PARENT_ENABLE during recalc")
-Reported-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-Closes: https://lore.kernel.org/r/6239343.lOV4Wx5bFT@steina-w/
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/clk/imx/clk-imx8mp.c | 4 +++-
- drivers/clk/imx/clk.h        | 4 ++++
- 2 files changed, 7 insertions(+), 1 deletion(-)
+It is odd to see this on the board level. This really is SoC or (in your
+case) SoC variant layer.
 
-diff --git a/drivers/clk/imx/clk-imx8mp.c b/drivers/clk/imx/clk-imx8mp.c
-index fe6dac70f1a1..ee10f845faff 100644
---- a/drivers/clk/imx/clk-imx8mp.c
-+++ b/drivers/clk/imx/clk-imx8mp.c
-@@ -655,7 +655,9 @@ static int imx8mp_clocks_probe(struct platform_device *pdev)
- 	hws[IMX8MP_CLK_CLKOUT2_DIV] = imx_clk_hw_divider("clkout2_div", "clkout2_sel", anatop_base + 0x128, 16, 4);
- 	hws[IMX8MP_CLK_CLKOUT2] = imx_clk_hw_gate("clkout2", "clkout2_div", anatop_base + 0x128, 24);
- 
--	hws[IMX8MP_CLK_A53_DIV] = imx8m_clk_hw_composite_core("arm_a53_div", imx8mp_a53_sels, ccm_base + 0x8000);
-+	hws[IMX8MP_CLK_A53_DIV] = imx8m_clk_hw_composite_core_critical("arm_a53_div",
-+								       imx8mp_a53_sels,
-+								       ccm_base + 0x8000);
- 	hws[IMX8MP_CLK_A53_SRC] = hws[IMX8MP_CLK_A53_DIV];
- 	hws[IMX8MP_CLK_A53_CG] = hws[IMX8MP_CLK_A53_DIV];
- 	hws[IMX8MP_CLK_M7_CORE] = imx8m_clk_hw_composite_core("m7_core", imx8mp_m7_sels, ccm_base + 0x8080);
-diff --git a/drivers/clk/imx/clk.h b/drivers/clk/imx/clk.h
-index aa5202f284f3..97cac1d623ca 100644
---- a/drivers/clk/imx/clk.h
-+++ b/drivers/clk/imx/clk.h
-@@ -454,6 +454,10 @@ struct clk_hw *__imx8m_clk_hw_composite(const char *name,
- 	_imx8m_clk_hw_composite(name, parent_names, reg, \
- 			IMX_COMPOSITE_CORE, IMX_COMPOSITE_CLK_FLAGS_DEFAULT)
- 
-+#define imx8m_clk_hw_composite_core_critical(name, parent_names, reg)	\
-+	_imx8m_clk_hw_composite(name, parent_names, reg, \
-+			IMX_COMPOSITE_CORE, IMX_COMPOSITE_CLK_FLAGS_CRITICAL)
-+
- #define imx8m_clk_hw_fw_managed_composite(name, parent_names, reg) \
- 	_imx8m_clk_hw_composite(name, parent_names, reg, \
- 			IMX_COMPOSITE_FW_MANAGED, \
+Same for other DTSI.
 
--- 
-2.52.0
+These two issues however are not critical and I did not see other
+worrying things, so I would merge it.
+
+Arnd:
+
+Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
+
+Best regards,
+Krzysztof
 
 
