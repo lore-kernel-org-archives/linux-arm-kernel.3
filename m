@@ -4,258 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68A5AD3F083
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 16:23:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91201D3F090
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 16:30:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RZ4H2IYVsolszdiDB8cD7Yhj4uQ/GoWsUfN5P/Vh/wY=; b=INvySqPJut9Vq24HfR9dJoiEe7
-	BlwQ/QzQ/du7UMr9w3BuFOCgbuorr69IIcJi+/4FX4LfZuJoWY4QeOjBDmOZXAnOZE1Je2V7gSiCm
-	0BL1/WhSkKGcelXwM3OG0zYSHhAIWA+HHjsjozqfF7LidVC2cnKfQTdr8NPBfXtu4Uw5w7lLXCaup
-	L7r3mHfnIMoRp0rWHVGS4K2Ws0tK1z0Ye6Ruuz5kM9bfRQ8NYEsVLsqXKz4VvJIeT4HRlXNgmuTxe
-	m/AICZTQCWQQccNfz+Bbc6aZqGsjiNYphso7Sk8fmVSLCCrwVIG+P4VlQQDj5Hl5Iv9pwBJeBk22C
-	lLJrm5+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QFPYqg01pDsqF813xc1ZuX5R5uLZAz6s0bkILfDd0jo=; b=rN5N/zTCv3eMadodhBe8MaDdei
+	ONap72KvN9myLT8e1a8QxSMsAMYlNZxb/4da5lWAbnNmKdx008LoTUvPa3wX10gWy1IShcLq69734
+	OoPVeUOtzJfNRo3lAFQnbu1+9xG/nr3yLHF16gXfZmwPZSGEHmntmjIurtJEJKXM1YlwjzmJUIVi+
+	NrAIV7cL5ys08g8BglTV1vrSZjz5rahWlCG22omq2xmlJhBQ1tGgba8gyWnePBPmx315euoV3T1eW
+	uJBZ42SvQimESXg1cYFEP1NdVMOXaJvF6mZRiEqH9Rlv2CvuAv4CQzWvaM2UunUNKXupeC11cAwRg
+	cA4PDEgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl8Jl-0000000GO37-43ua;
-	Wed, 28 Jan 2026 16:22:58 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl8Jk-0000000GO1s-1ZkO
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 28 Jan 2026 16:22:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Cc:To:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=RZ4H2IYVsolszdiDB8cD7Yhj4uQ/GoWsUfN5P/Vh/wY=; b=nKCgKFuoJv1YWm9ffkw4MFiGD9
-	faHUWOE0qoFtxAD9aicaFkdw/AIZx14xvqW3CPF5N7VZwrMGC6Ulvcu/t+wgzYV5l+5wpu7NHTI5F
-	gIBXj8eMGxTH52DYuyofVr2jR4T0zhyFhZ6hfi1ppVjq06Jlch5Cu+T9ziI1DvAXYc1vttLC2+y9l
-	5SSGYIDq8WIc9mdlBZOOOjK6ONlkcRanzRy8O7jJAd3jnsHP2LJag+JJ2v2+Gr6whCc/61i1+bidD
-	P8MNGRku5TSKKo5V5yC7gESOxRAptx8PYzxUXfqkkZLb5NBr/7XAT3XkbjwfdRrRBv3OtxFcAmeb9
-	/Kr894yQ==;
-Received: from mail-swedencentralazon11023078.outbound.protection.outlook.com ([52.101.83.78] helo=GVXPR05CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl8Jg-00000008vqa-2PLF
+	id 1vl8QY-0000000GOlT-22bx;
+	Wed, 28 Jan 2026 16:29:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vl8QP-0000000GOk2-1Ay2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 16:22:54 +0000
-ARC-Seal: i=3; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=ex1N0V3nHg5C0iqDG+lTipvXe5fqAM7uSQxsy/TmaYsQ2oVw81j+ya0z7zhHlsTAeC7q5g0DUz+RNX5gkVQ8urN0LTVbvWqVut3IePaivHOxZaLdd4NjCeEZUiJ8vSnya7Iq9gk5MGToJiW437h2ZFUgyelXtqNWsPeeefLTN47crg07WVRTGPNEoHylQ+JsFgbwR/dUHSGm8YQKFawPC3voSd533gDXfRA7g0mF5aFD43NWPTWO7nFhVlGiHqMoqM+bjw9a0xdNydw7118hW7a1K3kln/vpddspzLjw3gqn0FjAUTqVSOdRsXxI3HF71WRoBjcO0Qix2up5OAmyAw==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RZ4H2IYVsolszdiDB8cD7Yhj4uQ/GoWsUfN5P/Vh/wY=;
- b=okRU07cxukpD5xidaiQVIRrsOhmJ5ioY/EpMh2SNcKdur8pHRHVeHNryXGLuEaI+Qe7i1WZQxsOJOZMDgXzfu/AAQ4eA3c528Y4mqjk/1djigUyCnGL6WvrsWq8lSPbzOSkKY+8VXGOO6cyTvpN8aPGBXUA7iKQ4VNOV7k86Aw3VoAQVDBDltW+0OCE94cX/clZ2VjhccCu6swBtxwlnw3V+znQ5jL8Sl/SlgpFduSF0ZjXUVOuN9ha6+6xIGi5AtnEkrwxZICCPRr2HwvAMRs2GakxzTxanmY+iNfQR8jHdvFG3zg1DQtJmnhPLQ6wSLi2j1YMCrH1cfSFCMZt2hQ==
-ARC-Authentication-Results: i=3; mx.microsoft.com 1; spf=softfail (sender ip
- is 52.17.62.50) smtp.rcpttodomain=gmail.com smtp.mailfrom=solid-run.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=solid-run.com;
- dkim=pass (signature was verified) header.d=solidrn.onmicrosoft.com; arc=pass
- (0 oda=1 ltdi=1 spf=[1,1,smtp.mailfrom=solid-run.com]
- dkim=[1,1,header.d=solid-run.com] dmarc=[1,1,header.from=solid-run.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RZ4H2IYVsolszdiDB8cD7Yhj4uQ/GoWsUfN5P/Vh/wY=;
- b=IGTMTu5W1Zsmkjm7HX8Z+Eyyd9jjDgXFTdX7/eoJ1Pv+Vyv+2uXd4SZksD6WN4MSDiPd3dysrTZXbK+NOTAdusrQ0Q0Kk2BqpOJf/n8QWfVxBOwt6lKiQW+XSeZXII6SHrDeGJ8eS5RDxiZ+/hjJF0zSKHykNzp/fAP27QBI9j0=
-Received: from DU2PR04CA0248.eurprd04.prod.outlook.com (2603:10a6:10:28e::13)
- by VI1PR04MB7117.eurprd04.prod.outlook.com (2603:10a6:800:12f::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Wed, 28 Jan
- 2026 16:22:47 +0000
-Received: from DB1PEPF000509F6.eurprd02.prod.outlook.com
- (2603:10a6:10:28e:cafe::a5) by DU2PR04CA0248.outlook.office365.com
- (2603:10a6:10:28e::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.7 via Frontend Transport; Wed,
- 28 Jan 2026 16:22:43 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 52.17.62.50)
- smtp.mailfrom=solid-run.com; dkim=pass (signature was verified)
- header.d=solidrn.onmicrosoft.com;dmarc=fail action=none
- header.from=solid-run.com;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- solid-run.com discourages use of 52.17.62.50 as permitted sender)
-Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
- DB1PEPF000509F6.mail.protection.outlook.com (10.167.242.152) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.3
- via Frontend Transport; Wed, 28 Jan 2026 16:22:45 +0000
-Received: from emails-2547891-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-5-155.eu-west-1.compute.internal [10.20.5.155])
-	by mta-outgoing-dlp-467-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id 2415F806B8;
-	Wed, 28 Jan 2026 16:22:45 +0000 (UTC)
-ARC-Authentication-Results: i=2; mx.checkpointcloudsec.com;
- arc=pass;
- dkim=none header.d=none
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed;
- d=checkpointcloudsec.com; s=arcselector01; t=1769617365; h=from : to :
- subject : date : message-id : content-type : mime-version;
- bh=RZ4H2IYVsolszdiDB8cD7Yhj4uQ/GoWsUfN5P/Vh/wY=;
- b=kJWdCmRUnpuasIRoU1BJ/y3uqS0j6KjERJMmMk//IYt7i7oNiOO9dmemlAL1Gaj+KcaOx
- n9856RkgIMhvfBH9Z8LQz+0ojgVaB0IDtyfG2RAIb1DmyaPYU5qSZHuF4gzBOV9rq4PVq3f
- b0E547zU5uhY1E6ZNFzAe1vBUuW+Obg=
-ARC-Seal: i=2; cv=pass; a=rsa-sha256; d=checkpointcloudsec.com;
- s=arcselector01; t=1769617365;
- b=ejiG3mzcY0fYYjfR9ahnmL2M/KUa20TjPUcWlZcPPdB6NGg2IRGxLslUzsBhSZsUncnJs
- /b81OfPrqBiBd4RW9cMhcnp7DNv5xZFvUTzujFqT888/nq71ySnMpDL3qZBXDNRIbgvPUdP
- 65+85vNLkBq1d4q4FdL8hYILvU81nEE=
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=y+cvk75q5wzKmDxdXZVigAXqr9C4TRtm87ML2skAcGHMkkqb72GhJWb2NMFnSd+Z0RCBOTKZVYOlgPywX7Q+Mhi6nfxm07Mm0GTpZ+Chyn9x5pin5HD8dcowi29S/tKqvIQ00ciApnyYoFlmt+JxVSoXKIvNJfscHuOTobP6FCASa1CGGWUJOs/Dq/w3zLKz3OsgD6xE5eeirxV9qi4diHC+j0CSFZTQEO3bHcxfDPYSFMl/gRTqT8+DCR20sTkg/76j80GCY/WB2E2d/MigX2XW9Kxx352DxFEhbpjY1CBdgBbEGAkyAqg/PKNTWjySrOnTNkCA97tvEBos8XNZ/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RZ4H2IYVsolszdiDB8cD7Yhj4uQ/GoWsUfN5P/Vh/wY=;
- b=Eg/SCQXhzM3L9Vg0u0RtgCpDTFjOhUzpkapj3x0SlRa/S44dyrTtJMhkph0u+u8L3XWcXnw/mHrO0cBGZEIhyS3YWtgjMcbsqMDy1uKaDQ3ZRMBwTg/uVWUACvUtmzMt5IamLiHmsAkFtw7mNTQ08djojdGWBv8eOJYHonmxwj+z0SJbFctXfKQ6IlvtEmf9lx3+pCQzPzL1TZlQhiSGwr3oF/3veART6Iej7sT4UmRc1+NqJjBLBEhooxg23Hvm7RnqSedLFlUT6mHSGbiWOlksLFMce4oTDX/2wvmEx9kRvshED/EskBbTqXy/THI0OEEsx1mxSRZNjStbjOvZaQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=solid-run.com; dmarc=pass action=none
- header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RZ4H2IYVsolszdiDB8cD7Yhj4uQ/GoWsUfN5P/Vh/wY=;
- b=IGTMTu5W1Zsmkjm7HX8Z+Eyyd9jjDgXFTdX7/eoJ1Pv+Vyv+2uXd4SZksD6WN4MSDiPd3dysrTZXbK+NOTAdusrQ0Q0Kk2BqpOJf/n8QWfVxBOwt6lKiQW+XSeZXII6SHrDeGJ8eS5RDxiZ+/hjJF0zSKHykNzp/fAP27QBI9j0=
-Received: from PAXPR04MB8749.eurprd04.prod.outlook.com (2603:10a6:102:21f::22)
- by PAXPR04MB9447.eurprd04.prod.outlook.com (2603:10a6:102:2b2::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Wed, 28 Jan
- 2026 16:21:32 +0000
-Received: from PAXPR04MB8749.eurprd04.prod.outlook.com
- ([fe80::d782:fbb2:be9a:43f1]) by PAXPR04MB8749.eurprd04.prod.outlook.com
- ([fe80::d782:fbb2:be9a:43f1%3]) with mapi id 15.20.9564.007; Wed, 28 Jan 2026
- 16:21:31 +0000
-From: Josua Mayer <josua@solid-run.com>
-Subject: [PATCH v8 0/8] arm64: dts: add description for solidrun imx8mp
- hummingboard-iiot
-Date: Wed, 28 Jan 2026 18:21:24 +0200
-Message-Id: <20260128-imx8mp-hb-iiot-v8-0-9646a3025cf4@solid-run.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIQ3emkC/6XQTWrDMBAF4KsErauiGVk/zqr3KF1Y0qgW1FawU
- 5MSfPfKgZBQa9flG5iPx7uymaZEMzsermyiJc0pjyXYlwPzfTd+Ek+hZIYCFQjUPA0XO5x473h
- K+cwVKiekI+o0svJ0miimyw18/yi5T/M5Tz83f4HteqfMX2oBLri2MlotlbFg3+b8lQKfvsdXn
- we2cQs+CBB7AgsRLEoZKLRtSzVCPhGwJ2QhXISu8VHFzlaJ5kGggB3RFELJIgTtEVysEepOaAE
- VQm0tpG4dkvDCVAn9f8I8EWB3hCkExbKSBmgrW6zr+gsgwgEvQgIAAA==
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: Mikhail Anikin <mikhail.anikin@solid-run.com>,
- Yazan Shhady <yazan.shhady@solid-run.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Josua Mayer <josua@solid-run.com>,
- Krzysztof Kozlowski <krzk@kernel.org>
-X-Mailer: b4 0.13.0
-X-ClientProxiedBy: TLZP290CA0008.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:9::20) To PAXPR04MB8749.eurprd04.prod.outlook.com
- (2603:10a6:102:21f::22)
+	Wed, 28 Jan 2026 16:29:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 647881516;
+	Wed, 28 Jan 2026 08:29:41 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 345893F5CA;
+	Wed, 28 Jan 2026 08:29:43 -0800 (PST)
+Message-ID: <ad158aad-741e-416d-a6dd-58259c0ce940@arm.com>
+Date: Wed, 28 Jan 2026 16:29:41 +0000
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8749:EE_|PAXPR04MB9447:EE_|DB1PEPF000509F6:EE_|VI1PR04MB7117:EE_
-X-MS-Office365-Filtering-Correlation-Id: a5dff4d9-1a48-4bd4-4c08-08de5e897830
-X-CLOUD-SEC-AV-Info: solidrun,office365_emails,sent,inline
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?aThEUWd3czY2eVR5bFlzZUR0VnlxNDdVOXVZdTJvVnlHS29LdDhKeHlWWnl0?=
- =?utf-8?B?YWhLVDFDRmd4UUdQODVxczBjL0pVQ2pNcDB3Tmp6OEwxU29JT0xIRnozUU84?=
- =?utf-8?B?aUV1VkVwaTVLdnRRejJlMTEyMWN4d0o2aUlFcFBtOFpNUkZGZE1ybW9JZHI4?=
- =?utf-8?B?emdDTGNuWDVPSmZUR0VnQXZNalo2Y3BvdWp5MElkSzdJdjFNWm1BMmhsUjEy?=
- =?utf-8?B?V3c0djhXblQ5VE9XR3k1TEE2ZzhiWWptOG1ya2RZREFRQ2xkM2ZjR3NTRlVJ?=
- =?utf-8?B?TmhyYkluTkgrN0pNWjJ3S0ZEZlNiTFJKM24zY3FVT2ZGVlhMcTRHZnhNNmR5?=
- =?utf-8?B?TjBDb1h0SjJoSS9NQWFYQTMwT0Fib3d5WWx3OGQwU0RZV21tQ2dpWWM5Zms4?=
- =?utf-8?B?Ymd3dU1MamprM2dydDBzVEViS1ZyRU9ONHVvdTRXblp2eGpWblJxZVVqRS9x?=
- =?utf-8?B?NmhaVkQybUZqWVV5NktjaVoxU2hXc3ZGUWxQdGJ0dWk3UkgyekVnVURCU1M3?=
- =?utf-8?B?QUh0a2pDa1RIZmQ2dVUzNU9MSlB6TjY4UWsxamY4TmhMbE9vWkplRGFueVJz?=
- =?utf-8?B?cnY3YVF1T2xyZVIySWRYejdIdzcvQ2J2YkZDTXVGN0l6S0pwSE41YTl5NE9p?=
- =?utf-8?B?c2N1MFRnc3Z1RjQ2V2JROXVzR2dXb2hnRFYrREVLbFNWQ3BtNysrcThmbStm?=
- =?utf-8?B?azlUKzhIZDl3eUdkU2o4Tk5vV0MvZ0xqeldLTjhvSkhnbGQwdzdXOTdUczcy?=
- =?utf-8?B?K01uc1dlZ1ZneWsvRHlxNFdRbTlOR05JM2JqSGdPR3FzRml0SnlZd0paYlFY?=
- =?utf-8?B?SkFSc3dIa05OTXhkUllySGE1QkEzdjZEUXlNcTFmOTl2NnhOV1lXYi9naW5Y?=
- =?utf-8?B?MDArUkZFV1pCd3V6K1RVdXViWXJjdnh5djBkSi8xbTRrYWFFdWVHcGw0N1pt?=
- =?utf-8?B?OExNS1FJQyt0TUJFRUZETUNUdDhQZWRBb3BNbkxPSHplaEV4UDVKMzdxbnB0?=
- =?utf-8?B?MjV2dnFFM2hDUkF1aWY3bS9FUnRwL0tZRzdJWmtrZDBtZUJpSTVjbHE0ZWpF?=
- =?utf-8?B?NnljdTJSUjZkcExQbTZiY0hDV3RBNmxCZUMxUmRGdVFDeFFxMDh6c3R6czNr?=
- =?utf-8?B?ODF0SVhGVmZOVFEwbEtyM0VhNnpPUG5YeGNtU2xrcmpVVVR5UFZRa1QvMFRw?=
- =?utf-8?B?TUU4N0FWZHl2RXY5c1dRNm80WFBMMkxVakFGZ2JreXFZYlcxb3h1TGFBYkZW?=
- =?utf-8?B?eWpLd3ZGNU43K0VnRWNzZDJnQVJuMlpIVHNpcWJBTU9XSmhuYnJBUEx3eFZ3?=
- =?utf-8?B?UDYwYnhiZHhjRCs1LzJuU2luOEIxYm56V2x5WVpxWTNkZlVpQUhUMFRvaFli?=
- =?utf-8?B?Qnp1ek5xQU93akUrWGkyYThNZXJmckNDT0szbkdVczJDMk9kUWd0b1gzY1Yr?=
- =?utf-8?B?dy92Y0pKc3lsM1Q1dy9HZXRGZWR6a05Oejk1eXc0Zm8zQmxFVXBtVGszdkVo?=
- =?utf-8?B?bHN2bHZNL2xIQVlUb1QyZnpaa3ZYcVdtQU8zbUc2SE8wcnFyeFY2MjdRNm5i?=
- =?utf-8?B?eEt3cFczbitiSGZHZGlXb0VuTWlXWk52bXFXQkF3bHY4aFNubjBBbWlMQjN0?=
- =?utf-8?B?S2pOWjZGaGxPejB6SUpQeGxDSG5SaVBIRU53NFJ2RHJncFJBZTFnUm04TnVB?=
- =?utf-8?B?V3JQd1hranNSQXM5V1hzN3NGZFZlTFc2R0NjWVZUT3lxdnphcEdGKzJ0WGxQ?=
- =?utf-8?B?VmVneFZMRkRiQ0JsSEVSVEdVbmJVYTZ0aHNpNlN6bUxlbXRJVElwTVdNZXZ1?=
- =?utf-8?B?NXpSUWRjb01UaS9YeVFBRndiaEt0OC9qS2xQNlFXR1F1dTI3bVcyRXd0ZGNN?=
- =?utf-8?B?ZHVYc2xQZklzeHMvYmtWSTFaUVVNRWUzRzJNL1A1Ylh1eDJ6azdhaWtqYXUy?=
- =?utf-8?B?SlcrOEZnWHdFUHEvOUhUMko5YmRUcGp3L1pyMmM0a3JRWUJFemRVSmZwNzJk?=
- =?utf-8?B?YlBuL2g0MGYwcU9WRlJzd1NuNWV6M0J1bldMdUlTR2t0c2F1OGQ4WnMvSnM4?=
- =?utf-8?B?ZlZyYTJtczY1QThTNVIyNm1vRFA3WlJXdnkzK1hYRWZQMUFFaXVIRlNkb0s4?=
- =?utf-8?B?aVZVN2pVaXMrWklCbGpaSUlDTFJMcWY4UDA3bTVMT0NST3lpMUNiWUhvQ3Z0?=
- =?utf-8?Q?zLQr99TbxeztyVgwy0TrCJQ=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8749.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9447
-X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2.checkpointcloudsec.com>
-X-CLOUD-SEC-AV-UUID: e93257aabbd245bc8752fdf97ddeba5f:solidrun,office365_emails,sent,inline:9b090c66d9ef8042e2fc0e00da84b2f1
-Authentication-Results-Original: mx.checkpointcloudsec.com; arc=pass;
- dkim=none header.d=none
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509F6.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 3ff3a331-5e62-4791-5db5-08de5e894bf0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|35042699022|82310400026|376014|14060799003|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TEdwRk5Ia0VJeWpSTjFwRjhTTG4rRloxWUZTTjFpRWtTeG5YVERLUzlSOUJl?=
- =?utf-8?B?cmVnK1ZMa3NWQWVqQndsamhVYmJ4QU9ST2J2MTc0amQ2RytvQVZad0JsWVdh?=
- =?utf-8?B?UmRtMjVBeGprN0toZWptVFhLU0tMZ1dqMFJPdTN5Qjh5VllEaC90N3FveWYr?=
- =?utf-8?B?Tkxkd05vNDEzV0Zpc1E3ajdrTTdORlJJNTMyVG1zU0NtMGxqd1ZiREIzU3lP?=
- =?utf-8?B?TlNwa3JCUHhMcklhaUJLRnJOaFhVN3hUa1YxLzF3UDRHVmh0Tnpub1lvbUEz?=
- =?utf-8?B?UXNmTFdMOW5TTUdJTm9ydTRiOWlvdDBBa3pwUTFQa1BHelY3NkxtalpFaWUr?=
- =?utf-8?B?YnhaaVRMbUd1bHVsaDNJVStSYmsyNnZDL29ObWQvUHpFYmZzUTlYRGVIKzJp?=
- =?utf-8?B?dnNrbFpjQlJXYm95M0Q4QWZUeXIwbmRhVWpoNHdvT0pkYnRRU09vMUxpL2JP?=
- =?utf-8?B?WWNxekpBSitScHlITlhJZVdsazJ6cEwydk15b0xKVUZJUko5N0RNRnRDMjlm?=
- =?utf-8?B?RVl6RTNFL2p4cmRydm9INUpoMVN5bnJaNmxrcktlVDlJMnJ4dDR5dy9YYllC?=
- =?utf-8?B?Q21hSkpscGNuVUdkaTVKY1dCdGNCNmxzNnhwRVV0cUtjT2h5c0sxUDJxajJM?=
- =?utf-8?B?Mlphakt6TXpiZkV4bTc1OUkrdjJ1cXN1UU1ud2p0bW5qZmNwM0pzTkhDbDRF?=
- =?utf-8?B?RXFDdkxaNFkvV21KdGgwZXZacG5CZE9oRjd3RzRrRXpXUWJhTTB4QlBSNkxp?=
- =?utf-8?B?eWxQMThROEJSUW0yS0tHZ0tBWEp0b2doRHdYUDFZT0U0ZDVwdDhmUGY5eitB?=
- =?utf-8?B?T2s2U0VTR1pUeXZaUTZCWnpDd1p3UTlMTXpBNDZ2bEpFWXJ6WnpIRnVwd0pr?=
- =?utf-8?B?aW1rQjRtYTNyTVFkdytiMWRmeUl1cDg0ejdNRlE5a1RlU3gvQ1pPY014YzhB?=
- =?utf-8?B?OGJFUU9PREt0UlVUQzZoWEF4NVVDdU1xUllqbmZTZXluMVJ6UW1UaVpJN3hM?=
- =?utf-8?B?QjlDVjBFajAxc2JqU05rZWdkbUN1LzVDL0M3TEZXVml2L0FaR2d5b2hrdkls?=
- =?utf-8?B?eTBmVXZsdk1ZWXZJSU1PMUplWWRpTlY1bi8ybDFOOHp5L2N2ajlQcDZSeUhm?=
- =?utf-8?B?cHdsbmdkMlpFV081eVRIbTk3VFEybzlhVE5YZGdWMElKZlZXL09INDVtM1d2?=
- =?utf-8?B?djc3V1pJekJGU0llRzNPSUlCcWZkdG9DbFAydkNFUS9vUlhqSWordmlEdCtk?=
- =?utf-8?B?cldjTE85cE4ydGVrUU1KYVFTMzl4UnowYVVMK2ZEY2ttcitycEJpUFRVUTU1?=
- =?utf-8?B?OWdqZDMxNGc4SE9zSG40Z0N0NVpsWDRIZjVYVlZGd1E3S3I2ZVRyS0JTV2VB?=
- =?utf-8?B?c2wrS0dtOXNBRUxvL2l6QTIvMWhXYUErWERIV1dRV3pNUWZSS3d3ODlLRFJa?=
- =?utf-8?B?STlVbFhIZEJXUTZGNmNYRTc3WWY2RTZSMWY2S3FlRkwrcUlqTGdvdksxMnRY?=
- =?utf-8?B?MERlVU93NlJEU2p0TVgyNzZwc0lhMUNOL0pJa29kb2ZYUldWY0VpVkk4Z0NE?=
- =?utf-8?B?Tm4xMjJyZ2J1d1BJeURwUGF3VnBSSko2T0VPZVpiUDFhQlV4a1oxbTV2Mi9i?=
- =?utf-8?B?NEkwQnFia1o4eWQ1V25MOFlBTC9uVFhXdEtlYU82SWRHek5kRGduVW4zbHc3?=
- =?utf-8?B?UHJKWkVINWVOUXdBZm9GUzlKQ0M2RnppZXVqVlV0T3ZtUjlQM0ZiLytDcE02?=
- =?utf-8?B?WGozMDlFMzN1VVN6RWRtVE5DUm8vL21oSGY3TkhNZkg1cVlFOHhvY2Z5aXF6?=
- =?utf-8?B?TUpXT1A4WFQ3ZEhjMkVZeGdac2dVQTJiZmhZa0FheUNxUEcyS2lvbkVpSnlG?=
- =?utf-8?B?NXBvSEp3a3Q3VWdOZ0JzdlI0VjRPYUQrWnBIWFpTVWR0ejhzcjBVQUVOTld6?=
- =?utf-8?B?aVYrV3BRTUROWnJOa0lUeUd4c2JxUHdYeHk0Q3pBa1JLMDBTWkpqbFBURmJo?=
- =?utf-8?B?MVN0cGtYUlo1RmtHT0IySktNQ2VKUzMzQ0ZXcWFWMlhPN2pvS0krSDBDNFJw?=
- =?utf-8?B?RS9mTFV5dHVIemYvczhLVjl0cFU4N1JUWXNTeGxpSmEyb0xwMmZ5ME5FMGlx?=
- =?utf-8?B?cy9LL0FXcUdxUzVaa2sxWXdNR2V5OUxqY2tGT1FtNisrVEFTdUJyQmkxSWg2?=
- =?utf-8?B?ZTZUMk5yV1JsUnZmcDRuYVJLbGRrVENld0k3alFkSGh1MittZnRRUEEvZVhI?=
- =?utf-8?B?WmRwVTJhbjlrZHFiZmZER2hPWnh3PT0=?=
-X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(35042699022)(82310400026)(376014)(14060799003)(7416014);DIR:OUT;SFP:1102;
-X-OriginatorOrg: solid-run.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2026 16:22:45.2744
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a5dff4d9-1a48-4bd4-4c08-08de5e897830
-X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F6.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7117
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: cpufeature: Add support for the MPAM v0.1
+ architecture version
+From: Ben Horgan <ben.horgan@arm.com>
+To: Zeng Heng <zengheng4@huawei.com>, james.morse@arm.com,
+ miko.lenczewski@arm.com, thuth@redhat.com, mark.rutland@arm.com,
+ yeoreum.yun@arm.com, robh@kernel.org, james.clark@linaro.org,
+ ahmed.genidi@arm.com, xry111@xry111.site, oupton@kernel.org,
+ lpieralisi@kernel.org, catalin.marinas@arm.com, mrigendra.chaubey@gmail.com,
+ suzuki.poulose@arm.com, maz@kernel.org, ardb@kernel.org, broonie@kernel.org,
+ will@kernel.org, kevin.brodsky@arm.com, leo.yan@arm.com,
+ anshuman.khandual@arm.com, yang@os.amperecomputing.com, frederic@kernel.org,
+ guohanjun@huawei.com, Jonathan Cameron <Jonathan.Cameron@Huawei.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ leijitang@huawei.com, "Zengtao (B)" <prime.zeng@hisilicon.com>
+References: <20260104133434.1887677-1-zengheng4@huawei.com>
+ <37f87d5d-bd70-4b13-93e0-8024108be948@arm.com>
+ <0944256a-bcc6-56fa-e3f9-eb3a83c45505@huawei.com>
+ <9006b698-6fb6-4dc0-a7c6-de3fb27fb073@arm.com>
+ <9dbb9767-f616-4f62-996a-08ee8d580521@arm.com>
+Content-Language: en-US
+In-Reply-To: <9dbb9767-f616-4f62-996a-08ee8d580521@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_162252_737387_2F218117 
-X-CRM114-Status: UNSURE (   5.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260128_082949_810495_505FF382 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -270,139 +78,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patchset mainly adds description for 3 SolidRun boards:
-- i.MX8MP Hummingboard IIoT
-- SolidSense N8 Compact
-- i.MX8MM Hummingboard Ripple
 
-This includes dt bindings and a range of bug-fixes:
 
-- dt bindings for the boards
-- fix to dsi panel bindings referncing panel-common and adding port
-  property
-- cosmetic fix to some  solidrun imx8mp boards for regulator gpio
-   polarity
-- fix dsi hdmi bridge on hummingboard pulse
-- compile dtbs with symbols to support overlays
-- gpiod_set_value _can_sleep conversion for panel and touchscreen
-   drivers
+On 1/28/26 15:55, Ben Horgan wrote:
+> Hi Zeng,
+> 
+> On 1/28/26 14:37, Ben Horgan wrote:
+>> Hi Zeng,
+>>
+>> On 1/28/26 08:54, Zeng Heng wrote:
+>>>
+>>>
+>>> On 2026/1/27 22:30, Ben Horgan wrote:
+>>>> Hi Zeng,
+>>>>
+>>>> On 1/4/26 13:34, Zeng Heng wrote:
+>>>>> According to the MPAM spec [1], the supported architecture versions are
+>>>>> v1.0, v1.1 and v0.1. MPAM versions v0.1 and v1.1 are functionally
+>>>>> identical, but v0.1 additionally supports the FORCE_NS feature.
+>>>>>
+>>>>> ID_AA64PR | ID_AA64PR | MPAM Extension | Notes
+>>>>> F0_EL1.   | F1_EL1.   | Architecture   |
+>>>>> MPAM      | MPAM_frac | version        |
+>>>>> ---------------------------------------------------------------------------
+>>>>> 0b0000    | 0b0001    | v0.1           | MPAM v0.1 is implemented.
+>>>>>            |           |                | MPAM v0.1 is the same as
+>>>>> MPAM v1.1
+>>>>>            |           |                | with FORCE_NS which is
+>>>>>            |           |                | incompatible with MPAM v1.0.
+>>>>> ---------------------------------------------------------------------------
+>>>>> 0b0001    | 0b0000    | v1.0           | MPAM v1.0 is implemented.
+>>>>> ---------------------------------------------------------------------------
+>>>>> 0b0001    | 0b0001    | v1.1           | MPAM v1.1 is implemented.
+>>>>>            |           |                | MPAM v1.1 includes all
+>>>>> features of
+>>>>>            |           |                | MPAM v1.0.
+>>>>>            |           |                | It must not include FORCE_NS.
+>>>>>
+>>>>> FORCE_NS is a feature that operates in EL3 mode. Consequently, the
+>>>>> current
+>>>>> Linux MPAM driver is also compatible with MPAM v0.1. To support v0.1,
+>>>>> the
+>>>>> existing driver which only checks ID_AA64PFR0_EL1.MPAM for the major
+>>>>> version needs to examine ID_AA64PFR1_EL1.MPAM_frac for the minor version
+>>>>> as well.
+>>>>>
+>>>>> [1] https://developer.arm.com/documentation/ddi0598/db/?lang=en
+>>>>>
+>>>>> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+>>>> So far we've avoided added MPAM 0.1 support as we don't know of any
+>>>> machines using it. What's your motivation here? Do you have a machine
+>>>> with MPAM 0.1 that runs mainline linux?
+>>>>
+>>>
+>>> Thank you for your questions and for reviewing this proposal.
+>>>
+>>> Regarding your inquiry about hardware usage and motivation:
+>>>
+>>> Our KunPeng 920C chip (and numerous legacy SoCs in the same family)
+>>> indeed implement MPAM v0.1 extensions. These are widely deployed in
+>>> server and embedded equipment. More importantly, the product roadmap for
+>>> these platforms explicitly includes migration to mainline Linux kernels
+>>> MPAM driver for long-term support, making upstream MPAM v0.1 driver
+>>> support is a critical requirement.
+>>
+>> Thanks for the explanation. It does seem worthwhile to add mpam 0.1
+>> support.
+>>
+>>>
+>>> In the other hand, MPAM v0.1 extension version is formally documented in
+>>> the ARM MPAM architecture specification (still included in the newest
+>>> ARM DDI 0598D.b version). The specification explicitly defines v0.1 as a
+>>> valid implementation for earlier hardware. Supporting documented
+>>> architectural features is essential for the goal of hardware
+>>> compatibility.
+>>>
+>>> About technical compatibility, the MPAM v0.1 is designed as a
+>>> functionally compatible extension with the existing MPAM driver
+>>> framework. After having tested this on actual Kunpeng 920C hardware
+>>> and other MPAM v1.0 platforms running mainline kernels, this ensures
+>>> zero regression risk for v1.0/v1.1 users.
+>>>
+>>
+>> I've tried your patch with a model, FVP_Base_RevC_2xAEMvA, setting mpam
+>> 0.1, 1.0 and 1.1 and the mpam driver probes as expected. For 0.1 this
+>> required commenting out the versioning check in mpam_devices.c. It would
+>> be good if this patch could come together with another updating that check.
+> 
+> Apologies, I confused myself with MSC MPAM version vs CPU MPAM version.
+> The CPU MPAM version is what's relevant here and the mpam_devices.c
+> check is just for the MSC. I'll try running this again on the FVP model
+> and actually change the correct version.
+> 
 
-Open Questions:
+I've actually tried the mpam cpu versions in the FVP model now, and I
+don't see any problems. I don't see any problems in the code either but
+I'm not that familiar with the cpufeatures code so this is not a proper
+review.
 
-- How to describe HX3 USB-2.0/3.0 Hub placed on a USB-2.0-only Bus
-  (affects imx8mm-hummingboard-ripple.dts)
-- Is "description for" implied not only on dt-bindings patches, but also
-  dts? E.g. is this commit subject acceptable?:
-  "arm64: dts: add solidrun solidsense-n8 board"
+Thanks,
 
-Signed-off-by: Josua Mayer <josua@solid-run.com>
----
-Changes in v8:
-- sorted most dt nodes by name.
-  (Reported-by: Frank Li <Frank.li@nxp.com>)
-- reworded hb-iiot commit description.
-  (Reported-by: Frank Li <Frank.li@nxp.com>)
-- reworded commit description changing dtc-flags for imx8mp-sr-som based
-  boards.
-- set DTC_FLAGS before dtb in Makefiles.
-  (Reported-by: Frank Li <Frank.li@nxp.com>)
-- fixed spelling and missing paragraph separation for mini-hdmi patch.
-  (Reported-by: Frank Li <Frank.li@nxp.com>)
-- Link to v7: https://lore.kernel.org/r/20260118-imx8mp-hb-iiot-v7-0-ef1176119a8e@solid-run.com
-
-Changes in v7:
-- updated Makefile to apply each addon to the base dtb, for better
-  coverage at build-time and dtbs_check.
-  Fixes Rob Hering bot warnings.
-- Fixed subject version prefix (v6 was prefixed with v5)
-- Link to v6: https://lore.kernel.org/r/20260101-imx8mp-hb-iiot-v5-0-b369b2e0c07f@solid-run.com
-
-Changes in v6:
-- imx8mm-hb-ripple: sorted i2c devices by address;
-  removed unnecessary newline.
-  (Reported-by: Shawn Guo <shawnguo@kernel.org>)
-- hb-iiot dts: sorted aliases alphabetically;
-  fixed gpio flags for vmmc regulator;
-  specified led@3 reg field in hexadecimal.
-  (Reported-by: Shawn Guo <shawnguo@kernel.org>)
-- Link to v5: https://lore.kernel.org/r/20251221-imx8mp-hb-iiot-v5-0-4a4dad916348@solid-run.com
-
-Changes in v5:
-- rebased on v6.19-rc1
-- dropped ilitek-ts patch already picked into input-next
-- solidsense-n8 / imx8mm-sr-som: drop untested wake-on-lan support
-- hb-iiot: disable software unsupported rtc timer irq
-- hb-iiot: fix wrong pins selected for uart4
-- Link to v4: https://lore.kernel.org/r/20251201-imx8mp-hb-iiot-v4-0-53a4cd6c21bf@solid-run.com
-
-Changes in v4:
-- dropped patches already picked into drm-misc-next
-- ronbo panel: picked up reviewed-by tag
-  (Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>)
-- ilitek-ts: changed mdelay calls on reset path to fsleep
-  (Note Dmitry requested msleep/usleep_range)
-  (Reported-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>)
-- changed hummingboard-iiot tpm irq type to level
-- Link to v3: https://lore.kernel.org/r/20251117-imx8mp-hb-iiot-v3-0-bf1a4cf5fa8e@solid-run.com
-
-Changes in v3:
-- sinmplified language in gpiod_can_sleep patches.
-  (Reported-By: Frank Li <Frank.li@nxp.com>)
-- collected ack on winstar lvds panel binding
-  (Acked-by: Conor Dooley <conor.dooley@microchip.com>)
-- Link to v2: https://lore.kernel.org/r/20251107-imx8mp-hb-iiot-v2-0-d8233ded999e@solid-run.com
-
-Changes in v2:
-- fix spelling mistakes in commit descriptions.
-- remove redundant "binding for" from subject:
-  https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst
-  (Reported-by: Krzysztof Kozlowski <krzk@kernel.org>)
-- remove one useless comment from imx8mm-sr-som.dtsi to fix long line
-  warning.
-- change ronbo panel binding to inherit panel-common and switch
-  additionalProperties to unevaluatedProperties.
-  (Reported-by: Krzysztof Kozlowski <krzk@kernel.org>)
-- add dt binding for winstar lvds panel
-- fix dtbs_check for dsi & lvds panel addons
-- change n8 board dts comment-style in header
-- collected ack on solidrun boards bindings patch (patch 1 in the series)
-  (Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>)
-- added standard led label property to hb-iiot multi-purpose leds
-  ensuring consistent names in case lp5562 driver starts using it.
-- Link to v1: https://lore.kernel.org/r/20251027-imx8mp-hb-iiot-v1-0-683f86357818@solid-run.com
-
----
-Josua Mayer (8):
-      dt-bindings: arm: fsl: Add various solidrun i.mx8m boards
-      arm64: dts: imx8mp-hummingboard-pulse/cubox-m: fix vmmc gpio polarity
-      arm64: dts: imx8mp-hummingboard-pulse: fix mini-hdmi dsi port reference
-      arm64: dts: imx8mp-sr-som: build dtbs with symbols for overlay support
-      arm64: dts: add support for SolidRun i.MX8MP HummingBoard IIoT
-      arm64: dts: imx8mp-hummingboard-iiot: add dt overlays for muxable ports
-      arm64: dts: add description for solidrun solidsense-n8 board
-      arm64: dts: add description for solidrun i.mx8mm som and evb
-
- Documentation/devicetree/bindings/arm/fsl.yaml     |   9 +
- arch/arm64/boot/dts/freescale/Makefile             |  23 +
- .../dts/freescale/imx8mm-hummingboard-ripple.dts   | 335 ++++++++
- arch/arm64/boot/dts/freescale/imx8mm-sr-som.dtsi   | 393 ++++++++++
- .../dts/freescale/imx8mn-solidsense-n8-compact.dts | 851 +++++++++++++++++++++
- arch/arm64/boot/dts/freescale/imx8mp-cubox-m.dts   |   2 +-
- ...hummingboard-iiot-panel-dsi-WJ70N3TYJHMNG0.dtso |  69 ++
- ...ummingboard-iiot-panel-lvds-WF70A8SYJHLNGA.dtso | 105 +++
- .../imx8mp-hummingboard-iiot-rs485-a.dtso          |  18 +
- .../imx8mp-hummingboard-iiot-rs485-b.dtso          |  18 +
- .../dts/freescale/imx8mp-hummingboard-iiot.dts     | 721 +++++++++++++++++
- .../imx8mp-hummingboard-pulse-common.dtsi          |   2 +-
- .../imx8mp-hummingboard-pulse-mini-hdmi.dtsi       |  11 +-
- 13 files changed, 2548 insertions(+), 9 deletions(-)
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20251026-imx8mp-hb-iiot-525b03beea62
-
-Best regards,
--- 
-Josua Mayer <josua@solid-run.com>
-
+Ben
 
 
