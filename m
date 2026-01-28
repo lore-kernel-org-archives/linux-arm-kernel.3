@@ -4,77 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A77D35693
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 10:48:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3873D35693
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 10:51:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zTyXmYUk5VJ01OMri4QAHDs7af0WzJyVS+aKLHNsXcA=; b=qmUWw97JPuoiWk/24R0fowiXSa
-	lRJ4Nu6iVM65Do+iybrkRuDP4yPqeNVK9ptZNKaTTqo/mMrYaIIRdNLwZLNmOAkIAP0Ax7xuvZidh
-	dhlC6+oQWsGD86yjkxId25nVDvvh2/A8+ebk3mIiKY+JOpnbvMmQl25pW81WzxpO6ZOISQQ/ewgW4
-	r4k8XhGXBdqqz1o1E/tYPiI+oDzPj31DkWrknqa3th9Uvwxay77QcsLJ2+T7FipRhMbKoCbdgnI9M
-	qIifPbuJYNgl7yagiq+xOcy8pO77rH4rqp3QM1HDp4rED2YWgv8MoEmQOgtRKgMl+4CJbPILcfJKu
-	vuNufWAA==;
+	bh=A6AufGzCauozU62AVkZNeaJiFmyszDBPGtNBvMtZMz8=; b=EV/L3yoP9rYA3tHIlHCqbRP3fI
+	akhRrVpu61x1F3wOPpR4Y1vO6ySNL00fzvIJFSW1ER4+Ux2hulA18OYPStvVbuIhBbl9t2jIYJb5E
+	iHZvR/AiSKI2pARkr+J9zRFuiXVAVROQj6Pv4P9rbl/pzCbmFZxKV2Qb9BFibsm1y4fxH2L4e5HH4
+	crsL4N/ByV4W0W2HXektz0E2p7yyxkxHlVA4zFpXEFDM+bgHDfwVpQR1IkF60fFsMgvRYosZGLQJZ
+	jE3eFhmM0Uoo+hUD7c2RnuB+PEd5KPA/1xKfEx/diFBtJbYbmOF4cHDpZTKMFr11Nlc1DNfPLFCRu
+	UoIbQZUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl36S-0000000FrNq-1M5c;
-	Wed, 28 Jan 2026 10:48:52 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vl38c-0000000Fruf-1EIS;
+	Wed, 28 Jan 2026 10:51:07 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl36P-0000000FrKd-2RoN;
-	Wed, 28 Jan 2026 10:48:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=zTyXmYUk5VJ01OMri4QAHDs7af0WzJyVS+aKLHNsXcA=; b=axyWv3sESTth0IlADbOvLOEGy0
-	jf5sBgQDEOWrPhednUEBkraHILEqR91cSoTmSVCM708gOYMZhkCerleMiNHWVzjH/YoqvFovIIydj
-	ddXciJfyfnU3IqCHL9T0geEpQ/Su5VKLl54wO6wr0iDQKPZwc/ZU+fu5D25xq7QQhYH7gnjIyZcZK
-	HxmkL0/C1NVQC0fEfqUHgS4QMevOvcffYI9ndNcSszF+0R4b11qE6a/1qCz22pdeY1W8yWPxi0QJv
-	/MeIhE1MkNj9B5JhzaOxNrqhhmpcPN8DWPWIQQ+ea4+qk2Ef37JeBwpd0rGbxi7ZiTjsJ9nlXsmOm
-	iB+6MPdQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:57828 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vl36G-000000007Do-0wjv;
-	Wed, 28 Jan 2026 10:48:40 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vl36F-00000006url-1fWA;
-	Wed, 28 Jan 2026 10:48:39 +0000
-In-Reply-To: <aXnpTy6XckPGcmg0@shell.armlinux.org.uk>
-References: <aXnpTy6XckPGcmg0@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Drew Fustini <fustini@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Fu Wei <wefu@redhat.com>,
-	Guo Ren <guoren@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 2/2] net: stmmac: report active PHY interface
+	id 1vl38W-0000000Fru0-0rS4
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 Jan 2026 10:51:03 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4f1JqY2ps8z12LDY;
+	Wed, 28 Jan 2026 18:46:49 +0800 (CST)
+Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9731240538;
+	Wed, 28 Jan 2026 18:50:43 +0800 (CST)
+Received: from [10.67.121.58] (10.67.121.58) by kwepemf200017.china.huawei.com
+ (7.202.181.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 28 Jan
+ 2026 18:50:42 +0800
+Message-ID: <3c6d58b2-b4c9-4dc7-a705-b7626e127f33@hisilicon.com>
+Date: Wed, 28 Jan 2026 18:50:42 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vl36F-00000006url-1fWA@rmk-PC.armlinux.org.uk>
-Date: Wed, 28 Jan 2026 10:48:39 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: topology: Fix false warning in
+ counters_read_on_cpu() for same-CPU reads
+To: Sumit Gupta <sumitg@nvidia.com>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <zhenglifeng1@huawei.com>, <viresh.kumar@linaro.org>,
+	<rafael@kernel.org>, <beata.michalska@arm.com>, <pierre.gondois@arm.com>,
+	<ionela.voinescu@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>
+CC: <treding@nvidia.com>, <jonathanh@nvidia.com>, <bbasu@nvidia.com>
+References: <20260127080700.3565546-1-sumitg@nvidia.com>
+Content-Language: en-US
+From: Jie Zhan <zhanjie9@hisilicon.com>
+In-Reply-To: <20260127080700.3565546-1-sumitg@nvidia.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.58]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemf200017.china.huawei.com (7.202.181.10)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_024849_772609_EBCA431F 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20260128_025100_590010_E7C76973 
+X-CRM114-Status: GOOD (  24.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,171 +76,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Report the active PHY interface from the point of view of the dwmac
-hardware to the kernel log, where the core supports reading this.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/common.h  |  6 +++
- .../ethernet/stmicro/stmmac/dwmac1000_dma.c   |  2 +
- .../net/ethernet/stmicro/stmmac/dwmac4_dma.c  |  2 +
- .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |  1 +
- .../ethernet/stmicro/stmmac/dwxgmac2_dma.c    |  1 +
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 52 +++++++++++++++++++
- 6 files changed, 64 insertions(+)
+Hi Sumit,
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
-index 49df46be3669..1c5a4af85b58 100644
---- a/drivers/net/ethernet/stmicro/stmmac/common.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/common.h
-@@ -323,6 +323,10 @@ struct stmmac_safety_stats {
- #define PHY_INTF_SEL_SMII	6
- #define PHY_INTF_SEL_REVMII	7
- 
-+/* XGMAC uses a different encoding - from the AgileX5 documentation */
-+#define PHY_INTF_GMII		0
-+#define PHY_INTF_RGMII		1
-+
- /* MSI defines */
- #define STMMAC_MSI_VEC_MAX	32
- 
-@@ -512,6 +516,8 @@ struct dma_features {
- 	unsigned int dbgmem;
- 	/* Number of Policing Counters */
- 	unsigned int pcsel;
-+	/* Active PHY interface, PHY_INTF_SEL_xxx */
-+	u8 actphyif;
- };
- 
- /* RX Buffer size must be multiple of 4/8/16 bytes */
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
-index a62f1271b6ea..3ac7a7949529 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
-@@ -239,6 +239,8 @@ static int dwmac1000_get_hw_feature(void __iomem *ioaddr,
- 	/* Alternate (enhanced) DESC mode */
- 	dma_cap->enh_desc = (hw_cap & DMA_HW_FEAT_ENHDESSEL) >> 24;
- 
-+	dma_cap->actphyif = FIELD_GET(DMA_HW_FEAT_ACTPHYIF, hw_cap);
-+
- 	return 0;
- }
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-index aaa83e9ff4f0..60b880cdd9da 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-@@ -382,6 +382,8 @@ static int dwmac4_get_hw_feature(void __iomem *ioaddr,
- 	dma_cap->vlins = (hw_cap & GMAC_HW_FEAT_SAVLANINS) >> 27;
- 	dma_cap->arpoffsel = (hw_cap & GMAC_HW_FEAT_ARPOFFSEL) >> 9;
- 
-+	dma_cap->actphyif = FIELD_GET(DMA_HW_FEAT_ACTPHYIF, hw_cap);
-+
- 	/* MAC HW feature1 */
- 	hw_cap = readl(ioaddr + GMAC_HW_FEATURE1);
- 	dma_cap->l3l4fnum = (hw_cap & GMAC_HW_FEAT_L3L4FNUM) >> 27;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-index b5c91c109c43..51943705a2b0 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-@@ -107,6 +107,7 @@
- #define XGMAC_HWFEAT_VXN		BIT(29)
- #define XGMAC_HWFEAT_SAVLANINS		BIT(27)
- #define XGMAC_HWFEAT_TSSTSSEL		GENMASK(26, 25)
-+#define XGMAC_HWFEAT_PHYSEL		GENMASK(24, 23)
- #define XGMAC_HWFEAT_ADDMACADRSEL	GENMASK(22, 18)
- #define XGMAC_HWFEAT_RXCOESEL		BIT(16)
- #define XGMAC_HWFEAT_TXCOESEL		BIT(14)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-index 9bb547f3c3c9..03437f1cf3df 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-@@ -364,6 +364,7 @@ static int dwxgmac2_get_hw_feature(void __iomem *ioaddr,
- 	dma_cap->vxn = (hw_cap & XGMAC_HWFEAT_VXN) >> 29;
- 	dma_cap->vlins = (hw_cap & XGMAC_HWFEAT_SAVLANINS) >> 27;
- 	dma_cap->tssrc = (hw_cap & XGMAC_HWFEAT_TSSTSSEL) >> 25;
-+	dma_cap->actphyif = FIELD_GET(XGMAC_HWFEAT_PHYSEL, hw_cap);
- 	dma_cap->multi_addr = (hw_cap & XGMAC_HWFEAT_ADDMACADRSEL) >> 18;
- 	dma_cap->rx_coe = (hw_cap & XGMAC_HWFEAT_RXCOESEL) >> 16;
- 	dma_cap->tx_coe = (hw_cap & XGMAC_HWFEAT_TXCOESEL) >> 14;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 347a0078f622..db0ea48a5637 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -127,6 +127,22 @@ static unsigned int chain_mode;
- module_param(chain_mode, int, 0444);
- MODULE_PARM_DESC(chain_mode, "To use chain instead of ring mode");
- 
-+static const char *stmmac_dwmac_actphyif[8] = {
-+	[PHY_INTF_SEL_GMII_MII]	= "GMII/MII",
-+	[PHY_INTF_SEL_RGMII]	= "RGMII",
-+	[PHY_INTF_SEL_SGMII]	= "SGMII",
-+	[PHY_INTF_SEL_TBI]	= "TBI",
-+	[PHY_INTF_SEL_RMII]	= "RMII",
-+	[PHY_INTF_SEL_RTBI]	= "RTBI",
-+	[PHY_INTF_SEL_SMII]	= "SMII",
-+	[PHY_INTF_SEL_REVMII]	= "REVMII",
-+};
-+
-+static const char *stmmac_dwxgmac_phyif[4] = {
-+	[PHY_INTF_GMII]		= "GMII",
-+	[PHY_INTF_RGMII]	= "RGMII",
-+};
-+
- static irqreturn_t stmmac_interrupt(int irq, void *dev_id);
- /* For MSI interrupts handling */
- static irqreturn_t stmmac_mac_interrupt(int irq, void *dev_id);
-@@ -7270,6 +7286,41 @@ static void stmmac_service_task(struct work_struct *work)
- 	clear_bit(STMMAC_SERVICE_SCHED, &priv->state);
- }
- 
-+static void stmmac_print_actphyif(struct stmmac_priv *priv)
-+{
-+	const char **phyif_table;
-+	const char *actphyif_str;
-+	size_t phyif_table_size;
-+
-+	switch (priv->plat->core_type) {
-+	case DWMAC_CORE_MAC100:
-+		return;
-+
-+	case DWMAC_CORE_GMAC:
-+	case DWMAC_CORE_GMAC4:
-+		phyif_table = stmmac_dwmac_actphyif;
-+		phyif_table_size = ARRAY_SIZE(stmmac_dwmac_actphyif);
-+		break;
-+
-+	case DWMAC_CORE_XGMAC:
-+		phyif_table = stmmac_dwxgmac_phyif;
-+		phyif_table_size = ARRAY_SIZE(stmmac_dwxgmac_phyif);
-+		break;
-+	}
-+
-+
-+	if (priv->dma_cap.actphyif < phyif_table_size)
-+		actphyif_str = phyif_table[priv->dma_cap.actphyif];
-+	else
-+		actphyif_str = NULL;
-+
-+	if (!actphyif_str)
-+		actphyif_str = "unknown";
-+
-+	dev_info(priv->device, "Active PHY interface: %s (%u)\n",
-+		 actphyif_str, priv->dma_cap.actphyif);
-+}
-+
- /**
-  *  stmmac_hw_init - Init the MAC device
-  *  @priv: driver private structure
-@@ -7326,6 +7377,7 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
- 		else if (priv->dma_cap.rx_coe_type1)
- 			priv->plat->rx_coe = STMMAC_RX_COE_TYPE1;
- 
-+		stmmac_print_actphyif(priv);
- 	} else {
- 		dev_info(priv->device, "No HW DMA feature register supported\n");
- 	}
--- 
-2.47.3
+On 1/27/2026 4:07 PM, Sumit Gupta wrote:
+> The counters_read_on_cpu() function warns when called with IRQs disabled
+> to prevent deadlock in smp_call_function_single(). However, this warning
+> is spurious when reading counters on the current CPU since no IPI is
+> needed for same-CPU reads.
+> 
+> Commit 12eb8f4fff24 ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks
+> for non-PCC regs") changed the CPPC Frequency Invariance Engine to read
+> AMU counters directly from the scheduler tick for non-PCC register
+> spaces (like FFH), instead of deferring to a kthread. This means
+> counters_read_on_cpu() is now called with IRQs disabled from the tick
+> handler, triggering the warning:
+> 
+> | WARNING: arch/arm64/kernel/topology.c:410 at counters_read_on_cpu
+> | ...
+> | Call trace:
+> |  counters_read_on_cpu+0x88/0xa8 (P)
+> |  cpc_read_ffh+0xdc/0x148
+> |  cpc_read+0x260/0x518
+> |  cppc_get_perf_ctrs+0xf0/0x398
+> |  __cppc_scale_freq_tick+0x4c/0x148 [cppc_cpufreq]
+> |  cppc_scale_freq_tick+0x44/0x88 [cppc_cpufreq]
+> |  topology_scale_freq_tick+0x34/0x58
+> |  sched_tick+0x58/0x300
+> |  update_process_times+0xcc/0x120
+> |  tick_nohz_handler+0xa8/0x260
+> |  __hrtimer_run_queues+0x154/0x360
+> |  hrtimer_interrupt+0xf4/0x2b0
+> |  arch_timer_handler_phys+0x4c/0x78
+> |  ....
+> |  CPPC Cpufreq:__cppc_scale_freq_tick: failed to read perf counters
+> |  ....
+> 
+> Fix this by calling the counter read function directly for same-CPU
+> case, bypassing smp_call_function_single() entirely. Use get_cpu() to
+> disable preemption as the counter read functions call this_cpu_has_cap()
+> which requires a non-preemptible context.
+> 
+> Fixes: 12eb8f4fff24 ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks for non-PCC regs")
+> Signed-off-by: Sumit Gupta <sumitg@nvidia.com>
 
+Reviewed-by: Jie Zhan <zhanjie9@hisilicon.com>
+
+Looks fine for me except for the minor comment wrapping.
+
+Thanks for spotting this.
+I may have missed the warning log in the FFH test.
+
+This happens during the short window in cpufreq_policy_online() between
+driver->init() and the CREATE_POLICY notifier that gets AMU FIE ready.
+After that, CPPC FIE will be stopped.
+
+Ideally this can be merged together with Viresh's PR since the CPPC FIE
+changes are there.
+https://lore.kernel.org/all/j4qdid7iqmng4gzb5ozefemjkep3wx2b5z2yki5tnqc3vzvzf4@kvrnarvdod5p/
+
+Jie
+
+> ---
+>  arch/arm64/kernel/topology.c | 21 +++++++++++++++++++--
+>  1 file changed, 19 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index 539b38935182..57b71f403007 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -401,12 +401,29 @@ static inline
+>  int counters_read_on_cpu(int cpu, smp_call_func_t func, u64 *val)
+>  {
+>  	/*
+> -	 * Abort call on counterless CPU or when interrupts are
+> -	 * disabled - can lead to deadlock in smp sync call.
+> +	 * Abort call on counterless CPU.
+>  	 */
+>  	if (!cpu_has_amu_feat(cpu))
+>  		return -EOPNOTSUPP;
+>  
+> +	/*
+> +	 * For same-CPU reads, call the function directly since no IPI
+> +	 * is needed and this is safe even with IRQs disabled.
+> +	 * Use get_cpu() to disable preemption as the counter read
+> +	 * functions call this_cpu_has_cap() which requires a
+> +	 * non-preemptible context.
+> +	 */
+Wrap at 80 chars?
+> +	if (cpu == get_cpu()) {
+> +		func(val);
+> +		put_cpu();
+> +		return 0;
+> +	}
+> +	put_cpu();
+> +
+> +	/*
+> +	 * Reading from a remote CPU requires IRQs enabled to avoid
+> +	 * deadlock in smp_call_function_single().
+> +	 */
+>  	if (WARN_ON_ONCE(irqs_disabled()))
+>  		return -EPERM;
+>  
 
