@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6590ED3F075
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 14:45:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55F0AD3F076
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 14:47:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wp8xpYYjg1vhg0pi7Jl+mU+f2ABqLf33nK49eabpdXU=; b=KnBdhLWALma2Hb/iiaWHnjcCHA
-	Rh5YiNJsVg84FIeKZs0T111MUx8ToJYOmuHZ59EHLSC0EXxNUD5uRHEjN8XW5bBf057zlVPx6f3W4
-	fsR+5QgEaOUdUBc6aHUzDIH0nvGk6U2ekfqcUEP8soe/zfYSaWXw9pwkfEm/tEks8ST6zSkVvb7iX
-	GGpBK7ExeUacPEoRSs6Y5Ck+nAkZnZYwq07NiASDJm9tqMY5+hPVtb6s2RenxUaoapU8lqZaY0bUZ
-	IQTLwAYF/BsgesPXq5jrjtT98CuhBljuuTx8NdErwffNAirpJppzCosvOnxAW4/aVqRZSQJfXl+kM
-	BTCOCLiA==;
+	bh=x0L21iZQE6yD4RaKldOb6lO8mhKXmFZPHTycUeA2FrU=; b=vsC1/xkMAsFi5v9VNKvE8tr5Kk
+	DhV3l8U3OoHPkcIyYvzH0DE/ASEmTlwPxhsf8Irw2rRbVTsblgcjg0kd9Br1wtRX5f2OJXNyfK+vV
+	oCv4V00T9aKmLBDvhFs6BYx4UgN08BMNM4II47qTfD7hWZ8wVVn9tOttgeYbezM6OIc3LrFzd6ond
+	MMWMwmKpYBKe2YGg2+9AwJqN+9pQ+GxD0o7HRrRYxCOwIMFG5BdvJmvcdI4MLR5aldgI+Z7GbAA7U
+	EIxsP0N7dtrlvJ+OqWzIYkrXY5a8C+FXaFV4ZRSDfniqNiG4MZqq43uIFsiLbO/X9szF4yE5iMfzk
+	DDrM9R8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl6nO-0000000GCQ9-02F6;
-	Wed, 28 Jan 2026 14:45:26 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1vl6pC-0000000GCfj-2czf;
+	Wed, 28 Jan 2026 14:47:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl6nI-0000000GCPl-0041
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 14:45:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769611520; x=1801147520;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=/Noec6um4sg420tnSvek85Gdh+vG/B7APWADS2BN5M0=;
-  b=X0bDYE+PaJtdXN2mBhzAAjKTRwtfhOxBQ8lt8/76AunrDDJhsTjen+Bb
-   FI7+9g9rQzfzQvuzm9qlr+vhiPb3y9xiRY4QLvXi1VjbzSbN3znQgKP9Q
-   Os2fEPvhZYxUmZ/KHIuoHZEQGMvthU1CnD0F0mHWurHyUo/qWNQ+Ui/tG
-   +5Wr+xgrS70UcvSS/7ZaUXCFZk07jlfeo16B9QHD548NtMsEdMai2lxnn
-   dphPmsvCczvZCq0puvI7fN7/DQTNgfX+5O8jyiugg6KhmASurp9f2DRxA
-   AT8RZRpSG49PdT9wi4/bxvyQruqY9+qZAT6Oo911onJO+dQBy01OXJnS4
-   Q==;
-X-CSE-ConnectionGUID: cDQM+o5qTseY96WcOZiX1A==
-X-CSE-MsgGUID: xmH30mEZQ4iG9Ga8/lSXrg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="93482245"
-X-IronPort-AV: E=Sophos;i="6.21,258,1763452800"; 
-   d="scan'208";a="93482245"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jan 2026 06:45:17 -0800
-X-CSE-ConnectionGUID: 7dzyFWYbSqCVtXSpEEOFJg==
-X-CSE-MsgGUID: V/JExwARRnaYBRB6yGznUw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,258,1763452800"; 
-   d="scan'208";a="207903992"
-Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.245.57])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jan 2026 06:45:15 -0800
-Date: Wed, 28 Jan 2026 16:45:12 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Michal Simek <michal.simek@amd.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Abdurrahman Hussain <abdurrahman@nexthop.ai>,
-	Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, info@mocean-labs.com,
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v6 1/7] dt-bindings: i2c: xiic: make clocks optional
-Message-ID: <aXog-KBw7Bp-VEC4@smile.fi.intel.com>
-References: <20260127-i2c-xiic-v6-0-e82e2f6f657c@nexthop.ai>
- <20260127-i2c-xiic-v6-1-e82e2f6f657c@nexthop.ai>
- <20260128-remarkable-airborne-chihuahua-a1a16c@quoll>
- <66c7435c-a936-413e-a016-c860d448c971@amd.com>
- <fc00f8cf-b566-4694-82fe-76010d2f7c78@lunn.ch>
+	id 1vl6p9-0000000GCfQ-2rtT;
+	Wed, 28 Jan 2026 14:47:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C315F600AD;
+	Wed, 28 Jan 2026 14:47:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FF98C4CEF1;
+	Wed, 28 Jan 2026 14:47:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769611634;
+	bh=tHWNBPFYS91KkDSP5taGybUFdFj3eFVqHM55nD7uiTk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ul09wiqX8UI6vXHuhBsL1eLLc7dCJAXEsJeehfRWsu+h1mwgsjjfsDX+NWjAL2b0/
+	 4xqPup32t3j8pF3fJvYzjBxDVdTjfbqCjine4m+iR1kdAfSATO6+JS1XECxnrGg6is
+	 LZ5YvjxU11g0ldUEHoMSJwXuoJcpmrGJfShYZe7EEnhLY5rVl0VxGyNsyOmNYKbAY0
+	 iI4GVkNvMY/i7nt1HyCra7DRgdR/olvh0SbCo66t9XYKIAsHI3ADMRSK4Q4s63HEtX
+	 BGbImqzNemsDZ6piY5Kvm38n1ehvBSDQFVIvExRsnn2/e+tvmf8632pV3aPoU2Fmp/
+	 xO+gE52vLMC0A==
+Date: Wed, 28 Jan 2026 14:47:08 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Yassine Oudjana <y.oudjana@protonmail.com>,
+	Laura Nao <laura.nao@collabora.com>,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
+	kernel@collabora.com, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v3 1/5] clk: Respect CLK_OPS_PARENT_ENABLE during recalc
+Message-ID: <daa1906b-a112-4158-aec2-ad1d29b4fe35@sirena.org.uk>
+References: <20251010-mtk-pll-rpm-v3-0-fb1bd15d734a@collabora.com>
+ <6800096.lOV4Wx5bFT@workhorse>
+ <1cbf0f37-13de-46a5-a3c0-0509048c519e@sirena.org.uk>
+ <6678782.DvuYhMxLoT@workhorse>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="GDKwEpCHvyP7dewC"
 Content-Disposition: inline
-In-Reply-To: <fc00f8cf-b566-4694-82fe-76010d2f7c78@lunn.ch>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_064520_105840_18E35FAE 
-X-CRM114-Status: GOOD (  22.37  )
+In-Reply-To: <6678782.DvuYhMxLoT@workhorse>
+X-Cookie: I brake for chezlogs!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,39 +82,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 03:34:02PM +0100, Andrew Lunn wrote:
-> On Wed, Jan 28, 2026 at 12:21:41PM +0100, Michal Simek wrote:
-> > On 1/28/26 11:37, Krzysztof Kozlowski wrote:
-> > > On Tue, Jan 27, 2026 at 09:03:55PM +0000, Abdurrahman Hussain wrote:
-> > > > The xiic driver is designed to operate without explicit clock configuration
-> > > 
-> > > And if you change this in the driver, then you change bindings?
-> > > 
-> > > You miss here explanation based on hardware - how does the hardware work
-> > > if nothing ticks it clocks?
-> > 
-> > Hardware obviously have clock input which needs to be connected. Without it
-> > it won't work.
-> 
-> Should ACPI potential limitations be making the DT description less
-> accurate?
-> 
-> Would it not be better that the driver has an DT binding and an ACPI
-> binding? Where there are common properties, common functions can be
-> used to retrieve them. However, if ACPI lacks usable clocks, use the
-> of_ method to get the clock from DT, and skip it for ACPI.
 
-Why should we use of_ methods? If this is required we can check the type of
-fwnode and act accordingly, but I think this should go deeper into some
-treewide available helpers, because now some drivers repeat the mantra.
+--GDKwEpCHvyP7dewC
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-But how do the driver get the clock frequency (if needed for some register
-settings and/or calculations)? DT seems to have well established property
-'clock-frequency' for that. Can we consider it as "ACPI binding" as well?
+On Wed, Jan 28, 2026 at 03:09:46PM +0100, Nicolas Frattaroli wrote:
+> On Wednesday, 28 January 2026 00:14:29 Central European Standard Time Mark Brown wrote:
 
--- 
-With Best Regards,
-Andy Shevchenko
+> > Do you have a debugging patch we could run which would say which clocks
+> > are impacted?  I guess it's more of an issue for the platforms that give
+> > no output but for at least Avenger96 I was getting earlycon output.
 
+> Try this one
 
+For the Avenger96 that says:
+
+[    0.347816] __clk_core_init: enabling parent ck_hse for ck_per
+[    0.352230] __clk_core_init: disabling parent ck_hse for ck_per
+[    0.358207] __clk_core_init: enabling parent pll1_p for ck_mpu
+[    0.364005] __clk_core_init: disabling parent pll1_p for ck_mpu
+
+https://lava.sirena.org.uk/scheduler/job/2412562#L563
+
+--GDKwEpCHvyP7dewC
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAml6IWwACgkQJNaLcl1U
+h9BBPwf+LjkTj9Qp0vyhD/i/R80ajL4bZ1ZDsFjeS7Q9ndpXjMlkWi2WkEMZIwa/
+P+8ztpF6h/fmEXd3p0CscB4vRcESWpxlen8r+emlnUb+3fauARNtpcCn2rKnHkOO
+jD6NPuNlD8RtZ4I2CciBtNW62ueWIz6wicxe31v6YMianQtrz7x6ir8LJjYO8yLx
+4vrxf50/IQcQYSaNAukI+kmPEL/61gjY6FK8/vj6in7tdZDiIU/tj2pjI5WVtP28
+MzzqbpFGPx9OEPRwKeScc8p9c69qdWQ+WCORo6VxGo1FQ4r068BFEUjOKSNFwRWU
+W3J95d/PsXOZF12bpTIlh1Kq63T43A==
+=9Yi1
+-----END PGP SIGNATURE-----
+
+--GDKwEpCHvyP7dewC--
 
