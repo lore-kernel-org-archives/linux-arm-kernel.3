@@ -4,88 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F89BD3F08F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 16:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 589B0D3F08F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 16:07:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sb3AGPYrr0/fo4jbw4irixmJe3vsgCbc9Ej4of+Z+E4=; b=gYrGa3OfvqtMcjWn44A4uksoal
-	S+ERlIscSUVwSHNyPHQh3ffhnvsZRL8h9ogZsWiV0SsSDd9WLV/DJ/vsqXTo5fiWQHTeMGwAwddC/
-	CgXj5zne8qQFFbXYTzuTvsSXJDYeey7HNHZyzMm60TMnjtIiz+Ta5LiLKshJuiDJM1D9hSnqnpmUt
-	BV4PV9FlDz2rjKTtdokl72cy2y8Q5Sjj6UYKhbg6bXCad9npXXYKDixxQtlFaQL3wlyr6EfjdUP7o
-	YpA92A9q/U6z9ifT1/ZUcdLyXsNNK9Z9Ec3I7dx1fDOV1il5SZLNveP71tSj4I+R+OjXGV7xoApLx
-	P4d6uyoQ==;
+	bh=5wT74JYFNoQcS4wI1iniyZimQN/JHMCSXvXZOTbFCAs=; b=DF4TbA7E89Tj/FRwLVrEydVN6b
+	Gi2VEffabHcoDHOl9KYUcoMDr23pDji96cu3wq3h/n1RYRe3RVTR6OmiuZMsxBFYgnVrU2lhqRAvW
+	7O5TchJinCUz6RiORv8h5XHqcUmBqhZjdGZvvmXnmwnOhVZnja2njcItabTQrnQ9mZDdUSZrLMPLS
+	85KU/pE7msbXUDOLtZuV55HtvXFdVv5q9AvdQ6r/q+IfKOSNasQwOlvFI2B682KcNEZDBE+3CWtaU
+	5Xvj6uQ4SrYUncDZfVhotVU6msNGTX1fr/fjQ4gwknVPSB9WWxigIY+smDIvEN+R5v4W5CKiYtyec
+	bEpzuTLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl82q-0000000GLCS-3UnT;
-	Wed, 28 Jan 2026 16:05:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vl84Q-0000000GLVK-2GzG;
+	Wed, 28 Jan 2026 16:07:06 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl82p-0000000GLC1-1vRj;
-	Wed, 28 Jan 2026 16:05:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=sb3AGPYrr0/fo4jbw4irixmJe3vsgCbc9Ej4of+Z+E4=; b=neYOycGb7SC4n4UMsYhafkeCRs
-	gQF/vD+wubqkseUpJiHX/uRyQXG1Ubm5gCMA6lzOzqZyhU5WO+dQbOFE4WAkRk6gRWmer0I31Du/W
-	P+SA6BQVhVSPqsj07VbFWf7K97cQpJ7PAU+g9xx5CnoUoYZgdV/qkTfS9QDlTSbar9JZYEPBI/qPK
-	F13cEai211Lfk9q7wra+fLjFzuj0EZqsRVX/ajsirr5C9Ny2iK6QZaDKXmf7yk36Hsx/y9P36cQkm
-	NY0K+YcEFHESJyOspNB1PwD0lAWYesU5sRHAM7MTQYhvoQGsajUfxxixQ4xXdv5gRT+CBiq7LF8Ji
-	LrPMilgQ==;
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl82l-00000008tqZ-2uuZ;
-	Wed, 28 Jan 2026 16:05:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769616302; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Pvqg3/gTn76an7M2H0plJ+A/j0grY9QpWSR+zfMFtvdWHwgv20NMo0gexCxzJcmX+dqeRI7/aqalvmsb/Tg/38Zy0Ej/J8l4YWq1awgBRqWF3CNnnKfHadiC324aoDz05ruxQrDDYBylbQ0uWQOxznCSx8ezv4O7dF6NIwbd5/c=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769616302; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=sb3AGPYrr0/fo4jbw4irixmJe3vsgCbc9Ej4of+Z+E4=; 
-	b=huaMjNg+D8TELmKporfZ8/M4DDDtQz4QI9YmdjJRBq4sxqm/zQg0mKsVbJ+Ve6mufwVyq9itV8Urlr/z9CDAWj04iEhgyWs1aA1JOH8Gg7E1M7S9DKLTwmiEkuI1ZZlBxXG/X7igu4Uo7UAjjGCcIFypz3WRgXb7R/lP1d9W0/c=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769616302;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=sb3AGPYrr0/fo4jbw4irixmJe3vsgCbc9Ej4of+Z+E4=;
-	b=UF+V3FD7yc6+2BlnxYazVLbjwN7ep+KvPNlM/7z/vII5PVMAjtlM4PnfBxYw4sfa
-	SVZL0HcDwpQVzVXTZ8FhHpKjU2nisCjqpLlNPc/EGgQL0ZEajUfL62bAWTB+Hc02OSb
-	Ntiv/tE5rO4TxW2gXfWEYl6Od+8dTiHrEyrMKmIM=
-Received: by mx.zohomail.com with SMTPS id 1769616300860635.7323383170847;
-	Wed, 28 Jan 2026 08:05:00 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Dong Aisheng <aisheng.dong@nxp.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Yassine Oudjana <y.oudjana@protonmail.com>,
- Laura Nao <laura.nao@collabora.com>,
- =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>,
- Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
- kernel@collabora.com, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v3 1/5] clk: Respect CLK_OPS_PARENT_ENABLE during recalc
-Date: Wed, 28 Jan 2026 17:04:55 +0100
-Message-ID: <3745487.e9J7NaK4W3@workhorse>
-In-Reply-To: <daa1906b-a112-4158-aec2-ad1d29b4fe35@sirena.org.uk>
-References: <20251010-mtk-pll-rpm-v3-0-fb1bd15d734a@collabora.com>
- <6678782.DvuYhMxLoT@workhorse>
- <daa1906b-a112-4158-aec2-ad1d29b4fe35@sirena.org.uk>
+	id 1vl84N-0000000GLUd-3O1t
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 Jan 2026 16:07:04 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60SFhx4g3442331
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 16:07:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=5wT74JYFNoQcS4wI1iniyZim
+	QN/JHMCSXvXZOTbFCAs=; b=DbEQJlZUCQ0DWI/iv0RwoFK7HTXK+pjbIfWIdguG
+	mQWQTkBX0zYy75o3Le2DjFYlhdXmkn1VgL+MmaIhWeJ13JwylSNZwzATp1ePlewD
+	z9neIrgr/RG38y3yvKTTCGospOkypsDkgbLtfHMq/alPqYUYEqWAsRfK6VDLTFIS
+	aHxY0CyUt1EqlIHZy1LgXqIwPIWOz4gfD5HhznSy2ydxtsGsFV7TI8TxKl9v5iYI
+	SMHLpV2aGr19koOv5ptwhEIAPmjpFnmBG0C5LR0AMvyljm165Vr+N8RDgJvcHgG3
+	ZqJBBW+zLOtSoEKi7+/xlRv4Yi2owlLbEkiLXHYRQv/6Gw==
+Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4byanajf0j-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 16:07:03 +0000 (GMT)
+Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-56626b89e83so7237215e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 08:07:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1769616422; x=1770221222; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=5wT74JYFNoQcS4wI1iniyZimQN/JHMCSXvXZOTbFCAs=;
+        b=fAbMKR4vKn2zqVr/WjEYSaYvU6ovJYLMhMbZxQk8i/5ItGoi3skkLvbes2B2VKiKNy
+         x6njo3qKolNo/6Lw3U3lfy3eNznxpC87O+XhVUxA3KRTDsClGafT2fNtEApIyE0JHPWb
+         qNOKg3J52/tYlq9ARkwoYY9AUiUvXEU1XD/MTxD+br/jm9dzfFiekmLx0Tauvo2VtCc9
+         vdJkrF3EZca8+ehBGbMSRD5KsCtzda8klNMMabXhQCE1LK6yArK6odYTpgWyK0jXX7gB
+         SDfebhvueMkSk62GoDtEYgQacJsCVlIrH3rIYabHAnWfXsVA1ecnMuu69p1/givvJnKY
+         TtpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769616422; x=1770221222;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5wT74JYFNoQcS4wI1iniyZimQN/JHMCSXvXZOTbFCAs=;
+        b=rdxQUlnJ2c6diuQSQKQfBiNiXmJSjr540YbTrS4R5fYLmy4R4CphmBaymExsqvnE4b
+         CE20wTiRsoiVppqsa5JeevLPcJwuZDgE67GRQPh7NeGQaswC8drvaUnp1dkgzUzAmYAV
+         P10Ty5/L0y+lx1vqneIqDbgIellZRKLYVPl+oxF2m5F5L9w9uMtiWFKVjbahAu/T5xU9
+         TkL/omy5/p2rMSOOm/MuK4w7HsXi/DwYVg3OyYOkb9zxVyZlbgovjKBf3LhlZf0nTaXK
+         cFe8wPsN27yMXqaPWcbm1SaxlcA40gyasefdK8a2Z04EuKQXPXnFTYP0vOtIqHR8Aqeo
+         UOQg==
+X-Forwarded-Encrypted: i=1; AJvYcCU/aayFe7XO7+PxsXgR7TPdySsx0xGImHtDbumzHveJDV96/iwWaDu/iIs+3IXB/hR4Eqz5HeOSNJDLf1b1wzzI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzC5wrCHEXfx0BOwtLabj7OsmzxfVtGAxIGF+ebh/FFFyxtA7Mj
+	H+Ccf6t6iVFmeYP6dRIEzC+Uu5G6gQlqdoy74Vc975a6BcavMVgO9Y/bn9Y/Vrr9GwxtcrqD+Yj
+	MBmXwU1ou0pPSeDr7EH8icIU9qByNpUgXyROTm3AEBFKJdA0pH82e1+E2JbHlHuyPmrxmWkO+yC
+	sQ5w==
+X-Gm-Gg: AZuq6aJ67NYIVulfCp9Md+ayfM06XrFmAdzGtwppuIU9L1Xtked1xOr/b5WgFoKGN5x
+	szAOYumw+JM/qegUjGWQELS2bliHsfCXAqIYfIj1EV45iO7XHkn1t9ocOBbeNh6Zla+lLS0zH0j
+	8kvKONjq+xxpNuFQgd4E367EZQRvWyITnGQdJ4YsKZrFBYO0iIk05JkbH+MP1JIReuF81Iohl83
+	oyBl/N3Tqa87ntkh9I64ScOH9i09PeFLGGVFoLoGr6x22cSOLz2mEm/iIqsc6NllzfGNECo8ilp
+	dsSy/YOW/qTo+hoM85oVcdPcus9U4x8TelsjK4vuWQoTjOUmM+7Ieb/pQIi/eISlyFWi74HeZrq
+	qwbLH8qnHhcqpqXDcdgiNGoPWY5Vb+xnRHVaGg7+S+l/4hDf3L1nAYhv8BqIZlL127kGRF5Xvqf
+	UaVub0wMUxQpjY09cjl+DHqok=
+X-Received: by 2002:a05:6122:7c7:b0:563:5070:ab4b with SMTP id 71dfb90a1353d-566795c542cmr1437741e0c.14.1769616422296;
+        Wed, 28 Jan 2026 08:07:02 -0800 (PST)
+X-Received: by 2002:a05:6122:7c7:b0:563:5070:ab4b with SMTP id 71dfb90a1353d-566795c542cmr1437707e0c.14.1769616421853;
+        Wed, 28 Jan 2026 08:07:01 -0800 (PST)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38627876ab6sm3997671fa.49.2026.01.28.08.06.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Jan 2026 08:07:00 -0800 (PST)
+Date: Wed, 28 Jan 2026 18:06:57 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] clk: qcom: sm8750: Constify 'qcom_cc_desc' in SM8750
+ camcc
+Message-ID: <mpb5lca5n63vyp725nfvhzcyckjzfw3qxhjrwrhsxvbaykkcta@lhq6t2guwm7y>
+References: <20260128154306.133047-2-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260128154306.133047-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-Proofpoint-GUID: 4rDjxDeENDhqe3fYuI761XEVqDYXwQ1A
+X-Proofpoint-ORIG-GUID: 4rDjxDeENDhqe3fYuI761XEVqDYXwQ1A
+X-Authority-Analysis: v=2.4 cv=N58k1m9B c=1 sm=1 tr=0 ts=697a3427 cx=c_pps
+ a=JIY1xp/sjQ9K5JH4t62bdg==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=EUspDBNiAAAA:8 a=LBVU2G7aICa-vlctToYA:9 a=CjuIK1q_8ugA:10
+ a=tNoRWFLymzeba-QzToBc:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI4MDEzMiBTYWx0ZWRfX93yRk6IoQoQH
+ Vmd0c7ojYPiobsUoOmCIW08NHf3rGIKFKvoMEhCKhW/tjUcT8qZ7tCrtf8r8JR2/oqeagnARTn9
+ 4yoqphswiQpuygXXONHVsqP4T+7UG1plhIJnWsHfkNesKnSLOgLDD1IOdKluQgMN26j43vRixDl
+ Vy3VXpW+LSeNnzmZSkS7BKEg0CBpYxnZzGZaVDrycdYLKmcXJTNwesiDjfYiiiA7VTNoCl4XYD4
+ K7J+LA3Jw3+G7RKIt1k73mB2J7xybAboZYz1P+OTcx5l2ldCX8xCrXPs5T34zgCWTBsio6iy7i2
+ 0MmVNKdrmn0xcdVhHincLQmtoHLbVyzrFZ25q62UMBFkAcXxP+EB/8uD/S50oCK8O4LsGZFeg6d
+ AeQhm/8opOt8kpYVWUxbGckntYQo0Xl4lbxIc+hf+BX4mDtv7ih6efcaw7SZWPnIIvMe0aDEsps
+ ti/5FQ/Ga915j45koEA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-01-28_03,2026-01-28_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 suspectscore=0 lowpriorityscore=0 priorityscore=1501
+ malwarescore=0 bulkscore=0 adultscore=0 clxscore=1015 impostorscore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
+ definitions=main-2601280132
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_160524_016143_E015307C 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20260128_080703_845746_1C54B7C8 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,77 +148,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday, 28 January 2026 15:47:08 Central European Standard Time Mark Brown wrote:
-> On Wed, Jan 28, 2026 at 03:09:46PM +0100, Nicolas Frattaroli wrote:
-> > On Wednesday, 28 January 2026 00:14:29 Central European Standard Time Mark Brown wrote:
+On Wed, Jan 28, 2026 at 04:43:07PM +0100, Krzysztof Kozlowski wrote:
+> 'struct qcom_cc_desc' is passed to qcom_cc_map() and
+> qcom_cc_really_probe() only as pointer to const, so make the memory
+> const for safety.
 > 
-> > > Do you have a debugging patch we could run which would say which clocks
-> > > are impacted?  I guess it's more of an issue for the platforms that give
-> > > no output but for at least Avenger96 I was getting earlycon output.
-> 
-> > Try this one
-> 
-> For the Avenger96 that says:
-> 
-> [    0.347816] __clk_core_init: enabling parent ck_hse for ck_per
-> [    0.352230] __clk_core_init: disabling parent ck_hse for ck_per
-> [    0.358207] __clk_core_init: enabling parent pll1_p for ck_mpu
-> [    0.364005] __clk_core_init: disabling parent pll1_p for ck_mpu
-> 
-> https://lava.sirena.org.uk/scheduler/job/2412562#L563
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> ---
+>  drivers/clk/qcom/cambistmclkcc-sm8750.c | 2 +-
+>  drivers/clk/qcom/camcc-sm8750.c         | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
 > 
 
-Okay, on this one, there may be a problem in the clock tree.
-ck_mpu is marked CLK_IS_CRITICAL, but its parent, pll1_p, is not. Clock
-core doesn't seem to check whether any children of a clock are marked as
-critical before disabling it.
-
-I'm not super familiar with the intended semantics of critical clocks.
-If we need to manually mark all parents of critical clocks as critical
-as well, then a (potentially partial) fix for the Avenger96 might be:
-
----
-diff --git a/drivers/clk/stm32/clk-stm32mp1.c b/drivers/clk/stm32/clk-stm32mp1.c
-index 2d9ccd96ec98..6bf3fad1e0dc 100644
---- a/drivers/clk/stm32/clk-stm32mp1.c
-+++ b/drivers/clk/stm32/clk-stm32mp1.c
-@@ -1783,12 +1783,12 @@ static const struct clock_config stm32mp1_clock_cfg[] = {
- 	PLL(PLL4, "pll4", ref4_parents, 0, RCC_PLL4CR, RCC_RCK4SELR),
- 
- 	/* ODF */
--	COMPOSITE(PLL1_P, "pll1_p", PARENT("pll1"), 0,
-+	COMPOSITE(PLL1_P, "pll1_p", PARENT("pll1"), CLK_IS_CRITICAL,
- 		  _GATE(RCC_PLL1CR, 4, 0),
- 		  _NO_MUX,
- 		  _DIV(RCC_PLL1CFGR2, 0, 7, 0, NULL)),
- 
--	COMPOSITE(PLL2_P, "pll2_p", PARENT("pll2"), 0,
-+	COMPOSITE(PLL2_P, "pll2_p", PARENT("pll2"), CLK_IS_CRITICAL,
- 		  _GATE(RCC_PLL2CR, 4, 0),
- 		  _NO_MUX,
- 		  _DIV(RCC_PLL2CFGR2, 0, 7, 0, NULL)),
-@@ -1803,7 +1803,7 @@ static const struct clock_config stm32mp1_clock_cfg[] = {
- 		  _NO_MUX,
- 		  _DIV(RCC_PLL2CFGR2, 16, 7, 0, NULL)),
- 
--	COMPOSITE(PLL3_P, "pll3_p", PARENT("pll3"), 0,
-+	COMPOSITE(PLL3_P, "pll3_p", PARENT("pll3"), CLK_IS_CRITICAL,
- 		  _GATE(RCC_PLL3CR, 4, 0),
- 		  _NO_MUX,
- 		  _DIV(RCC_PLL3CFGR2, 0, 7, 0, NULL)),
----
-
-I just looked for CLK_IS_CRITICAL clocks in that file that have the
-CLK_OPS_PARENT_ENABLE flag, and marked their PLL parents as critical
-as well.
-
-An alternate approach would be to skip the parent enable/disable pair
-in the problematic patch in __clk_core_init for clocks that are marked
-as critical, because if the parent wasn't on for a critical clock then
-we wouldn't be in that function, we would be dead.
-
-Kind regards,
-Nicolas Frattaroli
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
 
+-- 
+With best wishes
+Dmitry
 
