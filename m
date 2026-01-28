@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 459A4D35699
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:55:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68E78D35698
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:55:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7LgqAxD6UfwmKx5Fd0jcW4Pat4uqGsb1EaPQx1jaWDA=; b=VuKNQFi7UrobVMjwSzXVsaeGZe
-	UFdq7g9s/bYJorXs3BFfy30+VocR10qKQB6Y/QP9FWaBifjRPOZ8EL2PwTtGg45JtXIxWi5dDWkhC
-	rov/vlVkrBP/FgbfdlwCWiRAJLVZL/0f6ZioDQBXkqK4M/0H88zq0/AqHlbdarY8WZgTKchGP1QDX
-	UA8j9HKNn5VwrRq9AqwweXKfq66iUqpQkrq/Eyk5NlHBNPOC1LTOCdFowN7DzQYJWKiDD0LjNWAJA
-	FWxGlapzwUvqbayl3g8zd0aI14uCMQM28dyd5eJdqjXC/JL7eh3o++no8RFRbFYwKrfHecKOBDuzO
-	g4zrqcGg==;
+	bh=hgLydv0OAbPSYmy/7mtUdSMM6gy3g70cS63c1sKd/bM=; b=2c/5+4O+SJrE+a8feqTR2Pf+nV
+	710+B53mlb7Cl21F5uNx3p8LvPFpOPvFum54ps/o1kNA1jhre5FAqf4YFWmjpQUKXfea/aFHJ7DJ7
+	31IBT67PiPHZtkyqdrQfDMPIP92iddN+IzK8her1WDfSfcfv0X0HVomrjHP2IUvVG4wbSQ+5gOtJR
+	1UhYtnV1xcgVHVTdzU11vdEBPtdJ4sIMmBlMt7n4det+/e3dDJjjebGvffx0Fe6iW4iSu3MMm5ED4
+	54mEdyXbf90S8xCVBmRJknSBwzyrz1oU/67Hnhh9nszTfKzV2x6slC3OGRtwqR5zwHZlk0plxLV1A
+	mlSQEevA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl2GY-0000000Fmiy-339h;
-	Wed, 28 Jan 2026 09:55:14 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1vl2GZ-0000000Fmk1-1Ozv;
+	Wed, 28 Jan 2026 09:55:15 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl2GR-0000000FmeM-405K
+	id 1vl2GV-0000000Fmgp-2Yfm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 09:55:09 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-59b6d5bd575so6806388e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 01:55:07 -0800 (PST)
+	Wed, 28 Jan 2026 09:55:13 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-59dd490be5fso8682198e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 01:55:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769594106; x=1770198906; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1769594109; x=1770198909; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7LgqAxD6UfwmKx5Fd0jcW4Pat4uqGsb1EaPQx1jaWDA=;
-        b=TqoughU12HHOQ5cuqK2delM9L750z3drA12S35XyJFepHdYDbmOqmdemLr7RezBvYt
-         rvu5Yr34/SxOYkwJYvC6WhJ9aeUUAzo3JMCBO0BjYWQ9XzcnTlfFR5xb3zAq2XkPWtaP
-         iYcP602+3SfEasRTTZYREtTfmJ0X/TdCcpbhYjv0uiAnoczU1Gp/UTJsjImp4PU1QHFW
-         KIzSIxyHQyIooPU/3PAIQ+yYxL6VZ/1r2fQb8haAh+OqJCusF88P5yk6UzxoBeeY19xA
-         Xqc5JXA3ggh1wkYb1t/ovb2WzTsuJZt8EYU1TkSu18sgUum161CithewXfiltI2gkl7C
-         wcMA==
+        bh=hgLydv0OAbPSYmy/7mtUdSMM6gy3g70cS63c1sKd/bM=;
+        b=j5oCIxKQxPdHmRxxSI8ME2T4QcUWlqC5AYkZW7+dUNzjFgFO2qT48ozRhKGpfVufCh
+         ZTbG3gj0P3DqpuZ105lkXeP2XOrMv1vz3kPXu2ChCzRHUz92Z6nEYKBgmjOw4KjgZ04j
+         j8xW/S/AYBZqkEMq1XS2g+u/CRrGSwou+0UHuG7UI24/lMLUoXw53Pmt1xAHV2CIrwd6
+         poWkQhha+ied3lBIzQDUT41sP51q/f8gTmfMgHlacfMjS4mkbx/8DJKQQe/cs0jZZxTY
+         Xi/Hz+t3Z0ZjBGWv5HDGoRfExqs4pIawdfJ9p6QtDHvDlhUqgD+VUdd/2BZ/ptqlWSNO
+         oIEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769594106; x=1770198906;
+        d=1e100.net; s=20230601; t=1769594109; x=1770198909;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=7LgqAxD6UfwmKx5Fd0jcW4Pat4uqGsb1EaPQx1jaWDA=;
-        b=FR/MUhxe+k/u2rP/yxy9j+iA77GMqxruAj/H1g630GCyxIRq5nroip56uTTbgGWG+W
-         uy3i6e0P4YRWNv7gBNc3WqWXOUsJzEsovubBOlWBvCoHKMe8I3U1VOpC5uh/G5bS1Spc
-         cPO+2fHmlqcaFuHFpaAEYXGCidCm54BJvOVVZ8xE2VhpRlz2UgXkHWUukBwOZE92drRC
-         Mc1W5nHvCgaqHMvmAk39axE+VNbwHMcLRFHr3u7HQiJZtUPactp0+QW2fVO62xP5ILTo
-         +QDBgQTBS9FiepmTnGP9Kjqta3kca47a5kAwk6+aS5Jz7/Q3Y+wOjPRnneXP03dGRAe2
-         wkOA==
-X-Forwarded-Encrypted: i=1; AJvYcCW9nsLLLjJgL3JmJFsqmN74oearIN2p54foo6x+kHoSP1G/pFwfmKmYK5vM9733bINorbfIqCthnYXKfFBHVVrU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwL1eQjbVHcs2bWA3DT0rzXxD9eJ6K2XeMt/y7ZsUs+1OSLFUdY
-	3Ap1XjavlBKWXbwI36/9vzRBAmJpy7BFVUlPAcUE9A8ED1rz34+VwM4y
-X-Gm-Gg: AZuq6aLVfv30oAHc/l4ghzBXbdYeTB7pUxUiexoghIy3HyvNT96/RsRRqfDBg4Mx7kD
-	y1mlOYzhumeRIH0CdpbTBmV96aA8905sUGng9TXBPr7KkzSEamHK69nKeI+F5E9HiX3p6Vkst3n
-	qb3yfES+BsqnmR/ov7nzuW9UAF5J/JFqayfuQ8OiJ5u0zn7mpyfsSQ+vyMpHFvCgBJWnq/oOWJZ
-	SdgN/0MUxzTvLb6kQFYEq39SrWx6IMyE1LS+9aYWiH59ePqmcXDhMXNuJG2mFr5JeF+8ppJFnEn
-	VmAyVSjg1r0R35gUhOlKa8UMv33GXoPOP0dYxw8puYYN1eo9a6bAOHHoDHk7u3QUBNX1N9kNbys
-	o22OgycEw1/G+rDeGw7HtbBrOt65LE2y6CdkrneuVY+JrPd+5vrS9ljBPiX3PnmqcHYziJuA3ph
-	tZPw0Zs+DjbkY/bzDXOnpsUrN3NLLWZB+UhQRPxK1nAzdVPAQRmUnSHM7t
-X-Received: by 2002:a05:6512:b28:b0:59e:92e:7d07 with SMTP id 2adb3069b0e04-59e092e7dd9mr612809e87.24.1769594105281;
-        Wed, 28 Jan 2026 01:55:05 -0800 (PST)
+        bh=hgLydv0OAbPSYmy/7mtUdSMM6gy3g70cS63c1sKd/bM=;
+        b=H6pnt08OhfmQFnS25CyeMq1SzywkNXOrDPsbk1DpjIIdj0f5pWucjlk0Mhr/XRl9R0
+         o9Rqj357fJY8I/cn+6hVdiYSj3eIaniFM7tG47YhxAU8709JMygCNYajlpedkUjnuKzI
+         DbrFBkITVvNjG2Vh6VDl/3GhuMZJ3pnT8gOpCSpGC/SDhMNmeu0hRUjvcG9akXPldGj3
+         g8btwDZH7knOK5Z0AoXP/ILzj7o9FjzBGtVF/XsJRR1bqhf628NDixxoaTH8OdqI3fb0
+         6hs8nr9g4IgaVkYYLPLKilyvNlFGnnTLJ4CJ8QstbI64rwUTz4R0x4Q6WZHvqbF1xscZ
+         c4Ag==
+X-Forwarded-Encrypted: i=1; AJvYcCWR2AQ62KoFi7si4Y+clmaMQ6CK/R265+PhNONScOwW+9CxBAbdNL6qoq6l6Z4dPrMQ4wkX8Ux6276oFQyxw0ei@lists.infradead.org
+X-Gm-Message-State: AOJu0YywO9pkcy6CvNgJBSdQjr9G2wfsEiPKTeBZUer/Vff05Tj2kpIE
+	zKM8b1Svp8ostPU+ZR18Nkb3ZFhUmhD1lJjrqwaG6Yvmlf9A6SLI8jYg
+X-Gm-Gg: AZuq6aJFVbBry3epUYXXMolV8F9R3VXuph+7ugfiMCxhzOPawzuEX6InfpnR5qtqkXC
+	gs47hNXXo1ln68Sr7y7lnpgyVa7SQzlzDaLneA+nw/YK5SxcTLHdCt+FodS8NkdJOmukp8b6tvm
+	nr/KtaGu4N9kE53qMYpfjWQz3/1k1xirvIjHvQ0mtFlvs4zSHAcGXBdb5KX4N2EgRIaPJGumJAO
+	cmAuOEW+8laPQes5cmQ1TdCffIjPYdgvlligBx3kw3ESag3VjO8DZFjfK4eGzbfE8wOZRAYRA5s
+	0LP7pz/cL/gwB7pS4RXkoC85TcGrS9o8TRE0dxocNY7HPS8mKL1Kg7lw3sywnFNwOSvsVAQ26rh
+	qD+XITVeDHzihwpsNVWUUo6cu65G9X2zP2c40t/1xGPGtqRTjwunIX+EPgGBGknb6Pi+wkENvuv
+	3sXAifDmc3ZTQUKOT4RKiXpvyMFoFgO3quvIs8IM+xn3OkTUUgLPq0EJDM6uBf/9yj4A8=
+X-Received: by 2002:a05:6512:b97:b0:59b:9ff8:468e with SMTP id 2adb3069b0e04-59e0412c83amr2449893e87.31.1769594108946;
+        Wed, 28 Jan 2026 01:55:08 -0800 (PST)
 Received: from [192.168.1.135] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59e074bfe83sm459483e87.97.2026.01.28.01.55.03
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59e074bfe83sm459483e87.97.2026.01.28.01.55.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Jan 2026 01:55:04 -0800 (PST)
+        Wed, 28 Jan 2026 01:55:07 -0800 (PST)
 From: Marcus Folkesson <marcus.folkesson@gmail.com>
-Date: Wed, 28 Jan 2026 10:54:27 +0100
-Subject: [PATCH v4 1/5] i2c: core: add callback to change bus frequency
+Date: Wed, 28 Jan 2026 10:54:29 +0100
+Subject: [PATCH v4 3/5] i2c: davinci: calculate bus freq from Hz instead of
+ kHz
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260128-i2c-mux-v4-1-dee49ce276c0@gmail.com>
+Message-Id: <20260128-i2c-mux-v4-3-dee49ce276c0@gmail.com>
 References: <20260128-i2c-mux-v4-0-dee49ce276c0@gmail.com>
 In-Reply-To: <20260128-i2c-mux-v4-0-dee49ce276c0@gmail.com>
 To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
@@ -85,28 +86,29 @@ To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
  Bartosz Golaszewski <brgl@kernel.org>
 Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, 
- Marcus Folkesson <marcus.folkesson@gmail.com>
+ Marcus Folkesson <marcus.folkesson@gmail.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1616;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2849;
  i=marcus.folkesson@gmail.com; h=from:subject:message-id;
- bh=eRPT6fwWSu39UFp184/6KNALMdSEu1tiZOm0jan9AEk=;
- b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBpedzehXVLc5la3fttcAt9Pf63CW8xGjrpt9Gtl
- m5Jrx2wvzCJAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCaXnc3gAKCRCIgE5vWV1S
- MkRqEADXrxdBsBlenpKcAm45b1vgUJl5qzd/GhpRErNbr50L14Aj7bdwJ2ihLfpLoh60Qft2yBy
- NNAl7O56qyFBmGeWfyLSQehsIh775Ud4kJ7icMlu3t8clHbjFtCrnlygOiTL6HjIHg8pQiivtRl
- GYv6hW7pFiU2cmCQ7c9PEx5J7o3WM3f3R/HWi+VS1WP7+0WGVjEV+7mnQjOFAAfpl1vtf0UfqLn
- JFXWQ9WvO1sTUUAMtAklTsoztuIL6csWXW/4KJlJV3TwmylgA+4Hojjfm7mDMrjC8VZ3e806uLk
- eG1iPk9kvJuKpkWng6bVCPmlCcocTgEtgDLe5HkAV+MUaBFldysjcJiooWse/4mvGui2ZuhfNoe
- 9hsXpZqX4pxg7vHNsF+7IjgixG5VlAyB+kufL3Ul0X5m8Xh+XrMx69S0041/Eon1ROMHxWZEqBQ
- 7VeysczxzbQRPSrAPv0bUHW1Aq4z9xLC2KxAzzto6P1IAdLgliqaB7W47k+dYFSEzRVlBx/RgGe
- rzPrux72Ged1sYyIBsVr8oo/WV5bKbfg69dk0jGBjUs7y7mxh87UrBeZwFgYtT4r3+xGb42CtYw
- 702+BI6VraEFM4CivtIYhY1Eaay41GgmI5F/gTmMF5XX5FwzWJwTyAk1SI62UyoRViH1Uf/KiTE
- X4kYiUc2CpYCVHQ==
+ bh=NgWDqx3izSY9aW9W75gFytkLHJndTcTMdemaHAZbfa4=;
+ b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBpedztECNc3VxUquFpfx8TQoFrSB7cIxNlSZrqJ
+ OhN7zzlH9eJAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCaXnc7QAKCRCIgE5vWV1S
+ MlXrD/sE0/W8x83hap7Dhta6qJH+6wF6kDCcG1nxuNfBbrETgbLx4/lBqTEH+JGM1kh6cLk+cBC
+ OXhIvL0znx8Ye6vGhce2X3A05Vxr81wpEbQbRe9QUN6obI9cvRO9lgAgQbU/G1E3LN0WuPUDpGq
+ 2keTYvwNLTRFhKa3oNJ0jVezTvxaBjegypn7VqGh/2wsAKFBac0He5JPPm5Y0QHZ0HynM7e6eKR
+ vLjy2123DV8Y37F8GNwXvsgh/V8ArPWLz/AFWJgKnP1Jg71uGQkpoE/o+KHJg0VPmGzjdhecORg
+ INeawLbjnZElkte5DoMf0b3Cgmef5Ai/CydViiGWFB5LtjrnpIOTC6nPXsekboiTW5n+BS5ce0r
+ z8mC53lIH+iNWjMK/EloWDzWZRW9c5r+F5fRIedKlapVON883bMtMNPt6rfwpTjUWxPDfeOzbGr
+ WAu806t53dfko2sVuyMr9WpeZcneLS+p0leVem6G+fD7tjUPct3N7Rt/g+0IY1ZFsDPZkMXxBq3
+ awFcReXJ0Q0+/CwQCoZrfLAo8FZuVAwXO5fShHCu+8VuzXvmOkM+bsW+bF9VkSmRzrtPGDV3P5J
+ LIVRvkRAjDPrO5S+pppy0mF3xvBoxjiUycdjY8TxrWA8CkRLSZqyUEosPD2ifkHPGiGF3stiWZs
+ PhoubjCsc3jj1wA==
 X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
  fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_015508_028705_86AB10C8 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20260128_015511_686780_D0005792 
+X-CRM114-Status: GOOD (  18.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,53 +123,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All devices on the same I2C bus share the same clock line and the bus
-frequency has therefor be chosen so that all attached devices are able
-to tolarate that clock rate. IOW, the bus speed must be set for the
-slowest attached device.
+The bus frequency is unnecessarily converted between Hz and kHz in
+several places.
+This is probably an old legacy from the old times (pre-devicetrees)
+when the davinci_i2c_platform_data took the bus_freq in kHz.
 
-With I2C multiplexers/switches on the other hand, it would be possible
-to have different "domains" that runs with different speeds.
+Stick to Hz.
 
-Prepare for such a feature by provide an optional callback function to
-change bus frequency.
-
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
 ---
- include/linux/i2c.h | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ drivers/i2c/busses/i2c-davinci.c | 18 ++++++++----------
+ 1 file changed, 8 insertions(+), 10 deletions(-)
 
-diff --git a/include/linux/i2c.h b/include/linux/i2c.h
-index 20fd41b51d5c..d147e388dbab 100644
---- a/include/linux/i2c.h
-+++ b/include/linux/i2c.h
-@@ -742,6 +742,8 @@ struct i2c_adapter {
- 	struct rt_mutex mux_lock;
+diff --git a/drivers/i2c/busses/i2c-davinci.c b/drivers/i2c/busses/i2c-davinci.c
+index a773ba082321..761de5a814df 100644
+--- a/drivers/i2c/busses/i2c-davinci.c
++++ b/drivers/i2c/busses/i2c-davinci.c
+@@ -117,8 +117,6 @@
+ /* timeout for pm runtime autosuspend */
+ #define DAVINCI_I2C_PM_TIMEOUT	1000	/* ms */
  
- 	int timeout;			/* in jiffies */
-+	int clock_hz;
-+	int (*set_clk_freq)(struct i2c_adapter *adap, u32 clock_hz); /* Optional */
- 	int retries;
- 	struct device dev;		/* the adapter device */
- 	unsigned long locked_flags;	/* owned by the I2C core */
-@@ -835,6 +837,17 @@ i2c_unlock_bus(struct i2c_adapter *adapter, unsigned int flags)
- 	adapter->lock_ops->unlock_bus(adapter, flags);
- }
+-#define DAVINCI_I2C_DEFAULT_BUS_FREQ	100
+-
+ struct davinci_i2c_dev {
+ 	struct device           *dev;
+ 	void __iomem		*base;
+@@ -134,8 +132,8 @@ struct davinci_i2c_dev {
+ #ifdef CONFIG_CPU_FREQ
+ 	struct notifier_block	freq_transition;
+ #endif
+-	/* standard bus frequency (kHz) */
+-	unsigned int		bus_freq;
++	/* standard bus frequency */
++	unsigned int		bus_freq_hz;
+ 	/* Chip has a ICPFUNC register */
+ 	bool			has_pfunc;
+ };
+@@ -209,16 +207,16 @@ static void i2c_davinci_calc_clk_dividers(struct davinci_i2c_dev *dev)
+ 	if (device_is_compatible(dev->dev, "ti,keystone-i2c"))
+ 		d = 6;
  
-+static inline int
-+i2c_adapter_set_clk_freq(struct i2c_adapter *adapter, u32 clock_hz)
-+{
-+	int ret = -EOPNOTSUPP;
-+
-+	if (adapter->set_clk_freq)
-+		ret = adapter->set_clk_freq(adapter, clock_hz);
-+
-+	return ret;
-+}
-+
- /**
-  * i2c_mark_adapter_suspended - Report suspended state of the adapter to the core
-  * @adap: Adapter to mark as suspended
+-	clk = ((input_clock / (psc + 1)) / (dev->bus_freq * 1000));
++	clk = ((input_clock / (psc + 1)) / (dev->bus_freq_hz));
+ 	/* Avoid driving the bus too fast because of rounding errors above */
+-	if (input_clock / (psc + 1) / clk > dev->bus_freq * 1000)
++	if (input_clock / (psc + 1) / clk > dev->bus_freq_hz)
+ 		clk++;
+ 	/*
+ 	 * According to I2C-BUS Spec 2.1, in FAST-MODE LOW period should be at
+ 	 * least 1.3uS, which is not the case with 50% duty cycle. Driving HIGH
+ 	 * to LOW ratio as 1 to 2 is more safe.
+ 	 */
+-	if (dev->bus_freq > 100)
++	if (dev->bus_freq_hz > 100000)
+ 		clkl = (clk << 1) / 3;
+ 	else
+ 		clkl = (clk >> 1);
+@@ -269,7 +267,7 @@ static int i2c_davinci_init(struct davinci_i2c_dev *dev)
+ 		davinci_i2c_read_reg(dev, DAVINCI_I2C_CLKL_REG));
+ 	dev_dbg(dev->dev, "CLKH = %d\n",
+ 		davinci_i2c_read_reg(dev, DAVINCI_I2C_CLKH_REG));
+-	dev_dbg(dev->dev, "bus_freq = %dkHz\n", dev->bus_freq);
++	dev_dbg(dev->dev, "bus_freq_hz = %dHz\n", dev->bus_freq_hz);
+ 
+ 
+ 	/* Take the I2C module out of reset: */
+@@ -760,9 +758,9 @@ static int davinci_i2c_probe(struct platform_device *pdev)
+ 
+ 	r = device_property_read_u32(&pdev->dev, "clock-frequency", &prop);
+ 	if (r)
+-		prop = DAVINCI_I2C_DEFAULT_BUS_FREQ;
++		prop = I2C_MAX_STANDARD_MODE_FREQ;
+ 
+-	dev->bus_freq = prop / 1000;
++	dev->bus_freq_hz = prop;
+ 
+ 	dev->has_pfunc = device_property_present(&pdev->dev, "ti,has-pfunc");
+ 
 
 -- 
 2.52.0
