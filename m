@@ -4,104 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F45DD35698
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 10:01:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79DBDD35698
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 10:02:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2prp/2+RlS6DkorXzVfUiX0L8fXhKACj1E9ZaJ3Y+A8=; b=ZABf77XHF7B54sa4WZE42ONfir
-	khSN7RUFrlO4aCvGpiC/4Idk61CAQZ4fGAQDKE2aQ2B1ESJe+Nz21Gcls7SJW8lG7mqM0OD9wxwbC
-	gO8L90k3QcwOFJzD+R7OtS+TCxxV76sBMLlTA+GMoKaDr3LGuK8GU0ZLPgMSOQ307D3XDT6NiuS4w
-	P8UCr0pCxDQ8kKVWGaYPMyPwHuCbMpyB2NL4tAwNjiFda92TvRz6zNydt9zQ8x98pURw1WXbL4R/2
-	RI+DPAPRLPYt3kcFrFG+iGrrU5jMaktJuonnLC9eqzlvp8viZ6FfDQo8fFGm3biycmEgrEiEVGrMA
-	JSQk+RuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=idgpGrbuWY0t6nEBYaYywmOP0ri+BGPHjD93ex4AkpY=; b=DYMivmCvP4x0vKOkFf2yDP4IHQ
+	NwWHQGFupGDXH4yXtWO7mmd1iri2r3Zsba4NTOTQDDZbgkpaLdCXDL/uI/hc+xrZ7dLINHyWGgCTZ
+	VzYZZo8ybP8fHoQrwGljwNllwtoOkasW6x9WRG6u32Ut8+IphMgbiIBn4uBRdvJpD1xIMhld4WM9g
+	JkbjGUjPhzMtoY7Tcpe6L2eazKP7fzJhriCfP4O6a34LruX826K3BeulLuAy7dtaE9hwUYMmuL1V5
+	eT+jyVEeIJnQb053ajyOwWtz+jlJgiakyWAGsVhJDQtEthYqB4amIW3JlxaaYV7iug/bkez7f24Pb
+	kyryk9bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl2Mt-0000000Fnem-0IKS;
-	Wed, 28 Jan 2026 10:01:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vl2Nj-0000000Fnjw-1nTF;
+	Wed, 28 Jan 2026 10:02:39 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl2Ms-0000000Fneg-0lrG
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 10:01:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3B7156001A;
-	Wed, 28 Jan 2026 10:01:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75251C4CEF1;
-	Wed, 28 Jan 2026 10:01:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769594504;
-	bh=huqBKPmdl/GVuwuvQQaYj2vAnPUUV2fdFitGPsGL5rc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UsFdmFQKnqzBxotq9pxKSI0+GDJWmu4+WszT+rFwLRwl70XrqWN79LKZPahCdABGN
-	 zZO+g+bYSdnTn+GZhMwNYu4kPCBJcXaXq0tsTjJyNmIBbF4zVeuO+49i2HwDQJ2euf
-	 GDkgrMiFGwkjjDnap1AV6xWA6tTdOh26jmm7MS9PyCovrHIka0VGwJwu9ZaxxS0Vxp
-	 XUnyOg7gUMaUFJG1nV9fEklSpS02GCJfWjsLSUTiHWYcuNshuHjqkSq87vBajJMBUI
-	 7BB9cAMbVlOKVrEvM4O8l7QrBnck34qPo9mI/1Ljb+A+02hRyxv9FYSW+f3Wj2ZQ9v
-	 wyTLeL8eftDvA==
-Message-ID: <556bf15b-727a-4eff-92c7-9fc6c744047b@kernel.org>
-Date: Wed, 28 Jan 2026 11:01:40 +0100
+	id 1vl2Ne-0000000FnjP-1g2z;
+	Wed, 28 Jan 2026 10:02:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769594555; x=1801130555;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=M/1XAAe2fXUTjteJOxDYo6ou5Wc8lghhfgq/fQ9TNFk=;
+  b=mu3b6UoaLY3G6CzqgSsRAEE0/Ltuq0Ig0VzUIooB99DxOpwmRhiv/C1L
+   NvTRcIgbjNncBAHh3+IVmgJpMHUe1VyhvQNAhaje81rdSW3/BTEub0aXW
+   oRup7mFCNQWnbSIf6yRpSr6DPqaup3WaFltxaiVharf+THNW51mEdKkBc
+   5x70s1ZsyObP3+cA+KNL8QDzfCtBWUmm8gJye+mRWRhBifs6Yw585+Nnc
+   OKlOmkRBunHqnm4NlFhNHvikFld35HKUXqA7I2NUhn841k8h6FqxeWTeD
+   TXx7dMEect53Ng1uRHZlAMVPk/SZ34Lm2L8HL7tNRQDIaaiseioVpl6wP
+   Q==;
+X-CSE-ConnectionGUID: 4pmSfkBhQ6uAcvI3s4OiKA==
+X-CSE-MsgGUID: 2hABu3ZZRDG/l7HLzRnYRQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="70891967"
+X-IronPort-AV: E=Sophos;i="6.21,258,1763452800"; 
+   d="scan'208";a="70891967"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jan 2026 02:02:33 -0800
+X-CSE-ConnectionGUID: 8I8p/2p0TrGpQgtzGYcMgw==
+X-CSE-MsgGUID: q85tbTJXQiWSPpZl4S4FGA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,258,1763452800"; 
+   d="scan'208";a="208015458"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 28 Jan 2026 02:02:29 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vl2NW-00000000ZWa-0RDG;
+	Wed, 28 Jan 2026 10:02:26 +0000
+Date: Wed, 28 Jan 2026 18:01:39 +0800
+From: kernel test robot <lkp@intel.com>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Alexey Charkov <alchark@gmail.com>,
+	Sjoerd Simons <sjoerd.simons@collabora.com>,
+	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Sebastian Reichel <sebastian.reichel@collabora.com>
+Subject: Re: [PATCH 10/10] ASoC: rockchip: spdif: Convert to FIELD_PREP
+Message-ID: <202601281701.vJDagmwh-lkp@intel.com>
+References: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-10-a7c547072bbb@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] dt-bindings: reset: add sky1 reset controller
-To: Gary Yang <gary.yang@cixtech.com>, lee@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
- peter.chen@cixtech.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, cix-kernel-upstream@cixtech.com
-References: <20260128093611.1932770-1-gary.yang@cixtech.com>
- <20260128093611.1932770-2-gary.yang@cixtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260128093611.1932770-2-gary.yang@cixtech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-10-a7c547072bbb@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260128_020234_455112_4409D6AD 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,170 +93,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/01/2026 10:36, Gary Yang wrote:
-> There are two reset controllers on Cix sky1 Soc.
-> One is located in S0 domain, and the other is located
-> in S0 and S5 domain.
+Hi Sebastian,
 
-Please wrap commit message according to Linux coding style / submission
-process (neither too early nor over the limit):
-https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
+kernel test robot noticed the following build errors:
 
-> 
-> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
-> Link: https://lore.kernel.org/r/20251124063235.952136-2-gary.yang@cixtech.com
-> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
-> ---
->  .../devicetree/bindings/mfd/syscon.yaml       |   7 +
->  .../bindings/reset/cix,sky1-rst.yaml          |  46 +++++
->  .../soc/cix/cix,sky1-system-controller.yaml   |  48 +++++
->  include/dt-bindings/reset/cix,sky1-rst-fch.h  |  42 +++++
->  include/dt-bindings/reset/cix,sky1-rst.h      | 164 ++++++++++++++++++
->  5 files changed, 307 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml
->  create mode 100644 Documentation/devicetree/bindings/soc/cix/cix,sky1-system-controller.yaml
->  create mode 100644 include/dt-bindings/reset/cix,sky1-rst-fch.h
->  create mode 100644 include/dt-bindings/reset/cix,sky1-rst.h
-> 
-> diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
-> index 55efb83b1495..be864a6b8efb 100644
-> --- a/Documentation/devicetree/bindings/mfd/syscon.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
-> @@ -170,6 +170,8 @@ properties:
->                - cirrus,ep7209-syscon1
->                - cirrus,ep7209-syscon2
->                - cirrus,ep7209-syscon3
-> +              - cix,sky1-system-controller
-> +              - cix,sky1-s5-system-controller
->                - cnxt,cx92755-uc
->                - freecom,fsg-cs2-system-controller
->                - fsl,imx93-aonmix-ns-syscfg
-> @@ -254,6 +256,11 @@ properties:
->            - const: microchip,pic64gx-sysreg-scb
->            - const: microchip,mpfs-sysreg-scb
->            - const: syscon
-> +      - items:
-> +          - enum:
-> +              - cix,sky1-system-controller
-> +              - cix,sky1-s5-system-controller
-> +          - const: syscon
+[auto build test ERROR on 63804fed149a6750ffd28610c5c1c98cce6bd377]
 
-Do not create your own style. Cix is not special. There is already an
-enum for EVERYONE.
+url:    https://github.com/intel-lab-lkp/linux/commits/Sebastian-Reichel/ASoC-rockchip-spdif-Use-device_get_match_data/20260128-001701
+base:   63804fed149a6750ffd28610c5c1c98cce6bd377
+patch link:    https://lore.kernel.org/r/20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-10-a7c547072bbb%40collabora.com
+patch subject: [PATCH 10/10] ASoC: rockchip: spdif: Convert to FIELD_PREP
+config: hexagon-randconfig-002-20260128 (https://download.01.org/0day-ci/archive/20260128/202601281701.vJDagmwh-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260128/202601281701.vJDagmwh-lkp@intel.com/reproduce)
 
->  
->    reg:
->      maxItems: 1
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601281701.vJDagmwh-lkp@intel.com/
 
-Independent patch. Please do not combine unrelated patches into one.
+All errors (new ones prefixed by >>):
+
+>> sound/soc/rockchip/rockchip_spdif.c:109:21: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     109 |         unsigned int val = SPDIF_CFGR_HALFWORD_ENABLE;
+         |                            ^
+   sound/soc/rockchip/rockchip_spdif.h:33:36: note: expanded from macro 'SPDIF_CFGR_HALFWORD_ENABLE'
+      33 | #define SPDIF_CFGR_HALFWORD_ENABLE      FIELD_PREP(SPDIF_CFGR_HALFWORD_MASK, 1)
+         |                                         ^
+   sound/soc/rockchip/rockchip_spdif.c:182:7: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     182 |                                          SPDIF_DMACR_TDE_ENABLE |
+         |                                          ^
+   sound/soc/rockchip/rockchip_spdif.h:48:33: note: expanded from macro 'SPDIF_DMACR_TDE_ENABLE'
+      48 | #define SPDIF_DMACR_TDE_ENABLE          FIELD_PREP(SPDIF_DMACR_TDE_MASK, 1)
+         |                                         ^
+   2 errors generated.
 
 
-> diff --git a/Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml b/Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml
-> new file mode 100644
-> index 000000000000..4323acdc2c45
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml
-> @@ -0,0 +1,46 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/reset/cix,sky1-rst.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: CIX Sky1 Reset Controller
-> +
-> +maintainers:
-> +  - Gary Yang <gary.yang@cixtech.com>
-> +
-> +description: |
-> +  CIX Sky1 reset controller can be used to reset various set of peripherals.
-> +  There are two reset controllers, one is located in S0 domain, the other
-> +  is located in S0 and S5 domain.
-> +
-> +  See also:
-> +  - include/dt-bindings/reset/cix,sky1-rst.h
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - cix,sky1-rst
-> +          - cix,sky1-rst-fch
-> +
-> +  '#reset-cells':
-> +    const: 1
+vim +/FIELD_PREP +109 sound/soc/rockchip/rockchip_spdif.c
 
-No resources? Then not a dedicated child node, but part of the syscon.
-Fold this entire binding into the parent node.
+f874b80e157111 Sjoerd Simons     2015-10-08  102  
+f874b80e157111 Sjoerd Simons     2015-10-08  103  static int rk_spdif_hw_params(struct snd_pcm_substream *substream,
+f874b80e157111 Sjoerd Simons     2015-10-08  104  			      struct snd_pcm_hw_params *params,
+f874b80e157111 Sjoerd Simons     2015-10-08  105  			      struct snd_soc_dai *dai)
+f874b80e157111 Sjoerd Simons     2015-10-08  106  {
+f874b80e157111 Sjoerd Simons     2015-10-08  107  	struct rk_spdif_dev *spdif = snd_soc_dai_get_drvdata(dai);
+b8e112b77e45b4 Sugar Zhang       2026-01-27  108  	unsigned int mclk_rate = clk_get_rate(spdif->mclk);
+f874b80e157111 Sjoerd Simons     2015-10-08 @109  	unsigned int val = SPDIF_CFGR_HALFWORD_ENABLE;
+9cd33c09d22fd1 Sugar Zhang       2026-01-27  110  	int bmc, div, ret, i;
+9cd33c09d22fd1 Sugar Zhang       2026-01-27  111  	u16 *fc;
+9cd33c09d22fd1 Sugar Zhang       2026-01-27  112  	u8 cs[CS_BYTE];
+9cd33c09d22fd1 Sugar Zhang       2026-01-27  113  
+9cd33c09d22fd1 Sugar Zhang       2026-01-27  114  	ret = snd_pcm_create_iec958_consumer_hw_params(params, cs, sizeof(cs));
+9cd33c09d22fd1 Sugar Zhang       2026-01-27  115  	if (ret < 0)
+9cd33c09d22fd1 Sugar Zhang       2026-01-27  116  		return ret;
+9cd33c09d22fd1 Sugar Zhang       2026-01-27  117  
+9cd33c09d22fd1 Sugar Zhang       2026-01-27  118  	fc = (u16 *)cs;
+9cd33c09d22fd1 Sugar Zhang       2026-01-27  119  	for (i = 0; i < CS_BYTE / 2; i++)
+9cd33c09d22fd1 Sugar Zhang       2026-01-27  120  		regmap_write(spdif->regmap, SPDIF_CHNSRn(i), CS_FRAME(fc[i]));
+9cd33c09d22fd1 Sugar Zhang       2026-01-27  121  
+9cd33c09d22fd1 Sugar Zhang       2026-01-27  122  	regmap_update_bits(spdif->regmap, SPDIF_CFGR, SPDIF_CFGR_CSE_MASK,
+9cd33c09d22fd1 Sugar Zhang       2026-01-27  123  			   SPDIF_CFGR_CSE_EN);
+f874b80e157111 Sjoerd Simons     2015-10-08  124  
+b8e112b77e45b4 Sugar Zhang       2026-01-27  125  	/* bmc = 128fs */
+b8e112b77e45b4 Sugar Zhang       2026-01-27  126  	bmc = 128 * params_rate(params);
+b8e112b77e45b4 Sugar Zhang       2026-01-27  127  	div = DIV_ROUND_CLOSEST(mclk_rate, bmc);
+b8e112b77e45b4 Sugar Zhang       2026-01-27  128  	val |= SPDIF_CFGR_CLK_DIV(div);
+f874b80e157111 Sjoerd Simons     2015-10-08  129  
+f874b80e157111 Sjoerd Simons     2015-10-08  130  	switch (params_format(params)) {
+f874b80e157111 Sjoerd Simons     2015-10-08  131  	case SNDRV_PCM_FORMAT_S16_LE:
+f874b80e157111 Sjoerd Simons     2015-10-08  132  		val |= SPDIF_CFGR_VDW_16;
+908589f3825713 Sugar Zhang       2026-01-27  133  		val |= SPDIF_CFGR_ADJ_RIGHT_J;
+f874b80e157111 Sjoerd Simons     2015-10-08  134  		break;
+f874b80e157111 Sjoerd Simons     2015-10-08  135  	case SNDRV_PCM_FORMAT_S20_3LE:
+f874b80e157111 Sjoerd Simons     2015-10-08  136  		val |= SPDIF_CFGR_VDW_20;
+908589f3825713 Sugar Zhang       2026-01-27  137  		val |= SPDIF_CFGR_ADJ_RIGHT_J;
+f874b80e157111 Sjoerd Simons     2015-10-08  138  		break;
+f874b80e157111 Sjoerd Simons     2015-10-08  139  	case SNDRV_PCM_FORMAT_S24_LE:
+f874b80e157111 Sjoerd Simons     2015-10-08  140  		val |= SPDIF_CFGR_VDW_24;
+908589f3825713 Sugar Zhang       2026-01-27  141  		val |= SPDIF_CFGR_ADJ_RIGHT_J;
+908589f3825713 Sugar Zhang       2026-01-27  142  		break;
+908589f3825713 Sugar Zhang       2026-01-27  143  	case SNDRV_PCM_FORMAT_S32_LE:
+908589f3825713 Sugar Zhang       2026-01-27  144  		val |= SPDIF_CFGR_VDW_24;
+908589f3825713 Sugar Zhang       2026-01-27  145  		val |= SPDIF_CFGR_ADJ_LEFT_J;
+f874b80e157111 Sjoerd Simons     2015-10-08  146  		break;
+f874b80e157111 Sjoerd Simons     2015-10-08  147  	default:
+f874b80e157111 Sjoerd Simons     2015-10-08  148  		return -EINVAL;
+f874b80e157111 Sjoerd Simons     2015-10-08  149  	}
+f874b80e157111 Sjoerd Simons     2015-10-08  150  
+908589f3825713 Sugar Zhang       2026-01-27  151  	/*
+908589f3825713 Sugar Zhang       2026-01-27  152  	 * clear MCLK domain logic before setting Fmclk and Fsdo to ensure
+908589f3825713 Sugar Zhang       2026-01-27  153  	 * that switching between S16_LE and S32_LE audio does not result
+908589f3825713 Sugar Zhang       2026-01-27  154  	 * in accidential channels swap.
+908589f3825713 Sugar Zhang       2026-01-27  155  	 */
+908589f3825713 Sugar Zhang       2026-01-27  156  	regmap_update_bits(spdif->regmap, SPDIF_CFGR, SPDIF_CFGR_CLR_MASK,
+908589f3825713 Sugar Zhang       2026-01-27  157  			   SPDIF_CFGR_CLR_EN);
+908589f3825713 Sugar Zhang       2026-01-27  158  	udelay(1);
+908589f3825713 Sugar Zhang       2026-01-27  159  
+f874b80e157111 Sjoerd Simons     2015-10-08  160  	ret = regmap_update_bits(spdif->regmap, SPDIF_CFGR,
+acc8b9d117912c Sugar Zhang       2021-08-24  161  				 SPDIF_CFGR_CLK_DIV_MASK |
+85c46be12ede08 Sebastian Reichel 2026-01-27  162  				 SPDIF_CFGR_HALFWORD_MASK |
+908589f3825713 Sugar Zhang       2026-01-27  163  				 SDPIF_CFGR_VDW_MASK |
+908589f3825713 Sugar Zhang       2026-01-27  164  				 SPDIF_CFGR_ADJ_MASK, val);
+f874b80e157111 Sjoerd Simons     2015-10-08  165  
+f874b80e157111 Sjoerd Simons     2015-10-08  166  	return ret;
+f874b80e157111 Sjoerd Simons     2015-10-08  167  }
+f874b80e157111 Sjoerd Simons     2015-10-08  168  
 
-> +
-> +required:
-> +  - compatible
-> +  - '#reset-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    syscon@16000000 {
-> +      compatible = "cix,sky1-s5-system-controller", "syscon",
-> +                "simple-mfd";
-
-Mess alignment.
-
-> +      reg = <0x0 0x16000000 0x0 0x1000>;
-
-Does not belong here.
-
-> +      src: reset-controller {
-> +        compatible = "cix,sky1-rst";
-> +        #reset-cells = <1>;
-> +      };
-
-> +    };
-> diff --git a/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-controller.yaml b/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-controller.yaml
-> new file mode 100644
-> index 000000000000..f6e2776e3f53
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-controller.yaml
-> @@ -0,0 +1,48 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/cix/cix,sky1-system-controller.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Cix Sky1 SoC system controller register region
-> +
-> +maintainers:
-> +  - Gary Yang <gary.yang@cixtech.com>
-> +
-> +description:
-> +  An wide assortment of registers of the system controller on Sky1 SoC,
-> +  including resets and usb.
-> +
-> +allOf:
-> +  - $ref: /schemas/mfd/syscon.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - contains:
-
-What? No, don't come with random code. There is no single code like this.
-
-> +          - enum:
-> +              - cix,sky1-system-controller
-> +              - cix,sky1-s5-system-controller
-> +          - const: syscon
-> +          - const: simple-mfd
-
-Huh? You already documented this.
-
-NAK, you are making random changes without any concept.
-
-Read previous feedback. Really carefully.
-
-Best regards,
-Krzysztof
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
