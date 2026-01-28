@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99FEBD35693
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 11:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB25DD3569F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 11:04:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YgY+VD1JPRIDshJVjlRkrGjJN6ik2chDgUKnN7ZWi98=; b=RPMuPBy9kH6eNxpxh5CBl0aEdO
-	01MMK+Vda0uyRrJ2OvuG6VtztBbBCtZKoFzPv9zBTzLaq6pLKcz8+pxMn+Y8KXNsJlOgYriVCdffM
-	gd6JdRakOuWNyPgLrEVYmFaIR39tPmxW15lzbyy7IL4BrSlFpbxEYN0G9i7dCdzC/0vYfV0hlP5QR
-	BlvDVdZX63/th47Ove0B4w55FLdFVQN1F7NfvyTQsBxzTmSqpBkRfEavVWPXeMmUNBt9Ghh9Z5Hqw
-	5jjsaMkU6eDd3ivgVWCAL8GKSlgvNiFK8p+tqNZgV5vLvpwHT45otM8Kot8oEZYo3v5jNAEINeG98
-	UrH43HXw==;
+	bh=s7LeXVP7XAGNaq3kzCC9n1xMAwM3zSZ7L4N8NPlKf2c=; b=1jgar/BwV8gx2H41c8I6glGHUf
+	X9lA1ymK4piEm6TY9QDOzpQEn2pZKbqzAjioazU/DD2rHB34d++eYzaR82C9R9KE0l5KvRqhUGjFU
+	7y3u8vniLY1o4+sgBljLlVrSNP59Zi1hhW2bGzyRd0dIaqEnKK13ZRaMBx3ySPnSJPgOD5V1zR9Nh
+	VUT1iBRQNUNBuXzSWILJSp91XlGRlOyA6ghUa5MSYVzh8Lpkq9tfN3KR2Qp9OGlqUfoGljGrLQt9H
+	qe12TRiow+wTgTHkIBB5Jg+k3xVCnPQ/7C8TOsPQ4cfOG1nbs9DG+nVEfMaYg6CeUvbxL1ddX/HTB
+	E/GdUIrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl3Iu-0000000FtHc-3w8a;
-	Wed, 28 Jan 2026 11:01:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vl3LI-0000000FtV3-0oVh;
+	Wed, 28 Jan 2026 11:04:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl3Iu-0000000FtHW-0h97
+	id 1vl3LH-0000000FtUw-07DL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 11:01:44 +0000
+	Wed, 28 Jan 2026 11:04:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4EB126001A;
-	Wed, 28 Jan 2026 11:01:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE88EC4CEF1;
-	Wed, 28 Jan 2026 11:01:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E2956001A;
+	Wed, 28 Jan 2026 11:04:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31454C4CEF1;
+	Wed, 28 Jan 2026 11:04:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769598103;
-	bh=Evsupp5FNJNP5BJNiK4ytm0+NzTNTkn2FDzFf2nf0vQ=;
+	s=k20201202; t=1769598249;
+	bh=g+DcgaV9vvajzIjNngoxQZBjOrt714zE+t0gjBetTQM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nU96+Ytt+ws2tZy7+KxRNVw3X6ma/ZHPFb/GoBAVnFO3hzbWXAhddEUZLa/xcGPUJ
-	 wmXuVAvL2U+xRcF+9HMsZnJS1wxUkQDWg+YYTrnYGNzpr/0v6uFN00piaNa6jaGGB3
-	 v4IxiJVetEcjSCWfzlCxx00FJCxBrwX527IRf2p33xBztV3ii8+9ddAZGl2eg0u6RE
-	 vj98QEskBtxXppCcORfYrKmuBoNB7BKW1WgmysuikAxe+YDIQfeozDqd+jO3XmT457
-	 CzLnoGqa1+oEpn1dwPwyUPulT++RFOK4v3Upx/OoxVrtSjrBPsXoYouJ+kK8iWkMvX
-	 wH4DEylcBcedA==
+	b=RkUk405vHf2xBFoT/TUH5O1r0/VcIUy5lvckzSbRkQ5wmvNzLw/9bCxUsbVn5BDJ/
+	 Ig8Sn6SwqT1wR9/FijXtQBpZzQBdx3uvq1AVBeNL82EKaRAgBJOdBQM5CzTtVn7K2J
+	 yCx6nZRUxqj7+rRAcRI2G2sGn2CWpIRHa9G+tPl+XAgdYUB4a2ceZgpqimGHPJ5ReV
+	 JkzAKWhToYM4q4C0ZC7+quoWk+yi7oSYEueF/zs+yYkFESlUYLEUtA07bxBCFCtxIo
+	 EKSjgSTMELRCCrbRpiaxrPo1bBsnSmyz5/U6BThs2WP6WLiH0OEsiQ+Vl+wyYLUEPo
+	 pqBJTTXh7Ffbw==
 From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-To: qiang.zhao@nxp.com,
-	Chen Ni <nichen@iscas.ac.cn>
-Cc: Christophe Leroy <chleroy@kernel.org>,
-	linuxppc-dev@lists.ozlabs.org,
+To: Qiang Zhao <qiang.zhao@nxp.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: linuxppc-dev@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] soc: fsl: qe: qe_ports_ic: Consolidate chained IRQ handler install/remove
-Date: Wed, 28 Jan 2026 12:01:31 +0100
-Message-ID: <176959784390.2069162.369898481051336357.b4-ty@kernel.org>
+Subject: Re: [PATCH 1/2] soc: fsl: qe: Add an interrupt controller for QUICC Engine Ports
+Date: Wed, 28 Jan 2026 12:04:04 +0100
+Message-ID: <176959816683.2069840.8945134159377635375.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20260119055715.889001-1-nichen@iscas.ac.cn>
-References: <20260119055715.889001-1-nichen@iscas.ac.cn>
+In-Reply-To: <63f19db21a91729d91b3df336a56a7eb4206e561.1767804922.git.chleroy@kernel.org>
+References: <63f19db21a91729d91b3df336a56a7eb4206e561.1767804922.git.chleroy@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=654; i=chleroy@kernel.org; h=from:subject:message-id; bh=K9TS4tuJrDcMF5FTNg6KgLVB8p+qHIx8ZqaAHWUIO10=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWRWvumxj483P6ueMo35k8g/4/OP/NWV1R48sr71USYvK /oMg9K6jlIWBjEuBlkxRZbj/7l3zej6kpo/dZc+zBxWJpAhDFycAjCRw4sZGaZcWl9c/Yj/5Lrf i9J+hS7J3sxXwmnlPHlN8kdP84f9YesY/krVrf7DJmjZPHvb5qmK/+9t3c17pmLrYcPGpBR+hqO zjBkB
+X-Developer-Signature: v=1; a=openpgp-sha256; l=622; i=chleroy@kernel.org; h=from:subject:message-id; bh=XGgvbaf5H9k+ateqB29Q3mR73UZredPzMwVmw4XGytU=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWRWvlU5F3urWPzNmlPsYTkWh2/ovPF+vkpiKi+zdejEI 0HS8w2cOkpZGMS4GGTFFFmO/+feNaPrS2r+1F36MHNYmUCGMHBxCsBEvn5mZHh2d1bp5UnpBq4B LW6rlqz6VfdIquXBrdC5H1Yv1HZRv3SCkeFNa9Svrk2rHq0suegcUaAu9VfmfYDsKpfszhwJ4/x 3+TwA
 X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -75,20 +78,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 19 Jan 2026 13:57:15 +0800, Chen Ni wrote:
-> The driver currently sets the handler data and the chained handler in
-> two separate steps. This creates a theoretical race window where an
-> interrupt could fire after the handler is set but before the data is
-> assigned, leading to a NULL pointer dereference.
+On Wed, 07 Jan 2026 17:59:09 +0100, Christophe Leroy (CS GROUP) wrote:
+> The QUICC Engine provides interrupts for a few I/O ports. This is
+> handled via a separate interrupt ID and managed via a triplet of
+> dedicated registers hosted by the SoC.
 > 
-> Replace the two calls with irq_set_chained_handler_and_data() to set
-> both the handler and its data atomically under the irq_desc->lock.
+> Implement an interrupt driver for it so that those IRQs can then
+> be linked to the related GPIOs.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] soc: fsl: qe: qe_ports_ic: Consolidate chained IRQ handler install/remove
+[1/2] soc: fsl: qe: Add an interrupt controller for QUICC Engine Ports
+[2/2] dt-bindings: soc: fsl: qe: Add an interrupt controller for QUICC Engine Ports
 
 Best regards,
 -- 
