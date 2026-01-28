@@ -4,116 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CFC0D35694
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 08:57:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4679DD35696
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pVC2WuSA6MQEeDQDC4DLfSa8QpNXNeIyPnIyMddEyYo=; b=FrJPp6fazjOTGuEzIisezngn/Q
-	ms9rnCcRqtzafNtZUyi10GXmnWSKgV+dncs1LHYgr90ahanWaYaC1bVanLD4XU7J6mlP2QQML6RYQ
-	yDRuRuGMTHitO/cKDSwCe8uBpoVnk8kYGeJGyiRrOGhouD944pYj0QfBO3zyZiI+jEYJqPAKURY63
-	Y7Yh7/t+9GRZZr8tRXM5TQSCk1tdTUY3csDCT7lV0VdreMI5lm9MKHNFc+GIn91zAG7x9nvz4+RSi
-	9NxAuKMh8JRp3rMN1YKAaIhUMUocNGFEIh4gm2tN1TEhHoOyHdURJt0nA7KJxE1zOuljqGPyR+SJk
-	36gCdqpQ==;
+	bh=yEOFkSi2N0vtkbtCff5kn8mqsv72spWR8lTmAsEOTX4=; b=G477aWstz0HI8qdFcZWBm4A8vQ
+	IjPPCwC7WPnAhJ3JFCghruQh4GSwcOR6jWpTxtub6JPXM902p+nMlWE/H57da4PASpu1hEEPL1y2f
+	N+PmKDRj1ZFSLNy1S24PNe+8Q5yvuBb/m226nK2SMG2NOVG3xPAHjusA8eiIBn9A4v9rLo6cXp6Pm
+	uGwdyvLHCg17zppRnLoZ6XWnIYjzV1tky+RInSe6qItD81ZE98fPtNv6suKRWrFCZmax+l++J3r4e
+	FcWUJDHIMmtnAe6AIaduv9GXn3JpyEnJMCSsMa3DwAb6DjZKbCfwVmK7TyFvNWdZu0dhoXWHTITN+
+	lKGWguyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1Ms-0000000Fhrx-0ZcE;
-	Wed, 28 Jan 2026 08:57:42 +0000
-Received: from fhigh-b1-smtp.messagingengine.com ([202.12.124.152])
+	id 1vl1Yt-0000000FigI-06nz;
+	Wed, 28 Jan 2026 09:10:07 +0000
+Received: from mail-dl1-x1229.google.com ([2607:f8b0:4864:20::1229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1Me-0000000Fhnt-085H
+	id 1vl1Yp-0000000Fifw-2hZK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 08:57:30 +0000
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 3FF8E7A0035;
-	Wed, 28 Jan 2026 03:57:27 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-02.internal (MEProxy); Wed, 28 Jan 2026 03:57:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1769590647;
-	 x=1769677047; bh=pVC2WuSA6MQEeDQDC4DLfSa8QpNXNeIyPnIyMddEyYo=; b=
-	hWW2wiXa8Ln9mfbqIQnMo9f/b+9rYCVjHdMeZMEmQpuoE1ShEWSAx80xK9NL60tO
-	RO+WwQ1nX8Yh6OYUvtpRtfJoeQRgGIH+XFBziuo9CIjO8jnp/OXScOj2AKsYTCOL
-	I5lrDoyjBXBgXJkUIcDvdBx36vNQKpCPXcjzASkqUrwvmsBSh6Y64W3qEIgitRIp
-	/6FMThMIIXXEzWg9v2whw0xiwJ1O0kpQ64lcpPGIysrvLlCHTZQPjC1+HpNCnQKo
-	loOqkGisHD4kdmeD2w7b4Zo8WmBtGRWGLa18OPCEpjjx865nrvSEseK+e5xGJ7B9
-	u7ZFd7nerpVMR7k7GvqQxg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1769590647; x=
-	1769677047; bh=pVC2WuSA6MQEeDQDC4DLfSa8QpNXNeIyPnIyMddEyYo=; b=Q
-	14aClBcfWydv/6x6F5Vnqhr/62ku7qMqYx9niTsL2BzUo8NOMOiyLtmPk1IpKc8k
-	q6fnu+wetKqrXx0w1WQettyBWjlMCfBc48o4uSBOmhEecleSH5UfCrp3eXNqGbVQ
-	PYyXRVhc2nJBUo2WwH4sZiLkg8G1NHlSktNx1ttE3btGK2sFxR0JX1fTO4QUy756
-	gtKd/b5mRfju/VCxzgolwAxU8p8sVyuOr1YuHReoC4MdS/a3bpUPcHvpWXz68sPB
-	7AjH4if/4AbeeMCqUuG27edtAYEeUewTxs917FUiWAxXs7qCgS2GstN1Ov4wUdNj
-	YyKi8PE1NpKqwIW5yq6lA==
-X-ME-Sender: <xms:d895aQhf2hJJHGdXRn82Wvmizq-SHvakt1yOr6DNMLVUvaTRjWzd_w>
-    <xme:d895aU0R7YAUfMvaQvQ60F5c9whr7GC1n_1hNxTOSyxvwman-WxrlTW0_BUFSNSY9
-    f9aPhU5jAkqlmpXu4vYeEFebND35EiCUlE41oLZ1sajSAnHiSUA5bU>
-X-ME-Received: <xmr:d895aTfFyGM5qaSVcSeR5YBjtXFgbr6znueHl-0JC0cBdue1j8gjpJr7PUcLxQmoFTVt_VPJyVzUdHnXvfAh9g6ctD3cZiGG1sYOZw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdduiedvleegucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpeflrghnnhgv
-    ucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepfe
-    ehheeileduffehteeihfdvtdelffdutdeludduiedutedvfeffheekhefgtedtnecuvehl
-    uhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrg
-    hurdhnvghtpdhnsggprhgtphhtthhopeduuddpmhhouggvpehsmhhtphhouhhtpdhrtghp
-    thhtohepnhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtohepjhesjhgrnhhnrghurd
-    hnvghtpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehk
-    rhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehtghhlgieslhhinhhuth
-    hrohhnihigrdguvgdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhi
-    shhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegrshgrhhhisehlihhsth
-    hsrdhlihhnuhigrdguvghvpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdr
-    khgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrh
-    drkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:d895aayfDZFIWTiPEi10drzLrUgKmR5tOl4F4WAt_vDnYSl5kcDoVA>
-    <xmx:d895abwaXKH79iQawnlsTVCbu2MNO3qiTWXJMtWPjzTKAV3b9fp8lg>
-    <xmx:d895abYbi0zB9SbkN3TQxxM2K62RwGEqdMETOB2bFvabGn3-8vloWg>
-    <xmx:d895aU1egbtwNaFUVmxjD6vD5xDNYX6JBCPkDHzQf2E0LkR4to1amA>
-    <xmx:d895achweTwK9RkZT-HdzeN9lLoRwDrHDF3PDMKXHC4EEmJdDF2pNQh0>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 28 Jan 2026 03:57:26 -0500 (EST)
-From: Janne Grunau <j@jannau.net>
-Date: Wed, 28 Jan 2026 09:57:09 +0100
-Subject: [PATCH v2 2/2] irqchip/apple-aic: Add support for
- "apple,t8122-aic3"
+	Wed, 28 Jan 2026 09:10:05 +0000
+Received: by mail-dl1-x1229.google.com with SMTP id a92af1059eb24-11f1fb91996so13730612c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 01:10:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769591402; x=1770196202; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yEOFkSi2N0vtkbtCff5kn8mqsv72spWR8lTmAsEOTX4=;
+        b=iZJYNFmpSNZqk4WAeXaWfmqdjGReScGdkoPo901gnCCggWXkEzAW0aTkY+EyXsTuU3
+         +Ipifrc69fwypOOP3lKbjcGgEGSo6N+kb9ssEoojhGPHZOPGT89Nj9uG1NPXr7GIx0et
+         /xZw2XzJjNz90Q/m4tjaCDce2MzO3BGTlV4OMi6vFBJ/4rsKQCyb/CAHvogNMv5McudP
+         kHFQuNt3B+KLm/y/WMvRcnDxcNl8UTHFWlkBN+gFTwRR1xZLoEDMkJCZ0kO2RAiahBvU
+         eQoSBo1rwkzV6v4EkrwvKcoJ9OVY/Aw90CA8q8TjXTOLckHdZnTzk3cDiKwrvDougXqZ
+         xHeg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769591402; x=1770196202;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=yEOFkSi2N0vtkbtCff5kn8mqsv72spWR8lTmAsEOTX4=;
+        b=JHJvGiQP2TgHJM2vk323M+SYXWmjB3EyojG5ZVmFm79PXEHuGE5xo6DyBts6z1Dvhl
+         Nc74lIPYUbqcE6Dz6hSnBOklntcR5+PjZND/UYssRxbbjwpCEAYJC25sUZpmBWEu489x
+         w1OS31hgZUg4ArwWlivKSm9EBX6m+ZqLSv4aFzK0DSAVREeeM0ahCl92zju6Xkp0ih2m
+         sYPCMwe/XGUF3vU4NrVIp9SxfgZ5JXa0IpvsZHjfhF39FnZ/cg/9hxVckdnowXip0wuP
+         DY61dKuwfBd9XqFvq4qF98rO7vDMkDcRHs8EQ6StPtE1g6UlyW+iugHzy/VG0GoZZjOe
+         b8Ow==
+X-Forwarded-Encrypted: i=1; AJvYcCXjfpmUC0h9CsU/iY/hebc1hmmeZfJnsjmuCwJiP0D/ZlEDCr3CGo32AUlo9ozfbpupmGov+9JiBJqH+WBS9nPN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5xjipcIgwmpOxwhL5qmL3AQMS2jn2hnMVucTRzL6z5BedZVoS
+	9hjSoixTnvwARGorakW009ok7e/PQB1B7oohr1FKIR/+aLTxdlZBwpjB
+X-Gm-Gg: AZuq6aIebH4uc8VDQrmJkYl45n6cxxoHlimAqiPY+prPR+yD5+VSJxxg19o/Nxe+Ea+
+	l9mVcLCW8jOJGK0jxE2fwm2OHlkbhKjVWfVUXf6q0G3tmzRR0jXBDBokir8wqPNrU+dxkbXpV8j
+	jYz47fsIgWiT76js+UMS8pAVvjo8NgBHyBcE7mo29zwiBXWyczyvcUSrmK7tdA0GvfWudlkXgrI
+	mLWrhHeej0+DHF8k0FczKqF+ozLZrQesO0OrvuJf5EZcluPBlRpqBR+SMp1AjeVXIoOJWaQAhIt
+	znlRLGaUAc8rejKNXSoveeip4tWOzRBDwq3epXv+FTifJ0fqaf6xACaCaMLHar8CzQnJvQVPs8D
+	LLkbAYCLpwlAkhfSVxKcNMFy7FVhhQ81oSdHNRWrjONDcti1eVeYEFLpf8WdUkCcBWyi+eHzGPY
+	1KJVJESYc9gg==
+X-Received: by 2002:a05:7300:a188:b0:2a4:3594:d540 with SMTP id 5a478bee46e88-2b78d90178cmr2919827eec.13.1769585396662;
+        Tue, 27 Jan 2026 23:29:56 -0800 (PST)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b7a16ef40asm1515483eec.13.2026.01.27.23.29.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Jan 2026 23:29:56 -0800 (PST)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Yao Zi <ziyao@disroot.org>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH net-next v3 1/3] dt-bindings: net: Add support for Spacemit K3 dwmac
+Date: Wed, 28 Jan 2026 15:29:27 +0800
+Message-ID: <20260128072931.875041-2-inochiama@gmail.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260128072931.875041-1-inochiama@gmail.com>
+References: <20260128072931.875041-1-inochiama@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260128-irq-apple-aic3-v2-2-b4bc8e16c997@jannau.net>
-References: <20260128-irq-apple-aic3-v2-0-b4bc8e16c997@jannau.net>
-In-Reply-To: <20260128-irq-apple-aic3-v2-0-b4bc8e16c997@jannau.net>
-To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
- Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Janne Grunau <j@jannau.net>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3142; i=j@jannau.net;
- s=yk2025; h=from:subject:message-id;
- bh=c8+y7YK8j4mLCVCoVK1eu9NeJiQU/vi7Kvi5/Rxprhw=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhszK8wUZqhsXL5Y3b+uo/9jZetvjhpRrjlSronjFP7UYk
- e7rXModpSwMYlwMsmKKLEnaLzsYVtcoxtQ+CIOZw8oEMoSBi1MAJnL5LcP/4EVSM7f0vRPq1JWa
- zPBsrd3Lxy2+Jgd+SR/c+8YgK3XCVkaGm70h83eHp17d8cLyu4/2VMnftfGl10VTBW/6+IVX5s3
- mAAA=
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_005728_116772_0E5BC435 
-X-CRM114-Status: GOOD (  17.95  )
+X-CRM114-CacheID: sfid-20260128_011004_047078_D3C98024 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,99 +132,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce support for the new AICv3 hardware block in t8122 and t603x
-SoCs. AICv3 is similar to AICv2 but has an increased IRQ config offset.
-These MMIO offsets are coded as properties of the "aic,3" node in
-Apple's device tree. The actual offsets are the same for all SoCs
-starting from M3 through at least M5. So do not bother to follow suit
-but use AICv3 specific defines in the driver.
-The compatible string is SoC specific so future SoCs with AICv3 and
-different offsets would just use their own compatible string as base and
-add their new offsets.
+The GMAC IP on Spacemit K3 is almost a standard Synopsys DesignWare
+MAC (version 5.40a) with some extra clock.
 
-Reviewed-by: Sven Peter <sven@kernel.org>
-Signed-off-by: Janne Grunau <j@jannau.net>
+Add necessary compatible string for this device.
+
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- drivers/irqchip/irq-apple-aic.c | 24 +++++++++++++++++++++---
- 1 file changed, 21 insertions(+), 3 deletions(-)
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   2 +
+ .../bindings/net/spacemit,k3-dwmac.yaml       | 103 ++++++++++++++++++
+ 2 files changed, 105 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
 
-diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
-index 3c70364e7cddd6ed6285595f136146ab04b897b2..4607d28f23887fb4bfe286a398d5a5b2f840e716 100644
---- a/drivers/irqchip/irq-apple-aic.c
-+++ b/drivers/irqchip/irq-apple-aic.c
-@@ -134,8 +134,12 @@
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index dd3c72e8363e..a3fcb9a251fa 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -34,6 +34,7 @@ select:
+           - snps,dwmac-5.10a
+           - snps,dwmac-5.20
+           - snps,dwmac-5.30a
++          - snps,dwmac-5.40a
+           - snps,dwxgmac
+           - snps,dwxgmac-2.10
  
- #define AIC2_IRQ_CFG		0x2000
- 
-+/* AIC v3 registers (MMIO) */
-+#define AIC3_IRQ_CFG		0x10000
+@@ -653,6 +654,7 @@ allOf:
+                 - snps,dwmac-5.10a
+                 - snps,dwmac-5.20
+                 - snps,dwmac-5.30a
++                - snps,dwmac-5.40a
+                 - snps,dwxgmac
+                 - snps,dwxgmac-2.10
+                 - st,spear600-gmac
+diff --git a/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+new file mode 100644
+index 000000000000..fc024a927fcc
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+@@ -0,0 +1,103 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/spacemit,k3-dwmac.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- /*
-  * AIC2 registers are laid out like this, starting at AIC2_IRQ_CFG:
-+ * AIC3 registers use the same layout but start at AIC3_IRQ_CFG:
-  *
-  * Repeat for each die:
-  *   IRQ_CFG: u32 * MAX_IRQS
-@@ -293,6 +297,15 @@ static const struct aic_info aic2_info __initconst = {
- 	.local_fast_ipi = true,
- };
- 
-+static const struct aic_info aic3_info __initconst = {
-+	.version	= 3,
++title: Spacemit K3 DWMAC glue layer
 +
-+	.irq_cfg	= AIC3_IRQ_CFG,
++maintainers:
++  - Inochi Amaoto <inochiama@gmail.com>
 +
-+	.fast_ipi	= true,
-+	.local_fast_ipi = true,
-+};
++select:
++  properties:
++    compatible:
++      contains:
++        const: spacemit,k3-dwmac
++  required:
++    - compatible
 +
- static const struct of_device_id aic_info_match[] = {
- 	{
- 		.compatible = "apple,t8103-aic",
-@@ -310,6 +323,10 @@ static const struct of_device_id aic_info_match[] = {
- 		.compatible = "apple,aic2",
- 		.data = &aic2_info,
- 	},
-+	{
-+		.compatible = "apple,t8122-aic3",
-+		.data = &aic3_info,
-+	},
- 	{}
- };
- 
-@@ -620,7 +637,7 @@ static int aic_irq_domain_map(struct irq_domain *id, unsigned int irq,
- 	u32 type = FIELD_GET(AIC_EVENT_TYPE, hw);
- 	struct irq_chip *chip = &aic_chip;
- 
--	if (ic->info.version == 2)
-+	if (ic->info.version == 2 || ic->info.version == 3)
- 		chip = &aic2_chip;
- 
- 	if (type == AIC_EVENT_TYPE_IRQ) {
-@@ -991,7 +1008,7 @@ static int __init aic_of_ic_init(struct device_node *node, struct device_node *p
- 
- 		break;
- 	}
--	case 2: {
-+	case 2 ... 3: {
- 		u32 info1, info3;
- 
- 		info1 = aic_ic_read(irqc, AIC2_INFO1);
-@@ -1065,7 +1082,7 @@ static int __init aic_of_ic_init(struct device_node *node, struct device_node *p
- 		off += irqc->info.die_stride;
- 	}
- 
--	if (irqc->info.version == 2) {
-+	if (irqc->info.version == 2 || irqc->info.version == 3) {
- 		u32 config = aic_ic_read(irqc, AIC2_CONFIG);
- 
- 		config |= AIC2_CONFIG_ENABLE;
-@@ -1116,3 +1133,4 @@ static int __init aic_of_ic_init(struct device_node *node, struct device_node *p
- 
- IRQCHIP_DECLARE(apple_aic, "apple,aic", aic_of_ic_init);
- IRQCHIP_DECLARE(apple_aic2, "apple,aic2", aic_of_ic_init);
-+IRQCHIP_DECLARE(apple_aic3, "apple,t8122-aic3", aic_of_ic_init);
-
++properties:
++  compatible:
++    items:
++      - const: spacemit,k3-dwmac
++      - const: snps,dwmac-5.40a
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: GMAC main clock
++      - description: PTP clock
++      - description: TX clock
++
++  clock-names:
++    items:
++      - const: stmmaceth
++      - const: ptp_ref
++      - const: tx
++
++  interrupts:
++    minItems: 1
++    items:
++      - description: MAC interrupt
++      - description: MAC wake interrupt
++
++  interrupt-names:
++    minItems: 1
++    items:
++      - const: macirq
++      - const: eth_wake_irq
++
++  resets:
++    maxItems: 1
++
++  reset-names:
++    const: stmmaceth
++
++  spacemit,apmu:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    items:
++      - items:
++          - description: phandle to the syscon node which control the glue register
++          - description: offset of the control register
++          - description: offset of the dline register
++    description:
++      A phandle to syscon with offset to control registers for this MAC
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - interrupt-names
++  - resets
++  - reset-names
++  - spacemit,apmu
++
++allOf:
++  - $ref: snps,dwmac.yaml#
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    ethernet@cac80000 {
++      compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
++      reg = <0xcac80000 0x2000>;
++      clocks = <&syscon_apmu 66>, <&syscon_apmu 68>,
++               <&syscon_apmu 69>;
++      clock-names = "stmmaceth", "ptp_ref", "tx";
++      interrupts = <131 IRQ_TYPE_LEVEL_HIGH>, <276 IRQ_TYPE_LEVEL_HIGH>;
++      interrupt-names = "macirq", "eth_wake_irq";
++      phy-mode = "rgmii-id";
++      phy-handle = <&phy0>;
++      resets = <&syscon_apmu 67>;
++      reset-names = "stmmaceth";
++      spacemit,apmu = <&syscon_apmu 0x384 0x38c>;
++    };
++
 -- 
 2.52.0
 
