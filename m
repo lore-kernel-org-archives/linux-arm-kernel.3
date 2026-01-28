@@ -4,139 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68665D3567B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 05:56:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D4DD3567B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 05:56:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uYR9kTxk5UBFhydzzD4L7yS3eDix4nvw8qLgcmQmCsQ=; b=YfVui8NTg4Uj0+/78orPfWV0UN
-	eTlTzd29oDS8UHhfb/TFNrgO7ywLrTTwWMJLrMXNxcVrZet0hyASxssJRnoBYTUWID4+e+OdKlsAW
-	OYeCie+cGd7BFY9PEf7+Vcmy6zuI8vZDaPiZbXw1Iuj3ZyP8bCMN8RtZ8UQ0P+OBXHG8l7goFaSTj
-	5GyZ/VrWklFsmVM2Y9Yjguw1ElCtWu9kLgLqzj5D7qAyV5TLGyIrJYPEFW+3C6THZC4nXMHj/INK3
-	pbz2+Qlj/OSpi+UfrhsjkxqS27eHgmpA1JldXnX3iM1miTTtBCYccL18Y1HeVPXXt/sD2tpPewuQP
-	0x932FKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=//EEG6Zh25zuPfrhvaMho7XmyQpfu5WAsIOGyF3tIVo=; b=dV5mOKfUJjcJmnu7iZPTX6hUDA
+	+rCwrE1BqLRXAdHj1Gde90ULRz38xIfRmLoCK40W9ug7LvA5KUsesxzW+Yq3tSPAh9GIVZg28d3aF
+	5q3WlAZKch1eGqsEmI6eDybavmHRDU9rITejvjtZZx6RfWn2GK2LK9fRIEsdd6MCx3n0IJY00Hr7M
+	XcbSQcKsKb/vePd9ccADC5kQKaAXaDW7IQ5HjnVosEwiqU7CVpD3VGGD29lVtCpQ0mMm6Sqn6ia74
+	OQDyOXcY7+h7ZnqCJUd7SBsjxw73jGWy9+UKzZ7W4F8VEt/tQAzmjAkAsksDeYFVwjy5BwguOiX24
+	kURFHl/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkyXj-0000000FVkC-0erj;
-	Wed, 28 Jan 2026 05:56:43 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vkyXo-0000000FVmE-0FxE;
+	Wed, 28 Jan 2026 05:56:48 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkyXg-0000000FVjA-14lv
+	id 1vkyXi-0000000FVjb-3hQG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 05:56:41 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60S3X2Q32728651
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 05:56:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	uYR9kTxk5UBFhydzzD4L7yS3eDix4nvw8qLgcmQmCsQ=; b=C9dyKXwrWjyNujv2
-	g0L4IuCICrpcjYDgG9zjgAc6OJfsBk0R/OTSrUplHk84RnYo0C2c3WwYR/WaMB4p
-	Y/wT3Tv9n1l0kP88kHQlU85n0F/12H4QF4BssHzFHSJjxOX0ru0WvoEk3XcAcJZL
-	ypPW6DDe2XiQM8jm5d65HbG/Ymb/MnfU3+cz8hgBwq7lsz/aU1jIQWbxEg3/DOM5
-	sjY1uYo82Gvn5DoLWjeLK6Kt+EaGaPM4YDQC5WzQobytF7/MRZ36CXos5MqDWvlN
-	3xMgtqEkaFAr4fyCbZ47Ibja8D+QxmbL4cLz06NFD43GiwnRAxgpL9bvOiI1Nm8Z
-	tBV4qw==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4byanagbwe-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 05:56:39 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-34c64cd48a8so6658227a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 21:56:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1769579799; x=1770184599; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=uYR9kTxk5UBFhydzzD4L7yS3eDix4nvw8qLgcmQmCsQ=;
-        b=VmeSqD7kMMixHYFpxI3tyNbO9RhgxTWmQQm/CWsXjEJ0mlJ+1rblLqxSSQND5608GG
-         X8QhTqZX7PsBfP0pCiBEBH3+HIqpSIKNDADKcuf428CwR73Ue0rVB930ph1qZD4C/S14
-         fsaQSVFeps8DW7q+IvCaHYDyf05GSNuSySIboGVnwIE62eL82mYfPNr7Fp33MyJRl3vx
-         PqJHCBSva+Dlijw/SEj55r3wxl9Fhlfg3vCrFQVg9XAO75CT2yso+qk7dH28fPO/mSBB
-         Q8o4pnABM0ac2f33XagNADbwQqoScSNmGeGimifDc1Olg1lgx6uGJnBjhdvdhLU0CezU
-         bLvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769579799; x=1770184599;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uYR9kTxk5UBFhydzzD4L7yS3eDix4nvw8qLgcmQmCsQ=;
-        b=IeeMIuvDaR+0Yl6Enck3njIpaW17maYzsttGvqbY6F3ElJw7TBYwxDyCtaHPiqYIAH
-         3O8SrIoPU4KrZpXzNitSUUAWtSMwjTIjZMuLQ43EQwUFyQJvoWa+rblQhUXdZ2ni7Uzx
-         PFVIypmX7bLS4bNqV31IkBXKjvoNa4fj5RgcnNMZJfzm8wLyIeYfNvnLGa348F/p7Dbv
-         XDQXk833WbyhUaQIFf3WibnZqKAKjaavkW9lftyy368bFDFnfUwsdxSfPUy/LM1ATmRw
-         SukFLXiQWl/ji7U6Hvrp1/r7IQ8Cs2Fn06xNx4iFTc9wl/rkTyhFuqO5TBTgMzMyytOV
-         KMdw==
-X-Forwarded-Encrypted: i=1; AJvYcCXUzgEBp9jd5BxRzBEGWSUHOOldzP763amhF13Bs6bF+u62Sg2P2xTm0gHp7W0mIT/LcA8MRAzN7Y5qZB48rUsf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz73ar+KRRm4MEdCUdEaR25ssVSLHNmrUISPhEFwNXjhaFmo6NG
-	ukGWKziJ/+YfFdIAkU5BvL/wG8j0905BJe70CUOw1tec1qsJQxteoYAvyupu5+y/HuEMWIFMG0c
-	cXfqqYb79oy1w7ek/cibmQcfV44k+cEjQXo66F+NDNJ6YSiQOXM3hRoPVsRkb0eQ+V7VOgE7P5V
-	3VFA==
-X-Gm-Gg: AZuq6aK3zVC1j72QFcviGkEvuXDBcFAYh+Fg89HAqzzDIlZg/RtexhUQoGbU/myNmgO
-	NSBH5fdf3Xv7tmYZfQRcoOKoWwCwrw1wc1X6EW0Ly2ItXSgaqMJFS59FQV/FrNPZx7ThZp79JJi
-	/Yhg4HmgAgS6NaUKwIp3xsPckIOUzGkRYBB8awcGJaXMSI8D1dfCWrZRLuhyGGUIxZOvJpM5HLf
-	2HQK2U8PM/ls9Yo6RVG2y+G9VIg1TfDVMXMTSN0VhwWLRvxSp7N6ZhvV1D6uuuwnZUYvlPfaXOE
-	npg2PyRgToG6hRQPUj7jVYdr6al/OlYdLWbYAH46h2ukxlFuY1BF/xzokBLbloSRuzg11pSx/ID
-	VeXSpImb5PM37Fo5EGmYYoUN5tlKi4J8dRNraMWrS
-X-Received: by 2002:a17:90b:3a4f:b0:352:e27e:79c5 with SMTP id 98e67ed59e1d1-353feda98damr3425998a91.31.1769579798668;
-        Tue, 27 Jan 2026 21:56:38 -0800 (PST)
-X-Received: by 2002:a17:90b:3a4f:b0:352:e27e:79c5 with SMTP id 98e67ed59e1d1-353feda98damr3425979a91.31.1769579798059;
-        Tue, 27 Jan 2026 21:56:38 -0800 (PST)
-Received: from [10.219.57.215] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3540f405ceasm1122081a91.17.2026.01.27.21.56.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 Jan 2026 21:56:37 -0800 (PST)
-Message-ID: <00fcbcf2-3f48-410d-88a3-88dc834c1ed7@oss.qualcomm.com>
-Date: Wed, 28 Jan 2026 11:26:33 +0530
+	Wed, 28 Jan 2026 05:56:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bGrAZKiGpOzqrrJRAJUXD3xS7anNiKjrHbF/aCRo0l6i3JouaqkWRPtjT6OKxzajw8Ncv5MoVHzbPDP9wnybSiFwHtZ37+4T8G3mz25fTLEunVcy9xYH0v+MOMJ/e/1Xyc0ELpBZW5tUz7HfLLgyiaVGngbtUECtlFUFPvW+qwzH4HX4r0M51pRkJLuu8Z9Zpr6YTI+WJy0fcXNwVe8+954h+s3mHJAtDsVcWhYubMDMmpCAipvAuCqta+t4lKDie7/RJ/IvaLtEhS/LgAFBDFwgTZs/mafrSTbir3rqgCe7rYabi7OUzsVi78TbxJ3dVtTpp/6WXD3/ZPOzNPTy7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=//EEG6Zh25zuPfrhvaMho7XmyQpfu5WAsIOGyF3tIVo=;
+ b=jDA0WYnaX31cAM8zsv3S1JK1oGCA+NIdv2wXN7RWEZDi+WuAUDzrNekK8skoat5vTaqSR/5r1W1n2O3agWxdtXBBnVyO5V3rpwTnESx1tQP5FuhuaWhqlNli0UI4N/AjGoMUQMQXkX7Am1x81L9kMGv5+epUsxUfPuVDw6Fwbj3wO3qDy/OzjUMHB3UvE5aOJxJuOK9nqMqOGYJ4n5kUpOqkXUDdQheS8SxqSluxm5FMgbn17ANZwJrFfRbHiUqhhnVG/IQkGzjldyIGU2sQxp1FIcNcQzZK6ZllwwX873+3AlgTnvFRqAJNoskAkMX4NELfkJ3DJAU0K55udG6Ldw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=//EEG6Zh25zuPfrhvaMho7XmyQpfu5WAsIOGyF3tIVo=;
+ b=njBoGCwczVrXPFBxv2xK8titfITxLow709qheCG+6WMAXCOklopdgjYivOJ++2+BrGrXtTs/GiQTCdVF3kfmANkKkiN6WBzMs2VX0tafnY63KZUjcOFi1YWcT7rV8Ra39BuItRCu5rKFLeeD7RGY3fM2j0/NyLj5G5DFv/x6HzAgxnmHb9hndu/YKpuLR7VFQCrVPlMpkRACYGxk1xYEz7f1caZtKR2NKSNPSS+PiL/N4TEF489EnyuqreXjRC2EDH2ffkOrBRwvfmLPPQgMLXuuHIaXsG9F05AmJjmYO7+ddGCjnz5VzvbeGkbNJBFf49mIrnu1KT9AI5cUNROMJg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AS8PR04MB8450.eurprd04.prod.outlook.com (2603:10a6:20b:346::5)
+ by AM9PR04MB8603.eurprd04.prod.outlook.com (2603:10a6:20b:43a::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.14; Wed, 28 Jan
+ 2026 05:56:37 +0000
+Received: from AS8PR04MB8450.eurprd04.prod.outlook.com
+ ([fe80::d3ed:eac:1f17:e9bd]) by AS8PR04MB8450.eurprd04.prod.outlook.com
+ ([fe80::d3ed:eac:1f17:e9bd%6]) with mapi id 15.20.9564.006; Wed, 28 Jan 2026
+ 05:56:37 +0000
+Date: Wed, 28 Jan 2026 13:56:25 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Anson Huang <anson.huang@nxp.com>, Bai Ping <ping.bai@nxp.com>,
+	linux-clk@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel@puri.sm
+Subject: Re: [PATCH] clk: imx8mq: Correct the CSI PHY sels
+Message-ID: <aXmlCbEUsqZEDYNP@shlinux89>
+References: <20260128-imx8mq-csi-clk-v1-1-ac028ed26e8c@puri.sm>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260128-imx8mq-csi-clk-v1-1-ac028ed26e8c@puri.sm>
+X-ClientProxiedBy: SG2PR06CA0187.apcprd06.prod.outlook.com (2603:1096:4:1::19)
+ To AS8PR04MB8450.eurprd04.prod.outlook.com (2603:10a6:20b:346::5)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu: Use pm_runtime in fault handlers
-To: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
-        Joerg Roedel <joro@8bytes.org>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Connor Abbott <cwabbott0@gmail.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-        Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
-References: <20260127-smmu-rpm-v1-1-2ef2f4c85305@oss.qualcomm.com>
- <9fb8f661-a235-4f86-bc10-f80a21a8fa9d@arm.com>
-Content-Language: en-US
-From: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
-In-Reply-To: <9fb8f661-a235-4f86-bc10-f80a21a8fa9d@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: wvyWYIbJpbg5ZMzhxBaJzuvyVNMO6LIo
-X-Proofpoint-ORIG-GUID: wvyWYIbJpbg5ZMzhxBaJzuvyVNMO6LIo
-X-Authority-Analysis: v=2.4 cv=N58k1m9B c=1 sm=1 tr=0 ts=6979a517 cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=Jg306G9I-f7xxtujTVEA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=rl5im9kqc5Lf4LNbBjHf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI4MDA0NSBTYWx0ZWRfX9TRNe9hx/0si
- d5mbP80eXjB5HV/DzIXOfpWJX3T27BY7xacn+ChlZCzGZIvV/BxgJde8aP1MT5eAd/HbKHpeJIh
- yQhuHF24UQx0EtHTA0DmAmngrmWcej8wxG1MkwlBqw5QGKha8ynsiGXR9FtWkgYpn7kY6OU1rTP
- BveGb7sW2GjM3v1IsOsTvna9ZGGTUP5mQ2SS5rCWrtYSwiOLcgzuhZU07VICUq+LtSGx3Lkh25h
- u+YyghsYb5uhwVInG6gBWPI8TCbZPhlo/Od6Mg6urIIJDK7fCD8gys397uzvx/6jwmZwwQ32bk7
- 8Uu/XYrvSsn/Xg7fg+rCJVmd3aes1l96QfcPmsJ+BLzzuXyNojd18PtbVoJrfuZwhphbWZBeKeQ
- 8mKVnrfAqCZmtZFuJShWGCeClrqZT+H8Xjxn/CPRIFX92VkH/yCUvWUNsIWBz06c97tkSqTK9zZ
- 54qD0pxPxclwPWEq1+g==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-01-27_05,2026-01-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 suspectscore=0 lowpriorityscore=0 priorityscore=1501
- malwarescore=0 bulkscore=0 adultscore=0 clxscore=1015 impostorscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
- definitions=main-2601280045
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8450:EE_|AM9PR04MB8603:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0c5adf0c-3d98-40cd-9a46-08de5e31ffd0
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|52116014|376014|1800799024|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?aaygdrcnzd5PMhIAw5c+G1Z94YyDkBKYbHbi77AJ9gvzNRPQW8XjxHNShrwZ?=
+ =?us-ascii?Q?5sIGXdWWZZExf5pYBMJWrQ/zij9dhVifarGaw6ttrMneNBdDumdpWGlaBCHf?=
+ =?us-ascii?Q?nEkw3BBh4m1iMu9+as6pTASr/bcpy97LA0e/mxNMzUA2yr+IxGlh/FDj84bU?=
+ =?us-ascii?Q?Hu3be/DaaBwJ9fZH8cQMiO2QxPwy/fZnmNSEuz5E3RoNdl6aWVpRLetpSqq2?=
+ =?us-ascii?Q?xaVjr5xOYNXmHqi67idBsaCQwQPnRNtwR2XRFoZKsl3yU0hgwMGvQFYxhJzv?=
+ =?us-ascii?Q?v3u8AoEjDtqWGwPSNugqsljHasg3I7ZtY+vgLuh9ZHtzdYaR7F+AUZ8AjYnS?=
+ =?us-ascii?Q?lpC9oD8xBCfPipEuEzt+2zGIbpOK7yzOswVMh/FuJoTsJ1uN4GNt6LTOk7/5?=
+ =?us-ascii?Q?65wnX9OanIdn7+EFMwGwhHkMeLeWkKTbov1svmDrcwISQp8H9h5afSbglDXY?=
+ =?us-ascii?Q?jUzlRD+YWTCC32KPOsCCCSDaWVbusmo/u7XDHtMpvVIARlifvzVMAyUCvYUp?=
+ =?us-ascii?Q?2qqbnZqRxfT6b64LCVqaJ/GQWbKuCLMcGMe6eoUI4Uj1f1Sl9HFPOTTJjbu7?=
+ =?us-ascii?Q?YiNmOCVwNPgawGKa+D/q0jVKjbpVd/OFzws+iDosFNwullzjkaPXhAYKukji?=
+ =?us-ascii?Q?8NI0wA8o11DsoZaeq3Wv4YJXmBm7nX1cJMkXl9npYQT1xGFX+veqE7he15LJ?=
+ =?us-ascii?Q?5TOafFxldC/ILdu6PDV2hrK63RfCaV90Q1pbtVfHOs8X5IQg0yB5UZPp6/a2?=
+ =?us-ascii?Q?NxTBNp230wDJQFJyiczP9IDd/FNHTUQ8E65nKhjlqlfEs3zG+lrdCwgsHbXE?=
+ =?us-ascii?Q?sOyzfi4MKOn8ijExJl4Gdr5GBS1RDZBW2xiXFqPT9+kArDr8tuaK91Lf/j3b?=
+ =?us-ascii?Q?fZVqxlo48GOVs2/7QyNkrpQRViqm6MaFPhKdXAAtPi5xTEfKE8LPny1NYzML?=
+ =?us-ascii?Q?q64JcKk/IFLvfKfM+3aEHadoYEHsy9OPC9bbyXupkQgM3qMg1PpedV32rFLL?=
+ =?us-ascii?Q?NT/LSmzVInT7E0Qja/o2+4JJ3rWKG/8sg9pLc/BUvYvSpbllPBsfjtv/v9Wp?=
+ =?us-ascii?Q?ehFRyVsboTitptzqEOQjNr7ayqbim76wRPiic9WGjVr0JRRhAyrrJmGaXWUf?=
+ =?us-ascii?Q?Ml+Y+st6Aq1wCtl+Ww4AjR0fF+oRbUgHeBWuWvNhJaTjyazO8RQXu0kQCqVr?=
+ =?us-ascii?Q?MoeBapZ7WiTOQOQFHNR5O7cSJz2uzQdaYSxNbgYhmUKNKbfmzYwxxO9EkOLb?=
+ =?us-ascii?Q?km7psHuKnDP8n91xBIIElJislZzFWfef6IzLD2A1+kya5hxmgE+h4m7hMX9m?=
+ =?us-ascii?Q?gVO1Tv1OUSOd16qqEmgi80iq0zq1MiS0eDetIY8nv+X+Lh/7Yjb6abO3w4Nw?=
+ =?us-ascii?Q?zEIkjrgt3UrunCax6dn0PsXwumB78AX0vnbIDVBIbIZhQDVCcDLsA+7hYyfh?=
+ =?us-ascii?Q?woX2sHGsqohSI0A7moHTo133eXa/ENW5IZ1mK9i7yq8Ph1gfcVn3b4ZIj+ct?=
+ =?us-ascii?Q?DnEQhqL9FsayfZkKV5pAo/UG/P/R+lfm+IqJSRVA0EC26x+c1+462VotukZg?=
+ =?us-ascii?Q?VAr2hqPxAxtlyosOwcLiOE7aoyVw7rq77S7sIlOVUZnJaLNu2BCEgdDKEOrX?=
+ =?us-ascii?Q?O+dCRb6e7zIPD9J498KcMw4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8450.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(52116014)(376014)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VIZaLX37epYAtvZ2t+Bu7Eovisks33DKUGqEuKVAZukyH/jLe1UNz9TG0Uqo?=
+ =?us-ascii?Q?PRsSRnGj27Fnf5Msjv14MfrbZ6sDLuodrhVvnZUb1NnfEmQ4d32RftRxWCeL?=
+ =?us-ascii?Q?mI2yFmPEzaDgHVDPO9AquDHIsFma+gCw6fs5ifB7O60g6MDkXELdDdYd6SUP?=
+ =?us-ascii?Q?MX8fvMOXPHBKz5FUB7ltJNcLp8XlA7yeXBRoEHSBzvchCyp20Aukqcg3mkiF?=
+ =?us-ascii?Q?3vXuJQWeACrmjnIwzmJk9MJTSQkTLp4iwpbjbeutiIF35hBG4jOulgHuy4o0?=
+ =?us-ascii?Q?j75vJ7vWrfwkcJ/2N/a/8L2GaQ66jze/X882AzeHSBHPjUavgjotnBjveu6s?=
+ =?us-ascii?Q?o+mCResWXAXmMa7EzBITFndJWgPQhNEAOEq+mBiehb9bLU8vQ5lvyakiVx61?=
+ =?us-ascii?Q?b4TZQAKIFFXGZrFfKf49tzBDIB4GoLIOjA0iVHpEIWzPUIAFgMuI/Z84SFES?=
+ =?us-ascii?Q?e+w0bcqAEvyQw/R951E2g60nvUUM84dQy+Q4P6MicKq9iYTsaHUthvqEudDz?=
+ =?us-ascii?Q?36Z/qq0RoDP8Ho7sNF+tOuELTC12l0SeNBARGcvrMAxbXc6Z0i9WcaZDwtTw?=
+ =?us-ascii?Q?TrR/lQnZ5QenJWSsfpbd4YPrpMr/AsmowEavnhYbTMGxFa0O5be/8xvw6GYj?=
+ =?us-ascii?Q?Z1PhagFYR3QsCqwBpmW96k41JkA0OyVLWjiYvNFDh0bWLnvFCARyNdERv5R8?=
+ =?us-ascii?Q?8lVklH/A1epyhN2fJQvLjC9FXq6RO+FRhAM6f+dgvVKrthSEl6jQthFPxokp?=
+ =?us-ascii?Q?cW+rpipogqbLDlmQWTYDbGRi2uTSFOC8/KnE5F+YJHOLRKicrRgomqMabqRz?=
+ =?us-ascii?Q?SXnZMTcmE1D5xKvX6FKMy5pKEWFxWocWFJVRpb3dAjfkt2gcNTgRLd9eHQE1?=
+ =?us-ascii?Q?1/tsXAEIw0jmF0FjRH8VGQki0mx9hFhvgM01vDiO5nkNzeEk3FzNxOkw7tVp?=
+ =?us-ascii?Q?vl2dfKlexaGkBRxFyCwzCZ0YpdmehFNutyZse5VhVE9mwTivRLbzrgXUkI6F?=
+ =?us-ascii?Q?L5lFszsyON3/II7IVhYYuFrMANg5LhDblGPxZDU3qadOn80bvEWQHQaPPdb2?=
+ =?us-ascii?Q?qNDrLdc/RJQsIu1mD472XSp4a/5Dh2UMvJj+0toDkmlbXeOuYGEGIlS+tngC?=
+ =?us-ascii?Q?2kE2Ihvhjlu97cBQWYCLpfo6LMHrmBfcY2hOKlq50XcsSB3f4r+vit9LwCXg?=
+ =?us-ascii?Q?EApbJNwNjAGrdj1oLGSacpAxbOJYKQyVO9TBsgS2WTQa5Lz8mVznRitMnRsj?=
+ =?us-ascii?Q?06aidZ3EApDAaglJ9pAINTldd12XFGCpvuHjxz4f5tu+LQwU4UNo/3CYcBfS?=
+ =?us-ascii?Q?duQMcLSl9e4V6IPcwOREjsooreFR7u2+Xa0XDcKWqk065m6ozC1YUEZwu2TT?=
+ =?us-ascii?Q?ULN7F41RrbkaiWt5U7QH+Q2v7yIzqeglYwaxWdaKvUjoHX7lpaQ6yyNLzUiK?=
+ =?us-ascii?Q?fLeelRQOUDCe+m4sgHdIaKANsI9y9SZ4MaJZ5Nr5zDEk1YSkF4Rf8mXe5X+g?=
+ =?us-ascii?Q?ffMDW39eaw0eBIgdwmTdnxoFVRndL9ZxARQ05OMvlGAjaokN7cKra6zbv/Fm?=
+ =?us-ascii?Q?90fF8bVnqLLbZJ3u8qIFbqJ6JOqvX/jcfSOap6SNPlVe84pqLgkyMPRecdy/?=
+ =?us-ascii?Q?UXiRmUC9Cd9DHG2WM4Dr802/j7MYO4kEKEvpv/dMoQM9qSITlFE2PkEVcmx6?=
+ =?us-ascii?Q?PUvFJC1f5UYUxbhEvI+08v49xp6bq3SGDTRMi0TiEqrhPbbyhttYL07clxHQ?=
+ =?us-ascii?Q?W6+ZpwAz2Q=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0c5adf0c-3d98-40cd-9a46-08de5e31ffd0
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8450.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jan 2026 05:56:37.7035
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6hreh5Xo8KJ2IAT5E8DT6Ts2oT4bRYv3Fln/LK3xx38cDnk9pc18ivywvAseKJbXCX7woKgKn3vRP4eBwTcNIg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8603
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_215640_311892_44B81E4E 
-X-CRM114-Status: GOOD (  35.56  )
+X-CRM114-CacheID: sfid-20260127_215642_920690_84684077 
+X-CRM114-Status: UNSURE (   6.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,232 +173,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jan 28, 2026 at 12:47:21AM +0100, Sebastian Krzyszkowiak wrote:
+>According to i.MX 8M Quad Reference Manual (Section 5.1.2 Table 5-1)
+>MIPI_CSI1_PHY_REF_CLK_ROOT and MIPI_CSI2_PHY_REF_CLK_ROOT have
+>SYSTEM_PLL2_DIV3 available as their second source, which corresponds
+>to sys2_pll_333m rather than sys2_pll_125m.
+>
+>Fixes: b80522040cd3 ("clk: imx: Add clock driver for i.MX8MQ CCM")
+>Signed-off-by: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
 
-On 1/27/2026 9:35 PM, Robin Murphy wrote:
-> On 2026-01-27 12:11 pm, Prakash Gupta wrote:
->> Commit d4a44f0750bb ("iommu/arm-smmu: Invoke pm_runtime across the
->> driver")
->> enabled pm_runtime for the arm-smmu device. On systems where the SMMU
->> sits in a power domain, all register accesses must be done while the
->> device is runtime-resumed to avoid unclocked register reads and
->> potential NoC errors.
->>
->> So far, this has not been an issue for most SMMU clients because
->> stall-on-fault is enabled by default. While a translation fault is
->> being handled, the SMMU stalls further translations for that context
->> bank, so the fault handler would not race with a powered-down
->> SMMU.
->>
->> Adreno SMMU now disables stall-on-fault in the presence of fault
->> storms to avoid saturating SMMU resources and hanging the GMU. With
->> stall-on-fault disabled, the SMMU can generate faults while its power
->> domain may no longer be enabled, which makes unclocked accesses to
->> fault-status registers in the SMMU fault handlers possible.
->
-> At face value, that sounds wrong - how does an SMMU generate a fault,
-> or indeed do anything, when it's powered off? In principle it's
-> possible that the SMMU might signal an interrupt, and is _then_
-> suspended (with the interrupt line somehow remaining asserted, so
-> probably more clock-gated than completely powered down) before the
-> interrupt hander runs, but we rather assume that we're not going to
-> have an unhandled hardware IRQ hanging around for longer than the
-> autosuspend delay.
->
-> So, judging by the diff below, I guess what you really mean is that in
-> the case of a threaded context IRQ handler, it can take long enough
-> between handling the hardware IRQ and the thread actually running that
-> the SMMU may have suspended in between? 
+Thanks for the fix.
 
-You are correct that the SMMU cannot generate a fault while powered
-down. A more accurate description of the race condition is as follows:
-When stall-on-fault is disabled, the faulting transaction does is
-terminated. This allows the master (the GPU) to complete its work, drop
-its power vote for the SMMU, and allow the SMMU to suspend. However, the
-SMMU fault handler may still be waiting to execute on the CPU.
-If the SMMU suspends before the handler reads the fault registers, an
-unclocked access occurs. This scenario is significantly more likely when
-using threaded IRQs due to the scheduling latency involved. I will
-update the next iteration to reflect this.
-
->
->> Guard the context and global fault handlers with arm_smmu_rpm_get() /
->> arm_smmu_rpm_put() so that all SMMU fault register accesses are done
->> with the SMMU powered.
->>
->> Fixes: b13044092c1e ("drm/msm: Temporarily disable stall-on-fault
->> after a page fault")
->> Co-developed-by: Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
->> Signed-off-by: Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
->> Signed-off-by: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
->> ---
->>   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c |  5 ++-
->>   drivers/iommu/arm/arm-smmu/arm-smmu.c      | 53
->> ++++++++++++++++++++++--------
->>   2 files changed, 43 insertions(+), 15 deletions(-)
->>
->> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
->> b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
->> index 573085349df3..2d03df72612d 100644
->> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
->> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
->> @@ -317,6 +317,7 @@ static int qcom_adreno_smmu_init_context(struct
->> arm_smmu_domain *smmu_domain,
->>       struct arm_smmu_device *smmu = smmu_domain->smmu;
->>       struct qcom_smmu *qsmmu = to_qcom_smmu(smmu);
->>       const struct of_device_id *client_match;
->> +    const struct arm_smmu_impl *impl = qsmmu->data->impl;
->>       int cbndx = smmu_domain->cfg.cbndx;
->>       struct adreno_smmu_priv *priv;
->>   @@ -350,10 +351,12 @@ static int
->> qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
->>       priv->get_ttbr1_cfg = qcom_adreno_smmu_get_ttbr1_cfg;
->>       priv->set_ttbr0_cfg = qcom_adreno_smmu_set_ttbr0_cfg;
->>       priv->get_fault_info = qcom_adreno_smmu_get_fault_info;
->> -    priv->set_stall = qcom_adreno_smmu_set_stall;
->>       priv->set_prr_bit = NULL;
->>       priv->set_prr_addr = NULL;
->>   +    if (impl->context_fault_needs_threaded_irq)
->> +        priv->set_stall = qcom_adreno_smmu_set_stall;
->> +
->>       if (of_device_is_compatible(np, "qcom,smmu-500") &&
->>           !of_device_is_compatible(np, "qcom,sm8250-smmu-500") &&
->>           of_device_is_compatible(np, "qcom,adreno-smmu")) {
->> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c
->> b/drivers/iommu/arm/arm-smmu/arm-smmu.c
->> index 5e690cf85ec9..183f12e45b02 100644
->> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
->> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
->> @@ -462,10 +462,23 @@ static irqreturn_t arm_smmu_context_fault(int
->> irq, void *dev)
->>       int idx = smmu_domain->cfg.cbndx;
->>       int ret;
->>   +    if (smmu->impl && smmu->impl->context_fault_needs_threaded_irq) {
->
-> Why is this conditional on being threaded, if the global fault handler
-> that can never be threaded at all apparently needs it unconditionally? 
-Synchronous runtime PM calls can sleep, which would cause issue if
-called within a hard IRQ context. This is why I added the conditional
-check for threaded IRQs.
-Furthermore, this change only allow the driver to override the
-stall-on-fault setting when context_fault_needs_threaded_irq is true.
-Since the unclocked access issue is tied to disabling stall-on-fault,
-the fix is only logically required for the threaded IRQ path.
-For the Global Fault handler, which runs in a hard IRQ context, you are
-right—we cannot safely vote for power there. I will remove the runtime
-PM call from that section.
->
-> Thanks,
-> Robin.
->
->> +        ret = arm_smmu_rpm_get(smmu);
->> +        if (ret < 0)
->> +            return IRQ_NONE;
->> +    }
->> +
->> +    if (smmu->impl && smmu->impl->context_fault) {
->> +        ret = smmu->impl->context_fault(irq, dev);
->> +        goto out_power_off;
->> +    }
->> +
->>       arm_smmu_read_context_fault_info(smmu, idx, &cfi);
->>   -    if (!(cfi.fsr & ARM_SMMU_CB_FSR_FAULT))
->> -        return IRQ_NONE;
->> +    if (!(cfi.fsr & ARM_SMMU_CB_FSR_FAULT)) {
->> +        ret = IRQ_NONE;
->> +        goto out_power_off;
->> +    }
->>         ret = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
->>           cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE :
->> IOMMU_FAULT_READ);
->> @@ -480,7 +493,14 @@ static irqreturn_t arm_smmu_context_fault(int
->> irq, void *dev)
->>                     ret == -EAGAIN ? 0 : ARM_SMMU_RESUME_TERMINATE);
->>       }
->>   -    return IRQ_HANDLED;
->> +    ret = IRQ_HANDLED;
->> +
->> +out_power_off:
->> +
->> +    if (smmu->impl && smmu->impl->context_fault_needs_threaded_irq)
->> +        arm_smmu_rpm_put(smmu);
->> +
->> +    return ret;
->>   }
->>     static irqreturn_t arm_smmu_global_fault(int irq, void *dev)
->> @@ -489,14 +509,21 @@ static irqreturn_t arm_smmu_global_fault(int
->> irq, void *dev)
->>       struct arm_smmu_device *smmu = dev;
->>       static DEFINE_RATELIMIT_STATE(rs, DEFAULT_RATELIMIT_INTERVAL,
->>                         DEFAULT_RATELIMIT_BURST);
->> +    int ret;
->> +
->> +    ret = arm_smmu_rpm_get(smmu);
->> +    if (ret < 0)
->> +        return IRQ_NONE;
->>         gfsr = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sGFSR);
->>       gfsynr0 = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sGFSYNR0);
->>       gfsynr1 = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sGFSYNR1);
->>       gfsynr2 = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sGFSYNR2);
->>   -    if (!gfsr)
->> -        return IRQ_NONE;
->> +    if (!gfsr) {
->> +        ret = IRQ_NONE;
->> +        goto out_power_off;
->> +    }
->>         if (__ratelimit(&rs)) {
->>           if (IS_ENABLED(CONFIG_ARM_SMMU_DISABLE_BYPASS_BY_DEFAULT) &&
->> @@ -513,7 +540,11 @@ static irqreturn_t arm_smmu_global_fault(int
->> irq, void *dev)
->>       }
->>         arm_smmu_gr0_write(smmu, ARM_SMMU_GR0_sGFSR, gfsr);
->> -    return IRQ_HANDLED;
->> +    ret = IRQ_HANDLED;
->> +
->> +out_power_off:
->> +    arm_smmu_rpm_put(smmu);
->> +    return ret;
->>   }
->>     static void arm_smmu_init_context_bank(struct arm_smmu_domain
->> *smmu_domain,
->> @@ -683,7 +714,6 @@ static int arm_smmu_init_domain_context(struct
->> arm_smmu_domain *smmu_domain,
->>       enum io_pgtable_fmt fmt;
->>       struct iommu_domain *domain = &smmu_domain->domain;
->>       struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
->> -    irqreturn_t (*context_fault)(int irq, void *dev);
->>         mutex_lock(&smmu_domain->init_mutex);
->>       if (smmu_domain->smmu)
->> @@ -850,19 +880,14 @@ static int arm_smmu_init_domain_context(struct
->> arm_smmu_domain *smmu_domain,
->>        */
->>       irq = smmu->irqs[cfg->irptndx];
->>   -    if (smmu->impl && smmu->impl->context_fault)
->> -        context_fault = smmu->impl->context_fault;
->> -    else
->> -        context_fault = arm_smmu_context_fault;
->> -
->>       if (smmu->impl && smmu->impl->context_fault_needs_threaded_irq)
->>           ret = devm_request_threaded_irq(smmu->dev, irq, NULL,
->> -                        context_fault,
->> +                        arm_smmu_context_fault,
->>                           IRQF_ONESHOT | IRQF_SHARED,
->>                           "arm-smmu-context-fault",
->>                           smmu_domain);
->>       else
->> -        ret = devm_request_irq(smmu->dev, irq, context_fault,
->> IRQF_SHARED,
->> +        ret = devm_request_irq(smmu->dev, irq,
->> arm_smmu_context_fault, IRQF_SHARED,
->>                          "arm-smmu-context-fault", smmu_domain);
->>         if (ret < 0) {
->>
->> ---
->> base-commit: fcb70a56f4d81450114034b2c61f48ce7444a0e2
->> change-id: 20251208-smmu-rpm-8bd67db93dca
->>
->> Best regards,
->> -- 
->> Prakash Gupta <prakash.gupta@oss.qualcomm.com>
->>
->
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
