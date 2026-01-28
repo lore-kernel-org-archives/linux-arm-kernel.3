@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F2A1D35698
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:56:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AE46D3569B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rx9PaGhN8XCDO/Lj9TkDnHhjpxVfK1xRGoM2y5dZLgE=; b=AyLzRZNZ7DuaFZzVzPXpQLLY1s
-	YOL1HRU8X6NUvWXZoM2LZBHZRCqENL5Xe9+xMbuPmeScNwqDRswW6GTPVdciuJlsPx7sIfjt+tB8y
-	QCngtm8l2wMINdsON88Z/bD85So0DiNlndA0HaTe83gALXjAKMavuJsRM1wrMNPR87QAxdf9qz4zq
-	yr57YXunYOFLUNw4YwyzUf2B1MoiRFvIjSoZpXv/BFeSX69OqJFz8XoPoJQi/SDx/wTFy4Q8sxH4Y
-	K9gLWhzF9CI2FHQJJiS4RBTb5mLmjZ1ZqnZo2V4Bxt+EDTTBUlQ2GHl4pJxsFGKjnuiusTSq2Okpm
-	1TAFFhLg==;
+	bh=0aZDalOgS8NpQjE/IJRmLE79ou1FJAk2mHyWP980i80=; b=XzLcZf0sKw2t4OKzk14EekLDGd
+	jVgYUzsF1B3e0ZdpXkh9WSEAHVOLS2/ZzpqFVG6bnVI8TUZ4aiudCLKo6bJkeIhXLVEM6g7IozWzH
+	JPphWOGzSKKcipFDxZUK8vdJXpazBm1ISKDs9TFATB+ZFxW+Jg1FaG60oeFG4lBugsGMWBfRBPYPe
+	f8F2W6CC3DH2xVLmLpECQ+P6f9pF8dFUPjJ2lmUp4LQ/trEk0Ft4XINYhzMZDoMjFOb+IC09dPeRO
+	RtZSg1QLrjKb3cni+3I2MA2W90kZXmVkcXRETF6QYP7FLjA1WAfFHOo6I/bwSM5YmfpA8o67DdEeC
+	u3crIl9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl2HQ-0000000FnAo-3g0Y;
-	Wed, 28 Jan 2026 09:56:08 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vl2HR-0000000FnAz-0qLG;
+	Wed, 28 Jan 2026 09:56:09 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl2HN-0000000Fn7I-2DWr
+	id 1vl2HN-0000000Fn7E-2Pxx
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 28 Jan 2026 09:56:07 +0000
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1769594162;
+	s=2020; t=1769594160;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Rx9PaGhN8XCDO/Lj9TkDnHhjpxVfK1xRGoM2y5dZLgE=;
-	b=eJdzLYiTOtn+behbDASDvueRmFhJUiXAo+sbMvKy9PSpe32UA3IbaBdr/H7TAKt4s3eWQJ
-	1mkWb4hdMRlei4dr0axaMIynjo+I0gBnEqAV3TGy/cjBrUULLY2ZRS69zNNuKt3Jr1cfr3
-	5Ra8A9w0R+jHBIi2z36oQQHU9VTdYbdV9E1c5XhvSUXnZh46O0dNAl1OeYF7t5dZUUqXjx
-	5dnIq3GL2QQ9E6eDPJHKVuafdgH9AnA7qsVHvjNd0U1UwZanv13NHRToDMst/ExUJA3EYh
-	21D+AMz6KZ60lTUfrrFi0b7s9ntEETBPWWmDI6ue5iSR07R92uOD45ycSrmY1g==
+	bh=0aZDalOgS8NpQjE/IJRmLE79ou1FJAk2mHyWP980i80=;
+	b=LXHm6WBX3s9HSTJAXauINmjIAMguh9aTJb9iZRskoZhcOGrL6wOpymos0/qVMazJcpDzAT
+	9FPOPWUONCUCPO1SUE5JujoH7FWpmSNreqrhPAYE/BbHBre5PQtWF4KtFaHzvzLjja7bA6
+	Df086nyLjmd3WcmjEMYTd7CaDdA0SQ+bQH3PdiCoi7lKNAfN5nXdxIIrSA6v8Gfl9q71cz
+	+Q6UlmHImxOfIzyl2CgEFXENrpT7vt7sKAFsJ0LsmvljrupsjjW7+cAsiCsDITsXFMCIDh
+	LGPzOC0cnQfy31xqW7TbgEl9BtxfuvihzQoL1l/ftbVH8ERFAoGL2vA3ysVowA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1769594162;
+	s=2020e; t=1769594160;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Rx9PaGhN8XCDO/Lj9TkDnHhjpxVfK1xRGoM2y5dZLgE=;
-	b=qqmnRDX1e3Qb4lsgp8mVBqAc1EG132V9zjFZs7OsjSY4PWQweBYfL+HNzwKopevros2T4C
-	UxBPiSEg/MDzVTBQ==
+	bh=0aZDalOgS8NpQjE/IJRmLE79ou1FJAk2mHyWP980i80=;
+	b=HnNCpmrf6IkhLERrTvKHehr2cK8ORyERltmrV/MUhWAhe2+q6hQJh2KgOIyqFDcC+wFUxA
+	HqAwK0VSaP8JbCDg==
 To: linux-kernel@vger.kernel.org
 Cc: "Thomas Gleixner" <tglx@kernel.org>,
 	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-cxl@vger.kernel.org,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 14/20] perf/cxlpmu: Replace IRQF_ONESHOT with IRQF_NO_THREAD
-Date: Wed, 28 Jan 2026 10:55:34 +0100
-Message-ID: <20260128095540.863589-15-bigeasy@linutronix.de>
+Subject: [PATCH v2 08/20] ARM: versatile: Remove IRQF_ONESHOT
+Date: Wed, 28 Jan 2026 10:55:28 +0100
+Message-ID: <20260128095540.863589-9-bigeasy@linutronix.de>
 In-Reply-To: <20260128095540.863589-1-bigeasy@linutronix.de>
 References: <20260128095540.863589-1-bigeasy@linutronix.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_015605_711392_9EAF8351 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20260128_015605_810992_9CA04D73 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,39 +85,38 @@ Passing IRQF_ONESHOT ensures that the interrupt source is masked until
 the secondary (threaded) handler is done. If only a primary handler is
 used then the flag makes no sense because the interrupt can not fire
 (again) while its handler is running.
-The flag also disallows force-threading of the primary handler and the
-irq-core will warn about this.
 
-The intention here was probably not allowing forced-threading.
+Revert adding IRQF_ONESHOT to irqflags.
 
-Replace IRQF_ONESHOT with IRQF_NO_THREAD.
-
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+Acked-by: Linus Walleij <linusw@kernel.org>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
-Cc: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-cxl@vger.kernel.org
+Cc: Linus Walleij <linusw@kernel.org>
+Cc: Liviu Dudau <liviu.dudau@arm.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org
 ---
- drivers/perf/cxl_pmu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm/mach-versatile/spc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/perf/cxl_pmu.c b/drivers/perf/cxl_pmu.c
-index d094030220bf2..68a54d97d2a8a 100644
---- a/drivers/perf/cxl_pmu.c
-+++ b/drivers/perf/cxl_pmu.c
-@@ -877,7 +877,7 @@ static int cxl_pmu_probe(struct device *dev)
- 	if (!irq_name)
- 		return -ENOMEM;
+diff --git a/arch/arm/mach-versatile/spc.c b/arch/arm/mach-versatile/spc.c
+index 812db32448fcd..2d27777a00d33 100644
+--- a/arch/arm/mach-versatile/spc.c
++++ b/arch/arm/mach-versatile/spc.c
+@@ -459,8 +459,8 @@ int __init ve_spc_init(void __iomem *baseaddr, u32 a15_=
+clusid, int irq)
 =20
--	rc =3D devm_request_irq(dev, irq, cxl_pmu_irq, IRQF_SHARED | IRQF_ONESHOT,
-+	rc =3D devm_request_irq(dev, irq, cxl_pmu_irq, IRQF_SHARED | IRQF_NO_THRE=
-AD,
- 			      irq_name, info);
- 	if (rc)
- 		return rc;
+ 	readl_relaxed(info->baseaddr + PWC_STATUS);
+=20
+-	ret =3D request_irq(irq, ve_spc_irq_handler, IRQF_TRIGGER_HIGH
+-				| IRQF_ONESHOT, "vexpress-spc", info);
++	ret =3D request_irq(irq, ve_spc_irq_handler, IRQF_TRIGGER_HIGH,
++			  "vexpress-spc", info);
+ 	if (ret) {
+ 		pr_err(SPCLOG "IRQ %d request failed\n", irq);
+ 		kfree(info);
 --=20
 2.51.0
 
