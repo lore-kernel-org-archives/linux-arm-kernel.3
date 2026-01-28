@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AC5DD3F069
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 14:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8303CD3F06D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 14:31:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FgMrjGzHFLUO8ARuHMEd9oRrOtTdwAvG2B34qX7UbRg=; b=Er+m9XBzrbtQ6kDi9/ll++ooRh
-	pszmCCvQZgoH8N+qJYU1zR5QCrb3dEsx03KLIyIJRHgCSnqNPnn8yPlTpU+MAdwTw7ItGFMc3dhor
-	rEmWkwoSl0jpNNza8rr7SEf7pqymjoysBHKJr3N1xKXg0gDcIPUhSits0I94xHvyjZKTsPKcWRhv0
-	XetO3s04mVo/0LiANEHd3fyAPEWUMtmt61dp6OJqiGYe8JiYr3SFbo8wQ4qV95qRnOxGJFcqaV7Jh
-	9U2JlASSRc/i/GTiQ/yTFSuU41Yjsk9B1QqMsiHoJu3RS7ARI2aKYuQwGDHYj4CfoIAQvD30r41po
-	BtRrnXvQ==;
+	bh=Y2EUlzmFY6dEaEJrzdiJ/Pa6JuxcgHs5UoDjOmmW5jQ=; b=hE4l4VhNiESQogHptqFqpABlck
+	/SSL1w6VhILl1ejARpgx1D/h8UnjXSZxCGVOXnqAQIfbvSXDAgBFUl+7fhmr6dBgZAXq52VemeNkI
+	dVgnQCLjdG2V+5CfvpoDy7Isi3TJBaoGlC/Vr2rIzpsROmHfsM1EUyW6mqQ+KR2HsObtzrIe9ASqP
+	CDmdGGl40iXsqAM2PWCLoKDqQcV3zmonhyQmXC2dy8s842PGOZ3a+k2k7yUr6w4GLR014DuqlJ5TJ
+	maezRwt/mwywQo8RkE3ZZZ6RDFikE/pTk2pOXja70d3wlrZY94B7Kr8N5lC9RE78ixzQyBTKJPjgU
+	HMnC3xHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl6XK-0000000GAf6-1pUU;
-	Wed, 28 Jan 2026 14:28:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vl6Zs-0000000GAti-44jk;
+	Wed, 28 Jan 2026 14:31:28 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl6XI-0000000GAel-3yRd
+	id 1vl6Zp-0000000GAtK-3Ocw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 14:28:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6371B600AD;
-	Wed, 28 Jan 2026 14:28:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E738C4CEF7;
-	Wed, 28 Jan 2026 14:28:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769610528;
-	bh=yVK+1rGXEFwbGHm+y9dP2+QQA05aUnWbOsxkvUrgglI=;
+	Wed, 28 Jan 2026 14:31:27 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id E785BC6F;
+	Wed, 28 Jan 2026 15:30:44 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1769610645;
+	bh=BbfxFM8c+zZV6jFhrZFIgkTKht8egaHY7UZljGTtoKc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sEJ4HdxdHqoT5usmyr5CzYmdSDIUsy2yb8Q7Wfgo4BOctdBuAq+uvmf9k1VbAwJHl
-	 2vltzlVx13lerrW/ce+XHP+39ufSDtafc0z170juseGExhSWircnGp94Iw6yYmUxjE
-	 fAZjfpVsggYd5VHX3c10z4W8nqnhGl2uP3LY3P7Q/gAd9sKQKwo3gUc2LtOpt0Ji2H
-	 EOyY+21K3DKX4gugOVAdIECT1MQTCtXXLyT9cgSVFkMIPc2AIFnjsDUk9HK0bpve7F
-	 IP+NgMzRA5VrA4SQDmzKN/FYp6E1KT7oxvS427CAietuBA3ZQg+YJNHmBniit6gWE2
-	 M/YZ0MIWnlpog==
-Date: Wed, 28 Jan 2026 08:28:45 -0600
-From: Bjorn Andersson <andersson@kernel.org>
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Jingoo Han <jingoohan1@gmail.com>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com
-Subject: Re: [PATCH 2/3] PCI: dwc: Use common D3cold eligibility helper in
- suspend path
-Message-ID: <oygssx4tnd7uwofk4ucqj2ypok2zssnzbauzar2f65lzougr3a@vp6b7y4j56k3>
-References: <20260128-d3cold-v1-0-dd8f3f0ce824@oss.qualcomm.com>
- <20260128-d3cold-v1-2-dd8f3f0ce824@oss.qualcomm.com>
+	b=puDk4IbqJ3SRReC0ZdCcCVJ4mPCzRNW+qDy6j8+3V3hvG+UL8GjKB1n9NHkL9q8/Q
+	 Ju96SmQu7EaxR31Vb4dIHbUtLwd+Wr44L8JaMEsniO3TOJRBjxoObMD9xHFFlPoceq
+	 ka1wO0NB94f2RmRGW3WNfpTsz9M/Jn1z/wqpkRyk=
+Date: Wed, 28 Jan 2026 16:31:20 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: Vishal Sagar <vishal.sagar@amd.com>,
+	Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Michal Simek <michal.simek@amd.com>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Pekka Paalanen <ppaalanen@gmail.com>,
+	Dmitry Baryshkov <lumag@kernel.org>
+Subject: Re: [PATCH v7 02/11] drm/fourcc: Add DRM_FORMAT_XV15/XV20
+Message-ID: <20260128143120.GA3201622@killaraus>
+References: <20251201-xilinx-formats-v7-0-1e1558adfefc@ideasonboard.com>
+ <20251201-xilinx-formats-v7-2-1e1558adfefc@ideasonboard.com>
+ <20260128122144.GJ2558360@killaraus>
+ <d8051388-d48d-412b-84d3-55399ce68447@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260128-d3cold-v1-2-dd8f3f0ce824@oss.qualcomm.com>
+In-Reply-To: <d8051388-d48d-412b-84d3-55399ce68447@ideasonboard.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260128_063126_780433_FE7FE71F 
+X-CRM114-Status: GOOD (  19.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,67 +80,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 05:10:42PM +0530, Krishna Chaitanya Chundru wrote:
-> Previously, the driver skipped putting the link into L2/device state in
-> D3cold whenever L1 ASPM was enabled, since some devices (e.g. NVMe) expect
-> low resume latency and may not tolerate deeper power states. However, such
-> devices typically remain in D0 and are already covered by the new helper's
-> requirement that all endpoints be in D3hot before the host bridge may
-> enter D3cold.
+On Wed, Jan 28, 2026 at 03:53:21PM +0200, Tomi Valkeinen wrote:
+> On 28/01/2026 14:21, Laurent Pinchart wrote:
+> > On Mon, Dec 01, 2025 at 02:18:44PM +0200, Tomi Valkeinen wrote:
+> >> Add two new pixel formats:
+> >>
+> >> DRM_FORMAT_XV15 ("XV15")
+> >> DRM_FORMAT_XV20 ("XV20")
+> >>
+> >> The formats are 2 plane 10 bit per component YCbCr, with the XV15 2x2
+> >> subsampled whereas XV20 is 2x1 subsampled.
+> >>
+> >> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> >> Reviewed-by: Vishal Sagar <vishal.sagar@amd.com>
+> >> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> >> ---
+> >>  drivers/gpu/drm/drm_fourcc.c  | 6 ++++++
+> >>  include/uapi/drm/drm_fourcc.h | 8 ++++++++
+> >>  2 files changed, 14 insertions(+)
+> >>
+> >> diff --git a/drivers/gpu/drm/drm_fourcc.c b/drivers/gpu/drm/drm_fourcc.c
+> >> index e662aea9d105..b22ef86428a1 100644
+> >> --- a/drivers/gpu/drm/drm_fourcc.c
+> >> +++ b/drivers/gpu/drm/drm_fourcc.c
+> >> @@ -381,6 +381,12 @@ const struct drm_format_info *__drm_format_info(u32 format)
+> >>  		{ .format = DRM_FORMAT_S416,            .depth = 0,  .num_planes = 3,
+> >>  		  .char_per_block = { 2, 2, 2 }, .block_w = { 1, 1, 1 }, .block_h = { 1, 1, 1 },
+> >>  		  .hsub = 1, .vsub = 1, .is_yuv = true},
+> >> +		{ .format = DRM_FORMAT_XV15,		.depth = 0,  .num_planes = 2,
+> >> +		  .char_per_block = { 4, 8, 0 }, .block_w = { 3, 3, 0 }, .block_h = { 1, 1, 0 },
+> >> +		  .hsub = 2, .vsub = 2, .is_yuv = true },
+> > 
+> > Given the horizontal subsampling, don't we have 6 pixels in 8 bytes ?
 > 
-> So, replace the local L1/L1SS-based check in dw_pcie_suspend_noirq() with
-> the shared pci_host_common_can_enter_d3cold() helper to decide whether the
-> DesignWare host bridge can safely transition to D3cold.
+> No, the hsub is applied first.
 > 
-> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> ---
->  drivers/pci/controller/dwc/pcie-designware-host.c | 7 +------
->  drivers/pci/controller/dwc/pcie-designware.h      | 1 +
->  2 files changed, 2 insertions(+), 6 deletions(-)
+> If you look at framebuffer_check() and the called functions, the
+> calculations for the min_pitch for a 1920 wide XV15 buffer for the
+> second plane is:
 > 
-> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> index 372207c33a857b4c98572bb1e9b61fa0080bc871..2c8056761addf7febc1b0e06ddf8ba4dd4ad1684 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> @@ -1157,15 +1157,10 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
->  
->  int dw_pcie_suspend_noirq(struct dw_pcie *pci)
->  {
-> -	u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
->  	u32 val;
->  	int ret;
->  
-> -	/*
-> -	 * If L1SS is supported, then do not put the link into L2 as some
-> -	 * devices such as NVMe expect low resume latency.
-> -	 */
-> -	if (dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKCTL) & PCI_EXP_LNKCTL_ASPM_L1)
-> +	if (!pci_host_common_can_enter_d3cold(pci->pp.bridge))
->  		return 0;
->  
->  	if (pci->pp.ops->pme_turn_off) {
-> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-> index 31685951a080456b8834aab2bf79a36c78f46639..18d8f7d5d23088b2fa177e84a21d900c98850fcd 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware.h
-> +++ b/drivers/pci/controller/dwc/pcie-designware.h
-> @@ -26,6 +26,7 @@
->  #include <linux/pci-epc.h>
->  #include <linux/pci-epf.h>
->  
-> +#include "../pci-host-common.h"
+> width = frame_width / hsub
+> min_pitch = width * char_per_block[plane] / block_w[plane]
+> 
+> So:
+> 
+> width = 1920 / 2 = 960
+> min_pitch = 960 * 8 / 3 = 2560
 
-Why doesn't this include go in the c file? I don't see that all c files
-including pcie-designware.h now needs this.
+Indeed. I was looking at drm_format_info_min_pitch() and missed that it
+was supposed to be called with the subsampled with. The argument is
+documented as
 
+ * @buffer_width: buffer width in pixels
+
+which is quite ambiguous. The char_per_block documentation also does not
+mention subsampling, adding to the confusion. This should be fixed, but
+as far as this patch is concerned,
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
+-- 
 Regards,
-Bjorn
 
->  #include "../../pci.h"
->  
->  /* DWC PCIe IP-core versions (native support since v4.70a) */
-> 
-> -- 
-> 2.34.1
-> 
-> 
+Laurent Pinchart
 
