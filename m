@@ -4,70 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9067ED35691
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 08:32:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F01ABD35690
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 08:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q3R30d+5fKmqKbAPWypPmQzkA4SsVPnLS8LHH+omZd8=; b=nQ4L6n0Vo2JZbGnA9A174CtFbM
-	809pkkN/i6/H5qH7YA8AFP3e/wwNJTnOqguKdSpf6oG58UHNnpOkPl+Mxraq1d4VSccl3MoXJQLrq
-	K4hs0ic9CQd1hqZ/IcbZQuK/T8Wspn0fXNUKDjpCnAlJzgaEKiLyBn3RSQOtzqMcfmpLtNVqw9xU4
-	xUDpBNeganrzcrakgSu/XlE2dY9XT06XR08U4bEi3ZTtydpQWIBFo8slUTUYV/C6rWOUUQQP9qSkI
-	06UKHXasnGmzauGkMZp75105CDdZLqN0TlvxuXS31Oem8jh4d/w9Qi1/TfpDZXg+10pbgERDbFOTJ
-	KZkChOQA==;
+	bh=B66d3ujh7h0A/WS6d2XbPk4tiEtVkdJvMPjnQVBm9iU=; b=AUo+tsSE9CG0znESObUTZHTnBF
+	Fj8qA2sVi80TI6WkjVj0wddFnYZkZli7Z7Tt4z825txbzRH7vCyJzkMFtLu7gZsmjBYfJGu8fwJCm
+	KwQ/yFhhjTk9opSGEQlHpDMHT2Eg7FCbsu7MUKYBvfkR5O/LcWiZCcjIFFoA9kBkmMm0dQSZYwB4B
+	KQpweqjbbjP39KQ5yd/Hh/GebKcKoNFofy+S2dGnjYIvkgwujYnl8Yl/ngN5ijabKU+Phe0cfieUN
+	7QE2eWru8fJyt+Ha5vPmFK+GkObhqk/gVTRS5WXALEDI0kdhl7n9m5BojipujwCJ5jcudNDNzN2kP
+	md2gBKFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl0yL-0000000FflU-1VQ3;
-	Wed, 28 Jan 2026 08:32:21 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1vl15N-0000000Fg5c-17SQ;
+	Wed, 28 Jan 2026 08:39:37 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl0yI-0000000Ffkk-3KeR
+	id 1vl15K-0000000Fg5D-2bRI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 08:32:20 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 44FDA109759;
-	Wed, 28 Jan 2026 09:32:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1769589136;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=Q3R30d+5fKmqKbAPWypPmQzkA4SsVPnLS8LHH+omZd8=;
-	b=HVnfX9MW9g5NgVjIht5pFJzcmD9sGDIMGDHhxvBZS12lucHWLpph3c7P2bIexJZ6bvAnUK
-	aVtXvA6V5cX8Eos4cqgh5Ru7SGAl/Pm6+Uj6THKrjD5UimXi4Y3Ls8ve8lS8nfgddDCceE
-	qhmMlgCxs0N5SEtcqs/k/S35olcIjwr6XnFcUg8uWp4sl7gvag6gEUvnQ4yYG88t8FBs2E
-	9JLUKSDOkg5WbmuMm33L6FF8SOx/unto9rk1BbCZGVq+ojkucGhJmONvnR/Tw1fy0bHUir
-	dhDcG91qxmkc7cuaj1vu0665gWFh8P7I4TZvd8zEZ6oLIFFbMIRNLRsus3djSA==
-Date: Wed, 28 Jan 2026 09:32:07 +0100
-From: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukma@nabladev.com>
-To: Peng Fan <peng.fan@nxp.com>, Andrew Lunn <andrew@lunn.ch>
-Cc: Abel Vesa <abelvesa@kernel.org>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, "linux-clk@vger.kernel.org"
- <linux-clk@vger.kernel.org>, "devicetree@vger.kernel.org"
- <devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "imx@lists.linux.dev"
- <imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v3] clk: vf610: Add support for the Ethernet switch
- clocks
-Message-ID: <20260128093207.6b4c864b@wsk>
-In-Reply-To: <PAXPR04MB845936115A4DA73A9042650C8890A@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20260127085150.3040586-1-lukma@nabladev.com>
-	<PAXPR04MB845936115A4DA73A9042650C8890A@PAXPR04MB8459.eurprd04.prod.outlook.com>
-Organization: Nabla
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Wed, 28 Jan 2026 08:39:35 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-432da746749so3637306f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 00:39:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769589573; cv=none;
+        d=google.com; s=arc-20240605;
+        b=FmKvSgkN5AMQwqZ1pOglt+Qst93KAgrqwa/YUtsv7BXpxhWphvBs4MnqQe2YakNOqv
+         k+qsM9mooxxoKD+XzOhluGX0ad/L7d5DqTerI9X3SOcMxjvaIPjCMTSwoV+uLawYlSuj
+         5tYRaEy9+84kGS5EOAj+/PV5desKsWsp58UJ36tXj86t/jEH8KPmbsVTMMIKRC6dW7uG
+         VA0pwRZ7V4RSdULkUrlxH1cIIJ+/bEZQvrFgVV+zuKy/SXoGSpfSJC5+gnX6xFiimM0H
+         +LzTaH1vHJrVPdiixzGPwgcZx+XZYixemUiBqO/h+6EKMunTMc8vlTEXnwQ+JPECEDa7
+         YyBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=B66d3ujh7h0A/WS6d2XbPk4tiEtVkdJvMPjnQVBm9iU=;
+        fh=n8Gqa1WfLdQtWFUr6DCG/eQoqOvwG8hlQ5SM0Z7WUts=;
+        b=JOZxP8SWuFIoZHtfcR4OPQSwFPiiqDYWD71HL9fb/xMpv/Kb4JBDl0MWZPx1GiOPxg
+         pnoFMHi42xk3kP4qijxncjcrbeXtNkvmoNyoK0tiufeBcctObDWz2PhS3yNSRIyd5xSp
+         lYOz3D5WwU2gKKwuLngH1D12oDj0flQ+vCqnm8gyaDgd2IQrb+ooZLzYyOWciN+XOUoR
+         myMIFvlhYvTJ9U30rRLWSOW+F3Yr4VccmTgOZmWbJhqRM82oxIkfb5qBAdv0iKY4LQ+m
+         uJDI578jiaTh2OyklB9RLALIi3BF8YnsOOTpnWDApcjf4iVOJW7z5KXCBvWWjlk7qAez
+         8q+g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769589573; x=1770194373; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=B66d3ujh7h0A/WS6d2XbPk4tiEtVkdJvMPjnQVBm9iU=;
+        b=RQYn23D/cGG00ojVTcNRdDwrFxQr3CgKEubqMtxPFbW8UwffcEKcUwOtxprMid1Oqn
+         fSFBWckTAQuQkaZUqXLPp3NtI6RrhXdTS3zMduXQZTC1hiDAd1VCNPcGhaon549VikSV
+         E97XHRdTH6ks2gF8itvVepy8lgKTcK3449lCkrSE3atY+XciKSg2VSso0HMHnk+wBgGu
+         Atu3inbRz2megy3eZro4D39IyKF3XDo8Fo1OF/VNpg79khUXOf8oMoXXvgjtGriyTf9Q
+         tr+ciGER3cjzZ9m5bZkN5pSY2csf91TfCjLkAK6PPpinF3HAnG1nXNNapmJHpLZBBLtK
+         /xIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769589573; x=1770194373;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=B66d3ujh7h0A/WS6d2XbPk4tiEtVkdJvMPjnQVBm9iU=;
+        b=sPnAY/jGDy2N2TsSx9XFwmxLqNoEhwn4R1IM04zgHoIKWu1QPu8R8aV+YLLooKGtEi
+         Ilg5w+DHTR81rVDMiY0TkGKewTP8XAOPVRxXOdCI2S2yLoiTyC/SnmCLDQjbLVJBFjEQ
+         0VWjyIcyWdSrm63x3lZdkyZ7/fQamIYtkoCNCmgdhyjGBIocVL8pMgmhmwkmeLK0KF2I
+         ol07KtAfKbjBjxFlvsuUE125Xsc0ApAiMHIBXABe8hjiWO9b0i5341PfQA50RV6kgxRw
+         yYZcYiuiSJS5blSFx5ja4u6hmoErbUxc96siYDUB4439768i8C1KSKUN+ijlam6fOsjr
+         CsBg==
+X-Forwarded-Encrypted: i=1; AJvYcCVRW6GncUMqXmvGzHDXfuNUHyLV68rzHA0d0cGYYOv162Tw6OfbvAuNJUIJUbgrNsAKY0XGgh2a23CiU9WD24gO@lists.infradead.org
+X-Gm-Message-State: AOJu0YyILQQWduhJUSSOBd3apjLeB98REWEUaSIQtHLpYKjl2n4rQG13
+	NsWRNOwq3w5g6+LX1u3tp2QdfcVaECbzXsGzDNHBN4kjDIZSQiJh5wdvnj39Yny0kICEZrAlNov
+	hCQD9/HZzNLUP9ab85MEDG/ejx4a4rNA=
+X-Gm-Gg: AZuq6aJ8jP9NutP0Mv0gY5ltTGkuWMgtMaNuD/jr/38SUCjAA99f+BIVDsYdrsVtQxh
+	Om7uy9XNvK2+YVKSgflUkqizm716ZX3G28G9QtMx7uyWl2zvrGQiavD487ci4Q78EvESDmtLICP
+	WbQYiQnFLgE+LFDB5LFjdZZf+XbeNAMv+AuZlNFZWrv8mwmK0TPWQmINIld9G/59GAk+6RXAdkX
+	izL4KhJQIVBDJDZ0N8y2GgB3ebEyS1gTVtqhz2Um3FKExZnoWHM+9l1OrlMRQsFkKRoMKhDexnO
+	OJ665jU=
+X-Received: by 2002:a05:6000:2906:b0:432:857d:e425 with SMTP id
+ ffacd0b85a97d-435dd0a40a4mr6149417f8f.30.1769589572469; Wed, 28 Jan 2026
+ 00:39:32 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20260127025740.2601841-1-onlywig@gmail.com> <20260128050549.3337279-1-onlywig@gmail.com>
+ <20260128050549.3337279-2-onlywig@gmail.com> <aXmsbbt9T5ZRGtES@shlinux89>
+In-Reply-To: <aXmsbbt9T5ZRGtES@shlinux89>
+From: Wig Cheng <onlywig@gmail.com>
+Date: Wed, 28 Jan 2026 16:39:19 +0800
+X-Gm-Features: AZwV_QisDOJPdzB7hBtncbVdr6RMWIjbixaTB16D-guHWsWAMozPqEa1RjRA1NY
+Message-ID: <CAPStFe7-1++d79LEnh0=ozkZrU7n8_FWx_cx8_YUc7UhOt48hw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/1] arm64: dts: freescale: add pixpaper display
+ overlay for i.MX93 FRDM
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: shawnguo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	zaq14760@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_003219_057420_4E19CAEF 
-X-CRM114-Status: GOOD (  22.52  )
+X-CRM114-CacheID: sfid-20260128_003934_717344_14098881 
+X-CRM114-Status: GOOD (  17.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,59 +121,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Peng Fan <peng.fan@oss.nxp.com> =E6=96=BC 2026=E5=B9=B41=E6=9C=8828=E6=97=
+=A5=E9=80=B1=E4=B8=89 =E4=B8=8B=E5=8D=882:28=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> On Wed, Jan 28, 2026 at 01:05:49PM +0800, Wig Cheng wrote:
+> >Enable Open-EP Community pixpaper-213-c support on NXP i.MX93.
+> >
+> >Signed-off-by: Wig Cheng <onlywig@gmail.com>
+> >---
+> > arch/arm64/boot/dts/freescale/Makefile        |  4 ++
+> > .../freescale/imx93-11x11-frdm-pixpaper.dtso  | 51 +++++++++++++++++++
+> > 2 files changed, 55 insertions(+)
+> > create mode 100644 arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpa=
+per.dtso
+> >
+> >diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dt=
+s/freescale/Makefile
+> >index ce8f937c2315..c2727f8061e2 100644
+> >--- a/arch/arm64/boot/dts/freescale/Makefile
+> >+++ b/arch/arm64/boot/dts/freescale/Makefile
+> >@@ -398,6 +398,10 @@ dtb-$(CONFIG_ARCH_MXC) +=3D imx93-9x9-qsb-i3c.dtb
+> >
+> > dtb-$(CONFIG_ARCH_MXC) +=3D imx93-11x11-evk.dtb
+> > dtb-$(CONFIG_ARCH_MXC) +=3D imx93-11x11-frdm.dtb
+> >+
+> >+imx93-11x11-frdm-pixpaper-dtbs +=3D imx93-11x11-frdm.dtb imx93-11x11-fr=
+dm-pixpaper.dtbo
+> >+dtb-$(CONFIG_ARCH_MXC) +=3D imx93-11x11-frdm-pixpaper.dtb
+> >+
+> > dtb-$(CONFIG_ARCH_MXC) +=3D imx93-14x14-evk.dtb
+> > dtb-$(CONFIG_ARCH_MXC) +=3D imx93-kontron-bl-osm-s.dtb
+> > dtb-$(CONFIG_ARCH_MXC) +=3D imx93-phyboard-nash.dtb
+> >diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dts=
+o b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso
+> >new file mode 100644
+> >index 000000000000..1111503b08af
+> >--- /dev/null
+> >+++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso
+> >@@ -0,0 +1,51 @@
+> >+// SPDX-License-Identifier: GPL-2.0
+> >+/*
+> >+ * Device Tree Overlay for Mayqueen (Open-EP Community) pixpaper displa=
+y
+> >+ * support on NXP FRDM i.MX 93 Development Board
+> >+ *
+> >+ * Copyright (C) 2026 Wig Cheng <onlywig@gmail.com>
+> >+ */
+> >+
+> >+#include <dt-bindings/gpio/gpio.h>
+> >+#include "imx93-pinfunc.h"
+> >+
+> >+/dts-v1/;
+> >+/plugin/;
+> >+
+> >+&iomuxc {
+> >+      pinctrl_lpspi3: lpspi3grp {
+> >+              fsl,pins =3D <
+> >+                      MX93_PAD_GPIO_IO08__GPIO2_IO08          0x3fe /* =
+SPI3 CE0 */
+> >+                      MX93_PAD_GPIO_IO09__LPSPI3_SIN          0x3fe /* =
+SPI3 MISO */
+> >+                      MX93_PAD_GPIO_IO10__LPSPI3_SOUT         0x3fe /* =
+SPI3 MOSI */
+> >+                      MX93_PAD_GPIO_IO11__LPSPI3_SCK          0x3fe /* =
+SPI3 CLK */
+> >+              >;
+> >+      };
+> >+
+> >+      pinctrl_epd_ctrl: epdctrlgrp {
+> >+              fsl,pins =3D <
+> >+                      MX93_PAD_GPIO_IO05__GPIO2_IO05          0x31e /* =
+DC pin */
+> >+                      MX93_PAD_GPIO_IO06__GPIO2_IO06          0x31e /* =
+RESET pin */
+> >+                      MX93_PAD_GPIO_IO26__GPIO2_IO26          0x31e /* =
+BUSY pin */
+> >+              >;
+> >+      };
+> >+};
+> >+
+> >+&lpspi3 {
+> >+      #address-cells =3D <1>;
+> >+      #size-cells =3D <0>;
+>
+> The above two properties are in imx93_91_common.dtsi lpspi3 node, no need=
+ to
+> duplicate them.
+>
+> Regards
+> Peng
+>
+> >+      pinctrl-names =3D "default";
+> >+      pinctrl-0 =3D <&pinctrl_lpspi3>, <&pinctrl_epd_ctrl>;
+> >+      cs-gpios =3D <&gpio2 8 GPIO_ACTIVE_LOW>;
+> >+      fsl,spi-num-chipselects =3D <1>;
+> >+      status =3D "okay";
+> >+
+> >+      display@0 {
+> >+              compatible =3D "mayqueen,pixpaper";
+> >+              reg =3D <0>;
+> >+              spi-max-frequency =3D <5000000>;
+> >+              reset-gpios =3D <&gpio2 6 GPIO_ACTIVE_HIGH>;
+> >+              dc-gpios =3D <&gpio2 5 GPIO_ACTIVE_HIGH>;
+> >+              busy-gpios =3D <&gpio2 26 GPIO_ACTIVE_HIGH>;
+> >+      };
+> >+};
+> >--
+> >2.43.0
+> >
+
 Hi Peng,
 
-> Hi Lukasz,
-> 
-> > Subject: [PATCH v3] clk: vf610: Add support for the Ethernet switch
-> > clocks
-> > 
-> > The vf610 device has built in the MoreThanIP L2 switch. For proper
-> > operation it is required to enable ESW and MAC table lookup clocks.
-> > 
-> > The MAC table spans from 0x400E_C000 for 0x4000 and it is necessary
-> > to provide clocks for each AIPS1-"slot", which size is 0x1000 (hence
-> > four separate entries).
-> > 
-> > Those can be enabled via clock gating CCM_CCGR10 register
-> > (0x4006_B068).
-> > 
-> > This patch also adds VF610_CLK_ESW and
-> > VF610_CLK_ESW_MAC_TAB{0123} macros definitions for L2 switch.
-> > 
-> > The VF610_CLK_END has been removed from dt-bindings, as its
-> > number had to be increased when MTIP L2 switch clocks were added,
-> > and defined locally in clk-vf610.c driver.
-> > 
-> > Signed-off-by: Lukasz Majewski <lukma@nabladev.com>
-> > ---
-> > Changes for v2:
-> > - Squash clock DT bindings to this single patch  
-> 
-> Sorry for not being clear in last comment, dt-binding
-> update should be in a separate patch. So please
-> separate into two patches in one patchset.
-> 
+Thank you for the review. I understand that #address-cells and #size-cells
+are already defined in imx91_93_common.dtsi for the lpspi3 node.
 
-Ok, so I will add dt-binding as a separate comment and as Andrew asked
-I will add comment to vf610-clock.h about VF610_CLK_END being moved to
-clock driver as a "local" definition.
+However, these properties need to be present in the overlay file for proper
+DTC compilation. When compiling a device tree overlay (.dtbo), the DTC
+compiler cannot see the properties defined in the base DTB. Without these
+properties in the overlay, the build generates warnings:
 
-> Thanks,
-> Peng.
-> 
+    Warning (reg_format): /fragment@1/__overlay__/display@0:reg: property h=
+as
+    invalid length (4 bytes) (#address-cells =3D=3D 2, #size-cells =3D=3D 1=
+)
 
+    Warning (avoid_default_addr_size): /fragment@1/__overlay__/display@0:
+    Relying on default #address-cells value
 
+This is a known limitation of overlay compilation, and other overlay files
+in the kernel tree follow the same pattern. For example:
+  - arch/arm64/boot/dts/freescale/imx8mm-kontron-bl-lte.dtso (line 78-79)
+  - arch/arm64/boot/dts/freescale/imx93-9x9-qsb-i3c.dtso (line 22-23)
 
--- 
-Best regards,
+These properties in the overlay don't conflict with the base dtb, they are
+merged correctly at runtime. The duplication is necessary only for clean
+compilation of the overlay, thanks a lot!
 
-Lukasz Majewski
-
---
-Nabla Software Engineering GmbH
-HRB 40522 Augsburg
-Phone: +49 821 45592596
-E-Mail: office@nabladev.com
-Managing Director : Stefano Babic
+Regards,
+Wig
 
