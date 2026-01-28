@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A56D3F06F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 14:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AC5DD3F069
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 14:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FPulKSUTDhOz+wPitdwAP7gjrIqm73fM9ZvYeiCrd9Y=; b=wQiFAzrXxM661YKKBebJ5hMLiq
-	m4eByRaFWC5xBIPg1zWWVVi9FIx9SdaztMAt5QDFjnrPdBI3ofPFXwz7OEGFARU9oMa8SyL+7nu5W
-	jYMpgCJvXhAojcV2M6o/brS/cPp+1/lJ/LOz8m6+p1hxESbbEEDc10WPfyVzhQf5nsFymleNdoJod
-	gBbXLErlTvpHkunQnYhq+jh3cJxauS7D+IGGUJLfym93oM2D9axm36aILNg8iPrC7ZgWKu59JEm6u
-	xQWSP2hSTuCZlSRWM+3yppxOZhIUmjL86MbivPqARyQkNsyKmfuH5GYBn5HAT7UHC8szI8ZWwnOA1
-	j5jIS1Xw==;
+	bh=FgMrjGzHFLUO8ARuHMEd9oRrOtTdwAvG2B34qX7UbRg=; b=Er+m9XBzrbtQ6kDi9/ll++ooRh
+	pszmCCvQZgoH8N+qJYU1zR5QCrb3dEsx03KLIyIJRHgCSnqNPnn8yPlTpU+MAdwTw7ItGFMc3dhor
+	rEmWkwoSl0jpNNza8rr7SEf7pqymjoysBHKJr3N1xKXg0gDcIPUhSits0I94xHvyjZKTsPKcWRhv0
+	XetO3s04mVo/0LiANEHd3fyAPEWUMtmt61dp6OJqiGYe8JiYr3SFbo8wQ4qV95qRnOxGJFcqaV7Jh
+	9U2JlASSRc/i/GTiQ/yTFSuU41Yjsk9B1QqMsiHoJu3RS7ARI2aKYuQwGDHYj4CfoIAQvD30r41po
+	BtRrnXvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl6Uj-0000000GAOI-0P2s;
-	Wed, 28 Jan 2026 14:26:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vl6XK-0000000GAf6-1pUU;
+	Wed, 28 Jan 2026 14:28:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl6Uh-0000000GANz-3Anb
+	id 1vl6XI-0000000GAel-3yRd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 14:26:07 +0000
+	Wed, 28 Jan 2026 14:28:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D76D460007;
-	Wed, 28 Jan 2026 14:26:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2129C4CEF7;
-	Wed, 28 Jan 2026 14:26:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6371B600AD;
+	Wed, 28 Jan 2026 14:28:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E738C4CEF7;
+	Wed, 28 Jan 2026 14:28:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769610366;
-	bh=QO3w/KtZadDTQW4wIhokJDJx2sDtkE7K8ERwX9Do5yg=;
+	s=k20201202; t=1769610528;
+	bh=yVK+1rGXEFwbGHm+y9dP2+QQA05aUnWbOsxkvUrgglI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ilefGgj0lHsjogHe7L6aCEiMdTQirpxo5zgltfqFStYGRfltP/AAcbYXKU36rTfZ/
-	 aGqiXyMH+qsEecokUT1cRjW01u8hq4Cpc7ECr5b8l1FrC9sKCcsVlxFSO7rFqOYXWz
-	 EOGk2oZB4lPGZd3SixG4gGJvRXIbWh45TWrsPeGzBq61JQelU7TAM02Behs/NdIYpj
-	 B5sNdGnc5puBH0QHD9Awq+2ZECc6kL9m2T5CV8Cz/Z0vUry1UwzRQBrR+kWw8a2sNX
-	 AwTb2AU5kUXW1tHPTEzLPPw3bGY92x0SB3SfjNSSbFIHVvwDnyMlzJrF5iy+hdsiJe
-	 4ZmPJELQYT6kg==
-Date: Wed, 28 Jan 2026 08:26:03 -0600
+	b=sEJ4HdxdHqoT5usmyr5CzYmdSDIUsy2yb8Q7Wfgo4BOctdBuAq+uvmf9k1VbAwJHl
+	 2vltzlVx13lerrW/ce+XHP+39ufSDtafc0z170juseGExhSWircnGp94Iw6yYmUxjE
+	 fAZjfpVsggYd5VHX3c10z4W8nqnhGl2uP3LY3P7Q/gAd9sKQKwo3gUc2LtOpt0Ji2H
+	 EOyY+21K3DKX4gugOVAdIECT1MQTCtXXLyT9cgSVFkMIPc2AIFnjsDUk9HK0bpve7F
+	 IP+NgMzRA5VrA4SQDmzKN/FYp6E1KT7oxvS427CAietuBA3ZQg+YJNHmBniit6gWE2
+	 M/YZ0MIWnlpog==
+Date: Wed, 28 Jan 2026 08:28:45 -0600
 From: Bjorn Andersson <andersson@kernel.org>
 To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
 Cc: Jingoo Han <jingoohan1@gmail.com>, 
@@ -51,15 +51,15 @@ Cc: Jingoo Han <jingoohan1@gmail.com>,
 	Bjorn Helgaas <bhelgaas@google.com>, Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com
-Subject: Re: [PATCH 1/3] PCI: host-common: Add shared D3cold eligibility
- helper for host bridges
-Message-ID: <kztudduots342zz7gnx3twtlvjm5pd7sde627zxcsbe6c2imqk@7mmp7vjght5j>
+Subject: Re: [PATCH 2/3] PCI: dwc: Use common D3cold eligibility helper in
+ suspend path
+Message-ID: <oygssx4tnd7uwofk4ucqj2ypok2zssnzbauzar2f65lzougr3a@vp6b7y4j56k3>
 References: <20260128-d3cold-v1-0-dd8f3f0ce824@oss.qualcomm.com>
- <20260128-d3cold-v1-1-dd8f3f0ce824@oss.qualcomm.com>
+ <20260128-d3cold-v1-2-dd8f3f0ce824@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260128-d3cold-v1-1-dd8f3f0ce824@oss.qualcomm.com>
+In-Reply-To: <20260128-d3cold-v1-2-dd8f3f0ce824@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,100 +74,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 05:10:41PM +0530, Krishna Chaitanya Chundru wrote:
-> Add a common helper, pci_host_common_can_enter_d3cold(), to determine
-> whether a PCI host bridge can safely transition to D3cold.
-
-Please read https://docs.kernel.org/process/submitting-patches.html#describe-your-changes
-
-It clearly says that you're supposed to start your commit message with a
-description of the problem you're solving. In fact, even after reading
-the entire commit message a few times I only know what the patch does,
-but it's not clear to me why this patch exists.
-
+On Wed, Jan 28, 2026 at 05:10:42PM +0530, Krishna Chaitanya Chundru wrote:
+> Previously, the driver skipped putting the link into L2/device state in
+> D3cold whenever L1 ASPM was enabled, since some devices (e.g. NVMe) expect
+> low resume latency and may not tolerate deeper power states. However, such
+> devices typically remain in D0 and are already covered by the new helper's
+> requirement that all endpoints be in D3hot before the host bridge may
+> enter D3cold.
 > 
-> The helper walks all devices on the bridge's bus and only allows the
-> host bridge to enter D3cold if all PCIe endpoints are already in
-> PCI_D3hot.
-
-The code below does walk the bus, but it doesn't allow/disallow anything
-as far as I can tell, it queries their type, state, and if they are wake
-capable?
-
-> For devices that may wake the system, it additionally
-> requires that the device supports PME wakeup from D3cold(with WAKE#).
-> Devices without wakeup enabled are not restricted by this check and can
-> be allowed to keep device in D3cold.
+> So, replace the local L1/L1SS-based check in dw_pcie_suspend_noirq() with
+> the shared pci_host_common_can_enter_d3cold() helper to decide whether the
+> DesignWare host bridge can safely transition to D3cold.
 > 
-
-Again, this code doesn't perform any action, it doesn't
-allow/disallow/restrict the devices from doing anything, it merely
-queries a bunch of things across all devices, and the commit message
-fails to capture why this is useful.
-
 > Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
 > ---
->  drivers/pci/controller/pci-host-common.c | 29 +++++++++++++++++++++++++++++
->  drivers/pci/controller/pci-host-common.h |  2 ++
->  2 files changed, 31 insertions(+)
+>  drivers/pci/controller/dwc/pcie-designware-host.c | 7 +------
+>  drivers/pci/controller/dwc/pcie-designware.h      | 1 +
+>  2 files changed, 2 insertions(+), 6 deletions(-)
 > 
-> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-> index c473e7c03bacad2de07c798768f99652443431e0..225472c5ac82c6c5b44257d68a0fc503ec046ff1 100644
-> --- a/drivers/pci/controller/pci-host-common.c
-> +++ b/drivers/pci/controller/pci-host-common.c
-> @@ -106,5 +106,34 @@ void pci_host_common_remove(struct platform_device *pdev)
->  }
->  EXPORT_SYMBOL_GPL(pci_host_common_remove);
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> index 372207c33a857b4c98572bb1e9b61fa0080bc871..2c8056761addf7febc1b0e06ddf8ba4dd4ad1684 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -1157,15 +1157,10 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
 >  
-> +static int pci_host_common_check_d3cold(struct pci_dev *pdev, void *userdata)
-> +{
-> +	bool *d3cold_allow = userdata;
-> +
-> +	if (pci_pcie_type(pdev) != PCI_EXP_TYPE_ENDPOINT)
-> +		return 0;
-> +
-> +	if (pdev->current_state != PCI_D3hot)
-> +		goto exit;
-> +
-> +	if (device_may_wakeup(&pdev->dev) && !pci_pme_capable(pdev, PCI_D3cold))
-> +		goto exit;
-> +
-> +	return 0;
-> +exit:
-> +	*d3cold_allow = false;
-> +	return -EBUSY;
-> +}
-> +
-> +bool pci_host_common_can_enter_d3cold(struct pci_host_bridge *bridge)
+>  int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+>  {
+> -	u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
+>  	u32 val;
+>  	int ret;
+>  
+> -	/*
+> -	 * If L1SS is supported, then do not put the link into L2 as some
+> -	 * devices such as NVMe expect low resume latency.
+> -	 */
+> -	if (dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKCTL) & PCI_EXP_LNKCTL_ASPM_L1)
+> +	if (!pci_host_common_can_enter_d3cold(pci->pp.bridge))
+>  		return 0;
+>  
+>  	if (pci->pp.ops->pme_turn_off) {
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+> index 31685951a080456b8834aab2bf79a36c78f46639..18d8f7d5d23088b2fa177e84a21d900c98850fcd 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.h
+> +++ b/drivers/pci/controller/dwc/pcie-designware.h
+> @@ -26,6 +26,7 @@
+>  #include <linux/pci-epc.h>
+>  #include <linux/pci-epf.h>
+>  
+> +#include "../pci-host-common.h"
 
-Please add kernel-doc for any EXPORT_SYMBOL() functions, so that it's
-clear to the next guy what the API does.
+Why doesn't this include go in the c file? I don't see that all c files
+including pcie-designware.h now needs this.
 
 Regards,
 Bjorn
 
-> +{
-> +	bool d3cold_allow = true;
-> +
-> +	pci_walk_bus(bridge->bus, pci_host_common_check_d3cold, &d3cold_allow);
-> +
-> +	return d3cold_allow;
-> +}
-> +EXPORT_SYMBOL_GPL(pci_host_common_can_enter_d3cold);
-> +
->  MODULE_DESCRIPTION("Common library for PCI host controller drivers");
->  MODULE_LICENSE("GPL v2");
-> diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
-> index b5075d4bd7eb31fbf1dc946ef1a6afd5afb5b3c6..18a731bca058828340bca84776d0e91da1edbbf7 100644
-> --- a/drivers/pci/controller/pci-host-common.h
-> +++ b/drivers/pci/controller/pci-host-common.h
-> @@ -20,4 +20,6 @@ void pci_host_common_remove(struct platform_device *pdev);
+>  #include "../../pci.h"
 >  
->  struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
->  	struct pci_host_bridge *bridge, const struct pci_ecam_ops *ops);
-> +
-> +bool pci_host_common_can_enter_d3cold(struct pci_host_bridge *bridge);
->  #endif
+>  /* DWC PCIe IP-core versions (native support since v4.70a) */
 > 
 > -- 
 > 2.34.1
