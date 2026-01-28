@@ -4,90 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81B26D3F074
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 15:26:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CED46D3F07F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 15:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
-	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ifdIKBALmrDtlGji95Dn4uLjAd1QzXtIVq+J3SL2uiM=; b=mwvuro7P5ackxjT9nil7hvFvWe
-	8IIf7kvY+/gLpL9R+2NG4A09QiVpGm7RZ39dIspUQRYbPdu21X6l5eWaO0kmQtcDpxo4ryK+CF4Ym
-	kTpy+EF3TMiWYCD73IwtpTf7kRAzxaqE6kVs3srkLQgWTBxt7eLpNHqiRuLu9psz/yg/VtBdMlu9+
-	Xi6VXHnZxCZNn7R9r3cx60lTTievAAHd8ftalcV6kDmQ81SxEsZMAa6NOZOrsmb/qWgkSto628lsn
-	yS9BcJ7i0MGoj9buHNRK1UYoNJZUX23AIqr2Pj6H+LU7xCCebqCVz78m6BZ9T6T/nRvZnAYKGVm5B
-	8l8c/Acw==;
+	bh=UPKPga53xpyighTMnHkLajEw2ErfI+ituE30lMR+eVk=; b=uGaaL1V8rBlCGHaqz/NNIgP1eZ
+	tr23ab9Fnce8fWmJ4XbxSX4CHcyWgh5/zQygz8WskCgvN65o6XM9hnjVAQ84Xf7CECGn8Jh4QyUre
+	V9UG6KhfbOBbf3wKbVqHPuaMWcyn8bkxs8PXADQqsg7QRenjPAltqR1igD8HQLCZP/qQggcjUxeow
+	WSmXXn+H5kWnGJ/bYRokk4Lmpvd8bev6sSlEIR00DDONGoJtKH6NJPfTg0PJzPwUmCa1cOhdrkVxy
+	xCahv2hbOXN6wDJ2c0sGiEZv0Ozrtyz9p+FBqtDMYJ/7hKiSinx8QA7F2IX/AA9QLVWr2m0ykUPlZ
+	kqDXclFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl7RI-0000000GHFU-3iVK;
-	Wed, 28 Jan 2026 15:26:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vl7TT-0000000GHfV-3H3K;
+	Wed, 28 Jan 2026 15:28:55 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl7RG-0000000GHEU-20GM
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 28 Jan 2026 15:26:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:To:Cc:Subject:
-	From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ifdIKBALmrDtlGji95Dn4uLjAd1QzXtIVq+J3SL2uiM=; b=BsV07P99v8XbY2L6w6VKf5ahg1
-	4QxJKbDccemO080G6GBXbY7fSePlsBA9mZZBO7ZUHmw2dMSuQb+e6XB4wYdti+CiH/QfboJpm3NZG
-	HFYvzCn8gEAHgn3hQqfbN7rDyHKuIzhUKPPiXp/4c7PSzGZzcDgdsdN9p+9B0Ail0jwF5+R3B46EQ
-	OaIKjaWE/mKaoC3BmJC6+80vat9BOpo+YYbV/avz/BQmtiEZQ/fSN5rBrs1R9z34AhiP3fUp3W7+F
-	b9X3NlV5Nrf0kCUgZa2+9cKQnaHtdzk6xNwn74WGpH09IBaMAIm5SLW+b+2CsAMhZrgGQgNt9DcT4
-	0zBIf4Xw==;
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl7RC-00000008pk8-3Fxm
+	id 1vl7TQ-0000000GHeC-38Kq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 15:26:36 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 95FCCC211E8;
-	Wed, 28 Jan 2026 15:26:33 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D8D176071F;
-	Wed, 28 Jan 2026 15:26:30 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 09B66119A86D4;
-	Wed, 28 Jan 2026 16:26:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769613989; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ifdIKBALmrDtlGji95Dn4uLjAd1QzXtIVq+J3SL2uiM=;
-	b=ZBrv5OTsxnvC31C9xB5u3t92JpXYvSfGTBtbzpE1nwuHruAK57TjVcGMS3APCHv4l9SF/E
-	wnqAQ55EFsg6Uj8+Ym01dWq/BJk9kjEcjm3JoqkQjhOyiTejWsxXKc9iZ6Utsubt6Y4bzq
-	cqdqoHfypaQthCvQtpBCwD5UR+Mrs/C+MyqWvVgQ8NfmSW0KnRnaztVhOs2s/Pk6EGyLqc
-	+qNIkWAByljlRPA9ZsxpbMXwdVOfJA1pNsG5HdTOzd4POa95lQpTLenMXpI2+eS7+mdf9W
-	v03OkG2M3vHFVTUlnyDCCl7Ch2B+i2I0bsHAaRRmhM5ozz4ujvb/gEq/asKfVQ==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	Wed, 28 Jan 2026 15:28:54 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 2739F581;
+	Wed, 28 Jan 2026 16:28:13 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1769614093;
+	bh=KXkhfxwOJwwccUZ3eM65o25FEFAyZU2TYAFxNwiz168=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=B5Lxwlvn5KGFSJHaABSUhleTA/xIdNHqTwERQnq1g5ZCXWBcnS9+J936yaBafYimU
+	 9fan0XIxIPN2BMl+9D3mP1a8q3ioMnJUD6bRTy48UsrRe//NcGOAhpMd+OrkEH2NgF
+	 b89juJfh+jC5rsl/NxnkX8rxwWzyzeOLLhtcY4EU=
+Message-ID: <91f53ccc-69a6-4e31-9d8f-c4267bb4b8ab@ideasonboard.com>
+Date: Wed, 28 Jan 2026 17:28:47 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 09/11] drm: xlnx: zynqmp: Add support for Y8 and
+ Y10_P32
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Vishal Sagar <vishal.sagar@amd.com>,
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Pekka Paalanen <ppaalanen@gmail.com>
+References: <20251201-xilinx-formats-v7-0-1e1558adfefc@ideasonboard.com>
+ <20251201-xilinx-formats-v7-9-1e1558adfefc@ideasonboard.com>
+ <20260128121046.GI2558360@killaraus>
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Content-Language: en-US
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <20260128121046.GI2558360@killaraus>
 Content-Type: text/plain; charset=UTF-8
-Date: Wed, 28 Jan 2026 16:26:22 +0100
-Message-Id: <DG0BSWR9XRZS.29D743F5RWI8N@bootlin.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: (subset) [PATCH 0/3] drm/bridge: imx: A few fixes
-Cc: <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-To: "Liu Ying" <victor.liu@nxp.com>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Shawn Guo"
- <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
- <festevam@gmail.com>
-X-Mailer: aerc 0.20.1
-References: <20260123-imx8qxp-drm-bridge-fixes-v1-0-8bb85ada5866@nxp.com>
- <176951374753.94588.10653964166300906894.b4-ty@bootlin.com>
- <f11d4407-9951-40a3-bde5-583ca1ca5bc5@nxp.com>
-In-Reply-To: <f11d4407-9951-40a3-bde5-583ca1ca5bc5@nxp.com>
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_152635_020100_D6FA176D 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20260128_072852_952748_525CF8E5 
+X-CRM114-Status: GOOD (  25.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,65 +122,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Liu,
+Hi,
 
-On Wed Jan 28, 2026 at 2:50 AM CET, Liu Ying wrote:
-> Hi Luca,
->
-> On Tue, Jan 27, 2026 at 12:35:47PM +0100, Luca Ceresoli wrote:
+On 28/01/2026 14:10, Laurent Pinchart wrote:
+> Hi Tomi,
+> 
+> Thank you for the patch.
+> 
+> On Mon, Dec 01, 2025 at 02:18:51PM +0200, Tomi Valkeinen wrote:
+>> Add support for Y8 and Y10_P32 formats. We also need to add new csc
+>> matrices for the y-only formats.
 >>
->> On Fri, 23 Jan 2026 17:22:14 +0800, Liu Ying wrote:
->>> This patch series contains 3 bug fixes for i.MX8QXP DRM bridges.
->>> Each patch fixes a NULL pointer dereference issue and stands alone.
->>>
->>>
+>> Reviewed-by: Vishal Sagar <vishal.sagar@amd.com>
+>> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+>> ---
+>>  drivers/gpu/drm/xlnx/zynqmp_disp.c | 26 +++++++++++++++++++++++++-
+>>  1 file changed, 25 insertions(+), 1 deletion(-)
 >>
->> Applied, thanks!
->>
->> [1/3] drm/bridge: imx8qxp-ldb: Fix NULL pointer dereference in imx8qxp_l=
-db_bridge_destroy()
->>       commit: 852c68bf42965ee38b465d2d6f7b965eb0b5dc1d
->> [2/3] drm/bridge: imx8qxp-pxl2dpi: Fix NULL pointer dereference in imx8q=
-xp_pxl2dpi_bridge_destroy()
->>       commit: db7e7ea838c916ee4cdf26bee126fd36f58295dc
->
-> Any reason why patch 3/3 is not applied?
+>> diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
+>> index 1dc77f2e4262..fe111fa8cc13 100644
+>> --- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
+>> +++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
+>> @@ -307,6 +307,16 @@ static const struct zynqmp_disp_format avbuf_vid_fmts[] = {
+>>  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YV16CI_10,
+>>  		.swap		= false,
+>>  		.sf		= scaling_factors_101010,
+>> +	}, {
+>> +		.drm_fmt	= DRM_FORMAT_Y8,
+>> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_MONO,
+>> +		.swap		= false,
+>> +		.sf		= scaling_factors_888,
+>> +	}, {
+>> +		.drm_fmt	= DRM_FORMAT_Y10_P32,
+>> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YONLY_10,
+>> +		.swap		= false,
+>> +		.sf		= scaling_factors_101010,
+>>  	},
+>>  };
+>>  
+>> @@ -697,6 +707,16 @@ static const u32 csc_sdtv_to_rgb_offsets[] = {
+>>  	0x0, 0x1800, 0x1800
+>>  };
+>>  
+> 
+> A comment here to explain why the 1.0 value is in the third column
+> instead of the expected first column would be good.
 
-Yes, the reason is there's a patch conflict and I still have to find out
-how to handle it.
+Sure.
 
-Patch 3 by the rules [0] should go to drm-misc-fixes because the bug (added
-by [1]) is already on Linus' master tree (since v6.17), but it does not
-apply there due to a conflict with an unrelated change [2] currently on
-drm-misc-next.
+>> +static const u16 csc_sdtv_to_rgb_yonly_matrix[] = {
+>> +	0x0, 0x0, 0x1000,
+>> +	0x0, 0x0, 0x1000,
+>> +	0x0, 0x0, 0x1000,
+>> +};
+>> +
+>> +static const u32 csc_sdtv_to_rgb_yonly_offsets[] = {
+>> +	0x0, 0x0, 0x0
+>> +};
+>> +
+>>  /**
+>>   * zynqmp_disp_blend_set_output_format - Set the output format of the blender
+>>   * @disp: Display controller
+>> @@ -846,7 +866,11 @@ static void zynqmp_disp_blend_layer_enable(struct zynqmp_disp *disp,
+>>  				ZYNQMP_DISP_V_BLEND_LAYER_CONTROL(layer->id),
+>>  				val);
+>>  
+>> -	if (layer->drm_fmt->is_yuv) {
+>> +	if (layer->drm_fmt->format == DRM_FORMAT_Y8 ||
+>> +	    layer->drm_fmt->format == DRM_FORMAT_Y10_P32) {
+> 
+> We could replace is_yuv with a type enum to avoid checking the format
+> here, and use a switch statement. Up to you.
+True, but I'm not sure it helps too much here at the moment. I tried a
+few different kinds of enums (for channels, RGB/YUV/Y, and for CSC type
+DEFAULT/YUV/Y) and a boolean (is_y_only) to zynqmp_disp_format, but I
+wasn't sure if they really fit (especially considering we already have
+is_yuv in the DRM format).
 
-Note that [1] and [2] are the two commits mentioned in your 'Fixes: 'tags.
+Furthermore, if we at some point add configurable color ranges and
+encodings, the code has to change and I'm not sure what enum, if any,
+makes sense there.
 
-I had a chat with Maxime on #dir-devel about how to handle this situation
-but still haven't got a final answer.
+ Tomi
 
-I guess the correct way is:
+> With those issues addressed,
+> 
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> 
+>> +		coeffs = csc_sdtv_to_rgb_yonly_matrix;
+>> +		offsets = csc_sdtv_to_rgb_yonly_offsets;
+>> +	} else if (layer->drm_fmt->is_yuv) {
+>>  		coeffs = csc_sdtv_to_rgb_matrix;
+>>  		offsets = csc_sdtv_to_rgb_offsets;
+>>  	} else {
+> 
 
- 1. apply patch 3 on drm-misc-next, where it applies cleanly
- 2. send a modified patch for drm-misc-fixes, to fix ASAP the master branch
-
-Would you send the patch as in item 2, so it can be applied to
-drm-misc-fixes and have master fixed ASAP? Note iit should not mention [2]
-in the Fixes: tag because [2] is not yet on master. I can send it of course
-but you can test on hardware so that would be the best option (and I'm a
-bit overloaded at the moment).
-
-[0] https://drm.pages.freedesktop.org/maintainer-tools/committer/committer-=
-drm-misc.html
-[1] commit 99764593528f ("drm/bridge: imx8qxp-pixel-combiner: convert to de=
-vm_drm_bridge_alloc() API")
-[2] commit ae754f049ce1 ("drm/bridge: imx8qxp-pixel-combiner: get/put the n=
-ext bridge")
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
