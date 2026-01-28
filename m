@@ -4,121 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F20AD3569A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 10:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B730DD3569C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 10:10:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IZUZn8OGJRmKpnQgbGJP12MOCydVhmna1ljgQFGfMNI=; b=Mb7f8pimQATfLbxgh1K/n00Vtf
-	dF4rRtusCoTQgxoVdEmNfrgRxRABd9VHy1THbb30m0y4QWTouDmtxUCozsdbL+GjsIuM1NlsHMx5+
-	lldZN5qQxbmoRTE5XeqDLgN4ezpk+cZTv1d6EjO4pIcLtxNpDFy0/KGo+XWwxLS7qsJ3F0z16XmMF
-	tR9Cy/Ktt+E25nvXlIRLts7Vjkn0lhVhaWZLjext0xWQzRA8QjXEBVU5TwtdG24GsRLvp8wc/SNzT
-	0kxjqkiVEbXe8zIDS26G78pRqjlUAPNymOWG0gGO6KRGcOwpNDvvjsfAwi/sZmYz7RpRTgTMMjtiF
-	bG4vTh3Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eWwZSVnTTdj+etI/fDq4YnbyDy94jcEEPt8yqACsXOY=; b=Y4OeohtD0oUFnywAbr3p+Ny+8w
+	MMI0CelAwNIiiJVYXTEo8ormDvPFOFgTy0qHPJr686nHpzptu4z3vC6TnZGI3p+o0l2Aa/ntJm3cD
+	iPhyFsdc3IYEbDITmwIZDQY581CVMnLd0dHw3b+rtcrg55JHJS8ZCf2wLlgp++Dc69o0V2v5svL4T
+	L2vfKSj9vmE/dLvBpFjM3CUraWoA9mNF1SvuhFfQzKNsKOmfN1+rxgA18xFNf8/oDTuLgfSdFGIZk
+	cHV253vi3lemEKGPbZinPYtwIavs/T4OtqLakYSv5fv2EWx/NLgQgofo8x3eDWfQR+5nWMT4VIblH
+	4Yizni7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl2Qz-0000000Fo97-3ZpB;
-	Wed, 28 Jan 2026 10:06:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vl2Ux-0000000FoLN-3HLP;
+	Wed, 28 Jan 2026 10:10:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl2Qx-0000000Fo8L-0mbY
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 10:06:00 +0000
+	id 1vl2Uw-0000000FoLA-3Wvf;
+	Wed, 28 Jan 2026 10:10:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5693D40DC3;
-	Wed, 28 Jan 2026 10:05:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64F9CC4CEF1;
-	Wed, 28 Jan 2026 10:05:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EB3416001A;
+	Wed, 28 Jan 2026 10:10:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 96013C4CEF1;
+	Wed, 28 Jan 2026 10:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769594758;
-	bh=mNogkX6AMNbYNT9d0odM8p5Ws8xBsTc5rwxPzqRLBSQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ug73yjXIv5tH9NOLkWogciX2FvYW41BTFvfR0W2aAuVfWpEbdzxoupA8x3PKQztHV
-	 JJcbVEqyS3Ted/xj/wVkTNaowQ4dpsCEmT9lmY3Rx2cWEu+o50/mLK8T1ilMY4bbcD
-	 zQfLVq80sBpxrHlEfo920OVp3kGbMAEJcgEvhQen3ZTmTmwB43DnDpGIZ73qcMBr58
-	 c+7qbrKxVi+XveF3o/3caM8C7YAxm5oraCDv09Tn4V1vPftNeGoP90dMEfb8Z6hWHh
-	 ZeIZ4C7GYsLX5AmaqK/cLyY/UTY1370mg0H1WVvVDU8LD59FuDUHh2OFAQOuW+QVEu
-	 45LKLh8NLI73Q==
-Message-ID: <3ed93cd3-677c-4d0c-a3a6-25c3d47a4ef2@kernel.org>
-Date: Wed, 28 Jan 2026 11:05:51 +0100
+	s=k20201202; t=1769595005;
+	bh=X4SuxCleKrrzGAtIw6zL8YaUitgC/KQKVkQAuw87xNw=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=KWI/646ZWVuGRf5tFzDPJ4w9K3A7JCMYnuNMLF0llsEkzOuxNXHldoxH+a9wmKyNu
+	 Ndq+MUk86Qhm/AQUJn+zf0T/5u6EtDSfriLeVBPb1Ky2x5R7CszDRXOUuvsfHzEJwm
+	 OVVcf3GSmrbeDaJsDO09niZnqPN8zEp9JZLrSlVOlNwgftzUOei7jQd+2w2ugJd2ss
+	 ile1Yw4zptEv4pk7crN7rqCOWkHra54zWoKeIhkhuPXK7y5eGO8MPGk+J/NnGOrqKg
+	 8/HhN/fvuuJ1TfzX17SYIyLf/Ww+Y8YdYra632FFPYV74f9ybAMj18pbc1o3HY2Nz8
+	 Cbx1aJQKM1XGQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 835F6D35693;
+	Wed, 28 Jan 2026 10:10:05 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Wed, 28 Jan 2026 10:09:54 +0000
+Subject: [PATCH] arm64: dts: amlogic: a4: fix pinctrl node
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] dt-bindings: ethernet: eswin: add clock sampling
- control
-To: Bo Gan <ganboing@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
- =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- rmk+kernel@armlinux.org.uk, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- ningyu@eswincomputing.com, linmin@eswincomputing.com,
- pinkesh.vaghela@einfochips.com, weishangjuan@eswincomputing.com
-References: <20260109080601.1262-1-lizhi2@eswincomputing.com>
- <20260109080859.1285-1-lizhi2@eswincomputing.com>
- <00b7b42f-2f9d-402a-82f0-21641ea894a1@lunn.ch>
- <308b676.2d03.19bb0caebed.Coremail.lizhi2@eswincomputing.com>
- <59cec617-0189-4dc3-bc3f-6346155a62ae@lunn.ch>
- <4e2a55e7.3662.19be8cb9c3c.Coremail.lizhi2@eswincomputing.com>
- <c5c0bfdb-316d-4796-afa0-f6f018ceb414@lunn.ch>
- <abf12a3f-9cdd-472d-a02e-af4da594b84f@gmail.com>
- <e6f7da45-3dec-4af6-a5b1-a72210bf24f4@kernel.org>
- <43923bf9-6202-4147-8eac-5bd7bb653fd4@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <43923bf9-6202-4147-8eac-5bd7bb653fd4@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_020559_269454_4246FB7F 
-X-CRM114-Status: GOOD (  10.02  )
+Message-Id: <20260128-fix-a4-pinctl-node-v1-1-617a1f539902@amlogic.com>
+X-B4-Tracking: v=1; b=H4sIAHHgeWkC/x2MWwqAIBAArxL73UJt0esq0YfpVguhohGBdPekz
+ 4GZSRA5CEeYigSBb4nibIa6LEAfyu6MYjIDVdRVNQ24yYOqRS9WXydaZxg702+jpnFtSEEOfeB
+ s/dN5ed8PqDHy92QAAAA=
+X-Change-ID: 20260128-fix-a4-pinctl-node-6d7f9c29b32a
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769595003; l=1293;
+ i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
+ bh=F6Np6Gg5OfDL8SOtdbBhRnTvyEqILZTAt6VZ6iphZjU=;
+ b=klaiKJo6ZXYdkMttvJFCkjmYPGO+ViMwibRH3IvVKYi1pOexAtu5Fpu0DiJT/zW6MPW+LQJC5
+ PWuoph2b+74A/QH2bae0AyNkycivBV6dCia29/RQ2iwwzlcxBF2gGuT
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
+ auth_id=578
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,36 +85,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/01/2026 11:47, Bo Gan wrote:
-> Hi Krzysztof,
-> 
-> On 1/23/26 02:07, Krzysztof Kozlowski wrote:
->> On 23/01/2026 08:39, Bo Gan wrote:
->>>> I assume the address of the interface is fixed. So you can just key
->>>> off that to distinguish the two instances.
->>>>
->>>> Since this is an internal property, not a board property, it is not
->>>> clear it actually belongs on DT.
->>>>
->>>>       Andrew
->>>
->>> IMO, they should be in DT to provide maximum flexibility. The SoC .dtsi
->>
->> This is not the purpose of DT. Please rather use arguments in terms of
->> DT rules (see docs, presentations).
->>
-> Any examples? links? Thank you for your patience.
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-Really, doing simple search for it is your homework, not our task. You
-need to try harder if you want to prove that you are not wasting our time.
+Fix incorrect pinctrl device reference when adding GPIO to pinctrl device.
 
-Documentation/devicetree/bindings
+Fixes: e9bb91734871 ("arm64: dts: amlogic: a4: add pinctrl node")
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+---
+Fix A4 pinctrl node.
+---
+ arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Or any elinux resources or any recent talks of mine.
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+index fce45933fa28..6587e3578f8d 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+@@ -218,7 +218,7 @@ gpioao: gpio@4 {
+ 			reg-names = "gpio", "mux";
+ 			gpio-controller;
+ 			#gpio-cells = <2>;
+-			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_AO<<8) 7>;
++			gpio-ranges = <&ao_pinctrl 0 (AMLOGIC_GPIO_AO<<8) 7>;
+ 		};
+ 
+ 		test_n: gpio@44 {
+@@ -226,7 +226,7 @@ test_n: gpio@44 {
+ 			reg-names = "gpio";
+ 			gpio-controller;
+ 			#gpio-cells = <2>;
+-			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
++			gpio-ranges = <&ao_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
+ 		};
+ 	};
+ 
+
+---
+base-commit: e3194dfb772304a1b7ca3bcfccacefec3468b7bf
+change-id: 20260128-fix-a4-pinctl-node-6d7f9c29b32a
 
 Best regards,
-Krzysztof
+-- 
+Xianwei Zhao <xianwei.zhao@amlogic.com>
+
+
 
