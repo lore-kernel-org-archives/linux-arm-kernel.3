@@ -4,112 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74FF5D46BEB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 18:53:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D47CFD46BEF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 19:01:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MpI0AA06COlD1WraW5BKwKp+FBjfc+PTuL+WVyqRsI0=; b=cncyJtJyHmjIsU/FQhrGPTo5lZ
-	tK+u/jyKa1PXLCvGoFeHViGHIT0lM9GGiPmFQ+SapfHM6Z7H8OjAz7mDngEAa2uOf8/w9WLnYNkVx
-	Fpm3YlWbyZTZCiX1JNLXdY/nh4b6LmQHionqa9YXMQk7tYFZtVGRycM/fZNolKd6aKnjo9cOpU6cm
-	l8kzAEpv/1Dsa5ndJLsnUv+RFFIdumIJc4iprY/gYGAlWatCr8/cb8oikpJeB52JlLx8gn1DbTWH9
-	11WDReVbUoAmJuIFKpIzUp9z/GKnKl7apXAFA6cCU77YeROPzO1WZD0Z9DrWKd8BRsPKwAG612qov
-	VIGtWmwQ==;
+	bh=y7ixvs9SjVU/C4VAAsX3lvuUJ8ZvAu9S9zoeDiQHuKU=; b=nJ/AUHK+mES2K2c6y58anzDhxj
+	1LInuQHrwrsqa2MWtLyfPQotTejAlcBvUN2CDaM+6Bj9wlI8CN9eZl5xGYop/FNF2qtk9tcuD3+P5
+	UyJm0pNGMB9X7EX1os5YRj7iCPPBAZakNy9Nsy5V4ehn1V+aAU2AxJb0Komax9Zy8UN8+Zbe8K5TV
+	4625ut3RB0wfTAVtprYHlaTIpz0EVP7GRHoW9fJnEvJSYKigztndMGUyg2jx2LyMx7iwepwrK3TIq
+	E9e5A+nzKk9xeeCWO5KzBr9C2WRTgcG/MlaFO1qgTBk903itI84ICoAjE2oxnYWqL6lFFSxWbFE2Z
+	Usy1KmQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlAfT-0000000GeMg-0S3m;
-	Wed, 28 Jan 2026 18:53:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vlAnB-0000000Gf0P-2sTB;
+	Wed, 28 Jan 2026 19:01:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlAfR-0000000GeM4-2G06
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 18:53:30 +0000
+	id 1vlAn7-0000000Gezv-1j3N;
+	Wed, 28 Jan 2026 19:01:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 000F0437AA;
-	Wed, 28 Jan 2026 18:53:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBB3DC4CEF1;
-	Wed, 28 Jan 2026 18:53:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 830F660007;
+	Wed, 28 Jan 2026 19:01:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26C71C4CEF1;
+	Wed, 28 Jan 2026 19:01:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769626408;
-	bh=yFHOHZMOXVxvRtbHF7gk60yEvpM0WrLueT3WfFNtHVg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=u2zc81VV7bTjIRfxwPZ4L+s/a1cZykmHoVcosUls0+soPStXjK2sbPAvQ4UH4byf2
-	 nHKbU5HNQPb3Nl/p2qXiAKWb/56KPXbpmdKnlSlxTpx8N/ZHWhsOG1CljF2lGKoqV/
-	 yYdDbHwxai9qxtLlt++HFH7Z/EXRfl8p6s0S7NgZdbMzthFFaBuhbLoCiwWC3lja6B
-	 IpoKZtuIF0zMy/OTGdBy22j98B300jzSevqKznmqy+svJ8kjyVHDQkUlT8UheREvD6
-	 zWLJKoSmxrv3ul8pUm9veFxjkYhrQkQHiGdODEhAZSxeLXjF9YlaHl/fnQ08Y5N0G9
-	 luA2fj8+DHzDQ==
-Message-ID: <fcde4ec6-b3ad-439a-bff8-b060fe075f97@kernel.org>
-Date: Wed, 28 Jan 2026 19:53:23 +0100
+	s=k20201202; t=1769626884;
+	bh=n34TAjuaUJNq368XZLmuh46Sjt4jj9OJ3xPmOcHju38=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=C8w2mvSqqOv6CNJooWdWwnMODpl641zH6FL4vTpgMjRx34EvM9qL//KZoVYqmVwQr
+	 V6V0P5e1YDea3DWFmUsl+x1oMwNTe2zUS6dKUAWeT7RixPfgiCU/7di9qvJCBGXTJC
+	 hpAr6nOsVvFDkue6E7q7/axgb0P3PEIg16XjCW7/A6o/XeXlAaF3W0C1C8RPk1sb+t
+	 FHNmfFEyooZOZ9bvKOLJgTJXss8jw0JMDsG1rx/N/A2MaegXoGs4GVqb0Ak6e0bdUJ
+	 e3D3ST4S/1fPQtZLjzAblj7sTvVRxPR67coMBhPVIHX64yhlEwQV5lOkEp0LSkQf3O
+	 YRbj1SwAQFH5w==
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/10] pmdomain: samsung: add support for Google GS101
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>,
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>
-References: <20260128-gs101-pd-v4-0-cbe7bd5a4060@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260128-gs101-pd-v4-0-cbe7bd5a4060@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_105329_640885_6DAF6DD3 
-X-CRM114-Status: GOOD (  15.11  )
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <3745487.e9J7NaK4W3@workhorse>
+References: <20251010-mtk-pll-rpm-v3-0-fb1bd15d734a@collabora.com> <6678782.DvuYhMxLoT@workhorse> <daa1906b-a112-4158-aec2-ad1d29b4fe35@sirena.org.uk> <3745487.e9J7NaK4W3@workhorse>
+Subject: Re: [PATCH v3 1/5] clk: Respect CLK_OPS_PARENT_ENABLE during recalc
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Michael Turquette <mturquette@baylibre.com>, Dong Aisheng <aisheng.dong@nxp.com>, Matthias Brugger <matthias.bgg@gmail.com>, Yassine Oudjana <y.oudjana@protonmail.com>, Laura Nao <laura.nao@collabora.com>, =?utf-8?q?N=C3=ADcolas?= F. R. A. Prado <nfraprado@collabora.com>, Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>, kernel@collabora.com, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+To: Mark Brown <broonie@kernel.org>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Wed, 28 Jan 2026 12:01:22 -0700
+Message-ID: <176962688200.4027.9869545980331892869@lazor>
+User-Agent: alot/0.11
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,29 +67,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/01/2026 17:10, André Draszik wrote:
-> Hi,
-> 
-> This series adds support for the power domains on Google GS101.
-> 
-> There are a few differences compared to SoCs already supported by this
-> driver:
-> * register access does not work via plain ioremap() / readl() /
->   writel().
->   Instead, the regmap created by the PMU driver must be used (which
->   uses Arm SMCC calls under the hood).
-> * DTZPC: a call needs to be made before and after power domain off/on,
->   to inform the EL3 firmware of the request.
-> * power domains can and are fed by a regulator rail and therefore
->   regulator control needed be implemented.
-> 
+Quoting Nicolas Frattaroli (2026-01-28 09:04:55)
+> On Wednesday, 28 January 2026 15:47:08 Central European Standard Time Mar=
+k Brown wrote:
+> >=20
+> > For the Avenger96 that says:
+> >=20
+> > [    0.347816] __clk_core_init: enabling parent ck_hse for ck_per
+> > [    0.352230] __clk_core_init: disabling parent ck_hse for ck_per
+> > [    0.358207] __clk_core_init: enabling parent pll1_p for ck_mpu
+> > [    0.364005] __clk_core_init: disabling parent pll1_p for ck_mpu
+> >=20
+> > https://lava.sirena.org.uk/scheduler/job/2412562#L563
+> >=20
+>=20
+> Okay, on this one, there may be a problem in the clock tree.
+> ck_mpu is marked CLK_IS_CRITICAL, but its parent, pll1_p, is not. Clock
+> core doesn't seem to check whether any children of a clock are marked as
+> critical before disabling it.
+>=20
+> I'm not super familiar with the intended semantics of critical clocks.
+> If we need to manually mark all parents of critical clocks as critical
+> as well, then a (potentially partial) fix for the Avenger96 might be:
+>=20
 
+Marking parents critical hasn't been strictly necessary so far because
+we've been relying on the prepare/enable count on a critical child to
+keep the parent prepared/enabled.
 
-Thank you for the patch. My tree is currently closed for new features
-till the end of the merge window. I will review and/or apply the patch
-then. If I misjudged this patch and this is a fix, please let me know.
+>=20
+> I just looked for CLK_IS_CRITICAL clocks in that file that have the
+> CLK_OPS_PARENT_ENABLE flag, and marked their PLL parents as critical
+> as well.
+>=20
+> An alternate approach would be to skip the parent enable/disable pair
+> in the problematic patch in __clk_core_init for clocks that are marked
+> as critical, because if the parent wasn't on for a critical clock then
+> we wouldn't be in that function, we would be dead.
 
+The parent may not be known yet in __clk_core_init() because we lazily
+find parents. Putting it another way, we can get to the recalc_rate()
+call in __clk_core_init() for a clk with CLK_OPS_PARENT_ENABLE when the
+parent pointer is NULL. This hasn't been a problem because when we adopt
+the orphan clk the rate is recalculated (see
+clk_core_reparent_orphans_nolock()).
 
-Best regards,
-Krzysztof
+I don't see an easy way out of this problem because in general we need
+to know a clk with CLK_OPS_PARENT_ENABLE is parented enough to be able
+to read the registers when calling clk_ops like recalc_rate() (and
+probably get_parent() as well meaning that clk_op can't touch
+hardware?). Maybe the simplest approach is to skip any sort of hardware
+access when this flag is set during setup and reparenting.
+
+BTW, I don't know what this patch is actually fixing, so I'm going to
+revert it. When it is resubmitted please describe the problem you're
+seeing.
 
