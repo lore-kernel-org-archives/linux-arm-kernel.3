@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEA99D35694
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 08:50:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9ADBD35692
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 08:50:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y3R67PPaqe7JCfoliKXDNLVbR9HtbfNjTO1GVbTpkdc=; b=VOQ1/gnR7F5hU88JsfkInAz1vT
-	bd29hMQwWnN5GP/mTxQoEgQrmy/qbLQ5p9DeP44XbPKgvHmaP+Lg2iDW8H2rY2axOxawQsiybTENe
-	7jCmONUwGOgtKINqmTN0zF7V2NomDw1T9wVwaSx7KARV64l3CpIZXmw07r2HjWy5y/yOkQ2V1zztF
-	cBZ7T4vyEC+exQehyPrDWaazKOBiJ0LuG714l1iB373fQfSEfuuDHjtYH1cpXPgL2cNzcqOE68VL1
-	IWDvBe7L7csd9zfijy4+SmS/0ClF+cc/2g71SlroSHvYDWQy0DL3jKK4j9KA+ZigITsB/mgESpJAU
-	afnPKtAg==;
+	bh=0YpJNjTGmp8Oqzeap+RRYypHBkSqnBQs6O7frsTnLHY=; b=mZ7M5vSOJ9fnL7ENiOUMA186JH
+	0uGcnyC64J9qYQ12WlbsoW+Nobh1YE58kPR5gygTH7SZzSbY+NPgl4ivax/R0Y+cZnGcgiVmB9Bhj
+	POkmFe4uE2Sn+ERvyLZyTEdT0E3q2oZlgVJbAMW+Osb4O4AYY58iiJdKq3dQ5pvz891loMhNaM6wL
+	EE3rEzWyuYdbz0CQDL+lg3mTwYpglLQj6mjjoJ2lx5aggdFcTzwKChT4W+3p8uha7u2qOKj+DG3np
+	uJBin4H2pHLEBFJQXzuVoobllbVtfPy/CXlx3AyKKked/UtgyPnNyEOAwoThqFt0pEZPBr7+o7awW
+	Tam9jvCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1FQ-0000000Fgo3-0m3F;
-	Wed, 28 Jan 2026 08:50:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vl1FY-0000000Fgqt-3lE7;
+	Wed, 28 Jan 2026 08:50:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1FO-0000000Fgn6-2nqj
+	id 1vl1FO-0000000Fgn5-3s1S
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 08:49:58 +0000
+	Wed, 28 Jan 2026 08:50:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CAB6D60127;
+	by sea.source.kernel.org (Postfix) with ESMTP id D948D4450B;
 	Wed, 28 Jan 2026 08:49:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 74133C2BCAF;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B3795C2BCB4;
 	Wed, 28 Jan 2026 08:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1769590197;
-	bh=POOrLQ7MmklMY5XTpUxtW8dqPF4Tvcgft6k5w8JnMlE=;
+	bh=jPApKe4OnUHqDCmVrRe+5LbHO4U2RPR4SqBfUuQaobI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=tEg9vszDuW1kv1ToIAwHlG+dwwZK/yrjOu1gaooKQuDfJvRhxDmFQl/dXVHNIH0Fc
-	 0AWXjiBNsxGpxGSFsQpWb3u+f2E8QKPYyBdLiTbDlwbb4lxQFjA3AXehSTETKpgrdT
-	 xt7dpKSCT9PLGJnWz8nL2lPSdFK92l1RXez6d2nnEsxaJ7qGCsimscHau5m3K+VRKP
-	 V6XkIwVk3sJHGLffTfzNdDs+VjupxSrNERu+u7mNLWHmCzcjEA+RmzvNQbVKxaLrIG
-	 7R3/LhnP6lK8PmQxnm7GAzFSE0mPB8eeLgJJKMqaYEt7xreXyB2KWjkXdMfLuiXApC
-	 A/56EeaKbkrAw==
+	b=Mr/PhjvkPWThtzj+jBqy7ij02xYvR6N/zfnZDu3NIpKaaifanMfxhYK3YUFKSQ6BH
+	 hOoPmzFi7tI9L04vrY3Mdgre55/DqW5LoGUtspGCAB3egoipohTp0FktlAWw+tpltW
+	 nNM60cvAcEj/OQdjvr1aj8w6VOhsPmFp03JqiAkkIws+9n6C1fcsmxOUCt9Sk0RA6i
+	 6ejhrt+O7QoMBI2zGbovryvg8tvkMbmO+nmCFMXvSEZex2FPhtzVig4orcOgM+goq7
+	 jerw3g46/E9/gmMKw6AnJ8lJW0oG/rYBUC1py18/DgjxzSCLSRDoimdEy94RGCSOtg
+	 YMh9RczEnIAAw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 57B5ED35693;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A0C85D35692;
 	Wed, 28 Jan 2026 08:49:57 +0000 (UTC)
 From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Wed, 28 Jan 2026 09:49:52 +0100
-Subject: [PATCH v4 1/4] net: stmmac: platform: read channels irq
+Date: Wed, 28 Jan 2026 09:49:54 +0100
+Subject: [PATCH v4 3/4] arm64: dts: s32: set Ethernet channel irqs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260128-dwmac_multi_irq-v4-1-82fa34fcf2f2@oss.nxp.com>
+Message-Id: <20260128-dwmac_multi_irq-v4-3-82fa34fcf2f2@oss.nxp.com>
 References: <20260128-dwmac_multi_irq-v4-0-82fa34fcf2f2@oss.nxp.com>
 In-Reply-To: <20260128-dwmac_multi_irq-v4-0-82fa34fcf2f2@oss.nxp.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -72,16 +72,19 @@ Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
  imx@lists.linux.dev, devicetree@vger.kernel.org, 
  "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769590195; l=2269;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769590195; l=4163;
  i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=qCsESZBMy89pwsWTlxW82yylaPKe2lczm3jPGKQ5OYY=;
- b=VTScslSigOVSXikeYjCNy8XZUc/zMqLNQ9WJMKt8jU5KLP3y90Unql11i5nx3T1X3ZSd/vrIG
- 1jaXsww1JA4BX8KFy5E+Slg2CCyUubJAciN3Zyn4yTuZv/pgWluT4G+
+ bh=+bEJwX/3spHrmCusaHSSPK6wPAR1HCTfpAlGDA5P1YA=;
+ b=vIN+HXciTpOHUqUDxNPWM6CkKic057xj2uyyBnyM5d/9gwSF2zq5RrS5qanARCUGxClzBMw74
+ 4gX5zl4Eh37DGUy1maQF2fOrE/zajahR9r8le6wXCP3kFez45HrDOJs
 X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
  pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
 X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
  auth_id=217
 X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260128_004959_011165_C8009BAC 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,71 +102,112 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
-Read IRQ resources for all rx/tx channels, to allow Multi-IRQ mode
-for platform glue drivers.
+The GMAC Ethernet controller found on S32G2/S32G3 and S32R45
+contains up to 5 RX and 5 TX channels.
+It can operate in two interrupt modes:
+
+  1) Sharing IRQ mode: only MAC IRQ line is used
+     for all channels.
+
+  2) Multiple IRQ mode: every channel uses two IRQ lines,
+     one for RX and second for TX.
+
+Specify all IRQ twins for all channels.
 
 Reviewed-by: Matthias Brugger <mbrugger@suse.com>
 Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_platform.c  | 38 +++++++++++++++++++++-
- 1 file changed, 37 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/freescale/s32g2.dtsi | 26 +++++++++++++++++++++++---
+ arch/arm64/boot/dts/freescale/s32g3.dtsi | 26 +++++++++++++++++++++++---
+ 2 files changed, 46 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index 8979a50b5507..94854bfb6e0d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -700,6 +700,9 @@ EXPORT_SYMBOL_GPL(stmmac_pltfr_find_clk);
- int stmmac_get_platform_resources(struct platform_device *pdev,
- 				  struct stmmac_resources *stmmac_res)
- {
-+	char name[16];
-+	int i;
-+
- 	memset(stmmac_res, 0, sizeof(*stmmac_res));
+diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+index 51d00dac12de..5a553d503137 100644
+--- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
++++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+@@ -3,7 +3,7 @@
+  * NXP S32G2 SoC family
+  *
+  * Copyright (c) 2021 SUSE LLC
+- * Copyright 2017-2021, 2024-2025 NXP
++ * Copyright 2017-2021, 2024-2026 NXP
+  */
  
- 	/* Get IRQ information early to have an ability to ask for deferred
-@@ -743,7 +746,40 @@ int stmmac_get_platform_resources(struct platform_device *pdev,
- 
- 	stmmac_res->addr = devm_platform_ioremap_resource(pdev, 0);
- 
--	return PTR_ERR_OR_ZERO(stmmac_res->addr);
-+	if (IS_ERR(stmmac_res->addr))
-+		return PTR_ERR(stmmac_res->addr);
-+
-+	/* RX channels irq */
-+	for (i = 0; i < MTL_MAX_RX_QUEUES; i++) {
-+		scnprintf(name, sizeof(name), "rx-queue-%d", i);
-+		stmmac_res->rx_irq[i] = platform_get_irq_byname_optional(pdev,
-+									 name);
-+		if (stmmac_res->rx_irq[i] <= 0) {
-+			if (stmmac_res->rx_irq[i] == -EPROBE_DEFER)
-+				return -EPROBE_DEFER;
-+			dev_dbg(&pdev->dev, "IRQ rx-queue-%d not found\n", i);
-+
-+			/* Stop on first unset rx-queue-%i property member */
-+			break;
-+		}
-+	}
-+
-+	/* TX channels irq */
-+	for (i = 0; i < MTL_MAX_TX_QUEUES; i++) {
-+		scnprintf(name, sizeof(name), "tx-queue-%d", i);
-+		stmmac_res->tx_irq[i] = platform_get_irq_byname_optional(pdev,
-+									 name);
-+		if (stmmac_res->tx_irq[i] <= 0) {
-+			if (stmmac_res->tx_irq[i] == -EPROBE_DEFER)
-+				return -EPROBE_DEFER;
-+			dev_dbg(&pdev->dev, "IRQ tx-queue-%d not found\n", i);
-+
-+			/* Stop on first unset tx-queue-%i property member */
-+			break;
-+		}
-+	}
-+
-+	return 0;
- }
- EXPORT_SYMBOL_GPL(stmmac_get_platform_resources);
- 
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+@@ -732,8 +732,28 @@ gmac0: ethernet@4033c000 {
+ 			reg = <0x4033c000 0x2000>, /* gmac IP */
+ 			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
+ 			interrupt-parent = <&gic>;
+-			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+-			interrupt-names = "macirq";
++			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 0: tx, rx */
++				     <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 1: tx, rx */
++				     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 2: tx, rx */
++				     <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 3: tx, rx */
++				     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 4: tx, rx */
++				     <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "macirq",
++					  "tx-queue-0", "rx-queue-0",
++					  "tx-queue-1", "rx-queue-1",
++					  "tx-queue-2", "rx-queue-2",
++					  "tx-queue-3", "rx-queue-3",
++					  "tx-queue-4", "rx-queue-4";
+ 			snps,mtl-rx-config = <&mtl_rx_setup>;
+ 			snps,mtl-tx-config = <&mtl_tx_setup>;
+ 			status = "disabled";
+diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+index eff7673e7f34..e1f248d3aedb 100644
+--- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
++++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+@@ -1,6 +1,6 @@
+ // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+ /*
+- * Copyright 2021-2025 NXP
++ * Copyright 2021-2026 NXP
+  *
+  * Authors: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+  *          Ciprian Costea <ciprianmarian.costea@nxp.com>
+@@ -809,8 +809,28 @@ gmac0: ethernet@4033c000 {
+ 			reg = <0x4033c000 0x2000>, /* gmac IP */
+ 			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
+ 			interrupt-parent = <&gic>;
+-			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+-			interrupt-names = "macirq";
++			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 0: tx, rx */
++				     <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 1: tx, rx */
++				     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 2: tx, rx */
++				     <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 3: tx, rx */
++				     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 4: tx, rx */
++				     <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "macirq",
++					  "tx-queue-0", "rx-queue-0",
++					  "tx-queue-1", "rx-queue-1",
++					  "tx-queue-2", "rx-queue-2",
++					  "tx-queue-3", "rx-queue-3",
++					  "tx-queue-4", "rx-queue-4";
+ 			snps,mtl-rx-config = <&mtl_rx_setup>;
+ 			snps,mtl-tx-config = <&mtl_tx_setup>;
+ 			status = "disabled";
 
 -- 
 2.47.0
