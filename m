@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE8AD35663
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 01:09:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9651D35660
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 01:40:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lGaN5t5yAecwPUfPu0SWueHdZEkikh9tEoeETEh9yTU=; b=i7fvVpAikkdQcY
-	P4wNAfyMEci9OrkkoaN8LhgSaGZbjMaR7166JnBiYsjL7ahJb7whQsSH7tqSWE1e56rQ7z8wM0n3u
-	1iEIeT0pIM/ht7zwNzUP3nZ16ocwTFGLnYYP67W0hxj0O8yzirKP4KhWe0u9we13QixTrs5dz4Oh5
-	Z+vfuW2w/ZxTpDV5EFKvURErqgF2HnaNB18wTI2KmsVAcnbwPgPntL+e/XGB9CJbK0WDKG55w1h6B
-	hPy6XwwtOtvnv4DXFYqOXooJq34q49Z9JpHi/4xutjWodyjXz4RgfNqdhuhi1o/rqKUwe4CWs3KvW
-	xr5x+I9fAVhtGxzYmYAg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oJ/pfxuw/bZnke4RUPLyfp1WkqeHbN2JlKRQQBqZqCk=; b=Gd7gClJQ1miKDN1u4NQ4h5RDhP
+	XpW8ux8LuMMxp5wGdZpdFvbsWaFleVDuJ8nJy0ApJ7QHwGIiBG0Zb1JGqSdWKcarm2dZS9VL9WB8K
+	NVZnSIVGPI6C6lbSPkW2Kbi/johXFMY05uBWr/hgLie4h5QNv2gmQo+VXIcmEwj2JNHoM/UgEvWCv
+	CIEnohxnNrtL48RqRqwhvkvMtH7vBSeuYL3KRJnItPT05+Ed4X/nSB9vM1LiESWwEMP+kfF6U8CQ+
+	X+hN0ukYtFu0JpptkB+W5el7W1INh+BmEV2tiGjYfxzfs8j4O6ul0qQFK6ePiCOMi95VxTx+pB0Y6
+	c7DWspeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vku47-0000000FF9g-2J1G;
-	Wed, 28 Jan 2026 01:09:51 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1vkuXq-0000000FGLy-3MOC;
+	Wed, 28 Jan 2026 01:40:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vku44-0000000FF9L-0LqA
+	id 1vkuXn-0000000FGLa-306h
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 01:09:50 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=lGaN5t5yAecwPUfPu0SWueHdZEkikh9tEoeETEh9yTU=;
-	b=QY7A13ii//yij9w8amV6AnjLuC+xtRqv0A5aFsx3HH/AlxEldqDn/3RHxWvHg4XCGjY+vMPoM
-	xDYlbw0sAN61KfC1rfk0soKq+1gPzpS63y8dwVM+1f/VRY4qYvJh3V+fwomgMb3SkgYG4AXKBWS
-	2GTl9/3wIU/WFXh/bhW3eEg=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4f13xd2zLrzLlSt;
-	Wed, 28 Jan 2026 09:06:13 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 85C2240561;
-	Wed, 28 Jan 2026 09:09:40 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 28 Jan 2026 09:09:36 +0800
-Message-ID: <6ff5d366-3a2d-089b-5ac7-e40b81a8664c@huawei.com>
-Date: Wed, 28 Jan 2026 09:09:35 +0800
+	Wed, 28 Jan 2026 01:40:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B2776444C1;
+	Wed, 28 Jan 2026 01:40:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F482C116C6;
+	Wed, 28 Jan 2026 01:40:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769564430;
+	bh=BRV3NNMHXtFN28QG1LlieA/z4NRLoXX16Hu52ceP2zI=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=WHjFUmwgQPYSpaiLwlRr+oDhcgvtV85LuysWTTawWtHliueaNPchxBbx1YiBDBNA9
+	 79Q3gfNNXtPRsD9ZXv0VfX6hfmkOp6O66cvH58i6U/+ES7Q5sDrfTlLbanjNM9d5AK
+	 i1Td/5w9L7Liq6NVvQAddqRWgUac4gEoJUxUDSr8rnd5OQ4ASoS15zxvBqIhPFNQKR
+	 iPh8w3YSJ2MCQ8+mmPx4Yl/ulwN5SpmbE/knJrbDhwhYeeDOvKAnlh2pX/phIGcHt2
+	 9p4pUWYavRaL3f+I2KocUE7c0Bi4tIcBWt5AWmG1zAlBxeIhO2UtQQktO9DX65oC7w
+	 DG3YrILver3Cg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 8BC3C380AA76;
+	Wed, 28 Jan 2026 01:40:25 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v10 05/16] arm64: ptrace: Move rseq_syscall() before
- audit_syscall_exit()
-Content-Language: en-US
-To: Kevin Brodsky <kevin.brodsky@arm.com>, Will Deacon <will@kernel.org>
-References: <20251222114737.1334364-1-ruanjinjie@huawei.com>
- <20251222114737.1334364-6-ruanjinjie@huawei.com>
- <aXe6W69Esd1NLEU8@willie-the-truck>
- <28e54f74-9b3d-4c3c-9172-ceb429e7fcbe@arm.com>
- <4891191c-d1c3-6985-c2ea-1b29deb8abe1@huawei.com>
- <0f6212c1-7034-42f4-ba77-10e9ec52a4f5@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <0f6212c1-7034-42f4-ba77-10e9ec52a4f5@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next] net: stmmac: don't pass ioaddr to
+ fix_soc_reset()
+ method
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176956442434.1470424.17241812328293968709.git-patchwork-notify@kernel.org>
+Date: Wed, 28 Jan 2026 01:40:24 +0000
+References: <E1vkLmM-00000005vE1-0nop@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1vkLmM-00000005vE1-0nop@rmk-PC.armlinux.org.uk>
+To: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Cc: andrew@lunn.ch, alexandre.torgue@foss.st.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, imx@lists.linux.dev,
+ kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+ pabeni@redhat.com, kernel@pengutronix.de, s.hauer@pengutronix.de,
+ shawnguo@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_170948_785264_265B4C59 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20260127_174031_796270_5CA05D2E 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,48 +77,35 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ldv@strace.io, song@kernel.org, linux-kselftest@vger.kernel.org, shuah@kernel.org, kees@kernel.org, linux-arm-kernel@lists.infradead.org, kmal@cock.li, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, charlie@rivosinc.com, pengcan@kylinos.cn, broonie@kernel.org, luto@kernel.org, tglx@linutronix.de, richard.weiyang@gmail.com, dvyukov@google.com, wad@chromium.org, oleg@redhat.com, linux-kernel@vger.kernel.org, liqiang01@kylinos.cn, akpm@linux-foundation.org, reddybalavignesh9979@gmail.com, macro@orcam.me.uk
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-On 2026/1/27 23:06, Kevin Brodsky wrote:
-> On 27/01/2026 12:34, Jinjie Ruan wrote:
->>> [...]
->>>
->>>>  I'm also concerned that rseq_debug_update_user_cs()
->>>> operates on instruction_pointer(regs) which is something that can be
->>>> chaned by ptrace.
->>> Isn't that true regardless of where rseq_syscall() is called on the
->>> syscall exit path, though?
->> My understanding is that if instruction_pointer(regs) is hijacked and
->> modified via ptrace at the syscall exit (ptrace_report_syscall_exit()),
->> this modification will not be observed by rseq. Specifically, in the
->> generic entry syscall exit path, rseq_syscall() is unable to detect such
->> a PC modification.
+On Mon, 26 Jan 2026 12:33:14 +0000 you wrote:
+> As the stmmac_priv struct is passed to the fix_soc_reset() method which
+> has the ioaddr, there is no need to pass ioaddr separately. Pass just
+> the stmmac_priv struct. Fix up the glues that use it.
 > 
-> Good point. So concretely that means that currently on arm64, one could
-> make the rseq debug check pass/fail by using the syscall exit trap to
-> modify PC. OTOH this is impossible with generic entry because the rseq
-> check is performed first. I'm not sure this is a feature anyone has even
-> noticed, but it is a user-visible change indeed.
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c      | 8 +++++---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c | 6 ++++--
+>  drivers/net/ethernet/stmicro/stmmac/hwif.c           | 2 +-
+>  include/linux/stmmac.h                               | 2 +-
+>  4 files changed, 11 insertions(+), 7 deletions(-)
 
-After digging into the ptrace code, I found that ptrace does not modify
-instruction_pointer(regs) on the syscall exit path; it only changes the
-return value as below.
-Therefore, if my understanding is correct, Will's concern does not apply
-here.
+Here is the summary with links:
+  - [net-next] net: stmmac: don't pass ioaddr to fix_soc_reset() method
+    https://git.kernel.org/netdev/net-next/c/d64f761dbfda
 
-ptrace_set_syscall_info()
-  -> ptrace_set_syscall_info_exit()
-     -> syscall_set_return_value(child, regs, 0, rval)
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
-Regards,
-Jinjie
-
-> 
-> - Kevin
-> 
 
