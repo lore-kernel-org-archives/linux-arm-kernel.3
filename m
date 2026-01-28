@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E532D25B49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 12:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C277D25B4B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 12:10:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/lMuwqcl5cziee1ZhlOhuO45+/i/6xDucORavFy/VpA=; b=cUzG7hGl/F/XR+D+SEuAy7hs6+
-	g5GCm+hHWqDyrsz3lG2a0T/8JPGv0JPhWFUyWApFtk56ZXFG0I5Fd+pEMO8H4rGoSRdW1jNME5pIH
-	swqNTDsvQvBGbMgC2VG866DqUxvJbKiRI6LfetKCayQlr7S8q6au4SWj7sWm3d2VL4VfNZihbGc7v
-	VdZjrYpHgsqekDwahAUz47o+LT/ttO0au+me5wMdUegyFuba6AYdin1Nv5vSPFmksyeR08YZJXYSr
-	K9AOyTx9dR64MjvAIls3LS9ufs8BsPHy+nLdkTZ7se2OmDwVgk/Df/dZhFFgRr7GjcoUTJ1eqMFfq
-	GvNGipDg==;
+	bh=psNnqIjPE6U/gL+KopM5Vj73WALfeZwjTPb/1Jd17k4=; b=D9q579fMwbC/XTPDcQaxTCBo8G
+	MBG+c/12Bqm3VjClIs7p1KpnEObnVvWQJid4mNd14TGGYXyHtpIsdXP03trGz8R868fU76k6KJKv+
+	7d4aTuZ7h372sxMV+EkxPyS98AC1rQlPV+Pljkh5YT75AApBzzes3ZfTt/ifUWGGveF4rz5p0MVXU
+	YtUlyNlKJDSIZ1zRmkgAJJy/aFY1zij8cHDUqBGeyqG4dZq6KvzEnwNRTg2scN7yUfbWqaqYNUf+C
+	0flJc8IrOMrax8MB/QPZcBfW6TuX6GD3tNJ3DA2trqyax16KZxl76gGEMFWCWt2jYAY+wScI0JiI5
+	UDgK3CAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl4Hj-0000000FyDW-38RM;
-	Wed, 28 Jan 2026 12:04:35 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vl4Nn-0000000FyTp-3LM1;
+	Wed, 28 Jan 2026 12:10:51 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl4Hh-0000000FyCn-2Vko
+	id 1vl4Nl-0000000FyTT-2IQG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 12:04:34 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vl4HY-00024t-D5; Wed, 28 Jan 2026 13:04:24 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vl4HW-002uU7-0I;
-	Wed, 28 Jan 2026 13:04:21 +0100
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vl4HV-000000009ui-1PUo;
-	Wed, 28 Jan 2026 13:04:21 +0100
-Message-ID: <c8a10b5355b750cfc83a7f746347175ab40b64d7.camel@pengutronix.de>
-Subject: Re: [PATCH net-next 1/3] net: stmmac: rk: fix missing
- reset_control_put()
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Andrew Lunn
-	 <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn	
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet	 <edumazet@google.com>, Heiko Stuebner <heiko@sntech.de>, Jakub
- Kicinski	 <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, 	netdev@vger.kernel.org, Paolo
- Abeni <pabeni@redhat.com>
-Date: Wed, 28 Jan 2026 13:04:21 +0100
-In-Reply-To: <E1vl3Fv-00000006v3L-215v@rmk-PC.armlinux.org.uk>
-References: <aXnrzIbZN-gaZTia@shell.armlinux.org.uk>
-	 <E1vl3Fv-00000006v3L-215v@rmk-PC.armlinux.org.uk>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Wed, 28 Jan 2026 12:10:50 +0000
+Received: from pendragon.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id AB57B581;
+	Wed, 28 Jan 2026 13:10:10 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1769602210;
+	bh=3CU8o5SIomZEvlBUia0x7fjnYkUS20BvcUu2a3r5XVA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Gq4edDsBwqCShK2m+Gwl/7VrCb4Uzw1pYzmXkPqpzbbIGGL6urx3E6utCYgxyGh4d
+	 SaxVyueiY9D+N7rCTGrL0JV3Wo+oez86MTR18lLRb8e9zQYASkZ1lx+C+YqR3F5mAP
+	 V6SH0zIlzo3acHhF6ruMNU7Ivrsjsx9QuMAVmeWo=
+Date: Wed, 28 Jan 2026 14:10:46 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: Vishal Sagar <vishal.sagar@amd.com>,
+	Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Michal Simek <michal.simek@amd.com>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Pekka Paalanen <ppaalanen@gmail.com>
+Subject: Re: [PATCH v7 09/11] drm: xlnx: zynqmp: Add support for Y8 and
+ Y10_P32
+Message-ID: <20260128121046.GI2558360@killaraus>
+References: <20251201-xilinx-formats-v7-0-1e1558adfefc@ideasonboard.com>
+ <20251201-xilinx-formats-v7-9-1e1558adfefc@ideasonboard.com>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251201-xilinx-formats-v7-9-1e1558adfefc@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_040433_636453_6C583C91 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20260128_041049_747637_EB406EC4 
+X-CRM114-Status: GOOD (  21.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,41 +78,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mi, 2026-01-28 at 10:58 +0000, Russell King (Oracle) wrote:
-> rk_gmac_setup() delves into the PHY's DT node to retrieve its reset
-> control using of_reset_control_get(). However, it never releases it
-> when the driver is removed. Add reset_control_put() to rk_gmac_exit()
-> to clean this up.
->=20
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Hi Tomi,
+
+Thank you for the patch.
+
+On Mon, Dec 01, 2025 at 02:18:51PM +0200, Tomi Valkeinen wrote:
+> Add support for Y8 and Y10_P32 formats. We also need to add new csc
+> matrices for the y-only formats.
+> 
+> Reviewed-by: Vishal Sagar <vishal.sagar@amd.com>
+> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 > ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 2 ++
->  1 file changed, 2 insertions(+)
->=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net=
-/ethernet/stmicro/stmmac/dwmac-rk.c
-> index 5f8d2031b97c..bc69cbb5a7d4 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> @@ -1784,6 +1784,8 @@ static void rk_gmac_exit(struct device *dev, void *=
-bsp_priv_)
-> =20
->  	if (priv->plat->phy_node && bsp_priv->integrated_phy)
->  		clk_put(bsp_priv->clk_phy);
+>  drivers/gpu/drm/xlnx/zynqmp_disp.c | 26 +++++++++++++++++++++++++-
+>  1 file changed, 25 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
+> index 1dc77f2e4262..fe111fa8cc13 100644
+> --- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
+> +++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
+> @@ -307,6 +307,16 @@ static const struct zynqmp_disp_format avbuf_vid_fmts[] = {
+>  		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YV16CI_10,
+>  		.swap		= false,
+>  		.sf		= scaling_factors_101010,
+> +	}, {
+> +		.drm_fmt	= DRM_FORMAT_Y8,
+> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_MONO,
+> +		.swap		= false,
+> +		.sf		= scaling_factors_888,
+> +	}, {
+> +		.drm_fmt	= DRM_FORMAT_Y10_P32,
+> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YONLY_10,
+> +		.swap		= false,
+> +		.sf		= scaling_factors_101010,
+>  	},
+>  };
+>  
+> @@ -697,6 +707,16 @@ static const u32 csc_sdtv_to_rgb_offsets[] = {
+>  	0x0, 0x1800, 0x1800
+>  };
+>  
+
+A comment here to explain why the 1.0 value is in the third column
+instead of the expected first column would be good.
+
+> +static const u16 csc_sdtv_to_rgb_yonly_matrix[] = {
+> +	0x0, 0x0, 0x1000,
+> +	0x0, 0x0, 0x1000,
+> +	0x0, 0x0, 0x1000,
+> +};
 > +
-> +	reset_control_put(bsp_priv->phy_reset);
->  }
-> =20
->  static int rk_gmac_probe(struct platform_device *pdev)
+> +static const u32 csc_sdtv_to_rgb_yonly_offsets[] = {
+> +	0x0, 0x0, 0x0
+> +};
+> +
+>  /**
+>   * zynqmp_disp_blend_set_output_format - Set the output format of the blender
+>   * @disp: Display controller
+> @@ -846,7 +866,11 @@ static void zynqmp_disp_blend_layer_enable(struct zynqmp_disp *disp,
+>  				ZYNQMP_DISP_V_BLEND_LAYER_CONTROL(layer->id),
+>  				val);
+>  
+> -	if (layer->drm_fmt->is_yuv) {
+> +	if (layer->drm_fmt->format == DRM_FORMAT_Y8 ||
+> +	    layer->drm_fmt->format == DRM_FORMAT_Y10_P32) {
 
-This is fine because the driver sets plat_dat->suspend, and so
-rk_gmac_exit() is never called via stmmac_pltfr_exit() during suspend.
+We could replace is_yuv with a type enum to avoid checking the format
+here, and use a switch statement. Up to you.
 
-It does look a bit sketchy to release resources in the rk_gmac_exit()
-counterpart to rk_gmac_init(), which never requested the resources,
-though. Maybe use devm_add_action_or_reset() to register the release of
-the reset during remove?
+With those issues addressed,
 
-regards
-Philipp
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
+> +		coeffs = csc_sdtv_to_rgb_yonly_matrix;
+> +		offsets = csc_sdtv_to_rgb_yonly_offsets;
+> +	} else if (layer->drm_fmt->is_yuv) {
+>  		coeffs = csc_sdtv_to_rgb_matrix;
+>  		offsets = csc_sdtv_to_rgb_offsets;
+>  	} else {
+
+-- 
+Regards,
+
+Laurent Pinchart
 
