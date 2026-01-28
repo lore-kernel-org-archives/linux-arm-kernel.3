@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E22B3D35693
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 10:48:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A77D35693
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 10:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WefJzj7rPdEoa3EYJhEBhhBcLW/TXT4G2TpOC+K7+7s=; b=OszZhypOo15uEKcEaNolK5u8qG
-	l9iZAZMzKPsVyNLMSbkFwC8qpbV5tSg8VfVXha5Iq1XaEXBvS39nIiI77v5CTDTJkyS1FeoNB9sey
-	sEBOihuc9FQlUe93+urJLoiLr6NOPI6Ejd1J4VG9S/1NeIMV09QFHcLcgaFTtf8lhtFAR0egBZXTx
-	cOwBz83+fdFWLVQIC90xBJ8768nH2rpJnF/RZ7kbYOME8Py8TwU3M5CmNWcATktsV/cJSrmm+WuBJ
-	GF4O76F/s4bmcwcOLriNMdGyOh4M7PCE5zNQyB1mBrJOHC9RgY2Zptg63Onb8UNuWwes0w3aUlUcn
-	VN8aOSuA==;
+	bh=zTyXmYUk5VJ01OMri4QAHDs7af0WzJyVS+aKLHNsXcA=; b=qmUWw97JPuoiWk/24R0fowiXSa
+	lRJ4Nu6iVM65Do+iybrkRuDP4yPqeNVK9ptZNKaTTqo/mMrYaIIRdNLwZLNmOAkIAP0Ax7xuvZidh
+	dhlC6+oQWsGD86yjkxId25nVDvvh2/A8+ebk3mIiKY+JOpnbvMmQl25pW81WzxpO6ZOISQQ/ewgW4
+	r4k8XhGXBdqqz1o1E/tYPiI+oDzPj31DkWrknqa3th9Uvwxay77QcsLJ2+T7FipRhMbKoCbdgnI9M
+	qIifPbuJYNgl7yagiq+xOcy8pO77rH4rqp3QM1HDp4rED2YWgv8MoEmQOgtRKgMl+4CJbPILcfJKu
+	vuNufWAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl36L-0000000FrJA-28OY;
-	Wed, 28 Jan 2026 10:48:45 +0000
-Received: from pandora.armlinux.org.uk ([78.32.30.218])
+	id 1vl36S-0000000FrNq-1M5c;
+	Wed, 28 Jan 2026 10:48:52 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl36J-0000000FrGp-3Exg;
-	Wed, 28 Jan 2026 10:48:44 +0000
+	id 1vl36P-0000000FrKd-2RoN;
+	Wed, 28 Jan 2026 10:48:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=WefJzj7rPdEoa3EYJhEBhhBcLW/TXT4G2TpOC+K7+7s=; b=eOQbsp1smvKwKVTI+gBc1BXdaP
-	qJ/zeAV44/KeTx+Yv5jr7CMX2Vtd6hOPzPuhcJO1lslaP50gVcFdKLxGOwF/I6ii7A+mpv9rgQpYa
-	0jnwjDshbiSApDIb2UyihJDrrj70oZe4ObiC/wcqJ4dACuZthyOagTlFfoAF4pJWZwM+xELBx8qUa
-	mX3/Qx6oN5cMo5wQmHhqF5Y6Z85d9KRheKgptpGmMd424iM08phOJd3Y2p/zNcD6qtc5G3VYFcarA
-	3/CFjbKQbMmGprpqPxrTH05ns+oML2TqlzKUKLSVbvBmJiOsIQAP44/Y5WS5tLXzpmuUYbzTO4wq6
-	PnSn9pHA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:58294 helo=rmk-PC.armlinux.org.uk)
+	bh=zTyXmYUk5VJ01OMri4QAHDs7af0WzJyVS+aKLHNsXcA=; b=axyWv3sESTth0IlADbOvLOEGy0
+	jf5sBgQDEOWrPhednUEBkraHILEqR91cSoTmSVCM708gOYMZhkCerleMiNHWVzjH/YoqvFovIIydj
+	ddXciJfyfnU3IqCHL9T0geEpQ/Su5VKLl54wO6wr0iDQKPZwc/ZU+fu5D25xq7QQhYH7gnjIyZcZK
+	HxmkL0/C1NVQC0fEfqUHgS4QMevOvcffYI9ndNcSszF+0R4b11qE6a/1qCz22pdeY1W8yWPxi0QJv
+	/MeIhE1MkNj9B5JhzaOxNrqhhmpcPN8DWPWIQQ+ea4+qk2Ef37JeBwpd0rGbxi7ZiTjsJ9nlXsmOm
+	iB+6MPdQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:57828 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vl36B-000000007Da-0785;
-	Wed, 28 Jan 2026 10:48:35 +0000
+	id 1vl36G-000000007Do-0wjv;
+	Wed, 28 Jan 2026 10:48:40 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vl36A-00000006urf-19ox;
-	Wed, 28 Jan 2026 10:48:34 +0000
+	id 1vl36F-00000006url-1fWA;
+	Wed, 28 Jan 2026 10:48:39 +0000
 In-Reply-To: <aXnpTy6XckPGcmg0@shell.armlinux.org.uk>
 References: <aXnpTy6XckPGcmg0@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -65,18 +65,16 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 1/2] net: stmmac: thead: avoid conflicts with
- PHY_INTF_* definitions
+Subject: [PATCH net-next 2/2] net: stmmac: report active PHY interface
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vl36A-00000006urf-19ox@rmk-PC.armlinux.org.uk>
-Date: Wed, 28 Jan 2026 10:48:34 +0000
+Message-Id: <E1vl36F-00000006url-1fWA@rmk-PC.armlinux.org.uk>
+Date: Wed, 28 Jan 2026 10:48:39 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_024843_816157_12B28CE8 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260128_024849_772609_EBCA431F 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,47 +89,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Avoid conflicts between stmmac PHY_INTF_* and GMAC_INTF_CTRL register
-definitions by replacing the PHY_ prefix with GMAC_.
+Report the active PHY interface from the point of view of the dwmac
+hardware to the kernel log, where the core supports reading this.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/common.h  |  6 +++
+ .../ethernet/stmicro/stmmac/dwmac1000_dma.c   |  2 +
+ .../net/ethernet/stmicro/stmmac/dwmac4_dma.c  |  2 +
+ .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |  1 +
+ .../ethernet/stmicro/stmmac/dwxgmac2_dma.c    |  1 +
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 52 +++++++++++++++++++
+ 6 files changed, 64 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-index e291028ba56e..0d46a6c3f077 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-@@ -37,9 +37,9 @@
- #define GMAC_GTXCLK_SEL			0x18
- #define  GMAC_GTXCLK_SEL_PLL		BIT(0)
- #define GMAC_INTF_CTRL			0x1c
--#define  PHY_INTF_MASK			BIT(0)
--#define  PHY_INTF_RGMII			FIELD_PREP(PHY_INTF_MASK, 1)
--#define  PHY_INTF_MII_GMII		FIELD_PREP(PHY_INTF_MASK, 0)
-+#define  GMAC_INTF_MASK			BIT(0)
-+#define  GMAC_INTF_RGMII		FIELD_PREP(GMAC_INTF_MASK, 1)
-+#define  GMAC_INTF_MII_GMII		FIELD_PREP(GMAC_INTF_MASK, 0)
- #define GMAC_TXCLK_OEN			0x20
- #define  TXCLK_DIR_MASK			BIT(0)
- #define  TXCLK_DIR_OUTPUT		FIELD_PREP(TXCLK_DIR_MASK, 0)
-@@ -58,13 +58,13 @@ static int thead_dwmac_set_phy_if(struct plat_stmmacenet_data *plat)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
+index 49df46be3669..1c5a4af85b58 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/common.h
++++ b/drivers/net/ethernet/stmicro/stmmac/common.h
+@@ -323,6 +323,10 @@ struct stmmac_safety_stats {
+ #define PHY_INTF_SEL_SMII	6
+ #define PHY_INTF_SEL_REVMII	7
  
- 	switch (plat->phy_interface) {
- 	case PHY_INTERFACE_MODE_MII:
--		phyif = PHY_INTF_MII_GMII;
-+		phyif = GMAC_INTF_MII_GMII;
- 		break;
- 	case PHY_INTERFACE_MODE_RGMII:
- 	case PHY_INTERFACE_MODE_RGMII_ID:
- 	case PHY_INTERFACE_MODE_RGMII_TXID:
- 	case PHY_INTERFACE_MODE_RGMII_RXID:
--		phyif = PHY_INTF_RGMII;
-+		phyif = GMAC_INTF_RGMII;
- 		break;
- 	default:
- 		dev_err(dwmac->dev, "unsupported phy interface %s\n",
++/* XGMAC uses a different encoding - from the AgileX5 documentation */
++#define PHY_INTF_GMII		0
++#define PHY_INTF_RGMII		1
++
+ /* MSI defines */
+ #define STMMAC_MSI_VEC_MAX	32
+ 
+@@ -512,6 +516,8 @@ struct dma_features {
+ 	unsigned int dbgmem;
+ 	/* Number of Policing Counters */
+ 	unsigned int pcsel;
++	/* Active PHY interface, PHY_INTF_SEL_xxx */
++	u8 actphyif;
+ };
+ 
+ /* RX Buffer size must be multiple of 4/8/16 bytes */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
+index a62f1271b6ea..3ac7a7949529 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
+@@ -239,6 +239,8 @@ static int dwmac1000_get_hw_feature(void __iomem *ioaddr,
+ 	/* Alternate (enhanced) DESC mode */
+ 	dma_cap->enh_desc = (hw_cap & DMA_HW_FEAT_ENHDESSEL) >> 24;
+ 
++	dma_cap->actphyif = FIELD_GET(DMA_HW_FEAT_ACTPHYIF, hw_cap);
++
+ 	return 0;
+ }
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
+index aaa83e9ff4f0..60b880cdd9da 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
+@@ -382,6 +382,8 @@ static int dwmac4_get_hw_feature(void __iomem *ioaddr,
+ 	dma_cap->vlins = (hw_cap & GMAC_HW_FEAT_SAVLANINS) >> 27;
+ 	dma_cap->arpoffsel = (hw_cap & GMAC_HW_FEAT_ARPOFFSEL) >> 9;
+ 
++	dma_cap->actphyif = FIELD_GET(DMA_HW_FEAT_ACTPHYIF, hw_cap);
++
+ 	/* MAC HW feature1 */
+ 	hw_cap = readl(ioaddr + GMAC_HW_FEATURE1);
+ 	dma_cap->l3l4fnum = (hw_cap & GMAC_HW_FEAT_L3L4FNUM) >> 27;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+index b5c91c109c43..51943705a2b0 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+@@ -107,6 +107,7 @@
+ #define XGMAC_HWFEAT_VXN		BIT(29)
+ #define XGMAC_HWFEAT_SAVLANINS		BIT(27)
+ #define XGMAC_HWFEAT_TSSTSSEL		GENMASK(26, 25)
++#define XGMAC_HWFEAT_PHYSEL		GENMASK(24, 23)
+ #define XGMAC_HWFEAT_ADDMACADRSEL	GENMASK(22, 18)
+ #define XGMAC_HWFEAT_RXCOESEL		BIT(16)
+ #define XGMAC_HWFEAT_TXCOESEL		BIT(14)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+index 9bb547f3c3c9..03437f1cf3df 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+@@ -364,6 +364,7 @@ static int dwxgmac2_get_hw_feature(void __iomem *ioaddr,
+ 	dma_cap->vxn = (hw_cap & XGMAC_HWFEAT_VXN) >> 29;
+ 	dma_cap->vlins = (hw_cap & XGMAC_HWFEAT_SAVLANINS) >> 27;
+ 	dma_cap->tssrc = (hw_cap & XGMAC_HWFEAT_TSSTSSEL) >> 25;
++	dma_cap->actphyif = FIELD_GET(XGMAC_HWFEAT_PHYSEL, hw_cap);
+ 	dma_cap->multi_addr = (hw_cap & XGMAC_HWFEAT_ADDMACADRSEL) >> 18;
+ 	dma_cap->rx_coe = (hw_cap & XGMAC_HWFEAT_RXCOESEL) >> 16;
+ 	dma_cap->tx_coe = (hw_cap & XGMAC_HWFEAT_TXCOESEL) >> 14;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 347a0078f622..db0ea48a5637 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -127,6 +127,22 @@ static unsigned int chain_mode;
+ module_param(chain_mode, int, 0444);
+ MODULE_PARM_DESC(chain_mode, "To use chain instead of ring mode");
+ 
++static const char *stmmac_dwmac_actphyif[8] = {
++	[PHY_INTF_SEL_GMII_MII]	= "GMII/MII",
++	[PHY_INTF_SEL_RGMII]	= "RGMII",
++	[PHY_INTF_SEL_SGMII]	= "SGMII",
++	[PHY_INTF_SEL_TBI]	= "TBI",
++	[PHY_INTF_SEL_RMII]	= "RMII",
++	[PHY_INTF_SEL_RTBI]	= "RTBI",
++	[PHY_INTF_SEL_SMII]	= "SMII",
++	[PHY_INTF_SEL_REVMII]	= "REVMII",
++};
++
++static const char *stmmac_dwxgmac_phyif[4] = {
++	[PHY_INTF_GMII]		= "GMII",
++	[PHY_INTF_RGMII]	= "RGMII",
++};
++
+ static irqreturn_t stmmac_interrupt(int irq, void *dev_id);
+ /* For MSI interrupts handling */
+ static irqreturn_t stmmac_mac_interrupt(int irq, void *dev_id);
+@@ -7270,6 +7286,41 @@ static void stmmac_service_task(struct work_struct *work)
+ 	clear_bit(STMMAC_SERVICE_SCHED, &priv->state);
+ }
+ 
++static void stmmac_print_actphyif(struct stmmac_priv *priv)
++{
++	const char **phyif_table;
++	const char *actphyif_str;
++	size_t phyif_table_size;
++
++	switch (priv->plat->core_type) {
++	case DWMAC_CORE_MAC100:
++		return;
++
++	case DWMAC_CORE_GMAC:
++	case DWMAC_CORE_GMAC4:
++		phyif_table = stmmac_dwmac_actphyif;
++		phyif_table_size = ARRAY_SIZE(stmmac_dwmac_actphyif);
++		break;
++
++	case DWMAC_CORE_XGMAC:
++		phyif_table = stmmac_dwxgmac_phyif;
++		phyif_table_size = ARRAY_SIZE(stmmac_dwxgmac_phyif);
++		break;
++	}
++
++
++	if (priv->dma_cap.actphyif < phyif_table_size)
++		actphyif_str = phyif_table[priv->dma_cap.actphyif];
++	else
++		actphyif_str = NULL;
++
++	if (!actphyif_str)
++		actphyif_str = "unknown";
++
++	dev_info(priv->device, "Active PHY interface: %s (%u)\n",
++		 actphyif_str, priv->dma_cap.actphyif);
++}
++
+ /**
+  *  stmmac_hw_init - Init the MAC device
+  *  @priv: driver private structure
+@@ -7326,6 +7377,7 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
+ 		else if (priv->dma_cap.rx_coe_type1)
+ 			priv->plat->rx_coe = STMMAC_RX_COE_TYPE1;
+ 
++		stmmac_print_actphyif(priv);
+ 	} else {
+ 		dev_info(priv->device, "No HW DMA feature register supported\n");
+ 	}
 -- 
 2.47.3
 
