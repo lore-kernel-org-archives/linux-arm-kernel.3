@@ -4,70 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55F0AD3F076
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 14:47:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F91D3F076
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 14:47:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x0L21iZQE6yD4RaKldOb6lO8mhKXmFZPHTycUeA2FrU=; b=vsC1/xkMAsFi5v9VNKvE8tr5Kk
-	DhV3l8U3OoHPkcIyYvzH0DE/ASEmTlwPxhsf8Irw2rRbVTsblgcjg0kd9Br1wtRX5f2OJXNyfK+vV
-	oCv4V00T9aKmLBDvhFs6BYx4UgN08BMNM4II47qTfD7hWZ8wVVn9tOttgeYbezM6OIc3LrFzd6ond
-	MMWMwmKpYBKe2YGg2+9AwJqN+9pQ+GxD0o7HRrRYxCOwIMFG5BdvJmvcdI4MLR5aldgI+Z7GbAA7U
-	EIxsP0N7dtrlvJ+OqWzIYkrXY5a8C+FXaFV4ZRSDfniqNiG4MZqq43uIFsiLbO/X9szF4yE5iMfzk
-	DDrM9R8A==;
+	bh=FaXGWUlQt5aWXpN/gwz11v6r56272vTBmwSk7M3j6FI=; b=1ZBYzIuL05ptuoWvbqib0gjkTs
+	yDIoETxQFQ4FhZgPnqTM8QsEcY1gZlU6Z8IoAl7fDr5oHbH80wC0UKFNx8BQsQ2znjK0nfT7lzemv
+	ryzlFEZ/aUIBZox69AzrFffHHTaejkuMl+BOm8hH/Pl+ZJw7nMNNQ1zhl8oNsEgSYyAKtDa3qkhsB
+	5CQSRTqdPIBxsaJa9/Zmd/wDuOxB6L8koqqpXg4CUsuMdkY3UeQsUvXrYK+vXIVkqTRmy4PtG3YOB
+	gwzBdKR2He6V+Sp0FcKrh3ZEI/dVGwPXIn9josIdlYaUHV3f81UyAIIrLEy7Y4W195lIN9t+GYQKs
+	0MO6+fDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl6pC-0000000GCfj-2czf;
-	Wed, 28 Jan 2026 14:47:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vl6pN-0000000GCjB-3Fi7;
+	Wed, 28 Jan 2026 14:47:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl6p9-0000000GCfQ-2rtT;
-	Wed, 28 Jan 2026 14:47:17 +0000
+	id 1vl6pM-0000000GCiU-3con
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 Jan 2026 14:47:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C315F600AD;
-	Wed, 28 Jan 2026 14:47:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FF98C4CEF1;
-	Wed, 28 Jan 2026 14:47:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DEDD860097;
+	Wed, 28 Jan 2026 14:47:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A29CDC4CEF1;
+	Wed, 28 Jan 2026 14:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769611634;
-	bh=tHWNBPFYS91KkDSP5taGybUFdFj3eFVqHM55nD7uiTk=;
+	s=k20201202; t=1769611647;
+	bh=poIiBnPQsoRCMsAh2wEVBSolxetqZX8EqXjaVucmFcg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ul09wiqX8UI6vXHuhBsL1eLLc7dCJAXEsJeehfRWsu+h1mwgsjjfsDX+NWjAL2b0/
-	 4xqPup32t3j8pF3fJvYzjBxDVdTjfbqCjine4m+iR1kdAfSATO6+JS1XECxnrGg6is
-	 LZ5YvjxU11g0ldUEHoMSJwXuoJcpmrGJfShYZe7EEnhLY5rVl0VxGyNsyOmNYKbAY0
-	 iI4GVkNvMY/i7nt1HyCra7DRgdR/olvh0SbCo66t9XYKIAsHI3ADMRSK4Q4s63HEtX
-	 BGbImqzNemsDZ6piY5Kvm38n1ehvBSDQFVIvExRsnn2/e+tvmf8632pV3aPoU2Fmp/
-	 xO+gE52vLMC0A==
-Date: Wed, 28 Jan 2026 14:47:08 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Yassine Oudjana <y.oudjana@protonmail.com>,
-	Laura Nao <laura.nao@collabora.com>,
-	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
-	Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
-	kernel@collabora.com, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v3 1/5] clk: Respect CLK_OPS_PARENT_ENABLE during recalc
-Message-ID: <daa1906b-a112-4158-aec2-ad1d29b4fe35@sirena.org.uk>
-References: <20251010-mtk-pll-rpm-v3-0-fb1bd15d734a@collabora.com>
- <6800096.lOV4Wx5bFT@workhorse>
- <1cbf0f37-13de-46a5-a3c0-0509048c519e@sirena.org.uk>
- <6678782.DvuYhMxLoT@workhorse>
+	b=vN3n21+QoojivHeZ/EmZbanlbJy14SRyElmm6rdhBef5w4QUV065wzTrTnDE7sKzH
+	 Lb78OKbw8Pj/ai4uWxYha5z5oBRhqhD9QVXlhtr80EZV4fPHI4jKKFVN3A2u8EWpEN
+	 43BeuFIO8SIxUEeL2/QRI4uGvwIdINqIZG10+ma1ZaTzL3/y9ueGNpnEDy7kCbSYRT
+	 x5PPFf7OemVW7EgD2Bvi0Qsnei4HaiTR+A+1Wb4u4EmhFrk1iMlZCqIqpBImoLFlby
+	 mp9B3Q073W8+PdyzCf2YEqEU/0SD/+YOZgPrbBVG9msd+pmonngT6V01YrPIWiBa/+
+	 vNTHD9QPhn2bQ==
+Date: Wed, 28 Jan 2026 08:47:24 -0600
+From: Bjorn Andersson <andersson@kernel.org>
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Cc: Jingoo Han <jingoohan1@gmail.com>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com
+Subject: Re: [PATCH 3/3] PCI: qcom: Add D3cold support
+Message-ID: <qg7hyicnyqcoi7jktalyfecfgxnv4elilmmmfkzvb2jbzrhisd@bq3pngh5n2a7>
+References: <20260128-d3cold-v1-0-dd8f3f0ce824@oss.qualcomm.com>
+ <20260128-d3cold-v1-3-dd8f3f0ce824@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="GDKwEpCHvyP7dewC"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <6678782.DvuYhMxLoT@workhorse>
-X-Cookie: I brake for chezlogs!
+In-Reply-To: <20260128-d3cold-v1-3-dd8f3f0ce824@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,43 +73,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jan 28, 2026 at 05:10:43PM +0530, Krishna Chaitanya Chundru wrote:
+> Add pme_turn_off() support and use DWC common suspend resume methods
+> for device D3cold entry & exit. If the device is not kept in D3cold
+> use existing methods like keeping icc votes, opp votes etc.. intact.
+> 
+> In qcom_pcie_deinit_2_7_0(), explicitly disable PCIe clocks and resets
+> in the controller.
+> 
+> Remove suspended flag from qcom_pcie structure as it is no longer needed.
+> 
+> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+> ---
+>  drivers/pci/controller/dwc/pcie-qcom.c | 114 ++++++++++++++++++++-------------
+>  1 file changed, 68 insertions(+), 46 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
+[..]
+> @@ -2016,53 +2030,51 @@ static int qcom_pcie_suspend_noirq(struct device *dev)
+>  	if (!pcie)
+>  		return 0;
+>  
+> -	/*
+> -	 * Set minimum bandwidth required to keep data path functional during
+> -	 * suspend.
+> -	 */
+> -	if (pcie->icc_mem) {
+> -		ret = icc_set_bw(pcie->icc_mem, 0, kBps_to_icc(1));
+> -		if (ret) {
+> -			dev_err(dev,
+> -				"Failed to set bandwidth for PCIe-MEM interconnect path: %d\n",
+> -				ret);
+> -			return ret;
+> -		}
+> -	}
+> +	ret = dw_pcie_suspend_noirq(pcie->pci);
+> +	if (ret)
+> +		return ret;
+>  
+> -	/*
+> -	 * Turn OFF the resources only for controllers without active PCIe
+> -	 * devices. For controllers with active devices, the resources are kept
+> -	 * ON and the link is expected to be in L0/L1 (sub)states.
+> -	 *
+> -	 * Turning OFF the resources for controllers with active PCIe devices
+> -	 * will trigger access violation during the end of the suspend cycle,
+> -	 * as kernel tries to access the PCIe devices config space for masking
+> -	 * MSIs.
+> -	 *
+> -	 * Also, it is not desirable to put the link into L2/L3 state as that
+> -	 * implies VDD supply will be removed and the devices may go into
+> -	 * powerdown state. This will affect the lifetime of the storage devices
+> -	 * like NVMe.
+> -	 */
+> -	if (!dw_pcie_link_up(pcie->pci)) {
+> -		qcom_pcie_host_deinit(&pcie->pci->pp);
+> -		pcie->suspended = true;
+> -	}
+> +	if (pcie->pci->suspended) {
 
---GDKwEpCHvyP7dewC
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+I think this is okay for now, but I'd prefer changing the return value
+of dw_pcie_suspend_noirq() to indicate if it did stop the link or not
+(two different success values) - rather than deriving that information
+by peeking into the dw_pcie struct and conclude that
+dw_pcie_suspend_noirq() did reach the end.
 
-On Wed, Jan 28, 2026 at 03:09:46PM +0100, Nicolas Frattaroli wrote:
-> On Wednesday, 28 January 2026 00:14:29 Central European Standard Time Mark Brown wrote:
+> +		ret = icc_disable(pcie->icc_mem);
+> +		if (ret)
+> +			dev_err(dev, "Failed to disable PCIe-MEM interconnect path: %d\n", ret);
+>  
+> -	/*
+> -	 * Only disable CPU-PCIe interconnect path if the suspend is non-S2RAM.
+> -	 * Because on some platforms, DBI access can happen very late during the
+> -	 * S2RAM and a non-active CPU-PCIe interconnect path may lead to NoC
+> -	 * error.
+> -	 */
+> -	if (pm_suspend_target_state != PM_SUSPEND_MEM) {
+>  		ret = icc_disable(pcie->icc_cpu);
+>  		if (ret)
+>  			dev_err(dev, "Failed to disable CPU-PCIe interconnect path: %d\n", ret);
+>  
+>  		if (pcie->use_pm_opp)
+>  			dev_pm_opp_set_opp(pcie->pci->dev, NULL);
+> +	} else {
+> +		/*
+> +		 * Set minimum bandwidth required to keep data path functional during
+> +		 * suspend.
+> +		 */
+> +		if (pcie->icc_mem) {
+> +			ret = icc_set_bw(pcie->icc_mem, 0, kBps_to_icc(1));
+> +			if (ret) {
+> +				dev_err(dev,
+> +					"Failed to set bandwidth for PCIe-MEM interconnect path: %d\n",
+> +					ret);
+> +				return ret;
+> +			}
+> +		}
+> +
+> +		/*
+> +		 * Only disable CPU-PCIe interconnect path if the suspend is non-S2RAM.
+> +		 * Because on some platforms, DBI access can happen very late during the
+> +		 * S2RAM and a non-active CPU-PCIe interconnect path may lead to NoC
+> +		 * error.
+> +		 */
+> +		if (pm_suspend_target_state != PM_SUSPEND_MEM) {
+> +			ret = icc_disable(pcie->icc_cpu);
+> +			if (ret)
+> +				dev_err(dev, "Failed to disable CPU-PCIe interconnect path: %d\n",
+> +					ret);
+> +
+> +			if (pcie->use_pm_opp)
+> +				dev_pm_opp_set_opp(pcie->pci->dev, NULL);
+> +		}
+>  	}
+>  	return ret;
+>  }
+> @@ -2076,20 +2088,30 @@ static int qcom_pcie_resume_noirq(struct device *dev)
+>  	if (!pcie)
+>  		return 0;
+>  
+> -	if (pm_suspend_target_state != PM_SUSPEND_MEM) {
+> +	if (pcie->pci->suspended) {
+>  		ret = icc_enable(pcie->icc_cpu);
+>  		if (ret) {
+>  			dev_err(dev, "Failed to enable CPU-PCIe interconnect path: %d\n", ret);
+>  			return ret;
+>  		}
+> -	}
+>  
+> -	if (pcie->suspended) {
+> -		ret = qcom_pcie_host_init(&pcie->pci->pp);
+> +		ret = icc_enable(pcie->icc_mem);
+> +		if (ret) {
+> +			dev_err(dev, "Failed to enable PCIe-MEM interconnect path: %d\n", ret);
 
-> > Do you have a debugging patch we could run which would say which clocks
-> > are impacted?  I guess it's more of an issue for the platforms that give
-> > no output but for at least Avenger96 I was getting earlycon output.
+I think you should revert icc_enable(pcie->icc_cpu) here, to avoid
+leaving the bus voted for with the PCIe controller resume aborted.
 
-> Try this one
+> +			return ret;
+> +		}
+> +		ret = dw_pcie_resume_noirq(pcie->pci);
+>  		if (ret)
 
-For the Avenger96 that says:
+And Both icc_cpu and icc_mem here.
 
-[    0.347816] __clk_core_init: enabling parent ck_hse for ck_per
-[    0.352230] __clk_core_init: disabling parent ck_hse for ck_per
-[    0.358207] __clk_core_init: enabling parent pll1_p for ck_mpu
-[    0.364005] __clk_core_init: disabling parent pll1_p for ck_mpu
+Regards,
+Bjorn
 
-https://lava.sirena.org.uk/scheduler/job/2412562#L563
-
---GDKwEpCHvyP7dewC
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAml6IWwACgkQJNaLcl1U
-h9BBPwf+LjkTj9Qp0vyhD/i/R80ajL4bZ1ZDsFjeS7Q9ndpXjMlkWi2WkEMZIwa/
-P+8ztpF6h/fmEXd3p0CscB4vRcESWpxlen8r+emlnUb+3fauARNtpcCn2rKnHkOO
-jD6NPuNlD8RtZ4I2CciBtNW62ueWIz6wicxe31v6YMianQtrz7x6ir8LJjYO8yLx
-4vrxf50/IQcQYSaNAukI+kmPEL/61gjY6FK8/vj6in7tdZDiIU/tj2pjI5WVtP28
-MzzqbpFGPx9OEPRwKeScc8p9c69qdWQ+WCORo6VxGo1FQ4r068BFEUjOKSNFwRWU
-W3J95d/PsXOZF12bpTIlh1Kq63T43A==
-=9Yi1
------END PGP SIGNATURE-----
-
---GDKwEpCHvyP7dewC--
+>  			return ret;
+> -
+> -		pcie->suspended = false;
+> +	} else {
+> +		if (pm_suspend_target_state != PM_SUSPEND_MEM) {
+> +			ret = icc_enable(pcie->icc_cpu);
+> +			if (ret) {
+> +				dev_err(dev, "Failed to enable CPU-PCIe interconnect path: %d\n",
+> +					ret);
+> +				return ret;
+> +			}
+> +		}
+>  	}
+>  
+>  	qcom_pcie_icc_opp_update(pcie);
+> 
+> -- 
+> 2.34.1
+> 
+> 
 
