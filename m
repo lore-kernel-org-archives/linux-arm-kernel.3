@@ -4,159 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93B08D35668
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 03:40:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4B46D35668
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 03:55:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=COMJArAeh9sPTdf4tO4259u8tkKlHD8oD07NU0iLxhU=; b=tMFCvSACFyvLZR0V5EDB08R7vQ
-	HwiC2JQVkqH1W9RhlPOmzyuYNAs8TsFvHIU7P9sw7n1rCxIny8i6IQOMBvR/Jqk2hkRhAA3wm3pCR
-	kR44rkFVVdMLblYeX2P1lAi/eEGWC9A6w1tYv7ULVi+308ArCiiBiXOTJKhDPuXXtTSsY5KehK41L
-	fflwlkJpx/v7Q6R1ePgE0nyORdPSRUVt3CP11nTUCwGoHH0I1zOADFt+JUNLRIXhbiUVQfO6ULC69
-	qpD6kzZ6T/JIbaqb7Pjt8XB+hbBeFmFt6HWUBc9ZFturOPbn9bkPueUfrGzBvH5fiP7rDFohPCWoe
-	rsc/AQZg==;
+	bh=WEw5eZ7O0RKLxujc/La8pPEjG2PY+2w8GP45y8bpQb4=; b=CiPr5hlwTIFDQyaGP8ruIp+tXJ
+	J4VCu7/EwYbSF+6bicV6FTGN4ZyRjeBLeK5lyGjUlwUiCduTPED2SpYfYHU3g8giRueSIm59V9WjX
+	gKgqjYjXNqsD9eQe20lsHpGi6UxeKSt9eZVEzvQNVWMn9Vizd/w3m7ohJAnsQduYFl+QH775Q0Hd3
+	DnHSLp1p1gw0s85cxanM55V0cKMXAs7rc5ckPTI6w4U3eaV+bIav0OqSZT/2BIoqzPA10GjI82Wzo
+	69datT98eLmteqTZZX5hhRGE3bdqCiI/94r6ABRwrmZ7GgLSsVoI+kb+ItA8IarMw0o59NXwCr6TT
+	XJFj/sNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkwPW-0000000FOEx-3YS8;
-	Wed, 28 Jan 2026 03:40:06 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vkweD-0000000FOpH-1FFc;
+	Wed, 28 Jan 2026 03:55:17 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkwPU-0000000FOEG-3aDO
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 03:40:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pl5yliTq02SeNQMLoDy7YVhAk+gKOeeb8EEdg5ICA+rL0qmhTjqsc6L6dTmPTtq4BX3sEJ5vEENhzBf5qGItZtfCBNWecGKH1Km7xtXJgH3duRRu8ICLvLHPfM3aucAWklAZEMftA/y9luifNDOGmEHDHrZ4OS0ZNPcN87XP1yefUSQUivNLhq6L0QyyrUyncpF9vnqdiFUSuEPJu5pgtjTDP3xtAk84aOwaGqpp3gdFHDI+5ADc9befLjTT9ng+5mOn+h8CwgHT//J3tTlFChbZUad/ewz6bAOwo/lbyW8TTgSP6FU/nCxiyt4ELgPA+oRg48PChrdDN0ntE2CSPA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=COMJArAeh9sPTdf4tO4259u8tkKlHD8oD07NU0iLxhU=;
- b=iaDS56ZtdCNqpAP1dijStpKnxTV7EufQayP90T+wSTKGAP0rhHfjgAN03FlX4ghmCGA9uslIhdTiift/n7gf2nx+1kRRPtNNtuZqZ4mgddW3vkALOwPDYx9DG1/53nRQECYIGtaaSacO3oavhE6QpyNH4tqyE6xAqds6M2LqbSg2aAB511witrTUsdbxh4yBdeg1Ja9vhIHvdXDv7yqxpDJVILLGioCsGGzTACxOCdNifVQkMP0F0Eq5TVad78MeSjJzivQCMuyZlJ1gijQNPnR7b8YS9jEFSQGz3a8BR4eHC3cKkfhDRluPbg7nuj/fUWIda8rbx22ZgfrWRZgQ9g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=COMJArAeh9sPTdf4tO4259u8tkKlHD8oD07NU0iLxhU=;
- b=hXkWFSDgzLI7H7/j+tSfISYFOzgW6yBNum1O828l+xHMfXQfxf6tbdRLnQMeys4BRqsKV8a4ca6Sn4M8JTQJeKTC+cR8FyqIrAqTudG6Ilw2zIP73sfeE6UV4cVvJbtY9prIWmEbfUqxHFKmIWNhfVWUgwHLVOBhklUGEC+LXVV9E8R0WDeiiOgFyAbskwBIoBSB9F0V6Bib3WxITjfSl41RC9AkT8eg73b9u5s7QXXVJfj4QyT+eAnyHNBQXuc47Awvuzl3qMl06JNzya6UY7oALxy9m2UzJ5ZebZ+y7U3+KOeIVWjdc9bhnx+8NmTPz/Ee+3IYIucljTDZndkvQQ==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by VI2PR04MB10906.eurprd04.prod.outlook.com (2603:10a6:800:277::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Wed, 28 Jan
- 2026 03:39:59 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%5]) with mapi id 15.20.9542.010; Wed, 28 Jan 2026
- 03:39:59 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>, Abel Vesa
-	<abelvesa@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Stephen
- Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Lucas Stach <l.stach@pengutronix.de>,
-	Anson Huang <anson.huang@nxp.com>
-CC: Jacky Bai <ping.bai@nxp.com>, "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "kernel@puri.sm" <kernel@puri.sm>
-Subject: RE: [PATCH] clk: imx8mq: Correct the CSI PHY sels
-Thread-Topic: [PATCH] clk: imx8mq: Correct the CSI PHY sels
-Thread-Index: AQHcj+dTfnf35Qi2S0q9eSjpmnexI7Vm7xug
-Date: Wed, 28 Jan 2026 03:39:59 +0000
-Message-ID: <PAXPR04MB84592A78A90581A65CFD0F808891A@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20260128-imx8mq-csi-clk-v1-1-ac028ed26e8c@puri.sm>
-In-Reply-To: <20260128-imx8mq-csi-clk-v1-1-ac028ed26e8c@puri.sm>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|VI2PR04MB10906:EE_
-x-ms-office365-filtering-correlation-id: 0b2985f8-6edd-49bc-0787-08de5e1ee9c8
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|1800799024|7416014|376014|366016|38070700021|921020;
-x-microsoft-antispam-message-info: =?us-ascii?Q?WLp1my3g77TKOZKbiNfo6kqbIZdDy7Zl371WAZR/Fn8JFOQKx65kpsRO9CSP?=
- =?us-ascii?Q?XKejT9nhTw4aB8yf4cDmY4IcdRHEBDpP/UvAjF168wwsCOXcgYybDciGx2vD?=
- =?us-ascii?Q?Pt/3jQZH+5+sh80BVJXX3tjbUgB3PWPrCfFiDxzls2kNfgaLmda7ummX1z58?=
- =?us-ascii?Q?lxUVukwXwSg15hxylJh84GqSBxJMtDS54Dhb715YxX8ksIMUfpgT0o4Dc3G4?=
- =?us-ascii?Q?q5cCjL6I4lPXpSfIwPrvAmi3DQiLZVZmhlmGoDdU1IdKbrfX6A+2hmaUB5ga?=
- =?us-ascii?Q?V72a+w/xeyJLXoiy+HxEupZynIrB8ofjIR8uN6cTfTLKQs8mxOk2g8GNmVm6?=
- =?us-ascii?Q?10LQ/3q5+kvYuTTm/SYyeUkE1lZI/AcMSjm2ywPdKHuD9kQqnbQNcTuL4Poo?=
- =?us-ascii?Q?2iCh32HFbkrWTjCLgXvhaHMX8TR7LKG1uVKm3RlLUGbV0rGf0kFBxMHXPFer?=
- =?us-ascii?Q?GjAxjsQWTe4cjHwXXxUWaWjJEgtqXcKe2jZAqAWHtMENgezeP7oLoxYp5zW8?=
- =?us-ascii?Q?oh71Uu3413coJ14S+DC2gHe5vky4P4cdhkU0njkmoxAJY5hMbsdpY0ycKfX6?=
- =?us-ascii?Q?QiuV81rsboxvKYzqCV4wW3nlC8zAVNlBEAjLKsK9n9RbJRsKiu1YqVrWm7fu?=
- =?us-ascii?Q?3v+phv2DEfLbJZ2DjAfTxVpi3YrLPjIOCq0kti0hosUrI4t4v8HcjQmkBm6p?=
- =?us-ascii?Q?J8IU6g87WzWhaUwD6KGXzxCzEbV7aVCHUTfcQMI5/usbAbuEFhBSxtUYR2Fk?=
- =?us-ascii?Q?mMCY30HcUMWh5j3UdIaiQudmtMr7bwcn2SisZNkGBElv7lrcrBuyMVQGi0s4?=
- =?us-ascii?Q?3e/vPocff+Bb0NxENh/co1uisZYkw6kAMyGkr8orxIqjuCg+wCpbG9T6dDnP?=
- =?us-ascii?Q?iGc/V75knRbgXbQRJLkTBjHB7Z/hqI5iAwe7s6dCPDbtGEAEJ6NK1/u8Nyby?=
- =?us-ascii?Q?4XzYj+q/qmninmpMsq7OjhkCBsJ2ju292src2iWAZDQZtVyUGJbCs14NinWG?=
- =?us-ascii?Q?tdk0fyXQnjz2kzWvQkDL93Yk9PT6VcALUgVedLRDtChoUcAnHbd68yu1mlqh?=
- =?us-ascii?Q?9h+3cJBLxg1V5ypX8zKHLa83VKXzVd5vkBzQ4dTGFYAfKN8eJ0hFIyFPnVkK?=
- =?us-ascii?Q?N6IRYg/hUD2OJMGtyrcQPnmwyRqG42zn9UBp4PyIXBHyZIss6bjTGMdXpI+y?=
- =?us-ascii?Q?1XX7hr44AktgmkYf2/SKIEnxRlnbHphZM6AwIVTk7JM7HC44ZsHRVozAKOAL?=
- =?us-ascii?Q?lGfujVEIzlOVo7HGu/pb5t9O7xUFfbCw9spcoQoiKodRkdI7FSjc6GuAQgaU?=
- =?us-ascii?Q?hgFj6T1gA61o87qyUJMABmly7IpTJZbtSp2b8OW8NQH2p0y8HhNRZrN59Ayd?=
- =?us-ascii?Q?7Ljd1Y1ij4FC2B0jIeHqsbhhuJRCRr1c5xg2v/6gDJHs9QE+sRHkF4bc9Nzd?=
- =?us-ascii?Q?ksDopuBlLhZ/OBmu/Jf7PaZFLky3hs8BIFd7ZriaIuWUiC2izfZxZQkAbATm?=
- =?us-ascii?Q?LrxBWFU/ud7rY6AU66YuW9ll6pSBpYSS+6ZrCkEzW3LWjaTWybVmK8uIuO43?=
- =?us-ascii?Q?Tm8RNk1OBVbpIE41UYk9sUgQL1ddfT59dI7jcueww9PhCviPaPyydp8EdYpZ?=
- =?us-ascii?Q?ZRiXbbZLjf0rnn3nst7AyW31S5w8ASD7lttoCKFWNv6s?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(376014)(366016)(38070700021)(921020);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ge6DjXASMBsyjcjRylrsgN+PIZugfjvPQXsQkiXKs+2jo5FL9uyhPvcjzOL8?=
- =?us-ascii?Q?GAuLmtCs7i8C0375Fkr6qZACe0RIcNkfGLkeJ0xj1c92+9zw+Hr7Pgla79wj?=
- =?us-ascii?Q?0uxekgmud+2GeK011ZaVrHq5ZnpBANtoxk9fp+Ue9l1f57/xCeQvDSlFzFec?=
- =?us-ascii?Q?jnCnE2RS4LI2frv/zf27dXY971d9uHt0SWlZrRRYCjgAC4ljLeOc5o+DS8Sp?=
- =?us-ascii?Q?20EFhdQyMdWGhleBs5sLMF3oZ7WQ6BQoO1U3boDvIjaNlA+v9dCaMnVFF4/C?=
- =?us-ascii?Q?8zKHkJLgfnECFNX+nybvZ3XMzKea7zBVR+PUsGCZyDFRunvyqO4vhCOBqjlV?=
- =?us-ascii?Q?/9XsCS7cbvI3HDjx4tDe31IX1Qp9IO5CIim+XW/pf8cgkYHjKfzpoGCgniAx?=
- =?us-ascii?Q?mKKqP6E0xMYcklkoUHUXMrPDPr/F+3ziSoeKqT1ylQcVWk433+YVH9HDJeOw?=
- =?us-ascii?Q?8NkLmXFs/HisrMe6mg6zEYw0b+a5l+S5+SXm5x9m4g09f+JQhh2OUVerssEA?=
- =?us-ascii?Q?IfIW0xpz38wKFjAR45yhcJ0fcIfDjmr/4N/pqnHu9jYV+c+5/W+mAQ+wGYmG?=
- =?us-ascii?Q?Mnc8yciIitaBSmO2mRVVCIV8Wpv35IfF8Ho6H+vLgObfcG07EP1Jg3Uzx6i4?=
- =?us-ascii?Q?5ce5wVbwGLCj7mbyZF5JVeD4v7phDgZiRIpIiuGXlb6m/6QUHxa3iU2ycV8y?=
- =?us-ascii?Q?g9tf0seMAQJYeBUBGU5TeVNGjYA8HoCD2ovIWld+cErFMV/L82dh1vkMHk66?=
- =?us-ascii?Q?t1/mQCqz6agcnZMzUGOgq++dLxKAGzCPqPx1627Ijpp+Y7ren7Rwku2z84An?=
- =?us-ascii?Q?kZ9cAZwODGv36eUI+yu1fo/u9BlUkciEGo0PTYDmMkmK96yfo9fWOjZ58R5n?=
- =?us-ascii?Q?yX6hEK2wftoZgmyhdFDC5yQ5ikFKSYFwdE/6MxZQQojmISDrxbEJG3Ppjq6L?=
- =?us-ascii?Q?24y0+t3FlT6lgWppcQq62WMB6D/oAd8GjN19QhgcfB9ob2BP0dyNi7C96U/M?=
- =?us-ascii?Q?+Hn3HUh+NeYhpBK6DpKNAoBP/1nN9jZA78+8jiUgZ0r6xdAc+A2LiV5vZuy4?=
- =?us-ascii?Q?GNT34j1Lx25WlgqiFewmNpGob+4fltgFJUnOCSDGPYnWkljOQqMSRnol4YKA?=
- =?us-ascii?Q?6L93w0Cr1X24jJPvP+LtHFY45WVxSB/+a6YBMYflDZNRAQYdsJchervPVJiI?=
- =?us-ascii?Q?DbBTjyZ7SVUsNnw1yiVz+e2GJ0DfZmOZ+KkOIjpjQ56/3bpEuR5jfRnPb4kN?=
- =?us-ascii?Q?zmp9Ue7U1zewX/vKUucKxxFYgT0nALm8qA6WBEw2idU77qrbnzplb7CgC4Dk?=
- =?us-ascii?Q?2ToXpU3CGw6ni37VvGTH/rLMEOB9CZPvI36Ys62+sMw3D7WjbkxPgeWtG2tZ?=
- =?us-ascii?Q?TlS5413319QzFjzJvaHMB1Uc+m/7ETxE/NANkWxaBg4yubfLYCI+XviFtEbV?=
- =?us-ascii?Q?YXSQ9Iqbr4LEtmC+gowT5ZVKhbN3xpC5rM0KHex84FOFGxnnltGdsH3I8Ojs?=
- =?us-ascii?Q?zcPezatvJX282j/C7caZKha0DY3zc5lFefp3iOW3PXJZB29mc0T4ioryYvMK?=
- =?us-ascii?Q?oxTCi5MWgv9Uw3wQo/iA2PXrOH3vz+ALcTfpThXlRLVmeitc3tcIjc6jZF9B?=
- =?us-ascii?Q?1gPzrwOoevYNSx/mFv0dGdbSO0izartAUZMItQMaV0gIlkX237JL03Oblso/?=
- =?us-ascii?Q?4dAK1ZyL7JF3DXf0sGtL3XRfMCfaFyrLsYbgHKEwrCfzyqLS?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1vkweA-0000000FOot-07aP;
+	Wed, 28 Jan 2026 03:55:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769572514; x=1801108514;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=gnHA1NlQw1mcHorufZdTT4X1PTF99NxQ5Mrf5GGTJ/I=;
+  b=hECn2+c27RwYmlgmnsk5MaT4GCV5kvEY15qPumh/5g34uvpcBsTkaRcU
+   dFoby/+CQcwISbscPrtakq/v5yys/6fWiWJ5n3doWCr/lAGKhYy60knZs
+   zYw8cpoKbmR3F6dQk4AYaC9u4P3cDueyTIQ6RX+/THjrH//GbJI9XIU7O
+   ECRY3U2HkfptZuhPZPXnMWdbjfD0jq88D05fCGNUdC7AChOeOPGWAZRcD
+   pHT3R8vhrvRKALgeCerHN4CjbxTF4ZAXHMYLMCikXTzJKgS6dVr5f31P4
+   l4BCQd9bmyncpZ1IKL8V9d6vXmXM3k1jHWEotnYzeJSfrC/Utyt9HyLmc
+   A==;
+X-CSE-ConnectionGUID: IhGckUqnS3iTKiUtln42Ng==
+X-CSE-MsgGUID: 3gLqK++AQfmMsTcKdHyLgQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="88355691"
+X-IronPort-AV: E=Sophos;i="6.21,258,1763452800"; 
+   d="scan'208";a="88355691"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 19:55:13 -0800
+X-CSE-ConnectionGUID: 0hTreD+IT2aSiZskovpb/A==
+X-CSE-MsgGUID: XDqaFL56QMCgaXcPcW3djQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,258,1763452800"; 
+   d="scan'208";a="208390434"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 27 Jan 2026 19:55:10 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vkwe4-00000000ZCy-12Kc;
+	Wed, 28 Jan 2026 03:55:08 +0000
+Date: Wed, 28 Jan 2026 11:54:54 +0800
+From: kernel test robot <lkp@intel.com>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>
+Cc: oe-kbuild-all@lists.linux.dev, Alexey Charkov <alchark@gmail.com>,
+	Sjoerd Simons <sjoerd.simons@collabora.com>,
+	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Sebastian Reichel <sebastian.reichel@collabora.com>
+Subject: Re: [PATCH 10/10] ASoC: rockchip: spdif: Convert to FIELD_PREP
+Message-ID: <202601281116.z12yhNfr-lkp@intel.com>
+References: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-10-a7c547072bbb@collabora.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b2985f8-6edd-49bc-0787-08de5e1ee9c8
-X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Jan 2026 03:39:59.7337
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: dUy9ymP3767TwNpy0iyCWzH/Yd1Be7ZTgjxdv2HzuNE9ze8xcVyBo95zHsDJe+RQ85rX/lIJH9QGlkGjPyxMKQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10906
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-10-a7c547072bbb@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_194004_894527_F4B51A61 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20260127_195514_086984_1A0ADD32 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,78 +94,44 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Sebastian,
 
-Thanks for your patch!
+kernel test robot noticed the following build errors:
 
-> Subject: [PATCH] clk: imx8mq: Correct the CSI PHY sels
->=20
-> According to i.MX 8M Quad Reference Manual (Section 5.1.2 Table 5-1)
-> MIPI_CSI1_PHY_REF_CLK_ROOT and MIPI_CSI2_PHY_REF_CLK_ROOT
-> have
-> SYSTEM_PLL2_DIV3 available as their second source, which
-> corresponds to sys2_pll_333m rather than sys2_pll_125m.
+[auto build test ERROR on 63804fed149a6750ffd28610c5c1c98cce6bd377]
 
-After check the RM, you are right. But our internal doc shows
-it is sys2_pll_125m, so I need to check the RTL code, then
-back you later regarding this patch.
+url:    https://github.com/intel-lab-lkp/linux/commits/Sebastian-Reichel/ASoC-rockchip-spdif-Use-device_get_match_data/20260128-001701
+base:   63804fed149a6750ffd28610c5c1c98cce6bd377
+patch link:    https://lore.kernel.org/r/20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-10-a7c547072bbb%40collabora.com
+patch subject: [PATCH 10/10] ASoC: rockchip: spdif: Convert to FIELD_PREP
+config: sh-allyesconfig (https://download.01.org/0day-ci/archive/20260128/202601281116.z12yhNfr-lkp@intel.com/config)
+compiler: sh4-linux-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260128/202601281116.z12yhNfr-lkp@intel.com/reproduce)
 
-Thanks,
-Peng.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601281116.z12yhNfr-lkp@intel.com/
 
->=20
-> Fixes: b80522040cd3 ("clk: imx: Add clock driver for i.MX8MQ CCM")
-> Signed-off-by: Sebastian Krzyszkowiak
-> <sebastian.krzyszkowiak@puri.sm>
-> ---
->  drivers/clk/imx/clk-imx8mq.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/clk/imx/clk-imx8mq.c b/drivers/clk/imx/clk-
-> imx8mq.c index f70ed231b92d..cedc8a02aa1f 100644
-> --- a/drivers/clk/imx/clk-imx8mq.c
-> +++ b/drivers/clk/imx/clk-imx8mq.c
-> @@ -237,7 +237,7 @@ static const char * const imx8mq_dsi_esc_sels[]
-> =3D {"osc_25m", "sys2_pll_100m", "
->  static const char * const imx8mq_csi1_core_sels[] =3D {"osc_25m",
-> "sys1_pll_266m", "sys2_pll_250m", "sys1_pll_800m",
->                                               "sys2_pll_1000m", "sys3_pll=
-_out",
-> "audio_pll2_out", "video_pll1_out", };
->=20
-> -static const char * const imx8mq_csi1_phy_sels[] =3D {"osc_25m",
-> "sys2_pll_125m", "sys2_pll_100m", "sys1_pll_800m",
-> +static const char * const imx8mq_csi1_phy_sels[] =3D {"osc_25m",
-> +"sys2_pll_333m", "sys2_pll_100m", "sys1_pll_800m",
->                                              "sys2_pll_1000m", "clk_ext2"=
-,
-> "audio_pll2_out", "video_pll1_out", };
->=20
->  static const char * const imx8mq_csi1_esc_sels[] =3D {"osc_25m",
-> "sys2_pll_100m", "sys1_pll_80m", "sys1_pll_800m", @@ -246,7
-> +246,7 @@ static const char * const imx8mq_csi1_esc_sels[] =3D
-> {"osc_25m", "sys2_pll_100m",  static const char * const
-> imx8mq_csi2_core_sels[] =3D {"osc_25m", "sys1_pll_266m",
-> "sys2_pll_250m", "sys1_pll_800m",
->                                               "sys2_pll_1000m", "sys3_pll=
-_out",
-> "audio_pll2_out", "video_pll1_out", };
->=20
-> -static const char * const imx8mq_csi2_phy_sels[] =3D {"osc_25m",
-> "sys2_pll_125m", "sys2_pll_100m", "sys1_pll_800m",
-> +static const char * const imx8mq_csi2_phy_sels[] =3D {"osc_25m",
-> +"sys2_pll_333m", "sys2_pll_100m", "sys1_pll_800m",
->                                              "sys2_pll_1000m", "clk_ext2"=
-,
-> "audio_pll2_out", "video_pll1_out", };
->=20
->  static const char * const imx8mq_csi2_esc_sels[] =3D {"osc_25m",
-> "sys2_pll_100m", "sys1_pll_80m", "sys1_pll_800m",
->=20
-> ---
-> base-commit: 63804fed149a6750ffd28610c5c1c98cce6bd377
-> change-id: 20260128-imx8mq-csi-clk-2da0c4741ed6
->=20
-> Best regards,
-> --
-> Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
+All errors (new ones prefixed by >>):
 
+   In file included from sound/soc/rockchip/rockchip_spdif.c:22:
+   sound/soc/rockchip/rockchip_spdif.c: In function 'rk_spdif_hw_params':
+>> sound/soc/rockchip/rockchip_spdif.h:33:41: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
+      33 | #define SPDIF_CFGR_HALFWORD_ENABLE      FIELD_PREP(SPDIF_CFGR_HALFWORD_MASK, 1)
+         |                                         ^~~~~~~~~~
+   sound/soc/rockchip/rockchip_spdif.c:109:28: note: in expansion of macro 'SPDIF_CFGR_HALFWORD_ENABLE'
+     109 |         unsigned int val = SPDIF_CFGR_HALFWORD_ENABLE;
+         |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+vim +/FIELD_PREP +33 sound/soc/rockchip/rockchip_spdif.h
+
+    30	
+    31	#define SPDIF_CFGR_HALFWORD_MASK	BIT(2)
+    32	#define SPDIF_CFGR_HALFWORD_DISABLE	FIELD_PREP(SPDIF_CFGR_HALFWORD_MASK, 0)
+  > 33	#define SPDIF_CFGR_HALFWORD_ENABLE	FIELD_PREP(SPDIF_CFGR_HALFWORD_MASK, 1)
+    34	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
