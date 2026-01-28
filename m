@@ -4,110 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16FE9D3F083
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 15:48:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB07BD3F081
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 15:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=S3QlHqlhG5snnD54r/ty/Upcu15CQJsVNvjmcANqrMA=; b=WriaJ+epUaw+koMBfFcOfMipzI
-	96gaxS+y/1es/WgbByAfxe55rGBNKDv/n0nwh3V+iOZKvXda1y0z727NVIOuX4CP3C9phUZCbyH0b
-	BgJOB3W1eDiPRWbksdJCRNiqOa1gtPLoaSI+NaKa5S0tzD91HoHic/zdkI6FQUiKascBXHQ49ocAw
-	A4QX8DhvODDIs9VbWz2xcdOzk5CENJKxneAYegb8M0DbsaZySXgl3yZbA9h0w9fl/ceXSAkaxm6AI
-	EL34ieF5NizMsYNA6DXStkWUm313EvLZOX8wkbgcjsyMUq5X6/ReL4/POf1fa1r5vEJJevQPCbVeI
-	krZs4DCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e9i0mEQcS22TG9VBmaMNuvwjT6oinkARoZXlLZmzM44=; b=0ApMqXfaCjReWOz8eeLzL826l+
+	BtTwpc+NPtgMq0WFJOdWghV+ZbkHyUta2Whw4bfTXniJqyvex1kenFMG2MeChu6jGSRIAXlUeKgSi
+	STBmi4I/IfTwy5j7zvyxfj6m9RkXuUzPKiMXRBGxNR6JCtjS91b9zY/8I9Lj58vzWCsii3uOuaWrq
+	U7nclHgw5zRPdse/zyZwg4jE59QDj3DuJc4/3q1K44fJat/dU27ngXb+PfChPpCCUuhjn7MT712SW
+	GuJC4rUSLDBPJcxrvwVic9rmcjNlXtUL22Up0yMKJAkXzS+iVs/LNAe7oOaM4gSW/CrIaySX3UvHR
+	JTtzKgGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl7mR-0000000GJjt-1jH0;
-	Wed, 28 Jan 2026 15:48:31 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl7mO-0000000GJjL-1vbt
+	id 1vl7tB-0000000GK1Q-0v5M;
+	Wed, 28 Jan 2026 15:55:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vl7t7-0000000GK12-0ACo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 15:48:30 +0000
-Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-47ee2715254so37004625e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 07:48:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1769615306; x=1770220106; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=S3QlHqlhG5snnD54r/ty/Upcu15CQJsVNvjmcANqrMA=;
-        b=NYwO8O4G0ljpevNO/DIUV44qUQ2uw6IQg2ZQRQk/UYUoP3j1E4oTHFG5fD2Uwq6UY2
-         aAMlv4Q8qOjaKybOJ3g8WSrGNyswKzAQKUyCqSrnARf5+w+2nWzmE2aj9fC1iyyoURsN
-         x17XhrjZSm/4jzwEZotxECR7yTrCP6cFBQWyHlUeiCfoU3F6mZ3YzRfHzQf2ULsH97FH
-         WgX/cyZdQkAK0t9/pZvaxZi/hRMrnCdQLsd09KGPu5IlXTeSLxOBp9/NdgU4zOGn02n0
-         VTo6uD8BRe69zW8HjHHz4I9ApD2hzW+XfVfsYhssxi0Kff4njQsq338uhLBP5RvAFnm3
-         Qc3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769615306; x=1770220106;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=S3QlHqlhG5snnD54r/ty/Upcu15CQJsVNvjmcANqrMA=;
-        b=Xc3Uq141tlB4S+F1ui4jCu11r3R8K/Q8mh/BMOFNlINjwYVwsv5NfOShK3QTsdcLCc
-         2o/ivvsB79Mrb3N2XRmu1nQpDqP/hJtgRSFmw9oTy6INxAMrsiZvtdnhfnXVwM8PVryN
-         PPwU9RnSkHLBRf7uN+gREVAGZGeynLS4oD25w0ZSEEJ5EF27OhdqbtvFiigvxcoV24z9
-         ENm2kz3kHXDPzjg0LgZbe8xQnUOw3I7vO6sn7xg4EO5VGr7ISWSdDMtElYn9fc0V00WI
-         fuZJQej0bpwY1LJf37YRjQnBID/5+YZ3x7v2CpZAjc9DkRPaXYGTeRTfz1PCmdVgilo2
-         Mb7g==
-X-Forwarded-Encrypted: i=1; AJvYcCW2xKcV2NKwMs9S1tUG/lJuS1mXG1Eq5x3L+C2hBj44zgzagWkxmByXdcGD8p6Q7nMaGafz9C+mq7vqYQfK2ryZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsIg1nXfC9m3WkNOyTJ34xHKIa3AOmAmxxFP0p0lbAc0busej2
-	QFfugFNzGTmHIWqw8L5ygDzQ8CkrzkuPEA+M1lo45t3q8yisj5XpaSlTZBgk0S1eSCU=
-X-Gm-Gg: AZuq6aJqvg+1D/nEQNbdz98TrmU/gAEE4QiJA1I05PWW61/6NdLrgcniNgmBXAN4wpL
-	U+0d+wiVKYxakRy0iyT0ynCj8AKND7TA2qt+T6VhCAQP8rzI53nIe0SZEwMu/3FVI4YTRBXrz1s
-	NMKvbv+mQyEx83VOPys7PDjSsYsG1hD+YD+FWi28YP+USDEsnIpHV5SO11rju5FXPimy/Rrt1Ui
-	QgDXtmD/sDFqOafoitco+cytsPp2WKZbOOnWVz1NrS3l5yEXDhYhZT7ESkXFR7wvXmvASOzx7RI
-	NFzOz/+Hjckeu8DTxvL5GvTbJQy6LPeK30ElxM7IuDuXp0DGtCXs679wrBZFpJk/LoNq3YWMH95
-	2KX9CBiELUEfZtVKCmBb923C1zVu8gI6nbNWWPJw79+RhygAAJ5LfaoNIO5JWhhg83mz60rTsGJ
-	kLhKmux4VEy99ZHzwbwAO9aEn7zcUqilWjNH7OtMK/KsGZ32zNdcI0GveKmR9Sg3qPuozQNQm7w
-	qR4f7H3Kg/3u023TPixhim8OXp1KemiXEGsx9XREOOXZdYzyXfJY7OXAkPGVDH5eF4rRry/
-X-Received: by 2002:a05:600c:4592:b0:477:1af2:f40a with SMTP id 5b1f17b1804b1-48069c5b97cmr75909105e9.17.1769615305735;
-        Wed, 28 Jan 2026 07:48:25 -0800 (PST)
-Received: from aspen.lan (aztw-34-b2-v4wan-166919-cust780.vm26.cable.virginm.net. [82.37.195.13])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4806e2bd243sm2394135e9.11.2026.01.28.07.48.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Jan 2026 07:48:25 -0800 (PST)
-From: Daniel Thompson <daniel@riscstar.com>
-Date: Wed, 28 Jan 2026 15:48:01 +0000
-Subject: [PATCH v2] iommu: Fix NULL pointer deref when io_page_fault
- tracepoint fires
+	Wed, 28 Jan 2026 15:55:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AAC631516;
+	Wed, 28 Jan 2026 07:55:16 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 764573F5CA;
+	Wed, 28 Jan 2026 07:55:18 -0800 (PST)
+Message-ID: <9dbb9767-f616-4f62-996a-08ee8d580521@arm.com>
+Date: Wed, 28 Jan 2026 15:55:16 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260128-iommu-io_page_fault_null_fix-v2-1-de047be6dd3a@riscstar.com>
-X-B4-Tracking: v=1; b=H4sIALAvemkC/42NQQ6CMBBFr0JmbQ0dsSIr72FIU+oAkwAlLRAN6
- d2tnMDNT95bvL9DIM8UoMp28LRxYDclwFMGtjdTR4JfiQFzVLmUSrAbxzWtnk1HujXrsOhpHQb
- d8lu0pWwKKptrgRdIidlT0kf+WSfuOSzOf463Tf7sn+FNCimUxdwiKbyXt4fnYMNi/Nm6EeoY4
- xdRcdl9ywAAAA==
-X-Change-ID: 20260116-iommu-io_page_fault_null_fix-f81b4e8b5423
-To: Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
- linux-arm-kernel@lists.infradead.org, Daniel Thompson <daniel@riscstar.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1758; i=daniel@riscstar.com;
- h=from:subject:message-id; bh=CA4ugjQ1IEjW+6kqAc+hYZuO43p3F42A6CJda++BPeU=;
- b=owEBbQKS/ZANAwAKAXzjJV0594ihAcsmYgBpei+7xn8ZZiBl8xCqnIgD+Ld8t+5lgqTfxVf8h
- b0Z17Jume6JAjMEAAEKAB0WIQQvNUFTUPeVarpwrPB84yVdOfeIoQUCaXovuwAKCRB84yVdOfeI
- oUZND/9RY6F29ijnSmDBq/dwsNlREV122MJyeYlx4yZcygd8sC8B9fW7nagoG+zm9asqd6Q/ziS
- Qbqy8zqxoSs7BdtyvqAfKJkfGw5eyGxI9XTwVUqB/yskBEM2JsNzWrNID9Wm3DK0ciLG9mSwiyO
- EJu1ql1Fnfc/oPvMFs/xIvweP1qM2RT0ka5n58k9tSBdrkMcc7AtURdHuMzAjMqRJQEgDAp3gB2
- 0In2j5f3rmL6xSCcsnpMzKdfbO7hAhQREgqhVVhZZh6evXyCIjySls7oKz4Z/bFqgsahNWHJn2i
- qZY2ck6xR/AssS7XW9MgR622bTQukQwqRhBcuVTkf47jGUr2Jygbh5uBs1l+JnjQRi+mU2gJ3L0
- TNO6/iym13M0gYr/4lsOKlfGWHI+2UWnvN2+ZHJdnbzZ9eRN1c55JjWm7d3NoM1wC4kFQGKNfau
- lFoKbRRWK9V19X2k5nSH0wWBMHC+YL5dX8nTN6LDprE6bRQO0dsT/G1aI4RX0te4gA+6Uw1je2z
- 6RBWq6/GTYwms8r/AmRNf8BYnf5CT/rJlD9zlT6J39JyKVilRh5CbaCGDJSv1lTwPluB7mZABlJ
- a7zaK5FMnNesIsc7YwPA/LndTRCDl5A/Ads59baINuKBjxYB6aOJexklSQmdAG/FZ+gPB5t7pC+
- jD/6TD1uwuuG7uw==
-X-Developer-Key: i=daniel@riscstar.com; a=openpgp;
- fpr=E38BE19861669213F6E2661AA8A4E3BC5B7B28BE
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: cpufeature: Add support for the MPAM v0.1
+ architecture version
+From: Ben Horgan <ben.horgan@arm.com>
+To: Zeng Heng <zengheng4@huawei.com>, james.morse@arm.com,
+ miko.lenczewski@arm.com, thuth@redhat.com, mark.rutland@arm.com,
+ yeoreum.yun@arm.com, robh@kernel.org, james.clark@linaro.org,
+ ahmed.genidi@arm.com, xry111@xry111.site, oupton@kernel.org,
+ lpieralisi@kernel.org, catalin.marinas@arm.com, mrigendra.chaubey@gmail.com,
+ suzuki.poulose@arm.com, maz@kernel.org, ardb@kernel.org, broonie@kernel.org,
+ will@kernel.org, kevin.brodsky@arm.com, leo.yan@arm.com,
+ anshuman.khandual@arm.com, yang@os.amperecomputing.com, frederic@kernel.org,
+ guohanjun@huawei.com, Jonathan Cameron <Jonathan.Cameron@Huawei.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ leijitang@huawei.com, "Zengtao (B)" <prime.zeng@hisilicon.com>
+References: <20260104133434.1887677-1-zengheng4@huawei.com>
+ <37f87d5d-bd70-4b13-93e0-8024108be948@arm.com>
+ <0944256a-bcc6-56fa-e3f9-eb3a83c45505@huawei.com>
+ <9006b698-6fb6-4dc0-a7c6-de3fb27fb073@arm.com>
+Content-Language: en-US
+In-Reply-To: <9006b698-6fb6-4dc0-a7c6-de3fb27fb073@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_074828_790428_1EA02F3D 
-X-CRM114-Status: GOOD (  15.80  )
+X-CRM114-CacheID: sfid-20260128_075525_995610_99F6963B 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,48 +77,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm-smmu driver is unable to allocate the blame for a page fault to
-a specific device so it calls report_iommu_fault() with the dev argument
-set to NULL. Normally this doesn't cause anything catastrophic but on a
-system with the io_page_fault tracepoint enabled this results in a NULL
-pointer deref (resulting in a fairly spectacular crash on the hardware
-I'm currently working on).
+Hi Zeng,
 
-Fix this by adding logic to the tracepoint to safely propagate NULL.
+On 1/28/26 14:37, Ben Horgan wrote:
+> Hi Zeng,
+> 
+> On 1/28/26 08:54, Zeng Heng wrote:
+>>
+>>
+>> On 2026/1/27 22:30, Ben Horgan wrote:
+>>> Hi Zeng,
+>>>
+>>> On 1/4/26 13:34, Zeng Heng wrote:
+>>>> According to the MPAM spec [1], the supported architecture versions are
+>>>> v1.0, v1.1 and v0.1. MPAM versions v0.1 and v1.1 are functionally
+>>>> identical, but v0.1 additionally supports the FORCE_NS feature.
+>>>>
+>>>> ID_AA64PR | ID_AA64PR | MPAM Extension | Notes
+>>>> F0_EL1.   | F1_EL1.   | Architecture   |
+>>>> MPAM      | MPAM_frac | version        |
+>>>> ---------------------------------------------------------------------------
+>>>> 0b0000    | 0b0001    | v0.1           | MPAM v0.1 is implemented.
+>>>>            |           |                | MPAM v0.1 is the same as
+>>>> MPAM v1.1
+>>>>            |           |                | with FORCE_NS which is
+>>>>            |           |                | incompatible with MPAM v1.0.
+>>>> ---------------------------------------------------------------------------
+>>>> 0b0001    | 0b0000    | v1.0           | MPAM v1.0 is implemented.
+>>>> ---------------------------------------------------------------------------
+>>>> 0b0001    | 0b0001    | v1.1           | MPAM v1.1 is implemented.
+>>>>            |           |                | MPAM v1.1 includes all
+>>>> features of
+>>>>            |           |                | MPAM v1.0.
+>>>>            |           |                | It must not include FORCE_NS.
+>>>>
+>>>> FORCE_NS is a feature that operates in EL3 mode. Consequently, the
+>>>> current
+>>>> Linux MPAM driver is also compatible with MPAM v0.1. To support v0.1,
+>>>> the
+>>>> existing driver which only checks ID_AA64PFR0_EL1.MPAM for the major
+>>>> version needs to examine ID_AA64PFR1_EL1.MPAM_frac for the minor version
+>>>> as well.
+>>>>
+>>>> [1] https://developer.arm.com/documentation/ddi0598/db/?lang=en
+>>>>
+>>>> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+>>> So far we've avoided added MPAM 0.1 support as we don't know of any
+>>> machines using it. What's your motivation here? Do you have a machine
+>>> with MPAM 0.1 that runs mainline linux?
+>>>
+>>
+>> Thank you for your questions and for reviewing this proposal.
+>>
+>> Regarding your inquiry about hardware usage and motivation:
+>>
+>> Our KunPeng 920C chip (and numerous legacy SoCs in the same family)
+>> indeed implement MPAM v0.1 extensions. These are widely deployed in
+>> server and embedded equipment. More importantly, the product roadmap for
+>> these platforms explicitly includes migration to mainline Linux kernels
+>> MPAM driver for long-term support, making upstream MPAM v0.1 driver
+>> support is a critical requirement.
+> 
+> Thanks for the explanation. It does seem worthwhile to add mpam 0.1
+> support.
+> 
+>>
+>> In the other hand, MPAM v0.1 extension version is formally documented in
+>> the ARM MPAM architecture specification (still included in the newest
+>> ARM DDI 0598D.b version). The specification explicitly defines v0.1 as a
+>> valid implementation for earlier hardware. Supporting documented
+>> architectural features is essential for the goal of hardware
+>> compatibility.
+>>
+>> About technical compatibility, the MPAM v0.1 is designed as a
+>> functionally compatible extension with the existing MPAM driver
+>> framework. After having tested this on actual Kunpeng 920C hardware
+>> and other MPAM v1.0 platforms running mainline kernels, this ensures
+>> zero regression risk for v1.0/v1.1 users.
+>>
+> 
+> I've tried your patch with a model, FVP_Base_RevC_2xAEMvA, setting mpam
+> 0.1, 1.0 and 1.1 and the mpam driver probes as expected. For 0.1 this
+> required commenting out the versioning check in mpam_devices.c. It would
+> be good if this patch could come together with another updating that check.
 
-Fixes: f8f934c180f6 ("iommu/arm-smmu: Add support for driver IOMMU fault handlers")
-Signed-off-by: Daniel Thompson <daniel@riscstar.com>
----
-Changes in v2:
-- Add a Fixes:. It points to the earliest point I can find where it becomes
-  possible for the tracepoint to be triggered with dev set to NULL.
-- Link to v1: https://lore.kernel.org/r/20260116-iommu-io_page_fault_null_fix-v1-1-6c20c2e62987@riscstar.com
----
- include/trace/events/iommu.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Apologies, I confused myself with MSC MPAM version vs CPU MPAM version.
+The CPU MPAM version is what's relevant here and the mpam_devices.c
+check is just for the MSC. I'll try running this again on the FVP model
+and actually change the correct version.
 
-diff --git a/include/trace/events/iommu.h b/include/trace/events/iommu.h
-index 373007e567cb827458a729b8200bbcc1b7d76912..1315193f13b8812ad4e29e6b0c0c66ca806ce08d 100644
---- a/include/trace/events/iommu.h
-+++ b/include/trace/events/iommu.h
-@@ -131,8 +131,8 @@ DECLARE_EVENT_CLASS(iommu_error,
- 	TP_ARGS(dev, iova, flags),
- 
- 	TP_STRUCT__entry(
--		__string(device, dev_name(dev))
--		__string(driver, dev_driver_string(dev))
-+		__string(device, dev ? dev_name(dev) : NULL)
-+		__string(driver, dev ? dev_driver_string(dev) : NULL)
- 		__field(u64, iova)
- 		__field(int, flags)
- 	),
+Thanks,
 
----
-base-commit: 0f61b1860cc3f52aef9036d7235ed1f017632193
-change-id: 20260116-iommu-io_page_fault_null_fix-f81b4e8b5423
-
-Best regards,
--- 
-Daniel Thompson <daniel@riscstar.com>
+Ben
 
 
