@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D86D3F073
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 14:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A0EFD3F071
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 14:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7qcD0Ijhne47v7V35QjhE/iTNN45mWkQXezDde3oqYU=; b=ZtZrGn+zwqrVknve/pHpg4QPAJ
-	c61U0hAJ13ibMR883MbLTUbCNalwU61Z8ccTjRBQhdUnEpxuSDQrsRDPsf4bHk4oHQksK4gjD5UId
-	tWZXmxdXjhHsl+OhQXSiF28+0uYvr0ig26u5ZT8TAoeBwi2Vqfo64tP+EEBeXuO/wu1osU1VR0KfP
-	XK6X4dTNotACkMNz7kot70nVikX+N2DpqGQyiM7NC8M7QddXzBhfrtUWZWlR1Pdwupm0+m+54Api8
-	H0PyabWOVi334tJipEfFlFX+V92QiXiCmp8T+wCnYfzJL3d3PJSkEmKqbS5Qo1oIGvJEzVfCbrb7o
-	h9ua3A5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ppgr9WDIwpVsRqt3negj0nQJ6+yJcinV6HWpJY/Rumk=; b=Km7R+Yoeu48AOrlsZpbi54a7Ss
+	LeZOuK6ZnheIfJcK7vmfdfU6QapD3VA9Od8F8025/BunyEjcYg6tbQXySEA8T4EZwnm7P43gCgnDj
+	ISxG7dn/06gxFordSJoenSBmPgiOrl2hiv8kboRQ41wrqlEB45cvOhyddkZ7rp1oMDZultYgnmHCl
+	tufTWu/mxZXbzsw723g+1q5wQwXMbMg4ABkSzOhBjWJPLD3oOXgdBYiFfVaHMVSyDY9RrCJgWzwKd
+	D6uz2kLkcLx0j7WhrC/ei6RGUS/pI4auGTu+n2P09d6LAZSk0muLMWR7+jjmev704TE9PQqISf3ub
+	5Ur2c0gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl6er-0000000GBU8-2ABj;
-	Wed, 28 Jan 2026 14:36:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl6ep-0000000GBTt-1uNS
+	id 1vl6gK-0000000GBfR-2wx2;
+	Wed, 28 Jan 2026 14:38:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vl6gH-0000000GBep-36I6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 14:36:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7BB6460007;
-	Wed, 28 Jan 2026 14:36:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2DEBC4CEF1;
-	Wed, 28 Jan 2026 14:36:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769610994;
-	bh=w7RrBBzZIuz8xqrWdZPUre+AvVJylwUW9queAH7gzkE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dLgYQaz3hk08B66xJru+tcLyUXLfa2syE5i0+ySVr5hp2pTvBHFoYfN2RUqzL63xr
-	 TnXnJYFbFmIqK0F84CfWyeINuD4unEvDN9HxQVQpR/uTo8mtdSMIA6pEe+dNcxk18+
-	 GJWNXS6LU16HcUVNJhaTri8i7hdJOaZhFOZIGyFlK0gMlXsenBJFkcC3m/5zQ2SFWZ
-	 +B/2/0DdD9Gu9ZhaCDQ83hv55zLYP27Yhesox8Sh5yOEZs5Yoo8RrDJpPH27u9fRnr
-	 t222h4hNov3WoLGJ3NJjV9LL8kcHxUjOdj1AeqOS02hJaBhsfWFJNWnVbZiExRrfSs
-	 w+hRuUqcOcsYA==
-Date: Wed, 28 Jan 2026 20:06:21 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Mukesh R <mrathor@linux.microsoft.com>
-Cc: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>, 
-	linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, linux-pci@vger.kernel.org, 
-	linux-arch@vger.kernel.org, kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org, 
-	decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org, 
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, 
-	hpa@zytor.com, joro@8bytes.org, lpieralisi@kernel.org, kwilczynski@kernel.org, 
-	robh@kernel.org, bhelgaas@google.com, arnd@arndb.de, 
-	nunodasneves@linux.microsoft.com, mhklinux@outlook.com, romank@linux.microsoft.com
-Subject: Re: [PATCH v0 10/15] PCI: hv: Build device id for a VMBus device
-Message-ID: <323krpkmg4zmswo567ccah2g7ymprs66nfei3eo6saobl2azda@35jdfloq5g3g>
-References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
- <20260120064230.3602565-11-mrathor@linux.microsoft.com>
- <aXAAH4G9ztAGDWuy@skinsburskii.localdomain>
- <a2e54fff-3cbb-e332-c35e-7520c36eceed@linux.microsoft.com>
+	Wed, 28 Jan 2026 14:38:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 22E131516;
+	Wed, 28 Jan 2026 06:37:54 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E6C2A3F5CA;
+	Wed, 28 Jan 2026 06:37:55 -0800 (PST)
+Message-ID: <9006b698-6fb6-4dc0-a7c6-de3fb27fb073@arm.com>
+Date: Wed, 28 Jan 2026 14:37:54 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: cpufeature: Add support for the MPAM v0.1
+ architecture version
+To: Zeng Heng <zengheng4@huawei.com>, james.morse@arm.com,
+ miko.lenczewski@arm.com, thuth@redhat.com, mark.rutland@arm.com,
+ yeoreum.yun@arm.com, robh@kernel.org, james.clark@linaro.org,
+ ahmed.genidi@arm.com, xry111@xry111.site, oupton@kernel.org,
+ lpieralisi@kernel.org, catalin.marinas@arm.com, mrigendra.chaubey@gmail.com,
+ suzuki.poulose@arm.com, maz@kernel.org, ardb@kernel.org, broonie@kernel.org,
+ will@kernel.org, kevin.brodsky@arm.com, leo.yan@arm.com,
+ anshuman.khandual@arm.com, yang@os.amperecomputing.com, frederic@kernel.org,
+ guohanjun@huawei.com, Jonathan Cameron <Jonathan.Cameron@Huawei.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ leijitang@huawei.com, "Zengtao (B)" <prime.zeng@hisilicon.com>
+References: <20260104133434.1887677-1-zengheng4@huawei.com>
+ <37f87d5d-bd70-4b13-93e0-8024108be948@arm.com>
+ <0944256a-bcc6-56fa-e3f9-eb3a83c45505@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <0944256a-bcc6-56fa-e3f9-eb3a83c45505@huawei.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <a2e54fff-3cbb-e332-c35e-7520c36eceed@linux.microsoft.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260128_063805_862312_FA7CD528 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,78 +76,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 23, 2026 at 04:42:54PM -0800, Mukesh R wrote:
-> On 1/20/26 14:22, Stanislav Kinsburskii wrote:
-> > On Mon, Jan 19, 2026 at 10:42:25PM -0800, Mukesh R wrote:
-> > > From: Mukesh Rathor <mrathor@linux.microsoft.com>
-> > > 
-> > > On Hyper-V, most hypercalls related to PCI passthru to map/unmap regions,
-> > > interrupts, etc need a device id as a parameter. This device id refers
-> > > to that specific device during the lifetime of passthru.
-> > > 
-> > > An L1VH VM only contains VMBus based devices. A device id for a VMBus
-> > > device is slightly different in that it uses the hv_pcibus_device info
-> > > for building it to make sure it matches exactly what the hypervisor
-> > > expects. This VMBus based device id is needed when attaching devices in
-> > > an L1VH based guest VM. Before building it, a check is done to make sure
-> > > the device is a valid VMBus device.
-> > > 
-> > > Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
-> > > ---
-> > >   arch/x86/include/asm/mshyperv.h     |  2 ++
-> > >   drivers/pci/controller/pci-hyperv.c | 29 +++++++++++++++++++++++++++++
-> > >   2 files changed, 31 insertions(+)
-> > > 
-> > > diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
-> > > index eef4c3a5ba28..0d7fdfb25e76 100644
-> > > --- a/arch/x86/include/asm/mshyperv.h
-> > > +++ b/arch/x86/include/asm/mshyperv.h
-> > > @@ -188,6 +188,8 @@ bool hv_vcpu_is_preempted(int vcpu);
-> > >   static inline void hv_apic_init(void) {}
-> > >   #endif
-> > > +u64 hv_pci_vmbus_device_id(struct pci_dev *pdev);
-> > > +
-> > >   struct irq_domain *hv_create_pci_msi_domain(void);
-> > >   int hv_map_msi_interrupt(struct irq_data *data,
-> > > diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
-> > > index 8bc6a38c9b5a..40f0b06bb966 100644
-> > > --- a/drivers/pci/controller/pci-hyperv.c
-> > > +++ b/drivers/pci/controller/pci-hyperv.c
-> > > @@ -579,6 +579,8 @@ static void hv_pci_onchannelcallback(void *context);
-> > >   #define DELIVERY_MODE		APIC_DELIVERY_MODE_FIXED
-> > >   #define HV_MSI_CHIP_FLAGS	MSI_CHIP_FLAG_SET_ACK
-> > > +static bool hv_vmbus_pci_device(struct pci_bus *pbus);
-> > > +
-> > 
-> > Why not moving this static function definition above the called instead of
-> > defining the prototype?
-> 
-> Did you see the function implementation? It has other dependencies that
-> are later, it would need code reorg.
-> 
-> Thanks,
-> -Mukesh
+Hi Zeng,
+
+On 1/28/26 08:54, Zeng Heng wrote:
 > 
 > 
-> > >   static int hv_pci_irqchip_init(void)
-> > >   {
-> > >   	return 0;
-> > > @@ -598,6 +600,26 @@ static unsigned int hv_msi_get_int_vector(struct irq_data *data)
-> > >   #define hv_msi_prepare		pci_msi_prepare
-> > > +u64 hv_pci_vmbus_device_id(struct pci_dev *pdev)
-> > > +{
-> > > +	u64 u64val;
-> > 
-> > This variable is redundant.
+> On 2026/1/27 22:30, Ben Horgan wrote:
+>> Hi Zeng,
+>>
+>> On 1/4/26 13:34, Zeng Heng wrote:
+>>> According to the MPAM spec [1], the supported architecture versions are
+>>> v1.0, v1.1 and v0.1. MPAM versions v0.1 and v1.1 are functionally
+>>> identical, but v0.1 additionally supports the FORCE_NS feature.
+>>>
+>>> ID_AA64PR | ID_AA64PR | MPAM Extension | Notes
+>>> F0_EL1.   | F1_EL1.   | Architecture   |
+>>> MPAM      | MPAM_frac | version        |
+>>> ---------------------------------------------------------------------------
+>>> 0b0000    | 0b0001    | v0.1           | MPAM v0.1 is implemented.
+>>>            |           |                | MPAM v0.1 is the same as
+>>> MPAM v1.1
+>>>            |           |                | with FORCE_NS which is
+>>>            |           |                | incompatible with MPAM v1.0.
+>>> ---------------------------------------------------------------------------
+>>> 0b0001    | 0b0000    | v1.0           | MPAM v1.0 is implemented.
+>>> ---------------------------------------------------------------------------
+>>> 0b0001    | 0b0001    | v1.1           | MPAM v1.1 is implemented.
+>>>            |           |                | MPAM v1.1 includes all
+>>> features of
+>>>            |           |                | MPAM v1.0.
+>>>            |           |                | It must not include FORCE_NS.
+>>>
+>>> FORCE_NS is a feature that operates in EL3 mode. Consequently, the
+>>> current
+>>> Linux MPAM driver is also compatible with MPAM v0.1. To support v0.1,
+>>> the
+>>> existing driver which only checks ID_AA64PFR0_EL1.MPAM for the major
+>>> version needs to examine ID_AA64PFR1_EL1.MPAM_frac for the minor version
+>>> as well.
+>>>
+>>> [1] https://developer.arm.com/documentation/ddi0598/db/?lang=en
+>>>
+>>> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+>> So far we've avoided added MPAM 0.1 support as we don't know of any
+>> machines using it. What's your motivation here? Do you have a machine
+>> with MPAM 0.1 that runs mainline linux?
+>>
 > 
-> Not really. It helps with debug by putting a quick print, and is
-> harmless.
+> Thank you for your questions and for reviewing this proposal.
+> 
+> Regarding your inquiry about hardware usage and motivation:
+> 
+> Our KunPeng 920C chip (and numerous legacy SoCs in the same family)
+> indeed implement MPAM v0.1 extensions. These are widely deployed in
+> server and embedded equipment. More importantly, the product roadmap for
+> these platforms explicitly includes migration to mainline Linux kernels
+> MPAM driver for long-term support, making upstream MPAM v0.1 driver
+> support is a critical requirement.
+
+Thanks for the explanation. It does seem worthwhile to add mpam 0.1
+support.
+
+> 
+> In the other hand, MPAM v0.1 extension version is formally documented in
+> the ARM MPAM architecture specification (still included in the newest
+> ARM DDI 0598D.b version). The specification explicitly defines v0.1 as a
+> valid implementation for earlier hardware. Supporting documented
+> architectural features is essential for the goal of hardware
+> compatibility.
+> 
+> About technical compatibility, the MPAM v0.1 is designed as a
+> functionally compatible extension with the existing MPAM driver
+> framework. After having tested this on actual Kunpeng 920C hardware
+> and other MPAM v1.0 platforms running mainline kernels, this ensures
+> zero regression risk for v1.0/v1.1 users.
 > 
 
-Such debug print do not exist now. So there is no need of a variable, drop it.
+I've tried your patch with a model, FVP_Base_RevC_2xAEMvA, setting mpam
+0.1, 1.0 and 1.1 and the mpam driver probes as expected. For 0.1 this
+required commenting out the versioning check in mpam_devices.c. It would
+be good if this patch could come together with another updating that check.
 
-- Mani
+Thanks,
 
--- 
-மணிவண்ணன் சதாசிவம்
+Ben
+
 
