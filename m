@@ -4,84 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81FF3D46BFB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 20:25:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAB75D46BFB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 20:32:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nyG9XnYLeISwRA7B4JLi56GwJxWa3JvnSDbYLTj3mag=; b=KzIID9r/soc5nCU0UWxlt5xwSx
-	+vEBEe+eDHSLXrIduqNQArSA7+G/YaURfd7AoYGTl9rb+Pu4wBUVVz5wBPxP6aAR0aqn0wTU/HeiN
-	hQ/mBQT8mmkhuJCWbZmmlAxUc1YBzdQ+54FHul2NmII84j3k+wNyEjD/Uf2HIcxTkLXQQI2WKLpnF
-	xza6jzfWndUotHfNM7brK+QpYqD8pACmUeE8IIj0lh4jKkH6EtgYKzIA7BhPXQgG/fWGFdAhZHg70
-	8JaKRX2C9e6gfWh8dSGV1YQejNSYr6hIPdT/YZIUtUaDXo9fmthluw1fC/GsrjFq6w5QQ/56P861T
-	04WJ6i1g==;
+	bh=07rf/uTuwqt/mx7z+xU8g3Kvog0c3ZDUc5m6W+iA6DE=; b=EhtI4tONSbEYkB64LxpLNgeHY6
+	sUg/aoAYzoi3H0gsUMUUpOdBIVKAgQtjelCCjezvpW1O6j8MkXk4durVEqiX1oAqSj8S9JOpA5f3j
+	7vjaFtxcf45vm527yEYs44Tm0pP8ftJWdu8Te4oxPXmXzUcrJPGHcfCG8ig+LRf2/u225utLurjn4
+	g76Cx5CXBkwO/5ROFQt28rFAy6yNXpw/s70LugWN8oYJA22QyROC8VtdkBRKoTySZL68OyZ50MrfW
+	8rGBG9Y1OXg8Tn113trYwFmzjQoeBhMsLqqX3fPdMlN6sXC5Di9YNdkxUERRSeZaR8XMqjlyumk3a
+	ty17MhdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlC62-0000000GjoE-3xGw;
-	Wed, 28 Jan 2026 20:25:02 +0000
-Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
+	id 1vlCCv-0000000GlmM-3gwR;
+	Wed, 28 Jan 2026 20:32:09 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlC5z-0000000GjnV-2zuB
+	id 1vlCCt-0000000Gll7-1luM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 20:25:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1769631892; bh=TLdJZat0NqHxM6cAaIaO03kfgfUH8hhW+XaWOdcNM/I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QwJqePQnpoyfxiYfPX59X/nUITxCuJRj/q2+l43J8XXedWaeNGSQxMOPb8Xlev59Y
-	 odYQEEo5H5N1Em2cdwyHlkxmPmUCdYYeqw4dm6BQWCXpV0vbAJTJHoCWq9ndEum7my
-	 0QC13Z1wMXA1G7h2YOgVGP7KqmBpePs8Jr2Qpre+roNPTRCJ0+InoBHg3vpiCnWrl1
-	 AlUD+Dw5j84RiVdm69zr+7C8wVkokNqu0cSlYAJD4jYcax0NfCXlPSHbpMbi4H4MiO
-	 r8Ik+9lstFFz0WCYRaYJ7t2x6WBi9gNPylTWUaUcXX68/CHg/VfMmvtdLEZSPlwjWR
-	 0SZE8B+U9BmNQ==
-Received: from mail.mleia.com (localhost [127.0.0.1])
-	by mail.mleia.com (Postfix) with ESMTP id 925903F025D;
-	Wed, 28 Jan 2026 20:24:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1769631892; bh=TLdJZat0NqHxM6cAaIaO03kfgfUH8hhW+XaWOdcNM/I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QwJqePQnpoyfxiYfPX59X/nUITxCuJRj/q2+l43J8XXedWaeNGSQxMOPb8Xlev59Y
-	 odYQEEo5H5N1Em2cdwyHlkxmPmUCdYYeqw4dm6BQWCXpV0vbAJTJHoCWq9ndEum7my
-	 0QC13Z1wMXA1G7h2YOgVGP7KqmBpePs8Jr2Qpre+roNPTRCJ0+InoBHg3vpiCnWrl1
-	 AlUD+Dw5j84RiVdm69zr+7C8wVkokNqu0cSlYAJD4jYcax0NfCXlPSHbpMbi4H4MiO
-	 r8Ik+9lstFFz0WCYRaYJ7t2x6WBi9gNPylTWUaUcXX68/CHg/VfMmvtdLEZSPlwjWR
-	 0SZE8B+U9BmNQ==
-Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi [91.159.24.186])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.mleia.com (Postfix) with ESMTPSA id 0E9A03EF50D;
-	Wed, 28 Jan 2026 20:24:51 +0000 (UTC)
-Message-ID: <f213bdb9-7104-495f-97fe-8190af3ec577@mleia.com>
-Date: Wed, 28 Jan 2026 22:24:50 +0200
+	Wed, 28 Jan 2026 20:32:08 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-42fbc305882so213086f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 12:32:06 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769632325; cv=none;
+        d=google.com; s=arc-20240605;
+        b=N7VrcC8zzESqZbVUcucAnKLbZmw4TaRWTvy5XuOsPfchpeoGNpHa48xX+QxaSERBYW
+         iD0eD4qA6qU9QDkjqQ8H/k26g9Qu+j7mphRh8aEtsFOVzTSJFaZ5lstZmcB8twuC3p8s
+         0ps3q9/pvFz1EGlVeQRzUXsEiRCc6gxJRp5xtT372BeXz8rI/BSjkefwMcu+v/QgbN2J
+         qO2xxNdiO+Sx/oWTmumOVUNqd9Lcti+WT7GCmmhoWtlZQgIMgHXotlwwdJzPP18yBRuJ
+         N1L5ChWLA5uo3uxusJX+3yrVkiNZN0GWbv6e3ebPU+AXD/K2wNN6/OaDofbAkuYjtask
+         NTcg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=07rf/uTuwqt/mx7z+xU8g3Kvog0c3ZDUc5m6W+iA6DE=;
+        fh=nFwI54Y4+7Cf36HmweqPwiHArFl7z7/zxuPHQt7F+cY=;
+        b=SURerPtAJoG8WKX4WGYoSpcFTJve2gjzYMsZMSYdhn7ZrLqrzB0iiCFkVbcXTEj9uX
+         YBGTJR2aI+qRiGkP4VXqPDB2pnRkH44/RAAdyrKbpUy5G1ToGcdkvvLTsdWa4SWVBGQ4
+         zW4fW/CySCdtpWhbEXfiuyZRd1R0ZiGgvcgFc8i5mSzwz1RifnC1C/1QcBhmXUeoo52O
+         5b9hGRpYcTmGsF8EfFQQ2SelAFt0ttLFa61AcQ9v0QkibhMUeMdLCsVdtbLEXkumuEP7
+         wJP2L3t8TaegX/0Xi21ku52wBoGGOnxEsu1eUtGJj+5jWrqUdWGcBiU35Kea6zk7jYJu
+         N/sg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769632325; x=1770237125; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=07rf/uTuwqt/mx7z+xU8g3Kvog0c3ZDUc5m6W+iA6DE=;
+        b=A5hfhP0iOjTxy1hBt52YG03TJXRxxLt2/MMisOhNiv3KK5v6L380rlDRMKFJJ5Wo/S
+         Ffy5wcduCUrGXH7x9X60NScqgNswuckUs7IeAHQoq1bP8YOUKQiD+hSQ4sqQBtn8rD9D
+         pbjBr3RW3zI7OsMG2n7eYVyPElouSfhdces9Qoc6G0lvjtPF1fziI4Kn6ZU6BHSmg4VS
+         8jEYAPBD0/GmXkuZOzYWvqbRO5TKvjTRjdDZzvmYWGNKglj3YIfau2a64+9QXYgqWRX/
+         oSAULRIa93v3vYP/aCZ8QEqA4+hIjAAjiutKsTAY/8gJ4faK8HTCZRpxzUGMTLqtWTB7
+         FFdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769632325; x=1770237125;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=07rf/uTuwqt/mx7z+xU8g3Kvog0c3ZDUc5m6W+iA6DE=;
+        b=IpfhZoVQphSBgRq4G5USJbIVgeRdL8hi9FCXM/f8Q/G2UVXT+Mq4odUtbV19a+9V2B
+         co7NXMiRFrvspMiTDezRnGOZw1VcSvxZRx3ROSQ7MVuJ0B1JCqcQaFHmY/XlgCjZ4Xzp
+         TxGn/YyB2cUmli8dVl8oMD1fxyYkW/jgVZRyq3J62n6idhy6s7/pPbowmhHcAv4HAUyw
+         dR714V6SVedrhP2ifZITYH+dlGFL8+c8Rh4LT49+ejuQxgyp2Ts0UIAk26vKv4hXM/qX
+         LRDJ8r3mifWGyZMXhnLnuom41DFdGl10jAs54fQ0y4hxRAbiQI4XPdacn6KnqIr0Fall
+         DlFg==
+X-Forwarded-Encrypted: i=1; AJvYcCVjNDlcrx342RKRYKhSUpSVye0osjYUOuTnU6/aLKAKbmFWeaNn4XGAf9lm625vsWFszc26wT5+bfLOd/aoJa+S@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5cQnLpPuJ7I/jUSiqmYPQL99G2E3M0dr0Qg/SbR2zCeuEFHUk
+	mXG8NuhgK93eC1Nmmkw80rsSfuExKEFHPfCFJqe9/1Njb66iRPeRcPmh7YNyOwdweqDO90WD5F7
+	XPHJHKipYmeS13Y1N/R0nmXV/obAjXUA=
+X-Gm-Gg: AZuq6aL3maKoRHy/IIbzlNAmhBdiIFFxEPVa0vDloCaFiZj84kMEFI4w40KAGQy/Hyy
+	li4I5loa/bqUpZLAeWMnmMvzTGCupl4UGinCBhzf0muYC4uDt/kYXXai3mOD0gPN3rXhz6YDwhS
+	NWGSFw4x6N4Ht2u55WWxUGT4VytvvYlJBSCm30ZbyBsEUsCuujiS/8KfT/wPM9LNp9N1SK1pZ+N
+	ToOw8a8UWire3m82O01r2EtQAZqUVmOpid6iBj2jyFZor/uTN+YHmQTNfrHlAHrdCU5+sZ1Yr7d
+	kFH8oVL6n7IKPfUZMTNkBc7yn5nRXIJ/wHumHPaWv0lrQiOg4xPgdWebHoFwHCeEjIMikl7pmkz
+	x3yG5ptMazbrqSA==
+X-Received: by 2002:a05:6000:2404:b0:435:9653:e154 with SMTP id
+ ffacd0b85a97d-435dd074b2bmr9812358f8f.27.1769632325304; Wed, 28 Jan 2026
+ 12:32:05 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND v2 1/1] dt-bindings: arm: lpc: add missed lpc43xx board
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:ARM/LPC32XX SOC SUPPORT"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>, imx@lists.linux.dev
-References: <20251015184846.2509016-1-Frank.Li@nxp.com>
- <b75b30d4-e33e-4620-bc37-56b36612364c@mleia.com>
- <aXppf+3Nm7zsYaWE@lizhi-Precision-Tower-5810>
-From: Vladimir Zapolskiy <vz@mleia.com>
-In-Reply-To: <aXppf+3Nm7zsYaWE@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
-X-CRM114-CacheID: sfid-20260128_202452_620815_0EA6268C 
-X-CRM114-Status: GOOD (  14.46  )
-/bin/ln: failed to access 'reaver_cache/texts/20260128_202452_620815_0EA6268C': No such file or directory
+References: <20260128150112.8873-2-leon.hwang@linux.dev> <e64c4137e7f262e6fdab272e8ee44c8a129a36eb6d0186914375d6ba20d88474@mail.kernel.org>
+ <65231eeb-1f00-4af2-9234-a290ea3f6585@meta.com> <a10afa70-29b7-48ab-b241-8b0f602abe2f@linux.dev>
+ <CAADnVQJV=e2VgQzkpsUQwexhaVZMs7uXHCe1Fa6VwbVNUMPghA@mail.gmail.com> <7dbcc5d5-476b-46e5-9e4b-b260d24a51a1@linux.dev>
+In-Reply-To: <7dbcc5d5-476b-46e5-9e4b-b260d24a51a1@linux.dev>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Wed, 28 Jan 2026 12:31:54 -0800
+X-Gm-Features: AZwV_QieHaFto3G-1e8bEUtCESnVn4_ZZwARjehTdXUH1XxE0kv7X3Eh3iZgKp8
+Message-ID: <CAADnVQKdZo4Qm0z-qedkfQHZhq+tW4MuRSzM5-zAGYX-ZQTiaQ@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v2 1/3] bpf: Add bpf_arch_supports_fsession()
+To: Ihor Solodrai <ihor.solodrai@linux.dev>
+Cc: Chris Mason <clm@meta.com>, bot+bpf-ci@kernel.org, bpf <bpf@vger.kernel.org>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Eduard <eddyz87@gmail.com>, 
+	Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, 
+	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
+	Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Puranjay Mohan <puranjay@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
+	Menglong Dong <menglong8.dong@gmail.com>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, kernel-patches-bot@fb.com, 
+	Martin KaFai Lau <martin.lau@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_202452_620815_0EA6268C 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20260128_123207_490121_7894B586 
+X-CRM114-Status: GOOD (  25.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,82 +129,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On Wed, Jan 28, 2026 at 11:09=E2=80=AFAM Ihor Solodrai <ihor.solodrai@linux=
+.dev> wrote:
+>
+> On 1/28/26 10:49 AM, Alexei Starovoitov wrote:
+> > On Wed, Jan 28, 2026 at 9:34=E2=80=AFAM Ihor Solodrai <ihor.solodrai@li=
+nux.dev> wrote:
+> >>
+> >> On 1/28/26 7:35 AM, Chris Mason wrote:
+> >>>
+> >>>
+> >>> On 1/28/26 10:26 AM, bot+bpf-ci@kernel.org wrote:
+> >>>>> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_com=
+p.c
+> >>>>> index 5a075e06cf..070ba80e39 100644
+> >>>>> --- a/arch/x86/net/bpf_jit_comp.c
+> >>>>> +++ b/arch/x86/net/bpf_jit_comp.c
+> >>>>> @@ -4112,3 +4112,8 @@ bool bpf_jit_supports_timed_may_goto(void)
+> >>>>>  {
+> >>>>>     return true;
+> >>>>>  }
+> >>>>> +
+> >>>>> +bool bpf_jit_supports_fsession(void)
+> >>>>        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+> >>>> This is the actual function name in the code.
+> >>>
+> >>> Ihor, I think the script parsing review-inline.txt chopped off the
+> >>> part of the review where AI was complaining about the commit message?
+> >>
+> >> This is the email body pre-processing in KPD, yes.
+> >>
+> >> At some point we decided to remove the commit message before sending
+> >> an email, but now that AI reviews the messages too, I think we should
+> >> just send the generated review-inline.txt as is.
+> >>
+> >> Alexei, wdyt?
+> >
+> > I think KPD is only supposed to trim the header until 'diff ..' line.
+> > In this case there is no 'diff', so I'm not sure why it trimmed so much=
+.
+>
+> There is. Here is the PR comment with the review:
+> https://github.com/kernel-patches/bpf/pull/10868#issuecomment-3811930805
+>
+> KPD trimmed everything before the first "> diff" occurrence, as expected.
+>
+> I'll try to fix this up in KPD. We should probably search for the first
+> line starting with "> " (a quote start) to trim the header correctly.
+>
+> Alternatively, AI can be prompted to avoid generating the header in
+> review-inline.txt, but that's probably less reliable. And maybe it is
+> useful for local runs, idk.
 
-On 1/28/26 21:54, Frank Li wrote:
-> On Wed, Oct 15, 2025 at 10:48:47PM +0300, Vladimir Zapolskiy wrote:
->> Hi Frank,
->>
->> On 10/15/25 21:48, Frank Li wrote:
->>> Add missed legancy lpc43xx board compatible string to fix below CHECK_DTB
->>> warnings:
->>> arch/arm/boot/dts/nxp/lpc/lpc4337-ciaa.dtb: /: failed to match any schema with compatible: ['ciaa,lpc4337', 'nxp,lpc4337', 'nxp,lpc4350']
->>>
->>> Reviewed-by: Vladimir Zapolskiy <vz@mleia.com>
->>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>> Signed-off-by: Frank Li <Frank.Li@nxp.com>
->>
->> I'll take it for v6.19, thank you.
->>
->> If you have any other changes in the queue, please feel free to send them also.
-> 
-> Vladimir Zapolskiy:
-> 
-> 	look like you missed this patch.
-> 
+I see. let's then strip the first 4 lines ?
+(commit, author, subj) ?
 
-You are right about it. I consider it's pretty late to send another PR
-including this change, and thus it will be postponed, I'm sorry for it.
-
--- 
-Best wishes,
-Vladimir
-
->>> ---
->>> Resend
->>> - colloect R-b tags.
->>>
->>> change in v2
->>> - move to nxp lpc32xx.yaml
->>> - fix ea,lpc4357-developers-kit include lpc4337
->>> ---
->>>    .../devicetree/bindings/arm/nxp/lpc32xx.yaml  | 22 +++++++++++++++++++
->>>    1 file changed, 22 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml b/Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml
->>> index 6b7f5e6f99cfb..1e290f16a7a50 100644
->>> --- a/Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml
->>> +++ b/Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml
->>> @@ -22,5 +22,27 @@ properties:
->>>                  - phytec,phy3250
->>>              - const: nxp,lpc3250
->>> +      - items:
->>> +          - enum:
->>> +              - ea,lpc4357-developers-kit
->>> +          - const: nxp,lpc4357
->>> +          - const: nxp,lpc4350
->>> +
->>> +      - items:
->>> +          - enum:
->>> +              - ciaa,lpc4337
->>> +          - const: nxp,lpc4337
->>> +          - const: nxp,lpc4350
->>> +
->>> +      - items:
->>> +          - enum:
->>> +              - hitex,lpc4350-eval-board
->>> +          - const: nxp,lpc4350
->>> +
->>> +      - items:
->>> +          - enum:
->>> +              - myir,myd-lpc4357
->>> +          - const: nxp,lpc4357
->>> +
->>>    additionalProperties: true
->>>    ...
->>
->> --
->> Best wishes,
->> Vladimir
-
+tbh this one was unusual. If it repeats then yeah '> diff' is a wrong marke=
+r.
 
