@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C874CD35693
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 10:48:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1138D35693
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 10:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Fl4sYJRAfaPvJq+rD6WIfA9roqE5yw0+JWLXHL0Mt+Q=; b=d02ou/R9NELpfpwwnx+52LxiL0
-	SY8gEkPV4XwInFzvF4vAO2k5XaUVuuDM1p60+eUW+ANsHY5+s9tN7n2qVvOwH2ZJFzFMubTJvmDLY
-	TpIZmBMDXiNazYHph4SoBQtH/nRP205GtWf72WVya9aw+VoLONS4WKFSBJ9GmFHqDihvWJypY25Ql
-	kAbMKBSk/yluAHz9xgqTjKWHMhJTYYmH5kunxjt8Ija/T5bJGJYYINkAGGXwSXoapBM2iHOII3Tem
-	/e+9Q8Y+Gafe/pAFKYLSelQq1IC9bKBDeu2pcRdpjyr3hQOETgm7CXWXjcW09C0BHZyAT98fJ1N07
-	kzEd3wnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WefJzj7rPdEoa3EYJhEBhhBcLW/TXT4G2TpOC+K7+7s=; b=XrWa73b39qY55UC0QCvw7yFF88
+	IYLzgp9+eE15/VHmLhPqe6kTF4QB5B/pnkmgCoH3U/5df5hOOCgsCSkGU5qK9fJzgCmF0o6HNNrpt
+	jghgPt/y5h7GWPtf98ooXTsL/ETnTc3ViSKKuaOawDLmlLgJ9pqPYO6UPCV4p2zW3I4enU7csenI3
+	PDSKqTdpJkgCbuRVL8g3ODFjfERI/hPSTx1li7/f/tBeAZpnC5PtSK798VhAeolTYOF1cQBtX+1RF
+	IsMTrwHDj2nG7RszDpDyJUG002QSb1jPtA5I/2hnX1VLtyZcMtbsFJrvXUZ8nHlic0N/PCA3xMevi
+	GGdiItEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl35Z-0000000FqxN-0U14;
-	Wed, 28 Jan 2026 10:47:57 +0000
+	id 1vl35q-0000000Fr1D-36Wx;
+	Wed, 28 Jan 2026 10:48:14 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl35W-0000000Fqwr-2uYy;
-	Wed, 28 Jan 2026 10:47:55 +0000
+	id 1vl35o-0000000FqzP-3lHr;
+	Wed, 28 Jan 2026 10:48:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Fl4sYJRAfaPvJq+rD6WIfA9roqE5yw0+JWLXHL0Mt+Q=; b=jUs+J0rgHb8ycxAmuApWhPpuS5
-	+VQWO0tl6o5iqwsM8hj5dekOEnA4QlUyMF8jV6CanFP8VqeuqWZJjGCpH/VXqLNOrkztKXaVBYQYD
-	HQ5zraR5wnCtZsPcbQTwVz7wzLKvz6xWxoN2TRMoKN3dvrz5bJwHN1XKG/gO43RDMlWXrYruvL8gV
-	TnOQZN2msYJtlc5WmztZUeLJP6LYLw18J1g86SM2ESh3gKhUwjGvPAajAVRP1LYtUSIFexv0BS3oc
-	a6hj+yvlDw7iwmEgaNvdCKqrGFPvTYafwfLx8Fe3OA5MeZGueGwCzgrodH2+SOWmIhdhyFkCPXhEP
-	OYltMUpA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54694)
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=WefJzj7rPdEoa3EYJhEBhhBcLW/TXT4G2TpOC+K7+7s=; b=SZmBD5e17eMVBo94UovYkYk0UA
+	2hy01dibmfmyk7UbyNGIZ6yFgUK8uV0ApQeuKQtSOjk0cGmzNrX1M7HLdhZQxVXsWBmgoC8kZFLzV
+	WhyfptICJi8vglSO1pXnNTaT8fUmOK453/IDk1153SZx9UxCARowSsx6rsbJ5EUDPTfBI2Pn5gszk
+	LjOSKVe8oW4GjHFgqBUVKnTnVNoReiCD4leSDw+XkQvzlx3s9BSqJ41JWnDNbVuooctUEAFFzLYHp
+	cJh5AJCuuJ2Gc2ULJ51E7IjkZkwZkouYUm/pV980+UkRZpXpkcmskoI7U38s2jwn1kKQvH8a1dgf4
+	TzqW0RGA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:53680 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vl35N-000000007CT-3lIa;
-	Wed, 28 Jan 2026 10:47:45 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vl35M-000000006uO-0cOS;
-	Wed, 28 Jan 2026 10:47:44 +0000
-Date: Wed, 28 Jan 2026 10:47:43 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vl35c-000000007Cl-24lX;
+	Wed, 28 Jan 2026 10:48:00 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vl35b-00000006upH-2zt9;
+	Wed, 28 Jan 2026 10:47:59 +0000
+In-Reply-To: <aXnoV3Ay0uCc3HGQ@shell.armlinux.org.uk>
+References: <aXnoV3Ay0uCc3HGQ@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 To: Andrew Lunn <andrew@lunn.ch>
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Drew Fustini <fustini@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Fu Wei <wefu@redhat.com>,
-	Guo Ren <guoren@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Fu Wei <wefu@redhat.com>,
+	Guo Ren <guoren@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 0/2] net: stmmac: report active phy interface
-Message-ID: <aXnpTy6XckPGcmg0@shell.armlinux.org.uk>
+Subject: [PATCH net-next 1/2] net: stmmac: thead: avoid conflicts with
+ PHY_INTF_* definitions
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vl35b-00000006upH-2zt9@rmk-PC.armlinux.org.uk>
+Date: Wed, 28 Jan 2026 10:47:59 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_024754_733354_E3B32EEF 
-X-CRM114-Status: UNSURE (   6.93  )
+X-CRM114-CacheID: sfid-20260128_024812_935167_8EAA2189 
+X-CRM114-Status: UNSURE (   9.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,19 +91,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The original patch needs dwmac-thead fixed so the PHY_INTF* definitions
-do not clash.
+Avoid conflicts between stmmac PHY_INTF_* and GMAC_INTF_CTRL register
+definitions by replacing the PHY_ prefix with GMAC_.
 
- drivers/net/ethernet/stmicro/stmmac/common.h       |  6 +++
- drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c  | 10 ++---
- .../net/ethernet/stmicro/stmmac/dwmac1000_dma.c    |  2 +
- drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c   |  2 +
- drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h     |  1 +
- drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c |  1 +
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 52 ++++++++++++++++++++++
- 7 files changed, 69 insertions(+), 5 deletions(-)
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+index e291028ba56e..0d46a6c3f077 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+@@ -37,9 +37,9 @@
+ #define GMAC_GTXCLK_SEL			0x18
+ #define  GMAC_GTXCLK_SEL_PLL		BIT(0)
+ #define GMAC_INTF_CTRL			0x1c
+-#define  PHY_INTF_MASK			BIT(0)
+-#define  PHY_INTF_RGMII			FIELD_PREP(PHY_INTF_MASK, 1)
+-#define  PHY_INTF_MII_GMII		FIELD_PREP(PHY_INTF_MASK, 0)
++#define  GMAC_INTF_MASK			BIT(0)
++#define  GMAC_INTF_RGMII		FIELD_PREP(GMAC_INTF_MASK, 1)
++#define  GMAC_INTF_MII_GMII		FIELD_PREP(GMAC_INTF_MASK, 0)
+ #define GMAC_TXCLK_OEN			0x20
+ #define  TXCLK_DIR_MASK			BIT(0)
+ #define  TXCLK_DIR_OUTPUT		FIELD_PREP(TXCLK_DIR_MASK, 0)
+@@ -58,13 +58,13 @@ static int thead_dwmac_set_phy_if(struct plat_stmmacenet_data *plat)
+ 
+ 	switch (plat->phy_interface) {
+ 	case PHY_INTERFACE_MODE_MII:
+-		phyif = PHY_INTF_MII_GMII;
++		phyif = GMAC_INTF_MII_GMII;
+ 		break;
+ 	case PHY_INTERFACE_MODE_RGMII:
+ 	case PHY_INTERFACE_MODE_RGMII_ID:
+ 	case PHY_INTERFACE_MODE_RGMII_TXID:
+ 	case PHY_INTERFACE_MODE_RGMII_RXID:
+-		phyif = PHY_INTF_RGMII;
++		phyif = GMAC_INTF_RGMII;
+ 		break;
+ 	default:
+ 		dev_err(dwmac->dev, "unsupported phy interface %s\n",
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.47.3
+
 
