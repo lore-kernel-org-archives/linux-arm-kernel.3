@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 996F3D46BEF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 18:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CD49D46BEF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 18:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VPiGGxfGk9qyGZNYwtEphY2A7pL305cD7LB8ReFqHtM=; b=wxpWtYUR1P/Wr7
-	WcCnC2tFTk0fg1F6nEz2uiGjeNpUm9TIur9dcTJO//asJuJmj4GQBzROzb0Q09+cm9aqq0KuHw9X4
-	fL58LyYiFDapSMBjfqWjyU0RoDwza3xaz3DeU0nRBpWbpyKKx+6YZ/vGOOJ+KpIGv1lkNcmu6TvMA
-	6wZGGZTglCcqdNW0B5jqLs0bCKMee/2UU2jAl0rz1FVuPEcAoM5l+vqkTcPZvlSnFc0Hu/iE5hnRw
-	b9JTVD9xRI2SQcYZDxPTtwuIFBGuXBKTBuu/R3SPqol9ekkn0DbZMSgZ38PDEHcM1hyBpeZ9gIfAy
-	TOWwdBF0udyep3d+JHLg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZkPh6rEGGj5EfY6a9YgmvYuB+fZaCezIbVUYx4CZTr4=; b=dzTjQFxSr+RdXqB0WvnboOXLpt
+	a7DVE6v0ZX2cwTTN5uJDQdrUhprFmhZSVSwaOdjsqF9slkMiEFdHrVSLNJoUU1o18ghfe9wPGvO5a
+	JhJ8DK9yGkAa1kBy+88oeGVhXTp8oERIRV1CO7vFtEBXoFaKo9SOOBb9WS4G2TuuRhr2Suw2JljXH
+	aqMNY0bS37mhF65Lqdo5T7jMuAWasqexBPMYhJllQ2ByBO0jdgFqgLCqZxYaXbw1+s2TDyLfBbkbr
+	0v5VJNT/LJiztw5USu7DjNmdr2UW9Q42H3PmTuG0TAH4WWp4nQF2BnYakvAPWY3nvGFY70/3P1ULh
+	2/qmFAoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlASL-0000000Gd63-0nkA;
-	Wed, 28 Jan 2026 18:40:00 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vlASS-0000000Gd7m-18Nz;
+	Wed, 28 Jan 2026 18:40:04 +0000
+Received: from sender4-pp-e108.zoho.com ([136.143.188.108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlASI-0000000Gd5U-0W9E
+	id 1vlASK-0000000Gd62-2ofH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 18:39:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769625575; cv=none; 
+	Wed, 28 Jan 2026 18:40:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769625579; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=cJzG+f1Lp5kPWoClVFG3pHdmgaQWHCCm/4QRxmbYJGgtIvyJqBEWUZIpA8QpzORTggpj6rZBmo8mbNJ4erzRaPznOG587qn0de687wOYrcCtEp/evwLO/Hp+MtaeVbjxxwvmGFg76tN+EhJ32JiPOd+/Gaa1HL2wkh1XVfuPgYM=
+	b=KbAx9IzY0rH4cAFTkoJqpMnfyC15wZ/HtckXt5ZSLOIywlF6f4efzb70C42alVDrV8KfiK3A0GftAwqlvY2BLZXXC14TWsP80rD/32IaC6au2J6T8/Tg5K44RQdNrfBmlVF5uv+noJCIOosA9JkNFWzxRpapGK6zZNjMJ52EDog=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769625575; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=VPiGGxfGk9qyGZNYwtEphY2A7pL305cD7LB8ReFqHtM=; 
-	b=FyhxyttixDXvWIUwxQjv5uhh9SJWPABBcar/WnZnbQUDD5v2blrvzMMXlsbn5M6x8PNlJ624hZW4wwLPxositCFcA+rVfdznwHOXGsoTxi2pYFaW4Dv0b65sD+r+EBPz5MYT4VW6nupssCMGT5Q87i3CYfcPIeLMJJ8UsXhZqGs=
+	t=1769625579; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ZkPh6rEGGj5EfY6a9YgmvYuB+fZaCezIbVUYx4CZTr4=; 
+	b=RwQYRfKeJrKWZC5OiVk2X5cu16M9KcM7e0R1NcUs6np2RzQOtruFFnoxTb2a/BcZnn9ZaBTv1MhHHIykB2xvyu7U4B+JdYHSdzzqDoPsY4K+8wmxUj5rhwyWqHckZyDlpLvXTKcEZpX2zv3f5T9Z1Tb1RZrk2WlzTVYRUuGQ72k=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769625575;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769625579;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
-	bh=VPiGGxfGk9qyGZNYwtEphY2A7pL305cD7LB8ReFqHtM=;
-	b=H+U+O24mv7g7vETn8N+6833+tmyfjUDguKJA4VGyB6PQVmJ4F+kZf0RrZjdto5B7
-	9m4L8pNNRuCYGpPL8BAVZvmijpSHuDONichWdhVcPi5UXwwOSA0Ty133A6WjCZhmHPB
-	BE2Np5xP9zvwZd4ao/PunpVaFLINgDyfiWPm9icQ=
-Received: by mx.zohomail.com with SMTPS id 1769625572938868.1314700606614;
-	Wed, 28 Jan 2026 10:39:32 -0800 (PST)
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=ZkPh6rEGGj5EfY6a9YgmvYuB+fZaCezIbVUYx4CZTr4=;
+	b=IrlW0KairsALp3RcHiCJWnsIOZrLuPIuFBPhO04FIYnIXIwStOza0Rcyxl8D59ZX
+	0xerhfmizOxka/AQcywYOvnnG8egqgwb6M5obCLhAMQImhYSoL/RjpbftK5fENTXAoN
+	qEXyTP8XeyEXWXXtUoIJ8Bielo/N5jyBzfa6cfeI=
+Received: by mx.zohomail.com with SMTPS id 176962557768244.502411600919686;
+	Wed, 28 Jan 2026 10:39:37 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: [PATCH 0/2] Fix a __clk_core_init parental issue
-Date: Wed, 28 Jan 2026 19:38:49 +0100
-Message-Id: <20260128-ops-parent-enable-fix-v1-0-ff39cc37f98d@collabora.com>
+Date: Wed, 28 Jan 2026 19:38:50 +0100
+Subject: [PATCH 1/2] clk: Disable CLK_OPS_PARENT_ENABLED parent only after
+ CRITICAL check
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMQQ6CMBQFr9L8tT9CVVCuYli05amN0Ja2GhLC3
- W1k8RYzyZuVEqJFok6sFPG1yXpXoD4IMi/lnmA7FCZZyaaq5ZV9SBxUhMsMp/QIftiFmwtwvrW
- t0cOJyjdEFP3v3vudI+ZPyeddklYJbPw02dwJM76PZeywZOq37QdEK1balwAAAA==
-X-Change-ID: 20260128-ops-parent-enable-fix-65ee4977cbd3
+Message-Id: <20260128-ops-parent-enable-fix-v1-1-ff39cc37f98d@collabora.com>
+References: <20260128-ops-parent-enable-fix-v1-0-ff39cc37f98d@collabora.com>
+In-Reply-To: <20260128-ops-parent-enable-fix-v1-0-ff39cc37f98d@collabora.com>
 To: Mark Brown <broonie@kernel.org>, 
  Alexander Stein <alexander.stein@ew.tq-group.com>, 
  Michael Turquette <mturquette@baylibre.com>, 
@@ -74,8 +73,8 @@ Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_103954_228980_07BFA80F 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20260128_104000_693481_CF007767 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,32 +89,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mark and Alexander, please test to see if these patches resolve the
-issues on your boards.
+The call to clk_core_enable_lock done by __clk_core_init after checking
+the clock flags for CLK_IS_CRITICAL enables the parent clock.
 
-I expect the first patch to completely fix the problem on the Avenger96
-(STM32MP1) board.
+In Commit 669917676e93 ("clk: Respect CLK_OPS_PARENT_ENABLE during
+recalc"), the parent gets disabled before this check, if the flag
+CLK_OPS_PARENT_ENABLED is set on the clock. This results in a situation
+where critical clocks have their parent briefly disabled, which kills
+the system.
 
-I'm less sure about the i.MX8MP board. I believe the second patch is
-needed there, but I don't know for certain, as I don't have the hardware
-to test.
+Fix this by moving the balancing operation to after the CLK_IS_CRITICAL
+check, which should resolve the problem.
 
+Fixes: 669917676e93 ("clk: Respect CLK_OPS_PARENT_ENABLE during recalc")
+Reported-by: Mark Brown <broonie@kernel.org>
+Closes: https://lore.kernel.org/r/036da7ce-6487-4a6e-9b15-97c6d3bcdcec@sirena.org.uk/
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
-Nicolas Frattaroli (2):
-      clk: Disable CLK_OPS_PARENT_ENABLED parent only after CRITICAL check
-      clk: imx8mp: Mark arm_a53_div as critical
+ drivers/clk/clk.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
- drivers/clk/clk.c            | 6 +++---
- drivers/clk/imx/clk-imx8mp.c | 4 +++-
- drivers/clk/imx/clk.h        | 4 ++++
- 3 files changed, 10 insertions(+), 4 deletions(-)
----
-base-commit: c099ccb60bc99900dd54ac22d7e68b8e56f15e4b
-change-id: 20260128-ops-parent-enable-fix-65ee4977cbd3
+diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+index 1b0f9d567f48..8f5ef9ce77d2 100644
+--- a/drivers/clk/clk.c
++++ b/drivers/clk/clk.c
+@@ -4056,9 +4056,6 @@ static int __clk_core_init(struct clk_core *core)
+ 		rate = 0;
+ 	core->rate = core->req_rate = rate;
+ 
+-	if (core->flags & CLK_OPS_PARENT_ENABLE)
+-		clk_core_disable_unprepare(core->parent);
+-
+ 	/*
+ 	 * Enable CLK_IS_CRITICAL clocks so newly added critical clocks
+ 	 * don't get accidentally disabled when walking the orphan tree and
+@@ -4081,6 +4078,9 @@ static int __clk_core_init(struct clk_core *core)
+ 		}
+ 	}
+ 
++	if (core->flags & CLK_OPS_PARENT_ENABLE)
++		clk_core_disable_unprepare(core->parent);
++
+ 	clk_core_reparent_orphans_nolock();
+ out:
+ 	clk_pm_runtime_put(core);
 
-Best regards,
 -- 
-Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+2.52.0
 
 
