@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8989ED46C08
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 21:41:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA7ED46C06
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 21:49:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cDIB0vB7AhOs2BLhO1BR5gGspK/qucCwKMUy1zrKhRM=; b=XGqxP84oYQ2nG4WFIwWKEXIljW
-	X87USLCLSxVxv53GYFNn3eFjNEIASwM9LN+qyMPQLNaNDHf76ZjZQgwGJYeeTcBtvoq6zHNWCOx1Z
-	/rprduIH13LYGaxKgpM/F0Du6zt0+aJg5JBeydJOQeIIlDoSKAQx6QnDYVU/mh73yTztv63YlcZPV
-	ONHOyHXQ6NYM9j7SfSfAoYFcQuZGyBJMlJnC0ULiKwxYD0LJOCZdlEcZlo4StqEKFnEKk8ReEdjfY
-	efdZhzir5sj1sG5Bw43LYWICpiFqPbA2j+t9KzkpByJcw0MVPobY0Z0QbnghQ51ojpJtGLT+oENdc
-	sRnJKkLQ==;
+	bh=ruAirXc8ptlR96ve5/9BugE40WCJ6xsmkWJx5Uj7rfU=; b=Br/cdd1W+9bxodS9dW+2cjSReh
+	aoe6wBQNgO8f2Ee8ZcTxnMK7UzxzeRFkx95idmVTAEQ7YwrwdXdYjTNVUruNCN/c70TdCp9leqPQB
+	TT0qSfAqgeqbvcfkssuQ3UA0+LImAcGHBGofam+XZZXctE4TO29AwbLl+y2gbltM4OAgOJ5rHgTRI
+	22OXNpHWxXi11zzUthWSu5LYNo/eK1VqOQvYaVO2mMT5y54xWjOElcwLSMt5Xb+F4QWnc7F4H3N5X
+	jjwutR8TIRVvN17nU0ty3YdsucfD/3htmUEXXR1eNbNYJqn3J+k2To81uU9QBzyFQ8Fl3XMBMbzt5
+	59y45XYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlDIK-0000000GqqE-3JH5;
-	Wed, 28 Jan 2026 21:41:48 +0000
-Received: from mout-p-201.mailbox.org ([80.241.56.171])
+	id 1vlDPQ-0000000GrFa-2B2E;
+	Wed, 28 Jan 2026 21:49:08 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlDII-0000000Gqpn-0E4v
+	id 1vlDPO-0000000GrFF-1vvv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 21:41:47 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	Wed, 28 Jan 2026 21:49:07 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4f1bM53WPdz9tcL;
-	Wed, 28 Jan 2026 22:41:37 +0100 (CET)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4f1bWc4D8zz9v9k;
+	Wed, 28 Jan 2026 22:49:00 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1769636497;
+	t=1769636940;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=cDIB0vB7AhOs2BLhO1BR5gGspK/qucCwKMUy1zrKhRM=;
-	b=JLCusINLF0xMJU0r42tPdKk3vsQCkFdrzletJCjCw88aVglZm7fCelyDbJNyWwSXm0xmiU
-	N7vtrt+wh7EV1bAGip9RrOtpBdUNXHmya3efrhFTZnGAPq92HUOOD4mM4m+J+LdF3WaYb+
-	NwlNoYrsTArjSvA9IqjoETarX9+XIixExQsxfJ9UMrCHckrs1h4i/8BhSvUxyvu/7C/b7v
-	734N5c4nm6ZexUE0JXKjKzPwL7TS4TwMGk7XTZ8BTTmf3RETmpf027xO+Jm8aR6J2KcOJr
-	7OnXoa+72psSiZ2mEroGSjuCxAI/eJDooclLpOehAj5jIqYfmmQeD6UGeZ6u0g==
-Date: Wed, 28 Jan 2026 22:41:25 +0100
+	bh=ruAirXc8ptlR96ve5/9BugE40WCJ6xsmkWJx5Uj7rfU=;
+	b=aIGJEdcPUTNpCRPoxieT4ns0YAjlCS1SCWknUwnMSvmg9qMSU20pliO7EHJ/YKehTef8X4
+	OfTEP83Ov9GJqRBfQnmvxyTZcUkhN3Isu8Z69m16GysXboDZgypVf6Kj9EW9o5rDTKZsMY
+	NIcdir18IPW6rSkamg/khyUXsG3gehroa1KRAizet4EDWTmH8218TSM2mJHy+ejCWT3X0R
+	RlbV1knLwiHUkLPAQpjKDcSOf9gjVgsxYEH1P6cGBrYcHW7AVeKncHeNW5OdTfn2+5JM62
+	sRj7wXkwpjWQSCUAdP5w3MdePLt7m5N1DeC244DsjJqF2Be7TWLIy2uh2IH44A==
+Date: Wed, 28 Jan 2026 22:48:52 +0100
 From: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukasz.majewski@mailbox.org>
 To: Jakub Kicinski <kuba@kernel.org>
 Cc: festevam@gmail.com, linux-arm-kernel@lists.infradead.org,
@@ -55,20 +55,21 @@ Cc: festevam@gmail.com, linux-arm-kernel@lists.infradead.org,
  pabeni@redhat.com, davem@davemloft.net, netdev@vger.kernel.org,
  richardcochran@gmail.com, edumazet@google.com, andrew+netdev@lunn.ch,
  robh@kernel.org, krzk+dt@kernel.org, andrew@lunn.ch
-Subject: Re: [net-next,v20,2/7] net: mtip: The L2 switch driver for imx287
-Message-ID: <20260128224125.246bcf41@wsk>
-In-Reply-To: <20260128022549.4151341-1-kuba@kernel.org>
-References: <20260126103400.1683125-3-lukasz.majewski@mailbox.org>
-	<20260128022549.4151341-1-kuba@kernel.org>
+Subject: Re: [net-next,v20,3/7] net: mtip: Add buffers management functions
+ to the L2 switch driver
+Message-ID: <20260128224852.62b16788@wsk>
+In-Reply-To: <20260128022554.4151421-1-kuba@kernel.org>
+References: <20260126103400.1683125-4-lukasz.majewski@mailbox.org>
+	<20260128022554.4151421-1-kuba@kernel.org>
 Organization: mailbox.org
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
-X-MBO-RS-ID: aaf4d6ce372ae19696f
-X-MBO-RS-META: obpg57tttc6kknksryg9wmtuwgikhh91
+X-MBO-RS-ID: 0a70d41f27b7b89e913
+X-MBO-RS-META: p4u7ozw7pi4bkkx54cikgzroe65njg1g
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_134146_247847_473A2071 
-X-CRM114-Status: GOOD (  31.75  )
+X-CRM114-CacheID: sfid-20260128_134906_649479_A5156DFB 
+X-CRM114-Status: GOOD (  21.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,200 +86,100 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Jakub,
 
-> This is an AI-generated review
-
-AI is going to take the "Maintainer's" job :D
-
-> of your patch. The human sending this
+> This is an AI-generated review of your patch. The human sending this
 > email has considered the AI review valid, or at least plausible.
 >=20
 > For local reproduction steps see
 > https://netdev-ai.bots.linux.dev/ai-local.html ---
-> net: mtip: The L2 switch driver for imx287
+> net: mtip: Add buffers management functions to the L2 switch driver
 >=20
-> This patch adds support for the More Than IP L2 switch embedded in the
-> imx287 SoC. It creates a two-port switch driver that can be used
-> interchangeably with the FEC driver.
+> This patch adds buffer management functions for the MTIP L2 switch
+> driver, implementing mtip_free_buffers(), mtip_create_page_pool(), and
+> mtip_alloc_buffers() for RX page pool and TX bounce buffer handling.
 >=20
 > > diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
-> > b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c new file mode
-> > 100644 index 000000000000..03c5163d6508
-> > --- /dev/null
-> > +++ b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c =20
->=20
-> [ ... ]
->=20
-> > +static void mtip_netif_stop_queues(struct switch_enet_private *fep)
-> > +{
-> > +	for (int i =3D 0; i < SWITCH_EPORT_NUMBER; i++)
-> > +		netif_stop_queue(fep->ndev[0]); =20
->                                       ^^^
->=20
-> Should this be fep->ndev[i] instead of fep->ndev[0]? The loop iterates
-> with variable i but always uses index 0, so port 1's queue is never
-> stopped.
-
-Ech.... I will fix it.
-
->=20
-> > +}
+> > b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c index
+> > 03c5163d6508..9c21a3d29c1c 100644 ---
+> > a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c +++
+> > b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c @@ -888,11
+> > +888,96 @@ static void mtip_get_drvinfo(struct net_device *dev,
+> >
+> >  static void mtip_free_buffers(struct net_device *dev)
+> >  {
+> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > +	struct switch_enet_private *fep =3D priv->fep;
+> > +	int i;
 > > +
-> > +static void mtip_netif_wake_queues(struct switch_enet_private *fep)
-> > +{
-> > +	for (int i =3D 0; i < SWITCH_EPORT_NUMBER; i++)
-> > +		netif_wake_queue(fep->ndev[0]); =20
->                                       ^^^
+> > +	for (i =3D 0; i < RX_RING_SIZE; i++) {
+> > +		page_pool_put_full_page(fep->page_pool,
+> > +					fep->page[i], false); =20
 >=20
-> Same here - should this be fep->ndev[i]?
+> Can fep->page[i] be NULL here?  When mtip_alloc_buffers() fails
+> partway through the RX allocation loop, it calls mtip_free_buffers()
+> via the error path.  At that point, only some fep->page[] entries
+> have been allocated - the rest remain NULL from the kzalloc
+> initialization.
+>=20
+> The call chain page_pool_put_full_page()->page_pool_put_netmem()->
+> page_pool_unref_and_test()->page_pool_unref_netmem()->
+> netmem_get_pp_ref_count_ref() will attempt to access
+> &NULL->pp_ref_count when passed a NULL page, causing a NULL pointer
+> dereference.
+>=20
+> Should there be a NULL check before calling page_pool_put_full_page()?
 >=20
 
-The same here.
+Yes, such check shall be added.
 
-> > +} =20
+> > +		fep->page[i] =3D NULL;
+> > +	}
+> > +
+> > +	page_pool_destroy(fep->page_pool);
+> > +	fep->page_pool =3D NULL;
+> > +
+> > +	for (i =3D 0; i < TX_RING_SIZE; i++)
+> > +		kfree(fep->tx_bounce[i]);
+> >  } =20
 >=20
 > [ ... ]
 >=20
-> > +static int mtip_mii_probe(struct net_device *dev)
+> > +static int mtip_alloc_buffers(struct net_device *dev)
 > > +{
 > > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
 > > +	struct switch_enet_private *fep =3D priv->fep;
-> > +	struct phy_device *phy_dev =3D NULL;
-> > +	int port_idx =3D priv->portnum - 1;
+> > +	struct cbd_t *bdp;
+> > +	struct page *page;
+> > +	int i, ret;
 > > +
-> > +	if (fep->phy_np[port_idx]) {
-> > +		phy_dev =3D of_phy_connect(dev,
-> > fep->phy_np[port_idx],
-> > +					 &mtip_adjust_link, 0,
-> > +
-> > fep->phy_interface[port_idx]);
-> > +		if (!phy_dev) {
-> > +			netdev_err(dev, "Unable to connect to
-> > phy\n");
-> > +			return -ENODEV;
-> > +		}
+> > +	ret =3D mtip_create_page_pool(fep, RX_RING_SIZE);
+> > +	if (ret < 0) {
+> > +		dev_err(&fep->pdev->dev, "Failed to create page
+> > pool\n");
+> > +		return ret;
 > > +	}
 > > +
-> > +	phy_set_max_speed(phy_dev, 100); =20
->                           ^^^^^^^
->=20
-> If fep->phy_np[port_idx] is NULL (no phy-handle in DT for this port),
-> the if block is skipped and phy_dev remains NULL. Can this cause a
-> NULL pointer dereference in phy_set_max_speed()?
-
-No. The mtip_mii_probe() is only called in mtip_open(), which is called
-only when netdevice's DT node is correctly parsed in the
-mtip_sw_probe().
-
->=20
-> > +	fep->phy_dev[port_idx] =3D phy_dev; =20
->=20
-> [ ... ]
->=20
-> > +static int mtip_parse_of(struct switch_enet_private *fep,
-> > +			 struct device_node *np)
-> > +{
-> > +	struct device_node *p;
-> > +	unsigned int port_num;
-> > +	int ret =3D 0;
-> > +
-> > +	p =3D of_get_child_by_name(np, "ethernet-ports");
-> > +
-> > +	for_each_available_child_of_node_scoped(p, port) {
-> > +		if (of_property_read_u32(port, "reg", &port_num))
-> > +			continue;
-> > +
-> > +		if (port_num > SWITCH_EPORT_NUMBER) { =20
->                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->=20
-> This only validates the upper bound. If the device tree contains
-> reg =3D <0>, would fep->mac[port_num - 1] access fep->mac[-1]? Perhaps
-> the check should also verify port_num is at least 1?
->=20
-
-In the:
-./Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
-
-one can have only ethernet-ports set to [12].
-
-In the current tree - some switches start numbering from 0, other from
-1.
-
-I would opt for keeping things as they are now...
-
+> > +	bdp =3D fep->rx_bd_base;
+> > +	for (i =3D 0; i < RX_RING_SIZE; i++) {
+> > +		page =3D page_pool_dev_alloc_pages(fep->page_pool);
+> > +		if (!page) {
 > > +			dev_err(&fep->pdev->dev,
-> > +				"%s: The switch supports up to %d
-> > ports!\n",
-> > +				__func__, SWITCH_EPORT_NUMBER);
-> > +			goto of_get_err;
-> > +		}
-> > +
-> > +		fep->n_ports =3D port_num;
-> > +		ret =3D of_get_mac_address(port, &fep->mac[port_num
-> > - 1][0]); =20
+> > +				"Failed to allocate page for rx
+> > buffer\n");
+> > +			goto err;
+> > +		} =20
 >=20
 > [ ... ]
 >=20
-> > +	ret =3D mtip_mii_init(fep, pdev);
-> > +	if (ret) {
-> > +		dev_err(&pdev->dev, "%s: Cannot init phy bus
-> > (%d)!\n", __func__,
-> > +			ret);
-> > +		goto dma_free_coherent_memory;
-> > +	}
-> > +
-> > +	ret =3D mtip_ndev_init(fep, pdev);
-> > +	if (ret) {
-> > +		dev_err(&pdev->dev, "%s: Failed to create virtual
-> > ndev (%d)\n",
-> > +			__func__, ret);
-> > +		goto mdiobus_free_memory;
-> > +	} =20
+> > + err:
+> > +	mtip_free_buffers(dev); =20
 >=20
-> [ ... ]
+> When this error path is taken, fep->page[] may contain NULL entries
+> for pages that were never allocated.
 >=20
-> > + mdiobus_free_memory:
-> > +	mdiobus_free(fep->mii_bus); =20
->=20
-> mtip_mii_init() calls of_mdiobus_register() which registers the bus.
-> Should mdiobus_unregister() be called here before mdiobus_free()?
-> Compare with mtip_mii_remove() which does call mdiobus_unregister().
->=20
+> > +	return -ENOMEM;
+> >  } =20
 
-+1
-
-The mdiobus_unregister() is missing.
-
-I will add it.
-
-> > + dma_free_coherent_memory:
-> > +	dma_free_coherent(&fep->pdev->dev, PAGE_SIZE,
-> > fep->rx_bd_base,
-> > +			  fep->bd_dma);
-> > +	fep->rx_bd_base =3D NULL;
-> > +	fep->tx_bd_base =3D NULL;
-> > +
-> > +	return ret;
-> > +}
-> > +
-> > +static void mtip_sw_remove(struct platform_device *pdev)
-> > +{
-> > +	struct switch_enet_private *fep =3D
-> > platform_get_drvdata(pdev); +
-> > +	mtip_ndev_cleanup(fep);
-> > +
-> > +	mtip_mii_remove(fep);
-> > +
-> > +	timer_delete_sync(&fep->timer_mgnt);
-> > +	platform_set_drvdata(pdev, NULL);
-> > +} =20
->=20
-> mtip_sw_probe() allocates DMA memory with dma_alloc_coherent() in
-> mtip_switch_dma_init(), but mtip_sw_remove() does not appear to free
-> it. Is this a memory leak on driver removal?
-
-Yes. The dma_free_coherent() is missing.
-
-I will add it for v21.
+I will add proper fix for v21.
 
 --=20
 Best regards,
