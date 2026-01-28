@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CD84D46BE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 17:26:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A5AD46BE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 17:26:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aiv5qIK9VKR1+5NLJfJHkMA36wyxe+yO6sm71WGYqgo=; b=LzMUXuzYrypgcymGOsZKbGGEh6
-	APH/HlNMGi6Xao/A4DkLSjgFlq9FQX29vkFFeqO/n0apOsy29vP2aUXU+0Q0Xl+nwRzmO4xTHvTsN
-	SAUYnFCtfkxXUZKsSA4gMuLfPLe0MI2mhN06G297mZJLpmDU9lokkC3oiunSib0Sf6/fQdrd7pII4
-	HahCm+YC88DC28yQsDio09mjDvK7ptsOQEpxYZ6KehMVjfiKUI1Robmk03S3u+pqWQzErnjPtCmuE
-	0ML/PgnLVC8QU3WgUewbq9gYBIDu7FFmwKngnpRuk9+EivH4tecFCPBcHeOeOaB58BsXCp27hRhPo
-	a/r8KaOA==;
+	bh=5rH2NXepohJaTo1isM8gNLxamlTW382a50dR8hOaU8Y=; b=H2kcHLvrQzlny1RWuXDOLlajGI
+	XvXTMU0h7GJccTORb83bbcAFnq8MHjYdwuiCaXI0PA6rua1uCH00MdSRcmiq7UKeQlY06cF9hryOe
+	q7d+LujasPZoup49a3T7bbj03cJP2EkxNKNRsW1OZ+dFyV0qO7zx5A+txtKza9ujEkWkpoG0h1Z/K
+	1uO0hbSTXPPaAxiWfKGFVygTEv3xyiLFl/PoHney9B1eVX55uQJPuhzXREPoD8jr4jT1C6Nbf/Uds
+	iHOstdHbYZabHQigFsIEHEymgcgFE+5g75S7lx7b52nMRegGvdf/alAIa7XR+30Fln8beRROSZ5Tn
+	IeG2Kwgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl9J3-0000000GTQg-2Zts;
-	Wed, 28 Jan 2026 17:26:17 +0000
+	id 1vl9Je-0000000GTn8-1oF2;
+	Wed, 28 Jan 2026 17:26:54 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl9Iv-0000000GTIf-0zA6
+	id 1vl9Ix-0000000GTK1-0M4F
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 17:26:10 +0000
+	Wed, 28 Jan 2026 17:26:12 +0000
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 336EE22F;
-	Wed, 28 Jan 2026 18:25:30 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 1056D2816;
+	Wed, 28 Jan 2026 18:25:32 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1769621130;
-	bh=BqlrzuF9SVJTOtBOmexpRoqMva+a0mHR+U4P2a9DVlo=;
+	s=mail; t=1769621132;
+	bh=BZHJIHbfU3WMf56HjmEiiHzf5jpWhVk/2HMKJJVRN/Y=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=TzI/TV5aC+5mgOgQSfeXsBzS912kMomIeNJf0i7b30M5jAAzt1LMtc3MB9Cicr7Kq
-	 +jwytMAtGmbohty5kCklPi3N7o00G5k4sXc5V6yOH1MSiOGzP6AzZZkt1u+XO0suUW
-	 8EClE1+k2Nj4BOTD3b0x79ZecjS8FqnLybkRvSZY=
+	b=n3xAs2Z45+uxhJSOXbQ9I/DOcOPs1mYEIgMDFRpWK+gwaiXFnTpwaoQc2osv4xW2Z
+	 jKSea0oJy6oy44jEfeZ2+iWVgvlM9wgOue8K8yxGea+yNCq+MIUwTAECVTbTjB3wEL
+	 BLKYcwjSBcQPQWeBQogIQi1tfrq5PajYbUfsBxmU=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Wed, 28 Jan 2026 19:25:33 +0200
-Subject: [PATCH v8 08/11] drm: xlnx: zynqmp: Add support for XV15 & XV20
+Date: Wed, 28 Jan 2026 19:25:35 +0200
+Subject: [PATCH v8 10/11] drm: xlnx: zynqmp: Add support for X403
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260128-xilinx-formats-v8-8-9ea8adb70269@ideasonboard.com>
+Message-Id: <20260128-xilinx-formats-v8-10-9ea8adb70269@ideasonboard.com>
 References: <20260128-xilinx-formats-v8-0-9ea8adb70269@ideasonboard.com>
 In-Reply-To: <20260128-xilinx-formats-v8-0-9ea8adb70269@ideasonboard.com>
 To: Vishal Sagar <vishal.sagar@amd.com>, 
@@ -60,26 +60,26 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Pekka Paalanen <ppaalanen@gmail.com>, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1053;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=883;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=BqlrzuF9SVJTOtBOmexpRoqMva+a0mHR+U4P2a9DVlo=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBpekalk3XawtNNQQn7Vkgy4d0yJXcvtzib3wKKG
- M6Awk222xuJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaXpGpQAKCRD6PaqMvJYe
- 9cgwD/4qXSnU2x+2lPDVinRQ+NEZhIy89lxXqpMcMAogA/kqbAhoY0VsPKMuKcvyFulZioAfzTN
- Nn21uQBJViiQb2ZJynb2XXM7MvEHH7SccJX3CiHtBlXlrrnLsnJUfwPsjokJZQ+sXMOu9s9qvBW
- WQG89rYIuSOeW5r+txZ2Ov2Cc774jGYPRNev4FTviOoFl5GIhipeBBvxUX5WNy5WQDTTtxTNwr0
- Mf0Y6fUA3hqOuTDtmG0hne5o8oAAG868lANlChdmwsIsmGLB2hkKD5lcQeKMDfhG7mVXedBhDQZ
- Lfe+YLuz4N0vNEMrX+RgV/p+1fppYBNLSWuKfbsOi4oej+1CsMCUSnOXaZsssK6VW5cAqE4wKE1
- EC1qP1jpuNWIn8rqPbZu8V1SFEG2NECNIvXflieqoB0N84sEBTUP/b+peHhUvITC+R7oYjeFIVT
- JeZdlt3Nv9d7mPzC2mNViSyWrCMmUe+rfHSUstpPFzlvErZvaHtgd1zYMmy3OVqRTmhkelUMtJ7
- s+2lx5zAMberDFSQxSsN3jWJP0vgr/i8o66kjltNbXYBRlu7bbhKrc60+tRzRMMu+LV8LvhleEU
- gC/xd2W5TFgxqQbrfn2Oy+twHiaXZHcWv9ZpaL2WKY7l13V411FCkx3xxKCZkYtHKHsV/ijsink
- 0gtVVmtmLVzqy7Q==
+ bh=BZHJIHbfU3WMf56HjmEiiHzf5jpWhVk/2HMKJJVRN/Y=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBpekammVcnVYz6gf4gZVCGbHxAjIhBFFhgNq7Ge
+ br/STj6SDmJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaXpGpgAKCRD6PaqMvJYe
+ 9YvrD/wOvZAPuoQW9Vk7ZIkDTJJx4Uf5YkZu+9+xHFYQnRSS5AlQDLHQQTGjdp1vrPhZOfUstdQ
+ +fRjBM1CYIc24ynA8eJao8HjtPGCaLcp8slVXoLC88M/Wfpw/en/5pnLuFLEeU/K2DQux3XxJoV
+ R+3BeS9vnSU3EQxtbjewoRFMeZsxXAcSk6yK0JVx/n4LM247FFsr+5oWqelzlcKh0HyvoPEyMi/
+ +/PdXs3oAUCMrWSz8sa0PLOdO7JMw/i1pjl/RT0TnLDJqADZ7SZlihE50pg3XhGWm4qkVHLj94O
+ PFbOPKKY13wRC6kOn2CWQYbzCxyCOcMySAxHedOz7tBtZpLLmf85GB840qS4oR0i/BN6vrzZOWw
+ tUBGF6LMqDGDWAw1X+nGpC98qT6OWMU/OSRYONf2da4bWW8FIrVyILvrwLQrJoKsNU7FzobNyme
+ CwmyftUfiGwJEhEXQqXBhhWx2tdztl2u65HVlQFMeQP43qFFiRIvqcgDprSODcuGE85ot3aNun1
+ NsOUJdAnsjGx0g+6nzPyPCd6kB0+y/D4hgoqktTeuvK8AMv9Au9Cj5DH9EpcDuXKT6sqBFlvBIm
+ s325a1bSdEhrw1R7AHVSaEWacRPboX4qs1m3eYxJdDkS1sHBhngdBJJVgOZCduF10WWeLu2zv1r
+ VCbRZHEYF2Mb5kg==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_092609_430889_BDF1E3E2 
-X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-CacheID: sfid-20260128_092611_264948_DD5EBFDB 
+X-CRM114-Status: UNSURE (   9.48  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,31 +95,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for XV15 & XV20 formats.
+Add support for X403 format.
 
 Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 Reviewed-by: Vishal Sagar <vishal.sagar@amd.com>
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
- drivers/gpu/drm/xlnx/zynqmp_disp.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ drivers/gpu/drm/xlnx/zynqmp_disp.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
 diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
-index b9883ea2d03e..1dc77f2e4262 100644
+index 57bb6d1dd10a..98105d1c4456 100644
 --- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
 +++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
-@@ -297,6 +297,16 @@ static const struct zynqmp_disp_format avbuf_vid_fmts[] = {
- 		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YV16CI_420,
- 		.swap		= true,
- 		.sf		= scaling_factors_888,
+@@ -317,6 +317,11 @@ static const struct zynqmp_disp_format avbuf_vid_fmts[] = {
+ 		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YONLY_10,
+ 		.swap		= false,
+ 		.sf		= scaling_factors_101010,
 +	}, {
-+		.drm_fmt	= DRM_FORMAT_XV15,
-+		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YV16CI_420_10,
-+		.swap		= false,
-+		.sf		= scaling_factors_101010,
-+	}, {
-+		.drm_fmt	= DRM_FORMAT_XV20,
-+		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YV16CI_10,
++		.drm_fmt	= DRM_FORMAT_X403,
++		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YV24_10,
 +		.swap		= false,
 +		.sf		= scaling_factors_101010,
  	},
