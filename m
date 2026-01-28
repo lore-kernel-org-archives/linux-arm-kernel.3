@@ -4,54 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DEACD3F074
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 15:26:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81B26D3F074
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 15:26:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CJ4n+NXIY+oZEFmVd1tUCGIJY9ggBnwP+N5VboY0b68=; b=V9U0q51Cy/u62soRlsi/xVqXrg
-	0rkb7jF+C6q7DQ9wa2Zmi9WQ2Uu1WApPIysvpGYjJG3rAwZuaV6FYFQmpYKNwUyvGgq+Et9mV/2YU
-	OXGA+9is8CQaMAFsEPZGCQDO/IOrQN3bVY0K3ICtWfEbeXAjO3p64KOxypnjmMVSFYFX8uO7K2GWH
-	MuX2HT153Ag8X2Ww5FWiJN+J7r2X/3UHzMFmAII78yBcIchSPIzEYKKqBIk9AFqr139tfoXs0DhuF
-	HLsUqf5nl8UdCWU5WBP0mJty1QG69fMLeEb2+QwjrRSl1fpbc85YsF3IBWbwEVHz2esGg6bunzusQ
-	3l/Inw9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
+	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ifdIKBALmrDtlGji95Dn4uLjAd1QzXtIVq+J3SL2uiM=; b=mwvuro7P5ackxjT9nil7hvFvWe
+	8IIf7kvY+/gLpL9R+2NG4A09QiVpGm7RZ39dIspUQRYbPdu21X6l5eWaO0kmQtcDpxo4ryK+CF4Ym
+	kTpy+EF3TMiWYCD73IwtpTf7kRAzxaqE6kVs3srkLQgWTBxt7eLpNHqiRuLu9psz/yg/VtBdMlu9+
+	Xi6VXHnZxCZNn7R9r3cx60lTTievAAHd8ftalcV6kDmQ81SxEsZMAa6NOZOrsmb/qWgkSto628lsn
+	yS9BcJ7i0MGoj9buHNRK1UYoNJZUX23AIqr2Pj6H+LU7xCCebqCVz78m6BZ9T6T/nRvZnAYKGVm5B
+	8l8c/Acw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl7RI-0000000GHFA-2LBb;
+	id 1vl7RI-0000000GHFU-3iVK;
 	Wed, 28 Jan 2026 15:26:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl7RG-0000000GHEW-2hUd
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vl7RG-0000000GHEU-20GM
+	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 28 Jan 2026 15:26:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B615E6000A;
-	Wed, 28 Jan 2026 15:26:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7A0AC4CEF1;
-	Wed, 28 Jan 2026 15:26:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769613997;
-	bh=+x2W09IBIk3INSEl7OwPB86JYpVGAaj9EY3AYr7fB1I=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
-	b=e8I+aIISjFUOTCo8UMRVcezinf0WvfCFN3QhWeGtJKpm6q5u4f2nXrJkOUr3F+MBl
-	 dCHVC2Ml8fOlSV+tX4TzIS0MPvuN46tLkSfgMCmgMEyQHdTxvemzRG6K6l3NsR0/8d
-	 mYJOhpVDe1CY+VzlX/yRZC+TWmeSFwzbypgMqLp1InAE2A4uQQN6WRF78fVXZhtRjJ
-	 CS/rFpxgBdS3oSlN55yez6S7OTr5K0MI+tUXhWYGGDG3pLyt9OHJmtVT526VVkxeOY
-	 VKbBRWTcYcu3FGezFYGsCsMpJAPjDMDkNxumHyE36JZLuiFuPzblciF+RceZxorr7B
-	 rQrz5AAuoxnTg==
-Content-Type: multipart/mixed; boundary="===============5864326751367574456=="
-MIME-Version: 1.0
-Message-Id: <e64c4137e7f262e6fdab272e8ee44c8a129a36eb6d0186914375d6ba20d88474@mail.kernel.org>
-In-Reply-To: <20260128150112.8873-2-leon.hwang@linux.dev>
-References: <20260128150112.8873-2-leon.hwang@linux.dev>
-Subject: Re: [PATCH bpf-next v2 1/3] bpf: Add bpf_arch_supports_fsession()
-From: bot+bpf-ci@kernel.org
-To: leon.hwang@linux.dev,bpf@vger.kernel.org
-Cc: ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,song@kernel.org,yonghong.song@linux.dev,john.fastabend@gmail.com,kpsingh@kernel.org,sdf@fomichev.me,haoluo@google.com,jolsa@kernel.org,puranjay@kernel.org,xukuohai@huaweicloud.com,catalin.marinas@arm.com,will@kernel.org,shuah@kernel.org,menglong8.dong@gmail.com,leon.hwang@linux.dev,linux-arm-kernel@lists.infradead.org,linux-kernel@vger.kernel.org,linux-kselftest@vger.kernel.org,kernel-patches-bot@fb.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Wed, 28 Jan 2026 15:26:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:To:Cc:Subject:
+	From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ifdIKBALmrDtlGji95Dn4uLjAd1QzXtIVq+J3SL2uiM=; b=BsV07P99v8XbY2L6w6VKf5ahg1
+	4QxJKbDccemO080G6GBXbY7fSePlsBA9mZZBO7ZUHmw2dMSuQb+e6XB4wYdti+CiH/QfboJpm3NZG
+	HFYvzCn8gEAHgn3hQqfbN7rDyHKuIzhUKPPiXp/4c7PSzGZzcDgdsdN9p+9B0Ail0jwF5+R3B46EQ
+	OaIKjaWE/mKaoC3BmJC6+80vat9BOpo+YYbV/avz/BQmtiEZQ/fSN5rBrs1R9z34AhiP3fUp3W7+F
+	b9X3NlV5Nrf0kCUgZa2+9cKQnaHtdzk6xNwn74WGpH09IBaMAIm5SLW+b+2CsAMhZrgGQgNt9DcT4
+	0zBIf4Xw==;
+Received: from smtpout-04.galae.net ([185.171.202.116])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vl7RC-00000008pk8-3Fxm
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 Jan 2026 15:26:36 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 95FCCC211E8;
+	Wed, 28 Jan 2026 15:26:33 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D8D176071F;
+	Wed, 28 Jan 2026 15:26:30 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 09B66119A86D4;
+	Wed, 28 Jan 2026 16:26:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1769613989; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ifdIKBALmrDtlGji95Dn4uLjAd1QzXtIVq+J3SL2uiM=;
+	b=ZBrv5OTsxnvC31C9xB5u3t92JpXYvSfGTBtbzpE1nwuHruAK57TjVcGMS3APCHv4l9SF/E
+	wnqAQ55EFsg6Uj8+Ym01dWq/BJk9kjEcjm3JoqkQjhOyiTejWsxXKc9iZ6Utsubt6Y4bzq
+	cqdqoHfypaQthCvQtpBCwD5UR+Mrs/C+MyqWvVgQ8NfmSW0KnRnaztVhOs2s/Pk6EGyLqc
+	+qNIkWAByljlRPA9ZsxpbMXwdVOfJA1pNsG5HdTOzd4POa95lQpTLenMXpI2+eS7+mdf9W
+	v03OkG2M3vHFVTUlnyDCCl7Ch2B+i2I0bsHAaRRmhM5ozz4ujvb/gEq/asKfVQ==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 28 Jan 2026 16:26:22 +0100
+Message-Id: <DG0BSWR9XRZS.29D743F5RWI8N@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: (subset) [PATCH 0/3] drm/bridge: imx: A few fixes
+Cc: <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+To: "Liu Ying" <victor.liu@nxp.com>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Shawn Guo"
+ <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
+ <festevam@gmail.com>
+X-Mailer: aerc 0.20.1
+References: <20260123-imx8qxp-drm-bridge-fixes-v1-0-8bb85ada5866@nxp.com>
+ <176951374753.94588.10653964166300906894.b4-ty@bootlin.com>
+ <f11d4407-9951-40a3-bde5-583ca1ca5bc5@nxp.com>
+In-Reply-To: <f11d4407-9951-40a3-bde5-583ca1ca5bc5@nxp.com>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260128_152635_020100_D6FA176D 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,55 +102,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============5864326751367574456==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+Hello Liu,
 
-> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
-> index 5a075e06cf..070ba80e39 100644
-> --- a/arch/x86/net/bpf_jit_comp.c
-> +++ b/arch/x86/net/bpf_jit_comp.c
-> @@ -4112,3 +4112,8 @@ bool bpf_jit_supports_timed_may_goto(void)
->  {
->  	return true;
->  }
-> +
-> +bool bpf_jit_supports_fsession(void)
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^
-This is the actual function name in the code.
+On Wed Jan 28, 2026 at 2:50 AM CET, Liu Ying wrote:
+> Hi Luca,
+>
+> On Tue, Jan 27, 2026 at 12:35:47PM +0100, Luca Ceresoli wrote:
+>>
+>> On Fri, 23 Jan 2026 17:22:14 +0800, Liu Ying wrote:
+>>> This patch series contains 3 bug fixes for i.MX8QXP DRM bridges.
+>>> Each patch fixes a NULL pointer dereference issue and stands alone.
+>>>
+>>>
+>>
+>> Applied, thanks!
+>>
+>> [1/3] drm/bridge: imx8qxp-ldb: Fix NULL pointer dereference in imx8qxp_l=
+db_bridge_destroy()
+>>       commit: 852c68bf42965ee38b465d2d6f7b965eb0b5dc1d
+>> [2/3] drm/bridge: imx8qxp-pxl2dpi: Fix NULL pointer dereference in imx8q=
+xp_pxl2dpi_bridge_destroy()
+>>       commit: db7e7ea838c916ee4cdf26bee126fd36f58295dc
+>
+> Any reason why patch 3/3 is not applied?
 
-> +{
-> +	return true;
-> +}
+Yes, the reason is there's a patch conflict and I still have to find out
+how to handle it.
 
-[ ... ]
+Patch 3 by the rules [0] should go to drm-misc-fixes because the bug (added
+by [1]) is already on Linus' master tree (since v6.17), but it does not
+apply there due to a conflict with an unrelated change [2] currently on
+drm-misc-next.
 
-> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-> index e0b8a8a5aa..3b1eb632bf 100644
-> --- a/kernel/bpf/core.c
-> +++ b/kernel/bpf/core.c
-> @@ -3142,6 +3142,11 @@ bool __weak bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena)
->  	return false;
->  }
-> +
-> +bool __weak bpf_jit_supports_fsession(void)
-> +{
-> +	return false;
-> +}
+Note that [1] and [2] are the two commits mentioned in your 'Fixes: 'tags.
 
+I had a chat with Maxime on #dir-devel about how to handle this situation
+but still haven't got a final answer.
 
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+I guess the correct way is:
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/21443677441
+ 1. apply patch 3 on drm-misc-next, where it applies cleanly
+ 2. send a modified patch for drm-misc-fixes, to fix ASAP the master branch
 
-AI-authorship-score: low
-AI-authorship-explanation: The naming inconsistency between commit message and code suggests a human renaming the function during development without updating the commit message, not AI-generated content.
-issues-found: 1
-issue-severity-score: low
-issue-severity-explanation: Documentation-only issue - commit message function name does not match actual code, which may confuse future code archaeology but has no runtime impact.
+Would you send the patch as in item 2, so it can be applied to
+drm-misc-fixes and have master fixed ASAP? Note iit should not mention [2]
+in the Fixes: tag because [2] is not yet on master. I can send it of course
+but you can test on hardware so that would be the best option (and I'm a
+bit overloaded at the moment).
 
---===============5864326751367574456==--
+[0] https://drm.pages.freedesktop.org/maintainer-tools/committer/committer-=
+drm-misc.html
+[1] commit 99764593528f ("drm/bridge: imx8qxp-pixel-combiner: convert to de=
+vm_drm_bridge_alloc() API")
+[2] commit ae754f049ce1 ("drm/bridge: imx8qxp-pixel-combiner: get/put the n=
+ext bridge")
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
