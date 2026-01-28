@@ -4,137 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67430D35697
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:15:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C954ED35697
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 09:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hhu5VGoYuY+2APKnCn4qVYkCFA/S4HA43b3PtaHWhkw=; b=AbXTn52qp1QtFpzXRso8t0ljiZ
-	aLOzpz9gHYSvPoHz4zT57LW1gjs20ePrp4dUPDfPcpbUOSYokJheh1Ua0RdqA9wum66z8B/bcP0Xs
-	8+nbB4va7DaiIoVUFkbkovswgzJhk7vsc4b5J6hFMuUxPMn2VE1tg8ecOnmDUBk+ZndH6h2ry4X1f
-	geios0CG3LhC7n3UAFnuu45VUuok4+oCzmiOB5Z0w1I7ToHHD9eDtSk9f7bNNuZORgJgqAkdjaSvb
-	z5mqRJcaZTn9I75HsvTb8N0vxck0rJ/HcpWsknfqJX2djnnVF+0LRE7iSA/09RC9zupF9lXN/DPQm
-	xk742tFA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uKUvT1UkLVoSBo2GeUIFsYzGNbYkZ2w4SGalbBin6yo=; b=w9YI57sbObqPnQrHQIpMe4bxM9
+	IFYgpESU5cL94usOwechwOdy0jvAR6M9VHNRRXm6T1XZahtHKlkRB8TxZOp9yk2fWoTfmUvzx7izx
+	ks+QEXDdGoVCESnV8XOCvZ+4Kd6VkjmLe8gN3d9AQupzwYDe33/foSH5e931b+2I2iJfWbhiunmMz
+	JTof5S9jwkicEaqYdsoXLWUhrUmAqfWW5k41vAd96CsZIPI02Fu1i2i6xxyexAVyX3mKjIcCj7m/p
+	icH/uzIhGcLppeqsPPDTcNpzuh+6YUVNYVJ/S3U3GA960zuy95+i1z2r5G3ZUwLdUBBemSyEC6OOW
+	kHo10Ivw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1e3-0000000FjGw-10NE;
-	Wed, 28 Jan 2026 09:15:27 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vl1eH-0000000FjJM-2G1W;
+	Wed, 28 Jan 2026 09:15:41 +0000
+Received: from mail-dl1-x1230.google.com ([2607:f8b0:4864:20::1230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl1dz-0000000FjGI-29hV
+	id 1vl1eE-0000000FjIP-3sOm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 09:15:26 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60S92Dca3387386
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 09:15:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	hhu5VGoYuY+2APKnCn4qVYkCFA/S4HA43b3PtaHWhkw=; b=IOQmCH/ufW4viTrX
-	TaPxc6VZycFh8Rzoq5DgV4SGdIiSG0d75PmMyeNdZ980/H9M9Q0AorKl4QNSuDLm
-	tZPLeF/asFbIJ/dLycpc4Yz8gxvmijVeoyQwHmTlQP9uo7ZaBc4a/w3fiYNJu3kg
-	b8RMXx5UIr0hyRyGROHMa7Gz/LOJN4IJdLd1LzEKxjHXiWKjvbBLlpENOQq6GDgv
-	MisyeA1ZYmBcRmqjwGAjgcYnf8LW/LAbKQzz6Gg5noeGM2lII7Iw5S37oNsX5OxW
-	ZvU8H9UeSORzX0//N7Sp9beU7sNyPEEDAOaJ7rvXFqFK1UlJXPvy5hqsNEsCLTFU
-	j5ycQA==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4by1dfttjs-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 09:15:21 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8c5e166fb75so1704916485a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 01:15:21 -0800 (PST)
+	Wed, 28 Jan 2026 09:15:40 +0000
+Received: by mail-dl1-x1230.google.com with SMTP id a92af1059eb24-12336c0a8b6so2190957c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 01:15:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1769591721; x=1770196521; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hhu5VGoYuY+2APKnCn4qVYkCFA/S4HA43b3PtaHWhkw=;
-        b=LDHWln0hoMCFyXqAjtx1mhHeC90uoV0LezVgCQ/ln72hlJMNOqQID8bLa1yQfw96Lw
-         qsBFQSzheEKKxEdrEzcrd29fQCgeOxq0ZHCpZVzbGbSJcalZDKDX/u2DtpURARhhS6nk
-         8wX3y9PDAblrtapNGmpdR1PaeConVAlDRbXy+mj+sVeo7CfnLltIoHC8fyCRmbHersXz
-         Zn2pGE8Xkb/9ePpUIybXFTMHPa6UIL7kCzaB3858uo6YzLf13TpueFjyjeYA5R0vvFyG
-         RapkGH17xXgzTQlDj9N7SfABLNFnzpIuw0hzydHa9uoXnWW60QMxTFyEVNgGa7Uj3So0
-         JRCg==
+        d=gmail.com; s=20230601; t=1769591738; x=1770196538; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uKUvT1UkLVoSBo2GeUIFsYzGNbYkZ2w4SGalbBin6yo=;
+        b=eRAqYX9McQAzMbcBWf9+/0WR5DSIcrBi0DpkyVphYEkwbHP46RGPYFxlv0qooKZEFi
+         5Pa/bkQ/XV42cGQUaxrt/hilQhnccap4E3Xf98mDB7Y7Sth3af5QBBxNbjLLY2k6hwnl
+         uhSwRf9jBNfOybviQyt2meFqEgI9P+V0CBnExU5THZUJyxKM2aSKZpH/1nzW+1rJ9KHA
+         aj/eHNDMmFa7IOr0tlLBUyL3F1p26/x/5yXWW2F3duL7W3omeN0wL5jYPwP1f/3t5MUC
+         cQ6L+yf2EE8knC5OiKbGWrTNJuShaHtG4qN76iouIyjBnxbCaPnPEHmdupxxdYuaeU/7
+         pbrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769591721; x=1770196521;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=hhu5VGoYuY+2APKnCn4qVYkCFA/S4HA43b3PtaHWhkw=;
-        b=cMBA5m0H7usGqRElQcrqoJakBhFoF3+KQMY2sRcLkzkj9vq8v/+oohptY7wdpOAPZx
-         zJ8FyXSHQs8+6cWuCI7KgCHZmIY6l0cvhzQge8hzogXQYmczHMkjZtsF0yB/L/KkuhCh
-         +VUj9R5UMEeblq8/3qOv1RLXEB64qxtH+PkrBuekIE3o2Ja0EbqwIMVLIF70Gh/ISAem
-         n62CbcjWio9XfTGdX6XkJCIYSTejZvEztfwHUGfLyQ5mtbLmL3JmIuSaPYhqf2ZY2n/S
-         1I9R+d7V1XHgtCWSNjJhe4Pl4pwDBP6Xa30MpKl6BfttyF7etH8UurJ9ExByi422M/JY
-         yLFA==
-X-Forwarded-Encrypted: i=1; AJvYcCVIKjtV+18eE/+7P1dRILXz/G29ELWu5lGs2rZeyX4gw1DgY+dy5yo4IcRTayBcAkvIXL+GRjmSnGB5xGcGFNLb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJ0p8aaEUwZPy4eRK0r3OVATXSqBGvlXSHynom8r+ixpqQBmYd
-	OaEEg33Oq8XwhcXClA9st3KRK8koIXV1YchxVUfJxcMxqcokO+bFTJPa6W86gQaXOnlyOftNwEO
-	xWjhSJAIXml2HTlV9ImYYG4ayJAHgvw2Ahh1qom9lTDVcfYD8VZJmI4xa5myqmD6+wjUVr250R+
-	SaBA==
-X-Gm-Gg: AZuq6aKm6gCehi9iABDgntPGlqGcfHD2lTqFrgP2Q17SsvBrn3s/2pPXhNsBCk/chWC
-	6XK7+vrl1e3Va/+uD4rWDE4/w7t6x0m1UXr8x1KUN+E4wcVpCA8EGAOPIp+Jo3iZXpmRDCvOF1t
-	bYdbLHzyHdSwnxwHFSSQYFJ04mXYnQuYFK8ARAWVeicWjnElI5/aeU/XUvaHYRxmEh4y+em/3fP
-	tYsiHYtELZU9Sit5GN19NABOmUhxBgv7u2tjsqxbdEDUQCcf87KwoIIzaEpsMVSiOdV+B2vrQhN
-	Ef335FreaNAPxEC+mgqqk/hlFW2XYB7IboDOtdzdaaFgnwjpQk/eIFRXDOZzlq6Anq80h0dBjGO
-	km4I2koUFAzZMe9kh3f91R62x2R44UZMRnzJMpw==
-X-Received: by 2002:a05:620a:2844:b0:8c5:2e1b:7913 with SMTP id af79cd13be357-8c70b841f60mr586868785a.25.1769591720616;
-        Wed, 28 Jan 2026 01:15:20 -0800 (PST)
-X-Received: by 2002:a05:620a:2844:b0:8c5:2e1b:7913 with SMTP id af79cd13be357-8c70b841f60mr586866185a.25.1769591720177;
-        Wed, 28 Jan 2026 01:15:20 -0800 (PST)
-Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:6cbc:dfde:e62d:3195])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48066c4f3edsm114757505e9.15.2026.01.28.01.15.18
+        d=1e100.net; s=20230601; t=1769591738; x=1770196538;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uKUvT1UkLVoSBo2GeUIFsYzGNbYkZ2w4SGalbBin6yo=;
+        b=fyMCJaI3ygu1MFDEPtmXOiaoayLeQcuwLldgZPRqXiWjcR82MLFS3JlCTt7T1UGP5u
+         r8AO0dJB910cWmCTkSj6VnY8mm8ENd3coI0z5o9ykgR4gNbngSckLT+oUW1Luo0EXmpp
+         r1IKdZkn+hkOpzBTlftQwmFWtCsJ5j9ynfOGsPeiZmhHy1nmiUdJ66aVRKe2zN+7oAgL
+         xJ03/GTfaur1X67lfnyGoK2UyXJsAFL3pwKAesGgzoIAYqfB0Rj8GTCqzQnfQG71KufU
+         bWE8PkDwbN4QpqRxJlwrDoofe06rr0af0CEMjSJaVTi5KJxkxatxdzNXZhnGLBRJWrC0
+         YRog==
+X-Forwarded-Encrypted: i=1; AJvYcCVfD+pcdgl3a3/f/rkwfu/MpB0RQANdUfCzKEt5CaW0XzlwOSI2Yd2OFRy43C4B/J7aUR1f6ablJ9gsu3OapsXQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywk/O5LEvO1c3HheOzcnK8ru0l/evGg0DHzf8AEqxTCD1/mXle5
+	qNl261OoVMhHfNyOqtmm0vSqWWaR60M+LCldpVQXaIV1vFxLrAFjtP+TJldzXw==
+X-Gm-Gg: AZuq6aKw32qLEFpodcH/fBimgq5pjKSJOgLbWFRLZqNd+dRQyDgPAUYaS+tpJ1hJyge
+	O/FapEKqH9jPUUf2qpzW5AJ4HmV0hSTwvmIhn10FubBAnovfXDVH1U4zgkVCkj4nqYtQkQBb3jS
+	IHXUSXQVzDVGfVHi5tpqZi6n2NXKCiLtRVc71lKB+yvGXgIQjt3uaKfYSxKcmLpeV2ItMO8aALh
+	sUhh0/xeGTm2sx9sOg4bcs/sFBQZOgEAjjP+wkzn7MC6vC94BxrTyCcnN3BG7/nOM95rSRD0OIi
+	MFgB6bjQsdkj7pZjIKpGUiUf0JY4ESSlOBdVmKd2/DHYyy/bA7LhjBkE8j33hsfNfNN0dty71sr
+	9J1YZQAh9mqjKSF7+nbtxxZ7x1H2LCPvZBe2EhLVUZJ1Md3b4kFpr4wGSY6ws2Tg0UgkrkE9kBR
+	nM4dI7gnofDg==
+X-Received: by 2002:a05:7300:6d08:b0:2b7:2664:aeae with SMTP id 5a478bee46e88-2b78da0b4a8mr2419091eec.37.1769585393102;
+        Tue, 27 Jan 2026 23:29:53 -0800 (PST)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-124a9d6b658sm1374769c88.3.2026.01.27.23.29.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Jan 2026 01:15:19 -0800 (PST)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-To: linux-kernel@vger.kernel.org,
-        Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        Doug Berger <opendmb@gmail.com>,
-        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-        Linus Walleij <linusw@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Andy Shevchenko <andy.shevchenko@gmail.com>,
-        Christophe Leroy <chleroy@kernel.org>, linux-gpio@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: (subset) [PATCH v2 0/3] gpio: brcmstb: Bug fixes and wake-up interrupt improvements
-Date: Wed, 28 Jan 2026 10:15:17 +0100
-Message-ID: <176959169745.11014.2711672747307592197.b4-ty@oss.qualcomm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260127214656.447333-1-florian.fainelli@broadcom.com>
-References: <20260127214656.447333-1-florian.fainelli@broadcom.com>
+        Tue, 27 Jan 2026 23:29:52 -0800 (PST)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Yao Zi <ziyao@disroot.org>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH net-next v3 0/3] riscv: spacemit: Add ethernet support for K3
+Date: Wed, 28 Jan 2026 15:29:26 +0800
+Message-ID: <20260128072931.875041-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI4MDA3NSBTYWx0ZWRfXxy0Ww7YRmmf4
- dbW6BWle4fWZT7iZHQoxHTVgwBGHoLT4UnhSNs2LM08Jzd4fFjoE3XQ/pvjXs3QshxQcODcjA+8
- Xhzl9HmiDhWMG1cZajtjWH4PHhiNTS6ZT26xAXsT3SSU+ajDKVQ9QzmfoyhkVOsTG52FMWkS5Rx
- pF2+0FjpG7Oi9JO7d/esoEw3wqkGZOs9FnGobue1S25lrCBiXh5U9X0t7O8bmEPI2Me96dR9O63
- XBno6txx3De3CyYYC4Ioe+OTESlYNiyrOSBHKTFRQ9HnMy3Q5LBG7mRVCOT0dtRvpH5RFHChFk4
- LMx1UHpG2VqLvYtluA+cyGMeNu8GtU+R+lZUeDNwnLL8ER9l/CSH0DTo2723aCiO7WCmKb3KFsM
- +fn//5ulWuCo8S3jqIp7XJhM0oFUbHyNXpDrse1BOKtbcyfJ9zZPUUYwS2gRQBpWMSCU7rMdoN/
- en9xYWnsK+e0ubAPmwQ==
-X-Proofpoint-GUID: KsNrXnu4pVojwMzomYpBdA68lzSW0j0K
-X-Proofpoint-ORIG-GUID: KsNrXnu4pVojwMzomYpBdA68lzSW0j0K
-X-Authority-Analysis: v=2.4 cv=YeuwJgRf c=1 sm=1 tr=0 ts=6979d3a9 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=05lQHlDK7r49ThUfEH8A:9 a=QEXdDO2ut3YA:10
- a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-01-28_01,2026-01-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 bulkscore=0 adultscore=0 priorityscore=1501
- suspectscore=0 phishscore=0 clxscore=1015 impostorscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601280075
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_011523_673946_E6E738AF 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20260128_011538_984156_3F87B6DA 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,24 +129,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add initial support for ethernet controller of the Spacemit K3 SoC.
+This ethernet controller is almost a standard Synopsys DesignWare
+MAC (version 5.40a). This controller require a syscon device to
+configure some basic features, like interface type and internal delay.
 
-On Tue, 27 Jan 2026 13:46:53 -0800, Florian Fainelli wrote:
-> This patch series corrects the HW interrupt to the bank mapping logic to
-> be more robust and do not assume any particular order.
-> 
-> The last two patches improve the handling of early wake-up conditions
-> and makes it more robust so we can use those during "s2idle".
-> 
-> Changes in v2:
-> 
-> [...]
+Change from v2:
+- https://lore.kernel.org/netdev/20260121071315.940130-1-inochiama@gmail.com
+patch 1:
+1. remove not needed compatible for select
+2. drop empty line in "spacemit,apmu" properties
+3. add spacemit,apmu properties to required.
+patch 3:
+1. remove misused phy_fix_phy_mode_for_mac_delays.
+2. use local tx clock instead of the clk_tx_i in the dwmac.
 
-I queued this up for fixes, the rest can wait until v7.0-rc1.
+Change from v1:
+- https://lore.kernel.org/netdev/20260120043609.910302-1-inochiama@gmail.com
+patch 1:
+1. remove phy clock
+patch 3:
+1. improve comment and include something special about Spacmit K3 dwmac
+2. reorder the included file
+3. fix wrong delay macro used in spacemit_dwmac_set_delay.
+4. add check for maximum supported delay.
+5. use DIV_ROUND_CLOSEST to calculate best delay configuration.
+6. use assign for the ctrl register initial value.
+7. fix input when calling of_property_read_u32().
 
-[1/3] gpio: brcmstb: correct hwirq to bank map
-      https://git.kernel.org/brgl/c/b2cf569ed81e7574d4287eaf3b2c38690a934d34
+Inochi Amaoto (3):
+  dt-bindings: net: Add support for Spacemit K3 dwmac
+  net: stmmac: platform: Add snps,dwmac-5.40a IP compatible string
+  net: stmmac: Add glue layer for Spacemit K3 SoC
 
-Best regards,
--- 
-Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   2 +
+ .../bindings/net/spacemit,k3-dwmac.yaml       | 103 +++++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 +
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-spacemit.c  | 218 ++++++++++++++++++
+ .../ethernet/stmicro/stmmac/stmmac_platform.c |   1 +
+ 6 files changed, 337 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
+
+--
+2.52.0
+
 
