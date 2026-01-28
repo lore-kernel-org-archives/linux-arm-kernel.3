@@ -4,69 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A06FBD3F081
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 16:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F89BD3F08F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 16:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MEBqDOrcdn0kp83Sg2i1pFH3ac9WQWCytys4b/Sro8c=; b=VLnS3DhZdluDLbTocQhBpWeWFx
-	O/qLhC/A9we/vj64k+gTV9Swrug2HarzeZwdtjG1knytnBDDAo8BTlQOz6H7VyPSwtog8f8EJ+B1p
-	GUBc/bP0mg2jrVe0kFAr0XtJ7fGeWLimaPW9Xp/T65j2+BA3rHrWvbh5LfuhMdupaD40L28CbrN0h
-	Qn4I90P5U4ZfldBUqwHbkgxipe/dXdsGnGz5cjGsEQuGPV5TQJSie5SPPyPMQ0vh7dK9+cl8O/n49
-	UZCmihFXw8Kxz1YzylBkiJDZTKS5UAKC3LhAg20HnOqzEeEjcJH0RTak6aMzlpFPs/HR+FzjAYv1+
-	uewRYRJA==;
+	bh=sb3AGPYrr0/fo4jbw4irixmJe3vsgCbc9Ej4of+Z+E4=; b=gYrGa3OfvqtMcjWn44A4uksoal
+	S+ERlIscSUVwSHNyPHQh3ffhnvsZRL8h9ogZsWiV0SsSDd9WLV/DJ/vsqXTo5fiWQHTeMGwAwddC/
+	CgXj5zne8qQFFbXYTzuTvsSXJDYeey7HNHZyzMm60TMnjtIiz+Ta5LiLKshJuiDJM1D9hSnqnpmUt
+	BV4PV9FlDz2rjKTtdokl72cy2y8Q5Sjj6UYKhbg6bXCad9npXXYKDixxQtlFaQL3wlyr6EfjdUP7o
+	YpA92A9q/U6z9ifT1/ZUcdLyXsNNK9Z9Ec3I7dx1fDOV1il5SZLNveP71tSj4I+R+OjXGV7xoApLx
+	P4d6uyoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl81O-0000000GL1w-0RnU;
-	Wed, 28 Jan 2026 16:03:58 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vl82q-0000000GLCS-3UnT;
+	Wed, 28 Jan 2026 16:05:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl81L-0000000GL1Y-27ip
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 16:03:56 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 7C7F5E70;
-	Wed, 28 Jan 2026 17:03:16 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1769616196;
-	bh=/l+fkLzjrklFZ0i1RoapoDTSccNdAgCq1C9onxCXPUI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jWz80wZkVyVjcMVDFtb72599YGWJ8D+DhKWIr5StTFcghYxGBAq1DwCR0z1BZp+us
-	 M0auBayLlpkiPA6lx8+n0sTn8PPPJ/7ESlZJIu4JmsfNr6KwAey3LATBAZZtWpl9Sg
-	 yOcvXahdHw+bSjr10akskxjqaXuKfTe+LNmSWR0c=
-Date: Wed, 28 Jan 2026 18:03:52 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Vishal Sagar <vishal.sagar@amd.com>,
-	Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Michal Simek <michal.simek@amd.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Pekka Paalanen <ppaalanen@gmail.com>,
-	Pekka Paalanen <pekka.paalanen@collabora.com>,
-	Dmitry Baryshkov <lumag@kernel.org>
-Subject: Re: [PATCH v7 03/11] drm/fourcc: Add DRM_FORMAT_Y8
-Message-ID: <20260128160352.GA3225981@killaraus>
-References: <20251201-xilinx-formats-v7-0-1e1558adfefc@ideasonboard.com>
- <20251201-xilinx-formats-v7-3-1e1558adfefc@ideasonboard.com>
- <20260128114941.GF2558360@killaraus>
- <116b508e-0853-4b0b-966e-47d84167d4be@ideasonboard.com>
+	id 1vl82p-0000000GLC1-1vRj;
+	Wed, 28 Jan 2026 16:05:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=sb3AGPYrr0/fo4jbw4irixmJe3vsgCbc9Ej4of+Z+E4=; b=neYOycGb7SC4n4UMsYhafkeCRs
+	gQF/vD+wubqkseUpJiHX/uRyQXG1Ubm5gCMA6lzOzqZyhU5WO+dQbOFE4WAkRk6gRWmer0I31Du/W
+	P+SA6BQVhVSPqsj07VbFWf7K97cQpJ7PAU+g9xx5CnoUoYZgdV/qkTfS9QDlTSbar9JZYEPBI/qPK
+	F13cEai211Lfk9q7wra+fLjFzuj0EZqsRVX/ajsirr5C9Ny2iK6QZaDKXmf7yk36Hsx/y9P36cQkm
+	NY0K+YcEFHESJyOspNB1PwD0lAWYesU5sRHAM7MTQYhvoQGsajUfxxixQ4xXdv5gRT+CBiq7LF8Ji
+	LrPMilgQ==;
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vl82l-00000008tqZ-2uuZ;
+	Wed, 28 Jan 2026 16:05:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769616302; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Pvqg3/gTn76an7M2H0plJ+A/j0grY9QpWSR+zfMFtvdWHwgv20NMo0gexCxzJcmX+dqeRI7/aqalvmsb/Tg/38Zy0Ej/J8l4YWq1awgBRqWF3CNnnKfHadiC324aoDz05ruxQrDDYBylbQ0uWQOxznCSx8ezv4O7dF6NIwbd5/c=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1769616302; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=sb3AGPYrr0/fo4jbw4irixmJe3vsgCbc9Ej4of+Z+E4=; 
+	b=huaMjNg+D8TELmKporfZ8/M4DDDtQz4QI9YmdjJRBq4sxqm/zQg0mKsVbJ+Ve6mufwVyq9itV8Urlr/z9CDAWj04iEhgyWs1aA1JOH8Gg7E1M7S9DKLTwmiEkuI1ZZlBxXG/X7igu4Uo7UAjjGCcIFypz3WRgXb7R/lP1d9W0/c=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769616302;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=sb3AGPYrr0/fo4jbw4irixmJe3vsgCbc9Ej4of+Z+E4=;
+	b=UF+V3FD7yc6+2BlnxYazVLbjwN7ep+KvPNlM/7z/vII5PVMAjtlM4PnfBxYw4sfa
+	SVZL0HcDwpQVzVXTZ8FhHpKjU2nisCjqpLlNPc/EGgQL0ZEajUfL62bAWTB+Hc02OSb
+	Ntiv/tE5rO4TxW2gXfWEYl6Od+8dTiHrEyrMKmIM=
+Received: by mx.zohomail.com with SMTPS id 1769616300860635.7323383170847;
+	Wed, 28 Jan 2026 08:05:00 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Dong Aisheng <aisheng.dong@nxp.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Yassine Oudjana <y.oudjana@protonmail.com>,
+ Laura Nao <laura.nao@collabora.com>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>,
+ Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
+ kernel@collabora.com, linux-clk@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v3 1/5] clk: Respect CLK_OPS_PARENT_ENABLE during recalc
+Date: Wed, 28 Jan 2026 17:04:55 +0100
+Message-ID: <3745487.e9J7NaK4W3@workhorse>
+In-Reply-To: <daa1906b-a112-4158-aec2-ad1d29b4fe35@sirena.org.uk>
+References: <20251010-mtk-pll-rpm-v3-0-fb1bd15d734a@collabora.com>
+ <6678782.DvuYhMxLoT@workhorse>
+ <daa1906b-a112-4158-aec2-ad1d29b4fe35@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <116b508e-0853-4b0b-966e-47d84167d4be@ideasonboard.com>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_080355_684908_1DCED37E 
-X-CRM114-Status: GOOD (  24.02  )
+X-CRM114-CacheID: sfid-20260128_160524_016143_E015307C 
+X-CRM114-Status: GOOD (  20.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,77 +100,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 05:38:11PM +0200, Tomi Valkeinen wrote:
-> On 28/01/2026 13:49, Laurent Pinchart wrote:
-> > On Mon, Dec 01, 2025 at 02:18:45PM +0200, Tomi Valkeinen wrote:
-> >> Add greyscale Y8 format.
-> > 
-> > I would explain here why we need a new format and can't just use
-> > DRM_FORMAT_R8. You don't need to convince me, but I think it's important
-> > to summarize the rationale should someone later wonder why we introduced
-> > this.
-> > 
-> >> Acked-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> >> Reviewed-by: Pekka Paalanen <pekka.paalanen@collabora.com>
-> >> Reviewed-by: Vishal Sagar <vishal.sagar@amd.com>
-> >> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> >> ---
-> >>  drivers/gpu/drm/drm_fourcc.c  |  1 +
-> >>  include/uapi/drm/drm_fourcc.h | 10 ++++++++++
-> >>  2 files changed, 11 insertions(+)
-> >>
-> >> diff --git a/drivers/gpu/drm/drm_fourcc.c b/drivers/gpu/drm/drm_fourcc.c
-> >> index b22ef86428a1..a39b9d7a5b62 100644
-> >> --- a/drivers/gpu/drm/drm_fourcc.c
-> >> +++ b/drivers/gpu/drm/drm_fourcc.c
-> >> @@ -275,6 +275,7 @@ const struct drm_format_info *__drm_format_info(u32 format)
-> >>  		{ .format = DRM_FORMAT_YVU422,		.depth = 0,  .num_planes = 3, .cpp = { 1, 1, 1 }, .hsub = 2, .vsub = 1, .is_yuv = true },
-> >>  		{ .format = DRM_FORMAT_YUV444,		.depth = 0,  .num_planes = 3, .cpp = { 1, 1, 1 }, .hsub = 1, .vsub = 1, .is_yuv = true },
-> >>  		{ .format = DRM_FORMAT_YVU444,		.depth = 0,  .num_planes = 3, .cpp = { 1, 1, 1 }, .hsub = 1, .vsub = 1, .is_yuv = true },
-> >> +		{ .format = DRM_FORMAT_Y8,		.depth = 8,  .num_planes = 1, .cpp = { 1, 0, 0 }, .hsub = 1, .vsub = 1, .is_yuv = true },
-> >>  		{ .format = DRM_FORMAT_NV12,		.depth = 0,  .num_planes = 2, .cpp = { 1, 2, 0 }, .hsub = 2, .vsub = 2, .is_yuv = true },
-> >>  		{ .format = DRM_FORMAT_NV21,		.depth = 0,  .num_planes = 2, .cpp = { 1, 2, 0 }, .hsub = 2, .vsub = 2, .is_yuv = true },
-> >>  		{ .format = DRM_FORMAT_NV16,		.depth = 0,  .num_planes = 2, .cpp = { 1, 2, 0 }, .hsub = 2, .vsub = 1, .is_yuv = true },
-> >> diff --git a/include/uapi/drm/drm_fourcc.h b/include/uapi/drm/drm_fourcc.h
-> >> index 6c786701238e..5cfc188c4e72 100644
-> >> --- a/include/uapi/drm/drm_fourcc.h
-> >> +++ b/include/uapi/drm/drm_fourcc.h
-> >> @@ -459,6 +459,16 @@ extern "C" {
-> >>  #define DRM_FORMAT_YUV444	fourcc_code('Y', 'U', '2', '4') /* non-subsampled Cb (1) and Cr (2) planes */
-> >>  #define DRM_FORMAT_YVU444	fourcc_code('Y', 'V', '2', '4') /* non-subsampled Cr (1) and Cb (2) planes */
-> >>  
-> >> +/*
-> >> + * Y-only (greyscale) formats
-> >> + *
-> >> + * The Y-only formats are handled similarly to the YCbCr formats in the display
-> >> + * pipeline, with the Cb and Cr implicitly neutral (0.0 in nominal values). This
-> >> + * also means that COLOR_RANGE property applies to the Y-only formats.
-> >> + *
-> > 
-> > Extra blank line.
+On Wednesday, 28 January 2026 15:47:08 Central European Standard Time Mark Brown wrote:
+> On Wed, Jan 28, 2026 at 03:09:46PM +0100, Nicolas Frattaroli wrote:
+> > On Wednesday, 28 January 2026 00:14:29 Central European Standard Time Mark Brown wrote:
 > 
-> I'll drop.
+> > > Do you have a debugging patch we could run which would say which clocks
+> > > are impacted?  I guess it's more of an issue for the platforms that give
+> > > no output but for at least Avenger96 I was getting earlycon output.
 > 
-> >> + */
-> >> +
-> >> +#define DRM_FORMAT_Y8		fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only */
-> > 
-> > I would have gone for 'Y', '8', ' ', ' '
->
-> Missed these comments earlier...
+> > Try this one
 > 
-> Yes, "Y8  " makes sense. But I was trying to be nice, as there are
-> already users for Y8 ("GREY") with BSP kernels, and changing the fourcc
-> code would break their userspace...
+> For the Avenger96 that says:
+> 
+> [    0.347816] __clk_core_init: enabling parent ck_hse for ck_per
+> [    0.352230] __clk_core_init: disabling parent ck_hse for ck_per
+> [    0.358207] __clk_core_init: enabling parent pll1_p for ck_mpu
+> [    0.364005] __clk_core_init: disabling parent pll1_p for ck_mpu
+> 
+> https://lava.sirena.org.uk/scheduler/job/2412562#L563
+> 
 
-That's a more compeling argument than matching the V4L2 4CC. I have a
-slight preference for 'Y8  ' for how it would appear in debug messages,
-but I'm also fine being nice :-)
+Okay, on this one, there may be a problem in the clock tree.
+ck_mpu is marked CLK_IS_CRITICAL, but its parent, pll1_p, is not. Clock
+core doesn't seem to check whether any children of a clock are marked as
+critical before disabling it.
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+I'm not super familiar with the intended semantics of critical clocks.
+If we need to manually mark all parents of critical clocks as critical
+as well, then a (potentially partial) fix for the Avenger96 might be:
 
--- 
-Regards,
+---
+diff --git a/drivers/clk/stm32/clk-stm32mp1.c b/drivers/clk/stm32/clk-stm32mp1.c
+index 2d9ccd96ec98..6bf3fad1e0dc 100644
+--- a/drivers/clk/stm32/clk-stm32mp1.c
++++ b/drivers/clk/stm32/clk-stm32mp1.c
+@@ -1783,12 +1783,12 @@ static const struct clock_config stm32mp1_clock_cfg[] = {
+ 	PLL(PLL4, "pll4", ref4_parents, 0, RCC_PLL4CR, RCC_RCK4SELR),
+ 
+ 	/* ODF */
+-	COMPOSITE(PLL1_P, "pll1_p", PARENT("pll1"), 0,
++	COMPOSITE(PLL1_P, "pll1_p", PARENT("pll1"), CLK_IS_CRITICAL,
+ 		  _GATE(RCC_PLL1CR, 4, 0),
+ 		  _NO_MUX,
+ 		  _DIV(RCC_PLL1CFGR2, 0, 7, 0, NULL)),
+ 
+-	COMPOSITE(PLL2_P, "pll2_p", PARENT("pll2"), 0,
++	COMPOSITE(PLL2_P, "pll2_p", PARENT("pll2"), CLK_IS_CRITICAL,
+ 		  _GATE(RCC_PLL2CR, 4, 0),
+ 		  _NO_MUX,
+ 		  _DIV(RCC_PLL2CFGR2, 0, 7, 0, NULL)),
+@@ -1803,7 +1803,7 @@ static const struct clock_config stm32mp1_clock_cfg[] = {
+ 		  _NO_MUX,
+ 		  _DIV(RCC_PLL2CFGR2, 16, 7, 0, NULL)),
+ 
+-	COMPOSITE(PLL3_P, "pll3_p", PARENT("pll3"), 0,
++	COMPOSITE(PLL3_P, "pll3_p", PARENT("pll3"), CLK_IS_CRITICAL,
+ 		  _GATE(RCC_PLL3CR, 4, 0),
+ 		  _NO_MUX,
+ 		  _DIV(RCC_PLL3CFGR2, 0, 7, 0, NULL)),
+---
 
-Laurent Pinchart
+I just looked for CLK_IS_CRITICAL clocks in that file that have the
+CLK_OPS_PARENT_ENABLE flag, and marked their PLL parents as critical
+as well.
+
+An alternate approach would be to skip the parent enable/disable pair
+in the problematic patch in __clk_core_init for clocks that are marked
+as critical, because if the parent wasn't on for a critical clock then
+we wouldn't be in that function, we would be dead.
+
+Kind regards,
+Nicolas Frattaroli
+
+
 
