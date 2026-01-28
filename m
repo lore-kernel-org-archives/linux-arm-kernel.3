@@ -4,104 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B60DD46BFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 20:35:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA16D46BFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 20:37:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NEmpOzcIBlkA1huyHqaVTW0k9KksYnxs738QX2I8sa4=; b=kx+1bNJ2YcRdqFNMiv0hn8dz0w
-	9ndl7GIlzhzNLkqkss27pyVRs17PmWk7WsMh/tZAjCV37mAoalM3ELbA6ziTLwM+9bKYQbBaNZud1
-	HyGMAMVRhNnFBAGgCgjKxkXujQv0KxwGzWFVfZypmDeiU4resCMslcpuq8svWqgkrzg1JQtvfX6e6
-	kpr8O4noj/A4b+BiMmbYqpfb1Ot8HxZxtpvZzfHgpmL/RcKz2MuMLsNWaa/Sj0q5ityvOIjKqLGxn
-	OuQ10jK0Ju8oYN7VrCGua6RuqREpj6ttgUChZE7vf/Dqn48T76X3VBO5+Nz2lvyuQeG3tQJ2fa2lB
-	aC31C1Jg==;
+	bh=qI/u+wkA8pzVkT9AYwzmJYN6OZP9r7VF738GZdx84J8=; b=gPUrcXrBlC8yfNSJ2bfHOtdBPc
+	h5+A+EmXpCtytBFmVe/bnzn86xbCl7tF0ZXN5/Uc2SA2kyNAuvuZGQQQAFckaU/P9uj51EtvaNQy8
+	zEbTLoBGzmBQ7zqar6LQxFK20CYBLzzJwpRJhBxlpVzjoMkV5nX/m8I59JYlv9RzRI+mZezfMSoT3
+	nDdYt699VZwLvLxrboEjeoWoXdXKTIv5erHSPbAsQoI3kD6dMm2hfNWJ0xboeERpJecalsJCnzFLZ
+	8U6mbL0ETzVT6XCUgQsKhoQWfhbfXandg3gYjIPDYY5KtQ0hQmHmB6+dkXkUZfrofAwnFlwFK9K8D
+	oUeXzcNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlCGJ-0000000GmRn-3ZQk;
-	Wed, 28 Jan 2026 20:35:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vlCI4-0000000Gn0Z-3gqV;
+	Wed, 28 Jan 2026 20:37:28 +0000
+Received: from smtprelay0010.hostedemail.com ([216.40.44.10] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlCGI-0000000GmPk-0Ttj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 28 Jan 2026 20:35:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=NEmpOzcIBlkA1huyHqaVTW0k9KksYnxs738QX2I8sa4=; b=d0LL7e5Z5nWX6E3xxeqT/LXDi7
-	IUyKDkcVGjcPrqhcNKXCzBgYCxDMPCxZk71cr8ZWG9jpvd8BFUA/D0FiipMao5wXcaAxcaoBxeF8g
-	cDrIXGcS3JcKl4xYI0gjTMpLt4/D56mF/8/vJP2RRj4qJVSN7csnXPnGM2hewTpbx8smxe7juf/N5
-	cp4mxPownxB6ja23FGJDYHDz1lGs+IVM4eAvI+MX/s4LeeTFHmbria5BnNRUx9JQ1IzwFa6k1YezB
-	NNnSstqQdNhxj6lGjjGnNcjRExb2rh4CVurj8gLsNHx26KDx3WK7YIKl1roELhtzAlvfQ9o56WU90
-	dfu8IY2w==;
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlCG2-00000009LVt-1b7y
+	id 1vlCI2-0000000Gn07-0TXG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 20:35:34 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4806fbc6bf3so2424515e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 12:35:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769632519; x=1770237319; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NEmpOzcIBlkA1huyHqaVTW0k9KksYnxs738QX2I8sa4=;
-        b=MPX6ZYMslhpYU0kRCzKmO+TqF9I9Sy8L8J0st9TX2Kri6zNOWWkLolPmnBfBCDUv99
-         agStfwfL6EmzKpyCqcgpSMRk8h/flbS1jnpyFZh4r2676kd59MenY9B9JSwIQ1i5Gl6h
-         HWvW77EBA20KLmTzo4PVu1Rs0Lb70JekTSEWd31OS2/tVUiab2zLl9wLYwaXxEHzz0LH
-         FgXGYijkOkmDM2GzeN1jeJxVjlODiZ7uOJaSZrR1U+33J9hbJH0Mqtdng7R9cTtULcRV
-         ophd01yG09oFkUhy60B/Ah4eDca630ATGlROeKSFu8yrtLES/cy34aB9rJy060MB1TRH
-         FT3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769632519; x=1770237319;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=NEmpOzcIBlkA1huyHqaVTW0k9KksYnxs738QX2I8sa4=;
-        b=eiF6iRr3x3uN4m9A5F00PUwEaawGTzaxIMc3wh/Do0+P8g8P37AJkgm+yGSpRdN4Pe
-         Tch9hTpHM5PVaLqzZ3ISSepy5ql9iR49QSXFwyvLXqwAOjW0+g56IDS0/7IlHwo+m9xB
-         Y2o4il4Jvoxbqk74HnabPmjEZA1eCyrle8ujHf01GMNVllg5X1M/Q3+F9jUTGUeeCOYY
-         1UI7YEtaqExy5nPgJPC3KB26NFEe2s7OzujhvO2OaLJK2tWRpf+P0FloDzLdNAYwCJCG
-         ntSn14smMaVUMIOHfzkPXPNJ196Vo/U79jq313ltBBJGzd+tU5LBYrnZbWegSHmQx63h
-         eP9w==
-X-Gm-Message-State: AOJu0Yz8zeoAyAN5YTX09KzRI1WrC+DreC5nMcV92SbnDLsPug+5gNkH
-	IHwqQ87PRrumIlALkEg8XlWGosq3JuDdbF50WcFcDIk90duoW97A5EfCNiTEOSpG
-X-Gm-Gg: AZuq6aJadwCYTNDcmhm/0Gu/fs0ofdIFkevjTtMlJm1xBz/f+8naaLrzU5qxXW6syNZ
-	o8h2s6gIt8Ic9IbhKOqajQfwjoQWg+kPojiynF+5g/Vlk/MTcGCHQvVtN7TTlR6R7OVDHtGrwhg
-	yzlgN9+Umi+lC03dveqj/iRG6DXE2XFYAhGXN+qDJ7eTIaaax+16je9ymClL+/p87RCDWnTZX3/
-	dJMILRdhq/h6rPEOhvdzaa9Qz+Av1L4zVjBpFTmLQW9EqvRZYhOWONgPEYThlGjbPe3Bmak42Hj
-	rc+vnGHQ44fzzHE8MXB3vIP3a78pID+IgZJtc+smoOcEIBt39d1IgLT63EbTsAo334Kygm965Go
-	hCNOrUNT2URD2SFSMNcY3yqoapzAHHARhaH45jQekf+x44rB9gEP8nn7nVi960nXuaoSgBh92rv
-	VNVTwr+zLNQgsOJMXpWjywLW92o878MY5YzUI=
-X-Received: by 2002:a05:600c:3f0b:b0:47e:e20e:bbb2 with SMTP id 5b1f17b1804b1-48069c0e198mr86825655e9.7.1769632519415;
-        Wed, 28 Jan 2026 12:35:19 -0800 (PST)
-Received: from strix.doe.home ([197.250.227.106])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e10ee04csm9577644f8f.12.2026.01.28.12.35.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Jan 2026 12:35:19 -0800 (PST)
-From: =?UTF-8?q?Stefan=20D=C3=B6singer?= <stefandoesinger@gmail.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: soc@lists.linux.dev,
-	linus.walleij@linaro.org,
-	Jun Nie <jun.nie@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Drew Fustini <fustini@kernel.org>
-Subject: [RFC PATCH v2 7/7] ARM: dts: Declare UART1 on zx297520v3 boards.
-Date: Wed, 28 Jan 2026 23:34:55 +0300
-Message-ID: <20260128203455.38569-8-stefandoesinger@gmail.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260128203455.38569-1-stefandoesinger@gmail.com>
-References: <20260128203455.38569-1-stefandoesinger@gmail.com>
+	Wed, 28 Jan 2026 20:37:27 +0000
+Received: from omf08.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay03.hostedemail.com (Postfix) with ESMTP id 10D87BACBD;
+	Wed, 28 Jan 2026 20:37:20 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf08.hostedemail.com (Postfix) with ESMTPA id 5351D20026;
+	Wed, 28 Jan 2026 20:37:16 +0000 (UTC)
+Date: Wed, 28 Jan 2026 15:37:25 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ jstultz@google.com, qperret@google.com, will@kernel.org,
+ aneesh.kumar@kernel.org, kernel-team@android.com,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v10 05/30] tracing: Introduce trace remotes
+Message-ID: <20260128153725.56e801c0@gandalf.local.home>
+In-Reply-To: <20260126104419.1649811-6-vdonnefort@google.com>
+References: <20260126104419.1649811-1-vdonnefort@google.com>
+	<20260126104419.1649811-6-vdonnefort@google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Server: rspamout06
+X-Rspamd-Queue-Id: 5351D20026
+X-Stat-Signature: scjjj34ejpo8p63oqkqp8pwnu69wo154
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1/tQSaCQ/kbHKv4AKesdqQg9at+NZ9UW34=
+X-HE-Tag: 1769632636-833049
+X-HE-Meta: U2FsdGVkX1+PXL5P+2z0NQATjdCVHVPBqharGA1VqQvqSuXihZKzEDPgQZw69kb71D35qQ8EYpsvHjQlZ/aLjqrnCpGkIMKRhBFjerJdQFeYOTdkm6LDvkFMaToOWRwK3V/P/G5EgUai88UA4Cb3jyqbjqeyR/mwnqrZSpho8PT6+lSvWEuhDcQ/l663XiLRtGS41VzfdXhZ15Zg5idBMUlVXjgcvsZBOgyDnb0C1LP0i2ecq+RVgFqF1b1ixJii/kHsBXfzikzQgjH5RstFvz7zN7OAA8lfj9ElaZJ2Nm1Zk4yTKOsK9cXnYHfETDCHBQ/R0u4IvYJbsDiB7sQ9kxLUAErmajgK
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_203531_700592_E47415A4 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20260128_123726_219395_C122F1D8 
+X-CRM114-Status: GOOD (  34.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,55 +75,392 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is the UART that sends Uboot messages and is accessible via pins on
-the boards I have seen so far. UART0 and UART2 exist as well, but don't
-have pins enabled by the bootloader. They will be added later.
+On Mon, 26 Jan 2026 10:43:54 +0000
+Vincent Donnefort <vdonnefort@google.com> wrote:
 
-Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
----
- arch/arm/boot/dts/zte/zx297520v3.dtsi | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+> diff --git a/include/linux/trace_remote.h b/include/linux/trace_remote.h
+> new file mode 100644
+> index 000000000000..feb3433c2128
+> --- /dev/null
+> +++ b/include/linux/trace_remote.h
+> @@ -0,0 +1,80 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +
+> +#ifndef _LINUX_TRACE_REMOTE_H
+> +#define _LINUX_TRACE_REMOTE_H
+> +
+> +#include <linux/ring_buffer.h>
+> +
+> +/**
+> + * struct trace_remote_callbacks - Callbacks used by Tracefs to control the remote
+> + *
+> + * @load_trace_buffer:  Called before Tracefs accesses the trace buffer for the first
+> + *			time. Must return a &trace_buffer_desc
+> + *			(most likely filled with trace_remote_alloc_buffer())
+> + * @unload_trace_buffer:
+> + *			Called once Tracefs has no use for the trace buffer
+> + *			(most likely call trace_remote_free_buffer())
+> + * @enable_tracing:	Called on Tracefs tracing_on. It is expected from the
+> + *			remote to allow writing.
+> + * @swap_reader_page:	Called when Tracefs consumes a new page from a
+> + *			ring-buffer. It is expected from the remote to isolate a
+> + *			new reader-page from the @cpu ring-buffer.
+> + */
+> +struct trace_remote_callbacks {
+> +	struct trace_buffer_desc *(*load_trace_buffer)(unsigned long size, void *priv);
+> +	void	(*unload_trace_buffer)(struct trace_buffer_desc *desc, void *priv);
+> +	int	(*enable_tracing)(bool enable, void *priv);
+> +	int	(*swap_reader_page)(unsigned int cpu, void *priv);
+> +};
+> +
+> +/**
+> + * trace_remote_register() - Register a Tracefs remote
+> + *
+> + * A trace remote is an entity, outside of the kernel (most likely firmware or
+> + * hypervisor) capable of writing events into a Tracefs compatible ring-buffer.
+> + * The kernel would then act as a reader.
+> + *
+> + * The registered remote will be found under the Tracefs directory
+> + * remotes/<name>.
+> + *
+> + * @name:	Name of the remote, used for the Tracefs remotes/ directory.
+> + * @cbs:	Set of callbacks used to control the remote.
+> + * @priv:	Private data, passed to each callback from @cbs.
+> + * @events:	Array of events. &remote_event.name and &remote_event.id must be
+> + *		filled by the caller.
+> + * @nr_events:	Number of events in the @events array.
+> + *
+> + * Return: 0 on success, negative error code on failure.
+> + */
+> +int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv);
 
-diff --git a/arch/arm/boot/dts/zte/zx297520v3.dtsi b/arch/arm/boot/dts/zte/zx297520v3.dtsi
-index ecd07f3fb8b3..09fbb1d052e3 100644
---- a/arch/arm/boot/dts/zte/zx297520v3.dtsi
-+++ b/arch/arm/boot/dts/zte/zx297520v3.dtsi
-@@ -6,6 +6,10 @@ / {
- 	#address-cells = <1>;
- 	#size-cells = <1>;
- 
-+	aliases {
-+		serial1 = &uart1;
-+	};
-+
- 	cpus {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
-@@ -57,5 +61,23 @@ timer {
- 			 */
- 			arm,cpu-registers-not-fw-configured;
- 		};
-+
-+		/* The UART clock defaults to 26 mhz. It will be replaced when the zx29 clock
-+		 * framework is added.
-+		 */
-+		uartclk: uartclk: clock-26000000 {
-+			#clock-cells = <0>;
-+			compatible = "fixed-clock";
-+			clock-frequency = <26000000>;
-+		};
-+
-+		uart1: serial@1408000 {
-+			compatible = "arm,pl011", "arm,primecell";
-+			arm,primecell-periphid = <0x001feffe>;
-+			reg = <0x01408000 0x1000>;
-+			interrupts = <GIC_SPI 1 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&uartclk>;
-+			clock-names = "apb_pclk";
-+		};
- 	};
- };
--- 
-2.52.0
+Nit, but kerneldoc goes before the functions and not before their prototypes.
+
+
+> +
+> +/**
+> + * trace_remote_alloc_buffer() - Dynamically allocate a trace buffer
+> + *
+> + * Helper to dynamically allocate a set of pages (enough to cover @buffer_size)
+> + * for each CPU from @cpumask and fill @desc. Most likely called from
+> + * &trace_remote_callbacks.load_trace_buffer.
+> + *
+> + * @desc:		Uninitialized trace_buffer_desc
+> + * @desc_size:		Size of the trace_buffer_desc. Must be at least equal to
+> + *			trace_buffer_desc_size()
+> + * @buffer_size:	Size in bytes of each per-CPU ring-buffer
+> + * @cpumask:		CPUs to allocate a ring-buffer for
+> + *
+> + * Return: 0 on success, negative error code on failure.
+> + */
+> +int trace_remote_alloc_buffer(struct trace_buffer_desc *desc, size_t desc_size, size_t buffer_size,
+> +			      const struct cpumask *cpumask);
+> +
+> +/**
+> + * trace_remote_free_buffer() - Free trace buffer allocated with
+> + *				trace_remote_alloc_buffer()
+> + *
+> + * Most likely called from &trace_remote_callbacks.unload_trace_buffer.
+> + *
+> + * @desc:	Descriptor of the per-CPU ring-buffers, originally filled by
+> + *		trace_remote_alloc_buffer()
+> + */
+> +void trace_remote_free_buffer(struct trace_buffer_desc *desc);
+> +
+> +#endif
+> diff --git a/kernel/trace/Kconfig b/kernel/trace/Kconfig
+> index bfa2ec46e075..135edf143073 100644
+> --- a/kernel/trace/Kconfig
+> +++ b/kernel/trace/Kconfig
+> @@ -1278,4 +1278,7 @@ config HIST_TRIGGERS_DEBUG
+>  
+>  source "kernel/trace/rv/Kconfig"
+>  
+> +config TRACE_REMOTE
+> +	bool
+> +
+>  endif # FTRACE
+> diff --git a/kernel/trace/Makefile b/kernel/trace/Makefile
+> index fc5dcc888e13..6e75d710fc25 100644
+> --- a/kernel/trace/Makefile
+> +++ b/kernel/trace/Makefile
+> @@ -127,4 +127,5 @@ obj-$(CONFIG_FPROBE_EVENTS) += trace_fprobe.o
+>  obj-$(CONFIG_TRACEPOINT_BENCHMARK) += trace_benchmark.o
+>  obj-$(CONFIG_RV) += rv/
+>  
+> +obj-$(CONFIG_TRACE_REMOTE) += trace_remote.o
+>  libftrace-y := ftrace.o
+> diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
+> index 8bd4ec08fb36..1fcbdea992d2 100644
+> --- a/kernel/trace/trace.c
+> +++ b/kernel/trace/trace.c
+> @@ -9356,7 +9356,7 @@ static struct dentry *tracing_dentry_percpu(struct trace_array *tr, int cpu)
+>  	return tr->percpu_dir;
+>  }
+>  
+> -static struct dentry *
+> +struct dentry *
+>  trace_create_cpu_file(const char *name, umode_t mode, struct dentry *parent,
+>  		      void *data, long cpu, const struct file_operations *fops)
+>  {
+> diff --git a/kernel/trace/trace.h b/kernel/trace/trace.h
+> index b6d42fe06115..fdbcd068ba38 100644
+> --- a/kernel/trace/trace.h
+> +++ b/kernel/trace/trace.h
+> @@ -680,6 +680,12 @@ struct dentry *trace_create_file(const char *name,
+>  				 struct dentry *parent,
+>  				 void *data,
+>  				 const struct file_operations *fops);
+> +struct dentry *trace_create_cpu_file(const char *name,
+> +				     umode_t mode,
+> +				     struct dentry *parent,
+> +				     void *data,
+> +				     long cpu,
+> +				     const struct file_operations *fops);
+>  
+>  
+>  /**
+> diff --git a/kernel/trace/trace_remote.c b/kernel/trace/trace_remote.c
+> new file mode 100644
+> index 000000000000..3d80ff98fd90
+> --- /dev/null
+> +++ b/kernel/trace/trace_remote.c
+> @@ -0,0 +1,570 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2025 - Google LLC
+> + * Author: Vincent Donnefort <vdonnefort@google.com>
+> + */
+> +
+> +#include <linux/kstrtox.h>
+> +#include <linux/lockdep.h>
+> +#include <linux/mutex.h>
+> +#include <linux/tracefs.h>
+> +#include <linux/trace_remote.h>
+> +#include <linux/trace_seq.h>
+> +#include <linux/types.h>
+> +
+> +#include "trace.h"
+> +
+> +#define TRACEFS_DIR		"remotes"
+> +#define TRACEFS_MODE_WRITE	0640
+> +#define TRACEFS_MODE_READ	0440
+> +
+> +struct trace_remote_iterator {
+> +	struct trace_remote		*remote;
+> +	struct trace_seq		seq;
+> +	struct delayed_work		poll_work;
+> +	unsigned long			lost_events;
+> +	u64				ts;
+> +	int				cpu;
+> +	int				evt_cpu;
+> +};
+> +
+> +struct trace_remote {
+> +	struct trace_remote_callbacks	*cbs;
+> +	void				*priv;
+> +	struct trace_buffer		*trace_buffer;
+> +	struct trace_buffer_desc	*trace_buffer_desc;
+> +	unsigned long			trace_buffer_size;
+> +	struct ring_buffer_remote	rb_remote;
+> +	struct mutex			lock;
+> +	unsigned int			nr_readers;
+> +	unsigned int			poll_ms;
+> +	bool				tracing_on;
+> +};
+> +
+> +static bool trace_remote_loaded(struct trace_remote *remote)
+> +{
+> +	return remote->trace_buffer;
+
+Nit, but since you are returning a bool, make it obvious that is what you
+want:
+
+	return !!remote->trace_buffer;
+
+
+
+> +}
+> +
+> +static int trace_remote_load(struct trace_remote *remote)
+> +{
+> +	struct ring_buffer_remote *rb_remote = &remote->rb_remote;
+> +
+> +	lockdep_assert_held(&remote->lock);
+> +
+> +	if (trace_remote_loaded(remote))
+> +		return 0;
+> +
+> +	remote->trace_buffer_desc = remote->cbs->load_trace_buffer(remote->trace_buffer_size,
+> +								   remote->priv);
+> +	if (IS_ERR(remote->trace_buffer_desc))
+> +		return PTR_ERR(remote->trace_buffer_desc);
+
+Hmm, on error, should we reset remote->trace_buffer_desc to NULL?
+
+Just to be safe. Could just do:
+
+	struct trace_buffer_desc *desc;
+
+	desc = remote->cbs->load_trace_buffer(remote->trace_buffer_size, remote->priv);
+	if (IS_ERR(desc))
+		return PTR_ERR(desc);
+
+	rb_remote->desc = desc;
+
+
+> +
+> +	rb_remote->desc = remote->trace_buffer_desc;
+> +	rb_remote->swap_reader_page = remote->cbs->swap_reader_page;
+> +	rb_remote->priv = remote->priv;
+> +	remote->trace_buffer = ring_buffer_alloc_remote(rb_remote);
+> +	if (!remote->trace_buffer) {
+> +		remote->cbs->unload_trace_buffer(remote->trace_buffer_desc, remote->priv);
+
+		remote->cbs->unload_trace_buffer(desc, remote->priv);
+
+> +		return -ENOMEM;
+> +	}
+
+	remote->trace_buffer_desc = desc;
+
+Only set it on success.
+
+> +
+> +	return 0;
+> +}
+> +
+> +static void trace_remote_try_unload(struct trace_remote *remote)
+> +{
+> +	lockdep_assert_held(&remote->lock);
+> +
+> +	if (!trace_remote_loaded(remote))
+> +		return;
+> +
+> +	/* The buffer is being read or writable */
+> +	if (remote->nr_readers || remote->tracing_on)
+> +		return;
+> +
+> +	/* The buffer has readable data */
+> +	if (!ring_buffer_empty(remote->trace_buffer))
+> +		return;
+> +
+> +	ring_buffer_free(remote->trace_buffer);
+> +	remote->trace_buffer = NULL;
+> +	remote->cbs->unload_trace_buffer(remote->trace_buffer_desc, remote->priv);
+> +}
+> +
+> +static int trace_remote_enable_tracing(struct trace_remote *remote)
+> +{
+> +	int ret;
+> +
+> +	lockdep_assert_held(&remote->lock);
+> +
+> +	if (remote->tracing_on)
+> +		return 0;
+> +
+> +	ret = trace_remote_load(remote);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = remote->cbs->enable_tracing(true, remote->priv);
+> +	if (ret) {
+> +		trace_remote_try_unload(remote);
+> +		return ret;
+> +	}
+> +
+> +	remote->tracing_on = true;
+> +
+> +	return 0;
+> +}
+> +
+> +static int trace_remote_disable_tracing(struct trace_remote *remote)
+> +{
+> +	int ret;
+> +
+> +	lockdep_assert_held(&remote->lock);
+> +
+> +	if (!remote->tracing_on)
+> +		return 0;
+> +
+> +	ret = remote->cbs->enable_tracing(false, remote->priv);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ring_buffer_poll_remote(remote->trace_buffer, RING_BUFFER_ALL_CPUS);
+> +	remote->tracing_on = false;
+> +	trace_remote_try_unload(remote);
+
+> +
+> +	return 0;
+> +}
+> +
+> +static ssize_t
+> +tracing_on_write(struct file *filp, const char __user *ubuf, size_t cnt, loff_t *ppos)
+> +{
+> +	struct trace_remote *remote = filp->private_data;
+> +	unsigned long val;
+> +	int ret;
+> +
+> +	ret = kstrtoul_from_user(ubuf, cnt, 10, &val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	guard(mutex)(&remote->lock);
+> +
+> +	ret = val ? trace_remote_enable_tracing(remote) : trace_remote_disable_tracing(remote);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return cnt;
+> +}
+> +static int tracing_on_show(struct seq_file *s, void *unused)
+> +{
+> +	struct trace_remote *remote = s->private;
+> +
+> +	seq_printf(s, "%d\n", remote->tracing_on);
+> +
+> +	return 0;
+> +}
+> +DEFINE_SHOW_STORE_ATTRIBUTE(tracing_on);
+> +
+> +static ssize_t buffer_size_kb_write(struct file *filp, const char __user *ubuf, size_t cnt,
+> +				    loff_t *ppos)
+> +{
+> +	struct trace_remote *remote = filp->private_data;
+> +	unsigned long val;
+> +	int ret;
+> +
+> +	ret = kstrtoul_from_user(ubuf, cnt, 10, &val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* KiB to Bytes */
+> +	if (!val || check_shl_overflow(val, 10, &val))
+> +		return -EINVAL;
+> +
+> +	guard(mutex)(&remote->lock);
+> +
+> +	remote->trace_buffer_size = val;
+
+Should this be allowed to change when it is already loaded?
+
+-- Steve
+
+> +
+> +	return cnt;
+> +}
+> +
+> +static int buffer_size_kb_show(struct seq_file *s, void *unused)
+> +{
+> +	struct trace_remote *remote = s->private;
+> +
+> +	seq_printf(s, "%lu (%s)\n", remote->trace_buffer_size >> 10,
+> +		   trace_remote_loaded(remote) ? "loaded" : "unloaded");
+> +
+> +	return 0;
+> +}
+> +DEFINE_SHOW_STORE_ATTRIBUTE(buffer_size_kb);
+> +
 
 
