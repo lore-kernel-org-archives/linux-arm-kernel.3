@@ -4,106 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDD51D46BE5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 17:44:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 713E4D46BE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 Jan 2026 17:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bQ28KNx3pxtawA1nFwPKCc2RQpAN4D6gIqSKFp3a8PE=; b=JSRsYitxfTX/NwE04hyfuJ+vUA
-	qY31P+VAWcEgaBFeKRFjAIHYVbBSgSXFhd7A6RVNcuZ/4REoEWueIa2NIOWyC6McHCXXQXWIkxmRJ
-	pdR0GZSdygAhRVCPkbD3ld1DN/mxshncLFoUPnmDTC+NiXFha7G4nlypFuzh/z2dEWnMXF9J9mp3Z
-	Pq31i+jaeFvMvxGOlfwrOsP3M6UpBh6YFEevZKx2NkLhSif6kdWbwZkENdyYUmS07+ShV9mrgDYlI
-	01fKJ0W25twro9heokz+nUMb3SvrQ0lVGQ74SJAXTgZ0vq4Fs1gO8D+pzBRG3UIAgMz8xAbLAefXG
-	VGgBUP+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=hVKMA1mgA2HarFubchDZxxQcSE3jYQpdUJ9TpOSCc5s=; b=F4u0E4TF6eOduk
+	Ma//cd2sEaOE2L/mIU7qoYTjJvGyjxIWkEvePh5xUiiT6n0D74Mo32+a2GCEqIeiCShca39kkLcI+
+	+4ZLAdLsFsRtCPRr815rcCTy7zwxBHq/MJ9kk903iFJWHcoMzoUtKvh3R8rfe1ezClwz/0YpikuwR
+	YU3Ml/mLwjHCv886l6Pkswi+UdOR0k/gYy2ZK55d2B3cqeV9lKVtTKhdVSWcbBi5ZR6ViMJdFjMaq
+	DFCaexBvMnitSKqNN3Q7ON9Oryx4+7dhxD1bhuZ2ZGPr7obbZh9+MyJjkMIVqGBI3aVH5siT+GN7H
+	BhoQ+rt3/NpXgBk4WIwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl9aX-0000000GW7i-1PpN;
-	Wed, 28 Jan 2026 17:44:21 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1vl9mX-0000000GWux-417x;
+	Wed, 28 Jan 2026 17:56:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vl9aV-0000000GW7B-1KrV
+	id 1vl9mW-0000000GWuq-1s1C
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 28 Jan 2026 17:56:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=hVKMA1mgA2HarFubchDZxxQcSE3jYQpdUJ9TpOSCc5s=; b=guWWABqjI/n7McdcJdPO7BV9he
+	LBhZmZsRL1uzV60FVMMa4g2j0FLr1PnYyHhprvpTpNlKBpHhooxiW5S4vrdocU4Wtpupew7msGewi
+	P5wDs6XIw3Hgz4zG8S5Kuy5Lj3V+QqbweXrsLGAf/eu59gbQXNW76P98mSPUp9jjuIZpmit4cFYwT
+	6pTh01FOQamCFldF4xqQqXPs2tuacGE+pS4Wz6QGffD6ZK2fc8306zS4s/vJnfiN/UJUvp67rktzr
+	BoJTlLFPITZGhqZyokge9YxcKDAMt5in2cQS/5WU0W3a03Guz1hUN4QS2qz0rPYkveWQVTXVvrscn
+	mDpaWTWg==;
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vl9mS-000000098vq-1LLN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 Jan 2026 17:44:20 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-50299648ae9so121cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 09:44:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769622258; cv=none;
-        d=google.com; s=arc-20240605;
-        b=IfYOTepeiDQZcKiVTSbue14Lh52ckAYZc5kERH1wAcyC+b8JrbcFcyKeooz9C4e5SW
-         KwrlnDGFyhef9EHOIdtdg23/ZsfNhn5F8Jm5JwwnwnSRvcTs8V8HrpIlvxqoApWe8cQ2
-         E9tn6JLmQoYAAPJv0W7xJ8GLEtRt/9W0hI1v5oGFm7P3dtYkHumUlGyqfMyYjDAOMSes
-         06MHpzoYxRu9ihebzmgL1C7IrUBwExLxgCXOyntLjBzCYQHTazSutTzJwscEJbRawy8C
-         K45RymuWg2pKnDMvlvXwA6EBxoJcfhfKeph78ie8EjgOSyrE6mVmvkvP4RAB5XWYPBLf
-         pCqw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=bQ28KNx3pxtawA1nFwPKCc2RQpAN4D6gIqSKFp3a8PE=;
-        fh=/rh4VCJNm2l0mS9U6iwORfgVLQbXa6uqBAfxvcvLb2c=;
-        b=QamkLhpoEArF5Wivmk0c7t0K4nSUZLmI7zaO10X39Pe/tnSAGfG5RbQrTeAwsfwwC8
-         +vzJcvN1d05LGk8oGIZbIlFNBkjGHmYm3NjDfmuOrU8f8IVccTxlinwTtNRK1fNtZP4p
-         3CwP2B2wAA4VJXaxc2DXcVSVeeEsy8eOOKmQGRbZPDjZsWhhoWzCz985JO5VBqk3/J5u
-         GZNeZqKiU03um2nRBnkoQEMQ7YTJEe0qFRJT78XzRy5ylgBJC1soWzC+BQlbSkjfeuLL
-         9ovnOajT7ql4MsCumFIo1IItaMW/Ws+Ys6pKpTHm4cSsxBjXiobKhU335Z1yHkFEDcjK
-         fzKQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769622258; x=1770227058; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=bQ28KNx3pxtawA1nFwPKCc2RQpAN4D6gIqSKFp3a8PE=;
-        b=CBOmRpHqeF7CTlpWd7EBwInxTqh6ggnMhgn7HLS3/J3TUoErZ2Cm0I94RgB1lGbxKh
-         KJmmBv/sW0+sBBJxn0wQahVSznAeIlFL0pFPYnSbkYiRHCpTGGANlkO9uT7ZDyVT+Jls
-         sroyPfAlXGW+PWUyhRGOpLPr268poVHnuJivDbv76zfSvEQR3LXu1x9M4ueovKg+9Oj0
-         xeqTQj3uZVqGhA6O7GUVrDN9pjcv03LaoE0BjIVeXzhg9VWsl+wVvlmta5NdXgzFrAzj
-         1WY5d/LBCTbKfVMrKtu+6ngSi4o/kxM2BBjklJrVJkmSFryNYI2GAmTnGJxES/W+4kkc
-         zHVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769622258; x=1770227058;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bQ28KNx3pxtawA1nFwPKCc2RQpAN4D6gIqSKFp3a8PE=;
-        b=oFFYT1fF3NxWKbdJGWu6iW4Uq+nAvWRnrfR4so35Q54nXgr2FhaxcOmVDx3fcnO8Z6
-         NFLsR94tLzxv8KUQu4YwfzP21smfnsQB2Zbut/9T5AQyKA0Ile+gN9xlkQcNNTEuKARk
-         UY/vsczo51IFh+aguwiqeQt7XLQOeSTDJsJXq3d+yFg83fHLP9jnKJ7OZ7xZgwRYImsN
-         wGPM3YO0XQRm4xziSMi2X/xEcZ0CAffjBL8O7Y7IdxYoma6oCpQv0YPxuudpXKktyu81
-         h3pPPNbsmfnISw3SX4SaDMx951zsNHv1fjSaOYKOUFsHvG50eM3vaDe6ORaoSZiB9GMk
-         z5tA==
-X-Forwarded-Encrypted: i=1; AJvYcCULW/bZugvWRF0w+RlS264Q/uF4i4Y0P/AgFJG7kiRlrihYZszy39M0zIXx35eRwVBnpwBES5n0EN9pHHP5x6KN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQrRLH/+YOhptqqKTbo/neGyJan1vuJiJE9ZqegVhNQavdIkXJ
-	0dPW0WvX/7Jm04cAogJ4wm33MgXKpiNK737CKnMQqB/HifNylY6hUeRgleoEE+toBrIAKcf+mOV
-	nj1RUJ9TIcJOqt4Wx1wvO4BGBICBH9t9PLYQNgmGz
-X-Gm-Gg: AZuq6aI3KCyiVnkToJ9EWjK+JmJMJJqBOZhXyEthgz2rAJv1px8ZJ7Hw5K4wOL1ukYy
-	6SFFWsD2ldxUWcKvPJ6t3BEusudAEAYTJ5hb8uV+18jd5rtPZOwU1E1nTpgXpReH/xmgPLoYyLQ
-	vWibLchLosHagmOYSl4xEMtSuEFOElTpZAdmG8jJopM6kRt5qgSNlKwu/SKK9R4KNM7b2HVCRSF
-	qmlKNTGpkGrVvFqaAk2ZtMtfvBq4Y+DM+elK6enLSkisxVDasKm82yeNSA7CUvmxCbVQZacFUN7
-	mnq4ZWs=
-X-Received: by 2002:a05:622a:a64d:b0:4ed:a65c:88d0 with SMTP id
- d75a77b69052e-503340e241emr18057281cf.6.1769622257513; Wed, 28 Jan 2026
- 09:44:17 -0800 (PST)
+	Wed, 28 Jan 2026 17:56:42 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 09A9F1A2AD0;
+	Wed, 28 Jan 2026 17:56:38 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C8C2F6071F;
+	Wed, 28 Jan 2026 17:56:37 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C5B70119A8687;
+	Wed, 28 Jan 2026 18:56:02 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1769622996; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=hVKMA1mgA2HarFubchDZxxQcSE3jYQpdUJ9TpOSCc5s=;
+	b=yN+4QHWXe6CnQTP+XwB3m49VFo6G76tnT/zYzEvY0lAX5ySVppGySpmZRZiiSi2ZZE+Vn5
+	CLKx4KldLsoahjIf+rb7Iaceu5zbtk33Lw786p6PjC80o7afcQ/cEJAlxo6CSukA3vd5GL
+	4p9/OSkfM3a5hmXddf/RtJ84O2WXIuEcxUB3GF17hNGvt2RJn1aJfuoZR7yfCztF3Ppyzf
+	pKkcEeX24bfhs3bU6NZINsoxexD7j37xjNt013w/Ml8Jne+jOVCQBqCqWEelIk/R0nzL7q
+	bu7TAZTJ8HTbvwUdmy2Ko2qMCHS0UYp5Cmk69GUp3/mDrwNl6+yjZ2/uQPeakQ==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: [PATCH for drm-misc-fixes] drm/bridge: imx: A few fixes - backport
+Date: Wed, 28 Jan 2026 18:55:08 +0100
+Message-Id: <20260128-drm-bridge-fix-imx8qxp-pixel-combiner-null-deref-v1-0-2138d0933cf1@bootlin.com>
 MIME-Version: 1.0
-References: <20260126121655.1641736-1-maz@kernel.org> <20260126121655.1641736-13-maz@kernel.org>
-In-Reply-To: <20260126121655.1641736-13-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Wed, 28 Jan 2026 17:43:40 +0000
-X-Gm-Features: AZwV_Qjw_-4jQqLbJsa_gafDcYnoQTp1vBemlKSUmMjvAlynKsInG-LHMbmXpQc
-Message-ID: <CA+EHjTzL6bNZ=sZoub3GY=VZ2bJ+4bFr4jkuiMMBCEqXuAkQPA@mail.gmail.com>
-Subject: Re: [PATCH 12/20] KVM: arm64: Add RESx_WHEN_E2Hx constraints as
- configuration flags
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHxNemkC/yWN2wrCMBBEfyXsswttqiX6K9IHm2x0ITc3KIHSf
+ zfFxzkznNmgkjBVuKkNhL5cOacexpMC+3qkJyG7nkEPeh5GbdBJxFXY9cZzQ47NvFvBwo0C2hx
+ XTiSYPiGgIyGP3pyvfp4mN100dG3psI+Pyzv4LOowRq4W/3jZ9x9fgUswlgAAAA==
+X-Change-ID: 20260128-drm-bridge-fix-imx8qxp-pixel-combiner-null-deref-f849f633d352
+To: Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.15-dev-5464f
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_094419_370916_A0EE4B23 
-X-CRM114-Status: GOOD (  28.83  )
+X-CRM114-CacheID: sfid-20260128_175640_854798_077457BE 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,120 +104,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+A series was sent with 3 fixes for drm-misc [0]. Patch 3 of that series
+should be on drm-misc-fixes (the bug is in current master since v6.17) but
+does not apply there due to conflicts.
 
-On Mon, 26 Jan 2026 at 12:17, Marc Zyngier <maz@kernel.org> wrote:
->
-> "Thanks" to VHE, SCTLR_EL2 radically changes shape depending on the
-> value of HCR_EL2.E2H, as a lot of the bits that didn't have much
-> meaning with E2H=0 start impacting EL0 with E2H=1.
->
-> This has a direct impact on the RESx behaviour of these bits, and
-> we need a way to express them.
->
-> For this purpose, introduce a set of 4 new constaints that, when
-> the controlling feature is not present, force the RESx value to
-> be either 0 or 1 depending on the value of E2H.
->
-> This allows diverging RESx values depending on the value of E2H,
-> something that is required by a bunch of SCTLR_EL2 bits.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/kvm/config.c | 24 +++++++++++++++++++++---
->  1 file changed, 21 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-> index 1990cebc77c66..7063fffc22799 100644
-> --- a/arch/arm64/kvm/config.c
-> +++ b/arch/arm64/kvm/config.c
-> @@ -26,6 +26,10 @@ struct reg_bits_to_feat_map {
->  #define        MASKS_POINTER   BIT(3)  /* Pointer to fgt_masks struct instead of bits */
->  #define        AS_RES1         BIT(4)  /* RES1 when not supported */
->  #define        REQUIRES_E2H1   BIT(5)  /* Add HCR_EL2.E2H RES1 as a pre-condition */
-> +#define        RES0_WHEN_E2H0  BIT(6)  /* RES0 when E2H=0 and not supported */
-> +#define        RES0_WHEN_E2H1  BIT(7)  /* RES0 when E2H=1 and not supported */
-> +#define        RES1_WHEN_E2H0  BIT(8)  /* RES1 when E2H=0 and not supported */
-> +#define        RES1_WHEN_E2H1  BIT(9)  /* RES1 when E2H=1 and not supported */
->
->         unsigned long   flags;
->
-> @@ -1298,10 +1302,24 @@ struct resx compute_resx_bits(struct kvm *kvm,
->                         match &= !e2h0;
->
->                 if (!match) {
-> +                       u64 bits = reg_feat_map_bits(&map[i]);
-> +
-> +                       if (e2h0) {
-> +                               if      (map[i].flags & RES1_WHEN_E2H0)
-> +                                       resx.res1 |= bits;
-> +                               else if (map[i].flags & RES0_WHEN_E2H0)
-> +                                       resx.res0 |= bits;
-> +                       } else {
-> +                               if      (map[i].flags & RES1_WHEN_E2H1)
-> +                                       resx.res1 |= bits;
-> +                               else if (map[i].flags & RES0_WHEN_E2H1)
-> +                                       resx.res0 |= bits;
-> +                       }
-> +
->                         if (map[i].flags & AS_RES1)
-> -                               resx.res1 |= reg_feat_map_bits(&map[i]);
-> -                       else
-> -                               resx.res0 |= reg_feat_map_bits(&map[i]);
-> +                               resx.res1 |= bits;
-> +                       else if (!(resx.res1 & bits))
-> +                               resx.res0 |= bits;
+This 1-patch series has a backport of that fix for drm-misc-fixes, so that
+master can be fixed ASAP.
 
-The logic here feels a bit more complex than necessary, specifically
-regarding the interaction between the E2H checks and the fallthrough
-to AS_RES1.
+[0] https://lore.kernel.org/lkml/DG0BSWR9XRZS.29D743F5RWI8N@bootlin.com/
 
-Although AS_RES1 and RES0_WHEN_E2H0 are mutually exclusive in
-practice, the current structure technically permits a scenario where
-both res0 and res1 get set if the flags are mixed (the e2h0 block sets
-res0, and the AS_RES1 block falls through and sets res1). This cannot
-be ruled out by looking at this function alone.
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+Luca Ceresoli (1):
+      drm/bridge: imx8qxp-pixel-combiner: Fix bailout for imx8qxp_pc_bridge_probe()
 
-  It might be cleaner (and safer) to determine the res1 first, and
-then apply the masks. Something like:
+ drivers/gpu/drm/bridge/imx/imx8qxp-pixel-combiner.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+---
+base-commit: e535c23513c63f02f67e3e09e0787907029efeaf
+change-id: 20260128-drm-bridge-fix-imx8qxp-pixel-combiner-null-deref-f849f633d352
 
-+                       bool is_res1 = false;
-+
-+                       if (map[i].flags & AS_RES1)
-+                               is_res1 = true;
-+                       else if (e2h0)
-+                               is_res1 = (map[i].flags & RES1_WHEN_E2H0);
-+                       else
-+                               is_res1 = (map[i].flags & RES1_WHEN_E2H1);
-...
+Best regards,
+--  
+Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-This also brings up a side point: given the visual similarity of these
-flags, it is quite easy to make a typo and accidentally combine
-incompatible flags (e.g., AS_RES1 | RESx_WHEN_E2Hx, or RES0_WHEN_E2H0
-| RES1_WHEN_E2H0), would it be worth adding a check to warn on
-obviously invalid combinations?
-
-Or maybe even redefining AS_RES1 to be
-(RES1_WHEN_E2H1|RES1_WHEN_E2H0), which is what it is conceptually.
-That could simplify this code even further:
-
-+                       if (e2h0)
-+                               is_res1 = (map[i].flags & RES1_WHEN_E2H0);
-+                       else
-+                               is_res1 = (map[i].flags & RES1_WHEN_E2H1);
-
-What do you think?
-
-Cheers,
-/fuad
-
-
-
-
->                 }
->         }
->
-> --
-> 2.47.3
->
 
