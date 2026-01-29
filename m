@@ -4,107 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D809D61015
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 13:02:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23B24D61013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 13:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o5jH8Rxdp+tEZoB9l9fTv6AucC1v6C8I9T+8Tw0hHlg=; b=4T/mNe+oNFgA1mi3chtjtzgIus
-	wlYECF0LqKDfFT3dkt8oLAV7Ial04/Box49VtQkGtIAJziIN9p/wVNVBZKVcAOqkIRZ9e7lcvcA+c
-	OgsF+TpQnieyYmtQsu4E1hOd3StPCDj0aJijFbKmU+pkwPTAtMsquLiRQKmS3qbqVuxto4eUO9bxP
-	jRLTWzXvQOuKJGD5NSDfe3Lu1DzxZ8cS61V1123Fp+zRBT0XbXkm2zEAt7WhJ3EINj0AC2v9skDOe
-	SeX/XUc8ezLGAl+MTr5djseJLGGjfnkFWZrrRc1dAkF5a630PAizcnCnkJpYLBnXqEBFX54UidJLM
-	I60N8BZQ==;
+	bh=hV0EaAfSfWXdEAd8ez6i9+1b1e2fuFvIVn/DRhtOP0g=; b=T5cNBfPkg+oTd+Md02Oqkx79+Y
+	q2ZsaSZ1MKA+lt3Pk50IIhh3tqTPWdrv78ffbfu0Bke5Ny4YTc1aKa05xM71raAeOU32taYQ0a4Zg
+	c1ms0AY79iyp8oqAhOprgLadUpqgUZ9rLwF3+JGgXBVv7qcr9MRbY4yby/1AU9RXf1cIP8NIyDAla
+	3tA0sROf2pNKxqOz/iSzesZHjz0iGAEcaukvrM80JhZFgclzOP7/mektNmJ37XHMc+181hH6rwK2o
+	jbCLAzfdIo5IqgeGayMZoycaiokDY+dVkS5G/T1HXQEcfzuHjQ22702yDLLuMZ/6y2JMiwK4uIXGG
+	caZp1XLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlRfH-0000000083Z-1rA4;
-	Thu, 29 Jan 2026 13:02:27 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1vlRi3-000000008ES-00rA;
+	Thu, 29 Jan 2026 13:05:19 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlRfE-0000000082O-3eyk
+	id 1vlRi0-000000008Dm-3zpV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 13:02:26 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-658b511573cso1710615a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 05:02:24 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769691742; cv=none;
+	Thu, 29 Jan 2026 13:05:18 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-658d4059b79so744722a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 05:05:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769691915; cv=none;
         d=google.com; s=arc-20240605;
-        b=iYS2uj1taO6dz3eg3yJ1vnVHfu8MCMZY0J1BEm3suIyy+y9cnK3Wmkb7TqZQjujGl6
-         Hb6ejGCIKOPGso63WBK65LDDOW6dBJ6lhSWYI4GG9QXqA94Xj6HaLIBR586SGSVZusD1
-         f7aWF5Ys2X+gjr5+TU43M09/n8iIBtnsa+y7vUWgIBNMtO6DXJ9mqvluO0SMaLrpnZMp
-         824IjJ7k37iyKxyDlKkiMyrOL0QvgmYje3E1VferTqH1QW54N+Alm4O5b5I7tU+S0ZOF
-         XR09g0R+eayEgLllpot3LuLWt8Sx/Bd3uVK2A7CK4ox+SCaoB78v7CQSPkA67Vya0DnM
-         jf+Q==
+        b=brd4k3l3uJWiYWo0XtkWAH36mDEtbztW+jMAQvSJ0iccVzPEEBaQEarmh3pYn8XHTD
+         iYxcfo+Lj55/GCBWn8goHBiwSsmrWLZr8H5owJ47yj0yuxtOTuFCnwgX+dLsl6vwKQiD
+         vzBqiXTZoj83cOuux3i4DfFkAMU8YTcSosSOg4txGNqezA+KSVgjTHtrH12Cug1vUEvx
+         Kcl+h7qUYN/GCqtsT886YzbuRff8y1kv+eycTdQxgGryubeFc2htYXtzfO+P++AGgo0v
+         yifJdFQKtUSPQDq+sduxPxLgxXINgIjWQQFy+DEbchshi4G2UoTleLvuaXtxrOTCMXum
+         DD9Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=o5jH8Rxdp+tEZoB9l9fTv6AucC1v6C8I9T+8Tw0hHlg=;
-        fh=arzLjuK3JTavabrZDFmQvh3Mtty7XjFwX020k7ipCPU=;
-        b=GvL5bbVaGjRPKs+UxHpPM394utiunUOHBdpuE2nT8lxbdlvhmwRflFMNRNsMwBX0Zr
-         /lRpF5GQ7NAOJtPXuiWE76eTCbvh4Pg/2nVSYenJ/gnsjXKGXq3McdkYtV7XvtQzTgc5
-         c8YsTxV4/+4aX0AIlCGnwuCQFDR652iJYQpFW0a+dIK/AnLCppVxJ/RCnxyRd0vRrhRj
-         jzkUUAfySemyCTJgiQ9z8aeZh50+PG3pI4w9mzdi1EJJ5dYSr0nRzU1jyGqVDqqWcTtP
-         +t7kWN6ph4FYNv2WzZcmknAFALqlxpMOxQXFSBrjd6DNrxIFzNwGTTSuXR1z3SgDZ0iC
-         EUwQ==;
+        bh=hV0EaAfSfWXdEAd8ez6i9+1b1e2fuFvIVn/DRhtOP0g=;
+        fh=ntwoAF07/Ht5ZtCls5yhPa1Lv0YuyWeRGNfxxRwFJDY=;
+        b=UF7CR9z9Bo6SlHacgwqifHTlESTyLU4yAi/3RZwOyNW89omqX4Vu6w9BvS/KjxkTHR
+         +3BVpW4jMeGGhu1UXCAUucyQMcTKkzQlfid57p317iRa+ZJnhHHT4rGXuOPJ+//BkKwO
+         lR83zSu3Iu5/CPI825yYUJRkhvH+s8hDDVwPfuPcp/LExBMccIXq2eVUbqa+rga6VVed
+         xJcxCj6TD+Fv5l2vJ11EjrxcEQ1s0CLKkhlKtuNTYRpA0MiMe4OYN+kLNtVYwUQj6EmK
+         BuB9eYG/WcglSm01sBwtEwy3lC1DNRgBZMWNS9wgrFQnVkQubylpWVW7WUsYgba6fZMz
+         sEIw==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769691742; x=1770296542; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1769691915; x=1770296715; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=o5jH8Rxdp+tEZoB9l9fTv6AucC1v6C8I9T+8Tw0hHlg=;
-        b=tVSNkobbzD9L/IZe0n/+KgQVFf91Xk69sPBeAHhDfGHP3LGza6EE5mTFRL08NODL8I
-         Lepk1/qrKaNn4paJj7qkGTtkDjWZspn20x9P4uwrfwFDhWgpswI/pPSVyr7EF6o2neu1
-         VomTke+NhAc+jqs43S6DLkjSTKflZhCwPfi3Z0rhiMyQcgT28GAQzIBlsInVoXc9tojA
-         +iGOFpqcX7eyPPic/eIbs/1oFVrvWR17yOAZHMf0H+DTM11VIAjMaN1rvu9ge4GwhUTe
-         TjzEtZsoLGO4rNq44hwlGBY1J1fP4PaeY0DbuLIpOvyjBMEnZNEEucJfJsCLI5Owy8BV
-         6icA==
+        bh=hV0EaAfSfWXdEAd8ez6i9+1b1e2fuFvIVn/DRhtOP0g=;
+        b=BArtyrnZUw6iGIHwPL+mqxQ21RwSBT8z8IjGjbz5crSfqLXC0imZw/QM7IN1pSQSfk
+         pfnsDLJjkRfvEX6mFXzlIwkAXqprO9hYz8fSt0HJL/EXCTn0w7fSs+LZwefsEwime0MA
+         hqEy+MirGyGhDlQisFCu1RoVywgXPSaqtLnP3RaRIc/YMiC1kArzgaMRxqpJtiVujje6
+         LqXqnhu798f6gxvDwHFOvaw1CH3NWGzUM/UNyumeTYxlFTqtVNAwkTyx0xYHvyC/F2y+
+         /GHw2VEr9+1fjMEfJankkixvw0n9kFozT4DkbDo7i6Monq+SL96Lz7jdjwUsCjRC0hQs
+         Yy7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769691742; x=1770296542;
+        d=1e100.net; s=20230601; t=1769691915; x=1770296715;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=o5jH8Rxdp+tEZoB9l9fTv6AucC1v6C8I9T+8Tw0hHlg=;
-        b=l3DsViN0oJOmLv42EHCarI7hev7jGf+k13oLssO/hLxI5nt7wIFPW/5Ds7zkUBn5dd
-         WwIR7ErQgxRPYvvxASV552Oys+6IFF8dtYqae2DEuTd+pYPMMWdPpOl9EDbCUjCP5B8c
-         I69yUMxGCuazmkSWWrp/tB8ihZYbi4FC9iAO1ZOvobzWY3BT0pFfde/H4RjjAoov04BP
-         vBev7ni/I1xnck9S1l+SEY1DvNjoj3IOGw9gqvSUanA3l628dYMUBJ/xJS/OeOhGsPS0
-         IaiFFvlr31rOYi9CQnHWYR3OG+mskKlC1h6GzROxN/ST81Z2C1S53rPGFJdoVbqsk1QT
-         +wjA==
-X-Forwarded-Encrypted: i=1; AJvYcCU9AqPx/mgc3wFibI29JW3rIpHobXbkfYBYm5QoH+ul46yVuqBDfSzwInXOxJpwGhqUDbISZLeFtW+aJoYDNw/I@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWYc/gCYSOC1a3CqHjHMXdFwM4z/VjS6YM53Y3xWa+Y4xPH3Lo
-	8c7RRL9Ct80pmYoSl2z2PKlCXF2WXh4df7yyAgV8k5iwwWJMOBZRVwmBUatyoHZdRzxcT19x20b
-	r/RNx9WCcUzPLWDZV0Sb6NfqCqqkT0Y9rW5TakgwZ5Q==
-X-Gm-Gg: AZuq6aKXam5PsX2A+sUPqor+1m/mJZsZnXG5kQ/dmCsd7WzBFUAFxDCRlpffhRzR+p+
-	cSPAx9n0y89qt9UM+lQp0ZQQIRb6B/ZI/MDtf/CPqxA49YReqFBoMZG9+VT7CMo5rb3YeYxQ6yu
-	vbf7O8Q7XWU6mON3SgpzD+GSe2yiEtOeQlv2IV2NojeI3a+8PktZsMuA3soVvivEP0cf2U56O/m
-	T93xQ68Fdx/hcjYX9qJFZrGzgqyfgxQ+ezZJFBF7kFzTDoC/cJo4DtQLyUpEw831yjRZ0dxoeMv
-	K8ByrJOVKp00f5EobFVeNy80
-X-Received: by 2002:a05:6402:40d6:b0:64d:e1c:4c0a with SMTP id
- 4fb4d7f45d1cf-658a5f8cfdamr6437778a12.0.1769691742347; Thu, 29 Jan 2026
- 05:02:22 -0800 (PST)
+        bh=hV0EaAfSfWXdEAd8ez6i9+1b1e2fuFvIVn/DRhtOP0g=;
+        b=rqaXZFyYt5PX6pf0hlHhVe+PML1/B+wtlfqB3DXtiuNxmQKR1le8Rm1E1aaYWC7tie
+         PWtHVz+WlFUQQP907BUxa/titpLueE8KuDQevdPnhP48tHflS0it1F5j0KBJGqJrIClS
+         eR1B7fbIA3xjgCb85BR36e/pTKQOrBW4GK4536mEsHzSdux1qVSK4pyB9NqKn14ZORHF
+         1MpkdcMDuL4iiXV5SRRAqlGZ31owbsJPY+KYdWCeoSAQEdWkO0mwaKf12hpLRByzAhXV
+         rKaC9LTqwWvvtBGstuUzHb1KoawusxZ9hoiQGeZqmbKam4b/xfm7VdfLgmJ0gwBfC9yQ
+         GYKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUJW83PYo2JOZNNsYuOo4IysNHAVhvdcnmIhf6V3S9fHp1cOUXdXUHMm7xv4Uu7d14x5KEje4VuVbGGsOzZH/pm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyh6d/70U5m425JVd0OO4Ilu6wa1RxUbx3KyGaN26iqI/ObFNu5
+	c51DvQ6G3PpN+Ta7KmEGMniYbt55c6O2Ix/twoTiHT9l+xQIW2UPVZizkyniztjdTSP6UfaPt3v
+	rU13/8txPs0cfaspeK1Cp05fyeuNEBBhYY0xj9aVllw==
+X-Gm-Gg: AZuq6aI13QAgNAz2ATZBsQtEdnS1zsUVZagJFmBuFqqNhgYhXa0VRsLkhmAvHh/Cbz+
+	qqAthR6YMEsG8b1PEZV5bNAMOydM70EChW1spaBkRps5Xj41z/W+8ALl/KlgRDTWHm0LP2yjl5W
+	GgHfUcwodfa7gigyeOQp4VG/CdD0PMP7r/J8ioO0ep6JKeo6c/tw8ORKBj64k2GJC3sNH5CxBRo
+	MQZ3+NQ6z/hB6smPAiWhPTjoqcdmEDT7ZuzX1+eLoOwvM1HNOa5KxHT9ni+leQE9ovlhLvXmk41
+	Uw2497EpLFEKCYpUgKckuV5cDH9+PnWBnQA=
+X-Received: by 2002:a05:6402:5187:b0:658:cc59:161c with SMTP id
+ 4fb4d7f45d1cf-658cc5917c8mr1678090a12.12.1769691914958; Thu, 29 Jan 2026
+ 05:05:14 -0800 (PST)
 MIME-Version: 1.0
 References: <20260126092159.815968-1-vincent.guittot@linaro.org>
- <20260126092159.815968-3-vincent.guittot@linaro.org> <aXtB0QcVOkE_hhny@shell.armlinux.org.uk>
-In-Reply-To: <aXtB0QcVOkE_hhny@shell.armlinux.org.uk>
+ <20260126092159.815968-2-vincent.guittot@linaro.org> <aXtXmN1V8wg57yuE@shell.armlinux.org.uk>
+In-Reply-To: <aXtXmN1V8wg57yuE@shell.armlinux.org.uk>
 From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Thu, 29 Jan 2026 14:02:09 +0100
-X-Gm-Features: AZwV_QgTBsEbqAq2XkLUgo22OQOD7HpGZIhc6Tp00c8M0BIdl_pPusc1NHtuBUU
-Message-ID: <CAKfTPtAg201wXU_LuO-Y0M8k6ew8-vhKsjoHzJ1sxqp3Pn=wVQ@mail.gmail.com>
-Subject: Re: [PATCH 2/4] phy: s32g: Add serdes subsystem phy
+Date: Thu, 29 Jan 2026 14:05:03 +0100
+X-Gm-Features: AZwV_QhIdeGA_SmdiEnXscTGdrXOcfbfoiNkh_dYEPgauVTbh2-bOtUlEiHJGvM
+Message-ID: <CAKfTPtANQsmWAf-u6+isXh5UHJdo2mYELBYio=-UxZj3WM6-5w@mail.gmail.com>
+Subject: Re: [PATCH 1/4] dt-bindings: serdes: s32g: Add NXP serdes subsystem
 To: "Russell King (Oracle)" <linux@armlinux.org.uk>
 Cc: vkoul@kernel.org, neil.armstrong@linaro.org, krzk+dt@kernel.org, 
 	conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, s32@nxp.com, 
-	p.zabel@pengutronix.de, ghennadi.procopciuc@nxp.com, Ionut.Vicovan@nxp.com, 
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	netdev@vger.kernel.org, Frank.li@nxp.com
+	p.zabel@pengutronix.de, ghennadi.procopciuc@nxp.com, 
+	bogdan-gabriel.roman@nxp.com, Ionut.Vicovan@nxp.com, 
+	alexandru-catalin.ionita@nxp.com, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
+	Frank.li@nxp.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_050224_931372_EFB1C9B6 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20260129_050517_030514_3205FF11 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,60 +121,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 Jan 2026 at 12:17, Russell King (Oracle)
+On Thu, 29 Jan 2026 at 13:50, Russell King (Oracle)
 <linux@armlinux.org.uk> wrote:
 >
-> On Mon, Jan 26, 2026 at 10:21:57AM +0100, Vincent Guittot wrote:
-> > +/*
-> > + * Until now, there is no generic way to describe and set PCIe clock mode.
-> > + * PCIe controller uses the default CRNS = 0 mode.
-> > + */
-> > +enum pcie_phy_mode {
-> > +     CRNS = 0, /* Common Reference Clock, No Spread Spectrum */
-> > +     CRSS = 1, /* Common Reference Clock, Spread Spectrum */
-> > +     SRNS = 2, /* Separate Reference Clock, No Spread Spectrum */
-> > +     SRIS = 3  /* Separate Reference Clock, Spread Spectrum */
-> > +};
->
-> So this is a PCIe thing. If it's part of the driver's API, then it
-> should be common and not driver-private.
->
-> > +static inline bool is_pcie_phy_mode_valid(int mode)
-> > +{
-> > +     switch (mode) {
-> > +     case CRNS:
-> > +     case CRSS:
-> > +     case SRNS:
-> > +     case SRIS:
-> > +             return true;
-> > +     default:
-> > +             return false;
-> > +     }
-> > +}
->
-> This checks that the submode is one of the PCIe private modes that this
-> driver wants to see.
->
+> On Mon, Jan 26, 2026 at 10:21:56AM +0100, Vincent Guittot wrote:
+> > Describe the serdes subsystem available on the S32G platforms.
+> >
+> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> > ---
+> >  .../bindings/phy/nxp,s32g-serdes.yaml         | 154 ++++++++++++++++++
+> >  1 file changed, 154 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml b/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
+> > new file mode 100644
+> > index 000000000000..fad34bee2a4f
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
+> > @@ -0,0 +1,154 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/phy/nxp,s32g-serdes.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > > +
-> > +static int s32g_serdes_phy_set_mode_ext(struct phy *p,
-> > +                                     enum phy_mode mode, int submode)
-> > +{
-> > +     struct s32g_serdes *serdes = phy_get_drvdata(p);
+> > +title: NXP S32G2xxx/S32G3xxx SerDes PHY subsystem
 > > +
-> > +     if (mode == PHY_MODE_PCIE)
-> > +             return -EINVAL;
+> > +maintainers:
+> > +  - Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
 > > +
-> > +     if (!is_pcie_phy_mode_valid(submode))
-> > +             return -EINVAL;
+> > +description: |
+> > +  The SerDes subsystem on S32G SoC Family includes two types of PHYs:
+> > +    - One PCIe PHY: Supports various PCIe operation modes
+> > +    - Two Ethernet Physical Coding Sublayer (XPCS) controllers
+> > +
+> > +  SerDes operation mode selects the enabled PHYs and speeds. Clock frequency
+> > +  must be adapted accordingly. Below table describes all possible operation
+> > +  modes.
+> > +
+> > +  Mode  PCIe XPCS0           XPCS1           PHY clock       Description
+> > +                SGMII                SGMII             (MHz)
+> > +  -------------------------------------------------------------------------
+> > +  0  Gen3    N/A             N/A             100             Single PCIe
+> > +  1  Gen2    1.25Gbps        N/A             100             PCIe/SGMII
+> > +  2  Gen2    N/A             1.25Gbps        100             PCIe/SGMII
+> > +  3  N/A     1.25Gbps        1.25Gbps        100,125         SGMII
+> > +  4  N/A     3.125/1.25Gbps  3.125/1.25Gbps  125             SGMII
+> > +  5  Gen2    N/A             3.125Gbps       100             PCIe/SGMII
 >
-> This checks for the PCIe submode, but notice the test immediately
-> above. PCIE mode is being rejected. So, this driver supports
-> everything else but PCIe.
->
-> That doesn't seem right.
+> Shouldn't the mode be configured via phy_set_mode_ext()?
 
-It's a mistake
+There is a phy for only pcie only. In mode 3 to 5 there is no generic
+phy created
 
+>
+> This identifies whether it is operating as PCIe or for networking and
+> in the case of networking, the PHY interface mode should be passed as
+> the submode.
+>
+> Have a look at include/linux/phy/pcie.h to see the submodes that may
+> be appropriate to pass to phy_set_mode_ext() - but talk to the PHY
+> subsystem maintainers.
 >
 > --
 > RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
