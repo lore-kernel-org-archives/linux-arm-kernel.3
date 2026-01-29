@@ -4,83 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E741DD46C01
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 03:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A7B3D3569F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 04:05:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9IqDF5Tp7OG5Z/tvzpKjtKiy1V2o/uARLzGQm34pmBQ=; b=qbtXvWN0VCWgE+
-	5oJ4AFLqGKvVPTaS5KsTQqfw0YCjMsDf1/8ZRyH16oP1JwJWT03C0ZhlFPeYDCmWFQe401uNpybF1
-	dWdLSSmQxP8XFD5iMfY+6992753/xJ3k0Zaq/VZq+mtnA5SALI6TvG34ZVuiUZCGVNVXcfmw9yiTl
-	GZBu9I2G0SKfFIBKp/bkRcdhjvQtJBGcCWbsFzVd1fFXB8R0+/zpPrJHOLimHV0qLKNxAEeM5iGCH
-	WFur82WbhTZjQltBvcjqM295lafqjZBt6A5xI8opvSVcsdOX6PhOS0SVio3CP8Y9Ed6ecHGWQ5Taq
-	vA5glGFRgIoWpdP7k8xQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GAPh78XXAIfxfDgXO+YnEHKlcDWVZdI7PWnVmQSgPQU=; b=RureSVMM1H7wsJGTg/2RK+r/jW
+	FCxAFATSUqMcO7k5+fv9i1TaPK/d1fjF7QcPZlib49eMA4GstF8kb45oM+YiHSQFzdzxmbU1mQBsj
+	i11FN+c1ipndT9acBAaP7rrxAXbS/+0DPJ/ST1FVz9rIe95F8as+1KtOlaoqaf8Q3P2b/jIUx4fVY
+	Z/wjAh84yVZDgrbQ+YkVu+x3UpmmvSEUKJfBq365W5+Ym2icWertRkdxGc13xlEPfXXjg8hXzg2w0
+	3lP0J2RE+KaUSVXMFesDYqPX0uzHDzDI6+N0MnyzejpdT0ZYnwhBIjmtI9APLCrrrgBoQGqKIICiT
+	vS2QkHWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlJ3o-0000000HCv6-15WR;
-	Thu, 29 Jan 2026 03:51:12 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1vlJHp-0000000HDUG-424R;
+	Thu, 29 Jan 2026 04:05:41 +0000
+Received: from mail-pl1-f171.google.com ([209.85.214.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlJ3l-0000000HCu0-1Jhh
+	id 1vlJHo-0000000HDTu-1I6D
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 03:51:11 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=9IqDF5Tp7OG5Z/tvzpKjtKiy1V2o/uARLzGQm34pmBQ=;
-	b=t5xArDyFCrHHhIn9fb79pH6WbwcbJLHeVxl4ynjTqzMJVIBts4fJ8oWi0Moi0WvFKyejWhmWG
-	blspAwCcSq2E0F4Xiu3ExYGbWhEsLtePJT5fj2x4ypZLFYpvEp567BNxvph9pnXc9LBZV/4voRH
-	oE25OaqvfDJOl1Ddl96T2+0=
-Received: from canpmsgout01.his.huawei.com (unknown [172.19.92.178])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTPS id 4f1lXh1pHqz1BFpv
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 11:50:28 +0800 (CST)
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=9IqDF5Tp7OG5Z/tvzpKjtKiy1V2o/uARLzGQm34pmBQ=;
-	b=t5xArDyFCrHHhIn9fb79pH6WbwcbJLHeVxl4ynjTqzMJVIBts4fJ8oWi0Moi0WvFKyejWhmWG
-	blspAwCcSq2E0F4Xiu3ExYGbWhEsLtePJT5fj2x4ypZLFYpvEp567BNxvph9pnXc9LBZV/4voRH
-	oE25OaqvfDJOl1Ddl96T2+0=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4f1lSD3qrFz1T4Gv;
-	Thu, 29 Jan 2026 11:46:36 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 24D0E40570;
-	Thu, 29 Jan 2026 11:50:50 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 29 Jan 2026 11:50:47 +0800
-Message-ID: <1543d9ab-f8b0-8221-c885-b031008ad3f5@huawei.com>
-Date: Thu, 29 Jan 2026 11:50:43 +0800
+	Thu, 29 Jan 2026 04:05:41 +0000
+Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2a7a23f5915so3119095ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 20:05:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769659538; x=1770264338; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=GAPh78XXAIfxfDgXO+YnEHKlcDWVZdI7PWnVmQSgPQU=;
+        b=A3cV6FehhYC1aJWNgmOk6c+oVuSHgcRhcMl4UDosFqx0WYG+4Yfgw2wY3kj17w2Qeo
+         LT3Fgd4AyPfUCI2esmeBirVDGkdYKTxD3x82380d6s7PG3C/3r+YsHvYVLyYqSv6g7Ec
+         Drjd8U3qfxgKn3yn1HhaWCGB3a6SfGbRooWdj6KqWG28kFeg8z7MDb/zVpBW79+tzNlQ
+         uyYTMf5aK10PzK7sxDez4g5vtTebw1B/nQLRpvHSScL8/0YXgR/9yy+NX7HDjC9rkH/D
+         NU3fRxgIuKIy0U54FnO3Wiegc3uzeSZ8gI3rZRBW6oKWuaKPHhMvGLZW6mOxcjogzCDb
+         PXnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769659538; x=1770264338;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GAPh78XXAIfxfDgXO+YnEHKlcDWVZdI7PWnVmQSgPQU=;
+        b=Gpiri0LaiMjw5seYl6ad52RK76Iol70cPp/ERzIs5QuMODFoFwKxR2PbAj+BRSQSVo
+         2vCfIEX/Mbg6Zx6RQeZ2uelJ5oas8jyUSSpQD4emV7UtAAaYYYx1/NtFgaxz8T80abC2
+         aNfRcn88soO7u8rMY6F4F1/rAsWcN1ce1duKpPKkral1Lv1N5y7nw0nyDtyIbEjV9Dwv
+         0dQi0o+tL2nXuUIh09iU+ZV0YGj2BSjBL35n6CYuRzekuyp7TrbdFD1KfmB/pKGuHumP
+         sRzBDCjH5QpYC7YO5OI8KCl0DIroBch7aDZGArOT4ZgZjykzJMRfuj08El7vMKd9paFn
+         XVVw==
+X-Forwarded-Encrypted: i=1; AJvYcCX+cFSa6AI4arg+Ec+TPUOFaVKKaleo5Fkc1ns2wqI6Qm3kLkKsJIiihkl2699m+nneDJcOLCVlw1OKjt9cPNuw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQxDS/oJmAxD2A1o9coZHgtTcQMJnqG2TljNP3BUTKQj7VvFKb
+	NA6OgtuxdSCsjDEHKtuFzVWvpFppU6KF2sQtXLqZFe21ZPDJYzQ7kQMG
+X-Gm-Gg: AZuq6aK0Mm2Dl9PhFtZvUD54M3p1PVKxW1T7FOKr1NSU0ayrOIrJ+y18uNMewy1D6Cy
+	cX6Xw3jO997QvXex7Dld9jo3R+61Fe83zgWWeC0yeoN5SgZ0bfK/kL9HUzCn+jn2WiSbYGXODgn
+	+Cj56M4ZhrCWo2gybcdmfzc5FDPho5sjR5E9e98hbA2epWTlZGyctDZ7F6LSw7DOXhmw/W2FHQ5
+	/JeJyNaetWMLmnD9kl3qxo+bKfWGCVwEH7X79qLfZHm1ZJwruuIEIAhskD8wKe7m993C6WTA9ET
+	PBjLaojUOSK908r0Lwuf9PJenz8ug1fujxoqzS1Yf/unqtKeaVInKO2W3N8+F5wcAmLCdDl1DiL
+	FXMbr5zvWO0K8aBYBDcx0RrgZ/xQBkiuFENu5fqdeErNgKFCB8M/Q1v5kerdMeBTAT6V6h+v6b9
+	EHpL4dOQBb8jh4vdWCAxI65isagTKSrM/cY2ind/EGqXoFmxIL+Omr5nQc9zWC1HPXYxQi1KEHI
+	YTVltXdCxA=
+X-Received: by 2002:a17:902:ea01:b0:29a:5ce:b467 with SMTP id d9443c01a7336-2a870e0490bmr82121145ad.54.1769659538253;
+        Wed, 28 Jan 2026 20:05:38 -0800 (PST)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82379c22672sm3857721b3a.51.2026.01.28.20.05.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Jan 2026 20:05:37 -0800 (PST)
+From: Joey Lu <a0987203069@gmail.com>
+To: airlied@gmail.com,
+	simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com,
+	schung@nuvoton.com,
+	yclu4@nuvoton.com,
+	a0987203069@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/3] drm: nuvoton: Add MA35D1 display controller support
+Date: Thu, 29 Jan 2026 12:05:29 +0800
+Message-ID: <20260129040532.382693-1-a0987203069@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v10 05/16] arm64: ptrace: Move rseq_syscall() before
- audit_syscall_exit()
-Content-Language: en-US
-To: Kevin Brodsky <kevin.brodsky@arm.com>, Will Deacon <will@kernel.org>
-References: <20251222114737.1334364-1-ruanjinjie@huawei.com>
- <20251222114737.1334364-6-ruanjinjie@huawei.com>
- <aXe6W69Esd1NLEU8@willie-the-truck>
- <28e54f74-9b3d-4c3c-9172-ceb429e7fcbe@arm.com>
- <4891191c-d1c3-6985-c2ea-1b29deb8abe1@huawei.com>
- <0f6212c1-7034-42f4-ba77-10e9ec52a4f5@arm.com>
- <6ff5d366-3a2d-089b-5ac7-e40b81a8664c@huawei.com>
- <647fe97e-e8c1-464f-bbc7-39dac0bda6b2@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <647fe97e-e8c1-464f-bbc7-39dac0bda6b2@arm.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_195109_984575_538902A1 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20260128_200540_352927_DDD4B822 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,56 +106,63 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ldv@strace.io, song@kernel.org, linux-kselftest@vger.kernel.org, shuah@kernel.org, kees@kernel.org, linux-arm-kernel@lists.infradead.org, kmal@cock.li, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, charlie@rivosinc.com, pengcan@kylinos.cn, broonie@kernel.org, luto@kernel.org, tglx@linutronix.de, richard.weiyang@gmail.com, dvyukov@google.com, wad@chromium.org, oleg@redhat.com, linux-kernel@vger.kernel.org, liqiang01@kylinos.cn, akpm@linux-foundation.org, reddybalavignesh9979@gmail.com, macro@orcam.me.uk
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This is v2 of the Nuvoton MA35D1 DCU DRM driver series.
 
+v2:
+  Driver changes:
+  - Drop custom CRTC and plane properties and switch to core-supported ones
+  - Switch to memory-safe DRM-managed allocation helpers
+  - Fix several minor logic
+  - Fix W=1 build failure on non-ARM architectures
 
-On 2026/1/28 22:53, Kevin Brodsky wrote:
-> On 28/01/2026 02:09, Jinjie Ruan wrote:
->>
->> On 2026/1/27 23:06, Kevin Brodsky wrote:
->>> On 27/01/2026 12:34, Jinjie Ruan wrote:
->>>>> [...]
->>>>>
->>>>>>  I'm also concerned that rseq_debug_update_user_cs()
->>>>>> operates on instruction_pointer(regs) which is something that can be
->>>>>> chaned by ptrace.
->>>>> Isn't that true regardless of where rseq_syscall() is called on the
->>>>> syscall exit path, though?
->>>> My understanding is that if instruction_pointer(regs) is hijacked and
->>>> modified via ptrace at the syscall exit (ptrace_report_syscall_exit()),
->>>> this modification will not be observed by rseq. Specifically, in the
->>>> generic entry syscall exit path, rseq_syscall() is unable to detect such
->>>> a PC modification.
->>> Good point. So concretely that means that currently on arm64, one could
->>> make the rseq debug check pass/fail by using the syscall exit trap to
->>> modify PC. OTOH this is impossible with generic entry because the rseq
->>> check is performed first. I'm not sure this is a feature anyone has even
->>> noticed, but it is a user-visible change indeed.
->> After digging into the ptrace code, I found that ptrace does not modify
->> instruction_pointer(regs) on the syscall exit path; it only changes the
->> return value as below.
->> Therefore, if my understanding is correct, Will's concern does not apply
->> here.
->>
->> ptrace_set_syscall_info()
->>   -> ptrace_set_syscall_info_exit()
->>      -> syscall_set_return_value(child, regs, 0, rval)
-> 
-> I'm not following, how is that related to the call to
-> ptrace_report_syscall_exit()? That eventually results in a call to
-> ptrace_stop() (via ptrace_notify()), which synchronously causes the
-> tracee to sleep and allows the tracer to issue ptrace commands, e.g.
-> setting PC.
+  Device tree / bindings:
+  - Fix dt_binding_check errors in the YAML schema
+  - Update DTS/DTSI files to follow proper hierarchy and port modeling
 
-I realize I had a misunderstanding — PTRACE_SET_SYSCALL_INFO is only one
-possible ptrace command. What I actually tried was to modify regs->pc on
-the syscall return path using PTRACE_SETREGSET, and the result shows
-that I can indeed change regs->pc to make the tracee segment fault.
+Thanks for the review.
 
-> 
-> - Kevin
-> 
+Best regards,
+Joey Lu
+
+Joey Lu (3):
+  dt-bindings: display: nuvoton: add MA35D1 DCU binding
+  arm64: dts: nuvoton: ma35d1: add display controller support
+  drm/nuvoton: add MA35D1 display controller driver
+
+ .../bindings/display/nuvoton,ma35d1-dcu.yaml  |  73 +++
+ .../boot/dts/nuvoton/ma35d1-som-256m.dts      |  56 ++
+ arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       |  14 +
+ drivers/gpu/drm/Kconfig                       |   1 +
+ drivers/gpu/drm/Makefile                      |   1 +
+ drivers/gpu/drm/nuvoton/Kconfig               |  21 +
+ drivers/gpu/drm/nuvoton/Makefile              |   7 +
+ drivers/gpu/drm/nuvoton/ma35_crtc.c           | 372 +++++++++++
+ drivers/gpu/drm/nuvoton/ma35_crtc.h           |  67 ++
+ drivers/gpu/drm/nuvoton/ma35_drm.c            | 371 +++++++++++
+ drivers/gpu/drm/nuvoton/ma35_drm.h            |  48 ++
+ drivers/gpu/drm/nuvoton/ma35_interface.c      | 193 ++++++
+ drivers/gpu/drm/nuvoton/ma35_interface.h      |  30 +
+ drivers/gpu/drm/nuvoton/ma35_plane.c          | 603 ++++++++++++++++++
+ drivers/gpu/drm/nuvoton/ma35_plane.h          | 115 ++++
+ drivers/gpu/drm/nuvoton/ma35_regs.h           |  88 +++
+ 16 files changed, 2060 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/nuvoton,ma35d1-dcu.yaml
+ create mode 100644 drivers/gpu/drm/nuvoton/Kconfig
+ create mode 100644 drivers/gpu/drm/nuvoton/Makefile
+ create mode 100644 drivers/gpu/drm/nuvoton/ma35_crtc.c
+ create mode 100644 drivers/gpu/drm/nuvoton/ma35_crtc.h
+ create mode 100644 drivers/gpu/drm/nuvoton/ma35_drm.c
+ create mode 100644 drivers/gpu/drm/nuvoton/ma35_drm.h
+ create mode 100644 drivers/gpu/drm/nuvoton/ma35_interface.c
+ create mode 100644 drivers/gpu/drm/nuvoton/ma35_interface.h
+ create mode 100644 drivers/gpu/drm/nuvoton/ma35_plane.c
+ create mode 100644 drivers/gpu/drm/nuvoton/ma35_plane.h
+ create mode 100644 drivers/gpu/drm/nuvoton/ma35_regs.h
+
+-- 
+2.43.0
+
 
