@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C91D61017
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 13:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC859D61017
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 13:51:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U623dX4RFpkw20riF9BbOspWLI1Mth4SOSMFwzOgUzs=; b=v34n+ceFdJPjjMZ6VmHoPqhv/g
-	VS5gYTpb+GsYGeX/RaMQGN+oDBh9MGJuLmTa5G/ggC2nVbrREmPSILiaXOvN+WUZ8IYe6bunFL+Q9
-	qb37eexZHRLsbUz7AzU82TVxHnco3Rdnzklvrxu9tjbDFSiSIiQpAfveGFgBMcmbbSagM7U0Ec9ql
-	6EwULCzEh0GCiiZ/CvUANGVF+HQWlgIj8PQymWLefB/wW8ZJPjqvGnQKjJmrUVaSrA+HqUOlp3gan
-	XwyRhLrrg2U3nW336rIyyBR9FHEGlhYBz7lcVxbfvKs+XJ3n5nwX02KgZ+dlUDFY11XnnhU/jk1S2
-	q43exQ3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1lcXkV7KcZEtUSZxPr/UJgAxOsEp8lMqEuRz2Y1R0vE=; b=jCtTQxxQXPg4ugfgEQsg9wzAXq
+	u/dLCCA/vIzsrj6qp2ZNLUn2jIuPPxiLtUHwaJGxSxYnln/dHtGX4riCSX3db9+TkgFQ5efUctrBK
+	98haZdqyfpK32V1aQtkTP/AHZkrvvtGv4wgVslux8brZaG8l0OwaGQe66ZHmnroscZUR9gu1hlCRs
+	CgTTFZjp2+Wphcg2eNDoZtmyBZH+ivf7rIjuP6WP5kGgBcPzw9XgjHFcHsYiEcveApF0hdWhsgdGZ
+	O+b5z8ZzV8PR/GHvM20lMNIORA6eY7ci5e1G4flQIPznbWcSRHonAzmhIx+zGBgiopVc+eNb8npTo
+	D8kJhfKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlSPY-00000000B4y-0BXx;
-	Thu, 29 Jan 2026 13:50:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vlSR7-00000000BVX-03wd;
+	Thu, 29 Jan 2026 13:51:53 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlSPV-00000000B47-1PHy;
-	Thu, 29 Jan 2026 13:50:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 64A3760125;
-	Thu, 29 Jan 2026 13:50:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 173B4C116D0;
-	Thu, 29 Jan 2026 13:50:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769694612;
-	bh=njAphseulUjoK8AcV8JEhX+CD2myxOkOYR9RBZrz5cM=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=u0WZL1tkJowyLwckCyw8Rdp7Hy6l7Ju1AFUKkMjjazQl5IbCZcbdcuV/oL2Yu5tzE
-	 5odwCTVEMcKCeOEmantn7kbzk04mJ9R4n1q7T8l7bnuffpA+7TvrEjM+Lxkno51MYG
-	 pjw+bAgdwYflOmorrKAMV9vMbtUOM/fnkM/6efv8WU4pQqHD2HkfHnfa+P9ywrQ2Tf
-	 R5nVNq6uwI7irsKZBEviIYr99UCPoXDukVvmvRH9YyiuUBJDIDVKFewwVjzauAsEin
-	 2u8BwEcz1Eiux4WdFepqcB58psKEPMcxcK9lEfZILlEliWRV7cJ/mR1ugetoN2/oG1
-	 gSM3zG1+4bTAA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 4EB4B380CEC7;
-	Thu, 29 Jan 2026 13:50:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1vlSR4-00000000BTh-0k09;
+	Thu, 29 Jan 2026 13:51:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=1lcXkV7KcZEtUSZxPr/UJgAxOsEp8lMqEuRz2Y1R0vE=; b=hwVisHL7Uv8FLJ6eYfbkDJLMes
+	GBpeZ08yNuWS77zXJljq9XMAhSSFNHaHoei6AivyUM6YSNcq84R2uyvavYuxP7zKiT5ycYZo0dBuQ
+	FYliR8wtdTW7armfsbiZxETCMctIX5SocC+PdGwY/e92ftMUEia4kZKHjir/08z1Fnk3mDTPeGD6q
+	dKQlnS5gG450UOSdUTC8Hg5Kg858ej0EejX/vHVk7O6OqadCOKasEBuvar9VTs+V7NZjUn1HaYTS1
+	EAQWTr6cSKQg9+5R0gcUZZY9WRJA0KdhprDe6RY0e0kmn5suVKf0DEkKcUhOyhd5ODY/d1yyyO1E9
+	F7cjFp5A==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43926)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vlSQt-0000000008s-36KN;
+	Thu, 29 Jan 2026 13:51:39 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vlSQr-00000000822-21Fq;
+	Thu, 29 Jan 2026 13:51:37 +0000
+Date: Thu, 29 Jan 2026 13:51:37 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Vincent Guittot <vincent.guittot@linaro.org>, vkoul@kernel.org,
+	neil.armstrong@linaro.org
+Cc: Simon Horman <horms@kernel.org>, krzk+dt@kernel.org,
+	conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, s32@nxp.com,
+	p.zabel@pengutronix.de, ghennadi.procopciuc@nxp.com,
+	Ionut.Vicovan@nxp.com, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	Frank.li@nxp.com
+Subject: Re: [PATCH 2/4] phy: s32g: Add serdes subsystem phy
+Message-ID: <aXtl6eQ8zD_olTdc@shell.armlinux.org.uk>
+References: <20260126092159.815968-1-vincent.guittot@linaro.org>
+ <20260126092159.815968-3-vincent.guittot@linaro.org>
+ <aXsuRTZUUnw0kdzV@horms.kernel.org>
+ <CAKfTPtDfnpzq2CB-isVzvh1ZCWo7kit9KRJvVGoU1C3zZTgdXw@mail.gmail.com>
+ <aXtfVUb0eLwP4R28@shell.armlinux.org.uk>
+ <CAKfTPtCiJcNOdoddZN5N1dKHXfUJBe0=zeWfZ5uENoXDvbMnpQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v4] net: fix segmentation of forwarding fraglist GRO
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176969460511.2509271.18000962996568146768.git-patchwork-notify@kernel.org>
-Date: Thu, 29 Jan 2026 13:50:05 +0000
-References: <20260126152114.1211-1-jibin.zhang@mediatek.com>
-In-Reply-To: <20260126152114.1211-1-jibin.zhang@mediatek.com>
-To: Jibin Zhang <jibin.zhang@mediatek.com>
-Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
- martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
- yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
- sdf@fomichev.me, haoluo@google.com, jolsa@kernel.org, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- ncardwell@google.com, kuniyu@google.com, dsahern@kernel.org,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- bpf@vger.kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- wsd_upstream@mediatek.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAKfTPtCiJcNOdoddZN5N1dKHXfUJBe0=zeWfZ5uENoXDvbMnpQ@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260129_055150_215196_07C06960 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,34 +88,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Mon, 26 Jan 2026 23:21:11 +0800 you wrote:
-> This patch enhances GSO segment handling by properly checking
-> the SKB_GSO_DODGY flag for frag_list GSO packets, addressing
-> low throughput issues observed when a station accesses IPv4
-> servers via hotspots with an IPv6-only upstream interface.
+On Thu, Jan 29, 2026 at 02:36:01PM +0100, Vincent Guittot wrote:
+> On Thu, 29 Jan 2026 at 14:23, Russell King (Oracle)
+> <linux@armlinux.org.uk> wrote:
+> >
+> > On Thu, Jan 29, 2026 at 02:01:13PM +0100, Vincent Guittot wrote:
+> > > yes, the usual pattern is :
+> > > - phy_set_mode_ext()
+> > > - then phy_power_on()
+> > > but I can add an additional check
+> >
+> > Please read Documentation/driver-api/phy/phy.rst section "Order of API
+> > calls" which suggests phy_set_mode_ext() after phy_power_on().
 > 
-> Specifically, it fixes a bug in GSO segmentation when forwarding
-> GRO packets containing a frag_list. The function skb_segment_list
-> cannot correctly process GRO skbs that have been converted by XLAT,
-> since XLAT only translates the header of the head skb. Consequently,
-> skbs in the frag_list may remain untranslated, resulting in protocol
-> inconsistencies and reduced throughput.
-> 
-> [...]
+> Fair enough.
+> That being said, all pcie drivers  that use phy_set_mode_ext(), call
+> it before phy_power_on()
 
-Here is the summary with links:
-  - [v4] net: fix segmentation of forwarding fraglist GRO
-    https://git.kernel.org/netdev/net/c/426ca15c7f6c
+It looks like many ethernet drivers do the same, so I think maybe the
+generic PHY documentation is incorrect or misleading, or is expressing
+a preference that almost no one follows. Something for the generic PHY
+maintainers to look at and/or comment on.
 
-You are awesome, thank you!
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
