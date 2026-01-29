@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D6B2D46C15
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 00:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3FC5D46C01
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 00:57:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Hgi6zFxVInQ39JD7veTiZ//fyXHLUf6S1+mSwmi3eA=; b=SJ65P+Jp3Mqmp2TpTEc31lCEx8
-	tpmDoazU64gqQpq1zbAXx9drQF7DQWRUoKNvW6QC7A2W2oPVMbABuZ5MYO9Hln881RJsmEp6tSMOl
-	H5fLT8OwbqXwVjvHG7EUFU/yGlHv1okek8wHFtE/t8/L5/ytnKDFzPLdJdkfdRzsDewcsum3FQ8Ha
-	YZ+cKXoYkaubwyPHBvdnc5yiOa+m74k6Zh+9mJVen6Vla9g11iR8kuQMnyaZLZIfybNctCWLeel9o
-	acJJu8V3p5sl9nf6v4K8UkWig/oxNekvIiVZShoH4gAjQpVdm4t935OP/NzrgVJx6cQhs9A+RYM1+
-	jN4N7oGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZukGKueGp87OrsWwJYFUiCCf9dq8hTvBab+Jn9rxA6I=; b=UkHUiUgg7ukoWBSGcFKRpXpZMl
+	wZNDkhc1UlVrMEavyZ/cbo4O+HN4C23cuICkN0nMapRjHB9x8hhmqRIhK/3Nih0PEaokX6lWoH2qc
+	veXCTU/e3fgucduGocgcBBUmGEzX8dCGFqfG4ZYiQ7jCmg2fhyPrJ2ykvTvZ2Ui5CEaD9JBKAOVxM
+	EMNN/iM4fuvB0JHwK2hkuc4chgvtNC1YPKj4eIFpabnkikk91AXtpsMCJghLRQh+X4fCPVJTiA2eO
+	CHEtFUCs+YrXglhmsR2/vOXCpeUWyHhAhEoVCigzjY3abBJG7hfKo2rxBkQ5lC/hzx5ZKbCWe+IzB
+	vdIKVVhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlGBE-0000000GztL-1hXU;
-	Thu, 29 Jan 2026 00:46:40 +0000
-Received: from smtprelay0013.hostedemail.com ([216.40.44.13] helo=relay.hostedemail.com)
+	id 1vlGLI-0000000H0QN-0kLR;
+	Thu, 29 Jan 2026 00:57:04 +0000
+Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlGBC-0000000Gzsb-19Kz
+	id 1vlGLF-0000000H0Pm-1jJ6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 00:46:39 +0000
-Received: from omf05.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay03.hostedemail.com (Postfix) with ESMTP id 372E7BA563;
-	Thu, 29 Jan 2026 00:46:36 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf05.hostedemail.com (Postfix) with ESMTPA id 23DA12000D;
-	Thu, 29 Jan 2026 00:46:34 +0000 (UTC)
-Date: Wed, 28 Jan 2026 19:46:44 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Daniel Thompson <daniel@riscstar.com>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, Will Deacon <will@kernel.org>, Robin
- Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org, Joerg
- Roedel <jroedel@suse.de>
-Subject: Re: [PATCH v2] iommu: Fix NULL pointer deref when io_page_fault
- tracepoint fires
-Message-ID: <20260128194644.0c76eeb3@gandalf.local.home>
-In-Reply-To: <20260128-iommu-io_page_fault_null_fix-v2-1-de047be6dd3a@riscstar.com>
-References: <20260128-iommu-io_page_fault_null_fix-v2-1-de047be6dd3a@riscstar.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: zbnrqykkbsctq1xypty1uxryh3hi8pak
-X-Rspamd-Server: rspamout02
-X-Rspamd-Queue-Id: 23DA12000D
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX19mNQtqSQkXD3+IliWA9iQPxr0OnT5GTl8=
-X-HE-Tag: 1769647594-734317
-X-HE-Meta: U2FsdGVkX18MOrD3v8VfqWZtxIFDGANwb1LiocAuKBOLEhLP+uqW9c6+dxvNIFq+OEEPdjNlAHmX5fwOoUtV4xD0aXUWrxY5XwNRVli6aznBP9SD2jLx1Z0qHupPrFT2dTPJJ/bHAzElKVWmxv47VqQKG3qyI4PLR9abAohEDCXA3XFkv2sE3RQOVCLkEqKY6Dh2MQEVoo/7nydrv8m6s5ucbEWbvxJFmVU80f1x/PwJARS9FMEXlmBxs6T65y6h33QJYSJvbPLdcPFuaOOO4yHiAqi+05Ckbkb5YVIsGy5BHM67DPr4BgzMRgbG26xbopW6W979+xdtLz+pAgO/Dgz0ZLsy45Vc2k0LIGGBtTtOANTEqIwjvDhUPfOvHuGT8dxOP7YO/thpp/7ZXnGWV17GtGb8VlDxbPoR8TSc7B1lU7bL/XYow29uGStBEyrnCAmfv0kwzXKDPcqeATABVA==
+	Thu, 29 Jan 2026 00:57:02 +0000
+Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-b8d78d3fabfso121155766b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 16:56:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1769648218; x=1770253018; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ZukGKueGp87OrsWwJYFUiCCf9dq8hTvBab+Jn9rxA6I=;
+        b=YngeD8Yh4ail75mwVOkOZHU/9igESRnPFVxv1zHnE/kafBIUtwNaDX2FBpQjiWGLNa
+         xR0/SzcGM9TVi+uVMoZ05goCx4Bo+jZ7mAEINXHPif27AKs1q/2s/I+4IISgGMznX+kP
+         PGZK6Qks4WReBBhedZ0GhW1yTgXYmsxwhR0MpTY1wDRs5OPj//+3DC5WFgq2lhtVebQS
+         O3sBt0gGgyeqt/Gfv4wZCQycE7ui43OCgQmXAS23Pr92cP4KCBCrHPNCIeeMQ7PbAo3J
+         c4gHqj4ebW1Vbp+5BZFU0yMJc/AnAQ/Z1k0cKasjlufwc82g02rUip5d6vqKfA2qKw0v
+         Xavg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769648218; x=1770253018;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ZukGKueGp87OrsWwJYFUiCCf9dq8hTvBab+Jn9rxA6I=;
+        b=RhNl8TeyHzGsii/E3CgMPPskSIwRtL78S6JlCRfFhQpS3fmEC5HOgm6DyzJ1ek3nsp
+         /lIBWTW7uEmSBaRUlKT9myrViLi5CRr+BDNq0BBkiYcmEtkuEbFRRiDDblmCDFZtiJby
+         O3FdIiJB56rLsfWu06g3/vlsoxAR38Krv38KxXHx0b6cInA89ud1Z7QFgDTrz28PFbTf
+         9vnCeCI9tJppXO33KL+j8DiC9JaAcO59iOA3/Siw0PReGHQ4T7h0oYNLNbHfgxahtQZk
+         +ZFjwUnMCVF2DpzbBnMP6E7H7yIxq0p02qZjrba/VqC8L43IkZZ95+AsmvOWtmLLbtIb
+         Izmg==
+X-Forwarded-Encrypted: i=1; AJvYcCUNVou89AHk9hpO7KPuTwAGOGhnpWAuE+0poBWtn3vQ+KayDB/cLh0ueyUkZCH06KLIzI1HJMWWyrpg+Z0k+hOw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxgoP254WxmDcoGRkKCClOk4m94Pg8uhpafO2ssGT9L99qym19
+	yb75N6N7t1vxhTVhXOCJluo+HRlajXXQJZ4jUhZn8STVG3+BVWMAZ3xZxf/pK69LmzP9P25APmN
+	rvg==
+X-Received: from ejbbw17.prod.google.com ([2002:a17:906:c1d1:b0:b88:2156:436c])
+ (user=elver job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:3f8e:b0:b73:758c:c96f
+ with SMTP id a640c23a62f3a-b8dab3a41e3mr495095966b.52.1769648218454; Wed, 28
+ Jan 2026 16:56:58 -0800 (PST)
+Date: Thu, 29 Jan 2026 01:52:31 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.53.0.rc1.217.geba53bf80e-goog
+Message-ID: <20260129005645.747680-1-elver@google.com>
+Subject: [PATCH v2 0/3] arm64: Fixes for __READ_ONCE() with CONFIG_LTO=y
+From: Marco Elver <elver@google.com>
+To: elver@google.com, Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>
+Cc: Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Boqun Feng <boqun.feng@gmail.com>, Waiman Long <longman@redhat.com>, 
+	Bart Van Assche <bvanassche@acm.org>, llvm@lists.linux.dev, 
+	Catalin Marinas <catalin.marinas@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_164638_428232_FE4ED44D 
-X-CRM114-Status: GOOD (  23.24  )
+X-CRM114-CacheID: sfid-20260128_165701_509392_2F7EA944 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,60 +89,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+While investigating a Clang Context Analysis [1] false positive [2], I started
+to dig deeper into arm64's __READ_ONCE() implementation with LTO. That rabbit
+hole led me to find one critical bug with the current implementation (patch 1),
+and subtle improvements that then enabled me to fix the original false positive.
 
-Note, event changes go through the maintainer's tree where the events are
-used.
+Patch 1 fixes a bug where READ_ONCE() on types larger than 8 bytes (non-atomic
+fallback) incorrectly qualified the pointer rather than the pointee as volatile.
+This resulted in a lack of "once" semantics for large struct loads.
 
-But from a tracing POV:
+Patch 2 refactors the macro to use TYPEOF_UNQUAL and eliminates the ternary
+conditional.
 
-Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+Building on the refactor, patch 3 fixes the context analysis false positive, by
+helping its alias analysis "see through" the __READ_ONCE despite the inline asm.
 
--- Steve
+## Note on Alternative for Patch 3
 
+An alternative considered for the Context Analysis fix was introducing a helper
+function to redirect the pointer alias; specifically passing a pointer to
+const-pointer does not invalidate an alias either (casting away the const is a
+deliberate escape hatch, albeit somewhat unusual looking). This approach was
+slightly more verbose, so the simpler approach was chosen for now. It is
+preserved here for future reference in case we need it for something else:
 
-On Wed, 28 Jan 2026 15:48:01 +0000
-Daniel Thompson <daniel@riscstar.com> wrote:
+	static __always_inline void __set_pointer_opaque(void *const *dst, const void *val)
+	{
+	    *(void **)dst = (void *)val;
+	}
 
-> The arm-smmu driver is unable to allocate the blame for a page fault to
-> a specific device so it calls report_iommu_fault() with the dev argument
-> set to NULL. Normally this doesn't cause anything catastrophic but on a
-> system with the io_page_fault tracepoint enabled this results in a NULL
-> pointer deref (resulting in a fairly spectacular crash on the hardware
-> I'm currently working on).
-> 
-> Fix this by adding logic to the tracepoint to safely propagate NULL.
-> 
-> Fixes: f8f934c180f6 ("iommu/arm-smmu: Add support for driver IOMMU fault handlers")
-> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
-> ---
-> Changes in v2:
-> - Add a Fixes:. It points to the earliest point I can find where it becomes
->   possible for the tracepoint to be triggered with dev set to NULL.
-> - Link to v1: https://lore.kernel.org/r/20260116-iommu-io_page_fault_null_fix-v1-1-6c20c2e62987@riscstar.com
-> ---
->  include/trace/events/iommu.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/include/trace/events/iommu.h b/include/trace/events/iommu.h
-> index 373007e567cb827458a729b8200bbcc1b7d76912..1315193f13b8812ad4e29e6b0c0c66ca806ce08d 100644
-> --- a/include/trace/events/iommu.h
-> +++ b/include/trace/events/iommu.h
-> @@ -131,8 +131,8 @@ DECLARE_EVENT_CLASS(iommu_error,
->  	TP_ARGS(dev, iova, flags),
->  
->  	TP_STRUCT__entry(
-> -		__string(device, dev_name(dev))
-> -		__string(driver, dev_driver_string(dev))
-> +		__string(device, dev ? dev_name(dev) : NULL)
-> +		__string(driver, dev ? dev_driver_string(dev) : NULL)
->  		__field(u64, iova)
->  		__field(int, flags)
->  	),
-> 
-> ---
-> base-commit: 0f61b1860cc3f52aef9036d7235ed1f017632193
-> change-id: 20260116-iommu-io_page_fault_null_fix-f81b4e8b5423
-> 
-> Best regards,
+	...
+	__set_pointer_opaque((void *const *)&__ret, &__u.__val);
+	...
 
+[1] https://docs.kernel.org/next/dev-tools/context-analysis.html
+[2] https://lore.kernel.org/all/202601221040.TeM0ihff-lkp@intel.com/
+
+---
+
+v2:
+* Add __rwonce_typeof_unqual() as fallback for old compilers.
+
+v1: https://lore.kernel.org/all/20260126002936.2676435-1-elver@google.com/
+
+Marco Elver (3):
+  arm64: Fix non-atomic __READ_ONCE() with CONFIG_LTO=y
+  arm64: Optimize __READ_ONCE() with CONFIG_LTO=y
+  arm64, compiler-context-analysis: Permit alias analysis through
+    __READ_ONCE() with CONFIG_LTO=y
+
+ arch/arm64/include/asm/rwonce.h | 29 ++++++++++++++++++++++++-----
+ 1 file changed, 24 insertions(+), 5 deletions(-)
+
+-- 
+2.53.0.rc1.217.geba53bf80e-goog
 
