@@ -4,105 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C213AD73E80
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 17:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D4CD73E80
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 17:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C9PI9Qi8HDlLbV57o548904J5pG00v1lKuCCnBvJ6co=; b=Cs40aWfkehY7VER7OwTRLpSQOG
-	muWF3LH2Bce1cBARWY8gROBbOsPykO//Z+5x65vwi3UeWD0NXjypKocOIGvV2L1HTym33h/yOjqjq
-	/aotKVHLEY0omvbRLyfwDodm6eutS9tSV0T0WQ1qoqwsxyp7ZPqP2gqMheqd6WTE0Gbjxk14rSlBg
-	z9YKMGcTeStSzwmFJXboBKvj6hycp8EjTUBqG+EZuMpiSWO8qkbpq8WiW+aSr/6Cw923T0ycbVyrM
-	AGd932ZCQC4OUHMBAIGSNTbRfzlrczEFF6uXT2MPN3iBz/T6x78WN1tkmHy2WZqgxIEiFfjYBjNv3
-	tioOomJw==;
+	bh=WRWTn9WjaJpGDaPTV3k16HVcqk+QVcQ5+MB8Ni7azvc=; b=FM0NuGO7o3ktmt/WPOPYb8QqCs
+	cmJbTrToOtzfr7vr2MDrLnIBYBJPhmdkS0anW13BG1FRS+o23t7N3aSMdae7kxfViiigUNwSefsU5
+	awcdnPPZhffa8PC2OENmJKxpLjzHLpghZ3HzhmsJReuWiuStbk/Wc4mSvwNK+OGZm8ZcOSV+rwWbw
+	HurlkPGlTiKFdfweboA9hQMtJ0RFYA9CGuu1eJWXn3SUrixoS893X6iAZgb5kYxli02MWHd0x9gnp
+	9kNy5t0c8lHq2wk2aKy6K5SyZkZV/vIs0f1WU9s5BPNKDNsgKSNHCaoN+3QEqVYOSYVKw8CquTzPH
+	03uXGLQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlW0O-00000000SPn-15jz;
-	Thu, 29 Jan 2026 17:40:32 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1vlW1V-00000000SeA-2fPf;
+	Thu, 29 Jan 2026 17:41:41 +0000
+Received: from mail-westeuropeazon11011055.outbound.protection.outlook.com ([52.101.70.55] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlW0L-00000000SOy-2LIX
+	id 1vlW1T-00000000SdG-4C13
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 17:40:30 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-5033b64256dso4411cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 09:40:29 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769708423; cv=none;
-        d=google.com; s=arc-20240605;
-        b=RMxAZSkkGjmI3rMvEbenXJD7OLMEza7oYcHkSh/mqwsWiHNuUcqdPESsx8bVWaP/hp
-         GDvUirzT9Om+voHIx5XMdqtGpqwl91N39lSZ0BREehF1u4Qrc2FRw67ZYZyewJXGahQ/
-         TxnNOy6WW4BS2B5wAcT9ncJ8X96J34by/qVqvTGgq2mKI8Ns3NybGgtmlzUitVQ0SSXb
-         ASPBVrQKreDPoBjiLE/vVIHW3+hSdjO1JkbCK6wTTxtb/V0nJ1KbPXNK8SNgCghN34FM
-         W6YqL9dbBFYqPl8gVsCQbRksxpZ6CvzQ/z/AauJwQFH2gbMH9LtTlZy7KovUKr/yufoP
-         3UsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=C9PI9Qi8HDlLbV57o548904J5pG00v1lKuCCnBvJ6co=;
-        fh=sDnjyNhNpEvqSwNiF3jN1gb6YRJy+1ioMln/CU5yKAo=;
-        b=JTNdu7l7mlBUs46YgUnbcrJfxVFloA2FKiOgRK2APhj4kld0EMKY3wYo7IE6aoIoyv
-         pWt7O4sKIDMim0jxx1jVCpgPgu4DQ4r1QcC6RTU2hbkVR4uthgX48lNfvRRWVZevS5ZX
-         FNZU2QtCHbECuvBoj6OdX0XjtqgOko7Xh0COxRpMzmXkYtaH4R67mlNOzuydNKnGQQT/
-         sSXeNazOXTzTM3WRQsAFM2gBd9Rr+0V1RoO5vj5MNmMue9MtCdDvtNVeOQD7yU/R+FEg
-         IB7jNZ6zdC7aXcSjzIeI9WCVZhUAXRAA5VAosirr9vfCPRLtgYlZIB3BwRv6dVTqFOw6
-         Z/WQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769708423; x=1770313223; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=C9PI9Qi8HDlLbV57o548904J5pG00v1lKuCCnBvJ6co=;
-        b=FaOymd5xzdmvqo1wka/IpKLdd6t7/zn5xcnBrYvsSMRupiiEb7GBUcNXUBFsyuaK5j
-         YLvpcJj5hOdRHxFgw/L+6AqolPRYUclTvKIuVEiLqbVuzeAVF5j/Ed1yGYSCgoGXJfpt
-         RXm8TtCADnTBKDsyrCOQkbnK5cTVFw8cXHiZ/aUIKYT264cKlQXnuWQsNmbP7FjTynaP
-         +r6ucBSAI2MeYy9K6qwkyYoY/lj1H08c92TmRGc97rVSPWHCFLOsxtKPTfcKr0HYtSYR
-         9eUXjTn/tfGiVwUgZC++cDAiBkZsQ63N5GHbOjZxxJYfA+ZjZYYqCChqruo+C1EvNA+T
-         eRdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769708423; x=1770313223;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=C9PI9Qi8HDlLbV57o548904J5pG00v1lKuCCnBvJ6co=;
-        b=fX4Hpy48E6GiyEedVOlXohRWGPVVn1KmnplvQj3gU1nrYR9GcZ/1VLv/Awv6IGhKI0
-         FmfCCXdprQJdgLRCVO4CNUwjvUG2yJFB+10s6+Ql8o4fD2ZAhoByfsO2gwIp/gn9Q2d8
-         4AxWG3hPdp2dmj6PwBtapagzFIVJgmx0Cx77cIMaT6nyTGGtG9CdWhmz1TTEcEc5VMjV
-         UffXmlwIRjG/UPJT3s5QERYzfhoxpFDiukx0acTjaUud4vkGY33KtMqZwIIpN53lKKZr
-         80ecRFKPKefip20vnr0dWzNFec192w/JDSnuWQ2zj51oDnog9UMO9Vlr5aTIMUIWHIJ0
-         uL7A==
-X-Forwarded-Encrypted: i=1; AJvYcCVl1cCHKTFBNapNgQ++fwSeGfbMHE7Loa5G6LvUCId5O0T+fAD1Y6c/uQvF0M4ive0xupHCyrbq1IU0i/NZtBcA@lists.infradead.org
-X-Gm-Message-State: AOJu0YySduTtJ4SsV/2rjsZX3n7+mo257FVLhNgrCfrwlYWQd5kaMI1O
-	hyOUMbVSqK28pJlFgCNvOjA+7zLX5nSpuWHUHDsfaTl17hUHb3nCoyJ3kRNl3GjJ+vbsEI4ZCV2
-	JF+yq74ap4u0TgNwjXbBw3i7flzrZu6g6vz0WhjKF
-X-Gm-Gg: AZuq6aI29aWTx/t3cy81kGOUGcLdRqgtHQioJsG0HSon/SV1ow1GOUZtcVFvGxqLV+G
-	+XSmAP7Unm4VcZ+VHgMmblz6fVh+iwWDSvagkJd5JnAow3TVouD6BQCKD5VZbnM8sCnfJ+lxH/7
-	SQwSDQeRif9Rrk4TT3FtxSP4F85cThlzhtwY4djZQuGS3RUIjG2hKJMyYbtB5VGRlzKIpEPWcpI
-	803gwI105hX9y2ZhmlUTqOBoiBBo0WK7+q1bhYEl4m41x8QaTH1aL47YLHq2yZAoxdjgkKT
-X-Received: by 2002:ac8:5a43:0:b0:4f1:9c6e:cf1c with SMTP id
- d75a77b69052e-504310b4cecmr11694721cf.17.1769708422703; Thu, 29 Jan 2026
- 09:40:22 -0800 (PST)
+	Thu, 29 Jan 2026 17:41:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cl8k0h3d7WAXnqkkY6clq8cE9UlrWwNIHwyg7Wwp3rpXJRVanOqnxH1wWSKZXEzLI8CNbnFesmXWoThbfur31Dx4HQ/ILdgAaYh3U+NBexgk0t80+NmXWb2byW9DLj0DdaN59ZSkALrciJhpqGC1zxCCUKEk9HwKP7y2p7ylmc3VF43XO2tlI7k/NLQH+wTnkFWMXXvU1VyJDc6pEcQ7+lc9ACD76eyXpqM0bs74q0GyGv5KH0HtlKDAtCRYiUvgDLzZ6zj4tQwI7of9b/9ZigF40OFV1mdu10IKNfjQpkrH8xCRXdsXwPSvOk+2lQsEefwITAZB+uj4reCYyCAdLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WRWTn9WjaJpGDaPTV3k16HVcqk+QVcQ5+MB8Ni7azvc=;
+ b=oou6Q9Y4IXypTe1/YLdc50yEWLiLtdR8IFs2/+Nf3NFrcKbtA83gD40GZivx1qYplQNUyu88Qyw4uRKikQbfDgFFZ13GO1eBX5MZMsm/mDftjdsV9WkzGLoJbJE9knS+PC7GcugmboatW5qQABthQrD5Z6EfjciqydnFQP7PR/0N/WJRj+imDg35tckEYjqkuCDieB2SdLicgBn1OjhRzJXwCT61yHEm8Ha+6f+roBSrfJnClwXjPQJ1rKEBiLYYgw1aCo0DcAIFGGXRMNiA02kXc5bekXD5O/aeCpVKTx36cJjJI8y4Hor2HyDPuddnnr0r+z/0dJtqwz0pJPOYZA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WRWTn9WjaJpGDaPTV3k16HVcqk+QVcQ5+MB8Ni7azvc=;
+ b=LPaQqVuCxVE4RUrq5cMIGXryU/yDQW7Xx81Vld95TaZA3M0Foup0iWv/NUeZlXeAWe2OlUdHFa0f19TdAeM8pMsCU6I0f5FrEa9hHCIDl4QBRh56FNruQDzBRsAM94aC9uETa5ijlNm/AfCMLbWxxhybkAgfS3VhpyUoMNwtMwrguD0Ep9DFCfCiHSLAEF/BncnYgJLR3t1fokW8AXNYb1FLIdV8jXkjwO0cz2G0JGfcesdgvFn4Pxy9/0G9noH5dS8vuDJ28/+wdFy18qvuILPYkifBtIiPh6oRjoeAsByWjJ3KlXcMQ2EaGYWF68VAgCt5YS6vA/MPk9TyXaUNcw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AS8PR04MB8134.eurprd04.prod.outlook.com (2603:10a6:20b:3f1::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Thu, 29 Jan
+ 2026 17:41:36 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9520.005; Thu, 29 Jan 2026
+ 17:41:36 +0000
+Date: Thu, 29 Jan 2026 12:41:27 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: ziniu.wang_1@nxp.com
+Cc: shawnguo@kernel.org, s.hauer@pengutronix.de, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, kernel@pengutronix.de,
+	festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] arm64: dts: imx93-9x9-qsb: change usdhc tuning
+ step for eMMC and SD
+Message-ID: <aXubxxvWzQpbOjkd@lizhi-Precision-Tower-5810>
+References: <20260129080439.2910727-1-ziniu.wang_1@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260129080439.2910727-1-ziniu.wang_1@nxp.com>
+X-ClientProxiedBy: BYAPR05CA0011.namprd05.prod.outlook.com
+ (2603:10b6:a03:c0::24) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-References: <20260126121655.1641736-1-maz@kernel.org> <20260126121655.1641736-14-maz@kernel.org>
- <CA+EHjTw_4WJgiS7vTUprvJOjdNrnW=sjhazCkU9eQW8BUYuZZw@mail.gmail.com> <86a4xwbakk.wl-maz@kernel.org>
-In-Reply-To: <86a4xwbakk.wl-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Thu, 29 Jan 2026 17:39:45 +0000
-X-Gm-Features: AZwV_QgS_ySXSV2SHoit8uIkCqZLoVSe3rfHiqo21RvB3vOxbqAI8dmocE5xOnU
-Message-ID: <CA+EHjTyf5Zhb2JFbg6jv1opCX=GV9_PMNiMo=0fCc9cYxzEAiw@mail.gmail.com>
-Subject: Re: [PATCH 13/20] KVM: arm64: Move RESx into individual register descriptors
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB8134:EE_
+X-MS-Office365-Filtering-Correlation-Id: fb42697a-3866-4dc1-e488-08de5f5da662
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|52116014|1800799024|7416014|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ULHJ/wAnm4YYTg07kGEgs/dVL0SZPoLEP++/fwX1VCX5CsJ38GUYaU3qvnlR?=
+ =?us-ascii?Q?MnF0qD1mWf6HAyrvLH8My/zQzvk9YdEjUVp5Se5GH961IAhx7PMN3tev7MoQ?=
+ =?us-ascii?Q?5k1Y89Lbv15yYtbcgLfqlCXxD692jXY9Zpeoa2axJkG7+Lkxb2YotcbLzVAv?=
+ =?us-ascii?Q?+U+HOtvytljo+5l6YjhYRFhppM9SUlm4AJIlX22IG4vtKHNuZxawFhzO6I8/?=
+ =?us-ascii?Q?ijdPSrOPsvRO0HhkL/0UdCdcD9vj0wsgwJI3w39susijUTRvZutD2LZ+Bw4C?=
+ =?us-ascii?Q?bvDmgq84oc4CuLi10fD2Qhb5DrIJii0hVORdAcrqHQaYwQ91Z818eAFq2q0w?=
+ =?us-ascii?Q?AoKL8yVsZxBNBhGZvRyX2Ceyohx4n+vOrkWOLPBN7oQaf4xemknHMrySsIRB?=
+ =?us-ascii?Q?dxxk67Q8du4QjjQH17Xmtn+5fMV8pRi0QIjQSYqSwyfOC9ntyVtl6sD3eFVl?=
+ =?us-ascii?Q?FVf30wQDgIrRA33HMebtfsZ8TLHbvCzheuhgNk/k20N17RMVZQchJ6IEuKnD?=
+ =?us-ascii?Q?WviQA2pvRGhO0Bf+JudM0YFqD/IG035w55Nc1DsjamwC0a8RxIkZ9vTXCOiX?=
+ =?us-ascii?Q?26Ar+7gslRRXDi6QaOQvd1FBLEV9kNkjQw8Az2xuqaMA0pR193rE0G6tg/ki?=
+ =?us-ascii?Q?pirL7cAwsgeG1fxfIgJcWCM7d3eJBtKPUr7ed169jVqG4fBYh4XIlMiEGs6b?=
+ =?us-ascii?Q?LrL+crOSe37ud4qavWYm/LI9K/e3BT1v0laonu+aFCOeMyOvmLl+aDExrOPl?=
+ =?us-ascii?Q?P5izatq9y6yu0A4lsPjjWQW7wH2Vqc6Lftedn8bxUvtT/WxnUZNZY4gK15Od?=
+ =?us-ascii?Q?rKaEkzMXiaXuiBPFZoSAoQKPOD5DkyWY6EGQADxZV1Lsw/SHd0J2sAKsiiUe?=
+ =?us-ascii?Q?kXlj03bhjnAv/eMAQyCp3p8uGT4DeTbE3Z6NY+xvfhoa7un8WJ6zeWeIikHE?=
+ =?us-ascii?Q?sp6oiELcUmvOcZIrA9Ttt/ruNQXzOYnOysDe959NT6GVXL4pFUDqCqAQXzoI?=
+ =?us-ascii?Q?JSOp6Eimsok9CEmXti/vO3v6gFD5jIQAV6842cjeah5rDHf4QnYouwKmgoah?=
+ =?us-ascii?Q?gUebK6sKgsVpUDUR9d01LkwIOqtrmFc6BcYU7wPOFqe6HDjgR4Oj8noQAOHA?=
+ =?us-ascii?Q?UTi0mRTwcSjWzunaD4bnXUiElFm0d6eQhgH8WMwQUR6S4NT6PaT3W93YuaAb?=
+ =?us-ascii?Q?2OVwzvp68S4sE6BRx/x4DGfJPBJfMZqUsyHtvpl/b2N78yw0O5m+CMw80md6?=
+ =?us-ascii?Q?uxnbO0Xnb7Fk3F3EWnlTaMPr7ncOtNCSRYUepRco5r9c1E+7eRG6sGTZcDCO?=
+ =?us-ascii?Q?8JDYmiXvPoner62mJ+wPZ8wivMWaDWVmhFZ+MFo3LZN4o/Ll+7Us/1vD5ome?=
+ =?us-ascii?Q?+zTPuaw7ujPM0SjZcbTh12CsdxkF9m7iXKfnJuziGKIfrnbxsCHFTlPOZcW+?=
+ =?us-ascii?Q?JBDqpEy6OyXbjO+qHOob6+3XNlkjOmElC706k/HDbGUxLYKYqABPW2dZ5Wf0?=
+ =?us-ascii?Q?sTjaKsDoR+FcgTJ+IcNlT1Zl9xVh0aU7Vn85Yg5BarLQb7UeUDyMZiYuh7/W?=
+ =?us-ascii?Q?gWQn+r7JEbpY/0wA4D9LJLSSDlgBnNgF8gW5AiBKNlj185HbiCVJgMoJ4Lnf?=
+ =?us-ascii?Q?lElFlskvIolZxsOO2xcfgCE=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(52116014)(1800799024)(7416014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9dF5XnH5anDyBsvhnaJj8R601zZaUSuNlrjsdHPDEE5ZHfjRIAtIUGB9Q9kO?=
+ =?us-ascii?Q?of0t3JCHuTS9549rQMSzQlUn5LmOzA+jpSGAfmCJ5sAEzfG8Prbau97uUp2b?=
+ =?us-ascii?Q?Nxr4VW0i/eCgMeFEys95f0wrO/CAHVkbYm/h9YP8lZOi5FbtkKiNwmYCJ4XL?=
+ =?us-ascii?Q?q9QPiCw8/RDDL+HUVML2olHpWhKJ+PadiuNbFi13V5DqRHxZZEbRELKNl+Mp?=
+ =?us-ascii?Q?QKQtyH2UirDG66NAlCyPpw9c1CJds+9BKwSbFoTgrFl+b+l6xBEsZ6IHcdCR?=
+ =?us-ascii?Q?g4EnkS2/av8zXGiIiTZk0qOQQueKxh5S6FrDgiVeMBZmwT0mUaQNloZTFLZn?=
+ =?us-ascii?Q?uwdPKeLHIaoaz1YHOdLV2a1gkwXksbYcvleeYRnRFxpbpHLAMv6ghkd6qwpZ?=
+ =?us-ascii?Q?CPWJpuHbOANpumWo2eOi4QH6ErubPgHmrVGW0pF7Tdzi/3GMJ/a44Y7IOIJ6?=
+ =?us-ascii?Q?Td3JYM2XP6oNAlcKGOwjoCIJ46QaUlygbrI+fiM4c1dQfnzgKPglnzoJ91y/?=
+ =?us-ascii?Q?XBQG5vGWihP2NL34wQgGJ75PSF+KqNTijHNfSFRc/XhHRnFsUgb5MpviWuEO?=
+ =?us-ascii?Q?zMP/HXu0Z/735l76SBGgnLadW5a+taYL+rcL96sR1ULwzzd3TyiUpRSiTZ+K?=
+ =?us-ascii?Q?fL0kCTH75fb8BDmr+GwIcctUYD/Iztk7lZHj/mqU+k1ZV6Ththk6iXhlkFt9?=
+ =?us-ascii?Q?GJQOp+fU0jArqwhb4xmVvhjqY4OhjrsAVHG02EO3l41e7x1L4EqZ/MN76ff/?=
+ =?us-ascii?Q?tF0BbR4wOZjWqLlI4zbpKhFDmdMrV2vMTsjc59/Oa6E03ddH9DU3ZTFXaLTb?=
+ =?us-ascii?Q?XKGbRaCorN7SmScsKY+HHh0U3gvlBvSXMlzEbTNKJKpsNwu1m7Rg5/ImKNd1?=
+ =?us-ascii?Q?OpFOy2BYUE750nIbziZFrfQg5lz6UEm6rJBBjkdF/8MwuQ37EZCpaNSwqBZH?=
+ =?us-ascii?Q?1Jz6cyqEoqivFccwH0Ydm9Y3WF75YQIKmguvFpDOYeOOraMTd9hNcbm7fh9z?=
+ =?us-ascii?Q?aePssZ/iKVsh72JH77f0r4ytOu+2CSKLSbr7kOv+1IJF9QV+TbM5FxUPEfS2?=
+ =?us-ascii?Q?ANGHCWEyBDVhn9jFkVMdJqEDnKR9YTdAAv/VGRtvNZH7Oz7vvbX+cPcVa8V1?=
+ =?us-ascii?Q?NpxznPtCIQvb4LarXXb2eXaNZ5SxyTblqcYNa7GtgUTTiiHugl47ObzxR9+U?=
+ =?us-ascii?Q?l2Ds+muIL58Ysr5GRMUcMgvgKRBLhVpR4JYEEcXB91uQ4Gcx6gffjFoQ+TUl?=
+ =?us-ascii?Q?iHE2jVgQhh9LVcqmTvk6TnCNJ8LOkbYpNNHX8rBJbCXQhGzQXuAx/TNIwngM?=
+ =?us-ascii?Q?5Y2LY3TrZSPp6fU2No2gr2kpOJ+5Cx0G53gcX3BdZ1F/AQdUb16HiLc+Jhho?=
+ =?us-ascii?Q?5UsYgUcKgWsMIm2mh1VwM55Dfeggc2o5t2HAig4p5+QybXvWDzqhgqA4XmNf?=
+ =?us-ascii?Q?whAu712A/zTI2kN8Fv9TTMIXvGpmqsPmXqTjUF7YnNm+0HuDYKYXMTpnqLbk?=
+ =?us-ascii?Q?4TOf5MNdSjRnRndhUYBAPAP3kDTfcAuUgsW5Ul4B4VO3YIOBbXRTYgw3Kd2i?=
+ =?us-ascii?Q?eMzKFgwliWU5xEiKR9LEDrvTpEP6MbJJwnBf6osa2FgFc3JELOjp2pUrUEaX?=
+ =?us-ascii?Q?d964guhT7mhrA3ccnftDOXuNUAUkpJ5s18rCZBE2Hd0+him0r1r17dk+/USd?=
+ =?us-ascii?Q?AH+3DqN0t+fMsrPxDCy2uOYDtiwKjetMbvPcU1/p+xuvjJVUzZw/eM0ZjFkc?=
+ =?us-ascii?Q?q7/ZcAk/Og=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fb42697a-3866-4dc1-e488-08de5f5da662
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2026 17:41:36.4736
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: i042Tq3Dsnpleo04FUeX9N3R01ubz/VbYCnANa50UwuneHLh3DRGdaGJIRUzkX0tXMjtYF77VlZy8e31aPLb2Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8134
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_094029_704769_9FF9D891 
-X-CRM114-Status: GOOD (  27.61  )
+X-CRM114-CacheID: sfid-20260129_094140_041296_80B67FB3 
+X-CRM114-Status: GOOD (  20.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,103 +164,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-...
-> > I see what you're doing here, but it took me a while to get it and
-> > convince myself that there aren't any bugs (my self couldn't find any
-> > bugs, but I wouldn't trust him that much). You already introduce a new
-> > flag, FORCE_RESx. Why not just check that directly in the
-> > compute_resx_bits() loop, before the check for CALL_FUNC?
-> >
-> > + if (map[i].flags & FORCE_RESx)
-> > +     match = false;
-> > + else if (map[i].flags & CALL_FUNC)
-> > ...
-> >
-> > The way it is now, to understand FORCE_RES0, you must trace a flag, a
-> > macro expansion, and a function pointer, just to set a boolean to
-> > false.
+On Thu, Jan 29, 2026 at 04:04:37PM +0800, ziniu.wang_1@nxp.com wrote:
+> From: Luke Wang <ziniu.wang_1@nxp.com>
 >
-> With that scheme, you'd write something like:
+> During system resume, the following errors occurred:
 >
-> +#define FORCE_RES0(m)          NEEDS_FEAT_FLAG(m, FORCE_RESx)
+>   [  430.638625] mmc1: error -84 writing Cache Enable bit
+>   [  430.643618] mmc1: error -84 doing runtime resume
 >
-> This construct would need a new __NEEDS_FEAT_0() macro that doesn't
-> take any argument other than flags. Something like below (untested).
+> For eMMC and SD, there are two tuning pass windows and the gap between
+> those two windows may only have one cell. If tuning step > 1, the gap may
+> just be skipped and host assumes those two windows as a continuous
+> windows. This will cause a wrong delay cell near the gap to be selected.
 >
->         M.
-
-LGTM. Not tested either. I plan to test the series once I'm done reviewing it.
-
-Thanks,
-/fuad
-
+> Set the tuning step to 1 to avoid selecting the wrong delay cell.
 >
-> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-> index 9485e1f2dc0b7..364bdd1e5be51 100644
-> --- a/arch/arm64/kvm/config.c
-> +++ b/arch/arm64/kvm/config.c
-> @@ -79,6 +79,12 @@ struct reg_feat_map_desc {
->                 .match = (fun),                         \
->         }
+> For SDIO, the gap is sufficiently large, so the default tuning step does
+> not cause this issue.
 >
-> +#define __NEEDS_FEAT_0(m, f, w, ...)                   \
-> +       {                                               \
-> +               .w      = (m),                          \
-> +               .flags = (f),                           \
-> +       }
-> +
->  #define __NEEDS_FEAT_FLAG(m, f, w, ...)                        \
->         CONCATENATE(__NEEDS_FEAT_, COUNT_ARGS(__VA_ARGS__))(m, f, w, __VA_ARGS__)
+> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
+> ---
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>  arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts | 2 ++
+>  1 file changed, 2 insertions(+)
 >
-> @@ -95,9 +101,8 @@ struct reg_feat_map_desc {
->  #define NEEDS_FEAT(m, ...)     NEEDS_FEAT_FLAG(m, 0, __VA_ARGS__)
->
->  /* Declare fixed RESx bits */
-> -#define FORCE_RES0(m)          NEEDS_FEAT_FLAG(m, FORCE_RESx, enforce_resx)
-> -#define FORCE_RES1(m)          NEEDS_FEAT_FLAG(m, FORCE_RESx | AS_RES1, \
-> -                                               enforce_resx)
-> +#define FORCE_RES0(m)          NEEDS_FEAT_FLAG(m, FORCE_RESx)
-> +#define FORCE_RES1(m)          NEEDS_FEAT_FLAG(m, FORCE_RESx | AS_RES1)
->
->  /*
->   * Declare the dependency between a non-FGT register, a set of
-> @@ -221,15 +226,6 @@ struct reg_feat_map_desc {
->  #define FEAT_HCX               ID_AA64MMFR1_EL1, HCX, IMP
->  #define FEAT_S2PIE             ID_AA64MMFR3_EL1, S2PIE, IMP
->
-> -static bool enforce_resx(struct kvm *kvm)
-> -{
-> -       /*
-> -        * Returning false here means that the RESx bits will be always
-> -        * addded to the fixed set bit. Yes, this is counter-intuitive.
-> -        */
-> -       return false;
-> -}
-> -
->  static bool not_feat_aa64el3(struct kvm *kvm)
->  {
->         return !kvm_has_feat(kvm, FEAT_AA64EL3);
-> @@ -996,7 +992,7 @@ static const struct reg_bits_to_feat_map hcr_feat_map[] = {
->         NEEDS_FEAT(HCR_EL2_TWEDEL       |
->                    HCR_EL2_TWEDEn,
->                    FEAT_TWED),
-> -       NEEDS_FEAT_FLAG(HCR_EL2_E2H, RES1_WHEN_E2H1, enforce_resx),
-> +       NEEDS_FEAT_FLAG(HCR_EL2_E2H, RES1_WHEN_E2H1 | FORCE_RESx),
->         FORCE_RES0(HCR_EL2_RES0),
->         FORCE_RES1(HCR_EL2_RES1),
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
+> index 0852067eab2c..197c8f8b7f66 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
+> @@ -507,6 +507,7 @@ &usdhc1 {
+>  	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
+>  	bus-width = <8>;
+>  	non-removable;
+> +	fsl,tuning-step = <1>;
+>  	status = "okay";
 >  };
-> @@ -1362,7 +1358,9 @@ struct resx compute_resx_bits(struct kvm *kvm,
->                 if (map[i].flags & exclude)
->                         continue;
 >
-> -               if (map[i].flags & CALL_FUNC)
-> +               if (map[i].flags & FORCE_RESx)
-> +                       match = false;
-> +               else if (map[i].flags & CALL_FUNC)
->                         match = map[i].match(kvm);
->                 else
->                         match = idreg_feat_match(kvm, &map[i]);
+> @@ -519,6 +520,7 @@ &usdhc2 {
+>  	vmmc-supply = <&reg_usdhc2_vmmc>;
+>  	bus-width = <4>;
+>  	no-mmc;
+> +	fsl,tuning-step = <1>;
+>  	status = "okay";
+>  };
 >
 > --
-> Without deviation from the norm, progress is not possible.
+> 2.34.1
+>
 
