@@ -4,71 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FE85D73EA7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 23:28:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24135D73EA7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 23:30:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UhCu407YH2DDr6XKYTsQHpo36aN3JhJSJarOYduqEyc=; b=w0+zDRqlqG+PArc5HoMJTiJ5m7
-	2vqWp6HKEacuku+DfUfPADVERMdtWbtyzdRfdHiVi6Mss1rOlAa5Ftq4Hgqz393UKAArstaycOvsD
-	pirvuUJAVCYTWdB8M5gYA67pNRpGM5e4qVvv+kh8MiS30r5ej/bDZ2nsej6QldWp7YaIKzc7t4Q48
-	/vS1U7Vk0VGT97xV4LLturp8u+b+lGmD/P2VqxvBld0NqgP2oCm4NElOxESFPdIbYjUBnJlI+0+zr
-	idQQ327v2QYf+s7xqMjW25u2Zs+TOOutpzZ2nDkO/GBT/Ntb3PYZwD4thavcJeOstVFL8uC0l8coP
-	xfe0EBpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tApPpTDpzWHbB1pWe+VsiMG5gGDF6f3x7Nan38A1rbo=; b=3pbEcR6J9nLKLHumAw5cLSyYuN
+	BKsP97bCsqkPbfmCF/Ok1G/WNknWvZR9mSyTgLjn96h0zUJnaritacanrnvFM8AoGbQ2DhQQyfSCC
+	QS1Bnqq3bluLdFOjW4KOL7LfMDGg6I53xkanae7W4t8KTq5h9JIbdEYhzZli7IVB9YWiO0X/RPVRn
+	OSjzC8cYTvizw/rvb6YJ1OCszrkqAPrsrdF4LnTz38BWh5Zm48zjJbSkyJlYqfOVTcRkfxXlgcYYB
+	spzp/c05iG7L3Qo4WJt0UZ1a+DxbDo0zO8X8shOs/bWIcqCTtpaaGk4YpZZviWis7VIpOsdxHKZRP
+	i1QB1bUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlbR2-00000000me7-43Qd;
-	Thu, 29 Jan 2026 23:28:24 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1vlbSZ-00000000moN-3psH;
+	Thu, 29 Jan 2026 23:29:59 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlbR0-00000000mdo-2qJE
+	id 1vlbSX-00000000mo1-40aX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 23:28:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769729302; x=1801265302;
-  h=date:from:to:cc:subject:message-id;
-  bh=qGXVXP5r4WDcEVmr8HEtR4mMmHt6ygz225iGMnawgYw=;
-  b=EKNLCyaE8nvqEg+erZaUFSxW9DGxxbZYGB/0cVASitirl5VfGMuhvLAI
-   CCcPuicWUbYy2jb5d5hf7z8bePmqPn72b5rQEuwPZ7xWEGupPCz/VqEgR
-   1aIQ2myJUpsvmWOCXUDc2WzcX9llSxQCFN70OUvNHTDjcE3HQ8MSTr2CY
-   HBwxcjjpAmK/iXHlebkHSHznOP9+cLc2h7mQUnUmeqQvJTGnLe3arW3it
-   ExvfW9Q/8bMEs/0A5HkJFl8blPExs1NDYfsGBHJbKgDt3uTAv7Q7jHWcD
-   4J6xqMHMxsADmq3/fIj/c69zUnmOllDEzStgrfDqWR+KljnhvCNCBxhlK
-   A==;
-X-CSE-ConnectionGUID: gHRkMs9+RiKVtpbQ7tCkdw==
-X-CSE-MsgGUID: dIbZfiBTTf2xJ44VPLxzkA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11686"; a="88554215"
-X-IronPort-AV: E=Sophos;i="6.21,261,1763452800"; 
-   d="scan'208";a="88554215"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jan 2026 15:28:22 -0800
-X-CSE-ConnectionGUID: 9/ogOhxKTwyRdHr3jv8oTQ==
-X-CSE-MsgGUID: CHkJiXElQHCmNGUH0A5iXA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,261,1763452800"; 
-   d="scan'208";a="231618182"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 29 Jan 2026 15:28:20 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vlbQw-00000000c0K-1eUT;
-	Thu, 29 Jan 2026 23:28:18 +0000
-Date: Fri, 30 Jan 2026 07:27:40 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/defconfig] BUILD SUCCESS
- 6f3f1d83e511c8dbf36021805070caf08498641e
-Message-ID: <202601300735.Cto6mJxZ-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Thu, 29 Jan 2026 23:29:59 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-81e8b1bdf0cso908240b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 15:29:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nexthop.ai; s=google; t=1769729396; x=1770334196; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tApPpTDpzWHbB1pWe+VsiMG5gGDF6f3x7Nan38A1rbo=;
+        b=AwjnvswnD3Hcv7KQVI54rtAhCGcUchGgQQ/JcFHR3KjtaXS29YS8ea12Pq0hGsbxUH
+         IDn3wEI43SqpJkd8PSJYaxYG3puxwywY6LFl5L9mIxqz8idYp+vlZoQ1+BMAnX8p4PRe
+         lfW3OetxxOPu23l5Qt7B8cActM0/s2lIcgqK5dvQPDRJFSQx1SkACZTMtgDbYsoauTPi
+         iq4LXxfCcHP1iH55m4ME+sYmq6WdZTKkxToy0QJfq0w1jCcjsf6RbQSdGGgtZeGGXhb3
+         WQSJu3IX3GSWZqGkFwSPZqJaVss95SxIhPl7a63H4ohKGqtMoB6X65tFuDkuiIvonnkq
+         ScaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769729396; x=1770334196;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=tApPpTDpzWHbB1pWe+VsiMG5gGDF6f3x7Nan38A1rbo=;
+        b=V3TGVxOI5T4Tw/NHwLSjIXysgL9WZoxn9ENoqFMYWpGEUL7Kybm9gC/ey+UEDX+PQP
+         AePVAlLqi1OayTXOK0wsbwBUumkICUEB9c5QgKX/59Xfycyzlz2ZIkDoCdXQGIHj62WB
+         4/6btf/FNsSzVz22vev7Jq3/3VGIXktOPWzxZ8CuzIpN6HY0UhecM4gNuwU7gMHiM9z0
+         UBxmJZIamXJmProH6uozIXf3AETKbI84tc9Tk1iJ8i10AY1L1QZRYMmVngjjQHFqioTC
+         laiiq616E2VLkqAJ+6vljr6dq968ihKHx0yeCKKdcfHWNJTTT8WbY1Lphe8P8Fl4HHhw
+         iNfg==
+X-Forwarded-Encrypted: i=1; AJvYcCXansnm50fpzDwPEAUfE+T7JYkNTU9l7fcDXALhUILbyQJF9EjBEUNf9jXCsrMAXJMZvFQ7faLOqmtqYQjnE/oT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz86eoHPwkaWNmBZ/B0+FNWf6h1Fn817afYcfceiS0wi03Hczs8
+	p+eGBIlHn34/jdJpzYG04NtHVHLsU2hEw7d0/4WjdbZBYg0JgWNJnShi26e/aMy3s7g=
+X-Gm-Gg: AZuq6aK5LZ6eBjZsPbfnKPS3P4SzWgEg1PUefZEZKrSs7lY/65QkSQBRCgpUpvd6jOK
+	52C7bPwHnL12/yN0EzOZVyI/FheV6gL5BxwscQeUob3yCdHsmNXeofSLQmJbvwnqwwLRLehGOag
+	DSMbl5Y8P9bowevnqZp3rZHB6QCQ7V6gdZMhbnKD2odpcXCgFS+6pSv9Rh5chp+QsAEGt/sSz+A
+	6+OgVycqEx1fIRxhk5Sid3xIy1mxRBvQ/wHwstfzWDd1wPSvcLfeqRxnvQiZrnapoqLrzlV6I6t
+	gfv4MsBgZc3PRIW6LyyFqxxn1t0YV+lbV1Fto0pWKFyVG/tjLbq5oeRM+CemCkD50dVGj7d0SnK
+	2dwtzB2OEOhg3+Lg5NAb1KAp+t/Tzl2rHDaHHSwDGMap1EE6pb9eUrta5M2WXW/gGx6hzFRDe4T
+	1fAph5Mm9dPZpREv/j58V3+Gdq15FR/1/wFMHKPOex+xf5nkxrJAND0PGJD4LLVpzERFx6HHs=
+X-Received: by 2002:a05:6a00:7584:b0:81b:13c5:b6b2 with SMTP id d2e1a72fcca58-823aa71186emr720685b3a.33.1769729396526;
+        Thu, 29 Jan 2026 15:29:56 -0800 (PST)
+Received: from smtpclient.apple (c-24-16-26-157.hsd1.wa.comcast.net. [24.16.26.157])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82379c64b4esm6363964b3a.69.2026.01.29.15.29.55
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 29 Jan 2026 15:29:56 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
+Subject: Re: [PATCH v7 1/6] i2c: xiic: skip input clock setup on non-OF
+ systems
+From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+In-Reply-To: <ab9dc191-59c1-40a9-bbf1-e6c082af128a@lunn.ch>
+Date: Thu, 29 Jan 2026 15:29:45 -0800
+Cc: Michal Simek <michal.simek@amd.com>,
+ Andi Shyti <andi.shyti@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Andy Shevchenko <andriy.shevchenko@intel.com>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <2428D892-89F9-4013-9681-AD9BD76B0874@nexthop.ai>
+References: <20260129-i2c-xiic-v7-0-727e434897ef@nexthop.ai>
+ <20260129-i2c-xiic-v7-1-727e434897ef@nexthop.ai>
+ <ab9dc191-59c1-40a9-bbf1-e6c082af128a@lunn.ch>
+To: Andrew Lunn <andrew@lunn.ch>
+X-Mailer: Apple Mail (2.3864.300.41.1.7)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_152822_730939_32ED56F0 
-X-CRM114-Status: UNSURE (   5.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260129_152958_004096_FAF1C467 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,178 +111,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/defconfig
-branch HEAD: 6f3f1d83e511c8dbf36021805070caf08498641e  Merge tag 'mtk-defconfig-for-v6.20' of https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux into soc/defconfig
 
-elapsed time: 817m
 
-configs tested: 158
-configs skipped: 144
+> On Jan 29, 2026, at 2:43=E2=80=AFPM, Andrew Lunn <andrew@lunn.ch> =
+wrote:
+>=20
+> On Thu, Jan 29, 2026 at 09:43:13PM +0000, Abdurrahman Hussain via B4 =
+Relay wrote:
+>> From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+>>=20
+>> The xiic driver supports operation without explicit clock =
+configuration
+>> when clocks cannot be specified via firmware, such as on ACPI-based
+>> systems.
+>=20
+> Are you saying it is technically impossible to specify a clock in
+> ACPI?
+>=20
+> Maybe a more accurate would be:
+>=20
+> The xiic driver supports operation without explicit clock
+> configuration when the clocks are not specified via firmware, such as
+> when the ACPI tables are missing the description of the clocks.
+>=20
+> Andrew
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+Actually, ACPI (since 6.5) added a ClockInput() macro that can be added =
+to
+_CRS of a device node. The ACPI subsystem in kernel could parse these =
+and
+convert into proper clocks integrated with the CCF. But, AFAIK, this =
+idea was
+rejected in the past. So, technically, it's the kernel that lacks =
+support on
+ACPI systems.
 
-tested configs:
-alpha                             allnoconfig    gcc-15.2.0
-alpha                            allyesconfig    gcc-15.2.0
-alpha                               defconfig    gcc-15.2.0
-arc                              allmodconfig    clang-16
-arc                               allnoconfig    gcc-15.2.0
-arc                              allyesconfig    clang-22
-arc                                 defconfig    gcc-15.2.0
-arc                   randconfig-001-20260130    clang-17
-arc                   randconfig-002-20260130    clang-17
-arm                               allnoconfig    clang-22
-arm                               allnoconfig    gcc-15.2.0
-arm                              allyesconfig    clang-16
-arm                              allyesconfig    gcc-15.2.0
-arm                                 defconfig    gcc-15.2.0
-arm                      jornada720_defconfig    clang-22
-arm                          moxart_defconfig    clang-22
-arm                   randconfig-001-20260130    clang-17
-arm                   randconfig-002-20260130    clang-17
-arm                   randconfig-003-20260130    clang-17
-arm                   randconfig-004-20260130    clang-17
-arm                           stm32_defconfig    clang-22
-arm64                            allmodconfig    clang-19
-arm64                            allmodconfig    clang-22
-arm64                             allnoconfig    gcc-15.2.0
-arm64                               defconfig    gcc-15.2.0
-arm64                 randconfig-001-20260129    gcc-10.5.0
-arm64                 randconfig-001-20260130    gcc-8.5.0
-arm64                 randconfig-002-20260129    clang-22
-arm64                 randconfig-002-20260130    gcc-8.5.0
-arm64                 randconfig-003-20260129    clang-22
-arm64                 randconfig-003-20260130    gcc-8.5.0
-arm64                 randconfig-004-20260129    clang-19
-arm64                 randconfig-004-20260130    gcc-8.5.0
-csky                             allmodconfig    gcc-15.2.0
-csky                              allnoconfig    gcc-15.2.0
-csky                                defconfig    gcc-15.2.0
-csky                  randconfig-001-20260130    gcc-8.5.0
-csky                  randconfig-002-20260130    gcc-8.5.0
-hexagon                          allmodconfig    gcc-15.2.0
-hexagon                           allnoconfig    gcc-15.2.0
-hexagon                             defconfig    gcc-15.2.0
-hexagon               randconfig-001-20260129    clang-22
-hexagon               randconfig-002-20260129    clang-22
-i386                              allnoconfig    gcc-15.2.0
-i386        buildonly-randconfig-001-20260129    clang-20
-i386        buildonly-randconfig-002-20260129    clang-20
-i386        buildonly-randconfig-003-20260129    clang-20
-i386        buildonly-randconfig-004-20260129    clang-20
-i386        buildonly-randconfig-005-20260129    clang-20
-i386        buildonly-randconfig-006-20260129    clang-20
-i386                                defconfig    gcc-15.2.0
-i386                  randconfig-011-20260130    clang-20
-i386                  randconfig-012-20260130    clang-20
-i386                  randconfig-013-20260130    clang-20
-i386                  randconfig-014-20260130    clang-20
-i386                  randconfig-015-20260130    clang-20
-i386                  randconfig-016-20260130    clang-20
-i386                  randconfig-017-20260130    clang-20
-loongarch                        allmodconfig    clang-22
-loongarch                         allnoconfig    gcc-15.2.0
-loongarch                           defconfig    clang-19
-loongarch             randconfig-001-20260129    clang-22
-loongarch             randconfig-002-20260129    clang-22
-m68k                             allmodconfig    gcc-15.2.0
-m68k                              allnoconfig    gcc-15.2.0
-m68k                             allyesconfig    clang-16
-m68k                                defconfig    clang-19
-microblaze                        allnoconfig    gcc-15.2.0
-microblaze                       allyesconfig    gcc-15.2.0
-microblaze                          defconfig    clang-19
-mips                             allmodconfig    gcc-15.2.0
-mips                              allnoconfig    gcc-15.2.0
-mips                             allyesconfig    gcc-15.2.0
-mips                           jazz_defconfig    clang-22
-nios2                            allmodconfig    clang-22
-nios2                             allnoconfig    clang-22
-nios2                               defconfig    clang-19
-nios2                 randconfig-001-20260129    clang-22
-nios2                 randconfig-002-20260129    clang-22
-openrisc                         allmodconfig    clang-22
-openrisc                          allnoconfig    clang-22
-openrisc                            defconfig    gcc-15.2.0
-parisc                           allmodconfig    gcc-15.2.0
-parisc                            allnoconfig    clang-22
-parisc                              defconfig    gcc-15.2.0
-parisc                randconfig-001-20260130    gcc-8.5.0
-parisc                randconfig-002-20260130    gcc-8.5.0
-parisc64                            defconfig    clang-19
-powerpc                          allmodconfig    gcc-15.2.0
-powerpc                           allnoconfig    clang-22
-powerpc                     ksi8560_defconfig    clang-22
-powerpc               randconfig-001-20260130    gcc-8.5.0
-powerpc               randconfig-002-20260130    gcc-8.5.0
-powerpc                 xes_mpc85xx_defconfig    clang-22
-powerpc64             randconfig-001-20260130    gcc-8.5.0
-powerpc64             randconfig-002-20260130    gcc-8.5.0
-riscv                            allmodconfig    clang-22
-riscv                             allnoconfig    clang-22
-riscv                             allnoconfig    gcc-15.2.0
-riscv                            allyesconfig    clang-16
-riscv                               defconfig    clang-22
-riscv                               defconfig    gcc-15.2.0
-riscv                 randconfig-001-20260129    gcc-15.2.0
-riscv                 randconfig-001-20260130    clang-22
-riscv                 randconfig-002-20260129    clang-22
-riscv                 randconfig-002-20260130    clang-22
-s390                              allnoconfig    clang-22
-s390                             allyesconfig    gcc-15.2.0
-s390                                defconfig    gcc-15.2.0
-s390                  randconfig-001-20260130    clang-22
-s390                  randconfig-002-20260130    clang-22
-sh                               allmodconfig    gcc-15.2.0
-sh                                allnoconfig    clang-22
-sh                                  defconfig    gcc-14
-sh                    randconfig-001-20260130    clang-22
-sh                    randconfig-002-20260130    clang-22
-sh                          rsk7269_defconfig    clang-22
-sparc                             allnoconfig    clang-22
-sparc                               defconfig    gcc-15.2.0
-sparc                 randconfig-001-20260130    clang-22
-sparc                 randconfig-002-20260130    clang-22
-sparc                       sparc32_defconfig    clang-22
-sparc64                          allmodconfig    clang-22
-sparc64                             defconfig    gcc-14
-sparc64               randconfig-001-20260130    clang-22
-sparc64               randconfig-002-20260130    clang-22
-um                                allnoconfig    clang-22
-um                               allyesconfig    gcc-15.2.0
-um                                  defconfig    gcc-14
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20260130    clang-22
-um                    randconfig-002-20260130    clang-22
-um                           x86_64_defconfig    gcc-14
-x86_64                            allnoconfig    clang-22
-x86_64      buildonly-randconfig-001-20260130    clang-20
-x86_64      buildonly-randconfig-002-20260130    clang-20
-x86_64      buildonly-randconfig-003-20260130    clang-20
-x86_64      buildonly-randconfig-004-20260130    clang-20
-x86_64      buildonly-randconfig-005-20260130    clang-20
-x86_64      buildonly-randconfig-006-20260130    clang-20
-x86_64                              defconfig    gcc-14
-x86_64                                  kexec    clang-20
-x86_64                randconfig-001-20260130    clang-20
-x86_64                randconfig-002-20260130    clang-20
-x86_64                randconfig-003-20260130    clang-20
-x86_64                randconfig-004-20260130    clang-20
-x86_64                randconfig-005-20260130    clang-20
-x86_64                randconfig-006-20260130    clang-20
-x86_64                               rhel-9.4    clang-20
-x86_64                           rhel-9.4-bpf    gcc-14
-x86_64                          rhel-9.4-func    clang-20
-x86_64                    rhel-9.4-kselftests    clang-20
-x86_64                         rhel-9.4-kunit    gcc-14
-x86_64                           rhel-9.4-ltp    gcc-14
-xtensa                            allnoconfig    clang-22
-xtensa                           allyesconfig    clang-22
-xtensa                randconfig-001-20260130    clang-22
-xtensa                randconfig-002-20260130    clang-22
+What about this wording then:
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+The xiic driver supports operation without explicit clock configuration =
+when
+the clocks specified via firmware are ignored, such as on ACPI systems.
+
+Abdurrahman=
 
