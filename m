@@ -4,67 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C358D73E83
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 18:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F588D73E84
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 18:49:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JUdHyZNOq5E/k+pnx6vME/sDIS6E4tKtCMxQPQQlKyE=; b=HsHRZRb+xZDx8kRD0i5S3Zh1Zh
-	xAAb1p6neL1jka34LP5VbdBWbkugxoP1SulxtC7jeNU+hCForvThBA2UuQfmUFxiRHOW5rIIBEIuE
-	k/5q7PfRdV3WRTregO/DLSYN28OeldbW8DsQXinpIrphsAQyUXzRdoEsOKQPHbLR9yqv8L/Edf/Vo
-	x6XX6xSrkppgflQFi/kaYQT+9MW7f6ameGBUYTglRRg7jZ0ESF8Ae3rdwYAz2oLbIlmj0YQHk44yB
-	tjxDOK59Ku9Yg2HDKoZKgX/7vK4Ct6uTzkwW5lZnR7HhetW0AcrqCfsxOyxw0p1hEjkJFgb9Bq2Jz
-	DbbN2n3A==;
+	bh=trmUs+UxTvREa99FHJklDD6MIeC9TJ3AE3H8lhjUofA=; b=X6OG392ODu2DFLZfFSCAeprXrw
+	ZZZ4qT3B4h2tV8+zS5qup6tRSH7DgHVmUae8DUnWx+mx8+2dfhxQHue953MfV2EK8sLvWlDSF7uJm
+	mLr0fO271j6/RFiPsJXGalJekyMVl2BZEqXGJW29Zh/w+7KTqldv0aXb2HP+Xm/yWcMVOiWPom7k9
+	PNVcmI3k2xCaHYGx9vdVGN4WjWe4uA/h4e7za+ANfHp7PZGeKnkxjUWnKMP3/uO1ImMlIMOadkCzB
+	8kE10qev//r+y2fhmDprE16CbMi/2g62XR17GLtHhGSaFQefi+pBUMVdgXGo/RiHHbgwmw1KItRrF
+	gbdgtT7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlX2E-00000000Wur-35bM;
-	Thu, 29 Jan 2026 18:46:30 +0000
+	id 1vlX4c-00000000X1h-0pqu;
+	Thu, 29 Jan 2026 18:48:58 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlX2D-00000000Wul-2gY7
+	id 1vlX4a-00000000X1Y-00Gf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 18:46:29 +0000
+	Thu, 29 Jan 2026 18:48:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 628C260125;
-	Thu, 29 Jan 2026 18:46:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52281C4CEF7;
-	Thu, 29 Jan 2026 18:46:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 71B0B60125;
+	Thu, 29 Jan 2026 18:48:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F5ECC4CEF7;
+	Thu, 29 Jan 2026 18:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769712388;
-	bh=/XmRd677K7t4nA7lfrF7vsZ6+myUyYCrAjhaJX3oWyE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bRB+hfczSZAnFS0bS27/N5bOqxNsJ50x9GCCuznWE/6tU06LEeBRX+qiMeCdfu0/A
-	 1ew0Igg3KxiBoHN54GuF3J+ZVys7Myrb6bob/C20vsRzHS+WF+u2+6HsTMoXMgnwSU
-	 Q+2QkgW76b7Bv3ywFleWWnkXIxISpcwCgKAEE8JWY3b/6KNy4HmPPoNlqWOgSAi1xQ
-	 EP24wGoUW10v3N82bKQ8Zj45pcgrWT4h8GHeSFf7Mt7lYE51aX2UgBurjv2qCBWTeo
-	 yVJSd2JcDVc36tvXANcw8R6TxoTTIxrm8LcwnJhB/D0rS7FuMJEr8rn2RXe05x5f38
-	 n53L1W6ZCoJ4Q==
-Date: Thu, 29 Jan 2026 18:46:23 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Sean Anderson <sean.anderson@linux.dev>
-Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Liam Girdwood <lgirdwood@gmail.com>, linux-sound@vger.kernel.org,
-	Jaroslav Kysela <perex@perex.cz>, linux-kernel@vger.kernel.org,
+	s=k20201202; t=1769712535;
+	bh=LUYBJJ3lyDfHxOh1C1isUaHVHRqXOl1euZswCzoh/5Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=dMjgQdwzQoA1Jbom8FiLnA8jIzHd1e5VrhfcrERSmABIaGsxDi6xSYWLFXTk8ldI8
+	 b+D36Oj9UTwRaO9bWRfLXZxpWWdB/8BkBLhfUhGbCITh8Lnsu4xGiTC27/zUVQadQ9
+	 kD38fkRSP48UEUGZhUZo60xBacKZJt0WbGvoNpuFK7z4pV2Edl98lrKUVdkhFMO+7e
+	 LYkf4j0q95KGTB3+cx8BeTZz8WW48pAT0VUfRFv5stMzSCWAFVbWLklCI1CyYnng7R
+	 XoH/pklZOaaYUB0MeL0Ptl94YRpXB8Aig/QGPgubp6NKsFb0n1jbICrUf829UU0GAQ
+	 yheTI/bAMUkUA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vlX4W-00000006r7k-0y5v;
+	Thu, 29 Jan 2026 18:48:52 +0000
+Date: Thu, 29 Jan 2026 18:48:51 +0000
+Message-ID: <867bt0b6gc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Leonardo Bras <leo.bras@arm.com>
+Cc: Tian Zheng <zhengtian10@huawei.com>,
+	oliver.upton@linux.dev,
+	catalin.marinas@arm.com,
+	corbet@lwn.net,
+	pbonzini@redhat.com,
+	will@kernel.org,
+	linux-kernel@vger.kernel.org,
+	yuzenghui@huawei.com,
+	wangzhou1@hisilicon.com,
+	yezhenyu2@huawei.com,
+	xiexiangyou@huawei.com,
+	zhengchuan@huawei.com,
+	linuxarm@huawei.com,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Michal Simek <michal.simek@amd.com>, Takashi Iwai <tiwai@suse.com>
-Subject: Re: [PATCH 2/2] ASoC: xilinx: xlnx_i2s: Discover parameters from
- registers
-Message-ID: <06b3d7e0-27b5-433c-85db-23e4c5ef5472@sirena.org.uk>
-References: <20260129172315.3871602-1-sean.anderson@linux.dev>
- <20260129172315.3871602-3-sean.anderson@linux.dev>
- <700e4e67-a2ed-4b37-a00b-303bbc5ee6cd@sirena.org.uk>
- <a95d7feb-4d94-4b25-be96-c7c367342c19@linux.dev>
- <a17602f1-537e-46e6-a85d-8a005a0443a2@sirena.org.uk>
- <21a738e6-6585-4479-b797-f8b17df91aed@linux.dev>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="WDImneD7x8BAel2Y"
-Content-Disposition: inline
-In-Reply-To: <21a738e6-6585-4479-b797-f8b17df91aed@linux.dev>
-X-Cookie: You have taken yourself too seriously.
+	linux-doc@vger.kernel.org,
+	suzuki.poulose@arm.com
+Subject: Re: [PATCH v2 2/5] KVM: arm64: Support set the DBM attr during memory abort
+In-Reply-To: <aXuSsVKtXBcffzo2@devkitleo>
+References: <20251121092342.3393318-1-zhengtian10@huawei.com>
+	<20251121092342.3393318-3-zhengtian10@huawei.com>
+	<aXuSsVKtXBcffzo2@devkitleo>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: leo.bras@arm.com, zhengtian10@huawei.com, oliver.upton@linux.dev, catalin.marinas@arm.com, corbet@lwn.net, pbonzini@redhat.com, will@kernel.org, linux-kernel@vger.kernel.org, yuzenghui@huawei.com, wangzhou1@hisilicon.com, yezhenyu2@huawei.com, xiexiangyou@huawei.com, zhengchuan@huawei.com, linuxarm@huawei.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, suzuki.poulose@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,64 +99,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 29 Jan 2026 17:02:41 +0000,
+Leonardo Bras <leo.bras@arm.com> wrote:
+> 
+> On Fri, Nov 21, 2025 at 05:23:39PM +0800, Tian Zheng wrote:
+> > From: eillon <yezhenyu2@huawei.com>
+> > 
+> > Add DBM support to automatically promote write-clean pages to
+> > write-dirty, preventing users from being trapped in EL2 due to
+> > missing write permissions.
+> > 
+> > Since the DBM attribute was introduced in ARMv8.1 and remains
+> > optional in later architecture revisions, including ARMv9.5.
+> > 
+> > Support set the DBM attr during user_mem_abort().
+> > 
+> > Signed-off-by: eillon <yezhenyu2@huawei.com>
+> > Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+> > ---
+> >  arch/arm64/include/asm/kvm_pgtable.h | 4 ++++
+> >  arch/arm64/kvm/hyp/pgtable.c         | 6 ++++++
+> >  2 files changed, 10 insertions(+)
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> > index 2888b5d03757..2fa24953d1a6 100644
+> > --- a/arch/arm64/include/asm/kvm_pgtable.h
+> > +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> > @@ -91,6 +91,8 @@ typedef u64 kvm_pte_t;
+> > 
+> >  #define KVM_PTE_LEAF_ATTR_HI_S2_XN	BIT(54)
+> > 
+> > +#define KVM_PTE_LEAF_ATTR_HI_S2_DBM	BIT(51)
+> > +
+> >  #define KVM_PTE_LEAF_ATTR_HI_S1_GP	BIT(50)
+> > 
+> >  #define KVM_PTE_LEAF_ATTR_S2_PERMS	(KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R | \
+> > @@ -245,6 +247,7 @@ enum kvm_pgtable_stage2_flags {
+> >   * @KVM_PGTABLE_PROT_R:		Read permission.
+> >   * @KVM_PGTABLE_PROT_DEVICE:	Device attributes.
+> >   * @KVM_PGTABLE_PROT_NORMAL_NC:	Normal noncacheable attributes.
+> > + * @KVM_PGTABLE_PROT_DBM:	Dirty bit management attribute.
+> >   * @KVM_PGTABLE_PROT_SW0:	Software bit 0.
+> >   * @KVM_PGTABLE_PROT_SW1:	Software bit 1.
+> >   * @KVM_PGTABLE_PROT_SW2:	Software bit 2.
+> > @@ -257,6 +260,7 @@ enum kvm_pgtable_prot {
+> > 
+> >  	KVM_PGTABLE_PROT_DEVICE			= BIT(3),
+> >  	KVM_PGTABLE_PROT_NORMAL_NC		= BIT(4),
+> > +	KVM_PGTABLE_PROT_DBM			= BIT(5),
+> > 
+> >  	KVM_PGTABLE_PROT_SW0			= BIT(55),
+> >  	KVM_PGTABLE_PROT_SW1			= BIT(56),
+> > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> > index c351b4abd5db..ce41c6924ebe 100644
+> > --- a/arch/arm64/kvm/hyp/pgtable.c
+> > +++ b/arch/arm64/kvm/hyp/pgtable.c
+> > @@ -694,6 +694,9 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
+> >  	if (prot & KVM_PGTABLE_PROT_W)
+> >  		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
+> > 
+> > +	if (prot & KVM_PGTABLE_PROT_DBM)
+> > +		attr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
+> > +
+> >  	if (!kvm_lpa2_is_enabled())
+> >  		attr |= FIELD_PREP(KVM_PTE_LEAF_ATTR_LO_S2_SH, sh);
+> > 
+> > @@ -1303,6 +1306,9 @@ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
+> >  	if (prot & KVM_PGTABLE_PROT_W)
+> >  		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
+> > 
+> > +	if (prot & KVM_PGTABLE_PROT_DBM)
+> > +		set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
+> > +
+> >  	if (prot & KVM_PGTABLE_PROT_X)
+> >  		clr |= KVM_PTE_LEAF_ATTR_HI_S2_XN;
+> > 
+> 
+> 
+> Hi Tian,
+> 
+> I was re-reading this series while planning the other feature I am working 
+> on top of this one.
+> 
+> This patch, IMHO, is unrelated to the HDBSS feature.
+> I get that HDBSS feature needs this bit being set in the page descriptor
+> but it was not introduced in this feature.
+> 
+> It was actually introduced in HAFDBS.
+> 
+> So maybe it's worth to split this series in:
+> - Enable HAFDBS for KVM, and
 
---WDImneD7x8BAel2Y
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+TBH, just enabling the dirty bit at S2 is pretty pointless for KVM. It
+would require scanning the S2 PTs looking for a dirty bit, and
+transfer that to whatever userspace is using, be it dirty bitmap or
+ring.
 
-On Thu, Jan 29, 2026 at 01:17:45PM -0500, Sean Anderson wrote:
-> On 1/29/26 13:09, Mark Brown wrote:
+It has been tried before, and it was absolutely disgusting. So let's
+not enable this standalone, this is a dead end. It only makes sense
+with HDBSS (that's why we have this extension the first place).
 
-> >> - Driver authors tend to use them even when there are hardware registe=
-rs
-> >>   available with the same information, as Xilinx has not always been
-> >>   consistent in adding such registers.
+Thanks,
 
-> > I'm not sure I follow your second point - driver authors tend to use
-> > what? =20
+	M.
 
-> Authors look at the devicetree node and see something like=20
-
-> and go "Ah, there are the properties I need." On some Xilinx cores this
-> is the only way to discover certain properties, so people have gotten into
-> the habit of using them even when these properties can be read from the
-> device itself.
-
-Oh.  If the properties are there it's reasonable and sensible to use
-them, them being redundant is a concern when specifying the binding but
-once things are there any discrepency should usually be resolved in
-favour of the binding.
-
-> >> I am not aware of any errata regarding incorrect generation of
-> >> properties for this device or cases where the number of channels or bit
-> >> depth was incorrect.
-
-> > I'd still rather see the properties get used if present, worst case
-> > they're redundant best case we avoid regressing a currently working
-> > system.  The code is already there, it just needs tweaking to make parse
-> > failures non-fatal.
-
-> I would rather remove it for the code size reduction and simplication.
-
-We're talking a couple of function calls with no error handling here,
-I'm not sure anyone concerned about that kind of impact is running
-Linux.
-
---WDImneD7x8BAel2Y
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAml7qv4ACgkQJNaLcl1U
-h9Azhgf6A4lkfV/w0cwxwJ8Tc2SF7oD3nQbUq5FokALWMy6Lb7rfb+mrG+AaDude
-NSQoQZx9MiQNLpSLIhOuENxQq4kDwkC1iiqZ4cr4D0Z3Boo6TnqPewzvRMzXvY3D
-qUhkTEcIazjnWrl3pQqzHzP2hXBOLCRqfwkSqSvsR6Dx21wj9MecbcQvvuQnz9+b
-ch+mxvLDXvMuyT7oDBG7hY1xhotLrqV5YrHmFYt74XBN9d5K3X/nxFjbP9/xYKKZ
-KjMgSDGfOzYkTPV5ffJazJMIXRneUpYSIEDJRferfRuTOnMnOfnHLIRod9q8i5+W
-88SY2gx4BRO2+4nKz4+MRxOy3JgHKA==
-=RKex
------END PGP SIGNATURE-----
-
---WDImneD7x8BAel2Y--
+-- 
+Without deviation from the norm, progress is not possible.
 
