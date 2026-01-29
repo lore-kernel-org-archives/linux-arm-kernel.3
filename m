@@ -4,109 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C8AED358EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 09:37:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B910CD358ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 09:38:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4lU8GWlv78rS676V94HHH4zs90Fwj2GtCQjzXirgDFE=; b=y/Y4/kLVIaojNnJ0TgfwLirB/P
-	iinumtGEF9yQDNN4k20ga87fWvh4qwEgWXCe+Dmn3Par8z/Kqq+sKOp1goAfmi8/Sy83r4WnGVYNL
-	vhEVbu0r+Yq8ECQ5Nn4RyaAhmUAdj0oQFGW3j+U85Av0QADJ3AXLbxCtGF8Lx74P1IEJBOUYPaYNX
-	5tOkPWw267oXI9MIM7ERYWp1Fk8Z6v85koU1MlGEjf+5Vcg/kPpKJH7vrShJxHcqQC3+VqP6+JGoN
-	TOowia3/pJp6v0Cq4Y+L+7eM3act+Vm/jT/o8Y1g+KfhCoFIQuLdv0jqhvRkp5wve+FxPzg3z0eGK
-	IOeVNcBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wu6ImEH3THsnXSCanI4pCuinWyuI9iiaF38KQnLjAy4=; b=Jibi/GJneHxHLNqSNhPtYxVaxb
+	b92/SsUAkj6f/jv1QIxDqf48Plr5gEywl6PiWO4reqVrfYnLXuQUIA2V4rpGnUfd6U50dyw9itNoC
+	yIsVxMfEbdrkSXoN2R9UqxOpLmOGVSyQktswt7uG45DtN5FPRBXiCpNPkccUo19REdJNNm/2WK922
+	h6H1HW1l72ICQ3jYktyZ3J2/8kfyQ52tYa9Cfdre8xBQh7byfOwIdwwJVrRMeZB0QTDc4ur3kNZF1
+	mr066TikzteLKcKGzIsOy4EpelrjdDKSj6IpFyAdVbkNDKjyneT3QUu9rHUa6bljJblFyEaXXLFoJ
+	OkTezuaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlOTH-0000000HWdh-0GtJ;
-	Thu, 29 Jan 2026 09:37:51 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1vlOTL-0000000HWf8-2dOu;
+	Thu, 29 Jan 2026 09:37:55 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlOTE-0000000HWdM-05aw
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 09:37:49 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-c634c20be90so289208a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 01:37:47 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769679467; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Rum6d5hnLZjVKYyy0h/LVCOuVf/qFWt75O/IN/qx74nNA6wAUqhgaj4HbQNZbxvSpu
-         FOWqvmfB186qLE2T557V4MYYFdJD8hCcv+Xhm06NMCwuh0uFvqwchiyd1ApUTNKx6wrg
-         8MpqzMKvUD+8MjCq4u997U4I5n7jSerjptWaBlVGQrbVn1tGxc8Axf3GLd/Io/aihZNu
-         41/+bs8AJGVniIMLxBtNSVpDE9rTFVgTo90GnmGNNAf9Crezi48548ZvoBLGEzG4aeTK
-         dNMd+TBD0LgqxFB5h3zhp0Agq8hJR1mxLz/C62+po0MXddvP/1kM42UT296sQ766OBts
-         LE8A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=4lU8GWlv78rS676V94HHH4zs90Fwj2GtCQjzXirgDFE=;
-        fh=J4yAfOUiPa2GZWB6o8/qnJSSWfkCp4McKDVSJ8CADhI=;
-        b=exCR0IzmrI6AVj1hmD9WsnnZAGRFcZjawktN4XgEyNBipnsKFW4S/hCkGeYtegZhL3
-         ouVpieSPtda4TPUNsbqtENrxccm3cMdwqAf+Tk//1Ay7WeCrsyV9imhF4f7veLTsLp36
-         dai7f14s56FYotyq//ghwu35GT29LjgH8iOY8Zcv0NgUdFStTdDavHrrqR6NJPn4Nlcb
-         vbfO75mAkxhcB6ClAC0MrkvAu9BhHQ7aUhvekZqldTlXAchsoBcia2VcV4+bDSesYJOQ
-         /UEIf1TvkCA10Zt25ZU8l9Mgmw1/I5kM4PYXFlu67VF/a0KsqNE8795QJOY4nnFeNwGp
-         1bMg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769679467; x=1770284267; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4lU8GWlv78rS676V94HHH4zs90Fwj2GtCQjzXirgDFE=;
-        b=fprYBnsfaorOoJpfjH7z5EfKg6TvKYhc70131rAoXt/3ZB+SRj9cxZgDZdsQKXAFJM
-         ATAxANteemzuwU56bWCnu0wB5cBttog4Lkk0veqxR7qPf8kS/62MAbDOLHBH3BU1s3Jy
-         YKvxXTKHfHK8EP9bPatNZIczTXniaKZqWKFFAQ2JynlXcBlE0V/l7yjbYfrm8z3hdfQE
-         D496UsPulBGhED7D+6WkPFtqngdv+DAmIkN3qIk+eAmU6ia7RFSjl1ugZv3/WN2IjYtf
-         cRH7KLRs9/ZxgdmwfT7X99wHmVkVaunDgc4gWTtCLrogeJE7I+x3VmPlHVAUEIvMEEyK
-         oA5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769679467; x=1770284267;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=4lU8GWlv78rS676V94HHH4zs90Fwj2GtCQjzXirgDFE=;
-        b=Nb/RKKjgV9Knhz/Ksndj3X0SlRXA1N2urxDirHhiwE2GNdKRacrOFIjTjG5P+fPwAP
-         cYdAVbZhRBmX5DdOCZvtVkOSoTYfPc+VjbRchJHltY7SFjG5P+smAgNfDnkzSxCEuX2y
-         ba4OqrwHesdidy6tO42IVuJ9dDyZNq6ytRQbR3iyqFVqPbh4uCe8+X6mfjtrci6xUw4E
-         P2QH/D1kTkz7UnznDIH2gMrEe+tJdiQivcB24XZAIvGSs8pIvDUMfwm6SnswP+NX6jPK
-         AhcF3F+KfjtgoGRHDb0OqxPcJX0mFRS4Xd1Fxx7wAgaxNhJrSaVNDKDXuRWVZqOtbLxt
-         HVAg==
-X-Forwarded-Encrypted: i=1; AJvYcCUQ64T5NgLyjelPmtm8Y92V1mrYD8meOPf8I4FQpsFM7Mq7P7mYCk5+l0dAde+Ce1B6mIKk1ByPsNFumR3Mx2CU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRkUxrvGTPGbXkXaPhQAVNEYOvDaSnd2UdmCUN2wfwyawKBLsQ
-	IIVcYgqz5EOMYH2C9aH5fhVHh01jb3UjPCO+/slKQMt4PiCYP/CiRZKBD4d72K2lHB9rvR1AlZE
-	mTSjgwY4i27Vr58lBi1p9yw8kgF1XUXY=
-X-Gm-Gg: AZuq6aIJc+9ZHJofdOun1b3/6ulO7v1ZsNZiApEOeQMwt6IPi3i/T/aAzWY3ggoI98H
-	JI9ZtZlblk/8QVCubFrGF7XG1s9CwdwphawQivy8tZ00RpxEPPKawKHGohes0B6lmd36h2N3U+a
-	RN/8FUAzgj7dL+eAFrycs29FXLWkqXp2q/EPbO3v+ZENEmX1xL5cGgI0HE2MBj4RJiov2ErkIFR
-	OkAyljrdItAKMOSUPqsQSgy1ZdVShpFf3lc2uucRd50gyNkpUSGySd3SfwAvwpQLztlUe8=
-X-Received: by 2002:a17:90b:1f8b:b0:352:c9c9:75b8 with SMTP id
- 98e67ed59e1d1-353feda27ddmr6746159a91.36.1769679466914; Thu, 29 Jan 2026
- 01:37:46 -0800 (PST)
+	id 1vlOTI-0000000HWdz-2fKJ;
+	Thu, 29 Jan 2026 09:37:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769679473; x=1801215473;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=fcH4mUDNyS5wydLrVZXUX/K4ZKaotkjSpo0HtMsk+1o=;
+  b=lVGPwfTSy0eOth5F5bjSFiLDm8t0sZOIEE8lC0BJmJ9fpuPGqZYiruTS
+   Xj1lM6ZGm6xdbTQoP2A0hcW6QvZdqcKE7KkUwPR1HJrPCqtgUns96JwmB
+   NAZCIv//SNVoJR9TG481GqUqmNW0qJttZ8F+YDCuyYqyjdbmMUFEUHaWN
+   inltHv94RieOdeNd8/x8BWiyIT/Iwj18FHejILHUmlNkfsXF/Zoz8yNXF
+   fZ7p0i9DCDKMJm0cEGaptg2j+M+e01bwyd+eqjyNItRfd0SkvKcza/ZjM
+   G/tLVwYqf8zl211U0Rmjg5e0OY4MwI1w/FQEvtkvAKqR/MyQ3dyewT64H
+   g==;
+X-CSE-ConnectionGUID: 8yTWqO0nQS6EGbu68HInPQ==
+X-CSE-MsgGUID: dW1SyljrRviCPMduZp953A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11685"; a="71074878"
+X-IronPort-AV: E=Sophos;i="6.21,260,1763452800"; 
+   d="scan'208";a="71074878"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jan 2026 01:37:50 -0800
+X-CSE-ConnectionGUID: Q6oB1hS4RWCJLoDv2BxPDA==
+X-CSE-MsgGUID: vyc3EwQqRieVpm72pc7e7w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,260,1763452800"; 
+   d="scan'208";a="246133392"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.155])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jan 2026 01:37:29 -0800
+Date: Thu, 29 Jan 2026 11:37:22 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Louis Chauvet <louis.chauvet@bootlin.com>,
+	Haneen Mohammed <hamohammed.sa@gmail.com>,
+	Melissa Wen <melissa.srw@gmail.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Matt Roper <matthew.d.roper@intel.com>,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	Diederik de Haas <diederik@cknow-tech.com>
+Subject: Re: [PATCH v6 2/4] drm: Add CRTC background color property
+Message-ID: <aXsp2s5a7sJL7Itp@smile.fi.intel.com>
+References: <20260129-rk3588-bgcolor-v6-0-c15f755a4055@collabora.com>
+ <20260129-rk3588-bgcolor-v6-2-c15f755a4055@collabora.com>
 MIME-Version: 1.0
-References: <20260128071853.2602784-1-shengjiu.wang@nxp.com>
- <20260128071853.2602784-4-shengjiu.wang@nxp.com> <7e34b098-bdab-448e-a34a-02bdc643f700@oss.nxp.com>
-In-Reply-To: <7e34b098-bdab-448e-a34a-02bdc643f700@oss.nxp.com>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Thu, 29 Jan 2026 17:37:35 +0800
-X-Gm-Features: AZwV_QjhsaT3WGqHFWhY63rZWE_xfRO_5posf7-8hnrbY9543Mu3MY60Z30GXKk
-Message-ID: <CAA+D8APbzGCSHOwGyBZjf1TYqo2K0s0dvoLjHS+FsT_RLGrb2w@mail.gmail.com>
-Subject: Re: [PATCH 3/3] ASoC: fsl_asrc_dma: allocate memory from dma device
-To: Daniel Baluta <daniel.baluta@oss.nxp.com>
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, lgirdwood@gmail.com, broonie@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, perex@perex.cz, tiwai@suse.com, 
-	linuxppc-dev@lists.ozlabs.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260129-rk3588-bgcolor-v6-2-c15f755a4055@collabora.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_013748_085859_933A984E 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20260129_013752_752197_CA2E37FD 
+X-CRM114-Status: GOOD (  23.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,40 +101,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 29, 2026 at 5:22=E2=80=AFPM Daniel Baluta <daniel.baluta@oss.nx=
-p.com> wrote:
->
-> On 1/28/26 09:18, Shengjiu Wang wrote:
-> > As the dma device may support dma-coherent property on the i.MX952,
-> > allocate memory from dma device to make asrc driver to be compatible wi=
-th
-> > such a case.
->
->
-> This commit message refers to imx952 but the change in the code apply to =
-all supported platforms
->
-> So in not really clear what is the intention of it.
+On Thu, Jan 29, 2026 at 02:58:52AM +0200, Cristian Ciocaltea wrote:
+> Some display controllers can be hardware programmed to show non-black
+> colors for pixels that are either not covered by any plane or are
+> exposed through transparent regions of higher planes.  This feature can
+> help reduce memory bandwidth usage, e.g. in compositors managing a UI
+> with a solid background color while using smaller planes to render the
+> remaining content.
+> 
+> To support this capability, introduce the BACKGROUND_COLOR standard DRM
+> mode property, which can be attached to a CRTC through the
+> drm_crtc_attach_background_color_property() helper function.
+> 
+> Additionally, define a 64-bit ARGB format value to be built with the
+> help of a couple of dedicated DRM_ARGB64_PREP*() helpers.  Individual
+> color components can be extracted with desired precision using the
+> corresponding DRM_ARGB64_GET*() macros.
 
-The dma-coherent property is used to indicate a device is capable of
-coherent DMA operations.
-Which is applied to the EDMA device on i.MX952,  in order to support
-such EDMA device,
-the memory is need to allocated from DMA device,
+...
 
-The code change is compatible for non dma-coherent and dma-coherent dma dev=
-ices.
+> +/*
+> + * Put 16-bit ARGB values into a standard 64-bit representation that can be
+> + * used for ioctl parameters, inter-driver communication, etc.
+> + *
+> + * If the component values being provided contain less than 16 bits of
+> + * precision, use a conversion ratio to get a better color approximation.
+> + * The ratio is computed as (2^16 - 1) / (2^bpc - 1), where bpc and 16 are
+> + * the input and output precision, respectively.
 
->
-> Also, it is not clear why do you allocate a pair only to free it at the e=
-nd of the function.
+Not sure if you should explicitly mention that "bpc must not be 0"
+(it can be derived from the "division by 0" in the given formula,
+but still...).
 
-As the comment in the code says,  it is to get the dma device handler
-for memory allocation
-. After that, it is freed.
+> + */
+> +#define __DRM_ARGB64_PREP(c, shift)					\
+> +	(((__u64)(c) & __GENMASK(15, 0)) << (shift))
+> +
+> +#define __DRM_ARGB64_PREP_BPC(c, shift, bpc)({				\
 
-best regards
-Shengjiu wang
->
->
+Not sure if this is an accepted style in DRM, by I find it difficult
+to follow. I would expect the "({" be on a separate line.
+
+> +	__u16 mask = __GENMASK((bpc) - 1, 0);				\
+> +	__u16 conv = __KERNEL_DIV_ROUND_CLOSEST((mask & (c)) *		\
+> +						__GENMASK(15, 0), mask);\
+
+The whole point of the first patch is to use it in the divisions by 2^n - 1.
+Can we transform this to make it "divisions" by power-of-two?
+
+     ...: def dbm2(c, bpc):
+     ...:     m = (1 << bpc) - 1
+     ...:     c1 = m & c
+     ...:     r = c1 << (16 - bpc)
+     ...:     for i in range(1, 16 // bpc):
+     ...:         r = r + (c1 << (16 - (i + 1) * bpc))
+     ...:     return r
+
+The above is a Python version of PoC of this approximation. Basically
+we transform the fraction X / (2^n - 1) to a chained version of
+X / 2^n + X / 2^2n + ... X / 2^kn as derived from recurrent formula
+of i+1:th iteration as Xi+1 = Xi / 2^n + Xi / (2^n * (2^n - 1)).
+
+So, maybe that one should be used instead? (It may be thought through
+on how to collapse the for-loop to maybe some bitops, but even with
+a for-loop it might be faster than real division.)
+
+Note, we have some (for sure more than one, I remember the same Q appeared to
+me a few years ago) of the examples which may avoid division at all. I would
+like to have this macro to be kernel wide (and UAPI seems also okay).
+
+> +	__DRM_ARGB64_PREP(conv, shift);					\
+> +})
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
