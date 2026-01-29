@@ -4,69 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF5D4D46C16
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 02:14:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA3AD46C01
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 02:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U2BY6G007NwO/MDDvGKm/iCoeh9ZJMPEhIs8za3797E=; b=VNth9RZJoYcMu1ZLTrj1ZfPKXH
-	3ceoDEsww1G26yBqT2QKg39ARNGIaz7/lGo+zJ0aE/yBPDe1jhr8K43mg0D9nhZD3j/fdYMccYedw
-	NCkeIvDPPKE5c5fhJWj1Ncvsw8W2N/nrUUnreqhZOF+YB4vndXhxpCENdf9DLXgGQbBBvHD+vy5wv
-	xdg2C2jSNS+MD/ft3mvyyZAVX3zSIffYjHgPF2BZxrvBjBtUO42kR2s4OdAUP+GPvov/FMhy5QLdr
-	XHOnB8MYWNHx14rRUSb8sPLADz6iBAnaKfRJmoeb45xL93vk/mnoQvWDScVRO3TRf10MiBILgyWWC
-	wv8VoMdA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2hnqyMVnWmWj8jg1bqTVOUz0c/5S35lK3Rmj22NSpoM=; b=4RVZ2/j9F4qPsiupgEfo16P+R6
+	+kkJlFSDXnzxCnCTYL/yv7X3U19yD01Vr+gqYieF6L1l9PlEqxJ+h9z/BzttpQRnMUsc2rge7pnDx
+	l4XXAG7SauZSVZYSb3hlGJbRl+cd4uGNrrq94p8zsyBnrT4yWYMLqWS2jiKbOcawxqqBi9vq2f/Zf
+	iRcoB9YLGztqHVqjl4lYSbduHKPB+XBITqi+0BH6FdAzwxIWd+ZZiYVjMcQu1ocpOHwjZjrTXOlSK
+	cAggOYVrHQ1L/rcQwiPg9/GUGsXs6d5cBEH08GSah1RxNkc+1EpbsZIMIYffuoSL14sohVwF5T4Jx
+	u2xaXS9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlHYV-0000000H6rl-404a;
-	Thu, 29 Jan 2026 02:14:49 +0000
-Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
+	id 1vlHmd-0000000H86c-1EOx;
+	Thu, 29 Jan 2026 02:29:23 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlHYT-0000000H6rO-0Qeq
+	id 1vlHma-0000000H86G-3571
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 02:14:47 +0000
-Message-ID: <468425e6-64ba-4d9a-97c5-6a1d95b8223b@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1769652879;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=U2BY6G007NwO/MDDvGKm/iCoeh9ZJMPEhIs8za3797E=;
-	b=NAjfjL5E159u815UKdfODq+5g/aiO52FnhABHQ15W6wXklV66fPaQRumaDIk3yRX4YJ1MY
-	Pb1wPBkrIDLV6souYfZamhYrt1WJ5OSdI2bzFIx2sMIrVviyk3GhQ64G5JBPCDQOlA3oF1
-	L3w4XZEMejw0a+nKLeCZA41FsNzyvKI=
-Date: Thu, 29 Jan 2026 10:14:25 +0800
+	Thu, 29 Jan 2026 02:29:21 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-35305538592so351610a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 18:29:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769653759; x=1770258559; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=2hnqyMVnWmWj8jg1bqTVOUz0c/5S35lK3Rmj22NSpoM=;
+        b=HxU/gVCNlsx8IW4b2irR9k/i9G3b7jV2H9wEb8zr17AV4/6zptzTVElKigpbpUpXyy
+         1XYvdQoV86qB/y62fbv/+p8GhtGnByKDQTTRS8lTeuhysU/9UNpe8a9E21VTInult7e3
+         Y1+zbq6zPer378ChBA86QYrLT8CVRZrHdSbtTgeWcSvtExPafNLZ8CmPTyuZNpZdxCMx
+         KqSWSCAw6lnZk/jU/LjEzcZZX1viXV97GzvkUjdQ1hWgc9t0/YkXE3QXG4nX2SksGQ57
+         4lD5TPmqtSFEziwKrqyQ6suORZo+/Amd5y554wlPB5lrv/MPq9qCqfBn1iNxu/i01r9u
+         NhGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769653759; x=1770258559;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2hnqyMVnWmWj8jg1bqTVOUz0c/5S35lK3Rmj22NSpoM=;
+        b=Ynv094lwsqb2p+QR6WWLhabSL1pmPIqL2exyutSUcghNMekntPRp+U07/DTXGcUBDi
+         GyUCBOvU0D0WT2PgQNfDYDlFPW18NoHuyGKc1v5fcuMDiEymSdmH5L2EmuJufhWaw8mT
+         LS++uAYGM10dw9kM2+cKeZoOC3HtyY7nA/NLbhxKeg8PjF6qMfrMx3m9GEjRkJ640jLT
+         yEBGLCKNv+LDjOR4WpdE37iQSx8KaL1OnEHpni3rbtJkOUiXT3R5KLIbrC3Y18bsGrwM
+         Xv0sF4t6MAkIlGp0aKy7rucrW1aRqwNos6mW/4dxuBE8aiUtb+th5UhHBTgXsbaTip11
+         Mw6A==
+X-Forwarded-Encrypted: i=1; AJvYcCUjjsz+iHFUExfOeRb9ZcJC/3YqatdX7sDmhMQ01hSu3Y4pk+IS/ozHZbntqSD981KWKycn2tbRQLBI7NZTsC3K@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoTGluUzg5ENiZsf/nnV127KiLKOB+pzj0dGrfolO7V9lCVBAP
+	OBeJXLrDh3MS3ux/zj2qFdUDTTOSKYXx3qO1FHbY2ACyTCfrKDCv0yOv
+X-Gm-Gg: AZuq6aIkwbqSQmdc9dY19umYMPJm2CbgYtCsaFix772uNXvR5ufuS7tc6pCAZIdUSbQ
+	C0Ej4BjHbRMUz+BTS//hcKGEnR8FtFggrKNrqDVu6t9R732R9gMW1m84cjxhU+D9+D9/6TtwcaV
+	fzNlXjTcbVRQOGSPW7yrLQ43yvxRJiXGGWZUKMr1kylZq/6Vux4qQtZ69dKiYJ4bbwU8GgL4//n
+	COLnuAiBQkA9Hcd9WraA6etIV/TxjtxrbtDsVvLGsFNw5qKQaUzowfH7psb4Ort/SgD5fYgp1rb
+	4isT5WsJyr0onK+z5pdk1yrBYubCxMacjb/KMrqo+1bWijk00+N3jLzu31a3vfZ0L7H9Gf1eP4j
+	923MuyHVnKqJx+LcJNDOTiOzw1+Y00Ppy6QDghZMEfGW6EDam4n8iRAN7Umb/vU2qvpX7284kVw
+	kCAeNqVp2ScAI5yHi6nJGpCsAVV+mt57MAnROc0DjrF77exfHHxHDCfe4=
+X-Received: by 2002:a17:90b:1a81:b0:352:c146:dc39 with SMTP id 98e67ed59e1d1-353fed7b21dmr5803708a91.30.1769653759547;
+        Wed, 28 Jan 2026 18:29:19 -0800 (PST)
+Received: from wig-Precision-3660.. (125-227-154-99.hinet-ip.hinet.net. [125.227.154.99])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3540f2f0283sm4380542a91.5.2026.01.28.18.29.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Jan 2026 18:29:19 -0800 (PST)
+From: Wig Cheng <onlywig@gmail.com>
+To: shawnguo@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	zaq14760@gmail.com,
+	Wig Cheng <onlywig@gmail.com>
+Subject: [PATCH v4 0/1] arm64: dts: freescale: add pixpaper display overlay for i.MX93 FRDM
+Date: Thu, 29 Jan 2026 10:29:09 +0800
+Message-ID: <20260129022910.3942028-1-onlywig@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next v2 1/3] bpf: Add bpf_arch_supports_fsession()
-Content-Language: en-US
-To: Menglong Dong <menglong.dong@linux.dev>, bpf@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
- <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>,
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
- Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
- Xu Kuohai <xukuohai@huaweicloud.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Shuah Khan <shuah@kernel.org>, Menglong Dong <menglong8.dong@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, kernel-patches-bot@fb.com
-References: <20260128150112.8873-1-leon.hwang@linux.dev>
- <20260128150112.8873-2-leon.hwang@linux.dev> <3392533.aeNJFYEL58@7940hx>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Leon Hwang <leon.hwang@linux.dev>
-In-Reply-To: <3392533.aeNJFYEL58@7940hx>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_181445_834591_92814CF6 
-X-CRM114-Status: GOOD (  25.57  )
+X-CRM114-CacheID: sfid-20260128_182920_774175_D89E4ADA 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,202 +106,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Changes in v4:
+- Drop invalid property
 
+Changes in v3:
+- Misunderstood reviewer's feedback in v1, improved commit message description
 
-On 29/1/26 09:29, Menglong Dong wrote:
-> On 2026/1/28 23:01 Leon Hwang <leon.hwang@linux.dev> write:
->> fsession programs can currently be loaded on architectures that do not
->> implement fsession support, which leads to runtime errors instead of a
->> clean verifier rejection.
->>
->> For example, running fsession selftests on arm64 before fsession support
->> is added results in:
->>
->> test_fsession_basic:PASS:fsession_test__open_and_load 0 nsec
->> test_fsession_basic:PASS:fsession_attach 0 nsec
->> check_result:FAIL:test_run_opts err unexpected error: -14 (errno 14)
->>
->> Introduce bpf_arch_supports_fsession() to explicitly gate fsession usage
->> based on architecture support. Architectures without fsession support
->> will now fail program load with -EOPNOTSUPP, allowing selftests to skip
->> cleanly instead of errors at runtime.
->>
->> x86 declares fsession support, while the default implementation returns
->> false.
->>
->> Fixes: 2d419c44658f ("bpf: add fsession support")
-> 
-> I were wondering how this problem happen, as I remember that
-> I added such checking. When I look back, I found that the checking
-> is lost during v3->v4. I recalled that the AI warned me about this
-> part, but I thought that checking exists in my mind :/
-> 
-> It seems that we can't ignore the AI's warning easily. It mostly
-> make sense.
-> 
->> Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
->> ---
->>  arch/x86/net/bpf_jit_comp.c                   |  5 +++
->>  include/linux/filter.h                        |  1 +
->>  kernel/bpf/core.c                             |  5 +++
->>  kernel/bpf/verifier.c                         |  3 ++
->>  .../selftests/bpf/prog_tests/fsession_test.c  | 32 ++++++++++++++-----
->>  5 files changed, 38 insertions(+), 8 deletions(-)
->>
->> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
->> index 5a075e06cf45..070ba80e39d7 100644
->> --- a/arch/x86/net/bpf_jit_comp.c
->> +++ b/arch/x86/net/bpf_jit_comp.c
->> @@ -4112,3 +4112,8 @@ bool bpf_jit_supports_timed_may_goto(void)
->>  {
->>  	return true;
->>  }
->> +
->> +bool bpf_jit_supports_fsession(void)
->> +{
->> +	return true;
->> +}
->> diff --git a/include/linux/filter.h b/include/linux/filter.h
->> index fd54fed8f95f..4e1cb4f91f49 100644
->> --- a/include/linux/filter.h
->> +++ b/include/linux/filter.h
->> @@ -1167,6 +1167,7 @@ bool bpf_jit_supports_arena(void);
->>  bool bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena);
->>  bool bpf_jit_supports_private_stack(void);
->>  bool bpf_jit_supports_timed_may_goto(void);
->> +bool bpf_jit_supports_fsession(void);
->>  u64 bpf_arch_uaddress_limit(void);
->>  void arch_bpf_stack_walk(bool (*consume_fn)(void *cookie, u64 ip, u64 sp, u64 bp), void *cookie);
->>  u64 arch_bpf_timed_may_goto(void);
->> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
->> index e0b8a8a5aaa9..3b1eb632bf7c 100644
->> --- a/kernel/bpf/core.c
->> +++ b/kernel/bpf/core.c
->> @@ -3142,6 +3142,11 @@ bool __weak bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena)
->>  	return false;
->>  }
->>  
->> +bool __weak bpf_jit_supports_fsession(void)
->> +{
->> +	return false;
->> +}
->> +
->>  u64 __weak bpf_arch_uaddress_limit(void)
->>  {
->>  #if defined(CONFIG_64BIT) && defined(CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE)
->> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
->> index c2f2650db9fd..6f867ebf78d1 100644
->> --- a/kernel/bpf/verifier.c
->> +++ b/kernel/bpf/verifier.c
->> @@ -24872,6 +24872,9 @@ int bpf_check_attach_target(struct bpf_verifier_log *log,
->>  	case BPF_TRACE_FENTRY:
->>  	case BPF_TRACE_FEXIT:
->>  	case BPF_TRACE_FSESSION:
->> +		if (prog->expected_attach_type == BPF_TRACE_FSESSION &&
->> +		    !bpf_jit_supports_fsession())
->> +			return -EOPNOTSUPP;
->>  		if (!btf_type_is_func(t)) {
->>  			bpf_log(log, "attach_btf_id %u is not a function\n",
->>  				btf_id);
->> diff --git a/tools/testing/selftests/bpf/prog_tests/fsession_test.c b/tools/testing/selftests/bpf/prog_tests/fsession_test.c
->> index 0c4b428e1cee..a299aeb8cc2e 100644
->> --- a/tools/testing/selftests/bpf/prog_tests/fsession_test.c
->> +++ b/tools/testing/selftests/bpf/prog_tests/fsession_test.c
->> @@ -29,8 +29,16 @@ static void test_fsession_basic(void)
->>  	struct fsession_test *skel = NULL;
->>  	int err;
->>  
->> -	skel = fsession_test__open_and_load();
->> -	if (!ASSERT_OK_PTR(skel, "fsession_test__open_and_load"))
->> +	skel = fsession_test__open();
->> +	if (!ASSERT_OK_PTR(skel, "fsession_test__open"))
->> +		return;
->> +
->> +	err = fsession_test__load(skel);
->> +	if (err == -EOPNOTSUPP) {
->> +		test__skip();
->> +		goto cleanup;
->> +	}
->> +	if (!ASSERT_OK(err, "fsession_test__load"))
->>  		goto cleanup;
->>  
->>  	err = fsession_test__attach(skel);
->> @@ -47,8 +55,16 @@ static void test_fsession_reattach(void)
->>  	struct fsession_test *skel = NULL;
->>  	int err;
->>  
->> -	skel = fsession_test__open_and_load();
->> -	if (!ASSERT_OK_PTR(skel, "fsession_test__open_and_load"))
->> +	skel = fsession_test__open();
->> +	if (!ASSERT_OK_PTR(skel, "fsession_test__open"))
->> +		return;
->> +
->> +	err = fsession_test__load(skel);
->> +	if (err == -EOPNOTSUPP) {
->> +		test__skip();
->> +		goto cleanup;
->> +	}
->> +	if (!ASSERT_OK(err, "fsession_test__load"))
->>  		goto cleanup;
->>  
->>  	/* first attach */
->> @@ -94,6 +110,10 @@ static void test_fsession_cookie(void)
->>  	bpf_program__set_autoload(skel->progs.test6, false);
->>  
->>  	err = fsession_test__load(skel);
->> +	if (err == -EOPNOTSUPP) {
->> +		test__skip();
->> +		goto cleanup;
->> +	}
->>  	if (!ASSERT_OK(err, "fsession_test__load"))
->>  		goto cleanup;
->>  
->> @@ -111,10 +131,6 @@ static void test_fsession_cookie(void)
->>  
->>  void test_fsession_test(void)
->>  {
->> -#if !defined(__x86_64__)
->> -	test__skip();
->> -	return;
->> -#endif
-> 
-> Ah, I see you enabled the testing for arm64 in this patch. Maybe
+Changes in v2:
+- Fix Makefile alphabetical ordering
+- Move vendor property before status in device tree
+- Simplify commit message as suggested by reviewer
 
-The test was not enabled for arm64 in this patch, since
-bpf_jit_supports_fsession() still returns false there.
+Wig Cheng (1):
+  arm64: dts: freescale: add pixpaper display overlay for i.MX93 FRDM
 
-The test only becomes enabled when bpf_jit_supports_fsession() returns
-true, which happens in patch #2.
+ arch/arm64/boot/dts/freescale/Makefile        |  4 ++
+ .../freescale/imx93-11x11-frdm-pixpaper.dtso  | 50 +++++++++++++++++++
+ 2 files changed, 54 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso
 
-> we can move this part to the 3rd patch, or split it out to another
-> patch?
-> > TBH, I prefer the previous implement. In this way, the CI can
-> still pass if x86_64 or arm64 return -EOPNOTSUPP, right?
-> 
-> Maybe you can test the not-supported case stand alone, such
-> as:
-> 
-> #if !defined(__x86_64__)
-> 	test__fsession_not_support();
-> 	return;
-> #endif
-> 
-> wdyt?
-> 
-
-With this patch, the test now depends on the runtime return value of
-bpf_jit_supports_fsession() rather than a compile-time #if macro.
-
-This makes the test more extensible: when another architecture (e.g.
-LoongArch) adds fsession support in the future, it only needs to
-implement bpf_jit_supports_fsession() in its JIT backend, which will
-enable the test without touching the test code at the same time.
-
-For architectures that do not support fsession, the existing subtests
-will be skipped in the same way as before, so a separate
-'-EOPNOTSUPP'-specific subtest is not necessary.
-
-Thanks,
-Leon
+-- 
+2.43.0
 
 
