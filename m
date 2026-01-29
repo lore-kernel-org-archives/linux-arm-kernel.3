@@ -4,77 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE4CFD73E9E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 21:43:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D947D73E87
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 21:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cMhHnznqFwxBrzvbF8HDmOnguOyKKs8bDV7TVDVnURU=; b=aBkqPFwBZsweCFr0auyy8e5WEC
-	sZE10Lv/FVCJZMT12INrz1SDQD0tSGNe6w/QewoGpJyU62LQR11tZq0rzG2nuBbRNyPhugZkZEvEM
-	DTtFWFQkC3eCNCx/QzevewzzmDYXl6FJRtORDVtafOCtbZUr/+ZN4QKvTtbPCZoMY+IPYqkdvBfev
-	LOmc7uBqTp29J7Sx+ZVKxDVjgOwZuGyV8ibNt1bjy1XfEeYVeScXIdczF1sI2pEE+LLBKlR3Nn28l
-	uZzDXo5yF0PHSC5U5zqj46n21PEp5OCH0ZUDyJswb2ITK/FVPu7rtgsOUc6GaXbS+4Hfl7CbHPxbr
-	pANyJp1w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c+SMixISY32I4TNkZ6inO6uSY2SNlSvt1Krp91cY5JE=; b=vUiuK0JfBolhsMYfm1fBwgRTpj
+	i7s5tV1jCLdd01NLav0XOsduqFi2W3EllU4LFlDp4owHLlBzFDSNlYdr9sV0cLxlgeNn67xFBtr8I
+	2XA4d3Zs7ijRgujXWYeJSOWDkjy4myBcVFguLDOTAKp0RgHCRyIJ1yr4eUhitKJncuO3XDn2AyMml
+	A1tG/5J7NjtGDUqVb+zu0RnDWFKj3c5m+X5KVhazU68i4B9laG148+Q/BVi3+uUitb7ReTyWDXVMa
+	2OUoenYWLwRz1eFChKzVIOfCHXnVbq9DWwlq3sXSCDqj+XI2I6QkBb59Y14KgKWjLADkTs/pi+t+b
+	Nqo6yfbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlZnf-00000000gwF-2fBD;
-	Thu, 29 Jan 2026 21:43:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vlZuC-00000000hbk-0CTx;
+	Thu, 29 Jan 2026 21:50:24 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlZnU-00000000grX-24F1
+	id 1vlZu9-00000000hbP-324N
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 21:43:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 240C6444D5;
-	Thu, 29 Jan 2026 21:43:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id F11E0C2BC9E;
-	Thu, 29 Jan 2026 21:43:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769723006;
-	bh=aK3PD+1V9CbJdF7r5/K5yWNnPE96LBlgQvwpAazD83g=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=FgWO2Nb/7yL+sNMUC/+zaK555uGGDiIXiXXyLwFDlTgYah6ArbhC2btUxhx2Mw9zo
-	 TFy06UyFRe1TFL5mlTbdfMvrxRvqYOONZ1AU+JMpKRerhpslrfn5qDqfCkXSOfDPyw
-	 RCSj37EYGDFTZyY9Z9pjyi0uJgYtuxF2VnOB9lFWAROsVrW9TNmLuzs0AJyq+5J4iI
-	 65uijRwh+1sD3kEUZWuxhiwnlTEqMvCBSBBLtz8DVt5FSt5kEtnruAnCgWFzDMtQI0
-	 uwHhdA4U3v3kVRqE4/w/Ls8+DERExDRkWQByDDGja7J7AL6IwMUY7FmZhsP+j6P3SU
-	 qMSPIJdWMEiMw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E8171D73E9C;
-	Thu, 29 Jan 2026 21:43:25 +0000 (UTC)
-From: Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org>
-Date: Thu, 29 Jan 2026 21:43:17 +0000
-Subject: [PATCH v7 5/6] i2c: xiic: cosmetic cleanup
+	Thu, 29 Jan 2026 21:50:22 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-432d28870ddso927909f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 13:50:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1769723419; x=1770328219; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=c+SMixISY32I4TNkZ6inO6uSY2SNlSvt1Krp91cY5JE=;
+        b=FKgoA5uphl7oa+KG2sFauvhXhlt6yGJuRwPMQkfVG5xq5FmBWKqRMONcKE7efIkhZ8
+         m+P1M1TXpC0psrUIAT1jfH7olKWt1qXQP47M2vznrV4OndTjUSpCFBmfhZrBZS6J1vXJ
+         mOf3b/thU02Fj5HgL1ZcRRFl2YH2lAcvmLaVcQDO2nAfYREHyq0vgTj1TmygTc0ILgvX
+         VUPbutKdZa2R8jnhD3bjhv9rkyA522mPeP5tCD+e1/GD4hHdhS7xeQmzFZ11AHgDW4Ig
+         RaiZ2MmD3KHtYmW+/s5ti/4hQF8MVIEU/POTiFCTWO44zuZ8LniBIL66Pv4QCg26AL1c
+         y3hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769723419; x=1770328219;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=c+SMixISY32I4TNkZ6inO6uSY2SNlSvt1Krp91cY5JE=;
+        b=SFEnjOFM+qXS+EwC4f5HnVK7Yjx0h9zmDe1wwaR8zrNCqXqOP+Jkw52Dcny3oNUD1P
+         xcYI2+BPGHyIM3rC4qWJnxEZ/3GhJVuGESrz1fROmgIkFbr6fnxgy6FzRNcdY/ummaoO
+         EpBXaXXJHVTk5QBB7rTdcVqaoKf4hBqvqBnPn2f8kZ6NslvjP1r4Ybq5K0N+VW90B7F0
+         QTVH62x4wwJSG+24fqoJS9s9SgF+15U1rs0jTjkFrnk93TyLE+Q2wPfRZCD/Btgq2Wgi
+         Wgz/QqjmH325kBOsQG64/ZNwHcbT2iRaRJO3ce5I+IjydY2XCGRDmlJCoykJ4DUCa65F
+         tt7g==
+X-Forwarded-Encrypted: i=1; AJvYcCV+TY8f75ogtJPPJvLcrLuitMtNty8j3tK/3AlVl45+m0prVw4UHzdqeJ6b1TRNxqvCa+LKB8QgTiry/qpAIYZo@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhTKu1tLqvHCz86Zf6YV61X3682HiDHeHtfR2YgyahzDUttsGG
+	/7IDBBzmMEgZ3dT6CnF7nsbEw2NKHrB2IeDj1Od5gV0dOk8eTEDxS13WTTiP6D5d1A==
+X-Gm-Gg: AZuq6aKG7l5OJdvT3wz0kAIPS/bj6eL54Lsv9QuhSucFsfzoqm6uT/6TT3kuA2da3KS
+	0cnxMyWLjLMv79Hsl4yLWQ5pI4tjUsUxgloOcGOUgKr91p1NkNNkjFm0SgcGjBXnW0/fcxp6lqh
+	H4eyHFpmnQBrbSp4L9EtfJvqwv0yllrGunkMlgasruQL5GWZA4ty7+BCzVe3khVtDF06vs4GFsU
+	7GsM8AXGFnXNkF8Gey1NM6+/O0UHqxo9FCxdX/7bA6cQCKcaB2YI3hrIf/zug355ze1be8W3yaz
+	GcwnHYkuM13JLL69IxdMiA/0X7GWw9WTgLp4yqrSQ17qaY3P514PCzdMf93Bc0OUdk8if9ZkVrZ
+	NsQY/5dLlTRTh1o7vlnipHN14eftnK4Belndj06NJDLjPd6Xip49kCk7BYC2NT/PORpYg57c5wX
+	QGjKpvYuUkLCTKFiwl+6OUhH/vcioWullwA9BYRAN5uWfBbh4vzQ==
+X-Received: by 2002:a05:6000:26ca:b0:435:e3c6:554d with SMTP id ffacd0b85a97d-435f3abb4e6mr1226168f8f.52.1769723419386;
+        Thu, 29 Jan 2026 13:50:19 -0800 (PST)
+Received: from google.com (44.145.34.34.bc.googleusercontent.com. [34.34.145.44])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e1322f40sm16938883f8f.34.2026.01.29.13.50.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 Jan 2026 13:50:19 -0800 (PST)
+Date: Thu, 29 Jan 2026 21:50:16 +0000
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+	linux-trace-kernel@vger.kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, jstultz@google.com,
+	qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org,
+	kernel-team@android.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v10 14/30] tracing: Add a trace remote module for testing
+Message-ID: <aXvWGDEx6kMQWyoe@google.com>
+References: <20260126104419.1649811-1-vdonnefort@google.com>
+ <20260126104419.1649811-15-vdonnefort@google.com>
+ <20260129113452.190d4d79@gandalf.local.home>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260129-i2c-xiic-v7-5-727e434897ef@nexthop.ai>
-References: <20260129-i2c-xiic-v7-0-727e434897ef@nexthop.ai>
-In-Reply-To: <20260129-i2c-xiic-v7-0-727e434897ef@nexthop.ai>
-To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, 
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Abdurrahman Hussain <abdurrahman@nexthop.ai>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769723005; l=3586;
- i=abdurrahman@nexthop.ai; s=20260119; h=from:subject:message-id;
- bh=Iwa891qmu5bsxzfQcaF7qqAdE4otD0QTMnDYJyhw7aQ=;
- b=3Vlmq/TnuvEJ0CllMYPLJX/3z5XypTON5mdYlh3tHWNKv5KI8g1BICU40VYBJGy3jCNbNIOzW
- Zcy6RKpUi7FBjU8BzX7Bsee/2XeGA9E9uFXzlp4P8Ux0lmXiDyx/BVp
-X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
- pk=S+ysnf+NwMcBdHBlyKIUEAtaFGSIhQwcJcgcXhq0osg=
-X-Endpoint-Received: by B4 Relay for abdurrahman@nexthop.ai/20260119 with
- auth_id=608
-X-Original-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260129113452.190d4d79@gandalf.local.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_134328_601878_B8EB4C34 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20260129_135021_781864_4F19EC6D 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,121 +101,72 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: abdurrahman@nexthop.ai
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+> 
+> Where was the cpus_read lock taken?
 
-Re-use dev pointer instead of referencing &pdev->dev everywhere.
+I am pretty sure that's leftover of when I was reading some CPU mask :-(
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
----
- drivers/i2c/busses/i2c-xiic.c | 34 +++++++++++++++++-----------------
- 1 file changed, 17 insertions(+), 17 deletions(-)
+> 
+> > +	cpus_read_unlock();
+> > +
+> > +	return ERR_PTR(ret);
+> > +}
+> > +
 
-diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
-index 3578c00d6404..37a15065db60 100644
---- a/drivers/i2c/busses/i2c-xiic.c
-+++ b/drivers/i2c/busses/i2c-xiic.c
-@@ -1429,7 +1429,7 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 	u8 i;
- 	u32 sr;
- 
--	i2c = devm_kzalloc(&pdev->dev, sizeof(*i2c), GFP_KERNEL);
-+	i2c = devm_kzalloc(dev, sizeof(*i2c), GFP_KERNEL);
- 	if (!i2c)
- 		return -ENOMEM;
- 
-@@ -1445,13 +1445,13 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 	if (irq < 0)
- 		return irq;
- 
--	pdata = dev_get_platdata(&pdev->dev);
-+	pdata = dev_get_platdata(dev);
- 
- 	/* hook up driver to tree */
- 	platform_set_drvdata(pdev, i2c);
- 	i2c->adap = xiic_adapter;
- 	i2c_set_adapdata(&i2c->adap, i2c);
--	i2c->adap.dev.parent = &pdev->dev;
-+	i2c->adap.dev.parent = dev;
- 	device_set_node(&i2c->adap.dev, dev_fwnode(dev));
- 	snprintf(i2c->adap.name, sizeof(i2c->adap.name),
- 		 DRIVER_NAME " %s", pdev->name);
-@@ -1465,13 +1465,14 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 	if (is_of_node(dev->fwnode)) {
- 		i2c->clk = devm_clk_get_enabled(dev, NULL);
- 		if (IS_ERR(i2c->clk))
--			return dev_err_probe(&pdev->dev, PTR_ERR(i2c->clk),
-+			return dev_err_probe(dev, PTR_ERR(i2c->clk),
- 					"failed to enable input clock.\n");
- 	}
- 
--	i2c->dev = &pdev->dev;
--	pm_runtime_set_autosuspend_delay(i2c->dev, XIIC_PM_TIMEOUT);
--	pm_runtime_use_autosuspend(i2c->dev);
-+	i2c->dev = dev;
-+
-+	pm_runtime_set_autosuspend_delay(dev, XIIC_PM_TIMEOUT);
-+	pm_runtime_use_autosuspend(dev);
- 	ret = devm_pm_runtime_set_active_enabled(dev);
- 	if (ret)
- 		return ret;
-@@ -1483,9 +1484,8 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 	if (ret || i2c->i2c_clk > I2C_MAX_FAST_MODE_PLUS_FREQ)
- 		i2c->i2c_clk = 0;
- 
--	ret = devm_request_threaded_irq(&pdev->dev, irq, NULL,
--					xiic_process, IRQF_ONESHOT,
--					pdev->name, i2c);
-+	ret = devm_request_threaded_irq(dev, irq, NULL, xiic_process,
-+					IRQF_ONESHOT, pdev->name, i2c);
- 	if (ret)
- 		return ret;
- 
-@@ -1520,7 +1520,7 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 			i2c_new_client_device(&i2c->adap, pdata->devices + i);
- 	}
- 
--	dev_dbg(&pdev->dev, "mmio %08lx irq %d scl clock frequency %d\n",
-+	dev_dbg(dev, "mmio %08lx irq %d scl clock frequency %d\n",
- 		(unsigned long)res->start, irq, i2c->i2c_clk);
- 
- 	return ret;
-@@ -1528,22 +1528,22 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 
- static void xiic_i2c_remove(struct platform_device *pdev)
- {
-+	struct device *dev = &pdev->dev;
- 	struct xiic_i2c *i2c = platform_get_drvdata(pdev);
- 	int ret;
- 
- 	/* remove adapter & data */
- 	i2c_del_adapter(&i2c->adap);
- 
--	ret = pm_runtime_get_sync(i2c->dev);
--
--	if (ret < 0)
--		dev_warn(&pdev->dev, "Failed to activate device for removal (%pe)\n",
-+	ret = pm_runtime_get_sync(dev);
-+	if (ret)
-+		dev_warn(dev, "Failed to activate device for removal (%pe)\n",
- 			 ERR_PTR(ret));
- 	else
- 		xiic_deinit(i2c);
- 
--	pm_runtime_put_sync(i2c->dev);
--	pm_runtime_dont_use_autosuspend(&pdev->dev);
-+	pm_runtime_put_sync(dev);
-+	pm_runtime_dont_use_autosuspend(dev);
- }
- 
- static const struct dev_pm_ops xiic_dev_pm_ops = {
+[...]
 
--- 
-2.52.0
+> > +static ssize_t
+> > +write_event_write(struct file *filp, const char __user *ubuf, size_t cnt, loff_t *pos)
+> > +{
+> > +	struct remote_event_format_selftest *evt_test;
+> > +	struct simple_rb_per_cpu *cpu_buffer;
+> > +	unsigned long val;
+> > +	int ret;
+> > +
+> > +	ret = kstrtoul_from_user(ubuf, cnt, 10, &val);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	guard(mutex)(&simple_rbs_lock);
+> > +
+> > +	if (!remote_event_selftest.enabled)
+> > +		return -ENODEV;
+> > +
+> 
+> You want a guard(preempt)(); here...
+> 
+> > +	cpu_buffer = *this_cpu_ptr(&simple_rbs);
+> 
+> Otherwise this triggers:
+> 
+>  BUG: using smp_processor_id() in preemptible [00000000] code: bash/1096
+>  caller is write_event_write+0xe0/0x230 [remote_test]
+> 
+> -- Steve
 
+Ha, of course! And also for a per-CPU ring-buffer, that is way better to make
+sure we actually do all the writing from the same CPU even though in that case
+the simple_rbs_lock protect us.
 
+> 
+> > +	if (!cpu_buffer)
+> > +		return -ENODEV;
+> > +
+> > +	evt_test = simple_ring_buffer_reserve(cpu_buffer,
+> > +					      sizeof(struct remote_event_format_selftest),
+> > +					      trace_clock_global());
+> > +	if (!evt_test)
+> > +		return -ENODEV;
+> > +
+> > +	evt_test->hdr.id = REMOTE_TEST_EVENT_ID;
+> > +	evt_test->id = val;
+> > +
+> > +	simple_ring_buffer_commit(cpu_buffer);
+> > +
+> > +	return cnt;
+> > +}
+> > +
 
