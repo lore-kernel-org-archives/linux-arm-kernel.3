@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D48A6D73EA2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 21:43:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E70D73EA4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 21:43:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LrjvfPAL3tXfptUlhv+qnEz1FXecFAlX5wk+pdibjo8=; b=yae9+BZDp9/99nrmX+pM6FsLH2
-	J/E1zMjEi+Yefenjz1DIMryXLtRXwmwL7C5/DUMy9K4Aw4mTGcxUqw73YxNzXvFGBuXck/LRvHN+g
-	tGoST/7Dxb66xHuKKY1w2Gl4TkO62GFKsTkbPOcPQDLnpKvo6my5QiK58NRmzlInSQNSaKZ6zBAvI
-	jH93BnxrgPcyJqZhZ3hPF2cgQmN4yekluDilaDiCb0KfMLuquoqg6WDfyeHLd9b18V0UuzSWacrga
-	ibmfDdKQx2EtwNuYDF5mD6TcJzD+j1FeJytptyHHUxOJnM4mXYlHjYaN/RZMhLGHi3B6TDRFeZFXq
-	++DOz9JA==;
+	bh=DFVT1pQs1GHMeM+Lbjza+f69sNdZ+5+TNlKYfgaRaRI=; b=abTa/n4r2WOKJoO7pyEb/eK8Fo
+	/NYzw5J+NgFj5OuD0BElftVPmpXyCxsZ67XVr/lbxJq/Ke2cVc2mlayt9OV8H+9Ze+RPwmCUDgE71
+	kKfoJW5KonqrIuGocjB6npVzCZSLiYnVMS+0BplieLNgJTCNYsKSbA/xe+VLtk2wmx0Uxzh7ea5z5
+	Ucb1i8XhPrFQprHrJSE9h5BPP/JQaXyrIAecK1MwDe2U4sUlFxiYH8sJ0bKtSgAAIheoEWV88Ofj7
+	PfR4jY4f97YSOY3PcBRBWE3Blz3dKZiH8qq0roSyOyYIgidWQsUPd9AufWbkyhGkmsz0yY8eRkky/
+	C3EMlDNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlZnf-00000000gvc-1In1;
+	id 1vlZnf-00000000gvA-00vA;
 	Thu, 29 Jan 2026 21:43:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlZnT-00000000gqE-2IKx
+	id 1vlZnU-00000000grW-23zp
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 29 Jan 2026 21:43:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 00FD7444A7;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2C457444EB;
 	Thu, 29 Jan 2026 21:43:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CCED8C19425;
-	Thu, 29 Jan 2026 21:43:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0B307C4CEF7;
+	Thu, 29 Jan 2026 21:43:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769723005;
-	bh=brx5w1sBoP4rgYEbfgYXX3fyk016qy1FYk3BSETc+Z8=;
+	s=k20201202; t=1769723006;
+	bh=63LIznqFOs+vjoKgYNAGULivL80MwirjxtzcB50EozY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=CLViJ3O8BuTJDeerrtus6D+JUA5jjUQ/kVFC44PsLzZN9DghX1D0NslbVHS9OesJR
-	 9Zg518kHU2EZREGg4KnHpazEkys45FUgujXTRT2nzQ6QFMQvCwSqsymahxxneMKjIz
-	 FOD8rD9SUrPaB2q+snlbZbI7V/U13oKMsd+875H5oJgefRxV1Zm/jes5Tmd/KZCVOa
-	 Q7QprnNZZWy6JrIgEg7Z6uNCubtG/PijoRcQ/HTSUDI5glgcoLtb9ASxeKNs4sd4O3
-	 Yb0FLDM0Uuy8/2+0PFhWp3DYTPQf8gTpq3lzlMp0ZnExnIzsaPSwu33F+Fiu6IsRgP
-	 ILu9bjs2akP+A==
+	b=F17P0uMtYIGb2OgbcRMRPnqr7mzmm8VMjda/u8aBKUKo4NmcV39qOnU9ufh8EBe2G
+	 QUbAcuAQeo10NNTQkdfN6WnqwP0VMxX+fOXzxBSCXuLCSQcAIXbnoT6hXBO859edX3
+	 4AFYm9Ucf9mZoBdJl6mR1PqUnGw+I4LiOdDyXsnZsa0aKeipWxjHLvhGlv7ZBkYdJY
+	 H886VBWcU8pR35FEZFv8GIwAgco3YIoRc0b+HdmzzUOa/IZ99BdPxydjtP7Hhl6wCB
+	 1b4V/aL17a8V88+Hb6+wWmsS1c3hDvUSaEvf3uiqP6bfStKcdMt3LvXX/VlxIUrTnW
+	 3ejr3THvlccoA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BBA09D73E9E;
-	Thu, 29 Jan 2026 21:43:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 02631D73E9B;
+	Thu, 29 Jan 2026 21:43:26 +0000 (UTC)
 From: Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org>
-Date: Thu, 29 Jan 2026 21:43:14 +0000
-Subject: [PATCH v7 2/6] i2c: xiic: switch to devres managed APIs
+Date: Thu, 29 Jan 2026 21:43:18 +0000
+Subject: [PATCH v7 6/6] i2c xiic: cosmetic: use resource format specifier
+ in debug log
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260129-i2c-xiic-v7-2-727e434897ef@nexthop.ai>
+Message-Id: <20260129-i2c-xiic-v7-6-727e434897ef@nexthop.ai>
 References: <20260129-i2c-xiic-v7-0-727e434897ef@nexthop.ai>
 In-Reply-To: <20260129-i2c-xiic-v7-0-727e434897ef@nexthop.ai>
 To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
@@ -62,19 +63,19 @@ Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769723005; l=2599;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769723005; l=796;
  i=abdurrahman@nexthop.ai; s=20260119; h=from:subject:message-id;
- bh=zykN6ZbMH9Nn+LViqCFPQScoNBhSq6F1OqapwVemGvw=;
- b=zZpDJ7/w7XL3qTy2Z5St/mPn622Dpk7ZY0mmDnZ0wNVsVuRjmUCJkuz6rpxNaaTQi0xuqpAiv
- ND5S89Q0NlvCkscEhooEHlZYXxQtsN2mujwJGv7F1lWvbIne90QrRFn
+ bh=AyCNoRBKLYKfBPlFJJJUJ1HZ4ulZ88H5iw5TKWG8oFw=;
+ b=uQhYS1vit0sv+bhMHnHmHsL2lmmclZrijbdaPDHxYdtFj5dfVi4YedI9NYD+Z/SyM+YsYV4vz
+ IZ6i3jzydC0AASM1+x6xkBVi5X/v2/P+CWVis0tU9y2DhXTR5v7qGMU
 X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
  pk=S+ysnf+NwMcBdHBlyKIUEAtaFGSIhQwcJcgcXhq0osg=
 X-Endpoint-Received: by B4 Relay for abdurrahman@nexthop.ai/20260119 with
  auth_id=608
 X-Original-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_134327_631529_2198A540 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20260129_134328_584940_F164A9E9 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,93 +93,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 
-Simplify the error code paths by switching to devres managed helper
-functions.
+Use standard resource format specifier %pR in debug log.
 
 Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 ---
- drivers/i2c/busses/i2c-xiic.c | 28 +++++++++++-----------------
- 1 file changed, 11 insertions(+), 17 deletions(-)
+ drivers/i2c/busses/i2c-xiic.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
-index 912a94d4d080..a480cbb86d93 100644
+index 37a15065db60..b24b7a7bab8c 100644
 --- a/drivers/i2c/busses/i2c-xiic.c
 +++ b/drivers/i2c/busses/i2c-xiic.c
-@@ -1462,7 +1462,10 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 	snprintf(i2c->adap.name, sizeof(i2c->adap.name),
- 		 DRIVER_NAME " %s", pdev->name);
- 
--	mutex_init(&i2c->lock);
-+	ret = devm_mutex_init(dev, &i2c->lock);
-+	if (ret)
-+		return ret;
-+
- 	spin_lock_init(&i2c->atomic_lock);
- 
- 	if (is_of_node(dev->fwnode)) {
-@@ -1475,8 +1478,9 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 	i2c->dev = &pdev->dev;
- 	pm_runtime_set_autosuspend_delay(i2c->dev, XIIC_PM_TIMEOUT);
- 	pm_runtime_use_autosuspend(i2c->dev);
--	pm_runtime_set_active(i2c->dev);
--	pm_runtime_enable(i2c->dev);
-+	ret = devm_pm_runtime_set_active_enabled(dev);
-+	if (ret)
-+		return ret;
- 
- 	/* SCL frequency configuration */
- 	i2c->input_clk = clk_get_rate(i2c->clk);
-@@ -1492,7 +1496,7 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 
- 	if (ret < 0) {
- 		dev_err_probe(&pdev->dev, ret, "Cannot claim IRQ\n");
--		goto err_pm_disable;
-+		return ret;
+@@ -1520,8 +1520,8 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 			i2c_new_client_device(&i2c->adap, pdata->devices + i);
  	}
  
- 	i2c->singlemaster =
-@@ -1511,16 +1515,14 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 		i2c->endianness = BIG;
+-	dev_dbg(dev, "mmio %08lx irq %d scl clock frequency %d\n",
+-		(unsigned long)res->start, irq, i2c->i2c_clk);
++	dev_dbg(dev, "mmio %pR irq %d scl clock frequency %d\n",
++		res, irq, i2c->i2c_clk);
  
- 	ret = xiic_reinit(i2c);
--	if (ret < 0) {
--		dev_err_probe(&pdev->dev, ret, "Cannot xiic_reinit\n");
--		goto err_pm_disable;
--	}
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Cannot xiic_reinit\n");
- 
- 	/* add i2c adapter to i2c tree */
- 	ret = i2c_add_adapter(&i2c->adap);
- 	if (ret) {
- 		xiic_deinit(i2c);
--		goto err_pm_disable;
-+		return ret;
- 	}
- 
- 	if (pdata) {
-@@ -1532,12 +1534,6 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 	dev_dbg(&pdev->dev, "mmio %08lx irq %d scl clock frequency %d\n",
- 		(unsigned long)res->start, irq, i2c->i2c_clk);
- 
--	return 0;
--
--err_pm_disable:
--	pm_runtime_disable(&pdev->dev);
--	pm_runtime_set_suspended(&pdev->dev);
--
  	return ret;
  }
- 
-@@ -1558,8 +1554,6 @@ static void xiic_i2c_remove(struct platform_device *pdev)
- 		xiic_deinit(i2c);
- 
- 	pm_runtime_put_sync(i2c->dev);
--	pm_runtime_disable(&pdev->dev);
--	pm_runtime_set_suspended(&pdev->dev);
- 	pm_runtime_dont_use_autosuspend(&pdev->dev);
- }
- 
 
 -- 
 2.52.0
