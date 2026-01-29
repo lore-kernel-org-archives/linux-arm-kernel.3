@@ -4,71 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AA30D358F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 09:55:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17EF5D358F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 10:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TLJaerXYvnpdMf7J9w74jiDoCWj2bcuZe3+nMmYuDnE=; b=OqCQ547eMy286lQl1wMGM7ujB1
-	ooU/1rHrXHO5ebWWECUfl8WRRdppgZUSX3DbZWnA6Pm+PPxbqe52vMdi07Lg3UBoBGZFLsAkAEUh4
-	ck1PldWpswSdStM4CU6RRrcPX9bqjvNsCKqzaRMBBP2oSaOHsh3Y9CkgpHqVJHkWpFsE/vRtDtaiX
-	J8dZilTUlquVEytMKXEEwZI8EBjam99z1o6SsoxmNovoOVUd0oR3NUBSYoFJTwzh0jePwbFz/2oQ5
-	4hj+hDpeU6cF1y77Pg8ubgQ18Nkg6ViQNhFmM29B19wHUh1E0ja70vh1GPllbNOLBHZfglFfdbXph
-	FX4fV1kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VoUkF4sEPD+P1wlIpev37zRNdBw0YRU2QAEXjVXgWJg=; b=UQ2VtkuQw0hOkoqWtYbE7d3R7p
+	vqXyaz9C6j9YIiqMkVgHvc8LJ4zdAl5nmgM9xKsRG+y4oFnjafHg6C9VvIcbwbuzsVzatrWBlUgFf
+	k73IsVXq2A5B1387na9Aww8LmW2OtfFK3Cte6+heJbC4l0VZaf5bZhKIQKqJLSPJcozPI0n/EjTf+
+	pHRejBKArgJiuv+h+0LU8pDWXkmsvwJgSsGh7FvbYv7TJY0S2qTWrSZ4/qpeRJN2S5IEwuW5VpR6b
+	0iJtCFv6mmorQ7hmWrHL+v+bFwltGSoNKbpni6yVGgrAvwKvb2PVZb/WK1L6/UIvuTm2UXn1tpSEO
+	PCNN33eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlOkC-0000000HXWU-17Vs;
-	Thu, 29 Jan 2026 09:55:23 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1vlOps-0000000HY2o-2uRU;
+	Thu, 29 Jan 2026 10:01:12 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlOk3-0000000HXRN-05ci
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 09:55:13 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DD67B10F7AF;
-	Thu, 29 Jan 2026 10:55:03 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1769680504; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=TLJaerXYvnpdMf7J9w74jiDoCWj2bcuZe3+nMmYuDnE=;
-	b=X+yQ6ZuGn+yS9bESPkdaopJOYwR6cOZWhLOnf0qmkl5nQdrJ6EjwrDT672CD6zrunULtKq
-	NqdLgcPFIjkSVG3uc4rfL7GY+WG3DA43aZ8/MQReE4jyj5zMTAy+ftp7jAMtJHrRCoEbFV
-	48jA5J8cXS4/EFlp2UQLPBw4SxLBEIBmI+q3E+F8tG2JH5OTUEEQoO6rDl1JWDM833KsoL
-	d2+UBNHIpqFi1md+CN3nHlPwT9v0bJQqCPKcLUbzgm3NN/xqvFvyH1MsVbL425NMo7hC5H
-	IXCykC2d8IvgF4eFCyRa5sHUThvuhKY1oQQHQn+mdCs6JAWmY33r5XEMLDvZ9g==
-From: Lukasz Majewski <lukma@nabladev.com>
-To: Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
+	id 1vlOpp-0000000HY1z-3uUj;
+	Thu, 29 Jan 2026 10:01:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769680870; x=1801216870;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=SqH9AdxR/lHB8viiJnIr2poCQMky6Igt6nCYuv99EBc=;
+  b=jlRZ6jumGnjMfJ2rdcSpinCwRdGjRlT8mgAYN/+Ihu1saDjrUVsZSEWL
+   RcSTnx0jp8+qszwvLYyYGgNqlApj1beztt8J7pTe18XVCiJxTgGkA0kbT
+   MaVjNBlitYoOKCdjX7BUyizzFrxLHCl+TMmW3UMt7oIxsK+kObWZMcHBd
+   zPdKOcWgwrchvtJ9x10ZsvWC7IIfCbz/vg/k4gXv8BQVvfz6+s2Pk8M3j
+   zSyInu2u5b5OFNsxqXdAm29Wy8PWPD6DsHEP4d2oEf0tv8KyDYDYCI0gI
+   KREmItdtgVX3NkMTL3HySowPDSsJCwaXEsHDc/A1EthiNxcLnDSMp4bat
+   g==;
+X-CSE-ConnectionGUID: OhnGIlBtReuqgAkGW6Wfdw==
+X-CSE-MsgGUID: Fm3e0OG+QbWIxY6lXL8NSA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11685"; a="70630037"
+X-IronPort-AV: E=Sophos;i="6.21,260,1763452800"; 
+   d="scan'208";a="70630037"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jan 2026 02:01:07 -0800
+X-CSE-ConnectionGUID: q96kEhegQ5GodER4IxHUhQ==
+X-CSE-MsgGUID: n0Y7OLBCQQaoEMLmTpwHhw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,260,1763452800"; 
+   d="scan'208";a="213400871"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.155])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jan 2026 02:01:01 -0800
+Date: Thu, 29 Jan 2026 12:00:59 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Louis Chauvet <louis.chauvet@bootlin.com>,
+	Haneen Mohammed <hamohammed.sa@gmail.com>,
+	Melissa Wen <melissa.srw@gmail.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Lukasz Majewski <lukma@nabladev.com>
-Subject: [PATCH v4 3/4] dt-bindings: clock: vf610: Add definitions for MTIP L2 switch
-Date: Thu, 29 Jan 2026 10:54:41 +0100
-Message-Id: <20260129095442.1646748-4-lukma@nabladev.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260129095442.1646748-1-lukma@nabladev.com>
-References: <20260129095442.1646748-1-lukma@nabladev.com>
+	linux-rockchip@lists.infradead.org,
+	Matt Roper <matthew.d.roper@intel.com>,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	Diederik de Haas <diederik@cknow-tech.com>
+Subject: Re: [PATCH v6 2/4] drm: Add CRTC background color property
+Message-ID: <aXsv200DLo6ssao2@smile.fi.intel.com>
+References: <20260129-rk3588-bgcolor-v6-0-c15f755a4055@collabora.com>
+ <20260129-rk3588-bgcolor-v6-2-c15f755a4055@collabora.com>
+ <aXsp2s5a7sJL7Itp@smile.fi.intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aXsp2s5a7sJL7Itp@smile.fi.intel.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_015511_214786_0CF86921 
-X-CRM114-Status: UNSURE (   9.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260129_020110_023516_237DA548 
+X-CRM114-Status: GOOD (  20.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,36 +102,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds VF610_CLK_ESW and VF610_CLK_ESW_MAC_TAB{0123}
-macros definitions for L2 switch.
+On Thu, Jan 29, 2026 at 11:37:33AM +0200, Andy Shevchenko wrote:
+> On Thu, Jan 29, 2026 at 02:58:52AM +0200, Cristian Ciocaltea wrote:
 
-Those definitions describe clocks for MoreThanIP switch IP block;
-the switch itself and the MAC address lookup table clocks.
+...
 
-Signed-off-by: Lukasz Majewski <lukma@nabladev.com>
----
-Changes for v4:
-- Do not change VF610_CLK_END
----
- include/dt-bindings/clock/vf610-clock.h | 5 +++++
- 1 file changed, 5 insertions(+)
+> > +#define __DRM_ARGB64_PREP_BPC(c, shift, bpc)({				\
+> > +	__u16 mask = __GENMASK((bpc) - 1, 0);				\
+> > +	__u16 conv = __KERNEL_DIV_ROUND_CLOSEST((mask & (c)) *		\
+> > +						__GENMASK(15, 0), mask);\
+> 
+> The whole point of the first patch is to use it in the divisions by 2^n - 1.
+> Can we transform this to make it "divisions" by power-of-two?
+> 
+>      ...: def dbm2(c, bpc):
+>      ...:     m = (1 << bpc) - 1
+>      ...:     c1 = m & c
+>      ...:     r = c1 << (16 - bpc)
+>      ...:     for i in range(1, 16 // bpc):
+>      ...:         r = r + (c1 << (16 - (i + 1) * bpc))
+>      ...:     return r
 
-diff --git a/include/dt-bindings/clock/vf610-clock.h b/include/dt-bindings/clock/vf610-clock.h
-index c91fb86fa9a1..5d94bd561a2e 100644
---- a/include/dt-bindings/clock/vf610-clock.h
-+++ b/include/dt-bindings/clock/vf610-clock.h
-@@ -197,5 +197,10 @@
- #define VF610_CLK_TCON1			188
- #define VF610_CLK_CAAM			189
- #define VF610_CLK_CRC			190
-+#define VF610_CLK_ESW			191
-+#define VF610_CLK_ESW_MAC_TAB0		192
-+#define VF610_CLK_ESW_MAC_TAB1		193
-+#define VF610_CLK_ESW_MAC_TAB2		194
-+#define VF610_CLK_ESW_MAC_TAB3		195
- 
- #endif /* __DT_BINDINGS_CLOCK_VF610_H */
+I noticed that on some inputs it gives off-by-small-number error.
+But you got the idea.
+
+Taking this into account, perhaps we can share __KERNEL_DIV_ROUND_CLOSEST()
+anyway and leave it there and improve the situation later on. Up to DRM
+maintainers.
+
+> The above is a Python version of PoC of this approximation. Basically
+> we transform the fraction X / (2^n - 1) to a chained version of
+> X / 2^n + X / 2^2n + ... X / 2^kn as derived from recurrent formula
+> of i+1:th iteration as Xi+1 = Xi / 2^n + Xi / (2^n * (2^n - 1)).
+> 
+> So, maybe that one should be used instead? (It may be thought through
+> on how to collapse the for-loop to maybe some bitops, but even with
+> a for-loop it might be faster than real division.)
+> 
+> Note, we have some (for sure more than one, I remember the same Q appeared to
+> me a few years ago) of the examples which may avoid division at all. I would
+> like to have this macro to be kernel wide (and UAPI seems also okay).
+
+> > +	__DRM_ARGB64_PREP(conv, shift);					\
+> > +})
+
 -- 
-2.39.5
+With Best Regards,
+Andy Shevchenko
+
 
 
