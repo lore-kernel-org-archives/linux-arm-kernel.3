@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939F8D6101A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 15:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13B11D61020
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 15:20:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DVbbNBM8h2hLry9+PjA9Xnf//1plR69ceWUdZQzpcN8=; b=glzzS6QO8jPgomfd48PkTQWnoF
-	2LhqvCCWXWvaTqEoS9HhzMCvP9S2nz/DHuP1wiOJ9zUcPR8TeHfz1BDPr0C+M4znKjIrJE2f8FBRI
-	zSqDPch67hR0cvWOF69voW8yDiN0BFzWSw5d7n+9TwCTSaPQ9UUYCboOHhZ9Wu1I4edsRCf1y1JTR
-	lbaqSL87u39+KRWO0qbPVrXjwNNGmUSk0KIKL8Mb02skzjxS1bPo74fcftpl5O/CYVadcUO6O8MeM
-	AFyYbma6afg0yyT8JdPJcvUZotiKrTgJ5hhOdjB/RF3xRRkIMLcRiE00hiU3DxhvjvlrJKU59fuqs
-	PGwJupaQ==;
+	bh=yPprun4aR90KqpUnWVsp2X14tMNGCdXErOUxb3GK7ZA=; b=SJAm+cO2+k72RrqJYCrLVMe4Dt
+	gL1oLVhIus4XdDdrdnOaYSzdlHlKfrNb9EZffCwt0nRP8I2Hesk/rMlpHElWw0ywN+VpP+CpTj4jV
+	YLAJy14idQb0/adXpPR/1AKWpJbF41DwLz5sr2yGJ6tzAUGSgP3lf+ZxsY2tCTiPvJ+9XGXM6/5tz
+	ybe5KG0CbE+CSnWHS4mcQ7PVMklprmWggjNqoG9tz+/UT8ICAICySe8t5XdRrmGGgxPLrSfUb8tnW
+	IpdcPEIIeU2I5a01MPQ5KiXaP4ahWSvyf61upNRgZOhwUgfmtaDmxfrdyV5DQvYfvYl+/dKB0YN8M
+	SDtje/Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlTo7-00000000H1J-2u0m;
-	Thu, 29 Jan 2026 15:19:43 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	id 1vlToY-00000000H6K-0Jyz;
+	Thu, 29 Jan 2026 15:20:10 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlTo4-00000000H06-1VZQ
+	id 1vlToV-00000000H5L-27Vr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 15:19:41 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1769699974;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DVbbNBM8h2hLry9+PjA9Xnf//1plR69ceWUdZQzpcN8=;
-	b=OUq4eMJc8eAdZ74vls9q8VxZhtpQjlW71HAqe06bfYZVmfblin6PvTAr9ovnnwAOqy2SHM
-	24swlbe1CfBBQ96jm4P6At9i0DMhjw3nRRxbO665shByg8zcgEDx90niAclRdqcXz0KwLW
-	/Khir5oloAjBwkPM0mh1F9tQ6FLJ5xo=
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 29 Jan 2026 23:19:19 +0800
-Message-Id: <DG16A1T5EJWO.D9L79G1ZE8H9@linux.dev>
-Cc: <ast@kernel.org>, <daniel@iogearbox.net>, <andrii@kernel.org>,
- <martin.lau@linux.dev>, <eddyz87@gmail.com>, <song@kernel.org>,
- <yonghong.song@linux.dev>, <john.fastabend@gmail.com>,
- <kpsingh@kernel.org>, <sdf@fomichev.me>, <haoluo@google.com>,
- <jolsa@kernel.org>, <puranjay@kernel.org>, <xukuohai@huaweicloud.com>,
- <catalin.marinas@arm.com>, <will@kernel.org>, <shuah@kernel.org>,
- <menglong8.dong@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
- <kernel-patches-bot@fb.com>, <martin.lau@kernel.org>, <clm@meta.com>,
- <ihor.solodrai@linux.dev>
-Subject: Re: [PATCH bpf-next v3 1/3] bpf: Add bpf_jit_supports_fsession()
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Leon Hwang" <leon.hwang@linux.dev>
-To: <bot+bpf-ci@kernel.org>, <leon.hwang@linux.dev>, <bpf@vger.kernel.org>
-References: <20260129142536.48637-2-leon.hwang@linux.dev>
- <97fd7e67669f887badde4e276fc501a5969ff9dac703a6dccedda386dacd25f1@mail.kernel.org>
-In-Reply-To: <97fd7e67669f887badde4e276fc501a5969ff9dac703a6dccedda386dacd25f1@mail.kernel.org>
-X-Migadu-Flow: FLOW_OUT
+	Thu, 29 Jan 2026 15:20:08 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=yPprun4aR90KqpUnWVsp2X14tMNGCdXErOUxb3GK7ZA=;
+	b=CRxPawUIXau+eXwS1lVvSmkkxONUydluDE8cAS9KTPp2fg/cfjXzXiVs1hrTPxohj63az0jc5
+	w145pGxHti+NWh4ypxhZ1JeocsyAVVFXOXAdixMsCD0uBhvO5xv/QcrdFt8NCw6LrsYcYW43x1f
+	BhlrQ+ZeAp7wn+2qcwvaejg=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4f22mG0VMwzmV6b;
+	Thu, 29 Jan 2026 23:16:30 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id 714D74048B;
+	Thu, 29 Jan 2026 23:19:59 +0800 (CST)
+Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 29 Jan 2026 23:19:59 +0800
+Received: from [10.67.120.139] (10.67.120.139) by
+ kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Thu, 29 Jan 2026 23:19:58 +0800
+Message-ID: <e90f26f2-a966-46a1-a858-d1061a9e19c9@huawei.com>
+Date: Thu, 29 Jan 2026 23:19:57 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFT PATCH 1/7] perf stat: Check color's length instead of the
+ pointer
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+CC: <mike.leach@linaro.org>, <mingo@redhat.com>, <acme@kernel.org>,
+	<namhyung@kernel.org>, <mark.rutland@arm.com>,
+	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
+	<irogers@google.com>, <adrian.hunter@intel.com>, <peterz@infradead.org>,
+	<john.g.garry@oracle.com>, <shiju.jose@huawei.com>, <will@kernel.org>,
+	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linuxarm@huawei.com>, <liuyonglong@huawei.com>, <prime.zeng@hisilicon.com>,
+	<fanghao11@huawei.com>, <wangzhou1@hisilicon.com>, Yushan Wang
+	<wangyushan12@huawei.com>
+References: <20260126123514.3238425-1-wangyushan12@huawei.com>
+ <20260126123514.3238425-2-wangyushan12@huawei.com>
+ <20260127155835.000011c9@huawei.com>
+Content-Language: en-US
+From: wangyushan <wangyushan12@huawei.com>
+In-Reply-To: <20260127155835.000011c9@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.120.139]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemn100008.china.huawei.com (7.202.194.111)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_071940_537094_CF571B57 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20260129_072007_757689_FF6B8F86 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,62 +92,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Jan 29, 2026 at 10:54 PM +08, bot+bpf-ci wrote:
->> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
->> index e7ff8394e0..6e0693ac72 100644
->> --- a/kernel/bpf/verifier.c
->> +++ b/kernel/bpf/verifier.c
->> @@ -24874,6 +24874,9 @@ int bpf_check_attach_target(struct bpf_verifier_=
-log *log,
->>  	case BPF_TRACE_FENTRY:
->>  	case BPF_TRACE_FEXIT:
->>  	case BPF_TRACE_FSESSION:
->> +		if (prog->expected_attach_type =3D=3D BPF_TRACE_FSESSION &&
->> +		    !bpf_jit_supports_fsession())
->> +			return -EOPNOTSUPP;
->
-> This isn't a bug, but other similar bpf_jit_supports_*() checks in
-> this file include a bpf_log() message before returning an error. For
-> example:
->
->   bpf_jit_supports_kfunc_call() -> "JIT does not support calling kernel f=
-unction"
->   bpf_jit_supports_exceptions() -> "JIT does not support calling kfunc...=
-"
->   bpf_jit_supports_arena()      -> "JIT doesn't support arena"
->   bpf_jit_supports_private_stack() -> "Private stack not supported by jit=
-"
->
-> Should this check also include a message like "JIT does not support
-> fsession" for consistency with other similar checks in the verifier?
->
-
-That makes sense.
-
-Let me add the log message.
-
-Thanks,
-Leon
 
 
+On 1/27/2026 11:58 PM, Jonathan Cameron wrote:
+> On Mon, 26 Jan 2026 20:35:08 +0800
+> Yushan Wang <wangyushan12@huawei.com> wrote:
 >
-> ---
-> AI reviewed your patch. Please fix the bug or email reply why it's not a =
-bug.
-> See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/READM=
-E.md
+>> Color string returned by metric_threshold_classify__color() is never
+>> NULL, check the presence of *color will always return true.
+>>
+>> Fix this by change the checks against length of *color.
+>>
+>> Fixes: 37b77ae95416 ("perf stat: Change color to threshold in print_metric")
+>>
+> No blank line between tags.
 >
-> CI run summary: https://github.com/kernel-patches/bpf/actions/runs/214822=
-97342
+> Fixes: 37b77ae95416 ("perf stat: Change color to threshold in print_metric")
+> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
 >
-> AI-authorship-score: low
-> AI-authorship-explanation: The commit demonstrates specific debugging con=
-text with actual test output and errno values, correct understanding of ker=
-nel BPF conventions, and follows established patterns - typical of experien=
-ced human kernel developers.
-> issues-found: 1
-> issue-severity-score: low
-> issue-severity-explanation: Minor consistency issue - missing bpf_log() e=
-rror message compared to similar checks in the same file; does not affect f=
-unctionality or stability.
+> Some of the scripting run against the kernel uses that lack of blank lines
+> as a heuristic to identify what is a tag vs other similar looking text.
+
+Thanks for reminding, will fix it in the next version.
+> Thanks,
+>
+> Jonathan
+>
+>> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
+>> ---
+>>  tools/perf/builtin-script.c    | 2 +-
+>>  tools/perf/util/stat-display.c | 4 ++--
+>>  2 files changed, 3 insertions(+), 3 deletions(-)
+>>
+[...]
+
+Thanks!
+Yushan
 
