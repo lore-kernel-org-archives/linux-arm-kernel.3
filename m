@@ -4,89 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B910CD358ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 09:38:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37697D358EE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 09:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wu6ImEH3THsnXSCanI4pCuinWyuI9iiaF38KQnLjAy4=; b=Jibi/GJneHxHLNqSNhPtYxVaxb
-	b92/SsUAkj6f/jv1QIxDqf48Plr5gEywl6PiWO4reqVrfYnLXuQUIA2V4rpGnUfd6U50dyw9itNoC
-	yIsVxMfEbdrkSXoN2R9UqxOpLmOGVSyQktswt7uG45DtN5FPRBXiCpNPkccUo19REdJNNm/2WK922
-	h6H1HW1l72ICQ3jYktyZ3J2/8kfyQ52tYa9Cfdre8xBQh7byfOwIdwwJVrRMeZB0QTDc4ur3kNZF1
-	mr066TikzteLKcKGzIsOy4EpelrjdDKSj6IpFyAdVbkNDKjyneT3QUu9rHUa6bljJblFyEaXXLFoJ
-	OkTezuaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/7eUFYzBO0piSeiJwey3BFHh10mwh8sua4KhOGsFt8I=; b=S8uUIf2BWYFdgxZu1bahSLjm92
+	5E8geZ8Mx0+Qck2wrjJhBMwdY6zfu5KX9rw57TjWN2vndEdIJc0yZYTMv9doMoRHaQi3BfmHSlenB
+	pepv5hs8vv9QsN/LtEA5GNYJWHzG1mgC8RL6JwugIqd1B6K0ZcQSDsrZCl5zUH3iBI9OcRsZtjogf
+	PfSeY73SF3ie3gO8mFdIsp3r2JVQR+oZ11gStxCX6UxTcWPAtC9ZeNVEkXPs9PYMs+GuAEwFjXWLZ
+	iUlX3ogjuRt/lPNzhd0jG72+TyKLU5MPu+H9Cnabelzsw7JaAerlx1oDYVKMPhQVXb7Rs1kYd7jXV
+	c4aIbBGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlOTL-0000000HWf8-2dOu;
-	Thu, 29 Jan 2026 09:37:55 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1vlOik-0000000HXDk-1fOF;
+	Thu, 29 Jan 2026 09:53:50 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlOTI-0000000HWdz-2fKJ;
-	Thu, 29 Jan 2026 09:37:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769679473; x=1801215473;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=fcH4mUDNyS5wydLrVZXUX/K4ZKaotkjSpo0HtMsk+1o=;
-  b=lVGPwfTSy0eOth5F5bjSFiLDm8t0sZOIEE8lC0BJmJ9fpuPGqZYiruTS
-   Xj1lM6ZGm6xdbTQoP2A0hcW6QvZdqcKE7KkUwPR1HJrPCqtgUns96JwmB
-   NAZCIv//SNVoJR9TG481GqUqmNW0qJttZ8F+YDCuyYqyjdbmMUFEUHaWN
-   inltHv94RieOdeNd8/x8BWiyIT/Iwj18FHejILHUmlNkfsXF/Zoz8yNXF
-   fZ7p0i9DCDKMJm0cEGaptg2j+M+e01bwyd+eqjyNItRfd0SkvKcza/ZjM
-   G/tLVwYqf8zl211U0Rmjg5e0OY4MwI1w/FQEvtkvAKqR/MyQ3dyewT64H
-   g==;
-X-CSE-ConnectionGUID: 8yTWqO0nQS6EGbu68HInPQ==
-X-CSE-MsgGUID: dW1SyljrRviCPMduZp953A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11685"; a="71074878"
-X-IronPort-AV: E=Sophos;i="6.21,260,1763452800"; 
-   d="scan'208";a="71074878"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jan 2026 01:37:50 -0800
-X-CSE-ConnectionGUID: Q6oB1hS4RWCJLoDv2BxPDA==
-X-CSE-MsgGUID: vyc3EwQqRieVpm72pc7e7w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,260,1763452800"; 
-   d="scan'208";a="246133392"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.155])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jan 2026 01:37:29 -0800
-Date: Thu, 29 Jan 2026 11:37:22 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Louis Chauvet <louis.chauvet@bootlin.com>,
-	Haneen Mohammed <hamohammed.sa@gmail.com>,
-	Melissa Wen <melissa.srw@gmail.com>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Matt Roper <matthew.d.roper@intel.com>,
-	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
-	Diederik de Haas <diederik@cknow-tech.com>
-Subject: Re: [PATCH v6 2/4] drm: Add CRTC background color property
-Message-ID: <aXsp2s5a7sJL7Itp@smile.fi.intel.com>
-References: <20260129-rk3588-bgcolor-v6-0-c15f755a4055@collabora.com>
- <20260129-rk3588-bgcolor-v6-2-c15f755a4055@collabora.com>
+	id 1vlOih-0000000HXDP-37NA
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 29 Jan 2026 09:53:49 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2a7bced39cfso7398065ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 01:53:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769680427; cv=none;
+        d=google.com; s=arc-20240605;
+        b=AxHZuqmRvFxBhvigZUrrudrwE50tI/CsC9vsod6YEFfyp8IVAeHQzVFjt1LOqduvHT
+         Ms+x76A+VkEPr0GHIQl0WsOlN3AltMycLd3rtoIVCnVzyguw5PT5sPihd11qWyMwsyGi
+         ojQSaFZK6zjYNJlanPibXCte7AmP9SwiTDS3Ckn1qAV2f+FOY5lSUAfJyQpZobBl5Brf
+         pDY5x0UE+ufyO4TW2iV8QuyCc93LmXDWUO4pry+zZoD0OhGM10tuJ9iIoat1O2KZo1Uk
+         fi9Pkspuum8Ke4/7KXtb+j0zE96K4iq+G94yVKm1S9NjV7V3Dpn/vDyDWl2suBtNB7r/
+         XiGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=/7eUFYzBO0piSeiJwey3BFHh10mwh8sua4KhOGsFt8I=;
+        fh=Oxv/3hlS24ZxrbORiLXV8xjC9HZFVwbOsf75dDnE0Lw=;
+        b=MqO+czXk4gOQ/8Cb48hVCQ2bN2NTWXiEVyaAipFkjeUxQ+zubAW/CNDX/ML43lWODU
+         tVrH/rXSgJMCPtcfYd3w2sYLduBd8EZlFqqH/9CJuRsqCoSJGaqKpWXvE5cTTVSKobi3
+         wli045dZtzX3CP5zV1nJSYM+jky+8L8gK2g9nlkbCKBB5qt6slw8A6wzRGY1GfFwdXNV
+         YvntfXDedpHR9dF7jIdlFw4V7fOaS48/aN4riZDKuOJkf2+C6fceb00CXWHeCO7h4N17
+         YyDgAz5YwBdohGcolzoorA5fWSee5IfDkcrimcgvVq6yJwuy0yBh2VIkDaS1CVRZu3BF
+         TDQg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769680427; x=1770285227; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/7eUFYzBO0piSeiJwey3BFHh10mwh8sua4KhOGsFt8I=;
+        b=SDGrunYS0/ye7mI8pm/GvbkITCQgVe4tKgF9qYBsBqpDqeczwEsaCNZnXGn9i+xPrH
+         TC1C4MuhBKN8UQT2ofVFYI/xKqTPDVByRV3NIWoHSJ4VGZTr15BhzvyKw2i02DXRZuPV
+         N3ExwfR2Q8Fh3/lmAy98VAAeGGt115Zxrg6JMZ8Nmf58+uwcV3it4y8xZiSs3IZ+/kDz
+         Xc9ModSLcFfaShUKqnmtwTQ3wCb95xLESsoFO+42RITVqggmk8uK2tEQtRFG2ffp6KhW
+         S25t6kRa4Yi9IwuPE0u/c4ELdYkPchND2tT3jq1ER5T+VvOnZJaSqtIkL7dph2BiTwAk
+         0BTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769680427; x=1770285227;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=/7eUFYzBO0piSeiJwey3BFHh10mwh8sua4KhOGsFt8I=;
+        b=DvR0Qjid7Nuqp3yqjG4yfvhLtTGZZc55EXz6kqtRUMp14J5fjpa4+LHW6sS+7OR101
+         zoMI3MgKZjj2X1y/rcmGT5iqf7PK61lnYCDm6AitnsFqOkRwWRa6BXSm2GPzS7HGfo8r
+         iLi25qyBwqWQTd16kTjCYQaHrUcBNNKCpQ98o7SpINpGFTm/VlBqmI4f46iV3IGPBd0W
+         fWufagbCuh6m5nM2CDzLL0tsblZICqPVmm9CnO+yq3RC9LHCcqOupSRa+zf2gQHmcHMj
+         qEo3I3saMfTWTAPpGpSKohxTolHRIcTDq5YBI5hX2/A/5Kq85CYv9+Tm8xsw5QquMeuW
+         xodg==
+X-Forwarded-Encrypted: i=1; AJvYcCXxfhSHTp5Xa4nVI4uYTeuEairZXdYj0GeUyLllj3sBXmpDzlQisVyZpP1mbFEQGBviymuZ3oVtKcCEF9iChozX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4YIDufrm3O5IGtFTovCMkc1eF4Q6Awl9x3Q+Jt3o+ESniteDf
+	UwtxeYrtYt1vac3Ic5k1ZibZQPBWS20a1l2GZHAkwPxH7OXhcrFwGOKXePSoXabTYOU8KtPEs3h
+	qEhePjeZCUs0Y20JZVIboYjWhFm1iSii77w==
+X-Gm-Gg: AZuq6aILFJkLEHksgJwOkLhPu3KoOtBugNI4CySkC0BYJlu3TfKzC+uV/AHv14fVg8b
+	g1YWPWjlKvno/iRHFrY9TwOfbhZatjxJ2wWqtpVA+CMtg0QKb+Evj8qlPIZCOXx0v8mjmSMTcIq
+	n74gHVmzNRrby1caAnAxHz3gQ9I3ZYqXB1U6ihlnt88C4oBuJnWtM6SRD/+0Icv98pUJzg+m3kY
+	XrJwEhLuHHaJxCRb8uhXfb0SInhkon4o/fbQCbxsWQnVrLJTFREfzk2fOQTcfW7K4HqcS0=
+X-Received: by 2002:a17:903:40ca:b0:2a1:5d2:2e45 with SMTP id
+ d9443c01a7336-2a870e7dbf0mr74134655ad.59.1769680426799; Thu, 29 Jan 2026
+ 01:53:46 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260129-rk3588-bgcolor-v6-2-c15f755a4055@collabora.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20260128071853.2602784-1-shengjiu.wang@nxp.com>
+ <20260128071853.2602784-3-shengjiu.wang@nxp.com> <36309f30-8b83-4eaa-842e-c663edd8a439@oss.nxp.com>
+In-Reply-To: <36309f30-8b83-4eaa-842e-c663edd8a439@oss.nxp.com>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Thu, 29 Jan 2026 17:53:34 +0800
+X-Gm-Features: AZwV_QhJaxBDlnFwwTXJVH6oDtpo891knd-s55tPdoqjkrrPNspPNZy-5Dfzq3s
+Message-ID: <CAA+D8AP==mteo7ucx=R4eyPw+DpBUtzC7H1++_iZBMN1kkPJsA@mail.gmail.com>
+Subject: Re: [PATCH 2/3] ASoC: fsl_asrc: Add support for i.MX952 platform
+To: Daniel Baluta <daniel.baluta@oss.nxp.com>
+Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, lgirdwood@gmail.com, broonie@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, perex@perex.cz, tiwai@suse.com, 
+	linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_013752_752197_CA2E37FD 
-X-CRM114-Status: GOOD (  23.83  )
+X-CRM114-CacheID: sfid-20260129_015347_789228_8FCA3154 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,81 +121,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 29, 2026 at 02:58:52AM +0200, Cristian Ciocaltea wrote:
-> Some display controllers can be hardware programmed to show non-black
-> colors for pixels that are either not covered by any plane or are
-> exposed through transparent regions of higher planes.  This feature can
-> help reduce memory bandwidth usage, e.g. in compositors managing a UI
-> with a solid background color while using smaller planes to render the
-> remaining content.
-> 
-> To support this capability, introduce the BACKGROUND_COLOR standard DRM
-> mode property, which can be attached to a CRTC through the
-> drm_crtc_attach_background_color_property() helper function.
-> 
-> Additionally, define a 64-bit ARGB format value to be built with the
-> help of a couple of dedicated DRM_ARGB64_PREP*() helpers.  Individual
-> color components can be extracted with desired precision using the
-> corresponding DRM_ARGB64_GET*() macros.
+On Thu, Jan 29, 2026 at 5:17=E2=80=AFPM Daniel Baluta <daniel.baluta@oss.nx=
+p.com> wrote:
+>
+> On 1/28/26 09:18, Shengjiu Wang wrote:
+>
+> Add a compatible string and clock mapping table to support ASRC on the
+> i.MX952 platform.
+>
+> There is a limitation on i.MX952 that dma request is not cleared at the
+> end of conversion with dma slave mode. Which causes sample is dropped
+> from the input fifo on the second time if dma is triggered before the
+> client device and EDMA may copy wrong data from output fifo as the output
+> fifo is not ready in the beginning.
+>
+> So need to trigger asrc before dma on i.MX952, and add delay to wait
+> output data is generated then start the EDMA for output, otherwise the
+> m2m function has noise issues.
+>
+> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+>
+> This patch does more than one logical change.
+>
+> I would split in two patches:
+>
+> - 1) introduce functionality to start ASRC before DMA.
+>
+> - 2) add imx952 support including clk_map and introduce fsl_asrc_imx952_d=
+ata
 
-...
+Ok, will separate them.
 
-> +/*
-> + * Put 16-bit ARGB values into a standard 64-bit representation that can be
-> + * used for ioctl parameters, inter-driver communication, etc.
-> + *
-> + * If the component values being provided contain less than 16 bits of
-> + * precision, use a conversion ratio to get a better color approximation.
-> + * The ratio is computed as (2^16 - 1) / (2^bpc - 1), where bpc and 16 are
-> + * the input and output precision, respectively.
-
-Not sure if you should explicitly mention that "bpc must not be 0"
-(it can be derived from the "division by 0" in the given formula,
-but still...).
-
-> + */
-> +#define __DRM_ARGB64_PREP(c, shift)					\
-> +	(((__u64)(c) & __GENMASK(15, 0)) << (shift))
-> +
-> +#define __DRM_ARGB64_PREP_BPC(c, shift, bpc)({				\
-
-Not sure if this is an accepted style in DRM, by I find it difficult
-to follow. I would expect the "({" be on a separate line.
-
-> +	__u16 mask = __GENMASK((bpc) - 1, 0);				\
-> +	__u16 conv = __KERNEL_DIV_ROUND_CLOSEST((mask & (c)) *		\
-> +						__GENMASK(15, 0), mask);\
-
-The whole point of the first patch is to use it in the divisions by 2^n - 1.
-Can we transform this to make it "divisions" by power-of-two?
-
-     ...: def dbm2(c, bpc):
-     ...:     m = (1 << bpc) - 1
-     ...:     c1 = m & c
-     ...:     r = c1 << (16 - bpc)
-     ...:     for i in range(1, 16 // bpc):
-     ...:         r = r + (c1 << (16 - (i + 1) * bpc))
-     ...:     return r
-
-The above is a Python version of PoC of this approximation. Basically
-we transform the fraction X / (2^n - 1) to a chained version of
-X / 2^n + X / 2^2n + ... X / 2^kn as derived from recurrent formula
-of i+1:th iteration as Xi+1 = Xi / 2^n + Xi / (2^n * (2^n - 1)).
-
-So, maybe that one should be used instead? (It may be thought through
-on how to collapse the for-loop to maybe some bitops, but even with
-a for-loop it might be faster than real division.)
-
-Note, we have some (for sure more than one, I remember the same Q appeared to
-me a few years ago) of the examples which may avoid division at all. I would
-like to have this macro to be kernel wide (and UAPI seems also okay).
-
-> +	__DRM_ARGB64_PREP(conv, shift);					\
-> +})
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+best regards
+Shengjiu Wang
+>
+> Thanks,
+>
+> Daniel.
+>
+>
 
