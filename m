@@ -4,77 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38090D46BED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 01:14:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C31B0D46BF0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 01:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tZZ3hgFQthdJ/PkZwh8GwZaL+bSGuAAwWD0RqtfIF70=; b=xQNIti99bUc3JaarZg6IXFG8d4
-	0Ac8C/1wwzMVu6EH3jWtsKpkkadcE8dq+HcvGHWq/habAQEbCiu9fAYGrBc7tqAVUuY9svWLQ67R/
-	E4x3PLPDaaNz60HyJ2z81eBrmPTFkXgP3DdzvzQtja1MImbjk7w690npC6AQUhgCby4YMkbXGuAcz
-	DHKbPda/7VrdXtk6lTSx3MpMQOjq7JAM52P5jd8aQCdLpcUA/QQaWqweCY4jJREM0a2Hg+bsZNyFG
-	clfRzEEAfwhz67MX1m9d/2nSPIMsUGQUMVVZt2eCSRFt+hVun5uIgVZTlaLHlRhnyIMKOoLSatlv2
-	5KduYv5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hqIsocrvZOanK6tAD5XkOUINS0CSx1kBwU4tnk5UATU=; b=F67ogWzygQPziI/KcydJOX2UaY
+	YeECy658jvsddWP45WXQEBa8YHCx1zQDAuMRH7ArTwE9AjOl3zytXjz/0ncsh4oUA4BwelYqrUHkg
+	1UPpSWfX2z6sM/Z1YnPQFKvdVMvdhv3F9KKDU2sDk4Ay7AwkjrPyZdPQB0qqqp7cAxQ2rO6qawQPw
+	XbvmHMyiZtstSxhBWlN/wktfdAuptzoaxhpJ6kNfvhHqxHV3Zonww8S86hwvLnS0jU2xMuQwjq5an
+	H21GZHZCuE4hWXtGAZEobUMchrsg91K4YUmR5FbLpzKd/vQuGGLiIx8Leb5vGpT2rFlzc+a/xWzFj
+	RQXDDEvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlGcS-0000000H28k-0lLm;
-	Thu, 29 Jan 2026 01:14:48 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vlGix-0000000H3CB-0Nul;
+	Thu, 29 Jan 2026 01:21:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlGcP-0000000H27x-0xJU;
-	Thu, 29 Jan 2026 01:14:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1769649282;
-	bh=gtoH8iXkfDnDeWMhk7HbyeV4YG1OQmXsw/axrAJnNUM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hpzwVGm5nAyhlPywmD3XFVwVUogkLuoq48Zc5VZNyJhl8cZhXnwCda79We5iUXX/4
-	 zXCN1Z+sRzfV9twaA6swkac5NV5rkpRWG7lXF7/Ki9FAZSu+chuwxorlX7532prfeu
-	 VAJm1Q35aVWjUJONWd+Q6I2DqrFdA9K5w6DEuH/K5EVCBXTchz4V5smnfKoeOzMke1
-	 FoSmjgdXjcglOjVfAdLGRnENVLRg4aTObNzUQPrPZAv8e03rV2DuKIOe0KKudhP99P
-	 1AmoKo00CMkzgjAV4tnJmqa7LA5t1VbgnFdAMQPRPLfNgF3Vf9+kbWoLpTY8bSjbR/
-	 OE39XhQAcKF3g==
-Received: from [192.168.1.90] (unknown [82.79.138.145])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 33FCB17E01E7;
-	Thu, 29 Jan 2026 02:14:42 +0100 (CET)
-Message-ID: <c9f51c59-c972-420e-89da-f42ab5a843c0@collabora.com>
-Date: Thu, 29 Jan 2026 03:14:41 +0200
+	id 1vlGiu-0000000H3C1-2EOo
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 29 Jan 2026 01:21:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E85116001A;
+	Thu, 29 Jan 2026 01:21:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42819C116C6;
+	Thu, 29 Jan 2026 01:21:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769649687;
+	bh=T131svMu2T3ISOZCqIcwsEXJug1tYGuujwIwl9rBKfg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ao8jMlciFjG/h68WfinfE4v/z5xPoxsTvbDrKSu69RUh4ufknA8/TMKu1dOPPD9Rn
+	 90oj8KngFyQQWlnwJi4Cg/StF5Ri6meN/nUzeC2w3qSwEANpE1LWow3G2e/GI+TiIO
+	 rPwFhPtTU3YAjLshLOX/4LejkKHv1VQNTHhVpK8AmSsvXFoslfOsmnLhRAyispehJ0
+	 VFSk7tRWvPvHI9tc0WlN/aaij+bBYaZ5WZ3YCLblYaIemSQ8IWKoXWJMBLM5P8wsdK
+	 2AdMSjzruOlwhU9Hw24BHx06O7iHSzkBJwFOX0aJRYWO4hNKj4v+LeFCOI9N9yShhJ
+	 YGzE64w5KbIkg==
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 56B0FF40068;
+	Wed, 28 Jan 2026 20:21:26 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-06.internal (MEProxy); Wed, 28 Jan 2026 20:21:26 -0500
+X-ME-Sender: <xms:FrZ6aQuq_7z7EACVqdZX3ci0zIAyJtueFzEcJKkVNsKWNUxe3NMbSQ>
+    <xme:FrZ6ad67b6sAjh6ruihHg7guj8rC0GQA_rpts3DEJKyS20U9H_Iw7doXjrGYnPyzq
+    jy6UkjmRDN2HsVH3v0uWPXIRbiXcYb_npdNZX8nAEkLrFAElHjB>
+X-ME-Received: <xmr:FrZ6abjh53bP0vL0DOCI0yIXtYoRe1Lhmtsp1TjbcQ9mCK34NteY2In7CdI9YMx77BNXtDz0IHXLt15JecSXq34TZ4I8Vseg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdduieegkeeiucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujgesthdtredttddtvdenucfhrhhomhepuehoqhhunhcu
+    hfgvnhhguceosghoqhhunheskhgvrhhnvghlrdhorhhgqeenucggtffrrghtthgvrhhnpe
+    ekgffhhfeuheelhfekteeuffejveetjeefffettedtteegfefftdduteduudfgleenucev
+    lhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegsohhquhhnod
+    hmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieejtdelkeegjeduqddujeej
+    keehheehvddqsghoqhhunheppehkvghrnhgvlhdrohhrghesfhhigihmvgdrnhgrmhgvpd
+    hnsggprhgtphhtthhopeduhedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepvghl
+    vhgvrhesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgvthgvrhiisehinhhfrhgrug
+    gvrggurdhorhhgpdhrtghpthhtohepfihilhhlsehkvghrnhgvlhdrohhrghdprhgtphht
+    thhopehmihhnghhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehtghhlgieslhhinh
+    huthhrohhnihigrdguvgdprhgtphhtthhopegsohhquhhnrdhfvghnghesghhmrghilhdr
+    tghomhdprhgtphhtthhopehlohhnghhmrghnsehrvgguhhgrthdrtghomhdprhgtphhtth
+    hopegsvhgrnhgrshhstghhvgesrggtmhdrohhrghdprhgtphhtthhopehllhhvmheslhhi
+    shhtshdrlhhinhhugidruggvvh
+X-ME-Proxy: <xmx:FrZ6afk6uPE3iywxH1zEpW-gAS1TiDOWABsqlS2c4e0eB4ol6DjlDQ>
+    <xmx:FrZ6aavco9ZAoi9BFqVkBJwmFp52-zuLoATMaWzouqnhglAENcVomA>
+    <xmx:FrZ6aVD2XQeDR9BA5MORIA-7KYHkUX4L2pjQCBlboQxLQWqEpRF_hA>
+    <xmx:FrZ6afVHXxQ7onPhStf0o7jz2oQXqB5leodNkPhnklACBUkSjeSfaA>
+    <xmx:FrZ6aWH_mfLUh04kv8p9nTDrvfa2t2B0iEg1Pl3mz0ol8hS9g7yCkf5D>
+Feedback-ID: i8dbe485b:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 28 Jan 2026 20:21:25 -0500 (EST)
+Date: Wed, 28 Jan 2026 17:21:24 -0800
+From: Boqun Feng <boqun@kernel.org>
+To: Marco Elver <elver@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>,
+	Ingo Molnar <mingo@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Boqun Feng <boqun.feng@gmail.com>, Waiman Long <longman@redhat.com>,
+	Bart Van Assche <bvanassche@acm.org>, llvm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] arm64: Fix non-atomic __READ_ONCE() with
+ CONFIG_LTO=y
+Message-ID: <aXq2FOa1va0P_zu8@tardis.local>
+References: <20260129005645.747680-1-elver@google.com>
+ <20260129005645.747680-2-elver@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/4] uapi: Provide DIV_ROUND_CLOSEST()
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Jani Nikula <jani.nikula@linux.intel.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Louis Chauvet <louis.chauvet@bootlin.com>,
- Haneen Mohammed <hamohammed.sa@gmail.com>,
- Melissa Wen <melissa.srw@gmail.com>,
- Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- Diederik de Haas <diederik@cknow-tech.com>
-References: <20260127-rk3588-bgcolor-v5-0-b25aa8613211@collabora.com>
- <20260127-rk3588-bgcolor-v5-1-b25aa8613211@collabora.com>
- <baf075b2370a13cddd597a3d421b5f39290d87a4@intel.com>
- <aXjNyHaJDHoCPRJO@smile.fi.intel.com>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <aXjNyHaJDHoCPRJO@smile.fi.intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_171445_450160_00AB59B1 
-X-CRM114-Status: GOOD (  28.21  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260129005645.747680-2-elver@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,98 +110,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+On Thu, Jan 29, 2026 at 01:52:32AM +0100, Marco Elver wrote:
+> The implementation of __READ_ONCE() under CONFIG_LTO=y incorrectly
+> qualified the fallback "once" access for types larger than 8 bytes,
+> which are not atomic but should still happen "once" and suppress common
+> compiler optimizations.
+> 
+> The cast `volatile typeof(__x)` applied the volatile qualifier to the
+> pointer type itself rather than the pointee. This created a volatile
+> pointer to a non-volatile type, which violated __READ_ONCE() semantics.
+> 
+> Fix this by casting to `volatile typeof(*__x) *`.
 
-On 1/27/26 4:38 PM, Andy Shevchenko wrote:
-> On Tue, Jan 27, 2026 at 03:58:13PM +0200, Jani Nikula wrote:
->> On Tue, 27 Jan 2026, Cristian Ciocaltea <cristian.ciocaltea@collabora.com> wrote:
->>> Currently DIV_ROUND_CLOSEST() is only available for the kernel via
->>> include/linux/math.h.
->>>
->>> Expose it to userland as well by adding __KERNEL_DIV_ROUND_CLOSEST() as
->>> a common definition in uapi.
->>>
->>> Additionally, ensure it allows building ISO C applications by switching
->>> from the 'typeof' GNU extension to the ISO-friendly __typeof__.
->>
->> I am not convinced that it's a good idea to make the implementation of
->> kernel DIV_ROUND_CLOSEST() part of the kernel UAPI, which is what this
->> change effectively does.
->>
->> I'd at least like to get an ack from Andy Shevchenko first (Cc'd).
-> 
-> Thanks for Cc'ing me!
-> 
-> So, the history of the DIV_ROUND_UP() to appear in UAPI is a response to
-> the ethtool change that missed the fact that this was a kernel internal macro.
-> Giving a precedent there is no technical issues to add DIV_ROUND_CLOSEST()
-> to UAPI as proposed. Main question here is: Does DRM headers in question
-> (that are going to use it) really need this?
-> 
-> Interestingly that DRM also started using __KERNEL_DIV_ROUND_UP() in UAPI
-> at some point, which kinda makes an argument for allowing the other one.
-> 
-> Also fun fact: this series plead for a new macro for division while ignoring
-> existing (UAPI) macros for masks and bits.
+I guess a `volatile typeof(x) *` also works. Either way, good catch!
 
-Yeah, I initially planned to make use of those, but gave up after realizing the
-FIELD_{PREP|GET} were not exposed. I reconsidered my position now that you
-mentioned it. :-)
-
-> 
-> 0xffffU is effectively __GENMASK(15, 0). (And if you change the code, avoid
-> using variables inside GENMASK() macros, it may generate an awful code, the
-> GENMASK($HI, $LO) << foo is preferred over GENMASK(foo + $DELTA, foo) case.
-> GENMASK(foo - 1, 0) OTOH is fine, however be always careful against overflows
-> with left shifts, as BIT(foo) - 1 may not work for foo == 32, while GENMASK()
-> may not work for foo == 0).
-
-Thanks for the heads up!
-
-> 
-> So, I have no objections for either choice
-> Acked-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> 
-> ...
-> 
-> But if you go that direction, please, fix up the style.
-> 
->>> +/*
->>> + * Divide positive or negative dividend by positive or negative divisor
->>> + * and round to closest integer. Result is undefined for negative
->>> + * divisors if the dividend variable type is unsigned and for negative
->>> + * dividends if the divisor variable type is unsigned.
->>> + */
->>> +#define __KERNEL_DIV_ROUND_CLOSEST(x, divisor)(		\
->>> +{							\
-> 
-> Use ({ on this line together...
-> 
->>> +	__typeof__(x) __x = x;				\
->>> +	__typeof__(divisor) __d = divisor;		\
-> 
-> + blank line here.
-> 
->>> +	(((__typeof__(x))-1) > 0 ||			\
->>> +	 ((__typeof__(divisor))-1) > 0 ||		\
->>> +	 (((__x) > 0) == ((__d) > 0))) ?		\
->>> +		(((__x) + ((__d) / 2)) / (__d)) :	\
->>> +		(((__x) - ((__d) / 2)) / (__d));	\
->>> +}							\
->>> +)
-> 
-> ...as here join }) to be a single line.
-> 
-> + blank line.
-> 
->>>  #endif /* _UAPI_LINUX_CONST_H */
-
-
-Thanks for the review! I've addressed all your comments (hopefully) in v6:
-
-https://lore.kernel.org/all/20260129-rk3588-bgcolor-v6-0-c15f755a4055@collabora.com/
+Reviewed-by: Boqun Feng <boqun@kernel.org>
 
 Regards,
-Cristian
+Boqun
 
+> 
+> With a defconfig + LTO + debug options build, we see the following
+> functions to be affected:
+> 
+> 	xen_manage_runstate_time (884 -> 944 bytes)
+> 	xen_steal_clock (248 -> 340 bytes)
+> 	  ^-- use __READ_ONCE() to load vcpu_runstate_info structs
+> 
+> Fixes: e35123d83ee3 ("arm64: lto: Strengthen READ_ONCE() to acquire when CONFIG_LTO=y")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Marco Elver <elver@google.com>
+> ---
+>  arch/arm64/include/asm/rwonce.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
+> index 78beceec10cd..fc0fb42b0b64 100644
+> --- a/arch/arm64/include/asm/rwonce.h
+> +++ b/arch/arm64/include/asm/rwonce.h
+> @@ -58,7 +58,7 @@
+>  	default:							\
+>  		atomic = 0;						\
+>  	}								\
+> -	atomic ? (typeof(*__x))__u.__val : (*(volatile typeof(__x))__x);\
+> +	atomic ? (typeof(*__x))__u.__val : (*(volatile typeof(*__x) *)__x);\
+>  })
+>  
+>  #endif	/* !BUILD_VDSO */
+> -- 
+> 2.53.0.rc1.217.geba53bf80e-goog
+> 
 
