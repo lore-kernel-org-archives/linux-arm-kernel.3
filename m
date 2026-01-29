@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C696BD61010
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 12:08:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2803ED61010
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 12:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dpOvpQEwAt61tO5mdzsIZHIQzL8ZoQPJkOaSNw6fhrg=; b=BPLMrH8e/rJVVd/1rg95AZen5V
-	6NfVOOYdpU4AAE6dLZ7/lXKlmsRWLzihPbCGyM3s8GFwq2ap9Tu0b9ufqFp3rcYmTaOvkw86EFi/l
-	Yb8MPd4i3T7yPUkzfQNEnE+XrKWd30lIiqFJ4qI6/y5jN7n2816mo+qtA/n8MPXFdi+WkPntHKKi6
-	QHS71tMmpKfpigEKgYy9Ye1SGaj7j4Mb68EVXHjJbEosgO1JsnYrEutaCLW1Hul3gJgnP4qxz/vFz
-	cNrCLFIlhVszo1JNfQiQuBUV6A9UDfJd+2bAv7O0q5PrBMUw2KGBdtIwBlwcICEixDdF8R9D1mTLq
-	T242JGNg==;
+	bh=0ruMiEbmatRyLdSDU9GVneVebQsohFEEnNshrzJh1VY=; b=qoZEGGP6X9FfgVnlJtTlPJzmPe
+	E/5OyWkE+PgZuJaItmjAsdARIG1SHEmjaujytmNuc0kfODNagIoRpCsYs39z/VfW0DgKSqlbcDjAt
+	SWHgBO4VI3e29O8D9M/KeWs0j/BlK/2buvienLLDAkxBGNAHz4gHYeG4wKZMLCwqT0vogE18XMXHZ
+	Eh4usKmBPN7Bmmeum8bdKU7tkKUICh6yriAf32k5bIzq3rR0sX7CNZ4c0pu+i9QgclV0a9fv2nYGt
+	/x0jBA0fpEG8BTxrEhs3mu0F3joZseic9agiODivksBPVwMhfP+DOCDzxoN/biniTZ8yAxMPZQa/E
+	WI4zBk9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlQoh-000000004tv-0Qty;
-	Thu, 29 Jan 2026 12:08:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vlQv6-000000005dg-1Tj1;
+	Thu, 29 Jan 2026 12:14:44 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlQof-000000004th-3S2n;
-	Thu, 29 Jan 2026 12:08:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 72EAE60126;
-	Thu, 29 Jan 2026 12:08:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE224C116D0;
-	Thu, 29 Jan 2026 12:08:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769688484;
-	bh=wqvYiaougo9MgdPRxH7kVqp/5WhviKS4oyIBj/a1l5Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fNm06YzlYWUIvC+UHY6+rfdL/fSPmSiM1O1bwsVae1CYKPEPfGojHo/u4XVeRTkPb
-	 zGJSnVHoGhxlyzAfDSWu+SICeSlFM0FkOQvis9LV7RtZWiJ5aqcO6pMFc5ViLc/Swm
-	 PQOSLglhpraPpwoTUh9tziGgXEqlVZbex8M8TB7ghxffsuMIHvLlVafTkeU5C6Rk0b
-	 yvmeTKpunVYQNE0/gn72MLgzAxTYn3QiGJEfopAEUMEkqQjttlqDmt2I3J051VtWVV
-	 gl+GCccV9vum4vW1FkdtB6btpYMRTQ3LyOxlo5o5Uciwi0oOfWj5r0llS82gWJIlhi
-	 fSnvfFtiNjIoQ==
-Date: Thu, 29 Jan 2026 12:07:57 +0000
-From: Simon Horman <horms@kernel.org>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: vkoul@kernel.org, neil.armstrong@linaro.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, s32@nxp.com,
-	p.zabel@pengutronix.de, linux@armlinux.org.uk,
-	ghennadi.procopciuc@nxp.com, bogdan-gabriel.roman@nxp.com,
-	Ionut.Vicovan@nxp.com, alexandru-catalin.ionita@nxp.com,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org, Frank.li@nxp.com
-Subject: Re: [PATCH 4/4] MAINTAINERS: Add MAINTAINER for NXP S32G Serdes
- driver
-Message-ID: <20260129120757.GA358439@kernel.org>
-References: <20260126092159.815968-1-vincent.guittot@linaro.org>
- <20260126092159.815968-5-vincent.guittot@linaro.org>
+	id 1vlQv2-000000005dD-3VIb
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 29 Jan 2026 12:14:42 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 3E79D1FAE4;
+	Thu, 29 Jan 2026 13:14:33 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1769688873;
+	bh=0ruMiEbmatRyLdSDU9GVneVebQsohFEEnNshrzJh1VY=; h=From:To:Subject;
+	b=BhH3P1uENX1AHobeYn21cwlej1jQLIsuatEdT5bQZUR+fyoaAqWKraICisiVuVLYd
+	 7E7EPHtiHF0SJO0nsobENn5ARO0YuwkOtdcPwgwR6E/q3qMXkiUXbzN28eFUuUCweb
+	 ovcjzThPnDCuj+GLnDn80uK77br0MybuL5a5uGi7XgMv+JEyGQEvu4OccH2HKCXSWm
+	 7H9Fl2LSp9wgTDdL5+/CHwESdcT+mZaKbIvt7v0Q4L2hkClvsnB83460tMVoGlbnrW
+	 E1cJqmgCsundDNxd82UVUwAGh5y9IP2FTDJvm1EsI1VfvqK81L172ocgnrQ1LPtw/F
+	 Kh037EDHemXPg==
+Date: Thu, 29 Jan 2026 13:14:29 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Emanuele Ghidoli <ghidoliemanuele@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v1] arm64: dts: freescale: imx95-toradex-smarc: fix
+ PMIC_SD2_VSEL label position
+Message-ID: <20260129121414.GA57679@francesco-nb>
+References: <20260129104741.888670-1-ghidoliemanuele@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260126092159.815968-5-vincent.guittot@linaro.org>
+In-Reply-To: <20260129104741.888670-1-ghidoliemanuele@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260129_041441_468493_07FBFA8A 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,41 +77,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 10:21:59AM +0100, Vincent Guittot wrote:
-> Add a new entry for S32G Serdes driver.
+On Thu, Jan 29, 2026 at 11:47:35AM +0100, Emanuele Ghidoli wrote:
+> From: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
 > 
-> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> ---
->  MAINTAINERS | 9 +++++++++
->  1 file changed, 9 insertions(+)
+> Fix the PMIC_SD2_VSEL gpio-line-name position. It should be on line 19
+> of gpio3, not line 20.
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 765ad2daa218..888674a308a5 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -3202,6 +3202,15 @@ S:	Maintained
->  F:	Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
->  F:	drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
->  
-> +ARM/NXP S32G SERDES DRIVER
-> +M:	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> +R:	NXP S32 Linux Team <s32@nxp.com>
-> +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/pci/nxp,s32g-serdes.yaml
+> Fixes: 90bbe88e0ea6 ("arm64: dts: freescale: add Toradex SMARC iMX95")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
 
-This patchset adds the following file, not the one above:
+Reviewed-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
-                                  ^^^
 
-> +F:	drivers/phy/freescale/phy-nxp-s32g-*
-> +F:	include/linux/pcs/pcs-nxp-xpcs.h
-> +
->  ARM/Orion SoC/Technologic Systems TS-78xx platform support
->  M:	Alexander Clouter <alex@digriz.org.uk>
->  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-> -- 
-> 2.43.0
-> 
 
