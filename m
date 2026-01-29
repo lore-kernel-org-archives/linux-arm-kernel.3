@@ -4,50 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0296D6101C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 14:23:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F9ED6101C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 14:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dl+GFS4Y+PxgCIT1f1YJNpWjcegBzxwPIrNJQqObBg4=; b=YeWpoDzKYhV5Mu2xukORIhdUe2
-	nWBWNB4Fb2UKvRzHxWZ+dCDeTOvsjTIfYtWuFDuPbI5l+scO5sbOmX2owvUzEzhvL488LeWK+3pwq
-	C0oEjDCCQQ9ASfIEV2dkYRwY21UthUT1CPJXlP5+8tIbnVcACrHJWifmFB7PCpRfO6QkNgUfXywx4
-	kR8OoCRhzt8OHfT1WPhqxeTONHS+mr8JAc83DN2tkuVNPrVV4paFCGQVxEG1zFe7h9S/S4UcIMip9
-	Wxy42CI7amcYXSQjPBSTe9aSCg5QIAfaYcrNI8gk8Pd0h1fXMZFk05k4zE/CxtJ4phh5HFWSaixGM
-	2XsuYlTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D9kbEVTbB1lbitW87SM8lSnk/ZmDIDVbpPp+7rrn5nI=; b=M5oMNfbu29v4Y8Or5uQ2w6TQsk
+	uhnWz3NfXEquCv5Te0ZzbTJpkgOOixc3YUFWMD5NQh34se5+5Oa4b82guxOIV5R1y+aOtefDXXixh
+	RJAG7jHFTvZ3J7HFe+LjgGGX3FJtqcyStA/JM+g9MqZAnN73zOpo6H2tV/2M/TfVQ5e18DJfXZ8UD
+	VuD8I1X2S+Gs4s3Lq431D65XhzSUEBIksDAH14PjVUJS5cMApQOwsdC3mIS3Pq4a1B/CDEMPRLqfE
+	3OQbmsJH8yWJmuW0qbzyVTS+hq+4fKwCcObDDjYjYwiX2IYB2EkcUhgeIyvM8kedW7lDF1Su6C+xT
+	lwIBIvqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlSvi-00000000DTL-0FBy;
-	Thu, 29 Jan 2026 14:23:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlSvf-00000000DSv-0nir
+	id 1vlSwZ-00000000DaC-3tqK;
+	Thu, 29 Jan 2026 14:24:23 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlSwY-00000000DZm-0JpD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 14:23:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 841CA153B;
-	Thu, 29 Jan 2026 06:23:17 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3CD243F632;
-	Thu, 29 Jan 2026 06:23:23 -0800 (PST)
-Date: Thu, 29 Jan 2026 14:23:17 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: will@kernel.org, linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH] perf/arm-cmn: Reject unsupported hardware configurations
-Message-ID: <aXttVVoVUQoIjWG6@J2N7QTR9R3>
-References: <bb47722fc593baf1e1cc0f944089592a4ec708da.1769695523.git.robin.murphy@arm.com>
+	Thu, 29 Jan 2026 14:24:23 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b8849dc12f6so166131666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 06:24:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769696658; cv=none;
+        d=google.com; s=arc-20240605;
+        b=l0c6sG9PdKGlQvs7LkbrOK6puTYbhF6DDq/Ca+bhgZd6fS+WysL9JKToOR3D6yh/CP
+         Y3xHxhMJZxlEROVhCmZ4jaTvDORX3e8uRfPKj+D7RLZNinRBHzei+sLazsu+8IOcyN55
+         CM2BHL0xmmhec6YKROLGIgJwH9zeB5wAIDpAlp/plVIDM4hLYutj2kcs+OiF1Fo4iDp/
+         fJV4kwE7IAZFY1w35efti6wyHyR/mL4gPBnowjq8swrTEXdmWpEh+QGn4gibb/QPdR7T
+         3Fytvkr6QIxjr/5HiUsK6jln1VC64sUgFpu190Pudog55MHSzsu8ckhc+KI0fdw5B1s+
+         lyIA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=D9kbEVTbB1lbitW87SM8lSnk/ZmDIDVbpPp+7rrn5nI=;
+        fh=1Z2og9TVk9347PZ8h/dttEUPpcraCxwFO+4oArkeuqo=;
+        b=NoGPgfV9tWKpzDwlbpMeDVPOnSMpnFc2j76b9xjnzRlYXutO5RlSjt6EWPi0F2Q3pu
+         HmyiGxvUJeQBvW7RB+cRFniSYHEn2hGvbhDH4VBWiI50B9foTj1MGzMD0OwXQJe8BBr0
+         EuHuYxSneRxRHGy3jyfVP56JJ7Kxg/nTJgicuqJ/VffqIsVHl9snbPGEylJOVRCQqsMK
+         /0H+LTI9iVI91Lm8UdyNxnCHrVO2tIirtQUp4M6P2CmKHnfYWz23+TsXVHHCifo5DdqR
+         /760IOLnJdDikOx/kT1vU2WnPZi7PZoDWHkM9TAmuaUF4A4WK2UCmTk1Jga/zrmxEQvC
+         1sWw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769696658; x=1770301458; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=D9kbEVTbB1lbitW87SM8lSnk/ZmDIDVbpPp+7rrn5nI=;
+        b=gDIR3MEU19arzCZZZ3QobAGirrCcu46VNxth8LvfuGF2iyMVA8m1FgBUY9qF2cm4Po
+         9y+hXyNtBTuj9x8Yf4ODmU8DNd6uVegpEE4yPMETCAJV4EDni+mzKJAZTQB9MbHqdf8o
+         sny8lc01IHK5nYpD/OzRno61UYxNm4pGmM9QxO9Ae7X8ehz3peO7Y89O9ow2WQFXf/Vc
+         jOkYEMabTjPmqB70T7TSiTAMFnVeO7ZXMzv5Q9crtB3MjcNNyxxuDUCwheXm/PJPdEpS
+         jOT725d2pWEHLoVygGVz58fwwVFsgMWOGW9MDVYHCzQ5s8VUJrpgy5xMm1je6sUkqLXN
+         boyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769696658; x=1770301458;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=D9kbEVTbB1lbitW87SM8lSnk/ZmDIDVbpPp+7rrn5nI=;
+        b=hri+Pygp1QFj48b+nhuzJRVcFiAh63TLidTe0r0aKfEec3+4wKa1MsJRwgO71xNPzn
+         e0vpo0+ab/BMjKDMksSUJmjPgSiaGiv5zlBIMwXKvGAMrYsnzi/Amc2ZZEqH9y1RSe1V
+         87RSfK+7zsVS9rRebmM6dbJuwviEgYj3nutMnOGGO/yDD0Z0ruahhLpv5F312u3xVjaY
+         ENlIORywfCzLar43TAapgpLr1VcbY38jghi2ta9xoBKqyuDnWcuf86mTqazyjAkRSsTF
+         Sygp6BPlvjjO9wNYxVg0zLeRYdeDOJz27LwEATRuZWb84NWZg5Bcx+cvyFxr3JJ8f1u+
+         V4UQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWfV5kOX9HIocyyzDsrIWi2psjpoVgdPsoDb1buRZ0mcjf9BD+PORF/2Yp4rtbTCXQAKV2y8+ultcH/AQkcxW6Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YylMZ5srHnLEefXRoCXxAOlFIQDIVBwdljBW3qGEhAF3zXNZETH
+	hyPGKywlBw5Rapjj4VzS12BRuIy8ODgD/cnaZD5dbMqrlzqYD7VNce0U5bKwV4JlU/fAiBk9h1E
+	teuGGbyEBSoV0GucDX4TQFXJMBw9Zf4A=
+X-Gm-Gg: AZuq6aKVKlx3FPlognSXLY6TsdeaM4PLw/C3Ce6d9MEDoEzw8agFrrDQl38HII+KtKx
+	SS7pTFz1/CODsGCOS+E5SCSGeKovknASjUQnEid5f1udwTTtpQqvlBcPwrjPKTAA04udyP6AEtR
+	yTc/XvEd1uMM1scNfxzLyuigpmb/ujPMfy+oxknjKeOg4PPPAM8R3u4RyZMV1RUeBxg7Rboxe/N
+	9mVa6AIbHFENIQw8EWhG/g0PsuAFghknA4y2M5QobHKbVVtG+6Q5/+3Ijzm51CsLfB+7j3oJLQh
+	b52iXMFh1MLbfETnyqfGglWSgcxna4Qxj4iXn3qdzuq21r4cpZCNnYNqazaVpXxxFllzV4s9Qyq
+	7lXZAjw==
+X-Received: by 2002:a17:907:3d88:b0:b87:322d:a8bc with SMTP id
+ a640c23a62f3a-b8dab2ff201mr705174466b.31.1769696657734; Thu, 29 Jan 2026
+ 06:24:17 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <bb47722fc593baf1e1cc0f944089592a4ec708da.1769695523.git.robin.murphy@arm.com>
+References: <20260127214656.447333-1-florian.fainelli@broadcom.com> <20260127214656.447333-4-florian.fainelli@broadcom.com>
+In-Reply-To: <20260127214656.447333-4-florian.fainelli@broadcom.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Thu, 29 Jan 2026 16:23:41 +0200
+X-Gm-Features: AZwV_QhiKhLHh7rkQvLr3bD7QeYruPGKjAy319CFvLv0Pzej6bk4P0Ca1RxCXnQ
+Message-ID: <CAHp75Vc1om1XDT0os+md1D-mwYxrVZJGfbpepkdPJrHOmFPBvA@mail.gmail.com>
+Subject: Re: [PATCH v2 3/3] gpio: brcmstb: allow parent_irq to wake
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-kernel@vger.kernel.org, Doug Berger <opendmb@gmail.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Linus Walleij <linusw@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Christophe Leroy <chleroy@kernel.org>, 
+	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_062327_269973_BDB2A7B2 
-X-CRM114-Status: GOOD (  22.99  )
+X-CRM114-CacheID: sfid-20260129_062422_128833_C82ECB3F 
+X-CRM114-Status: GOOD (  20.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,73 +120,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 29, 2026 at 02:11:22PM +0000, Robin Murphy wrote:
-> So far we've been fairly lax about accepting both unknown CMN models
-> (at least with a warning), and unknown revisions of those which we
-> do know, as although things do frequently change between releases,
-> typically enough remains the same to be somewhat useful for at least
-> some basic bringup checks. However, we also make assumptions of the
-> maximum supported sizes and numbers of things in various places, and
-> there's no guarantee that something new might not be bigger and lead
-> to nasty array overflows. Make sure we only try to run on things that
-> actually match our assumptions and so will not risk memory corruption.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 7819e05a0dce ("perf/arm-cmn: Revamp model detection")
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-> ---
->  drivers/perf/arm-cmn.c | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
-> 
-> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-> index 2903e01f951f..24fec53ceccc 100644
-> --- a/drivers/perf/arm-cmn.c
-> +++ b/drivers/perf/arm-cmn.c
-> @@ -2422,6 +2422,15 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
->  			arm_cmn_init_node_info(cmn, reg & CMN_CHILD_NODE_ADDR, dn);
->  			dn->portid_bits = xp->portid_bits;
->  			dn->deviceid_bits = xp->deviceid_bits;
-> +			/*
-> +			 * Logical IDs are assigned from 0 per node type, so as
-> +			 * soon as we one bigger than expected, we can assume
-> +			 * there are more than we can cope with.
-> +			 */
-> +			if (dn->logid > CMN_MAX_NODES_PER_EVENT) {
-> +				dev_err(cmn->dev, "Invalid node number: %d\n", dn->logid);
-> +				return -ENODEV;
+On Tue, Jan 27, 2026 at 11:47=E2=80=AFPM Florian Fainelli
+<florian.fainelli@broadcom.com> wrote:
 
-I think "Invalid" is ambiguous (it can read like we're saying the HW is
-wrong), and it would be better to say "Unsupported", or something to
-that effect, e.g.
+> The classic parent_wake_irq can only occur after the system has
+> been placed into a hardware managed power management state. This
+> prevents its use for waking from software managed suspend states
+> like s2idle.
+>
+> By allowing the parent_irq to be enabled for wake enabled GPIO
+> during suspend, these GPIO can now be used to wake from these
+> states. The 'suspended' boolean is introduced to support wake
+> event accounting.
 
-	dev_err(cmn->dev, "Node number (%d) larger than supported (%d)\n",
-		dn->logid, CMN_MAX_NODES_PER_EVENT)
+...
 
-> +			}
->  
->  			switch (dn->type) {
->  			case CMN_TYPE_DTC:
-> @@ -2499,6 +2508,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
->  		cmn->mesh_x = cmn->num_xps;
->  	cmn->mesh_y = cmn->num_xps / cmn->mesh_x;
->  
-> +	if (max(cmn->mesh_x, cmn->mesh_y) > CMN_MAX_DIMENSION) {
-> +		dev_err(cmn->dev, "Invalid mesh size: %dx%d\n", cmn->mesh_x, cmn->mesh_y);
+>         if (of_property_read_bool(np, "wakeup-source")) {
+> +               /*
+> +                * Set wakeup capability so we can process boot-time
+> +                * "wakeups" (e.g., from S5 cold boot)
 
-Likewise:
+While at it, add a period at the end.
 
-	dev_err(cmn->dev, "Mesh size (%%dx%d) larger than supported
-		(%d)\n", cmn->mesh_x, cmn->mesh_y, CMN_MAX_DIMENSION);
+> +                */
+> +               device_set_wakeup_capable(dev, true);
+> +               device_wakeup_enable(dev);
 
-> +		return -ENODEV;
-> +	}
->  	/* 1x1 config plays havoc with XP event encodings */
->  	if (cmn->num_xps == 1)
->  		dev_warn(cmn->dev, "1x1 config not fully supported, translate XP events manually\n");
+>         }
 
-... or you could align with the wording here.
+...
 
-Aside from the specific wording for the messages, this looks god to me.
+> +       /* disable interrupts */
 
-Mark.
+Still the comment is useless.
+
+> +       if (priv->parent_irq > 0)
+> +               disable_irq(priv->parent_irq);
+
+And looking more at this, I don't see why we even need the check. Does
+the code WARNs or so when there is no parent_irq available?
+
+*Yes, I saw this is the original code, perhaps can be addressed in a follow=
+ up.
+
+...
+
+> +       /* disable interrupts while we save the masks */
+
+> +       if (priv->parent_irq > 0)
+
+Ditto.
+
+> +               disable_irq(priv->parent_irq);
+
+...
+
+> +       /* disable interrupts while we restore the masks */
+> +       if (priv->parent_wake_irq)
+
+Ditto.
+
+> +               disable_irq(priv->parent_irq);
+
+...
+
+> +       /* re-enable interrupts */
+> +       if (priv->parent_irq > 0)
+
+Same here.
+
+>                 enable_irq(priv->parent_irq);
+
+...
+
+All we are diving into is the 2 questions:
+- is 0 on the particular platform an IRQ number and there is no sparse
+tree enabled?
+- is maple tree implementation clever enough to not crash (or have
+side effects) when we ask for a non-existing index?
+
+Anyway, this can be done later on.
+
+--
+With Best Regards,
+Andy Shevchenko
 
