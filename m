@@ -4,82 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25712D73E9B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 22:01:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28CEDD73E9C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 22:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5NaZq7/qOx5j3sYVWWAXyxivGGckilTrm3I0MWAebJ0=; b=U4IOU0RoNUkUt0Ltd7/KWavlYm
-	hKsWXUET3NRyNm6rm0QaW0ZWbFFav2BL4WHMGRtQ8Si18QWWsziriV28LhhSzpokDujlwC+ZcrXz1
-	eGSSRzquYq5W5MIE3sQvPxDYQu08lQgsW5W7ubHbdAlLe9/M/a2+Qp3jvG+BevXfyAxfHCwy1K6Y8
-	kNhW8sgvPBI3T2HbVnbs8pBtdlvtgXaAM5xzoVhFvxMWyW0h1/aYOh9OxP0v4kebrWDPtn+g2e5+w
-	SYhv7rEpEvAHqov5DwbC0Ri9cBgrSkfr8tCxPAn05fb+ysati9IadTwEGCT9l1cHyLvqUPu/2Qpzb
-	bf0skLMw==;
+	bh=YIO2vkcc105CXrUqKP18Scogmb7ApAsJL4lhnxlB/GM=; b=kqyXy92WPQhSq0o2kEdFEXokre
+	YlchiK8FyWBWfa08cQBxss7SmUffpThgCVbEgrv7LD4TdJULsS5N6fMyhAAnXqQMh11hxKS8x09Ag
+	r/UPrp4wWv2p8Ny1TFRTRI4TljeqWSn7urdxDUBLyCg5bLev+PYr5SxBstljHBtAEyeVdtfC1Lhfb
+	n8hFVLN7lIXtpMIg1GN7eCLUxdj5hpRmzJml6aKO8w8kqr0qcftuMuP3l3U3DSU2nR/KG/ucD4b68
+	8quDvtsLFw8V6nVMeT+gzFiUnlTD9jrTbwtdmW2i/7dpI4f+aAt7pLXuH5OGUrNrZ3HCcM7MlaRcK
+	l7QtskNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vla4N-00000000i6f-0xOH;
-	Thu, 29 Jan 2026 22:00:55 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vlaHz-00000000iY8-3NtG;
+	Thu, 29 Jan 2026 22:14:59 +0000
+Received: from mail-eastusazon11011002.outbound.protection.outlook.com ([52.101.52.2] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vla4K-00000000i62-0Ulw;
-	Thu, 29 Jan 2026 22:00:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=5NaZq7/qOx5j3sYVWWAXyxivGGckilTrm3I0MWAebJ0=; b=FuORfFkKV0DQIUUuMAonHTBSMq
-	HF2MOUM/Hc7enwPm0B5st77tQNNjf0eKU/pZo/h8uFpZk3KazeRogVT16rnuLFu4rRtaZ6WB50HuT
-	oQloQVUjqsYNnVPMNueythTNsQumeeZJpD7lFjQuMi2kGPSSZ/2aqJe5xufgqTlMcawAYyslgphns
-	OxxQAsBSIewVc03grwlhmNGyURyOFRkdaZLHvnAGAntQeeeLslHwVSeWeW1Nl1gP66MfK6N91OFj9
-	5OB/+2cFKWTslP6LNj6Kz3pKBbMrqn4RcR2kAjhsppKEXH6aexaqY+7IKQt7qE+B8ThTjVf70J7OS
-	v6U1biyg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:39260)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vla4A-000000000Va-0f2c;
-	Thu, 29 Jan 2026 22:00:42 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vla44-000000008Kd-1QMZ;
-	Thu, 29 Jan 2026 22:00:36 +0000
-Date: Thu, 29 Jan 2026 22:00:36 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next v2 00/14] net: stmmac: SerDes, PCS, BASE-X, and
- inband goodies
-Message-ID: <aXvYhM6mHE4p_B14@shell.armlinux.org.uk>
-References: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
- <aXN5BFXMshnhwBQ7@oss.qualcomm.com>
- <aXPo5R1Q-qWG3r3l@shell.armlinux.org.uk>
- <aXjSbu6L6ICYOPiJ@oss.qualcomm.com>
- <aXjdAZeUl2Dsu4mE@shell.armlinux.org.uk>
- <aXsLyb+x76/WaXcs@oss.qualcomm.com>
+	id 1vlaHw-00000000iXi-3rnb
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 29 Jan 2026 22:14:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ew2hTu/CTO199lf241J52drJDmXl3tE+D91Aigftkvd+b6YEQFT1uqn1QMXEuxe8Ew/C2+DKGwR0C6lUwOQyK/KToNk5OADeu5EzewFII4mSGhzT/BDEGpCsx7tlRwgZ8XJTuEMSBoh6yI1ra9ARVaWdk7Dflbb7zh73zxc8j8xDhw/eqe9CRDfW2Uj2Bh5iDVMJ4sJKuled6aH1dyseiBVAZ69j7huaHk2LalDXmuYWW93wyb2lXVATARsZ6rk6b3ohOxM5ZOEMA2kH/Je5JQUyP86yWXG1NvmAaoFropsg0oGpMJXmk2j6bngIyxQ2nGRYj+mOf/bH+K10bTXYgQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YIO2vkcc105CXrUqKP18Scogmb7ApAsJL4lhnxlB/GM=;
+ b=eQnyhl90z27j5Mcei7W5XEpc2s5pOVkhAR0b5o45Bnjvgj5UNKxy5cPFyvOZMNZP9ZbhTei0RJYk+3/QekD+fqIHQ5RMa5+D+XPUWtVwj9aW6anuv7otai13agOc0+vskoVd7MyptpfKrUtzEICaiIiBAXF7YViOwPWF88PYRGyFKTBSee5nK9lYrK1fPilpXnkp9CkPZUBY6MHRtjAqeZG3bLzh1ZN+yrHP4hfhqU311oK+jBk4jMfEfxRLR2lWNVFa2v89oz3riMrVLACOPHbqwOzdDzDWk2mAwWQsfoaJApw9V9fwn4RoWPdL+dtGXcV/KZyLITb1YU7kEnuozw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YIO2vkcc105CXrUqKP18Scogmb7ApAsJL4lhnxlB/GM=;
+ b=hWPSo5r9DiiMDDi0mymoiWBKjseved78/TsQsY75CUgdjTkvTrKzGCopUVKMcjlY+4PZPyB6UiEPGzDGWpO3tJZ9db6RIhYlLOB5JkRkt7tRHXRMjRO8ATxbUVrBirbMW37AkPMJ5tRalv29rMhmrQSMFu77KElIpd6s7ZApNdxCPWRz1ZT8cLT/8h230LwIO79t12IXZeTUIiPZpSRGxqS7emChSGAdAb1P6VlO1swkrsok2l/ZJV3Z04UZpaQPa8q54rp0y9KTUIPfFmjTCzyb4uv4pb62lCJpr4EQEyxwchT2q3oS39UvzS5y3/djruJXBI7BOE1G1uMlHlXQcg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
+ SN7PR12MB7131.namprd12.prod.outlook.com (2603:10b6:806:2a3::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.7; Thu, 29 Jan 2026 22:14:48 +0000
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::aa9a:b827:90c6:506b]) by DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::aa9a:b827:90c6:506b%7]) with mapi id 15.20.9542.010; Thu, 29 Jan 2026
+ 22:14:48 +0000
+Message-ID: <e10fa678-9564-4e09-a848-fac22e1c9a64@nvidia.com>
+Date: Thu, 29 Jan 2026 14:14:45 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 45/47] arm_mpam: Add workaround for T241-MPAM-4
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+ <20260112165914.4086692-46-ben.horgan@arm.com>
+ <23f08379-301d-4ffc-bf6f-d6a7bb952724@nvidia.com>
+ <e38cb392-ff29-4008-aa4f-e9d7166836f0@arm.com>
+Content-Language: en-US
+From: Fenghua Yu <fenghuay@nvidia.com>
+In-Reply-To: <e38cb392-ff29-4008-aa4f-e9d7166836f0@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: BYAPR06CA0042.namprd06.prod.outlook.com
+ (2603:10b6:a03:14b::19) To DM6PR12MB2667.namprd12.prod.outlook.com
+ (2603:10b6:5:42::28)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aXsLyb+x76/WaXcs@oss.qualcomm.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|SN7PR12MB7131:EE_
+X-MS-Office365-Filtering-Correlation-Id: 524f6bfb-aa0d-44be-4e69-08de5f83d095
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?V2VxZjZ4bnZvc0paeFBUNEVRS0Rvb3pHUVVJTjhhRzBwT1dLdng0dkZiNjhI?=
+ =?utf-8?B?cXczWUQrQVNoODVZSHovRnhjQUxrRkZlTUVtbS9jU05zN3crTnJLeExZZEtJ?=
+ =?utf-8?B?cnFZbHlhWDcvelBkcTVhWncwRU1rRGxMaEI2cHNyRCtZcXF2SldpQXRSbnJk?=
+ =?utf-8?B?RGk2TkF6UjMrN1VCRFRTSkMyYk90YUphVndJYm5RODNBWHg4MXdldW83VWUy?=
+ =?utf-8?B?N0xqSkxiZGdEVHh1WjlhbkJLZDhkL2dVbDJQM2x1SDcxOWZSeVZlcEVqdjY3?=
+ =?utf-8?B?eDMzL3NqeTY5ZHFWNlRqZXNaSlVnV1gwRGgzTFI4dGZPbUoyck1TdXFRU1d3?=
+ =?utf-8?B?L1k3UEI5VUVhUkpueVh5UXd2ME9XSnc5OWVpQURrUXVra3lWU2FmaXBEVTFm?=
+ =?utf-8?B?QytpR1J6T0szRlBBRm1XdWExNU9kekdPTnhrRVBBQU5ENlNkM3htNHVCUkYx?=
+ =?utf-8?B?RURHWGF0MFYzZ2hjUzE1WG9ocG9sTjVYeUxVaHBtaWhsM0VOcFp5UWZQZkFO?=
+ =?utf-8?B?M0JYZHcyeGx6cXBCMWZma0Z0ZjJwRmtNelc5ajNwRWpuNGRaSjNLTnZVWmxZ?=
+ =?utf-8?B?MTBMQ3o3QlVQb2JROC9XY3A5NXNERmc0SEJsU0hBSmdsaGhiUzBDdGg1K3g2?=
+ =?utf-8?B?SHorM3JnYUJUNytXc2hIZjlRN3lxQnJzcmRnMFVBL1k2MnZVSUJRemRTYmlS?=
+ =?utf-8?B?ZGZIem5VcEU1c1M4d1Q1Y3ZoV1hjcFk1ZG4rK1hjZHpDQzBoZmhCTHM4U0Z6?=
+ =?utf-8?B?cldJcmdWK3JaQkl4OFVYamNTRGpKcm1oWDVhYVl6Rjl2Y0JSVWpVNHpWNDBG?=
+ =?utf-8?B?czdoaXY5WDhmQTRvcHJlR0pNQWlGcUgrNWJYOG9ZWGY4emc1RXBFd2wxVjkw?=
+ =?utf-8?B?WHlYMWdzYkRkZ2p0ZjhiMnRsZVRkdnQrTFVLMHJDN1hXbU56b1ltRWdBL1I5?=
+ =?utf-8?B?TndHQlVJWW5FRi9mQTVEdEhsaTJnOUd2enF0VEpZbzYraXRSNWI1c1JkUHJ0?=
+ =?utf-8?B?UzEzNjhHRzJtdk1sZlpJcWp0QVhrSVdGWlVqNWo3d0hjRlpOVnk2S25Dd212?=
+ =?utf-8?B?UW9LR0hGa2RwUUhiOCszaU9FL3ZwY2d1b0ZHZ1lhaEsyUmN6SHpUMlZxeFJX?=
+ =?utf-8?B?WnVtM1I3d3kxTFZTejZMaDgxQVl5S0xEWlBmTDZON3VWVVRsUXpJekRFUEMr?=
+ =?utf-8?B?RmRVb2dZZzJLekNQUXFxNHdwbWdMcHgvdVMwcFZzVDlBWEUzdFNmbEJTM20y?=
+ =?utf-8?B?dVZUZytpNktEbEpFTzdnaTEvRGZwTHNYYkhGWWtrdEtGZU5JTGxIL2RLQ2xL?=
+ =?utf-8?B?ZGgvOEluampEVVVLQk9XTGVJSkpIOTRwQmV0ZkYvTHk0cjVRYTVIWE53VnNX?=
+ =?utf-8?B?L3lTYlF5cUNXcVpoTU9Sd0plRjMwbm1GdVBGTG4xMmNUTlczZG01eHM3Nmkx?=
+ =?utf-8?B?M1kzY2hYWiswYm9mSnQyMUxiMEp2S2FaaUFPa1NhUlFWSkQwTkJnTkV1d0Vt?=
+ =?utf-8?B?UEl5c1lhOUw5R1kyODhGd2xwMWcxSVlSK0JYcGhrRFlSbEw2NUdVdzA2ZTJ4?=
+ =?utf-8?B?MXMrZU9yWHA2UExSbHdyUUpDUVlFcklnVzdZVEhQc1J2THRISEFBaG9Ibnpw?=
+ =?utf-8?B?a1JoeXd2V0RSaWFMdlk2T1dKMHRkUXpweUxCa3hQc2J0MFNZaTUxQmdvUDZS?=
+ =?utf-8?B?ekFkTUY5T3paM0xDd2Q3ZnRucE1WdlBqaUdnWS9tdUFIbmJuODBzOGxyU3BN?=
+ =?utf-8?B?alZwRkZvWXFKVnR1ZldkTlFubmpnM3M0Vk9leEl3UC9URVJvV2JQdzh4NGl6?=
+ =?utf-8?B?Y2dRZncxSHVpZVF6YU5FTkovS3BTYk9zVzQ3dWUxUmJ0L0Zma0FrY3RNdnN1?=
+ =?utf-8?B?REtyc1dxL2o2U2NLeVY1c2FTOW8wUlphOFByOVFzQjZCRWhYcXhxcWIwQ1ls?=
+ =?utf-8?B?SmNlcjJSMm9YMGhUaHhIMXhKcmcwU1BrSTd0bm5IYlYzQzllRytVaGgrcGZr?=
+ =?utf-8?B?Zk9NbHBjL0U5SFpKRUhIL0V6ckVBQXVnRFVEdnlBRUxwTHJrVWJhbEZlNVNU?=
+ =?utf-8?B?OUUwcU9MVm9oZUJuZU1zOEdDSVFNR00zNUdoR1VHK1VHUG5naVM4NEswS1dX?=
+ =?utf-8?Q?ssRE=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TFFvMXhVSVRURWVsYUpWSmk4RGNHNGNvVVB1d056NGRvbXYzNmVUeUsxcVl3?=
+ =?utf-8?B?bXFlRlhhODJ2bk95NEo1YVpGdVpNQjg0blN5NVBXczJLSEJQaFJWN1c5L051?=
+ =?utf-8?B?MzJGSUFpZWEvMXhFdk96WlpMU2dVa2h0ZHMwUk5yV01rK3l5YnRmYm9LYjYr?=
+ =?utf-8?B?Q01BSmk0ZnRxeHF6OGRuS0w0eDBUSjlMTlFvNHZOL1lUSXhzMzVnd3cvVjYx?=
+ =?utf-8?B?Zmw4VWFUclA0b3JnRnh6VmtXNkNONVlYR2Jld20xYkljWitiNytLTXdyTzV0?=
+ =?utf-8?B?UUpoNkdXemJFbXp1dk5uQUhveDROSW8vZkcvK0VoOE1qdlp0b3FULzJ4WDFE?=
+ =?utf-8?B?YlRQaTJXUzBmamxkYlR3MEMyNG1RdFEreERkV3hxYjNrRUtKeUlrNWd6b2VQ?=
+ =?utf-8?B?ZWp1WlpnZTgrWXVJSS94VlZkdndleWtlMXIyNGlRYUIrd0dQMXhmdGVqWnEy?=
+ =?utf-8?B?TTBLTXpLTHcrcVFzc0ljeThSamFOVmZ0VjAvN1F5SENDSENlTUduTGJJV1pR?=
+ =?utf-8?B?anAyaVhUb1UyOHgzaEtXam1MRUg0Zlo2WDRFVWh3ajI3eHJsckc3RFdZSjNk?=
+ =?utf-8?B?akZSdkwzemRMWVNxTFF6Mko4WU1MY2V2TlpqOWZqRXdvMHV1Kyt4bUd4Mldi?=
+ =?utf-8?B?OEhqU0JaYjNHYkdza2wyTkJXeEMzd083a2xqTy91elFkV2x2MDJnenRmQ3Ey?=
+ =?utf-8?B?NVUrOEFCZ1FNd2ozTWhmZ3Q5Z2RiRjZUenRNcUgrSFZxaFYyQm5RWVFOZFln?=
+ =?utf-8?B?N0ZLVGxGSGJVL2ZVMnQrSlhxNWN3VWdsRFo5cHBGT2t0SVdDUXk3MU9lY3gx?=
+ =?utf-8?B?OVZkQStPeWRYVmJYUTFJZFcrak80YlpHVER3OHVvSmROZW9Ha1NOeHE0bGlM?=
+ =?utf-8?B?ancwNWorV3JNTzBMOEJEWm53eEpvNXlRY3ZaSkk0TmJ5a1B5ZjBCVFFoMFlh?=
+ =?utf-8?B?bnNqTzRGZURwMWM0dDdzZEpYV1ZuLzJVUiszRnU0bWNQUWVUYXZuS2YyZm5t?=
+ =?utf-8?B?NEg3OUxjaWl4c294T09Ucmdna1hBQ3Q4VEpxNkJObXpNZ2VtWFNQdWlSNE9l?=
+ =?utf-8?B?SjlINlFOd3Z6d0wxRTVZUFlyUit4V3dXV3dpbGxTVTEzNyt1RjFDVE9LdG0v?=
+ =?utf-8?B?MVIvMjcyNld1VmpuN0tvVW9LS0N1Ti9QVGpDMVBrM2RhZWI1Z2VhRjFRQis3?=
+ =?utf-8?B?M0dJVFlOZnpRL01BbUJsNi9Wa09uMEhqMGtIWjlBcWFRN1JiWitTLzF2ZVNh?=
+ =?utf-8?B?RWMwZ1hOZTlPU1ZSNnBadGM3RXpVQXR5OGVEVUtUQ1lHMHF3OU1IbU1lZXVO?=
+ =?utf-8?B?THEwclhyYnJLOGQ0ZEhOTXJhTWF1UmZaeU5uOGhxdDFCMy90TVZzNEpZK0ZK?=
+ =?utf-8?B?K1BTOUFkd1h1c1lPTW0wUnFCa0RVbzZUZTR0Rmxma0hKSlFzZTV0K1g5dXFv?=
+ =?utf-8?B?MnU0TENRVG54UkRLNmQxYVE4YzJwWXdCTUM2WGV5cCtLbWorWlJqSmRwQUJ3?=
+ =?utf-8?B?MXpnRTA1SFZRTitHU3pQNk4vVjdRS0dxUUp3N28vV25ZUGtJKzhEblVLY2VW?=
+ =?utf-8?B?cU9Obm00MmprR3QwSkR6TGFBSjBKcnhEKzJxWHkwNks2Tmw4Z1hXV2xaRkd1?=
+ =?utf-8?B?S1JHRlF0RHRiQkNNY3NKc0s4UWt0c1RnRWI3Y2lZU2tObFJ2K3NCTWhuWXFq?=
+ =?utf-8?B?VEgyOXZJU3lCeW5FWjBqNlN2RzdOZXpwN3A2YjA5cDNoRjdrWmhyL3FBbEZ1?=
+ =?utf-8?B?QSt0SWcxaUhMbTB5T2RzYnQ3ODZuazJmc1NuZVVIUU1XbzNtdm13ZllBR0F2?=
+ =?utf-8?B?Y0hKMlhQL2tzNTQrY0MrallmeSs1YlhWWVE0eVQ2TFEyOTY1ckRQUThXa3RZ?=
+ =?utf-8?B?anVPWUxxeE90Uk1hd3FLRHlpSWdONGxBdHdmYXZSaWt4KzRiaW9CYlZrcUFp?=
+ =?utf-8?B?ZnZWQTgxVFQxRmd5WDAxUHdoYXJtd0FkUnkrd1Z2NW14Q09CNmRGME5nQTla?=
+ =?utf-8?B?UzNIT2ROb1A0N05nWE1VS21wQVowcHpVYnh1SWp3M214L1lmQWdNaVJTNXNZ?=
+ =?utf-8?B?aFdRc0J4WkdtbjhTQWdrOGtkSDZtZlM3bVB0NStFYjdDT2hOU0MraHNxdk1K?=
+ =?utf-8?B?OVVaRnRnd01VWkZUNk5nS09QQzl4NnFmT1NoSkJqKzZxM1ZWc1h0WVFqVGtr?=
+ =?utf-8?B?WmdlT1pRY29FbXI4Qm1tUHRqV3BjaERvYjJBcUVhVXp3STVTZlJ1SXZQaVd2?=
+ =?utf-8?B?RnNWaStUajRIWjFQdG9MUmJ2QmMxZm1BdjJSWUpiS29BVzl5d1RNRE9YZjRG?=
+ =?utf-8?B?aDJsczU4MkdGUW9jTnhYM3ZpazRrN2cvQTBGSUF3MlYxRnRPdXkwUT09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 524f6bfb-aa0d-44be-4e69-08de5f83d095
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2026 22:14:48.0407
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ysZSwAAWlnSkRo5vUE12hbDFIM9K/n2iT9vntCkj4BbnhmGLC0UNNOZHZxcO7VjRobCq2OZr0hVYhwXXD6dm+g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7131
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_140052_159665_DB2C87B5 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20260129_141456_999464_0E121592 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,54 +193,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 29, 2026 at 12:57:05PM +0530, Mohd Ayaan Anwar wrote:
-> I was thinking about the "good" sequence (i.e., the current net-next
-> tree):
-> 	-> phylink_up
-> 	  -> mac_link_up
-> 	    -> fix_mac_speed
-> 	      -> SerDes configured via phy_set_speed
-> 	      -> stmmac_pcs_ctrl_ane(priv, enable/disable, 0)
+Hi, Ben,
+
+On 1/19/26 12:56, Ben Horgan wrote:
+> Hi Fenghua,
 > 
-> Please let me know if you want me to try any other experiments.
-> Maybe I need to do some more testing after playing around with the
-> sequence followed by this series?
+> On 1/15/26 23:20, Fenghua Yu wrote:
+>> Hi, Shanker and Ben,
+>>
+>> On 1/12/26 08:59, Ben Horgan wrote:
+>>> From: Shanker Donthineni <sdonthineni@nvidia.com>
+>>>
+>>> In the T241 implementation of memory-bandwidth partitioning, in the
+>>> absence
+>>> of contention for bandwidth, the minimum bandwidth setting can affect the
+>>> amount of achieved bandwidth. Specifically, the achieved bandwidth in the
+>>> absence of contention can settle to any value between the values of
+>>> MPAMCFG_MBW_MIN and MPAMCFG_MBW_MAX.  Also, if MPAMCFG_MBW_MIN is set
+>>> zero (below 0.78125%), once a core enters a throttled state, it will
+>>> never
+>>> leave that state.
+>>>
+>>> The first issue is not a concern if the MPAM software allows to program
+>>> MPAMCFG_MBW_MIN through the sysfs interface. This patch ensures program
+>>> MBW_MIN=1 (0.78125%) whenever MPAMCFG_MBW_MIN=0 is programmed.
+>>
+>> When MBW_MIN=1, min mem bw can be very low when contention. This may
+>> drop mem access performance. Is it possible to set MBW_MIN bigger so
+>> that ensure the floor of mem access is high?
+> 
+> Isn't that a policy decision rather than something we should be putting
+> in a quirk framework?
 
-Given discussion elsewhere, it seems that the generic PHY maintainers
-have come to the conclusion (at my request) that the documentation is
-incorrect and needs to be changed:
+MBW_MIN is 1% or 5% less than MBW_MAX.
 
-	Order of API calls
-	==================
+The lower MBW_MIN hints hardware to lower mem bandwidth when mem access 
+contention. That causes memory performance degradation.
 
-	The general order of calls should be::
+Is it possible to do the following changes to fix the performance issue?
+1. By default min mbw is equal to max mbw. So hardware won't lower 
+performance unless it's needed. This can fix the current performance issue.
+2. Add a new schemata line (e.g. MBI:<id>=x;<id>=y;...) to specify min 
+mbw just like max mbw specified by schemata line "MB:...". User can use 
+this line to change min mbw per partition per node. This could be added 
+in the future.
 
-	    [devm_][of_]phy_get()
-	    phy_init()
-	    phy_power_on()
-	    [phy_set_mode[_ext]()]
-	    ...
-	    phy_power_off()
-	    phy_exit()
-	    [[of_]phy_put()]
+Thanks.
 
-Essentially, most users of generic PHY do not follow this, but call
-phy_set_mode[_ext]() before phy_power_on().
-
-This will have implications for this patch series, particularly the
-serdes related changes, and will make the update to qcom-sgmii-eth
-more complex (as its current phy_power_on() implementation does
-very little and isn't the reverse of phy_power_off().)
-
-
-In the mean time, please test patch 2 to see whether that can be
-merged.
-
-I'm going to re-order some of the patches in this series to see what
-else can be merged without depending on that and without affecting
-dwmac-qcom-ethqos, and thus shrinking this series.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+-Fenghua
 
