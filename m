@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13CA3D61010
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 12:31:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 588FED6100C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 12:36:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/UbOPmiGUE8d97rtMWaWw7ob/TEhIfpkNDFbJPKxO3E=; b=IJMk6jIeaO70tEGv1FbcBKW+di
-	L2SJXP3g2tatEzyGrzcrv4xhpxl2CwTloR73N/EfAmM3YxOYvOVJbtYQ8d3ROfZYAJXvY14WR9atr
-	KHjgD0o2c0RWFzUQHi2VsN2S0HHdBGLYgyIVO/wCKS1S1/4lCwXh5YPEp3CY8Aze4D2yPpiFXb8tR
-	hG+eJgFK+3vewVPR1ZwztA2o7aaSyZ846Svu4ri5VNGRkeluvLvWL254XjXDjGgncWxsJg/1sML2a
-	hfAeW7UQPZMPlyllU9srvw6pJBZJQUMafWXm35AOeVoNXIGFFNWRBg8SDbBjiXAcPl0ORnCt9dntl
-	qR2IdVqA==;
+	bh=Kcs9CE9aIhIZ7Tc+WAZafu3mN0H9ikMUQFBt3Ov3La4=; b=fsHCRUVXM3MfC5C5OhHv5Jwm14
+	ys98DWBQoY33Z/QB4juQIvP1mpQYJSZdRPY5kI4tZgmxMBxI1TtlDs8Hq64hz/9aIvwYvVjFnbERs
+	K6RPF+24jvYQ976KsM7CwL9hkPSEB5/flR7IiGMIhSfb1BVJvIJvz0t+hpQpbVcUbdCOBwILgAx9X
+	VoGsdCW/dzs9QA02W2BUjQaLrJQ8aw1U+Y+oHbUhvZdhnrDDdql6qmJZN4m/ndjZ1C+pojdonRAkz
+	1wqLuWO2dTBaS4vwC3r4ow0IFxr6HNyaxI76Q99xQOg8t2kHda+sIZdpyb6UJ21Q8AO3+luJrBaWg
+	KP+g7PZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlRB3-000000006p9-2XIN;
-	Thu, 29 Jan 2026 12:31:13 +0000
+	id 1vlRFz-0000000073l-2Q7U;
+	Thu, 29 Jan 2026 12:36:19 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlRAt-000000006nn-088d;
-	Thu, 29 Jan 2026 12:31:08 +0000
+	id 1vlRFx-0000000073H-04Qv;
+	Thu, 29 Jan 2026 12:36:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
 	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=/UbOPmiGUE8d97rtMWaWw7ob/TEhIfpkNDFbJPKxO3E=; b=H5bTkDZOpfGmqdIl3EsQqY/tVE
-	ZPNsPGO/JrEFVVUgxK1n4KpWSn9C0TRWMGMO6wKvGFQsC3yjpsBCtq0HQbJJAxrgay0qypb5++X+N
-	AeIDoNrotYbB/J6l1S8JLKOf6xuYw2sCzaWGtbtbixxy5AFlIqUQfHE+od08y4iFUZGJSisQO22i2
-	HTrzZWra8X2gu714vdUGRfmXL686jtvh10cMIQy80+z0qxfYyRmnLdDLDD6OyowsejnpAjHNUiDjh
-	xws/nmWZk8Q9mcZ1Afatr2K+1a/AjOB9kLD/YxI9YuyCp5Mcgs8la2287Cvqop2jYeAVXUe5M2IfX
-	ebnL6FMw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47446)
+	bh=Kcs9CE9aIhIZ7Tc+WAZafu3mN0H9ikMUQFBt3Ov3La4=; b=Qg0oT4uR+AzUhHLOpoVDPUwiUF
+	rCayhl2TB2274ELNl8kCGPWohMn5RRHXPUAezkvmluqO+7SPvez8201vG7qCdYeWbbn9vQm9UlxsN
+	EardAUYn9naa+LrVm79NOHr1zfsaY0yJ6RQzVUrNSPelkdyIsfvUo45JWJs4lw6+GRoQC0MP72w66
+	/1XHWUUXvFFe72vFHZ06QgkYPseC6KFDS7a1j4Q1wrxr2+3O9NCFGzJcOn106QvymNdjmkqV7+MF5
+	Q5rDLtytOWHRUVI1x8PdT5PRojOiCiZN59vOVY2Xh/2g0UVTeEVqB9fIcIRAmqFLMcbDsGJNPV/FR
+	ySqpNWKg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54900)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <linux@armlinux.org.uk>)
-	id 1vlRAi-000000008V3-1xqK;
-	Thu, 29 Jan 2026 12:30:52 +0000
+	id 1vlRFo-000000008VW-3xXM;
+	Thu, 29 Jan 2026 12:36:09 +0000
 Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vlRAg-000000007xk-05ol;
-	Thu, 29 Jan 2026 12:30:50 +0000
-Date: Thu, 29 Jan 2026 12:30:49 +0000
+	id 1vlRFn-000000007y2-1Hr9;
+	Thu, 29 Jan 2026 12:36:07 +0000
+Date: Thu, 29 Jan 2026 12:36:07 +0000
 From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: Vincent Guittot <vincent.guittot@linaro.org>
 Cc: vkoul@kernel.org, neil.armstrong@linaro.org, krzk+dt@kernel.org,
 	conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, s32@nxp.com,
 	p.zabel@pengutronix.de, ghennadi.procopciuc@nxp.com,
-	bogdan-gabriel.roman@nxp.com, Ionut.Vicovan@nxp.com,
-	alexandru-catalin.ionita@nxp.com, linux-phy@lists.infradead.org,
+	Ionut.Vicovan@nxp.com, linux-phy@lists.infradead.org,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
 	Frank.li@nxp.com
-Subject: Re: [PATCH 3/4] phy: s32g: Add serdes xpcs subsystem
-Message-ID: <aXtS-Yan4HkXZlDD@shell.armlinux.org.uk>
+Subject: Re: [PATCH 0/4] Serdes: s32g: Add support for serdes subsystem
+Message-ID: <aXtUNxEmxcvuNj6J@shell.armlinux.org.uk>
 References: <20260126092159.815968-1-vincent.guittot@linaro.org>
- <20260126092159.815968-4-vincent.guittot@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260126092159.815968-4-vincent.guittot@linaro.org>
+In-Reply-To: <20260126092159.815968-1-vincent.guittot@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_043104_821473_F5756C3D 
-X-CRM114-Status: GOOD (  36.03  )
+X-CRM114-CacheID: sfid-20260129_043617_058655_57139A48 
+X-CRM114-Status: UNSURE (   6.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,359 +83,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 10:21:58AM +0100, Vincent Guittot wrote:
-> s32g SoC family includes 2 serdes subsystems which are made of one PCIe
-> controller, 2 XPCS and one Phy. The Phy got 2 lanes that can be configure
-> to output PCIe lanes and/or SGMII.
-> 
-> Add XPCS and SGMII support.
-> 
-> Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> Co-developed-by: Alexandru-Catalin Ionita <alexandru-catalin.ionita@nxp.com>
-> Signed-off-by: Alexandru-Catalin Ionita <alexandru-catalin.ionita@nxp.com>
-> Co-developed-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-> Signed-off-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-> Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> Co-developed-by: Bogdan Roman <bogdan-gabriel.roman@nxp.com>
-> Signed-off-by: Bogdan Roman <bogdan-gabriel.roman@nxp.com>
-> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+Please drop these addresses from future patch series:
 
-I'm not doing a full review for this patch yet.
-
-> +/*
-> + * Note: This function should be compatible with phylink.
-> + * That means it should only modify link, duplex, speed
-> + * an_complete, pause.
-> + */
-> +static int s32g_xpcs_get_state(struct s32g_xpcs *xpcs,
-> +			       struct phylink_link_state *state)
-> +{
-> +	struct device *dev = xpcs->dev;
-> +	unsigned int mii_ctrl, val, ss;
-> +	bool ss6, ss13, an_enabled, intr_en;
-> +
-> +	mii_ctrl = s32g_xpcs_read(xpcs, SR_MII_CTRL);
-> +	an_enabled = !!(mii_ctrl & AN_ENABLE);
-> +	intr_en = !!(s32g_xpcs_read(xpcs, VR_MII_AN_CTRL) & MII_AN_INTR_EN);
-> +
-> +	/* Check this important condition */
-> +	if (an_enabled && !intr_en) {
-> +		dev_err(dev, "Invalid SGMII AN config interrupt is disabled\n");
-> +		return -EINVAL;
-> +	}
-
-This isn't an interrupt handler. Phylink calls it from the state
-resolver, which _may_ be triggered by an interrupt handler, but will
-also be called at other times.
-
-> +
-> +	if (an_enabled) {
-> +		/* MLO_AN_INBAND */
-> +		state->speed = SPEED_UNKNOWN;
-> +		state->link = 0;
-> +		state->duplex =  DUPLEX_UNKNOWN;
-> +		state->an_complete = 0;
-> +		state->pause = MLO_PAUSE_NONE;
-
-Have you looked at the initial state that phylink sets up before
-calling the .pcs_get_state() method? See phylink_mac_pcs_get_state().
-
-speed/duplex/pause/an_complete are already setup like that for you if
-autoneg is enabled. link is the only member you'd need to touch.
-
-> +		val = s32g_xpcs_read(xpcs, VR_MII_AN_INTR_STS);
-> +
-> +		/* Interrupt is raised with each SGMII AN that is in cases
-> +		 * Link down - Every SGMII link timer expire
-> +		 * Link up - Once before link goes up
-> +		 * So either linkup or raised interrupt mean AN was completed
-> +		 */
-> +		if ((val & CL37_ANCMPLT_INTR) || (val & CL37_ANSGM_STS_LINK)) {
-> +			state->an_complete = 1;
-> +			if (val & CL37_ANSGM_STS_LINK)
-> +				state->link = 1;
-> +			else
-> +				return 0;
-> +			if (val & CL37_ANSGM_STS_DUPLEX)
-> +				state->duplex = DUPLEX_FULL;
-> +			else
-> +				state->duplex = DUPLEX_HALF;
-> +			ss = FIELD_GET(CL37_ANSGM_STS_SPEED_MASK, val);
-> +		} else {
-> +			return 0;
-> +		}
-> +
-> +	} else {
-> +		/* MLO_AN_FIXED, MLO_AN_PHY */
-
-This function won't be called in those modes, so this is a misleading
-comment. It can be called in MLO_AN_INBAND but when autoneg is disabled.
-
-> +		val = s32g_xpcs_read(xpcs, SR_MII_STS);
-> +		state->link = !!(val & LINK_STS);
-> +		state->an_complete = 0;
-> +		state->pause = MLO_PAUSE_NONE;
-> +
-> +		if (mii_ctrl & DUPLEX_MODE)
-> +			state->duplex = DUPLEX_FULL;
-> +		else
-> +			state->duplex = DUPLEX_HALF;
-> +
-> +		/*
-> +		 * Build similar value as CL37_ANSGM_STS_SPEED with
-> +		 * SS6 and SS13 of SR_MII_CTRL:
-> +		 *   - 0 for 10 Mbps
-> +		 *   - 1 for 100 Mbps
-> +		 *   - 2 for 1000 Mbps
-> +		 */
-> +		ss6 = !!(mii_ctrl & SS6);
-> +		ss13 = !!(mii_ctrl & SS13);
-> +		ss = ss6 << 1 | ss13;
-> +	}
-> +
-> +	switch (ss) {
-> +	case CL37_ANSGM_10MBPS:
-> +		state->speed = SPEED_10;
-> +		break;
-> +	case CL37_ANSGM_100MBPS:
-> +		state->speed = SPEED_100;
-> +		break;
-> +	case CL37_ANSGM_1000MBPS:
-> +		state->speed = SPEED_1000;
-> +		break;
-> +	default:
-> +		dev_err(dev, "Failed to interpret the value of SR_MII_CTRL\n");
-> +		break;
-> +	}
-> +
-> +	val = s32g_xpcs_read(xpcs, VR_MII_DIG_CTRL1);
-> +	if ((val & EN_2_5G_MODE) && state->speed == SPEED_1000)
-> +		state->speed = SPEED_2500;
-> +
-> +	/* Cover SGMII AN inability to distigunish between 1G and 2.5G */
-> +	if ((val & EN_2_5G_MODE) &&
-> +	    state->speed != SPEED_2500 && an_enabled) {
-> +		dev_err(dev, "Speed not supported in SGMII AN mode\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int s32g_xpcs_config_an(struct s32g_xpcs *xpcs,
-> +			       const struct phylink_link_state state)
-> +{
-> +	bool an_enabled = false;
-> +
-> +	an_enabled = linkmode_test_bit(ETHTOOL_LINK_MODE_Autoneg_BIT,
-> +				       state.advertising);
-> +	if (!an_enabled)
-> +		return 0;
-
-Don't check the autoneg bit. This is the media-side autoneg, not
-the PCS autoneg.
-
-> +
-> +	s32g_xpcs_write_bits(xpcs, VR_MII_DIG_CTRL1,
-> +			     CL37_TMR_OVRRIDE, CL37_TMR_OVRRIDE);
-> +
-> +	s32g_xpcs_write_bits(xpcs, VR_MII_AN_CTRL,
-> +			     PCS_MODE_MASK | MII_AN_INTR_EN,
-> +			     FIELD_PREP(PCS_MODE_MASK, PCS_MODE_SGMII) | MII_AN_INTR_EN);
-> +	/* Enable SGMII AN */
-> +	s32g_xpcs_write_bits(xpcs, SR_MII_CTRL, AN_ENABLE, AN_ENABLE);
-> +	/* Enable SGMII AUTO SW */
-> +	s32g_xpcs_write_bits(xpcs, VR_MII_DIG_CTRL1,
-> +			     MAC_AUTO_SW, MAC_AUTO_SW);
-> +
-> +	return 0;
-> +}
-> +
-> +static int s32g_xpcs_config(struct s32g_xpcs *xpcs,
-> +			    const struct phylink_link_state state)
-> +{
-> +	struct device *dev = xpcs->dev;
-> +	unsigned int val = 0, duplex = 0;
-> +	int ret = 0;
-> +	int speed = state.speed;
-> +	bool an_enabled;
-> +
-> +	/* Configure adaptive MII width */
-> +	s32g_xpcs_write_bits(xpcs, VR_MII_AN_CTRL, MII_CTRL, 0);
-> +
-> +	an_enabled = !!(s32g_xpcs_read(xpcs, SR_MII_CTRL) & AN_ENABLE);
-> +
-> +	dev_dbg(dev, "xpcs_%d: speed=%u duplex=%d an=%d\n", xpcs->id,
-> +		speed, state.duplex, an_enabled);
-> +
-> +	if (an_enabled) {
-> +		switch (speed) {
-> +		case SPEED_10:
-> +		case SPEED_100:
-> +		case SPEED_1000:
-> +			s32g_xpcs_write(xpcs, VR_MII_LINK_TIMER_CTRL, 0x2faf);
-> +			break;
-> +		case SPEED_2500:
-> +			s32g_xpcs_write(xpcs, VR_MII_LINK_TIMER_CTRL, 0x7a1);
-> +			s32g_xpcs_write_bits(xpcs, VR_MII_DIG_CTRL1, MAC_AUTO_SW, 0);
-
-Configuring the link timer _after_ the link has already come up looks
-completely wrong to me... this should be done when .pcs_config() detects
-that the PHY interface mode has changed.
-
-> +			break;
-> +		default:
-> +			dev_err(dev, "Speed not recognized. Can't setup xpcs\n");
-> +			return -EINVAL;
-> +		}
-> +
-> +		s32g_xpcs_write_bits(xpcs, SR_MII_CTRL, RESTART_AN, RESTART_AN);
-
-As this is called from the .pcs_link_up() method, expect the link to
-go bouncey bouncy bouncy if you restart AN _after_ the link has
-come up.
-
-> +
-> +		ret = s32g_xpcs_wait_an_done(xpcs);
-> +		if (ret)
-> +			dev_warn(dev, "AN did not finish for XPCS%d", xpcs->id);
-> +
-> +		/* Clear the AN CMPL intr */
-> +		s32g_xpcs_write_bits(xpcs, VR_MII_AN_INTR_STS, CL37_ANCMPLT_INTR, 0);
-> +	} else {
-> +		s32g_xpcs_write_bits(xpcs, SR_MII_CTRL, AN_ENABLE, 0);
-> +		s32g_xpcs_write_bits(xpcs, VR_MII_AN_CTRL, MII_AN_INTR_EN, 0);
-> +
-> +		switch (speed) {
-> +		case SPEED_10:
-> +			break;
-> +		case SPEED_100:
-> +			val = SS13;
-> +			break;
-> +		case SPEED_1000:
-> +			val = SS6;
-> +			break;
-> +		case SPEED_2500:
-> +			val = SS6;
-> +			break;
-> +		default:
-> +			dev_err(dev, "Speed not supported\n");
-> +			break;
-> +		}
-> +
-> +		if (state.duplex == DUPLEX_FULL)
-> +			duplex = DUPLEX_MODE;
-> +
-> +		s32g_xpcs_write_bits(xpcs, SR_MII_CTRL, DUPLEX_MODE, duplex);
-> +
-> +		if (speed == SPEED_2500) {
-> +			ret = s32g_serdes_bifurcation_pll_transit(xpcs, XPCS_PLLB);
-> +			if (ret)
-> +				dev_err(dev, "Switch to PLLB failed\n");
-> +		} else {
-> +			ret = s32g_serdes_bifurcation_pll_transit(xpcs, XPCS_PLLA);
-> +			if (ret)
-> +				dev_err(dev, "Switch to PLLA failed\n");
-> +		}
-> +
-> +		s32g_xpcs_write_bits(xpcs, SR_MII_CTRL, SS6 | SS13, val);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * phylink_pcs_ops fops
-
-They are not "fops" which commonly refers to struct file_operations
-
-> + */
-> +
-> +static void s32cc_phylink_pcs_get_state(struct phylink_pcs *pcs, unsigned int neg_mode,
-> +					struct phylink_link_state *state)
-> +{
-> +	struct s32g_xpcs *xpcs = phylink_pcs_to_s32g_xpcs(pcs);
-> +
-> +	s32g_xpcs_get_state(xpcs, state);
-> +}
-
-Seems to me a pointless wrapper.
-
-> +
-> +static int s32cc_phylink_pcs_config(struct phylink_pcs *pcs,
-> +				    unsigned int neg_mode,
-> +				    phy_interface_t interface,
-> +				    const unsigned long *advertising,
-> +				    bool permit_pause_to_mac)
-> +{
-> +	struct s32g_xpcs *xpcs = phylink_pcs_to_s32g_xpcs(pcs);
-> +	struct phylink_link_state state  = { 0 };
-> +
-> +	if (!(neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED))
-> +		return 0;
-> +
-> +	linkmode_copy(state.advertising, advertising);
-> +
-> +	return s32g_xpcs_config_an(xpcs, state);
-
-Given this is the only callsite for this function, and the only thing
-you pass is the advertising mask, why pass a struct phylink_link_state
-rather than the advertising mask?
-
-> +}
-> +
-> +static void s32cc_phylink_pcs_restart_an(struct phylink_pcs *pcs)
-> +{
-> +	/* Not yet */
-> +}
-> +
-> +static void s32cc_phylink_pcs_link_up(struct phylink_pcs *pcs,
-> +				      unsigned int neg_mode,
-> +				      phy_interface_t interface, int speed,
-> +				      int duplex)
-> +{
-> +	struct s32g_xpcs *xpcs = phylink_pcs_to_s32g_xpcs(pcs);
-> +	struct phylink_link_state state = { 0 };
-> +
-> +	state.speed = speed;
-> +	state.duplex = duplex;
-> +	state.an_complete = false;
-
-an_complete is never an "input" to drivers. It's a state from PCS
-drivers back to phylink. Also, s32g_xpcs_config never looks at this.
-
-> +
-> +	s32g_xpcs_config(xpcs, state);
-
-Again, the only things that this function uses are the speed and
-duplex, so why wrap them up into a struct?
-
-> +}
-> +
-> +static const struct phylink_pcs_ops s32cc_phylink_pcs_ops = {
-> +	.pcs_get_state = s32cc_phylink_pcs_get_state,
-> +	.pcs_config = s32cc_phylink_pcs_config,
-> +	.pcs_an_restart = s32cc_phylink_pcs_restart_an,
-> +	.pcs_link_up = s32cc_phylink_pcs_link_up,
-> +};
-
-Please implement .pcs_inband_caps. As you don't support disabling
-inband for SGMII, that means you can't support MLO_AN_PHY mode
-reliably.
-
-Also note that there are PHYs out there that do _not_ provide SGMII
-inband, which means if you have it enabled, and you're relying on it
-to complete, you won't be able to interface with those PHYs. There's
-such a PHY on a SFP module.
-
-If this driver is purely for a network PCS, then please locate it in
-drivers/net/pcs.
-
-I'm pretty sure there's other stuff I've missed as far as the phylink
-API goes, so please expect further review once you've addressed the
-comments above.
+  alexandru-catalin.ionita@nxp.com
+    host nxp-com.mail.protection.outlook.com [2a01:111:f403:ca09::7]
+    SMTP error from remote mail server after RCPT TO:<alexandru-catalin.ionita@n
+xp.com>:
+    550 5.4.1 Recipient address rejected: Access denied. For more information se
+e https://aka.ms/EXOSmtpErrors [AM4PEPF00027A62.eurprd04.prod.outlook.com 2026-0
+1-29T12:31:01.197Z 08DE5971FB66165F]
+  bogdan-gabriel.roman@nxp.com
+    host nxp-com.mail.protection.outlook.com [2a01:111:f403:ca09::6]
+    SMTP error from remote mail server after RCPT TO:<bogdan-gabriel.roman@nxp.c
+om>:
+    550 5.4.1 Recipient address rejected: Access denied. For more information se
+e https://aka.ms/EXOSmtpErrors [AM3PEPF0000A798.eurprd04.prod.outlook.com 2026-0
+1-29T12:31:00.781Z 08DE596525364766]
 
 -- 
 RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
