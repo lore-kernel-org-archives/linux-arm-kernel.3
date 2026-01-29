@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 073E3D73E80
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 17:37:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80BA5D73E80
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 17:37:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bDEI/thWJiBMY9mHoZhi+D4YDmBmVFk7wRyPk8VhQG0=; b=orNw+mBpP2/TG4aH3/P4+BUO5Z
-	4I0NFPRjUAWvMWjHXmqTw3RzXHaQ+619BxtnDSbEixvRYj/zsX45n51xcQ5f/7bdodFNdcI8i0Ohd
-	5eq3xOM2UrXu99+1/f+JdkSRiOcScBLZDJ8rqbJSWqYmMxRZhGfazC1lccVV13hk/VOoyZr1901PD
-	djIo2vs/6xrMtty+gk4b4dP9YZNdiEr1EjMkBoNAB05uJR91wFUCqdyvcLCDlGZgzt940+7XnxfOb
-	XKNbacj962lOYnFK4aONLOTj83hGWr1rBJ3rqGvAZroYwj1vPaYdl8TWH1s9V5yR32R8kEzWztmZr
-	SeK1mgkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4eeDZYqedG6a//apNfRq8r2MY+Q3O5UivFyaO8WY8pk=; b=OVn0clyD3Gbm3AYsP/prb9wghr
+	ROJ4UFiYOShcNwGbNwCqNNj51rQlCHbMRrlsaegzU1EhCQ6VxZvoN7PZX4vBBUlVvlQuUFOXnlYYm
+	9vg3hEeVKSRffPzU6y1c3wh3oiD8ypi0YZP28HrZSPz8pOiyk8wwJpg/CB09YmsdEFb8bxa5KopCN
+	DMq459C8gMIjgd0BvdbWKMJuG5SMzQZ2HBGAMGSDCTJIBGUNlaZDEEWISaNaD8rKiHjg8B3l5pun6
+	NCkYXVVboqV+Jpy7XMFWbgNC47yRQIoRM/xAejElA8fvf7mTt9IzHkqXULNJRfn4lw7O/m05gRFSy
+	rXDYOG5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlVxE-00000000Rx7-0TfJ;
-	Thu, 29 Jan 2026 17:37:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vlVxY-00000000Rzo-1skR;
+	Thu, 29 Jan 2026 17:37:36 +0000
+Received: from smtprelay0017.hostedemail.com ([216.40.44.17] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlVxD-00000000Rx1-24JH
+	id 1vlVxW-00000000RzG-0sxP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 17:37:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BE2F66001A;
-	Thu, 29 Jan 2026 17:37:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC791C4CEF7;
-	Thu, 29 Jan 2026 17:37:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769708234;
-	bh=bDEI/thWJiBMY9mHoZhi+D4YDmBmVFk7wRyPk8VhQG0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ts+uVA749boU+9G+2XKeP6LlKRaE+HI8B8FIDpZdTiZz5UpWhTKnaM6rpLy5/Nkkx
-	 OpIBpTFjnBJI/btTpp0xSKJQVZOevj7gFaOP8lIrA5IJ2MN1k4RzKNq28L5pLsIwGO
-	 ipuFiiWbDpbAZMU8CKnmFjU/wQsWcUiaeJyNZiXThIPdv1FfzT4cmf4pH4CFJMsp/N
-	 pm/dZK0ss+0EFUw4iJS1eGTo/SDBWgZdzJ2DhY/2Jz7ARzrx4iNkZ18I6d4uyiWHNY
-	 7jQSyTh4L4M50h8UWdZ1oSzQ9Wfj66WFRj0neLy6jdSc05f48+AV20YMj4oWHlhVNM
-	 7eL2rIZGMdgMg==
-Date: Thu, 29 Jan 2026 17:37:09 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Sean Anderson <sean.anderson@linux.dev>
-Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, linux-sound@vger.kernel.org,
-	Jaroslav Kysela <perex@perex.cz>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Michal Simek <michal.simek@amd.com>, Takashi Iwai <tiwai@suse.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: sound: xlnx,i2s: Make discoverable
- parameters optional
-Message-ID: <20260129-appear-thirsting-9628adba52f1@spud>
-References: <20260129172315.3871602-1-sean.anderson@linux.dev>
- <20260129172315.3871602-2-sean.anderson@linux.dev>
+	Thu, 29 Jan 2026 17:37:35 +0000
+Received: from omf04.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay02.hostedemail.com (Postfix) with ESMTP id AE01A139C2F;
+	Thu, 29 Jan 2026 17:37:30 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf04.hostedemail.com (Postfix) with ESMTPA id 5AA6F20023;
+	Thu, 29 Jan 2026 17:37:27 +0000 (UTC)
+Date: Thu, 29 Jan 2026 12:37:39 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ jstultz@google.com, qperret@google.com, will@kernel.org,
+ aneesh.kumar@kernel.org, kernel-team@android.com,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v10 00/30] Tracefs support for pKVM
+Message-ID: <20260129123739.3c00155b@gandalf.local.home>
+In-Reply-To: <20260126104419.1649811-1-vdonnefort@google.com>
+References: <20260126104419.1649811-1-vdonnefort@google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fFGVvv6Sr715S97e"
-Content-Disposition: inline
-In-Reply-To: <20260129172315.3871602-2-sean.anderson@linux.dev>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: i3e386p3enc1g8khetg7zqh98gwfm6e5
+X-Rspamd-Server: rspamout01
+X-Rspamd-Queue-Id: 5AA6F20023
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX185SGLFWxWIIlWNPuU6R/rO9OX07ZYyhBY=
+X-HE-Tag: 1769708247-604006
+X-HE-Meta: U2FsdGVkX198IRJKBSNSZOodhqNxXkheSfTthyLQw7U19dwAdwvMwpStvYWEa4sQ8Yvve+aOpKxKCVCiuCa2tjJahjSjiQ8QCncyJ4OPNR8ui/MoeIz16e93DG1M8yodziKTBffwGLWLWlqCkyvZqe4m2P7tXhHMaPH871jux+BHugFnpaCMcj1dsFqjDHJ42WhPZFSey+iKvbBWKbLFnf9f4thildlYt7Gu9oH50rV3mRjkiDuebl12UfMQER311199ZIhINQcMOMVBqjq3jia+IfaUndGgTtHcyW7+apjJflVQOLLCq8pxYnN9Ju5VaPmzs5sso7DYmlF3/Pq437jzz5utuaCa
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260129_093734_313145_70C7778F 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,24 +75,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Vincent,
 
---fFGVvv6Sr715S97e
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+I finished my review. I replied to every patch (before the KVM ones) and
+either made comments or added a Reviewed-by tag.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+When you send the next version, if you don't modify one of the patches I
+replied with a RB tag, add the tag to the patch and it will let me know I
+don't need to look at it again.
 
---fFGVvv6Sr715S97e
-Content-Type: application/pgp-signature; name="signature.asc"
+You can use b4 or download the series from here[1] and it will automatically
+add the tags for you. Just create a new branch and apply the download via
+git am and work from there.
 
------BEGIN PGP SIGNATURE-----
+Thanks,
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaXuaxQAKCRB4tDGHoIJi
-0ubHAQCFNwUgG8XLJFa6c9F10Qwq9HGMzvxGVaHwSpRHGxmXGwEAj1DVn5SHnCMO
-2rjHPiSbWkwrKh4KEXSjae4/DaSxQAM=
-=F31q
------END PGP SIGNATURE-----
+-- Steve
 
---fFGVvv6Sr715S97e--
+[1] https://patchwork.kernel.org/series/1047043/mbox/
 
