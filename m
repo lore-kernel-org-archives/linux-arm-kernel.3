@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05C09D73E80
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 18:18:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4732BD73E80
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 18:18:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1lRzH7QAiFYOeBmG/MVJQPf/49vFBSG+OS78kbsM7dE=; b=1U73G5msp9tPI7OzY4AWfg+LW1
-	MqH9jgoLWCsbhJkO2UPZNa0edt2Yu47BsR6jeLIVBnp7V07LAovQShSJOWJLmZfW09F7DTi0RAqfQ
-	HTfm3kcMxCUOQuHskDw8FcyQzFETaahd+mxN0CcgmYNHD18X88D7MuHbWT2gyfiArcndGEBfIpSkO
-	vQqbxou3XoDXMeMOTiIu7RRpa93pPCoK1yl1W/PSLUBWNDwYYIZkDziU8Ma4zUojM+f1AoDgUeqWk
-	LC0qmfE0TsfPJgeEcxSgvpByUysx67TN5RIjXuoE0fpWpdg46VdOo6IVViRWX56dWwtfB7E+O3kJb
-	SvM+YgkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZAui/HADg6RNhy1hhtar4GPmk6E7krh+QtansfKM78c=; b=ZP87WSaucxmuRUH5fJ8EXSkLl+
+	8qp5f63noUwXaAtRhp9whcpZo8AnCe/LjVQJmtOsgKi0SkBAaGuGCkv+iqTP6x7d/2eQETOufas8T
+	ZiGqeTHemwpujInh0mOlscYtU2NXKrubBkah2eEFQOp48IiauqKcI/fhqPOWW0IdL4gQ22pFZYI7w
+	SVgRdNEVODnpSCELonTjqvqv88lcv+9UZui4+PPFWovRIY1ecc7WpqnnUQcJ8K+2Ojog6tuv2htQF
+	Nko6IKIjvtkKTXzs48qjUccTpPF8gS8EZ/QS33Iu72z8hpzPcsJDOwMfFr8DIXc9l3RHG4IQbluWi
+	mzCrjthg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlWab-00000000V6z-2Qnk;
-	Thu, 29 Jan 2026 18:17:57 +0000
-Received: from out-179.mta0.migadu.com ([2001:41d0:1004:224b::b3])
+	id 1vlWaj-00000000V8a-3dsU;
+	Thu, 29 Jan 2026 18:18:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlWaX-00000000V5O-0gue
+	id 1vlWaf-00000000V7o-3oNr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 18:17:56 +0000
-Message-ID: <21a738e6-6585-4479-b797-f8b17df91aed@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1769710668;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1lRzH7QAiFYOeBmG/MVJQPf/49vFBSG+OS78kbsM7dE=;
-	b=DW04QRdUeCsRRMf8a+UY5VC1vJKvbo+F/VHNsuq41shG6z2AvXaJTO/9kspQEsFWxq0XLK
-	JV9irS4h3qUCrOO6ZFAuYdyLq6AVclEput3bglQIayPTVNuKwOeZ5rA9XANw3yU26mdE7H
-	EuLcGSEdSml5orP7NjN0WV+shsl/ZeE=
-Date: Thu, 29 Jan 2026 13:17:45 -0500
+	Thu, 29 Jan 2026 18:18:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DC2F960054;
+	Thu, 29 Jan 2026 18:18:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 703CCC4CEF7;
+	Thu, 29 Jan 2026 18:18:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769710680;
+	bh=SAcQ/bmpw40uH4VH8bWJdp31ASTq8tWQB6is8ATklbY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Pl+b8Bx85WmBaZE+dMuCA9qa/uWVXY0HAj0BKaWDi9HtemQ+k5udGdtLooX9k0Ghg
+	 OYnIWvnLHw+VCN5kpT2KVaAABUmQbJsLvK2rzI+hWJg634Wu2zdD4wX4ZiRXoJnl+y
+	 hGca/wJFeP1aDWHvJK/XnmENjl60+er+2o8Ilv3d6m5epkOD8649wp3kI8zv9Ev+nP
+	 divV4d1H3lF93um2qG/ByQn3dSDRPayVmKYfqC/QMXKYFl6Y9/y/9aAoHA735FA/ZC
+	 HvDS6DXmdLmykq4czSfgagCPwYVUxUNSUQjSlXpd8uXDbgEUBf2Trmh/anE12lmGkY
+	 zkGFuAjO3i+Lg==
+Date: Thu, 29 Jan 2026 12:17:59 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Shawn Guo <shawnguo@kernel.org>, linux-kernel@vger.kernel.org,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Frank Li <frank.li@nxp.com>
+Subject: Re: [PATCH v2] dt-bindings: firmware: fsl,scu: Mark multi-channel MU
+ layouts as deprecated
+Message-ID: <176971067833.1454686.17086963865281930203.robh@kernel.org>
+References: <20260127-scu-v2-1-03f3aaa56e1b@nxp.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 2/2] ASoC: xilinx: xlnx_i2s: Discover parameters from
- registers
-To: Mark Brown <broonie@kernel.org>
-Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Liam Girdwood <lgirdwood@gmail.com>, linux-sound@vger.kernel.org,
- Jaroslav Kysela <perex@perex.cz>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Michal Simek <michal.simek@amd.com>,
- Takashi Iwai <tiwai@suse.com>
-References: <20260129172315.3871602-1-sean.anderson@linux.dev>
- <20260129172315.3871602-3-sean.anderson@linux.dev>
- <700e4e67-a2ed-4b37-a00b-303bbc5ee6cd@sirena.org.uk>
- <a95d7feb-4d94-4b25-be96-c7c367342c19@linux.dev>
- <a17602f1-537e-46e6-a85d-8a005a0443a2@sirena.org.uk>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <a17602f1-537e-46e6-a85d-8a005a0443a2@sirena.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_101753_670897_21335C2D 
-X-CRM114-Status: GOOD (  22.36  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260127-scu-v2-1-03f3aaa56e1b@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,66 +76,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/29/26 13:09, Mark Brown wrote:
-> On Thu, Jan 29, 2026 at 12:46:27PM -0500, Sean Anderson wrote:
->> On 1/29/26 12:27, Mark Brown wrote:
->> > On Thu, Jan 29, 2026 at 12:23:15PM -0500, Sean Anderson wrote:
-> 
->> >> -	ret = of_property_read_u32(node, "xlnx,num-channels", &drv_data->channels);
-> 
->> >> -	ret = of_property_read_u32(node, "xlnx,dwidth", &drv_data->data_width);
-> 
->> > Given that the properties already exist it seems wise to continue to
->> > parse them if available and prefer them over what we read from the
->> > hardware, it would not shock me to discover that hardware exists where
->> > the registers are inaccurate or need overriding due to bugs.
-> 
->> I would be surprised if such hardware exists. These properties are
->> automatically generated by Xilinx's tools based on the HDL core's
->> properties. This has a few consequences:
-> 
->> - They always exactly match the hardware unless someone has gone in and
->>   modified them. I think this is unlikely in this case because they
->>   directly reflect parameters that should not need to be adjusted.
->> - Driver authors tend to use them even when there are hardware registers
->>   available with the same information, as Xilinx has not always been
->>   consistent in adding such registers.
-> 
-> I'm not sure I follow your second point - driver authors tend to use
-> what?  
 
-Authors look at the devicetree node and see something like 
-
-	i2s0_tx: i2s_transmitter@80120000 {
-		aud_mclk = <99999001>;
-		clock-names = "aud_mclk", "s_axi_ctrl_aclk", "s_axis_aud_aclk";
-		clocks = <&zynqmp_clk 74>, <&zynqmp_clk 71>, <&zynqmp_clk 71>;
-		compatible = "xlnx,i2s-transmitter-1.0", "xlnx,i2s-transmitter-1.0";
-		interrupt-names = "irq";
-		interrupt-parent = <&gic>;
-		interrupts = <0 105 4>;
-		reg = <0x0 0x80120000 0x0 0x10000>;
-		xlnx,depth = <0x80>;
-		xlnx,dwidth = <0x18>;
-		xlnx,num-channels = <0x1>;
-		xlnx,snd-pcm = <&i2s0_dma>;
-	};
-
-and go "Ah, there are the properties I need." On some Xilinx cores this
-is the only way to discover certain properties, so people have gotten into
-the habit of using them even when these properties can be read from the
-device itself.
-
->> I am not aware of any errata regarding incorrect generation of
->> properties for this device or cases where the number of channels or bit
->> depth was incorrect.
+On Tue, 27 Jan 2026 07:06:00 +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
 > 
-> I'd still rather see the properties get used if present, worst case
-> they're redundant best case we avoid regressing a currently working
-> system.  The code is already there, it just needs tweaking to make parse
-> failures non-fatal.
+> The SCU MU driver has already supported the simple and efficient single-TX
+> and single-RX channel layout since 2021. The older multi-channel MU
+> configurations (tx0..tx3 and rx0..rx3) are less efficient in practice and
+> not needed.
+> 
+> Mark these legacy mbox-names and mboxes tuple layouts as deprecated in the
+> binding schema. The driver continues to support them for backward
+> compatibility in case firmware publishes the legacy properties.
+> 
+> The example section is updated accordingly to demonstrate the recommended
+> layout.
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+> Changes in v2:
+> - A minor grammer update in commit log
+> - Link to v1: https://lore.kernel.org/r/20260126-scu-v1-1-b9d31da12860@nxp.com
+> ---
+>  .../devicetree/bindings/firmware/fsl,scu.yaml        | 20 +++++++++++---------
+>  1 file changed, 11 insertions(+), 9 deletions(-)
+> 
 
-I would rather remove it for the code size reduction and simplication.
+Applied, thanks!
 
---Sean
 
