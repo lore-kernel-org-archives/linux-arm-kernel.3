@@ -4,87 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D70AD6100A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 11:30:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B4FD6100A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 11:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RBEo/Svqm0cLFfg4wzSJrPaLy7zotxJ6WJBM+fy7R+I=; b=0kv+Cy857F6Kh3FibOVgnRiEgs
-	x6rBw8odomx3RbSHvYQuPYN3MOGFCx9STUztvMVZO3lpiw0iQ8lobeW+B4bmujDop5nzjHgzmLEea
-	/6f1PyT01cbZxYTZTJgfei/ibxqwV+j/hp1iTmfms410oyVYgtYB5VbI/JWt/k1iZez62x67JACJa
-	a3pNyTEhQYwD7tMGlnFyY3pubO8XCcDynasc5/DdzVPRjfCexVmVGA4392j4LjgoT1CJszIB907X2
-	PpeYFDcsGSMyAvNX5BPCd3qdtBsX7kNHMK5MlKCjZqqBKAAwymPIZDKVsajj82iQw/Mbfv6zMv+Sx
-	mE1jsn3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fLXst4hKcwqR8aL0m9xNuTfU7cjH0z0TV7vdns2E8pI=; b=jYm28pvIwE7j2/8UIyC94z+FKY
+	QHb3lSmojPfWtFLDuPqX91e3OL7iGXaVxwvRZdHQTWd4jAC9dRVgeR5Klk+rT2QDYELhsBf1ZgEev
+	nK+7wlzTrBuIcCynCxa8uKKtIqtyYA+MNwxd3URsVmV8o/YQIWVeMHmOITuSRFrUiBlW3zq/M1Y52
+	ax0+wQzJATmyJchvi7tpo4J56p1vn7OEKqJebnFrYVHgdNN2rfy4svkusiHEsW7nPAFf/wSlMjuVC
+	qU0ixISAqIJWbVN4TflL9FYSZcunYiSC5H8b4meSEq70d12sTcxAHt6D1SJihIYMuIJT2evCho+m7
+	gDP+dsvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlQDq-0000000030Z-3m1E;
-	Thu, 29 Jan 2026 11:30:02 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1vlQMs-000000003YB-04jp;
+	Thu, 29 Jan 2026 11:39:22 +0000
+Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlQDo-000000002zx-0qC8
+	id 1vlQMo-000000003Xq-3RJz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 11:30:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769686200; x=1801222200;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=UB4juRatoxAjJ3voumXxgnDhy7jKWgsXK0C2/0Q1LLs=;
-  b=HUXkaBN5V5ta59XPAml+VcYPvCggbe1JoP08xRGhjn0YHu4OPCg2q/aj
-   UOmin2tfnbxfDLjJKKFonpb5sxyztCiS1n3zCk1mxjtR611PLQtibxj7q
-   06RDTVHgZjINeQnTgHMMhfn07cc3tU0k+kVxuZKAGqjpns9wj6JV0N6WA
-   ghvjJ/eg48vPwT8TIFYsj3NH/xd4QuQm/UnZ1KQvFSFL1rQoN0IYl/HTV
-   kmQ0nT6hexK8InBxTRz2mEeiaMO/RmEvQkU85F2yKLXG+fZxyqzCnYV/b
-   jwuv1vvzIXXD6ncyzt9BhkzGcWRZlC4WHH80CbV2JCduDCbHRUeL/XX6R
-   w==;
-X-CSE-ConnectionGUID: CK67ALZvQpOvgcLDtQzWwQ==
-X-CSE-MsgGUID: pFrOyo07R46X75PixSdO7Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11685"; a="58505808"
-X-IronPort-AV: E=Sophos;i="6.21,260,1763452800"; 
-   d="scan'208";a="58505808"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jan 2026 03:29:59 -0800
-X-CSE-ConnectionGUID: gqT750vBQPmTIOB1ggzl9A==
-X-CSE-MsgGUID: l72yiMe7TB2WVPr+qRi90w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,260,1763452800"; 
-   d="scan'208";a="213050661"
-Received: from igk-lkp-server01.igk.intel.com (HELO afc5bfd7f602) ([10.211.93.152])
-  by fmviesa005.fm.intel.com with ESMTP; 29 Jan 2026 03:29:56 -0800
-Received: from kbuild by afc5bfd7f602 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vlQDi-000000002Hd-1NJf;
-	Thu, 29 Jan 2026 11:29:54 +0000
-Date: Thu, 29 Jan 2026 12:29:21 +0100
-From: kernel test robot <lkp@intel.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, nd <nd@arm.com>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly <Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>,
-	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v4 35/36] KVM: arm64: selftests: Introduce a minimal
- GICv5 PPI selftest
-Message-ID: <202601291246.oaOq5gRj-lkp@intel.com>
-References: <20260128175919.3828384-36-sascha.bischoff@arm.com>
+	Thu, 29 Jan 2026 11:39:20 +0000
+Received: by mail-wr1-x441.google.com with SMTP id ffacd0b85a97d-435f177a8f7so166053f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 03:39:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769686756; x=1770291556; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fLXst4hKcwqR8aL0m9xNuTfU7cjH0z0TV7vdns2E8pI=;
+        b=XfgSIuRyh2WisTUYy33L+/yPS4pJ8vrRrxVMUMD4EeBQ5W8BmWUOTxb31fIEjBM5cy
+         DLkMxuPb9GVH7mKKkfdVyOzKTJlJWJXPiqBxlnsYeaFv1Pw6B2VGBynBwjvAqhHHLtbf
+         sqfCaMXigMIA99SScXJ09M02VkirSvW7g40Y09kzAXoYbNfbdMEycEDupuTMirWk3iO8
+         hJJAR3JpGPO9qEx/NWEFi3SW6ZI3BaQovVgsiA83qG1l6mvjLUNvviNKc5ymlmBt0pfk
+         QGhR8tAqf4EhbXkEW9STSAbFaSGN0Yw5Vep0BhXkK1AtPxdYzzydpCU8w4yLwG2cMUYY
+         dyDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769686756; x=1770291556;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=fLXst4hKcwqR8aL0m9xNuTfU7cjH0z0TV7vdns2E8pI=;
+        b=DD1s5EKrt1gyWN0FLLD+IqR8spmrEdekVUoSUpa1Wtt9vsw4pE+OcOCpfkc7VlT6nJ
+         3IytfORTcEW3wNKyC4jp1dOPE10tjkgydYY3QCL1q4XQ6p2bmRkh8f+izPHv4AtthxhT
+         /kpHM3ZjSt6h9Rl5GYSPlYwwO3pSTqytX+1l0bTE/I+R7k6RcYrz8r4c+jouMjeLNFhH
+         tPgL9YjhQS+ecAL6hqJqxFdxzPlDfofGAu5qIlotWP+CXd2aZoabNzR68CLKRR3scbCV
+         NFeAFj4NZCEObeAdOTN1X6fa3e8xj/9U7FTa0xeJv9ZymFfYJRuhMMBX5ue3frz8t6uG
+         uOFw==
+X-Forwarded-Encrypted: i=1; AJvYcCW5bZbs7VCThUWkZXoeeO7xQzvQNZbmvFs9bAKoNgiDh+RJi8MXMkWlFWeHufRtfnE0CizUT7aM7E0BbHJNMOpB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxj4Dfjgm7juOdMKxtT4lJL1l7iohcmJgBpTSlzLtFKF+RNjbJ1
+	8LNFm/1nD1RG1mJmu88G3E+zzpnHiPXl8r3XDjjXBH8+zuJ8Eni5W/W9Q2D5M76j
+X-Gm-Gg: AZuq6aLvPGVY8CAmP77WAcbv5O2AN+fpnANxvC4Fa0f4bMmLhNgjVK96xEIui+V+Zg9
+	vc3SyW8vczjZp+s4hNxpCDgEFPPEsHlno7lZIUkfdswlhsNpwpufp6+7c50nRigU+icpCC20l7W
+	1szrYZLAKWkSXOKkoqgt8YCTwd/tvrKxdI8YFM/wnMkJqSti1Hxmmm5pT1rC4XJqgiC33tTwBjm
+	KKAaJmXqvUgsQM0uXwQb/2VdNS281QqrOECiR9Qjf0FFMwRCJ+4SfUBZ6+lp8oCAdy1HaAVmaW6
+	L47Cfukoz1zcagaq9FSeAz0/2Z0cxP06NaaX8+Mrvgqv/VBO8EG/Yk9JNmDkqgyaBx73W/Y3n0Z
+	k62FzUWoliCCtKo6FtWMvjDAc314eWtszsEag0tMydH152Bx0VU+c1GUgsnl+pLmJHimhm6DPqt
+	LRYAw5PV/u/C8+kaoi9z3KH4MaXyRbzZHoKvkMcy4K7mQ8AABwKATuJ6NQcbxzUPw=
+X-Received: by 2002:a05:600c:c16b:b0:47d:264e:b35a with SMTP id 5b1f17b1804b1-48069c1a85bmr92237885e9.13.1769680343784;
+        Thu, 29 Jan 2026 01:52:23 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48066aaf235sm177623235e9.0.2026.01.29.01.52.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 Jan 2026 01:52:23 -0800 (PST)
+Date: Thu, 29 Jan 2026 09:52:19 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Marco Elver <elver@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>,
+ Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Boqun
+ Feng <boqun.feng@gmail.com>, Waiman Long <longman@redhat.com>, Bart Van
+ Assche <bvanassche@acm.org>, llvm@lists.linux.dev, Catalin Marinas
+ <catalin.marinas@arm.com>, Arnd Bergmann <arnd@arndb.de>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel
+ test robot <lkp@intel.com>
+Subject: Re: [PATCH v2 3/3] arm64, compiler-context-analysis: Permit alias
+ analysis through __READ_ONCE() with CONFIG_LTO=y
+Message-ID: <20260129095219.6a3b8dc8@pumpkin>
+In-Reply-To: <20260129005645.747680-4-elver@google.com>
+References: <20260129005645.747680-1-elver@google.com>
+	<20260129005645.747680-4-elver@google.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260128175919.3828384-36-sascha.bischoff@arm.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_033000_256413_E76FA96A 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20260129_033918_904075_0BF493EA 
+X-CRM114-Status: GOOD (  28.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,38 +106,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sascha,
+On Thu, 29 Jan 2026 01:52:34 +0100
+Marco Elver <elver@google.com> wrote:
 
-kernel test robot noticed the following build warnings:
+> When enabling Clang's Context Analysis (aka. Thread Safety Analysis) on
+> kernel/futex/core.o (see Peter's changes at [1]), in arm64 LTO builds we
+> could see:
+> 
+> | kernel/futex/core.c:982:1: warning: spinlock 'atomic ? __u.__val : q->lock_ptr' is still held at the end of function [-Wthread-safety-analysis]
+> |      982 | }
+> |          | ^
+> |    kernel/futex/core.c:976:2: note: spinlock acquired here
+> |      976 |         spin_lock(lock_ptr);
+> |          |         ^
+> | kernel/futex/core.c:982:1: warning: expecting spinlock 'q->lock_ptr' to be held at the end of function [-Wthread-safety-analysis]
+> |      982 | }
+> |          | ^
+> |    kernel/futex/core.c:966:6: note: spinlock acquired here
+> |      966 | void futex_q_lockptr_lock(struct futex_q *q)
+> |          |      ^
+> |    2 warnings generated.
+> 
+> Where we have:
+> 
+> 	extern void futex_q_lockptr_lock(struct futex_q *q) __acquires(q->lock_ptr);
+> 	..
+> 	void futex_q_lockptr_lock(struct futex_q *q)
+> 	{
+> 		spinlock_t *lock_ptr;
+> 
+> 		/*
+> 		 * See futex_unqueue() why lock_ptr can change.
+> 		 */
+> 		guard(rcu)();
+> 	retry:
+> >>		lock_ptr = READ_ONCE(q->lock_ptr);  
+> 		spin_lock(lock_ptr);
+> 	...
+> 	}
+> 
+> The READ_ONCE() above is expanded to arm64's LTO __READ_ONCE(). Here,
+> Clang Thread Safety Analysis's alias analysis resolves 'lock_ptr' to
+> 'atomic ? __u.__val : q->lock_ptr',
 
-[auto build test WARNING on arm64/for-next/core]
-[also build test WARNING on kvm/queue kvm/next]
-[cannot apply to kvmarm/next linus/master kvm/linux-next v6.16-rc1 next-20260128]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Doesn't the previous patch remove that conditional?
+This description should really refer to the code before this patch.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Sascha-Bischoff/KVM-arm64-Account-for-RES1-bits-in-DECLARE_FEAT_MAP-and-co/20260129-022450
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
-patch link:    https://lore.kernel.org/r/20260128175919.3828384-36-sascha.bischoff%40arm.com
-patch subject: [PATCH v4 35/36] KVM: arm64: selftests: Introduce a minimal GICv5 PPI selftest
-config: arm64-allnoconfig-bpf (https://download.01.org/0day-ci/archive/20260129/202601291246.oaOq5gRj-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project f43d6834093b19baf79beda8c0337ab020ac5f17)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260129/202601291246.oaOq5gRj-lkp@intel.com/reproduce)
+> and considers this the identity of
+> the context lock given it can't see through the inline assembly;
+> however, we simply want 'q->lock_ptr' as the canonical context lock.
+> While for code generation the compiler simplified to __u.__val for
+> pointers (8 byte case -> atomic), TSA's analysis (a) happens much
+> earlier on the AST, and (b) would be the wrong deduction.
+> 
+> Now that we've gotten rid of the 'atomic' ternary comparison, we can
+> return '__u.__val' through a pointer that we initialize with '&x', but
+> then change with a pointer-to-pointer. When READ_ONCE()'ing a context
+> lock pointer, TSA's alias analysis does not invalidate the initial alias
+> when updated through the pointer-to-pointer, and we make it effectively
+> "see through" the __READ_ONCE().
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601291246.oaOq5gRj-lkp@intel.com/
+Some of that need to be a comment in the code.
+I also suspect you've just found a bug in the TSA logic.
 
-All warnings (new ones prefixed by >>):
+> 
+> Code generation is unchanged.
+> 
+> Link: https://lkml.kernel.org/r/20260121110704.221498346@infradead.org [1]
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202601221040.TeM0ihff-lkp@intel.com/
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Signed-off-by: Marco Elver <elver@google.com>
+> ---
+> v2:
+> * Rebase.
+> ---
+>  arch/arm64/include/asm/rwonce.h | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
+> index 712de3238f9a..3a50a1d0d17e 100644
+> --- a/arch/arm64/include/asm/rwonce.h
+> +++ b/arch/arm64/include/asm/rwonce.h
+> @@ -48,8 +48,11 @@
+>   */
+>  #define __READ_ONCE(x)							\
+>  ({									\
+> -	typeof(&(x)) __x = &(x);					\
+> +	auto __x = &(x);						\
+> +	auto __ret = (__rwonce_typeof_unqual(*__x) *)__x;		\
+> +	auto __retp = &__ret;						\
+>  	union { __rwonce_typeof_unqual(*__x) __val; char __c[1]; } __u;	\
 
->> arm64/vgic_v5.c:171:11: warning: unused variable 'other' [-Wunused-variable]
-     171 |         uint32_t other;
-         |                  ^~~~~
-   1 warning generated.
+Can you define __val using typeof(__ret)?
+Saves expanding the macro twice (although it isn't the horrid
+__unqual_scaler_typeof() any more).
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+	David
+
+
+> +	*__retp = &__u.__val;						\
+>  	switch (sizeof(x)) {						\
+>  	case 1:								\
+>  		asm volatile(__LOAD_RCPC(b, %w0, %1)			\
+> @@ -74,7 +77,7 @@
+>  	default:							\
+>  		__u.__val = *(volatile typeof(*__x) *)__x;		\
+>  	}								\
+> -	__u.__val;							\
+> +	*__ret;								\
+>  })
+>  
+>  #endif	/* !BUILD_VDSO */
+
 
