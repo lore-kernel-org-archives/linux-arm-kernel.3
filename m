@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D6E9D3F09D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 16:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F114D358D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 16:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BG8fm6Z67+VoDdJeqwQd0nIhaenQup0lPxVOsS369F4=; b=X8h/7FaMCzl18xOFl3FrCkAzQw
-	pPp6Pyza5UONBpoMYb5jfQG8alh/PkbHUcoTuL3Uhz+0SFdV4QwSYg9J2XEjIiMKFiWADh/lSMJ6P
-	YbNvceBGySeKkTZFuGQaviDl+j8+cVPGaD7coaC2Zn2PixJHqWG0tX/xEvkwq9Ag3uoaa2e1PcpPn
-	A/WS2cVPAlEeleX/tBbUwjW1+agBYcHeDD4h/89CQ1l/CWCpUEpeMqwAEsCufC9Kzj18LQ++Wpklw
-	+PiEcvWSMNpp8zAa/gcXGswC/+cj+mM//ImuLf2yLxbTL69ZLaJetel+tqqB75UXatMWUTMidVz5K
-	PFclUGLQ==;
+	bh=u7hRWk5Gw4Vd9HLwzQPnE1UIY9A6TXP9px8gBcbEfJw=; b=x3YA0eWKwoLEMZDA6neWdlllrE
+	XbBbaQNNvT9tXVl38E3vki7boL3t/6N6zC4d+mbhtA1kltti7S+c/IINOa9SPu9V4aRUWoCpcsng8
+	3Cez/gZRsV9L5csyhWZsLJOrglWkMKZ37KyS1X9YAGuyzqqCPPkMPWl+1iiVaTlDVmq1H4pBZzb2F
+	NjeGbS5KQxofXdMIM9vy6Lq5A2yzZZIgumwRB+RYPOMXNitbgm5z8RyV/R148fb4RFg2PpddNAtNK
+	X1BP8yKWSVb5ChM5N7STj/NZnP/Stv90U9CGpjz+jKl+6mi9r03QLQJZav8v0HUdfgqHySQUrTVYV
+	FzFMqH7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlVIu-00000000NUP-0UBq;
-	Thu, 29 Jan 2026 16:55:36 +0000
+	id 1vlVK8-00000000Ngm-3lWW;
+	Thu, 29 Jan 2026 16:56:52 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlVIq-00000000NTr-3bWO
+	id 1vlVK6-00000000Nfs-29CD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 16:55:34 +0000
+	Thu, 29 Jan 2026 16:56:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 688D34370B;
-	Thu, 29 Jan 2026 16:55:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2388DC4CEF7;
-	Thu, 29 Jan 2026 16:55:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CAFA5403C7;
+	Thu, 29 Jan 2026 16:56:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90E40C4CEF7;
+	Thu, 29 Jan 2026 16:56:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769705732;
-	bh=mZs03WYD4uRFTip8el8/SaAOaPr/KLn2tNNfr3ADzqM=;
+	s=k20201202; t=1769705809;
+	bh=m9r0bV5tm34u19PRjkFevkAscNe7jnYkskW251n5sIY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nZ9zKXPrUoLdPcQT07k41nF6WLFtAZZe85ruwQmm2Z6RUd7uI19PFYB+1ygycb4+M
-	 sNCytqXi9y3Yl5Rb0q7B1wy1J+Zf+bZbyrUT78u17Tt5sefiGwO5vzgAQOZsFmDWt4
-	 XopdtXorOrT50Q/a0g3gO2NgU3+P/zLd4y0BZr3B1SiNTxEw2h6ptRyVgpvGLwllX3
-	 BhgOzt+uetn51K+48rjGu/HaNDaolUvnMJfo5ufAUzH3x/dkCNxmTSxeg4rMso2fAr
-	 /3haGHrGsIPWwslXr3sdWoGcmN2aIIgvJ1QpRE0smIEE4lBIGhJTMYVYznTNnyTr2N
-	 aBTvmwwndhT5w==
-Date: Thu, 29 Jan 2026 10:55:31 -0600
-From: Rob Herring <robh@kernel.org>
-To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Conor Dooley <conor+dt@kernel.org>,
+	b=QP7IlsrJqnXK7Mc8acLftaX0JPlcSCxuVo3HTmS6OQFbSsRbCD36wcsyGQGa637Gk
+	 wOJgfBgh6yk3d1Jtdf2mT7l5zLfkyUCOwGnczCaXCFc6T0VMncyoCqlLbm94G/QXsN
+	 +Mkm9/VVYcvfxdZFdY4uQ0UACqEFk3DmBIYii4yaqSPnX3wqdldqwIvbCqpaCugIF8
+	 GCn5m+HD9dXQavtq7UlCsl3FAbetoldcdvQDLH7g4Mo6Jz34aIHy2SPmIZtWlhrSM7
+	 M1Dd98j92+i2AOp//1EjK9T6TVwpKFwZtH9TBYdyXtp+SvPHTuud8xUUQbsE632LU8
+	 xJ5iVrgt45DqQ==
+Date: Thu, 29 Jan 2026 10:56:48 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Lukasz Majewski <lukma@nabladev.com>
+Cc: imx@lists.linux.dev, Stephen Boyd <sboyd@kernel.org>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Juan Yescas <jyescas@google.com>,
-	Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+	devicetree@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v4 01/10] dt-bindings: soc: google: add google,gs101-dtzpc
-Message-ID: <20260129165531.GA1269692-robh@kernel.org>
-References: <20260128-gs101-pd-v4-0-cbe7bd5a4060@linaro.org>
- <20260128-gs101-pd-v4-1-cbe7bd5a4060@linaro.org>
+	Michael Turquette <mturquette@baylibre.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Subject: Re: [PATCH v4 2/4] dt-bindings: clock: vf610: Drop VF610_CLK_END
+ define
+Message-ID: <176970580832.1273597.12768632002684119735.robh@kernel.org>
+References: <20260129095442.1646748-1-lukma@nabladev.com>
+ <20260129095442.1646748-3-lukma@nabladev.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260128-gs101-pd-v4-1-cbe7bd5a4060@linaro.org>
+In-Reply-To: <20260129095442.1646748-3-lukma@nabladev.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_085532_934907_8CED7A6F 
-X-CRM114-Status: GOOD (  19.87  )
+X-CRM114-CacheID: sfid-20260129_085650_569229_FF9391C3 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,83 +82,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 04:10:50PM +0000, André Draszik wrote:
-> The Exynos Distributed TruztZone Protection Control (D_TZPC) provides
-> an interface to the protection bits that are included in the TrustZone
-> design in a secure system. It configures each area of the memory as
-> secure or non-secure.
 
-This sounds like what access-controllers binding is for. Does that work 
-here?
-
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+On Thu, 29 Jan 2026 10:54:40 +0100, Lukasz Majewski wrote:
+> The VF610_CLK_END should be dropped as it is not part of the ABI.
+> 
+> Signed-off-by: Lukasz Majewski <lukma@nabladev.com>
 > ---
->  .../bindings/soc/google/google,gs101-dtzpc.yaml    | 42 ++++++++++++++++++++++
->  MAINTAINERS                                        |  1 +
->  2 files changed, 43 insertions(+)
+> Changes for v4:
+> - New, separate patch
+> ---
+>  include/dt-bindings/clock/vf610-clock.h | 1 -
+>  1 file changed, 1 deletion(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/soc/google/google,gs101-dtzpc.yaml b/Documentation/devicetree/bindings/soc/google/google,gs101-dtzpc.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..a8c61ce069d6910c47753bf14a792eb58e6ae182
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/google/google,gs101-dtzpc.yaml
-> @@ -0,0 +1,42 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/google/google,gs101-dtzpc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Samsung Exynos Distributed TruztZone Protection Control.
-> +
-> +description:
-> +  Distributed TrustZone Protection Control (D_TZPC) provides an interface to the
-> +  protection bits that are included in the TrustZone design in a secure system.
-> +  It configures each area of the memory as secure or non-secure.
-> +
-> +maintainers:
-> +  - André Draszik <andre.draszik@linaro.org>
-> +
-> +properties:
-> +  compatible:
-> +    const: google,gs101-dtzpc
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - clocks
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/google,gs101.h>
-> +
-> +    dtzpc_hsi0: dtzpc@11010000 {
-> +      compatible = "google,gs101-dtzpc";
-> +      reg = <0x11010000 0x10000>;
-> +      clocks = <&cmu_hsi0 CLK_GOUT_HSI0_D_TZPC_HSI0_PCLK>;
-> +    };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index a56f8f00aebb938aa765a8a6d66dfeb7f062dac8..98b2ef47c809ac0232e6941c9483b19d7c798bb4 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -10833,6 +10833,7 @@ P:	Documentation/process/maintainer-soc-clean-dts.rst
->  C:	irc://irc.oftc.net/pixel6-kernel-dev
->  F:	Documentation/devicetree/bindings/clock/google,gs101-clock.yaml
->  F:	Documentation/devicetree/bindings/phy/google,lga-usb-phy.yaml
-> +F:	Documentation/devicetree/bindings/soc/google/google,gs101-dtzpc.yaml
->  F:	Documentation/devicetree/bindings/soc/google/google,gs101-pmu-intr-gen.yaml
->  F:	Documentation/devicetree/bindings/usb/google,lga-dwc3.yaml
->  F:	arch/arm64/boot/dts/exynos/google/
-> 
-> -- 
-> 2.52.0.457.g6b5491de43-goog
-> 
+
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+
 
