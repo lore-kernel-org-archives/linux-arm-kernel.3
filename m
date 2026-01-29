@@ -4,106 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E44D358EE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 10:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 388D0D358EE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 10:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lc+XjDBA+a8aHFibRHjswsqkmvLkJszDVJ8RfsBnEd4=; b=GtD/98/3RUO3UheuU2N3moEAWu
-	6PAoM+BSFbHaifmZAWD07R28S2Bx9qIxlZ2EbdTCZiUAIEjIItELzFKIBRVSeYdqMb2cq08KLYyFf
-	OZphlOc5oRvCMqSbj7gooLJJRg0jCgxCPtB2hXqSg9oUj6mbt3F/dREJMpzoVZ/WGGV/SVHio6AfC
-	HEnF2bbUqvF0WnIZi/Q+Zw0Q061Uu7bzCgzuA2J51BvW7Ufz1Gv7haSKy++eODdRZ9FUS+t8QyICh
-	d+dHkYGyVeSNQIa5HQs8iSjof6CaBGYcNt+Wc/mqRKgq4J4pgXYdCMuhcTweGC/CRwBJvDwaAjCG9
-	RAyyR8+g==;
+	bh=i2BjtfFKJ7EJoDj0mOpq4Vki8DNsNIjcWOld1LjOd5E=; b=VIiE57/Ly7GViIXxzJa2gO0f++
+	dt0MUZB2xMpXPwQO6GXjont/PPsjeIFUDF6evE8qjc0dgXlz6C857gTJPwXN69pK71cFjTo7UZmrn
+	VK/ei9jQzrqUG7oWu7LdZdToZlGmyUDbOeaIdSMTo2mk52LX38B3Uz5s1OYOl9aY6zJM+mipi7TkC
+	gWNkC4YTNfoJnTh/L5pMC/6Dw8YLTE5J7YyjlWoosHGgay3It/gzc8w+fgkux/xUxfu1JreUTzdE0
+	R8+XtupQOlYL9iHod2btLMSo+ylwkh19HBNHfI5cAOB/8+gtAD/N3l0mkNRuolCcSMXYEgE6FK8rQ
+	8L1zQfGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlP1l-0000000HZ1u-2nBq;
-	Thu, 29 Jan 2026 10:13:29 +0000
-Received: from mail-dy1-x1336.google.com ([2607:f8b0:4864:20::1336])
+	id 1vlP2x-0000000HZ8d-0TPl;
+	Thu, 29 Jan 2026 10:14:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlP1j-0000000HZ16-15lm
+	id 1vlP2u-0000000HZ7n-3CMn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 10:13:28 +0000
-Received: by mail-dy1-x1336.google.com with SMTP id 5a478bee46e88-2b71515d8adso837247eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 02:13:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769681606; cv=none;
-        d=google.com; s=arc-20240605;
-        b=fFLwhq/vAZxDkX7PS0Da63LfpHst2ROJbJ5vgEzrTsWJXKxTdVkmslpsJYAm9OP0sH
-         YzJy/03lxnBkcvM4qOmOFBVY+ApNSyaiQq+LwRkEN5UvZiwZlJsycjXaoF5HMPpYfuIq
-         AU2oQj+urlh2cox4N1acKaQsvsPqeXBtCkZULlSFFdYuaT4ZAPWc4N15JI8UNaky4ir/
-         RLZoZ1eGjuzUDdqVuBmlfRquxj1cz2L/49URXp6VZIKp4+2s6t4CYTMvUXdfwISkLZu5
-         iegrO9arC6UKtsE6xjoXg9ZumTMPrhtRBJ/5vyucWbWqjZbDpSdT/WG4CFSZ7DMObVvS
-         EhNw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Lc+XjDBA+a8aHFibRHjswsqkmvLkJszDVJ8RfsBnEd4=;
-        fh=KGLW+UG6mPkYQqpjeI8brMTv0iAwNUjjipEgg7vBzzM=;
-        b=gZeG1FyM1ltPTc4+O2oJhWZv//C83qukn/ydT8dGdRZWpKbXp8hwdZnsrMOe9o0Yzb
-         aqprXuOZgarY2aPa/PVkxld1IPuZg9rkNdQccvfNRLC+xVrtkVVeW/Gpp/b/OPKxr7cO
-         88GOz/h7iVSlmnnP4lcrqxU62uK8ImDm4U0oaN82pjvLqiENFN+QJrUdw2D1tzdNGJ5X
-         RDt83IoOC0LaKCZ3pqgcFXWQunJGci86S47r9TFKK6pWNibBaXXxQIjmvfywQOgvdvK4
-         kKLhSgO65w4USKnnUJfYvRImmmHlijXG7HkwV82dIePDLb2VXzC5f40RQopOW/GVIQYG
-         +fDA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769681606; x=1770286406; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Lc+XjDBA+a8aHFibRHjswsqkmvLkJszDVJ8RfsBnEd4=;
-        b=r55TgGfQKEUsSn+5vfDApCXmu+nd1UzGCWNWBnRtHGbNU8OX+P7CqIv659awzrg3b9
-         PkQz2gWq/pkiQ7U3S3unQgwLvwjgNW81H8t+8D+iPeT8gxMbJfy6BIKp6rGdbEm73Y9e
-         zKxq/9EHTd84UKNB6FzeFuMnU7MO+mxGDWNzyMqFCmtSc8NQt8bN55DHxiLFzKniU5sM
-         LM8UJyuuXN7KmoAprvZxzEDM7sXMtsNnWI1EEZK2Rf1dMIWHnX8WxzGtzMj+LBr4lu9X
-         N8ndVnYYes8MIQf6bBYZ+UWLfik0pZRaOKWFBOiON9OSc7UUmcR5vd2n3lwCXMbtVNL3
-         KWNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769681606; x=1770286406;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Lc+XjDBA+a8aHFibRHjswsqkmvLkJszDVJ8RfsBnEd4=;
-        b=RiXQe2p+SOZlN0X2RM13/RRau9vr4HK1DjMCSlCy5UfD+HMvpFvzCzLvUmaNSjBjvc
-         1HR5MNtTAFuD7aNSKNjjZcdTfmCsRerTTaTz8SuDCIm7dqdJ85wsOq0/L+9a14P1U+Ku
-         kih3H/y76QOQ1/vrra1vKR/ELjHcVtii0WvQlZPvoaPIywvxJQB5srgb0jWkdZchccPR
-         OD7gzyon2PhgrBWddNSPzYCHIxqo2dWp/G008KUTF61NjWOplwef5awd6atRoh3Pp3Jo
-         jus9UPDV+1+M46iiAfx5c0WHbbCdm4k8vnZY9sI+X6EE1xmhd3ewqFSdGL5HQKoZEQSE
-         2Jmw==
-X-Forwarded-Encrypted: i=1; AJvYcCUMOhgDNanb8kkiXMYRAiah+dyfl1JStaeBc8oBmu3XcXgAtm2OfHX12rlrgc0mZZP1Wc6wW7QqxSboKmNaGHCN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVB5I/xSE7hhZfQdzULgXJA0sQM1RUJxkvMlDhiRWjf8/5LeXk
-	n3frl/P87pq8OF1FTtBuGCjfdGP6m/mSr6WO8m58fsHl6ExvTR9XVkEt//iSNtHFNlS7LeeWfGs
-	wU1e/ZfqFHjaEziwMNaD+fwGc6wNLYFySJOw9PWR2
-X-Gm-Gg: AZuq6aIxD0q9zidnvjH5/r7Gj+jk9mBa/ouIjts9mYRRHwnM++GmLWdMUwlZYEsQ83Z
-	rXhAoDb0O9hA6ECBQ8QJuFcw78MUKl6Pwg1wvf3nMcK/JMOZExpRmtEK9h6dwb0HVtNf+hya+QW
-	t2rwDaBDl7ojgI+sY7cWZTML4DPBMq7cH/tVk+LgSO/ce48c8Cy1hby4jsOPPvcVxuuIsDo1Cwl
-	OCA1HFfo+A++Yrz+xGYTqYMwOBeh9kDgCJ3XBxDuwP8ebv/YzBnFO50hVLSnVks2vgfR7jTPfvy
-	HfAyXGdU4KpXUslsSkP2n2uSavw8zYADQz0=
-X-Received: by 2002:a05:7022:23a8:b0:11b:9d52:9102 with SMTP id
- a92af1059eb24-124a008b0a3mr4817016c88.6.1769681605889; Thu, 29 Jan 2026
- 02:13:25 -0800 (PST)
-MIME-Version: 1.0
-References: <20260129005645.747680-1-elver@google.com> <20260129005645.747680-3-elver@google.com>
- <20260129100332.500248d3@pumpkin>
-In-Reply-To: <20260129100332.500248d3@pumpkin>
-From: Marco Elver <elver@google.com>
-Date: Thu, 29 Jan 2026 11:12:49 +0100
-X-Gm-Features: AZwV_Qjm1big2o3mYTbTc-InA_aDqnDfx4wWvQeXqTlFIP_0-3CqkH0h_lrLByU
-Message-ID: <CANpmjNPL662LMLw9o-fqQCBkhD=oG-UTHSQb8XeXtXduhh1dQQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] arm64: Optimize __READ_ONCE() with CONFIG_LTO=y
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>, 
-	Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Boqun Feng <boqun.feng@gmail.com>, 
-	Waiman Long <longman@redhat.com>, Bart Van Assche <bvanassche@acm.org>, llvm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 29 Jan 2026 10:14:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 43E4243D2C;
+	Thu, 29 Jan 2026 10:14:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1B84C4CEF7;
+	Thu, 29 Jan 2026 10:14:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769681679;
+	bh=iQvMrDyasksTllCjdfeh6A5zWB6EVZnl+Zr/KX7IDw8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=sjhhhedW3IMVefMoFUpZ9k0oX5+2HHGarbL4dqBcb8BsftFFHGFhPXGxV0ufOeSpG
+	 1zFCx/xvfwgk99K95SmOED30KufKAAzY+NjnglJJ1lggiKUX4B4XPMoTI0QBZIu+MC
+	 lrSny8tvEcY+I+kaMNyxYPu3fCaIQSju+2ZN5FbHx/3nr0npaJhXewW4z2VHY/O3m2
+	 tHc7aqqgSLeBoQHuhGmFefc/DJXV9Pb9FPD76At1V3dQn68DNdg/AOtOCNMMut5Zz5
+	 YV5vDf82x4YJwuLdKQZbCz9ao1FUtLa6hGdDtj4WrDLCejvF8mgkc/qENju8VR+Xke
+	 qFewpsNjfxpQg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vlP2q-00000006i5m-1uFn;
+	Thu, 29 Jan 2026 10:14:36 +0000
+Date: Thu, 29 Jan 2026 10:14:36 +0000
+Message-ID: <86bjicbu9f.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH 12/20] KVM: arm64: Add RESx_WHEN_E2Hx constraints as configuration flags
+In-Reply-To: <CA+EHjTzL6bNZ=sZoub3GY=VZ2bJ+4bFr4jkuiMMBCEqXuAkQPA@mail.gmail.com>
+References: <20260126121655.1641736-1-maz@kernel.org>
+	<20260126121655.1641736-13-maz@kernel.org>
+	<CA+EHjTzL6bNZ=sZoub3GY=VZ2bJ+4bFr4jkuiMMBCEqXuAkQPA@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_021327_336311_EE9C8F3E 
-X-CRM114-Status: GOOD (  33.46  )
+X-CRM114-CacheID: sfid-20260129_021440_842259_AD14836E 
+X-CRM114-Status: GOOD (  46.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,93 +92,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 Jan 2026 at 11:03, David Laight <david.laight.linux@gmail.com> wrote:
->
-> On Thu, 29 Jan 2026 01:52:33 +0100
-> Marco Elver <elver@google.com> wrote:
->
-> > Rework arm64 LTO __READ_ONCE() to improve code generation as follows:
+Hey Fuad,
+
+On Wed, 28 Jan 2026 17:43:40 +0000,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> Hi Marc,
+> 
+> On Mon, 26 Jan 2026 at 12:17, Marc Zyngier <maz@kernel.org> wrote:
 > >
-> > 1. Replace _Generic-based __unqual_scalar_typeof() with more complete
-> >    __rwonce_typeof_unqual(). This strips qualifiers from all types, not
-> >    just integer types, which is required to be able to assign (must be
-> >    non-const) to __u.__val in the non-atomic case (required for #2).
+> > "Thanks" to VHE, SCTLR_EL2 radically changes shape depending on the
+> > value of HCR_EL2.E2H, as a lot of the bits that didn't have much
+> > meaning with E2H=0 start impacting EL0 with E2H=1.
 > >
-> > Once our minimum compiler versions are bumped, this just becomes
-> > TYPEOF_UNQUAL() (or typeof_unqual() should we decide to adopt C23
-> > naming).  Sadly the fallback version of __rwonce_typeof_unqual() cannot
-> > be used as a general TYPEOF_UNQUAL() fallback (see code comments).
+> > This has a direct impact on the RESx behaviour of these bits, and
+> > we need a way to express them.
 > >
-> > One subtle point here is that non-integer types of __val could be const
-> > or volatile within the union with the old __unqual_scalar_typeof(), if
-> > the passed variable is const or volatile. This would then result in a
-> > forced load from the stack if __u.__val is volatile; in the case of
-> > const, it does look odd if the underlying storage changes, but the
-> > compiler is told said member is "const" -- it smells like UB.
+> > For this purpose, introduce a set of 4 new constaints that, when
+> > the controlling feature is not present, force the RESx value to
+> > be either 0 or 1 depending on the value of E2H.
 > >
-> > 2. Eliminate the atomic flag and ternary conditional expression. Move
-> >    the fallback volatile load into the default case of the switch,
-> >    ensuring __u is unconditionally initialized across all paths.
-> >    The statement expression now unconditionally returns __u.__val.
+> > This allows diverging RESx values depending on the value of E2H,
+> > something that is required by a bunch of SCTLR_EL2 bits.
 > >
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/config.c | 24 +++++++++++++++++++++---
+> >  1 file changed, 21 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> > index 1990cebc77c66..7063fffc22799 100644
+> > --- a/arch/arm64/kvm/config.c
+> > +++ b/arch/arm64/kvm/config.c
+> > @@ -26,6 +26,10 @@ struct reg_bits_to_feat_map {
+> >  #define        MASKS_POINTER   BIT(3)  /* Pointer to fgt_masks struct instead of bits */
+> >  #define        AS_RES1         BIT(4)  /* RES1 when not supported */
+> >  #define        REQUIRES_E2H1   BIT(5)  /* Add HCR_EL2.E2H RES1 as a pre-condition */
+> > +#define        RES0_WHEN_E2H0  BIT(6)  /* RES0 when E2H=0 and not supported */
+> > +#define        RES0_WHEN_E2H1  BIT(7)  /* RES0 when E2H=1 and not supported */
+> > +#define        RES1_WHEN_E2H0  BIT(8)  /* RES1 when E2H=0 and not supported */
+> > +#define        RES1_WHEN_E2H1  BIT(9)  /* RES1 when E2H=1 and not supported */
+> >
+> >         unsigned long   flags;
+> >
+> > @@ -1298,10 +1302,24 @@ struct resx compute_resx_bits(struct kvm *kvm,
+> >                         match &= !e2h0;
+> >
+> >                 if (!match) {
+> > +                       u64 bits = reg_feat_map_bits(&map[i]);
+> > +
+> > +                       if (e2h0) {
+> > +                               if      (map[i].flags & RES1_WHEN_E2H0)
+> > +                                       resx.res1 |= bits;
+> > +                               else if (map[i].flags & RES0_WHEN_E2H0)
+> > +                                       resx.res0 |= bits;
+> > +                       } else {
+> > +                               if      (map[i].flags & RES1_WHEN_E2H1)
+> > +                                       resx.res1 |= bits;
+> > +                               else if (map[i].flags & RES0_WHEN_E2H1)
+> > +                                       resx.res0 |= bits;
+> > +                       }
+> > +
+> >                         if (map[i].flags & AS_RES1)
+> > -                               resx.res1 |= reg_feat_map_bits(&map[i]);
+> > -                       else
+> > -                               resx.res0 |= reg_feat_map_bits(&map[i]);
+> > +                               resx.res1 |= bits;
+> > +                       else if (!(resx.res1 & bits))
+> > +                               resx.res0 |= bits;
+> 
+> The logic here feels a bit more complex than necessary, specifically
+> regarding the interaction between the E2H checks and the fallthrough
+> to AS_RES1.
+> 
+> Although AS_RES1 and RES0_WHEN_E2H0 are mutually exclusive in
+> practice, the current structure technically permits a scenario where
+> both res0 and res1 get set if the flags are mixed (the e2h0 block sets
+> res0, and the AS_RES1 block falls through and sets res1). This cannot
+> be ruled out by looking at this function alone.
+> 
+>   It might be cleaner (and safer) to determine the res1 first, and
+> then apply the masks. Something like:
+> 
+> +                       bool is_res1 = false;
+> +
+> +                       if (map[i].flags & AS_RES1)
+> +                               is_res1 = true;
+> +                       else if (e2h0)
+> +                               is_res1 = (map[i].flags & RES1_WHEN_E2H0);
+> +                       else
+> +                               is_res1 = (map[i].flags & RES1_WHEN_E2H1);
 > ...
-> > Signed-off-by: Marco Elver <elver@google.com>
-> > ---
-> > v2:
-> > * Add __rwonce_typeof_unqual() as fallback for old compilers.
-> > ---
-> >  arch/arm64/include/asm/rwonce.h | 24 ++++++++++++++++++++----
-> >  1 file changed, 20 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
-> > index fc0fb42b0b64..712de3238f9a 100644
-> > --- a/arch/arm64/include/asm/rwonce.h
-> > +++ b/arch/arm64/include/asm/rwonce.h
-> > @@ -19,6 +19,23 @@
-> >               "ldapr" #sfx "\t" #regs,                                \
-> >       ARM64_HAS_LDAPR)
-> >
-> > +#ifdef USE_TYPEOF_UNQUAL
-> > +#define __rwonce_typeof_unqual(x) TYPEOF_UNQUAL(x)
-> > +#else
-> > +/*
-> > + * Fallback for older compilers to infer an unqualified type.
-> > + *
-> > + * Uses the fact that auto is supposed to drop qualifiers. Unlike
->
-> Maybe:
->         In all versions of clang 'auto' correctly drops qualifiers.
-> A reminder in here that this is clang only might also clarify things.
 
-Will add.
+I think you have just put your finger on something that escaped me so
+far. You are totally right that the code as written today is ugly, and
+the trick to work out that we need to account the bits as RES0 is
+awful.
 
-> > + * typeof_unqual(), the type must be complete (defines an unevaluated local
-> > + * variable); this must trivially hold because __READ_ONCE() returns a value.
->
-> Not sure that is needed.
+But it additionally outlines something else: since RES0 is an implicit
+property (we don't specify a flag for it), RES0_WHEN_E2Hx could also
+be implicit properties. I couldn't find an example where anything
+would break. This would also avoid the combination with AS_RES1 by
+construction.
 
-Trying to warn against someone copy-pasting this as a TYPEOF_UNQUAL
-fallback implementation. typeof() and typeof_unqual() do happily take
-incomplete struct declarations. E.g. this works:
+> 
+> This also brings up a side point: given the visual similarity of these
+> flags, it is quite easy to make a typo and accidentally combine
+> incompatible flags (e.g., AS_RES1 | RESx_WHEN_E2Hx, or RES0_WHEN_E2H0
+> | RES1_WHEN_E2H0), would it be worth adding a check to warn on
+> obviously invalid combinations?
+> 
+> Or maybe even redefining AS_RES1 to be
+> (RES1_WHEN_E2H1|RES1_WHEN_E2H0), which is what it is conceptually.
+> That could simplify this code even further:
+> 
+> +                       if (e2h0)
+> +                               is_res1 = (map[i].flags & RES1_WHEN_E2H0);
+> +                       else
+> +                               is_res1 = (map[i].flags & RES1_WHEN_E2H1);
 
-struct foo;
-...
-struct foo *f;
-typeof_unqual(*f) *x = f;
+While that would work, I think this is a step too far. Eventually, we
+should be able to sanitise things outside of NV, and RES1 should not
+depend on E2H at all in this case.
 
-Whereas with the __rwonce_typeof_unqual() fallback this doesn't work.
-I can try to make it clearer.
+I ended up with the following hack, completely untested (needs
+renumbering, and the rest of SCTLR_EL2 repainted). Let me know what
+you think.
 
-> > + *
-> > + * Another caveat is that because of array-to-pointer decay, an array is
-> > + * inferred as a pointer type; this is fine for __READ_ONCE usage, but is
-> > + * unsuitable as a general fallback implementation for TYPEOF_UNQUAL.
->
-> gcc < 11.0 stops it being used elsewhere.
-> Something shorter?
->         The arrary-to-pointer decay doesn't matter here.
+Thanks,
 
-Ack.
+	M.
 
-Thanks!
+diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+index 562513a4683e2..204e5aeda4d24 100644
+--- a/arch/arm64/kvm/config.c
++++ b/arch/arm64/kvm/config.c
+@@ -26,8 +26,6 @@ struct reg_bits_to_feat_map {
+ #define	MASKS_POINTER	BIT(3)	/* Pointer to fgt_masks struct instead of bits */
+ #define	AS_RES1		BIT(4)	/* RES1 when not supported */
+ #define	REQUIRES_E2H1	BIT(5)	/* Add HCR_EL2.E2H RES1 as a pre-condition */
+-#define	RES0_WHEN_E2H0	BIT(6)	/* RES0 when E2H=0 and not supported */
+-#define	RES0_WHEN_E2H1	BIT(7)	/* RES0 when E2H=1 and not supported */
+ #define	RES1_WHEN_E2H0	BIT(8)	/* RES1 when E2H=0 and not supported */
+ #define	RES1_WHEN_E2H1	BIT(9)	/* RES1 when E2H=1 and not supported */
+ 
+@@ -1375,22 +1373,15 @@ struct resx compute_resx_bits(struct kvm *kvm,
+ 		
+ 		if (!match) {
+ 			u64 bits = reg_feat_map_bits(&map[i]);
++			bool res1;
+ 
+-			if (e2h0) {
+-				if      (map[i].flags & RES1_WHEN_E2H0)
+-					resx.res1 |= bits;
+-				else if (map[i].flags & RES0_WHEN_E2H0)
+-					resx.res0 |= bits;
+-			} else {
+-				if      (map[i].flags & RES1_WHEN_E2H1)
+-					resx.res1 |= bits;
+-				else if (map[i].flags & RES0_WHEN_E2H1)
+-					resx.res0 |= bits;
+-			}
+-
+-			if (map[i].flags & AS_RES1)
++			res1  = (map[i].flags & AS_RES1);
++			res1 |= e2h0 && (map[i].flags & RES1_WHEN_E2H0);
++			res1 |= !e2h0 && (map[i].flags & RES1_WHEN_E2H1);
++
++			if (res1)
+ 				resx.res1 |= bits;
+-			else if (!(resx.res1 & bits))
++			else
+ 				resx.res0 |= bits;
+ 		}
+ 	}
+
+-- 
+Without deviation from the norm, progress is not possible.
 
