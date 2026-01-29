@@ -4,69 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B222BD46C01
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 01:29:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59E76D46C16
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 01:30:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rtWFc0P/X3zZfkPNCFcQLlcTxCjLef1x+lLjFThYQOk=; b=GxGiJ5/UwGR86248PTbPDSVzXu
-	zdIZvsFc/d+HsKTiYOBfZr1YJdhNBCmlQT/WA8UPlG5EDqSsMjcDA5F85p35GD64tV+EWfcn+M/gt
-	Cm1eEdeGvWnY+pJOWRGQ8GiSk0/KOCK2iw/C7LYN3Mim66oZvIWIXTJMYW47XC+YbwELrscEVqRSv
-	Jis6N1YA+TpeRA6u37GHQx0PcQ8lN8xlNlJheXF5YFQfupMV6JWSrAW9bb2/l8ox1ylXIE2K0IK8k
-	ly6VAXhA9B/RJNvGOrCg6dINkWfM6vh58qwZF35qBdHd/Nhwm9MZsheiv8hDWFa3WRgaklMmyZ4xH
-	W1iryJCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qnxf4dRPu+XrSftVF+5p3kNUbRVR5f3taf3WgnGmipo=; b=bEKlOIXIOOjmT7w5B0oRZq8yxm
+	akNZR+dH63KIKqukwJGVvHJ74hEB1RJuweg+kNhkDr+TajkC4TZFtYkaLQXo/zyJhT7H+6ERzBPT5
+	TVDhkotKXTxaWaTLLrkRsCPW7LviZIzFTTbFKNIsqtffJeEFGFNqzNgnFwqmHpPt0FlAX2J0HWGxY
+	Pnn7tvAec4zvxQ4FrCRYn2RyKakT6ySqgnFuE8YXetIFrqNuaIZYYWTmRS5VfIBNyydZ11GDUcBeo
+	3MaPlipHyu3DTd4hsjjEYxtSAyLrf5B8D06eZYXBzv6gltDSg3a96rTksovky0FT3AMbJVxMpBqe/
+	eD/nOtyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlGqs-0000000H3id-3m6a;
-	Thu, 29 Jan 2026 01:29:42 +0000
-Received: from out-173.mta1.migadu.com ([2001:41d0:203:375::ad])
+	id 1vlGrC-0000000H3lx-0snZ;
+	Thu, 29 Jan 2026 01:30:02 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlGqp-0000000H3iC-0qIk
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 01:29:40 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1769650176;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rtWFc0P/X3zZfkPNCFcQLlcTxCjLef1x+lLjFThYQOk=;
-	b=S5tuMrKY/4s/89/wtpe7uzV7JVItb7v7qwexPUMjqusZiao/vbafKiS4MSznuQNbO/ViVP
-	7sL0z1PnSZZ3cqJ0xU5Hn6r8e1D7j+W3QSF0+uYyDwrPMzQ4QqNN1gQCmTYUFV08EBCS74
-	47ESqs3t439DaOn9iKezm45dyOwlMR0=
-From: Menglong Dong <menglong.dong@linux.dev>
-To: bpf@vger.kernel.org, Leon Hwang <leon.hwang@linux.dev>
-Cc: Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>,
- Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>,
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
- Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>,
- Xu Kuohai <xukuohai@huaweicloud.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Shuah Khan <shuah@kernel.org>, Menglong Dong <menglong8.dong@gmail.com>,
- Leon Hwang <leon.hwang@linux.dev>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- kernel-patches-bot@fb.com
-Subject: Re: [PATCH bpf-next v2 1/3] bpf: Add bpf_arch_supports_fsession()
-Date: Thu, 29 Jan 2026 09:29:20 +0800
-Message-ID: <3392533.aeNJFYEL58@7940hx>
-In-Reply-To: <20260128150112.8873-2-leon.hwang@linux.dev>
-References: <20260128150112.8873-1-leon.hwang@linux.dev>
- <20260128150112.8873-2-leon.hwang@linux.dev>
+	id 1vlGr7-0000000H3km-1slf;
+	Thu, 29 Jan 2026 01:29:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1769650194;
+	bh=h0ecRNsfJ1Ube1J+JZXHXMdInIH2cgiRidIImkm0O+k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=neCo575Z4Za2yqJAuvx89d1Q/6/2VLrejV3axS35SX0sKtOAqMqdtBPPXzeEmgLIu
+	 4CuXicCb/i5U7tRW3TxuhZvT6uTqJ/LlIFw5TylHXLAnNjj2OwHw+Old4hE3bXcvUt
+	 bKewde9m2KWTnFeWqVrI0b1OJdnMkllmby7/7s8YYXe+4+6hUJ8/2nskFYGY28uF8w
+	 F+ITG/7Cn6tql80E6DtFE+2bZ/h5N6sjJConXoAjjiJtS882mwFAWU+MGtVWQPwXCz
+	 Z6C3JUa4CSS5V8mE8Tff3WXtHdGHYuPh3qQpLVi0p/4+E59BZAG5HKBgSeVvg2346h
+	 lxbAKgCygUjtw==
+Received: from [192.168.1.90] (unknown [82.79.138.145])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 274FB17E0699;
+	Thu, 29 Jan 2026 02:29:54 +0100 (CET)
+Message-ID: <64633be5-4be9-469c-9164-c1d584ea4c7b@collabora.com>
+Date: Thu, 29 Jan 2026 03:29:53 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 4/4] drm/rockchip: vop2: Support setting custom
+ background color
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Louis Chauvet <louis.chauvet@bootlin.com>,
+ Haneen Mohammed <hamohammed.sa@gmail.com>,
+ Melissa Wen <melissa.srw@gmail.com>,
+ Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ Diederik de Haas <diederik@cknow-tech.com>
+References: <20260127-rk3588-bgcolor-v5-0-b25aa8613211@collabora.com>
+ <20260127-rk3588-bgcolor-v5-4-b25aa8613211@collabora.com>
+ <aXjPjNWl3oVOVYxV@black.igk.intel.com>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <aXjPjNWl3oVOVYxV@black.igk.intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_172939_478668_FCE3D87F 
-X-CRM114-Status: GOOD (  22.64  )
+X-CRM114-CacheID: sfid-20260128_172957_685503_95B7DFD1 
+X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,192 +87,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/1/28 23:01 Leon Hwang <leon.hwang@linux.dev> write:
-> fsession programs can currently be loaded on architectures that do not
-> implement fsession support, which leads to runtime errors instead of a
-> clean verifier rejection.
+On 1/27/26 4:45 PM, Andy Shevchenko wrote:
+> On Tue, Jan 27, 2026 at 10:45:36AM +0200, Cristian Ciocaltea wrote:
+>> The Rockchip VOP2 display controller allows configuring the background
+>> color of each video output port.
+>>
+>> Since a previous patch introduced the BACKGROUND_COLOR CRTC property,
+>> which defaults to solid black, make use of it when programming the
+>> hardware.
+>>
+>> Note the maximum precision allowed by the display controller is 10bpc,
+>> while the alpha component is not supported, hence ignored.
 > 
-> For example, running fsession selftests on arm64 before fsession support
-> is added results in:
+> ...
 > 
-> test_fsession_basic:PASS:fsession_test__open_and_load 0 nsec
-> test_fsession_basic:PASS:fsession_attach 0 nsec
-> check_result:FAIL:test_run_opts err unexpected error: -14 (errno 14)
+>> +	/*
+>> +	 * Background color is programmed with 10 bits of precision.
+>> +	 * Since performance is more important than accuracy here,
+>> +	 * do *not* make use of the DRM_ARGB64_GET*_BPC() helpers.
+>> +	 */
+>> +	val = FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_RED, DRM_ARGB64_GETR(bgcolor) >> 6);
+>> +	val |= FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_GREEN, DRM_ARGB64_GETG(bgcolor) >> 6);
+>> +	val |= FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_BLUE, DRM_ARGB64_GETB(bgcolor) >> 6);
 > 
-> Introduce bpf_arch_supports_fsession() to explicitly gate fsession usage
-> based on architecture support. Architectures without fsession support
-> will now fail program load with -EOPNOTSUPP, allowing selftests to skip
-> cleanly instead of errors at runtime.
+> There is FIELD_MODIFY() for a few cycles already.
+
+I've been aware, but found it more appropriate when modifying an existing value
+(e.g. previously read from a register) rather than when computing one from
+scratch. 
+
+> But here it probably makes no much difference.
+
+Thinking again about this, it is actually handy when keeping the first
+FIELD_PREP (for initialization), and using it just for the subsequent
+operations.  Hence considered this approach in v6.
+
+> ...
 > 
-> x86 declares fsession support, while the default implementation returns
-> false.
+>> +	seq_printf(s, "\tbackground color (10bpc): r=0x%x g=0x%x b=0x%x\n",
+>> +		   DRM_ARGB64_GETR(cstate->background_color) >> 6,
+>> +		   DRM_ARGB64_GETG(cstate->background_color) >> 6,
+>> +		   DRM_ARGB64_GETB(cstate->background_color) >> 6);
 > 
-> Fixes: 2d419c44658f ("bpf: add fsession support")
+> Probably you want to have the alternative to the DRM_ARGB64_GETx() macros which
+> incorporates a right-shift. But it all in regard to DRM style and preferences.
 
-I were wondering how this problem happen, as I remember that
-I added such checking. When I look back, I found that the checking
-is lost during v3->v4. I recalled that the AI warned me about this
-part, but I thought that checking exists in my mind :/
+I tried to keep the API as simple as possible, but you're right, it's better to
+have those macros rather than open-coding the bit-shift all over.  Also handled
+in v6.
 
-It seems that we can't ignore the AI's warning easily. It mostly
-make sense.
-
-> Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
-> ---
->  arch/x86/net/bpf_jit_comp.c                   |  5 +++
->  include/linux/filter.h                        |  1 +
->  kernel/bpf/core.c                             |  5 +++
->  kernel/bpf/verifier.c                         |  3 ++
->  .../selftests/bpf/prog_tests/fsession_test.c  | 32 ++++++++++++++-----
->  5 files changed, 38 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
-> index 5a075e06cf45..070ba80e39d7 100644
-> --- a/arch/x86/net/bpf_jit_comp.c
-> +++ b/arch/x86/net/bpf_jit_comp.c
-> @@ -4112,3 +4112,8 @@ bool bpf_jit_supports_timed_may_goto(void)
->  {
->  	return true;
->  }
-> +
-> +bool bpf_jit_supports_fsession(void)
-> +{
-> +	return true;
-> +}
-> diff --git a/include/linux/filter.h b/include/linux/filter.h
-> index fd54fed8f95f..4e1cb4f91f49 100644
-> --- a/include/linux/filter.h
-> +++ b/include/linux/filter.h
-> @@ -1167,6 +1167,7 @@ bool bpf_jit_supports_arena(void);
->  bool bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena);
->  bool bpf_jit_supports_private_stack(void);
->  bool bpf_jit_supports_timed_may_goto(void);
-> +bool bpf_jit_supports_fsession(void);
->  u64 bpf_arch_uaddress_limit(void);
->  void arch_bpf_stack_walk(bool (*consume_fn)(void *cookie, u64 ip, u64 sp, u64 bp), void *cookie);
->  u64 arch_bpf_timed_may_goto(void);
-> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-> index e0b8a8a5aaa9..3b1eb632bf7c 100644
-> --- a/kernel/bpf/core.c
-> +++ b/kernel/bpf/core.c
-> @@ -3142,6 +3142,11 @@ bool __weak bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena)
->  	return false;
->  }
->  
-> +bool __weak bpf_jit_supports_fsession(void)
-> +{
-> +	return false;
-> +}
-> +
->  u64 __weak bpf_arch_uaddress_limit(void)
->  {
->  #if defined(CONFIG_64BIT) && defined(CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE)
-> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-> index c2f2650db9fd..6f867ebf78d1 100644
-> --- a/kernel/bpf/verifier.c
-> +++ b/kernel/bpf/verifier.c
-> @@ -24872,6 +24872,9 @@ int bpf_check_attach_target(struct bpf_verifier_log *log,
->  	case BPF_TRACE_FENTRY:
->  	case BPF_TRACE_FEXIT:
->  	case BPF_TRACE_FSESSION:
-> +		if (prog->expected_attach_type == BPF_TRACE_FSESSION &&
-> +		    !bpf_jit_supports_fsession())
-> +			return -EOPNOTSUPP;
->  		if (!btf_type_is_func(t)) {
->  			bpf_log(log, "attach_btf_id %u is not a function\n",
->  				btf_id);
-> diff --git a/tools/testing/selftests/bpf/prog_tests/fsession_test.c b/tools/testing/selftests/bpf/prog_tests/fsession_test.c
-> index 0c4b428e1cee..a299aeb8cc2e 100644
-> --- a/tools/testing/selftests/bpf/prog_tests/fsession_test.c
-> +++ b/tools/testing/selftests/bpf/prog_tests/fsession_test.c
-> @@ -29,8 +29,16 @@ static void test_fsession_basic(void)
->  	struct fsession_test *skel = NULL;
->  	int err;
->  
-> -	skel = fsession_test__open_and_load();
-> -	if (!ASSERT_OK_PTR(skel, "fsession_test__open_and_load"))
-> +	skel = fsession_test__open();
-> +	if (!ASSERT_OK_PTR(skel, "fsession_test__open"))
-> +		return;
-> +
-> +	err = fsession_test__load(skel);
-> +	if (err == -EOPNOTSUPP) {
-> +		test__skip();
-> +		goto cleanup;
-> +	}
-> +	if (!ASSERT_OK(err, "fsession_test__load"))
->  		goto cleanup;
->  
->  	err = fsession_test__attach(skel);
-> @@ -47,8 +55,16 @@ static void test_fsession_reattach(void)
->  	struct fsession_test *skel = NULL;
->  	int err;
->  
-> -	skel = fsession_test__open_and_load();
-> -	if (!ASSERT_OK_PTR(skel, "fsession_test__open_and_load"))
-> +	skel = fsession_test__open();
-> +	if (!ASSERT_OK_PTR(skel, "fsession_test__open"))
-> +		return;
-> +
-> +	err = fsession_test__load(skel);
-> +	if (err == -EOPNOTSUPP) {
-> +		test__skip();
-> +		goto cleanup;
-> +	}
-> +	if (!ASSERT_OK(err, "fsession_test__load"))
->  		goto cleanup;
->  
->  	/* first attach */
-> @@ -94,6 +110,10 @@ static void test_fsession_cookie(void)
->  	bpf_program__set_autoload(skel->progs.test6, false);
->  
->  	err = fsession_test__load(skel);
-> +	if (err == -EOPNOTSUPP) {
-> +		test__skip();
-> +		goto cleanup;
-> +	}
->  	if (!ASSERT_OK(err, "fsession_test__load"))
->  		goto cleanup;
->  
-> @@ -111,10 +131,6 @@ static void test_fsession_cookie(void)
->  
->  void test_fsession_test(void)
->  {
-> -#if !defined(__x86_64__)
-> -	test__skip();
-> -	return;
-> -#endif
-
-Ah, I see you enabled the testing for arm64 in this patch. Maybe
-we can move this part to the 3rd patch, or split it out to another
-patch?
-
-TBH, I prefer the previous implement. In this way, the CI can
-still pass if x86_64 or arm64 return -EOPNOTSUPP, right?
-
-Maybe you can test the not-supported case stand alone, such
-as:
-
-#if !defined(__x86_64__)
-	test__fsession_not_support();
-	return;
-#endif
-
-wdyt?
-
-Thanks!
-Menglong Dong
-
->  	if (test__start_subtest("fsession_test"))
->  		test_fsession_basic();
->  	if (test__start_subtest("fsession_reattach"))
-> -- 
-> 2.52.0
-> 
-> 
-> 
-
-
-
-
+Thanks again,
+Cristian
 
