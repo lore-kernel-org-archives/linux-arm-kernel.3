@@ -4,55 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3236CD73E83
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 18:22:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E1BD73E80
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 18:31:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3INMSQtU8Wzky8Kr7Ft8lggZqVbamJ6pQ3F/X+7hSrs=; b=vrRdhiJsZ9eJqcMZPyOVM/G7Yx
-	Xhsz5be1NsoYp699UGnoQ9ikhHJ8/aJOjfjDdvAqf0Qg9IO2R1g0pKZQerDvblWDE4JMiE8v1Eld1
-	zVfTkNpbKSz859aws4RMMCK7aFPF+dsPzwUx2gfD10Ik5cj68hJ25UNICzHWWpTf0aRv09tiwYYsj
-	ofUGcIulukLFByBDN/OqDbrEVTlaupY23jDTWVoWLEsMKW3zdi9OrKoH7zstjF1OcpCEtoLsqC+Sm
-	ipZbtcGkIeDflbo+lHY3h6gnRtUvQzvHzv/s6FweENmHesiAUlZ87LRW1IvFqiisCF3X1YMCWuzaf
-	VSwu0CzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YGRHN0NuHwElPQUY8BXhrl0wGLg1RNdWY25QjXUQOmc=; b=BCC6Ox0SD1SJ+T4eKxHxaCEwae
+	ywpP2ZNKb0vXe/kmthQ4ueYVE9BLTBK3oe2DEVf2LrJmF85FWxrc8YAB19Q8Q56TTw/mjd3Srwgg8
+	ubpFn1rfL5kWQsOlmbdJoh3pxoMaIQHIzfS97I+6/XAhwMYfgLDL1Xr9jfz6qDPk2651HVWQ7eDd5
+	VUur1LqimDRTFkuGOCwrVbMjOW6wSsW1319DlsUg7SswVcfIxpGbu+R6M2n+QECxq6yMLOzU5iYzQ
+	mIzLQv8m2FA3Sg3hWKrJxLnUDcZCY1SLZ8JjBVaEtW50e0Gikxcl2531NklCrnx8J78TFS8SqNWCz
+	aN40P1Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlWf8-00000000VvZ-2uSD;
-	Thu, 29 Jan 2026 18:22:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlWf6-00000000VvA-0Hp0
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 18:22:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D45C2153B;
-	Thu, 29 Jan 2026 10:22:25 -0800 (PST)
-Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 772BB3F632;
-	Thu, 29 Jan 2026 10:22:30 -0800 (PST)
-Date: Thu, 29 Jan 2026 18:22:27 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Jinjiang Tu <tujinjiang@huawei.com>
-Cc: akpm@linux-foundation.org, david@kernel.org, will@kernel.org,
-	zengheng4@huawei.com, ryan.roberts@arm.com,
-	anshuman.khandual@arm.com, wangkefeng.wang@huawei.com,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-Subject: Re: [PATCH v2] arm64: mm: fix pass user prot to ioremap_prot in
- generic_access_phys
-Message-ID: <aXulY16Q16TYO06l@arm.com>
-References: <20260127090129.412084-1-tujinjiang@huawei.com>
- <c78b76c5-8709-44d0-85c3-feccd41b2ddd@huawei.com>
+	id 1vlWo5-00000000WJo-0EJr;
+	Thu, 29 Jan 2026 18:31:53 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlWo1-00000000WJV-0iC8;
+	Thu, 29 Jan 2026 18:31:49 +0000
+Message-ID: <0ed08d07-5736-4874-9a0f-0f848e8419b6@infradead.org>
+Date: Thu, 29 Jan 2026 10:31:47 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <c78b76c5-8709-44d0-85c3-feccd41b2ddd@huawei.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_102236_176889_01B463C0 
-X-CRM114-Status: GOOD (  15.89  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5] stm: class: Add MIPI OST protocol support
+To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
+ <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Jonathan Corbet <corbet@lwn.net>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, quic_yingdeng@quicinc.com,
+ Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+ Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+ Jinlong Mao <jinlong.mao@oss.qualcomm.com>
+References: <20260129-p_ost-v5-1-2b14fff39428@oss.qualcomm.com>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20260129-p_ost-v5-1-2b14fff39428@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,45 +64,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 03:12:56PM +0800, Jinjiang Tu wrote:
-> 在 2026/1/27 17:01, Jinjiang Tu 写道:
-> > diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
-> > index 83e03abbb2ca..fe8607eafab6 100644
-> > --- a/arch/arm64/include/asm/io.h
-> > +++ b/arch/arm64/include/asm/io.h
-> > @@ -267,6 +267,17 @@ int arm64_ioremap_prot_hook_register(const ioremap_prot_hook_t hook);
-> >   #define ioremap_prot ioremap_prot
-> > +#define arch_mk_kernel_prot arch_mk_kernel_prot
-> > +static inline pgprot_t arch_mk_kernel_prot(pgprot_t user_prot)
-> > +{
-> > +	unsigned long kernel_prot_val;
-> > +
-> > +	kernel_prot_val = _PAGE_KERNEL & ~(PTE_WRITE | PTE_ATTRINDX_MASK);
-> > +	kernel_prot_val |= pgprot_val(user_prot) & (PTE_WRITE | PTE_ATTRINDX_MASK);
-> > +
-> > +	return __pgprot(kernel_prot_val);
-> > +}
-> 
-> I found I misunderstand the READ/WRITE permisson here.
-> If the pte is writeale, the PTE_WRITE is 1, and PTE_RDONLY means dirty or not (With DBM).
-> If the pte is read-only, the PTE_WRITE is 0, and PTE_RDONLY is 1.
-> 
-> Since generic_access_phys() have checked if the user can write with:
-> 
-> 		if ((write & FOLL_WRITE) && !pte_write(pte))
-> 		return -EINVAL;
-> 
-> So, maybe we could always grant writable permission, just as x86's ioremap() does?
 
-Yes, it gets tricky with the dirty/writeable bits and we may change this
-in the future. We have follow_pfnmap_start() already checking the
-permissions, so going for read/write access for the kernel mapping I
-think makes sense. Just do something like:
 
-	ptdesc_t mem_type = pgprot_val(user_prot) & PTE_ATTRINDX_MASK;
+On 1/29/26 6:25 AM, Yingchao Deng wrote:
+> diff --git a/drivers/hwtracing/stm/Kconfig b/drivers/hwtracing/stm/Kconfig
+> index eda6b11d40a1..daa4aa09f64d 100644
+> --- a/drivers/hwtracing/stm/Kconfig
+> +++ b/drivers/hwtracing/stm/Kconfig
+> @@ -40,6 +40,20 @@ config STM_PROTO_SYS_T
+>  
+>  	  If you don't know what this is, say N.
+>  
+> +config STM_PROTO_OST
+> +	tristate "MIPI OST STM framing protocol driver"
+> +	default CONFIG_STM
 
-	return __pgprot_modify(PAGE_KERNEL, PTE_ATTRINDX_MASK, mem_type);
+	default STM
+
+Other places where you may have seen this (and copied it) already have
+patches.
+
+> +	help
+> +	  This is an implementation of MIPI OST protocol to be used
+> +	  over the STP transport. In addition to the data payload, it
+> +	  also carries additional metadata for entity, better
+> +	  means of trace source identification, etc.
+> +
+> +	  The receiving side must be able to decode this protocol in
+> +	  addition to the MIPI STP, in order to extract the data.
+> +
+> +	  If you don't know what this is, say N.
+> +
 
 -- 
-Catalin
+~Randy
+
 
