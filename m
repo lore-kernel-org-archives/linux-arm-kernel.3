@@ -4,76 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC859D61017
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 13:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9664D6101C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 14:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1lcXkV7KcZEtUSZxPr/UJgAxOsEp8lMqEuRz2Y1R0vE=; b=jCtTQxxQXPg4ugfgEQsg9wzAXq
-	u/dLCCA/vIzsrj6qp2ZNLUn2jIuPPxiLtUHwaJGxSxYnln/dHtGX4riCSX3db9+TkgFQ5efUctrBK
-	98haZdqyfpK32V1aQtkTP/AHZkrvvtGv4wgVslux8brZaG8l0OwaGQe66ZHmnroscZUR9gu1hlCRs
-	CgTTFZjp2+Wphcg2eNDoZtmyBZH+ivf7rIjuP6WP5kGgBcPzw9XgjHFcHsYiEcveApF0hdWhsgdGZ
-	O+b5z8ZzV8PR/GHvM20lMNIORA6eY7ci5e1G4flQIPznbWcSRHonAzmhIx+zGBgiopVc+eNb8npTo
-	D8kJhfKQ==;
+	bh=LDvw9Qfr4vqNELgD4bWuCdghWFw0Szb+OOKl9xxGUSs=; b=SYWkQJKcSklLDEM6mf0stMAk42
+	uLL5nT3HqiTkZ14fDFCHrkczpYNzsPsyefOhJGwjBiic7iRu1OipypogcaFHhb62e4Auckka7P7DM
+	ZLjpnbjvESZBvm91qKGTfUB/4LQBiqlM7VtIAU4p0wLe0Gw5KsBqSqc+g4PeV744X9LfBiCxorfM7
+	DDRTLMo42K4sHouN64WYihLeeR724c0PFjD2k+o6A1Jufr5y24xw3+swkGuRuXN//3AA3TsvBoUK5
+	uAde3LQcfBK0FmfSTvXn02Q/LDNyjhsCgIjtjiJNsLkWXH8p/utfqHE1vDkTnPixPqGrTH1qQiDvc
+	bSaSWg2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlSR7-00000000BVX-03wd;
-	Thu, 29 Jan 2026 13:51:53 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vlSfu-00000000CQi-41FM;
+	Thu, 29 Jan 2026 14:07:10 +0000
+Received: from grimmauld.de ([84.247.166.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlSR4-00000000BTh-0k09;
-	Thu, 29 Jan 2026 13:51:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=1lcXkV7KcZEtUSZxPr/UJgAxOsEp8lMqEuRz2Y1R0vE=; b=hwVisHL7Uv8FLJ6eYfbkDJLMes
-	GBpeZ08yNuWS77zXJljq9XMAhSSFNHaHoei6AivyUM6YSNcq84R2uyvavYuxP7zKiT5ycYZo0dBuQ
-	FYliR8wtdTW7armfsbiZxETCMctIX5SocC+PdGwY/e92ftMUEia4kZKHjir/08z1Fnk3mDTPeGD6q
-	dKQlnS5gG450UOSdUTC8Hg5Kg858ej0EejX/vHVk7O6OqadCOKasEBuvar9VTs+V7NZjUn1HaYTS1
-	EAQWTr6cSKQg9+5R0gcUZZY9WRJA0KdhprDe6RY0e0kmn5suVKf0DEkKcUhOyhd5ODY/d1yyyO1E9
-	F7cjFp5A==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43926)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vlSQt-0000000008s-36KN;
-	Thu, 29 Jan 2026 13:51:39 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vlSQr-00000000822-21Fq;
-	Thu, 29 Jan 2026 13:51:37 +0000
-Date: Thu, 29 Jan 2026 13:51:37 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Vincent Guittot <vincent.guittot@linaro.org>, vkoul@kernel.org,
-	neil.armstrong@linaro.org
-Cc: Simon Horman <horms@kernel.org>, krzk+dt@kernel.org,
-	conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, s32@nxp.com,
-	p.zabel@pengutronix.de, ghennadi.procopciuc@nxp.com,
-	Ionut.Vicovan@nxp.com, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
-	Frank.li@nxp.com
-Subject: Re: [PATCH 2/4] phy: s32g: Add serdes subsystem phy
-Message-ID: <aXtl6eQ8zD_olTdc@shell.armlinux.org.uk>
-References: <20260126092159.815968-1-vincent.guittot@linaro.org>
- <20260126092159.815968-3-vincent.guittot@linaro.org>
- <aXsuRTZUUnw0kdzV@horms.kernel.org>
- <CAKfTPtDfnpzq2CB-isVzvh1ZCWo7kit9KRJvVGoU1C3zZTgdXw@mail.gmail.com>
- <aXtfVUb0eLwP4R28@shell.armlinux.org.uk>
- <CAKfTPtCiJcNOdoddZN5N1dKHXfUJBe0=zeWfZ5uENoXDvbMnpQ@mail.gmail.com>
+	id 1vlSfs-00000000CPv-1JeZ;
+	Thu, 29 Jan 2026 14:07:09 +0000
+Date: Thu, 29 Jan 2026 15:06:59 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grimmauld.de;
+	s=mail; t=1769695621;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LDvw9Qfr4vqNELgD4bWuCdghWFw0Szb+OOKl9xxGUSs=;
+	b=H9Lk7PLfjvzxEPY2ckj6TV8xHEUfKCTQ9G9AOE5zTrFVnSXne65omKgxno1wUbeCjyDAT2
+	nKaMfq625YgEkQvSFyh2j+FfNB290TKowl3414NP6n8K5OGRTjWyI70JHKAHQTpSKPuky4
+	8WVcOvtFVpdcWx13hpXbDHI6Tw+gXi8=
+From: Grimmauld <grimmauld@grimmauld.de>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] PCI: dw-rockchip: Enable async probe by default
+Message-ID: <aXtpg0V_sifQEWHJ@grimm-nixos-ssd-2>
+References: <20240809073610.2517-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAKfTPtCiJcNOdoddZN5N1dKHXfUJBe0=zeWfZ5uENoXDvbMnpQ@mail.gmail.com>
+In-Reply-To: <20240809073610.2517-1-linux.amoon@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_055150_215196_07C06960 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20260129_060708_582452_117B7932 
+X-CRM114-Status: GOOD (  20.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,29 +69,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 29, 2026 at 02:36:01PM +0100, Vincent Guittot wrote:
-> On Thu, 29 Jan 2026 at 14:23, Russell King (Oracle)
-> <linux@armlinux.org.uk> wrote:
-> >
-> > On Thu, Jan 29, 2026 at 02:01:13PM +0100, Vincent Guittot wrote:
-> > > yes, the usual pattern is :
-> > > - phy_set_mode_ext()
-> > > - then phy_power_on()
-> > > but I can add an additional check
-> >
-> > Please read Documentation/driver-api/phy/phy.rst section "Order of API
-> > calls" which suggests phy_set_mode_ext() after phy_power_on().
-> 
-> Fair enough.
-> That being said, all pcie drivers  that use phy_set_mode_ext(), call
-> it before phy_power_on()
+Hello Anand,
 
-It looks like many ethernet drivers do the same, so I think maybe the
-generic PHY documentation is incorrect or misleading, or is expressing
-a preference that almost no one follows. Something for the generic PHY
-maintainers to look at and/or comment on.
+I have tested this patch.
+Hardware/Kernel information:
+- radxa rock 5c lite
+- rk3588s CPU, arm64
+- defconfig NixOS kernel
+- picked onto 6.18.7
+- DT: rockchip/rk3588s-rock-5c.dtb
+- tested both uboot (mainline) and edk2 (vendor)
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+On Fri, Aug 09, 2024 at 01:06:09PM +0530, Anand Moon wrote:
+> Rockchip DWC PCIe driver currently waits for the combo PHY link
+> (PCIe 3.0, PCIe 2.0, and SATA 3.0) to be established link training
+> during boot, it also waits for the link to be up, which could consume
+> several milliseconds during boot.
+
+I found that without this patch, USB 3 ports as well as the PCIe connector seemingly stay uninitialized during boot on my hardware. 
+This manifests in a bootable USB flash drive loading initrd from bootloader (both uboot and edk2) perfectly, but then fails to mount the rootfs from the drive.
+In effect, boot is not just slower than it should be, it just does not boot all the way at all.
+In that scenario, the devfs entries corresponding to the flash drive are simply missing, same for the sysfs where i would expect the USB device listed.
+Replugging the USB flash drive during initrd does seem to fix that, but is tedious and not viable for a server.
+Similarly, booting from m.2 SSD attached via PCIe fails the same way, with rootfs timing out despite the bootloader correctly reading initrd on the same drive.
+Fwiw, replugging the SSD does not work like it does for USB flash drives, and is even worse of an idea.
+USB 2 ports as well as SD card boots correctly, even without your patch.
+Without your patch, i am seeing "deferred probe pending" in dmesg before boot gets stuck, which was the hint which made me find your patch.
+I am not sure whether that is the actual cause or just a symptom for why drives are not recognized during boot, and am not quite sure how to debug this further.
+
+> To optimize boot time, this commit allows asynchronous probing.
+> This change enables the PCIe link establishment to occur in the
+> background while other devices are being probed.
+
+With this patch, booting from SSD or USB 3 port works flawlessly, and i have not seen any regressions with SD card or USB 2 boot, nor any other hardware component.
+This setup has worked for multiple boots without fail, both with traditional ext4 and zfs rootfs being loaded from USB 3 and PCIe.
+Because i require this patch to run my rock 5c from SSD, i am currently running a custom patched kernel, but would highly appreciate this patch making its way to mainline eventually.
+There might well be something else going on here. The proposed patch may not be the "proper" fix to the issues i am seeing, but it does at least work.
+
+I have NOT tested boot from eMMC (either with or without this patch), though i have no reason to believe it would be impacted.
+
+I am happy to provide more info as needed. First time posting to the LKML, i hope i am doing this right...
+
+Tested-by: Grimmauld <grimmauld@grimmauld.de>
+
+Regards,
+Grimmauld
 
