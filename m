@@ -4,57 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9664D6101C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 14:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9D22D6101A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 14:11:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LDvw9Qfr4vqNELgD4bWuCdghWFw0Szb+OOKl9xxGUSs=; b=SYWkQJKcSklLDEM6mf0stMAk42
-	uLL5nT3HqiTkZ14fDFCHrkczpYNzsPsyefOhJGwjBiic7iRu1OipypogcaFHhb62e4Auckka7P7DM
-	ZLjpnbjvESZBvm91qKGTfUB/4LQBiqlM7VtIAU4p0wLe0Gw5KsBqSqc+g4PeV744X9LfBiCxorfM7
-	DDRTLMo42K4sHouN64WYihLeeR724c0PFjD2k+o6A1Jufr5y24xw3+swkGuRuXN//3AA3TsvBoUK5
-	uAde3LQcfBK0FmfSTvXn02Q/LDNyjhsCgIjtjiJNsLkWXH8p/utfqHE1vDkTnPixPqGrTH1qQiDvc
-	bSaSWg2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UCqbHDu/zeH/gewCZC+csS/Fj0NjNsLtugcXm6v5/3U=; b=ZqlZz/YdhozJEwPWL23C+DRNJT
+	bJp8zPowbhEgZ8bpIMedmEUF8E8/nEEMcPad9LeYCZDLKOxuChnzGJg3Pfo70YDf7YWbiGyZgdJps
+	EyPSVL2GusmZq+pQsrUpC+z6lGxG1Nnt9jQhK7mr9s//FiUn7ZS7GmdKSqTtRXfe96fIGq1s3pZwA
+	4wstuEdW3S8gvYG9urlGCblG1SHv1de9269oIve+4yB07GhxL7lzGCcntXZ+48kiRSjPrpAl0miNj
+	PAP6ffrFaJevHDPZlvYuDp5kRXHaufBRV6e9YZOA6DzZid7rtoYx6TBpQiEkQoYK1nY659sW9enok
+	Z3ORALzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlSfu-00000000CQi-41FM;
-	Thu, 29 Jan 2026 14:07:10 +0000
-Received: from grimmauld.de ([84.247.166.235])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlSfs-00000000CPv-1JeZ;
-	Thu, 29 Jan 2026 14:07:09 +0000
-Date: Thu, 29 Jan 2026 15:06:59 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grimmauld.de;
-	s=mail; t=1769695621;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LDvw9Qfr4vqNELgD4bWuCdghWFw0Szb+OOKl9xxGUSs=;
-	b=H9Lk7PLfjvzxEPY2ckj6TV8xHEUfKCTQ9G9AOE5zTrFVnSXne65omKgxno1wUbeCjyDAT2
-	nKaMfq625YgEkQvSFyh2j+FfNB290TKowl3414NP6n8K5OGRTjWyI70JHKAHQTpSKPuky4
-	8WVcOvtFVpdcWx13hpXbDHI6Tw+gXi8=
-From: Grimmauld <grimmauld@grimmauld.de>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
+	id 1vlSkA-00000000Cge-42qs;
+	Thu, 29 Jan 2026 14:11:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlSk7-00000000CgI-2PO2
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 29 Jan 2026 14:11:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21A3F153B;
+	Thu, 29 Jan 2026 06:11:24 -0800 (PST)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BF4BE3F632;
+	Thu, 29 Jan 2026 06:11:29 -0800 (PST)
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org
+Cc: mark.rutland@arm.com,
+	linux-perf-users@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] PCI: dw-rockchip: Enable async probe by default
-Message-ID: <aXtpg0V_sifQEWHJ@grimm-nixos-ssd-2>
-References: <20240809073610.2517-1-linux.amoon@gmail.com>
+	stable@vger.kernel.org
+Subject: [PATCH] perf/arm-cmn: Reject unsupported hardware configurations
+Date: Thu, 29 Jan 2026 14:11:22 +0000
+Message-Id: <bb47722fc593baf1e1cc0f944089592a4ec708da.1769695523.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20240809073610.2517-1-linux.amoon@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_060708_582452_117B7932 
-X-CRM114-Status: GOOD (  20.72  )
+X-CRM114-CacheID: sfid-20260129_061131_653175_C51B5F7B 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,49 +62,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Anand,
+So far we've been fairly lax about accepting both unknown CMN models
+(at least with a warning), and unknown revisions of those which we
+do know, as although things do frequently change between releases,
+typically enough remains the same to be somewhat useful for at least
+some basic bringup checks. However, we also make assumptions of the
+maximum supported sizes and numbers of things in various places, and
+there's no guarantee that something new might not be bigger and lead
+to nasty array overflows. Make sure we only try to run on things that
+actually match our assumptions and so will not risk memory corruption.
 
-I have tested this patch.
-Hardware/Kernel information:
-- radxa rock 5c lite
-- rk3588s CPU, arm64
-- defconfig NixOS kernel
-- picked onto 6.18.7
-- DT: rockchip/rk3588s-rock-5c.dtb
-- tested both uboot (mainline) and edk2 (vendor)
+Cc: stable@vger.kernel.org
+Fixes: 7819e05a0dce ("perf/arm-cmn: Revamp model detection")
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+ drivers/perf/arm-cmn.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-On Fri, Aug 09, 2024 at 01:06:09PM +0530, Anand Moon wrote:
-> Rockchip DWC PCIe driver currently waits for the combo PHY link
-> (PCIe 3.0, PCIe 2.0, and SATA 3.0) to be established link training
-> during boot, it also waits for the link to be up, which could consume
-> several milliseconds during boot.
+diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+index 2903e01f951f..24fec53ceccc 100644
+--- a/drivers/perf/arm-cmn.c
++++ b/drivers/perf/arm-cmn.c
+@@ -2422,6 +2422,15 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+ 			arm_cmn_init_node_info(cmn, reg & CMN_CHILD_NODE_ADDR, dn);
+ 			dn->portid_bits = xp->portid_bits;
+ 			dn->deviceid_bits = xp->deviceid_bits;
++			/*
++			 * Logical IDs are assigned from 0 per node type, so as
++			 * soon as we one bigger than expected, we can assume
++			 * there are more than we can cope with.
++			 */
++			if (dn->logid > CMN_MAX_NODES_PER_EVENT) {
++				dev_err(cmn->dev, "Invalid node number: %d\n", dn->logid);
++				return -ENODEV;
++			}
+ 
+ 			switch (dn->type) {
+ 			case CMN_TYPE_DTC:
+@@ -2499,6 +2508,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+ 		cmn->mesh_x = cmn->num_xps;
+ 	cmn->mesh_y = cmn->num_xps / cmn->mesh_x;
+ 
++	if (max(cmn->mesh_x, cmn->mesh_y) > CMN_MAX_DIMENSION) {
++		dev_err(cmn->dev, "Invalid mesh size: %dx%d\n", cmn->mesh_x, cmn->mesh_y);
++		return -ENODEV;
++	}
+ 	/* 1x1 config plays havoc with XP event encodings */
+ 	if (cmn->num_xps == 1)
+ 		dev_warn(cmn->dev, "1x1 config not fully supported, translate XP events manually\n");
+-- 
+2.39.2.101.g768bb238c484.dirty
 
-I found that without this patch, USB 3 ports as well as the PCIe connector seemingly stay uninitialized during boot on my hardware. 
-This manifests in a bootable USB flash drive loading initrd from bootloader (both uboot and edk2) perfectly, but then fails to mount the rootfs from the drive.
-In effect, boot is not just slower than it should be, it just does not boot all the way at all.
-In that scenario, the devfs entries corresponding to the flash drive are simply missing, same for the sysfs where i would expect the USB device listed.
-Replugging the USB flash drive during initrd does seem to fix that, but is tedious and not viable for a server.
-Similarly, booting from m.2 SSD attached via PCIe fails the same way, with rootfs timing out despite the bootloader correctly reading initrd on the same drive.
-Fwiw, replugging the SSD does not work like it does for USB flash drives, and is even worse of an idea.
-USB 2 ports as well as SD card boots correctly, even without your patch.
-Without your patch, i am seeing "deferred probe pending" in dmesg before boot gets stuck, which was the hint which made me find your patch.
-I am not sure whether that is the actual cause or just a symptom for why drives are not recognized during boot, and am not quite sure how to debug this further.
-
-> To optimize boot time, this commit allows asynchronous probing.
-> This change enables the PCIe link establishment to occur in the
-> background while other devices are being probed.
-
-With this patch, booting from SSD or USB 3 port works flawlessly, and i have not seen any regressions with SD card or USB 2 boot, nor any other hardware component.
-This setup has worked for multiple boots without fail, both with traditional ext4 and zfs rootfs being loaded from USB 3 and PCIe.
-Because i require this patch to run my rock 5c from SSD, i am currently running a custom patched kernel, but would highly appreciate this patch making its way to mainline eventually.
-There might well be something else going on here. The proposed patch may not be the "proper" fix to the issues i am seeing, but it does at least work.
-
-I have NOT tested boot from eMMC (either with or without this patch), though i have no reason to believe it would be impacted.
-
-I am happy to provide more info as needed. First time posting to the LKML, i hope i am doing this right...
-
-Tested-by: Grimmauld <grimmauld@grimmauld.de>
-
-Regards,
-Grimmauld
 
