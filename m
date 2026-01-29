@@ -4,109 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC1E5D61011
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 13:24:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14027D61013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 13:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0truowzryH7wlizBZZo0nqF9JAtMd6wwNY0E8kTxdNI=; b=I7Lm2VA/cInxi4GfnhVTIxnlCs
-	Gcx/xGgz7C0sVGAlhZ2SjdTRKsrHa7U45iTW6fErY6RtwMqn5jPXf1e3yo/a+Zen8QVXii/EEcgKX
-	y/1/A6f7XAHMMoyQCsU0IpytTfc14L4vseYIAHr0GvS6ihN4rgfi6G6XCBzsZJ1VZ1Of9/glJtarz
-	MD+BX01Jf1xxaUVOkkugU6kdMmU9ZSzQZ546bzGGX6XsCa4W4zVRKHKt+iy6ZfnEwyYZlca/Dn9yz
-	F6ebqIIAEGytxqRcunsFIKHvFmmy5L8s6ouCMaVZurrT/YPEP37I2pmDvBptmu1CPn9nfRa+CZgF6
-	UPt3xp9w==;
+	bh=iJI6azVkXkgIfaMxff/M3tZ2LPX3nIaJgPt7XOt8j40=; b=UKgQ4vR4Kj9t4nRQ3LXfbuDwph
+	4ogJ43Fl/gU9GnS6+b4482zidC9ZS2fXVXOJRM9s2Q+UI3RRZn2RPRuGyGRz0vFkssX+xQ5TajmcR
+	aIzuWi2GsYlV989vlxiud3TqHZ9L/rHC/bQ/enPm8uirI4Oz+l+KVxthMIKb36vePJYtSAujmHb3r
+	y6ye+/3lVLpDkRNOiL2PXAZjgqH64cxMTzgrG7n1XQ1YngOhoGhPdlJihx5Yu8aF/rzYoeEUG1sHv
+	UsNLsFpdv+dzr+euU8yYeSEgTsuNmVKiAaoHqQbY0JaSy9+3lkRYxL2nEDHtHdYHTJMPduWypZmDw
+	Xzn8v9qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlS0e-000000009aO-1L3h;
-	Thu, 29 Jan 2026 13:24:32 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1vlS1l-000000009kP-2yxF;
+	Thu, 29 Jan 2026 13:25:41 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlS0b-000000009ZA-1A2M
+	id 1vlS1i-000000009jg-47OC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 13:24:31 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-64b9dfc146fso1830834a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 05:24:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769693067; cv=none;
+	Thu, 29 Jan 2026 13:25:40 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-658b7d13f09so1835080a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 05:25:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769693137; cv=none;
         d=google.com; s=arc-20240605;
-        b=TZGJ/3+ps85vCdqdJAiC8fwl2YQqx7Gy39IQdr9fM1TCc8X1afgcCqfNkvygPF2TgK
-         zkZA2Lr7i1khU65SN6EBELnomdOSZ+uyA5KYxCDHNvQKLyIayeVl1MHa8R1Y/rhaDg6i
-         bmB1tzegmFrpt1cTFohxujSGKPxGzeHwzteg0Vj3nbi3o5M1qK861UX/SFiSeK3WQll5
-         D3AibiprbcC+Rq1MYttekr45tZexZ1r8ZJN93xv6Hvbk5dsZ+G7vifbcTFJila7Z0gt1
-         xxldx4MofDe6UqXfcqEZCryQZdGtBUcgCtcgio4SMipyyPd95ZTB93QKDfKsbEjSKGcE
-         h6WQ==
+        b=ENFWhhjL2cWUloEWF9F0E3S2x9eqyL/YaUdnZ13PZqsnka4bQd6eZtZTU0J/mQNzZm
+         WLcjYIcHuGv6+cVt7YgJITTQDh5lgrxXNL4rkeo7GiWvZDtXikfSrUVZSdN6Yub08pbL
+         wwlM2DDY9WOyuUphoUC6+t0+u8O18h2SaBrTeg8EYBV8KDKv347qN9zV26h+GhPR4g1h
+         2JuyM8RI+2qgsr4666jaDkjEmNHIfTajHIOCgcpd3q6F+/Vvdt89T1iHcb7q3r2U34Ve
+         IWGG/xIEkegTKe/xfE+DXZxG4qFpLjC8DsP4Z/ScPaMqP8tbbX0Hpe5cSxeVfVtQi0FF
+         RvCw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=0truowzryH7wlizBZZo0nqF9JAtMd6wwNY0E8kTxdNI=;
-        fh=z0+s7SWi7NCu70wDZOMAG7GC0ie/8ov359gUu80ycUQ=;
-        b=Fb1zVHafY4xn6K0PuAfxoIp+JOxiRrX3omXaLPjyU4vQVpTxJUxI16isjIfZaHRpAw
-         3zTv9oHGFDzGKDTJX8DMK1oMlhxUPczxQQd8u+kDc6RacWL+cS9HxR8nF/H3r8Eiyj4D
-         C4IRTKjJPlQybudDdUaVGuts2UuWd+fi0AhVyeoS5b/o8G2tmydwYz+0vy98ZRS0nJMg
-         1B3SCBjnIQ4Q3ZnvmIOWjCJj7ydGE6LRyPYMoMfnPz3fCIp7t69WaHg0GNAVdeGGzqsr
-         Yrf6jn/viEq6ddqC0k1HqGuF0H7OfrJMJRir1Aqj/0y/P7DvB4QhGzOW62PHZHoua4zn
-         BUlA==;
+        bh=iJI6azVkXkgIfaMxff/M3tZ2LPX3nIaJgPt7XOt8j40=;
+        fh=izq2G8oW6XlH+pfyC8IU/Sb5NNUZQyx16qU0ejlzWiU=;
+        b=fWUHFn4dheDdLNtWw3ViSAkepJOykmZ75YMS+KtEHLSwMovlsz0wvWTG9ISrJjRXSg
+         LC7eB5sp3uQPQHHbs3WACvxQJpB5ag1NgTqKY4uomlX8Hx1drSB1nukiggdwICu3gLuW
+         grx/7TAN7qjUP46khaI1xlDdZN4hHvx7Y/R7ZWAwEOr4dvMutcUYl7MkAdvW3nv9mULq
+         UuFNkKHqjczGSjQGItfaBjfyxeQBacgLBDbrbzBkJilMmRv4t/GMwJuNxQycutbSZEq1
+         Bv7UdIRASSOwp9JrjWf9S2ulNR6GjEKLObecziJtnv74Wd4JBbVgb9GD3fV0IZQGpJBn
+         iz3A==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769693067; x=1770297867; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1769693137; x=1770297937; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=0truowzryH7wlizBZZo0nqF9JAtMd6wwNY0E8kTxdNI=;
-        b=d1+dkvvqQfRY2xwLsVFZ+w0+ZEE4S1ZooM92wwkBRdv9UsHEAR+ktsPRHyHJmRJTBY
-         +BoYnlapfAi7XRmuajsCZtzrkoHCil7hRj34QN0iyaemvJGqPr6Hf1MjZNt4zAY9N35+
-         wgLIZ9tBeZom0MNfVR+88SswScnHyshBcD4qeL8lKuBYhPnC2BtHLdSjs+mhiG+lOKxt
-         f26bSbsjSN8bbJa6wG/HJgOUk3KtHl5SBk42iuc+zFE+Hq0An3JSmX8o5kzsHtHemr3K
-         l2jrseqeqILhChgJZ1qGMN4qi2i8AyiXSbPIQLNrCmTjeteSc6CMknzr4exD0fBuhwCX
-         e8Ow==
+        bh=iJI6azVkXkgIfaMxff/M3tZ2LPX3nIaJgPt7XOt8j40=;
+        b=EfPTXneIAk593rQxm9y2O53PDgSXicU+AII2b3OCwUJ0h1BB1q0iInwSniwyoWLH8M
+         G4zv/bu5p842to32cmgqYZG8wE6Ixwxr/DT7WaP0z60kSV7FVivWytMMVfbIp/y/O35i
+         tHRmD1hjbUTb9t+DF0vRU8vc4cA25J865nA6YAjp4/ViLGxe3Pbt/mUQ1rQyyYmUqpV9
+         f9R/9rQexT4IQo8ebCZNAilDz2HGZd87EHOndZy53mllpQJ3gPVv66vGn3oQYKY+5Jkm
+         TQ4eu3Ma2pet9Y09dxuuEQzwYemAkUB6C4Zu+ZsR8UbiaiyHs6wbS3Z8Z2tc7lpOF2Nc
+         Bj1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769693067; x=1770297867;
+        d=1e100.net; s=20230601; t=1769693137; x=1770297937;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=0truowzryH7wlizBZZo0nqF9JAtMd6wwNY0E8kTxdNI=;
-        b=KknWxqxyOQU38N9vBDs4kCn622Hz111ZJW4fc/j2IEwz/0gnQEXMgOeK+1yZjGSmtP
-         fZyemeZGOn+HY3Cj63+RjaRtwRsxTLaaGgny1eJ3t8WAPdqKMsWlyzLUdW4AHICOwsYu
-         wj/Lh6F3SaQfZc4/ZrVluvfhfO7ncqua1h4tY8hTK2JJZMQVUkbSEaazYKyMXaF+8E2B
-         6/I6je44nRS7v0KO4V0/gFm89hbUPxoQpocUUy9WPNIQdsG8zUo6n11y+LQFRvWWDIqV
-         Vgko/Sm3LtpPlHsCwwpv6fsEC/4ZYrb41ZCKZN26e7v2PYgr9WLwKNgid5Rha3SNJhMO
-         A7dQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVVdH1wVlzqvxGOsJPjM6Ip3oli76q00k49HdUfh1nux7HNM2Pjp9+XGSG3SnijeIy8tTf6bBZavtLjSTKck/S4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1tpBHiqqjsWJkbdFk9uR0paIR4RpZm61qllaokbfjcibfagdh
-	bVR8B8U+ozbx30idoJBXMs5QnNdLbE6+Q8gtRF+j7uSDU6MsZwtCkAAk6SCCNTFiBstIolrz+PX
-	sw/LRy6kepQEEA9EqRumUq1QGVODaejpbU2lGt5z2Ow==
-X-Gm-Gg: AZuq6aJx5GEK0+UO51Re7pXzzLXMMNzzIS9m2D0T9UvIWQnDyOP9JjQpjI2OH+S0q61
-	KAzb6Bwjqj1k1QMZkKO7o8Bz1uC0Cga3sRAl/j6T7LRKeVg2gM8HnhUuoXSTA+eN0wcW2pWi74J
-	rSHw77YuEw5F4zOb2MT8YBosA9EkmJRcUQpEBoSTKp2L4EZDMjW7sK6NUKuLFwAy2JTwT4N1MRO
-	PDgXviI8wB6+t2GeNXYBiWulKZYjaPABYEcasKmRmSPogXgvMh+E2iqVkrlkFSZdtpzUrB3+e23
-	zH0KFFu2xWR7Ay8EL+dcr9Trt4vQuzCOjp8=
-X-Received: by 2002:aa7:dad6:0:b0:658:ded:97c8 with SMTP id
- 4fb4d7f45d1cf-658cb209a64mr1273909a12.9.1769693067077; Thu, 29 Jan 2026
- 05:24:27 -0800 (PST)
+        bh=iJI6azVkXkgIfaMxff/M3tZ2LPX3nIaJgPt7XOt8j40=;
+        b=KAeM1YAu5WhyOvA7kN+Mr/QEWUWO86OIX+nffDqR5efzm/M99CLjOUI+egsyfurs+N
+         qHlS5S9z3+ifyuI/rJz5ypJHgE7EFnX21KOGxNChXEZzeNWEfgATN/xDdukku2NvgcX1
+         XtRxp+BW6C1zfj5+JcxqP9t+PMbH9kcOLFAOMqfAI31OtZJ+bXHYrUJX0IaukQeeMlD0
+         na7egiRwFhLq9OhRH0fow/owQzQIUns0dvhiyD1D/Sd2gUmJceUCIM6x00OrHNC6Cmb8
+         6vaPz42jDqFrspXhnN2xeFO+a+vcPLG2HXvxwIg3Gp2Fhldj27fiDApGXFf6TUHUp3uB
+         wz+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXKg/gRrsPc2g0V7Yvy47et7vXYD2r7BLD6fxOrkA8wrUFlz41vmks4VHKiYXTI/SAQDoc/KwTJkcr/wfadxpRI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYlgAfTtaQSiCrfRSDgEq3FBKuHP3REuechQDv2rkm4x4qNr6s
+	nkaZrZRg0Pq2JB7vyu/1m4HTeDxMapvhqjUNTj1oPOJn8tHw8TUdcr6l+mOr6AYrMI3zqQHlFJT
+	dG0BvOGfZa1QlDhdfAT7sde0mYSJEFasOFoVT0RNMLA==
+X-Gm-Gg: AZuq6aIKCA58afk30KizXMWYgb+u3PC6EOa6Ux3sRP/2HpzyBtnO4BtM27HBmt2hVOx
+	MBgNTKELQ8gtpbhHBGFlas9EZY5HrYsfMKSWyNqJg2rdeY5WDQSNEa0BIztNZv+7kyb/kx1sxax
+	oxcS9zrD/uH4WfbDhJPJmkAla0M7lUS4Gvj97ERrmVVlmpICRZovaxKOUU8n8WtWHHs7ZPeRFSL
+	RO8VqTIU8FEDFzfqPciRDaHnahBaMNWL20/C22+UCjGz/rddI+v+yiJPpGFA9FTJNnL3hBBDjKs
+	UPAheWmqtEEeoOTXe41k/WEB
+X-Received: by 2002:a05:6402:2792:b0:64d:3b22:a5b9 with SMTP id
+ 4fb4d7f45d1cf-658a6064db3mr4654871a12.9.1769693137209; Thu, 29 Jan 2026
+ 05:25:37 -0800 (PST)
 MIME-Version: 1.0
 References: <20260126092159.815968-1-vincent.guittot@linaro.org>
- <20260126092159.815968-4-vincent.guittot@linaro.org> <aXtLsuOkMMryrUs4@horms.kernel.org>
-In-Reply-To: <aXtLsuOkMMryrUs4@horms.kernel.org>
+ <20260126092159.815968-5-vincent.guittot@linaro.org> <20260129120757.GA358439@kernel.org>
+In-Reply-To: <20260129120757.GA358439@kernel.org>
 From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Thu, 29 Jan 2026 14:24:15 +0100
-X-Gm-Features: AZwV_Qj34ALujTrAHxV7HbCKDsW1Vf0wOdcaUENF06tNDpMBNRYgeeOZo4BoYeU
-Message-ID: <CAKfTPtB8xDB8qYUZwGnH+h94ww3+gSyOuZ+RL+zOh5tYGuu_HQ@mail.gmail.com>
-Subject: Re: [PATCH 3/4] phy: s32g: Add serdes xpcs subsystem
+Date: Thu, 29 Jan 2026 14:25:25 +0100
+X-Gm-Features: AZwV_Qhzp9iT1f899kqFHSBaYxaRjfwJBMJyrZuFRXvntdrURTUvSVnGWlmRJag
+Message-ID: <CAKfTPtArVxXnAw0F4s03QH3wTPvJ3RRBGf2JQ2burh3v=rS-Tg@mail.gmail.com>
+Subject: Re: [PATCH 4/4] MAINTAINERS: Add MAINTAINER for NXP S32G Serdes driver
 To: Simon Horman <horms@kernel.org>
 Cc: vkoul@kernel.org, neil.armstrong@linaro.org, krzk+dt@kernel.org, 
 	conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, s32@nxp.com, 
 	p.zabel@pengutronix.de, linux@armlinux.org.uk, ghennadi.procopciuc@nxp.com, 
-	bogdan-gabriel.roman@nxp.com, Ionut.Vicovan@nxp.com, 
-	alexandru-catalin.ionita@nxp.com, linux-phy@lists.infradead.org, 
+	Ionut.Vicovan@nxp.com, linux-phy@lists.infradead.org, 
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
 	Frank.li@nxp.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_052429_465068_C5FC6155 
-X-CRM114-Status: GOOD (  32.92  )
+X-CRM114-CacheID: sfid-20260129_052539_036822_FD931DDA 
+X-CRM114-Status: GOOD (  18.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,246 +120,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 Jan 2026 at 12:59, Simon Horman <horms@kernel.org> wrote:
+On Thu, 29 Jan 2026 at 13:08, Simon Horman <horms@kernel.org> wrote:
 >
-> On Mon, Jan 26, 2026 at 10:21:58AM +0100, Vincent Guittot wrote:
+> On Mon, Jan 26, 2026 at 10:21:59AM +0100, Vincent Guittot wrote:
+> > Add a new entry for S32G Serdes driver.
+> >
+> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> > ---
+> >  MAINTAINERS | 9 +++++++++
+> >  1 file changed, 9 insertions(+)
+> >
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index 765ad2daa218..888674a308a5 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -3202,6 +3202,15 @@ S:     Maintained
+> >  F:   Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
+> >  F:   drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> >
+> > +ARM/NXP S32G SERDES DRIVER
+> > +M:   Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> > +R:   NXP S32 Linux Team <s32@nxp.com>
+> > +L:   linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+> > +S:   Maintained
+> > +F:   Documentation/devicetree/bindings/pci/nxp,s32g-serdes.yaml
 >
-> ...
+> This patchset adds the following file, not the one above:
 >
-> > diff --git a/drivers/phy/freescale/phy-nxp-s32g-serdes.c b/drivers/phy/freescale/phy-nxp-s32g-serdes.c
->
-> ...
->
-> > +static void s32g_serdes_prepare_pma_mode5(struct s32g_serdes *serdes)
-> > +{
-> > +     u32 val;
-> > +     /* Configure TX_VBOOST_LVL and TX_TERM_CTRL */
-> > +     val = readl(serdes->ctrl.ss_base + S32G_PCIE_PHY_EXT_MISC_CTRL_2);
-> > +     val &= ~(EXT_TX_VBOOST_LVL_MASK | EXT_TX_TERM_CTRL_MASK);
-> > +     val |= FIELD_PREP(EXT_TX_VBOOST_LVL_MASK, 0x3) |
-> > +             FIELD_PREP(EXT_TX_TERM_CTRL_MASK, 0x4);
-> > +     writel(val, serdes->ctrl.ss_base + S32G_PCIE_PHY_EXT_MISC_CTRL_2);
->
-> This is part of an AI Generated review.
-> I have looked over it and I think it warrants investigation.
-> For information on how to reproduce locally, as I did, please see [1].
->
->         The entire s32g_serdes_prepare_pma_mode5() function is ~70 lines of
->         magic numbers with zero explanation. These appear to be
->         hardware-specific PLL/PHY tuning parameters for 2.5G mode.
+> Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
 
-Unfortunately there is no additional information in the reference
-manual other than
-*step 4:
-- Write 3h to EXT_TX_VBOOST_LVL.
-- Write 4h to EXT_TX_TERM_CTRL
+yes, that's a typo.
 
+>                                   ^^^
 >
-> Please consider using #defines, to give values names.
->
-> ...
->
-> > +static int s32g_serdes_init_clks(struct s32g_serdes *serdes)
-> > +{
-> > +     struct s32g_serdes_ctrl *ctrl = &serdes->ctrl;
-> > +     struct s32g_xpcs_ctrl *xpcs = &serdes->xpcs;
-> > +     int ret, order[2], xpcs_id;
-> > +     size_t i;
+> > +F:   drivers/phy/freescale/phy-nxp-s32g-*
+> > +F:   include/linux/pcs/pcs-nxp-xpcs.h
 > > +
-> > +     switch (ctrl->ss_mode) {
-> > +     case 0:
-> > +             return 0;
-> > +     case 1:
-> > +             order[0] = 0;
-> > +             order[1] = XPCS_DISABLED;
-> > +             break;
-> > +     case 2:
-> > +     case 5:
-> > +             order[0] = 1;
-> > +             order[1] = XPCS_DISABLED;
-> > +             break;
-> > +     case 3:
-> > +             order[0] = 1;
-> > +             order[1] = 0;
-> > +             break;
-> > +     case 4:
-> > +             order[0] = 0;
-> > +             order[1] = 1;
-> > +             break;
-> > +     default:
-> > +             return -EINVAL;
->
-> AI review also flags that s32g_serdes_get_ctrl_resources() ensures that
-> ss_mode is <= 5.  So this check is unnecessary.
-
-okay but providing a default seems a good practice
-
->
-> > +     }
-> > +
-> > +     for (i = 0; i < ARRAY_SIZE(order); i++) {
-> > +             xpcs_id = order[i];
-> > +
-> > +             if (xpcs_id == XPCS_DISABLED)
-> > +                     continue;
-> > +
-> > +             ret = s32g_xpcs_init_plls(xpcs->phys[xpcs_id]);
-> > +             if (ret)
-> > +                     return ret;
-> > +     }
-> > +
-> > +     if (ctrl->ss_mode == 5) {
-> > +             s32g_serdes_prepare_pma_mode5(serdes);
-> > +
-> > +             ret = s32g_xpcs_pre_pcie_2g5(xpcs->phys[1]);
->
-> Also from the AI review:
->
->         In mode 5, code directly accesses xpcs->phys[1] without checking if
->         it was created. If XPCS1 wasn't created for some reason (DT
->         misconfiguration, probe failure), this NULL dereferences.
-
-I will add a check
-
->
-> ...
->
-> > @@ -460,6 +741,41 @@ static int s32g2_serdes_create_phy(struct s32g_serdes *serdes, struct device_nod
->
-> ...
->
-> > +             xpcs = devm_kmalloc(dev, sizeof(*xpcs), GFP_KERNEL);
-> > +             if (IS_ERR(xpcs)) {
-> > +                     dev_err(dev, "Failed to allocate xpcs\n");
-> > +                     return -ENOMEM;
-> > +             }
->
-> AI review also flags:
->
->         devm_kmalloc() returns NULL on failure, not an error pointer.
->         This check will never trigger.
-
-okay
-
->
-> [1] https://netdev-ai.bots.linux.dev/ai-local.html
->
-> > +
-> > +             xpcs_ctrl->phys[port] = xpcs;
-> > +
-> > +             xpcs->an = of_property_read_bool(dev->of_node, "nxp,xpcs_an");
->
-> AI review flags that nxp,xpcs_an is not part of the binding.
-
-That's a leftover that should be removed
-
->
-> ...
->
-> > +struct phylink_pcs *s32g_serdes_pcs_create(struct device *dev, struct device_node *np)
-> > +{
-> > +     struct platform_device *pdev;
-> > +     struct device_node *pcs_np;
-> > +     struct s32g_serdes *serdes;
-> > +     u32 port;
-> > +
-> > +     if (of_property_read_u32(np, "reg", &port))
-> > +             return ERR_PTR(-EINVAL);
-> > +
-> > +     if (port > S32G_SERDES_XPCS_MAX)
-> > +             return ERR_PTR(-EINVAL);
-> > +
-> > +     /* The PCS pdev is attached to the parent node */
-> > +     pcs_np = of_get_parent(np);
-> > +     if (!pcs_np)
-> > +             return ERR_PTR(-ENODEV);
-> > +
-> > +     if (!of_device_is_available(pcs_np)) {
-> > +             of_node_put(pcs_np);
-> > +             return ERR_PTR(-ENODEV);
-> > +     }
-> > +
-> > +     pdev = of_find_device_by_node(pcs_np);
-> > +     of_node_put(pcs_np);
-> > +     if (!pdev || !platform_get_drvdata(pdev)) {
-> > +             if (pdev)
-> > +                     put_device(&pdev->dev);
-> > +             return ERR_PTR(-EPROBE_DEFER);
-> > +     }
-> > +
-> > +     serdes = platform_get_drvdata(pdev);
->
-> Also from the AI review:
->
->         On success, the function gets a reference to pdev but never
->         releases it. This leaks a device reference every time a MAC driver
->         calls s32g_serdes_pcs_create().
-
-will fix it
-
->
-> > +
-> > +     return &serdes->xpcs.phys[port]->pcs;
->
-> Also from the AI review:
->
->         The check port > S32G_SERDES_XPCS_MAX allows port=2,
->         but array only has indices 0 and 1.
->
-> Also I'm not seeing bounds checking on port in s32g2_serdes_create_phy
-> which uses port as an index for the same array both directly and indirectly
-> via s32g_serdes_xpcs_init().
-
-will add it
-
->
-> ...
->
-> > diff --git a/drivers/phy/freescale/phy-nxp-s32g-xpcs.c b/drivers/phy/freescale/phy-nxp-s32g-xpcs.c
->
-> ...
->
-> > +static int s32g_xpcs_regmap_reg_read(void *context, unsigned int reg,
-> > +                                  unsigned int *result)
-> > +{
-> > +     struct s32g_xpcs *xpcs = context;
-> > +     u16 ofsleft = (reg >> 8) & 0xffffU;
-> > +     u16 ofsright = (reg & 0xffU);
-> > +
-> > +     writew(ofsleft, xpcs->base + ADDR1_OFS);
-> > +     *result = readw(xpcs->base + (ofsright * 4));
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static int s32g_xpcs_regmap_reg_write(void *context, unsigned int reg,
-> > +                                   unsigned int val)
-> > +{
-> > +     struct s32g_xpcs *xpcs = context;
-> > +     u16 ofsleft = (reg >> 8) & 0xffffU;
-> > +     u16 ofsright = (reg & 0xffU);
-> > +
-> > +     writew(ofsleft, xpcs->base + ADDR1_OFS);
-> > +     writew(val, xpcs->base + (ofsright * 4));
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static const struct regmap_config s32g_xpcs_regmap_config = {
-> > +     .reg_bits = 16,
-> > +     .val_bits = 16,
-> > +     .reg_read = s32g_xpcs_regmap_reg_read,
-> > +     .reg_write = s32g_xpcs_regmap_reg_write,
-> > +     .wr_table = &s32g_xpcs_wr_table,
-> > +     .rd_table = &s32g_xpcs_rd_table,
-> > +     .max_register = 0x1F80E1,
-> > +};
->
-> AI review also flags that s32g_xpcs_regmap_reg_read and
-> s32g_xpcs_regmap_reg_write do not protect against concurrent access.
-
-but regmap framework should
-
->
-> ...
+> >  ARM/Orion SoC/Technologic Systems TS-78xx platform support
+> >  M:   Alexander Clouter <alex@digriz.org.uk>
+> >  L:   linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+> > --
+> > 2.43.0
+> >
 
