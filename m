@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DBAFD6100C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 12:00:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE3FD61010
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 12:06:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yjOC9ISMtdQC7y/NCtS6adWo4qVti3UylZNYazxYFNM=; b=OT5pteGZErVH46no/gQ/syeMOD
-	S72HViZGLXsIHv1XpSpChotcJ6rFtTysBJyPwn1G5rGIPYY2iOTwsuyzX9J57mn1AVPZfUgFjLhaf
-	cHCGPru1AB/PFEOB9+OVAxxwMLN80reAnbfJhYRM9ZzxbK/NYLfMWBplON5/YrucsSDPbeNdXQE9m
-	GRMkunXUsy01NPYj1TEZ+vnbKyaef0NP6ilfFLi30og/csQMKlYGanO8rP9ufIJza1c+hsX3TBcIG
-	6peBorQUY6FZY895TOAlzfwT8p9vp5NGzXeZ5aSLzFQBJjZGlVVqmr2HQeJtUh2wT3TsTNOWgVFY/
-	Pc2IwRqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vIz/+8z3rnDPY9S+cxoi/Fyylr8WD+2fcmnrN7ghw5Q=; b=V4ChON3PZ3BGLT/ONvGFMYtmMb
+	OMSOdkg6WOKXQtB3P72DKwqTwWUAzz7P/QbIkA74+s+UbOVuXQot3YBPC4pthMoxrHnJxOciv0aSt
+	2PmsJwKxU4h6EFLPUmVJgwUUCJ0mTHbCQm2h5ODmVSqaYoiXeTFxi4xJ64/tLE56r8ZcBPl9Bfbj7
+	DsX3XdNN1cmFMZPQyFtySEnBY2kuMl+kb9kqcNQ6UxNnGmfI9xU4q2JIn45yTRq6BEKA9LHFePJta
+	Li6xFr745AAwlV3iJBkAhXWEf2/ezODgWstjoCAIqKKR5Tw4nQSzmlWgOHoXnzbheT0uyZy4F+J7l
+	63A8jJ0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlQgl-000000004J8-2fQK;
-	Thu, 29 Jan 2026 11:59:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlQgj-000000004Iz-3ZoT;
-	Thu, 29 Jan 2026 11:59:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D1AA060054;
-	Thu, 29 Jan 2026 11:59:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09D24C4CEF7;
-	Thu, 29 Jan 2026 11:59:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769687992;
-	bh=WZ9/YfisJXoXJYN8Rl5hCOUb1qqqV6UazDcJEt0myBQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c+5IdhFDBh4dGy30IROWqL06xxOcVDc8lgV0YqbAXg5ZwBaLp+AT6ofohEKxBZHGm
-	 3JQPyGsaR40cV9I/ltnY6YHvSyK1kKDZtyhJhVaG8Rkf5r9cCSEX4PNDYcGVI+/waT
-	 mIhe4Sin2AmquFmkMgIpIY4JVgfMfeVFolGe5Hl0UTQOYdh5dDtBCBSBtAleSqH9QW
-	 CaUhn8+cpwfCZeaDIskypGEGVhBBI7ZwWJtSmC/bpsGNbN+vTBayO7txPcr1exLsq+
-	 SCMLGrHMscgl2oQ7NxkNGGZJSiRLf+ZMlEnRUobKvTtMuMvbLaibR4ywxeB5hNcfNJ
-	 YEHYiSpoUgKhg==
-Date: Thu, 29 Jan 2026 11:59:46 +0000
-From: Simon Horman <horms@kernel.org>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: vkoul@kernel.org, neil.armstrong@linaro.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, s32@nxp.com,
-	p.zabel@pengutronix.de, linux@armlinux.org.uk,
-	ghennadi.procopciuc@nxp.com, bogdan-gabriel.roman@nxp.com,
-	Ionut.Vicovan@nxp.com, alexandru-catalin.ionita@nxp.com,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org, Frank.li@nxp.com
-Subject: Re: [PATCH 3/4] phy: s32g: Add serdes xpcs subsystem
-Message-ID: <aXtLsuOkMMryrUs4@horms.kernel.org>
-References: <20260126092159.815968-1-vincent.guittot@linaro.org>
- <20260126092159.815968-4-vincent.guittot@linaro.org>
+	id 1vlQmv-000000004a2-0XiZ;
+	Thu, 29 Jan 2026 12:06:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlQms-000000004Zd-2qQ7
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 29 Jan 2026 12:06:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 08B4F1516;
+	Thu, 29 Jan 2026 04:06:03 -0800 (PST)
+Received: from [10.44.160.76] (e126510-lin.lund.arm.com [10.44.160.76])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0126B3F632;
+	Thu, 29 Jan 2026 04:06:02 -0800 (PST)
+Message-ID: <6e3f5e61-a7d2-4d14-85fa-904cde856f34@arm.com>
+Date: Thu, 29 Jan 2026 13:06:00 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260126092159.815968-4-vincent.guittot@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 01/14] entry: Remove unused syscall in
+ syscall_trace_enter()
+To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
+ will@kernel.org, oleg@redhat.com, tglx@linutronix.de, peterz@infradead.org,
+ luto@kernel.org, shuah@kernel.org, kees@kernel.org, wad@chromium.org,
+ deller@gmx.de, akpm@linux-foundation.org, charlie@rivosinc.com,
+ ldv@strace.io, mark.rutland@arm.com, anshuman.khandual@arm.com,
+ song@kernel.org, ryan.roberts@arm.com, thuth@redhat.com,
+ ada.coupriediaz@arm.com, broonie@kernel.org, pengcan@kylinos.cn,
+ liqiang01@kylinos.cn, kmal@cock.li, dvyukov@google.com,
+ reddybalavignesh9979@gmail.com, richard.weiyang@gmail.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org
+References: <20260128031934.3906955-1-ruanjinjie@huawei.com>
+ <20260128031934.3906955-2-ruanjinjie@huawei.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260128031934.3906955-2-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260129_040614_771705_D9393B0E 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,216 +74,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 10:21:58AM +0100, Vincent Guittot wrote:
+On 28/01/2026 04:19, Jinjie Ruan wrote:
+> The 'syscall' argument in syscall_trace_enter() is immediately overwritten
+> before any real use and serves only as a local variable, so drop
+> the parameter.
+>
+> No functional change intended.
+>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-...
+In commit title: s/syscall/parameter/ (very confusing otherwise!)
 
-> diff --git a/drivers/phy/freescale/phy-nxp-s32g-serdes.c b/drivers/phy/freescale/phy-nxp-s32g-serdes.c
+With that fixed:
 
-...
+Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
 
-> +static void s32g_serdes_prepare_pma_mode5(struct s32g_serdes *serdes)
-> +{
-> +	u32 val;
-> +	/* Configure TX_VBOOST_LVL and TX_TERM_CTRL */
-> +	val = readl(serdes->ctrl.ss_base + S32G_PCIE_PHY_EXT_MISC_CTRL_2);
-> +	val &= ~(EXT_TX_VBOOST_LVL_MASK | EXT_TX_TERM_CTRL_MASK);
-> +	val |= FIELD_PREP(EXT_TX_VBOOST_LVL_MASK, 0x3) |
-> +		FIELD_PREP(EXT_TX_TERM_CTRL_MASK, 0x4);
-> +	writel(val, serdes->ctrl.ss_base + S32G_PCIE_PHY_EXT_MISC_CTRL_2);
-
-This is part of an AI Generated review.
-I have looked over it and I think it warrants investigation.
-For information on how to reproduce locally, as I did, please see [1].
-
-	The entire s32g_serdes_prepare_pma_mode5() function is ~70 lines of
-	magic numbers with zero explanation. These appear to be
-	hardware-specific PLL/PHY tuning parameters for 2.5G mode.
-
-Please consider using #defines, to give values names.
-
-...
-
-> +static int s32g_serdes_init_clks(struct s32g_serdes *serdes)
-> +{
-> +	struct s32g_serdes_ctrl *ctrl = &serdes->ctrl;
-> +	struct s32g_xpcs_ctrl *xpcs = &serdes->xpcs;
-> +	int ret, order[2], xpcs_id;
-> +	size_t i;
-> +
-> +	switch (ctrl->ss_mode) {
-> +	case 0:
-> +		return 0;
-> +	case 1:
-> +		order[0] = 0;
-> +		order[1] = XPCS_DISABLED;
-> +		break;
-> +	case 2:
-> +	case 5:
-> +		order[0] = 1;
-> +		order[1] = XPCS_DISABLED;
-> +		break;
-> +	case 3:
-> +		order[0] = 1;
-> +		order[1] = 0;
-> +		break;
-> +	case 4:
-> +		order[0] = 0;
-> +		order[1] = 1;
-> +		break;
-> +	default:
-> +		return -EINVAL;
-
-AI review also flags that s32g_serdes_get_ctrl_resources() ensures that
-ss_mode is <= 5.  So this check is unnecessary.
-
-> +	}
-> +
-> +	for (i = 0; i < ARRAY_SIZE(order); i++) {
-> +		xpcs_id = order[i];
-> +
-> +		if (xpcs_id == XPCS_DISABLED)
-> +			continue;
-> +
-> +		ret = s32g_xpcs_init_plls(xpcs->phys[xpcs_id]);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	if (ctrl->ss_mode == 5) {
-> +		s32g_serdes_prepare_pma_mode5(serdes);
-> +
-> +		ret = s32g_xpcs_pre_pcie_2g5(xpcs->phys[1]);
-
-Also from the AI review:
-
-	In mode 5, code directly accesses xpcs->phys[1] without checking if
-	it was created. If XPCS1 wasn't created for some reason (DT
-	misconfiguration, probe failure), this NULL dereferences.
-
-...
-
-> @@ -460,6 +741,41 @@ static int s32g2_serdes_create_phy(struct s32g_serdes *serdes, struct device_nod
-
-...
-
-> +		xpcs = devm_kmalloc(dev, sizeof(*xpcs), GFP_KERNEL);
-> +		if (IS_ERR(xpcs)) {
-> +			dev_err(dev, "Failed to allocate xpcs\n");
-> +			return -ENOMEM;
-> +		}
-
-AI review also flags:
-
-	devm_kmalloc() returns NULL on failure, not an error pointer.
-	This check will never trigger.
-
-[1] https://netdev-ai.bots.linux.dev/ai-local.html
-
-> +
-> +		xpcs_ctrl->phys[port] = xpcs;
-> +
-> +		xpcs->an = of_property_read_bool(dev->of_node, "nxp,xpcs_an");
-
-AI review flags that nxp,xpcs_an is not part of the binding.
-
-...
-
-> +struct phylink_pcs *s32g_serdes_pcs_create(struct device *dev, struct device_node *np)
-> +{
-> +	struct platform_device *pdev;
-> +	struct device_node *pcs_np;
-> +	struct s32g_serdes *serdes;
-> +	u32 port;
-> +
-> +	if (of_property_read_u32(np, "reg", &port))
-> +		return ERR_PTR(-EINVAL);
-> +
-> +	if (port > S32G_SERDES_XPCS_MAX)
-> +		return ERR_PTR(-EINVAL);
-> +
-> +	/* The PCS pdev is attached to the parent node */
-> +	pcs_np = of_get_parent(np);
-> +	if (!pcs_np)
-> +		return ERR_PTR(-ENODEV);
-> +
-> +	if (!of_device_is_available(pcs_np)) {
-> +		of_node_put(pcs_np);
-> +		return ERR_PTR(-ENODEV);
-> +	}
-> +
-> +	pdev = of_find_device_by_node(pcs_np);
-> +	of_node_put(pcs_np);
-> +	if (!pdev || !platform_get_drvdata(pdev)) {
-> +		if (pdev)
-> +			put_device(&pdev->dev);
-> +		return ERR_PTR(-EPROBE_DEFER);
-> +	}
-> +
-> +	serdes = platform_get_drvdata(pdev);
-
-Also from the AI review:
-
-	On success, the function gets a reference to pdev but never
-	releases it. This leaks a device reference every time a MAC driver
-	calls s32g_serdes_pcs_create().
-
-> +
-> +	return &serdes->xpcs.phys[port]->pcs;
-
-Also from the AI review:
-
-	The check port > S32G_SERDES_XPCS_MAX allows port=2,
-	but array only has indices 0 and 1.
-
-Also I'm not seeing bounds checking on port in s32g2_serdes_create_phy
-which uses port as an index for the same array both directly and indirectly
-via s32g_serdes_xpcs_init().
-
-...
-
-> diff --git a/drivers/phy/freescale/phy-nxp-s32g-xpcs.c b/drivers/phy/freescale/phy-nxp-s32g-xpcs.c
-
-...
-
-> +static int s32g_xpcs_regmap_reg_read(void *context, unsigned int reg,
-> +				     unsigned int *result)
-> +{
-> +	struct s32g_xpcs *xpcs = context;
-> +	u16 ofsleft = (reg >> 8) & 0xffffU;
-> +	u16 ofsright = (reg & 0xffU);
-> +
-> +	writew(ofsleft, xpcs->base + ADDR1_OFS);
-> +	*result = readw(xpcs->base + (ofsright * 4));
-> +
-> +	return 0;
-> +}
-> +
-> +static int s32g_xpcs_regmap_reg_write(void *context, unsigned int reg,
-> +				      unsigned int val)
-> +{
-> +	struct s32g_xpcs *xpcs = context;
-> +	u16 ofsleft = (reg >> 8) & 0xffffU;
-> +	u16 ofsright = (reg & 0xffU);
-> +
-> +	writew(ofsleft, xpcs->base + ADDR1_OFS);
-> +	writew(val, xpcs->base + (ofsright * 4));
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct regmap_config s32g_xpcs_regmap_config = {
-> +	.reg_bits = 16,
-> +	.val_bits = 16,
-> +	.reg_read = s32g_xpcs_regmap_reg_read,
-> +	.reg_write = s32g_xpcs_regmap_reg_write,
-> +	.wr_table = &s32g_xpcs_wr_table,
-> +	.rd_table = &s32g_xpcs_rd_table,
-> +	.max_register = 0x1F80E1,
-> +};
-
-AI review also flags that s32g_xpcs_regmap_reg_read and
-s32g_xpcs_regmap_reg_write do not protect against concurrent access.
-
-...
+> ---
+>  include/linux/entry-common.h  | 4 ++--
+>  kernel/entry/syscall-common.c | 5 ++---
+>  2 files changed, 4 insertions(+), 5 deletions(-)
+>
+> diff --git a/include/linux/entry-common.h b/include/linux/entry-common.h
+> index 87efb38b7081..e4a8287af822 100644
+> --- a/include/linux/entry-common.h
+> +++ b/include/linux/entry-common.h
+> @@ -45,7 +45,7 @@
+>  				 SYSCALL_WORK_SYSCALL_EXIT_TRAP	|	\
+>  				 ARCH_SYSCALL_WORK_EXIT)
+>  
+> -long syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long work);
+> +long syscall_trace_enter(struct pt_regs *regs, unsigned long work);
+>  
+>  /**
+>   * syscall_enter_from_user_mode_work - Check and handle work before invoking
+> @@ -75,7 +75,7 @@ static __always_inline long syscall_enter_from_user_mode_work(struct pt_regs *re
+>  	unsigned long work = READ_ONCE(current_thread_info()->syscall_work);
+>  
+>  	if (work & SYSCALL_WORK_ENTER)
+> -		syscall = syscall_trace_enter(regs, syscall, work);
+> +		syscall = syscall_trace_enter(regs, work);
+>  
+>  	return syscall;
+>  }
+> diff --git a/kernel/entry/syscall-common.c b/kernel/entry/syscall-common.c
+> index 940a597ded40..e6237b536d8b 100644
+> --- a/kernel/entry/syscall-common.c
+> +++ b/kernel/entry/syscall-common.c
+> @@ -17,10 +17,9 @@ static inline void syscall_enter_audit(struct pt_regs *regs, long syscall)
+>  	}
+>  }
+>  
+> -long syscall_trace_enter(struct pt_regs *regs, long syscall,
+> -				unsigned long work)
+> +long syscall_trace_enter(struct pt_regs *regs, unsigned long work)
+>  {
+> -	long ret = 0;
+> +	long syscall, ret = 0;
+>  
+>  	/*
+>  	 * Handle Syscall User Dispatch.  This must comes first, since
 
