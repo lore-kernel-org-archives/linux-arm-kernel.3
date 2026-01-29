@@ -4,97 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 078C7D3F083
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 05:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41FDDD3569F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 05:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8dOMexyvUvVvoxQvFfJbShrI1jevTIncrOL5kLI2uHo=; b=LEPMWNLb4jAekP/6Y+xQq7b1/G
-	zk9foxhmJo99nhlfullc9rVx1mhOFa26mwuqti/NASkxC/iZiDm4Z0Uofr8MqFo+2fEp3tF70/ioS
-	vJdcdQmWWLxPihfV2waGBlxDWCYweJ29Zsji1MhaBrcBMgSTuRP6C6g3+8jj4cn1f4mXyaU1Nphp0
-	GaAvIv3drKy6GmWJFTPwvJ0n/ncOIEn58QC8vmJShV5605lHU9XQmQNz6LdHDnfPyUwgJtkAO0wuG
-	JXT1Ez+G7cLnaK/oikVpXiigShE1zRz+EaZHGdinJS0Ei2cJ97Te9yjbCge0VZiwzxQqnuHhNB1H9
-	mXkJbOiQ==;
+	bh=yKoXPY18PiXfeWMbOYFRoh1FOM50vlwPkV1H+RANrjM=; b=kJFXdau9rkJilVGEbCeTJ2JhgA
+	5xJ64J2QC96KhE0DLL5Jq/YyulYU7IEPwQVX5vlTfS7MPpKT951A+6naM7vyU5R7LCBld2pFGv7y0
+	3N7bN1D86z2rL8SEfvz19egdEODTkICW13+gCyIVXFKGVsIaqHJ9yOT+2ErAyEBKu2EWvEZw+JXzc
+	btd0iiZYLWaZqh65y0NKYyvaOKMx4Vr9zvAK+BtCU7/5FyOHQJ0wMlltJGO8LTE+SfEzMqs+fPxz+
+	5srz9FtTYxpNMAqsuZ8uX7Ilq+I16nfzBNq1yEmf4Fq1hRqjqDXq2+v1Owhabi72N5r3cIBjn3Sxi
+	HDa0mmgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlKbC-0000000HH9T-3ibq;
-	Thu, 29 Jan 2026 05:29:46 +0000
+	id 1vlKc0-0000000HHGv-2tUt;
+	Thu, 29 Jan 2026 05:30:36 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlKbA-0000000HH98-1GfP
+	id 1vlKbx-0000000HHG0-49M5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 05:29:45 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60T2pcWW2151974
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 05:29:44 GMT
+	Thu, 29 Jan 2026 05:30:35 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60T2otAH2060683
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 05:30:33 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	8dOMexyvUvVvoxQvFfJbShrI1jevTIncrOL5kLI2uHo=; b=X4LLkTRhvyvC/Ay4
-	+L7h7c2zvETYGRKjT5wvCjXE+iiRiP4y+7KXorKN80CTAMqs7JSt1wP3QBDG3zep
-	ew5XD0sm/9udNmCysACUPyHjI10QnOj1g9kCTLAJox//jr6cCPeIK6HM6R+qnu8k
-	iAPxP8pjdY0fIZ1zakderGaAtGSgSHs3xJ7hQk1f35cxlYGlxA24P4nb7jrQm3t8
-	YbLy006GESYl46GENLLXvoVqxhMw1x3GwRT4nxR5LgHtVrx5qC7yYRqk8srnfRMA
-	1H5WKUMgbeBntU1AJ9CXO8XlCVVvjs8v3PJ9EqjBm1a9NExjWPiE7oip+e19GB+k
-	uZciqg==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4byph3a35y-1
+	yKoXPY18PiXfeWMbOYFRoh1FOM50vlwPkV1H+RANrjM=; b=nkGaXqoaF9w9whPY
+	fEBH3bMtELejZwf9rNUBnzaHis3LwfitrizVnxrNhNqr+onU/86dTrKrXbL/sg7j
+	Dz541WvgmktnuUvPV2Upc9+PSX8DNC/Ql7ZGhuUkfrtOYSXhll/QOxDtCc8HUvO2
+	lUfaXCy309J4zYHgTQJd6AXcv5rKP/GH3+Q5MPLwMsb2+I1m98nCR8X0T2ep9Nro
+	vDph9PwU6dWTcii5bcCTzkf0V1MZayTokXAYShRfmSbJzf4C4F0by4WB9ru6uBZS
+	Zjzly3/CSBseW6YThVTwS8vEIX6QD5m4Jm1d3XbBtiFf3i21L76FFR9q34HOKuoB
+	S6JENw==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bypgrj2h3-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 05:29:43 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2a0e952f153so14243855ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 21:29:43 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 05:30:33 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-34c704d5d15so1036412a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 21:30:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1769664583; x=1770269383; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1769664633; x=1770269433; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=8dOMexyvUvVvoxQvFfJbShrI1jevTIncrOL5kLI2uHo=;
-        b=cWdVssH8/ihVqZ9SnaksTWeuZfev/SAYrKDNvJcGwyw+beFKvfVyUIl0zOx90CVMJ/
-         9QvUoxrVPOcUAu+lhrYHur5A3h5+BKpH5FHoIAJL+glJyETIHewCGDfGVnoYrqejk9vB
-         lfFhdkK4lXv1Fl7m5IbVm81OhdH5fDO8zPTMossMnUSYjdE+NwYUWFboGsSUmrlXWc1w
-         gDzfZg3wUD93PJNdFj37xmp6pIXvHz65c4Xe+aEh+nQpTCfMAh85T/DXfs/ArZXk7hDB
-         lLCmVPA9s0qYYHNvbuSevyHkK+/GYC1/8bMhTMfLFFqLDivxG2SLTq/jwOnskrKY8ObR
-         my3Q==
+        bh=yKoXPY18PiXfeWMbOYFRoh1FOM50vlwPkV1H+RANrjM=;
+        b=GW1jb0fvkZJZQTBWAr5ktL6sEVRGfWdByTQckxPscEHzIsLy2/9kWkq54/w94X8Ikt
+         PYMdoUsqRyVgZVfsXDY9wvoOASnEQMDMiji9jPdDIdy4F7h3kSYkh2tPaGKqHNBa2HXq
+         5acrE5AyBy5xZwzogteEZ1pT2EZoHleIRjj2HTZF5REuKkyZFQldYotK1hPCl/qgdo0Z
+         thTUrmv+BMplDb9rj7y+CBioYZ/PbFl2pWiqrWYXBmw1tnCTByG4tZBv8Yeb+MYkQkGB
+         WhWrqHe8dBT/PZZmkbSD7mARNntzmKzU4m+DuAtAPR8flBvoQM2szYCrw0sOuGyvH3Ao
+         dkyQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769664583; x=1770269383;
+        d=1e100.net; s=20230601; t=1769664633; x=1770269433;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=8dOMexyvUvVvoxQvFfJbShrI1jevTIncrOL5kLI2uHo=;
-        b=X6NcQStAWUJZH1pe4J24P7uy2hZ/5BYFNVT8yLef52mq7H00DTIcVvzGW/YIhSxq1S
-         LAFiTf5K6h4wWb7nAR1jEWsDeCNT2/im9kH9xuteh+nWNheKTqxc7KEAF5xdU5je8x4N
-         p4hFp+tqj5wIFSkRMjaBpxk33bk6a/DtLNvc6ijtmkO+WIbuOLsDlyGB8QxEHOVJ73bf
-         cnXa9crmSlndAeK0gxSZ9UrmDxsYqveJOeZbEfMB/7ZbCny+bMjmCGq5lfktVPNr7bfT
-         nnsqxT/Kvkd12ydIAOsT/kbF6kvP92JKr/7zhrUNhjFmshMNhQgbq4nyrTKuw7fJZmD8
-         qddQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU0QmXGDtqjndStXZiouyvwN4puTJW+zJwE2uqwy/yHTk7gd7Ay2YA2xYk+rxarnCxaETyNR5BlXnvp5ZWwfrt/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLBKkZzeWBffseLpxIp06MqZzXzcLQc2/DqkpltueK5uCc2qsq
-	N7bSIMFzvrt5hLsaBuz7m3/vs70OMAKSIlrl9pCj4lasFDE/eIdqx3GwmWtKEtwRMO7X/BJNpzo
-	2dS7o/9bHQ/08Rk42ynKsclcRiQDEMJNRN4KReGKjMkR3v8lrL4XSDYd+/96GDahyEsecjShGTO
-	Q4OA==
-X-Gm-Gg: AZuq6aKMezGB6jUCJlkl873NUSJeP5DNn7XQlMRC0b4JwILkyZ5RoIVHjqzioxwIGc+
-	udeV4t+w4Rc8IPRJooN+UfUYlCoiOs2Pd+0d6dsFj0zD0GDaZ3aocQxKHRaKWAb3TVO8dJHaW/L
-	gpBnRIgOtDF4trx1djEZf0Otcc4hclLrHfiXiCbsBmOO+4nM4/njpXckk6nU8e3x11FxFtjgRXU
-	SJa6nKCNfLacwu4bDW4p21tge0NjJ+LZI+1NsVN4NzgWs8uWfMVSwRQjAzrzNqRLew0cLjBNPY/
-	8rMnSVuUAM4lBZGWDOVr8+4IbC/LhYVnF1xfL8tLbBKLY3faTPElN3H+zFEB9oj0HtyN3267vJL
-	oSCM2m+zHAeHKq+UpPH6shvfno+Rshshfdsg2QugnmA==
-X-Received: by 2002:a17:903:22d2:b0:2a7:5751:5b27 with SMTP id d9443c01a7336-2a870e192ecmr74202785ad.39.1769664582730;
-        Wed, 28 Jan 2026 21:29:42 -0800 (PST)
-X-Received: by 2002:a17:903:22d2:b0:2a7:5751:5b27 with SMTP id d9443c01a7336-2a870e192ecmr74202455ad.39.1769664582284;
-        Wed, 28 Jan 2026 21:29:42 -0800 (PST)
+        bh=yKoXPY18PiXfeWMbOYFRoh1FOM50vlwPkV1H+RANrjM=;
+        b=GAJvu+afJYd8MlNsqJUnMaub7+Qg08lIydLq7zz+hmlpE/zgS6482egKIULwUJ3yE0
+         WAZTQaQlFQBUkMQQNGENhGvrKlWFdktxZBStA1n7Lr1p4aKz+ZRBVeQ5pU3mGBUFAkeP
+         g4/wrRHQvO55iOzi2Ev8lLix0VAaTkqRVZFlf/cSQifiJwpkcNoTkiMPQnuxdnyHG6mM
+         5VJ7uieXoOLI3ZwzXBQOppR5sjpC7J/c8roT8GCvrq/aWSPfo7n21TubsziK8YxPQGeT
+         7asWtaisDyEVrFXtoWE1N4twrW7KZkODx0L8dcQ2CYO5iBdqZr5cl2xe8ldixiP1qzoH
+         jukQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUf77VUCsxGwkOISlh/ixvsL5AbLnaHuPGQJSFOxTacl28X5q6F/5D22kwrgPAKDGjTsPub2uHg1JmDDLF5wB1d@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvOeYDTSGDbqfRsEdCrCkOExW3/dHKvBLpWKXnguTzq24fn/Jk
+	XKptmHxxUgsxG2AMslEdUU4Kw6swNEyrwGnt7MrKOpil97MGi9jVM9xnvOA/EkzZ9v+oqYWan5m
+	eUtACVPGTw5WfdAk2ekYCSg0ElJdk1ySLHtwuPZB76C2/0wdV6bKJTFAfZRLqS1PSqcGnGDcPgR
+	UX1A==
+X-Gm-Gg: AZuq6aLWvgDbTkRjHvd0ox6gtL8hHAo7bKFt+ADO0/Rh8jKbk1Uq2YL+GxBox3ls8Fs
+	AHm3fT2/KCkUUxLrtzdC018JpW3gPlYHQluS2wCY97Msp62JiM60fRLM1lOrLVhgfw0+zq7iQmW
+	ZAp5BWlJBq4snFjcRUxBjIZhXma7z4vTJPP+JqMXTT8daK+HKGfigTUCO67t3/aekxmxgPWvPVW
+	lpzthZrFhFe1e33yW/qNlHffY8dWA+rcZUm6W1nueWzOM05Lut4fKK+fWKtKM/j4KyiPcBYFenp
+	Xb7ex/xJ7H9CB/XQCOYAX6pQ+GwVFZgPbjG+mTj1wCzVcW5gAsxvnGa+hEmNNnRK/rsfNeHcycw
+	+gIp7/D1BwDbn9P+rxUMSIYlvCGMou08aa3/Br2Sx7w==
+X-Received: by 2002:a17:90b:2f04:b0:340:ad5e:cb with SMTP id 98e67ed59e1d1-353fecdcfabmr6603864a91.8.1769664632720;
+        Wed, 28 Jan 2026 21:30:32 -0800 (PST)
+X-Received: by 2002:a17:90b:2f04:b0:340:ad5e:cb with SMTP id 98e67ed59e1d1-353fecdcfabmr6603840a91.8.1769664632180;
+        Wed, 28 Jan 2026 21:30:32 -0800 (PST)
 Received: from [10.218.35.45] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a88b3faff5sm37408765ad.4.2026.01.28.21.29.37
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3540f2cb0a7sm4092295a91.2.2026.01.28.21.30.27
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 Jan 2026 21:29:41 -0800 (PST)
-Message-ID: <f9c95baf-f2a9-4057-aeca-2c35dcd943fb@oss.qualcomm.com>
-Date: Thu, 29 Jan 2026 10:59:36 +0530
+        Wed, 28 Jan 2026 21:30:31 -0800 (PST)
+Message-ID: <f6f860b7-71fe-4fea-84ed-a93b9598ce06@oss.qualcomm.com>
+Date: Thu, 29 Jan 2026 11:00:26 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] PCI: qcom: Add D3cold support
+Subject: Re: [PATCH 2/3] PCI: dwc: Use common D3cold eligibility helper in
+ suspend path
 To: Bjorn Andersson <andersson@kernel.org>
 Cc: Jingoo Han <jingoohan1@gmail.com>,
         Manivannan Sadhasivam
@@ -106,39 +107,40 @@ Cc: Jingoo Han <jingoohan1@gmail.com>,
         linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com
 References: <20260128-d3cold-v1-0-dd8f3f0ce824@oss.qualcomm.com>
- <20260128-d3cold-v1-3-dd8f3f0ce824@oss.qualcomm.com>
- <qg7hyicnyqcoi7jktalyfecfgxnv4elilmmmfkzvb2jbzrhisd@bq3pngh5n2a7>
+ <20260128-d3cold-v1-2-dd8f3f0ce824@oss.qualcomm.com>
+ <oygssx4tnd7uwofk4ucqj2ypok2zssnzbauzar2f65lzougr3a@vp6b7y4j56k3>
 Content-Language: en-US
 From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-In-Reply-To: <qg7hyicnyqcoi7jktalyfecfgxnv4elilmmmfkzvb2jbzrhisd@bq3pngh5n2a7>
+In-Reply-To: <oygssx4tnd7uwofk4ucqj2ypok2zssnzbauzar2f65lzougr3a@vp6b7y4j56k3>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=Z93h3XRA c=1 sm=1 tr=0 ts=697af047 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+X-Authority-Analysis: v=2.4 cv=d7T4CBjE c=1 sm=1 tr=0 ts=697af079 cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
  a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=24nHYv6InDTK1t9ftLgA:9
- a=QEXdDO2ut3YA:10 a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-ORIG-GUID: YXQzH5--9cDEANVImxGkEPmvAMHVoJ4d
-X-Proofpoint-GUID: YXQzH5--9cDEANVImxGkEPmvAMHVoJ4d
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI5MDAzMyBTYWx0ZWRfX0xGvjrKE4Hri
- HwSe71+TE9C45eKMLVOaDhFiLrqS/UGgsko3UQ01/k8r/ZibZ+p3v0RzzYto6YWz8Znt6uBs9Sz
- nrFAy03E6kWVri1tzOMM+JUmyajMxRe29TLN1pW8IF270sGGUME0mdAz9KYvROvxjKdUko92NKu
- r/BUVdtuElTQMYNmdWTpGQ+nVjfZ+drqXslAO6tQpcRXRa78m1o0GCLQb81GHtwzhF0DI6mW2Qu
- PyvUO2Gq6sFREQRsoNTJhA4WzqSp0/pzAZJiH2cisLkcrlfF76BuHGmOOvEVYWAvnsPmOa+SoLc
- DTlCXy4YALQh4lHfEiCEGZN+d9LjLcxSzdQYgkbTOVCKC0qtTzibVbkfWhFCVA2e4eZLenneTO7
- vqrlGYmxIbNAXWGLQNAaUpAyx7Ge8NY/XwijkxGbDRnxE1GSRKz6dgm6X2oDyCk3dZf9/mM2Nn/
- md7USMtEmrzndRMWh1A==
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=nF4YfsMlPaNBOkUFFLkA:9
+ a=QEXdDO2ut3YA:10 a=rl5im9kqc5Lf4LNbBjHf:22
+X-Proofpoint-GUID: nJhlhuA4vLrGirOkU4DYeEW7IifHPISD
+X-Proofpoint-ORIG-GUID: nJhlhuA4vLrGirOkU4DYeEW7IifHPISD
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI5MDAzMyBTYWx0ZWRfX4kvZ5BADymQ2
+ ZxrzHXt5i/C1BPuVtO3DgggxVh8mssvOB+kdPO3UdR7khuOo/tGFphyIk9sEfcnpkbkzX2GEiNo
+ ykCnvA21JUz8SfpjUZaa7M8gsy4jzKh/nXlGnYpKuCea4AD6LC+OqMA9m0WeqiFBVmUOXDAKVqX
+ +FsnoWmm8ssJ/c0KzidbqE8OFb/VdXcekZZs2LUGnAlY5tziPXrSxiHvVLGiETzKL9oOEYISc9H
+ eB/I9F9/OvjGW9DOUJx8s3txAdhNPBhvj+DvaUycn8mCz846bmZGoN0i6v+w2o3AYfEKBTit9ZH
+ wGlHvkfcQe8HYOyH4VuUu6jlgjEfQyerSC8cfSb3CrHApCTEHzz6os1zR30k+hqYw5hfhl6wZJQ
+ Bcq2FoOUZw5Ah79naJ0/KVA8rJ/NiSY6w1cf7JIEIyzn70xXDI9vfrG9tqGwvOygfIXUQtWz3uE
+ yXDWAL2Axv722LpNzJQ==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-01-28_06,2026-01-28_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 bulkscore=0 impostorscore=0 adultscore=0 clxscore=1015
- phishscore=0 spamscore=0 suspectscore=0 malwarescore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601290033
+ priorityscore=1501 lowpriorityscore=0 suspectscore=0 adultscore=0
+ malwarescore=0 impostorscore=0 bulkscore=0 spamscore=0 clxscore=1015
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
+ definitions=main-2601290033
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_212944_374786_EBCFF5AD 
-X-CRM114-Status: GOOD (  31.32  )
+X-CRM114-CacheID: sfid-20260128_213034_068371_269986B8 
+X-CRM114-Status: GOOD (  22.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,168 +157,67 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 1/28/2026 8:17 PM, Bjorn Andersson wrote:
-> On Wed, Jan 28, 2026 at 05:10:43PM +0530, Krishna Chaitanya Chundru wrote:
->> Add pme_turn_off() support and use DWC common suspend resume methods
->> for device D3cold entry & exit. If the device is not kept in D3cold
->> use existing methods like keeping icc votes, opp votes etc.. intact.
+On 1/28/2026 7:58 PM, Bjorn Andersson wrote:
+> On Wed, Jan 28, 2026 at 05:10:42PM +0530, Krishna Chaitanya Chundru wrote:
+>> Previously, the driver skipped putting the link into L2/device state in
+>> D3cold whenever L1 ASPM was enabled, since some devices (e.g. NVMe) expect
+>> low resume latency and may not tolerate deeper power states. However, such
+>> devices typically remain in D0 and are already covered by the new helper's
+>> requirement that all endpoints be in D3hot before the host bridge may
+>> enter D3cold.
 >>
->> In qcom_pcie_deinit_2_7_0(), explicitly disable PCIe clocks and resets
->> in the controller.
->>
->> Remove suspended flag from qcom_pcie structure as it is no longer needed.
+>> So, replace the local L1/L1SS-based check in dw_pcie_suspend_noirq() with
+>> the shared pci_host_common_can_enter_d3cold() helper to decide whether the
+>> DesignWare host bridge can safely transition to D3cold.
 >>
 >> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
 >> ---
->>   drivers/pci/controller/dwc/pcie-qcom.c | 114 ++++++++++++++++++++-------------
->>   1 file changed, 68 insertions(+), 46 deletions(-)
+>>   drivers/pci/controller/dwc/pcie-designware-host.c | 7 +------
+>>   drivers/pci/controller/dwc/pcie-designware.h      | 1 +
+>>   2 files changed, 2 insertions(+), 6 deletions(-)
 >>
->> diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-> [..]
->> @@ -2016,53 +2030,51 @@ static int qcom_pcie_suspend_noirq(struct device *dev)
->>   	if (!pcie)
+>> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+>> index 372207c33a857b4c98572bb1e9b61fa0080bc871..2c8056761addf7febc1b0e06ddf8ba4dd4ad1684 100644
+>> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+>> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+>> @@ -1157,15 +1157,10 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
+>>   
+>>   int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+>>   {
+>> -	u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
+>>   	u32 val;
+>>   	int ret;
+>>   
+>> -	/*
+>> -	 * If L1SS is supported, then do not put the link into L2 as some
+>> -	 * devices such as NVMe expect low resume latency.
+>> -	 */
+>> -	if (dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKCTL) & PCI_EXP_LNKCTL_ASPM_L1)
+>> +	if (!pci_host_common_can_enter_d3cold(pci->pp.bridge))
 >>   		return 0;
 >>   
->> -	/*
->> -	 * Set minimum bandwidth required to keep data path functional during
->> -	 * suspend.
->> -	 */
->> -	if (pcie->icc_mem) {
->> -		ret = icc_set_bw(pcie->icc_mem, 0, kBps_to_icc(1));
->> -		if (ret) {
->> -			dev_err(dev,
->> -				"Failed to set bandwidth for PCIe-MEM interconnect path: %d\n",
->> -				ret);
->> -			return ret;
->> -		}
->> -	}
->> +	ret = dw_pcie_suspend_noirq(pcie->pci);
->> +	if (ret)
->> +		return ret;
+>>   	if (pci->pp.ops->pme_turn_off) {
+>> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+>> index 31685951a080456b8834aab2bf79a36c78f46639..18d8f7d5d23088b2fa177e84a21d900c98850fcd 100644
+>> --- a/drivers/pci/controller/dwc/pcie-designware.h
+>> +++ b/drivers/pci/controller/dwc/pcie-designware.h
+>> @@ -26,6 +26,7 @@
+>>   #include <linux/pci-epc.h>
+>>   #include <linux/pci-epf.h>
 >>   
->> -	/*
->> -	 * Turn OFF the resources only for controllers without active PCIe
->> -	 * devices. For controllers with active devices, the resources are kept
->> -	 * ON and the link is expected to be in L0/L1 (sub)states.
->> -	 *
->> -	 * Turning OFF the resources for controllers with active PCIe devices
->> -	 * will trigger access violation during the end of the suspend cycle,
->> -	 * as kernel tries to access the PCIe devices config space for masking
->> -	 * MSIs.
->> -	 *
->> -	 * Also, it is not desirable to put the link into L2/L3 state as that
->> -	 * implies VDD supply will be removed and the devices may go into
->> -	 * powerdown state. This will affect the lifetime of the storage devices
->> -	 * like NVMe.
->> -	 */
->> -	if (!dw_pcie_link_up(pcie->pci)) {
->> -		qcom_pcie_host_deinit(&pcie->pci->pp);
->> -		pcie->suspended = true;
->> -	}
->> +	if (pcie->pci->suspended) {
-> I think this is okay for now, but I'd prefer changing the return value
-> of dw_pcie_suspend_noirq() to indicate if it did stop the link or not
-> (two different success values) - rather than deriving that information
-> by peeking into the dw_pcie struct and conclude that
-> dw_pcie_suspend_noirq() did reach the end.
->
->> +		ret = icc_disable(pcie->icc_mem);
->> +		if (ret)
->> +			dev_err(dev, "Failed to disable PCIe-MEM interconnect path: %d\n", ret);
->>   
->> -	/*
->> -	 * Only disable CPU-PCIe interconnect path if the suspend is non-S2RAM.
->> -	 * Because on some platforms, DBI access can happen very late during the
->> -	 * S2RAM and a non-active CPU-PCIe interconnect path may lead to NoC
->> -	 * error.
->> -	 */
->> -	if (pm_suspend_target_state != PM_SUSPEND_MEM) {
->>   		ret = icc_disable(pcie->icc_cpu);
->>   		if (ret)
->>   			dev_err(dev, "Failed to disable CPU-PCIe interconnect path: %d\n", ret);
->>   
->>   		if (pcie->use_pm_opp)
->>   			dev_pm_opp_set_opp(pcie->pci->dev, NULL);
->> +	} else {
->> +		/*
->> +		 * Set minimum bandwidth required to keep data path functional during
->> +		 * suspend.
->> +		 */
->> +		if (pcie->icc_mem) {
->> +			ret = icc_set_bw(pcie->icc_mem, 0, kBps_to_icc(1));
->> +			if (ret) {
->> +				dev_err(dev,
->> +					"Failed to set bandwidth for PCIe-MEM interconnect path: %d\n",
->> +					ret);
->> +				return ret;
->> +			}
->> +		}
->> +
->> +		/*
->> +		 * Only disable CPU-PCIe interconnect path if the suspend is non-S2RAM.
->> +		 * Because on some platforms, DBI access can happen very late during the
->> +		 * S2RAM and a non-active CPU-PCIe interconnect path may lead to NoC
->> +		 * error.
->> +		 */
->> +		if (pm_suspend_target_state != PM_SUSPEND_MEM) {
->> +			ret = icc_disable(pcie->icc_cpu);
->> +			if (ret)
->> +				dev_err(dev, "Failed to disable CPU-PCIe interconnect path: %d\n",
->> +					ret);
->> +
->> +			if (pcie->use_pm_opp)
->> +				dev_pm_opp_set_opp(pcie->pci->dev, NULL);
->> +		}
->>   	}
->>   	return ret;
->>   }
->> @@ -2076,20 +2088,30 @@ static int qcom_pcie_resume_noirq(struct device *dev)
->>   	if (!pcie)
->>   		return 0;
->>   
->> -	if (pm_suspend_target_state != PM_SUSPEND_MEM) {
->> +	if (pcie->pci->suspended) {
->>   		ret = icc_enable(pcie->icc_cpu);
->>   		if (ret) {
->>   			dev_err(dev, "Failed to enable CPU-PCIe interconnect path: %d\n", ret);
->>   			return ret;
->>   		}
->> -	}
->>   
->> -	if (pcie->suspended) {
->> -		ret = qcom_pcie_host_init(&pcie->pci->pp);
->> +		ret = icc_enable(pcie->icc_mem);
->> +		if (ret) {
->> +			dev_err(dev, "Failed to enable PCIe-MEM interconnect path: %d\n", ret);
-> I think you should revert icc_enable(pcie->icc_cpu) here, to avoid
-> leaving the bus voted for with the PCIe controller resume aborted.
->
->> +			return ret;
->> +		}
->> +		ret = dw_pcie_resume_noirq(pcie->pci);
->>   		if (ret)
-> And Both icc_cpu and icc_mem here.
-Ack, I will do this in V2.
+>> +#include "../pci-host-common.h"
+> Why doesn't this include go in the c file? I don't see that all c files
+Ack, will do this in v2.
 
 - Krishna Chaitanya.
+> including pcie-designware.h now needs this.
+>
 > Regards,
 > Bjorn
 >
->>   			return ret;
->> -
->> -		pcie->suspended = false;
->> +	} else {
->> +		if (pm_suspend_target_state != PM_SUSPEND_MEM) {
->> +			ret = icc_enable(pcie->icc_cpu);
->> +			if (ret) {
->> +				dev_err(dev, "Failed to enable CPU-PCIe interconnect path: %d\n",
->> +					ret);
->> +				return ret;
->> +			}
->> +		}
->>   	}
+>>   #include "../../pci.h"
 >>   
->>   	qcom_pcie_icc_opp_update(pcie);
+>>   /* DWC PCIe IP-core versions (native support since v4.70a) */
 >>
 >> -- 
 >> 2.34.1
