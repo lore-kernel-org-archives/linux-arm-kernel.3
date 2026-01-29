@@ -4,67 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13B64D73E80
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 17:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACE07D73E80
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 17:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oCDFH45FE/Pmdeh4FAR+fgYgIop/MjWWDmYn7oHYObk=; b=QmkJq6rnv+Optq7W2FonfNe9rv
-	ERvyyaaMMOpBWYTp0o5pzSe2QvQ02FrZbq9MX82M9GZFhcCiVoFt4soEH6A11Na/yfLEmtMwtWTqH
-	SgKu3hdLU3IbpHM9iV9Sjlgb9ulMOO+URvNFDoE7SCETjxP9sYkDT8Z5nqwlrjsrmrCZpqHjLHTak
-	eeP0dEt53MvUse5unYzG1zXNB0DHfzHaYa2OgvUTmc5zE2OtgKRCSWJHJbXY5fN2rhkUg/bJfIt7a
-	8mOvu/Wdy7Z6m/xNUaXgYahxRP2WIjPEqOkIhogC8mss8vjuft8cKwV1QKbpVLR7/3C4dnujAuHhs
-	wBMBIm4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=be866/Yp5BAQJMoBK98y8dBJLQ2gHvccZfOQ5Qw+jAY=; b=POFTm3R7J7S9grhtfPo60C/ou1
+	x9TiWU7DzM75PsQmvO6Ews2bMcgq4K+arZMAC0GVe5YHiV2p8+LjyqDKfcZTLb/hhfIY0UkzvdKRj
+	iZ86ZFjpOCRB8v42DWfyXkd0FZqolfZMOL++rKjmevjs55orfsxJjH400FbtjUllHKFweEUhaWs8d
+	490AC2RtQvTviroBOjBmprW9bDZtdpe5oJnfVI3ws7dXdkxS2t0DV3NXjer+2aPdRGS3uIW4mU6dU
+	QHxBb6ey1MXgyAhmAzqLzV+2K1y3wg3I6RPlw0CZ4HEbzyg7W2QGFR/ETvjiadwpGuOWvUkw6tENN
+	h5GS6oQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlVoL-00000000Qvx-3bob;
-	Thu, 29 Jan 2026 17:28:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vlVq1-00000000R9d-1JY5;
+	Thu, 29 Jan 2026 17:29:49 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlVoK-00000000Qv1-03V5
+	id 1vlVpy-00000000R95-2EBp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 17:28:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 52F1743914;
-	Thu, 29 Jan 2026 17:28:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 622C0C2BC86;
-	Thu, 29 Jan 2026 17:28:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769707683;
-	bh=oWa0Fvq3q+D3Yoo3dUfogBnn7h3DGJAXHWy9PefNDko=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L0mY8bcqHCzCMhVJDrwmeWjUmf+i4NTCM6rnsNCCZWK4w64UiSpx/S9IXJ51ve+6g
-	 viqzj8zpgL58amsin0jJwQdsV5cfcN7vGYBWjUC6Lwf1BaoUfefdjFJPkL69p4lq36
-	 XiQt6BvDOQvYybv6qGfJZYvOC76SbRtaGkfd0od7IfMBgd2qeGA/wKIxt4yoIrue10
-	 gtEX5cELkmxqrz3M+23R98YCYxyweAAZIzwNbCcwIjZKk0C6heSkOaSRVlZgDbxOhv
-	 a/t5aMci4Bs4x0weGKgHwYcFxAgty2zTxbB8wb8nLuR6WpYah7h92VTc2Lma0ClWrQ
-	 R0X8fECCmXemQ==
-Date: Thu, 29 Jan 2026 17:27:58 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Sean Anderson <sean.anderson@linux.dev>
-Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Liam Girdwood <lgirdwood@gmail.com>, linux-sound@vger.kernel.org,
-	Jaroslav Kysela <perex@perex.cz>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Michal Simek <michal.simek@amd.com>, Takashi Iwai <tiwai@suse.com>
-Subject: Re: [PATCH 2/2] ASoC: xilinx: xlnx_i2s: Discover parameters from
- registers
-Message-ID: <700e4e67-a2ed-4b37-a00b-303bbc5ee6cd@sirena.org.uk>
-References: <20260129172315.3871602-1-sean.anderson@linux.dev>
- <20260129172315.3871602-3-sean.anderson@linux.dev>
+	Thu, 29 Jan 2026 17:29:48 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-47ee2715254so7413475e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 09:29:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1769707785; x=1770312585; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=be866/Yp5BAQJMoBK98y8dBJLQ2gHvccZfOQ5Qw+jAY=;
+        b=iOWWBQkgq+TmwiyxEnowLIOrNbnlu4w0VzLuMJ/rTRQN59dkPtyqTYcToo+j39RBjq
+         lZ2619U43Stio9EZ4Rmc2rfJ3rXZKn81BtdrZuR7218aG/nnGqDGrVi3c3Mzi7Ot5EMo
+         Dh4zmZj5F6aLfnxXMWIbq/qrmInygeMuCZ3QoZWG+g17VTunaLe/emwAbDYM+LmDkgOD
+         jgXL5CgT36TSVOT2lNGRu9C7HMYkd8FpRJvWDckRqe+VVajoVGKZWsQsoFidi2dYfO1q
+         z6oSg0SESAGzlM9yZB2W5fSY8NcsESLtPG7kGY6jEr1iwHbGvBDVnOCddwbET7NK6NP6
+         tgOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769707785; x=1770312585;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=be866/Yp5BAQJMoBK98y8dBJLQ2gHvccZfOQ5Qw+jAY=;
+        b=hhzJP93MD9mz+nP8PfmRGC0vq6ay9m9x/yvuuq/4QsjcnXnCnbd/BO6qwH6vVETb1V
+         z8+XfPDZCks4+RdHQpVDniuWqE19Cki9+2itLRMoUCGAwDw/c8rMwVDPaS6bKWlWjK6v
+         T+fkeV5tyBTcpvmh1YCpJRiZM8YsRGAU0zP2CUetdtzMMsUMdjHhmF9g9M6dH6s5KxOb
+         kM+MvFoP+GRyjsiySqlPW9jXirwYns5w7dXYMGVI/9EZHy/P83pv1aZbsPmFEGfln0AU
+         UJJiUlCwHt3mLLY5XeFjIIe3JUOWQw4HrpDgd+qxMOdEwsa3Zcad2BcjnXtbIWsKwzJm
+         5vRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXDev/qhCczXK98wqTpWt0yPDZ53r8EI/VzljVvCX4P3iKPYZm+ifWbcdTdJut9APdKP58QAFTEy8Z7yGLrhtdY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyB8t/5AJLlFBXZs393aD2063P08FW48x+Q8qnpvXMdqn7RA7z
+	u0+uWMR28KWuEQOHSkWQVo+17/c315dyl3pVftW2IThJFFP2Fb9fCafQG8BTLozvx/o=
+X-Gm-Gg: AZuq6aKMulXcjg8rPWki6KOBx/Lw9c5dV5vhIxZL35ZSk/RjADxmWKqcvX/Nopls7kq
+	Ee+SoC7MJ/rlLgdkeQmwGRYDgBn3N6WQ+k7/0VMEIYlL3eCyCG34OCl0ph8aN8OuGP6rYbkyrNV
+	FFnLsBRxcWXe1ARxWWHcSceh/K8Xe00fIZ8ljWlzZZ7LhBnV2+Auo+EFniBmIJO6gvbCothevBM
+	7VIikyRGSnM6XioIBk+xhtjxIxXBASi2mm+zoYGe2+w9yYjyZVzX7myS/ggLG/zTI5ISsO9jKGd
+	zmg73zFojH17alXoIBnpEyJJQcvPC/BsMBMEmguojwg7IzQ01Iy6HZH8ClnKEr9pdCrLZ1XTF0Z
+	Rq2gmLIANQSIZf8y4p6K+opKxTC4GpffR8RLUVjXfN/bcEHp10skZA5T2XsMi31dkSl0Vm3kZuc
+	oD3Uef54/cQhA=
+X-Received: by 2002:a05:600c:350b:b0:47a:935f:61a0 with SMTP id 5b1f17b1804b1-48069b9a017mr121874905e9.0.1769707784613;
+        Thu, 29 Jan 2026 09:29:44 -0800 (PST)
+Received: from draig.lan ([185.124.0.126])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-482da8eba27sm66755e9.6.2026.01.29.09.29.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 Jan 2026 09:29:43 -0800 (PST)
+Received: from draig (localhost [IPv6:::1])
+	by draig.lan (Postfix) with ESMTP id 067175F878;
+	Thu, 29 Jan 2026 17:29:43 +0000 (GMT)
+From: =?utf-8?Q?Alex_Benn=C3=A9e?= <alex.bennee@linaro.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>,  Joey Gouly <joey.gouly@arm.com>,
+  Catalin Marinas <catalin.marinas@arm.com>,  Suzuki K Poulose
+ <suzuki.poulose@arm.com>,  Will Deacon <will@kernel.org>,  Paolo Bonzini
+ <pbonzini@redhat.com>,  Jonathan Corbet <corbet@lwn.net>,  Shuah Khan
+ <shuah@kernel.org>,  Oliver Upton <oupton@kernel.org>,  Dave Martin
+ <Dave.Martin@arm.com>,  Fuad Tabba <tabba@google.com>,  Mark Rutland
+ <mark.rutland@arm.com>,  Ben Horgan <ben.horgan@arm.com>,
+  linux-arm-kernel@lists.infradead.org,  kvmarm@lists.linux.dev,
+  linux-kernel@vger.kernel.org,  kvm@vger.kernel.org,
+  linux-doc@vger.kernel.org,  linux-kselftest@vger.kernel.org,  Peter
+ Maydell <peter.maydell@linaro.org>,  Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v9 04/30] arm64/fpsimd: Check enable bit for FA64 when
+ saving EFI state
+In-Reply-To: <76bf33a0-968d-4b99-a157-3eef076af69d@sirena.org.uk> (Mark
+	Brown's message of "Thu, 29 Jan 2026 16:41:05 +0000")
+References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
+	<20251223-kvm-arm64-sme-v9-4-8be3867cb883@kernel.org>
+	<87343o8jay.fsf@draig.linaro.org>
+	<76bf33a0-968d-4b99-a157-3eef076af69d@sirena.org.uk>
+User-Agent: mu4e 1.14.0-pre1; emacs 30.1
+Date: Thu, 29 Jan 2026 17:29:42 +0000
+Message-ID: <87wm1072ex.fsf@draig.linaro.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="alEpQpaCvCSpPLWS"
-Content-Disposition: inline
-In-Reply-To: <20260129172315.3871602-3-sean.anderson@linux.dev>
-X-Cookie: You have taken yourself too seriously.
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_092804_066830_6DAE4286 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260129_092946_808531_C2FFEE35 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,36 +116,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Mark Brown <broonie@kernel.org> writes:
 
---alEpQpaCvCSpPLWS
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> On Thu, Jan 29, 2026 at 04:39:33PM +0000, Alex Benn=C3=A9e wrote:
+>> Mark Brown <broonie@kernel.org> writes:
+>
+>> > Currently when deciding if we need to save FFR when in streaming mode =
+prior
+>> > to EFI calls we check if FA64 is supported by the system. Since KVM gu=
+est
+>> > support will mean that FA64 might be enabled and disabled at runtime s=
+witch
+>> > to checking if traps for FA64 are enabled in SMCR_EL1 instead.
+>
+>> This is conflicting with the now merged 63de2b3859ba1 (arm64/efi: Remove
+>> unneeded SVE/SME fallback preserve/store handling) so I think this patch
+>> can now be dropped?
+>
+> Yes, this should go away in the next rebase.
 
-On Thu, Jan 29, 2026 at 12:23:15PM -0500, Sean Anderson wrote:
+Everything else applies cleanly though so thats good ;-)
 
-> -	ret = of_property_read_u32(node, "xlnx,num-channels", &drv_data->channels);
-
-> -	ret = of_property_read_u32(node, "xlnx,dwidth", &drv_data->data_width);
-
-Given that the properties already exist it seems wise to continue to
-parse them if available and prefer them over what we read from the
-hardware, it would not shock me to discover that hardware exists where
-the registers are inaccurate or need overriding due to bugs.
-
---alEpQpaCvCSpPLWS
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAml7mJ0ACgkQJNaLcl1U
-h9A4rAf/bySY89fyno0iSVbW8kKmXh9XYhW/GP0nf6ewJsn3xuVUI83ySMRTud7S
-rfaLLqcFZ6OnMeZBMpeISiGGmAneV6y4JaKSlw6c06BGYxLP63PzDozrTghgk+9f
-jtkj9YDXTMvpmsh9SrbUl+a7m6HTg+40CaJxWwjc+aAXfideUtmXwe0sAgD2lNOk
-/zofPqNRL7V2aLrus1x8erixbALMaBuh73kL1CkxAS7n/6i4VcVVyclJhl/Z7Mh7
-fDbQ7qwUo7eerudfwTaHKWUlWGV1f0/7hCsr12O5QVS0XrtR/b+t/en+qMeUYpdh
-+sESZVbFPRGhE0U9HhrOPks5hOpiYQ==
-=l6Qh
------END PGP SIGNATURE-----
-
---alEpQpaCvCSpPLWS--
+--=20
+Alex Benn=C3=A9e
+Virtualisation Tech Lead @ Linaro
 
