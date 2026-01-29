@@ -4,109 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23B24D61013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 13:05:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A684D61013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 13:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hV0EaAfSfWXdEAd8ez6i9+1b1e2fuFvIVn/DRhtOP0g=; b=T5cNBfPkg+oTd+Md02Oqkx79+Y
-	q2ZsaSZ1MKA+lt3Pk50IIhh3tqTPWdrv78ffbfu0Bke5Ny4YTc1aKa05xM71raAeOU32taYQ0a4Zg
-	c1ms0AY79iyp8oqAhOprgLadUpqgUZ9rLwF3+JGgXBVv7qcr9MRbY4yby/1AU9RXf1cIP8NIyDAla
-	3tA0sROf2pNKxqOz/iSzesZHjz0iGAEcaukvrM80JhZFgclzOP7/mektNmJ37XHMc+181hH6rwK2o
-	jbCLAzfdIo5IqgeGayMZoycaiokDY+dVkS5G/T1HXQEcfzuHjQ22702yDLLuMZ/6y2JMiwK4uIXGG
-	caZp1XLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GTnuhB/pVO7aMJD3sAaOMEUxG7l97PIRuZ4UqDZOeik=; b=rsTPKMA9nLgf5MeVRP4JGcF1v3
+	MNuPvIg6/b4LKRWolYO6D8DlUtW7KCK6S2yANEFVtP+ldO8Fs0AZNdal370q5bm6TyqQD3qeGXeAv
+	2fT+JDMgzKHhZBgtSlpPP0hOiTD87TWynB6dKJW2zekaAfgdh9wsylOCHSYohfyTU+i6Oug3bcwJt
+	WEaIZ3y6Ggb2zkVaCFcLc7Btc00l0uf80S9x4/NFGi1jOlFYqpPm4GAqYvKx4VP/ziw2C0NQsC2v+
+	yFtF6XxG50ln+0AwBaidDjeuxuBV+Ogol6jf4SMIbw0/RgbYcfKJZEd26TTgjNjTzoQdiGDba9Nsl
+	Gy3cB9ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlRi3-000000008ES-00rA;
-	Thu, 29 Jan 2026 13:05:19 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1vlRjO-000000008Pd-1m7f;
+	Thu, 29 Jan 2026 13:06:42 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlRi0-000000008Dm-3zpV
+	id 1vlRjK-000000008OB-3Mal
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 13:05:18 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-658d4059b79so744722a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 05:05:16 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769691915; cv=none;
-        d=google.com; s=arc-20240605;
-        b=brd4k3l3uJWiYWo0XtkWAH36mDEtbztW+jMAQvSJ0iccVzPEEBaQEarmh3pYn8XHTD
-         iYxcfo+Lj55/GCBWn8goHBiwSsmrWLZr8H5owJ47yj0yuxtOTuFCnwgX+dLsl6vwKQiD
-         vzBqiXTZoj83cOuux3i4DfFkAMU8YTcSosSOg4txGNqezA+KSVgjTHtrH12Cug1vUEvx
-         Kcl+h7qUYN/GCqtsT886YzbuRff8y1kv+eycTdQxgGryubeFc2htYXtzfO+P++AGgo0v
-         yifJdFQKtUSPQDq+sduxPxLgxXINgIjWQQFy+DEbchshi4G2UoTleLvuaXtxrOTCMXum
-         DD9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=hV0EaAfSfWXdEAd8ez6i9+1b1e2fuFvIVn/DRhtOP0g=;
-        fh=ntwoAF07/Ht5ZtCls5yhPa1Lv0YuyWeRGNfxxRwFJDY=;
-        b=UF7CR9z9Bo6SlHacgwqifHTlESTyLU4yAi/3RZwOyNW89omqX4Vu6w9BvS/KjxkTHR
-         +3BVpW4jMeGGhu1UXCAUucyQMcTKkzQlfid57p317iRa+ZJnhHHT4rGXuOPJ+//BkKwO
-         lR83zSu3Iu5/CPI825yYUJRkhvH+s8hDDVwPfuPcp/LExBMccIXq2eVUbqa+rga6VVed
-         xJcxCj6TD+Fv5l2vJ11EjrxcEQ1s0CLKkhlKtuNTYRpA0MiMe4OYN+kLNtVYwUQj6EmK
-         BuB9eYG/WcglSm01sBwtEwy3lC1DNRgBZMWNS9wgrFQnVkQubylpWVW7WUsYgba6fZMz
-         sEIw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769691915; x=1770296715; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=hV0EaAfSfWXdEAd8ez6i9+1b1e2fuFvIVn/DRhtOP0g=;
-        b=BArtyrnZUw6iGIHwPL+mqxQ21RwSBT8z8IjGjbz5crSfqLXC0imZw/QM7IN1pSQSfk
-         pfnsDLJjkRfvEX6mFXzlIwkAXqprO9hYz8fSt0HJL/EXCTn0w7fSs+LZwefsEwime0MA
-         hqEy+MirGyGhDlQisFCu1RoVywgXPSaqtLnP3RaRIc/YMiC1kArzgaMRxqpJtiVujje6
-         LqXqnhu798f6gxvDwHFOvaw1CH3NWGzUM/UNyumeTYxlFTqtVNAwkTyx0xYHvyC/F2y+
-         /GHw2VEr9+1fjMEfJankkixvw0n9kFozT4DkbDo7i6Monq+SL96Lz7jdjwUsCjRC0hQs
-         Yy7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769691915; x=1770296715;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hV0EaAfSfWXdEAd8ez6i9+1b1e2fuFvIVn/DRhtOP0g=;
-        b=rqaXZFyYt5PX6pf0hlHhVe+PML1/B+wtlfqB3DXtiuNxmQKR1le8Rm1E1aaYWC7tie
-         PWtHVz+WlFUQQP907BUxa/titpLueE8KuDQevdPnhP48tHflS0it1F5j0KBJGqJrIClS
-         eR1B7fbIA3xjgCb85BR36e/pTKQOrBW4GK4536mEsHzSdux1qVSK4pyB9NqKn14ZORHF
-         1MpkdcMDuL4iiXV5SRRAqlGZ31owbsJPY+KYdWCeoSAQEdWkO0mwaKf12hpLRByzAhXV
-         rKaC9LTqwWvvtBGstuUzHb1KoawusxZ9hoiQGeZqmbKam4b/xfm7VdfLgmJ0gwBfC9yQ
-         GYKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUJW83PYo2JOZNNsYuOo4IysNHAVhvdcnmIhf6V3S9fHp1cOUXdXUHMm7xv4Uu7d14x5KEje4VuVbGGsOzZH/pm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyh6d/70U5m425JVd0OO4Ilu6wa1RxUbx3KyGaN26iqI/ObFNu5
-	c51DvQ6G3PpN+Ta7KmEGMniYbt55c6O2Ix/twoTiHT9l+xQIW2UPVZizkyniztjdTSP6UfaPt3v
-	rU13/8txPs0cfaspeK1Cp05fyeuNEBBhYY0xj9aVllw==
-X-Gm-Gg: AZuq6aI13QAgNAz2ATZBsQtEdnS1zsUVZagJFmBuFqqNhgYhXa0VRsLkhmAvHh/Cbz+
-	qqAthR6YMEsG8b1PEZV5bNAMOydM70EChW1spaBkRps5Xj41z/W+8ALl/KlgRDTWHm0LP2yjl5W
-	GgHfUcwodfa7gigyeOQp4VG/CdD0PMP7r/J8ioO0ep6JKeo6c/tw8ORKBj64k2GJC3sNH5CxBRo
-	MQZ3+NQ6z/hB6smPAiWhPTjoqcdmEDT7ZuzX1+eLoOwvM1HNOa5KxHT9ni+leQE9ovlhLvXmk41
-	Uw2497EpLFEKCYpUgKckuV5cDH9+PnWBnQA=
-X-Received: by 2002:a05:6402:5187:b0:658:cc59:161c with SMTP id
- 4fb4d7f45d1cf-658cc5917c8mr1678090a12.12.1769691914958; Thu, 29 Jan 2026
- 05:05:14 -0800 (PST)
+	Thu, 29 Jan 2026 13:06:40 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=GTnuhB/pVO7aMJD3sAaOMEUxG7l97PIRuZ4UqDZOeik=;
+	b=3Y6xyqMwnKDy5yc69pn0nYunYWkYMy0SUmue71GjH6RxwjkxPpo2dSeKqIABPbIsVeKHfH8Ju
+	H3avJCzPQ4w+59FyUopowm9ZxvmjP5zwZ0O1b1J8gALtMdDSPBqoGna8k2Up+xXD+keNhIBPYXQ
+	xZbCDOoBEazSyaljePt4ARg=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4f1znf0RTszpTJy;
+	Thu, 29 Jan 2026 21:02:30 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 58C3B4056D;
+	Thu, 29 Jan 2026 21:06:30 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 29 Jan 2026 21:06:28 +0800
+Message-ID: <0a650379-e4b4-0a30-e4b0-e8d131ae1dbb@huawei.com>
+Date: Thu, 29 Jan 2026 21:06:27 +0800
 MIME-Version: 1.0
-References: <20260126092159.815968-1-vincent.guittot@linaro.org>
- <20260126092159.815968-2-vincent.guittot@linaro.org> <aXtXmN1V8wg57yuE@shell.armlinux.org.uk>
-In-Reply-To: <aXtXmN1V8wg57yuE@shell.armlinux.org.uk>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Thu, 29 Jan 2026 14:05:03 +0100
-X-Gm-Features: AZwV_QhIdeGA_SmdiEnXscTGdrXOcfbfoiNkh_dYEPgauVTbh2-bOtUlEiHJGvM
-Message-ID: <CAKfTPtANQsmWAf-u6+isXh5UHJdo2mYELBYio=-UxZj3WM6-5w@mail.gmail.com>
-Subject: Re: [PATCH 1/4] dt-bindings: serdes: s32g: Add NXP serdes subsystem
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: vkoul@kernel.org, neil.armstrong@linaro.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, s32@nxp.com, 
-	p.zabel@pengutronix.de, ghennadi.procopciuc@nxp.com, 
-	bogdan-gabriel.roman@nxp.com, Ionut.Vicovan@nxp.com, 
-	alexandru-catalin.ionita@nxp.com, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
-	Frank.li@nxp.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v11 03/14] arm64: ptrace: Move rseq_syscall() before
+ audit_syscall_exit()
+To: Kevin Brodsky <kevin.brodsky@arm.com>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <oleg@redhat.com>, <tglx@linutronix.de>,
+	<peterz@infradead.org>, <luto@kernel.org>, <shuah@kernel.org>,
+	<kees@kernel.org>, <wad@chromium.org>, <deller@gmx.de>,
+	<akpm@linux-foundation.org>, <charlie@rivosinc.com>, <mark.rutland@arm.com>,
+	<anshuman.khandual@arm.com>, <song@kernel.org>, <ryan.roberts@arm.com>,
+	<thuth@redhat.com>, <ada.coupriediaz@arm.com>, <broonie@kernel.org>,
+	<pengcan@kylinos.cn>, <liqiang01@kylinos.cn>, <kmal@cock.li>,
+	<dvyukov@google.com>, <reddybalavignesh9979@gmail.com>,
+	<richard.weiyang@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
+References: <20260128031934.3906955-1-ruanjinjie@huawei.com>
+ <20260128031934.3906955-4-ruanjinjie@huawei.com>
+ <c70d3fd6-0b62-464b-8e99-e74f07c20846@arm.com>
+Content-Language: en-US
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <c70d3fd6-0b62-464b-8e99-e74f07c20846@arm.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_050517_030514_3205FF11 
-X-CRM114-Status: GOOD (  23.07  )
+X-CRM114-CacheID: sfid-20260129_050639_428972_1BA90B13 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,69 +90,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 Jan 2026 at 13:50, Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
->
-> On Mon, Jan 26, 2026 at 10:21:56AM +0100, Vincent Guittot wrote:
-> > Describe the serdes subsystem available on the S32G platforms.
-> >
-> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > ---
-> >  .../bindings/phy/nxp,s32g-serdes.yaml         | 154 ++++++++++++++++++
-> >  1 file changed, 154 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
-> >
-> > diff --git a/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml b/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
-> > new file mode 100644
-> > index 000000000000..fad34bee2a4f
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
-> > @@ -0,0 +1,154 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/phy/nxp,s32g-serdes.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: NXP S32G2xxx/S32G3xxx SerDes PHY subsystem
-> > +
-> > +maintainers:
-> > +  - Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-> > +
-> > +description: |
-> > +  The SerDes subsystem on S32G SoC Family includes two types of PHYs:
-> > +    - One PCIe PHY: Supports various PCIe operation modes
-> > +    - Two Ethernet Physical Coding Sublayer (XPCS) controllers
-> > +
-> > +  SerDes operation mode selects the enabled PHYs and speeds. Clock frequency
-> > +  must be adapted accordingly. Below table describes all possible operation
-> > +  modes.
-> > +
-> > +  Mode  PCIe XPCS0           XPCS1           PHY clock       Description
-> > +                SGMII                SGMII             (MHz)
-> > +  -------------------------------------------------------------------------
-> > +  0  Gen3    N/A             N/A             100             Single PCIe
-> > +  1  Gen2    1.25Gbps        N/A             100             PCIe/SGMII
-> > +  2  Gen2    N/A             1.25Gbps        100             PCIe/SGMII
-> > +  3  N/A     1.25Gbps        1.25Gbps        100,125         SGMII
-> > +  4  N/A     3.125/1.25Gbps  3.125/1.25Gbps  125             SGMII
-> > +  5  Gen2    N/A             3.125Gbps       100             PCIe/SGMII
->
-> Shouldn't the mode be configured via phy_set_mode_ext()?
 
-There is a phy for only pcie only. In mode 3 to 5 there is no generic
-phy created
 
->
-> This identifies whether it is operating as PCIe or for networking and
-> in the case of networking, the PHY interface mode should be passed as
-> the submode.
->
-> Have a look at include/linux/phy/pcie.h to see the submodes that may
-> be appropriate to pass to phy_set_mode_ext() - but talk to the PHY
-> subsystem maintainers.
->
-> --
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+On 2026/1/29 20:06, Kevin Brodsky wrote:
+> On 28/01/2026 04:19, Jinjie Ruan wrote:
+>> commit a9f3a74a29af ("entry: Provide generic syscall exit function")
+>> introduce generic syscall exit function and call rseq_syscall()
+>> before audit_syscall_exit() and arch_syscall_exit_tracehook().
+>>
+>> And commit b74406f37737 ("arm: Add syscall detection for restartable
+>> sequences") add rseq support for arm32, which also call rseq_syscall()
+>> before audit_syscall_exit() and tracehook_report_syscall().
+>>
+>> However, commit 409d5db49867c ("arm64: rseq: Implement backend rseq
+>> calls and select HAVE_RSEQ") implement arm64 rseq and call
+>> rseq_syscall() after audit_syscall_exit() and tracehook_report_syscall().
+>> So compared to the generic entry and arm32 code, arm64 calls
+>> rseq_syscall() a bit later.
+>>
+>> But as commit b74406f37737 ("arm: Add syscall detection for restartable
+>> sequences") said, syscalls are not allowed inside restartable sequences,
+>> so should call rseq_syscall() at the very beginning of system call
+>> exiting path for CONFIG_DEBUG_RSEQ=y kernel. This could help us to detect
+>> whether there is a syscall issued inside restartable sequences.
+>>
+>> As for the impact of raising SIGSEGV via rseq_syscall(), it makes no
+>> practical difference to signal delivery because signals are processed
+>> in arm64_exit_to_user_mode() at the very end.
+>>
+>> As for the "regs", rseq_syscall() only checks and update
+>> instruction_pointer(regs), ptrace can not modify the "pc" on syscall exit
+>> path but 'only changes the return value', so calling rseq_syscall()
+>> before or after ptrace_report_syscall_exit() makes no difference.
+> 
+> Let's update this as discussed on v10 - PC can be modified when
+> ptrace_report_syscall_exit() is called.
+
+Should rseq see the PC modified by ptrace on the syscall exit path?
+If the PC modified by ptrace happens to fall inside the user-space rseq
+critical section, is that reasonable? If so, doesn't that make the order
+of rseq and ptrace syscall exit in generic entry incorrect?
+
+Could we have an rseq expert join the discussion — Thomas, what is your
+opinion?
+
+> 
+>> And audit_syscall_exit() only checks the return value (x0 for arm64),
+>> so calling rseq_syscall() before or after audit syscall exit makes
+>> no difference. trace_sys_exit() only uses syscallno and the return value,
+>> so calling rseq_syscall() before or after trace_sys_exit() also makes
+>> no difference.
+>>
+>> In preparation for moving arm64 over to the generic entry code, move
+>> rseq_syscall() ahead before audit_syscall_exit().
+>>
+>> No functional changes.
+> 
+> And naturally this is not the case.
+> 
+> - Kevin
+> 
+>> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>> ---
+>>  arch/arm64/kernel/ptrace.c | 4 ++--
+>>  1 file changed, 2 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+>> index 9f9aa3087c09..785280c76317 100644
+>> --- a/arch/arm64/kernel/ptrace.c
+>> +++ b/arch/arm64/kernel/ptrace.c
+>> @@ -2443,6 +2443,8 @@ int syscall_trace_enter(struct pt_regs *regs, unsigned long flags)
+>>  
+>>  void syscall_trace_exit(struct pt_regs *regs, unsigned long flags)
+>>  {
+>> +	rseq_syscall(regs);
+>> +
+>>  	audit_syscall_exit(regs);
+>>  
+>>  	if (flags & _TIF_SYSCALL_TRACEPOINT)
+>> @@ -2450,8 +2452,6 @@ void syscall_trace_exit(struct pt_regs *regs, unsigned long flags)
+>>  
+>>  	if (flags & (_TIF_SYSCALL_TRACE | _TIF_SINGLESTEP))
+>>  		report_syscall_exit(regs);
+>> -
+>> -	rseq_syscall(regs);
+>>  }
+>>  
+>>  /*
+> 
 
