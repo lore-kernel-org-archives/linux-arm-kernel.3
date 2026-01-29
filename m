@@ -4,189 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47EE0D358DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 08:17:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57E38D358E2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 08:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UqQOPGvdpY3l6BeCWA62Ap34qnXLD9NPD/nFIvLHwkM=; b=lH1EFth4C74WIsN9D88WHZgk9H
-	EpVUR0avYkFp8VDHwjTQInhSb/Qn4urAGTWVHghmkUyJTCQ7B4igSdFggHzSEEHUyleJDZICsUEY+
-	qAY10x2GH7MBwSn8ET5pAKnzkYc8WzRfYbm31HoV+wHTI72VpCDNEPGhxuSm4+LHIwp0bitoL9SYt
-	twPv8aLn5k4vgh7TyhnI4IPkIpTB8XihKRo3WAZR31kvP5JJVgZ09NKdi2AInix1+8SXTuaAJk+HX
-	97ZZa5Rh9diEOUdQ+cCUq9SGxJr8kLnP7ytje3HK9GeaSP9+dAKoPN34EN9dM7Z4QBcZwlbWsMjqR
-	9GxIilgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iWSiH0vErBGaTqnZZjDiFHXh+s+0x/2ewRQpe7UFdYM=; b=1wk3U9fWioPjpDySkK+qOumJAo
+	PA8OyrbxmJglcSmFu0PnEmyFvFAkhfF4pvC8o+20xCMrMZGcCmc0saQkUf0Jzg3p4MDRYnd8fhCbj
+	qLt7vr7vTYbobHrtkIW5TIUNA/Su0lUWkqBkHFIFIyZrRnWyHfbz8XWdasBpejh5hEKhsq7+Imd7Z
+	fWqpEJbIhoRhvFWitlqaG3xGz8H7ivrWGRaMWhLGnd3jXWwhyP+ppEsG41bKM17FTDprtJDJRu9Qm
+	O2IqYdvsnrq7L95NEE1qXm5KFXspcIpFz+fmmQKEC3UT/jaMnrsBPrIwcJHS3pYP83jeEvvrwwIBo
+	1684uFEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlNDq-0000000HRL3-3I8O;
-	Thu, 29 Jan 2026 08:17:50 +0000
-Received: from mail-francecentralazon11013061.outbound.protection.outlook.com ([40.107.162.61] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vlNSP-0000000HSbS-0CkI;
+	Thu, 29 Jan 2026 08:32:53 +0000
+Received: from mail-vs1-f43.google.com ([209.85.217.43])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlNDo-0000000HRKO-13j6
+	id 1vlNSL-0000000HSaW-2LrL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 08:17:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=khRvwL4XlZiQUtDt7tU/6AFdwV+6MMb2RPGKnJZXQ+WFX9F2UhEIHQiR5wFLxLt20a0hzFJeywKl6CVsWj14eVsy5x5OrOBKAsN4FAOV9hqbNQz3IK3LaRA/0BpNOQPvsdAFMbbgZKOAKc1f9sOvpOgbf+xZEAYM7A6eGoks7dAj/svaz+q73L8glP+v3pO4u3uIADMl9y/CwC3fMEROMrLEZ5jHYcVuuMf2bdKUTCFnNs7E38+6YoGqMGBSUXUkNXVF9fkqLD+RC1sKkFlGS5a+xmm6425CcJfoX22zZoa3Wjli1oXewVcE2R7F6fXo6tF8fw20vuj5m7VG4CUBNQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UqQOPGvdpY3l6BeCWA62Ap34qnXLD9NPD/nFIvLHwkM=;
- b=QyDrVPuOSLR+iUTLpDJJQ+vurHru+GTHZLFbju0805ZLbecacjFngxpv4zas/+SENs3CSuElH9RX/Ph3eezcEvIWQwMMdC14peSp0yJXCw7yUXyS95/qx6PbufLVEw19AQ0ySM4bLWQL7P2v3yf+qQtkyl0StDRzlzq7cctgbTEzR4cSJ/kauLpe9A3fox55GItvoRvtVrrgtTpW1ODb8ekAXC303NmBXv4loczUapj0YUBFObZICrBJ5mFyiqGO7zFlZoMdspzGIAvkAIRkodRJO8QktotMw5TDC3yFEU+VWNmik71lOCSIc6T8NI51ikA1dLcUYgeq9fc/jC0cCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UqQOPGvdpY3l6BeCWA62Ap34qnXLD9NPD/nFIvLHwkM=;
- b=YvCCb931LOLDvbxmlQjSOujAH9o4MfoItRWIrfImBiyMIhO1pmzl1oh8YqOnNvrHP1xrsLisqef7z2NpUXEdQ9M7bE0vA6/deMcEkUYXyeS0pH4rWoB7e6wR//FfXNAtqz/PjV9v7dKId9rt1E8zqLQmVLnHEBr7pt8WNyiuvA4aWl0KQwgu+oz045jsTEw94dSN3UH7d4SzT+3DdpppDzNo5DL0ht3uCLaZeF5IvqoclYRwtqCfm8qZQBpnQ37IZ3b2U9b6KMSBGaXMsg84/JVyVlm8luNtz3j693vjGWy1gV7PJGvxFfbTW949odmDvytRbB6Y2VfLsrmV7RgwQA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by GV2PR04MB11681.eurprd04.prod.outlook.com (2603:10a6:150:2a7::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Thu, 29 Jan
- 2026 08:17:42 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64%4]) with mapi id 15.20.9542.015; Thu, 29 Jan 2026
- 08:17:42 +0000
-Message-ID: <aff6f95e-abdc-4253-8724-eec4a98bb268@nxp.com>
-Date: Thu, 29 Jan 2026 16:18:32 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/4] drm/bridge: imx8qxp-pixel-link: get/put the next
- bridge
-From: Liu Ying <victor.liu@nxp.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-0-a62b4399a6bf@bootlin.com>
- <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-4-a62b4399a6bf@bootlin.com>
- <e2536229-f8d9-4d65-8211-cf445677bef2@nxp.com>
- <DFYQ7TS25SQT.2F7NBYOP8P5R4@bootlin.com>
- <efeb3583-dd0c-4e91-bbfc-54b04644f2c2@nxp.com>
- <DG0CHD0TAH9A.27UW4KKY2O9V7@bootlin.com>
- <d0836d04-d15d-45de-a765-bacad9e7759a@nxp.com>
-Content-Language: en-US
-In-Reply-To: <d0836d04-d15d-45de-a765-bacad9e7759a@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2PR01CA0024.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::20) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	Thu, 29 Jan 2026 08:32:51 +0000
+Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-5f524301a76so1149373137.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 00:32:48 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769675568; x=1770280368;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=iWSiH0vErBGaTqnZZjDiFHXh+s+0x/2ewRQpe7UFdYM=;
+        b=rxAT2zDVcdrJqxouAAkS9s/ArROeKboq2S7X6JxUuTonfUQqV/uXdC7akgNH2mPQRw
+         LSuwzLZb1n1DW5DIc0KkZUCejnQ1oJEt4Z++WTwzCChPr4289pBnnqlg3FU7qfPxvqo4
+         Wb5VG/IqbRuXTd0gWmNkG9zzFPwIxGO1XMNsN377so34mDa5q1XGZ4wHUvWjTjiILDkT
+         Oc2UjZQNoPrgHiTQoEWlVTMpNNWodA6kAzTtzEwV5K6dUxqLTR0dv2UoB/srldVvQQay
+         J/bJoA3BYXhtnCIynWWDRYTjkZ74wZCwyCx6U/ILUz2ApNmvBbUTnLb5fmV95iyGqZX8
+         80jg==
+X-Forwarded-Encrypted: i=1; AJvYcCWSCnWTCcSTqU+lGwG7TxtOpvhbbSoJcWKVuJUNSGzBF0xKsyDkLj4C3Oii1gCq6ARsMjj9yd9mQlSboDPz92QP@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEENacNM9BfIOSQ3mUi+WQ/Yl+tpnfWosQol4tvHbsr+aD1sX4
+	0oqVCVFGjitpnOWzAZv4HkGvlV+jg66GghvsPEIYUWjFCR+Z0XHfQFihSD2ejLUA
+X-Gm-Gg: AZuq6aILNuBT4IDRVvTDX6kaEQmcbk9k5RGmqTm5k7Oe7UmeyiFdQt/htcgipBAArVD
+	YnOEC2MOzA52ut3Nn2pKZyilH0PnOBY9/VstXxXVZsPAEXYpSjdxN+wpt6TxhmEYxvuXl6L9Te7
+	RQaCWrHZqUCPSyvsVIhebGQmTkbwJfRae9shHMOsRCjlvlKDMPQ1YDtUZY1hhTtwuySmomiLIGK
+	ITu1g4cgiWXqLzokmDhz8A6sQaF20EA21YsQUEFLoCLpG0iDFwdA0azhjtnIaoQj01oCosFCS0Z
+	14g5IFE6tQ5gHSa5O3tR9ZwA9GwQ9Vm0DYuK7PT4sEqmPqh3e2qskXq8LFq5zaQzr4GUj0gRHKx
+	zlKeDz4SYlHag2hYRsTmck7qpe/dwiWM7i6pl6UOF0fj5dOnsKU1XlXInS2ngbQ5GbDYZauOiHb
+	we/8OMyePHOUFVQxtxrcsN8ta2DM0XxkgxTdd7UETBjtY0Ilhp
+X-Received: by 2002:a05:6102:4193:b0:5db:3c3b:7767 with SMTP id ada2fe7eead31-5f8cdb99a0amr743203137.16.1769675567877;
+        Thu, 29 Jan 2026 00:32:47 -0800 (PST)
+Received: from mail-vs1-f45.google.com (mail-vs1-f45.google.com. [209.85.217.45])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5f734f22c2fsm1008697137.14.2026.01.29.00.32.47
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 29 Jan 2026 00:32:47 -0800 (PST)
+Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-5f524301a76so1149366137.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 00:32:47 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWdT9/7knDLOfU+UmWg2lL15pZy4d2KETfZfOleFhOCJxwX+mk4qPirsYasnhhac/4feJRolfJ5tDuG37pz0/lS@lists.infradead.org
+X-Received: by 2002:a05:6102:358a:b0:5f1:b59d:a824 with SMTP id
+ ada2fe7eead31-5f8cdbcdd58mr660134137.10.1769675567174; Thu, 29 Jan 2026
+ 00:32:47 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|GV2PR04MB11681:EE_
-X-MS-Office365-Filtering-Correlation-Id: 45853d47-c724-47d6-8b6c-08de5f0edfc8
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|19092799006|7416014|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?OEwyMTFkY09sbXNzQkdYK1JxRFlIWTR4aUtLSjRxN1RmSUYweUxveGdObnlt?=
- =?utf-8?B?TzhKRGlTM3BjWENNQ3lWK3Y4L2R3U0tEaW1CRGFnREpLVFlTWkZpaTgreHJr?=
- =?utf-8?B?SEtGMmJzV3I4UHczTDF2c1M5cU41bXd6dUtadFZWSU0weUFrSVB4UFl2K0lq?=
- =?utf-8?B?aUZ2d3VJYk1qenUrUWpubSs5U2djT0czVjZPZlBiazVEZUxNbE1WZFFnUkhz?=
- =?utf-8?B?dWhCUmJoczVzdzVDT3hhbEZUOGs5cndHN3FHWTFZVlV0MUs2dUIyZG1PN2VP?=
- =?utf-8?B?UWNBS3FLckFxaFcwb3VQNUpWS3h6QkZTOVhNQUdxMkZTK2dHZmhNWkVXaFZW?=
- =?utf-8?B?eTBYdS81M1ZnK3A0dFcyRld4NHVsWGxobHNrVEJtbkh1UUdZdERQVS9DVENh?=
- =?utf-8?B?YUpPeDBBcjVHanoyc1loWWtHdk14dk83UjIwalMzVEdSdFdmUFlqaDFOb2dm?=
- =?utf-8?B?dmovRzFITDUvbzRxL0sydGZaWEZRYkdlZjNPOElSWkdjbnRFdzZnb3B5ZzZ0?=
- =?utf-8?B?WlR4d3hPeGtIZWxCaUNYQkdLM2RSVFpxaTFZVElMUzJwLzJIRGNqMFo4a0Zn?=
- =?utf-8?B?eXI4SmxOblBqcGhHRWVvMlNZSW5HQ1FKakJOdEtCb1dVNGp3dFZqUHRtNGhJ?=
- =?utf-8?B?cFFpbEdyb0N2b29FL0xtMVRDOW9LcE5jK3dRa0o5ZHVzMFgzSW5DZUtjSDUy?=
- =?utf-8?B?NGNkZjJjRXdlWUpPVDkzRHpyVW5FUllRemptSWVRdG95K0Z1RGRhbFBMdWVX?=
- =?utf-8?B?QzdFUHVoV1lmK2Fncm1BNXRYMFgydEt1Y3lLVkJLMGNPbHVSY1VVcGxmVlBj?=
- =?utf-8?B?ZmhKeUIrbkdUVDE2eWk5M0JoOVB3NEQ2ODlyYmk0eXZ5TUsraExQdmptVHVr?=
- =?utf-8?B?bnFJN2lMUUJqdmxaZmphdTl2eklFaTEwY1E4LzBOaDVoZVQxOERJVHB5NktI?=
- =?utf-8?B?YzlTWjQrb0s2RDdwbEpuT0w2RDZpN0tJRVRuaHlUVXprdHNuNWNFVFBOYTBG?=
- =?utf-8?B?UmV2ZFZkVzdwOU1lZ0MvMDZKWVluS2h2a1VONFJJUWxtYUxidlc5WFpTaGJu?=
- =?utf-8?B?OGpEYmRmSGVLMk9SOGxBSXlMd2lJUmRiSEw4TnJIWHNpcExHR3lsOEQxZTZ3?=
- =?utf-8?B?dnR5VG1CNUF5OUpzZWJOdUltaEx0d1lIVTJmY20ya09KdHhPZG96c0ZBOFlj?=
- =?utf-8?B?UEJId0xmNG9HcDlHQ0g4bzVLcVlBZXlPM2lBYmJOU0NCRmJpQUVCZllFWlgr?=
- =?utf-8?B?TWZVQWN1M2MyVnFzR3oyQVlOOHFDSVp1T3dtbk9iVWo0UTl4NkRPRVVTTkZF?=
- =?utf-8?B?MC9uVU5zc0FXNnpuakJRUEJ3eStHZW9yR0VpVnVNNHJXajNIcmRvV0RpRWsz?=
- =?utf-8?B?TkJiRHlZVE5RMkRQa1hBRy9HdmVxZ0NoRHBWeVpscXBzR1lHYlV3Qy96bEl3?=
- =?utf-8?B?dmczblJ4MkpPK0ozN0hnejRvcGdaVlBYMEhSOG14VGtHNnVjYUFQckNyWkFM?=
- =?utf-8?B?clB6MSt3cTdCcjhHWHB5Z0MvaGdXMVBjZTR2MklrTk1RL3JnTzJjVW0rTEZN?=
- =?utf-8?B?ZzMzbHltdEo4dmJHdjREek1mMHlvUHhWMnliT2NoV0FmcXdhd2UrYnBDZ0Vh?=
- =?utf-8?B?ZGYvTkVRTm9OeG40RjNsc3NDY1F1U0orekNsZDRZU3NFaTlTSE1qR0ptNmk3?=
- =?utf-8?B?a0RYaU1XWGJIVVhMUnlWbGZ2alEyUGl1QlFHNnFlYWV1bjR2ekVEMDRndmJh?=
- =?utf-8?B?UTRmSkZSVzZhdEEwN1ZUVUlNdjQ0ZGJYYUVhQXU3c3NqTlFjeTF5SWRWcjBi?=
- =?utf-8?B?WXNBdlRNcDBrRHA0TlRvbTcrNmliL205RjdHRnZFRDZDWUVseEh0TDRVa1RS?=
- =?utf-8?B?dWltN0FMckZ6RlAwd3h0TkNZeWxTN254dTE1ZGFOeWZNVExNRDZTRGNBaHlL?=
- =?utf-8?B?TmZEYU8yWTgvbU9YdkVwN2VwcUxyY09XT2lQSFpHV25iV3p2L0ZkQ0N1N2pw?=
- =?utf-8?B?SUY5ZjJZekdxellkR3lhMkVtZXdvK1BsaFFidDJvelRnWFo4aXRCNGYvSE1H?=
- =?utf-8?B?VkZsa2owQkFPaW5saDRSekdaUk9MRTZ0RWhZNlAwTnRnYzF5Q05tem80R0pj?=
- =?utf-8?B?Z2JYbjMyZUo2RnVBR1JScTd5c1FYZk5yZitWTm4rbEgxazcwL0h5Y0RFK0lt?=
- =?utf-8?B?SFE9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(19092799006)(7416014)(366016)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZFMwRWloclNmWHc3a1NJYVpLVlNleTM1YUwwYjNWV0pac1FEMlFYR1RCSHR3?=
- =?utf-8?B?ZXBPekMyV2VQN1VjZWw2SmRDWlp5YmF5cE4rczM1OFp0ZGNURlBnZVVzL2h3?=
- =?utf-8?B?TG9pQzhpakVwU016N2p3ellXRFVqV2VndUtoUGVCcEpQcU9MSkFKbUE1NkJW?=
- =?utf-8?B?QUlxemw0UmFMNGJ0QXN6dHA4UG1EMExXcDkvU3hOamVwKzNxNVQvVFJBRUdy?=
- =?utf-8?B?am93T2FiOGQ0TWM2dnh0dnl1RkQ4RDhPZXRYRE9DMGtZa0x3L3F3MTF2djlI?=
- =?utf-8?B?V2lkTDlwWmNIREJoUHlNVUlUTlNZY0VwR0dIUm8wU09LT3lqYnRoRUxINVdp?=
- =?utf-8?B?Tkl0SXV2Ym91NXlFWWYxMGJiNjhtZlRxUmtUTVNuWURSVzBBbThrVXFnWnFq?=
- =?utf-8?B?Unpkb2xSY3FSS3hQQW00VmovSUkrcTRQOUJCRkNYdUJzMk52eDNJNytuUGFS?=
- =?utf-8?B?anlMbnAxcTN5Q0hHZlRTc2ZjQUl0RnAvY05VN25YRFVvQnNlczJZay9uaXpY?=
- =?utf-8?B?ZDZPa1RVZ1U5cTR0T2tSWDNxQ1hLamNiUFVTem8wY3Frc1NPZjVlSVlOM2hJ?=
- =?utf-8?B?T3Z6R1VZN1JoQ2hnd1ZJM0txNkRKb3hFYkZCVmxjYURYUERscU9kcVBRQTFE?=
- =?utf-8?B?Z1B0Kzl2NlkxSEdyUHJ6SnptbXFuYnJEV2FuemJDd3NjRHQ5ZDkrQVpHSmxx?=
- =?utf-8?B?MmxrMXhYaVdDa1dvcVJWODB6WTJkbzh4OExVRy9wZGRZaDcxWXhLZ2VGZDlG?=
- =?utf-8?B?NEtJSS95SG1mVG4rOUcxL0MxWWMzWXFsWmV2bGdTYjdKWFNiOUI4cXYzRWJL?=
- =?utf-8?B?UE1xbTVTREsrVDM3QkdDcTdTbEsvazR4N3RLcUo5VGhyOW5RUHliSjh2aHN6?=
- =?utf-8?B?NmRJazF3TFNQTVpCTklIZlh1OFVJVkJaTTR3dVZ1WFVScmxDMVJGdlNBT3Uz?=
- =?utf-8?B?MnRoN2FJMllpcTBrekp1REFmd1pyN1JFVmVhNk9meVhmZXM1TUVKVGhSMTEw?=
- =?utf-8?B?K09lWFZVR2xPWG5QVzk5Zmt4Zjl3VERweDBqSkxHa0RheFBTUkdEc2NleFc1?=
- =?utf-8?B?UGg5MzN4UERhaUJFVXBQQnZmOGlHQUJQUUxsYmZyeWZjTlI2UjllOTFKRHM5?=
- =?utf-8?B?ZHkxeGcxWkVRQUsrYjMzT2o3N3FwclBWb2RyQnU4VktTTStTSEE3YnhXU3BU?=
- =?utf-8?B?RDR2QWU3dnUvYnd5T2ZHeFlmQit5NWpMK3hQNjdtKy8vVU5oeHFCZlhORFJt?=
- =?utf-8?B?K0VqbDVwRWprMHFKYmlJaDZGRkRYWDhRRlJEemJnaXhjSWR3MFJrdzZmZEhG?=
- =?utf-8?B?bll5dWFnR2VkY2lTRU1FbVZTZ2gydkloYjFGcWRYc0JiYmpON0gzcmgxUXNq?=
- =?utf-8?B?Y0U4a0l5V0xidjFUc3pldlBzdTJ2ZVBhMnZzQWVOcFh4R2N2SWo2d25JWith?=
- =?utf-8?B?WHE3dkswM0hTRldmOVpGTzIvcHpYQzcwR085NEUyYjlXSEtMcmt1TVhIVktJ?=
- =?utf-8?B?SnNyYmJDckpWV0c3enRMR3Q0aUhhQ3A4S1dzY2swMlJrZWFTTmI5a1BteHdY?=
- =?utf-8?B?a3E0dzhvSGc0K2RBTDl1OW4rWEU3V3JTaXNvWlUwUXZRdWRNYnVKaHM5N3ZX?=
- =?utf-8?B?eXZIbU9oaFZXa2V1WERLczZLWWFZV0NpaHBDODlWbU01bWZCMzFESzFsdGtt?=
- =?utf-8?B?NjZwYnRzSVdmOEduTkI5WEVLV3hRSnVWd2pwc3FsTGlpZVhpSVRsVUd5aGFv?=
- =?utf-8?B?UDFZcFhJbEZuVklWU3EzVW1hemtxZWpZZHpiMVI4dkZqaERKeDA0bTRMS3I3?=
- =?utf-8?B?K0loVzJDeVY0dVZ2SlNFbEg1cEhkL2p1K1BSeDYxdTBCSlppSE1hbDhWWkxu?=
- =?utf-8?B?M0NmeDVJOWtyb01IRm13dk5VY1RvUHZjUkpEdmczZTNGeFFoQXFLSTdrUzhR?=
- =?utf-8?B?Q2YwZTRiL2pPSnU3c0IyU0V3a1VkbldVZlUrdFVqU2pjbnFydTNnVlpzelJC?=
- =?utf-8?B?MzFFdytHeDd0QmxZVzBObUJTU1JjTHZxRENudnZBcHA2ekw2cEg1eGxOQ1ly?=
- =?utf-8?B?YkJuMndYK0lnRFRhSVJDbzIxMUpVSkVpS3pvdTlPdSt6Y0hEMXNJNDNZaXhm?=
- =?utf-8?B?WVVrTU1tbGRZU3JFR0NFNU0wM3J3YWpBdVVaYURyR2cwUmsvcUxUa1ZhM1JI?=
- =?utf-8?B?aytKZTFqZG5HQzlrbGNXUTdIU29uN3A4QitIR2dvOXUrb2FHWkJ0QlBEWGl5?=
- =?utf-8?B?c2xVRzkwQTBFMllRamZ3NXZJSThCYndKWmF4YU1xeWdyRXFzK1ZqK1llQ0FS?=
- =?utf-8?B?WWVtVVc3cW4yQzdhNDRTQVl2MHk2WnRuZlNma1E4bkJzT1FQamVqUT09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 45853d47-c724-47d6-8b6c-08de5f0edfc8
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2026 08:17:42.3657
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DhmwDTOxutj0Xem6iTUZW8dkGyVjhGxu+RoKF4ZBRs+0VSh9ftXKF4MJrFZrkwZcLFcqUqvL2969BPEtkGfcnA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11681
+References: <0caa3c449b0c3d64944da3f1003d9389bdc13f98.1769541083.git.geert+renesas@glider.be>
+ <e955868c06547ac62d34d594d45dd07aa19e361b.camel@linaro.org>
+In-Reply-To: <e955868c06547ac62d34d594d45dd07aa19e361b.camel@linaro.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 29 Jan 2026 09:32:35 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUWgrA9Z3d8pzRpuWJ=_P+JtQyUvOoT0eVpOp7Cikzj0A@mail.gmail.com>
+X-Gm-Features: AZwV_QhDAZHfDa69lcwIjPEMriVTWX2j2mEpl3sREl4ukbpmMZGKeuh-Z80oSWU
+Message-ID: <CAMuHMdUWgrA9Z3d8pzRpuWJ=_P+JtQyUvOoT0eVpOp7Cikzj0A@mail.gmail.com>
+Subject: Re: [PATCH] phy: PHY_GOOGLE_USB should depend on ARCH_GOOGLE
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Naveen Kumar <mnkumar@google.com>, 
+	Roy Luo <royluo@google.com>, Joy Chakraborty <joychakr@google.com>, Arnd Bergmann <arnd@arndb.de>, 
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_001748_449066_BE4E9E29 
-X-CRM114-Status: GOOD (  23.66  )
+X-CRM114-CacheID: sfid-20260129_003249_633021_FE7EB7C3 
+X-CRM114-Status: GOOD (  26.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -201,117 +100,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andr=C3=A9,
 
+On Wed, 28 Jan 2026 at 21:03, Andr=C3=A9 Draszik <andre.draszik@linaro.org>=
+ wrote:
+> On Tue, 2026-01-27 at 20:12 +0100, Geert Uytterhoeven wrote:
+> > The Google Tensor SoC USB PHY is only present on Google Tensor G5
+> > (Laguna) SoCs.  Hence add a dependency on ARCH_GOOGLE, to prevent askin=
+g
+> > the user about this driver when configuring a kernel without Google
+> > Tensor SoC support.
+> >
+> > Fixes: cbce66669c82ee9a ("phy: Add Google Tensor SoC USB PHY driver")
+> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > ---
+> > ARCH_GOOGLE is not yet upstream, but that doesn't hurt.
+>
+> I can see your point, and have no objection, but for context, Greg
+> had asked to not add dependencies on a config option that might or
+> might not get added in the future - ARCH_GOOGLE:
 
-On Thu, Jan 29, 2026 at 03:49:38PM +0800, Liu Ying wrote:
-> 
-> 
-> On Wed, Jan 28, 2026 at 04:58:18PM +0100, Luca Ceresoli wrote:
->> On Tue Jan 27, 2026 at 4:54 AM CET, Liu Ying wrote:
->>
->> ...
->>
->>>>>> @@ -260,7 +259,7 @@ static int imx8qxp_pixel_link_find_next_bridge(struct imx8qxp_pixel_link *pl)
->>>>>>  {
->>>>>>  	struct device_node *np = pl->dev->of_node;
->>>>>>  	struct device_node *port;
->>>>>> -	struct drm_bridge *selected_bridge = NULL;
->>>>>> +	struct drm_bridge *selected_bridge __free(drm_bridge_put) = NULL;
->>>>>>  	u32 port_id;
->>>>>>  	bool found_port = false;
->>>>>>  	int reg;
->>>>>> @@ -297,7 +296,8 @@ static int imx8qxp_pixel_link_find_next_bridge(struct imx8qxp_pixel_link *pl)
->>>>>>  			continue;
->>>>>>  		}
->>>>>>
->>>>>> -		struct drm_bridge *next_bridge = of_drm_find_bridge(remote);
->>>>>> +		struct drm_bridge *next_bridge __free(drm_bridge_put) =
->>>>>> +			of_drm_find_and_get_bridge(remote);
->>>>>>  		if (!next_bridge)
->>>>>>  			return -EPROBE_DEFER;
->>>>>>
->>>>>> @@ -305,12 +305,14 @@ static int imx8qxp_pixel_link_find_next_bridge(struct imx8qxp_pixel_link *pl)
->>>>>>  		 * Select the next bridge with companion PXL2DPI if
->>>>>>  		 * present, otherwise default to the first bridge
->>>>>>  		 */
->>>>>> -		if (!selected_bridge || of_property_present(remote, "fsl,companion-pxl2dpi"))
->>>>>> -			selected_bridge = next_bridge;
->>>>>> +		if (!selected_bridge || of_property_present(remote, "fsl,companion-pxl2dpi")) {
->>>>>> +			drm_bridge_put(selected_bridge);
->>>>>> +			selected_bridge = drm_bridge_get(next_bridge);
->>>>>
->>>>> Considering selecting the first bridge without the companion pxl2dpi,
->>>>> there would be a superfluous refcount for the selected bridge:
->>>>>
->>>>> 1) of_drm_find_and_get_bridge: refcount = 1
->>>>> 2) drm_bridge_put: noop, since selected_bridge is NULL, refcount = 1
->>>>> 3) drm_bridge_get: refcount = 2
->>>>> 4) drm_bridge_put(__free): refcount = 1
->>>>> 5) drm_bridge_get: for the pl->bridge.next_bridge, refcount = 2
->>>>
->>>> Here you are missing one put. There are two drm_bridge_put(__free), one for
->>>> next_bridge and one for selected_bridge. So your list should rather be:
->>>>
->>>> 1) next_bridge = of_drm_find_and_get_bridge: refcount = 1
->>>> 2) drm_bridge_put(selected_bridge): noop, since selected_bridge is NULL, refcount = 1
->>>> 3) selected_bridge = drm_bridge_get: refcount = 2
->>>> 4) drm_bridge_put(next_bridge) [__free at loop scope end]: refcount = 1
->>>> 5) pl->bridge.next_bridge = drm_bridge_get(), refcount = 2
->>>> 6) drm_bridge_put(selected_bridge) [__free at function scope end]: refcount = 1
->>>
->>> Ah, right, I did miss this last put because selected_bridge is declared with
->>> __free a bit far away from the loop at the very beginning of
->>> imx8qxp_pixel_link_find_next_bridge() - that's my problem I guess, but I'm
->>> not even sure if I'll fall into this same pitfall again after a while, which
->>> makes the driver difficult to maintain.
->>>
->>> Also, it seems that the refcount dance(back and forth bewteen 1 and 2) is not
->>> something straightforward for driver readers to follow.
->>
->> I thing the whole logic becomes straightforward if you think it this way:
->>
->>  * when a pointer is assigned = a new reference starts existing -> refcount++
->>  * when a pointer is cleared/overwritten or goes out of scope = a reference
->>    stops existing -> refcount--
->>
->> In short: one pointer, one reference, one refcount.
->>
->> If you re-read the patch with this in mind, does it become clearer?
-> 
-> Thanks for more explaination, maybe it becomes a bit clearer, I'm not sure:/
-> 
-> Anyway, to simplify things with another try, I came up with the below
-> snippet in that loop, which drops the two intermediate bridges(local
-> next_bridge and selected_bridge) and uses pl->next_bridge only.
+The exact name may indeed still be under discussion.  But we all know
+there _will_ be a config option (unless the platform is abandoned before
+upstreaming, and this driver will be removed again anyway ;-).
 
-Fix a typo:
-s/pl->next_bridge/pl->bridge.next_bridge/
+> Maybe an alternative would be to make it default=3Dn, and change that
+> default once ARCH_GOOGLE gets added?
 
-> It looks ok to me(at least, refcount dance is much simpler).
-> 
-> -8<-
-> if (!pl->next_bridge || of_property_present(remote, "fsl,companion-pxl2dpi")) {
->         drm_bridge_put(pl->next_bridge);
->         pl->next_bridge = of_drm_find_and_get_bridge(remote);
->         if (!pl->next_bridge)
->                 return -EPROBE_DEFER;
-> }
-> -8<-
+It already defaults to disabled, as "default=3Dn" is the default.
 
--8<-
-if (!pl->bridge.next_bridge || of_property_present(remote, "fsl,companion-pxl2dpi")) {
-        drm_bridge_put(pl->bridge.next_bridge);
-        pl->bridge.next_bridge = of_drm_find_and_get_bridge(remote);
-        if (!pl->bridge.next_bridge)
-                return -EPROBE_DEFER;
-}
--8<-
+> > --- a/drivers/phy/Kconfig
+> > +++ b/drivers/phy/Kconfig
+> > @@ -49,6 +49,7 @@ config GENERIC_PHY_MIPI_DPHY
+> >
+> >  config PHY_GOOGLE_USB
+> >       tristate "Google Tensor SoC USB PHY driver"
+> > +     depends on ARCH_GOOGLE || COMPILE_TEST
+> >       select GENERIC_PHY
+> >       help
+> >         Enable support for the USB PHY on Google Tensor SoCs, starting =
+with
 
-> 
-> What do you think?
-> 
+Gr{oetje,eeting}s,
 
--- 
-Regards,
-Liu Ying
+                        Geert
+
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
