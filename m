@@ -4,88 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57E38D358E2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 08:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 642B8D358E4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 08:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iWSiH0vErBGaTqnZZjDiFHXh+s+0x/2ewRQpe7UFdYM=; b=1wk3U9fWioPjpDySkK+qOumJAo
-	PA8OyrbxmJglcSmFu0PnEmyFvFAkhfF4pvC8o+20xCMrMZGcCmc0saQkUf0Jzg3p4MDRYnd8fhCbj
-	qLt7vr7vTYbobHrtkIW5TIUNA/Su0lUWkqBkHFIFIyZrRnWyHfbz8XWdasBpejh5hEKhsq7+Imd7Z
-	fWqpEJbIhoRhvFWitlqaG3xGz8H7ivrWGRaMWhLGnd3jXWwhyP+ppEsG41bKM17FTDprtJDJRu9Qm
-	O2IqYdvsnrq7L95NEE1qXm5KFXspcIpFz+fmmQKEC3UT/jaMnrsBPrIwcJHS3pYP83jeEvvrwwIBo
-	1684uFEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HCn9mkC1oxF8H4oD5P0qb64afoErL4ruX9TIP8+UttM=; b=yWUUSJg5yG/rfh6tqQGo7Y9Vj/
+	H5L2qn07omeB5uASgf/5mKmYF5OuLwh3o6FvMaT/gwHlX2i2jCopopIpcsdCUpSyYH+J70kDeBqZ9
+	ybZpE7gmQPnXBE4ruw4bpKwXIAphKUZIJt+2BAh8NP7pvpTXjqNqrKLgwazGMHw4eW7zslSoEk+Ic
+	0TLrVEy0ma/oHTFfxl69NFEuExXRkIz1Np7IUbpdyPmWvh7zP0QmLAqsRot41M9ruGQEzxveKReh1
+	ufqnP1PEefuKBV2jrV+yd0zBA7UCEYUfwyTMX1kLMo/Qua4Ki2c/xOA3xEflApBftdh7qplfmS70S
+	bJ+e49KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlNSP-0000000HSbS-0CkI;
-	Thu, 29 Jan 2026 08:32:53 +0000
-Received: from mail-vs1-f43.google.com ([209.85.217.43])
+	id 1vlNcn-0000000HT82-0e4V;
+	Thu, 29 Jan 2026 08:43:37 +0000
+Received: from mail-northeuropeazon11010034.outbound.protection.outlook.com ([52.101.84.34] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlNSL-0000000HSaW-2LrL
+	id 1vlNck-0000000HT7L-3HYJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 08:32:51 +0000
-Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-5f524301a76so1149373137.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 00:32:48 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769675568; x=1770280368;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=iWSiH0vErBGaTqnZZjDiFHXh+s+0x/2ewRQpe7UFdYM=;
-        b=rxAT2zDVcdrJqxouAAkS9s/ArROeKboq2S7X6JxUuTonfUQqV/uXdC7akgNH2mPQRw
-         LSuwzLZb1n1DW5DIc0KkZUCejnQ1oJEt4Z++WTwzCChPr4289pBnnqlg3FU7qfPxvqo4
-         Wb5VG/IqbRuXTd0gWmNkG9zzFPwIxGO1XMNsN377so34mDa5q1XGZ4wHUvWjTjiILDkT
-         Oc2UjZQNoPrgHiTQoEWlVTMpNNWodA6kAzTtzEwV5K6dUxqLTR0dv2UoB/srldVvQQay
-         J/bJoA3BYXhtnCIynWWDRYTjkZ74wZCwyCx6U/ILUz2ApNmvBbUTnLb5fmV95iyGqZX8
-         80jg==
-X-Forwarded-Encrypted: i=1; AJvYcCWSCnWTCcSTqU+lGwG7TxtOpvhbbSoJcWKVuJUNSGzBF0xKsyDkLj4C3Oii1gCq6ARsMjj9yd9mQlSboDPz92QP@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEENacNM9BfIOSQ3mUi+WQ/Yl+tpnfWosQol4tvHbsr+aD1sX4
-	0oqVCVFGjitpnOWzAZv4HkGvlV+jg66GghvsPEIYUWjFCR+Z0XHfQFihSD2ejLUA
-X-Gm-Gg: AZuq6aILNuBT4IDRVvTDX6kaEQmcbk9k5RGmqTm5k7Oe7UmeyiFdQt/htcgipBAArVD
-	YnOEC2MOzA52ut3Nn2pKZyilH0PnOBY9/VstXxXVZsPAEXYpSjdxN+wpt6TxhmEYxvuXl6L9Te7
-	RQaCWrHZqUCPSyvsVIhebGQmTkbwJfRae9shHMOsRCjlvlKDMPQ1YDtUZY1hhTtwuySmomiLIGK
-	ITu1g4cgiWXqLzokmDhz8A6sQaF20EA21YsQUEFLoCLpG0iDFwdA0azhjtnIaoQj01oCosFCS0Z
-	14g5IFE6tQ5gHSa5O3tR9ZwA9GwQ9Vm0DYuK7PT4sEqmPqh3e2qskXq8LFq5zaQzr4GUj0gRHKx
-	zlKeDz4SYlHag2hYRsTmck7qpe/dwiWM7i6pl6UOF0fj5dOnsKU1XlXInS2ngbQ5GbDYZauOiHb
-	we/8OMyePHOUFVQxtxrcsN8ta2DM0XxkgxTdd7UETBjtY0Ilhp
-X-Received: by 2002:a05:6102:4193:b0:5db:3c3b:7767 with SMTP id ada2fe7eead31-5f8cdb99a0amr743203137.16.1769675567877;
-        Thu, 29 Jan 2026 00:32:47 -0800 (PST)
-Received: from mail-vs1-f45.google.com (mail-vs1-f45.google.com. [209.85.217.45])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5f734f22c2fsm1008697137.14.2026.01.29.00.32.47
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 29 Jan 2026 00:32:47 -0800 (PST)
-Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-5f524301a76so1149366137.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 00:32:47 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWdT9/7knDLOfU+UmWg2lL15pZy4d2KETfZfOleFhOCJxwX+mk4qPirsYasnhhac/4feJRolfJ5tDuG37pz0/lS@lists.infradead.org
-X-Received: by 2002:a05:6102:358a:b0:5f1:b59d:a824 with SMTP id
- ada2fe7eead31-5f8cdbcdd58mr660134137.10.1769675567174; Thu, 29 Jan 2026
- 00:32:47 -0800 (PST)
+	Thu, 29 Jan 2026 08:43:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LlLttxTioAb16JdX3sGyosMwlI2JG3dGZ/P6Ca4ExrCRefG1beD4GofPLMNqtUC3ETfMQlGPvRdN+yGTZ3+gr8tFui045QNG021sPH1+ndcAkeJyMbSek+suOHD0XWHl6ez7WtxYG9FRiP1qasnPcHIvVYeDklFl7MKrQf27KYB457+WNEcOpRzr4dmTDsECPDRMezvN5+3P5sVIj3NtPIxVQ004Tpj2iUQMksG/Opj2juKsQczeFqfmXYa6/lf4GC4Yb3DnojmPZ8ra3s4Edo/7UBrCkJx9d480JRJxVrTB/sEir9Uz4xlQFa3lbNIqa/AuZKuuw8rOszKnvQTc2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HCn9mkC1oxF8H4oD5P0qb64afoErL4ruX9TIP8+UttM=;
+ b=OgtHutyLTwH/D/BrVVEqGCmd3wVarb2v2yP3UurdwAXe0rxeaFnV59EEGSEtPU2j3ZGiRbkVaUoOSXyxsgsuk5IuPUPH3jRfyF3wDZ9m83BiFm8PYZx3oL6pAnoAiUqnRE4KWIaWLxVc5eM0MHUgKlKXTp2/1GuoTmzCfe7Gms1z1uVftlZn3zxbkbEKz7QDgTlmJP8tMdIX79pP5/HghI7Jjs9rg4SIc/d4sN5i0Nt1q43qptj/UDBFMKPzXecsYLTzLUmETDMad1JHk4o7fLUeXhyDjnhyK6CyTMSuTZAoSFEs8FvKYd+ZsCqiFuyuCKuA1FBoowOuhPMm6af69g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HCn9mkC1oxF8H4oD5P0qb64afoErL4ruX9TIP8+UttM=;
+ b=d+1iUX0LiI3mtFAr65EIbsFA1WYKqYn5z34IFG9nE7B0tHfVSivkrXOqoxs6xJFyDCG6K6ZyavUZ3ByrUUzG4sSBnS/PyxOSKozpIHD1XInrrBnz70roeg6F96/eq87rEv7rNKmWuq2LItShrVKpsiLklLAVdRv3CUsK86ClM9j374rrL5V9KtAMYYfT+8cTq4XljoXDE7sBCswNHi4D0ob81Ps2F34Z7lqwKM8xVpXw+G6XuQJXz4JD7wXM/8Zkqt38JwCyuE9ahssLn0wfwt168YzbGnFTSK1976oBBxLnnc6ErvIC/mdMO2I0PargtL9qD0Vnt9t49SQtKWUpLg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by DB9PR04MB9674.eurprd04.prod.outlook.com
+ (2603:10a6:10:306::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Thu, 29 Jan
+ 2026 08:43:27 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::2943:c36f:6a8c:81f7]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::2943:c36f:6a8c:81f7%5]) with mapi id 15.20.9564.006; Thu, 29 Jan 2026
+ 08:43:27 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	frank.li@nxp.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com,
+	daniel.baluta@nxp.com,
+	dario.binacchi@amarulasolutions.com,
+	alexander.stein@ew.tq-group.com,
+	Markus.Niebel@tq-group.com,
+	matthias.schiffer@tq-group.com,
+	y.moog@phytec.de,
+	josua@solid-run.com,
+	francesco.dolcini@toradex.com,
+	primoz.fiser@norik.com
+Cc: kernel@pengutronix.de,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH V4 0/4] arm64: dts: imx93: Add i.MX93 Wireless EVK and refactor common parts
+Date: Thu, 29 Jan 2026 16:42:45 +0800
+Message-Id: <20260129084249.3079432-1-sherry.sun@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0010.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::17) To VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13)
 MIME-Version: 1.0
-References: <0caa3c449b0c3d64944da3f1003d9389bdc13f98.1769541083.git.geert+renesas@glider.be>
- <e955868c06547ac62d34d594d45dd07aa19e361b.camel@linaro.org>
-In-Reply-To: <e955868c06547ac62d34d594d45dd07aa19e361b.camel@linaro.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 29 Jan 2026 09:32:35 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdUWgrA9Z3d8pzRpuWJ=_P+JtQyUvOoT0eVpOp7Cikzj0A@mail.gmail.com>
-X-Gm-Features: AZwV_QhDAZHfDa69lcwIjPEMriVTWX2j2mEpl3sREl4ukbpmMZGKeuh-Z80oSWU
-Message-ID: <CAMuHMdUWgrA9Z3d8pzRpuWJ=_P+JtQyUvOoT0eVpOp7Cikzj0A@mail.gmail.com>
-Subject: Re: [PATCH] phy: PHY_GOOGLE_USB should depend on ARCH_GOOGLE
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Naveen Kumar <mnkumar@google.com>, 
-	Roy Luo <royluo@google.com>, Joy Chakraborty <joychakr@google.com>, Arnd Bergmann <arnd@arndb.de>, 
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|DB9PR04MB9674:EE_
+X-MS-Office365-Filtering-Correlation-Id: 336747e6-8e48-4d00-d3e6-08de5f1278c0
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|52116014|7416014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?z3U10OSxO8/nxpjBvzT6RbGyMug0b+nlOUj4iuZBjvB+N2zwb+5JGm77MpJ3?=
+ =?us-ascii?Q?G8cIquNFYxDjGvkC94XM06jMx0IHlTIIczr4b59tqKBurcsTp+AepxdoVFfB?=
+ =?us-ascii?Q?/eHszG1cBRgBX2IwtshrFOWymAK1/ETK1NLmBklYs4KwipkxnPz4joO7kOML?=
+ =?us-ascii?Q?777+HHLD/Hhz9SSmGSTAO2lP/LJyMMAA1BThfg5h2wRpcZI2+lVVqzhBWxqn?=
+ =?us-ascii?Q?0o+Ug/u4Fgn5+iHnyxHYKZtxgxzTaXDNmOi7VLKVKQbqGCRmvl8pFcd8WGrK?=
+ =?us-ascii?Q?Gd2gPFGkGl9EXsA6V7jiHr8/TVbrqX1r5lZTeAx/wTbGPDIC6ksbh7H2d5DU?=
+ =?us-ascii?Q?knm4if4zfAdvmzthCnTB1NBjU5l9657VXwEwBMvl6Hg1DdhaIok/g/nnaxRU?=
+ =?us-ascii?Q?pOIOA9ApNV44DeZiyB/E2rojIK/1hEB80AjFaVPNP22aagd8/Icvdj/yYpRk?=
+ =?us-ascii?Q?hsiMLoSmf9Ose9F1B4C6EL00K6P+UtKdam2P9pZo7EHARExRNDJrSgHt1GyC?=
+ =?us-ascii?Q?cVbRXyERz9UAjOG0O9BnukYz8fV2UYTxkYtZVbeU46dyk/D6DK9uqAyC+STz?=
+ =?us-ascii?Q?/Jk+2oQVFVdqZd76ZWciPK91ea9UMVytFbx10fpEOeoDQ1ZIkVPNCNhimAlU?=
+ =?us-ascii?Q?Nqn2WaJjvAnpMd8U4sKYJvgHeEiRLy2WVIZRzmUgLBRyZYFuMiPa/ZBrVjxS?=
+ =?us-ascii?Q?TtZt76eO/aUaTpIdO8Nv70RMnnPX1sWkAjeTK1mj5MJO+GCvqAY6j1Q+u3Z9?=
+ =?us-ascii?Q?0Uk8yVDXGTeAVRSFBwFpH0qoHf3l9xUcSqyVOe1zB9Z86mlckraKL/FhG7df?=
+ =?us-ascii?Q?wKarie+1XpvRZ1n8fous8fsH4jdZuBCvQ01JohSUcLeBFozNMWyLCnwgHCUj?=
+ =?us-ascii?Q?TDcUgjUyQHT/VY3aDM1/vx8dZw9tZwaco5FsQN8aJ0bLtvNqJrIPKyEUR+Ah?=
+ =?us-ascii?Q?Id/XjDxCBmmr9HOAwhsD9T9hvq4w4FFtFWd2ncyVG4u2edX+vvyxl/8kJiyf?=
+ =?us-ascii?Q?+IurTj6AIj4Io9EkyHOG3en8fwlS+yDgcX82ukgejI+PRwuURr1nlIX669iq?=
+ =?us-ascii?Q?abssg5IVlF8YfyjbFqhThAORzvaPmwzPUBNt+0blaELk8Ifsy37+o47dKk5e?=
+ =?us-ascii?Q?3vQqM4OJ33ozJ6gj44ps8GvU4VB7kWAXS0zk0lF0QCaMd33rOU3B0L8RGE+9?=
+ =?us-ascii?Q?VUdzM8on07YxLuac9QAqv83IJ01lC9N67Q07MlulFFk49CDQAqbbJ/DebTGV?=
+ =?us-ascii?Q?UtDORsxhQOJuyNbcUyqnlXKFxKRP9V1cb2Z1981TuSynVEmVVmidylCRQFlR?=
+ =?us-ascii?Q?wZNKuaTklrMcwshjGhXqsHmymRCZ8b+XL5PhAcF7ndDVpcPRxiGjh7FhMFKq?=
+ =?us-ascii?Q?KAdspad+2UWpa01VIBESsCUV1L59LMUxfgxJJCSZlikSvyphfqIXq0G0FSM7?=
+ =?us-ascii?Q?IvvbgvtViiASjBmQfKCNDOu3ZbCPRgzFdW5mPi9T0CtmlQUjb4ZLp+3NIGzt?=
+ =?us-ascii?Q?q907H5xGYRPvqtWDiETDEZcWo9iu2FIXskax2dAIQ+iJrPo6XzjL8ns2V1Y/?=
+ =?us-ascii?Q?PVO+clAk5l8FQQteY75J2b/JpbvbvxYKX4gqC0KVQJp4KKRXsaMXlRdr/sjO?=
+ =?us-ascii?Q?DrsZ8fyTGN2VJ01RRLwZcZPRh4SycegM3wRe0TvnnbMx?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(52116014)(7416014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rilKOT0q6eKUjp5F+GHaI32EdqNY8gyWMXXhAho45yI2rAuv11+RLJ1GebfN?=
+ =?us-ascii?Q?yLpIzZ1zFSu32/bjUIc3Ki/eBwf73X9r7KRAAPbHPYDXy0Hf6IYpZzRX2yFA?=
+ =?us-ascii?Q?qT+6teV6QGe4P8pRwHgtw9HAve5lmk0iH+j81BSj2yyqAvvwyxP2FeJloJ4Y?=
+ =?us-ascii?Q?JQKun5JwSNZlPKrzFXY3+RZpR5t3Fo+wur0aDtVWH7bHrF1PG4tu44If0vmN?=
+ =?us-ascii?Q?paHPZ1VawyRwQRccQ0aCfOH28i/eTg5YilOwKe3GGzrsjtyETh62qJtvZARt?=
+ =?us-ascii?Q?iH42sdjvzQ3THk9G2s6UKglboWRwwUTkKnhiAmADjfWESTEfisakp6ZLoiLT?=
+ =?us-ascii?Q?cff0zEcBWDuHwTjKw/vd0vdkFGFEqXQsFqIEZgzyozs2h+hLptUsljiNZjGo?=
+ =?us-ascii?Q?6B0BIk/xEdG8hBczSvZmCCt2vXPwYYYM9RNWMObfBt/cMm+tO3N9r01BPbPe?=
+ =?us-ascii?Q?AmxFl6oNws9UumYMtAu2EASARc6cliHCjLw1NuZiOt1U29goluoQfB32hDDE?=
+ =?us-ascii?Q?wvpn6YBIoo7TsqPwE4/BveoFDIqFmTzCR9q5n+k/ZYQ1xGPBTniV3cEi/ZG1?=
+ =?us-ascii?Q?FNDudogS7dpI4We9Abb0grX/DO0czkDgoOO+8Q4t4Rw72WVPDsaZ8Ow/bRr9?=
+ =?us-ascii?Q?XG369OFBbF00VdxNmYB4PkmYJ4vkEW9+F1K+zo3uuJj4Zf/ESSMX26B9sEPx?=
+ =?us-ascii?Q?RDt0dS0Q1EUG8xm6GlZpT2YwSiW/OVmbEr0GLijGjcUVelBcvUInWjKXVttn?=
+ =?us-ascii?Q?uLxlY4qKwN6MnXyok5kRNBp3n+9IKRbnG7EHGok2S5vhxoZuFLNQ+2abAf62?=
+ =?us-ascii?Q?oKMWkiO2bDb1L2U5LLBllqOvYfNeFqfGWq/C31kNgp0ntW4Q4+IMjNtpUQ0V?=
+ =?us-ascii?Q?ed7xI4+mEEQR0yDpnhNqiuvzGMlQIKTW56TLbwSSD83joO0SrvRf6miW0wor?=
+ =?us-ascii?Q?Jt074pX0DzHhxORka4AtrvAqIxqpFDeLz5Fgv1j1/yHAZ+QEJ6rMZO3lHKpU?=
+ =?us-ascii?Q?+ORMj/iHvB6eB60TkIl+TfUDTkMOi4+HQsQBTc8GDQLuBBbSqKPFKanh1mSb?=
+ =?us-ascii?Q?yZl9uDC7UDUUQV4UNNPrtjHOAjTe4QuM/S8d7RT6pzr3q9zdtALiSHM+c/RM?=
+ =?us-ascii?Q?UFjQKxw3ql1Nkn6+e+lWzTR+44rvILlc3X53kKbbvBmEFXG205g09/gZpx6X?=
+ =?us-ascii?Q?RsdfwqhxnccAvJj1XegOYWuPyId5MPA0b++VmgS6E5zyqb/KP4r/4p1mkQ4o?=
+ =?us-ascii?Q?ri0KylD8ESyIfBR61wok4qEza6aYnN2stcwtyQP8S2CPaYDK7A/QR+a+0FBs?=
+ =?us-ascii?Q?Szp3hl3wLPAjUil+XZeTbyKmHNFSH4/49v6NwyY2CdFxjCxq+nZ8j31ECEls?=
+ =?us-ascii?Q?S1nrWNYlsPWrmwYIhCFuUn+i+C9vmR/ieHNd/3e/9JiSapPB8rnbk+/Ak2OI?=
+ =?us-ascii?Q?MIzGLCYOa8m0oxl1NkDc0sIyx8o6kDftZ7ZkIuYXDhmyVH4OttOT+4NqbVIt?=
+ =?us-ascii?Q?8k2wJFVHGVeEqVLUweo20ICilBAMeZuctfe8hEvO3D95tVmoU6f+UOj8WWpu?=
+ =?us-ascii?Q?+ymgU7mcyaZg6G0y9TaLLJ2BgPnZPc6o0uO9jtCnv7bl/9CiWwPnXQb3y5Ii?=
+ =?us-ascii?Q?L2vUtmP52wZbFS+bXQ9ynt9yRnA31Prdzedm81Zf4ybTvopF5Ywk5dzTlkWQ?=
+ =?us-ascii?Q?q/x1SJH5+7/PryicUIvCRB2ajR7n91mKvOcJQe2Jk7wqu8w1ci1UUXd4atbK?=
+ =?us-ascii?Q?+PSJ8HZ7gA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 336747e6-8e48-4d00-d3e6-08de5f1278c0
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2026 08:43:27.4189
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: I8Llp8ClI+40DGzG/QOYgDaKgAsPUETYOHHdttWjjbXLdu4plqyPP2Z83JpymZu/3i9Kz0Hs6Ya96nzKXo/iTQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9674
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_003249_633021_FE7EB7C3 
-X-CRM114-Status: GOOD (  26.42  )
+X-CRM114-CacheID: sfid-20260129_004334_824193_DFF36907 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,58 +179,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andr=C3=A9,
+This patch set adds support for the NXP i.MX93 Wireless EVK and refactors
+the existing i.MX93 11x11 EVK DTS to share the common parts via a new
+imx93-evk-common.dtsi. The Wireless EVK integrates i.MX93 with an IW610
+(WiFi + BLE + 802.15.4) SiP and reuses most of the 11x11 EVK design with
+minor functional and pin connection differences.
 
-On Wed, 28 Jan 2026 at 21:03, Andr=C3=A9 Draszik <andre.draszik@linaro.org>=
- wrote:
-> On Tue, 2026-01-27 at 20:12 +0100, Geert Uytterhoeven wrote:
-> > The Google Tensor SoC USB PHY is only present on Google Tensor G5
-> > (Laguna) SoCs.  Hence add a dependency on ARCH_GOOGLE, to prevent askin=
-g
-> > the user about this driver when configuring a kernel without Google
-> > Tensor SoC support.
-> >
-> > Fixes: cbce66669c82ee9a ("phy: Add Google Tensor SoC USB PHY driver")
-> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > ---
-> > ARCH_GOOGLE is not yet upstream, but that doesn't hurt.
->
-> I can see your point, and have no objection, but for context, Greg
-> had asked to not add dependencies on a config option that might or
-> might not get added in the future - ARCH_GOOGLE:
+Also introduce imx93w.dtsi to describe the new NXP i.MX93 Wireless SiP so
+that can be reused by multiple boards adopting the i.MX93 Wireless SiP.
 
-The exact name may indeed still be under discussion.  But we all know
-there _will_ be a config option (unless the platform is abandoned before
-upstreaming, and this driver will be removed again anyway ;-).
+---
+Changes in V4:
+1. Add imx93w.dtsi to describe the new NXP i.MX93 Wireless SiP in patch#3 as
+Frank suggested.
+2. Modify imx93w-evk.dts to include the imx93w.dtsi in patch#4.
 
-> Maybe an alternative would be to make it default=3Dn, and change that
-> default once ARCH_GOOGLE gets added?
+Changes in V3:
+1. Delete unnecessary parts in patch#1 commit message as Krzysztof suggested.
+2. Add Acked-by tag.
+3. Add patch#2 to extract the common parts of 11x11 EVK into
+   imx93-evk-common.dtsi.
 
-It already defaults to disabled, as "default=3Dn" is the default.
+Changes in V2:
+1. Rename the compatible string to fsl,imx93-wireless-evk which is more
+   clearer and better aligned with the naming convention used on previous
+   NXP boards.
+2. Impreove the patch#1 commit message to add more info. 
+---
 
-> > --- a/drivers/phy/Kconfig
-> > +++ b/drivers/phy/Kconfig
-> > @@ -49,6 +49,7 @@ config GENERIC_PHY_MIPI_DPHY
-> >
-> >  config PHY_GOOGLE_USB
-> >       tristate "Google Tensor SoC USB PHY driver"
-> > +     depends on ARCH_GOOGLE || COMPILE_TEST
-> >       select GENERIC_PHY
-> >       help
-> >         Enable support for the USB PHY on Google Tensor SoCs, starting =
-with
+Sherry Sun (4):
+  dt-bindings: arm: fsl: Add i.MX93 Wireless EVK board
+  arm64: dts: imx93: Extract common parts of 11x11 EVK into
+    imx93-evk-common.dtsi
+  arm64: dts: imx93: Add imx93w.dtsi for i.MX93 Wireless SiP
+  arm64: dts: imx93: Add i.MX93 Wireless EVK board support
 
-Gr{oetje,eeting}s,
+ .../devicetree/bindings/arm/fsl.yaml          |   1 +
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../boot/dts/freescale/imx93-11x11-evk.dts    | 861 +-----------------
+ ...93-11x11-evk.dts => imx93-evk-common.dtsi} | 207 +----
+ arch/arm64/boot/dts/freescale/imx93w-evk.dts  |  23 +
+ arch/arm64/boot/dts/freescale/imx93w.dtsi     | 102 +++
+ 6 files changed, 136 insertions(+), 1059 deletions(-)
+ copy arch/arm64/boot/dts/freescale/{imx93-11x11-evk.dts => imx93-evk-common.dtsi} (79%)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93w-evk.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93w.dtsi
 
-                        Geert
+-- 
+2.37.1
 
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
 
