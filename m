@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 210F9D73E8C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 21:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A21F9D73E83
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 21:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fuuFLD2E0Oz9BYdeyyjQ2aqYMkX3G7CJ//5VT0Rpgo4=; b=gBUwNPE+smARaJbuSRJKfl9Izu
-	uTaMPZX9nCN3k0nbeF7vd6kz3LZLyPDDcyubAsVNjPjLWIzKoHuRXemg2akRKvSsjsog6m50UD5OP
-	U7p/vHdjeH2ZLo18McCtPpKOFA5G2xVh+aI/AL4Viv/tj9dmy1sX7qNlj64ZIQNu1iKZjqbxklkkp
-	6REiiEpsoA646CWeue7a3z4z0X5ijaO4Xb1q0NYKh7cJtz+nKMdDBDJmSfGMB7vf1xUtd2+uJ/kcg
-	LlZncBH48q09YMf1DTOkuwf838YkmMdYfZlkJxTjIk9w4An34nCDcuxuNlV652TxI1YUJppwh9LJr
-	JjszH2Cw==;
+	bh=D+w81DyXUE0b55CwrLCwC7XYX50M/2QX/b1Gp0d2KP4=; b=sxlstvy8l+bYIW0ZMmHbzkrWdh
+	tZr6cfkoFP7r3jNKHYmsmof4XUoaZk/T2FrVpG2nhu3rEVbHOQQ1VK2ppKXpQIfJLpsPPyBiG7+Zi
+	1lKZ7ACp5/eLSbc8hFWNWCfNimZZotw4H6NQAdQ03H6UBbQvSAQ9B9vPStHRFuKKQUHXX7QjoDmQI
+	LzYakhCQL+tlcKfKRFP0JA5x+2mnI1bS4ni1fwYTAAAIQiVQr0/TZzlEMnoTwgzGhbm65HlEcSrT1
+	t6tZHq+72EduI6lx96zAhA4ONOcTmfzkKG8EeCF2XsV1XEAm3Q3ciHXkJAP1ZMCaEKp59TfKFap6l
+	DLaWtcTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlZfD-00000000gPd-498d;
-	Thu, 29 Jan 2026 21:34:55 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1vlZjZ-00000000gcp-2T4K;
+	Thu, 29 Jan 2026 21:39:25 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlZfB-00000000gPH-0zNi
+	id 1vlZjW-00000000gcU-44ME
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 21:34:54 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4801d7c72a5so11105475e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 13:34:51 -0800 (PST)
+	Thu, 29 Jan 2026 21:39:24 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4801bc32725so10946725e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 13:39:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769722490; x=1770327290; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1769722761; x=1770327561; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fuuFLD2E0Oz9BYdeyyjQ2aqYMkX3G7CJ//5VT0Rpgo4=;
-        b=BnnJk5JUSZiSDYUpaeGnXWnDBqEfzDS2fKSPsls5RlI4PkCGYS5HbjrPPYLQayLL54
-         92Hww3sPPgnuuAhmNKdBoXHVr2sxshJtZoZA4znga2XyoSXoVJdvISnBQDrfpUavUGqS
-         s6A3rDNLDddZzRiYSxGer956fHkCzazoXDXdcOOKj6/n4SaONUpfgw+MkBjUAxqJuT7k
-         0NZdgHowjADCLSB6Ri/mOS2gyjdk9jsKX9sWatY9KlEN+OpmVBU9/xlunTxjwFEo4YIG
-         4lW2FHh60FJJ5D5bElinIccscMG+ibim8XHdc8HHthPkA7FtoiLlRmqYFthdwjOEEOti
-         xgig==
+        bh=D+w81DyXUE0b55CwrLCwC7XYX50M/2QX/b1Gp0d2KP4=;
+        b=pdD1gDAB/wkEbqS9dZkGPsa9aHGVgGQirOo7rW93GUCcLhgmYhOiFpI3BItb+X+3NQ
+         +J02V0E993cE+cBw7HpQscNJc6vik3E3zFHHgp6Nqu9g6/zjpoTxYIGq9gyJYWeeEyjl
+         n7DcCn9rqXXWiqx6JkffLOle9VBXQfXaTQLu2qI00zJ+dRr46mkjeQzpXXlV4KL6cpAu
+         XyBmjk2d5WWpLoMg624y1sye7MK+2AGOyjQulEu4csObgx4FmBF6CnQv8afKSRLgk4IN
+         mtahKqwORB73P2i9abNYHyOZDULoHDf6NiFTIHcULUeMWd4/Z+/Aq8gxWwPX+j3Rwyke
+         nPAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769722490; x=1770327290;
+        d=1e100.net; s=20230601; t=1769722761; x=1770327561;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=fuuFLD2E0Oz9BYdeyyjQ2aqYMkX3G7CJ//5VT0Rpgo4=;
-        b=vPtotR0qjQbbbnBka5xkkfHglqgOcHtvepoJqj1Mn/loNBEU1XxxkyhQSgQuGxd9AK
-         TAtpOVKiAIejBGxHX8kbGlHhptfARDO2saO5/hn1oFkwUfhUYs7h5eLjN8wHzCUVZ/Bg
-         zppQCzZPhzgEvySMUqHTQK+y6BG+mrYFT2gc5ZStUY6sjhT79/Jkgc2ixMirHBkyQaAJ
-         fvWxNgVMTV5CHbfCH+FOc52nm5wc4dJqheBcVjVwjqrj/mplEANMUqv1Uof5Q8IVjxYv
-         v6Ff9T+HJsBM9XA3Y8zPu/3S8FFl5BC+caEcKkzlHLQMvE83XENTgLnmkOH5FJTER8ah
-         9zJg==
-X-Forwarded-Encrypted: i=1; AJvYcCXQuN/oBuoTEA3BUfKL781kySxjw2A+4/802rBq7UnO1VwOmNKA6TyCgHiwzrbTekYtU5EN+Zct6JGPvwIZ73uV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0w+2UaU+eStY41+S9xUxcqasNuxrOcJBuCIMiEowoop/YnzbR
-	1bFY0yVwMY9CP74UtHxGJW1aM86mSfJ+8QB4z3n2pYTpvmCaYUM7rUmpsVSNuhhE5g==
-X-Gm-Gg: AZuq6aJmx+5u/ubPzXdXITfY8DJB4sW71uZW2JTYlsAsJ2gnxc1kQ9bTdklnPipK9u9
-	1M1v7zfh7AaVz08/QcvHdrJjHKcHaH0hSgjFRzRylThXUaLlPkjKQw0aAaWmZJlCm48lkn+Wgci
-	5NEb4payNfSQXoGQ+88KUGs0xnesNRnxBX3f7fO33YNAYA/QWuL7kDpWeuVuT7cdPdMFdNi9pW/
-	/gdRZIwulyoB8eSUcMoINCsrcKA+3sAq0S0e62FSzlIDDNx5XgP9h1yQplM/fojRQSbx9PMvJ0X
-	8LewA45Y5O4++9E7Iu0Fl3prek2xLe6tRzV4TNjH9FK4c7cifp44tRc3wWfAZw9IrzTtm3i8dSp
-	j36PcKoDexjwaMx+erEOXuaI2pn3BlQvoTOxPwW2Vo9U4/lk40DCAdcPvE6D+IrYJBilpCHPxm9
-	kSpTvK3SNfLE1w6n0dPyZtXUIfrDd//8pq8S4ftG5pwwnjcK3M8w==
-X-Received: by 2002:a05:600c:310f:b0:477:7ae0:cd6e with SMTP id 5b1f17b1804b1-482db493e6bmr6275085e9.5.1769722490186;
-        Thu, 29 Jan 2026 13:34:50 -0800 (PST)
+        bh=D+w81DyXUE0b55CwrLCwC7XYX50M/2QX/b1Gp0d2KP4=;
+        b=LD+r/TlU9LRJXe5owl0wcqjfUq3+tXxU8hJzuA5wXOVDXPgIETjaP67uZ5/mOi0EXX
+         FTftJHtgDgfdgsSMD5p1DQJ9y62anfJd1KpWVwsBs8+71zjyLGJzJKllDLS9VgOZCS6d
+         LBwCLqItSveo8FNqWGeEin92jDfM9ILplep/R+OMYE0017lH2Cxok8nZ63OZkxZRoQXx
+         Ti11xHXNQE3iYh3F//PBXxiCuin/Da1mQQpCRICTqRsdHqutNKrGaT0ak4v/6+9pBkfl
+         mEBrPMdr9bqCiF6nJqLweBgmpGgxs46V/319rudiFYmfn049iivPaVMmj8eXGH/HYs2D
+         7XGg==
+X-Forwarded-Encrypted: i=1; AJvYcCVB5/e2xLQHjvX1u5mbCjnDbet9xzk/dJk55YpHNou/XKWtgBy73lQpiaDHB7CoMZbQ74l1Pp+pP14tMN1R7b9p@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMvtONy1HVYTF9vBw3+oZqq1DseTbzUuJ+xqG2h3TkY+sDak4t
+	vY/Vm2EBHnnlaJyEYJ8nI24tbEqMOmMfUPEK2H9jW4GfFC9a7vcGio8YbBybZjZ3AQ==
+X-Gm-Gg: AZuq6aLiOVn3a+giQImMHPw/UXtuOl+oaKq8RZUJ7a4XuNi3yNv6j41vOJghs4GaMWU
+	9WZ2iiNACQetkqldyPUZxGM3y1YEll+sVFAv+oKiRiVV6ZPf8fLv4PePJgmW+vlfREbBS/Hf8Lu
+	v5X/wwWv/gL5+aZ2jm8IzFDroTos+tybq+BHM2GXBLjP2HEYGLLFkCVljZvVU9KQ2Xm+12qOYEA
+	evdB9VXiZrIucwVH11Pch5pxxBy+WwcloFmCsNbce94nPU4UObjWvRQDNLNuVToCgDWyB4+zhwH
+	oAkvxSfMOx6K3yX8P7qh1xKtbM2JF+E5Irp8+U1jA8voNKU3MaqmyTiA2IMjF0wBzg2HKiZKKL9
+	Yink1+E6ZJvi3bjttwZ5i8jf1dg05zEKVECVTTZPMb0qXXG/rXD1+Al3D32mP2zVWGD1+58ABUv
+	yHxtviJ1zDwbhcgdDBc0DrJ63GwJQMjpBF43JtFxh1+6Hp3m9cFw==
+X-Received: by 2002:a05:6000:40c8:b0:431:104:6dc2 with SMTP id ffacd0b85a97d-435f3a674f5mr1361562f8f.8.1769722760913;
+        Thu, 29 Jan 2026 13:39:20 -0800 (PST)
 Received: from google.com (44.145.34.34.bc.googleusercontent.com. [34.34.145.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4806cdd78d3sm156950105e9.1.2026.01.29.13.34.49
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e10edf62sm18781379f8f.13.2026.01.29.13.39.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Jan 2026 13:34:49 -0800 (PST)
-Date: Thu, 29 Jan 2026 21:34:46 +0000
+        Thu, 29 Jan 2026 13:39:20 -0800 (PST)
+Date: Thu, 29 Jan 2026 21:39:17 +0000
 From: Vincent Donnefort <vdonnefort@google.com>
 To: Steven Rostedt <rostedt@goodmis.org>
 Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
@@ -78,17 +78,18 @@ Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
 	linux-arm-kernel@lists.infradead.org, jstultz@google.com,
 	qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org,
 	kernel-team@android.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v10 00/30] Tracefs support for pKVM
-Message-ID: <aXvSdljSYlartF1S@google.com>
+Subject: Re: [PATCH v10 05/30] tracing: Introduce trace remotes
+Message-ID: <aXvThRcUhuBreMPv@google.com>
 References: <20260126104419.1649811-1-vdonnefort@google.com>
- <20260129123739.3c00155b@gandalf.local.home>
+ <20260126104419.1649811-6-vdonnefort@google.com>
+ <20260128153725.56e801c0@gandalf.local.home>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260129123739.3c00155b@gandalf.local.home>
+In-Reply-To: <20260128153725.56e801c0@gandalf.local.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_133453_303142_C3D02ABB 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20260129_133923_032787_894FEA3C 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,26 +104,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 29, 2026 at 12:37:39PM -0500, Steven Rostedt wrote:
-> Hi Vincent,
-> 
-> I finished my review. I replied to every patch (before the KVM ones) and
-> either made comments or added a Reviewed-by tag.
+[...]
 
-Thanks a lot! I will try to send an update tomorrow.
+> > +static ssize_t buffer_size_kb_write(struct file *filp, const char __user *ubuf, size_t cnt,
+> > +				    loff_t *ppos)
+> > +{
+> > +	struct trace_remote *remote = filp->private_data;
+> > +	unsigned long val;
+> > +	int ret;
+> > +
+> > +	ret = kstrtoul_from_user(ubuf, cnt, 10, &val);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	/* KiB to Bytes */
+> > +	if (!val || check_shl_overflow(val, 10, &val))
+> > +		return -EINVAL;
+> > +
+> > +	guard(mutex)(&remote->lock);
+> > +
+> > +	remote->trace_buffer_size = val;
+> 
+> Should this be allowed to change when it is already loaded?
 
-> 
-> When you send the next version, if you don't modify one of the patches I
-> replied with a RB tag, add the tag to the patch and it will let me know I
-> don't need to look at it again.
-> 
-> You can use b4 or download the series from here[1] and it will automatically
-> add the tags for you. Just create a new branch and apply the download via
-> git am and work from there.
-> 
-> Thanks,
+It would only be effective on the next unload/load. 
+
+But now thinking more about it, this is probably not clear to a user and
+returning -EBUSY when loaded might be a better solution?
+
 > 
 > -- Steve
 > 
-> [1] https://patchwork.kernel.org/series/1047043/mbox/
+> > +
+> > +	return cnt;
+> > +}
+> > +
+> > +static int buffer_size_kb_show(struct seq_file *s, void *unused)
+> > +{
+> > +	struct trace_remote *remote = s->private;
+> > +
+> > +	seq_printf(s, "%lu (%s)\n", remote->trace_buffer_size >> 10,
+> > +		   trace_remote_loaded(remote) ? "loaded" : "unloaded");
+> > +
+> > +	return 0;
+> > +}
+> > +DEFINE_SHOW_STORE_ATTRIBUTE(buffer_size_kb);
+> > +
+> 
 
