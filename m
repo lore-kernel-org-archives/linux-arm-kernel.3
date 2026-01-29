@@ -4,79 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EF02D6101A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 15:18:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939F8D6101A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 15:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EXNz48ErS4VkHSIsHgHCczlXRgDQbWuwWUUMeOs+Q0E=; b=wDT+JOpPVo6wvQHZn8U2Uhw8tf
-	JYY1H2FHK6zxwYL6jySATMQsGBzkugyezQPkUxwbC3mWxZzUW1Et4mU6JRyZDExopJMd/o5zkSRRj
-	9SdpVUhiVge9QVcdFgJpOZXtCtaNpRIb+hLLXZidbFjeohfLB/T+vgDEvbvxVqSbHU7eBjq2jPkFX
-	8y3S4e1dysysnFpL5wPq0nZ3W5dOFpF/snne7pyuA+eTwbCUUK1hfQfrt0a74cukOeIu23iUIj3/Y
-	flY1dkaEAdM5/RYIF5afZVevP/wpaUzhnWQ67b3s0I6mg6Zt+zcWTIBuqnyOnNdiYsB14TT4xjeq3
-	R1ChcwPg==;
+	bh=DVbbNBM8h2hLry9+PjA9Xnf//1plR69ceWUdZQzpcN8=; b=glzzS6QO8jPgomfd48PkTQWnoF
+	2LhqvCCWXWvaTqEoS9HhzMCvP9S2nz/DHuP1wiOJ9zUcPR8TeHfz1BDPr0C+M4znKjIrJE2f8FBRI
+	zSqDPch67hR0cvWOF69voW8yDiN0BFzWSw5d7n+9TwCTSaPQ9UUYCboOHhZ9Wu1I4edsRCf1y1JTR
+	lbaqSL87u39+KRWO0qbPVrXjwNNGmUSk0KIKL8Mb02skzjxS1bPo74fcftpl5O/CYVadcUO6O8MeM
+	AFyYbma6afg0yyT8JdPJcvUZotiKrTgJ5hhOdjB/RF3xRRkIMLcRiE00hiU3DxhvjvlrJKU59fuqs
+	PGwJupaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlTma-00000000GVo-0PXZ;
-	Thu, 29 Jan 2026 15:18:08 +0000
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
+	id 1vlTo7-00000000H1J-2u0m;
+	Thu, 29 Jan 2026 15:19:43 +0000
+Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlTmX-00000000GVO-3ee9
+	id 1vlTo4-00000000H06-1VZQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 15:18:07 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=EXNz48ErS4VkHSIsHgHCczlXRgDQbWuwWUUMeOs+Q0E=;
-	b=5/8OjsDa/M2L06sMM0NM/ms1B4k90W2Y8xdF/yWwV8jMdl9NQew+aL9eGNxedEDJJ75mwTcvs
-	Vz2Yh+T4i3z1G2X3Ne7qZyWepVKG8mkWrRWNT/3Au9x4WmOjiXCJMBEsn9AmEz/DJLCuPddtytE
-	dXfGyGAUHPkVeqOMpEt1i3w=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4f22jT3Kp0znTVy;
-	Thu, 29 Jan 2026 23:14:05 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id A25F240539;
-	Thu, 29 Jan 2026 23:17:58 +0800 (CST)
-Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 29 Jan 2026 23:17:58 +0800
-Received: from [10.67.120.139] (10.67.120.139) by
- kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Thu, 29 Jan 2026 23:17:47 +0800
-Message-ID: <734d6c88-1065-473a-80bb-31b0a2defd7f@huawei.com>
-Date: Thu, 29 Jan 2026 23:17:43 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFT PATCH 2/7] perf stat: Save unnecessary print_metric() call
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-CC: <mike.leach@linaro.org>, <mingo@redhat.com>, <acme@kernel.org>,
-	<namhyung@kernel.org>, <mark.rutland@arm.com>,
-	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
-	<irogers@google.com>, <adrian.hunter@intel.com>, <peterz@infradead.org>,
-	<john.g.garry@oracle.com>, <shiju.jose@huawei.com>, <will@kernel.org>,
-	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linuxarm@huawei.com>, <liuyonglong@huawei.com>, <prime.zeng@hisilicon.com>,
-	<fanghao11@huawei.com>, <wangzhou1@hisilicon.com>, Yushan Wang
-	<wangyushan12@huawei.com>
-References: <20260126123514.3238425-1-wangyushan12@huawei.com>
- <20260126123514.3238425-3-wangyushan12@huawei.com>
- <20260127160118.00001692@huawei.com>
-Content-Language: en-US
-From: wangyushan <wangyushan12@huawei.com>
-In-Reply-To: <20260127160118.00001692@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.139]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemn100008.china.huawei.com (7.202.194.111)
+	Thu, 29 Jan 2026 15:19:41 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1769699974;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DVbbNBM8h2hLry9+PjA9Xnf//1plR69ceWUdZQzpcN8=;
+	b=OUq4eMJc8eAdZ74vls9q8VxZhtpQjlW71HAqe06bfYZVmfblin6PvTAr9ovnnwAOqy2SHM
+	24swlbe1CfBBQ96jm4P6At9i0DMhjw3nRRxbO665shByg8zcgEDx90niAclRdqcXz0KwLW
+	/Khir5oloAjBwkPM0mh1F9tQ6FLJ5xo=
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 29 Jan 2026 23:19:19 +0800
+Message-Id: <DG16A1T5EJWO.D9L79G1ZE8H9@linux.dev>
+Cc: <ast@kernel.org>, <daniel@iogearbox.net>, <andrii@kernel.org>,
+ <martin.lau@linux.dev>, <eddyz87@gmail.com>, <song@kernel.org>,
+ <yonghong.song@linux.dev>, <john.fastabend@gmail.com>,
+ <kpsingh@kernel.org>, <sdf@fomichev.me>, <haoluo@google.com>,
+ <jolsa@kernel.org>, <puranjay@kernel.org>, <xukuohai@huaweicloud.com>,
+ <catalin.marinas@arm.com>, <will@kernel.org>, <shuah@kernel.org>,
+ <menglong8.dong@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+ <kernel-patches-bot@fb.com>, <martin.lau@kernel.org>, <clm@meta.com>,
+ <ihor.solodrai@linux.dev>
+Subject: Re: [PATCH bpf-next v3 1/3] bpf: Add bpf_jit_supports_fsession()
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Leon Hwang" <leon.hwang@linux.dev>
+To: <bot+bpf-ci@kernel.org>, <leon.hwang@linux.dev>, <bpf@vger.kernel.org>
+References: <20260129142536.48637-2-leon.hwang@linux.dev>
+ <97fd7e67669f887badde4e276fc501a5969ff9dac703a6dccedda386dacd25f1@mail.kernel.org>
+In-Reply-To: <97fd7e67669f887badde4e276fc501a5969ff9dac703a6dccedda386dacd25f1@mail.kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_071806_236631_AB5C599F 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20260129_071940_537094_CF571B57 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,50 +77,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 1/28/2026 12:01 AM, Jonathan Cameron wrote:
-> On Mon, 26 Jan 2026 20:35:09 +0800
-> Yushan Wang <wangyushan12@huawei.com> wrote:
+On Thu Jan 29, 2026 at 10:54 PM +08, bot+bpf-ci wrote:
+>> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+>> index e7ff8394e0..6e0693ac72 100644
+>> --- a/kernel/bpf/verifier.c
+>> +++ b/kernel/bpf/verifier.c
+>> @@ -24874,6 +24874,9 @@ int bpf_check_attach_target(struct bpf_verifier_=
+log *log,
+>>  	case BPF_TRACE_FENTRY:
+>>  	case BPF_TRACE_FEXIT:
+>>  	case BPF_TRACE_FSESSION:
+>> +		if (prog->expected_attach_type =3D=3D BPF_TRACE_FSESSION &&
+>> +		    !bpf_jit_supports_fsession())
+>> +			return -EOPNOTSUPP;
 >
->> Patch [1] removed the second branch of iostat_run, and changed num to 0
->> since it is the default behavior. But during iostat_run, default value 1
->> of num is required to avoid print_metric() call later.
->>
->> Set num as 1 to avoid redundant print_metric() call that causes
->> unaligned blank printed.
->>
->> Fixes: b71f46a6a708 ("perf stat: Remove hard coded shadow metrics")
->>
->> [1]: https://lore.kernel.org/all/20251111212206.631711-8-irogers@google.com/
-> Use a Link tag for links, but don't add them when they just point to the patch
-> you already have as a fixes tag.  Just refer to it as "The patch listed under
-> Fixes".
+> This isn't a bug, but other similar bpf_jit_supports_*() checks in
+> this file include a bpf_log() message before returning an error. For
+> example:
+>
+>   bpf_jit_supports_kfunc_call() -> "JIT does not support calling kernel f=
+unction"
+>   bpf_jit_supports_exceptions() -> "JIT does not support calling kfunc...=
+"
+>   bpf_jit_supports_arena()      -> "JIT doesn't support arena"
+>   bpf_jit_supports_private_stack() -> "Private stack not supported by jit=
+"
+>
+> Should this check also include a message like "JIT does not support
+> fsession" for consistency with other similar checks in the verifier?
+>
 
-Yes, I will fix that in the next version, thanks for pointing out.
+That makes sense.
 
-Yushan
+Let me add the log message.
 
->> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
->> ---
->>  tools/perf/util/stat-shadow.c | 4 +++-
->>  1 file changed, 3 insertions(+), 1 deletion(-)
->>
->> diff --git a/tools/perf/util/stat-shadow.c b/tools/perf/util/stat-shadow.c
->> index 9c83f7d96caa..9439baf8002f 100644
->> --- a/tools/perf/util/stat-shadow.c
->> +++ b/tools/perf/util/stat-shadow.c
->> @@ -319,8 +319,10 @@ void perf_stat__print_shadow_stats(struct perf_stat_config *config,
->>  	void *ctxp = out->ctx;
->>  	int num = 0;
->>  
->> -	if (config->iostat_run)
->> +	if (config->iostat_run) {
->>  		iostat_print_metric(config, evsel, out);
->> +		num = 1;
->> +	}
->>  
->>  	perf_stat__print_shadow_stats_metricgroup(config, evsel, aggr_idx,
->>  						  &num, NULL, out);
+Thanks,
+Leon
 
+
+>
+> ---
+> AI reviewed your patch. Please fix the bug or email reply why it's not a =
+bug.
+> See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/READM=
+E.md
+>
+> CI run summary: https://github.com/kernel-patches/bpf/actions/runs/214822=
+97342
+>
+> AI-authorship-score: low
+> AI-authorship-explanation: The commit demonstrates specific debugging con=
+text with actual test output and errno values, correct understanding of ker=
+nel BPF conventions, and follows established patterns - typical of experien=
+ced human kernel developers.
+> issues-found: 1
+> issue-severity-score: low
+> issue-severity-explanation: Minor consistency issue - missing bpf_log() e=
+rror message compared to similar checks in the same file; does not affect f=
+unctionality or stability.
 
