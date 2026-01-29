@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A1DD3566B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 04:05:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05656D3569F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 04:05:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qs+TGYRSq+syNgtmamomzVV57rWTcldKeZsL7QkXhHc=; b=3TNqKUW/E/NJM/CFG9P0mDv74p
-	iLxG63lZGewuMwFPO0mZdMJLig6oCUmaGwIooTvzhFnORQIY/hLcNuK6SAtM0Yxnvp33cr/lsyS94
-	osCs7xNWvSwiol+y/uiIZQve0QPXl+YcbC3OVG24ZtqPopQ3zPcwBk1jmVmExK6nZlZ55EnsePw4n
-	fdu7WA0iqjTa4mcAUeJQe5H9xvxw2P86iSeqT9dI8E3Kf2Lj7Ai9xZ4b81dXJ+PCb79UGaO5DXMIl
-	mBjUGO4EM0TFqXAJW5qvAm82DANArlLxlpo0qSbI8CDhjz3AqhX6mnbLHIHWUfma7vRPLj1BYG3Tj
-	La4Rtqdw==;
+	bh=E68djXKo/Qb6+8kiZNd4FljhUOa17e5P51Qp4W2uY20=; b=ELRbOu9Q3sJu4LDLxeRHPdcIqh
+	ZuQqZ9Ay1zZGYjh16CQRpadJac1FJ53zNpQfSI5HCDEoULbG289p7PMAhTOYVk7ugYfjSKzwrvg9/
+	ABPwIqkn8W6GqtH9jt4oDY17Xy5t94nd94nCifY/PfNQYCor6TETs6qSlKtGX7Qozbz4V7gnq5xpb
+	be55muKVzXP7W+khLHjj5zpd5i08//hbvPS+MZYifOYk61dYf/CTF7tkb7JYj68DIQqQe19NLCt23
+	Jgh9gUFI0hUaVhNmvUJ6YhDqCdAcbcBbytme3OvUrWfqr6Y8Z2IF3YMS+FsXr3BaLICxZ64sTVfrH
+	7i7vwDHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlJHv-0000000HDWN-2EXC;
+	id 1vlJHv-0000000HDVy-11sn;
 	Thu, 29 Jan 2026 04:05:47 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlJHs-0000000HDVO-38vn
+	id 1vlJHq-0000000HDUF-1ANa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 04:05:45 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-81f4dfa82edso282521b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 20:05:44 -0800 (PST)
+	Thu, 29 Jan 2026 04:05:43 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-81ecbdfdcebso257226b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 20:05:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769659544; x=1770264344; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1769659541; x=1770264341; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=qs+TGYRSq+syNgtmamomzVV57rWTcldKeZsL7QkXhHc=;
-        b=c2EfimfkO35lZrgvOCQpzWB2EApwf9lwWP+PA0h9uBrd0w34DSR7PBA8Plf+czL7Gm
-         +/bBCJQ0DAXPB1P+GHjV5tPxVWkv7olXQvaUoMd3pM/Id+AUye7A4uoEvWopnCiMwPF8
-         qKAB3hyWvxbe81mM00uccvzN6g5sFQrdNLriNFQHyJPLmGMmok2+bIPw4WgVoV8iDnbI
-         UzAuvjulq20VU/5yEKoZ4ecI/hAGNX39BmzGdJSCNxbJjhwWoNjHn8SSxIBcdMVHSIfG
-         Ep8Pp89hRD88WiGkhhnAibzRxG7uhmAOeQlT1fTRT7Jcw3Ovxe4Js8qeKAYGgCYDvJpB
-         68sA==
+        bh=E68djXKo/Qb6+8kiZNd4FljhUOa17e5P51Qp4W2uY20=;
+        b=TQD70iyoQq0UbWQn1mD0a5DXA+xbRMcZTql572BhCMUATNAYhkOGTRlUxHm/adnsL2
+         OzK0okeUTZw4EqHR+KZWFtNNL0dXcJJ6n9WI3xByrbIwlw9LLw+Hn5bdb4grwUCsFimq
+         TZ75YtjyDEun7NsOYt12r5YwLlvI8S+L/+DZOxEDZfRHf1BTmuVNQXb0NOE9E8HTnH5p
+         fwY7AW7svktRu4xpxd8nvkcc8gXByeAnrB5Jt9hLBC1uEZO1414lmzT/Z1ewMsUEwzOd
+         zurTciCt8w/eMMK0+OPcxJwYb/U7YThAHQsgzrvOxEe5c6SCZtPtdwtkm2jURUN6QI/K
+         bi3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769659544; x=1770264344;
+        d=1e100.net; s=20230601; t=1769659541; x=1770264341;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=qs+TGYRSq+syNgtmamomzVV57rWTcldKeZsL7QkXhHc=;
-        b=sI2AzH1vMNd6WpgoWDD5Cs8mPC27jaaoPeRwBcc2f3XCTPdVYKo650w+7ANA7LwIYz
-         GAn0nc71wcAmXZ+0t48jO/1IjYn1K2inRjDV3NRSuE71zPHi8rHjDCpXVPUvRKu9nNE0
-         CWAjjE+337OYQX9OykHwtcJQtYvakkNQJ8uk+jttTl2E56g+uXb37Mv4Z+UtnA2vdMZ/
-         xOajoPuc4TWKNdovmhNGT6NIdV90yhw3KnrbFi/dI9e8o8GPwQFgjzKS+8eTYkx/VqxC
-         3Xn5FqymesWI1rfZEwUUHeEKS1vtlFIBg9BxTdAKZauYRjFUl+5iHNBWuWG76nbjDr0x
-         rh7g==
-X-Forwarded-Encrypted: i=1; AJvYcCWVqSZ2wl3ACgyHOKA6BhjDfyQSHSs4nI9aiiiGzklMfAF5NgIgwkSsfF30RevhYC7PniQ5UxZrBirvuAr9Lk/H@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPBD6yZMMAJSYWtjVKH5WT0cPCA+bPGoZy0URujn7FWCQ8gRD8
-	Su4X4eutsn3jbsyyGFsqJ5Y730vZnAJhDGWR9oRSCC4zwQPvwnMZU/aY
-X-Gm-Gg: AZuq6aJmb766asSHsvo5RTTQrS+IOOvCaYLUOsq83bjvXPqvdwoGTsqr0yyljHy6hXx
-	tDorsYeJ5YFUN2bvTQKdP20UTkPi5OBjX98NL9VXt1qeP280rH6ShQDR3S4CmvdEjdBXJomQ7rC
-	t9Xx815UdSdETtyJ1keAWGJiAnEjdD9NTJnEGKQmL4Liufxf3Df+TvZF7VUfnnFMadM7HtysriB
-	U2k1+sKrR7jbVkTyixEwmlv6OkHODdUm+Z5+FFjsm7DU5RTqa1Gbwby4TC9358/W2/hmwfIN7qE
-	JCp4/6jobz/8LqPt8EtOy8aMrjNl485ZTawltfyYuuy0ev8AsGG2OXgetYMA07k4OyS8432kso9
-	vfitcoGHYF3q1ENEMc0k+0Cgvu7vY9y8CPd3NiGasDBF+9CygtrdVZQFdEQ+dNSh6nd+LdwVn5N
-	qyqbY+TvcbTJx2jTakGgSJLWPUi8hKoA7zjcVyc+anKWyzdd2fdef9jpYck2M3E3M8RaKn/3Xl
-X-Received: by 2002:a05:6a00:14d3:b0:823:1cae:10bb with SMTP id d2e1a72fcca58-823692c322cmr7240139b3a.51.1769659543769;
-        Wed, 28 Jan 2026 20:05:43 -0800 (PST)
+        bh=E68djXKo/Qb6+8kiZNd4FljhUOa17e5P51Qp4W2uY20=;
+        b=e2kE7aJd6pmeyIqVNTeEXc+3NRxKxIe79MmWlTDHktZWMpsDREz+t1a8yoRqVCP7gQ
+         /xuEBSQ/+mlgi1exeQIJdT17LmnYPDP0LrxTega31QjRRDANZYD/h0M+uDfQ7mltPyTz
+         mX7P2K8JSYHjF/eJEQSSMEqEpHoQ01yK5gP/rhsqY9yueEwK9Pl4rcL6AxXFhiOi+eBL
+         23Jzd6xf1Nyt9IbvLn4+eLJGNh5lHiMn91nSIgMs++dpiR03DOfZ0UtIMuDmSeerVL24
+         Qc5CNUmfVA1eF9b/lN+gKA961M8lRw5QnK5vDcNoGar3P0WQ6NsAATyjeyueUBvvSBo1
+         a7hA==
+X-Forwarded-Encrypted: i=1; AJvYcCUsw/g/ZnpsBVpZPb9wgLsJ78Y+OMEcvqQbMzVCOlF8BEeOFH3Giogi8NiyHsryCiNYGmKNf46fi4uWkADaCvgY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOvHuwqXMnnQUjkFGeTuARkMnq4ZmEavjvFt0/QaXoKRaaKRhJ
+	qw3MSWDickEIXc9g24UseL1Ug4EbCBqrX3Pc6UhsxM4M9F3nOa05TIVx
+X-Gm-Gg: AZuq6aLBzN7SwWnIB46QecSUDUnFOmjZK+6FlYjJvzzt9MKDBnmU56nf+1HA8ZHyNSm
+	47vwgPgRov81zQkDfBQtV5TFmOsyGMV3S32sdP+pgkfCLjM6d4oZhG6t6xRI6cBLJZbEophwEoK
+	0egc+EKleT1q5/IDb+v5Rp/8MANImG2aX8bQGwKTz7XZChtsI1SDdtCdl0JjCI5eE1KiW1XqJke
+	zCeNxCnZP0Xdym3QEfx9oaGEDBVbBqTSE0W9xoj30WKh010txIXcTuiP+xlRZhdTJsDlwLwBAtP
+	cFW0+ZlaePCJHWnBNcue7hiJdUgTV8liW8fRKT1f5h/9JLXqzEDuzCFg0lxzThXYlhHSDnWVFS+
+	B2CgxdaT7OG9Jvr6GzcV/ua0dk7/P07DuoDEPwMQHTigXUPRT0wYJFJg/OhoTxs0C2dlMYEXzEN
+	z38fEkJ2MmE7BkMcHMBVBBIjf4O/QVELNpfPcRtQxd4SUtuw/yShwD2cVVHr8KVQugAgdwyAzE
+X-Received: by 2002:a05:6a00:94f5:b0:81f:3bcb:af2a with SMTP id d2e1a72fcca58-8236917be3fmr6772085b3a.26.1769659541008;
+        Wed, 28 Jan 2026 20:05:41 -0800 (PST)
 Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82379c22672sm3857721b3a.51.2026.01.28.20.05.41
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82379c22672sm3857721b3a.51.2026.01.28.20.05.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Jan 2026 20:05:43 -0800 (PST)
+        Wed, 28 Jan 2026 20:05:40 -0800 (PST)
 From: Joey Lu <a0987203069@gmail.com>
 To: airlied@gmail.com,
 	simona@ffwll.ch,
@@ -86,17 +86,17 @@ Cc: ychuang3@nuvoton.com,
 	dri-devel@lists.freedesktop.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/3] arm64: dts: nuvoton: ma35d1: add display controller support
-Date: Thu, 29 Jan 2026 12:05:31 +0800
-Message-ID: <20260129040532.382693-3-a0987203069@gmail.com>
+Subject: [PATCH v2 1/3] dt-bindings: display: nuvoton: add MA35D1 DCU binding
+Date: Thu, 29 Jan 2026 12:05:30 +0800
+Message-ID: <20260129040532.382693-2-a0987203069@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260129040532.382693-1-a0987203069@gmail.com>
 References: <20260129040532.382693-1-a0987203069@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_200544_791854_FF075F61 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20260128_200542_321130_50642423 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,112 +111,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the Display Control Unit (DCU) for the Nuvoton MA35D1 SoC.
+Add Device Tree binding documentation for the Display Control
+Unit (DCU) found in Nuvoton MA35D1 SoCs.
 
-This patch adds the DCU node to the SoC dtsi and enables it on
-the MA35D1 SOM board.
+The DCU is a DPI-based display controller supporting RGB output
+with optional external bridges or panels.
 
 Signed-off-by: Joey Lu <a0987203069@gmail.com>
 ---
- .../boot/dts/nuvoton/ma35d1-som-256m.dts      | 56 +++++++++++++++++++
- arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       | 14 +++++
- 2 files changed, 70 insertions(+)
+ .../bindings/display/nuvoton,ma35d1-dcu.yaml  | 73 +++++++++++++++++++
+ 1 file changed, 73 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/nuvoton,ma35d1-dcu.yaml
 
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-index f6f20a17e501..e596bb452cc9 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-@@ -98,6 +98,42 @@ pinctrl_uart16: uart16-pins {
- 			power-source = <1>;
- 		};
- 	};
+diff --git a/Documentation/devicetree/bindings/display/nuvoton,ma35d1-dcu.yaml b/Documentation/devicetree/bindings/display/nuvoton,ma35d1-dcu.yaml
+new file mode 100644
+index 000000000000..adfc20117eb7
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/nuvoton,ma35d1-dcu.yaml
+@@ -0,0 +1,73 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/nuvoton,ma35d1-dcu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+	dcu {
-+		pinctrl_display: display-pins {
-+			nuvoton,pins =
-+					   <6 8 6>,  /* VSYNC */
-+					   <6 9 6>,  /* HSYNC */
-+					   <6 10 6>, /* CLK */
-+					   <10 4 6>, /* DE */
-+					   <8 8 6>,  /* D0 - D23 */
-+					   <8 9 6>,
-+					   <8 10 6>,
-+					   <8 11 6>,
-+					   <8 12 6>,
-+					   <8 13 6>,
-+					   <8 14 6>,
-+					   <8 15 6>,
-+					   <7 0 6>,
-+					   <7 1 6>,
-+					   <7 2 6>,
-+					   <7 3 6>,
-+					   <7 4 6>,
-+					   <7 5 6>,
-+					   <7 6 6>,
-+					   <7 7 6>,
-+					   <2 12 6>,
-+					   <2 13 6>,
-+					   <2 14 6>,
-+					   <2 15 6>,
-+					   <7 12 6>,
-+					   <7 13 6>,
-+					   <7 14 6>,
-+					   <7 15 6>;
-+			bias-disable;
-+			power-source = <1>;
-+		};
-+	};
- };
- 
- &uart0 {
-@@ -129,3 +165,23 @@ &uart16 {
- 	pinctrl-0 = <&pinctrl_uart16>;
- 	status = "okay";
- };
++title: Nuvoton MA35D1 Display Controller Unit (DCU)
 +
-+&panel {
-+	port {
-+		panel_in: endpoint@0 {
-+			remote-endpoint = <&dpi_out>;
-+		};
-+	};
-+};
++maintainers:
++  - Joey Lu <a0987203069@gmail.com>
 +
-+&display {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_display>;
-+	status = "okay";
++description:
++  The Nuvoton MA35D1 Display Controller Unit (DCU) supports multiple
++  layers of composition, blending, and output to parallel RGB (DPI)
++  interfaces.
 +
-+	port {
-+		dpi_out: endpoint@0 {
-+			remote-endpoint = <&panel_in>;
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-index e51b98f5bdce..7d9d077f12b2 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-@@ -379,5 +379,19 @@ uart16: serial@40880000 {
- 			clocks = <&clk UART16_GATE>;
- 			status = "disabled";
- 		};
++properties:
++  compatible:
++    const: nuvoton,ma35d1-dcu
 +
-+		panel: panel {
-+			compatible = "panel-dpi";
-+		};
++  reg:
++    maxItems: 1
 +
-+		display: display@40260000 {
-+			compatible = "nuvoton,ma35d1-dcu";
-+			reg = <0x0 0x40260000 0x0 0x2000>;
-+			interrupts = <GIC_SPI 20 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk DCU_GATE>, <&clk DCUP_DIV>;
-+			clock-names = "dcu_gate", "dcup_div";
-+			resets = <&sys MA35D1_RESET_DISP>;
-+			status = "disabled";
-+		};
- 	};
- };
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: DCU Gate clock for register access
++      - description: DCU Pixel clock for display timing
++
++  clock-names:
++    items:
++      - const: dcu_gate
++      - const: dcup_div
++
++  resets:
++    maxItems: 1
++
++  port:
++    $ref: /schemas/graph.yaml#/properties/port
++    description: Video output port
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - resets
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
++    #include <dt-bindings/reset/nuvoton,ma35d1-reset.h>
++
++    display@40260000 {
++        compatible = "nuvoton,ma35d1-dcu";
++        reg = <0x40260000 0x2000>;
++        interrupts = <GIC_SPI 20 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&clk DCU_GATE>, <&clk DCUP_DIV>;
++        clock-names = "dcu_gate", "dcup_div";
++        resets = <&sys MA35D1_RESET_DISP>;
++
++        port {
++            dpi_out: endpoint {
++                remote-endpoint = <&panel_in>;
++            };
++        };
++    };
 -- 
 2.43.0
 
