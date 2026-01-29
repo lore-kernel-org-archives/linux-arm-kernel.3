@@ -4,67 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF0FD73E84
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 20:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4753D73E88
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 20:44:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=P2xSzgU4Z6rvAGCatdYYcujdma1DdALCcez714wWcbA=; b=ZWP3Eb5OCrXCkQQhZF2Yy00V1l
-	CaTXO+dF1QRm41GEy+vb53rZZwahs43w+rE1Chkn9yY+SrI3AQhLuMljqDYy39/5K6RfIbt5aBcbf
-	qvWKCQ216Z1gu8LA3Ebe4LzTcqfhFwsmOZI0onCFWnvYk/xG/h5LLlkbsI90+VpaDPQWL593CkZDg
-	rWCovbYKDIQnmIATAEF9R5IeqSNBO7W7saU7qF5gZy31qPhdrHzgw99v6W7sXFnhyyqP8gDyArO+4
-	W/f9Sx2OI0kr4juqT+PC6/V6BgPJtm101x7V3BYq3TkFaJB7RKbI63lh6sh8SCGqZsEaWK8uGnCQP
-	o16w2wZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V5Do1eVYICqY9h7AnSSQpgZCvfIDhPKjQCrxc+T44J4=; b=dRfnsvzxtLbbCiU6pyYKJH/Nge
+	k5mQZX9aVVsRhpEg98n7Ufl1Hvs95YSru4Vvn7JcZhALqTdum7sY/eK0GmyN3J2EA86Df4LhNZRDc
+	wLmkok35y/9Cr3BRR43ijfKz6qitkFFjxAreJL4rwRQgnpHh7u5ys3usDC9ukR6d0slnWOs6QwwxL
+	L//oXoP6z9rr+yW3x7n8wwMNfot4zvY93wtqoVp4lWcU1HjKvkPjTtQNyh6m/UJzKfjTW+8ZcFRoY
+	RvloqMjj8lsQ4lljVeKqDDGUbqdBGyOsBo7diGDeberlKZHy7wkBUeSvUcyYRXzMm5veIq7uOqoyL
+	onD+8dEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlYbH-00000000c0Y-1uOI;
-	Thu, 29 Jan 2026 20:26:47 +0000
-Received: from mx4.wp.pl ([212.77.101.12])
+	id 1vlYsE-00000000dEd-3WYY;
+	Thu, 29 Jan 2026 20:44:18 +0000
+Received: from mail-northeuropeazon11010039.outbound.protection.outlook.com ([52.101.84.39] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlYbE-00000000bzp-2HPb
+	id 1vlYsC-00000000dEI-2Dmn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 20:26:46 +0000
-Received: (wp-smtpd smtp.wp.pl 10841 invoked from network); 29 Jan 2026 21:26:37 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
-          t=1769718397; bh=P2xSzgU4Z6rvAGCatdYYcujdma1DdALCcez714wWcbA=;
-          h=From:To:Cc:Subject;
-          b=ZU2aLNCDlUoIMttCALxqNEOnXLyAx7LuMEBx1vhB6XFOmUnTKQcZSz5v5asP+10Yj
-           2ZctrJjoy0qLtIKUs+VZL8mFCkAQSjEh3qJ3ye1fQwJ/gamnPXzED/1S1FMzYX/WD8
-           CLNJWbwldHj3KKixIxw2yF2HIq09/KVCeRzuV72BZwjJA7Xs32cm3O4LQ/AtMrumqM
-           zYMFKTakAZ/g07Ib2Y5WRV/HWwqOIjftx61gcnknvmPBETBPgtV9X0wCoAU7zf4dJT
-           9U0lSnUVeQaqaeG9D90viCM/5eyppm8b9WbUAJINXpAZWBoonwSwefej5xzkpfmuOM
-           Cqq99zhL3D8TA==
-Received: from 83.24.122.77.ipv4.supernova.orange.pl (HELO laptop-olek.lan) (olek2@wp.pl@[83.24.122.77])
-          (envelope-sender <olek2@wp.pl>)
-          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
-          for <herbert@gondor.apana.org.au>; 29 Jan 2026 21:26:37 +0100
-From: Aleksander Jan Bajkowski <olek2@wp.pl>
-To: herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	linux-crypto@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Aleksander Jan Bajkowski <olek2@wp.pl>
-Subject: [PATCH] crypto: tesmgr - add authenc(hmac(sha224),cbc(aes)) tests
-Date: Thu, 29 Jan 2026 21:26:25 +0100
-Message-ID: <20260129202634.3561-1-olek2@wp.pl>
-X-Mailer: git-send-email 2.47.3
+	Thu, 29 Jan 2026 20:44:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CisWS2TNEkqoDXgVVLZkipLbqALss4hSZMRV5kd1x7YI6X1TXy+3+UUKRkYi1qbii0LyMY4GDBrldxrwi8U1W01lLsd4wvn0mvH+pcM7bArJ+2o8kv4h7esjA5L0VqDE32URNa4V7UI5k2X5tgPGyF4Y38n6K+SLafEQlWLfZ4tuwwZc+jS5fBRa5rvX1lSCmUhSL+H5wQPyetxfFEXzPyOqr9uwEyM6rZexvOKLaQF/2ULA+LrhbUfY2MKs00Xvz0/bLNMS/H4ZSUWN+5qJMzPNFDyEEaH5vPflB2LH3kVbbfJgcH8WzsPZELfY84OhP84YSAXUg5RPgcl2tTDTDw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=V5Do1eVYICqY9h7AnSSQpgZCvfIDhPKjQCrxc+T44J4=;
+ b=oAJLG5swqxENAxb2xqP4G1IfTE0r3H8lJrepl80mRZZN7VNVjFCh5a3rtCox9fL6Ffi04FAievI82mGrOGBDV+f9oyK/Sad00qELSZgKFcW23FXYlvStiSWzndr4MNhjC77F2lOPvbwUFGCSdCP0mCI0U5HyGVr2wkc/X+4cIgiiiYn+Nb+sTR96vMdBF5lg/5umILIRO5F7elQihBk+MQW1jhpoYzEn32oMaNkTelfUHSwJigz1NbU4+bbqQ25LnrPXTGES/0CN0Ray7xgAIk3lTvhDFNIBo4Aaz9gD7sSAQe2qqqIm1jQ5/a4BUciUv8t5rY2WXXbr5S16apPxNg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=V5Do1eVYICqY9h7AnSSQpgZCvfIDhPKjQCrxc+T44J4=;
+ b=OreLE0fq2Wzaqa92xh+uRwMQgLQWEHA/AYGvCSZ4Kf7Zm5Pvq4LM18Lw8875X4CLyHiFIQtkr5VrRmYJeK69euji+uc/FRtEiqVl119bdxLautuT6ZCfy9XnwVQoYvKBPdvtji2u+1a0vPVI3ezq+lg1XgLyaWriA7+mq3VTOdUHZvVDnP17eWSbDtsQW8WzuD+vPJIrPMKMXH4cSsR+BhV3QOOKGzvQO/gyfOpwXod6QmnR7snC54mZ1qvG3AUEzIyJ2dG6BdhscQ6aGyZ8u8j2ODkDA3vhV0ciUVhKqaJaqpcDXsid6rGDHiuducX13qLEaQsokXbuh/2xcLkfow==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DU4PR04MB12327.eurprd04.prod.outlook.com (2603:10a6:10:631::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Thu, 29 Jan
+ 2026 20:44:12 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9520.005; Thu, 29 Jan 2026
+ 20:44:11 +0000
+Date: Thu, 29 Jan 2026 15:44:01 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Sherry Sun <sherry.sun@nxp.com>
+Cc: hongxing.zhu@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com,
+	kernel@pengutronix.de, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V2 02/10] PCI: imx6: Add support for parsing the reset
+ property in new Root Port binding
+Message-ID: <aXvGkSHbUE3qmxMK@lizhi-Precision-Tower-5810>
+References: <20260123021445.3782170-1-sherry.sun@nxp.com>
+ <20260123021445.3782170-3-sherry.sun@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260123021445.3782170-3-sherry.sun@nxp.com>
+X-ClientProxiedBy: BYAPR06CA0033.namprd06.prod.outlook.com
+ (2603:10b6:a03:d4::46) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-WP-DKIM-Status: good (id: wp.pl)                                                      
-X-WP-MailID: ea8528aadf20f4215333d7982f38c716
-X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 0000008 [EVt3]                               
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU4PR04MB12327:EE_
+X-MS-Office365-Filtering-Correlation-Id: 42c7995f-a989-4558-14c8-08de5f772844
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|19092799006|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3UpE+3UUVRGo5sqUhgC5ZPaSa7o9XbZnV2CkEeRQpnQwGrMxR/qluDWOdRxY?=
+ =?us-ascii?Q?8hvWaCaUKFuzM3eqIZ272g+4pmXJhp9lDpSZ34IN3NKNviEJ3c6tHtx/Y0Sl?=
+ =?us-ascii?Q?rMiLzey9UyQZoXxICbEzAprlqQCECJ2TPKG4vbziNRc/EDXDTNQ41PDNymV1?=
+ =?us-ascii?Q?BqSEHGLv1KqNCCcq4o8KOpGH5QiIOtXTtsj9gH7Oiu355FQ5WHx+BSklzCRp?=
+ =?us-ascii?Q?2bf26oQ5wC98GFikHE9mRkYlTCulCYK658ScXrXCqv1fNDKkB4ZGWNlbUi2L?=
+ =?us-ascii?Q?tzttz65jPh5yGVRlw/HlM5gng3Bu4VjhcfQm9tpovsvgsi9UbPqZOQ89ZL3e?=
+ =?us-ascii?Q?xzp4QWQRaw//5GTO9HzYzXsRGCflN6blOlJnWpMGqKbzGUh46QVDq+dU2+Bk?=
+ =?us-ascii?Q?4HE9ZErVNNz7tejvAFbQ8Vt2Mf5Dif/YR5tl/xTyNo7cFDdHTr3MKE2oF6pe?=
+ =?us-ascii?Q?Dmz0ktxSY5/6+ahwi2XjvRfAW1jq3GZuzghQ1SWgpJCVU5YCQiRWYI6Z30ln?=
+ =?us-ascii?Q?YoZzWLLB7/JJUaS90Wb/ecGPwxfh9an69Ufumk3ZlMHe2S7I3KaBAi5zKaF7?=
+ =?us-ascii?Q?aGQw+OgHVRiWNzH/H8u/KRdAnfl/iuL8XKHYPyW8ytIkm8TWoHqGlJK58cm8?=
+ =?us-ascii?Q?kajHpzEBdnn9yrnwG/DiKkyZ1KPTbuvMKgRPODScIO9nqC1+icEJ1l6p3amX?=
+ =?us-ascii?Q?UUVHLm8hYfrorlby8cb5U5rsopk09brNu+jgZ75A2Tp0xvO0ZShrOIbHa182?=
+ =?us-ascii?Q?CXiVE8NxLfy7ibFgirYBl25vcYdoEmv5QSTCuBBDncQDSjhZlieMgiH03QoB?=
+ =?us-ascii?Q?rHwr0AEQc6CqH97POhtS4ZnDxNMhN0Yc3oNNN9TsloSm0/zYxhbCML7HNi4R?=
+ =?us-ascii?Q?AOdm7Mm2GUDM+Bf7pkA+fHFmqSEKz1KE8/KWq5KRr/qWlDHOgSZpNFeSZ4M6?=
+ =?us-ascii?Q?+9+U61waHrP0UOMxMg3eCc/K96KDa7JD5WOIUFwh2BySYBkHZrb/BercEHLw?=
+ =?us-ascii?Q?dGWdQRGo5qAhanY2t90qEMnTIfXd+OyKJuXeTzEdOMNh4Nj/h/DeSsDke8B6?=
+ =?us-ascii?Q?867nitMnDsmpBqYVNezoPiSPLTMKsZtHycMPVdS7QKNfodRnJPTf4s0EKo2Q?=
+ =?us-ascii?Q?c0wclINMO/2A3l7kYj+S6Og3FdqF0PyF8ImUp6Q2Mqr0/Bnh9SfFzKEGwh0s?=
+ =?us-ascii?Q?ueqXodSr5BGEYdQ+TdvHfw1lzzhyKe86E4Q1zMZdNr0gn5FeoHDrR5DPjgZW?=
+ =?us-ascii?Q?QMASWphXfSH6ldN5YMXZj+ZVrf1srTQaMyUGNIeKuv7WIMoCBaLfiLdZmLDr?=
+ =?us-ascii?Q?ZnFyIGzbfwT7ES4lkuNJNSVFwFbxE678TfBBU4SBpv4nC65xVPlxd0IZiJeN?=
+ =?us-ascii?Q?5ID55gv3n9CaMQ0prrN/p879KHkE6qGxGQcY/EWXnTOH+2q8rcE4z1Q9985l?=
+ =?us-ascii?Q?kvfJ8H1GRYBMzX5Sy1Nj84Kt8awKhTMnbvJQJRodZ4Qhvk+TBoEIVQPfwIdD?=
+ =?us-ascii?Q?6LiR7EZ5RzhK3MXF25C1oJ6k2VA55fekRQ2Sl5RLR/O8fe2Hx6EDfiAWMvfb?=
+ =?us-ascii?Q?OWEEYItPwB4RlmLyosUm9/seGkyu9V7tIbJKq+k2AYAHvLMoiWo0ke7xsApW?=
+ =?us-ascii?Q?X4FG8vkElCHmD/b0MKccy6E=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Wu10dc5fNkm9U2OcBrnyytz6dNrTvf28Dvm0kYyqYi2ZMJrlVCNnjp9E4pip?=
+ =?us-ascii?Q?HEO7JtcXJp3xGoRDRsajSeBLF9abrmAzXEkeBtEjgTFm22irg4w6BkGYCQ9l?=
+ =?us-ascii?Q?Q24j5yeUPEfggBKGqs804nXmqTDfoxxOmO+eH20NTwnOJ492yvLCd9xpCOsL?=
+ =?us-ascii?Q?cK9NL0Y4d9G8IqeOEXK8FmYPevZQz5bnn10sbf+0wUDt+wEC+fhGCFfDv7LR?=
+ =?us-ascii?Q?BrAx2fOSbEAUkw3EefnLqlQamcdxoZLmbS5oO1rVudgIElY64av/BuCMplRc?=
+ =?us-ascii?Q?0mmtVC3zYgQ7JgNHTZvOfK5Cz2l7olC8mUDcjqQXy3EFeYIW4vTkWa/FJUIa?=
+ =?us-ascii?Q?APqGWewnZEEeQGp91g5SYJE//HVSanlWgm7ndCO7L6a/gccBomuo0ku35DGH?=
+ =?us-ascii?Q?fC2eaKDSs1OBkQ/Ez7rndfigqS0LGcsO4a0CDdslGNx9XAEumwzfHtOvcCTY?=
+ =?us-ascii?Q?UqU52Z9MHf/Ki2H8efhI/rOOPy7bHT/Qtc3Rtqn1bujjfrz8N4HoEfzbdTUF?=
+ =?us-ascii?Q?Wv/lTLFMpVc/e6T99xTF4LDwkF5/RL11jAbrevu/cN7nHUQ2EtIkgQZJ11W7?=
+ =?us-ascii?Q?zncsrzV0Gq3nwODLqRdwufnuoOua5tyXlnT7xxOb2mt3qrMMqw/Upm0PpNm4?=
+ =?us-ascii?Q?WteMWsXQagoYKz06mzBGEMT8mV8h/MfIu6qmG8tfmbFkbQyScPMTWBQB/Uel?=
+ =?us-ascii?Q?/JCShN0R4G0kNp8PyAnV2XoPU9u6R9J6FI1sL1puDt1s4YNDfKvK9+nfPIDj?=
+ =?us-ascii?Q?nCMLaHYmLn2E3+AHQRMGwT0CzK4QgQBsoZN4qnG9PwAQ3ZnjbpjLB/zNBz/J?=
+ =?us-ascii?Q?tS712DdFcgVM5zPFMcycwOTOR+FYwIvYMjoENyLWZLx0htu+4+gutTFGo3q4?=
+ =?us-ascii?Q?KlFO3TuD70R2gyN4AMvu++7ElrPv/T3undZynWvYVi7ezSh1RfI56ST7u83e?=
+ =?us-ascii?Q?B32M6nEbSHnhIQkmRhzORs8Ce00k4Z1HhNpbNvWY/kbSKRIt7QPtvmlGGlY+?=
+ =?us-ascii?Q?ZeWg1NSahthGg/iyhJ3YEU0rOwGyvSsTejtCXrvAsYJk8CkmlfvXJYUvltEp?=
+ =?us-ascii?Q?kfeHCB94RKuc0b3aWmz7OEW1Q3FVVc3sOPbsa7Q7SL1QpY2NOIS57/VPil8m?=
+ =?us-ascii?Q?I7cMW4SR9ATbnHhYbK7W/KZnzvTaqmha4Iw3SkUtHMtLyxg9kJxnaZ78Y/nq?=
+ =?us-ascii?Q?MHG4qk2L9xiAJ1n82GzmedXon4fuJIw1c7iE5Lw+twfOuvKyijSPaJ6e/T1k?=
+ =?us-ascii?Q?9EAKpeJAw8WoHHyUj1Jz9WwHK13BLXTSXYzur4+ztGom2KJeVgFRQzqNwuLA?=
+ =?us-ascii?Q?G/ACnJwWt9sdh3f8yEBR4bwAnpffQT9bG2aoXgfbqvKfH6k9BW7FACODtzqu?=
+ =?us-ascii?Q?oRcKi8oj2mIwofLItLOS0zogsDEZ6V5mbpKyEv3heecUMIP2CHK4prBB4Bvd?=
+ =?us-ascii?Q?M4Icrp/9v71+yP+Uw0Pa9pOwm2+71DT2ssmfkqgKEOTth9tHr3E+RHG5ivJM?=
+ =?us-ascii?Q?7QhBMTkvHFoYtbvwo93D19z+nixoqSRf1wvgXO81R5BHqGf130TkvIkqhjcv?=
+ =?us-ascii?Q?COk8wYcmx4u/FGDlw2y2mx7esBNDqa/XjSxAX0l3XgE7bnUCAi7rS4bp3kUY?=
+ =?us-ascii?Q?UsLPKto2iVnoIM9TeKhsO6C6l2+v75f+PtD6WKyI7Ruh84Le9LFLRofJ1vRl?=
+ =?us-ascii?Q?mIsyaTv7p6+tDtS2TqsBsql1k6kJ1d/uERLnh58m78m7g8qs?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 42c7995f-a989-4558-14c8-08de5f772844
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2026 20:44:11.6048
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Zflb41lqwnhj/2gcHN4WDDCfWakSiiT/M9POV99p4oM0xvmTvudDP7WqOVnFKt4eVzSglNY4zA5TvYS8xGEJUg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB12327
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_122645_060727_D31EF2FF 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260129_124416_726975_E73FB3AA 
+X-CRM114-Status: GOOD (  29.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,332 +167,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Test vectors were generated starting from existing CBC(AES) test vectors
-(RFC3602, NIST SP800-38A) and adding HMAC(SHA*) computed with Python
-script. Then, the results were double-checked on Mediatek MT7981 (safexcel)
-and NXP P2020 (talitos). Both platforms pass self-tests.
+On Fri, Jan 23, 2026 at 10:14:37AM +0800, Sherry Sun wrote:
+> DT binding allows specifying 'reset' property in both host bridge and
+> Root Port nodes, but specifying in the host bridge node is marked as
+> deprecated. So add support for parsing the new binding that uses
+> 'reset-gpios' property for PERST#.
 
-Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
----
- crypto/testmgr.c |   7 ++
- crypto/testmgr.h | 285 +++++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 292 insertions(+)
+Need descript why need this change, such as support m.2 key M/E, power
+sequence.
 
-diff --git a/crypto/testmgr.c b/crypto/testmgr.c
-index a302be53896d..4fc3f994828c 100644
---- a/crypto/testmgr.c
-+++ b/crypto/testmgr.c
-@@ -4123,6 +4123,13 @@ static const struct alg_test_desc alg_test_descs[] = {
- 		.alg = "authenc(hmac(sha1),rfc3686(ctr(aes)))",
- 		.test = alg_test_null,
- 		.fips_allowed = 1,
-+	}, {
-+		.alg = "authenc(hmac(sha224),cbc(aes))",
-+		.generic_driver = "authenc(hmac-sha224-lib,cbc(aes-generic))",
-+		.test = alg_test_aead,
-+		.suite = {
-+			.aead = __VECS(hmac_sha224_aes_cbc_tv_temp)
-+		}
- 	}, {
- 		.alg = "authenc(hmac(sha224),cbc(des))",
- 		.generic_driver = "authenc(hmac-sha224-lib,cbc(des-generic))",
-diff --git a/crypto/testmgr.h b/crypto/testmgr.h
-index 80bf5f1b67a6..a2a4df9acb01 100644
---- a/crypto/testmgr.h
-+++ b/crypto/testmgr.h
-@@ -16291,6 +16291,291 @@ static const struct aead_testvec hmac_sha1_ecb_cipher_null_tv_temp[] = {
- 	},
- };
- 
-+static const struct aead_testvec hmac_sha224_aes_cbc_tv_temp[] = {
-+	{ /* RFC 3602 Case 1 */
-+#ifdef __LITTLE_ENDIAN
-+		.key    = "\x08\x00"		/* rta length */
-+			  "\x01\x00"		/* rta type */
-+#else
-+		.key    = "\x00\x08"		/* rta length */
-+			  "\x00\x01"		/* rta type */
-+#endif
-+			  "\x00\x00\x00\x10"	/* enc key length */
-+			  "\x00\x00\x00\x00\x00\x00\x00\x00"
-+			  "\x00\x00\x00\x00\x00\x00\x00\x00"
-+			  "\x00\x00\x00\x00\x00\x00\x00\x00"
-+			  "\x00\x00\x00\x00"
-+			  "\x06\xa9\x21\x40\x36\xb8\xa1\x5b"
-+			  "\x51\x2e\x03\xd5\x34\x12\x00\x06",
-+		.klen   = 8 + 28 + 16,
-+		.iv     = "\x3d\xaf\xba\x42\x9d\x9e\xb4\x30"
-+			  "\xb4\x22\xda\x80\x2c\x9f\xac\x41",
-+		.assoc	= "\x3d\xaf\xba\x42\x9d\x9e\xb4\x30"
-+			  "\xb4\x22\xda\x80\x2c\x9f\xac\x41",
-+		.alen	= 16,
-+		.ptext	= "Single block msg",
-+		.plen	= 16,
-+		.ctext	= "\xe3\x53\x77\x9c\x10\x79\xae\xb8"
-+			  "\x27\x08\x94\x2d\xbe\x77\x18\x1a"
-+			  "\x17\xe8\x00\x76\x70\x71\xd1\x72"
-+			  "\xf8\xd0\x91\x51\x67\xf9\xdf\xd6"
-+			  "\x0d\x56\x1a\xb3\x52\x19\x85\xae"
-+			  "\x46\x74\xb6\x98",
-+		.clen	= 16 + 28,
-+	}, { /* RFC 3602 Case 2 */
-+#ifdef __LITTLE_ENDIAN
-+		.key    = "\x08\x00"		/* rta length */
-+			  "\x01\x00"		/* rta type */
-+#else
-+		.key    = "\x00\x08"		/* rta length */
-+			  "\x00\x01"		/* rta type */
-+#endif
-+			  "\x00\x00\x00\x10"	/* enc key length */
-+			  "\x20\x21\x22\x23\x24\x25\x26\x27"
-+			  "\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f"
-+			  "\x30\x31\x32\x33\x34\x35\x36\x37"
-+			  "\x38\x39\x3a\x3b"
-+			  "\xc2\x86\x69\x6d\x88\x7c\x9a\xa0"
-+			  "\x61\x1b\xbb\x3e\x20\x25\xa4\x5a",
-+		.klen   = 8 + 28 + 16,
-+		.iv     = "\x56\x2e\x17\x99\x6d\x09\x3d\x28"
-+			  "\xdd\xb3\xba\x69\x5a\x2e\x6f\x58",
-+		.assoc	= "\x56\x2e\x17\x99\x6d\x09\x3d\x28"
-+			  "\xdd\xb3\xba\x69\x5a\x2e\x6f\x58",
-+		.alen	= 16,
-+		.ptext	= "\x00\x01\x02\x03\x04\x05\x06\x07"
-+			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
-+			  "\x10\x11\x12\x13\x14\x15\x16\x17"
-+			  "\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f",
-+		.plen	= 32,
-+		.ctext	= "\xd2\x96\xcd\x94\xc2\xcc\xcf\x8a"
-+			  "\x3a\x86\x30\x28\xb5\xe1\xdc\x0a"
-+			  "\x75\x86\x60\x2d\x25\x3c\xff\xf9"
-+			  "\x1b\x82\x66\xbe\xa6\xd6\x1a\xb1"
-+			  "\xa1\x11\xfa\xbb\x1e\x04\x7e\xe7"
-+			  "\x4c\x5f\x65\xbf\x68\x8d\x33\x9d"
-+			  "\xbc\x74\x9b\xf3\x15\xf3\x8f\x8d"
-+			  "\xe8\xaf\x33\xe0",
-+
-+		.clen	= 32 + 28,
-+	}, { /* RFC 3602 Case 3 */
-+#ifdef __LITTLE_ENDIAN
-+		.key    = "\x08\x00"		/* rta length */
-+			  "\x01\x00"            /* rta type */
-+#else
-+		.key    = "\x00\x08"		/* rta length */
-+			  "\x00\x01"		/* rta type */
-+#endif
-+			  "\x00\x00\x00\x10"	/* enc key length */
-+			  "\x11\x22\x33\x44\x55\x66\x77\x88"
-+			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
-+			  "\x22\x33\x44\x55\x66\x77\x88\x99"
-+			  "\xaa\xbb\xcc\xdd"
-+			  "\x6c\x3e\xa0\x47\x76\x30\xce\x21"
-+			  "\xa2\xce\x33\x4a\xa7\x46\xc2\xcd",
-+		.klen   = 8 + 28 + 16,
-+		.iv     = "\xc7\x82\xdc\x4c\x09\x8c\x66\xcb"
-+			  "\xd9\xcd\x27\xd8\x25\x68\x2c\x81",
-+		.assoc	= "\xc7\x82\xdc\x4c\x09\x8c\x66\xcb"
-+			  "\xd9\xcd\x27\xd8\x25\x68\x2c\x81",
-+		.alen	= 16,
-+		.ptext	= "This is a 48-byte message (exactly 3 AES blocks)",
-+		.plen	= 48,
-+		.ctext	= "\xd0\xa0\x2b\x38\x36\x45\x17\x53"
-+			  "\xd4\x93\x66\x5d\x33\xf0\xe8\x86"
-+			  "\x2d\xea\x54\xcd\xb2\x93\xab\xc7"
-+			  "\x50\x69\x39\x27\x67\x72\xf8\xd5"
-+			  "\x02\x1c\x19\x21\x6b\xad\x52\x5c"
-+			  "\x85\x79\x69\x5d\x83\xba\x26\x84"
-+			  "\x60\xb3\xca\x0e\xc1\xfe\xf2\x27"
-+			  "\x5a\x41\xe4\x99\xa8\x19\x56\xf1"
-+			  "\x44\x98\x27\x9f\x99\xb0\x4a\xad"
-+			  "\x4d\xc1\x1e\x88",
-+		.clen	= 48 + 28,
-+	}, { /* RFC 3602 Case 4 */
-+#ifdef __LITTLE_ENDIAN
-+		.key    = "\x08\x00"		/* rta length */
-+			  "\x01\x00"		/* rta type */
-+#else
-+		.key    = "\x00\x08"		/* rta length */
-+			  "\x00\x01"            /* rta type */
-+#endif
-+			  "\x00\x00\x00\x10"	/* enc key length */
-+			  "\x11\x22\x33\x44\x55\x66\x77\x88"
-+			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
-+			  "\x22\x33\x44\x55\x66\x77\x88\x99"
-+			  "\xaa\xbb\xcc\xdd"
-+			  "\x56\xe4\x7a\x38\xc5\x59\x89\x74"
-+			  "\xbc\x46\x90\x3d\xba\x29\x03\x49",
-+		.klen   = 8 + 28 + 16,
-+		.iv     = "\x8c\xe8\x2e\xef\xbe\xa0\xda\x3c"
-+			  "\x44\x69\x9e\xd7\xdb\x51\xb7\xd9",
-+		.assoc	= "\x8c\xe8\x2e\xef\xbe\xa0\xda\x3c"
-+			  "\x44\x69\x9e\xd7\xdb\x51\xb7\xd9",
-+		.alen	= 16,
-+		.ptext	= "\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7"
-+			  "\xa8\xa9\xaa\xab\xac\xad\xae\xaf"
-+			  "\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7"
-+			  "\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf"
-+			  "\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7"
-+			  "\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf"
-+			  "\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7"
-+			  "\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf",
-+		.plen	= 64,
-+		.ctext	= "\xc3\x0e\x32\xff\xed\xc0\x77\x4e"
-+			  "\x6a\xff\x6a\xf0\x86\x9f\x71\xaa"
-+			  "\x0f\x3a\xf0\x7a\x9a\x31\xa9\xc6"
-+			  "\x84\xdb\x20\x7e\xb0\xef\x8e\x4e"
-+			  "\x35\x90\x7a\xa6\x32\xc3\xff\xdf"
-+			  "\x86\x8b\xb7\xb2\x9d\x3d\x46\xad"
-+			  "\x83\xce\x9f\x9a\x10\x2e\xe9\x9d"
-+			  "\x49\xa5\x3e\x87\xf4\xc3\xda\x55"
-+			  "\xbb\xe9\x38\xf8\xb9\xbf\xcb\x7b"
-+			  "\xa8\x22\x91\xea\x1e\xaf\x13\xba"
-+			  "\x24\x18\x64\x9c\xcb\xb4\xa9\x16"
-+			  "\x4b\x83\x9c\xec",
-+		.clen	= 64 + 28,
-+	}, { /* RFC 3602 Case 5 */
-+#ifdef __LITTLE_ENDIAN
-+		.key    = "\x08\x00"		/* rta length */
-+			  "\x01\x00"            /* rta type */
-+#else
-+		.key    = "\x00\x08"		/* rta length */
-+			  "\x00\x01"            /* rta type */
-+#endif
-+			  "\x00\x00\x00\x10"	/* enc key length */
-+			  "\x11\x22\x33\x44\x55\x66\x77\x88"
-+			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
-+			  "\x22\x33\x44\x55\x66\x77\x88\x99"
-+			  "\xaa\xbb\xcc\xdd"
-+			  "\x90\xd3\x82\xb4\x10\xee\xba\x7a"
-+			  "\xd9\x38\xc4\x6c\xec\x1a\x82\xbf",
-+		.klen   = 8 + 28 + 16,
-+		.iv     = "\xe9\x6e\x8c\x08\xab\x46\x57\x63"
-+			  "\xfd\x09\x8d\x45\xdd\x3f\xf8\x93",
-+		.assoc  = "\x00\x00\x43\x21\x00\x00\x00\x01"
-+			  "\xe9\x6e\x8c\x08\xab\x46\x57\x63"
-+			  "\xfd\x09\x8d\x45\xdd\x3f\xf8\x93",
-+		.alen   = 24,
-+		.ptext	= "\x08\x00\x0e\xbd\xa7\x0a\x00\x00"
-+			  "\x8e\x9c\x08\x3d\xb9\x5b\x07\x00"
-+			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
-+			  "\x10\x11\x12\x13\x14\x15\x16\x17"
-+			  "\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f"
-+			  "\x20\x21\x22\x23\x24\x25\x26\x27"
-+			  "\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f"
-+			  "\x30\x31\x32\x33\x34\x35\x36\x37"
-+			  "\x01\x02\x03\x04\x05\x06\x07\x08"
-+			  "\x09\x0a\x0b\x0c\x0d\x0e\x0e\x01",
-+		.plen	= 80,
-+		.ctext	= "\xf6\x63\xc2\x5d\x32\x5c\x18\xc6"
-+			  "\xa9\x45\x3e\x19\x4e\x12\x08\x49"
-+			  "\xa4\x87\x0b\x66\xcc\x6b\x99\x65"
-+			  "\x33\x00\x13\xb4\x89\x8d\xc8\x56"
-+			  "\xa4\x69\x9e\x52\x3a\x55\xdb\x08"
-+			  "\x0b\x59\xec\x3a\x8e\x4b\x7e\x52"
-+			  "\x77\x5b\x07\xd1\xdb\x34\xed\x9c"
-+			  "\x53\x8a\xb5\x0c\x55\x1b\x87\x4a"
-+			  "\xa2\x69\xad\xd0\x47\xad\x2d\x59"
-+			  "\x13\xac\x19\xb7\xcf\xba\xd4\xa6"
-+			  "\x04\x5e\x83\x45\xc5\x6a\x5b\xe2"
-+			  "\x5e\xd8\x59\x06\xbd\xc7\xd2\x9b"
-+			  "\x0b\x65\x1f\x31\xc7\xe6\x9c\x39"
-+			  "\xa3\x66\xdb\xb8",
-+		.clen	= 80 + 28,
-+	}, { /* NIST SP800-38A F.2.3 CBC-AES192.Encrypt */
-+#ifdef __LITTLE_ENDIAN
-+		.key    = "\x08\x00"            /* rta length */
-+			  "\x01\x00"		/* rta type */
-+#else
-+		.key    = "\x00\x08"		/* rta length */
-+			  "\x00\x01"            /* rta type */
-+#endif
-+			  "\x00\x00\x00\x18"	/* enc key length */
-+			  "\x11\x22\x33\x44\x55\x66\x77\x88"
-+			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
-+			  "\x22\x33\x44\x55\x66\x77\x88\x99"
-+			  "\xaa\xbb\xcc\xdd"
-+			  "\x8e\x73\xb0\xf7\xda\x0e\x64\x52"
-+			  "\xc8\x10\xf3\x2b\x80\x90\x79\xe5"
-+			  "\x62\xf8\xea\xd2\x52\x2c\x6b\x7b",
-+		.klen   = 8 + 28 + 24,
-+		.iv     = "\x00\x01\x02\x03\x04\x05\x06\x07"
-+			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f",
-+		.assoc	= "\x00\x01\x02\x03\x04\x05\x06\x07"
-+			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f",
-+		.alen   = 16,
-+		.ptext	= "\x6b\xc1\xbe\xe2\x2e\x40\x9f\x96"
-+			  "\xe9\x3d\x7e\x11\x73\x93\x17\x2a"
-+			  "\xae\x2d\x8a\x57\x1e\x03\xac\x9c"
-+			  "\x9e\xb7\x6f\xac\x45\xaf\x8e\x51"
-+			  "\x30\xc8\x1c\x46\xa3\x5c\xe4\x11"
-+			  "\xe5\xfb\xc1\x19\x1a\x0a\x52\xef"
-+			  "\xf6\x9f\x24\x45\xdf\x4f\x9b\x17"
-+			  "\xad\x2b\x41\x7b\xe6\x6c\x37\x10",
-+		.plen	= 64,
-+		.ctext	= "\x4f\x02\x1d\xb2\x43\xbc\x63\x3d"
-+			  "\x71\x78\x18\x3a\x9f\xa0\x71\xe8"
-+			  "\xb4\xd9\xad\xa9\xad\x7d\xed\xf4"
-+			  "\xe5\xe7\x38\x76\x3f\x69\x14\x5a"
-+			  "\x57\x1b\x24\x20\x12\xfb\x7a\xe0"
-+			  "\x7f\xa9\xba\xac\x3d\xf1\x02\xe0"
-+			  "\x08\xb0\xe2\x79\x88\x59\x88\x81"
-+			  "\xd9\x20\xa9\xe6\x4f\x56\x15\xcd"
-+			  "\x67\x35\xcd\x86\x94\x51\x3b\x3a"
-+			  "\xaa\x07\xb1\xed\x18\x55\x62\x01"
-+			  "\x95\xb2\x53\xb5\x20\x78\x16\xd7"
-+			  "\xb8\x49\x7f\x96",
-+
-+		.clen	= 64 + 28,
-+	}, { /* NIST SP800-38A F.2.5 CBC-AES256.Encrypt */
-+#ifdef __LITTLE_ENDIAN
-+		.key    = "\x08\x00"		/* rta length */
-+			  "\x01\x00"		/* rta type */
-+#else
-+		.key    = "\x00\x08"		/* rta length */
-+			  "\x00\x01"            /* rta type */
-+#endif
-+			  "\x00\x00\x00\x20"	/* enc key length */
-+			  "\x11\x22\x33\x44\x55\x66\x77\x88"
-+			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
-+			  "\x22\x33\x44\x55\x66\x77\x88\x99"
-+			  "\xaa\xbb\xcc\xdd"
-+			  "\x60\x3d\xeb\x10\x15\xca\x71\xbe"
-+			  "\x2b\x73\xae\xf0\x85\x7d\x77\x81"
-+			  "\x1f\x35\x2c\x07\x3b\x61\x08\xd7"
-+			  "\x2d\x98\x10\xa3\x09\x14\xdf\xf4",
-+		.klen   = 8 + 28 + 32,
-+		.iv     = "\x00\x01\x02\x03\x04\x05\x06\x07"
-+			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f",
-+		.assoc	= "\x00\x01\x02\x03\x04\x05\x06\x07"
-+			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f",
-+		.alen   = 16,
-+		.ptext	= "\x6b\xc1\xbe\xe2\x2e\x40\x9f\x96"
-+			  "\xe9\x3d\x7e\x11\x73\x93\x17\x2a"
-+			  "\xae\x2d\x8a\x57\x1e\x03\xac\x9c"
-+			  "\x9e\xb7\x6f\xac\x45\xaf\x8e\x51"
-+			  "\x30\xc8\x1c\x46\xa3\x5c\xe4\x11"
-+			  "\xe5\xfb\xc1\x19\x1a\x0a\x52\xef"
-+			  "\xf6\x9f\x24\x45\xdf\x4f\x9b\x17"
-+			  "\xad\x2b\x41\x7b\xe6\x6c\x37\x10",
-+		.plen	= 64,
-+		.ctext	= "\xf5\x8c\x4c\x04\xd6\xe5\xf1\xba"
-+			  "\x77\x9e\xab\xfb\x5f\x7b\xfb\xd6"
-+			  "\x9c\xfc\x4e\x96\x7e\xdb\x80\x8d"
-+			  "\x67\x9f\x77\x7b\xc6\x70\x2c\x7d"
-+			  "\x39\xf2\x33\x69\xa9\xd9\xba\xcf"
-+			  "\xa5\x30\xe2\x63\x04\x23\x14\x61"
-+			  "\xb2\xeb\x05\xe2\xc3\x9b\xe9\xfc"
-+			  "\xda\x6c\x19\x07\x8c\x6a\x9d\x1b"
-+			  "\xe0\xe2\x3d\x3f\x55\x24\x2c\x4d"
-+			  "\xb9\x13\x2a\xc0\x07\xbb\x3b\xda"
-+			  "\xfd\xa4\x51\x32\x3f\x44\xb1\x13"
-+			  "\x98\xf9\xbc\xb9",
-+		.clen	= 64 + 28,
-+	},
-+};
-+
- static const struct aead_testvec hmac_sha256_aes_cbc_tv_temp[] = {
- 	{ /* RFC 3602 Case 1 */
- #ifdef __LITTLE_ENDIAN
--- 
-2.47.3
+Frank
 
+>
+> To maintain DT backwards compatibility, fallback to the legacy method of
+> parsing the host bridge node if the reset property is not present in the
+> Root Port node.
+>
+> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 123 +++++++++++++++++++++++---
+>  1 file changed, 109 insertions(+), 14 deletions(-)
+>
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 1d8677d7de04..4b3377a48b17 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -147,10 +147,15 @@ struct imx_lut_data {
+>  	u32 data2;
+>  };
+>
+> +struct imx_pcie_port {
+> +	struct list_head	list;
+> +	struct gpio_desc	*reset;
+> +};
+> +
+>  struct imx_pcie {
+>  	struct dw_pcie		*pci;
+> -	struct gpio_desc	*reset_gpiod;
+>  	struct clk_bulk_data	*clks;
+> +	struct list_head	ports;
+>  	int			num_clks;
+>  	bool			supports_clkreq;
+>  	bool			enable_ext_refclk;
+> @@ -896,29 +901,35 @@ static int imx95_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+>
+>  static void imx_pcie_assert_core_reset(struct imx_pcie *imx_pcie)
+>  {
+> +	struct imx_pcie_port *port;
+> +
+>  	reset_control_assert(imx_pcie->pciephy_reset);
+>
+>  	if (imx_pcie->drvdata->core_reset)
+>  		imx_pcie->drvdata->core_reset(imx_pcie, true);
+>
+>  	/* Some boards don't have PCIe reset GPIO. */
+> -	gpiod_set_value_cansleep(imx_pcie->reset_gpiod, 1);
+> +	list_for_each_entry(port, &imx_pcie->ports, list)
+> +		gpiod_set_value_cansleep(port->reset, 1);
+>  }
+>
+>  static int imx_pcie_deassert_core_reset(struct imx_pcie *imx_pcie)
+>  {
+> +	struct imx_pcie_port *port;
+> +
+>  	reset_control_deassert(imx_pcie->pciephy_reset);
+>
+>  	if (imx_pcie->drvdata->core_reset)
+>  		imx_pcie->drvdata->core_reset(imx_pcie, false);
+>
+>  	/* Some boards don't have PCIe reset GPIO. */
+> -	if (imx_pcie->reset_gpiod) {
+> -		msleep(100);
+> -		gpiod_set_value_cansleep(imx_pcie->reset_gpiod, 0);
+> -		/* Wait for 100ms after PERST# deassertion (PCIe r5.0, 6.6.1) */
+> -		msleep(100);
+> -	}
+> +	list_for_each_entry(port, &imx_pcie->ports, list)
+> +		if (port->reset) {
+> +			msleep(100);
+> +			gpiod_set_value_cansleep(port->reset, 0);
+> +			/* Wait for 100ms after PERST# deassertion (PCIe r5.0, 6.6.1) */
+> +			msleep(100);
+> +		}
+>
+>  	return 0;
+>  }
+> @@ -1638,6 +1649,76 @@ static const struct dev_pm_ops imx_pcie_pm_ops = {
+>  				  imx_pcie_resume_noirq)
+>  };
+>
+> +static void imx_pcie_delete_ports(void *data)
+> +{
+> +	struct imx_pcie *pcie = data;
+> +	struct imx_pcie_port *port, *tmp;
+> +
+> +	list_for_each_entry_safe(port, tmp, &pcie->ports, list)
+> +		list_del(&port->list);
+> +}
+> +
+> +static int imx_pcie_parse_port(struct imx_pcie *pcie, struct device_node *node)
+> +{
+> +	struct device *dev = pcie->pci->dev;
+> +	struct imx_pcie_port *port;
+> +	struct gpio_desc *reset;
+> +
+> +	reset = devm_fwnode_gpiod_get(dev, of_fwnode_handle(node),
+> +				      "reset", GPIOD_OUT_HIGH, "PCIe reset");
+> +	if (IS_ERR(reset))
+> +		return PTR_ERR(reset);
+> +
+> +	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
+> +	if (!port)
+> +		return -ENOMEM;
+> +
+> +	port->reset = reset;
+> +	INIT_LIST_HEAD(&port->list);
+> +	list_add_tail(&port->list, &pcie->ports);
+> +
+> +	return 0;
+> +}
+> +
+> +static int imx_pcie_parse_ports(struct imx_pcie *pcie)
+> +{
+> +	struct device *dev = pcie->pci->dev;
+> +	int ret = -ENOENT;
+> +
+> +	for_each_available_child_of_node_scoped(dev->of_node, of_port) {
+> +		if (!of_node_is_type(of_port, "pci"))
+> +			continue;
+> +		ret = imx_pcie_parse_port(pcie, of_port);
+> +		if (ret) {
+> +			imx_pcie_delete_ports(pcie);
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static int imx_pcie_parse_legacy_binding(struct imx_pcie *pcie)
+> +{
+> +	struct device *dev = pcie->pci->dev;
+> +	struct imx_pcie_port *port;
+> +	struct gpio_desc *reset;
+> +
+> +	reset = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
+> +	if (IS_ERR(reset))
+> +		return PTR_ERR(reset);
+> +
+> +	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
+> +	if (!port)
+> +		return -ENOMEM;
+> +
+> +	port->reset = reset;
+> +	INIT_LIST_HEAD(&port->list);
+> +	list_add_tail(&port->list, &pcie->ports);
+> +
+> +	return 0;
+> +}
+> +
+>  static int imx_pcie_probe(struct platform_device *pdev)
+>  {
+>  	struct device *dev = &pdev->dev;
+> @@ -1656,6 +1737,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  	if (!pci)
+>  		return -ENOMEM;
+>
+> +	INIT_LIST_HEAD(&imx_pcie->ports);
+> +
+>  	pci->dev = dev;
+>  	pci->ops = &dw_pcie_ops;
+>
+> @@ -1684,12 +1767,24 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  			return PTR_ERR(imx_pcie->phy_base);
+>  	}
+>
+> -	/* Fetch GPIOs */
+> -	imx_pcie->reset_gpiod = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
+> -	if (IS_ERR(imx_pcie->reset_gpiod))
+> -		return dev_err_probe(dev, PTR_ERR(imx_pcie->reset_gpiod),
+> -				     "unable to get reset gpio\n");
+> -	gpiod_set_consumer_name(imx_pcie->reset_gpiod, "PCIe reset");
+> +	ret = imx_pcie_parse_ports(imx_pcie);
+> +	if (ret) {
+> +		if (ret != -ENOENT)
+> +			return dev_err_probe(dev, ret, "Failed to parse Root Port: %d\n", ret);
+> +
+> +		/*
+> +		 * In the case of properties not populated in Root Port node,
+> +		 * fallback to the legacy method of parsing the Host Bridge
+> +		 * node. This is to maintain DT backwards compatibility.
+> +		 */
+> +		ret = imx_pcie_parse_legacy_binding(imx_pcie);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret, "Unable to get reset gpio: %d\n", ret);
+> +	}
+> +
+> +	ret = devm_add_action_or_reset(dev, imx_pcie_delete_ports, imx_pcie);
+> +	if (ret)
+> +		return ret;
+>
+>  	/* Fetch clocks */
+>  	imx_pcie->num_clks = devm_clk_bulk_get_all(dev, &imx_pcie->clks);
+> --
+> 2.37.1
+>
 
