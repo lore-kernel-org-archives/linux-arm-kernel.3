@@ -4,92 +4,213 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26F5FD358F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 10:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4971BD358EE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 10:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TN9ZJ2CDowvxIQYtuX8i4e7sp+a9+p0zkDa4YiBDAsQ=; b=UW2RJ7Q+8a3PnTtG2S5KVOLEDn
-	e4ovj+XlvnUHZUCpg16fVAxDdEklp4eiVlLyQocM3w8cG7TlqamES3jjTGAIbugccF/WGRSZYwsTr
-	L4SmVnVpcVfUUhmGj1/vqmGsALaUZ5R2SPtr/EXDHhcnlsxJ8mRlr8zyrZsRpLkmjL3t7Mg24jNLv
-	6C9u9qJ/ivrJm3smy7sEeuE9buQRhO5JsQhPgxJ5oRgWonvch6jeIi1F1vXGqOx+KUJ9FFDkrI/9s
-	D9T9DzRR8xDthRwOMR3278WYtHZ55GQ8WEEFoB6xtZfmFc3AOhYSgX9s00jI/ngd/nCb+Ed7RZ6I4
-	tgQc+O5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3xv2fKMmQbCvesGH3u2qaEBCLS8qz2IgJEc8Z5Xk710=; b=sJNC2sZQ+371pDZ8qWnkNUXzD+
+	aSzV1SLke0Pg1z7MHRugW8bue9zMeFvrFhmHgJ8mK4/r9PpeV3FIqbFr4gsMkEXxq+J0LJh0zAnoq
+	zQFUiOAAKl9zBniJ8mlEwHFuS7c3/K+MnZuofp3rZFjwYsRghWHcIKahGefyPiGa3DEwcmZwn/qxl
+	8OPZzIZ+qzNix0ttDxAMqC4MtJNLYkUnArJPzAcdbFlDbzeeelsDkcAqHCxM5x+33d0UBA42Yj3AB
+	ptDXyLVrejJMWlT8telkTNJ8oRgyy0UUxH2/lLrznjiBSW47Kp13ZIKVsqsXHGEEc+kG6W2te+MsT
+	ghToX3nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlOsF-0000000HYNd-097W;
-	Thu, 29 Jan 2026 10:03:39 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vlP0T-0000000HYse-2rD1;
+	Thu, 29 Jan 2026 10:12:09 +0000
+Received: from mail-eastus2azon11010063.outbound.protection.outlook.com ([52.101.56.63] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlOsC-0000000HYNI-3KKm
+	id 1vlP0Q-0000000HYsI-3gSy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 10:03:37 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-47ee3a63300so8084035e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 02:03:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769681015; x=1770285815; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TN9ZJ2CDowvxIQYtuX8i4e7sp+a9+p0zkDa4YiBDAsQ=;
-        b=I2L7j7Rr0NsdCYcCokObM1QTaf1Fmv3jU5B6h8GsVtrWrtbvH+SSVj8FgChmfYKnsa
-         3GbKnImSdQR6eJPT68heVL0GqFMMr5C6YJdUYjR6CHpzzhTflZBYYDLMgTxM++Pdi4Sr
-         +WbreXsBYx0/og1jdpdFNjdeEI8L7CiLjEd6WLklbE8x5roBgZ8WsSvBgNLNXVRYAee0
-         HDpFxgqjzZyiz2joQ6dn5Pfu+JuJ/IP4NFZkM+i4nVRPGduJVr9f2Cy+NxmP/C222gkW
-         WbbxNIGUaUtA5e2zDudNHs7CaPkCh2mOVwrAsRzWtiSTkX4OjAA+CUsTqDoGDd72MJEg
-         JkLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769681015; x=1770285815;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=TN9ZJ2CDowvxIQYtuX8i4e7sp+a9+p0zkDa4YiBDAsQ=;
-        b=ftXxP7rxFFQozm9G6UKGx1oCkqJ8wpnT4TkxIQORlDSzYuwaItQF2QhgF1K9svDN47
-         Od8GLk3N4hA8oMD7yRyunR0T40nW/v+Y2TFYT9d9SX2dYaRlf9BrARGT5Wg5JOGXKbC8
-         2l3vC2ZrMjoStVPlbI0uuvxoznjCCiaM5Hnkyb6OCfPfr69e6jp9JibvRU6peJ3GzKL6
-         wFNhkGn6usgGNS0JQBGvHdCKJMxGANtrlhxRTcIS53w9/8WkpgZdZbhopyt9mZdxnDYq
-         DBOnNkcXdO4+cKvwyWMZIfHYfq/3gHtjNXk1U9VpGPYf+Swp4SQ1RbEliPQtHA5QczXY
-         GUXg==
-X-Forwarded-Encrypted: i=1; AJvYcCWWSciZf1JpulVXPPw9uNVeev87CaBF+XUDVANErb/vHQwkBtbzIsPhgquuumPwsEwgtwgiI+lGDNJRwjgH0FZl@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVEVaKd7Ko/YEOLVeCTpqLRFCwmrUszNshLbNm6qvX99dNojts
-	oQJ6Pw+lCRRnNndG33MNxYHYkkNi5rMEFz4HulrVCYJyNEeJQmTxnHjo
-X-Gm-Gg: AZuq6aKhUciwtasEofnZZ8D9DsSaGhyX+tSGZn32gExiJYMeKGOO/8eJQiLjyqqOv7w
-	DGkzZT+KzlHIZotqEgKePm9ApZ4GyuEfS259urQYHOmer5zyOTWUu3bL1HgE6OdGXfeGrkELh7M
-	xYIdGQr/evWcsc7PLgf78eePVScNc4QHlSPA/jwxXncKwM7Zq0KjdWpwmHqAZd8iWgdXcX733Q0
-	+Xl4IEj589U7mzfdlqJiMOHGMog0TEC1WhuxNICPPbyI05bRpFweQalcmjfZS+1diRmtrCtXFGV
-	43wVgiifM739oEzn+kH9IGjwYEpHurVkyT7v3RDZLCl4/5LCeFtr+B6DKOX8xRa3jJJkhT0ND+1
-	0Qt7m57CgABkGaCfr5Ebbrb72mMQcxwYCDTHn+fr9BLfkJ3rkdUnC/4Rx5MF5jT/cs4STV5coT4
-	ZyDdeHOAY62zODK5CU8rAwG6oYe0JkzWhYGrNB4gEHrYKfkih8wlwq
-X-Received: by 2002:a05:600c:1385:b0:479:1348:c614 with SMTP id 5b1f17b1804b1-48069c66fd7mr94238255e9.26.1769681014646;
-        Thu, 29 Jan 2026 02:03:34 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48066bfb59asm174245575e9.7.2026.01.29.02.03.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Jan 2026 02:03:34 -0800 (PST)
-Date: Thu, 29 Jan 2026 10:03:32 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Marco Elver <elver@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>,
- Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Boqun
- Feng <boqun.feng@gmail.com>, Waiman Long <longman@redhat.com>, Bart Van
- Assche <bvanassche@acm.org>, llvm@lists.linux.dev, Catalin Marinas
- <catalin.marinas@arm.com>, Arnd Bergmann <arnd@arndb.de>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] arm64: Optimize __READ_ONCE() with CONFIG_LTO=y
-Message-ID: <20260129100332.500248d3@pumpkin>
-In-Reply-To: <20260129005645.747680-3-elver@google.com>
-References: <20260129005645.747680-1-elver@google.com>
-	<20260129005645.747680-3-elver@google.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+	Thu, 29 Jan 2026 10:12:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XrLBKwMm/lqySFOdr8O5ysYFyyP9yFEk8jfg0A7N5TyLv/sI5CHbDEOmre/F29JBny0tHlkUhrvAda3PGVIQPuy03jOO8HYOa48XQxsI+cxw+V6rL9N1gGwPnGkYT0WqJkoSJ+j5XW5USwpxgkf81UGOEM1y/hToa0YHtnO48fppfZusuzrQP3NROWiEFC5Xafsfkm8Nmuaklbclc9ehI6+ZqVAknvexqsDq/32NWzfh/cNY+QYvHpNEX4n6zQdeK+buSQD5Gghu26OumoSyVSGzHXD7nH21fA55siv1/I9Wb5PklIDYPOQrOgqDCmAALwPMh1I5bt/y/Gbl1JmUJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3xv2fKMmQbCvesGH3u2qaEBCLS8qz2IgJEc8Z5Xk710=;
+ b=OZrYWz+jbE6MFA+Uyd0WQ8sgUT0R2dBSHMhVCt2oR0fSLhqP9FX5v9j3FESRsoR4zgCaCL17gCxJtX1KmuEy16ZoSpSOc77V/1xfFYQcWHkwkc/lpR8l5jS5peQs04n5ssjiKl3jnkzkQBlYDhomfxA+xFm1EkfRAhyKFlrxnxs6Cf8Q9IX+IufslxAMq5tI7S5Uxq6Byozb5pALLRPIN7o3SOp0I8jKhUTLgFTr5CmggCndL0lYk4CtE9NlDZC3Dt8QZer9ceiOMT/fUIWeK/QDygOUXYA1OxNtFFPcTSb1ALSOHRu5ZpV4hnMyOGrAn3FUpE6VSj7TxwjPW+HEug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3xv2fKMmQbCvesGH3u2qaEBCLS8qz2IgJEc8Z5Xk710=;
+ b=hsW6YJ8LhO4JycVrVYLamks4G6JGYHNvVgMTbSnkAg+1XXb0ZOw9bVXl6SX5g7LEwmpyXEGOme+B88aDtXwxnRJ2C1KgWFuPzz0u3+haWfm+dD7q654orWAfQpLSSY7dWphd0kOYDZg7HJo6kLOEjrX96xCeiUpp3cffV+MA7LI=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from PH8PR12MB6939.namprd12.prod.outlook.com (2603:10b6:510:1be::18)
+ by DS7PR12MB5983.namprd12.prod.outlook.com (2603:10b6:8:7e::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.12; Thu, 29 Jan
+ 2026 10:12:02 +0000
+Received: from PH8PR12MB6939.namprd12.prod.outlook.com
+ ([fe80::d84:b1d8:bca1:7c3d]) by PH8PR12MB6939.namprd12.prod.outlook.com
+ ([fe80::d84:b1d8:bca1:7c3d%4]) with mapi id 15.20.9564.006; Thu, 29 Jan 2026
+ 10:12:01 +0000
+Message-ID: <739e70b2-b4d1-457a-9f00-d19766f0ef76@amd.com>
+Date: Thu, 29 Jan 2026 11:11:52 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/5] rtc: zynqmp: fixes for read and set offset
+To: Tomas Melin <tomas.melin@vaisala.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: linux-rtc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Harini T <harini.t@amd.com>
+References: <20260122-zynqmp-rtc-updates-v4-0-d4edb966b499@vaisala.com>
+Content-Language: en-US
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ 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
+ mpwx1d8=
+In-Reply-To: <20260122-zynqmp-rtc-updates-v4-0-d4edb966b499@vaisala.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: VIZP296CA0025.AUTP296.PROD.OUTLOOK.COM
+ (2603:10a6:800:2a8::15) To PH8PR12MB6939.namprd12.prod.outlook.com
+ (2603:10b6:510:1be::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH8PR12MB6939:EE_|DS7PR12MB5983:EE_
+X-MS-Office365-Filtering-Correlation-Id: ce73065d-5606-4d53-fbd6-08de5f1ed83a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TWg5UmdzcmpwVHhhQ3ZhcXJZdkpVWk8rQnFpVkszbHM1MTFlTStqSm00R3Zr?=
+ =?utf-8?B?U1F1SjZrR3FDazdOWVl1MUd3KzBIQThaOXhFWHRFd2k3Tmt0SWgvVGFRVGYy?=
+ =?utf-8?B?WXhUYkd5TnIwR1U1eHZhMGl5K3A5eS9WNGhHTklkQ0RpVFRJalU1ZUVZREpR?=
+ =?utf-8?B?ZVRYdHB5K1IzdTdPYk5mblZhWXMrc0pIZXZjQVVScVFVcEM5Y2VXQmVjVDc5?=
+ =?utf-8?B?U0JDcG1leFRTMzJVYXlMbmRxVWZma3hKdFhEMXZ6VGdJdlNxTnBGR0RrVnBY?=
+ =?utf-8?B?UGZXb3YvbGtiem9JVVIremdSUVFWYUhVM0xNZnFNM3puZUlja1ZTZ1Z4VEhD?=
+ =?utf-8?B?cTFaMVh2aHNXdHM2UUVwZGZkU0wrekp1dGxXb01nZ0pkK1RoVTBWLzZPcEV5?=
+ =?utf-8?B?R1hLd0R4b0kraklNaS9NVUMzZGFPMWUzK2NRTFVJT0ZsZThvSnFqYnVvUklH?=
+ =?utf-8?B?ODJpSHp5enlQSFoyRG4wS3hWNEZLRGdSdWpWaDVmRTBZSVdreGw3Rm5QbG5V?=
+ =?utf-8?B?TC9CYzZrb1BwVVg2Ymc4QjB5OW5EMGlpcFJlQTNFSDh6aGZRYkhFdzhweFlk?=
+ =?utf-8?B?NVRZR1l0M2NFOUJ2ZzZ6ak1vK3g1WXRRYlFvM1ArQzgrTHdFYUovMGdPU3I1?=
+ =?utf-8?B?V29TNTFqVkU3ZXFSVDlid2RzeEwycnV3RlpqdFd4WnBMT2tabjlMK1kzeWo0?=
+ =?utf-8?B?ZXFKMmxYTzEzWXA3ZkdqbU1xdUtFM2YyRTM2YnlKaHBHNWpaa0E4cWl2WURx?=
+ =?utf-8?B?WU1XYmJEcHdoOGVHdVQwdTErK2tNWFg1VGRqa1BPM2lJV3lONlZzaEh5amJM?=
+ =?utf-8?B?bDdIZjVyWnZRRW8zWENKZnByNmQvY1Q2c1Noa251cHBWSEw5THFnNVkvdFNo?=
+ =?utf-8?B?VHlNSjRGdkR1WEkzeEM3YUhEWDdqVGZSalA0MjBwV2RLMjAwUHg4RWtZeE94?=
+ =?utf-8?B?bWpkTTJIVk9lUUNncHRnZDBxRTBGcytCR1hMZC9MSmc3R3hFL3JFNWNtS1pt?=
+ =?utf-8?B?M0pMZGpjSEZob1lYcWxYTEV3aGtqb1V6UGlOMW52M0dZT2pVUGFxZXNhMmhF?=
+ =?utf-8?B?Zk1ycm9iNHVGaWgveVlOTWZDRS9ScVZKTTI1aXltYmlFdjJicVVQUlFUSkpk?=
+ =?utf-8?B?OFVUSTlsZkxIR3F2MktHZ2pYZXpYcE1Fa3BTRUsrS2FSUU5tZTRVdnZBUE1h?=
+ =?utf-8?B?R0N2UjNaVHo2ZHhGN1d5WkRpdmg3UXhROU9TNVZmTG5xVW9JT25TbGJnZ01h?=
+ =?utf-8?B?YUh4VEU5NTBEL0Z4SGJHd1BtSzlLNTVDL2w1ME9UMnozQTIxWnpDWFhjVnRm?=
+ =?utf-8?B?S1hRVzlMSXA0TVdQcXFrR0k5VmM4ZExNZWFZZ0wvRHh2UHJ0bUY0ZS9HZG1q?=
+ =?utf-8?B?T2NhcnB2b29OaS9seEhWWVo2QTVWMUtzWXNUTFZZZi9qOU1QYkwrMWNDZlNv?=
+ =?utf-8?B?STdBMTNlSWN6WUFzT2ZSbkIwMnBzSllUMXczUmdUd1kwMlAwZ0R4dkpKWmxt?=
+ =?utf-8?B?c3lOUkppQTBrdFpVKzRPUmNWYWwvemNZMVUyVElpMDF3NG5HQmFxcXIzcXJE?=
+ =?utf-8?B?UGR3WjFLUmtKK0E5S3FqUkcyYlkvN09nMWNlWFA5VUEvSTFNYjhPZ1JNYkNL?=
+ =?utf-8?B?bHlUbVVZa2o0MXJPRjhOVzRlOUVKKzFhbEc3NUpobC9OYnZYeEdvY0xvYjNw?=
+ =?utf-8?B?alNDMTc1ZmJjY2NnQW40TGduYndVdlJtaThxcWszNS9hRHJRT3h5VXh1L1hI?=
+ =?utf-8?B?QkNtSkFTbDVSYVBIb0FSQnZhRUsyaklYSU1mTDVkZWQ4NmhVVitKVVgxNGZC?=
+ =?utf-8?B?RWhqWCt2WHY5MGNvTlN3b0p4U0pya0tiTHc2UHRscHZBazZlcW96UjhpaXNu?=
+ =?utf-8?B?Ri9VeTkvRVdNSGI3Qmx2STFZMXFwSGlQaGtWMUJPVG80TElNdWFHc1EyOFhL?=
+ =?utf-8?B?Q3BNMlA5TFdGRkVZS2NJTFdodCsyVDBsKy8vbEFCZHluYlhlNXF2dEttamQ4?=
+ =?utf-8?B?RENpMzdOY2FUVkUvWlhoOElnT2NEK25ReGpGYjVmU0MxWlNmVW9xQjQ2NnhH?=
+ =?utf-8?B?N0pnS2w3azlsdndLSCtMM3FjMzdPNDhDWjl1SGphMFF0aDVMZ3Bpd2NyeVVK?=
+ =?utf-8?Q?TlDd5B4901IFbGibqM3j7ZdAY?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR12MB6939.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NEY2TDE3TFJGWVc4VUdxcUhEeTg1NVdkdUF3WldzUkhHN3duZ245OG9pcE1j?=
+ =?utf-8?B?QXJvWE5hZ2puZUpLbnJSdGRpWHZ6VjNCWE5wa3h4VjQzL01XOEhrcFpuMEdQ?=
+ =?utf-8?B?S2VuQ1RUY1dHNmFwbEpBbkMrK3FZcWM1R2FJd1hESmZtYXVLdDVoMGtmODdI?=
+ =?utf-8?B?YmZQUW9JQzRUeEJCYVRseDYwQjE0VS9zUFZJYU1MV3FTNGNOZHVzNU94dXN5?=
+ =?utf-8?B?QnJHa0N6cjZyMStXU3dNL0Y2d01FbE1IYlIwb3lxUWphUzRqcDk4WVhZVGNt?=
+ =?utf-8?B?N2dCWUt4ejNEWlE1NEdHMWNrbDc1TzFBeThIUmZudWQ3bDlzZDRNOFF0aFp2?=
+ =?utf-8?B?Y1VER3U3OFlSMDJnemhDQW9QekZpQ0JqcllsaW1PSHcxN1MyMUxZbEFjM1hx?=
+ =?utf-8?B?bE5EYWdVNnIxZXFoY1NVQys4VkRFdXdGOURLMDI4bEEyaUtWejNYYVFYLzRZ?=
+ =?utf-8?B?clM1ckNVbGhYQ2d0SnF5WUJlRkRKUlRFOVMrTUI3SVFNUjNQMWJyakhvdnVF?=
+ =?utf-8?B?ZjNEOUd0K0Z5enFsUmVwZUo2aEhuTjZLZ1pMakIxanBKdnhJeWdKenkvTDRV?=
+ =?utf-8?B?a3FuOHcyZCtuWjFQMTJnRTBIY3lqN00rMWxrQU41djVsdmFYdHR0dndUZXBC?=
+ =?utf-8?B?Y1dSMGMrRUZFNVpaYjBHVGNCQ3l5aS9yNCtxT3oycE5pVURCNlVlWVB3WWR2?=
+ =?utf-8?B?U24xM0NVWTFldmcxMk4wTmtobGJSY1B2ZmZBS05oVUxPNlNQazNFTkdyYUQr?=
+ =?utf-8?B?TVF1Rjc0Y2I0V2VFWmk3bGtVTkNjWldOS1I0QzhIUTdVcXJZVlRwM0xTd25X?=
+ =?utf-8?B?VkhiY3hpTlAxS2psSjVvN0o0eWVlLzNMdDgzU2RXNFJWcGpSVFNPckNkdHRO?=
+ =?utf-8?B?TW1PTkZIeThUcTF5NlAxWXNrNHFXSEdib2dPTFNlckZ6K1pmc25RSW9DTkwy?=
+ =?utf-8?B?VVlCUklSaGhlQS9xQXg5ZW1aaTdQT2pqd3liWHBYc1d3N0UrVnFKZ3VCWk1O?=
+ =?utf-8?B?bkFEWTRZRlIxWUg4d0ZsOWozb3IvL3k3bWlWTVNhc0YvcWdOWWgyRXlDRjJi?=
+ =?utf-8?B?VytKMGorUDEvOXJYYVdhNmdmM2t4L3VIejZMNEdUbmFGYTVZRmF5c0pVWjF1?=
+ =?utf-8?B?a0xzTzZHcVFpbEs0aG04RFZNb3N2bUY1NWtXcFBQQldxcDVuTE1JbHZFcDVv?=
+ =?utf-8?B?ZHBLdDUwREFVVzFYTnFDUnF1MFdJTjZCR0N0TTRWVEZDS3Y1ZDJycXN6dmt3?=
+ =?utf-8?B?eGFFL09ySU1QUm9XdDlnTHNBU3VXc1VZM2FZZmVtY2UzUmcvYkFDN1lFQVo5?=
+ =?utf-8?B?M3NuY1VPV1dkbTdaRXdIb2N5T2c1c0YrSE5NM1JJUnFmV1NFOVNxN3ZobHRs?=
+ =?utf-8?B?Y2ZuY01lZGx5VnU4cDVSclBWMXNYVzBmS1BxRDVGKzhXUjdOcXhzMWlxQWs5?=
+ =?utf-8?B?dTVxdTFyNmlkNnVMWXQ5cmhjUG9KRXNVaUlDZXRRbVlzU1M4WGtMdnJSWFQy?=
+ =?utf-8?B?YW1aM2xCcURzUlFDVTRaSSt4N0liUWgxdHo3cmo5M29weGVxN0txaXRRMVRn?=
+ =?utf-8?B?c2c2NWlLamJBVkNWZXZKbXhFTkh6V0RTZ2cvUVJpV0F0dEZoUmM3SUtVNVRP?=
+ =?utf-8?B?ZEJGUzNWZk5EMm9RVTJPWWpBQUFYU2IvaFpHMVNIdEtuVnRRQWlsaTJDVWN5?=
+ =?utf-8?B?QnYwdmZ6OWNKOXIxMmZjTHBFMDZsZC84cVdrMDlBR2E2bUlaMEFhQUtrVmtE?=
+ =?utf-8?B?NFFIalRRWHhGRE10OU1uVjZxa1VCYWZPSWdvSHhtdEFieFhlOHI2aXFndk4r?=
+ =?utf-8?B?VGVCMVk3aUZ6Uk9IRndvbWJ5ckNhMld6c2JaWHp1R1cvTnJGN0thRTJyMXo2?=
+ =?utf-8?B?TlRWSnRJRG4yV290c05RczB5N1g0ZTJOQ2Y0YWFxaGYrQ0tzNVFLZ0orVktr?=
+ =?utf-8?B?eGQvVWNLeHk0Y2h5VXdRWCtLbEJXT1RnOUdyNmorNTNtdFZKTDdZTlJ1clJm?=
+ =?utf-8?B?b0hSRGhZeDBCbCs2dFlzckxWdzhEaVI2KzFUQWszRU80L2pGQ0ZpUUtyYi9m?=
+ =?utf-8?B?NS8vc2h1bWI4U2M5dkVZYllxL2tQa1pnWHRMaVM4Q0ZaekNlQ2VLc3ZSYk9Y?=
+ =?utf-8?B?Sk5IS1dsQnVDeitWeTJqdXRRRXBIUnMrR1psRFZtYVlZU1pUaGZzV2Y5SXBt?=
+ =?utf-8?B?VXlBT1ozWlg2Yk0rZjFwc1dFREhZdXpXQjUrbU9xcXkzeVQ0elZzSnR3bk91?=
+ =?utf-8?B?N2ZFTDNObzFOTWlGMW5Vcy96VUVxN1l0MEdvQUhWV2V6V3hIdHBTazJhcXBu?=
+ =?utf-8?B?WHNZQzFYNmQzYUI1cDJyRlQ0SEhEVFd5eW9ja2tNbWdvRGpISWpUdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ce73065d-5606-4d53-fbd6-08de5f1ed83a
+X-MS-Exchange-CrossTenant-AuthSource: PH8PR12MB6939.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2026 10:12:01.8039
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gVs44xmOBDyE4USBtDnBXuH2Bdt8RQDxQqeHH7lrl/whGdl2s2noEuA7BMXRt4lX
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5983
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_020336_869161_6A59116A 
-X-CRM114-Status: GOOD (  29.81  )
+X-CRM114-CacheID: sfid-20260129_021207_020901_58750363 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,106 +225,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 Jan 2026 01:52:33 +0100
-Marco Elver <elver@google.com> wrote:
 
-> Rework arm64 LTO __READ_ONCE() to improve code generation as follows:
+
+On 1/22/26 14:53, Tomas Melin wrote:
+> Add improvements for read and set offset functions.
+> The basic functionality is still the same, but offset correction values
+> are now updated to match with expected.
 > 
-> 1. Replace _Generic-based __unqual_scalar_typeof() with more complete
->    __rwonce_typeof_unqual(). This strips qualifiers from all types, not
->    just integer types, which is required to be able to assign (must be
->    non-const) to __u.__val in the non-atomic case (required for #2).
+> The RTC calibration value operates with full ticks,
+> and fractional ticks which are a 1/16 of a full tick.
+> The 16 lowest bits in the calibration registers are for the full ticks
+> and value matches the external oscillator in Hz. Through that,
+> the maximum and minimum offset values can be calculated dynamically,
+> as they depend on the input frequency used.
 > 
-> Once our minimum compiler versions are bumped, this just becomes
-> TYPEOF_UNQUAL() (or typeof_unqual() should we decide to adopt C23
-> naming).  Sadly the fallback version of __rwonce_typeof_unqual() cannot
-> be used as a general TYPEOF_UNQUAL() fallback (see code comments).
+> For docs on the calibration register, see
+> https://docs.amd.com/r/en-US/ug1087-zynq-ultrascale-registers/CALIB_READ-RTC-Register
 > 
-> One subtle point here is that non-integer types of __val could be const
-> or volatile within the union with the old __unqual_scalar_typeof(), if
-> the passed variable is const or volatile. This would then result in a
-> forced load from the stack if __u.__val is volatile; in the case of
-> const, it does look odd if the underlying storage changes, but the
-> compiler is told said member is "const" -- it smells like UB.
+> Due to rounding errors (different number of fract ticks),
+> offset readback will differ slightly depending on
+> if the offset is negative or positive. This is however well below the granularity
+> provided by the hardware.
 > 
-> 2. Eliminate the atomic flag and ternary conditional expression. Move
->    the fallback volatile load into the default case of the switch,
->    ensuring __u is unconditionally initialized across all paths.
->    The statement expression now unconditionally returns __u.__val.
+> For example
+> $ echo 34335 > offset
+> $ cat offset
+> 34335
+> $ echo -34335 > offset
+> $ cat offset
+> -34326
 > 
-...
-> Signed-off-by: Marco Elver <elver@google.com>
+> Signed-off-by: Tomas Melin <tomas.melin@vaisala.com>
 > ---
-> v2:
-> * Add __rwonce_typeof_unqual() as fallback for old compilers.
-> ---
->  arch/arm64/include/asm/rwonce.h | 24 ++++++++++++++++++++----
->  1 file changed, 20 insertions(+), 4 deletions(-)
+> Changes in v4:
+> - Do not limit building to zynqmp arch as building on other platforms
+>    might be needed. Implies dropping commit.
+> - No need for RTC_PPB to be 64 bit value, use 32 bit instead
+> - Link to v3: https://lore.kernel.org/r/20260119-zynqmp-rtc-updates-v3-0-acd902fdeab1@vaisala.com
 > 
-> diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
-> index fc0fb42b0b64..712de3238f9a 100644
-> --- a/arch/arm64/include/asm/rwonce.h
-> +++ b/arch/arm64/include/asm/rwonce.h
-> @@ -19,6 +19,23 @@
->  		"ldapr"	#sfx "\t" #regs,				\
->  	ARM64_HAS_LDAPR)
->  
-> +#ifdef USE_TYPEOF_UNQUAL
-> +#define __rwonce_typeof_unqual(x) TYPEOF_UNQUAL(x)
-> +#else
-> +/*
-> + * Fallback for older compilers to infer an unqualified type.
-> + *
-> + * Uses the fact that auto is supposed to drop qualifiers. Unlike
+> Changes in v3:
+> - Add commit for limiting building of driver to zynqmp arch.
+> - Reorder variable declarations in set_offset
+> - Link to v2: https://lore.kernel.org/r/20260108-zynqmp-rtc-updates-v2-0-864c161fa83d@vaisala.com
+> 
+> Changes in v2:
+> - Add commit introducing check for calibration value overflow
+> - Update comments
+> - Align data types across set and read
+> - Rename fract_tick as fract_data conforming to data sheet
+> - Further improve on set offset calculation logic
+> - Link to v1: https://lore.kernel.org/r/20251201-zynqmp-rtc-updates-v1-0-33875c1e385b@vaisala.com
+> 
+> ---
+> Tomas Melin (5):
+>        rtc: zynqmp: correct frequency value
+>        rtc: zynqmp: check calibration max value
+>        rtc: zynqmp: rework read_offset
+>        rtc: zynqmp: rework set_offset
+>        rtc: zynqmp: use dynamic max and min offset ranges
+> 
+>   drivers/rtc/rtc-zynqmp.c | 75 ++++++++++++++++++++++++++----------------------
+>   1 file changed, 41 insertions(+), 34 deletions(-)
+> ---
+> base-commit: cd635e33b0113287c94021be53d2a7c61a1614e9
+> change-id: 20251201-zynqmp-rtc-updates-d260364cc01b
+> 
+> Best regards,
 
-Maybe:
-	In all versions of clang 'auto' correctly drops qualifiers.
-A reminder in here that this is clang only might also clarify things.
+Acked-by: Michal Simek <michal.simek@amd.com>
 
-> + * typeof_unqual(), the type must be complete (defines an unevaluated local
-> + * variable); this must trivially hold because __READ_ONCE() returns a value.
-
-Not sure that is needed.
-
-> + *
-> + * Another caveat is that because of array-to-pointer decay, an array is
-> + * inferred as a pointer type; this is fine for __READ_ONCE usage, but is
-> + * unsuitable as a general fallback implementation for TYPEOF_UNQUAL.
-
-gcc < 11.0 stops it being used elsewhere.
-Something shorter?
-	The arrary-to-pointer decay doesn't matter here.
-
-  David
-
-> + */
-> +#define __rwonce_typeof_unqual(x) typeof(({ auto ____t = (x); ____t; }))
-> +#endif
-> +
->  /*
->   * When building with LTO, there is an increased risk of the compiler
->   * converting an address dependency headed by a READ_ONCE() invocation
-> @@ -32,8 +49,7 @@
->  #define __READ_ONCE(x)							\
->  ({									\
->  	typeof(&(x)) __x = &(x);					\
-> -	int atomic = 1;							\
-> -	union { __unqual_scalar_typeof(*__x) __val; char __c[1]; } __u;	\
-> +	union { __rwonce_typeof_unqual(*__x) __val; char __c[1]; } __u;	\
->  	switch (sizeof(x)) {						\
->  	case 1:								\
->  		asm volatile(__LOAD_RCPC(b, %w0, %1)			\
-> @@ -56,9 +72,9 @@
->  			: "Q" (*__x) : "memory");			\
->  		break;							\
->  	default:							\
-> -		atomic = 0;						\
-> +		__u.__val = *(volatile typeof(*__x) *)__x;		\
->  	}								\
-> -	atomic ? (typeof(*__x))__u.__val : (*(volatile typeof(*__x) *)__x);\
-> +	__u.__val;							\
->  })
->  
->  #endif	/* !BUILD_VDSO */
-
+Thanks,
+Michal
 
