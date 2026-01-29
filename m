@@ -4,109 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5AB9D61014
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 13:01:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D809D61015
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 13:02:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iesfD+1e0XJcSwTx9KNwWz9DxCNf+/Vb7CeNYX6bJos=; b=wIWaCOppTV96svPPS462wWdAiY
-	Cm8numWg0+WPQn1zclQMNjZ6BsNFfOqbbwIHJZj0/6cpb9tWcxdp95xo99mJwzlo7C0QVrSHmyzNh
-	VTZeXkX7yJSB9iPnWxfWNZk+OTsN3bvm9B7STwWUHnPkFq5R/LMZJ8OiXOSnqjL5oQCa8ao2bAqvG
-	MRF0J0m6o2eVBDqAQhHuvYTot5jx/pP/07FqLpflupmb81P4LQ7Z6FONiSQUVi3KKpU1djnOkxdma
-	TbDiHJe8nJ2w7GXNku5I5TtzrlaGcnhvAEw1tlCZKS0meS2t6vd6ccl0FuRHdLW6DBXwf3vQr9Gt8
-	pP/0gjtg==;
+	bh=o5jH8Rxdp+tEZoB9l9fTv6AucC1v6C8I9T+8Tw0hHlg=; b=4T/mNe+oNFgA1mi3chtjtzgIus
+	wlYECF0LqKDfFT3dkt8oLAV7Ial04/Box49VtQkGtIAJziIN9p/wVNVBZKVcAOqkIRZ9e7lcvcA+c
+	OgsF+TpQnieyYmtQsu4E1hOd3StPCDj0aJijFbKmU+pkwPTAtMsquLiRQKmS3qbqVuxto4eUO9bxP
+	jRLTWzXvQOuKJGD5NSDfe3Lu1DzxZ8cS61V1123Fp+zRBT0XbXkm2zEAt7WhJ3EINj0AC2v9skDOe
+	SeX/XUc8ezLGAl+MTr5djseJLGGjfnkFWZrrRc1dAkF5a630PAizcnCnkJpYLBnXqEBFX54UidJLM
+	I60N8BZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlReM-000000007xn-1A7d;
-	Thu, 29 Jan 2026 13:01:30 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1vlRfH-0000000083Z-1rA4;
+	Thu, 29 Jan 2026 13:02:27 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlReJ-000000007x1-2RTo
+	id 1vlRfE-0000000082O-3eyk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 13:01:29 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-65807298140so1566756a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 05:01:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769691685; cv=none;
+	Thu, 29 Jan 2026 13:02:26 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-658b511573cso1710615a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 05:02:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769691742; cv=none;
         d=google.com; s=arc-20240605;
-        b=fZ2fYwfs+py08VT+xnvSFYeNOG/QMLLWngy9/qf/6lHR7MTNhlP1cSpQsFytAmg/Wg
-         Qyxzk4KUokZaEUeU99ZiRcK/lfKJDAMoxkD50BywvXwmpNu0UoX+OsGonJxGqk0FwcpN
-         14QVf5Bes69z8hmXWAhcs9pPAYwk2BnYFZ8me1cu9b0gkHg1JNZH8LfLf4KjzTjFnz6j
-         YMxcTc01R3WdTL3GzXsVjaV+P2rXonRGtESCSwa4u3e206amp1UpfWmCZ8xduHMLIOCt
-         2Nk6ziPqZfI74EAm01I0cokiXUXSwvcL+4+3e2VW+oedjOrN4GqwlNQsHJM+7zjIvP1e
-         n0Kw==
+        b=iYS2uj1taO6dz3eg3yJ1vnVHfu8MCMZY0J1BEm3suIyy+y9cnK3Wmkb7TqZQjujGl6
+         Hb6ejGCIKOPGso63WBK65LDDOW6dBJ6lhSWYI4GG9QXqA94Xj6HaLIBR586SGSVZusD1
+         f7aWF5Ys2X+gjr5+TU43M09/n8iIBtnsa+y7vUWgIBNMtO6DXJ9mqvluO0SMaLrpnZMp
+         824IjJ7k37iyKxyDlKkiMyrOL0QvgmYje3E1VferTqH1QW54N+Alm4O5b5I7tU+S0ZOF
+         XR09g0R+eayEgLllpot3LuLWt8Sx/Bd3uVK2A7CK4ox+SCaoB78v7CQSPkA67Vya0DnM
+         jf+Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=iesfD+1e0XJcSwTx9KNwWz9DxCNf+/Vb7CeNYX6bJos=;
-        fh=x5akmyoeJNSoJrGWpIi5+8aKZRea1Dlmi5Zplej0qjA=;
-        b=Bx1Jf4eqEPDscTgqNzto0NnWmiA6Snooi/dYtZ6I5qQl8JwF0PC/l2KPLmAI83jrkJ
-         78zd0iiMe9/doMwNtP1FAhhqmZ1399WGv7ugZm+k7gw/rp/h/5+amTIjQ9kVhkhrtRXX
-         2GUf01Be4lQuRzjL5b0iwEDVYT1qhG3utMc1BCFJXu1/VvM2DFWz9a44I5OQVVVtGFds
-         JDztTBx8AqmnqX70SgrWaOwu8zfEYYb241F1q2M4XvZz4JPd8zJZE+e+ESCm1FyZuaPT
-         b+c91Vy4dhflw0EnDpYaBvfa29tL9u8/0ZAaDc6dBjsd9ILfdn1pAesTAnguVdqYtmpX
-         lzng==;
+        bh=o5jH8Rxdp+tEZoB9l9fTv6AucC1v6C8I9T+8Tw0hHlg=;
+        fh=arzLjuK3JTavabrZDFmQvh3Mtty7XjFwX020k7ipCPU=;
+        b=GvL5bbVaGjRPKs+UxHpPM394utiunUOHBdpuE2nT8lxbdlvhmwRflFMNRNsMwBX0Zr
+         /lRpF5GQ7NAOJtPXuiWE76eTCbvh4Pg/2nVSYenJ/gnsjXKGXq3McdkYtV7XvtQzTgc5
+         c8YsTxV4/+4aX0AIlCGnwuCQFDR652iJYQpFW0a+dIK/AnLCppVxJ/RCnxyRd0vRrhRj
+         jzkUUAfySemyCTJgiQ9z8aeZh50+PG3pI4w9mzdi1EJJ5dYSr0nRzU1jyGqVDqqWcTtP
+         +t7kWN6ph4FYNv2WzZcmknAFALqlxpMOxQXFSBrjd6DNrxIFzNwGTTSuXR1z3SgDZ0iC
+         EUwQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769691685; x=1770296485; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1769691742; x=1770296542; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=iesfD+1e0XJcSwTx9KNwWz9DxCNf+/Vb7CeNYX6bJos=;
-        b=BO9rOqrvThVoZ8UAnaPamU8OiGuzBB8upN5rizU16Khl9uLlO30psgk1nwjEA07VWd
-         ptR36rngAENedSl7gzEL5/b8KpVxoGwocBiOz/9FWTfP4jZnLzHBilicuL92rr4Sk04/
-         uZMjrKGgGXdjFUA+mywjMFNYJ0HjqDaYVNgbQATbOfO9HNnBx+VkSO7QUmZrlRFB4k2n
-         luTuPtLXXhPddPLE7l8OodX4bpnDVjhRcagkN4L2P7DIOFEVuaZAAyHL7hm1XHa6XKlw
-         VC4EIMqL4Wt6KSo3xAEV4ju8zWuiqlFZFUCNK1wKxLXlB39gBQMLJQuOImFVyULisw1x
-         SE1w==
+        bh=o5jH8Rxdp+tEZoB9l9fTv6AucC1v6C8I9T+8Tw0hHlg=;
+        b=tVSNkobbzD9L/IZe0n/+KgQVFf91Xk69sPBeAHhDfGHP3LGza6EE5mTFRL08NODL8I
+         Lepk1/qrKaNn4paJj7qkGTtkDjWZspn20x9P4uwrfwFDhWgpswI/pPSVyr7EF6o2neu1
+         VomTke+NhAc+jqs43S6DLkjSTKflZhCwPfi3Z0rhiMyQcgT28GAQzIBlsInVoXc9tojA
+         +iGOFpqcX7eyPPic/eIbs/1oFVrvWR17yOAZHMf0H+DTM11VIAjMaN1rvu9ge4GwhUTe
+         TjzEtZsoLGO4rNq44hwlGBY1J1fP4PaeY0DbuLIpOvyjBMEnZNEEucJfJsCLI5Owy8BV
+         6icA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769691685; x=1770296485;
+        d=1e100.net; s=20230601; t=1769691742; x=1770296542;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iesfD+1e0XJcSwTx9KNwWz9DxCNf+/Vb7CeNYX6bJos=;
-        b=cXzhFIruGf95Rm1rHFt5rwhBmbQtMmmyWj5W00JMVY600Qx6SVUE03EOzKRPKaHFCT
-         mybRs79eOV+0mWXJMmkDIcVWRWOusiII1xWIJfpy9y3wbWOpYfhb79HsCxjfDD+M3MDX
-         VggRAotxwkmtvGCwS3mL7I0G1wxgvL80ct73vPe+WTe0zqzfhS4/HburG1ig2L7ajurb
-         RTmghgozcMEwkxe7fPCSXL3pYqP4z0EFh7vXa63KvR1a1mJLIxnQZYYZs1ogyTD1PT0V
-         fJkqhAPU14EpC0K+p5OMkxhoV0rycc/dcnEZ9xs9ZO/w4cDDj/ohVP7BJDLPjbiJQMfW
-         cFpw==
-X-Forwarded-Encrypted: i=1; AJvYcCVaE+iDKOl+hxyxp6hS1LANUH7/NN3D01oYnqdsJ0IhB8zasQ6j3lJkfTMn56dm5nylPdg0Bz+YTxVQXifPn7cB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMehVkV6Sok741SWgVx0ccj5yHu7t9tznI7ytgN1Yi7HS7TxLY
-	xtbvhN49U5jlF6TGBKRa/lltrP1dhNF9DCqhS708OgFiAHWBekS5MzE39ryGhqIr/8CoYJ/aVfB
-	GFByyw0WBxUrIQapqldXhZRTVryDQujOsYe9IxAsNHA==
-X-Gm-Gg: AZuq6aL5ZzN3SwlQamPgKECCRexpgtu7vWw7Hv0OtFKUGh2c37LR3G0ALZEC76t4DvO
-	QTQQ9vjHinYJfPurHhZ+mWkTl5Bc+MBU93sfvRuYxs16PvLqYU1lIrdYvUn4c6muhT3ZdXFH3YC
-	KZEXAWFE3pRtFTbFTDM1WJe4HHaOMqLq/GuUkLx5oKvLfEkSRWffYGTg5SvdZ6wjc1/n5rDZeED
-	W636Tbtww4DeSthx5koB4/513kEm69moBQaHY/D2A8wWw45x2bQ1PWRUXrgrKXz0kDuFpnDgx+5
-	6Buv7mWDBan9K8Bx9vHN/2ri
-X-Received: by 2002:a05:6402:2711:b0:658:1eee:8a40 with SMTP id
- 4fb4d7f45d1cf-658a600eeb3mr6025005a12.2.1769691684890; Thu, 29 Jan 2026
- 05:01:24 -0800 (PST)
+        bh=o5jH8Rxdp+tEZoB9l9fTv6AucC1v6C8I9T+8Tw0hHlg=;
+        b=l3DsViN0oJOmLv42EHCarI7hev7jGf+k13oLssO/hLxI5nt7wIFPW/5Ds7zkUBn5dd
+         WwIR7ErQgxRPYvvxASV552Oys+6IFF8dtYqae2DEuTd+pYPMMWdPpOl9EDbCUjCP5B8c
+         I69yUMxGCuazmkSWWrp/tB8ihZYbi4FC9iAO1ZOvobzWY3BT0pFfde/H4RjjAoov04BP
+         vBev7ni/I1xnck9S1l+SEY1DvNjoj3IOGw9gqvSUanA3l628dYMUBJ/xJS/OeOhGsPS0
+         IaiFFvlr31rOYi9CQnHWYR3OG+mskKlC1h6GzROxN/ST81Z2C1S53rPGFJdoVbqsk1QT
+         +wjA==
+X-Forwarded-Encrypted: i=1; AJvYcCU9AqPx/mgc3wFibI29JW3rIpHobXbkfYBYm5QoH+ul46yVuqBDfSzwInXOxJpwGhqUDbISZLeFtW+aJoYDNw/I@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWYc/gCYSOC1a3CqHjHMXdFwM4z/VjS6YM53Y3xWa+Y4xPH3Lo
+	8c7RRL9Ct80pmYoSl2z2PKlCXF2WXh4df7yyAgV8k5iwwWJMOBZRVwmBUatyoHZdRzxcT19x20b
+	r/RNx9WCcUzPLWDZV0Sb6NfqCqqkT0Y9rW5TakgwZ5Q==
+X-Gm-Gg: AZuq6aKXam5PsX2A+sUPqor+1m/mJZsZnXG5kQ/dmCsd7WzBFUAFxDCRlpffhRzR+p+
+	cSPAx9n0y89qt9UM+lQp0ZQQIRb6B/ZI/MDtf/CPqxA49YReqFBoMZG9+VT7CMo5rb3YeYxQ6yu
+	vbf7O8Q7XWU6mON3SgpzD+GSe2yiEtOeQlv2IV2NojeI3a+8PktZsMuA3soVvivEP0cf2U56O/m
+	T93xQ68Fdx/hcjYX9qJFZrGzgqyfgxQ+ezZJFBF7kFzTDoC/cJo4DtQLyUpEw831yjRZ0dxoeMv
+	K8ByrJOVKp00f5EobFVeNy80
+X-Received: by 2002:a05:6402:40d6:b0:64d:e1c:4c0a with SMTP id
+ 4fb4d7f45d1cf-658a5f8cfdamr6437778a12.0.1769691742347; Thu, 29 Jan 2026
+ 05:02:22 -0800 (PST)
 MIME-Version: 1.0
 References: <20260126092159.815968-1-vincent.guittot@linaro.org>
- <20260126092159.815968-3-vincent.guittot@linaro.org> <aXsuRTZUUnw0kdzV@horms.kernel.org>
-In-Reply-To: <aXsuRTZUUnw0kdzV@horms.kernel.org>
+ <20260126092159.815968-3-vincent.guittot@linaro.org> <aXtB0QcVOkE_hhny@shell.armlinux.org.uk>
+In-Reply-To: <aXtB0QcVOkE_hhny@shell.armlinux.org.uk>
 From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Thu, 29 Jan 2026 14:01:13 +0100
-X-Gm-Features: AZwV_QjS9ru6SWfw3DDchF_hxWLgsNEurVnBwt9Mvn_TEdB82tA-dgIWwcajOmY
-Message-ID: <CAKfTPtDfnpzq2CB-isVzvh1ZCWo7kit9KRJvVGoU1C3zZTgdXw@mail.gmail.com>
+Date: Thu, 29 Jan 2026 14:02:09 +0100
+X-Gm-Features: AZwV_QgTBsEbqAq2XkLUgo22OQOD7HpGZIhc6Tp00c8M0BIdl_pPusc1NHtuBUU
+Message-ID: <CAKfTPtAg201wXU_LuO-Y0M8k6ew8-vhKsjoHzJ1sxqp3Pn=wVQ@mail.gmail.com>
 Subject: Re: [PATCH 2/4] phy: s32g: Add serdes subsystem phy
-To: Simon Horman <horms@kernel.org>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
 Cc: vkoul@kernel.org, neil.armstrong@linaro.org, krzk+dt@kernel.org, 
 	conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, s32@nxp.com, 
-	p.zabel@pengutronix.de, linux@armlinux.org.uk, ghennadi.procopciuc@nxp.com, 
-	bogdan-gabriel.roman@nxp.com, Ionut.Vicovan@nxp.com, 
-	alexandru-catalin.ionita@nxp.com, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
-	Frank.li@nxp.com
+	p.zabel@pengutronix.de, ghennadi.procopciuc@nxp.com, Ionut.Vicovan@nxp.com, 
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	netdev@vger.kernel.org, Frank.li@nxp.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_050127_684951_F20536F8 
-X-CRM114-Status: GOOD (  37.71  )
+X-CRM114-CacheID: sfid-20260129_050224_931372_EFB1C9B6 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,53 +119,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 Jan 2026 at 10:54, Simon Horman <horms@kernel.org> wrote:
+On Thu, 29 Jan 2026 at 12:17, Russell King (Oracle)
+<linux@armlinux.org.uk> wrote:
 >
 > On Mon, Jan 26, 2026 at 10:21:57AM +0100, Vincent Guittot wrote:
->
-> ...
->
-> > diff --git a/drivers/phy/freescale/phy-nxp-s32g-serdes.c b/drivers/phy/freescale/phy-nxp-s32g-serdes.c
-> > new file mode 100644
-> > index 000000000000..8336c868c8dc
-> > --- /dev/null
-> > +++ b/drivers/phy/freescale/phy-nxp-s32g-serdes.c
-> > @@ -0,0 +1,569 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/**
-> > + * SerDes driver for S32G SoCs
-> > + *
-> > + * Copyright 2021-2026 NXP
+> > +/*
+> > + * Until now, there is no generic way to describe and set PCIe clock mode.
+> > + * PCIe controller uses the default CRNS = 0 mode.
 > > + */
+> > +enum pcie_phy_mode {
+> > +     CRNS = 0, /* Common Reference Clock, No Spread Spectrum */
+> > +     CRSS = 1, /* Common Reference Clock, Spread Spectrum */
+> > +     SRNS = 2, /* Separate Reference Clock, No Spread Spectrum */
+> > +     SRIS = 3  /* Separate Reference Clock, Spread Spectrum */
+> > +};
+>
+> So this is a PCIe thing. If it's part of the driver's API, then it
+> should be common and not driver-private.
+>
+> > +static inline bool is_pcie_phy_mode_valid(int mode)
+> > +{
+> > +     switch (mode) {
+> > +     case CRNS:
+> > +     case CRSS:
+> > +     case SRNS:
+> > +     case SRIS:
+> > +             return true;
+> > +     default:
+> > +             return false;
+> > +     }
+> > +}
+>
+> This checks that the submode is one of the PCIe private modes that this
+> driver wants to see.
+>
 > > +
-> > +#include <dt-bindings/phy/phy.h>
-> > +#include <linux/clk.h>
-> > +#include <linux/delay.h>
->
-> Hi Vincent, all,
->
-> I think that you also need:
->
-> #include <linux/iopoll.h>
->
-> So that read_poll_timeout() is declared.
-> Else this patch causes a transient build failure
-> (for x86_64 allmodconfig)
-
-ok, i will add it
-
->
-> > +#include <linux/module.h>
-> > +#include <linux/of_platform.h>
-> > +#include <linux/of_address.h>
-> > +#include <linux/phy/phy.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/processor.h>
-> > +#include <linux/reset.h>
-> > +#include <linux/units.h>
->
-> ...
->
 > > +static int s32g_serdes_phy_set_mode_ext(struct phy *p,
 > > +                                     enum phy_mode mode, int submode)
 > > +{
@@ -175,193 +161,20 @@ ok, i will add it
 > > +
 > > +     if (mode == PHY_MODE_PCIE)
 > > +             return -EINVAL;
->
-> This is part of an AI Generated review.
-> I have looked over it and I think it warrants investigation.
-> For information on how to reproduce locally, as I did, please see [1].
->
-> [1] https://netdev-ai.bots.linux.dev/ai-local.html
->
->   This returns error if mode IS PHY_MODE_PCIE, but this is a PCIe PHY!
->   This looks like a typo. Should be !=.
-
-yes don't know what happened here but it should be !=
-
->
 > > +
 > > +     if (!is_pcie_phy_mode_valid(submode))
 > > +             return -EINVAL;
-> > +
-> > +     /*
-> > +      * Do not configure SRIS or CRSS PHY MODE in conjunction
-> > +      * with any SGMII mode on the same SerDes subsystem
-> > +      */
-> > +     if ((submode == CRSS || submode == SRIS) &&
-> > +         serdes->ctrl.ss_mode != 0)
-> > +             return -EINVAL;
-> > +
-> > +     /*
-> > +      * Internal reference clock cannot be used with either Common clock
-> > +      * or Spread spectrum, leaving only SRNSS
-> > +      */
-> > +     if (submode != SRNS &&  !serdes->ctrl.ext_clk)
-> > +             return -EINVAL;
-> > +
-> > +     serdes->pcie.phy_mode = submode;
 >
-> The AI review also suggested that it may be unsafe
-> to set the submode after s32g_serdes_phy_power_on()
-> has been called. And that there is nothing preventing that.
+> This checks for the PCIe submode, but notice the test immediately
+> above. PCIE mode is being rejected. So, this driver supports
+> everything else but PCIe.
 >
-> TBH, I am unsure if either of those statements are true.
-> But it seems worth validating with you.
+> That doesn't seem right.
 
-yes, the usual pattern is :
-- phy_set_mode_ext()
-- then phy_power_on()
-but I can add an additional check
+It's a mistake
 
 >
-> > +
-> > +     return 0;
-> > +}
->
-> ...
->
-> > +static int s32g_serdes_get_ctrl_resources(struct platform_device *pdev, struct s32g_serdes *serdes)
-> > +{
-> > +     struct s32g_serdes_ctrl *ctrl = &serdes->ctrl;
-> > +     struct device *dev = &pdev->dev;
-> > +     int ret, idx;
-> > +
-> > +     ret = of_property_read_u32(dev->of_node, "nxp,sys-mode",
-> > +                                &ctrl->ss_mode);
-> > +     if (ret) {
-> > +             dev_err(dev, "Failed to get SerDes subsystem mode\n");
-> > +             return -EINVAL;
-> > +     }
-> > +
-> > +     if (ctrl->ss_mode > S32G_SERDES_MODE_MAX) {
-> > +             dev_err(dev, "Invalid SerDes subsystem mode %u\n",
-> > +                     ctrl->ss_mode);
-> > +             return -EINVAL;
-> > +     }
-> > +
-> > +     ctrl->ss_base = devm_platform_ioremap_resource_byname(pdev, "ss_pcie");
-> > +     if (IS_ERR(ctrl->ss_base)) {
-> > +             dev_err(dev, "Failed to map 'ss_pcie'\n");
-> > +             return PTR_ERR(ctrl->ss_base);
-> > +     }
-> > +
-> > +     ctrl->rst = devm_reset_control_get(dev, "serdes");
-> > +     if (IS_ERR(ctrl->rst))
-> > +             return dev_err_probe(dev, PTR_ERR(ctrl->rst),
-> > +                                  "Failed to get 'serdes' reset control\n");
-> > +
-> > +     ctrl->nclks = devm_clk_bulk_get_all(dev, &ctrl->clks);
-> > +     if (ctrl->nclks < 1)
-> > +             return dev_err_probe(dev, ctrl->nclks,
-> > +                                  "Failed to get SerDes clocks\n");
->
-> If devm_clk_bulk_get_all returns 0 then this value will
-> be passed to dev_err_probe(). And 0 will, in turn be returned by
-> dev_err_probe() and this function. However, that will be treated
-> as success by the caller, even though this is an error condition.
->
-> Perhaps something like this is more appropriate if ctrl->nclks
-> must be greater than 0. (Completely untested!)
->
->         if (ctrl->nclks < 1) {
->                 ret = ctrl->nclks ? : -EINVAL;
->                 return dev_err_probe(dev, ret,
->                                      "Failed to get SerDes clocks\n");
->         }
->
-> Flagged by Smatch.
-
-okay
-
->
-> ...
->
-> > +static int s32g_serdes_parse_lanes(struct device *dev, struct s32g_serdes *serdes)
-> > +{
-> > +     int ret;
-> > +
-> > +     for_each_available_child_of_node_scoped(dev->of_node, of_port) {
-> > +             ret = s32g2_serdes_create_phy(serdes, of_port);
-> > +             if (ret)
-> > +                     break;
-> > +     }
-> > +
-> > +     return ret;
->
-> Perhaps it cannot occur.
-> But if the loop above iterates zero times,
-> then ret will be used uninitialised here.
-
-should not but will fix it
-
->
-> Also flagged by Smatch.
->
-> > +}
-> > +
-> > +static int s32g_serdes_probe(struct platform_device *pdev)
-> > +{
-> > +     struct s32g_serdes *serdes;
-> > +     struct device *dev = &pdev->dev;
-> > +     int ret;
-> > +
-> > +     serdes = devm_kzalloc(dev, sizeof(*serdes), GFP_KERNEL);
-> > +     if (!serdes)
-> > +             return -ENOMEM;
-> > +
-> > +     platform_set_drvdata(pdev, serdes);
-> > +     serdes->dev = dev;
-> > +
-> > +     ret = s32g_serdes_get_ctrl_resources(pdev, serdes);
-> > +     if (ret)
-> > +             return ret;
-> > +
-> > +     ret = s32g_serdes_get_pcie_resources(pdev, serdes);
-> > +     if (ret)
-> > +             return ret;
-> > +
-> > +     ret = s32g_serdes_parse_lanes(dev, serdes);
-> > +     if (ret)
-> > +             return ret;
->
-> The I review also says:
->
->   The probe function calls s32g_serdes_init() which enables clocks,
->   configures hardware, and deasserts reset. However,
->   s32g_serdes_parse_lanes() creates PHY providers via
->   devm_of_phy_provider_register().
->
->   Problem: PHY consumers can start calling PHY ops (like power_on) as soon
->   as the provider is registered, but the hardware isn't initialized until
->   s32g_serdes_init() runs afterward. This creates a race window.
->
->   Recommendation: Move s32g_serdes_init() before s32g_serdes_parse_lanes().
-
-I will look at this more deeply but part of s32g_serdes_init() needs
-lanes to be parsed for configuring clock
-
->
-> > +
-> > +     ret = s32g_serdes_init(serdes);
-> > +
-> > +     return ret;
->
-> nit: This could be more succinctly written as:
-
-fair enough
-
->
->         return s32g_serdes_init(serdes);
->
-> > +}
->
-> ...
+> --
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
