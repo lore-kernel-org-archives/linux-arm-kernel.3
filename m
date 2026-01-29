@@ -4,181 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28CEDD73E9C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 22:15:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E009CD73E9C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 22:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YIO2vkcc105CXrUqKP18Scogmb7ApAsJL4lhnxlB/GM=; b=kqyXy92WPQhSq0o2kEdFEXokre
-	YlchiK8FyWBWfa08cQBxss7SmUffpThgCVbEgrv7LD4TdJULsS5N6fMyhAAnXqQMh11hxKS8x09Ag
-	r/UPrp4wWv2p8Ny1TFRTRI4TljeqWSn7urdxDUBLyCg5bLev+PYr5SxBstljHBtAEyeVdtfC1Lhfb
-	n8hFVLN7lIXtpMIg1GN7eCLUxdj5hpRmzJml6aKO8w8kqr0qcftuMuP3l3U3DSU2nR/KG/ucD4b68
-	8quDvtsLFw8V6nVMeT+gzFiUnlTD9jrTbwtdmW2i/7dpI4f+aAt7pLXuH5OGUrNrZ3HCcM7MlaRcK
-	l7QtskNg==;
+	bh=dQqTBoEOuk1Rrqapo8uRzUTnT2O7+yhSfpIMkr9o7Xw=; b=bxfiAnDb5m+AK5H94cdEESWIu1
+	H6LXhhGt/6YqY5cKY93RnjIxLvDxcCy+USAl1K2zTRNePKFTNUbhdDP0B1m7/CBMhkpN0T40RIXTn
+	YJtdjXxHh1f6Ov9OKrecw6GzMwYPFQ06wc6WMXbywV5FhFqMAdPW3a1uhY23dXSPPAZqPS8Hs6AQ5
+	OJmf4FAGEZakKoDqQMTKXM23wSVgPTeJJwfQBqq/sTT8S0JTaqlNe6Loo7c5PSkwlH39eO9173IAv
+	lncknUPbgLMVzM2xM5MGPNiibjTe0mGhnbAjgvi29KS/aN9CDm+yJ61okPpPk63r/p6EHBD0Lz23z
+	D5GYYNeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlaHz-00000000iY8-3NtG;
-	Thu, 29 Jan 2026 22:14:59 +0000
-Received: from mail-eastusazon11011002.outbound.protection.outlook.com ([52.101.52.2] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1vlaN7-00000000jDj-1bTG;
+	Thu, 29 Jan 2026 22:20:17 +0000
+Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlaHw-00000000iXi-3rnb
+	id 1vlaN5-00000000jCx-1Lla
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 22:14:58 +0000
+	Thu, 29 Jan 2026 22:20:16 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ew2hTu/CTO199lf241J52drJDmXl3tE+D91Aigftkvd+b6YEQFT1uqn1QMXEuxe8Ew/C2+DKGwR0C6lUwOQyK/KToNk5OADeu5EzewFII4mSGhzT/BDEGpCsx7tlRwgZ8XJTuEMSBoh6yI1ra9ARVaWdk7Dflbb7zh73zxc8j8xDhw/eqe9CRDfW2Uj2Bh5iDVMJ4sJKuled6aH1dyseiBVAZ69j7huaHk2LalDXmuYWW93wyb2lXVATARsZ6rk6b3ohOxM5ZOEMA2kH/Je5JQUyP86yWXG1NvmAaoFropsg0oGpMJXmk2j6bngIyxQ2nGRYj+mOf/bH+K10bTXYgQ==
+ b=yOEjtT5Vcwy9szFwS9X0O+iQn4HFWFUursNCVVYghbVFYTz4WQ0lUTehBxTqauqmvOs4O2I7Ol3QxyOn/AU4dC7zUAr4NfMzQo6bXGtRufpJTUTMF9rUVYULye7Fn6FaCY57m3qBPhFFYVRKAJ6ULa1fGwGjnrkalinVC+inishu4H9+4dtYBv1L7E43QIa1RFSpeGyuXf2cynNQfqjuEWgUaQbR1JUbPr3vZ+e6w5eOmFi+/0OzphIFInMm53sCgcLp/Qrm+5MrS2KcYYWDUvD8DIQTMebKSSToO9bt3GD9/DCzpR5o0fIRrjYT447+4V1dFDEdLRzMgeyIt8Dokw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YIO2vkcc105CXrUqKP18Scogmb7ApAsJL4lhnxlB/GM=;
- b=eQnyhl90z27j5Mcei7W5XEpc2s5pOVkhAR0b5o45Bnjvgj5UNKxy5cPFyvOZMNZP9ZbhTei0RJYk+3/QekD+fqIHQ5RMa5+D+XPUWtVwj9aW6anuv7otai13agOc0+vskoVd7MyptpfKrUtzEICaiIiBAXF7YViOwPWF88PYRGyFKTBSee5nK9lYrK1fPilpXnkp9CkPZUBY6MHRtjAqeZG3bLzh1ZN+yrHP4hfhqU311oK+jBk4jMfEfxRLR2lWNVFa2v89oz3riMrVLACOPHbqwOzdDzDWk2mAwWQsfoaJApw9V9fwn4RoWPdL+dtGXcV/KZyLITb1YU7kEnuozw==
+ bh=dQqTBoEOuk1Rrqapo8uRzUTnT2O7+yhSfpIMkr9o7Xw=;
+ b=i/XZMfX8D5hGTMR9ogzq9owCuykSD2hSCwKgYL+pp/BLx3VJ9HJoSqY2HgTw4UvNYV+4GtzecEt9bfaSfrVPVkRzuSovlfzfBidjH3R/kQQDGPRjWLao2ZugwPGGuETXaX1VE+IFhkn9lZpCpddfFATX9t1Fi2gZvv4L5mTzw9KAt/Q6mPuwIyKa4RsvtLtCifakjXrwaZZbEvs8K46Z7QPKR27aGz3IT7pNtep0ibbFWfV8CMvCBFUVCvlP04Uj1t6uM2ekiOCFEC/ZdKMf0VCNe6YyA5gKyYT0QaKgubERScfNe7/BD/UVlfn4kLPEGgV/6h0o5KQ2nagw+M89rw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YIO2vkcc105CXrUqKP18Scogmb7ApAsJL4lhnxlB/GM=;
- b=hWPSo5r9DiiMDDi0mymoiWBKjseved78/TsQsY75CUgdjTkvTrKzGCopUVKMcjlY+4PZPyB6UiEPGzDGWpO3tJZ9db6RIhYlLOB5JkRkt7tRHXRMjRO8ATxbUVrBirbMW37AkPMJ5tRalv29rMhmrQSMFu77KElIpd6s7ZApNdxCPWRz1ZT8cLT/8h230LwIO79t12IXZeTUIiPZpSRGxqS7emChSGAdAb1P6VlO1swkrsok2l/ZJV3Z04UZpaQPa8q54rp0y9KTUIPfFmjTCzyb4uv4pb62lCJpr4EQEyxwchT2q3oS39UvzS5y3/djruJXBI7BOE1G1uMlHlXQcg==
+ bh=dQqTBoEOuk1Rrqapo8uRzUTnT2O7+yhSfpIMkr9o7Xw=;
+ b=vnc6f6JdqAl0To63HHihm/rmUmazXGb6W82JNVwt//2SReSYPiOSofq1UVHVTZ3KhxHXndqq/yXgEoaikxUYs1PC+YUNqVANvhGLSBlRJ1tRBMgl+F80MF/jSqvoyQ017Y6T9qjim8D6NMgGJ7DFhBb2A/zKLp/42UzTX3gh4Rs=
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
- SN7PR12MB7131.namprd12.prod.outlook.com (2603:10b6:806:2a3::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.7; Thu, 29 Jan 2026 22:14:48 +0000
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::aa9a:b827:90c6:506b]) by DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::aa9a:b827:90c6:506b%7]) with mapi id 15.20.9542.010; Thu, 29 Jan 2026
- 22:14:48 +0000
-Message-ID: <e10fa678-9564-4e09-a848-fac22e1c9a64@nvidia.com>
-Date: Thu, 29 Jan 2026 14:14:45 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 45/47] arm_mpam: Add workaround for T241-MPAM-4
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
- <20260112165914.4086692-46-ben.horgan@arm.com>
- <23f08379-301d-4ffc-bf6f-d6a7bb952724@nvidia.com>
- <e38cb392-ff29-4008-aa4f-e9d7166836f0@arm.com>
-Content-Language: en-US
-From: Fenghua Yu <fenghuay@nvidia.com>
-In-Reply-To: <e38cb392-ff29-4008-aa4f-e9d7166836f0@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: BYAPR06CA0042.namprd06.prod.outlook.com
- (2603:10b6:a03:14b::19) To DM6PR12MB2667.namprd12.prod.outlook.com
- (2603:10b6:5:42::28)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
+ DM4PR01MB7809.prod.exchangelabs.com (2603:10b6:8:68::20) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.10; Thu, 29 Jan 2026 22:20:08 +0000
+Received: from MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::86f5:4db2:7ad5:7fc4]) by MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::86f5:4db2:7ad5:7fc4%6]) with mapi id 15.20.9542.010; Thu, 29 Jan 2026
+ 22:20:08 +0000
+Date: Thu, 29 Jan 2026 14:20:03 -0800 (PST)
+From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+To: Besar Wicaksono <bwicaksono@nvidia.com>
+cc: will@kernel.org, suzuki.poulose@arm.com, robin.murphy@arm.com, 
+    ilkka@os.amperecomputing.com, linux-arm-kernel@lists.infradead.org, 
+    linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org, 
+    mark.rutland@arm.com, treding@nvidia.com, jonathanh@nvidia.com, 
+    vsethi@nvidia.com, rwiley@nvidia.com, sdonthineni@nvidia.com, 
+    skelley@nvidia.com, ywan@nvidia.com, mochs@nvidia.com, nirmoyd@nvidia.com
+Subject: Re: [PATCH 2/8] perf/arm_cspmu: nvidia: Add Tegra410 UCF PMU
+In-Reply-To: <20260126181155.2776097-3-bwicaksono@nvidia.com>
+Message-ID: <d72fc2bd-6200-1ee6-31d3-d81d7b669453@os.amperecomputing.com>
+References: <20260126181155.2776097-1-bwicaksono@nvidia.com> <20260126181155.2776097-3-bwicaksono@nvidia.com>
+Content-Type: text/plain; format=flowed; charset=US-ASCII
+X-ClientProxiedBy: MW4PR03CA0104.namprd03.prod.outlook.com
+ (2603:10b6:303:b7::19) To MW4PR01MB6228.prod.exchangelabs.com
+ (2603:10b6:303:76::7)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|SN7PR12MB7131:EE_
-X-MS-Office365-Filtering-Correlation-Id: 524f6bfb-aa0d-44be-4e69-08de5f83d095
+X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|DM4PR01MB7809:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1e4f6d2e-f635-4b4b-52c5-08de5f848f62
+X-LD-Processed: 3bc2b170-fd94-476d-b0ce-4229bdc904a7,ExtAddr
+X-MS-Exchange-AtpMessageProperties: SA
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?V2VxZjZ4bnZvc0paeFBUNEVRS0Rvb3pHUVVJTjhhRzBwT1dLdng0dkZiNjhI?=
- =?utf-8?B?cXczWUQrQVNoODVZSHovRnhjQUxrRkZlTUVtbS9jU05zN3crTnJLeExZZEtJ?=
- =?utf-8?B?cnFZbHlhWDcvelBkcTVhWncwRU1rRGxMaEI2cHNyRCtZcXF2SldpQXRSbnJk?=
- =?utf-8?B?RGk2TkF6UjMrN1VCRFRTSkMyYk90YUphVndJYm5RODNBWHg4MXdldW83VWUy?=
- =?utf-8?B?N0xqSkxiZGdEVHh1WjlhbkJLZDhkL2dVbDJQM2x1SDcxOWZSeVZlcEVqdjY3?=
- =?utf-8?B?eDMzL3NqeTY5ZHFWNlRqZXNaSlVnV1gwRGgzTFI4dGZPbUoyck1TdXFRU1d3?=
- =?utf-8?B?L1k3UEI5VUVhUkpueVh5UXd2ME9XSnc5OWVpQURrUXVra3lWU2FmaXBEVTFm?=
- =?utf-8?B?QytpR1J6T0szRlBBRm1XdWExNU9kekdPTnhrRVBBQU5ENlNkM3htNHVCUkYx?=
- =?utf-8?B?RURHWGF0MFYzZ2hjUzE1WG9ocG9sTjVYeUxVaHBtaWhsM0VOcFp5UWZQZkFO?=
- =?utf-8?B?M0JYZHcyeGx6cXBCMWZma0Z0ZjJwRmtNelc5ajNwRWpuNGRaSjNLTnZVWmxZ?=
- =?utf-8?B?MTBMQ3o3QlVQb2JROC9XY3A5NXNERmc0SEJsU0hBSmdsaGhiUzBDdGg1K3g2?=
- =?utf-8?B?SHorM3JnYUJUNytXc2hIZjlRN3lxQnJzcmRnMFVBL1k2MnZVSUJRemRTYmlS?=
- =?utf-8?B?ZGZIem5VcEU1c1M4d1Q1Y3ZoV1hjcFk1ZG4rK1hjZHpDQzBoZmhCTHM4U0Z6?=
- =?utf-8?B?cldJcmdWK3JaQkl4OFVYamNTRGpKcm1oWDVhYVl6Rjl2Y0JSVWpVNHpWNDBG?=
- =?utf-8?B?czdoaXY5WDhmQTRvcHJlR0pNQWlGcUgrNWJYOG9ZWGY4emc1RXBFd2wxVjkw?=
- =?utf-8?B?WHlYMWdzYkRkZ2p0ZjhiMnRsZVRkdnQrTFVLMHJDN1hXbU56b1ltRWdBL1I5?=
- =?utf-8?B?TndHQlVJWW5FRi9mQTVEdEhsaTJnOUd2enF0VEpZbzYraXRSNWI1c1JkUHJ0?=
- =?utf-8?B?UzEzNjhHRzJtdk1sZlpJcWp0QVhrSVdGWlVqNWo3d0hjRlpOVnk2S25Dd212?=
- =?utf-8?B?UW9LR0hGa2RwUUhiOCszaU9FL3ZwY2d1b0ZHZ1lhaEsyUmN6SHpUMlZxeFJX?=
- =?utf-8?B?WnVtM1I3d3kxTFZTejZMaDgxQVl5S0xEWlBmTDZON3VWVVRsUXpJekRFUEMr?=
- =?utf-8?B?RmRVb2dZZzJLekNQUXFxNHdwbWdMcHgvdVMwcFZzVDlBWEUzdFNmbEJTM20y?=
- =?utf-8?B?dVZUZytpNktEbEpFTzdnaTEvRGZwTHNYYkhGWWtrdEtGZU5JTGxIL2RLQ2xL?=
- =?utf-8?B?ZGgvOEluampEVVVLQk9XTGVJSkpIOTRwQmV0ZkYvTHk0cjVRYTVIWE53VnNX?=
- =?utf-8?B?L3lTYlF5cUNXcVpoTU9Sd0plRjMwbm1GdVBGTG4xMmNUTlczZG01eHM3Nmkx?=
- =?utf-8?B?M1kzY2hYWiswYm9mSnQyMUxiMEp2S2FaaUFPa1NhUlFWSkQwTkJnTkV1d0Vt?=
- =?utf-8?B?UEl5c1lhOUw5R1kyODhGd2xwMWcxSVlSK0JYcGhrRFlSbEw2NUdVdzA2ZTJ4?=
- =?utf-8?B?MXMrZU9yWHA2UExSbHdyUUpDUVlFcklnVzdZVEhQc1J2THRISEFBaG9Ibnpw?=
- =?utf-8?B?a1JoeXd2V0RSaWFMdlk2T1dKMHRkUXpweUxCa3hQc2J0MFNZaTUxQmdvUDZS?=
- =?utf-8?B?ekFkTUY5T3paM0xDd2Q3ZnRucE1WdlBqaUdnWS9tdUFIbmJuODBzOGxyU3BN?=
- =?utf-8?B?alZwRkZvWXFKVnR1ZldkTlFubmpnM3M0Vk9leEl3UC9URVJvV2JQdzh4NGl6?=
- =?utf-8?B?Y2dRZncxSHVpZVF6YU5FTkovS3BTYk9zVzQ3dWUxUmJ0L0Zma0FrY3RNdnN1?=
- =?utf-8?B?REtyc1dxL2o2U2NLeVY1c2FTOW8wUlphOFByOVFzQjZCRWhYcXhxcWIwQ1ls?=
- =?utf-8?B?SmNlcjJSMm9YMGhUaHhIMXhKcmcwU1BrSTd0bm5IYlYzQzllRytVaGgrcGZr?=
- =?utf-8?B?Zk9NbHBjL0U5SFpKRUhIL0V6ckVBQXVnRFVEdnlBRUxwTHJrVWJhbEZlNVNU?=
- =?utf-8?B?OUUwcU9MVm9oZUJuZU1zOEdDSVFNR00zNUdoR1VHK1VHUG5naVM4NEswS1dX?=
- =?utf-8?Q?ssRE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YOu3ykwaLLoIg7QlRU3yH23xvs+GgTd3ABIJSiExx/kxHXuNOqrZZIyE9Om6?=
+ =?us-ascii?Q?OV9LpcSRFvd8scqlK2yYetx6SWYrwn4BsCb6yy7aRdeVxjjmsfePMLYJ/dca?=
+ =?us-ascii?Q?xe1lhYLGENdVJ/I8xgkEYfUhVQhgbpBgwNJJDsyodqzS8vcNBMRnSeoin8Me?=
+ =?us-ascii?Q?zqrCG6jD3bnXKMvJp38FgQ3ib8IQthKy8fLoz9h08oOpiUujXnpCCs5tN4of?=
+ =?us-ascii?Q?AkvZYlWr8gxm4Xtj9BixD5T6Cu7zIyfmmxJ+Z4fJD5olS4SMPqH92xuvSzUt?=
+ =?us-ascii?Q?PZ8dV0kUAzZ0al86NAbXB5XB/q0DTrC7BYXDkjbS/fZJCA/MR+9TARR3RBD0?=
+ =?us-ascii?Q?53s0SfTNkINafQ++5I+fQW/KBFaVsOl5Yt2PxW4tMaKoisUVDEtmMk8Jhx2a?=
+ =?us-ascii?Q?Ue5T2aPS9R6LK7r5AvNQDGOv4TwvFMcwD9tunIkVHPC9u1H4UHXKwcbreHNw?=
+ =?us-ascii?Q?jy6JZs7dB/etEBGw8QMF3kvoiIH4O23CimsFDgHloRf440uKNcWx0e3Pfj1W?=
+ =?us-ascii?Q?0TqQI20B8N1w/9jptJ8vV6lfO5MldesLdbLQJmg7AUEQg60dk1bU9MT0uQYY?=
+ =?us-ascii?Q?TYCuUZPZXqq9t3wlO3YrkB1mgwaB9Qz8oQeCkkhUE+50nvXHDrrEKMoufY6G?=
+ =?us-ascii?Q?nz4ArmAC0tNlu6vhECsJXzngUwyTH6MXF4PasZXOVAVXQJAcCAYhFAydSG6o?=
+ =?us-ascii?Q?VU79FJ6sk1o9o+vCJaon26oQz6EHZ0bXLICpK5nKUeTYpRW9yZtOVHYGRX2V?=
+ =?us-ascii?Q?pjG0yXqxgk601GnktVgKmlvEWATufuVbu66B4z5NZ/rEaPZadsXnDo35NUTh?=
+ =?us-ascii?Q?6iVeF72zwQ4UkqVlrbK83+KOC8VBAjh6EzRb+e4bo24T8VgfVEh69IothDmo?=
+ =?us-ascii?Q?tKv+53f/fckW1/b7hcwsayNvT3RPanc81QDGD2PedaGt91fqk21K9fGGeHyw?=
+ =?us-ascii?Q?PRnzJwIEd0wJrzplGIyjfQzyGk0Q4mYsGyJwBC5qZzK+xadnpP5R1A0C2dLb?=
+ =?us-ascii?Q?qJCYVNrPT54fn+71S2Zl+Oqi0M6EpXMH7vnNX7/2QhawCkz7hhUWHMrJDX+E?=
+ =?us-ascii?Q?L4pIX6mzO9P6t5JlLAr5+KAMhMrdiLKsTBQvr+tO5Gw86RGZpwJYr1p6KbnG?=
+ =?us-ascii?Q?kcwKdDk52Uon2oiYGcb2HlmZNjWEvra82XZfplOZ4G2mYJf5DFdavTVtzJWo?=
+ =?us-ascii?Q?A+tw+jmQ0afD/5HF3bvY+tb9zFu1dgQoColtQNuDmbilcHGY3Rda+kzrSqaX?=
+ =?us-ascii?Q?b4Yjpcsx/n7hn4UOnhze/anMLheme8wDmh4R8WoywIHbJVf5qzqpeIKmdx/h?=
+ =?us-ascii?Q?q18SCEpcKr6jG9tCXdLEd8sY7Y/9zFtTdCACLjVuQLpNYBAmAnDrpfxT2Vfl?=
+ =?us-ascii?Q?0HzxrrE8f+KI3te9Bj21g/8/zn43oydVwXgc+L37DkijphB9gf5eQc1EMzHM?=
+ =?us-ascii?Q?0ou4DCeOZf+pKuUVmeab+VsCwgkLkmMSeU00g67oB112BjIzxRoyInP88Gzn?=
+ =?us-ascii?Q?XF2Ywj7Ft7L93DZNDX5CU+TRUQYtD1fENvcftrVfdUjbSa+XP0QTnArxtLzz?=
+ =?us-ascii?Q?ff1z8RqJA/9VHyw46Nw=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TFFvMXhVSVRURWVsYUpWSmk4RGNHNGNvVVB1d056NGRvbXYzNmVUeUsxcVl3?=
- =?utf-8?B?bXFlRlhhODJ2bk95NEo1YVpGdVpNQjg0blN5NVBXczJLSEJQaFJWN1c5L051?=
- =?utf-8?B?MzJGSUFpZWEvMXhFdk96WlpMU2dVa2h0ZHMwUk5yV01rK3l5YnRmYm9LYjYr?=
- =?utf-8?B?Q01BSmk0ZnRxeHF6OGRuS0w0eDBUSjlMTlFvNHZOL1lUSXhzMzVnd3cvVjYx?=
- =?utf-8?B?Zmw4VWFUclA0b3JnRnh6VmtXNkNONVlYR2Jld20xYkljWitiNytLTXdyTzV0?=
- =?utf-8?B?UUpoNkdXemJFbXp1dk5uQUhveDROSW8vZkcvK0VoOE1qdlp0b3FULzJ4WDFE?=
- =?utf-8?B?YlRQaTJXUzBmamxkYlR3MEMyNG1RdFEreERkV3hxYjNrRUtKeUlrNWd6b2VQ?=
- =?utf-8?B?ZWp1WlpnZTgrWXVJSS94VlZkdndleWtlMXIyNGlRYUIrd0dQMXhmdGVqWnEy?=
- =?utf-8?B?TTBLTXpLTHcrcVFzc0ljeThSamFOVmZ0VjAvN1F5SENDSENlTUduTGJJV1pR?=
- =?utf-8?B?anAyaVhUb1UyOHgzaEtXam1MRUg0Zlo2WDRFVWh3ajI3eHJsckc3RFdZSjNk?=
- =?utf-8?B?akZSdkwzemRMWVNxTFF6Mko4WU1MY2V2TlpqOWZqRXdvMHV1Kyt4bUd4Mldi?=
- =?utf-8?B?OEhqU0JaYjNHYkdza2wyTkJXeEMzd083a2xqTy91elFkV2x2MDJnenRmQ3Ey?=
- =?utf-8?B?NVUrOEFCZ1FNd2ozTWhmZ3Q5Z2RiRjZUenRNcUgrSFZxaFYyQm5RWVFOZFln?=
- =?utf-8?B?N0ZLVGxGSGJVL2ZVMnQrSlhxNWN3VWdsRFo5cHBGT2t0SVdDUXk3MU9lY3gx?=
- =?utf-8?B?OVZkQStPeWRYVmJYUTFJZFcrak80YlpHVER3OHVvSmROZW9Ha1NOeHE0bGlM?=
- =?utf-8?B?ancwNWorV3JNTzBMOEJEWm53eEpvNXlRY3ZaSkk0TmJ5a1B5ZjBCVFFoMFlh?=
- =?utf-8?B?bnNqTzRGZURwMWM0dDdzZEpYV1ZuLzJVUiszRnU0bWNQUWVUYXZuS2YyZm5t?=
- =?utf-8?B?NEg3OUxjaWl4c294T09Ucmdna1hBQ3Q4VEpxNkJObXpNZ2VtWFNQdWlSNE9l?=
- =?utf-8?B?SjlINlFOd3Z6d0wxRTVZUFlyUit4V3dXV3dpbGxTVTEzNyt1RjFDVE9LdG0v?=
- =?utf-8?B?MVIvMjcyNld1VmpuN0tvVW9LS0N1Ti9QVGpDMVBrM2RhZWI1Z2VhRjFRQis3?=
- =?utf-8?B?M0dJVFlOZnpRL01BbUJsNi9Wa09uMEhqMGtIWjlBcWFRN1JiWitTLzF2ZVNh?=
- =?utf-8?B?RWMwZ1hOZTlPU1ZSNnBadGM3RXpVQXR5OGVEVUtUQ1lHMHF3OU1IbU1lZXVO?=
- =?utf-8?B?THEwclhyYnJLOGQ0ZEhOTXJhTWF1UmZaeU5uOGhxdDFCMy90TVZzNEpZK0ZK?=
- =?utf-8?B?K1BTOUFkd1h1c1lPTW0wUnFCa0RVbzZUZTR0Rmxma0hKSlFzZTV0K1g5dXFv?=
- =?utf-8?B?MnU0TENRVG54UkRLNmQxYVE4YzJwWXdCTUM2WGV5cCtLbWorWlJqSmRwQUJ3?=
- =?utf-8?B?MXpnRTA1SFZRTitHU3pQNk4vVjdRS0dxUUp3N28vV25ZUGtJKzhEblVLY2VW?=
- =?utf-8?B?cU9Obm00MmprR3QwSkR6TGFBSjBKcnhEKzJxWHkwNks2Tmw4Z1hXV2xaRkd1?=
- =?utf-8?B?S1JHRlF0RHRiQkNNY3NKc0s4UWt0c1RnRWI3Y2lZU2tObFJ2K3NCTWhuWXFq?=
- =?utf-8?B?VEgyOXZJU3lCeW5FWjBqNlN2RzdOZXpwN3A2YjA5cDNoRjdrWmhyL3FBbEZ1?=
- =?utf-8?B?QSt0SWcxaUhMbTB5T2RzYnQ3ODZuazJmc1NuZVVIUU1XbzNtdm13ZllBR0F2?=
- =?utf-8?B?Y0hKMlhQL2tzNTQrY0MrallmeSs1YlhWWVE0eVQ2TFEyOTY1ckRQUThXa3RZ?=
- =?utf-8?B?anVPWUxxeE90Uk1hd3FLRHlpSWdONGxBdHdmYXZSaWt4KzRiaW9CYlZrcUFp?=
- =?utf-8?B?ZnZWQTgxVFQxRmd5WDAxUHdoYXJtd0FkUnkrd1Z2NW14Q09CNmRGME5nQTla?=
- =?utf-8?B?UzNIT2ROb1A0N05nWE1VS21wQVowcHpVYnh1SWp3M214L1lmQWdNaVJTNXNZ?=
- =?utf-8?B?aFdRc0J4WkdtbjhTQWdrOGtkSDZtZlM3bVB0NStFYjdDT2hOU0MraHNxdk1K?=
- =?utf-8?B?OVVaRnRnd01VWkZUNk5nS09QQzl4NnFmT1NoSkJqKzZxM1ZWc1h0WVFqVGtr?=
- =?utf-8?B?WmdlT1pRY29FbXI4Qm1tUHRqV3BjaERvYjJBcUVhVXp3STVTZlJ1SXZQaVd2?=
- =?utf-8?B?RnNWaStUajRIWjFQdG9MUmJ2QmMxZm1BdjJSWUpiS29BVzl5d1RNRE9YZjRG?=
- =?utf-8?B?aDJsczU4MkdGUW9jTnhYM3ZpazRrN2cvQTBGSUF3MlYxRnRPdXkwUT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 524f6bfb-aa0d-44be-4e69-08de5f83d095
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fgGFybnCqoZxu4yNYvi+BFIoGTz8IL82yqWA1lCEak3GoNbMVGcu9LGNHUGs?=
+ =?us-ascii?Q?ryKFhPW5MhjxaPES+zsAmINgwu1vt1eIw3yuxNZyNJhBEFrYvWmb9dVoYnrF?=
+ =?us-ascii?Q?SPtC2iKIx/HD2aSMgsi7k6hLFw33Ewny2C+s8NvoD5AhEV6Z7sUxf6A+KCw2?=
+ =?us-ascii?Q?P/XQ9r2YaqwFFGiw7sufwjJuFwU4HkEirhZplTYV9ZlhPbPbCT1ufhNTAT/1?=
+ =?us-ascii?Q?FXuWDDJU7ixOWggvfZ5v5HXvKhKTkl4Ar6eUvdkfxK5eIw2YEcUKVresnYf/?=
+ =?us-ascii?Q?9wptDER3+wsFf3Bym9+5YUc/+Gt7tE/tpKLW7jI5JHzaP895Nbn2RW+OFEQp?=
+ =?us-ascii?Q?6dwf5MqD3gngkwnOSpIVZgyVcfupIRvIfekxZKvrFbB3Di/t7JHV1OA02dxx?=
+ =?us-ascii?Q?zIJEzdKKeS0kJUbp6jLH0nMOsTxuT0IadFmzwKu2YM13j/q3ls8m38HzFZ0r?=
+ =?us-ascii?Q?sTW2MmYdNIfu2qz65Ff4H6oR0iBXrukVXap3w5+WMo604Bdh80OReYEhVd+n?=
+ =?us-ascii?Q?JrlqWHCyL5lArdjozVZ6vCnOs7sZsoFzbysCkW8aEVo7HoAFhW9wdVIeRF9+?=
+ =?us-ascii?Q?w52BTN0rihhIJ+9ciEy41Gy3fpNrGZ+bil1rAvV+Oyecm8NvZl2r7/Q89N1K?=
+ =?us-ascii?Q?S7gZed+O0tFY8xI5p6Tzn88SOAZeBoVfrXjW+sVlPaqVb8ilBk6FBNjEJIDz?=
+ =?us-ascii?Q?DV94kSKwgrH7UtEuTskdGI7nrQg8hk1iR1e6U+UAmzyk9gN4AhbxRNJlSPbp?=
+ =?us-ascii?Q?7AfQ49TuNlvDf4Ux4pXF+Bsp4O/Rg/KRwZrs6bf3AucEaxm+EmiHn6Pjsvs+?=
+ =?us-ascii?Q?lzngTkDWVI1w/8oqBRs9UerZ8M1S49gRYcFfO5KiTOW60wIKbK9kq+MCGWjQ?=
+ =?us-ascii?Q?BfqUg4RZ4h2HQcRy/l0pFKxASs8voa5TA0jI91aDp/1iJGnOsfyYJS3G6sVF?=
+ =?us-ascii?Q?V/VTflD/3l4Nk7seSNMtrV49fVg/kMn0SDKpd3w2G+E8FsiAZfX7hN777tKn?=
+ =?us-ascii?Q?+Qzp0NDlw3jjW6OamLIU2UAgWHgGGBpGZVOFpUed6ioJ5QSSPEwJZqHO3kGM?=
+ =?us-ascii?Q?tdLcSl1/Y3N4r53AaQEdureDXIDaKJc23TI3NoJK488hcXTS7HlMyJHAWCVJ?=
+ =?us-ascii?Q?kzmDwrksMXrwdp00dd8Me6XfUAP4iy1/rv8PyITK94T9nCqheUPitNlKuVoT?=
+ =?us-ascii?Q?SvekBVZuCFaJuKXF7G5lMhKeEp5s4DBH9cruVKGTdAt+fjVVU4ZIHi2zzqwu?=
+ =?us-ascii?Q?yPKVLzRHMXkkZeL59zKOzaPg78mPkz11C9fp57tYSgnBRM3x3XgmJSWgyz4/?=
+ =?us-ascii?Q?iUJEy8BVZ3kPuIOksGzbR0tao1x+IpyxgtkeJhiQHOOJlUaaSfsWTbgn4XEG?=
+ =?us-ascii?Q?VuAJWxWDjWVRhV6TO+JCtSuMW2CkXpz+D1X28QLVyOt5BgdDsfXtt4TgPENJ?=
+ =?us-ascii?Q?02piDn/ef6ZR/YcvCvmT3SAPHml/uKVEUhtHh93c+Fp6JGMaH2b7BuCjIxiW?=
+ =?us-ascii?Q?l7Ng9WAUuiGXp9B77D4QsevVe2RNRk9kyMct8AFZOBUSJZ/0DPbl1JI/M1vo?=
+ =?us-ascii?Q?BjoXSXYLGgE5IKcFIi98SdFjWQz4k4gMPzrXUAvYTk0q5ZuHrZViCgPutEUU?=
+ =?us-ascii?Q?yV80QHv6cLtEojHTTcqMid2rsxyRjcTqQsKLO+Umh2iR7TziwNedk+N0mClB?=
+ =?us-ascii?Q?MPcuzSB+114W3TR7izn97k8GpTPYGLPuNNMxeI0PsLVI1WDK6ulAeIAepV8W?=
+ =?us-ascii?Q?ktorSFdmnHp4UucZFMoQk/evzxxnRvukuMQis63QPoBGBlqNQ9/D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1e4f6d2e-f635-4b4b-52c5-08de5f848f62
+X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2026 22:14:48.0407
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2026 22:20:08.1612
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ysZSwAAWlnSkRo5vUE12hbDFIM9K/n2iT9vntCkj4BbnhmGLC0UNNOZHZxcO7VjRobCq2OZr0hVYhwXXD6dm+g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7131
+X-MS-Exchange-CrossTenant-UserPrincipalName: VWUfkw5Nxfxndk4vXvkRGxD0vO4OflBpj8kURVK3LdmcmwsWqoonHkOowgz9plLaA6H2BikiMQcbPHMnctlPj49nYwrUmiCsmHijlBWHCmV3hiyreQQzDk1QjNFuTIgO
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR01MB7809
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_141456_999464_0E121592 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20260129_142015_423870_9636080A 
+X-CRM114-Status: GOOD (  27.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,52 +166,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Ben,
 
-On 1/19/26 12:56, Ben Horgan wrote:
-> Hi Fenghua,
-> 
-> On 1/15/26 23:20, Fenghua Yu wrote:
->> Hi, Shanker and Ben,
->>
->> On 1/12/26 08:59, Ben Horgan wrote:
->>> From: Shanker Donthineni <sdonthineni@nvidia.com>
->>>
->>> In the T241 implementation of memory-bandwidth partitioning, in the
->>> absence
->>> of contention for bandwidth, the minimum bandwidth setting can affect the
->>> amount of achieved bandwidth. Specifically, the achieved bandwidth in the
->>> absence of contention can settle to any value between the values of
->>> MPAMCFG_MBW_MIN and MPAMCFG_MBW_MAX.  Also, if MPAMCFG_MBW_MIN is set
->>> zero (below 0.78125%), once a core enters a throttled state, it will
->>> never
->>> leave that state.
->>>
->>> The first issue is not a concern if the MPAM software allows to program
->>> MPAMCFG_MBW_MIN through the sysfs interface. This patch ensures program
->>> MBW_MIN=1 (0.78125%) whenever MPAMCFG_MBW_MIN=0 is programmed.
->>
->> When MBW_MIN=1, min mem bw can be very low when contention. This may
->> drop mem access performance. Is it possible to set MBW_MIN bigger so
->> that ensure the floor of mem access is high?
-> 
-> Isn't that a policy decision rather than something we should be putting
-> in a quirk framework?
+Hi Besar,
 
-MBW_MIN is 1% or 5% less than MBW_MAX.
+On Mon, 26 Jan 2026, Besar Wicaksono wrote:
+> Adds Unified Coherent Fabric PMU support in Tegra410 SOC.
+>
+> Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
 
-The lower MBW_MIN hints hardware to lower mem bandwidth when mem access 
-contention. That causes memory performance degradation.
+Looks good to me
 
-Is it possible to do the following changes to fix the performance issue?
-1. By default min mbw is equal to max mbw. So hardware won't lower 
-performance unless it's needed. This can fix the current performance issue.
-2. Add a new schemata line (e.g. MBI:<id>=x;<id>=y;...) to specify min 
-mbw just like max mbw specified by schemata line "MB:...". User can use 
-this line to change min mbw per partition per node. This could be added 
-in the future.
+Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
 
-Thanks.
+--Ilkka
 
--Fenghua
+
+> ---
+> Documentation/admin-guide/perf/index.rst      |   1 +
+> .../admin-guide/perf/nvidia-tegra410-pmu.rst  | 106 ++++++++++++++++++
+> drivers/perf/arm_cspmu/nvidia_cspmu.c         |  90 ++++++++++++++-
+> 3 files changed, 196 insertions(+), 1 deletion(-)
+> create mode 100644 Documentation/admin-guide/perf/nvidia-tegra410-pmu.rst
+>
+> diff --git a/Documentation/admin-guide/perf/index.rst b/Documentation/admin-guide/perf/index.rst
+> index c407bb44b08e..aa12708ddb96 100644
+> --- a/Documentation/admin-guide/perf/index.rst
+> +++ b/Documentation/admin-guide/perf/index.rst
+> @@ -25,6 +25,7 @@ Performance monitor support
+>    alibaba_pmu
+>    dwc_pcie_pmu
+>    nvidia-tegra241-pmu
+> +   nvidia-tegra410-pmu
+>    meson-ddr-pmu
+>    cxl
+>    ampere_cspmu
+> diff --git a/Documentation/admin-guide/perf/nvidia-tegra410-pmu.rst b/Documentation/admin-guide/perf/nvidia-tegra410-pmu.rst
+> new file mode 100644
+> index 000000000000..7b7ba5700ca1
+> --- /dev/null
+> +++ b/Documentation/admin-guide/perf/nvidia-tegra410-pmu.rst
+> @@ -0,0 +1,106 @@
+> +=====================================================================
+> +NVIDIA Tegra410 SoC Uncore Performance Monitoring Unit (PMU)
+> +=====================================================================
+> +
+> +The NVIDIA Tegra410 SoC includes various system PMUs to measure key performance
+> +metrics like memory bandwidth, latency, and utilization:
+> +
+> +* Unified Coherence Fabric (UCF)
+> +
+> +PMU Driver
+> +----------
+> +
+> +The PMU driver describes the available events and configuration of each PMU in
+> +sysfs. Please see the sections below to get the sysfs path of each PMU. Like
+> +other uncore PMU drivers, the driver provides "cpumask" sysfs attribute to show
+> +the CPU id used to handle the PMU event. There is also "associated_cpus"
+> +sysfs attribute, which contains a list of CPUs associated with the PMU instance.
+> +
+> +UCF PMU
+> +-------
+> +
+> +The Unified Coherence Fabric (UCF) in the NVIDIA Tegra410 SoC serves as a
+> +distributed cache, last level for CPU Memory and CXL Memory, and cache coherent
+> +interconnect that supports hardware coherence across multiple coherently caching
+> +agents, including:
+> +
+> +  * CPU clusters
+> +  * GPU
+> +  * PCIe Ordering Controller Unit (OCU)
+> +  * Other IO-coherent requesters
+> +
+> +The events and configuration options of this PMU device are described in sysfs,
+> +see /sys/bus/event_source/devices/nvidia_ucf_pmu_<socket-id>.
+> +
+> +Some of the events available in this PMU can be used to measure bandwidth and
+> +utilization:
+> +
+> +  * slc_access_rd: count the number of read requests to SLC.
+> +  * slc_access_wr: count the number of write requests to SLC.
+> +  * slc_bytes_rd: count the number of bytes transferred by slc_access_rd.
+> +  * slc_bytes_wr: count the number of bytes transferred by slc_access_wr.
+> +  * mem_access_rd: count the number of read requests to local or remote memory.
+> +  * mem_access_wr: count the number of write requests to local or remote memory.
+> +  * mem_bytes_rd: count the number of bytes transferred by mem_access_rd.
+> +  * mem_bytes_wr: count the number of bytes transferred by mem_access_wr.
+> +  * cycles: counts the UCF cycles.
+> +
+> +The average bandwidth is calculated as::
+> +
+> +   AVG_SLC_READ_BANDWIDTH_IN_GBPS = SLC_BYTES_RD / ELAPSED_TIME_IN_NS
+> +   AVG_SLC_WRITE_BANDWIDTH_IN_GBPS = SLC_BYTES_WR / ELAPSED_TIME_IN_NS
+> +   AVG_MEM_READ_BANDWIDTH_IN_GBPS = MEM_BYTES_RD / ELAPSED_TIME_IN_NS
+> +   AVG_MEM_WRITE_BANDWIDTH_IN_GBPS = MEM_BYTES_WR / ELAPSED_TIME_IN_NS
+> +
+> +The average request rate is calculated as::
+> +
+> +   AVG_SLC_READ_REQUEST_RATE = SLC_ACCESS_RD / CYCLES
+> +   AVG_SLC_WRITE_REQUEST_RATE = SLC_ACCESS_WR / CYCLES
+> +   AVG_MEM_READ_REQUEST_RATE = MEM_ACCESS_RD / CYCLES
+> +   AVG_MEM_WRITE_REQUEST_RATE = MEM_ACCESS_WR / CYCLES
+> +
+> +More details about what other events are available can be found in Tegra410 SoC
+> +technical reference manual.
+> +
+> +The events can be filtered based on source or destination. The source filter
+> +indicates the traffic initiator to the SLC, e.g local CPU, non-CPU device, or
+> +remote socket. The destination filter specifies the destination memory type,
+> +e.g. local system memory (CMEM), local GPU memory (GMEM), or remote memory. The
+> +local/remote classification of the destination filter is based on the home
+> +socket of the address, not where the data actually resides. The available
+> +filters are described in
+> +/sys/bus/event_source/devices/nvidia_ucf_pmu_<socket-id>/format/.
+> +
+> +The list of UCF PMU event filters:
+> +
+> +* Source filter:
+> +
+> +  * src_loc_cpu: if set, count events from local CPU
+> +  * src_loc_noncpu: if set, count events from local non-CPU device
+> +  * src_rem: if set, count events from CPU, GPU, PCIE devices of remote socket
+> +
+> +* Destination filter:
+> +
+> +  * dst_loc_cmem: if set, count events to local system memory (CMEM) address
+> +  * dst_loc_gmem: if set, count events to local GPU memory (GMEM) address
+> +  * dst_loc_other: if set, count events to local CXL memory address
+> +  * dst_rem: if set, count events to CPU, GPU, and CXL memory address of remote socket
+> +
+> +If the source is not specified, the PMU will count events from all sources. If
+> +the destination is not specified, the PMU will count events to all destinations.
+> +
+> +Example usage:
+> +
+> +* Count event id 0x0 in socket 0 from all sources and to all destinations::
+> +
+> +    perf stat -a -e nvidia_ucf_pmu_0/event=0x0/
+> +
+> +* Count event id 0x0 in socket 0 with source filter = local CPU and destination
+> +  filter = local system memory (CMEM)::
+> +
+> +    perf stat -a -e nvidia_ucf_pmu_0/event=0x0,src_loc_cpu=0x1,dst_loc_cmem=0x1/
+> +
+> +* Count event id 0x0 in socket 1 with source filter = local non-CPU device and
+> +  destination filter = remote memory::
+> +
+> +    perf stat -a -e nvidia_ucf_pmu_1/event=0x0,src_loc_noncpu=0x1,dst_rem=0x1/
+> diff --git a/drivers/perf/arm_cspmu/nvidia_cspmu.c b/drivers/perf/arm_cspmu/nvidia_cspmu.c
+> index e06a06d3407b..c67667097a3c 100644
+> --- a/drivers/perf/arm_cspmu/nvidia_cspmu.c
+> +++ b/drivers/perf/arm_cspmu/nvidia_cspmu.c
+> @@ -1,6 +1,6 @@
+> // SPDX-License-Identifier: GPL-2.0
+> /*
+> - * Copyright (c) 2022-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+> + * Copyright (c) 2022-2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+>  *
+>  */
+>
+> @@ -21,6 +21,13 @@
+> #define NV_CNVL_PORT_COUNT           4ULL
+> #define NV_CNVL_FILTER_ID_MASK       GENMASK_ULL(NV_CNVL_PORT_COUNT - 1, 0)
+>
+> +#define NV_UCF_SRC_COUNT             3ULL
+> +#define NV_UCF_DST_COUNT             4ULL
+> +#define NV_UCF_FILTER_ID_MASK        GENMASK_ULL(11, 0)
+> +#define NV_UCF_FILTER_SRC            GENMASK_ULL(2, 0)
+> +#define NV_UCF_FILTER_DST            GENMASK_ULL(11, 8)
+> +#define NV_UCF_FILTER_DEFAULT        (NV_UCF_FILTER_SRC | NV_UCF_FILTER_DST)
+> +
+> #define NV_GENERIC_FILTER_ID_MASK    GENMASK_ULL(31, 0)
+>
+> #define NV_PRODID_MASK	(PMIIDR_PRODUCTID | PMIIDR_VARIANT | PMIIDR_REVISION)
+> @@ -124,6 +131,37 @@ static struct attribute *mcf_pmu_event_attrs[] = {
+> 	NULL,
+> };
+>
+> +static struct attribute *ucf_pmu_event_attrs[] = {
+> +	ARM_CSPMU_EVENT_ATTR(bus_cycles,            0x1D),
+> +
+> +	ARM_CSPMU_EVENT_ATTR(slc_allocate,          0xF0),
+> +	ARM_CSPMU_EVENT_ATTR(slc_wb,                0xF3),
+> +	ARM_CSPMU_EVENT_ATTR(slc_refill_rd,         0x109),
+> +	ARM_CSPMU_EVENT_ATTR(slc_refill_wr,         0x10A),
+> +	ARM_CSPMU_EVENT_ATTR(slc_hit_rd,            0x119),
+> +
+> +	ARM_CSPMU_EVENT_ATTR(slc_access_dataless,   0x183),
+> +	ARM_CSPMU_EVENT_ATTR(slc_access_atomic,     0x184),
+> +
+> +	ARM_CSPMU_EVENT_ATTR(slc_access,            0xF2),
+> +	ARM_CSPMU_EVENT_ATTR(slc_access_rd,         0x111),
+> +	ARM_CSPMU_EVENT_ATTR(slc_access_wr,         0x112),
+> +	ARM_CSPMU_EVENT_ATTR(slc_bytes_rd,          0x113),
+> +	ARM_CSPMU_EVENT_ATTR(slc_bytes_wr,          0x114),
+> +
+> +	ARM_CSPMU_EVENT_ATTR(mem_access_rd,         0x121),
+> +	ARM_CSPMU_EVENT_ATTR(mem_access_wr,         0x122),
+> +	ARM_CSPMU_EVENT_ATTR(mem_bytes_rd,          0x123),
+> +	ARM_CSPMU_EVENT_ATTR(mem_bytes_wr,          0x124),
+> +
+> +	ARM_CSPMU_EVENT_ATTR(local_snoop,           0x180),
+> +	ARM_CSPMU_EVENT_ATTR(ext_snp_access,        0x181),
+> +	ARM_CSPMU_EVENT_ATTR(ext_snp_evict,         0x182),
+> +
+> +	ARM_CSPMU_EVENT_ATTR(cycles, ARM_CSPMU_EVT_CYCLES_DEFAULT),
+> +	NULL,
+> +};
+> +
+> static struct attribute *generic_pmu_event_attrs[] = {
+> 	ARM_CSPMU_EVENT_ATTR(cycles, ARM_CSPMU_EVT_CYCLES_DEFAULT),
+> 	NULL,
+> @@ -152,6 +190,18 @@ static struct attribute *cnvlink_pmu_format_attrs[] = {
+> 	NULL,
+> };
+>
+> +static struct attribute *ucf_pmu_format_attrs[] = {
+> +	ARM_CSPMU_FORMAT_EVENT_ATTR,
+> +	ARM_CSPMU_FORMAT_ATTR(src_loc_noncpu, "config1:0"),
+> +	ARM_CSPMU_FORMAT_ATTR(src_loc_cpu, "config1:1"),
+> +	ARM_CSPMU_FORMAT_ATTR(src_rem, "config1:2"),
+> +	ARM_CSPMU_FORMAT_ATTR(dst_loc_cmem, "config1:8"),
+> +	ARM_CSPMU_FORMAT_ATTR(dst_loc_gmem, "config1:9"),
+> +	ARM_CSPMU_FORMAT_ATTR(dst_loc_other, "config1:10"),
+> +	ARM_CSPMU_FORMAT_ATTR(dst_rem, "config1:11"),
+> +	NULL,
+> +};
+> +
+> static struct attribute *generic_pmu_format_attrs[] = {
+> 	ARM_CSPMU_FORMAT_EVENT_ATTR,
+> 	ARM_CSPMU_FORMAT_FILTER_ATTR,
+> @@ -236,6 +286,27 @@ static void nv_cspmu_set_cc_filter(struct arm_cspmu *cspmu,
+> 	writel(filter, cspmu->base0 + PMCCFILTR);
+> }
+>
+> +static u32 ucf_pmu_event_filter(const struct perf_event *event)
+> +{
+> +	u32 ret, filter, src, dst;
+> +
+> +	filter = nv_cspmu_event_filter(event);
+> +
+> +	/* Monitor all sources if none is selected. */
+> +	src = FIELD_GET(NV_UCF_FILTER_SRC, filter);
+> +	if (src == 0)
+> +		src = GENMASK_ULL(NV_UCF_SRC_COUNT - 1, 0);
+> +
+> +	/* Monitor all destinations if none is selected. */
+> +	dst = FIELD_GET(NV_UCF_FILTER_DST, filter);
+> +	if (dst == 0)
+> +		dst = GENMASK_ULL(NV_UCF_DST_COUNT - 1, 0);
+> +
+> +	ret = FIELD_PREP(NV_UCF_FILTER_SRC, src);
+> +	ret |= FIELD_PREP(NV_UCF_FILTER_DST, dst);
+> +
+> +	return ret;
+> +}
+>
+> enum nv_cspmu_name_fmt {
+> 	NAME_FMT_GENERIC,
+> @@ -342,6 +413,23 @@ static const struct nv_cspmu_match nv_cspmu_match[] = {
+> 		.init_data = NULL
+> 	  },
+> 	},
+> +	{
+> +	  .prodid = 0x2CF20000,
+> +	  .prodid_mask = NV_PRODID_MASK,
+> +	  .name_pattern = "nvidia_ucf_pmu_%u",
+> +	  .name_fmt = NAME_FMT_SOCKET,
+> +	  .template_ctx = {
+> +		.event_attr = ucf_pmu_event_attrs,
+> +		.format_attr = ucf_pmu_format_attrs,
+> +		.filter_mask = NV_UCF_FILTER_ID_MASK,
+> +		.filter_default_val = NV_UCF_FILTER_DEFAULT,
+> +		.filter2_mask = 0x0,
+> +		.filter2_default_val = 0x0,
+> +		.get_filter = ucf_pmu_event_filter,
+> +		.get_filter2 = NULL,
+> +		.init_data = NULL
+> +	  },
+> +	},
+> 	{
+> 	  .prodid = 0,
+> 	  .prodid_mask = 0,
+> -- 
+> 2.43.0
+>
+>
 
