@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8612DD46C01
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 00:57:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28853D46C18
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 00:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mEepWOxCVSc1aX29GPbB6p8VltBEKBk11LnhK9lypjY=; b=s07eBD4L0A0LLUL3kKq8kZjYHT
-	sAaz4jNhLf+CGEhbOWsBhHZwPE2MkCvpj3G+g5D8bQP/uFh38W3f9AVjaOvZUCuP8mAZ2claijy+W
-	Es9yLsIlD95ynUA7PqCQYUgPAEa0qMR8cvaQGaSlqYX6icMeP2GqbvvTLQG7tdf2ZslkRyMRTyLpq
-	G8kJ2YRgCs0wI9a9dFeYEyYWX1gP6Jq3chrJe8Cl6sfTCsWVVz6d9tApr55XfG2/sj7Bg87n46Mc9
-	9r11lhiyBtN6uDaI/U2Jq6KUbg+hnnfwXJOUxBr9GXB3AWpShTBKQYvFqoI6upiS9S+jAGK58qssx
-	/0BmwPcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1HhfuiPwY8YqV0J8dqZsNeAG2QxrJG3QnAq+6nA3njM=; b=L1EYnH9U2XUjqg
+	bBQddbdhh3j1hkMLI0H7YkoyFynVFqSG56PrQ3oLvNDnDc32pHVBcQHNCNAyqhti6MgzCRUBg6P+p
+	0lPkOqyCUhPKr0DSjI64ZN5PRMAYupealE3IfYaGCLO3I5lpqS1087VJatfVfrzYXjtIsmWLopWK5
+	j4EJPvU4jFu9jOpD7oQcHxksvB2/Yf430LL2a08ooEQEoQgCcnefoPWgU1hOmXFwc+ucMoXlspGMr
+	AZMwssW6nv3gT2Ul9/3oZF7I2ChdDyeTsvaHjaw9JgguVmXzWWLce1iLVIjhNCZThG2VBB9nGxLvQ
+	jYEYjoIT37SRuTzdCmOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlGLW-0000000H0V6-3WAg;
-	Thu, 29 Jan 2026 00:57:18 +0000
-Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
+	id 1vlGNb-0000000H0tR-2PAZ;
+	Thu, 29 Jan 2026 00:59:27 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlGLN-0000000H0RN-1wHM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 00:57:10 +0000
-Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-b871328f6caso35747566b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 16:57:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769648227; x=1770253027; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=mEepWOxCVSc1aX29GPbB6p8VltBEKBk11LnhK9lypjY=;
-        b=MFqJFNlrEJS6sE8+9e8zSttaQbY44bZXWp012IeRFRTVrtK0AiA/3uqS2AOl+wGqw1
-         raqVHtX1XHySG825WUOL1SZI4mDMxRtH4r7wwcJfOH1MKeR0QVlD1Bx+fGpFtxpW9ela
-         9lW7HgbULs44gOnw/RDfZ3d8A3pOn+nWLsVGY5c0uOSswKZQpLj77GLgw22+JkDKRGVd
-         gZ9MaYnHaku0Mdsgv+1adN90GtgyBsVMQUg26tVhrukbgU1Mj4xui1AwLJ2gReux+wXc
-         sOz3bcdXFD950oB+EBjA7H1AvWRsBOaH8gb6uw7aSmZIvNaeIjQ4CDNQ6qYJKl+ME+hK
-         1O4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769648227; x=1770253027;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mEepWOxCVSc1aX29GPbB6p8VltBEKBk11LnhK9lypjY=;
-        b=ewtWn5EYOi4Al7CbP1pOfIpA0GfT8BCT1qHZOxNGpnxI/Tn5+8YVkR9vkAElhsEXeC
-         CS9cU1xhybl5zh94P81xMhXR3oFakJt/hLaqfnblxBnLE1jEwnQCe9YOgOSRNAVfE+90
-         erOpKp4yTL0FJCk7dHLhjU4nXxQzT1ZhTuDgEIN4rYhBTnyUjKIJiSzTg/X5vwLcJS2T
-         OHuZvV3QbI9hqecZokQ11rwi3n/17jdunZ5xoKpNdaSNLzhhS+nFd1wc0l5uncbFomgj
-         14M9dOlyrMx8+6Gm016F/OxeQwt9VqOJSvcGaP+Tdhp9daZTqQh8r7JjCqPdKLrco65+
-         TDmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXfkB94NA9aLUbZAR2Nfk4WpD64vAWe9CEh9r+FxUHh4k2cFEFB4tBTdF1OoiaMqxfSQ1t4O4PftW9XdoFae7wA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyte7smnqv0VUh/+y4LKjE4bQEsV2cAKZ2vk+EHRTRsS9ZEjjmW
-	V9J03OK5j5FhfeikSG+/hoqA3bhbFf8nIpbOdPw20odKWt2gy3TeHtPIPUuUnE6Lng58xKPOBEr
-	qxg==
-X-Received: from ejbdt12.prod.google.com ([2002:a17:906:b78c:b0:b87:2981:bb4b])
- (user=elver job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:97d1:b0:b87:1d79:bef4
- with SMTP id a640c23a62f3a-b8dab130284mr439369266b.9.1769648227185; Wed, 28
- Jan 2026 16:57:07 -0800 (PST)
-Date: Thu, 29 Jan 2026 01:52:34 +0100
-In-Reply-To: <20260129005645.747680-1-elver@google.com>
-Mime-Version: 1.0
-References: <20260129005645.747680-1-elver@google.com>
-X-Mailer: git-send-email 2.53.0.rc1.217.geba53bf80e-goog
-Message-ID: <20260129005645.747680-4-elver@google.com>
-Subject: [PATCH v2 3/3] arm64, compiler-context-analysis: Permit alias
- analysis through __READ_ONCE() with CONFIG_LTO=y
-From: Marco Elver <elver@google.com>
-To: elver@google.com, Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Boqun Feng <boqun.feng@gmail.com>, Waiman Long <longman@redhat.com>, 
-	Bart Van Assche <bvanassche@acm.org>, llvm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel test robot <lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1vlGNY-0000000H0rd-1zfF;
+	Thu, 29 Jan 2026 00:59:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1769648361;
+	bh=AdQPKKxYENfEyYODNTUm2jYXa9I0NxAfkiyJDt6+exs=;
+	h=From:Subject:Date:To:Cc:From;
+	b=CCgOMAmrxxXaNIqiybMdfQx9FINEXmcs05aDEPBzXjFy+CPZuUcBLRhVKOk3WfKuG
+	 benEQs5kf3+Qmnv2nYRLCwV2+oXk4vZVdYYxzPftnk213QG6tTXKcxsKMkq28dHjS6
+	 qx5zFCElu/O0Cee4OndjbbOLhqqRc16fQSxDvtrV9YCb0Cl69XYl6VJ9dkgiSs5AsU
+	 afbjtg74EwlekJYPrEYQitiSfaQFRggol/r/tUAxi9a2tZyLMGYflolAgppoJEGPat
+	 ERBjzEd6fnsfB4kNoIYJoRPej5hNnjJZSt8l3k/fTQrkkeAFX8WtBkXj7kve2TIJN3
+	 5bsoSOZRl0zdA==
+Received: from localhost (unknown [82.79.138.145])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E145117E01E7;
+	Thu, 29 Jan 2026 01:59:20 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Subject: [PATCH v6 0/4] Introduce BACKGROUND_COLOR DRM CRTC property
+Date: Thu, 29 Jan 2026 02:58:50 +0200
+Message-Id: <20260129-rk3588-bgcolor-v6-0-c15f755a4055@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23QwWrDMAwG4FcpPs/DkuPY3mnvUXaQFbs16+rhj
+ NBR8u5zOrZCk+P/I30IXcUYa46jeNldRY1THnM5t9A/7QQf6XyIMg8tC1RolEMv67s2zslw4HI
+ qVTKQDZ6MsoFFW/qsMeXLDdy/tXzM41ep3zd/gqX9pbzCR2oCqWQavB2Sh8H59Nr6E4VS6ZnLh
+ 1i4Cf8JUKBXBDYCDbN2oAI53iL0nQBwK0I3gpDZK9+hi7RFdHcCYfWTqVuuSAkAbSRr7BZh/oh
+ etbEVYRoR0BC5HjQCPBLzPP8ApvRiZ7wBAAA=
+X-Change-ID: 20250829-rk3588-bgcolor-c1a7b9a507bc
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Melissa Wen <melissa.srw@gmail.com>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
+ Diederik de Haas <diederik@cknow-tech.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Matt Roper <matthew.d.roper@intel.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_165709_518302_A793211A 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20260128_165924_685144_6EBD7C0C 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,99 +92,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When enabling Clang's Context Analysis (aka. Thread Safety Analysis) on
-kernel/futex/core.o (see Peter's changes at [1]), in arm64 LTO builds we
-could see:
+Some display controllers can be hardware-configured to present non-black
+colors for pixels which are not covered by any plane (or are exposed
+through transparent regions of higher planes).
 
-| kernel/futex/core.c:982:1: warning: spinlock 'atomic ? __u.__val : q->lock_ptr' is still held at the end of function [-Wthread-safety-analysis]
-|      982 | }
-|          | ^
-|    kernel/futex/core.c:976:2: note: spinlock acquired here
-|      976 |         spin_lock(lock_ptr);
-|          |         ^
-| kernel/futex/core.c:982:1: warning: expecting spinlock 'q->lock_ptr' to be held at the end of function [-Wthread-safety-analysis]
-|      982 | }
-|          | ^
-|    kernel/futex/core.c:966:6: note: spinlock acquired here
-|      966 | void futex_q_lockptr_lock(struct futex_q *q)
-|          |      ^
-|    2 warnings generated.
+The 1st patch of the series provides DIV_ROUND_CLOSEST() to uapi, as a
+prerequisite to the 2nd patch introducing the BACKGROUND_COLOR DRM
+property that can be attached to a CRTC via a dedicated helper function.
+A 64-bit ARGB color value format is also defined and can be manipulated
+with the help of a few utility macros.
 
-Where we have:
+Note this is a reworked version of the patch [1] submitted (many) years
+ago by Matt Roper.  The main changes are:
 
-	extern void futex_q_lockptr_lock(struct futex_q *q) __acquires(q->lock_ptr);
-	..
-	void futex_q_lockptr_lock(struct futex_q *q)
-	{
-		spinlock_t *lock_ptr;
+* Renamed DRM_ARGB_<COMP>() to DRM_ARGB64_GET<C>_BPC() while providing
+  convenience wrappers to extract all 16 bits of a specific color via
+  DRM_ARGB64_GET<C>()
+* Replaced drm_argb() function with DRM_ARGB64_PREP_BPC() macro, to
+  improve uAPI consistency and readability; additionally fixed a bug in
+  case of using bpc < 16: the unused least-significant bits of a given
+  component in the output value would contain the unused
+  most-significant bits of the following component in the input value,
+  instead of being set to 0
+* Replaced GENMASK_ULL(63, 0) with U64_MAX when calling
+  drm_property_create_range() to create the BACKGROUND_COLOR property
+* Moved crtc_state->bgcolor initialization from
+  __drm_atomic_helper_crtc_reset() to
+  __drm_atomic_helper_crtc_state_reset()
+* Replaced '*bgcolor*' occurrences to '*background_color*' for
+  consistency with the actual property name in both storage field and
+  helper functions names
 
-		/*
-		 * See futex_unqueue() why lock_ptr can change.
-		 */
-		guard(rcu)();
-	retry:
->>		lock_ptr = READ_ONCE(q->lock_ptr);
-		spin_lock(lock_ptr);
-	...
-	}
+The subsequent patches add background color support to VKMS and the VOP2
+display controller used in the RK3568, RK3576, and RK3588 Rockchip SoC
+families.
 
-The READ_ONCE() above is expanded to arm64's LTO __READ_ONCE(). Here,
-Clang Thread Safety Analysis's alias analysis resolves 'lock_ptr' to
-'atomic ? __u.__val : q->lock_ptr', and considers this the identity of
-the context lock given it can't see through the inline assembly;
-however, we simply want 'q->lock_ptr' as the canonical context lock.
-While for code generation the compiler simplified to __u.__val for
-pointers (8 byte case -> atomic), TSA's analysis (a) happens much
-earlier on the AST, and (b) would be the wrong deduction.
+The validation has been done using a dedicated IGT test [2] - see the
+reported results below.
 
-Now that we've gotten rid of the 'atomic' ternary comparison, we can
-return '__u.__val' through a pointer that we initialize with '&x', but
-then change with a pointer-to-pointer. When READ_ONCE()'ing a context
-lock pointer, TSA's alias analysis does not invalidate the initial alias
-when updated through the pointer-to-pointer, and we make it effectively
-"see through" the __READ_ONCE().
+On the userland side, a Weston merge request [3] is available, providing
+support for the BACKGROUND_COLOR CRTC property to the DRM backend.  It
+relies on the already existing background-color setting in weston.ini:
 
-Code generation is unchanged.
+  [shell]
+  background-color=0xAARRGGBB
 
-Link: https://lkml.kernel.org/r/20260121110704.221498346@infradead.org [1]
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202601221040.TeM0ihff-lkp@intel.com/
-Cc: Peter Zijlstra <peterz@infradead.org>
-Signed-off-by: Marco Elver <elver@google.com>
+[1] https://lore.kernel.org/all/20190930224707.14904-2-matthew.d.roper@intel.com/
+[2] https://lore.kernel.org/all/20251219-crtc-bgcolor-v3-1-31b589911588@collabora.com/
+[3] https://gitlab.freedesktop.org/wayland/weston/-/merge_requests/1845
+
+IGT kms_crtc_background_color test results
+==========================================
+
+* VKMS
+
+virtme-ng$ IGT_FORCE_DRIVER=vkms build/tests/kms_crtc_background_color
+
+IGT-Version: 2.3-g6b07138e8 (x86_64) (Linux: 6.19.0-rc1-virtme x86_64)
+Using IGT_SRANDOM=1766149634 for randomisation
+Opened device: /dev/dri/card0
+Starting subtest: background-color-red
+Starting dynamic subtest: pipe-A-Virtual-1
+Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.071s)
+Subtest background-color-red: SUCCESS (0.073s)
+Starting subtest: background-color-green
+Starting dynamic subtest: pipe-A-Virtual-1
+Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.074s)
+Subtest background-color-green: SUCCESS (0.074s)
+Starting subtest: background-color-blue
+Starting dynamic subtest: pipe-A-Virtual-1
+Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.074s)
+Subtest background-color-blue: SUCCESS (0.074s)
+Starting subtest: background-color-yellow
+Starting dynamic subtest: pipe-A-Virtual-1
+Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.072s)
+Subtest background-color-yellow: SUCCESS (0.073s)
+Starting subtest: background-color-purple
+Starting dynamic subtest: pipe-A-Virtual-1
+Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.072s)
+Subtest background-color-purple: SUCCESS (0.074s)
+Starting subtest: background-color-cyan
+Starting dynamic subtest: pipe-A-Virtual-1
+Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.074s)
+Subtest background-color-cyan: SUCCESS (0.074s)
+Starting subtest: background-color-black
+Starting dynamic subtest: pipe-A-Virtual-1
+Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.072s)
+Subtest background-color-black: SUCCESS (0.072s)
+Starting subtest: background-color-white
+Starting dynamic subtest: pipe-A-Virtual-1
+Dynamic subtest pipe-A-Virtual-1: SUCCESS (0.073s)
+Subtest background-color-white: SUCCESS (0.074s)
+
+* Radxa ROCK 5B (RK3588)
+
+rock5b$ build/tests/kms_crtc_background_color --device drm:/dev/dri/card1
+
+IGT-Version: 2.2-g3e4ec308e (aarch64) (Linux: 6.18.0-rc1 aarch64)
+Using IGT_SRANDOM=1762774806 for randomisation
+Opened device: /dev/dri/card1
+Starting subtest: background-color-red
+Starting dynamic subtest: pipe-C-DP-1
+Dynamic subtest pipe-C-DP-1: SUCCESS (0.491s)
+Subtest background-color-red: SUCCESS (0.493s)
+Starting subtest: background-color-green
+Starting dynamic subtest: pipe-C-DP-1
+Dynamic subtest pipe-C-DP-1: SUCCESS (0.533s)
+Subtest background-color-green: SUCCESS (0.535s)
+Starting subtest: background-color-blue
+Starting dynamic subtest: pipe-C-DP-1
+Dynamic subtest pipe-C-DP-1: SUCCESS (0.541s)
+Subtest background-color-blue: SUCCESS (0.544s)
+Starting subtest: background-color-yellow
+Starting dynamic subtest: pipe-C-DP-1
+Dynamic subtest pipe-C-DP-1: SUCCESS (0.535s)
+Subtest background-color-yellow: SUCCESS (0.537s)
+Starting subtest: background-color-purple
+Starting dynamic subtest: pipe-C-DP-1
+Dynamic subtest pipe-C-DP-1: SUCCESS (0.536s)
+Subtest background-color-purple: SUCCESS (0.538s)
+Starting subtest: background-color-cyan
+Starting dynamic subtest: pipe-C-DP-1
+Dynamic subtest pipe-C-DP-1: SUCCESS (0.539s)
+Subtest background-color-cyan: SUCCESS (0.541s)
+Starting subtest: background-color-black
+Starting dynamic subtest: pipe-C-DP-1
+(kms_crtc_background_color:744) igt_pipe_crc-WARNING: Warning on condition all_zero in function crc_sanity_checks, file ../lib/igt_pipe_crc.c:475
+(kms_crtc_background_color:744) igt_pipe_crc-WARNING: Suspicious CRC: All values are 0.
+(kms_crtc_background_color:744) igt_pipe_crc-WARNING: Warning on condition all_zero in function crc_sanity_checks, file ../lib/igt_pipe_crc.c:475
+(kms_crtc_background_color:744) igt_pipe_crc-WARNING: Suspicious CRC: All values are 0.
+Dynamic subtest pipe-C-DP-1: SUCCESS (0.535s)
+Subtest background-color-black: SUCCESS (0.537s)
+Starting subtest: background-color-white
+Starting dynamic subtest: pipe-C-DP-1
+Dynamic subtest pipe-C-DP-1: SUCCESS (0.540s)
+Subtest background-color-white: SUCCESS (0.542s)
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
-v2:
-* Rebase.
----
- arch/arm64/include/asm/rwonce.h | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+Changes in v6:
+- Collected Acked-by & Reviewed-by tags from Andy S & Angelo
+- Handled feedback from Andy Shevchenko
+  * Fixed up styling for __KERNEL_DIV_ROUND_CLOSEST() macro
+  * Made use of __GENMASK() helper in __DRM_ARGB64_PREP*() and
+    __DRM_ARGB64_GET*() definitions
+  * Introduced DRM_ARGB64_GET*_BPCS() as an alternative for
+    DRM_ARGB64_GET*_BPC() to help when performance is more important
+    than accuracy, e.g. used it along with FIELD_MODIFY() in the vop2
+    related patch to simplify a bit the bgcolor operations
+- Link to v5: https://lore.kernel.org/r/20260127-rk3588-bgcolor-v5-0-b25aa8613211@collabora.com
 
-diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
-index 712de3238f9a..3a50a1d0d17e 100644
---- a/arch/arm64/include/asm/rwonce.h
-+++ b/arch/arm64/include/asm/rwonce.h
-@@ -48,8 +48,11 @@
-  */
- #define __READ_ONCE(x)							\
- ({									\
--	typeof(&(x)) __x = &(x);					\
-+	auto __x = &(x);						\
-+	auto __ret = (__rwonce_typeof_unqual(*__x) *)__x;		\
-+	auto __retp = &__ret;						\
- 	union { __rwonce_typeof_unqual(*__x) __val; char __c[1]; } __u;	\
-+	*__retp = &__u.__val;						\
- 	switch (sizeof(x)) {						\
- 	case 1:								\
- 		asm volatile(__LOAD_RCPC(b, %w0, %1)			\
-@@ -74,7 +77,7 @@
- 	default:							\
- 		__u.__val = *(volatile typeof(*__x) *)__x;		\
- 	}								\
--	__u.__val;							\
-+	*__ret;								\
- })
- 
- #endif	/* !BUILD_VDSO */
--- 
-2.53.0.rc1.217.geba53bf80e-goog
+Changes in v5:
+- Collected Reviewed-by & Tested-by tags from Nícolas & Diederik
+- Dumped background_color prop value in drm_atomic_crtc_print_state()
+  and updated comment in drm_crtc_state (Nícolas)
+- Documented the reasons of not using the DRM_ARGB64_GET*_BPC() helpers
+  in vop2 related patch (Nícolas)
+- Rebased series onto latest drm-misc-next
+- Link to v4: https://lore.kernel.org/r/20251219-rk3588-bgcolor-v4-0-2ff1127ea757@collabora.com
+
+Changes in v4:
+- Switched to simple bit-shifting approach when performing the bpc
+  conversion in the vop2 driver, to avoid the expensive division since
+  we shouldn't be concerned anymore about the precision (Chaoyi)
+- Rebased series onto latest drm-misc-next
+- Link to v3: https://lore.kernel.org/r/20251118-rk3588-bgcolor-v3-0-a2cc909428ea@collabora.com
+
+Changes in v3:
+- Added new patches:
+  * uapi: Provide DIV_ROUND_CLOSEST()
+  * drm/vkms: Support setting custom background color
+- Improved DRM_ARGB64_{PREP|GET}*() helpers by using a conversion ratio
+  for better color approximation when dealing with less than 16 bits of
+  precision
+- Mentioned the IGT test in the cover letter while documenting the
+  validation results; also dropped references to the now useless
+  modetest wrapper script and its generated report
+- Rebased series onto latest drm-misc-next
+- Link to v2: https://lore.kernel.org/r/20251013-rk3588-bgcolor-v2-0-25cc3810ba8c@collabora.com
+
+Changes in v2:
+- Improved uAPI consistency and readability by introducing
+  DRM_ARGB64_PREP*() and DRM_ARGB64_GET*() helper macros
+- Updated several code comment sections
+- Referenced the counterpart Weston support in the cover letter
+- Rebased series onto v6.18-rc1
+- Link to v1: https://lore.kernel.org/r/20250902-rk3588-bgcolor-v1-0-fd97df91d89f@collabora.com
+
+---
+Cristian Ciocaltea (4):
+      uapi: Provide DIV_ROUND_CLOSEST()
+      drm: Add CRTC background color property
+      drm/vkms: Support setting custom background color
+      drm/rockchip: vop2: Support setting custom background color
+
+ drivers/gpu/drm/drm_atomic.c                 |  1 +
+ drivers/gpu/drm/drm_atomic_state_helper.c    |  1 +
+ drivers/gpu/drm/drm_atomic_uapi.c            |  4 ++
+ drivers/gpu/drm/drm_blend.c                  | 39 +++++++++++++--
+ drivers/gpu/drm/drm_mode_config.c            |  6 +++
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 17 ++++++-
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  4 ++
+ drivers/gpu/drm/vkms/vkms_composer.c         | 10 +++-
+ drivers/gpu/drm/vkms/vkms_crtc.c             |  3 ++
+ include/drm/drm_blend.h                      |  4 +-
+ include/drm/drm_crtc.h                       | 12 +++++
+ include/drm/drm_mode_config.h                |  5 ++
+ include/linux/math.h                         | 18 +------
+ include/uapi/drm/drm_mode.h                  | 75 ++++++++++++++++++++++++++++
+ include/uapi/linux/const.h                   | 17 +++++++
+ 15 files changed, 191 insertions(+), 25 deletions(-)
+---
+base-commit: a50007089e078a1b7a826559a02277b1601ee189
+change-id: 20250829-rk3588-bgcolor-c1a7b9a507bc
 
 
