@@ -4,154 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F100D6B07A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 16:23:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E256BD6B087
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 16:23:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wT+N5KYtNQTUalZvqaWpXD0UIwQ9cQbWIhbxDPBUNs0=; b=I15OdxJrbdBupsvlUmfj4sHvtH
-	3dQ24s5OjpQNR6clKuSjlbwLi1qKAYnd/kZn7VQDoKXEMd4pO4MSjjrIokk8/qT4zXfkFzjhn0KeS
-	vlNJGdJhuWZc6w0Xzl1bz5JwSEVap8oy4loLWoRQpobVo59M/4e1F2eW/fIQ70RDciVtUgCdpzyxj
-	IKHsD90WL2mY6RTrBa9fRfWFnoKIPi9xhWhtX0Rlkz+w7NkJo57mCGqnts0C7amKc1AzWdrnrtzD3
-	kQNTBO8sD3AoWRKr1xzHOuqoOb0f8zEzkdNBcgKMlEhDi/NOAvmJEg3Z0A4ZblgtFod6leZM4kMrE
-	mtvQ9F9g==;
+	bh=LZ6hHd5xymaSsXvhBB04Vz/xfU3D5XQXvoRBeUfvYwo=; b=3SD6ueFBnPrl8KiYtFUZdh6OHG
+	CMcWYvaZxeDJghy/HTs37o+CpvmI2P+MJHd1YJFcvLHAnuh83aJlz9Am9lhKmLqI3ADILXAmwUs6Z
+	yAeIcNdU5Jfya3L88dg+6nrVcR6rUpFYlxFxwiruXjPYpjKwH/c5uzXi8/XsvxtCRahZH7IoKCJvU
+	8jA4Y3UEbSpTn/55S//FLUnRoaskY5c9F6CaXlYbw/cPKoz9GFf99o8Uw8NpCz9gYyUCCLEELHhH6
+	XZvQNu5OvTblzuKSdBQzibLI2Kn1FexTaYQgt/nEgJW9F+PuExDQMA7Ts7pww6NR5EZN2y7ecHDmX
+	BmpP9mBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlUnT-00000000LPm-42Wr;
-	Thu, 29 Jan 2026 16:23:07 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vlUna-00000000LQd-1Oag;
+	Thu, 29 Jan 2026 16:23:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlUnR-00000000LOh-1HBB
+	id 1vlUnS-00000000LOi-0FmP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 16:23:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iC0GKRCI8wrcnN1+1WrH5ZPGLVOvenqrweqoabi6vGS3adATVeKLDnCBEIvqGFFc/jDRsH6l7uRAIx6Ju3SeQkMsnrlZCr60T+X9acaJazelFeSJqrHXkRRhaehdkjX6YAgJ23D9NzVCuC55qlJb97Ces4UcBfqLuFAtynKjMI8se8wSHbotiTjSkSh+mIfPgmC0+Oq50/HOaIIhAejrYuIdlsisUXYDzizLYLOERiru4MiEs/p48J+OrCNCLHCIO1kf1UsNSerHsA4xXqS+AuyoGp+2ny3BI4tFtshzCMreTjiM2mhNGz1C1NK5etK1zq+BAw6A+M80Trshc8A1BQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wT+N5KYtNQTUalZvqaWpXD0UIwQ9cQbWIhbxDPBUNs0=;
- b=YrETx8LB3NtGOgOAwVHt7CS/OYzXQ4n3akFQAZTu/dcuRr0UE2S36HjXzLmpxLF5FzOfOjXtLehgGeMj2oVrnzwN4+nIzzWWX6R5dNdihWslJ+MbRu7kn5xqhTYbo5/2k1MHJwEajP77vLW9ggBNbpseXq3GrR2Ss2Boy85b7nLFrOoJB0ko2/GEn/xIERJOHc6oQXJWstN2mtLQ4OJUjVM03bYUroBV0AeVURzNcUcF4iJSmI1SApPfGYqsEuEM/RC2o2XBbveuadQBxGHNaAWciOLW+isitarHHkgPXs5p4/PEePlm09yJuxKxIhklnY9rOIfVM3OOTi5O4kcJ4A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wT+N5KYtNQTUalZvqaWpXD0UIwQ9cQbWIhbxDPBUNs0=;
- b=UgmJpP4k+UqnxM3vqOCWZc7bmtdU0Moml+LObvuT2blMCcSJ84ozDcYUZK9iktKMNUgZ1XWRD+xI/dYxqbVFDB+zS2HfJjF5MD0U2G60k3XYWhfBFZI+KmhFaYtYJWu5KD3MaxPBLfJhOpF+MVWgmhU3qHhgY/wP18dnuEHGOOYSvsrbzMtHRsrWoDb0XKDnCnaRbScBQlU63IgW3xb6BrgKhOWYBqiSQzpfHb/cH1+QV14cIRJqV3xaGoc6Op0v+YCW8WttN3xQxpl4mtgt5tT6GMrW5Ysybj7YH1xuYUMhsvbGWNeNrroPUCPwHH7/LbfE+yi2JcynOkR0hA0gxg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by VI0PR04MB11048.eurprd04.prod.outlook.com (2603:10a6:800:25d::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Thu, 29 Jan
- 2026 16:22:55 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9520.005; Thu, 29 Jan 2026
- 16:22:55 +0000
-Date: Thu, 29 Jan 2026 11:22:42 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
-Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
-	mirela.rabulea@oss.nxp.com, nicolas@ndufresne.ca,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, xiahong.bao@nxp.com, eagle.zhou@nxp.com,
-	linux-imx@nxp.com, imx@lists.linux.dev, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] media: imx-jpeg: Add encoder V1 support for i.MX952
-Message-ID: <aXuJUhFEmhjBbulb@lizhi-Precision-Tower-5810>
-References: <20260127073702.1782-1-ming.qian@oss.nxp.com>
- <aXp2CHEX+YCHogjW@lizhi-Precision-Tower-5810>
- <69a3d328-748c-445d-bcbd-823b5b314543@oss.nxp.com>
+	Thu, 29 Jan 2026 16:23:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3E28E4374C;
+	Thu, 29 Jan 2026 16:23:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 020F0C4CEF7;
+	Thu, 29 Jan 2026 16:23:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769703785;
+	bh=H0JUGjT6UJGPBNFYGcqjXsbNql7WKYh6KMyId7b2fSY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YN0ns6rRb3X2NOFT1ENrEeGq0XJ3ODDb5Lmqm9mw27GBicS6hPyO5IaFQUyefIfYZ
+	 r7DtoV6wRH6vbFB/5ulaf6RDna0QjwW/umEx9EQSLkXBoo2ZCsER8oH4t5fTkWRS7O
+	 BiYoixWd01AHfLAwXCvQCT5+TuUf7DmT1pUy1cLJi+AjG4WISrIGw5gM1WyyISun0F
+	 96Jy4rJn/W1Pr6KQAsOGBGD6ALQqMHJtgq7YFVxBPdxUo/xqkiFsao8hjkoeQlogkp
+	 rvx9HpqoxADnaQHLYV67UCgtrpNogD9qnvxG4ZonyR36+cdJ0bR2iJ3uMWO0bCV0YY
+	 Jwn+y6lj258VA==
+Date: Thu, 29 Jan 2026 10:23:04 -0600
+From: Rob Herring <robh@kernel.org>
+To: Gary Yang <gary.yang@cixtech.com>
+Cc: lee@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	p.zabel@pengutronix.de, peter.chen@cixtech.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	cix-kernel-upstream@cixtech.com
+Subject: Re: [PATCH v5 1/3] dt-bindings: reset: add sky1 reset controller
+Message-ID: <20260129162304.GA1209761-robh@kernel.org>
+References: <20260129070046.2601503-1-gary.yang@cixtech.com>
+ <20260129070046.2601503-2-gary.yang@cixtech.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <69a3d328-748c-445d-bcbd-823b5b314543@oss.nxp.com>
-X-ClientProxiedBy: BYAPR02CA0066.namprd02.prod.outlook.com
- (2603:10b6:a03:54::43) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI0PR04MB11048:EE_
-X-MS-Office365-Filtering-Correlation-Id: 58cf9f5c-d886-413b-35c1-08de5f52a862
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|7416014|376014|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?sFB0b/yfwo7L3mIdxb2fQ54pNYBIV9VXdby479EQ9FiTFt8qRBJJdIbQzlbQ?=
- =?us-ascii?Q?qWnLAoP/2CWr7oSIiRPvYlkV/lwJ5Uq++OCmfEV7ZSz7Out/1B4NwUyJxLax?=
- =?us-ascii?Q?Zdck8XGLiSrTv2sdjpvo8lr/HsOTc5WpTvDbHB+GxjiVj/ul8xMezaWmGkU5?=
- =?us-ascii?Q?FfrSlp2FW0Lq3dOh1AXebmS/mv1uyMT08i1czxYJ4SWtk1ODUrAsrQWGCgaB?=
- =?us-ascii?Q?eWw6jisyMueEspN4mi0Ipj/3S6tmHijbMC9mvRsGg3s+Kn/zdS4HRxt/891I?=
- =?us-ascii?Q?K0DrUqkQRifG1AaBg9vjcZkd/cd8wB59V4KpyWTtxm72nwDxUXdWps81WRFc?=
- =?us-ascii?Q?kRLb8vjkCWQradaMxnL/2z8l20gaA4u+WbXJEQ/T9S32zfS8yJfHCzOwCy/Y?=
- =?us-ascii?Q?00r5nhAjQMiKdA2cSzxYK8aMfr0w3dq5XxNa4b/iw6VDMoiMxy/GcOT2naiR?=
- =?us-ascii?Q?jGPqKSoS0tFlMNS/i7vECWJuSrsAVElBtxE56ZysMccWJAzUmo08PYxzXYgC?=
- =?us-ascii?Q?QIjd0fbq+XFLhpgCMQaKtmUueCgbe0JSbCRe5t2WW3MfLCeJJvQLSwzXCScW?=
- =?us-ascii?Q?vEmBoNowR59uvfflCn/mYkSJ+PnJ+nqY5Q0vqPVSDrNRkwqjjQK0LLgqua14?=
- =?us-ascii?Q?v+b8kALTWXdu3IHaoUHi3Dt3ZC7b/Cb3Nd2EvDlgvtfiv4INie0xz1YsXy48?=
- =?us-ascii?Q?SYO7BNO7dXjX4aqvLUYzWetOUmrTneMwWKicQ5ln40reK9HxJnCrb9645HhP?=
- =?us-ascii?Q?t4XybbnEksbHscpb2PSzoL+41vMbnolE954oHTsPDTJUT7iEIHqzkoWfmdnX?=
- =?us-ascii?Q?Wf7NwJVDeQxHW88aQCNzTalw2HgskEWs5KzQeokQUAABxPyh7CuUo7kgc231?=
- =?us-ascii?Q?3/Kbx30M9GRzvqnL4vkzXP7C/sf7lxx9whtkxl1aKdkV3cZ69c9H+QiFxphV?=
- =?us-ascii?Q?NQze8DD46brbfDNXuGhh0npNQ5aOiKDLBMNVVsqJ0blbB5n1bf9uvq6TVNa/?=
- =?us-ascii?Q?DvWzO9qfAHPRMB9RuyWOOxY6IVBtYjCV4mhPgw+3aZfcJF/cmSb78zH8OC0U?=
- =?us-ascii?Q?CQ+PfGO9J32s6KZXt0kKWwpij8llVa50j/lKDHRxOvrwNXPMXzckvP2hgcbX?=
- =?us-ascii?Q?7p1FswBNiPIDrL/ZY09AD0cbhkuwXUnIWoA9k8Kf8WteyD9wQ3PFLcwXMOCA?=
- =?us-ascii?Q?RtmPe5WE1xkrZphBfV7uWV4yNkP8wHHXVxwJEqsPvehXChUyzqctcjlsL6lp?=
- =?us-ascii?Q?SGQjSVhtMeqkdWHfnaDao9yy/8WT+nG0/ETlARZsmRCNRLWypKkJ2gE2Rhmh?=
- =?us-ascii?Q?+KJjSJIBrdSPD+TMBciRGVX/bvKNgpAXu75RGmpBwxxF3GSFtkeFMl2vHlsZ?=
- =?us-ascii?Q?ll2SPoMJdDZVjjF/H8GJ/FnVh3AEPVKpmrVGSq5XNBN3WW3yHJYpqP/Y2FQm?=
- =?us-ascii?Q?nrYVR7NwNQNxxoq7Ooa3IASTUUpRVAVUWX69wTzo+nedb9H4aHlbJdcwUjfO?=
- =?us-ascii?Q?U6b7VprZvDbGHYpAW7MRVCpUzpm3tm0PLQp3IKHyEJKJGhe/lnfK1FdqEEi1?=
- =?us-ascii?Q?n0Jo7ea5de2oUK/SN+fL5POA+zk2IjDGyWbd6FJWaTLn8zlW1HwI8wGu8omD?=
- =?us-ascii?Q?Cve+uYNc1zIZ3jBTI7FazFQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(7416014)(376014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cmNaes4hBGG74J8cFBotGL1Ok1aNHVd6x32kpb0EgngeWPUm9GdvhqZb4Qsh?=
- =?us-ascii?Q?5VVMNTGdnh+RrUYKMzGOdDXJNCq8PicdiWD0lSjnYzVXC8e8IwBbdlyUvdRo?=
- =?us-ascii?Q?fV8Gwjvx/W7vGzt6+ELXNIXuSOea35SNx8uvTlg6EY3AswohoJnsWkWNoZRY?=
- =?us-ascii?Q?xx5Z/Wj2mY77LoVhqOvLFs1fB8t9Who0TcNTOXedkdSkrOkVkEZKKDwgNgQI?=
- =?us-ascii?Q?3eCaDR9lIh1yxAnMst6N26zwIoLDHf9s2nq6A09BMnJXo5KjJc/dLwvxJ+FI?=
- =?us-ascii?Q?YnnkXF449X4T3rdPvVd2bpbXKtk/AT8GK7e6sMZtJblObaY1AM2RphYvgyVX?=
- =?us-ascii?Q?AN0OgqnzoiZ3roPqmNZfM9/a+T6yUeQ+KD15mHsQjbZSV3xhqSOYAiTnHE8l?=
- =?us-ascii?Q?DglY/+esiD95UEqHBAjbIdIEJ36RnMP+4UMTBHTFp6zvrwPQ3iOrLFd3c85s?=
- =?us-ascii?Q?u6lW03xbpZAic63u4vhmTAhjXKa4Z22nM1SY7LsctHGgdstUQoWNZ1DSSXsZ?=
- =?us-ascii?Q?mtUg6OQjqUCquH0/lezhKh8ZIsRPZJxVofpib7v5n4cD1eaeej5A2QF06Q+f?=
- =?us-ascii?Q?MVBl2RxddDIfBmmWSTIt7tz0MQSszOMg+hc2O10ihgMtYf5WH5xpXjZ7GRX4?=
- =?us-ascii?Q?iUBYSAnbZbnQFZdcRoC3dKl5Coq/KzVX4dyaLvxZkh6sChma2h1GtD+tuASY?=
- =?us-ascii?Q?APlG+Lv50jCse11qJEE6vIJbpw1ckMFCLxxCzarX8lK3BklLeZ+eUpCHprBC?=
- =?us-ascii?Q?f4oUoVfwfzQOJclMcA1Q7uG4NiHJTrjXHc4FQzbbcmEsL9HepKWtlBwhK3zC?=
- =?us-ascii?Q?lNm+llnynYTx7xwhbGRAZ6j7yVnhVOt4Lgy4kit6T7CmaHchpaRRIjqeoLa9?=
- =?us-ascii?Q?FRNwU2UJ4BkaV9v3VbfQleym7M75+yqYachibIwALaw+PZiurNwcurqeqnL6?=
- =?us-ascii?Q?zUtvsyvWou1fA/54/xDNV82C7ghP0VmGVaF+Sgo+r2MwMHJ3ljtxNmm2eARr?=
- =?us-ascii?Q?rNYxpLPGamI+4f3OU/b0UH4N5wl+SxvCI9NKaZOxBY0OY5+axrEQ9yTDLUg2?=
- =?us-ascii?Q?n/26AzXI+l345Dt9k/cTAg2EZfe34sjn1CRgw/q+Kl8FK/2eq6zLoBF3soxc?=
- =?us-ascii?Q?Xr0xsM+TNKYQniHimyGZah26i1P1eO+yHK27Ee5XK3LfshSVOtlNzBPFywWD?=
- =?us-ascii?Q?1o4F+4vs8As3FYt6GeaPU/T3IyISdqyJ318JD17JyUye+8fRImY8embVYUh8?=
- =?us-ascii?Q?OCrMunLU4p8I6x8NLbHU/1Z6Wc1be/hxr9tHaO8/i1YMomKhASqvShJSFOtF?=
- =?us-ascii?Q?kRnwUTw5lTw7/Fgd4FwIRCUpbRtbO+08kdRlNXOBhDw1wLlkBRX16gkRnxho?=
- =?us-ascii?Q?a6KbY3vttiEXoSNkbFVWuFPqm4HC3eKx00SLNzvMpzdG8+P1ur/EFjLo2IhY?=
- =?us-ascii?Q?09iadkO5ljLTdkYapU1anMMVB1FNVubli2L8dBJdae/MGc5oZoERKGszr+Zs?=
- =?us-ascii?Q?dsjhFtygd+UE11A35qowRYPIz0ctZpvNQPmeQpYVPtrR37ZIAVaqGE4WoHJN?=
- =?us-ascii?Q?/JckmM7DfGJP1WX9LGFjtxOhOsNaqrq2Fi1bR1yp4ku6Xz/2OI9UrEO7ITdT?=
- =?us-ascii?Q?/r7nthN9De3B0038q2SdfW+TyM11No/16ZmNelxzqRKN9pwCpO8RzO2QEHGn?=
- =?us-ascii?Q?mD4FgYa8NwyyNL8BqppiGR35SrXE80/Ag48RUg5ycHG8vQgQ?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 58cf9f5c-d886-413b-35c1-08de5f52a862
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2026 16:22:55.1474
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oGa7G8KHo67Idmcf53UtLikrCekfuVI81C6xo30msKfKOX/UlAoReaJazayDoJq2H/zqbCrF6p8NZIxOLr17cg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11048
+In-Reply-To: <20260129070046.2601503-2-gary.yang@cixtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_082305_367681_D6BA0314 
-X-CRM114-Status: GOOD (  24.56  )
+X-CRM114-CacheID: sfid-20260129_082306_136644_08DF3798 
+X-CRM114-Status: GOOD (  19.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,92 +75,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 29, 2026 at 09:42:39AM +0800, Ming Qian(OSS) wrote:
->
-> Hi Frank,
->
-> On 1/29/2026 4:48 AM, Frank Li wrote:
-> > On Tue, Jan 27, 2026 at 03:37:00PM +0800, ming.qian@oss.nxp.com wrote:
-> > > From: Ming Qian <ming.qian@oss.nxp.com>
-> > >
-> > > The i.MX952 SoC features an upgraded JPEG encoder (version 1) with
-> > > enhanced descriptor-based configuration capabilities.
-> > >
-> > > The hardware version can be determined by reading the
-> > > version register.
-> > >
-> > > The v1 encoder uses an expanded descriptor format that allows
-> > > configuring all encoding parameters, including JPEG quality,
-> > > directly in the descriptor. This eliminates the manual
-> > > configuration phase required by v0 and reduces the interrupt
-> > > count from two to one per frame.
-> > >
-> > > V0 encoding flow:
-> > >    1. Write quality to registers -> trigger config interrupt
-> > >    2. Start encoding -> trigger completion interrupt
-> > >
-> > > V1 encoding flow:
-> > >    1. Configure descriptor with all parameters including quality
-> > >    2. Start encoding -> trigger completion interrupt
-> >
-...
-> > > +	/* Manual configuration (v0 hardware) - two-phase process */
-> > > +	void (*enter_config_mode)(struct mxc_jpeg_ctx *ctx);
-> > > +	void (*exit_config_mode)(struct mxc_jpeg_ctx *ctx);
-> > > +
-> > > +	/* Descriptor-based configuration (v1 hardware) - single-phase */
-> > > +	void (*setup_desc)(struct mxc_jpeg_ctx *ctx);
-> >
-> > You use callback, suppose callback name should be the same for v0 and v1.
-> >
-> > for example:
-> >
-> > 	void (*setup_config)()
-> > 	void (*clean_config)()
-> >
-> > v0	enter_config_mode() -> .setup_config
-> > 	exit_config_mode() -> .clean_config
-> >
-> > v1
-> > 	setup_desc -> .setup_config
-> > 	NULL -> .clean_config.
-> >
-> > Frank
-> >
->
-> However, the flow for calling the callback in v0 and v1 are different.
-> If use the same callback name, then additional checks will be required
-> during the call.
-> Therefore, I prefer to use different names to handle the different flow.
+On Thu, Jan 29, 2026 at 03:00:44PM +0800, Gary Yang wrote:
+> There are two reset controllers on Cix sky1 Soc. One is located in S0
+> domain, and the other is located in S0 and S5 domain.
 
-Okay, you use hidden null pointer check.  Generanlly, if no reuse for
-callback, simple direct call to function.
+The comments on v4 still apply... Repeated below...
 
-But it is not big deal.  This ways is also okay.
+> 
+> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
+> ---
+>  .../bindings/reset/cix,sky1-rst.yaml          |  41 +++++
+>  .../soc/cix/cix,sky1-system-controller.yaml   |  48 +++++
+>  include/dt-bindings/reset/cix,sky1-rst-fch.h  |  42 +++++
+>  include/dt-bindings/reset/cix,sky1-rst.h      | 164 ++++++++++++++++++
+>  4 files changed, 295 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml
+>  create mode 100644 Documentation/devicetree/bindings/soc/cix/cix,sky1-system-controller.yaml
+>  create mode 100644 include/dt-bindings/reset/cix,sky1-rst-fch.h
+>  create mode 100644 include/dt-bindings/reset/cix,sky1-rst.h
+> 
+> diff --git a/Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml b/Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml
+> new file mode 100644
+> index 000000000000..b52791e2b18e
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml
+> @@ -0,0 +1,41 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/reset/cix,sky1-rst.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: CIX Sky1 Reset Controller
+> +
+> +maintainers:
+> +  - Gary Yang <gary.yang@cixtech.com>
+> +
+> +description: |
+> +  CIX Sky1 reset controller can be used to reset various set of peripherals.
+> +  There are two reset controllers, one is located in S0 domain, the other
+> +  is located in S0 and S5 domain.
+> +
+> +  See also:
+> +  - include/dt-bindings/reset/cix,sky1-rst.h
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - cix,sky1-rst
+> +          - cix,sky1-rst-fch
+> +
+> +  '#reset-cells':
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - '#reset-cells'
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    reset-controller {
+> +      compatible = "cix,sky1-rst";
+> +      #reset-cells = <1>;
+> +    };
+> diff --git a/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-controller.yaml b/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-controller.yaml
+> new file mode 100644
+> index 000000000000..913e77fc522a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-controller.yaml
+> @@ -0,0 +1,48 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/soc/cix/cix,sky1-system-controller.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Cix Sky1 SoC system controller register region
+> +
+> +maintainers:
+> +  - Gary Yang <gary.yang@cixtech.com>
+> +
+> +description:
+> +  An wide assortment of registers of the system controller on Sky1 SoC,
+> +  including resets and usb.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - cix,sky1-system-controller
+> +          - cix,sky1-s5-system-controller
+> +      - const: syscon
+> +      - const: simple-mfd
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +patternProperties:
+> +  "^reset(-controller)?$":
+> +    type: object
+> +    $ref: /schemas/reset/cix,sky1-rst.yaml#
 
-Frank
+This is not a separate device.
 
->
-> Regards,
-> Ming
->
-> > > +};
-> > > +
-> > >   struct mxc_jpeg_dev {
-> > >   	spinlock_t			hw_lock; /* hardware access lock */
-> > >   	unsigned int			mode;
-> > > @@ -142,6 +163,7 @@ struct mxc_jpeg_dev {
-> > >   	struct device			**pd_dev;
-> > >   	struct device_link		**pd_link;
-> > >   	struct gen_pool			*sram_pool;
-> > > +	const struct mxc_jpeg_enc_ops	*enc_cfg_ops;
-> > >   };
-> > >
-> > >   /**
-> > >
-> > > base-commit: c824345288d11e269ce41b36c105715bc2286050
-> > > prerequisite-patch-id: 0000000000000000000000000000000000000000
-> > > --
-> > > 2.52.0
-> > >
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    syscon@16000000 {
+> +      compatible = "cix,sky1-s5-system-controller", "syscon", "simple-mfd";
+> +      reg = <0x16000000 0x1000>;
+> +      reset-controller {
+> +        compatible = "cix,sky1-rst";
+> +        #reset-cells = <1>;
+
+Move #reset-cells to the parent node and drop this node. And then drop 
+"simple-mfd". Or perhaps the definition for what's in the 
+"cix,sky1-s5-system-controller" is incomplete? If so, please define all 
+the binding.
+
+Rob
 
