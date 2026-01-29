@@ -4,105 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AEFBD73E81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 17:34:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEBDFD73E81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 17:35:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OCjRmeNlyKGhmHNcoMiPz9wOGxIE7UrMLqkSTeQIzDw=; b=InFiwt+g88WPxYj75EekfaZiHR
-	wgygLkX1ycUeZoB/FL0Jjfh3ISYj/XjzewPOcHYau2jnFLbqXYL8I3/Y/Jxt32cNgBCwVLQcofLOH
-	S4Kl5TiclLywkunMPue94+c0n0FXJ2s9bCKNz3hVKD+BJe7iMR4SStGpUD/aFYUvJ1qVkVYOM0izd
-	GPLAiXuFOwrl8tpzsC3XL0qGg+s/yMnEpvKzWbt1WfBNiS8zNYw9TWeGZz0YFa0gFuZJc+jBIf7+W
-	geU6aRYmceot72qmZD9GeLu7fLHTsKxfvAQ1kiyFhJ1eC7FVi1nfhLFhkQbGiFu29tctJNO47FM5K
-	Hs7L0vgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EzSUVdWbzL09q1wpoJDD+cItE7l8w9GaRtPysrK7P+M=; b=ug2SxFNZKHVzpvDdzfC3mQA4wE
+	z6Bkwu0f5glLFwk297b15GqOMPoZKwMsgfn08aCgVkzDOvvgK8s1bPiTCTy507dnuWHsb/WCBGJDm
+	14vfSC6B1/Sr72wnPhqzcFGNeGYgsB2+/RpMfajWv/y/DDY1j8vRvHz8obACUkb4ECedd3xxOC8KU
+	8dIbScoD820LwgExQ3TkmXzOdmc7y7HeZIYOtzZaIQGV+eozbosieWlZGUy738ulIoc7BrpKtku/j
+	65HoYh4XJ6SNOBuZoVHDJ5o7U272h9sQyAb6kvBuuuTxPFvnnp35voO+Tz4/8svnvldcicl0Ore7L
+	DqFxwp0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlVuw-00000000RWJ-3914;
-	Thu, 29 Jan 2026 17:34:54 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1vlVvN-00000000Rd8-2NzU;
+	Thu, 29 Jan 2026 17:35:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlVuu-00000000RVj-2vjM
+	id 1vlVvI-00000000Rc1-3VaA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 17:34:53 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-5014b5d8551so2341cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 09:34:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769708091; cv=none;
-        d=google.com; s=arc-20240605;
-        b=KUqqAiqqo1oTcweV6WKVL92kEaMp+sX5ltuB+uDzufrQM0IRnqLDgZxLePxUES0mlR
-         VKJbuvS7YUrkDZxij4gGHtededpAwvUfgzRTyCtm8YGxzspTC8ed3iPNww4dnxkiMelU
-         s0l9/okOGwLQg8sWGQ20jnuB7359eIwDXoKbGYuEERICHTSzh5kKFRH4R9mlrCO1azjh
-         0kuB6Pz8ZsaWxKSmQ7fkqIbCACBEyDTVJhvrxQoi/bhOwSRNkzwLr4KnEQBEzgOyH2IR
-         rz0N4YbTOt0X6yJNhtwxJRxrSlB0RyZI2ZiMfOR9S0/ig1/0rqjWdDtJAUUe3eBnfQuX
-         O+0w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=OCjRmeNlyKGhmHNcoMiPz9wOGxIE7UrMLqkSTeQIzDw=;
-        fh=nMyrYbYXDQ02MysCSnDpOSmB3P8smN+admK7OxawqiI=;
-        b=B1FWsa/ukv2qi594bCsA0HzI0MQBhKE+0p6BNrxnqRjBa0mpn7uOnFF5i3DJmWTpda
-         Y7ZoNNMqY184Qqpw4y6OGWawR/+8cJN2rlG1EAbDwbo9WD70LKEriiwxxK3aLyeKkRsj
-         kN3Re3dY1SfD5n4cgP22TQT0EKtkuGrMADS8CWkpGz8L9vsdaC/RLbw+/vWQcPvDWeqJ
-         h5+P7LmhnI49Z4BKIkhag/3XfVEMEfZfNW8QXgmjnDLevgAGX9D6jXm6sZvU2iM4cW5S
-         6WtKcX2Aw6He5XqyPWC1JM9FvN37gu0+Cyw1vT9uW96Mik2OisrRfzIDrDbyu2NPxXl/
-         bTdA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769708091; x=1770312891; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=OCjRmeNlyKGhmHNcoMiPz9wOGxIE7UrMLqkSTeQIzDw=;
-        b=X7xHOaf58sqGkMSCDHqyNgaUqlUSCRwh8yUAsyopkPWTinKOgd2pX/CtVrBzKckOQg
-         EYSyXSndheYB0pgVoKAfMsM6EU1NvbwJf1/lhp9B6zsALeBW4e6NaUuPHuEBgsoitJ61
-         6dSNxkxBTTajy5FhXbptbpUAcZ61qr9Zs/+wIfCzKsZtb10ibabgZ4QyP22BdJMTmkMv
-         RFHWDxjzWl9meeUsTt5OAI72ycqOnuoOfG/r4Lp74DnQgtTcuUhmBEcRdvIWHtc+lpEk
-         5rqO+3yNIcFhmNRWGexY4Z+sCJVfl5xe/ZG8zXJ9/ojLZFpM6SSW8LQeSu86yVqN/W71
-         zSbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769708091; x=1770312891;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OCjRmeNlyKGhmHNcoMiPz9wOGxIE7UrMLqkSTeQIzDw=;
-        b=lRWXHfWtpo2nRIiykqLV74weNqBYplpoRxTmrU6yTCKR3M23T1dR7ONP6aRC32Q/i9
-         0ThoghJNPhcSG4dkOQKNsgBJIyxg6BBk7mYN8pd1DVSjR9FS4uDwIjNz+Kz5KKymskfu
-         y4FzpNP+o10JD+7k/QhtF8pzxw8mBa1NeuOw6IMt6FCVNnT2Bs1lzZ/TaGEXzEtSTQhr
-         TePW6Q19Z/UAPk3iHjNlr+Whms9Tkp4AnHlf+i+3GVgr9+sWjqWUuVVGEoJevTcDOBNE
-         dt5AW9zayHXHfa6vvxsVOJ6XUtw9KqVHmSObaKLYUYbnCiMdZJN/sMMbNuy8J+iQJQ9U
-         E9iQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVHGhbGwQdafwY5Pbj6MChshOV307ohBjoPiNOYYnAbOrR0G9iJdgQL/sLO8puSi8oA9dwENGy5YLGuQMLwovDG@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkQwi0s/lVN0IPllPwk7gKmgcqgYT0gz13dSOPvOnin7ly+GFk
-	GaJMW0fknHrJT1N0nGeuHa/P39S8i7A1AwGrKw89MRti1c5RC/2Ybyit3AF9x61cCAnrrmKyzkM
-	PoFEiguicj8HXX3oWfoB46Ol49SP/5sYXH+F6mdYK2jBGAo1/+zseGZc9
-X-Gm-Gg: AZuq6aKwjq8k3CYqBnSbZ6zkPhSNCAqoYRRip6jRdVASVa/fbTHyTqO36c1nRLKatWN
-	XZuy/BFHvaVdb2Euh13p02pBIXcCCmpw9ocvXX0GUa9+hDmYVaq0Gn6mNXSfvdk5l09TkHcxSM0
-	y68M2LsHsSsKdwIu8ymroOs6SX1yQXEREPJQD+C9ZzDoiUBTH9O0R/L59PK2dhqJP09IXxQGvsI
-	QbE+/l9oSBXRRRjb9FZ5KBkVNJlEUMMriAcFJGTlxt083I1EdWFbbJvujqKRfSjgEslg2UV
-X-Received: by 2002:ac8:5dc7:0:b0:4ed:ff77:1a85 with SMTP id
- d75a77b69052e-504310c6a76mr11415131cf.17.1769708090725; Thu, 29 Jan 2026
- 09:34:50 -0800 (PST)
+	Thu, 29 Jan 2026 17:35:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 80839418F8;
+	Thu, 29 Jan 2026 17:35:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00624C4CEF7;
+	Thu, 29 Jan 2026 17:35:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769708115;
+	bh=LZLX7bGtrwHwOhYAzCzwWn2KMP5/JcVHZ43OVV++yko=;
+	h=From:Date:Subject:To:Cc:From;
+	b=ivCxkCuyrvgLWutUxOh2SyVaA6+WINxXAYT8QqC11eVthh2rcJLJhDG+TuWu8+XDa
+	 ooSSxS9xk/ZHGU5K1ldwWOTLS4MYV+yErsdK9+z3kdQaDou7UxfL/ILP9hatgiu7oy
+	 /d8n4m38Ou7qxSLBf3PQyy/vsLVhctpKmWBLZlQ4/IT3qMt7hzQpjkuK3xugHPn9uu
+	 sndTXDFk0V/Vg2ZXEqUmvgj7pHZjOdUkRcFp7W59gEceBPc5TjL7HnTlEftG0qnz1f
+	 dNoz/ZOsPwsjkDRJv3iBM3qSWgya0FWopfLAdcFXcZxHozTxjdaw2GR2Ghog2v5jBt
+	 1ydPy6Y5h2GBg==
+From: Simon Horman <horms@kernel.org>
+Date: Thu, 29 Jan 2026 17:35:03 +0000
+Subject: [PATCH net-next] net: stmmac: spelling corrections
 MIME-Version: 1.0
-References: <20260126121655.1641736-1-maz@kernel.org> <20260126121655.1641736-17-maz@kernel.org>
-In-Reply-To: <20260126121655.1641736-17-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Thu, 29 Jan 2026 17:34:13 +0000
-X-Gm-Features: AZwV_QiTE6QZNIoj8DOQzS5LJpafanXH_brsaCuAk8_cVjfPbm_tEiXo0cJUCrM
-Message-ID: <CA+EHjTxS-TVNzFdENTa3F3V1Z5+grxx7x5MO1YJGrZJEY+kUaQ@mail.gmail.com>
-Subject: Re: [PATCH 16/20] KVM: arm64: Simplify handling of full register
- invalid constraint
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260129-stmmac-spell-v1-1-c7df9a96e482@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAEaae2kC/x3MQQqDMBBG4avIrDuQTLXSXqW4SOPfdkBTyQQRx
+ LsbuvwW7+1kyAqjR7NTxqqmv1ThLw3Fb0gfsI7VJE5uzsudrcxziGwLpolf8HJ1Etuu76kmS8Z
+ bt//uSQmFE7ZCw3GchHEK3WgAAAA=
+X-Change-ID: 20260129-stmmac-spell-be12302c4577
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+ linux-sunxi@lists.linux.dev
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_093452_745655_F3EAF43C 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20260129_093516_924522_09430E3C 
+X-CRM114-Status: GOOD (  24.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,60 +84,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 26 Jan 2026 at 12:17, Marc Zyngier <maz@kernel.org> wrote:
->
-> Now that we embed the RESx bits in the register description, it becomes
-> easier to deal with registers that are simply not valid, as their
-> existence is not satisfied by the configuration (SCTLR2_ELx without
-> FEAT_SCTLR2, for example). Such registers essentially become RES0 for
-> any bit that wasn't already advertised as RESx.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+Correct spelling as flagged by codespell.
 
-Reviewed-by: Fuad Tabba <tabba@google.com>
+Signed-off-by: Simon Horman <horms@kernel.org>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c        |  4 ++--
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c      |  4 ++--
+ drivers/net/ethernet/stmicro/stmmac/dwmac1000.h        |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac100_core.c    |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/enh_desc.c         |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/mmc_core.c         |  4 ++--
+ drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c  |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c      | 10 +++++-----
+ drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c      |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c |  2 +-
+ 10 files changed, 17 insertions(+), 17 deletions(-)
 
-Cheers,
-/fuad
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
+index 97de4726208e1bc01e4980da99ace72a3e2e1d54..ecc0c34834235207cd082655cb021da3382cb350 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
+@@ -270,9 +270,9 @@ imx_dwmac_parse_dt(struct imx_priv_data *dwmac, struct device *dev)
+ 	if (of_machine_is_compatible("fsl,imx8mp") ||
+ 	    of_machine_is_compatible("fsl,imx91") ||
+ 	    of_machine_is_compatible("fsl,imx93")) {
+-		/* Binding doc describes the propety:
++		/* Binding doc describes the property:
+ 		 * is required by i.MX8MP, i.MX91, i.MX93.
+-		 * is optinoal for i.MX8DXL.
++		 * is optional for i.MX8DXL.
+ 		 */
+ 		dwmac->intf_regmap =
+ 			syscon_regmap_lookup_by_phandle_args(np, "intf_mode", 1,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+index 8aa496ac85cce5bc3e2bcec5ceb880ada79e472c..c01b86fd64da1303aa4c905a7c6bb844515d5130 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+@@ -746,7 +746,7 @@ static int sun8i_dwmac_reset(struct stmmac_priv *priv)
+ 	v = readl(priv->ioaddr + EMAC_BASIC_CTL1);
+ 	writel(v | 0x01, priv->ioaddr + EMAC_BASIC_CTL1);
+ 
+-	/* The timeout was previoulsy set to 10ms, but some board (OrangePI0)
++	/* The timeout was previously set to 10ms, but some board (OrangePI0)
+ 	 * need more if no cable plugged. 100ms seems OK
+ 	 */
+ 	err = readl_poll_timeout(priv->ioaddr + EMAC_BASIC_CTL1, v,
+@@ -821,7 +821,7 @@ static int sun8i_dwmac_power_internal_phy(struct stmmac_priv *priv)
+ 		return ret;
+ 	}
+ 
+-	/* Make sure the EPHY is properly reseted, as U-Boot may leave
++	/* Make sure the EPHY is properly reset, as U-Boot may leave
+ 	 * it at deasserted state, and thus it may fail to reset EMAC.
+ 	 *
+ 	 * This assumes the driver has exclusive access to the EPHY reset.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
+index b3135df0a359cd5ea36db325c4a37075991b6712..9fe639fb06bb3f61179e967b663927cce50ff3ca 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
+@@ -152,7 +152,7 @@ enum inter_frame_gap {
+ 
+ /*--- DMA BLOCK defines ---*/
+ /* DMA Bus Mode register defines */
+-/* Programmable burst length (passed thorugh platform)*/
++/* Programmable burst length (passed through platform)*/
+ #define DMA_BUS_MODE_PBL_MASK	GENMASK(13, 8)	/* Programmable Burst Len */
+ #define DMA_BUS_MODE_ATDS	0x00000080	/* Alternate Descriptor Size */
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac100_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac100_core.c
+index 4efe4c3ae5dcc53a7b9826f3e2b1bd54f6e256c4..db4fbe64a38afc3142bc2fd4ed9b53230c05031b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac100_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac100_core.c
+@@ -108,7 +108,7 @@ static void dwmac100_set_filter(struct mac_device_info *hw,
+ 		memset(mc_filter, 0, sizeof(mc_filter));
+ 		netdev_for_each_mc_addr(ha, dev) {
+ 			/* The upper 6 bits of the calculated CRC are used to
+-			 * index the contens of the hash table
++			 * index the contents of the hash table
+ 			 */
+ 			int bit_nr = ether_crc(ETH_ALEN, ha->addr) >> 26;
+ 			/* The most significant bit determines the register to
+diff --git a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
+index d571241e64dd929536aa3158f352a281d9b1834b..8f6993c8bcae5be7fd064a5b1259901b4f643747 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
++++ b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
+@@ -88,7 +88,7 @@ static int enh_desc_coe_rdes0(int ipc_err, int type, int payload_err)
+ 
+ 	/* bits 5 7 0 | Frame status
+ 	 * ----------------------------------------------------------
+-	 *      0 0 0 | IEEE 802.3 Type frame (length < 1536 octects)
++	 *      0 0 0 | IEEE 802.3 Type frame (length < 1536 octets)
+ 	 *      1 0 0 | IPv4/6 No CSUM errorS.
+ 	 *      1 0 1 | IPv4/6 CSUM PAYLOAD error
+ 	 *      1 1 0 | IPv4/6 CSUM IP HR error
+diff --git a/drivers/net/ethernet/stmicro/stmmac/mmc_core.c b/drivers/net/ethernet/stmicro/stmmac/mmc_core.c
+index 0fab842902a850022a3be368d4972e4f4e9bcdc9..1b3b114e7bec86971c99e219db213eb11c022ebc 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/mmc_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/mmc_core.c
+@@ -252,7 +252,7 @@ static void dwmac_mmc_intr_all_mask(void __iomem *mmcaddr)
+ 	writel(MMC_DEFAULT_MASK, mmcaddr + MMC_RX_IPC_INTR_MASK);
+ }
+ 
+-/* This reads the MAC core counters (if actaully supported).
++/* This reads the MAC core counters (if actually supported).
+  * by default the MMC core is programmed to reset each
+  * counter after a read. So all the field of the mmc struct
+  * have to be incremented.
+@@ -420,7 +420,7 @@ static void dwxgmac_read_mmc_reg(void __iomem *addr, u32 reg, u32 *dest)
+ 		*dest = *dest + tmp;
+ }
+ 
+-/* This reads the MAC core counters (if actaully supported).
++/* This reads the MAC core counters (if actually supported).
+  * by default the MMC core is programmed to reset each
+  * counter after a read. So all the field of the mmc struct
+  * have to be incremented.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
+index bb110124f21e2d89493359374a33446178a80496..b9a985fa772c993a7b00c27046f4a9555e60e461 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
+@@ -43,7 +43,7 @@ static void config_sub_second_increment(void __iomem *ioaddr,
+ 	unsigned long data;
+ 	u32 reg_value;
+ 
+-	/* For GMAC3.x, 4.x versions, in "fine adjustement mode" set sub-second
++	/* For GMAC3.x, 4.x versions, in "fine adjustment mode" set sub-second
+ 	 * increment to twice the number of nanoseconds of a clock cycle.
+ 	 * The calculation of the default_addend value by the caller will set it
+ 	 * to mid-range = 2^31 when the remainder of this division is zero,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 347a0078f622277a9792cce3ad6f1719d168c040..268289a324f3c3b697f6232353d8a96c65d94f61 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1114,7 +1114,7 @@ static int stmmac_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
+ 	stmmac_set_eee_timer(priv, priv->hw, STMMAC_DEFAULT_LIT_LS,
+ 			     STMMAC_DEFAULT_TWT_LS);
+ 
+-	/* Try to cnfigure the hardware timer. */
++	/* Try to configure the hardware timer. */
+ 	ret = stmmac_set_lpi_mode(priv, priv->hw, STMMAC_LPI_TIMER,
+ 				  priv->tx_lpi_clk_stop, priv->tx_lpi_timer);
+ 
+@@ -3495,7 +3495,7 @@ static void stmmac_mac_config_rss(struct stmmac_priv *priv)
+ /**
+  *  stmmac_mtl_configuration - Configure MTL
+  *  @priv: driver private structure
+- *  Description: It is used for configurring MTL
++ *  Description: It is used for configuring MTL
+  */
+ static void stmmac_mtl_configuration(struct stmmac_priv *priv)
+ {
+@@ -4373,7 +4373,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 
+ 	/* Always insert VLAN tag to SKB payload for TSO frames.
+ 	 *
+-	 * Never insert VLAN tag by HW, since segments splited by
++	 * Never insert VLAN tag by HW, since segments split by
+ 	 * TSO engine will be un-tagged by mistake.
+ 	 */
+ 	if (skb_vlan_tag_present(skb)) {
+@@ -5946,7 +5946,7 @@ static int stmmac_napi_poll_rxtx(struct napi_struct *napi, int budget)
+ 		unsigned long flags;
+ 
+ 		spin_lock_irqsave(&ch->lock, flags);
+-		/* Both RX and TX work done are compelte,
++		/* Both RX and TX work done are complete,
+ 		 * so enable both RX & TX IRQs.
+ 		 */
+ 		stmmac_enable_dma_irq(priv, priv->ioaddr, chan, 1, 1);
+@@ -6278,7 +6278,7 @@ static irqreturn_t stmmac_msi_intr_rx(int irq, void *data)
+ /**
+  *  stmmac_ioctl - Entry point for the Ioctl
+  *  @dev: Device pointer.
+- *  @rq: An IOCTL specefic structure, that can contain a pointer to
++ *  @rq: An IOCTL specific structure, that can contain a pointer to
+  *  a proprietary structure used to pass information to the driver.
+  *  @cmd: IOCTL command
+  *  Description:
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+index 1e82850f2a25c33dffafa2fd3fb77a04852e9ace..a7c2496b39f286699da5395ec7e468ca84feaa62 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+@@ -483,7 +483,7 @@ void stmmac_pcs_clean(struct net_device *ndev)
+  *	If a specific clk_csr value is passed from the platform
+  *	this means that the CSR Clock Range selection cannot be
+  *	changed at run-time and it is fixed (as reported in the driver
+- *	documentation). Viceversa the driver will try to set the MDC
++ *	documentation). Vice versa the driver will try to set the MDC
+  *	clock dynamically according to the actual clock input.
+  */
+ static u32 stmmac_clk_csr_set(struct stmmac_priv *priv)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+index e90a2c469b9a6f576c1b6f99954af08bae69007c..08b60b7d5fd641846ec1c31cca332833771a991c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+@@ -2000,7 +2000,7 @@ void stmmac_selftest_run(struct net_device *dev,
+ 		}
+ 
+ 		/*
+-		 * First tests will always be MAC / PHY loobpack. If any of
++		 * First tests will always be MAC / PHY loopback. If any of
+ 		 * them is not supported we abort earlier.
+ 		 */
+ 		if (ret) {
 
 
-> ---
->  arch/arm64/kvm/config.c | 15 +++++++++------
->  1 file changed, 9 insertions(+), 6 deletions(-)
->
-> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-> index 28e534f2850ea..0c037742215ac 100644
-> --- a/arch/arm64/kvm/config.c
-> +++ b/arch/arm64/kvm/config.c
-> @@ -1332,7 +1332,7 @@ struct resx compute_reg_resx_bits(struct kvm *kvm,
->                                  const struct reg_feat_map_desc *r,
->                                  unsigned long require, unsigned long exclude)
->  {
-> -       struct resx resx, tmp;
-> +       struct resx resx;
->
->         resx = compute_resx_bits(kvm, r->bit_feat_map, r->bit_feat_map_sz,
->                                  require, exclude);
-> @@ -1342,11 +1342,14 @@ struct resx compute_reg_resx_bits(struct kvm *kvm,
->                 resx.res1 |= r->feat_map.masks->res1;
->         }
->
-> -       tmp = compute_resx_bits(kvm, &r->feat_map, 1, require, exclude);
-> -
-> -       resx.res0 |= tmp.res0;
-> -       resx.res0 |= ~reg_feat_map_bits(&r->feat_map);
-> -       resx.res1 |= tmp.res1;
-> +       /*
-> +        * If the register itself was not valid, all the non-RESx bits are
-> +        * now considered RES0 (this matches the behaviour of registers such
-> +        * as SCTLR2 and TCR2). Weed out any potential (though unlikely)
-> +        * overlap with RES1 bits coming from the previous computation.
-> +        */
-> +       resx.res0 |= compute_resx_bits(kvm, &r->feat_map, 1, require, exclude).res0;
-> +       resx.res1 &= ~resx.res0;
->
->         return resx;
->  }
-> --
-> 2.47.3
->
+
 
