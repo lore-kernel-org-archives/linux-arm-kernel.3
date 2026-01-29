@@ -4,78 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C1FD6101C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 14:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83EEFD61020
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 14:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gdLx6MqvKMI7VkaiN5mQVnb2eVwGGL9NszyRmXRKFV0=; b=Dfo7393ctYZ/WF8IBiFGX5uYOn
-	nNkF/Ti1gIcO07O28NaA97qi9v6D29W0AS55A02CTIklCQtlojetFt8XL1oFqrYoyoYy5VfrpRBCs
-	Mx77lXHbNXAHlcP+kyGSL79k5M312QfBI6eu3SlwgDdDwFK7Oh4KUOO5cg10CEZZGg0h7NZjcXzls
-	EHq1qadthyEpBSGAR/wEuU+Yz4uy8JX9mMrR1bV3HyEbnmzZRNZW5B34HDxTBRBUEBayR95P5C30i
-	Rui/7c4i99hoMAc7dmxhteqtsN0454cSx8ZRjOHaftM6mLl2EUt3R4BX3sQDBMdoWh4DfvOKqvVww
-	tC0ttG8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Kd3WI+TsllaYu1gglPGS5EzMwuvRBJh6elKjpwUOhxk=; b=P4GnK1veoESgY/Bt5zfcaGdQwZ
+	fz40gbOE2coAW7h3Fx0vCd2Qtr5lfNEgDEZvljRhGIUdIiiDggbXtgumXRKC3OgtIAfbH+8Ji/5Ns
+	fePoy2H3gkZ7w8Eah122KFGLuUKDN3i0a0+iiJMeRL05e8DhKxuekx8su4oej+U9ROSm2swr+EFEs
+	wzy2xK6QfP1nmZ90yPyoOA5oWAGrGgNxOANmAeCRTfh6rVw5LhrSKIk/CCjvadpwTJIRCLAwgXvz/
+	ZWQUehAlw4p4MaP82e8hJ2Z7EEPVmIV3r02SOoNqFQJCxu4wh5kwHuJRquFxlE8nIZ4dqUtNjsj+6
+	t4l47K1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlT8m-00000000Ekx-17ck;
-	Thu, 29 Jan 2026 14:37:00 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vlTK7-00000000FId-28wF;
+	Thu, 29 Jan 2026 14:48:43 +0000
+Received: from mx4.sberdevices.ru ([152.89.196.46])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlT8k-00000000EkO-0UCf;
-	Thu, 29 Jan 2026 14:36:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=gdLx6MqvKMI7VkaiN5mQVnb2eVwGGL9NszyRmXRKFV0=; b=IUnX78XxTN3897xqwPd6BmA4/H
-	EZehdxzJc8Fh5T/UIyymImNbkf0vAUqODyrY9JCzG8ckyviD4xiKe93el/EoD3p1JLof6a0DC3GNf
-	MDMz6/TSocUiQyJUxzcbH9Xd2R6QBCL1sJWpQ6DzeMm3du9sH/8YX4h8VC04CU7DgWI3x87nqo0Fv
-	+svJ8AlhFIV696xHGY3F35RC+v2S0PNnxW/If7wMVr310KDQjvREKy30qgwj74Ld1VIoUlzxxcb6U
-	X8GtPYmrW8kuWScU4XpHe004klCUsff/h6SR7Iekv9OzSEGaTRSe3g9jRbp7X+ShCqfegy8iiMosG
-	lkey1yOQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:37426)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vlT8a-000000000BS-2Vfn;
-	Thu, 29 Jan 2026 14:36:48 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vlT8Y-0000000083Z-3wB7;
-	Thu, 29 Jan 2026 14:36:46 +0000
-Date: Thu, 29 Jan 2026 14:36:46 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Vincent Guittot <vincent.guittot@linaro.org>, neil.armstrong@linaro.org,
-	Simon Horman <horms@kernel.org>, krzk+dt@kernel.org,
-	conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, s32@nxp.com,
-	p.zabel@pengutronix.de, ghennadi.procopciuc@nxp.com,
-	Ionut.Vicovan@nxp.com, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
-	Frank.li@nxp.com
-Subject: Re: [PATCH 2/4] phy: s32g: Add serdes subsystem phy
-Message-ID: <aXtwfj1vqB1cXKFM@shell.armlinux.org.uk>
-References: <20260126092159.815968-1-vincent.guittot@linaro.org>
- <20260126092159.815968-3-vincent.guittot@linaro.org>
- <aXsuRTZUUnw0kdzV@horms.kernel.org>
- <CAKfTPtDfnpzq2CB-isVzvh1ZCWo7kit9KRJvVGoU1C3zZTgdXw@mail.gmail.com>
- <aXtfVUb0eLwP4R28@shell.armlinux.org.uk>
- <CAKfTPtCiJcNOdoddZN5N1dKHXfUJBe0=zeWfZ5uENoXDvbMnpQ@mail.gmail.com>
- <aXtl6eQ8zD_olTdc@shell.armlinux.org.uk>
- <aXtvDn_-pCuKPrnf@vaman>
+	id 1vlTK3-00000000FHr-0Q7T;
+	Thu, 29 Jan 2026 14:48:41 +0000
+Received: from p-antispam-ksmg-sc-msk02.sberdevices.ru (localhost [127.0.0.1])
+	by mx4.sberdevices.ru (Postfix) with ESMTP id E25FC40004;
+	Thu, 29 Jan 2026 17:48:24 +0300 (MSK)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx4.sberdevices.ru E25FC40004
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
+	s=post; t=1769698104;
+	bh=Kd3WI+TsllaYu1gglPGS5EzMwuvRBJh6elKjpwUOhxk=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type:From;
+	b=Pt6TX/I6S/KAfgVZ4UOgS23HYPHXljmZSPPF5K4jRId2REk8jt8As3ghiv1pq2aIf
+	 lS7fiM/gO/1K/V8XldbWnExqf7ihZISM8VDOOwWPDFXNUZFf/cvuhAYlMZclad+Gun
+	 YRLSwzo7DgA6bSQKLVGmm6gTHhgp1inbWDmvu1vIZP+LmOSEvjUn7xwVfUrJxUHxDJ
+	 LRw79UQQuiOeF+ios8wVe+9bJ8eOeLKXsDv6I1H14igMG0OtIIwvieVHs6Cah6OZNG
+	 U3Qbk51w025y++zDXmK8vSo/6ObCc+Ge6VmeLxIZAh1vY1F9A94K373eOvrdK8tgWL
+	 MNS0VwNtCws0A==
+Received: from smtp.sberdevices.ru (p-exch-cas-s-m1.sberdevices.ru [172.16.210.2])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client CN "sberdevices.ru", Issuer "R12" (verified OK))
+	by mx4.sberdevices.ru (Postfix) with ESMTPS;
+	Thu, 29 Jan 2026 17:48:23 +0300 (MSK)
+Message-ID: <88a0395b-1ab3-4ef0-96c4-440b3a5c96f4@salutedevices.com>
+Date: Thu, 29 Jan 2026 17:48:17 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aXtvDn_-pCuKPrnf@vaman>
+User-Agent: Mozilla Thunderbird
+Subject: =?UTF-8?B?UmU6IOWbnuWkjTogW0RNQVJDIGVycm9yXSBbUEFUQ0ggdjMgMy8zXSBh?=
+ =?UTF-8?Q?rm64=3A_dts=3A_meson-s4-s905y4-khadas-vim1s=3A_add_initial_device?=
+ =?UTF-8?Q?_tree?=
+To: Nick Xie <nick@khadas.com>
+CC: "robh@kernel.org" <robh@kernel.org>, "khilman@baylibre.com"
+	<khilman@baylibre.com>, "jbrunet@baylibre.com" <jbrunet@baylibre.com>,
+	"martin.blumenstingl@googlemail.com" <martin.blumenstingl@googlemail.com>,
+	"neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-amlogic@lists.infradead.org" <linux-amlogic@lists.infradead.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "kernel@salutedevices.com"
+	<kernel@salutedevices.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "xianwei.zhao@amlogic.com" <xianwei.zhao@amlogic.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20260115030015.1334517-1-nick@khadas.com>
+ <20260115030015.1334517-4-nick@khadas.com>
+ <09df45e1-90b5-4618-9197-c724142bd83a@salutedevices.com>
+ <PS1PPF62EEA9B1D287E26DFE619BB840508AE93A@PS1PPF62EEA9B1D.apcprd03.prod.outlook.com>
+Content-Language: en-US
+From: George Stark <gnstark@salutedevices.com>
+In-Reply-To: <PS1PPF62EEA9B1D287E26DFE619BB840508AE93A@PS1PPF62EEA9B1D.apcprd03.prod.outlook.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [172.28.2.68]
+X-ClientProxiedBy: p-exch-cas-a-m2.sberdevices.ru (172.24.201.210) To
+ p-exch-cas-s-m1.sberdevices.ru (172.16.210.2)
+X-KSMG-AntiPhishing: NotDetected, bases: 2026/01/29 14:38:00
+X-KSMG-AntiSpam-Auth: dkim=none
+X-KSMG-AntiSpam-Envelope-From: gnstark@salutedevices.com
+X-KSMG-AntiSpam-Info: LuaCore: 86 0.3.86 47cb2a3d3f5c7e795bff2d0998e8c196722872ab, {Tracking_uf_ne_domains}, {Tracking_bl_eng_cat}, {Tracking_from_domain_doesnt_match_to}, salutedevices.com:7.1.1;elixir.bootlin.com:7.1.1;lkml.iu.edu:7.1.1;127.0.0.199:7.1.2;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;smtp.sberdevices.ru:5.0.1,7.1.1, {Track_Chinese_Simplified}, FromAlignment: s
+X-KSMG-AntiSpam-Interceptor-Info: scan successful
+X-KSMG-AntiSpam-Lua-Profiles: 199962 [Jan 29 2026]
+X-KSMG-AntiSpam-Method: none
+X-KSMG-AntiSpam-Rate: 0
+X-KSMG-AntiSpam-Status: not_detected
+X-KSMG-AntiSpam-Version: 6.1.1.20
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.1.1.8310, bases: 2026/01/29 13:14:00 #28162110
+X-KSMG-AntiVirus-Status: NotDetected, skipped
+X-KSMG-KATA-Status: Not Scanned
+X-KSMG-LinksScanning: NotDetected, bases: 2026/01/29 14:38:00
+X-KSMG-Message-Action: skipped
+X-KSMG-Rule-ID: 5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_063658_153202_A137856A 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20260129_064839_650070_CC1EE2BB 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,44 +109,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 29, 2026 at 08:00:38PM +0530, Vinod Koul wrote:
-> On 29-01-26, 13:51, Russell King (Oracle) wrote:
-> > On Thu, Jan 29, 2026 at 02:36:01PM +0100, Vincent Guittot wrote:
-> > > On Thu, 29 Jan 2026 at 14:23, Russell King (Oracle)
-> > > <linux@armlinux.org.uk> wrote:
-> > > >
-> > > > On Thu, Jan 29, 2026 at 02:01:13PM +0100, Vincent Guittot wrote:
-> > > > > yes, the usual pattern is :
-> > > > > - phy_set_mode_ext()
-> > > > > - then phy_power_on()
-> > > > > but I can add an additional check
-> > > >
-> > > > Please read Documentation/driver-api/phy/phy.rst section "Order of API
-> > > > calls" which suggests phy_set_mode_ext() after phy_power_on().
-> > > 
-> > > Fair enough.
-> > > That being said, all pcie drivers  that use phy_set_mode_ext(), call
-> > > it before phy_power_on()
-> > 
-> > It looks like many ethernet drivers do the same, so I think maybe the
-> > generic PHY documentation is incorrect or misleading, or is expressing
-> > a preference that almost no one follows. Something for the generic PHY
-> > maintainers to look at and/or comment on.
-> 
-> I would feel it makes sense to configure the mode first and then power
-> the phy up. As commented above yes it looks like apart from one tegra
-> driver rest seem to do it this way.
-> 
-> Lets update the documentation
 
-Please also indicate in the documentation whether changing the submode
-of the serdes (particularly for ethernet) is permitted without doing a
-phy_power_down()..phy_power_up() dance around the phy_set_mode_ext()
-call.
 
-Thanks.
+On 1/26/26 12:35, Nick Xie wrote:
+>> Thanks for the patch. Since you have khadas mail I'm pretty sure you've
+>> had the possibility to test it on the real vim board and I just don't
+>> get it how it works with the voltage table above. The problem is that
+>> pwm is calculated incorrectly in the upstream pwm-meson driver. That
+>> voltage table appeared to be used in early amlogic bl loader and
+>> appropriate pwm is initialized from a table's record. Duty cycle value
+>> is translated to pwm regs correctly. Later when kernel start running
+>> pwm-regulator driver is probed. It reads the pwm regs, calculates back
+>> duty-cyle and search it in the table. Since calculation algos are not
+>> match and the table doesn't contain full range of 0-100% values
+>> regulator driver doesn't find current voltage. In such case regulator
+>> core sets the minimum voltage from the table [1] and the SoC may hang
+>> (depending on board) due to minimum voltage may be too low for the
+>> current frequency SoC uses.
+> 
+> I'm not sure about the PWM issues, but I checked on the real S905Y4 hardware
+> and  it works.
+
+To prove my point: run the kernel with the next patch:
+
+diff --git a/drivers/regulator/pwm-regulator.c 
+b/drivers/regulator/pwm-regulator.c
+index 7434b6b22d32..14d2730b21e8 100644
+--- a/drivers/regulator/pwm-regulator.c
++++ b/drivers/regulator/pwm-regulator.c
+@@ -86,6 +86,9 @@ static int pwm_regulator_set_voltage_sel(struct 
+regulator_dev *rdev,
+         struct pwm_state pstate;
+         int ret;
+
++       dev_info(&rdev->dev, "setting voltage from table: index: %u, uV: 
+%u\n",
++               selector, drvdata->duty_cycle_table[selector].uV);
++
+         pwm_init_state(drvdata->pwm, &pstate);
+         pwm_set_relative_duty_cycle(&pstate,
+                         drvdata->duty_cycle_table[selector].dutycycle, 
+100);
+
+In dmesg there must be a message like "setting voltage from table: 
+index: 36, uV: 689000"
+If to take a look at operation points table for s4 in vendor kernels the 
+lowest voltage is 0.769V for 100Mhz
+so setting 689000uV even temporary may lead to problems depending on 
+particular hardware.
+
+>> Or I'm missing something?
+> 
+> 
+>> There's not-yet-reviewed patch that fixes pwm algo [2]. There's
+>> calculation example in the cover letter.
+>> [1] https://elixir.bootlin.com/linux/v6.19-rc5/source/drivers/regulator/core.c#L1227
+>> [2] https://lkml.iu.edu/2412.3/00826.html
+> 
+> What's the status of such patches?
+
+the patch is ready for review. It's seems like nobody is interested
+
+> --
+> 
+> Best regards
+> 
+> George
+> 
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Best regards
+George
 
