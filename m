@@ -4,96 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C910AD46BF0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 02:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D59BD46BF0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 02:36:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jyw7q0/YQsMTgrYvASBDoKvdAbxjjEM7hz6Ka6xcckU=; b=E3E73ph6PU2giYvh1P9unfvQzl
-	okUSn13QvQeUBpV4zbWhtM5o0OvsSS4afK7oPv+mvSjcuGOafhj4ZMd2FVHbW9/sM/D6zdwjBECXN
-	jXqREhj7diCDw6Buq8Y5FgxkF6GRIdyr3wNd5g9HtzK2uU9+CoKxHmrVByh5Rs4I34nZdW0vFYSR4
-	j7vCdhLs5FWDJsV21mFQAgoTINSXXZ4HzcE13ypVEOFRkFATdzLZyx+rVr5eKWGBrk/IV+Bt8Y5Hq
-	cQEkm/c9YS/7XsFIHlSv3ewxsArwBUMBw3z2K9lDn0hroylDGFKC0fizEon7/nz7jKIY/edmiZUvS
-	g8EQEKXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JBgYxkzUbzo1zUO5M5erB4Qcr7l1HQCBUW9pVxWnsnk=; b=qATxud0qUOJeYA8kooDG3gMLit
+	lZ+3qZyYgQXvg+8ErHJcTN9TkBrXckPVrwTuQUe29GPevatxC59JMCg/P35zsfXYgJLnPX4Dk6Hi1
+	zZ5/Hdt6wqTF8i2+I1J2eeNS6phffV7hO2qtvaWx78Az0U6RKzrJLyHQDLZNrhuuT7NjnstPxrWGl
+	MJRWHroidZfGDgjbo31vZO3h+J2I5uGSsZcW5JJLQTE+93qULYqvByZLDkzSp8A0xhQp/oJIGu9dm
+	UGbtfQtxk9Fmoc655QWgI1bSUo4QyOOBRfeUdaToJ4iLSLpTYmfCExM3RjmhNqQtHuoqWfyYBmyUy
+	a9TaGTrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlHmi-0000000H87g-2rqf;
-	Thu, 29 Jan 2026 02:29:28 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1vlHtm-0000000H8Qw-2TY0;
+	Thu, 29 Jan 2026 02:36:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlHme-0000000H86l-0l0l
+	id 1vlHtk-0000000H8Qp-2HoT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 29 Jan 2026 02:36:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=JBgYxkzUbzo1zUO5M5erB4Qcr7l1HQCBUW9pVxWnsnk=; b=gHwXFW2jfQ9bxXCNDXo+qt+Co9
+	BbawXwLF4ycbH5eWEDTTiv4gyTEM+NK/OTCqmq+AoY15nDNZUcHFtUVPldJ7yNQhsZDSMhKcg+cBD
+	O3zA6juERcX+S4NTr7InnQpokZ/XH0X80GERq56svqCItyNsOFwfgKYKQcZUnvat8+HTbmlszbip2
+	8D7DlhG5Tb0CPKsf2+bku8qidYFkQ6EtuPRpg1ScKi2C+fl1DYyPcnRDktnLBA5BfH7Eiq3akn7D7
+	Q+6E0K8JwPKcafQB2gKwMmO1Ejwb5/YS7W9c/XC2EubxgI6gG1zLiGXrnAylZhjmeij0rlZgFQX/3
+	aH61HLmw==;
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlHtf-00000009hsn-30w1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 02:29:25 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-3532aa9a77eso201881a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 Jan 2026 18:29:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769653763; x=1770258563; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Jyw7q0/YQsMTgrYvASBDoKvdAbxjjEM7hz6Ka6xcckU=;
-        b=VUDKUzBAJ2/5YndjhUKyiStDzw0hi/7oSPh1WEXLilLQ+UXl8f0enVbVUSCR3tS47W
-         OQ3rNmX/e9itpCbma852Juf8VEjwYiFPjZ1A1BaAEsglUx4x402ufAVR45DxWUxcSryV
-         pEFkUIh8xd7RfeerplrgYHvKyzq5MXKRMimTkQWAoKgzSnhvNkHnOXIbj0yyP9dM73yo
-         0avEw+tM4KWb4MQNNyPCRJw4XIF0ufMoGioPq1cQUHv8Bwgj/6WgyX9Kp6ZKsvDTyG6B
-         HFDB8yHFO67dLl/1Vz6O+K4PD5XED/LyLLINihKcQqteN4xZ+UdZro196VAkeUhJGyjD
-         4I6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769653763; x=1770258563;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Jyw7q0/YQsMTgrYvASBDoKvdAbxjjEM7hz6Ka6xcckU=;
-        b=iBbHS9hBHRl7ooeZNXLox65ueaXZ7gH/KFNFspnyD+HIYQMwZg19yfkMvhpJVwBvKo
-         us4Npogs1K8xvNv8nBLhe3SkdPlb4gIl56ymJ3UmCjFKSSbll7s30anoBDzwW0WyQHZx
-         vbB4f79dcArDZvnDavFQDDvH0aHdFoPR2igrUf+hIiuSC0gEbRxPQMc4rWVcK58iprL+
-         3b+AsjjkivW5qISEQ0klcsusZv6b4fdqJWN1BzrJsR3c/5TzlDAp+QgJl92VWQmtQtsH
-         wiLfFK7t9i4jN8lySk6dByWKBzfkzYOaoCDrX88/Q1bWn5etrH9bHxdeJ3amrnzI/Mjq
-         jOVg==
-X-Forwarded-Encrypted: i=1; AJvYcCWQYTO+XfCQ/Jv+7XWdb65GEsYi3lxg3r+7mK1QHGbXF/UkqDDa26c7vt6grVQzOq8z9z2mLDm2rzxJKxsWFc6Y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzwsz/mneMtw7bZ28WQusBYzqrEU6WHU81UXzX2GkxqkgBWpp90
-	Gp3kFy+12o3nzr8n3dxlQvrfLe+u6aAwCAN97AiqhrP5DLONaLKf1k/Z
-X-Gm-Gg: AZuq6aKuHd2yM9d6GfPTUZ7VFJtAtb3LNP37r3wirvGEbpX37AkhA/XBo3/QDoBMIoY
-	6XZ8bc0R2je8auAXwXS/N+BRPqmQTW8HvfOmBpzho/jWrfGW//KN/El5e3UvyVO58xj1cV+DYux
-	tagiyurC3PTwRL2qyVvcc0EpGhFmb2XiF2FbSg67P721o9AYw/0JrDdUZxiIxBX3uXXZEB+X2uQ
-	rJ33AdNu4wA7WJFx9mEReYybGLz1rmLgCjTOwFcTcJcHMRFXI3XY3C5ZAzbeJByBBeiKDfSZvQp
-	6ESgl/4kab2lRKvTccqSlDUNLchubCPZOCpTPCBIvaGd+E2hYEiwRFHO2uXAel2tHVnIHo8MCff
-	Sm1mbn+E0ibT02Mwr1GtL3E+tXyUWc8tAxCcDRRGxFX+QVybF0KJPClqfSaftrugbIIQriMFMIg
-	ToZb0QPuhT4SYQQhJ/abMJ2R/Q6SjfVkRp5qcbdAGDYO1y0ah4+Nywm+A=
-X-Received: by 2002:a17:90b:1d48:b0:32e:a8b7:e9c with SMTP id 98e67ed59e1d1-353fed8ac13mr6667239a91.29.1769653763199;
-        Wed, 28 Jan 2026 18:29:23 -0800 (PST)
-Received: from wig-Precision-3660.. (125-227-154-99.hinet-ip.hinet.net. [125.227.154.99])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3540f2f0283sm4380542a91.5.2026.01.28.18.29.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Jan 2026 18:29:22 -0800 (PST)
-From: Wig Cheng <onlywig@gmail.com>
-To: shawnguo@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	zaq14760@gmail.com,
-	Wig Cheng <onlywig@gmail.com>
-Subject: [PATCH v4 1/1] arm64: dts: freescale: add pixpaper display overlay for i.MX93 FRDM
-Date: Thu, 29 Jan 2026 10:29:10 +0800
-Message-ID: <20260129022910.3942028-2-onlywig@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260129022910.3942028-1-onlywig@gmail.com>
-References: <20260129022910.3942028-1-onlywig@gmail.com>
+	Thu, 29 Jan 2026 02:36:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CfePcycqlFEkA8ZXNFA4qUXVvrDO4FcSJjvAPGSwBB9yKXEZ1RDNUnYHqIHST7pOJXl1bjgYoGwR87dlk6uNSqKwuDQPMfJa1odTwgHStQQdqVj5zpKTHcj+VcvEAIZ2hmdXO/Es/wgd6JzwNvZJVQrwmVk7/msLSbgFJ30ugCnhseJh1MqvzgeDoukLiUizAyy+ACYU5J/DeZYVSPrDvyFlfBwUjyGh9/YfmJ2yfZI9dzRzdrE78XTUttxwPduaAyz+cV+8fgXCIjKqvmjQruDDBl9wBIYANluOvUcJYL4QjQ3fLkTik+Z7pt7vca2JMkvwyWPi1JFUh3h4AQ4Ghw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JBgYxkzUbzo1zUO5M5erB4Qcr7l1HQCBUW9pVxWnsnk=;
+ b=BgRW4z070YniJ3s6ZmGvjFGKPtr3a/m0LpANqYkwxwR8U6cESIkhsTJkRMGB+7lEIPPVszEz19kM4vMNWc0vjZwzhZldpfZIz781Gd/oaUNmwx+SKd3/7R4cu15twfUOi1kShXQYSN9L6t9MWbSza0OtlfvmR/OuK5ndnqX6hVWex260Gc6tgw2Zsgp1vNCG49qshuHyFEpbZATvvjK6vGtLZn4ZuBHzK16VW9ah1KsvEzLj6gjdWwXObPjg+Hxqua67hATNB2CfpbMQnfFcQbxxlt12A0EBlKn3y2d4CYbrZhqHmfKKjBcEiSYKPA2etn9NV14E5YoS+KiOc1MFvQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JBgYxkzUbzo1zUO5M5erB4Qcr7l1HQCBUW9pVxWnsnk=;
+ b=jDu5Jz3IfpoVc2u2QjEPOdz1iXX00gbgMIp7ajdMGX0Y446I3lzDNwxmhsShWvdc39arRn3ZgiIU+0Sa1fLdz0G2MTKI5V5TQIa2sUZ13tHsVWB5eqAEEKMypW6aW6QU8EJyLGLqBgwiT8TWcVeKip71HYkp64xhhZuFotZSoTihIP9ef3ha3wmYJ5lArhwRJV39BrbgIZfQfdQVh2iqAn/n8kKocpSCmjD38CGTadeVLgI5ZuCGNewBxXvcJXNZGbtQCR7zUV/XfRzyLM/BEdpv3qLr9lywTPcfGntkinySDjAbpLNTbSzO4OKAlOJYsv+vXG7M/P8j0i4glH5lJA==
+Received: from OSQPR06MB7252.apcprd06.prod.outlook.com (2603:1096:604:29c::6)
+ by TYZPR06MB7171.apcprd06.prod.outlook.com (2603:1096:405:ae::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.16; Thu, 29 Jan
+ 2026 02:36:24 +0000
+Received: from OSQPR06MB7252.apcprd06.prod.outlook.com
+ ([fe80::814e:819a:7d52:7448]) by OSQPR06MB7252.apcprd06.prod.outlook.com
+ ([fe80::814e:819a:7d52:7448%3]) with mapi id 15.20.9542.015; Thu, 29 Jan 2026
+ 02:36:24 +0000
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+To: Stephen Boyd <sboyd@kernel.org>, "bmasney@redhat.com" <bmasney@redhat.com>
+CC: Ryan Chen <ryan_chen@aspeedtech.com>, "mturquette@baylibre.com"
+	<mturquette@baylibre.com>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
+	<andrew@codeconstruct.com.au>, Linux Kernel Mailing List
+	<linux-kernel@vger.kernel.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, linux-aspeed <linux-aspeed@lists.ozlabs.org>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>
+Subject: [GIT PULL] ASPEED clk updates for v6.20
+Thread-Topic: [GIT PULL] ASPEED clk updates for v6.20
+Thread-Index: AQHckMdmqYAIy5xp9Uacq7DQdH3nng==
+Date: Thu, 29 Jan 2026 02:36:24 +0000
+Message-ID: <OSQPR06MB72521F40C1F2CD858B8D83FB8B9EA@OSQPR06MB7252.apcprd06.prod.outlook.com>
+Accept-Language: en-US, zh-TW
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSQPR06MB7252:EE_|TYZPR06MB7171:EE_
+x-ms-office365-filtering-correlation-id: 437b5422-daa9-4087-afff-08de5edf3220
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|38070700021;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?gTOppWXBJSF6ftQGeAw3/gKNQjapw2yqVxmGkqVPKmFecZsWgcBNsSRhBz?=
+ =?iso-8859-1?Q?+1PTkhKC6dOcfH/7psbOlKlhTceslXNtqgzWhg8ANX3JPNvqmGwO7HqI/r?=
+ =?iso-8859-1?Q?ChGQ+Oc18GvbS7Hr9ObOMKPQpsux5C7DMO+i+ZzEsT2xsPtZMC+nNP+k4G?=
+ =?iso-8859-1?Q?LM1SvqoP99UezxF2D+72VOBKtDWqaOeYHpdIIGXl9RbOM0T/6cpXKBJvon?=
+ =?iso-8859-1?Q?/6LrBMdX4TVg9nmjRpVOIMdg9kmGxkB8m7IpW20QlROor5vjnbq+Os/PU1?=
+ =?iso-8859-1?Q?MNy0srw2bUkMj2obGjXCl0OEVsHmutDZzOHh6O1l/jXXMIXDrdxKA+MagJ?=
+ =?iso-8859-1?Q?6W/faNY2p8RUQ8JHPIoLxp4zXbA1iPMHjZisFp8OFrSpEYpifzTmTwC6PM?=
+ =?iso-8859-1?Q?9FA2XO3s5qrDL6H6F2TG/zNPo6vb8qigtYUoURzBBp815z4jj/+t3jcYrF?=
+ =?iso-8859-1?Q?4yhlmNoisOopNcmGuv9PrHnl2ZDn4vVgy3XI68p3LInF4lW117/YZgah6+?=
+ =?iso-8859-1?Q?FTL9mPPFS7j89JZluXn8DCNuC84ImzefNiyc3WlQVqoB/re9kONNjBl4NI?=
+ =?iso-8859-1?Q?Ger+whdagUP4tcv+54hBY225YJIbyol7b0WVO7PpN+VMpkvAV/iZbb+ujT?=
+ =?iso-8859-1?Q?RX0ius3WKNIvwqSK2lXbqUzGG7aV0zDytcFVyd4S4YvoOjt3nDZdJpebUQ?=
+ =?iso-8859-1?Q?JS4H/Wj2rc/yox+jYpMdr4Ia4Omerf1J6efu5ny7uwBiQvz8zIrkPEAX0H?=
+ =?iso-8859-1?Q?y35CrpUGmbiQdOWMNy16alucSJa7UFqHyyQK2hpP+5GBomJKbDSRgWOnSP?=
+ =?iso-8859-1?Q?z4V2SIJbjOtMlkaa7M4fCsXZEG31ZWZ+kTkIJD3J8+Ymp8O5Z+ZFe3/opa?=
+ =?iso-8859-1?Q?/yiaMlN5T0Rjh92kQ9Sd0EZd1Fgxs89DQSD7oBvBWKpzvJhCGZId3bxZqn?=
+ =?iso-8859-1?Q?jwnBat5WUocofaia7ImoJ94/kZWwvC1P1N4aDJYnFU6SuEpkhrHzCPfXNR?=
+ =?iso-8859-1?Q?y80/CTQ/yf1WGxdWfosBMsclTppkphoq2urEWmdZ6QFhCOL0AbvyZRHxrG?=
+ =?iso-8859-1?Q?cOmNT2CuYjfiAhcu0k6JtPAmDAuUDxQaxMIqGgzjeU1C0zZaTj5Bil9h2u?=
+ =?iso-8859-1?Q?bwG+xZ5bmwJKKcCuI+n/PZJHOn5Ap1Z2MThfp5jO5mkBePuBlFGzooQVgy?=
+ =?iso-8859-1?Q?Zgmw51z73ARvNgEtXeW4PbxjdqiJVIwLtbh78Z42uChkmTbBlB8GNXz2Q0?=
+ =?iso-8859-1?Q?4zqLyOPgyES0PuzkWZxkJcWclSfAahfXPvmzUaQLnAwVrsl/PQJadWZkOR?=
+ =?iso-8859-1?Q?rIvZWQc4Or6Pe4iwIASVN6qb/7IG6Vb3BwSG8muPbWyuIYRe4ae20Wk2G+?=
+ =?iso-8859-1?Q?mjMU3bBByDkNV9vjV7cLbST4zdlZXTwwYFkzClDO5exIJaOBmQhzfM9VUq?=
+ =?iso-8859-1?Q?V8PTNFJaKgnx1rT8syfmhfAURpFq5RjbjCHWdVws6CYCvli7GHZA2Xe6P9?=
+ =?iso-8859-1?Q?5xMUZpg5HM7gd9FbpcPQGpNRGhnPv6koLdBKfLqniVLUndkmLjpt6az6LH?=
+ =?iso-8859-1?Q?fuJ5q585ahgsJF7S1O7CxJvg3vezJGbMQhVWW4LXJPLRwWOAHu/3msFERn?=
+ =?iso-8859-1?Q?3xjMlZpvxNPFJ2l/DYyer5pnkV/kDgQ4l0NFeQgVvvxDCeGXZ1s00SgUmA?=
+ =?iso-8859-1?Q?wbpAD127sZB0fnos98Q=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSQPR06MB7252.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?bdrIfeNnC7lW07eqEhBWt8f+7FVxlxzVlGCwBKJeGXF2hels317sWrWnX7?=
+ =?iso-8859-1?Q?L7s7ABloQDDGmJ3oSjuTouqrwaQI92Vj19VfYN8fJ24DjC7P70w3vCQG4k?=
+ =?iso-8859-1?Q?11gV6yxloUBDUzDYSWjM17vgOqahUQdahe2uRoncjhHLbQegvLDFrc1qYv?=
+ =?iso-8859-1?Q?nYCi895MRbBhjhDqaPaWOUTDp1XWlraGx8F7t9qLfX6JYr4l8o9v7Cc8kr?=
+ =?iso-8859-1?Q?V8uiyu9Y+jfqdi0OGmKvmXZGfXGcdIXdF+Ijpx3aIP8XK1AEDc6iWhcMCa?=
+ =?iso-8859-1?Q?JL9kV2tfOVKmMOiaWfq9a7pOByp5HFW/KfD8aGza1IhOHuMWyW3/zh/2VC?=
+ =?iso-8859-1?Q?lAFEvfsK5mLEimSncBmwfnqLJcO0UOSCQpc1fqyd/NixJLhdex+uw2v/hw?=
+ =?iso-8859-1?Q?83vaKu5wEJXwvkM/mhKu7fyk4ASfFQTXHzdnvdeDlu7NT4Inbig7Mnto9S?=
+ =?iso-8859-1?Q?b4juvUkGMuWsnLnBwECUyqRhx0DAxRp9V9SMOoD2vSRQk9oiqGDTs+71+Z?=
+ =?iso-8859-1?Q?AU92tTCUCktIbvNfIU6/R54NTRZjuRCveM3z2Lkai+Vch/3GX1FHOAuEp4?=
+ =?iso-8859-1?Q?prYWA2g28VhszjnqBSFY9rrc7ZHaG/Gem3iNiaQFZKOKi0lo8t2M4NH0WV?=
+ =?iso-8859-1?Q?XWPmZEQaf0SMAtk+1oYpYLm6tgW3/geZ8gP1ee2eEmuYJeDRAK/YSIGo4g?=
+ =?iso-8859-1?Q?nvgNJ1TtybRiaDIHqRNUl0K9Lj80k69cCHNNgJKLgXiQpJ2q8AgWu3Zj0F?=
+ =?iso-8859-1?Q?xy/TimWsbxyk7nS2VdAYXpTf7bDTtm7HHk17XhAA32+K+jb9xZpP8WoLEX?=
+ =?iso-8859-1?Q?B3vVN76EIR5Kt9/FpBgX9e3289LkmvbfAwqBkk5dwTlOoBRnqhpuOrtLdY?=
+ =?iso-8859-1?Q?dblYuazdCoV3JJvcQoILCg3TXr6SmWp6yplcYVRdTMRexYvT4OjY0/3Z6R?=
+ =?iso-8859-1?Q?KJqxPqcwldoZ/R+q871S1khBWwE1LJBDGZiouVRiWSTRTzqRQxG0ZkNi+6?=
+ =?iso-8859-1?Q?82qn1DL+CPGnzdLHT5shTohlNefSm+YvG7+7kxpL7LwWvIpfqePBM36rMB?=
+ =?iso-8859-1?Q?uT+RAcHwbejC+OiIbQ4gpjrGOlMySeXvFKFBSmJ2aJEDcjVMJygf9jyDmn?=
+ =?iso-8859-1?Q?tsTPguH4d0s8oZRMdfB8Hc27WT1GVZ82I/0CFs9Tb0Gzl3HYu1XRatvTlE?=
+ =?iso-8859-1?Q?qFFIIq4/ZXVWUWCunZ8j2U8jgdMAqD2qYsN/o9U7RK9VYAArkSlfqv2oOR?=
+ =?iso-8859-1?Q?wNTXM6Xlb1VNwy73pRwuVGHe5fQj65M0/9tvjnDk2c9+7/PwzKNYusRqGU?=
+ =?iso-8859-1?Q?Gy5T0VRZL/jsOjK87XeGqQtfDYHCMLRkX0eTpBJELtJwU1xspSMKezW2xB?=
+ =?iso-8859-1?Q?69ISLMPdeS4WIbsgaAyyg8tkcVVzesDPSg1u5NSW5g6ViJ9m1XJWJns/6Y?=
+ =?iso-8859-1?Q?ImVz8DNii5or7eLJjhEx4KYqQ/vP3al10b671V9QX6NksSZlWzvliXaYwl?=
+ =?iso-8859-1?Q?dbziOx8Yfs0U637rFeM3HTGDkKBiTvgGy57NUHXPCCYl1vX2ooO8P24TGS?=
+ =?iso-8859-1?Q?WxA/Xyn/n4MLUaaydoAuevUfH4hklEIXWOIhURlPAX4/XGA9KjfHrw47aB?=
+ =?iso-8859-1?Q?SFYvwRzqz0MjnKhwGPsWHZvmrMeznuomaellNVLPZ05ApP7lWQKWu0UAin?=
+ =?iso-8859-1?Q?UMijqJJfRMWp3KRUkgOlsP5UqNrDGJt/zazJ/R6H178d2FC/r8NmZZtGco?=
+ =?iso-8859-1?Q?RVuHO/R9YeUCZv3aas9zWuzK3Xlu/2iy2L71O3zmnZoIbJOVU1fNy1X4qA?=
+ =?iso-8859-1?Q?fHAznsL7Rg=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSQPR06MB7252.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 437b5422-daa9-4087-afff-08de5edf3220
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Jan 2026 02:36:24.4497
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 7/7t8Ohxs1wpEHMAcf7AeTo65jTsiQeVar01hUowh1sAlGRNE5SiHVejNdXBEsyoBEoAKaIhM9/7kSe4YNaWk7uf1Nr27mkblGEjp3A+UrE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB7171
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_182924_243113_6AECAC02 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20260129_023639_944915_3BA7F84F 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,96 +186,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree overlay to support the MayQueen PixPaper e-paper display
-on the NXP i.MX93 FRDM board. The display is connected via LPSPI3
-interface and uses GPIO pins for reset, busy and DC control.
-
-The overlay configures:
-    - LPSPI3 pinmux for SPI communication (MOSI, MISO, CLK, CE0)
-    - PixPaper display device with proper GPIO assignments
-    - SPI frequency set to 5MHz for stable operation
-
-Enable Open-EP Community pixpaper-213-c support on NXP i.MX93.
-
-Signed-off-by: Wig Cheng <onlywig@gmail.com>
----
- arch/arm64/boot/dts/freescale/Makefile        |  4 ++
- .../freescale/imx93-11x11-frdm-pixpaper.dtso  | 50 +++++++++++++++++++
- 2 files changed, 54 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index ce8f937c2315..c2727f8061e2 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -398,6 +398,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb-i3c.dtb
- 
- dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-frdm.dtb
-+
-+imx93-11x11-frdm-pixpaper-dtbs += imx93-11x11-frdm.dtb imx93-11x11-frdm-pixpaper.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-frdm-pixpaper.dtb
-+
- dtb-$(CONFIG_ARCH_MXC) += imx93-14x14-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso
-new file mode 100644
-index 000000000000..5fee27a589b5
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso
-@@ -0,0 +1,50 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Device Tree Overlay for Mayqueen (Open-EP Community) pixpaper display
-+ * support on NXP FRDM i.MX 93 Development Board
-+ *
-+ * Copyright (C) 2026 Wig Cheng <onlywig@gmail.com>
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include "imx93-pinfunc.h"
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&iomuxc {
-+	pinctrl_lpspi3: lpspi3grp {
-+		fsl,pins = <
-+			MX93_PAD_GPIO_IO08__GPIO2_IO08		0x3fe /* SPI3 CE0 */
-+			MX93_PAD_GPIO_IO09__LPSPI3_SIN		0x3fe /* SPI3 MISO */
-+			MX93_PAD_GPIO_IO10__LPSPI3_SOUT		0x3fe /* SPI3 MOSI */
-+			MX93_PAD_GPIO_IO11__LPSPI3_SCK		0x3fe /* SPI3 CLK */
-+		>;
-+	};
-+
-+	pinctrl_epd_ctrl: epdctrlgrp {
-+		fsl,pins = <
-+			MX93_PAD_GPIO_IO05__GPIO2_IO05		0x31e /* DC pin */
-+			MX93_PAD_GPIO_IO06__GPIO2_IO06		0x31e /* RESET pin */
-+			MX93_PAD_GPIO_IO26__GPIO2_IO26		0x31e /* BUSY pin */
-+		>;
-+	};
-+};
-+
-+&lpspi3 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_lpspi3>, <&pinctrl_epd_ctrl>;
-+	cs-gpios = <&gpio2 8 GPIO_ACTIVE_LOW>;
-+	status = "okay";
-+
-+	display@0 {
-+		compatible = "mayqueen,pixpaper";
-+		reg = <0>;
-+		spi-max-frequency = <5000000>;
-+		reset-gpios = <&gpio2 6 GPIO_ACTIVE_HIGH>;
-+		dc-gpios = <&gpio2 5 GPIO_ACTIVE_HIGH>;
-+		busy-gpios = <&gpio2 26 GPIO_ACTIVE_HIGH>;
-+	};
-+};
--- 
-2.43.0
-
+Hi Stephen,=0A=
+=0A=
+Please pull the following ASPEED clock driver updates for v6.20.=0A=
+=0A=
+The series includes:=0A=
+- Reorganization of ASPEED clock drivers under drivers/clk/aspeed/=0A=
+- MAINTAINERS updates for ASPEED clock drivers=0A=
+- New ASPEED clock driver support=0A=
+=0A=
+The branch is based on v6.19-rc1 as requested.=0A=
+=0A=
+Thanks,=0A=
+=0A=
+Billy=0A=
+=0A=
+----------------------------------------------------------------=0A=
+The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8=
+:=0A=
+=0A=
+  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)=0A=
+=0A=
+are available in the Git repository at:=0A=
+=0A=
+  https://github.com/billy-tsai/linux.git tags/aspeed-clk-for-v6.20-rc1=0A=
+=0A=
+for you to fetch changes up to dc345e213f16d3ae5dce01bb0002e46bc4eaff4c:=0A=
+=0A=
+  clk: aspeed: add AST2700 clock driver (2026-01-28 14:58:47 +0800)=0A=
+=0A=
+----------------------------------------------------------------=0A=
+ASPEED clk updates=0A=
+=0A=
+This pull request contains the following changes:=0A=
+=0A=
+- Reorganize ASPEED clock drivers under drivers/clk/aspeed/ and update=0A=
+  the corresponding Makefiles and Kconfig entries.=0A=
+=0A=
+- Add MAINTAINERS entries for ASPEED clock drivers to reflect current=0A=
+  ownership and review responsibilities.=0A=
+=0A=
+- Add support for the AST2700 clock controller, including initial clock=0A=
+  definitions required by the SoC.=0A=
+=0A=
+Patch series:=0A=
+  https://patchwork.ozlabs.org/project/linux-aspeed/cover/20251224-upstream=
+_clk-v16-0-8c1318f56c3c@aspeedtech.com/=0A=
+=0A=
+Reconstruct with:=0A=
+  b4 am 20251224-upstream_clk-v16-0-8c1318f56c3c@aspeedtech.com=0A=
+=0A=
+----------------------------------------------------------------=0A=
+Ryan Chen (3):=0A=
+      clk: aspeed: Move the existing ASPEED clk drivers into aspeed subdire=
+ctory.=0A=
+      MAINTAINERS: Add entry for ASPEED clock drivers.=0A=
+      clk: aspeed: add AST2700 clock driver=0A=
+=0A=
+ MAINTAINERS                            |    9 +=0A=
+ drivers/clk/Kconfig                    |   13 +-=0A=
+ drivers/clk/Makefile                   |    3 +-=0A=
+ drivers/clk/aspeed/Kconfig             |   21 +=0A=
+ drivers/clk/aspeed/Makefile            |    4 +=0A=
+ drivers/clk/{ =3D> aspeed}/clk-aspeed.c  |    0=0A=
+ drivers/clk/{ =3D> aspeed}/clk-aspeed.h  |    0=0A=
+ drivers/clk/{ =3D> aspeed}/clk-ast2600.c |    0=0A=
+ drivers/clk/aspeed/clk-ast2700.c       | 1055 ++++++++++++++++++++++++++++=
+++++=0A=
+ 9 files changed, 1091 insertions(+), 14 deletions(-)=0A=
+ create mode 100644 drivers/clk/aspeed/Kconfig=0A=
+ create mode 100644 drivers/clk/aspeed/Makefile=0A=
+ rename drivers/clk/{ =3D> aspeed}/clk-aspeed.c (100%)=0A=
+ rename drivers/clk/{ =3D> aspeed}/clk-aspeed.h (100%)=0A=
+ rename drivers/clk/{ =3D> aspeed}/clk-ast2600.c (100%)=0A=
+ create mode 100644 drivers/clk/aspeed/clk-ast2700.c=0A=
+----------------------------------------------------------------=0A=
 
