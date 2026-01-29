@@ -4,53 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5181BD73E83
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 18:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C358D73E83
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 18:46:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yZm7KO5pw9/R6i1YoD9nUCzfryvpA/gVSTAcmV7o7jY=; b=vlOUWQK6tygrRgNBuWXAn3dvA2
-	qcXqvnA2Ayp9OwgW2Sn8zfwfI9ToQi5lsqCuG/flY4XW15sGezC4+JJVknQbGvJhqF0xxCjO8cHGA
-	9ttQHU3DbY8ln+9duMJOBVVkiNi/u9OBLLw65qP4mtJKMFMid0b+qb969Icdte/HFaawAU44BswM5
-	2tpEl2PegjeZsNn6VigouiWC3mTQ3Xl7TYFuXtPLPq7yOAb0QJqDAm+XviT5nFD67TTf76UVj7IVh
-	l70CsWFY24gst3MogmzjRb6l+ZvSIOv4UeeWidFosRDxLCinXW1KnSmv8cdHa92YsXPPuo3t0IVeP
-	IEr8OvMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JUdHyZNOq5E/k+pnx6vME/sDIS6E4tKtCMxQPQQlKyE=; b=HsHRZRb+xZDx8kRD0i5S3Zh1Zh
+	xAAb1p6neL1jka34LP5VbdBWbkugxoP1SulxtC7jeNU+hCForvThBA2UuQfmUFxiRHOW5rIIBEIuE
+	k/5q7PfRdV3WRTregO/DLSYN28OeldbW8DsQXinpIrphsAQyUXzRdoEsOKQPHbLR9yqv8L/Edf/Vo
+	x6XX6xSrkppgflQFi/kaYQT+9MW7f6ameGBUYTglRRg7jZ0ESF8Ae3rdwYAz2oLbIlmj0YQHk44yB
+	tjxDOK59Ku9Yg2HDKoZKgX/7vK4Ct6uTzkwW5lZnR7HhetW0AcrqCfsxOyxw0p1hEjkJFgb9Bq2Jz
+	DbbN2n3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlWur-00000000WZJ-2Phb;
-	Thu, 29 Jan 2026 18:38:53 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlWup-00000000WYl-1efr;
-	Thu, 29 Jan 2026 18:38:51 +0000
-Message-ID: <9ed4124e-a6f4-4994-a80e-860a1123c8ba@infradead.org>
-Date: Thu, 29 Jan 2026 10:38:50 -0800
+	id 1vlX2E-00000000Wur-35bM;
+	Thu, 29 Jan 2026 18:46:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlX2D-00000000Wul-2gY7
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 29 Jan 2026 18:46:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 628C260125;
+	Thu, 29 Jan 2026 18:46:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52281C4CEF7;
+	Thu, 29 Jan 2026 18:46:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769712388;
+	bh=/XmRd677K7t4nA7lfrF7vsZ6+myUyYCrAjhaJX3oWyE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bRB+hfczSZAnFS0bS27/N5bOqxNsJ50x9GCCuznWE/6tU06LEeBRX+qiMeCdfu0/A
+	 1ew0Igg3KxiBoHN54GuF3J+ZVys7Myrb6bob/C20vsRzHS+WF+u2+6HsTMoXMgnwSU
+	 Q+2QkgW76b7Bv3ywFleWWnkXIxISpcwCgKAEE8JWY3b/6KNy4HmPPoNlqWOgSAi1xQ
+	 EP24wGoUW10v3N82bKQ8Zj45pcgrWT4h8GHeSFf7Mt7lYE51aX2UgBurjv2qCBWTeo
+	 yVJSd2JcDVc36tvXANcw8R6TxoTTIxrm8LcwnJhB/D0rS7FuMJEr8rn2RXe05x5f38
+	 n53L1W6ZCoJ4Q==
+Date: Thu, 29 Jan 2026 18:46:23 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Sean Anderson <sean.anderson@linux.dev>
+Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Liam Girdwood <lgirdwood@gmail.com>, linux-sound@vger.kernel.org,
+	Jaroslav Kysela <perex@perex.cz>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Michal Simek <michal.simek@amd.com>, Takashi Iwai <tiwai@suse.com>
+Subject: Re: [PATCH 2/2] ASoC: xilinx: xlnx_i2s: Discover parameters from
+ registers
+Message-ID: <06b3d7e0-27b5-433c-85db-23e4c5ef5472@sirena.org.uk>
+References: <20260129172315.3871602-1-sean.anderson@linux.dev>
+ <20260129172315.3871602-3-sean.anderson@linux.dev>
+ <700e4e67-a2ed-4b37-a00b-303bbc5ee6cd@sirena.org.uk>
+ <a95d7feb-4d94-4b25-be96-c7c367342c19@linux.dev>
+ <a17602f1-537e-46e6-a85d-8a005a0443a2@sirena.org.uk>
+ <21a738e6-6585-4479-b797-f8b17df91aed@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] stm: class: Add MIPI OST protocol support
-From: Randy Dunlap <rdunlap@infradead.org>
-To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
- Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
- <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Jonathan Corbet <corbet@lwn.net>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, quic_yingdeng@quicinc.com,
- Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
- Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
- Jinlong Mao <jinlong.mao@oss.qualcomm.com>
-References: <20260129-p_ost-v5-1-2b14fff39428@oss.qualcomm.com>
- <0ed08d07-5736-4874-9a0f-0f848e8419b6@infradead.org>
-Content-Language: en-US
-In-Reply-To: <0ed08d07-5736-4874-9a0f-0f848e8419b6@infradead.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="WDImneD7x8BAel2Y"
+Content-Disposition: inline
+In-Reply-To: <21a738e6-6585-4479-b797-f8b17df91aed@linux.dev>
+X-Cookie: You have taken yourself too seriously.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,68 +80,63 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--WDImneD7x8BAel2Y
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 1/29/26 10:31 AM, Randy Dunlap wrote:
-> diff --git a/Documentation/trace/p_ost.rst b/Documentation/trace/p_ost.rst
-> new file mode 100644
-> index 000000000000..df93b889eb4c
-> --- /dev/null
-> +++ b/Documentation/trace/p_ost.rst
-> @@ -0,0 +1,36 @@
-> +.. SPDX-License-Identifier: GPL-2.0
-> +
-> +===================
-> +MIPI OST over STP
-> +===================
-> +
-> +The OST(Open System Trace) driver is used with STM class devices to
+On Thu, Jan 29, 2026 at 01:17:45PM -0500, Sean Anderson wrote:
+> On 1/29/26 13:09, Mark Brown wrote:
 
-   The OST (Open System Trace) driver
+> >> - Driver authors tend to use them even when there are hardware registe=
+rs
+> >>   available with the same information, as Xilinx has not always been
+> >>   consistent in adding such registers.
 
-> +generate standardized trace stream. Trace sources can be identified
-> +by different entity ids.
-> +
-> +CONFIG_STM_PROTO_OST is for p_ost driver enablement. Once this config
-> +is enabled, you can select the p_ost protocol by command below:
-> +
-> +# mkdir /sys/kernel/config/stp-policy/stm0:p_ost.policy
-> +
-> +The policy name format is extended like this:
-> +    <device_name>:<protocol_name>.<policy_name>
-> +
-> +With coresight-stm device, it will be look like "stm0:p_ost.policy".
+> > I'm not sure I follow your second point - driver authors tend to use
+> > what? =20
 
-   With {a | the} coresight-stm device,
+> Authors look at the devicetree node and see something like=20
 
-> +
-> +With MIPI OST protocol driver, the attributes for each protocol node is:
+> and go "Ah, there are the properties I need." On some Xilinx cores this
+> is the only way to discover certain properties, so people have gotten into
+> the habit of using them even when these properties can be read from the
+> device itself.
 
-   With the MIPI OST protocol driver,                                   are:
+Oh.  If the properties are there it's reasonable and sensible to use
+them, them being redundant is a concern when specifying the binding but
+once things are there any discrepency should usually be resolved in
+favour of the binding.
 
-> +# mkdir /sys/kernel/config/stp-policy/stm0:p_ost.policy/default
-> +# ls /sys/kernel/config/stp-policy/stm0:p_ost.policy/default
-> +channels  entity    masters
-> +
-> +The entity here is the set the entity that p_ost supports. Currently
+> >> I am not aware of any errata regarding incorrect generation of
+> >> properties for this device or cases where the number of channels or bit
+> >> depth was incorrect.
 
-                   is the set of {entities | features} that p_ost supports. Currently
+> > I'd still rather see the properties get used if present, worst case
+> > they're redundant best case we avoid regressing a currently working
+> > system.  The code is already there, it just needs tweaking to make parse
+> > failures non-fatal.
 
-> +p_ost supports ftrace, console and diag entity.
+> I would rather remove it for the code size reduction and simplication.
 
-                                           entities.
+We're talking a couple of function calls with no error handling here,
+I'm not sure anyone concerned about that kind of impact is running
+Linux.
 
-> +
-> +Set entity:
-> +# echo 'ftrace' > /sys/kernel/config/stp-policy/stm0:p_ost.policy/default/entity
-> +
-> +Get available and currently selected (shown in square brackets) entity that p_ost supports:
-> +# cat /sys/kernel/config/stp-policy/stm0:p_ost.policy/default/entity
-> +[ftrace] console diag
-> +
-> +See Documentation/ABI/testing/configfs-stp-policy-p_ost for more details.
+--WDImneD7x8BAel2Y
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
--- 
-~Randy
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAml7qv4ACgkQJNaLcl1U
+h9Azhgf6A4lkfV/w0cwxwJ8Tc2SF7oD3nQbUq5FokALWMy6Lb7rfb+mrG+AaDude
+NSQoQZx9MiQNLpSLIhOuENxQq4kDwkC1iiqZ4cr4D0Z3Boo6TnqPewzvRMzXvY3D
+qUhkTEcIazjnWrl3pQqzHzP2hXBOLCRqfwkSqSvsR6Dx21wj9MecbcQvvuQnz9+b
+ch+mxvLDXvMuyT7oDBG7hY1xhotLrqV5YrHmFYt74XBN9d5K3X/nxFjbP9/xYKKZ
+KjMgSDGfOzYkTPV5ffJazJMIXRneUpYSIEDJRferfRuTOnMnOfnHLIRod9q8i5+W
+88SY2gx4BRO2+4nKz4+MRxOy3JgHKA==
+=RKex
+-----END PGP SIGNATURE-----
 
+--WDImneD7x8BAel2Y--
 
