@@ -4,92 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A21F9D73E83
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 21:39:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78FFAD73E9B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 21:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D+w81DyXUE0b55CwrLCwC7XYX50M/2QX/b1Gp0d2KP4=; b=sxlstvy8l+bYIW0ZMmHbzkrWdh
-	tZr6cfkoFP7r3jNKHYmsmof4XUoaZk/T2FrVpG2nhu3rEVbHOQQ1VK2ppKXpQIfJLpsPPyBiG7+Zi
-	1lKZ7ACp5/eLSbc8hFWNWCfNimZZotw4H6NQAdQ03H6UBbQvSAQ9B9vPStHRFuKKQUHXX7QjoDmQI
-	LzYakhCQL+tlcKfKRFP0JA5x+2mnI1bS4ni1fwYTAAAIQiVQr0/TZzlEMnoTwgzGhbm65HlEcSrT1
-	t6tZHq+72EduI6lx96zAhA4ONOcTmfzkKG8EeCF2XsV1XEAm3Q3ciHXkJAP1ZMCaEKp59TfKFap6l
-	DLaWtcTw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wRDgz8MqJZUWcXmnZB7ObRFU3IWULWCFKTfl4579WmM=; b=roT5UILDatc9Iy+mst3CWPCKWC
+	ZdbZZkPWberyBP+z8eMOVi8GyqfrKt67omaQlrIyymGqxXGsVLUCKY6gp3ZBLdzU7sGerRatWCkQb
+	pUynRs+Sesxvryl2MlBKE/9gZ1Jcd1DcJqNFFpvBx9zxCWF1aXgLefFrnZkkZH+WLcpo/BJe3X+FK
+	NrvfB2Rl5lIJv+owFIbKgRymgufglsl5jjttwSAXqYnRUDh0EIe4jJQxGZ/eGr505MAlAGZbLvwk4
+	+Y/4Kig6krT66xWQM6E1CR7K/DClrCik9QMA3qPYmt7SSzNC0vrMXEYfzy7WJ5ik/r+YMI2vE/Prm
+	gr2yGBwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlZjZ-00000000gcp-2T4K;
-	Thu, 29 Jan 2026 21:39:25 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1vlZnV-00000000gsN-3TXk;
+	Thu, 29 Jan 2026 21:43:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlZjW-00000000gcU-44ME
+	id 1vlZnT-00000000gqD-0Zua
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 21:39:24 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4801bc32725so10946725e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 13:39:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769722761; x=1770327561; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=D+w81DyXUE0b55CwrLCwC7XYX50M/2QX/b1Gp0d2KP4=;
-        b=pdD1gDAB/wkEbqS9dZkGPsa9aHGVgGQirOo7rW93GUCcLhgmYhOiFpI3BItb+X+3NQ
-         +J02V0E993cE+cBw7HpQscNJc6vik3E3zFHHgp6Nqu9g6/zjpoTxYIGq9gyJYWeeEyjl
-         n7DcCn9rqXXWiqx6JkffLOle9VBXQfXaTQLu2qI00zJ+dRr46mkjeQzpXXlV4KL6cpAu
-         XyBmjk2d5WWpLoMg624y1sye7MK+2AGOyjQulEu4csObgx4FmBF6CnQv8afKSRLgk4IN
-         mtahKqwORB73P2i9abNYHyOZDULoHDf6NiFTIHcULUeMWd4/Z+/Aq8gxWwPX+j3Rwyke
-         nPAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769722761; x=1770327561;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=D+w81DyXUE0b55CwrLCwC7XYX50M/2QX/b1Gp0d2KP4=;
-        b=LD+r/TlU9LRJXe5owl0wcqjfUq3+tXxU8hJzuA5wXOVDXPgIETjaP67uZ5/mOi0EXX
-         FTftJHtgDgfdgsSMD5p1DQJ9y62anfJd1KpWVwsBs8+71zjyLGJzJKllDLS9VgOZCS6d
-         LBwCLqItSveo8FNqWGeEin92jDfM9ILplep/R+OMYE0017lH2Cxok8nZ63OZkxZRoQXx
-         Ti11xHXNQE3iYh3F//PBXxiCuin/Da1mQQpCRICTqRsdHqutNKrGaT0ak4v/6+9pBkfl
-         mEBrPMdr9bqCiF6nJqLweBgmpGgxs46V/319rudiFYmfn049iivPaVMmj8eXGH/HYs2D
-         7XGg==
-X-Forwarded-Encrypted: i=1; AJvYcCVB5/e2xLQHjvX1u5mbCjnDbet9xzk/dJk55YpHNou/XKWtgBy73lQpiaDHB7CoMZbQ74l1Pp+pP14tMN1R7b9p@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMvtONy1HVYTF9vBw3+oZqq1DseTbzUuJ+xqG2h3TkY+sDak4t
-	vY/Vm2EBHnnlaJyEYJ8nI24tbEqMOmMfUPEK2H9jW4GfFC9a7vcGio8YbBybZjZ3AQ==
-X-Gm-Gg: AZuq6aLiOVn3a+giQImMHPw/UXtuOl+oaKq8RZUJ7a4XuNi3yNv6j41vOJghs4GaMWU
-	9WZ2iiNACQetkqldyPUZxGM3y1YEll+sVFAv+oKiRiVV6ZPf8fLv4PePJgmW+vlfREbBS/Hf8Lu
-	v5X/wwWv/gL5+aZ2jm8IzFDroTos+tybq+BHM2GXBLjP2HEYGLLFkCVljZvVU9KQ2Xm+12qOYEA
-	evdB9VXiZrIucwVH11Pch5pxxBy+WwcloFmCsNbce94nPU4UObjWvRQDNLNuVToCgDWyB4+zhwH
-	oAkvxSfMOx6K3yX8P7qh1xKtbM2JF+E5Irp8+U1jA8voNKU3MaqmyTiA2IMjF0wBzg2HKiZKKL9
-	Yink1+E6ZJvi3bjttwZ5i8jf1dg05zEKVECVTTZPMb0qXXG/rXD1+Al3D32mP2zVWGD1+58ABUv
-	yHxtviJ1zDwbhcgdDBc0DrJ63GwJQMjpBF43JtFxh1+6Hp3m9cFw==
-X-Received: by 2002:a05:6000:40c8:b0:431:104:6dc2 with SMTP id ffacd0b85a97d-435f3a674f5mr1361562f8f.8.1769722760913;
-        Thu, 29 Jan 2026 13:39:20 -0800 (PST)
-Received: from google.com (44.145.34.34.bc.googleusercontent.com. [34.34.145.44])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e10edf62sm18781379f8f.13.2026.01.29.13.39.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Jan 2026 13:39:20 -0800 (PST)
-Date: Thu, 29 Jan 2026 21:39:17 +0000
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
-	linux-trace-kernel@vger.kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, jstultz@google.com,
-	qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org,
-	kernel-team@android.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v10 05/30] tracing: Introduce trace remotes
-Message-ID: <aXvThRcUhuBreMPv@google.com>
-References: <20260126104419.1649811-1-vdonnefort@google.com>
- <20260126104419.1649811-6-vdonnefort@google.com>
- <20260128153725.56e801c0@gandalf.local.home>
+	Thu, 29 Jan 2026 21:43:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E63E744477;
+	Thu, 29 Jan 2026 21:43:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BFCD9C16AAE;
+	Thu, 29 Jan 2026 21:43:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769723005;
+	bh=IpG7K26YMbIYlMeNw0cmbfVLcX2DzmYeW2ZXxwHgglM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=sYL33MXb3f9GkOtqfM77vPMoYK6szbN6GSOObPKiYrrkp1YfDoX88/BPiMfYU9T6R
+	 HrA3Nu7Jc8pfz7Ks6MB4lpFdRiWxsO6xuSNuUfiLrENpLGD06vhOhNMZVa7fe4BJMU
+	 I/0QZcDyzOHYyNZ2tatvLD3tU91G55JUKyuDgBdJ0KaVV5mzAOrPkB9B54IArOuODi
+	 LO10ob4jWju0JUgQP9EQVnhCel77MVe9lxyqYrFiI0WadxRq1Ll0lBKBfK+COd0lYs
+	 nx9Hu/HmlSQoK5/KtarUmK5mFOxobWU3oA7YHKZQK/sqUVrUwg9BfzD0JsQQlrzs9P
+	 1wqVugwkgbvzw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AB6FDD73E9B;
+	Thu, 29 Jan 2026 21:43:25 +0000 (UTC)
+From: Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org>
+Date: Thu, 29 Jan 2026 21:43:13 +0000
+Subject: [PATCH v7 1/6] i2c: xiic: skip input clock setup on non-OF systems
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260128153725.56e801c0@gandalf.local.home>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260129-i2c-xiic-v7-1-727e434897ef@nexthop.ai>
+References: <20260129-i2c-xiic-v7-0-727e434897ef@nexthop.ai>
+In-Reply-To: <20260129-i2c-xiic-v7-0-727e434897ef@nexthop.ai>
+To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Abdurrahman Hussain <abdurrahman@nexthop.ai>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769723005; l=1542;
+ i=abdurrahman@nexthop.ai; s=20260119; h=from:subject:message-id;
+ bh=6voIA/a0l46cOc5ueYDVp8U+gfCNRwVU2ZoxgHh2Stc=;
+ b=uBwWwmjKsmN67KJ/S9Ua6hanWw+GJQYf5zu/W4/drXYAPDqOkwughktr2P0AaBqADRvqAnCOm
+ V4MRkqI0US1BbcTMGp7vo1PHJU6tME9zl1ePwNyn+YoiJHIm62Y0GzG
+X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
+ pk=S+ysnf+NwMcBdHBlyKIUEAtaFGSIhQwcJcgcXhq0osg=
+X-Endpoint-Received: by B4 Relay for abdurrahman@nexthop.ai/20260119 with
+ auth_id=608
+X-Original-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_133923_032787_894FEA3C 
-X-CRM114-Status: GOOD (  15.45  )
+X-CRM114-CacheID: sfid-20260129_134327_223703_3C46BDBB 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,54 +86,54 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: abdurrahman@nexthop.ai
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[...]
+From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 
-> > +static ssize_t buffer_size_kb_write(struct file *filp, const char __user *ubuf, size_t cnt,
-> > +				    loff_t *ppos)
-> > +{
-> > +	struct trace_remote *remote = filp->private_data;
-> > +	unsigned long val;
-> > +	int ret;
-> > +
-> > +	ret = kstrtoul_from_user(ubuf, cnt, 10, &val);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	/* KiB to Bytes */
-> > +	if (!val || check_shl_overflow(val, 10, &val))
-> > +		return -EINVAL;
-> > +
-> > +	guard(mutex)(&remote->lock);
-> > +
-> > +	remote->trace_buffer_size = val;
-> 
-> Should this be allowed to change when it is already loaded?
+The xiic driver supports operation without explicit clock configuration
+when clocks cannot be specified via firmware, such as on ACPI-based
+systems. This behavior is implemented in xiic_setclk(), which returns
+early when either i2c_clk or input_clk are zero.
 
-It would only be effective on the next unload/load. 
+Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+---
+ drivers/i2c/busses/i2c-xiic.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
 
-But now thinking more about it, this is probably not clear to a user and
-returning -EBUSY when loaded might be a better solution?
+diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
+index 28015d77599d..912a94d4d080 100644
+--- a/drivers/i2c/busses/i2c-xiic.c
++++ b/drivers/i2c/busses/i2c-xiic.c
+@@ -1423,6 +1423,7 @@ MODULE_DEVICE_TABLE(of, xiic_of_match);
+ 
+ static int xiic_i2c_probe(struct platform_device *pdev)
+ {
++	struct device *dev = &pdev->dev;
+ 	struct xiic_i2c *i2c;
+ 	struct xiic_i2c_platform_data *pdata;
+ 	const struct of_device_id *match;
+@@ -1464,10 +1465,12 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 	mutex_init(&i2c->lock);
+ 	spin_lock_init(&i2c->atomic_lock);
+ 
+-	i2c->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+-	if (IS_ERR(i2c->clk))
+-		return dev_err_probe(&pdev->dev, PTR_ERR(i2c->clk),
+-				     "failed to enable input clock.\n");
++	if (is_of_node(dev->fwnode)) {
++		i2c->clk = devm_clk_get_enabled(dev, NULL);
++		if (IS_ERR(i2c->clk))
++			return dev_err_probe(&pdev->dev, PTR_ERR(i2c->clk),
++					"failed to enable input clock.\n");
++	}
+ 
+ 	i2c->dev = &pdev->dev;
+ 	pm_runtime_set_autosuspend_delay(i2c->dev, XIIC_PM_TIMEOUT);
 
-> 
-> -- Steve
-> 
-> > +
-> > +	return cnt;
-> > +}
-> > +
-> > +static int buffer_size_kb_show(struct seq_file *s, void *unused)
-> > +{
-> > +	struct trace_remote *remote = s->private;
-> > +
-> > +	seq_printf(s, "%lu (%s)\n", remote->trace_buffer_size >> 10,
-> > +		   trace_remote_loaded(remote) ? "loaded" : "unloaded");
-> > +
-> > +	return 0;
-> > +}
-> > +DEFINE_SHOW_STORE_ATTRIBUTE(buffer_size_kb);
-> > +
-> 
+-- 
+2.52.0
+
+
 
