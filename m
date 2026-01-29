@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F13E2D3569F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 05:10:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E69FFD3566B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 05:10:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wvltSTUhn8Annp6QzD2DB/K6kx+704pFW2sPhxHoY3c=; b=o1iD24NgMVc7fIfrJbVTXOMAp3
-	k9OxTxdUrzmDjoIUzT9HSt7L3yNeO8k25E1trV7k/82D/CcXuKTvgdfq8Et2cQm/nrdpZz5TOF6ue
-	9w9aI+b9nXa0Yl9ccyk+Rh79uGwwzk2IfHOjIL1RXfykFScSlpldWB/0tQ8+CKnKq2OddaDRzckFF
-	LMcGO3ilG69x+++uF1Jeu57Wz9HMf4WZRtOHclupt3nFW2W2vpXbC0ikmarYajxgyfxUM/CsQPukP
-	GMS7fRwVAd1391WZBb8cNXivrIDx/ZHhL6iAQbFJ1B+lbGskckR3BknUb1y89/QbDxSiVLNOIag0c
-	puzzS+xg==;
+	bh=M8g9KEFgIunZ7yiXqViIpFdBxgRp+JqqJxqb5IUpSZk=; b=QhmBMennSaAOKyH3Tc/xNm0hwc
+	xBAOQ27mt9MTurC/OgvpEfASS+zqdyx08Af3fyi4/wPes4mn7kk5fP14QZFaCtooX2FrYje7Sihmc
+	wxQajkF5ork2Gti1cZtW6eDl3b6kk/MUuKcnRO5qK7PWWJrFlR7ckm5Y20jQN156xSlwCwugvEPQF
+	Y2rk3BYUWZBEvzwlMrRErzgGsvA63REzUQd8PQ1FsAB3M5EVz8g8nE5rTVwwTBjMpYRsjs8ie4Qrh
+	5PItVUWWuFGWGAfS3Jj0QXvTESL9U6gTx0DpYSkQb/pFtTSGK9hMoxEj521JMXJB3HXQjZtcx/ZXL
+	nlgYVgHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlKIC-0000000HFpR-0ltJ;
-	Thu, 29 Jan 2026 05:10:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vlKIG-0000000HFq6-1yHW;
+	Thu, 29 Jan 2026 05:10:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlKI8-0000000HFov-3URh
+	id 1vlKIB-0000000HFpJ-2zvp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 05:10:06 +0000
+	Thu, 29 Jan 2026 05:10:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 16D644184B;
-	Thu, 29 Jan 2026 05:10:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBE81C116D0;
-	Thu, 29 Jan 2026 05:10:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D987F60125;
+	Thu, 29 Jan 2026 05:10:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44B6BC2BC86;
+	Thu, 29 Jan 2026 05:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769663403;
-	bh=MEKmakKxwgOmIdbsb7SgejjAQhwjoaOqNpBcOcihee4=;
+	s=k20201202; t=1769663406;
+	bh=V1WyJa/+x8maDd98PLvupLgjlQf1OoyhIzqUlPtgYLo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aTqdfYgoSCk9iPbjkAjUMrfRPXimW0a4VCa9JpDyxDl3bawyEwF+0ZQIN+Ou1Wwb4
-	 K9gzLmicFDJ2Fj+/5fHBoviWKsIue4fRuKRncSlwZ7Qf0ezGoQ+ssbmHK8ZdEw20mu
-	 Yk/PAeABpRn849LSVP7fulNiBh1RTCvIpDSNhecJNKVOGmYM1lELsX7G+AOIiKiuuP
-	 /EqGiVCCXRSkheayBOSMXzThHs0bQ0eC24Xo53glVd2nqaqJMK3PkjFFXjWrHWCD+b
-	 aCxLyACMuY//EGfI5MbdygHLisM7zH2AHvJMylthRz3byVCmYD6JNE24HvUv/6SqCN
-	 +ruVTsBFv+hVw==
+	b=BpQ3X6zk+gL1Wx50TzMtcI76mAAf8Ah6EKpXtVSXOwRjvoWd0AabiiReG8cf1v+W7
+	 jIYPzKrRPw3KeFWEnpgYZMNDAe6aRyiQMx0142Lcg2zAijkEvpaigl+3NETebFCusz
+	 Xy3ZD3WRI8ba0Qdw23s+ONgYj8frRub+x76ImHnqFHb633GdDwI7y3QD8D3a5K8W4k
+	 l3pdQMEEKCDxqkMIlpFh0G3gDaej/eEKJEgZ/+Xncd/jg+WdgWNvys2vLWTGu154fN
+	 9p47BG3C8Zbu39hTXfBj53lXo9glNR9aSkoWUrysIdleeLCGjJOYGAntQx2za44CGd
+	 JtVa66b5mWTpQ==
 From: Jakub Kicinski <kuba@kernel.org>
 To: jan.petrous@oss.nxp.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -68,17 +68,14 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	ghennadi.procopciuc@oss.nxp.com,
 	devicetree@vger.kernel.org,
 	alexandre.torgue@foss.st.com
-Subject: Re: [v4,1/4] net: stmmac: platform: read channels irq
-Date: Wed, 28 Jan 2026 21:09:59 -0800
-Message-ID: <20260129050959.375635-1-kuba@kernel.org>
+Subject: Re: [v4,4/4] stmmac: s32: enable support for Multi-IRQ mode
+Date: Wed, 28 Jan 2026 21:10:04 -0800
+Message-ID: <20260129051004.375682-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260128-dwmac_multi_irq-v4-1-82fa34fcf2f2@oss.nxp.com>
-References: <20260128-dwmac_multi_irq-v4-1-82fa34fcf2f2@oss.nxp.com>
+In-Reply-To: <20260128-dwmac_multi_irq-v4-4-82fa34fcf2f2@oss.nxp.com>
+References: <20260128-dwmac_multi_irq-v4-4-82fa34fcf2f2@oss.nxp.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260128_211004_910583_EF6DB806 
-X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,63 +95,23 @@ email has considered the AI review valid, or at least plausible.
 
 For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
 ---
-net: stmmac: platform: read channels irq
+stmmac: s32: enable support for Multi-IRQ mode
 
-This patch reads IRQ resources for all rx/tx channels to allow Multi-IRQ
-mode for platform glue drivers.
+Enables Multi-IRQ mode for the S32 GMAC driver when per-queue IRQs
+are present and more than one RX queue is configured.
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> index 8979a50b5507..94854bfb6e0d 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> index 5a485ee98fa7..37a5b7b46973 100644
 
 [ ... ]
 
-> +	/* RX channels irq */
-> +	for (i = 0; i < MTL_MAX_RX_QUEUES; i++) {
-> +		scnprintf(name, sizeof(name), "rx-queue-%d", i);
-> +		stmmac_res->rx_irq[i] = platform_get_irq_byname_optional(pdev,
-> +									 name);
-> +		if (stmmac_res->rx_irq[i] <= 0) {
-> +			if (stmmac_res->rx_irq[i] == -EPROBE_DEFER)
-> +				return -EPROBE_DEFER;
-> +			dev_dbg(&pdev->dev, "IRQ rx-queue-%d not found\n", i);
+> @@ -149,6 +149,16 @@ static int s32_dwmac_probe(struct platform_device *pdev)
+>  	plat->core_type = DWMAC_CORE_GMAC4;
+>  	plat->pmt = 1;
+>  	plat->flags |= STMMAC_FLAG_SPH_DISABLE;
 > +
-> +			/* Stop on first unset rx-queue-%i property member */
-> +			break;
-> +		}
-> +	}
+> +	/* Check for multi-IRQ config. Assumption: symetrical rx/tx queues */
+                                                   ^^^^^^^^^^
 
-When platform_get_irq_byname_optional() returns a negative error like
--ENXIO, that value is stored in stmmac_res->rx_irq[i] before the break.
-
-In stmmac_request_irq_multi_msi(), the check is:
-
-    if (priv->rx_irq[i] == 0)
-        continue;
-    ret = request_irq(priv->rx_irq[i], ...);
-
-Should the negative value be cleared before the break? Otherwise if
-rx_queues_to_use exceeds the number of defined IRQs, the negative error
-code could be passed to request_irq().
-
-> +
-> +	/* TX channels irq */
-> +	for (i = 0; i < MTL_MAX_TX_QUEUES; i++) {
-> +		scnprintf(name, sizeof(name), "tx-queue-%d", i);
-> +		stmmac_res->tx_irq[i] = platform_get_irq_byname_optional(pdev,
-> +									 name);
-> +		if (stmmac_res->tx_irq[i] <= 0) {
-> +			if (stmmac_res->tx_irq[i] == -EPROBE_DEFER)
-> +				return -EPROBE_DEFER;
-> +			dev_dbg(&pdev->dev, "IRQ tx-queue-%d not found\n", i);
-> +
-> +			/* Stop on first unset tx-queue-%i property member */
-> +			break;
-> +		}
-> +	}
-
-Same question here for tx_irq[i].
--- 
-pw-bot: cr
+This isn't a bug, but "symetrical" should be "symmetrical".
 
