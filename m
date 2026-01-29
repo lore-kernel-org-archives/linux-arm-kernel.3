@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C23B3D73E83
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 18:05:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 161E0D73E83
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 18:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YdyCIL4tTO3l5a0xb6nABmf6t3g2idn2qNISzBqXvJg=; b=IlBNVSP4ipJ3y7/95Mfi6U0S6x
-	sC95aDDa4WDxsSU6nSqz0dLoCNk47wHdi6QdbF2z9ihyAT2Pf/K88mD5Dr53r3vJJDMVGiGi0Hqcn
-	tz+W8ShHa2JBEAtdmFDevub24LO7Wo+fsJeQ1u57ACUyuIhl4wV/7wKAAKlA4AKmqVDrhpY3R3Mvk
-	dkdw8V+9lngleMSHZp/Kt/5QuuTVgrmjyuY7GTkylhnBCstzfATNcB7cGeCfIddNGI4tUH/+WpxhO
-	Gsq57HC2JBNnwR2ZXZxVRLHSSxQIqcJL/cq8pibzELyRdUA7wf0zJbcwtZhxiDl8tg5D3aQcViLxA
-	J8Fg/HWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tmv5WNVtKecux+70HXnwWeNw2PaVNNsP+3zXV9UZU6Y=; b=2mhVVjSIHrsdCfExq+kCjLhQC7
+	z9RNXSEC4OPKxM6oNtWajROZUKPrB3ZDrY53Rql99VM9ZDc8hRVigKMg3Q/IPsIA5uFN73Pmu5rTg
+	llNBRkcdwlZSYotZa7mIVe2anK4I9mCLquG1r/ptZeFe/Kqhb4YJg/evD58KyAEBArDNxX1jXK4oX
+	f/01zm+U6jOb94+WrlQsUQxg7HY5F6/LWAsr93X+oCLgDgNpJULvzOSe7fanLhdn5M7L8pqPnyqST
+	K3Dmxg/J42Pe9f7lIfFGylKbER1yTjvVySzlJdHE25llNFoYnMjKikni19lmCmsJkY83my5pQUShJ
+	Eixzu7jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlWO3-00000000Tyd-13nJ;
-	Thu, 29 Jan 2026 18:05:00 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vlWQp-00000000U94-1y82;
+	Thu, 29 Jan 2026 18:07:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlWNz-00000000TxH-2Jqy
+	id 1vlWQo-00000000U8v-2UbV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 18:04:57 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id C1DDD4E42326;
-	Thu, 29 Jan 2026 18:04:49 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7F79160746;
-	Thu, 29 Jan 2026 18:04:49 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A92E9119A884E;
-	Thu, 29 Jan 2026 19:04:40 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769709888; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=YdyCIL4tTO3l5a0xb6nABmf6t3g2idn2qNISzBqXvJg=;
-	b=OjdMXNxDEjl077eYMhx024SVe6ch2lgEMk0wnPOhlyyfFyQKkGVtNZiKVgwbMOSVLXz+fY
-	RUslP7W0xxAQ1kkDfhb1hjzQZpYkLQDy5mJdX3YVxVaYX+GHCbgOBehBJ77ZLN30K0SAYx
-	/1Vw2avqaY8Iz5i4Oo7z1LFUnRD6cR2Nt8/cDoPGnLzu3qJOryR6664kFV6LDxYpqtf1Ex
-	Owur6zTJuZTm62MyG2LA6PnLwcrYn+s4uz5aAFE4k/S0cfXqLbLpcKFk5IAlKSCGZK/Dug
-	Akv6UOHnk5hSwustUsUHvriB1yt8HATSnRSMb91zXNbkd7+/YUhcBuD/0G/TXQ==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-0-a62b4399a6bf@bootlin.com>
-References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-0-a62b4399a6bf@bootlin.com>
-Subject: Re: (subset) [PATCH v4 0/4] drm/bridge: add
- of_drm_find_and_get_bridge() and a managed *next_bridge, deprecate
- of_drm_find_bridge()
-Message-Id: <176970988019.344266.16426730696131836269.b4-ty@bootlin.com>
-Date: Thu, 29 Jan 2026 19:04:40 +0100
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_100455_749386_25F872D7 
-X-CRM114-Status: GOOD (  11.32  )
+	Thu, 29 Jan 2026 18:07:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9053D6001A;
+	Thu, 29 Jan 2026 18:07:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40D6BC4CEF7;
+	Thu, 29 Jan 2026 18:07:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769710069;
+	bh=y8ZtJVyNk9ohmp2p1L7tQB0ZKjo1utzINB/vHykqcRE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=HVfNTShB0Yj0NLCGJtrpK7gu7DjT2P84O/Dt39AbyOMWWBY5mqRZ3/u6hTwtjAgC4
+	 6kcC8Csi0EL/n2CfZRQhVbmJxh8bgj97shM3nRy/agfF1TLszy9CiLSCkQJgaOqm9F
+	 NEhzXmYaJPij+y29wKRvKY278z075VkAl9msHJmajtnQNKvAKIFv2aUaZC3EitC0Hp
+	 ehThicIpPmhEqCCua0DLlHSsyOxf3iyC+nJHGoWpxwtXQ2gTKiFhM38WXPx8+uOHEl
+	 BVWasrGVDU4GHaa/D/dN23P443mGpG777IsteGsWlEtxFrxcYYi6URGsT8y4qLnk8l
+	 rDcCqwI6rtA9w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vlWQk-00000006qU3-3emJ;
+	Thu, 29 Jan 2026 18:07:46 +0000
+Date: Thu, 29 Jan 2026 18:07:46 +0000
+Message-ID: <868qdgb8ct.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH 13/20] KVM: arm64: Move RESx into individual register descriptors
+In-Reply-To: <86a4xwbakk.wl-maz@kernel.org>
+References: <20260126121655.1641736-1-maz@kernel.org>
+	<20260126121655.1641736-14-maz@kernel.org>
+	<CA+EHjTw_4WJgiS7vTUprvJOjdNrnW=sjhazCkU9eQW8BUYuZZw@mail.gmail.com>
+	<86a4xwbakk.wl-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,30 +90,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 07 Jan 2026 10:56:25 +0100, Luca Ceresoli wrote:
-> This v4 contains the leftovers of the v3 series that deprecated
-> of_drm_find_bridge(), added a replacement which handles bridge refcounting,
-> and converted some of the direct users. All patches have been applied
-> except the imx8qxp-pixel-link ones, which still need a review for the first
-> patch.
+On Thu, 29 Jan 2026 17:19:55 +0000,
+Marc Zyngier <maz@kernel.org> wrote:
 > 
-> @Liu, patch 1 is waiting for a review and it's non-trivial, it would be
-> nice if you could have a look at that one at least.
+> On Thu, 29 Jan 2026 16:29:39 +0000,
+> Fuad Tabba <tabba@google.com> wrote:
+> > 
+> > Hi Marc,
+> > 
+> > On Mon, 26 Jan 2026 at 12:17, Marc Zyngier <maz@kernel.org> wrote:
+> > >
+> > > Instead of hacking the RES1 bits at runtime, move them into the
+> > > register descriptors. This makes it significantly nicer.
+> > >
+> > > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > > ---
+> > >  arch/arm64/kvm/config.c | 36 +++++++++++++++++++++++++++++-------
+> > >  1 file changed, 29 insertions(+), 7 deletions(-)
+> > >
+> > > diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> > > index 7063fffc22799..d5871758f1fcc 100644
+> > > --- a/arch/arm64/kvm/config.c
+> > > +++ b/arch/arm64/kvm/config.c
+> > > @@ -30,6 +30,7 @@ struct reg_bits_to_feat_map {
+> > >  #define        RES0_WHEN_E2H1  BIT(7)  /* RES0 when E2H=1 and not supported */
+> > >  #define        RES1_WHEN_E2H0  BIT(8)  /* RES1 when E2H=0 and not supported */
+> > >  #define        RES1_WHEN_E2H1  BIT(9)  /* RES1 when E2H=1 and not supported */
+> > > +#define        FORCE_RESx      BIT(10) /* Unconditional RESx */
+> > >
+> > >         unsigned long   flags;
+> > >
+> > > @@ -107,6 +108,11 @@ struct reg_feat_map_desc {
+> > >   */
+> > >  #define NEEDS_FEAT(m, ...)     NEEDS_FEAT_FLAG(m, 0, __VA_ARGS__)
+> > >
+> > > +/* Declare fixed RESx bits */
+> > > +#define FORCE_RES0(m)          NEEDS_FEAT_FLAG(m, FORCE_RESx, enforce_resx)
+> > > +#define FORCE_RES1(m)          NEEDS_FEAT_FLAG(m, FORCE_RESx | AS_RES1, \
+> > > +                                               enforce_resx)
+> > > +
+> > >  /*
+> > >   * Declare the dependency between a non-FGT register, a set of
+> > >   * feature, and the set of individual bits it contains. This generates
+> > 
+> > nit: features
+> > 
+> > > @@ -230,6 +236,15 @@ struct reg_feat_map_desc {
+> > >  #define FEAT_HCX               ID_AA64MMFR1_EL1, HCX, IMP
+> > >  #define FEAT_S2PIE             ID_AA64MMFR3_EL1, S2PIE, IMP
+> > >
+> > > +static bool enforce_resx(struct kvm *kvm)
+> > > +{
+> > > +       /*
+> > > +        * Returning false here means that the RESx bits will be always
+> > > +        * addded to the fixed set bit. Yes, this is counter-intuitive.
+> > 
+> > nit: added
+> > 
+> > > +        */
+> > > +       return false;
+> > > +}
+> > 
+> > I see what you're doing here, but it took me a while to get it and
+> > convince myself that there aren't any bugs (my self couldn't find any
+> > bugs, but I wouldn't trust him that much). You already introduce a new
+> > flag, FORCE_RESx. Why not just check that directly in the
+> > compute_resx_bits() loop, before the check for CALL_FUNC?
+> > 
+> > + if (map[i].flags & FORCE_RESx)
+> > +     match = false;
+> > + else if (map[i].flags & CALL_FUNC)
+> > ...
+> > 
+> > The way it is now, to understand FORCE_RES0, you must trace a flag, a
+> > macro expansion, and a function pointer, just to set a boolean to
+> > false.
 > 
-> [...]
+> With that scheme, you'd write something like:
+> 
+> +#define FORCE_RES0(m)          NEEDS_FEAT_FLAG(m, FORCE_RESx)
+> 
+> This construct would need a new __NEEDS_FEAT_0() macro that doesn't
+> take any argument other than flags. Something like below (untested).
+> 
+> 	M.
+> 
+> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> index 9485e1f2dc0b7..364bdd1e5be51 100644
+> --- a/arch/arm64/kvm/config.c
+> +++ b/arch/arm64/kvm/config.c
+> @@ -79,6 +79,12 @@ struct reg_feat_map_desc {
+>  		.match = (fun),				\
+>  	}
+>  
+> +#define __NEEDS_FEAT_0(m, f, w, ...)			\
+> +	{						\
+> +		.w	= (m),				\
+> +		.flags = (f),				\
+> +	}
+> +
+>  #define __NEEDS_FEAT_FLAG(m, f, w, ...)			\
+>  	CONCATENATE(__NEEDS_FEAT_, COUNT_ARGS(__VA_ARGS__))(m, f, w, __VA_ARGS__)
+>  
+> @@ -95,9 +101,8 @@ struct reg_feat_map_desc {
+>  #define NEEDS_FEAT(m, ...)	NEEDS_FEAT_FLAG(m, 0, __VA_ARGS__)
+>  
+>  /* Declare fixed RESx bits */
+> -#define FORCE_RES0(m)		NEEDS_FEAT_FLAG(m, FORCE_RESx, enforce_resx)
+> -#define FORCE_RES1(m)		NEEDS_FEAT_FLAG(m, FORCE_RESx | AS_RES1, \
+> -						enforce_resx)
+> +#define FORCE_RES0(m)		NEEDS_FEAT_FLAG(m, FORCE_RESx)
+> +#define FORCE_RES1(m)		NEEDS_FEAT_FLAG(m, FORCE_RESx | AS_RES1)
+>  
+>  /*
+>   * Declare the dependency between a non-FGT register, a set of
+> @@ -221,15 +226,6 @@ struct reg_feat_map_desc {
+>  #define FEAT_HCX		ID_AA64MMFR1_EL1, HCX, IMP
+>  #define FEAT_S2PIE		ID_AA64MMFR3_EL1, S2PIE, IMP
+>  
+> -static bool enforce_resx(struct kvm *kvm)
+> -{
+> -	/*
+> -	 * Returning false here means that the RESx bits will be always
+> -	 * addded to the fixed set bit. Yes, this is counter-intuitive.
+> -	 */
+> -	return false;
+> -}
+> -
+>  static bool not_feat_aa64el3(struct kvm *kvm)
+>  {
+>  	return !kvm_has_feat(kvm, FEAT_AA64EL3);
+> @@ -996,7 +992,7 @@ static const struct reg_bits_to_feat_map hcr_feat_map[] = {
+>  	NEEDS_FEAT(HCR_EL2_TWEDEL	|
+>  		   HCR_EL2_TWEDEn,
+>  		   FEAT_TWED),
+> -	NEEDS_FEAT_FLAG(HCR_EL2_E2H, RES1_WHEN_E2H1, enforce_resx),
+> +	NEEDS_FEAT_FLAG(HCR_EL2_E2H, RES1_WHEN_E2H1 | FORCE_RESx),
 
-Applied, thanks!
+Actually, this interacts badly with check_feat_map(), which tries to
+find whether we have fully populated the registers, excluding the RESx
+bits. But since we consider E2H to be a reserved but, we end-up with:
 
-[1/4] drm/bridge: imx8qxp-pixel-link: simplify logic to find next bridge
-      commit: 96476ab8690290aa27084b12a481e48f3af7afb2
-[2/4] drm/bridge: imx8qxp-pixel-link: simplify freeing of the remote device_node
-      commit: 42bb487369e56f8f07c82ac11fe771ba2b70cd68
-[3/4] drm/bridge: imx8qxp-pixel-link: imx8qxp_pixel_link_find_next_bridge: return int, not ERR_PTR
-      commit: 4eda1d5fe99db2a71da0156387b7b69e8e0dc32f
+[    0.141317] kvm [1]: Undefined HCR_EL2 behaviour, bits 0000000400000000
 
-Best regards,
+With my approach, it was possible to distinguish the architecturally
+RESx bits (defined as RES0 or RES1), as they were the only ones with
+the FORCE_RESx attribute.
+
+I can work around it with
+
+diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+index 364bdd1e5be51..398458f4a6b7b 100644
+--- a/arch/arm64/kvm/config.c
++++ b/arch/arm64/kvm/config.c
+@@ -1283,7 +1283,7 @@ static void __init check_feat_map(const struct reg_bits_to_feat_map *map,
+ 	u64 mask = 0;
+ 
+ 	for (int i = 0; i < map_size; i++)
+-		if (!(map[i].flags & FORCE_RESx))
++		if (!(map[i].flags & FORCE_RESx) || !(map[i].bits & resx))
+ 			mask |= map[i].bits;
+ 
+ 	if (mask != ~resx)
+
+but it becomes a bit awkward...
+
+Thanks,
+
+	M.
+
 -- 
-Luca Ceresoli <luca.ceresoli@bootlin.com>
-
+Without deviation from the norm, progress is not possible.
 
