@@ -4,55 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B88E6BF16
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 14:08:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B3BE6BF17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 14:17:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ohD4fI+v6BUJchb3BE7zTKKbwrKDvCt2jFDaTb4YLGY=; b=IOZIMNzKylQCwQ890cQmthdyg9
-	h3Xcpow4CHAoQTPeEa16IiFz69xxTVNZaZrL/C6wcnDp8rh3FhCc50bjr5JpQR91duEEdn4PU8uf/
-	AXbGP+nMnM4w2dw9Uicol2tF8c3aPYcoGS83S/3ZOBTZwd8zewc5bAX1C2YXD2wvruOMAGrLQDuh7
-	toaoYYW+oM9yiJRBly4UUC/OSyWTjDf7bQ6SqYBVpcB7ChErLqtpS3b4KdlAmLi7tY6cyVGh4fAwL
-	GTMHA/moYZVdK2NVPOKkzahHKzLZ9sCXBO2ewbXFueRCEYswhKqZo53ICLh/oy4SCCJCquH4ZIf6T
-	/gPY4tZA==;
+	bh=PAOgXb5EoCyb95s4yqpi4FbE0ZemoLgEz7KGIB7blvs=; b=ysH0MW7hhgAr9YE3T1HQfBaYOb
+	oJuf5VW+aajvfNM5/kM62SkysJtV2WijjXuTzOu8UPbvJ382S1DBWxk6E076RZYbQtDuU5Z0OMWdW
+	I95Bhp+xicjoUohYw5yJDwhRQIDyfkP3AcXyrTehJ1PukDd7Iwm5Vjz7J0tTAzh+goVF8zhx92Pc2
+	whfcHp+aFzZ/uTB7rJP5fAjmZk353manxpflQ+3FGyjsdgrEVqQV5u+YlN3sz2HVUCa5awfwhUlck
+	Yn4in4JfNlTrBglRGqHJDV8L46U15ZVrH8DDZEaO8i2Cz26U3CtHhTc+3UUEsukC1mQjgWAJr6avI
+	848rpvPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlpAs-00000001Z8d-3c7L;
-	Fri, 30 Jan 2026 14:08:38 +0000
+	id 1vlpJl-00000001Zcu-0z9d;
+	Fri, 30 Jan 2026 14:17:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlpAq-00000001Z8H-2Hjr
+	id 1vlpJi-00000001ZcX-46nQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 14:08:37 +0000
+	Fri, 30 Jan 2026 14:17:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4484A153B;
-	Fri, 30 Jan 2026 06:08:28 -0800 (PST)
-Received: from [10.57.54.50] (unknown [10.57.54.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CC9383F632;
-	Fri, 30 Jan 2026 06:08:33 -0800 (PST)
-Message-ID: <5607f0f3-d1d4-46d2-a857-8dfde185d2b1@arm.com>
-Date: Fri, 30 Jan 2026 14:08:31 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 90DDA153B;
+	Fri, 30 Jan 2026 06:17:38 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0CDFD3F632;
+	Fri, 30 Jan 2026 06:17:39 -0800 (PST)
+Message-ID: <80db7035-07d3-4fb4-a228-f9c67d2df1f4@arm.com>
+Date: Fri, 30 Jan 2026 14:17:38 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 0/7] Add support for ZTE zx297520v3
-To: Arnd Bergmann <arnd@arndb.de>, =?UTF-8?Q?Stefan_D=C3=B6singer?=
- <stefandoesinger@gmail.com>, linux-arm-kernel@lists.infradead.org
-Cc: soc@lists.linux.dev, Jun Nie <jun.nie@linaro.org>
-References: <20260128203455.38569-1-stefandoesinger@gmail.com>
- <b94d1ea2-8092-4692-a5ec-02d83ae1c1a2@app.fastmail.com>
- <2936803.ElGaqSPkdT@grey>
- <9325c1b8-40f8-4403-8098-b924124e3868@app.fastmail.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <9325c1b8-40f8-4403-8098-b924124e3868@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v3 41/47] arm_mpam: Generate a configuration for min
+ controls
+To: Jonathan Cameron <jonathan.cameron@huawei.com>,
+ "fenghuay@nvidia.com" <fenghuay@nvidia.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ Zeng Heng <zengheng4@huawei.com>
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+ <20260112165914.4086692-42-ben.horgan@arm.com>
+ <20260113153938.00007d6e@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20260113153938.00007d6e@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_060836_721886_43482C81 
-X-CRM114-Status: GOOD (  29.57  )
+X-CRM114-CacheID: sfid-20260130_061747_147297_DA26F763 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,73 +79,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-01-30 8:58 am, Arnd Bergmann wrote:
-> On Thu, Jan 29, 2026, at 20:38, Stefan Dösinger wrote:
->> Am Donnerstag, 29. Januar 2026, 01:00:08 Ostafrikanische Zeit schrieb Arnd
->> Bergmann:
->>> On Wed, Jan 28, 2026, at 21:34, Stefan Dösinger wrote:
+Hi Fenghua, Jonathan,
+
+On 1/13/26 15:39, Jonathan Cameron wrote:
+> On Mon, 12 Jan 2026 16:59:08 +0000
+> Ben Horgan <ben.horgan@arm.com> wrote:
+> 
+>> From: James Morse <james.morse@arm.com>
 >>
->> I am certain switching to EL3 is working here because I am using it in the
->> same way to set up ICC_SRE_EL*. (And yes, I know this code doesn't belong in
->> this place. It's just more comfortable for my development tree for now)
-> 
-> Ok
-
-If you can do that, then:
-
-a) You're starting in Secure SVC, which explains the GIC issues (since 
-we usually expect to be dealing with the Non-Secure side of the GIC)
-
-b) Monitor mode exists, which means EL3 is in AArch32 state (and I would 
-imagine the SoC is wired to boot that way), which means you'd need to 
-rewrite the entire firmware for AArch64 (most likely including an 
-AArch32 stub to RMR itself into AArch64 state initially) before you 
-could consider running lower ELs in AArch64.
-
->>> I've never seen a Cortex-A53 without FPU and NEON, but since this
->>> is optional, it was a matter of time before we got one ;-)
-
-They certainly exist in various networking gear and other embedded 
-applications, they've just never (directly) asked to run mainline Linux ;)
-
-Cheers,
-Robin.
-
->> The ZTE 3.4 kernel code suggests that there is/was a zx297520v2 that was
->> Cortex A9 based, and then ZTE replaced the Cortex-A9 with a Cortex-A53 and
->> left the rest of the system unchanged.
+>> MPAM supports a minimum and maximum control for memory bandwidth. The
+>> purpose of the minimum control is to give priority to tasks that are below
+>> their minimum value. Resctrl only provides one value for the bandwidth
+>> configuration, which is used for the maximum.
 >>
->> A later version of this SoC, zx298501 switched to 64 bit, including kernel +
->> userland. But I don't have any hardware based on either of them.
-> 
-> Right, it's quite possible that v3 was a node shrink and Cortex-A9
-> was not available for the new process.
-> 
->>> Support for 64-bit cores is actually quite rudimentary in 32-bit
->>> more, as we are missing a lot of the errata workarounds and ARMv8
->>> specific features in the kernel. If you can figure out how to
->>> use 64-bit kernel mode, that would be ideal.
+>> The minimum control is always programmed to zero on hardware that supports
+>> it.
 >>
->> One of my co-hackers is giving it another try. Pairing a 64 bit kernel with 32
->> bit userspace seems reasonable. Of course the other question is what quirks
->> are hiding in the hardware when we run them in a mode the vendor never tested.
+>> Generate a minimum bandwidth value that is 5% lower than the value provided
+>> by resctrl. This means tasks that are not receiving their target bandwidth
+>> can be prioritised by the hardware.
+>>
+>> For component reset reuse the same calculation so that the default is a
+>> value resctrl can set.
+>>
+>> CC: Zeng Heng <zengheng4@huawei.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 > 
-> Right, that is clearly a risk. I see that we do support FPU-less
-> systems, e.g. 82e0191a1aa1 ("arm64: Support systems without
-> FP/ASIMD"), but I doubt that this code path is well tested.
+> I'm interested to see how this plays out as a default choice
+> vs what people elect to run.  Seems harmless to start with this.
+
+I've realised it's not harmless :(
+
 > 
-> For the core itself, I would expect fewer problems with 64-bit
-> kernels than 32-bit ones, but the problems are going to be different
-> of course.
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 > 
-> For 32-bit compat userspace, there is a chance that you have
-> device drivers missing compat ioctl handlers, especially if you
-> need non-upstream drivers. There are also a few differences in
-> handling of deprecated instructions like ARMv6 style barriers
-> or unaligned ldm/stm data accesses, which require you to enable
-> the workarounds at boot time on 64-bit kernels.
-> 
->       Arnd
-> 
+
+In the discussion on a platform quirk, arm_mpam: Add workaround for
+T241-MPAM-4,  Fenghua raised the following issues.
+
+"
+MBW_MIN is 1% or 5% less than MBW_MAX.
+
+The lower MBW_MIN hints hardware to lower mem bandwidth when mem access
+contention. That causes memory performance degradation.
+
+Is it possible to do the following changes to fix the performance issue?
+1. By default min mbw is equal to max mbw. So hardware won't lower
+performance unless it's needed. This can fix the current performance issue.
+2. Add a new schemata line (e.g. MBI:<id>=x;<id>=y;...) to specify min
+mbw just like max mbw specified by schemata line "MB:...". User can use
+this line to change min mbw per partition per node. This could be added
+in the future.
+"
+
+On 1.
+Thinking about this again, I think adding any heuristic tied to mbw_max
+to determine what mbw_min is undesirable. Loading the mpam driver or
+mounting resctrl shouldn't change the defaults away from the defaults
+for h/w partid 0 or performance characteristics may change unexpectedly.
+The spec only gives us suggestions for these but we should go with
+those. See table 3.8 in IH0099B.a Mpam System Component Specification.
+The MBW_MIN that is 0xFFFF. Also, having mbw_min doesn't necessarily
+mean that there is mbw_max. A system that doesn't advertise mbw_min
+support to the user should act as if there is no mbw_min support.
+On 2.
+Yes, adding a new user interface in resctrl is the way to deal with
+this. See [1] for a discussion on adding new schema.
+
+Hence, I'll drop this patch, and update the mbw_min default to be 0xFFFF
+and for the value not to change even if mbw_max changes. I think this
+leaves us in the best position going forward without any heuristics that
+may come back to bite us later when proper support for a schema
+supporting mbw_min is added to resctrl.
+
+[1] https://lore.kernel.org/lkml/aPtfMFfLV1l%2FRB0L@e133380.arm.com/
+
+Thanks,
+
+Ben
 
 
