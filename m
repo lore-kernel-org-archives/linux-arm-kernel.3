@@ -4,99 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24135D73EA7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 Jan 2026 23:30:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40BEAD73EB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 01:45:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tApPpTDpzWHbB1pWe+VsiMG5gGDF6f3x7Nan38A1rbo=; b=3pbEcR6J9nLKLHumAw5cLSyYuN
-	BKsP97bCsqkPbfmCF/Ok1G/WNknWvZR9mSyTgLjn96h0zUJnaritacanrnvFM8AoGbQ2DhQQyfSCC
-	QS1Bnqq3bluLdFOjW4KOL7LfMDGg6I53xkanae7W4t8KTq5h9JIbdEYhzZli7IVB9YWiO0X/RPVRn
-	OSjzC8cYTvizw/rvb6YJ1OCszrkqAPrsrdF4LnTz38BWh5Zm48zjJbSkyJlYqfOVTcRkfxXlgcYYB
-	spzp/c05iG7L3Qo4WJt0UZ1a+DxbDo0zO8X8shOs/bWIcqCTtpaaGk4YpZZviWis7VIpOsdxHKZRP
-	i1QB1bUQ==;
+	bh=jNEnnUWc0ljhEZKMEfW+sE66aVZ/mqoNGO+gH29mfjQ=; b=bPvvIoTGZJEp3V5088PFdHED0D
+	IUqX7Rq5GBWqvtxsxxlbJITEFwB74jy4649EAlD5QVtsmLNy46X/dJ7bX+QDhFQtC5T22hN0BFJY3
+	KFcarOTE7wZ1FgX+vgiG3EDCSkgjtAONsT9HNXG9RdiqVR1llSHW7Q+t09ts/oVtnQOvxWlj41y13
+	fKoyNvXcy+JfTU8nR8eq7zGQWpLMz0jFwFW6mijHcCYFGsME8NgG1KhkJv/bh1ZX7eOd/Icoco/4x
+	iWLHpLZrQfn8vawypPAvx7lyXJn5bTM3WA/hwZWKuyg3zbWQh9RYm09+Df5FZgidRlWd4X1M2MtK5
+	CG70yW4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlbSZ-00000000moN-3psH;
-	Thu, 29 Jan 2026 23:29:59 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1vldZF-00000000ruf-2zwA;
+	Fri, 30 Jan 2026 01:45:01 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlbSX-00000000mo1-40aX
+	id 1vldZD-00000000ru3-0b5s
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 Jan 2026 23:29:59 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-81e8b1bdf0cso908240b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 15:29:57 -0800 (PST)
+	Fri, 30 Jan 2026 01:45:00 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-823210d1d8eso861079b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 17:44:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769737498; cv=none;
+        d=google.com; s=arc-20240605;
+        b=SsDrSRzfvkUbMQ3irj8YupKHkW+OnY3+SYfTovxb2xBuOXcOcESjqjEk2JeAnbmDil
+         rhm8qoulGv7P6/mQlP6FhSl9R0IZ6pMDr9Kxe28VDPePiBPxkgJ6/DqPEqDAnR2IPnYD
+         wLVURt0PnPfBkv4Rr+UuHWPfZ0/dCo5eCXucabtMpWiFDroXwOEuR7SezzJ/8slJn0Cn
+         6d9jRfOghZ6ZWxDpgdCCbMAqUwsXbFEKn2RoMS03BfOfpUwglWfQMkRvRjojoXJ/aYQH
+         0T76SQLK/viOAkATDHZKcnF4bfgLOpZN0U1BGyHLqGLaMgY7MST/GYBTb5rcj2u4ZXKv
+         SZTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=jNEnnUWc0ljhEZKMEfW+sE66aVZ/mqoNGO+gH29mfjQ=;
+        fh=RUMMAaeplCXGRvtcRSvtoh225UrJNyQhHVirT0bzwFw=;
+        b=YwLQF6vTW26dUu0t5T2sQQpvKZDzkGDx0/zdBRIstMD8Lado6p3KuT2p8Jj6jFqfSy
+         A7bIMxNROtmMILeA2iquKgrsAzseqDGUYuFM5oi9QWG3YtSliUSXsJz6/8N1Cg+4YyNX
+         bQon7XPn6WzDl+TgFZyplFkXB8ZAx2RQPOabAU65yCnFekkI/zpYYvv/wpC01Xegs27Z
+         O3UZVqlkEv3lUn5gHV1mqvlTz5Q7yFMPbiVC2EM/Sdy6tGA+OrHSwCjVpvM7wSgTEF49
+         PMoFPuX0dA0cNFmmemfCskIC27fdkwodcz1eAjOJtmNV4p7W8Bb7mX8yLGZkHFOnJbAo
+         REDg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1769729396; x=1770334196; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1769737498; x=1770342298; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tApPpTDpzWHbB1pWe+VsiMG5gGDF6f3x7Nan38A1rbo=;
-        b=AwjnvswnD3Hcv7KQVI54rtAhCGcUchGgQQ/JcFHR3KjtaXS29YS8ea12Pq0hGsbxUH
-         IDn3wEI43SqpJkd8PSJYaxYG3puxwywY6LFl5L9mIxqz8idYp+vlZoQ1+BMAnX8p4PRe
-         lfW3OetxxOPu23l5Qt7B8cActM0/s2lIcgqK5dvQPDRJFSQx1SkACZTMtgDbYsoauTPi
-         iq4LXxfCcHP1iH55m4ME+sYmq6WdZTKkxToy0QJfq0w1jCcjsf6RbQSdGGgtZeGGXhb3
-         WQSJu3IX3GSWZqGkFwSPZqJaVss95SxIhPl7a63H4ohKGqtMoB6X65tFuDkuiIvonnkq
-         ScaA==
+        bh=jNEnnUWc0ljhEZKMEfW+sE66aVZ/mqoNGO+gH29mfjQ=;
+        b=itccPi07Cj+yYp3v7i0K0nMJjhYMf1JpYFLq6MLLdYzoVWXU0LbM6/ZwmH4qUG35zO
+         ZvnfFf08pNElDcc9jIAX15en0Ce0hFwkzqeMNQ2GiORxu7SWZYo+Sbx4+yPPq4uTbwiD
+         ++UYmRfFoxmv3VjJrw1CP3ONBR50iByb7m/E94iODrY9qmu3ceVlEaYKhbEaf4O6aqQq
+         dx2WZhBqQJmlz2sFkmHYPn1CEjOjP3XTXjmtotQaZIak5IHEscISwGg1CXHnZfQipVFt
+         xeZ/MVyNuyBwz2UBcg6yVZD6QYxUVe98KrYvtcuHrozAHT/KQVfoP3PAl7Er2jhHPWu/
+         AOfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769729396; x=1770334196;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=tApPpTDpzWHbB1pWe+VsiMG5gGDF6f3x7Nan38A1rbo=;
-        b=V3TGVxOI5T4Tw/NHwLSjIXysgL9WZoxn9ENoqFMYWpGEUL7Kybm9gC/ey+UEDX+PQP
-         AePVAlLqi1OayTXOK0wsbwBUumkICUEB9c5QgKX/59Xfycyzlz2ZIkDoCdXQGIHj62WB
-         4/6btf/FNsSzVz22vev7Jq3/3VGIXktOPWzxZ8CuzIpN6HY0UhecM4gNuwU7gMHiM9z0
-         UBxmJZIamXJmProH6uozIXf3AETKbI84tc9Tk1iJ8i10AY1L1QZRYMmVngjjQHFqioTC
-         laiiq616E2VLkqAJ+6vljr6dq968ihKHx0yeCKKdcfHWNJTTT8WbY1Lphe8P8Fl4HHhw
-         iNfg==
-X-Forwarded-Encrypted: i=1; AJvYcCXansnm50fpzDwPEAUfE+T7JYkNTU9l7fcDXALhUILbyQJF9EjBEUNf9jXCsrMAXJMZvFQ7faLOqmtqYQjnE/oT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz86eoHPwkaWNmBZ/B0+FNWf6h1Fn817afYcfceiS0wi03Hczs8
-	p+eGBIlHn34/jdJpzYG04NtHVHLsU2hEw7d0/4WjdbZBYg0JgWNJnShi26e/aMy3s7g=
-X-Gm-Gg: AZuq6aK5LZ6eBjZsPbfnKPS3P4SzWgEg1PUefZEZKrSs7lY/65QkSQBRCgpUpvd6jOK
-	52C7bPwHnL12/yN0EzOZVyI/FheV6gL5BxwscQeUob3yCdHsmNXeofSLQmJbvwnqwwLRLehGOag
-	DSMbl5Y8P9bowevnqZp3rZHB6QCQ7V6gdZMhbnKD2odpcXCgFS+6pSv9Rh5chp+QsAEGt/sSz+A
-	6+OgVycqEx1fIRxhk5Sid3xIy1mxRBvQ/wHwstfzWDd1wPSvcLfeqRxnvQiZrnapoqLrzlV6I6t
-	gfv4MsBgZc3PRIW6LyyFqxxn1t0YV+lbV1Fto0pWKFyVG/tjLbq5oeRM+CemCkD50dVGj7d0SnK
-	2dwtzB2OEOhg3+Lg5NAb1KAp+t/Tzl2rHDaHHSwDGMap1EE6pb9eUrta5M2WXW/gGx6hzFRDe4T
-	1fAph5Mm9dPZpREv/j58V3+Gdq15FR/1/wFMHKPOex+xf5nkxrJAND0PGJD4LLVpzERFx6HHs=
-X-Received: by 2002:a05:6a00:7584:b0:81b:13c5:b6b2 with SMTP id d2e1a72fcca58-823aa71186emr720685b3a.33.1769729396526;
-        Thu, 29 Jan 2026 15:29:56 -0800 (PST)
-Received: from smtpclient.apple (c-24-16-26-157.hsd1.wa.comcast.net. [24.16.26.157])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82379c64b4esm6363964b3a.69.2026.01.29.15.29.55
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 29 Jan 2026 15:29:56 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
-Subject: Re: [PATCH v7 1/6] i2c: xiic: skip input clock setup on non-OF
- systems
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-In-Reply-To: <ab9dc191-59c1-40a9-bbf1-e6c082af128a@lunn.ch>
-Date: Thu, 29 Jan 2026 15:29:45 -0800
-Cc: Michal Simek <michal.simek@amd.com>,
- Andi Shyti <andi.shyti@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Andy Shevchenko <andriy.shevchenko@intel.com>,
- linux-arm-kernel@lists.infradead.org,
- linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
+        d=1e100.net; s=20230601; t=1769737498; x=1770342298;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=jNEnnUWc0ljhEZKMEfW+sE66aVZ/mqoNGO+gH29mfjQ=;
+        b=nECKy5yCTb7kQahkLUhU8aMGI0ze+msYpll9iHHM30zcOLnJWL9KUGaTTrq+nTF4ka
+         V2Z1NEmT/pyZVPHtEnf4Q/5XtQ0nSMuDkdI3g9PtjohoEM19JyErCAipljigPnsFmes+
+         LcRCqm1XwAsHdyaD518/C56NFpNK8XaigzxIsuu4O36ec6eOJShS+8lCK7kg8q9o2aF2
+         eqrIBbiv36iTSeYlYpn9uMQFTs5VE9mVOTHnGKbObirV6gkcD05Asv8pAg9yhoVuZRFi
+         1qlA92EC9f7kJCwunMz4l4jTnFFV8FHDYI2jKJR8VAk7m3MphROIIuw8v8CAFHcDFJE/
+         OSww==
+X-Forwarded-Encrypted: i=1; AJvYcCUKC0yWixA5rlraKsZWOXJWWl1Zkm79JkFT7b0+D1dAHenyZgisswr44fxz/DXZ2j3ZrofbA7vC3Y347lSb/uJX@lists.infradead.org
+X-Gm-Message-State: AOJu0YztgkOBJdrC+jyp8wAXWbb71Svs/bORH7c4A3Chw+C3b8/oi2H1
+	rPqjluqjP/MjhFlY+0N7EAMSgxMky6S84T+fAKkGOTdVeKMEhRNMXP207Zes0gbqpMeZOk1QY+s
+	W1z3vNd1tH20ELZ/1ztBX3k4S8iVymTQ=
+X-Gm-Gg: AZuq6aKA75ByLuhU6Oq+VqefzJyU5ufXtrK7Iluh2jyZ/WxM9HAOZCnXHfwwrrnhDrq
+	sTeDKFDP1J7HgAsgFqgieY4vW2njLgL9vgM7C2+YYO91KOoU8bbip00KoeATZh0C5H2al3h2Ruf
+	7/QYszYCRQUMSSD5FBnFQzwTNZUkOosT7rYYitWplrcTPNNofJqxq9NH2pK6yvW6rkz7jZIgzFJ
+	m2U8J28q6E/G+BQ/YE+Q38diGZvM/Ozao0sO2/3zSE8bqGJSIkk2nRU4l+PjI1Fr/mTVh0=
+X-Received: by 2002:a05:6a21:9214:b0:366:14ac:8c6f with SMTP id
+ adf61e73a8af0-392e01842cemr1045926637.69.1769737497875; Thu, 29 Jan 2026
+ 17:44:57 -0800 (PST)
+MIME-Version: 1.0
+References: <20260128071853.2602784-1-shengjiu.wang@nxp.com>
+ <20260128071853.2602784-3-shengjiu.wang@nxp.com> <aXuVXruPir7hasdd@lizhi-Precision-Tower-5810>
+In-Reply-To: <aXuVXruPir7hasdd@lizhi-Precision-Tower-5810>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Fri, 30 Jan 2026 09:44:45 +0800
+X-Gm-Features: AZwV_QgRSYSkN9m3U3HWfvC48m_G_i-4n2rGz9NZqS3r9F4yXRNiuZDo3HAYyaM
+Message-ID: <CAA+D8AMYEVbFTgTaVhTU_ZJ=eoyQAj4zygLsfuK+Yt+=8qQk1Q@mail.gmail.com>
+Subject: Re: [PATCH 2/3] ASoC: fsl_asrc: Add support for i.MX952 platform
+To: Frank Li <Frank.li@nxp.com>
+Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, lgirdwood@gmail.com, broonie@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, perex@perex.cz, tiwai@suse.com, 
+	linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <2428D892-89F9-4013-9681-AD9BD76B0874@nexthop.ai>
-References: <20260129-i2c-xiic-v7-0-727e434897ef@nexthop.ai>
- <20260129-i2c-xiic-v7-1-727e434897ef@nexthop.ai>
- <ab9dc191-59c1-40a9-bbf1-e6c082af128a@lunn.ch>
-To: Andrew Lunn <andrew@lunn.ch>
-X-Mailer: Apple Mail (2.3864.300.41.1.7)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_152958_004096_FAF1C467 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20260129_174459_212471_E9BC18C4 
+X-CRM114-Status: GOOD (  27.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,46 +121,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jan 30, 2026 at 1:14=E2=80=AFAM Frank Li <Frank.li@nxp.com> wrote:
+>
+> On Wed, Jan 28, 2026 at 03:18:52PM +0800, Shengjiu Wang wrote:
+> > Add a compatible string and clock mapping table to support ASRC on the
+> > i.MX952 platform.
+> >
+> > There is a limitation on i.MX952 that dma request is not cleared at the
+> > end of conversion with dma slave mode. Which causes sample is dropped
+> > from the input fifo on the second time if dma is triggered before the
+> > client device and EDMA may copy wrong data from output fifo as the outp=
+ut
+> > fifo is not ready in the beginning.
+> >
+> > So need to trigger asrc before dma on i.MX952, and add delay to wait
+> > output data is generated then start the EDMA for output, otherwise the
+> > m2m function has noise issues.
+> >
+> > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > ---
+> >  sound/soc/fsl/fsl_asrc.c        | 39 +++++++++++++++++++++++++++++++++
+> >  sound/soc/fsl/fsl_asrc.h        | 16 ++++++++++++++
+> >  sound/soc/fsl/fsl_asrc_common.h |  3 +++
+> >  sound/soc/fsl/fsl_asrc_m2m.c    | 29 +++++++++++++++++-------
+> >  4 files changed, 79 insertions(+), 8 deletions(-)
+> >
+> ...
+> > diff --git a/sound/soc/fsl/fsl_asrc_m2m.c b/sound/soc/fsl/fsl_asrc_m2m.=
+c
+> > index f46881f71e43..296e13a16490 100644
+> > --- a/sound/soc/fsl/fsl_asrc_m2m.c
+> > +++ b/sound/soc/fsl/fsl_asrc_m2m.c
+> > @@ -253,15 +253,28 @@ static int asrc_m2m_device_run(struct fsl_asrc_pa=
+ir *pair, struct snd_compr_task
+> >       reinit_completion(&pair->complete[IN]);
+> >       reinit_completion(&pair->complete[OUT]);
+> >
+> > -     /* Submit DMA request */
+> > -     dmaengine_submit(pair->desc[IN]);
+> > -     dma_async_issue_pending(pair->desc[IN]->chan);
+> > -     if (out_dma_len > 0) {
+> > -             dmaengine_submit(pair->desc[OUT]);
+> > -             dma_async_issue_pending(pair->desc[OUT]->chan);
+> > -     }
+> > +     if (asrc->start_before_dma) {
+> > +             asrc->m2m_start(pair);
+>
+> Does other Soc also work if ASRC start before DMA enable? Suppose most li=
+ke
+> work. Then needn't start_before_dma.
 
+Yes, should work.  but I don't want to change the original behaviour
+of other SoC.
 
-> On Jan 29, 2026, at 2:43=E2=80=AFPM, Andrew Lunn <andrew@lunn.ch> =
-wrote:
->=20
-> On Thu, Jan 29, 2026 at 09:43:13PM +0000, Abdurrahman Hussain via B4 =
-Relay wrote:
->> From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
->>=20
->> The xiic driver supports operation without explicit clock =
-configuration
->> when clocks cannot be specified via firmware, such as on ACPI-based
->> systems.
->=20
-> Are you saying it is technically impossible to specify a clock in
-> ACPI?
->=20
-> Maybe a more accurate would be:
->=20
-> The xiic driver supports operation without explicit clock
-> configuration when the clocks are not specified via firmware, such as
-> when the ACPI tables are missing the description of the clocks.
->=20
-> Andrew
-
-Actually, ACPI (since 6.5) added a ClockInput() macro that can be added =
-to
-_CRS of a device node. The ACPI subsystem in kernel could parse these =
-and
-convert into proper clocks integrated with the CCF. But, AFAIK, this =
-idea was
-rejected in the past. So, technically, it's the kernel that lacks =
-support on
-ACPI systems.
-
-What about this wording then:
-
-The xiic driver supports operation without explicit clock configuration =
-when
-the clocks specified via firmware are ignored, such as on ACPI systems.
-
-Abdurrahman=
+Best regards
+Shengjiu Wang
+>
+> Frank
+>
+> > +             /* Submit DMA request */
+> > +             dmaengine_submit(pair->desc[IN]);
+> > +             dma_async_issue_pending(pair->desc[IN]->chan);
+> > +             if (out_dma_len > 0) {
+> > +                     if (asrc->m2m_output_ready)
+> > +                             asrc->m2m_output_ready(pair);
+> > +                     dmaengine_submit(pair->desc[OUT]);
+> > +                     dma_async_issue_pending(pair->desc[OUT]->chan);
+> > +             }
+> > +     } else {
+> > +             /* Submit DMA request */
+> > +             dmaengine_submit(pair->desc[IN]);
+> > +             dma_async_issue_pending(pair->desc[IN]->chan);
+> > +             if (out_dma_len > 0) {
+> > +                     dmaengine_submit(pair->desc[OUT]);
+> > +                     dma_async_issue_pending(pair->desc[OUT]->chan);
+> > +             }
+> >
+> > -     asrc->m2m_start(pair);
+> > +             asrc->m2m_start(pair);
+> > +     }
+> >
+> >       if (!wait_for_completion_interruptible_timeout(&pair->complete[IN=
+], 10 * HZ)) {
+> >               dev_err(dev, "out DMA task timeout\n");
+> > --
+> > 2.34.1
+> >
 
