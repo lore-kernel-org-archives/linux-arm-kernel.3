@@ -4,175 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9493D61033
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 06:49:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0770DD61037
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 06:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bsL7ihbVNHxteSnIrmWt6+96eSizv04RtoQWjSToSqQ=; b=yfUdDbS1PHiD9fdDmVV89V8Ook
-	M7aMjSS2CKruQBbq6qdMEl+pw6zesmaWRGcshymL6+f+K58NX6Y6zSKXoBzrJImZZBoArQOo1Y98E
-	MiekF7R77YRjNEryHnCrgiYiUc/ujP21nU58cQngXupZny5baMDXFlSfLSaYoLCBuWvM4wLYxilFG
-	IBYL/w++9//GLzKm1UxUU1ZX60ycSh8mqv+L1zLf9gf1uw7GfqPj80KoLbKkl1UuKkaf2vIRRuJTa
-	Yicru5yfKkAqbzY9UhaIBsq6K//S1gu99VaE7OP9y2HA5zIJcTzekiLd6pTTtccDbj/OuFHJcEskd
-	WgR9+PXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HUIw0RJaE1aXOBsFkdxWp8jD82cs6plN0HTFY2F6+4M=; b=bwrx+vWizSZu+dnH/VNerQuT7t
+	BKHwVjHWIL4JYKFnUbQ7XnEgINZ7025k9Nxu1j39/q8FlZ8oE9pvPEwI7WTnY/1KvFvnpz0UB0XLe
+	mMHaq5ZGUr4I2y3oCFFe65IB9WX2pUsJsibePleLQbFDoaGIktfIPQJeF+6Xeq6NNZPuHSgpszQFl
+	jmxrSgOV3m4YVqeNZrsYK2u5XDKIClXeo8dDQqYjunTQNFBwxtuVzReKsRFOW5dJEOCxMtZAtd00A
+	LkVzGs6FBZTcor7vrPSoOGnu72sxP2DyEazgWenyWLPGFF2NaY+whqJ0BfwOuCQUMZ/p7nZEk9Okp
+	+2cb8TUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vliJM-000000016nF-3C6G;
-	Fri, 30 Jan 2026 06:48:56 +0000
-Received: from mail-northeuropeazon11012056.outbound.protection.outlook.com ([52.101.66.56] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vliQv-0000000174Y-03F2;
+	Fri, 30 Jan 2026 06:56:45 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vliJK-000000016mt-0Qnf
+	id 1vliQs-0000000174A-1m8B
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 06:48:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AEo9fUGRkxQzMsAW/AiZAGHWj/h0rW8bc7pQOaF1awV2bBrdH6iKTpCZQrCu9G9bRTlIhWU/J7LkBJjeqSGHwEwm1rAaqq7AfPBIRtRQKYDt2Su9LLzgwYgASuQMVLSrZave3/A4gRZ+QP6ikugpXkMlU7DB7VJmmNAEJ4N9I7dTfGzhIhYGjnkP0OiSGdeHx14+52EmHXl0MWlLxGRwsE+7jx0CqmAKocVIUHC9dyuJ9OJ7ThCHAkaFQX/JKAJ1swdFsbnx6hFWjQudgHtjDUKuePmYsovfKO9g0LgvkfugRBdvDeQw9X1BLc5Y0RdL8AU63nPtEhEzna4Sk6X0CQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bsL7ihbVNHxteSnIrmWt6+96eSizv04RtoQWjSToSqQ=;
- b=ikwvsUfV5aKJyhvt15JQ27YHRNilJLkW4+iIBf998ND+BlR9Cvl/YOa/fDqW5yvJlmWOqeRagT4J2WbMWNhved9sgtUjRsqCqNHu62E5Tg1vg2o2SACBBS9LKpV5R5odXBhVa2SFVhOEZbbtQuvoHTo6TRAC89tiSVqIDN+ccUnaRezlQxdV56EbRTfxJl0EE/kPawn1fGi3p5ZQw3wXGgoSwP+itzNsLRYMl1kQgGzNfb3TS5FrdVEw4uguDfN2ZCEeVrVd3tYrga65hIMvxdUJHymwUmSdnlectNxszCQAsrdkFFYuL0EU/SDesQgyo9AvBiaTmVO0JF4papoC2A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bsL7ihbVNHxteSnIrmWt6+96eSizv04RtoQWjSToSqQ=;
- b=Map0Z9U605wb97slMbgST++hPsIFcaZF7XPKh31VmFgwd4XFTkXW1WHOPB/7acFTNUxixtOfAfgAOPWfswxMaMdNnFecqbSw55XVuU6OOPz7ecEqZkQWtYRyWJ8upeKjlv1KuWpUBpGbS+tyXxnDkCgKikBhQZbnJBfSqEhfim/pS6jR68KNEFMyu32z48S1W7J9sT/PY64c9jFlDwFaFQaV8/pzJsw6IN0lvNkK5sD6q4QMXUE3ysJioq0XKJZkYnhytbCm2R0MghlDsRmLuCCpUWWsFpIo5TWuWDrvqsyYq0LsUjQja4VBxT6hsgKwWd4RvU2sJALbvaU8UPZG2A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by DU4PR04MB10387.eurprd04.prod.outlook.com (2603:10a6:10:568::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Fri, 30 Jan
- 2026 06:48:48 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64%4]) with mapi id 15.20.9564.006; Fri, 30 Jan 2026
- 06:48:48 +0000
-Message-ID: <cec25a41-cc6a-4b03-833e-5c7da5727e85@nxp.com>
-Date: Fri, 30 Jan 2026 14:49:38 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/bridge: imx: imx8mp-hdmi-pai: enable pm runtime
-To: Shengjiu Wang <shengjiu.wang@nxp.com>, andrzej.hajda@intel.com,
- neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260130055508.3462700-1-shengjiu.wang@nxp.com>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <20260130055508.3462700-1-shengjiu.wang@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SG2PR04CA0215.apcprd04.prod.outlook.com
- (2603:1096:4:187::14) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	Fri, 30 Jan 2026 06:56:43 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4801ea9bafdso7079205e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 22:56:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1769756200; x=1770361000; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=HUIw0RJaE1aXOBsFkdxWp8jD82cs6plN0HTFY2F6+4M=;
+        b=Hyo8KeQNOFwOBihEN5lJ68aOHq+7I/DJmlwP4RPP3qKXV0FpaGPHDVZf+NRuZyywld
+         FPnUvjM1UuyDgguHBkM3n3jP8uFz7VNQVsJfTaNukCgT6a49mBKlOL6MGUQYDSYZtR3D
+         FBZCJibTFwT4NEIUL73SzFOr/TcB62vfboYBgZYin81tAr4rRmdk6V5iGb0V8CJyleHb
+         8nX0dHDIctyDHb95kI+sxxhPfPnPQMgIO064Y2W/H+ug5rQ2eICsTP+hCZeobcmfv8EI
+         7eO0kBuk9rMkSgP0KeHRFq2TV1AKCVzjEA6pVTAQjj0wjt+mKESm0tlpgjttIW8kEbrz
+         IKlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769756200; x=1770361000;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HUIw0RJaE1aXOBsFkdxWp8jD82cs6plN0HTFY2F6+4M=;
+        b=UrZn14+79hrlfgdTo3DFwZbp/lF11/z7HWQLSOJRzKmAZrcRFuGn4Qo+0Drw/8NLRK
+         z7+D68UQE0ZTh7OPpIReUBqB/G1F/9a1+w9RqRDrpN/7qEnSxmbpeqtbOALDdMElqtE8
+         668uJQGrZIeVn7Tuy412gZtJ1lIIbrQmSkJ9ERLDxb0GvPBQyNE2WRi0pdWaLE0YLUtl
+         tMVk22AruFQC6QQnkAjAUwtAhtfmJMDuYw4mExQU0fjcQqBeG5vGMByc5ZBuVrlgP83q
+         MYfyrCNPvPpmtyJI4VY+xAFqbmYDA7+iWETYDKOjFF25LfsaqR82T3EBtSIK2a74FU5N
+         V/aA==
+X-Forwarded-Encrypted: i=1; AJvYcCXKVT2/DLCZsmU3ugOTQ/Az/J4eTxmwc+FGI4sVAVBbgXe35o1WOoGxNmRtUifcqHJ9L71N2mpwPoLG3ft+zbOL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyW/0+rK9mGmhulpTHACqQuDR8og9bAC8vVBTZj+2Qq/qzdYfg1
+	fdjhHhys9v0d/n7jLk626AiKCTZP/v+Sl21xFTTo5Hm3zP2RFDjj0KYNgcU+vaWzvwE=
+X-Gm-Gg: AZuq6aLglmakMO0/kVENrrd7ytpSQgZpMYLmWaAChbCoIzac5PgsUJrVh6HF+j4FuIg
+	YXYdXd/QxzSYq63B0eyupIsXCxUvJBIJUiQmA/I9Pmr1neuCb6TVx6hG5+PfZUJZRhWnAfCwQER
+	qGMoiYZjlu+Pi8X7ROqoBjTVW2OoIwWNZ3mE6gGrfWisfwmNw8NoNOm7274Q5/aZ8oiIi6pFvwO
+	YRTC6vGLDHEQKKYC1iv+6h7h+36WAqxiExEkhiI3pAuYaZZoEyKTvFQTrGg88I2m78GOazx009S
+	JrWGldbJQQFvRaB/DSw+xMm/0wwJnHSTvNj3eD1peWzFCLUuZZdQmUnHhvpV7uJjywj5P+jXW/Z
+	pZ7TVqhlAslqasNL2HfMgeYu7b4K7Sgzf0ltlLtw7Fb2h++nVJQaNJzZfydVdaxUwgvzF19eqYr
+	FRvi+vFcKFL2axF+oDZA==
+X-Received: by 2002:a05:600c:4ecd:b0:480:3230:6c89 with SMTP id 5b1f17b1804b1-482db4616damr16802455e9.12.1769756199522;
+        Thu, 29 Jan 2026 22:56:39 -0800 (PST)
+Received: from [10.31.13.216] ([82.77.28.160])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-482dffd47c2sm7593775e9.0.2026.01.29.22.56.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 29 Jan 2026 22:56:38 -0800 (PST)
+Message-ID: <fbf00a15-9faf-4455-ad4b-c351ffae6598@tuxon.dev>
+Date: Fri, 30 Jan 2026 08:56:37 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|DU4PR04MB10387:EE_
-X-MS-Office365-Filtering-Correlation-Id: 25d9c18b-537e-4345-7e5a-08de5fcb9e97
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MUlhNUk3YXdhQTVTdjRTWW9qMWRNbEtYMktFcktXcTZZcjlWOEx0V25OdFhX?=
- =?utf-8?B?eGxweEFER0RRd0xDeGNwOGFyVGRsSWM5aTVaWkdxbGFCRjczKzhFN2RSWnpo?=
- =?utf-8?B?blRBT0JjV3NJOVZIOGpzaHFsYy94Y2NLVHQwTnpBcU9ibFV5c2lYdFovK1Nm?=
- =?utf-8?B?RGVUM1JMM2pqczhnYlJLRVBDMlQ2alBVOXZaYitlZGVSMTV1Yi84WmxlRENs?=
- =?utf-8?B?T0NkZ0k4WHRhTDYyTTZRR2U5N01PWXUyMXlhbGNWcmtCS0I2cGlwSDYwdnNF?=
- =?utf-8?B?MjU1Q0FWay9TeHBPUjFrRWJrbDI3R0hYaFdHZzhFQ3Q1MjIrYjEwQTFjcGJq?=
- =?utf-8?B?WFpHTXAzK2hMZ1VRRkg5ZCtSblVaVFZuRW9wbkd0ejZxOXZVOTN0QkdvdWNO?=
- =?utf-8?B?TndTcklJM20zSGJuZHl5eEZybnc4YlJsWTg2UDNuM0V2c2VBd01nTUd1Ykkv?=
- =?utf-8?B?OWVqYjVBYVhSZ0xyTCtlYVRjYlZlbkZBRnAxS0tiL0hhS2g2Qmt4WFovSnkx?=
- =?utf-8?B?MjU1VXdIdjhwRytVTFoxRVNjQUpjdjdaSjVDbGt1Uk9VcHg2K09uL3hMVlRp?=
- =?utf-8?B?TDZ2QldVY0RkOHdQbnNNK28wYmFYVmViR0FqVGFhMDdhWXNncWFGd0RpbGVl?=
- =?utf-8?B?L0FsYjlJb2QwQ3pYSEFJL1lCMTNKenR1TFNqaENyNnErSy9vcUV4UVNNUkVz?=
- =?utf-8?B?WTBINkUzTXB4OC8rbm9rRzNxSFpFVEtEczVEc3Y2by81eHpMcWRqbklUckFi?=
- =?utf-8?B?THFZb2pCTm5kNVhpQ3VScFlScUhJdkp0clRxTHJ4TzJ2a05nRWJKTko2VkJs?=
- =?utf-8?B?TllZK0IrTm9NbjBLM0hvOFowbG53WE9kRWhzMDFhRkFZMzFwdzhTODBLNnpp?=
- =?utf-8?B?Rys2amNPTkdMYzNNWW0rMGMySDVGckJUdlZ5Q0JYVkh3RElOK0VWb3l5dHpX?=
- =?utf-8?B?VWxmZi94b2tGZTBEb1pXUzVNUWQ4WThKMjB3Z1ZrMzV5bUw5TU5iWXE4ZFh5?=
- =?utf-8?B?T2ZlNTljcHpncDhodmhWcWIzemxFdFQxOXBKSFkxMzNtQm1SWXB3aFhkUmU2?=
- =?utf-8?B?b1lLcXhsa1p6VkUvZ0d0WXl0SkFrVzJMWFdrT082N0p5VHowRDJ6Q1NYT1BF?=
- =?utf-8?B?S0hnQlRWMEhWcUJyeFZuZ3hhbjBMa0tWbXFMZkVoTWxiV1F0emdBdCt1dWty?=
- =?utf-8?B?MVlxZ3M1dXQ4YWwveE9hMFJQaWtPSmxWeVRLSklhczBJdnVoZGRKNW1vRmZR?=
- =?utf-8?B?blYyQmJKTjhoRCtSZ1NSYlkvWVlZUVQzdWE2bVVyNmdxdlJ2eEVrVWpnaktN?=
- =?utf-8?B?a3pLNTFLY2VpSE84cFhVSGxQS2RQOWhmOTMvTDZaOTl5VmxMMURtdWQ2cERn?=
- =?utf-8?B?eWpHb0hHcmZ0V2RJS2lWNkIwQ3d6U0xmQmtUVlMxNlhOVTdLTUR0aVRPWEZi?=
- =?utf-8?B?OHNLTDBkUFhiZTFWM3Nzd0Jycmd6OUZ6QW00MTlwbjd1Z1RDWVVOeDZWMlV6?=
- =?utf-8?B?TGNGNDVxa09XU0FHY1ovZWY0MVR3MCtYNTVqOVJFZzNSU0VNb3FHSTlPa1o4?=
- =?utf-8?B?UUNHQ1k2ZS8vWWZvZmxReW1SS0JOcFBRVlp2a1c0QW41OW95K3pYM2o4TWxI?=
- =?utf-8?B?bzhoT1ZQeksvN2V3TnFvSGdtemVZa3BCNmJyOXJjYVhpdGdlaWNQSU9pb3Y4?=
- =?utf-8?B?ZHF0V3VENmZseDhtei84SDN0VVIyUGlBb1FncS9rL2xSOUxWU2xqVCtLZ0xG?=
- =?utf-8?B?bGRITkVtaUYraE10L1dlbFUvL1pLd2NOZlhBcjJoRjl2UmFoQ1NHU1M0YXFz?=
- =?utf-8?B?ODZzWUU3bDdRMUdQN1cvU1RTZ1JhL3YzWmh6L0RoTFV5VnFHNWdxYlNpeG0w?=
- =?utf-8?B?OTI0YnBOU3N0ZWgrRjNpTUtKb1R6cEFqNGlDY2pIN0hwdGk4NkJWbjdLL2tV?=
- =?utf-8?B?SS9lVjZIeUZEWlFPWkM5ZEJ1ZHJLRkVSUHZGVk9UbzVnSlVaeUlaQjl2K0Jz?=
- =?utf-8?B?elprbWpVKzF6d1I5NGtudlcwL1JTYnh5TldvN0VTVmdMaWVvQWdtMmdGMUxB?=
- =?utf-8?B?RkFOdzMyQXhsWk9OL3RwNjI5UERaT2ZSczh0QW9mSkYraWwrcVZzNlZINnZa?=
- =?utf-8?B?UVNzaitSSVgxKy9KOXR2TkE5TUd6RWVZRmgyd0V3cnZjN1dTMndmUHNvQ0tq?=
- =?utf-8?B?NVE9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(1800799024)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Kys5aHV3VHRIdkhsVVJybXRhMlU3Zk5xQ015SXo1RUcyS2VIakJFOGhlamZu?=
- =?utf-8?B?MU1yaExnbU5DYWF4cGc1Tk5VUThoZmt0NkdSWTM5R1AvSHJkRXdSOHVxWjJo?=
- =?utf-8?B?WWRNUkhqQVdndDZMM2hTdmp0QW9DRXo3ZXJrdjFaTEN0bmU3YlRJRlZjZFk1?=
- =?utf-8?B?ekNpa1I0Ni9KWmtWL2MvcU1zS2VqcUU0VStNcHE0ZkFRb2ZnSklPbi9WRVd2?=
- =?utf-8?B?S3hFSVdjRFc2bXE5WW9iTWlzdzBWMXcrRklsb3RGRUx6VXRZblQrUWtnalNG?=
- =?utf-8?B?bWRPcnNGMnUxMExQUTBHbmkxK2o3UURUVXZma2htQlhYSzNsdUlpQXZaM2Qv?=
- =?utf-8?B?ODJnenVGRUpLRS9CSklZL1J5djEvdzVxdFlpanJ4dzJvUFUyd2FPdjVlZXhI?=
- =?utf-8?B?WTB0Y0V4RzFWamF4Z2MyU0RjN0RVR01tQ1JoMSs0Mms5RW5PTi9LUkxlZWlz?=
- =?utf-8?B?M3IvbjF3cWlGVjNOTFplTG1aZ3p5clNRQVpWck10RXdTSFA5YXZGWVQ5SlVK?=
- =?utf-8?B?ZFlpcDhpWldtSjRqOTJqWnZ3aThlNEJIaW1EUkhzSVRML2huSzVvMWFmaFF4?=
- =?utf-8?B?N282NnVzK0UzWHVZT1N2dHVzU0dUQVJad0xvdlV4QTdxdUJpL21oZU8xSEJN?=
- =?utf-8?B?Y2NMNUxtbCtnRnZJdVhYdjV3NG5QNEdSZlZHVDhWVGxDUnJNRkI3bWsrcWg4?=
- =?utf-8?B?WGlDTE4zZ0xyTkpaS1V5S1MvVkFybHE5Qkh3cnBMZVFOMW1lRHF4UUptQ3VG?=
- =?utf-8?B?anJsU2U2eHQvRkJhSklZVWtzVTM0Nm42VHU3SHkvNkYzbWRLRmdqMUc4OWFa?=
- =?utf-8?B?SVJaQ29IbDFhM3lPTTZ4L1RIRlJDakZQRFpGZVUrVThtbkhrRjZXazdsVTF3?=
- =?utf-8?B?UmlNSlNYb3JJcGwzazN1VUppeWJNSWJNdUZwbFJ4RmhkMHUzSVVvSUVyWEQx?=
- =?utf-8?B?aTh4QTd3WkpDNDhUdGxIc05RYjM3SDJsSnRpN2h4eVBWKzRxSmNyN1pMRDE1?=
- =?utf-8?B?NXl6NVdkRUYvMEJ1S3VNcHNsT1E5YlFTcGkvNG4vZkpEN3VOcDBvQmpjM3ZJ?=
- =?utf-8?B?K3ZPWDk5czgzSlNoM1JwM0wvelk2SW9mM1RBSENpZW1kZEdxWGFQTXF5M0FP?=
- =?utf-8?B?NW5BTkl6RlZKcHRWdUFTelkvQ2lUVzdUTDR6cVJmV0p5amsvcUxkblFUU3hY?=
- =?utf-8?B?S3M2bHBKUTVydzh4WGxkdml6d3p3aVBvK0J6cVVzZmdWNFZXNkFrV0N4cC9j?=
- =?utf-8?B?OHV6OXVsVE83bEt6VDdTY09EWFc2Y0duM3R2a3pHTWUzWm5RUDJnVmwvZm0w?=
- =?utf-8?B?MEp0bWkrT0x3RmhyaHc2VDFVSTZ2ellEdmRSSENCYWRscnU1eGNoNmNYV3d4?=
- =?utf-8?B?YkppUXBrYW1KTFA0UHhZNjh2L3RTNlA2R1pVVTBwZ0RncTFEcFlUM3Zncklt?=
- =?utf-8?B?NTZNdU1BSWFsUTVkdi9sTEgrWW9TZ3Brc0xzVzJ1LzMrdTc3K2h4ekFxY040?=
- =?utf-8?B?TnhPTTRJY3B2aVFETWdRNzhvdEo1aVhOWUxCSFhQdzNMSmlqZDJneHpJUEU0?=
- =?utf-8?B?NnpHV2dNRzNEaFE2UkowN3hncE9tRnpYQUdIU1RHcW1LbFp0SjNZcGo3NDZY?=
- =?utf-8?B?NWFyWmozelA1QU0rSkFmV0RxZlFyNy9XV3hRelZNT2h4QkdqdHoyWGRsME10?=
- =?utf-8?B?Rno2QmFrWDRYTkIzV2ZnOWFESU4xTWVnZ1pmSDEwR3N0SlNWaEs0VXpTcjhX?=
- =?utf-8?B?WHh5TUw0eTFOek9ZMTd5UThGSzVaUlFGYWg4djY5OHJibGFXVk1KbUpaTjBR?=
- =?utf-8?B?TkpvZDhMTVRkTnZMQUhjSlFYTG9rc2ovVkllR3NmTnNkRVZLVHNoV0xva0c4?=
- =?utf-8?B?dU1MaWY0a0hVdWljS0pZUWVPd0hXVnJKdGZNR3FzOVY2b1FZMWs3REk1ZVlh?=
- =?utf-8?B?Ymk3dVRFUzNKU0R5UEZaN2svTVh2ck12Nko0SUJoM0t6OFJXSlk4RzNUZ0JU?=
- =?utf-8?B?NmtXR0VhcU9rVjZBSFFZdUNEMkFTaTVTWUEvR2VFeER4MXo1QkRDUVNDZkZT?=
- =?utf-8?B?YWp1SkMwMnZHSkpQM2V3VHV2UjlBSjhxVlBEUG5RYTZwTXhCbUQ5eUxiZTZx?=
- =?utf-8?B?Q1VNS244M05kdk5mbTJsbk1SNThnc1VtQW1VMmhsVDE3Q3hxcDh1MU8xOC9S?=
- =?utf-8?B?VE1wTVFGZjg2NUxhdTRsalY0RXFwTWp6RVFYZ3ZtbXNrbnVBZEhCOFpmYkdK?=
- =?utf-8?B?YVFtcnMvbGNNUEtFQmE4Z2xvSXJJNHhId3hHTUdMeFBhUHRpZ0dFRnI4YUNo?=
- =?utf-8?B?UUVrT1IrVEsxTlNQVENETldlQnRvek1JNEF5aFlXRWVaVFlzTG5zQT09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 25d9c18b-537e-4345-7e5a-08de5fcb9e97
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 06:48:48.0208
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PNwAB6o82zclcP/AmUJBxLFzdvoUIeek4R7gO3PHRRgxKS6VOUzQN04+3E5fcM0qbd/uEji9FJ2xgZTPP29pbg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10387
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 10/31] clk: at91: clk-generated: use clk_parent_data
+To: ryan.wanner@microchip.com, mturquette@baylibre.com, sboyd@kernel.org,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ bmasney@redhat.com, alexander.sverdlin@gmail.com,
+ varshini.rajendran@microchip.com
+Cc: cristian.birsan@microchip.com, balamanikandan.gunasundar@microchip.com,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1768512290.git.ryan.wanner@microchip.com>
+ <564e91919099ad05f11d22ff20a6dc674f1d0ba4.1768512290.git.ryan.wanner@microchip.com>
+Content-Language: en-US
+From: claudiu beznea <claudiu.beznea@tuxon.dev>
+In-Reply-To: <564e91919099ad05f11d22ff20a6dc674f1d0ba4.1768512290.git.ryan.wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_224854_156585_515C8D89 
-X-CRM114-Status: GOOD (  26.59  )
+X-CRM114-CacheID: sfid-20260129_225642_661917_20686C68 
+X-CRM114-Status: GOOD (  22.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,120 +106,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shengjiu,
+Hi, Ryan,
 
-On Fri, Jan 30, 2026 at 01:55:08PM +0800, Shengjiu Wang wrote:
-> There is an audio channel shift issue with multi channel case, first run
-> the channel order is correct, but second run the channel order is shifted.
-
-Nit: I'd rephrase "There is an audio channel shift issue with multi channel
-case - the channel order is correct for the first run, but the channel order
-is shifted for the second run.".
-
-> The recovery method is to reset the pai interface.
-
-s/pai/PAI/
-
-Can the channel order shift issue be fully fixed instead of implementing
-a "recovery method"?  I presume that this patch implements a recovery
-mechanism.  If it can't, any chip ERRATA?
-
+On 1/16/26 22:07, ryan.wanner@microchip.com wrote:
+> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 > 
-> The reset can be handled by pm runtime, so add the pm runtime function.
-
-Nit: s/pm/PM/
-
-s/add the pm runtime function/enable PM runtime/
-
+> Use struct clk_parent_data instead of struct parent_hw as this leads
+> to less usage of __clk_get_hw() in SoC specific clock drivers and simpler
+> conversion of existing SoC specific clock drivers from parent_names to
+> modern clk_parent_data structures.
 > 
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> Remove the last of the usage of __clk_get_hw().
+> 
+> Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+> [ryan.wanner@microchip.com: Added SAMA7D65 and SAM9X75 SoCs to the
+> clk-generated changes. Adjust clk name variable order.]
+> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
 > ---
->  drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c | 15 +++++++++++++++
->  1 file changed, 15 insertions(+)
-
-Subject prefix should be "drm/bridge: imx8mp-hdmi-pai:".
-Refer to what previous commits for i.MX bridge drivers use.
-
+>   drivers/clk/at91/clk-generated.c |  8 +++----
+>   drivers/clk/at91/pmc.h           |  2 +-
+>   drivers/clk/at91/sam9x7.c        | 37 ++++++++++++++++----------------
+>   drivers/clk/at91/sama7d65.c      | 37 ++++++++++++++++----------------
+>   drivers/clk/at91/sama7g5.c       | 35 +++++++++++++++---------------
+>   5 files changed, 58 insertions(+), 61 deletions(-)
 > 
-> diff --git a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c
-> index 8d13a35b206a..1afc729da9b9 100644
-> --- a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c
-> +++ b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c
-> @@ -8,6 +8,7 @@
->  #include <linux/module.h>
->  #include <linux/of_platform.h>
->  #include <linux/platform_device.h>
-> +#include <linux/pm_runtime.h>
->  #include <linux/regmap.h>
->  #include <drm/bridge/dw_hdmi.h>
->  #include <sound/asoundef.h>
-> @@ -33,6 +34,7 @@
->  
->  struct imx8mp_hdmi_pai {
->  	struct regmap	*regmap;
-> +	struct device	*dev;
->  };
->  
->  static void imx8mp_hdmi_pai_enable(struct dw_hdmi *dw_hdmi, int channel,
-> @@ -43,6 +45,9 @@ static void imx8mp_hdmi_pai_enable(struct dw_hdmi *dw_hdmi, int channel,
->  	struct imx8mp_hdmi_pai *hdmi_pai = pdata->priv_audio;
->  	int val;
->  
-> +	if (pm_runtime_get_sync(hdmi_pai->dev) < 0)
-
-Use pm_runtime_resume_and_get instead.
-
--8<-
-  `int pm_runtime_get_sync(struct device *dev);`
-    - increment the device's usage counter, run pm_runtime_resume(dev) and
-      return its result;
-      note that it does not drop the device's usage counter on errors, so
-      consider using pm_runtime_resume_and_get() instead of it, especially
-      if its return value is checked by the caller, as this is likely to
-      result in cleaner code.
--8<-
-
+> diff --git a/drivers/clk/at91/clk-generated.c b/drivers/clk/at91/clk-generated.c
+> index 4b4edeecc889..d9e00167dbc8 100644
+> --- a/drivers/clk/at91/clk-generated.c
+> +++ b/drivers/clk/at91/clk-generated.c
+> @@ -319,7 +319,7 @@ struct clk_hw * __init
+>   at91_clk_register_generated(struct regmap *regmap, spinlock_t *lock,
+>   			    const struct clk_pcr_layout *layout,
+>   			    const char *name, const char **parent_names,
+> -			    struct clk_hw **parent_hws,
+> +			    struct clk_parent_data *parent_data,
+>   			    u32 *mux_table, u8 num_parents, u8 id,
+>   			    const struct clk_range *range,
+>   			    int chg_pid)
+> @@ -329,7 +329,7 @@ at91_clk_register_generated(struct regmap *regmap, spinlock_t *lock,
+>   	struct clk_hw *hw;
+>   	int ret;
+>   
+> -	if (!(parent_names || parent_hws))
+> +	if (!(parent_names || parent_data))
+>   		return ERR_PTR(-ENOMEM);
+>   
+>   	gck = kzalloc(sizeof(*gck), GFP_KERNEL);
+> @@ -338,8 +338,8 @@ at91_clk_register_generated(struct regmap *regmap, spinlock_t *lock,
+>   
+>   	init.name = name;
+>   	init.ops = &generated_ops;
+> -	if (parent_hws)
+> -		init.parent_hws = (const struct clk_hw **)parent_hws;
+> +	if (parent_data)
+> +		init.parent_data = (const struct clk_parent_data *)parent_data;
+>   	else
+>   		init.parent_names = parent_names;
+>   	init.num_parents = num_parents;
+> diff --git a/drivers/clk/at91/pmc.h b/drivers/clk/at91/pmc.h
+> index 3d06b1c41f13..d8d491096c0d 100644
+> --- a/drivers/clk/at91/pmc.h
+> +++ b/drivers/clk/at91/pmc.h
+> @@ -174,7 +174,7 @@ struct clk_hw * __init
+>   at91_clk_register_generated(struct regmap *regmap, spinlock_t *lock,
+>   			    const struct clk_pcr_layout *layout,
+>   			    const char *name, const char **parent_names,
+> -			    struct clk_hw **parent_hws, u32 *mux_table,
+> +			    struct clk_parent_data *parent_data, u32 *mux_table,
+>   			    u8 num_parents, u8 id,
+>   			    const struct clk_range *range, int chg_pid);
+>   
+> diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
+> index f98aecdd6f88..d549bdd988e8 100644
+> --- a/drivers/clk/at91/sam9x7.c
+> +++ b/drivers/clk/at91/sam9x7.c
+> @@ -744,16 +744,15 @@ static const struct {
+>   static void __init sam9x7_pmc_setup(struct device_node *np)
+>   {
+>   	struct clk_range range = CLK_RANGE(0, 0);
+> -	const char *main_xtal_name;
+> +	const char *main_xtal_name, *td_slck_name, *md_slck_name;
+>   	struct pmc_data *sam9x7_pmc;
+>   	const char *parent_names[9];
+>   	void **clk_mux_buffer = NULL;
+>   	int clk_mux_buffer_size = 0;
+>   	struct regmap *regmap;
+>   	struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
+> -	struct clk_hw *td_slck_hw, *md_slck_hw, *usbck_hw;
+> +	struct clk_hw *usbck_hw;
+>   	struct clk_parent_data parent_data[9];
+> -	struct clk_hw *parent_hws[9];
+>   	int i, j;
+>   
+>   	i = of_property_match_string(np, "clock-names", "main_xtal");
+> @@ -762,11 +761,15 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+>   		return;
+>   	main_xtal_name = of_clk_get_parent_name(np, i);
+>   
+> -	td_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "td_slck"));
+> -	md_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "md_slck"));
+> +	i =  of_property_match_string(np, "clock-names", "td_slck");
+> +	if (i < 0)
 > +		return;
-> +
->  	/* PAI set control extended */
->  	val =  WTMK_HIGH(3) | WTMK_LOW(3);
->  	val |= NUM_CH(channel);
-> @@ -85,6 +90,8 @@ static void imx8mp_hdmi_pai_disable(struct dw_hdmi *dw_hdmi)
->  
->  	/* Stop PAI */
->  	regmap_write(hdmi_pai->regmap, HTX_PAI_CTRL, 0);
-> +
-> +	pm_runtime_put_sync(hdmi_pai->dev);
->  }
->  
->  static const struct regmap_config imx8mp_hdmi_pai_regmap_config = {
-> @@ -101,6 +108,7 @@ static int imx8mp_hdmi_pai_bind(struct device *dev, struct device *master, void
->  	struct imx8mp_hdmi_pai *hdmi_pai;
->  	struct resource *res;
->  	void __iomem *base;
-> +	int ret;
->  
->  	hdmi_pai = devm_kzalloc(dev, sizeof(*hdmi_pai), GFP_KERNEL);
->  	if (!hdmi_pai)
-> @@ -121,6 +129,13 @@ static int imx8mp_hdmi_pai_bind(struct device *dev, struct device *master, void
->  	plat_data->disable_audio = imx8mp_hdmi_pai_disable;
->  	plat_data->priv_audio = hdmi_pai;
->  
-> +	hdmi_pai->dev = dev;
-> +	ret = devm_pm_runtime_enable(dev);
-> +	if (ret < 0) {
-> +		dev_err(dev, "failed to enable pm runtime: %d\n", ret);
+> +	td_slck_name = of_clk_get_parent_name(np, i);
+>   
+> -	if (!td_slck_hw || !md_slck_hw)
+> +	i =  of_property_match_string(np, "clock-names", "md_slck");
+> +	if (i < 0)
+>   		return;
+> +	md_slck_name = of_clk_get_parent_name(np, i);
+>   
+>   	regmap = device_node_to_regmap(np);
+>   	if (IS_ERR(regmap))
+> @@ -862,7 +865,7 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+>   		}
+>   	}
+>   
+> -	parent_data[0] = AT91_CLK_PD_NAME("md_slck");
+> +	parent_data[0] = AT91_CLK_PD_NAME(md_slck_name);
+>   	parent_data[1] = AT91_CLK_PD_HW(sam9x7_pmc->chws[PMC_MAIN]);
+>   	parent_data[2] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_PLLA][PLL_COMPID_DIV0].hw);
+>   	parent_data[3] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_UPLL][PLL_COMPID_DIV0].hw);
+> @@ -888,8 +891,8 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+>   	if (IS_ERR(usbck_hw))
+>   		goto err_free;
+>   
+> -	parent_data[0] = AT91_CLK_PD_NAME("md_slck");
+> -	parent_data[1] = AT91_CLK_PD_NAME("td_slck");
+> +	parent_data[0] = AT91_CLK_PD_NAME(md_slck_name);
+> +	parent_data[1] = AT91_CLK_PD_NAME(td_slck_name);
+>   	parent_data[2] = AT91_CLK_PD_HW(sam9x7_pmc->chws[PMC_MAIN]);
+>   	parent_data[3] = AT91_CLK_PD_HW(sam9x7_pmc->chws[PMC_MCK]);
+>   	parent_data[4] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_PLLA][PLL_COMPID_DIV0].hw);
+> @@ -940,13 +943,12 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+>   		sam9x7_pmc->phws[sam9x7_periphck[i].id] = hw;
+>   	}
+>   
+> -	parent_hws[0] = md_slck_hw;
+> -	parent_hws[1] = td_slck_hw;
+> -	parent_hws[2] = sam9x7_pmc->chws[PMC_MAIN];
+> -	parent_hws[3] = sam9x7_pmc->chws[PMC_MCK];
+> +	parent_data[0] = AT91_CLK_PD_NAME(md_slck_name);
+> +	parent_data[1] = AT91_CLK_PD_NAME(td_slck_name);
+> +	parent_data[2] = AT91_CLK_PD_HW(sam9x7_pmc->chws[PMC_MAIN]);
+> +	parent_data[3] = AT91_CLK_PD_HW(sam9x7_pmc->chws[PMC_MCK]);
+>   	for (i = 0; i < ARRAY_SIZE(sam9x7_gck); i++) {
+>   		u8 num_parents = 4 + sam9x7_gck[i].pp_count;
+> -		struct clk_hw *tmp_parent_hws[6];
+>   		u32 *mux_table;
+>   
+>   		mux_table = kmalloc_array(num_parents, sizeof(*mux_table),
+> @@ -962,16 +964,13 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+>   			u8 pll_id = sam9x7_gck[i].pp[j].pll_id;
+>   			u8 pll_compid = sam9x7_gck[i].pp[j].pll_compid;
+>   
+> -			tmp_parent_hws[j] = sam9x7_plls[pll_id][pll_compid].hw;
+> +			parent_data[4 + j] = AT91_CLK_PD_HW(sam9x7_plls[pll_id][pll_compid].hw);
+>   		}
+>   
+> -		PMC_FILL_TABLE(&parent_hws[4], tmp_parent_hws,
+> -			       sam9x7_gck[i].pp_count);
+> -
 
-s/pm/PM/
+Ideally, these kind of changes should have been done through a different patch.
+Could you please create a different patch for all changes like in this series?
 
-> +		return ret;
-> +	}
-> +
->  	return 0;
->  }
->  
+With that addressed:
 
--- 
-Regards,
-Liu Ying
+Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
