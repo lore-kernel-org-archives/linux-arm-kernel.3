@@ -4,53 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CA5E6BF06
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 12:19:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25480E6BF08
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 12:21:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3rSTfLHmcNS8nvtITUG8uvjalVmbtgqljIhY6rTy/a4=; b=hX8IfuZIbgOPYMmwP+xEoy5gKZ
-	+A9r5wqkIlcIK0B5XPTYRj1X4bed5y52ktG0C+sPePtpGRrQpl6wXiqX+HdJ6tV4aDBrExirofXbe
-	8XtWxNVtXEjffEU7DX+DDEltvSFQVZHXqcl5BQrr9iWU5ZzRQpczI6KbzYsk3w67hM9LhOWpXbGcM
-	OV1akoCFH5KwJYv7z7upngLzNB3rHHYdhyxPz4JggaCpwP8QPVd3v7WhgFryQKEN2kqd7Oe6369bY
-	VHj5cOWfCE06mK7wg2Cx45gQBePCgNBIlLbo13TADfHLqS4c3yV61O6ZVIyVKy5xBbOrUZQHhG3Im
-	OA1yXaFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aN7Yr1Wm5pWGvZX67T0Yo5fom5gFjqXWEl3ox2Jm5hU=; b=Ds3nISqcW5Hcbstvq4BkqKE3nl
+	xeJSv01iNQI3eZ08KzCWFqy9eG3uaPp9kVyQf/rEZVC4y+N8r8bn2efdm3y0vc62nq5lAOReOvn4+
+	u8DRa6/XOH2+By69Sto5rP08UcgJbr8fn+BC8X7Rw6fAGhKEU3Rzl3OlIPQqqHg5YtLameam5tRiF
+	9Dr1G33jAdTiJ4oPrk80uMWgfh3/Fcmzk4XNNdzrHvTtMsAOn5oBpJsN88FVpY6cwHBjJ39GKaraB
+	iDm09snYF2xQnOIbZguOK/r5qrq4cbTnjhoPQ++CIvhVNNGw5IS2JkTMJzC8Gm9t5r9cZOSjUU7r1
+	s2K2cIEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlnT1-00000001TR2-01UH;
-	Fri, 30 Jan 2026 12:19:15 +0000
+	id 1vlnVY-00000001TaV-2EX5;
+	Fri, 30 Jan 2026 12:21:52 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlnSy-00000001TQg-2vQy
+	id 1vlnVW-00000001Ta5-0Kyu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 12:19:14 +0000
+	Fri, 30 Jan 2026 12:21:51 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ED916153B;
-	Fri, 30 Jan 2026 04:19:04 -0800 (PST)
-Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8FD6E3F632;
-	Fri, 30 Jan 2026 04:19:09 -0800 (PST)
-Date: Fri, 30 Jan 2026 12:19:06 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Jinjiang Tu <tujinjiang@huawei.com>
-Cc: akpm@linux-foundation.org, david@kernel.org, will@kernel.org,
-	zengheng4@huawei.com, ryan.roberts@arm.com,
-	anshuman.khandual@arm.com, wangkefeng.wang@huawei.com,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-Subject: Re: [PATCH v3] arm64: mm: fix pass user prot to ioremap_prot in
- generic_access_phys
-Message-ID: <aXyhuq_DOd2pC_Fo@arm.com>
-References: <20260130073807.99474-1-tujinjiang@huawei.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F4148153B;
+	Fri, 30 Jan 2026 04:21:41 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9921D3F632;
+	Fri, 30 Jan 2026 04:21:43 -0800 (PST)
+Message-ID: <a069fd6f-41d8-45b4-b63d-ccace1a0f501@arm.com>
+Date: Fri, 30 Jan 2026 12:21:42 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260130073807.99474-1-tujinjiang@huawei.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 45/47] arm_mpam: Add workaround for T241-MPAM-4
+To: Fenghua Yu <fenghuay@nvidia.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+ <20260112165914.4086692-46-ben.horgan@arm.com>
+ <23f08379-301d-4ffc-bf6f-d6a7bb952724@nvidia.com>
+ <e38cb392-ff29-4008-aa4f-e9d7166836f0@arm.com>
+ <e10fa678-9564-4e09-a848-fac22e1c9a64@nvidia.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <e10fa678-9564-4e09-a848-fac22e1c9a64@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_041912_880133_20ABAB28 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20260130_042150_262389_7C7A8F27 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,85 +78,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 30, 2026 at 03:38:07PM +0800, Jinjiang Tu wrote:
-> Here is a syzkaller error log:
->   [0000000020ffc000] pgd=080000010598d403, p4d=080000010598d403, pud=0800000125ddb403,
->                      pmd=080000007833c403, pte=01608000007fcfcf
->   Unable to handle kernel read from unreadable memory at virtual address ffff80008ea89000
->   KASAN: probably user-memory-access in range [0x0000000475448000-0x0000000475448007]
->   Mem abort info:
->     ESR = 0x000000009600000f
->     EC = 0x25: DABT (current EL), IL = 32 bits
->     SET = 0, FnV = 0
->     EA = 0, S1PTW = 0
->     FSC = 0x0f: level 3 permission fault
->   Data abort info:
->     ISV = 0, ISS = 0x0000000f, ISS2 = 0x00000000
->     CM = 0, WnR = 0, TnD = 0, TagAccess = 0
->     GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
->   swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000001244aa000
->   [ffff80008ea89000] pgd=100000013ffff403, p4d=100000013ffff403, pud=100000013fffe403,
-> 		     pmd=100000010a453403, pte=01608000007fcfcf
->   Internal error: Oops: 000000009600000f [#1] SMP
->   Modules linked in: team
->   CPU: 1 PID: 10840 Comm: syz.9.83 Kdump: loaded Tainted: G
->   Hardware name: QEMU KVM Virtual Machine, BIOS 0.0.0 02/06/2015
->   pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
->   pc : __memcpy_fromio+0x80/0xf8
->   lr : generic_access_phys+0x20c/0x2b8
->   sp : ffff8000a0507960
->   x29: ffff8000a0507960 x28: 1ffff000140a0f44 x27: ffff00003833cfe0
->   x26: 0000000000000000 x25: 0000000000001000 x24: 0010000000000001
->   x23: ffff80008ea89000 x22: ffff00004ea63000 x21: 0000000000001000
->   x20: ffff80008ea89000 x19: ffff00004ea62000 x18: 0000000000000000
->   x17: 0000000000000000 x16: 0000000000000000 x15: ffff8000806f1e3c
->   x14: ffff8000806f1d44 x13: 0000000041b58ab3 x12: ffff7000140a0f23
->   x11: 1ffff000140a0f22 x10: ffff7000140a0f22 x9 : ffff800080579d24
->   x8 : 0000000000000004 x7 : 0000000000000003 x6 : 0000000000000001
->   x5 : ffff8000a0507910 x4 : ffff7000140a0f22 x3 : dfff800000000000
->   x2 : 0000000000001000 x1 : ffff80008ea89000 x0 : ffff00004ea62000
->   Call trace:
->     __memcpy_fromio+0x80/0xf8
->     generic_access_phys+0x20c/0x2b8
->     __access_remote_vm+0x46c/0x5b8
->     access_remote_vm+0x18/0x30
->     environ_read+0x238/0x3e8
->     vfs_read+0xe4/0x2b0
->     ksys_read+0xcc/0x178
->     __arm64_sys_read+0x4c/0x68
->     invoke_syscall+0x68/0x1a0
->     el0_svc_common.constprop.0+0x11c/0x150
->     do_el0_svc+0x38/0x50
->     el0_svc+0x50/0x258
->     el0t_64_sync_handler+0xc0/0xc8
->     el0t_64_sync+0x1a4/0x1a8
->   Code: 91002339 aa1403f7 8b190276 d503201f (f94002f8)
-> 
-> The local syzkaller first maps I/O address from /dev/mem to userspace,
-> overiding the stack vma with MAP_FIXED flag. As a result, when reading
-> /proc/$pid/environ, generic_access_phys() is called to access the region,
-> which triggers a PAN permission-check fault and causes a kernel access
-> fault.
-> 
-> The root cause is that generic_access_phys() passes a user pte to
-> ioremap_prot(), the user pte sets PTE_USER and PTE_NG bits.  Consequently,
-> any subsequent kernel-mode access to the remapped address raises a fault.
-> 
-> To fix it, define arch_mk_kernel_prot() to convert user prot to kernel
-> prot for arm64, and call arch_mk_kernel_prot() in generic_access_phys(),
-> so that a user prot is passed to ioremap_prot().
-> 
-> Fixes: 893dea9ccd08 ("arm64: Add HAVE_IOREMAP_PROT support")
-> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
-> Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
+Hi Fenghua,
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+On 1/29/26 22:14, Fenghua Yu wrote:
+> Hi, Ben,
+> 
+> On 1/19/26 12:56, Ben Horgan wrote:
+>> Hi Fenghua,
+>>
+>> On 1/15/26 23:20, Fenghua Yu wrote:
+>>> Hi, Shanker and Ben,
+>>>
+>>> On 1/12/26 08:59, Ben Horgan wrote:
+>>>> From: Shanker Donthineni <sdonthineni@nvidia.com>
+>>>>
+>>>> In the T241 implementation of memory-bandwidth partitioning, in the
+>>>> absence
+>>>> of contention for bandwidth, the minimum bandwidth setting can
+>>>> affect the
+>>>> amount of achieved bandwidth. Specifically, the achieved bandwidth
+>>>> in the
+>>>> absence of contention can settle to any value between the values of
+>>>> MPAMCFG_MBW_MIN and MPAMCFG_MBW_MAX.  Also, if MPAMCFG_MBW_MIN is set
+>>>> zero (below 0.78125%), once a core enters a throttled state, it will
+>>>> never
+>>>> leave that state.
+>>>>
+>>>> The first issue is not a concern if the MPAM software allows to program
+>>>> MPAMCFG_MBW_MIN through the sysfs interface. This patch ensures program
+>>>> MBW_MIN=1 (0.78125%) whenever MPAMCFG_MBW_MIN=0 is programmed.
+>>>
+>>> When MBW_MIN=1, min mem bw can be very low when contention. This may
+>>> drop mem access performance. Is it possible to set MBW_MIN bigger so
+>>> that ensure the floor of mem access is high?
+>>
+>> Isn't that a policy decision rather than something we should be putting
+>> in a quirk framework?
+> 
+> MBW_MIN is 1% or 5% less than MBW_MAX.
+> 
+> The lower MBW_MIN hints hardware to lower mem bandwidth when mem access
+> contention. That causes memory performance degradation.
+> 
+> Is it possible to do the following changes to fix the performance issue?
+> 1. By default min mbw is equal to max mbw. So hardware won't lower
+> performance unless it's needed. This can fix the current performance issue.
+> 2. Add a new schemata line (e.g. MBI:<id>=x;<id>=y;...) to specify min
+> mbw just like max mbw specified by schemata line "MB:...". User can use
+> this line to change min mbw per partition per node. This could be added
+> in the future.
 
-That's not urgent for 6.19, it's just misuse of /dev/mem (aren't they
-all) but it's worth fixing.
+Thanks for bringing this up. It raises some more general queries about
+the handling of mbw_min and so I'll move the discussion to
+[PATCH v3 41/47] arm_mpam: Generate a configuration for min controls
+as it isn't specific to the nvidia quirks.
 
-Thanks.
+> 
+> Thanks.
+> 
+> -Fenghua
 
--- 
-Catalin
+Thanks,
+
+Ben
+
 
