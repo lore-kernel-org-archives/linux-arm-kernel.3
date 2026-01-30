@@ -4,65 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1608D73EB8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 03:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A187D73EB8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 03:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t5D8ybBjExg+eTx5Sg3ty7o574gEk1qe9w0t9fy3i8M=; b=EYRH8PI85QoyqbBUAIiq57b74w
-	RevzWgpTQoNri5Uj13g2s1NUdSAylRipTMc0gXj/X9Sf8NGZ+6GfbjNu4WTlywROTzJ3TVWW/nIFB
-	n5z4Q6ViUuenVVi2VX9nSV7NPmdUoyY6h/0LLcy/5b5Y31FaMZHLp/3adKdV5mjGCACZCYSAU48VY
-	orxLExf3kbQ/UDI/j0pb6bsUZhyFnV2uQIb2YUkJSa0hSkq7oSnB0is4ZubWE5B/gOhhhLzkoPM3a
-	Awdx7TIGSm9xYHl3CJC5fJc+L1ocnVnrysQ/7eRBvq2o9k/ASlY+lswGNZ39lubkNF6tE7/pv7IBn
-	u5rRNiMA==;
+	bh=kDhFrWue8nVkOG3nQowFHXwgfeIXIS3fxNiam5V+7JU=; b=AE3YCJyPpu+euug45q9pg1bUft
+	X29I0FnfrghvvpVzITxQwRBIlwwtyzWf4rg6u2sec6iiKuswXbsljGpbMZGuupwyCLj1zl8OlXOz2
+	03QnXak1ljHpcbtj9JZe76Izid0dB6fKSRjkXZv38DUsd4VluemOjCK6396Ti04+RMlB6qBKIS/Yt
+	wSg4EimBpcsm0DpqkXO5gAG4WjgtFYysY0PEYyt60zzhKpmpnk5Y5o1hR1I9qiR1c5O0ny9ZwfTbE
+	qUigAh3OALTSluzzThCd3IZ5b3l0dRKLnB0cNcoDmbbZXyorwQIzyvJ2eLHQ8R3ht5uTqDDVBJQDU
+	MgZykoYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlfLo-00000000xyu-3LZp;
-	Fri, 30 Jan 2026 03:39:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vlfdx-00000000z2c-44PK;
+	Fri, 30 Jan 2026 03:58:01 +0000
+Received: from mail-southcentralusazon11022124.outbound.protection.outlook.com ([40.93.195.124] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlfLm-00000000xyF-1zBL
+	id 1vlfdv-00000000z2D-0CiZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 03:39:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 36A314179C;
-	Fri, 30 Jan 2026 03:39:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3992C116C6;
-	Fri, 30 Jan 2026 03:39:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769744351;
-	bh=s6FR1es3e9lJL9eOUoxUog50w9T/H83exwpcZ0L2giw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ERolQwUJScab55KwO1PyBoZ2PFcsOyj9sM40c74uyVL8Z/uTNv8sMRe8Onh071TSj
-	 weL919HETTqRfNoXzJlaeOiFf24ZVTdVwbLIhVHv/pGQFlJdz7utcBX1xLPl2YyOz9
-	 4UQ+fsKQJjYsN/FLcVdDSvaRJ5LEXKpKyXtfz3VAQzyL4OOtuvdJhKqPkTOY0qu+ec
-	 D+BcNZuOda8bthfvyGTM0Tv3wUo5yTeCxNZidFibC+PkwN4DPoFBahgf2xsP2NhNfk
-	 TCC+ei7aa0njFv3mnNjgax7EHpFUz/K+STRDnLaW3ARD3hsahWqUDzV5fwNSGhrkq5
-	 CwsDzFRzgK13A==
-Date: Thu, 29 Jan 2026 21:39:07 -0600
-From: Bjorn Andersson <andersson@kernel.org>
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, 
-	Jingoo Han <jingoohan1@gmail.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com
-Subject: Re: [PATCH 0/3] PCI: qcom: Add D3cold support
-Message-ID: <yckdfmxa2a7g7bwa4dc2uarnzgfepery7dtgmrug3uo2fqwvfw@nkxq42jylzsl>
-References: <20260128-d3cold-v1-0-dd8f3f0ce824@oss.qualcomm.com>
- <leonjtaswjzgibn4p5rmgegtad4fhi2y47qwtagilewebm3o4y@pc6eydqfujm4>
- <1787b076-a07f-4ac2-bd50-55914c70461a@oss.qualcomm.com>
+	Fri, 30 Jan 2026 03:58:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=E3TLVPTz50Iy+GIlBfoPn1ZxBoSXFWh1JbmiLkxaU0O5jtsIIgD64VUF063bSQpnjDtN4ZKVi++6VpuyF2lYBU9E8A4f8+5+qgVCBK2Ccq3aAXcudEMq/6uKt8jSr/FnPdfEXBefFxNwn9ToKEt2mpOKYyDi+GZfxKWzFIAfeRR3OPStCk7bbKL1gQo1SvW7S9BxWTQ6eydMtI9OVgdf+hxH+1FV0aDtd8Z5TdX8ROLX4uZtmujufDDGZGGg8ljQudISv8JxyjMsZT59fjTX273fOgiCoIMTUOLif93P/h7DB8sd28Zu6GgPKlaLrzkklosU/jTtHmRcPpRdREPVzw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kDhFrWue8nVkOG3nQowFHXwgfeIXIS3fxNiam5V+7JU=;
+ b=cELpDlEgXw6hIk/yRlxw4eWfGMF4EjXTAOsk7COrxzKIGhKxyucKbYIr8BL+hIofir/nfJMqD31AtlPJxSxAP/r0rz9p9DZ8ePlnTIuMhl/O5leEQVaC8DgBodEf5p6hWCVwhlW1VfRpfs2BmRJM6gWKKaswLfY9z7d/wWVONAuL0/gkXYjPKUYw9QKxeM4wmiYymnQsxyNAxTGhasXS+f+UZp6Mdv4I7jxoCLTIRqBcse47XsUBGMbJ13KuyWt26KuDxXP+/uXjUecE457emarSDS30JYtk9nEiS5RDqozb4KxZvEEv5g/8pqcfToRplZY1G3zdn4mq2mg0B+kw6g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kDhFrWue8nVkOG3nQowFHXwgfeIXIS3fxNiam5V+7JU=;
+ b=UQp7+dc013zfgwM3lRY2wxqPHp51LgtR3YKi2S7JZIHSvdbXtIrYOMQQtHW3yceUZuRXNLutta45RTqlYhNF8+QFh730YfEm9F+SV26vxZhVKm0BwjSTItvS4d5/hBpFGmSZt3yxnCty9NIWlmSph9B4GXLMuY+C+8Mmlv9mdeE=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
+ SA1PR01MB9108.prod.exchangelabs.com (2603:10b6:806:459::22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.7; Fri, 30 Jan 2026 03:57:53 +0000
+Received: from MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::86f5:4db2:7ad5:7fc4]) by MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::86f5:4db2:7ad5:7fc4%6]) with mapi id 15.20.9542.010; Fri, 30 Jan 2026
+ 03:57:53 +0000
+Date: Thu, 29 Jan 2026 19:57:51 -0800 (PST)
+From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+To: Robin Murphy <robin.murphy@arm.com>
+cc: will@kernel.org, mark.rutland@arm.com, linux-perf-users@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH] perf/arm-cmn: Reject unsupported hardware
+ configurations
+In-Reply-To: <bb47722fc593baf1e1cc0f944089592a4ec708da.1769695523.git.robin.murphy@arm.com>
+Message-ID: <0b85786d-ab5c-e9ed-f060-e7854810b1bb@os.amperecomputing.com>
+References: <bb47722fc593baf1e1cc0f944089592a4ec708da.1769695523.git.robin.murphy@arm.com>
+Content-Type: text/plain; format=flowed; charset=US-ASCII
+X-ClientProxiedBy: MW4PR04CA0330.namprd04.prod.outlook.com
+ (2603:10b6:303:82::35) To MW4PR01MB6228.prod.exchangelabs.com
+ (2603:10b6:303:76::7)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1787b076-a07f-4ac2-bd50-55914c70461a@oss.qualcomm.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|SA1PR01MB9108:EE_
+X-MS-Office365-Filtering-Correlation-Id: c66dd694-d20f-4386-df66-08de5fb3be42
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?lA/wP4viHb1xNh1SjWOO+IQQWqYlnu89gHKTWvc4QhYQIQK2Ouh83YcsG1Zo?=
+ =?us-ascii?Q?WOOfjRAIyZZg4yl21T0dJPaGgwa7TJR24er5JxInsgREvtEtaedYwPBH1v6d?=
+ =?us-ascii?Q?Vzh94yfAnU4hZ2F5ozkTd4fIwpRJh6Jo57kN2pw72hhwy/zS8ziCBUy2atmV?=
+ =?us-ascii?Q?Kquei9C/gulh1NAQTfMvHuFJRp/0XrKZQsNqpHxdOJVRvBPhH34VMe0t9ewL?=
+ =?us-ascii?Q?2d7+sesEceG9dsnMGES5HsEO6aFCfG2iM9RCZhgVCpeONqNfrTYOTAAV3rwg?=
+ =?us-ascii?Q?0pt4SpaxyjPFNVGEZ2mgdQv8+FjjVpsQM8zV97rvaUityh2sbYTsmqKzT6MG?=
+ =?us-ascii?Q?6/RYUubSAXbGJwmEf+fNpA6pj5GAIUaVo7GzadvM8jMYkkPbS6T2VUTB+4mz?=
+ =?us-ascii?Q?kXRC5doSRZhvV3Y0YRjXgttWsUPz098O5yQuRkjRTYKJvlDhQS9HXK7BT6uO?=
+ =?us-ascii?Q?DvpEyclai8Cy9g+hMGuLh9sPEYnDBC4gXwHXdHGwANyb9d+FLvlO7CuA5xZD?=
+ =?us-ascii?Q?kOtyjwPlqPZpR4ofZZs6fDL3F08qVPJfXWUnwa9XNPczFM2rkfFXF4fuwZV1?=
+ =?us-ascii?Q?KaaUXZiDF9Yd3i3exIJKNwu0VNQBIyhD/Pk6v8UCIMMjpfMJteC74hHlG9SD?=
+ =?us-ascii?Q?QX6PF/Awfz/Mn0vExA5/Z6j0GdmHicelkfsN3NKuE6B4kwglQqrwnq1VF/2e?=
+ =?us-ascii?Q?ANS7wlVNZrbWqND50N94Z7Q7NhsRyunVqSLnI0tY5N3/wufSBCERcn4aDLSw?=
+ =?us-ascii?Q?uyE8k1Wog/qk63vkknO5MgkOi4mK+WjCX3M2nD5/gBmSkiJkwxUY0GGFHqVA?=
+ =?us-ascii?Q?/aAWNF4azpVajYPZyb198KYtX2icMdNOZnb6hNiBfvVVHcC8FuIJH9M8VZs8?=
+ =?us-ascii?Q?1GiGlQ/LO4eAeau+YI8zvL2Wxtm+WVKAp3ntg2dFdh3PwHniB1EWt1/mLMXL?=
+ =?us-ascii?Q?kEjqDJsLda+kEGaPiE30gmlk7mMkX1mVlBoVkmTsrxH6v1hxUg+CpjsQfnyq?=
+ =?us-ascii?Q?/QbbKjm9+Oeh8MUOjDNNZjbLe2/73hAlNZYPm/QeLIvzn8XJsa5o5kLnBszs?=
+ =?us-ascii?Q?ihZAwmmioYkfOKgekCJYsMmlCq81Lt6e3SiRkdkRwXIg2Kbljy7jvWohUf3a?=
+ =?us-ascii?Q?s/SpFLB799yIN/bQ83T0r7aO+cajrGipWVpUkd+Yp1NVo8p80SVaI9GPtCLi?=
+ =?us-ascii?Q?3GAxUxyxnWv8af7erKnxdJDuiV4fUxlCpCMQ/DgoGDAURj0KhLb8heU1VTEb?=
+ =?us-ascii?Q?UfCovuKBsNneHw6DFy6Xlnx+dVpdJGTpmnPTWz9t295jDYREpb3CUAyKn2aG?=
+ =?us-ascii?Q?6FKeoX2MxILJuF7hhdNztVMiqS4vKjYRzhMOLR6jmTJKsUHsSJE62ZnU4Qm+?=
+ =?us-ascii?Q?eEcgJw5t7vKy+dtfAiaZeQfMtVON/XqUZABpi1mAwz6ZzAkHIP/1mSayXxaF?=
+ =?us-ascii?Q?sEXn0CNfxXlCAxDR8UA6+ekp3VAqg+SGjvzOFORUHLFtLgF4WIBBW3or2xaF?=
+ =?us-ascii?Q?NyR8/owoRNJmyNdiiEgAKQw+92sOyuzt6RYeyRNdcyAgv+vlhcxOZL3bDHZV?=
+ =?us-ascii?Q?OXbsqQkJhn1vRxCG4YY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sddWSaYx+r/oF7zQpUeXdPRQDgMHrZDi/HC9CziL1BbMftemV1SnQ9gdyk6Q?=
+ =?us-ascii?Q?px4icg4QDKRKSIWLlTf1VrPruP/4juZXcrid2obvHhG5KBFw1KDmFGnKMYg/?=
+ =?us-ascii?Q?CJkbfVE90a31wCfyYEkIEAOJ233Vx+oLLqoWRTCqJ5M6oNN+FRCNQtVJKgqG?=
+ =?us-ascii?Q?H4b1Mjdi8lDffK9uRat5QopfblQB70Dky7lW7l9w/rScBaxwq67eH+34duRU?=
+ =?us-ascii?Q?Wf3YrIyhYVpO4E3pr9eoAuN6qTkDAa6195ysRyOh8TQ7YxjE488eAMAN36ek?=
+ =?us-ascii?Q?EQCoIehbB2fqXnjLpB/Po3w43gnx+gJSjFwHdEgDBfbj0c4Ko3HTGQE3sx8L?=
+ =?us-ascii?Q?ZWkI54/JJxXg/w2QbEyKPmk7T34FUQFmc4ghKgRPZNct4LORGPwQvyDZcgOH?=
+ =?us-ascii?Q?9HbpSck65UI6KTnPxBU09zLWguRaRiETw9HC133gMBOzH4uGmqKxaQLOjfQp?=
+ =?us-ascii?Q?9BzgSP/Yi3fFht9XgDvvn49zWK3WsZwkYXvTcgEkRTrNV3JKYdDkQSEVxVlB?=
+ =?us-ascii?Q?a9I/jGBFkcxwmYyxbl+Is1EBDu/Yb5Ab/wHL8CAYeAMBbxsoN/B1zaylQJlv?=
+ =?us-ascii?Q?zqPysai04GSBxdkBYTuwzqBKxbOeh6WXaJCLjLJ2fpo/Rh7Z+jmge2Zk8/NS?=
+ =?us-ascii?Q?pUCBflvFNc349JUikeoycDfKhIcDasbq56k8d6O6oDdnRUaNEg051Mq1A/Ly?=
+ =?us-ascii?Q?x8yafsXT9Ycl7LMe/AAo9yTCgCA6jZkMZi82ZAe7QYCA7uemxdgbRbDMEimV?=
+ =?us-ascii?Q?eyCZHQGtaRn9UxG7aHSelRznZCI7VG/vfHhWW9QxvR5uYdABdvU1D8NBFHkB?=
+ =?us-ascii?Q?fkIlPdbv0a0dAlWBFRtV84/KSZPJarEB8Eu0uZC0EJ1eV1g1rGpJ50HKA1dC?=
+ =?us-ascii?Q?xVUAEA9RfVO3dI5oBmBR/l7GpP0KERfgLgCKBLlq69hUSv7te6h46Pqs0QJc?=
+ =?us-ascii?Q?/iVoum6Yp6B4aVntIomtOUuZIUnBwNZgYunrVLE+W8di/DVc7Cl1UJPQMocr?=
+ =?us-ascii?Q?Q7W71K+9EW9WBsX/JTUskdZZ3Wj6MVesvNl4IjUXNy2XdPf96QnCEuEIys1B?=
+ =?us-ascii?Q?5i+gIQu7QiA2POdaz4RwnityC/py7xym4aYYWqjU2Kcs3yDy7j4/11YUu+qt?=
+ =?us-ascii?Q?nXrV42CsE0GvWIi+HQxlUf9oKvKRB3UNuoXpDrPNlzvQBrKjT0FVZWFDRboq?=
+ =?us-ascii?Q?ly6cOcuoa0UNQ/0th5hzCJ5qC2Huqc3aB2VrV7QH06nznaNxAYmJJ3mNDwWW?=
+ =?us-ascii?Q?TF4/gZ8eLyYBRk654EpqdCUlz8r4q/PmlIRzTX+UoS6LucqS0+I59ScyB65D?=
+ =?us-ascii?Q?pCwmJaBY1UxXJ/CfjZBY/1TtAzi6eHO2pE5YS5SFfbH7kZ3EhWhKS+Lx+0jh?=
+ =?us-ascii?Q?HOUDso6V+t15EVXJ1TnqH6ZIw83USYzzIqRT9jrq1kImBmc9NUgNq84/bN7F?=
+ =?us-ascii?Q?71pxo42xZTXSJQOjzsbRnss3PBiqUdGmCA3DSV4d7Dq84f6aSdQuMkcjFfSv?=
+ =?us-ascii?Q?F5766IIByWDcbOtCJy/SJ+7TCiTD5/eE9dHW+6B0ttzmv1sEg5RGUVeqxSKf?=
+ =?us-ascii?Q?EtuAU4AAUnaDqBCK6pq3dSPD1XF5nGg4Y+9HHvUJxSoMhsgzjI6uKut/CbLq?=
+ =?us-ascii?Q?+jba8O116wqIP/aXkaVdQMsSQmt1QKd4fHv+vbL3kpBuZeqUoCg4fhjUOc4n?=
+ =?us-ascii?Q?wkB4QB8foRT0nOYMPJ2VN1IDjf4njrag32whMYCl8DyvuHL2FCcmN1vnv55i?=
+ =?us-ascii?Q?QZ/4Q1k/uenhUd72nivR93Rf0MEfEJs=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c66dd694-d20f-4386-df66-08de5fb3be42
+X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 03:57:53.2941
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: TDVtekTLKHuZrd9SMKtme2o15c/NCLs+hsf+1Bg9JYlNYNfVlFJvFWk01PatTlvwuezP1EYIfOQZXwqY1cpPZjmRWNp4AzLoZuPxE5zt6Q9TP8IXMNVLgfbMZ28qqEfb
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB9108
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_193914_553409_796A462C 
-X-CRM114-Status: GOOD (  52.38  )
+X-CRM114-CacheID: sfid-20260129_195759_164068_4AFCEDE1 
+X-CRM114-Status: GOOD (  20.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,129 +162,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 29, 2026 at 10:53:43AM +0530, Krishna Chaitanya Chundru wrote:
-> 
-> 
-> On 1/28/2026 8:25 PM, Bjorn Andersson wrote:
-> > On Wed, Jan 28, 2026 at 05:10:40PM +0530, Krishna Chaitanya Chundru wrote:
-> > > This series adds a common helper to determine when a PCIe host bridge
-> > > can safely enter D3cold, converts the DesignWare host driver to use that
-> > > helper, and enables D3cold support for Qualcomm PCIe controllers.
-> > > 
-> > You only modify qcom_pcie_deinit_2_7_0() so which targets is this
-> > expected to work on and which targets have you tested it on. How can I
-> > test it and what outcome should I expect?
-> we modified qcom_pcie_deinit_2_7_() because we are trying to undo what we
-> are doing as part of init for other platforms, in init() we are just turning
-> on the resources. I tested this on lemans evk device. After this series we
-> can expect PCIe link will go to D3cold(provided there is no NVMe attach),
-> and cxpc can be achieved. For NVMe devices, mani is working on, in which
-> requires some psci changes[1]
 
-I have no objections to start with one platform, please consider what
-will happen to others (don't break existing users) and please document
-in the commit message that this only affects X, Y, Z platforms.
 
-> > > The first patch introduces pci_host_common_can_enter_d3cold() in
-> > > pci-host-common. The helper walks all devices on the bridge's bus and
-> > > only allows the host bridge to enter D3cold if all PCIe endpoints are
-> > > already in PCI_D3hot. For devices that may wake the system, it
-> > > additionally requires that the device support PME wakeup from D3cold
-> > > (via WAKE#). Devices without wakeup enabled are not restricted by this
-> > > check and may be left in D3cold.
-> > > 
-> > > The second patch updates the DesignWare host driver to use this common
-> > > helper in dw_pcie_suspend_noirq(). Previously, the driver skipped
-> > > putting the link into L2 / device D3cold whenever L1 ASPM was enabled,
-> > > since some devices (e.g. NVMe) expect low resume latency and may not
-> > > tolerate deeper power states. However, such devices typically remain in
-> > > D0 and are already covered by the helper's requirement that all
-> > > endpoints be in D3hot before the host bridge may enter D3cold. Using the
-> > > shared helper removes this coarse heuristic and centralizes the D3cold
-> > > eligibility policy.
-> > > 
-> > > The third patch enables D3cold support for Qualcomm PCIe controllers. It
-> > > adds pme_turn_off() support and switches to the DesignWare common
-> > > suspend/resume methods for device D3cold entry and exit. If the
-> > > controller is not kept in D3cold, the existing paths are used so that
-> > > ICC votes, OPP votes, and other resources remain managed as before. In
-> > > addition, qcom_pcie_deinit_2_7_0() is updated to explicitly disable
-> > > PCIe clocks and resets in the controller, and the now-unused "suspended"
-> > > flag is removed from struct qcom_pcie.
-> > > 
-> > This is effectively just duplicating the commit messages. Lacking from
-> > both is a good explanation of the problem statement, but that might just
-> > be me not getting it?
-> We are adding support for D3cold for qcom controllers, this is a PCIe
-> feature,
-> I haven't added reference to qcom internal power state like CXPC since this
-> alone
-> will not achieve this. But I should have added to this as ultimate purpose
-> is to
-> have CXPC and main blocking is currently PCIe.
+Hi Robin,
 
-Thank you.
+On Thu, 29 Jan 2026, Robin Murphy wrote:
+> So far we've been fairly lax about accepting both unknown CMN models
+> (at least with a warning), and unknown revisions of those which we
+> do know, as although things do frequently change between releases,
+> typically enough remains the same to be somewhat useful for at least
+> some basic bringup checks. However, we also make assumptions of the
+> maximum supported sizes and numbers of things in various places, and
+> there's no guarantee that something new might not be bigger and lead
+> to nasty array overflows. Make sure we only try to run on things that
+> actually match our assumptions and so will not risk memory corruption.
+>
+> Cc: stable@vger.kernel.org
+> Fixes: 7819e05a0dce ("perf/arm-cmn: Revamp model detection")
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+> ---
+> drivers/perf/arm-cmn.c | 13 +++++++++++++
+> 1 file changed, 13 insertions(+)
+>
+> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+> index 2903e01f951f..24fec53ceccc 100644
+> --- a/drivers/perf/arm-cmn.c
+> +++ b/drivers/perf/arm-cmn.c
+> @@ -2422,6 +2422,15 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+> 			arm_cmn_init_node_info(cmn, reg & CMN_CHILD_NODE_ADDR, dn);
+> 			dn->portid_bits = xp->portid_bits;
+> 			dn->deviceid_bits = xp->deviceid_bits;
+> +			/*
+> +			 * Logical IDs are assigned from 0 per node type, so as
+> +			 * soon as we one bigger than expected, we can assume
 
-> > 
-> > Could you please help me understand what the actual outcome of this
-> > series is? I was under the impression that this work would lead us
-> > towards unblocking CXPC, but the other patch you sent will prevent CXPC.
-> This will keep PCIe in D3cold and achieve CXPC if there is no NVMe
-> endpoints.
-> 
-> No other patch is not preventing CXPC, it is just trying to tell genpd
-> framework that
-> don't turn off GENPD, if the controller is not suspended. if we don't have
-> that patch
-> when device is not suspended i.e not kept in D3cold the gdsc is getting
-> turned off
-> and PCIe link is going down. Until PCIe state is in D3cold, gdsc should not
-> be off
-> even in cxpc case.
-> 
+Should that be something like:
 
-Please do include such information in your cover letters or commit
-messages. By not assuming that recipients can read your mind, you will
-be able to get more engagement surrounding your patches - and this is a
-topic that we're very much interested in.
+ 			"...as soon as we see one bigger than expected.."
 
-Regards,
-Bjorn
+Other than that, the patch looks good to me.
 
-> Mani,
-> To avoid the confusion, can I club this patch[2] to this series in next
-> verision
-> 
-> [1] https://lore.kernel.org/all/20251231162126.7728-1-manivannan.sadhasivam@oss.qualcomm.com
-> [2] [PATCH] PCI: qcom: Prevent GDSC power down on suspend - Krishna
-> Chaitanya Chundru <https://lore.kernel.org/all/20260128-genpd_fix-v1-1-cd45a249d12f@oss.qualcomm.com/>
-> 
-> - Krishna Chaitanya.
-> > 
-> > Regards,
-> > Bjorn
-> > 
-> > > Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> > > ---
-> > > Krishna Chaitanya Chundru (3):
-> > >        PCI: host-common: Add shared D3cold eligibility helper for host bridges
-> > >        PCI: dwc: Use common D3cold eligibility helper in suspend path
-> > >        PCI: qcom: Add D3cold support
-> > > 
-> > >   drivers/pci/controller/dwc/pcie-designware-host.c |   7 +-
-> > >   drivers/pci/controller/dwc/pcie-designware.h      |   1 +
-> > >   drivers/pci/controller/dwc/pcie-qcom.c            | 114 +++++++++++++---------
-> > >   drivers/pci/controller/pci-host-common.c          |  29 ++++++
-> > >   drivers/pci/controller/pci-host-common.h          |   2 +
-> > >   5 files changed, 101 insertions(+), 52 deletions(-)
-> > > ---
-> > > base-commit: 590a64365d9bcc13ee644a3e73ffdc3df26cf23c
-> > > change-id: 20251229-d3cold-bf99921960bb
-> > > 
-> > > Best regards,
-> > > -- 
-> > > Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> > > 
-> > > 
-> 
+Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+
+Cheers, Ilkka
+
+> +			 * there are more than we can cope with.
+> +			 */
+> +			if (dn->logid > CMN_MAX_NODES_PER_EVENT) {
+> +				dev_err(cmn->dev, "Invalid node number: %d\n", dn->logid);
+> +				return -ENODEV;
+> +			}
+>
+> 			switch (dn->type) {
+> 			case CMN_TYPE_DTC:
+> @@ -2499,6 +2508,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+> 		cmn->mesh_x = cmn->num_xps;
+> 	cmn->mesh_y = cmn->num_xps / cmn->mesh_x;
+>
+> +	if (max(cmn->mesh_x, cmn->mesh_y) > CMN_MAX_DIMENSION) {
+> +		dev_err(cmn->dev, "Invalid mesh size: %dx%d\n", cmn->mesh_x, cmn->mesh_y);
+> +		return -ENODEV;
+> +	}
+> 	/* 1x1 config plays havoc with XP event encodings */
+> 	if (cmn->num_xps == 1)
+> 		dev_warn(cmn->dev, "1x1 config not fully supported, translate XP events manually\n");
+> -- 
+> 2.39.2.101.g768bb238c484.dirty
+>
+>
+>
 
