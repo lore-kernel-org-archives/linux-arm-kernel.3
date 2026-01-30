@@ -4,80 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0761AE6BF1E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 15:53:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48E47E6BF1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 15:56:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HXe//ENorTTfM0niimm1e9yrY55w/0fMrZ/qt/A7EwM=; b=g34kqg0HRHhgDwOWNGwWuQZotX
-	u7NaKvRtrVDQOrTe2tF/qawBS4wOZkq8W0XSaulxukux9VYLhrxt5MAx25xcr7j9IPidxkwwLZeE/
-	dyzCyHZxfho6STd+w8sDb7BNEnoBK5dl/yqSzuc7gOkgzB3CccBSLhqoWUxv3LTUW7607oYRnp7wg
-	nX2qjWWBpiPowGcSDvOeZDwm6WC9Q+8gvUbkxNVu7/q9IqfqclcK/xH0Xy3pD3fuH3VKuCsLwXBKn
-	o8IHYO/1zBAxe01N6YfLVTEzQAlh/0UUjFSidOLffu/cqCxmDcr96G6oiQd0osWfU7tQ1SmURkqvb
-	rX0mYPKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zBCSSoRoE8bVuHZUQ0AtCJQPfPq1ZSOXtwQ+4NnM5Ps=; b=uKVBjdsRkfdWrw52Own2OLuX2H
+	VTSCLgTeXy6CGpxysq2h36UdNomglzg+m47ZAjKvgih4/sI0+bNFbBnXZsioqeaYEBjxfiNXxn8HQ
+	cE6U1orJ4HSOTP6pqJ/s21Mpq0UaG9uAfhgiaaPPqRGEqEDPFvvRyLvP4Iy12cjpaMldPkBGVYQCW
+	yMYLKvJ2wicby53TK70mJusRY56/hpftEBexYciHInsulN1xnQEST3GQjyaqkyDlv50GQrC0MIvBQ
+	ZsG6dVsbn1uw71NqSmpl2H4gWgQ/6gbY6jQRacWcx7EQx48AI1hI6gJgHbx8Z4en0xhCJ1JEVE3Vk
+	JUtQGkBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlqo8-00000001gT2-47ww;
-	Fri, 30 Jan 2026 15:53:16 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vlqrN-00000001gh5-2ex2;
+	Fri, 30 Jan 2026 15:56:37 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlqo6-00000001gRv-3ecx
+	id 1vlqrL-00000001ggT-263T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 15:53:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=HXe//ENorTTfM0niimm1e9yrY55w/0fMrZ/qt/A7EwM=; b=aS+ac/s20VY5WOMnOTrrKTXkqw
-	CvUccuNW8erl31P/A6aO0RTRQyLv9VkiYGK0m6u5zBmV5IGGnas6fK1PiuUMqhkUiFn72vVs+igMx
-	xwSPo1it4HcrWcdKwA5gPvudx5huDaj0jFHempG5JHTFClIelb5fWTlgXb4/b0yC+EKGOZVzfurK5
-	q/ocekDnstsspNsC+ZRwBg6LMMu5lSaCp+ifYdpEwxVhOFwbEPKScaDUTp5xfiPfKaUWos/tLpPXE
-	UnDVNlFvJNhhae9c26rIO/ItRBMJQ9ASIMNaYrFECF/CamkXwyvk8uSGl9oVu+kqqAgGkkVSappfI
-	40fVGUlw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:55186)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vlqnq-000000001Fc-0kyn;
-	Fri, 30 Jan 2026 15:52:58 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vlqnl-000000000dd-2qfp;
-	Fri, 30 Jan 2026 15:52:53 +0000
-Date: Fri, 30 Jan 2026 15:52:53 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Marek Vasut <marex@nabladev.com>
-Cc: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Christophe Roullier <christophe.roullier@st.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-	kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [net-next,PATCH] net: stmmac: stm32: Do not suspend downed
- interface
-Message-ID: <aXzT1UCpG4kN-dQv@shell.armlinux.org.uk>
-References: <20260114081809.12758-1-marex@nabladev.com>
- <aWfEXX1iMHy3V5sK@shell.armlinux.org.uk>
- <aWfOYf_YmJFUakvP@shell.armlinux.org.uk>
- <6c9cadc2-67b7-4bfe-9cf7-2b102a0a3c21@nabladev.com>
+	Fri, 30 Jan 2026 15:56:36 +0000
+Received: by mail-pf1-x443.google.com with SMTP id d2e1a72fcca58-823210d1d8eso1231304b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Jan 2026 07:56:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769788594; x=1770393394; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zBCSSoRoE8bVuHZUQ0AtCJQPfPq1ZSOXtwQ+4NnM5Ps=;
+        b=Z8c+saH/koPU0pJjp5jg+iDlaphNzbsa/CuVTLh4rfWwQlc2yW1ufZpX9NwW2O8S3Y
+         MsCWZz2xceDkLJf4rUkpx7JdZ2PdJfnv7kNqyAXuw9N4kZ9kZC3QzPUVBe5gC4mVBdG2
+         uGRAbliRv3slTgK+pYF3qeHZGB+vHXNqr+CM0ssA1udEfCr4n0+dgFDSfB2UBu4jn+tT
+         5tsQBj0cGP6Ndq4CGUuh7mOXDUFVvCSNPF3W3aqVapmC7/pxKTSjveejmLRNYItCwoQ6
+         rypekkKQXcscNeBZyxAbUBOmNS5WO6SgK0dfsUh/hmBBOjtfmXRR8QOhcobQ8oXPlS/R
+         ZwDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769788594; x=1770393394;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zBCSSoRoE8bVuHZUQ0AtCJQPfPq1ZSOXtwQ+4NnM5Ps=;
+        b=ojKO69vrOVf2AMGjyXBdJfOyKNP3AgoVkg+rluwLcWa4z5NTwbpvz8KlM1Mj7T8DGu
+         9Xjni7mbEqXM5Z5XhamwuHWWuhujjagoqmOzhJ5XoQuhAmD2SQb9o0vMlC5CfNGlE4//
+         RbBpGITdNPhLfVo8DIR0S9ZP3hwioMizXGGcxFzxuCYLGZAJuBBqejER2ZgrDfnubGFg
+         /FgyqhRJ27UdGYyebatsfanL29dr7qrZODz2T/FCTiGkVMWMbFdgAETKO0nWsalfZJO1
+         T4055dj3RXQNAt59BELEw2n0NQiwuOlthhue3bs8OoaHpKhGU15Kr+U356bgBzDVmqk3
+         SNPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU3iX1TcgVG0KZd6V08ziB22qzaNI6r/fSKoVtVr5wjAjC1qudXfePbv2H3K9nTW370ojybp6xT58cwbjdNbUsu@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQG/fQajVbuCsdyOrYLTPrRmeedcfaZl6zBt0ipYASL/GUCHKr
+	/3RduzBrNd4GFNuZDER/WxptgPWKzrSCvr43twZIbqvjkU6rdnx0v2qk
+X-Gm-Gg: AZuq6aL1PPcna0rVFWrCBSs2OFY8jCV4Oghz4Zd+o9Yc+Q82DbT2ugP6jNUO2DPXCa5
+	FPjSRBA8V+gekH2KBemRdOrPMalTl1tsqEWyz8UdDICJba8aATKfhOQGFZQ1I6aqmk5uyU+9mpH
+	TgRJv2vakaaemlUk1mNopXXUBgc9oJU6+E9lp2CXV7OuTDMHdvop43MA4TUHK3K84yDG8eeVVpl
+	CFROjmYgSl2yP4BnELeZHxfnletv7hoao0Ldkc0OqdNDWYoxVIeJBXCd2DqmywtKfKaZuJsG3cO
+	fXEYghnqJIOGuQ5yxHiBcu+h6zSW1J46U6bbLwYfsieAr2hOC9DgR5T30rBmLlma18rr/N2AO+I
+	idVmdP7NWnD9ep425aO5GKSncRC7B9/TQuBI5XUtvl6LCJlifYN1+aCuVtQTKf8ej3FU3evsXkf
+	yDfxYjMtM/K3vHw6187GO7C+pu
+X-Received: by 2002:a05:6a21:6490:b0:2dc:40f5:3c6c with SMTP id adf61e73a8af0-392e0145956mr2877751637.54.1769788593981;
+        Fri, 30 Jan 2026 07:56:33 -0800 (PST)
+Received: from junjungu-PC.localdomain ([2408:820c:9008:ba52:53f:14bb:e0fe:f839])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a88b5d94c5sm80540015ad.71.2026.01.30.07.56.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Jan 2026 07:56:33 -0800 (PST)
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Fri, 30 Jan 2026 23:56:28 +0800
+Subject: [PATCH] clk: imx: imx6q: Fix device node reference leak in
+ pll6_bypassed()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6c9cadc2-67b7-4bfe-9cf7-2b102a0a3c21@nabladev.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260130-clk-imx6q-v1-1-2fa4da5dab85@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAKvUfGkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDQ2MD3eScbN3M3AqzQl3LZJMkCwtj07RkIzMloPqCotS0zAqwWdGxtbU
+ ABfTUf1sAAAA=
+X-Change-ID: 20260130-clk-imx6q-9c4b8835fc26
+To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Lucas Stach <l.stach@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Felix Gu <ustc.gu@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769788589; l=1401;
+ i=ustc.gu@gmail.com; h=from:subject:message-id;
+ bh=SpffUkjliwaKx4GCJ0zzoKE4MJf/13e/7G80/BLtTt8=;
+ b=RenJYBVdy/Ov1ruNAsJl/+5Atz9o7oZITqzqfuFckxK2XcbQReo5YwVM9xuKAyR0SSGv96MM3
+ NctQ2VuE+pNCrMSbJ7AHd/nF0J8oRW4968bGtYuOEoGHg8D4lH7rp6s
+X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_075314_906756_0A58C04C 
-X-CRM114-Status: GOOD (  26.30  )
+X-CRM114-CacheID: sfid-20260130_075635_549229_C4E0320B 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,57 +114,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 15, 2026 at 12:27:05AM +0100, Marek Vasut wrote:
-> On 1/14/26 6:12 PM, Russell King (Oracle) wrote:
-> > I think I'm going to start over, trying to figure out what happened.
-> > 
-> > c7308b2f3d0d net: stmmac: stm32: convert to suspend()/resume() methods
-> > 
-> > Did the conversion, and it always called stm32_dwmac_clk_disable() and
-> > where it exists, dwmac->ops->suspend() on suspend, provided
-> > stmmac_suspend() returns zero (which it will do, even if the interface
-> > is down. On resume, it always calls dwmac->ops->resume() and
-> > stm32_dwmac_init() before calling stmmac_resume().
-> > 
-> > The conversion added hooks into ny new ->suspend() and ->resume()
-> > methods to handle the stm32_dwmac_clk_disable(), dwmac->ops->suspend(),
-> > dwmac->ops->resume() and stm32_dwmac_init() steps.
-> > 
-> > However, in 07bbbfe7addf I failed to realise that, in order to keep
-> > things compatible with how stuff works, we need to call
-> > priv->plat->suspend() even if the interface is down. This is where
-> > the bug is, not in your glue driver.
-> > 
-> > Please try this:
-> > 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index a8a78fe7d01f..2acbb0107cd3 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -8066,7 +8066,7 @@ int stmmac_suspend(struct device *dev)
-> >   	u32 chan;
-> >   	if (!ndev || !netif_running(ndev))
-> > -		return 0;
-> > +		goto suspend_bsp;
-> >   	mutex_lock(&priv->lock);
-> > @@ -8106,6 +8106,7 @@ int stmmac_suspend(struct device *dev)
-> >   	if (stmmac_fpe_supported(priv))
-> >   		ethtool_mmsv_stop(&priv->fpe_cfg.mmsv);
-> > +suspend_bsp:
-> >   	if (priv->plat->suspend)
-> >   		return priv->plat->suspend(dev, priv->plat->bsp_priv);
-> This works too, thank you.
-> 
-> Will you send this fix ?
+The function pll6_bypassed() calls of_parse_phandle_with_args()
+but never calls of_node_put() to release the reference, causing
+a memory leak.
 
-Sorry, I appear to have dropped this patch on the floor, and just
-tripped over it. I'm just build testing it and will send it later
-today.
+Fix this by adding proper cleanup calls on all exit paths.
 
-This problem affects every user of the platform ->suspend/resume()
-stuff, so is not just a stm32 issue.
+Fixes: 3cc48976e9763 ("clk: imx6q: handle ENET PLL bypass")
+Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+---
+ drivers/clk/imx/clk-imx6q.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/clk/imx/clk-imx6q.c b/drivers/clk/imx/clk-imx6q.c
+index bf4c1d9c9928..1d8e8f0891a3 100644
+--- a/drivers/clk/imx/clk-imx6q.c
++++ b/drivers/clk/imx/clk-imx6q.c
+@@ -238,8 +238,11 @@ static bool pll6_bypassed(struct device_node *node)
+ 			return false;
+ 
+ 		if (clkspec.np == node &&
+-		    clkspec.args[0] == IMX6QDL_PLL6_BYPASS)
++		    clkspec.args[0] == IMX6QDL_PLL6_BYPASS) {
++			of_node_put(clkspec.np);
+ 			break;
++		}
++		of_node_put(clkspec.np);
+ 	}
+ 
+ 	/* PLL6 bypass is not part of the assigned clock list */
+@@ -249,6 +252,7 @@ static bool pll6_bypassed(struct device_node *node)
+ 	ret = of_parse_phandle_with_args(node, "assigned-clock-parents",
+ 					 "#clock-cells", index, &clkspec);
+ 
++	of_node_put(clkspec.np);
+ 	if (clkspec.args[0] != IMX6QDL_CLK_PLL6)
+ 		return true;
+ 
+
+---
+base-commit: 33a647c659ffa5bdb94abc345c8c86768ff96215
+change-id: 20260130-clk-imx6q-9c4b8835fc26
+
+Best regards,
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Felix Gu <ustc.gu@gmail.com>
+
 
