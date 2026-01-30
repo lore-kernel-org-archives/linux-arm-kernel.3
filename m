@@ -4,58 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53FFEE6BF39
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 20:24:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D79E6BF39
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 20:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qeNj0gCUOTKUIb11BJ0aXLQ4e6VID3lmCI0AyYeZ2Ro=; b=vlWx+ANVB4x7uJL3xaufLbnTWO
-	doKBKGO4B883vYr5Ac4cOMlx1A+AhfnsxvpSaeVSoWnB2yKg4EzXbfPTwvjyGvohuliRIbfiui/qE
-	FCJB0p2IoakYcfislw0z/N1k4kP1Ay75YhXeNap3eNuxE7X1lBwdZsZIb5ItwP1ciwSH4i/96II5m
-	0DTJ5AXyinDsbU/Fmub0DoSbIg9Fkz4sOMJzd9G2/eBOL1vB8zrXqfHZt79Mp5KZjDLop1/dgL3PR
-	YQCeQUoK+u38oLD0y0Hj+X+vajqCMqBAHy9G8hK9oboswnDrLqnfXfgafrt0IBWFm2B89LXNrWg6f
-	wsSOBItg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vOb6VFij3iBn4ndpB7Yrq9iVB0HebTt8hEgVnBjhJ94=; b=o6fQs0tre/EaliWDOIyfLiKZx6
+	taFrDiQETF4QqOcdExbCwFhCLKJKDqKAdjCFtms1/zKRkKPsr3TdI91rHXt+3qEMd0zarxxiAgiQD
+	/JAfEmWOyACxc+s9XcZVQc5wB7/4XZ1Lgi8nvCDvhm4M0pQwAaBBBzcTPx4N2EE6Emwf1hOlLJcqd
+	GnUyH/EVo3FpNpyZfQxd69mzKYvPP1/Hdl++kwBjSKoDhQURsdWrf347X0X70/VrfHT8AeH5FC1h2
+	nwp421XU2z/guaaK3F60suaJ7b3eTMYkPFxUpV6gL5+qlNE3qy28oeFmo7RTxNnvFzdVu6FO+ntx3
+	CCB3NfxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlv2u-00000001vqr-0ggU;
-	Fri, 30 Jan 2026 20:24:48 +0000
+	id 1vlv9g-00000001wIn-3oBf;
+	Fri, 30 Jan 2026 20:31:48 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlv2r-00000001vqW-0IYw
+	id 1vlv9d-00000001wIS-37dD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 20:24:46 +0000
+	Fri, 30 Jan 2026 20:31:47 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE40B153B;
-	Fri, 30 Jan 2026 12:24:33 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DDC243F5CA;
-	Fri, 30 Jan 2026 12:24:39 -0800 (PST)
-Date: Fri, 30 Jan 2026 20:24:37 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Alexandru Elisei <Alexandru.Elisei@arm.com>,
-	Anshuman Khandual <Anshuman.Khandual@arm.com>,
-	Rob Herring <Rob.Herring@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	Robin Murphy <Robin.Murphy@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] perf: arm_spe: Add barrier before enabling profiling
- buffer
-Message-ID: <20260130202437.GB3481290@e132581.arm.com>
-References: <20260123-james-spe-relaxation-v1-1-4ccb88fa7bc5@linaro.org>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D7CE153B;
+	Fri, 30 Jan 2026 12:31:36 -0800 (PST)
+Received: from [10.6.14.29] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2B4803F5CA;
+	Fri, 30 Jan 2026 12:31:24 -0800 (PST)
+Message-ID: <5dad5a2f-1282-43a4-928f-a7b8da25fb82@arm.com>
+Date: Fri, 30 Jan 2026 21:31:13 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260123-james-spe-relaxation-v1-1-4ccb88fa7bc5@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] firmware: smccc: add support for Live Firmware
+ Activation (LFA)
+To: Vedashree Vidwans <vvidwans@nvidia.com>, Salman Nabi
+ <salman.nabi@arm.com>, sudeep.holla@arm.com, mark.rutland@arm.com,
+ lpieralisi@kernel.org
+Cc: ardb@kernel.org, chao.gao@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-coco@lists.linux.dev,
+ linux-kernel@vger.kernel.org, sdonthineni@nvidia.com, vsethi@nvidia.com,
+ vwadekar@nvidia.com
+References: <20260119122729.287522-1-salman.nabi@arm.com>
+ <20260119122729.287522-2-salman.nabi@arm.com>
+ <bf1addf9-5e28-46c6-8943-6a359630e533@nvidia.com>
+ <8e4b3940-bea0-4c75-80ec-8c5a87cd24a5@arm.com>
+ <67ffa9f9-64b4-4015-b374-c7ab545c5200@nvidia.com>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <67ffa9f9-64b4-4015-b374-c7ab545c5200@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_122445_212715_6F9D62F9 
-X-CRM114-Status: GOOD (  42.65  )
+X-CRM114-CacheID: sfid-20260130_123145_861562_28566548 
+X-CRM114-Status: GOOD (  32.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,145 +73,226 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 23, 2026 at 04:03:53PM +0000, James Clark wrote:
-> The Arm ARM known issues document [1] states that the architecture will
-> be relaxed so that the profiling buffer must be correctly configured
-> when ProfilingBufferEnabled() && !SPEProfilingStopped() &&
-> PMBLIMITR_EL1.FM != DISCARD:
+Hi,
+
+On 1/30/26 20:29, Vedashree Vidwans wrote:
+> Hi Andre,
 > 
->   R24557
+> On 1/29/26 09:26, Andre Przywara wrote:
+>> Hi Vedashree,
+>>
+>> many thanks for having a look!
+>>
+>> On 1/28/26 00:01, Vedashree Vidwans wrote:
+>>> Hello,
+>>>
+>>> On 1/19/26 04:27, Salman Nabi wrote:
+>>>> The Arm Live Firmware Activation (LFA) is a specification [1] to 
+>>>> describe
+>>>> activating firmware components without a reboot. Those components
+>>>> (like TF-A's BL31, EDK-II, TF-RMM, secure paylods) would be updated the
+>>>> usual way: via fwupd, FF-A or other secure storage methods, or via some
+>>
+
+[ .... ]
+>>>> +
+>>>> +    for (int i = 0; i < ARRAY_SIZE(fw_images_uuids); i++) {
+>>>> +        if (!strcmp(fw_images_uuids[i].uuid, fw_uuid))
+>>>> +            image_name = fw_images_uuids[i].name;
+>>>> +    }
+>>> I would recommend using fw_uuid as the image_name when UUID is not
+>>> found in fw_images_uuids[], currently the driver assigns 'unknown'
+>>> in such case.
+>>> There is a valid possibility that platform-specific FW images, not
+>>> listed in fw_images_uuids[], are used by LFA agent for live FW
+>>> activation. In such scenarios, falling back to 'unknown' would lose
+>>> important information especially when errors surface in
+>>> call_lfa_activate(). Using UUID directly would indicate which
+>>> image failed or behaved unexpectedly.
+>>
+>> Well, I think if you want to identify an image clearly, you always 
+>> have to use the UUID, as shown by the directory name. The "name" sysfs 
+>> file is there just for convenience, to make this easier for *users* 
+>> when dealing with well-known firmware image. As you rightly said, we 
+>> can never guarantee that the kernel knows a certain UUID, and it 
+>> wouldn't be necessary for proper operation at all.
+>> So I was expecting this name to be only used by reporting scripts or 
+>> such. But indeed some "unknown" string is a bit fragile as a 
+>> placeholder name, I was wondering if we should just provide an empty 
+>> string in this case? This would allow scripts to detect this special 
+>> case reliably and provide their own rendering then.
+>> Does this make sense?
+> Thank you for teh clarification, this helps. I agree that UUID is the 
+> canonical identifier and that 'name' sysfs file is mainly for user 
+> convenience.
+> One concern I have is around error reporting. For example, if 
+> call_lfa_activate() fails, the kernel prints:
+> ACTIVATE for image <name_string> failed: LFA_BUSY
 > 
->   While the Profiling Buffer is enabled, profiling is not stopped, and
->   Discard mode is not enabled, all of the following must be true:
-> 
->   * The current write pointer must be at least one sample record below
->     the write limit pointer.
-> 
-> The same relaxation also says that writes may be completely ignored:
-> 
->   When the Profiling Buffer is enabled, profiling is not stopped, and
->   Discard mode is not enabled, the PE might ignore a direct write to any
->   of the following Profiling Buffer registers, other than a direct write
->   to PMBLIMITR_EL1 that clears PMBLIMITR_EL1.E from 1 to 0:
-> 
->   * The current write pointer, PMBPTR_EL1.
->   * The Limit pointer, PMBLIMITR_EL1.
->   * PMBSR_EL1.
-> 
-> When arm_spe_pmu_start() occurs, SPEProfilingStopped() is false
-> (PMBSR_EL1.S == 0) meaning that the write to PMBLIMITR_EL1 now becomes
-> the point where the buffer configuration must be correct by, rather than
-> the "When profiling becomes enabled" (StatisticalProfilingEnabled())
-> from the old rule which is much later when PMSCR_EL1 is written.
-> 
-> If the writes to PMBLIMITR_EL1 and PMBPTR_EL1 are re-ordered then a
-> misconfigured state could be observed, resulting in a buffer management
-> event. Or the write to PMBPTR_EL1 could be ignored.
-> 
-> Fix it by adding an isb() after the write to PMBPTR_EL1 to ensure that
-> this completes before enabling the buffer.
+> If the 'name_string' is "unknown" or an empty string, the error message 
+> doesn't indicate which firmware component failed activation, especially 
+> on system with multiple LFA-capable FW images.
 
-Makes sense.
+Yes, that's a good point.
 
-> To avoid redundant isb()s in the IRQ handler, remove the isb() between
-> the PMBLIMITR_EL1 write and SYS_PMBSR_EL1 as it doesn't matter which
-> order these happen in now that all the previous configuration is covered
-> by the new isb().
+> In such cases, having meaningful fallback identifier is helpful for 
+> debugging. Using UUID in the error log would help identify which FW 
+> image encountered the failure. This avoids ambiguity and makes error 
+> triage much easier, especially when platform-specific firmware images 
+> are not listed in fw_images_uuids[] but are still valid LFA components.
+> So eitehr of the following would solve the issue:
+> 1. Use fw_uuid as the fallback image_name
+> 2. Update error print in call_lfa_activate() and prime_fw_image() to use 
+> UUID instead of image_name.
 
-The isb() in the interrupt handler is useful and should not be removed.
-
-See the sequence in the interrupt handler:
-
-    arm_spe_perf_aux_output_begin() {
-        write_sysreg_s(base, SYS_PMBPTR_EL1);
-
-        // Ensure the write pointer is ordered
-        isb();
-
-        write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
-    }
-
-    // Ensure the limit pointer is ordered
-    isb();
-
-    // Profiling is enabled:
-    //   (PMBLIMITR_EL1.E==1) && (PMBSR_EL1.S==0) && (not discard mode)
-    write_sysreg_s(0, SYS_PMBSR_EL1);
-
-The first isb() ensures that the write pointer update is ordered.  The
-second isb() ensures that the limit pointer is visible before profiling
-is enabled by clearing the PMBSR_EL1.S bit.  When handling a normal
-maintenance interrupt, PMBSR_EL1.S is set by the SPE to stop tracing,
-while PMBLIMITR_EL1.E remains set.  Clearing PMBSR_EL1.S therefore
-effectively re-enables profiling.
-
-Since the second isb() is a synchronization for both the write pointer
-and the limit pointer before profiling is enabled, it could be argued
-that the first isb() is redundant in the interrupt handling.  However,
-the first isb() is crucial for the arm_spe_pmu_start() case, and keeping
-it in the interrupt handler does no harm and simplifies code maintenance.
-
-In short, if preserves the second isb() instead of removing it, the
-change looks good to me.
+I'd say number 2 is better. And if we leave the name char* as NULL or an 
+empty string, then this is also easy to detect in the code, and we can 
+print the UUID instead. If we do this more than once, then this could be 
+nicely hidden in a function.
 
 Thanks,
-Leo
+Andre
 
-> This issue is only present in arm_spe_pmu_start() and not in the IRQ
-> handler because SPEProfilingStopped() is true in the IRQ handler. Jumps
-> to the out_write_limit label will skip the isb() but this is ok as they
-> only happen if discard mode is set or the buffer isn't enabled so
-> correct configuration is not required.
+
+> Best,
+> Veda
+>>
+>> Cheers,
+>> Andre
+>>
+>>> Thank you,
+>>> Veda
+>>>> +
+>>>> +    attrs->image_dir = kobject_create_and_add(fw_uuid, lfa_dir);
+>>>> +    if (!attrs->image_dir)
+>>>> +        return -ENOMEM;
+>>>> +
+>>>> +    INIT_LIST_HEAD(&attrs->image_node);
+>>>> +    attrs->image_name = image_name;
+>>>> +    attrs->cpu_rendezvous_forced = 1;
+>>>> +    set_image_flags(attrs, seq_id, image_flags, reg_current_ver,
+>>>> +            reg_pending_ver);
+>>>> +
+>>>> +    /*
+>>>> +     * The attributes for each sysfs file are constant (handler 
+>>>> functions,
+>>>> +     * name and permissions are the same within each directory), 
+>>>> but we
+>>>> +     * need a per-directory copy regardless, to get a unique handle
+>>>> +     * for each directory, so that container_of can do its magic.
+>>>> +     * Also this requires an explicit sysfs_attr_init(), since it's 
+>>>> a new
+>>>> +     * copy, to make LOCKDEP happy.
+>>>> +     */
+>>>> +    memcpy(attrs->image_attrs, image_attrs_group,
+>>>> +           sizeof(attrs->image_attrs));
+>>>> +    for (int i = 0; i < LFA_ATTR_NR_IMAGES; i++) {
+>>>> +        struct attribute *attr = &attrs->image_attrs[i].attr;
+>>>> +
+>>>> +        sysfs_attr_init(attr);
+>>>> +        ret = sysfs_create_file(attrs->image_dir, attr);
+>>>> +        if (ret) {
+>>>> +            pr_err("creating sysfs file for uuid %s: %d\n",
+>>>> +                   fw_uuid, ret);
+>>>> +            clean_fw_images_tree();
+>>>> +
+>>>> +            return ret;
+>>>> +        }
+>>>> +    }
+>>>> +    list_add(&attrs->image_node, &lfa_fw_images);
+>>>> +
+>>>> +    return ret;
+>>>> +}
+>>>> +
+>>>> +static int update_fw_images_tree(void)
+>>>> +{
+>>>> +    struct arm_smccc_1_2_regs reg = { 0 };
+>>>> +    struct uuid_regs image_uuid;
+>>>> +    char image_id_str[40];
+>>>> +    int ret, num_of_components;
+>>>> +
+>>>> +    num_of_components = get_nr_lfa_components();
+>>>> +    if (num_of_components <= 0) {
+>>>> +        pr_err("Error getting number of LFA components\n");
+>>>> +        return -ENODEV;
+>>>> +    }
+>>>> +
+>>>> +    for (int i = 0; i < num_of_components; i++) {
+>>>> +        reg.a0 = LFA_1_0_FN_GET_INVENTORY;
+>>>> +        reg.a1 = i; /* fw_seq_id under consideration */
+>>>> +        arm_smccc_1_2_invoke(&reg, &reg);
+>>>> +        if (reg.a0 == LFA_SUCCESS) {
+>>>> +            image_uuid.uuid_lo = reg.a1;
+>>>> +            image_uuid.uuid_hi = reg.a2;
+>>>> +
+>>>> +            snprintf(image_id_str, sizeof(image_id_str), "%pUb",
+>>>> +                 &image_uuid);
+>>>> +            ret = update_fw_image_node(image_id_str, i,
+>>>> +                            reg.a3, reg.a4, reg.a5);
+>>>> +            if (ret)
+>>>> +                return ret;
+>>>> +        }
+>>>> +    }
+>>>> +
+>>>> +    return 0;
+>>>> +}
+>>>> +
+>>>> +static int __init lfa_init(void)
+>>>> +{
+>>>> +    struct arm_smccc_1_2_regs reg = { 0 };
+>>>> +    int err;
+>>>> +
+>>>> +    reg.a0 = LFA_1_0_FN_GET_VERSION;
+>>>> +    arm_smccc_1_2_invoke(&reg, &reg);
+>>>> +    if (reg.a0 == -LFA_NOT_SUPPORTED) {
+>>>> +        pr_info("Live Firmware activation: no firmware agent 
+>>>> found\n");
+>>>> +        return -ENODEV;
+>>>> +    }
+>>>> +
+>>>> +    fw_images_update_wq = alloc_workqueue("fw_images_update_wq",
+>>>> +                         WQ_UNBOUND | WQ_MEM_RECLAIM, 1);
+>>>> +    if (!fw_images_update_wq) {
+>>>> +        pr_err("Live Firmware Activation: Failed to allocate 
+>>>> workqueue.\n");
+>>>> +
+>>>> +        return -ENOMEM;
+>>>> +    }
+>>>> +
+>>>> +    pr_info("Live Firmware Activation: detected v%ld.%ld\n",
+>>>> +        reg.a0 >> 16, reg.a0 & 0xffff);
+>>>> +
+>>>> +    lfa_dir = kobject_create_and_add("lfa", firmware_kobj);
+>>>> +    if (!lfa_dir)
+>>>> +        return -ENOMEM;
+>>>> +
+>>>> +    mutex_lock(&lfa_lock);
+>>>> +    err = update_fw_images_tree();
+>>>> +    if (err != 0)
+>>>> +        kobject_put(lfa_dir);
+>>>> +
+>>>> +    mutex_unlock(&lfa_lock);
+>>>> +    return err;
+>>>> +}
+>>>> +module_init(lfa_init);
+>>>> +
+>>>> +static void __exit lfa_exit(void)
+>>>> +{
+>>>> +    flush_workqueue(fw_images_update_wq);
+>>>> +    destroy_workqueue(fw_images_update_wq);
+>>>> +
+>>>> +    mutex_lock(&lfa_lock);
+>>>> +    clean_fw_images_tree();
+>>>> +    mutex_unlock(&lfa_lock);
+>>>> +
+>>>> +    kobject_put(lfa_dir);
+>>>> +}
+>>>> +module_exit(lfa_exit);
+>>>> +
+>>>> +MODULE_DESCRIPTION("ARM Live Firmware Activation (LFA)");
+>>>> +MODULE_LICENSE("GPL");
+>>>
+>>
 > 
-> [1]: https://developer.arm.com/documentation/102105/latest/
-> 
-> Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
-> A previous version of this was posted here [1] bundled with other
-> changes to support running in a guest. Since then the known issues doc
-> linked in the commit message has been released so this is a resend of
-> only the critical part that also needs to be fixed for hosts.
-> 
-> A redundant isb() has also been removed in this version which is not
-> present in the previous version.
-> 
-> [1]: https://lore.kernel.org/linux-arm-kernel/20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org/
-> ---
->  drivers/perf/arm_spe_pmu.c | 5 ++---
->  1 file changed, 2 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-> index 4801115f2b54..62ae409fd5b4 100644
-> --- a/drivers/perf/arm_spe_pmu.c
-> +++ b/drivers/perf/arm_spe_pmu.c
-> @@ -639,6 +639,7 @@ static void arm_spe_perf_aux_output_begin(struct perf_output_handle *handle,
->  	limit += (u64)buf->base;
->  	base = (u64)buf->base + PERF_IDX2OFF(handle->head, buf);
->  	write_sysreg_s(base, SYS_PMBPTR_EL1);
-> +	isb();
->  
->  out_write_limit:
->  	write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
-> @@ -780,10 +781,8 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
->  		 * PMBPTR might be misaligned, but we'll burn that bridge
->  		 * when we get to it.
->  		 */
-> -		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED)) {
-> +		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED))
->  			arm_spe_perf_aux_output_begin(handle, event);
-> -			isb();
-> -		}
->  		break;
->  	case SPE_PMU_BUF_FAULT_ACT_SPURIOUS:
->  		/* We've seen you before, but GCC has the memory of a sieve. */
-> 
-> ---
-> base-commit: c072629f05d7bca1148ab17690d7922a31423984
-> change-id: 20260123-james-spe-relaxation-d6621c7a68ff
-> 
-> Best regards,
-> -- 
-> James Clark <james.clark@linaro.org>
-> 
+
 
