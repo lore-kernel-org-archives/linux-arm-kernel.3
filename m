@@ -4,53 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9762CE6BF00
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 11:41:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E300E6BF01
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 11:48:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L807TjGmA4p0n4FCTuxgR77BaM8TOSHDjBzcYTkM9I0=; b=t/G1wyGiFp5TH+5tWb0Nfrq/MG
-	DRxqycAhjNMifxqgILWlG7EZ9KWRcQMjp0m6f3yH3/YYb8JxapEgbKCHYbCMsZXyuZdj7E8hl3dej
-	5CPs61d1bbmvZxeqO2xZtooTK7dIbkJ3SUgRatWGNlcxrRvHOyxjBcbw3qlAgctYxpU+RjaUs20PO
-	GQK7DS/hcsaBU4j8sxUc+WtXTCRwbr8BepwwVLRFrIzOmdxswGVKRAFKJL7mWcRJ6ZL3Bzj65WkWX
-	qyFYT++gakBNhW1zH590otD1FfL/vaw3x4BAdWXzz92aE7vv9QdNLvEm1n4kobsRp5vm5Ylc3nXPv
-	np5DdNUw==;
+	bh=HiAdJAOATpphPKKt4Msqi/O3DHV/llCZQK8v55LcCMs=; b=cuDu9rRe+CY5n6/is2U+GCKJis
+	OQawKuv+iTXF8bj8Vl+dXoYwqT55vsU7l2b+OqJw88NomZg+bv+i8ORGUZaPFEWiZ4za84zkDtD4C
+	k2yHuSqHeqIJmAYZCKtUeOYtzrnAGB8nbXQidRqMl8bg0qHdre78DXGGjTVkFRfUrJNmZHYEJ5odL
+	OfJ+TzmynPXHVz66deks3c3mJGx5wC0PjdT9tqjisUzQpCu9QnHnS1DRLZ0bm5wpO42lhJ8f7k7or
+	qOjZ5EK8HGU/bPzFs0/bbD42LxIxhwc49n8nltNhs/3N57Wi6+nARZECJtddKOQnVidH4lBxW1fcZ
+	wP4x/Jjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlmsN-00000001RbY-2LeD;
-	Fri, 30 Jan 2026 11:41:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlmsK-00000001RbD-0Sna
+	id 1vlmyg-00000001RnW-1qYj;
+	Fri, 30 Jan 2026 11:47:54 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlmyd-00000001RnB-1org
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 11:41:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9E6DD153B;
-	Fri, 30 Jan 2026 03:41:10 -0800 (PST)
-Received: from [10.57.54.50] (unknown [10.57.54.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DAD213F73F;
-	Fri, 30 Jan 2026 03:41:15 -0800 (PST)
-Message-ID: <cdbea011-63de-4533-94e8-5a2a18c8e545@arm.com>
-Date: Fri, 30 Jan 2026 11:41:13 +0000
+	Fri, 30 Jan 2026 11:47:52 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b88593aa4dcso285941266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Jan 2026 03:47:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769773669; x=1770378469; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HiAdJAOATpphPKKt4Msqi/O3DHV/llCZQK8v55LcCMs=;
+        b=FlxPFZUBxS8ApsOgixlmq+asCfB0ceeOXn6Gak5kIF4rAYnF+S24H350q7DzqRieoi
+         J4AlQwmvmTaWlCC3P4D/5iQ1R1xnbGzOdlFkhvYbvWLoNtJjaCF2XvgyMNeb1u6/i87y
+         qdS7ReGcsKiItTSauPwFzixhCRHK3WsJHY5ZAkXGPmRWaDxFsJiuIG1S6jDRgu3SP+03
+         PAkVCBl3zkfc6aIgT5uXwkWiXoaT/113PMxaxvy0FrNhvtci4D8HseJrGsaIQ89H31Am
+         XVw01+jTSOTmuUFO03nDq3wFVfSbKI8QExksWhfmEWKuZ7CVV1P4G5rNxB6TXmX/w4Bx
+         so9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769773669; x=1770378469;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=HiAdJAOATpphPKKt4Msqi/O3DHV/llCZQK8v55LcCMs=;
+        b=rOOQWaO45k5UVtHVqM6NQO0nSlYdiBx6d+isWWd/6lhZeePVjvuDmwT7diusjmFdXt
+         MVZ5pHW9NtgNUYdDQr0Gi2mUovmim0Mqh9HPGo/TUa/1F66Vwtf80M12dDtjl4TFxZYF
+         Axzh0c7gB9Zj1JDecCX/6c3drOhpw+JnR69emHDZxVixUGceEwwYOTfhzCJkhM355+HW
+         YZZVG9op53ka8ailycM8a8az9E0T8d7QX3+ZyrlD4sSry9BOO56fJ3fIxuJHNnfR/LlI
+         4amnWkPHCPt4SlYpcfs/PbWmY+wDe+kZCSrC8vqjYiF1gWwCGqR7uBqGOXYcdmY87xBg
+         NopA==
+X-Forwarded-Encrypted: i=1; AJvYcCXG8PDp7JxiKFW1qrTC3okw49q4N2QhwDkeXuY9tkgyEN5+6DqMJIvBTTDUk1TzY19SPQnOY4ZZGC2Z+MdTU2sf@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWrFhy21Ak2ZDg4XVAaBea5ZdIhNE8roqsKud88NpYlITdU+rk
+	h18WM6vALQvc8aflzJZs5Ad0XsCKqbrqw8cjrVeiqsHmzlrz4NAghJ7L
+X-Gm-Gg: AZuq6aIbEkFRuuV3uz6UyFGHdF03cfDroIfVFDa3mFElSDNfzqkC/5G/Mk6gTUMIbkh
+	iOrxHOJ2CVepPfstr9bPOBfwenPcvMsr0MivTIZx9hbk5LxyiNtfKUukuh/OKrVXJK9Hcwp6ves
+	G0d6ZD0hxS6i1qY0DJpoDBKE0AvFGolY2H9XJPkoovy9buZz8uIxodcjr+HkSo/7SmXt7zeIlI2
+	25pr1tKGl8rVAWvGP9Jt4mN+6FL9DWBVJJgAOEDk424huUc0CAC0XF8wGlo+ouNd2ENF5perJQy
+	hAx57dzftbOwVfVuSGSIVMKH9hR79KzlPeRwmF5IuuBi7CVVE+nq3QWUGKR0lngjALi5VLoG+6e
+	4FmFcM9S6Z7ahOns7QIgt9N8INSo19rTM67kttrMWnN7P1E5HaZcyDIY/PUdlVk5v+8lH3RcpJ2
+	NG/sTGjqp8xMRfq89nSbDGlV9XScST1O3mXgg=
+X-Received: by 2002:a17:907:7212:b0:b73:9280:2e7 with SMTP id a640c23a62f3a-b8dff71f572mr144266166b.34.1769773668637;
+        Fri, 30 Jan 2026 03:47:48 -0800 (PST)
+Received: from localhost.localdomain ([2a00:23c4:a758:8a01:bd64:2984:fe71:7633])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8de3046abasm243751266b.2.2026.01.30.03.47.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Jan 2026 03:47:48 -0800 (PST)
+From: Biju <biju.das.au@gmail.com>
+X-Google-Original-From: Biju <biju.das.jz@bp.renesas.com>
+To: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>
+Cc: Biju Das <biju.das.jz@bp.renesas.com>,
+	netdev@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Biju Das <biju.das.au@gmail.com>
+Subject: [PATCH net-next v2 2/2] net: stmmac: dwmac-renesas-gbeth: Add support for RZ/G3L SoC
+Date: Fri, 30 Jan 2026 11:47:40 +0000
+Message-ID: <20260130114744.252533-3-biju.das.jz@bp.renesas.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260130114744.252533-1-biju.das.jz@bp.renesas.com>
+References: <20260130114744.252533-1-biju.das.jz@bp.renesas.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] perf/arm-cmn: Reject unsupported hardware configurations
-To: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Cc: will@kernel.org, mark.rutland@arm.com, linux-perf-users@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-References: <bb47722fc593baf1e1cc0f944089592a4ec708da.1769695523.git.robin.murphy@arm.com>
- <0b85786d-ab5c-e9ed-f060-e7854810b1bb@os.amperecomputing.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <0b85786d-ab5c-e9ed-f060-e7854810b1bb@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_034120_298194_35BB6492 
-X-CRM114-Status: GOOD (  19.49  )
+X-CRM114-CacheID: sfid-20260130_034751_516252_06B5F110 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,88 +114,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-01-30 3:57 am, Ilkka Koskinen wrote:
-> 
-> 
-> Hi Robin,
-> 
-> On Thu, 29 Jan 2026, Robin Murphy wrote:
->> So far we've been fairly lax about accepting both unknown CMN models
->> (at least with a warning), and unknown revisions of those which we
->> do know, as although things do frequently change between releases,
->> typically enough remains the same to be somewhat useful for at least
->> some basic bringup checks. However, we also make assumptions of the
->> maximum supported sizes and numbers of things in various places, and
->> there's no guarantee that something new might not be bigger and lead
->> to nasty array overflows. Make sure we only try to run on things that
->> actually match our assumptions and so will not risk memory corruption.
->>
->> Cc: stable@vger.kernel.org
->> Fixes: 7819e05a0dce ("perf/arm-cmn: Revamp model detection")
->> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
->> ---
->> drivers/perf/arm-cmn.c | 13 +++++++++++++
->> 1 file changed, 13 insertions(+)
->>
->> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
->> index 2903e01f951f..24fec53ceccc 100644
->> --- a/drivers/perf/arm-cmn.c
->> +++ b/drivers/perf/arm-cmn.c
->> @@ -2422,6 +2422,15 @@ static int arm_cmn_discover(struct arm_cmn 
->> *cmn, unsigned int rgn_offset)
->>             arm_cmn_init_node_info(cmn, reg & CMN_CHILD_NODE_ADDR, dn);
->>             dn->portid_bits = xp->portid_bits;
->>             dn->deviceid_bits = xp->deviceid_bits;
->> +            /*
->> +             * Logical IDs are assigned from 0 per node type, so as
->> +             * soon as we one bigger than expected, we can assume
-> 
-> Should that be something like:
-> 
->              "...as soon as we see one bigger than expected.."
+From: Biju Das <biju.das.jz@bp.renesas.com>
 
-Erm, indeed "see" is what I was trying to type... apparently it didn't 
-make it all the way to my fingers.
+Compared to other Renesas GBETH stmmac glue drivers, RZ/G3L GBETH IP use
+the version Synopsys DesignWare MAC (version 5.30). It has an extra clock
+compared to RZ/V2H and has ptp_pps_o interrupts. Add support for RZ/G3L
+GBETH by reusing device data of RZ/V2H and can be extended to add other
+functionalities later.
 
-> Other than that, the patch looks good to me.
-> 
-> Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
+---
+v1->v2:
+ * No change.
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Thanks!
-
-Robin.
-
-> 
-> Cheers, Ilkka
-> 
->> +             * there are more than we can cope with.
->> +             */
->> +            if (dn->logid > CMN_MAX_NODES_PER_EVENT) {
->> +                dev_err(cmn->dev, "Invalid node number: %d\n", dn- 
->> >logid);
->> +                return -ENODEV;
->> +            }
->>
->>             switch (dn->type) {
->>             case CMN_TYPE_DTC:
->> @@ -2499,6 +2508,10 @@ static int arm_cmn_discover(struct arm_cmn 
->> *cmn, unsigned int rgn_offset)
->>         cmn->mesh_x = cmn->num_xps;
->>     cmn->mesh_y = cmn->num_xps / cmn->mesh_x;
->>
->> +    if (max(cmn->mesh_x, cmn->mesh_y) > CMN_MAX_DIMENSION) {
->> +        dev_err(cmn->dev, "Invalid mesh size: %dx%d\n", cmn->mesh_x, 
->> cmn->mesh_y);
->> +        return -ENODEV;
->> +    }
->>     /* 1x1 config plays havoc with XP event encodings */
->>     if (cmn->num_xps == 1)
->>         dev_warn(cmn->dev, "1x1 config not fully supported, translate 
->> XP events manually\n");
->> -- 
->> 2.39.2.101.g768bb238c484.dirty
->>
->>
->>
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
+index be7f5eb2cdcf..19f34e18bfef 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
+@@ -214,6 +214,7 @@ static const struct renesas_gbeth_of_data renesas_gmac_of_data = {
+ };
+ 
+ static const struct of_device_id renesas_gbeth_match[] = {
++	{ .compatible = "renesas,r9a08g046-gbeth", .data = &renesas_gbeth_of_data },
+ 	{ .compatible = "renesas,r9a09g077-gbeth", .data = &renesas_gmac_of_data },
+ 	{ .compatible = "renesas,rzv2h-gbeth", .data = &renesas_gbeth_of_data },
+ 	{ /* Sentinel */ }
+-- 
+2.43.0
 
 
