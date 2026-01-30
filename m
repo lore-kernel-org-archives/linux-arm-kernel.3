@@ -4,98 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B2C2D73EBF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 05:40:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DA58D73EBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 05:44:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nlTV89wrXWzzojHmqRNsNeMryN5g+8W1Ft/Vshjb7sg=; b=nY6OlW6sCjxODkbk5nm3JGhdP0
-	TUkGu7MGN+23cgc0yDYwzUAoIJZc5W9G5gJ2kCou9/+FXoEMystLjcYAsdvDKOtIv89EUjIUDiNHQ
-	3IlX3Phip6jXOgXNjpH7hM1+s9gCb8znagQif4HRPb+PavJ6WzCkE327Hr5v/G8pPQ+V5HH0b68Rs
-	0AmbCVvNlEGgOEgdJ2hEwAmha2aTv8ma9RnATGa9mw40wNJDrHt+g9EAa0xrQrGdFXzs8zfYe3Cy/
-	obg4RNUAQIm6T/17nSRJxgLDfw2OxfjqB0t4x+OSbbLIJh4KGznw+8Ni2+5AVmNzrMcpAFZNYT2Ns
-	D8TbC+Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ooagwC2WOmSKBDp+ojileLXUAhCwPsXJr08tZgBfh3w=; b=so9ylbRZAx7ZlJtEiAM0rG/6F0
+	GoliC03y7cj5tlwZZ5PeDsgrVmArtaLHm5gxKz2/jlCFay2JxxSM6cPIwSUqkGvTJjkt4kfOEBf2E
+	cKD1WrnFzcQ335RdghHMXKFout48kIrg3RiHR5HnR6T49MZLZHlfBa+nhLcb1nuJvGAjVFdCHQAfX
+	ufSKLTpoyhAvQGnaXYUuj+yR46WTDA679prsjej5FThfY+XS7dXvSH8bdUVE2orRlDDDeHBLNXVob
+	EYS4XpAHhTWGetqoRJSmV0IDco71VJ86/hthJPxZT3PcTSEMIqMuv/Kas2jBWK5FpL7P0aswLLGOu
+	J6pt/PbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlhEl-000000013oQ-0n5Z;
-	Fri, 30 Jan 2026 05:40:07 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1vlhIf-0000000140E-3XQT;
+	Fri, 30 Jan 2026 05:44:09 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlhEi-000000013o5-1PJ1
+	id 1vlhId-000000013zc-2zdK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 05:40:05 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-435f177a8f7so863678f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 21:40:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769751602; x=1770356402; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=nlTV89wrXWzzojHmqRNsNeMryN5g+8W1Ft/Vshjb7sg=;
-        b=gzplh+Ex8ZR2F2qC5dChUYaSTBI5v3Ibg+shL32r38ji9QACFkqFND4Z40JGEhHHdn
-         6HmQezab2X+GtndpOC37W08sU1u9ONDoevf0dzqDhnz+LM7V3MqtN8/GFCcKeryN51Rc
-         2BNMf5jLk7Az88JVWqz47K0jdYfQgP7Aq5YzWfq4g9ptJEAcvf6VatN5BqSp7ol1zrJs
-         eyXu0Xje/AVbDsFLywvRQLeC9+HkYRR0pV+9CMD5Xi8TM1G3ks1sCDjk0KcuPR92Wwyq
-         RRY28sjufAtWdD3iUnKL43+TTv90H9EPAbHc3r/cuVhhAfSkR/XATJJeY3y7g6z6tZkr
-         zS4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769751602; x=1770356402;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nlTV89wrXWzzojHmqRNsNeMryN5g+8W1Ft/Vshjb7sg=;
-        b=PK9rwXjILSxQ00FCBY8/csXKBuLZlz0Hks5buCoA0rMhROPRDQPxWzDhqLFL8Cmlev
-         5o35YTCt7m8JS9qheTFh/NR9aTYwh3fNJjkXwsOCJT7PlB+K9yInuia2D+l/4s6DD4cB
-         FDszZiDMR7EdvgEqPjSB/2l3/ZjpfvTeaiWOfrPHpwxzAy6ODAOtB0dry2B88guWjhLj
-         q9Vk6rhcFkk6DppmYcVTitQjOtuRIUCuGOCpHHlwIsDNdGXysONYQpo1YYnwyVpOg01I
-         InUUEFpHW7IvE9METMaTmev/+ngMv/+DVfELzKvTnlQAJI/5850uTcnMdsbymyUr7PRm
-         JNxA==
-X-Forwarded-Encrypted: i=1; AJvYcCXEuyw6ZLybarer2nL3C0BRFxwVhB2cJXH0uXnoBT5r28AfBBVdBWAeCkCUkQSPUpwcUH6dqA1TmRUZZuwGrVtD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwH5Saw3VFKDdHakhTY+BgoRtTGPj9h8VJuR52avih3wEgKv54z
-	t0rlOG8ckB5Q7Ea7v0CRiYaeRznk5kbyA92m1nTy1dBvAXnK1SM2s4TfRO5DcX2kxh8=
-X-Gm-Gg: AZuq6aLmdr7/dy2GzZqevuWZb6lUmXY9vlfvRHkn0PuwSX67krhqy80BejGM5PVLt21
-	4GNB6qgN7xNOxdFmXLnACoWvgdY6LJg4GQMKFrDqGyGh64tD8fp4zUw07r2utpBaH5tyiYd7nJa
-	QtTvmoAHEz6GmhT0qdRJIburgTWjXZgEnmciYdg3dyjSPPD+nSrH+fIGrNURdi3UW7TP4B5nFPg
-	1WpalPKiebJxpNG5nF50s5A34cK1vkoz/fl36ozvu+AOYr1BgA70VjjWoD0vpSVdkYGvih7jrxL
-	SvOKZp4Sqdks0SU0ePi2IHmLWqjJlaJ9vfldmE+DyP2H252RXL6GBtt29lxD7rUQZyRqdkEwQyU
-	ZQZZoCZQNcngJto7MpWjdb6RTfuGeC0kEL/caViR2whuTzmIN189RsGLREYFFhpEXny8qQ13J4/
-	TZwuXAITdWOjhIxPO7EA==
-X-Received: by 2002:a05:6000:1a8d:b0:435:b776:304c with SMTP id ffacd0b85a97d-435f3aaa5d0mr2448740f8f.30.1769751601650;
-        Thu, 29 Jan 2026 21:40:01 -0800 (PST)
-Received: from draszik.lan ([212.129.87.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e10ee040sm19280607f8f.11.2026.01.29.21.39.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Jan 2026 21:40:00 -0800 (PST)
-Message-ID: <74eb8fb542966c46d0a8c77041aeef21dd1a7e14.camel@linaro.org>
-Subject: Re: [PATCH v4 01/10] dt-bindings: soc: google: add
- google,gs101-dtzpc
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
- <alim.akhtar@samsung.com>,  Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Ulf Hansson	 <ulf.hansson@linaro.org>, Liam
- Girdwood <lgirdwood@gmail.com>, Mark Brown	 <broonie@kernel.org>, Peter
- Griffin <peter.griffin@linaro.org>, Tudor Ambarus	
- <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>, Will McVicker
-	 <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org
-Date: Fri, 30 Jan 2026 05:40:13 +0000
-In-Reply-To: <20260129165531.GA1269692-robh@kernel.org>
-References: <20260128-gs101-pd-v4-0-cbe7bd5a4060@linaro.org>
-	 <20260128-gs101-pd-v4-1-cbe7bd5a4060@linaro.org>
-	 <20260129165531.GA1269692-robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2+build4 
+	Fri, 30 Jan 2026 05:44:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CGsMdif8X/HseJnnlo8fAjcoBy1DV0mmuwFINUl1RIpTctHi3WSrHf9LSDjEkAJEWinxWRJNp2ta+QnUCEqzu5/iiArBGCMgi1vNCiRQOMivz4iZnXmEtAg0TTs+MXquKPLC8OzTQ80R4TLtoqvtXsqSxpHS1FAlOJKYhY/dT2y8Rt/taQ1i6HazjmRPi+uKxtBX3UrEhttutm+Z03YQ91MoUuQd9hC5M22zG/Eup7lsnFICIc4FoZH7Mu0tfAacgOHoGZoNw+RGe20qSlLG4l+jVQslRz8/nN5ZPp7RsykkIWTnnvhpqrQ/2uGOyVqUsxB4UtRGnMl2BQWkri2QlA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ooagwC2WOmSKBDp+ojileLXUAhCwPsXJr08tZgBfh3w=;
+ b=FuhZlLOVpfM470Pk9T00L26eeaLc5Lm16ktf9Vrt3+F6gPYj8qiIvl3W7lGcS+WCyWMXNMT/bFmFgUwk4vShr3vuf/LLlkUQNTKpN0bv7CD7zgPHenxIPbrRLZtqzXK+yjjwril4Run3OOkulpNXCO7h1x3T/EXKcXKB4dFxaojMrmeMcMo/YPQKE1Bn7Tk8rZs5rUq7g1MhmVIx2wj4X99BUaTotyjooG4DbBK8ez3CZRviq3OHTmPmoVE9bXpOL4djOEzyum6eswAd3Ot+vALqf28XfA3yfTFtdqmiqcRhytUQAdi0boeQJOqSBfwKsneIS3Lsips8G3z6N3E6Pg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ooagwC2WOmSKBDp+ojileLXUAhCwPsXJr08tZgBfh3w=;
+ b=Ud6xcpSiBz+qSsJBRP+FuwGmA+KVeSSSnjni5ZbxgHmdiLSetoNNkjFHTtRC4gQ62LpbdmlS6jlUg0tupzyFptz6Dw28QD9LRVPawIv0O3N/FwTUY4wyWpmkZM1ju27AeCjD1m3tCCs5E9V5jlYwhEn3dNOlFUGDrqJIxjLxP4nnYRkhr4ASZo3knrcBPue4/reEhPE/ZY7DSRsK3vCDpZ9KM7x+URAmKtJXhsYQoj57Y4gThXQM2xJ6Q1wl1GFHwQ2yixCJPaV9bmiCq7wc8CWkQD5WSNh4eDKP+DjLXAyvJkdYNNFCOwvDEVxjdu6aIBZJnYEvL2yK4/b2Skl2Gg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
+ by VE1PR04MB7277.eurprd04.prod.outlook.com (2603:10a6:800:1b3::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.9; Fri, 30 Jan
+ 2026 05:44:00 +0000
+Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
+ ([fe80::bab2:d15c:fcf8:ef2b]) by AM0PR04MB7044.eurprd04.prod.outlook.com
+ ([fe80::bab2:d15c:fcf8:ef2b%3]) with mapi id 15.20.9564.008; Fri, 30 Jan 2026
+ 05:44:00 +0000
+From: Shengjiu Wang <shengjiu.wang@nxp.com>
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	shengjiu.wang@gmail.com,
+	Xiubo.Lee@gmail.com,
+	nicoleotsuka@gmail.com,
+	perex@perex.cz,
+	tiwai@suse.com,
+	linuxppc-dev@lists.ozlabs.org
+Subject: [PATCH v2 0/4] ASoC: fsl_asrc: support the i.MX952 platform
+Date: Fri, 30 Jan 2026 13:43:26 +0800
+Message-Id: <20260130054330.3462544-1-shengjiu.wang@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0034.apcprd02.prod.outlook.com
+ (2603:1096:4:1f6::10) To AM0PR04MB7044.eurprd04.prod.outlook.com
+ (2603:10a6:208:191::20)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|VE1PR04MB7277:EE_
+X-MS-Office365-Filtering-Correlation-Id: d821e073-8f23-4233-efef-08de5fc29142
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|52116014|1800799024|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mnJD/MBxLSojd5fzyj0aju8qUug7b/GV72f8p0Cm2paxNu/6qv24GbQJBTb1?=
+ =?us-ascii?Q?vbY/dtprpmVS3x30ENEiZ/Ey961y2SfAWmtNKnBzVwjATyA9/fcfmMF8RAhv?=
+ =?us-ascii?Q?8zKN83LgroNhMPHlQJjP2fvc0qYU83RxAIfQE1t/nCW8dV2WbqF9SN1jWYCU?=
+ =?us-ascii?Q?YF6KThbhAMTK8qTD/b2U/huyQs/6W1lcsL2h0SEQCPE/3vu7icOfKcFjNhNc?=
+ =?us-ascii?Q?icWYnCpwdeQx2OWit85D6d4hpYUFu3+8LGFu04hU10cg8fFeuq+w4bM9qnm5?=
+ =?us-ascii?Q?BjiiJ+7WphAYUpVo7okpnuHoQJXETKyKGOtmsY3eLvj/v5K1cA7de+66Ywjs?=
+ =?us-ascii?Q?kkv775WMta+gNtgd7dUwtbphrAUJSC7Hlr/QB4xA0WfDDzdVyhnhA+jcUd4z?=
+ =?us-ascii?Q?lqJJW9RjiIHMz8E+ckqweGsWWF5foEe0d4mPtKmHrGMM1Ub1WToeyJtgqhaj?=
+ =?us-ascii?Q?65/SfQ8/rYrNFVkpLx6asDd01KuRsqm2lrg45fXSDf1NEk7yUisHPZiEj9ak?=
+ =?us-ascii?Q?MLq+K4wOuJdb90BaSQRh4fVu7eN4lJWGt6iD1qwoewdDniupSY/HMQLiDyjc?=
+ =?us-ascii?Q?MuC2Zugl6iA1Fc1Y9b6s1mp/HU3TRpM7paw4fM+I1T8GFuAeCvQUrB0o4b9P?=
+ =?us-ascii?Q?RQRQ/H1KKB2TvMhLEVzK//yGcQql8Psqi1aPtF/Uw/3JK0Rv/QSWT/Wdt29X?=
+ =?us-ascii?Q?WbD0b4RCHhEE9Xs4pbuUGB8RLgWZhvMx35dxXL9KYTF3D+mQSfNnyRJ2ZAZ7?=
+ =?us-ascii?Q?5xavhw/wh9qSBe6mSKdymyxAWMPwSLEJKNx38HfcNXe4Nij3zpwEQGcMzYx4?=
+ =?us-ascii?Q?/MH7jputlVqfpzg30XBI3cq+3ErLPChSLIWBUZ7q02asJgOuis7NwsFDm18c?=
+ =?us-ascii?Q?p/46emAM4oLeetK9UEbTHbig/yIV4Bm7UIbWEgGf5zPmXoL5rxowQd68F8Tl?=
+ =?us-ascii?Q?GIED0Ap3gtoDC6gzqhGP6pagvugH0okjenOHmxEJ9N1rR9J8Oe6LlZVHXCaR?=
+ =?us-ascii?Q?+MSzLyjOqdyB1geesCvHGuUPItefP6zj9/tVjdryVXj9dPb6w7hqL90meKfk?=
+ =?us-ascii?Q?nOqb3TYf83xSKHOa5foaF9VhQp0VE3dxat6cMzXvcKA66NV18AtT5FECuhm0?=
+ =?us-ascii?Q?tkvonRZ0ilPpgsOslyUEZj62pMzVxqHzVX9ZPElay2AhdTEIqENlCgGU22n0?=
+ =?us-ascii?Q?Qfm/Yh4b+T83I2/XTKiVQ+0HmGyKjG8aB5Rcs3Gz1HQ3zhL22nBNpT8HRXXP?=
+ =?us-ascii?Q?LH5xTJPVHjxd2t5GqEe4U3SFXm9NgSX1Cl1TqAAw9JcNMYtKJjHMh7H5wXCe?=
+ =?us-ascii?Q?mf34hIqmCvqyospMk4c53jcS7ti4b0ywCw86wCu79ThIyFKET2ql7OgYW9re?=
+ =?us-ascii?Q?RirVcnFkMGclg9tlrEMqyzZ7wWFU6h78/nEniqy+m9Fm6pBoFoqGoViQdpgp?=
+ =?us-ascii?Q?YJtGWXFVsniI0FW7hNt5YYp88PaoPG8cq3BhGKiymblVqlLOTnnJUkxaVV/M?=
+ =?us-ascii?Q?+1EZ5TXKz7Y18gLAU9+XVqwa120y0FMTrT8RcujmEDhFvWQro0hs+sPW4tSd?=
+ =?us-ascii?Q?2DnOAZMY1Nr74PW0yNDmykQTXUIBvQ+9cl6Gk0SJhAsFXgyqhHh0i2UxpqLx?=
+ =?us-ascii?Q?5wYSr3XhVQ/7eyXVVgUEVIvcclTomvNObMhDfVIBgIfp?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(52116014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HC2IQmf4FxRD3uHdKlR2JU1x0QvK1SbIzrOD+nKEUU4MxCcwJGYPcAx/9KCN?=
+ =?us-ascii?Q?EnKrUU9kTQY10WE4pIkmnu3cdupbjjxgMZIadk9k2nXnwDDj1aTLWEyD6qsL?=
+ =?us-ascii?Q?wcw5NyGeUK5abxCh4aGSzoFOOSh2qL6TWbarpUoBHXBRFPFejV4O+iqQE0Ha?=
+ =?us-ascii?Q?i26VrOIb0qpcmmnU4MpgG3KX7b0UGM+xWdqdygp0yDTNSviPxpSDYB9nEtRr?=
+ =?us-ascii?Q?ulDHxwX4UXB0Cru7b9o3RmETpvXKFP5WkOHAHWIsQTkZoaYvPeHEBWx4p3PH?=
+ =?us-ascii?Q?DsVc9qkrDYEIVwjJRAMGN+/EM14x+sWhtYzCuKE2XHTp7jFvJ+jqmy0YHGsv?=
+ =?us-ascii?Q?1S2SCjZp5X8VMVoMuK5OFrcXD8uroDIsV0UZ0eA37z0mZpfFMYHHQa8AmcLI?=
+ =?us-ascii?Q?YK3nJhwVDwxKu/dF/LWTxRxCqrkwLGPKwKmbjobcMryqO9130JYILf6mi89O?=
+ =?us-ascii?Q?CfcDlP+zLIWFhRvWc9+xKKPxMjYsIK7wJq69O64AwthYVODWuG6trtee6Xvo?=
+ =?us-ascii?Q?HARxDR52ANN0k7fF9NNbJQow/wfeZdkK/fTeqLte74nkUR9+DNXURvvE5bNR?=
+ =?us-ascii?Q?wDsrOEQfML8dG5WzH8ZgSCkqg3caeLI4YcsVGocDhB9S48ALNK4BmLhMoTfE?=
+ =?us-ascii?Q?8y5xL+Z91XWiB3u1xLWi7glxWr4zZZGP/ue9oqfxb8TsmnMiCbUoH+dvVpLF?=
+ =?us-ascii?Q?ybpUnEXj7nuUGv13L3A2cXJ/5jT/AMVQY9a/Mga8byTZ5B7oi9L9cWFvGygq?=
+ =?us-ascii?Q?sSBNAmkussSSGY8tZtqxOxu1pmfeS4YCePz1SA9eHN9f+iLwCK9R0DKiNIM4?=
+ =?us-ascii?Q?AmiD0lRsF5NE6VjvtjcF2X4+2wPZmsqSiMl5Pcw2NreEcahhnLTpHW0A/Zlz?=
+ =?us-ascii?Q?UDPPKAeSHkuKSd0bp+yytvY+AuPw3i3nq37jkT+PBSYm/JABS3FXSytaFNTj?=
+ =?us-ascii?Q?PzMDtaHmrCOslT2pSF+z0MnRdA40zPMhV5OgsQXj2LfeWYdVt7GCZhNa29lJ?=
+ =?us-ascii?Q?J0mCbMIAI/qCvxsS3bm5CCCiN+x/iuNOpQmFVluNJR2ZYIt9VlLH4grXN2FL?=
+ =?us-ascii?Q?pmHZRpwU+Mpj0+9gdDgIkVmAe3tMELntpqij3oFwAu+/2rmugnpD2YegDqeF?=
+ =?us-ascii?Q?d3A6gH4jgOzuXWAPR2Ns1Ofway61MYZN637vXyBgRVNvi40V/Ddq+bPs1Rge?=
+ =?us-ascii?Q?aqLU3FLWWVRPEkFUdavzS7jo3UAfOBFlrQiD/bX6trMP+3KrHP0SzO+NAilR?=
+ =?us-ascii?Q?xQ62k4BUe/1E3O7N4t3ns73LeHWdiOtxf0iF61k3hgkMk3ib3l1t5uT78Edp?=
+ =?us-ascii?Q?freCCrYbSfDmOjDxIDHFHiWmXM785ICvUxnoUZD0Cq86Hxh4Ne18Sky+EkNl?=
+ =?us-ascii?Q?vgXS4jYyOnVDxbkBZLsyWqh+KzTkTAYm9FN5XyR95hQyNvbBYT/OEODpXr+y?=
+ =?us-ascii?Q?95HJZvD+BoyUV3BFc278Jjv/rEo2NOAfGrL+IxzM8mq5krFmVcnX4qOuvyYK?=
+ =?us-ascii?Q?8itOq6DMEoPdAc1BxDfKBY7aMcq+MDHP3D0Xm5ksXfIe8PxMeHXyzfBaTd/F?=
+ =?us-ascii?Q?kEuI8vqa5zAoJMKJjTId0GcU9c+KwG7t6xyl3dRVubl9PDJ1Z54gDvRpJQ3l?=
+ =?us-ascii?Q?dLwFNAB/rc1P6GqSQfOLkde+LZ/UKyd9AwzQhEtnVVR/wsjxrTwt/pajD/hP?=
+ =?us-ascii?Q?5fQmOP0pUwEsWNRLbbAD1URbq6LvaMS20dzpQJKNjiE00Bzs2jbYXlDshmnL?=
+ =?us-ascii?Q?R5+XrICuIA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d821e073-8f23-4233-efef-08de5fc29142
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 05:44:00.4098
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Zsptn9D0RNZ9cw1FRL2MBIWtLQFcHBJ80dwjrHMouEh1owK/fRHlP1IT3sRaio4GA7JnPHGpC7Bjmr3yyMn6ug==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7277
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_214004_445867_5DF62ABF 
-X-CRM114-Status: GOOD (  29.37  )
+X-CRM114-CacheID: sfid-20260129_214407_756217_D9D84B0F 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,138 +178,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+Update dt binding document and update driver to suppot ASRC on i.MX952.
 
-On Thu, 2026-01-29 at 10:55 -0600, Rob Herring wrote:
-> On Wed, Jan 28, 2026 at 04:10:50PM +0000, Andr=C3=A9 Draszik wrote:
-> > The Exynos Distributed TruztZone Protection Control (D_TZPC) provides
-> > an interface to the protection bits that are included in the TrustZone
-> > design in a secure system. It configures each area of the memory as
-> > secure or non-secure.
->=20
-> This sounds like what access-controllers binding is for. Does that work=
-=20
-> here?
+Changes in v2:
+- update commit message for add more infos
+- split original patch 2/3 to two patches: patch 2/4 3/4
+- use size_add() in patch 4/4
 
-Thank you for the pointer, and yes, I did consider it, but decided against
-it in the end for the following reasons:
+Shengjiu Wang (4):
+  ASoC: dt-bindings: fsl,imx-asrc: Add support for i.MX952 platform
+  ASoC: fsl_asrc: Add support for i.MX952 platform
+  ASoC: fsl_asrc_m2m: Start ASRC before DMA device for M2M
+  ASoC: fsl_asrc_dma: allocate memory from dma device
 
-* downstream drivers don't actually do much with this, it's only used to
-  issue a request to the firmware to save / restore the configuration
-  when power domains are turned off / on (via SMC call). There is no
-  actual configuration happening unlike e.g. the drivers/bus/stm32_*
-  case. Configuration etc. seems to be handled statically in the firmware
-  in my case.
+ .../bindings/sound/fsl,imx-asrc.yaml          |  1 +
+ sound/soc/fsl/fsl_asrc.c                      | 40 ++++++++++++++++
+ sound/soc/fsl/fsl_asrc.h                      | 16 +++++++
+ sound/soc/fsl/fsl_asrc_common.h               |  4 ++
+ sound/soc/fsl/fsl_asrc_dma.c                  | 48 ++++++++++++++++---
+ sound/soc/fsl/fsl_asrc_m2m.c                  | 29 +++++++----
+ 6 files changed, 123 insertions(+), 15 deletions(-)
 
-* therefore I didn't write an actual driver for this compatible and my
-  patches are proposing to simply issue the SMC from the power domain
-  driver in the respective paths.
-  What I observed without having a driver matching the compatible, Linux
-  will defer binding of consumer drivers (power domain via phandle in my
-  case) until the access controller driver has bound. Since no such driver
-  exists in my case, Linux keeps deferring the binding of my power domain
-  driver forever, meaning it doesn't probe.
+-- 
+2.34.1
 
-Maybe this restriction could be loosened for cases like this instead. Or
-maybe I do need to write a dtzpc driver with the only purpose to issue the
-SMC calls at the right time. Having such a driver seemed like overkill,
-though.
-
-I realise not using access-controller in DT looks like working-around an
-issue in the kernel, but due to the minimal interaction from the Linux-side
-I was hoping for that to be OK.
-
-What do you think?
-
-
-Cheers,
-Andre'
-
->=20
-> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> > ---
-> > =C2=A0.../bindings/soc/google/google,gs101-dtzpc.yaml=C2=A0=C2=A0=C2=A0=
- | 42 ++++++++++++++++++++++
-> > =C2=A0MAINTAINERS=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 1 +
-> > =C2=A02 files changed, 43 insertions(+)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/soc/google/google,gs101-=
-dtzpc.yaml
-> > b/Documentation/devicetree/bindings/soc/google/google,gs101-dtzpc.yaml
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..a8c61ce069d6910c47753bf=
-14a792eb58e6ae182
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/soc/google/google,gs101-dtzpc.y=
-aml
-> > @@ -0,0 +1,42 @@
-> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/soc/google/google,gs101-dtzpc.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Samsung Exynos Distributed TruztZone Protection Control.
-> > +
-> > +description:
-> > +=C2=A0 Distributed TrustZone Protection Control (D_TZPC) provides an i=
-nterface to the
-> > +=C2=A0 protection bits that are included in the TrustZone design in a =
-secure system.
-> > +=C2=A0 It configures each area of the memory as secure or non-secure.
-> > +
-> > +maintainers:
-> > +=C2=A0 - Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> > +
-> > +properties:
-> > +=C2=A0 compatible:
-> > +=C2=A0=C2=A0=C2=A0 const: google,gs101-dtzpc
-> > +
-> > +=C2=A0 clocks:
-> > +=C2=A0=C2=A0=C2=A0 maxItems: 1
-> > +
-> > +=C2=A0 reg:
-> > +=C2=A0=C2=A0=C2=A0 maxItems: 1
-> > +
-> > +required:
-> > +=C2=A0 - compatible
-> > +=C2=A0 - clocks
-> > +=C2=A0 - reg
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +=C2=A0 - |
-> > +=C2=A0=C2=A0=C2=A0 #include <dt-bindings/clock/google,gs101.h>
-> > +
-> > +=C2=A0=C2=A0=C2=A0 dtzpc_hsi0: dtzpc@11010000 {
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible =3D "google,gs101-dtzpc";
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reg =3D <0x11010000 0x10000>;
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clocks =3D <&cmu_hsi0 CLK_GOUT_HSI0_D_T=
-ZPC_HSI0_PCLK>;
-> > +=C2=A0=C2=A0=C2=A0 };
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index a56f8f00aebb938aa765a8a6d66dfeb7f062dac8..98b2ef47c809ac0232e6941=
-c9483b19d7c798bb4 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -10833,6 +10833,7 @@ P:	Documentation/process/maintainer-soc-clean-d=
-ts.rst
-> > =C2=A0C:	irc://irc.oftc.net/pixel6-kernel-dev
-> > =C2=A0F:	Documentation/devicetree/bindings/clock/google,gs101-clock.yam=
-l
-> > =C2=A0F:	Documentation/devicetree/bindings/phy/google,lga-usb-phy.yaml
-> > +F:	Documentation/devicetree/bindings/soc/google/google,gs101-dtzpc.yam=
-l
-> > =C2=A0F:	Documentation/devicetree/bindings/soc/google/google,gs101-pmu-=
-intr-gen.yaml
-> > =C2=A0F:	Documentation/devicetree/bindings/usb/google,lga-dwc3.yaml
-> > =C2=A0F:	arch/arm64/boot/dts/exynos/google/
-> >=20
-> > --=20
-> > 2.52.0.457.g6b5491de43-goog
-> >=20
 
