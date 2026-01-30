@@ -4,107 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DDBDE6BF17
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 14:47:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D695E6BF17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 14:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m2hfas+OWqJcbZ6w1+Kimr6HVSADO3LaGmzUbd8jJBA=; b=YnXOlOxyh0K1A+SPg2yv5hFpMP
-	hOLlGxGpAnlJwf/fQNyoPPp5R50hJVuxegw2aHqcaDgYYRpBkkka0tJmHBJq7165SNm2fPinPnxcx
-	maTc/+1Rik8YEj/6dVii5e/7Mqs1q5n6rtWez6DaBjAeSgoOKiLPEkw/7ffd/p7Qwn/bJaijdYtww
-	P+qaew9jmEZ8SitQegiBoZ2F462x0xtyG/8ZlascEEXvMmYj96IcCGOgaetLEyNGq7QOwbV3YR3o2
-	+jrbkhSu1tBGGn/p66sxS5aSmOQzkxDqb/v3oshSFDe1cYEp6VSbXeg4jHpiKdDqYbNwihksKBeAx
-	UpCgui7g==;
+	bh=LZzYYZ47MhM5DbXuBFYv+5+5v+vkghMIaO5mgHVitCI=; b=RfrWFpiiBbZifn5p4zsnHaBOnX
+	MDq55BC4qFRjyaNKCLKYvy0+IJeMIhrSZCE9Kglb7Xjx6RmDAfvsB75dqu1sA0YfOkZCawnzVjYHK
+	TAiiDTnkHFk0ErDSRM9lDys6AsqoWqUCclWuKJKhEO+UJncGswExK6RKj1zafdlcecnug2ggrua0E
+	4ICWqrGWtrkFUITWaDtEbXpGHjZEFgQbSgdnUik6icAE6To/fjTsBVa8ZJTqvgYdo6ADYf4vyb1R3
+	cR2NxbHeS/VKNPHuHvrcHqXmu/pUP65hbsEMyHkx7hbfY1+unJLpET64IgMdHCjVi9+91ZWw3nwSj
+	ItuRnj3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlpmg-00000001bNV-0aGA;
-	Fri, 30 Jan 2026 14:47:42 +0000
-Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
+	id 1vlppJ-00000001bWB-05WK;
+	Fri, 30 Jan 2026 14:50:25 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlpmd-00000001bN8-1kCg
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 14:47:41 +0000
-Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-5033a2c4b81so24787641cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Jan 2026 06:47:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1769784457; x=1770389257; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=m2hfas+OWqJcbZ6w1+Kimr6HVSADO3LaGmzUbd8jJBA=;
-        b=PrYZ3Dvez2qqSn4rB5YH17boqU7vm3RwxJB20AYzwhOj1QLq07eI/ut/5PZ1gHOGwD
-         zAu2xQ0tqalGUvM983ynwjCC6D0RjUri2KMRiqFKMc9BOm2L/DpUF1PtzcDon0ti/MCx
-         dI1hk2dyySy/0C/3ugrWf1lgZd5A7efcyaF1zJqiUoEg6T4FNPk/EoQ7WMMcKKsvMgar
-         cyyESY/pK9iDJmj9+sMtbgfnPIEHVUmGFyUCO4O4ms8+kjpzfmahTGa/u9nKT8d7ssts
-         c1fKNU+t7MHyKJKggR8urgOY9fpbbcb82xMMD2Ps1VD39RCXy27h9FfVe5RphIlb+qwN
-         zclg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769784457; x=1770389257;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=m2hfas+OWqJcbZ6w1+Kimr6HVSADO3LaGmzUbd8jJBA=;
-        b=PmESLyIXWcAwzZHuLHtVg0p7d3dobzwu2t+jCkapX5C/FW9wIMNRvVx99PTjTt48rx
-         MMMheFW/kUB+tbhYgw/G4SxewKWVZ57Ia5j/iDsoDWJbSVgthpkRtj24LV1/qviG1bHx
-         a5IQ7bu7U056JEDNFAml5kFnavVxy4If8niBpOKStg1nCeCOIIAVBb5ZeDOki9CT/aDJ
-         6O5Y7CbVswOidFqeeAT8gfxpBwbwBQo7nF+SkLq242NysK4GC8u1KhU8HYzfQ+mBUwdU
-         o57IpI+byKdsPPvy06RvRnQ2DFcM4AYMCyv9YDspqUoygJylbinMnbH4h5lMcJlL02M8
-         9Fnw==
-X-Forwarded-Encrypted: i=1; AJvYcCW0ScdissWt2z0o7iDPPTYeC9dsQb2kt/odEAYImTgXCrzI1SPgL9Rq1VMZdO+bWe9JB1ms2a/1TZ0UJDf7LKZT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFMFmDID7uFp7MEqV/5rQTk12PTVLoLYVwtz/3XBAVL8LxmaNy
-	aGvFSCSb8Nb4HQoruggRPzZUyJxXKg2S9M+xw0meah+kBEyMzx0CaNZVu3KDQLZuZZo=
-X-Gm-Gg: AZuq6aLTIhcgC2h+4bDPPKKO9+AYLX9QahSo8N04u/uz2bVbhMKn/x+YsRcD8Ovst2p
-	YK8aRQlDrSFiL3KK++c/Yslb1HwTgRkoQTdIaDoEWlS6eMQe7endQrzU3b4VLoizBj7iY3XFWJL
-	JQfOXDRnGV82hLKE+09EZzO7DY8Q2hBWnFH7PxncNw8mHAKC2UMoQHjsMKnL4PtfSA1B5BHMiD9
-	4BuoJLqPRN9fJ1WmBamWuQyP24UxhC5MAUDXZV5/92zgRjxK3DhNUfkynNDNFoykPoa0mtXDuDH
-	A4+9+aT0E03ihInVQVDH07nzvgYjTf7erfknyIw6wP7V1tpRsswUWxaPRAc5bgOWOrACyVZUskJ
-	1W4XE9wnmGWgO+O9efCjf9F8STCop1oUJ4Vcr41mneIUcfRxMT5NZ6ljNT9UTxqpdCR8ZTk15qU
-	JPPiYOSh3thd5gEQQkqcarUQ7MfXI=
-X-Received: by 2002:ac8:5a11:0:b0:4f1:ab79:fb18 with SMTP id d75a77b69052e-505d21c6bbemr33783391cf.25.1769784457458;
-        Fri, 30 Jan 2026 06:47:37 -0800 (PST)
-Received: from ?IPv6:2606:6d00:17:7b4b::5ac? ([2606:6d00:17:7b4b::5ac])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-50337cbde30sm58435431cf.33.2026.01.30.06.47.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Jan 2026 06:47:36 -0800 (PST)
-Message-ID: <df8d5d5f28870752e77ec74f34fea7ceb6e97286.camel@ndufresne.ca>
-Subject: Re: [PATCH] arm64: dts: imx8mq: Restore VPU G2 clock to 600MHz for
- 4K60fps decoding
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: ming.qian@oss.nxp.com, linux-media@vger.kernel.org
-Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, 
-	benjamin.gaignard@collabora.com, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, p.zabel@pengutronix.de,
- sebastian.fricke@collabora.com, 	shawnguo@kernel.org,
- ulf.hansson@linaro.org, s.hauer@pengutronix.de, 	kernel@pengutronix.de,
- festevam@gmail.com, linux-imx@nxp.com, 	l.stach@pengutronix.de,
- Frank.li@nxp.com, peng.fan@nxp.com, eagle.zhou@nxp.com, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Date: Fri, 30 Jan 2026 09:47:34 -0500
-In-Reply-To: <20260130084133.2159-1-ming.qian@oss.nxp.com>
-References: <20260130084133.2159-1-ming.qian@oss.nxp.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-i/sogahe4R0AwUuBxOvE"
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+	id 1vlppF-00000001bVj-46Sn;
+	Fri, 30 Jan 2026 14:50:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=LZzYYZ47MhM5DbXuBFYv+5+5v+vkghMIaO5mgHVitCI=; b=WH5B80zX3ZnL/qn/O8PYSUOAQF
+	/EGSfRNsE7jPycCz+dQZZzZe8SalMBbiZQXiHm4FltNSMewf03zVxDP/jFqYOUFGteKF3Ngv9ZlkX
+	iFPNODNPoWnURYUS0Vhowsvpmae3wTfe19CCBUl2nXKX2jr7kMwHDiX5sVud9TSAtW5MiGjMh10pG
+	76sp88yzPMDzxq3EWeO0W4PYsh00qKNcAxFD4gkSKRE7vAdrMWHXnzx+56maqPQhpm5ZlcDkkBM4I
+	TqTTE7+ISJl9mtxhtXHZeSenO5EvjqZcSafwi0aQu66BUUbABkXv3Dkd8xHMQK889/gg8cyKUkp/c
+	RVy6FFaQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35632)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vlpp4-000000001Cc-1afO;
+	Fri, 30 Jan 2026 14:50:10 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vlpp2-000000000b3-0oEH;
+	Fri, 30 Jan 2026 14:50:08 +0000
+Date: Fri, 30 Jan 2026 14:50:07 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Vincent Guittot <vincent.guittot@linaro.org>, neil.armstrong@linaro.org,
+	Simon Horman <horms@kernel.org>, krzk+dt@kernel.org,
+	conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, s32@nxp.com,
+	p.zabel@pengutronix.de, ghennadi.procopciuc@nxp.com,
+	Ionut.Vicovan@nxp.com, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	Frank.li@nxp.com
+Subject: Re: [PATCH 2/4] phy: s32g: Add serdes subsystem phy
+Message-ID: <aXzFH09AeIRawCwU@shell.armlinux.org.uk>
+References: <20260126092159.815968-1-vincent.guittot@linaro.org>
+ <20260126092159.815968-3-vincent.guittot@linaro.org>
+ <aXsuRTZUUnw0kdzV@horms.kernel.org>
+ <CAKfTPtDfnpzq2CB-isVzvh1ZCWo7kit9KRJvVGoU1C3zZTgdXw@mail.gmail.com>
+ <aXtfVUb0eLwP4R28@shell.armlinux.org.uk>
+ <CAKfTPtCiJcNOdoddZN5N1dKHXfUJBe0=zeWfZ5uENoXDvbMnpQ@mail.gmail.com>
+ <aXtl6eQ8zD_olTdc@shell.armlinux.org.uk>
+ <aXtvDn_-pCuKPrnf@vaman>
+ <aXtwfj1vqB1cXKFM@shell.armlinux.org.uk>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aXtwfj1vqB1cXKFM@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_064739_729749_F6601E62 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20260130_065022_022928_8ED1898C 
+X-CRM114-Status: GOOD (  33.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,114 +91,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jan 29, 2026 at 02:36:46PM +0000, Russell King (Oracle) wrote:
+> On Thu, Jan 29, 2026 at 08:00:38PM +0530, Vinod Koul wrote:
+> > On 29-01-26, 13:51, Russell King (Oracle) wrote:
+> > > On Thu, Jan 29, 2026 at 02:36:01PM +0100, Vincent Guittot wrote:
+> > > > On Thu, 29 Jan 2026 at 14:23, Russell King (Oracle)
+> > > > <linux@armlinux.org.uk> wrote:
+> > > > >
+> > > > > On Thu, Jan 29, 2026 at 02:01:13PM +0100, Vincent Guittot wrote:
+> > > > > > yes, the usual pattern is :
+> > > > > > - phy_set_mode_ext()
+> > > > > > - then phy_power_on()
+> > > > > > but I can add an additional check
+> > > > >
+> > > > > Please read Documentation/driver-api/phy/phy.rst section "Order of API
+> > > > > calls" which suggests phy_set_mode_ext() after phy_power_on().
+> > > > 
+> > > > Fair enough.
+> > > > That being said, all pcie drivers  that use phy_set_mode_ext(), call
+> > > > it before phy_power_on()
+> > > 
+> > > It looks like many ethernet drivers do the same, so I think maybe the
+> > > generic PHY documentation is incorrect or misleading, or is expressing
+> > > a preference that almost no one follows. Something for the generic PHY
+> > > maintainers to look at and/or comment on.
+> > 
+> > I would feel it makes sense to configure the mode first and then power
+> > the phy up. As commented above yes it looks like apart from one tegra
+> > driver rest seem to do it this way.
+> > 
+> > Lets update the documentation
+> 
+> Please also indicate in the documentation whether changing the submode
+> of the serdes (particularly for ethernet) is permitted without doing a
+> phy_power_down()..phy_power_up() dance around the phy_set_mode_ext()
+> call.
 
---=-i/sogahe4R0AwUuBxOvE
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Maybe something like this, which simply alters the documentation to
+indicate that phy_set_mode*() is permissible prior to phy_power_on(),
+and should be used at that point where drivers know the mode which
+will be used.
 
-Hi,
+Leaving the existing phy_set_mode*() in the sequence also indicates
+that it's permissible to call this while the PHY is still powered
+on.
 
-Le vendredi 30 janvier 2026 =C3=A0 16:41 +0800, ming.qian@oss.nxp.com a =C3=
-=A9crit=C2=A0:
-> From: Ming Qian <ming.qian@oss.nxp.com>
->=20
-> The VPU G2 clock was reduced from 600MHz to 300MHz in commit
-> b27bfc5103c7 ("arm64: dts: freescale: Fix VPU G2 clock") to address
-> pixel errors with high-resolution HEVC postprocessor output.
->=20
-> However, testing shows the 300MHz clock rate is insufficient for
-> 4K60fps decoding and the original pixel errors no longer occur at
-> 600MHz with current drivers.
+For drivers such as stmmac, it will be important that details such as
+whether phy_est_mode*() can be called with the PHY powered on are
+riveted down and not left up to the generic PHY driver author - without
+that, generic PHYs basically aren't usable from SoC/platform
+independent code, and stmmac has bazillions of platform specific glue
+already because of (a) bad code structuring and (b) lack of
+generalisation through standardised interfaces that abstract platform
+differences.
 
-Tested on EVK, with the downstream DCSS driver, and this change triggers DC=
-SS
-underrun (which is related to the DRAM QoS erratas on this SoC). It also
-sometimes trigger the "not all macroblock decoded" warning I added recently=
-, and
-we can empty IRQs, but these are handled now.
+I want to be able for core stmmac code, or even phylink code (which
+is even more platform generic) to be able to make use of generic PHY
+stuff, but if the calls that can be made into generic PHY are platform
+dependent, that is a blocking issue against that, and makes me question
+why we have the generic PHY subsystem... it's not very generic if it
+exposes the differences of each implementation to users of its
+interfaces.
 
->=20
-> Test results with 3840x2160@60fps HEVC stream decoded to NV12
-> (the same scenario that exhibited pixel errors previously):
->=20
-> 300MHz performance:
-> - Severe frame dropping throughout playback
-> - Only 336 frames rendered in 11:53 (0.471 fps)
-> - Continuous "A lot of buffers are being dropped" warnings
-> - Completely unusable for 4K video
->=20
-> 600MHz performance:
-> - Smooth playback with only 1 frame dropped at startup
-> - 37981 frames rendered in 10:34 (59.857 fps)
-> - Achieves target 60fps performance
-> - No pixel errors or artifacts observed
+I think generic PHY has had the idea that its interfaces will only be
+used from platform specific code that knows about the behaviour of it's
+generic PHY driver, but as can be seen above, this will not remain the
+case given that we have hardware designs where the core of the driver
+is one vendor's IP that gets re-used across many different platforms,
+but the SerDes PHY is one of many other vendor's IP.
 
-That probably only true with the upstream DCSS + a small resolution embedde=
-d
-panel ? Can you clarify this setup, because the display drivers mainline ar=
-e
-very minimal. Would be nice to show you average DDR read/write bandwidth
-utilization during this run for comparision.
+diff --git a/Documentation/driver-api/phy/phy.rst b/Documentation/driver-api/phy/phy.rst
+index 719a2b3fd2ab..cf73e4fb0951 100644
+--- a/Documentation/driver-api/phy/phy.rst
++++ b/Documentation/driver-api/phy/phy.rst
+@@ -142,6 +142,7 @@ Order of API calls
+ 
+     [devm_][of_]phy_get()
+     phy_init()
++    [phy_set_mode[_ext]()]
+     phy_power_on()
+     [phy_set_mode[_ext]()]
+     ...
+@@ -154,7 +155,7 @@ but controllers should always call these functions to be compatible with other
+ PHYs. Some PHYs may require :c:func:`phy_set_mode <phy_set_mode_ext>`, while
+ others may use a default mode (typically configured via devicetree or other
+ firmware). For compatibility, you should always call this function if you know
+-what mode you will be using. Generally, this function should be called after
++what mode you will be using. Generally, this function should be called before
+ :c:func:`phy_power_on`, although some PHY drivers may allow it at any time.
+ 
+ Releasing a reference to the PHY
 
-Another information that bugs me, in the BSP code, the G2 voltage is increa=
-sed
-too, which you didn't do here. They also use the thermal 2 zone to kick it =
-down
-to 300 until it cools down.
-
-Nicolas
-
->=20
-> Restore the clock to 600MHz to enable proper 4K60fps decoding
-> capability while maintaining stability.
->=20
-> Test pipeline:
-> =C2=A0 gst-launch-1.0 filesrc location=3D<4K60_HEVC.mkv> ! \
-> =C2=A0=C2=A0=C2=A0 video/x-matroska ! aiurdemux ! h265parse ! \
-> =C2=A0=C2=A0=C2=A0 v4l2slh265dec ! video/x-raw,format=3DNV12 ! \
-> =C2=A0=C2=A0=C2=A0 queue ! waylandsink
->=20
-> Fixes: b27bfc5103c7 ("arm64: dts: freescale: Fix VPU G2 clock")
-> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-> ---
-> =C2=A0arch/arm64/boot/dts/freescale/imx8mq.dtsi | 2 +-
-> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-> b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-> index 607962f807be..731142176625 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-> @@ -960,7 +960,7 @@ pgc_vpu: power-domain@6 {
-> =C2=A0								=09
-> <&clk IMX8MQ_SYS1_PLL_800M>,
-> =C2=A0								=09
-> <&clk IMX8MQ_VPU_PLL>;
-> =C2=A0						assigned-clock-rates =3D
-> <600000000>,
-> -								=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> <300000000>,
-> +								=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> <600000000>,
-> =C2=A0								=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> <800000000>,
-> =C2=A0								=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 <0>;
-> =C2=A0					};
->=20
-> base-commit: c824345288d11e269ce41b36c105715bc2286050
-> prerequisite-patch-id: 0000000000000000000000000000000000000000
-
---=-i/sogahe4R0AwUuBxOvE
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaXzEhgAKCRDZQZRRKWBy
-9PeIAQD5M45/PuqurizwtvrI3NE0hSFwAP/bvFLOeVBaM9GzsQD+PGBAYJjzNYYA
-DPbDkSTiWXrcCwv7P2Bo3/hz5rdgBgU=
-=/XEy
------END PGP SIGNATURE-----
-
---=-i/sogahe4R0AwUuBxOvE--
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
