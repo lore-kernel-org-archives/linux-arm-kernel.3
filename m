@@ -4,150 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A187D73EB8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 03:58:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 946AFD73EBA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 04:13:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kDhFrWue8nVkOG3nQowFHXwgfeIXIS3fxNiam5V+7JU=; b=AE3YCJyPpu+euug45q9pg1bUft
-	X29I0FnfrghvvpVzITxQwRBIlwwtyzWf4rg6u2sec6iiKuswXbsljGpbMZGuupwyCLj1zl8OlXOz2
-	03QnXak1ljHpcbtj9JZe76Izid0dB6fKSRjkXZv38DUsd4VluemOjCK6396Ti04+RMlB6qBKIS/Yt
-	wSg4EimBpcsm0DpqkXO5gAG4WjgtFYysY0PEYyt60zzhKpmpnk5Y5o1hR1I9qiR1c5O0ny9ZwfTbE
-	qUigAh3OALTSluzzThCd3IZ5b3l0dRKLnB0cNcoDmbbZXyorwQIzyvJ2eLHQ8R3ht5uTqDDVBJQDU
-	MgZykoYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aZc1WohjUyOxX27WIht/QOavnc3r+d/i0XwRkPc1NWc=; b=cX792u5KWQCY95oBqN7dpLU3TO
+	UIcsEBE31GUfvaTPAmakPylhJD+pfqrcPYPXkPcdbfgy7oNstpgWCQynj/dOZzbIVCLzvvFpBvZ3q
+	V4SaZCOgejMRRbQ9C0s5HWRP5cLgNx+YMxSQuqJJz4TXxtibITbW/qB7sXhBY4DghhTQw7lupovl9
+	32EUoa8iEhkWcV7LLmBx84p8XostUyINPktkxk6IS7IcZf9lN8x5UHGAgidqJIde/hA2SXDnDZoQ3
+	oIeuQQL1SO4IFDD2ZXAYQCKaWjXDlUDYBt7rOi6syIwZQFgcSZHXT94WvPISL3OClRmd2ha+7dCSV
+	MG5JN57A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlfdx-00000000z2c-44PK;
-	Fri, 30 Jan 2026 03:58:01 +0000
-Received: from mail-southcentralusazon11022124.outbound.protection.outlook.com ([40.93.195.124] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1vlfsb-00000000zXu-37SY;
+	Fri, 30 Jan 2026 04:13:09 +0000
+Received: from mail-vk1-xa30.google.com ([2607:f8b0:4864:20::a30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlfdv-00000000z2D-0CiZ
+	id 1vlfsX-00000000zWu-3aH6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 03:58:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=E3TLVPTz50Iy+GIlBfoPn1ZxBoSXFWh1JbmiLkxaU0O5jtsIIgD64VUF063bSQpnjDtN4ZKVi++6VpuyF2lYBU9E8A4f8+5+qgVCBK2Ccq3aAXcudEMq/6uKt8jSr/FnPdfEXBefFxNwn9ToKEt2mpOKYyDi+GZfxKWzFIAfeRR3OPStCk7bbKL1gQo1SvW7S9BxWTQ6eydMtI9OVgdf+hxH+1FV0aDtd8Z5TdX8ROLX4uZtmujufDDGZGGg8ljQudISv8JxyjMsZT59fjTX273fOgiCoIMTUOLif93P/h7DB8sd28Zu6GgPKlaLrzkklosU/jTtHmRcPpRdREPVzw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kDhFrWue8nVkOG3nQowFHXwgfeIXIS3fxNiam5V+7JU=;
- b=cELpDlEgXw6hIk/yRlxw4eWfGMF4EjXTAOsk7COrxzKIGhKxyucKbYIr8BL+hIofir/nfJMqD31AtlPJxSxAP/r0rz9p9DZ8ePlnTIuMhl/O5leEQVaC8DgBodEf5p6hWCVwhlW1VfRpfs2BmRJM6gWKKaswLfY9z7d/wWVONAuL0/gkXYjPKUYw9QKxeM4wmiYymnQsxyNAxTGhasXS+f+UZp6Mdv4I7jxoCLTIRqBcse47XsUBGMbJ13KuyWt26KuDxXP+/uXjUecE457emarSDS30JYtk9nEiS5RDqozb4KxZvEEv5g/8pqcfToRplZY1G3zdn4mq2mg0B+kw6g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Fri, 30 Jan 2026 04:13:07 +0000
+Received: by mail-vk1-xa30.google.com with SMTP id 71dfb90a1353d-56641200d6eso1243574e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 20:13:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kDhFrWue8nVkOG3nQowFHXwgfeIXIS3fxNiam5V+7JU=;
- b=UQp7+dc013zfgwM3lRY2wxqPHp51LgtR3YKi2S7JZIHSvdbXtIrYOMQQtHW3yceUZuRXNLutta45RTqlYhNF8+QFh730YfEm9F+SV26vxZhVKm0BwjSTItvS4d5/hBpFGmSZt3yxnCty9NIWlmSph9B4GXLMuY+C+8Mmlv9mdeE=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
- SA1PR01MB9108.prod.exchangelabs.com (2603:10b6:806:459::22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.7; Fri, 30 Jan 2026 03:57:53 +0000
-Received: from MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::86f5:4db2:7ad5:7fc4]) by MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::86f5:4db2:7ad5:7fc4%6]) with mapi id 15.20.9542.010; Fri, 30 Jan 2026
- 03:57:53 +0000
-Date: Thu, 29 Jan 2026 19:57:51 -0800 (PST)
-From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-To: Robin Murphy <robin.murphy@arm.com>
-cc: will@kernel.org, mark.rutland@arm.com, linux-perf-users@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH] perf/arm-cmn: Reject unsupported hardware
- configurations
-In-Reply-To: <bb47722fc593baf1e1cc0f944089592a4ec708da.1769695523.git.robin.murphy@arm.com>
-Message-ID: <0b85786d-ab5c-e9ed-f060-e7854810b1bb@os.amperecomputing.com>
-References: <bb47722fc593baf1e1cc0f944089592a4ec708da.1769695523.git.robin.murphy@arm.com>
-Content-Type: text/plain; format=flowed; charset=US-ASCII
-X-ClientProxiedBy: MW4PR04CA0330.namprd04.prod.outlook.com
- (2603:10b6:303:82::35) To MW4PR01MB6228.prod.exchangelabs.com
- (2603:10b6:303:76::7)
+        d=gmail.com; s=20230601; t=1769746384; x=1770351184; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=aZc1WohjUyOxX27WIht/QOavnc3r+d/i0XwRkPc1NWc=;
+        b=glWAWnLD4VFcOacM2b+Cb9Gszx3+8xa+pxQ9AMT+3UxP0oSrGqwORKuoMgZ7rZs//q
+         hT8rUMzMdZK00Ie+Q3TWA9qXK6Xt1m1tBUuFRpw2uxerVdJlgn2K+KP5c9ywArWcGBR7
+         ZVp7JGMrlPBfIKN0DXS5I/xY6fjaLimrzufVslgis2+j5e7Ayg2iBd+AGIXkJLV1wPJP
+         w+C67a+ujcDUgmYfnQqf6n0dNrEXzmLsD6RU32GQT1e7INnMpjwIoDLKfAWyVf5ay9R6
+         FjNKPko5xkiLEng759fvgKKlxNo8u/YaDYG03pLRcy4fMEkR8mcAvnrCdVPZ0mGMomcu
+         Rk3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769746384; x=1770351184;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aZc1WohjUyOxX27WIht/QOavnc3r+d/i0XwRkPc1NWc=;
+        b=UrYEw8Agv6+kMYrRp93VM2r+8jdJiS/miMURd8Wbybk3LfEeYdO7Kyb4Y+KwmlPmOe
+         H7KBucE999LlJxAiUzDdGkWBAXBzWhJbP8BCci9ENj8eDIzKrnKWpQgZ+1Q7uBrUKicM
+         CM0dk8YVMuYqvacrFCIlFBiWgEbYGa4SFOchyI0h/KZrj6WO/tXYrCa8PxxcYJyt+sVK
+         1c/kJ7jYP+AZO1ysVaS0dpHOp3fn7fQV0yXep7R3laa2ylU0yaDzcUZ+/5wy/AoCy28E
+         U+pQDTBB8wiFvu+El1hVdsnLQp/GhxQmitGMy3wNKS8Wp6H4sG1R1snVtw96Ir2cDxtL
+         1BSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWQ/9xdiMS9KZyrliRa/mLz9E+5A0GVUn46D5I15qGVPPWFAELc6xdwm/wQP3Jk7coDKOa5jouP7ehlThhGAKWO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw42MC0XiVUnE7FHjaLz46PioHmavn0dkYHfyKxzf9bdnPipAYQ
+	ytOdhE91m5w6bCrXC+TKtV1yng3yvBzFmNhFLMS6Navk3B58L3D4qGK9Ndf8KTrd
+X-Gm-Gg: AZuq6aK65Bt7L4DA/A6tX/I/BGUqwsCealHPM1f6EB+OlySYXMMoJ1dtr8lEsT2C2If
+	HIzmeoxkqYHA3GH5czpSl4m7OSVVfphZd/EZ3N3k8IJOQtchi5nZoamjRhGOOSfquHgXTq15ItR
+	ho0GNh9IW3rk0bDxN8GpwhMFehRHHVAA6M8hAft+B6Os5dUW+4/WfIy/dtyYN0A3i1udomPBIhH
+	7DY/cwpcgVcXOKCsWF+ngK53vrinyz7v6S/zCQKOxw/MV9SdqqxpMTzgiOpAlO3x6eOwI2IswrM
+	95lGWVQbELyTdTx/YnAaW0nsyl6mJ5zkxM/wWLl1EJiiv5AoENMRfvvJx9JYJPvSm5PVmOg+pkz
+	niAwJuOV9skni8kWdQOoNa2KY1ZtIxrZ0sYKMoWv9yZJPKTouDslsg8PfwLRhTo9kNdhbQ+FNUA
+	ie70aYDELT7Q==
+X-Received: by 2002:a05:693c:228a:b0:2b0:4ae1:b4ae with SMTP id 5a478bee46e88-2b7c88d6423mr747779eec.24.1769740046251;
+        Thu, 29 Jan 2026 18:27:26 -0800 (PST)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b7a1abe938sm9799883eec.16.2026.01.29.18.27.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 Jan 2026 18:27:25 -0800 (PST)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Yao Zi <ziyao@disroot.org>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Zhi Li <lizhi2@eswincomputing.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH net-next v4 0/3] riscv: spacemit: Add ethernet support for K3
+Date: Fri, 30 Jan 2026 10:27:01 +0800
+Message-ID: <20260130022705.1059214-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|SA1PR01MB9108:EE_
-X-MS-Office365-Filtering-Correlation-Id: c66dd694-d20f-4386-df66-08de5fb3be42
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?lA/wP4viHb1xNh1SjWOO+IQQWqYlnu89gHKTWvc4QhYQIQK2Ouh83YcsG1Zo?=
- =?us-ascii?Q?WOOfjRAIyZZg4yl21T0dJPaGgwa7TJR24er5JxInsgREvtEtaedYwPBH1v6d?=
- =?us-ascii?Q?Vzh94yfAnU4hZ2F5ozkTd4fIwpRJh6Jo57kN2pw72hhwy/zS8ziCBUy2atmV?=
- =?us-ascii?Q?Kquei9C/gulh1NAQTfMvHuFJRp/0XrKZQsNqpHxdOJVRvBPhH34VMe0t9ewL?=
- =?us-ascii?Q?2d7+sesEceG9dsnMGES5HsEO6aFCfG2iM9RCZhgVCpeONqNfrTYOTAAV3rwg?=
- =?us-ascii?Q?0pt4SpaxyjPFNVGEZ2mgdQv8+FjjVpsQM8zV97rvaUityh2sbYTsmqKzT6MG?=
- =?us-ascii?Q?6/RYUubSAXbGJwmEf+fNpA6pj5GAIUaVo7GzadvM8jMYkkPbS6T2VUTB+4mz?=
- =?us-ascii?Q?kXRC5doSRZhvV3Y0YRjXgttWsUPz098O5yQuRkjRTYKJvlDhQS9HXK7BT6uO?=
- =?us-ascii?Q?DvpEyclai8Cy9g+hMGuLh9sPEYnDBC4gXwHXdHGwANyb9d+FLvlO7CuA5xZD?=
- =?us-ascii?Q?kOtyjwPlqPZpR4ofZZs6fDL3F08qVPJfXWUnwa9XNPczFM2rkfFXF4fuwZV1?=
- =?us-ascii?Q?KaaUXZiDF9Yd3i3exIJKNwu0VNQBIyhD/Pk6v8UCIMMjpfMJteC74hHlG9SD?=
- =?us-ascii?Q?QX6PF/Awfz/Mn0vExA5/Z6j0GdmHicelkfsN3NKuE6B4kwglQqrwnq1VF/2e?=
- =?us-ascii?Q?ANS7wlVNZrbWqND50N94Z7Q7NhsRyunVqSLnI0tY5N3/wufSBCERcn4aDLSw?=
- =?us-ascii?Q?uyE8k1Wog/qk63vkknO5MgkOi4mK+WjCX3M2nD5/gBmSkiJkwxUY0GGFHqVA?=
- =?us-ascii?Q?/aAWNF4azpVajYPZyb198KYtX2icMdNOZnb6hNiBfvVVHcC8FuIJH9M8VZs8?=
- =?us-ascii?Q?1GiGlQ/LO4eAeau+YI8zvL2Wxtm+WVKAp3ntg2dFdh3PwHniB1EWt1/mLMXL?=
- =?us-ascii?Q?kEjqDJsLda+kEGaPiE30gmlk7mMkX1mVlBoVkmTsrxH6v1hxUg+CpjsQfnyq?=
- =?us-ascii?Q?/QbbKjm9+Oeh8MUOjDNNZjbLe2/73hAlNZYPm/QeLIvzn8XJsa5o5kLnBszs?=
- =?us-ascii?Q?ihZAwmmioYkfOKgekCJYsMmlCq81Lt6e3SiRkdkRwXIg2Kbljy7jvWohUf3a?=
- =?us-ascii?Q?s/SpFLB799yIN/bQ83T0r7aO+cajrGipWVpUkd+Yp1NVo8p80SVaI9GPtCLi?=
- =?us-ascii?Q?3GAxUxyxnWv8af7erKnxdJDuiV4fUxlCpCMQ/DgoGDAURj0KhLb8heU1VTEb?=
- =?us-ascii?Q?UfCovuKBsNneHw6DFy6Xlnx+dVpdJGTpmnPTWz9t295jDYREpb3CUAyKn2aG?=
- =?us-ascii?Q?6FKeoX2MxILJuF7hhdNztVMiqS4vKjYRzhMOLR6jmTJKsUHsSJE62ZnU4Qm+?=
- =?us-ascii?Q?eEcgJw5t7vKy+dtfAiaZeQfMtVON/XqUZABpi1mAwz6ZzAkHIP/1mSayXxaF?=
- =?us-ascii?Q?sEXn0CNfxXlCAxDR8UA6+ekp3VAqg+SGjvzOFORUHLFtLgF4WIBBW3or2xaF?=
- =?us-ascii?Q?NyR8/owoRNJmyNdiiEgAKQw+92sOyuzt6RYeyRNdcyAgv+vlhcxOZL3bDHZV?=
- =?us-ascii?Q?OXbsqQkJhn1vRxCG4YY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sddWSaYx+r/oF7zQpUeXdPRQDgMHrZDi/HC9CziL1BbMftemV1SnQ9gdyk6Q?=
- =?us-ascii?Q?px4icg4QDKRKSIWLlTf1VrPruP/4juZXcrid2obvHhG5KBFw1KDmFGnKMYg/?=
- =?us-ascii?Q?CJkbfVE90a31wCfyYEkIEAOJ233Vx+oLLqoWRTCqJ5M6oNN+FRCNQtVJKgqG?=
- =?us-ascii?Q?H4b1Mjdi8lDffK9uRat5QopfblQB70Dky7lW7l9w/rScBaxwq67eH+34duRU?=
- =?us-ascii?Q?Wf3YrIyhYVpO4E3pr9eoAuN6qTkDAa6195ysRyOh8TQ7YxjE488eAMAN36ek?=
- =?us-ascii?Q?EQCoIehbB2fqXnjLpB/Po3w43gnx+gJSjFwHdEgDBfbj0c4Ko3HTGQE3sx8L?=
- =?us-ascii?Q?ZWkI54/JJxXg/w2QbEyKPmk7T34FUQFmc4ghKgRPZNct4LORGPwQvyDZcgOH?=
- =?us-ascii?Q?9HbpSck65UI6KTnPxBU09zLWguRaRiETw9HC133gMBOzH4uGmqKxaQLOjfQp?=
- =?us-ascii?Q?9BzgSP/Yi3fFht9XgDvvn49zWK3WsZwkYXvTcgEkRTrNV3JKYdDkQSEVxVlB?=
- =?us-ascii?Q?a9I/jGBFkcxwmYyxbl+Is1EBDu/Yb5Ab/wHL8CAYeAMBbxsoN/B1zaylQJlv?=
- =?us-ascii?Q?zqPysai04GSBxdkBYTuwzqBKxbOeh6WXaJCLjLJ2fpo/Rh7Z+jmge2Zk8/NS?=
- =?us-ascii?Q?pUCBflvFNc349JUikeoycDfKhIcDasbq56k8d6O6oDdnRUaNEg051Mq1A/Ly?=
- =?us-ascii?Q?x8yafsXT9Ycl7LMe/AAo9yTCgCA6jZkMZi82ZAe7QYCA7uemxdgbRbDMEimV?=
- =?us-ascii?Q?eyCZHQGtaRn9UxG7aHSelRznZCI7VG/vfHhWW9QxvR5uYdABdvU1D8NBFHkB?=
- =?us-ascii?Q?fkIlPdbv0a0dAlWBFRtV84/KSZPJarEB8Eu0uZC0EJ1eV1g1rGpJ50HKA1dC?=
- =?us-ascii?Q?xVUAEA9RfVO3dI5oBmBR/l7GpP0KERfgLgCKBLlq69hUSv7te6h46Pqs0QJc?=
- =?us-ascii?Q?/iVoum6Yp6B4aVntIomtOUuZIUnBwNZgYunrVLE+W8di/DVc7Cl1UJPQMocr?=
- =?us-ascii?Q?Q7W71K+9EW9WBsX/JTUskdZZ3Wj6MVesvNl4IjUXNy2XdPf96QnCEuEIys1B?=
- =?us-ascii?Q?5i+gIQu7QiA2POdaz4RwnityC/py7xym4aYYWqjU2Kcs3yDy7j4/11YUu+qt?=
- =?us-ascii?Q?nXrV42CsE0GvWIi+HQxlUf9oKvKRB3UNuoXpDrPNlzvQBrKjT0FVZWFDRboq?=
- =?us-ascii?Q?ly6cOcuoa0UNQ/0th5hzCJ5qC2Huqc3aB2VrV7QH06nznaNxAYmJJ3mNDwWW?=
- =?us-ascii?Q?TF4/gZ8eLyYBRk654EpqdCUlz8r4q/PmlIRzTX+UoS6LucqS0+I59ScyB65D?=
- =?us-ascii?Q?pCwmJaBY1UxXJ/CfjZBY/1TtAzi6eHO2pE5YS5SFfbH7kZ3EhWhKS+Lx+0jh?=
- =?us-ascii?Q?HOUDso6V+t15EVXJ1TnqH6ZIw83USYzzIqRT9jrq1kImBmc9NUgNq84/bN7F?=
- =?us-ascii?Q?71pxo42xZTXSJQOjzsbRnss3PBiqUdGmCA3DSV4d7Dq84f6aSdQuMkcjFfSv?=
- =?us-ascii?Q?F5766IIByWDcbOtCJy/SJ+7TCiTD5/eE9dHW+6B0ttzmv1sEg5RGUVeqxSKf?=
- =?us-ascii?Q?EtuAU4AAUnaDqBCK6pq3dSPD1XF5nGg4Y+9HHvUJxSoMhsgzjI6uKut/CbLq?=
- =?us-ascii?Q?+jba8O116wqIP/aXkaVdQMsSQmt1QKd4fHv+vbL3kpBuZeqUoCg4fhjUOc4n?=
- =?us-ascii?Q?wkB4QB8foRT0nOYMPJ2VN1IDjf4njrag32whMYCl8DyvuHL2FCcmN1vnv55i?=
- =?us-ascii?Q?QZ/4Q1k/uenhUd72nivR93Rf0MEfEJs=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c66dd694-d20f-4386-df66-08de5fb3be42
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 03:57:53.2941
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TDVtekTLKHuZrd9SMKtme2o15c/NCLs+hsf+1Bg9JYlNYNfVlFJvFWk01PatTlvwuezP1EYIfOQZXwqY1cpPZjmRWNp4AzLoZuPxE5zt6Q9TP8IXMNVLgfbMZ28qqEfb
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB9108
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_195759_164068_4AFCEDE1 
-X-CRM114-Status: GOOD (  20.89  )
+X-CRM114-CacheID: sfid-20260129_201306_589920_71EAF385 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,73 +129,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add initial support for ethernet controller of the Spacemit K3 SoC.
+This ethernet controller is almost a standard Synopsys DesignWare
+MAC (version 5.40a). This controller require a syscon device to
+configure some basic features, like interface type and internal delay.
 
+Change from v3:
+- https://lore.kernel.org/netdev/20260128072931.875041-1-inochiama@gmail.com
+patch 1:
+1. fix the uncorrect compatible string postion
+patch 3:
+1. add "CTRL_" prefix to all ctrl register definition
+2. only use delay config 0 to calculate delay code.
+3. fix typo in the comment
 
-Hi Robin,
+Change from v2:
+- https://lore.kernel.org/netdev/20260121071315.940130-1-inochiama@gmail.com
+patch 1:
+1. remove not needed compatible for select
+2. drop empty line in "spacemit,apmu" properties
+3. add spacemit,apmu properties to required.
+patch 3:
+1. remove misused phy_fix_phy_mode_for_mac_delays.
+2. use local tx clock instead of the clk_tx_i in the dwmac.
 
-On Thu, 29 Jan 2026, Robin Murphy wrote:
-> So far we've been fairly lax about accepting both unknown CMN models
-> (at least with a warning), and unknown revisions of those which we
-> do know, as although things do frequently change between releases,
-> typically enough remains the same to be somewhat useful for at least
-> some basic bringup checks. However, we also make assumptions of the
-> maximum supported sizes and numbers of things in various places, and
-> there's no guarantee that something new might not be bigger and lead
-> to nasty array overflows. Make sure we only try to run on things that
-> actually match our assumptions and so will not risk memory corruption.
->
-> Cc: stable@vger.kernel.org
-> Fixes: 7819e05a0dce ("perf/arm-cmn: Revamp model detection")
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-> ---
-> drivers/perf/arm-cmn.c | 13 +++++++++++++
-> 1 file changed, 13 insertions(+)
->
-> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-> index 2903e01f951f..24fec53ceccc 100644
-> --- a/drivers/perf/arm-cmn.c
-> +++ b/drivers/perf/arm-cmn.c
-> @@ -2422,6 +2422,15 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
-> 			arm_cmn_init_node_info(cmn, reg & CMN_CHILD_NODE_ADDR, dn);
-> 			dn->portid_bits = xp->portid_bits;
-> 			dn->deviceid_bits = xp->deviceid_bits;
-> +			/*
-> +			 * Logical IDs are assigned from 0 per node type, so as
-> +			 * soon as we one bigger than expected, we can assume
+Change from v1:
+- https://lore.kernel.org/netdev/20260120043609.910302-1-inochiama@gmail.com
+patch 1:
+1. remove phy clock
+patch 3:
+1. improve comment and include something special about Spacmit K3 dwmac
+2. reorder the included file
+3. fix wrong delay macro used in spacemit_dwmac_set_delay.
+4. add check for maximum supported delay.
+5. use DIV_ROUND_CLOSEST to calculate best delay configuration.
+6. use assign for the ctrl register initial value.
+7. fix input when calling of_property_read_u32().
 
-Should that be something like:
+Inochi Amaoto (3):
+  dt-bindings: net: Add support for Spacemit K3 dwmac
+  net: stmmac: platform: Add snps,dwmac-5.40a IP compatible string
+  net: stmmac: Add glue layer for Spacemit K3 SoC
 
- 			"...as soon as we see one bigger than expected.."
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   2 +
+ .../bindings/net/spacemit,k3-dwmac.yaml       | 103 ++++++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-spacemit.c  | 194 ++++++++++++++++++
+ .../ethernet/stmicro/stmmac/stmmac_platform.c |   1 +
+ 6 files changed, 313 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
 
-Other than that, the patch looks good to me.
+--
+2.52.0
 
-Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-
-Cheers, Ilkka
-
-> +			 * there are more than we can cope with.
-> +			 */
-> +			if (dn->logid > CMN_MAX_NODES_PER_EVENT) {
-> +				dev_err(cmn->dev, "Invalid node number: %d\n", dn->logid);
-> +				return -ENODEV;
-> +			}
->
-> 			switch (dn->type) {
-> 			case CMN_TYPE_DTC:
-> @@ -2499,6 +2508,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
-> 		cmn->mesh_x = cmn->num_xps;
-> 	cmn->mesh_y = cmn->num_xps / cmn->mesh_x;
->
-> +	if (max(cmn->mesh_x, cmn->mesh_y) > CMN_MAX_DIMENSION) {
-> +		dev_err(cmn->dev, "Invalid mesh size: %dx%d\n", cmn->mesh_x, cmn->mesh_y);
-> +		return -ENODEV;
-> +	}
-> 	/* 1x1 config plays havoc with XP event encodings */
-> 	if (cmn->num_xps == 1)
-> 		dev_warn(cmn->dev, "1x1 config not fully supported, translate XP events manually\n");
-> -- 
-> 2.39.2.101.g768bb238c484.dirty
->
->
->
 
