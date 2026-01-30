@@ -4,109 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A7CD73EAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 01:52:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBA03D73E86
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 02:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AYrclzb/DI20ULzMRT5C3zx7BcemIpx5wfq90vBWrJQ=; b=EdkLfujTJMYeA3thi8UeoPZ1C4
-	YZUf2M/BbTjmSlwNmuDgxJSAmvRb2KUB2fb1d+DiSwLP3DNoKOnCR2jPYjY10cdZ3e8VZdDIJs6/l
-	HMb3g5rEGS+tR9x0fblFJDxf15nVJ+0qkvilckk3UE7+jfbWit1lFVgPEJZejDgbJcYzkrm2SfTFJ
-	LBkIELg7q3VKwhJnp8YfAtYM4WOS9aOZWl910Z0lv2TPpECIRVUDd6hFnM1gt34wYVHz68GwsgTOv
-	x5OTXAg83EJw/C0aLi/8mRrIIl1eifA0ifDgubSyPHK3F0CNguZCgoBHPS6i+7T0S9MX9Gp6sbpZm
-	mRtc31Lg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EY8+Ex0usF8ycJKxQjjbsZphZo1kqW4LiFDvNKaNJFc=; b=5E0d1jpPDU+G2NeSa59wGcl4px
+	3rBSLH/M/RI3wISFYI3HfBPF+YLMHu6pbulS6gpfLlBe/wwahwgvcPAH963BBjWHz1MjELfIVNQ79
+	dhTlRngehNJk/UK754g5lF1TqU/A35vnjDOLOpYbIKGDD/x9RCybrECsZtZ+2oZRyQotumx/ZjXbI
+	8aYFdU6xym3lfrVksHyMdZxhCZMTFhZz5EnBysDzHfHym2ylT2Tmy4AexflB+2GmVysIRVJYRgE0V
+	6VgJhZhoCHhTFzDV3uRpBAfJsfuywYZHkC+/M4x+4S3zGJzveubUiE7nf2UyPzPimBk5Hmk3nbYrj
+	6rJAUD/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vldge-00000000sFv-3oTg;
-	Fri, 30 Jan 2026 01:52:40 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1vldwn-00000000slX-2dRU;
+	Fri, 30 Jan 2026 02:09:21 +0000
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vldgd-00000000sFa-0NMv
+	id 1vldwj-00000000sk5-3d5K
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 01:52:40 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-34c93e0269cso1658739a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 17:52:38 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769737958; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Hz9yOCCOL7W7WAujdfXOTFo3dNwtMuh4kEAeCv/3x46DBkNUd1supV3CQWps99p+3q
-         XvDl8eK9zdQB9TrBgsYKjjGwnoqpJPZWx//BuSHJZLTCztRPbuDtdi1SZKg96OjEyw+u
-         OQEOoA23DVXBRxx5ZPiVvlqchK4upXw161dnC1yOiou3qanq/H89c7j+ZMjr6YVD2mZf
-         nMFFbs8iW+wGE4o6iLCeiZAJLn+D8qvYKnpH2jLJ+ki94IOs09/fIOjVobJN9l09cCcL
-         XHpUB9x693ZFA1uryop4J89apO1aD+DiaGhG4bTOYsD5hSa5Rwp3vVkuZebZkVJbPsnu
-         H6LQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=AYrclzb/DI20ULzMRT5C3zx7BcemIpx5wfq90vBWrJQ=;
-        fh=kfzPbuHLxMidNeMGquFgKTpBvGNIM0IJxvSX1JnrbrY=;
-        b=OBKplUgxE4vzxmPIYMdW76gBmfMMIbgQWdPNWO/2881Yrg+r+dZq59B6xoXW5w1jG+
-         2m5gXeG/BBImJ6Fs3esVzXejK2OLcTQEcdi4Bx7yFXRr68FU+KvjXdmtgZb2vZBcTNbW
-         LISh6GEV+gNGO+O5cjTDi3WW87/jQgSwlJnLLIhiWZZcvUrmdExGjZNK9CDnjI4E+HnO
-         k+sR+CtHZMkz4tSMxuu979IXqY9IKh01CGnQUFUfsjbTiVzHdwDIWtnlMWoqdnVKq7Mz
-         rI3vhRu3A0uJEdRGtsOc4E53u/Q/w53nGbA8hZx1X86i7IDhXe/L8X31ARR7GWqZ7MIk
-         c3ow==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 30 Jan 2026 02:09:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Lvn1hvyJ8MRS+wpuQsgDborDGudFXscRFc5roPoZX7chOTMztyjcQt4H9vHSJZ9ewr47sdl79Qek3+MR4BhZVv8IGp6zxAueSBRwN8kQN06IXdi+UQ8wCD+02zZOdGhXMp+BUJrWZ3wN1XpARTjtyw+v56eMLnK/6ibxvjjyE1D3oBP8KBffyA35GJV2py51jagGODlmCYVS6xwDAEEfjz+BGBKP6Y+zP6VOGqNjWJ9rAxBrD1EIP4L2XrjJPaWVN3WabKtuiMBQUmdoKkfFUKyjKvC/XWUE2T2tc58YGBz5FU4EqTnG4qpVB+GqXEmeggnelBMWKfOb3QlNPMYn4A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EY8+Ex0usF8ycJKxQjjbsZphZo1kqW4LiFDvNKaNJFc=;
+ b=yJpC2JBfEZ1RsLsjAnc/BQdJsPkK1cnuplW+6rMiWtaSaB21VTkdIJIip0+ZRkC6Q/uIiZqmhjjgv2uww94YMoN1N4qSvdqVerrxxdnA1BEGzmunGSKgluGVlUwBwJiQjym9wVidH51VvQly4NJBfRhSH2LiGgfRXviUkW3iC92nnVzMvqXfEhitzfdrG98U5R6JpZmMP07WLSeDMfu8zqiRDZ2O5xfOtaWyn0YgAsqfDk6LbeNzuzPnOtEL9vAq4l6JcePrROxSDoTnETzFzGtgUG0GynnT23joNxJCWvv5X1GarG/+DFEUuiCrvqfkLt/TFEar9kdh9fcF23Zvvg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769737958; x=1770342758; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AYrclzb/DI20ULzMRT5C3zx7BcemIpx5wfq90vBWrJQ=;
-        b=PDzvqSLIlr7W9vPrqGmFCZbUUxkwCFNTch4qyOuO1oRYcsOrKT4RGbQFxX9DS5Pke7
-         gKr7AahkRp8AZkOa6c9ehnVpxBPusNx19ur4AHMCC4Rp7U72VATDoEv7QSeDAqG8xUpK
-         UNZ1rgNU5tDzs0EKTqJdwaOgzjZBliUZqH3ftKzCT7GZWj+CeRhgK1Gr126m6aPUVj7Z
-         e8rMatAmR4Lzd4sRAUwOjsrxZuaU6KADtLiU6a+jjrdz+nxNEal+V8m16lUUTdFHcAYg
-         1sLdt5/fntLdWGK859xmtkkt7QYrGFS4yZ1jSBgoPrighp7YGrFcERcVnFID20aL1MXK
-         8j7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769737958; x=1770342758;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=AYrclzb/DI20ULzMRT5C3zx7BcemIpx5wfq90vBWrJQ=;
-        b=daEOnTQyR6xijSfexSkHHVVJ+zWX340GDIWY7Birg/yYwMFtYMFwv6OEq6/Ofz488o
-         EKuQBI7n4aGd7xvd3PQhHODlbwI6obCSZGdmj9xsyJgUwZN92nfC6OUDulgRjGMco8JN
-         I2OK1WAjqVkjr+t/6tMxU9NJoUAsynid/xVlAyTG/mWm5WlDBOqtRmv9FVDdbtIzSQ+t
-         Bxwf38WGCCKMnSo732nGBolnCEQHInZ9Z/oESXk05SXjedK9A3MtV6fH2KwIIIZkQbwb
-         TjC5OoDGFsITPwu5PWGDL5P/r8TICQByMi2phbm4AMtL5t1LtTKTTn9G+2X8036Acchy
-         Pfjg==
-X-Forwarded-Encrypted: i=1; AJvYcCVwiZdVUfxf1C2fid3F2l45uw/LvQPaIJlB/7UkVjv7ocrJzwIcfP7DKluQnTGP5fdzMPzAaFXsTz7LPcUaguao@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhUkHFKBnK3uTUPnAVmDB3PRlm5Iqsk5jfJhRy31eZ6ny1V4/7
-	LUPcu60NOpx2pHRlaT+eJk/2Z/wMTsQbicXGINvIBI8ng/lU9XV81blrUlJ2S98180J49FL0GMJ
-	jf8JbnzmJ+Y8PIN5yxKOPhKjO3RYM2yQ=
-X-Gm-Gg: AZuq6aJxh4avuihzia36RJodpfV3/EAJphJWqDo0atT1H7l9FshZtXm6ZCch6IVTiA2
-	ryerrOxTzfMlhcd1gHKpeJLaYl/2PKqoANHy0icRH2C1QFmnzmlYq1PJjIkt30VdOp63PKjEZMm
-	0KqeRRmMQGgyQPkZxQypMDaPh712LBC2aBEspANlEaE/uk0cVqqR7zMS4t8bflITeJGYrLjqKf7
-	qVcP4flNxxbOlDo4omXCFGGwk+QQPvndttzSjPyEIQHlNn0MItIXT4jTm+x7/hX8hmaWYE=
-X-Received: by 2002:a17:90b:1c0e:b0:340:8d99:49d4 with SMTP id
- 98e67ed59e1d1-354299f24a8mr4236387a91.1.1769737957855; Thu, 29 Jan 2026
- 17:52:37 -0800 (PST)
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EY8+Ex0usF8ycJKxQjjbsZphZo1kqW4LiFDvNKaNJFc=;
+ b=UNFA1PMR/XMR3Cz+Lwwza+guXKmdeFKVJDnWJn7q0ArS6l6YWLcd312of9d+A2VyDEW978MH6/NKQ/OJgXkzt9aB2mQbzi3mVsH8Pq0nnD9I3xvJbwQTIpo9N47aNZl+bJIEXvuhAgyBnXaWs16gMjHghv4Jv/0h+CSx3M39KvE=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
+ CO1PR01MB6776.prod.exchangelabs.com (2603:10b6:303:f4::5) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.11; Fri, 30 Jan 2026 02:09:10 +0000
+Received: from MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::86f5:4db2:7ad5:7fc4]) by MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::86f5:4db2:7ad5:7fc4%6]) with mapi id 15.20.9542.010; Fri, 30 Jan 2026
+ 02:09:09 +0000
+Date: Thu, 29 Jan 2026 18:09:07 -0800 (PST)
+From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+To: Besar Wicaksono <bwicaksono@nvidia.com>
+cc: will@kernel.org, suzuki.poulose@arm.com, robin.murphy@arm.com, 
+    ilkka@os.amperecomputing.com, linux-arm-kernel@lists.infradead.org, 
+    linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org, 
+    mark.rutland@arm.com, treding@nvidia.com, jonathanh@nvidia.com, 
+    vsethi@nvidia.com, rwiley@nvidia.com, sdonthineni@nvidia.com, 
+    skelley@nvidia.com, ywan@nvidia.com, mochs@nvidia.com, nirmoyd@nvidia.com
+Subject: Re: [PATCH 6/8] perf: add NVIDIA Tegra410 CPU Memory Latency PMU
+In-Reply-To: <20260126181155.2776097-7-bwicaksono@nvidia.com>
+Message-ID: <e8a77cc1-ac2a-0dc6-4d0e-672832282309@os.amperecomputing.com>
+References: <20260126181155.2776097-1-bwicaksono@nvidia.com> <20260126181155.2776097-7-bwicaksono@nvidia.com>
+Content-Type: text/plain; format=flowed; charset=US-ASCII
+X-ClientProxiedBy: MW4PR04CA0313.namprd04.prod.outlook.com
+ (2603:10b6:303:82::18) To MW4PR01MB6228.prod.exchangelabs.com
+ (2603:10b6:303:76::7)
 MIME-Version: 1.0
-References: <20260128071853.2602784-1-shengjiu.wang@nxp.com>
- <20260128071853.2602784-4-shengjiu.wang@nxp.com> <aXuUSnPSCa8YYfgd@lizhi-Precision-Tower-5810>
-In-Reply-To: <aXuUSnPSCa8YYfgd@lizhi-Precision-Tower-5810>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Fri, 30 Jan 2026 09:52:26 +0800
-X-Gm-Features: AZwV_QiF2cDrLfRKNnjCIo-qh5cZKFulc8s1nwm3YFRDiF2SntZx7QwlcKkdk5I
-Message-ID: <CAA+D8AM2d8m2eZnenH7gqOEUO1dLifFSNgizRRXwOiLX2vVdTA@mail.gmail.com>
-Subject: Re: [PATCH 3/3] ASoC: fsl_asrc_dma: allocate memory from dma device
-To: Frank Li <Frank.li@nxp.com>
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, lgirdwood@gmail.com, broonie@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, perex@perex.cz, tiwai@suse.com, 
-	linuxppc-dev@lists.ozlabs.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|CO1PR01MB6776:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4de955c9-df51-47ee-9051-08de5fa48e0a
+X-LD-Processed: 3bc2b170-fd94-476d-b0ce-4229bdc904a7,ExtAddr
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?U4oz9atw2VkiLs4M3z57A8RVK78OTjQOqH9OgJeTIKFFTeduH5tkcOjtnUbo?=
+ =?us-ascii?Q?ybHkaOqxOfWF5g1SjKGPv3WQmF1uvDjX5iC6MtkOQnK4gfLc/+j6pu0vYw4t?=
+ =?us-ascii?Q?n6HzsLG/APWxMiMeveXR1yx46ozrVx3RVcGhDKKYogteoC6rJ/1VEQ6cGn9C?=
+ =?us-ascii?Q?9c1/kMcz7Uv7OvGKnDaZyS5L7GVkS7gURXrw+exvyovgYd117poDdCH7RBqC?=
+ =?us-ascii?Q?C1ttd8OPDBrWMwIUKNLIV5xVu8pOmhYQihYSpL7fCZduQ1/kKa31wJjEZ9FS?=
+ =?us-ascii?Q?TK4d7IBaf7zVH/JOsIebd6d77lqEMh2Q0B4wmpSk+nBLrmuIekkqnJqYr28O?=
+ =?us-ascii?Q?T4u0zzVh281j2bDfYxSLLQQf14pQOPmpj6F2qsaFFXB+CIJsDjctqinyi1Lr?=
+ =?us-ascii?Q?z08A/+TAe3t2f/cvK1mOS/X0/zvM7t3oCFYlxFpZ/4BVHmrfRCytLxbBSdVD?=
+ =?us-ascii?Q?7dtfAEUKZOhSAEApP/RhsUJpbX82kwBSOczoBlGPKKP/jmrvF+igfD7Wc/jS?=
+ =?us-ascii?Q?MHRIAptArHgTcYblyM4/gf5CyEFq4FtGu8b3xylYCTWfJNRRv327xIhBE8DH?=
+ =?us-ascii?Q?NPDobeNqxmf6QLrw4LnIsd12oIn1838fUAScxpa5hBVE/02Q7GtYDuhDpknj?=
+ =?us-ascii?Q?HqJztRIOzypMOKTfdnurGGNQqdvYHwKo9lwWVVeCFykxpHeNw/5mxz2XF0GV?=
+ =?us-ascii?Q?Ics+zFbSKI+tHlIV2skEAt/hew468g2XhOmmXxYAvbw2AJuuXzIjFq3K6Ukr?=
+ =?us-ascii?Q?QCAXEa+Jcl9SsPBmYEw4uFd6PRE1xY4nMbB2c5LcEic3hIMN9c1n4mEdBmrh?=
+ =?us-ascii?Q?m5QrphCDAWeXi9wyAHhG6YRqEpq4c5ZHbCuKdfa6m82479aAl0SA1IfvZ7EF?=
+ =?us-ascii?Q?QEJebe302h3sycIHmIyJIl0D7yO1LxHBdu58o76Bi5oUuVZ6Fzg3upAM46oh?=
+ =?us-ascii?Q?hXIh9aBTmHBYTS1P1Cf6yJATl+pHEoya57iADaftt4nXpyYsz1N5EtRELA3n?=
+ =?us-ascii?Q?WdiBsuPfY1Tt/tgarZaIqB8k8PuyQuNicPBYd0j4wtB2W01o413AsCkfgBG4?=
+ =?us-ascii?Q?JJ9fOyq8CbV88ndD2ym5eoYVw6ZmRp39LwP8ed4Pklf9RpKfrCtOHZw8/Lqd?=
+ =?us-ascii?Q?crD5x43dlsF2Va9Dlaj2hJjdD9bMMSxAujVxg1Oro75qGRBJs+LDod/c2/Bj?=
+ =?us-ascii?Q?smzjxZO+uk5OxY26RPR2lBnLk3z4IM/l7mYEPv6bUhRt53DVXnbK9KqkSHjq?=
+ =?us-ascii?Q?TgUT/CWO0Hlt8lDaf4JRFOlCGDlsKYilvhwNtc5v/s9qiV3w20xitGPRykSn?=
+ =?us-ascii?Q?6cLGuGcQQ6PCtaoFXaM/FHD5AmjIWSafdxWhhvMNzoETQbqEewciLo9lTGBr?=
+ =?us-ascii?Q?cxhHDD8950wDMhsbsWEEFnw08tvXthoQOuUAxTgiw1qevc6Y+rvyt7x2cNDp?=
+ =?us-ascii?Q?p3DdoWDQvU0JdPxJbV2BqRX/wvDw8vgwoYn+T5D88DK+OUqhsN24gc9721u5?=
+ =?us-ascii?Q?8Nx3VhAkaiUKc9e57XjVtE2UsNnXVtS6MpDJIrYJuMiHB+PopTaHpKpnd0g0?=
+ =?us-ascii?Q?S8Zi+apPca5VPM2rFfo=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GOrddJfkyd4BaDWaLG5XrqV+Ch6Zfvt2pDpJnaM3QW6+R9MOGSanMLc8PGDK?=
+ =?us-ascii?Q?7SgJ+EKmCoNtEKC7e9XwZCZeNPG74ooCcJuqDkXwspzcfqJQbIuSXHdYUtlS?=
+ =?us-ascii?Q?6007j4Lt6No/B+vqG5lJ0UWvvd+NoxeZ8qNqjAjiH1/x56iEkExUPGu6dauf?=
+ =?us-ascii?Q?WaV+z6hZny8RSNFPiQz20U+ve7ag1voSdbdAQnHlwxo9I6TvgzgxwbmI4VKe?=
+ =?us-ascii?Q?qeiA9nirBc4dB0+kH5XeMm9ayGvhjpWs849N8+XQo7N5ZzW7gGNvq7fF+oji?=
+ =?us-ascii?Q?PF+yFSm8WFn0p9tiH0u3RoB4MVcdHT2j51+/lK33x1qvSI6f8mdfJv5hEFvW?=
+ =?us-ascii?Q?ZpscNCoBDgYCnE3MYfwYUd2RuHYb0nNdNXey4NG4ECZ3qZfu3+BG6hcxvqo2?=
+ =?us-ascii?Q?3Xs72Erg20z9cJ83MEG8E3rBWaqLEmJdGqfe7zav/28paZ9ykRBw6PsQqQDH?=
+ =?us-ascii?Q?JMjG7PKw6Ekz+izfT2pXRXUB0/QpP9amOBN5XpmIlNjBb2nomr56WP4aAmnJ?=
+ =?us-ascii?Q?VYg4JPy4csq6we/w8xu6hE6dLRm333wv4g/1npal2SaO5HtUc2KfDbY/hMvr?=
+ =?us-ascii?Q?KV90u4jftXV2YfgU5hNxdwHfuvfzW01S3okfIFZvOdNJgxaDhhGGuXyMgZH7?=
+ =?us-ascii?Q?S6phUO2eoDJPng3C9MXknDjpA3tbMX0EWt92hD+9rV+K2J1BwkF7t1yjKwDX?=
+ =?us-ascii?Q?rCRwYuMBu0W9txreDWcHoiygsewcDeK0QA/EtP2NXwX3e9/9WUllwoEyly7H?=
+ =?us-ascii?Q?bVVeEvX3QH6ILCf6GiUXyZXhB7xz8B5QtYEAkKLuiF/lQXGJ8VuDEF7jy0oy?=
+ =?us-ascii?Q?ypyXGeenL0vJEUc/Bd2W9FBCWULcbOvUVM5xABixKcyf9GdfShSfSsNI1L1P?=
+ =?us-ascii?Q?N4GF3c3UotYtAV1jpX3ooQNIq0vkbP9QP43fvJhqsu2+l3ec0A4xYVG/pGQB?=
+ =?us-ascii?Q?oWR1wOEJek5nx0NQZAkC6rxivN9kVBxKNHSlIvlp3622yhDINzIfj3Q91Cb8?=
+ =?us-ascii?Q?472mlIvtKQ5ZnLGxwFTF9qlWjYNKe3axmSMMP337znqAB2gsa8MNWBZ8X7gI?=
+ =?us-ascii?Q?lSe2KikF3vf6IY0F2trCoX+/xFCSZHc4PhetXhPH8m/NGNYVywZotasqgSM8?=
+ =?us-ascii?Q?R/ewU6nfj6GcDv+wPDpKqpXfP6JzX24QYxsklFG1Za3KOiFKDTSWdcbc8o9f?=
+ =?us-ascii?Q?am6ewN9O/U1BpRzmUnPE/aUHkIf9iVl9BuLsMqYt+3i6FraCNefH0205IxaT?=
+ =?us-ascii?Q?ryopGCroc+zlVkfCCOE4CZlU8ClqY8hWjzyARafrTlvV/OigYJ3jINlaUEj0?=
+ =?us-ascii?Q?Er+OlACYEQ7MK/nh2EdAqIuoP5s7gNjOjLo99ffVUBqZe6tND25+2DzddAZ9?=
+ =?us-ascii?Q?CAqNsjFpfxei1YhnXZcmUHPbB5bJ9MDDX8UrcLrXfKUreuMYtouwi9qx2Rdo?=
+ =?us-ascii?Q?sI8hJbecwiF5PFTAXzf80O/teCyTORdeRaMF31YuLLoeS4bcSpFo0thC6ult?=
+ =?us-ascii?Q?goZ+7y81cAFTtYAljsMVqPUzuevDc8VtVI6iZFEEh4c/b7cNMOEgUqK/C8Ay?=
+ =?us-ascii?Q?UrIDP2S1iO/fOInIC/AwKRyMox91DnuIHShwFq4zkJWvsbEbzt08nsOu+s1+?=
+ =?us-ascii?Q?MOVA0POIeBBA0lnM/Dsr3aVf1qJX4eKg9p8AGEE9rHrKpyN7nLlNgvpJlPkR?=
+ =?us-ascii?Q?HTZN2FIBI3WjBX4/ijSWfnL8avceG+aZEh3TXWMiJpUZj+Z0FK8IsBbqQh4R?=
+ =?us-ascii?Q?+VgiG7mB26O3tI217pnogIE6Y2/T/mI=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4de955c9-df51-47ee-9051-08de5fa48e0a
+X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 02:09:09.7978
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 10EPgJCD/N2Wbju98VNBPALyHVeNYtHVU9+DTu9MYghN67u6XVFcj/a/LLDEoBVwLwqdfieiB2uME06dZJZYatbJpfQLNNf5lvSsM4LZd1LKp84a2Qs6g42As1O0anN3
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR01MB6776
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_175239_142142_F79A5C54 
-X-CRM114-Status: GOOD (  27.25  )
+X-CRM114-CacheID: sfid-20260129_180918_146091_15598125 
+X-CRM114-Status: GOOD (  21.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,112 +166,828 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 30, 2026 at 1:09=E2=80=AFAM Frank Li <Frank.li@nxp.com> wrote:
->
-> On Wed, Jan 28, 2026 at 03:18:53PM +0800, Shengjiu Wang wrote:
-> > As the dma device may support dma-coherent property on the i.MX952,
-> > allocate memory from dma device to make asrc driver to be compatible wi=
-th
-> > such a case.
-> >
-> > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> > ---
-> >  sound/soc/fsl/fsl_asrc_dma.c | 48 ++++++++++++++++++++++++++++++------
-> >  1 file changed, 41 insertions(+), 7 deletions(-)
-> >
-> > diff --git a/sound/soc/fsl/fsl_asrc_dma.c b/sound/soc/fsl/fsl_asrc_dma.=
-c
-> > index 7dacc06b2f02..b8fe242d53db 100644
-> > --- a/sound/soc/fsl/fsl_asrc_dma.c
-> > +++ b/sound/soc/fsl/fsl_asrc_dma.c
-> > @@ -449,18 +449,52 @@ fsl_asrc_dma_pcm_pointer(struct snd_soc_component=
- *component,
-> >  static int fsl_asrc_dma_pcm_new(struct snd_soc_component *component,
-> >                               struct snd_soc_pcm_runtime *rtd)
-> >  {
-> > -     struct snd_card *card =3D rtd->card->snd_card;
-> > +     struct device *dev =3D component->dev;
-> > +     struct fsl_asrc *asrc =3D dev_get_drvdata(dev);
-> > +     struct fsl_asrc_pair *pair;
-> >       struct snd_pcm *pcm =3D rtd->pcm;
-> > +     struct dma_chan *chan;
-> >       int ret;
-> >
-> > -     ret =3D dma_coerce_mask_and_coherent(card->dev, DMA_BIT_MASK(32))=
-;
-> > -     if (ret) {
-> > -             dev_err(card->dev, "failed to set DMA mask\n");
-> > -             return ret;
-> > +     pair =3D kzalloc(sizeof(*pair) + asrc->pair_priv_size, GFP_KERNEL=
-);
->
-> prefer use size_add(sizeof(*pair), asrc->pair_priv_size), which did
-> overflow check.
 
-Ok, will update it.
+Hi Besar,
 
+On Mon, 26 Jan 2026, Besar Wicaksono wrote:
+> Adds CPU Memory (CMEM) Latency  PMU support in Tegra410 SOC.
 >
-> > +     if (!pair)
-> > +             return -ENOMEM;
-> > +
-> > +     pair->asrc =3D asrc;
-> > +     pair->private =3D (void *)pair + sizeof(struct fsl_asrc_pair);
-> > +
-> > +     /* Request a dummy pair, which will be released later.
-> > +      * Request pair function needs channel num as input, for this
-> > +      * dummy pair, we just request "1" channel temporarily.
-> > +      */
-> > +     ret =3D asrc->request_pair(1, pair);
-> > +     if (ret < 0) {
-> > +             dev_err(dev, "failed to request asrc pair\n");
-> > +             goto req_pair_err;
-> >       }
-> >
-> > -     return snd_pcm_set_fixed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV,
-> > -                                         card->dev, FSL_ASRC_DMABUF_SI=
-ZE);
-> > +     /* Request a dummy dma channel, which will be released later. */
-> > +     chan =3D asrc->get_dma_channel(pair, IN);
+> Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
+
+Looks good to me
+
+Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+
+Cheers, Ilkka
+
+> ---
+> .../admin-guide/perf/nvidia-tegra410-pmu.rst  |  25 +
+> drivers/perf/Kconfig                          |   7 +
+> drivers/perf/Makefile                         |   1 +
+> drivers/perf/nvidia_t410_cmem_latency_pmu.c   | 727 ++++++++++++++++++
+> 4 files changed, 760 insertions(+)
+> create mode 100644 drivers/perf/nvidia_t410_cmem_latency_pmu.c
 >
-> Is it possible get real dma chan from fsl_asrc?
-
-This is real dma chan, may be I should remove "dummy".
-
+> diff --git a/Documentation/admin-guide/perf/nvidia-tegra410-pmu.rst b/Documentation/admin-guide/perf/nvidia-tegra410-pmu.rst
+> index 07dc447eead7..11fc1c88346a 100644
+> --- a/Documentation/admin-guide/perf/nvidia-tegra410-pmu.rst
+> +++ b/Documentation/admin-guide/perf/nvidia-tegra410-pmu.rst
+> @@ -8,6 +8,7 @@ metrics like memory bandwidth, latency, and utilization:
+> * Unified Coherence Fabric (UCF)
+> * PCIE
+> * PCIE-TGT
+> +* CPU Memory (CMEM) Latency
 >
-> > +     if (!chan) {
-> > +             dev_err(dev, "failed to get dma channel\n");
-> > +             ret =3D -EINVAL;
-> > +             goto dma_chan_err;
-> > +     }
-> > +
-> > +     ret =3D snd_pcm_set_fixed_buffer_all(pcm,
-> > +                                        SNDRV_DMA_TYPE_DEV,
-> > +                                        chan->device->dev,
-> > +                                        FSL_ASRC_DMABUF_SIZE);
+> PMU Driver
+> ----------
+> @@ -342,3 +343,27 @@ Example usage:
+>   0x10000 to 0x100FF on socket 0's PCIE RC-1::
 >
-> Here you assume chan->device->dev never change when it did DMA transfer.
-
-Yes, this refers to the generic code in ALSA.
-
-best regards
-Shengjiu Wang
-
+>     perf stat -a -e nvidia_pcie_tgt_pmu_0_rc_1/event=0x1,dst_addr_base=0x10000,dst_addr_mask=0xFFF00,dst_addr_en=0x1/
+> +
+> +CPU Memory (CMEM) Latency PMU
+> +-----------------------------
+> +
+> +This PMU monitors latency events of memory read requests to local
+> +CPU DRAM:
+> +
+> +  * RD_REQ counters: count read requests (32B per request).
+> +  * RD_CUM_OUTS counters: accumulated outstanding request counter, which track
+> +    how many cycles the read requests are in flight.
+> +  * CYCLES counter: counts the number of elapsed cycles.
+> +
+> +The average latency is calculated as::
+> +
+> +   FREQ_IN_GHZ = CYCLES / ELAPSED_TIME_IN_NS
+> +   AVG_LATENCY_IN_CYCLES = RD_CUM_OUTS / RD_REQ
+> +   AVERAGE_LATENCY_IN_NS = AVG_LATENCY_IN_CYCLES / FREQ_IN_GHZ
+> +
+> +The events and configuration options of this PMU device are described in sysfs,
+> +see /sys/bus/event_source/devices/nvidia_cmem_latency_pmu_<socket-id>.
+> +
+> +Example usage::
+> +
+> +  perf stat -a -e '{nvidia_cmem_latency_pmu_0/rd_req/,nvidia_cmem_latency_pmu_0/rd_cum_outs/,nvidia_cmem_latency_pmu_0/cycles/}'
+> diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+> index 638321fc9800..9fed3c41d5ea 100644
+> --- a/drivers/perf/Kconfig
+> +++ b/drivers/perf/Kconfig
+> @@ -311,4 +311,11 @@ config MARVELL_PEM_PMU
+> 	  Enable support for PCIe Interface performance monitoring
+> 	  on Marvell platform.
 >
-> Frank
-> > +
-> > +     dma_release_channel(chan);
-> > +
-> > +dma_chan_err:
-> > +     asrc->release_pair(pair);
-> > +
-> > +req_pair_err:
-> > +     kfree(pair);
-> > +
-> > +     return ret;
-> >  }
-> >
-> >  struct snd_soc_component_driver fsl_asrc_component =3D {
-> > --
-> > 2.34.1
-> >
+> +config NVIDIA_TEGRA410_CMEM_LATENCY_PMU
+> +	tristate "NVIDIA Tegra410 CPU Memory Latency PMU"
+> +	depends on ARM64
+> +	help
+> +	  Enable perf support for CPU memory latency counters monitoring on
+> +	  NVIDIA Tegra410 SoC.
+> +
+> endmenu
+> diff --git a/drivers/perf/Makefile b/drivers/perf/Makefile
+> index ea52711a87e3..4aa6aad393c2 100644
+> --- a/drivers/perf/Makefile
+> +++ b/drivers/perf/Makefile
+> @@ -35,3 +35,4 @@ obj-$(CONFIG_DWC_PCIE_PMU) += dwc_pcie_pmu.o
+> obj-$(CONFIG_ARM_CORESIGHT_PMU_ARCH_SYSTEM_PMU) += arm_cspmu/
+> obj-$(CONFIG_MESON_DDR_PMU) += amlogic/
+> obj-$(CONFIG_CXL_PMU) += cxl_pmu.o
+> +obj-$(CONFIG_NVIDIA_TEGRA410_CMEM_LATENCY_PMU) += nvidia_t410_cmem_latency_pmu.o
+> diff --git a/drivers/perf/nvidia_t410_cmem_latency_pmu.c b/drivers/perf/nvidia_t410_cmem_latency_pmu.c
+> new file mode 100644
+> index 000000000000..9b466581c8fc
+> --- /dev/null
+> +++ b/drivers/perf/nvidia_t410_cmem_latency_pmu.c
+> @@ -0,0 +1,727 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * NVIDIA Tegra410 CPU Memory (CMEM) Latency PMU driver.
+> + *
+> + * Copyright (c) 2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+> + */
+> +
+> +#include <linux/acpi.h>
+> +#include <linux/bitops.h>
+> +#include <linux/cpumask.h>
+> +#include <linux/device.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/perf_event.h>
+> +#include <linux/platform_device.h>
+> +
+> +#define NUM_INSTANCES    14
+> +#define BCAST(pmu) pmu->base[NUM_INSTANCES]
+> +
+> +/* Register offsets. */
+> +#define CG_CTRL         0x800
+> +#define CTRL            0x808
+> +#define STATUS          0x810
+> +#define CYCLE_CNTR      0x818
+> +#define MC0_REQ_CNTR    0x820
+> +#define MC0_AOR_CNTR    0x830
+> +#define MC1_REQ_CNTR    0x838
+> +#define MC1_AOR_CNTR    0x848
+> +#define MC2_REQ_CNTR    0x850
+> +#define MC2_AOR_CNTR    0x860
+> +
+> +/* CTRL values. */
+> +#define CTRL_DISABLE    0x0ULL
+> +#define CTRL_ENABLE     0x1ULL
+> +#define CTRL_CLR        0x2ULL
+> +
+> +/* CG_CTRL values. */
+> +#define CG_CTRL_DISABLE    0x0ULL
+> +#define CG_CTRL_ENABLE     0x1ULL
+> +
+> +/* STATUS register field. */
+> +#define STATUS_CYCLE_OVF      BIT(0)
+> +#define STATUS_MC0_AOR_OVF    BIT(1)
+> +#define STATUS_MC0_REQ_OVF    BIT(3)
+> +#define STATUS_MC1_AOR_OVF    BIT(4)
+> +#define STATUS_MC1_REQ_OVF    BIT(6)
+> +#define STATUS_MC2_AOR_OVF    BIT(7)
+> +#define STATUS_MC2_REQ_OVF    BIT(9)
+> +
+> +/* Events. */
+> +#define EVENT_CYCLES    0x0
+> +#define EVENT_REQ       0x1
+> +#define EVENT_AOR       0x2
+> +
+> +#define NUM_EVENTS           0x3
+> +#define MASK_EVENT           0x3
+> +#define MAX_ACTIVE_EVENTS    32
+> +
+> +#define ACTIVE_CPU_MASK        0x0
+> +#define ASSOCIATED_CPU_MASK    0x1
+> +
+> +static unsigned long cmem_lat_pmu_cpuhp_state;
+> +
+> +struct cmem_lat_pmu_hw_events {
+> +	struct perf_event *events[MAX_ACTIVE_EVENTS];
+> +	DECLARE_BITMAP(used_ctrs, MAX_ACTIVE_EVENTS);
+> +};
+> +
+> +struct cmem_lat_pmu {
+> +	struct pmu pmu;
+> +	struct device *dev;
+> +	const char *name;
+> +	const char *identifier;
+> +	void __iomem *base[NUM_INSTANCES + 1];
+> +	cpumask_t associated_cpus;
+> +	cpumask_t active_cpu;
+> +	struct hlist_node node;
+> +	struct cmem_lat_pmu_hw_events hw_events;
+> +};
+> +
+> +#define to_cmem_lat_pmu(p) \
+> +	container_of(p, struct cmem_lat_pmu, pmu)
+> +
+> +
+> +/* Get event type from perf_event. */
+> +static inline u32 get_event_type(struct perf_event *event)
+> +{
+> +	return (event->attr.config) & MASK_EVENT;
+> +}
+> +
+> +/* PMU operations. */
+> +static int cmem_lat_pmu_get_event_idx(struct cmem_lat_pmu_hw_events *hw_events,
+> +				struct perf_event *event)
+> +{
+> +	unsigned int idx;
+> +
+> +	idx = find_first_zero_bit(hw_events->used_ctrs, MAX_ACTIVE_EVENTS);
+> +	if (idx >= MAX_ACTIVE_EVENTS)
+> +		return -EAGAIN;
+> +
+> +	set_bit(idx, hw_events->used_ctrs);
+> +
+> +	return idx;
+> +}
+> +
+> +static bool cmem_lat_pmu_validate_event(struct pmu *pmu,
+> +				 struct cmem_lat_pmu_hw_events *hw_events,
+> +				 struct perf_event *event)
+> +{
+> +	if (is_software_event(event))
+> +		return true;
+> +
+> +	/* Reject groups spanning multiple HW PMUs. */
+> +	if (event->pmu != pmu)
+> +		return false;
+> +
+> +	return (cmem_lat_pmu_get_event_idx(hw_events, event) >= 0);
+> +}
+> +
+> +/*
+> + * Make sure the group of events can be scheduled at once
+> + * on the PMU.
+> + */
+> +static bool cmem_lat_pmu_validate_group(struct perf_event *event)
+> +{
+> +	struct perf_event *sibling, *leader = event->group_leader;
+> +	struct cmem_lat_pmu_hw_events fake_hw_events;
+> +
+> +	if (event->group_leader == event)
+> +		return true;
+> +
+> +	memset(&fake_hw_events, 0, sizeof(fake_hw_events));
+> +
+> +	if (!cmem_lat_pmu_validate_event(event->pmu, &fake_hw_events, leader))
+> +		return false;
+> +
+> +	for_each_sibling_event(sibling, leader) {
+> +		if (!cmem_lat_pmu_validate_event(event->pmu, &fake_hw_events,
+> +						sibling))
+> +			return false;
+> +	}
+> +
+> +	return cmem_lat_pmu_validate_event(event->pmu, &fake_hw_events, event);
+> +}
+> +
+> +static int cmem_lat_pmu_event_init(struct perf_event *event)
+> +{
+> +	struct cmem_lat_pmu *cmem_lat_pmu = to_cmem_lat_pmu(event->pmu);
+> +	struct hw_perf_event *hwc = &event->hw;
+> +	u32 event_type = get_event_type(event);
+> +
+> +	if (event->attr.type != event->pmu->type ||
+> +	    event_type >= NUM_EVENTS)
+> +		return -ENOENT;
+> +
+> +	/*
+> +	 * Following other "uncore" PMUs, we do not support sampling mode or
+> +	 * attach to a task (per-process mode).
+> +	 */
+> +	if (is_sampling_event(event)) {
+> +		dev_dbg(cmem_lat_pmu->pmu.dev,
+> +			"Can't support sampling events\n");
+> +		return -EOPNOTSUPP;
+> +	}
+> +
+> +	if (event->cpu < 0 || event->attach_state & PERF_ATTACH_TASK) {
+> +		dev_dbg(cmem_lat_pmu->pmu.dev,
+> +			"Can't support per-task counters\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	/*
+> +	 * Make sure the CPU assignment is on one of the CPUs associated with
+> +	 * this PMU.
+> +	 */
+> +	if (!cpumask_test_cpu(event->cpu, &cmem_lat_pmu->associated_cpus)) {
+> +		dev_dbg(cmem_lat_pmu->pmu.dev,
+> +			"Requested cpu is not associated with the PMU\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	/* Enforce the current active CPU to handle the events in this PMU. */
+> +	event->cpu = cpumask_first(&cmem_lat_pmu->active_cpu);
+> +	if (event->cpu >= nr_cpu_ids)
+> +		return -EINVAL;
+> +
+> +	if (!cmem_lat_pmu_validate_group(event))
+> +		return -EINVAL;
+> +
+> +	hwc->idx = -1;
+> +	hwc->config = event_type;
+> +
+> +	return 0;
+> +}
+> +
+> +static u64 cmem_lat_pmu_read_status(struct cmem_lat_pmu *cmem_lat_pmu,
+> +				   unsigned int inst)
+> +{
+> +	return readq(cmem_lat_pmu->base[inst] + STATUS);
+> +}
+> +
+> +static u64 cmem_lat_pmu_read_cycle_counter(struct perf_event *event)
+> +{
+> +	const unsigned int instance = 0;
+> +	u64 status;
+> +	struct cmem_lat_pmu *cmem_lat_pmu = to_cmem_lat_pmu(event->pmu);
+> +	struct device *dev = cmem_lat_pmu->dev;
+> +
+> +	/*
+> +	 * Use the reading from first instance since all instances are
+> +	 * identical.
+> +	 */
+> +	status = cmem_lat_pmu_read_status(cmem_lat_pmu, instance);
+> +	if (status & STATUS_CYCLE_OVF)
+> +		dev_warn(dev, "Cycle counter overflow\n");
+> +
+> +	return readq(cmem_lat_pmu->base[instance] + CYCLE_CNTR);
+> +}
+> +
+> +static u64 cmem_lat_pmu_read_req_counter(struct perf_event *event)
+> +{
+> +	unsigned int i;
+> +	u64 status, val = 0;
+> +	struct cmem_lat_pmu *cmem_lat_pmu = to_cmem_lat_pmu(event->pmu);
+> +	struct device *dev = cmem_lat_pmu->dev;
+> +
+> +	/* Sum up the counts from all instances. */
+> +	for (i = 0; i < NUM_INSTANCES; i++) {
+> +		status = cmem_lat_pmu_read_status(cmem_lat_pmu, i);
+> +		if (status & STATUS_MC0_REQ_OVF)
+> +			dev_warn(dev, "MC0 request counter overflow\n");
+> +		if (status & STATUS_MC1_REQ_OVF)
+> +			dev_warn(dev, "MC1 request counter overflow\n");
+> +		if (status & STATUS_MC2_REQ_OVF)
+> +			dev_warn(dev, "MC2 request counter overflow\n");
+> +
+> +		val += readq(cmem_lat_pmu->base[i] + MC0_REQ_CNTR);
+> +		val += readq(cmem_lat_pmu->base[i] + MC1_REQ_CNTR);
+> +		val += readq(cmem_lat_pmu->base[i] + MC2_REQ_CNTR);
+> +	}
+> +
+> +	return val;
+> +}
+> +
+> +static u64 cmem_lat_pmu_read_aor_counter(struct perf_event *event)
+> +{
+> +	unsigned int i;
+> +	u64 status, val = 0;
+> +	struct cmem_lat_pmu *cmem_lat_pmu = to_cmem_lat_pmu(event->pmu);
+> +	struct device *dev = cmem_lat_pmu->dev;
+> +
+> +	/* Sum up the counts from all instances. */
+> +	for (i = 0; i < NUM_INSTANCES; i++) {
+> +		status = cmem_lat_pmu_read_status(cmem_lat_pmu, i);
+> +		if (status & STATUS_MC0_AOR_OVF)
+> +			dev_warn(dev, "MC0 AOR counter overflow\n");
+> +		if (status & STATUS_MC1_AOR_OVF)
+> +			dev_warn(dev, "MC1 AOR counter overflow\n");
+> +		if (status & STATUS_MC2_AOR_OVF)
+> +			dev_warn(dev, "MC2 AOR counter overflow\n");
+> +
+> +		val += readq(cmem_lat_pmu->base[i] + MC0_AOR_CNTR);
+> +		val += readq(cmem_lat_pmu->base[i] + MC1_AOR_CNTR);
+> +		val += readq(cmem_lat_pmu->base[i] + MC2_AOR_CNTR);
+> +	}
+> +
+> +	return val;
+> +}
+> +
+> +static u64 (*read_counter_fn[NUM_EVENTS])(struct perf_event *) = {
+> +	[EVENT_CYCLES] = cmem_lat_pmu_read_cycle_counter,
+> +	[EVENT_REQ] = cmem_lat_pmu_read_req_counter,
+> +	[EVENT_AOR] = cmem_lat_pmu_read_aor_counter,
+> +};
+> +
+> +static void cmem_lat_pmu_event_update(struct perf_event *event)
+> +{
+> +	u32 event_type;
+> +	u64 prev, now;
+> +	struct hw_perf_event *hwc = &event->hw;
+> +
+> +	if (hwc->state & PERF_HES_STOPPED)
+> +		return;
+> +
+> +	event_type = hwc->config;
+> +
+> +	do {
+> +		prev = local64_read(&hwc->prev_count);
+> +		now = read_counter_fn[event_type](event);
+> +	} while (local64_cmpxchg(&hwc->prev_count, prev, now) != prev);
+> +
+> +	local64_add(now - prev, &event->count);
+> +
+> +	hwc->state |= PERF_HES_UPTODATE;
+> +}
+> +
+> +static void cmem_lat_pmu_start(struct perf_event *event, int pmu_flags)
+> +{
+> +	event->hw.state = 0;
+> +}
+> +
+> +static void cmem_lat_pmu_stop(struct perf_event *event, int pmu_flags)
+> +{
+> +	event->hw.state |= PERF_HES_STOPPED;
+> +}
+> +
+> +static int cmem_lat_pmu_add(struct perf_event *event, int flags)
+> +{
+> +	struct cmem_lat_pmu *cmem_lat_pmu = to_cmem_lat_pmu(event->pmu);
+> +	struct cmem_lat_pmu_hw_events *hw_events = &cmem_lat_pmu->hw_events;
+> +	struct hw_perf_event *hwc = &event->hw;
+> +	int idx;
+> +
+> +	if (WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(),
+> +					   &cmem_lat_pmu->associated_cpus)))
+> +		return -ENOENT;
+> +
+> +	idx = cmem_lat_pmu_get_event_idx(hw_events, event);
+> +	if (idx < 0)
+> +		return idx;
+> +
+> +	hw_events->events[idx] = event;
+> +	hwc->idx = idx;
+> +	hwc->state = PERF_HES_STOPPED | PERF_HES_UPTODATE;
+> +
+> +	if (flags & PERF_EF_START)
+> +		cmem_lat_pmu_start(event, PERF_EF_RELOAD);
+> +
+> +	/* Propagate changes to the userspace mapping. */
+> +	perf_event_update_userpage(event);
+> +
+> +	return 0;
+> +}
+> +
+> +static void cmem_lat_pmu_del(struct perf_event *event, int flags)
+> +{
+> +	struct cmem_lat_pmu *cmem_lat_pmu = to_cmem_lat_pmu(event->pmu);
+> +	struct cmem_lat_pmu_hw_events *hw_events = &cmem_lat_pmu->hw_events;
+> +	struct hw_perf_event *hwc = &event->hw;
+> +	int idx = hwc->idx;
+> +
+> +	cmem_lat_pmu_stop(event, PERF_EF_UPDATE);
+> +
+> +	hw_events->events[idx] = NULL;
+> +
+> +	clear_bit(idx, hw_events->used_ctrs);
+> +
+> +	perf_event_update_userpage(event);
+> +}
+> +
+> +static void cmem_lat_pmu_read(struct perf_event *event)
+> +{
+> +	cmem_lat_pmu_event_update(event);
+> +}
+> +
+> +static inline void cmem_lat_pmu_cg_ctrl(struct cmem_lat_pmu *cmem_lat_pmu, u64 val)
+> +{
+> +	writeq(val, BCAST(cmem_lat_pmu) + CG_CTRL);
+> +}
+> +
+> +static inline void cmem_lat_pmu_ctrl(struct cmem_lat_pmu *cmem_lat_pmu, u64 val)
+> +{
+> +	writeq(val, BCAST(cmem_lat_pmu) + CTRL);
+> +}
+> +
+> +static void cmem_lat_pmu_enable(struct pmu *pmu)
+> +{
+> +	bool disabled;
+> +	struct cmem_lat_pmu *cmem_lat_pmu = to_cmem_lat_pmu(pmu);
+> +
+> +	disabled = bitmap_empty(
+> +		cmem_lat_pmu->hw_events.used_ctrs, MAX_ACTIVE_EVENTS);
+> +
+> +	if (disabled)
+> +		return;
+> +
+> +	/* Enable all the counters. */
+> +	cmem_lat_pmu_cg_ctrl(cmem_lat_pmu, CG_CTRL_ENABLE);
+> +	cmem_lat_pmu_ctrl(cmem_lat_pmu, CTRL_ENABLE);
+> +}
+> +
+> +static void cmem_lat_pmu_disable(struct pmu *pmu)
+> +{
+> +	int idx;
+> +	struct perf_event *event;
+> +	struct cmem_lat_pmu *cmem_lat_pmu = to_cmem_lat_pmu(pmu);
+> +
+> +	/* Disable all the counters. */
+> +	cmem_lat_pmu_ctrl(cmem_lat_pmu, CTRL_DISABLE);
+> +
+> +	/*
+> +	 * The counters will start from 0 again on restart.
+> +	 * Update the events immediately to avoid losing the counts.
+> +	 */
+> +	for_each_set_bit(
+> +		idx, cmem_lat_pmu->hw_events.used_ctrs, MAX_ACTIVE_EVENTS) {
+> +		event = cmem_lat_pmu->hw_events.events[idx];
+> +
+> +		if (!event)
+> +			continue;
+> +
+> +		cmem_lat_pmu_event_update(event);
+> +
+> +		local64_set(&event->hw.prev_count, 0ULL);
+> +	}
+> +
+> +	cmem_lat_pmu_ctrl(cmem_lat_pmu, CTRL_CLR);
+> +	cmem_lat_pmu_cg_ctrl(cmem_lat_pmu, CG_CTRL_DISABLE);
+> +}
+> +
+> +/* PMU identifier attribute. */
+> +
+> +static ssize_t cmem_lat_pmu_identifier_show(struct device *dev,
+> +					 struct device_attribute *attr,
+> +					 char *page)
+> +{
+> +	struct cmem_lat_pmu *cmem_lat_pmu = to_cmem_lat_pmu(dev_get_drvdata(dev));
+> +
+> +	return sysfs_emit(page, "%s\n", cmem_lat_pmu->identifier);
+> +}
+> +
+> +static struct device_attribute cmem_lat_pmu_identifier_attr =
+> +	__ATTR(identifier, 0444, cmem_lat_pmu_identifier_show, NULL);
+> +
+> +static struct attribute *cmem_lat_pmu_identifier_attrs[] = {
+> +	&cmem_lat_pmu_identifier_attr.attr,
+> +	NULL,
+> +};
+> +
+> +static struct attribute_group cmem_lat_pmu_identifier_attr_group = {
+> +	.attrs = cmem_lat_pmu_identifier_attrs,
+> +};
+> +
+> +/* Format attributes. */
+> +
+> +#define NV_PMU_EXT_ATTR(_name, _func, _config)			\
+> +	(&((struct dev_ext_attribute[]){				\
+> +		{							\
+> +			.attr = __ATTR(_name, 0444, _func, NULL),	\
+> +			.var = (void *)_config				\
+> +		}							\
+> +	})[0].attr.attr)
+> +
+> +static struct attribute *cmem_lat_pmu_formats[] = {
+> +	NV_PMU_EXT_ATTR(event, device_show_string, "config:0-1"),
+> +	NULL,
+> +};
+> +
+> +static const struct attribute_group cmem_lat_pmu_format_group = {
+> +	.name = "format",
+> +	.attrs = cmem_lat_pmu_formats,
+> +};
+> +
+> +/* Event attributes. */
+> +
+> +static ssize_t cmem_lat_pmu_sysfs_event_show(struct device *dev,
+> +				struct device_attribute *attr, char *buf)
+> +{
+> +	struct perf_pmu_events_attr *pmu_attr;
+> +
+> +	pmu_attr = container_of(attr, typeof(*pmu_attr), attr);
+> +	return sysfs_emit(buf, "event=0x%llx\n", pmu_attr->id);
+> +}
+> +
+> +#define NV_PMU_EVENT_ATTR(_name, _config)	\
+> +	PMU_EVENT_ATTR_ID(_name, cmem_lat_pmu_sysfs_event_show, _config)
+> +
+> +static struct attribute *cmem_lat_pmu_events[] = {
+> +	NV_PMU_EVENT_ATTR(cycles, EVENT_CYCLES),
+> +	NV_PMU_EVENT_ATTR(rd_req, EVENT_REQ),
+> +	NV_PMU_EVENT_ATTR(rd_cum_outs, EVENT_AOR),
+> +	NULL
+> +};
+> +
+> +static const struct attribute_group cmem_lat_pmu_events_group = {
+> +	.name = "events",
+> +	.attrs = cmem_lat_pmu_events,
+> +};
+> +
+> +/* Cpumask attributes. */
+> +
+> +static ssize_t cmem_lat_pmu_cpumask_show(struct device *dev,
+> +			    struct device_attribute *attr, char *buf)
+> +{
+> +	struct pmu *pmu = dev_get_drvdata(dev);
+> +	struct cmem_lat_pmu *cmem_lat_pmu = to_cmem_lat_pmu(pmu);
+> +	struct dev_ext_attribute *eattr =
+> +		container_of(attr, struct dev_ext_attribute, attr);
+> +	unsigned long mask_id = (unsigned long)eattr->var;
+> +	const cpumask_t *cpumask;
+> +
+> +	switch (mask_id) {
+> +	case ACTIVE_CPU_MASK:
+> +		cpumask = &cmem_lat_pmu->active_cpu;
+> +		break;
+> +	case ASSOCIATED_CPU_MASK:
+> +		cpumask = &cmem_lat_pmu->associated_cpus;
+> +		break;
+> +	default:
+> +		return 0;
+> +	}
+> +	return cpumap_print_to_pagebuf(true, buf, cpumask);
+> +}
+> +
+> +#define NV_PMU_CPUMASK_ATTR(_name, _config)			\
+> +	NV_PMU_EXT_ATTR(_name, cmem_lat_pmu_cpumask_show,	\
+> +				(unsigned long)_config)
+> +
+> +static struct attribute *cmem_lat_pmu_cpumask_attrs[] = {
+> +	NV_PMU_CPUMASK_ATTR(cpumask, ACTIVE_CPU_MASK),
+> +	NV_PMU_CPUMASK_ATTR(associated_cpus, ASSOCIATED_CPU_MASK),
+> +	NULL,
+> +};
+> +
+> +static const struct attribute_group cmem_lat_pmu_cpumask_attr_group = {
+> +	.attrs = cmem_lat_pmu_cpumask_attrs,
+> +};
+> +
+> +/* Per PMU device attribute groups. */
+> +
+> +static const struct attribute_group *cmem_lat_pmu_attr_groups[] = {
+> +	&cmem_lat_pmu_identifier_attr_group,
+> +	&cmem_lat_pmu_format_group,
+> +	&cmem_lat_pmu_events_group,
+> +	&cmem_lat_pmu_cpumask_attr_group,
+> +	NULL,
+> +};
+> +
+> +static int cmem_lat_pmu_cpu_online(unsigned int cpu, struct hlist_node *node)
+> +{
+> +	struct cmem_lat_pmu *cmem_lat_pmu =
+> +		hlist_entry_safe(node, struct cmem_lat_pmu, node);
+> +
+> +	if (!cpumask_test_cpu(cpu, &cmem_lat_pmu->associated_cpus))
+> +		return 0;
+> +
+> +	/* If the PMU is already managed, there is nothing to do */
+> +	if (!cpumask_empty(&cmem_lat_pmu->active_cpu))
+> +		return 0;
+> +
+> +	/* Use this CPU for event counting */
+> +	cpumask_set_cpu(cpu, &cmem_lat_pmu->active_cpu);
+> +
+> +	return 0;
+> +}
+> +
+> +static int cmem_lat_pmu_cpu_teardown(unsigned int cpu, struct hlist_node *node)
+> +{
+> +	unsigned int dst;
+> +
+> +	struct cmem_lat_pmu *cmem_lat_pmu =
+> +		hlist_entry_safe(node, struct cmem_lat_pmu, node);
+> +
+> +	/* Nothing to do if this CPU doesn't own the PMU */
+> +	if (!cpumask_test_and_clear_cpu(cpu, &cmem_lat_pmu->active_cpu))
+> +		return 0;
+> +
+> +	/* Choose a new CPU to migrate ownership of the PMU to */
+> +	dst = cpumask_any_and_but(&cmem_lat_pmu->associated_cpus,
+> +				  cpu_online_mask, cpu);
+> +	if (dst >= nr_cpu_ids)
+> +		return 0;
+> +
+> +	/* Use this CPU for event counting */
+> +	perf_pmu_migrate_context(&cmem_lat_pmu->pmu, cpu, dst);
+> +	cpumask_set_cpu(dst, &cmem_lat_pmu->active_cpu);
+> +
+> +	return 0;
+> +}
+> +
+> +static int cmem_lat_pmu_get_cpus(struct cmem_lat_pmu *cmem_lat_pmu,
+> +				unsigned int socket)
+> +{
+> +	int ret = 0, cpu;
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		if (cpu_to_node(cpu) == socket)
+> +			cpumask_set_cpu(cpu, &cmem_lat_pmu->associated_cpus);
+> +	}
+> +
+> +	if (cpumask_empty(&cmem_lat_pmu->associated_cpus)) {
+> +		dev_dbg(cmem_lat_pmu->dev,
+> +			"No cpu associated with PMU socket-%u\n", socket);
+> +		ret = -ENODEV;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static int cmem_lat_pmu_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct acpi_device *acpi_dev;
+> +	struct cmem_lat_pmu *cmem_lat_pmu;
+> +	char *name, *uid_str;
+> +	int ret, i;
+> +	u32 socket;
+> +
+> +	acpi_dev = ACPI_COMPANION(dev);
+> +	if (!acpi_dev)
+> +		return -ENODEV;
+> +
+> +	uid_str = acpi_device_uid(acpi_dev);
+> +	if (!uid_str)
+> +		return -ENODEV;
+> +
+> +	ret = kstrtou32(uid_str, 0, &socket);
+> +	if (ret)
+> +		return ret;
+> +
+> +	cmem_lat_pmu = devm_kzalloc(dev, sizeof(*cmem_lat_pmu), GFP_KERNEL);
+> +	name = devm_kasprintf(dev, GFP_KERNEL, "nvidia_cmem_latency_pmu_%u", socket);
+> +	if (!cmem_lat_pmu || !name)
+> +		return -ENOMEM;
+> +
+> +	cmem_lat_pmu->dev = dev;
+> +	cmem_lat_pmu->name = name;
+> +	cmem_lat_pmu->identifier = acpi_device_hid(acpi_dev);
+> +	platform_set_drvdata(pdev, cmem_lat_pmu);
+> +
+> +	cmem_lat_pmu->pmu = (struct pmu) {
+> +		.parent		= &pdev->dev,
+> +		.task_ctx_nr	= perf_invalid_context,
+> +		.pmu_enable	= cmem_lat_pmu_enable,
+> +		.pmu_disable	= cmem_lat_pmu_disable,
+> +		.event_init	= cmem_lat_pmu_event_init,
+> +		.add		= cmem_lat_pmu_add,
+> +		.del		= cmem_lat_pmu_del,
+> +		.start		= cmem_lat_pmu_start,
+> +		.stop		= cmem_lat_pmu_stop,
+> +		.read		= cmem_lat_pmu_read,
+> +		.attr_groups	= cmem_lat_pmu_attr_groups,
+> +		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE |
+> +					PERF_PMU_CAP_NO_INTERRUPT,
+> +	};
+> +
+> +	/* Map the address of all the instances plus one for the broadcast. */
+> +	for (i = 0; i < NUM_INSTANCES + 1; i++) {
+> +		cmem_lat_pmu->base[i] = devm_platform_ioremap_resource(pdev, i);
+> +		if (IS_ERR(cmem_lat_pmu->base[i])) {
+> +			dev_err(dev, "Failed map address for instance %d\n", i);
+> +			return PTR_ERR(cmem_lat_pmu->base[i]);
+> +		}
+> +	}
+> +
+> +	ret = cmem_lat_pmu_get_cpus(cmem_lat_pmu, socket);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = cpuhp_state_add_instance(cmem_lat_pmu_cpuhp_state,
+> +				       &cmem_lat_pmu->node);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "Error %d registering hotplug\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	cmem_lat_pmu_cg_ctrl(cmem_lat_pmu, CG_CTRL_ENABLE);
+> +	cmem_lat_pmu_ctrl(cmem_lat_pmu, CTRL_CLR);
+> +	cmem_lat_pmu_cg_ctrl(cmem_lat_pmu, CG_CTRL_DISABLE);
+> +
+> +	ret = perf_pmu_register(&cmem_lat_pmu->pmu, name, -1);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "Failed to register PMU: %d\n", ret);
+> +		cpuhp_state_remove_instance(cmem_lat_pmu_cpuhp_state,
+> +					    &cmem_lat_pmu->node);
+> +		return ret;
+> +	}
+> +
+> +	dev_dbg(&pdev->dev, "Registered %s PMU\n", name);
+> +
+> +	return 0;
+> +}
+> +
+> +static void cmem_lat_pmu_device_remove(struct platform_device *pdev)
+> +{
+> +	struct cmem_lat_pmu *cmem_lat_pmu = platform_get_drvdata(pdev);
+> +
+> +	perf_pmu_unregister(&cmem_lat_pmu->pmu);
+> +	cpuhp_state_remove_instance(cmem_lat_pmu_cpuhp_state,
+> +				    &cmem_lat_pmu->node);
+> +}
+> +
+> +static const struct acpi_device_id cmem_lat_pmu_acpi_match[] = {
+> +	{ "NVDA2021", },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(acpi, cmem_lat_pmu_acpi_match);
+> +
+> +static struct platform_driver cmem_lat_pmu_driver = {
+> +	.driver = {
+> +		.name = "nvidia-t410-cmem-latency-pmu",
+> +		.acpi_match_table = ACPI_PTR(cmem_lat_pmu_acpi_match),
+> +		.suppress_bind_attrs = true,
+> +	},
+> +	.probe = cmem_lat_pmu_probe,
+> +	.remove = cmem_lat_pmu_device_remove,
+> +};
+> +
+> +static int __init cmem_lat_pmu_init(void)
+> +{
+> +	int ret;
+> +
+> +	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN,
+> +				      "perf/nvidia/cmem_latency:online",
+> +				      cmem_lat_pmu_cpu_online,
+> +				      cmem_lat_pmu_cpu_teardown);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	cmem_lat_pmu_cpuhp_state = ret;
+> +
+> +	return platform_driver_register(&cmem_lat_pmu_driver);
+> +}
+> +
+> +static void __exit cmem_lat_pmu_exit(void)
+> +{
+> +	platform_driver_unregister(&cmem_lat_pmu_driver);
+> +	cpuhp_remove_multi_state(cmem_lat_pmu_cpuhp_state);
+> +}
+> +
+> +module_init(cmem_lat_pmu_init);
+> +module_exit(cmem_lat_pmu_exit);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("NVIDIA Tegra410 CPU Memory Latency PMU driver");
+> +MODULE_AUTHOR("Besar Wicaksono <bwicaksono@nvidia.com>");
+> -- 
+> 2.43.0
+>
+>
 
