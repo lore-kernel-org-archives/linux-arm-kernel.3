@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5273BE6BF06
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 12:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58633E6BF0C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 12:42:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8LC1ZbbLbxb9+FBbghA5VC66mQ7sXKTWvnnOzLCfBr8=; b=NaiGuiTTwMfC3sx2uSpNTQkFv3
-	KfYhOXRo0g1efs5eCVdb9hWsuj0tzKZ8TN+5TbH4160wzWgk3jzt891NzVe5b0pCAukghMzmXh5xo
-	zTM3R4MD0nWJwk34MFNDXuRQ/lLMQ3dAeZp7JUbH4JSHRIAb248Un8sUg4qbznuGd6zUAHCWthTkw
-	VRRwDuqDRTFczw4vU5fBPH4KkGoLPdldbDiqIqTLmlc9AflLbjD90zPWi4/ps/ojym8Pk6caCp/qm
-	NPKwVY6HVJqBtaQt6BKlMXTYH1it44CiKVUAldbVpFz9lZxRPnjdVA6hKcJ5AtPLnPBzvBnpOBy0t
-	Lyn71W7w==;
+	bh=gRMRyXmY9tgfoDCkctSdX1Iu1xwbUhfDkogoS4yqx58=; b=nGdsGKt88afCPdc+XYazgX94B7
+	5FvboVLMO5PesPJLo9F5SQWKBVXAugUVaKW9snTiFiR31/+Jpime25aV+Ncpp0PEBirbEvROOACOo
+	whuUNMlcYY3PLgJrL3zqarPy224jd/vyEyb4T+8SG+Ccss1e3ltSYUo1lXWNoWZrh6kXSKxv/J6cS
+	DUk8/FsnGR7IBAokNJv/KtvfwNIMzbzLOCB3pr/SDEAfG+8IxucVswzyTXSWdM7qtsS//I+ouyPbS
+	YmQ1zQaECdzaGOTsjsIvSG63vZsVEhedVhyAKSmHFYIyIgPI95+YgxlTq16oGGa9vDwZBSnuBH3QB
+	yZxJ2CiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlnht-00000001TzJ-2aIA;
-	Fri, 30 Jan 2026 12:34:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vlnpo-00000001UQh-0wzL;
+	Fri, 30 Jan 2026 12:42:48 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlnhs-00000001Tz8-3elZ
+	id 1vlnpm-00000001UQA-2eaA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 12:34:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EA9FC60125;
-	Fri, 30 Jan 2026 12:34:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0E8AC4CEF7;
-	Fri, 30 Jan 2026 12:34:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769776475;
-	bh=zhVwVdb/153KmPoTgYqysHOn0kSacT4DH88UcwPi72Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tB71njkAEoAfkFfrk/EJCshWcIMXd5T4Sx5tSymI3q9kgfKSgdm6qUDexoCC5Yhjs
-	 1dbAjAGWYrKgN59LWVkNor2zWJMhIHiCJ+JKxlfoBFkdoE0ggc3uGFHLbeOjPbEmrU
-	 2NGFKgxm7rCqCbQ0jWrdoySmD1UtCWMpJsH+n1Y/F4ofIzHISTMbHvUjC4tgx3h+Vs
-	 qkQbqQQcYa2gJNPYkZGMt9LuTYlrFjoA6pqjGOhcUF4X8QIWv1VbeddszC/kgduxk+
-	 LX5GQl09WdBABxP9v/+CRwO7J2sFgdaKqMqI1g2jW0LcMB0pnfceHOHLD+3LuG4dGX
-	 Lmn3Ya2ZihGTA==
-Date: Fri, 30 Jan 2026 12:34:31 +0000
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Debbie Horsfall <debbie.horsfall@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] arm64: dts: zena: Add support for Zena CSS
-Message-ID: <20260130-light-piquant-termite-fcbec4@sudeepholla>
-References: <20260123-zena-css-v1-0-34adb95cdf89@arm.com>
- <20260123-zena-css-v1-2-34adb95cdf89@arm.com>
- <20260127132206.036892e4@donnerap.manchester.arm.com>
- <c1259bad-be4d-4489-840d-4ab2f4e466f2@arm.com>
- <8c343e6d-14f8-4f55-8218-bc3f0813e8cf@arm.com>
+	Fri, 30 Jan 2026 12:42:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=gRMRyXmY9tgfoDCkctSdX1Iu1xwbUhfDkogoS4yqx58=; b=wkFCJEHrGYBgy22kGdVJiCa5Al
+	KEpH0kjQ4SNJ1ivzT5RA21SRe173/8w29ZfrE/XOPrv0+1ZxsfVDFIDPAi7AkjbQeRJMkKWnLjKL1
+	aWVnp3k4tlxOQ3Rn/fAx5dbF2Buu1DsVqtKcwXgulO2kfgCrgpHuHd1ZpVmXhZGrN7oZjW5A1sRQ5
+	6ROaYHoKcHvEklCTq4ZB9xtv37CmnsB+7oqsVjMmvqCEVgVwBn6G4HsOyb0RnUW8gwItMT2knfIlg
+	PaNd9Myl0gtcTlvLuxuSByOh/Tezie/4m236L4PjK2GzenQ3WHbkthuUZFwOxp3rINWaUNrig/8WC
+	YQ5CEd6w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59482)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vlnpW-0000000016u-25xs;
+	Fri, 30 Jan 2026 12:42:30 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vlnpS-000000000WM-2b5B;
+	Fri, 30 Jan 2026 12:42:26 +0000
+Date: Fri, 30 Jan 2026 12:42:26 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Biju <biju.das.au@gmail.com>
+Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>, netdev@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2 2/2] net: stmmac: dwmac-renesas-gbeth: Add
+ support for RZ/G3L SoC
+Message-ID: <aXynMiZJJhikfIRM@shell.armlinux.org.uk>
+References: <20260130114744.252533-1-biju.das.jz@bp.renesas.com>
+ <20260130114744.252533-3-biju.das.jz@bp.renesas.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <8c343e6d-14f8-4f55-8218-bc3f0813e8cf@arm.com>
+In-Reply-To: <20260130114744.252533-3-biju.das.jz@bp.renesas.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260130_044246_673514_C60B2878 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,27 +93,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-+Cristian(in case I am talking no sense)
-
-On Fri, Jan 30, 2026 at 11:31:25AM +0100, Andre Przywara wrote:
+On Fri, Jan 30, 2026 at 11:47:40AM +0000, Biju wrote:
+> From: Biju Das <biju.das.jz@bp.renesas.com>
 > 
-> So do you need just one "tx", but "rx" plus "rx_reply"? Which isn't valid in
-> the current binding?
-> If that's the case, then we would need a patch to relax the binding and
-> allowing this combination as well.
-> Looking into the kernel code it looks like the SCMI driver doesn't use
-> mbox-names, but explicitly expects assignments depending on the number of
-> mboxes? Somewhat confusing ...
+> Compared to other Renesas GBETH stmmac glue drivers, RZ/G3L GBETH IP use
+> the version Synopsys DesignWare MAC (version 5.30). It has an extra clock
+> compared to RZ/V2H and has ptp_pps_o interrupts. Add support for RZ/G3L
+> GBETH by reusing device data of RZ/V2H and can be extended to add other
+> functionalities later.
 > 
+> Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
 
-It is generally transmitted via tx, and tx_reply is necessary when the
-platform has unidirectional channels. tx_reply is used to determine when the
-synchronization commands have completed, without requiring polling of the
-shared memory. rx_reply is necessary only if the platform firmware expects
-it and doesn't poll the shared memory for OSPM/agent acknowledgement.
+This seems to be patch 2 of 2, but there's no sign of patch 1 nor the
+cover message. I'm guessing patch 1 was updating the DT binding
+docuentation.
+
+For this patch:
+
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+
+Thanks!
 
 -- 
-Regards,
-Sudeep
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
