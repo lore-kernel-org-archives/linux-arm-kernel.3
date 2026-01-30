@@ -4,88 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F0EE6BF31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 17:27:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0357BE6BF31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 17:29:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o3M3i7fOsBJJ8QZ7iZoiOC82WHRYdzsj5QwfB37tvhM=; b=4BiH905qOIXVa+G4Tknl2rhMWn
-	XuRAarjPcTBD4ssTB7brJPysiKE0ER3M9rNxzc/7i5aGVPtHJwH++WOFo1tseskeflVmufzUCY20J
-	K6Ee8KrPTocrL/vJvCXCVtEYysQ3TKzHSZvIDgBMFeFJGju/YhAgDYDXzDnNKvJLvk7na0tKVna6S
-	oIfgEAFh1FtVhc9LEbZWTO4VaIFSoXIh/AUpGTTBzNk6cS1M/GQdoPq2qc0uZsz1vYzdr4WwSc8jq
-	FFW4F9M/dtFeW1vC4YQq18WDmEcX87H5T+JyoneTiI9Nq8CYje/QK9RxTtDY14pFseLP9Uj6JIvAe
-	FDGtLaLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BZzFWgEUHdwooMtG4TuZHw8S0x/mQPwXY7nuasg2QDI=; b=Wzy/3JrMNMq7r+BK/Ld0FLXB1R
+	WWoHR/Nwfq9zd/dPXp5SdUuBFHYo1u2T6aADDMKz06nFOcHgP0EwTGtVbAKyt1OriMSAZ+RUEemWb
+	AVzAt4DY2qzV0674GYs3m1gOs59Q+qQrTtj6zWUYWonvbPBqz+HntEBMxC42z3OOXtCd1ACtZxyeR
+	gqZEAs0df7dNajpFU/PCYmzGF56QBrh46pE1YCYC3EEDvnu6ZN2MaPRW5QCUIU49zCs73HQcfO/RX
+	dNYiMTbGsVonVlFGSpTJUeoSllfiP0LGa2UJDKDf6SRqEnmX3bBzqBdCqcidJyk7vidbzmtJrQ/XZ
+	Y3rYVHEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlsHO-00000001lR5-35AB;
-	Fri, 30 Jan 2026 17:27:34 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vlsJO-00000001lcb-2C7l;
+	Fri, 30 Jan 2026 17:29:38 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlsHL-00000001lQ3-3q2C;
-	Fri, 30 Jan 2026 17:27:33 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1769794048;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o3M3i7fOsBJJ8QZ7iZoiOC82WHRYdzsj5QwfB37tvhM=;
-	b=4vjFnCIdprQ4bapgrR0W30E28e5XqGnWTzlLJRIchP5KT0mQiU7C2HocIuX1Kdz8pUDo0Y
-	qc+5Orpl1l1vZoFNRQKL24RKcgRr4rbqO02DrPCVc+5aUzHom7b8+oniEw+b53sZSdrxJg
-	+9kDxpq15AQ1xIFUPYwfQgdiBumRwsh+faRgD4dNJMyLkXr/A+P3jXB+CHRA0Hld9eIR+Y
-	7xvqnLxeTCF6EQZwTVn1wPEr2oy9Q/+88+eiC8F7PD8kB/n3dpKOZdgpjEsqUgdQZXqqI6
-	yQRXOGphajl9ppYkFrEud4nWZdOCa3/Ob9kGErESIR3cRVjE/LChlCPSJd3YTA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1769794048;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o3M3i7fOsBJJ8QZ7iZoiOC82WHRYdzsj5QwfB37tvhM=;
-	b=520kqiApVkDPFPboRTL5PTkP4fVPei7/H7ecnPwf1SVFxrBJQEXzDTADXeZGZGuaQ0gr4c
-	ZZ61wAzhpOPpFsDw==
-To: Marcos Paulo de Souza <mpdesouza@suse.com>, Richard Weinberger
- <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes
- Berg <johannes@sipsolutions.net>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Jason Wessel <jason.wessel@windriver.com>,
- Daniel Thompson <danielt@kernel.org>, Douglas Anderson
- <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>, Steven Rostedt
- <rostedt@goodmis.org>, Sergey Senozhatsky <senozhatsky@chromium.org>, Jiri
- Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>, Andrew
- Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Geert Uytterhoeven
- <geert@linux-m68k.org>, Kees Cook <kees@kernel.org>, Tony Luck
- <tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman
- <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Christophe
- Leroy <christophe.leroy@csgroup.eu>, Andreas Larsson
- <andreas@gaisler.com>, Alexander Shishkin
- <alexander.shishkin@linux.intel.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Jacky Huang <ychuang3@nuvoton.com>,
- Shan-Chun Hung <schung@nuvoton.com>, Laurentiu Tudor
- <laurentiu.tudor@nxp.com>
-Cc: linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
- kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
- netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- Marcos Paulo de Souza <mpdesouza@suse.com>
-Subject: Re: [PATCH 05/19] printk: Add more context to suspend/resume functions
-In-Reply-To: <20251227-printk-cleanup-part3-v1-5-21a291bcf197@suse.com>
-References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
- <20251227-printk-cleanup-part3-v1-5-21a291bcf197@suse.com>
-Date: Fri, 30 Jan 2026 18:33:27 +0106
-Message-ID: <87343n3ta8.fsf@jogness.linutronix.de>
+	id 1vlsJL-00000001lbv-07L6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 Jan 2026 17:29:37 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id A2C504E42358;
+	Fri, 30 Jan 2026 17:29:29 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5A8BF6075A;
+	Fri, 30 Jan 2026 17:29:29 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 97C22119A8875;
+	Fri, 30 Jan 2026 18:29:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1769794168; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=BZzFWgEUHdwooMtG4TuZHw8S0x/mQPwXY7nuasg2QDI=;
+	b=XVPFzqWE/z0q/vA8cfnLwOCF3GNHBAMElHHkvpKxj31B01szcfHhv/MKqqagCBZ8AupfGP
+	iJnYgAFQPPqjQz2LP7F9tPLSXhQ/rveMFz5B1N3+K0PJTHrk2FIjdlIEuMWQ6nEoy35VIu
+	fGu7Mpkvbtq2hLUetqyQN58STUftYZ1PBBZ+NbZsE2+H+nXU6U4z6X2rRJZh7AbmyIuUWv
+	jcKaGmFoFFRS9yFM7L7bkbIVuuA5wPQmKwXIPbUig+QD8Q6t9z6n0nK0TnDyodFKE1FDdk
+	EgQqGJaF7h7V+QOEE/qTXrfJRJrssg1ZsYssc42w0PaeeYTQTsBNqNZgyGvmjg==
+Message-ID: <9dfdeee0-7758-439b-a2a5-a7f243427cf4@bootlin.com>
+Date: Fri, 30 Jan 2026 18:29:23 +0100
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/3] net: stmmac: clear half-duplex caps where
+ unsupported
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>
+References: <aXyRlFw7ZuhRPiKo@shell.armlinux.org.uk>
+ <E1vlmOQ-00000006zuz-0ffN@rmk-PC.armlinux.org.uk>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <E1vlmOQ-00000006zuz-0ffN@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_092732_098177_F881F456 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20260130_092935_224628_BA18F574 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,56 +83,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-12-27, Marcos Paulo de Souza <mpdesouza@suse.com> wrote:
-> The new comments clarifies from where the functions are supposed to be
-> called.
->
-> Signed-off-by: Marcos Paulo de Souza <mpdesouza@suse.com>
-> ---
->  kernel/printk/printk.c | 12 ++++++++++--
->  1 file changed, 10 insertions(+), 2 deletions(-)
->
-> diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-> index 173c14e08afe..85a8b6521d9e 100644
-> --- a/kernel/printk/printk.c
-> +++ b/kernel/printk/printk.c
-> @@ -2734,7 +2734,8 @@ MODULE_PARM_DESC(console_no_auto_verbose, "Disable console loglevel raise to hig
->  /**
->   * console_suspend_all - suspend the console subsystem
->   *
-> - * This disables printk() while we go into suspend states
-> + * This disables printk() while we go into suspend states. Called by the power
-> + * management subsystem.
+Hi,
 
-Since you are touching this comment, I would prefer to make it
-technically accurate. It is not printk() that is disabled, it is console
-printing that is disabled. Perhaps something like:
+On 30/01/2026 12:10, Russell King (Oracle) wrote:
+> Where a core supports hardware features, but does not indicate support
+> for half-duplex, clear phylink's half-duplex 1G, 100M and 10M
+> capability bits to disallow half-duplex operation and advertisement of
+> these link modes.
+> 
+> This will avoid the need for special code in the PCS driver to do this
+> based on the ESTATUS register bits, as the support in the PCS is
+> dependent on the same synthesis choice as the MAC core.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
- * Block all console printing while the system goes into suspend state.
- * Called by the power management subsystem.
-   
->   */
->  void console_suspend_all(void)
->  {
-> @@ -2766,6 +2767,12 @@ void console_suspend_all(void)
->  	synchronize_srcu(&console_srcu);
->  }
->  
-> +/**
-> + * console_resume_all - resume the console subsystem
-> + *
-> + * This resumes printk() when the system is being restored. Called by the power
-> + * management subsystem.
+Gave it a quick test on socfpga, as this impacts all variants,
+and we seem to be good so,
 
-And something similar here:
+Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
- * Allow all console printing when the system resumes from suspend. Called by
- * the power management system.
- 
-> + */
->  void console_resume_all(void)
->  {
->  	struct console_flush_type ft;
+Maxime
 
-John Ogness
+
 
