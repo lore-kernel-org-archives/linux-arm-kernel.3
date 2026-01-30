@@ -4,110 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31CCD49C66
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 07:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45E7AD49C69
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 07:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u1WR5ODyKHxb0v/kKAHtZd8QE/NKwhLOL+jqvJJiv/A=; b=VQyiJLacyxiBOyhu7yXUQHshpZ
-	8kMZL5O7hBYEsaJvewifeCr7Jn0uvbrAaN5M0agMac0PXxAtG92kTeedmgh2WiyKt+ujxQdQiyhtu
-	gvmUl6lYyQQy7y6Er7Q1D+TalkgoELhCVDppFrybRx0Z3Av0mgLOjO4hOew3arqquYPN5gXQJ/l0I
-	QIImneEWT01MvK9saFITB5uDwJDA1TovmqoqPxLXDSC4V/IrtinpPwPOWXINMh1eaXr7hyeqSQJ3E
-	mu4E2ncBmuycQrF+hlx18tVcl5gSXa7cXhixxl/+NQxhwhtviuLj1dGplNUbdS2PhMUiuT/q7lAmK
-	LG5l4ANg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=11cXqOE4/gdoo6u3580eS2INLLA4u6w0uZfJF73EzU4=; b=N7pmI8mbszFDDEzHfCMxycVTdR
+	3U5em3AwgHqIwIvFhjQPVflQuOV2IxKj0hg06S1FfWYjexOgXzKZMmMkYwXdc7eSQpMra50P/jwa2
+	svCVlG6/gO4EpcMX1KSLeS84cFfnJbQAPrfiNGeXzLjHvIytlBbYSADc0mmVamXuOW/oaJTesMW/P
+	ioPFerRCcetG6Y8DusQLjTZqmrllTSOkHOuauyHKGKHvNrxQsS9wwrCa2K2jb+Ut3h4yFQfESBgaG
+	knDYxoRSwvVC+aH9gkZeL+gpyoJYKmup6/5Nxso7srTEg3hnHsZjg8CUrwq0iA8owo1r2k5F0cHAX
+	NqHMT2fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vliut-000000019Cv-3m8p;
-	Fri, 30 Jan 2026 07:27:43 +0000
-Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
+	id 1vljA9-000000019jx-2lQK;
+	Fri, 30 Jan 2026 07:43:29 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vliur-000000019CZ-2y14
+	id 1vljA0-000000019ig-2j5k
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 07:27:42 +0000
-Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-2b714f30461so1672677eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 23:27:41 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769758061; cv=none;
-        d=google.com; s=arc-20240605;
-        b=jzsnIyFBL6wooJS3/OJlE5/okT33PD6TEK5V4yDIG2A0X5IcI0lWq7ZPGtagIUCBTw
-         Kt4jblAuyL2xhDkic/zptz0BZsSjAB0fWP0GuTx1n3f5vg4K2vYDUTo/7pVi8t75hlUv
-         zVSpsXdDc2vEtMpoqnb5KGMNNtORvpZ6TT6snzQDnvJquMcGukhVtzuTM4WoU/quQ7kb
-         ELrqG1ohf/c3DHerPdYU5GgIP7jidGG7vIxNFVjigmAP7b6FDOiY5PAW8DrTSOqPmPD+
-         7rkzLWaFcFMrypl5Kak5r0uLHxAAp0huvxCNiEmyl4YrGjsNai/k6BKM/xGkqO2cf1gs
-         nopw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=u1WR5ODyKHxb0v/kKAHtZd8QE/NKwhLOL+jqvJJiv/A=;
-        fh=dJPjr1Hjo/xlSFsXq4o+w6M7v26nY5xHvZABhOBLnTk=;
-        b=lkYoInvecY05UYl+XxulqlRGjtzr5ky6FzHmHiG6kaliNVbi5BGIMod9Y5+IJVlBah
-         SJ6gV4fnjdkShtb755wo5T5wASLPtRodncCHoMJEOoIfx+V72YHtdHD+JtUB5pbwQD5v
-         0oa8FOrFjQg5EM/3AoUFKYCdYFKUpNx+o0H803g4oCT1Wl/9goFvX6brqc5JvOECFOV9
-         smev08X80eT6obdOB98v5nTl6kQ/XvfJQBvlN9wMGBFkFhGpEHVE3CrjBKNFgBzBH0yt
-         dGfKvapv59Imm87uQKCIgonMvYkTyZbMqwhZi5gA0qoKBXln8rq1Zgl0LCgiyTydtIsy
-         kYCA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769758061; x=1770362861; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=u1WR5ODyKHxb0v/kKAHtZd8QE/NKwhLOL+jqvJJiv/A=;
-        b=AuyO9OAb2yHHqCBnKi3yVYBN3Wl8MOrBV0CeHodAV8UJiE5zAgfVbQKLMTt2rVMuiw
-         2o/fzkn7+yDgqPZaMNUfyQKlpEWIWZUg4E+2YIZGc8qfq9TrjDUgo9TUYTLqK8OD6nCG
-         0XZPz+AZmWMdhlL3+U4auPm2b1H9ACDHkkT6sUpfACIzYHkIps3puVsgaFSaBdmvCSHm
-         QmNWlh4156TzTNkMWeNOkX9vGYEH1YbPPbyK6Uuv3pGgnx4qAPpfWz5Ayy8WhQTRGMX9
-         BD5aUyLdvEQBr6AIyki2Qn6XgkUiqa5zy5jetocERvC1aHqJM3gEwGCGQKS4VNwWeigJ
-         oF/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769758061; x=1770362861;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=u1WR5ODyKHxb0v/kKAHtZd8QE/NKwhLOL+jqvJJiv/A=;
-        b=ZkFdf9uL9eHDyw1Os8rroJF5UXyOfUVvY0a8p7OCIMOIqqj6gv58lFhcQXjVtkKg6v
-         qLVLwoQU5IbOZie6TEHKOCrdd9XDEcM1KszGiE899CY53YcqKFEmy50sWq9UJlElEYJ8
-         TAQNMNqZ8zMkGAlrXwg3CMmA5fp0XmCk3lWx3cLjyVXM4ycTO1SNcX2U/8frmfaYJzGN
-         VI4t6uanTWVtVk02EdpbQ3WEf0ktZEciBiGZ1fgZFT2zWOLUhuHpI9CzJCvkAsd0W/Mn
-         aAmK2HmIKaMbWJ17Pc5Ff0ycvTHedhawZizmGIFpVQmv8NbzrJjoqJH5dnsSzEpTSlnI
-         +Iiw==
-X-Forwarded-Encrypted: i=1; AJvYcCWAiUy740kVcQ7JGunj9fFunWTIcZ6booz29Mf3sNhkud6Hv2jUZUmB+ySh2gmsChkC594A7k8HFcKjvsD5sXRx@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwZH2UzBswBaETIGxcr8ajWplIdNqjvZbEdyQTkSH0mZ44s5x+
-	Fbvu7InCLItWx2eyOT0jJSkryz6gwMh3x2Y8Cg5Mi4mYhBGEio6jdNxk4cbl0r2DG2sM4XcvgDG
-	fzrNBOkO1KDwSYWj7Trn120fVki4+1Lk=
-X-Gm-Gg: AZuq6aLlf0CbRyrfWTlHIlrI3Ub96yfTkBIeDgZ0whFORyITpt2IwQ+WOfuVfTLVBbx
-	yT6jL0awJtZN4Swj+4TL/y9Bz3mnIgVFc3I3yUZuyUHMB1HQU8Md4ThBXlmP2MDoAhsl+EUHokU
-	6SvqTCUY2KatL3EDxNehYHZQcgFx6YGHg5ackNIBNrt+NphmEv3GCbaLRg+zHbwBjQsK14EihPD
-	TP6iPyaNqIhoKCrWt8KAsDhzCsZ51Tg11KlXZctlU5fg6QQR107K9vtveshg0VnkkfRjL6PG087
-	r/zJ+mZgYyX1ZCAOWmRSJ6R2UCem41Fe1RAZYoTpRkyuIWyzHO34+RxB99hPj8Ft9F7Dk0kI8Ub
-	VsHZEHmdH4s0orw==
-X-Received: by 2002:a05:7301:5f8c:b0:2ae:5db9:f32c with SMTP id
- 5a478bee46e88-2b7c88d96d3mr823727eec.26.1769758060694; Thu, 29 Jan 2026
- 23:27:40 -0800 (PST)
+	Fri, 30 Jan 2026 07:43:26 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=11cXqOE4/gdoo6u3580eS2INLLA4u6w0uZfJF73EzU4=;
+	b=GWNUy35Q7OcTVsB/6bzDkOlCyEDSgEA4ysZRIJ0UfcmMHWXSNGpfP7+BKZRWRW7TMJeszBxAP
+	FMeWtQGkJvA9WUo8MyhyaCaPRe/fm1LXOkUSiPnh9CVBS84NUS/0c5SxhRc2fG/2NWu2i0vyKXR
+	GCfz94ssFDLoDHuVod3STPw=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4f2SZ72hF5znTVF;
+	Fri, 30 Jan 2026 15:39:11 +0800 (CST)
+Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
+	by mail.maildlp.com (Postfix) with ESMTPS id 251CC40565;
+	Fri, 30 Jan 2026 15:43:04 +0800 (CST)
+Received: from huawei.com (10.50.85.135) by kwepemr500001.china.huawei.com
+ (7.202.194.229) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 30 Jan
+ 2026 15:43:03 +0800
+From: Jinjiang Tu <tujinjiang@huawei.com>
+To: <akpm@linux-foundation.org>, <david@kernel.org>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <zengheng4@huawei.com>,
+	<ryan.roberts@arm.com>, <anshuman.khandual@arm.com>,
+	<wangkefeng.wang@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mm@kvack.org>
+CC: <tujinjiang@huawei.com>
+Subject: [PATCH v3] arm64: mm: fix pass user prot to ioremap_prot in generic_access_phys
+Date: Fri, 30 Jan 2026 15:38:07 +0800
+Message-ID: <20260130073807.99474-1-tujinjiang@huawei.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260130054330.3462544-1-shengjiu.wang@nxp.com> <20260130054330.3462544-3-shengjiu.wang@nxp.com>
-In-Reply-To: <20260130054330.3462544-3-shengjiu.wang@nxp.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Fri, 30 Jan 2026 09:27:28 +0200
-X-Gm-Features: AZwV_Qgjn1kkHIU5h0wzpNnEdB_ncps3lPvcrbigVIp1umd_Brl0rdk5oiMuE6E
-Message-ID: <CAEnQRZC_6xRRi6y2t0MGe8udTPYWg9XEBFrxhFCbKYBCCD=OeA@mail.gmail.com>
-Subject: Re: [PATCH v2 2/4] ASoC: fsl_asrc: Add support for i.MX952 platform
-To: Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, 
-	perex@perex.cz, tiwai@suse.com, linuxppc-dev@lists.ozlabs.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.85.135]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemr500001.china.huawei.com (7.202.194.229)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_232741_750286_A49E80BD 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20260129_234321_386361_1A866909 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,24 +78,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 30, 2026 at 7:44=E2=80=AFAM Shengjiu Wang <shengjiu.wang@nxp.co=
-m> wrote:
->
-> Add a compatible string and clock mapping table to support ASRC on the
-> i.MX952 platform.
->
-> The clock mapping table is to map the clock sources on i.MX952 to the
-> clock ids in the driver, the clock ids are for all the clock sources on
-> all supported platforms.
->
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+Here is a syzkaller error log:
+  [0000000020ffc000] pgd=080000010598d403, p4d=080000010598d403, pud=0800000125ddb403,
+                     pmd=080000007833c403, pte=01608000007fcfcf
+  Unable to handle kernel read from unreadable memory at virtual address ffff80008ea89000
+  KASAN: probably user-memory-access in range [0x0000000475448000-0x0000000475448007]
+  Mem abort info:
+    ESR = 0x000000009600000f
+    EC = 0x25: DABT (current EL), IL = 32 bits
+    SET = 0, FnV = 0
+    EA = 0, S1PTW = 0
+    FSC = 0x0f: level 3 permission fault
+  Data abort info:
+    ISV = 0, ISS = 0x0000000f, ISS2 = 0x00000000
+    CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+    GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+  swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000001244aa000
+  [ffff80008ea89000] pgd=100000013ffff403, p4d=100000013ffff403, pud=100000013fffe403,
+		     pmd=100000010a453403, pte=01608000007fcfcf
+  Internal error: Oops: 000000009600000f [#1] SMP
+  Modules linked in: team
+  CPU: 1 PID: 10840 Comm: syz.9.83 Kdump: loaded Tainted: G
+  Hardware name: QEMU KVM Virtual Machine, BIOS 0.0.0 02/06/2015
+  pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+  pc : __memcpy_fromio+0x80/0xf8
+  lr : generic_access_phys+0x20c/0x2b8
+  sp : ffff8000a0507960
+  x29: ffff8000a0507960 x28: 1ffff000140a0f44 x27: ffff00003833cfe0
+  x26: 0000000000000000 x25: 0000000000001000 x24: 0010000000000001
+  x23: ffff80008ea89000 x22: ffff00004ea63000 x21: 0000000000001000
+  x20: ffff80008ea89000 x19: ffff00004ea62000 x18: 0000000000000000
+  x17: 0000000000000000 x16: 0000000000000000 x15: ffff8000806f1e3c
+  x14: ffff8000806f1d44 x13: 0000000041b58ab3 x12: ffff7000140a0f23
+  x11: 1ffff000140a0f22 x10: ffff7000140a0f22 x9 : ffff800080579d24
+  x8 : 0000000000000004 x7 : 0000000000000003 x6 : 0000000000000001
+  x5 : ffff8000a0507910 x4 : ffff7000140a0f22 x3 : dfff800000000000
+  x2 : 0000000000001000 x1 : ffff80008ea89000 x0 : ffff00004ea62000
+  Call trace:
+    __memcpy_fromio+0x80/0xf8
+    generic_access_phys+0x20c/0x2b8
+    __access_remote_vm+0x46c/0x5b8
+    access_remote_vm+0x18/0x30
+    environ_read+0x238/0x3e8
+    vfs_read+0xe4/0x2b0
+    ksys_read+0xcc/0x178
+    __arm64_sys_read+0x4c/0x68
+    invoke_syscall+0x68/0x1a0
+    el0_svc_common.constprop.0+0x11c/0x150
+    do_el0_svc+0x38/0x50
+    el0_svc+0x50/0x258
+    el0t_64_sync_handler+0xc0/0xc8
+    el0t_64_sync+0x1a4/0x1a8
+  Code: 91002339 aa1403f7 8b190276 d503201f (f94002f8)
 
-At this point imx952 has the issue with dma request not cleared you fix
-in patch 3/4.
+The local syzkaller first maps I/O address from /dev/mem to userspace,
+overiding the stack vma with MAP_FIXED flag. As a result, when reading
+/proc/$pid/environ, generic_access_phys() is called to access the region,
+which triggers a PAN permission-check fault and causes a kernel access
+fault.
 
-So in order to avoid this you need to swap patches 2 and 3.  And in the
-newly patch 3 you will fill fsl_asrc_imx952_data with correct value
-for start_before_dma.
+The root cause is that generic_access_phys() passes a user pte to
+ioremap_prot(), the user pte sets PTE_USER and PTE_NG bits.  Consequently,
+any subsequent kernel-mode access to the remapped address raises a fault.
 
-Thus we also keep everything working for bisection.
+To fix it, define arch_mk_kernel_prot() to convert user prot to kernel
+prot for arm64, and call arch_mk_kernel_prot() in generic_access_phys(),
+so that a user prot is passed to ioremap_prot().
+
+Fixes: 893dea9ccd08 ("arm64: Add HAVE_IOREMAP_PROT support")
+Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
+---
+Changes in v3:
+ * arch_mk_kernel_prot() always grant read/write permissions.
+
+ arch/arm64/include/asm/io.h |  8 ++++++++
+ mm/memory.c                 | 12 +++++++++++-
+ 2 files changed, 19 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
+index 83e03abbb2ca..fe3040d59119 100644
+--- a/arch/arm64/include/asm/io.h
++++ b/arch/arm64/include/asm/io.h
+@@ -267,6 +267,14 @@ int arm64_ioremap_prot_hook_register(const ioremap_prot_hook_t hook);
+ 
+ #define ioremap_prot ioremap_prot
+ 
++#define arch_mk_kernel_prot arch_mk_kernel_prot
++static inline pgprot_t arch_mk_kernel_prot(pgprot_t user_prot)
++{
++	ptdesc_t mem_type = pgprot_val(user_prot) & PTE_ATTRINDX_MASK;
++
++	return __pgprot_modify(PAGE_KERNEL, PTE_ATTRINDX_MASK, mem_type);
++}
++
+ #define _PAGE_IOREMAP PROT_DEVICE_nGnRE
+ 
+ #define ioremap_wc(addr, size)	\
+diff --git a/mm/memory.c b/mm/memory.c
+index da360a6eb8a4..68fcfc3bbad8 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -6836,6 +6836,14 @@ void follow_pfnmap_end(struct follow_pfnmap_args *args)
+ EXPORT_SYMBOL_GPL(follow_pfnmap_end);
+ 
+ #ifdef CONFIG_HAVE_IOREMAP_PROT
++#ifndef arch_mk_kernel_prot
++#define arch_mk_kernel_prot arch_mk_kernel_prot
++static inline pgprot_t arch_mk_kernel_prot(pgprot_t user_prot)
++{
++	return user_prot;
++}
++#endif
++
+ /**
+  * generic_access_phys - generic implementation for iomem mmap access
+  * @vma: the vma to access
+@@ -6853,6 +6861,7 @@ int generic_access_phys(struct vm_area_struct *vma, unsigned long addr,
+ {
+ 	resource_size_t phys_addr;
+ 	pgprot_t prot = __pgprot(0);
++	pgprot_t kernel_prot;
+ 	void __iomem *maddr;
+ 	int offset = offset_in_page(addr);
+ 	int ret = -EINVAL;
+@@ -6870,7 +6879,8 @@ int generic_access_phys(struct vm_area_struct *vma, unsigned long addr,
+ 	if ((write & FOLL_WRITE) && !writable)
+ 		return -EINVAL;
+ 
+-	maddr = ioremap_prot(phys_addr, PAGE_ALIGN(len + offset), prot);
++	kernel_prot = arch_mk_kernel_prot(prot);
++	maddr = ioremap_prot(phys_addr, PAGE_ALIGN(len + offset), kernel_prot);
+ 	if (!maddr)
+ 		return -ENOMEM;
+ 
+-- 
+2.43.0
+
 
