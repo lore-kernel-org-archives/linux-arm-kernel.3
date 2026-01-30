@@ -4,160 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A8FED73EB8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 05:11:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15787D73EBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 05:34:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=L0gmJECjFFUTy9jMnypCJ5tQRc4+x0jra3k6HfkoTL8=; b=S6D9Tz1Srr1g05NSUJTB4UVmV3
-	IeUEe1jiqyoPHUsZgs80CJX15wIvl5PffsTEdkhBquTw3xUN8lKnioNQCGfufZHO23dukVqKXQK3x
-	XSmrkgKev6GfEVXy8FTOQWhfnT1raBjX9GSGne/OwyIt5hntE9+iyeJTS1WxirlgLbV6svLJyvtha
-	RIFPCRExZRchjpi1vmwvH4SEB/J13DVVSsj7rZneRk+KaOh8wnTiKuKk/LTfIHiLWtGN/ufXW5kGM
-	H20LNQP9Z74r96dTyCqu0pqtkp/Mk4q/sDrNUMHv2jzF3RTE3gHhVnR9DJjNcsCxtlBDHj4GHYewM
-	TMl0lL6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=11po5vsI+nQjV6QlVaif/0UDHWD2whNpBcYSGCpKE2w=; b=NUBdVxofUAC2Fnr4v1exAa8HTp
+	/TKdybeiVvguZDcizoMicsEZNSRc8i9CHl+dcQ2+vveOJkPTG/WBq4gt/+SOmIvM/GdAUedEBIlgt
+	RUZE7eWp24dcmHjtKshutbWQ4ZtmUyYoAEyzhE1V9yf6/vrhFEjAPKLX/Tw2Np+70gbJmOKenWzsD
+	3uhtoSUK7fbN8iOgVznZUXs1uTt9LI4aj9ionMOp9LEJZgX2eNgX8XOxg0gOihZbzwPMEXDhNoBcY
+	ti7DuBU6lhSB4FV+CsqTKLwRBxXIcHFje7/HSpg/3gPshBBgxwdACzajKQgN17mOIysrVjszFWoVm
+	aiuAQNpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlgnI-000000011mX-2QKz;
-	Fri, 30 Jan 2026 05:11:44 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vlh8k-000000013aM-3Xmm;
+	Fri, 30 Jan 2026 05:33:54 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlgnG-000000011lj-1kbH
+	id 1vlh8i-000000013a1-0f5F
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 05:11:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Bq5BfWweYICz5aj7KLeBQcc9flMzNSuJ9yJvC5PhDCQXlS8NwifzgCJyEpXShYPMdgG0Jcz4UDxAJki+czpJZOXivuPel5JqLdbf+T4nA7RMpVujRk0xP2dQ5ceTtMMWg7NVhLDkoi6WC/iIzbtFKQxkMvnomJY4eG54//ig1knhZV3WGigiro8c4h9V0z1hKR4m2GY3Xq7d0LZHTmg1wMf2t9PvQ+uHlRMssHZrq/PMM1SZ48ZjYL8pK4MeTWx+NmkBfbFc8CUmPkckLMKHrnlsVnXzY+iW9Zp2eBhIRW19dCd8Y5Xffb7BeQb2uMqvhV4PhVSgI50tkGRDQpCoAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L0gmJECjFFUTy9jMnypCJ5tQRc4+x0jra3k6HfkoTL8=;
- b=mf8MI5xTKDZMktM4qrFhY5qTxhprW3rf9E61K6aHYZUHkfZv7MOUPEzncsAIlFOnXIpq8cPG5Hs1Ir2x7OQpTg3z7KzpCwtZRTn7I21z1ZCGy7MwwTlyMcFRbyr+nQOFeQHRX41PDpkpDQ/MynCkgpTvb8j5Vc1wUEV78fimigL+CF6HXLj56R4RksrmtXa90SFkxZB7tYgffjDYTQKq2oF7d30z2z4tVAgYmuG7S5RYhjIc05nfamKMddX0PcYM4/nYuySSv/kGIoxdYW0ag0nGFA67eSwKQeybHesAQK283CVG3jXCwDfE2k1g5TRu5Iguj+PdgabTiJunrK9xig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=L0gmJECjFFUTy9jMnypCJ5tQRc4+x0jra3k6HfkoTL8=;
- b=RFsWa0oHjJX9NoqNKxKlFYNXGSgHDUFSmA9n6YUFyJe7BOfujskMZXe2p9tm/kJWRXXg7MW/+lzhVA4eUyTqygOtbmUokT2PcVtJnzay94Qn6m/+fn1RHR0RvZeAbW57HCkhS95Yf1Wm630HRx5j3eAKdxPNaA1LaWD56niq6RhoOwmU9RCS0K9B4DTv/P0Tt2jylxwpUFtesOXcmbDryj0YnGXZuRkIVuSt1SbwjaV5uwKiQeXj2aVvOUW21iKZeHopSdBG7rN87QkZ8YtlK8vWwTMuI71wF38qaa9LWyCqPDQhAKj+7Nweva0WWjRPtaUO+ZXyqySNfLINLupQvQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8829.eurprd04.prod.outlook.com (2603:10a6:102:20c::17)
- by AS8PR04MB7496.eurprd04.prod.outlook.com (2603:10a6:20b:29d::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Fri, 30 Jan
- 2026 05:11:35 +0000
-Received: from PAXPR04MB8829.eurprd04.prod.outlook.com
- ([fe80::52de:f9c9:8c2e:7dd5]) by PAXPR04MB8829.eurprd04.prod.outlook.com
- ([fe80::52de:f9c9:8c2e:7dd5%5]) with mapi id 15.20.9564.008; Fri, 30 Jan 2026
- 05:11:35 +0000
-From: Xu Yang <xu.yang_2@nxp.com>
-To: ulf.hansson@linaro.org,
-	s.hauer@pengutronix.de,
-	Frank.Li@nxp.com,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	khalasa@piap.pl,
-	benjamin.gaignard@collabora.com,
-	frieder.schrempf@kontron.de,
-	p.zabel@pengutronix.de,
-	shawnguo@kernel.org,
-	l.stach@pengutronix.de
-Cc: linux-pm@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] pmdomain: imx8m-blk-ctrl: fix out-of-range access of bc->domains
-Date: Fri, 30 Jan 2026 13:11:07 +0800
-Message-Id: <20260130051107.2130200-1-xu.yang_2@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR02CA0049.apcprd02.prod.outlook.com
- (2603:1096:4:196::7) To PAXPR04MB8829.eurprd04.prod.outlook.com
- (2603:10a6:102:20c::17)
+	Fri, 30 Jan 2026 05:33:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769751232; x=1801287232;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Im+HvNbj0ndXZaZVUPje1i7Nrb7blygWvVN9bRfpCts=;
+  b=AP+3nzMpW3lmjEKMGd2HzDV/8utWX3fTpMNKvjcy/POr8+2Zkznjb0JQ
+   WvVZUnl5nOLdvTLgPTGOfJ82S2W517Q7Xx/lzDebskrD4lM9J1TRMxoIc
+   4OihHLkJU91sayedNXwnMoi43oJA2gqwfwRpr517q8vqHgbfa41tqMIpi
+   rLHR81GtYcNGdjeZMVjrpFNrQmi0lExANL0b7WolWzksV/HcN54o846f/
+   PLk6+QYx8UIJxsFQfg4EkeW8e6q9xmVBthkfXoM04Qk6gPfBzPKwBqDzb
+   V0pOVu2PxzXDqp9FAuVQdvZXvdexYoNBeAgdCn2Yt8VDgqtF+hnJU3XNb
+   A==;
+X-CSE-ConnectionGUID: 2ELeBkZZSf6j/fMWgBKSIQ==
+X-CSE-MsgGUID: vWZ1h9g2QOijeVVgvaIAlQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11686"; a="71036908"
+X-IronPort-AV: E=Sophos;i="6.21,262,1763452800"; 
+   d="scan'208";a="71036908"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jan 2026 21:33:48 -0800
+X-CSE-ConnectionGUID: SfVn35EeQP6FDwAlkmE0vw==
+X-CSE-MsgGUID: sYVCc8fCQ++1lWOh6CTfOg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,262,1763452800"; 
+   d="scan'208";a="213298390"
+Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.245.227])
+  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jan 2026 21:33:45 -0800
+Date: Fri, 30 Jan 2026 07:33:43 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Rob Herring <robh@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, Michal Simek <michal.simek@amd.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Abdurrahman Hussain <abdurrahman@nexthop.ai>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, info@mocean-labs.com,
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v6 1/7] dt-bindings: i2c: xiic: make clocks optional
+Message-ID: <aXxCt6N0RyfgoC7D@smile.fi.intel.com>
+References: <20260127-i2c-xiic-v6-0-e82e2f6f657c@nexthop.ai>
+ <20260127-i2c-xiic-v6-1-e82e2f6f657c@nexthop.ai>
+ <20260128-remarkable-airborne-chihuahua-a1a16c@quoll>
+ <66c7435c-a936-413e-a016-c860d448c971@amd.com>
+ <fc00f8cf-b566-4694-82fe-76010d2f7c78@lunn.ch>
+ <aXog-KBw7Bp-VEC4@smile.fi.intel.com>
+ <20260129161404.GA1118793-robh@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8829:EE_|AS8PR04MB7496:EE_
-X-MS-Office365-Filtering-Correlation-Id: 23f19862-70b1-4aac-0030-08de5fbe09c8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|7416014|366016|19092799006|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JfC8pjGZn/RQRnwLHYZwu9f5ZYs4Siaa1awIHxQ3OTh9Gv1HMdleZcOXyRQv?=
- =?us-ascii?Q?ceABkn1JewcK5sVuCddClttaj4HVC5OdW9VFyVUnDQ0+U+ChR+aECffLtcLf?=
- =?us-ascii?Q?+2pkcdraNYju3tgVzc5GO5o1cNMApPRNZI830aVr4gXcffPJ5WRpES5Wuhi/?=
- =?us-ascii?Q?QgDtVj/kYm9NRxjQZQNePCIxYsFcsGOW8Ez4A5K6qEZF8bv79lbV+ltAORWK?=
- =?us-ascii?Q?OD8/qKuWbEzWTqFgxsEOKuvBqJ22RDIhZXPTTgSY7KA0h7j+h0d3WyHlD/TY?=
- =?us-ascii?Q?hgXU/9iiyCEJM9iPszn17A8C0qwyWdzFcWFgnQExmSR/RNcOapz2o0ac4mjc?=
- =?us-ascii?Q?ghinmhzsE6uS5rkTOyOCG8rue3e2pZnjPE5W0F1yedYJ6ysULgjnplsRe94+?=
- =?us-ascii?Q?evYjoMq8PKG7MNzCqS7R8eUfNcl/ES4HdEjH9q5xmyDOPaQWRP9YwoAGMVvG?=
- =?us-ascii?Q?WONdY1yeoDYw+dKcsaVFt8NSomnFkKkJObbKgvWtWa1ghifaQk4dXqaZEi6S?=
- =?us-ascii?Q?m7cyjdRIip7t4kLEQBXQkoVZyzhNg35Vd6m1VZUn4nUHXwwOtLDhjCIM/4F0?=
- =?us-ascii?Q?Xwu8O01u+tHuaLeRQWyem0a+Y+uxfic4zG2G1iIQs5ofLjwcMCZwuL2p+G+z?=
- =?us-ascii?Q?hgHRd2NJKdzgF+DPOL7a497Q3cMqs2Nbj9zlNjW/ZVyC5cH5NkNAAzunfoYB?=
- =?us-ascii?Q?INrYYnIscCjOKTIrq1L25hnMfos8JTNjZYXvcq09CzZ0U2FoGCkXqQC65+tV?=
- =?us-ascii?Q?e3OGPNAdlNzuJ+fXflA37nwd9uboH81MjgP88K9+T/C58tU2fcLdiLmsM6Xc?=
- =?us-ascii?Q?4UdMR4wgX2ewMukXu9Iw/C4WeSxtd35C7aS6cqZtkHE/T/rXehvE2Fn8BfWK?=
- =?us-ascii?Q?slUnIgoK1eLcqeyqTA5zNKXq/kwtvpIq/v2MTvl5nxTFvOTjj8GUowBkivJA?=
- =?us-ascii?Q?OwdT1QxFpYzbJNb7r751070X7R90IhD9QDqiR4TzlTAnqRQArAdnj9GLRNms?=
- =?us-ascii?Q?MHEJiYGK6pSmmn2m4vMmhiViRotH0ndX3B704VkYe1SMDzvEvFmTvZZoe1oZ?=
- =?us-ascii?Q?n62TTjctvm9gQr9X/BzxNL2iS4YCi1HxorJxTCF4EodjX0i7O+0S+tZnf4Su?=
- =?us-ascii?Q?21bNDCQ2wADpn4KueCSidHb31OvrAV4ULH4vMRXHSHx00qyNL8HlSyN/LbQK?=
- =?us-ascii?Q?sLrAIqc3BHaN1fZ0fKyQLWrf47FSjeVGDz2ltDBN2P5jnd0xp6WmE4VrFhA3?=
- =?us-ascii?Q?JteR4RoFbg8IIOXjgKP8RM0jwkF1n1eXhF3pvgu8q+xJ2NkH9/2kNKCFih8H?=
- =?us-ascii?Q?wAc9Hz+8g7DVgL4x/7T0U3rw05wWcsTiEDut7C8ZzwbAuRX6Ud3ZeOVKKvA3?=
- =?us-ascii?Q?aoZp7wMb6EruKXxsKXpjmzwc2Z+Dd2PSKSJ8u+eBgB0QGgSj7u8cKw26HKVO?=
- =?us-ascii?Q?z0R0beNj45rQ1OUGC3qRSzNBQsyJnRVJhbjY3/vWtXjLz9kkAWvOnXjEudXV?=
- =?us-ascii?Q?e4oZ5WBadbrcQJjHWr3VjtPYvpJaA9wjo9+q8CMzGH9vU67HxHCRvVFGd5ZQ?=
- =?us-ascii?Q?zr9uvRjYvczidAB7snIlk7hkeRaqEe5ALRAqOOzfzT5d+AyGEsJCJqBtk4dk?=
- =?us-ascii?Q?bG64MoRwfCy2OKRmB1fOyPeHGkuJ8lf2NqzrCoIwJeux?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8829.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(7416014)(366016)(19092799006)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hkqHfqVFRGhyWI2+G3OIoVk7HI4bBi0/hr6NmMEt3EHakGDZMLYfPM+obQA/?=
- =?us-ascii?Q?muzQGb7WmaS8oDZQgGJ1kwGBpKDmmo8yRyL0+NDTyfAfN+O3JZpyiGmjCRDL?=
- =?us-ascii?Q?DT5lNijmZQGv4B0mf8DuKtVpIKxSAyKSw4wZGb2wyG1q72YDrd8BKLKAVIqk?=
- =?us-ascii?Q?wLmQUhE6ZbpBqMXJSDoNR4dIEHBBttUNsz3cRlRDci9HML2owoNWvdGdAi8Q?=
- =?us-ascii?Q?hOWea0hUAl5QzVHXMe1B2d9/cZ3nWA1HbqFYafOjp1LiVZVsuiZ6ZJ37K1Fb?=
- =?us-ascii?Q?IexCJ38/NaFazF6ZfGIaSMoxPvpXSziNZU7rRhVCosoXDi8sju0qY+0iIz3g?=
- =?us-ascii?Q?tQ6QhJLqCmeFt/RYnKlJXNPAAMnpZGOsSYpLJxXfmze9plzbJhm+iKc0pItE?=
- =?us-ascii?Q?gUINY151BQenGToiKIjSg+WNd0CbzITNXj3xPU58jLSk6o9PydO+HwsPeRpp?=
- =?us-ascii?Q?fs2KuedRTLbOwR5GbPrTTeZ8ZJKxTQZ94tWniWAaULENC5Rz1F9XWLQD2Pln?=
- =?us-ascii?Q?ppSh+4MWzm0OSGCOSCbglVbrycfGQaeixGuZrKF+iFv7KP1SKz5wNMMpyHrq?=
- =?us-ascii?Q?63CwJJzQpWSw+NYnOrlkDRGHkitun89GYAqwE/82dqK/Wo9CR701zChm8b9/?=
- =?us-ascii?Q?EVYPG7V/erPVO7E6sxqWPsrUddDPN/luEjBcSp4qDMoN3Tq8l8FecGHGtmh0?=
- =?us-ascii?Q?DUW8VNp7AJnZMVrludKX2QhZWQXWhto4xBrGeNkd3pKigtJiP2VFIpQGS4SE?=
- =?us-ascii?Q?+0JC9jWz+4ewYe0hBJIz+0I2f5jjv+75Bm61Efh0mnulftCttzONS2GkCdX1?=
- =?us-ascii?Q?YOYDPaER12Ct/PIoD55xzLuX9h6AwPvQ87PvfDCYqcRyistN6Z1BTgJwrIDC?=
- =?us-ascii?Q?Mmh+B2Q2pZjnl07CVSpCEqq3zSxtWN1f2GDqFP8jaSlXQFnC+77QiQvvjAnJ?=
- =?us-ascii?Q?MMJAx5AZy42gtsROCeAQc4F82BKkMFZxPOVyZ71cp1VIibxC0iQ9mfXFM4c6?=
- =?us-ascii?Q?bKExvevwGl4LJYDO7DJQvQ8w5C3uzICE5XODOMUPgcf4rWkHdFAcLpwza1pR?=
- =?us-ascii?Q?AQkHwoBP39O1fik6wTOIz2owfOvUj/x2LVyFFNDNu3Z8s3u8eEQMEgg2Y9bi?=
- =?us-ascii?Q?jp9KeRTqgpJVXbodhLuAq+U4sRQw6jWQPV8fYfTJi1aiy1Hk7f2GfTKngCYt?=
- =?us-ascii?Q?DHz8XYG+lVujYk6BhjvbBeWdDQTIKgQ06UvzOBZjzZlJ/or47nMDL5qIMoLX?=
- =?us-ascii?Q?mRZMcRIR1IiORK0IOTuO6zz6tnvsAzbG5nas5+GlSdWY9BUrPdkNErNQnm7Q?=
- =?us-ascii?Q?eLFHTYxF++tqnrsNdiJW7vpP5P5Hm9PfG+OIyfTacx8JTTQUjIGFSesvxFA8?=
- =?us-ascii?Q?wR+V3isuN3swfn7VKKqR5gNZc9uTc5PmrPo/ZXbIQWd5ajtBkGhBY/3Gh/G1?=
- =?us-ascii?Q?W/5YxOm9A8WNGp4UGat8ZqVkpidrPeD5+rY5rperLWfz2rf7K3eJ8+UKs80E?=
- =?us-ascii?Q?QiVyNUTWdKMf3kMusIcMCiRI2gQ8PjhZ5ZHJgaHCviCbqPWIkOBAVIr2Nghv?=
- =?us-ascii?Q?ofiWPsk1c/WLwgng+CChGfEM6t0BlPNsBlGKxLFQ0Q78nWjgYDPpM63lTCYr?=
- =?us-ascii?Q?dtJUC3M7pzoJSMOYHOLMEQa/QnE27am6mzQcvF+VDfvtcFwFi8fR1lSfZMHK?=
- =?us-ascii?Q?dEJ59WDHmMnwNFz2LIqDE7z0OKK5nf72CihyhYhv6ha6pDFdjON/KyqB/SeH?=
- =?us-ascii?Q?UGRaijPRvQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 23f19862-70b1-4aac-0030-08de5fbe09c8
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8829.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 05:11:35.4953
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PiZrKTitPp28vKtGlJbB4Y8yJNOR+aHvZSwHbLIY0QbU3CHrFai07hDp7Tfzjw424PGYJrbmj0Yi6At1wIphAQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7496
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260129161404.GA1118793-robh@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_211142_494120_B94078B6 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20260129_213352_266044_7E069028 
+X-CRM114-Status: GOOD (  34.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,29 +97,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix out-of-range access of bc->domains in imx8m_blk_ctrl_remove().
+On Thu, Jan 29, 2026 at 10:14:04AM -0600, Rob Herring wrote:
+> On Wed, Jan 28, 2026 at 04:45:12PM +0200, Andy Shevchenko wrote:
+> > On Wed, Jan 28, 2026 at 03:34:02PM +0100, Andrew Lunn wrote:
+> > > On Wed, Jan 28, 2026 at 12:21:41PM +0100, Michal Simek wrote:
+> > > > On 1/28/26 11:37, Krzysztof Kozlowski wrote:
+> > > > > On Tue, Jan 27, 2026 at 09:03:55PM +0000, Abdurrahman Hussain wrote:
+> > > > > > The xiic driver is designed to operate without explicit clock configuration
+> > > > > 
+> > > > > And if you change this in the driver, then you change bindings?
+> > > > > 
+> > > > > You miss here explanation based on hardware - how does the hardware work
+> > > > > if nothing ticks it clocks?
+> > > > 
+> > > > Hardware obviously have clock input which needs to be connected. Without it
+> > > > it won't work.
+> > > 
+> > > Should ACPI potential limitations be making the DT description less
+> > > accurate?
+> > > 
+> > > Would it not be better that the driver has an DT binding and an ACPI
+> > > binding? Where there are common properties, common functions can be
+> > > used to retrieve them. However, if ACPI lacks usable clocks, use the
+> > > of_ method to get the clock from DT, and skip it for ACPI.
+> > 
+> > Why should we use of_ methods? If this is required we can check the type of
+> > fwnode and act accordingly, but I think this should go deeper into some
+> > treewide available helpers, because now some drivers repeat the mantra.
+> > 
+> > But how do the driver get the clock frequency (if needed for some register
+> > settings and/or calculations)? DT seems to have well established property
+> > 'clock-frequency' for that. Can we consider it as "ACPI binding" as well?
+> 
+> Well established and somewhat deprecated. Generally, 'clocks' should be 
+> used instead. There are some exceptions like I2C buses here to set the 
+> bus frequency (or max freq). We probably should have used 
+> 'bus-frequency' in this case, but that predates me.
+> 
+> ACPI can use whatever the ACPI binding maintainers want. If you know who 
+> they are, please let me know. :)
 
-Fixes: 2684ac05a8c4 ("soc: imx: add i.MX8M blk-ctrl driver")
-Cc: stable@kernel.org
-Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
----
- drivers/pmdomain/imx/imx8m-blk-ctrl.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+There is no such "entity" AFAIK, as on ACPI side we try pushing vendors to make
+their efforts to bring a standard. Nevertheless, we have players, like MSFT, who
+make decisions on their own (hence we have tons of "extensions" to the ACPI and
+other specifications. Speaking of the standard, we have UEFI, MIPI and problably
+others that have their own properties (but standard) and they usually use dedicated
+prefixes (uefi-*, mipi-*). Also we have custom vendor specific ones, for example,
+Intel in some cases (legit I suppose, as it's about Intel's IP) provides intc-*
+properties. In many cases, though we have utilisation of the DT properties and
+vendors more or less follow that. (Disclaimer: I described how I see it's done,
+and not how I think it has to be done)
 
-diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-index 74bf4936991d..19e992d2ee3b 100644
---- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-+++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-@@ -340,7 +340,7 @@ static void imx8m_blk_ctrl_remove(struct platform_device *pdev)
- 
- 	of_genpd_del_provider(pdev->dev.of_node);
- 
--	for (i = 0; bc->onecell_data.num_domains; i++) {
-+	for (i = 0; i < bc->onecell_data.num_domains; i++) {
- 		struct imx8m_blk_ctrl_domain *domain = &bc->domains[i];
- 
- 		pm_genpd_remove(&domain->genpd);
 -- 
-2.34.1
+With Best Regards,
+Andy Shevchenko
+
 
 
