@@ -4,61 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989E6E6BF04
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 12:12:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CA5E6BF06
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 12:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wFSC4tLIKV6C0Jy2CKo8iOWIs9hxXPJubP/YArXe2QE=; b=SoS2DDyoD/6/CvWpycHl14WJNV
-	ITFbnIA2w37+OhfJ9R3LL/yetYxr5S4/E3AYOLPzboBBpLRNFi+fhSDb/PguOa9KQuX5z5QFAm+aA
-	iXydqmu1EpgHfmUHP0WBr8suQdOZoa5NLWPZ/+5ap3kdfSbnkJFAviCwofdp/O4SD5KW/IEyZnq9X
-	ecLIuJyKDdmxLbv5SdpYdUuoTjVEClOkJjk8xmJANfixaVw/biv5icB1hoSCqMt43MU+bu4VOUhbq
-	K/179ZEzOEZYcluIRp85GyhQKd612Yd7LEtpQSEL0qSff6ur6QK+e0FpMnoZ/EKpZ8iJzbqiMGZDg
-	mq6MuSEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3rSTfLHmcNS8nvtITUG8uvjalVmbtgqljIhY6rTy/a4=; b=hX8IfuZIbgOPYMmwP+xEoy5gKZ
+	+A9r5wqkIlcIK0B5XPTYRj1X4bed5y52ktG0C+sPePtpGRrQpl6wXiqX+HdJ6tV4aDBrExirofXbe
+	8XtWxNVtXEjffEU7DX+DDEltvSFQVZHXqcl5BQrr9iWU5ZzRQpczI6KbzYsk3w67hM9LhOWpXbGcM
+	OV1akoCFH5KwJYv7z7upngLzNB3rHHYdhyxPz4JggaCpwP8QPVd3v7WhgFryQKEN2kqd7Oe6369bY
+	VHj5cOWfCE06mK7wg2Cx45gQBePCgNBIlLbo13TADfHLqS4c3yV61O6ZVIyVKy5xBbOrUZQHhG3Im
+	OA1yXaFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlnMo-00000001SrH-0SzJ;
-	Fri, 30 Jan 2026 12:12:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlnMl-00000001Sqt-3DIk
+	id 1vlnT1-00000001TR2-01UH;
+	Fri, 30 Jan 2026 12:19:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlnSy-00000001TQg-2vQy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 12:12:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C396743651
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Jan 2026 12:12:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B98FC4CEF7;
-	Fri, 30 Jan 2026 12:12:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769775165;
-	bh=xp4eTBr8ddeQsKKKuwnkL++/y0gEy1Zw2KOQCgvaTmc=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=snjfWkhp2yX/vqJRSnyVxVeUnHSZEBPYCntB86Zn1QafQmChppi+l7ixYwDarsX2+
-	 DFgTlqwyDwFXCecDzu19KjDTYeJDa4Vi+gAA2Sqbfvy39lyOm1bggsB7zpjPWMpWws
-	 H3SH8McAgoQHuNgmMsUAQuzvJquq8tNDOsayN/nATzW5YNaGdqd3qNVcSwBhLqgAzS
-	 7M5YiifHcCdyHrHxEx6YyuLpT8uPJgfkPopOd2NGHarGIawiSHTSoNLRK9XNKVdAas
-	 0Ob0/DXgXOSmOydOmjgw/IUJIcvg6HsZRZlYGJJmU0HMEXvkzyacQJZlJBxQdunL8G
-	 JQpQngfbFNslw==
-Message-ID: <7c6de5dc-8396-4793-a4fa-184bfe4096f3@kernel.org>
-Date: Fri, 30 Jan 2026 06:12:44 -0600
+	Fri, 30 Jan 2026 12:19:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ED916153B;
+	Fri, 30 Jan 2026 04:19:04 -0800 (PST)
+Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8FD6E3F632;
+	Fri, 30 Jan 2026 04:19:09 -0800 (PST)
+Date: Fri, 30 Jan 2026 12:19:06 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Jinjiang Tu <tujinjiang@huawei.com>
+Cc: akpm@linux-foundation.org, david@kernel.org, will@kernel.org,
+	zengheng4@huawei.com, ryan.roberts@arm.com,
+	anshuman.khandual@arm.com, wangkefeng.wang@huawei.com,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
+Subject: Re: [PATCH v3] arm64: mm: fix pass user prot to ioremap_prot in
+ generic_access_phys
+Message-ID: <aXyhuq_DOd2pC_Fo@arm.com>
+References: <20260130073807.99474-1-tujinjiang@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL] arm/arm64: dts: socfpga: updates for v6.20
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev
-References: <20260124200118.2789128-1-dinguyen@kernel.org>
- <2b81a667-adad-4960-bc48-f60fbf740620@kernel.org>
-Content-Language: en-US
-From: Dinh Nguyen <dinguyen@kernel.org>
-In-Reply-To: <2b81a667-adad-4960-bc48-f60fbf740620@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260130073807.99474-1-tujinjiang@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_041247_860018_843032F3 
-X-CRM114-Status: GOOD (  16.33  )
+X-CRM114-CacheID: sfid-20260130_041912_880133_20ABAB28 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,68 +65,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 1/28/26 12:48, Krzysztof Kozlowski wrote:
-> On 24/01/2026 21:01, Dinh Nguyen wrote:
->> The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
->>
->>    Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
->>
->> are available in the Git repository at:
->>
->>    git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux.git tags/socfpga_dts_updates_for_v6.20
->>
->> for you to fetch changes up to 1a457681c075e1bd894df753087cb4268ce9f9e9:
->>
->>    arm64: dts: intel: agilex5: Add simple-bus node on top of dma controller node (2026-01-02 07:52:44 -0600)
->>
->> ----------------------------------------------------------------
->> SoCFPGA DTS updates for v6.20
->> - dt-bindings updates:
->> 	- Add dma-coherent for cdns,hp-nfc and snps,dw-axi-dmac
->> 	- Add intel,socfpga-agilex5-socdk-modular for the Agilex5 mod board
->> 	- Move entries in intel,socfpga.yaml into altera.yaml
->> 	- Add syscon as a fallback for sys-mgr
->>
->> - Add dma-cohrerent property for Agilex5 NAND and DMA
->> - Add support for the Agilex5 modular board
->> - Add IOMMUS property for ethernet nodes for Agilex5
->> - Use lowercase hex for dts files
->> - Add #address-cells and #size-cells for sram
->> - Fix dtbs_check warning for fpga-region
->> - Move dma controller node for Agilex5 under simple-bus
->>
->> ----------------------------------------------------------------
->> Dinh Nguyen (4):
->>        dt-bindings: arm: altera: combine Intel's SoCFPGA into altera.yaml
->>        dt-bindings: altera: document syscon as fallback for sys-mgr
->>        ARM: dts: socfpga: add #address-cells and #size-cells for sram node
->>        ARM: dts: socfpga: fix dtbs_check warning for fpga-region
->>
->> Khairul Anuar Romli (4):
->>        dt-bindings: mtd: cdns,hp-nfc: Add dma-coherent property
->>        dt-bindings: dma: snps,dw-axi-dmac: add dma-coherent property
+On Fri, Jan 30, 2026 at 03:38:07PM +0800, Jinjiang Tu wrote:
+> Here is a syzkaller error log:
+>   [0000000020ffc000] pgd=080000010598d403, p4d=080000010598d403, pud=0800000125ddb403,
+>                      pmd=080000007833c403, pte=01608000007fcfcf
+>   Unable to handle kernel read from unreadable memory at virtual address ffff80008ea89000
+>   KASAN: probably user-memory-access in range [0x0000000475448000-0x0000000475448007]
+>   Mem abort info:
+>     ESR = 0x000000009600000f
+>     EC = 0x25: DABT (current EL), IL = 32 bits
+>     SET = 0, FnV = 0
+>     EA = 0, S1PTW = 0
+>     FSC = 0x0f: level 3 permission fault
+>   Data abort info:
+>     ISV = 0, ISS = 0x0000000f, ISS2 = 0x00000000
+>     CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+>     GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+>   swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000001244aa000
+>   [ffff80008ea89000] pgd=100000013ffff403, p4d=100000013ffff403, pud=100000013fffe403,
+> 		     pmd=100000010a453403, pte=01608000007fcfcf
+>   Internal error: Oops: 000000009600000f [#1] SMP
+>   Modules linked in: team
+>   CPU: 1 PID: 10840 Comm: syz.9.83 Kdump: loaded Tainted: G
+>   Hardware name: QEMU KVM Virtual Machine, BIOS 0.0.0 02/06/2015
+>   pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>   pc : __memcpy_fromio+0x80/0xf8
+>   lr : generic_access_phys+0x20c/0x2b8
+>   sp : ffff8000a0507960
+>   x29: ffff8000a0507960 x28: 1ffff000140a0f44 x27: ffff00003833cfe0
+>   x26: 0000000000000000 x25: 0000000000001000 x24: 0010000000000001
+>   x23: ffff80008ea89000 x22: ffff00004ea63000 x21: 0000000000001000
+>   x20: ffff80008ea89000 x19: ffff00004ea62000 x18: 0000000000000000
+>   x17: 0000000000000000 x16: 0000000000000000 x15: ffff8000806f1e3c
+>   x14: ffff8000806f1d44 x13: 0000000041b58ab3 x12: ffff7000140a0f23
+>   x11: 1ffff000140a0f22 x10: ffff7000140a0f22 x9 : ffff800080579d24
+>   x8 : 0000000000000004 x7 : 0000000000000003 x6 : 0000000000000001
+>   x5 : ffff8000a0507910 x4 : ffff7000140a0f22 x3 : dfff800000000000
+>   x2 : 0000000000001000 x1 : ffff80008ea89000 x0 : ffff00004ea62000
+>   Call trace:
+>     __memcpy_fromio+0x80/0xf8
+>     generic_access_phys+0x20c/0x2b8
+>     __access_remote_vm+0x46c/0x5b8
+>     access_remote_vm+0x18/0x30
+>     environ_read+0x238/0x3e8
+>     vfs_read+0xe4/0x2b0
+>     ksys_read+0xcc/0x178
+>     __arm64_sys_read+0x4c/0x68
+>     invoke_syscall+0x68/0x1a0
+>     el0_svc_common.constprop.0+0x11c/0x150
+>     do_el0_svc+0x38/0x50
+>     el0_svc+0x50/0x258
+>     el0t_64_sync_handler+0xc0/0xc8
+>     el0t_64_sync+0x1a4/0x1a8
+>   Code: 91002339 aa1403f7 8b190276 d503201f (f94002f8)
 > 
+> The local syzkaller first maps I/O address from /dev/mem to userspace,
+> overiding the stack vma with MAP_FIXED flag. As a result, when reading
+> /proc/$pid/environ, generic_access_phys() is called to access the region,
+> which triggers a PAN permission-check fault and causes a kernel access
+> fault.
 > 
-> These are not SoC patches, unless maintainers are unresponsive which I
-> believe is not a case here, so they should not be going via this tree.
+> The root cause is that generic_access_phys() passes a user pte to
+> ioremap_prot(), the user pte sets PTE_USER and PTE_NG bits.  Consequently,
+> any subsequent kernel-mode access to the remapped address raises a fault.
 > 
-> None of this, merged on 15th Dec, was fed to linux-next, so you don't
-> even know if this conflicts with maintainer trees thus pushing conflict
-> discover unto soc tree.
+> To fix it, define arch_mk_kernel_prot() to convert user prot to kernel
+> prot for arm64, and call arch_mk_kernel_prot() in generic_access_phys(),
+> so that a user prot is passed to ioremap_prot().
 > 
-> Not being in the next is already a problem but gets more serious when
-> taking other subsystem patches.
-> 
-> That's my comment, but Arnd was looking at these whether to merge.
-> 
+> Fixes: 893dea9ccd08 ("arm64: Add HAVE_IOREMAP_PROT support")
+> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+> Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
 
-Apologies! I did not hear any feedback from those maintainers nor did I 
-remind them, so that's my fault. Let me rework this PR and take those 
-patches through the respective maintainer's tree.
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
-DInh
+That's not urgent for 6.19, it's just misuse of /dev/mem (aren't they
+all) but it's worth fixing.
 
+Thanks.
 
+-- 
+Catalin
 
