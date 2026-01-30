@@ -4,104 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA36E6BF03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 11:29:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D63B4E6BF03
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 11:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SbEnXixljZraid29u+TVBlnssG6MakYScyhKGxGYZ0g=; b=j83dN1V9ysHr7/hyhDmXDrEaBv
-	Cq6TiBg7SMMpRWN2l6ZocJULGs5BI5Y1oaTbNiWNk/pmJCBsZ6ATWhlPRr1rMrPg1seHYKzeGfozt
-	xhY21cgsVSUUzY4qi7OHzUgx6VTUNkzDaf0/Ir2zWNqIGUD5A4bVeeQdYxqOV0mGQDetFGZtFn7eu
-	bsxh5zE206TfAi39I+FPohbBCmYjptX6GgSbhEq8Lt2gIlob6UBnp6BPSdnD+9y00TABxL4qsakRz
-	Sswb4FA8DtwdMWirujeBQy/Z+bNrenVo7ZiaDL1FsxTucdHGAcp8LvgA9/WsNf0ncMmdbDZ7jQ4kE
-	LaF49F1g==;
+	bh=ZrXRIY/vXi5U5s2DOWA/fATUiFPRmd6MT/7Xps0G5nc=; b=IG31XuaRvB6IAZipBFmzbug1Qr
+	KQqjCY/b0PUrIMHjm/hE9H0VUcvvpYANwn3HWuQFHK96bAVzFr8Adnr5/P9U9ZHsn6NggUAvFEOCh
+	KL0+SaHRBZDldUGcMVwxBqVnCqhCkk5t/nGRNhiO+/YpSaMbg5Mrt6iCGFhd35SZ0QkMIE5zRpMqb
+	psXt3NFB1CAEBAgqYBeP4L55Z47hcA1pPlxuIWT4zX0ujNYIEXboVget+eT3ETT/VjcimfR0spV9x
+	+LayRl0laQgGDUPSG11RQEOlPpR+f4iew+hto5eFVcHkc7KZgnNTSUNR/8RP3x8PDbFK3VmkFT5ez
+	Q5BoS61A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlmgt-00000001QxW-2D0P;
-	Fri, 30 Jan 2026 11:29:31 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1vlmpC-00000001RQ3-1BrO;
+	Fri, 30 Jan 2026 11:38:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlmgr-00000001Qx4-1o5L
+	id 1vlmpB-00000001RPv-0Lxr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 11:29:30 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-385b5174f54so16939241fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Jan 2026 03:29:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769772567; cv=none;
-        d=google.com; s=arc-20240605;
-        b=C3v58Y8FVbCX3k+yELLYeKH8v2Fm05qMF0/AiDdHvOMc42FreFxpSoS3hTr2WUsaJR
-         02MlkIWlbgEK3hizdUcArpRKJ7glgSHY3XCIUEfUEoXtpqDk5FSuOKxOoEVVHHaXQJtm
-         3GDCJUi7MNMG1+1sOPNkPNsz8TrmS4AZH2RUZheJ7Q47fff6fgPADKXe16mhhE6ScoGi
-         CczlNTLmNMGCr8xvdL2m6QbB5/zDRTGR0I7rihGmZpQltt+JJMufnT4E9nJUh5yiH3+8
-         09udhsykPVBfgSaPJLstXxzXqtjTIBcZHdm9Adz1M+jhPurQ8Pqk+ODCbplxwunZgGaJ
-         UN+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=SbEnXixljZraid29u+TVBlnssG6MakYScyhKGxGYZ0g=;
-        fh=CYSBda7ZMPm/sO7TfJyQCzkUS4m3dBJhsRcL6lanh5A=;
-        b=E0bo2S5X6oaaLMEkGiPei08h/vDnuetKSuV0VmwUBlKLpZborZ8U57DCvhYsY6NrFQ
-         +jQ9G/6Rpa6GOZOXrd+OFiMCLfe4LrdPA1lReSHoa8kPs8JkCn8V/vMv1mPF92K5RC9S
-         NsRGV9/w+waPQ1SdYkqmSbgSkYvGay8IF5ysOzwprbhRYT5Qoufh8A+f1RLOFsR/GSDk
-         Rwde4eQd7vq+gBsseJwpogxg06I5guUBQNWZQjvF3hMYiBbE/aOgapr3veudsfgtBNDC
-         I/FavnPRiLYrPjGUQThj9nYTmQni/noPA2QIbfVCDhP7ShIG/HcePrmAS+w2L7XPzPe/
-         QUAg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769772567; x=1770377367; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=SbEnXixljZraid29u+TVBlnssG6MakYScyhKGxGYZ0g=;
-        b=azDxqo+sQ123OcDFWxjC9OOZqp41K5gBrVVhbZhcKnclTWZT8XNJHt1xbDgh8UR+rU
-         mNlzwz2/DydLD1eP9tNwwCnnGWJ6OCo3pZFY4e41aJ/AFOmv0pGAGy9jiJzQfldYHMPO
-         oFuTO9vkDOwZvl4bCMPwyuRmkvpzNzmh0F/OTzwzFgl4l8DPhezjPydqG+a6WCekTIBO
-         vBbX8jAhCANj3pe2HswlofmDJnRBL+ZXlFMUVQxlIBO/fioXxqyAfSr5M8ZV0YqU6/sQ
-         Rl6ABP1qe7ITvu2PhKGNn7hQPmnVNbZ17gsncwe4waeaeZB+fhJe77HHMjCoucBtHXF/
-         mhhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769772567; x=1770377367;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SbEnXixljZraid29u+TVBlnssG6MakYScyhKGxGYZ0g=;
-        b=vY49tfku0I5Cipfql/ak3UHrVb3R5/Ozl62ATHeJiFxWiQZXs5jIZ5wTTs4ve1Ywaz
-         ceQ0KvgyKs/MCGco/pGsUJMhesIjY9JSFufEzb2g3GBDEptNGkps7I2+qundho4SYu1g
-         GqZAidsIRfbn3frU3Pk0UdGrOPvV2p1scJbw8IzogBgLDF7CV0xCsLmAUTgvGGOeFsNN
-         lWnVwvmXg7g54cYQqxlRKA1Glszyw4S6jUHBe1cmE2Qqvpva6sKVkMs3MMgaWOTwXXrC
-         gCYNFfgl3ACdb0dyOPK80TlbAGn+zoAtoX3fYJOn9Y1j7PtTW6yW5yPoLl3NFmnnWagf
-         H4NA==
-X-Forwarded-Encrypted: i=1; AJvYcCWmIfyXeZwEtkXNB5kvqtKgEpIAz31VNQxcvxE4XsFzkPF37UBJ6dcb+hinIsj0tjsxx3yaYVGDzYhrLuvhumbS@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmH5xhQHNFVcroLLFsj3NDgfd2X7kH+lnO7VEKS31dDfnMc4aD
-	SOatD1m2s1/a6Sc/G64vANcE4il6d0lz76M0/yiXvUGZ8kfKz7U6pq/MV+K4leOuOxfy0iHnPhN
-	8sB1suxeHRrZAGrmCkf+U2JZrMC0ascBBBjY72vht/A==
-X-Gm-Gg: AZuq6aIQWXN6DnYZqrlqePwMY4rMH0J4MD96qJ+wLflpNVZ9Ae75VZv9QKwUkyTnRSW
-	X78dTu82p02k5p7wRFviI9c1AtY1zm1hY3SD8cGcQadrCg+fpweefrHnxO+DMKUyplmDHNvhxC2
-	w1MC+ddFIFzJKEQeg+krBQuEYnw+J2LacKixeTMJVSeOWj1yoF4RoG8u3vJMsILmnpapWM9oBwg
-	HeykZWS8Iz31KM1XQ5ymN10OsqWuQQEtGcA1o/9QhcKBBGQOrXuK8YnNtzphnx6CH/OsYFk
-X-Received: by 2002:a05:6512:224a:b0:59e:417:27f9 with SMTP id
- 2adb3069b0e04-59e16429e70mr896593e87.44.1769772566817; Fri, 30 Jan 2026
- 03:29:26 -0800 (PST)
-MIME-Version: 1.0
-References: <20260130051107.2130200-1-xu.yang_2@nxp.com>
-In-Reply-To: <20260130051107.2130200-1-xu.yang_2@nxp.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Fri, 30 Jan 2026 12:28:50 +0100
-X-Gm-Features: AZwV_QibZsm573nlfq_ooYxHiuwgVu5XH3YEh5JOtPYvggTnLni4Oi1IejkPYVA
-Message-ID: <CAPDyKFpAiFSUXBahWzEbqPnyT_R9FFxryohCKHA=REdcv-vyiQ@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: imx8m-blk-ctrl: fix out-of-range access of bc->domains
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: s.hauer@pengutronix.de, Frank.Li@nxp.com, kernel@pengutronix.de, 
-	festevam@gmail.com, khalasa@piap.pl, benjamin.gaignard@collabora.com, 
-	frieder.schrempf@kontron.de, p.zabel@pengutronix.de, shawnguo@kernel.org, 
-	l.stach@pengutronix.de, linux-pm@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_032929_491048_1DB1FFD5 
-X-CRM114-Status: GOOD (  17.26  )
+	Fri, 30 Jan 2026 11:38:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CC9DD6001A;
+	Fri, 30 Jan 2026 11:38:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E3A9C116D0;
+	Fri, 30 Jan 2026 11:38:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769773083;
+	bh=FF3Xw6u2vV5Q8XssxCyE4krJu70B6ir0Eoa3b81i4pQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=E2rKCyBxcoDdTIVLU6FgQYzTHPoJ1KTNccZkfttJV04mxlsMMfYr2iJRETA+Bt8t8
+	 4NtMAJW/XRiKrKaz17sFCKlObjjLnb0yAfeTsz7zm7al/kdsbcVSR2x/qW+EAvlsLL
+	 RluQWaArAHe8RTCEZEIjStGbJDniXlkaJ2crtokFRKKFwEaRRtOLIi+3XxJTqXE+mb
+	 0WbAaIlTJzs4vjXMlEAX3GSubNTR8U7zubwuMx0YEAL04rY07GCbErhYfJ8ieb3LrB
+	 O4lzBFYus0rGyQH5LXcQEtJUmFU1QSs4pxFjje/dVD4etSC6gydZmrDFieZxZ4g6V/
+	 Jk04S93NVK4HA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vlmp7-0000000737G-1KMo;
+	Fri, 30 Jan 2026 11:38:01 +0000
+Date: Fri, 30 Jan 2026 11:38:00 +0000
+Message-ID: <861pj7baav.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>,
+	"jonathan.cameron@huawei.com"
+	<jonathan.cameron@huawei.com>
+Subject: Re: [PATCH v4 11/36] KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE
+In-Reply-To: <20260128175919.3828384-12-sascha.bischoff@arm.com>
+References: <20260128175919.3828384-1-sascha.bischoff@arm.com>
+	<20260128175919.3828384-12-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, jonathan.cameron@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,38 +96,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 30 Jan 2026 at 06:11, Xu Yang <xu.yang_2@nxp.com> wrote:
->
-> Fix out-of-range access of bc->domains in imx8m_blk_ctrl_remove().
->
-> Fixes: 2684ac05a8c4 ("soc: imx: add i.MX8M blk-ctrl driver")
-> Cc: stable@kernel.org
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-
-Applied for fixes, thanks!
-
-Kind regards
-Uffe
-
-
+On Wed, 28 Jan 2026 18:02:09 +0000,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+> 
+> Set the guest's view of the GCIE field to IMP when running a GICv5 VM,
+> NI otherwise. Reject any writes to the register that try to do
+> anything but set GCIE to IMP when running a GICv5 VM.
+> 
+> As part of this change, we're also required to extend
+> vgic_is_v3_compat() to check for the actual vgic_model. This has one
+> potential issue - if any of the vgic_is_v*() checks are used prior to
+> setting the vgic_model (that is, before kvm_vgic_create) then
+> vgic_model will be set to 0, which can result in a false-positive.
+> 
+> Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
+> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 > ---
->  drivers/pmdomain/imx/imx8m-blk-ctrl.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-> index 74bf4936991d..19e992d2ee3b 100644
-> --- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-> +++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-> @@ -340,7 +340,7 @@ static void imx8m_blk_ctrl_remove(struct platform_device *pdev)
->
->         of_genpd_del_provider(pdev->dev.of_node);
->
-> -       for (i = 0; bc->onecell_data.num_domains; i++) {
-> +       for (i = 0; i < bc->onecell_data.num_domains; i++) {
->                 struct imx8m_blk_ctrl_domain *domain = &bc->domains[i];
->
->                 pm_genpd_remove(&domain->genpd);
-> --
-> 2.34.1
->
+>  arch/arm64/kvm/sys_regs.c  | 42 ++++++++++++++++++++++++++++++--------
+>  arch/arm64/kvm/vgic/vgic.h | 10 ++++++++-
+>  2 files changed, 43 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 88a57ca36d96..73dd2bd85c4f 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1758,6 +1758,7 @@ static u8 pmuver_to_perfmon(u8 pmuver)
+>  
+>  static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
+>  static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val);
+> +static u64 sanitise_id_aa64pfr2_el1(const struct kvm_vcpu *vcpu, u64 val);
+>  static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
+>  
+>  /* Read a sanitised cpufeature ID register by sys_reg_desc */
+> @@ -1783,10 +1784,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+>  		val = sanitise_id_aa64pfr1_el1(vcpu, val);
+>  		break;
+>  	case SYS_ID_AA64PFR2_EL1:
+> -		val &= ID_AA64PFR2_EL1_FPMR |
+> -			(kvm_has_mte(vcpu->kvm) ?
+> -			 ID_AA64PFR2_EL1_MTEFAR | ID_AA64PFR2_EL1_MTESTOREONLY :
+> -			 0);
+> +		val = sanitise_id_aa64pfr2_el1(vcpu, val);
+>  		break;
+>  	case SYS_ID_AA64ISAR1_EL1:
+>  		if (!vcpu_has_ptrauth(vcpu))
+> @@ -2024,6 +2022,23 @@ static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val)
+>  	return val;
+>  }
+>  
+> +static u64 sanitise_id_aa64pfr2_el1(const struct kvm_vcpu *vcpu, u64 val)
+> +{
+> +	val &= ID_AA64PFR2_EL1_FPMR |
+> +	       ID_AA64PFR2_EL1_MTEFAR |
+> +	       ID_AA64PFR2_EL1_MTESTOREONLY;
+> +
+> +	if (!kvm_has_mte(vcpu->kvm)) {
+> +		val &= ~ID_AA64PFR2_EL1_MTEFAR;
+> +		val &= ~ID_AA64PFR2_EL1_MTESTOREONLY;
+> +	}
+> +
+> +	if (vgic_is_v5(vcpu->kvm))
+> +		val |= SYS_FIELD_PREP_ENUM(ID_AA64PFR2_EL1, GCIE, IMP);
+
+You probably want to clear the field before or'ing something in, or
+you may be promising more than we'd expect.
+
+> +
+> +	return val;
+> +}
+> +
+>  static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
+>  {
+>  	val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64DFR0_EL1, DebugVer, V8P8);
+> @@ -2221,6 +2236,16 @@ static int set_id_aa64pfr1_el1(struct kvm_vcpu *vcpu,
+>  	return set_id_reg(vcpu, rd, user_val);
+>  }
+>  
+> +static int set_id_aa64pfr2_el1(struct kvm_vcpu *vcpu,
+> +			       const struct sys_reg_desc *rd, u64 user_val)
+> +{
+> +	if (vgic_is_v5(vcpu->kvm) &&
+> +	    FIELD_GET(ID_AA64PFR2_EL1_GCIE_MASK, user_val) != ID_AA64PFR2_EL1_GCIE_IMP)
+> +		return -EINVAL;
+> +
+> +	return set_id_reg(vcpu, rd, user_val);
+> +}
+> +
+>  /*
+>   * Allow userspace to de-feature a stage-2 translation granule but prevent it
+>   * from claiming the impossible.
+> @@ -3202,10 +3227,11 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>  				       ID_AA64PFR1_EL1_RES0 |
+>  				       ID_AA64PFR1_EL1_MPAM_frac |
+>  				       ID_AA64PFR1_EL1_MTE)),
+> -	ID_WRITABLE(ID_AA64PFR2_EL1,
+> -		    ID_AA64PFR2_EL1_FPMR |
+> -		    ID_AA64PFR2_EL1_MTEFAR |
+> -		    ID_AA64PFR2_EL1_MTESTOREONLY),
+> +	ID_FILTERED(ID_AA64PFR2_EL1, id_aa64pfr2_el1,
+> +		    ~(ID_AA64PFR2_EL1_FPMR |
+> +		      ID_AA64PFR2_EL1_MTEFAR |
+> +		      ID_AA64PFR2_EL1_MTESTOREONLY |
+> +		      ID_AA64PFR2_EL1_GCIE)),
+>  	ID_UNALLOCATED(4,3),
+>  	ID_WRITABLE(ID_AA64ZFR0_EL1, ~ID_AA64ZFR0_EL1_RES0),
+>  	ID_HIDDEN(ID_AA64SMFR0_EL1),
+
+Don't you also need something in kvm_finalize_sys_regs() to hide GICv5
+altogether if no irqchip has been instantiated? It'd be worth
+extending the "no-vgic-v3" test to also cover GICv5.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
