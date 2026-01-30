@@ -4,84 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D63B4E6BF03
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 11:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9762CE6BF00
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 11:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZrXRIY/vXi5U5s2DOWA/fATUiFPRmd6MT/7Xps0G5nc=; b=IG31XuaRvB6IAZipBFmzbug1Qr
-	KQqjCY/b0PUrIMHjm/hE9H0VUcvvpYANwn3HWuQFHK96bAVzFr8Adnr5/P9U9ZHsn6NggUAvFEOCh
-	KL0+SaHRBZDldUGcMVwxBqVnCqhCkk5t/nGRNhiO+/YpSaMbg5Mrt6iCGFhd35SZ0QkMIE5zRpMqb
-	psXt3NFB1CAEBAgqYBeP4L55Z47hcA1pPlxuIWT4zX0ujNYIEXboVget+eT3ETT/VjcimfR0spV9x
-	+LayRl0laQgGDUPSG11RQEOlPpR+f4iew+hto5eFVcHkc7KZgnNTSUNR/8RP3x8PDbFK3VmkFT5ez
-	Q5BoS61A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L807TjGmA4p0n4FCTuxgR77BaM8TOSHDjBzcYTkM9I0=; b=t/G1wyGiFp5TH+5tWb0Nfrq/MG
+	DRxqycAhjNMifxqgILWlG7EZ9KWRcQMjp0m6f3yH3/YYb8JxapEgbKCHYbCMsZXyuZdj7E8hl3dej
+	5CPs61d1bbmvZxeqO2xZtooTK7dIbkJ3SUgRatWGNlcxrRvHOyxjBcbw3qlAgctYxpU+RjaUs20PO
+	GQK7DS/hcsaBU4j8sxUc+WtXTCRwbr8BepwwVLRFrIzOmdxswGVKRAFKJL7mWcRJ6ZL3Bzj65WkWX
+	qyFYT++gakBNhW1zH590otD1FfL/vaw3x4BAdWXzz92aE7vv9QdNLvEm1n4kobsRp5vm5Ylc3nXPv
+	np5DdNUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlmpC-00000001RQ3-1BrO;
-	Fri, 30 Jan 2026 11:38:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlmpB-00000001RPv-0Lxr
+	id 1vlmsN-00000001RbY-2LeD;
+	Fri, 30 Jan 2026 11:41:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlmsK-00000001RbD-0Sna
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 11:38:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC9DD6001A;
-	Fri, 30 Jan 2026 11:38:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E3A9C116D0;
-	Fri, 30 Jan 2026 11:38:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769773083;
-	bh=FF3Xw6u2vV5Q8XssxCyE4krJu70B6ir0Eoa3b81i4pQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=E2rKCyBxcoDdTIVLU6FgQYzTHPoJ1KTNccZkfttJV04mxlsMMfYr2iJRETA+Bt8t8
-	 4NtMAJW/XRiKrKaz17sFCKlObjjLnb0yAfeTsz7zm7al/kdsbcVSR2x/qW+EAvlsLL
-	 RluQWaArAHe8RTCEZEIjStGbJDniXlkaJ2crtokFRKKFwEaRRtOLIi+3XxJTqXE+mb
-	 0WbAaIlTJzs4vjXMlEAX3GSubNTR8U7zubwuMx0YEAL04rY07GCbErhYfJ8ieb3LrB
-	 O4lzBFYus0rGyQH5LXcQEtJUmFU1QSs4pxFjje/dVD4etSC6gydZmrDFieZxZ4g6V/
-	 Jk04S93NVK4HA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vlmp7-0000000737G-1KMo;
-	Fri, 30 Jan 2026 11:38:01 +0000
-Date: Fri, 30 Jan 2026 11:38:00 +0000
-Message-ID: <861pj7baav.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>,
-	"jonathan.cameron@huawei.com"
-	<jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v4 11/36] KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE
-In-Reply-To: <20260128175919.3828384-12-sascha.bischoff@arm.com>
-References: <20260128175919.3828384-1-sascha.bischoff@arm.com>
-	<20260128175919.3828384-12-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, jonathan.cameron@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 30 Jan 2026 11:41:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9E6DD153B;
+	Fri, 30 Jan 2026 03:41:10 -0800 (PST)
+Received: from [10.57.54.50] (unknown [10.57.54.50])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DAD213F73F;
+	Fri, 30 Jan 2026 03:41:15 -0800 (PST)
+Message-ID: <cdbea011-63de-4533-94e8-5a2a18c8e545@arm.com>
+Date: Fri, 30 Jan 2026 11:41:13 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] perf/arm-cmn: Reject unsupported hardware configurations
+To: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+Cc: will@kernel.org, mark.rutland@arm.com, linux-perf-users@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+References: <bb47722fc593baf1e1cc0f944089592a4ec708da.1769695523.git.robin.murphy@arm.com>
+ <0b85786d-ab5c-e9ed-f060-e7854810b1bb@os.amperecomputing.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <0b85786d-ab5c-e9ed-f060-e7854810b1bb@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260130_034120_298194_35BB6492 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,122 +65,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 28 Jan 2026 18:02:09 +0000,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+On 2026-01-30 3:57 am, Ilkka Koskinen wrote:
 > 
-> Set the guest's view of the GCIE field to IMP when running a GICv5 VM,
-> NI otherwise. Reject any writes to the register that try to do
-> anything but set GCIE to IMP when running a GICv5 VM.
 > 
-> As part of this change, we're also required to extend
-> vgic_is_v3_compat() to check for the actual vgic_model. This has one
-> potential issue - if any of the vgic_is_v*() checks are used prior to
-> setting the vgic_model (that is, before kvm_vgic_create) then
-> vgic_model will be set to 0, which can result in a false-positive.
+> Hi Robin,
 > 
-> Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> ---
->  arch/arm64/kvm/sys_regs.c  | 42 ++++++++++++++++++++++++++++++--------
->  arch/arm64/kvm/vgic/vgic.h | 10 ++++++++-
->  2 files changed, 43 insertions(+), 9 deletions(-)
+> On Thu, 29 Jan 2026, Robin Murphy wrote:
+>> So far we've been fairly lax about accepting both unknown CMN models
+>> (at least with a warning), and unknown revisions of those which we
+>> do know, as although things do frequently change between releases,
+>> typically enough remains the same to be somewhat useful for at least
+>> some basic bringup checks. However, we also make assumptions of the
+>> maximum supported sizes and numbers of things in various places, and
+>> there's no guarantee that something new might not be bigger and lead
+>> to nasty array overflows. Make sure we only try to run on things that
+>> actually match our assumptions and so will not risk memory corruption.
+>>
+>> Cc: stable@vger.kernel.org
+>> Fixes: 7819e05a0dce ("perf/arm-cmn: Revamp model detection")
+>> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+>> ---
+>> drivers/perf/arm-cmn.c | 13 +++++++++++++
+>> 1 file changed, 13 insertions(+)
+>>
+>> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+>> index 2903e01f951f..24fec53ceccc 100644
+>> --- a/drivers/perf/arm-cmn.c
+>> +++ b/drivers/perf/arm-cmn.c
+>> @@ -2422,6 +2422,15 @@ static int arm_cmn_discover(struct arm_cmn 
+>> *cmn, unsigned int rgn_offset)
+>>             arm_cmn_init_node_info(cmn, reg & CMN_CHILD_NODE_ADDR, dn);
+>>             dn->portid_bits = xp->portid_bits;
+>>             dn->deviceid_bits = xp->deviceid_bits;
+>> +            /*
+>> +             * Logical IDs are assigned from 0 per node type, so as
+>> +             * soon as we one bigger than expected, we can assume
 > 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 88a57ca36d96..73dd2bd85c4f 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -1758,6 +1758,7 @@ static u8 pmuver_to_perfmon(u8 pmuver)
->  
->  static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
->  static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val);
-> +static u64 sanitise_id_aa64pfr2_el1(const struct kvm_vcpu *vcpu, u64 val);
->  static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
->  
->  /* Read a sanitised cpufeature ID register by sys_reg_desc */
-> @@ -1783,10 +1784,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
->  		val = sanitise_id_aa64pfr1_el1(vcpu, val);
->  		break;
->  	case SYS_ID_AA64PFR2_EL1:
-> -		val &= ID_AA64PFR2_EL1_FPMR |
-> -			(kvm_has_mte(vcpu->kvm) ?
-> -			 ID_AA64PFR2_EL1_MTEFAR | ID_AA64PFR2_EL1_MTESTOREONLY :
-> -			 0);
-> +		val = sanitise_id_aa64pfr2_el1(vcpu, val);
->  		break;
->  	case SYS_ID_AA64ISAR1_EL1:
->  		if (!vcpu_has_ptrauth(vcpu))
-> @@ -2024,6 +2022,23 @@ static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val)
->  	return val;
->  }
->  
-> +static u64 sanitise_id_aa64pfr2_el1(const struct kvm_vcpu *vcpu, u64 val)
-> +{
-> +	val &= ID_AA64PFR2_EL1_FPMR |
-> +	       ID_AA64PFR2_EL1_MTEFAR |
-> +	       ID_AA64PFR2_EL1_MTESTOREONLY;
-> +
-> +	if (!kvm_has_mte(vcpu->kvm)) {
-> +		val &= ~ID_AA64PFR2_EL1_MTEFAR;
-> +		val &= ~ID_AA64PFR2_EL1_MTESTOREONLY;
-> +	}
-> +
-> +	if (vgic_is_v5(vcpu->kvm))
-> +		val |= SYS_FIELD_PREP_ENUM(ID_AA64PFR2_EL1, GCIE, IMP);
+> Should that be something like:
+> 
+>              "...as soon as we see one bigger than expected.."
 
-You probably want to clear the field before or'ing something in, or
-you may be promising more than we'd expect.
+Erm, indeed "see" is what I was trying to type... apparently it didn't 
+make it all the way to my fingers.
 
-> +
-> +	return val;
-> +}
-> +
->  static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
->  {
->  	val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64DFR0_EL1, DebugVer, V8P8);
-> @@ -2221,6 +2236,16 @@ static int set_id_aa64pfr1_el1(struct kvm_vcpu *vcpu,
->  	return set_id_reg(vcpu, rd, user_val);
->  }
->  
-> +static int set_id_aa64pfr2_el1(struct kvm_vcpu *vcpu,
-> +			       const struct sys_reg_desc *rd, u64 user_val)
-> +{
-> +	if (vgic_is_v5(vcpu->kvm) &&
-> +	    FIELD_GET(ID_AA64PFR2_EL1_GCIE_MASK, user_val) != ID_AA64PFR2_EL1_GCIE_IMP)
-> +		return -EINVAL;
-> +
-> +	return set_id_reg(vcpu, rd, user_val);
-> +}
-> +
->  /*
->   * Allow userspace to de-feature a stage-2 translation granule but prevent it
->   * from claiming the impossible.
-> @@ -3202,10 +3227,11 @@ static const struct sys_reg_desc sys_reg_descs[] = {
->  				       ID_AA64PFR1_EL1_RES0 |
->  				       ID_AA64PFR1_EL1_MPAM_frac |
->  				       ID_AA64PFR1_EL1_MTE)),
-> -	ID_WRITABLE(ID_AA64PFR2_EL1,
-> -		    ID_AA64PFR2_EL1_FPMR |
-> -		    ID_AA64PFR2_EL1_MTEFAR |
-> -		    ID_AA64PFR2_EL1_MTESTOREONLY),
-> +	ID_FILTERED(ID_AA64PFR2_EL1, id_aa64pfr2_el1,
-> +		    ~(ID_AA64PFR2_EL1_FPMR |
-> +		      ID_AA64PFR2_EL1_MTEFAR |
-> +		      ID_AA64PFR2_EL1_MTESTOREONLY |
-> +		      ID_AA64PFR2_EL1_GCIE)),
->  	ID_UNALLOCATED(4,3),
->  	ID_WRITABLE(ID_AA64ZFR0_EL1, ~ID_AA64ZFR0_EL1_RES0),
->  	ID_HIDDEN(ID_AA64SMFR0_EL1),
+> Other than that, the patch looks good to me.
+> 
+> Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
 
-Don't you also need something in kvm_finalize_sys_regs() to hide GICv5
-altogether if no irqchip has been instantiated? It'd be worth
-extending the "no-vgic-v3" test to also cover GICv5.
+Thanks!
 
-Thanks,
+Robin.
 
-	M.
+> 
+> Cheers, Ilkka
+> 
+>> +             * there are more than we can cope with.
+>> +             */
+>> +            if (dn->logid > CMN_MAX_NODES_PER_EVENT) {
+>> +                dev_err(cmn->dev, "Invalid node number: %d\n", dn- 
+>> >logid);
+>> +                return -ENODEV;
+>> +            }
+>>
+>>             switch (dn->type) {
+>>             case CMN_TYPE_DTC:
+>> @@ -2499,6 +2508,10 @@ static int arm_cmn_discover(struct arm_cmn 
+>> *cmn, unsigned int rgn_offset)
+>>         cmn->mesh_x = cmn->num_xps;
+>>     cmn->mesh_y = cmn->num_xps / cmn->mesh_x;
+>>
+>> +    if (max(cmn->mesh_x, cmn->mesh_y) > CMN_MAX_DIMENSION) {
+>> +        dev_err(cmn->dev, "Invalid mesh size: %dx%d\n", cmn->mesh_x, 
+>> cmn->mesh_y);
+>> +        return -ENODEV;
+>> +    }
+>>     /* 1x1 config plays havoc with XP event encodings */
+>>     if (cmn->num_xps == 1)
+>>         dev_warn(cmn->dev, "1x1 config not fully supported, translate 
+>> XP events manually\n");
+>> -- 
+>> 2.39.2.101.g768bb238c484.dirty
+>>
+>>
+>>
 
--- 
-Without deviation from the norm, progress is not possible.
 
