@@ -4,78 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 820BDD49C66
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 07:52:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8756D49C6F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 08:03:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hd3ZWISkH7OCD0MlOUZh/i2rdOr7pszDoypE0edg7wA=; b=yRb/bRUAZnR6zBNmLGLc45pIBH
-	USbXkv4+Qc9Z3th9Nosa+sopIfjYl1nVTtkZVNIjc210YfIdWkQm62WERCYMtk8Ds9bDpq+A9cyKr
-	bApuR2wyY1Kju2NHmoR9dWMqYmhhzpsFZNUbuoonIOrSdMOXzIGatLAUthbr7DJxUMJiAoaNaEzLp
-	qSddaAD/Wauj0Qppfubf6sI7zquNAsW4gF5dYGGtcQsU5bmuftZz0bXwCO8q7+AEER06DRhpBaoQ/
-	pGtcP+A5GmmurVBgzkEfLCljs2RLiy5ulGYOhOxcBjwD8sYokZzdGmeHEnimS2sGTOe4ubi/c2O7x
-	0IF9PqSQ==;
+	bh=euq3DIZBTE4qM2eqOaDtKndvOwdKebOXy4NoVSox5u0=; b=niEDrwpt5ue3yFdKR7tebis8NY
+	O7o5jTQy8ujhEwNJyzOqauicqowam1pshduFQgpkoAJQzdhawVkFeSWKDHFbSsaJf8EVSFd69YicU
+	s9yZaQ2fSP1AD596/JmvVSTNXvY0odNxVFB8otP1lmjpsCWROBLZz1rSRd0uLnB2fVk4ZeTv5u45+
+	Xwf4zgcKi8MPMnjxMbPjg+hidXcUsH5NXwAIgA93AshNXFI0+p91gh2JeRmb2B/XT9/20xmolCPUf
+	ThKijOwYY30m3zoxXkgc1C0GBF35lxFk8rMrz1cDFvVNz4+0WbHyo7xQ905kmvx+LCKaTP+oEseu+
+	ychSwDYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vljJA-00000001Ad3-3yy2;
-	Fri, 30 Jan 2026 07:52:48 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1vljTn-00000001BIP-0zFX;
+	Fri, 30 Jan 2026 08:03:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vljJ7-00000001AcI-34ZK
+	id 1vljTl-00000001BGo-01Pr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 07:52:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769759565; x=1801295565;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=aX2gGtLk0RdmVui+gtEWlxTOSd9DpW+YmCX91ZUxfTk=;
-  b=JMexN6HBnxdflLggTKiCviUPY2RUbZz7Eg0hB3gvPSPVIfTHR18c+W7f
-   ewRCjnPfdcSK+WoSNOrxW8EmszbHpQkMskPkmFRqR5bf6BQrY0XnWUIm8
-   Rca+wmv6Y+0UaEkOV5yd+BiikztmOdDpPC40x1VJ8kKx89aE0jgppIkyT
-   p0jSOWjGzuB+LGBC+aG8vX0bYacpuSjoZ6tgSFYdC4EbgMqnCP7bNs0Z2
-   me6bGKMtLnRKlzojMocyH+GbSfyV7YY/5tL97LeHhTKdNul8eTR1jtt52
-   AxDBL15kHcB+u4V75aKARZePj49yyF0Yvc90X2UFn+WEoL2DW/PdVbYdD
-   A==;
-X-CSE-ConnectionGUID: bPfLdIoUStiTvjjIDgDrfA==
-X-CSE-MsgGUID: eoppa5QbRhKrYLrgf0oNkQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11686"; a="96472144"
-X-IronPort-AV: E=Sophos;i="6.21,262,1763452800"; 
-   d="scan'208";a="96472144"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jan 2026 23:52:44 -0800
-X-CSE-ConnectionGUID: 4lPDyHmuRlCDGd/lYki7Jg==
-X-CSE-MsgGUID: gAwQQt+aTxyOY6vj7lBOxw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,262,1763452800"; 
-   d="scan'208";a="239522017"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa002.jf.intel.com with ESMTP; 29 Jan 2026 23:52:40 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vljIz-00000000cLg-3aEb;
-	Fri, 30 Jan 2026 07:52:37 +0000
-Date: Fri, 30 Jan 2026 15:51:45 +0800
-From: kernel test robot <lkp@intel.com>
-To: Andrew Geyko <ageyko0@gmail.com>, linux-staging@lists.linux.dev
-Cc: oe-kbuild-all@lists.linux.dev, mripard@kernel.org, paulk@sys-base.io,
-	mchehab@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com,
-	samuel@sholland.org, gregkh@linuxfoundation.org,
-	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, Andrew Geyko <ageyko0@gmail.com>
-Subject: Re: [PATCH] cedrus: Convert bitfield macros to FIELD_PREP for clarity
-Message-ID: <202601301548.SMgNvRPx-lkp@intel.com>
-References: <20260129164341.104155-1-ageyko0@gmail.com>
+	Fri, 30 Jan 2026 08:03:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1FEDC40624;
+	Fri, 30 Jan 2026 08:03:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B0C9C4CEF7;
+	Fri, 30 Jan 2026 08:03:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769760224;
+	bh=euq3DIZBTE4qM2eqOaDtKndvOwdKebOXy4NoVSox5u0=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=aL8/6tXGmAYMFT4YxVmeA6am6EToZctkR2rUa7nKbvv8MtX/pvq5Fqc6Vc5m06Jps
+	 PEh3FbMbG6w1GUNMbesDU+jxUZzfRgmDVoJum4dUNjakaQCBxU21EaI57XkoIMZ/Va
+	 TWzbqsFya5T3U2gV0qoqrIozOuxAPELnpRvtdSZQUDSEpcQTD6bzYvIH/EhA44fDjJ
+	 HlrGHXoTyiLw99apzDFM0JEYGoElFGy42pA/dhdhG3ks86feBrvJsGTmc8baC6FWuN
+	 PjzAozsSsKRUHnpHMsO6fhTalWL5RDlKpvBON0e96q/CqKsvOUO1j7Miq0S9jWuTJY
+	 mO6LIK6s5p1dA==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Janne Grunau <j@jannau.net>, Sven Peter <sven@kernel.org>, Neal Gompa
+ <neal@gompa.dev>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, Janne Grunau
+ <j@jannau.net>
+Subject: Re: [PATCH v2 1/2] dt-bindings: interrupt-controller: apple,aic2:
+ Add AICv3
+In-Reply-To: <20260128-irq-apple-aic3-v2-1-b4bc8e16c997@jannau.net>
+References: <20260128-irq-apple-aic3-v2-0-b4bc8e16c997@jannau.net>
+ <20260128-irq-apple-aic3-v2-1-b4bc8e16c997@jannau.net>
+Date: Fri, 30 Jan 2026 09:03:40 +0100
+Message-ID: <878qdfmsrn.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260129164341.104155-1-ageyko0@gmail.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_235245_786284_CBCA4045 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20260130_000345_082795_B72F4BC4 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,61 +75,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+On Wed, Jan 28 2026 at 09:57, Janne Grunau wrote:
+> AIC version 3 as found on the Apple M3 (t8122) is very similar to AICv2
+> in its base functionality. It can use the same device tree bindings as
+> AICv2 so add it to the AICv2 bindings.
+> This interrupt controller is used on all Apple SoCs starting with M3 up
+> to at least M5.
+> The only apparent difference is the increased IRQ config offset. Apple's
+> device tree codes this new offset as property of the "aic" node but the
+> value stayed constant for all SoCs with "aic,3". Since the SoC specific
+> compatible "apple,t8122-aic3" will be used in the driver this offset can
+> remain a driver implementation detail.
+>
+> Signed-off-by: Janne Grunau <j@jannau.net>
 
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on sunxi/sunxi/for-next]
-[also build test ERROR on linus/master v6.19-rc7 next-20260129]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Andrew-Geyko/cedrus-Convert-bitfield-macros-to-FIELD_PREP-for-clarity/20260130-004554
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git sunxi/for-next
-patch link:    https://lore.kernel.org/r/20260129164341.104155-1-ageyko0%40gmail.com
-patch subject: [PATCH] cedrus: Convert bitfield macros to FIELD_PREP for clarity
-config: parisc-allyesconfig (https://download.01.org/0day-ci/archive/20260130/202601301548.SMgNvRPx-lkp@intel.com/config)
-compiler: hppa-linux-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260130/202601301548.SMgNvRPx-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601301548.SMgNvRPx-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from drivers/staging/media/sunxi/cedrus/cedrus_h265.c:17:
-   drivers/staging/media/sunxi/cedrus/cedrus_h265.c: In function 'cedrus_h265_skip_bits':
->> drivers/staging/media/sunxi/cedrus/cedrus_regs.h:434:40: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
-     434 | #define VE_DEC_H265_TRIGGER_FLUSH_BITS FIELD_PREP(VE_DEC_H265_TRIGGER_CMD_MASK, 0x3)
-         |                                        ^~~~~~~~~~
-   drivers/staging/media/sunxi/cedrus/cedrus_h265.c:248:30: note: in expansion of macro 'VE_DEC_H265_TRIGGER_FLUSH_BITS'
-     248 |                              VE_DEC_H265_TRIGGER_FLUSH_BITS |
-         |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-vim +/FIELD_PREP +434 drivers/staging/media/sunxi/cedrus/cedrus_regs.h
-
-   425	
-   426	#define VE_DEC_H265_TRIGGER_TYPE_N_BITS(x)	(((x) & 0x3f) << 8)
-   427	#define VE_DEC_H265_TRIGGER_STCD_MASK  GENMASK(5, 4)
-   428	#define VE_DEC_H265_TRIGGER_CMD_MASK   GENMASK(3, 0)
-   429	#define VE_DEC_H265_TRIGGER_STCD_HEVC  FIELD_PREP(VE_DEC_H265_TRIGGER_STCD_MASK, 0x0)
-   430	#define VE_DEC_H265_TRIGGER_STCD_AVS   FIELD_PREP(VE_DEC_H265_TRIGGER_STCD_MASK, 0x1)
-   431	#define VE_DEC_H265_TRIGGER_STCD_VC1   FIELD_PREP(VE_DEC_H265_TRIGGER_STCD_MASK, 0x2)
-   432	#define VE_DEC_H265_TRIGGER_SHOW_BITS  FIELD_PREP(VE_DEC_H265_TRIGGER_CMD_MASK, 0x1)
-   433	#define VE_DEC_H265_TRIGGER_GET_BITS   FIELD_PREP(VE_DEC_H265_TRIGGER_CMD_MASK, 0x2)
- > 434	#define VE_DEC_H265_TRIGGER_FLUSH_BITS FIELD_PREP(VE_DEC_H265_TRIGGER_CMD_MASK, 0x3)
-   435	#define VE_DEC_H265_TRIGGER_GET_VLCSE  FIELD_PREP(VE_DEC_H265_TRIGGER_CMD_MASK, 0x4)
-   436	#define VE_DEC_H265_TRIGGER_GET_VLCUE  FIELD_PREP(VE_DEC_H265_TRIGGER_CMD_MASK, 0x5)
-   437	#define VE_DEC_H265_TRIGGER_BYTE_ALIGN FIELD_PREP(VE_DEC_H265_TRIGGER_CMD_MASK, 0x6)
-   438	#define VE_DEC_H265_TRIGGER_INIT_SWDEC FIELD_PREP(VE_DEC_H265_TRIGGER_CMD_MASK, 0x7)
-   439	#define VE_DEC_H265_TRIGGER_DEC_SLICE  FIELD_PREP(VE_DEC_H265_TRIGGER_CMD_MASK, 0x8)
-   440	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Can the device tree folks please have a look at this?
 
