@@ -4,81 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 498A1E6BF0E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 13:30:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61DAEE6BF0E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 13:44:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EIZZgTWN+WVkGCe2DzZUi2LmQSShjbtn6Lr33NLpRdc=; b=P3M1qPIYgXlfRg8mhX4j0lzsns
-	pn1edzjai8r6BVvhEmIL2TCvoD7Cwvd6JVjE6mkO5dfVSvud5HaUk8jOYef5z8N/NAIQRIs/eqcvy
-	rhfGsMtl9levpME4hxRWg5HcyK2wToLMhOIsEWvttupEn3vh85pwg3ds+qCIq0AwZnLGuGwBnZSzh
-	cPB/x+HtMZbQ5Jk+S/y0rE/Z0n9n2/UmXr07k6L69GE+6lSpX6k3DubF6pXkllJw9wQ2MZu2TRvy4
-	D8ig4Vabie780nDg/6ptqwKfuctI+oxhBL/1BS4lB0OJJSy9o1Exmy3J50XkjodJblUwhluSYL9w8
-	3eTjpdsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0EdujWQoBAn/IwVhOEaFp9E9St0lYVYzZ1tCazrBN34=; b=bWyIA9Jmq6NKLs2063oQeSMX+7
+	gfD5a/KIsF/p9RkBV6L/0RB8782D7h9hH/P82c6oPvnNjDPyeX6Rtgc1AYoFN4N1oDB8+TrPQnWvq
+	17GfFgR/U7Is2qJut/MD+6zc3ysRSHNEZcHm5VymBGk+HvkTstJKL6wSexq9Nt8BK4lbYiN8MVs0l
+	VLvPR2t2RAvv6gdYPOZ6b1o1qMGbeZ6nOE6lrAPeaz0QeBKrsbQh5yevg8JHXQYpKk4zlQo9STjNz
+	JiDwXWpRuU6SvaffcFGgDdP0cOV+QlPFs5WKoRNTI1+oG4+y8dVmss1wSIDcwX6uVdzW6VhNRIp/S
+	KOoBnw1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vloZu-00000001XGf-0B0g;
-	Fri, 30 Jan 2026 13:30:26 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1vlonM-00000001YC1-3r15;
+	Fri, 30 Jan 2026 13:44:20 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vloZj-00000001XCd-250S
+	id 1vlonJ-00000001YBT-2dAI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 13:30:16 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-47ee33324e8so23323985e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Jan 2026 05:30:14 -0800 (PST)
+	Fri, 30 Jan 2026 13:44:18 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b8849dc12f6so323262066b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Jan 2026 05:44:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769779813; x=1770384613; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=EIZZgTWN+WVkGCe2DzZUi2LmQSShjbtn6Lr33NLpRdc=;
-        b=zBT/iHmYiJU11BAPJliZc5egxlV8T9UTf2xytYtP+eZTABsrw2JgiPrCHK/Mw2np8s
-         zKVcRVTsxCcTiIaBG7OhRK5aqcN69VYPxnwSmFAw0F81rdiGdGNmES2rq1ByvKjdAV4K
-         jQ4JcF7DQueCn9JBhymxlCBRUGOQ0ZdhGk0OUGAWjS1lfJL91QcNWY1ig1ig3ln6y8bk
-         psW5vhyGHutTDBxzNH+dtTQHNA3HSHTSam9n8VpN1CNIGztL73p+hKGRaldOJc8pdLpa
-         DSi0M9rO/qgFVgFxnDKj/lNcDVq2gc6kMM3dNPXOgbcPcHOe7VNraP2c5OPhs/sxCTN0
-         ZbjA==
+        d=gmail.com; s=20230601; t=1769780655; x=1770385455; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0EdujWQoBAn/IwVhOEaFp9E9St0lYVYzZ1tCazrBN34=;
+        b=bT3u/qhQFM5NUZvqyBxc97clU7Z/dWicjTGkqa5/mbqMae2opTGwVljNxbvVRX2CMk
+         GSmQFM4Upfl7k4Ts9fAGoEe3VKJ9uwlNuCa0TC42zwQSRkDzVuqsWwzGU7JhWHXZUSsU
+         dfKeAZx4CemMImphPgwod9pkaUrpUUaWhbiEMq62k6hw9T4QH61aHY/57lR7VmpEFhLG
+         J2qdjP30w5abaskMYIWW2tqpT6P4UzKoeKk+5+7cXRh6SxszMBkuanAeTY4reYFHXT18
+         ZI8/B+F9eppd7sYxgSucwgdwuVONWp2rBS6SPceumOKDMj32crxF/bFfc8wkFNsDd/m9
+         2EaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769779813; x=1770384613;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=EIZZgTWN+WVkGCe2DzZUi2LmQSShjbtn6Lr33NLpRdc=;
-        b=ZuyoUclTK8RuRynhq9+l5CM/iQG/dRjtVPzjHkCcd6qPlW/FayX0X9KiOUAo4Gj64C
-         eW3cuXwmIWQiSOAk/Eg1toz8ScWyL/T6cyahgSZxtcqZSgbe8k6tqX9dhtd2M6McpYUb
-         jRHWrPWOVsmGvOdCzwPGAJIyd1FvdHQyPNMIwr3wGbWLRQe+4v7PH48t3fO2AiGAKvJc
-         DKxAfsMOEYgt61AtYYkDG264PUUIKyVr++6viUoi6dQneb+yAJkV+GnKI+KtZvpSVu51
-         ZT6hE9Dr+xgVwN8AmhfP3Qdf0VecPeyLLimzUtMBHd1pWVGITDe3iVDL4iqFYW4hM881
-         saAg==
-X-Forwarded-Encrypted: i=1; AJvYcCWCR2rXn1HOsUPnct4w7AwWScmb6nlX0DKoAtQ8y/WdI3rGcCX0vchWNTG1aRiCrLTvIBxZkIbtbVCemsBjzXqM@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfQ68s49ZTTvevp5CwDSsxxUj6s1h2aXGn4QKY7Ux1p69vCPv2
-	rXOPRES0ItBeYqLlHYjwoF43n8Yv2IKw9ZtRvdHNYyZGUwgusoVs4imW17hQQqpNZpMzAX6xZKc
-	zfg==
-X-Received: from wmot9.prod.google.com ([2002:a05:600c:4509:b0:477:7aa2:99cb])
- (user=elver job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:c4a3:b0:480:6c75:ddce
- with SMTP id 5b1f17b1804b1-482db49da16mr40851245e9.33.1769779813044; Fri, 30
- Jan 2026 05:30:13 -0800 (PST)
-Date: Fri, 30 Jan 2026 14:28:26 +0100
-In-Reply-To: <20260130132951.2714396-1-elver@google.com>
-Mime-Version: 1.0
-References: <20260130132951.2714396-1-elver@google.com>
-X-Mailer: git-send-email 2.53.0.rc1.225.gd81095ad13-goog
-Message-ID: <20260130132951.2714396-4-elver@google.com>
-Subject: [PATCH v3 3/3] arm64, compiler-context-analysis: Permit alias
- analysis through __READ_ONCE() with CONFIG_LTO=y
-From: Marco Elver <elver@google.com>
-To: elver@google.com, Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Boqun Feng <boqun.feng@gmail.com>, Waiman Long <longman@redhat.com>, 
-	Bart Van Assche <bvanassche@acm.org>, llvm@lists.linux.dev, 
-	David Laight <david.laight.linux@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>, Boqun Feng <boqun@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20230601; t=1769780655; x=1770385455;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0EdujWQoBAn/IwVhOEaFp9E9St0lYVYzZ1tCazrBN34=;
+        b=ffkzvmneXMg+ZxKU4rOtFxwX3r2epZWhkoOmuqg6uGI/fmsKCuhyWOkWHb/6euaVvs
+         57zJytzYyKEvR9123a3/wl5W3xnG9szmHHMZF4kqob4UtfUDx7mq3W008z5lU5mafH7t
+         xQ2dvI0Y69uGubrEsjGi831TjD1DXuL6dmJ0bROOJBvqwzUV7Fp2+SZqWn6NeivAfFT6
+         jAyXpVapu01F74eTcgs65JtJdmNu8jsKAhSUxKeIOJES8/Wnj+x/RmdvZfgOJ0QrTP4H
+         RGj5fO2FZPgf+CJJunHyh4NMdb44NphOIDEXR92jfRDG3Pmkd2QVZX18f4d0IqdikEoV
+         6cpg==
+X-Forwarded-Encrypted: i=1; AJvYcCVc2YUbSjTjVnZSQt6g4j6P0SMuV9tNz7bpS+/oBVxz5P6VhpVIO0NsEahShNDgwoa47TG1n96zAw7jm6g693+A@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9/8kYa2LT9qVk520SOaY7FS1kyolItX+sfOeng+RUAwKo6W3/
+	iCK0MhQZ44LwbZEEeS0RCetYMRBYPCrC/IQierZqIBAJt1oYl9JmmBlZjWT8vw==
+X-Gm-Gg: AZuq6aILcmGjt3i8231HUaDJ/3DtTijnDl/qmSDnZL+zo27VdrMxNn3Y4/ZuQ0u/aw3
+	MRDaTpomaIuN9OjvKMhetyo397Ie/F1BdcHIfq3/tzNSXga3vy3bqQzArAVAp8zsAbfxiG/a5VV
+	HlLSLWqxnz85o03Q+wUff9HvmB+ZdzTM/1M7hsbStU765mR3r+3+isCy9dHUUpMf1+ICL3+kQ7A
+	Jx6Ok7pQXvsdgXB8fUbExGqJAtM8zo9I559spShAPOiEKkBgj3+MaFxb7z2lnvf/2lvxT3amDUz
+	vV3R97rvK7BBInC9ZtfiH/p94+lUHdPFYfnHqPLtP4cf+qHtYoh1io33lQTAFVg+s3f8h3qjR2F
+	l8FTGVdHrwcDHdj4vEm7XCMskh43SpsVe/rzq9vlj5qHpZRW/3+m8guPCEZYJoy++BnE9QU8krl
+	2MLY8cmMffU0r/k8QePFwUUpTP3wjk0EwgZRkRNPh98A6/mQ==
+X-Received: by 2002:a17:907:7212:b0:b87:daee:a6c4 with SMTP id a640c23a62f3a-b8dff6846admr145665366b.36.1769773667338;
+        Fri, 30 Jan 2026 03:47:47 -0800 (PST)
+Received: from localhost.localdomain ([2a00:23c4:a758:8a01:bd64:2984:fe71:7633])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8de3046abasm243751266b.2.2026.01.30.03.47.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Jan 2026 03:47:47 -0800 (PST)
+From: Biju <biju.das.au@gmail.com>
+X-Google-Original-From: Biju <biju.das.jz@bp.renesas.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Magnus Damm <magnus.damm@gmail.com>
+Cc: Biju Das <biju.das.jz@bp.renesas.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	netdev@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Biju Das <biju.das.au@gmail.com>
+Subject: [PATCH net-next v2 0/2] Add support for Renesas RZ/G3L GBETH
+Date: Fri, 30 Jan 2026 11:47:38 +0000
+Message-ID: <20260130114744.252533-1-biju.das.jz@bp.renesas.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_053015_550479_268B5B47 
-X-CRM114-Status: GOOD (  18.70  )
+X-CRM114-CacheID: sfid-20260130_054417_685793_A022ECE6 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,108 +117,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When enabling Clang's Context Analysis (aka. Thread Safety Analysis) on
-kernel/futex/core.o (see Peter's changes at [1]), in arm64 LTO builds we
-could see:
+From: Biju Das <biju.das.jz@bp.renesas.com>
 
-| kernel/futex/core.c:982:1: warning: spinlock 'atomic ? __u.__val : q->lock_ptr' is still held at the end of function [-Wthread-safety-analysis]
-|      982 | }
-|          | ^
-|    kernel/futex/core.c:976:2: note: spinlock acquired here
-|      976 |         spin_lock(lock_ptr);
-|          |         ^
-| kernel/futex/core.c:982:1: warning: expecting spinlock 'q->lock_ptr' to be held at the end of function [-Wthread-safety-analysis]
-|      982 | }
-|          | ^
-|    kernel/futex/core.c:966:6: note: spinlock acquired here
-|      966 | void futex_q_lockptr_lock(struct futex_q *q)
-|          |      ^
-|    2 warnings generated.
+The Renesas RZ/G3L GBETH IP uses Synopsys DesignWare MAC version 5.30
+compared to other Renesas SoC such as RZ/V2H that use MAC version 5.20.
 
-Where we have:
+The RZ/G3L GBETH requires an extra clock compared to RZ/G3E and has pps
+interrupts. Document the Renesas RZ/G3L GBETH IP in bindings and enable
+the Gigabit Ethernet Interface (GBETH0) populated on the RZ/G3L SMARC
+EVK. The eth1, pincontrol definitions and hotplug support will be added
+later.
 
-	extern void futex_q_lockptr_lock(struct futex_q *q) __acquires(q->lock_ptr);
-	..
-	void futex_q_lockptr_lock(struct futex_q *q)
-	{
-		spinlock_t *lock_ptr;
+v1->v2:
+ * Separated ethernet patches from series [1]
+ * Collected tag for binding patch
 
-		/*
-		 * See futex_unqueue() why lock_ptr can change.
-		 */
-		guard(rcu)();
-	retry:
->>		lock_ptr = READ_ONCE(q->lock_ptr);
-		spin_lock(lock_ptr);
-	...
-	}
+[1] https://lore.kernel.org/all/20260128125850.425264-1-biju.das.jz@bp.renesas.com/
 
-At the time of the above report (prior to removal of the 'atomic' flag),
-Clang Thread Safety Analysis's alias analysis resolved 'lock_ptr' to
-'atomic ?  __u.__val : q->lock_ptr' (now just '__u.__val'), and used
-this as the identity of the context lock given it cannot "see through"
-the inline assembly; however, we want 'q->lock_ptr' as the canonical
-context lock.
+Biju Das (2):
+  dt-bindings: net: renesas,rzv2h-gbeth: Document Renesas RZ/G3L SoC
+  net: stmmac: dwmac-renesas-gbeth: Add support for RZ/G3L SoC
 
-While for code generation the compiler simplified to '__u.__val' for
-pointers (8 byte case -> 'atomic' was set), TSA's analysis (a) happens
-much earlier on the AST, and (b) would be the wrong deduction.
+ .../bindings/net/renesas,rzv2h-gbeth.yaml     | 77 ++++++++++++++++---
+ .../devicetree/bindings/net/snps,dwmac.yaml   |  3 +
+ .../stmicro/stmmac/dwmac-renesas-gbeth.c      |  1 +
+ 3 files changed, 70 insertions(+), 11 deletions(-)
 
-Now that we've gotten rid of the 'atomic' ternary comparison, we can
-return '__u.__val' through a pointer that we initialize with '&x', but
-then update via a pointer-to-pointer. When READ_ONCE()'ing a context
-lock pointer, TSA's alias analysis does not invalidate the initial alias
-when updated through the pointer-to-pointer, and we make it effectively
-"see through" the __READ_ONCE().
-
-Code generation is unchanged.
-
-Link: https://lkml.kernel.org/r/20260121110704.221498346@infradead.org [1]
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202601221040.TeM0ihff-lkp@intel.com/
-Cc: Peter Zijlstra <peterz@infradead.org>
-Tested-by: Boqun Feng <boqun@kernel.org>
-Signed-off-by: Marco Elver <elver@google.com>
----
-v3:
-* Use 'typeof(*__ret)'.
-* Commit message.
-
-v2:
-* Rebase.
----
- arch/arm64/include/asm/rwonce.h | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
-index 42c9e8429274..b7de74d4bf07 100644
---- a/arch/arm64/include/asm/rwonce.h
-+++ b/arch/arm64/include/asm/rwonce.h
-@@ -45,8 +45,12 @@
-  */
- #define __READ_ONCE(x)							\
- ({									\
--	typeof(&(x)) __x = &(x);					\
--	union { __rwonce_typeof_unqual(*__x) __val; char __c[1]; } __u;	\
-+	auto __x = &(x);						\
-+	auto __ret = (__rwonce_typeof_unqual(*__x) *)__x;		\
-+	/* Hides alias reassignment from Clang's -Wthread-safety. */	\
-+	auto __retp = &__ret;						\
-+	union { typeof(*__ret) __val; char __c[1]; } __u;		\
-+	*__retp = &__u.__val;						\
- 	switch (sizeof(x)) {						\
- 	case 1:								\
- 		asm volatile(__LOAD_RCPC(b, %w0, %1)			\
-@@ -71,7 +75,7 @@
- 	default:							\
- 		__u.__val = *(volatile typeof(*__x) *)__x;		\
- 	}								\
--	__u.__val;							\
-+	*__ret;								\
- })
- 
- #endif	/* !BUILD_VDSO */
 -- 
-2.53.0.rc1.225.gd81095ad13-goog
+2.43.0
 
 
