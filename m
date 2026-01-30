@@ -4,87 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5578CE6BF31
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 17:26:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F0EE6BF31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 17:27:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0AkciH26+oaGF40JlRaezZcPnN73IozkSxg6/Jcyr3k=; b=ZPgi0XiRAXuZLDj3C4qhkR2t8M
-	k2F1Zm0qaK3ylua2fZ4SRdrnDhEqgq+nDUKyY0Hwf5SEYn2z6YStKZaFeTzigWpMdeJT16DmQd1Ge
-	OXraTHRiF7U+PEzTDBQyessbqN3spcAJqXsOCOaBl3WS1d35uSC9HjID1Yxy+SkMTCeIMOGbJ4XIO
-	agxzbDiXcLsmXqjrSwOeOuFM0sTWlPscQs2LMBHiPNf6y3vDHPxpHRDdnOZt+oJPFGSMu8PRK3gyz
-	99m+1G+gil3azE2GXTylQwxOujpR09uzluQUa/syn7VVpLRUoAuluiwP2U7bCmFUDupG6Um1IUHhG
-	AbSgOeCg==;
+	bh=o3M3i7fOsBJJ8QZ7iZoiOC82WHRYdzsj5QwfB37tvhM=; b=4BiH905qOIXVa+G4Tknl2rhMWn
+	XuRAarjPcTBD4ssTB7brJPysiKE0ER3M9rNxzc/7i5aGVPtHJwH++WOFo1tseskeflVmufzUCY20J
+	K6Ee8KrPTocrL/vJvCXCVtEYysQ3TKzHSZvIDgBMFeFJGju/YhAgDYDXzDnNKvJLvk7na0tKVna6S
+	oIfgEAFh1FtVhc9LEbZWTO4VaIFSoXIh/AUpGTTBzNk6cS1M/GQdoPq2qc0uZsz1vYzdr4WwSc8jq
+	FFW4F9M/dtFeW1vC4YQq18WDmEcX87H5T+JyoneTiI9Nq8CYje/QK9RxTtDY14pFseLP9Uj6JIvAe
+	FDGtLaLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlsGa-00000001lLx-1GrH;
-	Fri, 30 Jan 2026 17:26:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vlsHO-00000001lR5-35AB;
+	Fri, 30 Jan 2026 17:27:34 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlsGZ-00000001lLi-2EWr
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 17:26:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8F11A6014D;
-	Fri, 30 Jan 2026 17:26:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DD9DC116C6;
-	Fri, 30 Jan 2026 17:26:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769794002;
-	bh=M/J2fDQm2LgYTOtygveeKcKFKa3ZI9LGFPJPx+f2kn0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=jNG9iBZdzYRLsPfcV3qNhestvrsV2JaXANbl6G0erDL29XxcuEuD32xOPeBR823Cu
-	 DjMDgBtTXeziu09ExIUwKXSciGbe9zSbLLJX3Mf4XGO04ZKuyQqmPzNqxqpVRI0WKZ
-	 Be/fSFhid/omnw0+b0NIk9PwxMxeV5Wyp+f746+IWkpUzOR0VllgV9Wk3KNet1x95J
-	 Z1mv2Hl60f6nA3LDuh88q8wThgfTYF5xOXb2/8f415oX+b+/R+J58J/FEUDkZU74WL
-	 fpzqhG8uI+AV4yMbsF4Z0D78ry7urDu8IIjGO4l1oCPkGR4q6IA5trR2U5A2iGAIBV
-	 u3CetnGjoJ4wg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vlsGV-000000077vO-3lzt;
-	Fri, 30 Jan 2026 17:26:39 +0000
-Date: Fri, 30 Jan 2026 17:26:39 +0000
-Message-ID: <86zf5v9flc.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	Timothy Hayes
-	<Timothy.Hayes@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	nd
-	<nd@arm.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvm@vger.kernel.org"
-	<kvm@vger.kernel.org>,
-	Joey Gouly <Joey.Gouly@arm.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>
-Subject: Re: [PATCH v4 11/36] KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE
-In-Reply-To: <6a45dd02fdd2e70e0722dc5b3087ecfb18f01e98.camel@arm.com>
-References: <20260128175919.3828384-1-sascha.bischoff@arm.com>
-	<20260128175919.3828384-12-sascha.bischoff@arm.com>
-	<861pj7baav.wl-maz@kernel.org>
-	<6a45dd02fdd2e70e0722dc5b3087ecfb18f01e98.camel@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, yuzenghui@huawei.com, Timothy.Hayes@arm.com, Suzuki.Poulose@arm.com, nd@arm.com, peter.maydell@linaro.org, kvmarm@lists.linux.dev, jonathan.cameron@huawei.com, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, Joey.Gouly@arm.com, lpieralisi@kernel.org, oliver.upton@linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1vlsHL-00000001lQ3-3q2C;
+	Fri, 30 Jan 2026 17:27:33 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1769794048;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=o3M3i7fOsBJJ8QZ7iZoiOC82WHRYdzsj5QwfB37tvhM=;
+	b=4vjFnCIdprQ4bapgrR0W30E28e5XqGnWTzlLJRIchP5KT0mQiU7C2HocIuX1Kdz8pUDo0Y
+	qc+5Orpl1l1vZoFNRQKL24RKcgRr4rbqO02DrPCVc+5aUzHom7b8+oniEw+b53sZSdrxJg
+	+9kDxpq15AQ1xIFUPYwfQgdiBumRwsh+faRgD4dNJMyLkXr/A+P3jXB+CHRA0Hld9eIR+Y
+	7xvqnLxeTCF6EQZwTVn1wPEr2oy9Q/+88+eiC8F7PD8kB/n3dpKOZdgpjEsqUgdQZXqqI6
+	yQRXOGphajl9ppYkFrEud4nWZdOCa3/Ob9kGErESIR3cRVjE/LChlCPSJd3YTA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1769794048;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=o3M3i7fOsBJJ8QZ7iZoiOC82WHRYdzsj5QwfB37tvhM=;
+	b=520kqiApVkDPFPboRTL5PTkP4fVPei7/H7ecnPwf1SVFxrBJQEXzDTADXeZGZGuaQ0gr4c
+	ZZ61wAzhpOPpFsDw==
+To: Marcos Paulo de Souza <mpdesouza@suse.com>, Richard Weinberger
+ <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes
+ Berg <johannes@sipsolutions.net>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Jason Wessel <jason.wessel@windriver.com>,
+ Daniel Thompson <danielt@kernel.org>, Douglas Anderson
+ <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>, Steven Rostedt
+ <rostedt@goodmis.org>, Sergey Senozhatsky <senozhatsky@chromium.org>, Jiri
+ Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, Kees Cook <kees@kernel.org>, Tony Luck
+ <tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman
+ <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Christophe
+ Leroy <christophe.leroy@csgroup.eu>, Andreas Larsson
+ <andreas@gaisler.com>, Alexander Shishkin
+ <alexander.shishkin@linux.intel.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Jacky Huang <ychuang3@nuvoton.com>,
+ Shan-Chun Hung <schung@nuvoton.com>, Laurentiu Tudor
+ <laurentiu.tudor@nxp.com>
+Cc: linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
+ netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ Marcos Paulo de Souza <mpdesouza@suse.com>
+Subject: Re: [PATCH 05/19] printk: Add more context to suspend/resume functions
+In-Reply-To: <20251227-printk-cleanup-part3-v1-5-21a291bcf197@suse.com>
+References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+ <20251227-printk-cleanup-part3-v1-5-21a291bcf197@suse.com>
+Date: Fri, 30 Jan 2026 18:33:27 +0106
+Message-ID: <87343n3ta8.fsf@jogness.linutronix.de>
+MIME-Version: 1.0
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260130_092732_098177_F881F456 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,101 +100,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 30 Jan 2026 17:13:18 +0000,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
->=20
-> On Fri, 2026-01-30 at 11:38 +0000, Marc Zyngier wrote:
-> > On Wed, 28 Jan 2026 18:02:09 +0000,
-> > Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-> > >=20
-> > > Set the guest's view of the GCIE field to IMP when running a GICv5
-> > > VM,
-> > > NI otherwise. Reject any writes to the register that try to do
-> > > anything but set GCIE to IMP when running a GICv5 VM.
-> > >=20
-> > > As part of this change, we're also required to extend
-> > > vgic_is_v3_compat() to check for the actual vgic_model. This has
-> > > one
-> > > potential issue - if any of the vgic_is_v*() checks are used prior
-> > > to
-> > > setting the vgic_model (that is, before kvm_vgic_create) then
-> > > vgic_model will be set to 0, which can result in a false-positive.
-> > >=20
-> > > Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
-> > > Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-> > > Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> > > Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> > > ---
-> > > =C2=A0arch/arm64/kvm/sys_regs.c=C2=A0 | 42 ++++++++++++++++++++++++++=
-++++----
-> > > ----
-> > > =C2=A0arch/arm64/kvm/vgic/vgic.h | 10 ++++++++-
-> > > =C2=A02 files changed, 43 insertions(+), 9 deletions(-)
-> > >=20
-> > > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> > > index 88a57ca36d96..73dd2bd85c4f 100644
-> > > --- a/arch/arm64/kvm/sys_regs.c
-> > > +++ b/arch/arm64/kvm/sys_regs.c
-> > > @@ -1758,6 +1758,7 @@ static u8 pmuver_to_perfmon(u8 pmuver)
-> > > =C2=A0
-> > > =C2=A0static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu,
-> > > u64 val);
-> > > =C2=A0static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu,
-> > > u64 val);
-> > > +static u64 sanitise_id_aa64pfr2_el1(const struct kvm_vcpu *vcpu,
-> > > u64 val);
-> > > =C2=A0static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu,
-> > > u64 val);
-> > > =C2=A0
-> > > =C2=A0/* Read a sanitised cpufeature ID register by sys_reg_desc */
-> > > @@ -1783,10 +1784,7 @@ static u64 __kvm_read_sanitised_id_reg(const
-> > > struct kvm_vcpu *vcpu,
-> > > =C2=A0		val =3D sanitise_id_aa64pfr1_el1(vcpu, val);
-> > > =C2=A0		break;
-> > > =C2=A0	case SYS_ID_AA64PFR2_EL1:
-> > > -		val &=3D ID_AA64PFR2_EL1_FPMR |
-> > > -			(kvm_has_mte(vcpu->kvm) ?
-> > > -			 ID_AA64PFR2_EL1_MTEFAR |
-> > > ID_AA64PFR2_EL1_MTESTOREONLY :
-> > > -			 0);
-> > > +		val =3D sanitise_id_aa64pfr2_el1(vcpu, val);
-> > > =C2=A0		break;
-> > > =C2=A0	case SYS_ID_AA64ISAR1_EL1:
-> > > =C2=A0		if (!vcpu_has_ptrauth(vcpu))
-> > > @@ -2024,6 +2022,23 @@ static u64 sanitise_id_aa64pfr1_el1(const
-> > > struct kvm_vcpu *vcpu, u64 val)
-> > > =C2=A0	return val;
-> > > =C2=A0}
-> > > =C2=A0
-> > > +static u64 sanitise_id_aa64pfr2_el1(const struct kvm_vcpu *vcpu,
-> > > u64 val)
-> > > +{
-> > > +	val &=3D ID_AA64PFR2_EL1_FPMR |
-> > > +	=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ID_AA64PFR2_EL1_MTEFAR |
-> > > +	=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ID_AA64PFR2_EL1_MTESTOREONLY;
-> > > +
-> > > +	if (!kvm_has_mte(vcpu->kvm)) {
-> > > +		val &=3D ~ID_AA64PFR2_EL1_MTEFAR;
-> > > +		val &=3D ~ID_AA64PFR2_EL1_MTESTOREONLY;
-> > > +	}
-> > > +
-> > > +	if (vgic_is_v5(vcpu->kvm))
-> > > +		val |=3D SYS_FIELD_PREP_ENUM(ID_AA64PFR2_EL1, GCIE,
-> > > IMP);
-> >=20
-> > You probably want to clear the field before or'ing something in, or
-> > you may be promising more than we'd expect.
->=20
-> The GCIE field should already be zeroed at this point as it is filtered
-> out to begin with. If we have GICv5 (so FEAT_GCIE) we're explicitly
-> setting this field to IMP, else NI.
+On 2025-12-27, Marcos Paulo de Souza <mpdesouza@suse.com> wrote:
+> The new comments clarifies from where the functions are supposed to be
+> called.
+>
+> Signed-off-by: Marcos Paulo de Souza <mpdesouza@suse.com>
+> ---
+>  kernel/printk/printk.c | 12 ++++++++++--
+>  1 file changed, 10 insertions(+), 2 deletions(-)
+>
+> diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
+> index 173c14e08afe..85a8b6521d9e 100644
+> --- a/kernel/printk/printk.c
+> +++ b/kernel/printk/printk.c
+> @@ -2734,7 +2734,8 @@ MODULE_PARM_DESC(console_no_auto_verbose, "Disable console loglevel raise to hig
+>  /**
+>   * console_suspend_all - suspend the console subsystem
+>   *
+> - * This disables printk() while we go into suspend states
+> + * This disables printk() while we go into suspend states. Called by the power
+> + * management subsystem.
 
-As you can tell by now, I can't read. Apologies for the noise.
+Since you are touching this comment, I would prefer to make it
+technically accurate. It is not printk() that is disabled, it is console
+printing that is disabled. Perhaps something like:
 
-Thanks,
+ * Block all console printing while the system goes into suspend state.
+ * Called by the power management subsystem.
+   
+>   */
+>  void console_suspend_all(void)
+>  {
+> @@ -2766,6 +2767,12 @@ void console_suspend_all(void)
+>  	synchronize_srcu(&console_srcu);
+>  }
+>  
+> +/**
+> + * console_resume_all - resume the console subsystem
+> + *
+> + * This resumes printk() when the system is being restored. Called by the power
+> + * management subsystem.
 
-	M.
+And something similar here:
 
---=20
-Without deviation from the norm, progress is not possible.
+ * Allow all console printing when the system resumes from suspend. Called by
+ * the power management system.
+ 
+> + */
+>  void console_resume_all(void)
+>  {
+>  	struct console_flush_type ft;
+
+John Ogness
 
