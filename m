@@ -4,61 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D79E6BF39
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 20:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92FB8E6BF10
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 20:33:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vOb6VFij3iBn4ndpB7Yrq9iVB0HebTt8hEgVnBjhJ94=; b=o6fQs0tre/EaliWDOIyfLiKZx6
-	taFrDiQETF4QqOcdExbCwFhCLKJKDqKAdjCFtms1/zKRkKPsr3TdI91rHXt+3qEMd0zarxxiAgiQD
-	/JAfEmWOyACxc+s9XcZVQc5wB7/4XZ1Lgi8nvCDvhm4M0pQwAaBBBzcTPx4N2EE6Emwf1hOlLJcqd
-	GnUyH/EVo3FpNpyZfQxd69mzKYvPP1/Hdl++kwBjSKoDhQURsdWrf347X0X70/VrfHT8AeH5FC1h2
-	nwp421XU2z/guaaK3F60suaJ7b3eTMYkPFxUpV6gL5+qlNE3qy28oeFmo7RTxNnvFzdVu6FO+ntx3
-	CCB3NfxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zR1IA4ZeAOqqAwWiQWGrLjem0Myl+mvHXJd0+68zKi8=; b=brTAc4rQOXCikt9hVkEDWZ1iB2
+	1eJcXSTagDX+/Sw/DxVh/H5Uw60N6vexqI8hVfI3nBYQ3Drn/e5ZtHNC0hu6mhvH0tRicnlA6pNuA
+	BwsoSc3ynPgnKJ9zXBqC1q8t3AImJwOJlKVdCEzORwi2YW5HRLxYf5AeWttaOJE2KAaWqMcxMcxKh
+	Mz6GAtwlvypZF1O5/uGL7N5GNW8SxWaqLLcq1Ih1s9ohW95ZsDDGaY08IOZ/M3ALsqEuLhA7YNgvg
+	QtDaOJ1BNQwPSB2p4SXRpAgRT7Bjo3+KFYt1YomipqvgW6cqc/R/kdjOdHP7eTv6F76cMin5peA60
+	bk4SUrMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlv9g-00000001wIn-3oBf;
-	Fri, 30 Jan 2026 20:31:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlv9d-00000001wIS-37dD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 20:31:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D7CE153B;
-	Fri, 30 Jan 2026 12:31:36 -0800 (PST)
-Received: from [10.6.14.29] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2B4803F5CA;
-	Fri, 30 Jan 2026 12:31:24 -0800 (PST)
-Message-ID: <5dad5a2f-1282-43a4-928f-a7b8da25fb82@arm.com>
-Date: Fri, 30 Jan 2026 21:31:13 +0100
+	id 1vlvAq-00000001wUE-2JlA;
+	Fri, 30 Jan 2026 20:33:00 +0000
+Received: from [95.181.193.9] (helo=mail.auroraos.dev)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlvAn-00000001wSn-1smr;
+	Fri, 30 Jan 2026 20:32:58 +0000
+Received: from wasted (213.87.133.239) by exch16.corp.auroraos.dev
+ (10.189.209.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1847.3; Fri, 30 Jan
+ 2026 23:32:46 +0300
+From: Sergey Shtylyov <s.shtylyov@auroraos.dev>
+To: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?q?Heiko=20St=C3=BCbner?=
+	<heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, <dri-devel@lists.freedesktop.org>,
+	<linux-rockchip@lists.infradead.org>
+CC: Sergey Shtylyov <s.shtylyov@auroraos.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <stable@vger.kernel.org>
+Subject: [PATCH] drm/rockchip: cdn-dp: add missing check in cdn_dp_config_video()
+Date: Fri, 30 Jan 2026 23:31:46 +0300
+Message-ID: <20260130203148.46473-1-s.shtylyov@auroraos.dev>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] firmware: smccc: add support for Live Firmware
- Activation (LFA)
-To: Vedashree Vidwans <vvidwans@nvidia.com>, Salman Nabi
- <salman.nabi@arm.com>, sudeep.holla@arm.com, mark.rutland@arm.com,
- lpieralisi@kernel.org
-Cc: ardb@kernel.org, chao.gao@intel.com,
- linux-arm-kernel@lists.infradead.org, linux-coco@lists.linux.dev,
- linux-kernel@vger.kernel.org, sdonthineni@nvidia.com, vsethi@nvidia.com,
- vwadekar@nvidia.com
-References: <20260119122729.287522-1-salman.nabi@arm.com>
- <20260119122729.287522-2-salman.nabi@arm.com>
- <bf1addf9-5e28-46c6-8943-6a359630e533@nvidia.com>
- <8e4b3940-bea0-4c75-80ec-8c5a87cd24a5@arm.com>
- <67ffa9f9-64b4-4015-b374-c7ab545c5200@nvidia.com>
-Content-Language: en-US
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <67ffa9f9-64b4-4015-b374-c7ab545c5200@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [213.87.133.239]
+X-ClientProxiedBy: exch16.corp.auroraos.dev (10.189.209.38) To
+ exch16.corp.auroraos.dev (10.189.209.38)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_123145_861562_28566548 
-X-CRM114-Status: GOOD (  32.90  )
+X-CRM114-CacheID: sfid-20260130_123257_493103_F583A5ED 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,226 +67,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The result of cdn_dp_reg_write() is checked everywhere (with the error
+being logged by the callers) except one place in cdn_dp_config_video().
+Add the missing result check, bailing out early on error...
 
-On 1/30/26 20:29, Vedashree Vidwans wrote:
-> Hi Andre,
-> 
-> On 1/29/26 09:26, Andre Przywara wrote:
->> Hi Vedashree,
->>
->> many thanks for having a look!
->>
->> On 1/28/26 00:01, Vedashree Vidwans wrote:
->>> Hello,
->>>
->>> On 1/19/26 04:27, Salman Nabi wrote:
->>>> The Arm Live Firmware Activation (LFA) is a specification [1] to 
->>>> describe
->>>> activating firmware components without a reboot. Those components
->>>> (like TF-A's BL31, EDK-II, TF-RMM, secure paylods) would be updated the
->>>> usual way: via fwupd, FF-A or other secure storage methods, or via some
->>
+Found by Linux Verification Center (linuxtesting.org) with the Svace static
+analysis tool.
 
-[ .... ]
->>>> +
->>>> +    for (int i = 0; i < ARRAY_SIZE(fw_images_uuids); i++) {
->>>> +        if (!strcmp(fw_images_uuids[i].uuid, fw_uuid))
->>>> +            image_name = fw_images_uuids[i].name;
->>>> +    }
->>> I would recommend using fw_uuid as the image_name when UUID is not
->>> found in fw_images_uuids[], currently the driver assigns 'unknown'
->>> in such case.
->>> There is a valid possibility that platform-specific FW images, not
->>> listed in fw_images_uuids[], are used by LFA agent for live FW
->>> activation. In such scenarios, falling back to 'unknown' would lose
->>> important information especially when errors surface in
->>> call_lfa_activate(). Using UUID directly would indicate which
->>> image failed or behaved unexpectedly.
->>
->> Well, I think if you want to identify an image clearly, you always 
->> have to use the UUID, as shown by the directory name. The "name" sysfs 
->> file is there just for convenience, to make this easier for *users* 
->> when dealing with well-known firmware image. As you rightly said, we 
->> can never guarantee that the kernel knows a certain UUID, and it 
->> wouldn't be necessary for proper operation at all.
->> So I was expecting this name to be only used by reporting scripts or 
->> such. But indeed some "unknown" string is a bit fragile as a 
->> placeholder name, I was wondering if we should just provide an empty 
->> string in this case? This would allow scripts to detect this special 
->> case reliably and provide their own rendering then.
->> Does this make sense?
-> Thank you for teh clarification, this helps. I agree that UUID is the 
-> canonical identifier and that 'name' sysfs file is mainly for user 
-> convenience.
-> One concern I have is around error reporting. For example, if 
-> call_lfa_activate() fails, the kernel prints:
-> ACTIVATE for image <name_string> failed: LFA_BUSY
-> 
-> If the 'name_string' is "unknown" or an empty string, the error message 
-> doesn't indicate which firmware component failed activation, especially 
-> on system with multiple LFA-capable FW images.
+Fixes: 1a0f7ed3abe2 ("drm/rockchip: cdn-dp: add cdn DP support for rk3399")
+Signed-off-by: Sergey Shtylyov <s.shtylyov@auroraos.dev>
+Cc: stable@vger.kernel.org
+---
+ drivers/gpu/drm/rockchip/cdn-dp-reg.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Yes, that's a good point.
-
-> In such cases, having meaningful fallback identifier is helpful for 
-> debugging. Using UUID in the error log would help identify which FW 
-> image encountered the failure. This avoids ambiguity and makes error 
-> triage much easier, especially when platform-specific firmware images 
-> are not listed in fw_images_uuids[] but are still valid LFA components.
-> So eitehr of the following would solve the issue:
-> 1. Use fw_uuid as the fallback image_name
-> 2. Update error print in call_lfa_activate() and prime_fw_image() to use 
-> UUID instead of image_name.
-
-I'd say number 2 is better. And if we leave the name char* as NULL or an 
-empty string, then this is also easy to detect in the code, and we can 
-print the UUID instead. If we do this more than once, then this could be 
-nicely hidden in a function.
-
-Thanks,
-Andre
-
-
-> Best,
-> Veda
->>
->> Cheers,
->> Andre
->>
->>> Thank you,
->>> Veda
->>>> +
->>>> +    attrs->image_dir = kobject_create_and_add(fw_uuid, lfa_dir);
->>>> +    if (!attrs->image_dir)
->>>> +        return -ENOMEM;
->>>> +
->>>> +    INIT_LIST_HEAD(&attrs->image_node);
->>>> +    attrs->image_name = image_name;
->>>> +    attrs->cpu_rendezvous_forced = 1;
->>>> +    set_image_flags(attrs, seq_id, image_flags, reg_current_ver,
->>>> +            reg_pending_ver);
->>>> +
->>>> +    /*
->>>> +     * The attributes for each sysfs file are constant (handler 
->>>> functions,
->>>> +     * name and permissions are the same within each directory), 
->>>> but we
->>>> +     * need a per-directory copy regardless, to get a unique handle
->>>> +     * for each directory, so that container_of can do its magic.
->>>> +     * Also this requires an explicit sysfs_attr_init(), since it's 
->>>> a new
->>>> +     * copy, to make LOCKDEP happy.
->>>> +     */
->>>> +    memcpy(attrs->image_attrs, image_attrs_group,
->>>> +           sizeof(attrs->image_attrs));
->>>> +    for (int i = 0; i < LFA_ATTR_NR_IMAGES; i++) {
->>>> +        struct attribute *attr = &attrs->image_attrs[i].attr;
->>>> +
->>>> +        sysfs_attr_init(attr);
->>>> +        ret = sysfs_create_file(attrs->image_dir, attr);
->>>> +        if (ret) {
->>>> +            pr_err("creating sysfs file for uuid %s: %d\n",
->>>> +                   fw_uuid, ret);
->>>> +            clean_fw_images_tree();
->>>> +
->>>> +            return ret;
->>>> +        }
->>>> +    }
->>>> +    list_add(&attrs->image_node, &lfa_fw_images);
->>>> +
->>>> +    return ret;
->>>> +}
->>>> +
->>>> +static int update_fw_images_tree(void)
->>>> +{
->>>> +    struct arm_smccc_1_2_regs reg = { 0 };
->>>> +    struct uuid_regs image_uuid;
->>>> +    char image_id_str[40];
->>>> +    int ret, num_of_components;
->>>> +
->>>> +    num_of_components = get_nr_lfa_components();
->>>> +    if (num_of_components <= 0) {
->>>> +        pr_err("Error getting number of LFA components\n");
->>>> +        return -ENODEV;
->>>> +    }
->>>> +
->>>> +    for (int i = 0; i < num_of_components; i++) {
->>>> +        reg.a0 = LFA_1_0_FN_GET_INVENTORY;
->>>> +        reg.a1 = i; /* fw_seq_id under consideration */
->>>> +        arm_smccc_1_2_invoke(&reg, &reg);
->>>> +        if (reg.a0 == LFA_SUCCESS) {
->>>> +            image_uuid.uuid_lo = reg.a1;
->>>> +            image_uuid.uuid_hi = reg.a2;
->>>> +
->>>> +            snprintf(image_id_str, sizeof(image_id_str), "%pUb",
->>>> +                 &image_uuid);
->>>> +            ret = update_fw_image_node(image_id_str, i,
->>>> +                            reg.a3, reg.a4, reg.a5);
->>>> +            if (ret)
->>>> +                return ret;
->>>> +        }
->>>> +    }
->>>> +
->>>> +    return 0;
->>>> +}
->>>> +
->>>> +static int __init lfa_init(void)
->>>> +{
->>>> +    struct arm_smccc_1_2_regs reg = { 0 };
->>>> +    int err;
->>>> +
->>>> +    reg.a0 = LFA_1_0_FN_GET_VERSION;
->>>> +    arm_smccc_1_2_invoke(&reg, &reg);
->>>> +    if (reg.a0 == -LFA_NOT_SUPPORTED) {
->>>> +        pr_info("Live Firmware activation: no firmware agent 
->>>> found\n");
->>>> +        return -ENODEV;
->>>> +    }
->>>> +
->>>> +    fw_images_update_wq = alloc_workqueue("fw_images_update_wq",
->>>> +                         WQ_UNBOUND | WQ_MEM_RECLAIM, 1);
->>>> +    if (!fw_images_update_wq) {
->>>> +        pr_err("Live Firmware Activation: Failed to allocate 
->>>> workqueue.\n");
->>>> +
->>>> +        return -ENOMEM;
->>>> +    }
->>>> +
->>>> +    pr_info("Live Firmware Activation: detected v%ld.%ld\n",
->>>> +        reg.a0 >> 16, reg.a0 & 0xffff);
->>>> +
->>>> +    lfa_dir = kobject_create_and_add("lfa", firmware_kobj);
->>>> +    if (!lfa_dir)
->>>> +        return -ENOMEM;
->>>> +
->>>> +    mutex_lock(&lfa_lock);
->>>> +    err = update_fw_images_tree();
->>>> +    if (err != 0)
->>>> +        kobject_put(lfa_dir);
->>>> +
->>>> +    mutex_unlock(&lfa_lock);
->>>> +    return err;
->>>> +}
->>>> +module_init(lfa_init);
->>>> +
->>>> +static void __exit lfa_exit(void)
->>>> +{
->>>> +    flush_workqueue(fw_images_update_wq);
->>>> +    destroy_workqueue(fw_images_update_wq);
->>>> +
->>>> +    mutex_lock(&lfa_lock);
->>>> +    clean_fw_images_tree();
->>>> +    mutex_unlock(&lfa_lock);
->>>> +
->>>> +    kobject_put(lfa_dir);
->>>> +}
->>>> +module_exit(lfa_exit);
->>>> +
->>>> +MODULE_DESCRIPTION("ARM Live Firmware Activation (LFA)");
->>>> +MODULE_LICENSE("GPL");
->>>
->>
-> 
+diff --git a/drivers/gpu/drm/rockchip/cdn-dp-reg.c b/drivers/gpu/drm/rockchip/cdn-dp-reg.c
+index 0dc3804051a9..9b82b27770e5 100644
+--- a/drivers/gpu/drm/rockchip/cdn-dp-reg.c
++++ b/drivers/gpu/drm/rockchip/cdn-dp-reg.c
+@@ -685,6 +685,8 @@ int cdn_dp_config_video(struct cdn_dp_device *dp)
+ 	val = div_u64(8 * (symbol + 1), bit_per_pix) - val;
+ 	val += 2;
+ 	ret = cdn_dp_reg_write(dp, DP_VC_TABLE(15), val);
++	if (ret)
++		goto err_config_video;
+ 
+ 	switch (video->color_depth) {
+ 	case 6:
+-- 
+2.52.0
 
 
