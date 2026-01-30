@@ -4,73 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2382D46C1D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 22:51:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB9F0E6BF3F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 22:54:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KGdqS9ek3b00E3zGRkQ2P5hPV0gdMGJpvlJhJT8pBAM=; b=ftA0UfgDv/J+Uk0uKy2n2cIBo9
-	090I6/BNXgwDtZZf0AQEUmsSATxIo9rZqpmPO0aeCzv6to2jykgLLaHXDf66ZG/IXuuOiJ6YTf5oN
-	sL8Jzt/wefWWBqiPMfcKbxGOoZ1A+GUgvSCzsVh9IDddDm35VSrm/GT/g6GaVg5EROcs8piSu/43G
-	J0zJVFKrS1g+H0EMnXLFRrTMneRsrlg6/5WpfUfqmKInevx0ISf/rma0CL0B8bUQIbmqw+wDxyIQR
-	NOb8j4S9hRaEfIaWZ3cvLhhMnqZT8czNMtBFGNhA5H3uiK6Lj/oZveLr+0OK6LUdIwPbJILJHN64K
-	qbs0l9QQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rHObMvUlxXW475nFTygdQs5EuNfKBMKSf4m21mBwUNE=; b=OCMtBl3See3Rc/WU1mKdhoD7B7
+	y5xr1HLuQ4fcAN16q7U/tUxVv6j4jR6i8/9Qw3SW/HoYbSTxQzgupP8WaBMkZNnw8+nS/wg8U3ZXU
+	3ZepSDkz1t4rpqJPUXcfK0HRPiReQ8l/CnZkRP8oT9CAvxeIw0St1bVWaMH8bsgCh/Vi4URyYOI9V
+	Ztn5a73RbYzP3XHb70qgEmaJUF6/DCLqJavdu/NeJQl0r3hBvh2hPgvFHG2TJbJoNI/aCU6x5eIxp
+	Xww6rW78r9lKwp9JcoJmRc51dMUFBD0ygGwlSwcs0vShC3sZLOe5niqyfNh0Q9bn6l9cXA6qZFblT
+	/5EGy+oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlxKm-000000024dV-3vU4;
-	Fri, 30 Jan 2026 22:51:24 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlxKl-000000024d8-0uyD
+	id 1vlxNO-000000024pR-1IvA;
+	Fri, 30 Jan 2026 22:54:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlxNM-000000024p5-0hg5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 22:51:24 +0000
-Received: from [192.168.0.88] (192-184-212-33.fiber.dynamic.sonic.net [192.184.212.33])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 7D09D20B7167;
-	Fri, 30 Jan 2026 14:51:20 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7D09D20B7167
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1769813481;
-	bh=KGdqS9ek3b00E3zGRkQ2P5hPV0gdMGJpvlJhJT8pBAM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nnW/cjHFX2Y5nDawSxVZ3sUA+dmD8vFt4ip3PxYRcw9o/woCVpgXmW+cCwzodAyQL
-	 L6uefhD0hSdSKg5QDkYh1KNQQ7z20w5Wwa8oDaL9qgH0MmByofmSnUnskROUxZWUR5
-	 BQHY7cYRXGx3B85k5PRq6Plys4U5RBW5yAx5hZOU=
-Message-ID: <8298de1d-648c-bbc6-b3c9-1cbc9b5d7e72@linux.microsoft.com>
-Date: Fri, 30 Jan 2026 14:51:19 -0800
+	Fri, 30 Jan 2026 22:54:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1BEE140346;
+	Fri, 30 Jan 2026 22:54:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95264C4CEF7;
+	Fri, 30 Jan 2026 22:54:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769813643;
+	bh=BC9YUeb9WKTkaJYQAKVMGEgmblMkguJiuXzL58qwZdo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tQuQ/WcumE1JiQ//1BD6xkMbC7920ppd98IUaxn07imyq6dlfHJoBd6f7/urcHey/
+	 hINeibsZzFMxfIhdTUmecKzDRv/4rrVMjIj+aEhIu7eqObigZ6K9oXzGOhBSvIaTeZ
+	 GC+nN9ylQumoJi6pqJCwsB0h8E9T3OWnWUG4fOy7WGTvWJatWL1UFuatOrQNGbIYsf
+	 Ja+2WDWHqaIzVv89lrJnH36fTI4dUNQH65b7WWtr5UG/N9QqQsYarLXz7xRfjhsjux
+	 IwjEa0erbNQKHWkM5xQVuZfH873ncLYwBhGLLz89JPaQ2d7z82gnP0FSc8b4Y9mNUt
+	 owqXJzO7UbZBw==
+Date: Fri, 30 Jan 2026 23:54:00 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: "Viorel Suman (OSS)" <viorel.suman@oss.nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-pwm@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] pwm: imx-tpm: keep channel state instead of counting
+Message-ID: <hgq3sqxuav3z3fgxyighfgqan6hliu2bev7bthgrmzlwsjecmv@7bxor6zucgct>
+References: <20260130143720.778514-1-viorel.suman@oss.nxp.com>
+ <aXztQkefafsgFJvN@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.13.1
-Subject: Re: [PATCH v0 12/15] x86/hyperv: Implement hyperv virtual iommu
-Content-Language: en-US
-To: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-pci@vger.kernel.org, linux-arch@vger.kernel.org, kys@microsoft.com,
- haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
- longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
- tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
- lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
- nunodasneves@linux.microsoft.com, mhklinux@outlook.com,
- romank@linux.microsoft.com
-References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
- <20260120064230.3602565-13-mrathor@linux.microsoft.com>
- <aXAZ-r1PeUBAHwaK@skinsburskii.localdomain>
- <54fd73b9-ade6-f1bb-08fc-17571aeadb20@linux.microsoft.com>
- <aXeO7wh7bpacJ1Sk@skinsburskii.localdomain>
- <c40e6dc8-8e42-b0f3-f8e5-3c637adb7f13@linux.microsoft.com>
- <aXkIGfos4l0kv_lF@skinsburskii.localdomain>
-From: Mukesh R <mrathor@linux.microsoft.com>
-In-Reply-To: <aXkIGfos4l0kv_lF@skinsburskii.localdomain>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ywia3zssrqv4e5f3"
+Content-Disposition: inline
+In-Reply-To: <aXztQkefafsgFJvN@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_145123_294883_2B72A401 
-X-CRM114-Status: GOOD (  24.75  )
+X-CRM114-CacheID: sfid-20260130_145404_225258_8BE3876B 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,113 +75,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/27/26 10:46, Stanislav Kinsburskii wrote:
-> On Mon, Jan 26, 2026 at 07:02:29PM -0800, Mukesh R wrote:
->> On 1/26/26 07:57, Stanislav Kinsburskii wrote:
->>> On Fri, Jan 23, 2026 at 05:26:19PM -0800, Mukesh R wrote:
->>>> On 1/20/26 16:12, Stanislav Kinsburskii wrote:
->>>>> On Mon, Jan 19, 2026 at 10:42:27PM -0800, Mukesh R wrote:
->>>>>> From: Mukesh Rathor <mrathor@linux.microsoft.com>
->>>>>>
->>>>>> Add a new file to implement management of device domains, mapping and
->>>>>> unmapping of iommu memory, and other iommu_ops to fit within the VFIO
->>>>>> framework for PCI passthru on Hyper-V running Linux as root or L1VH
->>>>>> parent. This also implements direct attach mechanism for PCI passthru,
->>>>>> and it is also made to work within the VFIO framework.
->>>>>>
->>>>>> At a high level, during boot the hypervisor creates a default identity
->>>>>> domain and attaches all devices to it. This nicely maps to Linux iommu
->>>>>> subsystem IOMMU_DOMAIN_IDENTITY domain. As a result, Linux does not
->>>>>> need to explicitly ask Hyper-V to attach devices and do maps/unmaps
->>>>>> during boot. As mentioned previously, Hyper-V supports two ways to do
->>>>>> PCI passthru:
->>>>>>
->>>>>>      1. Device Domain: root must create a device domain in the hypervisor,
->>>>>>         and do map/unmap hypercalls for mapping and unmapping guest RAM.
->>>>>>         All hypervisor communications use device id of type PCI for
->>>>>>         identifying and referencing the device.
->>>>>>
->>>>>>      2. Direct Attach: the hypervisor will simply use the guest's HW
->>>>>>         page table for mappings, thus the host need not do map/unmap
->>>>>>         device memory hypercalls. As such, direct attach passthru setup
->>>>>>         during guest boot is extremely fast. A direct attached device
->>>>>>         must be referenced via logical device id and not via the PCI
->>>>>>         device id.
->>>>>>
->>>>>> At present, L1VH root/parent only supports direct attaches. Also direct
->>>>>> attach is default in non-L1VH cases because there are some significant
->>>>>> performance issues with device domain implementation currently for guests
->>>>>> with higher RAM (say more than 8GB), and that unfortunately cannot be
->>>>>> addressed in the short term.
->>>>>>
->>>>>
->>>>> <snip>
->>>>>
->>>
->>> <snip>
->>>
->>>>>> +static void hv_iommu_detach_dev(struct iommu_domain *immdom, struct device *dev)
->>>>>> +{
->>>>>> +	struct pci_dev *pdev;
->>>>>> +	struct hv_domain *hvdom = to_hv_domain(immdom);
->>>>>> +
->>>>>> +	/* See the attach function, only PCI devices for now */
->>>>>> +	if (!dev_is_pci(dev))
->>>>>> +		return;
->>>>>> +
->>>>>> +	if (hvdom->num_attchd == 0)
->>>>>> +		pr_warn("Hyper-V: num_attchd is zero (%s)\n", dev_name(dev));
->>>>>> +
->>>>>> +	pdev = to_pci_dev(dev);
->>>>>> +
->>>>>> +	if (hvdom->attached_dom) {
->>>>>> +		hv_iommu_det_dev_from_guest(hvdom, pdev);
->>>>>> +
->>>>>> +		/* Do not reset attached_dom, hv_iommu_unmap_pages happens
->>>>>> +		 * next.
->>>>>> +		 */
->>>>>> +	} else {
->>>>>> +		hv_iommu_det_dev_from_dom(hvdom, pdev);
->>>>>> +	}
->>>>>> +
->>>>>> +	hvdom->num_attchd--;
->>>>>
->>>>> Shouldn't this be modified iff the detach succeeded?
->>>>
->>>> We want to still free the domain and not let it get stuck. The purpose
->>>> is more to make sure detach was called before domain free.
->>>>
->>>
->>> How can one debug subseqent errors if num_attchd is decremented
->>> unconditionally? In reality the device is left attached, but the related
->>> kernel metadata is gone.
->>
->> Error is printed in case of failed detach. If there is panic, at least
->> you can get some info about the device. Metadata in hypervisor is
->> around if failed.
->>
-> 
-> With this approach the only thing left is a kernel message.
-> But if the state is kept intact, one could collect a kernel core and
-> analyze it.
 
-Again, most of linux stuff is cleaned up, the only state is in
-hypervisor, and hypervisor can totally protect itself and devices.
-So there is not much in kernel core as it got cleaned up already.
-Think of this as additional check, we can remove in future after
-it stands the test of time, until then, every debugging bit helps.
+--ywia3zssrqv4e5f3
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] pwm: imx-tpm: keep channel state instead of counting
+MIME-Version: 1.0
 
-> And note, that there won't be a hypervisor core by default: our main
-> context with the usptreamed version of the driver is L1VH and a kernel
-> core is the only thing a third party customer can provide for our
-> analysis.
+On Fri, Jan 30, 2026 at 12:41:22PM -0500, Frank Li wrote:
+> On Fri, Jan 30, 2026 at 04:37:20PM +0200, Viorel Suman (OSS) wrote:
+> > @@ -166,6 +166,10 @@ static int pwm_imx_tpm_get_state(struct pwm_chip *=
+chip,
+> >
+> >  	/* get channel status */
+> >  	state->enabled =3D FIELD_GET(PWM_IMX_TPM_CnSC_ELS, val) ? true : fals=
+e;
+> > +	if (state->enabled)
+> > +		tpm->enabled_channels |=3D BIT(pwm->hwpwm);
+> > +	else
+> > +		tpm->enabled_channels &=3D ~BIT(pwm->hwpwm);
+>=20
+> Do you have lock for RMW? or you should atomic_or() and atomic_and()
 
-Wei can correct me, but we are not only l1vh focused here. There is
-work going on on all fronts.
+=2Eget_state() is called under the chip lock, so the locking should be
+fine.
 
-Thanks,
--Mukesh
+Best regards
+Uwe
 
-> Thanks,
-> Stanislav
+--ywia3zssrqv4e5f3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAml9NnAACgkQj4D7WH0S
+/k4HZAgAgpYz3BG+3flQ7e8bEdfouy6v7sOSUJ7IDh3f9w/p8HjkSIFaQbbRCsKf
+vMlD3WQf2bD87YysBuN/oSDlUI/L3qUWRS4PerGgeBAR1kWwMuY/g7E5mVz/OdxV
+kSGVkvBhTVsjE3M3R1XHX0AlKzFR1hGPkZxw18ggECdtwj81QhxS8ZUWmUJaZxle
+w9mFBvYt75QBvXG/am97eJ9hyVv9Br0R1yUYbJazN53Pw0dvWR2ZpL6SFPCscVKX
+EUz+UK6Bj2grSG4/T6jJHJ2B0I/bqhBrn/7jEuY5/x9vLCLm8uLBSihQgDwMg16D
+Ex8i2jdJutn4q67nVavlxs5sjCEerw==
+=coeH
+-----END PGP SIGNATURE-----
+
+--ywia3zssrqv4e5f3--
 
