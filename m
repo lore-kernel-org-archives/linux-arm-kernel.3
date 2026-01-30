@@ -4,100 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA2AD49C7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 08:59:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1724AD49C83
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 09:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MqHUmsGNQXV2y+7VYbmSgRiDDTAtnxMDFNlT3hVXtrU=; b=kQ7pTJIhG2JuRhqLDo/ksgxrUo
-	VzLBSxMkCnhkKxMaOPJeLcN3igKyL3BYKh2tRNXIc7plzssmKfELUyifgOj6dzAHKa+634di6En6s
-	MzGxW8wpuCmJ+MLKe2VD3PBoLjfH8T6gGQI3vLH3SgAWGKaMLWxriWOX2TYgWvLKu/rLEyZ8cQFSJ
-	/WiKUehxZJPxs/PaOe5wmEhL0l3ArvW2akY4rWaq2dVliKiaIUk53lxiXbHGVBgsPn7eClDm1pIKn
-	InY2HPfvZsgX8paqTLrG6fttPMjOi7wC4OcWSD+C3/esOHb8D7fA0kb/fndWWgD13hoPWJGh6r9Zz
-	KocdKcPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q6Bj51NEjkSJCD5iEvDYQx+M4cw3byazuRohG39MqIw=; b=tc1pE6KYl2BtXhHd7PNTtoRk6K
+	ptryZ6RvxcESsVE1mJgbD5oNrUM9npAzF70vjFZssGoncShiu7P/RyLyYs4G3VdFSOqC4LO4oNpuh
+	9ulcDsZm+XsrB3GHGSHH++eWcktefbxfx+Yo25KlYJFv9JdQczm4yi9veU07Wpp3a0qJY9AlKLybQ
+	c6esv6Erw0N61JB8oV/y2kXuajjBNOaIgyIpRxaX6fxN/bZO++I2iw4eup102ZPP4CKSoEcZC6QOu
+	frXYAjpK9EHfswQHwk5xvOuJ+xbErdc2p/xppMjc1GnP1fzee4YSshjRhXsSaJBuxozyUGAT05umt
+	x5/bV5yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlkLX-00000001F1A-3Msn;
-	Fri, 30 Jan 2026 08:59:19 +0000
-Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
+	id 1vlkS7-00000001FGz-0ulg;
+	Fri, 30 Jan 2026 09:06:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlkLU-00000001F0p-1iEv
+	id 1vlkS5-00000001FGt-0iLG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 08:59:17 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 80CEE7A006B;
-	Fri, 30 Jan 2026 03:59:12 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Fri, 30 Jan 2026 03:59:12 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1769763552;
-	 x=1769849952; bh=MqHUmsGNQXV2y+7VYbmSgRiDDTAtnxMDFNlT3hVXtrU=; b=
-	jZjo46jcnTpbePFHbFu9O5ZWMiOpCPyg4Dt0C0lIX+n4E3F34jO/tpwC2I+vBJMT
-	PtDSNgM5F4VZVxtVo+3zEyODf561zh7CeJT/JVYoSJHWaNLq7l+jlyWgJJxZ/vv8
-	OS5kAoEWTgkHyA5qM7/PQAIxQIPl66FQHpbG4+j/N/+aSfrrxcl/4cORi8UJJRY9
-	DfwFouAzWfTiJk+0m6rWODS+gm4joSC+CPi3IINh7dsEGF7DhS6E1mLs/6ARtw+q
-	bczJSlH926SMorufjd4+G/6STcPPTyL5j7uZDmbGKmDVM/zxUUonpZDwezxoxV5A
-	iNnRyBsWQsv/I8QWTPQYqw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1769763552; x=
-	1769849952; bh=MqHUmsGNQXV2y+7VYbmSgRiDDTAtnxMDFNlT3hVXtrU=; b=g
-	KU7xZgjj+pnxO/r4+lQ3cUyhgajlhtSjoLsfWtIk+9HrUNX/1tHb0U0kWR+/89lG
-	HDQJyFBurjt8Klp1STao7NRKtUoB8SSryAnjS7G5A+SaF5L61KlIYc4tsgSTa0DO
-	2b2ntm1UUUVozvzIsG8D/fmZOcz0mW5OWS23WZ9MdMBPUwPKsebJIbLWHfB06Zjh
-	BHZo6NmK/eWViNcAGjikHqjR15HRbcXkQTXa+FirjB/O8pqwuH5BDyL4Z4vp82+z
-	vFY3J+Mh9XcKeAEU+7Wh56Zr8B3UxSWTUar4S31C409W+cKqmFOLeUrXocemlmN5
-	DV4q9MoXqENCbTgntpciQ==
-X-ME-Sender: <xms:33J8aZO-RPnGK-D2uE6MZK_4XqnDcs-71gKQiqFZrRcZBsiBbZ4Ayw>
-    <xme:33J8aWwKkOrsIftQHUpqzLexi5sp0ly6c5dKcDgjCH60VmpFhrUOMicR5wXBr-zLw
-    Uo-w9wunPnECYzok5zRF937hzgn-gbhXrsWvTu7Lqw6-ByyhVc4W14>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdduieekiedvucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepvdfhvdekueduveffffetgfdvveefvdelhedvvdegjedvfeehtdeggeevheefleej
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepgedpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtohepshhtvghfrghnughovghsihhnghgvrhesghhmrghilhdrtghomhdprh
-    gtphhtthhopehjuhhnrdhnihgvsehlihhnrghrohdrohhrghdprhgtphhtthhopehlihhn
-    uhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprh
-    gtphhtthhopehsohgtsehlihhsthhsrdhlihhnuhigrdguvghv
-X-ME-Proxy: <xmx:33J8abWljcjP3SmeN7kCTLoXQ9MiSBqtM5nPXuMRV-fqUKB73M-wDg>
-    <xmx:33J8afB5oq4LMgxCmgT6-q3Sp33bRXXWggCZkOBL3BTc6u1osrJX1Q>
-    <xmx:33J8aa6e5mU9sjcOE_CiU91lzuJDX1vhuwEwlfP3h_RyeaAeG16DUw>
-    <xmx:33J8aazKVt2A-MdH-rFvyZ4v5vnTHQc48eMH_OnfjOq-O30fZdSV-Q>
-    <xmx:4HJ8aeyE9p6sspAJNWhC3hsvLfUv1cmaYxESF9qo9-y1zBC8AG1lpyok>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 894F4700065; Fri, 30 Jan 2026 03:59:11 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: Agif6myIRndF
-Date: Fri, 30 Jan 2026 09:58:40 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: =?UTF-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: soc@lists.linux.dev, "Jun Nie" <jun.nie@linaro.org>
-Message-Id: <9325c1b8-40f8-4403-8098-b924124e3868@app.fastmail.com>
-In-Reply-To: <2936803.ElGaqSPkdT@grey>
-References: <20260128203455.38569-1-stefandoesinger@gmail.com>
- <b94d1ea2-8092-4692-a5ec-02d83ae1c1a2@app.fastmail.com>
- <2936803.ElGaqSPkdT@grey>
-Subject: Re: [RFC PATCH v2 0/7] Add support for ZTE zx297520v3
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_005916_817793_57B3A04E 
-X-CRM114-Status: GOOD (  24.26  )
+	Fri, 30 Jan 2026 09:06:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0532560125;
+	Fri, 30 Jan 2026 09:06:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC0F5C4CEF7;
+	Fri, 30 Jan 2026 09:06:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769763963;
+	bh=erZr1SdZTgF5sEQIzfWMwLeEQcYanAg+WcIEqOMQJa4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Sh53Uw8tC5HGPL7NM2neDnTDeghB2QouD1SzWo0ogaaQL7T70ttVfjyoa1BAAlq5q
+	 autxbAnEErbqPPamNs6OL/J3QBK9s5/hicX1ujzdgrif6VabJYINsZ0DHRo4mGxY3w
+	 xmUqhbi4x/vuwHLX4Ee0P3v/DmuTEZAcI22udUkb0E2pta4MUHV6p8sOpwEeY483hz
+	 o+CrJWTO+068siydv3MilzopH85GmUfiq3vxjzQZ/G3GQS9C/eHqF6hmsUXUvlXcax
+	 EiV9zZaaap53GlDOqt35jGWdj0j80Ph0xdHChxC7PnPixKccM2Cv3cij25p3eq2vt2
+	 xKANiqr958PUw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vlkS1-000000070dv-0pgr;
+	Fri, 30 Jan 2026 09:06:01 +0000
+Date: Fri, 30 Jan 2026 09:06:00 +0000
+Message-ID: <865x8jbhc7.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH 13/20] KVM: arm64: Move RESx into individual register descriptors
+In-Reply-To: <CA+EHjTwxS_xvQqsOJw7PzZBD5Z-oM14z1VwSTC5dCS+79DEpfQ@mail.gmail.com>
+References: <20260126121655.1641736-1-maz@kernel.org>
+	<20260126121655.1641736-14-maz@kernel.org>
+	<CA+EHjTw_4WJgiS7vTUprvJOjdNrnW=sjhazCkU9eQW8BUYuZZw@mail.gmail.com>
+	<86a4xwbakk.wl-maz@kernel.org>
+	<868qdgb8ct.wl-maz@kernel.org>
+	<CA+EHjTwxS_xvQqsOJw7PzZBD5Z-oM14z1VwSTC5dCS+79DEpfQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,62 +92,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 29, 2026, at 20:38, Stefan D=C3=B6singer wrote:
-> Am Donnerstag, 29. Januar 2026, 01:00:08 Ostafrikanische Zeit schrieb =
-Arnd=20
-> Bergmann:
->> On Wed, Jan 28, 2026, at 21:34, Stefan D=C3=B6singer wrote:
->
-> I am certain switching to EL3 is working here because I am using it in=
- the=20
-> same way to set up ICC_SRE_EL*. (And yes, I know this code doesn't bel=
-ong in=20
-> this place. It's just more comfortable for my development tree for now)
+On Thu, 29 Jan 2026 18:13:18 +0000,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> >
+> > Actually, this interacts badly with check_feat_map(), which tries to
+> > find whether we have fully populated the registers, excluding the RESx
+> > bits. But since we consider E2H to be a reserved but, we end-up with:
+> >
+> > [    0.141317] kvm [1]: Undefined HCR_EL2 behaviour, bits 0000000400000000
+> >
+> > With my approach, it was possible to distinguish the architecturally
+> > RESx bits (defined as RES0 or RES1), as they were the only ones with
+> > the FORCE_RESx attribute.
+> >
+> > I can work around it with
+> >
+> > diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> > index 364bdd1e5be51..398458f4a6b7b 100644
+> > --- a/arch/arm64/kvm/config.c
+> > +++ b/arch/arm64/kvm/config.c
+> > @@ -1283,7 +1283,7 @@ static void __init check_feat_map(const struct reg_bits_to_feat_map *map,
+> >         u64 mask = 0;
+> >
+> >         for (int i = 0; i < map_size; i++)
+> > -               if (!(map[i].flags & FORCE_RESx))
+> > +               if (!(map[i].flags & FORCE_RESx) || !(map[i].bits & resx))
+> >                         mask |= map[i].bits;
+> >
+> >         if (mask != ~resx)
+> >
+> > but it becomes a bit awkward...
+> 
+> If it becomes more complicated than the original, then what's the
+> point. Up to you whether you want to try to pursue this or not.
 
-Ok
+Not more complicated, just moving the complexity somewhere else. I'll
+add a comment explaining the logic at this point. Overall, this is a
+net cleanup, I think.
 
->> I've never seen a Cortex-A53 without FPU and NEON, but since this
->> is optional, it was a matter of time before we got one ;-)
->
-> The ZTE 3.4 kernel code suggests that there is/was a zx297520v2 that w=
-as=20
-> Cortex A9 based, and then ZTE replaced the Cortex-A9 with a Cortex-A53=
- and=20
-> left the rest of the system unchanged.
->
-> A later version of this SoC, zx298501 switched to 64 bit, including ke=
-rnel +=20
-> userland. But I don't have any hardware based on either of them.
+> From my part:
+> 
+> Reviewed-by: Fuad Tabba <tabba@google.com>
 
-Right, it's quite possible that v3 was a node shrink and Cortex-A9
-was not available for the new process.
+Thank you!
 
->> Support for 64-bit cores is actually quite rudimentary in 32-bit
->> more, as we are missing a lot of the errata workarounds and ARMv8
->> specific features in the kernel. If you can figure out how to
->> use 64-bit kernel mode, that would be ideal.
->
-> One of my co-hackers is giving it another try. Pairing a 64 bit kernel=
- with 32=20
-> bit userspace seems reasonable. Of course the other question is what q=
-uirks=20
-> are hiding in the hardware when we run them in a mode the vendor never=
- tested.
+	M.
 
-Right, that is clearly a risk. I see that we do support FPU-less
-systems, e.g. 82e0191a1aa1 ("arm64: Support systems without
-FP/ASIMD"), but I doubt that this code path is well tested.
-
-For the core itself, I would expect fewer problems with 64-bit
-kernels than 32-bit ones, but the problems are going to be different
-of course.
-
-For 32-bit compat userspace, there is a chance that you have
-device drivers missing compat ioctl handlers, especially if you
-need non-upstream drivers. There are also a few differences in
-handling of deprecated instructions like ARMv6 style barriers
-or unaligned ldm/stm data accesses, which require you to enable
-the workarounds at boot time on 64-bit kernels.
-
-     Arnd
+-- 
+Without deviation from the norm, progress is not possible.
 
