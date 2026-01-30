@@ -4,69 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D66F6E6BF11
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 14:38:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6483BE6BF11
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 14:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EiMsGbi5fj3AsNVJV/FoD1FwRDRSLMd2ZrKeEr/oPJU=; b=wHZHDJLxTVUL1gpNovL8Vm/uyk
-	UkDfbsVp0XmV8eI+r1Fde+fykkgJCoUQVLDH0Tw1qO+usZOSEal1hUh+xRqN8auT2tVaz0ONOHxg5
-	0k6PS35ruBZ4fJ4chaIEL2NnaliLhzG7upWslb23NARo9ftFmJQoSvcujbNnU21jLTNfLM6q9NOrL
-	MydrJi5h1tsPN9nC7M+CGKi3SMfIvYnd3sSjXjdmNw9MG0arK3PNPOC5oDWm3TIfXb5JfF5lfrjjd
-	FsKWdd5Y+kANiJnNPDkNqQEabxWI86UsKWnMeBvvsRqdGBi3gyNIErxI2brqk8sN5CyojRTrmlb8i
-	nLZk/e7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MB4QD/6of8gOS7vFQIOLgVqgYUZMkTloRw9ra+Btw64=; b=aqcvfBLYT4q+0o7lPsgL+bs88d
+	APiwxDZYPQ8xKT4+GxXwaCtXFpm6jagA3+VGSIeAQPVcNMj/FfLahjp9ubSDURRVbOBRQ2wvrWnBy
+	5D5oqnvnjz2Fh4XrSnl6gxxAVCxMc7/yTw+S/59/q7VWbS5fs+31nZWzpjVr3IwGJuiXZwKtQsrp0
+	KoWTTh90Nmx+Q/KxHxhRzLdK3Y8A5QneE+n0Fk8uDmF3Yp3KG2hIm4Kf4w0KsPIywGhqwi5u/E0h9
+	yw53FABfPhNf4Mfh4zpsauReAR0OBuYfvGs/g/ohpnqQnWYWuukf3Kl0YBTN4V/EO2Qg34UGpf8hs
+	hqAegPMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlpdS-00000001arR-3n0k;
-	Fri, 30 Jan 2026 14:38:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlpdP-00000001ar5-3lzo
+	id 1vlpdj-00000001au5-1GYG;
+	Fri, 30 Jan 2026 14:38:27 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlpdf-00000001at0-2fTE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 14:38:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2B6DA153B;
-	Fri, 30 Jan 2026 06:38:00 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF90A3F632;
-	Fri, 30 Jan 2026 06:38:01 -0800 (PST)
-Message-ID: <b82dcff4-b814-493f-a6cc-80b205577d0b@arm.com>
-Date: Fri, 30 Jan 2026 14:38:00 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 29/47] arm_mpam: resctrl: Pick classes for use as mbm
- counters
-To: Peter Newman <peternewman@google.com>
-Cc: James Morse <james.morse@arm.com>, amitsinght@marvell.com,
- baisheng.gao@unisoc.com, baolin.wang@linux.alibaba.com,
- carl@os.amperecomputing.com, dave.martin@arm.com, david@kernel.org,
- dfustini@baylibre.com, fenghuay@nvidia.com, gshan@redhat.com,
- jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com,
- reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
- <20260112165914.4086692-30-ben.horgan@arm.com>
- <CALPaoCh+mRLJEfhKBve3hRf+vHHoObjvWRt74OfpopgtR9g9FQ@mail.gmail.com>
- <c157d2b6-7282-438f-b9e7-1a24be3fbf53@arm.com>
- <CALPaoCi0fR5sUVsjXi25XHBrhn3whFvKDpEvUGSM5Hjd2LZP6w@mail.gmail.com>
- <2ce2b78e-9a79-489d-813c-3ed6ced34f12@arm.com>
- <CALPaoCgfi8qgJi_yijJ5u933faMvCZCjdBOGCKxOd4uqwEJhyw@mail.gmail.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <CALPaoCgfi8qgJi_yijJ5u933faMvCZCjdBOGCKxOd4uqwEJhyw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+	Fri, 30 Jan 2026 14:38:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZbXBbA2TdIrS5NHL21GfHV9yyAc2pfhCnYzbvSL5YD3Lj4nTBvXOogFUgACV68WwS/gA2yyDdzyE5bRl3ys/WDUxzD3fA16+bCo5hjIFqyi86Ok2URZ7LYUdDL0iXaQquSNAoRNshEhYiWZasUxN26i8f9Z//ejExY4xydXZBWl/NtX6ckTG1ZYTrYQNmGoe3enhYFA62cMMxcCZ87j01BhwS9WeWGSX2fkV9r1fQy/6Pk/aWuz+zAjBONlN2gvfizzHhFcHOhXHXEIRELtyaeFd74LMcpuwpMNk55JU80vmMfb1ILlRqHGOq3Rfw8ydRSO8pVgN/A1wV5I2D1zYng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MB4QD/6of8gOS7vFQIOLgVqgYUZMkTloRw9ra+Btw64=;
+ b=DLoUI3SfMsOVxbJxT9cOM2SFIganoi0++dvBw86HRN7brNuznrVGL0IqcVEbOS9bTZ5tf14svKq1Ca63D5VrdgSzy36z53c0b4P2rv/1fTRFuegYdrTIktmB1Lk+KemtMxMZGQfQ2yLnoL0uGJ1v+RDfGex7ENG8BNQzM1ntvtBRiuu52p9P6ClywV3lozCpKHV+wjLhZbcXfC5MJXcHnEk3dK5lrC1RxJsU9czFcdQSyCr5ByItdbfx2d2pNDMEbDIv3t1m6B3KR/SPQ8Ivg1SA82tqGaoQ/hpDq7IVtsZeBvBCI8YHimjWR6y45qlVg55j4QLMdUiNXUTxJYEaXQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MB4QD/6of8gOS7vFQIOLgVqgYUZMkTloRw9ra+Btw64=;
+ b=ETZxcdMfwbf6hzpW5e9NezXDMTmJJ5DntDKWJV0VPG1ypA1KTLjlflRP/aRn0AmoqFaBVTw/FngZAEHhDZS7VyVepzEiss7nMp3AZOG8tPhheSgQAzpqHUkVSIMHFckp67umlScvFUsxN6U369PDrxSPvlaQdvwUWizIxdNfhYzitgutIEB7PgNkP8F78FVoMr1Y9O0mzpMqJwUlc8yh3Lzu2MWaxqYWJrdUkQTZOKC/gT/etJE2bqb1nPuGShbfvmI+e3oD9WWZj7xaSJZvW0j0vkg60h1mGbDafjUBxOtErCX1jnNoIbKuLZy2TKP7dGRf6Af0epfHTIUrfJty5g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM6PR04MB5112.eurprd04.prod.outlook.com (2603:10a6:20b:10::30)
+ by GV2PR04MB11740.eurprd04.prod.outlook.com (2603:10a6:150:2cd::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.11; Fri, 30 Jan
+ 2026 14:38:14 +0000
+Received: from AM6PR04MB5112.eurprd04.prod.outlook.com
+ ([fe80::a348:65cc:67d4:1fd7]) by AM6PR04MB5112.eurprd04.prod.outlook.com
+ ([fe80::a348:65cc:67d4:1fd7%6]) with mapi id 15.20.9542.010; Fri, 30 Jan 2026
+ 14:38:14 +0000
+From: "Viorel Suman (OSS)" <viorel.suman@oss.nxp.com>
+To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-pwm@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Viorel Suman <viorel.suman@oss.nxp.com>
+Subject: [PATCH] pwm: imx-tpm: keep channel state instead of counting
+Date: Fri, 30 Jan 2026 16:37:20 +0200
+Message-Id: <20260130143720.778514-1-viorel.suman@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AS4PR10CA0020.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d8::10) To AM6PR04MB5112.eurprd04.prod.outlook.com
+ (2603:10a6:20b:10::30)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM6PR04MB5112:EE_|GV2PR04MB11740:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4ddf1526-115d-4c52-d384-08de600d3347
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|52116014|366016|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?WRfkCoJRVr2NmcKGarR0Y5AUgVnOMXgwlkmKhMf2KPYE0S4z47iK8X/yln?=
+ =?iso-8859-1?Q?RdCRtd6AC9/6/YC+3fQFke4ibaHpzFIZAQWc6vrz+JG9pyyv48/dGqcYQu?=
+ =?iso-8859-1?Q?N4O4RsMLmr6zlYYvigt98IXmli+gZkpSW+5xRLLqzEA8r5gAKfgHqmCJ0P?=
+ =?iso-8859-1?Q?ExgES2a7/F6yYhAUTu9CSiLZaWOVwnylMDuVq9aqMOMtuTmxtafw1hZrYO?=
+ =?iso-8859-1?Q?crDbsFEQEyQuqjZaLKAE8uRP2ViCUpTMsODriD3cxkmthQlyG4uirUWtHh?=
+ =?iso-8859-1?Q?xBEA7pJ6uSjTr8IiKe6C0NYfoKeVB1f9zDMBo7podNbq2L2/3210KUvC/g?=
+ =?iso-8859-1?Q?IUPl7dyjcVnNPQeepKiqibbsRtVEd6srExAq/hPsV4QKNpY9ocSjyekb2S?=
+ =?iso-8859-1?Q?0u+oqzWgW+65lVvAUyTW1wieTtYjPxotvFvboNlz9Be21fEKZzWjY1whR8?=
+ =?iso-8859-1?Q?xy4hleC2+GjFSZKHU1uwF/7RAW86XAaoQL7ImoW3DRyAXTQBebNQY0KrnB?=
+ =?iso-8859-1?Q?DiQMcAPTbHF7y2aKGL42UGhW983LU5n0TxFyc//2jntSRkIXmnAREDgIa7?=
+ =?iso-8859-1?Q?343uYvq7AeiC+iFopleANNPOanAOAXupVAZw8erF1zkUSDBrR+Y5qY8geK?=
+ =?iso-8859-1?Q?cxYE5n/iYrKCv9bBcuIyzeiS0sALpO9vtPXQBvVKsQNsipUjqsdej4w5Zx?=
+ =?iso-8859-1?Q?nWrqA/EjlnmP/cReFg6HpivBHxbSFYc41T00Wv5Qe8hEEk5ekm5OBkn3hw?=
+ =?iso-8859-1?Q?TTEBQBXxSQPJEXCOFibARQj0IKIaaMCuxwV9hooiLZueMOAsmwN/XLxMNn?=
+ =?iso-8859-1?Q?AnzEj27zlEAjMLsF2ID7ibQkLIg9yXtLbaaij5hDy1a3CxlUFAUfgSFlwT?=
+ =?iso-8859-1?Q?vvx/jTL8dI2Z1DxwtBVf3/DQ/6/sqptxRkO4fabVPtCQLuMB4NHbKuaNc7?=
+ =?iso-8859-1?Q?wbgPGgPVJ3u6NImw+cZFjWIEiNVgzKbzl4mb2gTKGIoWjHbOuR98YU3AN6?=
+ =?iso-8859-1?Q?HYXAFPJNSN4JcNlntwhJVkzwZOdW/nifl1/qYt1r7ARbdFx5G+0laJjDjv?=
+ =?iso-8859-1?Q?EC3I/j7o/cfKJ2LdN3ZBEKrWWzT+EznUgLlSFfkI17Ur/Y6ob/nUnCtdrP?=
+ =?iso-8859-1?Q?XXvQ1sJ6Kl3IpUix0wldef+VxdIAdXla6rf0+TJoIuJd6PTyUzmP0ltDhl?=
+ =?iso-8859-1?Q?7VH8JtUPpkrkfBKiQsJcLaW7TCLnjrHXpG9zQaVvM3XIV7TK7NY1VJKqSu?=
+ =?iso-8859-1?Q?liLVhWuW4PhYPK1WLDdQnWkdCmII62qjGLHkCh0r02RFZLVvsid++xXREz?=
+ =?iso-8859-1?Q?4yGDJQwOiQO7weZLT2zMGd2n+r72VpLdVcU8zl3PhKUA/kW/NUDeKzY6tE?=
+ =?iso-8859-1?Q?UamHA2IDlM5RFRunR5aKm6ZWMZd+X+0WBMMVwb7jWnZXDYo4kOhgj11gWI?=
+ =?iso-8859-1?Q?DGiN2HudPJU0hzUAZTpdxNELazKwIRoREr+VGL8+Q1bt7kCvN9lj8yM0LI?=
+ =?iso-8859-1?Q?d0D0Z7tyysYmoskRjriwybhVJBJiX92VDgRV2UcoOsvvZldeRddl9IA1ap?=
+ =?iso-8859-1?Q?7fH/CfwnTIJ0Tejrp6hA915SnCfV5aR0k1CwDN7MGMpvL9vJ+F9CbEgS9o?=
+ =?iso-8859-1?Q?yp5zBYR5cyjV7cNEknLFob/+SsrqtZ18bJawSgkb2qvffEKytWUcS4S0EP?=
+ =?iso-8859-1?Q?DOS6X8RRjTQZgvhXMsY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM6PR04MB5112.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(52116014)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?Moh9Oyww3OQe/dQ/hs91HwkIrB8KimiwDXtw1Hshv93DpmZi3rSiZtCONl?=
+ =?iso-8859-1?Q?8WOlCBsTYM432rAG9k2ColOl4o89DXzsheq1SjkscxCEVFQZzjk/0GE5+u?=
+ =?iso-8859-1?Q?yFMgp1p9WVmXj1udZqnm20Tbrdf8ueAANF/JLEzNIgJp09Krg+ksZnCiTJ?=
+ =?iso-8859-1?Q?SYWFEcOvefwSz4FNEV0DIdOfteq6uH+TmYJOqg+HlPlYCSvTHS3ctBb6ze?=
+ =?iso-8859-1?Q?vmvA3A8G1VhGXA0evKXbvnpphdL1Ah+YG5qdMvKAELcYLK0EZzqezZnsKy?=
+ =?iso-8859-1?Q?SEyQm2Bd3fyMou5BgPXgfhZS276suKvxShWxvHiFvUTSOOJNwYmqZchUr2?=
+ =?iso-8859-1?Q?BzSdnZqS+G/SraCAqnZLcj+CJytksb9wGRcaAl6QwOyGWHKIZdWSs5TjSg?=
+ =?iso-8859-1?Q?0bmTd9nQuwIDQ/KlZXeUnIAM0toQaV91jNUmIpONTfqItGq3sSb2ZT4hJd?=
+ =?iso-8859-1?Q?iAoADomwSSAFP9QlN82Egem/j+K+Prm0NRjigIDUhKtqHueWRlEcx4LYaN?=
+ =?iso-8859-1?Q?bhmUqP//9cfsMOAUzblANh8owANNLq4JDk2ZYCwRTL/HKFlSZRuBUhsZfZ?=
+ =?iso-8859-1?Q?oUG7xywfLsgo/dB2igTGSLv0pRcccV3xCUDQ8CGKOlcvN6YtTWZrTOYC1K?=
+ =?iso-8859-1?Q?ftGTvm1exirT+J3vqu0RNNuaqSf3acw+bc5kziL9ilIWNA0/jgSOAzwruo?=
+ =?iso-8859-1?Q?VLXKtJkbKjMbIq2mr+oGRGYdZMpwMIXdAr3SOLxEM2H2zaZme+65YRCyEC?=
+ =?iso-8859-1?Q?XTwtzXBOzL7dvC22rjhEvxOy/UlSPn0FXEDxvEPYopJzMZo23uNvni/0yk?=
+ =?iso-8859-1?Q?bVyxNYS9ODgRE3V7t82xJf8Gwu3GIjFLDKS+VF1PKIJxCbuC6FOVodZDop?=
+ =?iso-8859-1?Q?YoCgXkCENB5zy5pR1vEjgyH1iq4u2q1aQdhpyItCJF547PnlHH0iWpWTvt?=
+ =?iso-8859-1?Q?g/sAi+WR2HQH64tQGlYrdUoryVcltTjYXiaiLn4dqxOTyO2sxAVIL8+UJq?=
+ =?iso-8859-1?Q?gWES+cpsi8f1LMxu8SA78MysLoud7/OYujGpdnOEVQZZGV8BxeteWzY1L9?=
+ =?iso-8859-1?Q?A3HFJvqPHlFM5QdcVAc0aa6j0yqx8Mb2iijDhnSwJYjmjvqDJispqVjC3O?=
+ =?iso-8859-1?Q?F3PlbNpoEPrTXiHJ6VwNPUL77CDu0uf+shltLvrOtdOiYpTQsLbOfHkP01?=
+ =?iso-8859-1?Q?gHCtMl7Bh+oX96daRm3ZRQlS78jiB5BLjbbysFU+lh15TFXxKToWJHBOYr?=
+ =?iso-8859-1?Q?nPbUP75UAeJX7XnfiTWHmXbLwPuJmmzLTsUHroJMI+Y7tHvAJneCv3MSZC?=
+ =?iso-8859-1?Q?EMVX+NMnBa3rcwYIRjc/KT9B2mSKQvv/lQX2JkLOdmPHDyx9pDAwO3eIe5?=
+ =?iso-8859-1?Q?zD/8V38idv4qHyBtssa1conZBSfLLqaT4BcMiE9SPOf1S1/wujGLyMtr1k?=
+ =?iso-8859-1?Q?qXyOqMZWxS1QLJFkXcWGaQvZGQBvhi/0qfh2IthPBVNvuTPN3Y3mH64+Rc?=
+ =?iso-8859-1?Q?vDVUr7rWnB0+8IncFoMvhMcxLgULCPKVyq7dscpZ+pxynSDSgnFXXLB9U/?=
+ =?iso-8859-1?Q?pHOmug/wzpQE+WOR5gu0kBSc4JwuoRSEU0Huu/h5uMmwyWL3Fb3W2inJfd?=
+ =?iso-8859-1?Q?l75T4Uzp7dol2IGWTfzrwPNFFFYWO5QzQQZ9UGTHC47EREZjGdu2FPiwTa?=
+ =?iso-8859-1?Q?pcqF18fhXY3dlboKUcAi2E73LlDPyjhpU25svh0PqDBn7ATYybIvE+cmZv?=
+ =?iso-8859-1?Q?Vn7VOWrCMxU71RHTjrhv/VOLbRd0GBdK5CFKDdggz5i7XEDdNKmaorYnEf?=
+ =?iso-8859-1?Q?W0KEW2SPow=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4ddf1526-115d-4c52-d384-08de600d3347
+X-MS-Exchange-CrossTenant-AuthSource: AM6PR04MB5112.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 14:38:14.6005
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8WVnmUQaeC3c++AKFgV59Ft/UHta3PfJeLh9xyPX0AJoMYtgLyTN6LYSvWovRsEeKRaNrS7Ew49liy9bKx1Zvw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11740
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_063808_025767_F4974206 
-X-CRM114-Status: GOOD (  40.68  )
+X-CRM114-CacheID: sfid-20260130_063823_678871_3DCFE560 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,162 +172,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peter,
+On a soft reset TPM PWM IP may preserve its internal state from
+previous runtime, therefore on a subsequent OS boot and driver
+probe "enable_count" value and TPM PWM IP internal channels
+"enabled" states may get unaligned. In consequence on a suspend/resume
+cycle the call "if (--tpm->enable_count == 0)" may lead to
+"enable_count" overflow the system being blocked from entering
+suspend due to:
 
-On 1/30/26 13:04, Peter Newman wrote:
-> Hi Ben,
-> 
-> On Mon, Jan 26, 2026 at 5:00 PM Ben Horgan <ben.horgan@arm.com> wrote:
->>
->> Hi Peter, James,
->>
->> On 1/19/26 12:47, Peter Newman wrote:
->>> Hi James,
->>>
->>> On Mon, Jan 19, 2026 at 1:04 PM James Morse <james.morse@arm.com> wrote:
->>>>
->>>> Hi Peter,
->>>>
->>>> On 15/01/2026 15:49, Peter Newman wrote:
->>>>> On Mon, Jan 12, 2026 at 6:02 PM Ben Horgan <ben.horgan@arm.com> wrote:
->>>>>> From: James Morse <james.morse@arm.com>
->>>>>>
->>>>>> resctrl has two types of counters, NUMA-local and global. MPAM has only
->>>>>> bandwidth counters, but the position of the MSC may mean it counts
->>>>>> NUMA-local, or global traffic.
->>>>>>
->>>>>> But the topology information is not available.
->>>>>>
->>>>>> Apply a heuristic: the L2 or L3 supports bandwidth monitors, these are
->>>>>> probably NUMA-local. If the memory controller supports bandwidth monitors,
->>>>>> they are probably global.
->>>>
->>>>> Are remote memory accesses not cached? How do we know an MBWU monitor
->>>>> residing on a cache won't count remote traffic?
->>>>
->>>> It will, yes you get double counting. Is forbidding both mbm_total and mbm_local preferable?
->>>>
->>>> I think this comes from 'total' in mbm_total not really having the obvious meaning of the
->>>> word:
->>>> If I have CPUs in NUMA-A and no memory controllers, then NUMA-B has no CPUs, and all the
->>>> memory-controllers.
->>>> With MPAM: we've only got one bandwidth counter, it doesn't know where the traffic goes
->>>> after the MSC. mbm-local on the L3 would reflect all the bandwidth, and mbm-total on the
->>>> memory-controllers would have the  same number.
->>>> I think on x86 mbm_local on the CPUs would read zero as zero traffic went to the 'local'
->>>> memory controller, and mbm_total would reflect all the memory bandwidth. (so 'total'
->>>> really means 'other')
->>>
->>> Our software is going off the definition from the Intel SDM:
->>>
->>> "This event monitors the L3 external bandwidth satisfied by the local
->>> memory. In most platforms that support this event, L3 requests are
->>> likely serviced by a memory system with non-uniform memory
->>> architecture. This allows bandwidth to off-package memory resources to
->>> be tracked by subtracting local from total bandwidth (for instance,
->>> bandwidth over QPI to a memory controller on another physical
->>> processor could be tracked by subtraction).
->>
->> Indeed we should base our discussion on the event definition in the
->> Intel SDM. For our reference, the description for the external bandwidth
->> monitoring event (mbm_total) is:
->>
->> "This event monitors the L3 total external bandwidth to the next level
->> of the cache hierarchy, including all demand and prefetch misses from
->> the L3 to the next hierarchy of the memory system. In most platforms,
->> this represents memory bandwidth."
->>
->>>
->>> On NUMA-capable hardware that can support this event where all memory
->>> is local, mbm_local == mbm_total, but in practice you can't read them
->>> at the same time from userspace, so if you read mbm_total first,
->>> you'll probably get a small negative result for remote bandwidth.
->>>
->>>>
->>>> I think what MPAM is doing here is still useful as a system normally has both CPUs and
->>>> memory controllers in the NUMA nodes, and you can use this to spot a control/monitor group
->>>> on a NUMA-node that is hammering all the memory (outlier mbm_local), or the same where a
->>>> NUMA-node's memory controller is getting hammered by all the NUMA nodes (outlier
->>>> mbm_total)
->>>>
->>>> I've not heard of a platform with both memory bandwidth monitors at L3 and the memory
->>>> controller, so this may be a theoretical issue.
->>>>
->>>> Shall we only expose one of mbm-local/total to prevent this being seen by user-space?
->>>
->>> I believe in the current software design, MPAM is only able to support
->>> mbm_total, as an individual MSC (or class of MSCs with the same
->>> configuration) can't separate traffic by destination, so it must be
->>> the combined value. On a hardware design where MSCs were placed such
->>> that one only counts local traffic and another only counts remote, the
->>> resctrl MPAM driver would have to understand the hardware
->>> configuration well enough to be able to produce counts following
->>> Intel's definition of mbm_local and mbm_total.
->>
->> On a system with MSC measuring memory bandwidth on the L3 caches these
->> MSC will measure all bandwidth to the next level of the memory hierarchy
->> which matches the definition of mbm_total. (We assume any MSC on an L3
->> is at the egress even though acpi/dt doesn't distinguish ingress and
->> egress.)
->>
->> For MSC on memory controllers then they don't distinguish which L3 cache
->> the traffic came from and so unless there is a single L3 then we can't
->> use these memory bandwidth monitors as they count neither mbm_local nor
->> mbm_total. When there is a single L3 (and no higher level caches) then
->> it would match both mbm_total and mbm_local.
-> 
-> The text you quoted from Intel was in the context of the L3. I assume
-> if such an event were implemented at a different level of the memory
-> system, it would continue to refer to downstream bandwidth.
+   if (tpm->enable_count > 0)
+       return -EBUSY;
 
-Yes, that does seem reasonable. That cache level would have to match
-with what is reported in resctrl too. I expect that would involve adding
-a new entry in enum resctrl_scope.
+Fix this problem by replacing counting logic with per-channel state handling.
 
-> 
->>
->> Hence, I agree we should just use mbm_total and update the heuristics
->> such that if the MSC are at the memory only consider them if there are
->> no higher caches and a single L3.
-> 
-> That should be ok for now. If I see a system where this makes MBWU
-> counters inaccessible, we'll continue the discussion then.
+Signed-off-by: Viorel Suman (OSS) <viorel.suman@oss.nxp.com>
+---
+ drivers/pwm/pwm-imx-tpm.c | 18 +++++++++++++-----
+ 1 file changed, 13 insertions(+), 5 deletions(-)
 
-Good to know. I'm looking into tightening the heuristics in general.
-Please shout if any of the changes in heuristics mean that any hardware
-or features stop being usable.
-
-> 
->>
->> The introduction of ABMC muddies the waters as the "event_filter" file
->> defines the meaning of mbm_local and mbm_total. In order to handle this
->> file properly with MPAM, fs/resctrl changes are needed. We could either
->> make "event_filter" show the bits that correspond to the mbm counter and
->> unchangeable or decouple the "event_filter" part of ABMC from the
->> counter assignment part. As more work is needed to not break abi here
->> I'll drop the ABMC patches from the next respin of this series.
-> 
-> I would prefer if you can just leave out the event_filter or make it
-> unconfigurable on MPAM. The rest of the counter assignment seems to
-> work well.
-
-If there is an event_filter file it should show the "correct" values and
-so just leaving it out would be the way to go. However, unless I'm
-missing something even this requires changes in fs/resctrl. As such, I
-think it's expedient to defer adding ABMC to the series until we have
-decided what to do in fs/resctrl.
-
-> 
-> Longer term, the event_filter interface is supposed to give us the
-> ability to define and name our own counter events, but we'll have to
-> find a way past the decision to define the event filters in terms
-> copy-pasted from an AMD manual.
-> 
-> Thanks,
-> -Peter
-
-Thanks,
-
-Ben
+diff --git a/drivers/pwm/pwm-imx-tpm.c b/drivers/pwm/pwm-imx-tpm.c
+index 5b399de16d60..0f8643f4a70b 100644
+--- a/drivers/pwm/pwm-imx-tpm.c
++++ b/drivers/pwm/pwm-imx-tpm.c
+@@ -62,7 +62,7 @@ struct imx_tpm_pwm_chip {
+ 	void __iomem *base;
+ 	struct mutex lock;
+ 	u32 user_count;
+-	u32 enable_count;
++	u32 enabled_channels;
+ 	u32 real_period;
+ };
+ 
+@@ -166,6 +166,10 @@ static int pwm_imx_tpm_get_state(struct pwm_chip *chip,
+ 
+ 	/* get channel status */
+ 	state->enabled = FIELD_GET(PWM_IMX_TPM_CnSC_ELS, val) ? true : false;
++	if (state->enabled)
++		tpm->enabled_channels |= BIT(pwm->hwpwm);
++	else
++		tpm->enabled_channels &= ~BIT(pwm->hwpwm);
+ 
+ 	return 0;
+ }
+@@ -282,15 +286,19 @@ static int pwm_imx_tpm_apply_hw(struct pwm_chip *chip,
+ 	}
+ 	writel(val, tpm->base + PWM_IMX_TPM_CnSC(pwm->hwpwm));
+ 
+-	/* control the counter status */
++	/* control the channel state */
+ 	if (state->enabled != c.enabled) {
+ 		val = readl(tpm->base + PWM_IMX_TPM_SC);
+ 		if (state->enabled) {
+-			if (++tpm->enable_count == 1)
++			if (tpm->enabled_channels == 0) {
+ 				val |= PWM_IMX_TPM_SC_CMOD_INC_EVERY_CLK;
++			}
++			tpm->enabled_channels |= BIT(pwm->hwpwm);
+ 		} else {
+-			if (--tpm->enable_count == 0)
++			tpm->enabled_channels &= ~BIT(pwm->hwpwm);
++			if (tpm->enabled_channels == 0) {
+ 				val &= ~PWM_IMX_TPM_SC_CMOD;
++			}
+ 		}
+ 		writel(val, tpm->base + PWM_IMX_TPM_SC);
+ 	}
+@@ -394,7 +402,7 @@ static int pwm_imx_tpm_suspend(struct device *dev)
+ 	struct imx_tpm_pwm_chip *tpm = dev_get_drvdata(dev);
+ 	int ret;
+ 
+-	if (tpm->enable_count > 0)
++	if (tpm->enabled_channels > 0)
+ 		return -EBUSY;
+ 
+ 	/*
+-- 
+2.34.1
 
 
