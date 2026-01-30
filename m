@@ -4,95 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91F3CD49C65
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 07:21:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31CCD49C66
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 07:27:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aLB8sjSeOChOeJ847YsoxZIIrknXx/zBdsFz+HRbeUE=; b=VJy+52/4dhQhhXeMXi1efr7sQL
-	QI2jEx206W+QvX+ScFL1JB/O4cFyBqqaGdY336XmEEtVQFoOCwGROe0i+Mwet5q4GKUQ0XZJZlA6n
-	+6RwYy3pRE+jeTWNob3nX/MogdjEsFVmwUAqXx5c3Zi2q8Hxn9SPmGq9sHmJro0bJd9QeanKXtjW6
-	pNmhFUxiyggMS/RkDerWxH+Sv6tQEDCaAgKBfMRkKPnivI3UZsOhxQW6Y32JRgy9zCTSEGk0/ReD+
-	jLAfeF7z2axTT0tiCuwbpqDIseVk+mxWJttrp5vH3dAhcuZ/bs8M3r2P/nkPAio5l+2pvGt3UgooA
-	Cl5XJP9w==;
+	bh=u1WR5ODyKHxb0v/kKAHtZd8QE/NKwhLOL+jqvJJiv/A=; b=VQyiJLacyxiBOyhu7yXUQHshpZ
+	8kMZL5O7hBYEsaJvewifeCr7Jn0uvbrAaN5M0agMac0PXxAtG92kTeedmgh2WiyKt+ujxQdQiyhtu
+	gvmUl6lYyQQy7y6Er7Q1D+TalkgoELhCVDppFrybRx0Z3Av0mgLOjO4hOew3arqquYPN5gXQJ/l0I
+	QIImneEWT01MvK9saFITB5uDwJDA1TovmqoqPxLXDSC4V/IrtinpPwPOWXINMh1eaXr7hyeqSQJ3E
+	mu4E2ncBmuycQrF+hlx18tVcl5gSXa7cXhixxl/+NQxhwhtviuLj1dGplNUbdS2PhMUiuT/q7lAmK
+	LG5l4ANg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlior-000000018nE-0zFk;
-	Fri, 30 Jan 2026 07:21:29 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1vliut-000000019Cv-3m8p;
+	Fri, 30 Jan 2026 07:27:43 +0000
+Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlioj-000000018kw-2UCn
+	id 1vliur-000000019CZ-2y14
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 07:21:22 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-47edffe5540so21840945e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 23:21:20 -0800 (PST)
+	Fri, 30 Jan 2026 07:27:42 +0000
+Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-2b714f30461so1672677eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 23:27:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769758061; cv=none;
+        d=google.com; s=arc-20240605;
+        b=jzsnIyFBL6wooJS3/OJlE5/okT33PD6TEK5V4yDIG2A0X5IcI0lWq7ZPGtagIUCBTw
+         Kt4jblAuyL2xhDkic/zptz0BZsSjAB0fWP0GuTx1n3f5vg4K2vYDUTo/7pVi8t75hlUv
+         zVSpsXdDc2vEtMpoqnb5KGMNNtORvpZ6TT6snzQDnvJquMcGukhVtzuTM4WoU/quQ7kb
+         ELrqG1ohf/c3DHerPdYU5GgIP7jidGG7vIxNFVjigmAP7b6FDOiY5PAW8DrTSOqPmPD+
+         7rkzLWaFcFMrypl5Kak5r0uLHxAAp0huvxCNiEmyl4YrGjsNai/k6BKM/xGkqO2cf1gs
+         nopw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=u1WR5ODyKHxb0v/kKAHtZd8QE/NKwhLOL+jqvJJiv/A=;
+        fh=dJPjr1Hjo/xlSFsXq4o+w6M7v26nY5xHvZABhOBLnTk=;
+        b=lkYoInvecY05UYl+XxulqlRGjtzr5ky6FzHmHiG6kaliNVbi5BGIMod9Y5+IJVlBah
+         SJ6gV4fnjdkShtb755wo5T5wASLPtRodncCHoMJEOoIfx+V72YHtdHD+JtUB5pbwQD5v
+         0oa8FOrFjQg5EM/3AoUFKYCdYFKUpNx+o0H803g4oCT1Wl/9goFvX6brqc5JvOECFOV9
+         smev08X80eT6obdOB98v5nTl6kQ/XvfJQBvlN9wMGBFkFhGpEHVE3CrjBKNFgBzBH0yt
+         dGfKvapv59Imm87uQKCIgonMvYkTyZbMqwhZi5gA0qoKBXln8rq1Zgl0LCgiyTydtIsy
+         kYCA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1769757680; x=1770362480; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=aLB8sjSeOChOeJ847YsoxZIIrknXx/zBdsFz+HRbeUE=;
-        b=qXrHe5v90NyHBT3orVbpo/ACoy8rDS63TIMjQROuJnqQyb1TfQJXsauy0WVDoDe/Ne
-         2/w6Al2Yjoa6/JekiiXA3xCRiPGwv/00AVmlxqJjePTF5UN0MFGtK6kEOxQhPM7dEP94
-         NO1llh8nBVXNiuNOmDVI0fnsuqn3RdD1xH3caAl50thQVS3luw7yd4uq3HHcKYSNEAw3
-         WdX9fLf24GvgGlH7E0Is8IHjSAhWWe1iukkcGgDvnPzyVQTdv5e1JJq/AQ+XEWV+/4UA
-         nlA3+ciG7DZu6ThWoFCERoiyyP1l/F8JXpYZAt0LMezqXBSOtYNzghVUuD+U7CVmWYKm
-         jbHA==
+        d=gmail.com; s=20230601; t=1769758061; x=1770362861; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=u1WR5ODyKHxb0v/kKAHtZd8QE/NKwhLOL+jqvJJiv/A=;
+        b=AuyO9OAb2yHHqCBnKi3yVYBN3Wl8MOrBV0CeHodAV8UJiE5zAgfVbQKLMTt2rVMuiw
+         2o/fzkn7+yDgqPZaMNUfyQKlpEWIWZUg4E+2YIZGc8qfq9TrjDUgo9TUYTLqK8OD6nCG
+         0XZPz+AZmWMdhlL3+U4auPm2b1H9ACDHkkT6sUpfACIzYHkIps3puVsgaFSaBdmvCSHm
+         QmNWlh4156TzTNkMWeNOkX9vGYEH1YbPPbyK6Uuv3pGgnx4qAPpfWz5Ayy8WhQTRGMX9
+         BD5aUyLdvEQBr6AIyki2Qn6XgkUiqa5zy5jetocERvC1aHqJM3gEwGCGQKS4VNwWeigJ
+         oF/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769757680; x=1770362480;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aLB8sjSeOChOeJ847YsoxZIIrknXx/zBdsFz+HRbeUE=;
-        b=Tx8gigITFdYC5nxEa8NkJCogTJCpwlThf6utmSQRvT3FTT0A1Yke5qKav5Dpst7hS/
-         KvXvrfMUaMW/r5FDUXEYNOg/4tX5peZpa4VUT+HObGm8v/yM0F3fNPBvV9Eekla2tbva
-         smJLTd18WaOolpnpMBXj9+EIe2qXZ8piBJW3RN7Oj8Fft/rkYxlZtsIVAiqKOvwERQN4
-         S6Va955VsXaxt6IGqGYLygOQatYkg4OJu63e17yuWNDEAGwQJEYg18hZ/INvUbSrBjCj
-         +Zot5FnuTaoyqLPChOvZrDuBsS/N81MYab1P+VAwoUmOT3yYu46Ye0ouhuMub9JTw1MO
-         M7cw==
-X-Forwarded-Encrypted: i=1; AJvYcCVvjWKgM9NxJ/Fzr7PXbvuFkzYPGdSZ/VrO0IW/YbO7+SisqfOL0EaA1ClI3BQqyOn/7K/iWyNDViSNs82vXB8q@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIQEUsVq7ItJMUjlmCdrn0cdPi7Adwfiw9GimZVKCTJa1HmHxW
-	tRdxp1qE9RVE6OmR+lTMQ6OJm+lGFqDOrUo4YJPpb5Iv+RiQpi0U87uCEgUsxTyJHnU=
-X-Gm-Gg: AZuq6aJx1wRdd/N3JfAq5lO52aaP1fclaWbSrB7ivWYTEWnjew6oe1ZRGzEcml/a5NH
-	um0MxiYCYVftw5JzXmjj8qTeuWWjPkLijcizH+a+C4Q1+YeoFbGwbd1IFfn8vj02wedXZ3eBHVo
-	rqefV016NXxaQQ4s8qtnBiQ+REFD++hfuxKBHF0vcBDXF/kphndknnNPt7hVelwyoF7ien79FhR
-	UKqHp2KNZjz5yD7ipNdhjyZ8gw2MmAp6dUNz7Qa6kiieYIGvOn2O7W8cUuQPXjm6y9Rv2r+8b1r
-	QFVo2P9FV6hxMSQ4epH3bZEbyBtygjy0RKPcccdMLRycuvRy4x6t0U8n/4hWfXW8xhN1i1eXqOS
-	LPJWTdqCltW0vwU6rexpm7gSRl6I0pf37faQMk2OBR2jdj/gINgV+fXJy26/pFBOd6Z2+ifpeF9
-	je+/n0IwtUsbhmROImww==
-X-Received: by 2002:a05:6000:1a8d:b0:435:db9b:5883 with SMTP id ffacd0b85a97d-435f3a820f0mr2452805f8f.2.1769757679666;
-        Thu, 29 Jan 2026 23:21:19 -0800 (PST)
-Received: from [10.31.13.216] ([82.77.28.160])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e132303fsm20672631f8f.36.2026.01.29.23.21.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 29 Jan 2026 23:21:19 -0800 (PST)
-Message-ID: <8c6b0e2b-7209-4030-a415-c68fcf8e94c3@tuxon.dev>
-Date: Fri, 30 Jan 2026 09:21:17 +0200
+        d=1e100.net; s=20230601; t=1769758061; x=1770362861;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=u1WR5ODyKHxb0v/kKAHtZd8QE/NKwhLOL+jqvJJiv/A=;
+        b=ZkFdf9uL9eHDyw1Os8rroJF5UXyOfUVvY0a8p7OCIMOIqqj6gv58lFhcQXjVtkKg6v
+         qLVLwoQU5IbOZie6TEHKOCrdd9XDEcM1KszGiE899CY53YcqKFEmy50sWq9UJlElEYJ8
+         TAQNMNqZ8zMkGAlrXwg3CMmA5fp0XmCk3lWx3cLjyVXM4ycTO1SNcX2U/8frmfaYJzGN
+         VI4t6uanTWVtVk02EdpbQ3WEf0ktZEciBiGZ1fgZFT2zWOLUhuHpI9CzJCvkAsd0W/Mn
+         aAmK2HmIKaMbWJ17Pc5Ff0ycvTHedhawZizmGIFpVQmv8NbzrJjoqJH5dnsSzEpTSlnI
+         +Iiw==
+X-Forwarded-Encrypted: i=1; AJvYcCWAiUy740kVcQ7JGunj9fFunWTIcZ6booz29Mf3sNhkud6Hv2jUZUmB+ySh2gmsChkC594A7k8HFcKjvsD5sXRx@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwZH2UzBswBaETIGxcr8ajWplIdNqjvZbEdyQTkSH0mZ44s5x+
+	Fbvu7InCLItWx2eyOT0jJSkryz6gwMh3x2Y8Cg5Mi4mYhBGEio6jdNxk4cbl0r2DG2sM4XcvgDG
+	fzrNBOkO1KDwSYWj7Trn120fVki4+1Lk=
+X-Gm-Gg: AZuq6aLlf0CbRyrfWTlHIlrI3Ub96yfTkBIeDgZ0whFORyITpt2IwQ+WOfuVfTLVBbx
+	yT6jL0awJtZN4Swj+4TL/y9Bz3mnIgVFc3I3yUZuyUHMB1HQU8Md4ThBXlmP2MDoAhsl+EUHokU
+	6SvqTCUY2KatL3EDxNehYHZQcgFx6YGHg5ackNIBNrt+NphmEv3GCbaLRg+zHbwBjQsK14EihPD
+	TP6iPyaNqIhoKCrWt8KAsDhzCsZ51Tg11KlXZctlU5fg6QQR107K9vtveshg0VnkkfRjL6PG087
+	r/zJ+mZgYyX1ZCAOWmRSJ6R2UCem41Fe1RAZYoTpRkyuIWyzHO34+RxB99hPj8Ft9F7Dk0kI8Ub
+	VsHZEHmdH4s0orw==
+X-Received: by 2002:a05:7301:5f8c:b0:2ae:5db9:f32c with SMTP id
+ 5a478bee46e88-2b7c88d96d3mr823727eec.26.1769758060694; Thu, 29 Jan 2026
+ 23:27:40 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 15/31] clk: at91: clk-audio-pll: add support for
- parent_hw
-To: ryan.wanner@microchip.com, mturquette@baylibre.com, sboyd@kernel.org,
- nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
- bmasney@redhat.com, alexander.sverdlin@gmail.com,
- varshini.rajendran@microchip.com
-Cc: cristian.birsan@microchip.com, balamanikandan.gunasundar@microchip.com,
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <cover.1768512290.git.ryan.wanner@microchip.com>
- <7b75764e380508c6c2c11a405bda60a801e2f494.1768512290.git.ryan.wanner@microchip.com>
-Content-Language: en-US
-From: claudiu beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <7b75764e380508c6c2c11a405bda60a801e2f494.1768512290.git.ryan.wanner@microchip.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260130054330.3462544-1-shengjiu.wang@nxp.com> <20260130054330.3462544-3-shengjiu.wang@nxp.com>
+In-Reply-To: <20260130054330.3462544-3-shengjiu.wang@nxp.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Fri, 30 Jan 2026 09:27:28 +0200
+X-Gm-Features: AZwV_Qgjn1kkHIU5h0wzpNnEdB_ncps3lPvcrbigVIp1umd_Brl0rdk5oiMuE6E
+Message-ID: <CAEnQRZC_6xRRi6y2t0MGe8udTPYWg9XEBFrxhFCbKYBCCD=OeA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/4] ASoC: fsl_asrc: Add support for i.MX952 platform
+To: Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, 
+	perex@perex.cz, tiwai@suse.com, linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_232121_654402_C321F721 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20260129_232741_750286_A49E80BD 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,27 +122,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jan 30, 2026 at 7:44=E2=80=AFAM Shengjiu Wang <shengjiu.wang@nxp.co=
+m> wrote:
+>
+> Add a compatible string and clock mapping table to support ASRC on the
+> i.MX952 platform.
+>
+> The clock mapping table is to map the clock sources on i.MX952 to the
+> clock ids in the driver, the clock ids are for all the clock sources on
+> all supported platforms.
+>
+> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
 
+At this point imx952 has the issue with dma request not cleared you fix
+in patch 3/4.
 
-On 1/16/26 22:07, ryan.wanner@microchip.com wrote:
-> From: Claudiu Beznea<claudiu.beznea@tuxon.dev>
-> 
-> Add support for parent_hw in audio pll clock drivers.
-> With this parent-child relation is described with pointers rather
-> than strings making registration a bit faster.
+So in order to avoid this you need to swap patches 2 and 3.  And in the
+newly patch 3 you will fill fsl_asrc_imx952_data with correct value
+for start_before_dma.
 
-Same here as in patch 14/31.
-
-> 
-> All the SoC based drivers that rely on clk-audio-pll were adapted
-> to the new API change. The switch itself for SoCs will be done
-> in subsequent patches.
-> 
-> Signed-off-by: Claudiu Beznea<claudiu.beznea@tuxon.dev>
-> Signed-off-by: Ryan Wanner<Ryan.Wanner@microchip.com>
-
-The rest LGTM. With the patch description adjusted:
-
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-
+Thus we also keep everything working for bisection.
 
