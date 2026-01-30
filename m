@@ -4,163 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69FC5E6BF0A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 19:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2223EE6BF0A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 19:28:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3iXcfhUO+aNfRWufSV2ZwHFJ41ttxSrK/r+nuEgOr0c=; b=2PT5rIpivST07jzh/6MkQYFUMv
-	+HEgM6evvBcmxchigiy033JCFsDFHoLMXyllecVauanEiVTzq1rVIuQFbEgO1wVgjqT5I9GG+meWa
-	hWSHsZ4TJQa3FoEHznVnu4GYjjbzCBIG3i9AH1tkcd/k4eORG0z1nAhi7m3usVXEoYbhu9AanpvGm
-	FSC6THtWJNaxrZiY4QKht65g8i0b4trDNANWomwNfVB+aD0uYR90S1h2EURyz3uCDRL1B/+VZKXH6
-	L/hM104pr1X+tdO4eXwCQZnRXiNoFuJXD7ZeG75Rk1Igq6/8+otXTeCI67AoKmO9SVRLcHTaNijM4
-	CzazDzdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rjy71wms5szan9FXTuTPKKlYyd/zTVsqWF/S5ag+Qgc=; b=Nn9eSOmkjUI6zpzNSaznNUm21s
+	7j5bdwW8EmxdR82M0T8tqCjWYkt8oY5JtLc5Zp/IYiOwk3zEKSlkMTEQIfUZnuPy/n+QbVcvaCgMN
+	y3mq26ipMECLIx26Y9LMgYfP+A0P1ab2iEd/LkyIU3qtlQCd9vmG8bwQWKaSYknUa5TfjKnyajhOK
+	EYmjSmYxk0MGdUSfLXjPTckeAN3pXdbE83UQcUbkx7c7OmCnVcs3JWAmW/QQ2DJz5UpL1APhKw3Ij
+	T8OwWYssR6pcTua2QuQ+PMqRTcmbfH204Fi1dY9BL3IHdfA3SOccMV71os77dzKpIeG2K39flY1O3
+	VJd1EA8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlu2V-00000001sTT-1fab;
-	Fri, 30 Jan 2026 19:20:19 +0000
-Received: from mail-northeuropeazon11011006.outbound.protection.outlook.com ([52.101.65.6] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vluAf-00000001t20-2s2j;
+	Fri, 30 Jan 2026 19:28:45 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlu2T-00000001sT2-15F9;
-	Fri, 30 Jan 2026 19:20:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HPLVli/TYdsMZl0pVgx10OpMbB7etSUEAMfsL4iSbwnb+JN/jS5mIthSXui5sRApSeVWqX6QUfgmIooCwROyNpzLsF8m1Ja5Ek5vvzhJ4PESDTGkXrq4ucmHS4vVbrgQKg8TU8wMXof68XxCuv2U9kiHYAVeBVOi3SCri/4qK8MhZcY7ikjuP1/HtxXqhwpSy34ivOeNbFuDKJbPAGAfLCmdf7rlc1dJn/opw4wMCEO8aKyaSHAGsyevdokerdPRK54gvMwWhRDufopXQrlhlRAJjn/ZQwNCnyM5Aoj+nBHJ91jUiF+MPTWACvzYYi9ot4HVepM+pG+Mjl3AlSWVJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3iXcfhUO+aNfRWufSV2ZwHFJ41ttxSrK/r+nuEgOr0c=;
- b=OOe+QLkLlyPC8QjcaHchnxgp6LzkUd+vZl16hBndr84yaNhHyeq2jbPtnvFc374I5fY/zywGwo1O2u/Hb7z2vZe6oDF4EK9Cno8g6pbg0/SBKCNcP+uNAdDcfgrLz99vTDj6qln38aPu+gQQGPf9/JDr6IYP+dSIBKtsX4PVZaVmRatD6cSXuj31OBEma7cxY6xQo3oq/v+yci2jM1JP7AZXD8mieMxRub7hyIBF8vR6HuR9Y4gNh0exwPXVdgLvxnSZTm9ZqW0yUNW9lT+ioOkBKydu3oTeMoPgP0DjazK3kWd58lU0VE30B+9ccr3QMyH4n+B/9XUWhcVdEh387Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3iXcfhUO+aNfRWufSV2ZwHFJ41ttxSrK/r+nuEgOr0c=;
- b=LUzqOzfs2FrJPyBapphgA6OS9ZcbEgrtysu5z/MXxb5hSTqQlbTHCpC1KtFbjyRcrBLI/oR6JHyCkCVZrI7EyzyzR/nygwkdYeYOIOj409wxuIAIn2YfwegyzjkzytYQxN9krU+npmh8DSe0ZL4HZoBGbYjpvUXJu874RYuqd+OHtQQ4J/7TRF908yuT5IILs8C9lANzYQxWs9vG3UiGzsHRLM8wZgfiLUB7Dbu+JIgkx0mEDXzrBZuZd+5ZgEW9N4NKQKKhcRVz1VaRQ5xwzWd+A9JM1i8+OokIkxXQUzdC5Ssz9c1xVLj1uM+I0Fzq7iU/4XWb4JPmyU3dgkzNOw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PAXPR04MB8157.eurprd04.prod.outlook.com (2603:10a6:102:1cf::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.8; Fri, 30 Jan
- 2026 19:20:11 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9564.010; Fri, 30 Jan 2026
- 19:20:10 +0000
-Date: Fri, 30 Jan 2026 14:19:58 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>,
-	Chaitanya Kulkarni <kch@nvidia.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Koichiro Den <den@valinux.co.jp>, Niklas Cassel <cassel@kernel.org>
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org,
-	mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, Damien Le Moal <dlemoal@kernel.org>
-Subject: Re: [PATCH v3 0/9] dmaengine: Add new API to combine configuration
- and descriptor preparation
-Message-ID: <aX0EXjM4LlO3Hygd@lizhi-Precision-Tower-5810>
-References: <20260105-dma_prep_config-v3-0-a8480362fd42@nxp.com>
- <aXD/EYqhhRJEN8oy@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aXD/EYqhhRJEN8oy@lizhi-Precision-Tower-5810>
-X-ClientProxiedBy: SJ0PR13CA0173.namprd13.prod.outlook.com
- (2603:10b6:a03:2c7::28) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAXPR04MB8157:EE_
-X-MS-Office365-Filtering-Correlation-Id: be7e65d5-5353-429c-cf85-08de603495cc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|52116014|19092799006|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cpIrGDs650IFBa+361QfFtXyupR0UnPXKYODFK8o6swbKS6RMKN3qI85ggS9?=
- =?us-ascii?Q?TMa4xVNAFyy0WzpwBKJvDrXwuwK1JpC22gcHL0vYfLu/ErCOMpP7zHAuxDgn?=
- =?us-ascii?Q?zmT0Mhyrxvd9pZKZ1LW3VqIc+V5mShJw9vMU+s2fkJL7bOIcdbYoJHc0P4kx?=
- =?us-ascii?Q?iFOl5JU6Z/QOMRUEJKApTxsPfL6Kf6tnVeTCkd0lpRMk4nb2hGMAquRu5Ous?=
- =?us-ascii?Q?HpmAE1GF/oPme0Wy6kw/6lMX9xjKaHNfrNURIjHQKtY3RTtmgh5+24JKpk4C?=
- =?us-ascii?Q?GuNRoBj9hbd7jCO+C8Th9h0SZKlRsXy+C1OnpaWFQmeEXXfagL8aiJh6+VGU?=
- =?us-ascii?Q?ZsfRGgtu+5DpPpGep4RL4rv12CegdKv9R8RChsxAaRCCYD1NCRzGfjaZpuKD?=
- =?us-ascii?Q?xPXd5IUDfuW8oKyKceyZwwP8DhXZgULQQvrr8o8CZ08G3+fPOB/0wlCmlBxg?=
- =?us-ascii?Q?ajPk4Woo4NmL846h5lCBFMRDBLK3sb+vvMuw6bYxNv15aosdZz+cuLyyjq9T?=
- =?us-ascii?Q?m3b1H5ErJMFprm5eNO4QjR0gTv1Sxb8RCAybzE31M/3sY2J0MhBagzTA2GfX?=
- =?us-ascii?Q?OWgUrVxLXJ4uvkjRog41F2Iv6MR+opJtdkDVe3L85N+iw0RHCiRF+E15l9z4?=
- =?us-ascii?Q?dpYmFHfo/s4Hm2kDkXOxPyV9LIq9C19rbrV3rk9jEU4NY6Mdigf+cR015pgP?=
- =?us-ascii?Q?VIwvpVKTvMqcruOviGmN7L3BJL6xSBzmXO5ggXbZo+5PbsVoFyEM9hDlFIxh?=
- =?us-ascii?Q?oLqilljQOduPJs8/fcyo7KT9m4g+u0lXr9qle2wm0tES7KEgJwASliN2vqLS?=
- =?us-ascii?Q?kUXSGR9YBD1Cce7VfjnWGRXexveUaUZqoKzXc4OCDXtm7HgUxLPO8WUbmiJX?=
- =?us-ascii?Q?ze0CddRz4pIMrKDdwPhMt0NXSS1leozwaIVQ6Y0VySAPvAvM4fy9yjZlDKUM?=
- =?us-ascii?Q?pdxXAoeTKRKoX652EjmrXJMbLGi/Hi3Quscf9yoRd2MF5hfnsTQ2kDlAuTvz?=
- =?us-ascii?Q?ATnbGXukDPKYYT00wRb4bjw8/IwFCfXPt25zO83feVsAtdHUBZfMv14usHoI?=
- =?us-ascii?Q?x51p3/bSCO+hIOQvE+I6XkmWkJuW5kpf8gka/QjSkD5d+l2RT6s2NU6Peyx8?=
- =?us-ascii?Q?enSyqp7HrKR4gW760/mGzxzdGhIbtEmJK1gpb9IZS9qi3Jxe7PKy3bhk1dt3?=
- =?us-ascii?Q?wUXyEqyQW4Xi8BVReIWH3iPFrMU076PoYBEe+h2q8/rwvyUWGPrH22PO2VUV?=
- =?us-ascii?Q?h0wWbeYmjnVz7H7lLYHgCj02CHJFkE5dERGNGUjZmDSYRJG8NBdVoUL6A58Q?=
- =?us-ascii?Q?1os2GqWe2GNOh2QpmoQSgunY/JrorzFfRmcHu3pYLdqL9FBz0V18nvS7WUJ9?=
- =?us-ascii?Q?M1/OaUHJYAK8oXkS+IA2eOe/l71EKLI3/UNVkItjRujXQPmOnVKH3B5Fw34O?=
- =?us-ascii?Q?1LS9jadC1MZzzj8hDEGOUgQ8sOWKoYzLhyJDyQ8GMDvPQ2dgeW4ul47h8ZTy?=
- =?us-ascii?Q?gtXPfgzUamNajKyueV4ZYWJw6d9uWX0AsohhzDt9jl5CGkN+NzgPM9ILOtzY?=
- =?us-ascii?Q?Q0h79YyiVJ2tTMvTPqh6daevp40lRYNh9GnBFC8pbj5C0KzzvOCXU0uw0y6e?=
- =?us-ascii?Q?G/WvFdq7dt5luTX4oRjAQfciHxNqG5yTB5Gp9M/kwbzO?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(52116014)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OaCmW+A1hWR5RORcRGK6LhMkCJ7ztVPBEgOhYX1Z+UaHWlMweTFB+cz59u6C?=
- =?us-ascii?Q?LoETk2nXqPWz1stbVffhRRKjxRCZR58pw9BWksB/CrnbGqMG1f50r15rlh1D?=
- =?us-ascii?Q?5OYJqna1C7XniewY1b1SjHz7//61BvPfXqtoK1AmfPFSTxH2ATx9d3ptCwyq?=
- =?us-ascii?Q?oeLzEoddkggKQtEYr93ytlqWB9pPtraRaXCYVKdwaAX/YmUM9XxfQnPqSyVc?=
- =?us-ascii?Q?kWhGzBPi4kOd+vDCMIy5V4NeOu6MmeNg8qlNf1Mj4JLoN3ShpmWcC/6cuznF?=
- =?us-ascii?Q?5JZFKGu15buKFD+RqcuM8i3Uh7nUhL+1Zz5aimMjv6S1Ffh1PjU8IwAWKhof?=
- =?us-ascii?Q?2k8uhpZSBCeHNkVO1CcNKKhpqsx8/3AIXIZUUflJMU5uEAoSovXuPxmJwhyF?=
- =?us-ascii?Q?1+RTZ+fUj7I2H0mBi8UXX8oUtxcUEQrXRqlucWAkKp2X9Uj/KM38ZhrKZict?=
- =?us-ascii?Q?q5SAWFoVozh0j2hf9V+sliXhvtUBP4TfRov2crgLSG83m3bTwO4KpEoIQJXb?=
- =?us-ascii?Q?5M7uvYb8b74FxQKOfg+Q1oAYPEeMy6rxXfy+CYQxQxbaoI041SOiC5flh10g?=
- =?us-ascii?Q?XTZLPrF8szNLUkV7WW1HsSO7me6v4Dt2P92TN4ossFwqKrzaj1tpETe2Z48S?=
- =?us-ascii?Q?Le/diSmvc32JRDUoLgb+J3QQD83Ti+pieY0/y7lZ26ibwwWVunbVErhADXNr?=
- =?us-ascii?Q?hwdbBG1nrNDDqfZ9mmepTc6kQDoDC6+AuQ8sxmkjMkB9q+9BwDeTUTPkT4LB?=
- =?us-ascii?Q?0un7Tq9iHKWJhUh9EQtT9GaYeYv4oAaO/71NfzY/RjV9PAWvtdoSid0SrfSN?=
- =?us-ascii?Q?E4b6+Wg/n5vgPXYF0fSo6w0+ItykKvf2MKb+svv97WLLE7wMkqv28sxPf0yo?=
- =?us-ascii?Q?rad/dccJyTh3iY2Ean073qtrg1Ht2/QYV34YWnhvxUL7eIp1mDutaaGoco5V?=
- =?us-ascii?Q?ysox2iebMOOyexLjczckAkuwlQmtDUTl7MHgVFVnO8B3doS+X0T22TCMyvbH?=
- =?us-ascii?Q?qAgFEC9Jqp/7t55+M18hMNRmZ+E4IcGvleaLIaXn3zKWpUse4D9Ws1KdGF3x?=
- =?us-ascii?Q?2UM7XZ0jO5unzKHkgCIQtUON1d7tFjoJJDtUizpjkXqnElNysNyXcNorfxFw?=
- =?us-ascii?Q?2jpA23PnI0VJlbJgnaDzlGwsTEnjOf2x4P79qGH9rGUY8cllTf6qQw/UOjFA?=
- =?us-ascii?Q?8baSfH2nLqlTT/P3Nfoy5q6sO1rAWMaH4+8FoenRcccOsbxruw3r+oRruD1S?=
- =?us-ascii?Q?lU8CWdWUYuY2ZBJvJJMbF2mvfTp1FlpVGEp9O8fWICiEqQCBiOGOG7QK1tW5?=
- =?us-ascii?Q?+uxRsPmevOzXHJz2/rWguCFcsqhKosTKNst66NoKOHVYT12vvK+mcrQEJwhZ?=
- =?us-ascii?Q?MJdPGzs6V6/Osh+RdC56LVhGcTsAXsVSlYGaBnlFm6A2q4xl/3qO0tBr/4MC?=
- =?us-ascii?Q?E8dbVOJQZorc5aOqy5g8WqrcGni/WXKHYRo2reL3SPdYb+oAHvwluK876Ztx?=
- =?us-ascii?Q?hruNqaigS+vUBpdS4RUgUY1zfKMkWQIkZ/8r7xggMMJhf5Fi2EXYgtP0unmm?=
- =?us-ascii?Q?vT7C0jxW2endfu/gzC9G6MQXiPZto4zpV9qsv4Zg6faBPoKadcZc81Ju6p0r?=
- =?us-ascii?Q?jc6btpCh9yF5rVQpAOiW0cn1z/Wzt6NJL3Um2nDBYJ7LLCtkaLozi119QkuB?=
- =?us-ascii?Q?tAFOigFBYCCscp96SHDb6t4aQaWsDfZsnmHcwHDOBNFXmVBn?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: be7e65d5-5353-429c-cf85-08de603495cc
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 19:20:10.6238
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CZn5laUxKyzZ0mwl/dXHRU3jly5x64lZPm5J5sxD5qbHYfFVHkmKEKnxXTgPt4aHpHxNl2/MFBYUR24jCNvrPw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8157
+	id 1vluAd-00000001t1c-0qrh
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 Jan 2026 19:28:44 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-34c5d6193daso5524057a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Jan 2026 11:28:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1769801321; x=1770406121; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=rjy71wms5szan9FXTuTPKKlYyd/zTVsqWF/S5ag+Qgc=;
+        b=LCel3BL9z6iAU9oSuWtpIosgVGvmIm/jv2T7zgK/eSOxBpGpwprqa7gata+Y7j74O+
+         HXRTaDVWE/AXGe96R+bbhxtBB177ce0Wrn6kO0JsreyVvF21NB/m95hSvhEKTA244dja
+         69qrBHjGeC+nidsovdLijZGYQO1m9MlChnL0jvaeYqPbR4dnhyJNjeGhChcTVVtU4q7j
+         n2/T6QJlGLXC2Ztg9cNJd+4PBixVvWQ914dBqdsRXBI33yK94PZObWcJoxBM6sUhPT/f
+         +hsm4qylPkd5C/QRLriAa/FWP++hIh/qDQeEnNfkEzrZDNWkha3agurV/rJR7BpPjUg9
+         Yj5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769801321; x=1770406121;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=rjy71wms5szan9FXTuTPKKlYyd/zTVsqWF/S5ag+Qgc=;
+        b=HGABQYYT60OrLAQI4+wizQ1O8ARwPEClGUI3ogrRkImT+ZzO/0IGBnFjK+NuDMgnX9
+         mlSY6vnDONm7OibOj6gtR1sFsap/TJEaQavsh/0i79uCH41dvuNRJ19vPuEeB+z5r4Vm
+         D0taZ3qSeLVBtJ4gQHeLJZuMN6c3beDyHJJpfwD8Bq4vJeqfBn3h9bEjDTtgXi00OOpY
+         5pLkyIQHbDUYZd1Q+0y20uTMxp96S+ttJR3jZnfqzZuO+bCGcCWX8ElujyjwcvF8c91u
+         Vc9TR5vHkn/d/eIm/yqkEYP8/prpq6LtBuWkraE3jru8w9oyfgiyOkcZ/fJqUeeMfRD4
+         Y87w==
+X-Forwarded-Encrypted: i=1; AJvYcCUeTjV9wfbgyHzVd4qdeueIhEhomqb0J88kkfMH1O1ypZLqoZbfeKsbzQbMm4Y0xv9qobZHYsxSfyuFrfqBQhzA@lists.infradead.org
+X-Gm-Message-State: AOJu0YznYGhKftheeC1fCnCZzKT8ChwAhNj1aHckuTb72G3QxTsJpI5U
+	uGIN3ymYVjN9e4m8IQlSMOGvANqnY2mPYqR2m4m+rgkpyP2KYXxjAo98+5vGbJ1VGje2QnpAJ7a
+	/L7J7tLOTm9AeOA==
+X-Received: from pgct22.prod.google.com ([2002:a05:6a02:5296:b0:bd9:19be:503c])
+ (user=jiaqiyan job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a20:a11c:b0:38e:9d3b:470b with SMTP id adf61e73a8af0-392e01096dbmr3663945637.42.1769801321501;
+ Fri, 30 Jan 2026 11:28:41 -0800 (PST)
+Date: Fri, 30 Jan 2026 19:28:37 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.53.0.rc2.204.g2597b5adb4-goog
+Message-ID: <20260130192837.890688-1-jiaqiyan@google.com>
+Subject: [PATCH v1] KVM: selftests: Improve sea_to_user test
+From: Jiaqi Yan <jiaqiyan@google.com>
+To: oupton@kernel.org
+Cc: sebott@redhat.com, gshan@redhat.com, yuzenghui@huawei.com, maz@kernel.org, 
+	rananta@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	pbonzini@redhat.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Jiaqi Yan <jiaqiyan@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_112017_319419_7E01194C 
-X-CRM114-Status: GOOD (  24.48  )
+X-CRM114-CacheID: sfid-20260130_112843_273319_2CB2942C 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,98 +89,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 11:30:09AM -0500, Frank Li wrote:
-> On Mon, Jan 05, 2026 at 05:46:50PM -0500, Frank Li wrote:
-> > Previously, configuration and preparation required two separate calls. This
-> > works well when configuration is done only once during initialization.
-> >
-> > However, in cases where the burst length or source/destination address must
-> > be adjusted for each transfer, calling two functions is verbose.
-> >
-> > 	if (dmaengine_slave_config(chan, &sconf)) {
-> > 		dev_err(dev, "DMA slave config fail\n");
-> > 		return -EIO;
-> > 	}
-> >
-> > 	tx = dmaengine_prep_slave_single(chan, dma_local, len, dir, flags);
-> >
-> > After new API added
-> >
-> > 	tx = dmaengine_prep_config_single(chan, dma_local, len, dir, flags, &sconf);
-> >
-> > Additional, prevous two calls requires additional locking to ensure both
-> > steps complete atomically.
-> >
-> >     mutex_lock()
-> >     dmaengine_slave_config()
-> >     dmaengine_prep_slave_single()
-> >     mutex_unlock()
-> >
-> > after new API added, mutex lock can be moved. See patch
-> >      nvmet: pci-epf: Use dmaengine_prep_config_single_safe() API
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
->
-> Vinod:
-> 	Can you take care these patches? At least first 2 patches! So
-> I can did more clean up at next kernel release.
+Several improvments to the test for KVM_EXIT_ARM_SEA:
 
-Vinod Koul:
+- Refactor run_vm to catch GUEST_FAIL, instead of causing confusing
+  unhandled MMIO kvm exit.
 
-	Do you have chance to pick up (at least first 2 patches) for 6.20?
-So I can start do more cleanup work.
+- Sync far_invalid to guest.
 
-	There are two serial depend on this one
+- Exit test with KSFT_SKIP or KSFT_FAIL when should.
 
-https://lore.kernel.org/dmaengine/20251212-edma_ll-v1-0-fc863d9f5ca3@nxp.com/
-https://lore.kernel.org/dmaengine/aWT4p7RnFykJnuOz@ryzen/
+- Add comment about VM backing memory type.
 
-Frank
+Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
+---
+ .../testing/selftests/kvm/arm64/sea_to_user.c | 94 +++++++++++--------
+ 1 file changed, 53 insertions(+), 41 deletions(-)
 
->
-> Frank
->
-> > Changes in v3:
-> > - collect review tags
-> > - create safe version in framework
-> > - Link to v2: https://lore.kernel.org/r/20251218-dma_prep_config-v2-0-c07079836128@nxp.com
-> >
-> > Changes in v2:
-> > - Use name dmaengine_prep_config_single() and dmaengine_prep_config_sg()
-> > - Add _safe version to avoid confuse, which needn't additional mutex.
-> > - Update document/
-> > - Update commit message. add () for function name. Use upcase for subject.
-> > - Add more explain for remove lock.
-> > - Link to v1: https://lore.kernel.org/r/20251208-dma_prep_config-v1-0-53490c5e1e2a@nxp.com
-> >
-> > ---
-> > Frank Li (9):
-> >       dmaengine: Add API to combine configuration and preparation (sg and single)
-> >       dmaengine: Add safe API to combine configuration and preparation
-> >       PCI: endpoint: pci-epf-test: Use dmaenigne_prep_config_single() to simplify code
-> >       dmaengine: dw-edma: Use new .device_prep_config_sg() callback
-> >       dmaengine: dw-edma: Pass dma_slave_config to dw_edma_device_transfer()
-> >       nvmet: pci-epf: Remove unnecessary dmaengine_terminate_sync() on each DMA transfer
-> >       nvmet: pci-epf: Use dmaengine_prep_config_single_safe() API
-> >       PCI: epf-mhi: Use dmaengine_prep_config_single() to simplify code
-> >       crypto: atmel: Use dmaengine_prep_config_single() API
-> >
-> >  Documentation/driver-api/dmaengine/client.rst |   9 ++
-> >  drivers/crypto/atmel-aes.c                    |  10 +--
-> >  drivers/dma/dmaengine.c                       |   3 +
-> >  drivers/dma/dw-edma/dw-edma-core.c            |  41 ++++++---
-> >  drivers/nvme/target/pci-epf.c                 |  21 ++---
-> >  drivers/pci/endpoint/functions/pci-epf-mhi.c  |  52 ++++--------
-> >  drivers/pci/endpoint/functions/pci-epf-test.c |   8 +-
-> >  include/linux/dmaengine.h                     | 117 ++++++++++++++++++++++++--
-> >  8 files changed, 177 insertions(+), 84 deletions(-)
-> > ---
-> > base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> > change-id: 20251204-dma_prep_config-654170d245a2
-> >
-> > Best regards,
-> > --
-> > Frank Li <Frank.Li@nxp.com>
-> >
+diff --git a/tools/testing/selftests/kvm/arm64/sea_to_user.c b/tools/testing/selftests/kvm/arm64/sea_to_user.c
+index 573dd790aeb8e..4a3511fa1f940 100644
+--- a/tools/testing/selftests/kvm/arm64/sea_to_user.c
++++ b/tools/testing/selftests/kvm/arm64/sea_to_user.c
+@@ -12,6 +12,11 @@
+  * including the notrigger feature. Otherwise the test will be skipped.
+  * The under-test platform's APEI should be unable to claim SEA. Otherwise
+  * the test will also be skipped.
++ *
++ * The VM backing memory is tied to HugeTLB 1G hugepage so far. Make sure
++ * there are more than 4 1G hugepage on the system. They can be allocated
++ * at runtime by:
++ *   echo 4 > /sys/kernel/mm/hugepages/hugepages-1048576kB/nr_hugepages
+  */
+ 
+ #include <signal.h>
+@@ -98,11 +103,15 @@ static void write_einj_entry(const char *einj_path, uint64_t val)
+ 
+ static void inject_uer(uint64_t paddr)
+ {
+-	if (access("/sys/firmware/acpi/tables/EINJ", R_OK) == -1)
+-		ksft_test_result_skip("EINJ table no available in firmware");
++	if (access("/sys/firmware/acpi/tables/EINJ", R_OK) == -1) {
++		ksft_test_result_skip("EINJ table not available in firmware\n");
++		exit(KSFT_SKIP);
++	}
+ 
+-	if (access(EINJ_ETYPE, R_OK | W_OK) == -1)
+-		ksft_test_result_skip("EINJ module probably not loaded?");
++	if (access(EINJ_ETYPE, R_OK | W_OK) == -1) {
++		ksft_test_result_skip("EINJ module probably not loaded?\n");
++		exit(KSFT_SKIP);
++	}
+ 
+ 	write_einj_entry(EINJ_ETYPE, ERROR_TYPE_MEMORY_UER);
+ 	write_einj_entry(EINJ_FLAGS, MASK_MEMORY_UER);
+@@ -123,12 +132,13 @@ static void sigbus_signal_handler(int sig, siginfo_t *si, void *v)
+ 	ksft_print_msg("SIGBUS (%d) received, dumping siginfo...\n", sig);
+ 	ksft_print_msg("si_signo=%d, si_errno=%d, si_code=%d, si_addr=%p\n",
+ 		       si->si_signo, si->si_errno, si->si_code, si->si_addr);
+-	if (si->si_code == BUS_MCEERR_AR)
++	if (si->si_code == BUS_MCEERR_AR) {
+ 		ksft_test_result_skip("SEA is claimed by host APEI\n");
+-	else
++		exit(KSFT_SKIP);
++	} else {
+ 		ksft_test_result_fail("Exit with signal unhandled\n");
+-
+-	exit(0);
++		exit(KSFT_FAIL);
++	}
+ }
+ 
+ static void setup_sigbus_handler(void)
+@@ -158,7 +168,6 @@ static void expect_sea_handler(struct ex_regs *regs)
+ {
+ 	u64 esr = read_sysreg(esr_el1);
+ 	u64 far = read_sysreg(far_el1);
+-	bool expect_far_invalid = far_invalid;
+ 
+ 	GUEST_PRINTF("Handling Guest SEA\n");
+ 	GUEST_PRINTF("ESR_EL1=%#lx, FAR_EL1=%#lx\n", esr, far);
+@@ -166,7 +175,7 @@ static void expect_sea_handler(struct ex_regs *regs)
+ 	GUEST_ASSERT_EQ(ESR_ELx_EC(esr), ESR_ELx_EC_DABT_CUR);
+ 	GUEST_ASSERT_EQ(esr & ESR_ELx_FSC_TYPE, ESR_ELx_FSC_EXTABT);
+ 
+-	if (expect_far_invalid) {
++	if (far_invalid) {
+ 		GUEST_ASSERT_EQ(esr & ESR_ELx_FnV, ESR_ELx_FnV);
+ 		GUEST_PRINTF("Guest observed garbage value in FAR\n");
+ 	} else {
+@@ -185,25 +194,19 @@ static void vcpu_inject_sea(struct kvm_vcpu *vcpu)
+ 	vcpu_events_set(vcpu, &events);
+ }
+ 
+-static void run_vm(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
++static void validate_kvm_exit_arm_sea(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+ {
+-	struct ucall uc;
+-	bool guest_done = false;
+ 	struct kvm_run *run = vcpu->run;
+ 	u64 esr;
+ 
+-	/* Resume the vCPU after error injection to consume the error. */
+-	vcpu_run(vcpu);
++	TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_ARM_SEA);
+ 
+-	ksft_print_msg("Dump kvm_run info about KVM_EXIT_%s\n",
+-		       exit_reason_str(run->exit_reason));
++	ksft_print_msg("Dumping kvm_run as arm_sea:\n");
+ 	ksft_print_msg("kvm_run.arm_sea: esr=%#llx, flags=%#llx\n",
+ 		       run->arm_sea.esr, run->arm_sea.flags);
+ 	ksft_print_msg("kvm_run.arm_sea: gva=%#llx, gpa=%#llx\n",
+ 		       run->arm_sea.gva, run->arm_sea.gpa);
+ 
+-	TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_ARM_SEA);
+-
+ 	esr = run->arm_sea.esr;
+ 	TEST_ASSERT_EQ(ESR_ELx_EC(esr), ESR_ELx_EC_DABT_LOW);
+ 	TEST_ASSERT_EQ(esr & ESR_ELx_FSC_TYPE, ESR_ELx_FSC_EXTABT);
+@@ -211,39 +214,48 @@ static void run_vm(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+ 	TEST_ASSERT_EQ((esr & ESR_ELx_INST_SYNDROME), 0);
+ 	TEST_ASSERT_EQ(esr & ESR_ELx_VNCR, 0);
+ 
+-	if (!(esr & ESR_ELx_FnV)) {
+-		ksft_print_msg("Expect gva to match given FnV bit is 0\n");
++	far_invalid = esr & ESR_ELx_FnV;
++	sync_global_to_guest(vm, far_invalid);
++
++	if (!far_invalid) {
++		ksft_print_msg("Expect gva to match\n");
+ 		TEST_ASSERT_EQ(run->arm_sea.gva, EINJ_GVA);
+ 	}
+ 
+ 	if (run->arm_sea.flags & KVM_EXIT_ARM_SEA_FLAG_GPA_VALID) {
+-		ksft_print_msg("Expect gpa to match given KVM_EXIT_ARM_SEA_FLAG_GPA_VALID is set\n");
++		ksft_print_msg("Expect gpa to match\n");
+ 		TEST_ASSERT_EQ(run->arm_sea.gpa, einj_gpa & PAGE_ADDR_MASK);
+ 	}
++}
+ 
+-	far_invalid = esr & ESR_ELx_FnV;
+-
+-	/* Inject a SEA into guest and expect handled in SEA handler. */
+-	vcpu_inject_sea(vcpu);
++static void run_vm(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
++{
++	struct ucall uc;
++	bool guest_done = false;
+ 
+ 	/* Expect the guest to reach GUEST_DONE gracefully. */
+ 	do {
+ 		vcpu_run(vcpu);
+-		switch (get_ucall(vcpu, &uc)) {
+-		case UCALL_PRINTF:
+-			ksft_print_msg("From guest: %s", uc.buffer);
+-			break;
+-		case UCALL_DONE:
+-			ksft_print_msg("Guest done gracefully!\n");
+-			guest_done = 1;
+-			break;
+-		case UCALL_ABORT:
+-			ksft_print_msg("Guest aborted!\n");
+-			guest_done = 1;
+-			REPORT_GUEST_ASSERT(uc);
+-			break;
+-		default:
+-			TEST_FAIL("Unexpected ucall: %lu\n", uc.cmd);
++		if (vcpu->run->exit_reason == KVM_EXIT_ARM_SEA) {
++			validate_kvm_exit_arm_sea(vm, vcpu);
++			vcpu_inject_sea(vcpu);
++		} else {
++			switch (get_ucall(vcpu, &uc)) {
++			case UCALL_PRINTF:
++				ksft_print_msg("From guest: %s", uc.buffer);
++				break;
++			case UCALL_DONE:
++				ksft_print_msg("Guest done gracefully!\n");
++				guest_done = 1;
++				break;
++			case UCALL_ABORT:
++				ksft_print_msg("Guest aborted!\n");
++				guest_done = 1;
++				REPORT_GUEST_ASSERT(uc);
++				break;
++			default:
++				TEST_FAIL("Unexpected ucall: %lu\n", uc.cmd);
++			}
+ 		}
+ 	} while (!guest_done);
+ }
+-- 
+2.53.0.rc2.204.g2597b5adb4-goog
+
 
