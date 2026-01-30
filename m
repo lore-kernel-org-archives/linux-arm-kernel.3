@@ -4,182 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08728E6BF11
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 15:21:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E49BE6BF20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 15:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AaNv9pxS0ijWue0bfXgsNX3q9hNRlG/JrKnHmKn6H90=; b=zQaOH3i9CyWP6aPA5SCsDKSI/P
-	wDbND9QIy2FMpT5KbhGfR9R+IYuMqr/XS3s+oTwEMDb3aGOzDh9PSLrhiRA8WUTb6SSS1Y8SiCADh
-	HmPkxrWoC1Qb8vakruGmc1yRY1QycsJ0urnyXxdy9gMY1IjBdT8X46qrOHsSy3q3IYMofQwPt6NUk
-	++c8cJGxWqLwFibiTizeq1P1ITnxkzx99NhtIgKAyG6kcxr9F8xrsJ0+gfMjShTlrK6mIrWeN41Sv
-	TWuc00T8gK/DrohXDZYJn4pFjPRU1q1d1k4CJfwMKz7wnB4BYd+Chvg9GhtkDk8FkOafbcU6UZqr3
-	XVwmqLPg==;
+	bh=vOa37cugu1e7NFG01Hi5lQxNeOFAbNhgF4zlCMpuWB0=; b=B4GUnVabSPAqlVYUjmjFXvmt46
+	46n+FJCd0v5tIT0UwW1b8lv1y5fYX4Fp4pMcLMUYc+6kBavMbojWuLMbYFL7GsadCI7xRSXWL7aX8
+	dH2bZ18ZPJykuf60dLV6MlDtdlg2e4DxxfvrTZ6crg82mdNHR95KBxQcYSsmn6PbQZOg9z1w2l7/Z
+	gfkHzc8ifgBGSM/hHFxhY3l0WyLHJgfYctW6OfUubTDJmFYRSeSJCTsrDVSln4RZdI07RDNYh2vm8
+	K3JzLqlZHRrY/u+d3LlKbQZaHAOQcdy+h48NPNUDP3THmaTneN7CwaYkldhezSduL5EIeVR1Hd/1a
+	vac8ia0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlqJj-00000001e7I-0hvn;
-	Fri, 30 Jan 2026 15:21:51 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vlqTF-00000001edk-0APH;
+	Fri, 30 Jan 2026 15:31:41 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlqJg-00000001e6C-2SM5
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 15:21:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZtTiEVCCT/FW668KJeGxkjGDj3zZA7OVPwIDI7ywyNvzIO2X0HfZujVLHFgT5SA5uKs6UrvVVbj5Dx2WJ/JJo8MxqoPptpIyAWro52k45Fv3i7Kd3YErvxKOrb0eJTO4u5gEcArBiqLWKaXqOhpOClKrNc6gM2e1nzQSt9LY7S3hntWwIVesTV6l/elYBgDdS9Owdz4Q6RxTmtKwb8AehBcNKT3PHxqeJV880G7OiOSx/up8m3ZzypGtHxB0LHzujdpM70IihYk6jb63TuuzmNE9iyWEwhEOR7RITBNbC6M5U+OHDshZ7dn3BnQJ/vzWxazESg22KnytMQEGm+nXrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AaNv9pxS0ijWue0bfXgsNX3q9hNRlG/JrKnHmKn6H90=;
- b=QP4CUQa2d5QdQyt9FIK4QRt4G9V812TltmUb0/PBkqS4SqOnhzOKdj8XiH6lROCtkLYSq0TXSXKAuKFXyRXC98IdzOZQJz2bpW4hbUEOLM7kg4355X2/UXmR2Gg8GLBGBFj3QBPwBQCqiMoEdfCdKMkK51r79SlxfotUmk5XIxI1FovKg/gzuolbI7qxSj3Y2rcSl71Oz4ivItH25nNwEcjbVkboOCyqNoJfDE9YT5LiKiSXDCgjbND3h9Z9z/pNEjiFmpgM/0RJfYXUZNo1fQv/hK1UEXgkTHubcGAnkpTyaDhDnyRSN+3kQO1II+gRrg1TXoMDH/5dsoikceRztA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AaNv9pxS0ijWue0bfXgsNX3q9hNRlG/JrKnHmKn6H90=;
- b=aQygtZ/fhktj18z/ImpGrysMOwmWXnbAD/IEFJTNJmJhzmXcPUAx4iTVv5op2AJ2ZNS6n0Z4PNIp8ov8kRjnHmqvpWrBRMGjTR53jcQIWZhV2RDv1NLqEINLZ2khhNy2/DFL0pgdHgk9IWaHkNCGfmnyFuXKKktzBS09eeZl56mEAZARSTC+ag3nZp3DhAmyWpo4ZMm8IQY70GDTcn40+MTEZ9J1ROiGHS2Fw4Fr+EwZnXCXFo+JQ+r5qvLw+F9w/XmBImS3mJq5acc0Lt3D0xVa1gu1q7rHP3Jvx78qFz/4W7EOHQpV0uF+Gv56KSVsmdQCpPT9YGVBQ1BGak65YQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by VI1PR04MB9738.eurprd04.prod.outlook.com (2603:10a6:800:1dc::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Fri, 30 Jan
- 2026 15:21:45 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9564.010; Fri, 30 Jan 2026
- 15:21:39 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Fri, 30 Jan 2026 10:21:15 -0500
-Subject: [PATCH 2/2] i2c: imx-lpi2c: use dmaengine_prep_submit() to simple
- code
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260130-dma_prep_submit-v1-2-2198f9e848fa@nxp.com>
-References: <20260130-dma_prep_submit-v1-0-2198f9e848fa@nxp.com>
-In-Reply-To: <20260130-dma_prep_submit-v1-0-2198f9e848fa@nxp.com>
-To: Vinod Koul <vkoul@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>, 
- Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-i2c@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, carlos.song@nxp.com, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769786487; l=2069;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=JexKgF5L9KvxquD8OTgy7TrkmLj3CofvUQO9izXpewc=;
- b=kYGQUTqOxtjYipRHz7ymIXPBZBU+ByjQtRyUUQZBTfj4THel63zRnQfIyHebgYIbzjRmqO9Lb
- FaC6muCOUd+DHOzkuS43Z7CDyajY2vUwHdUNgf1hSkKveUVjUANZDRO
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: BY5PR17CA0063.namprd17.prod.outlook.com
- (2603:10b6:a03:167::40) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	id 1vlqTC-00000001ecN-09Tv;
+	Fri, 30 Jan 2026 15:31:39 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1769787091;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vOa37cugu1e7NFG01Hi5lQxNeOFAbNhgF4zlCMpuWB0=;
+	b=0KQp0ypVQ4kZaeO3mPHMfxJV+hK/54vG6DKBi+oQw7b2zUOdcXSHVjzGTkDhg+DII5BPUq
+	aN49RxuHT0Y324cEPE9hahaKdLHrEB12udzdH1NvAbslSIBaR+apFss0VpjAJQGlvJvNWz
+	Qkt0FDwz1uMiX4gq49nlr83YKlkc4clstGJ1Gn1qJZPTuOUjrQYGQ2og6q2aakCd23E2bK
+	j7QeXx4RcIyDXczvYB5hGiBrowZd2spJR3vfcC58o7tRoab9LXrUZs+RPcCpb6cx/pdJtb
+	HBe2qGa1jRaFKPPNxGpTtUqYNPr0BFkp5fHngur0T+mOUqFJcq3Nhz3k8u/Dpw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1769787091;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vOa37cugu1e7NFG01Hi5lQxNeOFAbNhgF4zlCMpuWB0=;
+	b=tRQx2QeqDh72ig5xLjiaegMLqnl9AhaSG7GZod8dlzScFDOmHttRC8Fl88vJKoOCPg8W40
+	GHTlrnG5vPdq05BA==
+To: Petr Mladek <pmladek@suse.com>, Marcos Paulo de Souza <mpdesouza@suse.com>
+Cc: Richard Weinberger <richard@nod.at>, Anton Ivanov
+ <anton.ivanov@cambridgegreys.com>, Johannes Berg
+ <johannes@sipsolutions.net>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Jason Wessel <jason.wessel@windriver.com>,
+ Daniel Thompson <danielt@kernel.org>, Douglas Anderson
+ <dianders@chromium.org>, Steven Rostedt <rostedt@goodmis.org>, Sergey
+ Senozhatsky <senozhatsky@chromium.org>, Jiri Slaby <jirislaby@kernel.org>,
+ Breno Leitao <leitao@debian.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>, Kees Cook
+ <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli"
+ <gpiccoli@igalia.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael
+ Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>, Andreas Larsson
+ <andreas@gaisler.com>, Alexander Shishkin
+ <alexander.shishkin@linux.intel.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Jacky Huang <ychuang3@nuvoton.com>,
+ Shan-Chun Hung <schung@nuvoton.com>, Laurentiu Tudor
+ <laurentiu.tudor@nxp.com>, linux-um@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kgdb-bugreport@lists.sourceforge.net,
+ linux-serial@vger.kernel.org, netdev@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, linux-hardening@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 01/19] printk/nbcon: Use an enum to specify the required
+ callback in console_is_usable()
+In-Reply-To: <aWZyEHsOJFLRLRKT@pathway.suse.cz>
+References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+ <20251227-printk-cleanup-part3-v1-1-21a291bcf197@suse.com>
+ <aWZyEHsOJFLRLRKT@pathway.suse.cz>
+Date: Fri, 30 Jan 2026 16:37:30 +0106
+Message-ID: <878qdf3ynh.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI1PR04MB9738:EE_
-X-MS-Office365-Filtering-Correlation-Id: c0b78593-e3ed-46fd-ef57-08de601343a9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dXQ4UTlSdjV5dm1ZUUp1SHZEdTJoTUNkeENnOW1RekpoY2MwKzN3Y0ozK2hH?=
- =?utf-8?B?KzJuQW92ZmlndGlmS014Slc3Mm1TOHlIeENhazBrREgwaExGK2FNTlRWRjQ5?=
- =?utf-8?B?TnNHUGJHRWRWd2JwZWtwWkkvek1TVlhQb2VSTGxLaEtUM2c4N3ROeWpoL3JC?=
- =?utf-8?B?UjZXWXNRVEo2VVk1bnM5OWdhMW44TmtsMzBLZW5VS2xmY2dJaTJ3Wk5idjRI?=
- =?utf-8?B?eEx2ajI5MExWNTYwcnFSRko2SDRzcUpJdzdSNEVINWt0Skw0NllIMlkvUE5o?=
- =?utf-8?B?UDBIL1piTEtlTThkYlpPT0h4TTdqczFnay94UzMyQTlveVRHQTlNYitJNlYy?=
- =?utf-8?B?OTY3NGxHajVyRE1hQURDUWV4d1k0bmVuZ1p2eG1GL3RnV0M1UGNoNTJwVENV?=
- =?utf-8?B?b2czbkg5eGgwamUrRnFKOE4rdG44QzRBelUxZmJsRnpQL2Frdnk1VjVWY3cy?=
- =?utf-8?B?SklSVHpORGNvZHVFNkdyL1gvSEVkV01NbEcvbjhVWUx4SUYzM2hqeUxNVUlO?=
- =?utf-8?B?QWxuUE0veE1sclByaHhKdVJlWjIvODMzakJaVVdYR0NEOXhrSXkxdE9YUXpG?=
- =?utf-8?B?Rm1MWFFaY29WL21lblZYM2FPaUZQVjRkVXBiL2VhYlRZa1VQUWp3VWIrcDhD?=
- =?utf-8?B?Q0ltZDhvVWxpbXdhc3hjZWhBS1lXNjJTMzc1aHFxR1ZRNWNqb00yaVR5Ulha?=
- =?utf-8?B?NW9ieDlSdTNIS0xiUWxrdFdkQ2xmbUtXWU5vZ3RlNXg4S1p5UHNsREZ5Tyt6?=
- =?utf-8?B?ODJsWmVFRERwWkRtYUZPM0RzamVjSHVZaTNwTzZVTGVydmNCZWVxRkRPVEI2?=
- =?utf-8?B?RXBaYmF0YmEzcUxRUDV6Zm8ycTV0NWtqaERVUGFyTXN2c3piRmMzVmVtNE9J?=
- =?utf-8?B?RTBYSk0zQTF4Z3NSTzJ4YVp5MXBjYUROMW5DU2JCallZbmdCSFBOTExTSmdy?=
- =?utf-8?B?Z2RrZDVoRktiaCszVGd1ZXpOWXRmZXl1NjlkbG4xNVJQSHhCOXFFeDA0WHFN?=
- =?utf-8?B?WjY2M3hHRVFTREZ1cm1OZGhPUTloZmk0cTJ2OElMV3JVaGRiYVZLbXVzUWo0?=
- =?utf-8?B?c2pJamVYY1ZLa3ZyakduajBQTFRCYmV3a2MzS045d1FQYlRpeEJSTy9jL1JJ?=
- =?utf-8?B?RWpmQms5RHBQOVBKOGlPb28ySElQa1dNeE0yS3gwNlliZGxjWkxzTThUV05V?=
- =?utf-8?B?b1ZSRDNMNld5ODlSUzZnNldSOWVYNFBkMk82WVg0Z001MEgrakRNekExaEt1?=
- =?utf-8?B?SDhYcG9GTGVmMjd6aWozYVNIZm5NUFdycnowUVNpTlg3azVBbU1HcE1MU0Ra?=
- =?utf-8?B?cTJDaG40OGFHbHp5V2FpNnhmdXZITVJYclhQcTZCcEdyRndSeDRmcXp2c2Zs?=
- =?utf-8?B?ZTdWVG5qeGVYbVFmNk9Qb0kyTFRSSDZRQ1EzcFJMbVh6VmtScENRRm9ZK1FH?=
- =?utf-8?B?anhRcCtGakFFNldhWDJvYk5uS3o1QkR4SGN4ZjM2UkxMQjkzWCt3UkdydVhI?=
- =?utf-8?B?WHFxNllrUTJ2V3orT0JSRXA5QUpYTm00bDdDV3NkU0lpejVlM2RWUmhrSk5h?=
- =?utf-8?B?WlNjbEl2WWsyNlhXYSsxaTJwTmxpVmJmV3ZyVU0rUzF5N2hUUG4zV0lCQzkr?=
- =?utf-8?B?VEs0bWVYVVB1RGZpTm11ZXpMblAwMzR6RUxyTnc0VEJaUjBtY09SS3c2RCtr?=
- =?utf-8?B?OTZzaE4vUHBqZWY4Z2YyTWlqMUE2VjUvL2xZZEs5TGtkUExlVG9kT1N4L1hG?=
- =?utf-8?B?TFBIdjUwVVkySzZURTJSZHd4YkE2eXZtekdrNm1KbmM3Ky9XVXV1Z0wyUlQ1?=
- =?utf-8?B?U0YwWGhha21DZUZJSUVpU3lnWkFleXVFc21PRjBhZTQ0c0NIRmdRMnZBS01L?=
- =?utf-8?B?azFGVEdZL1JFbWZ2MFlmUFB1RENYSklBQmNBN3FDdWtmQmt6ME5Ybi9zcmJB?=
- =?utf-8?B?SndGb1FORDBValhWVnhXc1ZsekdQYnZOVEhaeTRvd1lGc1BSYVc3UkhMcyts?=
- =?utf-8?B?a2h4MmgwSmlyVlZLb2VaYWlMNzR5eXFXSGh3TlQ2RkdVeVFrUzdSb20zNU5T?=
- =?utf-8?B?bDd3QkZRUVNyeDlRWUtVN3BLTnp4b3RMNXdFK2tyRlpYeFRISFFOUkdhenRY?=
- =?utf-8?B?Y2lFTmxsQWJidTZ4aVYySDk3MEpkRVdmOWlUMHFWeEZ5NVAzSGk1MGhBTlUr?=
- =?utf-8?Q?qMCFWMCjy8YmurORYJevqPA=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MWczRUVuY0ZEZTVaQUNON0hlWXFBc0l3SzVwV1JydCt4b1NPQzZPQm9ybjg0?=
- =?utf-8?B?ZXVqeEVJNTJFVDI0SVRheWhBNlc0MTgvMDhST3VDQnV2bEh6cjI0aWYrYTM3?=
- =?utf-8?B?OHQ0Y3BkWDBxeUI0MHgzTjg0K3NNaDhLbXJ5WUVrMnAyQll3RWxWaEh4NTFX?=
- =?utf-8?B?R2IwTEdOOWhVKy9aYmdUSzNmT2tDL1ZjMzZKOFp0aERDQ0V2cVV5UkFTeFRp?=
- =?utf-8?B?Rkx2ekNKY1RRLzZzZGVQL3p1SUtqM01Wak5xUGFLTklCd3lkYkthSTVlR1Jl?=
- =?utf-8?B?dVUzdUpsWGFuc1llOUF6YWlLZXBNRDFPdHRVWDdXQk9nT1B1U2ZKNkZvUUZq?=
- =?utf-8?B?OVl6NWM1VEZob0VRWDZtTmVIdGhpNGNUL1RVdGRia3FROEV4ZWxlN1NHYm9n?=
- =?utf-8?B?My82ak1Hck1ZYXdhYjhDbGVOWk9Tc0ZZbUo1QlpmbkpkR3ZjRytwOGJyRW9r?=
- =?utf-8?B?NlNnVUZ1dFlMbzhnak5Zd2EwZUw0aUc5ZEN3M1BmSEs3S0tuYWNpa29WVnp0?=
- =?utf-8?B?NXRtcHlPOWtoTG5rUkZ4NjhiV0p0ZmhRTXlyTnoxcWJvQTRTbTNWOEJDSFht?=
- =?utf-8?B?RVE4emVLc1VoR1BuRmM1aUcyVW9XRkdEbDdlY1dYTEJ2ZUtrUE5iU2pwbjU2?=
- =?utf-8?B?ZWdwR3BBWXlYMEVCbDFCOC91Ui9ZT0orRWxpMmpDd2orODlMaENueG81b1R3?=
- =?utf-8?B?N3VQTmQ0THBKczBqREpsRjFYY2JMWUtoTTZpRUpKTDVuMlRoemtmeWU3VHJ0?=
- =?utf-8?B?cWVEbmN3b3E4dEN3N1orMXdldlA2c1dSSTlyemlkbDF5SXpLc2Q5ZEEyM3Az?=
- =?utf-8?B?eXBOY3NDQjRBMGVGbDNjcmZvZGRkY2ZmTGdyWmlKM3kzNysyS1BkNGpNSkwr?=
- =?utf-8?B?Q2Jha2JuUGhnQ3JoNjh0WWNjYmhCZk5mUVVxNUZaZFVKaWluSDdyOXVBa0xy?=
- =?utf-8?B?Q1gwY0d1QzM1OFBJdCtIZEZwUnJXSVduK0ZJSEp4WHNCS0ZVTGdsS3ZFekNU?=
- =?utf-8?B?TlNjOURNQjZEaFdoTjQwSk5jTmhTTmw0MG01ZjRkbUtvTkJna2VVMTJUdUVK?=
- =?utf-8?B?KytEVTBzNXdQemt6bXpiSml3UmkwSG5tQkdVYS91ekprVGdVYTRvRUVrUmcy?=
- =?utf-8?B?Z252YmpSM09SbTFKQTNDZVU2Y3RZdDBSZUhBYzMxTnZ4c0dGNk9lcDV1ZnQr?=
- =?utf-8?B?c3FCQ1lseEZYbk5FSnV1bTExTHJHbXFFWU1FakVzVjh0NDVvNTFTckdMVTZt?=
- =?utf-8?B?WVFnRHBnMXE0SXlyWjQvME9ySDhiSWVVNjFyTWhSWVFkZlFHMHJYTncwRVFT?=
- =?utf-8?B?MnNaWUpjZzZTQ0x2UnpaUGduVlVCaVlzL2w4TDU1UlA2YzdkZ2dZVTV2M1dP?=
- =?utf-8?B?ZVlhSnpBMFI5OFNOeEJXSXprdWxEVi81V1BSQlpsS29wbnhTRjNDYXRaK0Ny?=
- =?utf-8?B?bUZ5dUdFUng4NzJsS3ppSzM5S1Z2QlUxbGI3Nm4vS2NFRFo4azZJSmVIcG43?=
- =?utf-8?B?eUZqUXJSZUpKNmpqZ1ZNUnVWVUh0QWJncUl5aC9VVXNwYkU2YS91RlpwdmpN?=
- =?utf-8?B?MTBJRFJ3RVlxaTJTWlIrSzdlM1ozZVFVTmwyY2VLeVJ3NHRMNmhQMG9aR0wv?=
- =?utf-8?B?RDMya0liK0RBUXhncTkvVXYrVGloc01vZDBDMWJheTNWaCtvRXpqVmdwRzZn?=
- =?utf-8?B?Ti93Q3NueXdjTkprc1lWZzNOMkVBNmJONStDcFFnY3oxRnJQb1BUOEV4aUNm?=
- =?utf-8?B?ZTdJSHhNQ2hUMGt4Wk84em90UmZaSkhlcmNhYlB3U21nMnh0WnVxV09ZL3Fn?=
- =?utf-8?B?U2VvSEswd2NtL0RFU2xZRVA1OXM5aFRzb0xMUTJVY25za3JsZGtJTHl2dXda?=
- =?utf-8?B?eTNUVEdob2ZWTXNCOERpNm0xczJpYStZVGJrcG1sU01tbWVTbVBtOGhKeExi?=
- =?utf-8?B?Q2JNeU9QMUJHQUQwZTZ2Z2s4QTV3YkRybERoNmNLbHJ0eDRjdmhST0c4bm5Z?=
- =?utf-8?B?ZE93ekZ1akJJSkRVRDNaNEVpZDllR2l2Z05ZUGpIenNLT3FKRC9Db0g5dWZX?=
- =?utf-8?B?VFdvRDlWenBGdjF6N1hlSk9FeWg4bkt5eFQ4VGo1RDhmQ2FRejdsY3NDN3M4?=
- =?utf-8?B?QmsvbkdHVHgwc0tPTTY3U0tKRktxUlg4dlVVUkRqT2RGTklHbGZITStzWEhs?=
- =?utf-8?B?RW9ReVZrNU5KTnJucWFQbTNxQ2ZDTjhiRlluMGplVE9QTFI1djEycURuVm1M?=
- =?utf-8?B?Rzd3UmZ6bkMvSExLL1F2TzVGU0x6RFN1eHlhQkFqcHg2VGcvZTIzQUxmWmxB?=
- =?utf-8?B?ZHBFcys4Tk9DTkdkMnJ6WjB0VXZJamJvWkVsK0xpRW9FZDhJTS9XZz09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c0b78593-e3ed-46fd-ef57-08de601343a9
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 15:21:39.1607
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dAVuoV73GHSqQweEGq+WaX5dqfV7ViIAHVw3XqRoXyuOj/CCMFd0wGgVhnOeOCCYB1JnR2qVyYKXbz7ZlcF70Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9738
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_072148_924588_9BFD7782 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20260130_073138_215591_95136517 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,63 +101,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use dmaengine_prep_submit() to simple code. No functional change.
+On 2026-01-13, Petr Mladek <pmladek@suse.com> wrote:
+> On Sat 2025-12-27 09:16:08, Marcos Paulo de Souza wrote:
+>> The current usage of console_is_usable() is clumsy. The parameter
+>> @use_atomic is boolean and thus not self-explanatory. The function is
+>> called twice in situations when there are no-strict requirements.
+>> 
+>> Replace it with enum nbcon_write_cb which provides a more descriptive
+>> values for all 3 situations: atomic, thread or any.
+>> 
+>> Note that console_is_usable() checks only NBCON_USE_ATOMIC because
+>> .write_thread() callback is mandatory. But the other two values still
+>> make sense because they describe the intention of the caller.
+>> 
+>> --- a/include/linux/console.h
+>> +++ b/include/linux/console.h
+>> @@ -202,6 +202,19 @@ enum cons_flags {
+>>  	CON_NBCON_ATOMIC_UNSAFE	= BIT(9),
+>>  };
+>>  
+>> +/**
+>> + * enum nbcon_write_cb - Defines which nbcon write() callback must be used based
+>> + *                       on the caller context.
+>> + * @NBCON_USE_ATOMIC: Use con->write_atomic().
+>> + * @NBCON_USE_THREAD: Use con->write_thread().
+>> + * @NBCON_USE_ANY:    The caller does not have any strict requirements.
+>> + */
+>> +enum nbcon_write_cb {
+>> +	NBCON_USE_ATOMIC,
+>> +	NBCON_USE_THREAD,
+>> +	NBCON_USE_ANY,
+>
+> AFAIK, this would define NBCON_USE_ATOMIC as zero. See below.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/i2c/busses/i2c-imx-lpi2c.c | 20 ++++----------------
- 1 file changed, 4 insertions(+), 16 deletions(-)
+Yes, although the start value is not guaranteed. And anyway if is to be
+used as bits, it should be explicitly set so (such as with enum
+cons_flags).
 
-diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-index 2a0962a0b441754577c15ef3a67a7640d41785cc..c9ad4c3a5c15e046d9e66050dcfd8a9379bf60df 100644
---- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-+++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-@@ -720,7 +720,6 @@ static void lpi2c_dma_callback(void *data)
- 
- static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
- {
--	struct dma_async_tx_descriptor *rx_cmd_desc;
- 	struct lpi2c_imx_dma *dma = lpi2c_imx->dma;
- 	struct dma_chan *txchan = dma->chan_tx;
- 	dma_cookie_t cookie;
-@@ -733,15 +732,10 @@ static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
- 		return -EINVAL;
- 	}
- 
--	rx_cmd_desc = dmaengine_prep_slave_single(txchan, dma->dma_tx_addr,
--						  dma->rx_cmd_buf_len, DMA_MEM_TO_DEV,
--						  DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
--	if (!rx_cmd_desc) {
--		dev_err(&lpi2c_imx->adapter.dev, "DMA prep slave sg failed, use pio\n");
--		goto desc_prepare_err_exit;
--	}
--
--	cookie = dmaengine_submit(rx_cmd_desc);
-+	cookie = dmaengine_prep_submit(txchan, NULL, NULL, slave_single,
-+				       dma->dma_tx_addr,
-+				       dma->rx_cmd_buf_len, DMA_MEM_TO_DEV,
-+				       DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
- 	if (dma_submit_error(cookie)) {
- 		dev_err(&lpi2c_imx->adapter.dev, "submitting DMA failed, use pio\n");
- 		goto submit_err_exit;
-@@ -751,15 +745,9 @@ static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
- 
- 	return 0;
- 
--desc_prepare_err_exit:
--	dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
--			 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
--	return -EINVAL;
--
- submit_err_exit:
- 	dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
- 			 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
--	dmaengine_desc_free(rx_cmd_desc);
- 	return -EINVAL;
- }
- 
+But in reality, we only care about NBCON_USE_ATOMIC and
+!NBCON_USE_ATOMIC, so I agree with your comments below about keeping it
+a simple enum and not caring about the numerical value.
 
--- 
-2.34.1
+>> @@ -631,7 +645,7 @@ static inline bool console_is_usable(struct console *con, short flags, bool use_
+>>  		return false;
+>>  
+>>  	if (flags & CON_NBCON) {
+>> -		if (use_atomic) {
+>> +		if (nwc & NBCON_USE_ATOMIC) {
+>
+> Let's keep it defined by as zero and use here:
+>
+> 		if (nwc == NBCON_USE_ATOMIC) {
+>
+> Note that we do _not_ want to return "false" for "NBCON_USE_ANY"
+> when con->write_atomic does not exist.
 
+I agree.
+
+If changed to "nwc == NBCON_USE_ATOMIC":
+
+Reviewed-by: John Ogness <john.ogness@linutronix.de>
 
