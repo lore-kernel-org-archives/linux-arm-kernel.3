@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA2C4D73EB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 02:50:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E14FD73EB2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 02:51:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PpFzYK0pQ6kwrXgjTwhpRWJMnr17ONyKDwG7dMMGPYQ=; b=wQF++cqunbqiGot3d81FyuIXtc
-	KfCpX0bg5yIIz0M9Tp3yMs51pUsSi4PKP7JVBaVR3acv3gn74z+AkXZzOH56hDZp/UZLqUBk8rI6G
-	PGhVK9TubdH83N3IOtoLg7DGHbTSfvfGlDcbG8fVYm78ISjuj4Hjf689u4Pl+spLyJHEg/4uiE7GP
-	ph5CZ/Agsqs0d+KIvRuHQUSzbe89kwSo5RKM3BseHd7eyCe39vtEVJeWdBLo4bNJssSJLqmB5GtIg
-	0GnTzkPw7N/g7SYNVH4LmwFcdjVVViv5nJzFd9/JyqgfjnOkixO7L1D3sK3TMXTRnRe4rzh0DQQ6I
-	2YWQZZGQ==;
+	bh=rl4T9K7yxeOzQF3K7J15j/aPZEwLdeCpMAFY54mXzns=; b=TotfykGM1kIK7rRBWRVJZl1HRW
+	0B7gcPdXIZitH2/DVfmnjSrbOijUVDhmae4rz7tHCz1HDGyGmPAYPz6aLtchu46NKcPZ8pZT99Yhr
+	WlSWNN4MDyEmrlwXde3rUK/lAOQyL8FASqOUQ6Dxh3CQCvhukx+8EVnprn9vGDNHYF9MGiAP9PHOa
+	tE1BtrhZNnFiyVI47fH/tEC1deijQenYOvDtn/zkFZrb53BFP2vPmzW3NWyaPmXwD9SOrsbFkHzz8
+	JWtundPbPSw1KW6yBNvF99ro/n/RrVBykTIk3zvuxDaoH+IsXNwMzsr5XafepJ9EETjzQBPITBKTU
+	hRa863yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vleax-00000000ua4-1CSF;
-	Fri, 30 Jan 2026 02:50:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vleb5-00000000ueV-0oll;
+	Fri, 30 Jan 2026 02:50:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vleaq-00000000uWM-29VX;
-	Fri, 30 Jan 2026 02:50:44 +0000
+	id 1vleav-00000000uZQ-00QU;
+	Fri, 30 Jan 2026 02:50:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 20A5D6012B;
-	Fri, 30 Jan 2026 02:50:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCD91C19421;
-	Fri, 30 Jan 2026 02:50:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AEBE744534;
+	Fri, 30 Jan 2026 02:50:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91A5CC4CEF7;
+	Fri, 30 Jan 2026 02:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769741442;
-	bh=DDD2HhaWU8hgGNcvsxgeR8SKHG9Tsx5ygB6TGhAYZ04=;
+	s=k20201202; t=1769741448;
+	bh=YnXhxfv/PgSEeYazcWLixzHseoSlG5XpJcXQaxI+Imc=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=e69iaom0KVVwNSrLlbLpYVy3WJJtrfzlkmiBdfoFdUpZCoO4RgyJ1CkGIaJ/Ik1CY
-	 b0Q129iqFKEDsJANqfrCLO1TS5owegvwSOQbLrEjpl8P6lpUpUQlSX0/8nY76rctyO
-	 2wOH8tTmpiilNk3ZvG6GtOTo7VMPqGUXf+xaItER3DuzLXhfu7xi0LFce0PCDT9lCu
-	 I9zVRAn6eMazlpssdqX66pNZq82Ks1jPd5r0QkNMzUQOeAlqOA2eX/Sq9YkcAxcL6Z
-	 5pSpPpwf+4IwzZr2nT+VcBVx5KIYPf982ywliNkwJ6SssAP18bCFtmfhfGlG50hRCr
-	 Ut+9fOZNRNCkw==
+	b=kB0wdIkFjFPhwfMk7mjY2gf3zytLxtNfGxwrsr1ZaZO3MlgQDJ5OMUAGDEWtKl0uX
+	 9h7BfLJUTpV1BQVd5vl5a9aw0LTzaETreSpBkKazR9UgM8jwUj1EmOyiJfjM4E9O9g
+	 ww81WeRevmvXI5+XRCIfxvN7DLaSbqHpqzTnIc9XKGCDcKcbcHMiJ+CNhnXGQSNoFL
+	 uYPTAumpC9rM1G3pj+V5LF2QaBaisbf17MVOFqDmb4wtpeTqAdNk8ScpbuZek3X6JE
+	 jL++/0Wl+YETV/1iykFkAuTQS3X7ecwKM+Uwi9iPDXGkMMM0oLF7sHAwvbIb1YO9/A
+	 BTvM7tgYSTGHA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id C8D1E380CEE0;
-	Fri, 30 Jan 2026 02:50:36 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 8BB5B380CEE0;
+	Fri, 30 Jan 2026 02:50:42 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/2] net: stmmac: report active phy interface
+Subject: Re: [PATCH net-next 1/2] net: stmmac: thead: avoid conflicts with
+ PHY_INTF_* definitions
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176974143534.3149010.10116225722696356568.git-patchwork-notify@kernel.org>
-Date: Fri, 30 Jan 2026 02:50:35 +0000
-References: <aXnpTy6XckPGcmg0@shell.armlinux.org.uk>
-In-Reply-To: <aXnpTy6XckPGcmg0@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
+Message-Id: <176974144135.3149010.17418895035388677174.git-patchwork-notify@kernel.org>
+Date: Fri, 30 Jan 2026 02:50:41 +0000
+References: <E1vl35b-00000006upH-2zt9@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1vl35b-00000006upH-2zt9@rmk-PC.armlinux.org.uk>
+To: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 Cc: andrew@lunn.ch, alexandre.torgue@foss.st.com, andrew+netdev@lunn.ch,
  davem@davemloft.net, fustini@kernel.org, edumazet@google.com,
  wefu@redhat.com, guoren@kernel.org, kuba@kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
  linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
  pabeni@redhat.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260129_185049_871505_B0C0D188 
+X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,24 +84,20 @@ Hello:
 This series was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Wed, 28 Jan 2026 10:47:43 +0000 you wrote:
-> The original patch needs dwmac-thead fixed so the PHY_INTF* definitions
-> do not clash.
+On Wed, 28 Jan 2026 10:47:59 +0000 you wrote:
+> Avoid conflicts between stmmac PHY_INTF_* and GMAC_INTF_CTRL register
+> definitions by replacing the PHY_ prefix with GMAC_.
 > 
->  drivers/net/ethernet/stmicro/stmmac/common.h       |  6 +++
->  drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c  | 10 ++---
->  .../net/ethernet/stmicro/stmmac/dwmac1000_dma.c    |  2 +
->  drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c   |  2 +
->  drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h     |  1 +
->  drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c |  1 +
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 52 ++++++++++++++++++++++
->  7 files changed, 69 insertions(+), 5 deletions(-)
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c | 10 +++++-----
+>  1 file changed, 5 insertions(+), 5 deletions(-)
 
 Here is the summary with links:
   - [net-next,1/2] net: stmmac: thead: avoid conflicts with PHY_INTF_* definitions
     https://git.kernel.org/netdev/net-next/c/88afa0dd655c
   - [net-next,2/2] net: stmmac: report active PHY interface
-    https://git.kernel.org/netdev/net-next/c/d9009f72ed88
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
