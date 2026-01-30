@@ -4,182 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1962DD73EB7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 03:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C0B0D73E86
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 03:30:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C4j5m/qvj0AHvhBi/UUFxtS7QDkIpObv+eg5LRScufw=; b=SLRcauUPuNNYWTbqzXOXefj7Js
-	FKqYoE+VGoDWvpfVSFWwSv0tqDjN16PluL9TrtpPBNUYIqIjI3tz1cim5EdZdqWwO3i9pDLQ4uJRA
-	B940Sjl1L1jgNqrTFFrFFbVRyt4mDWTcRMmNbhBUHc+M77z0ME6gSFYYFsVcdcub/DLD7xXM2nEgB
-	S2U5o6dttz4YT9Ilq7Ma9Q+FcnBJLOXsksPhDBegcc6aR7vbDc6vV8lHgIkxLqkpAMTIyxnC6qtHY
-	eFf528BlLfgP3YY0E7KQmWirQo9A2H5D+mxhGoTOd7pOKeDjhyLXlWKrMOtmf02/X5PA27K9+23JK
-	04z9as7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XLk+ZfZUvp3VqHQNTRlsICcX9kjBrpCEpl7vzPnsVJ8=; b=W/dSvDk+VL6R8pUE3csAHrAgDB
+	InqBNtvP3ebi+CsIeolDD6TW8BN9FEljjyP4+OWXTUmjLVVPIpU1xbu2uHxUIthYnRnbkMRBhIoIJ
+	uYJaLfV2M18Tsw2qgIiD1G6P7KMjDESxtXduiZ8Dq/2NzOKAcMJEypUTEl8LGBst/N9BJoXA7f+6C
+	vus5XDEjWLkIVvUwbofF0Xv1Db3O3DJnBxVgRpFyMYDFUPjxRCjXQ1QyK9Dq6phB+TMh++t1prcJA
+	deTx7ZiT9psKN7r/L5Q1+BK8ghKVGgo1rzQIiUFDo1Znr2wPWZMgvXRR2XEpEACw/0doz3vMS6DLJ
+	uDjZeH0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlfAK-00000000xWW-1DwK;
-	Fri, 30 Jan 2026 03:27:24 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vlfDA-00000000xeY-3ZLr;
+	Fri, 30 Jan 2026 03:30:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlfAI-00000000xW4-09A0
+	id 1vlfD8-00000000xeP-3eq3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 03:27:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CqpfHvDegZVEbZR/6CxZ9+CNI16XppqWupKgwu+mJG2Ylutwh/LqsBEgKn98mqpbjeRM4deOFyBd735oiDg3owcIa5sf0a0c6+w7sbKuH9PZ5TljP5qJty5Rhz085yfpDjFOPSzHFUVCKq9bot+WNebQCWbHrUuN7ZB9xfanX0kHvM003CDpODAAjOVwE+/xbU4V7W/1c9Fv/vLoDKYUPQp79ByI9Q6GY86xRTv3Ko787YkkOavt75EWEW2hzgImpBfdMNUduBOs5gCai7p0lfgA8vHWzZxl1Nyix7x76DbpwcyaNd72WNz/H/d7uhWGr3tPm/YbIPvekDq6aRKqqg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C4j5m/qvj0AHvhBi/UUFxtS7QDkIpObv+eg5LRScufw=;
- b=ZV7QcZmOW9rZIU2T3EscxgL+ihv2+J91aN6GaLvoKE5UArP8H2zXoQV6EuAPZt3CvbnF9mwjLdgJT9E7s30f++q1V2zugGVbEiKzknDpPWTMLZl+tFCxBarPq/AFxCvHEh9fWSa7wOc1gAqkJXGp1Lt7hqDKR93rou7P9xW809H9sMAuAD022siqCcrFTiWwOZsLQ41dG5ZWW+CZqc40s3bE1/Sw1sgPql/9kGd9uIWqEIgdQQ4xI8jdENmpoxJsL3bhR7cjp0JT4f09RVXixlZeIjDM0K0TYgXJVPl+Cp8tGq8g+8nZ6TaBlcCvwe+zikSFQ/MrcZMeu8arSzxFJw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C4j5m/qvj0AHvhBi/UUFxtS7QDkIpObv+eg5LRScufw=;
- b=nnZ1uzaPiYqlapca1Vy/XTJUocTcJAGGr24al3amzCULqBOcJvox4aIrFK2Bf+T9v0pEfbzz9qCjMNzRLDZF1NIGgEKJyZTfd0IbZvjJq/YrbDvzvN283sZS6wpM56kBqa+Ec4SDCVZroL4wOWnbd1L3w/hAvdRPDTfd2YVXnnKGBHggqja4XBTBNlsJ+gZplN97dmOBYtjGtHe/EChTi7KFO+TspBtTyx5wtvdk3szPLKLS7Oq18j+sDujevWnGrcsqsQK+2BsBNwFyY3/X2e88bX2DZ1Cq+ahM+gQ2OeW12gbqRqnDNhE337ZmSupbYsVmFPEvR5T+WQHqAc9fzw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by MRWPR04MB11496.eurprd04.prod.outlook.com (2603:10a6:501:75::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Fri, 30 Jan
- 2026 03:27:14 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%5]) with mapi id 15.20.9564.006; Fri, 30 Jan 2026
- 03:27:14 +0000
-Date: Fri, 30 Jan 2026 11:27:08 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Daniel Baluta <daniel.baluta@gmail.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>, Frank Li <frank.li@nxp.com>,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>, stable@vger.kernel.org
-Subject: Re: [PATCH v3] remoteproc: imx: Fix invalid loaded resource table
- detection
-Message-ID: <aXwlA8OnT5mqeaiC@shlinux89>
-References: <20260129-imx-rproc-fix-v3-1-fc4e41e6e750@nxp.com>
- <CAEnQRZA-nMai9-CEdMqnr2drqBRXXPOKE3a+_3j4S_=x-bM0pQ@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAEnQRZA-nMai9-CEdMqnr2drqBRXXPOKE3a+_3j4S_=x-bM0pQ@mail.gmail.com>
-X-ClientProxiedBy: SG2PR03CA0113.apcprd03.prod.outlook.com
- (2603:1096:4:91::17) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Fri, 30 Jan 2026 03:30:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id ECB1160125;
+	Fri, 30 Jan 2026 03:30:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACF35C4CEF7;
+	Fri, 30 Jan 2026 03:30:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769743817;
+	bh=okHqWEPNmTmLXzWUsl1Zg7XjbwpS3tu5EZ2NM0mJEeQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JoAb7VsD45CW+h+5tdwec67bELx1JS4HsmrJJC7JbW+UGBeyMUK6X2rOsAMOiinwk
+	 qB/YWDu5Gf0o0dzFLIO58/FztoKUf2ce20dK+Oj+B4ibsic1UlNDgaqfxT4+lDZLan
+	 OHZsevrBE5eTEE1haTCoT3+kx7KxEQ1eXw0r5uR6R6wR/Z2RmikIXYqAYyfKMEGIbY
+	 u8XLFTJTonRPL7k2Sm5v0KuhnSUn0ub9XzS1eOAv0aK/5aCdo4wlFAGxTr1agZvrYO
+	 X3PvLjv90CcRu2dorgVj9ZRHTi0WhxFCVPbmPWAHcyxeogETjiTqYdBqXyXUgfEd+f
+	 Ni70RVyA7BoZA==
+Date: Thu, 29 Jan 2026 21:30:14 -0600
+From: Bjorn Andersson <andersson@kernel.org>
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Cc: Jingoo Han <jingoohan1@gmail.com>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com
+Subject: Re: [PATCH 1/3] PCI: host-common: Add shared D3cold eligibility
+ helper for host bridges
+Message-ID: <bz2dnldnx2z6o3jtm7hdy4f3azmd4ug2sq2pi7anuar7s7xssq@b7cqfkr7pd36>
+References: <20260128-d3cold-v1-0-dd8f3f0ce824@oss.qualcomm.com>
+ <20260128-d3cold-v1-1-dd8f3f0ce824@oss.qualcomm.com>
+ <kztudduots342zz7gnx3twtlvjm5pd7sde627zxcsbe6c2imqk@7mmp7vjght5j>
+ <832e8ea4-2b85-4513-a285-9d4ab1dd66b0@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|MRWPR04MB11496:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8ea1800c-3ef0-4fc2-84a7-08de5faf7676
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|52116014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eUNYVFJxd2dJbnZBWnNFNEthaFcybnZSNmlkL3FnRTZMdzY1Mnk0amo2T1BF?=
- =?utf-8?B?MGUwd1B5UTBsYm1UVXU1TCtscGE4USt1dDdDanBxL0c3d2o4UDBVTmV3eU40?=
- =?utf-8?B?d1cwaUZDSU8vN3RuZGNrNXg5elB4eGVPZmE5TlpMajA4dHFtK3NFU0JBVzVn?=
- =?utf-8?B?WTN1cmFLaVlnenNYU1NjeCtFeDBRenVad3FBK09LY3VxdUx4dlNJeGJSd21m?=
- =?utf-8?B?TmNoR0ZJcmlZd1owUUo0ajJrZXhZMXdWc1k0S2g4a053SGRKTWpzWGZUdm5z?=
- =?utf-8?B?cElMVmNoWWFKbHNETFFjUytCcGtsbEZpWWkzYmRybGVJZnJlaHdHaUhhU1FJ?=
- =?utf-8?B?UlVWc3hFRktHZ3hqbUlWYkZ1czBVZlVuK3ZrdG4yMUc0WUJwMW1TTEZ2dUJJ?=
- =?utf-8?B?RkF1K2lndy9LY1FUbjBGM2dJcXlsL1hGSWFtSytpZThCZHVtR2dlc2hhbU5R?=
- =?utf-8?B?aXU0eVJseDdGOVhJdDZvR2pJWmVuS0c3bEZuT2ZXQWpVOHJ1QVhIZDZvVzBx?=
- =?utf-8?B?b1lEOHplSUxvMHZqUUl1WkpBK1R1dWcxcXhqTUdWUjRucGVpKy8wV2xHbFdz?=
- =?utf-8?B?SkQ0MnEreXd1ODVIdGJpa0lqSTJ1SEVpemRENnQxWnZCTVQyVEd2a0NCb1ZO?=
- =?utf-8?B?eU43NGJvcTJqYXcvN0c2U2l5UmVQcFp3aXp5YU9MOGY4djluMFdDYXBCR0M5?=
- =?utf-8?B?ckxvR3o3U0V6TkJWVStuTG9EMVBNaXczSTNncGp6anZyOEo4K2QvZW9UeGNm?=
- =?utf-8?B?dFM3dnQ5RU9QZFVlZTNZeS9RSmRpU0V2RGRJbmtxc0xIb0tkL3MvU2R0SGpj?=
- =?utf-8?B?a09GZm5KcERUaFRKWnNMemhDWWJUVjlWdCtkQjF1MG9qUEwwMDZRVTQ5a3ps?=
- =?utf-8?B?dWQwb0NxYmlRdmhCQlkzZWdPVXNQcDJuSHhkZ3pWZ29NMzh2Q1h1NS9wZFFx?=
- =?utf-8?B?QmlpWUsvSnZ4STlsMElTcHp2NGh3aGlBSUxNUGd6NElnU1JMY2ExNk0xMHhv?=
- =?utf-8?B?Z2JPcW8vYkt5QUtkU0tPZmx2NWxmT1A1YW15M2IrNlplbWVRditUVG5XWFky?=
- =?utf-8?B?S2h5bFlQamtqZ1FBbVFQbnpYMVlveWFxSk80YmcyWWh5dWdneUgxWnlGUnRX?=
- =?utf-8?B?Y2hpMkN5d3hXRzhPTnpZMFV4ZVdxVS9KMVpNNkl0RzdNN2RDdzBXcUt3eGhY?=
- =?utf-8?B?TjE0eHJMK0VaUi9OYjVzVk94b0ZHbTBYL21zVVBiS0JoWTBzd1NXWVEvckph?=
- =?utf-8?B?KzVQY0xYbHNKMWwzaTJ2SXEwUGhVYkNxNmVXbDdSaTJXV293M3M0YnVVdDkr?=
- =?utf-8?B?MTlrbWMrdU45SWg2QjlGaGpLVnlGRUNRYzYvQWxWclZzYzVzMlkrY3MzVUU4?=
- =?utf-8?B?QjZ2SzloTzhFNHE0aDFMblJZSHBrMThPbUdIZk9MQllOcTZjdThNeTNoY2Jq?=
- =?utf-8?B?TG02M3ZIL0U1NDVIVzV0cHB6d1J3ZTk0dXFTNVlnRE5ONjVwNkc4RkR4MlRJ?=
- =?utf-8?B?aWgvZmVzRkl5ZXVKdU01U2JoNDF2T0d6RXhQSHhza0JpeVJhbk1PY3pFV1VO?=
- =?utf-8?B?TDNWbXFqdWorQ2NZZVNJZGhWOVh5ZTZWcjRBVGFVQXBrK1ZJcWNHN29mK0hX?=
- =?utf-8?B?OVJtcUhXcjg1akxCcTJac2tSV1dPdGFSNllCUVR2dlkxYlkvang3YnBheFhU?=
- =?utf-8?B?RmpraWJuSE1GMkVkYStOc2hrdm1pdVovd21scXpjbEgySStnN0RqZjFYWkd6?=
- =?utf-8?B?TzJNajQ0MFNoWTNPK0hvei9uMkI2Z2x3Nmc1ZnY4ZXp4b1VlZ0U5RWVFSFdX?=
- =?utf-8?B?a3lNdmtqQUhjWDJjZ1RmcW5yUlczdUEyTkFsTHgyUlZuY0N0VWVVTkhBWk1W?=
- =?utf-8?B?T1dsUi9YeHJsU1IxU2Zzakk5NkNzV0FpalJKU1ZFRjdFUi9aVFhtTU4wVWJI?=
- =?utf-8?B?V081bWtGc2R6ZmJib2tuYi82R01qUzI4RDhOYUFCL2htOEtaRmhaWnJJSGxF?=
- =?utf-8?B?dFVBVkhPd2h1MFQ2UWo1Q0JzRys5REtqYXpoZHVTdW5oNlBLVjlKN3ZtY0VP?=
- =?utf-8?B?STN1Nk0vMi9mMjRPdlpUQTJuTU5WY3pUQ2FJQkZudUFuaXZpYm1LR080UEEw?=
- =?utf-8?B?SU90Sk41V21FV3QrM2gyK3lOY1B6TUhvRlZabERycEpXWVIzSTlIZXZyQXVQ?=
- =?utf-8?Q?Zu1EMNx1XLdLgRVnDEnAgso=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NGswd0dUdjJCNStOdHU2b0I4bnozdWMvaklPZEFhSGZhbjJKdDh0RURIaTNS?=
- =?utf-8?B?VXN0eWE2ZzRxZWNvMVRpRXpUaXd4dHF5M2V4TUR3ODNLbDBvYWFwMUh3Y0Np?=
- =?utf-8?B?NnJuTTI0OW9IdHl4WUFyYkVxdnZGUEt0RkNXMjhYSmpqOUovTlhWTGgrcFFR?=
- =?utf-8?B?WnBBOFp1Tm1IZVh0ZHJvM1hSQ25ML2xBcEh3UWs4am4vVFRXRlNpSFhFSkwx?=
- =?utf-8?B?N1l3UlpiQTZrRnpZeFMrbC9aNzkwTkgzN1JSR2RiZFdTTDZSR1dYdlpFUUNh?=
- =?utf-8?B?d1ZVSHVyMHk2MEVEZnZzcWt2TWw4aG0rdkIwejhQYW95Vmt0WFBXZW5kRndP?=
- =?utf-8?B?bnZFbEpDRWl1OElRb2IrZHl2VzRkU0IyeEoyNi81VXpCb1BTWWRwZVNFN1Er?=
- =?utf-8?B?RStqUWM1SFRqVER0N3ZpV2Y1bE9EU2VYbXNCR0NCS0FXSmhRWndpRS9PRmZK?=
- =?utf-8?B?VndFQjZpbnVUYnp3RjlLUXVnS05ISkM4OGV2blZ5L0xGcEpKU0wwSWZHa0FC?=
- =?utf-8?B?a1E0QTNWUHFMZ1hwZElqbC9xdWlZb2VRbjh0cUE4RWU4ZW1WUUdwN0tYb2Yy?=
- =?utf-8?B?clkvdzU0bzltQ2MvaXN4THB0SU8yZ2J6bTBBV09zNnRjc3NNR0k5cHRNZzd0?=
- =?utf-8?B?Zi9Ud3FpM3VGaHJNRng4eDRkMmw1d0RuZzRYWm9aaDh2TkRFWkcyMDVwbDJL?=
- =?utf-8?B?QXErTEd2QmwrcGtQMTRZUFBTOUNUVlBKT1BPd1MzeWpQc2ExL1BnNlVTdnV3?=
- =?utf-8?B?aHg4RjZxTTNWSDRrUm05Y2hJbVllSjVBSFNuMExuVU5EUWc3cWh0eXNQaC9J?=
- =?utf-8?B?TUpyUlI0LzFwNGlTclhrbWRFV0thbTduaWhkM3NmUk9rZGFRdkVrSVYzVFlH?=
- =?utf-8?B?QnVpcEU4RnBlQm1IT2FjeklPTFVZQjZmMXV4Y2xsWjlyZ2tJSWVvSVZmck5y?=
- =?utf-8?B?YXRUNGx6S1AxS2FDOTgrcnlCcUhtNWFYTnY3U3Jzem5rNktBY0VlZG52WFNG?=
- =?utf-8?B?R1N5dHFPeDlocU9kYmpjRVNEdHF6M0FSdm94cEI0ZEZoNHdWQTJBNnFSQVEr?=
- =?utf-8?B?aGloT3JWNmZQenZWYUtEREp6Ni9VVFVpNzNlZWRlWkRQM3N4VzU4MjdZaWVm?=
- =?utf-8?B?dnkzWTc1M3o2cFJ1VE9wNk10RDR0NmNVV1F4Wndzb3hOaHFtOTVlbWcwU1Av?=
- =?utf-8?B?QmJZOXNDWE1iWjVkbkdGeWYzbFZ0T0dJRzA0UFVVOEZhQ3VJZ0tUNWVuRlRw?=
- =?utf-8?B?VlhUUWZHSDJ6ck9tcjBTa0JONHBPVGkzcWo3UWE1UWtsVFN5eXpMNXFoeEcw?=
- =?utf-8?B?dUhVQzFnTGJqUEROeWwwN0FOOFcyTkgxVkN4Y0FyTWw3M3l2MmJ5Tm50UURv?=
- =?utf-8?B?ajIwNk0rdTcwTlltUER2eG9HOHBsWEsrN0x3TmRIYnZaSllFOHIrVUdlL1FR?=
- =?utf-8?B?aC9IaUJXUEZnZkRCaURmNjYrM05ydzErdVR5NkQyWi9oRjZNSFFZdVVVbG9Z?=
- =?utf-8?B?ODhaZG1EVU01UmlZbnVIMSt0V2hIamJNUUpURWFlMDEvajM1alFycHBoOGww?=
- =?utf-8?B?MVlQWjVOWmtlSUlkVkVZbUxkRHJka0NkeGxGVnpVUDUvSzNQckxlMmlEYnp1?=
- =?utf-8?B?T0tUSVRPWlFnQTN5YkpuSVlodk9MOUUrNUZ4UUgxTzBaRkdhbXEvYmRPS2Ns?=
- =?utf-8?B?aWtyTTZZWGZobGs1SE4wMHRhdFhsZ3R2T1RNQW5GS1c4azlVaGJjb3FMWk1M?=
- =?utf-8?B?Q2xHWWo3aEYxZ3BzRHFjeUdSekg5SzIxdWQ0VG4yVmN2MGZsazFPaTl6WXZz?=
- =?utf-8?B?Qk94Y3NISEhWd255OVhHOXd1VHA5YkdqK1dRZ2w2dk4vNVphaGV2cG9XVHdw?=
- =?utf-8?B?TVM3SElIajM5dldDV2NYRHgzd3UrYm9QTEt3M3FxdkRYWkd3S3JYUzRRNHFi?=
- =?utf-8?B?Qnd0dlJFcWFFc0RsRGZjTkZ0a21iZkdTbC9IN0kxOTJSb1dyK0Nxa1pwSUZZ?=
- =?utf-8?B?WGZldUUyK2h4aUpxcERNMHZacGNLeXRlaXluZGxGWGN4OSs5bWFiVnduZkVW?=
- =?utf-8?B?R0lXTFB1dVZHWjVFUlNnT2l2TjZWSWlTd2xZZWVZY1VxOTZmcHRNb0ZDTTc5?=
- =?utf-8?B?eXAzY1pyc2tKeTkxM0VnNWttbEFMMWxVb1lJZEp6Q0ZneXZjQUwxQzJjbWp0?=
- =?utf-8?B?UWlrL0pPYys5OS9CN0E4MjkwQi9wR0s1SlZadkJiNGxsaWNxOTZhencrekVG?=
- =?utf-8?B?UmZ0SVpsWkd0aGpmRnZGZXZNcnVDVWRncE5tM0hQWVNIenBheUxxTEVLVDZX?=
- =?utf-8?B?ZVJucTQzSjhjRXY5K1VxdDJORVZFOXlIV3p6ZVVRaHQ5WDk2Tlo2QT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8ea1800c-3ef0-4fc2-84a7-08de5faf7676
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 03:27:14.6815
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CM2hQvuON+vbGRNdxamwpY68vgN1/vYgaJ3MUGyObZ9nlIz9PXpOmxCv52eyepBEEUMRIp8WsqPY64PxVREf9g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR04MB11496
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_192722_081048_E707C61F 
-X-CRM114-Status: GOOD (  25.70  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <832e8ea4-2b85-4513-a285-9d4ab1dd66b0@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,83 +76,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+On Thu, Jan 29, 2026 at 11:08:57AM +0530, Krishna Chaitanya Chundru wrote:
+> 
+> 
+> On 1/28/2026 7:56 PM, Bjorn Andersson wrote:
+> > On Wed, Jan 28, 2026 at 05:10:41PM +0530, Krishna Chaitanya Chundru wrote:
+> > > Add a common helper, pci_host_common_can_enter_d3cold(), to determine
+> > > whether a PCI host bridge can safely transition to D3cold.
+> > Please read https://docs.kernel.org/process/submitting-patches.html#describe-your-changes
+> > 
+> > It clearly says that you're supposed to start your commit message with a
+> > description of the problem you're solving. In fact, even after reading
+> > the entire commit message a few times I only know what the patch does,
+> > but it's not clear to me why this patch exists.
+> > 
+> > > The helper walks all devices on the bridge's bus and only allows the
+> > > host bridge to enter D3cold if all PCIe endpoints are already in
+> > > PCI_D3hot.
+> > The code below does walk the bus, but it doesn't allow/disallow anything
+> > as far as I can tell, it queries their type, state, and if they are wake
+> > capable?
+> > 
+> > > For devices that may wake the system, it additionally
+> > > requires that the device supports PME wakeup from D3cold(with WAKE#).
+> > > Devices without wakeup enabled are not restricted by this check and can
+> > > be allowed to keep device in D3cold.
+> > > 
+> > Again, this code doesn't perform any action, it doesn't
+> > allow/disallow/restrict the devices from doing anything, it merely
+> > queries a bunch of things across all devices, and the commit message
+> > fails to capture why this is useful.
+> This is a helper function used by controller drivers, to know if the
+> controller
+> driver can keep in D3cold state or not. we use endpoint states and their
+> wakeup
+> capability support to determine d3cold can be supported or not. The return
+> value
+> of this function will tell controller drivers to know if we can allow D3cold
+> or not.
 
-On Thu, Jan 29, 2026 at 06:02:21PM +0200, Daniel Baluta wrote:
->On Thu, Jan 29, 2026 at 3:45 AM Peng Fan (OSS) <peng.fan@oss.nxp.com> wrote:
->>
->> From: Peng Fan <peng.fan@nxp.com>
->>
->> imx_rproc_elf_find_loaded_rsc_table() may incorrectly report a loaded
->> resource table even when the current firmware does not provide one.
->>
->> When the device tree contains a "rsc-table" entry, priv->rsc_table is
->> non-NULL and denotes where a resource table would be located if one is
->> present in memory. However, when the current firmware has no resource
->> table, rproc->table_ptr is NULL. The function still returns
->> priv->rsc_table, and the remoteproc core interprets this as a valid loaded
->> resource table.
->>
->> Fix this by returning NULL from imx_rproc_elf_find_loaded_rsc_table() when
->> there is no resource table for the current firmware (i.e. when
->> rproc->table_ptr is NULL). This aligns the function's semantics with the
->> remoteproc core: a loaded resource table is only reported when a valid
->> table_ptr exists.
->>
->> With this change, starting firmware without a resource table no longer
->> triggers a crash.
->>
->> Fixes: e954a1bd1610 ("remoteproc: imx_rproc: Use imx specific hook for find_loaded_rsc_table")
->> Cc: stable@vger.kernel.org
->> Signed-off-by: Peng Fan <peng.fan@nxp.com>
->
->Changes looks good to  me >
->
->> --- a/drivers/remoteproc/imx_rproc.c
->> +++ b/drivers/remoteproc/imx_rproc.c
->> @@ -729,6 +729,10 @@ imx_rproc_elf_find_loaded_rsc_table(struct rproc *rproc, const struct firmware *
->>  {
->>         struct imx_rproc *priv = rproc->priv;
->>
->> +       /* No resource table in the firmware */
->> +       if (!rproc->table_ptr)
->> +               return NULL;
->
->I wonder if we can make this change generic because it should happen
->on other platforms also.
->
->Maybe something like this:
->
->remoteproc: core: Only copy loaded table when valid
->
->Copy resource table in memory only when:
->* the current loaded firmware provides one
->AND
->* there is an explicit request to have the rsc table copied in memory
->via rsc-table
->
->--- a/drivers/remoteproc/remoteproc_core.c
->+++ b/drivers/remoteproc/remoteproc_core.c
->@@ -1281,7 +1281,7 @@ static int rproc_start(struct rproc *rproc,
->const struct firmware *fw)
->         * that any subsequent changes will be applied to the loaded version.
->         */
->        loaded_table = rproc_find_loaded_rsc_table(rproc, fw);
->-       if (loaded_table) {
->+       if (rproc->cached_table && loaded_table) {
->                memcpy(loaded_table, rproc->cached_table, rproc->table_sz);
->                rproc->table_ptr = loaded_table;
->        }
+Please make sure that the commit message captures this.
 
-This change looks fine to me; however, it should not be treated as a bug fix
-for imx_rproc. Since we need a proper Fixes tag for backporting, I would still
-prefer using the changes in my original patch to ensure it can be applied to
-older releases.
+Regards,
+Bjorn
 
-As for the modification you introduced, I think it can serve as a guard to
-prevent potential issues on other platforms. You could submit it separately as
-a formal patch to the mailing list.
-
-Thanks,
-Peng
+> > > Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+> > > ---
+> > >   drivers/pci/controller/pci-host-common.c | 29 +++++++++++++++++++++++++++++
+> > >   drivers/pci/controller/pci-host-common.h |  2 ++
+> > >   2 files changed, 31 insertions(+)
+> > > 
+> > > diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+> > > index c473e7c03bacad2de07c798768f99652443431e0..225472c5ac82c6c5b44257d68a0fc503ec046ff1 100644
+> > > --- a/drivers/pci/controller/pci-host-common.c
+> > > +++ b/drivers/pci/controller/pci-host-common.c
+> > > @@ -106,5 +106,34 @@ void pci_host_common_remove(struct platform_device *pdev)
+> > >   }
+> > >   EXPORT_SYMBOL_GPL(pci_host_common_remove);
+> > > +static int pci_host_common_check_d3cold(struct pci_dev *pdev, void *userdata)
+> > > +{
+> > > +	bool *d3cold_allow = userdata;
+> > > +
+> > > +	if (pci_pcie_type(pdev) != PCI_EXP_TYPE_ENDPOINT)
+> > > +		return 0;
+> > > +
+> > > +	if (pdev->current_state != PCI_D3hot)
+> > > +		goto exit;
+> > > +
+> > > +	if (device_may_wakeup(&pdev->dev) && !pci_pme_capable(pdev, PCI_D3cold))
+> > > +		goto exit;
+> > > +
+> > > +	return 0;
+> > > +exit:
+> > > +	*d3cold_allow = false;
+> > > +	return -EBUSY;
+> > > +}
+> > > +
+> > > +bool pci_host_common_can_enter_d3cold(struct pci_host_bridge *bridge)
+> > Please add kernel-doc for any EXPORT_SYMBOL() functions, so that it's
+> > clear to the next guy what the API does.
+> Initially, I had a change in my workspace which has kernel-doc, but after
+> seeing this
+> file I see none of the exported API's had a kernel-doc. Following it I
+> dropped the kernel
+> -doc at last minute. I will add this in v2.
+> 
+> - Krishna Chaitanya.
+> > 
+> > Regards,
+> > Bjorn
+> > 
+> > > +{
+> > > +	bool d3cold_allow = true;
+> > > +
+> > > +	pci_walk_bus(bridge->bus, pci_host_common_check_d3cold, &d3cold_allow);
+> > > +
+> > > +	return d3cold_allow;
+> > > +}
+> > > +EXPORT_SYMBOL_GPL(pci_host_common_can_enter_d3cold);
+> > > +
+> > >   MODULE_DESCRIPTION("Common library for PCI host controller drivers");
+> > >   MODULE_LICENSE("GPL v2");
+> > > diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
+> > > index b5075d4bd7eb31fbf1dc946ef1a6afd5afb5b3c6..18a731bca058828340bca84776d0e91da1edbbf7 100644
+> > > --- a/drivers/pci/controller/pci-host-common.h
+> > > +++ b/drivers/pci/controller/pci-host-common.h
+> > > @@ -20,4 +20,6 @@ void pci_host_common_remove(struct platform_device *pdev);
+> > >   struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
+> > >   	struct pci_host_bridge *bridge, const struct pci_ecam_ops *ops);
+> > > +
+> > > +bool pci_host_common_can_enter_d3cold(struct pci_host_bridge *bridge);
+> > >   #endif
+> > > 
+> > > -- 
+> > > 2.34.1
+> > > 
+> > > 
+> 
 
