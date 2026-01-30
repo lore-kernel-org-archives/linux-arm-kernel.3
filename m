@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CDCEE6BF37
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 20:59:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF79E6BF10
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 21:00:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6kOF7aRMmZPFa3rHBhG7+1RzS/skO/vCFghHSZH/Ahg=; b=C6a3WwtnduzYBVJU50zhjKBf48
-	YFnooz4lF4MiLKsmtUkOZunrbucrdtqzUouMJjJSrFpbUzilPj5u5HMeH/R4W6yFRuO7kevb363l7
-	KCYtMNnoRRRwG/UWkFxIO0gtq/ASvV4fUe/j4TiLizKWT2OF2f9C8Cjduo9L6viKKdDbh99YRgK7M
-	Ey01tBWsIRiPL3FeW8LTWPMffx0w/QdrPaLWYwQ+0bMkQd0BwGO8EMGRDzT0AOn3bJ59ttByVnwuQ
-	eNV6tkr+De11UWV1adKlr+P+UGQKizy9Y8mc0mdcIToVCtcMIpeND/HawN/zrlI/WhnMv327QAOOs
-	HddbGGJw==;
+	bh=0FmJDLmg7avb7I+Kra62xPecUUkYJ+PfRnFKZfXFcq4=; b=syzeHioc00Ijwc4InBiWgJSauo
+	K+gAE4Mr+td4Lb9sKsI6MyAzVtvg09qlIW7ou4lBqrcNj6Y8iTFct8pPxWv9iyF9tI3n4afjbAklN
+	32lJHukWeTt9prMgT1WJNRdqF9xcWwcO1E47xxo0eN34z4nJ/VMyY70LV4YW5gs/FCCIcYacC/MwI
+	wLTWqvGAnFt1Qk0GJRijYqEWOouh3tLuHQMkZs4wwSkYjoL9Vo7Xq+uoIE3Se3NLJ2LqKc+LXIF7u
+	ZqRl/uiJav74bbSPZaeKZ0KLA7MTCb798vsXrGYTPyRD7ltoSwASpwGkwH7I3XASGfaO/Bq4nKjhD
+	Ea+GE/Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlvai-00000001yC0-0xN8;
-	Fri, 30 Jan 2026 20:59:44 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vlvat-00000001yJw-1yqL;
+	Fri, 30 Jan 2026 20:59:55 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlvab-00000001y8E-2sFZ
+	id 1vlvai-00000001yBU-3Bry
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 20:59:38 +0000
+	Fri, 30 Jan 2026 20:59:46 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ugQ3EF2pJrBIY5eoFZi2NfHeHbH6zEBjXRK+xaZnIJusq5ZwtDme2sGVBbLxvk6x+QNWknd03vFFhQIBKybOFE5g1/54WSrF71zaeT0Wztw9Nj0fLXClhlTHLybLPlNjALHZreNkfe96kPXYWrBmMaAQF2J34edZHNs8OLTcE+LkzixmXpQN7yj2H8Phu8ywqusUoIbV4iOOsH/uIgAj2ym9joJIX7NKZGybBE2eBD3dfH+Ym6GqcAQzyqKd6Y4zPI9E6Y0CCLTR+gi/fj7Eef1INlKnXLP+hhFel3TvZ99+Eobw3q5+FpDAn6ZSYGXI7rsbR0ar8zxGBlqPDWbBZA==
+ b=NZ58ctqMX4ifC4n+F7spFfKNhx4+/7v1Y6VoXBl0uytF4nHDweldS5t+GhffFtCr86YY1gWT9UwvWTEoI+5OW0sKHsIw889bTXOj4+yHyxKWXUmvBI+FudD+wi1rr2Kr8Drbky61Wk/9QqhT5fp4xW5m9URzxN/2Ou+q9tghjJZKT74oVnVwiDFIp8FmJ3qv9Nzuvl9KyX2uynwgtdCSyFnksiCWo1MvQA9WMDy0ld0OfUytJ2JiwO4j7hFIk9y5i+DP0BVxHpa2O0bt0+hS7y7YPAH58x923R6vKK+viNq/RuLgfKkSxz9BOQz4AvG4T6elikTHX1IzTIcaRifYfg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6kOF7aRMmZPFa3rHBhG7+1RzS/skO/vCFghHSZH/Ahg=;
- b=vTZWmLFD9OIP4osruUpyQGomZ3lJ12XQVeEWxzYtBiA7VeJjYI7klfpKO4LoxaOkI1M8JzmhJ5dUKPHkLE3tt1uNE/tH+v31bC2n0NDIGB/GAfECTV2nfgHCuIeMotAQ1NwFDWYA1XS5V0ggpqnoJKq76pW9ALnmh3DF/uOyB1dr6RuRq201MB6rEGNR/D64nLWPuKMSQduxM5O0UQw+6c/M38pf6I7iEUAHxTMP5reu8w1spZZd1W0OA2Sjohh0OEk00FdmDhh+1wSOpd+R+cBc5Co9UJDzgJDWhLeJntwEgSjk2KK3iYQtxO0sRTcUXfZiB1qcTRXFs97xD0BU2g==
+ bh=0FmJDLmg7avb7I+Kra62xPecUUkYJ+PfRnFKZfXFcq4=;
+ b=hZ4/BeHHONz6G/LGA2lGmDJqZq7dJ6hCvdX9aLXnG4LRN7gMVuwiSstA13/st9Dpe1jSPSZ4AG3lVhYwJwvwWPd8c32shqE7h9k24MD3q+IBI425Fgc0/MFCxkhzMktRU/UoqOYYUolJiWc8YikV89QfYCqG9VWj+RqizrW8K+vLwEs52oTkNn+MWYTnyoAeqZ7OdfUvnfDi3GqeG7dslZr4vOoLTPlG6xoOVHOM79sZV00DuNhVdBmXDRQWmCibwuogSyWdjf5k6dQkiuYZEoF06TEgWfUaotkCsQltT7qmcIUb7pVqG6afdCcs8SllTrKCJdJhPV5XKjE3gT3zMw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
  is 91.26.50.189) smtp.rcpttodomain=gmail.com smtp.mailfrom=phytec.de;
  dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
@@ -41,31 +41,31 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6kOF7aRMmZPFa3rHBhG7+1RzS/skO/vCFghHSZH/Ahg=;
- b=lL/50IZfpke5IhRfkBDPSKrh+b6CZSau1rQ06Ht4Wr+/Vfv76CFPZkI2c5aLa0FmOZzCGLEO7TLy0QTVoWfyq5igrBOFoPHzPiJCtt3sTAE3O62wP8lcHQfJpmUq+ZzaCmptOa69RTw6OVFwjLwgvwwkxqbZ1qRZhtbKnxB5cWy4yLzuRVwqJQRTG/xXvouqxTyvqQKZO6xBvmvBkeEkt1txVPUAsQ2fqKcpT0cRx5x0cuBib/hACc3LDzF5Dw+/QU/dVNfinPlgPDF5ucPb4MEzXs5FGGL7XKo/cQ4m3cYacJ0DEne6JmrVqQGktC02fwngJdlGw64c/xgfehS63g==
-Received: from DUZPR01CA0084.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:46a::11) by GVXP195MB1736.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:150:2::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.10; Fri, 30 Jan
- 2026 20:59:30 +0000
-Received: from DB1PEPF000509E8.eurprd03.prod.outlook.com
- (2603:10a6:10:46a:cafe::f4) by DUZPR01CA0084.outlook.office365.com
- (2603:10a6:10:46a::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.11 via Frontend Transport; Fri,
- 30 Jan 2026 20:59:31 +0000
+ bh=0FmJDLmg7avb7I+Kra62xPecUUkYJ+PfRnFKZfXFcq4=;
+ b=WnhuGbkQq478lehvJl+EW0OzjfRlZZ7Iy0hovsmMJPG1WoefKzJL83MAGX4Z5C9WI5pdgn6k1pvQAqTrFvO0uxMZ3V5+mHDRQwgh8afYnlz3aGDbfpmcWNyc7hAr6jarhCyPtnlsTBdMuK0QW4e8NymofSVQC7BPZzzHBo6AloNoeEEZgP1aEnlATpZk++qen25D0UrV8mYPI3GNVsxs/cl7QbMzFWwycgnOrwzFJcvLbxYEvN++PoJVimEAIZJRJwrro0O3j/A6dOxzJHYOVu+xsWie7oN0EzpFG1N0PJmSgylqhSY0jm2sWK6GsM17Z965vsmZUJMi57DqTc/C4g==
+Received: from DUZPR01CA0114.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4bb::13) by DU7PPF2541BF4ED.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:18:3::bc9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Fri, 30 Jan
+ 2026 20:59:39 +0000
+Received: from DB1PEPF000509E6.eurprd03.prod.outlook.com
+ (2603:10a6:10:4bb:cafe::14) by DUZPR01CA0114.outlook.office365.com
+ (2603:10a6:10:4bb::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.16 via Frontend Transport; Fri,
+ 30 Jan 2026 21:00:07 +0000
 X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
  smtp.mailfrom=phytec.de; dkim=none (message not signed)
  header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
 Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
  phytec.de discourages use of 91.26.50.189 as permitted sender)
 Received: from Postix.phytec.de (91.26.50.189) by
- DB1PEPF000509E8.mail.protection.outlook.com (10.167.242.58) with Microsoft
+ DB1PEPF000509E6.mail.protection.outlook.com (10.167.242.56) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9542.4 via Frontend Transport; Fri, 30 Jan 2026 20:59:30 +0000
+ 15.20.9564.3 via Frontend Transport; Fri, 30 Jan 2026 20:59:39 +0000
 Received: from lws-haller-privat.phytec.de (172.25.39.212) by Postix.phytec.de
  (172.25.0.11) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Fri, 30 Jan
- 2026 21:59:26 +0100
+ 2026 21:59:35 +0100
 From: Dominik Haller <d.haller@phytec.de>
 To: <adrien.grassein@gmail.com>, <jernej.skrabec@gmail.com>, <onas@kwiboo.se>,
 	<Laurent.pinchart@ideasonboard.com>, <krzk+dt@kernel.org>,
@@ -74,9 +74,9 @@ To: <adrien.grassein@gmail.com>, <jernej.skrabec@gmail.com>, <onas@kwiboo.se>,
 CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <upstream@lists.phytec.de>, "Dominik
  Haller" <d.haller@phytec.de>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 4/6] arm64: dts: ti: k3-j721s2-main: Add DSI1
-Date: Fri, 30 Jan 2026 12:58:14 -0800
-Message-ID: <20260130205820.83189-5-d.haller@phytec.de>
+Subject: [PATCH 6/6] arm64: dts: ti: k3-am68-phyboard-izar: Add PEB-AV-15 overlay
+Date: Fri, 30 Jan 2026 12:58:16 -0800
+Message-ID: <20260130205820.83189-7-d.haller@phytec.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260130205820.83189-1-d.haller@phytec.de>
 References: <20260130205820.83189-1-d.haller@phytec.de>
@@ -88,57 +88,56 @@ X-ClientProxiedBy: Postix.phytec.de (172.25.0.11) To Postix.phytec.de
  (172.25.0.11)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509E8:EE_|GVXP195MB1736:EE_
-X-MS-Office365-Filtering-Correlation-Id: fd48db40-2a43-4045-e10a-08de6042767d
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509E6:EE_|DU7PPF2541BF4ED:EE_
+X-MS-Office365-Filtering-Correlation-Id: 75bb692f-58a9-4e61-9402-08de60427bf3
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|7416014|36860700013|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OuXK73xKHOs6wRvxyo25UER4SUV6FHXZNe9asmGcmjk/mG6635F29uNbet3R?=
- =?us-ascii?Q?1U+SovLg/BmkhtaRJnNV92qXFSk+Z+uaCHoNm8Vdq00rQbNMWtzwCRPIvC1d?=
- =?us-ascii?Q?T8AeEnQY5Pxx3jgY0oZeNv0TsSAA3wPsCCbfd6YZx9DTppSnmW9KPN4sPaII?=
- =?us-ascii?Q?19BHlIdvOCoSuNwmGHDcRaAlsW1ESNBII9yTqqwZ4jt2oBHwQYejLxuidY49?=
- =?us-ascii?Q?poUfDClksjGIMElWkMg3c/zfv6O5w4k9CJK2PgCtl1h9YIafSgIaoFo1XN83?=
- =?us-ascii?Q?5KNost7cwfjohb5znqzlI/i8ZhsJc3yuK21QYudz70OSxC80M/lmDORtfNxY?=
- =?us-ascii?Q?5YpdL3ViOiQNkEp0jJebFJFRhXV8whkNXAlbC9PypIzM09FRIE3FXSF2iTu+?=
- =?us-ascii?Q?NM8L1tZUj2GBH5oaqoruDSbsWUc37SOn4FaLZFOeR1UFyiXR4Q1bXZgYNTx5?=
- =?us-ascii?Q?3b6Y2HG5voL9bd9LhqNnxZmmcFMTKrJ5Fu4e+sGTa7BifNkJiXW8tlo3Hd5E?=
- =?us-ascii?Q?rXnfeIxGtAAFwSd7Qn1AEUX9Pn2k1/1MCVzMeoJH7tcfQaXYgItY4PMiWQgJ?=
- =?us-ascii?Q?3NC5OnBl1QeeT9b8kxcp5ZFRHVhtNpulRuuzG8MNfo8yGWZRkHBm163WamYs?=
- =?us-ascii?Q?iwQBh9CupnGgequ9wu+EIP+1/50tCdqMqCDmGHi6suaRCFEHlqRrFQAI5Fh+?=
- =?us-ascii?Q?BuyRIQdPKfA+fI90BZKjvBnAac0SI3LRd4uc7CDbJj7QV7+zKdarGHg4IkPq?=
- =?us-ascii?Q?dZt/IIX07QhfCci5sjfabinevRVhUObYRS6C1LYUYt7CAwFeqsOewH9v1qg2?=
- =?us-ascii?Q?Mto4TY8WOWey9N6pxoJ+BCcQz6R1bSDubtkYslfvBkZQUR/ogkqUlnLD81nG?=
- =?us-ascii?Q?wqVU6bm/oWH/WB3GpfvDPUyTRQL8yPI2IAyfAPzVb9oLbb6zBj+LLIT3exIq?=
- =?us-ascii?Q?A4I71SQcA2lSeT6uw1LTRyqHCB3x0mOOap7rFAJ73py6bTnCFCjRp6HkT6Fp?=
- =?us-ascii?Q?lUuJDFLcwEHSE8Nr5H/m0JTEnTgrzRwGRy0BbQOgQQpuSvA0pynuxrps58R4?=
- =?us-ascii?Q?j4XjmA0Xp5EiKDvHLKATMkYfyzP8x0NxPm+xVsz+1vWdrjEnjn1RFLaJyF25?=
- =?us-ascii?Q?4Alr6rgsz7S/Fdlmz3kXQBt3zS4Awc58qsY6Q8XNVgKM6FLY/DYdJlHEDmW9?=
- =?us-ascii?Q?d7vHtOxW+CtjXIcEUGg2GXDNhaxLm7q+NlzTTbURncSOQk8CiZpy/7rACt3G?=
- =?us-ascii?Q?KB/vavNAjcr9y5+N2WncsUw7CxJQvyereu/RdfI++d/cLemlXGnRs5tvolA5?=
- =?us-ascii?Q?OS0gBZtJ+ycqdAeulNolNHTHIvlmLxQewg22HKqNv9q5P0E4LvY7Ylw/furx?=
- =?us-ascii?Q?CVt0NGuhnd6Kyz/xIt5uCYYq2BKkf5dGIjZKaD0fDf3RT1UcEiJt0Z3EkjIY?=
- =?us-ascii?Q?imMjUmvJNt9Rs+BfJmblaPSroGKY5fNpCezGk6SUT+LmYJcbdzL6lcsFemCl?=
- =?us-ascii?Q?zWG+0nPpfx+aYOr+/ieNFFkifcDSQ94OB//o8Q5XHJHgNmKg1ipLCIocSNAY?=
- =?us-ascii?Q?W9oF1q18eV5WI2Co3fv0AhmFcCubvp3azdiewEJqtJ6qqJmTIZuYtEGx9LA6?=
- =?us-ascii?Q?7J72KPYIlpGg6rg5z4MOWfMYH2Uqs2kT39vAeKrTpLJ1NVTVxG+9noB8+Yc8?=
- =?us-ascii?Q?v/XhJQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(7416014)(36860700013)(921020);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|82310400026|1800799024|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IvemZKefn1CP/0vd5ZNDGmEDBC+cNBCoKlvtMnTxJeQDW+fU6snkNxauNKMw?=
+ =?us-ascii?Q?HDYBgLSgiE7c5/cYjUaDVid5DXrVmDYSfXO9PJ9DHS4eNd4ejHkkspkE+6j0?=
+ =?us-ascii?Q?hKco8RcvWjwFjnuk0Ika57LV2sBtfdOOkk4tWLeo/CSBx2tqpm9f4+8tBdmc?=
+ =?us-ascii?Q?EJobOGTGGnwI25NzjhwdNXuF/ijLUkb0ZTmUfvl+P/8vGEUMzMsyBfTwf7zC?=
+ =?us-ascii?Q?AlMctDQmO0nZcgYS7GPvubAWy5Y2Q/wh0b3wvNKckI/uw0+koTRGvPXdP5Ny?=
+ =?us-ascii?Q?MnhFBeKWkM5xziC7JDtgqWTEh4etPaXpddrJ7+IX47Zp7mAlJM01zmNZzYxC?=
+ =?us-ascii?Q?6lX9LrniyZcH5LsQFy9Fh+KavLFNEJ6yxRXDEJpMkE6DsJwocKmyFYm9ySnR?=
+ =?us-ascii?Q?m/TaA/ANQBljgvRsoMlAM5emIo4Gmak+WWgHXlZP0xkhBYB5VpIUm6owyhSq?=
+ =?us-ascii?Q?MT7Sh2Nv2e3vShMYSxNx4mSaOsE2zW+wjHvMsuqvTXkNA77dKnKctDQl/7Et?=
+ =?us-ascii?Q?sEUVtW1Kl7aaS13dgRnH9HSaBMnwFSszXdoLNSMfuPuV3CrSQcXsDAJRRXAb?=
+ =?us-ascii?Q?2gHzCD1l/pxRS4DdCHZ07j7/Q6me3P0T5aWbR9057D+4bjohEp04Xo7/7+WB?=
+ =?us-ascii?Q?wjshAEG1TuuhKljPSnk7xtNnFUoTKUHWmKxH5nmWpnmKsu1Z+lVmezy1fddj?=
+ =?us-ascii?Q?FzNGTlOJCc8js5+ehPsIJEgV8qdtBu0uaT7fRlUd6cUfIMwMT+ks2YWc+sZD?=
+ =?us-ascii?Q?bD2DTLWrXHrCQe1owLwwDx0r0rhOkNipzrku/QGHPZWSsjTwI6gyKRPmKOl2?=
+ =?us-ascii?Q?chh6mnTzn0fmqqtAu0fdZmcGvD8DcJs3o8J1NzYeqsLeyXv0vXwuFIfKUjLQ?=
+ =?us-ascii?Q?v0xr8VhSfWj4pr8xx28Uxvy6TsD007tmS8EymjPVu4W0HL5c2oHh5OwJh3sB?=
+ =?us-ascii?Q?NaNUj6DJX9U6I0UocaMxTcuGFgCQpx6km1NZiA50hTkwDHasOgA60sMxEN98?=
+ =?us-ascii?Q?3JyIokGH3myur9sbd0FZY3zD+GKM6O+rhdWLw8QuY3xqvtWscZF8PP0LPQgY?=
+ =?us-ascii?Q?QnB18vxYVAKG99qTvvjaLygdUazFSrV38hOP0TakDEsDZEAQYSzYaMrLlc9S?=
+ =?us-ascii?Q?AT0EP5fkHBUA5k6bFrwMVGu+QU7Fi8EJt3qBLLY6i+xOxtqLjmMo+txCdc6N?=
+ =?us-ascii?Q?U1COLqyW3iPdp9dSt6dkLM+3p7juV2Wko0w6Cebe2uiiwtTcyIYTocXFwzj8?=
+ =?us-ascii?Q?NgEMGAV5UsWLZNqxWH7wiPfZH01RQUo7SUwNkw/OjrQLlqbUNaF+Lv4Cl17Y?=
+ =?us-ascii?Q?C3JGO6qCjMhd7uEv3DPGRBOZQxasrHvefSVc55wUALVHoM00QuN3waFkpTqu?=
+ =?us-ascii?Q?OOzdSiU511Ae6HpP8AxKVWfBw9/KGRQB68tk5TnRFSVqIkstW5jSTr0AKrU+?=
+ =?us-ascii?Q?154isAmptjqy0JYUwVnnmBtlvvZgaFn8VnOF6IxEnDKwM1yrd+ktzOHieRbe?=
+ =?us-ascii?Q?kfm5IJpfdLDu2ukUklMyD3STnGgka74B/EDULotpUN1hkWUsoFWBaXErJVHk?=
+ =?us-ascii?Q?qL5uhVxNM/J4JN/Zgox2g8WIs5L/3T8I6+URD3Od52QMH8HlamO8SZeZxdg5?=
+ =?us-ascii?Q?TN3x5pCqBjvfdDKDIt1Z2Vk4YEFmiIrPeem3Avw8bCDjhRaOhK6B3XDlBq0G?=
+ =?us-ascii?Q?0ZYTBtGYHuGTObwFXVOag91IAlA=3D?=
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(82310400026)(1800799024)(921020);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: raHKCGEjxH+GSCOrOeLq39DJALe5g6iv5l/y/dQNZYEo7H4azG9MjZHv5l7pkLN0kXB+lsffZbOcGZwZu3dDr1XBgMxUAKlQgttiIIyZ6CTrJsP0PGkag9Hfi8+IHN8Eq7KgAxlzJhXloxszQAfHVmNKr+AXifCAEp+Fcxh7Hq0uJEKzAlL2bMHl2dX/ZnWnngYnr7he4DfsUgSVweWMMpS8Nm09mbPTKf+RzHzjncU3sfrbp59NBOGJeySrpLPGwWXuHz6D5dEe+JXwi5Du5yrn0z9G8TYLCREbRr5qzBqXwUCk9JlXya+xydJXJZzEqgdBU51ciVbpuwx7niHbVi+EwiXLSwekUwqdzvZUfOmTz3XYsPepjZZ+hA732/4uVu1y9sohcF5rpky08/cDFHPeSUHl3zEePnRkar4IqvB7Yh0x7bR00DTKHB6x/6aD
+X-MS-Exchange-AntiSpam-MessageData-0: UOSxm6E/GW4S6AX3UbnjnIyNKyJqp5RwIAwx+KaDehissXgvWFGu24gv5AkFB4l5WOs++dr0K5N/DPWyuhooDniVFyUHpOPuovD26dqiZFH9pgX6tUos5LhiNuE6VhTdiCuBLI12RkDtY744uG+jAVq80Z1TyTYArk1+nNRqpRlFRI4njn5FLlejd/i5r/V+ujLqZIUStOZr2L7bGa/K4mnQ/nLOoYGdGAabvsDI1+MnXx1XrcIXFNLBfvYP3edNiLlRq6y1/BZjx9PtyThljXlPrKsNXrn5xeVcuakySzKlt0BSdwvEBDc3GjeVTAbhSP9W2qUPtM0qMdU1g6gasIo+Mu5E0vdDxnxl74s5otiAKsb9n3WcO6LltesG1Vs7OZ+9t+IvLPBDc1hspo6KG9vFll9KNQnNyUVgtl/CStYTlqPGmVolSqMvQ3I7H/dM
 X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 20:59:30.4557
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 20:59:39.6162
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fd48db40-2a43-4045-e10a-08de6042767d
+X-MS-Exchange-CrossTenant-Network-Message-Id: 75bb692f-58a9-4e61-9402-08de60427bf3
 X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509E8.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509E6.eurprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXP195MB1736
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU7PPF2541BF4ED
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_125937_758212_CB0C1DD7 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260130_125944_825787_6F8FCCBE 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,71 +152,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the second DSI instance and its corresponding phy to the main domain
-include file.
+Add an overlay to use the PEB-AV-15 AV-Adapter. It's a small expansion board
+using a Lontium LT8912B DSI->HDMI bridge and a TLV320AIC3007 audio codec.
 
 Signed-off-by: Dominik Haller <d.haller@phytec.de>
 ---
- arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 39 ++++++++++++++++++++++
- 1 file changed, 39 insertions(+)
+ arch/arm64/boot/dts/ti/Makefile               |   4 +
+ .../ti/k3-am68-phyboard-izar-peb-av-15.dtso   | 192 ++++++++++++++++++
+ 2 files changed, 196 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am68-phyboard-izar-peb-av-15.dtso
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-index 80c51b11ac9f..80a32c451d1b 100644
---- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-@@ -1815,6 +1815,19 @@ dphy_tx0: phy@4480000 {
- 		status = "disabled";
- 	};
- 
-+	dphy_tx1: phy@4481000 {
-+		compatible = "ti,j721e-dphy";
-+		reg = <0x00 0x04481000 0x00 0x00001000>;
-+		clocks = <&k3_clks 364 8>, <&k3_clks 364 14>;
-+		clock-names = "psm", "pll_ref";
-+		#phy-cells = <0>;
-+		power-domains = <&k3_pds 364 TI_SCI_PD_EXCLUSIVE>;
-+		assigned-clocks = <&k3_clks 364 14>;
-+		assigned-clock-parents = <&k3_clks 364 15>;
-+		assigned-clock-rates = <19200000>;
-+		status = "disabled";
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index a188e62e32b4..ae5994818ad2 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -135,6 +135,9 @@ dtb-$(CONFIG_ARCH_K3) += k3-am68-phyboard-izar.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am68-phyboard-izar-lvds-ph128800t006.dtb
+ k3-am68-phyboard-izar-lvds-ph128800t006-dtbs := k3-am68-phyboard-izar.dtb \
+ 	k3-am68-phyboard-izar-lvds-ph128800t006.dtbo
++dtb-$(CONFIG_ARCH_K3) += k3-am68-phyboard-izar-peb-av-15.dtb
++k3-am68-phyboard-izar-peb-av-15-dtbs := k3-am68-phyboard-izar.dtb \
++        k3-am68-phyboard-izar-peb-av-15.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am68-sk-base-board.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am68-sk-base-board-pcie1-ep.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-common-proc-board.dtb
+@@ -323,6 +326,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-am642-tqma64xxl-mbax4xxl-wlan.dtb \
+ 	k3-am67a-kontron-sa67-base-gpios.dtb \
+ 	k3-am68-phyboard-izar-lvds-ph128800t006.dtb \
++	k3-am68-phyboard-izar-peb-av-15.dtb \
+ 	k3-am68-sk-base-board-csi2-dual-imx219.dtb \
+ 	k3-am68-sk-base-board-pcie1-ep.dtb \
+ 	k3-am69-sk-csi2-dual-imx219.dtb \
+diff --git a/arch/arm64/boot/dts/ti/k3-am68-phyboard-izar-peb-av-15.dtso b/arch/arm64/boot/dts/ti/k3-am68-phyboard-izar-peb-av-15.dtso
+new file mode 100644
+index 000000000000..bec959d2e97f
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am68-phyboard-izar-peb-av-15.dtso
+@@ -0,0 +1,192 @@
++// SPDX-License-Identifier: GPL-2.0-or-only or MIT
++/*
++ * Copyright (C) 2026 PHYTEC Messtechnik GmbH
++ * Author: Dominik Haller <d.haller@phytec.de>
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++#include "k3-pinctrl.h"
++
++&{/} {
++	audio_refclk1: audio-clock {
++		#clock-cells = <0>;
++		compatible = "fixed-clock";
++		clock-frequency = <19200000>;
 +	};
 +
- 	dsi0: dsi@4800000 {
- 		compatible = "ti,j721e-dsi";
- 		reg = <0x00 0x04800000 0x00 0x00100000>,
-@@ -1841,6 +1854,32 @@ port@1 {
- 		};
- 	};
- 
-+	dsi1: dsi@4900000 {
-+		compatible = "ti,j721e-dsi";
-+		reg = <0x00 0x04900000 0x00 0x00100000>,
-+		      <0x00 0x04720000 0x00 0x00000100>;
-+		clocks = <&k3_clks 155 4>, <&k3_clks 155 1>;
-+		clock-names = "dsi_p_clk", "dsi_sys_clk";
-+		power-domains = <&k3_pds 155 TI_SCI_PD_EXCLUSIVE>;
-+		interrupts = <GIC_SPI 601 IRQ_TYPE_LEVEL_HIGH>;
-+		phys = <&dphy_tx1>;
-+		phy-names = "dphy";
-+		status = "disabled";
++	hdmi: hdmi-connector {
++		compatible = "hdmi-connector";
++		label = "hdmi";
++		type = "a";
++		ddc-i2c-bus = <&main_i2c2>;
 +
-+		dsi1_ports: ports {
++		port {
++			hdmi_connector_in: endpoint {
++				remote-endpoint = <&lt8912b_out>;
++			};
++		};
++	};
++
++	reg_audio_3v3: regulator-audio-3v3 {
++		compatible = "regulator-fixed";
++		regulator-name = "VCC3V3_AUDIO";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-always-on;
++	};
++
++	reg_audio_1v8: regulator-audio-1v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "VCC1V8_AUDIO";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		regulator-always-on;
++	};
++
++	sound {
++		compatible = "simple-audio-card";
++		simple-audio-card,name = "PEB-AV-15";
++		simple-audio-card,widgets =
++			"Headphone", "Headphone Jack",
++			"Microphone", "Mic Jack";
++		simple-audio-card,routing =
++			"Headphone Jack", "HPLOUT",
++			"Headphone Jack", "HPROUT",
++			"MIC3R", "Mic Jack",
++			"Mic Jack", "Mic Bias";
++		simple-audio-card,format = "dsp_b";
++		simple-audio-card,bitclock-inversion;
++		simple-audio-card,bitclock-master = <&link0_codec>;
++		simple-audio-card,frame-master = <&link0_codec>;
++
++		link0_cpu: simple-audio-card,cpu {
++			sound-dai = <&mcasp0>;
++		};
++
++		link0_codec: simple-audio-card,codec {
++			sound-dai = <&audio_codec>;
++			clocks = <&audio_refclk1>;
++		};
++	};
++
++};
++
++&dphy_tx1 {
++        status = "okay";
++};
++
++&dsi1 {
++	status= "okay";
++};
++
++&dsi1_ports {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	port@0 {
++		reg = <0>;
++		dsi1_out: endpoint {
++			remote-endpoint = <&lt8912b_in>;
++		};
++	};
++
++	port@1 {
++		reg = <1>;
++		dsi1_in: endpoint {
++			remote-endpoint = <&dpi3_out>;
++		};
++	};
++};
++
++&dss {
++	status = "okay";
++};
++
++&dss_ports {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        port@3 {
++                reg = <3>;
++                dpi3_out: endpoint {
++                        remote-endpoint = <&dsi1_in>;
++                };
++        };
++};
++
++&mcasp0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&mcasp0_pins>;
++
++	#sound-dai-cells= <0>;
++
++	op-mode = <0>;	/* MCASP_IIS_MODE */
++	tdm-slots = <2>;
++
++	/* 4 serializers */
++	serial-dir = <  /* 0: INACTIVE, 1: TX, 2: RX */
++		2 0 0 1
++		0 0 0 0
++		0 0 0 0
++		0 0 0 0
++	>;
++
++	tx-num-evt = <32>;
++	rx-num-evt = <32>;
++	status = "okay";
++};
++
++&main_i2c2 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	audio_codec: audio-codec@18 {
++		compatible = "ti,tlv320aic3007";
++		reg = <0x18>;
++		#sound-dai-cells= <0>;
++		ai3x-micbias-vg = <2>;
++		AVDD-supply = <&reg_audio_3v3>;
++		IOVDD-supply = <&reg_audio_3v3>;
++		DRVDD-supply = <&reg_audio_3v3>;
++		DVDD-supply = <&reg_audio_1v8>;
++
++	};
++
++	bridge@48 {
++		compatible = "lontium,lt8912b";
++		reg = <0x48>;
++
++		ports {
 +			#address-cells = <1>;
 +			#size-cells = <0>;
 +
 +			port@0 {
 +				reg = <0>;
++				lt8912b_in: endpoint {
++					data-lanes = <0 1 2 3>;
++					remote-endpoint = <&dsi1_out>;
++				};
 +			};
 +
 +			port@1 {
 +				reg = <1>;
++				lt8912b_out: endpoint {
++					remote-endpoint = <&hdmi_connector_in>;
++				};
 +			};
 +		};
 +	};
++};
 +
- 	dss: dss@4a00000 {
- 		compatible = "ti,j721e-dss";
- 		reg = <0x00 0x04a00000 0x00 0x10000>, /* common_m */
++&main_pmx0 {
++	mcasp0_pins: mcasp0-default-pins {
++		pinctrl-single,pins = <
++			J721S2_IOPAD(0x03C, PIN_INPUT, 1) /* (U27) WCLK, MCASP0_AFSX.MCASP0_AFSX */
++			J721S2_IOPAD(0x038, PIN_INPUT, 1) /* (AB28) BCLK, MCASP0_ACLKX.MCASP0_ACLKX */
++			J721S2_IOPAD(0x040, PIN_OUTPUT, 1) /* (AC28) DOUT, MCASP0_AXR0.MCASP0_AXR0 */
++			J721S2_IOPAD(0x07C, PIN_INPUT, 1) /* (T27) DIN, MCASP0_AXR3.MCASP0_AXR3 */
++		>;
++	};
++};
 -- 
 2.43.0
 
