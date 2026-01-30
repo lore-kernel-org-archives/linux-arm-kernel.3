@@ -4,34 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92FB8E6BF10
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 20:33:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0FF3E6BF39
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 20:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zR1IA4ZeAOqqAwWiQWGrLjem0Myl+mvHXJd0+68zKi8=; b=brTAc4rQOXCikt9hVkEDWZ1iB2
-	1eJcXSTagDX+/Sw/DxVh/H5Uw60N6vexqI8hVfI3nBYQ3Drn/e5ZtHNC0hu6mhvH0tRicnlA6pNuA
-	BwsoSc3ynPgnKJ9zXBqC1q8t3AImJwOJlKVdCEzORwi2YW5HRLxYf5AeWttaOJE2KAaWqMcxMcxKh
-	Mz6GAtwlvypZF1O5/uGL7N5GNW8SxWaqLLcq1Ih1s9ohW95ZsDDGaY08IOZ/M3ALsqEuLhA7YNgvg
-	QtDaOJ1BNQwPSB2p4SXRpAgRT7Bjo3+KFYt1YomipqvgW6cqc/R/kdjOdHP7eTv6F76cMin5peA60
-	bk4SUrMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:CC:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=19pXKrlKnACqqVnukTAzXD//KqoB4xeXu/eupnXaOoE=; b=FestPskHrdqrQH9lrlpfDFIN04
+	gy8++jnBHemPpcJfsGYGa4/+3zqYnfyhQqOU9Xk/4TBT2r9wdc0BWuj4sPWom+WBprgrB2fWp9Cgj
+	WBTLy0oFN002sxZtmCyxuNg/t2jZ06VVDKHxuQtSpyoqF+Fbnejdy9e/bTDCiB/P4JCwrO+bAaIVG
+	fTtvFnD3ox9gySQQZA01tNxu/b1AFVPrS8xWoyRiTJBQUyjoDMmSFm7xrE0V3jsU3DQigpbiPm5zW
+	AeOnL+2gYHRPwATQ/6qijqfdOOT9mO/Mv5kO9QcblQtvU2BzviMIqPRytywYRug8EiUjOnwVHV7T6
+	GVKvf33w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlvAq-00000001wUE-2JlA;
-	Fri, 30 Jan 2026 20:33:00 +0000
+	id 1vlvDY-00000001wll-3agK;
+	Fri, 30 Jan 2026 20:35:48 +0000
 Received: from [95.181.193.9] (helo=mail.auroraos.dev)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlvAn-00000001wSn-1smr;
-	Fri, 30 Jan 2026 20:32:58 +0000
-Received: from wasted (213.87.133.239) by exch16.corp.auroraos.dev
+	id 1vlvDW-00000001wlL-1GtD;
+	Fri, 30 Jan 2026 20:35:47 +0000
+Received: from [192.168.2.104] (213.87.133.239) by exch16.corp.auroraos.dev
  (10.189.209.38) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1847.3; Fri, 30 Jan
- 2026 23:32:46 +0300
+ 2026 23:35:42 +0300
+Message-ID: <adf6b313-f7db-4d8f-9000-8c65446ba041@auroraos.dev>
+Date: Fri, 30 Jan 2026 23:35:42 +0300
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 From: Sergey Shtylyov <s.shtylyov@auroraos.dev>
-To: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?q?Heiko=20St=C3=BCbner?=
+Subject: [PATCH RESEND] drm/rockchip: cdn-dp: add missing check in
+ cdn_dp_config_video()
+To: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
 	<heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, Maarten Lankhorst
 	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
 	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
@@ -39,19 +45,15 @@ To: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?q?Heiko=20St=C3=BCbner?=
 	<linux-rockchip@lists.infradead.org>
 CC: Sergey Shtylyov <s.shtylyov@auroraos.dev>,
 	<linux-arm-kernel@lists.infradead.org>, <stable@vger.kernel.org>
-Subject: [PATCH] drm/rockchip: cdn-dp: add missing check in cdn_dp_config_video()
-Date: Fri, 30 Jan 2026 23:31:46 +0300
-Message-ID: <20260130203148.46473-1-s.shtylyov@auroraos.dev>
-X-Mailer: git-send-email 2.52.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Language: en-US
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
 X-Originating-IP: [213.87.133.239]
 X-ClientProxiedBy: exch16.corp.auroraos.dev (10.189.209.38) To
  exch16.corp.auroraos.dev (10.189.209.38)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_123257_493103_F583A5ED 
-X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-CacheID: sfid-20260130_123546_365556_17F88EF7 
+X-CRM114-Status: UNSURE (   7.03  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,6 +80,12 @@ Fixes: 1a0f7ed3abe2 ("drm/rockchip: cdn-dp: add cdn DP support for rk3399")
 Signed-off-by: Sergey Shtylyov <s.shtylyov@auroraos.dev>
 Cc: stable@vger.kernel.org
 ---
+Either we need to add the check or drop the assignment to the ret variable
+as the value gets ignored anyway...
+
+The patch is against the drm-misc-fixes branch of the DRM kernel.git repo
+on gitlab.freedesktop.org.
+
  drivers/gpu/drm/rockchip/cdn-dp-reg.c | 2 ++
  1 file changed, 2 insertions(+)
 
