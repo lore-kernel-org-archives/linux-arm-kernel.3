@@ -4,88 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F5A5E6BF1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 15:50:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E75FFE6BF1E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 15:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VKYYYdqumsniIC39YChzbfba4q3RKQuXPKPNETM4jMs=; b=yfy9B/1n73L/NM0+tPK7fpbGpt
-	H4PVu5EvR27rMfWVO9z2mv/5PAqyxZDuuh0pWFq/AmvtzjFyWQC8NGA4hE4CBrYdklWsk3MO3eGxR
-	lle8ZlS0InqpNVsMzIuQTSYWA49i3aJbbUmEW0V6DvGZvbvQihYT1OpXkpvatEDfNNMisfcPU3CIG
-	LBLgMLIxzAni9+BVxLwHFni5ywIE5xYreA8ZBwdDj1eP9ccJoSy4jNEQMBKejh8P7YuH6FuchU0uU
-	ecBQSooQz+NrjpraXC3NeqRm5NbLzX6HdUV3CJiD35wDZ9HJF6vObosWz6JqY0kccXGz6ifFemTfK
-	skzws1hQ==;
+	bh=QXd3JsSRnTzCMYbpci5jQq0m0HgcGcYmMjMuSqzZaAI=; b=oElwFK4bE9IGdRKPAHhSPD5tRY
+	ZrbG8YM2jmeDO8X695yXtWg6f8pUbcGu5+vA7rrj/K4mI3BIL1FvzGmSzF0ZTxg7D3XXTiyLftCeb
+	zvpk+LhGyyTpoEP4LYQHpGesPyuerDCXTlh2SgmVEnwKp4DGNFOviUE/6gDbMxHsRFyN7Df91NANY
+	j11Vbdgt93zo82TiP425o4kGfd/YgjykGZA7uN5vt5/taS7S2hnDg4nlYBUabEEm2zZmzfktQPMQq
+	C6l9MMzQWPLqKUD9TevNKDlWAFQr6nwMYeuFxDPlWDOBiAy2119fWGb7tYUbXY7ndVbfECBiBNbDG
+	EiH/roog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlqlo-00000001gCg-0jRF;
-	Fri, 30 Jan 2026 15:50:52 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vlqnX-00000001gL7-3gqI;
+	Fri, 30 Jan 2026 15:52:39 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlqll-00000001gCI-15q6;
-	Fri, 30 Jan 2026 15:50:50 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1769788246;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VKYYYdqumsniIC39YChzbfba4q3RKQuXPKPNETM4jMs=;
-	b=vcbvqM8zYMWsd/tMS8cM3Z8mI0EFVLj960Sgnq06Gp+EE//WNnLbcLZhAA/pMTKCGlvDfP
-	yqke2jH0ufmQ2nSCXnCEz+Jn+XrQJzGXcBaQD7aRlFZRq53PQc5/Ez6pS9vF8H4vaE7v3p
-	5Os9pnShRRfDny9vUFVCUgpDJtra3pkpEpGkGFqBbqhRd67I4u4yEw2yRumLCICvxBk8BF
-	lYslZ9n7CIZiicXU68jj736XQbVbZj259QlZ9D5cpD/hhtYKt/yvG/sW6XwJQlB9xGg1Yt
-	1dTW+LYZ7TXgk5cXhk98yy4erq5rCNAMT0/GW3UcnHSmpCbIxRncuJF5VzCABA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1769788246;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VKYYYdqumsniIC39YChzbfba4q3RKQuXPKPNETM4jMs=;
-	b=QdMWcBGTcUpDPEMRRsRb8Xqv5ndFVC6eiO9zg4AEYukrcFUq2iwMVZ0Wp1FzCEeMeF0WzL
-	p1LnaogxsATMNsAA==
-To: Marcos Paulo de Souza <mpdesouza@suse.com>, Richard Weinberger
- <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes
- Berg <johannes@sipsolutions.net>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Jason Wessel <jason.wessel@windriver.com>,
- Daniel Thompson <danielt@kernel.org>, Douglas Anderson
- <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>, Steven Rostedt
- <rostedt@goodmis.org>, Sergey Senozhatsky <senozhatsky@chromium.org>, Jiri
- Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>, Andrew
- Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Geert Uytterhoeven
- <geert@linux-m68k.org>, Kees Cook <kees@kernel.org>, Tony Luck
- <tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman
- <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Christophe
- Leroy <christophe.leroy@csgroup.eu>, Andreas Larsson
- <andreas@gaisler.com>, Alexander Shishkin
- <alexander.shishkin@linux.intel.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Jacky Huang <ychuang3@nuvoton.com>,
- Shan-Chun Hung <schung@nuvoton.com>, Laurentiu Tudor
- <laurentiu.tudor@nxp.com>
-Cc: linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
- kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
- netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- Marcos Paulo de Souza <mpdesouza@suse.com>
-Subject: Re: [PATCH 02/19] printk: Introduce console_is_nbcon
-In-Reply-To: <20251227-printk-cleanup-part3-v1-2-21a291bcf197@suse.com>
-References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
- <20251227-printk-cleanup-part3-v1-2-21a291bcf197@suse.com>
-Date: Fri, 30 Jan 2026 16:56:45 +0106
-Message-ID: <875x8j3xre.fsf@jogness.linutronix.de>
+	id 1vlqnW-00000001gKj-1qEw
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 Jan 2026 15:52:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=d9K7Bjn5zztNC/2n7Izt8rd4s21w8Bw4ofRqPzbnSmq0vnFQfEe9WkAC2agmWXdlIZiaP2wMOIHNhADJ5+C/S/U59i+2WRhbaRjxKUBORiy4265a6ohFv7HMTAVYDZ+NLEIyGPsYT8xSrcDshMAkKu/VCLoTBkGYwCLLG0v4MOkzbZn625KM1n/338UjeFYq8mN+PA+quEjlqERCQPoUuXOQz0DkExigza7rxgST/X7CO+3ZcYUPquPXyjjl9yB5ElR6DzfvmxvOYyFN0RuBtHh0v2t8HK5NnEC4+IoPKuTbqo0UGs8CquHqRP8WZs6qESi/uSwdF20ymN7TqBKW2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QXd3JsSRnTzCMYbpci5jQq0m0HgcGcYmMjMuSqzZaAI=;
+ b=ajlop4PUavUcNQ7CsBofTYKEFdi6X7cmRpBXjcW0NmGtjmYlbiX+QmkJ/thX7Kzov2n+Nu57fDXTCRt4oLYMs3X1EGfGOsdJhnKU/4ixMCn2Gju13g3KZl4tJ4qS4zmGMMlVDZpeXskuR+gbNc+4N+AUAiy+JMuOFgIaCtN84F0UJuB0/joSGwzY6uHAAgek9b6P/lnoK904180TJ1iC7Fup27Cddvh0PHhdRE1BIuOZWTZmMdhxzHnHN/Yio7CGQAVkfk8Tx/wrw5Vy+cMfTM5SmlYU+0eVw5Yac3hbnchR9oVdEhufHq6pDY9XCPePDUvMQhhmliiB6KoFKsXmbA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QXd3JsSRnTzCMYbpci5jQq0m0HgcGcYmMjMuSqzZaAI=;
+ b=VHa+29TKz+gTJot/2jviBbd1QGHKFWOtxEWE5/0UXBTJzT5puVteRVqpUBXtl96vsnDId3GLvHslVd0hnjP4prabdRhl4oTPs+iEhCsvZYhAT09GOkZmUVi4jYeFywWUjkuf5v8/pcUav94WetPkEMpeOUx4zN0B5pDcxQMd87YajC6R1LjmvGskLB78q2v3KF3ZyJuatYi/3dhtp20rF0iT842UHiGioa4mkgR1I0Ws5VYw6yd8DQaPw69MG4LiAxITQVVRrJuDxTKr3I09cjrxnXyPCIfYJDLaypH3liO4+SqCgFPqVOvy/YKm03Hd9ycv53W/AqUwNVzVHJFFFw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by VI2PR04MB10809.eurprd04.prod.outlook.com (2603:10a6:800:27b::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Fri, 30 Jan
+ 2026 15:52:33 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9564.010; Fri, 30 Jan 2026
+ 15:52:32 +0000
+Date: Fri, 30 Jan 2026 10:52:25 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+Cc: peter.ujfalusi@gmail.com, vkoul@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com,
+	ssantosh@kernel.org, dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, vigneshr@ti.com,
+	r-sharma3@ti.com, gehariprasath@ti.com
+Subject: Re: [PATCH v4 06/19] dmaengine: ti: k3-udma: Add variant-specific
+ function pointers to udma_dev
+Message-ID: <aXzTubDlsQDIgLGM@lizhi-Precision-Tower-5810>
+References: <20260130110159.359501-1-s-adivi@ti.com>
+ <20260130110159.359501-7-s-adivi@ti.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260130110159.359501-7-s-adivi@ti.com>
+X-ClientProxiedBy: PH1PEPF0001330D.namprd07.prod.outlook.com
+ (2603:10b6:518:1::1c) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI2PR04MB10809:EE_
+X-MS-Office365-Filtering-Correlation-Id: f47f9523-e3e5-48cf-57e8-08de60179473
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|1800799024|7416014|376014|366016|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4ik7prwfEGUJXQ2SSyNzgwC9hmcKfjL0eD7mRzQ0fSEmPNgn6q2E8cQ7UdoM?=
+ =?us-ascii?Q?TH4ddsnay80LonwSfW0Hzqo7CIskzWEU3pkhseJujKSLHThgdPxuQkp7nege?=
+ =?us-ascii?Q?92pY7PZ+A9lkTw1jiQ0tC7c7jLp020D4SzvBzNSLON5PNHwuzXsrMWIBs9d+?=
+ =?us-ascii?Q?uh8isdNzwDlazLhW+XvJJCoZnTphZy0SR99+GKu8ZVRfxok1+LBK6sbVZAFX?=
+ =?us-ascii?Q?tlgzw3bZXPlM+G4bmnZeZNb3raNjGCIv9KX/z8yoTkVIopUPrz0OInUjMXUI?=
+ =?us-ascii?Q?aHSfRgoruDq49k/BzxflLPBRevZxx/hrUzu5hcfWaIG2VIOn39TfIn/5Er4g?=
+ =?us-ascii?Q?PabfVMfhQB5YeSqk1Jv7FYtp7g2Z42liCkKgqBEnPY9FG3Eq0CMyHl6sHJ04?=
+ =?us-ascii?Q?ZpwoNaPFBFAY8BDg0Lf10yhQatvY4z0kv54PnoVt4j/e4lN/320QB9ZCMIr6?=
+ =?us-ascii?Q?0Ra6k13hdygiHEilpl/tVwJX1sAmLyqov2RhO5fFX29ZT8VJAo72IXALm631?=
+ =?us-ascii?Q?uhp6BtEF0lXSraiGov3EgJTkEfA2Fhr7z8zhd2I2oiRNafi5D6whEXWXHp1L?=
+ =?us-ascii?Q?Sxe2p0h2qCm6xwdIJBGw2ahrTe8oN/T1tng4gvgzhOYzhNqGBlixctmmWmC1?=
+ =?us-ascii?Q?3h9aWyZhLWOPJhLtXgS/28jdtLE5Kz5OsQCReYNE1qGyTOolp9k8X9mjcxD/?=
+ =?us-ascii?Q?iEPUEZkmAoHNYcvPzatPylDH4D82qXXV4vvNe0Fnw8hY0fhf5l5gXPMRGQ06?=
+ =?us-ascii?Q?eYZ4OiXy4WM0og4j0R4zz1/9iLqtYcuwGR49N91zBsOkPEdDbqChOeHgXc5i?=
+ =?us-ascii?Q?R6stSESihm8aAj928ZrIBMlmXyQY6vVYfXo63p8TQo0QxORISIPso6SJHXMD?=
+ =?us-ascii?Q?1lQzLZ0HoAj8DZNuMxMrMnk69jMnJmEZ8P+jGjVy5phOe31b+jNPcxUM6x9u?=
+ =?us-ascii?Q?MMKD+bkWgQtNNZX8B4BfiLERk4n3NyghOy2xtHBccwJmyEZo88BvQ8xcAjj5?=
+ =?us-ascii?Q?cdHYEBeOqtgv7HqHZvN/7M8AA8afh6BKwDcAr9jERVPr6JAmKJaQJsoCHHAc?=
+ =?us-ascii?Q?NkUhc6MeOVl2eSFYBqfu6s7gcOJKzL17VGOP8sxD27/ivDJMo9B37rO6VRa6?=
+ =?us-ascii?Q?dbLkG4ML+2W1f15U5Sa57eTZGMrUVxgTZGOB8xRhBndGXNDHdE07KzCFikPQ?=
+ =?us-ascii?Q?dh9GtkULVf+ZfRbhm9NvhWugTkxqbrwh0wzNlyiUS+MZoe0QyQkHaBnj/aZR?=
+ =?us-ascii?Q?Xy/PSKu6mfsPUuWj/Bp9SxdTc/YGr5NyrveUV2LcLovocaV3kUZzohgxZkH0?=
+ =?us-ascii?Q?ZFSueZe1yjujtjsZl9UoIjZB85TPOGg6/EtD8BMae0CBBeJGoxRcaUK7rBTd?=
+ =?us-ascii?Q?8NuYg1PRBczwNErZoWz72Sy0IwkbS4PFPcTAjxy7i/NInORitjpbbdnO9CCs?=
+ =?us-ascii?Q?82geuoNLMOpGEqwmSo1hB/qOqEivanNHMrHnXQp7VlF+UlRizx/GbuGxR2tF?=
+ =?us-ascii?Q?hKfN4V+grnKedBunopQblxkKREm9RN6A9pilz3delSHVE9uJPrmHbRoq4U57?=
+ =?us-ascii?Q?L47jeLgETkq3wyRrV0NI81qotFLfzTVakLFkPWHHFNfdqGta5M3ujf4GQN4F?=
+ =?us-ascii?Q?NB9SUz4WDIoyaetxKPGNqhI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(1800799024)(7416014)(376014)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EI6i9lDN2OpmpK3fv3kR6hldXdRfMwp+LoVcg888WYz6b+MbZrxadhX9Oher?=
+ =?us-ascii?Q?yRb77HaVzWJbgbbpRVefTwmJtOOvvO/O8hZgXcc2R2yIafNdgDwfEbc/mEtg?=
+ =?us-ascii?Q?ttiW7MWKZty19yDCqSp8i10EYuthr5c21VbZ8TH4/mbtqWApEMX5SLeE8Vg1?=
+ =?us-ascii?Q?WOinVWhKnqa5NEnSJsIn2HfvFrO+hu8sHQ+1xURObnMkJSj0w8BJfn1+flr7?=
+ =?us-ascii?Q?wZGEk7b2qnLijB+Gg3QqbYwLLF9EWDSyvJaF2YDoBki3OOfbxq3owyKcvPKd?=
+ =?us-ascii?Q?m/p5YNrK9xc1pSKITo0/hwDp0tuhtWxUpFeCshP+oXVrqH+fFbW7BCPERnHq?=
+ =?us-ascii?Q?7dFKhhsY7W7HbGoUz5PeoTzhtlHf3Kb1OqWOExHSI0Au+rvT8jBfLnHMZpXF?=
+ =?us-ascii?Q?3CnRlMjlX9It2JF9NDi4ZBg2iGbn72C4IE6CR4BlvCzCMN88zJ22zVA8Z/ue?=
+ =?us-ascii?Q?Nsa4wgfM3bBGRCQpUxEnpGEJMG1g4/Sj76rmUXXdRjp5wmqdYzoLPnl8rClB?=
+ =?us-ascii?Q?v3E/CxPP61e+M0cmbodaJjTA7ZuZTU5HpR7mdlVKaW8NqYaz9WeS3t6IGArJ?=
+ =?us-ascii?Q?qeXrAr0CIg2VHLNpmoAk2pXmuu6MHr29r3D5uI3AlvDtovb703EZGkIOfLIv?=
+ =?us-ascii?Q?6MseNQA3NGSUZYRZTfx42dDJyHGh8+jxeY/3MxaEIa58/446TghC7JHpxZMk?=
+ =?us-ascii?Q?0dBJtV497QJRU1Gc48P91tx2Ysici6u20ECKDbnOdMJwvWD8o0Jr2FW513XJ?=
+ =?us-ascii?Q?Sa0MaG2HXkTHgRbECMScNQQKuzBhvSUIDpCXwvcMRfcL6C1FzX+LGTSjMMQr?=
+ =?us-ascii?Q?4lVmGQILmMh3/TYihS0MyNA0/ej61vmpKeQq8sn9jk8HHjQ273kyL4kEwuFL?=
+ =?us-ascii?Q?sj044WXPzKa5oXAcLxWSs70IztWXJBbi7fSLkk705kom5q7RoJXcT1/oYSKh?=
+ =?us-ascii?Q?TP281FJqSvvs8DIRhWX2TOBMOU4fSpsR8T+VKCAcUWFIUaw0KSSYgCeVe4aT?=
+ =?us-ascii?Q?RzGmPHzAe3DrEHjMXaGRN578B4o6mIJ1Mq1lsWNPiFNwPIiQvfcWlnlncczb?=
+ =?us-ascii?Q?0ZVJUHDYvmPuPkCgvJMLKBb2cYTljaa1F1f7HTSEEVbvacc1Qhrd4MBeFQLE?=
+ =?us-ascii?Q?t++DzBAVZ49tCUyWZSbemg5cmUNHgZekgDsdeQw4Y25J1yfymu7QqEfTkzdU?=
+ =?us-ascii?Q?Y/xRrtFWVP0LJ/0fAtcvupGfHpMlYyrLk/3yIGcF5jcZfqJlbnO5faocM2rb?=
+ =?us-ascii?Q?MsNN27MWoNE+VtMI+3KZMm3S9UirdV5u0ZKZIQdagIpqXSsTO8FFOUxhyCXg?=
+ =?us-ascii?Q?QUzfN11EUPUelGbfY/xzFh3XnOb0iyT4GHgI1RRBAJ6iE1ik+k/QbXhAdYQV?=
+ =?us-ascii?Q?8ZKEp2bj/NjOskp2GcwNuwBAuvSLAkOeHMO9TvSypxEM0AQfqiS67JrsVCCs?=
+ =?us-ascii?Q?94wjehlcMLj5McMyOERzMiiMxs9CQXq5icSxrxsRfetUeWwtSGT/tl3pUuWg?=
+ =?us-ascii?Q?KrT9sDflMwz2PEvHfVn44WiyBO5NKcyw3RqMRBNuRbs/Sexcd/D59Il/ZvUf?=
+ =?us-ascii?Q?X55Qp2VBhDwkIpKI/9BVPfHkC9WLX14QTQYHpXse6HfaHOqP9vYiJzM7jnR0?=
+ =?us-ascii?Q?nyCJKysYSkL0Yq94UAKkopOO068IzjS4UuXUb/mSJEmpcTmiBUZHFdAMLHbe?=
+ =?us-ascii?Q?M4bfZhOodVv86tD1KeVVDCeEwoXNyA7Ojk/i+aS/eEeDhYGh0QZHjAYuOAPF?=
+ =?us-ascii?Q?yGeVRBrqFw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f47f9523-e3e5-48cf-57e8-08de60179473
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 15:52:32.6464
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rXBMAloEkXW9YvfCUd7a/8wzXZ5vIEb4fvDNmdiiVXCCmfOfXT1uG45u1k/NeuoPhAiwAMrBGg6lLbpucw5kvA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10809
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_075049_603261_3A6913EC 
-X-CRM114-Status: GOOD (  22.58  )
+X-CRM114-CacheID: sfid-20260130_075238_638025_072C579D 
+X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,75 +167,238 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-12-27, Marcos Paulo de Souza <mpdesouza@suse.com> wrote:
-> Besides checking if the current console is NBCON or not, console->flags
-> is also being read in order to serve as argument of the console_is_usable
-> function.
+On Fri, Jan 30, 2026 at 04:31:46PM +0530, Sai Sree Kartheek Adivi wrote:
+> Introduce function pointers in the udma_dev structure to allow
+> variant-specific implementations for certain operations.
+> This prepares the driver for supporting multiple K3 UDMA variants,
+> such as UDMA v2, with minimal code duplication.
 >
-> But CON_NBCON flag is unique: it's set just once in the console
-> registration and never cleared. In this case it can be possible to read
-> the flag when console_srcu_lock is held (which is the case when using
-> for_each_console).
+> No functional changes intended in this commit.
 >
-> This change makes possible to remove the flags argument from
-> console_is_usable in the next patches.
+> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+> ---
 
-Note that console_is_usable() now also checks for the flag
-CON_NBCON_ATOMIC_UNSAFE as well.
-
-> diff --git a/include/linux/console.h b/include/linux/console.h
-> index 35c03fc4ed51..dd4ec7a5bff9 100644
-> --- a/include/linux/console.h
-> +++ b/include/linux/console.h
-> @@ -561,6 +561,33 @@ static inline void console_srcu_write_flags(struct console *con, short flags)
->  	WRITE_ONCE(con->flags, flags);
->  }
->  
-> +/**
-> + * console_srcu_is_nbcon - Locklessly check whether the console is nbcon
-> + * @con:	struct console pointer of console to check
-> + *
-> + * Requires console_srcu_read_lock to be held, which implies that @con might
-> + * be a registered console. The purpose of holding console_srcu_read_lock is
-> + * to guarantee that no exit/cleanup routines will run if the console
-> + * is currently undergoing unregistration.
-> + *
-> + * If the caller is holding the console_list_lock or it is _certain_ that
-> + * @con is not and will not become registered, the caller may read
-> + * @con->flags directly instead.
-> + *
-> + * Context: Any context.
-> + * Return: True when CON_NBCON flag is set.
-> + */
-> +static inline bool console_is_nbcon(const struct console *con)
-> +{
-> +	WARN_ON_ONCE(!console_srcu_read_lock_is_held());
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>  drivers/dma/ti/k3-udma-private.c | 10 +++++--
+>  drivers/dma/ti/k3-udma.c         | 46 +++++++++++++++++++-------------
+>  drivers/dma/ti/k3-udma.h         | 12 +++++++++
+>  3 files changed, 47 insertions(+), 21 deletions(-)
+>
+> diff --git a/drivers/dma/ti/k3-udma-private.c b/drivers/dma/ti/k3-udma-private.c
+> index 624360423ef17..44c097fff5ee6 100644
+> --- a/drivers/dma/ti/k3-udma-private.c
+> +++ b/drivers/dma/ti/k3-udma-private.c
+> @@ -8,13 +8,19 @@
+>
+>  int xudma_navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
+>  {
+> -	return navss_psil_pair(ud, src_thread, dst_thread);
+> +	if (ud->psil_pair)
+> +		return ud->psil_pair(ud, src_thread, dst_thread);
 > +
-> +	/*
-> +	 * The CON_NBCON flag is statically initialized and is never
-> +	 * set or cleared at runtime.
-> +	 */
-> +	return data_race(con->flags & CON_NBCON);
-
-If this flag is statically initialized and is never set or cleared at
-runtime, why is the console_srcu_read_lock required? Why not just:
-
-static inline bool console_is_nbcon(const struct console *con)
-{
-        /*
-	 * The CON_NBCON flag is statically initialized and is never
-	 * set or cleared at runtime.
-	 */
-	return data_race(con->flags & CON_NBCON);
-}
-
-And even if you do need the console_srcu_read_lock, why copy/paste the
-implementation and comments of console_srcu_read_flags()? Just do:
-
-static inline bool console_is_nbcon(const struct console *con)
-{
-	return console_srcu_read_flags(con) & CON_NBCON;
-}
-
-John Ogness
+> +	return 0;
+>  }
+>  EXPORT_SYMBOL(xudma_navss_psil_pair);
+>
+>  int xudma_navss_psil_unpair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
+>  {
+> -	return navss_psil_unpair(ud, src_thread, dst_thread);
+> +	if (ud->psil_unpair)
+> +		return ud->psil_unpair(ud, src_thread, dst_thread);
+> +
+> +	return 0;
+>  }
+>  EXPORT_SYMBOL(xudma_navss_psil_unpair);
+>
+> diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
+> index 214a1ca1e1776..397e890283eaa 100644
+> --- a/drivers/dma/ti/k3-udma.c
+> +++ b/drivers/dma/ti/k3-udma.c
+> @@ -40,7 +40,7 @@ static const char * const mmr_names[] = {
+>  	[MMR_TCHANRT] = "tchanrt",
+>  };
+>
+> -static int navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
+> +int navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
+>  {
+>  	struct udma_tisci_rm *tisci_rm = &ud->tisci_rm;
+>
+> @@ -50,8 +50,8 @@ static int navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
+>  					      src_thread, dst_thread);
+>  }
+>
+> -static int navss_psil_unpair(struct udma_dev *ud, u32 src_thread,
+> -			     u32 dst_thread)
+> +int navss_psil_unpair(struct udma_dev *ud, u32 src_thread,
+> +		      u32 dst_thread)
+>  {
+>  	struct udma_tisci_rm *tisci_rm = &ud->tisci_rm;
+>
+> @@ -329,7 +329,7 @@ static int udma_start(struct udma_chan *uc)
+>  	}
+>
+>  	/* Make sure that we clear the teardown bit, if it is set */
+> -	udma_reset_chan(uc, false);
+> +	uc->ud->reset_chan(uc, false);
+>
+>  	/* Push descriptors before we start the channel */
+>  	udma_start_desc(uc);
+> @@ -521,8 +521,8 @@ static void udma_check_tx_completion(struct work_struct *work)
+>  		if (uc->desc) {
+>  			struct udma_desc *d = uc->desc;
+>
+> -			udma_decrement_byte_counters(uc, d->residue);
+> -			udma_start(uc);
+> +			uc->ud->decrement_byte_counters(uc, d->residue);
+> +			uc->ud->start(uc);
+>  			vchan_cookie_complete(&d->vd);
+>  			break;
+>  		}
+> @@ -554,7 +554,7 @@ static irqreturn_t udma_ring_irq_handler(int irq, void *data)
+>  		}
+>
+>  		if (!uc->desc)
+> -			udma_start(uc);
+> +			uc->ud->start(uc);
+>
+>  		goto out;
+>  	}
+> @@ -576,8 +576,8 @@ static irqreturn_t udma_ring_irq_handler(int irq, void *data)
+>  				vchan_cyclic_callback(&d->vd);
+>  			} else {
+>  				if (udma_is_desc_really_done(uc, d)) {
+> -					udma_decrement_byte_counters(uc, d->residue);
+> -					udma_start(uc);
+> +					uc->ud->decrement_byte_counters(uc, d->residue);
+> +					uc->ud->start(uc);
+>  					vchan_cookie_complete(&d->vd);
+>  				} else {
+>  					schedule_delayed_work(&uc->tx_drain.work,
+> @@ -612,8 +612,8 @@ static irqreturn_t udma_udma_irq_handler(int irq, void *data)
+>  			vchan_cyclic_callback(&d->vd);
+>  		} else {
+>  			/* TODO: figure out the real amount of data */
+> -			udma_decrement_byte_counters(uc, d->residue);
+> -			udma_start(uc);
+> +			uc->ud->decrement_byte_counters(uc, d->residue);
+> +			uc->ud->start(uc);
+>  			vchan_cookie_complete(&d->vd);
+>  		}
+>  	}
+> @@ -1654,7 +1654,7 @@ static int udma_alloc_chan_resources(struct dma_chan *chan)
+>
+>  	if (udma_is_chan_running(uc)) {
+>  		dev_warn(ud->dev, "chan%d: is running!\n", uc->id);
+> -		udma_reset_chan(uc, false);
+> +		ud->reset_chan(uc, false);
+>  		if (udma_is_chan_running(uc)) {
+>  			dev_err(ud->dev, "chan%d: won't stop!\n", uc->id);
+>  			ret = -EBUSY;
+> @@ -1821,7 +1821,7 @@ static int bcdma_alloc_chan_resources(struct dma_chan *chan)
+>
+>  	if (udma_is_chan_running(uc)) {
+>  		dev_warn(ud->dev, "chan%d: is running!\n", uc->id);
+> -		udma_reset_chan(uc, false);
+> +		ud->reset_chan(uc, false);
+>  		if (udma_is_chan_running(uc)) {
+>  			dev_err(ud->dev, "chan%d: won't stop!\n", uc->id);
+>  			ret = -EBUSY;
+> @@ -2014,7 +2014,7 @@ static int pktdma_alloc_chan_resources(struct dma_chan *chan)
+>
+>  	if (udma_is_chan_running(uc)) {
+>  		dev_warn(ud->dev, "chan%d: is running!\n", uc->id);
+> -		udma_reset_chan(uc, false);
+> +		ud->reset_chan(uc, false);
+>  		if (udma_is_chan_running(uc)) {
+>  			dev_err(ud->dev, "chan%d: won't stop!\n", uc->id);
+>  			ret = -EBUSY;
+> @@ -2123,7 +2123,7 @@ static void udma_issue_pending(struct dma_chan *chan)
+>  		 */
+>  		if (!(uc->state == UDMA_CHAN_IS_TERMINATING &&
+>  		      udma_is_chan_running(uc)))
+> -			udma_start(uc);
+> +			uc->ud->start(uc);
+>  	}
+>
+>  	spin_unlock_irqrestore(&uc->vc.lock, flags);
+> @@ -2265,7 +2265,7 @@ static int udma_terminate_all(struct dma_chan *chan)
+>  	spin_lock_irqsave(&uc->vc.lock, flags);
+>
+>  	if (udma_is_chan_running(uc))
+> -		udma_stop(uc);
+> +		uc->ud->stop(uc);
+>
+>  	if (uc->desc) {
+>  		uc->terminated_desc = uc->desc;
+> @@ -2297,11 +2297,11 @@ static void udma_synchronize(struct dma_chan *chan)
+>  			dev_warn(uc->ud->dev, "chan%d teardown timeout!\n",
+>  				 uc->id);
+>  			udma_dump_chan_stdata(uc);
+> -			udma_reset_chan(uc, true);
+> +			uc->ud->reset_chan(uc, true);
+>  		}
+>  	}
+>
+> -	udma_reset_chan(uc, false);
+> +	uc->ud->reset_chan(uc, false);
+>  	if (udma_is_chan_running(uc))
+>  		dev_warn(uc->ud->dev, "chan%d refused to stop!\n", uc->id);
+>
+> @@ -2355,7 +2355,7 @@ static void udma_free_chan_resources(struct dma_chan *chan)
+>
+>  	udma_terminate_all(chan);
+>  	if (uc->terminated_desc) {
+> -		udma_reset_chan(uc, false);
+> +		ud->reset_chan(uc, false);
+>  		udma_reset_rings(uc);
+>  	}
+>
+> @@ -3694,6 +3694,14 @@ static int udma_probe(struct platform_device *pdev)
+>  		ud->soc_data = soc->data;
+>  	}
+>
+> +	// Setup function pointers
+> +	ud->start = udma_start;
+> +	ud->stop = udma_stop;
+> +	ud->reset_chan = udma_reset_chan;
+> +	ud->decrement_byte_counters = udma_decrement_byte_counters;
+> +	ud->psil_pair = navss_psil_pair;
+> +	ud->psil_unpair = navss_psil_unpair;
+> +
+>  	ret = udma_get_mmrs(pdev, ud);
+>  	if (ret)
+>  		return ret;
+> diff --git a/drivers/dma/ti/k3-udma.h b/drivers/dma/ti/k3-udma.h
+> index 4c6e5b946d5cf..2f5fbea446fed 100644
+> --- a/drivers/dma/ti/k3-udma.h
+> +++ b/drivers/dma/ti/k3-udma.h
+> @@ -344,6 +344,15 @@ struct udma_dev {
+>  	u32 psil_base;
+>  	u32 atype;
+>  	u32 asel;
+> +
+> +	int (*start)(struct udma_chan *uc);
+> +	int (*stop)(struct udma_chan *uc);
+> +	int (*reset_chan)(struct udma_chan *uc, bool hard);
+> +	void (*decrement_byte_counters)(struct udma_chan *uc, u32 val);
+> +	int (*psil_pair)(struct udma_dev *ud, u32 src_thread,
+> +			 u32 dst_thread);
+> +	int (*psil_unpair)(struct udma_dev *ud, u32 src_thread,
+> +			   u32 dst_thread);
+>  };
+>
+>  struct udma_desc {
+> @@ -614,6 +623,9 @@ int udma_push_to_ring(struct udma_chan *uc, int idx);
+>  int udma_pop_from_ring(struct udma_chan *uc, dma_addr_t *addr);
+>  void udma_reset_rings(struct udma_chan *uc);
+>
+> +int navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread);
+> +int navss_psil_unpair(struct udma_dev *ud, u32 src_thread, u32 dst_thread);
+> +
+>  /* Direct access to UDMA low lever resources for the glue layer */
+>  int xudma_navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread);
+>  int xudma_navss_psil_unpair(struct udma_dev *ud, u32 src_thread,
+> --
+> 2.34.1
+>
 
