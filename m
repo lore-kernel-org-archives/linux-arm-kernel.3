@@ -4,94 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0770DD61037
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 06:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E04D49C64
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 07:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HUIw0RJaE1aXOBsFkdxWp8jD82cs6plN0HTFY2F6+4M=; b=bwrx+vWizSZu+dnH/VNerQuT7t
-	BKHwVjHWIL4JYKFnUbQ7XnEgINZ7025k9Nxu1j39/q8FlZ8oE9pvPEwI7WTnY/1KvFvnpz0UB0XLe
-	mMHaq5ZGUr4I2y3oCFFe65IB9WX2pUsJsibePleLQbFDoaGIktfIPQJeF+6Xeq6NNZPuHSgpszQFl
-	jmxrSgOV3m4YVqeNZrsYK2u5XDKIClXeo8dDQqYjunTQNFBwxtuVzReKsRFOW5dJEOCxMtZAtd00A
-	LkVzGs6FBZTcor7vrPSoOGnu72sxP2DyEazgWenyWLPGFF2NaY+whqJ0BfwOuCQUMZ/p7nZEk9Okp
-	+2cb8TUg==;
+	bh=Uo3DwapbYo/p8IpFT3EwNhmFG0/Hf+3HnE+vfgf9grM=; b=MSatoICW0fmPwzTWF/T3bTVYh0
+	9rB6FKFheeKZgUZTqvTUvFU6otVVhZ7KaCIm4u7yE9voSamNnbVQ6x8PKoIRPDwlAxTJHyoQdFWHj
+	iIDzsVyBlmSjSaob3rl7gCP0c0cUyLwWtGId2j0vp3xeNy3dHdXOcSZX9A8K73ls8wUFEw58pBFh5
+	FW6QYTQdcNTdR9WIf7k77TfWcJlQR3FwF+38gsiMSL5+8J5VrTfRL6Uvc9n3gSzQKluypZGWhxROz
+	ldfzWZykE3A+Gxs/HKF0oj3AOL4Bxti216kpRF1BFUJFPoePuMugahK2lSkypKOz5rVgS92Uc/NcW
+	jERFZ/ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vliQv-0000000174Y-03F2;
-	Fri, 30 Jan 2026 06:56:45 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vliaT-000000017UJ-0lNY;
+	Fri, 30 Jan 2026 07:06:37 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vliQs-0000000174A-1m8B
+	id 1vliaP-000000017Tg-3j3q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 06:56:43 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4801ea9bafdso7079205e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 22:56:41 -0800 (PST)
+	Fri, 30 Jan 2026 07:06:35 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2a07f8dd9cdso12372735ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 23:06:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769756792; cv=none;
+        d=google.com; s=arc-20240605;
+        b=UAaSa91ZOvv3A5MVZFprp5RgoEqxeUkZ1iymWfdCtZK8l8UfkXwocpDsYPweB61Xhq
+         oSF/1h6WRdcp6bTYVt6/+S8rYz7o2CG1Ir7s+FQ7d5VZnN70mxkVehBMToWsjZTTpqHT
+         iRkcDVaQJ2o746mW2yLBrgllvgTmO+cZ8WPdU9Dp54XOoFE0PI2KLld0FSyxqVYPHyEH
+         HqpBZmUjtSuQfVjpt2BJkjWQx1B9ZPzQ5s/3ob3fTVISncRZndbd4jeRZRTD3B6dbelj
+         Q1i1wPNtht1WWwnyC3Ns3oGxlIflvTIHbrDQWu6KAYXffrDDSqYQrpaqOEudHQfG+TuB
+         qJ1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Uo3DwapbYo/p8IpFT3EwNhmFG0/Hf+3HnE+vfgf9grM=;
+        fh=ZeSUDQpF28xizZOujUvV8A02xQyWT5x+FYmR7Ap4Teo=;
+        b=ftoxGDy2lThYQcxbWv6xRtNE/FG0tx9oVE/l08OPOqQFe6n7/+/ZXssI1jJ+yFulDU
+         ofnbfulSw4rR524sLJ5nMkKnkFTQA/VbGAQTJcYwMMnZ3K73kRhPQeHy26DXoQD+Uv03
+         C1g/mJKYpqBjBygv6dUbtd/JN/k2U82yWKyeHkbQSDqt0W5xdO46xP3yytzeP7/bEA9i
+         M6kLmQvVgN3eC0LsQUqI7LVFUSN5oYd2bddsOakJp+Lo0DQKhZApB7Ji84V76r8t48Mx
+         Htqxj8rsjtQc9KSQKVJEgMiYL6JJV6pCaHLb7+UeBDXIQVGjYomqKcuazyxmqufTCWuy
+         +B+w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1769756200; x=1770361000; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=HUIw0RJaE1aXOBsFkdxWp8jD82cs6plN0HTFY2F6+4M=;
-        b=Hyo8KeQNOFwOBihEN5lJ68aOHq+7I/DJmlwP4RPP3qKXV0FpaGPHDVZf+NRuZyywld
-         FPnUvjM1UuyDgguHBkM3n3jP8uFz7VNQVsJfTaNukCgT6a49mBKlOL6MGUQYDSYZtR3D
-         FBZCJibTFwT4NEIUL73SzFOr/TcB62vfboYBgZYin81tAr4rRmdk6V5iGb0V8CJyleHb
-         8nX0dHDIctyDHb95kI+sxxhPfPnPQMgIO064Y2W/H+ug5rQ2eICsTP+hCZeobcmfv8EI
-         7eO0kBuk9rMkSgP0KeHRFq2TV1AKCVzjEA6pVTAQjj0wjt+mKESm0tlpgjttIW8kEbrz
-         IKlQ==
+        d=gmail.com; s=20230601; t=1769756792; x=1770361592; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Uo3DwapbYo/p8IpFT3EwNhmFG0/Hf+3HnE+vfgf9grM=;
+        b=Dhy647atAmYVnS/PWi4q8I9qpUh12NiweCqNrHV4gdaGNdg8/0DmN7GRfbew9HNlOg
+         xe38fGkwDzWVDfM47IV+0CEcQF08mTGiKYHcjvr+rKilmfwStO6ZoukfmD3en1rNKZ3D
+         gT8NaUud/TaWTiDKEFWQBXAYXV8OIBtew18ezNMCqi6QOuEPBD3/Y5HOWQZtgb4LDzq8
+         AY0p2xVSfd2tlRhaKjklDr2+5b+HF+ZoYWxki3zF/W/L3t2/64dAIBl5HFpd1CvL4vWf
+         N0KtZM6lyiBaO2Lh9HI5X9GnUvQ0kbq+wo376gowto3o1lKIoN0EBccYRZ72UBfmx0Ky
+         gkpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769756200; x=1770361000;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=HUIw0RJaE1aXOBsFkdxWp8jD82cs6plN0HTFY2F6+4M=;
-        b=UrZn14+79hrlfgdTo3DFwZbp/lF11/z7HWQLSOJRzKmAZrcRFuGn4Qo+0Drw/8NLRK
-         z7+D68UQE0ZTh7OPpIReUBqB/G1F/9a1+w9RqRDrpN/7qEnSxmbpeqtbOALDdMElqtE8
-         668uJQGrZIeVn7Tuy412gZtJ1lIIbrQmSkJ9ERLDxb0GvPBQyNE2WRi0pdWaLE0YLUtl
-         tMVk22AruFQC6QQnkAjAUwtAhtfmJMDuYw4mExQU0fjcQqBeG5vGMByc5ZBuVrlgP83q
-         MYfyrCNPvPpmtyJI4VY+xAFqbmYDA7+iWETYDKOjFF25LfsaqR82T3EBtSIK2a74FU5N
-         V/aA==
-X-Forwarded-Encrypted: i=1; AJvYcCXKVT2/DLCZsmU3ugOTQ/Az/J4eTxmwc+FGI4sVAVBbgXe35o1WOoGxNmRtUifcqHJ9L71N2mpwPoLG3ft+zbOL@lists.infradead.org
-X-Gm-Message-State: AOJu0YyW/0+rK9mGmhulpTHACqQuDR8og9bAC8vVBTZj+2Qq/qzdYfg1
-	fdjhHhys9v0d/n7jLk626AiKCTZP/v+Sl21xFTTo5Hm3zP2RFDjj0KYNgcU+vaWzvwE=
-X-Gm-Gg: AZuq6aLglmakMO0/kVENrrd7ytpSQgZpMYLmWaAChbCoIzac5PgsUJrVh6HF+j4FuIg
-	YXYdXd/QxzSYq63B0eyupIsXCxUvJBIJUiQmA/I9Pmr1neuCb6TVx6hG5+PfZUJZRhWnAfCwQER
-	qGMoiYZjlu+Pi8X7ROqoBjTVW2OoIwWNZ3mE6gGrfWisfwmNw8NoNOm7274Q5/aZ8oiIi6pFvwO
-	YRTC6vGLDHEQKKYC1iv+6h7h+36WAqxiExEkhiI3pAuYaZZoEyKTvFQTrGg88I2m78GOazx009S
-	JrWGldbJQQFvRaB/DSw+xMm/0wwJnHSTvNj3eD1peWzFCLUuZZdQmUnHhvpV7uJjywj5P+jXW/Z
-	pZ7TVqhlAslqasNL2HfMgeYu7b4K7Sgzf0ltlLtw7Fb2h++nVJQaNJzZfydVdaxUwgvzF19eqYr
-	FRvi+vFcKFL2axF+oDZA==
-X-Received: by 2002:a05:600c:4ecd:b0:480:3230:6c89 with SMTP id 5b1f17b1804b1-482db4616damr16802455e9.12.1769756199522;
-        Thu, 29 Jan 2026 22:56:39 -0800 (PST)
-Received: from [10.31.13.216] ([82.77.28.160])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-482dffd47c2sm7593775e9.0.2026.01.29.22.56.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 29 Jan 2026 22:56:38 -0800 (PST)
-Message-ID: <fbf00a15-9faf-4455-ad4b-c351ffae6598@tuxon.dev>
-Date: Fri, 30 Jan 2026 08:56:37 +0200
+        d=1e100.net; s=20230601; t=1769756792; x=1770361592;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Uo3DwapbYo/p8IpFT3EwNhmFG0/Hf+3HnE+vfgf9grM=;
+        b=GFZcfQ1Cs6J1tErRPGfMigZltws9suUNDZHDMZ5wZeAJwLceSRlZPjO6ExeB5NJh92
+         fZ3FrHtKf/B/uRF2UnBMXFXP1jgOzpwr7SKykqit4cOXRkcye/+VEg1bsDcky7QgRf5Y
+         7ZUTisZgyeelIj8ApoaGK7yfh9mwKDi98huKs4yVi3iiA+T5krStm1jGgs5csgNVnYsq
+         Nv3rNThKTspfW7M2UzP8ia6uIjucwMWaWv+d/W5gD8mRjZP23wtuDY/0D97gJh7nmGD6
+         axQTw+3Ul1iZzoyRlZhZ6tu5Nf60dwgQ/8gXzye8hK8ODrm739UTU11AN7V7Eop85iI/
+         6zjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUUlgJG85moMa210AK4l8eRwp93K+kEh+6IY99LKIakugfljrwYQ8RU6V3C8ZB5bsZeo+jpZG8cWlRMDrPH28bN@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywe939zBXsS/3RnoW+GoysADOhLqLNUAax/8indJS6xAdlw/Wh5
+	IFI8oweDWNHjGp1yPl/Jg1ZHgOoQ3NQWmN7IG4H//wToL3/eFAdYN0lJ1gxdEfYh3s3dGxewYqB
+	BF9BYh59A5IAxmuRm29Bion6OytaITZM=
+X-Gm-Gg: AZuq6aJdoLAAc3WJqk54I/nT+xTZRGeTBMSdMcNArr7bnj1EA7o8qknqJXJRgQyO4SP
+	zQbkgX2AbPvqDkmEOELn9erKTYCAXh1sOuBa3F8UuuU7drsRYRaL9qO7D2bhxgs/kvmSE40J6vO
+	w1EZ/6lHgNyVQIJNRcspG015s/2sP5CJdJpvxyS0uA/vkNlL+tgvQLuz2sDEehHeQgcfETLe3+d
+	UfP+qWddoo4hmNmZ477epBmuSO3XbPo7qnxrXtah/OxFz7dlj9wqV+NFyWtzQu67A9+ZSbr8d1U
+	xNjuJg==
+X-Received: by 2002:a17:903:a8f:b0:29e:bf76:2d91 with SMTP id
+ d9443c01a7336-2a8d99285c3mr18452045ad.42.1769756792206; Thu, 29 Jan 2026
+ 23:06:32 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 10/31] clk: at91: clk-generated: use clk_parent_data
-To: ryan.wanner@microchip.com, mturquette@baylibre.com, sboyd@kernel.org,
- nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
- bmasney@redhat.com, alexander.sverdlin@gmail.com,
- varshini.rajendran@microchip.com
-Cc: cristian.birsan@microchip.com, balamanikandan.gunasundar@microchip.com,
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <cover.1768512290.git.ryan.wanner@microchip.com>
- <564e91919099ad05f11d22ff20a6dc674f1d0ba4.1768512290.git.ryan.wanner@microchip.com>
-Content-Language: en-US
-From: claudiu beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <564e91919099ad05f11d22ff20a6dc674f1d0ba4.1768512290.git.ryan.wanner@microchip.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260130055508.3462700-1-shengjiu.wang@nxp.com> <cec25a41-cc6a-4b03-833e-5c7da5727e85@nxp.com>
+In-Reply-To: <cec25a41-cc6a-4b03-833e-5c7da5727e85@nxp.com>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Fri, 30 Jan 2026 15:06:19 +0800
+X-Gm-Features: AZwV_QiBIWwWZgjtPtAyNGJf1ZiVmzr03NeE_IXZ_qgHqkYVQtx8cbrwQilhH88
+Message-ID: <CAA+D8AMkipi_iX=vagZMHXTNtqUqyFeVkU1Vr_wb4R82F1OHDA@mail.gmail.com>
+Subject: Re: [PATCH] drm/bridge: imx: imx8mp-hdmi-pai: enable pm runtime
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, andrzej.hajda@intel.com, 
+	neil.armstrong@linaro.org, rfoss@kernel.org, 
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
+	airlied@gmail.com, simona@ffwll.ch, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_225642_661917_20686C68 
-X-CRM114-Status: GOOD (  22.49  )
+X-CRM114-CacheID: sfid-20260129_230634_742559_D8A3ED28 
+X-CRM114-Status: GOOD (  34.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,172 +122,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Ryan,
+On Fri, Jan 30, 2026 at 2:49=E2=80=AFPM Liu Ying <victor.liu@nxp.com> wrote=
+:
+>
+> Hi Shengjiu,
+>
+> On Fri, Jan 30, 2026 at 01:55:08PM +0800, Shengjiu Wang wrote:
+> > There is an audio channel shift issue with multi channel case, first ru=
+n
+> > the channel order is correct, but second run the channel order is shift=
+ed.
+>
+> Nit: I'd rephrase "There is an audio channel shift issue with multi chann=
+el
+> case - the channel order is correct for the first run, but the channel or=
+der
+> is shifted for the second run.".
 
-On 1/16/26 22:07, ryan.wanner@microchip.com wrote:
-> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-> 
-> Use struct clk_parent_data instead of struct parent_hw as this leads
-> to less usage of __clk_get_hw() in SoC specific clock drivers and simpler
-> conversion of existing SoC specific clock drivers from parent_names to
-> modern clk_parent_data structures.
-> 
-> Remove the last of the usage of __clk_get_hw().
-> 
-> Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-> [ryan.wanner@microchip.com: Added SAMA7D65 and SAM9X75 SoCs to the
-> clk-generated changes. Adjust clk name variable order.]
-> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-> ---
->   drivers/clk/at91/clk-generated.c |  8 +++----
->   drivers/clk/at91/pmc.h           |  2 +-
->   drivers/clk/at91/sam9x7.c        | 37 ++++++++++++++++----------------
->   drivers/clk/at91/sama7d65.c      | 37 ++++++++++++++++----------------
->   drivers/clk/at91/sama7g5.c       | 35 +++++++++++++++---------------
->   5 files changed, 58 insertions(+), 61 deletions(-)
-> 
-> diff --git a/drivers/clk/at91/clk-generated.c b/drivers/clk/at91/clk-generated.c
-> index 4b4edeecc889..d9e00167dbc8 100644
-> --- a/drivers/clk/at91/clk-generated.c
-> +++ b/drivers/clk/at91/clk-generated.c
-> @@ -319,7 +319,7 @@ struct clk_hw * __init
->   at91_clk_register_generated(struct regmap *regmap, spinlock_t *lock,
->   			    const struct clk_pcr_layout *layout,
->   			    const char *name, const char **parent_names,
-> -			    struct clk_hw **parent_hws,
-> +			    struct clk_parent_data *parent_data,
->   			    u32 *mux_table, u8 num_parents, u8 id,
->   			    const struct clk_range *range,
->   			    int chg_pid)
-> @@ -329,7 +329,7 @@ at91_clk_register_generated(struct regmap *regmap, spinlock_t *lock,
->   	struct clk_hw *hw;
->   	int ret;
->   
-> -	if (!(parent_names || parent_hws))
-> +	if (!(parent_names || parent_data))
->   		return ERR_PTR(-ENOMEM);
->   
->   	gck = kzalloc(sizeof(*gck), GFP_KERNEL);
-> @@ -338,8 +338,8 @@ at91_clk_register_generated(struct regmap *regmap, spinlock_t *lock,
->   
->   	init.name = name;
->   	init.ops = &generated_ops;
-> -	if (parent_hws)
-> -		init.parent_hws = (const struct clk_hw **)parent_hws;
-> +	if (parent_data)
-> +		init.parent_data = (const struct clk_parent_data *)parent_data;
->   	else
->   		init.parent_names = parent_names;
->   	init.num_parents = num_parents;
-> diff --git a/drivers/clk/at91/pmc.h b/drivers/clk/at91/pmc.h
-> index 3d06b1c41f13..d8d491096c0d 100644
-> --- a/drivers/clk/at91/pmc.h
-> +++ b/drivers/clk/at91/pmc.h
-> @@ -174,7 +174,7 @@ struct clk_hw * __init
->   at91_clk_register_generated(struct regmap *regmap, spinlock_t *lock,
->   			    const struct clk_pcr_layout *layout,
->   			    const char *name, const char **parent_names,
-> -			    struct clk_hw **parent_hws, u32 *mux_table,
-> +			    struct clk_parent_data *parent_data, u32 *mux_table,
->   			    u8 num_parents, u8 id,
->   			    const struct clk_range *range, int chg_pid);
->   
-> diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
-> index f98aecdd6f88..d549bdd988e8 100644
-> --- a/drivers/clk/at91/sam9x7.c
-> +++ b/drivers/clk/at91/sam9x7.c
-> @@ -744,16 +744,15 @@ static const struct {
->   static void __init sam9x7_pmc_setup(struct device_node *np)
->   {
->   	struct clk_range range = CLK_RANGE(0, 0);
-> -	const char *main_xtal_name;
-> +	const char *main_xtal_name, *td_slck_name, *md_slck_name;
->   	struct pmc_data *sam9x7_pmc;
->   	const char *parent_names[9];
->   	void **clk_mux_buffer = NULL;
->   	int clk_mux_buffer_size = 0;
->   	struct regmap *regmap;
->   	struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
-> -	struct clk_hw *td_slck_hw, *md_slck_hw, *usbck_hw;
-> +	struct clk_hw *usbck_hw;
->   	struct clk_parent_data parent_data[9];
-> -	struct clk_hw *parent_hws[9];
->   	int i, j;
->   
->   	i = of_property_match_string(np, "clock-names", "main_xtal");
-> @@ -762,11 +761,15 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
->   		return;
->   	main_xtal_name = of_clk_get_parent_name(np, i);
->   
-> -	td_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "td_slck"));
-> -	md_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "md_slck"));
-> +	i =  of_property_match_string(np, "clock-names", "td_slck");
-> +	if (i < 0)
-> +		return;
-> +	td_slck_name = of_clk_get_parent_name(np, i);
->   
-> -	if (!td_slck_hw || !md_slck_hw)
-> +	i =  of_property_match_string(np, "clock-names", "md_slck");
-> +	if (i < 0)
->   		return;
-> +	md_slck_name = of_clk_get_parent_name(np, i);
->   
->   	regmap = device_node_to_regmap(np);
->   	if (IS_ERR(regmap))
-> @@ -862,7 +865,7 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
->   		}
->   	}
->   
-> -	parent_data[0] = AT91_CLK_PD_NAME("md_slck");
-> +	parent_data[0] = AT91_CLK_PD_NAME(md_slck_name);
->   	parent_data[1] = AT91_CLK_PD_HW(sam9x7_pmc->chws[PMC_MAIN]);
->   	parent_data[2] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_PLLA][PLL_COMPID_DIV0].hw);
->   	parent_data[3] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_UPLL][PLL_COMPID_DIV0].hw);
-> @@ -888,8 +891,8 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
->   	if (IS_ERR(usbck_hw))
->   		goto err_free;
->   
-> -	parent_data[0] = AT91_CLK_PD_NAME("md_slck");
-> -	parent_data[1] = AT91_CLK_PD_NAME("td_slck");
-> +	parent_data[0] = AT91_CLK_PD_NAME(md_slck_name);
-> +	parent_data[1] = AT91_CLK_PD_NAME(td_slck_name);
->   	parent_data[2] = AT91_CLK_PD_HW(sam9x7_pmc->chws[PMC_MAIN]);
->   	parent_data[3] = AT91_CLK_PD_HW(sam9x7_pmc->chws[PMC_MCK]);
->   	parent_data[4] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_PLLA][PLL_COMPID_DIV0].hw);
-> @@ -940,13 +943,12 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
->   		sam9x7_pmc->phws[sam9x7_periphck[i].id] = hw;
->   	}
->   
-> -	parent_hws[0] = md_slck_hw;
-> -	parent_hws[1] = td_slck_hw;
-> -	parent_hws[2] = sam9x7_pmc->chws[PMC_MAIN];
-> -	parent_hws[3] = sam9x7_pmc->chws[PMC_MCK];
-> +	parent_data[0] = AT91_CLK_PD_NAME(md_slck_name);
-> +	parent_data[1] = AT91_CLK_PD_NAME(td_slck_name);
-> +	parent_data[2] = AT91_CLK_PD_HW(sam9x7_pmc->chws[PMC_MAIN]);
-> +	parent_data[3] = AT91_CLK_PD_HW(sam9x7_pmc->chws[PMC_MCK]);
->   	for (i = 0; i < ARRAY_SIZE(sam9x7_gck); i++) {
->   		u8 num_parents = 4 + sam9x7_gck[i].pp_count;
-> -		struct clk_hw *tmp_parent_hws[6];
->   		u32 *mux_table;
->   
->   		mux_table = kmalloc_array(num_parents, sizeof(*mux_table),
-> @@ -962,16 +964,13 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
->   			u8 pll_id = sam9x7_gck[i].pp[j].pll_id;
->   			u8 pll_compid = sam9x7_gck[i].pp[j].pll_compid;
->   
-> -			tmp_parent_hws[j] = sam9x7_plls[pll_id][pll_compid].hw;
-> +			parent_data[4 + j] = AT91_CLK_PD_HW(sam9x7_plls[pll_id][pll_compid].hw);
->   		}
->   
-> -		PMC_FILL_TABLE(&parent_hws[4], tmp_parent_hws,
-> -			       sam9x7_gck[i].pp_count);
-> -
+Ok. will update.
+>
+> > The recovery method is to reset the pai interface.
+>
+> s/pai/PAI/
 
-Ideally, these kind of changes should have been done through a different patch.
-Could you please create a different patch for all changes like in this series?
+Ok.
 
-With that addressed:
+>
+> Can the channel order shift issue be fully fixed instead of implementing
+> a "recovery method"?  I presume that this patch implements a recovery
+> mechanism.  If it can't, any chip ERRATA?
 
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Yes, it can be fully fixed by this patch. I will remove the "recovery" for
+confusion.
+
+>
+> >
+> > The reset can be handled by pm runtime, so add the pm runtime function.
+>
+> Nit: s/pm/PM/
+>
+> s/add the pm runtime function/enable PM runtime/
+
+Ok.
+>
+> >
+> > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > ---
+> >  drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c | 15 +++++++++++++++
+> >  1 file changed, 15 insertions(+)
+>
+> Subject prefix should be "drm/bridge: imx8mp-hdmi-pai:".
+> Refer to what previous commits for i.MX bridge drivers use.
+
+Ok.
+>
+> >
+> > diff --git a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c b/drivers/gpu=
+/drm/bridge/imx/imx8mp-hdmi-pai.c
+> > index 8d13a35b206a..1afc729da9b9 100644
+> > --- a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c
+> > +++ b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c
+> > @@ -8,6 +8,7 @@
+> >  #include <linux/module.h>
+> >  #include <linux/of_platform.h>
+> >  #include <linux/platform_device.h>
+> > +#include <linux/pm_runtime.h>
+> >  #include <linux/regmap.h>
+> >  #include <drm/bridge/dw_hdmi.h>
+> >  #include <sound/asoundef.h>
+> > @@ -33,6 +34,7 @@
+> >
+> >  struct imx8mp_hdmi_pai {
+> >       struct regmap   *regmap;
+> > +     struct device   *dev;
+> >  };
+> >
+> >  static void imx8mp_hdmi_pai_enable(struct dw_hdmi *dw_hdmi, int channe=
+l,
+> > @@ -43,6 +45,9 @@ static void imx8mp_hdmi_pai_enable(struct dw_hdmi *dw=
+_hdmi, int channel,
+> >       struct imx8mp_hdmi_pai *hdmi_pai =3D pdata->priv_audio;
+> >       int val;
+> >
+> > +     if (pm_runtime_get_sync(hdmi_pai->dev) < 0)
+>
+> Use pm_runtime_resume_and_get instead.
+
+Ok.
+>
+> -8<-
+>   `int pm_runtime_get_sync(struct device *dev);`
+>     - increment the device's usage counter, run pm_runtime_resume(dev) an=
+d
+>       return its result;
+>       note that it does not drop the device's usage counter on errors, so
+>       consider using pm_runtime_resume_and_get() instead of it, especiall=
+y
+>       if its return value is checked by the caller, as this is likely to
+>       result in cleaner code.
+> -8<-
+>
+> > +             return;
+> > +
+> >       /* PAI set control extended */
+> >       val =3D  WTMK_HIGH(3) | WTMK_LOW(3);
+> >       val |=3D NUM_CH(channel);
+> > @@ -85,6 +90,8 @@ static void imx8mp_hdmi_pai_disable(struct dw_hdmi *d=
+w_hdmi)
+> >
+> >       /* Stop PAI */
+> >       regmap_write(hdmi_pai->regmap, HTX_PAI_CTRL, 0);
+> > +
+> > +     pm_runtime_put_sync(hdmi_pai->dev);
+> >  }
+> >
+> >  static const struct regmap_config imx8mp_hdmi_pai_regmap_config =3D {
+> > @@ -101,6 +108,7 @@ static int imx8mp_hdmi_pai_bind(struct device *dev,=
+ struct device *master, void
+> >       struct imx8mp_hdmi_pai *hdmi_pai;
+> >       struct resource *res;
+> >       void __iomem *base;
+> > +     int ret;
+> >
+> >       hdmi_pai =3D devm_kzalloc(dev, sizeof(*hdmi_pai), GFP_KERNEL);
+> >       if (!hdmi_pai)
+> > @@ -121,6 +129,13 @@ static int imx8mp_hdmi_pai_bind(struct device *dev=
+, struct device *master, void
+> >       plat_data->disable_audio =3D imx8mp_hdmi_pai_disable;
+> >       plat_data->priv_audio =3D hdmi_pai;
+> >
+> > +     hdmi_pai->dev =3D dev;
+> > +     ret =3D devm_pm_runtime_enable(dev);
+> > +     if (ret < 0) {
+> > +             dev_err(dev, "failed to enable pm runtime: %d\n", ret);
+>
+> s/pm/PM/
+
+Ok. will update them.
+
+best regards
+Shengjiu Wang
+
+>
+> > +             return ret;
+> > +     }
+> > +
+> >       return 0;
+> >  }
+> >
+>
+> --
+> Regards,
+> Liu Ying
+>
 
