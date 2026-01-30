@@ -4,69 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE882E6BF1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 15:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71339E6BF1C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 15:02:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:Cc:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gT8n7mz5blgMVxk1kwByCayfJGNrikSmLo3SENj10Lw=; b=qZREVkjOOUbFnXWTZMVNWZtvpY
-	iv/CyZzVu3X0GEZpDXB7CrPRCWN894huKWiIzFQHLGYLxx0zmm5JulgHHgjiXOz2KmBF41U4iWiFi
-	BNf50VcGR6cDii835wEa1TuxoqYif3ZLDvT+bh7j309idOjMg9Xva8MuDinif6I35hPfWh9T2+jaX
-	7lxSBf4+/M+yKpVa2MYT1JIv9jULXz5/Mj/PvJW+Qu94mbiyU5nC9vd8ZKY+iIoqDWqeywGZpuuum
-	fKQqhxYODh2/Vlzfidm71xq5Qt13i1OCTOaHdJmL5hIhYpIKW6jkmiEo10+8C6/6473IMeAFXizt6
-	g0dWabnQ==;
+	bh=4ua8lq97NxZFVhL5+3f9y9xRGjdmm39lr8OPlguNpmk=; b=xjCtfAjdAc4eh458p7ce1saYew
+	+8eUCCYquZXvbJE2iyvuyPYn3OQRaQpFb39OQBokm4sFYUeaN/d4apwGFbzhdgq3tcRDrhEV8K3qB
+	yd3LFgrfn6OjMfI7fnE0nZECT6yGkqLBtPy4ej1+BA7KDvWycXqlB0Zk8ZjMexE6eKOIracsFQaDY
+	M1NyXY6d1TfCNagPe+ITMEmxNalrAEChrz2K9rwQ2e6XQQLpeY24XzTE8MUiWW13ZbetnwuQ3I3uv
+	+zlr7etr6iB5Utlb+O8j+njoD7rALXDP06ayPZg3D5dFqloR13UD3obcA1uFJSBqNQi4UbmGtL9L2
+	/dag8sUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlq0S-00000001c6w-1abv;
-	Fri, 30 Jan 2026 15:01:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vlq1B-00000001cE0-0vsg;
+	Fri, 30 Jan 2026 15:02:41 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlq0R-00000001c6o-0YAN
+	id 1vlq18-00000001cDN-2Zjz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 15:01:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0C6596001A;
-	Fri, 30 Jan 2026 15:01:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E69C1C4CEF7;
-	Fri, 30 Jan 2026 15:01:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769785313;
-	bh=jcI6FHxj+KHvDboDOSm66IUrFEGKvpzUg4I0CKx4Wrc=;
-	h=From:To:Subject:In-Reply-To:References:Date:From;
-	b=stFcnulcSsZzbYrPkxAQSO6XbNqjmD/rteaSiwiuuy488UrObmFC1bfAGGRRgYqRr
-	 8Vdb1dPSvXTo7ElbWqgIXwgB1JpoaPBBz1lHdJfjiGZ8EQSK70V6e6Dv3ICK/lCUWZ
-	 sEQQ/CPBt3WLCLoqm9i1tKQZH86SWgpNmS50n5IkGZEaG3RaldVd0Zqfx2rHITTrth
-	 soMO2df1BNV08yrlcVlt66aVe3hPsjMmd+c7VSRMgiU7f1cEly7p6UsOY8D1vQTkZu
-	 FauITEOLZuCSvz3xXsGKm7CvfWnD1wo62Zxqhy3s81j9HYeR6+iRMPeMX9dk7UTvoF
-	 1o2yo7ms0+BTQ==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Kevin Brodsky <kevin.brodsky@arm.com>, Jinjie Ruan
- <ruanjinjie@huawei.com>, catalin.marinas@arm.com, will@kernel.org,
- oleg@redhat.com, peterz@infradead.org, luto@kernel.org, shuah@kernel.org,
- kees@kernel.org, wad@chromium.org, deller@gmx.de,
- akpm@linux-foundation.org, charlie@rivosinc.com, mark.rutland@arm.com,
- anshuman.khandual@arm.com, song@kernel.org, ryan.roberts@arm.com,
- thuth@redhat.com, ada.coupriediaz@arm.com, broonie@kernel.org,
- pengcan@kylinos.cn, liqiang01@kylinos.cn, kmal@cock.li,
- dvyukov@google.com, reddybalavignesh9979@gmail.com,
- richard.weiyang@gmail.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v11 09/14] entry: Rework
- syscall_exit_to_user_mode_work() for arch reuse
-In-Reply-To: <13d22231-d84a-4993-9a69-e3922e45b500@arm.com>
-References: <20260128031934.3906955-1-ruanjinjie@huawei.com>
- <20260128031934.3906955-10-ruanjinjie@huawei.com>
- <56978cb8-f9de-4bf2-b1fc-b5564fec7387@arm.com>
- <ef52449d-7ae0-11d0-c8a9-2ca572454425@huawei.com>
- <3bfa15fc-187e-4c39-9cb3-a936fdd443b2@arm.com> <87o6mbl82j.ffs@tglx>
- <13d22231-d84a-4993-9a69-e3922e45b500@arm.com>
-Date: Fri, 30 Jan 2026 16:01:50 +0100
-Message-ID: <87cy2rkuu9.ffs@tglx>
+	Fri, 30 Jan 2026 15:02:39 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-59b710d46ceso1996351e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Jan 2026 07:02:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769785355; x=1770390155; darn=lists.infradead.org;
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4ua8lq97NxZFVhL5+3f9y9xRGjdmm39lr8OPlguNpmk=;
+        b=XmgkDC32KxYpdisgBsrboIu3tDAMa3iI6jtso/9LgdZikXYybwiSIDSjSSkSYE61JS
+         6BRtxemWZlPVaUqBmEcsYvp4nHkYPaRpWVqapT84FEI1jmUBNP9i3kCqZflMb7mZgF3z
+         Cflo8xNdsth4/fJ0wzMK0pMh2QIfgfx+gBjlfn2/mL3hNjQ8RvUktsBv943Y9XVbulBp
+         x3MSoUW40Sp3fQ6b9Vo4ZaW+28/2Y79m8cKFAU/r8WtNAHfAyKDY3Dx1BPjo+Bsu4cMx
+         lbN4LgkzbnHsgCnev8Zi0uYNApmvtqYDQ6jEG+/t8rO7g7QWPeVX467kzjAvt/W5EC2y
+         2zQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769785355; x=1770390155;
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4ua8lq97NxZFVhL5+3f9y9xRGjdmm39lr8OPlguNpmk=;
+        b=sQwSyOxIEEARk6tI40v21eKE9EqZAUbayF9QidN3KqMqv4Ew/maR7dOAH8Yt/SqyhB
+         DfXNPLNl9rFDtlxBGARU5dQMbFeRiHYTKgVL6/ZwIpFX98fI9y8RFvCQw6hRXy4NZPJv
+         jPlLkATArjrXmiHwXFBugmHz0nySjnfmLbbgfJQzNWc7DoOhEUNvZSEAk8EVJVuRzIWN
+         Zvc3t95SLR/IYB6EhA0SR+xAjRmJjZVEQDS3U6T7SL0IbuPf/OpXAErOc5Uypkef1hmo
+         DTYSZ2kqeP0wSZGf0/Acxkk+QlCFo6xHAkNaHSqniSoB69kyQfW2rtkZ04fkhPtdgH3H
+         Q3gQ==
+X-Gm-Message-State: AOJu0YwC2F2TWkZ35IRieesFGtqdyEpnkSUOQ1P3SRcW6xU6UQDlYZ0c
+	JQsNoiECjAYQfuJt2ARl1MteoiZJtny9ekbCg4bu/QcupYkbn6muyTnw6div1GYl
+X-Gm-Gg: AZuq6aLny2595u2hXj6O+kyzvN+XCXDy4UZ+CM273v2Ke3CSu1ZcXgZqCDhIiWS2QjL
+	ADMI8RbpIL+iTeSYsme9VPqROW6PIrH1YllFdfvABuTQeUfD1BnztJ5IuiApeSsORMGFNBe42mr
+	+WzAizupY21p5jw9TanyFpwlkCfdnDe6xdvXck2uBbVQ7vC2oJr/+Tt/yQf6Kg8ap2Tg3v9CTdR
+	+lkXo4mmUbTEq/4+REiisZk9jq6O5i68fN0P0PmBxsWWcrwPNFd5kTK3FyMp4cwsVm4U/Gf5B3P
+	dZvqWvvAy6K4PgaeLUBdzWibkKFv2yYTcRts1dlSUiJlYhczlDH4AQlm1v34pSCU84RWFINXcL0
+	PoT/Gv5Ira8GkjEdx6H0nz6CJVaGe2qzWZfTHnQQzwQH1YVHPzBfj+d8lsRW+g97lsNWlH0wRCX
+	Pz9CGIA2HccmCB0kX68KSkicN9
+X-Received: by 2002:a05:6512:3405:b0:59b:b17d:9852 with SMTP id 2adb3069b0e04-59e163f5a11mr1004299e87.1.1769785354771;
+        Fri, 30 Jan 2026 07:02:34 -0800 (PST)
+Received: from strix.localnet ([197.250.227.106])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48066c40e04sm270613075e9.13.2026.01.30.07.02.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Jan 2026 07:02:34 -0800 (PST)
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+To: linux-arm-kernel@lists.infradead.org,
+ Andre Przywara <andre.przywara@arm.com>
+Cc: soc@lists.linux.dev, linus.walleij@linaro.org,
+ Jun Nie <jun.nie@linaro.org>, Arnd Bergmann <arnd@arndb.de>,
+ Drew Fustini <fustini@kernel.org>
+Subject: Re: [RFC PATCH v2 0/7] Add support for ZTE zx297520v3
+Date: Fri, 30 Jan 2026 18:02:25 +0300
+Message-ID: <10794569.nUPlyArG6x@strix>
+In-Reply-To: <5c8e88f9-4f21-41ec-ba55-bc3b06861157@arm.com>
+References: <20260128203455.38569-1-stefandoesinger@gmail.com>
+ <5c8e88f9-4f21-41ec-ba55-bc3b06861157@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: multipart/signed; boundary="nextPart2338004.iZASKD2KPV";
+ micalg="pgp-sha256"; protocol="application/pgp-signature"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260130_070238_689072_6AAD178C 
+X-CRM114-Status: GOOD (  38.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,39 +99,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 30 2026 at 14:27, Kevin Brodsky wrote:
-> On 30/01/2026 11:16, Thomas Gleixner wrote:
->>> Agreed, the comments are essentially describing what each function
->>> calls; considering how short they are, directly reading the code is
->>> probably easier.
->> No. Please keep them. There is more information in them than just the
->> pure 'what's' called.
->
-> That is true before this patch, where it made sense to highlight that
-> exit_to_user_mode() must still be called after this function (without
-> re-enabling interrupts). With this patch there is however much more that
-> this function is lacking, and it feels very likely that comments will go
-> out of sync with exactly what syscall_exit_to_user_mode() calls.
->
-> I suppose we could simply point the reader to
-> syscall_exit_to_user_mode() to find out what else is needed, and keep
-> the comment about the calling convention being the same.
+--nextPart2338004.iZASKD2KPV
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+Subject: Re: [RFC PATCH v2 0/7] Add support for ZTE zx297520v3
+Date: Fri, 30 Jan 2026 18:02:25 +0300
+Message-ID: <10794569.nUPlyArG6x@strix>
+In-Reply-To: <5c8e88f9-4f21-41ec-ba55-bc3b06861157@arm.com>
+MIME-Version: 1.0
 
-I've picked up _all_ four entry changes and reworked the comments and
-changelogs already.
+Am Freitag, 30. Januar 2026, 17:02:16 Ostafrikanische Zeit schrieben Sie:
+> Hi Stefan,
+> > 1) The GIC is a GICv3, but there are some extra registers (probably on a
+> > different chip) to switch PPIs and SPIs between level high/level low or
+> > rising edge/falling edge.
+> 
+> Wouldn't it be possible to fix this up in firmware and not bother the
+> kernel with it? It would treat this like some very platform specific
+> setup, as there is probably also very little point it ever doing it any
+> other way?
 
-Those patches should have been bundled together at the start of the
-series anyway so they can be picked up independently without going
-through loops and hoops. When will people learn to think beyond the brim
-of their architecture tea cup?
+Yes, this is certainly possible, and it is in a way what I am doing right now. 
+As far as I understand the hardware I won't have to switch this at runtime, it 
+just needs a sane default.
 
-I'll go and apply them on top of 6.19-rc1 into core/entry and merge that
-into the scheduler branch to resolve the resulting conflict.
+> The arm64 booting.rst specifies the expectations of the kernel very
+> clearly, for instance it demands the GIC to be setup correctly and be
+> booted in non-secure state. The arm(32) kernel was much more forgiving,
+> mostly because many firmwares couldn't be fixed, so there was no choice.
+> But I feel like for "new" devices we should lean on the safe side and
+> use the firmware to bring the system in a sane state (pun intended).
+> 
+> It looks like you have access to the firmware and can change it?
 
-ARM64 can either pull that branch or wait until the next rc1 comes out.
+Yes, we can replace Uboot on the NAND and boot our own via USB as well. ZTE 
+actually provided uboot sources too. And I can certainly add some preload code 
+into uimages to fix up registers, so these kinds of setup quirks won't go into 
+the main kernel.
 
-Thanks,
+How we handle this for user-installable systems is still open. It depends on 
+the risk of producing a bricked device. But we certainly have options.
 
-        tglx
+And yes, they are begging to be called "insanechips" :-)
+
+> > 3) The SoC has clock and reset controls in the same MMIO space, even the
+> > same 32 bit registers. What is the preferred way to handle this? Two
+> > separate clk and reset drivers that write into the same place? One
+> > multifunction driver that exposes clock and resets? One syscon that
+> > contains the reg values and two separate clk and reset drivers that
+> > consume the syscon?
+> 
+> That's quite common, and the solution is to have one driver, that acts
+> as both a clock and reset controller (registers to both subsystems).
+> Look at sunxi, for instance (from the sun50i-a64.dtsi):
+
+Thanks for the pointer, I'll use this as guidance.
+
+> Allwinner cores also reset into EL3/AArch32, there an RMR reset brings
+> it into AArch64 state. For this to work Allwinner provides a writable
+> MMIO register that backs the architecturally read-only RVBAR, so you can
+> program the AArch64 entry point.
+> https://github.com/u-boot/u-boot/blob/master/arch/arm/mach-sunxi/rmr_switch.
+> S Not sure if this works here, of course, but just FYI.
+> In any case I feel this beast is better left in arm32 land ;-)
+
+We tried to do something similar. We can actually change RVBAR and read back 
+the changed value - and the value becomes 32 byte aligned. However, writing to 
+RMR doesn't seem to do anything. The CPU just continues to execute the next 
+instruction. I can even read it back later
+
+What I'm doing in EL3:
+mrc	15, 0, r0, cr12, cr0, 2	@ read RMR register
+orr	r0, r0, #2			@ request reset in AArch32
+mcr	15, 0, r0, cr12, cr0, 2 	@ write RMR register
+isb	sy
+
+and it merrily continues executing after that. It does that with or without 
+the attempt to set RVBAR. If RMR worked I'd at least expect the hardware to 
+crash in some way, not go back to the interactive uboot prompt (which 
+continues to work fine). I also tried to set bits 0 and 1 (reset to aarch64) 
+or set all 32 bits. There's no observable change.
+
+We don't have any board schematics or datasheets, but I assume the 32/64 mode 
+pin is wired to arm32. It may be controllable by one of the GPIOs, but I doubt 
+that. So far we don't know of a way to reset the main CPU without resetting 
+the entire board either.
+
+The third way I read about was to attempt to return from 32 bit EL3 to 64 bit 
+EL3, but I think I ran into some AI hallucination there.
+--nextPart2338004.iZASKD2KPV
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAml8yAEbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTEsMiwyAAoJED0TvMhUTxoimbQP/2/ZC8c09EYTFbL1/YBT
+KrYvJ31zSi1DULgwWY0gSXfo0S39FX5e5xz/hvxUs1GIbKC0VQky5zcbV2KazCzY
+mzk0U0aMCs8QF3pP9KFogroAwUuUvwbzdjMGhDE/HK2KQMWry208EZ+nRu/W+sxq
+R6K/2Hb4lmFp8Z3FFW/bVxLPtzX5wo1SdJd+ajwa6O2w2RVJEBFevggLt68BSFd/
+xcop1GkrmQXAjDs0eqpEtI4At/B4UB1ptpY2ldl6pObEvtSrjs4KS1+kkljd4bSk
+YI/EFXxfDWWGnGs4aebY3t/XwCQ9UtnZseDMub3UQhXo+TZKUqSyW5Wd8S3xxFE2
+o2oxazO5sfipQ8DHnDZyJrFqK7UybuBfF+GcXswFRPDhcKFv/3eqa0pwR1s9oKeX
+BbG/kcSUI2wLasXyXd7hd/96q2DhLdrbjWx+9qArGirjIaVDqp1xsESI+6iuzQs7
+6fLBoeytl5rl0oZNTaPhnKI6zLLe/h6Vz7p7gRAfq+q3XNbaJZ7Io2WbN6Qhk7zy
+KXCcW4yKK1X+Ov4y6Ttg3gIU/Kc5PPZxRT+SyjFgRnznE974VQOxWc4AGsUS7kmk
+Is9svnetixmYsV6IVW2q1w7G9LYwcTaS7bG7I94pY1oLqszw4ybYOXddEIfIYHna
+8HYH6emOZ7yx3T/3Z6VhGXEJ
+=cBkk
+-----END PGP SIGNATURE-----
+
+--nextPart2338004.iZASKD2KPV--
+
+
 
 
