@@ -4,86 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE9F1E6BF18
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 14:58:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE882E6BF1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 15:02:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wcZlIWBHgUJjjrpFugrQ8hzHKe52OUDXWzJ9M6y5b6w=; b=piYnPOJUzaGvijpw3hszrw49Td
-	323AcMDdBIJC70/IYUigacNI3qhpngrRzBxdvfE4Qo6qX4v3gyVuu2aPT8CV9hzEssVmLoh/awwAe
-	wwKL34SKIf97usY10ZRyhCeHArBtI0BLbwG17nE8u1Ymrcri5SXj8+03W0sYMmaeETQMcIbsRLiz7
-	907DRmB40cV+8diXBWJrUHeMVLg6TtHOurfxxTTe7SjtINEsbLpOLx0DkijpAHZUiX5ItfMIVau+B
-	CxgPG7G80u6foUPF5jXh5/IHrfE4z5BP0/C3Mr/WWXrUwvQrcNNnInmhF21d/tJhN8YFTazuZ4eq2
-	xMj09KVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gT8n7mz5blgMVxk1kwByCayfJGNrikSmLo3SENj10Lw=; b=qZREVkjOOUbFnXWTZMVNWZtvpY
+	iv/CyZzVu3X0GEZpDXB7CrPRCWN894huKWiIzFQHLGYLxx0zmm5JulgHHgjiXOz2KmBF41U4iWiFi
+	BNf50VcGR6cDii835wEa1TuxoqYif3ZLDvT+bh7j309idOjMg9Xva8MuDinif6I35hPfWh9T2+jaX
+	7lxSBf4+/M+yKpVa2MYT1JIv9jULXz5/Mj/PvJW+Qu94mbiyU5nC9vd8ZKY+iIoqDWqeywGZpuuum
+	fKQqhxYODh2/Vlzfidm71xq5Qt13i1OCTOaHdJmL5hIhYpIKW6jkmiEo10+8C6/6473IMeAFXizt6
+	g0dWabnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlpxM-00000001buy-13sK;
-	Fri, 30 Jan 2026 14:58:44 +0000
-Received: from azure-sdnproxy.icoremail.net ([13.76.78.106])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlpxI-00000001buS-1ko1;
-	Fri, 30 Jan 2026 14:58:43 +0000
-Received: from zju.edu.cn (unknown [106.117.99.170])
-	by mtasvr (Coremail) with SMTP id _____wBnPM78xnxp8L1gAA--.5479S3;
-	Fri, 30 Jan 2026 22:58:05 +0800 (CST)
-Received: from ubuntu.localdomain (unknown [106.117.99.170])
-	by mail-app1 (Coremail) with SMTP id yy_KCgDH0dv5xnxpnhTxBQ--.54572S2;
-	Fri, 30 Jan 2026 22:58:03 +0800 (CST)
-From: Duoming Zhou <duoming@zju.edu.cn>
-To: linux-wireless@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	kuba@kernel.org,
-	alexander.deucher@amd.com,
-	pkshih@realtek.com,
-	akpm@linux-foundation.org,
-	StanleyYP.Wang@mediatek.com,
-	howard-yh.hsu@mediatek.com,
-	rosenp@gmail.com,
-	Duoming Zhou <duoming@zju.edu.cn>
-Subject: [PATCH] wifi: mt76: mt7915: fix use-after-free bugs in mt7915_mac_dump_work()
-Date: Fri, 30 Jan 2026 22:57:59 +0800
-Message-Id: <20260130145759.84272-1-duoming@zju.edu.cn>
-X-Mailer: git-send-email 2.34.1
+	id 1vlq0S-00000001c6w-1abv;
+	Fri, 30 Jan 2026 15:01:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlq0R-00000001c6o-0YAN
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 Jan 2026 15:01:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0C6596001A;
+	Fri, 30 Jan 2026 15:01:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E69C1C4CEF7;
+	Fri, 30 Jan 2026 15:01:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769785313;
+	bh=jcI6FHxj+KHvDboDOSm66IUrFEGKvpzUg4I0CKx4Wrc=;
+	h=From:To:Subject:In-Reply-To:References:Date:From;
+	b=stFcnulcSsZzbYrPkxAQSO6XbNqjmD/rteaSiwiuuy488UrObmFC1bfAGGRRgYqRr
+	 8Vdb1dPSvXTo7ElbWqgIXwgB1JpoaPBBz1lHdJfjiGZ8EQSK70V6e6Dv3ICK/lCUWZ
+	 sEQQ/CPBt3WLCLoqm9i1tKQZH86SWgpNmS50n5IkGZEaG3RaldVd0Zqfx2rHITTrth
+	 soMO2df1BNV08yrlcVlt66aVe3hPsjMmd+c7VSRMgiU7f1cEly7p6UsOY8D1vQTkZu
+	 FauITEOLZuCSvz3xXsGKm7CvfWnD1wo62Zxqhy3s81j9HYeR6+iRMPeMX9dk7UTvoF
+	 1o2yo7ms0+BTQ==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Kevin Brodsky <kevin.brodsky@arm.com>, Jinjie Ruan
+ <ruanjinjie@huawei.com>, catalin.marinas@arm.com, will@kernel.org,
+ oleg@redhat.com, peterz@infradead.org, luto@kernel.org, shuah@kernel.org,
+ kees@kernel.org, wad@chromium.org, deller@gmx.de,
+ akpm@linux-foundation.org, charlie@rivosinc.com, mark.rutland@arm.com,
+ anshuman.khandual@arm.com, song@kernel.org, ryan.roberts@arm.com,
+ thuth@redhat.com, ada.coupriediaz@arm.com, broonie@kernel.org,
+ pengcan@kylinos.cn, liqiang01@kylinos.cn, kmal@cock.li,
+ dvyukov@google.com, reddybalavignesh9979@gmail.com,
+ richard.weiyang@gmail.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v11 09/14] entry: Rework
+ syscall_exit_to_user_mode_work() for arch reuse
+In-Reply-To: <13d22231-d84a-4993-9a69-e3922e45b500@arm.com>
+References: <20260128031934.3906955-1-ruanjinjie@huawei.com>
+ <20260128031934.3906955-10-ruanjinjie@huawei.com>
+ <56978cb8-f9de-4bf2-b1fc-b5564fec7387@arm.com>
+ <ef52449d-7ae0-11d0-c8a9-2ca572454425@huawei.com>
+ <3bfa15fc-187e-4c39-9cb3-a936fdd443b2@arm.com> <87o6mbl82j.ffs@tglx>
+ <13d22231-d84a-4993-9a69-e3922e45b500@arm.com>
+Date: Fri, 30 Jan 2026 16:01:50 +0100
+Message-ID: <87cy2rkuu9.ffs@tglx>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: yy_KCgDH0dv5xnxpnhTxBQ--.54572S2
-X-CM-SenderInfo: qssqjiasttq6lmxovvfxof0/1tbiAwYHAWl7uAYDcwBHsY
-X-CM-DELIVERINFO: =?B?cYGOmAXKKxbFmtjJiESix3B1w3uoVhYI+vyen2ZzBEkOnu5chDpkB+ZdGnv/zQ0PbP
-	CR11YjdbuMySUouUtrOXK8iwzYcuYFk7aHTFsYiRbb0uC/oQbxyu3xRrnSKM/xJF44wcM8
-	Hq9+lQsvkMLsMeqhmXkB8lQQRIwc0TJdq+owcnJ2UFiSBZHsqxAN1s176MXBxg==
-X-Coremail-Antispam: 1Uk129KBj93XoW7Zr1xKr15CFykKFyxXFy8tFc_yoW8WFWkpa
-	yFga4UurWUWFsrt3yDJFWxJa15W3Zag34jkryrW34Yq395GFySyws8ZFy29Fy0yF4qkFyY
-	vr45tr98uFyYvFXCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUU9Eb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
-	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI0UMc
-	02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAF
-	wI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0Y48IcxkI7V
-	AKI48G6xCjnVAKz4kxM4IIrI8v6xkF7I0E8cxan2IY04v7MxAIw28IcxkI7VAKI48JMxC2
-	0s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI
-	0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE
-	14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20x
-	vaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8
-	JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8YFAJUUUUU==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_065840_811025_88837162 
-X-CRM114-Status: UNSURE (   7.73  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,45 +81,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the mt7915 pci chip is detaching, the mt7915_crash_data is
-released in mt7915_coredump_unregister(). However, the work item
-dump_work may still be running or pending, leading to UAF bugs
-when the already freed crash_data is dereferenced again in
-mt7915_mac_dump_work().
+On Fri, Jan 30 2026 at 14:27, Kevin Brodsky wrote:
+> On 30/01/2026 11:16, Thomas Gleixner wrote:
+>>> Agreed, the comments are essentially describing what each function
+>>> calls; considering how short they are, directly reading the code is
+>>> probably easier.
+>> No. Please keep them. There is more information in them than just the
+>> pure 'what's' called.
+>
+> That is true before this patch, where it made sense to highlight that
+> exit_to_user_mode() must still be called after this function (without
+> re-enabling interrupts). With this patch there is however much more that
+> this function is lacking, and it feels very likely that comments will go
+> out of sync with exactly what syscall_exit_to_user_mode() calls.
+>
+> I suppose we could simply point the reader to
+> syscall_exit_to_user_mode() to find out what else is needed, and keep
+> the comment about the calling convention being the same.
 
-The race condition can occur as follows:
+I've picked up _all_ four entry changes and reworked the comments and
+changelogs already.
 
-CPU 0 (removal path)               | CPU 1 (workqueue)
-mt7915_pci_remove()                | mt7915_sys_recovery_set()
- mt7915_unregister_device()        |  mt7915_reset()
-  mt7915_coredump_unregister()     |   queue_work()
-   vfree(dev->coredump.crash_data) | mt7915_mac_dump_work()
-                                   |  crash_data-> // UAF
+Those patches should have been bundled together at the start of the
+series anyway so they can be picked up independently without going
+through loops and hoops. When will people learn to think beyond the brim
+of their architecture tea cup?
 
-Fix this by ensuring dump_work is properly canceled before
-the crash_data is deallocated. Add cancel_work_sync() in
-mt7915_unregister_device() to synchronize with any pending
-or executing dump work.
+I'll go and apply them on top of 6.19-rc1 into core/entry and merge that
+into the scheduler branch to resolve the resulting conflict.
 
-Fixes: 4dbcb9125cc3 ("wifi: mt76: mt7915: enable coredump support")
-Signed-off-by: Duoming Zhou <duoming@zju.edu.cn>
----
- drivers/net/wireless/mediatek/mt76/mt7915/init.c | 1 +
- 1 file changed, 1 insertion(+)
+ARM64 can either pull that branch or wait until the next rc1 comes out.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/init.c b/drivers/net/wireless/mediatek/mt76/mt7915/init.c
-index 22443cbc74a..250c2d2479b 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/init.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/init.c
-@@ -1294,6 +1294,7 @@ int mt7915_register_device(struct mt7915_dev *dev)
- 
- void mt7915_unregister_device(struct mt7915_dev *dev)
- {
-+	cancel_work_sync(&dev->dump_work);
- 	mt7915_unregister_ext_phy(dev);
- 	mt7915_coredump_unregister(dev);
- 	mt7915_unregister_thermal(&dev->phy);
--- 
-2.34.1
+Thanks,
+
+        tglx
 
 
