@@ -4,63 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40FB1E6BF06
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 12:44:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95638E6BF0C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 12:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eMm1cdnkfrY0oZvaf90df8+jlEV+VoXRPG6bWagljEA=; b=3WBwOcr93nWV6OvDRNgboddWiP
-	FLgu1S20v/MzRa5jCP8smrSazvoTPMWpzVbEKidH5i5VC01qlusQHUe+oKAXO79uhYr6lw6jwqNjE
-	jgdPBabN9oLnOXlmMyvqmsABXovB6ikprPIJO2OF9kxBDHOYPSR/3lYAGrrCTAnFYvWejZfDj9wr1
-	+la0vnXab0eHu7jmp16n2L1+J/u3z3oBRsV8yC75kgVHfjQKpKHvYtSrznXR54fsP1Zt6ZZopSj7m
-	ow8MMnq4kVGSYxTjwB31M/KS7F1kJE56vmGWm3H/iRzdPIE6sSDFsJJdX2wY9tE+5EiNFdQMxkrc0
-	I8E+KxHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y8EW95ucxAeggdlWigGJ3lVj3BaqCqydwTiog/fLUxw=; b=34Ec3fhRf5yyWEF+yOuBUQrUQy
+	Evv1a14U+a3CCTPVN7fPvqe0eFLolnPPq+0CRJj+u4fz0zFkpmx1Sr6t+OjYPZmTbzPPytov2iW1s
+	JWqV3TQNHZgB7SCZzxY3W1ijdq6k0QL7ihWUmB/s6d2/6EEnJFMs7INFLhQYjnnSarRST4PLOpSbr
+	WozwaWIFaEVdJV0FaGRhF/F5NdoO8XuoSXqDwQ+fCHOlgKXSlukkjezOzH9cpaH6FWw67hoZTGbho
+	sfvJptGFYje778AIfzd4Af0PFRGMy2LYOpA+NBTODXi6fi1WiwkRk7I3Qi9ZxRYeyMD4UyXcnhAf1
+	X1Sk3f8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlnrU-00000001UY9-2gVo;
-	Fri, 30 Jan 2026 12:44:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vlnuy-00000001Uhg-1Gx2;
+	Fri, 30 Jan 2026 12:48:08 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlnrS-00000001UXo-34QU
+	id 1vlnuv-00000001Ug8-2acK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 12:44:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9830041674;
-	Fri, 30 Jan 2026 12:44:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5723EC4CEF7;
-	Fri, 30 Jan 2026 12:44:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769777069;
-	bh=orp++8gz1k1HbaQq7SXgFqxVbkLzY6LuZrbAVZfoJXc=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=VJQqTcQDAwaTQRQ3hVsyhvY0veUJOLZP+XrsxLSb3SClCpFNchadGAP53XD2IutHd
-	 duYx7qFjnTHB6ll3IcVpB//Hgx0jjAPM1moUwd9p+7WtHc9dnPpwJplfMbRzgguVKd
-	 sKBFE2k9RIGWzMHcKlvN+6vm/zbxxcR73hSDSY3CyR4MAxXtIxDJU8sPvWve/oWPbW
-	 5wxY9ORN1Txa7ahrTAIATGxl39BMxQl0pc30Dgm0i5oOP4LNsBhVvNYkpdJDnKlPfz
-	 Bzq6kVa7KD8rxx+N48hrVvWJabRPv1YsmgsJANKpDshIDt7Lc/6i5jFwDP9nXk0ZJ1
-	 RgkQoV3+o+Iqg==
-Date: Fri, 30 Jan 2026 06:44:28 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Fri, 30 Jan 2026 12:48:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
+	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=y8EW95ucxAeggdlWigGJ3lVj3BaqCqydwTiog/fLUxw=; b=RmIlmrPAkVTTnB1UdcSJVQzuxg
+	ZNdNve4f8c89XI5AsfUOCNPkmESqM9Gnif3AnVXFT6zg8ctN1DO6sZ13W8F/VPd1rBYKjMknX8iCU
+	/9P5j49mOFmqIT2WFJPySYVpDPJEQng00WXmO+nj8N74IEyQ3tNgBcRckJKaMSxFHASO53bEYsonT
+	MtlEkd9VGtGMEMoTCy1k0eEETfS5za6dYJFcelzaFq8QXF3cZYhkXzm9I++R+gE60FDckShyoPVVV
+	PFXMEqUdT99hW8DtMlJ2Biz8CRQw9a+KSckmfIvvVAm6t6c3tyJbqN5qfCd/J/1LFDoi5dA2r9WZK
+	ghbxIioA==;
+Received: from [122.175.9.182] (port=57735 helo=cypher.couthit.local)
+	by server.couthit.com with esmtpa (Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1vlnuC-00000002WPH-1GKm;
+	Fri, 30 Jan 2026 07:47:20 -0500
+From: Parvathi Pudi <parvathi@couthit.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	danishanwar@ti.com,
+	parvathi@couthit.com,
+	rogerq@kernel.org,
+	pmohan@couthit.com,
+	basharath@couthit.com,
+	afd@ti.com
+Cc: linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	alok.a.tiwari@oracle.com,
+	horms@kernel.org,
+	pratheesh@ti.com,
+	j-rameshbabu@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	mohan@couthit.com
+Subject: [PATCH net-next v13 0/3] STP/RSTP SWITCH support for PRU-ICSSM Ethernet driver
+Date: Fri, 30 Jan 2026 18:13:42 +0530
+Message-ID: <20260130124559.1182780-1-parvathi@couthit.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: peter.ujfalusi@gmail.com, nm@ti.com, 
- linux-arm-kernel@lists.infradead.org, r-sharma3@ti.com, 
- gehariprasath@ti.com, conor+dt@kernel.org, linux-kernel@vger.kernel.org, 
- vigneshr@ti.com, krzk+dt@kernel.org, dmaengine@vger.kernel.org, 
- devicetree@vger.kernel.org, vkoul@kernel.org, ssantosh@kernel.org
-To: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-In-Reply-To: <20260130110159.359501-14-s-adivi@ti.com>
-References: <20260130110159.359501-1-s-adivi@ti.com>
- <20260130110159.359501-14-s-adivi@ti.com>
-Message-Id: <176977706843.3699469.624952435786400951.robh@kernel.org>
-Subject: Re: [PATCH v4 13/19] dt-bindings: dma: ti: Add K3 PKTDMA V2
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_044430_810924_B8585691 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20260130_044805_751655_1E3D8A0C 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,45 +102,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On Fri, 30 Jan 2026 16:31:53 +0530, Sai Sree Kartheek Adivi wrote:
-> New binding document for
-> Texas Instruments K3 Packet DMA (PKTDMA) V2.
-> 
-> PKTDMA V2 is introduced as part of AM62L.
-> 
-> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-> ---
->  .../bindings/dma/ti/ti,k3-pktdma-v2.yaml      | 90 +++++++++++++++++++
->  1 file changed, 90 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/dma/ti/ti,k3-pktdma-v2.yaml
-> 
+The DUAL-EMAC patch series for Megabit Industrial Communication Sub-system
+(ICSSM), which provides the foundational support for Ethernet functionality
+over PRU-ICSS on the TI SOCs (AM335x, AM437x, and AM57x), was merged into
+net-next recently [1].
 
-My bot found errors running 'make dt_binding_check' on your patch:
+This patch series enhances the PRU-ICSSM Ethernet driver to support bridge
+(STP/RSTP) SWITCH mode, which has been implemented using the "switchdev"
+framework and interacts with the "mstp daemon" for STP and RSTP management
+in userspace.
 
-yamllint warnings/errors:
+When the  SWITCH mode is enabled, forwarding of Ethernet packets using
+either the traditional store-and-forward mechanism or via cut-through is
+offloaded to the two PRU based Ethernet interfaces available within the
+ICSSM. The firmware running on the PRU inspects the bridge port states and
+performs necessary checks before forwarding a packet. This improves the
+overall system performance and significantly reduces the packet forwarding
+latency.
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/dma/ti/ti,k3-pktdma-v2.example.dtb: serial@2800000 (ti,am64-uart): 'oneOf' conditional failed, one must be fixed:
-	'interrupts' is a required property
-	'interrupts-extended' is a required property
-	from schema $id: http://devicetree.org/schemas/serial/8250_omap.yaml
+Protocol switching from Dual-EMAC to bridge (STP/RSTP) SWITCH mode can be
+done as follows.
 
-doc reference errors (make refcheckdocs):
+Assuming eth2 and eth3 are the two physical ports of the ICSS2 instance:
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260130110159.359501-14-s-adivi@ti.com
+>> brctl addbr br0
+>> ip maddr add 01:80:c2:00:00:00 dev br0
+>> ip link set dev br0 address $(cat /sys/class/net/eth2/address)
+>> brctl addif br0 eth2
+>> brctl addif br0 eth3
+>> mstpd
+>> brctl stp br0 on
+# STP to RSTP mode
+>> mstpctl setforcevers br0 rstp
+>> ip link set dev br0 up
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+To revert back to the default dual EMAC mode, the steps are as follows:
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+>> ip link set dev br0 down
+>> brctl delif br0 eth2
+>> brctl delif br0 eth3
+>> brctl delbr br0
 
-pip3 install dtschema --upgrade
+The patches presented in this series have gone through the patch verification
+tools and no warnings or errors are reported.
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+Sample test logs obtained from AM33x, AM43x and AM57x verifying the
+functionality on Linux next kernel are available here:
+
+[Interface up Testing](https://gist.github.com/ParvathiPudi/91b05f4e6d69d72f55ddd4e95301ab20)
+
+[Ping Testing](https://gist.github.com/ParvathiPudi/9e7573ea85ef72a3ebcbdb4c902f3b8a)
+
+[Iperf Testing](https://gist.github.com/ParvathiPudi/30abedf115aba19542e0156486766553)
+
+[1] https://lore.kernel.org/all/20250912104741.528721-1-parvathi@couthit.com/
+
+This is the v13 of the patch series [v1]. This version of the patchset
+addresses the comments made on [v12] of the series.
+
+Changes from v12 to v13:
+
+*) Reverted the use of kmalloc_obj() and kzalloc_obj() back to kmalloc() and kzalloc(),
+since the corresponding changes are not reflected in the net-next branch.
+*) Addressed AI review warnings on patch 3 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v11 to v12:
+
+*) Addressed Paolo Abeni comments on  patch 1 and 3 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v10 to v11:
+
+*) Dropped the RFC tag.
+*) No code changes were made, only the version was updated.
+*) Rebased the series on latest net-next.
+
+Changes from v9 to v10:
+
+*) Added RFC tag as net-next is closed now.
+*) Addressed applicable AI review warnings, including clearing the host lock before returning on
+timeout, avoiding a race on hw_bridge_dev and adding a conditional check to avoid null
+pointer dereferences.
+*) Rebased the series on latest net-next.
+
+Changes from v8 to v9:
+
+*) Added RFC tag as net-next is closed now.
+*) Addressed  Jakub Kicinski comments on patch 1 and 2 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v7 to v8:
+
+*) Modified dev_hold/dev_put reference to netdev_hold/netdev_put in patch 2 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v6 to v7:
+
+*) Addressed Jakub Kicinski comments on patch 2 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v5 to v6:
+
+*) Addressed Simon Horman comments on patch 1, 2 and 3 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v4 to v5:
+
+*) Addressed ALOK TIWARI comments on patch 1 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v3 to v4:
+
+*) Addressed Andrew Lunn comments on patch 1 and 2 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v2 to v3:
+
+*) Dropped the RFC tag.
+*) Addressed  MD Danish Anwar comments on patch 3 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v1 to v2 :
+
+*) Added RFC tag as net-next is closed now.
+*) Updated the cover letter of the series to generalize and indicate support for
+both STP and RSTP along with subject change as per Andrew Lunn's suggestion.
+*) Addressed the Andrew Lunn's comments on patch 1 of the series.
+*) Rebased the series on latest net-next.
+
+[v1] https://lore.kernel.org/all/20250925141246.3433603-1-parvathi@couthit.com/
+[v2] https://lore.kernel.org/all/20251006104908.775891-1-parvathi@couthit.com/
+[v3] https://lore.kernel.org/all/20251014124018.1596900-1-parvathi@couthit.com/
+[v4] https://lore.kernel.org/all/20251110125539.31052-1-parvathi@couthit.com/
+[v5] https://lore.kernel.org/all/20251113101229.675141-1-parvathi@couthit.com/
+[v6] https://lore.kernel.org/all/20251124135800.2219431-1-parvathi@couthit.com/
+[v7] https://lore.kernel.org/all/20251126124602.2624264-1-parvathi@couthit.com/
+[v8] https://lore.kernel.org/all/20251126163056.2697668-1-parvathi@couthit.com/
+[v9] https://lore.kernel.org/all/20251205123146.462397-1-parvathi@couthit.com/
+[v10] https://lore.kernel.org/all/20251216132641.1313026-1-parvathi@couthit.com/
+[v11] https://lore.kernel.org/all/20260105122549.1808390-1-parvathi@couthit.com/
+[v12] https://lore.kernel.org/all/20260123135932.535735-1-parvathi@couthit.com/
+
+Thanks and Regards,
+Parvathi.
+
+Roger Quadros (3):
+  net: ti: icssm-prueth: Add helper functions to configure and maintain
+    FDB
+  net: ti: icssm-prueth: Add switchdev support for icssm_prueth driver
+  net: ti: icssm-prueth: Add support for ICSSM RSTP switch
+
+ drivers/net/ethernet/ti/Makefile              |    2 +-
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c  |  545 ++++++++-
+ drivers/net/ethernet/ti/icssm/icssm_prueth.h  |   20 +-
+ .../ethernet/ti/icssm/icssm_prueth_fdb_tbl.h  |   76 ++
+ .../ethernet/ti/icssm/icssm_prueth_switch.c   | 1065 +++++++++++++++++
+ .../ethernet/ti/icssm/icssm_prueth_switch.h   |   37 +
+ drivers/net/ethernet/ti/icssm/icssm_switch.h  |  103 ++
+ .../net/ethernet/ti/icssm/icssm_switchdev.c   |  333 ++++++
+ .../net/ethernet/ti/icssm/icssm_switchdev.h   |   13 +
+ .../ti/icssm/icssm_vlan_mcast_filter_mmap.h   |  120 ++
+ 10 files changed, 2291 insertions(+), 23 deletions(-)
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_fdb_tbl.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_switch.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_switchdev.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_switchdev.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_vlan_mcast_filter_mmap.h
+
+-- 
+2.43.0
 
 
