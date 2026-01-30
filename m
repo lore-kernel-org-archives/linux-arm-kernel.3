@@ -4,96 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40BEAD73EB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 01:45:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A7CD73EAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 01:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jNEnnUWc0ljhEZKMEfW+sE66aVZ/mqoNGO+gH29mfjQ=; b=bPvvIoTGZJEp3V5088PFdHED0D
-	IUqX7Rq5GBWqvtxsxxlbJITEFwB74jy4649EAlD5QVtsmLNy46X/dJ7bX+QDhFQtC5T22hN0BFJY3
-	KFcarOTE7wZ1FgX+vgiG3EDCSkgjtAONsT9HNXG9RdiqVR1llSHW7Q+t09ts/oVtnQOvxWlj41y13
-	fKoyNvXcy+JfTU8nR8eq7zGQWpLMz0jFwFW6mijHcCYFGsME8NgG1KhkJv/bh1ZX7eOd/Icoco/4x
-	iWLHpLZrQfn8vawypPAvx7lyXJn5bTM3WA/hwZWKuyg3zbWQh9RYm09+Df5FZgidRlWd4X1M2MtK5
-	CG70yW4A==;
+	bh=AYrclzb/DI20ULzMRT5C3zx7BcemIpx5wfq90vBWrJQ=; b=EdkLfujTJMYeA3thi8UeoPZ1C4
+	YZUf2M/BbTjmSlwNmuDgxJSAmvRb2KUB2fb1d+DiSwLP3DNoKOnCR2jPYjY10cdZ3e8VZdDIJs6/l
+	HMb3g5rEGS+tR9x0fblFJDxf15nVJ+0qkvilckk3UE7+jfbWit1lFVgPEJZejDgbJcYzkrm2SfTFJ
+	LBkIELg7q3VKwhJnp8YfAtYM4WOS9aOZWl910Z0lv2TPpECIRVUDd6hFnM1gt34wYVHz68GwsgTOv
+	x5OTXAg83EJw/C0aLi/8mRrIIl1eifA0ifDgubSyPHK3F0CNguZCgoBHPS6i+7T0S9MX9Gp6sbpZm
+	mRtc31Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vldZF-00000000ruf-2zwA;
-	Fri, 30 Jan 2026 01:45:01 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1vldge-00000000sFv-3oTg;
+	Fri, 30 Jan 2026 01:52:40 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vldZD-00000000ru3-0b5s
+	id 1vldgd-00000000sFa-0NMv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 01:45:00 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-823210d1d8eso861079b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 17:44:58 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769737498; cv=none;
+	Fri, 30 Jan 2026 01:52:40 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-34c93e0269cso1658739a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 17:52:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769737958; cv=none;
         d=google.com; s=arc-20240605;
-        b=SsDrSRzfvkUbMQ3irj8YupKHkW+OnY3+SYfTovxb2xBuOXcOcESjqjEk2JeAnbmDil
-         rhm8qoulGv7P6/mQlP6FhSl9R0IZ6pMDr9Kxe28VDPePiBPxkgJ6/DqPEqDAnR2IPnYD
-         wLVURt0PnPfBkv4Rr+UuHWPfZ0/dCo5eCXucabtMpWiFDroXwOEuR7SezzJ/8slJn0Cn
-         6d9jRfOghZ6ZWxDpgdCCbMAqUwsXbFEKn2RoMS03BfOfpUwglWfQMkRvRjojoXJ/aYQH
-         0T76SQLK/viOAkATDHZKcnF4bfgLOpZN0U1BGyHLqGLaMgY7MST/GYBTb5rcj2u4ZXKv
-         SZTA==
+        b=Hz9yOCCOL7W7WAujdfXOTFo3dNwtMuh4kEAeCv/3x46DBkNUd1supV3CQWps99p+3q
+         XvDl8eK9zdQB9TrBgsYKjjGwnoqpJPZWx//BuSHJZLTCztRPbuDtdi1SZKg96OjEyw+u
+         OQEOoA23DVXBRxx5ZPiVvlqchK4upXw161dnC1yOiou3qanq/H89c7j+ZMjr6YVD2mZf
+         nMFFbs8iW+wGE4o6iLCeiZAJLn+D8qvYKnpH2jLJ+ki94IOs09/fIOjVobJN9l09cCcL
+         XHpUB9x693ZFA1uryop4J89apO1aD+DiaGhG4bTOYsD5hSa5Rwp3vVkuZebZkVJbPsnu
+         H6LQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=jNEnnUWc0ljhEZKMEfW+sE66aVZ/mqoNGO+gH29mfjQ=;
-        fh=RUMMAaeplCXGRvtcRSvtoh225UrJNyQhHVirT0bzwFw=;
-        b=YwLQF6vTW26dUu0t5T2sQQpvKZDzkGDx0/zdBRIstMD8Lado6p3KuT2p8Jj6jFqfSy
-         A7bIMxNROtmMILeA2iquKgrsAzseqDGUYuFM5oi9QWG3YtSliUSXsJz6/8N1Cg+4YyNX
-         bQon7XPn6WzDl+TgFZyplFkXB8ZAx2RQPOabAU65yCnFekkI/zpYYvv/wpC01Xegs27Z
-         O3UZVqlkEv3lUn5gHV1mqvlTz5Q7yFMPbiVC2EM/Sdy6tGA+OrHSwCjVpvM7wSgTEF49
-         PMoFPuX0dA0cNFmmemfCskIC27fdkwodcz1eAjOJtmNV4p7W8Bb7mX8yLGZkHFOnJbAo
-         REDg==;
+        bh=AYrclzb/DI20ULzMRT5C3zx7BcemIpx5wfq90vBWrJQ=;
+        fh=kfzPbuHLxMidNeMGquFgKTpBvGNIM0IJxvSX1JnrbrY=;
+        b=OBKplUgxE4vzxmPIYMdW76gBmfMMIbgQWdPNWO/2881Yrg+r+dZq59B6xoXW5w1jG+
+         2m5gXeG/BBImJ6Fs3esVzXejK2OLcTQEcdi4Bx7yFXRr68FU+KvjXdmtgZb2vZBcTNbW
+         LISh6GEV+gNGO+O5cjTDi3WW87/jQgSwlJnLLIhiWZZcvUrmdExGjZNK9CDnjI4E+HnO
+         k+sR+CtHZMkz4tSMxuu979IXqY9IKh01CGnQUFUfsjbTiVzHdwDIWtnlMWoqdnVKq7Mz
+         rI3vhRu3A0uJEdRGtsOc4E53u/Q/w53nGbA8hZx1X86i7IDhXe/L8X31ARR7GWqZ7MIk
+         c3ow==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769737498; x=1770342298; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1769737958; x=1770342758; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jNEnnUWc0ljhEZKMEfW+sE66aVZ/mqoNGO+gH29mfjQ=;
-        b=itccPi07Cj+yYp3v7i0K0nMJjhYMf1JpYFLq6MLLdYzoVWXU0LbM6/ZwmH4qUG35zO
-         ZvnfFf08pNElDcc9jIAX15en0Ce0hFwkzqeMNQ2GiORxu7SWZYo+Sbx4+yPPq4uTbwiD
-         ++UYmRfFoxmv3VjJrw1CP3ONBR50iByb7m/E94iODrY9qmu3ceVlEaYKhbEaf4O6aqQq
-         dx2WZhBqQJmlz2sFkmHYPn1CEjOjP3XTXjmtotQaZIak5IHEscISwGg1CXHnZfQipVFt
-         xeZ/MVyNuyBwz2UBcg6yVZD6QYxUVe98KrYvtcuHrozAHT/KQVfoP3PAl7Er2jhHPWu/
-         AOfQ==
+        bh=AYrclzb/DI20ULzMRT5C3zx7BcemIpx5wfq90vBWrJQ=;
+        b=PDzvqSLIlr7W9vPrqGmFCZbUUxkwCFNTch4qyOuO1oRYcsOrKT4RGbQFxX9DS5Pke7
+         gKr7AahkRp8AZkOa6c9ehnVpxBPusNx19ur4AHMCC4Rp7U72VATDoEv7QSeDAqG8xUpK
+         UNZ1rgNU5tDzs0EKTqJdwaOgzjZBliUZqH3ftKzCT7GZWj+CeRhgK1Gr126m6aPUVj7Z
+         e8rMatAmR4Lzd4sRAUwOjsrxZuaU6KADtLiU6a+jjrdz+nxNEal+V8m16lUUTdFHcAYg
+         1sLdt5/fntLdWGK859xmtkkt7QYrGFS4yZ1jSBgoPrighp7YGrFcERcVnFID20aL1MXK
+         8j7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769737498; x=1770342298;
+        d=1e100.net; s=20230601; t=1769737958; x=1770342758;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=jNEnnUWc0ljhEZKMEfW+sE66aVZ/mqoNGO+gH29mfjQ=;
-        b=nECKy5yCTb7kQahkLUhU8aMGI0ze+msYpll9iHHM30zcOLnJWL9KUGaTTrq+nTF4ka
-         V2Z1NEmT/pyZVPHtEnf4Q/5XtQ0nSMuDkdI3g9PtjohoEM19JyErCAipljigPnsFmes+
-         LcRCqm1XwAsHdyaD518/C56NFpNK8XaigzxIsuu4O36ec6eOJShS+8lCK7kg8q9o2aF2
-         eqrIBbiv36iTSeYlYpn9uMQFTs5VE9mVOTHnGKbObirV6gkcD05Asv8pAg9yhoVuZRFi
-         1qlA92EC9f7kJCwunMz4l4jTnFFV8FHDYI2jKJR8VAk7m3MphROIIuw8v8CAFHcDFJE/
-         OSww==
-X-Forwarded-Encrypted: i=1; AJvYcCUKC0yWixA5rlraKsZWOXJWWl1Zkm79JkFT7b0+D1dAHenyZgisswr44fxz/DXZ2j3ZrofbA7vC3Y347lSb/uJX@lists.infradead.org
-X-Gm-Message-State: AOJu0YztgkOBJdrC+jyp8wAXWbb71Svs/bORH7c4A3Chw+C3b8/oi2H1
-	rPqjluqjP/MjhFlY+0N7EAMSgxMky6S84T+fAKkGOTdVeKMEhRNMXP207Zes0gbqpMeZOk1QY+s
-	W1z3vNd1tH20ELZ/1ztBX3k4S8iVymTQ=
-X-Gm-Gg: AZuq6aKA75ByLuhU6Oq+VqefzJyU5ufXtrK7Iluh2jyZ/WxM9HAOZCnXHfwwrrnhDrq
-	sTeDKFDP1J7HgAsgFqgieY4vW2njLgL9vgM7C2+YYO91KOoU8bbip00KoeATZh0C5H2al3h2Ruf
-	7/QYszYCRQUMSSD5FBnFQzwTNZUkOosT7rYYitWplrcTPNNofJqxq9NH2pK6yvW6rkz7jZIgzFJ
-	m2U8J28q6E/G+BQ/YE+Q38diGZvM/Ozao0sO2/3zSE8bqGJSIkk2nRU4l+PjI1Fr/mTVh0=
-X-Received: by 2002:a05:6a21:9214:b0:366:14ac:8c6f with SMTP id
- adf61e73a8af0-392e01842cemr1045926637.69.1769737497875; Thu, 29 Jan 2026
- 17:44:57 -0800 (PST)
+        bh=AYrclzb/DI20ULzMRT5C3zx7BcemIpx5wfq90vBWrJQ=;
+        b=daEOnTQyR6xijSfexSkHHVVJ+zWX340GDIWY7Birg/yYwMFtYMFwv6OEq6/Ofz488o
+         EKuQBI7n4aGd7xvd3PQhHODlbwI6obCSZGdmj9xsyJgUwZN92nfC6OUDulgRjGMco8JN
+         I2OK1WAjqVkjr+t/6tMxU9NJoUAsynid/xVlAyTG/mWm5WlDBOqtRmv9FVDdbtIzSQ+t
+         Bxwf38WGCCKMnSo732nGBolnCEQHInZ9Z/oESXk05SXjedK9A3MtV6fH2KwIIIZkQbwb
+         TjC5OoDGFsITPwu5PWGDL5P/r8TICQByMi2phbm4AMtL5t1LtTKTTn9G+2X8036Acchy
+         Pfjg==
+X-Forwarded-Encrypted: i=1; AJvYcCVwiZdVUfxf1C2fid3F2l45uw/LvQPaIJlB/7UkVjv7ocrJzwIcfP7DKluQnTGP5fdzMPzAaFXsTz7LPcUaguao@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhUkHFKBnK3uTUPnAVmDB3PRlm5Iqsk5jfJhRy31eZ6ny1V4/7
+	LUPcu60NOpx2pHRlaT+eJk/2Z/wMTsQbicXGINvIBI8ng/lU9XV81blrUlJ2S98180J49FL0GMJ
+	jf8JbnzmJ+Y8PIN5yxKOPhKjO3RYM2yQ=
+X-Gm-Gg: AZuq6aJxh4avuihzia36RJodpfV3/EAJphJWqDo0atT1H7l9FshZtXm6ZCch6IVTiA2
+	ryerrOxTzfMlhcd1gHKpeJLaYl/2PKqoANHy0icRH2C1QFmnzmlYq1PJjIkt30VdOp63PKjEZMm
+	0KqeRRmMQGgyQPkZxQypMDaPh712LBC2aBEspANlEaE/uk0cVqqR7zMS4t8bflITeJGYrLjqKf7
+	qVcP4flNxxbOlDo4omXCFGGwk+QQPvndttzSjPyEIQHlNn0MItIXT4jTm+x7/hX8hmaWYE=
+X-Received: by 2002:a17:90b:1c0e:b0:340:8d99:49d4 with SMTP id
+ 98e67ed59e1d1-354299f24a8mr4236387a91.1.1769737957855; Thu, 29 Jan 2026
+ 17:52:37 -0800 (PST)
 MIME-Version: 1.0
 References: <20260128071853.2602784-1-shengjiu.wang@nxp.com>
- <20260128071853.2602784-3-shengjiu.wang@nxp.com> <aXuVXruPir7hasdd@lizhi-Precision-Tower-5810>
-In-Reply-To: <aXuVXruPir7hasdd@lizhi-Precision-Tower-5810>
+ <20260128071853.2602784-4-shengjiu.wang@nxp.com> <aXuUSnPSCa8YYfgd@lizhi-Precision-Tower-5810>
+In-Reply-To: <aXuUSnPSCa8YYfgd@lizhi-Precision-Tower-5810>
 From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Fri, 30 Jan 2026 09:44:45 +0800
-X-Gm-Features: AZwV_QgRSYSkN9m3U3HWfvC48m_G_i-4n2rGz9NZqS3r9F4yXRNiuZDo3HAYyaM
-Message-ID: <CAA+D8AMYEVbFTgTaVhTU_ZJ=eoyQAj4zygLsfuK+Yt+=8qQk1Q@mail.gmail.com>
-Subject: Re: [PATCH 2/3] ASoC: fsl_asrc: Add support for i.MX952 platform
+Date: Fri, 30 Jan 2026 09:52:26 +0800
+X-Gm-Features: AZwV_QiF2cDrLfRKNnjCIo-qh5cZKFulc8s1nwm3YFRDiF2SntZx7QwlcKkdk5I
+Message-ID: <CAA+D8AM2d8m2eZnenH7gqOEUO1dLifFSNgizRRXwOiLX2vVdTA@mail.gmail.com>
+Subject: Re: [PATCH 3/3] ASoC: fsl_asrc_dma: allocate memory from dma device
 To: Frank Li <Frank.li@nxp.com>
 Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, lgirdwood@gmail.com, broonie@kernel.org, 
 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
@@ -105,8 +105,8 @@ Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, lgirdwood@gmail.com, broonie@kernel.o
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_174459_212471_E9BC18C4 
-X-CRM114-Status: GOOD (  27.96  )
+X-CRM114-CacheID: sfid-20260129_175239_142142_F79A5C54 
+X-CRM114-Status: GOOD (  27.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,89 +121,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 30, 2026 at 1:14=E2=80=AFAM Frank Li <Frank.li@nxp.com> wrote:
+On Fri, Jan 30, 2026 at 1:09=E2=80=AFAM Frank Li <Frank.li@nxp.com> wrote:
 >
-> On Wed, Jan 28, 2026 at 03:18:52PM +0800, Shengjiu Wang wrote:
-> > Add a compatible string and clock mapping table to support ASRC on the
-> > i.MX952 platform.
-> >
-> > There is a limitation on i.MX952 that dma request is not cleared at the
-> > end of conversion with dma slave mode. Which causes sample is dropped
-> > from the input fifo on the second time if dma is triggered before the
-> > client device and EDMA may copy wrong data from output fifo as the outp=
-ut
-> > fifo is not ready in the beginning.
-> >
-> > So need to trigger asrc before dma on i.MX952, and add delay to wait
-> > output data is generated then start the EDMA for output, otherwise the
-> > m2m function has noise issues.
+> On Wed, Jan 28, 2026 at 03:18:53PM +0800, Shengjiu Wang wrote:
+> > As the dma device may support dma-coherent property on the i.MX952,
+> > allocate memory from dma device to make asrc driver to be compatible wi=
+th
+> > such a case.
 > >
 > > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
 > > ---
-> >  sound/soc/fsl/fsl_asrc.c        | 39 +++++++++++++++++++++++++++++++++
-> >  sound/soc/fsl/fsl_asrc.h        | 16 ++++++++++++++
-> >  sound/soc/fsl/fsl_asrc_common.h |  3 +++
-> >  sound/soc/fsl/fsl_asrc_m2m.c    | 29 +++++++++++++++++-------
-> >  4 files changed, 79 insertions(+), 8 deletions(-)
+> >  sound/soc/fsl/fsl_asrc_dma.c | 48 ++++++++++++++++++++++++++++++------
+> >  1 file changed, 41 insertions(+), 7 deletions(-)
 > >
-> ...
-> > diff --git a/sound/soc/fsl/fsl_asrc_m2m.c b/sound/soc/fsl/fsl_asrc_m2m.=
+> > diff --git a/sound/soc/fsl/fsl_asrc_dma.c b/sound/soc/fsl/fsl_asrc_dma.=
 c
-> > index f46881f71e43..296e13a16490 100644
-> > --- a/sound/soc/fsl/fsl_asrc_m2m.c
-> > +++ b/sound/soc/fsl/fsl_asrc_m2m.c
-> > @@ -253,15 +253,28 @@ static int asrc_m2m_device_run(struct fsl_asrc_pa=
-ir *pair, struct snd_compr_task
-> >       reinit_completion(&pair->complete[IN]);
-> >       reinit_completion(&pair->complete[OUT]);
+> > index 7dacc06b2f02..b8fe242d53db 100644
+> > --- a/sound/soc/fsl/fsl_asrc_dma.c
+> > +++ b/sound/soc/fsl/fsl_asrc_dma.c
+> > @@ -449,18 +449,52 @@ fsl_asrc_dma_pcm_pointer(struct snd_soc_component=
+ *component,
+> >  static int fsl_asrc_dma_pcm_new(struct snd_soc_component *component,
+> >                               struct snd_soc_pcm_runtime *rtd)
+> >  {
+> > -     struct snd_card *card =3D rtd->card->snd_card;
+> > +     struct device *dev =3D component->dev;
+> > +     struct fsl_asrc *asrc =3D dev_get_drvdata(dev);
+> > +     struct fsl_asrc_pair *pair;
+> >       struct snd_pcm *pcm =3D rtd->pcm;
+> > +     struct dma_chan *chan;
+> >       int ret;
 > >
-> > -     /* Submit DMA request */
-> > -     dmaengine_submit(pair->desc[IN]);
-> > -     dma_async_issue_pending(pair->desc[IN]->chan);
-> > -     if (out_dma_len > 0) {
-> > -             dmaengine_submit(pair->desc[OUT]);
-> > -             dma_async_issue_pending(pair->desc[OUT]->chan);
-> > -     }
-> > +     if (asrc->start_before_dma) {
-> > +             asrc->m2m_start(pair);
+> > -     ret =3D dma_coerce_mask_and_coherent(card->dev, DMA_BIT_MASK(32))=
+;
+> > -     if (ret) {
+> > -             dev_err(card->dev, "failed to set DMA mask\n");
+> > -             return ret;
+> > +     pair =3D kzalloc(sizeof(*pair) + asrc->pair_priv_size, GFP_KERNEL=
+);
 >
-> Does other Soc also work if ASRC start before DMA enable? Suppose most li=
-ke
-> work. Then needn't start_before_dma.
+> prefer use size_add(sizeof(*pair), asrc->pair_priv_size), which did
+> overflow check.
 
-Yes, should work.  but I don't want to change the original behaviour
-of other SoC.
+Ok, will update it.
 
-Best regards
+>
+> > +     if (!pair)
+> > +             return -ENOMEM;
+> > +
+> > +     pair->asrc =3D asrc;
+> > +     pair->private =3D (void *)pair + sizeof(struct fsl_asrc_pair);
+> > +
+> > +     /* Request a dummy pair, which will be released later.
+> > +      * Request pair function needs channel num as input, for this
+> > +      * dummy pair, we just request "1" channel temporarily.
+> > +      */
+> > +     ret =3D asrc->request_pair(1, pair);
+> > +     if (ret < 0) {
+> > +             dev_err(dev, "failed to request asrc pair\n");
+> > +             goto req_pair_err;
+> >       }
+> >
+> > -     return snd_pcm_set_fixed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV,
+> > -                                         card->dev, FSL_ASRC_DMABUF_SI=
+ZE);
+> > +     /* Request a dummy dma channel, which will be released later. */
+> > +     chan =3D asrc->get_dma_channel(pair, IN);
+>
+> Is it possible get real dma chan from fsl_asrc?
+
+This is real dma chan, may be I should remove "dummy".
+
+>
+> > +     if (!chan) {
+> > +             dev_err(dev, "failed to get dma channel\n");
+> > +             ret =3D -EINVAL;
+> > +             goto dma_chan_err;
+> > +     }
+> > +
+> > +     ret =3D snd_pcm_set_fixed_buffer_all(pcm,
+> > +                                        SNDRV_DMA_TYPE_DEV,
+> > +                                        chan->device->dev,
+> > +                                        FSL_ASRC_DMABUF_SIZE);
+>
+> Here you assume chan->device->dev never change when it did DMA transfer.
+
+Yes, this refers to the generic code in ALSA.
+
+best regards
 Shengjiu Wang
+
 >
 > Frank
->
-> > +             /* Submit DMA request */
-> > +             dmaengine_submit(pair->desc[IN]);
-> > +             dma_async_issue_pending(pair->desc[IN]->chan);
-> > +             if (out_dma_len > 0) {
-> > +                     if (asrc->m2m_output_ready)
-> > +                             asrc->m2m_output_ready(pair);
-> > +                     dmaengine_submit(pair->desc[OUT]);
-> > +                     dma_async_issue_pending(pair->desc[OUT]->chan);
-> > +             }
-> > +     } else {
-> > +             /* Submit DMA request */
-> > +             dmaengine_submit(pair->desc[IN]);
-> > +             dma_async_issue_pending(pair->desc[IN]->chan);
-> > +             if (out_dma_len > 0) {
-> > +                     dmaengine_submit(pair->desc[OUT]);
-> > +                     dma_async_issue_pending(pair->desc[OUT]->chan);
-> > +             }
+> > +
+> > +     dma_release_channel(chan);
+> > +
+> > +dma_chan_err:
+> > +     asrc->release_pair(pair);
+> > +
+> > +req_pair_err:
+> > +     kfree(pair);
+> > +
+> > +     return ret;
+> >  }
 > >
-> > -     asrc->m2m_start(pair);
-> > +             asrc->m2m_start(pair);
-> > +     }
-> >
-> >       if (!wait_for_completion_interruptible_timeout(&pair->complete[IN=
-], 10 * HZ)) {
-> >               dev_err(dev, "out DMA task timeout\n");
+> >  struct snd_soc_component_driver fsl_asrc_component =3D {
 > > --
 > > 2.34.1
 > >
