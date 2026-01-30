@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74318D49C60
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 07:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1ECFD49C65
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 07:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kIS7Tv8+p6x2LqhRC/mSoQut0LYtAOWTBCiN5CGoQbo=; b=VPl8IHJJhcBmZ8UxDDzKw9mEiK
-	+WCdSe2Z+lQEvCchXx6/1wUc//Q1926X42dxu7Eh3/d6xdROrsRwexGjSv5HryVW0uOvkTg6FWOaK
-	dAsnlbrFBNqtc9u+8mxZuPk16KBd2l3R03Cy7lSE6AHe2Fr5SeEZJPYZg/r8l0uEr0Of+kwrCgmnS
-	TZdCx6y1kwdYbkfeqdxFCdBh91LNeRCcMYHSApZx/mjw15LilYdgsklzG0n+kmddVSOS1geav5ejD
-	JxiDIEfZG+Xfn/owGCXC+sR4CCc1MywZdbYyqeDtjk8N2XgzUCwgjk6g0wUb4XUKojYuyKoIawm4j
-	BMop4WXQ==;
+	bh=xpxkN9CzPqlfY/w02rIxvFlrDNaXNReJDm117rqc8w4=; b=r3nGC1j7N51rKxcZEZRkTa80Yy
+	tZbCSfcWq6mvPKCkiUIW0WXyk9Lk/BbOLiHsIYGBvrlWaDiYZcYnSgm2oKRJuekFzMVjoQeEIk1MD
+	/aTqW8wJWOhqC769uQUCv8IHd/e4stELRyKp19nh6RmyViZ+PkHmLRDu5CombqZvts11jCoBwvLYF
+	/yCk1qCayKKypLn2JR7cTjiHvfKM82qVPBA/K1JXSStFRwe7wbiZ3ejLT4LqbKzC0/00nIjgA6w4z
+	wed5KDs7HKFrBVkTaheM3DGBhEt2SuGOT/jx6BaCfganrq1GZytTplllhswHiJOju2YVjP+0bEhVl
+	CEO4K15Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlii8-0000000180B-2CHk;
-	Fri, 30 Jan 2026 07:14:32 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vlilt-000000018R9-0gpd;
+	Fri, 30 Jan 2026 07:18:25 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlii6-000000017zs-0ay3
+	id 1vlilr-000000018Qo-0UbO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 07:14:31 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4801ea9bafdso7128905e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 23:14:29 -0800 (PST)
+	Fri, 30 Jan 2026 07:18:24 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-43591b55727so1557194f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 Jan 2026 23:18:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1769757268; x=1770362068; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1769757501; x=1770362301; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=kIS7Tv8+p6x2LqhRC/mSoQut0LYtAOWTBCiN5CGoQbo=;
-        b=gn5mNBtggD0Sn+Hm9O6VQB3csqwc35y8oKsJWpRn/BnPt5/GAqtcVQ4YnXY3rrdUqo
-         uM9kux8jrAKLske+kGZvpdzNGQxstieVa+5dCO/lrDREl3Nc7ZFh6Xnxczh3HEBlYIPc
-         qMm+64zJIGbBtawR4QIi3oC1Fo/CuvQlcRqTVnqq/1t0nz5JWLpgDkV45B+0wB8QSIe3
-         9gTcBtCciEH0nhUG9lyW6Ab+NnBX1oqG6wtAs10zF+ajBTEITP8lcH0rTzG0qhJa3/uO
-         eBg0R84O9LY7tUe59/iRF1srq94OLZHvkbjk271ivQNPyLYCL/9uG8RJBlFHtIH4njne
-         p/Iw==
+        bh=xpxkN9CzPqlfY/w02rIxvFlrDNaXNReJDm117rqc8w4=;
+        b=TyK8PzCFmGGUSc3j/werFI7o+kPqPjxy05Gsa7+aUR3wloxD/SffHFz9+a3QWun6k8
+         hwZ9u/wRC0s63t1/l3KNgrXw++NomGy3dGOZkpFnc0zJc/Ym0XErrsWVjcfUHIIO9Oit
+         dWZ58l6w2RC9OG5lVuUR6haoj8uTPbuX7BdlSvqxMP741Twjq46jeZA8RPqRdIv22S4H
+         +I5D4bllEhaseHJEjEohZh2RJl1NeBn5IPVJVBnqF+eGWwp//tSftnLl7+7WeaEw4azK
+         y+2OmJSWqSQTjHhrZ6uxerMl+9cjKnFz8xZ4rt23ZhUpjzpuNSiXufkwv+BA96bDS+sL
+         kohg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769757268; x=1770362068;
+        d=1e100.net; s=20230601; t=1769757501; x=1770362301;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=kIS7Tv8+p6x2LqhRC/mSoQut0LYtAOWTBCiN5CGoQbo=;
-        b=mAR62BvrfbJxMfRFpxnIgTqNCtTs/BSOP7W9KlT0imHeFD46WQQyMjuM0jON6NEWFv
-         eBzalp0kMX6GC3kmcFgCp4IN/lTJsfVuBvK2X/lB00ozDXlTQKVe5YLkgEL8QrB5H8oV
-         gL3Dh2lVVBLKQkngBKXvwqc2RGocvAcAZlC4o3BsIIj8825kgmKFNPzFH9EgKFgZqwRx
-         Vg8OpuX+sHAfPkZg8hxM7ZxLsq9CYVx3EbxAeTQGQ+9j4Ro8p+4QW+hgsFyAh7YVYeiO
-         WlJahNGsfZ8WBo9cZXxXbzw/OGkUZZ9qpv1aLwtPlpXator4RzrRmDQvkj1Yd3hjgpmA
-         msYw==
-X-Forwarded-Encrypted: i=1; AJvYcCXj4E0/EjR9k0BqvMzTDhmX01dWMEMyi2JeNVTFnk9uf1LsqSi7Tv5+SY9lpn3Bui2V/8O47IXfAHgBBR0fhkt8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6mIhVSeN8V6D/EWDU5lfxT6/R8P+tnypVzUJTBkJB1U9Xgym0
-	BTU5pbKNMmejb44ZFIzByO+BCyl4jySz6x58ppAIkZ2IS+68WW0+a82Un+keQuODYME=
-X-Gm-Gg: AZuq6aLtbOnD+EuRCDrHaFRIm0MB3uozK6ww4d4pALoHQCC9vmJ6gkhLD2S3JSP/rr0
-	gBVrYipwpUjR9DSv9aInwJFxcfWiKgMemvpMVP1az+PbJcNWtJMjHBDUXTkDg5xEQyNX+N5OQQ6
-	RwAKVBTgir13I/p1kvAnvbubxJiXcPg+Ae3Qi+smFoEP0e/2LI0k2XHu0UUUExHRR4odH8sYgoA
-	28/M+/H+ac9EF+PvYX4jRerw1IHv8rycGqVHYLbhtYgTwepsUDfQF1N6YXPD2iK6OCxCH0j6pWA
-	J4S1OG5pwk5R4pp0W0rk8Vtr2PajLMvizPxhWVBccUO3UmKSvkmhEVDz+MHfclllqDmjFLq11+P
-	57hPg1Qyc037zyrZc3BRSjHL0haqe+eNmE6dwUeAB3QtTtSoBDrpGXni1K91rBKuDo7jVXNbQct
-	zT8j/gDgFQgCBNAJothw==
-X-Received: by 2002:a05:600c:628d:b0:480:1c75:407c with SMTP id 5b1f17b1804b1-482db4577f3mr20579805e9.2.1769757268039;
-        Thu, 29 Jan 2026 23:14:28 -0800 (PST)
+        bh=xpxkN9CzPqlfY/w02rIxvFlrDNaXNReJDm117rqc8w4=;
+        b=BjbldeRDrYUZMeM+9jHkiv8tEPDUvgB39FUhsX+7c325h1vrMqlsC5pPmud78EcYbK
+         i7elE8wIichITPwczMxFydKrdneeqj79cbJ+YEb7BLarZQT05ZL2v5+In3ljtK6sS4N6
+         f7slts27K0FWH3MjUmj9Vvs93gnBDRtVfoGBi5YnfXNgQj8EwwDtYfU7LAvnDrNIxHIY
+         RVB8YUuJtgTmp1w2M1FFyjjyH8+OgRfNTaQv1Wg3UEojA19CndUqRusaP14sEQa6K0KI
+         /Xkh/5IVs2XuOvkIYYAA2S8+L9zibWhhMiQG29bDWDk2ITRQcXD2454Rp2zjXrBp5fWN
+         VEUw==
+X-Forwarded-Encrypted: i=1; AJvYcCV/sWycHIl48FzypKRltbqZv1YzZOMMSGTrqPrKTQ1L8qwUQsiMgP1zz4vhJBVIDUfQgvlKOIrTAYATSTrGFKV5@lists.infradead.org
+X-Gm-Message-State: AOJu0YzC7ju/puNGmOPmerxfCPRkGjI4TkRugNywcEpkLunCFSlt/l2L
+	3aBfnIZ6bxy6G9R+issM/OyMniTGRl2ItWOUqrVa50KEw6WlymBkCLgJj/GY815Kkus=
+X-Gm-Gg: AZuq6aLHf+1yMGzbgdVfzchvtOPd7xyctgdSGVhS35MmJGmypjCcd3hAtt+vN4UUgn2
+	HIRYZRNZYWPlhCNv941vX6i+kaZhYSuxvCkc3Vb+25h0ZjIJJfpSjk+UqzO5kO/+eoK1WpEqc/y
+	KroJNZkI5So10c97LIVyvWFv+6me3dLcvT4AX2kHu2hAm5ZYkmP7T3SxIOmdM5xawi/Q3S7NjA6
+	MHZd+Mw7K7bPIO2bamCZqbGRyCW/rlcf6RKuKQRqL0CnWcvn/X6hcrczW18GMwMnUMkoPNeSkRN
+	opoFfO2xeu/vJHu03MwHtiSJ1GXjtluXI01QT1Gea9CO+YSUZ99gFG1d1zQQWe5Ekuq/G3t1jzC
+	CJ09f/5LdjqYuFbMZCqTCiZLl/xHqcjuhFccsoFO2pC0FkTeK7x6syILkUtQWcZzJGFFoAhOpLN
+	BSPn3TYsUZI6NGRitpXQ==
+X-Received: by 2002:a05:6000:2910:b0:431:864:d48f with SMTP id ffacd0b85a97d-435f3a8689cmr2938639f8f.27.1769757500929;
+        Thu, 29 Jan 2026 23:18:20 -0800 (PST)
 Received: from [10.31.13.216] ([82.77.28.160])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-482e04a082dsm8021235e9.3.2026.01.29.23.14.26
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e10ee040sm19847702f8f.11.2026.01.29.23.18.19
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 29 Jan 2026 23:14:27 -0800 (PST)
-Message-ID: <2d37541e-175e-42ab-a05d-638545a7b7cc@tuxon.dev>
-Date: Fri, 30 Jan 2026 09:14:26 +0200
+        Thu, 29 Jan 2026 23:18:20 -0800 (PST)
+Message-ID: <8d3a2c5e-b31d-4346-ac47-12f9aa1b49aa@tuxon.dev>
+Date: Fri, 30 Jan 2026 09:18:18 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 13/31] clk: at91: sama7d65: switch system clocks to
- parent_hw and parent_data
+Subject: Re: [PATCH v5 14/31] clk: at91: clk-pll: add support for parent_hw
 To: ryan.wanner@microchip.com, mturquette@baylibre.com, sboyd@kernel.org,
  nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
  bmasney@redhat.com, alexander.sverdlin@gmail.com,
@@ -84,16 +83,15 @@ Cc: cristian.birsan@microchip.com, balamanikandan.gunasundar@microchip.com,
  linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
 References: <cover.1768512290.git.ryan.wanner@microchip.com>
- <96e09d47cbff0fb4593d642a1151791e20c15c48.1768512290.git.ryan.wanner@microchip.com>
+ <7b6cc0e89a31b5f0196c0770dc692edf550e01d2.1768512290.git.ryan.wanner@microchip.com>
 Content-Language: en-US
 From: claudiu beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <96e09d47cbff0fb4593d642a1151791e20c15c48.1768512290.git.ryan.wanner@microchip.com>
+In-Reply-To: <7b6cc0e89a31b5f0196c0770dc692edf550e01d2.1768512290.git.ryan.wanner@microchip.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_231430_191634_96B107ED 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260129_231823_189783_9B5C2E43 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,20 +109,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 1/16/26 22:07, ryan.wanner@microchip.com wrote:
-> From: Ryan Wanner<Ryan.Wanner@microchip.com>
+> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 > 
-> Switch the system clocks to use parent_hw and parent_data. Having this
-> allows the driver to conform to the new clk-system API.
+> Add support for parent_hw in pll clock driver. 
+
+Isn't it parent_data?
+
+> With this parent-child
+> relation is described with pointers rather than strings making
+> registration a bit faster.
+
+Please update this along with s/parent_hw/parent_data above.
+
 > 
-> The parent registration is after the USBCK registration due to one of
-
-Would you please make this a bit clear?
-
-> the system clocks being dependent on USBCK.
+> All the SoC based drivers that rely on clk-pll were adapted
+> to the new API change. The switch itself for SoCs will be done
+> in subsequent patches.
 > 
-> Signed-off-by: Ryan Wanner<Ryan.Wanner@microchip.com>
+> Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-With the above addressed:
+The rest LGTM. With the description adjusted:
 
 Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
