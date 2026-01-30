@@ -4,62 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AEBDE6BF02
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 11:19:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD419E6BF02
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 11:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:To:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QS4SrZ2qJg3isIlOI4fro1BFCyZQE8jMARKnJOFnpFk=; b=BALBfjvomo5XNFiCpWhJKI9YMr
-	m/fkjDbxqzNmYC3QUYDsRA6seRuWaI4hbKHrb4sqC1qjZt7kewisoEE3PE+1zsDubItpPSAZ6x7ti
-	341qurIZGPtMp7+tPSzuU9fimLvPqHNBsL2WCds18ny+avUN5iBquGDHbKtOiwO1wqmsR6M7M5l9W
-	2Ni5MQTxVk12UQvQDOMHIdz30vEGD0RPcj1MwVzoDBvlw40unacoQh3z4UHfFH0j7YVexd7oBm1GL
-	D3VBQStUsC4CnmMZcnrAZ50dl2GToiN9OI1NWfaKY+Z+xIguVMK2q9ODRwYMUhuM0Yj3N1j4+aW52
-	mB1dW/YQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KbcTK2WZjfHEQQ39q4AXBDKxCctb3txQ5lG0R1mMthE=; b=a4x1UyxEyZU6w5KTD9/tzhph/c
+	X0GRkC2jCpJ7oB2p/Ry1ZKkAgJi7uCw2WRMaGAIARuL1h1+THf8yQEOvaBr3LsMTswQ8wueNYQyO1
+	j3mOrQPY+ZP0Pqq7wBcyulIWRiDbRIVHVeFgy1FQqWD2HjH1vmDCpl8LhK8UcNYAxneiMpKGFQAop
+	5gXMiJOwIsudGO9QDO/PXbatz9o79qMg7Jht90acjK9VZvnSbduoHf3CiHCKFBS0oU3toyB0JoAG6
+	OYglIxXcyD6BzGKYWAJiziYKDSPiW9zir1N5Ko3gpyR66UEGf7764TSlKS5drHfhRCHUNuBy7zrC4
+	0yZlNbeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlmXL-00000001Q04-1C6c;
-	Fri, 30 Jan 2026 11:19:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlmXI-00000001Pzc-3qpX
+	id 1vlmYp-00000001QCy-2p7x;
+	Fri, 30 Jan 2026 11:21:11 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlmYm-00000001QCc-3fLn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 11:19:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0EE3A153B;
-	Fri, 30 Jan 2026 03:19:29 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A74593F73F;
-	Fri, 30 Jan 2026 03:19:30 -0800 (PST)
-Message-ID: <c97c3b57-7cfe-4c26-9c1c-f790371748b0@arm.com>
-Date: Fri, 30 Jan 2026 11:19:29 +0000
+	Fri, 30 Jan 2026 11:21:10 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60U9V07v2675381
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Jan 2026 11:21:08 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	KbcTK2WZjfHEQQ39q4AXBDKxCctb3txQ5lG0R1mMthE=; b=eeLkMX0iElqJMZIv
+	JKwPktQIB4bgh2Vu2+TDkrpF5y42WfD2KBx+fXCvECzkxBO4DvfLR3AMrXqNBw2Z
+	MEbxZbW9zvBDIXYc7sdEPumuqoQwfLMmx5qssdu14N7bSKqbeBfZ0KPL867hhzcG
+	PBR1plwIhUnLt/QBcWnB2gcd7M59r+ItWKcdOTZKHCvllniem9vE9hfQ1ywDuTo/
+	kyi8J6ky9mwsJK0cpP7VtPTVCVUbj0W7j/GlViwHTGE6JHAWtUdY6wDggEFkMuXT
+	s33CkGpcHpk+M+P7At3DIjbA/jm9g2VgIRz2jj+7GJIWsbDdKbrM2s9da9ZT2ePV
+	eJmU+Q==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c0t340b2e-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Jan 2026 11:21:08 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8c53892a195so35374285a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Jan 2026 03:21:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1769772067; x=1770376867; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=KbcTK2WZjfHEQQ39q4AXBDKxCctb3txQ5lG0R1mMthE=;
+        b=ZRZvbR0mBHAgjvD0bqnWtC4/ws5nJMiCRd9Imu/ed9ZciNJxhVdPrvdVHej6TC/kNq
+         ou5Q0uS/wr7WyDihR3J6Sqb4QBlzGO4delU626rJ5j2lOSLe15KBn8w1TEfwJrjYhjEE
+         U9ovaCk6yUgIzJovlvEJG9CqWRMqci6IaMB4D3n6QNFymQOJNvOJAU6ETg7dt1OiGJ1e
+         Ii6ibLoX0jktdLmCo24u02GRGoVnBCOFA1bWbeJzEYNR56BlXsKNiFiuVk8gV0unsC4f
+         Lkm+9xttytgYj78ioKd4CP6m87uZAvSZF1YpVl8QLDSivtKooOwAq9+yoOqHi0YBqGbr
+         paZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769772067; x=1770376867;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KbcTK2WZjfHEQQ39q4AXBDKxCctb3txQ5lG0R1mMthE=;
+        b=mdUAnjXnYJBnTisLHX3z+3/cP5BmgyszmGhbeocDR9CCj+HD6+EfgbnqNpZEkX4SKK
+         w/LZ+QjxRcIbSUQavII0+5xt7Vwd8q+la0+6OHj2EfCh8vnH3rLAi+ZbG+yUluVKW/3H
+         pqEn6Y1B7rp+6tRDP0PkwiqWvlvBR9vcdoGqPPjW4FH4Ecys9XJ23VVBIzVnP+P/CEfO
+         ZHbsOE1SJTDFd135KNINCsLqCAhTcEhLp+bfJZbCWmGULM0nBxuO2u3WIfZXb7cRoMgl
+         GNHSBfMROPDUK+cTX/uqb7eHmGRrUu2zJmreZYSW9nhWYrx6vPCCYvrzMJ7P8EVn7HZm
+         DS4g==
+X-Forwarded-Encrypted: i=1; AJvYcCWINgu4G6wuWJnAvrTIrxnrl8mq/HxKlhUlJIGJocttFzvdGZrpNvDSuham2UVnNzPEXaQqqMj5V2sHOGylcG/J@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlW1zhuBqarsD4Vm+xc0ktZ3+AXldvOngo4/1n5x+FWl4JsimZ
+	QSYfps7RxG8LEBwpYDix3buQL8cSYcaLFeHIildqGvfMjF5eGqDsM7YtedNEDma+ppg+qqzp44/
+	0zYCzd38FcxbskStj5xuP+PJnpfcfzprjImglacInG39vRTSLXXuf+0d5f0px2x1to5c4tgTRxB
+	164Q==
+X-Gm-Gg: AZuq6aK9rJIH0pyz4O/eFbfkn4/8zVkoJvJSogurTdE4R4jrGNRBnmMM2T4WLKxAshl
+	dfD9FYxOrlouzOMDnVduHcF8pAwkmFGuTQjoYWMEE13EGL4FXz3VxxUEZ9qcYFzM0LmIXhPkbUr
+	ZmCq4yxz5z8OzgsodUVSBB724JJa/XvysStF1FKPY5XqrojA3anhRQ5ithzsvg6jQQMCJzgNMqz
+	O3rxgdZW7yk8Ttl3jgJHAUJUnxk3XMmldhZsQW2fFraMmUbfonNqcj3ia3FeucmVZG4CsWMGVDv
+	m2UH8NjupayVdIXMAR5d6fRJU+put1Bo8nlSB7QQrEiFWftWmTILZYZ1Gdj053pu6eC8R22vu6r
+	95K8+Mvpd2lYMZAOdEfU1NAwc4kPbWK8y8iKpSDmRugCAhESzb4A8xHu0eEN8EHVUa9I=
+X-Received: by 2002:a05:620a:4441:b0:8b2:e177:fb18 with SMTP id af79cd13be357-8c9eb312fd8mr274269585a.9.1769772067213;
+        Fri, 30 Jan 2026 03:21:07 -0800 (PST)
+X-Received: by 2002:a05:620a:4441:b0:8b2:e177:fb18 with SMTP id af79cd13be357-8c9eb312fd8mr274267185a.9.1769772066697;
+        Fri, 30 Jan 2026 03:21:06 -0800 (PST)
+Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8df8465cb5sm137854166b.40.2026.01.30.03.21.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 30 Jan 2026 03:21:06 -0800 (PST)
+Message-ID: <7e61575a-3e0f-491d-ae22-89ab8bb21c91@oss.qualcomm.com>
+Date: Fri, 30 Jan 2026 12:21:03 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 28/47] arm_mpam: resctrl: Add support for csu counters
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
- jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
- <20260112165914.4086692-29-ben.horgan@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
+Subject: Re: [PATCH 3/3] PCI: qcom: Add D3cold support
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
+        Jingoo Han <jingoohan1@gmail.com>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+        Will Deacon <will@kernel.org>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        jonathanh@nvidia.com
+References: <20260128-d3cold-v1-0-dd8f3f0ce824@oss.qualcomm.com>
+ <20260128-d3cold-v1-3-dd8f3f0ce824@oss.qualcomm.com>
+ <63531057-ea7c-4a87-9848-04e502bffc32@oss.qualcomm.com>
+ <45e1c870-f155-4943-990d-5e75a1e8b998@oss.qualcomm.com>
 Content-Language: en-US
-In-Reply-To: <20260112165914.4086692-29-ben.horgan@arm.com>
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <45e1c870-f155-4943-990d-5e75a1e8b998@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTMwMDA5MiBTYWx0ZWRfX2uuC0wVuBAMY
+ y1BvuG8yl4BuliQN4BRzVN+Mvh76cj5e9zKDtBj1lCiIc+etJNvzFgpkGmEaGFAQ25erqfZh3CW
+ dtcR7pKNfJhQpIf3VGrI6Q6dVBsPQCItV6r1e/hJOI50jpYHfFBfP6B2B4VIxvy4J/weGpZN7O3
+ YjOeU6xfcEv1JMaqd4CD3oHrCCU9OR9yK+E0GYJisfnqJXkAEIDYhb53BAxe02nMPTEyR95WEBI
+ IQw9lp3qXSY9hR5jSXR+7Yw0II3NSrz3lJQDifwWB6iVWw1b/M1FXCAPq+19pv+crrXPX9xdpFa
+ jJDgozXrJz7sit6T/pNN03Rr4Gt3qgnYTQTCrPUBxaVZ5b9eW741i+oPCOaW/1Ypkhr8p3BOLWW
+ eFNfU5Et64Mj21OMD70IXWm5OA0eb/pmcXIE3469fQCOBGTleo+DXCIKCzJHRgCE7/bazPCBehy
+ Cla8jbrSlYDZyU1xD0A==
+X-Proofpoint-ORIG-GUID: ShmBDKgP-4EguOZgHeOCsj1XaudA6PO7
+X-Authority-Analysis: v=2.4 cv=QfFrf8bv c=1 sm=1 tr=0 ts=697c9424 cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=M7nLEK1OKNC5V3jzK1UA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-GUID: ShmBDKgP-4EguOZgHeOCsj1XaudA6PO7
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-01-30_01,2026-01-29_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 bulkscore=0 impostorscore=0 adultscore=0 phishscore=0
+ spamscore=0 clxscore=1015 lowpriorityscore=0 malwarescore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601300092
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_031937_051149_9CD99A73 
-X-CRM114-Status: GOOD (  34.57  )
+X-CRM114-CacheID: sfid-20260130_032108_946781_05B70525 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,195 +154,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replying to myself...
-
-On 1/12/26 16:58, Ben Horgan wrote:
-> From: James Morse <james.morse@arm.com>
+On 1/29/26 6:27 AM, Krishna Chaitanya Chundru wrote:
 > 
-> resctrl exposes a counter via a file named llc_occupancy. This isn't really
-> a counter as its value goes up and down, this is a snapshot of the cache
-> storage usage monitor.
 > 
-> Add some picking code to find a cache as close as possible to the L3 that
-> supports the CSU monitor.
-> 
-> If there is an L3, but it doesn't have any controls, force the L3 resource
-> to exist. The existing topology_matches_l3() and
-> mpam_resctrl_domain_hdr_init() code will ensure this looks like the L3,
-> even if the class belongs to a later cache.
-> 
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Co-developed-by: Dave Martin <dave.martin@arm.com>
-> Signed-off-by: Dave Martin <dave.martin@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
-> Changes since rfc:
-> Allow csu counters however many partid or pmg there are
-> else if -> if
-> reduce scope of local variables
-> drop has_csu
-> 
-> Changes since v2:
-> return -> break so works for mbwu in later patch
-> add for_each_mpam_resctrl_mon
-> return error from mpam_resctrl_monitor_init(). It may fail when is abmc
-> allocation introduced in a later patch.
-> Squashed in patch from Dave Martin:
-> https://lore.kernel.org/lkml/20250820131621.54983-1-Dave.Martin@arm.com/
-> ---
->  drivers/resctrl/mpam_internal.h |   6 ++
->  drivers/resctrl/mpam_resctrl.c  | 173 +++++++++++++++++++++++++++++++-
->  2 files changed, 174 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index f89ceaf7623d..21cc776e57aa 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -349,6 +349,12 @@ struct mpam_resctrl_res {
->  	struct rdt_resource	resctrl_res;
->  };
->  
-> +struct mpam_resctrl_mon {
-> +	struct mpam_class	*class;
-> +
-> +	/* per-class data that resctrl needs will live here */
-> +};
-> +
->  static inline int mpam_alloc_csu_mon(struct mpam_class *class)
->  {
->  	struct mpam_props *cprops = &class->props;
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index 7402bf4293b6..5020a5faed96 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
-> @@ -37,6 +37,21 @@ static struct mpam_resctrl_res mpam_resctrl_controls[RDT_NUM_RESOURCES];
->  /* The lock for modifying resctrl's domain lists from cpuhp callbacks. */
->  static DEFINE_MUTEX(domain_list_lock);
->  
-> +/*
-> + * The classes we've picked to map to resctrl events.
-> + * Resctrl believes all the worlds a Xeon, and these are all on the L3. This
-> + * array lets us find the actual class backing the event counters. e.g.
-> + * the only memory bandwidth counters may be on the memory controller, but to
-> + * make use of them, we pretend they are on L3.
-> + * Class pointer may be NULL.
-> + */
-> +static struct mpam_resctrl_mon mpam_resctrl_counters[QOS_NUM_EVENTS];
-> +
-> +#define for_each_mpam_resctrl_mon(mon, eventid)					\
-> +	for (eventid = 0, mon = &mpam_resctrl_counters[eventid];		\
-> +	     eventid < QOS_NUM_EVENTS;						\
-> +	     eventid++, mon = &mpam_resctrl_counters[eventid])
-> +
->  static bool exposed_alloc_capable;
->  static bool exposed_mon_capable;
->  
-> @@ -259,6 +274,28 @@ static bool class_has_usable_mba(struct mpam_props *cprops)
->  	return mba_class_use_mbw_max(cprops);
->  }
->  
-> +static bool cache_has_usable_csu(struct mpam_class *class)
-> +{
-> +	struct mpam_props *cprops;
-> +
-> +	if (!class)
-> +		return false;
-> +
-> +	cprops = &class->props;
-> +
-> +	if (!mpam_has_feature(mpam_feat_msmon_csu, cprops))
-> +		return false;
-> +
-> +	/*
-> +	 * CSU counters settle on the value, so we can get away with
-> +	 * having only one.
-> +	 */
-> +	if (!cprops->num_csu_mon)
-> +		return false;
-> +
-> +	return true;
-> +}
-> +
->  /*
->   * Calculate the worst-case percentage change from each implemented step
->   * in the control.
-> @@ -507,6 +544,64 @@ static void mpam_resctrl_pick_mba(void)
->  	}
->  }
->  
-> +static void counter_update_class(enum resctrl_event_id evt_id,
-> +				 struct mpam_class *class)
-> +{
-> +	struct mpam_class *existing_class = mpam_resctrl_counters[evt_id].class;
-> +
-> +	if (existing_class) {
-> +		if (class->level == 3) {
-> +			pr_debug("Existing class is L3 - L3 wins\n");
-> +			return;
-> +		}
-> +
-> +		if (existing_class->level < class->level) {
-> +			pr_debug("Existing class is closer to L3, %u versus %u - closer is better\n",
-> +				 existing_class->level, class->level);
-> +			return;
-> +		}
-> +	}
-> +
-> +	mpam_resctrl_counters[evt_id].class = class;
-> +	exposed_mon_capable = true;
-> +}
-> +
-> +static void mpam_resctrl_pick_counters(void)
-> +{
-> +	struct mpam_class *class;
-> +
-> +	lockdep_assert_cpus_held();
-> +
-> +	guard(srcu)(&mpam_srcu);
-> +	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
-> +				 srcu_read_lock_held(&mpam_srcu)) {
-> +		if (class->level < 3) {
-> +			pr_debug("class %u is before L3", class->level);
-> +			continue;
-> +		}
-> +
-> +		if (!cpumask_equal(&class->affinity, cpu_possible_mask)) {
-> +			pr_debug("class %u does not cover all CPUs",
-> +				 class->level);
-> +			continue;
-> +		}
-> +
-> +		if (cache_has_usable_csu(class) && topology_matches_l3(class)) {
-> +			pr_debug("class %u has usable CSU, and matches L3 topology",
-> +				 class->level);
-> +
-> +			/* CSU counters only make sense on a cache. */
-> +			switch (class->type) {
-> +			case MPAM_CLASS_CACHE:
-> +				counter_update_class(QOS_L3_OCCUP_EVENT_ID, class);
+> On 1/28/2026 5:58 PM, Konrad Dybcio wrote:
+>> On 1/28/26 12:40 PM, Krishna Chaitanya Chundru wrote:
+>>> Add pme_turn_off() support and use DWC common suspend resume methods
+>>> for device D3cold entry & exit. If the device is not kept in D3cold
+>>> use existing methods like keeping icc votes, opp votes etc.. intact.
+>>>
+>>> In qcom_pcie_deinit_2_7_0(), explicitly disable PCIe clocks and resets
+>>> in the controller.
+>>>
+>>> Remove suspended flag from qcom_pcie structure as it is no longer needed.
+>>>
+>>> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+>>> ---
+>> [...]
+>>
+>>> +        /*
+>>> +         * Only disable CPU-PCIe interconnect path if the suspend is non-S2RAM.
+>>> +         * Because on some platforms, DBI access can happen very late during the
+>>> +         * S2RAM and a non-active CPU-PCIe interconnect path may lead to NoC
+>>> +         * error.
+>>> +         */
+>> I think someone internally once tracked down what that access was
+> As per last debug which I have done few years back we see access coming IRQ driver to mask the interrupts
+> as part of disabling non boot CPU's.
+>> Can we fix that instead?
+> The only proper fix is to keep device in D3cold which this patch is doing. if some client drivers like NVMe
+> doesn't want to go D3cold we need to honor it, but Mani is working on it to allow NVMe drivers to go to D3cold.
 
-As the counter is named llc_occupancy (llc = last level cache) and we
-are naming the resource L3 it would be surprising to have llc_occupancy
-on anything other than an L3. Also, that L3 should be a last level
-cache. I'll update this as part of a general push to tighten up the
-heuristics in this series to make sure that in the future when more
-fitting user visible interfaces are added in resctrl we are able to use
-them rather than being stuck with something that almost fits.
+That doesn't sound right - if there's an unclocked access, we should
+either ensure that the PCIe controller is online for that write, or skip
+the write if it's not possible for $reasons
 
-> +				break;
-> +			default:
-> +				break;
-> +			}
-> +		}
-> +	}
-> +}
-> +
-[...]
-
-
-Thanks,
-
-Ben
-
+Konrad
 
