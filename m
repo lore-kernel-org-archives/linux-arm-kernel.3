@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94542D49C92
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 11:04:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60840D49C9B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 11:04:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wQXFZROQ6hF9AaVZib6ifoo/+V5zX8dC7AyfsCk0MA4=; b=ntf6KKdHF9hy0Q2h/4X6cujajk
-	gFvJilTTUsmqHYfi8Btcmsm9lHMAMP/g6Frqk/8GFwU083MIXsyOTsxwKwNfDcA1jWcxenoe8+HEV
-	bm9keh+/xcpMD6l4JNvp1TteljNG9GbNKMernQEfHzLwJmEkMJfCDeLFqY5kLPeftKHh7+0sNdBQi
-	gIofa4As29A/vaUwxaqJDQC8ZORlLFDhyle80QwBt7Z2U/X1I+s+u+LZbjFKpiKNtyHUQ5ePg5m9T
-	sdhL9l6XA0H7UUge1Mk3wXPsuaUu0nl5gk6WewkUA9LIVgrSQLtbZoNRvnv6ni74yM5+UgSacISTP
-	rZlLfVqg==;
+	bh=CmFagWQxUJk0LPa4cC04Tg1Y/5eSP0Y9cYWw1vU4MjE=; b=w8SAQoAVU265Of29QIdkIdLi/p
+	AFBrOQeJkJKJyDM1z/SfPu9bO5JOlTJARP8uOoUh6o+MDCGSJ6MXavzdeD0Ciiwrn/kfUM/Phmhpe
+	+RlYnre2oz7EaGchctbS0oDs7ih/wvuMIDbai35vmfzYb9WhXR1U4LWWKrEQY988MK0Y+68ql1vrK
+	9WK+DVDsD2uRJU1pDDE3lWqb1W4krpjiTFicz00yyui2PvejhZU/+6bT4r5a5v0rKJDk+imBcJhtN
+	o6tTBN6GHYR25lqbx3fTxBxhhiBFI1Y0u9PrDxkZrmOun2xmrx6fHXD2onJAV/nRBRTwf3wqypnVl
+	QWul3U8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlmIU-00000001OA2-0KGo;
+	id 1vlmIU-00000001OAi-2Ngp;
 	Fri, 30 Jan 2026 11:04:18 +0000
-Received: from mail-westus3azon11012015.outbound.protection.outlook.com ([40.107.209.15] helo=PH8PR06CU001.outbound.protection.outlook.com)
+Received: from mail-northcentralusazon11013061.outbound.protection.outlook.com ([40.107.201.61] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlmHz-00000001Nm3-3wpN
+	id 1vlmI0-00000001Nm8-0ng7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 11:04:04 +0000
+	Fri, 30 Jan 2026 11:04:05 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kvpZoFLyYN91Gu0CiyU1HzCvkGye12LK3XmqlnZIHL2W9JbuIX2j5nWXiC+GnGGJTsCgTa1LykhhpTsRFPvuBNTMRXtzYZ/iUEwXLhjtuobHSw4PfXTXYwFCnTGhW80cLD03UJ7vN0SdogqJkylqc/d6gtQJJTtXIDVgN+oF9/FRme4mwuCh7nWWHHQXf0KNOLsPUlkw59Obh3/ExMNmRPix5yI/tkY02GolVN1mf1oT1P13YLnBRG3da+Qu2rWfPMmdvFbI40NIStvrfhRewWVL/+p6oXzY7WYJK5jsYsnjA1saNPtEdGoCr3aN6Az3z6k72Wniazv32RpU75+wjQ==
+ b=QZP/sxLYKJ/q58oXZicWCG0Jv1U8wP7LRGqxTqakAxcEl3ju+BIg/2U1ECEX3CLF+CBkj/pOASk8SqcCf/Gkmm7oMK8BPfGwoFt5WTfKjCfhOZiRDvPGZeeFDn5iZ7VBgqFECXUFrCDDdSSFmA7dfMF5MGlz+oJ4jkltoqEPVkv1XbFg2Frr9vi3R49kftxVs9SDLUGX2OY3fVC22OA6E9lXZ9UtU/vnizpTZCMXVRuNIVGf9AvH4TN3mj65pEv9StDbCwgUKls+hI3SnJcQfxHhr8ortCXWooStFxKKJY3ZFklQgUcpg1r7BUGoyVk0BK3sLRS2hV2DbxhSuIFaDg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wQXFZROQ6hF9AaVZib6ifoo/+V5zX8dC7AyfsCk0MA4=;
- b=BKoCnw6ueQIulTaUeEU9eRpi0K14sqVqO0je5MlqE+991lFY8sBCG3+OuTaAvS26yXY5RPOg0UVb9G5rUFPnXOlPjDCGU7kHo+4cYfka2/9QrGWw1QtD9+M2wuabFm8tJscxgbSuXRKIa/IkWkG0pKDKuvWN+CcoJZZ0I3M6UIAHDcCGSWul+REMEDgDFQfDXxORGltNqBlUC9zlrUuXNv+L+tigV/o0VBEWLqouVAKsSYmwgNuq7/PxNmwLtPdnJyvSCseHzlB8wve/PbgQ0YAJEalmtkaEj4NeSwO2Vdow5ahqcoEM/tMoLdnHVFkBbXE8N34ADvD/qdAKlmnpYA==
+ bh=CmFagWQxUJk0LPa4cC04Tg1Y/5eSP0Y9cYWw1vU4MjE=;
+ b=aSWObiPKBr9wyVFHEOvr71gwVILtlqgc0O4ywP+oxh0tu2Z3PfwtKwhxrQ2s9AOkt94AMx1EebxRjq17FRslikT39qYN8sUfTdpLkgaNUyaTTSHSkSv7Yaxpr98qbsLydkw4YWjIVzu7UHqAoEQq5vcP26LP2PLjcMfvrEArssecOjITXp/lAVCRl/jNX0ung8SD+G8c0dE1eDg06+mE0uSkv/ACWBsXHjZAFeToE594Fvu9lr5rymSKL2mHRFmUtypZPffN+enE9EOCXN4JHal0VIhlKwFL2ywTjc/icypAw9lS8D6zpqtkoj3oNYYmMMQKvYWhpR83NrXFrRCAFg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wQXFZROQ6hF9AaVZib6ifoo/+V5zX8dC7AyfsCk0MA4=;
- b=uWn0aPcrbWDQM84DrqQeE78EGP1RicD8j8wF8HtED/ZZsn/+sLdJfTqbXr/bgyZMvajxuRZu65ZLJHeMvnJRdz6O+jKD2vLewQyjelDCRm1Xzxaqd5unF16lb+NTS0OQSlqE+4a79IhVRKgbK8OFSnPdSwiT9GKSsrPOgsxUiPE=
-Received: from PH3PEPF000040A4.namprd05.prod.outlook.com (2603:10b6:518:1::53)
- by DS0PR10MB6848.namprd10.prod.outlook.com (2603:10b6:8:11f::8) with
+ bh=CmFagWQxUJk0LPa4cC04Tg1Y/5eSP0Y9cYWw1vU4MjE=;
+ b=foLBaQgCzFibMeEK+ZMV1iVx77jVA7TKqHGeKdtXI5kAfTUR9fBvx9pNxPwlz9fFzDRsBBUIJeMF1Vy9rTHmHLBA12W2OyeR1LwEQKzJ8kECMIykA1pwaq0p7M/CkJ6eQLA637WnYq2pUIa1BnjvCqSa3tdH6MFbcwMypX/NE9U=
+Received: from SA1P222CA0096.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:35e::23)
+ by DS0PR10MB7049.namprd10.prod.outlook.com (2603:10b6:8:14b::11) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.8; Fri, 30 Jan
- 2026 11:03:41 +0000
-Received: from SA2PEPF000015CA.namprd03.prod.outlook.com
- (2a01:111:f403:c801::5) by PH3PEPF000040A4.outlook.office365.com
- (2603:1036:903:49::3) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.7 via Frontend Transport; Fri,
- 30 Jan 2026 11:03:40 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.12; Fri, 30 Jan
+ 2026 11:03:44 +0000
+Received: from SA2PEPF000015CD.namprd03.prod.outlook.com
+ (2603:10b6:806:35e:cafe::e6) by SA1P222CA0096.outlook.office365.com
+ (2603:10b6:806:35e::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.8 via Frontend Transport; Fri,
+ 30 Jan 2026 11:03:39 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
@@ -59,24 +59,24 @@ Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
  198.47.23.195 as permitted sender) receiver=protection.outlook.com;
  client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
 Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- SA2PEPF000015CA.mail.protection.outlook.com (10.167.241.200) with Microsoft
+ SA2PEPF000015CD.mail.protection.outlook.com (10.167.241.203) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.3 via Frontend Transport; Fri, 30 Jan 2026 11:03:40 +0000
-Received: from DLEE212.ent.ti.com (157.170.170.114) by lewvzet201.ext.ti.com
+ 15.20.9564.3 via Frontend Transport; Fri, 30 Jan 2026 11:03:44 +0000
+Received: from DLEE206.ent.ti.com (157.170.170.90) by lewvzet201.ext.ti.com
  (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 30 Jan
- 2026 05:03:40 -0600
-Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE212.ent.ti.com
- (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 05:03:44 -0600
+Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE206.ent.ti.com
+ (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 30 Jan
- 2026 05:03:39 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE213.ent.ti.com
- (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 05:03:44 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 30 Jan 2026 05:03:39 -0600
+ Transport; Fri, 30 Jan 2026 05:03:44 -0600
 Received: from uda0498651.dhcp.ti.com (uda0498651.dhcp.ti.com [172.24.233.239])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60UB2HBv1204392;
-	Fri, 30 Jan 2026 05:03:35 -0600
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60UB2HBw1204392;
+	Fri, 30 Jan 2026 05:03:40 -0600
 From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
 	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>,
@@ -84,9 +84,9 @@ To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <vigneshr@ti.com>, <s-adivi@ti.com>
 CC: <r-sharma3@ti.com>, <gehariprasath@ti.com>
-Subject: [PATCH v4 18/19] dmaengine: ti: k3-udma: Validate resource ID and fix logging in reservation
-Date: Fri, 30 Jan 2026 16:31:58 +0530
-Message-ID: <20260130110159.359501-19-s-adivi@ti.com>
+Subject: [PATCH v4 19/19] dmaengine: ti: k3-udma: switch to synchronous descriptor freeing
+Date: Fri, 30 Jan 2026 16:31:59 +0530
+Message-ID: <20260130110159.359501-20-s-adivi@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260130110159.359501-1-s-adivi@ti.com>
 References: <20260130110159.359501-1-s-adivi@ti.com>
@@ -96,56 +96,56 @@ Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF000015CA:EE_|DS0PR10MB6848:EE_
-X-MS-Office365-Filtering-Correlation-Id: b2b87c8f-0dad-49cf-610f-08de5fef39c0
+X-MS-TrafficTypeDiagnostic: SA2PEPF000015CD:EE_|DS0PR10MB7049:EE_
+X-MS-Office365-Filtering-Correlation-Id: 792fa5a5-7d99-4a35-30db-08de5fef3c52
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700013|82310400026|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5FY3xKh+1vpH/jzuSEx2+31jTYnQgpTlgqp4aerK+3sMoB+JpxsjaZFCwG1l?=
- =?us-ascii?Q?kSqcdgb9qySHNt0tHc8mE5htDqcrEGKsfA1G39GEvxZIUSeftI0TKjYFO55k?=
- =?us-ascii?Q?cdCZJxC7AK9kVcq0/fzRV0Y0bXh2DS2TgKk/iCkWtJFr11uh3KIH4XJg/lGI?=
- =?us-ascii?Q?K+xsYD0hCAJ2eY/+y3GnV72OaKTmtpippZzaDv1VWLs0FO45AWSUT2npiY3W?=
- =?us-ascii?Q?1tkX8Pjh+lpf8HsD8KBuAxwlCdD9ERAnGVr1X8gmYs1SujN95imtFdFHEacN?=
- =?us-ascii?Q?NEPQpYgFs5A3u5eb74Bi7OaYE3K5BzxpkXcKmdHnaBGZ2Oa1QCm/ze9bwHH5?=
- =?us-ascii?Q?Ch9vHejJeOBrKTgbYwZ2GyfZIj4KgWj4qZfWZvLAaXm0unIczgG3sGK11eXH?=
- =?us-ascii?Q?dG4QQFabNYOSMuY2mT8dtmkxd4FkzgHhy2Ybjq5ig4MdXIDIazYOfwRgtiSC?=
- =?us-ascii?Q?OrgDA/b85XpcQnRfNtJneBEOqO7qMPZgyagkwH3SIeSLuIkZctoBdHESLFq7?=
- =?us-ascii?Q?zrxx9StX6KbiI6F4gKjlTipWAmnYWU1v2dL4X/OVwaguzybSecmuEOC3oILb?=
- =?us-ascii?Q?fEdKQ/sB5+JM0iguKq8FSeK7IU31LuEu4LHNOPrTYryIWIbvlNYOe2pqJGNe?=
- =?us-ascii?Q?7lglX9bELQHCUcP8w51C5qXEQUqTnVOkZcI0oqZNczi2KDpl9o4arh1dYw0W?=
- =?us-ascii?Q?Y60tLI4Zbp+6h8oq8k6/zo2xmGfrKONHyS3cta7GTxouy/7I4gbsfmIsMOKp?=
- =?us-ascii?Q?Skf+UH5VTy1M8XDuNwA8owX/EJX2jITxyW/lR7hmRCHXXJqPeKEGnliCaE7/?=
- =?us-ascii?Q?FLmC7jXS5gFyxAwJa4etE14T2uYoK28aO+9vSL9ZriWO/dS6z/VV1AtkAIRy?=
- =?us-ascii?Q?MlhaMvzU4ULdu60RB6ARJOKznApu3xOQeuRCwQk0DAwiAaXJsPZ7WgHlRJGR?=
- =?us-ascii?Q?HHXndZZi4WhyufxPV26evmMv4GQ5D90tD3QD9vSgA8zuCdpyiSKqQC9DcUl/?=
- =?us-ascii?Q?zf06/rOzaCYLHSvYCD3Ie1BXPbWSwofuOvLb3+0pIm5XOgYffQQPDsVqpwr0?=
- =?us-ascii?Q?Riopvfljqs7wcFupUyKFIw2psdGHDMmYJA/CJ9OLopIyvsGBbExXemSG0SQO?=
- =?us-ascii?Q?erXmrxO19/40HHhf6LT4F33wPLB5l4bix09zzOVFi4sDiU7zqJ+eB2mGu+zj?=
- =?us-ascii?Q?em9Q6WMcHpsAor9WahvsXTKz1w2vFxUkTbquLnmLt+eHsi7s9WAK9e3BMwBp?=
- =?us-ascii?Q?G2m4mCYjPAjlgJUsyp/iJWIJ2IfAfmCmRxaeFAawDEwfkDwcEd6bfp4BOM6q?=
- =?us-ascii?Q?TZYD5fnGZ/HFBPPBfWb4X3O9G/ZHVlauXxBQqhXIlisaqK9+HlpLMPDS2L2A?=
- =?us-ascii?Q?A11huWFHzP+ZyxA7pLprVRGfbd7grs1IKriynovTV/7xoSIfq9rFVJRHObKZ?=
- =?us-ascii?Q?v2xf948U3rKCKl+Z+/WcAkyOYa0a2P/hXgZdeLYCDPAqRhndRH4sg/vwqUcv?=
- =?us-ascii?Q?dU3hNiay+P0aGkbrWNRQ1fIsIAA6UyPI7zbc8V3CsT4Af/kPTTo712/GwKKY?=
- =?us-ascii?Q?7DffyWanFuVGuAAWurBSFSsd+Rl//UhMuJld6kjew715maV5TK+HyPWWD0Mb?=
- =?us-ascii?Q?KE0ikbqUdPpBDQYmXh7l2BtFc4Q2RU/Hmo6RCON0oCYhUsJ98oYS5P3WXgqN?=
- =?us-ascii?Q?rFzEyTCJxcGZeC0HZBOXM7bKHwI=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700013)(82310400026)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|7416014|1800799024|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?80l4xrFt9+4Q0QHdLdkDXNjHCOykCz3AlRT1HtVYA3of0T5QKiSncaOU+IBt?=
+ =?us-ascii?Q?he9WsRFoBPkV7hYKm7eNNv6zshWQ9ASuZ9nEdXfrhb56Ke2P8ZHiuVIb6BRR?=
+ =?us-ascii?Q?UQp74v7of6VsgUMImTP5jGpKJQ/v+/cERYCZEoDYL2AtJwPpIFS9y5u9l3YH?=
+ =?us-ascii?Q?xTRJMZlYyVKWSpya+QqDuhNqd7ec8aHzQtXdRGPU4XPCCZCmDwn+bS2V6WjG?=
+ =?us-ascii?Q?/6c6Z+Q8/F3n/2BAQIbdyCEyw69CRlp+UEecft7nEp1mdnDsDbYUFHZ5KTvr?=
+ =?us-ascii?Q?6wQcovKw8Z3VyRrRB02Xk3lttIqmfztx47rm1kEO3MGnvWnHXeWY+94bUBNS?=
+ =?us-ascii?Q?0qBbdbJvq1CDEPBYAmjmt6Yoj8N4d3DOlWlLGOco2VEKG0E9/4Ipc9adg4Nl?=
+ =?us-ascii?Q?GBqiS8p5zQedtWhFabosHAax7AfsS3WvPEDcGf7OQL6DnpWZBpORDoOwmaeM?=
+ =?us-ascii?Q?nJho3hGLX26uZLWEIsf9yYomWHlZGW3tmld7tAFQVYHWznF9nM0xviFWRVfR?=
+ =?us-ascii?Q?HuiRtvCrVNOvQ+MXTGHDo95N8fScMwjR2WhLoiqXtRnKIv+UiuAC/ZrVMQbe?=
+ =?us-ascii?Q?bjvR+SeA80TwXyFoEQufcsma2JtkM/zsNY0cIyI5JVpL9Z+x0200Jr9vyfVB?=
+ =?us-ascii?Q?ZItJVLrf2o4IcoXUI+8dGDIgBvK7bOh2hLBQXhJXr7ZvpmrlPKEhVsGtcwSp?=
+ =?us-ascii?Q?JqOoYT5Rr1QyLNbPi5e3vSaGzLamuQ7hLxa7+5GByshhdPEH4aTdjScjIe4N?=
+ =?us-ascii?Q?ANC1kk+u1q1KLSZhw/eckPIEciQhNKfH8HF08CNErBvbumdcBfdjH+5ft3DI?=
+ =?us-ascii?Q?+rWM70s8OQ0tG737aoisMoRFZOtKwYsPnO+lTQ5zNwl3bwcysWzC2/isCSpw?=
+ =?us-ascii?Q?WJc1og03FC400Ka8L91TngOx1yOuRDTIeHkXS14Pa4tqAfNLgZEQzCFOzhPY?=
+ =?us-ascii?Q?l33KtZd0iZrKIgT8qMThF3i3W4T3XO/cuOHXHUv8NTBP1HMnEphclqe7AQJ/?=
+ =?us-ascii?Q?HkaAGn5o63n2oU1YWHplhaRwmzUPRe8tHsN0w6D6W2TyDmLVaJFPwZGXkEpJ?=
+ =?us-ascii?Q?W/UXA+bDEbXbcbLFSHspJLYk2WSuIgd81G8Ccr5697wPHScfFNWLj/kECE20?=
+ =?us-ascii?Q?KgjiNH/xeB/lbpiYIjtcK5tdMGypQJ9ngLHrbbe7l/AnMJ2yshy1cEMKRx9O?=
+ =?us-ascii?Q?olJgplyfK32imfS6cV6w9qJPsetOCXV6rL5hLLSrJMAyp7T0xrWkQQw3z4tv?=
+ =?us-ascii?Q?h28hRO8Mxs+4pT+WjY9sQixzsKAChFqfbOdSUyFFWGh78G74Yp2OIHlACIvq?=
+ =?us-ascii?Q?/X8Z5TI29YzPeyPlASMS81uStlvy6VFEjTyoz4jh54KeADBrToAkvysv1SA0?=
+ =?us-ascii?Q?M5Z8TxMGuTAt/FxygWkOMmU82jc/bBkRInaYvnQAjxxV8tXdZkUMynIVC+qs?=
+ =?us-ascii?Q?XhHAyNwRzH8AZOqQmK0sy77IwhoZkeGxLFml/k1Bg3Xcu+KoVpxuv9AUWvK8?=
+ =?us-ascii?Q?ey9Un9kSSki/YDJ1tPRhCrXpkC7gFLozycGD96QkDxrCHjsYFayuofYtMiRS?=
+ =?us-ascii?Q?VaIdh9UfSlB+dFyJQ/J1SmMxksdTe6bwnkBnWK1jmtPpCahSuYbZOmvVrTri?=
+ =?us-ascii?Q?2aozaaVU5XwLIgA6eW6PTG/zH+k/fKBSPS5G/vQk6j70TEoVJ9Wudd/HlXu9?=
+ =?us-ascii?Q?2qTyRrO+oanWJmhNwhZ2OqOOPjA=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(7416014)(1800799024)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Xr671OctyuSQQiyjVI2/HQt95L30eBNKKUBBbH5aMh6vJwg8OM968o0CGIkC2LI4Kd3Xp6wMt1hooThYlqYOmongWCnl+QLiZTjsJQ/dm3/60oWBMmylIexgXQPP+OCHcjCqjHG5qNR9lKKzVY9CeTcGxXmb1JHfXiSy42oEG3FjzrkISrxd8WS7iZR/2yWtl71yJY84SzF4cXH0teWUGYqULkRp2el7zgyZi27suGCeBbCTm0SFDZSRacJop6JHQhokqYNXYqdzwIe+MPMzLYcm8w1gVPxHB75So/kFc3w56irUiCSBwfu9hwx42Gqyy17DMvUWyrpnZSHYlLul5xAuOKb/Kqk8iDHt7mcOLhwpcFvjYdMk2JfIebaLRAvObt1Pn37v9qpIx0zjvLgcvwvNNe2N4IbgcNHImy+TpcnLCwU+hbVmnpW5mVQa5xVo
+X-MS-Exchange-AntiSpam-MessageData-0: dqn/XIyF0sDckTSiqIcjRRWuC8hKQXUI1ggfBBauLbYcyyLL1+7t6mqspOnFsiyVuWMJH2qN9zOt3iHlh6g096BC8tdue11dsNO4ezJj5Q7GWAgLdZY2z+TtC5JhtUTMtHMQnWCJmhur9asmBe+uD1R1bKAOhEhQQo/SloUTCsmgXPd7nQ90pTGVUlEh8Q7XHsJzhHDvXDRNfgV7AA1eDp1gDyHcV7m/1/OSflCCTW70H5+uq21gIrpDbfAyOBFBZSfTw9NWlcq4On6Z+yjQFGPyowYoQECAnp71kVwT8yfiXDhp8cmSGZTUdD39tdiZIcrRmYsGXEm0Rq8t9SW/WK3Aq3ZqeikGQ8Gx4L0U81h1+oSLkhOnGa27CjB5P7t8s1HP/g9CVNJhkvsQR2S9+gGKGRymrWEPUCg9UJmEJ38B+EWQxK6+XggD2Lw+lKJ5
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 11:03:40.3199
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 11:03:44.6338
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b2b87c8f-0dad-49cf-610f-08de5fef39c0
+X-MS-Exchange-CrossTenant-Network-Message-Id: 792fa5a5-7d99-4a35-30db-08de5fef3c52
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015CA.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015CD.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB6848
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB7049
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_030348_025329_D644C514 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20260130_030348_331973_500202DA 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,50 +160,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The `__udma_reserve_##res` macro currently lacks a bounds check for
-the provided `id`. If a caller passes an ID exceeding the resource
-count (`ud->res##_cnt`), `test_bit()` performs an out-of-bounds
-memory access on the bitmap.
+The driver currently uses a worker thread to free processed
+descriptors. Under high load (e.g., CRYPTO_MANAGER_EXTRA_TESTS), the
+descriptor allocation rate can significantly outpace the worker
+thread's execution rate.
 
-Additionally, the macro returns `-ENOENT` when a resource is already
-in use, which is semantically incorrect. The logging logic is also
-broken, printing the literal "res##<id>" instead of the resource
-name.
+This leads to false resource exhaustion where dma_alloc_coherent()
+fails even though many descriptors are waiting in the purge queue to
+be freed.
 
-Update the macro to:
-1. Validate `id` against `ud->res##_cnt` and return `-EINVAL` if out
-   of bounds.
-2. Return `-EBUSY` instead of `-ENOENT` when a resource is already
-   reserved, correctly reflecting the resource state.
-3. Use the stringification operator `#res` to correctly print the
-   resource name (e.g., "tchan") in error messages.
+Remove the lazy freeing mechanism (desc_to_purge list and worker) and
+instead free the descriptors immediately in the completion callback.
+
+This eliminates the latency gap between hardware completion and
+software reclaim, preventing the pool exhaustion during stress tests.
 
 Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 ---
- drivers/dma/ti/k3-udma-common.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ drivers/dma/ti/k3-udma-common.c | 40 +++------------------------------
+ drivers/dma/ti/k3-udma-v2.c     |  2 --
+ drivers/dma/ti/k3-udma.c        |  2 --
+ drivers/dma/ti/k3-udma.h        |  3 ---
+ 4 files changed, 3 insertions(+), 44 deletions(-)
 
 diff --git a/drivers/dma/ti/k3-udma-common.c b/drivers/dma/ti/k3-udma-common.c
-index d6459bcc17599..05b2b6b962a06 100644
+index 05b2b6b962a06..f9da00298b60f 100644
 --- a/drivers/dma/ti/k3-udma-common.c
 +++ b/drivers/dma/ti/k3-udma-common.c
-@@ -2011,9 +2011,14 @@ struct udma_##res *__udma_reserve_##res(struct udma_dev *ud,	\
- 					       int id)			\
- {									\
- 	if (id >= 0) {							\
-+		if (id >= ud->res##_cnt) {				\
-+			dev_err(ud->dev,				\
-+				#res " id %d is out of bounds.\n", id);	\
-+			return ERR_PTR(-EINVAL);			\
-+		}							\
- 		if (test_bit(id, ud->res##_map)) {			\
--			dev_err(ud->dev, "res##%d is in use\n", id);	\
--			return ERR_PTR(-ENOENT);			\
-+			dev_err(ud->dev, #res "%d is in use\n", id);	\
-+			return ERR_PTR(-EBUSY);			\
- 		}							\
- 	} else {							\
- 		int start;						\
+@@ -95,32 +95,6 @@ void udma_free_hwdesc(struct udma_chan *uc, struct udma_desc *d)
+ 	}
+ }
+ 
+-void udma_purge_desc_work(struct work_struct *work)
+-{
+-	struct udma_dev *ud = container_of(work, typeof(*ud), purge_work);
+-	struct virt_dma_desc *vd, *_vd;
+-	unsigned long flags;
+-	LIST_HEAD(head);
+-
+-	spin_lock_irqsave(&ud->lock, flags);
+-	list_splice_tail_init(&ud->desc_to_purge, &head);
+-	spin_unlock_irqrestore(&ud->lock, flags);
+-
+-	list_for_each_entry_safe(vd, _vd, &head, node) {
+-		struct udma_chan *uc = to_udma_chan(vd->tx.chan);
+-		struct udma_desc *d = to_udma_desc(&vd->tx);
+-
+-		udma_free_hwdesc(uc, d);
+-		list_del(&vd->node);
+-		kfree(d);
+-	}
+-
+-	/* If more to purge, schedule the work again */
+-	if (!list_empty(&ud->desc_to_purge))
+-		schedule_work(&ud->purge_work);
+-}
+-EXPORT_SYMBOL_GPL(udma_purge_desc_work);
+-
+ void udma_desc_free(struct virt_dma_desc *vd)
+ {
+ 	struct udma_dev *ud = to_udma_dev(vd->tx.chan->device);
+@@ -131,17 +105,9 @@ void udma_desc_free(struct virt_dma_desc *vd)
+ 	if (uc->terminated_desc == d)
+ 		uc->terminated_desc = NULL;
+ 
+-	if (uc->use_dma_pool) {
+-		udma_free_hwdesc(uc, d);
+-		kfree(d);
+-		return;
+-	}
+-
+-	spin_lock_irqsave(&ud->lock, flags);
+-	list_add_tail(&vd->node, &ud->desc_to_purge);
+-	spin_unlock_irqrestore(&ud->lock, flags);
+-
+-	schedule_work(&ud->purge_work);
++	udma_free_hwdesc(uc, d);
++	kfree(d);
++	return;
+ }
+ EXPORT_SYMBOL_GPL(udma_desc_free);
+ 
+diff --git a/drivers/dma/ti/k3-udma-v2.c b/drivers/dma/ti/k3-udma-v2.c
+index 6761a079025ba..d33382cc0356a 100644
+--- a/drivers/dma/ti/k3-udma-v2.c
++++ b/drivers/dma/ti/k3-udma-v2.c
+@@ -1320,14 +1320,12 @@ static int udma_v2_probe(struct platform_device *pdev)
+ 	ud->psil_base = ud->match_data->psil_base;
+ 
+ 	INIT_LIST_HEAD(&ud->ddev.channels);
+-	INIT_LIST_HEAD(&ud->desc_to_purge);
+ 
+ 	ch_count = setup_resources(ud);
+ 	if (ch_count <= 0)
+ 		return ch_count;
+ 
+ 	spin_lock_init(&ud->lock);
+-	INIT_WORK(&ud->purge_work, udma_purge_desc_work);
+ 
+ 	ud->desc_align = 64;
+ 	if (ud->desc_align < dma_get_cache_alignment())
+diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
+index a8d01d955651a..34d458b4a0dbc 100644
+--- a/drivers/dma/ti/k3-udma.c
++++ b/drivers/dma/ti/k3-udma.c
+@@ -2704,14 +2704,12 @@ static int udma_probe(struct platform_device *pdev)
+ 	ud->psil_base = ud->match_data->psil_base;
+ 
+ 	INIT_LIST_HEAD(&ud->ddev.channels);
+-	INIT_LIST_HEAD(&ud->desc_to_purge);
+ 
+ 	ch_count = setup_resources(ud);
+ 	if (ch_count <= 0)
+ 		return ch_count;
+ 
+ 	spin_lock_init(&ud->lock);
+-	INIT_WORK(&ud->purge_work, udma_purge_desc_work);
+ 
+ 	ud->desc_align = 64;
+ 	if (ud->desc_align < dma_get_cache_alignment())
+diff --git a/drivers/dma/ti/k3-udma.h b/drivers/dma/ti/k3-udma.h
+index 3ae2400e67990..67de9feb9906b 100644
+--- a/drivers/dma/ti/k3-udma.h
++++ b/drivers/dma/ti/k3-udma.h
+@@ -353,8 +353,6 @@ struct udma_dev {
+ 
+ 	struct k3_ringacc *ringacc;
+ 
+-	struct work_struct purge_work;
+-	struct list_head desc_to_purge;
+ 	spinlock_t lock;
+ 
+ 	struct udma_rx_flush rx_flush;
+@@ -596,7 +594,6 @@ static inline void udma_fetch_epib(struct udma_chan *uc, struct udma_desc *d)
+ struct udma_desc *udma_udma_desc_from_paddr(struct udma_chan *uc,
+ 					    dma_addr_t paddr);
+ void udma_free_hwdesc(struct udma_chan *uc, struct udma_desc *d);
+-void udma_purge_desc_work(struct work_struct *work);
+ void udma_desc_free(struct virt_dma_desc *vd);
+ bool udma_desc_is_rx_flush(struct udma_chan *uc, dma_addr_t addr);
+ bool udma_is_desc_really_done(struct udma_chan *uc, struct udma_desc *d);
 -- 
 2.34.1
 
