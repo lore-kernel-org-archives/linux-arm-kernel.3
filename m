@@ -4,155 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28E93E6BF1E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 15:46:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F5A5E6BF1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 15:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7IPzAc3v+y/+z30vVaURUYTy5GbW0TMGjuWH4DDgBy0=; b=B5B5X+mKL2X27MSJ4aY+YTBbxg
-	LcHVastpYUrK+EabghmsqW1Y8DN0+zMRMDK5H4Rpei9tDX4647qVzUO2sMYIGt6nk/YyQ9MvI+3SL
-	q0aGLszYvFe9ewalZIu+XwdlAjF3hbJzo8Bl98pprNv8g0nBLvSOloqpSu/Du/r424a4gjGet/Sam
-	J5+0R/KFOu4oTamWMS/QYYzk8JcsfoKyZcpvR1jw9AKX6KqXoZWEREQDYfjeLyOZ12/8jiUxg/XYj
-	GZBqLpggW8SIYxjGFr8wEoEqazY66+umkPHj5KbK4atEMLwuwPS9sCj0azRuL9hrg9gkcBjQnKBJh
-	5Bt51CNA==;
+	bh=VKYYYdqumsniIC39YChzbfba4q3RKQuXPKPNETM4jMs=; b=yfy9B/1n73L/NM0+tPK7fpbGpt
+	H4PVu5EvR27rMfWVO9z2mv/5PAqyxZDuuh0pWFq/AmvtzjFyWQC8NGA4hE4CBrYdklWsk3MO3eGxR
+	lle8ZlS0InqpNVsMzIuQTSYWA49i3aJbbUmEW0V6DvGZvbvQihYT1OpXkpvatEDfNNMisfcPU3CIG
+	LBLgMLIxzAni9+BVxLwHFni5ywIE5xYreA8ZBwdDj1eP9ccJoSy4jNEQMBKejh8P7YuH6FuchU0uU
+	ecBQSooQz+NrjpraXC3NeqRm5NbLzX6HdUV3CJiD35wDZ9HJF6vObosWz6JqY0kccXGz6ifFemTfK
+	skzws1hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlqhk-00000001fzJ-1mVY;
-	Fri, 30 Jan 2026 15:46:40 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vlqlo-00000001gCg-0jRF;
+	Fri, 30 Jan 2026 15:50:52 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlqhh-00000001fyx-22mf
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 15:46:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pEdcPmO2hT3bfA0Ec1nRwaFBeyzE9y7S83T+b0fe9MQPK41c5Cibufb/FZQey4xBmS+Skp49WRQe7h+6/vhThHIa6tNiQjVBZ/xLy10JMEe9g3rfncqksrzhG/PhyOZYcpANRiknLsbBgV1OeSv9iGV4Ktk7UKWejEAmIXjMgVC2069cII2NKppR8VR/2jZ2oMVsNVG9U9OQTNtYU60+rh5sv6MfSQ4t2h0A5RtiDEskdZfuXLAoXcv3iwwgFYkikCZRD7vbAYJ4KE67lYjh7NR6I744NCNFI7FhCXJ5TOjVjadGOjOoqgj3FU8xWweYBFfvjkRqOTb1Mg8RoJy5mg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7IPzAc3v+y/+z30vVaURUYTy5GbW0TMGjuWH4DDgBy0=;
- b=G1GA5Gl1lQChE3CilO89cQvv1otqu76d06+WLhvYKHqtxEFudQv9xhrMtAPlbJHdeooHuSoN9zfIYAK+/pL2wBkNrMhCERwpWSo7Jf/zqmOX9Axo+ibQJDA5tsV34x9DrYJLXnwmv/3kZS/NpW8sjd78XmoIviX2nhy/6MUl6NtmgeBS9zrSxvekD794Q8/nkUrHUGNvTMrhYs35xt/habIRmBAN/fjG3f6kXeGv+xI2TlelQH2vQ1UXglg16kKHnklhNgPSK2yHlUj99fHYOYIKYCMQSnsZRaZFCMr/elf8jjoVw9GXPMFJ2tB7S432Ia8D1O/apALS1zVURNanXA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7IPzAc3v+y/+z30vVaURUYTy5GbW0TMGjuWH4DDgBy0=;
- b=X3IEGWh74joWQs9Grf8s/6D3xdkfIGs6tK4Mw3kO+K4UBCKNimrRzCaMRw4ISiGhgEmJ/hJkpdEKUwhRGuaD5m87pT3JQ3B3n+L/xqY0Cp3ZB8i8PhOmNXUjMojKqLVQlxqBBSmgtZd7WGBVcthHCKpNR47ddBWrCqSOr3gQctA3Gi0wOpjM7+sbWE+LlnTyUcfySDIhFgtQUpaXfUljGjrniJXBOWEwmRZ7C++Kh4bpCF9g+KEW7G4VzZLo7jqrVLSbbVmskFjNSB5M1GH2K/WmJEP+A1GJIAZQSxpf2h5WceyI5jPw5hT1Lng1Wm9wSvo6hwQCEaDhpCiEveaR8Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by VI2PR04MB10809.eurprd04.prod.outlook.com (2603:10a6:800:27b::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Fri, 30 Jan
- 2026 15:46:30 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9564.010; Fri, 30 Jan 2026
- 15:46:30 +0000
-Date: Fri, 30 Jan 2026 10:46:21 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-Cc: peter.ujfalusi@gmail.com, vkoul@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com,
-	ssantosh@kernel.org, dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, vigneshr@ti.com,
-	r-sharma3@ti.com, gehariprasath@ti.com
-Subject: Re: [PATCH v4 05/19] dmaengine: ti: k3-udma: move ring management
- functions to k3-udma-common.c
-Message-ID: <aXzSTYq5RMHmDvU5@lizhi-Precision-Tower-5810>
-References: <20260130110159.359501-1-s-adivi@ti.com>
- <20260130110159.359501-6-s-adivi@ti.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260130110159.359501-6-s-adivi@ti.com>
-X-ClientProxiedBy: BY3PR03CA0026.namprd03.prod.outlook.com
- (2603:10b6:a03:39a::31) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	id 1vlqll-00000001gCI-15q6;
+	Fri, 30 Jan 2026 15:50:50 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1769788246;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VKYYYdqumsniIC39YChzbfba4q3RKQuXPKPNETM4jMs=;
+	b=vcbvqM8zYMWsd/tMS8cM3Z8mI0EFVLj960Sgnq06Gp+EE//WNnLbcLZhAA/pMTKCGlvDfP
+	yqke2jH0ufmQ2nSCXnCEz+Jn+XrQJzGXcBaQD7aRlFZRq53PQc5/Ez6pS9vF8H4vaE7v3p
+	5Os9pnShRRfDny9vUFVCUgpDJtra3pkpEpGkGFqBbqhRd67I4u4yEw2yRumLCICvxBk8BF
+	lYslZ9n7CIZiicXU68jj736XQbVbZj259QlZ9D5cpD/hhtYKt/yvG/sW6XwJQlB9xGg1Yt
+	1dTW+LYZ7TXgk5cXhk98yy4erq5rCNAMT0/GW3UcnHSmpCbIxRncuJF5VzCABA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1769788246;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VKYYYdqumsniIC39YChzbfba4q3RKQuXPKPNETM4jMs=;
+	b=QdMWcBGTcUpDPEMRRsRb8Xqv5ndFVC6eiO9zg4AEYukrcFUq2iwMVZ0Wp1FzCEeMeF0WzL
+	p1LnaogxsATMNsAA==
+To: Marcos Paulo de Souza <mpdesouza@suse.com>, Richard Weinberger
+ <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes
+ Berg <johannes@sipsolutions.net>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Jason Wessel <jason.wessel@windriver.com>,
+ Daniel Thompson <danielt@kernel.org>, Douglas Anderson
+ <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>, Steven Rostedt
+ <rostedt@goodmis.org>, Sergey Senozhatsky <senozhatsky@chromium.org>, Jiri
+ Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, Kees Cook <kees@kernel.org>, Tony Luck
+ <tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman
+ <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Christophe
+ Leroy <christophe.leroy@csgroup.eu>, Andreas Larsson
+ <andreas@gaisler.com>, Alexander Shishkin
+ <alexander.shishkin@linux.intel.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Jacky Huang <ychuang3@nuvoton.com>,
+ Shan-Chun Hung <schung@nuvoton.com>, Laurentiu Tudor
+ <laurentiu.tudor@nxp.com>
+Cc: linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
+ netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ Marcos Paulo de Souza <mpdesouza@suse.com>
+Subject: Re: [PATCH 02/19] printk: Introduce console_is_nbcon
+In-Reply-To: <20251227-printk-cleanup-part3-v1-2-21a291bcf197@suse.com>
+References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+ <20251227-printk-cleanup-part3-v1-2-21a291bcf197@suse.com>
+Date: Fri, 30 Jan 2026 16:56:45 +0106
+Message-ID: <875x8j3xre.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI2PR04MB10809:EE_
-X-MS-Office365-Filtering-Correlation-Id: da8dc921-36d6-4a19-b627-08de6016bc62
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|1800799024|7416014|376014|366016|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?x9nh8TwgmE1682pUNRNkmXZxji2oCqP5GIGN/M1chQEtYFCcfn65TlMH7vDK?=
- =?us-ascii?Q?a/voz3WoqD4gqIEnUYtk5M5TZWtUSqjUn8TSxF7m1uZe0zNei7/iKw5hP8kP?=
- =?us-ascii?Q?bH7Zezx8YAZonlVcGJYPDjfTdexBqTFzTl0WX940tACpF/0ljKDn39Ir4xQc?=
- =?us-ascii?Q?nLqMNTrlnsPG67IlDMypW8Or+Cxr7L62fJdZvlX88p9EMRBxYdGONqGEJK9K?=
- =?us-ascii?Q?VSS1ugbQH+2d3FdG8J+TT1y4bO1Zx+fxN8f6SB0McYx+adMXMpecuXHh5XwQ?=
- =?us-ascii?Q?FnIcr+TDnVEcepF96IC9ohKkcXt1oj93QdSt04MYkWmCF248CFfJvNQrU44C?=
- =?us-ascii?Q?dgxOTyviU8DcWXcEE+CB8YexW66o1w2kOV2n8MS4vRN14UlrbfeEQssVAp1C?=
- =?us-ascii?Q?CxhPzDUWVNdDtehHnwXpL9IIPNEpCFjbyJXEv+n3NRAe4CiMY8IOQM/PSKDa?=
- =?us-ascii?Q?FSfjG940zaJWdok6C7dYJd8/LaJ9gzNa/vFxtGBR4xN2ZJ4USGWkq0IS8ZUt?=
- =?us-ascii?Q?AsvWyHic1uk8DZaU8rt8V1FLnuSrTUxbhMXOpUvxTXoPEOxlp+c+O+u6poIc?=
- =?us-ascii?Q?d57QirXajfaTyfirLoO3w2dChsuqg8kDsIfwnWCCqpuFoqX/tXW1sng3enAr?=
- =?us-ascii?Q?A6p2w6pKXCOfCapR0gsLKRQC418eWQvJGjEiu9UhtZA4skFjxF0GpCIX13N3?=
- =?us-ascii?Q?pl1KLeOW7pk7IFggq3dVtTh/wRyZ/+iR6md3WVbfnBeAhQCy9F6UrKCer+Ql?=
- =?us-ascii?Q?ICcDZwe/0ThyhBt6TEinEj7w1ZZ0LLeLI500nsGezfwkHcuXkp/l8tpxC6U2?=
- =?us-ascii?Q?ipoxHjuK6Pagi0fwTVvkGksMxGuS5VNzxEHbzGxfIb3ITZHpstmcksgZteQ0?=
- =?us-ascii?Q?d3fZiNCpHusi1cNdh3XoyC2bSvuWBrUU86Ep1ExW/U2QgV6rtXZFEzF+ogia?=
- =?us-ascii?Q?p0tPE2AA4nzvJsaGQX/Yy6jD+63gIlV6n+jGzfBKO2ouGkX9hxx4GHAMf3hi?=
- =?us-ascii?Q?CPpyAiO0ry9j1xFgyT7CAbPtfljQFw4GsjMYjWMXtdgPrWqZ4H0zWTHbZiMw?=
- =?us-ascii?Q?/X+OMUa3b7eNRyoS1q2lx1z3oW9pcGkSk1v204mXIdsj1G8r2HzCuSkWJ3QG?=
- =?us-ascii?Q?Gl6J8HLAVBRESDiTV6g6QDdq/r+Dz3xPSI43OlGQOmcXWHSFk4c1GORT0e0L?=
- =?us-ascii?Q?zAafCRrThFH3hUQ5aZll8Hiveoh+4fQ9sAbPN4jsxEwLYIBKVR2wQ2Apy8in?=
- =?us-ascii?Q?A1X3yUWGecBwQG9qyyg90cFmxcTUypwFvDl891a0l+8RjuFo1/PAeVb+55eb?=
- =?us-ascii?Q?t4XO86oaFb2r3d4B655wG/S735DAPFK0DcfHN45djELDRHthcM0A2re4uS4a?=
- =?us-ascii?Q?W0ajBP3FMgWTqjRRF8mp/2Ais0VQLie5DPjRPuUjjilKvPPx7pq03LqYj+NP?=
- =?us-ascii?Q?RIMl62vmLLPpas8Cib2PCM5vp8mhTnUYzl+s3w9FK5nY8zQSoE/psoHn4WMm?=
- =?us-ascii?Q?VAJzuuZdqtxdGETnEE/qXeKgpnsUseByDS8uqsHNt3LmuKbGOttiqrEc7BPI?=
- =?us-ascii?Q?sNVs51nTDykUr/QobykOuR38YJErjEhs4SAPB0hyhpXFYPtf3MtxtvcfFKrj?=
- =?us-ascii?Q?vro3a14FH0hn06t7WkHRdsg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(1800799024)(7416014)(376014)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9mPOU8Le8sNiRH7tFJPGIa/JoQhTbq6CVDfxlVo5BuO3qzuOYlhb4jca/Xql?=
- =?us-ascii?Q?sKu2e/rKvpqtggT0iKO6oCAdldeyWZbuB9XJkUae28glLU/6fuzEmaoBg65U?=
- =?us-ascii?Q?C8AIvlHauB6b9yBLVVUDqv+FDPhS5JoWXKU0j99zjIjO7c/HeegPHmPn0B8A?=
- =?us-ascii?Q?0kUlP0R6TWmr73KQxELWRTpAX/lVyjmKLCO/JAzrxzVf2wSPBYtB6Etk0NVc?=
- =?us-ascii?Q?nxxMAs5FzmWm30Gp31KEGiMsg8hbHn5J00PQwCP32abmW4hOXe1Qhx+Ys6Xi?=
- =?us-ascii?Q?fKebGRodsiC3r6wr+jtdLi3mQqsQe/GhBs4voXqg7A3uWCBHxPNzFwVJkS/w?=
- =?us-ascii?Q?8G62F9xC1UCIO7+gfddqThcEm/0J6TF5ASxRBlKnut6FImWU5AKMR4casnMn?=
- =?us-ascii?Q?KtGldAh3rZSYP2cYRgtejvmz42CknPtJQ/0Yg148A0RA5/VVF8mNkUTHknfO?=
- =?us-ascii?Q?b8quw2bxpLf+F0zuIOELyvQivvwRTlFSg3XSY6xc/vHuTMhVBncQSpJBMM0L?=
- =?us-ascii?Q?RrfHQDqwNjB6yd15lF3UUzKrLO/WokeyjPKCZ75maEgB2OfkG0YzhbGscniY?=
- =?us-ascii?Q?zBjJAkfF5USJkst8Pgm6OiOIs7g/mxuRuIWMA4+XHcBz5DN2TKd5Qyw8ooIp?=
- =?us-ascii?Q?FO3PH/RMTwq+ksXu/8L91m97guU51i/KQaqD5MvckZcYpgcNGKYNW57fJyHh?=
- =?us-ascii?Q?JGK2kXIMjsMh81xsvcD2aWEBrBQG0r2ITfX+wQPjlQFwIpOliIITUE94Sd56?=
- =?us-ascii?Q?HBYMYrLpeKmkw0LCny2X3ZgaRb3tgc+rJihoQ6XJszegxoTsMvpAefS0QdKo?=
- =?us-ascii?Q?d+cU3meDRrE6UX1fWHVsTxXABJujGUrpXtuK2QqS5/iK+TN8w5hPo7zlSiAd?=
- =?us-ascii?Q?GjEhC/nwYWb1tLc7QaDWj52z/gO025+v00rWd4wkmclz6SVG/DDVeQosgTQw?=
- =?us-ascii?Q?rEfr2veC1OzvyHvenzVlD/sIBjaUmsJmSIXUitHYSyoPcxkPvn1ZgzyameR5?=
- =?us-ascii?Q?yVuhIPHWUhOPd7Yu6yPlH76Z2eDLJqvZnTR0IGmAq2TSZwdc2GgmB1wMuPwt?=
- =?us-ascii?Q?xCzgFdZY6QJzskbCdvUY/qKiheeXTBddWZCwFJd37fU6SRUw0vrCg73sOB+9?=
- =?us-ascii?Q?W0ZC9qMdqgqdsaDEWOcAHnUZ30XdMYQudhgfR3mymEgs0UBYkHlK5OSN2/V8?=
- =?us-ascii?Q?aw+L/JOY6p9vth5o1N6SKFLfJ6QnC2lMPtB54nRmREl+VcA5WHqcXdAMfaAM?=
- =?us-ascii?Q?aXEYOQoSEAGDFYNCTrnyOg6kAaz7Ntb0nWKVG1KVWPukCgePbZ3+hg3HQKtC?=
- =?us-ascii?Q?LYqoyUBvflbTbUlBV+STHbJx7W5JOq+ra9ZFWtfZDnt0O0b/pF6UvwEWKITV?=
- =?us-ascii?Q?O3ZKn40lHoWNr7k0u4gFFMxCnPU1VLfP+1WSB8y1FzMGtEJ4eldpE8XutE21?=
- =?us-ascii?Q?mKY3arMgVlm479Vh/5hqv38wR2Fr1g04+sk9IMJWqNGsaqJ9sLVibI5lVTAK?=
- =?us-ascii?Q?u9PMTmmiWHZZBXEZCki57BCoCevaOMdJGSI+G78sdqW8XBNAn4wWluRy2X1D?=
- =?us-ascii?Q?VrZPz+b8yPIrd2V5L3F/wUGYSOHoeFfy8nqnPk1VgdjkAsmy8RYB264JI74+?=
- =?us-ascii?Q?NGB58jg7i08n5UqGHcOqFTrkl8Wjd3xbpn0r9l5dqaUI3dLvUea/kU95dhNa?=
- =?us-ascii?Q?ZNdnxBimcH7X9n7E8aAQtEUPX+6/HMJ0VKNzpnL8hqeOhVTuZBBr5YKqMF7t?=
- =?us-ascii?Q?jjXzBeH5Xw=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: da8dc921-36d6-4a19-b627-08de6016bc62
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 15:46:30.1791
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4+eBf/XcNkzIt5+00+ZlRTyjMGZVXj8RaEYm/rRC8tGyhICLkCyHIjlN3zGx7/CtgEFYOy3wEb9zZWfBVCx0Pg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10809
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_074637_691174_33E99602 
-X-CRM114-Status: GOOD (  23.20  )
+X-CRM114-CacheID: sfid-20260130_075049_603261_3A6913EC 
+X-CRM114-Status: GOOD (  22.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,264 +100,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 30, 2026 at 04:31:45PM +0530, Sai Sree Kartheek Adivi wrote:
-> Relocate the ring management functions such as push, pop, and reset
-> from k3-udma.c to k3-udma-common.c file. These operations are
-> common across multiple K3 UDMA variants and will be reused by
-> future implementations like K3 UDMA v2.
+On 2025-12-27, Marcos Paulo de Souza <mpdesouza@suse.com> wrote:
+> Besides checking if the current console is NBCON or not, console->flags
+> is also being read in order to serve as argument of the console_is_usable
+> function.
 >
-> No functional changes intended.
+> But CON_NBCON flag is unique: it's set just once in the console
+> registration and never cleared. In this case it can be possible to read
+> the flag when console_srcu_lock is held (which is the case when using
+> for_each_console).
 >
-> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-> ---
+> This change makes possible to remove the flags argument from
+> console_is_usable in the next patches.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Note that console_is_usable() now also checks for the flag
+CON_NBCON_ATOMIC_UNSAFE as well.
 
->  drivers/dma/ti/k3-udma-common.c | 103 ++++++++++++++++++++++++++++++++
->  drivers/dma/ti/k3-udma.c        | 100 -------------------------------
->  drivers/dma/ti/k3-udma.h        |   4 ++
->  3 files changed, 107 insertions(+), 100 deletions(-)
->
-> diff --git a/drivers/dma/ti/k3-udma-common.c b/drivers/dma/ti/k3-udma-common.c
-> index 9cb35759c70bb..4dcf986f84d87 100644
-> --- a/drivers/dma/ti/k3-udma-common.c
-> +++ b/drivers/dma/ti/k3-udma-common.c
-> @@ -1239,5 +1239,108 @@ void udma_desc_pre_callback(struct virt_dma_chan *vc,
+> diff --git a/include/linux/console.h b/include/linux/console.h
+> index 35c03fc4ed51..dd4ec7a5bff9 100644
+> --- a/include/linux/console.h
+> +++ b/include/linux/console.h
+> @@ -561,6 +561,33 @@ static inline void console_srcu_write_flags(struct console *con, short flags)
+>  	WRITE_ONCE(con->flags, flags);
 >  }
->  EXPORT_SYMBOL_GPL(udma_desc_pre_callback);
->
-> +int udma_push_to_ring(struct udma_chan *uc, int idx)
+>  
+> +/**
+> + * console_srcu_is_nbcon - Locklessly check whether the console is nbcon
+> + * @con:	struct console pointer of console to check
+> + *
+> + * Requires console_srcu_read_lock to be held, which implies that @con might
+> + * be a registered console. The purpose of holding console_srcu_read_lock is
+> + * to guarantee that no exit/cleanup routines will run if the console
+> + * is currently undergoing unregistration.
+> + *
+> + * If the caller is holding the console_list_lock or it is _certain_ that
+> + * @con is not and will not become registered, the caller may read
+> + * @con->flags directly instead.
+> + *
+> + * Context: Any context.
+> + * Return: True when CON_NBCON flag is set.
+> + */
+> +static inline bool console_is_nbcon(const struct console *con)
 > +{
-> +	struct udma_desc *d = uc->desc;
-> +	struct k3_ring *ring = NULL;
-> +	dma_addr_t paddr;
+> +	WARN_ON_ONCE(!console_srcu_read_lock_is_held());
 > +
-> +	switch (uc->config.dir) {
-> +	case DMA_DEV_TO_MEM:
-> +		ring = uc->rflow->fd_ring;
-> +		break;
-> +	case DMA_MEM_TO_DEV:
-> +	case DMA_MEM_TO_MEM:
-> +		ring = uc->tchan->t_ring;
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	/* RX flush packet: idx == -1 is only passed in case of DEV_TO_MEM */
-> +	if (idx == -1) {
-> +		paddr = udma_get_rx_flush_hwdesc_paddr(uc);
-> +	} else {
-> +		paddr = udma_curr_cppi5_desc_paddr(d, idx);
-> +
-> +		wmb(); /* Ensure that writes are not moved over this point */
-> +	}
-> +
-> +	return k3_ringacc_ring_push(ring, &paddr);
-> +}
-> +EXPORT_SYMBOL_GPL(udma_push_to_ring);
-> +
-> +int udma_pop_from_ring(struct udma_chan *uc, dma_addr_t *addr)
-> +{
-> +	struct k3_ring *ring = NULL;
-> +	int ret;
-> +
-> +	switch (uc->config.dir) {
-> +	case DMA_DEV_TO_MEM:
-> +		ring = uc->rflow->r_ring;
-> +		break;
-> +	case DMA_MEM_TO_DEV:
-> +	case DMA_MEM_TO_MEM:
-> +		ring = uc->tchan->tc_ring;
-> +		break;
-> +	default:
-> +		return -ENOENT;
-> +	}
-> +
-> +	ret = k3_ringacc_ring_pop(ring, addr);
-> +	if (ret)
-> +		return ret;
-> +
-> +	rmb(); /* Ensure that reads are not moved before this point */
-> +
-> +	/* Teardown completion */
-> +	if (cppi5_desc_is_tdcm(*addr))
-> +		return 0;
-> +
-> +	/* Check for flush descriptor */
-> +	if (udma_desc_is_rx_flush(uc, *addr))
-> +		return -ENOENT;
-> +
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(udma_pop_from_ring);
-> +
-> +void udma_reset_rings(struct udma_chan *uc)
-> +{
-> +	struct k3_ring *ring1 = NULL;
-> +	struct k3_ring *ring2 = NULL;
-> +
-> +	switch (uc->config.dir) {
-> +	case DMA_DEV_TO_MEM:
-> +		if (uc->rchan) {
-> +			ring1 = uc->rflow->fd_ring;
-> +			ring2 = uc->rflow->r_ring;
-> +		}
-> +		break;
-> +	case DMA_MEM_TO_DEV:
-> +	case DMA_MEM_TO_MEM:
-> +		if (uc->tchan) {
-> +			ring1 = uc->tchan->t_ring;
-> +			ring2 = uc->tchan->tc_ring;
-> +		}
-> +		break;
-> +	default:
-> +		break;
-> +	}
-> +
-> +	if (ring1)
-> +		k3_ringacc_ring_reset_dma(ring1,
-> +					  k3_ringacc_ring_get_occ(ring1));
-> +	if (ring2)
-> +		k3_ringacc_ring_reset(ring2);
-> +
-> +	/* make sure we are not leaking memory by stalled descriptor */
-> +	if (uc->terminated_desc) {
-> +		udma_desc_free(&uc->terminated_desc->vd);
-> +		uc->terminated_desc = NULL;
-> +	}
-> +}
-> +EXPORT_SYMBOL_GPL(udma_reset_rings);
-> +
->  MODULE_DESCRIPTION("Texas Instruments K3 UDMA Common Library");
->  MODULE_LICENSE("GPL v2");
-> diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
-> index 0a1291829611f..214a1ca1e1776 100644
-> --- a/drivers/dma/ti/k3-udma.c
-> +++ b/drivers/dma/ti/k3-udma.c
-> @@ -174,106 +174,6 @@ static bool udma_is_chan_paused(struct udma_chan *uc)
->  	return false;
->  }
->
-> -static int udma_push_to_ring(struct udma_chan *uc, int idx)
-> -{
-> -	struct udma_desc *d = uc->desc;
-> -	struct k3_ring *ring = NULL;
-> -	dma_addr_t paddr;
-> -
-> -	switch (uc->config.dir) {
-> -	case DMA_DEV_TO_MEM:
-> -		ring = uc->rflow->fd_ring;
-> -		break;
-> -	case DMA_MEM_TO_DEV:
-> -	case DMA_MEM_TO_MEM:
-> -		ring = uc->tchan->t_ring;
-> -		break;
-> -	default:
-> -		return -EINVAL;
-> -	}
-> -
-> -	/* RX flush packet: idx == -1 is only passed in case of DEV_TO_MEM */
-> -	if (idx == -1) {
-> -		paddr = udma_get_rx_flush_hwdesc_paddr(uc);
-> -	} else {
-> -		paddr = udma_curr_cppi5_desc_paddr(d, idx);
-> -
-> -		wmb(); /* Ensure that writes are not moved over this point */
-> -	}
-> -
-> -	return k3_ringacc_ring_push(ring, &paddr);
-> -}
-> -
-> -static int udma_pop_from_ring(struct udma_chan *uc, dma_addr_t *addr)
-> -{
-> -	struct k3_ring *ring = NULL;
-> -	int ret;
-> -
-> -	switch (uc->config.dir) {
-> -	case DMA_DEV_TO_MEM:
-> -		ring = uc->rflow->r_ring;
-> -		break;
-> -	case DMA_MEM_TO_DEV:
-> -	case DMA_MEM_TO_MEM:
-> -		ring = uc->tchan->tc_ring;
-> -		break;
-> -	default:
-> -		return -ENOENT;
-> -	}
-> -
-> -	ret = k3_ringacc_ring_pop(ring, addr);
-> -	if (ret)
-> -		return ret;
-> -
-> -	rmb(); /* Ensure that reads are not moved before this point */
-> -
-> -	/* Teardown completion */
-> -	if (cppi5_desc_is_tdcm(*addr))
-> -		return 0;
-> -
-> -	/* Check for flush descriptor */
-> -	if (udma_desc_is_rx_flush(uc, *addr))
-> -		return -ENOENT;
-> -
-> -	return 0;
-> -}
-> -
-> -static void udma_reset_rings(struct udma_chan *uc)
-> -{
-> -	struct k3_ring *ring1 = NULL;
-> -	struct k3_ring *ring2 = NULL;
-> -
-> -	switch (uc->config.dir) {
-> -	case DMA_DEV_TO_MEM:
-> -		if (uc->rchan) {
-> -			ring1 = uc->rflow->fd_ring;
-> -			ring2 = uc->rflow->r_ring;
-> -		}
-> -		break;
-> -	case DMA_MEM_TO_DEV:
-> -	case DMA_MEM_TO_MEM:
-> -		if (uc->tchan) {
-> -			ring1 = uc->tchan->t_ring;
-> -			ring2 = uc->tchan->tc_ring;
-> -		}
-> -		break;
-> -	default:
-> -		break;
-> -	}
-> -
-> -	if (ring1)
-> -		k3_ringacc_ring_reset_dma(ring1,
-> -					  k3_ringacc_ring_get_occ(ring1));
-> -	if (ring2)
-> -		k3_ringacc_ring_reset(ring2);
-> -
-> -	/* make sure we are not leaking memory by stalled descriptor */
-> -	if (uc->terminated_desc) {
-> -		udma_desc_free(&uc->terminated_desc->vd);
-> -		uc->terminated_desc = NULL;
-> -	}
-> -}
-> -
->  static void udma_decrement_byte_counters(struct udma_chan *uc, u32 val)
->  {
->  	if (uc->desc->dir == DMA_DEV_TO_MEM) {
-> diff --git a/drivers/dma/ti/k3-udma.h b/drivers/dma/ti/k3-udma.h
-> index 7c807bd9e178b..4c6e5b946d5cf 100644
-> --- a/drivers/dma/ti/k3-udma.h
-> +++ b/drivers/dma/ti/k3-udma.h
-> @@ -610,6 +610,10 @@ void udma_desc_pre_callback(struct virt_dma_chan *vc,
->  			    struct virt_dma_desc *vd,
->  			    struct dmaengine_result *result);
->
-> +int udma_push_to_ring(struct udma_chan *uc, int idx);
-> +int udma_pop_from_ring(struct udma_chan *uc, dma_addr_t *addr);
-> +void udma_reset_rings(struct udma_chan *uc);
-> +
->  /* Direct access to UDMA low lever resources for the glue layer */
->  int xudma_navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread);
->  int xudma_navss_psil_unpair(struct udma_dev *ud, u32 src_thread,
-> --
-> 2.34.1
->
+> +	/*
+> +	 * The CON_NBCON flag is statically initialized and is never
+> +	 * set or cleared at runtime.
+> +	 */
+> +	return data_race(con->flags & CON_NBCON);
+
+If this flag is statically initialized and is never set or cleared at
+runtime, why is the console_srcu_read_lock required? Why not just:
+
+static inline bool console_is_nbcon(const struct console *con)
+{
+        /*
+	 * The CON_NBCON flag is statically initialized and is never
+	 * set or cleared at runtime.
+	 */
+	return data_race(con->flags & CON_NBCON);
+}
+
+And even if you do need the console_srcu_read_lock, why copy/paste the
+implementation and comments of console_srcu_read_flags()? Just do:
+
+static inline bool console_is_nbcon(const struct console *con)
+{
+	return console_srcu_read_flags(con) & CON_NBCON;
+}
+
+John Ogness
 
