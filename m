@@ -4,105 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61DAEE6BF0E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 13:44:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC31E6BF0D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 13:52:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0EdujWQoBAn/IwVhOEaFp9E9St0lYVYzZ1tCazrBN34=; b=bWyIA9Jmq6NKLs2063oQeSMX+7
-	gfD5a/KIsF/p9RkBV6L/0RB8782D7h9hH/P82c6oPvnNjDPyeX6Rtgc1AYoFN4N1oDB8+TrPQnWvq
-	17GfFgR/U7Is2qJut/MD+6zc3ysRSHNEZcHm5VymBGk+HvkTstJKL6wSexq9Nt8BK4lbYiN8MVs0l
-	VLvPR2t2RAvv6gdYPOZ6b1o1qMGbeZ6nOE6lrAPeaz0QeBKrsbQh5yevg8JHXQYpKk4zlQo9STjNz
-	JiDwXWpRuU6SvaffcFGgDdP0cOV+QlPFs5WKoRNTI1+oG4+y8dVmss1wSIDcwX6uVdzW6VhNRIp/S
-	KOoBnw1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=htVtV+gfszWhRbxqS8vnuE8jI2mmCYCWJafPHujAB08=; b=l1BaDzpXk9dKXs
+	LnMJvSCvLXGPcT3qQwUzFGHBQV+iYfgPUCi9jNfcgbimORE/f1D36NidHmvJTHOTVFeMao2xrTTuh
+	69V9gGgAMQz3KT7vZZPzvZFv7KhzPKNa+jxlJLkLk7H34Io+gfmFF6cxNp2VSefcjCJKaWBkQhaP6
+	HxDeUyWOwFXdPC7rI5GcywUwoGwjTsIjDRmgYx15jv0KfpJnbAgEF+oUq0AyBuq1gUxYrf7uZtphk
+	9ikJcs2G2WOX7XZXk6iivWN1D2whR9U6n1NiuA/63JSznRsX/vvaRSgmYJkm8h+rvr6QZvcp7Mtyb
+	2XxJzyoDvv8sDWqAKoqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlonM-00000001YC1-3r15;
-	Fri, 30 Jan 2026 13:44:20 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1vlov7-00000001YVV-1ZU5;
+	Fri, 30 Jan 2026 13:52:21 +0000
+Received: from mx0a-00128a01.pphosted.com ([148.163.135.77] helo=mx0b-00128a01.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlonJ-00000001YBT-2dAI
+	id 1vlov4-00000001YVA-3jTd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 13:44:18 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b8849dc12f6so323262066b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Jan 2026 05:44:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769780655; x=1770385455; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0EdujWQoBAn/IwVhOEaFp9E9St0lYVYzZ1tCazrBN34=;
-        b=bT3u/qhQFM5NUZvqyBxc97clU7Z/dWicjTGkqa5/mbqMae2opTGwVljNxbvVRX2CMk
-         GSmQFM4Upfl7k4Ts9fAGoEe3VKJ9uwlNuCa0TC42zwQSRkDzVuqsWwzGU7JhWHXZUSsU
-         dfKeAZx4CemMImphPgwod9pkaUrpUUaWhbiEMq62k6hw9T4QH61aHY/57lR7VmpEFhLG
-         J2qdjP30w5abaskMYIWW2tqpT6P4UzKoeKk+5+7cXRh6SxszMBkuanAeTY4reYFHXT18
-         ZI8/B+F9eppd7sYxgSucwgdwuVONWp2rBS6SPceumOKDMj32crxF/bFfc8wkFNsDd/m9
-         2EaA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769780655; x=1770385455;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0EdujWQoBAn/IwVhOEaFp9E9St0lYVYzZ1tCazrBN34=;
-        b=ffkzvmneXMg+ZxKU4rOtFxwX3r2epZWhkoOmuqg6uGI/fmsKCuhyWOkWHb/6euaVvs
-         57zJytzYyKEvR9123a3/wl5W3xnG9szmHHMZF4kqob4UtfUDx7mq3W008z5lU5mafH7t
-         xQ2dvI0Y69uGubrEsjGi831TjD1DXuL6dmJ0bROOJBvqwzUV7Fp2+SZqWn6NeivAfFT6
-         jAyXpVapu01F74eTcgs65JtJdmNu8jsKAhSUxKeIOJES8/Wnj+x/RmdvZfgOJ0QrTP4H
-         RGj5fO2FZPgf+CJJunHyh4NMdb44NphOIDEXR92jfRDG3Pmkd2QVZX18f4d0IqdikEoV
-         6cpg==
-X-Forwarded-Encrypted: i=1; AJvYcCVc2YUbSjTjVnZSQt6g4j6P0SMuV9tNz7bpS+/oBVxz5P6VhpVIO0NsEahShNDgwoa47TG1n96zAw7jm6g693+A@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9/8kYa2LT9qVk520SOaY7FS1kyolItX+sfOeng+RUAwKo6W3/
-	iCK0MhQZ44LwbZEEeS0RCetYMRBYPCrC/IQierZqIBAJt1oYl9JmmBlZjWT8vw==
-X-Gm-Gg: AZuq6aILcmGjt3i8231HUaDJ/3DtTijnDl/qmSDnZL+zo27VdrMxNn3Y4/ZuQ0u/aw3
-	MRDaTpomaIuN9OjvKMhetyo397Ie/F1BdcHIfq3/tzNSXga3vy3bqQzArAVAp8zsAbfxiG/a5VV
-	HlLSLWqxnz85o03Q+wUff9HvmB+ZdzTM/1M7hsbStU765mR3r+3+isCy9dHUUpMf1+ICL3+kQ7A
-	Jx6Ok7pQXvsdgXB8fUbExGqJAtM8zo9I559spShAPOiEKkBgj3+MaFxb7z2lnvf/2lvxT3amDUz
-	vV3R97rvK7BBInC9ZtfiH/p94+lUHdPFYfnHqPLtP4cf+qHtYoh1io33lQTAFVg+s3f8h3qjR2F
-	l8FTGVdHrwcDHdj4vEm7XCMskh43SpsVe/rzq9vlj5qHpZRW/3+m8guPCEZYJoy++BnE9QU8krl
-	2MLY8cmMffU0r/k8QePFwUUpTP3wjk0EwgZRkRNPh98A6/mQ==
-X-Received: by 2002:a17:907:7212:b0:b87:daee:a6c4 with SMTP id a640c23a62f3a-b8dff6846admr145665366b.36.1769773667338;
-        Fri, 30 Jan 2026 03:47:47 -0800 (PST)
-Received: from localhost.localdomain ([2a00:23c4:a758:8a01:bd64:2984:fe71:7633])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8de3046abasm243751266b.2.2026.01.30.03.47.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Jan 2026 03:47:47 -0800 (PST)
-From: Biju <biju.das.au@gmail.com>
-X-Google-Original-From: Biju <biju.das.jz@bp.renesas.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Magnus Damm <magnus.damm@gmail.com>
-Cc: Biju Das <biju.das.jz@bp.renesas.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	netdev@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Biju Das <biju.das.au@gmail.com>
-Subject: [PATCH net-next v2 0/2] Add support for Renesas RZ/G3L GBETH
-Date: Fri, 30 Jan 2026 11:47:38 +0000
-Message-ID: <20260130114744.252533-1-biju.das.jz@bp.renesas.com>
+	Fri, 30 Jan 2026 13:52:19 +0000
+Received: from pps.filterd (m0375855.ppops.net [127.0.0.1])
+	by mx0b-00128a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60UCmf9E3783141;
+	Fri, 30 Jan 2026 08:52:06 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analog.com; h=
+	content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=DKIM; bh=htVtV+gfszWhRbxqS8vnuE8jI2m
+	mCYCWJafPHujAB08=; b=Y1z36DQfrSFHZfPY8zAe+aq8nvdOC5CeJBHj/ZYktVR
+	OcOhO4RqFiOggAG7oZnEwcnhV3tZZTEjeP3YDlT5weGrvRQT/66tRtU4QY/SBhbF
+	WxDzJkCV0zL6NCDvecLvX67/n3alxolY6YJK3O8Nna2DKHwfhfXsuQvGdTcjCoF3
+	e0eq/EBvL/Ltn7j07rOkjLZJS4iWeHKUHHAPnBXRSzybLyKOmwwjmHHxNXEmRxX8
+	euiLDdPMUmbq805SQr7qlbqxRCvJybTfSGa7c+SaMgjYgyUwtQzBzeFQ168WClJQ
+	R9t25T5TzM5GcVpgryLjBCiI+BFIbxFLwWLpQrCdP2A==
+Received: from nwd2mta4.analog.com ([137.71.173.58])
+	by mx0b-00128a01.pphosted.com (PPS) with ESMTPS id 4c011bpgwc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 30 Jan 2026 08:52:06 -0500 (EST)
+Received: from ASHBMBX8.ad.analog.com (ASHBMBX8.ad.analog.com [10.64.17.5])
+	by nwd2mta4.analog.com (8.14.7/8.14.7) with ESMTP id 60UDq5oB060985
+	(version=TLSv1/SSLv3 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 30 Jan 2026 08:52:05 -0500
+Received: from ASHBMBX8.ad.analog.com (10.64.17.5) by ASHBMBX8.ad.analog.com
+ (10.64.17.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.37; Fri, 30 Jan
+ 2026 08:52:05 -0500
+Received: from zeus.spd.analog.com (10.66.68.11) by ashbmbx8.ad.analog.com
+ (10.64.17.5) with Microsoft SMTP Server id 15.2.1748.37 via Frontend
+ Transport; Fri, 30 Jan 2026 08:52:05 -0500
+Received: from HYB-b1tGeUj4GP1.ad.analog.com (HYB-b1tGeUj4GP1.ad.analog.com [10.48.65.247])
+	by zeus.spd.analog.com (8.15.1/8.15.1) with ESMTP id 60UDpobw030904;
+	Fri, 30 Jan 2026 08:51:52 -0500
+From: Antoniu Miclaus <antoniu.miclaus@analog.com>
+To: Jonathan Cameron <jic23@kernel.org>,
+        David Lechner
+	<dlechner@baylibre.com>,
+        =?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+        Andy Shevchenko <andy@kernel.org>,
+        Nicolas Ferre
+	<nicolas.ferre@microchip.com>,
+        Alexandre Belloni
+	<alexandre.belloni@bootlin.com>,
+        Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+        Antoniu Miclaus <antoniu.miclaus@analog.com>,
+        <linux-iio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH] iio: adc: at91_adc: return proper error code from at91_ts_sample()
+Date: Fri, 30 Jan 2026 15:51:22 +0200
+Message-ID: <20260130135126.136861-1-antoniu.miclaus@analog.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ADIRuleOP-NewSCL: Rule Triggered
+X-Authority-Analysis: v=2.4 cv=PvmergM3 c=1 sm=1 tr=0 ts=697cb786 cx=c_pps
+ a=3WNzaoukacrqR9RwcOSAdA==:117 a=3WNzaoukacrqR9RwcOSAdA==:17
+ a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22 a=gAnH3GRIAAAA:8
+ a=jKp_zFM9SaRc-WSlGVUA:9
+X-Proofpoint-GUID: SQi6aPJGQlGkv1BV_BBdqCFs8RCGUfo2
+X-Proofpoint-ORIG-GUID: SQi6aPJGQlGkv1BV_BBdqCFs8RCGUfo2
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTMwMDExMyBTYWx0ZWRfX3qu90cEdYTjm
+ ZcfS3bl/zWomni0bYijCrDlTethAMaWA+ZPGSnK3iK7XHcUdzV0QfJv7TQKszWMew8CI3sNJeWb
+ vpgjW2Hjgbqwlygq3rRpt+xkQ6rjKHsyeFbFkidamJeP82hgPhjAjzwItcl12ky042378ywHHUL
+ fXsoov7cpkGTY+1B2ifx7PxrsU62iiH3iuN2xDq3VhqgliT3/lOSgI/n7m6ml4pphieNDM31AvU
+ HvarQs5WfTffH+cPFW84Wd9qIL0tLgnL3gNlCIcgwiQ4nm/Zss36Zni5KgKAe74lwutPRQqrrh7
+ QGr+R6MeZSiNQ0Vg+R2kks+Gkp/KRdzKOyXpYhZC6soPnu2ua6cGHm64JuhFKBRy8S6JijpnX4X
+ VqiXRCgQ+I6vkr2MYhK8rXTi457LG3y7JBEsew3j75BED4BS4dTRr4OO5gZCr3lduEf+TqM33u1
+ zx7JRiGvh/N/XoRZBpw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-01-30_02,2026-01-29_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 bulkscore=0 priorityscore=1501 clxscore=1011 suspectscore=0
+ malwarescore=0 impostorscore=0 phishscore=0 adultscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601300113
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_054417_685793_A022ECE6 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20260130_055218_939950_3A33E65A 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,32 +118,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Biju Das <biju.das.jz@bp.renesas.com>
+Return -EIO instead of -1 when xscale or yscale read from hardware
+registers is zero. Using -EIO since this indicates unexpected data
+from the hardware rather than an invalid argument.
 
-The Renesas RZ/G3L GBETH IP uses Synopsys DesignWare MAC version 5.30
-compared to other Renesas SoC such as RZ/V2H that use MAC version 5.20.
+Signed-off-by: Antoniu Miclaus <antoniu.miclaus@analog.com>
+---
+ drivers/iio/adc/at91_adc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-The RZ/G3L GBETH requires an extra clock compared to RZ/G3E and has pps
-interrupts. Document the Renesas RZ/G3L GBETH IP in bindings and enable
-the Gigabit Ethernet Interface (GBETH0) populated on the RZ/G3L SMARC
-EVK. The eth1, pincontrol definitions and hotplug support will be added
-later.
-
-v1->v2:
- * Separated ethernet patches from series [1]
- * Collected tag for binding patch
-
-[1] https://lore.kernel.org/all/20260128125850.425264-1-biju.das.jz@bp.renesas.com/
-
-Biju Das (2):
-  dt-bindings: net: renesas,rzv2h-gbeth: Document Renesas RZ/G3L SoC
-  net: stmmac: dwmac-renesas-gbeth: Add support for RZ/G3L SoC
-
- .../bindings/net/renesas,rzv2h-gbeth.yaml     | 77 ++++++++++++++++---
- .../devicetree/bindings/net/snps,dwmac.yaml   |  3 +
- .../stmicro/stmmac/dwmac-renesas-gbeth.c      |  1 +
- 3 files changed, 70 insertions(+), 11 deletions(-)
-
+diff --git a/drivers/iio/adc/at91_adc.c b/drivers/iio/adc/at91_adc.c
+index 920dd9ffd27a..5e8719d5ac01 100644
+--- a/drivers/iio/adc/at91_adc.c
++++ b/drivers/iio/adc/at91_adc.c
+@@ -323,7 +323,7 @@ static int at91_ts_sample(struct iio_dev *idev)
+ 	xscale = (reg >> 16) & xyz_mask;
+ 	if (xscale == 0) {
+ 		dev_err(&idev->dev, "Error: xscale == 0!\n");
+-		return -1;
++		return -EIO;
+ 	}
+ 	x /= xscale;
+ 
+@@ -334,7 +334,7 @@ static int at91_ts_sample(struct iio_dev *idev)
+ 	yscale = (reg >> 16) & xyz_mask;
+ 	if (yscale == 0) {
+ 		dev_err(&idev->dev, "Error: yscale == 0!\n");
+-		return -1;
++		return -EIO;
+ 	}
+ 	y /= yscale;
+ 
 -- 
 2.43.0
 
