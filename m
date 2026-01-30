@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA7F2D49C9F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 11:00:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF749D49C92
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 11:00:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RLg2KbF8R9YgYJHrAaiq2BAOWVBiVvybM0RblP+PLmA=; b=vXTOE9zs6Ii64ZwsTwJHA8rtrd
-	yt8n3+lA3bGrNNpLEoLC+B2A190u1IaoOIRjiEcxgDC2mik5zS4lFSYTpORPrjgRXrQadZ+4vCC2v
-	M7eo6BaovYNpQPCDnN28kxVnqZIQ0V0AdHYGtZasj5E/r4E9597bCXsWX/M+yj2C/taI4yPJlicf1
-	vflVnqDsQ7CQgmCfMDzcPt/sGSq95Jshmvx9zFSrzCL7DgwWNYpUEBrBLHVgvCYHZp/CNwmFuYgWU
-	WdliLPk1czF09f6r+ZAxj6pbm339KC13eHTU/E+p945AjtIpgsAj0hvAes3NkucY9SQ08fPPRiVtO
-	HjDRuIkA==;
+	bh=zywiIYip9INWXQADAtjh5YpZ//IGbM2WaNbXBkX94mM=; b=xbOFlqw8fiiJcYIACASd/OLxfC
+	3eztqgNWYEgyByZuJQlp9mK4fyy4yHLs7FfVx9TvHBwyA7W4r3UGcZCwjL3FlpVcA2t7ito1ez0iT
+	1RIP/AWfzh6KABAQN04V1U24nNnbgqWdj8h2jpBjuh+ZYH2cbwDELW7kTxwZcVhJ8NuqqXuFh87Ck
+	n5O0ej6rbY4UUhqktIdbRYgNG87ZdxWULrx8nFVxSysRbKYXgawxrC3Y0evIqzVHeV/cYq9yjADd5
+	4kgmretiRojyqHFUq29w7amM6sjhS8tePwGqz1yPTNsgAJEsk6GOlJJaoK0JFeIE/l0sTli5hUdv5
+	TzfGWf6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlmEv-00000001LiT-01dJ;
-	Fri, 30 Jan 2026 11:00:38 +0000
+	id 1vlmF4-00000001Lp7-1MYj;
+	Fri, 30 Jan 2026 11:00:46 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlmEs-00000001Lf9-3MNu;
-	Fri, 30 Jan 2026 11:00:36 +0000
+	id 1vlmF0-00000001LkG-0B7R;
+	Fri, 30 Jan 2026 11:00:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=RLg2KbF8R9YgYJHrAaiq2BAOWVBiVvybM0RblP+PLmA=; b=VmWAE5WKwcumKDs2BZ0CjTitLR
-	4dYcSd0JpOuyd2M5GYnVeIacHxA91f7fnng0MUZsa0v/YGo3AtMAFTRVka9b5l2fvhPjcHs7tUuvy
-	orXOnLRzQ6scjkiYmsygvorCHWQUNnHBXWDXpOsf7slViC3huTbSWyGdbOXCAYyYsY6cRqYPGCTqL
-	Bjvp+NFvol1crCL4qWnVzFNhwu9l+YhXXFwvpfmyEoYUWKgRdLN9WEqBirkglMSbEOHBL75ChefHR
-	wg5Q1QAuIInTXVVgY150++AYr688pcfHRcwxRQmn6jMgX5xtC7iAs4VO6DCb/bsyoR2hLoBc+MPv9
-	SQeeQDfA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:44786 helo=rmk-PC.armlinux.org.uk)
+	bh=zywiIYip9INWXQADAtjh5YpZ//IGbM2WaNbXBkX94mM=; b=jzx4rtGLD03/+fPrs2fz+VtlZt
+	rQ5cbmDZb9+doznFUCC8QKJ0qqHj5XJa2z2K6wH+VWh63ZJFVGXw494PT7J51xzHh1593qRY3lZZ7
+	LF3ssRKM3XWR/J/GiNDjda8Qy+vR4ZHuf6CPu9S+ZPSzKni4v8O1IBRae838wdu5c9gfvt7ACocK/
+	SEeSU5JTnp8523j78m1+eIp8sLiEdAYaoaqDN+ZEBhsjwdOSLQCUJrBFVYd17kln8tMZZO9fvzsTo
+	vp8hl/lK5Z90ww4Gt6bljsxhk7BkdZV696oRrUSxHAIfezGdzZlASipS28HCq8jrYGGKL3noJOJmr
+	yHfB/urA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50638 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vlmEj-000000000xV-2tNR;
-	Fri, 30 Jan 2026 11:00:25 +0000
+	id 1vlmEq-000000000xo-0jio;
+	Fri, 30 Jan 2026 11:00:32 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vlmEi-00000006znz-1OBT;
-	Fri, 30 Jan 2026 11:00:24 +0000
+	id 1vlmEn-00000006zo6-1sgO;
+	Fri, 30 Jan 2026 11:00:29 +0000
 In-Reply-To: <aXyPK9rlMt8h_fze@shell.armlinux.org.uk>
 References: <aXyPK9rlMt8h_fze@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -63,17 +63,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 03/10] net: stmmac: rk: move speed GRF register
- offset to private data
+Subject: [PATCH net-next 04/10] net: stmmac: rk: convert rk3588 to
+ rk_set_reg_speed()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vlmEi-00000006znz-1OBT@rmk-PC.armlinux.org.uk>
-Date: Fri, 30 Jan 2026 11:00:24 +0000
+Message-Id: <E1vlmEn-00000006zo6-1sgO@rmk-PC.armlinux.org.uk>
+Date: Fri, 30 Jan 2026 11:00:29 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_030035_028695_E84138A7 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20260130_030042_123504_14D50063 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,366 +88,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the speed/clocking related GRF register offset into the driver
-private data, convert rk_set_reg_speed() to use it and initialise this
-member either from the corresponding member in struct rk_gmac_ops, or
-the SoC specific initialisation function.
+Update rk_set_reg_speed() to use either the grf or php_grf regmap
+depending on the SoC's requirements and convert rk3588, removing
+its custom code.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 114 +++++++++++++-----
- 1 file changed, 81 insertions(+), 33 deletions(-)
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 63 ++++++++++---------
+ 1 file changed, 34 insertions(+), 29 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index 139e4ad58df4..4b103a2e9c1f 100644
+index 4b103a2e9c1f..5bb805330cbc 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -50,6 +50,8 @@ struct rk_gmac_ops {
- 	u16 gmac_phy_intf_sel_mask;
- 	u16 gmac_rmii_mode_mask;
+@@ -53,6 +53,7 @@ struct rk_gmac_ops {
+ 	u16 clock_grf_reg;
  
-+	u16 clock_grf_reg;
-+
  	bool gmac_grf_reg_in_php;
++	bool clock_grf_reg_in_php;
  	bool php_grf_required;
  	bool regs_valid;
-@@ -100,6 +102,8 @@ struct rk_priv_data {
- 	u16 gmac_grf_reg;
- 	u16 gmac_phy_intf_sel_mask;
- 	u16 gmac_rmii_mode_mask;
-+
-+	u16 clock_grf_reg;
- };
+ 	u32 regs[];
+@@ -145,7 +146,14 @@ static int rk_write_gmac_grf_reg(struct rk_priv_data *bsp_priv, u32 val)
  
- #define GMAC_CLK_DIV1_125M		0
-@@ -139,10 +143,14 @@ static int rk_write_gmac_grf_reg(struct rk_priv_data *bsp_priv, u32 val)
- 	return regmap_write(regmap, bsp_priv->gmac_grf_reg, val);
- }
- 
-+static int rk_write_clock_grf_reg(struct rk_priv_data *bsp_priv, u32 val)
-+{
-+	return regmap_write(bsp_priv->grf, bsp_priv->clock_grf_reg, val);
-+}
-+
- static int rk_set_reg_speed(struct rk_priv_data *bsp_priv,
- 			    const struct rk_reg_speed_data *rsd,
--			    unsigned int reg, phy_interface_t interface,
--			    int speed)
-+			    phy_interface_t interface, int speed)
+ static int rk_write_clock_grf_reg(struct rk_priv_data *bsp_priv, u32 val)
  {
- 	unsigned int val;
- 
-@@ -178,7 +186,7 @@ static int rk_set_reg_speed(struct rk_priv_data *bsp_priv,
- 		return -EINVAL;
- 	}
- 
--	regmap_write(bsp_priv->grf, reg, val);
-+	rk_write_clock_grf_reg(bsp_priv, val);
- 
- 	return 0;
- 
-@@ -373,7 +381,7 @@ static int rk3128_set_speed(struct rk_priv_data *bsp_priv,
- 			    phy_interface_t interface, int speed)
- {
- 	return rk_set_reg_speed(bsp_priv, &rk3128_reg_speed_data,
--				RK3128_GRF_MAC_CON1, interface, speed);
-+				interface, speed);
- }
- 
- static const struct rk_gmac_ops rk3128_ops = {
-@@ -384,6 +392,8 @@ static const struct rk_gmac_ops rk3128_ops = {
- 	.gmac_grf_reg = RK3128_GRF_MAC_CON1,
- 	.gmac_phy_intf_sel_mask = GENMASK_U16(8, 6),
- 	.gmac_rmii_mode_mask = BIT_U16(14),
+-	return regmap_write(bsp_priv->grf, bsp_priv->clock_grf_reg, val);
++	struct regmap *regmap;
 +
-+	.clock_grf_reg = RK3128_GRF_MAC_CON1,
- };
- 
- #define RK3228_GRF_MAC_CON0	0x0900
-@@ -440,7 +450,7 @@ static int rk3228_set_speed(struct rk_priv_data *bsp_priv,
- 			    phy_interface_t interface, int speed)
- {
- 	return rk_set_reg_speed(bsp_priv, &rk3228_reg_speed_data,
--				RK3228_GRF_MAC_CON1, interface, speed);
-+				interface, speed);
- }
- 
- static void rk3228_integrated_phy_powerup(struct rk_priv_data *priv)
-@@ -462,6 +472,7 @@ static const struct rk_gmac_ops rk3228_ops = {
- 	.gmac_phy_intf_sel_mask = GENMASK_U16(6, 4),
- 	.gmac_rmii_mode_mask = BIT_U16(10),
- 
-+	.clock_grf_reg = RK3228_GRF_MAC_CON1,
- };
- 
- #define RK3288_GRF_SOC_CON1	0x0248
-@@ -509,7 +520,7 @@ static int rk3288_set_speed(struct rk_priv_data *bsp_priv,
- 			    phy_interface_t interface, int speed)
- {
- 	return rk_set_reg_speed(bsp_priv, &rk3288_reg_speed_data,
--				RK3288_GRF_SOC_CON1, interface, speed);
-+				interface, speed);
- }
- 
- static const struct rk_gmac_ops rk3288_ops = {
-@@ -520,6 +531,8 @@ static const struct rk_gmac_ops rk3288_ops = {
- 	.gmac_grf_reg = RK3288_GRF_SOC_CON1,
- 	.gmac_phy_intf_sel_mask = GENMASK_U16(8, 6),
- 	.gmac_rmii_mode_mask = BIT_U16(14),
-+
-+	.clock_grf_reg = RK3288_GRF_SOC_CON1,
- };
- 
- #define RK3308_GRF_MAC_CON0		0x04a0
-@@ -543,7 +556,7 @@ static int rk3308_set_speed(struct rk_priv_data *bsp_priv,
- 			    phy_interface_t interface, int speed)
- {
- 	return rk_set_reg_speed(bsp_priv, &rk3308_reg_speed_data,
--				RK3308_GRF_MAC_CON0, interface, speed);
-+				interface, speed);
- }
- 
- static const struct rk_gmac_ops rk3308_ops = {
-@@ -552,6 +565,8 @@ static const struct rk_gmac_ops rk3308_ops = {
- 
- 	.gmac_grf_reg = RK3308_GRF_MAC_CON0,
- 	.gmac_phy_intf_sel_mask = GENMASK_U16(4, 2),
-+
-+	.clock_grf_reg = RK3308_GRF_MAC_CON0,
- };
- 
- #define RK3328_GRF_MAC_CON0	0x0900
-@@ -582,10 +597,12 @@ static int rk3328_init(struct rk_priv_data *bsp_priv)
- 	switch (bsp_priv->id) {
- 	case 0: /* gmac2io */
- 		bsp_priv->gmac_grf_reg = RK3328_GRF_MAC_CON1;
-+		bsp_priv->clock_grf_reg = RK3328_GRF_MAC_CON1;
- 		return 0;
- 
- 	case 1: /* gmac2phy */
- 		bsp_priv->gmac_grf_reg = RK3328_GRF_MAC_CON2;
-+		bsp_priv->clock_grf_reg = RK3328_GRF_MAC_CON2;
- 		return 0;
- 
- 	default:
-@@ -620,11 +637,7 @@ static const struct rk_reg_speed_data rk3328_reg_speed_data = {
- static int rk3328_set_speed(struct rk_priv_data *bsp_priv,
- 			    phy_interface_t interface, int speed)
- {
--	unsigned int reg;
--
--	reg = bsp_priv->id ? RK3328_GRF_MAC_CON2 : RK3328_GRF_MAC_CON1;
--
--	return rk_set_reg_speed(bsp_priv, &rk3328_reg_speed_data, reg,
-+	return rk_set_reg_speed(bsp_priv, &rk3328_reg_speed_data,
- 				interface, speed);
- }
- 
-@@ -700,7 +713,7 @@ static int rk3366_set_speed(struct rk_priv_data *bsp_priv,
- 			    phy_interface_t interface, int speed)
- {
- 	return rk_set_reg_speed(bsp_priv, &rk3366_reg_speed_data,
--				RK3366_GRF_SOC_CON6, interface, speed);
-+				interface, speed);
- }
- 
- static const struct rk_gmac_ops rk3366_ops = {
-@@ -711,6 +724,8 @@ static const struct rk_gmac_ops rk3366_ops = {
- 	.gmac_grf_reg = RK3366_GRF_SOC_CON6,
- 	.gmac_phy_intf_sel_mask = GENMASK_U16(11, 9),
- 	.gmac_rmii_mode_mask = BIT_U16(6),
-+
-+	.clock_grf_reg = RK3366_GRF_SOC_CON6,
- };
- 
- #define RK3368_GRF_SOC_CON15	0x043c
-@@ -758,7 +773,7 @@ static int rk3368_set_speed(struct rk_priv_data *bsp_priv,
- 			    phy_interface_t interface, int speed)
- {
- 	return rk_set_reg_speed(bsp_priv, &rk3368_reg_speed_data,
--				RK3368_GRF_SOC_CON15, interface, speed);
-+				interface, speed);
- }
- 
- static const struct rk_gmac_ops rk3368_ops = {
-@@ -769,6 +784,8 @@ static const struct rk_gmac_ops rk3368_ops = {
- 	.gmac_grf_reg = RK3368_GRF_SOC_CON15,
- 	.gmac_phy_intf_sel_mask = GENMASK_U16(11, 9),
- 	.gmac_rmii_mode_mask = BIT_U16(6),
-+
-+	.clock_grf_reg = RK3368_GRF_SOC_CON15,
- };
- 
- #define RK3399_GRF_SOC_CON5	0xc214
-@@ -816,7 +833,7 @@ static int rk3399_set_speed(struct rk_priv_data *bsp_priv,
- 			    phy_interface_t interface, int speed)
- {
- 	return rk_set_reg_speed(bsp_priv, &rk3399_reg_speed_data,
--				RK3399_GRF_SOC_CON5, interface, speed);
-+				interface, speed);
- }
- 
- static const struct rk_gmac_ops rk3399_ops = {
-@@ -827,6 +844,8 @@ static const struct rk_gmac_ops rk3399_ops = {
- 	.gmac_grf_reg = RK3399_GRF_SOC_CON5,
- 	.gmac_phy_intf_sel_mask = GENMASK_U16(11, 9),
- 	.gmac_rmii_mode_mask = BIT_U16(6),
-+
-+	.clock_grf_reg = RK3399_GRF_SOC_CON5,
- };
- 
- #define RK3506_GRF_SOC_CON8		0x0020
-@@ -843,6 +862,22 @@ static const struct rk_gmac_ops rk3399_ops = {
- #define RK3506_GMAC_CLK_RMII_GATE	GRF_BIT(2)
- #define RK3506_GMAC_CLK_RMII_NOGATE	GRF_CLR_BIT(2)
- 
-+static int rk3506_init(struct rk_priv_data *bsp_priv)
-+{
-+	switch (bsp_priv->id) {
-+	case 0:
-+		bsp_priv->clock_grf_reg = RK3506_GRF_SOC_CON8;
-+		return 0;
-+
-+	case 1:
-+		bsp_priv->clock_grf_reg = RK3506_GRF_SOC_CON11;
-+		return 0;
-+
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
- static void rk3506_set_to_rmii(struct rk_priv_data *bsp_priv)
- {
- 	unsigned int id = bsp_priv->id, offset;
-@@ -859,11 +894,8 @@ static const struct rk_reg_speed_data rk3506_reg_speed_data = {
- static int rk3506_set_speed(struct rk_priv_data *bsp_priv,
- 			    phy_interface_t interface, int speed)
- {
--	unsigned int id = bsp_priv->id, offset;
--
--	offset = (id == 1) ? RK3506_GRF_SOC_CON11 : RK3506_GRF_SOC_CON8;
- 	return rk_set_reg_speed(bsp_priv, &rk3506_reg_speed_data,
--				offset, interface, speed);
-+				interface, speed);
- }
- 
- static void rk3506_set_clock_selection(struct rk_priv_data *bsp_priv,
-@@ -881,6 +913,7 @@ static void rk3506_set_clock_selection(struct rk_priv_data *bsp_priv,
- }
- 
- static const struct rk_gmac_ops rk3506_ops = {
-+	.init = rk3506_init,
- 	.set_to_rmii = rk3506_set_to_rmii,
- 	.set_speed = rk3506_set_speed,
- 	.set_clock_selection = rk3506_set_clock_selection,
-@@ -925,6 +958,22 @@ static const struct rk_gmac_ops rk3506_ops = {
- #define RK3528_GMAC1_CLK_RMII_GATE	GRF_BIT(9)
- #define RK3528_GMAC1_CLK_RMII_NOGATE	GRF_CLR_BIT(9)
- 
-+static int rk3528_init(struct rk_priv_data *bsp_priv)
-+{
-+	switch (bsp_priv->id) {
-+	case 0:
-+		bsp_priv->clock_grf_reg = RK3528_VO_GRF_GMAC_CON;
-+		return 0;
-+
-+	case 1:
-+		bsp_priv->clock_grf_reg = RK3528_VPU_GRF_GMAC_CON5;
-+		return 0;
-+
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
- static void rk3528_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 				int tx_delay, int rx_delay)
- {
-@@ -967,17 +1016,13 @@ static int rk3528_set_speed(struct rk_priv_data *bsp_priv,
- 			    phy_interface_t interface, int speed)
- {
- 	const struct rk_reg_speed_data *rsd;
--	unsigned int reg;
- 
--	if (bsp_priv->id == 1) {
-+	if (bsp_priv->id == 1)
- 		rsd = &rk3528_gmac1_reg_speed_data;
--		reg = RK3528_VPU_GRF_GMAC_CON5;
--	} else {
++	if (bsp_priv->ops->clock_grf_reg_in_php)
++		regmap = bsp_priv->php_grf;
 +	else
- 		rsd = &rk3528_gmac0_reg_speed_data;
--		reg = RK3528_VO_GRF_GMAC_CON;
--	}
++		regmap = bsp_priv->grf;
++
++	return regmap_write(regmap, bsp_priv->clock_grf_reg, val);
+ }
  
--	return rk_set_reg_speed(bsp_priv, rsd, reg, interface, speed);
+ static int rk_set_reg_speed(struct rk_priv_data *bsp_priv,
+@@ -1338,39 +1346,33 @@ static void rk3588_set_to_rmii(struct rk_priv_data *bsp_priv)
+ 		     RK3588_GMAC_CLK_RMII_MODE(bsp_priv->id));
+ }
+ 
++static const struct rk_reg_speed_data rk3588_gmac0_speed_data = {
++	.rgmii_10 = RK3588_GMAC_CLK_RGMII(0, GMAC_CLK_DIV50_2_5M),
++	.rgmii_100 = RK3588_GMAC_CLK_RGMII(0, GMAC_CLK_DIV5_25M),
++	.rgmii_1000 = RK3588_GMAC_CLK_RGMII(0, GMAC_CLK_DIV1_125M),
++	.rmii_10 = RK3588_GMA_CLK_RMII_DIV20(0),
++	.rmii_100 = RK3588_GMA_CLK_RMII_DIV2(0),
++};
++
++static const struct rk_reg_speed_data rk3588_gmac1_speed_data = {
++	.rgmii_10 = RK3588_GMAC_CLK_RGMII(1, GMAC_CLK_DIV50_2_5M),
++	.rgmii_100 = RK3588_GMAC_CLK_RGMII(1, GMAC_CLK_DIV5_25M),
++	.rgmii_1000 = RK3588_GMAC_CLK_RGMII(1, GMAC_CLK_DIV1_125M),
++	.rmii_10 = RK3588_GMA_CLK_RMII_DIV20(1),
++	.rmii_100 = RK3588_GMA_CLK_RMII_DIV2(1),
++};
++
+ static int rk3588_set_gmac_speed(struct rk_priv_data *bsp_priv,
+ 				 phy_interface_t interface, int speed)
+ {
+-	unsigned int val = 0, id = bsp_priv->id;
+-
+-	switch (speed) {
+-	case 10:
+-		if (interface == PHY_INTERFACE_MODE_RMII)
+-			val = RK3588_GMA_CLK_RMII_DIV20(id);
+-		else
+-			val = RK3588_GMAC_CLK_RGMII(id, GMAC_CLK_DIV50_2_5M);
+-		break;
+-	case 100:
+-		if (interface == PHY_INTERFACE_MODE_RMII)
+-			val = RK3588_GMA_CLK_RMII_DIV2(id);
+-		else
+-			val = RK3588_GMAC_CLK_RGMII(id, GMAC_CLK_DIV5_25M);
+-		break;
+-	case 1000:
+-		if (interface != PHY_INTERFACE_MODE_RMII)
+-			val = RK3588_GMAC_CLK_RGMII(id, GMAC_CLK_DIV1_125M);
+-		else
+-			goto err;
+-		break;
+-	default:
+-		goto err;
+-	}
++	const struct rk_reg_speed_data *rsd;
+ 
+-	regmap_write(bsp_priv->php_grf, RK3588_GRF_CLK_CON1, val);
++	if (bsp_priv->id == 0)
++		rsd = &rk3588_gmac0_speed_data;
++	else
++		rsd = &rk3588_gmac1_speed_data;
+ 
+-	return 0;
+-err:
+-	return -EINVAL;
 +	return rk_set_reg_speed(bsp_priv, rsd, interface, speed);
  }
  
- static void rk3528_set_clock_selection(struct rk_priv_data *bsp_priv,
-@@ -1009,6 +1054,7 @@ static void rk3528_integrated_phy_powerdown(struct rk_priv_data *bsp_priv)
- }
+ static void rk3588_set_clock_selection(struct rk_priv_data *bsp_priv, bool input,
+@@ -1395,6 +1397,9 @@ static const struct rk_gmac_ops rk3588_ops = {
+ 	.gmac_grf_reg_in_php = true,
+ 	.gmac_grf_reg = RK3588_GRF_GMAC_CON0,
  
- static const struct rk_gmac_ops rk3528_ops = {
-+	.init = rk3528_init,
- 	.set_to_rgmii = rk3528_set_to_rgmii,
- 	.set_to_rmii = rk3528_set_to_rmii,
- 	.set_speed = rk3528_set_speed,
-@@ -1129,10 +1175,12 @@ static int rk3576_init(struct rk_priv_data *bsp_priv)
- 	switch (bsp_priv->id) {
- 	case 0:
- 		bsp_priv->gmac_grf_reg = RK3576_GRF_GMAC_CON0;
-+		bsp_priv->clock_grf_reg = RK3576_GRF_GMAC_CON0;
- 		return 0;
- 
- 	case 1:
- 		bsp_priv->gmac_grf_reg = RK3576_GRF_GMAC_CON1;
-+		bsp_priv->clock_grf_reg = RK3576_GRF_GMAC_CON1;
- 		return 0;
- 
- 	default:
-@@ -1178,12 +1226,7 @@ static const struct rk_reg_speed_data rk3578_reg_speed_data = {
- static int rk3576_set_gmac_speed(struct rk_priv_data *bsp_priv,
- 				 phy_interface_t interface, int speed)
- {
--	unsigned int offset_con;
--
--	offset_con = bsp_priv->id == 1 ? RK3576_GRF_GMAC_CON1 :
--					 RK3576_GRF_GMAC_CON0;
--
--	return rk_set_reg_speed(bsp_priv, &rk3578_reg_speed_data, offset_con,
-+	return rk_set_reg_speed(bsp_priv, &rk3578_reg_speed_data,
- 				interface, speed);
- }
- 
-@@ -1384,7 +1427,7 @@ static int rv1108_set_speed(struct rk_priv_data *bsp_priv,
- 			    phy_interface_t interface, int speed)
- {
- 	return rk_set_reg_speed(bsp_priv, &rv1108_reg_speed_data,
--				RV1108_GRF_GMAC_CON0, interface, speed);
-+				interface, speed);
- }
- 
- static const struct rk_gmac_ops rv1108_ops = {
-@@ -1393,6 +1436,8 @@ static const struct rk_gmac_ops rv1108_ops = {
- 
- 	.gmac_grf_reg = RV1108_GRF_GMAC_CON0,
- 	.gmac_phy_intf_sel_mask = GENMASK_U16(6, 4),
++	.clock_grf_reg_in_php = true,
++	.clock_grf_reg = RK3588_GRF_CLK_CON1,
 +
-+	.clock_grf_reg = RV1108_GRF_GMAC_CON0,
- };
- 
- #define RV1126_GRF_GMAC_CON0		0X0070
-@@ -1675,6 +1720,9 @@ static struct rk_priv_data *rk_gmac_setup(struct platform_device *pdev,
- 	bsp_priv->gmac_phy_intf_sel_mask = ops->gmac_phy_intf_sel_mask;
- 	bsp_priv->gmac_rmii_mode_mask = ops->gmac_rmii_mode_mask;
- 
-+	/* Set the default clock control register related parameters */
-+	bsp_priv->clock_grf_reg = ops->clock_grf_reg;
-+
- 	if (ops->init) {
- 		ret = ops->init(bsp_priv);
- 		if (ret) {
+ 	.php_grf_required = true,
+ 	.regs_valid = true,
+ 	.regs = {
 -- 
 2.47.3
 
