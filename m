@@ -4,169 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD293E6BF0B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 13:02:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4DCEE6BF0B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 13:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0aCQ29P2sjF6ln6maCzzY/w13N2vmgjn6cwIE98eReg=; b=Qebzbe01538et6XXwrjs7nb3Lc
-	o/LzDQe+CMh8AzV3O0QpRZh0AAcjAgnMrgYnbK/unikVGsv6+DhH6DdDqDKpz/ScspgybERzk2trX
-	kZlz5eyuKvHjlDNto9uHGces1bjToOAOQujXUeMuM5R8z+gwey85/0FmbKQUBbdq3FfBV6Suw2QNu
-	119cdVSV9MSHqM4TjCezUgK6/YxIsy2ycwI/t26K1aD7nR8yQnCpZynnO7a0qbhaKhVYyOFUlTmX7
-	xgbAHTGnJtMxSYgdD2EFAu1pBYDPFnfU8jEu2T7B7boY02CRnL9ztpH8oUaWZqU2t4xrbcadH1Agy
-	nHxD3ISw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UBf8C/0xR74j04aOxcYP8T2S3+hA9h8u2VJdmYV9Spg=; b=SKHF2mpuOtBhAJGOf/mDmDcofh
+	4OcpZZvBX7g/7ZUJpCDK6TnYjzuvQkShpqnbHbvYUVSiAmqyAdN4Dnu1O+Xs/zGvnhhPrf9YBCwVL
+	tBctyEyRhmzIc5EOfvexWIpU7sE5rqvXEVfVZr2IEhabXOY3MeIzwf3v5/P62E2AJZikdeeDztR89
+	a7zIbCwX/PoZmARio21xFvdf60J59FARf+4EBAykTrYP0PVOf9EWyeC6BlaQVLwhWj3RCb3AgNUGK
+	WN5uwgyDwZB6PGI5OYqjf9DQA+RP2HDcX9596PjBvLswLAA3FR4cHvfSXiKD18rEa8mUKbtsY0hc+
+	IZ/rzMrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlo8J-00000001VSZ-1cOS;
-	Fri, 30 Jan 2026 13:01:55 +0000
-Received: from mail-japaneastazon11010047.outbound.protection.outlook.com ([52.101.229.47] helo=TY3P286CU002.outbound.protection.outlook.com)
+	id 1vloB5-00000001Vap-401A;
+	Fri, 30 Jan 2026 13:04:47 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlo8E-00000001VS9-3zIF
+	id 1vloB3-00000001Va4-0VhA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 13:01:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Yx99am6cZaiQYha18Q8/N2AX3CVOBehHLyRLy3mwNNU54xQ4NmbAmpl9ty+U/bxgaAN+84DALXxGA/C3yXsLWj4gUiA1AxFu2t3jVfuwbnCW7+ZXlzcbs7UqiveAGHCRx2g2z8oyTTGQD5vLso4uRqRykRxeB4KjjKGWccLiNBQyiJy0u1Q+XizAVRpCnJ4gqHhtuo8Bp04sZfmIgOrcvpC+6esw9RUCIOGhi3jY/QIjHlIEMR6fWxqo3FbtELUjIgkbwUNEGywe2B5vMSHeoLWTBUoiiOwUIuYW7ibiTciys7W0BOTsad1j1DWurlHPpaHaWdrK52+mArRPpT0jwg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0aCQ29P2sjF6ln6maCzzY/w13N2vmgjn6cwIE98eReg=;
- b=MAbtVjTHFOeyVWHMe8oyyKS3UVgfMRzxyWY+KVMITR6LohZ6vK0lSOrF1ME15BPIMiDYE/AGvdRh8oP9lTkX0QEYXmwCKI+ElMlm+oMvzMgNO8hd2+/oNEyemVfQJAZJfY0FHmHmE0ipqyHXRjnCfYRXMKKGNI45e6MxwiNi0ks1ERts0wWpI2oOIkIe4PGY8WqMBcZxpYGeyZfjMNt/ZQ6xKj69WqzuXynEiD239EUkIRaK6a1LQv5IXhhQ/xwJdP+5QYSBkXOa1FgXC11DsCHQbdQEM7iDwHclKH+X/XsemzaZnAfFv2YlPD/d79qbV9gg8rfbmy7uTn9/Q2Lgog==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
- header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0aCQ29P2sjF6ln6maCzzY/w13N2vmgjn6cwIE98eReg=;
- b=wG71aRyWCQik1jKrIBlpyWF/y+WX9WXgUp/9KQWh0Yz/K2upmFRHcJUGu7IWqI8U/mL42A0ggOiD7qmaWQE2/Y032jBLmDqwQQ/HtScWPoE/2DZk60tFvKddrv+MVJ+ehl5LXrj2X4lN5HxB3dyuTRw78jJEZT+JQkKaynkQ8PQ=
-Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com (2603:1096:400:3d0::7)
- by TY4PR01MB12734.jpnprd01.prod.outlook.com (2603:1096:405:1e9::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Fri, 30 Jan
- 2026 13:01:44 +0000
-Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com
- ([fe80::86ef:ca98:234d:60e1]) by TY3PR01MB11346.jpnprd01.prod.outlook.com
- ([fe80::86ef:ca98:234d:60e1%6]) with mapi id 15.20.9564.010; Fri, 30 Jan 2026
- 13:01:44 +0000
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Russell King <linux@armlinux.org.uk>, biju.das.au <biju.das.au@gmail.com>
-CC: Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>, Andrew
- Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, Richard Cochran
-	<richardcochran@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>,
-	magnus.damm <magnus.damm@gmail.com>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-renesas-soc@vger.kernel.org"
-	<linux-renesas-soc@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH net-next v2 2/2] net: stmmac: dwmac-renesas-gbeth: Add
- support for RZ/G3L SoC
-Thread-Topic: [PATCH net-next v2 2/2] net: stmmac: dwmac-renesas-gbeth: Add
- support for RZ/G3L SoC
-Thread-Index: AQHckd5GhP+8lb1qTUqz9vJg/snO/7VqqAkAgAAEucA=
-Date: Fri, 30 Jan 2026 13:01:43 +0000
-Message-ID: <TY3PR01MB11346593FF444932F2BF02841869FA@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-References: <20260130114744.252533-1-biju.das.jz@bp.renesas.com>
- <20260130114744.252533-3-biju.das.jz@bp.renesas.com>
- <aXynMiZJJhikfIRM@shell.armlinux.org.uk>
-In-Reply-To: <aXynMiZJJhikfIRM@shell.armlinux.org.uk>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=bp.renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY3PR01MB11346:EE_|TY4PR01MB12734:EE_
-x-ms-office365-filtering-correlation-id: 6568aa88-82e2-494b-4c6b-08de5fffb7a2
-x-ld-processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?z4YS0fu+9SOQ9xjmMn4Gqw3hDil2IAqbd1zMxmNTegbFV0RGAKdVYp6su5Ef?=
- =?us-ascii?Q?0tzgy0ESXh0LvG3MToHuhdcLRWfIX9u9LV44xn5hDd/emdQitacEci9InYUH?=
- =?us-ascii?Q?O824onQVLgIGOGNrYx8Mm/6fR8CwyE1o0viTx0SLRIOBCRLhXRhg1iajIlDa?=
- =?us-ascii?Q?4JbBguvkb+QuaaeJ3djMddhgKCvRH4XElpkSWNoml4SJ9KtN3YkgHWE/+A+e?=
- =?us-ascii?Q?8mFtruYqvFCRzdUzAv1873MXyOutqZ4+S8n+RPBBjKDZGU9aePoKSssjlIXr?=
- =?us-ascii?Q?uazFoYhW7qNyC8VPjy+03DucDRR2Xay6ECJsRU1KiawB6h3iooAMiKYBcZOS?=
- =?us-ascii?Q?Y9HQelsF6KaaeavXdY0FO9A8IHyAIu0GP5a2Iw0N/aWUEPNWLnMKgXWEGirh?=
- =?us-ascii?Q?rA9+qizuP7uRsUoVe9DLEVLDk1f+NxvrNRh5ETFWOEJPm3u2G2+wxofKwyZr?=
- =?us-ascii?Q?0AMVkplGYcz21iq57ILOgSiTyTDsL6tTlxhuAZVnnVAqpXQPvbKLSoRvAf8c?=
- =?us-ascii?Q?Hc+2rFUHkmNUFR6xMS6K/QPKKVRc+M8CzXBRPesPZPPNANxAWro2KFV7PQ5N?=
- =?us-ascii?Q?k3Dh4z9M5UWE0qPb3lo7nwVet32K/o+UmVmftdYLprSUpZbOu+DizzL9sT+6?=
- =?us-ascii?Q?1l/Na0zHfiaGCf57oSdLjVLmxkwssbmDiSubV6tfxs7+G+TxM8IMfpQM9TTx?=
- =?us-ascii?Q?P6jCxG4+ytmEzYkvLLcGA3GcfmP+qWPpfPv8MRFoaoJ5HcDgAgs+uahUi7Py?=
- =?us-ascii?Q?L1fWuEwJ0YFsgKGaDqdWhTbWvTi6WFykjds+NocP8/yZZdxU8MfTjWmTAuKb?=
- =?us-ascii?Q?CtGfo4QXw8aOV32gowkdF3Y9is3PphSGA0zSei1w9cWoeo0eByAhEkWOEnnx?=
- =?us-ascii?Q?S9ijuugwJ9hd5bRziDY+6bQieo/ErjwGbD4JJzZmI8kjz7Q+n/jZHrFngC2r?=
- =?us-ascii?Q?peGui8mxujWKC1eDTmxGO2Ry0l9D302iV7NRjSxks8rZx7Bgafa4FIoNQmZn?=
- =?us-ascii?Q?zMX6tS6KoXWbuE/3vGslu49Uie7kTpiRXp04qzS2ISMqxOOVlO3v4unW4MwD?=
- =?us-ascii?Q?It5yOqwInxqcKyjEcvKSuu4x2jqQzW5kHHriHlJTVG/lrg//1P/TMtMCvD3C?=
- =?us-ascii?Q?F5mhbEO2RbBfA4DoW19AoWXTZlZl7WdmlVE8QjmyNvRAlBTvHnaaJFdH6Zn/?=
- =?us-ascii?Q?SuPwkpJGGcM5yRx7+T75OIhokZ7CB+jpmg7Aba0z8wpv+YIv/ktvB6BpPGoF?=
- =?us-ascii?Q?4nW1I4gzLDy7cRX8A7p6Ew7GKC6087eG5fRJQuXJDVCc6pVU1k5DrxooyhKw?=
- =?us-ascii?Q?12/gHC5G07niOXuIIRB9O9n/gnQHuGlGOUtJPGQnemfqu4J74ShzwPPDkotS?=
- =?us-ascii?Q?mTm0DOn8rlYKo8RTKxC7bmnt00lmAmEk3OBqmKN1RsvpFsIyffkU1YSdnszh?=
- =?us-ascii?Q?vC7gQJkkX9Xw9ynXrjYR38q+fJn35enZTFsXYgjk8O3rdVUqAv9+JxFn/ZeP?=
- =?us-ascii?Q?98Tnxhb5KK0qDBw3Qwqvb30uRXIHL28r8ViHf7YqqCUycBJlWYbOhAZpBFH3?=
- =?us-ascii?Q?qH9g/ZgyG5ZXBMb5fGIPeo8IQ1xsGicrEW3QVqvV?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11346.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?hIdnj2HYtOuXmJRbf5/jnkDz5ZrUewDFXbYc8aNBUbgIy/dxU6gVw3fnqvqf?=
- =?us-ascii?Q?xynpu4A0tTLLXAEN6pKsQQQA4KusVl+gx6pVSCs3UFAPU8GmFWpaGaB2xNY+?=
- =?us-ascii?Q?snx+Tjw7uBB/nJMBAGqPp9xJd7qWHifKqEcNGqWiuxTzrqOdH5VLy/AkVDpq?=
- =?us-ascii?Q?JBdhkIfvTqC06E569Z6AYiG3boZ1QmvBsU1T/HXGaC9SmjfJq7gkJfJ4vXik?=
- =?us-ascii?Q?rd2So6hioiFGnrGvfZFt34Z/fvXw+/Bglf0WOmNjpoBueNcYUWSoBZ/wwAAW?=
- =?us-ascii?Q?bC7NM6MR504UaHu0BCKlvF4enli9NhohQrFfjsByK3SPNOU1krs+66pUfk+3?=
- =?us-ascii?Q?VyTTHPiH+D54vF3ECJD3pUIS/rGJ1f2lcYe1fQfsYp8dAf9yc7v2TsrB4QFf?=
- =?us-ascii?Q?R5G5ai9W7fhD7e0mgLBVeSEwaJVI/NoZsX0rao6hE2CvxHcAch0ph7jnpoiB?=
- =?us-ascii?Q?FsohdWawEXN9qh99ozbVu/GMZZpl8ZTYpoTLjIjUJqxndbQUiGqp9R83ADuK?=
- =?us-ascii?Q?69b1bK2Hcz2fGaDWmkna2ySJW3V4b4fZ/p2t73sFhVNKBEGd6kGfiWe/ffwc?=
- =?us-ascii?Q?60U0JidWYLpsaORtC8P42PX8KbL8L/iU04a1ME3Rna8FTeI7DzRqQbRM0K1o?=
- =?us-ascii?Q?uEBywmwj6jvYg1+i174S0nHq/Y9hfc7Ht7fkELDU+fpv/ifm9imKOkfG571O?=
- =?us-ascii?Q?LbwsnqNDyXIYUiRMvlN73fvW18LryRkEgsihiWdV9TJqVQwv+E8sfjH1eZdY?=
- =?us-ascii?Q?Ne5/rPh5r6K5OQyIfeby/3NN1Jrj7TZTSpvs6dAAAhEQ+smRNOWJyS1/iA6O?=
- =?us-ascii?Q?WfKgEKXgy+XKMLmuCT4aAV2uls43rasiJFLnTR8PsePtpO0yO7rm4XFnXFwI?=
- =?us-ascii?Q?PpyR38EJTF5CVIXKZKV+bX+0+Vnuo8thwhRyJwzWQCWLur3iPJeBjri6cgdk?=
- =?us-ascii?Q?fWha5PDyQpQodDhQV8iWYUwkcBqOcdeI46pDT75U68lTguXyyKb0jbxPl4/A?=
- =?us-ascii?Q?ozeBtJfjhFSCqlwH8acjW1ogsnRMIGDQqmaFtCuFqktbfwMFDBnDRmg+2aHy?=
- =?us-ascii?Q?OjAPV7D2GHcqjdEYshCPLjWjVGRvrrgKvMJumNzHGiSPjKB5uaUyt9x9YM+7?=
- =?us-ascii?Q?CTBG/kRMydqsswI8ueg1gVHVCBHr1p5CDIR1BCwALyA2htE2mYMCnCRgDCYH?=
- =?us-ascii?Q?7OLqcjf4pe5BqLyw31JI/D7AJlap4tJvMbLOf7SpBKoTL9ro2e57aH3mqyNG?=
- =?us-ascii?Q?94HSO+yweeRkYPIlCGyUqZoM/lYG4oxIARLhVlrAMQuFogyK6IjrUXirJ+Ko?=
- =?us-ascii?Q?5kRq42EV10xyqoO/nkqE+xm23o4SgCkKa87GCLkuXgeIKXfKsH4lJxjRFL2A?=
- =?us-ascii?Q?orash1p5yMfUKIIFtxT12yw7VRYNAnVt8t5OjUNdS2EFajcRY/jrSePaebxx?=
- =?us-ascii?Q?dGsjg/nr6KdazWy/KwGVdjVyGHoMwb2N0BdVjih4UcbFtPXH9MXCDOuyR+yY?=
- =?us-ascii?Q?pM6l9S8WtTux5lXZD3oXvFyusdQY7oOn7J/SDCADoIUbB8ZTAkDPc0t27JCj?=
- =?us-ascii?Q?+bANLI20QW7pCQe8z6Jkz1HmGqIqNZ5dDku6UQactMJGE9g3oliKDlSjInbQ?=
- =?us-ascii?Q?c9UMNRiZEIV8LwzNm2CFPIRWWIbUFL0EcTw1eeozVJZfEQh6yrpbf0TWWh8O?=
- =?us-ascii?Q?n8JHQPe5+KbZ16Q9iqgJHtg7uypF6DZVO4XcL3mLwJcodzMTyAtOaBEcmx01?=
- =?us-ascii?Q?RJO7+asrZw=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 30 Jan 2026 13:04:46 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b8715a4d9fdso257740466b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Jan 2026 05:04:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769778282; cv=none;
+        d=google.com; s=arc-20240605;
+        b=MZjjgMcR82TI+HLyY5YuzFowqegOpqX911P++PJUg64L5mLuRizBmau2GkhY8+Jlho
+         6bvcBTHCsAKxwomHpc4egNzCI6pFIshgkDEOgppbk/j1OC2Q6gi+jTpix18Ry98PC4du
+         vWgxxYeQd7hLZMHVVx7mT1OaoESxbO0VMH9eA09cT1O9bEVsxiqaPLgXl1B7vBQuvwmh
+         X1yAqA0QkKCabhHWVZMjha3Lsijrd0JfUTvI2aFciSPBkGLEtlwItBFxiEL8fnI1angN
+         D+L791EVNBxJj5aqXeogoR3gI1oB2z+q768T2/DdeasD2O8gJBk02hzu09AwnVTGjUl7
+         uvtA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=UBf8C/0xR74j04aOxcYP8T2S3+hA9h8u2VJdmYV9Spg=;
+        fh=2IcFWYJDeukbMLh0IYwnPWF8QhKTqO6lPud4pRfFv0s=;
+        b=EULUHhqhtnDFbuXLQl3LjXcceYhD+sLn+wmMvTq6N/Brz0hADNw+2/9z14bv7xVVUF
+         AsGOkrhh6xlL1JN/ewRlnGXc5F1jQd6HIAEN4NvN/t9L00uinP+LqZMk6BQngRZHxkdV
+         Y9FS1a3n/bWbHLPSO9pGQtz59NN7yTi/34Fnku7ElcWy8ZRNt6TY+IkcYpvE3YNLK2Rt
+         Xs6JSt39WmyOHksw8sRAOOHu7y9ptqvARLrGuicuniMa1oTZqrm/1AT3hGCCl3kIBAce
+         j09hl0XqitpaHsJT3g7GtuX8JJ6u0JAIVpL4F/RNc65b3vy55z9F1I6bN4apoDg+e/oh
+         sp/Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1769778282; x=1770383082; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UBf8C/0xR74j04aOxcYP8T2S3+hA9h8u2VJdmYV9Spg=;
+        b=EOnsxR2tWrB6/c1IUDIuBEKH3AFY8804EN9XvvR49MIg7b7SSZdLk3luNIwHvzTyYM
+         7+vunr/VJx4JUziTkiVbongeJ4jSQjvd3k+wjeDGl3k8BptOIz9sSk3KcZldN/6GVdE2
+         KmdjDUXibyiz9R1JtxBBx9qFqZaCDgGaG2+qVVa7k0y9Go4EQ/5Z9gX3qh8SBt5+eRt6
+         Lx4tHpOaCUawlsWKkCJ3l19PzVx42rmalEsYfl7wwfIHcCwKh8Euqe30t1vgmyBywgHm
+         nRTLE4jbHEWX8l1Hnao7vnh0M//KAAREfM1IqkXE8gkcW0oYDxqDgfEmAUGS1DZOQDQP
+         Gwfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769778282; x=1770383082;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=UBf8C/0xR74j04aOxcYP8T2S3+hA9h8u2VJdmYV9Spg=;
+        b=fIHsNPbHEUZHSW66/hYZywR+EhTx9LMJk0POAy/sOSlwH2INHtmVlGhFANSIeMbbCV
+         +Bqn93X7d8yQZNON5p2Dwk7sNmhxOn1T3XwO+qm+zyOJzCQqk4/kxthArUNNCeyoxVSS
+         CngJA9clFncTZ8A0pSP5CFYqje/JW2SPg6IyaHiZCdELV9GK2L73is2dB+/lLzXTuXW+
+         nbEVxYiIK0Fbuk1WE0SECaCnDOeKH14/5wvACnDV/pidPj5hxI4QPDDhv2GzQePZKl0k
+         tlHJ4jaXRalqZXYhOhisgaboBVMX5iFG0jYOscb5M6+asPgkskH+48UYty+MbECu5lJB
+         1y7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXN8Pf1tZ6fxjwWwXoWZXlEvvP/M2Nud4Niz94e5qGh0ajAhFLwXKzPh/12SEz91UKuixymYEzLjKtiKUyYX+iy@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNzhlgnXrWSlv+NTQGkP2FbnlzRdp+gY9baj0U+bN9HlWNgiAb
+	cnaIRRwhgZG0uh0xBxRhpTVgj4ALp6X826zH/fh+8WgZSvmmoUu6t/O9rd5vGa380Rig1oCH3jh
+	7nmLOkINIqumitsEzfL6HllmV8ift6KR6bMwEw/UK
+X-Gm-Gg: AZuq6aLAHAVOogThlLwVZk7sjdUAprfllNQucyz0jJA9iMnBXP4FAx8P6Qy+9IcTA+2
+	IgKBq3em/ZmKI4DPBwC8GSnGAq9jP6hTb0LEPBK/Ib6psw9d4DLWwaSr3KXeqhBS7dHaBc3HfHe
+	z+QlcgymnZm94gO8uKB5IDcr1Z7U8sdvRvZ044HTbxulhETXsujtXPTGi7B3ZA8jdY0x1sHy2df
+	ySBhqkUx+tz7cLCiuMYjD8U09VzmDMFhd8Mwe6Rc3mrpgaxrEhghbh8uChbfjKmMzUGNn4qHkjU
+	8wzG9zkPE2IhYWD84t3trojXLUkygurmog==
+X-Received: by 2002:a17:907:704:b0:b88:3bb9:e2d1 with SMTP id
+ a640c23a62f3a-b8dff8b1453mr142780166b.60.1769778281634; Fri, 30 Jan 2026
+ 05:04:41 -0800 (PST)
 MIME-Version: 1.0
-X-OriginatorOrg: bp.renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11346.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6568aa88-82e2-494b-4c6b-08de5fffb7a2
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Jan 2026 13:01:43.5009
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: OFzPdqPSVbOnrqlGE3WF923wZkf38ST2vlQHVprcsdZ0uGDOI3N4HaJeY/nWkhRp/zG7offB7pYVb+6ipwClD1DYwb15cL6418PkmAKJexQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4PR01MB12734
+References: <20260112165914.4086692-1-ben.horgan@arm.com> <20260112165914.4086692-30-ben.horgan@arm.com>
+ <CALPaoCh+mRLJEfhKBve3hRf+vHHoObjvWRt74OfpopgtR9g9FQ@mail.gmail.com>
+ <c157d2b6-7282-438f-b9e7-1a24be3fbf53@arm.com> <CALPaoCi0fR5sUVsjXi25XHBrhn3whFvKDpEvUGSM5Hjd2LZP6w@mail.gmail.com>
+ <2ce2b78e-9a79-489d-813c-3ed6ced34f12@arm.com>
+In-Reply-To: <2ce2b78e-9a79-489d-813c-3ed6ced34f12@arm.com>
+From: Peter Newman <peternewman@google.com>
+Date: Fri, 30 Jan 2026 14:04:29 +0100
+X-Gm-Features: AZwV_Qgsp2QKetSJZCBE6HG-t_3ZxRz8uwHEr5HdiTUFCwojXmkqXvN5_gENpCw
+Message-ID: <CALPaoCgfi8qgJi_yijJ5u933faMvCZCjdBOGCKxOd4uqwEJhyw@mail.gmail.com>
+Subject: Re: [PATCH v3 29/47] arm_mpam: resctrl: Pick classes for use as mbm counters
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: James Morse <james.morse@arm.com>, amitsinght@marvell.com, baisheng.gao@unisoc.com, 
+	baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com, 
+	dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com, 
+	fenghuay@nvidia.com, gshan@redhat.com, jonathan.cameron@huawei.com, 
+	kobak@nvidia.com, lcherian@marvell.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, punit.agrawal@oss.qualcomm.com, 
+	quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com, 
+	scott@os.amperecomputing.com, sdonthineni@nvidia.com, 
+	tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com, 
+	will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_050151_333770_263ADABF 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20260130_050445_231285_AE9BE80D 
+X-CRM114-Status: GOOD (  48.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,51 +128,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ben,
 
-Hi Russell King,
-
-Thanks for the feedback.
-
-> -----Original Message-----
-> From: Russell King <linux@armlinux.org.uk>
-> Sent: 30 January 2026 12:42
-> Subject: Re: [PATCH net-next v2 2/2] net: stmmac: dwmac-renesas-gbeth: Ad=
-d support for RZ/G3L SoC
->=20
-> On Fri, Jan 30, 2026 at 11:47:40AM +0000, Biju wrote:
-> > From: Biju Das <biju.das.jz@bp.renesas.com>
+On Mon, Jan 26, 2026 at 5:00=E2=80=AFPM Ben Horgan <ben.horgan@arm.com> wro=
+te:
+>
+> Hi Peter, James,
+>
+> On 1/19/26 12:47, Peter Newman wrote:
+> > Hi James,
 > >
-> > Compared to other Renesas GBETH stmmac glue drivers, RZ/G3L GBETH IP
-> > use the version Synopsys DesignWare MAC (version 5.30). It has an
-> > extra clock compared to RZ/V2H and has ptp_pps_o interrupts. Add
-> > support for RZ/G3L GBETH by reusing device data of RZ/V2H and can be
-> > extended to add other functionalities later.
+> > On Mon, Jan 19, 2026 at 1:04=E2=80=AFPM James Morse <james.morse@arm.co=
+m> wrote:
+> >>
+> >> Hi Peter,
+> >>
+> >> On 15/01/2026 15:49, Peter Newman wrote:
+> >>> On Mon, Jan 12, 2026 at 6:02=E2=80=AFPM Ben Horgan <ben.horgan@arm.co=
+m> wrote:
+> >>>> From: James Morse <james.morse@arm.com>
+> >>>>
+> >>>> resctrl has two types of counters, NUMA-local and global. MPAM has o=
+nly
+> >>>> bandwidth counters, but the position of the MSC may mean it counts
+> >>>> NUMA-local, or global traffic.
+> >>>>
+> >>>> But the topology information is not available.
+> >>>>
+> >>>> Apply a heuristic: the L2 or L3 supports bandwidth monitors, these a=
+re
+> >>>> probably NUMA-local. If the memory controller supports bandwidth mon=
+itors,
+> >>>> they are probably global.
+> >>
+> >>> Are remote memory accesses not cached? How do we know an MBWU monitor
+> >>> residing on a cache won't count remote traffic?
+> >>
+> >> It will, yes you get double counting. Is forbidding both mbm_total and=
+ mbm_local preferable?
+> >>
+> >> I think this comes from 'total' in mbm_total not really having the obv=
+ious meaning of the
+> >> word:
+> >> If I have CPUs in NUMA-A and no memory controllers, then NUMA-B has no=
+ CPUs, and all the
+> >> memory-controllers.
+> >> With MPAM: we've only got one bandwidth counter, it doesn't know where=
+ the traffic goes
+> >> after the MSC. mbm-local on the L3 would reflect all the bandwidth, an=
+d mbm-total on the
+> >> memory-controllers would have the  same number.
+> >> I think on x86 mbm_local on the CPUs would read zero as zero traffic w=
+ent to the 'local'
+> >> memory controller, and mbm_total would reflect all the memory bandwidt=
+h. (so 'total'
+> >> really means 'other')
 > >
-> > Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
->=20
-> This seems to be patch 2 of 2, but there's no sign of patch 1 nor the cov=
-er message. I'm guessing
-> patch 1 was updating the DT binding docuentation.
+> > Our software is going off the definition from the Intel SDM:
+> >
+> > "This event monitors the L3 external bandwidth satisfied by the local
+> > memory. In most platforms that support this event, L3 requests are
+> > likely serviced by a memory system with non-uniform memory
+> > architecture. This allows bandwidth to off-package memory resources to
+> > be tracked by subtracting local from total bandwidth (for instance,
+> > bandwidth over QPI to a memory controller on another physical
+> > processor could be tracked by subtraction).
+>
+> Indeed we should base our discussion on the event definition in the
+> Intel SDM. For our reference, the description for the external bandwidth
+> monitoring event (mbm_total) is:
+>
+> "This event monitors the L3 total external bandwidth to the next level
+> of the cache hierarchy, including all demand and prefetch misses from
+> the L3 to the next hierarchy of the memory system. In most platforms,
+> this represents memory bandwidth."
+>
+> >
+> > On NUMA-capable hardware that can support this event where all memory
+> > is local, mbm_local =3D=3D mbm_total, but in practice you can't read th=
+em
+> > at the same time from userspace, so if you read mbm_total first,
+> > you'll probably get a small negative result for remote bandwidth.
+> >
+> >>
+> >> I think what MPAM is doing here is still useful as a system normally h=
+as both CPUs and
+> >> memory controllers in the NUMA nodes, and you can use this to spot a c=
+ontrol/monitor group
+> >> on a NUMA-node that is hammering all the memory (outlier mbm_local), o=
+r the same where a
+> >> NUMA-node's memory controller is getting hammered by all the NUMA node=
+s (outlier
+> >> mbm_total)
+> >>
+> >> I've not heard of a platform with both memory bandwidth monitors at L3=
+ and the memory
+> >> controller, so this may be a theoretical issue.
+> >>
+> >> Shall we only expose one of mbm-local/total to prevent this being seen=
+ by user-space?
+> >
+> > I believe in the current software design, MPAM is only able to support
+> > mbm_total, as an individual MSC (or class of MSCs with the same
+> > configuration) can't separate traffic by destination, so it must be
+> > the combined value. On a hardware design where MSCs were placed such
+> > that one only counts local traffic and another only counts remote, the
+> > resctrl MPAM driver would have to understand the hardware
+> > configuration well enough to be able to produce counts following
+> > Intel's definition of mbm_local and mbm_total.
+>
+> On a system with MSC measuring memory bandwidth on the L3 caches these
+> MSC will measure all bandwidth to the next level of the memory hierarchy
+> which matches the definition of mbm_total. (We assume any MSC on an L3
+> is at the egress even though acpi/dt doesn't distinguish ingress and
+> egress.)
+>
+> For MSC on memory controllers then they don't distinguish which L3 cache
+> the traffic came from and so unless there is a single L3 then we can't
+> use these memory bandwidth monitors as they count neither mbm_local nor
+> mbm_total. When there is a single L3 (and no higher level caches) then
+> it would match both mbm_total and mbm_local.
 
-I am seeing delay in delivering patch from gmail SMTP server since yesterda=
-y. Now patch [1] is reached
-in lore.org. Sorry for that
+The text you quoted from Intel was in the context of the L3. I assume
+if such an event were implemented at a different level of the memory
+system, it would continue to refer to downstream bandwidth.
 
-[1]
-https://lore.kernel.org/all/20260130114744.252533-2-biju.das.jz@bp.renesas.=
-com/
+>
+> Hence, I agree we should just use mbm_total and update the heuristics
+> such that if the MSC are at the memory only consider them if there are
+> no higher caches and a single L3.
 
-Cheers,
-Biju
+That should be ok for now. If I see a system where this makes MBWU
+counters inaccessible, we'll continue the discussion then.
 
->=20
-> For this patch:
->=20
-> Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
->=20
-> Thanks!
->=20
-> --
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+>
+> The introduction of ABMC muddies the waters as the "event_filter" file
+> defines the meaning of mbm_local and mbm_total. In order to handle this
+> file properly with MPAM, fs/resctrl changes are needed. We could either
+> make "event_filter" show the bits that correspond to the mbm counter and
+> unchangeable or decouple the "event_filter" part of ABMC from the
+> counter assignment part. As more work is needed to not break abi here
+> I'll drop the ABMC patches from the next respin of this series.
+
+I would prefer if you can just leave out the event_filter or make it
+unconfigurable on MPAM. The rest of the counter assignment seems to
+work well.
+
+Longer term, the event_filter interface is supposed to give us the
+ability to define and name our own counter events, but we'll have to
+find a way past the decision to define the event filters in terms
+copy-pasted from an AMD manual.
+
+Thanks,
+-Peter
 
