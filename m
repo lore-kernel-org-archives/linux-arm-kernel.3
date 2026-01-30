@@ -4,164 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBCCD73EB7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 06:23:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB762D73EB7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 06:30:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ascH0nPqAI/wWocq/r3sIqaLDcqVNJ2mxTJigFs6VUs=; b=0KIJGrlOqbnNzOsg2Pl56rnxai
-	ef/MVLD5oxzGt7C+BFvzRVpcVrWRHFaHk1L4dTzytWyvZu4bVQd7IUg7Rw3oBzpmMvm4ZY2Fcem6C
-	TkcvAyYf7KHaCeW0JyOzdBiurkKuW4bzZZrjUgOBUMIbrQv158oQRYOCh+5sOzryLs1N5qjBTOJ4l
-	HaeW0hJBvIEdTatMJbHzgf4QTaZkahbb6YXxh5qz3R9gWm2u8O3+Igv/xYY94v/ssINtc+lvaDsUp
-	JT8IQL31Q24Ae8oPuBHTfbKFrWKU0wbTGty7t1j63nfSFXKb/lG+9fSNo3FJfIP9rzg4OwerJPRkt
-	pQAueHHA==;
+	bh=Tcqy+itcw9+1TzIPrlCgABIJ28CYd+PaAWl3/nY2Xr8=; b=oQIm9mfwPmwaQfqfGPvO3atIM2
+	Fos8tiH7RpZ+XGh2RtFgsU1MzDxAbxwfQaOCbPa7ug3B7fk+yhGbRD4zlWKCnVioVr1mpD4Mcw0ea
+	kS/AkvujKZMh6YGv0SK/xakU9sRjBhA21ow6Lr6wYOYXAlehadbEqak5UNIXOPUT54CLzUsKHXLgW
+	j/h1PaKGYVpYuUjrz9gMJyuZ6R9oJmmtR9O/0hqt41xccfVL3Aow6Qr18977RD/zMyEVDh+6Ik1OC
+	Bn/d7sHNS8o4Cjt/V34PXA7bARTHi1tgOyhrLSQmcl/gguedz+HT290QMuvdWBtdWifuqxA7TBEsg
+	3c6xMXeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlhun-000000015sn-398O;
-	Fri, 30 Jan 2026 06:23:33 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vli1k-0000000166i-39Ks;
+	Fri, 30 Jan 2026 06:30:44 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlhuk-000000015sM-42dh
+	id 1vli1h-0000000166N-3cjW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 06:23:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ei4+p/nt9S+/mOKArsqS645onjDRh04aOHFwn9qp65zmDf6BsUgOgq+R1fu2QMGZh2ZuFL7BFt4mPdXB5oB/i34MfsQja92FUsoW9DA/1e+5V4U2n8a9B5APeu7T8MS8IhD1sq4LZ3tvAouw3OmgsGPO030LvrGRCOtYGKWWlx551STouTPSaeeIgvjIPGOJL2H5fo8bfWT+5Oi5/D/gl0ow92sNpjCyVC0AMeHQPxkq6K7vfDTpHeiXC10d21oQSgv4Ml4Y89ni4/RV1BvcBNKOCwuLhHyoT5PRvO4LzD53ztgTKjB653uCbxy+YsWhA0r2ViltNSBVpn9zM1mn+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ascH0nPqAI/wWocq/r3sIqaLDcqVNJ2mxTJigFs6VUs=;
- b=KbFSmAOnqRHbRsB53ror82XlbQFIeuorGslCmTsGYX+YCSgaF5DP90OGFfHf/qKrpEFGuFoxcQNYOdJzU6bNLBVbDTXDEk9dUoFX57xIprw3lOlBYcga9STXYuDRd84DLW3o87bJRoS6mVTJmZ4tG8z+BIgLwxj8DrsNLinNScZ/MX3AiztJ3QIpsaDKZ8UvKbCrF6MjVkpvWHTRR/nMOiLe5X8Ia0dx4D5K9OzMw6ne7MfUiZJLOebiCehcZOjIi9HXA+RI5n6t+KT9/GrXv+n0UFycsHEl9al61+bQpRo3DPAAPvt+WdCupjT92nv3iX0PwYHEM2gmht2IbF2Qgw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ascH0nPqAI/wWocq/r3sIqaLDcqVNJ2mxTJigFs6VUs=;
- b=AJEsgjTtJpner16aIgI1s4MYjYGMmrou4JP4N/AqwHfVa7t4ABhXbvAhVssnO6EHf5fIbgJS9KQvNLLa7NgQ8C0fl/pHHSNVl3LrDtATrHy0l3aYC54yieFi6OEV/lDCue/VOuQHy7AfxknNgmxrEmIb9ng9iMNCLTejGQSVyO4WnbhFmG0xJKCHj92Tv+SHBuXT8e/raEmq+Tnb/pOuQDJDanCQI/zBDb+R/m7hBlkpJ3xyzEvFY3X0sYwWpG82ljs2T2v0NKEVt3jkZPnMFgi8uAOu2NCAg8B/AIO6GS0uwhbXdFyh7cwOn3P/XkFr4Ndrh4775miaxlGx7xHZQA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by PA1PR04MB10282.eurprd04.prod.outlook.com (2603:10a6:102:464::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Fri, 30 Jan
- 2026 06:23:24 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.9564.006; Fri, 30 Jan 2026
- 06:23:24 +0000
-From: ming.qian@oss.nxp.com
-To: mchehab@kernel.org,
-	hverkuil-cisco@xs4all.nl,
-	mirela.rabulea@oss.nxp.com
-Cc: nicolas@ndufresne.ca,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	xiahong.bao@nxp.com,
-	eagle.zhou@nxp.com,
-	linux-imx@nxp.com,
-	Frank.li@nxp.com,
-	imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2] media: imx-jpeg: Add support for encoder v1 descriptor configuration
-Date: Fri, 30 Jan 2026 14:22:33 +0800
-Message-ID: <20260130062236.2109-1-ming.qian@oss.nxp.com>
-X-Mailer: git-send-email 2.48.1.windows.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0045.apcprd02.prod.outlook.com
- (2603:1096:4:1f6::16) To PAXPR04MB8254.eurprd04.prod.outlook.com
- (2603:10a6:102:1cd::24)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|PA1PR04MB10282:EE_
-X-MS-Office365-Filtering-Correlation-Id: a86d3590-92d2-40ff-7265-08de5fc8128e
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|19092799006|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZgLEwZzV1C2po9g7Wu8H2XsCa4UKjAPQQJNlReXRrVK0epxA9/YwvdRJZQ72?=
- =?us-ascii?Q?1iKy5buGf+t2ct3iLEati5F7u4Yhf+uL5IqJO08jMt2w7kvcotTtPoZBYNb1?=
- =?us-ascii?Q?C+ayE8xMEYThOgTHCuxcNe577czoH1IwjlYEieYymGvqFq/yZhZUNzT0lLmU?=
- =?us-ascii?Q?+jfcw4YTDUwPV17L1hypnO7xDKkxFPqxe357VujfVPsfqCNvftSQEMuPgywC?=
- =?us-ascii?Q?QoAdCUWvS2Uq34ePJfCcA6koxcFePkm7WyfXQ7CEz2g2+7JAzrgSMWdZ1gwo?=
- =?us-ascii?Q?4wiShP2E9eAh5ZZ3wkg4irA67qH4/ikCP1jLsGqHcBph/P7Jknu08gvWOUqF?=
- =?us-ascii?Q?t5+uaHNg9+4uQQ3rYTQEmlE2p2I+AYtDhCea+eiwl7E6DXfglqr9i6hLW+bR?=
- =?us-ascii?Q?zg7kjnB0ZP5T2hmdA1qYHIRabjXCcXo1S7/WLQUwadJq24Yzc9CWG503kO2H?=
- =?us-ascii?Q?Uu34PhPYLSfds9kX3hlrk1beHfR9XujHVCILu6ifVbywk2GH+xI8pPanC29M?=
- =?us-ascii?Q?PmkApLEJ6rTsjtb4LT4JEXd/u2oe5mK4yRx/HXpLyouTlQzZ5RLhI3FsMoXk?=
- =?us-ascii?Q?0UcH/RIJrayWfA+NcRqUZA+/hqxb7ZuFDnPKw1IucVs28HZ0BQBWlpl8RJXx?=
- =?us-ascii?Q?9HTKCSz9LovuGGTob+owDFjB5H0/icgwx6AE9qkdkhMGr3WunodvZ2wtyzdh?=
- =?us-ascii?Q?+26TnMOqyZkwjQCTFalEZEbAXzVzcLD46lo68QYw77VzKRBvRDn7NedcKmIX?=
- =?us-ascii?Q?XW7lw9jkN4H6jYNTef2TVF9R4LR2ZtFO79FYAv8qkSPIEmMxxYN4MtDgbL7F?=
- =?us-ascii?Q?8Uz9tr0f14OeeacnWonSrT3oNRwx3Ahit2hGAst+Ia+ufhWq3bc5pUnqV/fq?=
- =?us-ascii?Q?0T5NG0l1ZbKBWjfCDiRqoqRegk5ZbpHl3cM51+dr9wL/sN0Lsw6UefS14LuH?=
- =?us-ascii?Q?9Gjcv/aaEX2VHx85wxwvEi/BjsbBKGF//Ak//s1Hl1vVCucRHiazRsGPCbmN?=
- =?us-ascii?Q?F12G7n8nlC89F1KRwPybjWzIHk5LGUPUsP8MTklXcpEu7mysjYerHslPTVh8?=
- =?us-ascii?Q?vTINC4RkrASkqDKSOOGE9YLkWyBQ7CZ5j5i2+pPUimPZ64BDT2MoShm/21gR?=
- =?us-ascii?Q?GNozky6TPH/2sfwwzogpZppTK+K5Zj3SFPQBkuw+6YlzrNAwStGW6mksFfd2?=
- =?us-ascii?Q?zpDrBsDpmp36RDcrG/NNyS3nMX+5xZr3DD2FLmW6vmcdd9kLZ3lB3LB4dCCS?=
- =?us-ascii?Q?+0+fj20vn5JRGW/XpPzfpH3ogc2Il84h6jSDDyDYUJWiNvLx9WREbASSqY7T?=
- =?us-ascii?Q?3oKjABl+LfUKVLFvronPgmOTSGsanLn2TJ0iWqYbfEvO9k+0CkkN5jqbM4QK?=
- =?us-ascii?Q?Sa56DBVqWDhskxZ4LX90VtPt0IiUwReV4s6ua/mcxQSAtC25Mi4+Msfu2DyJ?=
- =?us-ascii?Q?Xyj6xrz2FezU4vRguS4i2JYNJiO92MavAHFe9AnCGjBRa9JkGGWYS1jBAmQM?=
- =?us-ascii?Q?9QvltkWzGDPlmePFQUdSLETrhz3qFyyuBu2QX26zKwwzepe+3uwP/y2g+6hk?=
- =?us-ascii?Q?txVxxrqWQ5+8r+o9n3CSWWDxTi7IclgYaw74kdNxVPqMfGtvX262deMODQI9?=
- =?us-ascii?Q?uk7es3jBl+hhnKWyTJvd2iI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(19092799006)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oxy6kssVQTv4HVsslWKZRmvu4jpCpznH9my0Dk6CwqnvavL1FyyZmiAqc/kH?=
- =?us-ascii?Q?EkEWwGszgILDaVPy1jZjGFJgb+FFMU1vCl9KAktpgXe+zD2elN5QkqXjq31B?=
- =?us-ascii?Q?fFQeCcPmYtyo3ln2qsDTBE2doyMKYdRzDs7QQUx+mtxzVwY7r13hS2Eus4Fq?=
- =?us-ascii?Q?Y979vC6kVccdjd9BxJ10PYZ+zyJdTBOaM4gT99MYhY0TZTF71AnAwBhgPkvQ?=
- =?us-ascii?Q?6OeQsqMKsvfWlKki5NkxBeGUCZFp6S1ohwHfHMOtySGQWgpQUPBwt03oS8IX?=
- =?us-ascii?Q?4pkF7lTsmHO0Khn3nvaV5J0NnDlcR+gZeuJwyYR7LymuordacWjrHGERajKV?=
- =?us-ascii?Q?CZb1tu7SXXXnBRhmgntJ77ZLyxjwx2MrVS7Oo1ogi6C3EpFChyWBPmqLw2n6?=
- =?us-ascii?Q?dc+TWm6lc/Z8bxxogkLYzjW8xJIPBVo2UlArTUnfIZ5OVmIahcoHuShiaOY3?=
- =?us-ascii?Q?wQYiYbOJpDHZMYbBaJa/ydyMc3dfkD63rMtKNrNv0LGB07FrPBHSHGVA8sPf?=
- =?us-ascii?Q?GXp3s3GCsns+aY9TdYDSnyYSkGggpbn8cjW7uH/5Hr3YGR22MDB2/pRxaNDW?=
- =?us-ascii?Q?mmWVhy5iKkZT8UCM+4LqJT9xx9FtAt2ooUtXz74BQjlYWpLS+7lL3a/NuY4y?=
- =?us-ascii?Q?3KsqrhffHQv+CKT9lRmMFgkpK4kDcfvx9R2u4dlZPC3UcCj1wx1CjRmj7aFK?=
- =?us-ascii?Q?mWKdgM19LAvw4zTfF/E6VAvXh841lBhQAlOt2XoCGg+Xfj7jndRkaaVArvcw?=
- =?us-ascii?Q?4NSeL6Jg/6elxWf3oIKAderd+S7jz1RLFzZWYo0YluT0pZd1CUbzZpqskN8S?=
- =?us-ascii?Q?WJNITKySmqbTEkDbg14u89VOyIeClXZPWhLRbMXNkMWZfTmZfEiCHb49YCDS?=
- =?us-ascii?Q?QbqdYDVtfdjVc/yj7qfVR9LYBbb+sjJ5lYCpPOXFU8FgmT2oTJMpUMPLyDIL?=
- =?us-ascii?Q?LW8AyvildRgBPdezw2R9V2hRvilWWPuydxArPDkuHzMwXc8wUX522JERPfOv?=
- =?us-ascii?Q?yYrYrR+cq+OGs3ou5DcsUch1Egp+K8a3AK0pbwao8S6yjIclmnPa8tZiMnIX?=
- =?us-ascii?Q?hgAJpzmKIpiSfZyPUhPSi/2zt/qtEdJeTLIThJ3eAW/xCuIkZSdkgbhTQJPf?=
- =?us-ascii?Q?av3OmixuLIaP5oNm2wZvj7E1pob/zfCxI04eoFiBtycZbiFX6zshn8P4+yGe?=
- =?us-ascii?Q?d8hnYhUUqC6IWiWpuXgd+J3+SSjTX4sOWoR2ucdPNaxFvyAZS3R4rwAGjKgl?=
- =?us-ascii?Q?HaVUB2anwuL9oHLjS1mJNlF1uZhijREe1zDjr4Dk3uuJ1UE19oEJucQxPvMT?=
- =?us-ascii?Q?iXevCBas4kSDaGy+58/P58eZzMdoWtkIsYHIIAuPrKExDI2+jY3Ga7aP3mPX?=
- =?us-ascii?Q?pGRnPq7UQ0acTv6SybW2zkKN47RkwRFfRkOdAbOwGHky9TDNyvsbFggwdtLd?=
- =?us-ascii?Q?cy4wKHu6P3WUYJDOhqhH1ruRW3xmFJUfrB30YcZSQ30TDvo/R5sq/5fSQT7n?=
- =?us-ascii?Q?0zxEvMtKppRvtgc0B5bRnzWg3NSLB/XsQkMyhiyS9CcdEUDOP3EeQNRQ4Oj+?=
- =?us-ascii?Q?Y5E1qyiG5f9pNPQqykmNPIGAGYs4S4J6bUuxB6Vga3OU/2imXVb63c/ItCLG?=
- =?us-ascii?Q?ph1JrxNGTs9Rq3lHgInWZZyLe5p1a9mmtvaxPfde1az+81Zj2VuPFqkTwIw0?=
- =?us-ascii?Q?3r3X/s3/ndq7uFgLrBjVAZJcB7ydjSCVdmCU7UFFARn3r3C31h2mf/n/7EWy?=
- =?us-ascii?Q?3Oow/uxeSQ=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a86d3590-92d2-40ff-7265-08de5fc8128e
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jan 2026 06:23:24.4628
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JZlIlwzFUGmFrYXXrJhHoBODHTakobc8Ll7hMelt8zR5qcKlFN0+UML4s3jJ/zKUaPa1vtm3s6IeVYV3GLKsSQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10282
+	Fri, 30 Jan 2026 06:30:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769754642; x=1801290642;
+  h=date:from:to:cc:subject:message-id;
+  bh=PINpk9di9Dr/Lp6oKiaXmiQsxBwFl8tJq7Gqvp/pz18=;
+  b=Sw/BRab+/VvYWKgYZDFiU646BtGZMgNZsVuUhS/SZjcHvLpYvqWooHV0
+   cv1QQpeOlQocpbO6nvoHjSosLnRBs3ELU91geQLdPkCr9sbKheFlzXK88
+   VEzKvQ688n37wV/61YYrhzNObmVCOLMm1WBnrdW6kPtZsxCi3tdrxoqY9
+   BTVpRB46xL5VkTANr5mCejDbzrclt+31N2B4FLPoTg3+Ig+gQc4qDcokS
+   rdhExep2aAdmApfR7I6GswSuJQzUSgI0gJJL3ua3zBRMo2gCoAOOhx9ia
+   K41VMgac8fVqYE/ssDAMzd7Q6A2/ynOWbB2ugWTfkisbOyjy+igrXCpSZ
+   w==;
+X-CSE-ConnectionGUID: kfayPiaWRyKa9VxOBMezNg==
+X-CSE-MsgGUID: ZZpfvoS1SU2keeClYxpiHA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11686"; a="74867863"
+X-IronPort-AV: E=Sophos;i="6.21,262,1763452800"; 
+   d="scan'208";a="74867863"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jan 2026 22:30:37 -0800
+X-CSE-ConnectionGUID: lON5O5H8RX6ivyUYfN5AKQ==
+X-CSE-MsgGUID: lXTOwVn+TXqCsWHJ1Pk7rw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,262,1763452800"; 
+   d="scan'208";a="208025407"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by orviesa010.jf.intel.com with ESMTP; 29 Jan 2026 22:30:36 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vli1Z-00000000cGX-0Q0O;
+	Fri, 30 Jan 2026 06:30:33 +0000
+Date: Fri, 30 Jan 2026 14:30:22 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/drivers] BUILD SUCCESS
+ 1b65492f45c2ecb4590ccdf0fce35967531db2bf
+Message-ID: <202601301417.Wn50V2Tc-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260129_222331_161306_66297446 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20260129_223041_924193_045954E6 
+X-CRM114-Status: UNSURE (   5.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,302 +83,260 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ming Qian <ming.qian@oss.nxp.com>
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/drivers
+branch HEAD: 1b65492f45c2ecb4590ccdf0fce35967531db2bf  Merge tag 'v6.20-rockchip-drivers1' of https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip into soc/drivers
 
-Support the upgraded JPEG encoder v1 found on i.MX952 SoC.
+elapsed time: 1179m
 
-Detect the encoder hardware version via the version register.
+configs tested: 240
+configs skipped: 2
 
-The v1 encoder uses an expanded descriptor format that allows all
-encoding parameters, including JPEG quality, to be configured directly
-in the descriptor.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-This removes the manual register-based configuration step required by v0
-and reduces the interrupt count from two to one per frame.
+tested configs:
+alpha                             allnoconfig    gcc-15.2.0
+alpha                            allyesconfig    gcc-15.2.0
+alpha                               defconfig    gcc-15.2.0
+arc                              allmodconfig    clang-16
+arc                              allmodconfig    gcc-15.2.0
+arc                               allnoconfig    gcc-15.2.0
+arc                              allyesconfig    clang-22
+arc                              allyesconfig    gcc-15.2.0
+arc                      axs103_smp_defconfig    gcc-15.2.0
+arc                                 defconfig    gcc-15.2.0
+arc                   randconfig-001-20260130    clang-17
+arc                   randconfig-002-20260130    clang-17
+arc                        vdk_hs38_defconfig    clang-22
+arm                               allnoconfig    clang-22
+arm                               allnoconfig    gcc-15.2.0
+arm                              allyesconfig    clang-16
+arm                              allyesconfig    gcc-15.2.0
+arm                       aspeed_g5_defconfig    clang-22
+arm                          collie_defconfig    clang-22
+arm                                 defconfig    gcc-15.2.0
+arm                      jornada720_defconfig    clang-22
+arm                         lpc32xx_defconfig    clang-22
+arm                   milbeaut_m10v_defconfig    clang-22
+arm                          moxart_defconfig    clang-22
+arm                             mxs_defconfig    clang-22
+arm                         nhk8815_defconfig    clang-22
+arm                          pxa3xx_defconfig    gcc-15.2.0
+arm                   randconfig-001-20260130    clang-17
+arm                   randconfig-002-20260130    clang-17
+arm                   randconfig-003-20260130    clang-17
+arm                   randconfig-004-20260130    clang-17
+arm                           stm32_defconfig    clang-22
+arm                           sunxi_defconfig    clang-22
+arm                           u8500_defconfig    clang-22
+arm64                            allmodconfig    clang-19
+arm64                            allmodconfig    clang-22
+arm64                             allnoconfig    gcc-15.2.0
+arm64                               defconfig    gcc-15.2.0
+arm64                 randconfig-001-20260130    gcc-8.5.0
+arm64                 randconfig-002-20260130    gcc-8.5.0
+arm64                 randconfig-003-20260130    gcc-8.5.0
+arm64                 randconfig-004-20260130    gcc-8.5.0
+csky                             allmodconfig    gcc-15.2.0
+csky                              allnoconfig    gcc-15.2.0
+csky                                defconfig    gcc-15.2.0
+csky                  randconfig-001-20260130    gcc-8.5.0
+csky                  randconfig-002-20260130    gcc-8.5.0
+hexagon                          allmodconfig    clang-17
+hexagon                          allmodconfig    gcc-15.2.0
+hexagon                           allnoconfig    clang-22
+hexagon                           allnoconfig    gcc-15.2.0
+hexagon                             defconfig    gcc-15.2.0
+hexagon               randconfig-001-20260129    clang-22
+hexagon               randconfig-001-20260130    gcc-11.5.0
+hexagon               randconfig-002-20260129    clang-22
+hexagon               randconfig-002-20260130    gcc-11.5.0
+i386                             alldefconfig    clang-22
+i386                             allmodconfig    clang-20
+i386                             allmodconfig    gcc-14
+i386                              allnoconfig    gcc-14
+i386                              allnoconfig    gcc-15.2.0
+i386                             allyesconfig    clang-20
+i386                             allyesconfig    gcc-14
+i386        buildonly-randconfig-001-20260129    clang-20
+i386        buildonly-randconfig-001-20260130    clang-20
+i386        buildonly-randconfig-002-20260129    clang-20
+i386        buildonly-randconfig-002-20260130    clang-20
+i386        buildonly-randconfig-003-20260129    clang-20
+i386        buildonly-randconfig-003-20260130    clang-20
+i386        buildonly-randconfig-004-20260129    clang-20
+i386        buildonly-randconfig-004-20260130    clang-20
+i386        buildonly-randconfig-005-20260129    clang-20
+i386        buildonly-randconfig-005-20260130    clang-20
+i386        buildonly-randconfig-006-20260129    clang-20
+i386        buildonly-randconfig-006-20260130    clang-20
+i386                                defconfig    gcc-15.2.0
+i386                  randconfig-001-20260130    gcc-14
+i386                  randconfig-002-20260130    gcc-14
+i386                  randconfig-003-20260130    gcc-14
+i386                  randconfig-004-20260130    gcc-14
+i386                  randconfig-005-20260130    gcc-14
+i386                  randconfig-006-20260130    gcc-14
+i386                  randconfig-007-20260130    gcc-14
+i386                  randconfig-011-20260130    clang-20
+i386                  randconfig-012-20260130    clang-20
+i386                  randconfig-013-20260130    clang-20
+i386                  randconfig-014-20260130    clang-20
+i386                  randconfig-015-20260130    clang-20
+i386                  randconfig-016-20260130    clang-20
+i386                  randconfig-017-20260130    clang-20
+loongarch                        allmodconfig    clang-19
+loongarch                        allmodconfig    clang-22
+loongarch                         allnoconfig    clang-22
+loongarch                         allnoconfig    gcc-15.2.0
+loongarch                           defconfig    clang-19
+loongarch             randconfig-001-20260129    clang-22
+loongarch             randconfig-001-20260130    gcc-11.5.0
+loongarch             randconfig-002-20260129    clang-22
+loongarch             randconfig-002-20260130    gcc-11.5.0
+m68k                             allmodconfig    gcc-15.2.0
+m68k                              allnoconfig    gcc-15.2.0
+m68k                             allyesconfig    clang-16
+m68k                             allyesconfig    gcc-15.2.0
+m68k                                defconfig    clang-19
+m68k                        m5407c3_defconfig    clang-22
+m68k                           virt_defconfig    clang-22
+microblaze                        allnoconfig    gcc-15.2.0
+microblaze                       allyesconfig    gcc-15.2.0
+microblaze                          defconfig    clang-19
+mips                             allmodconfig    gcc-15.2.0
+mips                              allnoconfig    gcc-15.2.0
+mips                             allyesconfig    gcc-15.2.0
+mips                  decstation_64_defconfig    gcc-15.2.0
+mips                           jazz_defconfig    clang-22
+mips                     loongson2k_defconfig    gcc-15.2.0
+mips                        omega2p_defconfig    clang-22
+nios2                         3c120_defconfig    clang-22
+nios2                            allmodconfig    clang-22
+nios2                            allmodconfig    gcc-11.5.0
+nios2                             allnoconfig    clang-22
+nios2                             allnoconfig    gcc-11.5.0
+nios2                               defconfig    clang-19
+nios2                 randconfig-001-20260129    clang-22
+nios2                 randconfig-001-20260130    gcc-11.5.0
+nios2                 randconfig-002-20260129    clang-22
+nios2                 randconfig-002-20260130    gcc-11.5.0
+openrisc                         allmodconfig    clang-22
+openrisc                         allmodconfig    gcc-15.2.0
+openrisc                          allnoconfig    clang-22
+openrisc                          allnoconfig    gcc-15.2.0
+openrisc                            defconfig    gcc-15.2.0
+parisc                           allmodconfig    gcc-15.2.0
+parisc                            allnoconfig    clang-22
+parisc                            allnoconfig    gcc-15.2.0
+parisc                           allyesconfig    clang-19
+parisc                           allyesconfig    gcc-15.2.0
+parisc                              defconfig    gcc-15.2.0
+parisc                randconfig-001-20260130    gcc-8.5.0
+parisc                randconfig-002-20260130    gcc-8.5.0
+parisc64                            defconfig    clang-19
+powerpc                          allmodconfig    gcc-15.2.0
+powerpc                           allnoconfig    clang-22
+powerpc                           allnoconfig    gcc-15.2.0
+powerpc                     ksi8560_defconfig    clang-22
+powerpc                      mgcoge_defconfig    gcc-15.2.0
+powerpc                       ppc64_defconfig    clang-22
+powerpc                     rainier_defconfig    gcc-15.2.0
+powerpc               randconfig-001-20260130    gcc-8.5.0
+powerpc               randconfig-002-20260130    gcc-8.5.0
+powerpc                    socrates_defconfig    gcc-15.2.0
+powerpc                     tqm8541_defconfig    clang-22
+powerpc                 xes_mpc85xx_defconfig    clang-22
+powerpc64             randconfig-001-20260130    gcc-8.5.0
+powerpc64             randconfig-002-20260130    gcc-8.5.0
+riscv                            allmodconfig    clang-22
+riscv                             allnoconfig    clang-22
+riscv                             allnoconfig    gcc-15.2.0
+riscv                            allyesconfig    clang-16
+riscv                               defconfig    gcc-15.2.0
+riscv                 randconfig-001-20260130    clang-22
+riscv                 randconfig-002-20260130    clang-22
+s390                             allmodconfig    clang-18
+s390                             allmodconfig    clang-19
+s390                              allnoconfig    clang-22
+s390                             allyesconfig    gcc-15.2.0
+s390                                defconfig    gcc-15.2.0
+s390                  randconfig-001-20260130    clang-22
+s390                  randconfig-002-20260130    clang-22
+sh                               allmodconfig    gcc-15.2.0
+sh                                allnoconfig    clang-22
+sh                                allnoconfig    gcc-15.2.0
+sh                               allyesconfig    clang-19
+sh                               allyesconfig    gcc-15.2.0
+sh                                  defconfig    gcc-14
+sh                    randconfig-001-20260130    clang-22
+sh                    randconfig-002-20260130    clang-22
+sh                          rsk7269_defconfig    clang-22
+sparc                             allnoconfig    clang-22
+sparc                             allnoconfig    gcc-15.2.0
+sparc                               defconfig    gcc-15.2.0
+sparc                 randconfig-001-20260130    clang-22
+sparc                 randconfig-002-20260130    clang-22
+sparc                       sparc32_defconfig    clang-22
+sparc64                          allmodconfig    clang-22
+sparc64                             defconfig    gcc-14
+sparc64               randconfig-001-20260130    clang-22
+sparc64               randconfig-002-20260130    clang-22
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-22
+um                               allyesconfig    gcc-14
+um                               allyesconfig    gcc-15.2.0
+um                                  defconfig    gcc-14
+um                             i386_defconfig    gcc-14
+um                    randconfig-001-20260130    clang-22
+um                    randconfig-002-20260130    clang-22
+um                           x86_64_defconfig    gcc-14
+x86_64                           allmodconfig    clang-20
+x86_64                            allnoconfig    clang-20
+x86_64                            allnoconfig    clang-22
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20260130    clang-20
+x86_64      buildonly-randconfig-002-20260130    clang-20
+x86_64      buildonly-randconfig-003-20260130    clang-20
+x86_64      buildonly-randconfig-004-20260130    clang-20
+x86_64      buildonly-randconfig-005-20260130    clang-20
+x86_64      buildonly-randconfig-006-20260130    clang-20
+x86_64                              defconfig    gcc-14
+x86_64                                  kexec    clang-20
+x86_64                randconfig-001-20260130    clang-20
+x86_64                randconfig-002-20260130    clang-20
+x86_64                randconfig-003-20260130    clang-20
+x86_64                randconfig-004-20260130    clang-20
+x86_64                randconfig-005-20260130    clang-20
+x86_64                randconfig-006-20260130    clang-20
+x86_64                randconfig-011-20260130    clang-20
+x86_64                randconfig-012-20260130    clang-20
+x86_64                randconfig-013-20260130    clang-20
+x86_64                randconfig-014-20260130    clang-20
+x86_64                randconfig-015-20260130    clang-20
+x86_64                randconfig-016-20260130    clang-20
+x86_64                randconfig-071-20260130    clang-20
+x86_64                randconfig-072-20260130    clang-20
+x86_64                randconfig-073-20260130    clang-20
+x86_64                randconfig-074-20260130    clang-20
+x86_64                randconfig-075-20260130    clang-20
+x86_64                randconfig-076-20260130    clang-20
+x86_64                               rhel-9.4    clang-20
+x86_64                           rhel-9.4-bpf    gcc-14
+x86_64                          rhel-9.4-func    clang-20
+x86_64                    rhel-9.4-kselftests    clang-20
+x86_64                         rhel-9.4-kunit    gcc-14
+x86_64                           rhel-9.4-ltp    gcc-14
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                            allnoconfig    clang-22
+xtensa                            allnoconfig    gcc-15.2.0
+xtensa                           allyesconfig    clang-22
+xtensa                           allyesconfig    gcc-15.2.0
+xtensa                  cadence_csp_defconfig    gcc-15.2.0
+xtensa                randconfig-001-20260130    clang-22
+xtensa                randconfig-002-20260130    clang-22
 
-V0 encoding flow:
-  1. Write quality to registers -> trigger config interrupt
-  2. Start encoding -> trigger completion interrupt
-
-V1 encoding flow:
-  1. Configure descriptor with all parameters including quality
-  2. Start encoding -> trigger completion interrupt
-
-Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-
----
-v2
-- Improve commit message
-- Use GENMASK_U32
-- make mxc_jpeg_get_version() static
-- Check version in probe()
-- Remove noise that update copyright years
----
- .../media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h |   1 +
- .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 104 +++++++++++++++---
- .../media/platform/nxp/imx-jpeg/mxc-jpeg.h    |  22 ++++
- 3 files changed, 113 insertions(+), 14 deletions(-)
-
-diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
-index adb93e977be9..0d78443cb270 100644
---- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
-+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
-@@ -73,6 +73,7 @@
- #define GLB_CTRL_DEC_GO					(0x1 << 2)
- #define GLB_CTRL_L_ENDIAN(le)				((le) << 3)
- #define GLB_CTRL_SLOT_EN(slot)				(0x1 << ((slot) + 4))
-+#define GLB_CTRL_CUR_VERSION(r)				FIELD_GET(GENMASK_U32(19, 16), r)
- 
- /* COM_STAUS fields */
- #define COM_STATUS_DEC_ONGOING(r)		(((r) & (1 << 31)) >> 31)
-diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-index b558700d1d96..71f4a1d292ac 100644
---- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-@@ -64,6 +64,12 @@
- #include "mxc-jpeg-hw.h"
- #include "mxc-jpeg.h"
- 
-+#define call_void_jpeg_enc_ops(jpeg, op, args...)			\
-+	do {								\
-+		if ((jpeg)->enc_cfg_ops && (jpeg)->enc_cfg_ops->op)	\
-+			(jpeg)->enc_cfg_ops->op(args);			\
-+	} while (0)
-+
- static const struct mxc_jpeg_fmt mxc_formats[] = {
- 	{
- 		.name		= "JPEG",
-@@ -1030,11 +1036,7 @@ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
- 
- 	if (jpeg->mode == MXC_JPEG_ENCODE &&
- 	    ctx->enc_state == MXC_JPEG_ENC_CONF) {
--		q_data = mxc_jpeg_get_q_data(ctx, V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE);
--		ctx->enc_state = MXC_JPEG_ENCODING;
--		dev_dbg(dev, "Encoder config finished. Start encoding...\n");
--		mxc_jpeg_enc_set_quality(dev, reg, ctx->jpeg_quality);
--		mxc_jpeg_enc_mode_go(dev, reg, mxc_jpeg_is_extended_sequential(q_data->fmt));
-+		call_void_jpeg_enc_ops(jpeg, exit_config_mode, ctx);
- 		goto job_unlock;
- 	}
- 	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed &&
-@@ -1272,6 +1274,7 @@ static void mxc_jpeg_config_dec_desc(struct vb2_buffer *out_buf,
- 
- 	jpeg_src_buf = vb2_to_mxc_buf(src_buf);
- 
-+	ctx->extseq = mxc_jpeg_is_extended_sequential(jpeg_src_buf->fmt);
- 	/* setup the decoding descriptor */
- 	desc->next_descpt_ptr = 0; /* end of chain */
- 	q_data_cap = mxc_jpeg_get_q_data(ctx, cap_type);
-@@ -1335,9 +1338,15 @@ static void mxc_jpeg_config_enc_desc(struct vb2_buffer *out_buf,
- 	struct mxc_jpeg_q_data *q_data;
- 	enum mxc_jpeg_image_format img_fmt;
- 	int w, h;
-+	bool extseq;
- 
- 	q_data = mxc_jpeg_get_q_data(ctx, src_buf->vb2_queue->type);
-+	extseq = mxc_jpeg_is_extended_sequential(q_data->fmt);
-+
-+	ctx->extseq = extseq;
- 
-+	memset(desc, 0, sizeof(struct mxc_jpeg_desc));
-+	memset(cfg_desc, 0, sizeof(struct mxc_jpeg_desc));
- 	jpeg->slot_data.cfg_stream_size =
- 			mxc_jpeg_setup_cfg_stream(cfg_stream_vaddr,
- 						  q_data->fmt->fourcc,
-@@ -1348,11 +1357,6 @@ static void mxc_jpeg_config_enc_desc(struct vb2_buffer *out_buf,
- 	cfg_desc->next_descpt_ptr = desc_handle | MXC_NXT_DESCPT_EN;
- 
- 	cfg_desc->buf_base0 = jpeg->slot_data.cfg_stream_handle;
--	cfg_desc->buf_base1 = 0;
--	cfg_desc->line_pitch = 0;
--	cfg_desc->stm_bufbase = 0; /* no output expected */
--	cfg_desc->stm_bufsize = 0x0;
--	cfg_desc->imgsize = 0;
- 	cfg_desc->stm_ctrl = STM_CTRL_CONFIG_MOD(1);
- 	cfg_desc->stm_ctrl |= STM_CTRL_BITBUF_PTR_CLR(1);
- 
-@@ -1372,11 +1376,14 @@ static void mxc_jpeg_config_enc_desc(struct vb2_buffer *out_buf,
- 	desc->stm_ctrl = STM_CTRL_CONFIG_MOD(0) |
- 			 STM_CTRL_IMAGE_FORMAT(img_fmt);
- 	desc->stm_ctrl |= STM_CTRL_BITBUF_PTR_CLR(1);
--	if (mxc_jpeg_is_extended_sequential(q_data->fmt))
-+	if (extseq)
- 		desc->stm_ctrl |= STM_CTRL_PIXEL_PRECISION;
- 	else
- 		desc->stm_ctrl &= ~STM_CTRL_PIXEL_PRECISION;
- 	mxc_jpeg_addrs(desc, src_buf, dst_buf, 0);
-+
-+	call_void_jpeg_enc_ops(jpeg, setup_desc, ctx);
-+
- 	dev_dbg(jpeg->dev, "cfg_desc:\n");
- 	print_descriptor_info(jpeg->dev, cfg_desc);
- 	dev_dbg(jpeg->dev, "enc desc:\n");
-@@ -1388,6 +1395,54 @@ static void mxc_jpeg_config_enc_desc(struct vb2_buffer *out_buf,
- 	mxc_jpeg_set_desc(cfg_desc_handle, reg, slot);
- }
- 
-+static void mxc_jpeg_enc_start_config_manually(struct mxc_jpeg_ctx *ctx)
-+{
-+	struct mxc_jpeg_dev *jpeg = ctx->mxc_jpeg;
-+	void __iomem *reg = jpeg->base_reg;
-+	struct device *dev = jpeg->dev;
-+
-+	ctx->enc_state = MXC_JPEG_ENC_CONF;
-+	mxc_jpeg_enc_mode_conf(dev, reg, ctx->extseq);
-+}
-+
-+static void mxc_jpeg_enc_finish_config_manually(struct mxc_jpeg_ctx *ctx)
-+{
-+	struct mxc_jpeg_dev *jpeg = ctx->mxc_jpeg;
-+	void __iomem *reg = jpeg->base_reg;
-+	struct device *dev = jpeg->dev;
-+
-+	ctx->enc_state = MXC_JPEG_ENCODING;
-+	dev_dbg(dev, "Encoder config finished. Start encoding...\n");
-+	mxc_jpeg_enc_set_quality(dev, reg, ctx->jpeg_quality);
-+	mxc_jpeg_enc_mode_go(dev, reg, ctx->extseq);
-+}
-+
-+static void mxc_jpeg_enc_configure_desc(struct mxc_jpeg_ctx *ctx)
-+{
-+	struct mxc_jpeg_dev *jpeg = ctx->mxc_jpeg;
-+	struct mxc_jpeg_desc *desc = jpeg->slot_data.desc;
-+	struct mxc_jpeg_desc *cfg_desc = jpeg->slot_data.cfg_desc;
-+
-+	ctx->enc_state = MXC_JPEG_ENCODING;
-+	cfg_desc->mode = (ctx->extseq) ? 0xb0 : 0xa0;
-+	cfg_desc->cfg_mode = 0x3ff;
-+
-+	desc->mode = (ctx->extseq) ? 0x150 : 0x140;
-+	desc->cfg_mode = 0x3ff;
-+	desc->quality = ctx->jpeg_quality;
-+	desc->lumth = 0xffff;
-+	desc->chrth = 0xffff;
-+}
-+
-+static const struct mxc_jpeg_enc_ops mxc_jpeg_enc_cfg_ops_v0 = {
-+	.enter_config_mode = mxc_jpeg_enc_start_config_manually,
-+	.exit_config_mode = mxc_jpeg_enc_finish_config_manually
-+};
-+
-+static const struct mxc_jpeg_enc_ops mxc_jpeg_enc_cfg_ops_v1 = {
-+	.setup_desc = mxc_jpeg_enc_configure_desc
-+};
-+
- static const struct mxc_jpeg_fmt *mxc_jpeg_get_sibling_format(const struct mxc_jpeg_fmt *fmt)
- {
- 	int i;
-@@ -1593,12 +1648,10 @@ static void mxc_jpeg_device_run(void *priv)
- 
- 	if (jpeg->mode == MXC_JPEG_ENCODE) {
- 		dev_dbg(dev, "Encoding on slot %d\n", ctx->slot);
--		ctx->enc_state = MXC_JPEG_ENC_CONF;
- 		mxc_jpeg_config_enc_desc(&dst_buf->vb2_buf, ctx,
- 					 &src_buf->vb2_buf, &dst_buf->vb2_buf);
- 		/* start config phase */
--		mxc_jpeg_enc_mode_conf(dev, reg,
--				       mxc_jpeg_is_extended_sequential(q_data_out->fmt));
-+		call_void_jpeg_enc_ops(jpeg, enter_config_mode, ctx);
- 	} else {
- 		dev_dbg(dev, "Decoding on slot %d\n", ctx->slot);
- 		print_mxc_buf(jpeg, &src_buf->vb2_buf, 0);
-@@ -2842,6 +2895,14 @@ static int mxc_jpeg_attach_pm_domains(struct mxc_jpeg_dev *jpeg)
- 	return ret;
- }
- 
-+static int mxc_jpeg_get_version(void __iomem *reg)
-+{
-+	u32 regval;
-+
-+	regval = readl(reg + GLB_CTRL);
-+	return GLB_CTRL_CUR_VERSION(regval);
-+}
-+
- static int mxc_jpeg_probe(struct platform_device *pdev)
- {
- 	struct mxc_jpeg_dev *jpeg;
-@@ -2976,8 +3037,23 @@ static int mxc_jpeg_probe(struct platform_device *pdev)
- 	platform_set_drvdata(pdev, jpeg);
- 	pm_runtime_enable(dev);
- 
-+	if (mode == MXC_JPEG_ENCODE) {
-+		ret = pm_runtime_resume_and_get(dev);
-+		if (ret < 0)
-+			goto err_check_version;
-+
-+		if (mxc_jpeg_get_version(jpeg->base_reg) == 0)
-+			jpeg->enc_cfg_ops = &mxc_jpeg_enc_cfg_ops_v0;
-+		else
-+			jpeg->enc_cfg_ops = &mxc_jpeg_enc_cfg_ops_v1;
-+
-+		pm_runtime_put_sync(dev);
-+	}
-+
- 	return 0;
- 
-+err_check_version:
-+	pm_runtime_disable(&pdev->dev);
- err_vdev_register:
- 	video_device_release(jpeg->dec_vdev);
- 
-diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
-index 9c5b4f053ded..c00c13549746 100644
---- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
-+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
-@@ -81,6 +81,17 @@ struct mxc_jpeg_desc {
- 	u32 stm_bufsize;
- 	u32 imgsize;
- 	u32 stm_ctrl;
-+	/* below parameters are valid for v1 */
-+	u32 mode;
-+	u32 cfg_mode;
-+	u32 quality;
-+	u32 rc_regs_sel;
-+	u32 lumth;
-+	u32 chrth;
-+	u32 nomfrsize_lo;
-+	u32 nomfrsize_hi;
-+	u32 ofbsize_lo;
-+	u32 ofbsize_hi;
- } __packed;
- 
- struct mxc_jpeg_q_data {
-@@ -105,6 +116,7 @@ struct mxc_jpeg_ctx {
- 	unsigned int			source_change;
- 	bool				need_initial_source_change_evt;
- 	bool				header_parsed;
-+	bool				extseq;
- 	struct v4l2_ctrl_handler	ctrl_handler;
- 	u8				jpeg_quality;
- 	struct delayed_work		task_timer;
-@@ -125,6 +137,15 @@ struct mxc_jpeg_slot_data {
- 	dma_addr_t cfg_dec_daddr;
- };
- 
-+struct mxc_jpeg_enc_ops {
-+	/* Manual configuration (v0 hardware) - two-phase process */
-+	void (*enter_config_mode)(struct mxc_jpeg_ctx *ctx);
-+	void (*exit_config_mode)(struct mxc_jpeg_ctx *ctx);
-+
-+	/* Descriptor-based configuration (v1 hardware) - single-phase */
-+	void (*setup_desc)(struct mxc_jpeg_ctx *ctx);
-+};
-+
- struct mxc_jpeg_dev {
- 	spinlock_t			hw_lock; /* hardware access lock */
- 	unsigned int			mode;
-@@ -142,6 +163,7 @@ struct mxc_jpeg_dev {
- 	struct device			**pd_dev;
- 	struct device_link		**pd_link;
- 	struct gen_pool			*sram_pool;
-+	const struct mxc_jpeg_enc_ops	*enc_cfg_ops;
- };
- 
- /**
-
-base-commit: c824345288d11e269ce41b36c105715bc2286050
-prerequisite-patch-id: 0000000000000000000000000000000000000000
--- 
-2.52.0
-
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
