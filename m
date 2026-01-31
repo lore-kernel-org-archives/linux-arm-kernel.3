@@ -4,77 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA1F3E6BF38
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 01:50:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EFB6E6BF38
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 01:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U1p3l0Ab/P6U2jKHqy2nPkaIBhQyAdHsvReVOEIQzkk=; b=1RQuBxYZAIjb/3/nN+eQqoiB4K
-	T0wpoL1oSic4JsPJB+zFLO4A8p9BHSd72IBBEC6tdlep0KBGTdQ8JO74zsMvBUJ13Hpt1AJTXTvct
-	NHiupcbVcxNqVxpHWPNjOQbfYn1gnK2Ulk1xYn7lOL2p9Gmku6oO6cNQYiOYbaTDcUjL0Ngf/ARiE
-	5fB0wbY30EKXB5qrRh7ijLT2Kz/72qFbRDLkc15nmUoksduq15z2jdDC1avX241G7KI7GVz9a0NCm
-	Uqrys7ZKylEWz+clPY8yt3mQ1AQXiN4tt+uKLDpVDy1X1C6OjS1ENp9t7Gduy5BUO9VD1tSd5bXIn
-	NySP8chg==;
+	bh=XjOuH8PjbQdU8XAp0O+H/PqRLryXbifFjtc9XLqey+U=; b=Q1+X/k/GIWsKvt2sy3wjBOq/b6
+	KsSVl8ER7E4RDJF2Dnit5sgYAaDUzM5kwJ+kOgsCX+fUuXvQM1mtWZQJqs7bZZnt5KPnKD0qP5ofa
+	VSsrizpaZtKA2XaQEd6kZnaFo34edlcL4HUs+27/wFG6LA6EBNpg3Co9VdGOmc3XE74w48xc15tEQ
+	m8DVhW1Cu1Uw5KCPdwtlClardWMMpLhS8Y52xJBKTrYrZ0pwBaqnG1ijZkgzxs8GmV9nDv7jaOXLp
+	uutTBBZAa9ykEyS4BPoCH9nY+wmpTTMfRsQQycEs5bCl+HT9RzRbr8VFe8yCVXRs8JCWSRBiAIPgG
+	BCJiDJKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vm07q-00000002Clz-0n9z;
-	Sat, 31 Jan 2026 01:50:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vm07x-00000002CnC-20Qu;
+	Sat, 31 Jan 2026 01:50:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vm07o-00000002ClS-0xZc
+	id 1vm07s-00000002CmG-0GBJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 01:50:12 +0000
+	Sat, 31 Jan 2026 01:50:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 441BC6013C;
-	Sat, 31 Jan 2026 01:50:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07668C4CEF7;
-	Sat, 31 Jan 2026 01:50:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4CE7E41A93;
+	Sat, 31 Jan 2026 01:50:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 249B2C116D0;
+	Sat, 31 Jan 2026 01:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769824211;
-	bh=yZ2ydlBeIEM1kguh/UCzdsK/jkpYCuJzFCaodPIBfF4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dLN628BxXGuoHL9Qtmsod7rQPNY34dyHhFXsPj7T2VvVclMks14q8oXxR8pt0zc0A
-	 nOfqTI/JVn/lkuhuAAH0dG/qVsAPEk1RbDcePZvbV9u2+MWc2wlQhutVrC1Upwn2VA
-	 G1xyGz0UGUOYigVRwkTTR1GrS4nac8TLelDxZrzYaqwfirmUr04JK67qwmf+lbYyDQ
-	 HInljldRdfEyrR31FcyuwXxPy3ltyp5vsKGD+VkEjWy4Ac/pd49EbyTmtuXXIH7dNK
-	 SKnRh45SZ9QYkRfdSzFc1KReVFwxuKnVizP7I/TAyuDNqHsFO5SmN+8s9UNHtrIhiA
-	 MOtJ51o1b9MfA==
-From: Jakub Kicinski <kuba@kernel.org>
-To: a0987203069@gmail.com
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	openbmc@lists.ozlabs.org,
-	ychuang3@nuvoton.com,
-	andrew+netdev@lunn.ch,
-	linux-stm32@st-md-mailman.stormreply.com,
-	yclu4@nuvoton.com,
-	pabeni@redhat.com,
-	davem@davemloft.net,
-	andrew@lunn.ch,
-	peppe.cavallaro@st.com,
-	joabreu@synopsys.com,
-	linux-kernel@vger.kernel.org,
-	conor+dt@kernel.org,
-	richardcochran@gmail.com,
-	krzk+dt@kernel.org,
-	edumazet@google.com,
-	robh@kernel.org,
-	schung@nuvoton.com,
-	netdev@vger.kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-Subject: Re: [net-next,v10,3/3] net: stmmac: dwmac-nuvoton: Add dwmac glue for Nuvoton MA35 family
-Date: Fri, 30 Jan 2026 17:50:08 -0800
-Message-ID: <20260131015008.970729-1-kuba@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260129054445.416242-4-a0987203069@gmail.com>
-References: <20260129054445.416242-4-a0987203069@gmail.com>
+	s=k20201202; t=1769824215;
+	bh=KveGONG7UJdElvqV315bWlMz8AD27Y9PZLI+Vh0KgjU=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=GX4SYWdycMxo+2vTLOeR/ZBoTMWGL8AgvbwdETbXxJVMdby1l6Dl/yDEby0l+bAq9
+	 9c6Q3Ki4B+bTUnQbsrudX3kJlBk7gdDK6na9gXWgC1zrDWUW1D8AI/xuaO62XKAHNz
+	 7KBl252hzYi7jCPIyLfasU49uL767ZC6Z4XMBFGqjlwJeCKovdwCkF4QZXfgLvw6ZD
+	 D/mcX2MYw6EilRtyq7BbVr626UBsoRRvZTRjwOMFTTTQq0bay74A5d7p/9ms1wP+5m
+	 xCmKiBfwRLNb5F0zTpAInNgI6E6+gWD86d68SAQ6+GF/qJ1X8ABgRJC3WNeCF52EYt
+	 aYEQDXnTXp2bg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 8BC98380CFFB;
+	Sat, 31 Jan 2026 01:50:08 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next] net: stmmac: spelling corrections
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176982420710.3961929.13739265763800349219.git-patchwork-notify@kernel.org>
+Date: Sat, 31 Jan 2026 01:50:07 +0000
+References: <20260129-stmmac-spell-v1-1-c7df9a96e482@kernel.org>
+In-Reply-To: <20260129-stmmac-spell-v1-1-c7df9a96e482@kernel.org>
+To: Simon Horman <horms@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, wens@kernel.org,
+ jernej.skrabec@gmail.com, samuel@sholland.org, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ linux-sunxi@lists.linux.dev
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260130_175016_121919_4B667439 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,57 +81,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
+Hello:
 
-For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
----
-net: stmmac: dwmac-nuvoton: Add dwmac glue for Nuvoton MA35 family
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Adds Gigabit Ethernet support for Nuvoton MA35 series SoCs using
-the stmmac driver framework.
+On Thu, 29 Jan 2026 17:35:03 +0000 you wrote:
+> Correct spelling as flagged by codespell.
+> 
+> Signed-off-by: Simon Horman <horms@kernel.org>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c        |  4 ++--
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c      |  4 ++--
+>  drivers/net/ethernet/stmicro/stmmac/dwmac1000.h        |  2 +-
+>  drivers/net/ethernet/stmicro/stmmac/dwmac100_core.c    |  2 +-
+>  drivers/net/ethernet/stmicro/stmmac/enh_desc.c         |  2 +-
+>  drivers/net/ethernet/stmicro/stmmac/mmc_core.c         |  4 ++--
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c  |  2 +-
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c      | 10 +++++-----
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c      |  2 +-
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c |  2 +-
+>  10 files changed, 17 insertions(+), 17 deletions(-)
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
-> --- /dev/null
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
+Here is the summary with links:
+  - [net-next] net: stmmac: spelling corrections
+    https://git.kernel.org/netdev/net-next/c/96e1c895b5ec
 
-[ ... ]
-
-> +static struct nvt_priv_data *
-> +nvt_gmac_setup(struct platform_device *pdev, struct plat_stmmacenet_data *plat)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct nvt_priv_data *bsp_priv;
-
-[ ... ]
-
-> +	bsp_priv->regmap =
-> +		syscon_regmap_lookup_by_phandle_args(dev->of_node, "nuvoton,sys", 1, &macid);
-> +	if (IS_ERR(bsp_priv->regmap)) {
-> +		dev_err_probe(dev, PTR_ERR(bsp_priv->regmap), "Failed to get sys register\n");
-> +		return ERR_PTR(-ENODEV);
-                           ^^^^^^
-
-Should this propagate the actual error code from
-syscon_regmap_lookup_by_phandle_args() instead of always returning
--ENODEV? If the syscon lookup returns -EPROBE_DEFER, this will lose
-that error code and prevent the driver from properly deferring its
-probe when dependencies aren't ready yet.
-
-Other dwmac drivers (dwmac-loongson1, dwmac-starfive, dwmac-sun8i) use
-something like:
-
-    return dev_err_probe(dev, PTR_ERR(regmap), "...\n");
-
-or
-
-    return PTR_ERR(regmap);
-
-to propagate the error.
-
-> +	}
-
-[ ... ]
+You are awesome, thank you!
 -- 
-pw-bot: cr
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
