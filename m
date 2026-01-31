@@ -4,97 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A260ED7977D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 15:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D90D49C9E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 15:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uXzdqZpn69X29wR/M9YsEFGq4gfj5xwE404NDbdUoVU=; b=w/L6QIFQ6c5EJAoPouPaKcLdoG
-	E/hrP1aRNeprotyGLBAihasHGnuSgJZO64NSbEmA9E+hZZfdlqWmRPZ6eoQdUEYRo83Mh+7QH1MfB
-	cHIWTPt0GN/ljcNagc05diC3ekTaPxWMz0rlfzkmoYEtZ2IGvbRMoWIwtYax1IDxYxOLEOnrunzVh
-	o1FAZniZxtJ0b7dOcNT8JaKes8qITDo1FSb8tSCkRyLJ4s4OOwoRLEpEpfnxZj3zghfaFJ13NFsk8
-	m9DR6ZJtJvi1YR2/x7GgStV25FLc4utcG4eKYsbJPfZdMqWtxS88TYEUB79mhlbADWI0Yg39vEIsz
-	wCefFyxw==;
+	bh=bL7VWRVbzv/1ns3vcMzexf+AEseL3f6DgUbURN/e+QA=; b=FVmUVIcNKny1OB44v1WAW2Gbrm
+	uHUvurr3ZPj/XY105Hw1EdWgZb583JSRB89C2auoPKLY+K4SRWKYCCR7nBZUG0vyi1P/ZvTRW3Jlr
+	g7a7kmeQrliHqgfy+9/dfiao70JyrI9mKM4anOub+tqQQtMudozy6KkIyvBoxYoYE2tAecRk7MexK
+	biKVQYst8gj4iTZrPGDqHiXL05gsX9hyoB/uS5oXUZQ1hoRFhX6e4YkplQMY5lUw/3PyVcYBdqoW/
+	Ph7NnjmFGdB/owjqxQ2n91OngTIRDA5A/+7HN3M+rhsseH0aq+uFqh49Nt6Cx4UrNtjwtWt6bbADD
+	EWAXB2Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmDAS-00000002lZY-10dQ;
-	Sat, 31 Jan 2026 15:45:48 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1vmDBp-00000002loI-30qx;
+	Sat, 31 Jan 2026 15:47:13 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmDAM-00000002lXE-12we
+	id 1vmDBm-00000002lng-2Ivn
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 15:45:47 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-64bea6c5819so4396737a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 07:45:41 -0800 (PST)
+	Sat, 31 Jan 2026 15:47:11 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4801bc32725so22744655e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 07:47:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1769874340; x=1770479140; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1769874428; x=1770479228; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=uXzdqZpn69X29wR/M9YsEFGq4gfj5xwE404NDbdUoVU=;
-        b=EyccgbY5fvIm8BoXgIwZ4aNTlKOQcAQnZt7iYtp6hpRvUFwebGjzXYIJz7O9pbK6ZL
-         5r/W2FNE46Ibw9oyDvKAfHONK7RrEAJFcYQIzcX6nxcv7rYor5pJ1UnUx9waMZQ0REcO
-         3pbF/xCucHZ9hgr8tdpQk7LmfIGQ1cm7vAzZW01HawllADWQafr9TYYj42KHj0vOQ0tk
-         GiDragzjFlI0bXLrIzp2ckm69eKzWypz2E9O6WjpRIhiTU8UKN+YcXbFNJyHzEAmFA3f
-         sLZK3nNxepddDNa3eKuOHIVythVpbCTaEFU4iqHZ0OOqiMdo4BnakXMbUS6LC9qDTd6z
-         nKDw==
+        bh=bL7VWRVbzv/1ns3vcMzexf+AEseL3f6DgUbURN/e+QA=;
+        b=ERYUbe5U+IUW8JrWL5qLFowaRrA7CmrPrQYOIA9Y2kOfSBfpcqbvqnNWUt7xegGqKu
+         WUn6Tog1OKuRXv5fy7fxgxUaNVNkE9IhT5tFMeVtGLHlbDIwJBTGMqUmVv0PCscCcC1r
+         6gTeq3oQclznMe8HKQrdRsGmbICskxcyortVtHJYAWRENGou8Af7PxaRGUviiOBeeeSr
+         SFLRzkQ8Ad/EcWQKtvcrT30JGpfM+g7VjglsjPm9bt6gJs0t+rTlbLfVHkZDLYDli8Og
+         b3EFdY6HKJ/9vgy0Py4HlC1yLbH6rUbSQAwoXdt0QnEDS31wim33VXofmqXw037FgCmx
+         gGtA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769874340; x=1770479140;
+        d=1e100.net; s=20230601; t=1769874428; x=1770479228;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=uXzdqZpn69X29wR/M9YsEFGq4gfj5xwE404NDbdUoVU=;
-        b=XOzDLXmBBE5FdCE27KOHlCytoFUknb4xrmc83hyLohQ7pdTasVpVoDuu8e0h9vEjen
-         I8KaSCPIDLy+MvlxjJ2ILTkbWhZzpzaNRPK6GJZKr+fPNY1/8HRsH0kKSahnzrmXOJPl
-         w962gM/52a2sLN3+TMC6fiH3J5kevZ8aAnU2zewlxmg3E+3FKt9ah8386BpLCNkjasEK
-         Evdmu2YB7hOaUKVVFDhnPmuOMhpe95PeAzElHt5wbaszfPFs3DvE5Wm+jVJ8MJbuBVRP
-         vKfDIzngBqJhgsBetkIKH4GSYfVXVocJsUmyNQhQ0xcFopRaUmeD24WHihTcDznapthz
-         8Xrg==
-X-Forwarded-Encrypted: i=1; AJvYcCWazdV9B93846htGSBUR30M9wxT9jE2omXQdSJEuAsFD1dVWaWG4DacvdrdnjtJyrR5haP/ZdMqOMxWDhOugTfU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+/tUkx9076nythZ2s+LziSsRvtOlpneuCaIijN+QfP3xSEgiN
-	xUPD3eVzns21W2lv5mHQHwWpKmdlMLR+roYuNtoJxCaFndoNXI5GvslKs7BBBSfi5Co=
-X-Gm-Gg: AZuq6aI27M/VKcBZ1C8Fe02kn1HJVoD280MrD6N1D3rPQ1KjGMHsipgq8U/zszEQ3OX
-	+E9VFtuRLIjkDzCqnTraOcJ0992gAva0K2co1geLTdLiuK7fK1K9SFKnwmZdy+Wy+cvRU9tbV6o
-	f/OgmSNI1qrQUND0rESDoBmUux9urnlwO29MJB7x110LnyDVt93brnNMN0OBBk4y8YztB0h8GCw
-	oTx5ibXfbnMIKe0MDy0f6XUpjg71PjL3cU9/YFHdTjfOyNPCpd+C+MUMePk/fZsPinwrTYLOKc7
-	HVs+RT3Wjjds0c77bjSvdxmxkbzvvw+G27QoYgdGLa5ORPZyNgWHD74grm58FmDMWck6P1pTu69
-	V6E0LROrCxQGPzsHf+rpxr4arBAxoC8vXChSQiAVRs3B3I7qbiU63tqnhNHJru/8VNfBlhTQWxI
-	3Me/7vg5BJNnP6bquC4Q==
-X-Received: by 2002:a05:6402:3643:b0:658:bf8d:c946 with SMTP id 4fb4d7f45d1cf-658de5aa8e4mr3016168a12.29.1769874340352;
-        Sat, 31 Jan 2026 07:45:40 -0800 (PST)
+        bh=bL7VWRVbzv/1ns3vcMzexf+AEseL3f6DgUbURN/e+QA=;
+        b=PPtgACIZMMJTJ1lKk6eOpGVwUFI0nJFDkXy9SPzjJepQDohKzt0JzEPbgOBge/4RkZ
+         QtCzFdvnODkkcqH0hf/0h+sLH9sCLsu5OBQL99OEeB3VjE0+W/0MHW0OSUsLxni/13fc
+         YFpO5YBQagSALMaw0B59qJqKMstHK5dgrE2JbrdNo+k5dhRRVBfw1uSQiXA4eO1KqmvZ
+         gr+Y4dDlF4tvrUYLBOJJIK/7jrpuEhrsIV/9YzX9w5OGDslNep0oAibKeLVM7RQxYiBL
+         lGV6DFapv4nN8by7zWFEvnCpfpwrJ62uPiKWGUXRBPLSskLV3KrvZyVqv5QPAghe4Y+T
+         DB1A==
+X-Forwarded-Encrypted: i=1; AJvYcCVdXtS2GG0wfZ9qo/Hw/9ZPYdWq9cmSUsQGzDxrtoExGJz4WNcHJrrfs6rJtxUx/5Ea/yFtk1C8L8olI0rE3XW+@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvgT1HW5j2HAmTYsfKSQz7NyPPFw8vDUzEhaMobd4789P65Adq
+	wvIbYG1m7zOiLY3DkW2z8dU8U/v8VrGvBxT6aeSbuBvSU2tjNrRnp9m+cDfB0wqEBiw=
+X-Gm-Gg: AZuq6aIkvWq1XJ9tG9wtcuazK3oyWPq4ml5CjZii5DxHeTY2S5+h9NJMxlsI6k9cZTa
+	HhmBfEeTsU6q9nfV7XRJOmSU6B2eywh8l28M6y+rhWbhTyXO6RW2EE80jBwJa9y+OgvJGdQfjDu
+	vfdoPrboit+/AXyb4dO1rEp8HAV3Y7M0HTP2/z9O4dviVO2Q7OsbybcQfHj45dBPAa67kffuebr
+	6mkCFzs6bpHNjY8TYsSp1NBqXLebTqGdHwA/VvWfhRpz51YCPQ5sqU4bglu0S3vm4Hnz4P6nJUe
+	RiwwjyxwFcTYJKR5TWPZcn4M8GrlT7QuhEI9hGIapYXDHHSUX8xHC05N2bpMbeZ6f4loUhgBuAi
+	Wv+l/yd3BD4XHsEYX1X67xL5HXKcApt6tOqW8so3MGzSrCdBAvYCSxJOLP72wCVpMz0PubHRnZe
+	AtdOL+6W1DsKUSwpQGBw==
+X-Received: by 2002:a05:600c:4443:b0:475:dd8d:2f52 with SMTP id 5b1f17b1804b1-482db4a317bmr78541975e9.32.1769874428509;
+        Sat, 31 Jan 2026 07:47:08 -0800 (PST)
 Received: from [192.168.50.4] ([82.78.167.31])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-658b46ae22fsm5455327a12.35.2026.01.31.07.45.38
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-482e2973d57sm40798865e9.18.2026.01.31.07.47.06
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 31 Jan 2026 07:45:39 -0800 (PST)
-Message-ID: <6d68a46b-f43b-4248-8031-58192da26c2b@tuxon.dev>
-Date: Sat, 31 Jan 2026 17:45:37 +0200
+        Sat, 31 Jan 2026 07:47:07 -0800 (PST)
+Message-ID: <f406abde-c7d1-4ed6-b7dd-5336956bc795@tuxon.dev>
+Date: Sat, 31 Jan 2026 17:47:05 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/19] clk: at91: Allow enabling main_rc_osc through DT
+Subject: Re: [PATCH v3 09/19] dt-bindings: nvmem: microchip-otpc: Add required
+ clocks
 To: Alexander Dahl <ada@thorsis.com>
 Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
  Alexandre Belloni <alexandre.belloni@bootlin.com>,
  Ryan Wanner <ryan.wanner@microchip.com>,
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Cristian Birsan <cristian.birsan@microchip.com>,
- Varshini Rajendran <varshini.rajendran@microchip.com>,
- Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
+ Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
 References: <20260120143759.904013-1-ada@thorsis.com>
- <20260120143759.904013-7-ada@thorsis.com>
+ <20260120154502.1280938-1-ada@thorsis.com>
+ <20260120154502.1280938-3-ada@thorsis.com>
 Content-Language: en-US
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260120143759.904013-7-ada@thorsis.com>
+In-Reply-To: <20260120154502.1280938-3-ada@thorsis.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_074542_322606_5A58D97A 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20260131_074710_609691_04D55CC0 
+X-CRM114-Status: GOOD (  21.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,109 +111,78 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 1/20/26 16:37, Alexander Dahl wrote:
-> SAM9X60 Datasheet (DS60001579G) Section "23.4 Product Dependencies"
-> says:
+On 1/20/26 17:44, Alexander Dahl wrote:
+> The OTPC requires both the peripheral clock through PMC and the main RC
+> oscillator.  Seemed to work without explicitly enabling those clocks on
+> sama7g5 before, but did not on sam9x60.
+> 
+> Older datasheets were not clear and explicit about this, but recent are,
+> e.g. SAMA7G5 series datasheet (DS60001765B),
+> section 30.4.1 Power Management:
+> 
+>> The OTPC is clocked through the Power Management Controller (PMC).
+>> The user must power on the main RC oscillator and enable the
+>> peripheral clock of the OTPC prior to reading or writing the OTP
+>> memory.
 
-s/says/states
+As this was not mentioned in the previous datasheet versions, the current driver 
+don't handle those clocks, and it probably worked as the clocks were enabled by 
+bootloaders, I think the clocks should be marked as required and this patch to 
+be propagated as a fix along with fixes on driver and device trees.
+
+I'll let DT binding maintainers for the final decision on this.
 
 > 
->      "The OTPC is clocked through the Power Management Controller (PMC).
->      The user must power on the main RC oscillator and enable the
->      peripheral clock of the OTPC prior to reading or writing the OTP
->      memory."
-> 
-> The code for enabling/disabling that clock is already present
+> Link: https://lore.kernel.org/linux-clk/ec34efc2-2051-4b8a-b5d8-6e2fd5e08c28@microchip.com/T/#u
 
-s/that clock/the main RC oscillator clock
+Why this link here?
 
- > it was
-> just not possible to hook into DT anymore, after at91 clk devicetree
-> binding rework back in 2018 for kernel v4.19.
-
-I would re-write this as:
-
-however, after the at91 clock device tree binding rework in 2018
-(kernel v4.19), it was no longer possible to hook it up via DT.
-
-> 
-> Do it for all controllers with an OTPC controller, where the main rc
-> oscillator is required for proper operation.
-
-I would re-write it as:
-
-Export the main RC oscillator for all SoCs featuring an OTPC controller where 
-the main RC oscillator is required for proper operation.
-
-
-> 
 > Signed-off-by: Alexander Dahl <ada@thorsis.com>
-
-The code LGTM.
-
 > ---
 > 
 > Notes:
 >      v3:
->      - no changes
+>      - Removed clock-names (led to confusion, and not used by the driver anyways)
+>      - Removed redundant example
 >      
 >      v2:
->      - split out dt-bindings changes into separate patch
->      - extend to drivers for other SoCs providing the OTPC
+>      - new patch, not present in v1
 > 
->   drivers/clk/at91/sam9x60.c  | 1 +
->   drivers/clk/at91/sam9x7.c   | 1 +
->   drivers/clk/at91/sama7d65.c | 1 +
->   drivers/clk/at91/sama7g5.c  | 1 +
->   4 files changed, 4 insertions(+)
+>   .../devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml | 8 ++++++++
+>   1 file changed, 8 insertions(+)
 > 
-> diff --git a/drivers/clk/at91/sam9x60.c b/drivers/clk/at91/sam9x60.c
-> index dbcdb1d2161a9..a9f293a8e3b26 100644
-> --- a/drivers/clk/at91/sam9x60.c
-> +++ b/drivers/clk/at91/sam9x60.c
-> @@ -227,6 +227,7 @@ static void __init sam9x60_pmc_setup(struct device_node *np)
->   					   50000000);
->   	if (IS_ERR(hw))
->   		goto err_free;
-> +	sam9x60_pmc->chws[SAM9X60_PMC_MAIN_RC] = hw;
+> diff --git a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
+> index 9a7aaf64eef32..847dfb67c6b72 100644
+> --- a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
+> +++ b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
+> @@ -29,6 +29,11 @@ properties:
+>     reg:
+>       maxItems: 1
 >   
->   	hw = at91_clk_register_main_osc(regmap, "main_osc", mainxtal_name, NULL, 0);
->   	if (IS_ERR(hw))
-> diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
-> index 07eadb712a1e4..9a5afd258cb86 100644
-> --- a/drivers/clk/at91/sam9x7.c
-> +++ b/drivers/clk/at91/sam9x7.c
-> @@ -764,6 +764,7 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
->   					   50000000);
->   	if (IS_ERR(hw))
->   		goto err_free;
-> +	sam9x7_pmc->chws[SAM9X7_PMC_MAIN_RC] = hw;
+> +  clocks:
+> +    items:
+> +      - description: main rc oscillator
+> +      - description: otpc peripheral clock
+> +
+>   required:
+>     - compatible
+>     - reg
+> @@ -37,6 +42,8 @@ unevaluatedProperties: false
 >   
->   	hw = at91_clk_register_main_osc(regmap, "main_osc", mainxtal_name, NULL, 0);
->   	if (IS_ERR(hw))
-> diff --git a/drivers/clk/at91/sama7d65.c b/drivers/clk/at91/sama7d65.c
-> index 4ccffa8db43a5..5d8973aa50a53 100644
-> --- a/drivers/clk/at91/sama7d65.c
-> +++ b/drivers/clk/at91/sama7d65.c
-> @@ -1135,6 +1135,7 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
->   						   50000000);
->   	if (IS_ERR(main_rc_hw))
->   		goto err_free;
-> +	sama7d65_pmc->chws[SAMA7D65_PMC_MAIN_RC] = hw;
+>   examples:
+>     - |
+> +    #include <dt-bindings/clock/at91.h>
+> +    #include <dt-bindings/clock/microchip,sama7g5-pmc.h>
+>       #include <dt-bindings/nvmem/microchip,sama7g5-otpc.h>
 >   
->   	bypass = of_property_read_bool(np, "atmel,osc-bypass");
+>       otpc: efuse@e8c00000 {
+> @@ -44,6 +51,7 @@ examples:
+>           reg = <0xe8c00000 0xec>;
+>           #address-cells = <1>;
+>           #size-cells = <1>;
+> +        clocks = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_MAIN_RC>, <&pmc PMC_TYPE_PERIPHERAL 67>;
 >   
-> diff --git a/drivers/clk/at91/sama7g5.c b/drivers/clk/at91/sama7g5.c
-> index 99b4c1d9bdcca..9a6f0f30b2b7e 100644
-> --- a/drivers/clk/at91/sama7g5.c
-> +++ b/drivers/clk/at91/sama7g5.c
-> @@ -1014,6 +1014,7 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
->   						   50000000);
->   	if (IS_ERR(main_rc_hw))
->   		goto err_free;
-> +	sama7g5_pmc->chws[SAMA7G5_PMC_MAIN_RC] = hw;
->   
->   	bypass = of_property_read_bool(np, "atmel,osc-bypass");
->   
+>           temperature_calib: calib@1 {
+>               reg = <OTP_PKT(1) 76>;
 
 
