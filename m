@@ -4,93 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62476D7977E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 15:31:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CBB1D7977F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 15:43:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/zpjb9qiEoko6BYqT2R2iLSBVI8rHRkVBYY+cJfJABg=; b=GfWOxRGpiGGZ6x6IcYlJ8R0GyW
-	9Z8kvYhgbpayeyY4AagBsB0h8p1JIITxsOTqaa//em7taxe9rr0rnNfdDEHVYrWJ3FTlIYVSRGL2k
-	W0qVnsmKATD5RVOgS3xmk2gw1B4fcfp1v1oV+g074Yoq0LLZ2Lb+IrnXuadgg8BsvNFiPXSY9AE5f
-	Cnlamh4t7Ix/oHe5TQyywUAfB14y7PE9RljsmkauQu1u9FvKTpwgpeTHv3uMQoNx5G1iU9wNUHgmb
-	kR0GKzh0RmQ2KtQXaXelCjFe2BagJDy6Fd+Omro6sTJB8Fcr9rFoz7lY2cRhLYVmqBu+8coRRjPSh
-	Wc50mQIQ==;
+	bh=CPTC9B9AxKZ/luocqmLIMukEnXXZUyNvVqk4iN/Kcvc=; b=OLtYvwWSQRq7bMR5dPIvENvFa7
+	15XrCm5GP33ppB96USV7rL1HBFH+Thd7dV/LrwRKvaBmyOa05ypcsR8suQzoI6WhxpbX+AY2Idm/Q
+	oVuOdLA5rNuREnU8+iv0mZLSf/70EQN/NafGvMBcnb1S9uffQeo45+fG0NTdQ3VwEzFpEWdvIWhdb
+	VjRlPHh6DQJFWBbJJ1dDOIDGafXAj5phXKyAQjPT4fYU8H3MTR27Kkq8UMy9mF1j25rtGpOk3L7cX
+	DpLVZyhe4laXYHFjPtbLYYAUD/dRkFsrq20xX+r6jPSNOhp0z0UPIA2nGF0wdDc0+hXS8WXTQrOOP
+	0hHwl8vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmCwi-00000002kSR-1MIp;
-	Sat, 31 Jan 2026 15:31:36 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1vmD8W-00000002lAC-1KuH;
+	Sat, 31 Jan 2026 15:43:48 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmCwd-00000002kOh-3rfO
+	id 1vmD8T-00000002l9q-1YwM
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 15:31:33 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-81e8b1bdf0cso1889409b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 07:31:31 -0800 (PST)
+	Sat, 31 Jan 2026 15:43:47 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-42fb0fc5aa9so2023079f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 07:43:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769873491; x=1770478291; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/zpjb9qiEoko6BYqT2R2iLSBVI8rHRkVBYY+cJfJABg=;
-        b=guwRdNgj/6l82r+kkx0IhV5Y/2/LG0I9N7lYg9hzrIMXoEL8MOtan2RmutFBJ+auU+
-         Lhj9/M9KbJU4dAFUkhPTM22Rn/e/ewWYIjiVoVzq8uQmNfcdhTmD7h2B53h+uSOTS+Ds
-         EKTjy4FdR0kKi1rSmBVhv0UQEN7rKpbQOM1dalVMUHFCXMH3BgdyAVWQush/6s4yyrEw
-         C1vIkUZ667kW5ZppV1lKHoGgWvPc1iOO5xfj9xAJWairGOLm5raeh65zKMVnjOv9Wsr2
-         ValbpRtgjB7b+4d+WNGQQLoh3u9rRGqZYv0QcMko9oXLkjSdMBq0Q2H85e8s9UPIoJTg
-         EsxA==
+        d=tuxon.dev; s=google; t=1769874223; x=1770479023; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=CPTC9B9AxKZ/luocqmLIMukEnXXZUyNvVqk4iN/Kcvc=;
+        b=OzEoojk6kJgdZrb8xm6Rhh/xnhpArRxinu+4MGmg5suQb3yG09moU5PNZ5xl3siIFo
+         pWBtF77qh8Iuq94zcHAaL8+lU6AzGnm8C8QAqKTxIROja4JHCHWcm6Za0Tr3Kouz4sqD
+         a7OFOjJYJNvnxZLAkRR/PBzJXtsuFcGXBw7x4k+9aN0xZdk8wfwMIVbYvMcyxuNrQP/y
+         xMzbxQZtEYSEjXW9qEOP1+KAk/xTid6lrqgCvZO/JI8vO7mlQXoAVLMl7clLZTaoGLqd
+         qv3lh1xHgXpp83MQxOkHjTZ8ECFyAqvZXb7ppefyBxZgCkF7xp2BChvmObe1NHfK0GCo
+         Q3wQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769873491; x=1770478291;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=/zpjb9qiEoko6BYqT2R2iLSBVI8rHRkVBYY+cJfJABg=;
-        b=HN0IiH0Fl04weOJzLSU+81WvYjKOy9YQWBVnXn1MzwPcnfTx0k+3NHUFJQFmNDgYZ1
-         rj3uw4AyH6XnzCH5eEKKELWEuMhQfUUXfawlOOH1mXs+DnKKl/krNjJlwbpNTkIA+Kgp
-         wc3inboDMw07tP35Z0FyQg8CgtkZWTi5PASmHZjVo3tnxhfkIU4BQWmT4uNjqYd07Fi2
-         4e+a9lySyvyxwrxoiRCQZfvzmOwojkMk32ifYrt3txPAA26RIdTR4NuzrNVqnVEGO3mF
-         wGJPcrUbCvzSmbGmIJsmGvxIUvu2hYI450jAbqBoE2Cj+xV+5QDbxfW6OIjjhzjpPcHC
-         43iQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWStKgcskgbVL7C75oM4b9yGlRg4E9m7CqEPL2j/H7l533muHVwz2rdnrPoQQzfoEC/Hbcpd0e4MvCDRmwxSke0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz36XKGMYIovzy2G+b6mPj77SJIiHiy/qSdQnvPSOeqGRumksU6
-	ag5MFcL1pbWv54V9Z9K8URVBsyOOirNX4qMQmXEh8ZktvdgO+LJJtiPI
-X-Gm-Gg: AZuq6aINgBpOhgayo4yF3AQakFhkJ5fyQxkPapEfKC07+w9OjiKhKnpJgNAV5OKvNN0
-	ySMcOSkYNKdDkffdoiZpkACvSwovhp+OxxiA2vO4byWrGASvioyFuFjdE8RdBnEiesgMS3nhvQD
-	WSxA8gidvwGP50bfYdpZs2kjLI+4MDXauvxAsjMKdz1XKYj6zdmJ+WxOi9s9qlUTgbuYQIMJNOb
-	vOnpSydi7IjzkMc4kiE6wYkXrEZFjerzPbj5tNnQAU+luTse9SHdHT3I04jWAG/vFoMa8xHBUKx
-	fHGHCRNCOIp60T7wmz5sXpkkBSvFyuMUQYFbGxXOp4l/Ogq4TYn65tEdb7UV/zOIBs0NgBo4u7G
-	SYmHDXvm8unZ0ZyCOH52xXgl8I2uPyZiLVySP7D0cbyR7PTBK76LCPh7uJ1FJTp1KVt5s6MFNi8
-	F0x42P3Ggmvqwui+lNmwFH0tnqxgkBpnbIi3MTBgxdtUnTZbTI
-X-Received: by 2002:a05:6a21:690:b0:33f:df99:11e5 with SMTP id adf61e73a8af0-392e0051f35mr6055531637.28.1769873490853;
-        Sat, 31 Jan 2026 07:31:30 -0800 (PST)
-Received: from arch.localdomain (awork135098.netvigator.com. [219.76.135.98])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c642487f1f5sm10701122a12.0.2026.01.31.07.31.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 31 Jan 2026 07:31:30 -0800 (PST)
-From: Jun Yan <jerrysteve1101@gmail.com>
-To: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	alchark@gmail.com,
-	dsimic@manjaro.org,
-	Jun Yan <jerrysteve1101@gmail.com>
-Subject: [PATCH 3/3] arm64: dts: rockchip: Add OneThing Edge Cube series
-Date: Sat, 31 Jan 2026 23:31:03 +0800
-Message-ID: <20260131153106.31723-4-jerrysteve1101@gmail.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260131153106.31723-1-jerrysteve1101@gmail.com>
-References: <20260131153106.31723-1-jerrysteve1101@gmail.com>
+        d=1e100.net; s=20230601; t=1769874223; x=1770479023;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CPTC9B9AxKZ/luocqmLIMukEnXXZUyNvVqk4iN/Kcvc=;
+        b=uvco926EZVHNa5AF01ssw85niUrykOmzpt3tW29TzhgzOKV12vR/PKZ7MIao9UZNdv
+         dYFeEOwyGCch59Xh3Nu6+Yf/DgJLlQaqi8coyDCjzxeuUZFcfxGceRSFWfirmBjqf1vj
+         4OQe6r/gRV3G/K3qUCZ5wKn+pbjmNGUNqq6+UuDOZLpCkAgzhE8CG8mdRc7iJWHVeFXp
+         QrGGnINhgbtU0U6+/nhVE/Fx6c3bFruVaiHO2rOSVj7PF2n+r2rwCr3fEt4dQWiTKbo+
+         XvmLyiBlBdgXv+QNa3nyqeVkg97xWMC61SDDW7r856ffow+xialoIwctUmCAWh7/4Vi7
+         pU7w==
+X-Forwarded-Encrypted: i=1; AJvYcCUcRWFISBhBVCYdxuqgrbUzyCPi/rTvEC6j6EAPyebFpMUHev3IgvFl5luBl3bTqkFR7jhuxyyv+n38/s703pw9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+W9IChXWjlD5deWX3iA0OGXMRhPgjYEJDKb5H9V04QSPpobql
+	NzzcSlVP/Tv9FnBnX6dBPgMw5VptvPjhoURY7uV7vZWYMRGRMVH3tSgNW8u7TlqFbYI=
+X-Gm-Gg: AZuq6aJ5uyrjXWy49O7j1YCHA6mlSylmBRfFLSwdqtIljx9EcUf45ndsgNW1AEbVE3H
+	UhdrptwFhXmo9JnRYDwkla8r8YlkV1kGtdYfVTHXjSXSZLftlk0Wsr5VyJnk3IsbT0xPmOQ3gYF
+	1PLZY7b3Pu1zwNpjGykbXwGZjNQSttR3LvJWLLCf5hppqIG0iLhu9GSd4UXSwB8gpAmkXnieZlv
+	vy7bYgrLUsCcsw7q+k9CI2aJJmezxyN8lj6tV3DXZYEhl4Nms4Gs9TcIxwr/Ffpm3qjDU0zlCoU
+	CSq7J0IH2rAnxOwK8qi0oRQiprlyWQL5ii510LsFwnhi3bNuHQYPfxf1tFRWgr3TVCATwnAdzst
+	vNPbgQ34Nph2hAuChce1iSki+Cm7MsgNKbx3F99qAh31YiWchdmuh2qfCOSS0MCKOndjP5RRFGP
+	4PRxL60AaY/zweawCJSuY4tI0TmYvQ
+X-Received: by 2002:a05:600c:6298:b0:477:2f7c:314f with SMTP id 5b1f17b1804b1-482db4bda82mr79391115e9.10.1769874223122;
+        Sat, 31 Jan 2026 07:43:43 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.31])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e1323034sm31026101f8f.35.2026.01.31.07.43.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 31 Jan 2026 07:43:42 -0800 (PST)
+Message-ID: <1f25e668-ff04-4fa7-a7fd-3ed3286edbe6@tuxon.dev>
+Date: Sat, 31 Jan 2026 17:43:41 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 02/19] dt-bindings: clock: at91: Split up per SoC
+ partially
+To: Alexander Dahl <ada@thorsis.com>
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Ryan Wanner <ryan.wanner@microchip.com>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>
+References: <20260120143759.904013-1-ada@thorsis.com>
+ <20260120143759.904013-3-ada@thorsis.com>
+Content-Language: en-US
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+In-Reply-To: <20260120143759.904013-3-ada@thorsis.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_073131_975244_84319007 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20260131_074345_762270_9E0F9ECB 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,395 +110,387 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The OneThing Edge Cube (OEC) series features the RK3566 SoC, 8GB
-eMMC storage, and supports one SATA interface, one Gigabit Ethernet
-port, and one USB 3.0 port.
 
-Other than the difference in RAM capacity, the OEC and OEC-turbo are
-identical in all other specifications.
 
-  Specification:
-    - Rockchip RK3566
-    - LPDDR4X 2GB (OEC) / 4GB (OEC-turbo)
-    - eMMC 8GB
-    - Gigabit Ethernet port x 1
-    - USB 3.0 port x 1
-    - USB-C 2.0 port x 1
-    - 12V DC Power supply
-    - SATA 3.0 connector x 1
+On 1/20/26 16:37, Alexander Dahl wrote:
+> Before adding even more new indexes creating more holes in the
+> clk at91 drivers pmc_data->chws arrays, split this up.
+> 
+> This is a partial split up only for some of the old PMC definitions.
+> 
+> Binding splitup was proposed for several reasons:
+> 
+> 1) keep the driver code simple, readable, and efficient
+> 2) avoid accidental array index duplication
+> 3) avoid memory waste by creating more and more unused array members.
+> 
+> Old values are kept to not break dts, and to maintain dt ABI.
+> 
+> Link: https://lore.kernel.org/linux-devicetree/20250207-jailbird-circus-bcc04ee90e05@thorsis.com/T/#u
+> Signed-off-by: Alexander Dahl <ada@thorsis.com>
+> ---
+> 
+> Notes:
+>      v3:
+>      - full splitup for all at91 family SoCs instead of just a few
+>      
+>      v2:
+>      - new patch, not present in v1
+> 
+>   .../reset/atmel,at91sam9260-reset.yaml        |  3 ++-
+>   .../dt-bindings/clock/atmel,at91rm9200-pmc.h  | 15 ++++++++++++
+>   .../dt-bindings/clock/atmel,at91sam9260-pmc.h | 16 +++++++++++++
+>   .../dt-bindings/clock/atmel,at91sam9g45-pmc.h | 15 ++++++++++++
+>   .../dt-bindings/clock/atmel,at91sam9n12-pmc.h | 15 ++++++++++++
+>   .../dt-bindings/clock/atmel,at91sam9rl-pmc.h  | 15 ++++++++++++
+>   .../dt-bindings/clock/atmel,at91sam9x5-pmc.h  | 15 ++++++++++++
+>   include/dt-bindings/clock/atmel,sama5d2-pmc.h | 20 ++++++++++++++++
+>   include/dt-bindings/clock/atmel,sama5d3-pmc.h | 14 +++++++++++
+>   include/dt-bindings/clock/atmel,sama5d4-pmc.h | 15 ++++++++++++
+>   .../dt-bindings/clock/microchip,sam9x60-pmc.h | 15 ++++++++++++
+>   .../dt-bindings/clock/microchip,sam9x7-pmc.h  | 19 +++++++++++++++
+>   .../clock/microchip,sama7d65-pmc.h            | 24 +++++++++++++++++++
+>   .../dt-bindings/clock/microchip,sama7g5-pmc.h | 19 +++++++++++++++
+>   14 files changed, 219 insertions(+), 1 deletion(-)
+>   create mode 100644 include/dt-bindings/clock/atmel,at91rm9200-pmc.h
+>   create mode 100644 include/dt-bindings/clock/atmel,at91sam9260-pmc.h
+>   create mode 100644 include/dt-bindings/clock/atmel,at91sam9g45-pmc.h
+>   create mode 100644 include/dt-bindings/clock/atmel,at91sam9n12-pmc.h
+>   create mode 100644 include/dt-bindings/clock/atmel,at91sam9rl-pmc.h
+>   create mode 100644 include/dt-bindings/clock/atmel,at91sam9x5-pmc.h
+>   create mode 100644 include/dt-bindings/clock/atmel,sama5d2-pmc.h
+>   create mode 100644 include/dt-bindings/clock/atmel,sama5d3-pmc.h
+>   create mode 100644 include/dt-bindings/clock/atmel,sama5d4-pmc.h
+>   create mode 100644 include/dt-bindings/clock/microchip,sam9x60-pmc.h
+>   create mode 100644 include/dt-bindings/clock/microchip,sam9x7-pmc.h
+>   create mode 100644 include/dt-bindings/clock/microchip,sama7d65-pmc.h
+>   create mode 100644 include/dt-bindings/clock/microchip,sama7g5-pmc.h
+> 
+> diff --git a/Documentation/devicetree/bindings/reset/atmel,at91sam9260-reset.yaml b/Documentation/devicetree/bindings/reset/atmel,at91sam9260-reset.yaml
+> index 84c4801df8d9a..8c89ccc3d6393 100644
+> --- a/Documentation/devicetree/bindings/reset/atmel,at91sam9260-reset.yaml
+> +++ b/Documentation/devicetree/bindings/reset/atmel,at91sam9260-reset.yaml
+> @@ -67,9 +67,10 @@ additionalProperties: false
+>   examples:
+>     - |
+>       #include <dt-bindings/clock/at91.h>
+> +    #include <dt-bindings/clock/atmel,at91sam9260-pmc.h>
+>   
+>       reset-controller@fffffd00 {
+>           compatible = "atmel,at91sam9260-rstc";
+>           reg = <0xfffffd00 0x10>;
+> -        clocks = <&pmc PMC_TYPE_CORE PMC_SLOW>;
+> +        clocks = <&pmc PMC_TYPE_CORE AT91SAM9260_PMC_SLOW>;
+>       };
+> diff --git a/include/dt-bindings/clock/atmel,at91rm9200-pmc.h b/include/dt-bindings/clock/atmel,at91rm9200-pmc.h
+> new file mode 100644
+> index 0000000000000..ab0d0d7a3b655
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/atmel,at91rm9200-pmc.h
+> @@ -0,0 +1,15 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * The constants defined in this header are being used in dts and in
+> + * at91rm9200 clock driver.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLOCK_ATMEL_AT91RM9200_PMC_H
+> +#define _DT_BINDINGS_CLOCK_ATMEL_AT91RM9200_PMC_H
+> +
+> +#define AT91RM9200_PMC_MCK	1
+> +#define AT91RM9200_PMC_MAIN	3
+> +#define AT91RM9200_PMC_PLLACK	7
+> +#define AT91RM9200_PMC_PLLBCK	8
+> +
+> +#endif
+> diff --git a/include/dt-bindings/clock/atmel,at91sam9260-pmc.h b/include/dt-bindings/clock/atmel,at91sam9260-pmc.h
+> new file mode 100644
+> index 0000000000000..6a5453cf70954
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/atmel,at91sam9260-pmc.h
+> @@ -0,0 +1,16 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * The constants defined in this header are being used in dts and in
+> + * at91sam9260 clock driver.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLOCK_ATMEL_AT91SAM9260_PMC_H
+> +#define _DT_BINDINGS_CLOCK_ATMEL_AT91SAM9260_PMC_H
+> +
+> +#define AT91SAM9260_PMC_SLOW	0
+> +#define AT91SAM9260_PMC_MCK	1
+> +#define AT91SAM9260_PMC_MAIN	3
+> +#define AT91SAM9260_PMC_PLLACK	7
+> +#define AT91SAM9260_PMC_PLLBCK	8
+> +
+> +#endif
+> diff --git a/include/dt-bindings/clock/atmel,at91sam9g45-pmc.h b/include/dt-bindings/clock/atmel,at91sam9g45-pmc.h
+> new file mode 100644
+> index 0000000000000..63134ecafa50c
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/atmel,at91sam9g45-pmc.h
+> @@ -0,0 +1,15 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * The constants defined in this header are being used in dts and in
+> + * at91sam9g45 clock driver.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLOCK_ATMEL_AT91SAM9G45_PMC_H
+> +#define _DT_BINDINGS_CLOCK_ATMEL_AT91SAM9G45_PMC_H
+> +
+> +#define AT91SAM9G45_PMC_MCK	1
+> +#define AT91SAM9G45_PMC_UTMI	2
+> +#define AT91SAM9G45_PMC_MAIN	3
+> +#define AT91SAM9G45_PMC_PLLACK	7
+> +
+> +#endif
+> diff --git a/include/dt-bindings/clock/atmel,at91sam9n12-pmc.h b/include/dt-bindings/clock/atmel,at91sam9n12-pmc.h
+> new file mode 100644
+> index 0000000000000..e41ad6d68108a
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/atmel,at91sam9n12-pmc.h
+> @@ -0,0 +1,15 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * The constants defined in this header are being used in dts and in
+> + * at91sam9n12 clock driver.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLOCK_ATMEL_AT91SAM9N12_PMC_H
+> +#define _DT_BINDINGS_CLOCK_ATMEL_AT91SAM9N12_PMC_H
+> +
+> +#define AT91SAM9N12_PMC_MCK	1
+> +#define AT91SAM9N12_PMC_MAIN	3
+> +#define AT91SAM9N12_PMC_PLLACK	7
+> +#define AT91SAM9N12_PMC_PLLBCK	8
+> +
+> +#endif
+> diff --git a/include/dt-bindings/clock/atmel,at91sam9rl-pmc.h b/include/dt-bindings/clock/atmel,at91sam9rl-pmc.h
+> new file mode 100644
+> index 0000000000000..4306d457f8d2b
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/atmel,at91sam9rl-pmc.h
+> @@ -0,0 +1,15 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * The constants defined in this header are being used in dts and in
+> + * at91sam9rl clock driver.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLOCK_ATMEL_AT91SAM9RL_PMC_H
+> +#define _DT_BINDINGS_CLOCK_ATMEL_AT91SAM9RL_PMC_H
+> +
+> +#define AT91SAM9RL_PMC_MCK	1
+> +#define AT91SAM9RL_PMC_UTMI	2
+> +#define AT91SAM9RL_PMC_MAIN	3
+> +#define AT91SAM9RL_PMC_PLLACK	7
+> +
+> +#endif
+> diff --git a/include/dt-bindings/clock/atmel,at91sam9x5-pmc.h b/include/dt-bindings/clock/atmel,at91sam9x5-pmc.h
+> new file mode 100644
+> index 0000000000000..d3e612f063a00
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/atmel,at91sam9x5-pmc.h
+> @@ -0,0 +1,15 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * The constants defined in this header are being used in dts and in
+> + * at91sam9x5 clock driver.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLOCK_ATMEL_AT91SAM9X5_PMC_H
+> +#define _DT_BINDINGS_CLOCK_ATMEL_AT91SAM9X5_PMC_H
+> +
+> +#define AT91SAM9X5_PMC_MCK	1
+> +#define AT91SAM9X5_PMC_UTMI	2
+> +#define AT91SAM9X5_PMC_MAIN	3
+> +#define AT91SAM9X5_PMC_PLLACK	7
+> +
+> +#endif
+> diff --git a/include/dt-bindings/clock/atmel,sama5d2-pmc.h b/include/dt-bindings/clock/atmel,sama5d2-pmc.h
+> new file mode 100644
+> index 0000000000000..1690a69087522
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/atmel,sama5d2-pmc.h
+> @@ -0,0 +1,20 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * The constants defined in this header are being used in dts and in
+> + * at91 sama5d2 clock driver.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLOCK_ATMEL_SAMA5D2_PMC_H
+> +#define _DT_BINDINGS_CLOCK_ATMEL_SAMA5D2_PMC_H
+> +
+> +#define SAMA5D2_PMC_MCK		1
+> +#define SAMA5D2_PMC_UTMI	2
+> +#define SAMA5D2_PMC_MAIN	3
+> +#define SAMA5D2_PMC_MCK2	4
+> +#define SAMA5D2_PMC_I2S0_MUX	5
+> +#define SAMA5D2_PMC_I2S1_MUX	6
+> +#define SAMA5D2_PMC_PLLACK	7
+> +#define SAMA5D2_PMC_AUDIOPLLCK	9
+> +#define SAMA5D2_PMC_AUDIOPINCK	10
+> +
+> +#endif
+> diff --git a/include/dt-bindings/clock/atmel,sama5d3-pmc.h b/include/dt-bindings/clock/atmel,sama5d3-pmc.h
+> new file mode 100644
+> index 0000000000000..85b772ccd996a
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/atmel,sama5d3-pmc.h
+> @@ -0,0 +1,14 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * The constants defined in this header are being used in dts and in
+> + * at91 sama5d3 clock driver.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLOCK_ATMEL_SAMA5D3_PMC_H
+> +#define _DT_BINDINGS_CLOCK_ATMEL_SAMA5D3_PMC_H
+> +
+> +#define SAMA5D3_PMC_MCK		1
+> +#define SAMA5D3_PMC_UTMI	2
+> +#define SAMA5D3_PMC_PLLACK	7
+> +
+> +#endif
+> diff --git a/include/dt-bindings/clock/atmel,sama5d4-pmc.h b/include/dt-bindings/clock/atmel,sama5d4-pmc.h
+> new file mode 100644
+> index 0000000000000..15b812e1b9259
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/atmel,sama5d4-pmc.h
+> @@ -0,0 +1,15 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * The constants defined in this header are being used in dts and in
+> + * at91 sama5d4 clock driver.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLOCK_ATMEL_SAMA5D4_PMC_H
+> +#define _DT_BINDINGS_CLOCK_ATMEL_SAMA5D4_PMC_H
+> +
+> +#define SAMA5D4_PMC_MCK		1
+> +#define SAMA5D4_PMC_UTMI	2
+> +#define SAMA5D4_PMC_MCK2	4
+> +#define SAMA5D4_PMC_PLLACK	7
+> +
+> +#endif
+> diff --git a/include/dt-bindings/clock/microchip,sam9x60-pmc.h b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
+> new file mode 100644
+> index 0000000000000..91f8f863ea076
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
+> @@ -0,0 +1,15 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * The constants defined in this header are being used in dts and in
+> + * at91 sam9x60 clock driver.
 
-Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
----
- arch/arm64/boot/dts/rockchip/Makefile         |   2 +
- .../rockchip/rk3566-onething-oec-turbo.dts    |  10 +
- .../boot/dts/rockchip/rk3566-onething-oec.dts |  10 +
- .../dts/rockchip/rk3566-onething-oec.dtsi     | 309 ++++++++++++++++++
- 4 files changed, 331 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-oec-turbo.dts
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-oec.dts
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-oec.dtsi
+s/at91/Microchip. Same for microchip,sam9x7-pmc.h, microchip,sama7d65-pmc.h, 
+microchip,sama7g5-pmc.h files.
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 4d384f153c13..ec57719e4573 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -104,6 +104,8 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg353v.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg353vs.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg503.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-odroid-m1s.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-onething-oec.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-onething-oec-turbo.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-orangepi-3b-v1.1.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-orangepi-3b-v2.1.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-pinenote-v1.1.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-turbo.dts b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-turbo.dts
-new file mode 100644
-index 000000000000..16d0cd0cf577
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-turbo.dts
-@@ -0,0 +1,10 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include "rk3566-onething-oec.dtsi"
-+
-+/ {
-+	model = "OneThing OEC-turbo";
-+	compatible = "onething,oec-turbo", "rockchip,rk3566";
-+};
-diff --git a/arch/arm64/boot/dts/rockchip/rk3566-onething-oec.dts b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec.dts
-new file mode 100644
-index 000000000000..81da771ad63d
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec.dts
-@@ -0,0 +1,10 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include "rk3566-onething-oec.dtsi"
-+
-+/ {
-+	model = "OneThing OEC";
-+	compatible = "onething,oec", "rockchip,rk3566";
-+};
-diff --git a/arch/arm64/boot/dts/rockchip/rk3566-onething-oec.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec.dtsi
-new file mode 100644
-index 000000000000..df458a881d0e
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec.dtsi
-@@ -0,0 +1,309 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+#include "rk3566.dtsi"
-+
-+/ {
-+	aliases {
-+		ethernet0 = &gmac1;
-+		mmc0 = &sdhci;
-+	};
-+
-+	chosen: chosen {
-+		stdout-path = "serial2:1500000n8";
-+	};
-+
-+	gmac1_clkin: external-gmac1-clock {
-+		compatible = "fixed-clock";
-+		clock-frequency = <125000000>;
-+		clock-output-names = "gmac1_clkin";
-+		#clock-cells = <0>;
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		rgb_led_b: led-0 {
-+			color = <LED_COLOR_ID_BLUE>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio3 RK_PB3 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		rgb_led_g: led-1 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			default-state = "on";
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio3 RK_PB4 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		rgb_led_r: led-2 {
-+			color = <LED_COLOR_ID_RED>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio0 RK_PC3 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	vcc_1v8: regulator-vcc-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_1v8";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc_3v3: regulator-vcc-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_3v3";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc12v0_dcin: regulator-vcc12v0-dcin {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc12v0_dcin";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+	};
-+
-+	vcc3v3_sys: regulator-vcc3v3-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc3v3_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc12v0_dcin>;
-+	};
-+
-+	vcc5v0_sys: regulator-vcc5v0-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc12v0_dcin>;
-+	};
-+
-+	vcc5v0_usb_host: regulator-vcc5v0-usb-host {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpio = <&gpio0 RK_PC6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc5v0_usb_host_en>;
-+		regulator-name = "vcc5v0_usb_host";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vdd_cpu: regulator-vdd-cpu {
-+		compatible = "pwm-regulator";
-+		pwms = <&pwm0 0 5000 1>;
-+		regulator-name = "vdd_cpu";
-+		regulator-min-microvolt = <800000>;
-+		regulator-max-microvolt = <1200000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-settling-time-up-us = <250>;
-+		pwm-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vdd_fixed: regulator-vdd-fixed {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_fixed";
-+		regulator-min-microvolt = <950000>;
-+		regulator-max-microvolt = <950000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vdd_logic: regulator-vdd-logic {
-+		compatible = "pwm-regulator";
-+		pwms = <&pwm1 0 5000 1>;
-+		regulator-name = "vdd_logic";
-+		regulator-min-microvolt = <800000>;
-+		regulator-max-microvolt = <1100000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-settling-time-up-us = <250>;
-+		pwm-supply = <&vcc5v0_sys>;
-+	};
-+};
-+
-+
-+/* No hardware video output port */
-+&display_subsystem {
-+	status = "disabled";
-+};
-+
-+&combphy1 {
-+	status = "okay";
-+};
-+
-+&combphy2 {
-+	status = "okay";
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu2 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu3 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&gmac1 {
-+	assigned-clocks = <&cru SCLK_GMAC1_RX_TX>, <&cru SCLK_GMAC1>;
-+	assigned-clock-parents = <&cru SCLK_GMAC1_RGMII_SPEED>, <&gmac1_clkin>;
-+	clock_in_out = "input";
-+	phy-handle = <&rgmii_phy1>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac1m1_miim
-+		    &gmac1m1_tx_bus2
-+		    &gmac1m1_rx_bus2
-+		    &gmac1m1_rgmii_clk
-+		    &gmac1m1_rgmii_bus
-+		    &gmac1m1_clkinout>;
-+	rx_delay = <0x0>;
-+	tx_delay = <0x0>;
-+	status = "okay";
-+};
-+
-+&gpu {
-+	status = "okay";
-+};
-+
-+&mdio1 {
-+	rgmii_phy1: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x1>;
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio4 RK_PC2 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&pinctrl {
-+	usb {
-+		vcc5v0_usb_host_en: vcc5v0-usb-host-en {
-+			rockchip,pins = <0 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&pmu_io_domains {
-+	pmuio1-supply = <&vcc_3v3>;
-+	pmuio2-supply = <&vcc_3v3>;
-+	vccio1-supply = <&vcc_1v8>;
-+	vccio3-supply = <&vcc_3v3>;
-+	vccio4-supply = <&vcc_1v8>;
-+	vccio5-supply = <&vcc_3v3>;
-+	vccio6-supply = <&vcc_1v8>;
-+	vccio7-supply = <&vcc_3v3>;
-+	status = "okay";
-+};
-+
-+&pwm0 {
-+	status = "okay";
-+};
-+
-+&pwm1 {
-+	status = "okay";
-+};
-+
-+&saradc {
-+	vref-supply = <&vcc_1v8>;
-+	status = "okay";
-+};
-+
-+&sata2 {
-+	status = "okay";
-+};
-+
-+&sdhci {
-+	bus-width = <8>;
-+	mmc-hs200-1_8v;
-+	non-removable;
-+	status = "okay";
-+};
-+
-+&tsadc {
-+	rockchip,hw-tshut-mode = <1>;
-+	rockchip,hw-tshut-polarity = <0>;
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	status = "okay";
-+};
-+
-+&usb_host0_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host0_ohci {
-+	status = "okay";
-+};
-+
-+&usb_host1_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host1_ohci {
-+	status = "okay";
-+};
-+
-+&usb_host1_xhci  {
-+	status = "okay";
-+};
-+
-+&usb2phy0 {
-+	status = "okay";
-+};
-+
-+&usb2phy0_host {
-+	phy-supply = <&vcc5v0_usb_host>;
-+	status = "okay";
-+};
-+
-+&usb2phy0_otg {
-+	status = "okay";
-+};
-+
-+&usb2phy1 {
-+	status = "okay";
-+};
-+
-+&usb2phy1_host {
-+	phy-supply = <&vcc5v0_usb_host>;
-+	status = "okay";
-+};
-+
-+&usb2phy1_otg {
-+	phy-supply = <&vcc5v0_usb_host>;
-+	status = "okay";
-+};
--- 
-2.52.0
+
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLOCK_MICROCHIP_SAM9X60_PMC_H
+> +#define _DT_BINDINGS_CLOCK_MICROCHIP_SAM9X60_PMC_H
+> +
+> +#define SAM9X60_PMC_MCK		1
+> +#define SAM9X60_PMC_UTMI	2
+> +#define SAM9X60_PMC_MAIN	3
+> +#define SAM9X60_PMC_PLLACK	7
+> +
+> +#endif
+> diff --git a/include/dt-bindings/clock/microchip,sam9x7-pmc.h b/include/dt-bindings/clock/microchip,sam9x7-pmc.h
+> new file mode 100644
+> index 0000000000000..e1dd41fe75046
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/microchip,sam9x7-pmc.h
+> @@ -0,0 +1,19 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * The constants defined in this header are being used in dts and in
+> + * at91 sam9x7 clock driver.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLOCK_MICROCHIP_SAM9X7_PMC_H
+> +#define _DT_BINDINGS_CLOCK_MICROCHIP_SAM9X7_PMC_H
+> +
+> +#define SAM9X7_PMC_MCK		1
+> +#define SAM9X7_PMC_UTMI		2
+> +#define SAM9X7_PMC_MAIN		3
+> +#define SAM9X7_PMC_PLLACK	7
+
+You should also keep the other PLLs even if they are not used in device trees. 
+They are HW specific. Same for the other SoCs.
+
+> +#define SAM9X7_PMC_AUDIOPMCPLL	9
+> +#define SAM9X7_PMC_AUDIOIOPLL	10
+> +#define SAM9X7_PMC_PLLADIV2	14
+> +#define SAM9X7_PMC_LVDSPLL	15
+> +
+> +#endif
+> diff --git a/include/dt-bindings/clock/microchip,sama7d65-pmc.h b/include/dt-bindings/clock/microchip,sama7d65-pmc.h
+> new file mode 100644
+> index 0000000000000..09d152da6db44
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/microchip,sama7d65-pmc.h
+> @@ -0,0 +1,24 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * The constants defined in this header are being used in dts and in
+> + * at91 sama7d65 clock driver.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLOCK_MICROCHIP_SAMA7D65_PMC_H
+> +#define _DT_BINDINGS_CLOCK_MICROCHIP_SAMA7D65_PMC_H
+> +
+> +#define SAMA7D65_PMC_MCK0		1
+> +#define SAMA7D65_PMC_UTMI		2
+> +#define SAMA7D65_PMC_MAIN		3
+> +#define SAMA7D65_PMC_CPUPLL		4
+> +#define SAMA7D65_PMC_SYSPLL		5
+
+Here, you should keep the other PLLs as well.
+
+> +#define SAMA7D65_PMC_BAUDPLL		8
+> +#define SAMA7D65_PMC_AUDIOPMCPLL	9
+> +#define SAMA7D65_PMC_AUDIOIOPLL		10
+> +#define SAMA7D65_PMC_ETHPLL		11
+> +#define SAMA7D65_PMC_MCK1		13
+> +#define SAMA7D65_PMC_LVDSPLL		15
+> +#define SAMA7D65_PMC_MCK3		16
+> +#define SAMA7D65_PMC_MCK5		17
+> +
+> +#endif
+> diff --git a/include/dt-bindings/clock/microchip,sama7g5-pmc.h b/include/dt-bindings/clock/microchip,sama7g5-pmc.h
+> new file mode 100644
+> index 0000000000000..0303cae56f849
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/microchip,sama7g5-pmc.h
+> @@ -0,0 +1,19 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * The constants defined in this header are being used in dts and in
+> + * at91 sama7g5 clock driver.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLOCK_MICROCHIP_SAMA7G5_PMC_H
+> +#define _DT_BINDINGS_CLOCK_MICROCHIP_SAMA7G5_PMC_H
+> +
+> +#define SAMA7G5_PMC_MCK0	1
+> +#define SAMA7G5_PMC_UTMI	2
+> +#define SAMA7G5_PMC_MAIN	3
+> +#define SAMA7G5_PMC_CPUPLL	4
+> +#define SAMA7G5_PMC_SYSPLL	5
+
+Same here. Keep the defines for the rest of the PLLs.
+
+> +#define SAMA7G5_PMC_AUDIOPMCPLL	9
+> +#define SAMA7G5_PMC_AUDIOIOPLL	10
+> +#define SAMA7G5_PMC_MCK1	13
+> +
+> +#endif
 
 
