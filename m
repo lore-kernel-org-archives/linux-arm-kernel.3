@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE7FBD79771
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 13:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32FB5D7976C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 13:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hKtOhL3oFvJF/4kwFHqLo6w652pvqCPdYh+Oa+lYSBY=; b=3v1siqfEsbI6Phpz/+ltYybMJZ
-	DwjaYUlM2/ejJL7xg4kOvefCwdLAaCQYrqFMmIcagWXgyzRdTzKHCKErpuSsHTwBooSdIpa2LCNOv
-	rtelwmkLAlGLAn0GTQ/aAufiQ7fRW3Qg2jA4iPydgYC+937sN8hIyF4p2P/W4Wn/Vs1nJaalSXp2O
-	WJYeGGCqQS4eeOOAYuZhi8xMc2PYTSVOjiHnCgFphj+fkvqKa/GL0dq7cyPWp5NbI42UmfUWGiMvx
-	fGKXtn5euAK1djAEPtbmTYXk73PIOUFCu/m6ShSSYSwBzJAcKCCvBvJTRKQQcIZLF9RHZkLUIUAFj
-	weRwVoFg==;
+	bh=cmv9pvVDnZ4go9IGE3NPxdNq415YebjgteYn5xFgp+s=; b=oCJheHc4g3Xh/0Jg1AK2kZfyyZ
+	PCzMAIH6E8KnBSpL+Lg0c5EwmI9sXghEXvzX/p2Y+Y+88qVj0JZ0ugH7xxthqdPbYiUuQ1DjXisGS
+	t/JW2QquSoiOxLkzRcKyPB/2t0M+WdXKatlmYJaao/duKAWaH76JtRtVOA/Ad4B9/Qqq6Spa0aryV
+	2wgXtlX0LP3PU5iHskFIq3OFdhXEYRhmW0H8W0aaWOqlLMNudmFmLFzsQk3HLEwKnYEWVKkN4p/LP
+	cXzuOLQzy2KddHv4+2XDNlmNqrk+yyyZFKDhSdMGkbJYG744Er5AdZ6ZsCqrrgohSn96jSqMtF7mw
+	J1FGV/CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmB2i-00000002bzU-18Pk;
+	id 1vmB2i-00000002c0a-4ANI;
 	Sat, 31 Jan 2026 13:29:40 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmB2a-00000002bsU-3jIh
+	id 1vmB2c-00000002bsy-1Yfu
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 13:29:33 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4801c1056c7so16245495e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 05:29:32 -0800 (PST)
+	Sat, 31 Jan 2026 13:29:35 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-b83c3dd2092so319720966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 05:29:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769866171; x=1770470971; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1769866172; x=1770470972; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hKtOhL3oFvJF/4kwFHqLo6w652pvqCPdYh+Oa+lYSBY=;
-        b=k64f5nI0RQu3joYZrXV2YF/z21lm1YetcXib/qBag7oYmpSmd6xra+H559UnrBDqh9
-         cuAMeMSnVw/Su5abPBaXikj6NsDHOqRtauE5V0GQcnV57r3lYSc3MYQdPfPDjXopqkpu
-         dJpr1JTKlA4RhKmrYAlg3AQ1zaGB66UYcn7f6a6NvtlmIT0YmRRDDrxaResj/wS6Eht6
-         B5rLe7Gk0RZhzYBvKaLIHEwnxdkpXP78c9KwYf5Dx/f8nl9XSOm3gVvd90Uk2Edmygz7
-         sHfBtNfXueiwEzEKgWzC7oP6dht5OzW8s8muskbqJgBkesTJS7O1v8+GfX0yBLcz8ftj
-         RZ4g==
+        bh=cmv9pvVDnZ4go9IGE3NPxdNq415YebjgteYn5xFgp+s=;
+        b=MbFkkHYi6zvcHzjRzyf5Z05ZHXdFkgJaKreMjkxJnR3bDj6Rc4kv3bZoeuXeGInl5S
+         /Nu5aFIiT9v8K2IE9FAibmnIG4ulRInM7f903q4EqAN9wudCND9OAnHCBY8R8XzPrPVD
+         wYh6rWtTcXfdjLMRUwXN+92jS7DWtZpB3vKHE6hZg2LTcu3/oTF/5+0ToOYJphr7BBdE
+         gugPhOU6z84J6FvidIlUmmrTFXm9ROG2jvsR/JineqDBmcZRCCnngVGx6qdI6Fblusi+
+         SqPCykVSwTNTmhiCL9ByNc3te0stTKlVdoTE0vr0w+P8cPrA7VLAlLZuUxa2yVna+pvI
+         2JMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769866171; x=1770470971;
+        d=1e100.net; s=20230601; t=1769866172; x=1770470972;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hKtOhL3oFvJF/4kwFHqLo6w652pvqCPdYh+Oa+lYSBY=;
-        b=t3aCPNFaFhpxegeiiF4KamT80Kj7AUnlraJcyNrIxdYZzOk935iZ/6+MzTCXeiJ+Ed
-         YZSOsXmYUPlPA7sss8dy5xPTUoCUKE1kAFDjG7JHThmuRcEX7xUnvSK81h29RrAOfsAk
-         1sSvnbmxYci1t00CY9KjeOufUlSzxhPiziMtyt0bmx35fgf6IGrpC+Av+Lxi9dZJyeyW
-         F+ny1EwTFoGYvhVOC6MetyOIhwUdcIkpl/aZ1IILyFH+VUwqfZ3rz8v51sQlzP3lH9Ud
-         CddrqQKLa8E4Ykw2ddXKCxC7ijZPto4ex41+mLV+iU98CUvmd+5p1fRDdxXDNCy/nPdL
-         6RBw==
-X-Forwarded-Encrypted: i=1; AJvYcCWDnEX7pZs2rcg1bgzodIEOPsPkI8YbNYtvW4ACEMiLHO13a0fRHIA9/gtD3ow04lZf2x/Mch/aosXlyeN1+oz8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyq0YOreTU3JKjUARZrZ8UQul0DzHC5J5Dh5vYhojr1qz8W2BXn
-	hOFX/+J2EW9MskLjJUGVz1GcQfY6C3VdRYsfY3PLVHIHCp4lD8DTEbrjWvUsVyHV5t0Qn5NiH7j
-	yyvh4BMDUiL0VEMGpTjXs9w==
-X-Received: from wmcn7.prod.google.com ([2002:a05:600c:c0c7:b0:47a:9289:c5d8])
+        bh=cmv9pvVDnZ4go9IGE3NPxdNq415YebjgteYn5xFgp+s=;
+        b=PobZk45m+y46VoUTKEfI73jNhSrcXAQ7A6ZL4zsJBqo26N9g/88/w50TDtRoUzqY2H
+         F5Bw3pcK4P1wVY4MdHz/jawKk8lAtdi6Jj0HjugIasPFCWoIpFbqvySsDXotP5VAc8k+
+         hWtRA/W8DFpufUxKz+OZCfj+xe+t91bp1FWX6BD46U80QOeOo/MOMQI3OevSwXvgK5Vc
+         ico0yvteq2nZVS5w+83ysBXydHAGaU8M6wPSXW09kmA1TA4NbCJukErAfn4pliMaBfzN
+         Sg/deND8/Z7FgcA/Z5q+mtNV73F0Ecfbs0LajRJo4lfe0HShOguvE2upzbPsbbD77Dxo
+         W9Cw==
+X-Forwarded-Encrypted: i=1; AJvYcCWtbR0RZpml5E61n9OGDvfHLi5tkKuZpq8h7OLRk2SDMvL7oVx/WzvA1L8TfQ1bljG/aNgtpObzcdB0u+BNXDsg@lists.infradead.org
+X-Gm-Message-State: AOJu0YyD3aAq68aoLOCSJfGn/4eF4GN5efD5R+4AIiX4ZN6JIuGHIqPa
+	yRNbx3v7IphixNmNFwpf729ZKfn+++483WPaBY7FSq0cVq7g4fuORT7QnoR13DN/Hx7m6upp833
+	56oL200KI49eg0DUDrG1ziw==
+X-Received: from ejpk1.prod.google.com ([2002:a17:906:66c1:b0:b84:4fbe:af3b])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4e8a:b0:477:73e9:dc17 with SMTP id 5b1f17b1804b1-482db4992famr80888375e9.35.1769866170752;
- Sat, 31 Jan 2026 05:29:30 -0800 (PST)
-Date: Sat, 31 Jan 2026 13:28:28 +0000
+ 2002:a17:907:2d1f:b0:b87:efa:8786 with SMTP id a640c23a62f3a-b8dff6f7d99mr386552866b.55.1769866171645;
+ Sat, 31 Jan 2026 05:29:31 -0800 (PST)
+Date: Sat, 31 Jan 2026 13:28:29 +0000
 In-Reply-To: <20260131132848.254084-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260131132848.254084-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.53.0.rc1.225.gd81095ad13-goog
-Message-ID: <20260131132848.254084-11-vdonnefort@google.com>
-Subject: [PATCH v11 10/30] tracing: Add events/ root files to trace remotes
+Message-ID: <20260131132848.254084-12-vdonnefort@google.com>
+Subject: [PATCH v11 11/30] tracing: Add helpers to create trace remote events
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
 	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
@@ -76,8 +76,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_052932_955533_CD82FC1B 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20260131_052934_445166_3B0610A1 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,186 +92,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Just like for the kernel events directory, add 'enable', 'header_page'
-and 'header_event' at the root of the trace remote events/ directory.
+Declaring remote events can be cumbersome let's add a set of macros to
+simplify developers life. The declaration of a remote event is very
+similar to kernel's events:
+
+ REMOTE_EVENT(name, id,
+     RE_STRUCT(
+        re_field(u64 foo)
+     ),
+     RE_PRINTK("foo=%llu", __entry->foo)
+ )
 
 Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
-index 2d08dd326309..e28cc02d1a70 100644
---- a/kernel/trace/ring_buffer.c
-+++ b/kernel/trace/ring_buffer.c
-@@ -639,7 +639,8 @@ int ring_buffer_print_page_header(struct trace_buffer *buffer, struct trace_seq
- 	trace_seq_printf(s, "\tfield: char data;\t"
- 			 "offset:%u;\tsize:%u;\tsigned:%u;\n",
- 			 (unsigned int)offsetof(typeof(field), data),
--			 (unsigned int)buffer->subbuf_size,
-+			 (unsigned int)(buffer ? buffer->subbuf_size :
-+						 PAGE_SIZE - BUF_PAGE_HDR_SIZE),
- 			 (unsigned int)is_signed_type(char));
+diff --git a/include/linux/trace_remote_event.h b/include/linux/trace_remote_event.h
+index a4449008a075..c8ae1e1f5e72 100644
+--- a/include/linux/trace_remote_event.h
++++ b/include/linux/trace_remote_event.h
+@@ -5,6 +5,7 @@
  
- 	return !trace_seq_has_overflowed(s);
-diff --git a/kernel/trace/trace_remote.c b/kernel/trace/trace_remote.c
-index b8bb43b3acd2..999bf93f40c1 100644
---- a/kernel/trace/trace_remote.c
-+++ b/kernel/trace/trace_remote.c
-@@ -1128,10 +1128,145 @@ static int remote_event_callback(const char *name, umode_t *mode, void **data,
- 	return 0;
- }
+ struct trace_remote;
+ struct trace_event_fields;
++struct trace_seq;
  
-+static ssize_t remote_events_dir_enable_write(struct file *filp, const char __user *ubuf,
-+					      size_t count, loff_t *ppos)
-+{
-+	struct trace_remote *remote = file_inode(filp)->i_private;
-+	int i, ret;
-+	u8 enable;
+ struct remote_event_hdr {
+ 	unsigned short	id;
+@@ -20,4 +21,13 @@ struct remote_event {
+ 	char				*print_fmt;
+ 	void				(*print)(void *evt, struct trace_seq *seq);
+ };
 +
-+	ret = kstrtou8_from_user(ubuf, count, 10, &enable);
-+	if (ret)
-+		return ret;
++#define RE_STRUCT(__args...) __args
++#define re_field(__type, __field) __type __field;
 +
-+	guard(mutex)(&remote->lock);
-+
-+	for (i = 0; i < remote->nr_events; i++) {
-+		struct remote_event *evt = &remote->events[i];
-+
-+		trace_remote_enable_event(remote, evt, enable);
++#define REMOTE_EVENT_FORMAT(__name, __struct)	\
++	struct remote_event_format_##__name {	\
++		struct remote_event_hdr hdr;	\
++		__struct			\
 +	}
+ #endif
+diff --git a/include/trace/define_remote_events.h b/include/trace/define_remote_events.h
+new file mode 100644
+index 000000000000..676e803dc144
+--- /dev/null
++++ b/include/trace/define_remote_events.h
+@@ -0,0 +1,73 @@
++/* SPDX-License-Identifier: GPL-2.0 */
 +
-+	return count;
-+}
++#include <linux/trace_events.h>
++#include <linux/trace_remote_event.h>
++#include <linux/trace_seq.h>
++#include <linux/stringify.h>
 +
-+static ssize_t remote_events_dir_enable_read(struct file *filp, char __user *ubuf, size_t cnt,
-+					     loff_t *ppos)
-+{
-+	struct trace_remote *remote = file_inode(filp)->i_private;
-+	const char enabled_char[] = {'0', '1', 'X'};
-+	char enabled_str[] = " \n";
-+	int i, enabled = -1;
++#define REMOTE_EVENT_INCLUDE(__file) __stringify(../../__file)
 +
-+	guard(mutex)(&remote->lock);
++#ifdef REMOTE_EVENT_SECTION
++# define __REMOTE_EVENT_SECTION(__name) __used __section(REMOTE_EVENT_SECTION"."#__name)
++#else
++# define __REMOTE_EVENT_SECTION(__name)
++#endif
 +
-+	for (i = 0; i < remote->nr_events; i++) {
-+		struct remote_event *evt = &remote->events[i];
++#define REMOTE_PRINTK_COUNT_ARGS(__args...) \
++	__COUNT_ARGS(, ##__args, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0)
 +
-+		if (enabled == -1) {
-+			enabled = evt->enabled;
-+		} else if (enabled != evt->enabled) {
-+			enabled = 2;
-+			break;
-+		}
++#define __remote_printk0()								\
++	trace_seq_putc(seq, '\n')
++
++#define __remote_printk1(__fmt)								\
++	trace_seq_puts(seq, " " __fmt "\n")						\
++
++#define __remote_printk2(__fmt, __args...)						\
++do {											\
++	trace_seq_putc(seq, ' ');							\
++	trace_seq_printf(seq, __fmt, __args);						\
++	trace_seq_putc(seq, '\n');							\
++} while (0)
++
++/* Apply the appropriate trace_seq sequence according to the number of arguments */
++#define remote_printk(__args...)							\
++	CONCATENATE(__remote_printk, REMOTE_PRINTK_COUNT_ARGS(__args))(__args)
++
++#define RE_PRINTK(__args...) __args
++
++#define REMOTE_EVENT(__name, __id, __struct, __printk)					\
++	REMOTE_EVENT_FORMAT(__name, __struct);						\
++	static void remote_event_print_##__name(void *evt, struct trace_seq *seq)	\
++	{										\
++		struct remote_event_format_##__name __maybe_unused *__entry = evt;	\
++		trace_seq_puts(seq, #__name);						\
++		remote_printk(__printk);						\
 +	}
++#include REMOTE_EVENT_INCLUDE(REMOTE_EVENT_INCLUDE_FILE)
 +
-+	enabled_str[0] = enabled_char[enabled == -1 ? 0 : enabled];
-+
-+	return simple_read_from_buffer(ubuf, cnt, ppos, enabled_str, 2);
-+}
-+
-+static const struct file_operations remote_events_dir_enable_fops = {
-+	.write = remote_events_dir_enable_write,
-+	.read = remote_events_dir_enable_read,
-+};
-+
-+static ssize_t
-+remote_events_dir_header_page_read(struct file *filp, char __user *ubuf, size_t cnt, loff_t *ppos)
-+{
-+	struct trace_seq *s;
-+	int ret;
-+
-+	s = kmalloc(sizeof(*s), GFP_KERNEL);
-+	if (!s)
-+		return -ENOMEM;
-+
-+	trace_seq_init(s);
-+
-+	ring_buffer_print_page_header(NULL, s);
-+	ret = simple_read_from_buffer(ubuf, cnt, ppos, s->buffer, trace_seq_used(s));
-+	kfree(s);
-+
-+	return ret;
-+}
-+
-+static const struct file_operations remote_events_dir_header_page_fops = {
-+	.read = remote_events_dir_header_page_read,
-+};
-+
-+static ssize_t
-+remote_events_dir_header_event_read(struct file *filp, char __user *ubuf, size_t cnt, loff_t *ppos)
-+{
-+	struct trace_seq *s;
-+	int ret;
-+
-+	s = kmalloc(sizeof(*s), GFP_KERNEL);
-+	if (!s)
-+		return -ENOMEM;
-+
-+	trace_seq_init(s);
-+
-+	ring_buffer_print_entry_header(s);
-+	ret = simple_read_from_buffer(ubuf, cnt, ppos, s->buffer, trace_seq_used(s));
-+	kfree(s);
-+
-+	return ret;
-+}
-+
-+static const struct file_operations remote_events_dir_header_event_fops = {
-+	.read = remote_events_dir_header_event_read,
-+};
-+
-+static int remote_events_dir_callback(const char *name, umode_t *mode, void **data,
-+				      const struct file_operations **fops)
-+{
-+	if (!strcmp(name, "enable")) {
-+		*mode = TRACEFS_MODE_WRITE;
-+		*fops = &remote_events_dir_enable_fops;
-+		return 1;
++#undef REMOTE_EVENT
++#undef RE_PRINTK
++#undef re_field
++#define re_field(__type, __field)							\
++	{										\
++		.type = #__type, .name = #__field,					\
++		.size = sizeof(__type), .align = __alignof__(__type),			\
++		.is_signed = is_signed_type(__type),					\
++	},
++#define __entry REC
++#define RE_PRINTK(__fmt, __args...) "\"" __fmt "\", " __stringify(__args)
++#define REMOTE_EVENT(__name, __id, __struct, __printk)					\
++	static struct trace_event_fields remote_event_fields_##__name[] = {		\
++		__struct								\
++		{}									\
++	};										\
++	static char remote_event_print_fmt_##__name[] = __printk;			\
++	static struct remote_event __REMOTE_EVENT_SECTION(__name)			\
++	remote_event_##__name = {							\
++		.name		= #__name,						\
++		.id		= __id,							\
++		.fields		= remote_event_fields_##__name,				\
++		.print_fmt	= remote_event_print_fmt_##__name,			\
++		.print		= remote_event_print_##__name,				\
 +	}
-+
-+	if (!strcmp(name, "header_page")) {
-+		*mode = TRACEFS_MODE_READ;
-+		*fops = &remote_events_dir_header_page_fops;
-+		return 1;
-+	}
-+
-+	if (!strcmp(name, "header_event")) {
-+		*mode = TRACEFS_MODE_READ;
-+		*fops = &remote_events_dir_header_event_fops;
-+		return 1;
-+	}
-+
-+	return 0;
-+}
-+
- static int trace_remote_init_eventfs(const char *remote_name, struct trace_remote *remote,
- 				     struct remote_event *evt)
- {
- 	struct eventfs_inode *eventfs = remote->eventfs;
-+	static struct eventfs_entry dir_entries[] = {
-+		{
-+			.name		= "enable",
-+			.callback	= remote_events_dir_callback,
-+		}, {
-+			.name		= "header_page",
-+			.callback	= remote_events_dir_callback,
-+		}, {
-+			.name		= "header_event",
-+			.callback	= remote_events_dir_callback,
-+		}
-+	};
- 	static struct eventfs_entry entries[] = {
- 		{
- 			.name		= "enable",
-@@ -1147,7 +1282,8 @@ static int trace_remote_init_eventfs(const char *remote_name, struct trace_remot
- 	bool eventfs_create = false;
- 
- 	if (!eventfs) {
--		eventfs = eventfs_create_events_dir("events", remote->dentry, NULL, 0, NULL);
-+		eventfs = eventfs_create_events_dir("events", remote->dentry, dir_entries,
-+						    ARRAY_SIZE(dir_entries), remote);
- 		if (IS_ERR(eventfs))
- 			return PTR_ERR(eventfs);
- 
++#include REMOTE_EVENT_INCLUDE(REMOTE_EVENT_INCLUDE_FILE)
 -- 
 2.53.0.rc1.225.gd81095ad13-goog
 
