@@ -4,96 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80495D79745
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 14:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E19CED7976C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 14:21:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6LG4U0xyn/EsldzzleuKDCZCw6DeoE0txtcEiAls1GQ=; b=yObHfc1xT58hmtagrmEsBMfeT0
-	aUqQBdW+RlFNFquzyBJwhDK4+l1lZ6d0Zw3KIHbuujafBHwCtKjWcWs0zffS+QofBgge0KlaK+z+q
-	ypGeCVsjsq7t5y3zU1X1HZrPk3G6I3KDjoAoLzQ5akwOvE1UqlvqFPwFIwBc0Y10Gl41aeJRZgcL8
-	JCpNGqu+27dYUUZMum8QfOqBsKKvsxKwi7XGKviNADaLcvYPJBYb5hniWq6/Yigs6y4oJkMWBSAWZ
-	xyOuwlMZkCcb4dU8XNnSbpvA0Hhle9ncqH1G/upz38C8K2AXF4+iATQV1A8aMUAyDxm+WxFOfkdF8
-	bV2DuxQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lkvUxnOL7dR+fW3oGs9jB2Diau2Xz6VAHarHsYQOkoI=; b=YEZc1Hp1AYa1mrXNsKwDx53CC6
+	d7DKYM2YA9YRBg+WRLCDJteQ7N9pb74mVhrEp5rwKSrj68Gdufcp4lqbN/G6vK0T6Q0W6ETBvmslt
+	UMMDNaQ55twBvoi4/wAOkSDTATTGbNCygyBiVl0QHhFiMyfGazeAWvtWfGKPv3cCU0YN01ZZq1Szm
+	Aqagik0byoSHqZPZSjNWXTTKluO0GNtMCAMH959NSdQky7TrMxYCXU1oJ3gIvAQ9aNmiBKej5vhDI
+	XOf055kBB5bry9CPW6m8qoL5SHeG6QO6d4RM8g1Mfw5uVju9pfYgSLeMPU//huA/mRmPy5r4vKmxr
+	MIrRCnAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmBpI-00000002gYE-44Mw;
-	Sat, 31 Jan 2026 14:19:52 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vmBqf-00000002gg8-1QmR;
+	Sat, 31 Jan 2026 14:21:17 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmBpF-00000002gXV-0ywk
+	id 1vmBqb-00000002gfh-45Iw
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 14:19:51 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4801d7c72a5so23364455e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 06:19:48 -0800 (PST)
+	Sat, 31 Jan 2026 14:21:16 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-81f4f4d4822so1554890b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 06:21:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1769869187; x=1770473987; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=6LG4U0xyn/EsldzzleuKDCZCw6DeoE0txtcEiAls1GQ=;
-        b=Ju3qOeCFP1EQsPKXHvZ9i6BsPkZgMyS2mqGyGHGr388ETm2MZDuV3B520FP0dKFTyh
-         Li5tQVpWtHrUWxqwXAnNzX8DXkyf0hNr0cIzEoJyFB7O6upY3X52m5ApfWlmLqikkltQ
-         Iltw+Tiq3sOdAxm7yI1gd1HVzajDDS1AQjpls5Cd+5j8k6oR2LPoisvgBE51T8koodHc
-         gkCNVaqwb4lAm3n1NRi2ogaSKGGEv7D+CV8ssq9inWFxN5dTRMhtX+5h3ok8WkH6+4g0
-         rrSrdUAuLMHD9PLwK8XQmnoofYLe9gWcpZUxFAzsDbw2clXh/oWVGAaOVKUnDxyisQIv
-         bBvg==
+        d=gmail.com; s=20230601; t=1769869273; x=1770474073; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lkvUxnOL7dR+fW3oGs9jB2Diau2Xz6VAHarHsYQOkoI=;
+        b=FjL9x7nrzbJH4240AVwfctoewrwxZyx1zEV7boPYHxuJTSbBDflfsSgzlKINHyAa1W
+         EwqYTPJrQ7a28mbmPUNe+q9EkEJKwvxVgy/7XQmNirK5FjAwi+4H/UEmnmM6E3I4Ob0m
+         vPHLAZT4tG9bo8sH8QDTFbF2YUZoVFgIC+JN+Zl+OrwYkp5af+dc+IH1ilTkhhmdT7Ra
+         sQDkFyh1kqGyVW8Kos4B3NxQSD+0i1wcGrhrQV1Vr2p9nE8UDlaa2SKZHH+o6kJ1j7DN
+         HqeXsbepp/2NtBWU85Q2r3hocxB3WgJVIXRbeiNPogUaAlAYplrUdLjwR3g7aTNE6aU0
+         r6tQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769869187; x=1770473987;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6LG4U0xyn/EsldzzleuKDCZCw6DeoE0txtcEiAls1GQ=;
-        b=L3kmnlWeTuURGdJPAtnUfj59/JfTkEfs5HYRCX4z7Duv4/YACI8nySbXWdYNnyFIVZ
-         H/u+q2VbqjRKl+2BJoPGphI+WBmSosT6EEEsHcx+8PVGmHo91ZQ5sKgct3Zf1mwX00dd
-         J/A4vVe2W5Gyq0fj7LELEHAPikH2Zf0AWfvqvdXyy6H6my8I4xlD5OEAQDymQkDUE5by
-         9xjNjBP49Zpgt/oCNbUKb1jSRh+gEEPPMxsHSaK2jfZYZ+5PM77lWihlaZ4DkcCHq+ek
-         b+UiuBzpOmyCGmQUMWky96rF056I3OWnR8MuJ9REw/hw1lZ1fZ2rX3U8XgdAkPb0TJlz
-         oTfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUk2sfqYuInEqJbZ6epyTNZuZinkO1YChj5Kb2bt6uesSHi0fg7H2jWR7PDhNKDz46jFh6qNqPupZlfjahdPvPV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzNhwbSC7EzH3JF7s58LHqAeeK5KCkToBdbvZd0KGWsTDjzD1o
-	NhnJ+ARgV60H5794EWKmxYIOynj+P6et3OFQi1ENuWRrZpcGzwZlgiX3/++yzB4cFjk=
-X-Gm-Gg: AZuq6aLI0Lti5mKAvqkF04ceE5Cxvnuz33Ymx35VyGFPGsFPNF3nLVkBBt+xU49RoBH
-	qwRkUDT55je4iQg3N5JxzhuICOZHvKPJp0hWQKSGeKqL2umfLnPqr+HXNLcIcSf3DDqGBnf9ID7
-	BUJ8Qk6/skTADlRpMODHbnssPheeROyOBs6UMQJaqtPFgOcz3ywvWA/0q6BbaqOa+KakUkdMwrh
-	ziPh0GEwiwDeEaLETiPnCHTAxdOLN2xzvVZvnIyIuPtyx7zkXWRyf61KQWq2m6qyYDG5/DG/XrK
-	uP8AhIA/IqjqCsGP7s6l9gdKyAT+08bLkqeMZBEpR2yzqvYP6iZwFFx9kK7zB4MwLou8PdGMAnO
-	S2ETyPihhlAj/qpOfxm87PeVbbpYGOplUPVLZyuZgqs7NhU4HFjY0BjzhEfwOgpnQMpFA0j0i5M
-	/gFJ5cNtbz+DG3gDpPKw==
-X-Received: by 2002:a05:600c:46c8:b0:47e:e949:37e8 with SMTP id 5b1f17b1804b1-482db4ed389mr82265315e9.30.1769869187325;
-        Sat, 31 Jan 2026 06:19:47 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.31])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-482e04a082dsm42641605e9.3.2026.01.31.06.19.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 31 Jan 2026 06:19:46 -0800 (PST)
-Message-ID: <70333077-3223-4f99-bfc9-cd3069a25d98@tuxon.dev>
-Date: Sat, 31 Jan 2026 16:19:45 +0200
+        d=1e100.net; s=20230601; t=1769869273; x=1770474073;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lkvUxnOL7dR+fW3oGs9jB2Diau2Xz6VAHarHsYQOkoI=;
+        b=Iz2Gu8D3xmkI5MeIBggmQ/ahIAUKH48fosKnQ51iosb5HrrY48NjYYlJaGiFRR9K5W
+         YJAqdeU3HbFDQ/VlW/wnMbOS8qYV2nW2QY76B7M3Frl7BENx4/yyGcHUoHpn6ns6bLbR
+         DkktE/usNUPu6nGzAQni7f5tpWry5hO4LryH/TV43Mhz33DBNCeAMJ2fpoPbgOiH94be
+         bqG1jr66A00lLr3e0YfMFRbQ1U2XlbCX1kzW1qiOdvcF8S/OI22HoXJnDp+2oP4IOlW4
+         +IHMUpR0meFUnVCOm3JJXCAR8vhP57fMPadlBBWuam6ixbaTON8uAjg7BH6p0m6IsdTz
+         JoIQ==
+X-Gm-Message-State: AOJu0YxdCmLSlQkIrcsraiB8KC3iJ2eTCiLVnwNaaCbjHw42JL/5FEhP
+	SHfKIejsFga7Ou/HzAx4IW9vKjdY7lcv1KsOaYk7Hr43R2hkcNNJAOXM
+X-Gm-Gg: AZuq6aIPW+QIkMnVxsx/zw+b7hvsKid6S6ts6C56okSalAPcl80XycbcQtBC7AO0FRj
+	lm34/MkMmKi3AlMXN4B3wKgniiFx+gTDJ5nXOxo6UvgvzzunWvBQlwSqKM9zMNib3UirQuFoN0S
+	4gYiyrpeHnDcfj40UlLFkQP6LjOWX/OoHF7/zcsOEQMzhUA2v7+TWsxsoyXSLK0QmKigSM3c6Xw
+	fn7AaeYJk+THnv9u3S3l83VY0jZMunOVWHWYOxlyD7fj4ZOkBsTRkFAc8ILu0AcGJZeExI23zhT
+	pCy0hx/kH7hdl8AugkVDCcK6pni/qYJ2VoHf+BgOOF+nF+eTI/x5Y3/3PCKn0uBKYIRCwpQV318
+	I9HDpwE98SvLfTFhgpF1hzE7OS3fEiwk9PrVtDyNjCC0PnC0jFjtUypCZ3blZ0ETLa8oYYDg3pt
+	ZrUoqzxk0=
+X-Received: by 2002:a05:6a21:690:b0:38e:9e4c:ed5c with SMTP id adf61e73a8af0-392e0108c9cmr7004530637.52.1769869272764;
+        Sat, 31 Jan 2026 06:21:12 -0800 (PST)
+Received: from junjungu-PC.localdomain ([2408:820c:9008:ba52::3a87])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3540f2cb5adsm11122965a91.3.2026.01.31.06.21.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 31 Jan 2026 06:21:12 -0800 (PST)
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Sat, 31 Jan 2026 22:21:08 +0800
+Subject: [PATCH] soc: dove: pmu: Fix device node reference leaks in
+ dove_init_pmu()
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 29/31] clk: at91: at91sam9g45: switch to parent_data
- and parent_hw
-To: ryan.wanner@microchip.com, mturquette@baylibre.com, sboyd@kernel.org,
- nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
- bmasney@redhat.com, alexander.sverdlin@gmail.com,
- varshini.rajendran@microchip.com
-Cc: cristian.birsan@microchip.com, balamanikandan.gunasundar@microchip.com,
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <cover.1768512290.git.ryan.wanner@microchip.com>
- <8ea67feaf45ddcaa32eab27c3b6716368979e198.1768512290.git.ryan.wanner@microchip.com>
-Content-Language: en-US
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <8ea67feaf45ddcaa32eab27c3b6716368979e198.1768512290.git.ryan.wanner@microchip.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260131-dove_pmu-v1-1-1b40989778d1@gmail.com>
+X-B4-Tracking: v=1; b=H4sIANMPfmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDQ2ND3ZT8stT4gtxSXQvjtEQzk7QkQ7PUFCWg8oKi1LTMCrBR0bG1tQC
+ dTumvWgAAAA==
+X-Change-ID: 20260131-dove_pmu-83fa64fb16ed
+To: Andrew Lunn <andrew@lunn.ch>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Gregory Clement <gregory.clement@bootlin.com>, 
+ Russell King <rmk+kernel@arm.linux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Felix Gu <ustc.gu@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769869270; l=1738;
+ i=ustc.gu@gmail.com; h=from:subject:message-id;
+ bh=0SqmNXMiDYeKhpDqhKZq0p/LgtJ8W3oHQkpkBHWvFaU=;
+ b=mQoe2/qhHtne+vtIPeXSx4DDLwMyGRe3rzQKgSeUID73vUpJbHLAoljnJguQcIg4Y8UfEKO9E
+ QcyqV/SUAjzB0+DTc7M7iMttrQJu2nLjrgcXAd4g2xg37KMwEOnU38H
+X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_061949_660128_3722D344 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260131_062115_693074_4B484679 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,37 +110,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Same here as in the previous patch.
+Use __free(device_node) cleanup attribute for domains_node and add
+missing of_node_put(np_pmu) calls in error paths to prevent device
+node reference leaks.
 
-On 1/16/26 22:07, ryan.wanner@microchip.com wrote:
-> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-> 
-> Switch AT91SAM9G45 clocks to use parent_hw and parent_data. Having
-> parent_data instead of parent names improves to clock registration
-> speed and re-parenting.
-> 
-> Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-> ---
-[ ...]
+Fixes: 44e259ac909f ("ARM: dove: create a proper PMU driver for power domains, PMU IRQs and resets")Y
+Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+---
+ drivers/soc/dove/pmu.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
->   static void __init at91sam9g45_pmc_setup(struct device_node *np)
->   {
->   	const char *slck_name, *mainxtal_name;
-> +	struct clk_parent_data parent_data[5];
+diff --git a/drivers/soc/dove/pmu.c b/drivers/soc/dove/pmu.c
+index dd8ade8e9ee8..3b2567f20649 100644
+--- a/drivers/soc/dove/pmu.c
++++ b/drivers/soc/dove/pmu.c
+@@ -371,7 +371,7 @@ int __init dove_init_pmu_legacy(const struct dove_pmu_initdata *initdata)
+  */
+ int __init dove_init_pmu(void)
+ {
+-	struct device_node *np_pmu, *domains_node;
++	struct device_node *np_pmu;
+ 	struct pmu_data *pmu;
+ 	int ret, parent_irq;
+ 
+@@ -380,15 +380,19 @@ int __init dove_init_pmu(void)
+ 	if (!np_pmu)
+ 		return 0;
+ 
+-	domains_node = of_get_child_by_name(np_pmu, "domains");
++	struct device_node *domains_node __free(device_node) =
++		of_get_child_by_name(np_pmu, "domains");
+ 	if (!domains_node) {
+ 		pr_err("%pOFn: failed to find domains sub-node\n", np_pmu);
++		of_node_put(np_pmu);
+ 		return 0;
+ 	}
+ 
+ 	pmu = kzalloc(sizeof(*pmu), GFP_KERNEL);
+-	if (!pmu)
++	if (!pmu) {
++		of_node_put(np_pmu);
+ 		return -ENOMEM;
++	}
+ 
+ 	spin_lock_init(&pmu->lock);
+ 	pmu->of_node = np_pmu;
+@@ -399,6 +403,7 @@ int __init dove_init_pmu(void)
+ 		iounmap(pmu->pmu_base);
+ 		iounmap(pmu->pmc_base);
+ 		kfree(pmu);
++		of_node_put(np_pmu);
+ 		return -ENOMEM;
+ 	}
+ 
 
-Please mention in the patch description that you've also changed this while at 
-it along with a reason.
+---
+base-commit: 33a647c659ffa5bdb94abc345c8c86768ff96215
+change-id: 20260131-dove_pmu-83fa64fb16ed
 
-Everything else LGTM.
+Best regards,
+-- 
+Felix Gu <ustc.gu@gmail.com>
 
-
->   	struct pmc_data *at91sam9g45_pmc;
-> -	const char *parent_names[6];
-> +	struct clk_hw *usbck_hw, *hw;
->   	struct regmap *regmap;
-> -	struct clk_hw *hw;
->   	int i;
->   	bool bypass;
->   
 
