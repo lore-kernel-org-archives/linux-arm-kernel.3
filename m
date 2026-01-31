@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BDBAD79769
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 12:51:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 574C4D79769
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 12:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
 	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
 	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/lxexy1NRGnGkNwTh+ZH9C7Afn1tu/sVb3g8M/zCZEQ=; b=e8oYnIcmkQR1Xkl3zQtmYfsgmF
-	FaHTiiTouzYx+++NfG0eZEN+C8ULQ+NnsXupOEAl290yI+F4VjiqJpEwneHnxTwQaac81nVav8K8n
-	hx53v6Zi7Qx1DM2guTs0k50t5ZqNA+WUP1BziRlRTJi9I0CJmZgpOzfaAQxga4NKaDeQ4n6reIhCj
-	qyAeq65y1glMYmDO+0ZpqBq8ob1q8gBbIyl3HydvLzRVtJL3F/Mxa08MsiALdDDzl7/YW0YlD/49N
-	BozZuxCbVe3C3niPIisgxUa8KpT1v4SJyabEHgaDQrIJk6+wGARAJMZna0Lo0oSvD/m0u9gpBzowZ
-	ixgDtkLQ==;
+	bh=RxyFnWgbUAYvhpMdYr/N5vyAI+H1oL4nAc3ZU6Inhdc=; b=XzHKxb/6cyklXdX7F3JiRJ0oX6
+	nWq+jlv2qCHOcJM5bB9vqwZ07LUK7ojZlanl7Jj9//OJLXC5Z1xqi44rJY4JI1CrDc7ERM5yf0BhW
+	Qo+JSsDhZpjUrI2ZtJa93qSp48iSnMr8Azc0QDda5OUETNwxJ8V0N0GZYIc32uuekMMAYUWwn2Taw
+	3tRSvlJ9ii4wBcDTulWa/bfCjisyDndir1hNDxXJmxuJrrR8h+foRlVoE+4x7OgT8BKEavy19bgtC
+	cHPgPG4twqVmHXkd6hmBn0RC+5z8oPawOnvmEk58pTmFdf/hdUI9BVEMEYoba+0Lbc5pbTz+FeXvn
+	Er6kY+gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmARf-00000002aKF-2lFg;
-	Sat, 31 Jan 2026 12:51:23 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vmASd-00000002aRK-2G8f;
+	Sat, 31 Jan 2026 12:52:23 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmARb-00000002aJY-3wiU
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 12:51:22 +0000
+	id 1vmASb-00000002aQh-0bv5;
+	Sat, 31 Jan 2026 12:52:22 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 9625B1A2B5E;
-	Sat, 31 Jan 2026 12:51:16 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 7E4784E42385;
+	Sat, 31 Jan 2026 12:52:19 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 62646606B6;
-	Sat, 31 Jan 2026 12:51:16 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 35E56119A8886;
-	Sat, 31 Jan 2026 13:51:01 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 522DA606B6;
+	Sat, 31 Jan 2026 12:52:19 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DA0F6119A8886;
+	Sat, 31 Jan 2026 13:52:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769863874; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1769863937; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=/lxexy1NRGnGkNwTh+ZH9C7Afn1tu/sVb3g8M/zCZEQ=;
-	b=xUz4nJ3SqjGSb47/RdZbD7Mz4iocZu5Lg7WWrLX+Q3XjVIFvvhEyp/qZle3m+2QW+oTtkk
-	basmI5anMTEXc8TeVJSa7L+5cEIPDYB+Ahou91ptDdsT67GEcF/pyI1ogFHPEQVKO9HWaP
-	3M7vzhz1wVR1lbwQsrieEA2GjG0S0DJ7kPdxNIB7mmOVKhLpIrWbFvHGBVRexKSkV2EoVy
-	wvdeSCDukaZRYEZ/Z0r27A5wQWaX9jOq6N8+rNWHE59XfSqQTo1QLcUZjoQcbmcYDhSuTB
-	+r83Re64f6lxJ1tj8TXY8V7ROzULO4dxPEsrW6lQzc3mTI7rgSIyl2e/EifVOw==
+	bh=RxyFnWgbUAYvhpMdYr/N5vyAI+H1oL4nAc3ZU6Inhdc=;
+	b=fDgxO6MpgRZyihSKd+5jBWPrdf8LpxE1hSaDbW9Mvvs57WZymPmqhA4k9vp9beotZi02f/
+	Tpr7wrnWzg25aiajUyQRlxD1SaOCo/g+cRuPf19riEF8V3TDjBSNp8k2OYPdukD21qFzSm
+	i5oaqHmH9YLl+Ow64sXn/8bpJzJLCW1V1KyLV5TLk2bqfbZ5Rp71U1FZmlQCH3n+EP3pf6
+	2ZyTo/c83fTEJH3KcHDoYtTPgQXpe2uk/+6xiQChhrROszlENHUJ8pVQpaTsErJqwsQzkW
+	mkiIbWU4Y7RgIA84Ru6lLy6cS+jJE5gBANoVsCC1HDVcGdGo2MHTLo5NsrxcjA==
 Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Date: Sat, 31 Jan 2026 13:50:59 +0100
-Message-Id: <DG2SDKH3BPGG.1IIH4ZHVY4M69@bootlin.com>
+Date: Sat, 31 Jan 2026 13:52:06 +0100
+Message-Id: <DG2SEFJHOTZZ.19VQUW2FYSWAC@bootlin.com>
 Cc: <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
  <jernej.skrabec@gmail.com>, <maarten.lankhorst@linux.intel.com>,
  <mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
@@ -66,16 +65,16 @@ Cc: <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
 To: "Damon Ding" <damon.ding@rock-chips.com>, <andrzej.hajda@intel.com>,
  <neil.armstrong@linaro.org>, <rfoss@kernel.org>
 From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v8 03/18] drm/bridge: analogix_dp: Move
- &drm_bridge_funcs.mode_set to &drm_bridge_funcs.atomic_enable
+Subject: Re: [PATCH v8 02/18] drm/bridge: analogix_dp: Formalize the struct
+ analogix_dp_device
 X-Mailer: aerc 0.20.1
 References: <20251217093321.3108939-1-damon.ding@rock-chips.com>
- <20251217093321.3108939-4-damon.ding@rock-chips.com>
-In-Reply-To: <20251217093321.3108939-4-damon.ding@rock-chips.com>
+ <20251217093321.3108939-3-damon.ding@rock-chips.com>
+In-Reply-To: <20251217093321.3108939-3-damon.ding@rock-chips.com>
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_045120_118208_CBFAD27F 
-X-CRM114-Status: UNSURE (   6.10  )
+X-CRM114-CacheID: sfid-20260131_045221_317271_5833AFB5 
+X-CRM114-Status: UNSURE (   5.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,9 +91,12 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Wed Dec 17, 2025 at 10:33 AM CET, Damon Ding wrote:
-> According to the include/drm/drm_bridge.h, the callback
-> &drm_bridge_funcs.mode_set is deprecated and it should be better to
-> include the mode setting in the &drm_bridge_funcs.atomic_enable instead.
+> Use the tap instead of the space for &analogix_dp_device.aux and
+          tab
+
+(no need to resend yust to fix this minor typo)
+
+> &analogix_dp_device.force_hpd.
 >
 > Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 > Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
