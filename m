@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5589D7977F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 16:03:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CF9D7977D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 16:12:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0MlGEqpxPuA5ARImYdl/1cKu2LSvKdYbg1W1S81a7ZI=; b=IGJ53Z7u9Gef66gpUSWVZxgwDe
-	S2/oVBwwdycoXQAQLJjfGrBwwVTeMocIaDKXgTcEHYgKNgLi1P9PwEwQwBi84ItG0VNN7j1eOdV4i
-	jhUMkJFKuh7MM0q8dUcRqgMSkVbtnPmGjxA3vflGVIPMaImzo87aOuTFgNMI2KIJrUfizjv3maag6
-	G++a7H9M6q7W4CopGGiCVvXQfiENRZGA66DZzFv6H9t320LsRJtqnQL5SMgF4Ca4laqL6PSUSNwgr
-	uynRXFYMB4rO/12OKw7kBzR+SbgQes66r2fUlp46zEbC41W4g20mRerkUQ2WJpIHVnDuwamgs7jpE
-	E4IHdAsA==;
+	bh=wt0nnlrDw5KDdKulBm7PH7mhYJ/mBjNcrtsksFarjCk=; b=UT63zrqvbQFTVAhAuIZl2AQE7b
+	AaNoATof3gM7S15xGPxjLmZ+FiIQHqsKtUTQQU/ne58BYt0r7RvCeD5nuoPec2bQl9UXllt26T1zD
+	hIpajfjnRAxVg/oI4sOQTd5UBvLP/CbCYIwaAmr0WCfOao/t5ZAilNyx0P7ao1dn9x3oMnrH5YevP
+	JAHbsYLU+ycR8/WSEmgtozsY2BhyT+3o8a7+fSo/1qwQJsVIDZtJf/Ow2ZS5qE96xeecBMX6vGroZ
+	IoM6LO4EADChQRZpcSRGnM5c5n0cJLrfSYzPwbyjRzeLFAT9vXVnPcHS98FdtwyMSdU/dmFKXG+x6
+	2lKT8Stw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmDRf-00000002mtv-0rZw;
-	Sat, 31 Jan 2026 16:03:35 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vmDZs-00000002nA7-0lmY;
+	Sat, 31 Jan 2026 16:12:04 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmDRc-00000002mtJ-1BW1
+	id 1vmDZo-00000002n9m-3BMM
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 16:03:33 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4806bf39419so25159695e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 08:03:31 -0800 (PST)
+	Sat, 31 Jan 2026 16:12:02 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-4359a316d89so2379093f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 08:11:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1769875410; x=1770480210; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1769875919; x=1770480719; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=0MlGEqpxPuA5ARImYdl/1cKu2LSvKdYbg1W1S81a7ZI=;
-        b=iv4B1dWl2PkV2jSFppX57ZZ5+YzoPJaN0zTK/cEcmGeUeCI7pRJSMetIiFO1pTdaji
-         ahF28QbvZD+gaF2MfJGLhjAFE6H34Oqbcen13QCGjv5yFBMe7LFwOf/kKe+/wTMd07mY
-         lRBa9kgRruhWQzQg473nQfe11ADAvZCVXzKGBOACUAALXKzlowehnCD1kLpSoO8LIp0+
-         8hIqJlybJGyVkZpUNDTFdhC1+R+uukGD/daxJiW3Rka7BcPqR8K0268hMN9i1G0MlUdN
-         3S4LIrBA/ZniYsKAPPmcrCDNHNdpYWNaqXpsF3LwNjdAEBx2ha3S+TBksWVN0KjQUE4y
-         /k3w==
+        bh=wt0nnlrDw5KDdKulBm7PH7mhYJ/mBjNcrtsksFarjCk=;
+        b=B7tmWtv2z6zHkD4SL7NU5CuVIkTE7fBqGwsfmTWEbct9jYjIegehN9w0HqkRE4jQ6N
+         OwDjQ4tIyAIxoYnNiHWELy1w+Y1B2RdfOfZfqyidEf24s22mEY5ZyyY22mFwFsFOs8A4
+         EqlRyhUZOzFoL9LfF19g6x4bsncs7I341L1ceyzc475RS6hHWM04sCGXPndVjNJd1uMf
+         gB+SHBewWTur0hmKUhjzIXLVEWzUD6qzHPGArgWP38O9h/vlArBoLP6ziyaKxQmK0JCv
+         WSUrE4CxEvXirlkoRivdATN+HUojcDOUQb8V9WwNcUGdHCY1oM3+52aWGddPa4NArdw7
+         Cyyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769875410; x=1770480210;
+        d=1e100.net; s=20230601; t=1769875919; x=1770480719;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=0MlGEqpxPuA5ARImYdl/1cKu2LSvKdYbg1W1S81a7ZI=;
-        b=Qk0Rq8C1Rv0ursGrKj41kswu4dABweNban0fGlkiXys0fXYx/EfCbGwXxGXfZ4FPO7
-         b9fqON+g1IVnH+1k8+kqxC5koo4FBve+jGs2SHD6sBMaylmD9g6BRGrrb9IV2Q8Zg9In
-         8Tuaaru4pIazUNjvRBrOGGT4STw0p7hY5P1L0BhF3YAEGO2ZupUqf7Jj6wt922OHRc5f
-         2fa26w+23lJIKLmZGqL5iTic7ODr9uy3dMtUVJx2rLawKMTKoRpkzTbuswk4QH1HQ5Nw
-         UoJP650sSNtXw9wlkeuO8o/WMSMmh5vgixxDAwkKspW1ghXL8yM9cARJVdqrJmWeOFew
-         9mog==
-X-Forwarded-Encrypted: i=1; AJvYcCVs9i8+pHff4nNfwwSSayRRLBIZ1/yTTk/CkgWBt/MyomJgX+wvPJXnOLQX60COVeTfRd64O/NbhhOejGx24ihp@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMjBxWyb/AkPD81Uh0exWTt3wrH8RFi9vK5EWewGwi5t1wHlXF
-	OoGScvh/aWP1V/XzOMCTXmUan21CgKmMTl0x1naeND2t15jMPePJb2yOfSe4Do8noTw=
-X-Gm-Gg: AZuq6aIPKlwMLD9h0BhuF/USC2rgoi9WW/t/EUoQwF6FFxsLAVWLkKym2QUsFvhrdtV
-	wAcnUmnMhIpojAxIQsopVqRRXRwZEVNsvTwFdPSIFpsNsb3WNhgZ7QcAXeER6OJObFxJs8fIPV2
-	skU6059ymkPRQ2LyO/WrimD9+IDqEASB1WST2snQuqY57giWevkIsLZdtBYEnHSz5zFQLVXc/mT
-	1enAO4bhi9FsxsGGVQGb6ctD46FGUGsu95oMY24ylceRHorYoelGpeb/nciCL0L5390D9GcxJoE
-	q8XdV+i0B5dHjLzRimLQU5hkU9A8fN7IX3ILWUB8Hb1vaEWWmgLK9Iion85V65OYRSe3LXblUex
-	Cl9ngspHUHH43xJfLdXzkGs2+3iNVbnvoVozbnvurFOkA9xZalpaiYSCcVOA4lcvaKkTQxcE3vi
-	8Mb3iZ2OPbBWf4CuZHUA==
-X-Received: by 2002:a05:600c:470b:b0:477:9890:9ab8 with SMTP id 5b1f17b1804b1-482db2591f5mr86282515e9.3.1769875409921;
-        Sat, 31 Jan 2026 08:03:29 -0800 (PST)
+        bh=wt0nnlrDw5KDdKulBm7PH7mhYJ/mBjNcrtsksFarjCk=;
+        b=GZ1luvL4MVEK8f0BcLdVA9CoQKTKov/9byG76WUeCkz4jamm5U5bvB+4J/Z8qk8wuA
+         sEKKSaba/RslPawevo3caewd3IjntmQ4nx3BVi4bXVFkeTPOtDfFnc8k7WWnAP2LDLFZ
+         odX1fJzf4FXQOui5gQEVkR1i6Mnm9VxWl3Yacz13d5QgbpxdTMbAvzOPx/INqmpXVVlC
+         CaAEFqyg3eqq5xGTHN8/qi9nyURf+XjkTxS4uY5XftImI0SPwVVMydhbneUlnEyYkoUO
+         7QlukTGdx+n2SqPWHrmKH3dpHNJeoUZtyfX54bgq2IyhJjlUaIkePxDuBlnAriRBHAU+
+         oMVw==
+X-Forwarded-Encrypted: i=1; AJvYcCWAJmnKuYTSDGq+wztNSjIG2XPdNRVUvLk1A8q4CAueMKLn/2Ud2JlywlSJpy1zEdKyRALn0tXUDrjCTwoMEF1u@lists.infradead.org
+X-Gm-Message-State: AOJu0YwR9FhY5YMyPjEy+ATiGm6nPX2ntNQI++u+LJpq3i9bSgto+BDn
+	6b3b9z+Rb3sLk2duSyEYUKe/PIwk5PIA1o1Fi5FwTiZr+vpm9OYlwtiKD0ga9HQtvXI=
+X-Gm-Gg: AZuq6aKqiPUle3fhgMLdvP5+PqtGqIrCcxNizgjZE6hX488ROcImKBOQQ9bOOgbcS7p
+	pQW0JHglUvGxuB5s7syXHW+VKBKyVdGZIbIuzz5sCGryyYRhL+ZqJR+mGIwXr+R4erkosdHgyab
+	hG77HPt2DdUus1O7Psx4b3zF2al/wMN7D7ua/mYhQ4cdry6Pi8iH+hvT+5AB4GNBCH+WOI09Him
+	3fQj5XV9jsOjFjF/8B4F4joxkAmMYaQJoy5ZuR+KzoYN6CNBQX4Ts0LdH7pHlGwlKa99PzjMyA8
+	B0psLDVMAqmmUOSgXy5ZaOQy8SAcdKtC4HCHpA8wHAaXFB0QUvKyFiSlBPJTM8XuzKXcu2HweRm
+	lDjHezNV0ddmm0fxS3YjleZHJ6My25Xo1yPF4PMg3bray9QN/MzkQo/bHw/4vivX6CM1mm53t54
+	vCEIfFA8P4/ZxQYMEHpw==
+X-Received: by 2002:a05:6000:1a8d:b0:431:3a5:d9b2 with SMTP id ffacd0b85a97d-435f3aa7aa0mr9659948f8f.39.1769875918622;
+        Sat, 31 Jan 2026 08:11:58 -0800 (PST)
 Received: from [192.168.50.4] ([82.78.167.31])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e1353f8bsm29406760f8f.39.2026.01.31.08.03.28
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e10ee078sm30719880f8f.16.2026.01.31.08.11.57
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 31 Jan 2026 08:03:29 -0800 (PST)
-Message-ID: <e0047afc-2109-4062-bc51-045ccd7f868a@tuxon.dev>
-Date: Sat, 31 Jan 2026 18:03:28 +0200
+        Sat, 31 Jan 2026 08:11:58 -0800 (PST)
+Message-ID: <05128a16-553d-49d5-b09d-2c3e03cb4421@tuxon.dev>
+Date: Sat, 31 Jan 2026 18:11:56 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 13/19] nvmem: microchip-otpc: Enable necessary clocks
+Subject: Re: [PATCH v3 14/19] nvmem: microchip-otpc: Expose UID registers as
+ 2nd nvmem device
 To: Alexander Dahl <ada@thorsis.com>
 Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
  Alexandre Belloni <alexandre.belloni@bootlin.com>,
@@ -84,15 +85,15 @@ Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
  Srinivas Kandagatla <srini@kernel.org>
 References: <20260120143759.904013-1-ada@thorsis.com>
  <20260120154502.1280938-1-ada@thorsis.com>
- <20260120154502.1280938-7-ada@thorsis.com>
+ <20260120154502.1280938-8-ada@thorsis.com>
 Content-Language: en-US
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260120154502.1280938-7-ada@thorsis.com>
+In-Reply-To: <20260120154502.1280938-8-ada@thorsis.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_080332_344331_229869F2 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20260131_081200_829140_EA2E0D14 
+X-CRM114-Status: GOOD (  24.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,64 +111,116 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 1/20/26 17:44, Alexander Dahl wrote:
-> Without enabling the main rc clock, initializing the packet list leads
-> to a read timeout on the first packet, at least on sam9x60.
-> 
-> According to SAM9X60 datasheet (DS60001579G) section "23.4 Product
-> Dependencies" the clock must be enabled for reading and writing.
-> 
-> Tested on sam9x60-curiosity board.
-> 
-> Link: https://lore.kernel.org/linux-clk/ec34efc2-2051-4b8a-b5d8-6e2fd5e08c28@microchip.com/T/#u
+> For SAM9X60 the Product UID x Register containing the Unique Product ID
+> is part of the OTPC registers. 
 
-Why this link here?
+SAMA7G5 as well.
 
+> We have everything at hand here to just
+> create a trivial nvmem device for those.
+
+Please massage a bit the patch description to match 
+https://www.kernel.org/doc/html/v6.13/process/submitting-patches.html#describe-your-changes
+
+> 
 > Signed-off-by: Alexander Dahl <ada@thorsis.com>
-
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-
 > ---
 > 
 > Notes:
 >      v3:
->      - Rewrap lines
+>      - no changes
 >      
 >      v2:
->      - Rewrite to enable _all_ clocks defined in dts
+>      - Use dev_err_probe() for error reporting (thanks Claudiu)
+>      - Move required register definition over here from removed patch
 > 
->   drivers/nvmem/microchip-otpc.c | 6 ++++++
->   1 file changed, 6 insertions(+)
+>   drivers/nvmem/microchip-otpc.c | 38 +++++++++++++++++++++++++++++++++-
+>   1 file changed, 37 insertions(+), 1 deletion(-)
 > 
 > diff --git a/drivers/nvmem/microchip-otpc.c b/drivers/nvmem/microchip-otpc.c
-> index d39f2d57e5f5e..34c0d7611f3e4 100644
+> index 34c0d7611f3e4..b35ed13b004bb 100644
 > --- a/drivers/nvmem/microchip-otpc.c
 > +++ b/drivers/nvmem/microchip-otpc.c
-> @@ -8,6 +8,7 @@
->    */
+> @@ -25,10 +25,14 @@
+>   #define MCHP_OTPC_HR			(0x20)
+>   #define MCHP_OTPC_HR_SIZE		GENMASK(15, 8)
+>   #define MCHP_OTPC_DR			(0x24)
+> +#define MCHP_OTPC_UID0R			(0x60)
 >   
->   #include <linux/bitfield.h>
-> +#include <linux/clk.h>
->   #include <linux/iopoll.h>
->   #include <linux/module.h>
->   #include <linux/nvmem-provider.h>
-> @@ -241,6 +242,7 @@ static struct nvmem_config mchp_nvmem_config = {
+>   #define MCHP_OTPC_NAME			"mchp-otpc"
+>   #define MCHP_OTPC_SIZE			(11 * 1024)
+>   
+> +#define MCHP_OTPC_UID_NAME		"mchp-uid"
+> +#define MCHP_OTPC_UID_SIZE		16
+
+I think you can drop these as they are used (individually) in a single place.
+
+> +
+>   /**
+>    * struct mchp_otpc - OTPC private data structure
+>    * @base: base address
+> @@ -230,6 +234,16 @@ static int mchp_otpc_init_packets_list(struct mchp_otpc *otpc, u32 *size)
+>   	return 0;
+>   }
+>   
+> +static int mchp_otpc_uid_read(void *priv, unsigned int offset,
+> +			      void *val, size_t bytes)
+> +{
+> +	struct mchp_otpc *otpc = priv;
+> +
+> +	memcpy_fromio(val, otpc->base + MCHP_OTPC_UID0R + offset, bytes);
+
+Include <asm-generic/logic_io.h> for this one?
+
+> +
+> +	return 0;
+> +}
+> +
+>   static struct nvmem_config mchp_nvmem_config = {
+>   	.name = MCHP_OTPC_NAME,
+>   	.type = NVMEM_TYPE_OTP,
+> @@ -239,6 +253,15 @@ static struct nvmem_config mchp_nvmem_config = {
+>   	.reg_read = mchp_otpc_read,
+>   };
+>   
+> +static struct nvmem_config mchp_otpc_uid_nvmem_config = {
+> +	.name = MCHP_OTPC_UID_NAME,
+
+Should the type be filled here?
+
+
+> +	.read_only = true,
+> +	.word_size = 4,
+> +	.stride = 4,
+> +	.size = MCHP_OTPC_UID_SIZE,
+> +	.reg_read = mchp_otpc_uid_read,
+> +};
+> +
 >   static int mchp_otpc_probe(struct platform_device *pdev)
 >   {
 >   	struct nvmem_device *nvmem;
-> +	struct clk_bulk_data *clks;
->   	struct mchp_otpc *otpc;
->   	u32 size;
->   	int ret;
-> @@ -253,6 +255,10 @@ static int mchp_otpc_probe(struct platform_device *pdev)
->   	if (IS_ERR(otpc->base))
->   		return PTR_ERR(otpc->base);
+> @@ -269,8 +292,21 @@ static int mchp_otpc_probe(struct platform_device *pdev)
+>   	mchp_nvmem_config.size = size;
+>   	mchp_nvmem_config.priv = otpc;
+>   	nvmem = devm_nvmem_register(&pdev->dev, &mchp_nvmem_config);
+> +	if (IS_ERR(nvmem)) {
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(nvmem),
+> +				     "Error registering OTP as nvmem device\n");
+> +	}
 >   
-> +	ret = devm_clk_bulk_get_all_enabled(&pdev->dev, &clks);
-> +	if (ret < 0)
-> +		return dev_err_probe(&pdev->dev, ret, "Error getting clocks!\n");
+> -	return PTR_ERR_OR_ZERO(nvmem);
+> +	mchp_otpc_uid_nvmem_config.dev = otpc->dev;
+> +	mchp_otpc_uid_nvmem_config.priv = otpc;
 > +
->   	otpc->dev = &pdev->dev;
->   	ret = mchp_otpc_init_packets_list(otpc, &size);
->   	if (ret)
+> +	nvmem = devm_nvmem_register(&pdev->dev, &mchp_otpc_uid_nvmem_config);
+> +	if (IS_ERR(nvmem)) {
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(nvmem),
+> +				     "Error registering UIDxR as nvmem device\n");
+> +	}
+> +
+> +	return 0;
+>   }
+>   
+>   static const struct of_device_id __maybe_unused mchp_otpc_ids[] = {
 
 
