@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28772E7C6E0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDA40E7C6E6
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 20:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:Message-ID:Mime-Version:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QaGUZTYnRQ2wGpunAGr/0FtMXdyckbXL2oq4bK6APm0=; b=cfn7ptoWI/F99nVqRKJpCc4OCQ
-	+R3FNYV84iWBlEZ0IauNOdppegoihZ/vxQgbLMUScBR6U1965Cjidknan6OLB77K7uasFEB10vTHp
-	RIcGAhX1Sl/jHICI+iGsRfnfoqoPOCI62u4/tAxX31Rd0F07BSBVOA5uwcJrIfcR5RPR+Tp2xl4ia
-	WMtdVKwbVqxRyX3nQtOMl+WgkCNgvxNuvbodKGioPwD+eBQKLiMxVFfc14RmB9kITStbDXPGtbYgQ
-	pW5Ax1RlvAKk5cmfh7AmbwhK8nuLWtcsWsOwHmIg0QETH4ovFYJDCe4ULuwNGzmXSQpK2Xm0W1MxO
-	pmKbFvPg==;
+	:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QUC+WDnW7L44j8AWJ3iUoM1jUSgb/IrmAbWsvMnp/cQ=; b=tvYKOLAl63P8Bp2Uq2NtPjxM/0
+	68dAyOEJM5Lh+CNkDW7CS+YXhORF0kR1IXEUmgChT8tFVygA0cJM7n1mYrRDB8yGCq1jXgJLsoPUr
+	dNvNmn/NHO4d5khEhLn/kXsBP6CxhhXWgreYq9LsIAJH8xqoQm1br3wnESNw9uUbrSeQPvK78Gs0g
+	J/8NI1hsMc96rQYHpKtMJRtYQaIUJYnbG/AagjtkKzbQjkwl3++2ygDhd+6+e28TIn6GTLEOM2C+K
+	i3F2PY8MH1xPDw6yH01FnI+hE5rk3vnRbo1AtCyoSdu060Dp+g2DZYlcECM7Aa3K8hHhS2+qjpzj1
+	+shOI3mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmHAu-00000002wSF-0idg;
-	Sat, 31 Jan 2026 20:02:32 +0000
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	id 1vmHAz-00000002wUK-0Kak;
+	Sat, 31 Jan 2026 20:02:37 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmHAr-00000002wQn-2p5N
+	id 1vmHAt-00000002wRG-1Mta
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 20:02:31 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2b71041d135so3197986eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 12:02:28 -0800 (PST)
+	Sat, 31 Jan 2026 20:02:32 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2b708fa4093so831346eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 12:02:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769889748; x=1770494548; darn=lists.infradead.org;
-        h=to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=QaGUZTYnRQ2wGpunAGr/0FtMXdyckbXL2oq4bK6APm0=;
-        b=Ro+vv5xmujxFKPjzp/bjDqBhSKPV3LEJxHvCIq+Bc+Q12O/FE8QjFbTqw6KpqHCDga
-         otQ7a8ZacWu3QgBP/DXbQj2zfvhm9IaG3354zPEL91N6oTZwjU7Dil8K4cnXDq1mX1fh
-         2TQeDd/lCWc+DiJUfEjZVHgRMfLkBI/rTW4SMoaIjz+lio1TNh4VvNZswmeD0Qc5YzIR
-         HWdc5F3Nuo5MbNMQ8xYpPz4LRjFAZfvszh6lASCNqTEcU/PRx2lbwp3gLvMJPVtyD1Wm
-         FZaC62KVgD5+GhVBvTz/0PHg0S7leEotOB/NliY3cD8PN5+zv7tDcA7+JNnPthlKHOPw
-         dIrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769889748; x=1770494548;
-        h=to:from:subject:message-id:mime-version:date:x-gm-message-state
+        d=google.com; s=20230601; t=1769889750; x=1770494550; darn=lists.infradead.org;
+        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=QaGUZTYnRQ2wGpunAGr/0FtMXdyckbXL2oq4bK6APm0=;
-        b=ptVjepsJHh2D+cQfxbjQxcOA5h76/TIfej9IRNs/pOcpoiR2jkmaVAWhmpvT8tuVoy
-         vuuP16O6MmJdlIz7C5oNb7XmQljPRBnu60oZYKgy/kfFj++DVsrmOi1s02cHQAtq3TM+
-         Mji4FhS2oZFsJX3KUs28AS6a/kWZ0NlGlci4sMEAav/nNYnC4LEDttmEW9hk1tXGNz9n
-         R2JVdd9yoQ6B9THhtJc1dDqqmjsdsIkyeZMRIrrthR8+eZ1jBjYP60YXvgGD+xhSoIPP
-         h8yjrUwxQZvEblvsdz4AtrKIks+JRXwT0Q62iZRUchUhUiBaoh/cSSYlM2+1tWVwWRLq
-         LJMA==
-X-Forwarded-Encrypted: i=1; AJvYcCVX57uKgIu5bwFcHlxzAuV6MZ9pi7Ah0eYmgOhmzG9OFec1aK0baiNevDZWyDHb99M8jM1t8JE7/cXO5hN5yrcZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUp7zezJZPqkHQHP/uOVztWmXvxMJxQyWG6w84ZB3K4cInZQ9H
-	CgPWS65APl7XvFxzoUdzqmxdqcsyD/oub3uPQyk1AMZUOFBOSnI9vva9pZ+dCXLfD2r6B0rsGUe
-	bZsVe6Hpyjg==
-X-Received: from dlbpy24.prod.google.com ([2002:a05:7022:e998:b0:123:2708:9404])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:608d:b0:123:2de5:346e
- with SMTP id a92af1059eb24-125c18bebdbmr2411145c88.0.1769889747533; Sat, 31
- Jan 2026 12:02:27 -0800 (PST)
-Date: Sat, 31 Jan 2026 12:02:18 -0800
+        bh=QUC+WDnW7L44j8AWJ3iUoM1jUSgb/IrmAbWsvMnp/cQ=;
+        b=JG5KRJXoGsWOWrRDo7QEHPk8HzwPVGFhkB+VpvA/OC30w5k+GFamXHdOHOf99W6Iuy
+         /HdjvnMmW+zWhYCiEi+QSQq5JkDgpdU0vQPpJZlnQLkKErfs5h38n4W9HB02ORC0suPM
+         BkCNxgs0OI/3KTkAkm00P6s6yY3MgWkW0cNsxEiJBabbSi524Fd1pyWNLzXzH1prWINN
+         4+Hv8zZ8exGQ7Du5rKoxsNGrNgfJGLfpYq/n4LyCKl+gXGkqizFpW2TOzj66M9tBaD21
+         mI24vkO7vJ+Ek8aTdtwR5BAeyiU46e/B5WXxn5XGYZQoDFDfnVTm/MuQ5VU4CUiIrcXx
+         6MIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769889750; x=1770494550;
+        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=QUC+WDnW7L44j8AWJ3iUoM1jUSgb/IrmAbWsvMnp/cQ=;
+        b=vzqEUZZLPAQ7oUHFgy3dUfxpkn6b+j4FvnmRBK/evsCzI1JlgA306vUIV7/Bzd8TT7
+         SsDuG8rla0yzAPaPlG0lwqXWgdxd4xh9Oo+YglnvYFDt0StkVEjCPAfrf5MfEk3xT2QI
+         ubOncVDP/ddNGEBQgq60ZHi1m/9Lh258Tpl3EtM2qPYRWiiIIW0nDEW58sSCaOXj1sXt
+         BG+k0ke77lvH/p31jJ2ZgygvaW8cfK7xXI4PNz0taaebIrku+W27n/K7LIm7TqYUqVE9
+         OJJsfj7MQAIaDVM3iLgdexu7yXHhXAKbMmFJfIyffEp1G5vZPWHh3hHQ4+jPSJY6S0Pr
+         4BOg==
+X-Forwarded-Encrypted: i=1; AJvYcCUuNMIHZnQvOr4YT7WekGv+P+vMx9jZDHhdX/Bu8HuNUGtczhLWXuDlMOrBwls7HISlKa0vJMnlnWYP6q7xfGhW@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywd9hIN202UXCLOdcuavNBU7htd1SHuzGR+wdvmuySotCiLCs/A
+	bEgu7MBN2Zxs9eb6EMC5YAzltFni0F6oyHBhDlHA+K+oDyIPZAVtrjuWxCMFjFzYpz9UpbIbAhZ
+	1l4EhX8Rn0A==
+X-Received: from dybpg11.prod.google.com ([2002:a05:7301:414b:b0:2b7:499d:745f])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:6095:b0:2b7:2d5e:3f49
+ with SMTP id 5a478bee46e88-2b7c865542bmr2862726eec.10.1769889749601; Sat, 31
+ Jan 2026 12:02:29 -0800 (PST)
+Date: Sat, 31 Jan 2026 12:02:19 -0800
+In-Reply-To: <20260131200224.1296136-1-irogers@google.com>
 Mime-Version: 1.0
+References: <20260131200224.1296136-1-irogers@google.com>
 X-Mailer: git-send-email 2.53.0.rc1.225.gd81095ad13-goog
-Message-ID: <20260131200224.1296136-1-irogers@google.com>
-Subject: [PATCH v2 0/6] perf Cross platform KVM support
+Message-ID: <20260131200224.1296136-2-irogers@google.com>
+Subject: [PATCH v2 1/6] perf test kvm: Add stat live testing
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -85,8 +87,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_120229_712106_36525C04 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20260131_120231_361158_CF213711 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,78 +103,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The existing perf kvm code is using the arch directory, which means a
-data file can only be processed on the same machine type that it was
-recorded. Switch to using the ELF machine of the session at runtime to
-set up the KVM support, making it cross-architectural. So that the ELF
-machine number is available early in initialization add it to the perf
-data file header.
+Ensure the `perf kvm stat live -p ..` has some basic functionality.
 
-v2: Wire up the perf data header to have the e_machine and allow early
-    initialization of the KVM operations based upon it.
-v1: https://lore.kernel.org/lkml/20260128074106.788156-1-irogers@google.com/
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ tools/perf/tests/shell/kvm.sh | 30 +++++++++++++++++++++++++++++-
+ 1 file changed, 29 insertions(+), 1 deletion(-)
 
-Ian Rogers (6):
-  perf test kvm: Add stat live testing
-  perf kvm stat: Remove use of the arch directory
-  perf kvm: Wire up e_machine
-  perf session: Add e_flags to the e_machine helper
-  perf header: Add e_machine/e_flags to the header
-  perf thread: Don't require machine to compute the e_machine
-
- tools/perf/Makefile.config                    |   4 -
- tools/perf/arch/arm64/Makefile                |   1 -
- tools/perf/arch/arm64/util/Build              |   1 -
- tools/perf/arch/loongarch/Makefile            |   1 -
- tools/perf/arch/loongarch/util/Build          |   1 -
- tools/perf/arch/powerpc/Makefile              |   1 -
- tools/perf/arch/powerpc/util/Build            |   1 -
- tools/perf/arch/riscv/Makefile                |   1 -
- tools/perf/arch/riscv/util/Build              |   2 -
- tools/perf/arch/s390/Makefile                 |   1 -
- tools/perf/arch/s390/util/Build               |   1 -
- tools/perf/arch/x86/Makefile                  |   1 -
- tools/perf/arch/x86/util/Build                |   1 -
- tools/perf/builtin-kvm.c                      |  73 +++---
- tools/perf/builtin-report.c                   |   4 +-
- tools/perf/builtin-script.c                   |   6 +-
- tools/perf/tests/shell/kvm.sh                 |  30 ++-
- tools/perf/util/Build                         |   3 +-
- tools/perf/util/env.h                         |   3 +
- tools/perf/util/evsel.c                       |   6 +-
- tools/perf/util/evsel.h                       |   1 +
- tools/perf/util/header.c                      |  33 +++
- tools/perf/util/header.h                      |   1 +
- tools/perf/util/kvm-stat-arch/Build           |   6 +
- .../kvm-stat-arch}/arm64_exception_types.h    |   0
- .../kvm-stat-arch}/book3s_hcalls.h            |   0
- .../kvm-stat-arch}/book3s_hv_exits.h          |   0
- .../kvm-stat-arch/kvm-stat-arm64.c}           |  43 ++--
- .../kvm-stat-arch/kvm-stat-loongarch.c}       |  48 ++--
- .../kvm-stat-arch/kvm-stat-powerpc.c}         |  61 ++---
- .../kvm-stat-arch/kvm-stat-riscv.c}           |  42 ++--
- .../kvm-stat-arch/kvm-stat-s390.c}            |  38 ++--
- .../kvm-stat-arch/kvm-stat-x86.c}             |  44 ++--
- .../kvm-stat-arch}/riscv_trap_types.h         |   2 +-
- tools/perf/util/kvm-stat.c                    | 215 +++++++++++++++++-
- tools/perf/util/kvm-stat.h                    |  70 ++++--
- .../scripting-engines/trace-event-python.c    |   8 +-
- tools/perf/util/session.c                     |  62 ++++-
- tools/perf/util/session.h                     |   2 +-
- tools/perf/util/thread.c                      |   5 +
- 40 files changed, 606 insertions(+), 217 deletions(-)
- create mode 100644 tools/perf/util/kvm-stat-arch/Build
- rename tools/perf/{arch/arm64/util => util/kvm-stat-arch}/arm64_exception_types.h (100%)
- rename tools/perf/{arch/powerpc/util => util/kvm-stat-arch}/book3s_hcalls.h (100%)
- rename tools/perf/{arch/powerpc/util => util/kvm-stat-arch}/book3s_hv_exits.h (100%)
- rename tools/perf/{arch/arm64/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-arm64.c} (62%)
- rename tools/perf/{arch/loongarch/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-loongarch.c} (77%)
- rename tools/perf/{arch/powerpc/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-powerpc.c} (78%)
- rename tools/perf/{arch/riscv/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-riscv.c} (57%)
- rename tools/perf/{arch/s390/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-s390.c} (77%)
- rename tools/perf/{arch/x86/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-x86.c} (88%)
- rename tools/perf/{arch/riscv/util => util/kvm-stat-arch}/riscv_trap_types.h (96%)
-
+diff --git a/tools/perf/tests/shell/kvm.sh b/tools/perf/tests/shell/kvm.sh
+index 2a399b83fe80..f88e859025c4 100755
+--- a/tools/perf/tests/shell/kvm.sh
++++ b/tools/perf/tests/shell/kvm.sh
+@@ -7,9 +7,10 @@ set -e
+ err=0
+ perfdata=$(mktemp /tmp/__perf_kvm_test.perf.data.XXXXX)
+ qemu_pid_file=$(mktemp /tmp/__perf_kvm_test.qemu.pid.XXXXX)
++log_file=$(mktemp /tmp/__perf_kvm_test.live_log.XXXXX)
+ 
+ cleanup() {
+-	rm -f "${perfdata}"
++	rm -f "${perfdata}" "${log_file}"
+ 	if [ -f "${qemu_pid_file}" ]; then
+ 		if [ -s "${qemu_pid_file}" ]; then
+ 			qemu_pid=$(cat "${qemu_pid_file}")
+@@ -96,6 +97,32 @@ test_kvm_buildid_list() {
+ 	echo "perf kvm buildid-list test [Success]"
+ }
+ 
++test_kvm_stat_live() {
++	echo "Testing perf kvm stat live"
++
++        # Run perf kvm live for 5 seconds, monitoring that PID
++	# Use sleep to keep stdin open but silent, preventing EOF loop or interactive spam
++	if ! sleep 10 | timeout 5s perf kvm stat live -p "${qemu_pid}" > "${log_file}" 2>&1; then
++		retval=$?
++		if [ $retval -ne 124 ] && [ $retval -ne 0 ]; then
++			echo "perf kvm stat live [Failed: perf kvm stat live failed to start or run (ret=$retval)]"
++			head -n 50 "${log_file}"
++			err=1
++			return
++		fi
++	fi
++
++	# Check for some sample data (percentage)
++	if ! grep -E -q "[0-9]+\.[0-9]+%" "${log_file}"; then
++		echo "perf kvm stat live [Failed: no sample percentage found]"
++		head -n 50 "${log_file}"
++		err=1
++		return
++	fi
++
++	echo "perf kvm stat live test [Success]"
++}
++
+ setup_qemu() {
+ 	# Find qemu
+ 	if [ "$(uname -m)" = "x86_64" ]; then
+@@ -148,6 +175,7 @@ if [ $err -eq 0 ]; then
+ 	test_kvm_stat
+ 	test_kvm_record_report
+ 	test_kvm_buildid_list
++	test_kvm_stat_live
+ fi
+ 
+ cleanup
 -- 
 2.53.0.rc1.225.gd81095ad13-goog
 
