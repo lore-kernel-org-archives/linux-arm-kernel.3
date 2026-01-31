@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E38D7976B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 13:31:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21DBBD7976B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 13:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x0jKC8f/iEFEqNg/0cUe99XmInCeV76uXOT4uvAYEUM=; b=REEvlOYWgkU39MEG4Kq5kVbaDa
-	oPCT9Nan+jy+9+6i7cWK3ayNj1mUte8kFBU/w1OQ05vjgDQsyAE1dYf1gkGlI21g4wQFRqH8/bQte
-	z5Eha4QnNCSI+njiiO0OyeNOc4kqn9ERVgqF9mZLCGWxp1iWBhorNwmays+uhIaTjNIOCcOhvdCAr
-	B8A+kiRYx3ZfVSOqeW2VDJrTEskEaqy7/HhU1LrJgkFo6grzF4wp1laGGLPHbDeHxZ5G4KdZH5b/y
-	k3NmBrT5EkVLwOTiP/0/y2Np0kkr4g0yoBq7wEvrxV45oMacgozC5Wg4EuzBJZCPmfcSCRo69FPJa
-	4TKUDV1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
+	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0HAQIqHa85IFCSYgPdu37BcRsaz31BQ9JGVCc0EJGks=; b=c3OPj4CDErMjpiDDlA86r9kCSh
+	XVscLoHT6g1OK4HwklflgpOGrq+weRGdMnVrmM/kWG2/J0GINtQo6sVSxroqRO+2EryFGZ2L7GmIa
+	Myi5NCoAgJazH4nESKH4YQwwuRiGRJSZE/e1yGLbuLZdhlNcUja0h/Oem9OUpoDpv5Z6C4tL8zb9q
+	OCo1O9qDG85ZYHgGWV0K8D5BjvTJYG9GJgu88D4BKImBPXjViIgapEgd0/+2z2AN/2sAcOjZt2+kl
+	jeGHX8ShsHf+viy2G+W4RBlasuCRZ0f7C1P0xDTFA78tIU6212/lpZN6MYoTXlYpcok7zhNLIRfO3
+	QZY8qpIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmB4R-00000002dK9-3SrS;
-	Sat, 31 Jan 2026 13:31:27 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1vmB7d-00000002eWV-2po0;
+	Sat, 31 Jan 2026 13:34:45 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmB2w-00000002c9g-3zPZ
+	id 1vmB7a-00000002eVx-29PY
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 13:29:56 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-47ee432070aso23650825e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 05:29:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769866190; x=1770470990; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=x0jKC8f/iEFEqNg/0cUe99XmInCeV76uXOT4uvAYEUM=;
-        b=wAD+hLNfXBPvC244D3PGZkn6bz9EcXgi6LFFcmGwkmgmAyavUw10SSZJ70lVSwWhu1
-         6hBI/xmdykehIQiz4Kss+yAgbFAKdXuQbfXMhn/jX0ue7YeXSv3XzypXlPS6A3EFaecg
-         30NMi7rwU1A13+feHZbjhiJBzbwuUMAiQbpmij+TvZbdKix+crHNd1Ft13Ck62zYTap9
-         Wt5TBYNpH+uoyv8OrJWvgfGXg9Nq2+4a5ifDSNrVZjOR6/xc3IV/xwNOCj7FbgLhnkTT
-         uYn6R+SRNWbWplsn+Zu57FaNAvR/oVdkZOXn9z2XXRIXge045urhQM3M/0WVULfIWDsK
-         Gs1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769866190; x=1770470990;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=x0jKC8f/iEFEqNg/0cUe99XmInCeV76uXOT4uvAYEUM=;
-        b=kCoFaJ8zyrRFWT2uV85pD1iiMS+lW7TAxGcKo6qojIKmwyR/IPh+Tcv0hjMAaD1RVe
-         NVdoKoYGx4oiweWSZLE+wmmbDX7ZNdhYf/mkJ/EiTbPuoAiUOJabegp9Q9WfYNXLQeoH
-         X6XnlvRESpFS0HT0hFD8dJQ4RQIsWp3Svl29rSQUlAxlZw+FmyBy9hIajq5Iq6KQynjv
-         Y2W7NrtWjpt9LV8cbaoQtuDloicdCcYY8YlPVQIu4J/ZXQ2oLofysRi8Zm21IAeQO7r/
-         ykY1m7yJ09nCAm+BhNa6nWXblFA4qg/gnLH3LbFzPEqg/5hMUHOKlq41IMYLVxRWpvkj
-         QWfA==
-X-Forwarded-Encrypted: i=1; AJvYcCVEtJGqEwaFvRuDRb4K1UBBXhpGvMZbEAzduagNQlZdeL3Mx2Wh/UI4lq2jQ1ce3nAi80PEXazSJZ9gXMUbHii2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxA9mlCZn9fr2Dx6u9h/PUkmm4aGLjiB4P/ZBt395eGriEHS2b3
-	QHEZRaUiNn/tK/nuGyAs+Sode77Q4ucdW7aXuNrBSh297ZjN/Tha21hSNiBqx15hEdlPVGCJT6O
-	L03Juy2Zz+fLsNoLo/iw+BA==
-X-Received: from wmk26.prod.google.com ([2002:a05:600c:29a:b0:480:4a03:7b5e])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4443:b0:475:dd8d:2f52 with SMTP id 5b1f17b1804b1-482db4a317bmr74357055e9.32.1769866190616;
- Sat, 31 Jan 2026 05:29:50 -0800 (PST)
-Date: Sat, 31 Jan 2026 13:28:48 +0000
-In-Reply-To: <20260131132848.254084-1-vdonnefort@google.com>
+	Sat, 31 Jan 2026 13:34:44 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 539981A2B62;
+	Sat, 31 Jan 2026 13:34:39 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0D3ED606B6;
+	Sat, 31 Jan 2026 13:34:39 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0F16B119A8886;
+	Sat, 31 Jan 2026 14:34:21 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1769866477; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=0HAQIqHa85IFCSYgPdu37BcRsaz31BQ9JGVCc0EJGks=;
+	b=fngV0pi6VE6AZzizYbIJfeRlGWfCSwNkJCKGblK3KIcyIyOr5b7vLMh36tA/uRXiPJ2CdD
+	cbdMAStxEyz1n9ZaTfPSCC381dSy5T72ToPbdzGHgn+mPZyvA1axyZnANceZLCwBOJOLS9
+	DwEcKSZ/DQ80GCvCzAAcvfZMZhRzP1ZbAEZfZwVbbncDSN540qq+1vmLepakmbSUsZWZNL
+	Zk0Ks6gPWlvDS8qwjtcpFexMUMoHsGFxFnS6PjMv+zf5vQ6qtLUDOFcaGXnUdG1xxml//V
+	SHH1Mtj/39nGPgK5sVwyxoNWAHrqpdKekrjKHrQF75cisR6hn6e9IR6WUp8qaQ==
 Mime-Version: 1.0
-References: <20260131132848.254084-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.53.0.rc1.225.gd81095ad13-goog
-Message-ID: <20260131132848.254084-31-vdonnefort@google.com>
-Subject: [PATCH v11 30/30] tracing: selftests: Add hypervisor trace remote tests
-From: Vincent Donnefort <vdonnefort@google.com>
-To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
-	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	jstultz@google.com, qperret@google.com, will@kernel.org, 
-	aneesh.kumar@kernel.org, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>, 
-	Shuah Khan <skhan@linuxfoundation.org>, linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 31 Jan 2026 14:34:20 +0100
+Message-Id: <DG2TARDGCULW.M6ZDK1G0WGKC@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v8 16/18] drm/bridge: analogix_dp: Attach the next
+ bridge in analogix_dp_bridge_attach()
+Cc: <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
+ <jernej.skrabec@gmail.com>, <maarten.lankhorst@linux.intel.com>,
+ <mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
+ <simona@ffwll.ch>, <shawnguo@kernel.org>, <s.hauer@pengutronix.de>,
+ <kernel@pengutronix.de>, <festevam@gmail.com>, <inki.dae@samsung.com>,
+ <sw0312.kim@samsung.com>, <kyungmin.park@samsung.com>, <krzk@kernel.org>,
+ <alim.akhtar@samsung.com>, <jingoohan1@gmail.com>,
+ <p.zabel@pengutronix.de>, <hjc@rock-chips.com>, <heiko@sntech.de>,
+ <andy.yan@rock-chips.com>, <dmitry.baryshkov@oss.qualcomm.com>,
+ <dianders@chromium.org>, <m.szyprowski@samsung.com>,
+ <jani.nikula@intel.com>, <linux-kernel@vger.kernel.org>,
+ <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-samsung-soc@vger.kernel.org>, <linux-rockchip@lists.infradead.org>
+To: "Damon Ding" <damon.ding@rock-chips.com>, <andrzej.hajda@intel.com>,
+ <neil.armstrong@linaro.org>, <rfoss@kernel.org>
+X-Mailer: aerc 0.20.1
+References: <20251217093321.3108939-1-damon.ding@rock-chips.com>
+ <20251217095912.3109103-1-damon.ding@rock-chips.com>
+ <20251217095912.3109103-3-damon.ding@rock-chips.com>
+In-Reply-To: <20251217095912.3109103-3-damon.ding@rock-chips.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_052955_034946_5A19C228 
-X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-CacheID: sfid-20260131_053442_705240_24F68D3D 
+X-CRM114-Status: UNSURE (   6.19  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,100 +92,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Run the trace remote selftests with the trace remote 'hypervisor', This
-trace remote is most likely created when the arm64 KVM nVHE/pKVM
-hypervisor is in use.
+On Wed Dec 17, 2025 at 10:59 AM CET, Damon Ding wrote:
+> Uniformly, move the next bridge attachment to the Analogix side
+> rather than scattered on Rockchip and Exynos sides. It can also
+> help get rid of the callback &analogix_dp_plat_data.attach() and
+> make codes more concise.
+>
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-Cc: Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-kselftest@vger.kernel.org
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/buffer_size.tc b/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/buffer_size.tc
-new file mode 100644
-index 000000000000..64bf859d6406
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/buffer_size.tc
-@@ -0,0 +1,11 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test hypervisor trace buffer size
-+# requires: remotes/hypervisor/write_event
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/buffer_size.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_buffer_size
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/reset.tc b/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/reset.tc
-new file mode 100644
-index 000000000000..7fe3b09b34e3
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/reset.tc
-@@ -0,0 +1,11 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test hypervisor trace buffer reset
-+# requires: remotes/hypervisor/write_event
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/reset.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_reset
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/trace.tc b/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/trace.tc
-new file mode 100644
-index 000000000000..b937c19ca7f9
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/trace.tc
-@@ -0,0 +1,11 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test hypervisor non-consuming trace read
-+# requires: remotes/hypervisor/write_event
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/trace.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_trace
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/trace_pipe.tc b/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/trace_pipe.tc
-new file mode 100644
-index 000000000000..66aa1b76c147
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/trace_pipe.tc
-@@ -0,0 +1,11 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test hypervisor consuming trace read
-+# requires: remotes/hypervisor/write_event
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/trace_pipe.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_trace_pipe
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/unloading.tc b/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/unloading.tc
-new file mode 100644
-index 000000000000..1dafde3414ab
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/hypervisor/unloading.tc
-@@ -0,0 +1,11 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test hypervisor trace buffer unloading
-+# requires: remotes/hypervisor/write_event
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/unloading.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_unloading
--- 
-2.53.0.rc1.225.gd81095ad13-goog
-
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
