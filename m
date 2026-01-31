@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78C1BE6BF33
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F13BAD73EB3
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 01:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vd2mm4s0IP61jdZGKspsuhJixS/5f7gEQZBLocrqqDs=; b=PMMBS50aOeaM8RmZrRmNP532sc
-	hM21bWyHSj0z0Ksn5PD5Jmc/RQF9O/PVsBf5TVRtMLvpFiQ5BTYWd038jP253h3BCP0kqyozl+e/4
-	TovUbKGvhK/o8I2yrpMBv87bVQyfR1pE/V4AXawIY638c62pkK7gaUe8C8pkMW2jhXkTYFX9bS/Wm
-	zNyoHwRE0ONBuXYDTOsk1PR0Oi9Tobpjtq6K74Wg/0xlgBY0Jof8ov+6O6crl6Cttad4RwFTDayjm
-	S0pXgZWeijp0sfiqPGdcp+BUuLjEiNH5zxcpzLdI/LAvHsrm6HQC6NPbrpNzw7lq99jWKAr1KTqay
-	C5kZNhVg==;
+	bh=mFmhiJAdGMJT3jItiXuGig1gXZLu2fOLM9zrzS4xCKE=; b=BhJkCd1l+kdqOIYhvAVWOfNmZJ
+	8qk9EAJUwGvS+Egmcsuq/s/u17T/qC1KWZ7xQW2rhebd+3FS0MTpoL0VBsOAH/bFC+7SlZMhWb79X
+	Ce1V0gDRIB9pLLVp6nBm+oGQ9ZLTUKAsHkGcQauARUf39IWQF5HvyFXks8jy4Z831xyZ0KD1HozvI
+	MIETO0yLJTRmtNYoNDJg40hhpm1SafQl1HKwQQsQ7KaFn5+F25RxaQqpLiGeBu9u0DgfZZbBPWZBS
+	dfm1c4cZxF3eDxidbmFiZtNtfo77w6cuh2Nrv0sJSnhyw7I7t6KZrR4uJkooyucHth8w1nVZMWs+y
+	Q4CJydHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vm0CE-00000002D3R-24p9;
-	Sat, 31 Jan 2026 01:54:46 +0000
+	id 1vm0CF-00000002D4B-0Eh3;
+	Sat, 31 Jan 2026 01:54:47 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vm0C6-00000002D19-0fXm
+	id 1vm0CA-00000002D2d-2qHG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 01:54:39 +0000
+	Sat, 31 Jan 2026 01:54:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DBBAB440F3;
-	Sat, 31 Jan 2026 01:54:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9EB1C19421;
-	Sat, 31 Jan 2026 01:54:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 644A0444DB;
+	Sat, 31 Jan 2026 01:54:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60B21C19421;
+	Sat, 31 Jan 2026 01:54:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769824477;
-	bh=PZiP7hTRN8O92xfwMW2wC0dfQY9Tq13ZCF+jHPKg+BM=;
+	s=k20201202; t=1769824482;
+	bh=TsyqeOrPuckAqP0Hj4KXTJnB1l2bVSsm7IOcY61ZTe4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SiGWsRAFbu9Eos8oeV9+LiUDHXRkt15ysjnmqZfOyJI2q7QXFWBnrHjMV0FaJr96C
-	 5HbsjyxurBTd+6dJ6pvlVO6dpkjOd52tXTLefRkPsLfrqeolWPNPidlKFznDVusIZ9
-	 ofJIwNWN2AsXUcoQkeaqfJuHuHkqKMDBJ64jpRSpgDSf4Fnto1rDN9mpN//MOUaBbn
-	 tdjMl7Jlsh5mNuWSicBaCRrougl5neZiYh7SYdjGdeFDdb5uw+kR8GH0BkoiTuvNKM
-	 oGE2WKRMs2MkcFioQZ8kK0xJpsqYddfxflKQPcjvxQSREc7uDDFNppX6S2yrk6MAkf
-	 9l/JJ1h9r0deQ==
+	b=PkPomI6Q0yax9KU0rc40lebfnQzP7qWqBJUMuw1c0L65LGVBshpN49QaTGfvBXj85
+	 Hqq97zQvMxDDTgzkyFjphw/VBXKvzGRMPPMp/OG6yjF55IPgywh3+WAVwIBoqI2XAE
+	 J0IepQAxgBIIuUA5WbNvpGXEsLcwGISZWy+B8tEkLtdYlYTvnxh5SYM5p8itnPIk3y
+	 f0IIfMzUCqNkuJUo0YJn1azFrKMDJJRsgH1GAElPnfzDWyjpnob5MN5EZcAHEjCztX
+	 IEQT5lpGe3zs5gVXOTHKs7niJbJDTXA+sCiBqsbs6H83yvq5J5XblNJmkEiyClwD/W
+	 Rf8nHrg+IaUwQ==
 From: Jakub Kicinski <kuba@kernel.org>
 To: lukasz.majewski@mailbox.org
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -65,17 +65,17 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	imx@lists.linux.dev,
 	andrew@lunn.ch,
 	robh@kernel.org
-Subject: Re: [net-next,v21,3/7] net: mtip: Add buffers management functions to the L2 switch driver
-Date: Fri, 30 Jan 2026 17:54:35 -0800
-Message-ID: <20260131015435.972356-1-kuba@kernel.org>
+Subject: Re: [net-next,v21,7/7] net: mtip: Extend the L2 switch driver for imx287 with bridge operations
+Date: Fri, 30 Jan 2026 17:54:40 -0800
+Message-ID: <20260131015440.972531-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260129110154.1699976-4-lukasz.majewski@mailbox.org>
-References: <20260129110154.1699976-4-lukasz.majewski@mailbox.org>
+In-Reply-To: <20260129110154.1699976-8-lukasz.majewski@mailbox.org>
+References: <20260129110154.1699976-8-lukasz.majewski@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_175438_215224_01565A6B 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20260130_175442_758826_9BA13700 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,53 +95,72 @@ email has considered the AI review valid, or at least plausible.
 
 For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
 ---
-net: mtip: Add buffers management functions to the L2 switch driver
+net: mtip: Extend the L2 switch driver for imx287 with bridge operations
 
-This patch adds buffer allocation and deallocation functions for the
-MTIP L2 switch driver, including page pool management for RX buffers
-and bounce buffer allocation for TX.
+This patch adds bridge operations support to the MTIP L2 switch driver,
+enabling hardware offloading for packet switching when a bridge is
+created on the switch interfaces.
 
-> diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
-> --- a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
-> +++ b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
-> @@ -888,11 +888,99 @@ static void mtip_get_drvinfo(struct net_device *dev,
->
-> static void mtip_free_buffers(struct net_device *dev)
-> {
-> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
-> +	struct switch_enet_private *fep = priv->fep;
-> +	int i;
-> +
-> +	for (i = 0; i < RX_RING_SIZE; i++) {
-> +		if (!fep->page[i])
-> +			continue;
-> +
-> +		page_pool_put_full_page(fep->page_pool,
-> +					fep->page[i], false);
-> +		fep->page[i] = NULL;
-> +	}
-> +
-> +	page_pool_destroy(fep->page_pool);
-> +	fep->page_pool = NULL;
-> +
-> +	for (i = 0; i < TX_RING_SIZE; i++)
-> +		kfree(fep->tx_bounce[i]);
-
-Should fep->tx_bounce[i] be set to NULL after kfree() here? The RX path
-above correctly sets fep->page[i] = NULL after releasing the page, but
-the TX path does not NULL out the bounce buffer pointers.
-
-If mtip_alloc_buffers() is called again after a partial allocation
-failure (e.g., mtip_open() fails and user retries), the stale pointers
-in tx_bounce[] from the previous failed allocation could lead to a
-double-free when mtip_free_buffers() is called on the retry failure
-path.
-
-Consider the sequence: first mtip_open() allocates tx_bounce[0..5] then
-fails at index 6. mtip_free_buffers() frees tx_bounce[0..5] but leaves
-stale pointers. Second mtip_open() allocates tx_bounce[0..2] then fails
-at index 3. mtip_free_buffers() will kfree() the stale pointers at
-tx_bounce[3..5].
+> diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
+> --- /dev/null
+> +++ b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
 
 [ ... ]
+
+> +static int mtip_ndev_port_link(struct net_device *ndev,
+> +			       struct net_device *br_ndev,
+> +			       struct netlink_ext_ack *extack)
+> +{
+> +	struct mtip_ndev_priv *priv = netdev_priv(ndev), *other_priv;
+> +	struct switch_enet_private *fep = priv->fep;
+> +	struct net_device *other_ndev;
+> +	int err;
+> +
+> +	/* Check if one port of MTIP switch is already bridged */
+> +	if (fep->br_members && !fep->br_offload) {
+> +		/* Get the second bridge ndev */
+> +		other_ndev = fep->ndev[fep->br_members - 1];
+> +		other_priv = netdev_priv(other_ndev);
+> +		if (other_priv->master_dev != br_ndev) {
+> +			NL_SET_ERR_MSG_MOD(extack,
+> +					   "L2 offloading only possible for the same bridge!");
+> +			return -EOPNOTSUPP;
+> +		}
+> +
+> +		fep->br_offload = 1;
+> +		mtip_switch_dis_port_separation(fep);
+> +		mtip_clear_atable(fep);
+> +	}
+> +
+> +	if (!priv->master_dev)
+> +		priv->master_dev = br_ndev;
+> +
+> +	fep->br_members |= BIT(priv->portnum - 1);
+> +
+> +	err = switchdev_bridge_port_offload(ndev, ndev, NULL, NULL, NULL,
+> +					    false, extack);
+> +	if (err) {
+> +		dev_err(&ndev->dev, "can't offload bridge port %s [err: %d]\n",
+> +			ndev->name, err);
+> +
+> +		fep->br_members &= ~BIT(priv->portnum - 1);
+> +		priv->master_dev = NULL;
+> +
+> +		return err;
+> +	}
+
+When switchdev_bridge_port_offload() fails, should the error path also
+revert the state changes made earlier? Specifically, when the second port
+joins the same bridge and passes the bridge check, the code sets
+fep->br_offload = 1 and calls mtip_switch_dis_port_separation(). However,
+the error handling only clears br_members and master_dev.
+
+If switchdev_bridge_port_offload() fails at this point, fep->br_offload
+remains set to 1 and port separation stays disabled, even though only
+one port is actually bridged. This could leave the hardware in an
+inconsistent state.
+
+Looking at the TI cpsw driver for comparison, it modifies br_members
+after switchdev_bridge_port_offload() succeeds, avoiding this ordering
+issue.
 
