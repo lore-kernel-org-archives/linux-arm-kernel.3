@@ -4,105 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5644AD79761
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 08:12:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B300D79751
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 08:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FjfAJsvyjCO/vjM7jBeWQxefgcvpbHgFUQ72gcagyLo=; b=jO6RAuNiGTXJ6TDE9UypICxcSd
-	mVGob4ZhNbQEPBCGl9NfxkwTkoSXc2oc5icECxd5+NZZZ8C8qD5jruvoaQBu/u6hsJpJqla+wNKEO
-	7BkP9M6JSEVi+Ed3LOXfiPzzFhNjucSPxkvD8731R9Nf18OR48cA+58I2yVFQtVdAuKX49ZH22D6W
-	yZNu1ld3NOerzfCfySyeXJw1vGg4yX0AzJwjMPn2F78rwgl1rYme7RaTcsosH9NO6AffKzRSNEQAi
-	kCXqbsPtIq3zab1XqIQekHnZF4nCiR8Vn9HKjsZ830B8lTkWcXSdjeU0Uba7DFqXfkFwvpm/db4HL
-	bJam8JeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=E+EsTuEHR174ouDai6pNiVFrO9AkbuLjvnwAftkox8M=; b=xf7r2N28riBcypkreRkiHICVfF
+	LHyeazZBv7JfIycq5cOIkNqDyFqSCEGG8zJC9zGrTQNGdo1sfVlcLtDiZlEjWDDs+zjCAs7+ypX7N
+	znwKpQaS1SAjbcWKyTmiOlm7HzP8G+6MRBWHvBUOUkyDX6vWrLkwQ/eza9FDJbiVTDESU8kATwTEE
+	YNRMI8CrfFlQ7DKLAWmvKnQp599pv72ubjEOuuijjvyasuw7LoK+sZ30SrY5c7dva8WoSXGaPclDQ
+	/9mB0DYGwZj7VSQnDUaARbr8sB2N7wqPW+ie3iVUAJbW4326KRexfzK89tgfbKh6Rz8IqQM7BMQzY
+	WT4y7bnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vm65E-00000002PGv-3gEK;
-	Sat, 31 Jan 2026 08:11:56 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1vm68k-00000002PZV-2HJW;
+	Sat, 31 Jan 2026 08:15:34 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vm659-00000002PFm-3LPl
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 08:11:52 +0000
-Received: by mail-pl1-x643.google.com with SMTP id d9443c01a7336-2a1022dda33so18589455ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 00:11:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769847111; x=1770451911; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FjfAJsvyjCO/vjM7jBeWQxefgcvpbHgFUQ72gcagyLo=;
-        b=Yob2AaqK9AbC6pT4OI3sZYrM2klZF/rcpR+EK3c22y9SAFGlorTqYLUfmWPYySZ+hW
-         Y0qEt2UfAi6CKlatImkA2QQYYhGP1kioqezwtsYmNaroZ+HcxFlI++AINOSz9iblsiXO
-         knR31kiNjARwTmW9mARl4CbklSBCZNvC5LvgGCr4APal7Bm3urhFMBEjqGyxqqdthfyK
-         NdbcA4P3OshGDSuQdcbClNhzUc8NWCicntKOAmdSDnkk0tWyj8gwkanizmGDJTUTZuQS
-         XqeDM47ZKpqFlRgFkSOV+sgxu4SF/AKEc8+BwKsdi9cJs5Hdw6+hcr3bkXSr0rpDpQZF
-         M/Cw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769847111; x=1770451911;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=FjfAJsvyjCO/vjM7jBeWQxefgcvpbHgFUQ72gcagyLo=;
-        b=psmaKHaRRkVX525P2QxW6TZfgR6FV6fZJ/TvqWmvKVCPDD+xHHDmqfnztNE+4TKazE
-         pWCYqQWy/Yd5uytXtCYasNRSkRreIZXBuxHMdtd5vPiyaaoMbNk7SAM7WwUtnkBNIjxK
-         O2bltm9hsIPZxO+N4sQSRH4FyvTK003r8ImF0up84uK5Gyrn7UqqUYhJm8dWD07b61Z6
-         JLDoT6er2mOskFbTUkGEvUvyoJGVAadMHsgt1RfKX1NB2VjmDHX9+k58Lfn7DmmlPEPB
-         I5HsSP/EC0b/uDpm7RjYWvv9fMeLoeoQRHL93fVAl7qxLSaP//8x92ajduW+qNWkwUbi
-         NVEw==
-X-Forwarded-Encrypted: i=1; AJvYcCUZrzXqZcQPKb5Jhy2JXol3Zit75x9SYBMKXMxBTSgUot8o3iNk3zXrAxOGwMPWRrV5oF/KUgt0+yezIrfeQqQ4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw29MeLKnNd1pg/qRMFhYF3ok30SNBP/xb2pTLaWE9uj081PK90
-	nLx5YMKjm0AewO07owDf+sRBEbcLBKS0zLw5dGSSSQegcdLWCCE9DXwz
-X-Gm-Gg: AZuq6aJaG7p4w+e9VgsVwOU+uC0NQDK8dQk/Fe65p8zARWGfLAOqwmqEQ3jX33AcupY
-	4ndmmZQNq1EEPEO9tCQ3lydTr3nol7sra3SUBtNAP+E5xvdviy0FF02iFfOz2U8CQPVU3n8E9gE
-	lfHiP4q3RFRVvgV1UfjGrRqSk4aTyjHiU1dxkfxaINqvKAeShgEjAU+l3ZH+IWubjU+pMVZqVF7
-	+qKvOgBLIscXQof+qOXqSFrZULRA7emOj6k8upeH1wiPI8IeCJ2wvRaXycprF4PNJYa4wjJ3JEK
-	qPk6MfWWAxzUmktyJHnWcST9jeun0kLfs4DzeyxWUV/xP5fZ0/072lHJ+n1/aYzS88CkkpvvHMJ
-	VCF8rBNwOOkwew4PQZnnI3eqHGxrANbNchr5KP29rATJCFaP2Dlo9lyHrYFzGdtV2efRzAXYtsj
-	8DpYT35UU=
-X-Received: by 2002:a17:902:f544:b0:2a0:fb1c:143d with SMTP id d9443c01a7336-2a8d9592938mr50396115ad.1.1769847110853;
-        Sat, 31 Jan 2026 00:11:50 -0800 (PST)
-Received: from junjungu-PC.localdomain ([2408:820c:9008:ba52::3a87])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a88b5d92a9sm92115125ad.69.2026.01.31.00.11.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 31 Jan 2026 00:11:50 -0800 (PST)
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Sat, 31 Jan 2026 16:11:35 +0800
-Subject: [PATCH v2 2/2] clk: imx: imx6q: Fix device node reference leak in
- of_assigned_ldb_sels()
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260131-clk-imx6q-v2-2-70471ddc99e0@gmail.com>
-References: <20260131-clk-imx6q-v2-0-70471ddc99e0@gmail.com>
-In-Reply-To: <20260131-clk-imx6q-v2-0-70471ddc99e0@gmail.com>
-To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Lucas Stach <l.stach@pengutronix.de>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Akshay Bhat <akshay.bhat@timesys.com>, 
- Ranjani Vaidyanathan <Ranjani.Vaidyanathan@nxp.com>, 
- Shawn Guo <shawnguo@kernel.org>
-Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769847097; l=1463;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=8z6Jwe22roU0IcUq5EjPKimwprqUXrkhxOXSXzExrCg=;
- b=oiRk1okIysEjvHlGj/5wAp4PFaBltdhhMRDvFAiXGskFVm57xO67i5mEoNGJaNojLeDz5+wu+
- WdOTQp1dMycC//jtDtoXsQb3Te+V7M8qOzaj4IqkCVqdZ0e5zHzDORo
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+	id 1vm68i-00000002PXv-1MR9;
+	Sat, 31 Jan 2026 08:15:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1769847301;
+	bh=E+EsTuEHR174ouDai6pNiVFrO9AkbuLjvnwAftkox8M=;
+	h=From:To:Subject:Date:Message-Id;
+	b=nPCQ8KhyO2R7u/A8MZBV9XNgrHsHk35HVHY1qU/bKp07FJGdjr+QvD9Lw75f17/qQ
+	 5eQ0ptOUbvl5Gc4mkneb1P/DDltgS0FGUg5+Cd1JBpcEs1gcRAGG743JA93PX207TZ
+	 i/Hs2cudHZPhlrbNJ8wmwA2kY/r7vAFFLSCE/Ef0=
+X-QQ-mid: zesmtpsz2t1769847293t4e1f5b86
+X-QQ-Originating-IP: 0sgqZlXrDgZhvFh1jB4WEJqQhQYA8i7Qa4ClPeX9O+g=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Sat, 31 Jan 2026 16:14:49 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 9155805342981546293
+EX-QQ-RecipientCnt: 22
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Hsun Lai <i@chainsx.cn>,
+	John Clark <inindev@gmail.com>,
+	Jimmy Hon <honyuenkwun@gmail.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Peter Robinson <pbrobinson@gmail.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Andrew Lunn <andrew@lunn.ch>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 0/2] arm64: dts: rockchip: Add rk3576 evb2 board
+Date: Sat, 31 Jan 2026 16:14:36 +0800
+Message-Id: <20260131081438.100-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: OXI3+eQbSeaRuvBfanxfX0KjpDdGTDhCFZoh+vWVCigc/c5dbU0Y/qOq
+	/L7ZJCQ5XSyFlfXRwkxx3XOI7mgHtcDLlQF3LlFqa6hM2JYounrxCjlMGbyWEIeeDvYgWNo
+	Gzx3q/z32DRbhgOndROx5dK2O+SWirh2sdA1ao58uleoI29my4QqWh5IKHePewEMOIQR6Mg
+	bv5tmYaIhXDuYsqcErzIa+27ktAlktrF5XmwwXsNoiKVKGzlQ70A3wSE14rEAJFsSJfd48E
+	sXfUEMFY8fMgcalqUNdkIu/NI7GZYfftDuwfIR/dtEEQGxjOILXfN0RRNc001hnlsKRcF2L
+	cwzyOWCOWLnxMsWGK8yyJ20nJwrZRqgNBfx9enbZqdpa3vwzHvkowgsHR+vqBkNpRz+zNgl
+	GiaSpUfn3vpLE2ZqKY2wUlde1c9FnmleDnx4/YfyqjF/NvMN5ipWAxSKe8rSu8Ec76plM0V
+	8G2OoNFxyYkNe4SZUQC6QFeENjLrvOdZmLH/ML5YxboBbutuR3X2uete7MtTBajZQkywE3j
+	jWBUjlObmlOc96AfoTYa+scJymz3hiBH3fqwnV7JYFlK0Q2PrzYZF1phxV+edPUJJyM4Tr7
+	kYpujyZnctmPkx9xQoMndzNZxXl7mlx+xegKCAWVeLLrJkH49jcXi3Y8b2xhpFHiU7gq4z0
+	sB/8dRwnlcyrsPwVT6+32A8K8dHHniJt7Ff6PvFeZgFzTe/nPGGLXlrOz6AR0PWDF9U/DJ5
+	tla2Kh8mRwjokI0nXSJ+IRq2M7xH731bCrmvt+GdK8Z+LB21PXoOebErFInKpULiBZrLoio
+	FuNOYm1SDLlAcf0Rv1UfTb0OGSmcyZdYkRnKre39MD+d3bBRIiuun3pdmvk0OFqGg98a6mK
+	DOPW4owNGWBEtpre+8vr6j6kFfP5psjBApAsaqlKOJKReizO89aTA3xPD5wiVeuprnYcw18
+	aDF3k7Dz6L+RtBK8/PtecoqGyvM1LCl+6pFi+ftnCt7cNDr+CHA5SOwM3iIKboSaqwDcu7x
+	uJBTv1VUglJvrg7CZU9zV+/uzggBiuap8xJLLxlznYgpkh+ZNZ
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_001151_842161_2B4A7CF2 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20260131_001532_750275_249E63B8 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,48 +106,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The function of_assigned_ldb_sels() calls of_parse_phandle_with_args()
-but never calls of_node_put() to release the reference, causing a memory
-leak.
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-Fix this by adding proper cleanup calls on all exit paths.
+Hi,
 
-Fixes: 5d283b083800 ("clk: imx6: Fix procedure to switch the parent of LDB_DI_CLK")
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
----
- drivers/clk/imx/clk-imx6q.c | 4 ++++
- 1 file changed, 4 insertions(+)
+This series add support for rk3576 evb2 board.
 
-diff --git a/drivers/clk/imx/clk-imx6q.c b/drivers/clk/imx/clk-imx6q.c
-index 1d8e8f0891a3..58882dbc3a11 100644
---- a/drivers/clk/imx/clk-imx6q.c
-+++ b/drivers/clk/imx/clk-imx6q.c
-@@ -188,9 +188,11 @@ static void of_assigned_ldb_sels(struct device_node *node,
- 		}
- 		if (clkspec.np != node || clkspec.args[0] >= IMX6QDL_CLK_END) {
- 			pr_err("ccm: parent clock %d not in ccm\n", index);
-+			of_node_put(clkspec.np);
- 			return;
- 		}
- 		parent = clkspec.args[0];
-+		of_node_put(clkspec.np);
- 
- 		rc = of_parse_phandle_with_args(node, "assigned-clocks",
- 				"#clock-cells", index, &clkspec);
-@@ -198,9 +200,11 @@ static void of_assigned_ldb_sels(struct device_node *node,
- 			return;
- 		if (clkspec.np != node || clkspec.args[0] >= IMX6QDL_CLK_END) {
- 			pr_err("ccm: child clock %d not in ccm\n", index);
-+			of_node_put(clkspec.np);
- 			return;
- 		}
- 		child = clkspec.args[0];
-+		of_node_put(clkspec.np);
- 
- 		if (child != IMX6QDL_CLK_LDB_DI0_SEL &&
- 		    child != IMX6QDL_CLK_LDB_DI1_SEL)
+General features for rk3576 evb2 board:
+    - Rockchip RK3576
+    - LPDDR4/4X
+    - eMMC5.1
+    - RK806-2x2pcs + DiscretePower
+    - 1x HDMI2.1 TX / HDMI2.0 RX
+    - 1x full size DP1.4 TX (Only 2 Lanes)
+    - 2x 10/100/1000M Ethernet
+    - 5x SATA3.0 7Pin Slot
+    - 2x USB3.2 Gen1 Host
+    - 3x USB2.0 Host
+    - WIFI/BT
+    - ...
+
+To make the USB hub work, the additional patch from usb-next is required:
+
+[0] https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/commit/?h=usb-next&id=00fcc9c86a134c488fd857b5460a7925228272c1
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/commit/?h=usb-next&id=fa3bb5011f33cccd246072954e64d64483d0d774
+
+Changes in v5:
+- Link to v4: https://lore.kernel.org/all/20260121015357.291-1-kernel@airkyi.com/
+- Remove disable-wp for sdio.
+- Add vmmc-supply for sdmmc.
+- Remove tx-internal-delay-ps for RGMII PHY.
+
+Changes in v4:
+- Link to v3: https://lore.kernel.org/all/20260112022823.91-1-kernel@airkyi.com/
+- Move the USB hub code into a separate patch series, and that series have
+  already been merged into usb-next.
+- Fix supply and reset for usb hub.
+- Add cd-gpios for sdmmc.
+
+Changes in v3:
+- Link to v2: https://lore.kernel.org/all/20260107070322.323-1-kernel@airkyi.com/ 
+- Add binding for WCH CH334/CH335 hub controller.
+- Add alias for mmc.
+- Rename some usb vbus regulator.
+- Add DP regulator.
+- Change gmac phy-mode to rgmii-id.
+- Add target-supply for sata.
+- Change vcc-supply for ufshc.
+- Add usb hub.
+- ...
+
+Changes in v2:
+- Link to v1: https://lore.kernel.org/all/20260104023703.118-1-kernel@airkyi.com/
+- Enable hdmi_sound and sai6.
+- Add more cpu-supply.
+- Use regulator to control sata power.
+- Remove "cap-mmc-highspeed" prop in sdmmc.
+- Add regulator supply for ufshc.
+- Add the missing vcc3v3_hubreset regulator.
+- Add otg capability for usb_drd0_dwc3.
+
+Chaoyi Chen (2):
+  dt-bindings: arm: rockchip: Add rk3576 evb2 board
+  arm64: dts: rockchip: Add rk3576 evb2 board
+
+ .../devicetree/bindings/arm/rockchip.yaml     |    4 +-
+ arch/arm64/boot/dts/rockchip/Makefile         |    1 +
+ .../boot/dts/rockchip/rk3576-evb2-v10.dts     | 1020 +++++++++++++++++
+ 3 files changed, 1024 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
 
 -- 
-2.43.0
+2.51.1
 
 
