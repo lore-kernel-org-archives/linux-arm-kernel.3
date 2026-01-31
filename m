@@ -4,137 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B58A2E6BF33
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 01:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BDB5E6BF3C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 01:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nwKIHPfIqNrQskRu5VV0SgqK+bxynliXs5KVFHdnN9Y=; b=43Mc7qOzWoBps/LfWg3UiJrYSw
-	ZZCdz8OhRW124avQHE8LPIjxPwicWR/QOfKffRME20jIpozXq0QVSJVuF7o9X8fhVEIoBmrDMFxEJ
-	WiQo+JncOUoxYylCfD7Rkj1SQRIbZxoN3wSHryZ5lxq0PG7oFQnCN0KlxpUD+cX2sqJb2fwLHiL9V
-	MTcQAq5vQAbsqtYgz+ZeQwvZ7Wcug1klbRbVXl3kUrhtO9IxiOtJgk4E4QdMJZsgkm2h0kvJwkbc1
-	4zTJcVrkq07RCQ3aXsQ3uqmM+RsrBUzz4Fl0u+wBpEXx9saCaIKvQPO/K2Ww+PpmIAyKNUwg7L6lL
-	EOxQLnJA==;
+	bh=WQyH5xpTG8TO/Rjoqb2jAcpkWjV64y4FbbMV20nTjh8=; b=FBmAT1D2NOnog5CdJ+VFTJRaIY
+	CwqaFB2EOJBFh1nOn7h4sF6lMKOuUSsdYh4ymO2kSVteHPzDhvmZTHVbZ786xmqb3wpOvE/5IQsRl
+	3rU8HiaawVsNY+VLfN6f/O5XnWsiFuzmvNFRKBUCEZlQ50tVANnjWyiiM0CuFwZQdd+Ye8asUPcDI
+	BGbkNyZOBKvCowpCDjLB9eN0hp3jU0s91bDfmdABci6rF9+kTA1tvblpQbgKLj25K3MrnHxWHEKtR
+	ZyhTdi3PWO+MNlnrOpKYpXyzZjmJtNuH8NzxVNeRuQCE1Kye/6lt0bftlqF+vgfbIH2R/CaK/cKSH
+	SwnybqnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlzu0-00000002C00-0GUm;
-	Sat, 31 Jan 2026 01:35:56 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vlzvF-00000002C6k-1tuG;
+	Sat, 31 Jan 2026 01:37:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlztw-00000002BzU-49Xy
+	id 1vlzvE-00000002C6U-0TC3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 01:35:54 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60UJjGhb2964998
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 01:35:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	nwKIHPfIqNrQskRu5VV0SgqK+bxynliXs5KVFHdnN9Y=; b=k2K2eiJ6ngAR8OVI
-	iqC12vjdCw+SCciisdf1O9PB7J1bFivbr1BFQZqOvtxU1SiowRPWsi8iTQUEhY+x
-	PGidqZT3WhoA6xj+jN8dGONU0ThPejazcw15rCkIvADEcyaQaehklZIR/dTPIW5B
-	RKhK37kRqM9SLQdKBYHwVKHEmTbmp//23ZkSa2WVIpijfiY9RwmtyzzOsFZ0Xeyj
-	dOfogsSV6C9SceiWSJ269Owil+MJlhMESctzkiH6cyzOlego+gKBpF+m7poo3spL
-	23opbujIAJ8muit4/BEtXC96UDlnb6YB/opy+n+SLpYkmndLBKUm82srAkmEsrim
-	3CqldA==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c1332gt1g-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 01:35:51 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-2b71bdcd037so1735595eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Jan 2026 17:35:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1769823351; x=1770428151; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=nwKIHPfIqNrQskRu5VV0SgqK+bxynliXs5KVFHdnN9Y=;
-        b=KHBVl0EORuaSGHbh9GwD4u8nIzvKuq2J7vJCney9kqiYFppSY+DBb0AUrWtiHF/dIO
-         UjNIlcujQEuF0ZFGsf3lTHXq6ATIPOexH8NdO1d0muVO9sNr897Yo7Y1keydRqJyC49D
-         VXsVJFouRGgEkKQf16GoNaHpnMK6qPcvEiew8wqcpbJAR/gtQvHRLtrxofOYOuDEBKHK
-         8BjxqR7zcfDZU1AKPRw6gw65HerS1vO+kZKAbABS5cIUXIeehmOgZ/q/mP1+DPVaHKJN
-         yERQvGm23TOD1zU0Y+EE28hBfm7TjCQqSZIuODw9l6zGZ2IcLSZoGRJ6PJz+jDJ+8H2o
-         pQiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769823351; x=1770428151;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nwKIHPfIqNrQskRu5VV0SgqK+bxynliXs5KVFHdnN9Y=;
-        b=ci0aynKRmMMyM7oGlnxDrhzPqIu7GXKSQ+FhgsmSWFBO/U8xHjcVD0a7XOCPXo6i6S
-         82Pf8U8DqUrTO+NNaKdtWxwdKW1I7j+4k4omSIJlRaHjUc1BtKgWny/Y+3fGguS/swI6
-         nHEGlnIc5SZYPy+csYuFyBkETC4t6yFRxv4me/OtdUSz2MawWvatefCr0HCyvuuKnihG
-         OSGPAIYU+IioGf3LrXwt57gYk53fii8jLZA31Jn52obXFdY/hJznqM+88T0HJTpwOW3i
-         7zrO02WH+s9+0AGVCu+aFA+niM6qWqwu/VluciBicxhbWKEHPCT1ADDiubaWTuBB2luB
-         V2Vw==
-X-Forwarded-Encrypted: i=1; AJvYcCUTOB/3BiD9C8RN1a0mHn548jC0AEMNlsW9hEUkoUAa+DGy6TztAZ7/PwADGnltszsjEITjABOjL/ghwp/R5yVO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxv3MEcYbZ24N7BiOqdCX0K+v72r9+JFAHEG0VRgEJrUiaHOFPz
-	h6kiTlwdPgrhNbDpaY41V5AbX7UXQOaQDjWUFhK+3ZY6RA16+b0LoVogtFpRaihwnn0WcRvCx9f
-	uT6kCkz7XPC1rqumOsuLq3B2Ag975UEZMyvotySRt8ofb/QF9X0kV+km8mOgA5qq3bUKKEXUIeF
-	IOnw==
-X-Gm-Gg: AZuq6aKP2EtTBiXpt/mNkYQxdEwVDfO4gJY1YUMWipcSTWqDupSAffH3uvGIJTi6ygF
-	0cYr1VNzoOkK2OzJ1meTyrMlGmxaw3h1ZnNDzYxuqm4bs4ALvhtPQJEwOcn4bv6hefT1E4PA5zy
-	V77BdhVGIwB1uIjcug11xzvWs1gwkAIavfAJvsS2THhR/jtaPqAj0HcZ2KIRkq4oWWb2A/m1izX
-	Sul/xfqgGUubJpgyCFZ7nwapxvHrPRSgxR0O4xMLyVGMen4iHlqLtgkTRQdFxhabEBGXF4mZfbT
-	e0x3pe6t0RfTfJDK4efvCnG3hN6VvJYtV5QdCTgPW8O731J5v+xXRZ7svhSCgb1JMcUvvFg15o9
-	t65ZuBkez9nFEzneLvZAAxwmGrkllgF7kdU+U1jiVHeqD/p+IMPq6KDtOXPSQa8Et3FXZ
-X-Received: by 2002:a05:7301:1288:b0:2a4:701a:b9ba with SMTP id 5a478bee46e88-2b7c941886dmr2146814eec.14.1769823350974;
-        Fri, 30 Jan 2026 17:35:50 -0800 (PST)
-X-Received: by 2002:a05:7301:1288:b0:2a4:701a:b9ba with SMTP id 5a478bee46e88-2b7c941886dmr2146803eec.14.1769823350411;
-        Fri, 30 Jan 2026 17:35:50 -0800 (PST)
-Received: from [10.134.65.116] (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b7a16cf8f2sm14851809eec.7.2026.01.30.17.35.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 30 Jan 2026 17:35:49 -0800 (PST)
-Message-ID: <b5fd72fa-fcde-4f7a-bfad-17465d7e3841@oss.qualcomm.com>
-Date: Fri, 30 Jan 2026 17:35:37 -0800
+	Sat, 31 Jan 2026 01:37:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 36D4660008
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 01:37:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E506CC116C6
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 01:37:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769823430;
+	bh=HSlwIJ3DA03/OunBfURR+gTgDH9OrO+A2nv+pjkXXjw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=BBKT4NzZo20fcxfijATpUEJVmuNH/znSEJme8z+1DTiUM2/An+IrCNz6f80oFryP8
+	 RgJpXGgFzLMlac27hHvaLo9VjLWW4HnbR4dBVG4VnVzEdRPRSHXDdSOpuivnmyZL+l
+	 ymmCaljODhLYpBmhX0JXW3LTN+wZ+4MP476Td7VO3Mvim4kSUCbQEwAlIJKWyvBdAC
+	 aN9V2LsGRlqsp64D0Nvlb6eJhkjgl64MjWRm2WbgWnlqZbH1mVUdnQwJOSdoIMBD0c
+	 iPQpRFOlAGY14sIMEQx+9lnGUxzwtfsHj6M++d/ZXQVFi9l9N5nO+nhbAnkA42a2bZ
+	 KFV9lOmRw/FNQ==
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-59dea72099eso3198689e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 Jan 2026 17:37:10 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUWPGU5kHHX38TQkRQCAszP0D4zNifkHAjjXw8RRaPeCHx+ahiu5aiHshdGcQEH4kyuhev6W3eMKC35rJKbAlM5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyxpzr6VIBr0CRfypvcGzemJvfFGpoCPkV4ZUL8OMjQfIt8vFqo
+	9Dcs4pZoLMRSz1GpnvyjlZlSviNZDtBkj6PAYTj82xRNv04UNTpMMDLa+e5lrdvJEOqgm1TkLw6
+	+DFDYKHM4014vJYJPxlMIINAbQlea8Fs=
+X-Received: by 2002:a05:6512:ad4:b0:59b:70e7:4128 with SMTP id
+ 2adb3069b0e04-59e16463c5emr1561236e87.53.1769823429264; Fri, 30 Jan 2026
+ 17:37:09 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] firmware: smccc: add support for Live Firmware
- Activation (LFA)
-To: Salman Nabi <salman.nabi@arm.com>, vvidwans@nvidia.com,
-        andre.przywara@arm.com, sudeep.holla@arm.com, mark.rutland@arm.com,
-        lpieralisi@kernel.org
-Cc: ardb@kernel.org, chao.gao@intel.com, linux-arm-kernel@lists.infradead.org,
-        linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org,
-        sdonthineni@nvidia.com, vsethi@nvidia.com, vwadekar@nvidia.com
-References: <20260119122729.287522-1-salman.nabi@arm.com>
- <20260119122729.287522-2-salman.nabi@arm.com>
-Content-Language: en-US
-From: Trilok Soni <trilokkumar.soni@oss.qualcomm.com>
-In-Reply-To: <20260119122729.287522-2-salman.nabi@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=V8dwEOni c=1 sm=1 tr=0 ts=697d5c77 cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=yEY9MXV1_v7_bfR7OAYA:9 a=QEXdDO2ut3YA:10
- a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-ORIG-GUID: eeeT9bp9IevEYL4azMLvHVB63Wxg5KW8
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTMxMDAxMSBTYWx0ZWRfXwBPhJcjICZaq
- i2iq9zANKUJvJfYctrB9Anikr8xTozcw44A6q1SMtH0glffsumpT6pDf/uKS7+OUnguUymlKG5L
- VvHZm+7yG9hyjvczuss76fDeKRzW64u3Qd5R9Az7xRKX2QUOh6wUsgK2sTM9BPQOP07OqFbdaTD
- lAKgrxhKXI1f7Vxx0/qBVZCVT3MagDI553joZA7DctDpwYLC4KejnCT3hauEZh5ptGqP55iNz9O
- 0U9sz1Q/ICmXlIxebHKMbKhuDwDvAAPtIYSwiWaKjOPm/BPWDSKsR4+pToQRf7eIi1CG4NlGjXq
- vsPjmGHnxUIkWXDwlq/+8V/FlNx67tEJhHDiJrNkOh7fEVQZQan0mvBQyNCTr/XJF09j9AAR40x
- BMnTu+pLNDaHqPwbfZt388LLIgIczZx/07TNHG13j/hnBnyOMoDqpLRO/MBX6r/6aRtS91nu3Rk
- JY85Ald1QoKkApQRavQ==
-X-Proofpoint-GUID: eeeT9bp9IevEYL4azMLvHVB63Wxg5KW8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-01-30_04,2026-01-30_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 suspectscore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0
- priorityscore=1501 malwarescore=0 clxscore=1015 phishscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601310011
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_173553_055956_F6EE14D0 
-X-CRM114-Status: GOOD (  14.91  )
+References: <20260130032517.173590-1-n7l8m4@u.northwestern.edu>
+In-Reply-To: <20260130032517.173590-1-n7l8m4@u.northwestern.edu>
+From: Sean Wang <sean.wang@kernel.org>
+Date: Fri, 30 Jan 2026 19:36:56 -0600
+X-Gmail-Original-Message-ID: <CAGp9LzqQ45LAeeG1Cijs1QmtzBjOmML_qY=9Y5zH8tYmZeQWZQ@mail.gmail.com>
+X-Gm-Features: AZwV_Qgzlc9REroD0uijyrgcGZUw6qt5vKeV6p_1BhQT_C5t6Fi3nVhTvV39E4c
+Message-ID: <CAGp9LzqQ45LAeeG1Cijs1QmtzBjOmML_qY=9Y5zH8tYmZeQWZQ@mail.gmail.com>
+Subject: Re: [PATCH] wifi: mt76: add missing lock protection in mt76_sta_state
+ for sta_event callback
+To: Ziyi Guo <n7l8m4@u.northwestern.edu>
+Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
+	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-wireless@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,31 +84,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/19/2026 4:27 AM, Salman Nabi wrote:
-> The Arm Live Firmware Activation (LFA) is a specification [1] to describe
-> activating firmware components without a reboot. Those components
-> (like TF-A's BL31, EDK-II, TF-RMM, secure paylods) would be updated the
-> usual way: via fwupd, FF-A or other secure storage methods, or via some
-> IMPDEF Out-Of-Bound method. The user can then activate this new firmware,
-> at system runtime, without requiring a reboot.
-> The specification covers the SMCCC interface to list and query available
-> components and eventually trigger the activation.
-> 
-> Add a new directory under /sys/firmware to present firmware components
-> capable of live activation. Each of them is a directory under lfa/,
-> and is identified via its GUID. The activation will be triggered by echoing
-> "1" into the "activate" file:
-> ==========================================
-> /sys/firmware/lfa # ls -l . 6c*
-> .:
-> total 0
-> drwxr-xr-x    2 0 0         0 Jan 19 11:33 47d4086d-4cfe-9846-9b95-2950cbbd5a00
-> drwxr-xr-x    2 0 0         0 Jan 19 11:33 6c0762a6-12f2-4b56-92cb-ba8f633606d9
-> drwxr-xr-x    2 0 0         0 Jan 19 11:33 d6d0eea7-fcea-d54b-9782-9934f234b6e4
+On Thu, Jan 29, 2026 at 9:25=E2=80=AFPM Ziyi Guo <n7l8m4@u.northwestern.edu=
+> wrote:
+>
+> mt76_sta_state() calls the sta_event callback without holding dev->mutex.
+> However, mt7915_mac_sta_event() (MT7915 implementation of this callback)
+> calls mt7915_mac_twt_teardown_flow() which has
+> lockdep_assert_held(&dev->mt76.mutex) indicating that callers must
+> hold this lock.
+>
+> The locking pattern in mt76_sta_state() is inconsistent:
+> - mt76_sta_add() acquires dev->mutex before calling dev->drv->sta_add
+> - mt76_sta_remove() acquires dev->mutex before calling __mt76_sta_remove
+> - But sta_event callback is called without acquiring the lock
+>
+> Add mutex_lock()/mutex_unlock() around the sta_event callback invocation
+> to fix the missing lock protection and maintain consistency with the
+> existing locking pattern.
+>
 
-Can you please explain or add a note on why we don't have name of the firmware
-as the directory name and why you have selected GUID as top-level
-directory name? 
+The mt7921 / mt7925 .sta_event callback already holds the lock; this
+patch would cause a deadlock. Suggest adding the implementation to
+MT7915.
 
----Trilok Soni
+> Signed-off-by: Ziyi Guo <n7l8m4@u.northwestern.edu>
+> ---
+>  drivers/net/wireless/mediatek/mt76/mac80211.c | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/net/wireless/mediatek/mt76/mac80211.c b/drivers/net/=
+wireless/mediatek/mt76/mac80211.c
+> index 75772979f438..468bc176bacb 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mac80211.c
+> +++ b/drivers/net/wireless/mediatek/mt76/mac80211.c
+> @@ -1640,6 +1640,7 @@ int mt76_sta_state(struct ieee80211_hw *hw, struct =
+ieee80211_vif *vif,
+>         struct mt76_phy *phy =3D hw->priv;
+>         struct mt76_dev *dev =3D phy->dev;
+>         enum mt76_sta_event ev;
+> +       int ret;
+>
+>         phy =3D mt76_vif_phy(hw, vif);
+>         if (!phy)
+> @@ -1668,7 +1669,11 @@ int mt76_sta_state(struct ieee80211_hw *hw, struct=
+ ieee80211_vif *vif,
+>         else
+>                 return 0;
+>
+> -       return dev->drv->sta_event(dev, vif, sta, ev);
+> +       mutex_lock(&dev->mutex);
+> +       ret =3D dev->drv->sta_event(dev, vif, sta, ev);
+> +       mutex_unlock(&dev->mutex);
+> +
+> +       return ret;
+>  }
+>  EXPORT_SYMBOL_GPL(mt76_sta_state);
+>
+> --
+> 2.34.1
+>
+>
 
