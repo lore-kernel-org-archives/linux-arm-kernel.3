@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B35ED7977C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 15:45:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEFA3D7977D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 15:45:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RjaIDtYDiYI4mwiOZdIpe1GZPlECoS2pA6IgFfjxvCU=; b=hhoAYXbvZYWWoUhw6GAvZUgeTf
-	mOs56HhKNptSy/vBpX+OxVd/Kmt06+YTXN5oPuvAZaE+t5wAHzLXkmZwUCy+oSR715RwIOyl94/Js
-	t6VxkWvbLiz5xpwSiKkkO0gy8cyytz/FMd4yVXLg8HyMulzJcNGwmCTAz+a5D50XPpyy+H1kEmvw/
-	UjHfLVlHNjmTp4LhFXC/sygbrsdXaNZoOpuByuizwS94fbsf20NA7XGAuNIugRZcrx3Z/UiaFh97K
-	PY7Mn99blYJwlkAlU/JoeT0MGE2aCFwDOBk4pYZ4CBh9Rc9sTcA5ihLxu+klWiIIvNGnBKACwLhY9
-	Hka2bklg==;
+	bh=xAy/xjG0jQvcp2oMgNIXt1SmQl8mW6MQn9zpPH2hTM4=; b=DsPhU9IY0/8RGvlQTTdrbXrCdp
+	0mrFyfAMrFBscR24fIAfkuwZGZ/LqjYX7tkxSKcLwqclK8zcJ9O5X/wdTRkc+glcWv1KyPRIklmk7
+	kUqnNXap8Fmy3Nrre2S2++Qff3+sogqpepcE9HepFkGdZQbx/QPx6ekRuljOOES6CJRVXv7JcEd67
+	PVaoZEdkT0OGcU4bm4eVyF78P4ds0xFFq1iKUtGHA3RuDLem9XMVSnBnVfPJA9QpBY5NWSVrrvhCC
+	Vu66HsjBWheqFMDS2xSPCkFUM5Iv821qfsHAFxfzDRqqVicpagzFMriPkgQXOI2a+UJae5Igh9VG4
+	FHd91nyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmD9s-00000002lQ5-0GYq;
-	Sat, 31 Jan 2026 15:45:12 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vmDAA-00000002lUL-1lxs;
+	Sat, 31 Jan 2026 15:45:30 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmD9p-00000002lPD-3EFJ
+	id 1vmDA6-00000002lTO-3vMy
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 15:45:11 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47ee3a63300so32583405e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 07:45:09 -0800 (PST)
+	Sat, 31 Jan 2026 15:45:29 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4806cc07ce7so30406025e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 07:45:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1769874308; x=1770479108; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1769874325; x=1770479125; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=RjaIDtYDiYI4mwiOZdIpe1GZPlECoS2pA6IgFfjxvCU=;
-        b=ft5ZdiQNNwzopM8ueM/9kMhWPtTRxVy+Ni6yxzs24BU9NP2ejnFbB94IzF2AJZhXo2
-         ncj3+nZS4M0g33cKBTp5Rfwu9w3c8KeweEcPLhtqP8x9R+lxaVGS+U79deokLq1IcE4b
-         i4IfnFq1ItRnO/PzoG+ZddSw7LybPXKAsVvwO+3ZKSAEKpM54yGXL+dmjbXjvMQggcnA
-         SRvO4USR2vv7dwCmbmTma4M+PDFcVfpLfpqAqZjcSRo8II3bEb/vFFaOAZYFG5pBv+ZE
-         jv9pB84ySJn1iK3kHZrJrBBgYyLjY3xjdqPOakbdgVkqN+CU4q2nxH+fXjbxJSS9ps1d
-         X5IQ==
+        bh=xAy/xjG0jQvcp2oMgNIXt1SmQl8mW6MQn9zpPH2hTM4=;
+        b=LAGxax0d1flUOE1jOBeMlhlibK2NY3OIXoudoq/h6v4YqrJ57wnr0qi/CuhBw6EySG
+         0tzM0udhPiHYbRL2N4txBLR7u0nL/xRdwd5wkBtdg5sThjAwawqz74TAB+18RUuVmjmk
+         02x+gwbFGfnBLlaxjl1lC165IMLDC6aCgyVPYnyBm0TACKaOvlsTkkq4pMb0CHtxgX4R
+         4dJXAegZ4D8hysZWnPjjqhPlZVlkOM/Rlo/Hn7+8MSBRWkqdGOQ6wShkiKlm79j5cXHw
+         AKwddPBUkFiaSFdzqjcGDicFW/dD16l82kndVq79FkWU0e2+su7FW4tXuWdoV1PUxaUt
+         dB6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769874308; x=1770479108;
+        d=1e100.net; s=20230601; t=1769874325; x=1770479125;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=RjaIDtYDiYI4mwiOZdIpe1GZPlECoS2pA6IgFfjxvCU=;
-        b=T8/qbaeYb69pr3/BH8Yv3ENuAdsex//svbFYQ8lmCG+j4hj5VGmOLzhE1GOxiok/yw
-         zT/b/oxz9jgFhbMAMMYjyRZ/1rQlTfghbQ6MfIjY+sThOElj3fncx3B1Gbvunhpbktfu
-         jMsCUXa4Em1mBQEA/yZENL/JEs/G05vHqvWdpBtPpvXGeXor/8DSgEt56y7NmifUQZJk
-         uzSMvrlZV4BxsY22y2mc+WJq3XkZ9xxOHklGMSeHw7HhNZzwHnitSm8Ltr17Bgrg4ChN
-         4Uj2fkOgFEP9A2D3EZ8u26M6XOhnKMZsaUts8IeK9hKHgZAlOHxXtTQR4f1jXOz/wBrS
-         MmjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWJ3XotGCi8NWHyaBDFD6lh3U/RCdO8hv5koRoccOwNcVxl3/H56J8aflwDCh1WE0pdSC59Hw/pF4wKtimgKBdc@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmVkqlXMqlsAPSOhIl45GN+zcfnHSXpXKshgm8ivskid6nkOQT
-	vVClNb1rZhZQcugqhwCPFHyfUazZ+QjSQH/2UapT8qiHOgeR6y3O3uhznZdTkwn5tiI=
-X-Gm-Gg: AZuq6aIxHtR64mFdA4UjTzcZoBB+XqwzFqC1dirrZEshPJuBEcfOJJyx+u2WpHMH9im
-	+QTo73pql7ayXJkYun4SE4p6GO6hJ9djzmRlAF6/Z049HyBneHG+5vqLI0x7NNkjp6SpAdNWngd
-	g87MmUAhwYuaGoDEf9yuF6RglzSCTJfPci0E3wHRo8CBmm3Msz+tI33VFVL3LvrrfetqSczRJuQ
-	3KIdw/7kQP8ms6KOphL7G+p6GPO16NMY7raZIny0egWw3QDb+w43wZxJMTbJ06M59i3zN9Sttyn
-	HOS9bQ4rn4GwTQav+oZsdUzqv5gVo6KkZdb2a+5c+5aaucehxD9chek7FHarFTyX067pszLZNTw
-	ZcMmF+Hqi1YidOmN2Z+hEr0lO3jiczBcfwMMg6Q1hbtl2Z8U9XgLuM1Hv3rlM7YeUIGi58kDp11
-	Eo/Mg5jyKgRFeFEJX9VgsD0AtR7/Xe
-X-Received: by 2002:a05:600c:3d96:b0:480:3bba:1ca9 with SMTP id 5b1f17b1804b1-482db4568femr84868555e9.4.1769874307935;
-        Sat, 31 Jan 2026 07:45:07 -0800 (PST)
+        bh=xAy/xjG0jQvcp2oMgNIXt1SmQl8mW6MQn9zpPH2hTM4=;
+        b=MrDmdSmhe3uciiW++Qzt4iVY3z40posXMMxSHvj9qVsvQEATF17xbd6Bf0sJiD+LTg
+         zQd/rEZ/NThg/Tkt8Lmfss7SzJys/HcCGDXMhdNs63ZYEL/5XGYrdjQXZmK0m2+1cg+j
+         zHXlfqg+X9Ks626uk3jmyzS80PUnaXzBOKpLbngqwnNCtK+j1Aqm2y42ZtYRH06AAi0B
+         rI8CYtPnbvd0SwxQAzu7NkSv10hWypAbTy5m89rYY8S3lmTwPzdUMNh69T8dXm9UR9P0
+         RFyqoYxy6nhzSqsESRy7iH7L3scSUttOPkPY1L0jOSPSSSiSGISHj/cUi3I9j8PFfN0k
+         mDiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV49kJDnS8m36pBLO1UOnq9rgpgiHMgY49z+8M50co2aLT4C+4y1a2fVW1u1IYTC/pT3CSqdJW1fZ8WeIcGs+7s@lists.infradead.org
+X-Gm-Message-State: AOJu0YyURYKExR8i2xa6qR76DpuwDZmroIxFkmJZF4OYI4AMVkq0b7qp
+	4kb1h6TIN0gRRocrQnvIgjvd1h0Rqiuzl37TdySYC1KyO29wt8dZcJhFJ7LF7IN3EII=
+X-Gm-Gg: AZuq6aLEQJXlKktBLP1QlAKURG4S6EO1kDhRa20lJc2CL1cNGBJoHDDwsiXfcgM4eK0
+	FpVAi50K3LDbcqBlg1Lpwo/EazHP/fduMHyCditJlUZKJ2g6x286ASCMrXc6hzNC8DkhRMZO1K7
+	Udz7yBAVoUg6DUiQZATqFb+kWWiwxbQHjbnJP3ZSKK2H2GUl2ipySMLGp6THxaNYr5hCQRbfQAa
+	0z0f3o/fHXOFNt/plaE4JT/Svz3215wF82XmPjRBWOpuTd2DR3ZeMfWcertkL1gQCGn9ChQSguv
+	obFTV26ySl7Mx2e8YrDOcjbhQ5lP4Cqt2PWaKbmroAwaddzQkwwmjnIau1IMp3yXJ30dlOLxf6Y
+	y3QJ0jKFn0oSfLK+jkfLz7RNxVpL7qHWaB8CZ5YcpmES5HSXZWdJLlka+Tjchz6tUUSMPTGT86O
+	qfKMTNcX/hLost2t5A++R4tf9htg7E
+X-Received: by 2002:a05:600c:19c8:b0:480:7162:fa48 with SMTP id 5b1f17b1804b1-482db45fd8dmr79378285e9.13.1769874325013;
+        Sat, 31 Jan 2026 07:45:25 -0800 (PST)
 Received: from [192.168.50.4] ([82.78.167.31])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48066c37420sm357329975e9.9.2026.01.31.07.45.06
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48066bfb59asm316944865e9.7.2026.01.31.07.45.23
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 31 Jan 2026 07:45:07 -0800 (PST)
-Message-ID: <fac4b0b0-3aa1-4a7a-b578-2406bee5b4a9@tuxon.dev>
-Date: Sat, 31 Jan 2026 17:45:05 +0200
+        Sat, 31 Jan 2026 07:45:24 -0800 (PST)
+Message-ID: <ac4891ec-79a7-47b8-afd6-106b9ab7cba3@tuxon.dev>
+Date: Sat, 31 Jan 2026 17:45:23 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 05/19] clk: at91: sama7d65: Use highest PMC definition
- as max index
+Subject: Re: [PATCH v3 07/19] clk: at91: Add peripheral id for OTPC
 To: Alexander Dahl <ada@thorsis.com>
 Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
  Alexandre Belloni <alexandre.belloni@bootlin.com>,
@@ -83,17 +82,19 @@ Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Cristian Birsan <cristian.birsan@microchip.com>
+ <sboyd@kernel.org>, Cristian Birsan <cristian.birsan@microchip.com>,
+ Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>,
+ Varshini Rajendran <varshini.rajendran@microchip.com>
 References: <20260120143759.904013-1-ada@thorsis.com>
- <20260120143759.904013-6-ada@thorsis.com>
+ <20260120143759.904013-8-ada@thorsis.com>
 Content-Language: en-US
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260120143759.904013-6-ada@thorsis.com>
+In-Reply-To: <20260120143759.904013-8-ada@thorsis.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_074509_833323_F1E27DEA 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20260131_074527_007471_82A1AD30 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,51 +109,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In patch title:
+
+s/Add peripheral id for OTPC/Add peripheral clock id for OTPC
 
 
 On 1/20/26 16:37, Alexander Dahl wrote:
-> Consistent with all the other at91 clock drivers now, which also use the
-> highest PMC definition as max value, and no extra number.
+> That peripheral clock is required for proper OTPC function.
+
+This would have to follow the submitting patches rule (check the document shared 
+in another patch). I would re-write this as:
+
+Add the peripheral clock IDs for OTPC. This clock is required for proper OTPC 
+operation.
+
 > 
+> Link: https://lore.kernel.org/linux-clk/ec34efc2-2051-4b8a-b5d8-6e2fd5e08c28@microchip.com/T/#u
+
+Why is this mentioned here?
+
 > Signed-off-by: Alexander Dahl <ada@thorsis.com>
+
+The rest LGTM.
+
 > ---
 > 
 > Notes:
 >      v3:
->      - new patch, not present in v2
+>      - no changes
+>      
+>      v2:
+>      - new patch in series, was not present in v1
 > 
->   drivers/clk/at91/sama7d65.c | 4 +---
->   1 file changed, 1 insertion(+), 3 deletions(-)
+>   drivers/clk/at91/sam9x60.c  | 1 +
+>   drivers/clk/at91/sam9x7.c   | 1 +
+>   drivers/clk/at91/sama7d65.c | 1 +
+>   drivers/clk/at91/sama7g5.c  | 1 +
+>   4 files changed, 4 insertions(+)
 > 
+> diff --git a/drivers/clk/at91/sam9x60.c b/drivers/clk/at91/sam9x60.c
+> index a9f293a8e3b26..11f16126ff9e9 100644
+> --- a/drivers/clk/at91/sam9x60.c
+> +++ b/drivers/clk/at91/sam9x60.c
+> @@ -146,6 +146,7 @@ static const struct {
+>   	{ .n = "isi_clk",    .id = 43, },
+>   	{ .n = "pioD_clk",   .id = 44, },
+>   	{ .n = "tcb1_clk",   .id = 45, },
+> +	{ .n = "otpc_clk",   .id = 46, },
+>   	{ .n = "dbgu_clk",   .id = 47, },
+>   	/*
+>   	 * mpddr_clk feeds DDR controller and is enabled by bootloader thus we
+> diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
+> index 9a5afd258cb86..c4d2b022d9d07 100644
+> --- a/drivers/clk/at91/sam9x7.c
+> +++ b/drivers/clk/at91/sam9x7.c
+> @@ -407,6 +407,7 @@ static const struct {
+>   	{ .n = "isi_clk",	.id = 43, },
+>   	{ .n = "pioD_clk",	.id = 44, },
+>   	{ .n = "tcb1_clk",	.id = 45, },
+> +	{ .n = "otpc_clk",	.id = 46, },
+>   	{ .n = "dbgu_clk",	.id = 47, },
+>   	{ .n = "pmecc_clk",	.id = 48, },
+>   	/*
 > diff --git a/drivers/clk/at91/sama7d65.c b/drivers/clk/at91/sama7d65.c
-> index f6f86261ceefd..4ccffa8db43a5 100644
+> index 5d8973aa50a53..52467d629258f 100644
 > --- a/drivers/clk/at91/sama7d65.c
 > +++ b/drivers/clk/at91/sama7d65.c
-> @@ -19,8 +19,6 @@ static DEFINE_SPINLOCK(pmc_pll_lock);
->   static DEFINE_SPINLOCK(pmc_mck0_lock);
->   static DEFINE_SPINLOCK(pmc_mckX_lock);
->   
-> -#define PMC_INDEX_MAX	25
-
-That's not the right approach.
-
-You should identify all the core clocks as described in the HW manual and 
-allocate the ncore section of sama7d65_pmc[] to have all those fit in there. 
-This driver would have to work with old and new device trees and thus, if you 
-shrink it now you wouldn't satisfy this rule in the future.
-
-> -
->   /*
->    * PLL clocks identifiers
->    * @PLL_ID_CPU:		CPU PLL identifier
-> @@ -1120,7 +1118,7 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
->   	if (IS_ERR(regmap))
->   		return;
->   
-> -	sama7d65_pmc = pmc_data_allocate(PMC_INDEX_MAX,
-> +	sama7d65_pmc = pmc_data_allocate(SAMA7D65_PMC_MCK5 + 1,
->   					 nck(sama7d65_systemck),
->   					 nck(sama7d65_periphck),
->   					 nck(sama7d65_gck), 8);
+> @@ -641,6 +641,7 @@ static struct {
+>   	{ .n = "mcan2_clk",	.p = PCK_PARENT_HW_MCK5, .id = 60, .r = { .max = 200000000, }, },
+>   	{ .n = "mcan3_clk",	.p = PCK_PARENT_HW_MCK5, .id = 61, .r = { .max = 200000000, }, },
+>   	{ .n = "mcan4_clk",	.p = PCK_PARENT_HW_MCK5, .id = 62, .r = { .max = 200000000, }, },
+> +	{ .n = "otpc_clk",	.p = PCK_PARENT_HW_MCK0, .id = 63, },
+>   	{ .n = "pdmc0_clk",	.p = PCK_PARENT_HW_MCK9, .id = 64, .r = { .max = 200000000, }, },
+>   	{ .n = "pdmc1_clk",	.p = PCK_PARENT_HW_MCK9, .id = 65, .r = { .max = 200000000, }, },
+>   	{ .n = "pit64b0_clk",	.p = PCK_PARENT_HW_MCK7, .id = 66, },
+> diff --git a/drivers/clk/at91/sama7g5.c b/drivers/clk/at91/sama7g5.c
+> index 9a6f0f30b2b7e..3e0cfd2613851 100644
+> --- a/drivers/clk/at91/sama7g5.c
+> +++ b/drivers/clk/at91/sama7g5.c
+> @@ -504,6 +504,7 @@ static struct {
+>   	{ .n = "mcan3_clk",	.p = PCK_PARENT_HW_MCK1, .id = 64, .r = { .max = 200000000, }, },
+>   	{ .n = "mcan4_clk",	.p = PCK_PARENT_HW_MCK1, .id = 65, .r = { .max = 200000000, }, },
+>   	{ .n = "mcan5_clk",	.p = PCK_PARENT_HW_MCK1, .id = 66, .r = { .max = 200000000, }, },
+> +	{ .n = "otpc_clk",	.p = PCK_PARENT_HW_MCK0, .id = 67, },
+>   	{ .n = "pdmc0_clk",	.p = PCK_PARENT_HW_MCK1, .id = 68, .r = { .max = 200000000, }, },
+>   	{ .n = "pdmc1_clk",	.p = PCK_PARENT_HW_MCK1, .id = 69, .r = { .max = 200000000, }, },
+>   	{ .n = "pit64b0_clk",	.p = PCK_PARENT_HW_MCK1, .id = 70, },
 
 
