@@ -4,67 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43DA5D7977D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 17:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C82FFD73EB3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 17:43:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ui9P1wXFzPVF0PkpB5duPLe2b3ppNABTPVog2puyFcw=; b=cmOk9LVVqImx25+vGjmwEclEzU
-	qfHWamX7/mjxwHaRfTQl678T4lWKZlrocGChxLVy0xC0qJxGbKfAM0FmDXeXJVJA+SSJKq/CwG+xC
-	maAZ0Rca9Ttz60glbnNiO3Frq2w7og5EGXuO5XNCiWy5aW0jSBgqNyl+0ajKyNA31R1qGmuaPAmkH
-	iPIavkIsO7x96UjJqM2bdi7L6xJ8fXGcvo1dlCxxfReNigEqva7T8QzvOJOQBqdesQ86byozxEs9R
-	jljm5HTfer375X/8uxKtAle70An6IizUFlIhDrTOG6/8o4WNOYXbr99EcM8qXEftJRMhQQxJZP+DR
-	1tAmonJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+0GLAxiMOsLVdd68D5Q5jgpRId3SxU0Ogg0V46Yapj0=; b=oXm8rLBGD67B1x7gSWEXlwvxwS
+	dUFJ5NvumDbbkMihIOKACIhykxtM8uS+QrLLS0/UzqsZVde1uVQwfeZuAiITzYOeqBjM5WSNkgJxG
+	0KEZ6YmEQtM7Igy+DTInp19S7ZaFuIcr29oQ8GW7gTFr08KVWwgoYFAXQmlwVLFBYIAc18W9vFArk
+	V0HDU1MQ83mfoyrdXb6ryMkFhgu40qR5P/PjkVy6ygRyKs4fsyRK5FE6CGrYkZV3dJsUHkvPkv/PD
+	ec/FecDkxQ0zn03hsZNuyvyRVPSHL2zOh5D27ObQJBgDCAq0Vas90gg1fg4xiLf/NJig7e9Owu+wr
+	jPnIbsEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmExR-00000002rPj-2WRD;
-	Sat, 31 Jan 2026 17:40:29 +0000
-Received: from mx4.wp.pl ([212.77.101.12])
+	id 1vmF0I-00000002rZw-0Y3v;
+	Sat, 31 Jan 2026 17:43:26 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmExP-00000002rOh-0Y3a
+	id 1vmF0E-00000002rZb-3s6m
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 17:40:28 +0000
-Received: (wp-smtpd smtp.wp.pl 29384 invoked from network); 31 Jan 2026 18:40:23 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
-          t=1769881223; bh=Ui9P1wXFzPVF0PkpB5duPLe2b3ppNABTPVog2puyFcw=;
-          h=From:To:Cc:Subject;
-          b=YHWW0z79NsjOjLOp70/quq5Jvc4Nml5I4jdzQX8lmls54FqGsxDfwlV8YlnoMHc+D
-           kwRrXwz0cTdOqnq5FAqZMCiOu8NVTgu7/k+XMOIloE38TpshkvKRvM5S4rP/HiEbol
-           Dgs/GX/nImk79oveCdD/IK7hHH/97oUUJtZA7awiDXG4K3ag/gKt3EqbpsKPlWygky
-           pQxnOGFZjQgFDrwz966mfPQOSUebLFBGtMJPAUlHLCvGrYFxErElaj0mt1oC/IO74m
-           36oiY7z5ZLD8tY4hF75UMkl4AfyHqpulmGMw4sBkafzXTXA82Wf8/hYFxMep2A3QWr
-           CYtnP6vBEXE0Q==
-Received: from 83.24.122.77.ipv4.supernova.orange.pl (HELO laptop-olek.lan) (olek2@wp.pl@[83.24.122.77])
-          (envelope-sender <olek2@wp.pl>)
-          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
-          for <herbert@gondor.apana.org.au>; 31 Jan 2026 18:40:23 +0100
-From: Aleksander Jan Bajkowski <olek2@wp.pl>
-To: herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	linux-crypto@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Aleksander Jan Bajkowski <olek2@wp.pl>
-Subject: [PATCH] crypto: testmgr - Add test vectors for authenc(hmac(md5),cbc(aes))
-Date: Sat, 31 Jan 2026 18:40:17 +0100
-Message-ID: <20260131174020.3670-1-olek2@wp.pl>
-X-Mailer: git-send-email 2.47.3
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-WP-DKIM-Status: good (id: wp.pl)                                                      
-X-WP-MailID: 3ea2faca69255d6cb96b7cc6212eab26
-X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 0000008 [UTvH]                               
+	Sat, 31 Jan 2026 17:43:25 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 218C64E4237A;
+	Sat, 31 Jan 2026 17:43:19 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CA50E606B6;
+	Sat, 31 Jan 2026 17:43:18 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 472E9119A888D;
+	Sat, 31 Jan 2026 18:43:09 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1769881397; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=+0GLAxiMOsLVdd68D5Q5jgpRId3SxU0Ogg0V46Yapj0=;
+	b=SJMrMNctuR74wAN8d4z0NJzEOlaGLF1diXKFZ5u1qknb7SE9NOGtn8mUGXpYpQvfDYtdeR
+	Zbx6nd1axeg5Aoze4vT/4lnKT+ZC4qxC2FpFj7h+1o2LxxUj/7seU8u1leoz1PWioDNpzU
+	6k0hOqGHR/CHDUsXeEwYmj9yxTfS9F7E3EIVNVWB2zX3FLZojA5jQnIAOusXd1Fox40j0k
+	lOFxwTi3ls00YGrvWActsK5XmsiCv/rxtvGmexbrfInrtdcZVHYMpnCnTx9f+nFPRFoz4j
+	dPwItRhhKdKhrWIU8wFOi1ekIvo3hsuK+SHh1cYbvFQqnpvN33/aAK7+QtkszQ==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 31 Jan 2026 18:43:08 +0100
+Message-Id: <DG2YL94N216P.31GDSWQ0OD1PT@bootlin.com>
+Subject: Re: [PATCH v4 4/4] drm/bridge: imx8qxp-pixel-link: get/put the next
+ bridge
+Cc: "Hui Pu" <Hui.Pu@gehealthcare.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, <dri-devel@lists.freedesktop.org>,
+ <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+To: "Liu Ying" <victor.liu@nxp.com>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Shawn Guo"
+ <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
+ <festevam@gmail.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.20.1
+References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-0-a62b4399a6bf@bootlin.com> <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-4-a62b4399a6bf@bootlin.com> <e2536229-f8d9-4d65-8211-cf445677bef2@nxp.com> <DFYQ7TS25SQT.2F7NBYOP8P5R4@bootlin.com> <efeb3583-dd0c-4e91-bbfc-54b04644f2c2@nxp.com> <DG0CHD0TAH9A.27UW4KKY2O9V7@bootlin.com> <d0836d04-d15d-45de-a765-bacad9e7759a@nxp.com> <aff6f95e-abdc-4253-8724-eec4a98bb268@nxp.com>
+In-Reply-To: <aff6f95e-abdc-4253-8724-eec4a98bb268@nxp.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_094027_326540_9F915F56 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260131_094323_250605_BF36BD7D 
+X-CRM114-Status: GOOD (  19.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,302 +88,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Test vectors were generated starting from existing CBC(AES) test vectors
-(RFC3602, NIST SP800-38A) and adding HMAC(SHA384) computed with Python
-script. Then, the results were double-checked on and NXP P2020 (talitos).
-Platform pass self-tests.
+On Thu Jan 29, 2026 at 9:18 AM CET, Liu Ying wrote:
+>
+>
+> On Thu, Jan 29, 2026 at 03:49:38PM +0800, Liu Ying wrote:
+>>
+>>
+>> On Wed, Jan 28, 2026 at 04:58:18PM +0100, Luca Ceresoli wrote:
+>>> On Tue Jan 27, 2026 at 4:54 AM CET, Liu Ying wrote:
+>>>
+>>> ...
+>>>
+>>>>>>> @@ -260,7 +259,7 @@ static int imx8qxp_pixel_link_find_next_bridge(=
+struct imx8qxp_pixel_link *pl)
+>>>>>>>  {
+>>>>>>>  	struct device_node *np =3D pl->dev->of_node;
+>>>>>>>  	struct device_node *port;
+>>>>>>> -	struct drm_bridge *selected_bridge =3D NULL;
+>>>>>>> +	struct drm_bridge *selected_bridge __free(drm_bridge_put) =3D NUL=
+L;
+>>>>>>>  	u32 port_id;
+>>>>>>>  	bool found_port =3D false;
+>>>>>>>  	int reg;
+>>>>>>> @@ -297,7 +296,8 @@ static int imx8qxp_pixel_link_find_next_bridge(=
+struct imx8qxp_pixel_link *pl)
+>>>>>>>  			continue;
+>>>>>>>  		}
+>>>>>>>
+>>>>>>> -		struct drm_bridge *next_bridge =3D of_drm_find_bridge(remote);
+>>>>>>> +		struct drm_bridge *next_bridge __free(drm_bridge_put) =3D
+>>>>>>> +			of_drm_find_and_get_bridge(remote);
+>>>>>>>  		if (!next_bridge)
+>>>>>>>  			return -EPROBE_DEFER;
+>>>>>>>
+>>>>>>> @@ -305,12 +305,14 @@ static int imx8qxp_pixel_link_find_next_bridg=
+e(struct imx8qxp_pixel_link *pl)
+>>>>>>>  		 * Select the next bridge with companion PXL2DPI if
+>>>>>>>  		 * present, otherwise default to the first bridge
+>>>>>>>  		 */
+>>>>>>> -		if (!selected_bridge || of_property_present(remote, "fsl,compani=
+on-pxl2dpi"))
+>>>>>>> -			selected_bridge =3D next_bridge;
+>>>>>>> +		if (!selected_bridge || of_property_present(remote, "fsl,compani=
+on-pxl2dpi")) {
+>>>>>>> +			drm_bridge_put(selected_bridge);
+>>>>>>> +			selected_bridge =3D drm_bridge_get(next_bridge);
+>>>>>>
+>>>>>> Considering selecting the first bridge without the companion pxl2dpi=
+,
+>>>>>> there would be a superfluous refcount for the selected bridge:
+>>>>>>
+>>>>>> 1) of_drm_find_and_get_bridge: refcount =3D 1
+>>>>>> 2) drm_bridge_put: noop, since selected_bridge is NULL, refcount =3D=
+ 1
+>>>>>> 3) drm_bridge_get: refcount =3D 2
+>>>>>> 4) drm_bridge_put(__free): refcount =3D 1
+>>>>>> 5) drm_bridge_get: for the pl->bridge.next_bridge, refcount =3D 2
+>>>>>
+>>>>> Here you are missing one put. There are two drm_bridge_put(__free), o=
+ne for
+>>>>> next_bridge and one for selected_bridge. So your list should rather b=
+e:
+>>>>>
+>>>>> 1) next_bridge =3D of_drm_find_and_get_bridge: refcount =3D 1
+>>>>> 2) drm_bridge_put(selected_bridge): noop, since selected_bridge is NU=
+LL, refcount =3D 1
+>>>>> 3) selected_bridge =3D drm_bridge_get: refcount =3D 2
+>>>>> 4) drm_bridge_put(next_bridge) [__free at loop scope end]: refcount =
+=3D 1
+>>>>> 5) pl->bridge.next_bridge =3D drm_bridge_get(), refcount =3D 2
+>>>>> 6) drm_bridge_put(selected_bridge) [__free at function scope end]: re=
+fcount =3D 1
+>>>>
+>>>> Ah, right, I did miss this last put because selected_bridge is declare=
+d with
+>>>> __free a bit far away from the loop at the very beginning of
+>>>> imx8qxp_pixel_link_find_next_bridge() - that's my problem I guess, but=
+ I'm
+>>>> not even sure if I'll fall into this same pitfall again after a while,=
+ which
+>>>> makes the driver difficult to maintain.
+>>>>
+>>>> Also, it seems that the refcount dance(back and forth bewteen 1 and 2)=
+ is not
+>>>> something straightforward for driver readers to follow.
+>>>
+>>> I thing the whole logic becomes straightforward if you think it this wa=
+y:
+>>>
+>>>  * when a pointer is assigned =3D a new reference starts existing -> re=
+fcount++
+>>>  * when a pointer is cleared/overwritten or goes out of scope =3D a ref=
+erence
+>>>    stops existing -> refcount--
+>>>
+>>> In short: one pointer, one reference, one refcount.
+>>>
+>>> If you re-read the patch with this in mind, does it become clearer?
+>>
+>> Thanks for more explaination, maybe it becomes a bit clearer, I'm not su=
+re:/
+>>
+>> Anyway, to simplify things with another try, I came up with the below
+>> snippet in that loop, which drops the two intermediate bridges(local
+>> next_bridge and selected_bridge) and uses pl->next_bridge only.
+>
+> Fix a typo:
+> s/pl->next_bridge/pl->bridge.next_bridge/
+>
+>> It looks ok to me(at least, refcount dance is much simpler).
+>>
+>> -8<-
+>> if (!pl->next_bridge || of_property_present(remote, "fsl,companion-pxl2d=
+pi")) {
+>>         drm_bridge_put(pl->next_bridge);
+>>         pl->next_bridge =3D of_drm_find_and_get_bridge(remote);
+>>         if (!pl->next_bridge)
+>>                 return -EPROBE_DEFER;
+>> }
+>> -8<-
+>
+> -8<-
+> if (!pl->bridge.next_bridge || of_property_present(remote, "fsl,companion=
+-pxl2dpi")) {
+>         drm_bridge_put(pl->bridge.next_bridge);
+>         pl->bridge.next_bridge =3D of_drm_find_and_get_bridge(remote);
+>         if (!pl->bridge.next_bridge)
+>                 return -EPROBE_DEFER;
+> }
+> -8<-
 
-Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
----
- crypto/testmgr.c |   7 ++
- crypto/testmgr.h | 255 +++++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 262 insertions(+)
+It's OK enough, so in v5 I'm going to split the if() and skip the
+intermediate selected_bridge variable.
 
-diff --git a/crypto/testmgr.c b/crypto/testmgr.c
-index a302be53896d..f3e068382073 100644
---- a/crypto/testmgr.c
-+++ b/crypto/testmgr.c
-@@ -4079,6 +4079,13 @@ static const struct alg_test_desc alg_test_descs[] = {
- 		.suite = {
- 			.aead = __VECS(aegis128_tv_template)
- 		}
-+	}, {
-+		.alg = "authenc(hmac(md5),cbc(aes))",
-+		.generic_driver = "authenc(hmac-md5-lib,cbc(aes-generic))",
-+		.test = alg_test_aead,
-+		.suite = {
-+			.aead = __VECS(hmac_md5_aes_cbc_tv_temp)
-+		}
- 	}, {
- 		.alg = "authenc(hmac(md5),ecb(cipher_null))",
- 		.generic_driver = "authenc(hmac-md5-lib,ecb-cipher_null)",
-diff --git a/crypto/testmgr.h b/crypto/testmgr.h
-index 80bf5f1b67a6..dd690da11bae 100644
---- a/crypto/testmgr.h
-+++ b/crypto/testmgr.h
-@@ -15934,6 +15934,261 @@ static const struct cipher_testvec aes_cbc_tv_template[] = {
- 	},
- };
- 
-+static const struct aead_testvec hmac_md5_aes_cbc_tv_temp[] = {
-+	{ /* RFC 3602 Case 1 */
-+#ifdef __LITTLE_ENDIAN
-+		.key    = "\x08\x00"		/* rta length */
-+			  "\x01\x00"		/* rta type */
-+#else
-+		.key    = "\x00\x08"		/* rta length */
-+			  "\x00\x01"		/* rta type */
-+#endif
-+			  "\x00\x00\x00\x10"	/* enc key length */
-+			  "\x00\x00\x00\x00\x00\x00\x00\x00"
-+			  "\x00\x00\x00\x00\x00\x00\x00\x00"
-+			  "\x06\xa9\x21\x40\x36\xb8\xa1\x5b"
-+			  "\x51\x2e\x03\xd5\x34\x12\x00\x06",
-+		.klen   = 8 + 16 + 16,
-+		.iv     = "\x3d\xaf\xba\x42\x9d\x9e\xb4\x30"
-+			  "\xb4\x22\xda\x80\x2c\x9f\xac\x41",
-+		.assoc	= "\x3d\xaf\xba\x42\x9d\x9e\xb4\x30"
-+			  "\xb4\x22\xda\x80\x2c\x9f\xac\x41",
-+		.alen	= 16,
-+		.ptext	= "Single block msg",
-+		.plen	= 16,
-+		.ctext	= "\xe3\x53\x77\x9c\x10\x79\xae\xb8"
-+			  "\x27\x08\x94\x2d\xbe\x77\x18\x1a"
-+			  "\x22\x10\xf2\x25\x7f\xe9\x0d\x92"
-+			  "\xfc\x00\x55\xb1\xd0\xb5\x3a\x74",
-+		.clen	= 16 + 16,
-+	}, { /* RFC 3602 Case 2 */
-+#ifdef __LITTLE_ENDIAN
-+		.key    = "\x08\x00"		/* rta length */
-+			  "\x01\x00"		/* rta type */
-+#else
-+		.key    = "\x00\x08"		/* rta length */
-+			  "\x00\x01"		/* rta type */
-+#endif
-+			  "\x00\x00\x00\x10"	/* enc key length */
-+			  "\x20\x21\x22\x23\x24\x25\x26\x27"
-+			  "\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f"
-+			  "\xc2\x86\x69\x6d\x88\x7c\x9a\xa0"
-+			  "\x61\x1b\xbb\x3e\x20\x25\xa4\x5a",
-+		.klen   = 8 + 16 + 16,
-+		.iv     = "\x56\x2e\x17\x99\x6d\x09\x3d\x28"
-+			  "\xdd\xb3\xba\x69\x5a\x2e\x6f\x58",
-+		.assoc	= "\x56\x2e\x17\x99\x6d\x09\x3d\x28"
-+			  "\xdd\xb3\xba\x69\x5a\x2e\x6f\x58",
-+		.alen	= 16,
-+		.ptext	= "\x00\x01\x02\x03\x04\x05\x06\x07"
-+			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
-+			  "\x10\x11\x12\x13\x14\x15\x16\x17"
-+			  "\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f",
-+		.plen	= 32,
-+		.ctext	= "\xd2\x96\xcd\x94\xc2\xcc\xcf\x8a"
-+			  "\x3a\x86\x30\x28\xb5\xe1\xdc\x0a"
-+			  "\x75\x86\x60\x2d\x25\x3c\xff\xf9"
-+			  "\x1b\x82\x66\xbe\xa6\xd6\x1a\xb1"
-+			  "\x31\xef\xd1\x5e\x2d\x83\xde\x59"
-+			  "\x5c\x63\x6c\xd6\x6e\x96\x8c\x5b",
-+		.clen	= 32 + 16,
-+	}, { /* RFC 3602 Case 3 */
-+#ifdef __LITTLE_ENDIAN
-+		.key    = "\x08\x00"		/* rta length */
-+			  "\x01\x00"            /* rta type */
-+#else
-+		.key    = "\x00\x08"		/* rta length */
-+			  "\x00\x01"		/* rta type */
-+#endif
-+			  "\x00\x00\x00\x10"	/* enc key length */
-+			  "\x11\x22\x33\x44\x55\x66\x77\x88"
-+			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
-+			  "\x6c\x3e\xa0\x47\x76\x30\xce\x21"
-+			  "\xa2\xce\x33\x4a\xa7\x46\xc2\xcd",
-+		.klen   = 8 + 16 + 16,
-+		.iv     = "\xc7\x82\xdc\x4c\x09\x8c\x66\xcb"
-+			  "\xd9\xcd\x27\xd8\x25\x68\x2c\x81",
-+		.assoc	= "\xc7\x82\xdc\x4c\x09\x8c\x66\xcb"
-+			  "\xd9\xcd\x27\xd8\x25\x68\x2c\x81",
-+		.alen	= 16,
-+		.ptext	= "This is a 48-byte message (exactly 3 AES blocks)",
-+		.plen	= 48,
-+		.ctext	= "\xd0\xa0\x2b\x38\x36\x45\x17\x53"
-+			  "\xd4\x93\x66\x5d\x33\xf0\xe8\x86"
-+			  "\x2d\xea\x54\xcd\xb2\x93\xab\xc7"
-+			  "\x50\x69\x39\x27\x67\x72\xf8\xd5"
-+			  "\x02\x1c\x19\x21\x6b\xad\x52\x5c"
-+			  "\x85\x79\x69\x5d\x83\xba\x26\x84"
-+			  "\xa1\x9e\xc5\x65\x43\xc5\x51\x70"
-+			  "\xb5\xc8\x38\xce\xbb\x3b\xc6\x0f",
-+		.clen	= 48 + 16,
-+	}, { /* RFC 3602 Case 4 */
-+#ifdef __LITTLE_ENDIAN
-+		.key    = "\x08\x00"		/* rta length */
-+			  "\x01\x00"		/* rta type */
-+#else
-+		.key    = "\x00\x08"		/* rta length */
-+			  "\x00\x01"            /* rta type */
-+#endif
-+			  "\x00\x00\x00\x10"	/* enc key length */
-+			  "\x11\x22\x33\x44\x55\x66\x77\x88"
-+			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
-+			  "\x56\xe4\x7a\x38\xc5\x59\x89\x74"
-+			  "\xbc\x46\x90\x3d\xba\x29\x03\x49",
-+		.klen   = 8 + 16 + 16,
-+		.iv     = "\x8c\xe8\x2e\xef\xbe\xa0\xda\x3c"
-+			  "\x44\x69\x9e\xd7\xdb\x51\xb7\xd9",
-+		.assoc	= "\x8c\xe8\x2e\xef\xbe\xa0\xda\x3c"
-+			  "\x44\x69\x9e\xd7\xdb\x51\xb7\xd9",
-+		.alen	= 16,
-+		.ptext	= "\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7"
-+			  "\xa8\xa9\xaa\xab\xac\xad\xae\xaf"
-+			  "\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7"
-+			  "\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf"
-+			  "\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7"
-+			  "\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf"
-+			  "\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7"
-+			  "\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf",
-+		.plen	= 64,
-+		.ctext	= "\xc3\x0e\x32\xff\xed\xc0\x77\x4e"
-+			  "\x6a\xff\x6a\xf0\x86\x9f\x71\xaa"
-+			  "\x0f\x3a\xf0\x7a\x9a\x31\xa9\xc6"
-+			  "\x84\xdb\x20\x7e\xb0\xef\x8e\x4e"
-+			  "\x35\x90\x7a\xa6\x32\xc3\xff\xdf"
-+			  "\x86\x8b\xb7\xb2\x9d\x3d\x46\xad"
-+			  "\x83\xce\x9f\x9a\x10\x2e\xe9\x9d"
-+			  "\x49\xa5\x3e\x87\xf4\xc3\xda\x55"
-+			  "\x19\x90\xcc\x2c\x6d\x76\x0f\xd6"
-+			  "\x6c\x54\x09\xb1\x3e\x98\x0c\x11",
-+		.clen	= 64 + 16,
-+	}, { /* RFC 3602 Case 5 */
-+#ifdef __LITTLE_ENDIAN
-+		.key    = "\x08\x00"		/* rta length */
-+			  "\x01\x00"            /* rta type */
-+#else
-+		.key    = "\x00\x08"		/* rta length */
-+			  "\x00\x01"            /* rta type */
-+#endif
-+			  "\x00\x00\x00\x10"	/* enc key length */
-+			  "\x11\x22\x33\x44\x55\x66\x77\x88"
-+			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
-+			  "\x90\xd3\x82\xb4\x10\xee\xba\x7a"
-+			  "\xd9\x38\xc4\x6c\xec\x1a\x82\xbf",
-+		.klen   = 8 + 16 + 16,
-+		.iv     = "\xe9\x6e\x8c\x08\xab\x46\x57\x63"
-+			  "\xfd\x09\x8d\x45\xdd\x3f\xf8\x93",
-+		.assoc  = "\x00\x00\x43\x21\x00\x00\x00\x01"
-+			  "\xe9\x6e\x8c\x08\xab\x46\x57\x63"
-+			  "\xfd\x09\x8d\x45\xdd\x3f\xf8\x93",
-+		.alen   = 24,
-+		.ptext	= "\x08\x00\x0e\xbd\xa7\x0a\x00\x00"
-+			  "\x8e\x9c\x08\x3d\xb9\x5b\x07\x00"
-+			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
-+			  "\x10\x11\x12\x13\x14\x15\x16\x17"
-+			  "\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f"
-+			  "\x20\x21\x22\x23\x24\x25\x26\x27"
-+			  "\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f"
-+			  "\x30\x31\x32\x33\x34\x35\x36\x37"
-+			  "\x01\x02\x03\x04\x05\x06\x07\x08"
-+			  "\x09\x0a\x0b\x0c\x0d\x0e\x0e\x01",
-+		.plen	= 80,
-+		.ctext	= "\xf6\x63\xc2\x5d\x32\x5c\x18\xc6"
-+			  "\xa9\x45\x3e\x19\x4e\x12\x08\x49"
-+			  "\xa4\x87\x0b\x66\xcc\x6b\x99\x65"
-+			  "\x33\x00\x13\xb4\x89\x8d\xc8\x56"
-+			  "\xa4\x69\x9e\x52\x3a\x55\xdb\x08"
-+			  "\x0b\x59\xec\x3a\x8e\x4b\x7e\x52"
-+			  "\x77\x5b\x07\xd1\xdb\x34\xed\x9c"
-+			  "\x53\x8a\xb5\x0c\x55\x1b\x87\x4a"
-+			  "\xa2\x69\xad\xd0\x47\xad\x2d\x59"
-+			  "\x13\xac\x19\xb7\xcf\xba\xd4\xa6"
-+			  "\x9f\x6f\xa4\x85\x28\xf1\xc9\xea"
-+			  "\xe1\xd0\x7d\x30\x4a\xd0\x81\x12",
-+		.clen	= 80 + 16,
-+	}, { /* NIST SP800-38A F.2.3 CBC-AES192.Encrypt */
-+#ifdef __LITTLE_ENDIAN
-+		.key    = "\x08\x00"            /* rta length */
-+			  "\x01\x00"		/* rta type */
-+#else
-+		.key    = "\x00\x08"		/* rta length */
-+			  "\x00\x01"            /* rta type */
-+#endif
-+			  "\x00\x00\x00\x18"	/* enc key length */
-+			  "\x11\x22\x33\x44\x55\x66\x77\x88"
-+			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
-+			  "\x8e\x73\xb0\xf7\xda\x0e\x64\x52"
-+			  "\xc8\x10\xf3\x2b\x80\x90\x79\xe5"
-+			  "\x62\xf8\xea\xd2\x52\x2c\x6b\x7b",
-+		.klen   = 8 + 16 + 24,
-+		.iv     = "\x00\x01\x02\x03\x04\x05\x06\x07"
-+			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f",
-+		.assoc	= "\x00\x01\x02\x03\x04\x05\x06\x07"
-+			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f",
-+		.alen	= 16,
-+		.ptext	= "\x6b\xc1\xbe\xe2\x2e\x40\x9f\x96"
-+			  "\xe9\x3d\x7e\x11\x73\x93\x17\x2a"
-+			  "\xae\x2d\x8a\x57\x1e\x03\xac\x9c"
-+			  "\x9e\xb7\x6f\xac\x45\xaf\x8e\x51"
-+			  "\x30\xc8\x1c\x46\xa3\x5c\xe4\x11"
-+			  "\xe5\xfb\xc1\x19\x1a\x0a\x52\xef"
-+			  "\xf6\x9f\x24\x45\xdf\x4f\x9b\x17"
-+			  "\xad\x2b\x41\x7b\xe6\x6c\x37\x10",
-+		.plen	= 64,
-+		.ctext	= "\x4f\x02\x1d\xb2\x43\xbc\x63\x3d"
-+			  "\x71\x78\x18\x3a\x9f\xa0\x71\xe8"
-+			  "\xb4\xd9\xad\xa9\xad\x7d\xed\xf4"
-+			  "\xe5\xe7\x38\x76\x3f\x69\x14\x5a"
-+			  "\x57\x1b\x24\x20\x12\xfb\x7a\xe0"
-+			  "\x7f\xa9\xba\xac\x3d\xf1\x02\xe0"
-+			  "\x08\xb0\xe2\x79\x88\x59\x88\x81"
-+			  "\xd9\x20\xa9\xe6\x4f\x56\x15\xcd"
-+			  "\xc3\x46\xe5\x2c\x07\x27\x50\xca"
-+			  "\x50\x4a\x83\x5f\x72\xd9\x76\x8d",
-+		.clen	= 64 + 16,
-+	}, { /* NIST SP800-38A F.2.5 CBC-AES256.Encrypt */
-+#ifdef __LITTLE_ENDIAN
-+		.key    = "\x08\x00"		/* rta length */
-+			  "\x01\x00"		/* rta type */
-+#else
-+		.key    = "\x00\x08"		/* rta length */
-+			  "\x00\x01"            /* rta type */
-+#endif
-+			  "\x00\x00\x00\x20"	/* enc key length */
-+			  "\x11\x22\x33\x44\x55\x66\x77\x88"
-+			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
-+			  "\x60\x3d\xeb\x10\x15\xca\x71\xbe"
-+			  "\x2b\x73\xae\xf0\x85\x7d\x77\x81"
-+			  "\x1f\x35\x2c\x07\x3b\x61\x08\xd7"
-+			  "\x2d\x98\x10\xa3\x09\x14\xdf\xf4",
-+		.klen   = 8 + 16 + 32,
-+		.iv     = "\x00\x01\x02\x03\x04\x05\x06\x07"
-+			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f",
-+		.assoc	= "\x00\x01\x02\x03\x04\x05\x06\x07"
-+			  "\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f",
-+		.alen	= 16,
-+		.ptext	= "\x6b\xc1\xbe\xe2\x2e\x40\x9f\x96"
-+			  "\xe9\x3d\x7e\x11\x73\x93\x17\x2a"
-+			  "\xae\x2d\x8a\x57\x1e\x03\xac\x9c"
-+			  "\x9e\xb7\x6f\xac\x45\xaf\x8e\x51"
-+			  "\x30\xc8\x1c\x46\xa3\x5c\xe4\x11"
-+			  "\xe5\xfb\xc1\x19\x1a\x0a\x52\xef"
-+			  "\xf6\x9f\x24\x45\xdf\x4f\x9b\x17"
-+			  "\xad\x2b\x41\x7b\xe6\x6c\x37\x10",
-+		.plen	= 64,
-+		.ctext	= "\xf5\x8c\x4c\x04\xd6\xe5\xf1\xba"
-+			  "\x77\x9e\xab\xfb\x5f\x7b\xfb\xd6"
-+			  "\x9c\xfc\x4e\x96\x7e\xdb\x80\x8d"
-+			  "\x67\x9f\x77\x7b\xc6\x70\x2c\x7d"
-+			  "\x39\xf2\x33\x69\xa9\xd9\xba\xcf"
-+			  "\xa5\x30\xe2\x63\x04\x23\x14\x61"
-+			  "\xb2\xeb\x05\xe2\xc3\x9b\xe9\xfc"
-+			  "\xda\x6c\x19\x07\x8c\x6a\x9d\x1b"
-+			  "\x59\x62\x06\x71\x57\xdf\x18\x15"
-+			  "\x32\x02\xfa\xce\x2c\xd2\x1a\x8d",
-+		.clen	= 64 + 16,
-+	},
-+};
-+
- static const struct aead_testvec hmac_md5_ecb_cipher_null_tv_template[] = {
- 	{ /* Input data from RFC 2410 Case 1 */
- #ifdef __LITTLE_ENDIAN
--- 
-2.47.3
+Luca
 
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
