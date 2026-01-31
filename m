@@ -4,76 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C03CD79770
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 14:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68ED4D7977E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 15:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VX1ucsnfGT5wuxRP6BO6bI7cHl7cWTSTpYwvnXCcfVk=; b=wgVb45R2mN83J75lz38QdtRn0w
-	ggOqQ6nQTmy9DNAGIc5xODBKflBNQCeBDIeEFvaa6KS/Vtwf+J46/K6awe2BT035/RujJd6gS8rD4
-	Pi250kIMLP+YtKvGwxHmP4LubSo1GId78X5wzReLMnqpx6YfXV2OY+9X1NOuC8axesP1DhxScVOcI
-	6fTzMiOAUXCFBnEAu0qlWP2MOVY0d2rKd+D8wQ864cYZIms0YZ8GRdGdrol7VfFQzPV09h47PipMd
-	WxUl0Kq2lnpMrwrdB33HbRTKoLViCsfCrt14Sc9Ww2NFwV5J+ouRycmcNTEllyaDYer6pBF36NksL
-	vhK8U81g==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kFQ3JH7bTaVaIkyZ1bwbiUf2YzJPD1mXXk4UJx103/U=; b=Z9G8y+MO2unkdWAxWYIz7nNYQq
+	IGthmGMRFkj02kzhaoeTAjJI08n3nyXO310lmZAFo/hkmFO4OajO/S2EgtjFSNbxYtQ6myUYfNSc8
+	+e54wSBgI3pxMANUAULoPl9DJc7aHfGbGszg27o+1lcWZmZEJpRkf7n4W33dEjLoWn3DdtxQoW0NQ
+	SMJoD+LwxuNjsLhG07uBHJ3mB9BPc2yxtB98zNv4koz6khdx0vm4z0p6UYUIa/y9gq2bnwcZuqwop
+	4mV8z/vArBGUEtlbHJ0gKOt85pI+BsYLexWpcqzl5Srn2XttVmRmeQSSX/hJ6H2ZQ6Y6uf7Nzu37R
+	WbgT7/tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmCL7-00000002izQ-3IZw;
-	Sat, 31 Jan 2026 14:52:45 +0000
-Received: from out-189.mta1.migadu.com ([2001:41d0:203:375::bd])
+	id 1vmCwT-00000002kJf-1hLl;
+	Sat, 31 Jan 2026 15:31:21 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmCL5-00000002iiu-41Ia
+	id 1vmCwQ-00000002kIt-3DMj
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 14:52:45 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1769871039;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VX1ucsnfGT5wuxRP6BO6bI7cHl7cWTSTpYwvnXCcfVk=;
-	b=IuItCy9CR3bL3S7NwQX4ZvWx/Fjt982h0fhnNQ+lg7XkMPI+DrI5tXtWR1aGJo4kXKUoV2
-	sP9MTs82ufYt0q5cYxbWh+fkTt5JZFGWt9JHbDCj8FO/ccRFdv0oxWF4CuUzSp2dkUFZT7
-	BLss+7u79fFbIQyvknrwGEHYHNDxos8=
-From: Leon Hwang <leon.hwang@linux.dev>
-To: bpf@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Menglong Dong <menglong8.dong@gmail.com>,
-	Leon Hwang <leon.hwang@linux.dev>,
+	Sat, 31 Jan 2026 15:31:20 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-c65822dead7so1182936a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 07:31:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769873477; x=1770478277; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kFQ3JH7bTaVaIkyZ1bwbiUf2YzJPD1mXXk4UJx103/U=;
+        b=JZbhucmlt5C1W32xkKo1OH75IOF8vfYHzjjUX4EENRWHFRV2fjJA4+d32dUiLYG7FI
+         1ijGjDZEMcfz45pCN46qSxOB3Y+L5VaM0br8vlZyUGAumtgSlwOZnXIirssno6bWqLW2
+         1fRifZGJYAMi+p+1QV6YDGseKvWhb2QuKoaBUwCBSr+SUcnTpkC7nVrgqx6j480dnAn0
+         y6b5HUAhCiGmjtzwexsaGBtc2J/0TOkVMuUrTtvG3PAADl6tEhxcm06DkBHsDZvV6nrf
+         Dj/KjtkW6V50LbYv6xIsLqd+YCCqWLz8XhYePRJN2lSWe/9bZ+wsQRot0ogwi5iX/hZx
+         VW1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769873477; x=1770478277;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kFQ3JH7bTaVaIkyZ1bwbiUf2YzJPD1mXXk4UJx103/U=;
+        b=rlX7kwG4RScbqqMOKTv1jKzp1jnbcLrxXUWdozxX/Fg/IuMZ1Gtuvg4JCcDebbm15H
+         A9DKUbXdlKzwSHmvEHSUO6eRRQ4LNgB9IUGCcRUYPRHJd6boaS8gagb+WphqMsT6D+VF
+         4ZxwSPHiCJOVUNGcVJtpQC9cBgKygHm4FqPrswROSqNHjzB4hEE4CtgWT9aZzjb1Y1VL
+         iHFJEdbCRWa77S35ld6IUk0xLoPLSPTuYoUDQ4JhdfRYrxtt/85qqGdoyXBJiEfYW4Oa
+         go9jbjFm1pDi0CQBefrpPZapcA1rNEvXzViMdfDwKpv9B6uNkpjotLE+UpTzhEFz9dNL
+         jLQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUoLbtodd77ziPTNXVnfm+rYdFdH7OllgErc1fUkCQG1gRNYeyHxYBBCPG/ROTkLXyFeHo/dEnseRogd2alVPj8@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhtgNLQvwPzPkQ+Rg+BE3NH5Ctj8PlkmLhWdbfEUtTsFiPSmTo
+	/1cmUI9ZJq+H8LoCIhfIV+VXt1RPpMiQhuTgsyv2xNuy06elizSicSDmUa7zWfIV
+X-Gm-Gg: AZuq6aJOsAZExD1AGb+lLePkBfvIHFUjjXqvmte1pXCJaODSx+36fkknwSs4sv19Rzd
+	TwxzkzUKmYkT8MB2M0u4Ljeyu2RxAQtk+r/kNVzvauXxJdnQKq7RL7kgpgL/YcYYzdXtzU45lKr
+	8jBkxLEDTHV80gvJx0Tf3QLhzYsKGRBTE4F9MArKPG0gMLbFX5j+jqNIX6ZQgAv9kTtLAVZe6pc
+	29JMhrBAU2Cmq+m+TA+B5HWRwTCAttK/mkpzj3qqiujm0xLJt8SCYpGipTjZB1f0aikTPYSOKfQ
+	M7CGJV7JpjrMbhwMj2+TI4GmdP8AYmwdJFdVOf8YCDKoHMOEwwteq/vzwy8HjzFKWnJ0+l11q37
+	f/FHEdK+kKG7AxH3LiwSBIWXq/whOjL1ozIfyjfavvpiXRvbIRe64ndzHTSXm00nZvhQCtqmyfX
+	PulMsIy+TaKag/GID8z8hLbKeLM3dvsYbQevoKRC4LkPOdrc/+
+X-Received: by 2002:a17:90b:5868:b0:32b:baaa:21b0 with SMTP id 98e67ed59e1d1-3543b2e0552mr7576153a91.6.1769873477161;
+        Sat, 31 Jan 2026 07:31:17 -0800 (PST)
+Received: from arch.localdomain (awork135098.netvigator.com. [219.76.135.98])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c642487f1f5sm10701122a12.0.2026.01.31.07.31.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 31 Jan 2026 07:31:16 -0800 (PST)
+From: Jun Yan <jerrysteve1101@gmail.com>
+To: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	kernel-patches-bot@fb.com
-Subject: [PATCH bpf-next v5 1/3] bpf: Add bpf_jit_supports_fsession()
-Date: Sat, 31 Jan 2026 22:49:48 +0800
-Message-ID: <20260131144950.16294-2-leon.hwang@linux.dev>
-In-Reply-To: <20260131144950.16294-1-leon.hwang@linux.dev>
-References: <20260131144950.16294-1-leon.hwang@linux.dev>
+	linux-rockchip@lists.infradead.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	alchark@gmail.com,
+	dsimic@manjaro.org,
+	Jun Yan <jerrysteve1101@gmail.com>
+Subject: [PATCH v2 0/3] board: rockchip: add OneThing Edge Cube series
+Date: Sat, 31 Jan 2026 23:31:00 +0800
+Message-ID: <20260131153106.31723-1-jerrysteve1101@gmail.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_065244_281842_3D3DA3B3 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20260131_073118_798406_7303F2A7 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,151 +103,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The added fsession does not prevent running on those architectures, that
-haven't added fsession support.
+This series adds support for the OneThing Edge Cube series, which were
+initially marketed by OneThing Tech as PCDN (P2P Content Delivery Network) 
+devices. The Edge Cube series is based on Rockchip RK3566 SoC and is designed
+for PCDN applications.
 
-For example, try to run fsession tests on arm64:
+The V2 patches adds a new device, the OneThing OEC. Together with the V1 patch 
+OneThing OEC-turbo, these two devices share identical hardware specifications
+except for the RAM capacity, enabling convenient support implementation.
 
-test_fsession_basic:PASS:fsession_test__open_and_load 0 nsec
-test_fsession_basic:PASS:fsession_attach 0 nsec
-check_result:FAIL:test_run_opts err unexpected error: -14 (errno 14)
+The V1 patch was submitted quite some time ago and is now in an archived state[1].
+it has not been processed due to scheduling conflicts – apologies for this.
 
-In order to prevent such errors, add bpf_jit_supports_fsession() to guard
-those architectures.
+Changes in v2:
+- Fix typo in vendor-prefixes.
+- Simplify company and device names.
+- Add the new device OEC as part of the OneThing Edge Cube series for support.
+- Set display-subsystem node to "disabled" instead of using "delete-node".
+- Using generic node names for leds.
+- Follow DTS codeing style in vcc5v0_usb_host_en pinctrl node.
+- Modify the phy_mode of GMAC from rgmii to rgmii-id.
+- Adjust device tree node ordering to follow code style.
 
-Fixes: 2d419c44658f ("bpf: add fsession support")
-Acked-by: Puranjay Mohan <puranjay@kernel.org>
-Tested-by: Puranjay Mohan <puranjay@kernel.org>
-Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
----
- arch/x86/net/bpf_jit_comp.c                   |  5 +++
- include/linux/filter.h                        |  1 +
- kernel/bpf/core.c                             |  5 +++
- kernel/bpf/verifier.c                         |  5 +++
- .../selftests/bpf/prog_tests/fsession_test.c  | 32 ++++++++++++++-----
- 5 files changed, 40 insertions(+), 8 deletions(-)
+Link to v1: https://lore.kernel.org/all/20250713163255.163669-1-jerrysteve1101@gmail.com/
 
-diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
-index 5a075e06cf45..070ba80e39d7 100644
---- a/arch/x86/net/bpf_jit_comp.c
-+++ b/arch/x86/net/bpf_jit_comp.c
-@@ -4112,3 +4112,8 @@ bool bpf_jit_supports_timed_may_goto(void)
- {
- 	return true;
- }
-+
-+bool bpf_jit_supports_fsession(void)
-+{
-+	return true;
-+}
-diff --git a/include/linux/filter.h b/include/linux/filter.h
-index fd54fed8f95f..4e1cb4f91f49 100644
---- a/include/linux/filter.h
-+++ b/include/linux/filter.h
-@@ -1167,6 +1167,7 @@ bool bpf_jit_supports_arena(void);
- bool bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena);
- bool bpf_jit_supports_private_stack(void);
- bool bpf_jit_supports_timed_may_goto(void);
-+bool bpf_jit_supports_fsession(void);
- u64 bpf_arch_uaddress_limit(void);
- void arch_bpf_stack_walk(bool (*consume_fn)(void *cookie, u64 ip, u64 sp, u64 bp), void *cookie);
- u64 arch_bpf_timed_may_goto(void);
-diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-index 5ebece600aeb..dc906dfdff94 100644
---- a/kernel/bpf/core.c
-+++ b/kernel/bpf/core.c
-@@ -3144,6 +3144,11 @@ bool __weak bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena)
- 	return false;
- }
- 
-+bool __weak bpf_jit_supports_fsession(void)
-+{
-+	return false;
-+}
-+
- u64 __weak bpf_arch_uaddress_limit(void)
- {
- #if defined(CONFIG_64BIT) && defined(CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE)
-diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-index 256cc5c1a7df..6b62b6d57175 100644
---- a/kernel/bpf/verifier.c
-+++ b/kernel/bpf/verifier.c
-@@ -24828,6 +24828,11 @@ int bpf_check_attach_target(struct bpf_verifier_log *log,
- 	case BPF_TRACE_FENTRY:
- 	case BPF_TRACE_FEXIT:
- 	case BPF_TRACE_FSESSION:
-+		if (prog->expected_attach_type == BPF_TRACE_FSESSION &&
-+		    !bpf_jit_supports_fsession()) {
-+			bpf_log(log, "JIT does not support fsession\n");
-+			return -EOPNOTSUPP;
-+		}
- 		if (!btf_type_is_func(t)) {
- 			bpf_log(log, "attach_btf_id %u is not a function\n",
- 				btf_id);
-diff --git a/tools/testing/selftests/bpf/prog_tests/fsession_test.c b/tools/testing/selftests/bpf/prog_tests/fsession_test.c
-index 0c4b428e1cee..a299aeb8cc2e 100644
---- a/tools/testing/selftests/bpf/prog_tests/fsession_test.c
-+++ b/tools/testing/selftests/bpf/prog_tests/fsession_test.c
-@@ -29,8 +29,16 @@ static void test_fsession_basic(void)
- 	struct fsession_test *skel = NULL;
- 	int err;
- 
--	skel = fsession_test__open_and_load();
--	if (!ASSERT_OK_PTR(skel, "fsession_test__open_and_load"))
-+	skel = fsession_test__open();
-+	if (!ASSERT_OK_PTR(skel, "fsession_test__open"))
-+		return;
-+
-+	err = fsession_test__load(skel);
-+	if (err == -EOPNOTSUPP) {
-+		test__skip();
-+		goto cleanup;
-+	}
-+	if (!ASSERT_OK(err, "fsession_test__load"))
- 		goto cleanup;
- 
- 	err = fsession_test__attach(skel);
-@@ -47,8 +55,16 @@ static void test_fsession_reattach(void)
- 	struct fsession_test *skel = NULL;
- 	int err;
- 
--	skel = fsession_test__open_and_load();
--	if (!ASSERT_OK_PTR(skel, "fsession_test__open_and_load"))
-+	skel = fsession_test__open();
-+	if (!ASSERT_OK_PTR(skel, "fsession_test__open"))
-+		return;
-+
-+	err = fsession_test__load(skel);
-+	if (err == -EOPNOTSUPP) {
-+		test__skip();
-+		goto cleanup;
-+	}
-+	if (!ASSERT_OK(err, "fsession_test__load"))
- 		goto cleanup;
- 
- 	/* first attach */
-@@ -94,6 +110,10 @@ static void test_fsession_cookie(void)
- 	bpf_program__set_autoload(skel->progs.test6, false);
- 
- 	err = fsession_test__load(skel);
-+	if (err == -EOPNOTSUPP) {
-+		test__skip();
-+		goto cleanup;
-+	}
- 	if (!ASSERT_OK(err, "fsession_test__load"))
- 		goto cleanup;
- 
-@@ -111,10 +131,6 @@ static void test_fsession_cookie(void)
- 
- void test_fsession_test(void)
- {
--#if !defined(__x86_64__)
--	test__skip();
--	return;
--#endif
- 	if (test__start_subtest("fsession_test"))
- 		test_fsession_basic();
- 	if (test__start_subtest("fsession_reattach"))
+[1] https://patchwork.kernel.org/project/linux-rockchip/cover/20250713163255.163669-1-jerrysteve1101@gmail.com/
+
+Jun Yan (3):
+  dt-bindings: vendor-prefixes: Add Shenzhen OneThing Technologies Co.,
+    Ltd.
+  dt-bindings: arm: rockchip: Add OneThing Edge Cube series
+  arm64: dts: rockchip: Add OneThing Edge Cube series
+
+ .../devicetree/bindings/arm/rockchip.yaml     |   6 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   2 +
+ .../rockchip/rk3566-onething-oec-turbo.dts    |  10 +
+ .../boot/dts/rockchip/rk3566-onething-oec.dts |  10 +
+ .../dts/rockchip/rk3566-onething-oec.dtsi     | 313 ++++++++++++++++++
+ 6 files changed, 343 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-oec-turbo.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-oec.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-oec.dtsi
+
 -- 
 2.52.0
 
