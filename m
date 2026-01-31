@@ -4,56 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37855E7C6E4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 20:27:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C328E7C6E8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 20:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rGwHSkJZn2IHtl0VYuWdb593LJsaVvLLi0zc9pE7w4M=; b=YBxzKtuYqfCudgjf4pcvNIZjDw
-	DSrbZPntV0fhhIk2D822ZvprFwqlqgV1XwIU6nLLN/cBxXDnr8ihbMp32ztL4S31o4VWffM2JsS5d
-	ytflTOrcVezzFpKqyMMv2DmyA2l5TW4zheKQH+tN81ty7M1lk/V17AE2yDA09Wh8GT9uQMJzzbnMT
-	lPX4nEhhCkb7uKrpC9rq6Jm+DzaOjbdP2KP9aRPjyO4azW1okv2e82pTbOfOfcQN/FDig6nkPCsEP
-	wRPkXBODWywXyqbEsdQ0QkpzMy2nSY9OWbUnWaNdKzpRgguT8dHJIXkA+MmhYJ7dEc+zF3bYJRAVC
-	9xVJ03wg==;
+	bh=INXU9gyGmGPfJKPdYYIXTfbqsq3k+OMEPKOzUIGSy5A=; b=Bp6l4j6G/YBYxTzbW7ubT3EGEd
+	uP4b9mBgHdcUMylQZRzt79KRa9YUOtco+d5mT9gFvQplLCY0xdC925TYLDXNem/6ixem9LuR2UYm/
+	QUTPfmzZA+LdIcgfaCFKwRMB2QazZQddBj7krxT88QVuk4iVasEzlzSB1pBeooMduT/ZWG9txZUqk
+	+L9Z5myhuWRySP2cUzdtT7OQgHWU1b9NqyoqI4YT74May3c/v1CGMe05sX8URdzvaCJxAs9sMBbCl
+	DhaXqiucDmCqzspk1J1f2NV6tNIKjV2S601HCJEn7wPxnwMINkm2w51jI3Wb6ARAtPDS6tZYGE94Q
+	4s/NL9CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmHZ4-00000002ylu-1vwO;
-	Sat, 31 Jan 2026 20:27:30 +0000
-Received: from mail1.manjaro.org ([2a01:4f8:c010:b6e8::1])
+	id 1vmHb6-00000002ywa-12Xg;
+	Sat, 31 Jan 2026 20:29:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmHYz-00000002ykf-2Ck3;
-	Sat, 31 Jan 2026 20:27:27 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 855EA41C15;
-	Sat, 31 Jan 2026 21:27:13 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
-	t=1769891239; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=rGwHSkJZn2IHtl0VYuWdb593LJsaVvLLi0zc9pE7w4M=;
-	b=ZyqFDnDImliBIsUp4VykZflufnaQHVYRGy/rqwfzoKWPcQyhQFcSnPflhjZRJQFnKhJacu
-	YSOLR8EPflWQM7jcPniJUdaj7UMm6vNDrDJHz/s3u/9gD2tKGa9S1tpKiHjUEqt/sIiAGc
-	Eebkdhib4q0FS0TWnpHeZPjo3nopjTtje9Bzuv+AmWyLHiAwO01X9GHI08Wmb0g08NszXB
-	DF7WGRS5R6EVu4AVK5HO/BpM8jlCD3VuoSECH7ce670CtP9oZQLKL7ppkPrzhbAAwtWEjl
-	wau7sAQs0r+72mhm+aTXwXN6xJmZDU3P2qe3gxD4pMOX7AHSp31pRMVUTOXbrw==
-From: "Dragan Simic" <dsimic@manjaro.org>
-In-Reply-To: <20260131153106.31723-4-jerrysteve1101@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-References: <20260131153106.31723-1-jerrysteve1101@gmail.com> <20260131153106.31723-4-jerrysteve1101@gmail.com>
-Date: Sat, 31 Jan 2026 21:27:13 +0100
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, alchark@gmail.com
-To: "Jun Yan" <jerrysteve1101@gmail.com>
+	id 1vmHb3-00000002ywC-4ANC;
+	Sat, 31 Jan 2026 20:29:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 73F5043E7A;
+	Sat, 31 Jan 2026 20:29:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D57BC4CEF1;
+	Sat, 31 Jan 2026 20:29:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769891370;
+	bh=f0sVImFUlGUkuDHHeMXMU0xTHVTKaPTYa/g/4OG2kC4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hCr2PLQuZGhohXSyckec2GNgJYpCxAMZiX5ZXuttI4h2ISOBME3Lc1ktaD27gKua/
+	 5+FLzHuFW7MKFcTp70y58xoL3pLB7mryAgS+x2fG4zCfZeS3kt5StmJE7pEhtVISeD
+	 pTEEtQiS+iRscKtjZSxxyBtCI6IP51EdLe9G6ITZ03sQhb7tzhtGLVcs2VxLTp0jJL
+	 R9K2xs7xENKEjOtw4t0gLJe2gpLmOjjwXWpPk/AKVSLZ4gFK2kjADtNRT/T0eBGJmf
+	 mPcerwginCUTFbFMsvhw99lizzkwRYRZV6+hls8T+nT0YeWF0+nCe3VhzXVd7J9Un6
+	 cHKI/5Lv8BRCA==
+Date: Sat, 31 Jan 2026 20:29:25 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jun Yan <jerrysteve1101@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+	alchark@gmail.com, dsimic@manjaro.org
+Subject: Re: [PATCH 2/3] dt-bindings: arm: rockchip: Add OneThing Edge Cube
+ series
+Message-ID: <20260131-acclaim-exciting-dff4e7af23a5@spud>
+References: <20260131153106.31723-1-jerrysteve1101@gmail.com>
+ <20260131153106.31723-3-jerrysteve1101@gmail.com>
 MIME-Version: 1.0
-Message-ID: <d2005c66-536c-8c0c-658a-fb6ed7b5f3c6@manjaro.org>
-Subject: =?utf-8?q?Re=3A?= [PATCH 3/3] =?utf-8?q?arm64=3A?==?utf-8?q?_dts=3A?=
- =?utf-8?q?_rockchip=3A?= Add OneThing Edge Cube series
-User-Agent: SOGoMail 5.12.3
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: None
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ET2lCNzRh7KZ/8Gf"
+Content-Disposition: inline
+In-Reply-To: <20260131153106.31723-3-jerrysteve1101@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_122725_931594_C34156A0 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20260131_122934_054285_78BB00CE 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,117 +75,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Jun,
 
-Please, see a quick remark below, for now.
+--ET2lCNzRh7KZ/8Gf
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Saturday, January 31, 2026 16:31 CET, Jun Yan <jerrysteve1101@gmail.=
-com> wrote:
+On Sat, Jan 31, 2026 at 11:31:02PM +0800, Jun Yan wrote:
+> Add devicetree binding for the OneThing OEC and OEC-turbo
+>=20
 > The OneThing Edge Cube (OEC) series features the RK3566 SoC, 8GB
 > eMMC storage, and supports one SATA interface, one Gigabit Ethernet
 > port, and one USB 3.0 port.
+> Among the lineup, the standard OEC model comes with 2GB of RAM, while
+> the OEC-turbo features 4GB of RAM; The rest of the specifications are
+> identical.
 >=20
-> Other than the difference in RAM capacity, the OEC and OEC-turbo are
-> identical in all other specifications.
->=20
->   Specification:
->     - Rockchip RK3566
->     - LPDDR4X 2GB (OEC) / 4GB (OEC-turbo)
->     - eMMC 8GB
->     - Gigabit Ethernet port x 1
->     - USB 3.0 port x 1
->     - USB-C 2.0 port x 1
->     - 12V DC Power supply
->     - SATA 3.0 connector x 1
+> The OneThing Edge Cube series (shipping with the vendor firmware) is
+> originally designed as a PCDN (P2P Content Delivery Network) device.
 >=20
 > Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
 > ---
->  arch/arm64/boot/dts/rockchip/Makefile         |   2 +
->  .../rockchip/rk3566-onething-oec-turbo.dts    |  10 +
->  .../boot/dts/rockchip/rk3566-onething-oec.dts |  10 +
->  .../dts/rockchip/rk3566-onething-oec.dtsi     | 309 ++++++++++++++++=
-++
->  4 files changed, 331 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-oec-=
-turbo.dts
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-oec.=
-dts
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-oec.=
-dtsi
+>  Documentation/devicetree/bindings/arm/rockchip.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
 >=20
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/=
-dts/rockchip/Makefile
-> index 4d384f153c13..ec57719e4573 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -104,6 +104,8 @@ dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-anber=
-nic-rg353v.dtb
->  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-anbernic-rg353vs.dtb
->  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-anbernic-rg503.dtb
->  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-odroid-m1s.dtb
-> +dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-onething-oec.dtb
-> +dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-onething-oec-turbo.dtb
->  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-orangepi-3b-v1.1.dtb
->  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-orangepi-3b-v2.1.dtb
->  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-pinenote-v1.1.dtb
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-turbo.d=
-ts b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-turbo.dts
-> new file mode 100644
-> index 000000000000..16d0cd0cf577
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-turbo.dts
-> @@ -0,0 +1,10 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +
-> +/dts-v1/;
-> +
-> +#include "rk3566-onething-oec.dtsi"
-> +
-> +/ {
-> +	model =3D "OneThing OEC-turbo";
-> +	compatible =3D "onething,oec-turbo", "rockchip,rk3566";
-> +};
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3566-onething-oec.dts b/a=
-rch/arm64/boot/dts/rockchip/rk3566-onething-oec.dts
-> new file mode 100644
-> index 000000000000..81da771ad63d
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec.dts
-> @@ -0,0 +1,10 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +
-> +/dts-v1/;
-> +
-> +#include "rk3566-onething-oec.dtsi"
-> +
-> +/ {
-> +	model =3D "OneThing OEC";
-> +	compatible =3D "onething,oec", "rockchip,rk3566";
-> +};
+> diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Docume=
+ntation/devicetree/bindings/arm/rockchip.yaml
+> index ae77ded9fe47..eeafe40e0f23 100644
+> --- a/Documentation/devicetree/bindings/arm/rockchip.yaml
+> +++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+> @@ -813,6 +813,12 @@ properties:
+>            - const: openailab,eaidk-610
+>            - const: rockchip,rk3399
+> =20
+> +      - description: OneThing Edge Cube series
+> +        items:
+> +          - const: onething,oec
+> +          - const: onething,oec-turbo
 
-The only difference between the two OneThing OEC board variants is, as
-far as I can tell, the amount of LPDDR4X DRAM they have, so I don't thi=
-nk
-it's justified to have two separate board dts files that descend from t=
-he
-common dtsi ancestor.
+This doesn't match your dts, so clearly you have not tested this
+sufficiently. oec and oec-turbo should be in an enum.
+pw-bot: changes-requested
 
-Having different amounts of DRAM on the same board design is present on
-virtually all boards from other manufacturers, and some kind of special
-DT treatment is needed only in some special cases, such as when differe=
-nt
-types of DRAM are used for different capacities.
+> +          - const: rockchip,rk3566
+> +
+>        - description: Xunlong Orange Pi RK3399 board
+>          items:
+>            - const: xunlong,rk3399-orangepi
+> --=20
+> 2.52.0
+>=20
 
-The different naming of the two board variants could be solved by havin=
-g
-something like this is the single board dts file:
+--ET2lCNzRh7KZ/8Gf
+Content-Type: application/pgp-signature; name="signature.asc"
 
-  model =3D "OneThing OEC/OEC-turbo";
+-----BEGIN PGP SIGNATURE-----
 
-Having two separate board dts files only makes it harder down the road,
-such as having to build and provide two separate U-Boot builds, with no
-real benefits.  Every user can run free(1) to check the amount of avail=
-able
-DRAM on their board, which also tells them the board variant.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaX5mJQAKCRB4tDGHoIJi
+0tO6AQDhX97T4RNwOwgjbzRA7ge2VItVSqWgQ83aVjNB+0ir2AD/dIsJhTWuZqv9
+vLvGoiVQqQLkyzt8Hnt2GgFV/WGwJgc=
+=0DbR
+-----END PGP SIGNATURE-----
 
+--ET2lCNzRh7KZ/8Gf--
 
