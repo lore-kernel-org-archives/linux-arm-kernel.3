@@ -4,79 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24ED6D79768
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 10:31:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E41E8D79768
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 10:52:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/eD9WXGl9MAihs90m27VDEN/Hi1L/QyuTIjpRXIpORU=; b=hTH9DrYgB3d4NU5tdXAGCXzJBE
-	xX9+w/fLsbOBX21JYmSi5hWbCMr2RJy47RhGK/TGCAmJ5mp7T3yDlFcdNcLl6Apjg7Td7HhhoWG9r
-	J5mMO2uaTFS+7vytqUpE32E0JRKclEMuqMWx9Nd6rM0PYzlIzaWAUM7diNyZeVP6i+fjZWx1dqZzj
-	Gx6n7HPyGdt51Tjq1jXz3b9PKV7Uaidf1uT3VyeedVkuAQaut/I0sxKbVINfUl5wnNfy5wHg0CBaB
-	dKMpXKmCnjs47OfBN+DP+PC74vHM2SiDpKO3xWd4FvTI0RhHgDfUGgEIqD5lfhrn8py1XjAmt4c27
-	CltmuGjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N7ibsvz4bEM1wIwnnEWOnDPfVWQDx0wQWoIiGXA6bYc=; b=at2OK5Azn4QjlmcUxEnm3YSxLt
+	G+1CeOoDGLuWxs+pmMjKCU+Wi2JnIdx+6YPbwfQuyoBt2LUlPkgNREvaUX1iXXHKQsGi8j5uH3nhL
+	GpKZ4Q4nSCE/FPQ2719ZhSZGHz86J2i0vJk2JJZih0FbbJ9tch06HHPSWKJiM4+wILmNgNlXYKGl8
+	kJukoLjV6lZqtjh1Vq4oqrV6yVC3pAza7ZBKODHOdJXwVwzsEydWpAVkrbBtUucbRu9bKgSVZJBeK
+	UZ81x8HCHcehY/4bbVztt4InXuIxmgppaYzt2PltHgPCvCm7Y0+JAkw34527Tm/S/72vbrdMe2n7K
+	DeM/MNqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vm8G1-00000002UtV-0TXC;
-	Sat, 31 Jan 2026 10:31:13 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1vm8a0-00000002VKK-3pXY;
+	Sat, 31 Jan 2026 10:51:52 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vm8Fx-00000002UtD-3364
+	id 1vm8Zy-00000002VJy-1Bu1
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 10:31:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769855470; x=1801391470;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ItTHBVV6a1xUVuw79oxoj7YOc+pNqkuJFb6cv9Lch3Q=;
-  b=eFwFQmC17IX9VL/B4QucAeiunzJmENmu6J4Ee9n2LpVCaAwL5/h/uyfq
-   kM5XPyfw6ayXIrreu4x3lQGlaFt4Fa2gH3KIcnDeOnJM8yp4NXZDGbwDJ
-   eQBHTpCE+P0OMSl07EoIQmPdos0s9sUekcW9TspO6FgXixiAlP6ii6TtO
-   F24KNj6VqXs0vRaR5iW81+tT1ymOyeZeY5gK2+D+lL9g03pl87sqXBJiF
-   +pt76R7jSTKzXGtm+vNOU5+UcU9hfhEzxj4urvpWN3GszcBNsxOlfh8XM
-   ztqLT/igCR4Y8E7q7lvAZKwapOxVq9uULCixNCk4sY2nftuwzuWfLl2Ic
-   A==;
-X-CSE-ConnectionGUID: yaegIcNkSF67lSlYerfa2Q==
-X-CSE-MsgGUID: kQcfZEodRvW+T2Fb3LCS8Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11687"; a="74715302"
-X-IronPort-AV: E=Sophos;i="6.21,264,1763452800"; 
-   d="scan'208";a="74715302"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Jan 2026 02:31:07 -0800
-X-CSE-ConnectionGUID: F96DbFF7Tc+UOxybAuXsBQ==
-X-CSE-MsgGUID: D1YrCgj/SBud2qJzUtP90Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,264,1763452800"; 
-   d="scan'208";a="209420321"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.97])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Jan 2026 02:31:03 -0800
-Date: Sat, 31 Jan 2026 12:31:02 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: abdurrahman@nexthop.ai
-Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v7 2/6] i2c: xiic: switch to devres managed APIs
-Message-ID: <aX3Z5iEZO8a0GYDs@smile.fi.intel.com>
-References: <20260129-i2c-xiic-v7-0-727e434897ef@nexthop.ai>
- <20260129-i2c-xiic-v7-2-727e434897ef@nexthop.ai>
+	Sat, 31 Jan 2026 10:51:51 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-430f3ef2d37so2480074f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 02:51:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1769856707; x=1770461507; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=N7ibsvz4bEM1wIwnnEWOnDPfVWQDx0wQWoIiGXA6bYc=;
+        b=mp1f9jZa6jTqCKYotnvLSTrSh5NAHEylP7BDvE41ZqXipmOS9eVk/TDSjvV0vdmdBa
+         IRIZwpnrkRhE2QxEC2ZgD73h2Y0SY+eqaWiD9pudS8th4U243HTlFYBEQFwY/Ig3BuAO
+         /wyf9tjN2n1+yrcZtV7X39ImWE7pOsJPX7rTr0vlJ6bEXYp3I7e3dC9/0SnVVL6FrSnh
+         E+De8jgXshq24MxkE9xWXXYp2Nlr6q/9oCpBeEWMLZ3sUohQ8FEF1MES/V4VA0/zRPmJ
+         TdfK+DQ6DQ4Ao40laWpgKP+XE9650M27oGDU0w4BvT0oQ4OYn6gccnfqbb8NijXquVO7
+         BLlw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769856707; x=1770461507;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=N7ibsvz4bEM1wIwnnEWOnDPfVWQDx0wQWoIiGXA6bYc=;
+        b=Yuhu9t3Oo7sRP4WcFRo2GJo4zhh+GfY6z5RUn/ojXeZXZIslm1iaELaGEE/+9GVOhN
+         vugjF4TJItK5MD9cUojysGhDUvzfuIkiCbgvAqy6M35XzMQpNbZOfEAttq6JsqzMYWMx
+         zkdGfsaWzT8kGciiMcypggDHbBdQGq7FEZ2TBzOYefVawbcb9yZBERwXnW4vG5s6ohk/
+         w56ib8NrfBtUYlu5ZhvDBy4L2x1iRhsL6Ny8k3pTg9DGRKtHevX2VEH98W5+EtqoNFMh
+         xMkgtIuaamnBkDq/IEqnOS/FsRuGdZstDXcGspJ1jUc4IIeN2BoPhdPXdB1r+UBLRsWB
+         rcyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWMcpaQEYaBm7ZBhC/xY1r0KlbzWI6LT8YBOm5En3kk2z3RP5xzSKJHnbvO4ogHtL0hy2H8V7iocFxCU6jv22Fk@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvMCsD3GyI1265EA9+CVJ9RLS3OtamCeF/IqMlvotC8DuhZi7W
+	MUZRUjfFDA7CKwkzWETJgT1TGmWdqsC6gev6mTJAFqtS9gGDzfnAjmZIignFL/Y0Zrg=
+X-Gm-Gg: AZuq6aJ+dfbU/6llOkeI9zayBBXTNfCY8HAID5buqc3oYLcbgSNZdtgRW3FRPjLzhHK
+	4zRguxV+4HYIs4+yUnmVX2bpUegbKT8eaENaeSLGZvWZJmUIvWmXY+0+GzBt4DE3NKv5e0k1cqD
+	sS7ld/LcrxjjgpKxMkSjWXSAidT+ulu03FM0sbKNGIaA6HwE7nCme4dEcfBz7/C9LrnBcLy0hI/
+	IkXjRzSytRgrgTv3XN5+tjNJCOp512rtwREG4S9sEy9dweDYXtfdVPKp8VWpasdUk5n6gn47u6Y
+	FLZRhtLZwRVCd5lPR1vZo2UntLIuQ9W60jfkjI5sCALCp6MYSI8EdO9AO1/JvrvWLAgwTXOVPuE
+	L+U+nVy+4shFVwr6F0xND4iRmEtZjfaRSWZG5g0M8NxD68LeQONSWKOY7JbrrnVv2sPODclPBTw
+	5/Y3Yi+CssBa7+mMSZm7XeyYA5PcUprPzbAXk=
+X-Received: by 2002:a05:6000:2887:b0:435:9950:ee1 with SMTP id ffacd0b85a97d-435f3a62ee4mr7418313f8f.3.1769856706636;
+        Sat, 31 Jan 2026 02:51:46 -0800 (PST)
+Received: from [10.100.159.246] ([213.233.108.212])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e10edfccsm27625501f8f.17.2026.01.31.02.51.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 31 Jan 2026 02:51:46 -0800 (PST)
+Message-ID: <49022192-04b9-4ed8-baeb-706edb6e1322@tuxon.dev>
+Date: Sat, 31 Jan 2026 12:51:41 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260129-i2c-xiic-v7-2-727e434897ef@nexthop.ai>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 16/31] clk: at91: clk-plldiv: add support for
+ parent_data
+To: ryan.wanner@microchip.com, mturquette@baylibre.com, sboyd@kernel.org,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ bmasney@redhat.com, alexander.sverdlin@gmail.com,
+ varshini.rajendran@microchip.com
+Cc: cristian.birsan@microchip.com, balamanikandan.gunasundar@microchip.com,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1768512290.git.ryan.wanner@microchip.com>
+ <ec232782a91db7a345deea48785bfe3ca35d60f0.1768512290.git.ryan.wanner@microchip.com>
+Content-Language: en-US
+From: claudiu beznea <claudiu.beznea@tuxon.dev>
+In-Reply-To: <ec232782a91db7a345deea48785bfe3ca35d60f0.1768512290.git.ryan.wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_023109_820026_3E717E71 
-X-CRM114-Status: UNSURE (   6.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260131_025150_435034_1DA52C11 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,16 +107,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 29, 2026 at 09:43:14PM +0000, Abdurrahman Hussain via B4 Relay wrote:
-
-> Simplify the error code paths by switching to devres managed helper
-> functions.
-
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-
--- 
-With Best Regards,
-Andy Shevchenko
 
 
+On 1/16/26 22:07, ryan.wanner@microchip.com wrote:
+> From: Claudiu Beznea<claudiu.beznea@tuxon.dev>
+> 
+> Add support for parent_data in plldiv clock driver.
+
+I would replace the following:
+
+> With this parent-child relation is described with pointers rather
+> than strings making registration a bit faster.
+
+with something like what you have used in patch 13/31:
+
+"Having this allows the driver to conform to the new clk-system API."
+
+As with parent_data you could describe the parent-child relationship with either 
+struct clk_hw pointers, clk names, indexes...
+
+Valid for the rest of the patches that uses the same description.
+
+> 
+> All the SoC based drivers that rely on clk-plldiv were adapted
+> to the new API change. The switch itself for SoCs will be done
+> in subsequent patches.
+> 
+> Signed-off-by: Claudiu Beznea<claudiu.beznea@tuxon.dev>
+> Signed-off-by: Ryan Wanner<Ryan.Wanner@microchip.com>
+
+With those addressed:
+
+Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
