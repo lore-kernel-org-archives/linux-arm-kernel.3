@@ -4,95 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4073D79773
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 14:36:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C0ED79770
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 14:51:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=sVSIbao0S7N2+ApNZzv364LLiL6KFRy4sHA0aE5O/xE=; b=heGs6ktO6QUp2XNJFmWrZdo9zP
-	ClzIk1Yw1SHotFX+6zfbNfOnoVHtFPbdl5pkpXsDFCqmTvpQXcX6e70XunDsoyhp3fq/hvu+OJM/L
-	ACDdF9ssjyoYNeh2lzP2s4t8pBy1TEtCE0aorZnMF8aw1sSnnJ9KT1FJiKYdR8OF15kZQa4WLxxIm
-	XnNsImY8KbjvHnb4Uv8zX85iDbqr8VkGkbKRqpR2CAwUw0LHzUjoJLIe5mNABmA78VyMtKQXFAlGW
-	LGZ9ZOCsvQyMBQcxsEv72KE8Fvh7KCJ/745OeSYaYrPZNg1Sa6rQRsq++j0UXXHmjmHD8C1jX+OMZ
-	4sr1SBiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iF1W/fFiptW5YzYqA4hrXfI2kCVLhtS2I4vAaZcmEv0=; b=qApGystwjs8Va4g0f5lq468GJq
+	jSzrBYxhTU3dKK9uBFKWn7iAYrHC0hSAktQlloI8n89PjYSLKgJqbi6SgO/r4zubxi70A/BLVLvpO
+	yMvvlNd7KBmIBSxbQt9sxnSiUQJdCtkX1Tg5Kn/2vRNeJ1UFl74PkwWDG+XIA28UC0KzIn30DqL4V
+	U98aGAkBDjFocv6WOf+joQPJA9ccor+5ZxGyOmqrIg8M/KoEwPL8mb+9lhIfQ3y1je7nOESPfv8jn
+	jJ1VFS9CwitLDgC61B52p1Yq7FExwhnXajNfQLl0EcUiZbfjhxP2zXk/0UtJ6rj9em+RwG0AlhDkQ
+	oTH4BZoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmC53-00000002i9l-2MjI;
-	Sat, 31 Jan 2026 14:36:09 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1vmCJM-00000002ijo-1CYR;
+	Sat, 31 Jan 2026 14:50:56 +0000
+Received: from out-180.mta1.migadu.com ([95.215.58.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmC4x-00000002i9P-1hf6
+	id 1vmCJJ-00000002ijL-2e9S
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 14:36:07 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-43590777e22so1874753f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 06:36:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769870161; x=1770474961; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=sVSIbao0S7N2+ApNZzv364LLiL6KFRy4sHA0aE5O/xE=;
-        b=gbrR7Y360yE45Z06Zv7Hg2XUZX4qRl9ZFopQowoeWguyvSqM17xfQwQU2vPslchJmd
-         mwWDFYsdi0lBxGDRAz/zgEbhR9Kv1YtjpT1UICG948jKGQV00Pxb9rc+YlC5ONQiW+x0
-         nVfZTU/ldONXZZVlNjrbhy/vT03cPQCob/Ya3bj8sfppDWmznYOlJbiTUWfevuKEGpzb
-         ItzFJtk04yMFCdAQr34rp9twnxzoVXrlSiIQIIb7QqsvQ1ypwVlULD69ElZ6IAUTwY0I
-         L8LGatgL3T62hlYyFOegnYHvsjWs5mV33dQNf2QVByibtolvYuej4dOkpz1Jbb0i6gOY
-         kSVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769870161; x=1770474961;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=sVSIbao0S7N2+ApNZzv364LLiL6KFRy4sHA0aE5O/xE=;
-        b=fOo9kaJqF7pUCa7rFWzYUgJ49FLX0lQOgt6XJl6dLgeFp6PHTopKRKqJwqxA7VN2D6
-         jLCdComZ1YWRRepz9pO5NWaGLWPcNfS+cQWteRMCfTvyuxYCN3d7pbVsKAVBwlDS31uL
-         3Y0bzoD35EmX4GbEjebMDaYs7wfsGHw16ZvDttSkX5UXn3KjG3/8l4oT1y/l1GzAtv9o
-         aqAkzUvCBJPXzHBYA7gtn88kEhmGcOp1jBwv4r3t3MfPur8NGyU3N15Y862JFOe31Pnj
-         XItYeuE/riquQCKuEr6+0idXO25iZ03HlBjjySmehLydclEYn68E7fDTt/rzTaqJRsC4
-         S5Bg==
-X-Forwarded-Encrypted: i=1; AJvYcCXhybs21eHSC5Rlq068QnXAnR3ea09UzEnibO3dVWKCH6aLbs62t7YqF/B4FzjqT++arAb9/jNYKBEM0GZvwdfE@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywa5VOrUBr1RpCVauaqc87mpBn0AS6LOob8jke2LJ4v5aqQBY7d
-	W0YVcj4T4s2UGTMIqq+y0/F85l57VBgzGkW0uPkcgEue7cgLONB53gvaqCVzTl7KsX8=
-X-Gm-Gg: AZuq6aL+Yki+wOeqOIMvAK0oy0wxrMLg6HhHqwgFD86KR++eJnP2eZ7Duiddmmml7n+
-	e+cucsUzpdgFfuer3/bx5WVO19tWFB1h+VMLKTYbcq823Ab4pDUSRWO3DMNcFQBkUJrvX3TIN4z
-	kWUlnoIOcjXYg4UD+fT3WtfZOjUORFoBmJrhJCeBnlHGJk8r4HUhBx3aOdjOMXOWnB20i30BlgX
-	7QGLY1NfCTiNghzDei4Hx1+Uy2zzCBCpQEUIlOrHWdNwRq6e7qc/GXTAJzMRbIRSP8LjxWlUnFr
-	/ie7NsH4BBkAqA9zhMfKZAOxsOYXsWYSGDY6JOAGrjQU9X9moZ0Xj237txDldhCJelK443FOJh3
-	GzAK27dVAv388ekwlZplJ+tTkUnFT17d8QO78LS4jGugiDoUfsFJGb4ITF8SzIVc0xB9QH8j9+U
-	rT5cZUQT0gDUqvoTP9
-X-Received: by 2002:a05:6000:4382:b0:435:99d5:9d8f with SMTP id ffacd0b85a97d-435f3a742f4mr9016413f8f.19.1769870160665;
-        Sat, 31 Jan 2026 06:36:00 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e10ee040sm29840712f8f.11.2026.01.31.06.35.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 31 Jan 2026 06:36:00 -0800 (PST)
-Date: Sat, 31 Jan 2026 17:35:57 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: oe-kbuild@lists.linux.dev,
-	Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org>,
-	Michal Simek <monstr@monstr.eu>, Andi Shyti <andi.shyti@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Subject: Re: [PATCH v7 5/6] i2c: xiic: cosmetic cleanup
-Message-ID: <202601311615.10yziOui-lkp@intel.com>
+	Sat, 31 Jan 2026 14:50:55 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1769871049;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iF1W/fFiptW5YzYqA4hrXfI2kCVLhtS2I4vAaZcmEv0=;
+	b=qSIKDIo2zYPgjZcK2IWaEGAziZ6UBqPWi3FWoAPDCeAh11ThhaLZvcYEgp04YeL8vHvx1V
+	FXJsCBAQT3L8K51NWCHarO1sUtQwI5ZNt38B5rtcS8rrm7dR0n5Pcwh0zbTqCCFea1k8C5
+	jHMvOgrfh52wSfty9zqetPjs3/ItSqU=
+From: Leon Hwang <leon.hwang@linux.dev>
+To: bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Menglong Dong <menglong8.dong@gmail.com>,
+	Leon Hwang <leon.hwang@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	kernel-patches-bot@fb.com
+Subject: [PATCH bpf-next v5 2/3] bpf, arm64: Add fsession support
+Date: Sat, 31 Jan 2026 22:49:49 +0800
+Message-ID: <20260131144950.16294-3-leon.hwang@linux.dev>
+In-Reply-To: <20260131144950.16294-1-leon.hwang@linux.dev>
+References: <20260131144950.16294-1-leon.hwang@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260129-i2c-xiic-v7-5-727e434897ef@nexthop.ai>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_063603_498961_9D265F04 
-X-CRM114-Status: UNSURE (   8.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260131_065053_823266_CFF8A158 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,56 +88,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Abdurrahman,
+Implement fsession support in the arm64 BPF JIT trampoline.
 
-kernel test robot noticed the following build warnings:
+Extend the trampoline stack layout to store function metadata and
+session cookies, and pass the appropriate metadata to fentry and
+fexit programs. This mirrors the existing x86 behavior and enables
+session cookies on arm64.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Abdurrahman-Hussain-via-B4-Relay/i2c-xiic-skip-input-clock-setup-on-non-OF-systems/20260130-054653
-base:   63804fed149a6750ffd28610c5c1c98cce6bd377
-patch link:    https://lore.kernel.org/r/20260129-i2c-xiic-v7-5-727e434897ef%40nexthop.ai
-patch subject: [PATCH v7 5/6] i2c: xiic: cosmetic cleanup
-config: i386-randconfig-141-20260130 (https://download.01.org/0day-ci/archive/20260131/202601311615.10yziOui-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-smatch version: v0.5.0-8994-gd50c5a4c
+Acked-by: Puranjay Mohan <puranjay@kernel.org>
+Tested-by: Puranjay Mohan <puranjay@kernel.org>
+Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+---
+ arch/arm64/net/bpf_jit_comp.c | 71 ++++++++++++++++++++++++++++++-----
+ include/linux/bpf.h           |  7 +++-
+ 2 files changed, 68 insertions(+), 10 deletions(-)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-| Closes: https://lore.kernel.org/r/202601311615.10yziOui-lkp@intel.com/
-
-smatch warnings:
-drivers/i2c/busses/i2c-xiic.c:1539 xiic_i2c_remove() warn: pm_runtime_get_sync() also returns 1 on success
-
-vim +1539 drivers/i2c/busses/i2c-xiic.c
-
-e190a0c389e601 Uwe Kleine-König    2023-05-08  1529  static void xiic_i2c_remove(struct platform_device *pdev)
-e1d5b6598cdc33 Richard Röjfors     2010-02-11  1530  {
-2557b4ba04df79 Abdurrahman Hussain 2026-01-29  1531  	struct device *dev = &pdev->dev;
-e1d5b6598cdc33 Richard Röjfors     2010-02-11  1532  	struct xiic_i2c *i2c = platform_get_drvdata(pdev);
-36ecbcab84d023 Shubhrajyoti Datta  2016-03-02  1533  	int ret;
-e1d5b6598cdc33 Richard Röjfors     2010-02-11  1534  
-e1d5b6598cdc33 Richard Röjfors     2010-02-11  1535  	/* remove adapter & data */
-e1d5b6598cdc33 Richard Röjfors     2010-02-11  1536  	i2c_del_adapter(&i2c->adap);
-e1d5b6598cdc33 Richard Röjfors     2010-02-11  1537  
-2557b4ba04df79 Abdurrahman Hussain 2026-01-29  1538  	ret = pm_runtime_get_sync(dev);
-2557b4ba04df79 Abdurrahman Hussain 2026-01-29 @1539  	if (ret)
-2557b4ba04df79 Abdurrahman Hussain 2026-01-29  1540  		dev_warn(dev, "Failed to activate device for removal (%pe)\n",
-810199f7315604 Uwe Kleine-König    2022-10-19  1541  			 ERR_PTR(ret));
-
-
-pm_runtime_get_sync() can return 1 on success.  Perhaps use
-pm_runtime_resume_and_get()?
-
-810199f7315604 Uwe Kleine-König    2022-10-19  1542  	else
-e1d5b6598cdc33 Richard Röjfors     2010-02-11  1543  		xiic_deinit(i2c);
-810199f7315604 Uwe Kleine-König    2022-10-19  1544  
-2557b4ba04df79 Abdurrahman Hussain 2026-01-29  1545  	pm_runtime_put_sync(dev);
-2557b4ba04df79 Abdurrahman Hussain 2026-01-29  1546  	pm_runtime_dont_use_autosuspend(dev);
-e1d5b6598cdc33 Richard Röjfors     2010-02-11  1547  }
-
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index 0c4d44bcfbf4..2dc5037694ba 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -2510,6 +2510,12 @@ static bool is_struct_ops_tramp(const struct bpf_tramp_links *fentry_links)
+ 		fentry_links->links[0]->link.type == BPF_LINK_TYPE_STRUCT_OPS;
+ }
+ 
++static void store_func_meta(struct jit_ctx *ctx, u64 func_meta, int func_meta_off)
++{
++	emit_a64_mov_i64(A64_R(10), func_meta, ctx);
++	emit(A64_STR64I(A64_R(10), A64_SP, func_meta_off), ctx);
++}
++
+ /* Based on the x86's implementation of arch_prepare_bpf_trampoline().
+  *
+  * bpf prog and function entry before bpf trampoline hooked:
+@@ -2533,7 +2539,7 @@ static int prepare_trampoline(struct jit_ctx *ctx, struct bpf_tramp_image *im,
+ 	int regs_off;
+ 	int retval_off;
+ 	int bargs_off;
+-	int nfuncargs_off;
++	int func_meta_off;
+ 	int ip_off;
+ 	int run_ctx_off;
+ 	int oargs_off;
+@@ -2544,6 +2550,9 @@ static int prepare_trampoline(struct jit_ctx *ctx, struct bpf_tramp_image *im,
+ 	bool save_ret;
+ 	__le32 **branches = NULL;
+ 	bool is_struct_ops = is_struct_ops_tramp(fentry);
++	int cookie_off, cookie_cnt, cookie_bargs_off;
++	int fsession_cnt = bpf_fsession_cnt(tlinks);
++	u64 func_meta;
+ 
+ 	/* trampoline stack layout:
+ 	 *                    [ parent ip         ]
+@@ -2562,10 +2571,14 @@ static int prepare_trampoline(struct jit_ctx *ctx, struct bpf_tramp_image *im,
+ 	 *                    [ ...               ]
+ 	 * SP + bargs_off     [ arg reg 1         ] for bpf
+ 	 *
+-	 * SP + nfuncargs_off [ arg regs count    ]
++	 * SP + func_meta_off [ regs count, etc   ]
+ 	 *
+ 	 * SP + ip_off        [ traced function   ] BPF_TRAMP_F_IP_ARG flag
+ 	 *
++	 *                    [ stack cookie N    ]
++	 *                    [ ...               ]
++	 * SP + cookie_off    [ stack cookie 1    ]
++	 *
+ 	 * SP + run_ctx_off   [ bpf_tramp_run_ctx ]
+ 	 *
+ 	 *                    [ stack arg N       ]
+@@ -2582,13 +2595,18 @@ static int prepare_trampoline(struct jit_ctx *ctx, struct bpf_tramp_image *im,
+ 	/* room for bpf_tramp_run_ctx */
+ 	stack_size += round_up(sizeof(struct bpf_tramp_run_ctx), 8);
+ 
++	cookie_off = stack_size;
++	/* room for session cookies */
++	cookie_cnt = bpf_fsession_cookie_cnt(tlinks);
++	stack_size += cookie_cnt * 8;
++
+ 	ip_off = stack_size;
+ 	/* room for IP address argument */
+ 	if (flags & BPF_TRAMP_F_IP_ARG)
+ 		stack_size += 8;
+ 
+-	nfuncargs_off = stack_size;
+-	/* room for args count */
++	func_meta_off = stack_size;
++	/* room for function metadata, such as regs count */
+ 	stack_size += 8;
+ 
+ 	bargs_off = stack_size;
+@@ -2646,9 +2664,9 @@ static int prepare_trampoline(struct jit_ctx *ctx, struct bpf_tramp_image *im,
+ 		emit(A64_STR64I(A64_R(10), A64_SP, ip_off), ctx);
+ 	}
+ 
+-	/* save arg regs count*/
+-	emit(A64_MOVZ(1, A64_R(10), nfuncargs, 0), ctx);
+-	emit(A64_STR64I(A64_R(10), A64_SP, nfuncargs_off), ctx);
++	/* save function metadata */
++	func_meta = nfuncargs;
++	store_func_meta(ctx, func_meta, func_meta_off);
+ 
+ 	/* save args for bpf */
+ 	save_args(ctx, bargs_off, oargs_off, m, a, false);
+@@ -2666,10 +2684,27 @@ static int prepare_trampoline(struct jit_ctx *ctx, struct bpf_tramp_image *im,
+ 		emit_call((const u64)__bpf_tramp_enter, ctx);
+ 	}
+ 
+-	for (i = 0; i < fentry->nr_links; i++)
++	if (fsession_cnt) {
++		/* clear all the session cookies' value */
++		emit(A64_MOVZ(1, A64_R(10), 0, 0), ctx);
++		for (int i = 0; i < cookie_cnt; i++)
++			emit(A64_STR64I(A64_R(10), A64_SP, cookie_off + 8 * i), ctx);
++		/* clear the return value to make sure fentry always gets 0 */
++		emit(A64_STR64I(A64_R(10), A64_SP, retval_off), ctx);
++	}
++
++	cookie_bargs_off = (bargs_off - cookie_off) / 8;
++	for (i = 0; i < fentry->nr_links; i++) {
++		if (bpf_prog_calls_session_cookie(fentry->links[i])) {
++			u64 meta = func_meta | (cookie_bargs_off << BPF_TRAMP_COOKIE_INDEX_SHIFT);
++
++			store_func_meta(ctx, meta, func_meta_off);
++			cookie_bargs_off--;
++		}
+ 		invoke_bpf_prog(ctx, fentry->links[i], bargs_off,
+ 				retval_off, run_ctx_off,
+ 				flags & BPF_TRAMP_F_RET_FENTRY_RET);
++	}
+ 
+ 	if (fmod_ret->nr_links) {
+ 		branches = kcalloc(fmod_ret->nr_links, sizeof(__le32 *),
+@@ -2701,9 +2736,22 @@ static int prepare_trampoline(struct jit_ctx *ctx, struct bpf_tramp_image *im,
+ 		*branches[i] = cpu_to_le32(A64_CBNZ(1, A64_R(10), offset));
+ 	}
+ 
+-	for (i = 0; i < fexit->nr_links; i++)
++	/* set the "is_return" flag for fsession */
++	func_meta |= (1ULL << BPF_TRAMP_IS_RETURN_SHIFT);
++	if (fsession_cnt)
++		store_func_meta(ctx, func_meta, func_meta_off);
++
++	cookie_bargs_off = (bargs_off - cookie_off) / 8;
++	for (i = 0; i < fexit->nr_links; i++) {
++		if (bpf_prog_calls_session_cookie(fexit->links[i])) {
++			u64 meta = func_meta | (cookie_bargs_off << BPF_TRAMP_COOKIE_INDEX_SHIFT);
++
++			store_func_meta(ctx, meta, func_meta_off);
++			cookie_bargs_off--;
++		}
+ 		invoke_bpf_prog(ctx, fexit->links[i], bargs_off, retval_off,
+ 				run_ctx_off, false);
++	}
+ 
+ 	if (flags & BPF_TRAMP_F_CALL_ORIG) {
+ 		im->ip_epilogue = ctx->ro_image + ctx->idx;
+@@ -2753,6 +2801,11 @@ static int prepare_trampoline(struct jit_ctx *ctx, struct bpf_tramp_image *im,
+ 	return ctx->idx;
+ }
+ 
++bool bpf_jit_supports_fsession(void)
++{
++	return true;
++}
++
+ int arch_bpf_trampoline_size(const struct btf_func_model *m, u32 flags,
+ 			     struct bpf_tramp_links *tlinks, void *func_addr)
+ {
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index 3b0ceb759075..cd9b96434904 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -2196,13 +2196,18 @@ static inline int bpf_fsession_cnt(struct bpf_tramp_links *links)
+ 	return cnt;
+ }
+ 
++static inline bool bpf_prog_calls_session_cookie(struct bpf_tramp_link *link)
++{
++	return link->link.prog->call_session_cookie;
++}
++
+ static inline int bpf_fsession_cookie_cnt(struct bpf_tramp_links *links)
+ {
+ 	struct bpf_tramp_links fentries = links[BPF_TRAMP_FENTRY];
+ 	int cnt = 0;
+ 
+ 	for (int i = 0; i < links[BPF_TRAMP_FENTRY].nr_links; i++) {
+-		if (fentries.links[i]->link.prog->call_session_cookie)
++		if (bpf_prog_calls_session_cookie(fentries.links[i]))
+ 			cnt++;
+ 	}
+ 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.52.0
 
 
