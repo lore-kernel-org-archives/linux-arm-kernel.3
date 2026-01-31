@@ -4,92 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6FF9D79768
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 12:54:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A50EED7976B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 13:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o2hEtjB3vGUr1RvLvra8FnQ23d7eG/R6cE9Zgtr/AEg=; b=hHYgdjomJM6Zb/Ib4Kor72kk1K
-	kknviX0ZdSF1Pr4Nu8OmbsEo2ShNrwNyXsjumdKwPNDJT6c54hYWD3XsRzkEWQ2a7R/kHP1i9U6gy
-	T8j/bX8GsJZot94EWh26hpGAb0I8XLi3gRK9T95A+WzCMre9Tlvw/NKbyUVOixPCagPCtudt4m0qy
-	EXf0MI8IVRphbVvaTuloDBUgDl3GO1iCGa93WslR1XHRaXymrWnSN8rXXqwEu5Ouibu+Zw942c2c4
-	KSwLfK/shKij2Blfkk50ADuW6q0xboWCXTd/f9bnSHJ0eROmT7wmEzVNFXCqxnBkeDK4d4NiT6RpL
-	iDuNcAhQ==;
+	bh=AZUIc60w8aDIxM9yUNkpf1enaQr7Rd+FSbamqcyyReA=; b=fq0l8IWZ4/oKfbK76bqSh2tFe/
+	s3p21YX40MtDOt2Frv/89ME45/45dh/+DKb6OH6g2Fiblwu5whlXZyQFIyivNb6tOWaRfezbsmCc9
+	s3sz+eYiX70ie6ju5HiJ92NnzYIPXI4R+0t4Ter5EoZo40SJfX2RB0m8asNHryF6QyxuCawq3ES1G
+	1XQISYaKTNfAAaoYpNSxOuPktmayMzXUUyiAofA+MkGeYF7VtgR+PKM9cV0IblBHIpia3E7ZGRvxw
+	fJxCzykBwVJF/T8UI7dVTidZ/MATYBpswLYM+4xfG3RPifWukSWnSYUkyuKwnWBCRQHV3iMx12djQ
+	v2dy2pFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmAUc-00000002adg-492H;
-	Sat, 31 Jan 2026 12:54:26 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1vmB2V-00000002bpz-0xMK;
+	Sat, 31 Jan 2026 13:29:27 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmAUZ-00000002adL-3VAI
+	id 1vmB2S-00000002bop-3bcz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 12:54:25 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-48039fdc8aeso17563865e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 04:54:22 -0800 (PST)
+	Sat, 31 Jan 2026 13:29:26 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-477c49f273fso27862305e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 05:29:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769864061; x=1770468861; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=o2hEtjB3vGUr1RvLvra8FnQ23d7eG/R6cE9Zgtr/AEg=;
-        b=wcyT7i1AnUEtsNt+0/iRX+8AdMyPWr+ZRbfOf+nGLY/co713qmkmh0njOJquEJ++EH
-         5qgkdjuoK7nfnVAicSL9r6j2A8PAAz//I2zKFDUvSPVefpQ+pTXGj2vpAweHXsv6AtPB
-         tK2b1XpAloRx1GXKeJH9wL8jGqvK3m5LNOsCXk+gK3K8jsonbEVbdzdl+MX9QynUlBEU
-         S7XDhFjZq2UKckX9hriZUaw9M+yRy4Wp57h+9zDQ/KbpDmqCGelRyxUyLYO9rKrmShW7
-         OwFb9kcI/e2PqaE4rHMkIEGqz2WVULSjzoDB22LyMBUSOmYFd7+fOUPlNWj0FKQPqn8k
-         CWOQ==
+        d=google.com; s=20230601; t=1769866163; x=1770470963; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=AZUIc60w8aDIxM9yUNkpf1enaQr7Rd+FSbamqcyyReA=;
+        b=IL3p45rqNrSMdizQBHiW4VW5aCywdc0WJqh2fV8PShH3phbKXtTrrpvJA/nlLxuCd+
+         f5zblwDjOTGbfjosTIbTn0t3f1tGgRHb8knbx9TIqU1N4lMJovCrj0WhQsLwZmYFtmeQ
+         ebHMwpDViMDuuY2bsQSYmo1dlzTSkG7bmlDP8aYB68eJgNaRJpqa1u0Vn20AaR2ZHa7z
+         C/Pakl32My+4fh5Cvgd0ryXnHqWoZEsdJfOxi2LxT4r5KpaOj28dHHp6GPCZFeb34AHo
+         5UqoBRm3REgHlUB3bQyCHv74MXoWCNnfpwE4ABES1TEcwwtverdawybMhUdEAs5jodfV
+         W57Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769864061; x=1770468861;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=o2hEtjB3vGUr1RvLvra8FnQ23d7eG/R6cE9Zgtr/AEg=;
-        b=MTtSerVQ/VtqRwpNNb/RVau1AKfJuvMr4s/5Wvv5b/xcv1B4yNkNEZChO+ssGJJiAq
-         dKzqI6VlF/iWqkRQKvJv/WVh/K7gU66VlQl46EbbR8zACfwh7vvOG8KwvCPSCyo2/7kZ
-         CGROEtfSj/5CgpV9nhZtwBCcDgpgiNpNgpJK1X6g/wR21bQ646MA9ud20x4kZLtjlzPz
-         H8LMPFPf8Jpmt/uxraelRA2OCT2aX9c7AoVsYVra8GMfp4klLSz0QQW9TfFJwubitsr4
-         /UPTqoMLmNRozksC+ztySG2jVUK1aB8Drv5zRMbUeb5tMle1L0+OwcI5IXX5C4f60b6l
-         mOuA==
-X-Forwarded-Encrypted: i=1; AJvYcCVw4ly3oF0KH3rd3Mb9FK1HGnZeWt/d61pC8hbgOwaQRJPQ9avpAQ1/2HrNgKSjZ/brZlPT9N08sgIGthkIczTh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFmkmSJWmX6Fyp6k+dmEQB5yUhAg3uvZqXQ6QoaiWNwGXyioIr
-	xJF5MTBBXTeMWxmLDDF4b42cBDxFoMOmBMBIC/VEtHFZYHXQRoNIZgcujrHpzHt0Xg==
-X-Gm-Gg: AZuq6aIqBhgUZsTDO3BpTiZOXWGYM0UePtVcXc2gMOxPt/fT1RIlDyhCreUFGd6Jdkz
-	FnaqPEW20+YpGIsJRSi7GO5bG2HnnZBHg/Fu04amYi7qG7igRFdMjbM3kmVj34JqQuAZPp/1ycb
-	1JWc2ePI8lnfu1p6xA9k3Nbs8VJEqPL9OqYlYtQeBu1izcBvuegcXhui4bLKYifQllo/Aem90kw
-	cLVp/YO5EDskVPV/9e3qVUw7zbwwRP+GdjEolDsYpuakeGSitNLCBUomUcmXb0i1oDwcrCHJFU/
-	F6J15biftfc253rr0zInSpK5oEl8sGmTKG8/zl+qdI9FbMZkLkDrBFu8oeasfP8e3VcuS0HBvoc
-	ZMcqaZmbEtD9TG967WQhLkeo/STm7BIDx0nLnHt/bNjwEp/ZqiG+EWIaR4w+U2Xd4KQTJGvqBM6
-	iBdtoeYoiJjefoOplP+aCwBPPJjYf8ID+e8tZYdwXhr2fUMyo1pg==
-X-Received: by 2002:a05:600c:c0cd:b0:471:700:f281 with SMTP id 5b1f17b1804b1-482db623765mr62756295e9.25.1769864060981;
-        Sat, 31 Jan 2026 04:54:20 -0800 (PST)
-Received: from google.com (44.145.34.34.bc.googleusercontent.com. [34.34.145.44])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e10e483asm28108377f8f.3.2026.01.31.04.54.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 31 Jan 2026 04:54:20 -0800 (PST)
-Date: Sat, 31 Jan 2026 12:54:17 +0000
+        d=1e100.net; s=20230601; t=1769866163; x=1770470963;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=AZUIc60w8aDIxM9yUNkpf1enaQr7Rd+FSbamqcyyReA=;
+        b=HclK3L3jLc55jsybjJbJ0MUPpUYpr2EGrL1tE6Xl3ojAZqklAmu2SfQK/Owixa8mQk
+         wpxCblC66jU4/5aUH0WrYZ/VGPRRiAkv0xT08LK3uW19yjFtMamnHf3wjxUnD9KB65Ca
+         iAc2FTpVw84BQHT9ud9Qz9mtcm0AILRzcUki3xGRG8u6NoWohSkZzWrbfPgrJHmaav8U
+         efy5ABWwgSukuJYof9x5aJLVouT9XGVrtGYJ1WEiXuDXeaZbPieuenJKZQFzKs3gJfHI
+         S5vGuByRXWW8lc9owhathzrXRh8mP/+eclz2jJ76XdqMAmSlerj2LD+CMBk7cQNXr8Y+
+         GrDw==
+X-Forwarded-Encrypted: i=1; AJvYcCXXcmF/xvVYtMSnGOtckGCRb0ECa+rAI1Nl2YC/6yO8clX/0Ceab+bRwcFhrvSclRJSqFcXdk1kKleb1y7b6BnD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVA8+zvlKTR7A7qvoxttkRgpTBUtwF0aeEoiXw+8ehI8/Hf6xt
+	mYdHEN1Pg1ZHWjCrax5EWkDCbq9hySvfnZrMUqh7nYMsihmUoRYmM/IausEB6ky/U2ACEANBWgK
+	zTc5Znm3gP5VgraJfMn8S5A==
+X-Received: from wrfi9.prod.google.com ([2002:a5d:5849:0:b0:435:a2c9:8c02])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:4ec7:b0:47b:da85:b9ef with SMTP id 5b1f17b1804b1-482db463c13mr79331465e9.16.1769866162768;
+ Sat, 31 Jan 2026 05:29:22 -0800 (PST)
+Date: Sat, 31 Jan 2026 13:28:19 +0000
+In-Reply-To: <20260131132848.254084-1-vdonnefort@google.com>
+Mime-Version: 1.0
+References: <20260131132848.254084-1-vdonnefort@google.com>
+X-Mailer: git-send-email 2.53.0.rc1.225.gd81095ad13-goog
+Message-ID: <20260131132848.254084-2-vdonnefort@google.com>
+Subject: [PATCH v11 01/30] ring-buffer: Add page statistics to the meta-page
 From: Vincent Donnefort <vdonnefort@google.com>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
-	linux-trace-kernel@vger.kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, jstultz@google.com,
-	qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org,
-	kernel-team@android.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v10 14/30] tracing: Add a trace remote module for testing
-Message-ID: <aX37eRjYBP4WmyS6@google.com>
-References: <20260126104419.1649811-1-vdonnefort@google.com>
- <20260126104419.1649811-15-vdonnefort@google.com>
- <20260129113452.190d4d79@gandalf.local.home>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260129113452.190d4d79@gandalf.local.home>
+To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
+	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	jstultz@google.com, qperret@google.com, will@kernel.org, 
+	aneesh.kumar@kernel.org, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_045423_948060_2B982507 
-X-CRM114-Status: GOOD (  28.82  )
+X-CRM114-CacheID: sfid-20260131_052924_903647_964A11B9 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,269 +93,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 29, 2026 at 11:34:52AM -0500, Steven Rostedt wrote:
-> On Mon, 26 Jan 2026 10:44:03 +0000
-> Vincent Donnefort <vdonnefort@google.com> wrote:
-> 
-> > diff --git a/kernel/trace/remote_test.c b/kernel/trace/remote_test.c
-> > new file mode 100644
-> > index 000000000000..059127489c99
-> > --- /dev/null
-> > +++ b/kernel/trace/remote_test.c
-> > @@ -0,0 +1,259 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Copyright (C) 2025 - Google LLC
-> > + * Author: Vincent Donnefort <vdonnefort@google.com>
-> > + */
-> > +
-> > +#include <linux/module.h>
-> > +#include <linux/simple_ring_buffer.h>
-> > +#include <linux/trace_remote.h>
-> > +#include <linux/tracefs.h>
-> > +#include <linux/types.h>
-> > +
-> > +#define REMOTE_EVENT_INCLUDE_FILE kernel/trace/remote_test_events.h
-> > +#include <trace/define_remote_events.h>
-> > +
-> > +static DEFINE_PER_CPU(struct simple_rb_per_cpu *, simple_rbs);
-> > +static struct trace_buffer_desc *remote_test_buffer_desc;
-> > +
-> > +/*
-> > + * The trace_remote lock already serializes accesses from the trace_remote_callbacks.
-> > + * However write_event can still race with load/unload.
-> > + */
-> > +static DEFINE_MUTEX(simple_rbs_lock);
-> > +
-> > +static int remote_test_load_simple_rb(int cpu, struct ring_buffer_desc *rb_desc)
-> > +{
-> > +	struct simple_rb_per_cpu *cpu_buffer;
-> > +	struct simple_buffer_page *bpages;
-> > +	int ret = -ENOMEM;
-> > +
-> > +	cpu_buffer = kmalloc(sizeof(*cpu_buffer), GFP_KERNEL);
-> > +	if (!cpu_buffer)
-> > +		return ret;
-> > +
-> > +	bpages = kmalloc_array(rb_desc->nr_page_va, sizeof(*bpages), GFP_KERNEL);
-> > +	if (!bpages)
-> > +		goto err_free_cpu_buffer;
-> > +
-> > +	ret = simple_ring_buffer_init(cpu_buffer, bpages, rb_desc);
-> > +	if (ret)
-> > +		goto err_free_bpages;
-> > +
-> > +	scoped_guard(mutex, &simple_rbs_lock)
-> > +		*per_cpu_ptr(&simple_rbs, cpu) = cpu_buffer;
-> 
-> Should there be some kind of check before blindly assigning the cpu_buffer?
-> If not, what is the mutex protecting from?
+Add two fields pages_touched and pages_lost to the ring-buffer
+meta-page. Those fields are useful to get the number of used pages in
+the ring-buffer.
 
-This intends to order accesses with write_event_write(). trace_remote ensures
-that load/unload are always balanced, so I don't believe there's anything to
-test.
+Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-I could add a WARN_ON though. and probably guard(mutex)(&simple_rbs_lock) is
-enough.
+diff --git a/include/uapi/linux/trace_mmap.h b/include/uapi/linux/trace_mmap.h
+index c102ef35d11e..e8185889a1c8 100644
+--- a/include/uapi/linux/trace_mmap.h
++++ b/include/uapi/linux/trace_mmap.h
+@@ -17,8 +17,8 @@
+  * @entries:		Number of entries in the ring-buffer.
+  * @overrun:		Number of entries lost in the ring-buffer.
+  * @read:		Number of entries that have been read.
+- * @Reserved1:		Internal use only.
+- * @Reserved2:		Internal use only.
++ * @pages_lost:		Number of pages overwritten by the writer.
++ * @pages_touched:	Number of pages written by the writer.
+  */
+ struct trace_buffer_meta {
+ 	__u32		meta_page_size;
+@@ -39,8 +39,8 @@ struct trace_buffer_meta {
+ 	__u64	overrun;
+ 	__u64	read;
+ 
+-	__u64	Reserved1;
+-	__u64	Reserved2;
++	__u64	pages_lost;
++	__u64	pages_touched;
+ };
+ 
+ #define TRACE_MMAP_IOCTL_GET_READER		_IO('R', 0x20)
+diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
+index 630221b00838..1187d632dd5d 100644
+--- a/kernel/trace/ring_buffer.c
++++ b/kernel/trace/ring_buffer.c
+@@ -6131,6 +6131,8 @@ static void rb_update_meta_page(struct ring_buffer_per_cpu *cpu_buffer)
+ 	meta->entries = local_read(&cpu_buffer->entries);
+ 	meta->overrun = local_read(&cpu_buffer->overrun);
+ 	meta->read = cpu_buffer->read;
++	meta->pages_lost = local_read(&cpu_buffer->pages_lost);
++	meta->pages_touched = local_read(&cpu_buffer->pages_touched);
+ 
+ 	/* Some archs do not have data cache coherency between kernel and user-space */
+ 	flush_kernel_vmap_range(cpu_buffer->meta_page, PAGE_SIZE);
+-- 
+2.53.0.rc1.225.gd81095ad13-goog
 
-> 
-> 
-> > +
-> > +	return 0;
-> > +
-> > +err_free_bpages:
-> > +	kfree(bpages);
-> > +
-> > +err_free_cpu_buffer:
-> > +	kfree(cpu_buffer);
-> > +
-> > +	return ret;
-> > +}
-> > +
-> > +static void remote_test_unload_simple_rb(int cpu)
-> > +{
-> > +	struct simple_rb_per_cpu *cpu_buffer = *per_cpu_ptr(&simple_rbs, cpu);
-> > +	struct simple_buffer_page *bpages;
-> > +
-> > +	if (!cpu_buffer)
-> > +		return;
-> > +
-> > +	guard(mutex)(&simple_rbs_lock);
-> > +
-> > +	bpages = cpu_buffer->bpages;
-> > +	simple_ring_buffer_unload(cpu_buffer);
-> > +	kfree(bpages);
-> > +	kfree(cpu_buffer);
-> > +	*per_cpu_ptr(&simple_rbs, cpu) = NULL;
-> > +}
-> > +
-> > +static struct trace_buffer_desc *remote_test_load(unsigned long size, void *unused)
-> > +{
-> > +	struct ring_buffer_desc *rb_desc;
-> > +	struct trace_buffer_desc *desc;
-> > +	size_t desc_size;
-> > +	int cpu, ret;
-> > +
-> > +	if (WARN_ON(remote_test_buffer_desc))
-> > +		return ERR_PTR(-EINVAL);
-> > +
-> > +	desc_size = trace_buffer_desc_size(size, num_possible_cpus());
-> > +	if (desc_size == SIZE_MAX) {
-> > +		ret = -E2BIG;
-> > +		goto err_unlock_cpus;
-> > +	}
-> > +
-> > +	desc = kmalloc(desc_size, GFP_KERNEL);
-> > +	if (!desc) {
-> > +		ret = -ENOMEM;
-> > +		goto err_unlock_cpus;
-> > +	}
-> > +
-> > +	ret = trace_remote_alloc_buffer(desc, desc_size, size, cpu_possible_mask);
-> > +	if (ret)
-> > +		goto err_free_desc;
-> > +
-> > +	for_each_ring_buffer_desc(rb_desc, cpu, desc) {
-> > +		ret = remote_test_load_simple_rb(rb_desc->cpu, rb_desc);
-> > +		if (ret)
-> > +			goto err;
-> > +	}
-> > +
-> > +	remote_test_buffer_desc = desc;
-> > +
-> > +	return remote_test_buffer_desc;
-> > +
-> > +err:
-> > +	for_each_ring_buffer_desc(rb_desc, cpu, remote_test_buffer_desc)
-> > +		remote_test_unload_simple_rb(rb_desc->cpu);
-> > +	trace_remote_free_buffer(remote_test_buffer_desc);
-> > +
-> > +err_free_desc:
-> > +	kfree(desc);
-> > +
-> > +err_unlock_cpus:
-> 
-> Where was the cpus_read lock taken?
-> 
-> > +	cpus_read_unlock();
-> > +
-> > +	return ERR_PTR(ret);
-> > +}
-> > +
-> > +static void remote_test_unload(struct trace_buffer_desc *desc, void *unused)
-> > +{
-> > +	struct ring_buffer_desc *rb_desc;
-> > +	int cpu;
-> > +
-> > +	if (WARN_ON(desc != remote_test_buffer_desc))
-> > +		return;
-> > +
-> > +	for_each_ring_buffer_desc(rb_desc, cpu, desc)
-> > +		remote_test_unload_simple_rb(rb_desc->cpu);
-> > +
-> > +	remote_test_buffer_desc = NULL;
-> > +	trace_remote_free_buffer(desc);
-> > +	kfree(desc);
-> > +}
-> > +
-> > +static int remote_test_enable_tracing(bool enable, void *unused)
-> > +{
-> > +	struct ring_buffer_desc *rb_desc;
-> > +	int cpu;
-> > +
-> > +	if (!remote_test_buffer_desc)
-> > +		return -ENODEV;
-> > +
-> > +	for_each_ring_buffer_desc(rb_desc, cpu, remote_test_buffer_desc)
-> > +		WARN_ON(simple_ring_buffer_enable_tracing(*per_cpu_ptr(&simple_rbs, rb_desc->cpu),
-> > +							  enable));
-> > +	return 0;
-> > +}
-> > +
-> > +static int remote_test_swap_reader_page(unsigned int cpu, void *unused)
-> > +{
-> > +	struct simple_rb_per_cpu *cpu_buffer;
-> > +
-> > +	if (cpu >= NR_CPUS)
-> > +		return -EINVAL;
-> > +
-> > +	cpu_buffer = *per_cpu_ptr(&simple_rbs, cpu);
-> > +	if (!cpu_buffer)
-> > +		return -EINVAL;
-> > +
-> > +	return simple_ring_buffer_swap_reader_page(cpu_buffer);
-> > +}
-> > +
-> > +static int remote_test_reset(unsigned int cpu, void *unused)
-> > +{
-> > +	struct simple_rb_per_cpu *cpu_buffer;
-> > +
-> > +	if (cpu >= NR_CPUS)
-> > +		return -EINVAL;
-> > +
-> > +	cpu_buffer = *per_cpu_ptr(&simple_rbs, cpu);
-> > +	if (!cpu_buffer)
-> > +		return -EINVAL;
-> > +
-> > +	return simple_ring_buffer_reset(cpu_buffer);
-> > +}
-> > +
-> > +static int remote_test_enable_event(unsigned short id, bool enable, void *unused)
-> > +{
-> > +	if (id != REMOTE_TEST_EVENT_ID)
-> > +		return -EINVAL;
-> > +
-> > +	/*
-> > +	 * Let's just use the struct remote_event enabled field that is turned on and off by
-> > +	 * trace_remote. This is a bit racy but good enough for a simple test module.
-> > +	 */
-> > +	return 0;
-> > +}
-> > +
-> > +static ssize_t
-> > +write_event_write(struct file *filp, const char __user *ubuf, size_t cnt, loff_t *pos)
-> > +{
-> > +	struct remote_event_format_selftest *evt_test;
-> > +	struct simple_rb_per_cpu *cpu_buffer;
-> > +	unsigned long val;
-> > +	int ret;
-> > +
-> > +	ret = kstrtoul_from_user(ubuf, cnt, 10, &val);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	guard(mutex)(&simple_rbs_lock);
-> > +
-> > +	if (!remote_event_selftest.enabled)
-> > +		return -ENODEV;
-> > +
-> 
-> You want a guard(preempt)(); here...
-> 
-> > +	cpu_buffer = *this_cpu_ptr(&simple_rbs);
-> 
-> Otherwise this triggers:
-> 
->  BUG: using smp_processor_id() in preemptible [00000000] code: bash/1096
->  caller is write_event_write+0xe0/0x230 [remote_test]
-> 
-> -- Steve
-> 
-> > +	if (!cpu_buffer)
-> > +		return -ENODEV;
-> > +
-> > +	evt_test = simple_ring_buffer_reserve(cpu_buffer,
-> > +					      sizeof(struct remote_event_format_selftest),
-> > +					      trace_clock_global());
-> > +	if (!evt_test)
-> > +		return -ENODEV;
-> > +
-> > +	evt_test->hdr.id = REMOTE_TEST_EVENT_ID;
-> > +	evt_test->id = val;
-> > +
-> > +	simple_ring_buffer_commit(cpu_buffer);
-> > +
-> > +	return cnt;
-> > +}
-> > +
 
