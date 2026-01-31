@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D01EAD73EB1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 02:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABEBED73EB1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 02:51:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ykINfR+68595rbydHn6nTQMnB5GoHxZgrU275cHex9c=; b=TQJGY9JOolgWDe7YGf6zv+CKQ5
-	oEG6yibmLUMM2uBcMxLymLJDuzKU3v18ibQNdTzqCF2IEthUtknihvecSZlSO/2P63H+djuulo/Ly
-	XE5+FX5vYCaqAS+wozbt/fI0+NpEHEmRsGrFdv3eyhRpr6BuHbFhfdbUzlmyaBQ6zn9r+b0LmKsdJ
-	Cm73Tuv6BCzPsfGz3O4Dan8CcpDQ8djVKSfrb+vCryTFg/YBBpveZzzo9wE1ZC7EZn8GTSRr4cDPT
-	aGUtDyhT6JDUhMbDFcrRbnW+sh4iQex6PgP3tsb6tOe0nkOZJGBM/PQCGmyXLUrsOEJCsreX80v8y
-	YyfDwGwg==;
+	bh=XwTZvf90Q0/ZiQiDf033n6HLd/eCmwjI8aHKLe2j3RY=; b=pD0tiyRrOe/g7GNtxOEYs2WQxH
+	/2s42IiM+n2ZkU784o3XDruFQtswfxsghGUpHVhu8yrPwYZOFpgSNqSk5WkPbaqD1IqWvE3i+zlOM
+	uDxosZOVZg0mtD5zbbNyG0ufMMTSTfizg62hUMpq4fkCd0hVG8QFsXcjGaBRBrSfJUs0gaDM72u24
+	12NNSi6+qwpLKCid3dqT2qU64Sl5eIo1FmV5lxnRntxrgjejklFfQcM8TlYtoD1Lkwsy/U7MC9gyM
+	wiEe5Lsy6OrjEtXF7SuE7NMCP95mhSdW/tW/yL721JkfxjxRxmiquKXpYk6XP4uYcwKb10/6IOwul
+	HKjZrFhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vm12W-00000002FBJ-2dK6;
-	Sat, 31 Jan 2026 02:48:48 +0000
+	id 1vm15B-00000002FO3-1keG;
+	Sat, 31 Jan 2026 02:51:33 +0000
 Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vm12U-00000002FAS-2eXc
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 02:48:48 +0000
+	id 1vm158-00000002FNc-2ipt;
+	Sat, 31 Jan 2026 02:51:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=ykINfR+68595rbydHn6nTQMnB5GoHxZgrU275cHex9c=; 
-	b=O+8c0mX09K+V1RawkhytBx8jZqlVw7Ah/1SBBsVzh9QQiphRIJdqV8a6h+KHop7h2mcC3iSgDce
-	oWjYZb/gyMXLpqV5UJMGF6xQXBiNeZn1QZgDDsKGXUvdNTa2Zmn1wIBFfd6fXLXj+O793g554Df28
-	1Q/2mr3bOAQmcScDidTW+fsTsRqAs/T/sQHXxPLaSCmj+c427GhUNFuRtvnCARSgC+BLOuso+PQQQ
-	hJkprPR3IYIqbQi+gitcBSRVG7FvueB2PQpDYEv09FRAemhHm02sVnG2UUFnuZFh9B3OZ61Ot8odW
-	p8oT1b0bUp7obduwG15WPW1Gpu52+7VYrItQ==;
+	from:content-type:reply-to; bh=XwTZvf90Q0/ZiQiDf033n6HLd/eCmwjI8aHKLe2j3RY=; 
+	b=cIwTeMe2DGawNVZAcxX0uzCavRFgi/KseVVkwhC+A/0rDViJdToutcIHhByMlTM/Q0AyukeNKl1
+	JijFga/DzGXHxO3FJTB3ANo9eCPIpN02+DA0aJP+TGAKarU/fya9VC+KM8QZwosrOor5Q1rPC32ER
+	Td0x3B0nBvJwF2T01UOjLkZxfWbYqcJmUJWaJjUjO5vE/CGGc8nhN/+FfSlQJ68FUj6MEU/hyr44V
+	+qHAmTXdB9iEyo5or6PSNFf3aUh3Iy7aC60/JBd/RazXhvVHcEIwGT0BBS2J8zGZea2BGKzf+f5Cy
+	lKITDUh7vXOjSvBnnkTIS6rYAJ+9JCYnjHDg==;
 Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
 	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1vm126-003RrU-0m;
-	Sat, 31 Jan 2026 10:48:23 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 31 Jan 2026 10:48:22 +0800
-Date: Sat, 31 Jan 2026 10:48:22 +0800
+	id 1vm14p-003RvN-2X;
+	Sat, 31 Jan 2026 10:51:12 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 31 Jan 2026 10:51:11 +0800
+Date: Sat, 31 Jan 2026 10:51:11 +0800
 From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Thorsten Blum <thorsten.blum@linux.dev>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-crypto@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] crypto: stm32 - Remove unnecessary checks before calling
- memcpy
-Message-ID: <aX1tdmQERL25z2Al@gondor.apana.org.au>
-References: <20260109142039.220729-2-thorsten.blum@linux.dev>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: krzk+dt@kernel.org, davem@davemloft.net, robh@kernel.org,
+	conor+dt@kernel.org, andrew@lunn.ch, gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com, matthias.bgg@gmail.com,
+	atenart@kernel.org, linux-crypto@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v2 0/4] Fixes for EIP97/EIP197 binding and devicetrees
+Message-ID: <aX1uH28_Zd1i-d_A@gondor.apana.org.au>
+References: <20260112145558.54644-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260109142039.220729-2-thorsten.blum@linux.dev>
+In-Reply-To: <20260112145558.54644-1-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_184846_665907_7589AF7C 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260130_185130_692183_2BAE6A00 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,16 +74,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 09, 2026 at 03:20:36PM +0100, Thorsten Blum wrote:
-> memcpy() can be safely called with size 0, which is a no-op. Remove the
-> unnecessary checks before calling memcpy().
+On Mon, Jan 12, 2026 at 03:55:54PM +0100, AngeloGioacchino Del Regno wrote:
+> Changes in v2:
+>  - Reorder commits
+>  - Change to restrict interrupts/interrupt-names minItems to MediaTek only
 > 
-> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
-> ---
->  drivers/crypto/stm32/stm32-hash.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
+> This series adds SoC compatibles to the EIP97/EIP197 binding, and also
+> fixes all of the devicetrees to actually declare those in their nodes.
+> 
+> The only platforms using this binding are Marvell and MediaTek.
+> 
+> AngeloGioacchino Del Regno (4):
+>   dt-bindings: crypto: inside-secure,safexcel: Add SoC compatibles
+>   dt-bindings: crypto: inside-secure,safexcel: Mandate only ring IRQs
+>   arm64: dts: marvell: Add SoC specific compatibles to SafeXcel crypto
+>   arm64: dts: mediatek: mt7986a: Change compatible for SafeXcel crypto
+> 
+>  .../crypto/inside-secure,safexcel.yaml        | 22 +++++++++++++++++++
+>  arch/arm64/boot/dts/marvell/armada-37xx.dtsi  |  3 ++-
+>  arch/arm64/boot/dts/marvell/armada-cp11x.dtsi |  3 ++-
+>  arch/arm64/boot/dts/mediatek/mt7986a.dtsi     |  2 +-
+>  4 files changed, 27 insertions(+), 3 deletions(-)
+> 
+> -- 
+> 2.52.0
 
-Patch applied.  Thanks.
+Patches 1-2 applied.  Thanks.
 -- 
 Email: Herbert Xu <herbert@gondor.apana.org.au>
 Home Page: http://gondor.apana.org.au/~herbert/
