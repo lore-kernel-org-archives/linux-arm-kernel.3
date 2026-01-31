@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABEBED73EB1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 02:51:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3486FD46C1D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 02:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XwTZvf90Q0/ZiQiDf033n6HLd/eCmwjI8aHKLe2j3RY=; b=pD0tiyRrOe/g7GNtxOEYs2WQxH
-	/2s42IiM+n2ZkU784o3XDruFQtswfxsghGUpHVhu8yrPwYZOFpgSNqSk5WkPbaqD1IqWvE3i+zlOM
-	uDxosZOVZg0mtD5zbbNyG0ufMMTSTfizg62hUMpq4fkCd0hVG8QFsXcjGaBRBrSfJUs0gaDM72u24
-	12NNSi6+qwpLKCid3dqT2qU64Sl5eIo1FmV5lxnRntxrgjejklFfQcM8TlYtoD1Lkwsy/U7MC9gyM
-	wiEe5Lsy6OrjEtXF7SuE7NMCP95mhSdW/tW/yL721JkfxjxRxmiquKXpYk6XP4uYcwKb10/6IOwul
-	HKjZrFhg==;
+	bh=9RA4evnkWnigTi0hEwSAJctd8OnLBTl1I3r4McPl7zo=; b=DICBR9SM86fZQ/4ZYQ5IoCQad9
+	BDpFUxpSx1FndoRpAdidywKIvVbS7v+/fNhMEQQ1Xq4GEjq1jQzefTz2/BbADCqL1psNoqROLzXj9
+	x8KlnNzN3TZ0GXum+rZm00Qv+gUl4y8tQb49nehuffOdYOZdtjc/HQGa9u0XXzy05msTgJpZuHFac
+	i3A09OyP4qAIJAS/Lgap+Cbp5XL1gp+L9pyqhyw+G6eGfGR4yPFLmUUI+0CKog94dFyO+F2J+anpH
+	jzBfWseDxG2V765O8LtUY6glOlXFtQ0mLKSdldfbfpCAiSC8y5qm3lJDGqfjx+9m5msl9U8QFb/D0
+	vsKWXodw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vm15B-00000002FO3-1keG;
-	Sat, 31 Jan 2026 02:51:33 +0000
+	id 1vm164-00000002FUd-09n1;
+	Sat, 31 Jan 2026 02:52:28 +0000
 Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vm158-00000002FNc-2ipt;
-	Sat, 31 Jan 2026 02:51:31 +0000
+	id 1vm161-00000002FTq-3jSd;
+	Sat, 31 Jan 2026 02:52:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=XwTZvf90Q0/ZiQiDf033n6HLd/eCmwjI8aHKLe2j3RY=; 
-	b=cIwTeMe2DGawNVZAcxX0uzCavRFgi/KseVVkwhC+A/0rDViJdToutcIHhByMlTM/Q0AyukeNKl1
-	JijFga/DzGXHxO3FJTB3ANo9eCPIpN02+DA0aJP+TGAKarU/fya9VC+KM8QZwosrOor5Q1rPC32ER
-	Td0x3B0nBvJwF2T01UOjLkZxfWbYqcJmUJWaJjUjO5vE/CGGc8nhN/+FfSlQJ68FUj6MEU/hyr44V
-	+qHAmTXdB9iEyo5or6PSNFf3aUh3Iy7aC60/JBd/RazXhvVHcEIwGT0BBS2J8zGZea2BGKzf+f5Cy
-	lKITDUh7vXOjSvBnnkTIS6rYAJ+9JCYnjHDg==;
+	from:content-type:reply-to; bh=9RA4evnkWnigTi0hEwSAJctd8OnLBTl1I3r4McPl7zo=; 
+	b=KvZLABHJJqryZU0dP1mvkoqIHlRrV4axMSQ1WdGm/zmnyPudpyQzSDDd+NlqIgYwMO24Iumz2K/
+	l8/OF1QnKEd6thJr8k6zqCWCSdNbAFZtiIu/O/uQrsNhseLjT/mFgL69L8wKzl/IvqdE72a7PlrbY
+	cYiAkHIL8nKELMs1rahp39wKiIsG0yxeUGsALAVYfbYScQ9dIdVG+j1e48j6BpQt4g+o53LjQq8vM
+	fX1t6Y32+kc74y22D7wFkd11z6aobQ4jsVl0OEXq2cVk1d0VZ/aBMtPW7CBVbRIWi4lmnPn9AiHYl
+	kobGe9Jlhw4264zzmBvjcrxl1DLLadQLmWOw==;
 Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
 	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1vm14p-003RvN-2X;
-	Sat, 31 Jan 2026 10:51:12 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 31 Jan 2026 10:51:11 +0800
-Date: Sat, 31 Jan 2026 10:51:11 +0800
+	id 1vm15q-003Rvd-20;
+	Sat, 31 Jan 2026 10:52:15 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 31 Jan 2026 10:52:14 +0800
+Date: Sat, 31 Jan 2026 10:52:14 +0800
 From: Herbert Xu <herbert@gondor.apana.org.au>
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: krzk+dt@kernel.org, davem@davemloft.net, robh@kernel.org,
@@ -51,15 +51,16 @@ Cc: krzk+dt@kernel.org, davem@davemloft.net, robh@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, kernel@collabora.com
 Subject: Re: [PATCH v2 0/4] Fixes for EIP97/EIP197 binding and devicetrees
-Message-ID: <aX1uH28_Zd1i-d_A@gondor.apana.org.au>
+Message-ID: <aX1uXlLMJtkMQAzI@gondor.apana.org.au>
 References: <20260112145558.54644-1-angelogioacchino.delregno@collabora.com>
+ <aX1uH28_Zd1i-d_A@gondor.apana.org.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260112145558.54644-1-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <aX1uH28_Zd1i-d_A@gondor.apana.org.au>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_185130_692183_2BAE6A00 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20260130_185225_922957_630F92A9 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,32 +75,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 03:55:54PM +0100, AngeloGioacchino Del Regno wrote:
-> Changes in v2:
->  - Reorder commits
->  - Change to restrict interrupts/interrupt-names minItems to MediaTek only
+On Sat, Jan 31, 2026 at 10:51:11AM +0800, Herbert Xu wrote:
+> On Mon, Jan 12, 2026 at 03:55:54PM +0100, AngeloGioacchino Del Regno wrote:
+> > Changes in v2:
+> >  - Reorder commits
+> >  - Change to restrict interrupts/interrupt-names minItems to MediaTek only
+> > 
+> > This series adds SoC compatibles to the EIP97/EIP197 binding, and also
+> > fixes all of the devicetrees to actually declare those in their nodes.
+> > 
+> > The only platforms using this binding are Marvell and MediaTek.
+> > 
+> > AngeloGioacchino Del Regno (4):
+> >   dt-bindings: crypto: inside-secure,safexcel: Add SoC compatibles
+> >   dt-bindings: crypto: inside-secure,safexcel: Mandate only ring IRQs
+> >   arm64: dts: marvell: Add SoC specific compatibles to SafeXcel crypto
+> >   arm64: dts: mediatek: mt7986a: Change compatible for SafeXcel crypto
+> > 
+> >  .../crypto/inside-secure,safexcel.yaml        | 22 +++++++++++++++++++
+> >  arch/arm64/boot/dts/marvell/armada-37xx.dtsi  |  3 ++-
+> >  arch/arm64/boot/dts/marvell/armada-cp11x.dtsi |  3 ++-
+> >  arch/arm64/boot/dts/mediatek/mt7986a.dtsi     |  2 +-
+> >  4 files changed, 27 insertions(+), 3 deletions(-)
+> > 
+> > -- 
+> > 2.52.0
 > 
-> This series adds SoC compatibles to the EIP97/EIP197 binding, and also
-> fixes all of the devicetrees to actually declare those in their nodes.
-> 
-> The only platforms using this binding are Marvell and MediaTek.
-> 
-> AngeloGioacchino Del Regno (4):
->   dt-bindings: crypto: inside-secure,safexcel: Add SoC compatibles
->   dt-bindings: crypto: inside-secure,safexcel: Mandate only ring IRQs
->   arm64: dts: marvell: Add SoC specific compatibles to SafeXcel crypto
->   arm64: dts: mediatek: mt7986a: Change compatible for SafeXcel crypto
-> 
->  .../crypto/inside-secure,safexcel.yaml        | 22 +++++++++++++++++++
->  arch/arm64/boot/dts/marvell/armada-37xx.dtsi  |  3 ++-
->  arch/arm64/boot/dts/marvell/armada-cp11x.dtsi |  3 ++-
->  arch/arm64/boot/dts/mediatek/mt7986a.dtsi     |  2 +-
->  4 files changed, 27 insertions(+), 3 deletions(-)
-> 
-> -- 
-> 2.52.0
+> Patches 1-2 applied.  Thanks.
 
-Patches 1-2 applied.  Thanks.
+Oops, they've already been applied elsewhere so I'm backing them
+out of cryptodev.
+
+Thanks,
 -- 
 Email: Herbert Xu <herbert@gondor.apana.org.au>
 Home Page: http://gondor.apana.org.au/~herbert/
