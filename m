@@ -4,77 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CBB1D79769
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 12:34:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E25C0D79767
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 12:37:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o1FArTjWb5fHnMv+cvCRxPx2Pce2+vtnbqLuhuuwGV4=; b=t28R7FqUFDWWFVSVYrl2aU6/45
-	76ZS5qeufuNX9dg4BC4hq0N2PEIzaCcq+yWOCKbPONPWT+Re94+cgxThnhkCoXIM3Q6Fzky2rkI+R
-	0AjfPH5hw675kONOriS0hg8QIxAwAWkZmxm65aY+2ScXqh/VdWl2IVQzZ3EBLnxbPt4nNPvAF3K10
-	Wa/pDBy+tfOeZzHDIAD30PWuHLkgNMKcL8L0+ApzkUzBzaA9bIfJUFlf3nepbUItZ40cN+YxlGrLa
-	McpV3s739UQibMD7VCQffPB56Rt8dTGn6X+88YSEAMXChveRuyBZ+9cmm6oezkiLI1lX7Bv2nQ3Sh
-	PMh4KF+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pFkRC052mtWJSYjf/L+3KPITCKQsvEHY5MFZzNZihJg=; b=aR58Ct3CXNaZaGEKUy3WPhyTCo
+	NRhvXpC4GG9GE22GWpHEa1RGdJSk3WRxgb2HcnDL+rltVKdL8PzkcQCC8hQaY1UUc1y53DuTCOckz
+	GLn5SuRK7DC0w9CuiD+re0cqzRwNmEbWQ54Uqxps2ZLDAXnTfk8ltAj5V8HmCd2X32OQPx81664JO
+	ebaNtGt7yL3WuBBRaLAf/XTH5+ciRRKge1EDT/LsH8xipy6NYt4Gdc1wQys3fHkhRCKhyNUCQkQPm
+	3Zu1FprDmmyp/meypx4ec7zjn7MqndBM7QqH3pLqROgaTsnwh8fhTx59eHyMJXUsHj2dxuVi0FlvC
+	p91X/UBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmAAp-00000002ZnK-0kLN;
-	Sat, 31 Jan 2026 12:33:59 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vmAE9-00000002ZxY-48PM;
+	Sat, 31 Jan 2026 12:37:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmAAk-00000002ZmV-0lCo;
-	Sat, 31 Jan 2026 12:33:57 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id E4BD5C22F7C;
-	Sat, 31 Jan 2026 12:33:51 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id EBC92606B6;
-	Sat, 31 Jan 2026 12:33:47 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2DA53119A8886;
-	Sat, 31 Jan 2026 13:33:30 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769862826; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=o1FArTjWb5fHnMv+cvCRxPx2Pce2+vtnbqLuhuuwGV4=;
-	b=oqTZJV0hSg/2X16nn9r8HEyNeDGFLcFLjeWYysi+mRl3B8Uj0JW9fvJs4Pxa4SClyr2qbA
-	ZQamRMUOLc7fAbjdchR/x04C2usO+abkffytpKYafkpjibIF1pJftgtdM9kZKNhgQWW+he
-	Qen3cNjQnXdCBvQixpQSw1Ina3DIgbzxdLPAVQB92wUkKnPYOXDdb5pSVOfSG8U1+7sEPT
-	TWjulhUlCGohNKQW8tAuhKiE+ww/5LNHvq8zRIVOMPOALjdXHIlWH0t2U92M+uIGCxbG8f
-	R5Uj2RBFaitVU2ZkJIq++Kvw1YgbCYmFH60kAjMd7q8SIjUMcalagEoEEfDdYw==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sat, 31 Jan 2026 13:33:29 +0100
-Message-Id: <DG2S064XPGXL.1MQDAKWZEK50K@bootlin.com>
-Subject: Re: [PATCH v8 05/18] drm/bridge: Move legacy bridge driver out of
- imx directory for multi-platform use
-Cc: <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
- <jernej.skrabec@gmail.com>, <maarten.lankhorst@linux.intel.com>,
- <mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
- <simona@ffwll.ch>, <shawnguo@kernel.org>, <s.hauer@pengutronix.de>,
- <kernel@pengutronix.de>, <festevam@gmail.com>, <inki.dae@samsung.com>,
- <sw0312.kim@samsung.com>, <kyungmin.park@samsung.com>, <krzk@kernel.org>,
- <alim.akhtar@samsung.com>, <jingoohan1@gmail.com>,
- <p.zabel@pengutronix.de>, <hjc@rock-chips.com>, <heiko@sntech.de>,
- <andy.yan@rock-chips.com>, <dmitry.baryshkov@oss.qualcomm.com>,
- <dianders@chromium.org>, <m.szyprowski@samsung.com>,
- <jani.nikula@intel.com>, <linux-kernel@vger.kernel.org>,
- <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-samsung-soc@vger.kernel.org>, <linux-rockchip@lists.infradead.org>
-To: "Damon Ding" <damon.ding@rock-chips.com>, <andrzej.hajda@intel.com>,
- <neil.armstrong@linaro.org>, <rfoss@kernel.org>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.20.1
-References: <20251217093321.3108939-1-damon.ding@rock-chips.com>
- <20251217093321.3108939-6-damon.ding@rock-chips.com>
-In-Reply-To: <20251217093321.3108939-6-damon.ding@rock-chips.com>
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_043355_273778_7C07C506 
-X-CRM114-Status: GOOD (  14.29  )
+	id 1vmAE9-00000002ZxR-1BwW
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 31 Jan 2026 12:37:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1178360008;
+	Sat, 31 Jan 2026 12:37:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9274DC4CEF1;
+	Sat, 31 Jan 2026 12:37:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769863043;
+	bh=H+l9h16Lew6InNs2ZzvZSZ4Z7A2kn1exqhyCUB1RLK0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=reEEehQ3nh8RYvwtbrmLWy1plHoaLB8F6lEEKOloxSRyNL4c5k5Ewt+BSSULJJPBS
+	 wBjN4ID+3pO0inQw45Yea8cQnhV3mLA18DVovyqSGAgFeeggGf3XqQLIUJmC49LqaR
+	 +yeOgFz9mrgegKZWv8ORhlrb2mVRu5wq7Y4s6w78xZswhVo0B343GGXyKoeNNIQVy0
+	 oBhot26HilHhAiXALTogyyQOnOjRa1dua18piQ/eM4gDTReWJ6PDh0vTxnmYYHQrK7
+	 M7YrSjY/jvbvG+VYgDGxdaacyn35BeDf7RLXVWZh71jD3YXnVn5RJcieb2kNMzzM0n
+	 Pp+zZBXeSQwRA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vmAE4-00000007Hih-3fs1;
+	Sat, 31 Jan 2026 12:37:20 +0000
+Date: Sat, 31 Jan 2026 12:37:20 +0000
+Message-ID: <86y0le9cvz.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jiaqi Yan <jiaqiyan@google.com>
+Cc: oupton@kernel.org,
+	sebott@redhat.com,
+	gshan@redhat.com,
+	yuzenghui@huawei.com,
+	rananta@google.com,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	pbonzini@redhat.com,
+	shuah@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] KVM: selftests: Improve sea_to_user test
+In-Reply-To: <20260130192837.890688-1-jiaqiyan@google.com>
+References: <20260130192837.890688-1-jiaqiyan@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: jiaqiyan@google.com, oupton@kernel.org, sebott@redhat.com, gshan@redhat.com, yuzenghui@huawei.com, rananta@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,54 +92,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Damon, Dmitry,
-
-On Wed Dec 17, 2025 at 10:33 AM CET, Damon Ding wrote:
-> As suggested by Dmitry, the DRM legacy bridge driver can be pulled
-> out of imx/ subdir for multi-platform use. The driver is also renamed
-> to make it more generic and suitable for platforms other than i.MX.
->
-> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-> Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
->
+On Fri, 30 Jan 2026 19:28:37 +0000,
+Jiaqi Yan <jiaqiyan@google.com> wrote:
+> 
+> Several improvments to the test for KVM_EXIT_ARM_SEA:
+> 
+> - Refactor run_vm to catch GUEST_FAIL, instead of causing confusing
+>   unhandled MMIO kvm exit.
+> 
+> - Sync far_invalid to guest.
+> 
+> - Exit test with KSFT_SKIP or KSFT_FAIL when should.
+> 
+> - Add comment about VM backing memory type.
+> 
+> Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
 > ---
->
-> Changes in v7:
-> - Rename legacy-bridge to of-display-mode-bridge.
-> - Remove unnecessary API drm_bridge_is_legacy().
+>  .../testing/selftests/kvm/arm64/sea_to_user.c | 94 +++++++++++--------
+>  1 file changed, 53 insertions(+), 41 deletions(-)
 
-...
+Overall, this test is still pretty broken.
 
-> --- a/drivers/gpu/drm/bridge/Kconfig
-> +++ b/drivers/gpu/drm/bridge/Kconfig
-> @@ -244,6 +244,16 @@ config DRM_NXP_PTN3460
->  	help
->  	  NXP PTN3460 eDP-LVDS bridge chip driver.
->
-> +config DRM_OF_DISPLAY_MODE_BRIDGE
-> +	tristate
-> +	depends on DRM_BRIDGE && OF
-> +	help
-> +	  This is a DRM bridge implementation that uses of_get_drm_display_mode
-> +	  to acquire display mode.
-> +
-> +	  Newer designs should not use this bridge and should use proper panel
-> +	  driver instead.
+For example, on my Altra box:
 
-"Newer designs should not use this bridge", but in patch 8 you are
-introducing a new use ot devm_drm_of_display_mode_bridge(). Shouldn't you
-instead "use proper panel driver instead" in patch 8?
+maz@filthy-habits:~$ ./sea_to_user 
+Random seed: 0x6b8b4567
+# Mapped 0x40000 pages: gva=0x80000000 to gpa=0xff80000000
+# Before EINJect: data=0xbaadcafe
+# EINJ_GVA=0x81234bad, einj_gpa=0xff81234bad, einj_hva=0xffff41234bad, einj_hpa=0xbad
+ok 1 # SKIP EINJ table not available in firmware
 
-Can you point to the conversation where the converstaion where Dmitry
-suggested this change? Maybe it already contains the answer to my
-qustion. Also adding a link to that conversation in the commit message
-woule be useful.
+Well, not quite. EINJ *is* available, it is just that this test,
+contrary to *all* the other tests, requires some insanely high
+privileges. But the test is making stupid assumption.
 
-Luca
+But that's not all:
 
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+maz@filthy-habits:~$ sudo ./sea_to_user 
+Random seed: 0x6b8b4567
+# Mapped 0x40000 pages: gva=0x80000000 to gpa=0xff80000000
+# Before EINJect: data=0xbaadcafe
+# EINJ_GVA=0x81234bad, einj_gpa=0xff81234bad, einj_hva=0xffff41234bad, einj_hpa=0x80041234bad
+# echo 0x10 > /sys/kernel/debug/apei/einj/error_type - done
+# echo 0x2 > /sys/kernel/debug/apei/einj/flags - done
+# echo 0x80041234bad > /sys/kernel/debug/apei/einj/param1 - done
+# echo 0xffffffffffffffff > /sys/kernel/debug/apei/einj/param2 - done
+# echo 0x1 > /sys/kernel/debug/apei/einj/notrigger - done
+sh: 1: echo: echo: I/O error
+Bail out! Failed to write EINJ entry: Success (0)
+# Totals: pass:0 fail:0 xfail:0 xpass:0 skip:0 error:0
+
+Failed? Or Success? Who knows...
+
+But frankly, the whole "embedded shell script" is disgusting. What is
+wrong with driving the injection from the test itself, rather than
+this access()+popen()? popen() itself is a liability (see the man page
+for system()), and should never be used for this sort of things.
+
+> 
+> diff --git a/tools/testing/selftests/kvm/arm64/sea_to_user.c b/tools/testing/selftests/kvm/arm64/sea_to_user.c
+> index 573dd790aeb8e..4a3511fa1f940 100644
+> --- a/tools/testing/selftests/kvm/arm64/sea_to_user.c
+> +++ b/tools/testing/selftests/kvm/arm64/sea_to_user.c
+> @@ -12,6 +12,11 @@
+>   * including the notrigger feature. Otherwise the test will be skipped.
+>   * The under-test platform's APEI should be unable to claim SEA. Otherwise
+>   * the test will also be skipped.
+> + *
+> + * The VM backing memory is tied to HugeTLB 1G hugepage so far. Make sure
+> + * there are more than 4 1G hugepage on the system. They can be allocated
+
+Why *more than*? Isn't that *at least* instead?
+
+> + * at runtime by:
+> + *   echo 4 > /sys/kernel/mm/hugepages/hugepages-1048576kB/nr_hugepages
+>   */
+
+Why can't you provide an adequate diagnostic instead of this stuff:
+
+maz@filthy-habits:~$ ./sea_to_user 
+Random seed: 0x6b8b4567
+==== Test Assertion Failure ====
+  include/kvm_syscalls.h:58: mem != MAP_FAILED
+  pid=887 tid=887 errno=12 - Cannot allocate memory
+     1	0x0000000000405b4f: __kvm_mmap at kvm_syscalls.h:58 (discriminator 3)
+     2	 (inlined by) kvm_mmap at kvm_syscalls.h:65 (discriminator 3)
+     3	 (inlined by) vm_mem_add at kvm_util.c:1036 (discriminator 3)
+     4	0x0000000000402373: vm_create_with_sea_handler at sea_to_user.c:290
+     5	 (inlined by) main at sea_to_user.c:336
+     6	0x0000ffffb0dc229b: ?? ??:0
+     7	0x0000ffffb0dc237b: ?? ??:0
+     8	0x00000000004027ef: _start at ??:?
+  mmap() failed, rc: -1 errno: 12 (Cannot allocate memory)
+
+What is preventing you from not requiring huge pages? And not
+requiring 4kB as the base page size?
+
+Given how broken this is, I'm likely to disable this test until you
+fix it for real.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
