@@ -4,57 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA707D61037
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 17:47:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0CB0D73EB5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 18:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IAG0HgIIV8HrKKcYDy42BPEDfPkG7BIIWSXD8PB+h2M=; b=ljlU9rJNwYNUcV2vQF9SPt0qRO
-	5FTLxTPczrVL4myiNYGWpIxBqjRkze7d91oALbUXAfy0m6QOYK0yzbuucwjOWa5MI/1tXHZj++aEP
-	ApRHkGD4QTwl5U1ll5UghjsJfM6OxdSgHbYsIGlD8ahV23pPS3zfsD9pkqdZaQxVzfcJknkWiDMU7
-	3HcFPZVNef3Xw8NbkNtRy1KkrsfWAhP49B1ULc9SWBJE0ufnxxpj6ydWReYQMomJxPipvlYLgsiTz
-	8u0jlhe/5O6kcvaDTuBhLcfoevwzJVPZG09ymt4xlqf9hY6mFlAa+xlFP4WW2lQ7ubu3tyzjGlENs
-	WwFeeyIw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pCrEKDN74Yg1HcvVzMQvEOY6ZE2OP4wRbYz5bxWYTv4=; b=dKGW3dLYSaAAfKO/7b3HVmONbh
+	x2ALvO+7pK0/cp8K/nibKiZ8/IY2g8nAsqc4cyXlGd3XdHWOT0kPrlynnZ63Tu6JZGv/v3Jcljt1/
+	FDdHXdGwXojjwHL7lSv8YXGtH+gxIS1+iwOlwJLej+z98R8SR8hM/NGaqGaL1ezgnJ7rg9DNJpz0i
+	pcEuEYwvOZ6AMqR6se1xQd2sUZdtmWkTTZW8C2JpDNRneyQv+RNbIHv6gpIwPFq6qkoBwD0ug9IOU
+	nYIzB0MQVw8sH4nYXVO+AQoDSJ9qwBsh+JvxvPZ3IGF0Te8zxN+wT89jmRa6wLhzXylFUfkudt4Cw
+	VDNAU8dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmF3l-00000002rqX-2khr;
-	Sat, 31 Jan 2026 17:47:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vmFHj-00000002sDS-050J;
+	Sat, 31 Jan 2026 18:01:27 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmF3i-00000002rq1-49sq
+	id 1vmFHg-00000002sD5-3cmi
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 17:47:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D1EAC40BD8
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 17:46:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ED9AC4CEF1;
-	Sat, 31 Jan 2026 17:46:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769881617;
-	bh=XJXhKDKIdbjjqxopEmAWWGnKUg42p9kFs2Ta8M/uoKs=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ERBXpdRnPBX/6AOoFv2uuS1g/k6bexCua0jdu7KM82bFqIUWxP3BP3ZtEnyZwFtUg
-	 tK7zOUS4t1W/rWEodPg1iUK+Ws9RajyGMVaCSu4E4Rw/hzp2SKWUvTwrn4FHW2WBbh
-	 p9yVJpwC79HRUI+qlpbOOA2rcnfZxZdzFKkMmGtu/IaK8j4G/RyT9UJd8tLtT+q5KC
-	 7ma5UfBled1ikcbA9SW0u2B0AXZuguA2uI5JwI5Ox870SRqKjLPyy2S59MJ/LXoPVO
-	 ZFyGbIIiqL7pktUlR5RkZ4hHdFb+1hzs//iiTv2zaP3p979RayFTkf6PIGaF2nQaXV
-	 K/CWuZayigIow==
-From: Dinh Nguyen <dinguyen@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	soc@lists.linux.dev
-Cc: dinguyen@kernel.org
-Subject: [GIT PULL v2] arm/arm64: dts: socfpga: updates for v6.20, version 2
-Date: Sat, 31 Jan 2026 11:46:56 -0600
-Message-ID: <20260131174656.30403-1-dinguyen@kernel.org>
-X-Mailer: git-send-email 2.42.0.411.g813d9a9188
+	Sat, 31 Jan 2026 18:01:26 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-bd1ce1b35e7so1886480a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Jan 2026 10:01:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769882483; cv=none;
+        d=google.com; s=arc-20240605;
+        b=iTBFF6bG7PjmOMVcFqILG/YF8ovBNx3Lwxgbrh8YXBYgN6QWgUW7m7LGrIbbMs+SFI
+         bVSstf8FlR7i0BFS5w0Bq0fBYuMwhN4VUC/3lLUSau5Ux1n1rM8pehgrMUYmqvcEtf8C
+         CuZakV3HyDxMM6y3BtrPayNnL5aIe1LEgybq57Fd8UN/v4SU8x+RcBiISQKFrYaF92ro
+         yFSSO/0JGp98S0ddKb5IHOeWl4aZnVAqQ4RsUkSNz536qpLKSFSK5rZMsqBhQdvAWvcq
+         wb4T/bAyoNVc0bxb71hHuAX9JgbYAtFIA9JVoxAADSdj0N180Alx+DDoLzkWKoj3ONDd
+         oh1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=pCrEKDN74Yg1HcvVzMQvEOY6ZE2OP4wRbYz5bxWYTv4=;
+        fh=FUex1i2iaLik/qww8bdm9xuBxVsDAETvZl2MVx+vtro=;
+        b=L3Md+G4u2kr41juOlyNO1b2AlOQkM5ztYswoPpfTgvzYE3lo/XTibZ5vBMQJL1Qo2K
+         C8Q+E3NPFHWOvVxbgB8Ce7Q4E/k7J+qSMTDXyl0ZkZGY6SQAkQwGCuk0vD7GPHvp3Wqt
+         JMV7pMqsDhak97NbkOTfCxADXyaAeHwEOgTSHuDlpWDk4l9J79/8mOk6gvgUieiRg3TA
+         ttl+hOfdtums+4FNNCs9JnB7dVwL8L1NCHeWF6g+RE9rq+IxjDCOHCpdVZFAIOWiY06B
+         zLXEnQ5y/MHS2fqWcQ0QpfuGU4+4CKbaegqGgWe55Z6sNQdwVZhfOvcEpqHJeZD+cERA
+         LD0Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769882483; x=1770487283; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pCrEKDN74Yg1HcvVzMQvEOY6ZE2OP4wRbYz5bxWYTv4=;
+        b=IQ/Qq83H2/UU3EFF7FNtE5AOI+XxoDzxi+XHCLvtCoshZNgOCirz7mE0CMpTcxPRPM
+         td9gl2F6pOnNPo1axd/JjdnXPTjt+DcGMGhUex3WggagUh5G+2Png/q+07G+8rh3tqaz
+         3uh6WaId3eTlqxsy0pzzPN0SI+HzmLt2fx6ppuMS7Gc/G5uO1sh0Xtabc+0Gu8/RzuNk
+         w8+9qRdhAe6qNIRPSQ36nQV4vQn+dPG+aO3u2aSSu+b/lM+RSWlWjJfmhJxy+hDYqHld
+         uP02n+Z40HvW4iuE0b/Asjl6rY++gCB5lqCtxHbaJNRt+BEUUP1Llpzr0FSRbT+IjVl7
+         CP4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769882483; x=1770487283;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=pCrEKDN74Yg1HcvVzMQvEOY6ZE2OP4wRbYz5bxWYTv4=;
+        b=U5oKVE0ohPszeIsOnMbo+Az9Nxn0i6cYqfXyJpDMzCyr3d3ZZ3+oSK3qROC6+snXeE
+         OnpNHDF5axD5NAFJGJdhA+aedxCFOXkf8B8T/z4YQrOuzlVvvOWtW51qK0uIGtamwWnx
+         UtzOAJsfQkkkfxad7UGfo31l9AxEgwvakD7UKLOHiD2rcAPMV/mU3BefTR9uWjHwMnCJ
+         PrqDRRSTC4Pq6NPrAv1pNdrtfX872QMQaC6ZtXGYlSF3mCTg9GWMBjcBA7G3Y692NJUC
+         Mg+YWWqJLIuefTIxnCbDtuwgo+AE69lyLPTv1BrGz6m9HrB72w4E2m2RjlD1pmyTzoRY
+         QwEA==
+X-Forwarded-Encrypted: i=1; AJvYcCWTYEFI/EPlJxlTVFqsNQ48JEOHtDy312C8EF770TYwu0RJgAG80noNQgHvIHxP357Fx1sQ4DNcYXL9yQqupISC@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGClfvG2mFZUoWO+7lzBsR2famf0Z8LNojbKUsIkZ/uiFaYAto
+	t5IhGHGxil9YuPsDeWbfa78jofRE43ghqP9nnJY6X7iLLmE7c1kPHQIxazmK+4s0vTKlRnVYP9g
+	kRRGoc7Se5UdQ6gVFQ7cJ2/FBlx3DpWk=
+X-Gm-Gg: AZuq6aKvpJbzYa8PMVGOlUPDrqTD4BApGxkA4wefwWqNa7JitrvRFRr6H1g7yYTTqDL
+	QaaBmzf2ym4cEixOrt3lyjumuIUlm+uVaHGuQU2bvIqz+X3zZkwptYgs1EQIrRC5b5OfQmi8oPU
+	hIoXfbKeKayM5mdrd5NMZ2FDZdkVZCA/QyO8CtVAHibH9d17knq3Q/tnZDA0THepTjrVkDAARof
+	jg6Y+u5WoadPDDqwaUp9/Zui2q44zfTHHLuSOyMLeN3ZmQCv/rU0fbFTrP32eLMZEyg
+X-Received: by 2002:a05:6a20:728a:b0:35d:d477:a7fa with SMTP id
+ adf61e73a8af0-392e0052a6bmr6468927637.23.1769882483020; Sat, 31 Jan 2026
+ 10:01:23 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260131-clk-imx6q-v2-0-70471ddc99e0@gmail.com>
+ <20260131-clk-imx6q-v2-1-70471ddc99e0@gmail.com> <aX4q+W3Sjx5SRHrC@lizhi-Precision-Tower-5810>
+In-Reply-To: <aX4q+W3Sjx5SRHrC@lizhi-Precision-Tower-5810>
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Sun, 1 Feb 2026 02:01:11 +0800
+X-Gm-Features: AZwV_QhLWLb-FDStR9zG6fjnRX1upvQjUilJNBF9vy-1P4S-LT2FD_90PT_gXlw
+Message-ID: <CAN4SLj0D2PV9vFW4=dAF3ypAtA8JvhJpEut8Aumsx4JaMSEsiw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] clk: imx: imx6q: Fix device node reference leak in pll6_bypassed()
+To: Frank Li <Frank.li@nxp.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Lucas Stach <l.stach@pengutronix.de>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Akshay Bhat <akshay.bhat@timesys.com>, 
+	Ranjani Vaidyanathan <Ranjani.Vaidyanathan@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
+	linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260131_094659_090871_7A28C9A7 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20260131_100124_930049_BDA33CA8 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,86 +122,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi soc maintainers,
+On Sun, Feb 1, 2026 at 12:17=E2=80=AFAM Frank Li <Frank.li@nxp.com> wrote:
+>
+> On Sat, Jan 31, 2026 at 04:11:34PM +0800, Felix Gu wrote:
+> > The function pll6_bypassed() calls of_parse_phandle_with_args()
+> > but never calls of_node_put() to release the reference, causing
+> > a memory leak.
+> >
+> > Fix this by adding proper cleanup calls on all exit paths.
+> >
+> > Fixes: 3cc48976e9763 ("clk: imx6q: handle ENET PLL bypass")
+> > Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+> > ---
+> >  drivers/clk/imx/clk-imx6q.c | 6 +++++-
+> >  1 file changed, 5 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/clk/imx/clk-imx6q.c b/drivers/clk/imx/clk-imx6q.c
+> > index bf4c1d9c9928..1d8e8f0891a3 100644
+> > --- a/drivers/clk/imx/clk-imx6q.c
+> > +++ b/drivers/clk/imx/clk-imx6q.c
+> > @@ -238,8 +238,11 @@ static bool pll6_bypassed(struct device_node *node=
+)
+> >                       return false;
+> >
+> >               if (clkspec.np =3D=3D node &&
+> > -                 clkspec.args[0] =3D=3D IMX6QDL_PLL6_BYPASS)
+> > +                 clkspec.args[0] =3D=3D IMX6QDL_PLL6_BYPASS) {
+> > +                     of_node_put(clkspec.np);
+> >                       break;
+> > +             }
+> > +             of_node_put(clkspec.np);
+> >       }
+> >
+> >       /* PLL6 bypass is not part of the assigned clock list */
+> > @@ -249,6 +252,7 @@ static bool pll6_bypassed(struct device_node *node)
+> >       ret =3D of_parse_phandle_with_args(node, "assigned-clock-parents"=
+,
+> >                                        "#clock-cells", index, &clkspec)=
+;
+> >
+>
+> If ret is err, clkspec will not touched. So clkspec.np keep old value,
+> of_node_put(clkspec.np) will put twice for previous np.
+>
+> So need add if (ret) check here. Or use difference variable clkspec with
+> init 0.
+Thanks, I will fix it in v3.
 
-This is version 2 of the PR that had dt-bindings for dma and mtd patches[1]. This
-version has those patches removed and I'm taking them through the respective
-maintainer's tree.
+>
+> Frank
+>
+> > +     of_node_put(clkspec.np);
+> >       if (clkspec.args[0] !=3D IMX6QDL_CLK_PLL6)
+> >               return true;
+> >
+> >
+> > --
+> > 2.43.0
+> >
 
-Thanks,
-Dinh
-[1] https://lore.kernel.org/soc/7c6de5dc-8396-4793-a4fa-184bfe4096f3@kernel.org
-
-The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
-
-  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux.git tags/socfpga_dts_updates_for_v6.20_v2
-
-for you to fetch changes up to 42a8d7d72185247c0bbada1d2c44bef743ee6a5d:
-
-  dt-bindings: intel: Add Agilex eMMC support (2026-01-30 09:50:07 -0600)
-
-----------------------------------------------------------------
-SoCFPGA DTS updates for v6.20, version 2
-- dt-bindings updates:
-	- Add intel,socfpga-agilex5-socdk-modular for the Agilex5 mod board
-	- Add intel,socfpga-agilex-emmc for the Agilex eMMC daughter board
-	- Move entries in intel,socfpga.yaml into altera.yaml
-	- Add syscon as a fallback for sys-mgr
-
-- Add dma-cohrerent property for Agilex5 NAND and DMA
-- Add support for the Agilex5 modular board
-- Add IOMMUS property for ethernet nodes for Agilex5
-- Use lowercase hex for dts files
-- Add #address-cells and #size-cells for sram
-- Fix dtbs_check warning for fpga-region
-- Move dma controller node for Agilex5 under simple-bus
-- Add support for the Agilex eMMC daughter board
-
-----------------------------------------------------------------
-Dinh Nguyen (4):
-      dt-bindings: arm: altera: combine Intel's SoCFPGA into altera.yaml
-      dt-bindings: altera: document syscon as fallback for sys-mgr
-      ARM: dts: socfpga: add #address-cells and #size-cells for sram node
-      ARM: dts: socfpga: fix dtbs_check warning for fpga-region
-
-Khairul Anuar Romli (2):
-      arm64: dts: socfpga: agilex5: Add dma-coherent property
-      arm64: dts: intel: agilex5: Add simple-bus node on top of dma controller node
-
-Krzysztof Kozlowski (1):
-      arm64: dts: altera: Use lowercase hex
-
-Nazim Amirul (1):
-      arm64: dts: socfpga: agilex5: Add IOMMUS property for ethernet nodes
-
-Ng Tze Yee (2):
-      arm64: dts: socfpga: agilex: add emmc support
-      dt-bindings: intel: Add Agilex eMMC support
-
-Niravkumar L Rabara (2):
-      dt-bindings: intel: Add Agilex5 SoCFPGA modular board
-      arm64: dts: socfpga: agilex5: add support for modular board
-
- Documentation/devicetree/bindings/arm/altera.yaml  |  27 +++++
- .../devicetree/bindings/arm/intel,socfpga.yaml     |  40 -------
- .../bindings/soc/altera/altr,sys-mgr.yaml          |   6 +-
- arch/arm/boot/dts/intel/socfpga/socfpga.dtsi       |   6 +-
- .../boot/dts/intel/socfpga/socfpga_arria10.dtsi    |   6 +-
- arch/arm64/boot/dts/altera/socfpga_stratix10.dtsi  |   2 +-
- .../boot/dts/altera/socfpga_stratix10_socdk.dts    |   2 +-
- .../dts/altera/socfpga_stratix10_socdk_nand.dts    |   4 +-
- arch/arm64/boot/dts/intel/Makefile                 |   2 +
- arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi     | 130 ++++++++++++---------
- .../dts/intel/socfpga_agilex5_socdk_modular.dts    | 109 +++++++++++++++++
- arch/arm64/boot/dts/intel/socfpga_agilex_socdk.dts |   2 +-
- .../boot/dts/intel/socfpga_agilex_socdk_emmc.dts   | 105 +++++++++++++++++
- arch/arm64/boot/dts/intel/socfpga_n5x_socdk.dts    |   4 +-
- 14 files changed, 336 insertions(+), 109 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/arm/intel,socfpga.yaml
- create mode 100644 arch/arm64/boot/dts/intel/socfpga_agilex5_socdk_modular.dts
- create mode 100644 arch/arm64/boot/dts/intel/socfpga_agilex_socdk_emmc.dts
+Best regards,
+Felix Gu
 
