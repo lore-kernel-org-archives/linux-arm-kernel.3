@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2891CE6BF33
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 01:48:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA1F3E6BF38
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 01:50:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I724FHP9bHMBxRJmzzeWHFpJXS4ju6lTv7pjaWoConw=; b=ZkxmRohbh3whd+00joneULEDE0
-	sN7P3R5bqlhgH0dI25pvGcHIAIczR0uqV4/S3MJZBFgV9txyi1KjrLlCLhJq6oEqD015J/RS6i0QR
-	JsT0AmuUlaRLGkTb2ZuYHxGm7pPQTTIGcWZAIS05nBABBckfJT+McgSQEr5CSUs0GHKhKJqlCiHla
-	RgDu7nZe9WENgE2dd7C9sJD2sIzzS3zfNaYZL/Xztkuv6ip0/IT+WSyWMOEuzt/kA6MmbSQRAmm7e
-	9vR2xtV7bZPkGENZAW8f/YVrKC+GzciQ8IvddbBCbgKKL6nj0E+zVJyV1YVv5nXXFP6/vzrIKHdpj
-	47YiOtAQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U1p3l0Ab/P6U2jKHqy2nPkaIBhQyAdHsvReVOEIQzkk=; b=1RQuBxYZAIjb/3/nN+eQqoiB4K
+	T0wpoL1oSic4JsPJB+zFLO4A8p9BHSd72IBBEC6tdlep0KBGTdQ8JO74zsMvBUJ13Hpt1AJTXTvct
+	NHiupcbVcxNqVxpHWPNjOQbfYn1gnK2Ulk1xYn7lOL2p9Gmku6oO6cNQYiOYbaTDcUjL0Ngf/ARiE
+	5fB0wbY30EKXB5qrRh7ijLT2Kz/72qFbRDLkc15nmUoksduq15z2jdDC1avX241G7KI7GVz9a0NCm
+	Uqrys7ZKylEWz+clPY8yt3mQ1AQXiN4tt+uKLDpVDy1X1C6OjS1ENp9t7Gduy5BUO9VD1tSd5bXIn
+	NySP8chg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vm06U-00000002Cer-3Qto;
-	Sat, 31 Jan 2026 01:48:50 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1vm07q-00000002Clz-0n9z;
+	Sat, 31 Jan 2026 01:50:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vm06S-00000002CeX-0yvp
+	id 1vm07o-00000002ClS-0xZc
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 01:48:49 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=I724FHP9bHMBxRJmzzeWHFpJXS4ju6lTv7pjaWoConw=;
-	b=HCX3tgfcqmG9JPEPW+kfsIzNV7Bd+oulcnGPAAoY+A2vZFtGUOD+gHFUTmRJW/J3392qiTZgk
-	FWg7lPTfrKPwr/N0Vjun2wkCae1S5IvHzqLs4B06H0iMpdGWEz2YRUjJB6ZsIWCXkffPEOYNv9n
-	1+tUpdBYcXLI/+S1LKfUzJs=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4f2wgF4pYjzLlSd;
-	Sat, 31 Jan 2026 09:45:13 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9A43640565;
-	Sat, 31 Jan 2026 09:48:42 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 31 Jan 2026 09:48:41 +0800
-Message-ID: <be50aec4-336b-5bb3-e8dc-7f5cd12b43d2@huawei.com>
-Date: Sat, 31 Jan 2026 09:48:40 +0800
+	Sat, 31 Jan 2026 01:50:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 441BC6013C;
+	Sat, 31 Jan 2026 01:50:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07668C4CEF7;
+	Sat, 31 Jan 2026 01:50:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769824211;
+	bh=yZ2ydlBeIEM1kguh/UCzdsK/jkpYCuJzFCaodPIBfF4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=dLN628BxXGuoHL9Qtmsod7rQPNY34dyHhFXsPj7T2VvVclMks14q8oXxR8pt0zc0A
+	 nOfqTI/JVn/lkuhuAAH0dG/qVsAPEk1RbDcePZvbV9u2+MWc2wlQhutVrC1Upwn2VA
+	 G1xyGz0UGUOYigVRwkTTR1GrS4nac8TLelDxZrzYaqwfirmUr04JK67qwmf+lbYyDQ
+	 HInljldRdfEyrR31FcyuwXxPy3ltyp5vsKGD+VkEjWy4Ac/pd49EbyTmtuXXIH7dNK
+	 SKnRh45SZ9QYkRfdSzFc1KReVFwxuKnVizP7I/TAyuDNqHsFO5SmN+8s9UNHtrIhiA
+	 MOtJ51o1b9MfA==
+From: Jakub Kicinski <kuba@kernel.org>
+To: a0987203069@gmail.com
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	openbmc@lists.ozlabs.org,
+	ychuang3@nuvoton.com,
+	andrew+netdev@lunn.ch,
+	linux-stm32@st-md-mailman.stormreply.com,
+	yclu4@nuvoton.com,
+	pabeni@redhat.com,
+	davem@davemloft.net,
+	andrew@lunn.ch,
+	peppe.cavallaro@st.com,
+	joabreu@synopsys.com,
+	linux-kernel@vger.kernel.org,
+	conor+dt@kernel.org,
+	richardcochran@gmail.com,
+	krzk+dt@kernel.org,
+	edumazet@google.com,
+	robh@kernel.org,
+	schung@nuvoton.com,
+	netdev@vger.kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com
+Subject: Re: [net-next,v10,3/3] net: stmmac: dwmac-nuvoton: Add dwmac glue for Nuvoton MA35 family
+Date: Fri, 30 Jan 2026 17:50:08 -0800
+Message-ID: <20260131015008.970729-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260129054445.416242-4-a0987203069@gmail.com>
+References: <20260129054445.416242-4-a0987203069@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v11 13/14] entry: Inline syscall_exit_work() and
- syscall_trace_enter()
-Content-Language: en-US
-To: Thomas Gleixner <tglx@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <oleg@redhat.com>, <peterz@infradead.org>,
-	<luto@kernel.org>, <shuah@kernel.org>, <kees@kernel.org>, <wad@chromium.org>,
-	<kevin.brodsky@arm.com>, <deller@gmx.de>, <akpm@linux-foundation.org>,
-	<charlie@rivosinc.com>, <ldv@strace.io>, <mark.rutland@arm.com>,
-	<anshuman.khandual@arm.com>, <song@kernel.org>, <ryan.roberts@arm.com>,
-	<thuth@redhat.com>, <ada.coupriediaz@arm.com>, <broonie@kernel.org>,
-	<pengcan@kylinos.cn>, <liqiang01@kylinos.cn>, <kmal@cock.li>,
-	<dvyukov@google.com>, <reddybalavignesh9979@gmail.com>,
-	<richard.weiyang@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
-References: <20260128031934.3906955-1-ruanjinjie@huawei.com>
- <20260128031934.3906955-14-ruanjinjie@huawei.com> <87qzr7l858.ffs@tglx>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <87qzr7l858.ffs@tglx>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_174848_456963_D62BA9C2 
-X-CRM114-Status: UNSURE (   4.90  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,19 +89,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
 
+For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
+---
+net: stmmac: dwmac-nuvoton: Add dwmac glue for Nuvoton MA35 family
 
-On 2026/1/30 18:14, Thomas Gleixner wrote:
-> On Wed, Jan 28 2026 at 11:19, Jinjie Ruan wrote:
->> After switch arm64 to Generic Entry, a new hotspot syscall_exit_work()
->> appeared because syscall_exit_work() is not inlined, so inline
->> syscall_exit_work(). Also inline syscall_trace_enter() to align with
->> syscall_exit_work().
-> 
-> Has the same collision problem. I can pick that up and massage it on top
-> of the pending time slice changes. Let me give it a test ride on x86...
+Adds Gigabit Ethernet support for Nuvoton MA35 series SoCs using
+the stmmac driver framework.
 
-Thank you very much, hopefully we'll see similar good results there too.
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
+> --- /dev/null
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
 
-> 
+[ ... ]
+
+> +static struct nvt_priv_data *
+> +nvt_gmac_setup(struct platform_device *pdev, struct plat_stmmacenet_data *plat)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct nvt_priv_data *bsp_priv;
+
+[ ... ]
+
+> +	bsp_priv->regmap =
+> +		syscon_regmap_lookup_by_phandle_args(dev->of_node, "nuvoton,sys", 1, &macid);
+> +	if (IS_ERR(bsp_priv->regmap)) {
+> +		dev_err_probe(dev, PTR_ERR(bsp_priv->regmap), "Failed to get sys register\n");
+> +		return ERR_PTR(-ENODEV);
+                           ^^^^^^
+
+Should this propagate the actual error code from
+syscon_regmap_lookup_by_phandle_args() instead of always returning
+-ENODEV? If the syscon lookup returns -EPROBE_DEFER, this will lose
+that error code and prevent the driver from properly deferring its
+probe when dependencies aren't ready yet.
+
+Other dwmac drivers (dwmac-loongson1, dwmac-starfive, dwmac-sun8i) use
+something like:
+
+    return dev_err_probe(dev, PTR_ERR(regmap), "...\n");
+
+or
+
+    return PTR_ERR(regmap);
+
+to propagate the error.
+
+> +	}
+
+[ ... ]
+-- 
+pw-bot: cr
 
