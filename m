@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B2D0D46C1D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 01:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78C1BE6BF33
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 01:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vH0lP79HaV5LbaTszb4NAbC9+QDgda8LyApKaCrIWE8=; b=TQc05xdwdREjbSF7FbMNvkD37/
-	mO5PwmpGH4gGvONWAR+yoHwLXIUIFHlJo7ww+BrJbGmrnQhQLFKAYn/g53m7t8mIEpEqhwYBDZxgp
-	hRu+rt4NcC9BhXVlbZ9cfRismPKlsRSdj4VsjJNfwgQD3VqJWo2SqBvxpvZRKMWRTNFLrvFcZ3wef
-	O+8HoOeCCBaegKykh9ja/mNjmM4tR8kG0G66sh1GEGKLPTBJ4gBqP5YRANixMYXYMOH5btbko8IHG
-	mjdAyBJiOc7fQdaWpy4Se48RDLE5ybliTnpqcJJw/OSUy9uWRmFFqzGOE2RErZmLEQ6VFOY55fBTn
-	PcaVFdvw==;
+	bh=vd2mm4s0IP61jdZGKspsuhJixS/5f7gEQZBLocrqqDs=; b=PMMBS50aOeaM8RmZrRmNP532sc
+	hM21bWyHSj0z0Ksn5PD5Jmc/RQF9O/PVsBf5TVRtMLvpFiQ5BTYWd038jP253h3BCP0kqyozl+e/4
+	TovUbKGvhK/o8I2yrpMBv87bVQyfR1pE/V4AXawIY638c62pkK7gaUe8C8pkMW2jhXkTYFX9bS/Wm
+	zNyoHwRE0ONBuXYDTOsk1PR0Oi9Tobpjtq6K74Wg/0xlgBY0Jof8ov+6O6crl6Cttad4RwFTDayjm
+	S0pXgZWeijp0sfiqPGdcp+BUuLjEiNH5zxcpzLdI/LAvHsrm6HQC6NPbrpNzw7lq99jWKAr1KTqay
+	C5kZNhVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vm0CE-00000002D3n-3FgB;
+	id 1vm0CE-00000002D3R-24p9;
 	Sat, 31 Jan 2026 01:54:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vm0C9-00000002D1p-1MC9
+	id 1vm0C6-00000002D19-0fXm
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 Jan 2026 01:54:41 +0000
+	Sat, 31 Jan 2026 01:54:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B7A160008;
-	Sat, 31 Jan 2026 01:54:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 307CFC19421;
-	Sat, 31 Jan 2026 01:54:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DBBAB440F3;
+	Sat, 31 Jan 2026 01:54:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9EB1C19421;
+	Sat, 31 Jan 2026 01:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769824480;
-	bh=mwWaS4H/LxHe5XEFQqTOAXnZqbeC9QaLnwYKAnsw5zA=;
+	s=k20201202; t=1769824477;
+	bh=PZiP7hTRN8O92xfwMW2wC0dfQY9Tq13ZCF+jHPKg+BM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=A6jsBIXW6Zwo5I+kZ/SjmoTdAmJhFmdiNiMuU9spwWhbSDAK5BSn6E018EOXF1RKX
-	 eLnJOnRCxSd63EKnPdwRYh+q9TXS4HoTLUwcDSYxgfd0WUPNZT6Q1KAfHuG91C7kjp
-	 oJbKG79e9JmT3w0ATU6qRap31lvoBppmcOtfWRZY/g3ynv3yEcDdIfqrZIlype8/a7
-	 /4AgqSAJiRnReNTQzEOtBAWSU14RFeYus/4f6fkRw+6nbEXCh7+LLxyhpko81LQlhq
-	 FWDWLT6Ca0XPk6S5KnT0WlCsCrf4Wh7i7EVtXUixtyIQmG577FAklQ+9w3L9yQWzld
-	 gF5wLQSIWRP7A==
+	b=SiGWsRAFbu9Eos8oeV9+LiUDHXRkt15ysjnmqZfOyJI2q7QXFWBnrHjMV0FaJr96C
+	 5HbsjyxurBTd+6dJ6pvlVO6dpkjOd52tXTLefRkPsLfrqeolWPNPidlKFznDVusIZ9
+	 ofJIwNWN2AsXUcoQkeaqfJuHuHkqKMDBJ64jpRSpgDSf4Fnto1rDN9mpN//MOUaBbn
+	 tdjMl7Jlsh5mNuWSicBaCRrougl5neZiYh7SYdjGdeFDdb5uw+kR8GH0BkoiTuvNKM
+	 oGE2WKRMs2MkcFioQZ8kK0xJpsqYddfxflKQPcjvxQSREc7uDDFNppX6S2yrk6MAkf
+	 9l/JJ1h9r0deQ==
 From: Jakub Kicinski <kuba@kernel.org>
 To: lukasz.majewski@mailbox.org
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -65,14 +65,17 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	imx@lists.linux.dev,
 	andrew@lunn.ch,
 	robh@kernel.org
-Subject: Re: [net-next,v21,6/7] net: mtip: Extend the L2 switch driver with management operations
-Date: Fri, 30 Jan 2026 17:54:37 -0800
-Message-ID: <20260131015438.972436-1-kuba@kernel.org>
+Subject: Re: [net-next,v21,3/7] net: mtip: Add buffers management functions to the L2 switch driver
+Date: Fri, 30 Jan 2026 17:54:35 -0800
+Message-ID: <20260131015435.972356-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260129110154.1699976-7-lukasz.majewski@mailbox.org>
-References: <20260129110154.1699976-7-lukasz.majewski@mailbox.org>
+In-Reply-To: <20260129110154.1699976-4-lukasz.majewski@mailbox.org>
+References: <20260129110154.1699976-4-lukasz.majewski@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260130_175438_215224_01565A6B 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,36 +95,53 @@ email has considered the AI review valid, or at least plausible.
 
 For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
 ---
-net: mtip: Extend the L2 switch driver with management operations
+net: mtip: Add buffers management functions to the L2 switch driver
 
-This patch adds management functions for the L2 switch including VLAN
-configuration, port learning/blocking, multicast/broadcast control,
-and forced forwarding for port separation.
+This patch adds buffer allocation and deallocation functions for the
+MTIP L2 switch driver, including page pool management for RX buffers
+and bounce buffer allocation for TX.
 
-> diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
-> --- /dev/null
-> +++ b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
-
-[ ... ]
-
-> +int mtip_vlan_input_process(struct switch_enet_private *fep,
-> +			    int port, int mode, unsigned short port_vlanid,
-> +			    int vlan_verify_en, int vlan_domain_num,
-> +			    int vlan_domain_port)
-> +{
-> +	/* Only modes from 1 to 4 are valid*/
-> +	if (mode < 0 || mode > 4) {
-                       ^^^^
-
-The comment says modes 1-4 are valid, but the condition allows mode 0
-to pass through. Should the check be "mode < 1" instead, or is the
-comment incorrect and mode 0 is actually valid?
-
-> +		dev_err(&fep->pdev->dev,
-> +			"%s: VLAN input processing mode (%d) not supported\n",
-> +			__func__, mode);
-> +		return -EINVAL;
+> diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+> --- a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+> +++ b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+> @@ -888,11 +888,99 @@ static void mtip_get_drvinfo(struct net_device *dev,
+>
+> static void mtip_free_buffers(struct net_device *dev)
+> {
+> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
+> +	struct switch_enet_private *fep = priv->fep;
+> +	int i;
+> +
+> +	for (i = 0; i < RX_RING_SIZE; i++) {
+> +		if (!fep->page[i])
+> +			continue;
+> +
+> +		page_pool_put_full_page(fep->page_pool,
+> +					fep->page[i], false);
+> +		fep->page[i] = NULL;
 > +	}
+> +
+> +	page_pool_destroy(fep->page_pool);
+> +	fep->page_pool = NULL;
+> +
+> +	for (i = 0; i < TX_RING_SIZE; i++)
+> +		kfree(fep->tx_bounce[i]);
+
+Should fep->tx_bounce[i] be set to NULL after kfree() here? The RX path
+above correctly sets fep->page[i] = NULL after releasing the page, but
+the TX path does not NULL out the bounce buffer pointers.
+
+If mtip_alloc_buffers() is called again after a partial allocation
+failure (e.g., mtip_open() fails and user retries), the stale pointers
+in tx_bounce[] from the previous failed allocation could lead to a
+double-free when mtip_free_buffers() is called on the retry failure
+path.
+
+Consider the sequence: first mtip_open() allocates tx_bounce[0..5] then
+fails at index 6. mtip_free_buffers() frees tx_bounce[0..5] but leaves
+stale pointers. Second mtip_open() allocates tx_bounce[0..2] then fails
+at index 3. mtip_free_buffers() will kfree() the stale pointers at
+tx_bounce[3..5].
 
 [ ... ]
 
