@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A295D49C97
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 Jan 2026 23:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08792D61037
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 Jan 2026 00:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B5EEmhhSYF9QgYtGd4E35ssKhysrSZbo9WdMOKGphtA=; b=1DXSxQgx+9bPgughdl9M6s0unV
-	c5iHvsu9lNtxXk9ICh+zOS9/HOqlNAK2H9RciRoJvrI6vk2+kna+ftO9vIKS4k/ybgbJL8DupBIYD
-	FKjcpZ0/Hkjtg1vlLBtffJvqTx3oDWSW0EZMuTGOGG7taywYF8RKeI3s4LkJhKbVJWy35BW8ZtA18
-	mHIEi85TfnDUBHWMkU6I7M3k4I+lNi0x+bzwpVZcs5qsfDt+wlXmvUdh6x+UEVo8Ntm/m/VA3YnZU
-	exHPB253UoNwO970T/TBehvp4hs9mR65SbHdJUFElb90Zcu4K+PZEv4QlCKQ4sUmVro6JvO2vgZcN
-	tSUAxxCg==;
+	bh=QCmFZYREgs/er9Djalkcfhh47qOu8UcVA/CPfSzXbQw=; b=nz2OQyC8vsrcAUbwCVUKRk/cQ1
+	BfWKev6JByUpGUgLlbF1vFMTY5EJn2RQDFVqG2fj2dWW0zAjnl3p3UsAwQrMSvPyF4B7XSMzDRUD2
+	9L4qiM6o/SEkJtku7HxU64mnyRPNZbI6H1H/un9qefEYSgk49f46DK7PjYYhrQdP1pSddn2lO0gKv
+	OaIkyYrO/1tOsa+BZhLnyCnBk/+tYV25ReigZVrYiQTnGR9oXkWkXnZFt+A27uIt4KKofOTPzpFLl
+	tFPnBYKg89qwPsPjn6b853hUv3rIBSQ1HsBU4hzyCMDHIWb/mi0ALSIYWuYgB+575qPEfNGKiXmbW
+	MWu/zlHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlyAO-000000026y2-0IeW;
-	Fri, 30 Jan 2026 23:44:44 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vlyAK-000000026xH-3nfJ
+	id 1vlyWM-000000028Ko-0iYm;
+	Sat, 31 Jan 2026 00:07:26 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vlyWJ-000000028KS-0tqk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 Jan 2026 23:44:42 +0000
-Received: from [192.168.0.88] (192-184-212-33.fiber.dynamic.sonic.net [192.184.212.33])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 9520420B7167;
-	Fri, 30 Jan 2026 15:44:38 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 9520420B7167
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1769816679;
-	bh=B5EEmhhSYF9QgYtGd4E35ssKhysrSZbo9WdMOKGphtA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GrK1bcOMVvqUzWvDQ46Bob4NI5kSYJyxgbZNemn/UQng5zjRh4tybiradz0p5yYkC
-	 FdkVZpHMOnwkqhSxWdep/rIXWHRyPXAvYR1c4wBlRcWkCQ0tYPTyjq3pVAJ0dI/6d5
-	 eAE2S/RJi0+PYEPWQu7ptPRVI74kf8FnourreZU4=
-Message-ID: <77bb8175-e893-116d-d076-6c906bbe372d@linux.microsoft.com>
-Date: Fri, 30 Jan 2026 15:44:37 -0800
+	Sat, 31 Jan 2026 00:07:25 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=QCmFZYREgs/er9Djalkcfhh47qOu8UcVA/CPfSzXbQw=;
+	b=bIJp8YLZaFP5HzqyokZHyEtZAhkP4lag2fMCxYwFRFUhACVHq5DdG8mTpz0LqDYLFfEAm/Fm5
+	9vEZ9REuTZNJH+JQIifqlCAUzbcr7Yw/Jb94qJMh2LHyWzbnjKRd0BB80C9zhv7LFgB6Qym72hD
+	8HC013GNI3v28+48su7la5k=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4f2tQ651QczmV6v;
+	Sat, 31 Jan 2026 08:03:42 +0800 (CST)
+Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
+	by mail.maildlp.com (Postfix) with ESMTPS id DD5DE4048B;
+	Sat, 31 Jan 2026 08:07:12 +0800 (CST)
+Received: from [10.174.179.179] (10.174.179.179) by
+ kwepemr500001.china.huawei.com (7.202.194.229) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sat, 31 Jan 2026 08:07:12 +0800
+Message-ID: <3ef69bc0-cec8-44ce-a93d-ebab275320a6@huawei.com>
+Date: Sat, 31 Jan 2026 08:07:11 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.13.1
-Subject: Re: [PATCH v0 12/15] x86/hyperv: Implement hyperv virtual iommu
-Content-Language: en-US
-To: Jacob Pan <jacob.pan@linux.microsoft.com>
-Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-pci@vger.kernel.org, linux-arch@vger.kernel.org, kys@microsoft.com,
- haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
- longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
- tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
- lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
- nunodasneves@linux.microsoft.com, mhklinux@outlook.com
-References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
- <20260120064230.3602565-13-mrathor@linux.microsoft.com>
- <20260121211806.000006aa@linux.microsoft.com>
- <34de2049-912e-fc9e-9fc1-727fade0480f@linux.microsoft.com>
- <20260127112144.00002991@linux.microsoft.com>
-From: Mukesh R <mrathor@linux.microsoft.com>
-In-Reply-To: <20260127112144.00002991@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: mm: fix pass user prot to ioremap_prot in
+ generic_access_phys
+To: Catalin Marinas <catalin.marinas@arm.com>
+CC: <akpm@linux-foundation.org>, <david@kernel.org>, <will@kernel.org>,
+	<zengheng4@huawei.com>, <ryan.roberts@arm.com>, <anshuman.khandual@arm.com>,
+	<wangkefeng.wang@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mm@kvack.org>
+References: <20260130073807.99474-1-tujinjiang@huawei.com>
+ <aXyhuq_DOd2pC_Fo@arm.com>
+From: Jinjiang Tu <tujinjiang@huawei.com>
+In-Reply-To: <aXyhuq_DOd2pC_Fo@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.179.179]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemr500001.china.huawei.com (7.202.194.229)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260130_154441_042180_0EA2E80C 
-X-CRM114-Status: GOOD (  43.37  )
+X-CRM114-CacheID: sfid-20260130_160723_953381_D7371E25 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,692 +81,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/27/26 11:21, Jacob Pan wrote:
-> Hi Mukesh,
-> 
-> On Fri, 23 Jan 2026 18:01:29 -0800
-> Mukesh R <mrathor@linux.microsoft.com> wrote:
-> 
->> On 1/21/26 21:18, Jacob Pan wrote:
->>> Hi Mukesh,
->>>
->>> On Mon, 19 Jan 2026 22:42:27 -0800
->>> Mukesh R <mrathor@linux.microsoft.com> wrote:
->>>    
->>>> From: Mukesh Rathor <mrathor@linux.microsoft.com>
->>>>
->>>> Add a new file to implement management of device domains, mapping
->>>> and unmapping of iommu memory, and other iommu_ops to fit within
->>>> the VFIO framework for PCI passthru on Hyper-V running Linux as
->>>> root or L1VH parent. This also implements direct attach mechanism
->>>> for PCI passthru, and it is also made to work within the VFIO
->>>> framework.
->>>>
->>>> At a high level, during boot the hypervisor creates a default
->>>> identity domain and attaches all devices to it. This nicely maps
->>>> to Linux iommu subsystem IOMMU_DOMAIN_IDENTITY domain. As a
->>>> result, Linux does not need to explicitly ask Hyper-V to attach
->>>> devices and do maps/unmaps during boot. As mentioned previously,
->>>> Hyper-V supports two ways to do PCI passthru:
->>>>
->>>>     1. Device Domain: root must create a device domain in the
->>>> hypervisor, and do map/unmap hypercalls for mapping and unmapping
->>>> guest RAM. All hypervisor communications use device id of type PCI
->>>> for identifying and referencing the device.
->>>>
->>>>     2. Direct Attach: the hypervisor will simply use the guest's HW
->>>>        page table for mappings, thus the host need not do map/unmap
->>>>        device memory hypercalls. As such, direct attach passthru
->>>> setup during guest boot is extremely fast. A direct attached device
->>>>        must be referenced via logical device id and not via the PCI
->>>>        device id.
->>>>
->>>> At present, L1VH root/parent only supports direct attaches. Also
->>>> direct attach is default in non-L1VH cases because there are some
->>>> significant performance issues with device domain implementation
->>>> currently for guests with higher RAM (say more than 8GB), and that
->>>> unfortunately cannot be addressed in the short term.
->>>>
->>>> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
->>>> ---
->>>>    MAINTAINERS                     |   1 +
->>>>    arch/x86/include/asm/mshyperv.h |   7 +-
->>>>    arch/x86/kernel/pci-dma.c       |   2 +
->>>>    drivers/iommu/Makefile          |   2 +-
->>>>    drivers/iommu/hyperv-iommu.c    | 876
->>>> ++++++++++++++++++++++++++++++++ include/linux/hyperv.h          |
->>>> 6 + 6 files changed, 890 insertions(+), 4 deletions(-)
->>>>    create mode 100644 drivers/iommu/hyperv-iommu.c
->>>>
->>>> diff --git a/MAINTAINERS b/MAINTAINERS
->>>> index 381a0e086382..63160cee942c 100644
->>>> --- a/MAINTAINERS
->>>> +++ b/MAINTAINERS
->>>> @@ -11741,6 +11741,7 @@ F:	drivers/hid/hid-hyperv.c
->>>>    F:	drivers/hv/
->>>>    F:	drivers/infiniband/hw/mana/
->>>>    F:	drivers/input/serio/hyperv-keyboard.c
->>>> +F:	drivers/iommu/hyperv-iommu.c
->>> Given we are also developing a guest iommu driver on hyperv, I
->>> think it is more clear to name them accordingly. Perhaps,
->>> hyperv-iommu-root.c?
+
+在 2026/1/30 20:19, Catalin Marinas 写道:
+> On Fri, Jan 30, 2026 at 03:38:07PM +0800, Jinjiang Tu wrote:
+>> Here is a syzkaller error log:
+>>    [0000000020ffc000] pgd=080000010598d403, p4d=080000010598d403, pud=0800000125ddb403,
+>>                       pmd=080000007833c403, pte=01608000007fcfcf
+>>    Unable to handle kernel read from unreadable memory at virtual address ffff80008ea89000
+>>    KASAN: probably user-memory-access in range [0x0000000475448000-0x0000000475448007]
+>>    Mem abort info:
+>>      ESR = 0x000000009600000f
+>>      EC = 0x25: DABT (current EL), IL = 32 bits
+>>      SET = 0, FnV = 0
+>>      EA = 0, S1PTW = 0
+>>      FSC = 0x0f: level 3 permission fault
+>>    Data abort info:
+>>      ISV = 0, ISS = 0x0000000f, ISS2 = 0x00000000
+>>      CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+>>      GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+>>    swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000001244aa000
+>>    [ffff80008ea89000] pgd=100000013ffff403, p4d=100000013ffff403, pud=100000013fffe403,
+>> 		     pmd=100000010a453403, pte=01608000007fcfcf
+>>    Internal error: Oops: 000000009600000f [#1] SMP
+>>    Modules linked in: team
+>>    CPU: 1 PID: 10840 Comm: syz.9.83 Kdump: loaded Tainted: G
+>>    Hardware name: QEMU KVM Virtual Machine, BIOS 0.0.0 02/06/2015
+>>    pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>>    pc : __memcpy_fromio+0x80/0xf8
+>>    lr : generic_access_phys+0x20c/0x2b8
+>>    sp : ffff8000a0507960
+>>    x29: ffff8000a0507960 x28: 1ffff000140a0f44 x27: ffff00003833cfe0
+>>    x26: 0000000000000000 x25: 0000000000001000 x24: 0010000000000001
+>>    x23: ffff80008ea89000 x22: ffff00004ea63000 x21: 0000000000001000
+>>    x20: ffff80008ea89000 x19: ffff00004ea62000 x18: 0000000000000000
+>>    x17: 0000000000000000 x16: 0000000000000000 x15: ffff8000806f1e3c
+>>    x14: ffff8000806f1d44 x13: 0000000041b58ab3 x12: ffff7000140a0f23
+>>    x11: 1ffff000140a0f22 x10: ffff7000140a0f22 x9 : ffff800080579d24
+>>    x8 : 0000000000000004 x7 : 0000000000000003 x6 : 0000000000000001
+>>    x5 : ffff8000a0507910 x4 : ffff7000140a0f22 x3 : dfff800000000000
+>>    x2 : 0000000000001000 x1 : ffff80008ea89000 x0 : ffff00004ea62000
+>>    Call trace:
+>>      __memcpy_fromio+0x80/0xf8
+>>      generic_access_phys+0x20c/0x2b8
+>>      __access_remote_vm+0x46c/0x5b8
+>>      access_remote_vm+0x18/0x30
+>>      environ_read+0x238/0x3e8
+>>      vfs_read+0xe4/0x2b0
+>>      ksys_read+0xcc/0x178
+>>      __arm64_sys_read+0x4c/0x68
+>>      invoke_syscall+0x68/0x1a0
+>>      el0_svc_common.constprop.0+0x11c/0x150
+>>      do_el0_svc+0x38/0x50
+>>      el0_svc+0x50/0x258
+>>      el0t_64_sync_handler+0xc0/0xc8
+>>      el0t_64_sync+0x1a4/0x1a8
+>>    Code: 91002339 aa1403f7 8b190276 d503201f (f94002f8)
 >>
->> well, l1vh is not quite root, more like a parent. But we've been using
->> l1vh root loosely to mean l1vh parent. so probably ok to rename it
->> to hyperv-iommu-root.c. I prefer not calling it parent or something
->> like that.
-> yeah, something specific and different than the guest driver will do.
-> 
->>>>    F:	drivers/iommu/hyperv-irq.c
->>>>    F:	drivers/net/ethernet/microsoft/
->>>>    F:	drivers/net/hyperv/
->>>> diff --git a/arch/x86/include/asm/mshyperv.h
->>>> b/arch/x86/include/asm/mshyperv.h index 97477c5a8487..e4ccdbbf1d12
->>>> 100644 --- a/arch/x86/include/asm/mshyperv.h
->>>> +++ b/arch/x86/include/asm/mshyperv.h
->>>> @@ -189,16 +189,17 @@ static inline void hv_apic_init(void) {}
->>>>    #endif
->>>>    
->>>>    #if IS_ENABLED(CONFIG_HYPERV_IOMMU)
->>>> -static inline bool hv_pcidev_is_attached_dev(struct pci_dev *pdev)
->>>> -{ return false; }       /* temporary */
->>>> +bool hv_pcidev_is_attached_dev(struct pci_dev *pdev);
->>>>    u64 hv_build_devid_oftype(struct pci_dev *pdev, enum
->>>> hv_device_type type); +u64 hv_iommu_get_curr_partid(void);
->>>>    #else	/* CONFIG_HYPERV_IOMMU */
->>>>    static inline bool hv_pcidev_is_attached_dev(struct pci_dev
->>>> *pdev) { return false; }
->>>> -
->>>>    static inline u64 hv_build_devid_oftype(struct pci_dev *pdev,
->>>>    				       enum hv_device_type type)
->>>>    { return 0; }
->>>> +static inline u64 hv_iommu_get_curr_partid(void)
->>>> +{ return HV_PARTITION_ID_INVALID; }
->>>>    
->>>>    #endif	/* CONFIG_HYPERV_IOMMU */
->>>>    
->>>> diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
->>>> index 6267363e0189..cfeee6505e17 100644
->>>> --- a/arch/x86/kernel/pci-dma.c
->>>> +++ b/arch/x86/kernel/pci-dma.c
->>>> @@ -8,6 +8,7 @@
->>>>    #include <linux/gfp.h>
->>>>    #include <linux/pci.h>
->>>>    #include <linux/amd-iommu.h>
->>>> +#include <linux/hyperv.h>
->>>>    
->>>>    #include <asm/proto.h>
->>>>    #include <asm/dma.h>
->>>> @@ -105,6 +106,7 @@ void __init pci_iommu_alloc(void)
->>>>    	gart_iommu_hole_init();
->>>>    	amd_iommu_detect();
->>>>    	detect_intel_iommu();
->>>> +	hv_iommu_detect();
->> j
->>> Will this driver be x86 only?
->> Yes for now.
-> If there is nothing x86 specific in this driver (assuming the
-> hypercalls here are not x86 only), maybe you can move to the generic
-> startup code.
-
-It's x86 specific:
-
-         x86_init.iommu.iommu_init = hv_iommu_init
-
-
->>>>    	swiotlb_init(x86_swiotlb_enable, x86_swiotlb_flags);
->>>>    }
->>>>    
->>>> diff --git a/drivers/iommu/Makefile b/drivers/iommu/Makefile
->>>> index 598c39558e7d..cc9774864b00 100644
->>>> --- a/drivers/iommu/Makefile
->>>> +++ b/drivers/iommu/Makefile
->>>> @@ -30,7 +30,7 @@ obj-$(CONFIG_TEGRA_IOMMU_SMMU) += tegra-smmu.o
->>>>    obj-$(CONFIG_EXYNOS_IOMMU) += exynos-iommu.o
->>>>    obj-$(CONFIG_FSL_PAMU) += fsl_pamu.o fsl_pamu_domain.o
->>>>    obj-$(CONFIG_S390_IOMMU) += s390-iommu.o
->>>> -obj-$(CONFIG_HYPERV_IOMMU) += hyperv-irq.o
->>>> +obj-$(CONFIG_HYPERV_IOMMU) += hyperv-irq.o hyperv-iommu.o
->>> DMA and IRQ remapping should be separate
+>> The local syzkaller first maps I/O address from /dev/mem to userspace,
+>> overiding the stack vma with MAP_FIXED flag. As a result, when reading
+>> /proc/$pid/environ, generic_access_phys() is called to access the region,
+>> which triggers a PAN permission-check fault and causes a kernel access
+>> fault.
 >>
->> not sure i follow.
-> In IOMMU subsystem, DMA remapping and IRQ remapping can be turned
-> on/off independently. e.g. you could have an option to turn on IRQ
-> remapping w/o DMA remapping. But here you tied them together.
-
-oh, you are talking about the config option, yeah, I will move
-CONFIG_IRQ_REMAP from Kconfig to here.
-
+>> The root cause is that generic_access_phys() passes a user pte to
+>> ioremap_prot(), the user pte sets PTE_USER and PTE_NG bits.  Consequently,
+>> any subsequent kernel-mode access to the remapped address raises a fault.
 >>
->>>>    obj-$(CONFIG_VIRTIO_IOMMU) += virtio-iommu.o
->>>>    obj-$(CONFIG_IOMMU_SVA) += iommu-sva.o
->>>>    obj-$(CONFIG_IOMMU_IOPF) += io-pgfault.o
->>>> diff --git a/drivers/iommu/hyperv-iommu.c
->>>> b/drivers/iommu/hyperv-iommu.c new file mode 100644
->>>> index 000000000000..548483fec6b1
->>>> --- /dev/null
->>>> +++ b/drivers/iommu/hyperv-iommu.c
->>>> @@ -0,0 +1,876 @@
->>>> +// SPDX-License-Identifier: GPL-2.0
->>>> +/*
->>>> + * Hyper-V root vIOMMU driver.
->>>> + * Copyright (C) 2026, Microsoft, Inc.
->>>> + */
->>>> +
->>>> +#include <linux/module.h>
->>> I don't think this is needed since this driver cannot be a module
->>>    
->>>> +#include <linux/pci.h>
->>>> +#include <linux/dmar.h>
->>> should not depend on Intel's DMAR
->>>    
->>>> +#include <linux/dma-map-ops.h>
->>>> +#include <linux/interval_tree.h>
->>>> +#include <linux/hyperv.h>
->>>> +#include "dma-iommu.h"
->>>> +#include <asm/iommu.h>
->>>> +#include <asm/mshyperv.h>
->>>> +
->>>> +/* We will not claim these PCI devices, eg hypervisor needs it for
->>>> debugger */ +static char *pci_devs_to_skip;
->>>> +static int __init hv_iommu_setup_skip(char *str)
->>>> +{
->>>> +	pci_devs_to_skip = str;
->>>> +
->>>> +	return 0;
->>>> +}
->>>> +/* hv_iommu_skip=(SSSS:BB:DD.F)(SSSS:BB:DD.F) */
->>>> +__setup("hv_iommu_skip=", hv_iommu_setup_skip);
->>>> +
->>>> +bool hv_no_attdev;	 /* disable direct device attach for
->>>> passthru */ +EXPORT_SYMBOL_GPL(hv_no_attdev);
->>>> +static int __init setup_hv_no_attdev(char *str)
->>>> +{
->>>> +	hv_no_attdev = true;
->>>> +	return 0;
->>>> +}
->>>> +__setup("hv_no_attdev", setup_hv_no_attdev);
->>>> +
->>>> +/* Iommu device that we export to the world. HyperV supports max
->>>> of one */ +static struct iommu_device hv_virt_iommu;
->>>> +
->>>> +struct hv_domain {
->>>> +	struct iommu_domain iommu_dom;
->>>> +	u32 domid_num;			      /* as opposed
->>>> to domain_id.type */
->>>> +	u32 num_attchd;		      /* number of
->>>> currently attached devices */
->>> rename to num_dev_attached?
->>>    
->>>> +	bool attached_dom;		      /* is this direct
->>>> attached dom? */
->>>> +	spinlock_t mappings_lock;	      /* protects
->>>> mappings_tree */
->>>> +	struct rb_root_cached mappings_tree;  /* iova to pa lookup
->>>> tree */ +};
->>>> +
->>>> +#define to_hv_domain(d) container_of(d, struct hv_domain,
->>>> iommu_dom) +
->>>> +struct hv_iommu_mapping {
->>>> +	phys_addr_t paddr;
->>>> +	struct interval_tree_node iova;
->>>> +	u32 flags;
->>>> +};
->>>> +
->>>> +/*
->>>> + * By default, during boot the hypervisor creates one Stage 2 (S2)
->>>> default
->>>> + * domain. Stage 2 means that the page table is controlled by the
->>>> hypervisor.
->>>> + *   S2 default: access to entire root partition memory. This for
->>>> us easily
->>>> + *		 maps to IOMMU_DOMAIN_IDENTITY in the iommu
->>>> subsystem, and
->>>> + *		 is called HV_DEVICE_DOMAIN_ID_S2_DEFAULT in the
->>>> hypervisor.
->>>> + *
->>>> + * Device Management:
->>>> + *   There are two ways to manage device attaches to domains:
->>>> + *     1. Domain Attach: A device domain is created in the
->>>> hypervisor, the
->>>> + *			 device is attached to this domain, and
->>>> then memory
->>>> + *			 ranges are mapped in the map callbacks.
->>>> + *     2. Direct Attach: No need to create a domain in the
->>>> hypervisor for direct
->>>> + *			 attached devices. A hypercall is made
->>>> to tell the
->>>> + *			 hypervisor to attach the device to a
->>>> guest. There is
->>>> + *			 no need for explicit memory mappings
->>>> because the
->>>> + *			 hypervisor will just use the guest HW
->>>> page table.
->>>> + *
->>>> + * Since a direct attach is much faster, it is the default. This
->>>> can be
->>>> + * changed via hv_no_attdev.
->>>> + *
->>>> + * L1VH: hypervisor only supports direct attach.
->>>> + */
->>>> +
->>>> +/*
->>>> + * Create dummy domain to correspond to hypervisor prebuilt
->>>> default identity
->>>> + * domain (dummy because we do not make hypercall to create them).
->>>> + */
->>>> +static struct hv_domain hv_def_identity_dom;
->>>> +
->>>> +static bool hv_special_domain(struct hv_domain *hvdom)
->>>> +{
->>>> +	return hvdom == &hv_def_identity_dom;
->>>> +}
->>>> +
->>>> +struct iommu_domain_geometry default_geometry = (struct
->>>> iommu_domain_geometry) {
->>>> +	.aperture_start = 0,
->>>> +	.aperture_end = -1UL,
->>>> +	.force_aperture = true,
->>>> +};
->>>> +
->>>> +/*
->>>> + * Since the relevant hypercalls can only fit less than 512 PFNs
->>>> in the pfn
->>>> + * array, report 1M max.
->>>> + */
->>>> +#define HV_IOMMU_PGSIZES (SZ_4K | SZ_1M)
->>>> +
->>>> +static u32 unique_id;	      /* unique numeric id of a new
->>>> domain */ +
->>>> +static void hv_iommu_detach_dev(struct iommu_domain *immdom,
->>>> +				struct device *dev);
->>>> +static size_t hv_iommu_unmap_pages(struct iommu_domain *immdom,
->>>> ulong iova,
->>>> +				   size_t pgsize, size_t pgcount,
->>>> +				   struct iommu_iotlb_gather
->>>> *gather); +
->>>> +/*
->>>> + * If the current thread is a VMM thread, return the partition id
->>>> of the VM it
->>>> + * is managing, else return HV_PARTITION_ID_INVALID.
->>>> + */
->>>> +u64 hv_iommu_get_curr_partid(void)
->>>> +{
->>>> +	u64 (*fn)(pid_t pid);
->>>> +	u64 partid;
->>>> +
->>>> +	fn = symbol_get(mshv_pid_to_partid);
->>>> +	if (!fn)
->>>> +		return HV_PARTITION_ID_INVALID;
->>>> +
->>>> +	partid = fn(current->tgid);
->>>> +	symbol_put(mshv_pid_to_partid);
->>>> +
->>>> +	return partid;
->>>> +}
->>> This function is not iommu specific. Maybe move it to mshv code?
+>> To fix it, define arch_mk_kernel_prot() to convert user prot to kernel
+>> prot for arm64, and call arch_mk_kernel_prot() in generic_access_phys(),
+>> so that a user prot is passed to ioremap_prot().
 >>
->> Well, it is getting the information from mshv by calling a function
->> there for iommu, and is not needed if no HYPER_IOMMU. So this is
->> probably the best place for it.
->>
-> ok, maybe move it to mshv after we have a second user. But the function
-> name can be just hv_get_curr_partid(void), no?
+>> Fixes: 893dea9ccd08 ("arm64: Add HAVE_IOREMAP_PROT support")
+>> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+>> Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+>
+> That's not urgent for 6.19, it's just misuse of /dev/mem (aren't they
+> all) but it's worth fixing.
 
-it could, but by convention all public funcs here are hv_iommu_xxx..
-and other reviewers might object... We really need virt/mshv/
-sub directory... not sure if it's worth creating now for just one
-function. so maybe we just live with it for now... we do have work
-item to move some things from drivers/hv to virt/mshv/ .. so this
-can get added to that whenever that happens.
+This issue can be reproduced too with:
 
->>>> +
->>>> +/* If this is a VMM thread, then this domain is for a guest VM */
->>>> +static bool hv_curr_thread_is_vmm(void)
->>>> +{
->>>> +	return hv_iommu_get_curr_partid() !=
->>>> HV_PARTITION_ID_INVALID; +}
->>>> +
->>>> +static bool hv_iommu_capable(struct device *dev, enum iommu_cap
->>>> cap) +{
->>>> +	switch (cap) {
->>>> +	case IOMMU_CAP_CACHE_COHERENCY:
->>>> +		return true;
->>>> +	default:
->>>> +		return false;
->>>> +	}
->>>> +	return false;
->>>> +}
->>>> +
->>>> +/*
->>>> + * Check if given pci device is a direct attached device. Caller
->>>> must have
->>>> + * verified pdev is a valid pci device.
->>>> + */
->>>> +bool hv_pcidev_is_attached_dev(struct pci_dev *pdev)
->>>> +{
->>>> +	struct iommu_domain *iommu_domain;
->>>> +	struct hv_domain *hvdom;
->>>> +	struct device *dev = &pdev->dev;
->>>> +
->>>> +	iommu_domain = iommu_get_domain_for_dev(dev);
->>>> +	if (iommu_domain) {
->>>> +		hvdom = to_hv_domain(iommu_domain);
->>>> +		return hvdom->attached_dom;
->>>> +	}
->>>> +
->>>> +	return false;
->>>> +}
->>>> +EXPORT_SYMBOL_GPL(hv_pcidev_is_attached_dev);
->>> Attached domain can change anytime, what guarantee does the caller
->>> have?
->>
->> Not sure I understand what can change: the device moving from attached
->> to non-attached? or the domain getting deleted? In any case, this is
->> called from leaf functions, so that should not happen... and it
->> will return false if the device did somehow got removed.
->>
-> I was thinking the device can be attached to a different domain type at
-> runtime, e.g. via sysfs to identity or DMA. But I guess here is a static
-> attachment either for l1vh or root.
+1) open and mmap a device that implements generic_access_phys as vm_operations_struct.acess callback.
+2) acess the device by ptrace or /proc/$pid/mem.
 
-That is correct. It is extra work to support that if there is a good
-usecase/demand.
-  
->>>> +
->>>> +/* Create a new device domain in the hypervisor */
->>>> +static int hv_iommu_create_hyp_devdom(struct hv_domain *hvdom)
->>>> +{
->>>> +	u64 status;
->>>> +	unsigned long flags;
->>>> +	struct hv_input_device_domain *ddp;
->>>> +	struct hv_input_create_device_domain *input;
->>> nit: use consistent coding style, inverse Christmas tree.
->>>    
->>>> +
->>>> +	local_irq_save(flags);
->>>> +	input = *this_cpu_ptr(hyperv_pcpu_input_arg);
->>>> +	memset(input, 0, sizeof(*input));
->>>> +
->>>> +	ddp = &input->device_domain;
->>>> +	ddp->partition_id = HV_PARTITION_ID_SELF;
->>>> +	ddp->domain_id.type = HV_DEVICE_DOMAIN_TYPE_S2;
->>>> +	ddp->domain_id.id = hvdom->domid_num;
->>>> +
->>>> +
->>>> input->create_device_domain_flags.forward_progress_required = 1;
->>>> +	input->create_device_domain_flags.inherit_owning_vtl = 0;
->>>> +
->>>> +	status = hv_do_hypercall(HVCALL_CREATE_DEVICE_DOMAIN,
->>>> input, NULL); +
->>>> +	local_irq_restore(flags);
->>>> +
->>>> +	if (!hv_result_success(status))
->>>> +		hv_status_err(status, "\n");
->>>> +
->>>> +	return hv_result_to_errno(status);
->>>> +}
->>>> +
->>>> +/* During boot, all devices are attached to this */
->>>> +static struct iommu_domain *hv_iommu_domain_alloc_identity(struct
->>>> device *dev) +{
->>>> +	return &hv_def_identity_dom.iommu_dom;
->>>> +}
->>>> +
->>>> +static struct iommu_domain *hv_iommu_domain_alloc_paging(struct
->>>> device *dev) +{
->>>> +	struct hv_domain *hvdom;
->>>> +	int rc;
->>>> +
->>>> +	if (hv_l1vh_partition() && !hv_curr_thread_is_vmm() &&
->>>> !hv_no_attdev) {
->>>> +		pr_err("Hyper-V: l1vh iommu does not support host
->>>> devices\n");
->>> why is this an error if user input choose not to do direct attach?
->>
->> Like the error message says: on l1vh, direct attaches of host devices
->> (eg dpdk) is not supported. and l1vh only does direct attaches. IOW,
->> no host devices on l1vh.
->>
-> This hv_no_attdev flag is really confusing to me, by default
-> hv_no_attdev is false, which allows direct attach. And you are saying
-> l1vh allows it.
+But it's for debug only. So I agree this fix isn't urgent.
 
-Well, at the time of this design/coding, my understanding was we'd have
-mapped devices on l1vh also. But now it looks like that would be bit
-later than sooner .. unless AI bots start dumping code of course :) :)..
-
-I could remove it from the if statement and add it when the support
-is added, but is harmless and one less thing to remember.
-
-> Why is this flag also controls host device attachment in l1vh? If you
-> can tell the difference between direct host device attach and other
-> direct attach, why don't you reject always reject host attach in l1vh?
-> 
->>>> +		return NULL;
->>>> +	}
->>>> +
->>>> +	hvdom = kzalloc(sizeof(struct hv_domain), GFP_KERNEL);
->>>> +	if (hvdom == NULL)
->>>> +		goto out;
->>>> +
->>>> +	spin_lock_init(&hvdom->mappings_lock);
->>>> +	hvdom->mappings_tree = RB_ROOT_CACHED;
->>>> +
->>>> +	if (++unique_id == HV_DEVICE_DOMAIN_ID_S2_DEFAULT)   /*
->>>> ie, 0 */
->>> This is true only when unique_id wraps around, right? Then this
->>> driver stops working?
->>
->> Correct. It's a u32, so if my math is right, and a device is attached
->> every second, it will take 136 years to wrap! Did i get that right?
->>
-> This is still a unnecessary vulnerability.
-
-Device passthru will fail and will not cause any corruption or
-data theft issues... can make it u64 if it gives extra peace. not
-worth all that mumbo jumbo for almost never gonna happen case.
-
->>> can you use an IDR for the unique_id and free it as you detach
->>> instead of doing this cyclic allocation?
->>>    
->>>> +		goto out_free;
->>>> +
->>>> +	hvdom->domid_num = unique_id;
->>>> +	hvdom->iommu_dom.geometry = default_geometry;
->>>> +	hvdom->iommu_dom.pgsize_bitmap = HV_IOMMU_PGSIZES;
->>>> +
->>>> +	/* For guests, by default we do direct attaches, so no
->>>> domain in hyp */
->>>> +	if (hv_curr_thread_is_vmm() && !hv_no_attdev)
->>>> +		hvdom->attached_dom = true;
->>>> +	else {
->>>> +		rc = hv_iommu_create_hyp_devdom(hvdom);
->>>> +		if (rc)
->>>> +			goto out_free_id;
->>>> +	}
->>>> +
->>>> +	return &hvdom->iommu_dom;
->>>> +
->>>> +out_free_id:
->>>> +	unique_id--;
->>>> +out_free:
->>>> +	kfree(hvdom);
->>>> +out:
->>>> +	return NULL;
->>>> +}
->>>> +
->>>> +static void hv_iommu_domain_free(struct iommu_domain *immdom)
->>>> +{
->>>> +	struct hv_domain *hvdom = to_hv_domain(immdom);
->>>> +	unsigned long flags;
->>>> +	u64 status;
->>>> +	struct hv_input_delete_device_domain *input;
->>>> +
->>>> +	if (hv_special_domain(hvdom))
->>>> +		return;
->>>> +
->>>> +	if (hvdom->num_attchd) {
->>>> +		pr_err("Hyper-V: can't free busy iommu domain
->>>> (%p)\n", immdom);
->>>> +		return;
->>>> +	}
->>>> +
->>>> +	if (!hv_curr_thread_is_vmm() || hv_no_attdev) {
->>>> +		struct hv_input_device_domain *ddp;
->>>> +
->>>> +		local_irq_save(flags);
->>>> +		input = *this_cpu_ptr(hyperv_pcpu_input_arg);
->>>> +		ddp = &input->device_domain;
->>>> +		memset(input, 0, sizeof(*input));
->>>> +
->>>> +		ddp->partition_id = HV_PARTITION_ID_SELF;
->>>> +		ddp->domain_id.type = HV_DEVICE_DOMAIN_TYPE_S2;
->>>> +		ddp->domain_id.id = hvdom->domid_num;
->>>> +
->>>> +		status =
->>>> hv_do_hypercall(HVCALL_DELETE_DEVICE_DOMAIN, input,
->>>> +					 NULL);
->>>> +		local_irq_restore(flags);
->>>> +
->>>> +		if (!hv_result_success(status))
->>>> +			hv_status_err(status, "\n");
->>>> +	}
->>
->>> you could free the domid here, no?
->> sorry, don't follow what you mean by domid, you mean unique_id?
->>
-> yes.
-
-no it's just a sequential number with no track of what's used.
-
->>>> +
->>>> +	kfree(hvdom);
->>>> +}
->>>> +
->>>> +/* Attach a device to a domain previously created in the
->>>> hypervisor */ +static int hv_iommu_att_dev2dom(struct hv_domain
->>>> *hvdom, struct pci_dev *pdev) +{
->>>> +	unsigned long flags;
->>>> +	u64 status;
->>>> +	enum hv_device_type dev_type;
->>>> +	struct hv_input_attach_device_domain *input;
->>>> +
->>>> +	local_irq_save(flags);
->>>> +	input = *this_cpu_ptr(hyperv_pcpu_input_arg);
->>>> +	memset(input, 0, sizeof(*input));
->>>> +
->>>> +	input->device_domain.partition_id = HV_PARTITION_ID_SELF;
->>>> +	input->device_domain.domain_id.type =
->>>> HV_DEVICE_DOMAIN_TYPE_S2;
->>>> +	input->device_domain.domain_id.id = hvdom->domid_num;
->>>> +
->>>> +	/* NB: Upon guest shutdown, device is re-attached to the
->>>> default domain
->>>> +	 * without explicit detach.
->>>> +	 */
->>>> +	if (hv_l1vh_partition())
->>>> +		dev_type = HV_DEVICE_TYPE_LOGICAL;
->>>> +	else
->>>> +		dev_type = HV_DEVICE_TYPE_PCI;
->>>> +
->>>> +	input->device_id.as_uint64 = hv_build_devid_oftype(pdev,
->>>> dev_type); +
->>>> +	status = hv_do_hypercall(HVCALL_ATTACH_DEVICE_DOMAIN,
->>>> input, NULL);
->>>> +	local_irq_restore(flags);
->>>> +
->>>> +	if (!hv_result_success(status))
->>>> +		hv_status_err(status, "\n");
->>>> +
->>>> +	return hv_result_to_errno(status);
->>>> +}
->>>> +
->>>> +/* Caller must have validated that dev is a valid pci dev */
->>>> +static int hv_iommu_direct_attach_device(struct pci_dev *pdev)
->>>> +{
->>>> +	struct hv_input_attach_device *input;
->>>> +	u64 status;
->>>> +	int rc;
->>>> +	unsigned long flags;
->>>> +	union hv_device_id host_devid;
->>>> +	enum hv_device_type dev_type;
->>>> +	u64 ptid = hv_iommu_get_curr_partid();
->>>> +
->>>> +	if (ptid == HV_PARTITION_ID_INVALID) {
->>>> +		pr_err("Hyper-V: Invalid partition id in direct
->>>> attach\n");
->>>> +		return -EINVAL;
->>>> +	}
->>>> +
->>>> +	if (hv_l1vh_partition())
->>>> +		dev_type = HV_DEVICE_TYPE_LOGICAL;
->>>> +	else
->>>> +		dev_type = HV_DEVICE_TYPE_PCI;
->>>> +
->>>> +	host_devid.as_uint64 = hv_build_devid_oftype(pdev,
->>>> dev_type); +
->>>> +	do {
->>>> +		local_irq_save(flags);
->>>> +		input = *this_cpu_ptr(hyperv_pcpu_input_arg);
->>>> +		memset(input, 0, sizeof(*input));
->>>> +		input->partition_id = ptid;
->>>> +		input->device_id = host_devid;
->>>> +
->>>> +		/* Hypervisor associates logical_id with this
->>>> device, and in
->>>> +		 * some hypercalls like retarget interrupts,
->>>> logical_id must be
->>>> +		 * used instead of the BDF. It is a required
->>>> parameter.
->>>> +		 */
->>>> +		input->attdev_flags.logical_id = 1;
->>>> +		input->logical_devid =
->>>> +			   hv_build_devid_oftype(pdev,
->>>> HV_DEVICE_TYPE_LOGICAL); +
->>>> +		status = hv_do_hypercall(HVCALL_ATTACH_DEVICE,
->>>> input, NULL);
->>>> +		local_irq_restore(flags);
->>>> +
->>>> +		if (hv_result(status) ==
->>>> HV_STATUS_INSUFFICIENT_MEMORY) {
->>>> +			rc = hv_call_deposit_pages(NUMA_NO_NODE,
->>>> ptid, 1);
->>>> +			if (rc)
->>>> +				break;
->>>> +		}
->>>> +	} while (hv_result(status) ==
->>>> HV_STATUS_INSUFFICIENT_MEMORY); +
->>>> +	if (!hv_result_success(status))
->>>> +		hv_status_err(status, "\n");
->>>> +
->>>> +	return hv_result_to_errno(status);
->>>> +}
->>>> +
->>>> +/* This to attach a device to both host app (like DPDK) and a
->>>> guest VM */
->>> The IOMMU driver should be agnostic to the type of consumer,
->>> whether a userspace driver or a VM. This comment is not necessary.
->>>    
->>>> +static int hv_iommu_attach_dev(struct iommu_domain *immdom,
->>>> struct device *dev,
->>>> +			       struct iommu_domain *old)
->>> This does not match upstream kernel prototype, which kernel version
->>> is this based on? I will stop here for now.
->>
->> As I mentioned in the cover letter:
->>            Based on: 8f0b4cce4481 (origin/hyperv-next)
->>
-> where is this repo?
-
-https://git.kernel.org/pub/scm/linux/kernel/git/hyperv/linux.git
-branch: hyperv-next
-
-All our hyperv/mshv related patch submissions are merged there
-first by Wei.
-
-Thanks,
--Mukesh
-
-.. deleted ......
+> Thanks.
+>
 
