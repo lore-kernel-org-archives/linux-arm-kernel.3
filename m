@@ -4,95 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 051E7E7C719
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Feb 2026 11:35:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 755A4E7C718
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Feb 2026 12:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CwiMlqn8zSWND/MaEGxRB1MrDjr/sEbwA0uoenl3eoE=; b=33oOkjH49sL49dEWs7pYIluY28
-	Q7CxdEc0wuiQrNUsscWXozhiacErPOOK/yppaD18a8YTv/H0HCfkPZ6HvppYRuRXWdFwkNlFkRneJ
-	Fp66tNPow7+1op+Pp8x942vNoLkbqBsrlZQ3pDvzp/ENqgAOQSj+0Ur9inX2gqKl/F5gMUFQty146
-	WpsC3KQq2+ECvCoLZKqocdPTTpK9GxRx6iFP9y1b63TPDFEB2JOvWwUVTXYfT/Nn5mJ1pnL2RIRz7
-	oaiwE7XO6scX3Sy6Z0leA+K30/q4zbofUmLP+9n70L1r1WJ5TKHayLyTUWSvQ5ASKWU01OqPGRWmf
-	e5GoVyYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zTwXB7b7fyAa7LptV2bR7VURTzSkmLzoKfvh/LkKyAQ=; b=q6FRfy6vbPZO2CzPwytDH82E11
+	Hd6KJh1aQpY7TnWLXvge6EETUPS4OhoGeME6r8Nh7MUWS/C0sD66xM/mp4aD9LY7XuoakAYAuQozN
+	stZbGgMGCJCRahBoiOpCWAvb/sbZj5bzR/qs8aoPiK15P0AC2Xie7L0gz7cf4Hf1YHFL4n7bPqhlP
+	81MEIpAZCRPffPgOG34UMPpblfH5n/H1UjrExxFM0x83JoVe8q2jBnUdzWF7jiJ4GqEC9kRW/1mT8
+	uMZW6+M7TeMoScoeruyDzBEgyuRzyzSe6L0DMd0GSBPuhPpnAVwdiEN0SReP/HszlrAbEOJwOSB9j
+	OZuSddRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmVja-00000003THH-0WHl;
-	Sun, 01 Feb 2026 11:35:18 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1vmWhZ-00000003VJV-3oNN;
+	Sun, 01 Feb 2026 12:37:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmVjW-00000003TFT-3xl8
+	id 1vmWhX-00000003VJA-0Dh3
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Feb 2026 11:35:16 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-82310b74496so2033826b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Feb 2026 03:35:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769945714; x=1770550514; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CwiMlqn8zSWND/MaEGxRB1MrDjr/sEbwA0uoenl3eoE=;
-        b=hAC63He26Z6rqy2hZ9ixrgZsoim/khZIaL9FKqCCcYAgm04A80D95iQrjn1mrjX1aH
-         NucfUF8/uxNTCS1rZklMlcrJZ/PAGLyrlzESa+Zal5dk92Gyc6YA7bXexdgLS4NlUEbm
-         FK08L62pnsSUUSeURqPy2TGhL4DUMboe7aD13O0a85GAsiHMBcxMohwiR2YFBcJBDqLa
-         US7fVnzr0bJZJmt2NhhjP7aw4wDSAgs4xQxeR1FXZqqY/PGik3oEUYXJFeTO66qNpQXZ
-         LpIVpZJNEyqO1AwUxyK0spnVL5klJEQYS4isdcvZb2AXboUeMupsC0Qay8jHxUadkyKW
-         dYzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769945714; x=1770550514;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=CwiMlqn8zSWND/MaEGxRB1MrDjr/sEbwA0uoenl3eoE=;
-        b=CthIUCtrT8UrUeYta3aHunVAyr0RT+ANU5l6UXmVBYTD6FUvAKc61fBKIFJ9Srt6He
-         sztbH8A7aDCgG+uSDmZ2NWbmsVnRobF6wytAI3lN+noi/qUwpumprzegLALYQuT92ij0
-         m8a8YWC9hSJXvCgRbyZka82x+79mNRWVLqaZsgH3tnzf/HX5X/Nx7WvPp6CuBZVKvXbo
-         0e798gA6eMrv3GQFZy6ovEsqnMZZcsx7QV1jFEu5QxxPNBOs/6bOUMHh49/es5McSI4L
-         E9j+ySK44t4JPyQP7Jt6lcuhFK697xuqydPEp6WM3uaOKu00dE+W/QmXu54GlP9T/msM
-         tIzA==
-X-Forwarded-Encrypted: i=1; AJvYcCVa5/zWRz8CUEr3wQzZtsvuvImjLUDW/8vHB1DS6xKk+NXbvvfFYDVHWH7Fshk7sI1lkjEuGVS4VG03QdxZ+nUC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFtbw3oyiPORQJz84U0oRVg/BpUNfAXTFOOSkCsj06Vl7fYjyr
-	CbJ0kEG5vdqooRU7zYNdNdMKg4ObgOZ0Ti5dWE0Rfva6Og04CeQcj2b6
-X-Gm-Gg: AZuq6aLoYShpKYMXaCTv6fisNTQdh/fS994WiTZYEb/pEVVw0WAjBsnreNwvEjveLVd
-	QEF+rGM8TaxnVOIIhxgj6wCcR1IVSJH9XvOixjO9rrxTmIr8YNFtbfy05MQtMUE///LA8UZBOaE
-	SRnbtfio/zAWA36DxG6e3fazWO/U6Ozy1jqqFLK1eK/hc6KBw9haAG3Yovq6z134ziBxpqKd4Wl
-	GQGMS02ikELxrUddfHuPahv5av9hmZlqATBVBx/6VvX+ahWCFMRGdpJz4ozQqiwIMXEB4VFuQy6
-	0e9serYbHua+7M0t7RfibivVweQ8xn4oK1JHnGRm8ezvvidb+xKSWp7VAG8UbPxIxdTzR5nGYmW
-	FbuMYy/7YobV06cwc7WVgXiUSmBpJGXi/GJm0R36FsmMPzNvbGaPWhTAE2YoQlIS16FnzU6KK5f
-	qMlaSbFi09asp54ZIVH8M7STEd+LVsA7gATg==
-X-Received: by 2002:a05:6a00:430c:b0:81f:4769:6fde with SMTP id d2e1a72fcca58-823ab670cbbmr8524983b3a.17.1769945713898;
-        Sun, 01 Feb 2026 03:35:13 -0800 (PST)
-Received: from Black-Pearl.localdomain ([115.99.252.105])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-82379c24083sm12994728b3a.55.2026.02.01.03.35.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Feb 2026 03:35:13 -0800 (PST)
-From: Charan Pedumuru <charan.pedumuru@gmail.com>
-Date: Sun, 01 Feb 2026 11:34:23 +0000
-Subject: [PATCH 4/4] dt-bindings: usb: atmel,at91sam9rl-udc: convert to DT
- schema
-MIME-Version: 1.0
+	Sun, 01 Feb 2026 12:37:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B5B1841840;
+	Sun,  1 Feb 2026 12:37:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6668DC4CEF7;
+	Sun,  1 Feb 2026 12:37:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769949430;
+	bh=dGFx1VFWlzUONLDaiGnHfQKX+Ch//O+EYhfbY6SQQX8=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=NFgo0gX4uOKnO4aLFv4fzv4vMsy2AG0BojmtvNr3bxDP12Dy4tyzj4qveTTpDRSIL
+	 Q57sjRmwqvpHVf9xjj3oOPLIzPqaBO19MQsd1xiCkW0LOdjMsyqiVFs6kueibSWxBl
+	 1sYm3LXChw7MeaYK/Ub8UiFaoEGvviYemv9+CkZWtqd4PV5DPtY0J7EFMnSkYcgYGG
+	 E43PXEL1yydK0NyN3j3U6zkLJnWdARgy158qhSyWH8/4dMVB131XON+0oOzbVBQ53E
+	 tocKg05grXKjzgNVU8Tffwm9bKKaYquC4APg3Uq28iowVCVS780fHLlShu3D3Bb5jY
+	 /om+toEnczXnQ==
+Date: Sun, 01 Feb 2026 06:37:09 -0600
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260201-atmel-usb-v1-4-d1a3e93003f1@gmail.com>
-References: <20260201-atmel-usb-v1-0-d1a3e93003f1@gmail.com>
-In-Reply-To: <20260201-atmel-usb-v1-0-d1a3e93003f1@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: devicetree@vger.kernel.org, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ linux-kernel@vger.kernel.org, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
  Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Herve Codina <herve.codina@bootlin.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Charan Pedumuru <charan.pedumuru@gmail.com>
-X-Mailer: b4 0.14.3
+ linux-arm-kernel@lists.infradead.org, 
+ Herve Codina <herve.codina@bootlin.com>, linux-usb@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>
+To: Charan Pedumuru <charan.pedumuru@gmail.com>
+In-Reply-To: <20260201-atmel-usb-v1-2-d1a3e93003f1@gmail.com>
+References: <20260201-atmel-usb-v1-0-d1a3e93003f1@gmail.com>
+ <20260201-atmel-usb-v1-2-d1a3e93003f1@gmail.com>
+Message-Id: <176994942956.410099.10343293169382130437.robh@kernel.org>
+Subject: Re: [PATCH 2/4] dt-bindings: usb: atmel,at91sam9g45-ehci: convert
+ to DT schema
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260201_033515_023914_5B4DD1C2 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20260201_043715_113549_950C0893 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,237 +81,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert Atmel High-Speed USB Device Controller (USBA) binding to DT schema.
-Changes during conversion:
-- Include "#address-cells" and "#size-cells" in the properties since they
-  are required by existing in-tree DTS definitions.
 
-Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
----
- .../bindings/usb/atmel,at91sam9rl-udc.yaml         |  81 +++++++++++++
- .../devicetree/bindings/usb/atmel-usb.txt          | 125 ---------------------
- 2 files changed, 81 insertions(+), 125 deletions(-)
+On Sun, 01 Feb 2026 11:34:21 +0000, Charan Pedumuru wrote:
+> Convert Atmel AT91SAM9G45 EHCI USB Host Controller
+> binding to DT schema.
+> Changes during conversion:
+> - Include "usb-ehci" as a fallback compatible to allow atmel EHCI
+>   driver matching.
+> 
+> Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
+> ---
+>  .../bindings/usb/atmel,at91sam9g45-ehci.yaml       | 71 ++++++++++++++++++++++
+>  1 file changed, 71 insertions(+)
+> 
 
-diff --git a/Documentation/devicetree/bindings/usb/atmel,at91sam9rl-udc.yaml b/Documentation/devicetree/bindings/usb/atmel,at91sam9rl-udc.yaml
-new file mode 100644
-index 000000000000..6f5710cecaee
---- /dev/null
-+++ b/Documentation/devicetree/bindings/usb/atmel,at91sam9rl-udc.yaml
-@@ -0,0 +1,81 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/usb/atmel,at91sam9rl-udc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Atmel High-Speed USB Device Controller (USBA)
-+
-+maintainers:
-+  - Nicolas Ferre <nicolas.ferre@microchip.com>
-+  - Alexandre Belloni <alexandre.belloni@bootlin.com>
-+
-+description:
-+  The Atmel High-Speed USB Device Controller (USBA) provides USB 2.0
-+  high-speed gadget functionality on several Atmel and Microchip SoCs.
-+  The controller requires a peripheral clock and a host clock for operation
-+  and may optionally use a GPIO to detect VBUS presence.
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - enum:
-+          - atmel,at91sam9rl-udc
-+          - atmel,at91sam9g45-udc
-+          - atmel,sama5d3-udc
-+      - items:
-+          - const: microchip,lan9662-udc
-+          - const: atmel,sama5d3-udc
-+      - const: microchip,sam9x60-udc
-+
-+  reg:
-+    maxItems: 2
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 0
-+
-+  clocks:
-+    minItems: 2
-+    maxItems: 2
-+
-+  clock-names:
-+    minItems: 2
-+    maxItems: 2
-+    items:
-+      enum: [pclk, hclk]
-+
-+  atmel,vbus-gpio:
-+    description: GPIO used to detect the presence of VBUS, indicating that
-+      the USB cable is connected.
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/clock/at91.h>
-+    #include <dt-bindings/gpio/gpio.h>
-+    gadget@fff78000 {
-+        compatible = "atmel,at91sam9g45-udc";
-+        reg = <0x00600000 0x80000
-+               0xfff78000 0x400>;
-+        interrupts = <27 IRQ_TYPE_LEVEL_HIGH 0>;
-+        clocks = <&pmc PMC_TYPE_PERIPHERAL 27>, <&pmc PMC_TYPE_CORE PMC_UTMI>;
-+        clock-names = "pclk", "hclk";
-+        atmel,vbus-gpio = <&pioC 15 GPIO_ACTIVE_HIGH>;
-+    };
-+...
-diff --git a/Documentation/devicetree/bindings/usb/atmel-usb.txt b/Documentation/devicetree/bindings/usb/atmel-usb.txt
-deleted file mode 100644
-index 12183ef47ee4..000000000000
---- a/Documentation/devicetree/bindings/usb/atmel-usb.txt
-+++ /dev/null
-@@ -1,125 +0,0 @@
--Atmel SOC USB controllers
--
--OHCI
--
--Required properties:
-- - compatible: Should be "atmel,at91rm9200-ohci" for USB controllers
--   used in host mode.
-- - reg: Address and length of the register set for the device
-- - interrupts: Should contain ohci interrupt
-- - clocks: Should reference the peripheral, host and system clocks
-- - clock-names: Should contain three strings
--		"ohci_clk" for the peripheral clock
--		"hclk" for the host clock
--		"uhpck" for the system clock
-- - num-ports: Number of ports.
-- - atmel,vbus-gpio: If present, specifies a gpio that needs to be
--   activated for the bus to be powered.
-- - atmel,oc-gpio: If present, specifies a gpio that needs to be
--   activated for the overcurrent detection.
--
--usb0: ohci@500000 {
--	compatible = "atmel,at91rm9200-ohci", "usb-ohci";
--	reg = <0x00500000 0x100000>;
--	clocks = <&uhphs_clk>, <&uhphs_clk>, <&uhpck>;
--	clock-names = "ohci_clk", "hclk", "uhpck";
--	interrupts = <20 4>;
--	num-ports = <2>;
--};
--
--EHCI
--
--Required properties:
-- - compatible: Should be "atmel,at91sam9g45-ehci" for USB controllers
--   used in host mode.
-- - reg: Address and length of the register set for the device
-- - interrupts: Should contain ehci interrupt
-- - clocks: Should reference the peripheral and the UTMI clocks
-- - clock-names: Should contain two strings
--		"ehci_clk" for the peripheral clock
--		"usb_clk" for the UTMI clock
--
--Optional properties:
-- - phy_type : For multi port host USB controllers, should be one of
--   "utmi", or "hsic".
--
--usb1: ehci@800000 {
--	compatible = "atmel,at91sam9g45-ehci", "usb-ehci";
--	reg = <0x00800000 0x100000>;
--	interrupts = <22 4>;
--	clocks = <&utmi>, <&uhphs_clk>;
--	clock-names = "usb_clk", "ehci_clk";
--};
--
--AT91 USB device controller
--
--Required properties:
-- - compatible: Should be one of the following
--	       "atmel,at91rm9200-udc"
--	       "atmel,at91sam9260-udc"
--	       "atmel,at91sam9261-udc"
--	       "atmel,at91sam9263-udc"
-- - reg: Address and length of the register set for the device
-- - interrupts: Should contain macb interrupt
-- - clocks: Should reference the peripheral and the AHB clocks
-- - clock-names: Should contain two strings
--		"pclk" for the peripheral clock
--		"hclk" for the AHB clock
--
--Optional properties:
-- - atmel,vbus-gpio: If present, specifies a gpio that needs to be
--   activated for the bus to be powered.
--
--usb1: gadget@fffa4000 {
--	compatible = "atmel,at91rm9200-udc";
--	reg = <0xfffa4000 0x4000>;
--	interrupts = <10 4>;
--	clocks = <&udc_clk>, <&udpck>;
--	clock-names = "pclk", "hclk";
--	atmel,vbus-gpio = <&pioC 5 0>;
--};
--
--Atmel High-Speed USB device controller
--
--Required properties:
-- - compatible: Should be one of the following
--	       "atmel,at91sam9rl-udc"
--	       "atmel,at91sam9g45-udc"
--	       "atmel,sama5d3-udc"
--	       "microchip,sam9x60-udc"
--	       "microchip,lan9662-udc"
--	       For "microchip,lan9662-udc" the fallback "atmel,sama5d3-udc"
--	       is required.
-- - reg: Address and length of the register set for the device
-- - interrupts: Should contain usba interrupt
-- - clocks: Should reference the peripheral and host clocks
-- - clock-names: Should contain two strings
--		"pclk" for the peripheral clock
--		"hclk" for the host clock
--
--Deprecated property:
-- - ep childnode: To specify the number of endpoints and their properties.
--
--Optional properties:
-- - atmel,vbus-gpio: If present, specifies a gpio that allows to detect whether
--   vbus is present (USB is connected).
--
--Deprecated child node properties:
-- - name: Name of the endpoint.
-- - reg: Num of the endpoint.
-- - atmel,fifo-size: Size of the fifo.
-- - atmel,nb-banks: Number of banks.
-- - atmel,can-dma: Boolean to specify if the endpoint support DMA.
-- - atmel,can-isoc: Boolean to specify if the endpoint support ISOC.
--
--usb2: gadget@fff78000 {
--	#address-cells = <1>;
--	#size-cells = <0>;
--	compatible = "atmel,at91sam9rl-udc";
--	reg = <0x00600000 0x80000
--	       0xfff78000 0x400>;
--	interrupts = <27 4 0>;
--	clocks = <&utmi>, <&udphs_clk>;
--	clock-names = "hclk", "pclk";
--	atmel,vbus-gpio = <&pioB 19 0>;
--};
+My bot found errors running 'make dt_binding_check' on your patch:
 
--- 
-2.52.0
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+Warning: Duplicate compatible "usb-ehci" found in schemas matching "$id":
+	http://devicetree.org/schemas/usb/atmel,at91sam9g45-ehci.yaml
+	http://devicetree.org/schemas/usb/generic-ehci.yaml#
+Warning: Duplicate compatible "atmel,at91sam9g45-ehci" found in schemas matching "$id":
+	http://devicetree.org/schemas/usb/atmel,at91sam9g45-ehci.yaml
+	http://devicetree.org/schemas/usb/generic-ehci.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/usb/atmel,at91sam9g45-ehci.example.dtb: usb@500000 (atmel,at91sam9g45-ehci): Unevaluated properties are not allowed ('clock-names' was unexpected)
+	from schema $id: http://devicetree.org/schemas/usb/generic-ehci.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260201-atmel-usb-v1-2-d1a3e93003f1@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
