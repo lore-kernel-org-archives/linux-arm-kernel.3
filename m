@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 907F2E7C70D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Feb 2026 08:15:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BFADE7C70D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Feb 2026 08:15:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RgZxWMsgxvF9wqaRGd5L3OLgxXU9L3sDTfqybdxvKyM=; b=twj8XHiRhfVCEFR/CvDTiewT73
-	aB7r7kkDaFc9e8Ph2CoRuksTvD2lV/Q6iR2RM0UL6tVHJWthiXD2MEueyWZw0Mf9r0QQcbbVB8+Rd
-	pfbusdzwCT3706YoJ9hdtjKfW8ioORHO63B4uYvK0S4JVySqzmOGsTNNBmffiwMEq57X5nFJEce/w
-	uTx8xMwpSc3rCJy5Ft0cw2aTsqHc03o/diP+tMStYdUuX/AEnRi8nJAxoWb3uFhAclAID9Ncxkt4d
-	qqwUkcmXWM85x35qNY9pTZzMCMngu2qYgOCbCehYvBnPfg2NvssRobooy9Py/AGXbPWXrNw366qc2
-	RZMbqjsw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aqRmpHo6XX+cmlEPlSDptfKyft1oOFmzNX1tdW6dbIM=; b=Gm7WZQs+vNo7VJMZ8dhXe/nYGV
+	ILheTJos3mlHyVcQgHV9BKe1rajn6EYhg0YGe5ZHIEiDUIeKuWzbOApXeXq95TYdLG932oIqAoIdN
+	L28jQQQQhhCiL7BaRRUzCUTVEJJxWFlHInGBd62LuNhf9fg0CqJv8wE5ykesJDhzVaMd63rnhHhDw
+	45lswoj378prMdQk9HOAqM4n+FmwCXcC3UoVIN0CbDBjk0HrdMUp6NauzM7t2MCKFi3n2K2Gkshk8
+	CCSIBzW6krkx65Yks1TOy+lg5yiV8nMa79wfOcvsq1BeazEIACcPphhncWObPOycIIXb4m+v4+8xJ
+	vEaWDPww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmSbj-00000003Lav-2Wqe;
-	Sun, 01 Feb 2026 08:14:59 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
+	id 1vmSbt-00000003Lel-1OD1;
+	Sun, 01 Feb 2026 08:15:09 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmSbg-00000003LaK-0INh;
-	Sun, 01 Feb 2026 08:14:57 +0000
+	id 1vmSbq-00000003LdC-2xII;
+	Sun, 01 Feb 2026 08:15:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Rg
-	ZxWMsgxvF9wqaRGd5L3OLgxXU9L3sDTfqybdxvKyM=; b=C9P9r5k3f/tlVWwIT3
-	1UR58PvbFfWJnowCwO1q/35CLWyYjyE0d2u7OIHJF5za4vKNRrdtG4kTvxcKjlaF
-	UJ3YHXiZWrmNVpH6W1fROBBe3AhghTyg7/U9KX/+oSye5z4+8SWY9wmb5QYq9PI4
-	d8Gz8QOVrhRbNwGvrFMV6HQT4=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=aq
+	RmpHo6XX+cmlEPlSDptfKyft1oOFmzNX1tdW6dbIM=; b=K9c/XmC4mo6lHM5a7w
+	RczrDbm3oyC/hrWiARL5cVSkg48QS0UJnNXABTkVK2Tks/SNyVd9+A0yqZe/UH28
+	tButDg/N45SPjPtc1yRI1AnA1PIGgYpGKBpZgUXLOs8yaOXEMxnkzg4FU4iF9dXj
+	nyiCJFcqicqS8Hdyz0PdjCge4=
 Received: from ProDesk-480.. (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wD3Hz40C39pmxGTKQ--.55310S3;
-	Sun, 01 Feb 2026 16:13:46 +0800 (CST)
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wD3Hz40C39pmxGTKQ--.55310S2;
+	Sun, 01 Feb 2026 16:13:44 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: dmitry.baryshkov@oss.qualcomm.com,
 	heiko@sntech.de
@@ -64,25 +64,22 @@ Cc: alchark@gmail.com,
 	linux-kernel@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v2 1/5] dt-bindings: display: rockchip: Add rk3576 DisplayPort
-Date: Sun,  1 Feb 2026 16:13:27 +0800
-Message-ID: <20260201081338.407999-2-andyshrk@163.com>
+Subject: [PATCH v2 0/5] Add DisplayPort support for rk3576
+Date: Sun,  1 Feb 2026 16:13:26 +0800
+Message-ID: <20260201081338.407999-1-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260201081338.407999-1-andyshrk@163.com>
-References: <20260201081338.407999-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3Hz40C39pmxGTKQ--.55310S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Zr4UWr43Jw4xKw1rKr1ftFb_yoW8CryUpa
-	9xCw1UX3yIgr17W3yDtr1kCrs5K3WkA3yjyr17tw17KwsxKF4F93Wagwn8Jw43JF17Aa9x
-	CF4j9ryxJw42vr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jwVysUUUUU=
+X-CM-TRANSID: _____wD3Hz40C39pmxGTKQ--.55310S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Zr1DtFy7trW3Wr4rtw48tFb_yoW8Jw47pa
+	nxuFyYyrZ7GFWava43Cr1Uurs0vr1ktrW8Kw17J3y7t3s8GF17Gwn8GFn8Jr9rXF18A348
+	ur4UJa47Cr4jvrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jDrcfUUUUU=
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbCxRoLaWl-CzrP+AAA3t
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbC7RgLaWl-Czhr1gAA3P
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260201_001456_525775_5AE5A6F7 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260201_001507_142686_D1E89133 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,84 +96,38 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andy Yan <andy.yan@rock-chips.com>
 
+
 The DisplayPort found on RK3576 is very similar to that of RK3588,
-but work in dual pixel mode. And itself does not depend on the I2S
-clock or the SPDIF clock when transmit audio.
+but work in dual pixel mode and support for MST.
 
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+This patch series aims to add basic display output, not include audio
+and MST, which will be the work for the next stage.
 
----
+Tested with 2 lane standard DP port and USB-C Alt mode output now.
+For those who want to give it a try, I have a reference branch here[0].
+
+[0]https://github.com/andyshrk/linux/tree/rk3576-dp-upstream-v1
+
 
 Changes in v2:
 - Remove unnecessary maxItems
+- Commit message improve: The pixel mode is determined during the IC
+  integration stage
 
- .../display/rockchip/rockchip,dw-dp.yaml      | 27 ++++++++++++++++---
- 1 file changed, 24 insertions(+), 3 deletions(-)
+Andy Yan (5):
+  dt-bindings: display: rockchip: Add rk3576 DisplayPort
+  drm/bridge: synopsys: dw-dp: Set pixel mode by platform data
+  drm/bridge: synopsys: dw-dp: Make i2s/spdif clk optional
+  drm/rockchip: dw_dp: Add DisplayPort support for rk3576
+  arm64: dts: rockchip: Add DisplayPort dt node for rk3576
 
-diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
-index 6345f0132d43..8a5299755abf 100644
---- a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
-+++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
-@@ -27,13 +27,11 @@ description: |
-   * Pixel clock up to 594MHz
-   * I2S, SPDIF audio interface
- 
--allOf:
--  - $ref: /schemas/sound/dai-common.yaml#
--
- properties:
-   compatible:
-     enum:
-       - rockchip,rk3588-dp
-+      - rockchip,rk3576-dp
- 
-   reg:
-     maxItems: 1
-@@ -42,6 +40,7 @@ properties:
-     maxItems: 1
- 
-   clocks:
-+    minItems: 3
-     items:
-       - description: Peripheral/APB bus clock
-       - description: DisplayPort AUX clock
-@@ -50,6 +49,7 @@ properties:
-       - description: SPDIF interfce clock
- 
-   clock-names:
-+    minItems: 3
-     items:
-       - const: apb
-       - const: aux
-@@ -95,6 +95,27 @@ required:
-   - ports
-   - resets
- 
-+allOf:
-+  - $ref: /schemas/sound/dai-common.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - rockchip,rk3588-dp
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 5
-+        clock-names:
-+          minItems: 5
-+    else:
-+      properties:
-+        clocks:
-+          maxItems: 3
-+        clock-names:
-+          maxItems: 3
-+
- unevaluatedProperties: false
- 
- examples:
+ .../display/rockchip/rockchip,dw-dp.yaml      | 27 ++++++++++++++++--
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi      | 28 +++++++++++++++++++
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c       | 12 ++------
+ drivers/gpu/drm/rockchip/dw_dp-rockchip.c     | 27 +++++++++++++++---
+ include/drm/bridge/dw_dp.h                    |  7 +++++
+ 5 files changed, 85 insertions(+), 16 deletions(-)
+
 -- 
 2.43.0
 
