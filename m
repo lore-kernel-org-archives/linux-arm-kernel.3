@@ -4,58 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B50BE7315B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 11:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26031E7315A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 11:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=echvPul4IA2jsCKKbn+yCMl1dA6MWy/9xurj386pijU=; b=Myrh609N7VNCGt98InQdJQt627
-	I/ZdZ8tXXBcN2bfw6A7SZXoEeQfBefWyUCS4bhNvkNtSgqAss0h/SOvzJKNHT6Mwgr4gua5f8dRsm
-	2FrfhvMROCYCWVqOhZO7uXOK5/UJPKgqleVDks5GAVxzdn7IbYViazlaAMv+NIl0APnw1BgOWG5zk
-	vuWFIHdaaqys0LuKzB2BzqLfu59WRtWK+7/xo0sBARnq3wm9yaYlqIJJQMmDw1X4wsAz2biP4F/SB
-	w4Esgfb1PtcuXGDh+Tjva4v91qmNb0SAj7Lwj10FpN3q+N+1FMbGzel+h8194TH4ae2DhdB4aGRIY
-	dnE01+Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pk0F2DbhjlgeMmEV6A/bG9XIycCE9QwvAWLvJWCiNfs=; b=GVI7cFpSDgbxrOwbPBM0fzcZvC
+	JdHEgxRv1vhS3xTPkTjJ5AjmFGtxAuxA86JR9Xu5W8ui4cFE6K2sSrQAeTYJq5dzt7p/6Pla8EQYi
+	GpPKwD+EEGQF+/8nmhrqDak0FC66SEy2AyILDyNnPiUcI/obokZBbb3/QZ/NR53tq5VuUVVnH/XuT
+	bALUdwJirF0JxF5bVAhg7TzJ9lFO5hU0A//+0GrW/NYMIJrBOoXQCHR0SpP7MShw3WpZK1b2vYIIK
+	O/j+WQvbvEC6Tq84vTEOgaJfxqZXYQ338etE2oqYMHzPSQ0MlzRlzVQ3xMqAIwAR8gP4tpu3CCDPP
+	oMUcM+QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmsDH-00000004uhH-1cpV;
-	Mon, 02 Feb 2026 11:35:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmsDE-00000004ugk-3XQB
+	id 1vmsFn-00000004v0m-0DFb;
+	Mon, 02 Feb 2026 11:38:03 +0000
+Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vmsFk-00000004v0L-0veG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 11:35:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 59D47339;
-	Mon,  2 Feb 2026 03:35:17 -0800 (PST)
-Received: from [10.57.95.78] (unknown [10.57.95.78])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7AAFD3F7A6;
-	Mon,  2 Feb 2026 03:35:22 -0800 (PST)
-Message-ID: <fbc45a22-a916-4885-9aeb-857c7c9dcb9c@arm.com>
-Date: Mon, 2 Feb 2026 11:35:20 +0000
+	Mon, 02 Feb 2026 11:38:01 +0000
+Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-794d3bba0ccso8208697b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 03:37:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770032278; cv=none;
+        d=google.com; s=arc-20240605;
+        b=WjHsQsdNo0zjuEkyWwdT0pYfChah3qjzEsJYxjkkPISCFl7ThtYZZUU7O/HafcDlgy
+         CzbMNoeA/kYA93qiOvZ4CLzcv/STi9ehWZMeU1ttnkEfFHYGLlj061BLWmWNlLVJg9sY
+         EfrLmuNHquJy1L62QvzrMllEEngjr0UQ42Yio66Rs5Qvzz/NMx/+jCBkNzZYfm5fcWoB
+         PwG0pPFZGYvIYlLomXWMITPGjj0eLANE0m4zHeZJX/x0dfXwB+7kP6YsCX/tsx8jci8q
+         6CeR4+JSnSs84nmPPz97volLIMO+PFo0e+dLtFszRWNOCm6VVPUUzfE6GYggAQXDNS0M
+         OqTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=pk0F2DbhjlgeMmEV6A/bG9XIycCE9QwvAWLvJWCiNfs=;
+        fh=8NrctBK90qXWlIoCflzzEoof9XbgAY8DOylFHK3oPXY=;
+        b=HxkuFtKdkYSJ4YroTB0J1ZOLExpjm2+VqYHLapr7HpH5ZkgGiBFZQ+QZqYbKL6nuzh
+         qf9DaNYKj6OyeakCXHu1xjnzr9ZITgEe7ZXrwWF/T97/arIGqwnudIzKlnil+Soyel+8
+         CDbpBPg7Cd9UHhTul2eM5EHyfvNx2USOi+MwW3EKL0UB+i/hzI7irvRYXV4UaTjp0Elt
+         CtPMfSuy1zaT/x6BQpOj7RrJx2xey8GpnReZXC/RhZv9v7vRKjJFkZDALerieJFUwYan
+         SF6U/aGSwc9wjOdruJgHfxP2sffYh+O7TerIyggn6xitosYrHWQ6XFuh8bSejbEbaKLn
+         b54w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1770032278; x=1770637078; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=pk0F2DbhjlgeMmEV6A/bG9XIycCE9QwvAWLvJWCiNfs=;
+        b=qFO5Oz2CN0k1Aye0HFdu7PumR+InpC9iqdd7ctDcF8xjY66yQfgPjfpWUtrxfORM7X
+         EhuNiWpVF24CE3eBmLkREkW4i0bkRhwFXU8+qCACRNB9ikU16DShwpvMwRJrCcabYmBa
+         +3khF2sWyZeS3pLAgOHWgZmjMVarVBBqbaao49nsS79q/rZhEpeUal+v9imGaO5OIK1Y
+         SKBO9pJ44geQjlbM4h6bWOvWwWMRZDtFXaoqBaXTldbqPZNtHYdbjVQkVSyhDQE+NVd6
+         J9UDVKdRWwL5YZsWELSPVxiEusSxcOzbql+adYkpTI0+kJfbSVrrkZHQTb35gZOloBjM
+         D1rg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770032278; x=1770637078;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pk0F2DbhjlgeMmEV6A/bG9XIycCE9QwvAWLvJWCiNfs=;
+        b=WG0jPxpSqkpEHvCTsSuwVHrL7jGj+yRQFRtRS2AGY7TN0ZcQKPHXweTQnvQ7bY+tco
+         dldHGHs5isQcccwuRlBW1mXz3xF6New972i6ltmc+26Fajz5Y0io8wxYXHbYPivWOSOg
+         BUUZ+KdEakwyg+uqu6FFNiquEkHDGX7QjBpplRlKJzR2/jeKHTOS85ba+D6Vcd55Pf4J
+         XnhALHR3el9wL/XvmaV0ILYunE36qc424Tar2R9PyqACclW09YDrEG3m1S8mM+NBcvLS
+         30EM8v0TeRbLsPCDpVlxJhWQaOqY7m0a0SzTLbS1RkuUeRnmX+RP4YezQKqltCleH98I
+         tQqw==
+X-Gm-Message-State: AOJu0Yww2jG5fxj7AC7NcD/jtvJo+vSIlipthRBxH7EyNdRg0jgH9zQ5
+	a3S/8q/4wC7MvqKYb5Dbo+eXM9H0ZUtReyagWJJZ4ey5paXvjNCKfGEEVQ6ZaOox3FKFwsn895P
+	yIaSsD/6qiBHDyofIgQdpUBLzTVDNCsnE6U6POdLDComqBc4VtE/DcqQ=
+X-Gm-Gg: AZuq6aJvSOiVWqv6ItYQPeA+KnhKdz1D2xUw4kke9FXpaLyIit27gHNg0XSiH5jMkx/
+	hOPolH1pc2MXWv7188qMrAQ69I/3c80NRnPxUGt1P7Ev3zUKyqXAUG3GN/UwB9a4cwJWHGg9XYh
+	vLYhWQbg2hSKbtDCte32vsw5+TRoC8kH8IBDXzrWWK36C4Rn1w7i+WIXHMeDh85bORFzK9XXkws
+	kCMNWHdQFfllDdxvuX5+k6NsApnPGNMkwfoeKtYNj9+usjIlX9h3aN9KwWCft6EMD4scT7or50m
+	Sq/v
+X-Received: by 2002:a05:690c:385:b0:78f:984b:4be9 with SMTP id
+ 00721157ae682-7949ded7179mr84996467b3.18.1770032278094; Mon, 02 Feb 2026
+ 03:37:58 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64/mm: Reject memory removal that splits a kernel
- leaf mapping
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Yang Shi <yang@os.amperecomputing.com>, Christoph Lameter <cl@gentwo.org>,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20260202042617.504183-1-anshuman.khandual@arm.com>
- <20260202042617.504183-3-anshuman.khandual@arm.com>
- <10088a12-332f-490e-9726-3015f99e264a@arm.com>
- <7790afb1-df77-4c14-90f1-1499f4e68f94@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <7790afb1-df77-4c14-90f1-1499f4e68f94@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Peter Maydell <peter.maydell@linaro.org>
+Date: Mon, 2 Feb 2026 11:37:46 +0000
+X-Gm-Features: AZwV_Qhz7lUjwfyHkiM9ZhQcOfXy-24UMIF7a894kKFHZzkiZQ_yfcubrDxtvZY
+Message-ID: <CAFEAcA9yyLBa1Hp-2CrSsHBOBcGKSg6Rr3uvfZPckcRsTXDC8w@mail.gmail.com>
+Subject: inconsistent SME2 ID register fields confuse kernel into reporting
+ but not enabling it
+To: arm-mail-list <linux-arm-kernel@lists.infradead.org>
+Cc: Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_033524_978412_27564578 
-X-CRM114-Status: GOOD (  32.53  )
+X-CRM114-CacheID: sfid-20260202_033800_294340_7F57492B 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,252 +110,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/02/2026 11:06, Anshuman Khandual wrote:
-> On 02/02/26 3:12 PM, Ryan Roberts wrote:
->> On 02/02/2026 04:26, Anshuman Khandual wrote:
->>> Linear and vmemmap mapings that get teared down during a memory hot remove
->>> operation might contain leaf level entries on any page table level. If the
->>> requested memory range's linear or vmemmap mappings falls within such leaf
->>> entries, new mappings need to be created for the remaning memory mapped on
->>> the leaf entry earlier, following standard break before make aka BBM rules.
->>
->> I think it would be good to mention that the kernel cannot tolerate BBM so
->> remapping to fine grained leaves would not be possible on systems without
->> BBML2_NOABORT.
-> 
-> Sure will add that.
-> 
->>
->>>
->>> Currently memory hot remove operation does not perform such restructuring,
->>> and so removing memory ranges that could split a kernel leaf level mapping
->>> need to be rejected.
->>
->> Perhaps it is useful to mention that while memory_hotplug.c does appear to
->> permit hot-unplugging arbitrary ranges of memory, the higher layers that drive
->> memory_hotplug (e.g. ACPI, virtio, ...) all appear to treat memory as fixed size
->> devices so it is impossible to hotunplug a different amount than was previously
->> hotplugged, and so we should never see a rejection in practice, but adding the
->> check makes us robust against a future change.
-> 
-> Agreed, will update the commit message.
-> 
->>
->>>
->>> Cc: Catalin Marinas <catalin.marinas@arm.com>
->>> Cc: Will Deacon <will@kernel.org>
->>> Cc: linux-arm-kernel@lists.infradead.org
->>> Cc: linux-kernel@vger.kernel.org
->>> Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
->>> Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
->>> Cc: stable@vger.kernel.org
->>> Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
->>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->>> ---
->>>  arch/arm64/mm/mmu.c | 126 ++++++++++++++++++++++++++++++++++++++++++++
->>>  1 file changed, 126 insertions(+)
->>>
->>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>> index 8ec8a287aaa1..9d59e10fb3de 100644
->>> --- a/arch/arm64/mm/mmu.c
->>> +++ b/arch/arm64/mm/mmu.c
->>> @@ -2063,6 +2063,129 @@ void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
->>>  	__remove_pgd_mapping(swapper_pg_dir, __phys_to_virt(start), size);
->>>  }
->>>  
->>> +
->>> +static bool split_kernel_leaf_boundary(unsigned long addr)
->>
->> The name currently makes it sound like we are asking for the mapping to be split
->> (we have existing functions to do this that are named similarly). Perhaps a
->> better name would be addr_splits_leaf()?
-> 
-> Agreed that name sounds bit confusing and ambiguous as there is already
-> a similarly named function. Will rename it as addr_splits_kernel_leaf()
-> instead.
-> 
->>
->>> +{
->>> +	pgd_t *pgdp, pgd;
->>> +	p4d_t *p4dp, p4d;
->>> +	pud_t *pudp, pud;
->>> +	pmd_t *pmdp, pmd;
->>> +	pte_t *ptep, pte;
->>> +
->>> +	/*
->>> +	 * PGD: If addr is PGD aligned then addr already
->>> +	 * describes a leaf boundary.
->>> +	 */
->>> +	if (ALIGN_DOWN(addr, PGDIR_SIZE) == addr)
->>> +		return false;
->>> +
->>> +	pgdp = pgd_offset_k(addr);
->>> +	pgd = pgdp_get(pgdp);
->>> +	if (!pgd_present(pgd))
->>> +		return false;
->>> +
->>> +	/*
->>> +	 * P4D: If addr is P4D aligned then addr already
->>> +	 * describes a leaf boundary.
->>> +	 */
->>> +	if (ALIGN_DOWN(addr, P4D_SIZE) == addr)
->>> +		return false;
->>> +
->>> +	p4dp = p4d_offset(pgdp, addr);
->>> +	p4d = p4dp_get(p4dp);
->>> +	if (!p4d_present(p4d))
->>> +		return false;
->>> +
->>> +	/*
->>> +	 * PUD: If addr is PUD aligned then addr already
->>> +	 * describes a leaf boundary.
->>> +	 */
->>> +	if (ALIGN_DOWN(addr, PUD_SIZE) == addr)
->>> +		return false;
->>> +
->>> +	pudp = pud_offset(p4dp, addr);
->>> +	pud = pudp_get(pudp);
->>> +	if (!pud_present(pud))
->>> +		return false;
->>> +
->>> +	if (pud_leaf(pud))
->>> +		return true;
->>> +
->>> +	/*
->>> +	 * CONT_PMD: If addr is CONT_PMD aligned then
->>> +	 * addr already describes a leaf boundary.
->>> +	 */
->>> +	if (ALIGN_DOWN(addr, CONT_PMD_SIZE) == addr)
->>> +		return false;
->>> +
->>> +	pmdp = pmd_offset(pudp, addr);
->>> +	pmd = pmdp_get(pmdp);
->>> +	if (!pmd_present(pmd))
->>> +		return false;
->>> +
->>> +	if (pmd_leaf(pmd) && pmd_cont(pmd))
->>> +		return true;
->>> +
->>> +	/*
->>> +	 * PMD: If addr is PMD aligned then addr already
->>> +	 * describes a leaf boundary.
->>> +	 */
->>> +	if (ALIGN_DOWN(addr, PMD_SIZE) == addr)
->>> +		return false;
->>> +
->>> +	if (pmd_leaf(pmd))
->>> +		return true;
->>> +
->>> +	/*
->>> +	 * CONT_PTE: If addr is CONT_PTE aligned then addr
->>> +	 * already describes a leaf boundary.
->>> +	 */
->>> +	if (ALIGN_DOWN(addr, CONT_PTE_SIZE) == addr)
->>> +		return false;
->>> +
->>> +	ptep = pte_offset_kernel(pmdp, addr);
->>> +	pte = __ptep_get(ptep);
->>> +	if (!pte_present(pte))
->>> +		return false;
->>> +
->>> +	if (pte_valid(pte) && pte_cont(pte))
->>
->> Why do you need pte_valid() here? You have already checked !pte_present(). Are
->> you expecting a case of present but not valid (PTE_PRESENT_INVALID)? If so, do
->> you need to consider that for the other levels too? (pmd_leaf() only checks
->> pmd_present()).
->>> Personally I think you can just drop the pte_valid() check here.
-> 
-> Added pte_valid() for abundance of caution but it is not really
-> necessary though. Sure will drop it off.
-> 
->>
->>> +		return true;
->>> +
->>> +	if (ALIGN_DOWN(addr, PAGE_SIZE) == addr)
->>> +		return false;
->>> +	return true;
->>> +}
->>> +
->>> +static bool can_unmap_without_split(unsigned long pfn, unsigned long nr_pages)
->>> +{
->>> +	unsigned long linear_start, linear_end, phys_start, phys_end;
->>> +	unsigned long vmemmap_size, vmemmap_start, vmemmap_end;
->>
->> nit: do we need all these variables. Perhaps just:
->>
->> unsigned long sz, start, end, phys_start, phys_end;
->>
->> are sufficient?
-> 
-> Alright. I guess start and end can be re-used both for linear and
-> vmemmap mapping.
-> 
->>
->>> +
->>> +	/* Assert linear map edges do not split a leaf entry */
->>> +	phys_start = PFN_PHYS(pfn);
->>> +	phys_end = phys_start + nr_pages * PAGE_SIZE;
->>> +	linear_start = __phys_to_virt(phys_start);
->>> +	linear_end =  __phys_to_virt(phys_end);
->>> +	if (split_kernel_leaf_boundary(linear_start) ||
->>> +	    split_kernel_leaf_boundary(linear_end)) {
->>> +		pr_warn("[%lx %lx] splits a leaf entry in linear map\n",
->>> +			phys_start, phys_end);
->>> +		return false;
->>> +	}
->>> +
->>> +	/* Assert vmemmap edges do not split a leaf entry */
->>> +	vmemmap_size = nr_pages * sizeof(struct page);
->>> +	vmemmap_start = (unsigned long) pfn_to_page(pfn);
->>
->> nit:                                   ^
->>
->> I don't think we would normally have that space?
-> 
-> Sure will drop that.
-> 
->>
->>> +	vmemmap_end = vmemmap_start + vmemmap_size;
->>> +	if (split_kernel_leaf_boundary(vmemmap_start) ||
->>> +	    split_kernel_leaf_boundary(vmemmap_end)) {
->>> +		pr_warn("[%lx %lx] splits a leaf entry in vmemmap\n",
->>> +			phys_start, phys_end);
->>> +		return false;
->>> +	}
->>> +	return true;
->>> +}
->>> +
->>>  /*
->>>   * This memory hotplug notifier helps prevent boot memory from being
->>>   * inadvertently removed as it blocks pfn range offlining process in
->>> @@ -2083,6 +2206,9 @@ static int prevent_bootmem_remove_notifier(struct notifier_block *nb,
->>>  	if ((action != MEM_GOING_OFFLINE) && (action != MEM_OFFLINE))
->>>  		return NOTIFY_OK;
->>>  
->>> +	if (!can_unmap_without_split(pfn, arg->nr_pages))
->>> +		return NOTIFY_BAD;
->>> +
->>
->> Personally, I'd keep the bootmem check first and do this check after. That means
->> an existing warning will not change.
-> 
-> Makes sense, will move it after existing bootmem check. BTW the function
-> still named as prevent_bootmem_remove_notifier() although now it's going
-> to check leaf boundaries as well. Should the function be renamed as well
-> to something more generic e.g prevent_memory_remove_notifier() ?
+I noticed that if the CPU reports an inconsistent set of SME2 related
+ID register fields, this confuses the kernel into reporting it in
+hwcaps and /proc/cpuinfo but not actually enabling it (so userspace
+programs fall over with SIGILL).
 
-Works for me.
+The immediate cause of this is a QEMU bug, but Marc suggested that
+you'd be interested in this report for potentially making the
+kernel more robust against it.
 
-> 
->>
->> Thanks,
->> Ryan
->>
->>>  	for (; pfn < end_pfn; pfn += PAGES_PER_SECTION) {
->>>  		unsigned long start = PFN_PHYS(pfn);
->>>  		unsigned long end = start + (1UL << PA_SECTION_SHIFT);
->>
-> 
+The repro case is to use a current head-of-git QEMU (I tested with
+commit 587f4a1805c83a4e) and tell it '-cpu max,sme=on'. The QEMU
+bug means that this gives you a CPU that generally reports SME2p1
+but incorrectly has the ID_AA64PFR1_EL1.SME field set to 1, not 2.
+(If you just say "-cpu max" you get SME2p1 with correct ID regs.)
 
+The kernel's bootup feature detection does not report SME2, because
+it is looking at ID_AA64PFR1_EL1.SME:
+
+[    0.039909] CPU features: detected: Scalable Matrix Extension
+[    0.039973] CPU features: detected: FA64
+[    0.040017] CPU features: detected: Speculative Store Bypassing Safe (SSBS)
+[    0.040093] CPU features: detected: Scalable Vector Extension
+
+but the code that generates /proc/cpuinfo and the hwcaps must
+be looking at something else (I think ID_AA64SMFR0_EL1.SMEver) and
+not cross-checking whether the earlier probing enabled SME2,
+because it reports sme2 and sme2p1:
+
+Features        : fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics
+fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4
+asimddp sha512 sve asimdfhm dit uscat ilrcpc flagm ssbs sb gcs dcpodp
+sve2 sveaes svepmull svebitperm svesha3 svesm4 flagm2 frint svei8mm
+svef32mm svef64mm svebf16 i8mm bf16 dgh rng bti ecv afp rpres sme
+smei16i64 smef64f64 smei8i32 smef16f32 smeb16f32 smef32f32 smefa64
+wfxt ebf16 sveebf16 cssc sve2p1 sme2 sme2p1 smei16i32 smebi32i32
+smeb16b16 smef16f16 mops hbc sveb16b16 lse128
+
+The kernel commit I'm using here is commit 63804fed149a (6.19-rc7).
+
+Full QEMU command line, for reference:
+
+${QEMU} \
+  -machine type=virt,virtualization=off,gic-version=max,mte=off \
+  -m 4G -smp 1 \
+  -cpu max,pauth=off,sve=on,sme=on \
+  -kernel "${KERNEL}" \
+  -initrd "${INITRD}" \
+  -semihosting \
+  -drive if=none,index=0,id=mydrive,file="${TESTDIR}"/hda.qcow2,format=qcow2 \
+  -device virtio-blk-pci,drive=mydrive \
+  -netdev user,id=mynet,hostfwd=tcp::4040-:4040 \
+  -device virtio-net-pci,netdev=mynet \
+  -chardev socket,id=monitor,host=127.0.0.1,port=4444,server=on,wait=off,telnet=on
+\
+  -mon chardev=monitor,mode=readline \
+  -append 'console=ttyAMA0,38400 root=/dev/vda3 earlycon' \
+  -display none -serial stdio
+
+thanks
+-- PMM
 
