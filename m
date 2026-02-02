@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 850C4D172D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 06:05:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59B97D172D4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 06:06:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7cFeh0F4AhLzGOrxCS14dOc5yv3VBPRg4l3srErLLzk=; b=vS2E710Z1q7UVh
-	rEmszjhrVbFRXBwjWVZAllO1YsnZlPJCBcxf6Jt0tetc23e+cWbZtPKp/WsceKU1S8NyCGwmr4Cab
-	wmcmPT8LEJa7ZjDWGCLaVEO3WPpynxNWxgw5hGKlks2W1xmaK/dKo6nVUuyQRcxo882vehRaaT2yU
-	j83Bn1JfnNuzPqRnfiTHoMQyQS8mrPSNFdxkCk1VKqQDZ33afH4k3ZtkBeD5N/W+edceO0Vmv69Wp
-	GZsImX7+PjeklEpRtp2/caPEAvPOxFF0f9HheESeq+v/P/jXhKZBab8k5sZC8htU/wIsz+csQbeji
-	l97yGRrbXSn17Id1LrPA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HE5glzw2S4WCKHAKIYJ8k8reipPAB965cTMWcHuh4wE=; b=RA9wIJURJye7qqEj2uuEkTATEE
+	Ob0x9je1Kp7WoEkvG/Zjk7yyNXD7T7aZg98FxLU5M2SNFrgKUHXrOzxdOAFTr9UdGkA/hLigECS4i
+	A1RMS+X9BZh+ztqNEai61KdFrsg18p3YU7BR5Y6iyUjnw7qGcS+HRLsGpQzrbd9bMPiceyCAiaqF1
+	dYU4ruJRj3E7Ne9Z5aZTwXXW9GPg5/BKIySHo/7dpR4GSUMsSpyskxv8KQFxMq6G+ggfUy34znzX+
+	LgtTpfPleEZT4ktC2s1YDK4BYBs9TAs2pWdGC45iP09f22BiTeB0Q/0AUtWu82wIsxzCiWFllFqZt
+	62Ewg8/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmn4J-00000004UQt-2Ia7;
-	Mon, 02 Feb 2026 06:05:51 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1vmn4L-00000004URb-3ox3;
+	Mon, 02 Feb 2026 06:05:54 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmn4H-00000004UQ7-09ZL
+	id 1vmn4J-00000004UQs-2UJh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 06:05:50 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2a8fba3f769so5800595ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Feb 2026 22:05:48 -0800 (PST)
+	Mon, 02 Feb 2026 06:05:52 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-29f30233d8aso25815495ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Feb 2026 22:05:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770012347; x=1770617147; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7cFeh0F4AhLzGOrxCS14dOc5yv3VBPRg4l3srErLLzk=;
-        b=UybF8H5oQJVFcgMntr/qn8Bb9iB1Wpj1Jq6mIvKVP3f5OhqpB/fZL53QSHPTErYubz
-         f7H6Rb+P2ccAx45JE6+AblwPnS8nH2f7KlPqORTRKUQtcDx+hN1L29j0PjKVIUde/FP3
-         qM5+ZNj3KaDIeNUmBXzLizq6ZRDG0t69Oys6ZCIvpjZ11vZ0GotQYwQyVDL3wfigy4yP
-         ZPkIS7UBhXtggEE3xAn5JWgZH/n5KPXVOWcwfF7yFzSFURb5xcsvZOA4qtmj4o4T8dJ1
-         DiL3wfvJ9DR6MtUd31w2JU560/2l0bR8uzAvnlw5Nm4Ov7r6+94bSM0EJVbX/qQW4wPF
-         8Vag==
+        d=gmail.com; s=20230601; t=1770012350; x=1770617150; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HE5glzw2S4WCKHAKIYJ8k8reipPAB965cTMWcHuh4wE=;
+        b=cBGa0GaRLET0srwyFgqcFWtZ6NNhT5Y3iVDIIh5kQghOmz3pJrx+6nYV0eB+WRPxi/
+         jI+xajyFdcgBHc1GCqT2F/nmKy6BVbbJ0pbeppCL8yD3sB34DEqkF81brDLWbmp+Ls4d
+         tnsGMNY64uozX8yyJpuBszIqWmDciWID/ciXhaT7pMUiPUV8F7UHFilFRf6UesWEdC7b
+         sIR53rnqnNZzOa0DLUN6UVf6Qco2mrJwbyCesXJBxgk54MdU0V/JvxxrGiWsUyPU3o3+
+         pp82fQ+KYJDhriC4QeFbeS2f79t2c5nsiESNk35uIHo24YJ6d4+PMssGla3zRdWHhraL
+         +OdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770012347; x=1770617147;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7cFeh0F4AhLzGOrxCS14dOc5yv3VBPRg4l3srErLLzk=;
-        b=efGJeD0eQH59agB2wh1voVAfCx9ggE+yAuNpzQV5spep8nN4NcDa4PKTqzUorrNJnU
-         LLaff2z+hiONhcelS0vC4gaowAs62r69gGStMRQ+0oa7eNVSUvhqB+5z9Fa3Hjh1COek
-         WrAtIq0Jj1HP3m4hXZURyecWFpqjo2t45U3/sTwZHr5GCHdK8N4NJcMT6RqEALS/uqIK
-         WVlyazgnGvpWQo+XdgHk5x3R9kUkHu9G+neSBvVAbZUYlOGSxlAwA8rZEQlSUBJjR9+o
-         sKzzLlbXLqUTOe4dH/dCcJ+a39sWQszrDQMR5NgFW+/9+VvVhjuYCPgMxzvp74rlTn6C
-         zTKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWawppC39tS0s4jSiNrbxVrrTqNSQ/bHQOqiY4MDXzyCJU93HJGS5OEUO53JD0BZKmV93mms2Lr7wJx/7Nbbpd3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPOHIh+/JHgg/zGM/c1iCGtSo6FqYcTRoMUkFdSDKKwNNGHlOw
-	5kpircQ9OFpw+aobEjDFenbrdmBgfKXZsimWBErNS4HzXhlCBKv4143As5a1xA==
-X-Gm-Gg: AZuq6aJdVbIAsXuWGfPStsFebHhDQeJXe529e3q5WZvLBXQJ6E+5n7Q+k4ZrvfrboCN
-	TNGKdIiGNIO0R49gWU5IeIspkZEa46YRflpZOs+VSRUNha4Fnij6Ki7fg3zO/RfCqRjZqFPSbx2
-	L5yo46hxRruAC+ACVKFwLzgv+Eqbs2NIy/ukdRn0Q9genPDvdJPXSfFJDHOBDm9WLX/PAgYKPlr
-	rQQH+dyJqD+tWqPXX6LG4l+r8VfuWVxZ8eVo6eTZYnwuYCZYTx6CrVSLP6Qo3NtzNLqwkqGIsLY
-	o3jqc9sU8psQIItXASklNK7fwOFfW6dZ7UNp0+Aw3pF3fdV5aazHI039CxvBLnfMMjbET/OX3tV
-	TOpwauuFCApAzmQnungYbIlbqsSi5JLukhNLRhoaiKXZPmhvw4REuv8NBPJAoI9JDhz7NtrmE9m
-	KDB1IosJHEOOUnKITuGFZJgubsNXGNureN71p+vlnzjiUP2vRdky7DTcNN+8gibHg=
-X-Received: by 2002:a17:903:f8c:b0:2a1:3ee7:cc75 with SMTP id d9443c01a7336-2a8d96b0b3fmr102479305ad.19.1770012347504;
-        Sun, 01 Feb 2026 22:05:47 -0800 (PST)
+        d=1e100.net; s=20230601; t=1770012350; x=1770617150;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=HE5glzw2S4WCKHAKIYJ8k8reipPAB965cTMWcHuh4wE=;
+        b=bjvmhv2X2eykWb402DL+4iQIYfq/7QvkIE4kyUfiMISVTpaL6XiHsG/UcciMXYpY5k
+         q2ZrUXsS+7BJ/UjdWD3ZmIZMASRDnIE50fEAkNusmGKP0rzl6I9GlM72J1Gavq2SNkGB
+         L9msyjRc+9TrvCSlDaaXaMS/9MCzIN+rSiSZafZHpzRmZ67l1evzVMnb7xQ0y8SzE0Q6
+         8rLi08JCuhq2Y9NZI1wzMTBCFTDHK4tnBeVAI/a43HygQDafMMECqRB2XeCc+tbb6jl3
+         KEucEPtJt1VLQ6AoAEwok+qSXHI/z+G1/k5ofBt7Ny6FRfipg/ZTQg6PlAxQPv2Ljodt
+         Bu9w==
+X-Forwarded-Encrypted: i=1; AJvYcCVBoI4RUCYaEDJYhG01jFh2iq/r7B1arR1CJjgZBWKW9dsyfmiAqvOKI17ZwTouumfzO2lnDI8Yp+WHYzy99evN@lists.infradead.org
+X-Gm-Message-State: AOJu0YyF6u/02O5+DdUTJ3m4xVsuyYaBnHD/mjGt0qGXbL4CBsHPGJ0w
+	zAGewcFKTp8IhIjMpuT3Sit7UL4v/gwcA7M7rFGvYOmXVQdyEVsi2tIhbEBUHQ==
+X-Gm-Gg: AZuq6aJYPb//Jt1lHKpEI9CX68Dk8BdY4D9FL+e1vnGhYGSbdfrkT7FZp/4gjAI/HW0
+	vNDW6UZxmnbx2VHEtXdWXP0KSNJuUnFGv/cCmxHmtHZxU+qfsFWocWtZMMBqkZYkTUsZ7a9Nj5z
+	SNefEFk1LGAXFbWOTi1ScVN6qV3k1SS6JzbbnE5fTR/TKp4HHW0Bqwrg7IiL0feKRm0motZ3rqm
+	RAKYxxkp+yewmnoz4Tpsy+SPuMuOTtPYEnKksw/DOvScyBlGyAnuWTSd33Hj348kL/9FMVmi2SX
+	ghQVC+me8k/5RkvA1M/NPpUoMYh+e72mY8j/w0z42Rlamwcw7WkBRKuMHThajfJthQF07HaVb2U
+	y7MIxsYPd2uAKe78drsCfjjF6eK6ked5CYPsb6RNEu4f/NQElUVlCgQattUIkyfZ9p7o26g3rkj
+	qqlgenqDCkt1f/Dn4ZnGtJUR7NnBNkyzdzFC466eF1S0w42gHQKAWAPNB/S88CLSOzuy6c2SPTQ
+	g==
+X-Received: by 2002:a17:902:f708:b0:2a2:acc5:7a42 with SMTP id d9443c01a7336-2a8d81801aemr108152325ad.48.1770012350239;
+        Sun, 01 Feb 2026 22:05:50 -0800 (PST)
 Received: from localhost.localdomain (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a88b5d99eesm132926135ad.78.2026.02.01.22.05.44
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a88b5d99eesm132926135ad.78.2026.02.01.22.05.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Feb 2026 22:05:47 -0800 (PST)
+        Sun, 01 Feb 2026 22:05:49 -0800 (PST)
 From: Potin Lai <potin.lai.pt@gmail.com>
-Subject: [PATCH 0/2] Add Meta (Facebook) SanMiguel BMC (AST2620)
-Date: Mon, 02 Feb 2026 14:03:15 +0800
-Message-Id: <20260202-sanmiguel_init_dts-v1-0-c0023ae41899@gmail.com>
+Date: Mon, 02 Feb 2026 14:03:16 +0800
+Subject: [PATCH 1/2] dt-bindings: arm: aspeed: add Meta SanMiguel BMC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIACM+gGkC/x2M0QpAMBRAf2XdZ6uZEL8iie3iFqNdpNb+3fJy6
- jycE4DREzK0IoDHh5gOlyTPBJh1dAtKsslBK12pBMmj22m5cRvI0TXYi2XdGDsVhSmVLSGFp8e
- Z3n/a9TF+tv5nHWQAAAA=
+Message-Id: <20260202-sanmiguel_init_dts-v1-1-c0023ae41899@gmail.com>
+References: <20260202-sanmiguel_init_dts-v1-0-c0023ae41899@gmail.com>
+In-Reply-To: <20260202-sanmiguel_init_dts-v1-0-c0023ae41899@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
  Andrew Jeffery <andrew@codeconstruct.com.au>, 
@@ -88,16 +89,16 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Potin Lai <potin.lai@quantatw.com>, Roger Kan <Roger.Kan@quantatw.com>, 
  Potin Lai <potin.lai.pt@gmail.com>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770012344; l=707;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770012344; l=841;
  i=potin.lai.pt@gmail.com; s=20240724; h=from:subject:message-id;
- bh=n/w//Nuxlr+/ykO3WHyVzyFaLLe6UAbemJnx2mm0Xvk=;
- b=WdN+eQh0JqxC5Ye/37ngcek31btboBmbn5k+V4pSQgqp7f8zakKS34ssJuZjwoH8vmU3r3F03
- NItOTLQGf9SBp0ZFjAdmWh6kAve3n8zOUhbxxD8tZCEeuenYy35Tazx
+ bh=awDe2howAZDyvltIFZvQ9S1Z3NdAcsc3EqMeuy1puZc=;
+ b=kEp9CUwnACmR9NE2TIjtVwLyacYjzLHZXZVw5BEazIRRzng2LDy+t2D5cYB+vLl5p49SqUkt7
+ BZQ8VeQwu+HCJwN3aaRbYw/PF6VzsDrAOdJC7cddPQyYrAXH2ndXXaJ
 X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
  pk=6Z4H4V4fJwLteH/WzIXSsx6TkuY5FOcBBP+4OflJ5gM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260201_220549_081140_C1919971 
-X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-CacheID: sfid-20260201_220551_640354_8E6FCB76 
+X-CRM114-Status: UNSURE (   9.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,25 +114,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Linux device tree entries for Meta (Facebook) SanMiguel specific
-devices connected to the AST2620 BMC SoC.
+Add Meta (Facebook) SanMiguel BMC board compatible.
 
 Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
 ---
-Potin Lai (2):
-      dt-bindings: arm: aspeed: add Meta SanMiguel BMC
-      ARM: dts: aspeed: add Meta SanMiguel BMC
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
- .../devicetree/bindings/arm/aspeed/aspeed.yaml     |    1 +
- arch/arm/boot/dts/aspeed/Makefile                  |    1 +
- .../dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts   | 1163 ++++++++++++++++++++
- 3 files changed, 1165 insertions(+)
----
-base-commit: 24d479d26b25bce5faea3ddd9fa8f3a6c3129ea7
-change-id: 20260202-sanmiguel_init_dts-79cdb33c50d5
+diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+index 9298c1a75dd1..6c84e6c80978 100644
+--- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
++++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+@@ -91,6 +91,7 @@ properties:
+               - facebook,greatlakes-bmc
+               - facebook,harma-bmc
+               - facebook,minerva-cmc
++              - facebook,sanmiguel-bmc
+               - facebook,santabarbara-bmc
+               - facebook,yosemite4-bmc
+               - facebook,yosemite5-bmc
 
-Best regards,
 -- 
-Potin Lai <potin.lai.pt@gmail.com>
+2.31.1
 
 
