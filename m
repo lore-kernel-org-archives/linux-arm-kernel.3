@@ -4,48 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08868E7314E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A3C2E7314F
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 09:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RQTsMr+lTOpu6B5pUiiE93BdsQuNRWqfW/evCNJlH4c=; b=VgBbVDyW48noyu
-	IgewRsq2m1mORbTFv+/v+YFHv4gA5RRoMjf1C61pFyy1Qruq4zv8wafM4pURf9J1LGASe4uNosam4
-	KvctA0ejOi6FRhP2pR50r0kq2DFL8/u34FKPQgTzVeXffcKkPkNtW1Ml6IQCQoB53+Ur56xfaUEIw
-	w9Cxm9plfidpuDDXS2HPb/miY7KGnZmhJSqxEL5J8VPJkqVwAu3uxKcueOH/lwFFwXdOSdQe8B37o
-	Mv0Dx3XhqFnpoc7at7eS8rvmkujQXuoaNulEFfLP865mFInbzV6///Eu6Ei8miYoIMyLXqZk+YFMj
-	KjSaNTlxtQgMrGaIaCQg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YAvmKi3hsvzW6nv7LkB68RadxFUbuCEDMZYs46lHvL0=; b=Y70/Yc7Sg2AC2loKDMr8R1Gltv
+	wqdEjlEkmcJEHEaPW3Q3VSZ0slD7CZe+GAJ7dAD7TjaQUq2wo6AznBbCOLYz4l0HUyBROR+McJaYW
+	F4TXUwwUg0bzhM4x+IfhlzvQZtzqbffVAB6Ts/g6iz44K1HaEkWrv7Us8Wh8ULoBi7PbDi/E82y27
+	fTJOU5sIwn3CxK8c/VLRsamEp7mFt80Ei04A71muTDLeOlojwUjwPnRLtyb410Tx/0i/4aeI/EFwN
+	bocjBRfNz48ZSayciQIhK4KD59NQL0rm9TvCWANjpynzN47ccZd04hRyiNwzftyYFuS9YNaDpL5Rv
+	dHXPnVfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmqKD-00000004iBN-1M4J;
-	Mon, 02 Feb 2026 09:34:29 +0000
+	id 1vmqKG-00000004iD9-2C6V;
+	Mon, 02 Feb 2026 09:34:32 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmqKB-00000004iAe-15mu
+	id 1vmqKE-00000004iBX-0e9N
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 09:34:28 +0000
+	Mon, 02 Feb 2026 09:34:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDE07339;
-	Mon,  2 Feb 2026 01:34:17 -0800 (PST)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8D6A93F740;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 29F111042;
 	Mon,  2 Feb 2026 01:34:22 -0800 (PST)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D10323F740;
+	Mon,  2 Feb 2026 01:34:26 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v3 0/8] coresight: Fix device registration and
- unregistration
-Date: Mon, 02 Feb 2026 09:33:56 +0000
-Message-Id: <20260202-arm_coresight_refactor_dev_register-v3-0-03292470c48c@arm.com>
+Date: Mon, 02 Feb 2026 09:33:58 +0000
+Subject: [PATCH v3 2/8] coresight: Get parent device reference after sink
+ ID map allocation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIVvgGkC/42NwQqDMBBEf6Xk3JQkaqA99T+KSNysugdN2UhoE
- f+9W6H3Ht8w82ZTGZkwq9tpU4yFMqVFoDqfFExhGVFTFFbOOG+sMzrw3EFizDROa8c4BFgTdxG
- LwEh5RdaD9WD8Nfa1jUpMT6nR63h5tMKT1BK/j9PivunP7//yF6eN7ptQgalrC7a5y+oCaVbtv
- u8fY2fSg9QAAAA=
-X-Change-ID: 20260120-arm_coresight_refactor_dev_register-f16c069db41d
+Message-Id: <20260202-arm_coresight_refactor_dev_register-v3-2-03292470c48c@arm.com>
+References: <20260202-arm_coresight_refactor_dev_register-v3-0-03292470c48c@arm.com>
+In-Reply-To: <20260202-arm_coresight_refactor_dev_register-v3-0-03292470c48c@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
  Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
@@ -55,16 +52,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770024862; l=3686;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770024862; l=1925;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=DmjbDlzT0f1zqFRseblFfl6EnZmEnjYn41rANQon/5s=;
- b=sfolEIqWg+TKNlD6h9rHtG9GR1b0ZhjO0l6tCFrV79wSrEpjRU0XYXVf1qsoaUPyUZ0T7eeDq
- rDVlEVCx93iDrNdYjHYoGRnOMpnafC0z7/gEwocZSq7pX/UwQ+16+8F
+ bh=v8hOuJQdDEBlD38eo0j6UUmixknMHjP9NrjDN5honac=;
+ b=39gG8zfb/u0JQBGcXycJFnHkZSrdZIxTXtEGyVbFS9tF1UoGCLnXJmORQz4LWcCynvinC2KsA
+ d3f5ZaKXiz7AepG8eMGypxPTDNSwGEtImjS40+PYO61YNho7+bjEx+i
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_013427_422427_2D8E216B 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20260202_013430_241227_5D5D5401 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,88 +76,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series is to fix and refactor CoreSight device registration and
-unregistration, it can be divided into three small parts:
+The parent device's reference count is incremented before allocating the
+sink ID map.  If the allocation fails, the reference count is not
+decremented, preventing proper cleanup.
 
-  Patches 01-03: Three fixes for memory leak, device reference and mutex
-                 protection.
-  Patches 04-05: Move connection cleanup operations into
-                 coresight_remove_conns().
-  Patches 06-08: Refactor error handling in coresight_register().
+Fix this by incrementing the reference count only after the sink ID map
+is successfully allocated.
 
-This series is verified on Juno board with kmemleak detector.
-
-For kmemleak verifying:
-
-  echo clear > /sys/kernel/debug/kmemleak
-  insmod coresight modules
-  rmmod coresight modules
-  echo scan > /sys/kernel/debug/kmemleak
-
-The result shows no memory leak during a cycle of device registration
-and unregistration.
-
----
-Changes in v3:
-- Updated patch 01 to use coesight core layer for device index list
-  (Suzuki).
-- Link to v2: https://lore.kernel.org/r/20260126-arm_coresight_refactor_dev_register-v2-0-b5a3c0441c15@arm.com
-
-Changes in v2:
-- Refined the commit log in patch 06 (Suzuki).
-- Unified to call coresight_unregister() for error handling (Suzuki).
-- Refactor connection and sysfs group release.
-- Link to v1: https://lore.kernel.org/linux-arm-kernel/20250512154108.23920-1-leo.yan@arm.com/
-
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Mike Leach <mike.leach@arm.com>
-To: James Clark <james.clark@linaro.org>
-To: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Mao Jinlong <quic_jinlmao@quicinc.com>
-Cc: coresight@lists.linaro.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
+Fixes: 5ad628a76176 ("coresight: Use per-sink trace ID maps for Perf sessions")
 Signed-off-by: Leo Yan <leo.yan@arm.com>
-
 ---
-Leo Yan (8):
-      coresight: Fix memory leak in coresight_alloc_device_name()
-      coresight: Get parent device reference after sink ID map allocation
-      coresight: Protect unregistration with mutex
-      coresight: Refactor output connection sysfs link cleanup
-      coresight: Refactor sysfs connection group cleanup
-      coresight: Move sink validation into etm_perf_add_symlink_sink()
-      coresight: Do not mix success path with failure handling
-      coresight: Unify error handling in coresight_register()
+ drivers/hwtracing/coresight/coresight-core.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
 
- drivers/hwtracing/coresight/coresight-catu.c       |   4 +-
- drivers/hwtracing/coresight/coresight-core.c       | 230 +++++++++++++--------
- drivers/hwtracing/coresight/coresight-ctcu-core.c  |   4 +-
- drivers/hwtracing/coresight/coresight-cti-core.c   |  19 +-
- drivers/hwtracing/coresight/coresight-dummy.c      |   7 +-
- drivers/hwtracing/coresight/coresight-etb10.c      |   4 +-
- drivers/hwtracing/coresight/coresight-etm-perf.c   |   5 +-
- drivers/hwtracing/coresight/coresight-funnel.c     |   4 +-
- drivers/hwtracing/coresight/coresight-platform.c   |   2 +-
- drivers/hwtracing/coresight/coresight-priv.h       |   3 +-
- drivers/hwtracing/coresight/coresight-replicator.c |   4 +-
- drivers/hwtracing/coresight/coresight-stm.c        |   4 +-
- drivers/hwtracing/coresight/coresight-tmc-core.c   |  12 +-
- drivers/hwtracing/coresight/coresight-tnoc.c       |   4 +-
- drivers/hwtracing/coresight/coresight-tpda.c       |   4 +-
- drivers/hwtracing/coresight/coresight-tpdm.c       |   4 +-
- drivers/hwtracing/coresight/coresight-tpiu.c       |   4 +-
- drivers/hwtracing/coresight/ultrasoc-smb.c         |   4 +-
- include/linux/coresight.h                          |  14 +-
- 19 files changed, 175 insertions(+), 161 deletions(-)
----
-base-commit: eebe8dbd8630f51cf70b1f68a440cd3d7f7a914d
-change-id: 20260120-arm_coresight_refactor_dev_register-f16c069db41d
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index fe345832c4564bd55b39ca8bcde0a93afdc11a68..26e7ab4005413ab5c59f3ca663b92a681263b488 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -1349,12 +1349,6 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+ 	csdev->dev.parent = desc->dev;
+ 	csdev->dev.release = coresight_device_release;
+ 	csdev->dev.bus = &coresight_bustype;
+-	/*
+-	 * Hold the reference to our parent device. This will be
+-	 * dropped only in coresight_device_release().
+-	 */
+-	csdev->dev.fwnode = fwnode_handle_get(dev_fwnode(desc->dev));
+-	dev_set_name(&csdev->dev, "%s", desc->name);
+ 
+ 	if (csdev->type == CORESIGHT_DEV_TYPE_SINK ||
+ 	    csdev->type == CORESIGHT_DEV_TYPE_LINKSINK) {
+@@ -1366,6 +1360,14 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+ 			goto err_out;
+ 		}
+ 	}
++
++	/*
++	 * Hold the reference to our parent device. This will be
++	 * dropped only in coresight_device_release().
++	 */
++	csdev->dev.fwnode = fwnode_handle_get(dev_fwnode(desc->dev));
++	dev_set_name(&csdev->dev, "%s", desc->name);
++
+ 	/*
+ 	 * Make sure the device registration and the connection fixup
+ 	 * are synchronised, so that we don't see uninitialised devices
 
-Best regards,
 -- 
-Leo Yan <leo.yan@arm.com>
+2.34.1
 
 
