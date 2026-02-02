@@ -4,58 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57C35E7DF16
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 18:11:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D85E7DF0F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 18:20:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Pwz8wsfpO2mdkz3HF0yVzfc9rsG+EOQP//Ctck1tNs=; b=aqao4VytMF1BoBXVIDVakbOGhf
-	ZSTT81sngdthagBAIj7/EIlgaV3fP6IXZOcK3/QsQcb/OFjaAcQ+p8heGSliCLgZckeT18mbrDP8u
-	s2SCxuNSJUN6jy2YFTSAatjDnLj+ixmDusA0gWZfd7PNKuQksLHk2wwglvYfvcEkNYehlNmOYzZ+D
-	iJhgYvSmK3fqnTwaxGriJERJts0UVjGg8MaQwuFgaBNZi0z7fnWGtAXPds4VMgwMO/baYHGmXh1is
-	kk+q9w35FK4g0fyNlGIxe2uGI/USbkf9q6ZrqhqrEn7pdQ932IemE8NlXLG1KKcOpS2HAtEVrkolZ
-	y/EBbkuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2G1YPwbreUxncFwnY/ItlGnuP4ErdGMc1jU89ycS1Q0=; b=n4/QFTidFfzEQBzEjeOvi8Pe7r
+	lXhDOkypk+4TqZNFRwS6ANa+dGgAlJLUZvPZXOn3wKt3SlMOyJhKamPT0/yZXetEy33g2ts2q4H71
+	bxF375sxpNwAPV34OiA5B+TkB5Y4+LZgaqBWz78Ii94Az3WYbhR8GSDdUqAYt5jBZTMI/RkKws/Mc
+	1JNFLZkaC9PTDSSwdwrIKdVuQJN0hMAFRbnFGNir1I9CHEhsO1I6jpd83jiDEkmqa7VMucdWV//UJ
+	TgQhH6lZliAZbW9OibgKhxnpIl+/ScZxZHR7BkIvo/Qr1YG1vEIm2ljvVPuDg18H+qaijZa6Prg1w
+	bkt80S7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmyNw-00000005PGz-3YRf;
-	Mon, 02 Feb 2026 18:10:52 +0000
-Received: from finn.gateworks.com ([108.161.129.64] helo=finn.localdomain)
+	id 1vmyX9-00000005Pp3-1OBb;
+	Mon, 02 Feb 2026 18:20:23 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmyNr-00000005PFm-1unQ
+	id 1vmyX5-00000005Pog-46il
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 18:10:48 +0000
-Received: from syn-068-189-091-139.biz.spectrum.com ([68.189.91.139] helo=tharvey.pdc.gateworks.com)
-	by finn.localdomain with esmtp (Exim 4.95)
-	(envelope-from <tharvey@gateworks.com>)
-	id 1vmyNc-00EkV2-RQ;
-	Mon, 02 Feb 2026 18:10:33 +0000
-From: Tim Harvey <tharvey@gateworks.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Tim Harvey <tharvey@gateworks.com>
-Subject: [PATCH 2/2] arm64: dts: imx: Add i.mx8mm Gateworks GW7906 dts support
-Date: Mon,  2 Feb 2026 10:10:29 -0800
-Message-Id: <20260202181029.1832198-2-tharvey@gateworks.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260202181029.1832198-1-tharvey@gateworks.com>
-References: <20260202181029.1832198-1-tharvey@gateworks.com>
+	Mon, 02 Feb 2026 18:20:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1770056420; x=1801592420;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=rbCK6zyQfYtDifhYSyzXCEckvE8IP7GcmV+g5x8drgg=;
+  b=l8HLO3ka5lvv3HX0ehm/v4FW+Z6At8jGMpQaksLqV2vC/uYTdkxJJx8r
+   184nUzxSUKCDICBBH3q0bkmxfFKjGFLW5NBRAr514gXT5GkHOYvJO+Hyd
+   FL+fNMuNPTBWH/dnUcRQQbv42OydbtJZBmrMTFQZhDz4afs7nhOpkbqS8
+   PMTSALTTknZOQQGzEE0i9ZlvGkAB3C9LqZRMAQ8vqgV0QFisNuyQwxxOl
+   UP52T9OHDh2ZVWP7Ou9JFb1lRQxBMCnTVigKuGNy+3C97sWGpzz6HoAqP
+   FFv8/mjl75YlVo0FMfZX+AT3XsUbjl7vU4iF8gPjDFKxV5MCpf5QFoz+s
+   Q==;
+X-CSE-ConnectionGUID: Zbjjhu0ZRN+j5WGb1JoAhw==
+X-CSE-MsgGUID: kffX6NZ5R1eCJuouKa1Svw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11690"; a="75076671"
+X-IronPort-AV: E=Sophos;i="6.21,269,1763452800"; 
+   d="scan'208";a="75076671"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Feb 2026 10:20:18 -0800
+X-CSE-ConnectionGUID: 1ikHsIPOT3SbygX7/wxZrA==
+X-CSE-MsgGUID: Zm5hPKFcT9qmEjWYYsSCvw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,269,1763452800"; 
+   d="scan'208";a="214121632"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 02 Feb 2026 10:20:15 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vmyWx-00000000fq0-47hS;
+	Mon, 02 Feb 2026 18:20:11 +0000
+Date: Tue, 3 Feb 2026 02:20:11 +0800
+From: kernel test robot <lkp@intel.com>
+To: Vladimir Moravcevic <vmoravcevic@axiado.com>,
+	Krutik Shah <krutikshah@axiado.com>,
+	Prasad Bolisetty <pbolisetty@axiado.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
+	Vladimir Moravcevic <vmoravcevic@axiado.com>
+Subject: Re: [PATCH 2/3] usb: gadget: udc: Add UDC driver for Axiado Device
+ controller IP Corigine
+Message-ID: <202602030223.QlbiPC8d-lkp@intel.com>
+References: <20260202-axiado-ax3000-usb-device-controller-v1-2-45ce0a8b014f@axiado.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260202-axiado-ax3000-usb-device-controller-v1-2-45ce0a8b014f@axiado.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_101047_611051_AF0E21CB 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20260202_102020_163014_02B32B34 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,915 +96,415 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GW7906 is based on the i.MX8M Mini SoC featuring:
- - LPDDR4 DRAM
- - eMMC FLASH
- - microSD connector with UHS support
- - LIS2DE12 3-axis accelerometer
- - Gateworks System Controller
- - IMX8M FEC
- - software selectable RS232/RS485/RS422 serial transceiver
- - PMIC
- - 1x isolated RS232 UART
- - 1x off-board bi-directional opto-isolated digital I/O
- - 1x M.2 A-E Key Socket and 1x MiniPCIe socket with USB2.0 and PCIe
-   (resistor loading to route PCIe/USB2 between M.2 and MiniPCIe socket)
+Hi Vladimir,
 
-Signed-off-by: Tim Harvey <tharvey@gateworks.com>
----
- arch/arm64/boot/dts/freescale/Makefile        |   1 +
- .../dts/freescale/imx8mm-venice-gw7906.dts    | 869 ++++++++++++++++++
- 2 files changed, 870 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-venice-gw7906.dts
+kernel test robot noticed the following build warnings:
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 700bab4d3e60..83fc7faf81d8 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -167,6 +167,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7901.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7902.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7903.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7904.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7906.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-dahlia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-ivy.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7906.dts b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7906.dts
-new file mode 100644
-index 000000000000..ec146a2b7549
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7906.dts
-@@ -0,0 +1,869 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2026 Gateworks Corporation
-+ */
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/linux-event-codes.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/net/ti-dp83867.h>
-+#include <dt-bindings/phy/phy-imx8-pcie.h>
-+
-+#include "imx8mm.dtsi"
-+
-+/ {
-+	model = "Gateworks Venice GW7906 i.MX8MM board";
-+	compatible = "gateworks,imx8mm-gw7906", "fsl,imx8mm";
-+
-+	aliases {
-+		ethernet0 = &fec1;
-+		rtc0 = &gsc_rtc;
-+		rtc1 = &snvs_rtc;
-+		usb0 = &usbotg1;
-+	};
-+
-+	chosen {
-+		stdout-path = &uart2;
-+	};
-+
-+	memory@40000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x40000000 0 0x80000000>;
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		key-user-pb {
-+			label = "user_pb";
-+			gpios = <&gpio 2 GPIO_ACTIVE_LOW>;
-+			linux,code = <BTN_0>;
-+		};
-+
-+		key-user-pb1x {
-+			label = "user_pb1x";
-+			linux,code = <BTN_1>;
-+			interrupt-parent = <&gsc>;
-+			interrupts = <0>;
-+		};
-+
-+		key-erased {
-+			label = "key_erased";
-+			linux,code = <BTN_2>;
-+			interrupt-parent = <&gsc>;
-+			interrupts = <1>;
-+		};
-+
-+		key-eeprom-wp {
-+			label = "eeprom_wp";
-+			linux,code = <BTN_3>;
-+			interrupt-parent = <&gsc>;
-+			interrupts = <2>;
-+		};
-+
-+		switch-hold {
-+			label = "switch_hold";
-+			linux,code = <BTN_5>;
-+			interrupt-parent = <&gsc>;
-+			interrupts = <7>;
-+		};
-+	};
-+
-+	led-controller {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_gpio_leds>;
-+
-+		led-0 {
-+			function = LED_FUNCTION_STATUS;
-+			color = <LED_COLOR_ID_RED>;
-+			label = "led01_red";
-+			gpios = <&gpio5 5 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-1 {
-+			function = LED_FUNCTION_STATUS;
-+			color = <LED_COLOR_ID_GREEN>;
-+			label = "led01_grn";
-+			gpios = <&gpio4 30 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-2 {
-+			function = LED_FUNCTION_STATUS;
-+			color = <LED_COLOR_ID_RED>;
-+			label = "led02_red";
-+			gpios = <&gpio5 2 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-3 {
-+			function = LED_FUNCTION_STATUS;
-+			color = <LED_COLOR_ID_GREEN>;
-+			label = "led02_grn";
-+			gpios = <&gpio1 14 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-4 {
-+			function = LED_FUNCTION_STATUS;
-+			color = <LED_COLOR_ID_RED>;
-+			label = "led03_red";
-+			gpios = <&gpio1 9 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-5 {
-+			function = LED_FUNCTION_STATUS;
-+			color = <LED_COLOR_ID_GREEN>;
-+			label = "led03_grn";
-+			gpios = <&gpio5 3 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-6 {
-+			function = LED_FUNCTION_STATUS;
-+			color = <LED_COLOR_ID_RED>;
-+			label = "led04_red";
-+			gpios = <&gpio4 29 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-7 {
-+			function = LED_FUNCTION_STATUS;
-+			color = <LED_COLOR_ID_GREEN>;
-+			label = "led04_grn";
-+			gpios = <&gpio4 28 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-8 {
-+			function = LED_FUNCTION_STATUS;
-+			color = <LED_COLOR_ID_RED>;
-+			label = "led05_red";
-+			gpios = <&gpio1 13 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-9 {
-+			function = LED_FUNCTION_STATUS;
-+			color = <LED_COLOR_ID_GREEN>;
-+			label = "led05_grn";
-+			gpios = <&gpio4 31 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-a {
-+			function = LED_FUNCTION_STATUS;
-+			color = <LED_COLOR_ID_RED>;
-+			label = "led06_red";
-+			gpios = <&gpio5 4 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-b {
-+			function = LED_FUNCTION_STATUS;
-+			color = <LED_COLOR_ID_GREEN>;
-+			label = "led06_grn";
-+			gpios = <&gpio1 8 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+	};
-+
-+	pcie0_refclk: pcie0-refclk {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <100000000>;
-+	};
-+
-+	reg_3p3v: regulator-3p3v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "3P3V";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+	};
-+};
-+
-+&A53_0 {
-+	cpu-supply = <&buck2>;
-+};
-+
-+&A53_1 {
-+	cpu-supply = <&buck2>;
-+};
-+
-+&A53_2 {
-+	cpu-supply = <&buck2>;
-+};
-+
-+&A53_3 {
-+	cpu-supply = <&buck2>;
-+};
-+
-+&ddrc {
-+	operating-points-v2 = <&ddrc_opp_table>;
-+
-+	ddrc_opp_table: opp-table {
-+		compatible = "operating-points-v2";
-+
-+		opp-25000000 {
-+			opp-hz = /bits/ 64 <25000000>;
-+		};
-+
-+		opp-100000000 {
-+			opp-hz = /bits/ 64 <100000000>;
-+		};
-+
-+		opp-750000000 {
-+			opp-hz = /bits/ 64 <750000000>;
-+		};
-+	};
-+};
-+
-+&fec1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_fec1>;
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&ethphy0>;
-+	local-mac-address = [00 00 00 00 00 00];
-+	status = "okay";
-+
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		ethphy0: ethernet-phy@0 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <0>;
-+			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
-+			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-+			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-+			tx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-+			rx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-+
-+			leds {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				led@1 {
-+					reg = <1>;
-+					color = <LED_COLOR_ID_AMBER>;
-+					function = LED_FUNCTION_LAN;
-+					default-state = "keep";
-+				};
-+
-+				led@2 {
-+					reg = <2>;
-+					color = <LED_COLOR_ID_GREEN>;
-+					function = LED_FUNCTION_LAN;
-+					default-state = "keep";
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&gpio1 {
-+	gpio-line-names = "", "", "", "", "", "", "", "",
-+		"", "", "rs422_en#", "rs485_en#", "rs232_en#", "", "", "",
-+		"", "", "", "", "", "", "", "",
-+		"", "", "", "", "", "", "", "";
-+};
-+
-+&gpio2 {
-+	gpio-line-names = "", "", "", "", "", "", "dig1_ctl", "",
-+		"dig1_out#", "dig1_in", "", "", "", "", "", "",
-+		"", "", "", "", "", "", "", "",
-+		"", "", "", "", "", "", "", "";
-+};
-+
-+&gpio5 {
-+	gpio-line-names = "", "", "", "", "", "", "", "",
-+		"", "", "", "", "pci_wdis#", "", "", "",
-+		"", "", "", "", "", "", "", "",
-+		"", "", "", "", "", "", "", "";
-+};
-+
-+&i2c1 {
-+	clock-frequency = <100000>;
-+	pinctrl-names = "default", "gpio";
-+	pinctrl-0 = <&pinctrl_i2c1>;
-+	pinctrl-1 = <&pinctrl_i2c1_gpio>;
-+	scl-gpios = <&gpio5 14 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	sda-gpios = <&gpio5 15 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	status = "okay";
-+
-+	gsc: gsc@20 {
-+		compatible = "gw,gsc";
-+		reg = <0x20>;
-+		pinctrl-0 = <&pinctrl_gsc>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <26 IRQ_TYPE_EDGE_FALLING>;
-+		interrupt-controller;
-+		#interrupt-cells = <1>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		adc {
-+			compatible = "gw,gsc-adc";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			channel@6 {
-+				gw,mode = <0>;
-+				reg = <0x06>;
-+				label = "temp";
-+			};
-+
-+			channel@8 {
-+				gw,mode = <3>;
-+				reg = <0x08>;
-+				label = "vdd_bat";
-+			};
-+
-+			channel@82 {
-+				gw,mode = <2>;
-+				reg = <0x82>;
-+				label = "vin";
-+				gw,voltage-divider-ohms = <22100 1000>;
-+				gw,voltage-offset-microvolt = <700000>;
-+			};
-+
-+			channel@84 {
-+				gw,mode = <2>;
-+				reg = <0x84>;
-+				label = "vdd_5p0";
-+				gw,voltage-divider-ohms = <10000 10000>;
-+			};
-+
-+			channel@86 {
-+				gw,mode = <2>;
-+				reg = <0x86>;
-+				label = "vdd_3p3";
-+				gw,voltage-divider-ohms = <10000 10000>;
-+			};
-+
-+			channel@88 {
-+				gw,mode = <2>;
-+				reg = <0x88>;
-+				label = "vdd_0p9";
-+			};
-+
-+			channel@8c {
-+				gw,mode = <2>;
-+				reg = <0x8c>;
-+				label = "vdd_soc";
-+			};
-+
-+			channel@8e {
-+				gw,mode = <2>;
-+				reg = <0x8e>;
-+				label = "vdd_arm";
-+			};
-+
-+			channel@90 {
-+				gw,mode = <2>;
-+				reg = <0x90>;
-+				label = "vdd_1p8";
-+			};
-+
-+			channel@92 {
-+				gw,mode = <2>;
-+				reg = <0x92>;
-+				label = "vdd_dram";
-+			};
-+
-+			channel@a2 {
-+				gw,mode = <2>;
-+				reg = <0xa2>;
-+				label = "vdd_gsc";
-+				gw,voltage-divider-ohms = <10000 10000>;
-+			};
-+		};
-+	};
-+
-+	gpio: gpio@23 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x23>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&gsc>;
-+		interrupts = <4>;
-+	};
-+
-+	eeprom@50 {
-+		compatible = "atmel,24c02";
-+		reg = <0x50>;
-+		pagesize = <16>;
-+	};
-+
-+	eeprom@51 {
-+		compatible = "atmel,24c02";
-+		reg = <0x51>;
-+		pagesize = <16>;
-+	};
-+
-+	eeprom@52 {
-+		compatible = "atmel,24c02";
-+		reg = <0x52>;
-+		pagesize = <16>;
-+	};
-+
-+	eeprom@53 {
-+		compatible = "atmel,24c02";
-+		reg = <0x53>;
-+		pagesize = <16>;
-+	};
-+
-+	gsc_rtc: rtc@68 {
-+		compatible = "dallas,ds1672";
-+		reg = <0x68>;
-+	};
-+};
-+
-+&i2c2 {
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default", "gpio";
-+	pinctrl-0 = <&pinctrl_i2c2>;
-+	pinctrl-1 = <&pinctrl_i2c2_gpio>;
-+	scl-gpios = <&gpio5 16 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	sda-gpios = <&gpio5 17 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	status = "okay";
-+
-+	pmic@4b {
-+		compatible = "rohm,bd71847";
-+		reg = <0x4b>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_pmic>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <8 IRQ_TYPE_LEVEL_LOW>;
-+		rohm,reset-snvs-powered;
-+		#clock-cells = <0>;
-+		clocks = <&osc_32k>;
-+		clock-output-names = "clk-32k-out";
-+
-+		regulators {
-+			/* vdd_soc: 0.805-0.900V (typ=0.8V) */
-+			BUCK1 {
-+				regulator-name = "buck1";
-+				regulator-min-microvolt = <700000>;
-+				regulator-max-microvolt = <1300000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				regulator-ramp-delay = <1250>;
-+			};
-+
-+			/* vdd_arm: 0.805-1.0V (typ=0.9V) */
-+			buck2: BUCK2 {
-+				regulator-name = "buck2";
-+				regulator-min-microvolt = <700000>;
-+				regulator-max-microvolt = <1300000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				regulator-ramp-delay = <1250>;
-+				rohm,dvs-run-voltage = <1000000>;
-+				rohm,dvs-idle-voltage = <900000>;
-+			};
-+
-+			/* vdd_0p9: 0.805-1.0V (typ=0.9V) */
-+			BUCK3 {
-+				regulator-name = "buck3";
-+				regulator-min-microvolt = <700000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* vdd_3p3 */
-+			BUCK4 {
-+				regulator-name = "buck4";
-+				regulator-min-microvolt = <3000000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* vdd_1p8 */
-+			BUCK5 {
-+				regulator-name = "buck5";
-+				regulator-min-microvolt = <1605000>;
-+				regulator-max-microvolt = <1995000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* vdd_dram */
-+			BUCK6 {
-+				regulator-name = "buck6";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <1400000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* nvcc_snvs_1p8 */
-+			LDO1 {
-+				regulator-name = "ldo1";
-+				regulator-min-microvolt = <1600000>;
-+				regulator-max-microvolt = <1900000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* vdd_snvs_0p8 */
-+			LDO2 {
-+				regulator-name = "ldo2";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* vdda_1p8 */
-+			LDO3 {
-+				regulator-name = "ldo3";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			LDO4 {
-+				regulator-name = "ldo4";
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			LDO6 {
-+				regulator-name = "ldo6";
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+		};
-+	};
-+};
-+
-+&i2c3 {
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default", "gpio";
-+	pinctrl-0 = <&pinctrl_i2c3>;
-+	pinctrl-1 = <&pinctrl_i2c3_gpio>;
-+	scl-gpios = <&gpio5 18 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	sda-gpios = <&gpio5 19 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	status = "okay";
-+
-+	accelerometer@19 {
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_accel>;
-+		compatible = "st,lis2de12";
-+		reg = <0x19>;
-+		st,drdy-int-pin = <1>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <15 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+};
-+
-+&pcie_phy {
-+	fsl,refclk-pad-mode = <IMX8_PCIE_REFCLK_PAD_INPUT>;
-+	fsl,clkreq-unsupported;
-+	clocks = <&pcie0_refclk>;
-+	clock-names = "ref";
-+	status = "okay";
-+};
-+
-+&pcie0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_pcie0>;
-+	reset-gpio = <&gpio5 11 GPIO_ACTIVE_LOW>;
-+	clocks = <&clk IMX8MM_CLK_PCIE1_ROOT>, <&pcie0_refclk>,
-+		 <&clk IMX8MM_CLK_PCIE1_AUX>;
-+	assigned-clocks = <&clk IMX8MM_CLK_PCIE1_AUX>,
-+			  <&clk IMX8MM_CLK_PCIE1_CTRL>;
-+	assigned-clock-rates = <10000000>, <250000000>;
-+	assigned-clock-parents = <&clk IMX8MM_SYS_PLL2_50M>,
-+				 <&clk IMX8MM_SYS_PLL2_250M>;
-+	status = "okay";
-+};
-+
-+&disp_blk_ctrl {
-+	status = "disabled";
-+};
-+
-+&pgc_mipi {
-+	status = "disabled";
-+};
-+
-+/* console */
-+&uart2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart2>;
-+	status = "okay";
-+};
-+
-+&usbotg1 {
-+	dr_mode = "host";
-+	disable-over-current;
-+	status = "okay";
-+};
-+
-+/* microSD */
-+&usdhc2 {
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
-+	cd-gpios = <&gpio2 12 GPIO_ACTIVE_LOW>;
-+	bus-width = <4>;
-+	vmmc-supply = <&reg_3p3v>;
-+	status = "okay";
-+};
-+
-+/* eMMC */
-+&usdhc3 {
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	pinctrl-0 = <&pinctrl_usdhc3>;
-+	pinctrl-1 = <&pinctrl_usdhc3_100mhz>;
-+	pinctrl-2 = <&pinctrl_usdhc3_200mhz>;
-+	assigned-clocks = <&clk IMX8MM_CLK_USDHC3>;
-+	assigned-clock-rates = <400000000>;
-+	bus-width = <8>;
-+	non-removable;
-+	status = "okay";
-+};
-+
-+&wdog1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_wdog>;
-+	fsl,ext-reset-output;
-+	status = "okay";
-+};
-+
-+&iomuxc {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_hog>;
-+
-+	pinctrl_hog: hoggrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_GPIO1_IO10_GPIO1_IO10	0x40000041 /* RS422# */
-+			MX8MM_IOMUXC_GPIO1_IO11_GPIO1_IO11	0x40000041 /* RS485# */
-+			MX8MM_IOMUXC_GPIO1_IO12_GPIO1_IO12	0x40000041 /* RS232# */
-+			MX8MM_IOMUXC_SD1_DATA7_GPIO2_IO9	0x40000041 /* DIG1_IN */
-+			MX8MM_IOMUXC_SD1_DATA6_GPIO2_IO8	0x40000041 /* DIG1_OUT */
-+			MX8MM_IOMUXC_SD1_DATA4_GPIO2_IO6	0x40000041 /* DIG1_CTL */
-+			MX8MM_IOMUXC_ECSPI2_MISO_GPIO5_IO12	0x40000041 /* PCI_WDIS# */
-+		>;
-+	};
-+
-+	pinctrl_accel: accelgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_GPIO1_IO15_GPIO1_IO15	0x159
-+		>;
-+	};
-+
-+	pinctrl_fec1: fec1grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_ENET_MDC_ENET1_MDC			0x3
-+			MX8MM_IOMUXC_ENET_MDIO_ENET1_MDIO		0x3
-+			MX8MM_IOMUXC_ENET_TD3_ENET1_RGMII_TD3		0x1f
-+			MX8MM_IOMUXC_ENET_TD2_ENET1_RGMII_TD2		0x1f
-+			MX8MM_IOMUXC_ENET_TD1_ENET1_RGMII_TD1		0x1f
-+			MX8MM_IOMUXC_ENET_TD0_ENET1_RGMII_TD0		0x1f
-+			MX8MM_IOMUXC_ENET_RD3_ENET1_RGMII_RD3		0x91
-+			MX8MM_IOMUXC_ENET_RD2_ENET1_RGMII_RD2		0x91
-+			MX8MM_IOMUXC_ENET_RD1_ENET1_RGMII_RD1		0x91
-+			MX8MM_IOMUXC_ENET_RD0_ENET1_RGMII_RD0		0x91
-+			MX8MM_IOMUXC_ENET_TXC_ENET1_RGMII_TXC		0x0
-+			MX8MM_IOMUXC_ENET_RXC_ENET1_RGMII_RXC		0x91
-+			MX8MM_IOMUXC_ENET_RX_CTL_ENET1_RGMII_RX_CTL	0x91
-+			MX8MM_IOMUXC_ENET_TX_CTL_ENET1_RGMII_TX_CTL	0x1f
-+			MX8MM_IOMUXC_SAI2_TXFS_GPIO4_IO24		0x19 /* IRQ# */
-+			MX8MM_IOMUXC_SAI2_TXC_GPIO4_IO25		0x19 /* RST# */
-+		>;
-+	};
-+
-+	pinctrl_gsc: gscgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SAI2_TXD0_GPIO4_IO26	0x159
-+		>;
-+	};
-+
-+	pinctrl_i2c1: i2c1grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C1_SCL_I2C1_SCL		0x400001c3
-+			MX8MM_IOMUXC_I2C1_SDA_I2C1_SDA		0x400001c3
-+		>;
-+	};
-+
-+	pinctrl_i2c1_gpio: i2c1gpiogrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C1_SCL_GPIO5_IO14	0x400001c3
-+			MX8MM_IOMUXC_I2C1_SDA_GPIO5_IO15	0x400001c3
-+		>;
-+	};
-+
-+	pinctrl_i2c2: i2c2grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C2_SCL_I2C2_SCL		0x400001c3
-+			MX8MM_IOMUXC_I2C2_SDA_I2C2_SDA		0x400001c3
-+		>;
-+	};
-+
-+	pinctrl_i2c2_gpio: i2c2gpiogrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C2_SCL_GPIO5_IO16	0x400001c3
-+			MX8MM_IOMUXC_I2C2_SDA_GPIO5_IO17	0x400001c3
-+		>;
-+	};
-+
-+	pinctrl_i2c3: i2c3grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C3_SCL_I2C3_SCL		0x400001c3
-+			MX8MM_IOMUXC_I2C3_SDA_I2C3_SDA		0x400001c3
-+		>;
-+	};
-+
-+	pinctrl_i2c3_gpio: i2c3gpiogrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C3_SCL_GPIO5_IO18	0x400001c3
-+			MX8MM_IOMUXC_I2C3_SDA_GPIO5_IO19	0x400001c3
-+		>;
-+	};
-+
-+	pinctrl_gpio_leds: gpioledgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SPDIF_EXT_CLK_GPIO5_IO5	0x19
-+			MX8MM_IOMUXC_SAI3_RXD_GPIO4_IO30	0x19
-+			MX8MM_IOMUXC_SAI3_MCLK_GPIO5_IO2	0x19
-+			MX8MM_IOMUXC_GPIO1_IO14_GPIO1_IO14	0x19
-+			MX8MM_IOMUXC_GPIO1_IO09_GPIO1_IO9	0x19
-+			MX8MM_IOMUXC_SPDIF_TX_GPIO5_IO3		0x19
-+			MX8MM_IOMUXC_SAI3_RXC_GPIO4_IO29	0x19
-+			MX8MM_IOMUXC_SAI3_RXFS_GPIO4_IO28	0x19
-+			MX8MM_IOMUXC_GPIO1_IO13_GPIO1_IO13	0x19
-+			MX8MM_IOMUXC_SAI3_TXFS_GPIO4_IO31	0x19
-+			MX8MM_IOMUXC_SPDIF_RX_GPIO5_IO4		0x19
-+			MX8MM_IOMUXC_GPIO1_IO08_GPIO1_IO8	0x19
-+		>;
-+	};
-+
-+	pinctrl_pcie0: pciegrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_ECSPI2_MOSI_GPIO5_IO11	0x41
-+		>;
-+	};
-+
-+	pinctrl_pmic: pmicgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_NAND_DATA02_GPIO3_IO8	0x41
-+		>;
-+	};
-+
-+	pinctrl_uart2: uart2grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_UART2_RXD_UART2_DCE_RX	0x140
-+			MX8MM_IOMUXC_UART2_TXD_UART2_DCE_TX	0x140
-+		>;
-+	};
-+
-+	pinctrl_usdhc2: usdhc2grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK		0x190
-+			MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d0
-+			MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d0
-+			MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d0
-+			MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d0
-+			MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d0
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK		0x194
-+			MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d4
-+			MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d4
-+			MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d4
-+			MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d4
-+			MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d4
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK		0x196
-+			MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d6
-+			MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d6
-+			MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d6
-+			MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d6
-+			MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d6
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_gpio: usdhc2-gpiogrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SD2_CD_B_GPIO2_IO12	0x1c4
-+			MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT  0x1d0
-+		>;
-+	};
-+
-+	pinctrl_usdhc3: usdhc3grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_NAND_WE_B_USDHC3_CLK	0x190
-+			MX8MM_IOMUXC_NAND_WP_B_USDHC3_CMD	0x1d0
-+			MX8MM_IOMUXC_NAND_DATA04_USDHC3_DATA0	0x1d0
-+			MX8MM_IOMUXC_NAND_DATA05_USDHC3_DATA1	0x1d0
-+			MX8MM_IOMUXC_NAND_DATA06_USDHC3_DATA2	0x1d0
-+			MX8MM_IOMUXC_NAND_DATA07_USDHC3_DATA3	0x1d0
-+			MX8MM_IOMUXC_NAND_RE_B_USDHC3_DATA4	0x1d0
-+			MX8MM_IOMUXC_NAND_CE2_B_USDHC3_DATA5	0x1d0
-+			MX8MM_IOMUXC_NAND_CE3_B_USDHC3_DATA6	0x1d0
-+			MX8MM_IOMUXC_NAND_CLE_USDHC3_DATA7	0x1d0
-+			MX8MM_IOMUXC_NAND_CE1_B_USDHC3_STROBE	0x190
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_100mhz: usdhc3-100mhzgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_NAND_WE_B_USDHC3_CLK	0x194
-+			MX8MM_IOMUXC_NAND_WP_B_USDHC3_CMD	0x1d4
-+			MX8MM_IOMUXC_NAND_DATA04_USDHC3_DATA0	0x1d4
-+			MX8MM_IOMUXC_NAND_DATA05_USDHC3_DATA1	0x1d4
-+			MX8MM_IOMUXC_NAND_DATA06_USDHC3_DATA2	0x1d4
-+			MX8MM_IOMUXC_NAND_DATA07_USDHC3_DATA3	0x1d4
-+			MX8MM_IOMUXC_NAND_RE_B_USDHC3_DATA4	0x1d4
-+			MX8MM_IOMUXC_NAND_CE2_B_USDHC3_DATA5	0x1d4
-+			MX8MM_IOMUXC_NAND_CE3_B_USDHC3_DATA6	0x1d4
-+			MX8MM_IOMUXC_NAND_CLE_USDHC3_DATA7	0x1d4
-+			MX8MM_IOMUXC_NAND_CE1_B_USDHC3_STROBE	0x194
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_NAND_WE_B_USDHC3_CLK	0x196
-+			MX8MM_IOMUXC_NAND_WP_B_USDHC3_CMD	0x1d6
-+			MX8MM_IOMUXC_NAND_DATA04_USDHC3_DATA0	0x1d6
-+			MX8MM_IOMUXC_NAND_DATA05_USDHC3_DATA1	0x1d6
-+			MX8MM_IOMUXC_NAND_DATA06_USDHC3_DATA2	0x1d6
-+			MX8MM_IOMUXC_NAND_DATA07_USDHC3_DATA3	0x1d6
-+			MX8MM_IOMUXC_NAND_RE_B_USDHC3_DATA4	0x1d6
-+			MX8MM_IOMUXC_NAND_CE2_B_USDHC3_DATA5	0x1d6
-+			MX8MM_IOMUXC_NAND_CE3_B_USDHC3_DATA6	0x1d6
-+			MX8MM_IOMUXC_NAND_CLE_USDHC3_DATA7	0x1d6
-+			MX8MM_IOMUXC_NAND_CE1_B_USDHC3_STROBE	0x196
-+		>;
-+	};
-+
-+	pinctrl_wdog: wdoggrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_GPIO1_IO02_WDOG1_WDOG_B	0xc6
-+		>;
-+	};
-+};
+[auto build test WARNING on 63804fed149a6750ffd28610c5c1c98cce6bd377]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Vladimir-Moravcevic/dt-bindings-usb-axiado-ax3000-udc-Add-Axiado-UDC/20260202-211951
+base:   63804fed149a6750ffd28610c5c1c98cce6bd377
+patch link:    https://lore.kernel.org/r/20260202-axiado-ax3000-usb-device-controller-v1-2-45ce0a8b014f%40axiado.com
+patch subject: [PATCH 2/3] usb: gadget: udc: Add UDC driver for Axiado Device controller IP Corigine
+config: nios2-allmodconfig (https://download.01.org/0day-ci/archive/20260203/202602030223.QlbiPC8d-lkp@intel.com/config)
+compiler: nios2-linux-gcc (GCC) 11.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260203/202602030223.QlbiPC8d-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202602030223.QlbiPC8d-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from include/linux/printk.h:621,
+                    from include/asm-generic/bug.h:31,
+                    from ./arch/nios2/include/generated/asm/bug.h:1,
+                    from include/linux/bug.h:5,
+                    from include/linux/random.h:6,
+                    from include/linux/net.h:18,
+                    from drivers/usb/gadget/udc/crg_udc.c:7:
+   drivers/usb/gadget/udc/crg_udc.c: In function 'crg_udc_epcx_setup':
+>> drivers/usb/gadget/udc/crg_udc.c:624:31: warning: format '%ld' expects argument of type 'long int', but argument 5 has type 'unsigned int' [-Wformat=]
+     624 |         dev_dbg(crg_udc->dev, "DCI %d, sizeof ep_cx %ld\n", DCI, sizeof(struct ep_cx_s));
+         |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/dynamic_debug.h:231:29: note: in definition of macro '__dynamic_func_call_cls'
+     231 |                 func(&id, ##__VA_ARGS__);                       \
+         |                             ^~~~~~~~~~~
+   include/linux/dynamic_debug.h:261:9: note: in expansion of macro '_dynamic_func_call_cls'
+     261 |         _dynamic_func_call_cls(_DPRINTK_CLASS_DFLT, fmt, func, ##__VA_ARGS__)
+         |         ^~~~~~~~~~~~~~~~~~~~~~
+   include/linux/dynamic_debug.h:284:9: note: in expansion of macro '_dynamic_func_call'
+     284 |         _dynamic_func_call(fmt, __dynamic_dev_dbg,              \
+         |         ^~~~~~~~~~~~~~~~~~
+   include/linux/dev_printk.h:165:9: note: in expansion of macro 'dynamic_dev_dbg'
+     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |         ^~~~~~~~~~~~~~~
+   include/linux/dev_printk.h:165:30: note: in expansion of macro 'dev_fmt'
+     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                              ^~~~~~~
+   drivers/usb/gadget/udc/crg_udc.c:624:9: note: in expansion of macro 'dev_dbg'
+     624 |         dev_dbg(crg_udc->dev, "DCI %d, sizeof ep_cx %ld\n", DCI, sizeof(struct ep_cx_s));
+         |         ^~~~~~~
+   drivers/usb/gadget/udc/crg_udc.c:624:55: note: format string is defined here
+     624 |         dev_dbg(crg_udc->dev, "DCI %d, sizeof ep_cx %ld\n", DCI, sizeof(struct ep_cx_s));
+         |                                                     ~~^
+         |                                                       |
+         |                                                       long int
+         |                                                     %d
+   In file included from include/linux/printk.h:621,
+                    from include/asm-generic/bug.h:31,
+                    from ./arch/nios2/include/generated/asm/bug.h:1,
+                    from include/linux/bug.h:5,
+                    from include/linux/random.h:6,
+                    from include/linux/net.h:18,
+                    from drivers/usb/gadget/udc/crg_udc.c:7:
+   drivers/usb/gadget/udc/crg_udc.c: In function 'setup_datastage_trb':
+>> drivers/usb/gadget/udc/crg_udc.c:774:31: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 4 has type 'dma_addr_t' {aka 'unsigned int'} [-Wformat=]
+     774 |         dev_dbg(crg_udc->dev, "dma = 0x%llx, ", usb_req->dma);
+         |                               ^~~~~~~~~~~~~~~~
+   include/linux/dynamic_debug.h:231:29: note: in definition of macro '__dynamic_func_call_cls'
+     231 |                 func(&id, ##__VA_ARGS__);                       \
+         |                             ^~~~~~~~~~~
+   include/linux/dynamic_debug.h:261:9: note: in expansion of macro '_dynamic_func_call_cls'
+     261 |         _dynamic_func_call_cls(_DPRINTK_CLASS_DFLT, fmt, func, ##__VA_ARGS__)
+         |         ^~~~~~~~~~~~~~~~~~~~~~
+   include/linux/dynamic_debug.h:284:9: note: in expansion of macro '_dynamic_func_call'
+     284 |         _dynamic_func_call(fmt, __dynamic_dev_dbg,              \
+         |         ^~~~~~~~~~~~~~~~~~
+   include/linux/dev_printk.h:165:9: note: in expansion of macro 'dynamic_dev_dbg'
+     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |         ^~~~~~~~~~~~~~~
+   include/linux/dev_printk.h:165:30: note: in expansion of macro 'dev_fmt'
+     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                              ^~~~~~~
+   drivers/usb/gadget/udc/crg_udc.c:774:9: note: in expansion of macro 'dev_dbg'
+     774 |         dev_dbg(crg_udc->dev, "dma = 0x%llx, ", usb_req->dma);
+         |         ^~~~~~~
+   drivers/usb/gadget/udc/crg_udc.c:774:43: note: format string is defined here
+     774 |         dev_dbg(crg_udc->dev, "dma = 0x%llx, ", usb_req->dma);
+         |                                        ~~~^
+         |                                           |
+         |                                           long long unsigned int
+         |                                        %x
+   In file included from include/linux/printk.h:621,
+                    from include/asm-generic/bug.h:31,
+                    from ./arch/nios2/include/generated/asm/bug.h:1,
+                    from include/linux/bug.h:5,
+                    from include/linux/random.h:6,
+                    from include/linux/net.h:18,
+                    from drivers/usb/gadget/udc/crg_udc.c:7:
+   drivers/usb/gadget/udc/crg_udc.c: In function 'crg_udc_queue_trbs':
+>> drivers/usb/gadget/udc/crg_udc.c:896:25: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     896 |                         (void *)sg_addr, buffer_length, num_trbs_needed);
+         |                         ^
+   include/linux/dynamic_debug.h:231:29: note: in definition of macro '__dynamic_func_call_cls'
+     231 |                 func(&id, ##__VA_ARGS__);                       \
+         |                             ^~~~~~~~~~~
+   include/linux/dynamic_debug.h:261:9: note: in expansion of macro '_dynamic_func_call_cls'
+     261 |         _dynamic_func_call_cls(_DPRINTK_CLASS_DFLT, fmt, func, ##__VA_ARGS__)
+         |         ^~~~~~~~~~~~~~~~~~~~~~
+   include/linux/dynamic_debug.h:284:9: note: in expansion of macro '_dynamic_func_call'
+     284 |         _dynamic_func_call(fmt, __dynamic_dev_dbg,              \
+         |         ^~~~~~~~~~~~~~~~~~
+   include/linux/dev_printk.h:165:9: note: in expansion of macro 'dynamic_dev_dbg'
+     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |         ^~~~~~~~~~~~~~~
+   drivers/usb/gadget/udc/crg_udc.c:894:17: note: in expansion of macro 'dev_dbg'
+     894 |                 dev_dbg(crg_udc->dev,
+         |                 ^~~~~~~
+   drivers/usb/gadget/udc/crg_udc.c:881:13: warning: variable 'num_sgs' set but not used [-Wunused-but-set-variable]
+     881 |         u32 num_sgs = 0;
+         |             ^~~~~~~
+   drivers/usb/gadget/udc/crg_udc.c: In function 'crg_udc_ep_enable':
+   drivers/usb/gadget/udc/crg_udc.c:1812:26: warning: variable 'uccr' set but not used [-Wunused-but-set-variable]
+    1812 |         struct crg_uccr *uccr;
+         |                          ^~~~
+   drivers/usb/gadget/udc/crg_udc.c:1811:25: warning: variable 'epcx' set but not used [-Wunused-but-set-variable]
+    1811 |         struct ep_cx_s *epcx;
+         |                         ^~~~
+   In file included from include/linux/printk.h:621,
+                    from include/asm-generic/bug.h:31,
+                    from ./arch/nios2/include/generated/asm/bug.h:1,
+                    from include/linux/bug.h:5,
+                    from include/linux/random.h:6,
+                    from include/linux/net.h:18,
+                    from drivers/usb/gadget/udc/crg_udc.c:7:
+   drivers/usb/gadget/udc/crg_udc.c: In function 'init_ep0':
+   drivers/usb/gadget/udc/crg_udc.c:2681:31: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 4 has type 'dma_addr_t' {aka 'unsigned int'} [-Wformat=]
+    2681 |         dev_dbg(crg_udc->dev, "ep0 ring dma addr = 0x%llx\n", udc_ep_ptr->tran_ring_info.dma);
+         |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/dynamic_debug.h:231:29: note: in definition of macro '__dynamic_func_call_cls'
+     231 |                 func(&id, ##__VA_ARGS__);                       \
+         |                             ^~~~~~~~~~~
+   include/linux/dynamic_debug.h:261:9: note: in expansion of macro '_dynamic_func_call_cls'
+     261 |         _dynamic_func_call_cls(_DPRINTK_CLASS_DFLT, fmt, func, ##__VA_ARGS__)
+         |         ^~~~~~~~~~~~~~~~~~~~~~
+   include/linux/dynamic_debug.h:284:9: note: in expansion of macro '_dynamic_func_call'
+     284 |         _dynamic_func_call(fmt, __dynamic_dev_dbg,              \
+         |         ^~~~~~~~~~~~~~~~~~
+   include/linux/dev_printk.h:165:9: note: in expansion of macro 'dynamic_dev_dbg'
+     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |         ^~~~~~~~~~~~~~~
+   include/linux/dev_printk.h:165:30: note: in expansion of macro 'dev_fmt'
+     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                              ^~~~~~~
+   drivers/usb/gadget/udc/crg_udc.c:2681:9: note: in expansion of macro 'dev_dbg'
+    2681 |         dev_dbg(crg_udc->dev, "ep0 ring dma addr = 0x%llx\n", udc_ep_ptr->tran_ring_info.dma);
+         |         ^~~~~~~
+   drivers/usb/gadget/udc/crg_udc.c:2681:57: note: format string is defined here
+    2681 |         dev_dbg(crg_udc->dev, "ep0 ring dma addr = 0x%llx\n", udc_ep_ptr->tran_ring_info.dma);
+         |                                                      ~~~^
+         |                                                         |
+         |                                                         long long unsigned int
+         |                                                      %x
+   In file included from include/linux/printk.h:621,
+                    from include/asm-generic/bug.h:31,
+                    from ./arch/nios2/include/generated/asm/bug.h:1,
+                    from include/linux/bug.h:5,
+                    from include/linux/random.h:6,
+                    from include/linux/net.h:18,
+                    from drivers/usb/gadget/udc/crg_udc.c:7:
+   drivers/usb/gadget/udc/crg_udc.c: In function 'getstatusrequest':
+   drivers/usb/gadget/udc/crg_udc.c:3131:31: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 4 has type 'dma_addr_t' {aka 'unsigned int'} [-Wformat=]
+    3131 |         dev_dbg(crg_udc->dev, "udc_req_ptr->usb_req.dma = 0x%llx\n",
+         |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/dynamic_debug.h:231:29: note: in definition of macro '__dynamic_func_call_cls'
+     231 |                 func(&id, ##__VA_ARGS__);                       \
+         |                             ^~~~~~~~~~~
+   include/linux/dynamic_debug.h:261:9: note: in expansion of macro '_dynamic_func_call_cls'
+     261 |         _dynamic_func_call_cls(_DPRINTK_CLASS_DFLT, fmt, func, ##__VA_ARGS__)
+         |         ^~~~~~~~~~~~~~~~~~~~~~
+   include/linux/dynamic_debug.h:284:9: note: in expansion of macro '_dynamic_func_call'
+     284 |         _dynamic_func_call(fmt, __dynamic_dev_dbg,              \
+         |         ^~~~~~~~~~~~~~~~~~
+   include/linux/dev_printk.h:165:9: note: in expansion of macro 'dynamic_dev_dbg'
+     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |         ^~~~~~~~~~~~~~~
+   include/linux/dev_printk.h:165:30: note: in expansion of macro 'dev_fmt'
+     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                              ^~~~~~~
+   drivers/usb/gadget/udc/crg_udc.c:3131:9: note: in expansion of macro 'dev_dbg'
+    3131 |         dev_dbg(crg_udc->dev, "udc_req_ptr->usb_req.dma = 0x%llx\n",
+         |         ^~~~~~~
+   drivers/usb/gadget/udc/crg_udc.c:3131:64: note: format string is defined here
+    3131 |         dev_dbg(crg_udc->dev, "udc_req_ptr->usb_req.dma = 0x%llx\n",
+         |                                                             ~~~^
+         |                                                                |
+         |                                                                long long unsigned int
+         |                                                             %x
+   drivers/usb/gadget/udc/crg_udc.c: In function 'crg_udc_common_irq':
+   drivers/usb/gadget/udc/crg_udc.c:4250:13: warning: variable 'retval' set but not used [-Wunused-but-set-variable]
+    4250 |         int retval = 0;
+
+
+vim +624 drivers/usb/gadget/udc/crg_udc.c
+
+   609	
+   610	static void crg_udc_epcx_setup(struct crg_udc_ep *udc_ep)
+   611	{
+   612		struct crg_gadget_dev *crg_udc = udc_ep->crg_udc;
+   613		const struct usb_endpoint_descriptor *desc = udc_ep->desc;
+   614		const struct usb_ss_ep_comp_descriptor *comp_desc = udc_ep->comp_desc;
+   615		u8 DCI = udc_ep->DCI;
+   616		struct ep_cx_s *epcx = (struct ep_cx_s *)(crg_udc->p_epcx + DCI - 2);
+   617		enum EP_TYPE_E ep_type;
+   618		u16 maxburst = 0;
+   619		u8 maxstreams = 0;
+   620		u16 maxsize;
+   621		u32 dw;
+   622	
+   623		dev_dbg(crg_udc->dev, "crgudc->p_epcx %p, epcx %p\n", crg_udc->p_epcx, epcx);
+ > 624		dev_dbg(crg_udc->dev, "DCI %d, sizeof ep_cx %ld\n", DCI, sizeof(struct ep_cx_s));
+   625		dev_dbg(crg_udc->dev, "desc epaddr = 0x%x\n", desc->bEndpointAddress);
+   626	
+   627		/*corigine gadget dir should be opposite to host dir*/
+   628		if (usb_endpoint_dir_out(desc))
+   629			ep_type = usb_endpoint_type(desc) + EP_TYPE_INVALID2;
+   630		else
+   631			ep_type = usb_endpoint_type(desc);
+   632	
+   633		maxsize = usb_endpoint_maxp(desc) & 0x07ff; /* D[0:10] */
+   634	
+   635		if (crg_udc->gadget.speed >= USB_SPEED_SUPER) {
+   636			maxburst = comp_desc->bMaxBurst;
+   637	
+   638			if (usb_endpoint_xfer_bulk(udc_ep->desc))
+   639				maxstreams = comp_desc->bmAttributes & 0x1f;
+   640	
+   641		} else if ((crg_udc->gadget.speed == USB_SPEED_HIGH ||
+   642			crg_udc->gadget.speed == USB_SPEED_FULL) &&
+   643				(usb_endpoint_xfer_int(udc_ep->desc) ||
+   644					usb_endpoint_xfer_isoc(udc_ep->desc))) {
+   645			if (crg_udc->gadget.speed == USB_SPEED_HIGH)
+   646				maxburst = (usb_endpoint_maxp(desc) >> 11) & 0x3;
+   647			if (maxburst == 0x3) {
+   648				dev_err(crg_udc->dev, "invalid maxburst\n");
+   649				maxburst = 0x2;
+   650			}
+   651		}
+   652	
+   653		/* fill ep_dw0 */
+   654		dw = 0;
+   655		dw = SETF_VAR(EP_CX_LOGICAL_EP_NUM, dw, udc_ep->DCI / 2);
+   656		dw = SETF_VAR(EP_CX_INTERVAL, dw, desc->bInterval);
+   657		if (maxstreams) {
+   658			dev_err(crg_udc->dev, "%s maxstream=%d is not expected\n",
+   659				__func__, maxstreams);
+   660		}
+   661		epcx->dw0 = cpu_to_le32(dw);
+   662	
+   663		/* fill ep_dw1 */
+   664		dw = 0;
+   665		dw = SETF_VAR(EP_CX_EP_TYPE, dw, ep_type);
+   666		dw = SETF_VAR(EP_CX_MAX_PACKET_SIZE, dw, maxsize);
+   667		dw = SETF_VAR(EP_CX_MAX_BURST_SIZE, dw, maxburst);
+   668		epcx->dw1 = cpu_to_le32(dw);
+   669	
+   670		/* fill ep_dw2 */
+   671		dw = lower_32_bits(udc_ep->tran_ring_info.dma) & EP_CX_TR_DQPT_LO_MASK;
+   672		dw = SETF_VAR(EP_CX_DEQ_CYC_STATE, dw, udc_ep->pcs);
+   673		epcx->dw2 = cpu_to_le32(dw);
+   674	
+   675		/* fill ep_dw3 */
+   676		dw = upper_32_bits(udc_ep->tran_ring_info.dma);
+   677		epcx->dw3 = cpu_to_le32(dw);
+   678		/* Ensure that epcx is updated */
+   679		wmb();
+   680	}
+   681	
+   682	static void crg_udc_epcx_update_dqptr(struct crg_udc_ep *udc_ep)
+   683	{
+   684		struct crg_gadget_dev *crg_udc = udc_ep->crg_udc;
+   685		u8 DCI = udc_ep->DCI;
+   686		struct ep_cx_s *epcx = (struct ep_cx_s *)(crg_udc->p_epcx + DCI - 2);
+   687		u32 dw;
+   688		dma_addr_t dqptaddr;
+   689		u32 cmd_param0;
+   690	
+   691		if (DCI == 0) {
+   692			dev_err(crg_udc->dev, "%s Cannot update dqptr for ep0\n", __func__);
+   693			return;
+   694		}
+   695	
+   696		dqptaddr = tran_trb_virt_to_dma(udc_ep, udc_ep->deq_pt);
+   697	
+   698		/* fill ep_dw2 */
+   699		dw = lower_32_bits(dqptaddr) & EP_CX_TR_DQPT_LO_MASK;
+   700		dw = SETF_VAR(EP_CX_DEQ_CYC_STATE, dw, udc_ep->pcs);
+   701		epcx->dw2 = cpu_to_le32(dw);
+   702	
+   703		/* fill ep_dw3 */
+   704		dw = upper_32_bits(dqptaddr);
+   705		epcx->dw3 = cpu_to_le32(dw);
+   706	
+   707		cmd_param0 = (0x1 << udc_ep->DCI);
+   708		/* Ensure that dqptr is updated */
+   709		wmb();
+   710	
+   711		crg_issue_command(crg_udc, CRG_CMD_SET_TR_DQPTR, cmd_param0, 0);
+   712	}
+   713	
+   714	static void setup_status_trb(struct crg_gadget_dev *crg_udc,
+   715			struct transfer_trb_s *p_trb,
+   716			struct usb_request *usb_req, u8 pcs, u8 set_addr, u8 stall)
+   717	{
+   718		u32 tmp, dir = 0;
+   719	
+   720		/* There are some cases where seutp_status_trb() is called with
+   721		 * usb_req set to NULL.
+   722		 */
+   723	
+   724		p_trb->dw0 = 0;
+   725		p_trb->dw1 = 0;
+   726	
+   727		dev_dbg(crg_udc->dev, "data_buf_ptr_lo = 0x%x, data_buf_ptr_hi = 0x%x\n",
+   728			p_trb->dw0, p_trb->dw1);
+   729	
+   730		tmp = 0;
+   731		tmp = SETF_VAR(TRB_INTR_TARGET, tmp, 0);
+   732		p_trb->dw2 = tmp;
+   733	
+   734		tmp = 0;
+   735		tmp = SETF_VAR(TRB_CYCLE_BIT, tmp, pcs);
+   736		tmp = SETF_VAR(TRB_INTR_ON_COMPLETION, tmp, 1);/*IOC:1*/
+   737		tmp = SETF_VAR(TRB_TYPE, tmp, TRB_TYPE_XFER_STATUS_STAGE);
+   738	
+   739		dir = (crg_udc->setup_status == STATUS_STAGE_XFER) ? 0 : 1;
+   740		tmp = SETF_VAR(DATA_STAGE_TRB_DIR, tmp, dir);
+   741	
+   742		tmp = SETF_VAR(TRB_SETUP_TAG, tmp, crg_udc->setup_tag);
+   743		tmp = SETF_VAR(STATUS_STAGE_TRB_STALL, tmp, stall);
+   744		tmp = SETF_VAR(STATUS_STAGE_TRB_SET_ADDR, tmp, set_addr);
+   745	
+   746		p_trb->dw3 = tmp;
+   747		dev_dbg(crg_udc->dev, "trb_dword2 = 0x%x, trb_dword3 = 0x%x\n",
+   748				p_trb->dw2, p_trb->dw3);
+   749		/* Ensure that status trb is updated */
+   750		wmb();
+   751	}
+   752	
+   753	static void knock_doorbell(struct crg_gadget_dev *crg_udc, int DCI)
+   754	{
+   755		u32 tmp;
+   756		struct crg_uccr *uccr;
+   757	
+   758		uccr = crg_udc->uccr;
+   759		/* Ensure evreything is written before notifying the HW */
+   760		wmb();
+   761	
+   762		tmp = CRG_U3DC_DB_TARGET(DCI);
+   763		dev_dbg(crg_udc->dev, "DOORBELL = 0x%x\n", tmp);
+   764		writel(tmp, &uccr->doorbell);
+   765	}
+   766	
+   767	static void setup_datastage_trb(struct crg_gadget_dev *crg_udc,
+   768			struct transfer_trb_s *p_trb, struct usb_request *usb_req,
+   769			u8 pcs, u32 num_trb, u32 transfer_length, u32 td_size,
+   770			u8 IOC, u8 AZP, u8 dir, u8 setup_tag)
+   771	{
+   772		u32 tmp;
+   773	
+ > 774		dev_dbg(crg_udc->dev, "dma = 0x%llx, ", usb_req->dma);
+   775		dev_dbg(crg_udc->dev, "buf = 0x%lx, ", (unsigned long)usb_req->buf);
+   776	
+   777		p_trb->dw0 = lower_32_bits(usb_req->dma);
+   778		p_trb->dw1 = upper_32_bits(usb_req->dma);
+   779	
+   780		dev_dbg(crg_udc->dev, "data_buf_ptr_lo = 0x%x, data_buf_ptr_hi = 0x%x\n",
+   781			p_trb->dw0, p_trb->dw1);
+   782	
+   783	
+   784		/* TRB_Transfer_Length
+   785		 *For USB_DIR_OUT, this field is the number of data bytes expected from
+   786		 *xhc. For USB_DIR_IN, this field is the number of data bytes the device
+   787		 *will send.
+   788		 */
+   789		tmp = 0;
+   790		tmp = SETF_VAR(TRB_TRANSFER_LEN, tmp, transfer_length);
+   791		tmp = SETF_VAR(TRB_TD_SIZE, tmp, td_size);
+   792		tmp = SETF_VAR(TRB_INTR_TARGET, tmp, 0);
+   793		p_trb->dw2 = tmp;
+   794	
+   795		tmp = 0;
+   796		tmp = SETF_VAR(TRB_CYCLE_BIT, tmp, pcs);
+   797		tmp = SETF_VAR(TRB_INTR_ON_SHORT_PKT, tmp, 1);
+   798		tmp = SETF_VAR(TRB_INTR_ON_COMPLETION, tmp, IOC);
+   799		tmp = SETF_VAR(TRB_TYPE, tmp, TRB_TYPE_XFER_DATA_STAGE);
+   800		tmp = SETF_VAR(TRB_APPEND_ZLP, tmp, AZP);
+   801		tmp = SETF_VAR(DATA_STAGE_TRB_DIR, tmp, dir);
+   802		tmp = SETF_VAR(TRB_SETUP_TAG, tmp, setup_tag);
+   803	
+   804		p_trb->dw3 = tmp;
+   805		/* Ensure that datastage trb is updated */
+   806		wmb();
+   807	
+   808		dev_dbg(crg_udc->dev, "trb_dword0 = 0x%x, trb_dword1 = 0x%x trb_dword2 = 0x%x, trb_dword3 = 0x%x\n",
+   809				p_trb->dw0, p_trb->dw1, p_trb->dw2, p_trb->dw3);
+   810	}
+   811	
+
 -- 
-2.25.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
