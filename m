@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 030FCE73146
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 08:37:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8439E73145
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 08:37:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=joUE9EOzP/3mRELBtbdhIrRdcsM6ON8pu5mMACf9Xr0=; b=gU1lNHqrE6fZpH92qLUGbu8NLY
-	WyRPSJfk0lbd0zfuS6eTCrNQx/U6t4iSjAsEw+uxGRuCzhEdjP2FX1mb9J8Gk1McwAL8n9UWpKT2m
-	gbTxI9Tvo36uFVZt9C2mWG3X01IvyM0r1/Z/fEl4eS8fUh99nywCpI0tWmVt+XRo0INXsbcnVt4//
-	t98mRHTJdPpZyyiC/9fZ9HLl/XeF0zVCvZ/vFkX/c0kqiIIp2JqoCWCMkiIfF9GdTsZME+b7+4XsJ
-	gAedUpW+0P+SXDRd+fbCBBSyVbFrY6kqqAnljJL/xuAzHv53R1naQnNKMSNmuXQsaZNdi5F/ZGBoO
-	4WjDXaDA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vWq9Hnp6KWeMpHzlDV6hhOVjTaAvi1IP4KKp2IsINYo=; b=oUG843rB9Vk6ciTstuJ0GdS07u
+	ZHF5Y1u/v6YYqIIBhx59s+Tk9SN9Wb/5feVz35+XSMZBJPP6FgV5eZi56yVEpTRdsSKSoxDSODWcC
+	r+pOoEmd4ZJTvTPyB5ZzZqX2HyxZdllf5pOy0LZk/kg/4l1yaOjaC2efagssP2E7ITvgaJNVGbxDP
+	yB0T+bydHGhGNq4NmmsDfqu2oIAQd1ohpI/nC3gahlk6q4tA9dpd5RsUob4twbcuxp6wglmMd0/+s
+	shxYyyoy9jLb32IWOF/gPnaggsMuyZergGX9zUxGkOxYWxixq2/JTHrrpkpJfiK3tx7p+7gtv3goD
+	6PMTB/KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmpR7-00000004eNI-0cD3;
-	Mon, 02 Feb 2026 08:37:33 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmpR4-00000004eMH-1Gko
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vmpR5-00000004eMu-3MmP;
 	Mon, 02 Feb 2026 08:37:31 +0000
-Received: by mail-wm1-x341.google.com with SMTP id 5b1f17b1804b1-480142406b3so29789385e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 00:37:29 -0800 (PST)
+Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vmpR3-00000004eMG-1sJk
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Feb 2026 08:37:30 +0000
+Received: by mail-wm1-x344.google.com with SMTP id 5b1f17b1804b1-4806b43beb6so30385995e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 00:37:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770021448; x=1770626248; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=joUE9EOzP/3mRELBtbdhIrRdcsM6ON8pu5mMACf9Xr0=;
-        b=aHcGGjinvSUa/KWhljLO1qRjuXFZSHK1T7cR3A2QdZdRTCjo6YfaCbUbSNg+geuts1
-         q7QiL6BjG3WgrdlpCcATnNC5DsplrBnmQmmfU1a3Vu8vNwJ7VBXchA8YZuwHlJYW4+dc
-         u8Z/kphM3cuwsmBni6ps36ZEOmW9VtwuA45WqOCrhtyz4y64pxi4EZHBB0+kWI035ntZ
-         5GXS45kYyGAUMusCRtCGgPUY1Re4IyMxD7cBBvyQ9/bJRnJRmFuBKgiFUUqI5ZlucM1h
-         WgHIQrwKD610gODfIf7dOGTFuJIkBUM+BLltu7mlkpsW5QM2KBMTHtTQ2ngbXYyQv4dR
-         4Hjw==
+        d=gmail.com; s=20230601; t=1770021447; x=1770626247; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vWq9Hnp6KWeMpHzlDV6hhOVjTaAvi1IP4KKp2IsINYo=;
+        b=RE3N8+E4SEKjwRMVHhEBOZJ56Ln4jbocKAX25MQB9Uc1hPwbzG3DpBdbgSbKIHm7+I
+         R6li4BySQlp1FNIagvate6Bs18D5Z3U994IztMLezYWoRMUlOmyvrs9/WXw1uiZ1JyZC
+         /oL+bsMYYwAczgxc7nnklKxEhvsTv4Gx0tQh+JfNmVaqTPGotBVf8Rr5lNaqeDD9o5WJ
+         pgvOlXUxWd/e7OioUwluEXgvxEAtXUB3Bwocq1KUDOcP5fByZdHC/kzzADgy3EmBWLX4
+         9W3MoYWxbMbMI6TGQtcn01vZhxMj/05dQ47HhuMgnJmbgNRW483f/ulTYsWg5rbuj9Tb
+         MbRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770021448; x=1770626248;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=joUE9EOzP/3mRELBtbdhIrRdcsM6ON8pu5mMACf9Xr0=;
-        b=PEQKKRlsvE+MkrjaGYoReUVZARZDma79mNdvDVAQtI7fobIMFDiTumImGL3LMqrll5
-         Isx+9ZWE7YCZzhCn8kq5/wUjO8aF1AOuixnEfdNsYvTDItsYs4BFIKtln5QF0XqtuLTT
-         ynVU9op9G3MfRpyBjPxz0BiE4AAMcr4pPGMA5B5j2V2KM3yGO7sqKHo7Cdi3UfsHZWZ1
-         Zej5wZRysvjWFWiIYlKktDOvMNydSgb1aldjeMdKPXAKytXM+Ekng4hibY9KXWKzk86A
-         iNdMdRAkiqIweaOrnhlJt3piqQp3BwG9BT1n7gA289+kIYi2oNg/xrZZNbLzMbdrM0dh
-         Dh1g==
-X-Forwarded-Encrypted: i=1; AJvYcCXaO6aLl+nYG3Qe0UH7UkTPNzt98nZuF25uLaUZ2NAlXSU9lFP/GyvpZdk+XBjUCAwmFFFOyZrYJfOevkcWYry1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzyspyy1F/FoOwVF7OBd5TvD2KCWJfuMNGhyLLbAZLLqHpZQKkV
-	1c/3U/BG5ur/vkBySkgJ2eF6T9+06DTtHq0riQv90pQ3TNCOaYAHtTuN
-X-Gm-Gg: AZuq6aJ86AL0xpUCbMXGFxxdj/iQba7wdBEbM4jSc4IELGAWWil0c5qKA5ghaotZYT1
-	9lkuuNZxPwXn12vIYBji0xlcnPfuBDwjnbgYUH90FwEf26TwFuqfyzCSxWnjnLqCrfqrDM2oxuA
-	yLXXoJ18/sgZFKpalkjoQClQP4CGZ0ry9cYzt25sCKVtlGIqj7XX/y9XGYIIjVG8kc8bFMLTRur
-	8JGm3NCWMx6EzoNoKj/wnZhLRMTT76zhQy1akcbUr3VunzEU1veHJZ7YWsHoj3nwyVKIibfOzn1
-	rDeOsymiA4tuLJGYhZ95TFvdafjO5AjPLS4MhDmK5h/qTqfg7OoT3AcOZ3Ct2p61Edyk6tVmYi7
-	Top/C9Y6txYT5Q5Ow7QvP7RInb2zkaRSsNb7aXegRkw/PMeBi8lN9whR30EEyLQIXfBROFgF9S2
-	IRQMxX6wjpdQb4+1B7vmjVBwg2TA8g6D+ugVwQGxZiz30hQwbBK+3MTZPmdEPPUIbadrxMLj6J/
-	a4HfSiLMr+AC+j64DJMTutDSIMh+KyzR+CCudf/MrG56Hn/2I4WfrKQ0Cd8wviaforyKmbSYrBN
-	Dq0C/2eIIEENjA0jVII=
-X-Received: by 2002:a05:600c:4e56:b0:480:53ce:45d3 with SMTP id 5b1f17b1804b1-482db47cdc5mr123484685e9.18.1770021448326;
-        Mon, 02 Feb 2026 00:37:28 -0800 (PST)
+        d=1e100.net; s=20230601; t=1770021447; x=1770626247;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vWq9Hnp6KWeMpHzlDV6hhOVjTaAvi1IP4KKp2IsINYo=;
+        b=btu88/4bYGBF28hHNvwWEVmmZLvnvkQEILxoL9ms0Er9GaC7DDozay9+xLzgHMem9Q
+         SZ0jF9qF0mfP8Guy0ekhvTAiF2i99+QvfTdbVz+blEWAcx4tSY2KVD+ey1VmI4ze7xJV
+         wnTJKbDv9mzDEbh+HQqAy5eunrCs2mzfM4kVNfi4MB6tBMjfYt48K+g9R3pap7FwxpCi
+         BSyxtLxyTgHMsXA6ODIuRfLqOTN89x1K40oKnQfFDt87BGAa/V3rvI9rL5cDZgpR/L0h
+         qaAvLqZXJqPsjtQ6v7fMJCCbjIIS7PFpSzRgVLPvPdo/9Dl/iomlPZdFS+1vOzFXkdMu
+         WoNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVT0tw8QI7ytEGOUJ0/t4hI2rze+wkg5D24h5xGwlz/j2xmMXFO0wpHSanuOe7x8t7xupkacMnoZu09TxymnW7u@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxnim+lhJMRBPk7AsU22jA7BK4v2zL3Pf/O9hLcO1U2w3WltC17
+	UsDC/l5Qx0l/kLvZ5+6xkmf7pPD0AeWE7NDgoizHJGTovXtFcWUTbJtF
+X-Gm-Gg: AZuq6aJPCsVrBUnVVmFXeT8ePYMy4iaIUdJMGFgOykY6jqW+QFR2UEueVCdZh3BEoh9
+	vv1tvYx5vrVzbrJhx6bQlyK3hJEcSCUL0v9K+PBWfyVaLF4spnMSPQFP20sz8t7vA2jbeoQFOcv
+	364slFJePqBdjqFA1Bw8Ju7xOoW1Lj84//f/9FPoWJ0MUzJTjYXDP7ok1RvQq75xpOQi6NCGNb+
+	RMYEYAt7TxOsULfD6r754XXBM/RCMGAl3ppdWKdfqe5gNRXUc08W+g+m+EoR7PTomxBvss6YeOu
+	K8b6Q+mfAT0Tg3LP0n/tWqG9nhbYyLB/49nNMLElMTpqUZ2n++9KZAEGmkCa7YlKQyAy1Z8hg0x
+	lQZyLArWYepqy/aNOyATn5nGxWEV9GdOleDgRkvxdorSIuLL8wLJb7yB0oIBSeepioYHHLsNuyP
+	vkcp7eZhaU40271QnUIAaVW0gbRy4aD3q+1t2mazdNwpf4rnC7D+grebKA/SpbBzHU3DzgJe4Gp
+	/vKp7HD3WDG1Kw2NycQCa+CxdZ72N4or4LQdMouxK1ZmvaD0YHckXV13Q0iay34L0EWDpTTKe8R
+	Rc5FWtaX
+X-Received: by 2002:a05:600c:8b31:b0:47e:e78a:c832 with SMTP id 5b1f17b1804b1-482db4b692dmr124615335e9.37.1770021446832;
+        Mon, 02 Feb 2026 00:37:26 -0800 (PST)
 Received: from franzs-nb.corp.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4806ce564f9sm399535415e9.14.2026.02.02.00.37.27
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4806ce564f9sm399535415e9.14.2026.02.02.00.37.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Feb 2026 00:37:27 -0800 (PST)
+        Mon, 02 Feb 2026 00:37:25 -0800 (PST)
 From: Franz Schnyder <fra.schnyder@gmail.com>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>,
@@ -81,19 +80,17 @@ To: Nishanth Menon <nm@ti.com>,
 Cc: Franz Schnyder <franz.schnyder@toradex.com>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v1 1/2] arm64: dts: ti: k3-am69-aquila-dev: Fix DP regulator enable GPIO
-Date: Mon,  2 Feb 2026 09:36:00 +0100
-Message-ID: <20260202083604.325060-2-fra.schnyder@gmail.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/2] arm64: dts: ti: k3-am69-aquila: Fix DP enable GPIO
+Date: Mon,  2 Feb 2026 09:35:59 +0100
+Message-ID: <20260202083604.325060-1-fra.schnyder@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260202083604.325060-1-fra.schnyder@gmail.com>
-References: <20260202083604.325060-1-fra.schnyder@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_003730_404477_8060E6C9 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20260202_003729_495974_ED090838 
+X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,31 +107,19 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Franz Schnyder <franz.schnyder@toradex.com>
 
-Correct the DP regulator enable GPIO to index 21.
+Correct the DP regulator enable GPIO to index 21 on Clover and Dev board.
 The 3.3V DP regulator was not being enabled by the assigned GPIO, as it
 is routed to GPIO index 21 and not 37, which was causing instability
 with displays connected over DP or via an active DP-to-HDMI adapter.
 
-Fixes: 39ac6623b1d8 ("arm64: dts: ti: Add Aquila AM69 Support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
----
- arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Franz Schnyder (2):
+  arm64: dts: ti: k3-am69-aquila-dev: Fix DP regulator enable GPIO
+  arm64: dts: ti: k3-am69-aquila-clover: Fix DP regulator enable GPIO
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts b/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts
-index f48601ae38b7..d3677c2c2547 100644
---- a/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts
-@@ -33,7 +33,7 @@ reg_3v3_dp: regulator-3v3-dp {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_gpio_21_dp>;
- 		/* Aquila GPIO_21_DP (AQUILA B57) */
--		gpio = <&main_gpio0 37 GPIO_ACTIVE_HIGH>;
-+		gpio = <&main_gpio0 21 GPIO_ACTIVE_HIGH>;
- 		enable-active-high;
- 		regulator-max-microvolt = <3300000>;
- 		regulator-min-microvolt = <3300000>;
+ arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts | 2 +-
+ arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts    | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
 -- 
 2.43.0
 
