@@ -4,72 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4985E6529F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 01:33:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9866AD172B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 01:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3vJEwBZpP35hbXCKhhIcCEaHgMGxx7jXQ1r49X/tjUs=; b=MMEU+SDo5R0S8wVCLr0OWhOdC5
-	QBitqASBvPihACOY/E9Vk/HkUtBWasDsDtYsTWNuSGF0d3VcLbSHuBrG+fkhyZFR1fxUfAEEUYJfG
-	g+cSv+Yo7+r2OIbMjds0/3LP/Vto1XVglKlpyWhk/KUbmL0u1aNjxXXnyJ+oidZ6wMIqA8F72zqN6
-	nDGS5OeCZHQSCbR8PlqTkpEcHixUdiwE8ksdIuVMcEd7h6edpJ0iaelpcvrymrFDWFB2iNvaZRJQh
-	D9LdhV2iRJfRPiduz8B7k9MtVj1ApsoPAijPOmRU8EDMthNwNuwvkJWcS3lOyfjwz9j0zV6N+3JXj
-	VJATbt2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kucq8Qu1xJ05a/ByoaqjC4uaNi1fpEW8h/kk1s+U7jw=; b=IZ1XYO0qhJyFZbKo9byY00Cowh
+	zTKmKVdjzJo++AgtRZ/tK9eO9FoRoS//jOOLBQP453JAjki5/oRw/jR4b+seNbpTLuzls6v2sO2kG
+	ZVmN9VZuGlCQnAHmNQDZRh6dDQmpjJlaJhWV6GQLFD1hUuoUkeLnAHYm32ZhVQhlNlfsqzrepPz4f
+	uZdOGhaoNbYlanTZOG1+bNuQPtpPbZFXw9lafjAZ2sVIhw61W3L9wNcomyc5kXLOVIedVOxpM6KKJ
+	e3kjcy5a0o95KJb4f/GS87SAKMS3ig6LGMww5MLOhi2dXHePc7QeBDyRbokNzF1Lw2QMM7eJiB89U
+	oY1ntIoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmioa-00000004IkD-2Nmg;
-	Mon, 02 Feb 2026 01:33:20 +0000
-Received: from mail-m24125.xmail.ntesmail.com ([45.195.24.125])
+	id 1vmj9E-00000004Jqi-200B;
+	Mon, 02 Feb 2026 01:54:40 +0000
+Received: from mail-swedencentralazon11013006.outbound.protection.outlook.com ([52.101.83.6] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmioW-00000004Ijc-36wM;
-	Mon, 02 Feb 2026 01:33:19 +0000
-Received: from [172.16.12.43] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 32baf1fcb;
-	Mon, 2 Feb 2026 09:33:02 +0800 (GMT+08:00)
-Message-ID: <c7d2c401-068c-456f-a641-71d9aec9a4cd@rock-chips.com>
-Date: Mon, 2 Feb 2026 09:33:02 +0800
+	id 1vmj9B-00000004JqK-3USs
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Feb 2026 01:54:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DbnXsTggojRxklvJI6iBrhGHVnOUIKKiggbGDFaK12aYkDgyPWDU9NmqY73AY8dsBVa2RQDBfZItfDvOQs5yn1yrMfYCgnCtBK2vjyp2NkdwYsKNo7AMwOGitgM73qkfsPN+F2t8NQg5ZLhg6oc0DlRqlUkPvcL8KGHq46KSRrHqQTpOME18EdflE8pfW+Y6GoWtHaqHITPU1t54Sy2fjSUBke3S4oa8teOzC+NCRkzGTEEVKW9Ir8dZwkONSlrVX3ZUrlKdrodHh/vZ5aGTQEVgHlkoJII+oLZfik2Y0uA9PFTZAIMhYJN9JHp4QeN202xbkvsLWpiYcASJ8NrCmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kucq8Qu1xJ05a/ByoaqjC4uaNi1fpEW8h/kk1s+U7jw=;
+ b=hTZNQAB40Zp/qg3FhGVYAt+v/oPlOgL0a7unxBYM7QvfXcLLwDNwOkBjklZnyT/LBzq2cHthtbyXq3FgxBBGTYRBpqFRSeKg0fMH1pDnjr/zcgEqzEdzspDLjMY2BC+USzWcZpmTGwd+pUR0W9MTD+4McAuzkdcSwnAPO4QWyhj66HqEqdh7P5y3p0YNk7044ldBRkQ22YOW4CyAWuDDOohb9tTFonr6KapnwHpWNEHXdXIDTQrvlvl7YYhL1n2lLJ6LKAdx/tSfc0rANYW4pREgyI9FeINWsgTS0FTKIXmkyYN3TItqGSLS+SC6eal1N+ByIh33/lCmlmgisjGN3g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kucq8Qu1xJ05a/ByoaqjC4uaNi1fpEW8h/kk1s+U7jw=;
+ b=p58dtMxxuhNvwtUGaKWQ79OVw0MR32Ifmd2C250q0CHPBtWR9LqUEIsF3hcki8r8ej0pexwjXWiqxB1llSmgJrso/cVvJ4MRv/pccQd4WKX1BYvlyu8CBWplIqD8e8VPHE8TH+dGhBRVkdRnl+vPjYs1xjhSP3T/6KOSavoo3WaWyR4ZqbBr17Yi5E0zgsbC4qHZlrSbrXx1e8vs0PnurMNhIvte28gOaYaYoUmDJphuRmRNQ3mrZiwgDju85wWXcjPwrSFwXYYv2IBqO48DAfMcfOKmCr5HDs+WOaXnhDbTJlfJUa7Qud+dJbeVCH9ofKsknjzKcZcyJwp13m8/Ag==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by VI0PR04MB10663.eurprd04.prod.outlook.com (2603:10a6:800:260::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Mon, 2 Feb
+ 2026 01:54:30 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%5]) with mapi id 15.20.9564.006; Mon, 2 Feb 2026
+ 01:54:30 +0000
+Date: Mon, 2 Feb 2026 09:56:03 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Lukasz Majewski <lukma@nabladev.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 0/4] clk: vf610: Add clocks to support MTIP L2 switch
+Message-ID: <aYAEM8pcuumly+hc@shlinux89>
+References: <20260129095442.1646748-1-lukma@nabladev.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260129095442.1646748-1-lukma@nabladev.com>
+X-ClientProxiedBy: SI2PR06CA0007.apcprd06.prod.outlook.com
+ (2603:1096:4:186::9) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 00/18] Apply drm_bridge_connector and panel_bridge
- helper for the Analogix DP driver
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- jingoohan1@gmail.com, p.zabel@pengutronix.de, hjc@rock-chips.com,
- andy.yan@rock-chips.com, dmitry.baryshkov@oss.qualcomm.com,
- dianders@chromium.org, m.szyprowski@samsung.com, luca.ceresoli@bootlin.com,
- jani.nikula@intel.com, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-rockchip@lists.infradead.org
-References: <20251217093321.3108939-1-damon.ding@rock-chips.com>
- <6571983.R56niFO833@diego>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <6571983.R56niFO833@diego>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9c1bfb576803a3kunm5c7836bd5d1df6
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGhpLGFYaShpPGBpIGU1OT0tWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=KJRnNBIV/6A1cPIx6R+QeecYKPdcQaVXPI9zSXurB2PQuRHbCF1u3Yw+TzPWeVSFCkEdJGtjimeudD/Z6PL00I+5Z0uRt4EpwXdIHIewgGCVt7qgU/oUuAuQEp4smDrYdLlvtySYHY3PnK5GDx13Xcrtyi0y1KhKlDrw3nk26JE=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=3vJEwBZpP35hbXCKhhIcCEaHgMGxx7jXQ1r49X/tjUs=;
-	h=date:mime-version:subject:message-id:from;
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI0PR04MB10663:EE_
+X-MS-Office365-Filtering-Correlation-Id: 614cc1e5-fcc1-4e63-009d-08de61fe0122
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|19092799006|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?u/dLMmdMNI+OUdilbN8dqqTEs4lX+3b0A18m/FNV/QNlOdaF83a+byDTXnEo?=
+ =?us-ascii?Q?hDnHqbcx1ILUjmJJ6SvR/7ozI67GdfU60zKhJoNOyuFkb+qn0bZRg+e2Eu44?=
+ =?us-ascii?Q?R1vVwFM+yZH9GODd1WiEToiCTAS2FiRpB2avLbJCeRfGK1+2GKZrak0xmQV7?=
+ =?us-ascii?Q?cz9skFLafuL+xH8++dJv75bkv7f0C0nPJsdVtrXGgh9SWLk02E3pyO2OWYPC?=
+ =?us-ascii?Q?8Bm6ser4znw/YBtQjJPKQvcTahpqnE68jFDiIFxWbkB75ww8ooOMoRkWTPHI?=
+ =?us-ascii?Q?ujOc3FEHrxvsuIq3zwwCHr1pj9Ny1TDtl8hToIHMcs3wRMoiMUTYcVVZ+Yd4?=
+ =?us-ascii?Q?2uryF6G5rQwgw5yzzh8AYC3hbxdD82YoF8eowRK/zfNuJFNuFvOxkI6oELrq?=
+ =?us-ascii?Q?3mJnQ0fz5PFRgeO8ix6fitbOBov55mHVwBL4zs1P+3bO5na9r8N7wtPpGtko?=
+ =?us-ascii?Q?dllVTArkueNxaX/ej7kFZlEh85DbQBxrakv5EOSNUVGpRZKjzoDgoReMkN71?=
+ =?us-ascii?Q?Ac3oK0TkAc+oN7qUWqXOeU+0L9rPA/hnq/2YvyQQ+lGgWiVsLeu74dzxaCmr?=
+ =?us-ascii?Q?9QCs4QfxQNGXo+lTqcILOxbUCXwFvh/Wp1mSkksxI9CN7aRvxr0FWgDb2SJV?=
+ =?us-ascii?Q?mvgjlpJzhQYRKmkquMvPNPwqcJukvFotmQnYD48+vv5DbaDEjlptdNOgipFL?=
+ =?us-ascii?Q?NBX8awxB9Syy6IHiilNNwUxAWl7UvdSGwRyoIzIyYFiEyfGf93uodE5ygfAn?=
+ =?us-ascii?Q?GvGowUtn7d+WLhltxnzWVrTk9pgvsJoHKivKKb3HFSZNvNETaeTlJoO94tTM?=
+ =?us-ascii?Q?LaddY+Wc+v19KnL9SDl+tgr0JQ/8/q2pDMQIkpg4WEk6oJXodVODIJg71hd5?=
+ =?us-ascii?Q?o+yCzaePe0KZv+Lcal0pA/g3gx79ilbxht7429uhEnGILYLFRB025aOjOxmu?=
+ =?us-ascii?Q?dm6Amg333kMgMDmYHvYfTp1nqXNMc4v+RDuMHF5vHqWQrybaY2hfyfd/ZFry?=
+ =?us-ascii?Q?n8OViV2dHwTb1NmH6q9EQfubgosuQMK+0Bw+UarQekbh2wJ4IKHk4ESdnzeK?=
+ =?us-ascii?Q?lj/yfQd5fLFwLY88sTd5Z74WelM7kz0MuzCmgMWiHV4Hh/9W1JxA+hoDHWI4?=
+ =?us-ascii?Q?++GfTm850U9v8Ik3cvJ9yuN05M7ySfrR8sHb4fIhlY+Imc0bf6ycOcAGFmdG?=
+ =?us-ascii?Q?p8qlafathrp9hSHaSlVUgUlXQp8aWitIZKx9hdVYAIGaDBT6DR9Wtt15/IJX?=
+ =?us-ascii?Q?kDRwvVMue4RM9gbDzlaJum4uj7p3OK/dcCKzXIxuzcuFaAX16s85YaVHNYQd?=
+ =?us-ascii?Q?aiMrj9a8d2FCMmEoXDyZgQg6U0XALCqxnrSFAwhvzm88U3FRUINVMSR1FMwu?=
+ =?us-ascii?Q?BWCuXGv8ps9vHZsyZwE2Ii7gLAtHZwjQAywtb6uhM2ryIFuz0Yb4H5/1TPQx?=
+ =?us-ascii?Q?E3qpKGLwjpcOkMosBe/OTu+WJ5GAxTRtcQaVAJZyy1iUw0RcWzMGLDY5ylLM?=
+ =?us-ascii?Q?ZV19kX58CDEss0G/DYkTzcYdz03iGvNR6jeOlyjyRhEfk7ZA8FS6NSqVmjzh?=
+ =?us-ascii?Q?X4TF25eeAF98xqAZC/o1MNXzcLBgMl/TWjCGCM79/T69ElCuUb3TKH6e0RD+?=
+ =?us-ascii?Q?p85grzFP1BouoBJfkmzQMgs=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(19092799006)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aiLinMLZQJsP99hwCbaFSYxYR2fReGPZI6SDS3VlxCoVt8q8wXg0UhwtBdvd?=
+ =?us-ascii?Q?HlTRMjQHWUT3xH660ZF/+dgaYcIpZxcolskjqNIWaLZInHdSJ4HjE7hcZpgY?=
+ =?us-ascii?Q?qsCrV6HxeuR/3IVQUQ9OZctJmlEHCfcTsXlOdnRo9+fgRmeFbKEZwR9WYzfQ?=
+ =?us-ascii?Q?Ahobvm8vsi8yltrxoxM2J7w/IhYHSlEy1J/c+8PUTSErxUik6rvVpDNV5sQ5?=
+ =?us-ascii?Q?c4y2DHtOsykU3tcrRyFGVelUDLYPK4CPHgU/cStwRzfpmUkR5F3n8gFZiSJV?=
+ =?us-ascii?Q?roXDpRocaXfJ5S8nIUnDSSpK/A5Sck2xzB5LCOEUn2VIsCAZYLuRMuzbZefZ?=
+ =?us-ascii?Q?n+5GjAAE98uU1KG+7ZNsod+iXX1GdXoi8KILPdxSTS91OoN1leaEgxkaugyc?=
+ =?us-ascii?Q?pgDoc1u+oHmClrjROj3BiTy0fNFJSd58GdJtCWCm8QbYvWqIAmMcNYHVdvmo?=
+ =?us-ascii?Q?uZ4NJhBYloPr59eNR0t+rKXkdmQj9Uuxu3BvPjoWFavvTfgZ/f2TDZiRVvXR?=
+ =?us-ascii?Q?ag+g8dhhJ9MqMB/O32q44Lcici5LR2WoISLdHdo+irZACSCVzEUTmPDRsYhj?=
+ =?us-ascii?Q?g55J9J8cV5DDpViDp2pEo4iuIODPm9B275O74yiZQ/KJ2aRW0/hMxDIg/Fu9?=
+ =?us-ascii?Q?FL8cZcohM8kWFUFoPtWwO9WK9H1ZqnjIQ4nlF7tyBeSRQA5wCoVWpmUqykIK?=
+ =?us-ascii?Q?vjAhq+SB9HiMslTAYsTx7XbOT4mWJ7UO2UrYtJIKQWytcLY1eoCvk6ybyoDO?=
+ =?us-ascii?Q?1owrJtJsv8tMxwAeQpCwDBPvSm53MlBa/dhq7qQe56gCOq991JJhqj6HVWTc?=
+ =?us-ascii?Q?pG2Sv9/Jrzu9wSeq42VYw4s58fVp0DI2jujOxuQlW4EgBHIExgbJtEhekCsx?=
+ =?us-ascii?Q?1RpBsVRTREKcLvLrfpG1lgCzSnjyElmOpdvHuG7DNfTBIFV+QZMjVOKAoTNn?=
+ =?us-ascii?Q?C2BE2CboCUqD5v00U+uv1T7jDyQhgbGQgo+brK2m2OQpnJPdA7mKiSeKkTc+?=
+ =?us-ascii?Q?ER83FgF5Q4QJKBNy6zqk/KqOgKZTdh7xxcNHq3gO9VmWhRupV/gB12f0Jczw?=
+ =?us-ascii?Q?MaEafGonow4ITpi3hdSQGDbCmGC+SyJRxdCPS7wjpT7eRfZPHHXahxSfFaEg?=
+ =?us-ascii?Q?uZphPCwpcceVMNv1hU903/8qLImgDN3hnynHQRtUFR9N44pReOVBsT2uoiZv?=
+ =?us-ascii?Q?8fXjBtpebk48rZUViKmBzRYsCDWFnx3byOOcnkuCj8guXVeNzu0124PcJlGi?=
+ =?us-ascii?Q?0HpwwqZwGcQ3vbXaH5E5Bog3XHajuh5aWjvTTKzXiTw0m+WxjahK+WlfZ2EG?=
+ =?us-ascii?Q?y190+ikoHjGQOwvE5cumlleuqqbQq0d6OwT27nQ56c5/CWkdppjXjyE2brPV?=
+ =?us-ascii?Q?sUBmOynjJ3LwXg8qc7Cpf9GHGvBPrMP1PGQFGezwoENU+S96nlobou3RYyl2?=
+ =?us-ascii?Q?OsNoNvtAz8QIEMdtvB/j+Zwh5doFTEvnUdk500Tj1atiePWwblhzOUeoy67l?=
+ =?us-ascii?Q?U56idAnU3Byec3EAMEWdV6Zx0wUlRek6YRQJbmxBxssKORZkwPnLys4umxjH?=
+ =?us-ascii?Q?LR8Exoaog8ZpddcjVEn4GQMYz2a1tmtd9rZwgrwro4rNJb2aEw1xvP8W5b5J?=
+ =?us-ascii?Q?vjt14Lb1sGo3kbGMXKljdJ40lGDG5sFryPDWAomqrw6lF72s98I3it2+Tyy8?=
+ =?us-ascii?Q?YxPBH8G2oVfF6HHBqRvAGD1MERqsNHPDpuuI3Ae+JbkfF887y4lNb/5dQkmh?=
+ =?us-ascii?Q?P8KQtJrBhg=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 614cc1e5-fcc1-4e63-009d-08de61fe0122
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Feb 2026 01:54:30.6036
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cyOO6UD33q52QQBOGBUPP+cmnQWwOs7Njy+7ITM3IQW9BgmO8EtyWyDG9jG+Zr2EIIHV+fa/UekUgoyul4T5ZA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10663
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260201_173317_310688_41CCCAEF 
-X-CRM114-Status: GOOD (  20.81  )
+X-CRM114-CacheID: sfid-20260201_175437_881560_8B44485D 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,77 +173,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+On Thu, Jan 29, 2026 at 10:54:38AM +0100, Lukasz Majewski wrote:
+>This patch series:
+>- cleans up clocks' setup on vf610 by moving VF610_CLK_END define
+>  to driver code
+>- introduces support for several clocks required by MTIP switch IP block
+>
+>Lukasz Majewski (4):
+>  clk: vf610: Move VF610_CLK_END define to clk-vf610 driver
+>  dt-bindings: clock: vf610: Drop VF610_CLK_END define
+>  dt-bindings: clock: vf610: Add definitions for MTIP L2 switch
+>  clk: vf610: Add support for the Ethernet switch clocks
 
-On 1/20/2026 12:06 AM, Heiko Stübner wrote:
-> Hi Damon,
-> 
-> Am Mittwoch, 17. Dezember 2025, 10:33:03 Mitteleuropäische Normalzeit schrieb Damon Ding:
->> PATCH 1 is to ensure the last bridge declares OP_EDID or OP_MODES or both.
->> PATCH 2 is a small format optimization for struct analogid_dp_device.
->> PATCH 3 is to perform mode setting in &drm_bridge_funcs.atomic_enable.
->> PATCH 4 is to add a new parameter to store the point of next bridge.
->> PATCH 5 is to make legacy bridge driver more universal.
->> PATCH 6-11 are preparations for apply drm_bridge_connector helper.
->> PATCH 12 is to apply the drm_bridge_connector helper.
->> PATCH 13-15 are to move the panel/bridge parsing to the Analogix side.
->> PATCH 16 is to attach the next bridge on Analogix side uniformly.
->> PATCH 17-18 are to apply the panel_bridge helper.
-> 
-> On top of all the recent bridge-related commits, this series still works
-> on my rk3588-eDP board - when the display is plugged in on boot.
-> 
-> As that is the current state we also had before, this series:
-> Tested-by: Heiko Stuebner <heiko@sntech.de> on rk3588
-> 
-> 
-> ======
-> !!! The following should not hold up this series though, because the
-> analogix-dp not handling hotplug, is also the current state already!!!
-> ======
-> 
-> However, actually hotplugging the device does not seem to work.
-> 
-> With the hpd-gpio inside a dp-connector node.
-> 
-> 
-> (1) When booting connected and unplugging the display I get:
-> 
-> [   42.725888] rockchip-dp fdec0000.edp: Rx Max Link Rate is abnormal :0 !
-> [   42.733325] rockchip-dp fdec0000.edp: Rx Max Lane count is abnormal :0 !
-> [   42.764853] rockchip-dp fdec0000.edp: LT link start failed!
-> [   42.771105] rockchip-dp fdec0000.edp: eDP link training failed (-110)
-> [   42.778329] rockchip-dp fdec0000.edp: unable to do link train, ret=-110
-> [   42.785747] [drm:analogix_dp_bridge_atomic_enable] *ERROR* dp commit error, ret = -110
-> ( ... repeasts a bunch of times ... )
-> [   43.284897] rockchip-dp fdec0000.edp: failed to set bridge, retry: 4
-> [   43.292045] rockchip-dp fdec0000.edp: too many times retry set bridge, give it up
-> 
-> plugging the eDP back in reenables the display successfully though.
-> 
-> (2) Booting with the display unplugged
-> 
-> Same messages as above, but plugging the display in for the first time
-> does not create an output.
-> 
-> I'll try to dig more, but if you have an idea, what I should look at, I'd,
-> be really grateful.
-> 
-
-Sorry for the late reply. I've been heavily occupied with the downstream 
-work recently.
-
-I can reproduce the same issue on my RK3576 IOTEST board, which is 
-equipped with a standard DP receptacle for eDP interface.
-
-(BTW: The RK3576 Analogix DP functions properly with a set of targeted 
-changes, and I plan to upstream these modifications later. :-))
-
-Regarding the eDP HPD exception, several functional patches for HPD 
-handling have not yet been synced to the upstream. I will verify these 
-changes and submit them when time permits.
-
-Best regards,
-Damon
-
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
