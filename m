@@ -4,83 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5090E73158
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 13:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD494E73158
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 13:17:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0+/hSF8U32YI38g24kOHN/0rHhkgRJN4R0JYtNrmTyE=; b=qiFl8imsnsj/vHCponRek8vA8l
-	hG5fAUwEUTWccPGW+gNwEd4MkYTG+oDu/9L8Ky6mEJjc2ykGrj6qgEYUdghY/8b8wz/SwOO5nHbgI
-	LhWRJIo1BbfhhU1ROPFUDOpwhVqEV7gLf7R4bBu/MKQ0OIoMWZx2FQCd/74HTA4zX7CAvQhWnYk4q
-	J8zwy/5pIXBFogH1rploV9jYB1+Aa9OxVDQsNuVfWy0xQrv/QsFBJIZdrFlz2yJ5t9pu+wajrerR1
-	kF35+Ub58sejni/WP1t8cnIh83sBfBproHaYBdo083Ny5lv2zGQQ8+lU+GoenknO4UekgjrV2r0lu
-	RkyEfK8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ocKzRWbJHYLGmGqfUoEo90OzMlxUdojZy/If2yp2Mmo=; b=W8NMRjKZsBsn62
+	vRjFZc7jBFkGFft5jMdHBLAv2avYx5FGLXo//yRC9jVRgK7px2TrlJJWOPe6MT6d+2z1kLWeYFCjE
+	Pz4bB1kEOb+mE8SkowTUQMKwcKiYLStcsiWm8qfIqNSkI3rk1bPDD/psbIy0GFwj02Xle3cnY7Kbs
+	VEGtxxa8CGyy0oyyec4N131WirTxAmojDj01IVZCxaVjlSAyWcp+4bNydJ6L37KEuBt+h5jpTTyQO
+	kEvaWEDFi51KDxLTHtZ5QEKNhE2j34Xw3Lu1CGvNFcp7TKwnJDwHM4QGKJviiiyXWgrMQBsRAHDAc
+	L59K1o+AnzZdVIfREo/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmtkl-00000004zZJ-3F0e;
-	Mon, 02 Feb 2026 13:14:07 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1vmtnY-00000004zkE-1heA;
+	Mon, 02 Feb 2026 13:17:00 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmtki-00000004zYn-3sCW
+	id 1vmtnV-00000004zjs-2sGb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 13:14:07 +0000
-dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=0+/hSF8U32YI38g24kOHN/0rHhkgRJN4R0JYtNrmTyE=;
-	b=CME7ksMrmTnNOwaH8sbN2u3CDyvnFjhvikWbQhTkKjz/gKXqmzpTA0umnU3Dgpx7xdg7yudWL
-	PBieofaAcfo9PVuuXd9BhmgB4BmO2ZxjkcIYmxChZSUp7n3etO5FsADQaFBcUrt42MvHcrrHeKh
-	uaVMtgSgf0LWXn0x3vXSzP4=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4f4Rlc2vQGzRhTJ;
-	Mon,  2 Feb 2026 21:09:16 +0800 (CST)
-Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id E6FF440569;
-	Mon,  2 Feb 2026 21:13:48 +0800 (CST)
-Received: from [10.174.178.24] (10.174.178.24) by
- kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Mon, 2 Feb 2026 21:13:47 +0800
-Message-ID: <43cd50df-cd95-4840-3d2d-917f8c9ca45e@huawei.com>
-Date: Mon, 2 Feb 2026 21:13:46 +0800
+	Mon, 02 Feb 2026 13:16:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kjvrM/amwR6hy1OTrxN1KnQGARqJvmDrdTdH3GkN3JK5Jo+uHU5wfCtbmOfOEC1OrSe21hYbR6iH7cYnXx6o1OxzztpK+KzoHkN+ryesfFF4xHBIuvEw5HhVKPBoJGD2Rk2iZX7XYV6C4i/clJ+KHrikvZLynNO5VcBhP3ZXE/Z5ZPoKFzeObZmgle3lzhkKGLTtidml+4xKoFVTwnmVY9Yma4VtrfYdOvH6t2lrfHx2Gn17NC9tSy+WM0BcXAb88JnVcFMTYmZvM/OKIJsMds0Yjri2YHb34pAzgjljXchGOcMmHjg4wuQvnpiMtBeM8FDHCUxH5FyxUW0d3G2gsQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ocKzRWbJHYLGmGqfUoEo90OzMlxUdojZy/If2yp2Mmo=;
+ b=TRFHuhfViODN+L55gluKfUE2XyWkHZnvhGTEtRAzIN8L4+cEFN44czE/1hDj79+vwDZt1+yzdAZGJNnUuWI4lHznrH5MMiw6z/vbgWuzvm7HVqH1g+hpPduu5xdLCMx8Njt7bi4c/yws0YSJcZmki3jOE6V6Pb9TuPNKqrJdNg+uH320Hz+xxkfSr5odTdzu/13tWXV28E377xCEP4dLKe0wdtXiAYmOMOw+E98ttN1/7q/nI/c17RnAp4abjrA/3jBrSgkYw7pZPlg6wqVvZJ8AR5Z62ffk28Sbe2XcmV34NFCeQHgRPDL2N5PTVALLkVTgHY5W8wJbhNsz6mqWNw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 4.227.125.105) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ocKzRWbJHYLGmGqfUoEo90OzMlxUdojZy/If2yp2Mmo=;
+ b=RQIyxmxQ5Cy3wEs+CleE6kaZOxrRhY0EH2e9uAxmmTPKhj+7PlRTVUHZbnbbWwFXhXNpabwFyMsrf1WJZPE+aK8iNJOD2AkQvfhy2nyuPLXeJj/Z3WwqWxPim+nmySbDxhVkaX8TgzvdCcTUhameysZeXIZnjRFDaOCrkMdNKMwmDzDkHvCf646kNqc8LCNgW9oB28JMn+X3T6CtfFyXlIwBIluSLsWgvfnypWQmoM23Ewq5TsebKx1RRGIndLxDKInFTwrCUQlCNaO0QsPaaBzFRX9sbSDRqGykJeBaehvBGLArc6Y+GfviYXA3TTRNqggQhAEfYm9wnMS935ilFg==
+Received: from SJ0PR13CA0235.namprd13.prod.outlook.com (2603:10b6:a03:2c1::30)
+ by MN0PR18MB5845.namprd18.prod.outlook.com (2603:10b6:208:4c1::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Mon, 2 Feb
+ 2026 13:16:51 +0000
+Received: from SJ5PEPF00000203.namprd05.prod.outlook.com
+ (2603:10b6:a03:2c1:cafe::3) by SJ0PR13CA0235.outlook.office365.com
+ (2603:10b6:a03:2c1::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9587.12 via Frontend Transport; Mon,
+ 2 Feb 2026 13:16:17 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 4.227.125.105)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 4.227.125.105 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.227.125.105; helo=[127.0.0.1];
+Received: from [127.0.0.1] (4.227.125.105) by
+ SJ5PEPF00000203.mail.protection.outlook.com (10.167.244.36) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9587.10
+ via Frontend Transport; Mon, 2 Feb 2026 13:16:50 +0000
+From: Vladimir Moravcevic <vmoravcevic@axiado.com>
+Subject: [PATCH 0/3] Axiado AX3000 USB Device Controller
+Date: Mon, 02 Feb 2026 05:16:27 -0800
+Message-Id: <20260202-axiado-ax3000-usb-device-controller-v1-0-45ce0a8b014f@axiado.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH] arm64: cpufeature: Add support for the MPAM v0.1
- architecture version
-Content-Language: en-US
-To: Ben Horgan <ben.horgan@arm.com>, <james.morse@arm.com>,
-	<miko.lenczewski@arm.com>, <thuth@redhat.com>, <mark.rutland@arm.com>,
-	<yeoreum.yun@arm.com>, <robh@kernel.org>, <james.clark@linaro.org>,
-	<ahmed.genidi@arm.com>, <xry111@xry111.site>, <oupton@kernel.org>,
-	<lpieralisi@kernel.org>, <catalin.marinas@arm.com>,
-	<mrigendra.chaubey@gmail.com>, <suzuki.poulose@arm.com>, <maz@kernel.org>,
-	<ardb@kernel.org>, <broonie@kernel.org>, <will@kernel.org>,
-	<kevin.brodsky@arm.com>, <leo.yan@arm.com>, <anshuman.khandual@arm.com>,
-	<yang@os.amperecomputing.com>, <frederic@kernel.org>, <guohanjun@huawei.com>,
-	Jonathan Cameron <Jonathan.Cameron@Huawei.com>, Kefeng Wang
-	<wangkefeng.wang@huawei.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<leijitang@huawei.com>, "Zengtao (B)" <prime.zeng@hisilicon.com>
-References: <20260104133434.1887677-1-zengheng4@huawei.com>
- <37f87d5d-bd70-4b13-93e0-8024108be948@arm.com>
- <0944256a-bcc6-56fa-e3f9-eb3a83c45505@huawei.com>
- <9006b698-6fb6-4dc0-a7c6-de3fb27fb073@arm.com>
- <9dbb9767-f616-4f62-996a-08ee8d580521@arm.com>
- <ad158aad-741e-416d-a6dd-58259c0ce940@arm.com>
-From: Zeng Heng <zengheng4@huawei.com>
-In-Reply-To: <ad158aad-741e-416d-a6dd-58259c0ce940@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.174.178.24]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemf100008.china.huawei.com (7.202.181.222)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKujgGkC/x2NQQqDMBBFryKz7sAkVtFepbhIk1EHJCmTVgTx7
+ h26erzF+/+Eyipc4dGcoLxLlZJN3K2BuIa8MEoyB0++J+cHDIeEVAwtEeG3vjBZFhljyR8t28a
+ KrutTO7vhTnEEW3orz3L8X57Tdf0A4O4BmHUAAAA=
+X-Change-ID: 20260128-axiado-ax3000-usb-device-controller-156d3f1840c9
+To: Krutik Shah <krutikshah@axiado.com>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ openbmc@lists.ozlabs.org, Vladimir Moravcevic <vmoravcevic@axiado.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770038210; l=1314;
+ i=vmoravcevic@axiado.com; s=20250904; h=from:subject:message-id;
+ bh=ZpNrgQPhDGPeUOXOdbl3H8J7CArc0HO+2VLx5StoVLA=;
+ b=d1I2KWs/buw6Jrfc2RNkJ+10vyC1lO62/lso2kCpDnTf7tWfP4fmtfi79KNDWM4N2SNs1sCfe
+ eXnYwlRLbciDka+zzl9NoHJhEDm+W3mTLVeD25LE363fTWqx6UP1Vhq
+X-Developer-Key: i=vmoravcevic@axiado.com; a=ed25519;
+ pk=iiyhWhM1F4HlCbbW3I3qKZhPCE8JsCrDQMgCBRg4YMA=
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF00000203:EE_|MN0PR18MB5845:EE_
+X-MS-Office365-Filtering-Correlation-Id: 674ff603-e1dc-4551-32f0-08de625d540d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?R0lvTE11SVNDb0YvclJ3Z2FFZkc4NSs4ck94YVVtUGJ1L3p5Sy9DWEE2Tkd2?=
+ =?utf-8?B?L0ttc3ZXd1JMZHJPWUFNRXAxWERpM01rMW5US0RFdzY4TGYxeW1UY1BkUktV?=
+ =?utf-8?B?Rmd4UURzdGkrN0hVLzJzbEVkQzBzU1lnTURudEJWL0hHZFdrZ0xaZ3F0eWNO?=
+ =?utf-8?B?Szd3M25jdFlYOWVlOU9UZW9ZUUlYY1B1MVpnbHhBVi96ZkFkRFljS3VTakwr?=
+ =?utf-8?B?aFk0VE1kOFhDSUF0NkhucUhlSVM2YkM5ZUJQWXh4djRlNlZuNGRPQjM5NGdX?=
+ =?utf-8?B?dFNvSWNqR21WR2JJbTdmbkVJWUsxSENOeFhEamxob3BJMU1kZFpyMURLYmhE?=
+ =?utf-8?B?WUFYMXZwNTIvL2JFbllTOWdwaVlBU05sZm9OSklKbFRNZDVrazlERi9LZjhn?=
+ =?utf-8?B?bHhsUXd1eE8yMlNCQkdvTFgrV0FDUzVWc0Nwb1lEQk5mYVRjVndUL1VVTHc1?=
+ =?utf-8?B?TXgrWlZjZ1l5WW56TGdoQlowbVNXdFdyNHpzM2dOS3IxVTl0R1BMenVWaVdz?=
+ =?utf-8?B?UlNXei83U0YyODZPZitoZTZBVzV1dG9wS0FNK3hzZDdwN0p0djYyazNlcTkr?=
+ =?utf-8?B?NGJKNXdnc0FCNFBFeDJmTk5QeE9Dc3hVem1XdUdOYllnbFljRDlKc2MzUERs?=
+ =?utf-8?B?NzZ0cDlLL0NFZWl4UXlpQ1lVdnRCY1RudlppYzAwZ2h3U09Xb3RSR2dITFJq?=
+ =?utf-8?B?aTU2RXkrRU5EalZkZThhdkxpbzFabjRraXR0WEplWkZiMm9DTUc2NlhmWXdO?=
+ =?utf-8?B?bGFrMFJBRXlLQmpZeXlpbU5GUFhGcXJXYkNFeHBOd2I2MUoyZjB1WDVBbU1N?=
+ =?utf-8?B?d2pqc0dLSGgzZVJxTGhXVi94cmFEckhlUGswbVlmcTBNdzlPZVFsRmNCYUZu?=
+ =?utf-8?B?ZG9XZERXS0FZdDdoM1poOTY4N3kza3Nwenc0MHZMbGdQME1kZG0yT05DdnZ5?=
+ =?utf-8?B?dVhrZVZzRWJVVWE4MFRWRVdzTEs2NmVyc3lydThrUmtxc3RqWkhMRFE2K0xS?=
+ =?utf-8?B?b3hVNGFKVkJMZXdSWVRqWjdha2Z0MXdkQ2dPZ2JkcGI2MGtWQVdXTnpDdlp4?=
+ =?utf-8?B?a1RuY2txMWJjdHBlNFdCZUc1QmhBdkR1VkhPWXdIY3hIL2pOYnhEV0xMcFF6?=
+ =?utf-8?B?TExQTk1jMU1UV1RSVHprVThGWnltZ2NsZkdQby9USHhwQUlTa3JrcXJ4QU9h?=
+ =?utf-8?B?TzgwYjJISklWclFKNGxlOGxaWUVmODdOOWJ1Z29hdHhsSnZHZmpndFczTjBP?=
+ =?utf-8?B?UmlKdUkwL1dZWUxNTmpYMFpVc0pZeWNudWF1MU9IYjZsZDJwUDNJU2o1RHNJ?=
+ =?utf-8?B?eWgzQS9tN283TXoyNmVQdlh1V2c5M3ZUYXkwRkFjNEEySUk3b3ZEcGRmRi9R?=
+ =?utf-8?B?ZTN1b2pUSVhaTUJRbGluNXFYN3dscE1NZU4zZzV6OXUvT21kaER3ZFNUQmRK?=
+ =?utf-8?B?SDJENU5ndXJ6VFVBUVpycFFSaUY5a0lDT0pFb1hsNUsyZFByTWYwNW9JMlNX?=
+ =?utf-8?B?MTlLM1JTRHZuWldwTk43T1IwQ3RRTjRDSGJ6cnpYcVpGS1VQZGpnSzV2QnJz?=
+ =?utf-8?B?V0Q5S3hQdDExYUtQZDhQS1ByZGF6SFBIS0Zzcm50UmZVSE4zUlVoRFZkdStK?=
+ =?utf-8?B?aWJBSXNBWnBZeU16bTZxWlRHK2tiV1pMRThFakRnb21kOUF5VnVRcElBV3dC?=
+ =?utf-8?B?NGJ5VHI1NHA3S3FYZHI4Z24zNWZaL3F3djd2dGZCSmYwTGF4amhlbXRXT1o3?=
+ =?utf-8?B?NC9yTjFYK1RQZlFKRDRiVEdKakxhTUhhUHJzbllDRTNNLzFjbEk0Tnpxblhl?=
+ =?utf-8?B?NyttYyt0aWNENHBQaHFWWDRQWEU5UDQ1a21TVWZPRE8zRVh0SWovWWFncTF1?=
+ =?utf-8?B?WFJyTTdmbmhOMmlXK21WWkk0TEtCVkNoYzRHZFFLai9iYmhkTVVHUytzc0ky?=
+ =?utf-8?B?RnZmSytwSXp6USsyWUhDd1RzSjAyRG94c083YUNqMGhVTU9pS1FYcVdzUlFD?=
+ =?utf-8?B?NC9FMmxSczNQNk1BcExrbnhhOE5ZOURWM0ZUVEk0dDlFcWFJQlFXM1RZRnEr?=
+ =?utf-8?B?TndBaW9jRzd2YVQ1cFJkRE1wV0t2dkJQNHQxZWp1YUhlY3ZTS2dLaXVEbzF0?=
+ =?utf-8?B?RThmNy8vOGpwY280ZHE2a2swUmdrTzhQd0gxRklKMFV2TTZxV0MyQ2pleUMz?=
+ =?utf-8?Q?hx5MxASFgp9G95xkYcPt+1gkogElAlRwR3ld9gwTE0o+?=
+X-Forefront-Antispam-Report: CIP:4.227.125.105;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:[127.0.0.1];PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: yXiKTuipYI1SsDqPFHiADwy2wpL6H7vZnQv2GsuhfpHZnNW6IC3BShg1iRSyHZ9M4B93v6XoZAttuXrkKXrSF9DMR+WMQmZPGdz1PhoaKiUURTw8wJMG2bjbEqiQI5J0mYauT6nGOybgGrgBXx3kfAEkW2OG2c6o/JjnFhEAfnHWc06bab9Dgz9f5QonY+693YrjeiBJBswH5lo1SlMx+n1uWUJXQfCuXdW6EXNrs2yBHxAJtXdmmgwWR7IaATiu6GJpck65lCI5SHtF5GFcotSfDnmHGsMNEAF8+oOvy/V8VOebKCueVeKpoPKmQ8l1CvCzOYK6661td5fvyV8BjKokqm/VSW31EPGXthEsBSD2ABr29CYIuC9y47WqqXVifJ+eVGGGcnACqjHM0c73EbVIjG83l4+esA739wvNybSN64W3yxjpin2lB657z97I
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Feb 2026 13:16:50.9641
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 674ff603-e1dc-4551-32f0-08de625d540d
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[4.227.125.105];Helo=[[127.0.0.1]]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000203.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR18MB5845
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_051405_608770_A1AEC718 
-X-CRM114-Status: GOOD (  19.86  )
+X-CRM114-CacheID: sfid-20260202_051657_768082_E422599E 
+X-CRM114-Status: UNSURE (   6.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,118 +165,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+Dear maintainers,
 
-On 2026/1/29 0:29, Ben Horgan wrote:
-> 
-> 
-> On 1/28/26 15:55, Ben Horgan wrote:
->> Hi Zeng,
->>
->> On 1/28/26 14:37, Ben Horgan wrote:
->>> Hi Zeng,
->>>
->>> On 1/28/26 08:54, Zeng Heng wrote:
->>>>
->>>>
->>>> On 2026/1/27 22:30, Ben Horgan wrote:
->>>>> Hi Zeng,
->>>>>
->>>>> On 1/4/26 13:34, Zeng Heng wrote:
->>>>>> According to the MPAM spec [1], the supported architecture versions are
->>>>>> v1.0, v1.1 and v0.1. MPAM versions v0.1 and v1.1 are functionally
->>>>>> identical, but v0.1 additionally supports the FORCE_NS feature.
->>>>>>
->>>>>> ID_AA64PR | ID_AA64PR | MPAM Extension | Notes
->>>>>> F0_EL1.   | F1_EL1.   | Architecture   |
->>>>>> MPAM      | MPAM_frac | version        |
->>>>>> ---------------------------------------------------------------------------
->>>>>> 0b0000    | 0b0001    | v0.1           | MPAM v0.1 is implemented.
->>>>>>             |           |                | MPAM v0.1 is the same as
->>>>>> MPAM v1.1
->>>>>>             |           |                | with FORCE_NS which is
->>>>>>             |           |                | incompatible with MPAM v1.0.
->>>>>> ---------------------------------------------------------------------------
->>>>>> 0b0001    | 0b0000    | v1.0           | MPAM v1.0 is implemented.
->>>>>> ---------------------------------------------------------------------------
->>>>>> 0b0001    | 0b0001    | v1.1           | MPAM v1.1 is implemented.
->>>>>>             |           |                | MPAM v1.1 includes all
->>>>>> features of
->>>>>>             |           |                | MPAM v1.0.
->>>>>>             |           |                | It must not include FORCE_NS.
->>>>>>
->>>>>> FORCE_NS is a feature that operates in EL3 mode. Consequently, the
->>>>>> current
->>>>>> Linux MPAM driver is also compatible with MPAM v0.1. To support v0.1,
->>>>>> the
->>>>>> existing driver which only checks ID_AA64PFR0_EL1.MPAM for the major
->>>>>> version needs to examine ID_AA64PFR1_EL1.MPAM_frac for the minor version
->>>>>> as well.
->>>>>>
->>>>>> [1] https://developer.arm.com/documentation/ddi0598/db/?lang=en
->>>>>>
->>>>>> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
->>>>> So far we've avoided added MPAM 0.1 support as we don't know of any
->>>>> machines using it. What's your motivation here? Do you have a machine
->>>>> with MPAM 0.1 that runs mainline linux?
->>>>>
->>>>
->>>> Thank you for your questions and for reviewing this proposal.
->>>>
->>>> Regarding your inquiry about hardware usage and motivation:
->>>>
->>>> Our KunPeng 920C chip (and numerous legacy SoCs in the same family)
->>>> indeed implement MPAM v0.1 extensions. These are widely deployed in
->>>> server and embedded equipment. More importantly, the product roadmap for
->>>> these platforms explicitly includes migration to mainline Linux kernels
->>>> MPAM driver for long-term support, making upstream MPAM v0.1 driver
->>>> support is a critical requirement.
->>>
->>> Thanks for the explanation. It does seem worthwhile to add mpam 0.1
->>> support.
->>>
->>>>
->>>> In the other hand, MPAM v0.1 extension version is formally documented in
->>>> the ARM MPAM architecture specification (still included in the newest
->>>> ARM DDI 0598D.b version). The specification explicitly defines v0.1 as a
->>>> valid implementation for earlier hardware. Supporting documented
->>>> architectural features is essential for the goal of hardware
->>>> compatibility.
->>>>
->>>> About technical compatibility, the MPAM v0.1 is designed as a
->>>> functionally compatible extension with the existing MPAM driver
->>>> framework. After having tested this on actual Kunpeng 920C hardware
->>>> and other MPAM v1.0 platforms running mainline kernels, this ensures
->>>> zero regression risk for v1.0/v1.1 users.
->>>>
->>>
->>> I've tried your patch with a model, FVP_Base_RevC_2xAEMvA, setting mpam
->>> 0.1, 1.0 and 1.1 and the mpam driver probes as expected. For 0.1 this
->>> required commenting out the versioning check in mpam_devices.c. It would
->>> be good if this patch could come together with another updating that check.
+This patch series introduces new USB Device Controller driver for Axiado AX3000 SoC and its evaluation board.
 
-Since all MPAM MSCs on my local 920C platform displays v1.0 or v1.1
-architecture versions in the AIDR register, I did not include the
-version check modification in mpam_devices.c for the v1 patch. For the
-sake of compatibility support integrity, it is necessary to include the
-change in the v2 patch soon.
+The driver integrates with the Linux USB subsystem and follows kernel coding standards.
 
->>
->> Apologies, I confused myself with MSC MPAM version vs CPU MPAM version.
->> The CPU MPAM version is what's relevant here and the mpam_devices.c
->> check is just for the MSC. I'll try running this again on the FVP model
->> and actually change the correct version.
->>
-> 
-> I've actually tried the mpam cpu versions in the FVP model now, and I
-> don't see any problems. I don't see any problems in the code either but
-> I'm not that familiar with the cpufeatures code so this is not a proper
-> review.
-> 
+This initial submission includes:
+- Driver implementation under drivers/usb/gadget/udc
+- Device tree bindings for supported boards
+- Kconfig and Makefile integration
 
-Sincere thanks for your testing feedback and review.
+Signed-off-by: Vladimir Moravcevic <vmoravcevic@axiado.com>
+---
+Vladimir Moravcevic (3):
+      dt-bindings: usb: axiado,ax3000-udc: Add Axiado UDC
+      usb: gadget: udc: Add UDC driver for Axiado Device controller IP Corigine
+      MAINTAINERS: Add entries for the Axiado USB UDC
 
+ .../devicetree/bindings/usb/axiado,ax3000-udc.yaml |   59 +
+ MAINTAINERS                                        |   10 +
+ drivers/usb/gadget/udc/Kconfig                     |   15 +
+ drivers/usb/gadget/udc/Makefile                    |    1 +
+ drivers/usb/gadget/udc/crg_udc.c                   | 4522 ++++++++++++++++++++
+ drivers/usb/gadget/udc/crg_udc.h                   |  364 ++
+ 6 files changed, 4971 insertions(+)
+---
+base-commit: 63804fed149a6750ffd28610c5c1c98cce6bd377
+change-id: 20260128-axiado-ax3000-usb-device-controller-156d3f1840c9
 
-Best Regards，
-Zeng Heng
+Best regards,
+-- 
+Vladimir Moravcevic <vmoravcevic@axiado.com>
+
 
