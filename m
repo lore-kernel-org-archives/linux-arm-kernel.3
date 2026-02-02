@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 049C3E73151
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 09:48:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A12F5E7314A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 09:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hSOpqGGHiUdWeKghTuKqAkcRHQ6npAT47/ApfhgaJGg=; b=Yf4M749z5yymIpTQ0cmR3ljO0Q
-	zJer11gDqHfKa7SDW3I7PrqEmxIqG1lnurK6JYZJqa/wdCciDPZxylf+dyGx4uDtJOwbkud2MTAa8
-	T96KSjuxNdrHaxIyF03jabJyKfJ7N38Ts4hTpJbI0rtF3JqG55frboA0yPzVD+JOH/Q/UsNXoYLne
-	Z0sjJckoCtPDJYl1eFh81EdhJuaMAFPp/cXZEK5j2OJCF5x+1EFA8L2A3h3jLsJTaWOd2MeO3NlbR
-	dvEg+gbPf7VkugEpaagFh9PFu5k5eaRB9y5NRTCWnst9J1wehg1LsWq8JtiKsY84sYz5Je0AtOSJX
-	XqiMulCA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9d+07VQ9aR+mZG5e89dL5SGfQBLbhMuNE+dcDvZHhhk=; b=FIDTbuy8uDfK7QZPamaGIpLwdQ
+	YPfeW7BTwzplSSTHzqWDMiQnt6XqlGCpIOBYpmwNf2y//QyaE+VgXOJQ3gjb834hjR42JIuY02Bth
+	KWLJwoG1k19fUP+kf3091fa5scCncn+xuOxb0wb25nG1vdQw0F1qMdsmDsMBa+x4pUiZCfrsnwe03
+	oCUSIVtwOsmDB7EeIWA7MCyZxrDbIVqjC3v7a7x1R2cPC0oDXKFTUJjX5+xDQv/RTT3O4Hz3isnuY
+	TPBfataSDdKLwFX/X0gY14mnoVZqTiVRlCX8b3uXce/9ZV7wHS6sGZdJ7J69GeGpSAcSc837dNERk
+	6JalUYtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmqXX-00000004jmY-02yX;
-	Mon, 02 Feb 2026 09:48:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vmqXf-00000004joy-0KUb;
+	Mon, 02 Feb 2026 09:48:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmqXU-00000004jm5-3xMB;
-	Mon, 02 Feb 2026 09:48:14 +0000
+	id 1vmqXe-00000004joQ-0Iho;
+	Mon, 02 Feb 2026 09:48:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B709141805;
-	Mon,  2 Feb 2026 09:48:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F7A2C116C6;
-	Mon,  2 Feb 2026 09:48:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AC3D560128;
+	Mon,  2 Feb 2026 09:48:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE9CBC116D0;
+	Mon,  2 Feb 2026 09:48:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770025691;
-	bh=5K6vbILKfAvsEfbhV3qaRciVW+JYPHJcTO2mdlMYeV8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=JaYKlSvkBgwpyt18cqC58hmzMQAtKrYA0gMA4zs39L6yQ34SAB+08BawaTPzvBAVx
-	 XEYAYeVC+AmTN7NogCCwmxQHOsaou4TjfApzF5KWPZUs7oItfujKkVWE+mzB9k0qsV
-	 Vk7Sx9gRp6bkmfsShGLXPgpoU0je6hNLZG6B8OyZvkopl76b5GyaGnn48Nbh2kvgpt
-	 GIv9w6WHg6LbYXhPTjHerHxmNCRVqgLZClyz9hXkdKgWuBzWvY8s++EncVYSpqPW+5
-	 rpWaXcSHhusqtX7o71o8y/vylqjlDnCoMLQE65R+75lH5+ohyV5LRN2qreuBt28zbr
-	 F6pI8LR2ywRuA==
+	s=k20201202; t=1770025700;
+	bh=Bm7qdPpSoR5RRd8RoFj0NDJeq7mpHyYT/MEjRskwOdQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=YwOBVfGtz4+jEDqeo9pQ5HBte1t/4o1Bebg2wlqQVp+8zfvUwoZx2qcUw0XJ5XPxD
+	 9BxEnOWVyvYE2GN1hj0ZZ/AFb9hvN8N/6snz3XZx4cziJ0mHkfuKNK6UFegAMT/7Wi
+	 +jkgf/wDOo06SjM9msgv2Ihg08bFz+OQyeDBJUflNwSsPYNE33UBA8osjSfu9hpepb
+	 KS2QMaYynMFhQ7xBQzjT/MtJ8ROb9Ka7D9pHpcwyKhi/FhgXOxYkxOHSgU+4p1JDeO
+	 K1NUWVli90AZOgK6G6Kwq3k+7IX7qtU+MxBlJEtB5kRrgH5tgceLSbPlMyLhgUP7mt
+	 19U9Zh9m8ufLA==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Detlev Casanova <detlev.casanova@collabora.com>,
 	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Heiko Stuebner <heiko@sntech.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>
+	Nathan Chancellor <nathan@kernel.org>
 Cc: Arnd Bergmann <arnd@arndb.de>,
 	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
 	Bill Wendling <morbo@google.com>,
 	Justin Stitt <justinstitt@google.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
 	linux-media@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: [PATCH 1/2] media: rkvdec: reduce excessive stack usage in assemble_hw_pps()
-Date: Mon,  2 Feb 2026 10:47:50 +0100
-Message-Id: <20260202094804.1231706-1-arnd@kernel.org>
+	llvm@lists.linux.dev,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Alex Bee <knaerzche@gmail.com>
+Subject: [PATCH 2/2] media: rkvdec: reduce stack usage in rkvdec_init_v4l2_vp9_count_tbl()
+Date: Mon,  2 Feb 2026 10:47:51 +0100
+Message-Id: <20260202094804.1231706-2-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260202094804.1231706-1-arnd@kernel.org>
+References: <20260202094804.1231706-1-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_014813_049210_94B954CD 
-X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,116 +84,39 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-The rkvdec_pps had a large set of bitfields, all of which
-as misaligned. This causes clang-21 and likely other versions to
-produce absolutely awful object code and a warning about very
-large stack usage, on targets without unaligned access:
+The deeply nested loop in rkvdec_init_v4l2_vp9_count_tbl() needs a lot
+of registers, so when the clang register allocator runs out, it ends up
+spilling countless temporaries to the stack:
 
 drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c:966:12: error: stack frame size (1472) exceeds limit (1280) in 'rkvdec_vp9_start' [-Werror,-Wframe-larger-than]
 
-Part of the problem here is how all the bitfield accesses are
-inlined into a function that already has large structures on
-the stack.
+Marking this function as noinline_for_stack keeps it out of
+rkvdec_vp9_start(), giving the compiler more room for optimization.
 
-Mark set_field_order_cnt() as noinline_for_stack, and split out
-the following accesses in assemble_hw_pps() into another noinline
-function, both of which now using around 800 bytes of stack in the
-same configuration.
+The resulting code is good enough that both the total stack usage
+and the loop get enough better to stay under the warning limit,
+though it's still slow, and would need a larger rework if this
+function ends up being called in a fast path.
 
-There is clearly still something wrong with clang here, but
-splitting it into multiple functions reduces the risk of stack
-overflow.
-
-Fixes: fde24907570d ("media: rkvdec: Add H264 support for the VDPU383 variant")
-Link: https://godbolt.org/z/acP1eKeq9
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- .../rockchip/rkvdec/rkvdec-vdpu383-h264.c     | 50 ++++++++++---------
- 1 file changed, 27 insertions(+), 23 deletions(-)
+ drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c
-index 6ab3167addc8..ef69f2a36478 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c
-@@ -130,7 +130,7 @@ struct rkvdec_h264_ctx {
- 	struct vdpu383_regs_h26x regs;
- };
- 
--static void set_field_order_cnt(struct rkvdec_pps *pps, const struct v4l2_h264_dpb_entry *dpb)
-+static noinline_for_stack void set_field_order_cnt(struct rkvdec_pps *pps, const struct v4l2_h264_dpb_entry *dpb)
- {
- 	pps->top_field_order_cnt0 = dpb[0].top_field_order_cnt;
- 	pps->bot_field_order_cnt0 = dpb[0].bottom_field_order_cnt;
-@@ -166,6 +166,31 @@ static void set_field_order_cnt(struct rkvdec_pps *pps, const struct v4l2_h264_d
- 	pps->bot_field_order_cnt15 = dpb[15].bottom_field_order_cnt;
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
+index ba51a7c2fe55..1c875d5a2bac 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
+@@ -893,7 +893,8 @@ static void rkvdec_vp9_done(struct rkvdec_ctx *ctx,
+ 	update_ctx_last_info(vp9_ctx);
  }
  
-+static noinline_for_stack void set_dec_params(struct rkvdec_pps *pps, const struct v4l2_ctrl_h264_decode_params *dec_params)
-+{
-+	const struct v4l2_h264_dpb_entry *dpb = dec_params->dpb;
-+
-+	for (int i = 0; i < ARRAY_SIZE(dec_params->dpb); i++) {
-+		if (dpb[i].flags & V4L2_H264_DPB_ENTRY_FLAG_LONG_TERM)
-+			pps->is_longterm |= (1 << i);
-+		pps->ref_field_flags |=
-+		 (!!(dpb[i].flags & V4L2_H264_DPB_ENTRY_FLAG_FIELD)) << i;
-+		pps->ref_colmv_use_flag |=
-+		 (!!(dpb[i].flags & V4L2_H264_DPB_ENTRY_FLAG_ACTIVE)) << i;
-+		pps->ref_topfield_used |=
-+		 (!!(dpb[i].fields & V4L2_H264_TOP_FIELD_REF)) << i;
-+		pps->ref_botfield_used |=
-+			(!!(dpb[i].fields & V4L2_H264_BOTTOM_FIELD_REF)) << i;
-+	}
-+	pps->pic_field_flag =
-+		!!(dec_params->flags & V4L2_H264_DECODE_PARAM_FLAG_FIELD_PIC);
-+	pps->pic_associated_flag =
-+		!!(dec_params->flags & V4L2_H264_DECODE_PARAM_FLAG_BOTTOM_FIELD);
-+
-+	pps->cur_top_field = dec_params->top_field_order_cnt;
-+	pps->cur_bot_field = dec_params->bottom_field_order_cnt;
-+}
-+
- static void assemble_hw_pps(struct rkvdec_ctx *ctx,
- 			    struct rkvdec_h264_run *run)
+-static void rkvdec_init_v4l2_vp9_count_tbl(struct rkvdec_ctx *ctx)
++static noinline_for_stack void
++rkvdec_init_v4l2_vp9_count_tbl(struct rkvdec_ctx *ctx)
  {
-@@ -177,7 +202,6 @@ static void assemble_hw_pps(struct rkvdec_ctx *ctx,
- 	struct rkvdec_h264_priv_tbl *priv_tbl = h264_ctx->priv_tbl.cpu;
- 	struct rkvdec_sps_pps *hw_ps;
- 	u32 pic_width, pic_height;
--	u32 i;
- 
- 	/*
- 	 * HW read the SPS/PPS information from PPS packet index by PPS id.
-@@ -261,28 +285,8 @@ static void assemble_hw_pps(struct rkvdec_ctx *ctx,
- 		!!(pps->flags & V4L2_H264_PPS_FLAG_SCALING_MATRIX_PRESENT);
- 
- 	set_field_order_cnt(&hw_ps->pps, dpb);
-+	set_dec_params(&hw_ps->pps, dec_params);
- 
--	for (i = 0; i < ARRAY_SIZE(dec_params->dpb); i++) {
--		if (dpb[i].flags & V4L2_H264_DPB_ENTRY_FLAG_LONG_TERM)
--			hw_ps->pps.is_longterm |= (1 << i);
--
--		hw_ps->pps.ref_field_flags |=
--			(!!(dpb[i].flags & V4L2_H264_DPB_ENTRY_FLAG_FIELD)) << i;
--		hw_ps->pps.ref_colmv_use_flag |=
--			(!!(dpb[i].flags & V4L2_H264_DPB_ENTRY_FLAG_ACTIVE)) << i;
--		hw_ps->pps.ref_topfield_used |=
--			(!!(dpb[i].fields & V4L2_H264_TOP_FIELD_REF)) << i;
--		hw_ps->pps.ref_botfield_used |=
--			(!!(dpb[i].fields & V4L2_H264_BOTTOM_FIELD_REF)) << i;
--	}
--
--	hw_ps->pps.pic_field_flag =
--		!!(dec_params->flags & V4L2_H264_DECODE_PARAM_FLAG_FIELD_PIC);
--	hw_ps->pps.pic_associated_flag =
--		!!(dec_params->flags & V4L2_H264_DECODE_PARAM_FLAG_BOTTOM_FIELD);
--
--	hw_ps->pps.cur_top_field = dec_params->top_field_order_cnt;
--	hw_ps->pps.cur_bot_field = dec_params->bottom_field_order_cnt;
- }
- 
- static void rkvdec_write_regs(struct rkvdec_ctx *ctx)
+ 	struct rkvdec_vp9_ctx *vp9_ctx = ctx->priv;
+ 	struct rkvdec_vp9_intra_frame_symbol_counts *intra_cnts = vp9_ctx->count_tbl.cpu;
 -- 
 2.39.5
 
