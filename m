@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5390EE7DF11
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D5A9E7DF19
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 18:44:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8OcklqGs3a66zj+S5GgwWilSvCAUZ212synoded3Er0=; b=xkF6Gc4284CIMQFEM1I5Gweg8l
-	VL9al3dcTrHuG/zqIaFVMoYOg1C5/gzQR62ImLgBot5Bz04M9h3HAhDHx95ZvAtjNPaWWHSI8kwg5
-	sx1LRqn849oYn6OqtqKRORb2OTi+OXERaARMLupp46Eluhl6opB8XZw3SUmcMZKvZvq1bt2HRqI4A
-	HfsKH9JyHDtqzkW3ysxsKer7ivmCqgzMQlniYdpcg8noh3qtdBKKotj6Cij7B1jjo8XjWICUkVTSC
-	vTSIRde8SY75XfzRytorZl9yQZm0TPCpHZimhTioBiFi9wq0z0mxy+Pot16V6WJlVyzY8D3rFnZ1O
-	qMGGS/gQ==;
+	bh=Ji9nB/t0HcHL/zF0pVXCx1XEDd4dZShWPgxdRPuldic=; b=CIrrnMEpubFWJcipmnDPhgujdT
+	fwEBtXU5wr444RridgucT8Te76WQswKK4uhSNVgK1DH6aC2lJEmFAshDuRCO4E8VpGARW/ZgkMMHN
+	j2uEe2hm0pSdHFZnf6SXrp70pUg9TEdxezIPye4BDGqC7vicGsfmZ0QPvHUUwwrOdauOIEDWyKtwG
+	Mi/Woy1XFAsUSN3w/vEN2Eo4UQrgxTECUABjFxomhFdIhRTFhQ1oMgOh5I9jaQFqx0EK1LZ7kmrvR
+	Xat+enznSTs1Y8j0yeyeStdvTd0B/JKImmua9K8yaOCyODjB2kcRAczbLDumGbVmNmtDniVR+FPH0
+	WrmgsDLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmyu3-00000005RR2-0uoV;
-	Mon, 02 Feb 2026 18:44:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vmyu4-00000005RTL-1juK;
+	Mon, 02 Feb 2026 18:44:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmytl-00000005R21-1YxJ
+	id 1vmytl-00000005R1a-15sx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 18:43:50 +0000
+	Mon, 02 Feb 2026 18:43:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 019CF442A6;
-	Mon,  2 Feb 2026 18:43:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6257C2BC86;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1DC3C444AA;
 	Mon,  2 Feb 2026 18:43:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0746C2BCB1;
+	Mon,  2 Feb 2026 18:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1770057824;
-	bh=0uQbqtqzatb0+WEzqiykyv4VMqfCd11CnuuzgkEfvVQ=;
+	bh=fr7um36i7FSrPooYd82g3BcIiUsju9J2xc0y7Xw8W7M=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GUkTwHNq0rs2BVg+ZlGwsKHJu2+FG9OcbLv8Mql9Swag5mYt1HcpG8q3g5QTXWTZ0
-	 hoyluvnB7lpHzwJSpFzHFq8kdtGXR62EQ+Las88mJ44bsz334/h5marK6pap+CxVjn
-	 MgYInMGLN84Vf+4txOoF55ID6t3SUkqhQizbYrtpxuW9NBZcySJ66Y24+T4AV5S7/g
-	 mv52IDmCLAU57MqawWp48N9yCKG3ZaQl60hcdJ1dMpcoqXtmwhHRXiln62y3OIUEWG
-	 4B5Fmplm9rb6zMDZ9+xofykoEGR1hnqCIxzMhYI9U9LHk8GzRmNWlNefe84j6qSUrL
-	 HNz3iNyL2u7Pg==
+	b=cH1X2uTN7atJ8JexA/Vzidx3Lin5iIV/S5xFbXlXxVNxxFaOYIUfWXk2hUhJxea3c
+	 RHsVthAe8va6HDjQj7HD2o6YzzTA3iypubr5UiInBpFmDPfzYNaDqoUgyAgM+PDqcX
+	 hBCu55m6irwdiHmowafLnaN/dgjalMmKkm3xTTBn4gsaz1Jr0ILV+3IomPv6/bwWuW
+	 Lyv7w/i/reop2ZPQKgEldJSnKbm4Mm+dWliIcqZ+nT75LcVML3DZeoLLm6JiCHxpRb
+	 FJi9FVrAtMACpa0pXHTdolZvdCg/3rDlbepteNsJOGMmq6CvsDpgeTBrLuCMDugzaN
+	 HbwHLR+6hjfnw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vmytj-00000007sAy-0UTV;
-	Mon, 02 Feb 2026 18:43:43 +0000
+	id 1vmyti-00000007sAy-0iZ1;
+	Mon, 02 Feb 2026 18:43:42 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH v2 18/20] KVM: arm64: Remove all traces of HCR_EL2.MIOCNCE
-Date: Mon,  2 Feb 2026 18:43:27 +0000
-Message-ID: <20260202184329.2724080-19-maz@kernel.org>
+Subject: [PATCH v2 15/20] KVM: arm64: Get rid of FIXED_VALUE altogether
+Date: Mon,  2 Feb 2026 18:43:24 +0000
+Message-ID: <20260202184329.2724080-16-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260202184329.2724080-1-maz@kernel.org>
 References: <20260202184329.2724080-1-maz@kernel.org>
@@ -72,8 +72,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_104345_590901_3783377C 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20260202_104345_543571_7CF5CB97 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,43 +88,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MIOCNCE had the potential to eat your data, and also was never
-implemented by anyone. It's been retrospectively removed from
-the architecture, and we're happy to follow that lead.
+We have now killed every occurrences of FIXED_VALUE, and we can therefore
+drop the whole infrastructure. Good riddance.
 
 Reviewed-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/config.c | 1 -
- arch/arm64/tools/sysreg | 3 +--
- 2 files changed, 1 insertion(+), 3 deletions(-)
+ arch/arm64/kvm/config.c | 29 +++++------------------------
+ 1 file changed, 5 insertions(+), 24 deletions(-)
 
 diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-index c1b76a76a5e4e..8640f9c9b2e0e 100644
+index ae72f3b8e50b1..274ae049c4b33 100644
 --- a/arch/arm64/kvm/config.c
 +++ b/arch/arm64/kvm/config.c
-@@ -938,7 +938,6 @@ static const struct reg_bits_to_feat_map hcr_feat_map[] = {
- 		   HCR_EL2_FMO		|
- 		   HCR_EL2_ID		|
- 		   HCR_EL2_IMO		|
--		   HCR_EL2_MIOCNCE	|
- 		   HCR_EL2_PTW		|
- 		   HCR_EL2_SWIO		|
- 		   HCR_EL2_TACR		|
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 650d7d477087e..724e6ad966c20 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -3834,8 +3834,7 @@ Field	43	NV1
- Field	42	NV
- Field	41	API
- Field	40	APK
--Res0	39
--Field	38	MIOCNCE
-+Res0	39:38
- Field	37	TEA
- Field	36	TERR
- Field	35	TLOR
+@@ -22,13 +22,12 @@ struct reg_bits_to_feat_map {
+ 
+ #define	NEVER_FGU	BIT(0)	/* Can trap, but never UNDEF */
+ #define	CALL_FUNC	BIT(1)	/* Needs to evaluate tons of crap */
+-#define	FIXED_VALUE	BIT(2)	/* RAZ/WI or RAO/WI in KVM */
++#define	FORCE_RESx	BIT(2)	/* Unconditional RESx */
+ #define	MASKS_POINTER	BIT(3)	/* Pointer to fgt_masks struct instead of bits */
+ #define	AS_RES1		BIT(4)	/* RES1 when not supported */
+ #define	REQUIRES_E2H1	BIT(5)	/* Add HCR_EL2.E2H RES1 as a pre-condition */
+ #define	RES1_WHEN_E2H0	BIT(6)	/* RES1 when E2H=0 and not supported */
+ #define	RES1_WHEN_E2H1	BIT(7)	/* RES1 when E2H=1 and not supported */
+-#define	FORCE_RESx	BIT(8)	/* Unconditional RESx */
+ 
+ 	unsigned long	flags;
+ 
+@@ -41,7 +40,6 @@ struct reg_bits_to_feat_map {
+ 			s8	lo_lim;
+ 		};
+ 		bool	(*match)(struct kvm *);
+-		bool	(*fval)(struct kvm *, struct resx *);
+ 	};
+ };
+ 
+@@ -74,13 +72,6 @@ struct reg_feat_map_desc {
+ 		.lo_lim	= id ##_## fld ##_## lim	\
+ 	}
+ 
+-#define __NEEDS_FEAT_2(m, f, w, fun, dummy)		\
+-	{						\
+-		.w	= (m),				\
+-		.flags = (f) | CALL_FUNC,		\
+-		.fval = (fun),				\
+-	}
+-
+ #define __NEEDS_FEAT_1(m, f, w, fun)			\
+ 	{						\
+ 		.w	= (m),				\
+@@ -100,9 +91,6 @@ struct reg_feat_map_desc {
+ #define NEEDS_FEAT_FLAG(m, f, ...)			\
+ 	__NEEDS_FEAT_FLAG(m, f, bits, __VA_ARGS__)
+ 
+-#define NEEDS_FEAT_FIXED(m, ...)			\
+-	__NEEDS_FEAT_FLAG(m, FIXED_VALUE, bits, __VA_ARGS__, 0)
+-
+ #define NEEDS_FEAT_MASKS(p, ...)				\
+ 	__NEEDS_FEAT_FLAG(p, MASKS_POINTER, masks, __VA_ARGS__)
+ 
+@@ -1303,19 +1291,12 @@ static struct resx compute_resx_bits(struct kvm *kvm,
+ 		if (map[i].flags & exclude)
+ 			continue;
+ 
+-		switch (map[i].flags & (FORCE_RESx | CALL_FUNC | FIXED_VALUE)) {
+-		case CALL_FUNC | FIXED_VALUE:
+-			map[i].fval(kvm, &resx);
+-			continue;
+-		case CALL_FUNC:
+-			match = map[i].match(kvm);
+-			break;
+-		case FORCE_RESx:
++		if (map[i].flags & FORCE_RESx)
+ 			match = false;
+-			break;
+-		default:
++		else if (map[i].flags & CALL_FUNC)
++			match = map[i].match(kvm);
++		else
+ 			match = idreg_feat_match(kvm, &map[i]);
+-		}
+ 
+ 		if (map[i].flags & REQUIRES_E2H1)
+ 			match &= !e2h0;
 -- 
 2.47.3
 
