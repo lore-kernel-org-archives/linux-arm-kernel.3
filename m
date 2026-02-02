@@ -4,72 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4434D172BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 02:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4935ED172BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 03:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xUpUiGwHMrZ8s9RiBnn1fJV1AjhFTWfzEI9RrVPC33c=; b=bSRMfmST8yuG90tke/ZOEt2r1O
-	aBpkYLMNGHLxclAL6l9Q72n3pNvnlFxpEnB7FwV3Sqdzl3Qi8JyCm7o3z41gxVhX0EVHeh+TyDq5A
-	mS/SZ2iiE+J4jPZxhLuJOqcqFHdH32gzTOAo3NqdqsPS5s2AHGeg8Q6FszVPcaPNz+t9dM5WlZNcd
-	+Gc35lGsSbdNJRemhPge6PZTQ3wXrIqxnU8ULZ+OQZmlcse1MsnOG3EPx+xoxKeZM1Pot+ucQC2ZX
-	HdfvTo8keAVjc4imm4bB7DAfkP3HdjkfDNWrUyfoC27xZyxjvLQXPpyzEAmA1R/IXh1nEIG14Hh59
-	8CCBtZyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/jeXZpEnSP/6SsMxF/8l6sfWftxXCj8e+mB6He/m/QE=; b=psQ+0zfPSqzdxLXYrtXDcB3VBN
+	uxN9DdYcrAnRBk8PidGFJ9Kqp6QnN2um2ErWVp+2VozdLCYUGhRfL8mg/kj6esPbZGQ8hiuLQ5afr
+	vpAPjy6rruuCL7pTzYjHC5hySw+erKXFJJbes6sHJXimD6f8S76v9i+5IHJvSCmG2APkcX1zqlhyq
+	C+KEh3iv8BQNY/POF5ILR2RfRDYzN/K+Axr7vDQR4vjwhcPGJ5muCVbBC4uaG2tzKCIkhaMyUh+bl
+	V6AHDxTKx93LMVhM9L/NRLCs2NDHMMrvHAx2DrrSadfQvFwY5wkZuSO+APgXWBag9zATN7VDsL+Xb
+	ynnlAkmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmk5X-00000004MZT-1R3D;
-	Mon, 02 Feb 2026 02:54:55 +0000
-Received: from mail-m8333.xmail.ntesmail.com ([156.224.83.33])
+	id 1vmkUu-00000004NbH-2sQs;
+	Mon, 02 Feb 2026 03:21:08 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmk5T-00000004MZ2-088t;
-	Mon, 02 Feb 2026 02:54:54 +0000
-Received: from [172.16.12.43] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 32be0b186;
-	Mon, 2 Feb 2026 10:54:40 +0800 (GMT+08:00)
-Message-ID: <7256ecf9-b10b-428c-a1a6-e35e80a686ed@rock-chips.com>
-Date: Mon, 2 Feb 2026 10:54:40 +0800
+	id 1vmkUr-00000004Nax-2Rlz
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Feb 2026 03:21:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OeP/USW9HujR3bzi0SIXWvyOoOheJCq57xDyJSsTJAv/8NGRFLsWNiIxCPIPe+rjNRbZQ/sd+ti2gndtFZQ8MMvrPcLQO3k7TLWorIansWqs9Cux1PyQJObOkhV4Np8f4eKiH1Z6NLF+tbJA9ee0ubGc80cMR+6AFHh93aK61cNWBheplivFq9vrdKtDU7cFxYWrR7OoKOxLgpuF3gl96uvyGQcDE+fU7orPEl24yZUVX2xKDYoRnqYDYUPj9gUoIm4ZNTBRRTk9MUQvYaF3z98GIUkMVpeuSUky0fIi5UZz5RGuLPgkUpEiRZfoLorij3Z/m9cPsRG7H8Y6s+DLRQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/jeXZpEnSP/6SsMxF/8l6sfWftxXCj8e+mB6He/m/QE=;
+ b=SYQtw+Dpl+xJslRkVzCsi3Tlgxsx01mD80VDu0IdERlgW2gH36HKky4fB3LtBZU/1lPnASaVZbJcy8yfjvpg00ndrStY7mNH3t5sFTeBZ3vHUicdOj8FckEqcxjauwFUilH6PpN9KEnQsoeqk2MJdvyERM+f9zrDzJ0zmJr6n3+QVscX1INI7MhYxRCcNTXClsnSG9NiUopNEGzgwElNRnFknGdFARZnqogMJ7z4OY6PGN0TPaSsylUMUgkFmpyniB3MrvQWETBjGRVaeXKG3fx5ITX6CwPN3z7qI2r/2ROVBezB0J88dcDgVyB5+LYG9WCl7RGslRWnr/K/0SaFmg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/jeXZpEnSP/6SsMxF/8l6sfWftxXCj8e+mB6He/m/QE=;
+ b=m3uiHwbYz+cMVhVL4KBR2vWH9hZXZd2+bxv2gpslgQX+2xeaXYBZ/RNM5WnYTwkaBdHvNbN9hLxKYNGaGGTrDoqkN5mHySsjzykcj1uoa/WNmVhWZd1YcmoiNK0/XRcM9P7g4szSn3qEQKjwMC9d8g/BxhSsfvIzlHi//oNSfSXum/vqgMaCyVLUTSc3KSgD/Ih4buJzDpDjL8wrOsSF/+hkn7nOdNzrhhZCA7B8vMdlFwwW4HeGBpUpmjbTFY5dlnf2kFGFJfgUBKOfm3gbLSnqvh31GwQcwLgxvVRLJeBzOE0HMT2caDoIHWa/zFGjBXl12Oa96XC7+DrRpHGgKw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DB9PR04MB9645.eurprd04.prod.outlook.com (2603:10a6:10:309::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.15; Mon, 2 Feb
+ 2026 03:20:56 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%5]) with mapi id 15.20.9564.006; Mon, 2 Feb 2026
+ 03:20:55 +0000
+Date: Mon, 2 Feb 2026 11:22:33 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Joy Zou <joy.zou@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>, Ye Li <ye.li@nxp.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Subject: Re: [PATCH v3 1/2] arm64: dts: imx95: Reserve eDMA channels 0-1 for
+ V2X
+Message-ID: <aYAYeQaGK2RUFQs6@shlinux89>
+References: <20260130-b4-imx95-v2x-v3-0-95af05bece95@nxp.com>
+ <20260130-b4-imx95-v2x-v3-1-95af05bece95@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260130-b4-imx95-v2x-v3-1-95af05bece95@nxp.com>
+X-ClientProxiedBy: SI2PR06CA0016.apcprd06.prod.outlook.com
+ (2603:1096:4:186::22) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 05/18] drm/bridge: Move legacy bridge driver out of imx
- directory for multi-platform use
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>, andrzej.hajda@intel.com,
- neil.armstrong@linaro.org, rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- jingoohan1@gmail.com, p.zabel@pengutronix.de, hjc@rock-chips.com,
- heiko@sntech.de, andy.yan@rock-chips.com, dmitry.baryshkov@oss.qualcomm.com,
- dianders@chromium.org, m.szyprowski@samsung.com, jani.nikula@intel.com,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <20251217093321.3108939-1-damon.ding@rock-chips.com>
- <20251217093321.3108939-6-damon.ding@rock-chips.com>
- <DG2S064XPGXL.1MQDAKWZEK50K@bootlin.com>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <DG2S064XPGXL.1MQDAKWZEK50K@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9c1c4614a203a3kunm30717a4a5e3cc3
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUpIH1YYThhOSU4YSx9NGUpWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=Ts+rjOYNWVt4hbMscObl1buxmrB9NU9+2g8/C/wLM5u+Eax2HmzsZNBv3v9cSSiwtBrolYAc/VUT2lnOCMJlGZFJvoa/6jdZZHVRNmmEfdv7qqSTtSwqul/F044OZvyweToEzCvHftxXwzhDu5LwMZ0B560xSqMTzoi2rXZ5pg0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=xUpUiGwHMrZ8s9RiBnn1fJV1AjhFTWfzEI9RrVPC33c=;
-	h=date:mime-version:subject:message-id:from;
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DB9PR04MB9645:EE_
+X-MS-Office365-Filtering-Correlation-Id: 08794188-01a0-4c98-d773-08de620a1392
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|52116014|366016|376014|1800799024|38350700014|7142099003;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?iBzwLmk83YLeSXKs0+ocIWj5FlEfo0etsoCLd6Uy7Pz1rDIQzlpdIWHTV6oq?=
+ =?us-ascii?Q?pZksVfRa1ldg79MQgRw/Y3r9SqYlfLnKuHjVSnokjRLAsGxJAu6YP90h+w38?=
+ =?us-ascii?Q?Tcm2Pn5hTzQTtJyARBGNEAvnw9RVDfr9FyQDSL+8SKxgpRdyzkLKIaFrvg8k?=
+ =?us-ascii?Q?wqJqE5A/qWbkuMeHAuKsBS92HA1oFGDrDdvYP7yRFsHnLYCjqm+fJcY9kTQ3?=
+ =?us-ascii?Q?/iwVLWxjlEBF4uN2rl1RfFrjsOKdtIMEsYtKWVEA9tp6vWR9a5ZcxpxrOgrA?=
+ =?us-ascii?Q?0gUeiEQEnJ24fa100OA+WdIZ/R3+LwXoi9ieyi9CWcibO28M1rfCubHsTiId?=
+ =?us-ascii?Q?wZAlF7dnKylHDOKnmmlMAhAehW3iGkHfWxXDRqHSAlexCmpPDO9arXGtYrNI?=
+ =?us-ascii?Q?vZzVKGJDrTF12h674Ypw7M866MmB0dUqJPmWnmG8X3FnQrrMrJC1c6Mp4hc1?=
+ =?us-ascii?Q?TzjeFeY0ubtK7vb2AW6VUDFf7VLnlw16W3HDGl4mnwsVr5RE5OBGJ2gyNWTW?=
+ =?us-ascii?Q?ki6ziVskYyKZyLEKrAEv2KXItR1xz4+O9krnUdCULrVSJqy2wD33tlLwA+vC?=
+ =?us-ascii?Q?bYCAOve4hh2meZKIw0x5jcr9nbouZPBUDAV3X3B6r4NdZMHedFCKLVeK9+HL?=
+ =?us-ascii?Q?bPJbTjpQ4+LQrW5MCqILU51jaForCCZiwk87tXCSTedqy28VpjNX8kD/cgFx?=
+ =?us-ascii?Q?GYRXQebUaneX/d3y7zMOl59N6mlcFEgBI6xMsyD3072ckUTToMaxOlSVILge?=
+ =?us-ascii?Q?zBmzqcX8495/x8OW6YRSS2y/asOzHWaYfKW3ZghCfx+9f2F44/k59APRNcEH?=
+ =?us-ascii?Q?MoSm2M50IgQ4kZL+cB3Sz31vjlCRKHY1irEbvt8avQmZtf536B3C2tN4bkVc?=
+ =?us-ascii?Q?pQghtNA0+1o5CvAgQT/3XS41PElb7+Nx3eQND+ePG8uXV3MP83JFm+Uir0AZ?=
+ =?us-ascii?Q?BtqCc4BB8qCQnRUDsX4kQxACld1PxLyw6AaQFa+gCa6vKLSrGXAbupGstcRs?=
+ =?us-ascii?Q?tc3kYDsRgKmFkX4azfWgdCFh6Y3xak7zyskJEQf1FRU4n1apHb1km/pem64i?=
+ =?us-ascii?Q?H+NGWUkO6ECsL3zg584eOcjoOrc1IAeG4DaxUnwnK0pc6HleCamGSzBONAni?=
+ =?us-ascii?Q?gbjaiKeU0B0vN9Zy5s6UsT5YStH1+mBrGY4tFDrvt6UZV5owD2S4XTYkhbxE?=
+ =?us-ascii?Q?GBCLxahRfoVfA/EnMnMqUGFRxVdc5q5qiIM+LrxtiqDpLHIUT2S1bE24eB4o?=
+ =?us-ascii?Q?AeTntM7DjqL+Hldn1kEj4/hUN8N+G2ZtxXnypDwVMdAJH1UfZhCIFg7o6Gzb?=
+ =?us-ascii?Q?GtOApQZiypQTuIOt4k0qgc6itQGeLUprq3Kghn2UVB+//lKaEgTByowKXR+w?=
+ =?us-ascii?Q?QWVu18yK4J6c7j0WbaPWs++jtGPtyF8wcj8kAczA8yTnLbIVLU+UWyqg4LBH?=
+ =?us-ascii?Q?6RuFiHSA/QpOGPUIKKOAFGvTs0IDkJwpR78VVPLzrQqJzW/eeHe48yM0Q1fE?=
+ =?us-ascii?Q?8s0g6JeLYUNeS+0jo6k9y5JPM0MThI9VzuUKTh7dlPMZhHrRoFX3WO5QfwOq?=
+ =?us-ascii?Q?QO56qw/be9tC5k2GXxSs4F0I9C+PUdhbi1eH5kqz6yb5lfxRf2p+j9K8DEKP?=
+ =?us-ascii?Q?AFU8kO0o1mpvLgTQAbZqKEc=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(52116014)(366016)(376014)(1800799024)(38350700014)(7142099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8tTW07OtAlN4g2JhKpLwcmjOpfXQf7UGol6ocKIgR+6KCvuyBzrEjK5aIZlX?=
+ =?us-ascii?Q?FmbfsAGWEF2QiTKVvTnQD1qFSXy7m7Hu61D1xwzvzaltTMovzJNpPvuheoY8?=
+ =?us-ascii?Q?AO7Jmk/ylelEoZ5XndHZ8qDNsFU1kYgKgX7N/TQDTSxcTIA/dfKZXfVlwTW8?=
+ =?us-ascii?Q?KQdsq6Kj3WVgph1K9WjLawezpwSpuWZ6SPcwnW+5cXxRxhY/YTClVTkcE/kG?=
+ =?us-ascii?Q?TltaUzR9M89HDxnjUz0JEHNQcxC4eDn1Uix9miQSqYHcVS9UcKBiAAVlZ7mq?=
+ =?us-ascii?Q?f91a7yE4OcsUZ0xzcpH/zdeM+goc7iz5LpyNdGBPUplVvz1M6MpA3x+7ERW0?=
+ =?us-ascii?Q?eaYF0X5g8DyfUn9aqSi8lkoJ/1WnIfF6VB620zD4C9V2VQ55yHAhiASV9+Ir?=
+ =?us-ascii?Q?sDaOShHOfUfBGw2tqeHCfjpx8/5tZgsvErbJxzHh2waFb6/abclLyTpBK/Uj?=
+ =?us-ascii?Q?pNEZc4gCotUQ7fJyxHWA3Y++4Otes8SLcJjXv4EFs8AQPgPMZ9OyWEdYwkAc?=
+ =?us-ascii?Q?60PI+TsdhccG01Qf6tFhKNdLZ+NoP1j8CDbDGK7f/w6OCPoKE/B1K6AWeiHv?=
+ =?us-ascii?Q?q4vKszXw3LRm2/D1IrKnu7ADfGTxshFiy5xlTRwWYxzSmsLeGtSy/u5a9/eh?=
+ =?us-ascii?Q?eEMd7zBooEiSjvwMEz2/6e9yqypEcxxSEGFtkwvGZvC0aBaM3KD71clXxSil?=
+ =?us-ascii?Q?gjZ5eASDosIszPz94KETwPVZRPPcpCXOZgzvAKHEu+5nukj4VaQI5O5PkOhX?=
+ =?us-ascii?Q?l7GuaHad3/4UPjqGMtYlKsE4FaZ2OZNLGQsdNZYUhJxyI8W0TR3Bmvm21pYf?=
+ =?us-ascii?Q?fUVCpSkaPAIvuMFRsW7EfWdcpOh2Ehfd4ZDtEKki8AqBETOsXMW/oSISs5Xj?=
+ =?us-ascii?Q?3pR4pj0jmzKSWc8Y0mOl+lj5HoNL5XZrgA8p6L3xJuuSxI36he+TfiCaSDhQ?=
+ =?us-ascii?Q?KZU+pk6D4TRVb5dvmkaRISPIYMDn9M8pZMGj0Dysr6WjZVfraYe+J8jgG9vj?=
+ =?us-ascii?Q?qmHANXqOHJdO3gAQdyLGCq3aQE9gV6TW30ZPRv4OmUOyLvgS1Enx9nzIStY/?=
+ =?us-ascii?Q?XAWDE32Z4cfjVdELPE3bb9bHlYWMr+8zMUFai/mL0dsEVqnAzdOEVATRpRQM?=
+ =?us-ascii?Q?rfY+oI2//5wRSPVOSl9C4YSAjUMjJirkdTmc3sJPIzL+wmHShTHEwLbVqjd7?=
+ =?us-ascii?Q?8XS4toefuaHYejUoW5js3OHr5ZzUndGIxiUmW+I3c0UizeAxaSCFau56H6kF?=
+ =?us-ascii?Q?IXbRwfJlxRFpLMOA+SUPVd26FZrrhzi1wQlOkTC5FtGGQbENRno98XvpnwgX?=
+ =?us-ascii?Q?7NSc4g1TNSCzJlSCA61S5P/wEgLMAFghZDXoGWffoQTrJECmCbSzIoBQCbYQ?=
+ =?us-ascii?Q?iTUgq0+aqUIkX4ehDBqJ81IYeziNoo0pvLbZ4vi/munX+padIlvWr8HAvLWy?=
+ =?us-ascii?Q?JwwfcmE4HFb/pxUh02R+DrhebxTgNXKNxpZGrwxxiCEKgqnpNYGAvTd9CtG8?=
+ =?us-ascii?Q?zxpHOVpz4HJp+wFuKxquwl38Dh9DHxXMMUM6TGIP5FjqTitKEKurgcaAnr/e?=
+ =?us-ascii?Q?ccfis6CnIKjRlSWCJjtCG+jaPP5s75DTbO1Lg+/E8s0moAzj+czkHEYPMWmt?=
+ =?us-ascii?Q?olHmTxi+p5y0mYlUiTWDtZ5YCbBA5aOvyv2OB77Wh/scgba46Y3YqHWRpwut?=
+ =?us-ascii?Q?ZLYtseVRrMFNm2PwI/WiIeXC8G+hmhEG9MCh8YgSo7dbCRUGtcgfIuy9o2Jb?=
+ =?us-ascii?Q?C6A8/i2v/A=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 08794188-01a0-4c98-d773-08de620a1392
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Feb 2026 03:20:55.3488
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zLbZ0fW5ZFX3y7Ez05PwuUmTAaumbnIpzrwcgYBxC3pyzzCHEViL0dRpSNfnRFuzKiOi65kBi2IgnSvDYaunFQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9645
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260201_185452_490918_997B7A37 
-X-CRM114-Status: GOOD (  18.85  )
+X-CRM114-CacheID: sfid-20260201_192105_635194_D614257B 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,74 +174,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
+Hi Joy,
 
-On 1/31/2026 8:33 PM, Luca Ceresoli wrote:
-> Hello Damon, Dmitry,
-> 
-> On Wed Dec 17, 2025 at 10:33 AM CET, Damon Ding wrote:
->> As suggested by Dmitry, the DRM legacy bridge driver can be pulled
->> out of imx/ subdir for multi-platform use. The driver is also renamed
->> to make it more generic and suitable for platforms other than i.MX.
->>
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->> Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
->> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
->>
->> ---
->>
->> Changes in v7:
->> - Rename legacy-bridge to of-display-mode-bridge.
->> - Remove unnecessary API drm_bridge_is_legacy().
-> 
-> ...
-> 
->> --- a/drivers/gpu/drm/bridge/Kconfig
->> +++ b/drivers/gpu/drm/bridge/Kconfig
->> @@ -244,6 +244,16 @@ config DRM_NXP_PTN3460
->>   	help
->>   	  NXP PTN3460 eDP-LVDS bridge chip driver.
->>
->> +config DRM_OF_DISPLAY_MODE_BRIDGE
->> +	tristate
->> +	depends on DRM_BRIDGE && OF
->> +	help
->> +	  This is a DRM bridge implementation that uses of_get_drm_display_mode
->> +	  to acquire display mode.
->> +
->> +	  Newer designs should not use this bridge and should use proper panel
->> +	  driver instead.
-> 
-> "Newer designs should not use this bridge", but in patch 8 you are
-> introducing a new use ot devm_drm_of_display_mode_bridge(). Shouldn't you
-> instead "use proper panel driver instead" in patch 8?
-> 
-> Can you point to the conversation where the converstaion where Dmitry
-> suggested this change? Maybe it already contains the answer to my
-> qustion. Also adding a link to that conversation in the commit message
-> woule be useful.
-> 
+Sorry to jump in at V3.
 
-First of all, thanks for your reviews on this patch series.
+On Fri, Jan 30, 2026 at 05:36:27PM +0800, Joy Zou wrote:
+>Reserve eDMA channels 0 and 1 on the AXI eDMA controller for exclusive
+>use by V2X (Vehicle-to-Everything) fast hash operations.
+>
+>Reviewed-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>Tested-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>Signed-off-by: Joy Zou <joy.zou@nxp.com>
+>---
+> arch/arm64/boot/dts/freescale/imx95.dtsi | 2 ++
+> 1 file changed, 2 insertions(+)
+>
+>diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+>index 55e2da094c889fc7c1096d0e36f31ae118d2a982..9ac82da2ff440e08ae8378d7ff830a568d50a354 100644
+>--- a/arch/arm64/boot/dts/freescale/imx95.dtsi
+>+++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+>@@ -631,6 +631,8 @@ edma2: dma-controller@42000000 {
+> 				reg = <0x42000000 0x210000>;
+> 				#dma-cells = <3>;
+> 				dma-channels = <64>;
+>+				/* channels 0 and 1 reserved for V2X fast hash */
+>+				dma-channel-mask = <0x3>;
 
-link: 
-https://lore.kernel.org/all/xwenycscalzdlpuxytorbiyvej3k7pv3lhxwtadilxq65ipwsv@x5rxm53w5e22/
+This is wrong. Per dt-binding,
+dma-channel-mask means Bitmask of available DMA channels in ascending order,
+The usage in this patch does not match the dt-binding.
 
-I think it may be a misleading issue caused by directly copying the 
-previous Kconfig description. Now that the new 
-devm_drm_of_display_mode_bridge() helper has been added, drivers using 
-the panel-bridge framework can rely on it to maintain compatibility with 
-legacy display mode parsing.
-
-It would be better to update the comment as follows:
-
-This is a DRM bridge implementation that uses of_get_drm_display_mode to 
-acquire display mode.
-
-It exists for compatibility with legacy display mode parsing, in order 
-to conform to the panel-bridge framework.
-
-Best regards,
-Damon
-
+Regards
+Peng
 
