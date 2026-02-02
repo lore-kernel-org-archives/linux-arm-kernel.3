@@ -4,56 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 228E0E7DF11
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 18:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B3BE7DF19
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 18:33:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ld37UjSrFShX6fuqs3RJQ/EeY8ITkyXzpESPhn9usrs=; b=MKA90EJteh583SC/+aVVjlAye8
-	IlBIfMe8cBCa2yULffGu5TRJBM4uuq3Lf3HgvYnzWMCGxAsKsKAzozUCNxCXV718KJkSVimYRyJNp
-	cLPLz9HU39YMcTd9Wm55OiR21FkjkXf2NweOXqvC7onlaVPNjoa8Jwa3JI2ecntvR1AT9SJaMsgUB
-	wMV0fE1+/8hmu766z91bDjLqvUAmubaPCVYAPzv+ai33b1NW/82AW4NJ0uzt4GjgRbKurp3V7OKPW
-	mAEp+FLrcsovQSwGho97ScyEtL1olWVi4SLCaFJdc+RzluP/nPrsDKF4qCh9l1YIb0m47OFWjdIOB
-	NNpivGBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y0SQA2DCPtCAyrCB1taAmCcHiX9Y9ssa35y7xR4oBdg=; b=AZnYVoJT8RdZik+ZuYcnmwz4OH
+	KMNvUSiGlhVeDGhecZbM3xxe2jzgkVHtDHSq5EsgVKWa+OJiAuLY65X1XHZGe9n/SsPNIQjGUe715
+	shwKKyz4BWoDKYTkJUxUBiCCwkaCsJVf/B2hjGQS6rzjGqyOQ0x1c86iRFy3tN99NNPadDdJrpD7A
+	EtRsx06F3BC9SzyN2SubcSZoXtO4/PRoPZFcV/hjMmaUrOXqQLl4rL7tfHoQsZuGIQ3oo69BLYoZk
+	VNkbTt9kuZJ/vQTsGZgLWnOyGRUeiL607SBH1Cg8b/gcy4YKJrvhegGD1ojRguQdegYK6ZfCio69x
+	VMH3bCrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmyhu-00000005QPF-0D5c;
-	Mon, 02 Feb 2026 18:31:30 +0000
-Received: from mail1.manjaro.org ([142.132.176.110])
+	id 1vmyji-00000005QaF-2TTO;
+	Mon, 02 Feb 2026 18:33:22 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmyhn-00000005QO7-31xD;
-	Mon, 02 Feb 2026 18:31:28 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 3AE3B41AF6;
-	Mon,  2 Feb 2026 19:31:14 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
-	t=1770057077; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ld37UjSrFShX6fuqs3RJQ/EeY8ITkyXzpESPhn9usrs=;
-	b=MBteqqARZXGcsH0GYP3VpJANeTMpcTpQ09y3zR6dwQ8S/ifFxcGckcXplFX0LoFjinIXbX
-	KjG2YbMUqlNtZydk0wmgAMh6EkCoJd1CWcO8/1Rz7MpwvNZfx0dH9EM65p07tnd5ZxJLjy
-	U+4eVKN7bbD48XcNBGqfm0C+dG2tllO3BRHC2nr7rXbvHP3ZL1K6oWEN3PqxKlRzeP3nCd
-	nZbkGGJCgx8m6f9WeJUTwOZ0vVPXYRr/05acpBVQjOZ4ppDw9H1/8nukPL1W7rFdR6TOri
-	vD3jrPBtpboigFMZB96TG99S5coXJ8dg/Pa5gXM8S6KZE0z6ddnSBvempWNNNg==
-From: "Dragan Simic" <dsimic@manjaro.org>
-In-Reply-To: <20260202150437.270567-4-jerrysteve1101@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-References: <20260202150437.270567-1-jerrysteve1101@gmail.com> <20260202150437.270567-4-jerrysteve1101@gmail.com>
-Date: Mon, 02 Feb 2026 19:31:13 +0100
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, alchark@gmail.com, andyshrk@163.com
-To: "Jun Yan" <jerrysteve1101@gmail.com>
+	id 1vmyjf-00000005QZV-3G2l
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Feb 2026 18:33:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=y0SQA2DCPtCAyrCB1taAmCcHiX9Y9ssa35y7xR4oBdg=; b=tTDixZsKE24SXoghdvPSJIy8bc
+	OY+nKwrZMGHsblrqfVwV+w5FzXC4t0XVVaaBBBZLJsSWb0WmCBybILhPr+TbSpU2xYj1m0+dYUkHi
+	GVb/T3KLnt+/2P9nV8NjF5SfretBVNqa+HbAzxlxtrIMoE6Wrhe+0fzl3u6COvhsLNQev2LyKRuA2
+	4ct4blldhRSM0ke44hB0deUx1+jbr92jFIHpXXqlkSwxEkvq2YPF1UthY+Dxo0KxkBSmNALUNn2E+
+	qDwzGSAvDXLcGsnH+Zh1G7IlUutt6iVONhthX+0mkIt6y0VUpbEJlB2EPCFoSa5k1HlrWgzyG68Lo
+	yb0ORK4A==;
+Received: from authenticated user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.94.2)
+	(envelope-from <leitao@debian.org>)
+	id 1vmyjP-004Eqm-Q4; Mon, 02 Feb 2026 18:33:04 +0000
+From: Breno Leitao <leitao@debian.org>
+Date: Mon, 02 Feb 2026 10:32:51 -0800
+Subject: [PATCH v2] arm64/gcs: Fix error handling in
+ arch_set_shadow_stack_status()
 MIME-Version: 1.0
-Message-ID: <705908c9-4552-d808-783e-3ce0cf45bbff@manjaro.org>
-Subject: =?utf-8?q?Re=3A?= [PATCH v3 3/3] =?utf-8?q?arm64=3A?==?utf-8?q?_dts=3A?=
- =?utf-8?q?_rockchip=3A?= Add OneThing Edge Cube series
-User-Agent: SOGoMail 5.12.3
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: None
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260202-arm64_cgs-v2-1-e6a837edf021@debian.org>
+X-B4-Tracking: v=1; b=H4sIANLtgGkC/03N0QrCIBTG8VeRcz1DzVzuqveIEdOdthM0Q5cUw
+ 3ePrS66/ODP71sgYSRM0LAFImZKFCZomKoY+LGbBuTUQ8NACWWEVJZ38W70xQ+Ja2uOshbq0Eu
+ EisEj4pVem3Vuvzs93Q39vAJrMVKaQ3xvZ1mu3c/diz83Sy65t85YrZxxtTj16KibdiEO0JZSP
+ mSeIOa1AAAA
+X-Change-ID: 20260129-arm64_cgs-496817025d1e
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, 
+ Thiago Jung Bauermann <thiago.bauermann@linaro.org>, 
+ Mark Brown <broonie@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel-team@meta.com, Breno Leitao <leitao@debian.org>
+X-Mailer: b4 0.15-dev-f4305
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1367; i=leitao@debian.org;
+ h=from:subject:message-id; bh=MmPseQkgfaXXHt/9anSYmv5Kd61ckl4pLRDdwCFqgN4=;
+ b=owEBbAKT/ZANAwAIATWjk5/8eHdtAcsmYgBpgO3bMxMjQORPcK48PqktX1No+2mRwB7F6LhCu
+ zXTewSqDOiJAjIEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaYDt2wAKCRA1o5Of/Hh3
+ bZSVD/dytK0P3BZSDUHDJxU/yCmzV6hGAp5K8Q5aOuTXPXFXcl1Xw3hiMz4hOEzRzBKnH9tt0gZ
+ 6rAul496Tnusr5EATsIjSFd8D2MZKcnMV1L2TShE7vB8DbPN4txylihnsrpI/DqTzEs5tuO7Io5
+ s0kMxxdJGy13qGD2bxxJAwpNTIt1/bST8KPhoOwhJgyyt2Io3K0p6AHmWrx1Vt8ozzlbH1i7+Ql
+ 3rm5Q34NufWbf1xu8JS9lm7eGL5oELHK05TvbabeuKdLffi8pa8KrnjHb8wWV+/xGCcWNKJHliz
+ oEtlEslte00pLwVYBBvwqFwhYrFr+5bhtXTVuPbbKw71uyC3Jw24tR9vnZj5RF0dGFuyitd0Rfv
+ 7NhrkrncuuoJdk1+fp1pou8z9DBjdvt16J26L2XUZpLBd55xMZ0Bmi+bEzGGBcemrgcdI6HmhHN
+ EoY0yo1uUeIR0KLFDuNjcJY5yLhdFZMMiIkhdC7DlsIPoJkrHWdZzAh+CkA0+dSzUHrM6cmb/22
+ rrRNH3N/uUPHptRhBbpqOPBYx/emTfJbOrs0kUrbY64aSkuKA5Rf10fKLhAuRktDQlGKzOlxqvW
+ xsOnOfcbHVERVuiMqAhAIbWcYiQqdWjx1wNxEjgp2PtxSL6s4C9MQpLq8FzEyVpw5x1HQW78Q2X
+ 1RClQ37Qc5hyq
+X-Developer-Key: i=leitao@debian.org; a=openpgp;
+ fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_103124_146962_9348036B 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20260202_103320_056966_CD5E1AAD 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,103 +96,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Jun,
+alloc_gcs() returns an error-encoded pointer on failure, which comes
+from do_mmap(), not NULL.
 
-On Monday, February 02, 2026 16:04 CET, Jun Yan <jerrysteve1101@gmail.c=
-om> wrote:
-> The OneThing Edge Cube (OEC) series features the RK3566 SoC, 8GB
-> eMMC storage, and supports one SATA interface, one Gigabit Ethernet
-> port, and one USB 3.0 port.
->=20
-> Other than the difference in RAM capacity, the OEC and OEC-turbo are
-> identical in all other specifications.
->=20
->   Specification:
->     - Rockchip RK3566
->     - LPDDR4X 2GB (OEC) / 4GB (OEC-turbo)
->     - eMMC 8GB
->     - Gigabit Ethernet port x 1
->     - USB 3.0 port x 1
->     - USB-C 2.0 port x 1
->     - 12V DC Power supply
->     - SATA 3.0 connector x 1
->=20
-> These devices do not have a PMIC, and their hardware circuit design
-> is highly similar to that of the rk3566-box-demo[1]. Hardware schemat=
-ics
-> are not available at this time, with the vendor firmware dts availabl=
-e
-> for reference[2].
->=20
-> Ethernet, USB 3.0 and SATA 3.0 ports tested, all working well.
->=20
-> [1] https://elixir.bootlin.com/linux/v6.18.6/source/arch/arm64/boot/d=
-ts/rockchip/rk3566-box-demo.dts
-> [2] https://archive.org/download/wxy-oec-RK3566-4G-dump/wxy-oec-RK356=
-6-4G-dump.dts
->=20
-> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
-> ---
->  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->  .../rockchip/rk3566-onething-oec-series.dts   | 312 ++++++++++++++++=
-++
->  2 files changed, 313 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-oec-=
-series.dts
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/=
-dts/rockchip/Makefile
-> index 4d384f153c13..234fa53abe17 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -104,6 +104,7 @@ dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-anber=
-nic-rg353v.dtb
->  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-anbernic-rg353vs.dtb
->  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-anbernic-rg503.dtb
->  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-odroid-m1s.dtb
-> +dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-onething-oec-series.dtb
->  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-orangepi-3b-v1.1.dtb
->  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-orangepi-3b-v2.1.dtb
->  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-pinenote-v1.1.dtb
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-series.=
-dts b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-series.dts
-> new file mode 100644
-> index 000000000000..2007b93e190e
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-series.dts
-> @@ -0,0 +1,312 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/leds/common.h>
-> +#include <dt-bindings/pinctrl/rockchip.h>
-> +#include "rk3566.dtsi"
-> +
-> +/ {
-> +	model =3D "OneThing OEC/OEC-turbo";
-> +	compatible =3D "onething,oec-turbo", "onething,oec", "rockchip,rk35=
-66";
+The current NULL check fails to detect errors, which could lead to using
+an invalid GCS address.
 
-Thanks for the v3!  After thinking a bit more about it, it would be bet=
-ter
-to name the board dtb "rk3566-onething-edge-cube.dtb" and omit the "ser=
-ies"
-part, because the only difference between the board variants is the amo=
-unt
-of DRAM.  Also, "onething,oec-turbo" should be removed from the compati=
-bles,
-and the single compatible renamed to "onething,edge-cube", because I se=
-e no
-need to have an additional compatible, which may be added later if real=
-ly
-needed for some unforeseen differentiating purpose.
+Use IS_ERR_VALUE() to properly detect errors, consistent with the
+check in gcs_alloc_thread_stack().
 
-Also, it might be better to use "OneThing Edge Cube/Edge Cube Turbo" as=
- the
-combined name, because "Edge Cube" is more self-descriptive than just "=
-OEC",
-which may also help with various search engines down the road.
+Fixes: b57180c75c7eb ("arm64/gcs: Implement shadow stack prctl() interface")
+Reviewed-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Breno Leitao <leitao@debian.org>
+---
+Changes in v2:
+- Remove unnecessary PTR_ERR() conversion (Will)
+- Link to v1: https://patch.msgid.link/20260130-arm64_cgs-v1-1-c9b6942b6b70@debian.org
+---
+ arch/arm64/mm/gcs.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
+index 6e93f78de79b1..04a23a497f205 100644
+--- a/arch/arm64/mm/gcs.c
++++ b/arch/arm64/mm/gcs.c
+@@ -199,8 +199,8 @@ int arch_set_shadow_stack_status(struct task_struct *task, unsigned long arg)
+ 
+ 		size = gcs_size(0);
+ 		gcs = alloc_gcs(0, size);
+-		if (!gcs)
+-			return -ENOMEM;
++		if (IS_ERR_VALUE(gcs))
++			return gcs;
+ 
+ 		task->thread.gcspr_el0 = gcs + size - sizeof(u64);
+ 		task->thread.gcs_base = gcs;
+
+---
+base-commit: 8dfce8991b95d8625d0a1d2896e42f93b9d7f68d
+change-id: 20260129-arm64_cgs-496817025d1e
+
+Best regards,
+--  
+Breno Leitao <leitao@debian.org>
 
 
