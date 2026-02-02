@@ -4,77 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC3E9E7FDDB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 20:37:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51AA8E7FDCD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 20:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LI4drouObDvr5ERD2KUuVCl7eSjk5XYsagF6aXvR5xo=; b=XUbpyCGzdhPujAkjTOxBmdn9NU
-	44xvlcP+y5R7zaKkMTNM0/hdH96mH9Od03nHa0bitNaShTAGFFB33C33DB3M59KYn3mRu7mixX5Bk
-	UqN7rVCFFN0J3lEUjfRGbLchPbKAJ3mcTaf2bePrYYxAbCFuJxdyKWlFEHDDvKU3AytxsUa3GastU
-	8LjYTn0uW4xf3MgcEq/W2/+j+bNsxKOLxPu5spmYeLAzwR+K4xs5t8JaMmNinEsn0+WD4ZoScHLc2
-	JBK1QW4JqVe/dA9JMZ+4cIi33IBWje3YG+bajxs2kJ/6jS2QsuD51sZ2fFMAmUEDtceaOU9rVTZH2
-	PUO8s9FQ==;
+	bh=MjBpuLkcLUaCRKPdP4eX6OjLAhe9FJoKGb09vlloYBU=; b=KcDv6evia+ALr/LCM6F35SY3QR
+	aTCRrmtYiJwjCJJK2qeSQFEVrGdpYSA+ycyhsI0KMbHE2T3W/ksd3khxKCRYpg+xvLZ2h0kbLmwGw
+	EhLdxTHWyQsGT23bCzHbhGQHeiWoJ+4mc764FrayMgeWCc7QufDUJV9oF8FjurFFp69xj4F/gx2gZ
+	BI3Z5F9nRb2JNIprqD4KBGg0M1U/jx7VtKueqOPjXRM2GKwHIfD11SRfq/ARU5XLUzwovUWoHY51U
+	qZIEFRFzXzoP6NB+9wMmludrSCRn14kJMYQ4CvO2n0S49A7SwTgKTBwU8ZSQXN9HtyhZgacjqGinj
+	cdpolOPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn0g2-00000005ccw-2myw;
-	Mon, 02 Feb 2026 20:37:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vn0sM-00000005dpb-01I2;
+	Mon, 02 Feb 2026 20:50:26 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn0fw-00000005cXJ-4AOG
+	id 1vn0sJ-00000005dox-06xl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 20:37:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5076640D71;
-	Mon,  2 Feb 2026 20:37:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 29A9FC19425;
-	Mon,  2 Feb 2026 20:37:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770064656;
-	bh=xQU5PPxeDc+0ggIH9WZEoWwe2uu5YIUAtrcZwwYS7LQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=KhTNy2YCu2i158YI6OpQmMjegMnsyPHa1f01dlAIjjreL7sUSvWKxWiAXqlwbR+9L
-	 pWKtr+QF8a7DDI/i6vvE4pdjSlkiMiKYjM8LD7nNYf4ddpkSpZdcFOxdoSuRFYlsrd
-	 prCiIkqgSt+LNyGJ7mUXHYne0gyfY87ZD3YgVRRCo24fDvh42Enzb9H7skfU7UHXqq
-	 sAhNCFp/QYlgBu0pxEK99VIVCvVT08u7Z7uQC4fGdmSnUPIhvMxK3Lk3/rjst+jCb5
-	 1zcNAfzEI2xAjKfIxKF5LTSUNSvsLJecbzTaYYmuEQRsapMzKm2wM2gPYhwHVXQ/OE
-	 ZmX5HpCvU0+kQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1BD5FE7FDD1;
-	Mon,  2 Feb 2026 20:37:36 +0000 (UTC)
-From: Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org>
-Date: Mon, 02 Feb 2026 20:37:21 +0000
-Subject: [PATCH v9 4/7] i2c: xiic: cosmetic cleanup
+	Mon, 02 Feb 2026 20:50:24 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-658b9e95990so9404296a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 12:50:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770065420; x=1770670220; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=MjBpuLkcLUaCRKPdP4eX6OjLAhe9FJoKGb09vlloYBU=;
+        b=VQA5wyoHKEh+wqSbPe7sdHwCW0ij4OTiD3zUrePgtM3BsqApKnb8SwxWzBGBPEv39Z
+         stK5tr2wk7+2I5UekJgmUDTGcMC4ykL0efVKU5RTx9YarP78lwlffFxQ1h42HBviMByf
+         5KH91nyaC9S9OnrIfbH2U4EIXIA5Bj3T8HqY6P+HwVyzS+7VQWHodE9MLF2lbAnDt7Dv
+         ZtFFCmw9dAY2LVLiOQ7Pqzwlyr1V+8WPBlVn/sORa5oUdTEuDCoiuGM+veGI6o9Kwggq
+         kSYDC5e5Pqr33hHjOhDAAcnHUM7REfQx0so1o7aAM9vevzFpPPAMnSyiShnb66LvQeBp
+         ih0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770065420; x=1770670220;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MjBpuLkcLUaCRKPdP4eX6OjLAhe9FJoKGb09vlloYBU=;
+        b=FMchi9RsPIWUfctiUW1CsItsCxYQSl1uDfYaQLz7NICQohzgObQZiO7bhatalGknCO
+         Hct1dsQazBZU+nexZAWk1KRG+8xVN0iPp2lFJImUNm60eh7G7II+GazB7bp+Dt8VlCTp
+         b8iStUAwHPM176/kwuCkHEOwFdfE4wz5Gfta8Ocguw15SeetzC2cRg2KeNPydwrwkJwk
+         p/z729+Ja1lyrT+RlLG7pHNXqggV51haNvweSvtoR2T7VzK7b0q17pGNbOu1crfMRSDw
+         YNo5R7taYZb8jrtMl6/NUu7lt+RaNM4ewOTqyPO9EvkPo03YlwLOyeZtgF1Ku943EaDr
+         z63g==
+X-Forwarded-Encrypted: i=1; AJvYcCU0ePGY8RfIXRSWolRaL5yj0zyL1MnNBQy2yWurCr94g6ZWoZ+6KBB0xQyAuWjmh1tkEadGQeMlDNviEJedESy+@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQGWG4goI+27klIxRMAsgiyHSu/5P1F9MY71eJDK46iLiigJaa
+	AiZIcLMmQy6Y2/BB+F1lDmQRYaexdoJmptT4xO7Aq/ZZgKddMNdCFovazAR7dg==
+X-Gm-Gg: AZuq6aIKdmCSs8ms11rLNqiqHGVT90h7IidpCOj09axSn+H8n0UVctBb+JKIzo5rfNC
+	ydZYb1iwqpB/e4vZCUmZOE9fprbovdSp2mRsYCo/udoglfmZbeqefsRCQzP6tZftC/pMMbVE4hf
+	6QAkCMtGV0+uY7uVTQW750NQh7upuT+y1iEvKKhnvJ1v62dX5nEWeb/kZofWxYX/4Atp4/C1ydE
+	hp+lVIDkSkLqTg5QhqsvffOdrjFXSMS6q04chkagVZTsMzGJw85aWdkRnlJ5a8wvWJEefIUKFxn
+	cN3sCnxFVGfLtkLF7jZVZPB0KKGxyGm+XqM0l2EdVgMrgkKsgN8kCoyjd51bYWDMBwce2NUe9P8
+	AHkkse+f84+FCCgfqWz0aXsMpqe/8WTjWbhi04JFIGeYKW3+I92rcyRK3GLokr1K4YdcEmhC3Aq
+	wYv/d5nq01L1biSC3Hm/YDSjc2yLCGDpncTZE=
+X-Received: by 2002:a05:600c:1385:b0:47e:dc64:f1c6 with SMTP id 5b1f17b1804b1-482db493eb4mr189595615e9.6.1770058495160;
+        Mon, 02 Feb 2026 10:54:55 -0800 (PST)
+Received: from [192.168.0.7] ([86.124.200.187])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-482db623407sm125687055e9.0.2026.02.02.10.54.53
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Feb 2026 10:54:54 -0800 (PST)
+Message-ID: <f95f73b9-d024-4697-bca1-02fb8bc044af@gmail.com>
+Date: Mon, 2 Feb 2026 20:54:52 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC net-next] net: stmmac: provide flag to disable EEE
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ Clark Wang <xiaoning.wang@nxp.com>,
+ Daniel Scally <dan.scally@ideasonboard.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
+ Eric Dumazet <edumazet@google.com>, Fabio Estevam <festevam@gmail.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>, imx@lists.linux.dev,
+ Jakub Kicinski <kuba@kernel.org>,
+ Kieran Bingham <kieran.bingham@ideasonboard.com>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ Oleksij Rempel <o.rempel@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, Stefan Klug <stefan.klug@ideasonboard.com>,
+ Wei Fang <wei.fang@nxp.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+References: <E1vNUjC-0000000FhjR-0h6P@rmk-PC.armlinux.org.uk>
+Content-Language: en-US
+From: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+In-Reply-To: <E1vNUjC-0000000FhjR-0h6P@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260202-i2c-xiic-v9-4-ce4695f5267d@nexthop.ai>
-References: <20260202-i2c-xiic-v9-0-ce4695f5267d@nexthop.ai>
-In-Reply-To: <20260202-i2c-xiic-v9-0-ce4695f5267d@nexthop.ai>
-To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, 
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Abdurrahman Hussain <abdurrahman@nexthop.ai>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770064654; l=3409;
- i=abdurrahman@nexthop.ai; s=20260119; h=from:subject:message-id;
- bh=0DWZjW9H3/UkwrFLsxBTXAgtbNv+3UJqeG68L2XODHs=;
- b=if+UC9iWfErVY6SaxHQIZCuqtCqMDtkdbrbVqk2dg5Gg3ZQUbwqPOGdQqj2BUiqWsZl8jw9J+
- cYjeI5tEUk3CXsnEE1qODWt5TT6sTBCJ3/fBz2vJZiufgP/NtjNLxJM
-X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
- pk=S+ysnf+NwMcBdHBlyKIUEAtaFGSIhQwcJcgcXhq0osg=
-X-Endpoint-Received: by B4 Relay for abdurrahman@nexthop.ai/20260119 with
- auth_id=608
-X-Original-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_123737_112977_9BDC995A 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20260202_125023_108501_8D467E14 
+X-CRM114-Status: GOOD (  34.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,115 +115,114 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: abdurrahman@nexthop.ai
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 
-Re-use dev pointer instead of referencing &pdev->dev everywhere.
+Hi Russell,
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
----
- drivers/i2c/busses/i2c-xiic.c | 30 +++++++++++++++---------------
- 1 file changed, 15 insertions(+), 15 deletions(-)
+On 11/24/25 1:27 PM, Russell King (Oracle) wrote:
+> Some platforms have problems when EEE is enabled, and thus need a way
+> to disable stmmac EEE support. Add a flag before the other LPI related
+> flags which tells stmmac to avoid populating the phylink LPI
+> capabilities, which causes phylink to call phy_disable_eee() for any
+> PHY that is attached to the affected phylink instance.
+> 
+> iMX8MP is an example - the lpi_intr_o signal is wired to an OR gate
+> along with the main dwmac interrupts. Since lpi_intr_o is synchronous
+> to the receive clock domain, and takes four clock cycles to clear, this
+> leads to interrupt storms as the interrupt remains asserted for some
+> time after the LPI control and status register is read.
+> 
+> This problem becomes worse when the receive clock from the PHY stops
+> when the receive path enters LPI state - which means that lpi_intr_o
+> can not deassert until the clock restarts. Since the LPI state of the
+> receive path depends on the link partner, this is out of our control.
+> We could disable RX clock stop at the PHY, but that doesn't get around
+> the slow-to-deassert lpi_intr_o mentioned in the above paragraph.
+> 
+> Previously, iMX8MP worked around this by disabling gigabit EEE, but
+> this is insufficient - the problem is also visible at 100M speeds,
+> where the receive clock is slower.
+> 
+> There is extensive discussion and investigation in the thread linked
+> below, the result of which is summarised in this commit message.
+> 
 
-diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
-index 60d417a2266e..ade0fd66451b 100644
---- a/drivers/i2c/busses/i2c-xiic.c
-+++ b/drivers/i2c/busses/i2c-xiic.c
-@@ -1429,7 +1429,7 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 	u8 i;
- 	u32 sr;
- 
--	i2c = devm_kzalloc(&pdev->dev, sizeof(*i2c), GFP_KERNEL);
-+	i2c = devm_kzalloc(dev, sizeof(*i2c), GFP_KERNEL);
- 	if (!i2c)
- 		return -ENOMEM;
- 
-@@ -1445,13 +1445,13 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 	if (irq < 0)
- 		return irq;
- 
--	pdata = dev_get_platdata(&pdev->dev);
-+	pdata = dev_get_platdata(dev);
- 
- 	/* hook up driver to tree */
- 	platform_set_drvdata(pdev, i2c);
- 	i2c->adap = xiic_adapter;
- 	i2c_set_adapdata(&i2c->adap, i2c);
--	i2c->adap.dev.parent = &pdev->dev;
-+	i2c->adap.dev.parent = dev;
- 	device_set_node(&i2c->adap.dev, dev_fwnode(dev));
- 	snprintf(i2c->adap.name, sizeof(i2c->adap.name),
- 		 DRIVER_NAME " %s", pdev->name);
-@@ -1467,9 +1467,10 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 		return dev_err_probe(&pdev->dev, PTR_ERR(i2c->clk),
- 				     "failed to enable input clock.\n");
- 
--	i2c->dev = &pdev->dev;
--	pm_runtime_set_autosuspend_delay(i2c->dev, XIIC_PM_TIMEOUT);
--	pm_runtime_use_autosuspend(i2c->dev);
-+	i2c->dev = dev;
-+
-+	pm_runtime_set_autosuspend_delay(dev, XIIC_PM_TIMEOUT);
-+	pm_runtime_use_autosuspend(dev);
- 	ret = devm_pm_runtime_set_active_enabled(dev);
- 	if (ret)
- 		return ret;
-@@ -1481,9 +1482,8 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 	if (ret || i2c->i2c_clk > I2C_MAX_FAST_MODE_PLUS_FREQ)
- 		i2c->i2c_clk = 0;
- 
--	ret = devm_request_threaded_irq(&pdev->dev, irq, NULL,
--					xiic_process, IRQF_ONESHOT,
--					pdev->name, i2c);
-+	ret = devm_request_threaded_irq(dev, irq, NULL, xiic_process,
-+					IRQF_ONESHOT, pdev->name, i2c);
- 	if (ret)
- 		return ret;
- 
-@@ -1518,7 +1518,7 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 			i2c_new_client_device(&i2c->adap, pdata->devices + i);
- 	}
- 
--	dev_dbg(&pdev->dev, "mmio %08lx irq %d scl clock frequency %d\n",
-+	dev_dbg(dev, "mmio %08lx irq %d scl clock frequency %d\n",
- 		(unsigned long)res->start, irq, i2c->i2c_clk);
- 
- 	return ret;
-@@ -1526,22 +1526,22 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 
- static void xiic_i2c_remove(struct platform_device *pdev)
- {
-+	struct device *dev = &pdev->dev;
- 	struct xiic_i2c *i2c = platform_get_drvdata(pdev);
- 	int ret;
- 
- 	/* remove adapter & data */
- 	i2c_del_adapter(&i2c->adap);
- 
--	ret = pm_runtime_get_sync(i2c->dev);
--
-+	ret = pm_runtime_get_sync(dev);
- 	if (ret < 0)
--		dev_warn(&pdev->dev, "Failed to activate device for removal (%pe)\n",
-+		dev_warn(dev, "Failed to activate device for removal (%pe)\n",
- 			 ERR_PTR(ret));
- 	else
- 		xiic_deinit(i2c);
- 
--	pm_runtime_put_sync(i2c->dev);
--	pm_runtime_dont_use_autosuspend(&pdev->dev);
-+	pm_runtime_put_sync(dev);
-+	pm_runtime_dont_use_autosuspend(dev);
- }
- 
- static const struct dev_pm_ops xiic_dev_pm_ops = {
+We are seeing the same lpi_intr_o interrupt storm on the Renesas RZ/V2H
+EVK (dwmac-renesas-gbeth.c). On this platform, lpi_intr_o is routed as a
+separate, dedicated interrupt line to the CPU rather than being OR'd
+with the main DWMAC interrupt as on iMX8MP. This corresponds to the
+"eth_lpi" interrupt in the stmmac bindings:
+"""
+- description: The interrupt that occurs when Rx exits the LPI state
+const: eth_lpi
+"""
 
--- 
-2.52.0
+Looking through the other glue drivers/device-trees, it looks to me that
+every platform that defines a separate "eth_lpi" irq might have the
+interrupt storm problem.
 
+To fix this issue on these platforms, rather than disabling EEE
+altogether, would it be possible to just not request the eth_lpi
+interrupt and let EEE continue to work? Perhaps a new flag could let
+each platform decide.
+
+If not, maybe this patch could be merged to add the flag that disables
+EEE and I will just send a patch to disable EEE on our platforms as well.
+
+Thanks,
+Ovidiu
+
+
+> Reported-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Link: https://lore.kernel.org/r/20251026122905.29028-1-laurent.pinchart@ideasonboard.com
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+> For Laurent to add to a patch series appropriately adding
+> STMMAC_FLAG_EEE_DISABLE to dwmac-imx.c
+> 
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 ++++++-
+>  include/linux/stmmac.h                            | 9 +++++----
+>  2 files changed, 11 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 6cacedb2c9b3..ca0eee58a8a8 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -1324,7 +1324,12 @@ static int stmmac_phylink_setup(struct stmmac_priv *priv)
+>  				 config->supported_interfaces,
+>  				 pcs->supported_interfaces);
+>  
+> -	if (priv->dma_cap.eee) {
+> +	/* Some platforms, e.g. iMX8MP, wire lpi_intr_o to the same interrupt
+> +	 * used for stmmac's main interrupts, which leads to interrupt storms.
+> +	 * STMMAC_FLAG_EEE_DISABLE allows EEE to be disabled on such platforms.
+> +	 */
+> +	if (priv->dma_cap.eee &&
+> +	    !(priv->plat->flags & STMMAC_FLAG_EEE_DISABLE)) {
+>  		/* Assume all supported interfaces also support LPI */
+>  		memcpy(config->lpi_interfaces, config->supported_interfaces,
+>  		       sizeof(config->lpi_interfaces));
+> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+> index f1054b9c2d8a..5ed49d5363ee 100644
+> --- a/include/linux/stmmac.h
+> +++ b/include/linux/stmmac.h
+> @@ -187,10 +187,11 @@ enum dwmac_core_type {
+>  #define STMMAC_FLAG_MULTI_MSI_EN		BIT(7)
+>  #define STMMAC_FLAG_EXT_SNAPSHOT_EN		BIT(8)
+>  #define STMMAC_FLAG_INT_SNAPSHOT_EN		BIT(9)
+> -#define STMMAC_FLAG_RX_CLK_RUNS_IN_LPI		BIT(10)
+> -#define STMMAC_FLAG_EN_TX_LPI_CLOCKGATING	BIT(11)
+> -#define STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP	BIT(12)
+> -#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(13)
+> +#define STMMAC_FLAG_EEE_DISABLE			BIT(10)
+> +#define STMMAC_FLAG_RX_CLK_RUNS_IN_LPI		BIT(11)
+> +#define STMMAC_FLAG_EN_TX_LPI_CLOCKGATING	BIT(12)
+> +#define STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP	BIT(13)
+> +#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(14)
+>  
+>  struct mac_device_info;
+>  
 
 
