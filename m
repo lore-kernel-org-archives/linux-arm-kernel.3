@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2DA1E7314C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 09:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35BEDE7314A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 09:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5hX0PUbR+lxT7TRXS9Chm/elfU2/u8o9ggL96ibrGPc=; b=hK1SPFnQklugpAluPLrcRZxada
-	sxgqjg5pp6M020rx4lTRkUKr/Ztb0bgKbR6BT9Bla8nfVribZhgTRA397X744NWns9kIRP9W3Omd/
-	ujmPICemk+nANmWGHPDhlMbeHm+iV3RX0KXq2QFR/zJmKWEBih/KoSmrY8fTa5gM4JDqBROZ9ILVF
-	PZjfGEOoGBbLiaWZnhpf1BXCn6pZ4Sswx/5N+3T8kElSTr+v9vEPUtTsLOHz8gBn8iyuF3/y0FsZg
-	dmh0Kjr2a511UxoYSoNn5mSAD9K0z6boZPVUXeqdrsv65xDdbzHyv5AA7Y/RCzcYRBv5Ey9ap8TBs
-	9zh5kgIw==;
+	bh=C/Lrioh5+KOJj/135WbgrHQ5Fx4lt5N8Up9k+1IkarQ=; b=wgbWt7BFZ31eekVp5RVWWMz7Kb
+	vE88SDO0+jEAxA7Ks2jBEHaUZd+CZ0ceY2sBmNbtQpmQtkgtaJsI/Utz77pa3xVjBUIFdELd7eDji
+	v8YuYQTKccN3pJSVRvLsd6spcwRFAZNx2GvfZI7YbulSJjrkmV9Tssx7N1xYHvWzxy22cTHJ0GPqF
+	ebrK5fWs0ZlAknSMKkKe9y5/SjUOT1PWqThUYwaTbAg2rRjGOR30xlUt3E53Ol9EUG8rQzpTVrZoe
+	ZAaitKnpTXXyA4oXJ2z3kCxRjniLmsULlKhGW3VV9NJVGI8nh2eelBTOYjTGB5iQLnCUpBZDV/u40
+	zSmxBy1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmpza-00000004h4W-1kx3;
-	Mon, 02 Feb 2026 09:13:10 +0000
-Received: from mail11.truemail.it ([217.194.8.81])
+	id 1vmq0t-00000004hBH-3gpj;
+	Mon, 02 Feb 2026 09:14:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmpzW-00000004h48-0Fcb
+	id 1vmq0r-00000004hAr-3aMq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 09:13:08 +0000
-Received: from francesco-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
-	by mail11.truemail.it (Postfix) with ESMTPA id F1C9D1FB6B;
-	Mon,  2 Feb 2026 10:12:57 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1770023578;
-	bh=5hX0PUbR+lxT7TRXS9Chm/elfU2/u8o9ggL96ibrGPc=; h=From:To:Subject;
-	b=pPwsAU1qo9g6dq8d9QhFWcYNw5d8dY9JrAN7vBF3aVS0GevnJFM+aAVmUk0iCOaSi
-	 Bm9C9iwSA7LR9mIuGda7Yvr/t62k8sg+V/8YuySnSxDZqhobVFweSMOHPypOBewE6G
-	 Y7eEGLYZO60nrwtyrtKNk8eGTgrM2Em0EFGFXQsCCNDcAuIjKRJgT99U8MczTibYKb
-	 8EKe5AV5U90SsbUjoAw+8qbOvYxhKPhNQzhzVmjTChjzEJj/i1PzTt9kfe65fXYiLv
-	 eDZQ2s9zxKGKNEgUa3aooVFBPLj2Iu0CcbSoseZ6LZYYPQVNgw+pO8NoU7iLDn/Obo
-	 Hjk/f3xbNaYKA==
-Date: Mon, 2 Feb 2026 10:12:54 +0100
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Franz Schnyder <fra.schnyder@gmail.com>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Franz Schnyder <franz.schnyder@toradex.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 0/2] arm64: dts: ti: k3-am69-aquila: Fix DP enable GPIO
-Message-ID: <20260202091254.GA33026@francesco-nb>
-References: <20260202083604.325060-1-fra.schnyder@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260202083604.325060-1-fra.schnyder@gmail.com>
+	Mon, 02 Feb 2026 09:14:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C061642A62;
+	Mon,  2 Feb 2026 09:14:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C189C116C6;
+	Mon,  2 Feb 2026 09:14:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770023668;
+	bh=CdgeLmXVQi0CFJKfkUOWW2ZfhctpbwdNhykYHfA9aNo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jNbXLeUg92D7Ydkvq3UkgbqhWjQdwz4qm0OHxqAS3WSUe3ee2hRooMtkbug2asE5v
+	 +f6R/wwydBKrre8CF5tsDvt0T5h6FteO6sUhlarIPRi/zZvuJh5tY1ithcrP/A8Kb+
+	 nMxC7OpZig2+xUNwunmh3y3FnW82RE5xt1sRlBsV4AN+e3fkhe+tqognGYRrKC04AI
+	 5zTHI9f6qY+Q3Xz1yS3qyzYXCHklg73S9df23Hrk6rHBU7IBZP+fxZzc4shnh9w4PQ
+	 bOEPrpduAdSTTiSWi1+bphsme4BS1RaO98KLK/GZD30BolyGs5XQGGo4edhXnKmWuv
+	 G6wA7eigk56oA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vmq0n-00000007iNU-33Nc;
+	Mon, 02 Feb 2026 09:14:25 +0000
+Date: Mon, 02 Feb 2026 09:14:25 +0000
+Message-ID: <86wm0va4ni.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH 20/20] KVM: arm64: Add debugfs file dumping computed RESx values
+In-Reply-To: <CA+EHjTxAEah7N1myCgc-XRDjSFLiQcYHQtNjLWt=Ns_Rag6vPw@mail.gmail.com>
+References: <20260126121655.1641736-1-maz@kernel.org>
+	<20260126121655.1641736-21-maz@kernel.org>
+	<CA+EHjTxAEah7N1myCgc-XRDjSFLiQcYHQtNjLWt=Ns_Rag6vPw@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_011307_183970_A24314CE 
-X-CRM114-Status: UNSURE (   8.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260202_011429_935940_543DFE2D 
+X-CRM114-Status: GOOD (  36.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,15 +92,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 02, 2026 at 09:35:59AM +0100, Franz Schnyder wrote:
-> From: Franz Schnyder <franz.schnyder@toradex.com>
+On Mon, 02 Feb 2026 08:59:45 +0000,
+Fuad Tabba <tabba@google.com> wrote:
 > 
-> Correct the DP regulator enable GPIO to index 21 on Clover and Dev board.
-> The 3.3V DP regulator was not being enabled by the assigned GPIO, as it
-> is routed to GPIO index 21 and not 37, which was causing instability
-> with displays connected over DP or via an active DP-to-HDMI adapter.
+> Hi Marc,
+> 
+> On Mon, 26 Jan 2026 at 12:17, Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > Computing RESx values is hard. Verifying that they are correct is
+> > harder. Add a debugfs file called "resx" that will dump all the RESx
+> > values for a given VM.
+> >
+> > I found it useful, maybe you will too.
+> 
+> I'm sure I will :)
+> 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/include/asm/kvm_host.h |  1 +
+> >  arch/arm64/kvm/sys_regs.c         | 98 +++++++++++++++++++++++++++++++
+> >  2 files changed, 99 insertions(+)
+> >
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index c82b071ade2a5..54072f6ec9d4b 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -375,6 +375,7 @@ struct kvm_arch {
+> >
+> >         /* Iterator for idreg debugfs */
+> >         u8      idreg_debugfs_iter;
+> > +       u16     sr_resx_iter;
+> 
+> Storing `sr_resx_iter` in `struct kvm_arch` effectively makes this
+> debugfs file exclusive (returning -EBUSY on contention). Standard
+> `seq_file` implementations should be stateless, using the `loff_t
+> *pos` argument to track the index. This allows multiple users to read
+> the file simultaneously without blocking each other.
 
-Reviewed-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+Yup, that's a good point. I guess I've lazily reimplemented a square
+wheel...
 
+> 
+> >
+> >         /* Hypercall features firmware registers' descriptor */
+> >         struct kvm_smccc_features smccc_feat;
+> > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> > index 88a57ca36d96c..f3f92b489b588 100644
+> > --- a/arch/arm64/kvm/sys_regs.c
+> > +++ b/arch/arm64/kvm/sys_regs.c
+> > @@ -5090,12 +5090,110 @@ static const struct seq_operations idregs_debug_sops = {
+> >
+> >  DEFINE_SEQ_ATTRIBUTE(idregs_debug);
+> >
+> > +static const struct sys_reg_desc *sr_resx_find(struct kvm *kvm, u16 pos)
+> > +{
+> > +       unsigned long i, sr_idx = 0;
+> > +
+> > +       for (i = 0; i < ARRAY_SIZE(sys_reg_descs); i++) {
+> > +               const struct sys_reg_desc *r = &sys_reg_descs[i];
+> > +
+> > +               if (r->reg < __SANITISED_REG_START__)
+> > +                       continue;
+> > +
+> > +               if (sr_idx == pos)
+> > +                       return r;
+> > +
+> > +               sr_idx++;
+> > +       }
+> > +
+> > +       return NULL;
+> > +}
+> > +
+> > +static void *sr_resx_start(struct seq_file *s, loff_t *pos)
+> > +{
+> > +       struct kvm *kvm = s->private;
+> > +       u16 *iter;
+> > +
+> > +       guard(mutex)(&kvm->arch.config_lock);
+> 
+> My understanding of `guard()` is that it releases the lock as soon as
+> the current scope ends (i.e., when `sr_resx_start() `returns). If the
+> intention was to protect the iteration, it seems like `sr_resx_next()`
+> and `sr_resx_show()` would end up running unprotected. That said,
+> converting this to a standard `seq_file` implementation should remove
+> the need for locking altogether.
+> 
+> I guess you based your code on the existing code for the idregs
+> debugfs. I had a look at that, and at vgic-debug, and I think they
+> both can be simplified and made more robust [1]. I also have a diff
+> that converts this to use `seq_file`. It's pretty similar to what I
+> have for idregs in the series I sent out [2]. Let me know if you'd
+> like me to share it.
 
+Yes please. We might as well do the right thing, and I can fold that
+into my current series with you as a co-author.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
