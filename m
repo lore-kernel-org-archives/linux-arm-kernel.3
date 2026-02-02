@@ -4,77 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51713E73153
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 10:41:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2274E73153
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 10:47:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R/9JPzPXycdMx83CaeWNfv6UAe9hVcm0NBgWSL+jhuA=; b=EsJ43ARZprtFpRNsPS5oupGVvK
-	rZKtTQhI8D/JkztVc4LwWwFzpmNKoomQPEZcjBwt0GMnidW8pia8GwtN2x3wxFLz5NPB3CepDiZdC
-	cm9X8ahFodvNYXqKEbaPwlzefMoMX5XN1RM/3a3tYCrGvPZ46hzgtZebMs8LDW5waB8wBE1EXHSJZ
-	wgqDS39k/T0svIIKmwFBi7ZhjwtifufLfdx5Pk4NheSzHXujvIyMDWt0eZfiOHT4LxhreElitQiis
-	fWKhsTEndL0cbPBkzgDvx9JMk27zXHRJdParjyIPjurOusXQbaLatvUQ48z8iRyYAxrROuMd/aoHw
-	FRED0qFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MuFcAAGYwJJvJLl37rWiazK//wPqNn2ApVWsYkYxBnw=; b=OAbrhJOaoAQCC/3sbkqDEmvUnF
+	yW+qzFIZ1+/pdnvAu0QiVeh1EwvdB7UFR4QHLBm/JH52kWwUAM+gi9nvymA/EM9sdfpsAw0brl+nG
+	jEf/8rK4E9MX/E3NJ2aRseDs7E2As3ABv89l0kocMiGRDXBsWMV/y7evRypMlgOmv6P1bhE3MwSil
+	Ar4s38WQ0iWChRbDPt4SkAiYi58aeFlmZCmx7vOsgMBi9vKtixL7d7g/3BnLiw2PwFht6lQMXj3dR
+	l3POgUBvyDl4z7cfHRiw0/qtz8Qdz/PqBbrBCc/c67K3qdM298QeZM6/4r4lQF0XeWXgKgwuUx/vX
+	zpZOK6lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmrMz-00000004qAf-1w6s;
-	Mon, 02 Feb 2026 10:41:25 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1vmrSX-00000004qrU-3Sut;
+	Mon, 02 Feb 2026 10:47:09 +0000
+Received: from mail-westeuropeazon11011018.outbound.protection.outlook.com ([52.101.70.18] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmrMw-00000004q8i-3vac
+	id 1vmrSU-00000004qqh-3ICo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 10:41:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1770028882; x=1801564882;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=2uvh5GR04a5ws4bAhWTfW3RAkctWft0/DaS7gLhvCZI=;
-  b=2AR0VA74366CN36hZ3Zv/yNDaokLikaOpkxz0UMG2gIalBO57dPlRQys
-   VJHkb4NtHCTwPkj2HASZ4H81ugmk6y7fKb2ETBZER5SdW/uwiSGYPe57Y
-   jdq0MvqmoZ+tXrlW74Z8g2COEGPGMgv2VWD3g5ZfBBKFNCL6x2UFrV52l
-   CU4Y16OUPwWlpVi5uRswyJxKWPofjftTS3t0BDE+/vk+GH9I1+aH3U87Y
-   ft1u/yAWhkOI2EaNLcJYemLrTroNLJmQxMxMOTb3ePJipzFWhYNqnuCOv
-   VX7cYElAR45BnV8fgU/D9uMvQep81tuqBQ+MZCGopjE9zeQoG71nLRMpD
-   A==;
-X-CSE-ConnectionGUID: 7oiJFARpQRyJAEDPNcfsaA==
-X-CSE-MsgGUID: 53i4fbhYR6CsWbCdFGpabw==
-X-IronPort-AV: E=Sophos;i="6.21,268,1763449200"; 
-   d="scan'208";a="59959608"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Feb 2026 03:41:22 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.35; Mon, 2 Feb 2026 03:40:58 -0700
-Received: from archlinux.mchp-main.com (10.10.85.11) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 2 Feb 2026 03:40:53 -0700
-From: Mihai Sain <mihai.sain@microchip.com>
-To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <varshini.rajendran@microchip.com>,
-	<cristian.birsan@microchip.com>, <balamanikandan.gunasundar@microchip.com>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<ryan.wanner@microchip.com>, Mihai Sain <mihai.sain@microchip.com>
-Subject: [PATCH 5/5] ARM: dts: microchip: sam9x7: Update the tsu_clk to use the generic clock with ID 24
-Date: Mon, 2 Feb 2026 12:40:25 +0200
-Message-ID: <20260202104025.3781-6-mihai.sain@microchip.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260202104025.3781-1-mihai.sain@microchip.com>
-References: <20260202104025.3781-1-mihai.sain@microchip.com>
-MIME-Version: 1.0
+	Mon, 02 Feb 2026 10:47:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EfrhH6Ofvc1WeNyuEmcG5Ow3xzHH9A7RVZtAzzdc9lGcLosG7k1aGrH7lQNnuAEIQ+PMpfgNH/vs6d3tB7CAmyrWqvnxQ0NVpOcAmQcLwi2fmNtib6Jx1JuqE2YOa8PBYZtjaY2Rd5EBHQFiOgljq9zXr+58EQa8mmdz8H6GQtHGDN2+1pJDG1Kwm4SMVa40X/ozeZRzE04oc6MsPrwJdWalDb2CzXnTfIFrKUs7L6A9IGjEk0MLyq1PaEnBUYdZ4pkV46cnDAcj0E1verUShI4/Z7D0qWwGcAh+lpvz04WC2E0/fzIbh/C21nMaLTsQ5Ni//nOnJefKNeVxQAedSw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6KXf1fwiBDL+Qw5g/9XfI37nWFV5ydb6JuevdlB8m9E=;
+ b=ftii2xDCI42sQfylqagD3fzktMejDNYFWoOksq4XjDWGHrNKgdVYf5MVkG7yjE9vq1ziLYS2X7UbzFbFj1xEuZECn3rfgApc+HdPriU+0yX3k0kXuB02cDF3kf/gtoYMcb3lXsZ2OJTrBNrd3r+BueBjw88mw7MJUMup2xk+/yeeiY+xyMqlEs4ErBvl2OM52TsKuAJYEn+qsZmAEeIDGwAmsUcBOMuZFzi/WQtfjEevJzjGp3kIXqUjN5vfXDJv7DtOz8/xg4TqmGmgY1bccKUew44K5mx0kjUwNJoLRCQKXwqSDfPdxTGEYhR7sQsAJ9St0+L33x1gWXmcCdbpyQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6KXf1fwiBDL+Qw5g/9XfI37nWFV5ydb6JuevdlB8m9E=;
+ b=lUGHUqUTzAefyJNaxPMKXIU09ctWyFC1eeJ3eRxBRR1S89NWDnLEOm7H++ok5O0Gg6f2YbIrJ0AVl2+qnvNJhblMRizIpWSMi9mgqm6y61iPygMLNz6kFpuRCCpyeeYmFdXnIUfyurIAkq7VGauqfrI+IzF8Ly1VK6zjI66XOhEIULQcRIRkuvjAFit+8Rc9RTe4TuIABPdSidYtQM13v9WhfAuETWo6yUicIp3GP036HPDPqwuVu/safO0H8q+KBN+2I3k3mUVDmZw/iCR6yRpYNL2WK9f4v/ehVgf+rRhYE0/EPxoztUjj2RcbyZZhSnGzEedj7J4Qb0nH3O4ccQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM6PR04MB5112.eurprd04.prod.outlook.com (2603:10a6:20b:10::30)
+ by DB9PR04MB9282.eurprd04.prod.outlook.com (2603:10a6:10:36e::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Mon, 2 Feb
+ 2026 10:46:59 +0000
+Received: from AM6PR04MB5112.eurprd04.prod.outlook.com
+ ([fe80::a348:65cc:67d4:1fd7]) by AM6PR04MB5112.eurprd04.prod.outlook.com
+ ([fe80::a348:65cc:67d4:1fd7%6]) with mapi id 15.20.9564.010; Mon, 2 Feb 2026
+ 10:46:59 +0000
+Date: Mon, 2 Feb 2026 12:46:56 +0200
+From: "Viorel Suman (OSS)" <viorel.suman@oss.nxp.com>
+To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, linux-pwm@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] pwm: imx-tpm: keep channel state instead of counting
+Message-ID: <aYB_IhLeWjd2mLta@fsr-ub1664-116>
+References: <20260130143720.778514-1-viorel.suman@oss.nxp.com>
+ <sqpcohdky6m2kz5o7izoclr7k4wi2s72mi4ojrdhr2kbogtfbt@v6y5raizg2n5>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+In-Reply-To: <sqpcohdky6m2kz5o7izoclr7k4wi2s72mi4ojrdhr2kbogtfbt@v6y5raizg2n5>
+X-ClientProxiedBy: AS4P192CA0020.EURP192.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5e1::6) To AM6PR04MB5112.eurprd04.prod.outlook.com
+ (2603:10a6:20b:10::30)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM6PR04MB5112:EE_|DB9PR04MB9282:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9829efa4-4919-4bb4-8cbe-08de62486412
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?TPPqGGqdutojv41ye1FO0X3BcSNxyPQxaENZiPCJYZNKT5JuYVGUsQW7tt?=
+ =?iso-8859-1?Q?qwnMMYqgvW/z3lriq+T2ayW4IQqCM/CV7STr7hcfxLh/XHcSMiTdRWW4vc?=
+ =?iso-8859-1?Q?3ZG05gOXFvVIuBgcAU3H/VncRFkjxl40NCCKLuZ/+hgMsmp0lJyekDHX2i?=
+ =?iso-8859-1?Q?O149yv6mMbiaUKIMbJenSwQARdVMQEcEsHRODAbVpg+ZxzOmaVdLgdtb/A?=
+ =?iso-8859-1?Q?86b9nHciifoz0OqhAVESKtqNUKL2hl1qC9G2R+dxepchXGxDgUsCCYcOho?=
+ =?iso-8859-1?Q?+r7oqDwr8KEPYJ4+jCob/KYvjR7gleIFAuYdW0KLBetElPeM4RVdgxuBSy?=
+ =?iso-8859-1?Q?hHz03KWcUd8CvT2qQPUmiNw/EdRxoXScq+Fy/R+QyKpwjqghEzrm40Vf7X?=
+ =?iso-8859-1?Q?g5uYOVC9kWju8tSXw/niEe0JCGmLSpYECPinQHSW7y0zi+mjqLOafFPrUT?=
+ =?iso-8859-1?Q?Dg6OyYNcJlkAk2kf/XmZfR1P6wNEtFDch2qJ0Gb7aOYPReXtSakLAf6trd?=
+ =?iso-8859-1?Q?KOvItucG+6RRl3EQyG9nqs/Xk4uM+Dt9pNHrlKZVg3bl20Wo4Tkrh0BQSj?=
+ =?iso-8859-1?Q?Ut0MMolnhRIYrDhrCM5DzJxTL9GJk23UCsJrAm9vWMFkAb78Uzd3caxCFD?=
+ =?iso-8859-1?Q?7Xiv333zcIMo4+9eqi4GKAWYOi7gTlnn7XjvNaZTzlebaU8AAZt4yNIzwx?=
+ =?iso-8859-1?Q?VE2fR7t7t9CIh35weG/O1nDL41SgEoLR8icjMD/Q8PmhCo0peIYdbcgIXP?=
+ =?iso-8859-1?Q?ymOdY1/r681o5Gf4omMHlrcGL+UbWZ/jTKUMyWsCdYE+8OoC5zx0lDCyQ2?=
+ =?iso-8859-1?Q?8UUqUJJXBIra7HkKIL9THkTFH+ak0sAKdpLHqMSSDX047Mk1SZfypXheEs?=
+ =?iso-8859-1?Q?n7PNZVE6jpEwpHPz+sAo+ueFJn1OrsNrHXoRotTiLp5Cvt1q8Cm9V5tu16?=
+ =?iso-8859-1?Q?j1KaauktHCROomAU+gbGltPduKLnvAvW7A09DfPt7tBa8c3srowLTX4w3p?=
+ =?iso-8859-1?Q?sI83hYR7pgz0FIP8VBchCNVURAjVNwxVNGIL9KydAoa5nMSfaFOvSo8RPc?=
+ =?iso-8859-1?Q?gEqAoPvARXKNRNROWT6oJNFrgXz6X3yrSxevthdF93/c+Q7KxyXaIxEfxu?=
+ =?iso-8859-1?Q?b8JX3t7ZtwRtT7hAnO+G5Os8FIUR91hDheO/rJnTxOXXEDpMgNmRCM2p/E?=
+ =?iso-8859-1?Q?kGdFBTpIZgahiLLg7XAW7oJeV3mATsalzEWrNnTiyltop96ywMaJK/L90R?=
+ =?iso-8859-1?Q?Zn5VCL6JbBfhgLl1SAiZ6DSV4J/AtsSdBlcKnSBeXO93VnkjEy4Aalafm9?=
+ =?iso-8859-1?Q?TuXlK2QqLJwCboGMWC4WEspqPrq3OcglN2O4tp6UvekKPpMcOSt0OIRL18?=
+ =?iso-8859-1?Q?4VypBxdQVVvmE+70D+hMVPU6IeE0QdvBblLuoryDAfaSb1mzgM5MYaTzGl?=
+ =?iso-8859-1?Q?yTV01DiZXawCZwz1eWRUWKzjmuGc7sK2HWGBv7fzqxHEthkATxYYt4zLbu?=
+ =?iso-8859-1?Q?ndsajNffWmxPdtHMI+9gZTQ2GJzUnO9zcDM5nlc3DTW9ZGf9UxD6q96OVg?=
+ =?iso-8859-1?Q?NsSsWOf0gOVqsOisOvCExt4EvuJORr9FSYnMVwk8op6+/XUhbSW3XRbdN9?=
+ =?iso-8859-1?Q?Cu3pkshJ1Zq0A=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM6PR04MB5112.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?xjdmr1HbRpQJAgM6BN3DVrNknPCata9iAFqvMwNVJbiC/z4Xxym7+TFkxH?=
+ =?iso-8859-1?Q?hTdr3dYmcmWcBPDsDbON+37jwMTEmrTFgI6iL4pmGjp3NkhKDrT2GX2VK+?=
+ =?iso-8859-1?Q?4BpObX9jnMSqNEzIvtiRm/cNr7P42d3M0boyJKDOiBoGZcAvgalBTEzvKr?=
+ =?iso-8859-1?Q?7xAEsNKfYZ704CKZb17BIlnkwMEFT82xUH+yvW0el0YjPozH1iNeKa2cGT?=
+ =?iso-8859-1?Q?4OqeCugYnGXoSeIzvqhllT6T6uWen5GE0DCR8cknBUmlDGfGRWd8ewhySw?=
+ =?iso-8859-1?Q?9F8zpIauz9nfj8y/QSIiRhZ6nEnzN3VcnIP2kojpWRLvBRPVHkS7WLBdTf?=
+ =?iso-8859-1?Q?iXUBPVIn/tOPJMlHNlRZlyqqQ/BHt802RGOXRtU+DmUhsQ8XHfSl7rNOfC?=
+ =?iso-8859-1?Q?X7BLqoxSgp0AZ59/+bXjTO2a2m5VPtEB8o9P4jiPza+SiCKLDOshsOXX6S?=
+ =?iso-8859-1?Q?Rzh18fzz7nombarYKZiIUj7KpRGYTopxvzSpsseFG0VhFCEqODwkCCslCS?=
+ =?iso-8859-1?Q?/mhEILFz9sacmafyKpsmmdPZLBxc9lfwibyeJJFni1gexwaeqkCfnw0SSO?=
+ =?iso-8859-1?Q?0HVlCP5A3Un810KvgB7zlj2nu1fCtybwWo/6toDrmbv3S8La4m3FWRrkml?=
+ =?iso-8859-1?Q?2bKdq8QDpTpBFXQDHovCmu9dFjFViAj3W94ABB5htmwx+mscXu4xY6cwBd?=
+ =?iso-8859-1?Q?GRZwm08R3XzgyeRRi0oU5nFjilB6sL9DDBJWoCVQ/+z2G9uiE5DaXkDqVB?=
+ =?iso-8859-1?Q?/2Ws2CT5sjV8dAKOBen2z23p5UfgLHz/tTllgaPDW1Hge5anwDs5l04nrh?=
+ =?iso-8859-1?Q?r1SLYrMfT9EBpjMsndIOx/cLpD2wVPpbq8s0QeG4hvAFpe9IqAgBbjzBXm?=
+ =?iso-8859-1?Q?FYrQlqfNrgt9NJ6kAMoXGPYyu+6wXWqYYobIQ/ZhcBknqv1mq69wr9lmly?=
+ =?iso-8859-1?Q?1NQm6dcasVsjnoEJb6f9CJqj3NcBupU3/bG8DWFxblTLwA5A0YD3ECWZLC?=
+ =?iso-8859-1?Q?DU7RRSud2whK16Ndv76V6PaluC/IwJKoYr84xOt3QxoZlBD4qnrGSrPKiH?=
+ =?iso-8859-1?Q?MIFlVGRtaNxUBG/vIKA4KINKhy3b2fqjrFkBRiAgDmdPowaD4IeXIw4Cn6?=
+ =?iso-8859-1?Q?weeEp7sS1tDHelJhZtjdVYrBM9emfES1VZnloiYb3BDxZ2AIK52Z8wtZjq?=
+ =?iso-8859-1?Q?nIsClX6lakajYzNqvNVCDjc4AB+NPyd94FuKzFTMGi4bpHeJDQfDuJsVdx?=
+ =?iso-8859-1?Q?bEEjE715ljIQIQAZFAk/IdUPeB/KmqmkLK1Cui4E3mtRz3AB9bSeCxdqt5?=
+ =?iso-8859-1?Q?1HBjhbdwBZuHI7YmybaJx46G6oPrm7gJQI5ktHlfAiabNHhzBbl1v1SvOB?=
+ =?iso-8859-1?Q?9nCGN/arPAmaJw0zAg8iZj0CyCEMhWjYd729iwyS0onB4WYkogE039clBE?=
+ =?iso-8859-1?Q?kl3wOQj+wYu7IflNspKqkP06EvCIN/jFxL5sBfUMa/sapUs9DgKSw+9gio?=
+ =?iso-8859-1?Q?2TafkqTxaMSnKYMuYMbKK9Gj+/lR3KciH1AGIQb1f2ZjZ/aWmJOwvhB0TG?=
+ =?iso-8859-1?Q?AysAtqhKYzKtk8fXsv7If1xdBqpoQVsCO8xno3qyePU1wWzkPowP6l2zqK?=
+ =?iso-8859-1?Q?kMdDGPs71+V8hbTYxKJaBAFYcNJN8U4JSwCDij0egMkLGDE0TrsHGtxu58?=
+ =?iso-8859-1?Q?JKxblH9cySHwseSRvku0R8HpcTIFo1wt8i2HbWHVq9PHQdELUTtRVJllrk?=
+ =?iso-8859-1?Q?+q1rM9tfzW7DH220W6ZKuNntSaLvNxsA6pGbeS0FC8QEpN5LqyoMu4MJEe?=
+ =?iso-8859-1?Q?y7MMVcsxfw=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9829efa4-4919-4bb4-8cbe-08de62486412
+X-MS-Exchange-CrossTenant-AuthSource: AM6PR04MB5112.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Feb 2026 10:46:59.1262
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: A79Dw8Zx+g6CEUNHud9EOYXp6EZM6oL2e5xiDW2RZApH9nshsBTUPGUkMHJmN70n9RmXBOAQ40e80ZFLXSGagQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9282
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_024122_978149_731C8EC1 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20260202_024706_848264_AED4ED52 
+X-CRM114-Status: GOOD (  24.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,38 +169,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the tsu_clk to use the generic clock with ID 24 instead
-of ID 67.
+Hello,
 
-[root@SAM9X75 ~]$ cat /sys/kernel/debug/clk/clk_summary | grep gmac
+On 26-01-31 00:00:02, Uwe Kleine-König wrote:
+> Hello,
+> 
+> On Fri, Jan 30, 2026 at 04:37:20PM +0200, Viorel Suman (OSS) wrote:
+> > diff --git a/drivers/pwm/pwm-imx-tpm.c b/drivers/pwm/pwm-imx-tpm.c
+> > index 5b399de16d60..0f8643f4a70b 100644
+> > --- a/drivers/pwm/pwm-imx-tpm.c
+> > +++ b/drivers/pwm/pwm-imx-tpm.c
+> > @@ -62,7 +62,7 @@ struct imx_tpm_pwm_chip {
+> >  	void __iomem *base;
+> >  	struct mutex lock;
+> >  	u32 user_count;
+> > -	u32 enable_count;
+> > +	u32 enabled_channels;
+> >  	u32 real_period;
+> >  };
+> >  
+> > @@ -166,6 +166,10 @@ static int pwm_imx_tpm_get_state(struct pwm_chip *chip,
+> >  
+> >  	/* get channel status */
+> >  	state->enabled = FIELD_GET(PWM_IMX_TPM_CnSC_ELS, val) ? true : false;
+> > +	if (state->enabled)
+> > +		tpm->enabled_channels |= BIT(pwm->hwpwm);
+> > +	else
+> > +		tpm->enabled_channels &= ~BIT(pwm->hwpwm);
+> 
+> I'm not sure about this being the right approach, feels like the driver
+> sells the pwm core down the river resulting in something the might work
+> now but isn't robust.
+> 
+> If I understand it right, keeping the enable count balanced depends on
+> .get_state() being called.
+> 
+> The usual and robust approach is that .probe() checks the device state
+> and initializes enable counts and the like accordingly.
 
-gmac_gclk      1       1        1        266666666   0          0     50000      Y         f802c000.ethernet           tsu_clk
-                                                                                           f802c000.ethernet           tsu_clk
-gmac_clk       2       2        0        266666666   0          0     50000      Y         f802c000.ethernet           hclk
-                                                                                           f802c000.ethernet           pclk
+Thank you for review, I've moved in V2 the device state
+check into the probe function as suggested.
 
-Signed-off-by: Mihai Sain <mihai.sain@microchip.com>
----
- arch/arm/boot/dts/microchip/sam9x7.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+>  
+> >  	return 0;
+> >  }
+> > @@ -282,15 +286,19 @@ static int pwm_imx_tpm_apply_hw(struct pwm_chip *chip,
+> >  	}
+> >  	writel(val, tpm->base + PWM_IMX_TPM_CnSC(pwm->hwpwm));
+> >  
+> > -	/* control the counter status */
+> > +	/* control the channel state */
+> >  	if (state->enabled != c.enabled) {
+> >  		val = readl(tpm->base + PWM_IMX_TPM_SC);
+> >  		if (state->enabled) {
+> > -			if (++tpm->enable_count == 1)
+> > +			if (tpm->enabled_channels == 0) {
+> >  				val |= PWM_IMX_TPM_SC_CMOD_INC_EVERY_CLK;
+> > +			}
+> 
+> No { } for one line blocks please.
 
-diff --git a/arch/arm/boot/dts/microchip/sam9x7.dtsi b/arch/arm/boot/dts/microchip/sam9x7.dtsi
-index da94865c57e9..a42716e18da3 100644
---- a/arch/arm/boot/dts/microchip/sam9x7.dtsi
-+++ b/arch/arm/boot/dts/microchip/sam9x7.dtsi
-@@ -990,9 +990,9 @@ gmac: ethernet@f802c000 {
- 				     <62 IRQ_TYPE_LEVEL_HIGH 3>,	/* Queue 3 */
- 				     <63 IRQ_TYPE_LEVEL_HIGH 3>,	/* Queue 4 */
- 				     <64 IRQ_TYPE_LEVEL_HIGH 3>;	/* Queue 5 */
--			clocks = <&pmc PMC_TYPE_PERIPHERAL 24>, <&pmc PMC_TYPE_PERIPHERAL 24>, <&pmc PMC_TYPE_GCK 24>, <&pmc PMC_TYPE_GCK 67>;
-+			clocks = <&pmc PMC_TYPE_PERIPHERAL 24>, <&pmc PMC_TYPE_PERIPHERAL 24>, <&pmc PMC_TYPE_GCK 24>;
- 			clock-names = "hclk", "pclk", "tsu_clk";
--			assigned-clocks = <&pmc PMC_TYPE_GCK 67>;
-+			assigned-clocks = <&pmc PMC_TYPE_GCK 24>;
- 			assigned-clock-rates = <266666666>;
- 			status = "disabled";
- 		};
--- 
-2.52.0
+Fixed in V2.
+
+> 
+> > +			tpm->enabled_channels |= BIT(pwm->hwpwm);
+> >  		} else {
+> > -			if (--tpm->enable_count == 0)
+> > +			tpm->enabled_channels &= ~BIT(pwm->hwpwm);
+> > +			if (tpm->enabled_channels == 0) {
+> >  				val &= ~PWM_IMX_TPM_SC_CMOD;
+> > +			}
+> >  		}
+> >  		writel(val, tpm->base + PWM_IMX_TPM_SC);
+> >  	}
+> 
+> Best regards
+> Uwe
+
+Best regards,
+Vorel
 
 
