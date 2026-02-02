@@ -4,97 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72684E7DF13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 17:49:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 315D4E7DF0F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 17:53:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YAotCLeZyiINnLo/dYSD4BE++0CoAWt914tHyyKTDIs=; b=XE2Ax8ifXGyjSThbNXmmeLopw5
-	nzLnjV79lQyH8BSfsWxclxi9hrYFjO/hdEov9UT+UlpxZtj+cQA4zhcKfmNl7q+584e+BgbFzOMl6
-	OZu1y+8FbJ2Eftpkzlm6Lh17aidWOsfPzRHemxcUV7U6BiYtOsi2lCROhJk8Ruw9Uw/M1x7bwp9aE
-	Fg6u3aIBpn9sfKZCNtU7OZ1tRwIAq1Y3Cp+jszEk4bMip05TZLqu945Z4BqzETaL6mizmG0k7IG+8
-	IqAEamVoeRkTeYHyKonlA9FT3AQ5QcSYatZoxeL/5KTFnSqNzCMBXlM3QdM28QwuHaO9krLRb5Z+p
-	P929EUgQ==;
+	bh=PLJBzF8XMNLAElcGlGb8b7F08g/dPrSHSPMb9dnbOA4=; b=lFQfacLTuwUzZ3ko0KuzyV947/
+	9VShuej+jScw1zyMgVy3+DrzkglukhNmlYpZmsSKDFJJwYMl0IC2VJ0emL2w4B09cce7SILHub5z2
+	VJgKXR9BYgHut9TN7Y0Ms6Hw4IN9jgE4RZ34SslJUqzKFmhrcRMNtDz9ROpqY6UN7R8bgj2DRkqOv
+	z1c/dZtfb9/A4UsiIEW9Fy38kcuxzATD1YtR5D+d6DzpFm51gaBX8JZkF0m2HqIN4cYPDU2vdWi+z
+	hSkW/btTHlgyjRivtauQj3tu4s8iOEmoEVNH3+h6aCGDtvVShiXGxCeLYeNP4LQBmj/MEAvFmyJt6
+	gv9gXIig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmy2o-00000005Nrh-0DhW;
-	Mon, 02 Feb 2026 17:49:02 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1vmy71-00000005OBm-1YeT;
+	Mon, 02 Feb 2026 17:53:23 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmy2l-00000005NrK-2UQt
+	id 1vmy6y-00000005OBQ-38If
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 17:49:00 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4801eb2c0a5so46206495e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 09:48:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1770054537; x=1770659337; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YAotCLeZyiINnLo/dYSD4BE++0CoAWt914tHyyKTDIs=;
-        b=KFABUZbER/pY10c+aMqaXhBCvJbBQuKE23TXY5fGAX7EAusJ26E2ZYOWX05UPl1Mfk
-         kvdV6HB8FdwJIrlDy6325jVN59+fccQe2+wRUaRWVg/E2WhItJ93NFZwqFKsr8dPB3B3
-         t8gimOyyrW1fw+9X2L/vDvm5ltZG0y5zwjGVBiXZE2DCjKjzBI6Qdnosql7YSCxzX5Bd
-         q+KJyGDV7TgOJGbHauGs8O0i1s+8VjYtgJQOleZ+TxyHjGm7zbJ+424hvmqrrC7dktgW
-         GDeRztpzB9M2/xuGWs77y+NR48SVPLHCfDduZy7+yhoGJvNKrO4jRNtpcDUClhUE6xBp
-         minQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770054537; x=1770659337;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=YAotCLeZyiINnLo/dYSD4BE++0CoAWt914tHyyKTDIs=;
-        b=LMjWoqPYqf0WotU1NS3CvL1CioOZgUYBfl4o62EslUnnX1/IFdZsKLbaW/ZYv3JjzK
-         6PcErfoqelUskU5TL+ij/kiMDUP/LW5+zi73AXCF07aMi7Q5ZoEgxMq5PUGE48N/Ssta
-         XK6DsrfOxZB3erdo6Ouj3dduZMb9BaD+yd4uwNtcsAU8XjezG31kcbrI/OSIfhp29iHE
-         uLhX3XzaBJ7IHrYRQoB7+oyUa99sj6MXI8fTdN2M+ji21GoiC3HdmGjDS18qaJNhbgUW
-         LVCQuqFU9ob/s9S/T1IzDzCfeTbgwi2nxRD7uKYnq9/GRPoIbRpiW1vbne//hq3iX2Or
-         Rmhg==
-X-Forwarded-Encrypted: i=1; AJvYcCURotqZt7zeIxvL/+cUYwmDBiaqQCJqZxBRSNsXWyhr7X/DlQYnastnWzRGjIL0F/m/p2OZeid7YmZELDqCPCR4@lists.infradead.org
-X-Gm-Message-State: AOJu0YziNYxUgvHwkdFK8svBoiNjLaiSFCGIU8FlfmGnL4GwAQefts+m
-	k7Qy8pRvzfra2CYGlqOEh8EV8xwjaSitloFTRNFWnI+YwvQW/dBlYxu9cVz6g4RTqg==
-X-Gm-Gg: AZuq6aJojdnqwSCL2pQygKiBeDrIoBffLn1Rucvwbfb47qg3fe7cuwHXQgehtOYkKWd
-	uHbWQam2o3dyej95c8yq/M3v1E+Oo93lPUF7zQRoo8L/BeCR2NvkvRPN78oUUYmh8lK5VsW/cBs
-	qW6/L/3DUnNOW4/NVi5x7GPovLPH4iTnG+EEA9wPJKEoQ2jKucT1LdwQCbR37ruH6xYQu3RbWz4
-	8RgrYMKDfEkCKJHtXgN2gYgWUtMLonhPJoghbAwC40okMSVe6dmOH0CaPrj2JHDZtSEt8DtKLcd
-	9xOA98MZJraaL3kk8RFxnzYmSrpWdJ+7y0LHBIVylFtkIZWT7askeVozca8Qf0qGDRPMJDtKjhC
-	WZqswGJjGwQfR9Jmf6SoVgBYWWsOIGUCGFtEDRpB2+op4ic6u1W/k4hJHmIWufL7LB3FANQMOUa
-	l/iL8C+TBLpLLsx/pF2cAO+WtVkXZZgPNWEwCLxbXNURjpV/0=
-X-Received: by 2002:a05:600c:a00a:b0:471:1717:411 with SMTP id 5b1f17b1804b1-482db481be4mr157883855e9.24.1770054536894;
-        Mon, 02 Feb 2026 09:48:56 -0800 (PST)
-Received: from elver.google.com ([2a00:79e0:2834:9:34d8:ac7:1851:db23])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-482dbcf9c3fsm115055905e9.4.2026.02.02.09.48.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Feb 2026 09:48:56 -0800 (PST)
-Date: Mon, 2 Feb 2026 18:48:47 +0100
-From: Marco Elver <elver@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Boqun Feng <boqun.feng@gmail.com>, Waiman Long <longman@redhat.com>,
-	Bart Van Assche <bvanassche@acm.org>, llvm@lists.linux.dev,
-	David Laight <david.laight.linux@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] arm64: Optimize __READ_ONCE() with CONFIG_LTO=y
-Message-ID: <aYDjf8apiadheFuM@elver.google.com>
-References: <20260130132951.2714396-1-elver@google.com>
- <20260130132951.2714396-3-elver@google.com>
- <aYDEiOutq3_O8irP@willie-the-truck>
- <20260202160139.GF1282955@noisy.programming.kicks-ass.net>
- <aYDLUhWMdvzKpTK9@willie-the-truck>
+	Mon, 02 Feb 2026 17:53:22 +0000
+DKIM-Signature: a=rsa-sha256; b=QfW1jbjatg2bVdWxDvuz5A/nLWLsTXHi7UxA9Q21rB27IhSdYu3WJD+dr3KUFitWvEIcjvbhqO6gmjZuhEqelZoOkv8Vr0bZX9vPYhYZX9PnZUK3oQ4KNB3sdDnO+ZgCrqVoLtIi+Vl/mKbVkz4YZKAWHxgHk8ouRCIZULTgOd9Nk6sKSASnnWEM6fUqNUTA8a7IR4hArRyFS6kaJC1rKfC7rmLQM+uVbm7CkRj+yaNXKhkH5uR/3RjP16NnBWqW2zFBjygi5D+42DAQ7x2N43deYb/KJQ5rEFpKNzElhSrsohYcLKYkmBZiJYdV3bub18ZUQLftE45fgYSKWt/vRA==; s=purelymail2; d=purelymail.com; v=1; bh=7kxye65VCI+h5vlPs0yvkT/19UOY1PNPUa2UQ4bXrDo=; h=Feedback-ID:Received:Received:From:To:Subject:Date;
+Feedback-ID: 21632:4007:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -938854233;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Mon, 02 Feb 2026 17:52:31 +0000 (UTC)
+Received: from peko by dell.be.48ers.dk with local (Exim 4.98.2)
+	(envelope-from <peter@korsgaard.com>)
+	id 1vmy67-00000007HHQ-3gE8;
+	Mon, 02 Feb 2026 18:52:27 +0100
+From: Peter Korsgaard <peter@korsgaard.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Sean Anderson <sean.anderson@linux.dev>,  Vincenzo Frascino
+ <vincenzo.frascino@arm.com>,  Liam Girdwood <lgirdwood@gmail.com>,
+  linux-sound@vger.kernel.org,  Jaroslav Kysela <perex@perex.cz>,
+  linux-kernel@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+  Michal Simek <michal.simek@amd.com>,  Takashi Iwai <tiwai@suse.com>
+Subject: Re: [PATCH 2/2] ASoC: xilinx: xlnx_i2s: Discover parameters from
+ registers
+In-Reply-To: <06b3d7e0-27b5-433c-85db-23e4c5ef5472@sirena.org.uk> (Mark
+	Brown's message of "Thu, 29 Jan 2026 18:46:23 +0000")
+References: <20260129172315.3871602-1-sean.anderson@linux.dev>
+	<20260129172315.3871602-3-sean.anderson@linux.dev>
+	<700e4e67-a2ed-4b37-a00b-303bbc5ee6cd@sirena.org.uk>
+	<a95d7feb-4d94-4b25-be96-c7c367342c19@linux.dev>
+	<a17602f1-537e-46e6-a85d-8a005a0443a2@sirena.org.uk>
+	<21a738e6-6585-4479-b797-f8b17df91aed@linux.dev>
+	<06b3d7e0-27b5-433c-85db-23e4c5ef5472@sirena.org.uk>
+Date: Mon, 02 Feb 2026 18:52:27 +0100
+Message-ID: <87jywvvxr8.fsf@dell.be.48ers.dk>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aYDLUhWMdvzKpTK9@willie-the-truck>
-User-Agent: Mutt/2.2.13 (2024-03-09)
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_094859_789520_9DFCAEDD 
-X-CRM114-Status: GOOD (  30.49  )
+X-CRM114-CacheID: sfid-20260202_095320_868757_C07AC1E3 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,98 +77,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 02, 2026 at 03:36:40PM +0000, Will Deacon wrote:
-> I know that CONFIG_LTO practically depends on Clang, but it's a bit
-> grotty relying on that assumption here. Ideally, it would be
-> straightforward to enable the strong READ_ONCE() semantics on arm64
-> regardless of the compiler.
+>>>>> "Mark" == Mark Brown <broonie@kernel.org> writes:
 
-Does it matter for GCC versions that do not support LTO? Because I'm
-quite sure that if, one day, we add support for GCC LTO, that GCC
-version will be new enough that it'll just take the __typeof_unqual__()
-version and it'll "just work".
+Hi,
 
-The problem with older GCC versions was that their __auto_type did not
-actually strip qualifiers (which it should have) -- this was fixed at
-some point.
+ >> and go "Ah, there are the properties I need." On some Xilinx cores this
+ >> is the only way to discover certain properties, so people have gotten into
+ >> the habit of using them even when these properties can be read from the
+ >> device itself.
 
-On Mon, Feb 02, 2026 at 04:05PM +0000, Will Deacon wrote:
-> On Mon, Feb 02, 2026 at 05:01:39PM +0100, Peter Zijlstra wrote:
-> > On Mon, Feb 02, 2026 at 03:36:40PM +0000, Will Deacon wrote:
-> > 
-> > > Since we're not providing acquire semantics for the non-atomic case,
-> > > what we really want is the generic definition of __READ_ONCE() from
-> > > include/asm-generic/rwonce.h here. The header inclusion mess prevents
-> > > that, but why can't we just inline that definition here for the
-> > > 'default' case? If TYPEOF_UNQUAL() leads to better codegen, shouldn't
-> > > we use that to implement __unqual_scalar_typeof() when it is available?
-> > 
-> > We are?
-> 
-> Great! Then I don't grok why we need to choose between
-> __unqual_scalar_typeof() and __typeof_unqual__() in the arch code. We
-> should just use the former and it will DTRT.
+ > Oh.  If the properties are there it's reasonable and sensible to use
+ > them, them being redundant is a concern when specifying the binding but
+ > once things are there any discrepency should usually be resolved in
+ > favour of the binding.
 
-The old __unqual_scalar_typeof() is still broken where
-__typeof_unqual__() is unavailable - for the arm64 + LTO case that'd be
-Clang <= 18, which we still have to support.
+I also think making the hardware registers take priority over the DTS
+makes sense (E.G. what this patch does), as the DTS can get out of sync
+with the (programmable) HW configuration if the FPGA config is changed
+and a DTS update is forgotten.
 
-We could probably just ignore the performance issue ('volatile' reload
-from stack, rare enough though given volatile variables are not usually
-allowed) for these older versions and just say "use the newer compiler
-to get better perf", but the 'const' issue will break the build:
 
-| --- a/arch/arm64/include/asm/rwonce.h
-| +++ b/arch/arm64/include/asm/rwonce.h
-| @@ -46,7 +46,7 @@
-|  #define __READ_ONCE(x)							\
-|  ({									\
-|  	auto __x = &(x);						\
-| -	auto __ret = (__rwonce_typeof_unqual(*__x) *)__x;		\
-| +	auto __ret = (__unqual_scalar_typeof(*__x) *)__x;		\
-|  	/* Hides alias reassignment from Clang's -Wthread-safety. */	\
-|  	auto __retp = &__ret;						\
-|  	union { typeof(*__ret) __val; char __c[1]; } __u;		\
+ >> I would rather remove it for the code size reduction and simplication.
 
-Results in:
+ > We're talking a couple of function calls with no error handling here,
+ > I'm not sure anyone concerned about that kind of impact is running
+ > Linux.
 
-| In file included from arch/arm64/kernel/asm-offsets.c:11:
-| In file included from ./include/linux/arm_sdei.h:8:
-| In file included from ./include/acpi/ghes.h:5:
-| In file included from ./include/acpi/apei.h:9:
-| In file included from ./include/linux/acpi.h:15:
-| In file included from ./include/linux/device.h:32:
-| In file included from ./include/linux/device/driver.h:21:
-| In file included from ./include/linux/module.h:20:
-| In file included from ./include/linux/elf.h:6:
-| In file included from ./arch/arm64/include/asm/elf.h:141:
-| ./include/linux/fs.h:1344:9: error: cannot assign to non-static data member '__val' with const-qualified type 'typeof (*__ret)' (aka 'struct fown_struct *const')
-|  1344 |         return READ_ONCE(file->f_owner);
-|       |                ^~~~~~~~~~~~~~~~~~~~~~~~
-| ./include/asm-generic/rwonce.h:50:2: note: expanded from macro 'READ_ONCE'
-|    50 |         __READ_ONCE(x);                                                 \
-|       |         ^~~~~~~~~~~~~~
-| ./arch/arm64/include/asm/rwonce.h:76:13: note: expanded from macro '__READ_ONCE'
-|    76 |                 __u.__val = *(volatile typeof(*__x) *)__x;              \
-|       |                 ~~~~~~~~~ ^
-| ./include/linux/fs.h:1344:9: note: non-static data member '__val' declared const here
-|  1344 |         return READ_ONCE(file->f_owner);
-|       |                ^~~~~~~~~~~~~~~~~~~~~~~~
-| ./include/asm-generic/rwonce.h:50:2: note: expanded from macro 'READ_ONCE'
-|    50 |         __READ_ONCE(x);                                                 \
-|       |         ^~~~~~~~~~~~~~
-| ./arch/arm64/include/asm/rwonce.h:52:25: note: expanded from macro '__READ_ONCE'
-|    52 |         union { typeof(*__ret) __val; char __c[1]; } __u;               \
-|       |                 ~~~~~~~~~~~~~~~^~~~~
+Agreed, but the HW registers should by definition always be in sync with
+the IP block configuration, where the DTS update involves a manual
+update so it may not, so the HW registers are more reliable than the DTS.
 
-... and many many more such errors.
-
-It's an unfortunate mess today, but I hope sooner than later we bump the
-minimum compiler versions that we can just unconditionally use
-__typeof_unqual__() and delete __unqual_scalar_typeof(),
-__rwonce_typeof_unqual() workaround and all the other code that appears
-to be conditional on USE_TYPEOF_UNQUAL:
-
-	% git grep USE_TYPEOF_UNQUAL
-	arch/x86/include/asm/percpu.h:#if defined(CONFIG_USE_X86_SEG_SUPPORT) && defined(USE_TYPEOF_UNQUAL)
+-- 
+Bye, Peter Korsgaard
 
