@@ -4,100 +4,189 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8396FE7DF00
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 16:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB15EE7DEF7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 16:34:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wOpBAlejMQlf8l36+6BJOJmGY4gq2Qds1l7yR6luOBM=; b=D7ICDm3hYgo8wtsgSIBbN4Wumn
-	/YYWaG0ev37LYlVUildsyRurgHu0mDFDikJETAcFFE2G+xRTnqF0uDYgltmH+uam89dOI7iR+ydQc
-	h3kE89VXOdoN80LgkB9oUOPvHnk4I3+tAUQwpJkBpuFMGKf7rl9zFQffR9GNgeU0zMxruUjpCW65Z
-	TLDvYIUX7WHZcSk48MRXMH5rwDGpx9erm2M43S0kKv2WtgJvYAXuhcZBTc35RrPaM74pz6Og5NQi/
-	IF4BczUB7cxGbCXwltTTKZgdBrYlESoRxc7IUbZv4e5DWRk5Fqbg6ShYpphUIr3tj+4r/WEKiz+b2
-	FX4NVOrg==;
+	bh=Xl7EkXOgD+100zX4ZW3J3Gvk5e9W9WMYinY4EGQNL5c=; b=10QZBN6tpdGoOmaefT+u+gHgdI
+	KMNKQreuudMHrOrm6xsrtItw5DkcNxw3bzPtMK6+FohBntx1AV6DhZeHsK5tOsrgoIKlaCQnBFKZU
+	gALg1sqH2DmOCK+aIQBFSYDje53gZLHZroCnv4Wfee12l+xTUAkWGdkQh0cWZuvO/h3UtTlAqlQcj
+	RtslneYteO3psAx5ZcpDzP95ywDNTWbchrqE66yGdjDfk0LnEA6HluC2EkhRaMQTxCEDWNe9gE1yQ
+	WsJrr3kRM5HR8dPDmPHq6ziEdzDcqmFAbS4H5K9DDp9qIQhDJ9VyTIRhSSCH0dU9Ua4nkybZHIhmH
+	qUCe0INw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmwqf-00000005IxS-11VG;
-	Mon, 02 Feb 2026 16:32:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vmwsm-00000005JEa-15dp;
+	Mon, 02 Feb 2026 16:34:36 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmwqd-00000005Iwc-2eaF;
-	Mon, 02 Feb 2026 16:32:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=wOpBAlejMQlf8l36+6BJOJmGY4gq2Qds1l7yR6luOBM=; b=TRdURifyGorxqYhF+Xe6NQmQKv
-	e3FXp1BxThFJbkOEu4okyaJVdbHeJzPowbHjeNQpsSAM+0ofryNflYOIGvjTiWQ78ROHqD6KOHilw
-	smdx0kPf4Ojm46C2+Xijl3zlyfIDSEOq4zT6uu2ZXJCB18nb6pABu52cFVtfVxZH7PwQAgsKWH8zW
-	ZnjEcDr++ZyahxOaCjzlbu1z7BdKo0OXpNGh7qqQ895dTFEEV9Jv4rpTf0gnh3KtqV1eqTVNAj/4Q
-	XU8bUy8GlfvMPDT8hGfwXbHEq2sqLYQ7mpIX1d34jgo/D+cqQdWfFtLQ1fdJ/5FFeF9ukczzEy7+l
-	7tRreH9w==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmwqa-0000000Eqg7-32nv;
-	Mon, 02 Feb 2026 16:32:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1770049939;
-	bh=EbEcrN/Wa7xsaLg8FjqJkY67F/gdBSGhJKVWbuWvgtY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=SLt97rhGMZFLOSh/T2m5qPWsdjbnIbe7p98Ae65y+OIRQAPOHS5V7IiMNMJt2I5q0
-	 i8ip9fNtICHk6o6pP8+dtXzQGFVHCvfM5l2vCrGS9u8gV0anm7Sm3oM5Np5XNfi7p4
-	 xINUFjlpdXXeyOgbj8r49BNxczNTUkWTSSDNaJ0qxVd9DDhiUospsvhNAoH2mvzrLd
-	 UI62ZkxaQoRAt9T7khg/yKusIiGkgDuNI6w/uLPtiMvMUBt1yOl7Ns20s5ijq135wa
-	 80FZLW6lxw/1LFITVFCEXcA77i+53ndesDm3xomWB0ux5Z/6/2vXbUtnyziBKy/Vr3
-	 zk1XLtA9yL2hw==
-Received: from [IPv6:2606:6d00:15:210e::5ac] (unknown [IPv6:2606:6d00:15:210e::5ac])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3CFB417E1276;
-	Mon,  2 Feb 2026 17:32:17 +0100 (CET)
-Message-ID: <ca81b8b03651cdb4f997c89fffd489407be59b8b.camel@collabora.com>
-Subject: Re: [PATCH 2/2] media: rkvdec: reduce stack usage in
- rkvdec_init_v4l2_vp9_count_tbl()
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Arnd Bergmann <arnd@kernel.org>, Detlev Casanova	
- <detlev.casanova@collabora.com>, Ezequiel Garcia
- <ezequiel@vanguardiasur.com.ar>,  Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Nathan Chancellor	
- <nathan@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Nick Desaulniers	
- <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, Justin
- Stitt <justinstitt@google.com>, Hans Verkuil <hverkuil+cisco@kernel.org>, 
-	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, Jonas Karlman <jonas@kwiboo.se>, Alex Bee	
- <knaerzche@gmail.com>
-Date: Mon, 02 Feb 2026 11:32:16 -0500
-In-Reply-To: <20260202094804.1231706-2-arnd@kernel.org>
-References: <20260202094804.1231706-1-arnd@kernel.org>
-	 <20260202094804.1231706-2-arnd@kernel.org>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-2jK0PyPR5gtYSVPZSaBh"
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+	id 1vmwsj-00000005JDx-1HO7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Feb 2026 16:34:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NSqTRA4FykuAaHtgxst0s876cujlK33lNN5T/IKm9bIsqQDhsp+B6Z2Qt2qegIrS6Kru/4Cvoumm4lUp6FdvsqrNye1D5s94vpo7VQLNELH5uHXGeOuL2paDltBGw+2Gr6hqHHn53oDCpbXAJbRI/Q25E6P6mdsG37yQ3ZOmmwyQIBpzP0xt4VLoIx/qxEBLu7NGo6pO/D2SdI/hS+O5udaUS8+uSTJfz8TyHzArX3gwyDO3iZqnkZRMtJbzTw6CzlzlUrdl16TjuD5KfOHZkH/eTeOst9Gv+4sV+HVunmfCa5naqK8m5ClOmMYFi+Ysnc1ZOVbxqN0em9Wfj/JHXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Xl7EkXOgD+100zX4ZW3J3Gvk5e9W9WMYinY4EGQNL5c=;
+ b=ghcNLk9yrMu/TLH1jCHwOYdtOpvN0Xb2QybpPQSlFDXxIEKFipYmpNJy9UuU4U3jQ0MherZyuOsp9Jxkmw3Kju9pGTGxvIgiXW+mI/TxHFDaA+QJpILQRRjwJ/QSQZmgjshmvFg1KbnkA+Ci5ciZzDts1x6ekIxfEDA2fEK2zclSppIldj7ORcjPJzJzEMaLKMCZYTFYXJXWg3J0+7VPIZXnUCecYI2SYqPB0dy6cOKQFTXZF2DcugTfOL3w5ixpR7P/l+Lb2PVli9ASDV/Mtxcgdt5DJbMZN7TJ6jCjOHgcfdhS7mQkYIo/3J/7j5tvWo6X41gSLBPRx1vHiLJlWg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Xl7EkXOgD+100zX4ZW3J3Gvk5e9W9WMYinY4EGQNL5c=;
+ b=F9/vJimXZp3nJRV4LADwlwepXKdOR9WuHKvoXJ2pnniJTLDqUSKVQkyU9lvsc2rt+XBfGe/rbLseGQ1+gpCWovpSnvtm/Zs7002tnhYZBteMQ0hUnDvLQaG+yLnm06RPihh/1GeDCYge79nSH2Cg1zsZpQoau9CP6somLmCZNEkeiXhOv7hU2yBGoNAZkiV31YzUrIFNxt0aMpB4SQnX4fkSJhGIgjbc3Jq/eEwJYt69CmC+Zlb9AQSNIMLtqhIwDtpkq5xOc1y8XdVcBVC+c9UD3gp6j8UHTtNLoTg/7m42zZwRsPunjXso3XuMXJKpP0rY1LC3G9e5eUW6bctzWw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BL4PR12MB9506.namprd12.prod.outlook.com (2603:10b6:208:590::12)
+ by CH1PR12MB9696.namprd12.prod.outlook.com (2603:10b6:610:2b0::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Mon, 2 Feb
+ 2026 16:34:21 +0000
+Received: from BL4PR12MB9506.namprd12.prod.outlook.com
+ ([fe80::1250:4d33:ce3a:82af]) by BL4PR12MB9506.namprd12.prod.outlook.com
+ ([fe80::1250:4d33:ce3a:82af%3]) with mapi id 15.20.9564.008; Mon, 2 Feb 2026
+ 16:34:21 +0000
+Message-ID: <ca45ea06-53fa-4010-86c6-66213243b636@nvidia.com>
+Date: Mon, 2 Feb 2026 10:34:18 -0600
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 41/47] arm_mpam: Generate a configuration for min
+ controls
+To: Ben Horgan <ben.horgan@arm.com>,
+ Jonathan Cameron <jonathan.cameron@huawei.com>,
+ "fenghuay@nvidia.com" <fenghuay@nvidia.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ gshan@redhat.com, james.morse@arm.com, kobak@nvidia.com,
+ lcherian@marvell.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, peternewman@google.com,
+ punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com,
+ reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, tan.shaopeng@fujitsu.com,
+ xhao@linux.alibaba.com, catalin.marinas@arm.com, will@kernel.org,
+ corbet@lwn.net, maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+ suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ Zeng Heng <zengheng4@huawei.com>, jasjits@nvidia.com,
+ Jason Sequeira <jsequeira@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+ <20260112165914.4086692-42-ben.horgan@arm.com>
+ <20260113153938.00007d6e@huawei.com>
+ <80db7035-07d3-4fb4-a228-f9c67d2df1f4@arm.com>
+ <9e01328f-7f28-4b43-aaf4-59d3ce80c268@nvidia.com>
+ <3ae02b5b-22ab-4778-a29d-709ca3163f58@arm.com>
+Content-Language: en-US
+From: Shanker Donthineni <sdonthineni@nvidia.com>
+In-Reply-To: <3ae02b5b-22ab-4778-a29d-709ca3163f58@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SA1P222CA0028.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:22c::30) To BL4PR12MB9506.namprd12.prod.outlook.com
+ (2603:10b6:208:590::12)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL4PR12MB9506:EE_|CH1PR12MB9696:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8bf22cc9-e189-4092-d465-08de6278eb09
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NzBBRU9VczhTUzEvUmlBdjRXT2RXMUs5ZGxSSElKOG5aTVlib3p0c3RBNjlP?=
+ =?utf-8?B?RlB2WkVBbmptYkMwd2I0SWYxZGltOGRKZ3dkSjd6ellOR21JWEdSeVpmSnli?=
+ =?utf-8?B?Mzh4ai9BM1lYVzNnb0VVL0FIUVAwTVZxTXUwRGdLdkZsTmdLK0JjSlRCcGow?=
+ =?utf-8?B?ajN4dEdOTFpMVnE5SXl4aEF2MEd1Nmw2U2dKckdOdjZQUFZQY3Q0b0VtOWlq?=
+ =?utf-8?B?ZG1jNG1NT3RCSUN1K2Nqa0lVVTJWMTBwVWFFTXZia3kwTTVMbUt0R3ZIbFRz?=
+ =?utf-8?B?VHpsaWplNW5QOGo3TDZmMGcrWjMzbGJudGNZZ0lMQlVGbnRYZTVrdnE2bGdF?=
+ =?utf-8?B?YUFNbjQwWTRWUVR2NTl1amQrUFRCSUNrSGY2bkxIN1pEWmpWUVhLaGRGMmFX?=
+ =?utf-8?B?elMrZ0lvNld3SUd2WjVXMUJHemg1ZXI5NmFNOEh1ZzVqMmk5N3NLcHl6aTlE?=
+ =?utf-8?B?dW1VWVJubS9vdkVwSUJHaDA5V3U3YjdhZjdOT2Vpdk8zdjBjSHlrVjVVcU42?=
+ =?utf-8?B?RFF1MXdLb2R0d3k1eDBCV28zZlFIdlI4b2hoV1cyVzAyYllZTTJ6bThpVEh1?=
+ =?utf-8?B?a1FlMjJSWDRkZjFoOFZ6Z3FLajRnZkxOTlZLOUlpeXd1NWhlZzBnOEdCVXAx?=
+ =?utf-8?B?bFptWjVqQVBzUzIwSHVUNEkvZGFtbk5wRmxUV052ZDFmbnVXY2NmWWsrUjZJ?=
+ =?utf-8?B?WnZRV3JrT3I1UWFJbEROdWtnbGkySWNqa0pZWHV2eE92K3pYVStGblhtQkJF?=
+ =?utf-8?B?bUpDTXlab01aMGwyQ2JwUTdNU0VveDBHZ2NLSWNFK3cxblZVTkRPcGw4ekRr?=
+ =?utf-8?B?WXhxNkpwOWxkRjE2K0NCbWxDZ2MreVczTTlTTDd1d0VEb3RsTjJ3bTFGanh0?=
+ =?utf-8?B?MUMyZlMzTzNRVE9CSnRFdzhheTNEMERXbWdXMWlWUTh1VkJlRWZBM1d3b2ZL?=
+ =?utf-8?B?ZU9Ob1VmelgyMjJaTWNaeG5NbFdLVXJwdXZrcGR6Ym8wMHJnalV2OXJjWEQ0?=
+ =?utf-8?B?MVlkZzZWWnFxVHZqSXRYSlZiOUYrVW9vVEVVS0NNcEhFanJRNkxDZUtaV3l4?=
+ =?utf-8?B?SVlNTHFuamJzZWNsWUlYMHQ1ZzBZdXJMTWVaNFc2bVg2SCsvY2JHUGZmZE5W?=
+ =?utf-8?B?Y3FlTWU3VDB1TDJEOVl2OXNiWHlGaWZIMzBYOVZxMnRSWHVtcDE0Z3poajN2?=
+ =?utf-8?B?SzBtajdqbXRmVzNsUUFvOU9PWjBjaVRmSnNXUnZjbXFzeGI1UGR6SEUxd0dH?=
+ =?utf-8?B?MlVLOVZtcURHMThmNXFnY1NNd210cWkrdHAwUEVxd1FzV3VQQkxseU1hY3J0?=
+ =?utf-8?B?S1Q5UnhvTmhSODJueER0NUMzTkJVRi8xWm5GV25adzgwZWdOT1pIc05zQWZz?=
+ =?utf-8?B?ZDE0Z0xqOUFkT3VLaXVQaXM0ZVZ2d1lPVmFEWDRjKzBoaHdaRlhNNldNQlhs?=
+ =?utf-8?B?dHk1aVZyY3pBZnJnN28vcjQxNXRvOXpYSmkvNit5UkoweGJPNHZmNXRLcThO?=
+ =?utf-8?B?UXNlSE5ibTAzL1ZiU29Mc0xTcVRscldhQ09PQ0hNa2RxY05PSmMwdlViYTFt?=
+ =?utf-8?B?VDg3UW11Sk5CSW16QWRZUmtpQ0tndmc2UnlUeS94OGFIS2hsWG8zSnpFZ3pm?=
+ =?utf-8?B?eWx6VFFyYS9pakNoWnJCMXhJNFdOTUtTcC9mcXBJSklJZThvMEV1Q3hTRmlF?=
+ =?utf-8?B?bmdoYWc5eTNOeXkxaWl3QnRKY0xNeEtwT1hHS3ppQ2ZVTkNjOGx5ZmpXZW84?=
+ =?utf-8?B?VWc4VXBHZzU4UllZZThyQWdRaThFUWJpVjZTc3pIZEgrSmplQXhXSnJFV3lB?=
+ =?utf-8?B?RDJKbURnMEVsUTZKWTVCdjk5VmNzTmxRQnhycklwTEo0WlRpNE5EZGorakZv?=
+ =?utf-8?B?LzJQY25BUzBYTERDSjZXQzhUMklPdmRzZjgzZUVsYWRxMlRXU1JVTmN2UmhC?=
+ =?utf-8?B?WWt4SmM0MlYwWXZlTGE5S2ZwTjg2dU1QZVdySWFjUTJqZVBrZThEdElWVzBE?=
+ =?utf-8?B?dGkwOGl0UVRDQmNqcVJFSXpiVllYcUtKL2ZNcHVLaVZ0T0dQWlBVd3QrUFgw?=
+ =?utf-8?B?cGNMbnRFeCt5SHBEQUZ4V3FzbnZ3Z0xlSDZzc295dTFueDFVNXlTZDVxaTlE?=
+ =?utf-8?Q?3ukY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL4PR12MB9506.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q2lMZEpqRjNLQi84Si9ETkcybm5HcUhoTnhNd0p0Mm1WZFN2STZ3SmYzUGpj?=
+ =?utf-8?B?Mzc1SzhFVUhjbm1CSkgxdDRqUkZOdGxIWmlIcFNsMmhKQ3VqUXo2RkdCUVNL?=
+ =?utf-8?B?Z3dBUVdTQjJVRHFkLzMvazNqREpqajN4MWxvNW5jWUVIdkNoSzhzTUpnWHNT?=
+ =?utf-8?B?VDRUYzNFclpGL1NYcjZhMVVnNk9VRnNQL3dRc2xDQ0VuTjYrWktmd1VqQU1J?=
+ =?utf-8?B?RUhudzBMdVRzSzF2NXJHRUttQURaNTNTRm85SWJoZUxuTy91bklWem41cFpQ?=
+ =?utf-8?B?Z1BVeVhFdFBPaTIxaWJteFI4aFpjbmFNeHI1SkNIYzNiSGh6ZUFiK2RBanhL?=
+ =?utf-8?B?MmtqalFTVXI1RWE4Mlg0MDUybUNsRDNJeWQ0OEgrczg3dVhRd0hMWThYQ1hN?=
+ =?utf-8?B?WDRhMGI4L1hoR2JnaDYwbW50d2taRm1KUmNISS9qdkVCWis3a3ZGamdQY1lR?=
+ =?utf-8?B?c1lKeGk4QVdGcGtaQlRnQy9GaG1mZHpEVk1lZkM4VERGT0k4b3JJV2dFVzZT?=
+ =?utf-8?B?dnJiNkc4dVplZFc2ZCt2b1lRdUEySkZzZEJ6a2FkREZMWTZVSjRWVUpqdlpk?=
+ =?utf-8?B?NW1CSmZ3TDRjbURHQ0szTzNXZTJheXM1UHdhVkFBVlNjd09OSmRjUFhVTmQ3?=
+ =?utf-8?B?ZjBOdmpBMzl6SDJHYWN5eTNsWnp3bDYzc3FLeWlaR21JY0hERWpHVXBqWmNo?=
+ =?utf-8?B?Q1dRbG1CczFHUU56NG9NdFdJT2NqbjIwamhzUmF6RGlQbkwwZlF1M1BEQVFK?=
+ =?utf-8?B?b1h0MWo0Zy8zSjZKS21DVGdmUE5kdE51M0Z4MmhBOTlBSG9GamRiNCtHalU1?=
+ =?utf-8?B?T3JmNk5BcFJ4QU4rNkhCS3RmdFdNVDh4VHZPV0xiK3JaaVQzY1FLbk1xSWhi?=
+ =?utf-8?B?dDU2ek9icGJ6ZExVL1VnQlBPdjRuajh0THhBeXZvRlh6Y2w0TDlmNmg5SkpB?=
+ =?utf-8?B?RmE2QkJ3WFB1Sjl0ejJieE13QnEvZUhTSEhFL0JESmdVUEFSNkZOVmRqU0lM?=
+ =?utf-8?B?UzNqVE5ISkE2QzNvTDdYSk1WaFhyL1dRSStvaXU4b0hwS1VDZ3dPdXN6VjRT?=
+ =?utf-8?B?OU1JVzdtOVVPOFZwWHZFZzFCUWxQdktIeGxQOGYwZEJKb2d4WVprRitpdGQ5?=
+ =?utf-8?B?UDdlcWFSVmtFN1dlb1QycVZLaXVsNmJEWmpkUDNuSzEyUlRtRlBaeFlFQzdU?=
+ =?utf-8?B?Wm1iNCtyQVNCenNNajJidkV6eEVkV3pSLzduUlMxQk1sRzRpVCsrK2FmcnBv?=
+ =?utf-8?B?L3JYamlBY0lmMlV5bmRxNnZ1TEt3aDhKSGlEOW5Xc2pDQmVpN3VKM2UxWWN2?=
+ =?utf-8?B?dnY3eEtoVWVwdytGeng0Q1QweUxkZ1FFVy9iWHZLOUxJOVIveXdwS1E0Y3pl?=
+ =?utf-8?B?Mjcrbm1FUFArZ3dVNjZWR2NabWpUOTA5NmVTN1pjL2pwUGlHd1YxN1poWnVu?=
+ =?utf-8?B?V3hXZE1udC80eVRTRmdvQllZUGVEck9oeFZKWkZFeE9TKzF5c0dETDdRblE3?=
+ =?utf-8?B?K2RUM05BQzJOZ3dZUlZmcWs4ZDMveGVqRy8xck05VngvSEFYcDdkZXNaaDd4?=
+ =?utf-8?B?YnFiWTNKT3JDaWZkVEJ6K1lSR2dMN21TejR2bDFuM1BHVHJzbGZybno3NVdq?=
+ =?utf-8?B?MUwyY2F1bEVyYkI4SzZOcU9ySXNZbW5mWHVTdVVoa1ZQYUVmNlpxMnBXTXpj?=
+ =?utf-8?B?UGMySUMxbEFFMjIzeVRRcVFLU3J0V2ZkQ1Z6aDFWZk42bksvZjlVTUlCTmx3?=
+ =?utf-8?B?aEk5VlF3U21lbXJ4ZjZiRG9tTGVXYWliU2xBaTNjanJCU2VqcUNabzBWemRP?=
+ =?utf-8?B?MUsxWEo1ajc2WGdlanZTWVZTUU1nNDZyeU5PNndaSVN1eDN2Y04yZHFsSjVG?=
+ =?utf-8?B?OGVjR0EvOUlISFZ3WFBCVUR2QVkxeHU5emFESDI1eDBiUW9UNythakljbDhP?=
+ =?utf-8?B?REpBdGlaSjl6SXhTRkprMHRiSmlvOWxTRnBCWkx3SmdsWGIxZTFZclVvR0U2?=
+ =?utf-8?B?REluak1tdzE1dGhHOUdXKzRWM2xJSGRWV0EveWd1a1JKeXlQQ0w1ZlhpVE05?=
+ =?utf-8?B?SlJDTXVxQVhWNjVtdmtBSzl2dUFaSTVMaUpqeUZpcmRGOFUvVHZyQVlmWm0v?=
+ =?utf-8?B?MVhpNnhaNjh2TnZyUmZoajkxWmplMVpYaXRtMUMxU2pJMFFQQlBaLzVpc2lW?=
+ =?utf-8?B?V0tOK254T3RLL1hsaDJ3Mi9QN1FUWHlSdDFCWnVoWjVHdjlkZys0bUVhVUFq?=
+ =?utf-8?B?NzUwY2tLNUp0UHVNVEQ5YmFtMGVOZTMvZ1JHeisrZDF1Rmk5eC9ROG4vVkZI?=
+ =?utf-8?B?Yml4Tmw3bEtzMDdrNzlzT0pySzRqdEVGczFOQVVyNkdYKzBuTHUwdz09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8bf22cc9-e189-4092-d465-08de6278eb09
+X-MS-Exchange-CrossTenant-AuthSource: BL4PR12MB9506.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Feb 2026 16:34:21.4091
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: C6Q1vRQYR9L6M3aClKYhDELd2cstVheil1wJ/1pAtT+hRFBmgHh4Wx9S2nwKA15+Qen5Wna7/yeO9aRHRXjP1g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PR12MB9696
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_163220_956943_65C42360 
-X-CRM114-Status: GOOD (  17.63  )
+X-CRM114-CacheID: sfid-20260202_083433_448443_5B5FDE68 
+X-CRM114-Status: GOOD (  22.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,68 +201,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ben,
 
---=-2jK0PyPR5gtYSVPZSaBh
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On 2/2/2026 4:21 AM, Ben Horgan wrote:
+> External email: Use caution opening links or attachments
+>
+>
+> Hi Shanker,
+>
+> On 1/31/26 02:30, Shanker Donthineni wrote:
+>> Hi Ben,
+>>
+>> On 1/30/2026 8:17 AM, Ben Horgan wrote:
+>>> External email: Use caution opening links or attachments
+>>>
+>>>
+>>> Hi Fenghua, Jonathan,
+>>>
+>>> On 1/13/26 15:39, Jonathan Cameron wrote:
+>>>> On Mon, 12 Jan 2026 16:59:08 +0000
+>>>> Ben Horgan <ben.horgan@arm.com> wrote:
+>>>>
+>>>>> From: James Morse <james.morse@arm.com>
+>>>>>
+>>>>> MPAM supports a minimum and maximum control for memory bandwidth. The
+>>>>> purpose of the minimum control is to give priority to tasks that are
+>>>>> below
+>>>>> their minimum value. Resctrl only provides one value for the bandwidth
+>>>>> configuration, which is used for the maximum.
+>>>>>
+>>>>>
+>>>>> Hence, I'll drop this patch, and update the mbw_min default to be
+>>>>> 0xFFFF
+>>>>> and for the value not to change even if mbw_max changes. I think this
+>>>>> leaves us in the best position going forward without any heuristics
+>>>>> that
+>>>>> may come back to bite us later when proper support for a schema
+>>>>> supporting mbw_min is added to resctrl.
+>> Background: I previouslyshared original fix(seecodesnippet below) with
+>> James Morse
+>> ~2 years ago to address the errata, which explicitly recommends usinga
+>> 5% gap for
+>> mitigation of the Hardware issue (the problem described in commit text
+>> of T241-MPAM-4)
+>>
+>> For some reason theoriginalimplementationwas splitinto two patches:
+>>    - Generic change applicable toall chips
+>>    - Specific fixfor Graceerrata T241-MPAM-4
+>> Issue: Dropping this patch impacts[PATCH v3 45/47] forthe errata fix. If
+>> removalis
+>> necessary, please mergethis changeinto the T241-MPAM-4-specific patch.
+>
+> What's the behaviour on T241 when MBW_MIN is always 0xFFFF?
 
-Le lundi 02 f=C3=A9vrier 2026 =C3=A0 10:47 +0100, Arnd Bergmann a =C3=A9cri=
-t=C2=A0:
-> From: Arnd Bergmann <arnd@arndb.de>
->=20
-> The deeply nested loop in rkvdec_init_v4l2_vp9_count_tbl() needs a lot
-> of registers, so when the clang register allocator runs out, it ends up
-> spilling countless temporaries to the stack:
->=20
-> drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c:966:12: error: stack =
-frame size (1472) exceeds limit (1280) in 'rkvdec_vp9_start' [-Werror,-Wfra=
-me-larger-than]
->=20
-> Marking this function as noinline_for_stack keeps it out of
-> rkvdec_vp9_start(), giving the compiler more room for optimization.
->=20
-> The resulting code is good enough that both the total stack usage
-> and the loop get enough better to stay under the warning limit,
-> though it's still slow, and would need a larger rework if this
-> function ends up being called in a fast path.
->=20
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Memory bandwidth throttling will not function correctly. The MPAM hardware
+monitors MIN and MAX values for each active partition to maintain memory
+bandwidth usage between MBW_MIN and MBW_MAX. Therefore, MBW_MIN must be
+less than MBW_MAX (IMO, setting MBW_MIN to always 0xFFFF is incorrect)
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Grace errata T241-MPAM-4 has two issues:
+- MBW_MIN must be greater than 0 (WAR set to one when when it's zero) - In the Grace implementation of memory-bandwidth partitioning (MPAM),
+    in the absence of contention for bandwidth, the minimum bandwidth
+    setting can affect the amount of achieved bandwidth. Specifically,
+    the achieved bandwidth in the absence of contention can settle to any
+    value between the values of MIN and MAX. This means if the gap between
+    MIN and MAX is large then the BW can settle closer to MIN. To achieve
+    BW closer to MAX in the absence of contention, software should configure
+    a relatively narrow gap between MPAMCFG_MBW_MIN and MPAMCFG_MBW_MAX.
+    The recommendation is to use a 5% gap, corresponding to an absolute
+    difference of (0xFFFF * 0.05) = 0xCCC between MPAMCFG_MBW_MIN and
+    MPAMCFG_MBW_MAX.
 
-> ---
-> =C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c | 3 ++-
-> =C2=A01 file changed, 2 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c b/driver=
-s/media/platform/rockchip/rkvdec/rkvdec-vp9.c
-> index ba51a7c2fe55..1c875d5a2bac 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
-> @@ -893,7 +893,8 @@ static void rkvdec_vp9_done(struct rkvdec_ctx *ctx,
-> =C2=A0	update_ctx_last_info(vp9_ctx);
-> =C2=A0}
-> =C2=A0
-> -static void rkvdec_init_v4l2_vp9_count_tbl(struct rkvdec_ctx *ctx)
-> +static noinline_for_stack void
-> +rkvdec_init_v4l2_vp9_count_tbl(struct rkvdec_ctx *ctx)
-> =C2=A0{
-> =C2=A0	struct rkvdec_vp9_ctx *vp9_ctx =3D ctx->priv;
-> =C2=A0	struct rkvdec_vp9_intra_frame_symbol_counts *intra_cnts =3D vp9_ct=
-x->count_tbl.cpu;
+> I'm worried if we make a policy decision of how to set MBW_MIN based on
+> MBW_MAX for this platform then we won't be able to support a
+> configurable MBW_MIN in the future for this platform.
 
---=-2jK0PyPR5gtYSVPZSaBh
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+Yes, we can't support generic programmable MBW_MIN for Grace chip. The 
+currentresctrl interface doesnot exposeMBW_MIN, preventingusers from 
+configuring the recommended5% gap. Without this interfacesupport, 
+theonly wayto applytheworkaround is through driver-level changes.
 
------BEGIN PGP SIGNATURE-----
+>   As when MBW_MIN
+> support is added in resctrl the user's configuration for this platform
+> would change meaning on kernel upgrade.
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaYDRkAAKCRDZQZRRKWBy
-9HFyAP0RF5b0OenNAGH35mTowVmYp7pBvzgVyYN7ehX7jmx8VAEAw6AY+q+q1f2m
-VfoYBMjnRCRr5g/hOebJT5oXUy814QA=
-=fZxd
------END PGP SIGNATURE-----
+What is the timelineforaddingMBW_MIN support? We have two options.
+  Option-A: Keep the current WAR 5% gap and don't allow users to program MBW_MIN.
+  Option-B:Remove the5% gap workaround and relyon usersto program MBW_MIN           
+   accordingto the Grace recommendations whentheinterfacebecomes available.
 
---=-2jK0PyPR5gtYSVPZSaBh--
+We'll prefer option-B.
+
+Thanks,
+Shanker
+
 
