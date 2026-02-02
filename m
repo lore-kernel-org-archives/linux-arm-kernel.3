@@ -4,65 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E63C1E7DEF7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 15:39:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93991E7DEF8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 15:42:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e6KR/cqyCXBt3vzBC5/C1JE+7FlIfU1A6Hy1j8wPwn4=; b=ME4NXZGOIsbnP2yA4EfFvGPjLL
-	qt5RhnjEuHnjLe+REOo1nJEjWI/5Gu2w00zJid6cAwFPrYIRGS3sbgPd9ZzwDguZ/E8iKPcr76kC9
-	jWC/kj0/53qfLQF9EiHf5NxMDTRGRSD6E8OijdCDSKq3tr1Kn7LSa5NI0pI7Myqk7HMFZkfxAF+1C
-	5lm6qCt/G1uZgwoEzRPWyt/OHtuYJt4Ak6JFubW+MU5mX6jJ8m6Kpu7vEmuKA/b61x4dgrf6CNM9E
-	QlMzKyTi/0WJD6E5DMDPBj+Ffsf00QUThdVLGwdvla0/fMYsPHBOtfpDiucB3o0zeFEa0oPct0Pmv
-	t8CtCDpw==;
+	bh=DrddJk7i28REvpZYf0gwuj+Oh1doYWns99hrPPEwvvs=; b=jiBLxfjd1Np1w0QaTaF5yS0ojm
+	iC2CPYTaQVUYz9GJDnbHSplE4LWUHFt7j4CfyLCIO1jslJyJ5rEwpUVZ7uPWL2ShUmy1aWXK1g9RE
+	+CPe6iotoi8I957mEdEcGZJXHB41p+lqYb+t4MID/dQ5L10BAmTQyfN0HX4bzSEMrEjPsTi5CDbf4
+	e8rKMzEh+zWHB7qKzNpw4/0MhbOIhWiKXtq3I9e1neStPvu2EHCtIsd832W1c9uqJf0257Q6UH1C4
+	5y3zPHvcz0tQQZmLO6fyI9Bvfnz5FXtlWC9dCBtQDkPDBIehg6cKIAJ5ZKMBBgv+n5COEgaPhw3t3
+	fFN25aDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmw1g-00000005Cae-0fD0;
-	Mon, 02 Feb 2026 15:39:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vmw4g-00000005Cog-0rPs;
+	Mon, 02 Feb 2026 15:42:50 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmw1f-00000005CaK-0dup
+	id 1vmw4d-00000005CoF-1mX9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 15:39:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7EFF36011E;
-	Mon,  2 Feb 2026 15:39:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57E2AC116C6;
-	Mon,  2 Feb 2026 15:39:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770046782;
-	bh=unfluKwMCWkNWNCY/yvRCDV5S0QCQIPAcj66dRitSeM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aDNsNI1kfM74EZf3jw5Lz6KCoGUQpy/sA48b93AbuYa+d7BpRxbXuLY7cxIkC5Suc
-	 /vA57DbopQ/BAIbIoK2fifMkQisnh8CekTaxBEUsF6ZbYvIq9GtyO4GQe6T6s39L7t
-	 VYTN7KhfdyQxzSvlxHxD5+pIgpIKrMO0AWVGlUBQkJBpCnvkOT2SBKxTfMXsfkSg0/
-	 UND8SWwVizu2milM5CAdJGqlz6kNkH7yXX7OHeda7GBIfn65Y6bNYk7thsp2i8vBrS
-	 L42FJTkyZrlbFz4nwlJO5KacbhMdkh8ZEeHJUR4wGtlwOHN63oTNTQgrqyHmM5O7Oj
-	 ZfozX/hQc5+jA==
-Date: Mon, 2 Feb 2026 15:39:36 +0000
-From: Will Deacon <will@kernel.org>
-To: Marco Elver <elver@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Boqun Feng <boqun.feng@gmail.com>, Waiman Long <longman@redhat.com>,
-	Bart Van Assche <bvanassche@acm.org>, llvm@lists.linux.dev,
-	David Laight <david.laight.linux@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>,
-	Boqun Feng <boqun@kernel.org>
-Subject: Re: [PATCH v3 3/3] arm64, compiler-context-analysis: Permit alias
- analysis through __READ_ONCE() with CONFIG_LTO=y
-Message-ID: <aYDFOIskB20CbztD@willie-the-truck>
-References: <20260130132951.2714396-1-elver@google.com>
- <20260130132951.2714396-4-elver@google.com>
-MIME-Version: 1.0
+	Mon, 02 Feb 2026 15:42:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tR6mb6rT4TVUc/6y8GAwl4K5H+itb3bqCKJq/QxYHQpC7Yp66OR7mV6HEBDp3anGvv3D7pglIAqKIhryPNuYnKN3MWqoHAFXoi3xhTxBAbZAtGXCH6KbYs1beiW1wF/Ze/Mckz1t29oQgMcHhBxQTIUonkQ5EaQY9jOCPs0nnQ7LwDSH2qPANHWZNEtqiRaAMUjUx/CcuuCCogB7HVz5bgKJZ6FeSz1388YxR81lzqwfJsLdurkaLlh/u/uIQU3KWsxxMSM09qhCeBoSRIh5EK7h6j+fT7hqs3GFBxYPTdayolqFa5OXSlJzRQLdjj76FJ8/c+ObzN3KkuTE8YEOWw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DrddJk7i28REvpZYf0gwuj+Oh1doYWns99hrPPEwvvs=;
+ b=zKxp/R4mXhKSO0lQIm364Cxt6iepWnNRDfwkyE8wE94mm4YiY6c8KU5ups8Wz9IRUYahKvfyuNfyH30dwyJxZhsZpvpOMH2ZkWCBSkVUJdEnMDGLhKM5hFYa9ZAxHUXD6LRtCtM1uo9v2eA9PGCrzUvDlThZKtENw2HRIQFjDfypo+91L4j8feb1YuY10vvwXS7e2UIXIx5GpFzORoDmvpA8wfYUUS5cn6bXt/0HyDMCB7HwhoR6/CIyZ0KDq3Im6DrSHSc1ZXX+/Orr8e0UvY6vFdOu1nwsBA0pKtWL2nOUW/CrWfo8t9/xodcw8y8V7bYpsQ8F1rT45XRF/9OSSw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DrddJk7i28REvpZYf0gwuj+Oh1doYWns99hrPPEwvvs=;
+ b=iVumYhiPNHAg3B8xie3TOcqBU6kGT1Ml/6Br9QGLaFzQoVx8ueA+D+Xcr/ZUJzjlMzj0JYDvedXbS7+UYDB8vxH8ysTMuW5PvrVtOGGzXx/Ouv83PfXQl3tkdJhbGmn0QwtBJXbLXKLuPgbTyXNvJfDYsczWmrXi9dFoHNyq53QibHuT3o665lPKddXwL0pFOd4lhttlsHeSe/PJrnIeXvPjGuFMc778UPcxCuO9z8CcsPnhw9sr6oRfbWbJMDf8DkT41vO6hyuHo3xqtshyH8HOQ3s2JtcyRKInZ8yGST7loaFW8htdYmv3InB4iwMNnbykJNJ8dlaXoqnMt5BNWQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AS8PR04MB8835.eurprd04.prod.outlook.com (2603:10a6:20b:42e::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Mon, 2 Feb
+ 2026 15:42:42 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9564.016; Mon, 2 Feb 2026
+ 15:42:41 +0000
+Date: Mon, 2 Feb 2026 10:42:33 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Li Jun <jun.li@nxp.com>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] usb: dwc3: introduce flatten model driver of i.MX Soc
+Message-ID: <aYDF6UkzX+GkuN9r@lizhi-Precision-Tower-5810>
+References: <20260202-add-flatten-dts-based-dwc3-imx-driver-v1-0-c44a5e919380@nxp.com>
+ <20260202-add-flatten-dts-based-dwc3-imx-driver-v1-3-c44a5e919380@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260130132951.2714396-4-elver@google.com>
+In-Reply-To: <20260202-add-flatten-dts-based-dwc3-imx-driver-v1-3-c44a5e919380@nxp.com>
+X-ClientProxiedBy: PH8P220CA0003.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:345::27) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB8835:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2de4ffc0-8475-493c-bc35-08de6271b353
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|1800799024|19092799006|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MxS3kvBm0o/CzvIe7T22t/4QCnEiiB9MgIdLAvUzgGPy0ewzdpQzjvIcWi6B?=
+ =?us-ascii?Q?irX6kgTeqtMphMeU9rDkoh8Nl4MUTAFaU9bgBNB3U431v3aZ4JaYVIogEzsF?=
+ =?us-ascii?Q?t/deoCNTND0VKPEieLVfFUKocKnvo0oFnflBDQZ2I4I9sOr9hifZ4n0lBDS6?=
+ =?us-ascii?Q?NPcIXiN2/fRQ4EiC4SrgoVYI/ARtxP536k2MjgtBKFhka3fNk2D0GiSrd5bq?=
+ =?us-ascii?Q?MDEZeTJ/Ftrw1g709zL9TLNFj0PsGYm0a77I7ceglwWjEGczp9haP+Im7gCf?=
+ =?us-ascii?Q?SqhNp+QzGkly2UzZWhrUySEw6d4ZGEFUBMmMMCfsTGcelgu9S8deaduYD4oV?=
+ =?us-ascii?Q?hYP2lyTEVpY/eg0OQbU/OwXdFSlpzGMw/rFkDDgNKsY0SIPt7ERBIO+GFFaQ?=
+ =?us-ascii?Q?mmxoDv8YfI7OWZCdDbqkXPvhsemun6z58DWtzvFK+bsJmR1Fa1DQhgVMaUAf?=
+ =?us-ascii?Q?KMpskQ6zfpooo93ReRoTE0l9xpCRhd2zyANyd5z2eEBJDYTG/lWauTdQFnpi?=
+ =?us-ascii?Q?lkNtydvzR2DdGr73KZHXnMhWo9lyaJj1vG4zVpQzRXtAzH/4LWPL//eZo1qZ?=
+ =?us-ascii?Q?P9tU+MY4xNcQTgA1FuMLto3NZca/QEKKzcwYjUdLhLnrGyMThHZ1+2aDTU1R?=
+ =?us-ascii?Q?Ac89gtafsUgrXnstq7oLxoqYwnpVLxaz9n+m+P3eIm4OK+Ls0QduEQOt4zX2?=
+ =?us-ascii?Q?OnhiWNUWrUKzjSNEZW6IOwPWFTATbxlAo4fffQ7pN/P5LKNE130kASkTf6Yr?=
+ =?us-ascii?Q?2bYHhVpqUYMBkb4BLWbzmI1OeRmagng83Q2DuqrOJzrnlx8UZ/ouc3gItPmY?=
+ =?us-ascii?Q?N5fbgGFDhUWMHwwDUTlkhDmiB01XsIIssJzf8xl8mpYpSOL6oiDLy5CP+Qf0?=
+ =?us-ascii?Q?zDQRO1FtqEeevtIhNvlpWix3A8naVfHGrNr5mfFwOJ3vdkgTeil1bDxTbjZb?=
+ =?us-ascii?Q?MGSmlwd/tTE+aLNvVb1TRl1QtccBLsg65271ogCqONLSC82NhRSSBg02m66E?=
+ =?us-ascii?Q?kGTHtCCPCDsf9MpUYaQf+HtaMNzugp1XBrnxHmCYr1sLlMdGjw4zTi5Wk7YA?=
+ =?us-ascii?Q?815ulTOu5tLSqIFQcjon1gNfTSELp0mcw9Kh6UIGCZvUbU2TpXLMbwZlfwxS?=
+ =?us-ascii?Q?uyW5K7/4NpV8iBTU6hRiiby39fCqfImxYi4Q+cXJ2rMP+bKX1XZHuydXKW4K?=
+ =?us-ascii?Q?4SHLgumujZcK5Si3aUadWGOYP7UzerUr1wYg88lqNqcgp2lqJE5cHhNSNEXO?=
+ =?us-ascii?Q?YGsCn/JOQgxdsIpxF8B795SOOs3i0HonMB+X3H7qBFnQu5zMQ9BDdpdZrmmW?=
+ =?us-ascii?Q?BbT1mBEyEN+RwOi0qctMexv/Te2eWL+/U0+yjiisqSMKX3llqL+BORhQYjID?=
+ =?us-ascii?Q?e35gvYiLg03F5n6GGqYyKNZPsEgFehV7guGbaUGnh/XpZn/WvDNA6jkX5yKR?=
+ =?us-ascii?Q?QGHFZbhB6aF8HuRdLTZNsqmTsgt6WeKH39HXYzyecryZ1Q5dFyh0A6DuMv42?=
+ =?us-ascii?Q?WxydSyvOnA4+YusXWinQQTtNT5pEGxLSRVJWoZo+k7Nt5n46KaP7Cw9PSw/q?=
+ =?us-ascii?Q?DyZ4AK1WoWGQ3H0+Rw/JHiepWxPMzNaDtKQ8jtgb42ChYbWaVyMlaxKhvFDN?=
+ =?us-ascii?Q?ZEPLsylvkgsO7huwcgh+yH4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(1800799024)(19092799006)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?r7YykntAbDGsxGR6+c+7WcJlhDG53Ee1GKJnYUcZK0YJ2vsiviKVm5c/CtXP?=
+ =?us-ascii?Q?SJ7cJL+EOdUefAwKiyYSeTlqhLRHhDQfkM5pySeCL4RKtlg3YGnkWi82hlGj?=
+ =?us-ascii?Q?VDxQ5i+ZFuUr85QAjpHHifLTzvuBMZmpABmPFYHvCo42QSAq8vd4RWIJDL3y?=
+ =?us-ascii?Q?GWrlsMjaaj8Z66eSdHrGkIZXDh56A3UXid3J+uuacmR8nUMsEHYIkJFOoEB5?=
+ =?us-ascii?Q?xzNun3XTM+g2Om3qXfvLf2DE56eg9he64TCEblkTSZIHzPQTE2YUBNGCh70/?=
+ =?us-ascii?Q?AWPmrY5WIYUS2p5wuVZXySEm3uV/3XuXsIdIsKkNT4y2q52b5EsDx/fBQp05?=
+ =?us-ascii?Q?rFu6UXrN5CEsOb5UDBmhHcUH3nCOB3E1DpvljHYZ1iuQTMlePo9DOKTP+zNj?=
+ =?us-ascii?Q?DPDPcBvHBpmzaThcNkpvpl21zXXPiCjlOY/O7OHHqBFUJOIThoeaQBmDYMMc?=
+ =?us-ascii?Q?/u/K5PaJBkndZ7kzF2OwhaMva3i0qv3GzAI/Ic9AcApqTD32dFdcf0tfDixG?=
+ =?us-ascii?Q?YlrJPMZTGaT/eb7EH2kQRNd/R1NCiL8b1uaJtBdw64lAr0AK09FVH4DC3kjY?=
+ =?us-ascii?Q?/JQjJyfxTYMpsrWMNFepCraeoRo2sZmW2kgqw9ix8TemNc6ZuoR3vMlSgvA+?=
+ =?us-ascii?Q?SPQJVMA4geYUhiu9d3rGPFwifmZUjeS2cGhSlDlOi+q58K+ON9uHV/d6ZIiz?=
+ =?us-ascii?Q?RTtT8s+4iLnGxhjLfcJUey1k81pap9KlJ/gKE9jSEClvoG6VjHZvQIQ48uiq?=
+ =?us-ascii?Q?ke347RwWivM67Ia+RxryJJoqL5bRH8zdUNoU3Wb7rcNe3GAsq4Nw2tkfxHSc?=
+ =?us-ascii?Q?HDRR9r6b3XVMpu72yA+iqtPdZ0J9a0La/saKfixvvJWNv1cvFoJ9EEJ4OHso?=
+ =?us-ascii?Q?k38Pr1nIWZ6WiU1JB9SzsiGyfNFIc48ZgstdjHYtJIuHkfERcyjdQhSuZQ7h?=
+ =?us-ascii?Q?zhpifAnAat5J5rgmFllmneKm+CASeYggtkTFHjrfQ0D15GHCaOaOtLUMQgaI?=
+ =?us-ascii?Q?p/2kiytnnjMhxX4yt7Wxt+C1NbFR61lIgZNh/Fmg6FPt/ZpFO5T1guQrM4ct?=
+ =?us-ascii?Q?U1m22Bs9ezHvOq1r4C3jViK45egPFq2auNmgRsreZEKe7rnsZuikamAkIIA1?=
+ =?us-ascii?Q?sPNH5mUkiM3zsV6vDvCgPWhQcGoEBeVL0e+6MKPwPodTiMAzT6QB05zoV9mr?=
+ =?us-ascii?Q?GnnEPPOX8XBcu2JZ4TQ7SzUE2eZIshJB2gFgHbquyRCLN33sTRIxADsYnEgN?=
+ =?us-ascii?Q?5DVTrYBn5NccuzEchTiFwvzP22q86+Ugw0v8MhYJxMBqx9PpT7sAFYQdDeA0?=
+ =?us-ascii?Q?XEE1ZRtMwlrxj8qxtvdj72ME5Om9VpNl26M63r1mq4uIF9VGZOgck/kubIfU?=
+ =?us-ascii?Q?M5pOkaOdp8k60Y01Wicav8LbvMqaxxLGRtUu/2EJzsFhMBfGM+FpsK+Em+bT?=
+ =?us-ascii?Q?VBd/ZMcbsF7fN7N8XkTsxDRaY7ifQ3cDh5dltc1iLG8J70nxxIiddiYe6OOi?=
+ =?us-ascii?Q?eat99jKgqLX2xKU99ms3ED23I2v+Z2o1Ch7lussE0HA/yGwHBp/aF+5oo+xR?=
+ =?us-ascii?Q?R6HoKdEzhyRYiAh6ZgApMQCLbH2Hds8QUhv9kjlG8d9rlGJiPSYJp64oce4D?=
+ =?us-ascii?Q?38GZin3SKIoRrmSVwRW4qc2qo2W2f0vD6jB8wwARckf7XD8thNGRzwPBH8aX?=
+ =?us-ascii?Q?UotjHP+aTl8s2Ohjx2ztMuKHkVj6J2p6LUFWKi4y+Mn+w0oR?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2de4ffc0-8475-493c-bc35-08de6271b353
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Feb 2026 15:42:41.6073
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YBg3Qxgh+gn0HfFfzETgeBxVnZD7lftXT5Mtc3CYUvGz0KpS6k9L/kBJVHpZQpu+vYDrJeh0S094Vck69f7n/Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8835
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260202_074247_670715_CD3CD924 
+X-CRM114-Status: GOOD (  27.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,108 +169,493 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 30, 2026 at 02:28:26PM +0100, Marco Elver wrote:
-> When enabling Clang's Context Analysis (aka. Thread Safety Analysis) on
-> kernel/futex/core.o (see Peter's changes at [1]), in arm64 LTO builds we
-> could see:
-> 
-> | kernel/futex/core.c:982:1: warning: spinlock 'atomic ? __u.__val : q->lock_ptr' is still held at the end of function [-Wthread-safety-analysis]
-> |      982 | }
-> |          | ^
-> |    kernel/futex/core.c:976:2: note: spinlock acquired here
-> |      976 |         spin_lock(lock_ptr);
-> |          |         ^
-> | kernel/futex/core.c:982:1: warning: expecting spinlock 'q->lock_ptr' to be held at the end of function [-Wthread-safety-analysis]
-> |      982 | }
-> |          | ^
-> |    kernel/futex/core.c:966:6: note: spinlock acquired here
-> |      966 | void futex_q_lockptr_lock(struct futex_q *q)
-> |          |      ^
-> |    2 warnings generated.
-> 
-> Where we have:
-> 
-> 	extern void futex_q_lockptr_lock(struct futex_q *q) __acquires(q->lock_ptr);
-> 	..
-> 	void futex_q_lockptr_lock(struct futex_q *q)
-> 	{
-> 		spinlock_t *lock_ptr;
-> 
-> 		/*
-> 		 * See futex_unqueue() why lock_ptr can change.
-> 		 */
-> 		guard(rcu)();
-> 	retry:
-> >>		lock_ptr = READ_ONCE(q->lock_ptr);
-> 		spin_lock(lock_ptr);
-> 	...
-> 	}
-> 
-> At the time of the above report (prior to removal of the 'atomic' flag),
-> Clang Thread Safety Analysis's alias analysis resolved 'lock_ptr' to
-> 'atomic ?  __u.__val : q->lock_ptr' (now just '__u.__val'), and used
-> this as the identity of the context lock given it cannot "see through"
-> the inline assembly; however, we want 'q->lock_ptr' as the canonical
-> context lock.
-> 
-> While for code generation the compiler simplified to '__u.__val' for
-> pointers (8 byte case -> 'atomic' was set), TSA's analysis (a) happens
-> much earlier on the AST, and (b) would be the wrong deduction.
-> 
-> Now that we've gotten rid of the 'atomic' ternary comparison, we can
-> return '__u.__val' through a pointer that we initialize with '&x', but
-> then update via a pointer-to-pointer. When READ_ONCE()'ing a context
-> lock pointer, TSA's alias analysis does not invalidate the initial alias
-> when updated through the pointer-to-pointer, and we make it effectively
-> "see through" the __READ_ONCE().
-> 
-> Code generation is unchanged.
-> 
-> Link: https://lkml.kernel.org/r/20260121110704.221498346@infradead.org [1]
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202601221040.TeM0ihff-lkp@intel.com/
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Tested-by: Boqun Feng <boqun@kernel.org>
-> Signed-off-by: Marco Elver <elver@google.com>
+On Mon, Feb 02, 2026 at 06:27:47PM +0800, Xu Yang wrote:
+> To support flatten dwc3 devicetree model, introduce a new driver.
+>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
 > ---
-> v3:
-> * Use 'typeof(*__ret)'.
-> * Commit message.
-> 
-> v2:
-> * Rebase.
-> ---
->  arch/arm64/include/asm/rwonce.h | 10 +++++++---
->  1 file changed, 7 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
-> index 42c9e8429274..b7de74d4bf07 100644
-> --- a/arch/arm64/include/asm/rwonce.h
-> +++ b/arch/arm64/include/asm/rwonce.h
-> @@ -45,8 +45,12 @@
->   */
->  #define __READ_ONCE(x)							\
->  ({									\
-> -	typeof(&(x)) __x = &(x);					\
-> -	union { __rwonce_typeof_unqual(*__x) __val; char __c[1]; } __u;	\
-> +	auto __x = &(x);						\
-> +	auto __ret = (__rwonce_typeof_unqual(*__x) *)__x;		\
-> +	/* Hides alias reassignment from Clang's -Wthread-safety. */	\
-> +	auto __retp = &__ret;						\
-> +	union { typeof(*__ret) __val; char __c[1]; } __u;		\
-> +	*__retp = &__u.__val;						\
->  	switch (sizeof(x)) {						\
->  	case 1:								\
->  		asm volatile(__LOAD_RCPC(b, %w0, %1)			\
-> @@ -71,7 +75,7 @@
->  	default:							\
->  		__u.__val = *(volatile typeof(*__x) *)__x;		\
->  	}								\
-> -	__u.__val;							\
-> +	*__ret;								\
->  })
+>  drivers/usb/dwc3/Kconfig    |  12 ++
+>  drivers/usb/dwc3/Makefile   |   1 +
+>  drivers/usb/dwc3/dwc3-imx.c | 428 ++++++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 441 insertions(+)
+>
+> diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
+> index 240b15bc52cbd5d5c9d08d9fddd8c63202de1a3c..18169727a413ee72405a89f477e4da16946e1764 100644
+> --- a/drivers/usb/dwc3/Kconfig
+> +++ b/drivers/usb/dwc3/Kconfig
+> @@ -150,6 +150,18 @@ config USB_DWC3_IMX8MP
+>  	  functionality.
+>  	  Say 'Y' or 'M' if you have one such device.
+>
+> +config USB_DWC3_IMX
+> +	tristate "NXP iMX Platform"
+> +	depends on OF && COMMON_CLK
+> +	depends on (ARCH_MXC && ARM64) || COMPILE_TEST
+> +	default USB_DWC3
+> +	help
+> +	  NXP iMX SoC use DesignWare Core IP for USB2/3
+> +	  functionality.
+> +	  This driver also handles the wakeup feature outside
+> +	  of DesignWare Core.
+> +	  Say 'Y' or 'M' if you have one such device.
+> +
+>  config USB_DWC3_XILINX
+>  	tristate "Xilinx Platforms"
+>  	depends on (ARCH_ZYNQMP || COMPILE_TEST) && OF
+> diff --git a/drivers/usb/dwc3/Makefile b/drivers/usb/dwc3/Makefile
+> index 073bef5309b5b5d381c8c4690221091b4df7904a..f37971197203e1379d554da9d60860360ea9c3fe 100644
+> --- a/drivers/usb/dwc3/Makefile
+> +++ b/drivers/usb/dwc3/Makefile
+> @@ -55,6 +55,7 @@ obj-$(CONFIG_USB_DWC3_ST)		+= dwc3-st.o
+>  obj-$(CONFIG_USB_DWC3_QCOM)		+= dwc3-qcom.o
+>  obj-$(CONFIG_USB_DWC3_QCOM)		+= dwc3-qcom-legacy.o
+>  obj-$(CONFIG_USB_DWC3_IMX8MP)		+= dwc3-imx8mp.o
+> +obj-$(CONFIG_USB_DWC3_IMX)		+= dwc3-imx.o
+>  obj-$(CONFIG_USB_DWC3_XILINX)		+= dwc3-xilinx.o
+>  obj-$(CONFIG_USB_DWC3_OCTEON)		+= dwc3-octeon.o
+>  obj-$(CONFIG_USB_DWC3_RTK)		+= dwc3-rtk.o
+> diff --git a/drivers/usb/dwc3/dwc3-imx.c b/drivers/usb/dwc3/dwc3-imx.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..57b175e929d7e163df5af7e2265ab7117fa1dc9a
+> --- /dev/null
+> +++ b/drivers/usb/dwc3/dwc3-imx.c
+> @@ -0,0 +1,428 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * dwc3-imx.c - NXP i.MX Soc USB3 Specific Glue layer
+> + *
+> + * Copyright 2026 NXP
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+> +
+> +#include "core.h"
+> +#include "glue.h"
+> +
+> +/* USB wakeup registers */
+> +#define USB_WAKEUP_CTRL			0x00
+> +
+> +/* Global wakeup interrupt enable, also used to clear interrupt */
+> +#define USB_WAKEUP_EN			BIT(31)
+> +/* Wakeup from connect or disconnect, only for superspeed */
+> +#define USB_WAKEUP_SS_CONN		BIT(5)
+> +/* 0 select vbus_valid, 1 select sessvld */
+> +#define USB_WAKEUP_VBUS_SRC_SESS_VAL	BIT(4)
+> +/* Enable signal for wake up from u3 state */
+> +#define USB_WAKEUP_U3_EN		BIT(3)
+> +/* Enable signal for wake up from id change */
+> +#define USB_WAKEUP_ID_EN		BIT(2)
+> +/* Enable signal for wake up from vbus change */
+> +#define	USB_WAKEUP_VBUS_EN		BIT(1)
+> +/* Enable signal for wake up from dp/dm change */
+> +#define USB_WAKEUP_DPDM_EN		BIT(0)
+> +
+> +#define USB_WAKEUP_EN_MASK		GENMASK(5, 0)
+> +
+> +/* USB glue registers */
+> +#define USB_CTRL0		0x00
+> +#define USB_CTRL1		0x04
+> +
+> +#define USB_CTRL0_PORTPWR_EN	BIT(12) /* 1 - PPC enabled (default) */
+> +#define USB_CTRL0_USB3_FIXED	BIT(22) /* 1 - USB3 permanent attached */
+> +#define USB_CTRL0_USB2_FIXED	BIT(23) /* 1 - USB2 permanent attached */
+> +
+> +#define USB_CTRL1_OC_POLARITY	BIT(16) /* 0 - HIGH / 1 - LOW */
+> +#define USB_CTRL1_PWR_POLARITY	BIT(17) /* 0 - HIGH / 1 - LOW */
+> +
+> +struct dwc3_imx {
+> +	struct dwc3	dwc;
+> +	struct device	*dev;
+> +	void __iomem	*blkctl_base;
+> +	void __iomem	*glue_base;
+> +	struct clk	*hsio_clk;
+> +	struct clk	*suspend_clk;
+> +	int		irq;
+> +	bool		pm_suspended;
+> +	bool		wakeup_pending;
+> +};
+> +
+> +#define to_dwc3_imx(d) container_of((d), struct dwc3_imx, dwc)
+> +
+> +static void dwc3_imx_configure_glue(struct dwc3_imx *dwc_imx)
+> +{
+> +	struct device *dev = dwc_imx->dev;
+> +	u32 value;
+> +
+> +	if (!dwc_imx->glue_base)
+> +		return;
+> +
+> +	value = readl(dwc_imx->glue_base + USB_CTRL0);
+> +
+> +	if (device_property_read_bool(dev, "fsl,permanently-attached"))
+> +		value |= (USB_CTRL0_USB2_FIXED | USB_CTRL0_USB3_FIXED);
+> +	else
+> +		value &= ~(USB_CTRL0_USB2_FIXED | USB_CTRL0_USB3_FIXED);
+> +
+> +	if (device_property_read_bool(dev, "fsl,disable-port-power-control"))
+> +		value &= ~(USB_CTRL0_PORTPWR_EN);
+> +	else
+> +		value |= USB_CTRL0_PORTPWR_EN;
+> +
+> +	writel(value, dwc_imx->glue_base + USB_CTRL0);
+> +
+> +	value = readl(dwc_imx->glue_base + USB_CTRL1);
+> +	if (device_property_read_bool(dev, "fsl,over-current-active-low"))
+> +		value |= USB_CTRL1_OC_POLARITY;
+> +	else
+> +		value &= ~USB_CTRL1_OC_POLARITY;
+> +
+> +	if (device_property_read_bool(dev, "fsl,power-active-low"))
+> +		value |= USB_CTRL1_PWR_POLARITY;
+> +	else
+> +		value &= ~USB_CTRL1_PWR_POLARITY;
+> +
+> +	writel(value, dwc_imx->glue_base + USB_CTRL1);
+> +}
+> +
+> +static void dwc3_imx_wakeup_enable(struct dwc3_imx *dwc_imx, pm_message_t msg)
+> +{
+> +	struct dwc3	*dwc = &dwc_imx->dwc;
+> +	u32		val;
+> +
+> +	val = readl(dwc_imx->blkctl_base + USB_WAKEUP_CTRL);
+> +
+> +	if ((dwc->current_dr_role == DWC3_GCTL_PRTCAP_HOST) && dwc->xhci) {
+> +		val |= USB_WAKEUP_EN | USB_WAKEUP_DPDM_EN;
+> +		if (PMSG_IS_AUTO(msg))
+> +			val |= USB_WAKEUP_SS_CONN | USB_WAKEUP_U3_EN;
+> +	} else {
+> +		val |= USB_WAKEUP_EN | USB_WAKEUP_VBUS_EN |
+> +		       USB_WAKEUP_VBUS_SRC_SESS_VAL;
+> +	}
+> +
+> +	writel(val, dwc_imx->blkctl_base + USB_WAKEUP_CTRL);
+> +}
+> +
+> +static void dwc3_imx_wakeup_disable(struct dwc3_imx *dwc_imx)
+> +{
+> +	u32	val;
+> +
+> +	val = readl(dwc_imx->blkctl_base + USB_WAKEUP_CTRL);
+> +	val &= ~(USB_WAKEUP_EN | USB_WAKEUP_EN_MASK);
+> +	writel(val, dwc_imx->blkctl_base + USB_WAKEUP_CTRL);
+> +}
+> +
+> +static irqreturn_t dwc3_imx_interrupt(int irq, void *data)
+> +{
+> +	struct dwc3_imx		*dwc_imx = data;
+> +	struct dwc3		*dwc = &dwc_imx->dwc;
+> +
+> +	if (!dwc_imx->pm_suspended)
+> +		return IRQ_HANDLED;
+> +
+> +	disable_irq_nosync(dwc_imx->irq);
+> +	dwc_imx->wakeup_pending = true;
+> +
+> +	if ((dwc->current_dr_role == DWC3_GCTL_PRTCAP_HOST) && dwc->xhci)
+> +		pm_runtime_resume(&dwc->xhci->dev);
+> +	else if (dwc->current_dr_role == DWC3_GCTL_PRTCAP_DEVICE)
+> +		pm_runtime_get(dwc->dev);
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static void dwc3_imx_pre_set_role(struct dwc3 *dwc, enum usb_role role)
+> +{
+> +	if (role == USB_ROLE_HOST)
+> +		/*
+> +		 * For xhci host, we need disable dwc core auto
+> +		 * suspend, because during this auto suspend delay(5s),
+> +		 * xhci host RUN_STOP is cleared and wakeup is not
+> +		 * enabled, if device is inserted, xhci host can't
+> +		 * response the connection.
+> +		 */
+> +		pm_runtime_dont_use_autosuspend(dwc->dev);
+> +	else
+> +		pm_runtime_use_autosuspend(dwc->dev);
+> +}
+> +
+> +static struct dwc3_glue_ops dwc3_imx_glue_ops = {
+> +	.pre_set_role   = dwc3_imx_pre_set_role,
+> +};
+> +
+> +static const struct property_entry dwc3_imx_properties[] = {
+> +	PROPERTY_ENTRY_BOOL("xhci-missing-cas-quirk"),
+> +	PROPERTY_ENTRY_BOOL("xhci-skip-phy-init-quirk"),
+> +	{},
+> +};
+> +
+> +static const struct software_node dwc3_imx_swnode = {
+> +	.properties = dwc3_imx_properties,
+> +};
 
-What does GCC do with this? :/
+I met similar case for layerscape dwc. because already use flatten,
+directly use probe_data pass these information to core library.
 
-Will
+Frank
+
+> +
+> +static int dwc3_imx_probe(struct platform_device *pdev)
+> +{
+> +	struct device		*dev = &pdev->dev;
+> +	struct dwc3_imx		*dwc_imx;
+> +	struct dwc3		*dwc;
+> +	struct resource		*res;
+> +	const char		*irq_name;
+> +	struct dwc3_probe_data	probe_data = {};
+> +	int			ret, irq;
+> +
+> +	dwc_imx = devm_kzalloc(dev, sizeof(*dwc_imx), GFP_KERNEL);
+> +	if (!dwc_imx)
+> +		return -ENOMEM;
+> +
+> +	platform_set_drvdata(pdev, dwc_imx);
+> +	dwc_imx->dev = dev;
+> +
+> +	dwc_imx->blkctl_base = devm_platform_ioremap_resource_byname(pdev, "blkctl");
+> +	if (IS_ERR(dwc_imx->blkctl_base))
+> +		return PTR_ERR(dwc_imx->blkctl_base);
+> +
+> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "glue");
+> +	if (!res) {
+> +		dev_warn(dev, "Base address for glue layer missing\n");
+> +	} else {
+> +		dwc_imx->glue_base = devm_ioremap_resource(dev, res);
+> +		if (IS_ERR(dwc_imx->glue_base))
+> +			return PTR_ERR(dwc_imx->glue_base);
+> +	}
+> +
+> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "core");
+> +	if (!res)
+> +		return dev_err_probe(dev, -ENODEV, "missing core memory resource\n");
+> +
+> +	dwc_imx->hsio_clk = devm_clk_get_enabled(dev, "hsio");
+> +	if (IS_ERR(dwc_imx->hsio_clk))
+> +		return dev_err_probe(dev, PTR_ERR(dwc_imx->hsio_clk),
+> +				     "Failed to get hsio clk\n");
+> +
+> +	dwc_imx->suspend_clk = devm_clk_get_enabled(dev, "suspend");
+> +	if (IS_ERR(dwc_imx->suspend_clk))
+> +		return dev_err_probe(dev, PTR_ERR(dwc_imx->suspend_clk),
+> +				     "Failed to get suspend clk\n");
+> +
+> +	irq = platform_get_irq_byname(pdev, "wakeup");
+> +	if (irq < 0)
+> +		return irq;
+> +	dwc_imx->irq = irq;
+> +
+> +	irq_name = devm_kasprintf(dev, GFP_KERNEL, "%s:wakeup", dev_name(dev));
+> +	if (!irq_name)
+> +		return dev_err_probe(dev, -ENOMEM, "failed to create irq_name\n");
+> +
+> +	ret = devm_request_threaded_irq(dev, irq, NULL, dwc3_imx_interrupt,
+> +					IRQF_ONESHOT, irq_name, dwc_imx);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to request IRQ #%d\n", irq);
+> +
+> +	ret = device_add_software_node(dev, &dwc3_imx_swnode);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to add software node\n");
+> +
+> +	dwc = &dwc_imx->dwc;
+> +	dwc->dev = dev;
+> +	dwc->glue_ops = &dwc3_imx_glue_ops;
+> +
+> +	probe_data.res = res;
+> +	probe_data.dwc = dwc;
+> +	probe_data.core_may_lose_power = true;
+> +
+> +	ret = dwc3_core_probe(&probe_data);
+> +	if (ret) {
+> +		device_remove_software_node(dev);
+> +		return ret;
+> +	}
+> +
+> +	device_set_wakeup_capable(dev, true);
+> +	return 0;
+> +}
+> +
+> +static void dwc3_imx_remove(struct platform_device *pdev)
+> +{
+> +	struct device	*dev = &pdev->dev;
+> +	struct dwc3	*dwc = dev_get_drvdata(dev);
+> +
+> +	if (pm_runtime_resume_and_get(dev) < 0)
+> +		return;
+> +
+> +	dwc3_core_remove(dwc);
+> +	device_remove_software_node(dev);
+> +	pm_runtime_put_noidle(dev);
+> +}
+> +
+> +static void dwc3_imx_suspend(struct dwc3_imx *dwc_imx, pm_message_t msg)
+> +{
+> +	if (PMSG_IS_AUTO(msg) || device_may_wakeup(dwc_imx->dev))
+> +		dwc3_imx_wakeup_enable(dwc_imx, msg);
+> +	dwc_imx->pm_suspended = true;
+> +}
+> +
+> +static void dwc3_imx_resume(struct dwc3_imx *dwc_imx, pm_message_t msg)
+> +{
+> +	struct dwc3	*dwc = &dwc_imx->dwc;
+> +
+> +	dwc_imx->pm_suspended = false;
+> +	dwc3_imx_wakeup_disable(dwc_imx);
+> +
+> +	/* Upon power loss any previous configuration is lost, restore it */
+> +	dwc3_imx_configure_glue(dwc_imx);
+> +
+> +	if (dwc_imx->wakeup_pending) {
+> +		dwc_imx->wakeup_pending = false;
+> +		if (dwc->current_dr_role == DWC3_GCTL_PRTCAP_DEVICE)
+> +			pm_runtime_put_autosuspend(dwc->dev);
+> +		else
+> +			/*
+> +			 * Add wait for xhci switch from suspend
+> +			 * clock to normal clock to detect connection.
+> +			 */
+> +			usleep_range(9000, 10000);
+> +		enable_irq(dwc_imx->irq);
+> +	}
+> +}
+> +
+> +static int dwc3_imx_runtime_suspend(struct device *dev)
+> +{
+> +	struct dwc3	*dwc = dev_get_drvdata(dev);
+> +	struct dwc3_imx	*dwc_imx = to_dwc3_imx(dwc);
+> +	int		ret;
+> +
+> +	dev_dbg(dev, "at %s\n", __func__);
+> +
+> +	ret = dwc3_runtime_suspend(dwc);
+> +	if (ret)
+> +		return ret;
+> +
+> +	dwc3_imx_suspend(dwc_imx, PMSG_AUTO_SUSPEND);
+> +	return 0;
+> +}
+> +
+> +static int dwc3_imx_runtime_resume(struct device *dev)
+> +{
+> +	struct dwc3	*dwc = dev_get_drvdata(dev);
+> +	struct dwc3_imx	*dwc_imx = to_dwc3_imx(dwc);
+> +
+> +	dev_dbg(dev, "at %s\n", __func__);
+> +
+> +	dwc3_imx_resume(dwc_imx, PMSG_AUTO_RESUME);
+> +	return dwc3_runtime_resume(dwc);
+> +}
+> +
+> +static int dwc3_imx_runtime_idle(struct device *dev)
+> +{
+> +	return dwc3_runtime_idle(dev_get_drvdata(dev));
+> +}
+> +
+> +static int dwc3_imx_pm_suspend(struct device *dev)
+> +{
+> +	struct dwc3	*dwc = dev_get_drvdata(dev);
+> +	struct dwc3_imx *dwc_imx = to_dwc3_imx(dwc);
+> +	int		ret;
+> +
+> +	dev_dbg(dev, "at %s\n", __func__);
+> +
+> +	ret = dwc3_pm_suspend(dwc);
+> +	if (ret)
+> +		return ret;
+> +
+> +	dwc3_imx_suspend(dwc_imx, PMSG_SUSPEND);
+> +
+> +	if (device_may_wakeup(dev)) {
+> +		enable_irq_wake(dwc_imx->irq);
+> +		if (device_is_compatible(dev, "fsl,imx95-dwc3"))
+> +			device_set_out_band_wakeup(dev);
+> +	} else {
+> +		clk_disable_unprepare(dwc_imx->suspend_clk);
+> +	}
+> +
+> +	clk_disable_unprepare(dwc_imx->hsio_clk);
+> +
+> +	return 0;
+> +}
+> +
+> +static int dwc3_imx_pm_resume(struct device *dev)
+> +{
+> +	struct dwc3	*dwc = dev_get_drvdata(dev);
+> +	struct dwc3_imx *dwc_imx = to_dwc3_imx(dwc);
+> +	int		ret;
+> +
+> +	dev_dbg(dev, "at %s\n", __func__);
+> +
+> +	if (device_may_wakeup(dwc_imx->dev)) {
+> +		disable_irq_wake(dwc_imx->irq);
+> +	} else {
+> +		ret = clk_prepare_enable(dwc_imx->suspend_clk);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	ret = clk_prepare_enable(dwc_imx->hsio_clk);
+> +	if (ret) {
+> +		clk_disable_unprepare(dwc_imx->suspend_clk);
+> +		return ret;
+> +	}
+> +
+> +	dwc3_imx_resume(dwc_imx, PMSG_RESUME);
+> +
+> +	ret = dwc3_pm_resume(dwc);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return 0;
+> +}
+> +
+> +static void dwc3_imx_complete(struct device *dev)
+> +{
+> +	dwc3_pm_complete(dev_get_drvdata(dev));
+> +}
+> +
+> +static int dwc3_imx_prepare(struct device *dev)
+> +{
+> +	return dwc3_pm_prepare(dev_get_drvdata(dev));
+> +}
+> +
+> +static const struct dev_pm_ops dwc3_imx_dev_pm_ops = {
+> +	SYSTEM_SLEEP_PM_OPS(dwc3_imx_pm_suspend, dwc3_imx_pm_resume)
+> +	RUNTIME_PM_OPS(dwc3_imx_runtime_suspend, dwc3_imx_runtime_resume,
+> +		       dwc3_imx_runtime_idle)
+> +	.complete = pm_sleep_ptr(dwc3_imx_complete),
+> +	.prepare = pm_sleep_ptr(dwc3_imx_prepare),
+> +};
+> +
+> +static const struct of_device_id dwc3_imx_of_match[] = {
+> +	{ .compatible = "fsl,imx-dwc3", },
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(of, dwc3_imx_of_match);
+> +
+> +static struct platform_driver dwc3_imx_driver = {
+> +	.probe		= dwc3_imx_probe,
+> +	.remove		= dwc3_imx_remove,
+> +	.driver		= {
+> +		.name	= "imx-dwc3",
+> +		.pm	= pm_ptr(&dwc3_imx_dev_pm_ops),
+> +		.of_match_table	= dwc3_imx_of_match,
+> +	},
+> +};
+> +
+> +module_platform_driver(dwc3_imx_driver);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("DesignWare USB3 i.MX Glue Layer");
+>
+> --
+> 2.34.1
+>
 
