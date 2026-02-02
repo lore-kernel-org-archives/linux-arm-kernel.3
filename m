@@ -4,100 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC491E7FDF3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 22:45:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66E2CE7FDF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 23:15:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JGqAdrVHnFu6PnnaHfHKQoFDoCwgyHq7ziHIdTjOCQs=; b=JUWcCpswxe5gvF3XIi4N5QHV7l
-	PdnsMIDIqQpJD4FhHNEkOYsmATqDgyIhMK0boYCO8hcTyBzKnnair/buJiNEo0AM3Ia4BJPIzNJ2h
-	vcyIiq7+Wj7TkcqwBAYs7uqVIsgPG3Ef2CQY83vTdU861umWL0bQZrAmRWY2NoxAtzQHc/Xxefoa9
-	//xOiBGnfG1TV3CyLxA6X6UyuV7htZASRCBoAgBOVEnAsvP9c0FAHYW0essyZeoxljdPHfLSXgRwE
-	sEVMCe/wFkQz2O0nzdnVbNypQe8oHQoVyOwcC+6u+p/6MQpCnD0tbML4KlwhaQo3/gb3aeyEDllSL
-	ZCIHs5ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ddf2ioH2Ktuyztsu5afd6+uqRjbgML42099HAKIrcNg=; b=WD5K8gXrhV4wllq9Scf6u8bIo6
+	VYi8y4F6+AUv9g3CB21W8gTwpur4hOsfjTVoYH0tU/nfnsZX42BmYdQTYOg7uq9lLjSwm8WElEhzy
+	DUo6RRqQGMguLTtO5fgSXJpboSf9yVwkRxGQpv5m4mepJXzhKlSmhrjZI/iCkPfTqqe9tnQGj9Edw
+	b3u3WH+urnqm/ei31gUaEa+YEQJD4lnvfsTDgwhiNbKpaBnbNymhzSgOlLLMDezMZtkXjq8QOh9YJ
+	Mzv2b1u1qPvwBs/stNBTPGeWD7We81WfQ3l6QvIuzkE3z/TNKuzvoxjE8PMfN6Q4H6FtpKSVo6VOV
+	S5GNUs7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn2fw-00000005it0-3MiA;
-	Mon, 02 Feb 2026 22:45:44 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1vn38Y-00000005kRI-00vR;
+	Mon, 02 Feb 2026 23:15:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn2ft-00000005is8-0gmp
+	id 1vn38W-00000005kRC-43AQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 22:45:42 +0000
-Received: by mail-wm1-x341.google.com with SMTP id 5b1f17b1804b1-482f454be5bso1657005e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 14:45:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770072339; x=1770677139; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JGqAdrVHnFu6PnnaHfHKQoFDoCwgyHq7ziHIdTjOCQs=;
-        b=fLTRpG3XuGS3BescqRhZBLLNh0qNjkib9YpOolmuzt7qVop9y7Yw4v9W60nQGYMBJp
-         uHtDQrLWD0IpvG1sobCOJaLkyojqGT8pQGnxXxNonNzSGWRPvEW0A54RVNYSYFUvC0Gp
-         bEwRIpbhgtYHbJR1gazobZiEQ/syatzcGC0dbJzpnirdRJewVw37DGZXiGppgybDiM76
-         W5aHXZIrqzfjV8fuVby/r4i1m/F9lbcjHXG/pwLf1hnFyyq58kPb2m3XuuJ8xEK5y7ss
-         A6sJhiBYzvp7S9ffggdPnomBnsxqo++eEAZ0Bd1sVErG7Qjp7Rqo2w9Kt31gaL8TdOSL
-         NOLg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770072339; x=1770677139;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=JGqAdrVHnFu6PnnaHfHKQoFDoCwgyHq7ziHIdTjOCQs=;
-        b=X0qXP5UWTmOUFe5H/2vYuA7TGxXpsWAWl4N6g4+EUcwOhOR+PFu8KoB2wcLZCQKLzH
-         GdEn+m+suBodqmivMlnSQN2ShNKxT9cjdMmg7g7U/nL6shE22Zgzf18h56URB9jjEZsk
-         Zhi5Tp5Sen/k/mo4dyECsmOxP1Gqz2KY0RVhuYHLOa7VmnG1ahCfJ915FqBkT+Ss8tJk
-         wiozS15jvGATILSormF6emtsB0QHQxTSDvE5dUL7CTKr5fxAoNz/zpFEggD5V+tbyFtF
-         58cSR5ZJN2kubl/ytm9WvU8pEisdEXT9x6ezUzrwmIBzlNoiqmk2GyZLEVLWMGu3vakZ
-         NICg==
-X-Forwarded-Encrypted: i=1; AJvYcCUrUuEmASrrg4Kd7aiesgYV7pYtUYQIeV3SKIIPiMUT5kXcD718Vz7DwSmmWzQhPni74cyENBo4019xkg6J5Ikf@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAP1/wCO/C7Q3qdQXTIphvy4Y1kO1vhNY+2U4j9/2OgDossQdo
-	0T44lOX5aJ/KVYesQV+CqLH8UIQ0QFequvRDrDKTZMxSSf7MYIRxVlj4
-X-Gm-Gg: AZuq6aInLBqmuypCh6MhtQRiQvr0qod8EWT5BIWrEbcsvLim1fZFJF667el8NYwiVIF
-	PqU/iyLJpMk0217CKzHHgMxhWBM5Bu84TOdHYpRvCkrgtQT1i8UM3J34Kxfoy/T7n7o+UKNMqF6
-	ZGQXRFch0cm2SShLSUd/6AinQLm96c81rAOaM0rAztY52DWFNBFhDWZdLzfgLEJEbj1T/tMBtVI
-	YBhPBroWHPtkYncGPUdiaxNfpgzIgVtW6DBTrN1dX9H8IkJpiAdQSvj6R+mxf9KIXIEQktN9egt
-	8pEBIEW8wzg/jIJfdRg08aU/5N44LA8P/NdO9ny+AiSlheWWvAwlCs9j17IxFM0klvvnKL5Wf15
-	hkmzVpZOPoBQNwPcXMLAjTQ2OH8TmEzifE4G9oTC+EbOojJSK9YmLnuNN05j1SliAT8riIHtEHY
-	KLiEVaXKWMPKQp/vtzKUzIngjnuJA8g3Gkcer5MGW6KMNkIIhfb1Mv
-X-Received: by 2002:a05:600c:6303:b0:47e:e59c:67c5 with SMTP id 5b1f17b1804b1-4830513aed8mr18382505e9.8.1770072338747;
-        Mon, 02 Feb 2026 14:45:38 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-482e2973d57sm100080575e9.18.2026.02.02.14.45.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Feb 2026 14:45:38 -0800 (PST)
-Date: Mon, 2 Feb 2026 22:45:37 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: "Arnd Bergmann" <arnd@arndb.de>
-Cc: "Nicolas Dufresne" <nicolas.dufresne@collabora.com>, "Arnd Bergmann"
- <arnd@kernel.org>, "Detlev Casanova" <detlev.casanova@collabora.com>,
- "Ezequiel Garcia" <ezequiel@vanguardiasur.com.ar>, "Mauro Carvalho Chehab"
- <mchehab@kernel.org>, Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- "Nathan Chancellor" <nathan@kernel.org>, "Hans Verkuil"
- <hverkuil+cisco@kernel.org>, "Nick Desaulniers"
- <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
- "Justin Stitt" <justinstitt@google.com>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH 1/2] media: rkvdec: reduce excessive stack usage in
- assemble_hw_pps()
-Message-ID: <20260202224537.16c16e13@pumpkin>
-In-Reply-To: <070cebc8-3cab-4f32-a203-9456506dfcc5@app.fastmail.com>
-References: <20260202094804.1231706-1-arnd@kernel.org>
-	<16baade123f563ea92e6117bf78c56e8617daf14.camel@collabora.com>
-	<3b89635f-1c1c-4e4e-b0a9-2bbd0f21bc90@app.fastmail.com>
-	<da9f044152383cacd50989b025fdce08a654bbe3.camel@collabora.com>
-	<070cebc8-3cab-4f32-a203-9456506dfcc5@app.fastmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Mon, 02 Feb 2026 23:15:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E8281600AA;
+	Mon,  2 Feb 2026 23:15:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FA2DC116C6;
+	Mon,  2 Feb 2026 23:15:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770074115;
+	bh=1XwHPN4AupLXvP+bN6kH/Ou8DAfIc/Ke4SzidTUEdR4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=acfQ42a8kNzQpUvKE3nNJtuaqyG9amvuJG30UTwrzTlbtNbQEGu43n7K4ukBgExnR
+	 fJEVD2y9wCADtuQYLA0md/3egtYljsk83cj+VnaEjhcPrNfXypxALKrWQ1g+Pcltuj
+	 U5AGuhaw7lLkR6wmXrZqn+C/Io5/B4jjnZh9K9ge8bSew/OweBx5TR6NlEW1SiXy+b
+	 TottQoB9xPLK5jvysSnZ/js5cXxQU8u8jsULAsFeiJFzfceV1YFhxS4m5kAwxOspny
+	 1Be+K49shZdkgkHFKasAAD4qeW5YJo8ucGy9+MLpMpEHgKImdd98b6Zwe2F0QGDeHP
+	 QIembv1zbS5Tg==
+Date: Mon, 2 Feb 2026 16:15:08 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Naman Jain <namjain@linux.microsoft.com>,
+	Nicolas Schier <nsc@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Tamir Duberstein <tamird@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>, Kees Cook <kees@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>, linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Saurabh Singh Sengar <ssengar@linux.microsoft.com>
+Subject: Re: [RFC PATCH] kbuild: Make --build-id linker flag configurable
+Message-ID: <20260202231508.GB2319189@ax162>
+References: <20260202110631.978412-1-namjain@linux.microsoft.com>
+ <20260202151101-d5558a6f-88d0-41dd-8816-18957a029ce8@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_144541_232483_D7F8211C 
-X-CRM114-Status: GOOD (  13.60  )
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260202151101-d5558a6f-88d0-41dd-8816-18957a029ce8@linutronix.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,34 +83,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 02 Feb 2026 16:59:05 +0100
-"Arnd Bergmann" <arnd@arndb.de> wrote:
-
-...
->  - Since most of the fields are exactly 6 bits offset from a word
->    boundary, you can try assembling all the  *_field_order_cnt*
->    fields in an array first that has all the bits in the correct
->    order, but then shift the entire array six bits.
-
-How are they being written to the hardware?
-It would be very unusual for hardware not to have things 'reasonably aligned'.
-This makes me think that the data buffer is actually being 'bit-bashed'
-down some serial data interface.
-In which case the simple solution is to give the function that writes
-the data a 'bit offset' for the first word.
-
-And to re-iterate C bit-fields are completely non portable and entirely
-inappropriate for mapping onto device registers.
-You can use C structures (arranged with everything on its natural
-boundary so there are no holes) with members declared with the correct
-endianness.
-Indeed that is actually preferable to using numeric constants as the
-offsets are tied to the correct structure.
-
-	David
-
+On Mon, Feb 02, 2026 at 03:15:30PM +0100, Thomas Weißschuh wrote:
+> On Mon, Feb 02, 2026 at 11:06:31AM +0000, Naman Jain wrote:
+> > I am trying to implement reproducible builds for one of my product
+> > kernel. I referred https://reproducible-builds.org/docs/build-path/
+> > and tried to use both -fdebug-prefix-map=OLD=NEW and
+> > -fmacro-prefix-map=OLD=NEW, but still could not achieve bit by bit
+> > binary reproducibility without overwriting build-id to none. 
+> > If I move the kernel to same path in other setup, I was able to create
+> > same binary hash, however, without it, there is some difference in
+> > build-id hash values.
 > 
->       Arnd
-> 
+> Can you force the same build path during package building?
+> That should avoid this issue.
 
+Yeah, I think that it would be better to document this in
+Documentation/kbuild/reproducible-builds.rst, as opposed to adding a
+hack to disable the build ID altogether. It seems easy enough to make
+the paths consistent between machines and environments by using a
+container or such. The new scripts/container in -next could help there.
+
+Cheers,
+Nathan
 
