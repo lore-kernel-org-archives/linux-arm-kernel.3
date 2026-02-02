@@ -4,112 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49F88E7DEF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 14:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A14FE7DEF2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 14:28:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6DwlNJWcSSWiB1RJVuYLclaV0gPVuBf1c2xRk/9v2KU=; b=RHJbgLxmzqO45WsfvTgawy1G6w
-	gbL/fx5XLuGKeLSEeyrbjnBSkVoIN/6J1KWy3snJ8SzXaCD3qu9feGBwozcDX0L7Td6Hln8NdR+Uq
-	0w0xCHjLrvYrpEllSrPXrfvLBr3yyn/55zjj/gZmEt+71pEJbOxgxbWd/B6jmfMq8UYxXBgQXOMpT
-	oGKHLoQqH+vIwx2iai1PHwdwbN5HrgSZpCL77hrSDjDBnTaQeP+UhC68UxACWcwig1XX5RYoGDFQ9
-	/WFkahNT1BBVmdCZLscn6p16gMN06pBR28RI6PfDGeF/j0yPyFQxE3vp8kO8q20BsPMnQfdePE4uB
-	KVW27vNA==;
+	bh=pCFb4xxEV2N7KzX/8XoJeWKKN9wS7tz47sg5Z5hO/c4=; b=JDO8DNm4toEN3Uabk4aBFNi8X2
+	Iu6JVMcTlLHXwvRgKT3wnCRgr5wHmJ67uwSkDUghBenw7XnyxWG8VApJR5w/VjkEKTC6jTOKCjTft
+	3Qc9dbtJMZSqJmN8GRPTIcedUuSGpJtPJ1s16nt8HQQ9h+sO7etnxXSxOAgSnE14C3xUZlBZpOmYx
+	Hoz/H4O7ZYbEz9UfZftRWXIl6ta7C2svzu+T5YL1iPprO8BdtzStXZ17qviZpax3yW7I9NxUVJX2q
+	PWb1iWfBTXUy9/pvVe6g34ObJZPBNIFjTvXS965a+aoqyTeDj5E2nQGy/JziQDMUWGKs2wtoOWdgh
+	ZJy7702g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmuk1-000000055Ki-0h6c;
-	Mon, 02 Feb 2026 14:17:25 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1vmuuj-0000000566C-09B7;
+	Mon, 02 Feb 2026 14:28:29 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmujy-000000055Jy-49bs
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 14:17:24 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-82307c6902eso2283474b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 06:17:22 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770041842; cv=none;
-        d=google.com; s=arc-20240605;
-        b=INV7GLlTOEik1BHxZNK/wTMguMLGrtYt+c0mW0Jiv99+MJeQSkey8IGYPM2a6r3NZV
-         uOihpfcAb221bT9lz4fFLrfr5CoOSC4/sXnKSbxzp78lSpDAUmDdJnGWC/Z4M5YAahe0
-         JwlX+LuPKYhPaP2qlRDB5uXs2CbUVpvI0112Iw0ZJAndN2IiYRCwQpqqD5IQttKBZn5v
-         bjdqQkPhh/fjcy/GoXsGGGhObukzLj3YaTGFR0uadbcsqz21l0LpWDtIFsOAVn+hqHas
-         GvrCd/07DE/cG8mn/3Pd1KqDz4mcpGpZ3DLvUOXOK0f0FWtoha4wnk9GRJUH9132rknd
-         pWuA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=6DwlNJWcSSWiB1RJVuYLclaV0gPVuBf1c2xRk/9v2KU=;
-        fh=zYK57brWoc12hdKgYH8GULMiBguMzpN5n9be93kPA3Y=;
-        b=jV2HcDx72fClwNZZ0sEwfr/PrrKRRYRoTLh/oE9un2w4NBoDiMSrrBtT5lQ6MYOdta
-         V4rRjgSaswCl3/Orh7dA2SFylfljiB/2PtR/qqRo2W6f8R0KxUsy9sAHDhNE5saJEJKI
-         COMW80lJcYc7JkMkOsqACgCPkqDcMq3wOabOy0+g8WCeLV4KqWl488Hu7wSmhUnFP/le
-         NdNK2+WEH3nqHZCjLgIfo/6T68LxCVxiR2LgVfweWqgPdCXyadNYtHFxY8jUJ26hMnWE
-         rcb7JKhM7TpNM/cB9fKPqeYQz9oBqpabh18+rPyiVrtt7vcDZlf+uord6mBWWYA36bFG
-         c80Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770041842; x=1770646642; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6DwlNJWcSSWiB1RJVuYLclaV0gPVuBf1c2xRk/9v2KU=;
-        b=OmHvxZzxuAZCRSwlAvEkBsQwxAq8ZlBa092aaikuqe7lIu3xrzYdI2F3un/o060Vgt
-         Awzm0+4DdDHPKOepniRxDaS/UIG+x1BNBXexcfwfbWOZcqvSLT/9CtUb2Mv7AqvInmLI
-         TpKuj5eIkbY/a5DzkzleZkewMYuNAajbMlO+DEkuFLeA303+Dxh1PogRqlU//S81ZLBV
-         tSzIw5KbSfGY8dlO6hoVojGKXfkXGU38hMfR1g43l1ef3BlbETX1oP7ll/xqjqcJt6A4
-         mjAdzCP5LWLIyX7apNXI1lO4TUyKgugFgUS5Lxm84xrYzmq4I10ZpdF/bTB9i+ayJk3s
-         JUhQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770041842; x=1770646642;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=6DwlNJWcSSWiB1RJVuYLclaV0gPVuBf1c2xRk/9v2KU=;
-        b=mCzLW9cBE0l6I8kJGmjarl3i2TUnYlUJkdBNfzKamfeae6nCogbQSfeHnAOong5R4Q
-         2VH6+MrWPwsxHsInE+OxREiz5FZ7GF8B2IFZyTBeC18IQDybGaXeVYQBsgPOqOItXhrj
-         l4dWuTLqT+q1ZJyMMPLTkk+568PeMf6hPQgXVcnWFPN4SeKJI5iCJQw/4oF9DLP5mgxl
-         BNtPzn0foertx8kfuNjUUdxFjbIFm41//3j7d6wZI3GmEnBix7MP1Ai9xB+m9IwoPey9
-         TLaAugwogXErfHEig4UeZbXqPIezaghP96ij0DxoZIa8Sb+zq3Y6pb+OJDLTDUpvXJ5t
-         Kv/A==
-X-Forwarded-Encrypted: i=1; AJvYcCVSqZ5k3V2j5uoiFwpk1SaYCVKdBm5GPVM7nHsGLbtxfH5XkdvOVCT715OymnaUVXxoj9Ja8mKFheOjZWyYVi0a@lists.infradead.org
-X-Gm-Message-State: AOJu0YySA++vZbv55sorRu6xCNdjvc8FQGOyjzMGCHMn6ZZdGpUErmEW
-	t3QG8iwEm8E9JreVdVF5HwVkMjcD50cbR3QYhILgFFUaNl/qns0fEkzcD3lu7/aycDuguvZIMWI
-	aclP/VjDXEXvbULbXM3WQ8nnS0dqnCqQ=
-X-Gm-Gg: AZuq6aLLM29qYyeToZXKNgDBuuN7M9V/40WlA5JLJxgx8m759bGvF7auLKcGPiZRxke
-	WvTTiAYr4ifH+Eiuxj4+Ehjmtu+Pmmp/SwZf9K5FrlvzKaRFwbRoxIC/rUhKKCTNUe6ImGhaQh7
-	C4+TmMtROdDvlu0bJUVeNNG9IgWoOu/puepf8TMAi930ooiJJnkyQnL5X4ssXY0Pv2gP4cW81mK
-	ZQnRp5HDsUIk3bVOD3jQJDDLwPQPXUpL1MdgX6XkJ5BTDIFFG0UFsL9C5h0Nk3wK9EhxE2EGaTq
-	iIE=
-X-Received: by 2002:a17:90b:5145:b0:34a:9d9a:3f67 with SMTP id
- 98e67ed59e1d1-3543b3eff19mr11142088a91.33.1770041841526; Mon, 02 Feb 2026
- 06:17:21 -0800 (PST)
+	id 1vmuuc-0000000564P-16JX;
+	Mon, 02 Feb 2026 14:28:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description;
+	bh=pCFb4xxEV2N7KzX/8XoJeWKKN9wS7tz47sg5Z5hO/c4=; b=Nhbu0VYP5qTK/s7HyyQREOyam0
+	Zr2Pj3ksZVl3YspztLX8aZJrLG2MIPsanMki3avg4U09a8bbgGudCOOS/2DfdUluDn4wGg8Ikcf+D
+	engXbwdRtM8ezeXXpTuFlc4VxUxROW3OMSUMa/17Q/o4Urwel3/BjJHaYy3PfXGwXG+KMRYjW9C5b
+	rWrOjcrk/Dee/c2M+MZ6wOTvBeCRT/tCLKOO4ygn62B/oYUqO3aw52IKQkU2ALeTnPTJYsLtznVw/
+	FWhjpZIAxOzFozgN1FyqQ4rpLe3QJhz6ZfPFaSxowDpOSAz6PwpU/JDUBtQ8CuRYX+P2ZB+tINPyg
+	9AV7EUuA==;
+Received: from authenticated user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.94.2)
+	(envelope-from <leitao@debian.org>)
+	id 1vmuuO-0046Xd-NY; Mon, 02 Feb 2026 14:28:09 +0000
+From: Breno Leitao <leitao@debian.org>
+Date: Mon, 02 Feb 2026 06:27:39 -0800
+Subject: [PATCH v2 1/2] vmcoreinfo: expose hardware error recovery
+ statistics via sysfs
 MIME-Version: 1.0
-References: <20260131-clk-imx6q-v2-0-70471ddc99e0@gmail.com>
- <20260131-clk-imx6q-v2-1-70471ddc99e0@gmail.com> <aX4q+W3Sjx5SRHrC@lizhi-Precision-Tower-5810>
- <aYAGMAE7ppXP/lbR@shlinux89>
-In-Reply-To: <aYAGMAE7ppXP/lbR@shlinux89>
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Mon, 2 Feb 2026 22:17:11 +0800
-X-Gm-Features: AZwV_QhoCxlCzLAcnWkBO4ogn0VW2M6mcHRnmBpiFBphn4q3UInMNacf8_hKx4Q
-Message-ID: <CAN4SLj3AaM8qiS=DefEWT=EZKQJ6MVa2zEFhU4vgpJZzDBFq7g@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] clk: imx: imx6q: Fix device node reference leak in pll6_bypassed()
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Frank Li <Frank.li@nxp.com>, Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Lucas Stach <l.stach@pengutronix.de>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Akshay Bhat <akshay.bhat@timesys.com>, 
-	Ranjani Vaidyanathan <Ranjani.Vaidyanathan@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
-	linux-clk@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260202-vmcoreinfo_sysfs-v2-1-8f3b5308b894@debian.org>
+References: <20260202-vmcoreinfo_sysfs-v2-0-8f3b5308b894@debian.org>
+In-Reply-To: <20260202-vmcoreinfo_sysfs-v2-0-8f3b5308b894@debian.org>
+To: akpm@linux-foundation.org, bhe@redhat.com
+Cc: linux-kernel@vger.kernel.org, kexec@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, 
+ dyoung@redhat.com, tony.luck@intel.com, xueshuai@linux.alibaba.com, 
+ vgoyal@redhat.com, zhiquan1.li@intel.com, olja@meta.com, 
+ Breno Leitao <leitao@debian.org>, kernel-team@meta.com
+X-Mailer: b4 0.15-dev-f4305
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3683; i=leitao@debian.org;
+ h=from:subject:message-id; bh=U8EjTz/5T7IsTrWh7ZVcmmDz3W/0lTlfkat5cxh/2+Q=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBpgLRtwiUfi29mGTnW4ixNZP7zWlKBlM3vszSJq
+ AEuwxTr9ZeJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaYC0bQAKCRA1o5Of/Hh3
+ bVU7D/4/ExbTJHPtttzMSuBhk++xqEFTGnO6/RhPBgJukq8LwzOrL2hTvO+rp4eeK8XuIhLXwwg
+ bqHzyu8rolbjXfhhAaHIUgSvhChUcCPBHq8yzLTAJKn/I2EEVNOz/ZBR1sdHNNQD2D/Zdsn5EZ6
+ fW2qiKLSsVchqc/HvA7aGm19p4Wk5BIQ+cbiaiKgkzZqCKe0V49KH5KP1NiVlLFjR/lPVrO2jp6
+ fCp/Z7HPXRA8+GpYjT9O6ScKytWNNGmDlN2qZOwbU/RNqGej1tUlbL/Xtcr9c0tZzh9AoZTUUdJ
+ tO+RmLebtx5DBsWl5jOzTE9XcA/eQJFIYM/Hy4+/3BTRscC2Jo3CyJf+XicmaKxF/KG3CdnOjNQ
+ 4vhgMhqdKw5xeXA/+eJ5ZiVNymjHTM/ohxmqvrcq9LVj1Cd6Ppnm29eQBchEaWY5f8xJCGsnAtK
+ Crnwg+xpSxZJT2CXLzbm2f2q7+GgSrw60Prdml0pQyPGTwl4DorPYv83f+5ji1wMkmE3sk0AJxF
+ SxxrLb6nVEGwdT3edG53ysA++T6Y0oRN/0ZWzWvM+RIuARAOznbXwibF1eNELSbsQyAf+Vnl6Q+
+ YT+QI/GpAb0Km9KE73ggMe3TFKAw1/8N4ZudMe7rXnTtyvg8hlhjuLwSd2YKPXq53KGojpz/U06
+ uxWw7bKkJrqqotw==
+X-Developer-Key: i=leitao@debian.org; a=openpgp;
+ fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_061723_034993_BB76919A 
-X-CRM114-Status: GOOD (  22.83  )
+X-CRM114-CacheID: sfid-20260202_062822_323561_1EE24D58 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,83 +92,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 2, 2026 at 10:03=E2=80=AFAM Peng Fan <peng.fan@oss.nxp.com> wro=
-te:
->
-> On Sat, Jan 31, 2026 at 11:16:57AM -0500, Frank Li wrote:
-> >On Sat, Jan 31, 2026 at 04:11:34PM +0800, Felix Gu wrote:
-> >> The function pll6_bypassed() calls of_parse_phandle_with_args()
-> >> but never calls of_node_put() to release the reference, causing
-> >> a memory leak.
-> >>
-> >> Fix this by adding proper cleanup calls on all exit paths.
-> >>
-> >> Fixes: 3cc48976e9763 ("clk: imx6q: handle ENET PLL bypass")
-> >> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
-> >> ---
-> >>  drivers/clk/imx/clk-imx6q.c | 6 +++++-
-> >>  1 file changed, 5 insertions(+), 1 deletion(-)
-> >>
-> >> diff --git a/drivers/clk/imx/clk-imx6q.c b/drivers/clk/imx/clk-imx6q.c
-> >> index bf4c1d9c9928..1d8e8f0891a3 100644
-> >> --- a/drivers/clk/imx/clk-imx6q.c
-> >> +++ b/drivers/clk/imx/clk-imx6q.c
-> >> @@ -238,8 +238,11 @@ static bool pll6_bypassed(struct device_node *nod=
-e)
-> >>                      return false;
-> >>
->
-> One more comment:
-> Put one line here, "of_node_put", no need duplicate it in below.
-Hi Peng,
-Thanks for your review.
-Frank also mentioned this in V1, but I think it may not be good to use
-clkspec.np after calling of_node_put().
+Add a sysfs directory at /sys/kernel/hwerr_recovery_stats/ to expose
+hardware error recovery statistics that are already tracked by the
+kernel. This allows userspace monitoring tools to track recovered
+hardware errors without requiring kernel crashes.
 
-Best regards,
-Felix Gu
->
-> >>              if (clkspec.np =3D=3D node &&
-> >> -                clkspec.args[0] =3D=3D IMX6QDL_PLL6_BYPASS)
-> >> +                clkspec.args[0] =3D=3D IMX6QDL_PLL6_BYPASS) {
-> >> +                    of_node_put(clkspec.np);
->
-> Drop this change
->
-> >>                      break;
-> >> +            }
-> >> +            of_node_put(clkspec.np);
->
-> Ditto.
->
-> Regards,
-> Peng
->
-> >>      }
-> >>
-> >>      /* PLL6 bypass is not part of the assigned clock list */
-> >> @@ -249,6 +252,7 @@ static bool pll6_bypassed(struct device_node *node=
-)
-> >>      ret =3D of_parse_phandle_with_args(node, "assigned-clock-parents"=
-,
-> >>                                       "#clock-cells", index, &clkspec)=
-;
-> >>
-> >
-> >If ret is err, clkspec will not touched. So clkspec.np keep old value,
-> >of_node_put(clkspec.np) will put twice for previous np.
-> >
-> >So need add if (ret) check here. Or use difference variable clkspec with
-> >init 0.
-> >
-> >Frank
-> >
-> >> +    of_node_put(clkspec.np);
-> >>      if (clkspec.args[0] !=3D IMX6QDL_CLK_PLL6)
-> >>              return true;
-> >>
-> >>
-> >> --
-> >> 2.43.0
-> >>
+This is useful to track recoverable hardware errors in a time series,
+even if the host doesn't crash.
+
+The sysfs directory contains one file per error subsystem:
+
+  /sys/kernel/hwerr_recovery_stats/cpu     - CPU-related errors (MCE, ARM errors)
+  /sys/kernel/hwerr_recovery_stats/memory  - Memory-related errors
+  /sys/kernel/hwerr_recovery_stats/pci     - PCI/PCIe AER non-fatal errors
+  /sys/kernel/hwerr_recovery_stats/cxl     - CXL errors
+  /sys/kernel/hwerr_recovery_stats/others  - Other hardware errors
+
+Each file contains a single integer representing the count of recovered
+errors for that subsystem.
+
+These statistics provide visibility into the health of the system's
+hardware and can be used by system administrators to proactively detect
+failing components before they cause system crashes.
+
+Signed-off-by: Breno Leitao <leitao@debian.org>
+---
+ kernel/vmcore_info.c | 55 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 55 insertions(+)
+
+diff --git a/kernel/vmcore_info.c b/kernel/vmcore_info.c
+index e2784038bbed7..b7fcd21be7c59 100644
+--- a/kernel/vmcore_info.c
++++ b/kernel/vmcore_info.c
+@@ -6,6 +6,8 @@
+ 
+ #include <linux/buildid.h>
+ #include <linux/init.h>
++#include <linux/kobject.h>
++#include <linux/sysfs.h>
+ #include <linux/utsname.h>
+ #include <linux/vmalloc.h>
+ #include <linux/sizes.h>
+@@ -139,6 +141,56 @@ void hwerr_log_error_type(enum hwerr_error_type src)
+ }
+ EXPORT_SYMBOL_GPL(hwerr_log_error_type);
+ 
++/* sysfs interface for hardware error recovery statistics */
++#define HWERR_ATTR_RO(_name, _type)					\
++static ssize_t _name##_show(struct kobject *kobj,			\
++			    struct kobj_attribute *attr, char *buf)	\
++{									\
++	return sysfs_emit(buf, "%d\n",					\
++			  atomic_read(&hwerr_data[_type].count));	\
++}									\
++static struct kobj_attribute hwerr_##_name##_attr = __ATTR_RO(_name)
++
++HWERR_ATTR_RO(cpu, HWERR_RECOV_CPU);
++HWERR_ATTR_RO(memory, HWERR_RECOV_MEMORY);
++HWERR_ATTR_RO(pci, HWERR_RECOV_PCI);
++HWERR_ATTR_RO(cxl, HWERR_RECOV_CXL);
++HWERR_ATTR_RO(others, HWERR_RECOV_OTHERS);
++
++static struct attribute *hwerr_recovery_stats_attrs[] = {
++	&hwerr_cpu_attr.attr,
++	&hwerr_memory_attr.attr,
++	&hwerr_pci_attr.attr,
++	&hwerr_cxl_attr.attr,
++	&hwerr_others_attr.attr,
++	NULL,
++};
++
++static const struct attribute_group hwerr_recovery_stats_group = {
++	.attrs = hwerr_recovery_stats_attrs,
++};
++
++static struct kobject *hwerr_recovery_stats_kobj;
++
++static int __init hwerr_recovery_stats_init(void)
++{
++	hwerr_recovery_stats_kobj = kobject_create_and_add("hwerr_recovery_stats",
++							   kernel_kobj);
++	if (!hwerr_recovery_stats_kobj) {
++		pr_warn("Failed to create hwerr_recovery_stats kobject\n");
++		return -ENOMEM;
++	}
++
++	if (sysfs_create_group(hwerr_recovery_stats_kobj,
++			       &hwerr_recovery_stats_group)) {
++		kobject_put(hwerr_recovery_stats_kobj);
++		pr_warn("Failed to create hwerr_recovery_stats sysfs group\n");
++		return -ENOMEM;
++	}
++
++	return 0;
++}
++
+ static int __init crash_save_vmcoreinfo_init(void)
+ {
+ 	vmcoreinfo_data = (unsigned char *)get_zeroed_page(GFP_KERNEL);
+@@ -248,6 +300,9 @@ static int __init crash_save_vmcoreinfo_init(void)
+ 	arch_crash_save_vmcoreinfo();
+ 	update_vmcoreinfo_note();
+ 
++	/* Create /sys/kernel/hwerr_recovery_stats/ directory */
++	hwerr_recovery_stats_init();
++
+ 	return 0;
+ }
+ 
+
+-- 
+2.47.3
+
 
