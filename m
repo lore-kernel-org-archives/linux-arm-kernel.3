@@ -4,73 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E621E73159
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 11:06:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B5B5E73158
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 11:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YK1bIPZnnWv7pQYIyhk35+mOVNMBab8mq9bTqqdASAg=; b=SomGv6diGKLIovozZaRPV+KSYG
-	/xi5UTkaNKcQ7bX9ZwvXVrzetNTp5lm3HxzfeCMWPSWTWkzgx4QcilPo9j1u6AJqMsCHL+30UiUgV
-	J2mZpRnHWQTkMbHa5bpRN+Q/YMV8/zFj0mAflTaqG2TvLrG5sQY3e2wh0GYrmD7JOaAr6Ut9/CGPg
-	eH4hmntDGrF5dLu4gdxtG6hmxrbEC+n6q9aldn/0spcbKeo7nsTqkJZr1Op/3Bs1MHhnVVtwLtHSL
-	bw74VQKZpCPBab8lg/NLB7fCRY2B2L2JNcnBw47El5JnUIcWMcgWcRHcUSY8J288mcNNAyh9Tmr69
-	yU0kTQTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5GaSxpL0c1F3l2pT2M34z9KbB0HtDXYwv2jEguO8oOA=; b=3S1hGlo6zSN8YYttIkHNLMK8Qj
+	VH2y5ArfqPNgZtpr+YOI1jLyn8TxXPRvezOBv7vT8CmKf8+/8Zg9Ix1lqNORsjYgPiJ7Sr92Wj3u1
+	CYv3Eh6r73/fiZSvW8XEOo2UywHrgVpt7nqO1pbAYrMADq7Ge25lLumT8COGwYnH6n91E7Xhx+lqr
+	QaxYZ3GgAbSU5fItPY1cdkZwkavypo6uGADCOTJhXUYEFNAWCl/GQvVNQOxn/RTf5Swym2Jy7jwHj
+	gNq+ZtJkoGdyRoh0QymdDmCk0NiwrrjIHdG8rj4NWvBH+PuzJ+a8ht26DhQUQVy5OH6Z7TdNlHxDY
+	sfDfZ9uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmrlU-00000004sGg-27yR;
-	Mon, 02 Feb 2026 11:06:44 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmrlR-00000004sFZ-42HD
+	id 1vmrpo-00000004scY-2Qch;
+	Mon, 02 Feb 2026 11:11:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vmrpl-00000004scA-39VK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 11:06:43 +0000
-Received: from CPC-namja-026ON.redmond.corp.microsoft.com (unknown [4.213.232.19])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 2C45720B7167;
-	Mon,  2 Feb 2026 03:06:34 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 2C45720B7167
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1770030400;
-	bh=YK1bIPZnnWv7pQYIyhk35+mOVNMBab8mq9bTqqdASAg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=rDLRrBIC+PuwHWuZRDUn1bNSeLTo7bn6JCiV/ZM1HvjeiM6WLaX53h53yDp6MvcWb
-	 vXyWWf4Moz8HSk4Ogpv1PSyNJ3j1GZOIWriHLA7pVpZWmpfotYkVhOAxbknZEK/kTL
-	 mGi7sIcvYoGJMxF5ZqiIHh8Lf0Hp3cZYreq6HUEU=
-From: Naman Jain <namjain@linux.microsoft.com>
-To: Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nsc@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>
-Cc: Masahiro Yamada <masahiroy@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	thomas.weissschuh@linutronix.de,
-	Tamir Duberstein <tamird@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Naman Jain <namjain@linux.microsoft.com>,
-	Kees Cook <kees@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Mon, 02 Feb 2026 11:11:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F0A8443DA7;
+	Mon,  2 Feb 2026 11:11:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA0EFC116C6;
+	Mon,  2 Feb 2026 11:11:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770030668;
+	bh=p759RUX5e3pnwmjWak5xYVtt1mYivnUA03Hiv54OSFQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=SPppoJVVbE+TBYd2ofa58Jo3oyAnysjG2V0tChex+m+fQYGGaNVBDUmuGRs0ccsFE
+	 fNqROvL7jJYe98XLNiyYsGWGcUytMjIU9jRFcHdpgkK79f8EGTBrjKlDdp0x/ztCIL
+	 dGQe4Nu4haxGZSJnrnQxhNAT191PnTKf6o7fuYPPgz3m/PQufWOTrzwPZAutaAtRbS
+	 h+WkwQ85Gz0fZDcn/eynGHUxZAUYR720BhoxLBM3M7KGsWNjJmk+iCiTImdLsnkNLW
+	 8B2uxx49rUoQyuF3Z6+ZpoabSrxBn5+13xqsZFRMZIY+czSEplFYiDmm3h/fNqIOLl
+	 pP5bn1KA+1MdQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vmrpi-00000007kae-1kH1;
+	Mon, 02 Feb 2026 11:11:06 +0000
+Date: Mon, 02 Feb 2026 11:11:05 +0000
+Message-ID: <86v7gf9z92.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Eric DeVolder <eric.devolder@oracle.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Kees Cook <keescook@chromium.org>,
 	linux-arm-kernel@lists.infradead.org,
-	Saurabh Singh Sengar <ssengar@linux.microsoft.com>
-Subject: [RFC PATCH] kbuild: Make --build-id linker flag configurable
-Date: Mon,  2 Feb 2026 11:06:31 +0000
-Message-ID: <20260202110631.978412-1-namjain@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	linux-kernel@vger.kernel.org,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@somainline.org>,
+	John Crispin <john@phrozen.org>
+Subject: Re: [PATCH v2 0/2] ARM: decompressor: support AUTO_ZRELADDR and appended DTB
+In-Reply-To: <CA+_ehUx=3Ci2hN0YYkLxBNwOu_NTHFe_ZKkw9TH+bU-4PwTD-A@mail.gmail.com>
+References: <20240121203009.9257-1-ansuelsmth@gmail.com>
+	<65d62b60.050a0220.c7b96.614e@mx.google.com>
+	<666ad6e0.df0a0220.f8b16.4a5e@mx.google.com>
+	<CACRpkdYJoNRpciyQE_A6dkb8f6Jsy4+qwb4w9K3bss2mkZpp1A@mail.gmail.com>
+	<ZmsXdWWidNjXdbSa@shell.armlinux.org.uk>
+	<666b2379.5d0a0220.c7eec.8b6f@mx.google.com>
+	<CAMuHMdWnNzktSecsPX_anf=PCuLrZUT-6TO7KXGCHeQVTS974g@mail.gmail.com>
+	<aYCDOio-YdUJAf2v@shell.armlinux.org.uk>
+	<CA+_ehUx=3Ci2hN0YYkLxBNwOu_NTHFe_ZKkw9TH+bU-4PwTD-A@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ansuelsmth@gmail.com, linux@armlinux.org.uk, geert@linux-m68k.org, linus.walleij@linaro.org, arnd@arndb.de, akpm@linux-foundation.org, geert+renesas@glider.be, kirill.shutemov@linux.intel.com, tglx@linutronix.de, corbet@lwn.net, rppt@kernel.org, eric.devolder@oracle.com, nathan@kernel.org, keescook@chromium.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, andersson@kernel.org, konrad.dybcio@somainline.org, john@phrozen.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_030642_075677_5E783943 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20260202_031109_962909_6FA9EA05 
+X-CRM114-Status: GOOD (  39.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,137 +107,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Build ID hashes include file paths, so building the same source from
-different directories produces different binaries. This breaks
-reproducible builds.
+On Mon, 02 Feb 2026 11:03:24 +0000,
+"Christian Marangi (Ansuel)" <ansuelsmth@gmail.com> wrote:
+> 
+> Il giorno lun 2 feb 2026 alle ore 11:58 Russell King (Oracle)
+> <linux@armlinux.org.uk> ha scritto:
+> >
+> > On Mon, Feb 02, 2026 at 11:26:49AM +0100, Geert Uytterhoeven wrote:
+> > > FTR, I did provide my Tested-by for the first patch in [1].
+> > > I still have this series in my local tree, which I test regularly on
+> > > a variety of Renesas ARM32 platforms and on BeagleBone Black.
+> > >
+> > > In fact, I had completely forgotten about this series, to the point
+> > > that I bisected a failure in booting mainline on one of my boards
+> > > using my current .config to the absence of the first patch ;-)
+> > > Apparently during the past years, I had modified my .config to make it
+> > > more generic, and make better use of the DTB (incl. chosen/bootargs),
+> > > which has a dependency on the first patch...
+> >
+> > What I would like to know is why anyone is using appended DTBs in this
+> > day and age, when surely by now, Arm based boot loaders have realised
+> > that Arm moved to use device trees ages ago, and the kernel requires
+> > a DTB in addition to the kernel image itself.
+> >
+> > Appended DTB support was only there as a stop-gap for those boot
+> > loaders that were around before DTB support was added, and have no
+> > capability of dealing with a separate DTB.
+> >
+> > Come on. It's 2026. DTB has been supported on 32-bit ARM for fifteen
+> > years. Surely everyone's now got modern boot loaders.
+> >
+> > If not, it's time to say this: fix the boot loader.
+> >
+> 
+> The main problem is that sometimes it's not possible to update the bootloader
+> at all. Either they never provided the source or Uboot is not even used.
+> 
+> And on some device updating the bootloader is risky as you would end up
+> in a brick. (no way to recover it)
+> 
+> Also other case usually sign the bootloader and permit to load whatever
+> image you want so also problematic to update the bootloader.
+> 
+> Sadly for these device, it's full of corner situation where the Vendor used
+> a badly configured SDK and made a single bootloader on it.
+> 
+> For example QCOM Uboot SDK still target ancient 2012 version if I'm not
+> wrong.
 
-Add KBUILD_BUILD_ID variable (default: sha1) to allow overriding:
+If you can boot the kernel, you can also boot a secondary bootloader
+that will do the right thing by exposing a DT. Fixing the boot flow
+should be the priority, rather than adding more band-aids to the
+kernel.
 
-    make KBUILD_BUILD_ID=none
+Thanks,
 
-The variable is exported to VDSO Makefiles which also include a
-fallback default for standalone invocation.
+	M.
 
-Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
----
-Hi,
-Sending this change for RFC, as it is quite possible that this is a
-generic problem and I may be missing something.
-
-I am trying to implement reproducible builds for one of my product
-kernel. I referred https://reproducible-builds.org/docs/build-path/
-and tried to use both -fdebug-prefix-map=OLD=NEW and
--fmacro-prefix-map=OLD=NEW, but still could not achieve bit by bit
-binary reproducibility without overwriting build-id to none. 
-If I move the kernel to same path in other setup, I was able to create
-same binary hash, however, without it, there is some difference in
-build-id hash values.
-
-Reproducibility wiki says "In most cases however, post-processing is
-required to either remove the build path or to normalize it to a
-predefined value.". I have tried that, and it works, but wanted to
-conclude if that is my last option here.
-
-Thanks.
-
----
- Makefile                          | 8 ++++++--
- arch/arm64/kernel/vdso/Makefile   | 5 ++++-
- arch/arm64/kernel/vdso32/Makefile | 5 ++++-
- arch/x86/entry/vdso/Makefile      | 5 ++++-
- 4 files changed, 18 insertions(+), 5 deletions(-)
-
-diff --git a/Makefile b/Makefile
-index 3373308d2217c..3fcff4af200d7 100644
---- a/Makefile
-+++ b/Makefile
-@@ -1132,8 +1132,12 @@ KBUILD_AFLAGS   += $(KAFLAGS)
- KBUILD_CFLAGS   += $(KCFLAGS)
- KBUILD_RUSTFLAGS += $(KRUSTFLAGS)
- 
--KBUILD_LDFLAGS_MODULE += --build-id=sha1
--LDFLAGS_vmlinux += --build-id=sha1
-+# Can be overridden for reproducible builds by using "make KBUILD_BUILD_ID=none"
-+KBUILD_BUILD_ID ?= sha1
-+export KBUILD_BUILD_ID
-+
-+KBUILD_LDFLAGS_MODULE += --build-id=$(KBUILD_BUILD_ID)
-+LDFLAGS_vmlinux += --build-id=$(KBUILD_BUILD_ID)
- 
- KBUILD_LDFLAGS	+= -z noexecstack
- ifeq ($(CONFIG_LD_IS_BFD),y)
-diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
-index 7dec05dd33b70..b3ee5982b4676 100644
---- a/arch/arm64/kernel/vdso/Makefile
-+++ b/arch/arm64/kernel/vdso/Makefile
-@@ -9,6 +9,9 @@
- # Include the generic Makefile to check the built vdso.
- include $(srctree)/lib/vdso/Makefile.include
- 
-+# Fallback for standalone builds, normally inherited from top-level Makefile
-+KBUILD_BUILD_ID ?= sha1
-+
- obj-vdso := vgettimeofday.o note.o sigreturn.o vgetrandom.o vgetrandom-chacha.o
- 
- # Build rules
-@@ -22,7 +25,7 @@ btildflags-$(CONFIG_ARM64_BTI_KERNEL) += -z force-bti
- # routines, as x86 does (see 6f121e548f83 ("x86, vdso: Reimplement vdso.so
- # preparation in build-time C")).
- ldflags-y := -shared -soname=linux-vdso.so.1 \
--	     -Bsymbolic --build-id=sha1 -n $(btildflags-y)
-+	     -Bsymbolic --build-id=$(KBUILD_BUILD_ID) -n $(btildflags-y)
- 
- ifdef CONFIG_LD_ORPHAN_WARN
-   ldflags-y += --orphan-handling=$(CONFIG_LD_ORPHAN_WARN_LEVEL)
-diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
-index 9d0efed91414c..991aed67e65a2 100644
---- a/arch/arm64/kernel/vdso32/Makefile
-+++ b/arch/arm64/kernel/vdso32/Makefile
-@@ -5,6 +5,9 @@
- 
- include $(srctree)/lib/vdso/Makefile.include
- 
-+# Fallback for standalone builds, normally inherited from top-level Makefile
-+KBUILD_BUILD_ID ?= sha1
-+
- # Same as cc-*option, but using CC_COMPAT instead of CC
- ifeq ($(CONFIG_CC_IS_CLANG), y)
- CC_COMPAT ?= $(CC)
-@@ -87,7 +90,7 @@ VDSO_AFLAGS += -D__ASSEMBLY__
- # From arm vDSO Makefile
- VDSO_LDFLAGS += -Bsymbolic --no-undefined -soname=linux-vdso.so.1
- VDSO_LDFLAGS += -z max-page-size=4096 -z common-page-size=4096
--VDSO_LDFLAGS += -shared --build-id=sha1
-+VDSO_LDFLAGS += -shared --build-id=$(KBUILD_BUILD_ID)
- VDSO_LDFLAGS += --orphan-handling=$(CONFIG_LD_ORPHAN_WARN_LEVEL)
- 
- 
-diff --git a/arch/x86/entry/vdso/Makefile b/arch/x86/entry/vdso/Makefile
-index f247f5f5cb44d..fefddc91b41ea 100644
---- a/arch/x86/entry/vdso/Makefile
-+++ b/arch/x86/entry/vdso/Makefile
-@@ -6,6 +6,9 @@
- # Include the generic Makefile to check the built vDSO:
- include $(srctree)/lib/vdso/Makefile.include
- 
-+# Fallback for standalone builds, normally inherited from top-level Makefile
-+KBUILD_BUILD_ID ?= sha1
-+
- # Files to link into the vDSO:
- vobjs-y := vdso-note.o vclock_gettime.o vgetcpu.o vgetrandom.o vgetrandom-chacha.o
- vobjs32-y := vdso32/note.o vdso32/system_call.o vdso32/sigreturn.o
-@@ -155,7 +158,7 @@ quiet_cmd_vdso = VDSO    $@
- 		       $(VDSO_LDFLAGS) $(VDSO_LDFLAGS_$(filter %.lds,$(^F))) \
- 		       -T $(filter %.lds,$^) $(filter %.o,$^)
- 
--VDSO_LDFLAGS = -shared --hash-style=both --build-id=sha1 --no-undefined \
-+VDSO_LDFLAGS = -shared --hash-style=both --build-id=$(KBUILD_BUILD_ID) --no-undefined \
- 	$(call ld-option, --eh-frame-hdr) -Bsymbolic -z noexecstack
- 
- quiet_cmd_vdso_and_check = VDSO    $@
-
-base-commit: 63804fed149a6750ffd28610c5c1c98cce6bd377
 -- 
-2.43.0
-
+Without deviation from the norm, progress is not possible.
 
