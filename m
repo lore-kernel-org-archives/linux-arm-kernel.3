@@ -4,111 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1671E7DF0A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 16:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84DD1E7DF08
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 16:53:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=enDw9LkM3CdlAH4/IbRE0pQEHAl9HYEyYit2vG/Lo9A=; b=xKBVh9Rqtq97c78hl7r2PBexQg
-	vk0lfrpECSdu1PblBPAZ+qi9GSaWTCs7ySYRYjADLmCcFIcrFeCmpDzgBLa2J4edALcaekvXMVtHK
-	naRsWwNs7b+rtD149nTIGG0Rz6qRGaglk1WJ6MnFXBnN9jVYPI/2j2l1x6jW0O3UxuKkn5budJjUO
-	ooTU8VNy6kO/i8o7INVxV6QaNcLno35sZpa1MkJ3jRe+Qvar9t/f4KPfjqFVEfJ/M2Y7ra9F1He8X
-	6+s2vPIdYgWGbKySXO8HTDFKCA3XfeFgfliOK/TAUGNx/Z8HxLZ4R+SMXiVp/EMg+5hveMLeEMlln
-	xVP918mg==;
+	bh=QGLSQGBxItX/p5vDeLcxHCTPSeYQPRqcWlnQBJSqWY0=; b=pu3Lkk1cC7GgzElyG5S1c0ZrQW
+	WOg/fi88EpklgzwotaCl3ZAUaE8rv9WH+Wa1+RmPtwoLQEXEAwbdpw2SvIA7W28XPinxQ8GN4buB+
+	MIkuSwFC66ZV4NMmcQXjEd0EhBQqzJZj8lhwOKR7gkHcaki4UTnnOYavWGqmtA+HBWNr7qJrR47TJ
+	wQsCxXHD7s5xR5Ku35igpxbxQMKXqf9DwhW4RVTp1YXXxsUZoiEagLG3zCF2WOzflLXn/KWwB/qbl
+	d7HJmZ2hR8HdpURFFWbPlC0MZ+K2rwdz2PCdpzsPQiUfxYS0nzh8mhPaY3R946KzqRdDeHODLU5IT
+	IwJ7CUVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmxAL-00000005K4n-08G7;
-	Mon, 02 Feb 2026 16:52:45 +0000
+	id 1vmxAW-00000005K7r-2vBr;
+	Mon, 02 Feb 2026 16:52:56 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmxAJ-00000005K4F-1mHp
+	id 1vmxAV-00000005K7N-2U66
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Feb 2026 16:52:43 +0000
+	Mon, 02 Feb 2026 16:52:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=enDw9LkM3CdlAH4/IbRE0pQEHAl9HYEyYit2vG/Lo9A=; b=ijWrw99V13ej0u76OBbkATzwYx
-	2eaSeyyKypLUwfNbmC1Wa/0NI1TW/hU0wOK4d+E/vPQ3jIvJjYLk3l0SWKf8uZd9Dt/zIHu42BHCb
-	uF7tuV6EC6vTVX5lc4Yk3/qVbkGBPlYr87RlTYIEj0jCudm4kfsexLJkjvXTFo/yf3AMOpJoaxKtj
-	xEHGyDSMOVutoTYV//Ry8KmjFlhXnUL61Y0o46AMp9PeZxgpkSorDgLmZBH3DvFUPIB2i6R6b4qUf
-	DZURpQ2KA/OcSe92LFnfFTdUvGLF5g+7LqSuDyZ4uUgfJ7skN5uJsnbscyFdD8xZW8yDGQSQD0Ac+
-	zvqRWD/Q==;
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	bh=QGLSQGBxItX/p5vDeLcxHCTPSeYQPRqcWlnQBJSqWY0=; b=onY5147C5u9Oan07bna4HEHOCG
+	6gomz8U9twcLn4L/6TrUjS8azGVumGGWFaoURpavZ8SUp634g6DMHUFhbgjoDRz7lrIka34lpUDbn
+	xku3x8doMUtLolCOzCgm1oGGoawdPPQftWhPeTzGqkFyYW6W7j2bPb21Tt5g21p/x9nIlOoAlLeGe
+	OfmOpYzxvJU0noJKUtMW0rHk1ZHnSZP2f6/WhEL7wmmD2MY+r+1KPpFc9MWqQ9aDO4zdzs7Te+PIK
+	sx0/L+k4qGTN/TCv2HgU00q/5fWBy/RP25qUXjPsHlMYcTw+QN3eaA3S8bBrLVoNoIv6s75bwbAQY
+	XnXuh57A==;
+Received: from mail-ed1-x542.google.com ([2a00:1450:4864:20::542])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmxAG-0000000EsQS-1rvi
+	id 1vmxAS-0000000EsSj-2qnJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 16:52:42 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b8707005183so718757266b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 08:52:39 -0800 (PST)
+	Mon, 02 Feb 2026 16:52:54 +0000
+Received: by mail-ed1-x542.google.com with SMTP id 4fb4d7f45d1cf-658d4059b79so6937728a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 08:52:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1770051156; x=1770655956; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1770051169; x=1770655969; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=enDw9LkM3CdlAH4/IbRE0pQEHAl9HYEyYit2vG/Lo9A=;
-        b=Wq839bZrOAfy7kRJFHEAvU3rgo1LQwBwjek34VPm1gBcUNhaLulARwJxZYQKMSCKbP
-         2Blgjg/cunK3yC/kjEt7xW3Otm8xk11AnIIjboYwARe0hTobBr/ISwA7X/y8ypfLz/1e
-         MZYkxm6FWspWe+LOmWoDCB2+zs9iHd5Yndx2w=
+        bh=QGLSQGBxItX/p5vDeLcxHCTPSeYQPRqcWlnQBJSqWY0=;
+        b=WDnzuC5/dOXgk7nNrh3IFA9PTK0V10lbhOF2z4Clmjur7h07uoFkpb9m3juG0cUqrB
+         zAXvVwHglyec9uZOy7Ep+PL14DJ74/WChOpkeRlomgQrsatdnsFQoAIpkWHtIbmlU9Bo
+         NTOr9wggs4sZJ6O1M9wXpMzAib+ZTCeD4n8lo=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770051156; x=1770655956;
+        d=1e100.net; s=20230601; t=1770051169; x=1770655969;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=enDw9LkM3CdlAH4/IbRE0pQEHAl9HYEyYit2vG/Lo9A=;
-        b=JzTr3MZIv1wbMs9K58jv7Q6rLlPg9Y30jq0wFpW/KPzGIzi6Gc/dk1lmjfka6DEQlz
-         1ECEij0PnlL+rcGHkghlxWGrEE6VlQeQ/e+qVQgKQqMUnyv7xagNSXY0eznzkaLU6o+k
-         zchYBYcUDJa67xY5Y09RmED79XJhsMAvg4Q3JlgmERfVlQJNjM8p70AeCoZlqFcfCXdH
-         lbCeggOtQ9t5IqGHWO6Vy2o9ZVqSPyOaekM5dqymjx5nJbS+ErUNNjLhlkCsl7KnSMwy
-         Dr3xi2vC1CT2ZSB5r9LSQjXI4gf6toCnId/J+znkBXSEoaHSf0X6Ntzfs0cA2yKzSXZv
-         0ThA==
-X-Forwarded-Encrypted: i=1; AJvYcCVOavLA1HhgSyh/Y0dnmTUkYm8kgQ96iclXeyc/JxajwYpgmdabDI3I9BKbw454O5mfKC0PanAW5BMt/BXaJHf3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1DgIh1S7CTP64N759QNGH/0vT0E+XlstiFB6GwbPPuVCFHsZL
-	0nJgMcsdjgBQ8TxCf2EIndMFKIS8Te5IAZezp4gvsad5XJlibZpChL8lXIfiZ6NMeYCEUoxd/pV
-	o9+XtrA==
-X-Gm-Gg: AZuq6aJvcll+rR/tLM+w39heqVbP5WdFJ7rmcvfrnPaJFKSAYrlYnxO4q6/nwPRybN5
-	a9o7azezfvSCsf6PtsHwM1NkDhJ30hpbZhBkZKesXWXC/vhjpDUPtIwpYxYj3G58GdyUFiah3Kt
-	z+RrHJDGzAk50btU+s6pScU8ShDCJYWxF3o/IJ2xsI2gYhH9rHLUPkWvdnPsmuCP+hxdl68JY3k
-	LkmoY+gCG2E/sT4Gruq7i9n9YpAlnfKWdGa/GMVkRSdR0Ll5MJDJCZrAl3M9B85PWfno3s/HwNv
-	I1FMcdeYzkbc3YhZvjIoIpm20/sLjNEgsj8s5wN8h4JeRRivfhTUDuZLHwuM3011FcbquSDePez
-	+3sTuqaJyLtkGvC4sucRrKVj9lC2Kq1gu8xH/+lhqIkoxHYF5m5TYKVAbxtfRXVPOSbooL3Cw5y
-	bv5Vy6w9VgEBz/HbpyXhttOAxVJM5Uz2ZpTXW6Svf6tw+DKenj8TnhHg/Bgk62
-X-Received: by 2002:a17:906:dc92:b0:b86:e938:1b3a with SMTP id a640c23a62f3a-b8dff53de9dmr707358266b.17.1770051155438;
-        Mon, 02 Feb 2026 08:52:35 -0800 (PST)
-Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com. [209.85.128.44])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8de3046abasm736762566b.2.2026.02.02.08.52.34
+        bh=QGLSQGBxItX/p5vDeLcxHCTPSeYQPRqcWlnQBJSqWY0=;
+        b=waVT9mvfyWORzSsoLLfGBNKTmWJ3Yyaku+cXrAMTSxBIupXXypJkZ/MsufjmrkbUWF
+         rtiuMDpoh/oc/8g6+mrPv9hdFBZA4H1cIPveXxq8qOxHhJQw4LYw5NSGY8FkzmwvkZj4
+         GOaNasulxFq7XazmnaigTY8qh1jcsYJIW8EEYK2r5CD1S3vr/9AQWc1jF7LZtcVdIsMO
+         8xHmgZKyekGs24e6bROBBoVqFdhqVkSIAQPvRpPTNjUTR0xV232NdNo1hqzmAdETsmSR
+         /QR6rXtrInp5Qffm3aSIg+RkrB9UHjjYFOI1a8ys+G8jMeW0lMKxpt/mvDTB0bWiJK2V
+         gmcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU5NGizibO2uK2+a8c5tJkpY9two6ePj67653T9fBqFCCFUzUiVEPmstoDEYY8II5O+MEBH7sjDhs07H92gbVOB@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNim/aOgBgDwzTkGd1XPGlxSKRY9TKqf7VWVbWxlUfs1DOYjkZ
+	t8vQlp4+jDTKRrA+r3neXEZSfokNKCEq/CCvvpn8e76M3wTDMprETqUowceyp7V0v+1WeVnN8ZX
+	krm8OaPVx
+X-Gm-Gg: AZuq6aL1GR7e4/9JFlNaeQ0yNGKgBLrPrO0mPKYnmcP+PCSfLRU0FThqqTgxsLd+esD
+	jq7Le0pLMvP/U6woW3JyTr1K8ThYznn2AKxNulshMYglC40jt6Zo6wADF1tQsRp2eZEKUWuM5fP
+	XcXOXtWm2CvomBYSfNY41yBI9MTqjkU49PhbiwI6NBcvB55YQV2qD30x3XanctJkXn1nmtY8ULa
+	SJYbT6rX/LqwPmVsREnnPhJJwTB7SIdYklRnvadklsMlNqn5UQpbjfYHrJYC6S5QWniSilJJNvZ
+	ysz+XytDkq6bc9zqApzq5JZurgL0szJHNtSOf1tvyHdZaWJi1P4M7r4sXH+PwTjjnOH8d7Lc64T
+	eaxtkv9LA3mkrWYDVKvYbVyiMbdtFe8DYm6WjmFir0aKN9fMpcpyWRWqkcicOlWOUXZmR9G/Unq
+	MKOs1ieQb0WYMnytcH4M4yP6kW8uoEU1rFjQzmLinHd7AMJPo9hA==
+X-Received: by 2002:a17:906:7316:b0:b73:4d06:bc8 with SMTP id a640c23a62f3a-b8dff7a1b9amr720720866b.53.1770051169047;
+        Mon, 02 Feb 2026 08:52:49 -0800 (PST)
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com. [209.85.128.47])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8dbefc69ebsm905729266b.20.2026.02.02.08.52.47
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Feb 2026 08:52:34 -0800 (PST)
-Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4806dffc64cso35817785e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 08:52:34 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWdzQGmmpPbHn0jchlImpHyPuZg2sx69i+6K7W4yTT86+TaklR66M18mj3qkOu4/UR28QlXC0z8kSYjxgZj7EGH@lists.infradead.org
-X-Received: by 2002:a05:600c:6298:b0:480:5951:fc1e with SMTP id
- 5b1f17b1804b1-482db45fbf4mr163945605e9.11.1770051153710; Mon, 02 Feb 2026
- 08:52:33 -0800 (PST)
+        Mon, 02 Feb 2026 08:52:47 -0800 (PST)
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-48068ed1eccso43079965e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 08:52:47 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWU3p4j0qeqnhRdlhWEDizgz5jFePPalU6P3ARQHNBfUV57tVmWwXrARFn/Mlf5ZRX3Neg1H0FV6iRCxcZX1G4D@lists.infradead.org
+X-Received: by 2002:a05:600c:8b12:b0:47d:5e02:14e5 with SMTP id
+ 5b1f17b1804b1-482db44e7f7mr158073105e9.5.1770051167405; Mon, 02 Feb 2026
+ 08:52:47 -0800 (PST)
 MIME-Version: 1.0
-References: <cover.1769191673.git.robin.murphy@arm.com> <c7f6f75d55a4801eab63a0dc81d14ae27866aca9.1769191673.git.robin.murphy@arm.com>
-In-Reply-To: <c7f6f75d55a4801eab63a0dc81d14ae27866aca9.1769191673.git.robin.murphy@arm.com>
+References: <cover.1769191673.git.robin.murphy@arm.com> <a00a59dcef3693efb02a8ee942848fbeaeaf05ba.1769191673.git.robin.murphy@arm.com>
+ <CAD=FV=ViHWqjMGfYFgHBNRY-ex2vZjMaYoYLJb=vcUfPQRb9FA@mail.gmail.com>
+In-Reply-To: <CAD=FV=ViHWqjMGfYFgHBNRY-ex2vZjMaYoYLJb=vcUfPQRb9FA@mail.gmail.com>
 From: Doug Anderson <dianders@chromium.org>
-Date: Mon, 2 Feb 2026 08:52:22 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=XCK1RBgdxs07aHgowNvCSm5-+oUVZ3HcMVWuKwW4ggTg@mail.gmail.com>
-X-Gm-Features: AZwV_QjXmR-vAYYsukd2qlxBElYKsT5Nm3boXnLH7lvnRNqLj3lt-cXAEK2VGP4
-Message-ID: <CAD=FV=XCK1RBgdxs07aHgowNvCSm5-+oUVZ3HcMVWuKwW4ggTg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/4] dt-bindings: display: panel: Move FriendlyElec
- HD702E to eDP
+Date: Mon, 2 Feb 2026 08:52:36 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=UKL5mSr3b_0eBuYZ04RFjFLAG1ZRw=JC5wtPy=t7+7wA@mail.gmail.com>
+X-Gm-Features: AZwV_Qg8mOHmFnRAdN4OmDJbt-Yo140VuLppfyIQONLjHwqHVTpsMUgdZpTJYuk
+Message-ID: <CAD=FV=UKL5mSr3b_0eBuYZ04RFjFLAG1ZRw=JC5wtPy=t7+7wA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/4] drm/panel-edp: Move FriendlyELEC HD702E
 To: Robin Murphy <robin.murphy@arm.com>
 Cc: heiko@sntech.de, neil.armstrong@linaro.org, thierry.reding@gmail.com, 
 	sam@ravnborg.org, jesszhan0024@gmail.com, dri-devel@lists.freedesktop.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, Rob Herring <robh@kernel.org>
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_165240_595145_CAF286DD 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20260202_165252_783263_D24DFA68 
+X-CRM114-Status: GOOD (  19.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,22 +124,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-On Fri, Jan 23, 2026 at 11:22=E2=80=AFAM Robin Murphy <robin.murphy@arm.com=
-> wrote:
+On Sat, Jan 24, 2026 at 3:52=E2=80=AFPM Doug Anderson <dianders@chromium.or=
+g> wrote:
 >
-> The "E" alludes to the fact that FriendlyElec's HD702E is actually an
-> eDP panel - move its compatible to the appropriate binding doc.
+> Hi,
 >
-> Cc: <devicetree@vger.kernel.org>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-> ---
->  .../devicetree/bindings/display/panel/panel-edp-legacy.yaml     | 2 ++
->  .../devicetree/bindings/display/panel/panel-simple.yaml         | 2 --
->  2 files changed, 2 insertions(+), 2 deletions(-)
+> On Fri, Jan 23, 2026 at 11:22=E2=80=AFAM Robin Murphy <robin.murphy@arm.c=
+om> wrote:
+> >
+> > FriendlyELEC's HD702E module is an eDP panel (in as much as it's some
+> > LVDS LCD behind a Chrontel CH7511B eDP bridge), so move its data over
+> > to the eDP driver, also resolving the warning about the missing bpc
+> > value in the process.
+> >
+> > The unfortunate combination of HPD not being wired up and the RK3399 eD=
+P
+> > controller's behaviour seems to result in the EDID not being readable
+> > over DP-AUX without probing the panel first, thus the hard-coded mode i=
+s
+> > still needed to get things going.
+> >
+> > Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+> > Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+> > ---
+> > v2: Clarify issue with the generic binding
+> > ---
+> >  drivers/gpu/drm/panel/panel-edp.c    | 26 ++++++++++++++++++++++++++
+> >  drivers/gpu/drm/panel/panel-simple.c | 25 -------------------------
+> >  2 files changed, 26 insertions(+), 25 deletions(-)
+>
+> Reviewed-by: Douglas Anderson <dianders@chromium.org>
+>
+> I'll plan to apply patches #1 and #2 in ~1 week to drm-misc-next if
+> there are no other comments. If someone else wants to beat me to it,
+> though, I'm also OK w/ that.
 
 Pushed patches to drm-misc-next:
 
-[1/4] dt-bindings: display: panel: Move FriendlyElec HD702E to eDP
-      commit: e2242223b714ac9fd8233546ca74ce972024111f
+[2/4] drm/panel-edp: Move FriendlyELEC HD702E
+      commit: 5c323ea948ff0f9e50418119cbbb3d94f2bd6a96
 
