@@ -4,64 +4,221 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70E6CE7314F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 09:34:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17AD4E7314F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 09:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pugX5KQX9IzH0JXh2nQigB6+VzDeyuwbg/YnMPGqgOI=; b=Vx7/H+7Y7x3ueaCl+WIkjKbqlS
-	85uzaYJiw9x8BJtDVPVGowG0g51zhX1rjRaJpjW07r7su4GYNA1gWdkT1tHH/yjKhgTsemeqj1dji
-	eMhySa926L2dlEst/yWDccy6nhHNC9kdgwCGpVs+fsrZTgrX6pUyje/CTXoeONZchx9j/TQCj+UH6
-	3IjM1Q24pVBaoApyfJlsVZKoiau28abstw+bbd0u5CX6CwcQyIC2+5wGw87RPjrYN5/2AkBlJ+zbV
-	suPOX95IVT8Yf1l5m7Q8bCJwUNQih47j4hM2lsX60a8kka1TSHcif80YH1UDsl5V+dX0esYNsE4BI
-	/vQKGeXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MBkze4gcyehuSlgBwjj0rmPLXgG2pGmw9DcRAJW58HM=; b=lEwHMIbUoDYpwu8seoyliErZe0
+	J4YARZTIa1dcXBmSCLGCR0Sd8GREK5LvxwSwrmjM4vEhnQbPWU2i6FnPdFqSI4nbyn8VgGEVOIdT5
+	0WZ9xiA0ZGYJREQxg2V1xcf6m2lvYET660Uv9SE0PwfS7CvXn/JecW7I5Zn/4P7QHlkDkKsmquhg3
+	KZu9sChFsSIU9sv2fnY0YhAZ2kExfkaGmkV+cYzS6OrueONbaR1Begs+Pi2FIqMti3tJI6yOOCZlJ
+	tZTGMOeYnWf31WVmNC0PNgAY+ImRVcin5UuQzfnYk41XOebnavpGKyX4LGXRdiLRlpmRtkk/MRSZh
+	QvlBNTKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmqKS-00000004iNn-1GnF;
-	Mon, 02 Feb 2026 09:34:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmqKP-00000004iKk-2or7
+	id 1vmqL6-00000004ioR-30Cy;
+	Mon, 02 Feb 2026 09:35:24 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vmqKy-00000004igz-2QnL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 09:34:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 87164339;
-	Mon,  2 Feb 2026 01:34:34 -0800 (PST)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A7673F740;
-	Mon,  2 Feb 2026 01:34:39 -0800 (PST)
-From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 02 Feb 2026 09:34:04 +0000
-Subject: [PATCH v3 8/8] coresight: Unify error handling in
- coresight_register()
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	Mon, 02 Feb 2026 09:35:21 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=GaAnr2Zi99uPrERA2+XfN9s54N0JewWKrHhjaBYPMGFB1Cy6UyzP9oQgRyvNpgvwEh8hxaxN594ES4uPAJMmsIkvE02afBCGcXmY/+WlOu12y2TuxOg70PGQNgrDX5jo11wvo2rA4NxiuiRkP6V8cc4DvYRNWBESNWV8lSI01chIPctufRRZnxBRupcMbJc8fp7aN5wIZ4Tfg8NYTXYL0Vss8wU1kT4sHTzEJkW35u/UDPGO3V65vsUixZ+G2juEUPzvJON47DY9YmD+inygfLJ1xV7eDiZZ474X5IfZjLjdcpqb74WJFvUgxJsOXOWgY6c5u7seaKlzHvSYULl+Sg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MBkze4gcyehuSlgBwjj0rmPLXgG2pGmw9DcRAJW58HM=;
+ b=uhm2rNvvFNh6j0wPMUQNr9MyrVajr18Kta03xC4mhc1dKLVHJ+zUjfIdBWxBJ99aHPvvqQpZgJ/OXsCP7pNz20dqrTH0cvVmTn/xd/cij+eDp29PKdi35RudtkaACnbVcNPXhaS5kC/t7jFb25YLyBp9f3X9WvHy64Bzm3eEedPaamLnf/kxQ9u1GZwKAH/Jg5psSxrx06i/IGIqZoApJIrmi8RR3+6RG1XKEymh5FuOWpqIOSRT1UTnRvkiwa8Bgh6BAKjCbFfYrMZmn2oKFJBCLTJoIdGIokPzspIL4g7BGpsdKDin35+ciF6hLBem5pbHlc+8JIVeX4mIE7w5eg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=gmail.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MBkze4gcyehuSlgBwjj0rmPLXgG2pGmw9DcRAJW58HM=;
+ b=FtmFpixsle06FT2PT+2S+EeYUD0vN+ZzOVGMOvwoRi6TQkwQ338zmhS1KWlbLb/NKzvlNW/N4/lvp2VqLupN6/ottVrijmkTSQ5fY3DRBciTPppTcMPuGsncZWGC7lTj6bqFeBfR+IbaFolSQOQ1uOCOWqcXHbccNcBq1uM8R2E=
+Received: from DB9PR06CA0021.eurprd06.prod.outlook.com (2603:10a6:10:1db::26)
+ by AS2PR08MB10036.eurprd08.prod.outlook.com (2603:10a6:20b:64d::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Mon, 2 Feb
+ 2026 09:35:04 +0000
+Received: from DU2PEPF0001E9C1.eurprd03.prod.outlook.com
+ (2603:10a6:10:1db:cafe::b9) by DB9PR06CA0021.outlook.office365.com
+ (2603:10a6:10:1db::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.13 via Frontend Transport; Mon,
+ 2 Feb 2026 09:35:05 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU2PEPF0001E9C1.mail.protection.outlook.com (10.167.8.70) with Microsoft SMTP
+ Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9587.10 via
+ Frontend Transport; Mon, 2 Feb 2026 09:35:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uj8ovVaGSqU7tFdFGQSfXYAQ1PU5DVoHjkMpf5g5Cvp31trLuY+Dp24ELScVt0N7mhV959s74kyqM+7XFtsshkLY15O/y0DdMa8RyzzBGZWEFkym5XPfKMRyN+e1cYQB16w8MJgR8SlujVVQW9BvMtVxvBJ0QIqtuP2/9LYrH6mwAnntwl08xQOd8IgeqjvJwNi6vdf4fs0WA3TivPYPYVgI0s39ZwtmjrgL2xe/n8uwsH1chaifNHZM85XmKbW3LFPjA7JCUybbTEW3qeAl7oWrOlJohTjnOmHGMRY741e6J/suWywn2bRPDqzoQiZqvN0M+s52ZJ2eDlyzoYR36Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MBkze4gcyehuSlgBwjj0rmPLXgG2pGmw9DcRAJW58HM=;
+ b=CRMVW1Sdtgz3REK6oLEgXgp3VON0zZO1wtTRZ9aHh4OQ68Hu4jNewxYw/JWWLeFgNiux7YGLsl1icThKrNUTbFPTH6nCCuQnaSzhVdCUEmUVP9DF+EJ4YErvJBzvQ0X/4AoYdfvGjO4Bt53yM27uqtAauMM5CHwYfTarwF0Lq2z0R7lE9v6v1DUFPtoRE3P58/ozyCqpAFQmc2gLnqUTlbxCESVHpeSyTM+GmhkckgGKfBIFJ2/Zlh7Ja8YprdluAv/oI2CprGeGY9ShGs1VNqpj5rPXZ5+mOC+RlBOW1KY0juDOBGTJAdIW6HXDyZliQktpQD2BObtLjcKbPE+2AA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MBkze4gcyehuSlgBwjj0rmPLXgG2pGmw9DcRAJW58HM=;
+ b=FtmFpixsle06FT2PT+2S+EeYUD0vN+ZzOVGMOvwoRi6TQkwQ338zmhS1KWlbLb/NKzvlNW/N4/lvp2VqLupN6/ottVrijmkTSQ5fY3DRBciTPppTcMPuGsncZWGC7lTj6bqFeBfR+IbaFolSQOQ1uOCOWqcXHbccNcBq1uM8R2E=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
+ by PAVPR08MB9257.eurprd08.prod.outlook.com (2603:10a6:102:309::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Mon, 2 Feb
+ 2026 09:34:01 +0000
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f%6]) with mapi id 15.20.9564.016; Mon, 2 Feb 2026
+ 09:34:00 +0000
+Message-ID: <bb521240-ab53-4c5a-aa1d-6b140ed4262e@arm.com>
+Date: Mon, 2 Feb 2026 09:33:59 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] coresight: etm3x: Fix cntr_val_show() to match
+ cntr_val_store() behavior
+To: Kuan-Wei Chiu <visitorckw@gmail.com>, James Clark <james.clark@linaro.org>
+Cc: mike.leach@linaro.org, alexander.shishkin@linux.intel.com,
+ gregkh@linuxfoundation.org, mathieu.poirier@linaro.org, leo.yan@arm.com,
+ Al.Grant@arm.com, jserv@ccns.ncku.edu.tw, marscheng@google.com,
+ ericchancf@google.com, milesjiang@google.com, nickpan@google.com,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20251202082613.3265761-1-visitorckw@gmail.com>
+ <3bec7ceb-61a8-4b38-a794-02ee2fc9e68c@linaro.org>
+ <aYAxbbkHslAP9RBN@google.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <aYAxbbkHslAP9RBN@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260202-arm_coresight_refactor_dev_register-v3-8-03292470c48c@arm.com>
-References: <20260202-arm_coresight_refactor_dev_register-v3-0-03292470c48c@arm.com>
-In-Reply-To: <20260202-arm_coresight_refactor_dev_register-v3-0-03292470c48c@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, 
- Mao Jinlong <quic_jinlmao@quicinc.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770024862; l=2294;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=FKzkEQ0j6Pfh7Y1ApXM5Be0GTYJUKxqz4/lXxfvmDms=;
- b=8pyHcAVQuLvHeini3qOEsN8lnterXQqsp9ycDWXbCQYNHBblwuihlQl3z5PVE+oKi9tyYJ+WR
- F+v5QN/4Eg7DVH/Umlb9QRx3MiZTWW0m0TNf1K+rncQLk1NTdw7tiT0
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+X-ClientProxiedBy: LNXP265CA0087.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:76::27) To DU4PR08MB11769.eurprd08.prod.outlook.com
+ (2603:10a6:10:644::21)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|PAVPR08MB9257:EE_|DU2PEPF0001E9C1:EE_|AS2PR08MB10036:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0a912d51-61ac-4f62-7133-08de623e586e
+X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?T0I2a1dDalNqRXZxVjlKVnM5bUdrZWtrZ1BHaU5vVE9FbUpqWmJaRCs4NkNJ?=
+ =?utf-8?B?QVVOblRNMmtSaEpTMjA4RCtTOTBEM0xpYXJuQXZ1SFgxMTZtMVJxazQraVFl?=
+ =?utf-8?B?UlJPZ3k5Q0d4K29pWjFrc1BYdGFERTk5ZDJxQ1JiaG5sVDlLY1BBa2gwZ0du?=
+ =?utf-8?B?TDUxU29mUmZPcHpNN0E5eThWVWlkL0FabUxSWUo3c0dtOWtVMHRFN1pUSklG?=
+ =?utf-8?B?N0pkUlR5OTlyNW1qL1hlcEg0cTJjV0Zkd3RwYjBQZVVrWloxNmU3L0xjSExO?=
+ =?utf-8?B?ZkpwT3htQU0rL1hrVk10dXZUeXBGZ1NwZjVYSXBMSzZPQitsZDVSUW84dDJh?=
+ =?utf-8?B?akdENks5cmRXbG1TeXRnamV5VTcxU1pPVGdXUHFCZnp4ZTNNR2FaU2Y3TFcr?=
+ =?utf-8?B?aUsvK3Rld2hTVUdpT1ZpYXFVMys2dFpDQStZVzNYK3YvclpEdFA3eXU3cUg2?=
+ =?utf-8?B?QUMzRFFQU1AvL2N2cDFoWFNoWmZWR0RSUVJRYjFoWHVBNTl0OWJPY1p4WlZs?=
+ =?utf-8?B?SlE3WngvbnhwdG96MDJDcUk3THVyd0szdzRpQlR0cHFxbUhBeUlidVVoUnBX?=
+ =?utf-8?B?RkFqcHV1NXhGL1piMWVKMThFREp1dllaZUp5NDhERldsZ3VuRFQwYWYvWTVo?=
+ =?utf-8?B?MHY3RmZFSmxNMG9WWE13OUlhblA1Rmt3ZCs4QTlqeUlhbkM2b3NzL0FoSmVV?=
+ =?utf-8?B?bGZQRWNyWWI1b0t6SXB6dDhmbWhVbU5sYzRxMEE5QndwZjY2eXRNV25kZ0I5?=
+ =?utf-8?B?eTdGMHppUTMycVRtbndMWnVMNGozSEMzM2pCNHJGd1VydEJQUkpEb043SC9M?=
+ =?utf-8?B?V3grNmJ0TnpneC9PNmR5a05oVmZKdHdZWitNOUdDd0RGSlJsZjNqbUNlMTYr?=
+ =?utf-8?B?anRid2ZmQ1N2RUIxbTh4MnFNbnQ4OWE1eGh1Y0ZZNmhLVmpqVGdSWTBOMjc5?=
+ =?utf-8?B?WnBQQ3luNTdKbVdKRUJHVktpRWxLN3pVR1dKWVNibWxUNkR5bW8rUTViNHJz?=
+ =?utf-8?B?clIxcmF1MWVPTkRvWlVCS0dIZXFRVmJOVTRkT09veDdnQ0hQL2pIbTBsZkNh?=
+ =?utf-8?B?Q1h1RFVYVzNFY2ZFcmF5UlZiRU1KcENsM2thdnJCbmJFTzUwN0wrWTg3dFc1?=
+ =?utf-8?B?OEtrU1c2T2tPNUpNRXU3cXBZMHREYXJFbHlJNXN4MDQzZHNDWGhPTVMzaGNv?=
+ =?utf-8?B?SGlEVk84d2VSakc5V0dubWxrU3hEQnBRNm9jcHMxazFNQUtVUlJXa3dSTlRq?=
+ =?utf-8?B?cjJsMjY2d1YzQmRCZ2NWeU1GY3BycXI1M1JST0RrSHFhVTM3a0lVMXhpWnNX?=
+ =?utf-8?B?RlpmWkJVcjkwYmZQak9IOVAvUEw3QW9PeENhZkxES1l2OHluVjdFb3krdWFV?=
+ =?utf-8?B?aTFtUWRNMEUxK2FzL3VVRWhMRlR2NDRKSXRSOSs4VXkrcUpraFJwM3JkVW50?=
+ =?utf-8?B?RWFROWYxVWdweXkwV2haeXE2RGZRRVNTeXJZUGw4NWpWZ0hjT3VGektGZWcx?=
+ =?utf-8?B?SXRRWlJlakljWTF2Z3UvVkErNEQ3dE9VS3BmaG9MV3liZXF6MHVTN1V6Q0Fh?=
+ =?utf-8?B?R2JIZytCaGpjZjIwRjFyZFhrZGtGYXNIbm85WTB3dThseGpwbDI2cWFtK0xD?=
+ =?utf-8?B?enBKd3ZUdlZuNG45NTJscG5TSjJMRzl3S2NVUGI0WkVWUEROZ0hIc2NFNUQ5?=
+ =?utf-8?B?N3NGbGVRc1FtNkpVWW5naUtNUGhZOFllbzhmNHRTbEYzdHBORk1SMllTL09z?=
+ =?utf-8?B?V0NDNVY0eGxVT0diV3dSdVgyNFMvb0pDMzhWRXlVei9vaGZ3TXltZnJaczNz?=
+ =?utf-8?B?cExnZTVuZ29kZTB5MjIxWTdlNHAxa0NxQ0xYWXplVE5KZmlpYWFXSnhKQVk3?=
+ =?utf-8?B?S3dkdzBxcWFLaVJ2RVcxWTdOaThBODM4UHIvZFowK1pUZ0hpczd4dUR5dm1E?=
+ =?utf-8?B?WXUyeVRHOHlIOWNtYmJETXc3eGp0eFFXZDRhN05RS3BtNEtGVmdIazVvaVBN?=
+ =?utf-8?B?MHhzb1JzZ0ZlVnNmRGIwYmdzOTZVcU01MU9kTUxJeTA3WXRYMmI5VXRja2Yv?=
+ =?utf-8?B?TGlvN2FQUTFldkIrTm1qbWFPRWVnMlZqWUZIWUdyUXgxVnhlRFpLWjZZTmhs?=
+ =?utf-8?Q?tV8kECjC1CYaF8RW/abOTJVoq?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR08MB9257
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF0001E9C1.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 429b5e0d-bbf9-48f0-ea90-08de623e325f
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|35042699022|1800799024|14060799003|376014|7416014|36860700013|13003099007|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Ni9nWFJuRjF0QWVaTEdVV3pZYVBmaWREeWpzclZkaW9OSU1oZ2pYRXVsZkhp?=
+ =?utf-8?B?REVTSlkxd3ZFODNwRGYwRGQ3L1AvUW1xV0VqcW9icDBnL0FqdjRjbGZRRGsw?=
+ =?utf-8?B?dFpvNS9IYUdETUs1ZHZDc3d4amdGVzRrcmtXUmVzenpqWkFBbUYvZHFjUEdR?=
+ =?utf-8?B?bllSWVZVak1hQ0s2K0FycHhGRXJsNVQvOXZVSDNnQVJqZDR0TWJZRFR4dWh5?=
+ =?utf-8?B?NmdrOWJsVzRXN2xwOHVRNTh1ZnZHTFBiclJqakRjeHAvaG5MbXhMTXJoM3Jo?=
+ =?utf-8?B?Ti9tUzdPWU80QTNaYW16WTFaYTJqODR1Zlo1cFROVndoaVUvZ1Zkd0VrNnRK?=
+ =?utf-8?B?cFVkek1WU2wvZC84TVhQeExRcXFPVG9QMG5LNDVEZ3FDeUhnTVZqUU40TUda?=
+ =?utf-8?B?ZEFSQzVjRHNjN28vdFcyU2lwSGlqKzNqRDlNRjhXclRFVnlxc3dQcHJUQzlK?=
+ =?utf-8?B?Q1QvUW5WQm1jMG1VMWFpOVJzdzMzclcxWVJSMkZ3NU0xckdjL1FldElDbERq?=
+ =?utf-8?B?cUtoSSs5c0Mxc0pYaXcxTVJydHhwOXIxbW96dG45TWU2Q2NLamdQSGI3VDJZ?=
+ =?utf-8?B?Z0N6MnY1akxDbFdNNFowVFVPVDJ1bzFZTzVmQ296N0xteFNpV3MzNW9sb3k0?=
+ =?utf-8?B?K1lDQkR6a2h5aU02Qkd1eDJXUWQzYVRCckNrcmVSbFoySmdxMEJ6YXVRbW9o?=
+ =?utf-8?B?Szc5WERtS0ZBdHp3dHJVdUNCUGx5aGpwc25aZHpEV285cmZpS3RCRlE3cWVq?=
+ =?utf-8?B?WUYvWDAyR01DUWdJdDE3R1p3UVV3RkRCSWlwR204eWRnREVoRWp2ZXZIYXNG?=
+ =?utf-8?B?R3QwV0UrNks4bGk2Z2xqZkcrb09SZTZRTmlVeVRpcEh5UXVNaGh3c1NldUdP?=
+ =?utf-8?B?dkduOEdVZGRselBaQlgwYUtKKzVMNm5VMW85ak8xcE9ZY2RmSEJLTjd2U0R3?=
+ =?utf-8?B?NlRaeGNDRlFwU2xVNDJ5TkNmRnljR1l5Mlh6cmV5S3hyNWUrK29uTVFuUmpQ?=
+ =?utf-8?B?bTA2c015Z0gxMmEvdmZIUlhsT1krVWlMUzdQc0FWN0o5VHUyRTBRK21acHRs?=
+ =?utf-8?B?ZDNObWRlazRZSW9NTmZldklxUC9BWExBVFRFbVRLME9EWkV0YXgybnVVU2Vt?=
+ =?utf-8?B?RFJvdnZ5ZUFFQUlDOXlDS25iajN1TnoxWnhsYXJ2L3c5alJnWXNUSjZZRTcz?=
+ =?utf-8?B?VUtuQXdQRHhKelVGTWltNVhvVVY5dWRtZlE0Rkkxc01MRU5KWDN2bmlkTjg5?=
+ =?utf-8?B?ZnE4eTR2dG9hbmg3OS9QelNFaFJxb3BWM1ZqYVBOaEl1bTFrWWdEZDc4TWJD?=
+ =?utf-8?B?cWx1RW5nbVVZaU8vQkYycFVlR3VWVGFkT2pFc3lUNStrV1ZDZkdNUEtUN0tI?=
+ =?utf-8?B?VVlLUG9kMmtuR0NvS0c4TDY2TFY5STl5MW5FNlVjSCt0SzJPNExMWFAyYkYw?=
+ =?utf-8?B?RDFuMmVRai9qSFRmdFVXcDhBNkpjdWpNczBYS0h3bFRnR1E3c2xSRExBa0Vk?=
+ =?utf-8?B?ZFEzMGNDVXVDU2M3TytEMWNaVjFvWjliWTE0NTVoL3BWcUhTc0ZlVXNoVmxY?=
+ =?utf-8?B?dEQvU3VQREVzVkpMdGhLcGlQLzNlY0c2dE9DUCt4WFFoVHBZdkdlZHpOQVBZ?=
+ =?utf-8?B?UHYyK2tmSHVFSWFaTG82aUx0a1dIa0duMVk3aE9mbXNGMHRKdWpDN3grSE5I?=
+ =?utf-8?B?Q3RtZW1NOU5XMCt6QzlzeUNJcWRPWjQrejNSNlJWVXZ4Q0R1QmR1d2lpYUVE?=
+ =?utf-8?B?WlVQYm13SlpoQ2FXWGdYL25YU1N0QnBoQUIxK1hMTW9MZ3hUSW9CV0F6dFNC?=
+ =?utf-8?B?SEhmNS9ES0VKS2JBaW9Dbml3Tk5NeHR3OWtSWklNVEYvU3VwNXgybDRqdmpX?=
+ =?utf-8?B?bnhPWkN2UTFlTWp4YWZQdW5oK2swZGtoV0lmN0RTUVZicUZrTHFzRnpqTVQ0?=
+ =?utf-8?B?T2t5OHFVSWlyTG55WEMySElOUFJKdUtIaVpEMFRUbU1ub001ci9aRVlmQStv?=
+ =?utf-8?B?cGhwbU9CMERqdVFGaHhNU1pUM0p3NXpHdWUzc005RW9xVHhRSGpMSmUzRjN2?=
+ =?utf-8?B?M1pKYnVCVUlxZW5pTDhqUW5SQmJMclY1STNiZjFiL1NNbXk1aUhUSkdsYnNs?=
+ =?utf-8?B?SzJtbkJ6ZFR6aWRLRm9Kc0pvRnc3b3FKN1JWNzZsREZVWDlYUUJ4RGRuNDI1?=
+ =?utf-8?B?K056Y3AxZ2t5Mm9UN0R1SUJsRjdHRjJXMFR5WTBMT3ptVVFEVEhVbVp6aFg2?=
+ =?utf-8?B?dnJHVi9pWFBBclFyOURWQVM4R25BPT0=?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(35042699022)(1800799024)(14060799003)(376014)(7416014)(36860700013)(13003099007)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: GWR3Yf06H9x/NUrrEBXgUIRschq56GLeyHPHKukdHniDq294O6NFmAvCS8rtLt8xR3aGx/1i+UGS4iaNINO4wrrGx5K/MFqKj4gOtvKl5r7CpuILGv8G7D5GtLA6NIJQRckeLzRufhBzw10LXLZRpLO0nNXvnHNAL1KuolgkB8nRQ8/DglEfL8o1dLIJPXsTY4rE6If9QbhoEFaXtkKAhuqHszfRIdy2DGuTt6cGVNdJnd5VqK5MVbKQ4XK6/Vsg+AOD3AKykKgGsFHXQveigx5pOJHL/tmImnZOmd54fo04Ph9Ba5xesmKlrW/wq1Ia1gl3vmEcZCg97q0Og2IP/FakX6RQTNmBieXOC8wML0ALzaWy1uyuIfukPw84U7nPh8xHs6SPDPwt48ypPXBwi6T4hqPLHkMtjrEKPNLkHXEBdKH2Z+6dP8GtsEUekbhl
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Feb 2026 09:35:04.3221
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0a912d51-61ac-4f62-7133-08de623e586e
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF0001E9C1.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB10036
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_013441_776984_DA095899 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20260202_013516_925191_2BF96C9F 
+X-CRM114-Status: UNSURE (   7.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,73 +233,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unify error handling during registration:
+Hello
 
-1) Failures before device registration are handled by err_out, which
-   releases platform data.
+On 02/02/2026 05:09, Kuan-Wei Chiu wrote:
+> On Tue, Dec 02, 2025 at 09:26:19AM +0000, James Clark wrote:
+>>
+>>
+>> On 02/12/2025 8:26 am, Kuan-Wei Chiu wrote:
+>>> The cntr_val_show() function was intended to print the values of all
+>>> counters using a loop. However, due to a buffer overwrite issue with
+>>> sprintf(), it effectively only displayed the value of the last counter.
+>>>
+>>> The companion function, cntr_val_store(), allows users to modify a
+>>> specific counter selected by 'cntr_idx'. To maintain consistency
+>>> between read and write operations and to align with the ETM4x driver
+>>> behavior, modify cntr_val_show() to report only the value of the
+>>> currently selected counter.
+>>>
+>>> This change removes the loop and the "counter %d:" prefix, printing
+>>> only the hexadecimal value. It also adopts sysfs_emit() for standard
+>>> sysfs output formatting.
+>>>
+>>> Fixes: a939fc5a71ad ("coresight-etm: add CoreSight ETM/PTM driver")
+>>> Cc: stable@vger.kernel.org
+>>> Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
+>>> ---
+>>> Build test only.
+>>>
+>>> Changes in v3:
+>>> - Switch format specifier to %#x to include the 0x prefix.
+>>> - Add Cc stable
+>>>
+>>> v2: https://lore.kernel.org/lkml/20251201095228.1905489-1-visitorckw@gmail.com/
+>>>
+>>>    .../hwtracing/coresight/coresight-etm3x-sysfs.c   | 15 ++++-----------
+>>>    1 file changed, 4 insertions(+), 11 deletions(-)
+>>>
+>>> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+>>> index 762109307b86..b3c67e96a82a 100644
+>>> --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+>>> +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+>>> @@ -717,26 +717,19 @@ static DEVICE_ATTR_RW(cntr_rld_event);
+>>>    static ssize_t cntr_val_show(struct device *dev,
+>>>    			     struct device_attribute *attr, char *buf)
+>>>    {
+>>> -	int i, ret = 0;
+>>>    	u32 val;
+>>>    	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>>>    	struct etm_config *config = &drvdata->config;
+>>>    	if (!coresight_get_mode(drvdata->csdev)) {
+>>>    		spin_lock(&drvdata->spinlock);
+>>> -		for (i = 0; i < drvdata->nr_cntr; i++)
+>>> -			ret += sprintf(buf, "counter %d: %x\n",
+>>> -				       i, config->cntr_val[i]);
+>>> +		val = config->cntr_val[config->cntr_idx];
+>>>    		spin_unlock(&drvdata->spinlock);
+>>> -		return ret;
+>>> -	}
+>>> -
+>>> -	for (i = 0; i < drvdata->nr_cntr; i++) {
+>>> -		val = etm_readl(drvdata, ETMCNTVRn(i));
+>>> -		ret += sprintf(buf, "counter %d: %x\n", i, val);
+>>> +	} else {
+>>> +		val = etm_readl(drvdata, ETMCNTVRn(config->cntr_idx));
+>>>    	}
+>>> -	return ret;
+>>> +	return sysfs_emit(buf, "%#x\n", val);
+>>>    }
+>>>    static ssize_t cntr_val_store(struct device *dev,
+>>
+>> Reviewed-by: James Clark <james.clark@linaro.org>
+>>
+> Thanks for the review!
+> Is there anything else I need to do for this fix to land?
 
-2) Jump to the out_unlock label on failures after device registration
-   to unwind the flow via coresight_unregister().
+Thanks for the patch, I will queue this for the next release (v7.1).
 
-The "registered" variable is no longer used, remove it.
+Suzuki
 
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- drivers/hwtracing/coresight/coresight-core.c | 17 +++++------------
- 1 file changed, 5 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 955af43010446803030973c72f07315492b2fcf3..65cf975493c86de42515845147d90497aa20c595 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1326,7 +1326,6 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
- {
- 	int ret;
- 	struct coresight_device *csdev;
--	bool registered = false;
- 
- 	csdev = kzalloc(sizeof(*csdev), GFP_KERNEL);
- 	if (!csdev) {
-@@ -1380,7 +1379,8 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
- 		 * All resources are free'd explicitly via
- 		 * coresight_device_release(), triggered from put_device().
- 		 */
--		goto out_unlock;
-+		mutex_unlock(&coresight_mutex);
-+		goto err_out;
- 	}
- 
- 	ret = etm_perf_add_symlink_sink(csdev);
-@@ -1390,12 +1390,8 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
- 	 * coresight_device_release() triggered from put_device(), which is in
- 	 * turn called from function device_unregister().
- 	 */
--	if (ret && ret != -EOPNOTSUPP) {
--		device_unregister(&csdev->dev);
-+	if (ret && ret != -EOPNOTSUPP)
- 		goto out_unlock;
--	}
--	/* Device is now registered */
--	registered = true;
- 
- 	ret = coresight_create_conns_sysfs_group(csdev);
- 	if (ret)
-@@ -1415,11 +1411,8 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
- out_unlock:
- 	mutex_unlock(&coresight_mutex);
- 
--	/* Unregister the device if needed */
--	if (registered) {
--		coresight_unregister(csdev);
--		return ERR_PTR(ret);
--	}
-+	coresight_unregister(csdev);
-+	return ERR_PTR(ret);
- 
- err_out:
- 	coresight_release_platform_data(desc->dev, desc->pdata);
-
--- 
-2.34.1
+> 
+> Regards,
+> Kuan-Wei
+> 
 
 
