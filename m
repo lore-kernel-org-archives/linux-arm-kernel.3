@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0077AE7DF1F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 18:43:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C662E7DF19
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 18:43:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PhKPRQuAR1Cxo/UlnNVFGsbltaNouYhpwEaAHUjFW1U=; b=MqvwHc90lqpAva24xj6iQw4EOh
-	43gSmvFaS1FZbqraAK06xVKMCZWOpy0Fsva/x79CP3+QeAKF7wsIp4QUVOwLT6hyROJ9gtGnDkv3K
-	fP9CdHPiR8MqwSnI5XyFeZMIWmon7ZTsNo4C1sGNQgrl0oi1ftV7GeUwwyDzcpu5mz+zxB1efL/g0
-	ip2d6Kc/jNYyWxT3p1ikq337VfY8LBuO215/oyOkJdCWdgLTsFBeG/nFY/1aDopsJGjMsSrdzkPUL
-	RtVuxPTKhmwiq3Iv6V5BMLhLVEBimsUDsOyH0QaaBZDo5Z7kFzscVx4Mkd/ZI6ddwywRJ3fCjrqLp
-	NilMfpnw==;
+	bh=6DvRpEaDiHMFUmW/zttKhrt6yXUWKvAPVtN/Nr4F0Wc=; b=gXMn532/bs6YBg5vlYdHTj67o4
+	ybp8xFIrPepowg4pnTsjdFGpWh5NlWnrI+a0mlrq5bxJYJoMr+lWHMD5FGMF2nSBGmyx02BzsjBWD
+	NjMWp256HFA9G1081WHfx6VutRnrLKlmWYhUVkdBRm4CGHSxjkNMWx6sQ00LD+YMNzoGbHLEJLFS5
+	djL6MDAF9H5bY+O8p3zwLumqc+5rSvcnUgNpytaPwOmFSAe3MsY6RpRyMan52M+6qGfhTv4Dj24Uc
+	exSqIgYhIIx/CNInDfmdc85//v+9ncNB0r66XTtg6J9uZGgaB36tARSLw27GCBVY5wGZY96CHXMmh
+	//bxhqIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmytr-00000005R9D-1uez;
-	Mon, 02 Feb 2026 18:43:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vmytq-00000005R7k-0taT;
+	Mon, 02 Feb 2026 18:43:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmyti-00000005Qxs-2ASM
+	id 1vmyti-00000005Qxo-1M0P
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 02 Feb 2026 18:43:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1E8A4444B1;
-	Mon,  2 Feb 2026 18:43:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E822EC2BCAF;
+	by sea.source.kernel.org (Postfix) with ESMTP id A588D4443F;
+	Mon,  2 Feb 2026 18:43:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75EBEC4AF09;
 	Mon,  2 Feb 2026 18:43:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770057822;
-	bh=rQfpvN1QW7QzQxpd6omBQ9k+alI4maW0dDTZ/Ir0YqY=;
+	s=k20201202; t=1770057821;
+	bh=cUnL9eI2TSfY3RnxpVHdkNXGQe+TOBMqJnePql0UexQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uIqhwPwsfAvSyZ5L2Nm1G0aLLH2ak3wcEZE5QRt1qZVo+tNuzUHjxdAJtNgJDHQaz
-	 FkIhJgxXEOCfGE5DsKH1X+wBmdrNLHkV7iD0febI4PDhorANAeBYDR/KK8XxpHNHIa
-	 oLA+ZETonHlYUriv/Der+tKDswsHnW+2tig6SgFvtoFOC6gO4drH9HOC+yuJemtDlK
-	 5vcNdDwagsM2YyjY1kor9NtO+FfvrFffPGgHD3NPNKNBlPzgur23BzoVMhsz2wX0fH
-	 9ZLWV3KS3MmAllJrLriB78+f+lP4tLi6E34enM2u1rLXt6m4hlzXa268SebNaImmZi
-	 qgGvSfhfLg6yw==
+	b=VO78txqjV6lePEwq8COso/WXxK2jYKEMnsM87fTD+kYoIzL0fw/eiy3TbF4rKyrFK
+	 RU2nJnDL7GBIn7YNn3YEmOn2d9kHcgFyhM6Z9Uwy50w7a3QLq4zotaGLA3d8u1qMQE
+	 2TItg7sn3ki1Fk6Pf8F2et2J0EE503gV4VJdMIBGgsuBFtyDrCi+XekiyzT0opPhcQ
+	 GLXqnxjU88Zxv5UFD/Q4OvyQdwQhRuxNQ6LpqdNFtbh440Z1s4HeAn6bTQXC1xYPS4
+	 4vaHhf9Rt09MY4k5DvpECR8DzlzmEg35/bX9pNMKxai7VmEsR/XqTuZsRhh5n5CwH/
+	 xclZx5fb0Hxpw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vmytg-00000007sAy-0SxB;
-	Mon, 02 Feb 2026 18:43:40 +0000
+	id 1vmytf-00000007sAy-1e3n;
+	Mon, 02 Feb 2026 18:43:39 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH v2 06/20] KVM: arm64: Inherit RESx bits from FGT register descriptors
-Date: Mon,  2 Feb 2026 18:43:15 +0000
-Message-ID: <20260202184329.2724080-7-maz@kernel.org>
+Subject: [PATCH v2 03/20] KVM: arm64: Introduce standalone FGU computing primitive
+Date: Mon,  2 Feb 2026 18:43:12 +0000
+Message-ID: <20260202184329.2724080-4-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260202184329.2724080-1-maz@kernel.org>
 References: <20260202184329.2724080-1-maz@kernel.org>
@@ -72,8 +72,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_104342_602028_02FA39B2 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20260202_104342_424842_A663D14A 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,83 +88,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The FGT registers have their computed RESx bits stashed in specific
-descriptors, which we can easily use when computing the masks used
-for the guest.
+Computing the FGU bits is made oddly complicated, as we use the RES0
+helper instead of using a specific abstraction.
 
-This removes a bit of boilerplate code.
+Introduce such an abstraction, which is going to make things significantly
+simpler in the future.
 
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 Reviewed-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/config.c | 16 +++++-----------
- 1 file changed, 5 insertions(+), 11 deletions(-)
+ arch/arm64/kvm/config.c | 57 ++++++++++++++++++-----------------------
+ 1 file changed, 25 insertions(+), 32 deletions(-)
 
 diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-index 2214c06902f86..9ad7eb5f4b981 100644
+index 0bcdb39885734..2122599f7cbbd 100644
 --- a/arch/arm64/kvm/config.c
 +++ b/arch/arm64/kvm/config.c
-@@ -1342,6 +1342,11 @@ static struct resx compute_reg_resx_bits(struct kvm *kvm,
- 	resx = compute_resx_bits(kvm, r->bit_feat_map, r->bit_feat_map_sz,
+@@ -1335,26 +1335,30 @@ static u64 compute_res0_bits(struct kvm *kvm,
+ static u64 compute_reg_res0_bits(struct kvm *kvm,
+ 				 const struct reg_feat_map_desc *r,
+ 				 unsigned long require, unsigned long exclude)
+-
+ {
+ 	u64 res0;
+ 
+ 	res0 = compute_res0_bits(kvm, r->bit_feat_map, r->bit_feat_map_sz,
  				 require, exclude);
  
-+	if (r->feat_map.flags & MASKS_POINTER) {
-+		resx.res0 |= r->feat_map.masks->res0;
-+		resx.res1 |= r->feat_map.masks->res1;
-+	}
-+
- 	tmp = compute_resx_bits(kvm, &r->feat_map, 1, require, exclude);
+-	/*
+-	 * If computing FGUs, don't take RES0 or register existence
+-	 * into account -- we're not computing bits for the register
+-	 * itself.
+-	 */
+-	if (!(exclude & NEVER_FGU)) {
+-		res0 |= compute_res0_bits(kvm, &r->feat_map, 1, require, exclude);
+-		res0 |= ~reg_feat_map_bits(&r->feat_map);
+-	}
++	res0 |= compute_res0_bits(kvm, &r->feat_map, 1, require, exclude);
++	res0 |= ~reg_feat_map_bits(&r->feat_map);
  
- 	resx.res0 |= tmp.res0;
-@@ -1422,47 +1427,36 @@ struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg)
- 	switch (reg) {
- 	case HFGRTR_EL2:
- 		resx = compute_reg_resx_bits(kvm, &hfgrtr_desc, 0, 0);
--		resx.res1 |= HFGRTR_EL2_RES1;
+ 	return res0;
+ }
+ 
++static u64 compute_fgu_bits(struct kvm *kvm, const struct reg_feat_map_desc *r)
++{
++	/*
++	 * If computing FGUs, we collect the unsupported feature bits as
++	 * RES0 bits, but don't take the actual RES0 bits or register
++	 * existence into account -- we're not computing bits for the
++	 * register itself.
++	 */
++	return compute_res0_bits(kvm, r->bit_feat_map, r->bit_feat_map_sz,
++				 0, NEVER_FGU);
++}
++
+ static u64 compute_reg_fixed_bits(struct kvm *kvm,
+ 				  const struct reg_feat_map_desc *r,
+ 				  u64 *fixed_bits, unsigned long require,
+@@ -1370,40 +1374,29 @@ void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt)
+ 
+ 	switch (fgt) {
+ 	case HFGRTR_GROUP:
+-		val |= compute_reg_res0_bits(kvm, &hfgrtr_desc,
+-					     0, NEVER_FGU);
+-		val |= compute_reg_res0_bits(kvm, &hfgwtr_desc,
+-					     0, NEVER_FGU);
++		val |= compute_fgu_bits(kvm, &hfgrtr_desc);
++		val |= compute_fgu_bits(kvm, &hfgwtr_desc);
  		break;
- 	case HFGWTR_EL2:
- 		resx = compute_reg_resx_bits(kvm, &hfgwtr_desc, 0, 0);
--		resx.res1 |= HFGWTR_EL2_RES1;
+ 	case HFGITR_GROUP:
+-		val |= compute_reg_res0_bits(kvm, &hfgitr_desc,
+-					     0, NEVER_FGU);
++		val |= compute_fgu_bits(kvm, &hfgitr_desc);
  		break;
- 	case HFGITR_EL2:
- 		resx = compute_reg_resx_bits(kvm, &hfgitr_desc, 0, 0);
--		resx.res1 |= HFGITR_EL2_RES1;
+ 	case HDFGRTR_GROUP:
+-		val |= compute_reg_res0_bits(kvm, &hdfgrtr_desc,
+-					     0, NEVER_FGU);
+-		val |= compute_reg_res0_bits(kvm, &hdfgwtr_desc,
+-					     0, NEVER_FGU);
++		val |= compute_fgu_bits(kvm, &hdfgrtr_desc);
++		val |= compute_fgu_bits(kvm, &hdfgwtr_desc);
  		break;
- 	case HDFGRTR_EL2:
- 		resx = compute_reg_resx_bits(kvm, &hdfgrtr_desc, 0, 0);
--		resx.res1 |= HDFGRTR_EL2_RES1;
+ 	case HAFGRTR_GROUP:
+-		val |= compute_reg_res0_bits(kvm, &hafgrtr_desc,
+-					     0, NEVER_FGU);
++		val |= compute_fgu_bits(kvm, &hafgrtr_desc);
  		break;
- 	case HDFGWTR_EL2:
- 		resx = compute_reg_resx_bits(kvm, &hdfgwtr_desc, 0, 0);
--		resx.res1 |= HDFGWTR_EL2_RES1;
+ 	case HFGRTR2_GROUP:
+-		val |= compute_reg_res0_bits(kvm, &hfgrtr2_desc,
+-					     0, NEVER_FGU);
+-		val |= compute_reg_res0_bits(kvm, &hfgwtr2_desc,
+-					     0, NEVER_FGU);
++		val |= compute_fgu_bits(kvm, &hfgrtr2_desc);
++		val |= compute_fgu_bits(kvm, &hfgwtr2_desc);
  		break;
- 	case HAFGRTR_EL2:
- 		resx = compute_reg_resx_bits(kvm, &hafgrtr_desc, 0, 0);
--		resx.res1 |= HAFGRTR_EL2_RES1;
+ 	case HFGITR2_GROUP:
+-		val |= compute_reg_res0_bits(kvm, &hfgitr2_desc,
+-					     0, NEVER_FGU);
++		val |= compute_fgu_bits(kvm, &hfgitr2_desc);
  		break;
- 	case HFGRTR2_EL2:
- 		resx = compute_reg_resx_bits(kvm, &hfgrtr2_desc, 0, 0);
--		resx.res1 |= HFGRTR2_EL2_RES1;
+ 	case HDFGRTR2_GROUP:
+-		val |= compute_reg_res0_bits(kvm, &hdfgrtr2_desc,
+-					     0, NEVER_FGU);
+-		val |= compute_reg_res0_bits(kvm, &hdfgwtr2_desc,
+-					     0, NEVER_FGU);
++		val |= compute_fgu_bits(kvm, &hdfgrtr2_desc);
++		val |= compute_fgu_bits(kvm, &hdfgwtr2_desc);
  		break;
- 	case HFGWTR2_EL2:
- 		resx = compute_reg_resx_bits(kvm, &hfgwtr2_desc, 0, 0);
--		resx.res1 |= HFGWTR2_EL2_RES1;
- 		break;
- 	case HFGITR2_EL2:
- 		resx = compute_reg_resx_bits(kvm, &hfgitr2_desc, 0, 0);
--		resx.res1 |= HFGITR2_EL2_RES1;
- 		break;
- 	case HDFGRTR2_EL2:
- 		resx = compute_reg_resx_bits(kvm, &hdfgrtr2_desc, 0, 0);
--		resx.res1 |= HDFGRTR2_EL2_RES1;
- 		break;
- 	case HDFGWTR2_EL2:
- 		resx = compute_reg_resx_bits(kvm, &hdfgwtr2_desc, 0, 0);
--		resx.res1 |= HDFGWTR2_EL2_RES1;
- 		break;
- 	case HCRX_EL2:
- 		resx = compute_reg_resx_bits(kvm, &hcrx_desc, 0, 0);
+ 	default:
+ 		BUG();
 -- 
 2.47.3
 
