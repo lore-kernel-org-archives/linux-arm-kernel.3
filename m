@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A12F5E7314A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 09:48:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 341C0E7314A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 09:51:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9d+07VQ9aR+mZG5e89dL5SGfQBLbhMuNE+dcDvZHhhk=; b=FIDTbuy8uDfK7QZPamaGIpLwdQ
-	YPfeW7BTwzplSSTHzqWDMiQnt6XqlGCpIOBYpmwNf2y//QyaE+VgXOJQ3gjb834hjR42JIuY02Bth
-	KWLJwoG1k19fUP+kf3091fa5scCncn+xuOxb0wb25nG1vdQw0F1qMdsmDsMBa+x4pUiZCfrsnwe03
-	oCUSIVtwOsmDB7EeIWA7MCyZxrDbIVqjC3v7a7x1R2cPC0oDXKFTUJjX5+xDQv/RTT3O4Hz3isnuY
-	TPBfataSDdKLwFX/X0gY14mnoVZqTiVRlCX8b3uXce/9ZV7wHS6sGZdJ7J69GeGpSAcSc837dNERk
-	6JalUYtQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EuBa+l2AzlSrxEzg4zfkGHB/RsuSvROlvtiybPhAHyA=; b=ah4Z6YlRhNbVP6jAXg0fS7O0ir
+	evljyQ4yQIzMWQzjhVemLrn6w/ZmLBlnYFVZt9Mpqgo0eblU1AVe1wO2/HsVhodL2/CWFo6zc/3jR
+	uCaidn/ejSIa3NNSPExCH7Y6ZQfGe2wH8O/EAH+sbcu1va35snUtu592m12PpgZivCuJmAgSndjdj
+	t3iyUVcD3w2RK4P9vOQo8AIpQ/4m0TO6QGM3cHdZlS825Ei3bUA8xse5mdHpXlIXlHl2kEFkTk+UU
+	Y6n8rI81EHywnyVVphNi1T2EEuE9ElcVVR48bR/bOOPfw1BbVwG+SJOxWClvO9m9a40OFuP5PAR+F
+	hwzdVmPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmqXf-00000004joy-0KUb;
-	Mon, 02 Feb 2026 09:48:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vmqaF-00000004kAT-2FrP;
+	Mon, 02 Feb 2026 09:51:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmqXe-00000004joQ-0Iho;
-	Mon, 02 Feb 2026 09:48:22 +0000
+	id 1vmqaD-00000004kA4-16Pp;
+	Mon, 02 Feb 2026 09:51:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AC3D560128;
-	Mon,  2 Feb 2026 09:48:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE9CBC116D0;
-	Mon,  2 Feb 2026 09:48:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B8B2641902;
+	Mon,  2 Feb 2026 09:51:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72939C116C6;
+	Mon,  2 Feb 2026 09:50:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770025700;
-	bh=Bm7qdPpSoR5RRd8RoFj0NDJeq7mpHyYT/MEjRskwOdQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YwOBVfGtz4+jEDqeo9pQ5HBte1t/4o1Bebg2wlqQVp+8zfvUwoZx2qcUw0XJ5XPxD
-	 9BxEnOWVyvYE2GN1hj0ZZ/AFb9hvN8N/6snz3XZx4cziJ0mHkfuKNK6UFegAMT/7Wi
-	 +jkgf/wDOo06SjM9msgv2Ihg08bFz+OQyeDBJUflNwSsPYNE33UBA8osjSfu9hpepb
-	 KS2QMaYynMFhQ7xBQzjT/MtJ8ROb9Ka7D9pHpcwyKhi/FhgXOxYkxOHSgU+4p1JDeO
-	 K1NUWVli90AZOgK6G6Kwq3k+7IX7qtU+MxBlJEtB5kRrgH5tgceLSbPlMyLhgUP7mt
-	 19U9Zh9m8ufLA==
+	s=k20201202; t=1770025860;
+	bh=9VvuiTF467pCqWROe44rFu4fSzJobnhhxxMf2Eom6eM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=sLS8F96yFvtI2VcRrQd5MKVhMx3f/3AhVBQB0m+STBoCPWqz4SCjPi9n5lBJeXSD2
+	 ZLgkDMTKQ+dFoyyf05bthwt5K5eLPEp+C3IGxH6ZgaMc6Bb/LaW/FqRP05Ek+0gkL2
+	 aIWgkwWsh5TM7NVnlHC+24fDnu8iAK8bYV53YaKtQPkxwqZMZeEHJS5tEL9JfBr9lk
+	 mh7kNDkRxNOKpQEPuv32e0wHeTYkla3w2HBx5kbAyrh/WpI56casA1aS4J176f+C1Q
+	 B1Z/wZc/gHqBlIuScJPQVV1s2M1uwMj5Zq8LPJXASaI2y2reLgVfw+cs5OQcub2W0W
+	 Tnfsp2bTbkOOQ==
 From: Arnd Bergmann <arnd@kernel.org>
-To: Detlev Casanova <detlev.casanova@collabora.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Nathan Chancellor <nathan@kernel.org>
+To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Peter Wang <peter.wang@mediatek.com>,
+	Chaotian Jing <chaotian.jing@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: Arnd Bergmann <arnd@arndb.de>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
+	Stanley Jhu <chu.stanley@gmail.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@wdc.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	Chun-Hung Wu <chun-hung.wu@mediatek.com>,
+	linux-scsi@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Alex Bee <knaerzche@gmail.com>
-Subject: [PATCH 2/2] media: rkvdec: reduce stack usage in rkvdec_init_v4l2_vp9_count_tbl()
-Date: Mon,  2 Feb 2026 10:47:51 +0100
-Message-Id: <20260202094804.1231706-2-arnd@kernel.org>
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] scsi: ufs: host: mediatek: require CONFIG_PM
+Date: Mon,  2 Feb 2026 10:50:18 +0100
+Message-Id: <20260202095052.1232703-1-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260202094804.1231706-1-arnd@kernel.org>
-References: <20260202094804.1231706-1-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260202_015101_345468_8016ACEB 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +83,106 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-The deeply nested loop in rkvdec_init_v4l2_vp9_count_tbl() needs a lot
-of registers, so when the clang register allocator runs out, it ends up
-spilling countless temporaries to the stack:
+The added print statement from a recent fix causes the
+driver to fail building when CONFIG_PM is disabled:
 
-drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c:966:12: error: stack frame size (1472) exceeds limit (1280) in 'rkvdec_vp9_start' [-Werror,-Wframe-larger-than]
+drivers/ufs/host/ufs-mediatek.c: In function 'ufs_mtk_resume':
+drivers/ufs/host/ufs-mediatek.c:1890:40: error: 'struct dev_pm_info' has no member named 'request'
+ 1890 |                         hba->dev->power.request,
 
-Marking this function as noinline_for_stack keeps it out of
-rkvdec_vp9_start(), giving the compiler more room for optimization.
+It seems unlikely that the driver can work at all without
+CONFIG_PM, so just add a dependency and remove the existing
+ifdef checks, rather than adding another ifdef.
 
-The resulting code is good enough that both the total stack usage
-and the loop get enough better to stay under the warning limit,
-though it's still slow, and would need a larger rework if this
-function ends up being called in a fast path.
-
+Fixes: 15ef3f5aa822 ("scsi: ufs: host: mediatek: Enhance recovery on resume failure")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/ufs/host/Kconfig        |  1 +
+ drivers/ufs/host/ufs-mediatek.c | 12 +++---------
+ include/ufs/ufshcd.h            |  4 ----
+ 3 files changed, 4 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
-index ba51a7c2fe55..1c875d5a2bac 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
-@@ -893,7 +893,8 @@ static void rkvdec_vp9_done(struct rkvdec_ctx *ctx,
- 	update_ctx_last_info(vp9_ctx);
+diff --git a/drivers/ufs/host/Kconfig b/drivers/ufs/host/Kconfig
+index 7d5117b2dab4..964ae70e7390 100644
+--- a/drivers/ufs/host/Kconfig
++++ b/drivers/ufs/host/Kconfig
+@@ -72,6 +72,7 @@ config SCSI_UFS_QCOM
+ config SCSI_UFS_MEDIATEK
+ 	tristate "Mediatek specific hooks to UFS controller platform driver"
+ 	depends on SCSI_UFSHCD_PLATFORM && ARCH_MEDIATEK
++	depends on PM
+ 	depends on RESET_CONTROLLER
+ 	select PHY_MTK_UFS
+ 	select RESET_TI_SYSCON
+diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
+index 66b11cc0703b..b3daaa07e925 100644
+--- a/drivers/ufs/host/ufs-mediatek.c
++++ b/drivers/ufs/host/ufs-mediatek.c
+@@ -2437,7 +2437,6 @@ static void ufs_mtk_remove(struct platform_device *pdev)
+ 	ufshcd_pltfrm_remove(pdev);
  }
  
--static void rkvdec_init_v4l2_vp9_count_tbl(struct rkvdec_ctx *ctx)
-+static noinline_for_stack void
-+rkvdec_init_v4l2_vp9_count_tbl(struct rkvdec_ctx *ctx)
+-#ifdef CONFIG_PM_SLEEP
+ static int ufs_mtk_system_suspend(struct device *dev)
  {
- 	struct rkvdec_vp9_ctx *vp9_ctx = ctx->priv;
- 	struct rkvdec_vp9_intra_frame_symbol_counts *intra_cnts = vp9_ctx->count_tbl.cpu;
+ 	struct ufs_hba *hba = dev_get_drvdata(dev);
+@@ -2484,9 +2483,7 @@ static int ufs_mtk_system_resume(struct device *dev)
+ 
+ 	return ret;
+ }
+-#endif
+ 
+-#ifdef CONFIG_PM
+ static int ufs_mtk_runtime_suspend(struct device *dev)
+ {
+ 	struct ufs_hba *hba = dev_get_drvdata(dev);
+@@ -2525,13 +2522,10 @@ static int ufs_mtk_runtime_resume(struct device *dev)
+ 
+ 	return ufshcd_runtime_resume(dev);
+ }
+-#endif
+ 
+ static const struct dev_pm_ops ufs_mtk_pm_ops = {
+-	SET_SYSTEM_SLEEP_PM_OPS(ufs_mtk_system_suspend,
+-				ufs_mtk_system_resume)
+-	SET_RUNTIME_PM_OPS(ufs_mtk_runtime_suspend,
+-			   ufs_mtk_runtime_resume, NULL)
++	SYSTEM_SLEEP_PM_OPS(ufs_mtk_system_suspend, ufs_mtk_system_resume)
++	RUNTIME_PM_OPS(ufs_mtk_runtime_suspend, ufs_mtk_runtime_resume, NULL)
+ 	.prepare	 = ufshcd_suspend_prepare,
+ 	.complete	 = ufshcd_resume_complete,
+ };
+@@ -2541,7 +2535,7 @@ static struct platform_driver ufs_mtk_pltform = {
+ 	.remove = ufs_mtk_remove,
+ 	.driver = {
+ 		.name   = "ufshcd-mtk",
+-		.pm     = &ufs_mtk_pm_ops,
++		.pm     = pm_ptr(&ufs_mtk_pm_ops),
+ 		.of_match_table = ufs_mtk_of_match,
+ 	},
+ };
+diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
+index a64c19563b03..8563b6648976 100644
+--- a/include/ufs/ufshcd.h
++++ b/include/ufs/ufshcd.h
+@@ -1344,17 +1344,13 @@ static inline void *ufshcd_get_variant(struct ufs_hba *hba)
+ 	return hba->priv;
+ }
+ 
+-#ifdef CONFIG_PM
+ extern int ufshcd_runtime_suspend(struct device *dev);
+ extern int ufshcd_runtime_resume(struct device *dev);
+-#endif
+-#ifdef CONFIG_PM_SLEEP
+ extern int ufshcd_system_suspend(struct device *dev);
+ extern int ufshcd_system_resume(struct device *dev);
+ extern int ufshcd_system_freeze(struct device *dev);
+ extern int ufshcd_system_thaw(struct device *dev);
+ extern int ufshcd_system_restore(struct device *dev);
+-#endif
+ 
+ extern int ufshcd_dme_reset(struct ufs_hba *hba);
+ extern int ufshcd_dme_enable(struct ufs_hba *hba);
 -- 
 2.39.5
 
