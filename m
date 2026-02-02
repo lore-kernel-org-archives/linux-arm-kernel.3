@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59B97D172D4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 06:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 461A2D172D4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 06:06:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HE5glzw2S4WCKHAKIYJ8k8reipPAB965cTMWcHuh4wE=; b=RA9wIJURJye7qqEj2uuEkTATEE
-	Ob0x9je1Kp7WoEkvG/Zjk7yyNXD7T7aZg98FxLU5M2SNFrgKUHXrOzxdOAFTr9UdGkA/hLigECS4i
-	A1RMS+X9BZh+ztqNEai61KdFrsg18p3YU7BR5Y6iyUjnw7qGcS+HRLsGpQzrbd9bMPiceyCAiaqF1
-	dYU4ruJRj3E7Ne9Z5aZTwXXW9GPg5/BKIySHo/7dpR4GSUMsSpyskxv8KQFxMq6G+ggfUy34znzX+
-	LgtTpfPleEZT4ktC2s1YDK4BYBs9TAs2pWdGC45iP09f22BiTeB0Q/0AUtWu82wIsxzCiWFllFqZt
-	62Ewg8/Q==;
+	bh=acpoNPq8n706BNSOL8GplU6mfR6j1oCcZ2KNYnv6YR4=; b=tGOKn79lXxyU7kXgVsy9SsLhdl
+	jsHSMFcCfegOcjN8uugsyB8YLWgQSsJBr9g5GPZhMtjMtEuDFL8XUsL9dz3wfOrktPPeSIrxtiZbb
+	3tuaFstsl8SxAh7FgLN+NCkDDixsW85OTtudJ3Ci/muCmjp+heWxsDhGDS2kJ4PmPIeoh12HhuO+1
+	fjnGIxqpKl3/4HQwVsr4LKsc94Jn7ddPUWTw+aplg8Oj9ogE4Tgsd+540LX+FR+3o5KtruUHHcaSX
+	3KguB40SH2o2eal8XBWi7wjGM/6Xzmj/qYJBE27YTkL/kWg+/RM51kE6J2ZZY8ddZ2B+SBlpfIGsz
+	r5olcgMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmn4L-00000004URb-3ox3;
-	Mon, 02 Feb 2026 06:05:54 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1vmn4P-00000004USv-1XTz;
+	Mon, 02 Feb 2026 06:05:57 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmn4J-00000004UQs-2UJh
+	id 1vmn4M-00000004URc-2M1G
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 06:05:52 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-29f30233d8aso25815495ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Feb 2026 22:05:51 -0800 (PST)
+	Mon, 02 Feb 2026 06:05:56 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2a90055b9e9so5074435ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Feb 2026 22:05:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770012350; x=1770617150; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1770012353; x=1770617153; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=HE5glzw2S4WCKHAKIYJ8k8reipPAB965cTMWcHuh4wE=;
-        b=cBGa0GaRLET0srwyFgqcFWtZ6NNhT5Y3iVDIIh5kQghOmz3pJrx+6nYV0eB+WRPxi/
-         jI+xajyFdcgBHc1GCqT2F/nmKy6BVbbJ0pbeppCL8yD3sB34DEqkF81brDLWbmp+Ls4d
-         tnsGMNY64uozX8yyJpuBszIqWmDciWID/ciXhaT7pMUiPUV8F7UHFilFRf6UesWEdC7b
-         sIR53rnqnNZzOa0DLUN6UVf6Qco2mrJwbyCesXJBxgk54MdU0V/JvxxrGiWsUyPU3o3+
-         pp82fQ+KYJDhriC4QeFbeS2f79t2c5nsiESNk35uIHo24YJ6d4+PMssGla3zRdWHhraL
-         +OdA==
+        bh=acpoNPq8n706BNSOL8GplU6mfR6j1oCcZ2KNYnv6YR4=;
+        b=Vamn47frSwH8ZSWeUWhDuF0HNQ7GlXoNl75hhUjC3f5t4kfnhHCKYNTCQXHzYE31s9
+         XeeyE3s7pWXRaTncao14D3OEZ327AtYwkIB1Z45iRTj7+Gk1yyvwYjBbLQ+sdf0cBpi2
+         qOq0hN3lvER+o+7GoSmho5q/ODgIKa9gJeuqbS8P8pJoLw5yric99sklIxSMlu1Src50
+         ZvJPcNEWIBTI3e+ahvSgEmJ9f26l532LgHskpZrRHBlAtJ89BDSDlGyMr0FnquMQtPz8
+         HrD8xIBPA6zM197wSiDCpcXvIZGt1PTs3mw8Om7js9NTLlPN5cICRexjQn3bBA5hSnMW
+         2/9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770012350; x=1770617150;
+        d=1e100.net; s=20230601; t=1770012353; x=1770617153;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=HE5glzw2S4WCKHAKIYJ8k8reipPAB965cTMWcHuh4wE=;
-        b=bjvmhv2X2eykWb402DL+4iQIYfq/7QvkIE4kyUfiMISVTpaL6XiHsG/UcciMXYpY5k
-         q2ZrUXsS+7BJ/UjdWD3ZmIZMASRDnIE50fEAkNusmGKP0rzl6I9GlM72J1Gavq2SNkGB
-         L9msyjRc+9TrvCSlDaaXaMS/9MCzIN+rSiSZafZHpzRmZ67l1evzVMnb7xQ0y8SzE0Q6
-         8rLi08JCuhq2Y9NZI1wzMTBCFTDHK4tnBeVAI/a43HygQDafMMECqRB2XeCc+tbb6jl3
-         KEucEPtJt1VLQ6AoAEwok+qSXHI/z+G1/k5ofBt7Ny6FRfipg/ZTQg6PlAxQPv2Ljodt
-         Bu9w==
-X-Forwarded-Encrypted: i=1; AJvYcCVBoI4RUCYaEDJYhG01jFh2iq/r7B1arR1CJjgZBWKW9dsyfmiAqvOKI17ZwTouumfzO2lnDI8Yp+WHYzy99evN@lists.infradead.org
-X-Gm-Message-State: AOJu0YyF6u/02O5+DdUTJ3m4xVsuyYaBnHD/mjGt0qGXbL4CBsHPGJ0w
-	zAGewcFKTp8IhIjMpuT3Sit7UL4v/gwcA7M7rFGvYOmXVQdyEVsi2tIhbEBUHQ==
-X-Gm-Gg: AZuq6aJYPb//Jt1lHKpEI9CX68Dk8BdY4D9FL+e1vnGhYGSbdfrkT7FZp/4gjAI/HW0
-	vNDW6UZxmnbx2VHEtXdWXP0KSNJuUnFGv/cCmxHmtHZxU+qfsFWocWtZMMBqkZYkTUsZ7a9Nj5z
-	SNefEFk1LGAXFbWOTi1ScVN6qV3k1SS6JzbbnE5fTR/TKp4HHW0Bqwrg7IiL0feKRm0motZ3rqm
-	RAKYxxkp+yewmnoz4Tpsy+SPuMuOTtPYEnKksw/DOvScyBlGyAnuWTSd33Hj348kL/9FMVmi2SX
-	ghQVC+me8k/5RkvA1M/NPpUoMYh+e72mY8j/w0z42Rlamwcw7WkBRKuMHThajfJthQF07HaVb2U
-	y7MIxsYPd2uAKe78drsCfjjF6eK6ked5CYPsb6RNEu4f/NQElUVlCgQattUIkyfZ9p7o26g3rkj
-	qqlgenqDCkt1f/Dn4ZnGtJUR7NnBNkyzdzFC466eF1S0w42gHQKAWAPNB/S88CLSOzuy6c2SPTQ
-	g==
-X-Received: by 2002:a17:902:f708:b0:2a2:acc5:7a42 with SMTP id d9443c01a7336-2a8d81801aemr108152325ad.48.1770012350239;
-        Sun, 01 Feb 2026 22:05:50 -0800 (PST)
+        bh=acpoNPq8n706BNSOL8GplU6mfR6j1oCcZ2KNYnv6YR4=;
+        b=Fllz7O4ZIE6SLwhM7GHoFJhsaNecysQpPt3f1esN4NwRMvmDavFfmfvbjTEIOpJvId
+         roGsdK5iy0aU+LLzvLKveTxEtB7M8zDBGhGu+zHfUQhG6yP2XWFWloz9GfWlGe4aAdf1
+         OsF5pkh6E2rOaJLVY/y52AFIAeOgdmYCP+IkMW9Njz1dxZ/8LsqG3Phn6gAFysUST71x
+         QPh5UGaqhfmBAqCplLcB003ESmGnMtCsXBXcmZoJ0yFrAMw0CmuDIHRjck0dpUbanKO7
+         UJdATxXqP3xbvsaGJ4vkLH0EC3COYznzPr+CUNlyWnnCqOOv2edGCySG5E6AuCtMv4oj
+         aapg==
+X-Forwarded-Encrypted: i=1; AJvYcCVfdYV+Yf4U/xCm7BIHTouNEIX7n6zQ/27MZJ0TWR157UD6WWKO97FUeObgGQT3no6naY9QKLVF5nbGyZiiQiAj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2esdjpfI+NuQt6SFZzAPTeZjzXaoXO681a6/UkrdGBndrwTpr
+	Dvt3lOgZmBY2knLky/lT/sFRzkjUkn+aoTAoKcKMwx2oGwBa3yQmEQRsEp/efQ==
+X-Gm-Gg: AZuq6aIh/LuhxzKDTKETbdjZO+eo6lvsLjhwvIbuGiaOzZ1qWlQnFZ8VSbB6fKr2aVK
+	DqbIWCCGLujRe7YG1HNwyQpf1Yn8JiFmGNX4fLP1JpYxpUpePds8XYy/NNT/d4hB+AHwYmGnRG5
+	PVUUqMO7iKFof4upLGE9fZxU4XRZekXOfCGLpV/YIX6fhcv9pZ3Afllul7wxq3BRfNtWH0wtn4g
+	Rxo+Z6qeSsxKJfqtcZ26mfNexOkhVSLy3eN0VODgv4KlJzV0rjaLbLWSEX6dCqA12sene/yiIbd
+	uwEd1g0wFTsi7/Oht6PmvXFh7zj80vtVA8sTva2uZpTnbhAPlBm/CH8tjwfJOnDfMqoyC9MXj+0
+	2260dBZ5wVfeX8u3PVhzaqf3i1o650c4IP4GYQ51OnVhMyYhzrOM0xQsn+FL70mMZWhsGQKn22j
+	v1v/TKLw3ZMtBhcXGNsO8eUMuPG5O1JtjtRg+M+i4+14rXCQieaJTecZ8HSSFKY74=
+X-Received: by 2002:a17:903:298d:b0:2a9:34:eb65 with SMTP id d9443c01a7336-2a90034f0c4mr43481685ad.26.1770012353007;
+        Sun, 01 Feb 2026 22:05:53 -0800 (PST)
 Received: from localhost.localdomain (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a88b5d99eesm132926135ad.78.2026.02.01.22.05.47
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a88b5d99eesm132926135ad.78.2026.02.01.22.05.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Feb 2026 22:05:49 -0800 (PST)
+        Sun, 01 Feb 2026 22:05:52 -0800 (PST)
 From: Potin Lai <potin.lai.pt@gmail.com>
-Date: Mon, 02 Feb 2026 14:03:16 +0800
-Subject: [PATCH 1/2] dt-bindings: arm: aspeed: add Meta SanMiguel BMC
+Date: Mon, 02 Feb 2026 14:03:17 +0800
+Subject: [PATCH 2/2] ARM: dts: aspeed: add Meta SanMiguel BMC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260202-sanmiguel_init_dts-v1-1-c0023ae41899@gmail.com>
+Message-Id: <20260202-sanmiguel_init_dts-v1-2-c0023ae41899@gmail.com>
 References: <20260202-sanmiguel_init_dts-v1-0-c0023ae41899@gmail.com>
 In-Reply-To: <20260202-sanmiguel_init_dts-v1-0-c0023ae41899@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -89,17 +88,16 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Potin Lai <potin.lai@quantatw.com>, Roger Kan <Roger.Kan@quantatw.com>, 
  Potin Lai <potin.lai.pt@gmail.com>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770012344; l=841;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770012344; l=28582;
  i=potin.lai.pt@gmail.com; s=20240724; h=from:subject:message-id;
- bh=awDe2howAZDyvltIFZvQ9S1Z3NdAcsc3EqMeuy1puZc=;
- b=kEp9CUwnACmR9NE2TIjtVwLyacYjzLHZXZVw5BEazIRRzng2LDy+t2D5cYB+vLl5p49SqUkt7
- BZQ8VeQwu+HCJwN3aaRbYw/PF6VzsDrAOdJC7cddPQyYrAXH2ndXXaJ
+ bh=st5vHNBjd2Ov6RdsQlrvoGE1QtJUzf0qGdcB1RWKIms=;
+ b=3QbrwoZShbqh1Psqr8TUqshyKdoZPj1O6tzgeNdZVQAc08r656ITEl2GSXQIaNy6uVE1LQlIM
+ VeDsSfvMYtGCP9FQm/vPpLeHkRyQdklGEgwmcBBKwKLR8M4TV6vbSiy
 X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
  pk=6Z4H4V4fJwLteH/WzIXSsx6TkuY5FOcBBP+4OflJ5gM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260201_220551_640354_8E6FCB76 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260201_220555_017981_11915B5D 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,25 +112,1196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Meta (Facebook) SanMiguel BMC board compatible.
+Add linux device tree entry for Meta (Facebook) SanMiguel compute-tray
+BMC using AT2620 SoC.
 
 Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
 ---
- Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/boot/dts/aspeed/Makefile                  |    1 +
+ .../dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts   | 1163 ++++++++++++++++++++
+ 2 files changed, 1164 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-index 9298c1a75dd1..6c84e6c80978 100644
---- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-+++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-@@ -91,6 +91,7 @@ properties:
-               - facebook,greatlakes-bmc
-               - facebook,harma-bmc
-               - facebook,minerva-cmc
-+              - facebook,sanmiguel-bmc
-               - facebook,santabarbara-bmc
-               - facebook,yosemite4-bmc
-               - facebook,yosemite5-bmc
+diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
+index 9adf9278dc94..ab2effc29f6f 100644
+--- a/arch/arm/boot/dts/aspeed/Makefile
++++ b/arch/arm/boot/dts/aspeed/Makefile
+@@ -30,6 +30,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
+ 	aspeed-bmc-facebook-harma.dtb \
+ 	aspeed-bmc-facebook-minerva.dtb \
+ 	aspeed-bmc-facebook-minipack.dtb \
++	aspeed-bmc-facebook-sanmiguel.dtb \
+ 	aspeed-bmc-facebook-santabarbara.dtb \
+ 	aspeed-bmc-facebook-tiogapass.dtb \
+ 	aspeed-bmc-facebook-wedge40.dtb \
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
+new file mode 100644
+index 000000000000..bcf857835b23
+--- /dev/null
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
+@@ -0,0 +1,1163 @@
++// SPDX-License-Identifier: GPL-2.0+
++// Copyright (c) 2025 Facebook Inc.
++
++/dts-v1/;
++#include "aspeed-g6.dtsi"
++#include <dt-bindings/gpio/aspeed-gpio.h>
++#include <dt-bindings/usb/pd.h>
++#include <dt-bindings/leds/leds-pca955x.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/i2c/i2c.h>
++#include <dt-bindings/leds/common.h>
++
++/ {
++	model = "AST2600 VR NVL144 BMC";
++	compatible = "aspeed,ast2600";
++
++	aliases {
++		serial0 = &uart1;
++		serial1 = &uart2;
++		serial2 = &uart3;
++		serial3 = &uart4;
++		serial4 = &uart5;
++		i2c16	= &imux16;
++		i2c17	= &imux17;
++		i2c18	= &imux18;
++		i2c19	= &imux19;
++		i2c20   = &i2c20;
++		i2c21   = &i2c21;
++	};
++
++	chosen {
++		stdout-path = "serial4:57600n8";
++	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x80000000 0x80000000>;
++	};
++
++	iio-hwmon {
++		compatible = "iio-hwmon";
++		io-channels = <&adc0 0>, <&adc0 1>, <&adc0 2>, <&adc0 3>,
++			      <&adc0 4>, <&adc0 5>, <&adc0 6>;
++	};
++
++	spi2_gpio: spi {
++		compatible = "spi-gpio";
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		sck-gpios = <&gpio0 ASPEED_GPIO(X, 3) GPIO_ACTIVE_HIGH>;
++		mosi-gpios = <&gpio0 ASPEED_GPIO(X, 4) GPIO_ACTIVE_HIGH>;
++		miso-gpios = <&gpio0 ASPEED_GPIO(X, 5) GPIO_ACTIVE_HIGH>;
++		cs-gpios = <&gpio0 ASPEED_GPIO(X, 2) GPIO_ACTIVE_LOW>;
++		num-chipselects = <1>;
++
++		tpm@0 {
++			compatible = "infineon,slb9670", "tcg,tpm_tis-spi";
++			spi-max-frequency = <33000000>;
++			reg = <0>;
++		};
++	};
++
++	standby_power_regulator: standby-power-regulator {
++		status = "okay";
++		compatible = "regulator-fixed";
++		regulator-name = "standby_power";
++		gpio = <&gpio0 ASPEED_GPIO(M, 3) GPIO_ACTIVE_HIGH>;
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		enable-active-high;
++		regulator-always-on;
++		regulator-boot-on;
++	};
++
++	scm-leds {
++		compatible = "gpio-leds";
++		led-0 {
++			label = "bmc_heartbeat_amber";
++			gpios = <&gpio0 ASPEED_GPIO(P, 7) GPIO_ACTIVE_LOW>;
++			linux,default-trigger = "heartbeat";
++		};
++	};
++
++	fio-leds {
++		compatible = "gpio-leds";
++		led-0 {
++			label = "power_blue";
++			gpios = <&fio_ioexp 4 GPIO_ACTIVE_HIGH>;
++		};
++		led-1 {
++			label = "power_amber";
++			gpios = <&fio_ioexp 5 GPIO_ACTIVE_LOW>;
++		};
++		led-2 {
++			label = "id_blue";
++			gpios = <&fio_ioexp 6 GPIO_ACTIVE_HIGH>;
++		};
++		led-3 {
++			label = "id_amber";
++			gpios = <&fio_ioexp 7 GPIO_ACTIVE_LOW>;
++		};
++	};
++};
++
++&fmc {
++	status = "okay";
++	flash@0 {
++		status = "okay";
++		m25p,fast-read;
++		label = "bmc";
++		spi-max-frequency = <50000000>;
++#include "openbmc-flash-layout-128.dtsi"
++	};
++	flash@1 {
++		status = "okay";
++		m25p,fast-read;
++		label = "alt-bmc";
++		spi-max-frequency = <50000000>;
++	};
++};
++
++&uart1 {
++	status = "okay";
++};
++
++&uart3 {
++	status = "okay";
++};
++
++&uart5 {
++	status = "okay";
++};
++
++&uart_routing {
++	status = "okay";
++};
++
++&mdio0 {
++	status = "okay";
++	ethphy0: ethernet-phy@0 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <0>;
++	};
++};
++
++&mac0 {
++	status = "okay";
++	pinctrl-names = "default";
++	phy-mode = "rgmii-rxid";
++	max-speed = <1000>;
++	phy-handle = <&ethphy0>;
++	pinctrl-0 = <&pinctrl_rgmii1_default>;
++};
++
++&ehci1 {
++	status = "okay";
++	hub@1 {
++		reg = <1>;
++		hub@2 {
++			reg = <2>;
++			hub@1 {
++				reg = <1>;
++				device@1 {
++					reg = <1>;
++					cp2112a: interface@1 {
++						reg = <1 1>;
++
++						gpio-controller;
++						interrupt-controller;
++						#gpio-cells = <2>;
++						#interrupt-cells = <2>;
++
++						i2c20: i2c {
++							#address-cells = <1>;
++							#size-cells = <0>;
++						};
++					};
++				};
++				hub@3 {
++					reg = <3>;
++					cp2112c: device@2 {
++						reg = <2>;
++						gpio-controller;
++						#gpio-cells = <2>;
++						interrupt-controller;
++						#interrupt-cells = <2>;
++
++						gpio-line-names =
++							"IOB0_MCP_P0_2-B",
++							"IOB0_MCU_RST_L-O",
++							"IOB0_MCU_RECOVERY_L-O",
++							"IOB0_GLOBAL_WP-O",
++							"IOB0_GLOBAL_ADDR_L_R-O",
++							"IOB0_GLOBAL_ADDR_U_D-O",
++							"IOB0_PWR_EN-O",
++							"IOB0_MCU_READY_STATUS-I";
++					};
++				};
++				hub@4 {
++					reg = <4>;
++					cp2112d: device@2 {
++						reg = <2>;
++						gpio-controller;
++						#gpio-cells = <2>;
++						interrupt-controller;
++						#interrupt-cells = <2>;
++
++						gpio-line-names =
++							"IOB1_MCP_P0_2-B",
++							"IOB1_MCU_RST_L-O",
++							"IOB1_MCU_RECOVERY_L-O",
++							"IOB1_GLOBAL_WP-O",
++							"IOB1_GLOBAL_ADDR_L_R-O",
++							"IOB1_GLOBAL_ADDR_U_D-O",
++							"IOB1_PWR_EN-O",
++							"IOB1_MCU_READY_STATUS-I";
++					};
++				};
++			};
++			hub@2 {
++				reg = <2>;
++				device@1 {
++					reg = <1>;
++					cp2112b: interface@1 {
++						reg = <1 1>;
++
++						gpio-controller;
++						interrupt-controller;
++						#gpio-cells = <2>;
++						#interrupt-cells = <2>;
++
++						i2c21: i2c {
++							#address-cells = <1>;
++							#size-cells = <0>;
++						};
++					};
++				};
++				hub@3 {
++					reg = <3>;
++					cp2112e: device@2 {
++						reg = <2>;
++						gpio-controller;
++						#gpio-cells = <2>;
++						interrupt-controller;
++						#interrupt-cells = <2>;
++
++						gpio-line-names =
++							"IOB2_MCP_P0_2-B",
++							"IOB2_MCU_RST_L-O",
++							"IOB2_MCU_RECOVERY_L-O",
++							"IOB2_GLOBAL_WP-O",
++							"IOB2_GLOBAL_ADDR_L_R-O",
++							"IOB2_GLOBAL_ADDR_U_D-O",
++							"IOB2_PWR_EN-O",
++							"IOB2_MCU_READY_STATUS-I";
++					};
++				};
++				hub@4 {
++					reg = <4>;
++					cp2112f: device@2 {
++						reg = <2>;
++						gpio-controller;
++						#gpio-cells = <2>;
++						interrupt-controller;
++						#interrupt-cells = <2>;
++
++						gpio-line-names =
++							"IOB3_MCP_P0_2-B",
++							"IOB3_MCU_RST_L-O",
++							"IOB3_MCU_RECOVERY_L-O",
++							"IOB3_GLOBAL_WP-O",
++							"IOB3_GLOBAL_ADDR_L_R-O",
++							"IOB3_GLOBAL_ADDR_U_D-O",
++							"IOB3_PWR_EN-O",
++							"IOB3_MCU_READY_STATUS-I";
++					};
++				};
++			};
++		};
++	};
++};
++
++&adc0 {
++	aspeed,int-vref-microvolt = <2500000>;
++	status = "okay";
++
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_adc0_default &pinctrl_adc1_default
++		&pinctrl_adc2_default &pinctrl_adc3_default
++		&pinctrl_adc4_default &pinctrl_adc5_default
++		&pinctrl_adc6_default>;
++};
++
++&wdt1 {
++	status = "okay";
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_wdtrst1_default>;
++	aspeed,reset-type = "soc";
++	aspeed,external-signal;
++	aspeed,ext-push-pull;
++	aspeed,ext-active-high;
++	aspeed,ext-pulse-duration = <256>;
++};
++
++&i2c0 {
++	status = "okay";
++	aspeed,enable-byte;
++
++	ssif-bmc@10 {
++		compatible = "ssif-bmc";
++		reg = <0x10>;
++		alert-gpios = <&gpio1 ASPEED_GPIO(D, 7) GPIO_ACTIVE_LOW>;
++		timeout-ms = <5000>;
++	};
++};
++
++&i2c1 {
++	status = "okay";
++};
++
++&i2c2 {
++	status = "okay";
++
++	hpm0_ioexp_20: gpio@20 {
++		compatible = "nxp,pca9555";
++		reg = <0x20>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <ASPEED_GPIO(B, 6) IRQ_TYPE_LEVEL_LOW>;
++		vcc-supply = <&standby_power_regulator>;
++		gpio-line-names =
++			"B0_M0_SHDN_FORCE_L-O",
++			"B0_M0_STBY_POWER_PG-I",
++			"B0_M0_THERM_OVERT_L-I",
++			"B0_M0_THERM_WARN_L-I",
++			"B0_M0_GLOBAL_WP-O",
++			"B0_M0_USB_HUB0_RST_L-O",
++			"B0_M0_PRE_SYS_RST_L-O",
++			"B0_M0_LEAK_DETECT_ALERT_L-I",
++			"B0_M0_RUN_POWER_EN-O",
++			"B0_M0_RUN_POWER_PG-I",
++			"B0_M0_CPU_CHIPTHROT_L-O",
++			"B0_M0_SHDN_REQ_L-O",
++			"B0_M0_CPU_SHDN_OK_L-I",
++			"B0_M0_CPLD_READY-I",
++			"B0_M0_PWR_BRAKE_L-O",
++			"B0_M0_PWR_BRAKE_STATUS_L-I";
++	};
++
++	hpm0_ioexp_21: gpio@21 {
++		compatible = "nxp,pca9555";
++		reg = <0x21>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <ASPEED_GPIO(B, 6) IRQ_TYPE_LEVEL_LOW>;
++		vcc-supply = <&standby_power_regulator>;
++
++		gpio-line-names =
++			"B0_M0_I2C_BUS_MUX_RESET_L-O",
++			"B0_M0_HPM_MCU_OK-I",
++			"B0_M0_AIC_USB_EN-O",
++			"B0_M0_C0_SOCAMM_DAC_SEL0-O",
++			"B0_M0_C1_SOCAMM_DAC_SEL1-O",
++			"B0_M0_C0_SOCAMM_I2C_SEL_R-O",
++			"B0_M0_C1_SOCAMM_I2C_SEL_R-O",
++			"B0_M0_EEPROM_POWER_DISABLE-O",
++			"B0_M0_L0L1_RST_L-I",
++			"B0_M0_L2_RST_L-I",
++			"B0_M0_BRD_ID_0-I",
++			"B0_M0_BRD_ID_1-I",
++			"B0_M0_BMC_LEAK_TEST_L-O",
++			"B0_M0_MCU_BMC_ALERT_L-I",
++			"B0_M0_CPU_BOOT_COMPLETE_3V3-I",
++			"B0_M0_BRD_ID_2-I";
++	};
++};
++
++&i2c3 {
++	status = "ok";
++
++	hmc_fru: eeprom@51 {
++		compatible = "atmel,24c02";
++		reg = <0x51>;
++	};
++
++	hpm0_fru: eeprom@52 {
++		compatible = "atmel,24c02";
++		reg = <0x52>;
++	};
++
++	hpm1_fru: eeprom@53 {
++		compatible = "atmel,24c02";
++		reg = <0x53>;
++	};
++};
++
++&i2c4 {
++	status = "okay";
++};
++
++&i2c5 {
++	status = "okay";
++
++	smm_ioexp_20: gpio@20 {
++		compatible = "nxp,pca9555";
++		reg = <0x20>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <ASPEED_GPIO(B, 6) IRQ_TYPE_LEVEL_LOW>;
++		gpio-line-names =
++			"HMC_RST_R_L-O", "HMC_RECOVERY_R-O",
++			"HMC_SPI_MUX_R_SEL-O", "GLOBAL_WP-O",
++			"HMC_READY-I", "HMC_PRSNT_R-I",
++			"BMC_SELF_PWR_CYCLE-O", "EEDO_LED2-O",
++			"PWR_LED_L-O", "PWR_BTN_L-I",
++			"UID_LED_L-O", "UID_BTN_L-I",
++			"FAULT_LED_L-O", "USB2_HUB_RST_L-O",
++			"IOX_GPIO_P16_TP", "WARN_LED_L-O";
++	};
++
++	smm_ioexp_21: gpio@21 {
++		compatible = "nxp,pca9555";
++		reg = <0x21>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <ASPEED_GPIO(B, 6) IRQ_TYPE_LEVEL_LOW>;
++		gpio-line-names =
++			"BMC_HMC_MUX_SEL-O", "BMC_TPM_MUX_SEL-O",
++			"BMC_USB2_MUX_SEL-O", "HMC_PGOOD_3V3-I",
++			"BF3_AOC_NCSI_PRSNT_L-I", "HDR_SPI_PRSNT_L-I",
++			"SW_NRESET_R_L-O", "MUX_I2C_ESPI_SEL-O",
++			"I2C_BUS_MUX_RESET_L-O", "USB_MUX_EN-O",
++			"PDB_TRAY_RST-O", "USB_PWR_EN-O",
++			"RTC_CLR_L-O", "I2C_RTC_ALERT_L-I",
++			"I2C_PDB_ALERT_L-I", "BMC_MUX_PI3DP_SEL-O";
++	};
++
++	smm_temp: temperature-sensor@4e {
++		compatible = "national,lm75";
++		reg = <0x4e>;
++	};
++
++	smm_fru: eeprom@50 {
++		compatible = "atmel,24c02";
++		reg = <0x50>;
++	};
++
++	rtc@6f {
++		compatible = "nuvoton,nct3018y";
++		reg = <0x6f>;
++	};
++};
++
++&i2c6 {
++	status = "okay";
++
++	hmc_ioexp: gpio@20 {
++		compatible = "ti,tca6408";
++		reg = <0x20>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		gpio-line-names =
++			"", "", "HMC_EROT_FATAL_ERROR_L-I", "",
++			"", "HMC_EROT_RECOVERY_L-O", "HMC_EROT_RESET_L-O", "";
++	};
++
++	i2c-mux@70 {
++		compatible = "nxp,pca9546";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <0x70>;
++		i2c-mux-idle-disconnect;
++
++		imux16: i2c@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++		};
++
++		imux17: i2c@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++		};
++
++		imux18: i2c@2 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <2>;
++		};
++
++		imux19: i2c@3 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <3>;
++
++			rtc@6f {
++				compatible = "nuvoton,nct3018y";
++				reg = <0x6f>;
++			};
++		};
++	};
++};
++
++&i2c7 {
++	status = "okay";
++
++	hpm1_ioexp_20: gpio@20 {
++		compatible = "nxp,pca9555";
++		reg = <0x20>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <ASPEED_GPIO(B, 6) IRQ_TYPE_LEVEL_LOW>;
++		vcc-supply = <&standby_power_regulator>;
++		gpio-line-names =
++			"B1_M0_SHDN_FORCE_L-O",
++			"B1_M0_STBY_POWER_PG-I",
++			"B1_M0_THERM_OVERT_L-I",
++			"B1_M0_THERM_WARN_L-I",
++			"B1_M0_GLOBAL_WP-O",
++			"B1_M0_USB_HUB0_RST_L-O",
++			"B1_M0_PRE_SYS_RST_L-O",
++			"B1_M0_LEAK_DETECT_ALERT_L-I",
++			"B1_M0_RUN_POWER_EN-O",
++			"B1_M0_RUN_POWER_PG-I",
++			"B1_M0_CPU_CHIPTHROT_L-O",
++			"B1_M0_SHDN_REQ_L-O",
++			"B1_M0_CPU_SHDN_OK_L-I",
++			"B1_M0_CPLD_READY-I",
++			"B1_M0_PWR_BRAKE_L-O",
++			"B1_M0_PWR_BRAKE_STATUS_L-I";
++	};
++
++	hpm1_ioexp_21: gpio@21 {
++		compatible = "nxp,pca9555";
++		reg = <0x21>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <ASPEED_GPIO(B, 6) IRQ_TYPE_LEVEL_LOW>;
++		vcc-supply = <&standby_power_regulator>;
++
++		gpio-line-names =
++			"B1_M0_I2C_BUS_MUX_RESET_L-O",
++			"B1_M0_HPM_MCU_OK-I",
++			"B1_M0_AIC_USB_EN-O",
++			"B1_M0_C0_SOCAMM_DAC_SEL0-O",
++			"B1_M0_C1_SOCAMM_DAC_SEL1-O",
++			"B1_M0_C0_SOCAMM_I2C_SEL_R-O",
++			"B1_M0_C1_SOCAMM_I2C_SEL_R-O",
++			"B1_M0_EEPROM_POWER_DISABLE-O",
++			"B1_M0_L0L1_RST_L-I",
++			"B1_M0_L2_RST_L-I",
++			"B1_M0_BRD_ID_0-I",
++			"B1_M0_BRD_ID_1-I",
++			"B1_M0_BMC_LEAK_TEST_L-O",
++			"B1_M0_MCU_BMC_ALERT_L-I",
++			"B1_M0_CPU_BOOT_COMPLETE_3V3-I",
++			"B1_M0_BRD_ID_2-I";
++	};
++};
++
++&i2c8 {
++	status = "okay";
++};
++
++&i2c9 {
++	status = "okay";
++
++	pdb_mps_hsc1: power-monitor@10 {
++		compatible = "mps,mp5926";
++		reg = <0x10>;
++	};
++
++	pdb_ti_hsc1: power-monitor@11 {
++		compatible = "ti,lm5066i";
++		reg = <0x11>;
++		shunt-resistor-micro-ohms = <763>;
++	};
++
++	pdb_mps_hsc2: power-monitor@12 {
++		compatible = "mps,mp5926";
++		reg = <0x12>;
++	};
++
++	pdb_ti_hsc2: power-monitor@13 {
++		compatible = "ti,lm5066i";
++		reg = <0x13>;
++		shunt-resistor-micro-ohms = <294>;
++	};
++
++	pdb_mps_hsc3: power-monitor@14 {
++		compatible = "mps,mp5926";
++		reg = <0x14>;
++	};
++
++	pdb_ti_hsc3: power-monitor@15 {
++		compatible = "ti,lm5066i";
++		reg = <0x15>;
++		shunt-resistor-micro-ohms = <294>;
++	};
++
++	pdb_mps_hsc4: power-monitor@16 {
++		compatible = "mps,mp5926";
++		reg = <0x16>;
++	};
++
++	pdb_ti_hsc4: power-monitor@17 {
++		compatible = "ti,lm5066i";
++		reg = <0x17>;
++		shunt-resistor-micro-ohms = <381>;
++	};
++
++	pdb_temp: temperature-sensor@4e {
++		compatible = "national,lm75";
++		reg = <0x4e>;
++	};
++
++	pdb_fru: eeprom@50 {
++		compatible = "atmel,24c02";
++		reg = <0x50>;
++	};
++
++	pdb_ioexp_20: gpio@20 {
++		compatible = "nxp,pca9555";
++		reg = <0x20>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <ASPEED_GPIO(B, 6) IRQ_TYPE_LEVEL_LOW>;
++
++		gpio-line-names =
++			"PDB_STRAP-I", "STBY_POWER_EN-O", "STBY_PWR_OK-I", "",
++			"", "MAIN_PWR_EN-O", "MAIN_PWR_OK-I", "GLOBAL_WP-O",
++			"PDB_PWR_BRK_L-I", "FAN_PRSNT-I", "", "",
++			"", "", "", "";
++	};
++
++	pdb_ioexp_75: gpio@75 {
++		compatible = "nxp,pca9555";
++		reg = <0x75>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <ASPEED_GPIO(B, 6) IRQ_TYPE_LEVEL_LOW>;
++		gpio-line-names =
++			"SNN_PDB_RUN_IO0_A_R_PG-I", "RST_STBY_R_L-O",
++			"SNN_PDB_RUN_IO0_B_R_EN-O", "PSU1_PRSNT_R_N-O",
++			"PSU2_PRSNT_R_N-O", "PSU3_PRSNT_R_N-O",
++			"PSU4_PRSNT_R_N-O", "PDB_12V_PG_R-I",
++			"PDB_12V_2_PG_R-I", "PDB_12V_2_EN_R-O",
++			"PDB_12V_EN_N_R-O", "",
++			"HSC_PG_VIN_PG_R-I", "PDB_PSU_SMB_ALERT_L_R-O",
++			"SNN_JSB2_17_R-I", "TRAY_RST_L_R-I";
++	};
++};
++
++&i2c10 {
++	status = "okay";
++
++	scm_temp: temperature-sensor@48 {
++		compatible = "national,lm75";
++		reg = <0x48>;
++	};
++
++	scm_fru: eeprom@50 {
++		compatible = "atmel,24c128";
++		reg = <0x50>;
++	};
++};
++
++&i2c11 {
++	status = "ok";
++
++	sw_config: eeprom@50 {
++		compatible = "atmel,24c64";
++		reg = <0x50>;
++	};
++};
++
++&i2c12 {
++	status = "ok";
++};
++
++&i2c13 {
++	status = "ok";
++	mctp-controller;
++	multi-master;
++
++	mctp@10 {
++		compatible = "mctp-i2c-controller";
++		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
++	};
++
++	smm_ext_ioexp: gpio@38 {
++		compatible = "nxp,pca9554";
++		reg = <0x38>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		gpio-line-names =
++			"SSD0_PRSNT_L-I", "E1S_PWR_EN-O",
++			"SSD0_PWRDIS-O", "I2C_PDB_ALERT_L-I",
++			"BMC_SSD0_RST_L-O", "GLOBAL_WP_E1S-O",
++			"12V_SSD0_PGD-I", "SSD0_LED-O";
++	};
++
++	smm_ext_fru: eeprom@55 {
++		compatible = "atmel,24c02";
++		reg = <0x55>;
++	};
++};
++
++&i2c14 {
++	status = "okay";
++
++	fio_ioexp: gpio@20 {
++		compatible = "nxp,pca9555";
++		reg = <0x20>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <ASPEED_GPIO(B, 6) IRQ_TYPE_LEVEL_LOW>;
++		gpio-line-names =
++			"", "", "", "",
++			"PWR_LED_BLUE", "PWR_LED_AMBER_R_N",
++			"BEEP_ID_LED_BLUE", "BEEP_ID_LED_AMBER_R_N",
++			"", "", "", "",
++			"FM_MAIN_PWREN_RMC_ISO_EN_N", "LEAK_DETECT_RMC_N",
++			"PWRGD_RMC_N", "SMALL_LEAK_RMC_N";
++
++		pwrgd-rmc-hog {
++			gpio-hog;
++			gpios = <14 GPIO_ACTIVE_LOW>;
++			output-low;
++		};
++	};
++
++	fio_fru: eeprom@50 {
++		compatible = "atmel,24c64";
++		reg = <0x50>;
++	};
++};
++
++&i2c15 {
++	status = "okay";
++};
++
++&gpio0 {
++	gpio-line-names =
++	/*A0-A7*/	"", "", "", "", "", "", "", "",
++	/*B0-B7*/	"", "", "", "", "", "", "", "",
++	/*C0-C7*/	"", "", "", "", "", "", "", "",
++	/*D0-D7*/	"", "", "", "", "", "FPGA_PEX_RST_L", "", "",
++	/*E0-E7*/	"RTL8221_PHY_RST_L-O", "RTL8211_PHY_INT_L-I", "", "",
++			"", "", "", "MUX_SGPIO_SEL-O",
++	/*F0-F7*/	"", "", "", "", "", "", "", "",
++	/*G0-G7*/	"", "", "", "", "", "", "", "",
++	/*H0-H7*/	"", "", "", "", "", "", "", "",
++	/*I0-I7*/	"", "", "", "",
++			"", "QSPI2_RST_L-O",
++			"GLOBAL_WP_BMC-I", "BMC_DDR4_TEN-O",
++	/*J0-J7*/	"", "", "", "", "", "", "", "",
++	/*K0-K7*/	"", "", "", "", "", "", "", "",
++	/*L0-L7*/	"", "", "", "", "", "", "", "",
++	/*M0-M7*/	"USB_HUB_RST_N-O", "BMC_FRU_WP-O",
++			"", "HMC_STBY_POWER_EN-O",
++			"STBY_POWER_PG-I", "PCIE_EP_RST_L-O", "", "",
++	/*N0-N7*/	"", "", "", "", "", "", "", "",
++	/*O0-O7*/	"", "", "", "", "", "", "", "",
++	/*P0-P7*/	"", "", "", "", "", "", "", "",
++	/*Q0-Q7*/	"", "", "", "", "", "", "", "",
++	/*R0-R7*/	"", "SP0_AP_INTR_N-I", "", "", "", "", "", "",
++	/*S0-S7*/	"", "", "", "", "", "", "", "",
++	/*T0-T7*/	"", "", "", "", "", "", "", "",
++	/*U0-U7*/	"", "", "", "", "", "", "", "",
++	/*V0-V7*/	"", "", "", "", "", "PCB_TEMP_ALERT-I",	"", "",
++	/*W0-W7*/	"", "", "", "", "", "", "", "CPU_RST_L-I",
++	/*X0-X7*/	"", "", "", "", "", "", "", "",
++	/*Y0-Y7*/	"", "", "", "EMMC_RST-O", "", "", "", "",
++	/*Z0-Z7*/	"HMC_EROT_SPI_INT_L-I", "", "", "", "", "", "", "";
++};
++
++&gpio1 {
++	/* 36 1.8V GPIOs */
++	gpio-line-names =
++	/*A0-A7*/	"", "", "", "", "", "", "", "",
++	/*B0-B7*/	"", "", "", "",
++			"AP_EROT_REQ-O", "EROT_AP_GNT-I",
++			"IO_EXPANDER_INT_L-I", "",
++	/*C0-C7*/	"", "", "", "", "", "", "", "",
++	/*D0-D7*/	"", "", "", "", "", "", "", "I2C_SSIF_ALERT_L-I",
++	/*E0-E7*/	"", "", "", "", "", "", "", "";
++};
++
++&i2c20 {
++	hpm0_sma_ioexp_50: gpio@50 {
++		compatible = "nxp,pca9555";
++		reg = <0x50>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&cp2112a>;
++		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
++
++		gpio-line-names =
++			"CPU0_IROT_RECOVERY_L_3V3-I",
++			"CPU0_IROT_FATAL_ERR_L_3V3-I",
++			"CPU0_OVERT_L-I",
++			"C0_THERM_WARN_N-I",
++			"C0_SOC_THERM_OVERT_N-I",
++			"CPU0_CHIPTHROT_L-I",
++			"C0_SOCAMM_0_ID_PRSNT_N-I",
++			"C0_SOCAMM_1_ID_PRSNT_N-I",
++			"C0_SOCAMM_2_ID_PRSNT_N-I",
++			"C0_SOCAMM_3_ID_PRSNT_N-I",
++			"C0_SOCAMM_4_ID_PRSNT_N-I",
++			"C0_SOCAMM_5_ID_PRSNT_N-I",
++			"C0_SOCAMM_6_ID_PRSNT_N-I",
++			"C0_SOCAMM_7_ID_PRSNT_N-I",
++			"JTAG_BYPASS_CPU0_S_DIE-O",
++			"JTAG_BYPASS_CPU0_C_DIE-O";
++	};
++	hpm0_sma_ioexp_51: gpio@51 {
++		compatible = "nxp,pca9555";
++		reg = <0x51>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&cp2112a>;
++		interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
++
++		gpio-line-names =
++			"C0_UPHY0_PRSNT0_L-I",
++			"C0_UPHY0_PRSNT2_L-I",
++			"C0_UPHY_PRSNT1_L-I",
++			"C0_UPHY2_PRSNT0_L-I",
++			"C0_UPHY2_PRSNT2_L-I",
++			"C0_UPHY3_PRSNT0_L-I",
++			"C0_UPHY3_PRSNT1_L-I",
++			"GPU_THERM_WARN_N-I",
++			"JTAG_BYPASS_GPU1-O",
++			"JTAG_BYPASS_GPU2-O",
++			"C0_ALL_SOCAMM_PGOOD-I",
++			"DDR_VDDQ_PGOOD-I",
++			"CPU0_OOB_CS1_L-O",
++			"CPU0_OOB_CS0_L-O",
++			"LEAK_SELF_TEST_L-I",
++			"TRAY_FAST_SHDN_L-I";
++	};
++	hpm0_sma_ioexp_52: gpio@52 {
++		compatible = "nxp,pca9555";
++		reg = <0x52>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&cp2112a>;
++		interrupts = <2 IRQ_TYPE_LEVEL_LOW>;
++
++		gpio-line-names =
++			"C0_WAKE_L-I",
++			"MCU_THERM_OVERT_N-I",
++			"MCU_THERM_WARN_N-I",
++			"PRIMARY_NODE_L-I",
++			"GLOBAL_WP-I",
++			"PCIE_CLKBUF_LOS-I",
++			"LEAK_DETECT_L-I",
++			"vLeakDetect1Status0-I",
++			"vLeakDetect1Status1-I",
++			"vLeakDetect2Status0-I",
++			"vLeakDetect2Status1-I",
++			"BMC_IOX_INT_L-I",
++			"MCU_BMC_ALERT_L-I",
++			"MCU_HMC_ALERT_L-I",
++			"MCU_USER_STRAP-I",
++			"HPM_MCU_OK-I";
++	};
++	hpm0_sma_ioexp_53: gpio@53 {
++		compatible = "nxp,pca9555";
++		reg = <0x53>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&cp2112a>;
++		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
++
++		gpio-line-names =
++			"CPLD_RESET_L-I",
++			"CPLD_PSEQ_FAULT-I",
++			"CPLD_READY-I",
++			"CPLD_PROGRAM-I",
++			"MCU_12V_HSCC_PGOOD-I",
++			"RUN_PWR_EN-I",
++			"MODULE_PWR_GOOD-I",
++			"VDD_1V8_PGOOD-I",
++			"VDD_3V3_PGOOD-I",
++			"C0_CVDD_PGOOD-I",
++			"C0_5V_SOCAMM_PGOOD-I",
++			"OOB_MUX_CTRL1-O",
++			"OOB_MUX_CTRL0-O",
++			"C2CVDD_PGOOD-I",
++			"SLOT_PWR_BRAKE_EN_L-I",
++			"MCU_I2C_RTC_ALERT_L-I";
++	};
++	hpm0_sma_ioexp_54: gpio@54 {
++		compatible = "nxp,pca9555";
++		reg = <0x54>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&cp2112a>;
++		interrupts = <4 IRQ_TYPE_LEVEL_LOW>;
++
++		gpio-line-names =
++			"JTAG_SEL_MCU-O",
++			"JTAG_TCK_MCU-O",
++			"JTAG_TMS_MCU-O",
++			"JTAG_TDO_MCU-I",
++			"JTAG_TDI_MCU-O",
++			"JTAG_TRST_L_MCU-O",
++			"CPU0_SSIF_ALERT_L_3V3-O",
++			"USB_HMC_TO_CPU_FORCE_EN-O",
++			"MCU_RECOVERY_L-I",
++			"v_BUS_BAR_OVERT-I",
++			"v_CPLD_AUTH_FAIL-I",
++			"",
++			"",
++			"",
++			"",
++			"";
++	};
++};
++
++&i2c21 {
++	hpm1_sma_ioexp_50: gpio@50 {
++		compatible = "nxp,pca9555";
++		reg = <0x50>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&cp2112b>;
++		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
++
++		gpio-line-names =
++			"SEC_CPU0_IROT_RECOVERY_L_3V3-I",
++			"SEC_CPU0_IROT_FATAL_ERR_L_3V3-I",
++			"SEC_CPU0_OVERT_L-I",
++			"SEC_C0_THERM_WARN_N-I",
++			"SEC_C0_SOC_THERM_OVERT_N-I",
++			"SEC_CPU0_CHIPTHROT_L-I",
++			"SEC_C0_SOCAMM_0_ID_PRSNT_N-I",
++			"SEC_C0_SOCAMM_1_ID_PRSNT_N-I",
++			"SEC_C0_SOCAMM_2_ID_PRSNT_N-I",
++			"SEC_C0_SOCAMM_3_ID_PRSNT_N-I",
++			"SEC_C0_SOCAMM_4_ID_PRSNT_N-I",
++			"SEC_C0_SOCAMM_5_ID_PRSNT_N-I",
++			"SEC_C0_SOCAMM_6_ID_PRSNT_N-I",
++			"SEC_C0_SOCAMM_7_ID_PRSNT_N-I",
++			"SEC_JTAG_BYPASS_CPU0_S_DIE-O",
++			"SEC_JTAG_BYPASS_CPU0_C_DIE-O";
++	};
++	hpm1_sma_ioexp_51: gpio@51 {
++		compatible = "nxp,pca9555";
++		reg = <0x51>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&cp2112b>;
++		interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
++
++		gpio-line-names =
++			"SEC_C0_UPHY0_PRSNT0_L-I",
++			"SEC_C0_UPHY0_PRSNT2_L-I",
++			"SEC_C0_UPHY_PRSNT1_L-I",
++			"SEC_C0_UPHY2_PRSNT0_L-I",
++			"SEC_C0_UPHY2_PRSNT2_L-I",
++			"SEC_C0_UPHY3_PRSNT0_L-I",
++			"SEC_C0_UPHY3_PRSNT1_L-I",
++			"SEC_GPU_THERM_WARN_N-I",
++			"SEC_JTAG_BYPASS_GPU1-O",
++			"SEC_JTAG_BYPASS_GPU2-O",
++			"SEC_C0_ALL_SOCAMM_PGOOD-I",
++			"SEC_DDR_VDDQ_PGOOD-I",
++			"SEC_CPU0_OOB_CS1_L-O",
++			"SEC_CPU0_OOB_CS0_L-O",
++			"SEC_LEAK_SELF_TEST_L-I",
++			"SEC_TRAY_FAST_SHDN_L-I";
++	};
++	hpm1_sma_ioexp_52: gpio@52 {
++		compatible = "nxp,pca9555";
++		reg = <0x52>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&cp2112b>;
++		interrupts = <2 IRQ_TYPE_LEVEL_LOW>;
++
++		gpio-line-names =
++			"SEC_C0_WAKE_L-I",
++			"SEC_MCU_THERM_OVERT_N-I",
++			"SEC_MCU_THERM_WARN_N-I",
++			"SEC_PRIMARY_NODE_L-I",
++			"SEC_GLOBAL_WP-I",
++			"SEC_PCIE_CLKBUF_LOS-I",
++			"SEC_LEAK_DETECT_L-I",
++			"SEC_vLeakDetect1Status0-I",
++			"SEC_vLeakDetect1Status1-I",
++			"SEC_vLeakDetect2Status0-I",
++			"SEC_vLeakDetect2Status1-I",
++			"SEC_BMC_IOX_INT_L-I",
++			"SEC_MCU_BMC_ALERT_L-I",
++			"SEC_MCU_HMC_ALERT_L-I",
++			"SEC_MCU_USER_STRAP-I",
++			"SEC_HPM_MCU_OK-I";
++	};
++	hpm1_sma_ioexp_53: gpio@53 {
++		compatible = "nxp,pca9555";
++		reg = <0x53>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&cp2112b>;
++		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
++
++		gpio-line-names =
++			"SEC_CPLD_RESET_L-I",
++			"SEC_CPLD_PSEQ_FAULT-I",
++			"SEC_CPLD_READY-I",
++			"SEC_CPLD_PROGRAM-I",
++			"SEC_MCU_12V_HSCC_PGOOD-I",
++			"SEC_RUN_PWR_EN-I",
++			"SEC_MODULE_PWR_GOOD-I",
++			"SEC_VDD_1V8_PGOOD-I",
++			"SEC_VDD_3V3_PGOOD-I",
++			"SEC_C0_CVDD_PGOOD-I",
++			"SEC_C0_5V_SOCAMM_PGOOD-I",
++			"SEC_OOB_MUX_CTRL1-O",
++			"SEC_OOB_MUX_CTRL0-O",
++			"SEC_C2CVDD_PGOOD-I",
++			"SEC_SLOT_PWR_BRAKE_EN_L-I",
++			"SEC_MCU_I2C_RTC_ALERT_L-I";
++	};
++	hpm1_sma_ioexp_54: gpio@54 {
++		compatible = "nxp,pca9555";
++		reg = <0x54>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&cp2112b>;
++		interrupts = <4 IRQ_TYPE_LEVEL_LOW>;
++
++		gpio-line-names =
++			"SEC_JTAG_SEL_MCU-O",
++			"SEC_JTAG_TCK_MCU-O",
++			"SEC_JTAG_TMS_MCU-O",
++			"SEC_JTAG_TDO_MCU-I",
++			"SEC_JTAG_TDI_MCU-O",
++			"SEC_JTAG_TRST_L_MCU-O",
++			"SEC_CPU0_SSIF_ALERT_L_3V3-O",
++			"SEC_USB_HMC_TO_CPU_FORCE_EN-O",
++			"SEC_MCU_RECOVERY_L-I",
++			"SEC_v_BUS_BAR_OVERT-I",
++			"SEC_v_CPLD_AUTH_FAIL-I",
++			"",
++			"",
++			"",
++			"",
++			"";
++	};
++};
++
 
 -- 
 2.31.1
