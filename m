@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC52E7DF1F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 18:44:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D3BE7DF19
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 18:44:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ig7uFJmcn8coQkoEgAqKYUfT2zJrUeRo6zB9ZcEx7do=; b=xm15817ABaRS+mJv5Twivhg7nF
-	Oq8oWEWnSJPRi50WLcEFnxl84uzThBzkjRlqB/uRCJK0XKhexaXdHcaQ/zIQs0JRkybqWkRFyIkF2
-	uI9LbvdxsRxKmOY/b7YbgyezARPBz7sxomEdZi6OZCb3MQzecnbWXkKbi/X5y53r8P3QD1R/DKoup
-	JDTtdBY1NtzPjEEomO2tVxvAvp/JIoZHbHqlPwWH4SbQmn4BlGjtreLjwQJkTdGFxaWb236yCrxfL
-	WF84yrmU2t2kUMidvSx0qTg0WtR3U8Hgp91fwDqGKDI169nmw85AU1amxI/m+M/D1VS3eUq3ls3DS
-	tfiz9ATA==;
+	bh=tzVjvoCujmYqZkp/WiSWUV0mWiAdseTGblsjXkfqo4U=; b=mt9tOYKuLeWGnibL3GrwmDsDhw
+	oQc1GTw+7xLewppq7SvL4Y25EiGJX4abGquz13NJugP3jpuQ57aJlK2HfGbgvwb59ZbuBph4dtQcY
+	+Ej/pi+3VJugTXzoKdm1ZT1xAUr6P+Ma0hjkjIAC3+bpxGmyQs2ugyb3WfHo3RX7xXsWBFbPCLlSh
+	Y/miEBNaUbNgjoJdFtwkDpU+x/NP4NnqTos6sQQY/Ab0j66qU2K0Sok4awMNmPBiJjIh8QuTh7Sn4
+	VNERsmi7lTSCqPkymkxcjj/qfrv68wZu5kGLuzVv9yPJSHEdtCzk8kTwK9cng+HujCUY8DVD+0s8c
+	mQNOT7bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmyu0-00000005RMy-39Wp;
-	Mon, 02 Feb 2026 18:44:01 +0000
+	id 1vmytz-00000005RK2-1bP5;
+	Mon, 02 Feb 2026 18:43:59 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmytl-00000005QzI-0avd
+	id 1vmytl-00000005R0t-0Ui8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 18:43:48 +0000
+	Mon, 02 Feb 2026 18:43:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BE448444B5;
-	Mon,  2 Feb 2026 18:43:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0891C19425;
-	Mon,  2 Feb 2026 18:43:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B88D2444C9;
+	Mon,  2 Feb 2026 18:43:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94284C2BCB0;
+	Mon,  2 Feb 2026 18:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770057824;
-	bh=+lVINR4hlLO81qpOaFoZd/+SO4l/Xdgp+PChpjnyRLc=;
+	s=k20201202; t=1770057823;
+	bh=mya2aNm0MFtu4TDLCNnLunOt1rwd+05YOh2F8NM3xkc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KOSMxYqjGlIQmwa3pcXU3j1Pjxa5IuaSZjXNYcJ6SSL+/6Dhi1Z31zUJVExBc1NXI
-	 VS3+7YpkjeZQ4LlpRHuBfVbbnyPD+Skmka25eP1SllWWrtTIyP9ua4fGMGbP1QpBEm
-	 dsg6GpYoLKd7/QVTX1T6znnvAHQwE7gCDIwvLnjN6DnS9cOCdZvXV7rdWr96m8vXqN
-	 JCi4wjkvQo/l5koOqQwKOXFvj/8mNZSjDacGmMt+cpggV6mBJkv62QtSYwZ/1tjuh9
-	 vjQFdCmDoA3aX2hiN+QrI3UhRJlBPmqKDoaLOSTtib+oduH8V8NJVzwJs16kkiGZkG
-	 o65O9Bi1AK6/g==
+	b=aShLhAteHsow1yBXQE9b4PrezL5yg/Ot+AKxO1o/sJPnRAICs3p8vPvBZ3HWsIHbf
+	 8b+c/dijXdpNUWWzOeXwxGriwFnNHArYQDB0GeEHLdyj6WPWOq1jpLkkVE8xT4pBg5
+	 kRi3422MKHYmpZ7YfyDT42OSYjL8ZYu07ycwfxPoG5OOXfoBraUXlodXmX9u3zLa/Q
+	 Iw81+xwNTxoPaZMCNS+JD4+hr55Q3h6RIXLOgUz6SgBGF0XdTqd+iptXuy/shw4BvN
+	 BjkNqrluEFoLguDw7580TWL55Y9pejHmaiayuwqa9XsZF4QxECx/u3rR1Al8rrfv9u
+	 +SdmXxkvdczjA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vmyti-00000007sAy-3ZHT;
-	Mon, 02 Feb 2026 18:43:42 +0000
+	id 1vmyth-00000007sAy-2rEU;
+	Mon, 02 Feb 2026 18:43:41 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH v2 17/20] KVM: arm64: Remove all traces of FEAT_TME
-Date: Mon,  2 Feb 2026 18:43:26 +0000
-Message-ID: <20260202184329.2724080-18-maz@kernel.org>
+Subject: [PATCH v2 13/20] KVM: arm64: Move RESx into individual register descriptors
+Date: Mon,  2 Feb 2026 18:43:22 +0000
+Message-ID: <20260202184329.2724080-14-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260202184329.2724080-1-maz@kernel.org>
 References: <20260202184329.2724080-1-maz@kernel.org>
@@ -72,8 +72,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_104345_258216_664F5E91 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20260202_104345_236026_1C1C076F 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,130 +88,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FEAT_TME has been dropped from the architecture. Retrospectively.
-I'm sure someone is crying somewhere, but most of us won't.
-
-Clean-up time.
+Instead of hacking the RES1 bits at runtime, move them into the
+register descriptors. This makes it significantly nicer.
 
 Reviewed-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/config.c                         |  7 -------
- arch/arm64/kvm/nested.c                         |  5 -----
- arch/arm64/tools/sysreg                         | 12 +++---------
- tools/perf/Documentation/perf-arm-spe.txt       |  1 -
- tools/testing/selftests/kvm/arm64/set_id_regs.c |  1 -
- 5 files changed, 3 insertions(+), 23 deletions(-)
+ arch/arm64/kvm/config.c | 48 +++++++++++++++++++++++++++++++----------
+ 1 file changed, 37 insertions(+), 11 deletions(-)
 
 diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-index b37b40744db94..c1b76a76a5e4e 100644
+index 7e8e42c1cee4a..474d5c8038c24 100644
 --- a/arch/arm64/kvm/config.c
 +++ b/arch/arm64/kvm/config.c
-@@ -187,7 +187,6 @@ struct reg_feat_map_desc {
- #define FEAT_RME		ID_AA64PFR0_EL1, RME, IMP
- #define FEAT_MPAM		ID_AA64PFR0_EL1, MPAM, 1
- #define FEAT_S2FWB		ID_AA64MMFR2_EL1, FWB, IMP
--#define FEAT_TME		ID_AA64ISAR0_EL1, TME, IMP
- #define FEAT_TWED		ID_AA64MMFR1_EL1, TWED, IMP
- #define FEAT_E2H0		ID_AA64MMFR4_EL1, E2H0, IMP
- #define FEAT_SRMASK		ID_AA64MMFR4_EL1, SRMASK, IMP
-@@ -991,7 +990,6 @@ static const struct reg_bits_to_feat_map hcr_feat_map[] = {
- 	NEEDS_FEAT(HCR_EL2_FIEN, feat_rasv1p1),
- 	NEEDS_FEAT(HCR_EL2_GPF, FEAT_RME),
- 	NEEDS_FEAT(HCR_EL2_FWB, FEAT_S2FWB),
--	NEEDS_FEAT(HCR_EL2_TME, FEAT_TME),
- 	NEEDS_FEAT(HCR_EL2_TWEDEL	|
+@@ -28,6 +28,7 @@ struct reg_bits_to_feat_map {
+ #define	REQUIRES_E2H1	BIT(5)	/* Add HCR_EL2.E2H RES1 as a pre-condition */
+ #define	RES1_WHEN_E2H0	BIT(6)	/* RES1 when E2H=0 and not supported */
+ #define	RES1_WHEN_E2H1	BIT(7)	/* RES1 when E2H=1 and not supported */
++#define	FORCE_RESx	BIT(8)	/* Unconditional RESx */
+ 
+ 	unsigned long	flags;
+ 
+@@ -87,6 +88,12 @@ struct reg_feat_map_desc {
+ 		.match = (fun),				\
+ 	}
+ 
++#define __NEEDS_FEAT_0(m, f, w, ...)			\
++	{						\
++		.w	= (m),				\
++		.flags = (f),				\
++	}
++
+ #define __NEEDS_FEAT_FLAG(m, f, w, ...)			\
+ 	CONCATENATE(__NEEDS_FEAT_, COUNT_ARGS(__VA_ARGS__))(m, f, w, __VA_ARGS__)
+ 
+@@ -105,10 +112,14 @@ struct reg_feat_map_desc {
+  */
+ #define NEEDS_FEAT(m, ...)	NEEDS_FEAT_FLAG(m, 0, __VA_ARGS__)
+ 
++/* Declare fixed RESx bits */
++#define FORCE_RES0(m)		NEEDS_FEAT_FLAG(m, FORCE_RESx)
++#define FORCE_RES1(m)		NEEDS_FEAT_FLAG(m, FORCE_RESx | AS_RES1)
++
+ /*
+- * Declare the dependency between a non-FGT register, a set of
+- * feature, and the set of individual bits it contains. This generates
+- * a struct reg_feat_map_desc.
++ * Declare the dependency between a non-FGT register, a set of features,
++ * and the set of individual bits it contains. This generates a struct
++ * reg_feat_map_desc.
+  */
+ #define DECLARE_FEAT_MAP(n, r, m, f)					\
+ 	struct reg_feat_map_desc n = {					\
+@@ -1007,6 +1018,8 @@ static const struct reg_bits_to_feat_map hcr_feat_map[] = {
  		   HCR_EL2_TWEDEn,
  		   FEAT_TWED),
-@@ -1102,11 +1100,6 @@ static const struct reg_bits_to_feat_map sctlr_el1_feat_map[] = {
- 	NEEDS_FEAT(SCTLR_EL1_EnRCTX, FEAT_SPECRES),
- 	NEEDS_FEAT(SCTLR_EL1_DSSBS, FEAT_SSBS),
- 	NEEDS_FEAT(SCTLR_EL1_TIDCP, FEAT_TIDCP1),
--	NEEDS_FEAT(SCTLR_EL1_TME0	|
--		   SCTLR_EL1_TME	|
--		   SCTLR_EL1_TMT0	|
--		   SCTLR_EL1_TMT,
--		   FEAT_TME),
- 	NEEDS_FEAT(SCTLR_EL1_TWEDEL	|
- 		   SCTLR_EL1_TWEDEn,
- 		   FEAT_TWED),
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 75a23f1c56d13..96e899dbd9192 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1505,11 +1505,6 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
- 	u64 orig_val = val;
+ 	NEEDS_FEAT_FIXED(HCR_EL2_E2H, compute_hcr_e2h),
++	FORCE_RES0(HCR_EL2_RES0),
++	FORCE_RES1(HCR_EL2_RES1),
+ };
  
- 	switch (reg) {
--	case SYS_ID_AA64ISAR0_EL1:
--		/* Support everything but TME */
--		val &= ~ID_AA64ISAR0_EL1_TME;
--		break;
--
- 	case SYS_ID_AA64ISAR1_EL1:
- 		/* Support everything but LS64 and Spec Invalidation */
- 		val &= ~(ID_AA64ISAR1_EL1_LS64	|
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 969a75615d612..650d7d477087e 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -1856,10 +1856,7 @@ UnsignedEnum	31:28	RDM
- 	0b0000	NI
- 	0b0001	IMP
- EndEnum
--UnsignedEnum	27:24	TME
--	0b0000	NI
--	0b0001	IMP
--EndEnum
-+Res0	27:24
- UnsignedEnum	23:20	ATOMIC
- 	0b0000	NI
- 	0b0010	IMP
-@@ -2432,10 +2429,7 @@ Field	57	EPAN
- Field	56	EnALS
- Field	55	EnAS0
- Field	54	EnASR
--Field	53	TME
--Field	52	TME0
--Field	51	TMT
--Field	50	TMT0
-+Res0	53:50
- Field	49:46	TWEDEL
- Field	45	TWEDEn
- Field	44	DSSBS
-@@ -3840,7 +3834,7 @@ Field	43	NV1
- Field	42	NV
- Field	41	API
- Field	40	APK
--Field	39	TME
-+Res0	39
- Field	38	MIOCNCE
- Field	37	TEA
- Field	36	TERR
-diff --git a/tools/perf/Documentation/perf-arm-spe.txt b/tools/perf/Documentation/perf-arm-spe.txt
-index 8b02e5b983fa9..201a82bec0de4 100644
---- a/tools/perf/Documentation/perf-arm-spe.txt
-+++ b/tools/perf/Documentation/perf-arm-spe.txt
-@@ -176,7 +176,6 @@ and inv_event_filter are:
-   bit 10    - Remote access (FEAT_SPEv1p4)
-   bit 11    - Misaligned access (FEAT_SPEv1p1)
-   bit 12-15 - IMPLEMENTATION DEFINED events (when implemented)
--  bit 16    - Transaction (FEAT_TME)
-   bit 17    - Partial or empty SME or SVE predicate (FEAT_SPEv1p1)
-   bit 18    - Empty SME or SVE predicate (FEAT_SPEv1p1)
-   bit 19    - L2D access (FEAT_SPEv1p4)
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index c4815d3658167..73de5be58bab0 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -91,7 +91,6 @@ static const struct reg_ftr_bits ftr_id_aa64isar0_el1[] = {
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ISAR0_EL1, SM3, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ISAR0_EL1, SHA3, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ISAR0_EL1, RDM, 0),
--	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ISAR0_EL1, TME, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ISAR0_EL1, ATOMIC, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ISAR0_EL1, CRC32, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ISAR0_EL1, SHA2, 0),
+ static const DECLARE_FEAT_MAP(hcr_desc, HCR_EL2,
+@@ -1027,6 +1040,8 @@ static const struct reg_bits_to_feat_map sctlr2_feat_map[] = {
+ 		   SCTLR2_EL1_CPTM	|
+ 		   SCTLR2_EL1_CPTM0,
+ 		   FEAT_CPA2),
++	FORCE_RES0(SCTLR2_EL1_RES0),
++	FORCE_RES1(SCTLR2_EL1_RES1),
+ };
+ 
+ static const DECLARE_FEAT_MAP(sctlr2_desc, SCTLR2_EL1,
+@@ -1052,6 +1067,8 @@ static const struct reg_bits_to_feat_map tcr2_el2_feat_map[] = {
+ 		   TCR2_EL2_E0POE,
+ 		   FEAT_S1POE),
+ 	NEEDS_FEAT(TCR2_EL2_PIE, FEAT_S1PIE),
++	FORCE_RES0(TCR2_EL2_RES0),
++	FORCE_RES1(TCR2_EL2_RES1),
+ };
+ 
+ static const DECLARE_FEAT_MAP(tcr2_el2_desc, TCR2_EL2,
+@@ -1129,6 +1146,8 @@ static const struct reg_bits_to_feat_map sctlr_el1_feat_map[] = {
+ 		   SCTLR_EL1_A		|
+ 		   SCTLR_EL1_M,
+ 		   FEAT_AA64EL1),
++	FORCE_RES0(SCTLR_EL1_RES0),
++	FORCE_RES1(SCTLR_EL1_RES1),
+ };
+ 
+ static const DECLARE_FEAT_MAP(sctlr_el1_desc, SCTLR_EL1,
+@@ -1163,6 +1182,8 @@ static const struct reg_bits_to_feat_map mdcr_el2_feat_map[] = {
+ 		   MDCR_EL2_TDE		|
+ 		   MDCR_EL2_TDRA,
+ 		   FEAT_AA64EL1),
++	FORCE_RES0(MDCR_EL2_RES0),
++	FORCE_RES1(MDCR_EL2_RES1),
+ };
+ 
+ static const DECLARE_FEAT_MAP(mdcr_el2_desc, MDCR_EL2,
+@@ -1201,6 +1222,8 @@ static const struct reg_bits_to_feat_map vtcr_el2_feat_map[] = {
+ 		   VTCR_EL2_SL0		|
+ 		   VTCR_EL2_T0SZ,
+ 		   FEAT_AA64EL1),
++	FORCE_RES0(VTCR_EL2_RES0),
++	FORCE_RES1(VTCR_EL2_RES1),
+ };
+ 
+ static const DECLARE_FEAT_MAP(vtcr_el2_desc, VTCR_EL2,
+@@ -1211,8 +1234,14 @@ static void __init check_feat_map(const struct reg_bits_to_feat_map *map,
+ {
+ 	u64 mask = 0;
+ 
++	/*
++	 * Don't account for FORCE_RESx that are architectural, and
++	 * therefore part of the resx parameter. Other FORCE_RESx bits
++	 * are implementation choices, and therefore accounted for.
++	 */
+ 	for (int i = 0; i < map_size; i++)
+-		mask |= map[i].bits;
++		if (!((map[i].flags & FORCE_RESx) && (map[i].bits & resx)))
++			mask |= map[i].bits;
+ 
+ 	if (mask != ~resx)
+ 		kvm_err("Undefined %s behaviour, bits %016llx\n",
+@@ -1284,13 +1313,16 @@ static struct resx compute_resx_bits(struct kvm *kvm,
+ 		if (map[i].flags & exclude)
+ 			continue;
+ 
+-		switch (map[i].flags & (CALL_FUNC | FIXED_VALUE)) {
++		switch (map[i].flags & (FORCE_RESx | CALL_FUNC | FIXED_VALUE)) {
+ 		case CALL_FUNC | FIXED_VALUE:
+ 			map[i].fval(kvm, &resx);
+ 			continue;
+ 		case CALL_FUNC:
+ 			match = map[i].match(kvm);
+ 			break;
++		case FORCE_RESx:
++			match = false;
++			break;
+ 		default:
+ 			match = idreg_feat_match(kvm, &map[i]);
+ 		}
+@@ -1434,28 +1466,22 @@ struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg)
+ 		break;
+ 	case HCR_EL2:
+ 		resx = compute_reg_resx_bits(kvm, &hcr_desc, 0, 0);
+-		resx.res1 |= HCR_EL2_RES1;
+ 		break;
+ 	case SCTLR2_EL1:
+ 	case SCTLR2_EL2:
+ 		resx = compute_reg_resx_bits(kvm, &sctlr2_desc, 0, 0);
+-		resx.res1 |= SCTLR2_EL1_RES1;
+ 		break;
+ 	case TCR2_EL2:
+ 		resx = compute_reg_resx_bits(kvm, &tcr2_el2_desc, 0, 0);
+-		resx.res1 |= TCR2_EL2_RES1;
+ 		break;
+ 	case SCTLR_EL1:
+ 		resx = compute_reg_resx_bits(kvm, &sctlr_el1_desc, 0, 0);
+-		resx.res1 |= SCTLR_EL1_RES1;
+ 		break;
+ 	case MDCR_EL2:
+ 		resx = compute_reg_resx_bits(kvm, &mdcr_el2_desc, 0, 0);
+-		resx.res1 |= MDCR_EL2_RES1;
+ 		break;
+ 	case VTCR_EL2:
+ 		resx = compute_reg_resx_bits(kvm, &vtcr_el2_desc, 0, 0);
+-		resx.res1 |= VTCR_EL2_RES1;
+ 		break;
+ 	default:
+ 		WARN_ON_ONCE(1);
 -- 
 2.47.3
 
