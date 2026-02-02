@@ -4,56 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FD11E73145
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 09:18:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08868E7314E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 09:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1EeR2pPe1rRwkH5JQfXrs4LgJ3X2GCs1CXOG0Q2T8Hk=; b=jFEBQp1yZ/jzNr2RnwwCk4FnWE
-	egsfLL69gESoiOj3avgvTxFMX7TWDOqVTHdmHYgjkvkFfbbbvZy/LumOc2ZqQWEBR8yfbSQFSguRd
-	XIVjMRLzx8poIhtkyzDMDcVURunmSslSNA1O+wz4xGDLtAbwPXLeKL6TzKb3QOYMTKGmGl4xf6I2U
-	XWNR8q2B8qZVvnQcTsOYM1etglzFn6My86OwLuZjeKi1pD9ST3eE7GGAdXf/V+9YGMv4DGS5vp4HV
-	qBkVw0JaLaZ6rivesFNOJNEZgqzuDaFbOlDdfpRbqEiSF8nOoVNwIyLOi5FUboITpx5Pe5SNJBhss
-	WbmQv/KA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RQTsMr+lTOpu6B5pUiiE93BdsQuNRWqfW/evCNJlH4c=; b=VgBbVDyW48noyu
+	IgewRsq2m1mORbTFv+/v+YFHv4gA5RRoMjf1C61pFyy1Qruq4zv8wafM4pURf9J1LGASe4uNosam4
+	KvctA0ejOi6FRhP2pR50r0kq2DFL8/u34FKPQgTzVeXffcKkPkNtW1Ml6IQCQoB53+Ur56xfaUEIw
+	w9Cxm9plfidpuDDXS2HPb/miY7KGnZmhJSqxEL5J8VPJkqVwAu3uxKcueOH/lwFFwXdOSdQe8B37o
+	Mv0Dx3XhqFnpoc7at7eS8rvmkujQXuoaNulEFfLP865mFInbzV6///Eu6Ei8miYoIMyLXqZk+YFMj
+	KjSaNTlxtQgMrGaIaCQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmq4j-00000004hQN-0lvW;
-	Mon, 02 Feb 2026 09:18:29 +0000
+	id 1vmqKD-00000004iBN-1M4J;
+	Mon, 02 Feb 2026 09:34:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmq4g-00000004hPs-112V
+	id 1vmqKB-00000004iAe-15mu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 09:18:28 +0000
+	Mon, 02 Feb 2026 09:34:28 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0FDB3339;
-	Mon,  2 Feb 2026 01:18:17 -0800 (PST)
-Received: from [10.57.95.78] (unknown [10.57.95.78])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2D0263F740;
-	Mon,  2 Feb 2026 01:18:22 -0800 (PST)
-Message-ID: <57bc3f07-c227-4117-8fb4-a2b198629215@arm.com>
-Date: Mon, 2 Feb 2026 09:18:20 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDE07339;
+	Mon,  2 Feb 2026 01:34:17 -0800 (PST)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8D6A93F740;
+	Mon,  2 Feb 2026 01:34:22 -0800 (PST)
+From: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH v3 0/8] coresight: Fix device registration and
+ unregistration
+Date: Mon, 02 Feb 2026 09:33:56 +0000
+Message-Id: <20260202-arm_coresight_refactor_dev_register-v3-0-03292470c48c@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64/mm: Enable batched TLB flush in
- unmap_hotplug_range()
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Yang Shi <yang@os.amperecomputing.com>, Christoph Lameter <cl@gentwo.org>,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20260202042617.504183-1-anshuman.khandual@arm.com>
- <20260202042617.504183-2-anshuman.khandual@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20260202042617.504183-2-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIVvgGkC/42NwQqDMBBEf6Xk3JQkaqA99T+KSNysugdN2UhoE
+ f+9W6H3Ht8w82ZTGZkwq9tpU4yFMqVFoDqfFExhGVFTFFbOOG+sMzrw3EFizDROa8c4BFgTdxG
+ LwEh5RdaD9WD8Nfa1jUpMT6nR63h5tMKT1BK/j9PivunP7//yF6eN7ptQgalrC7a5y+oCaVbtv
+ u8fY2fSg9QAAAA=
+X-Change-ID: 20260120-arm_coresight_refactor_dev_register-f16c069db41d
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, 
+ Mao Jinlong <quic_jinlmao@quicinc.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770024862; l=3686;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=DmjbDlzT0f1zqFRseblFfl6EnZmEnjYn41rANQon/5s=;
+ b=sfolEIqWg+TKNlD6h9rHtG9GR1b0ZhjO0l6tCFrV79wSrEpjRU0XYXVf1qsoaUPyUZ0T7eeDq
+ rDVlEVCx93iDrNdYjHYoGRnOMpnafC0z7/gEwocZSq7pX/UwQ+16+8F
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_011826_400919_B30F7632 
-X-CRM114-Status: GOOD (  32.06  )
+X-CRM114-CacheID: sfid-20260202_013427_422427_2D8E216B 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,194 +79,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/02/2026 04:26, Anshuman Khandual wrote:
-> During a memory hot remove operartion both linear and vmemmap mappings for
-> the memory range being removed, get unmapped via unmap_hotplug_range() but
-> mapped pages get freed only for vmemmap mapping. This is just a sequential
-> operation where each table entry gets cleared, followed by a leaf specific
-> TLB flush, and then followed by memory free operation when applicable.
-> 
-> This approach was simple and uniform both for vmemmap and linear mappings.
-> But linear mapping might contain CONT marked block memory where it becomes
-> necessary to first clear out all entire in the range before a TLB flush.
-> This is as per the architecture requirement. Hence batch all TLB flushes
-> during the table tear down walk and finally do it in unmap_hotplug_range().
+This series is to fix and refactor CoreSight device registration and
+unregistration, it can be divided into three small parts:
 
-I might be worth mentioning the impact of not bein architecture compliant here?
+  Patches 01-03: Three fixes for memory leak, device reference and mutex
+                 protection.
+  Patches 04-05: Move connection cleanup operations into
+                 coresight_remove_conns().
+  Patches 06-08: Refactor error handling in coresight_register().
 
-Something like:
+This series is verified on Juno board with kmemleak detector.
 
-  Prior to this fix, it was hypothetically possible for a speculative access to
-  a higher address in the contiguous block to fill the TLB with shattered
-  entries for the entire contiguous range after a lower address had already been
-  cleared and invalidated. Due to the entries being shattered, the subsequent
-  tlbi for the higher address would not then clear the TLB entries for the lower
-  address, meaning stale TLB entries could persist.
+For kmemleak verifying:
 
-> 
-> Besides it is helps in improving the performance via TLBI range operation
+  echo clear > /sys/kernel/debug/kmemleak
+  insmod coresight modules
+  rmmod coresight modules
+  echo scan > /sys/kernel/debug/kmemleak
 
-nit:         ^^ (remove)
+The result shows no memory leak during a cycle of device registration
+and unregistration.
 
-> along with reduced synchronization instructions. The time spent executing
-> unmap_hotplug_range() improved 97% measured over a 2GB memory hot removal
-> in KVM guest.
+---
+Changes in v3:
+- Updated patch 01 to use coesight core layer for device index list
+  (Suzuki).
+- Link to v2: https://lore.kernel.org/r/20260126-arm_coresight_refactor_dev_register-v2-0-b5a3c0441c15@arm.com
 
-That's a great improvement :)
+Changes in v2:
+- Refined the commit log in patch 06 (Suzuki).
+- Unified to call coresight_unregister() for error handling (Suzuki).
+- Refactor connection and sysfs group release.
+- Link to v1: https://lore.kernel.org/linux-arm-kernel/20250512154108.23920-1-leo.yan@arm.com/
 
-> 
-> This scheme is not applicable during vmemmap mapping tear down where memory
-> needs to be freed and hence a TLB flush is required after clearing out page
-> table entry.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
-> Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Mike Leach <mike.leach@arm.com>
+To: James Clark <james.clark@linaro.org>
+To: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Mao Jinlong <quic_jinlmao@quicinc.com>
+Cc: coresight@lists.linaro.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Leo Yan <leo.yan@arm.com>
 
-I suggested the original shape of this and I see you have added my SOB. Final
-patch looks good to me - I'm not sure if it's correct for me to add Rb, but here
-it is regardless:
+---
+Leo Yan (8):
+      coresight: Fix memory leak in coresight_alloc_device_name()
+      coresight: Get parent device reference after sink ID map allocation
+      coresight: Protect unregistration with mutex
+      coresight: Refactor output connection sysfs link cleanup
+      coresight: Refactor sysfs connection group cleanup
+      coresight: Move sink validation into etm_perf_add_symlink_sink()
+      coresight: Do not mix success path with failure handling
+      coresight: Unify error handling in coresight_register()
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+ drivers/hwtracing/coresight/coresight-catu.c       |   4 +-
+ drivers/hwtracing/coresight/coresight-core.c       | 230 +++++++++++++--------
+ drivers/hwtracing/coresight/coresight-ctcu-core.c  |   4 +-
+ drivers/hwtracing/coresight/coresight-cti-core.c   |  19 +-
+ drivers/hwtracing/coresight/coresight-dummy.c      |   7 +-
+ drivers/hwtracing/coresight/coresight-etb10.c      |   4 +-
+ drivers/hwtracing/coresight/coresight-etm-perf.c   |   5 +-
+ drivers/hwtracing/coresight/coresight-funnel.c     |   4 +-
+ drivers/hwtracing/coresight/coresight-platform.c   |   2 +-
+ drivers/hwtracing/coresight/coresight-priv.h       |   3 +-
+ drivers/hwtracing/coresight/coresight-replicator.c |   4 +-
+ drivers/hwtracing/coresight/coresight-stm.c        |   4 +-
+ drivers/hwtracing/coresight/coresight-tmc-core.c   |  12 +-
+ drivers/hwtracing/coresight/coresight-tnoc.c       |   4 +-
+ drivers/hwtracing/coresight/coresight-tpda.c       |   4 +-
+ drivers/hwtracing/coresight/coresight-tpdm.c       |   4 +-
+ drivers/hwtracing/coresight/coresight-tpiu.c       |   4 +-
+ drivers/hwtracing/coresight/ultrasoc-smb.c         |   4 +-
+ include/linux/coresight.h                          |  14 +-
+ 19 files changed, 175 insertions(+), 161 deletions(-)
+---
+base-commit: eebe8dbd8630f51cf70b1f68a440cd3d7f7a914d
+change-id: 20260120-arm_coresight_refactor_dev_register-f16c069db41d
 
-
-> ---
->  arch/arm64/mm/mmu.c | 81 +++++++++++++++++++++++++++++++++++++--------
->  1 file changed, 67 insertions(+), 14 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 8e1d80a7033e..8ec8a287aaa1 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1458,10 +1458,32 @@ static void unmap_hotplug_pte_range(pmd_t *pmdp, unsigned long addr,
->  
->  		WARN_ON(!pte_present(pte));
->  		__pte_clear(&init_mm, addr, ptep);
-> -		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
-> -		if (free_mapped)
-> +		if (free_mapped) {
-> +			/*
-> +			 * If page is part of an existing contiguous
-> +			 * memory block, individual TLB invalidation
-> +			 * here would not be appropriate. Instead it
-> +			 * will require clearing all entries for the
-> +			 * memory block and subsequently a TLB flush
-> +			 * for the entire range.
-> +			 */
-> +			WARN_ON(pte_cont(pte));
-> +
-> +			/*
-> +			 * TLB flush is essential for freeing memory.
-> +			 */
-> +			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
->  			free_hotplug_page_range(pte_page(pte),
->  						PAGE_SIZE, altmap);
-> +		}
-> +
-> +		/*
-> +		 * TLB flush is batched in unmap_hotplug_range()
-> +		 * for the entire range, when memory need not be
-> +		 * freed. Besides linear mapping might have CONT
-> +		 * blocks where TLB flush needs to be done after
-> +		 * clearing all relevant entries.
-> +		 */
->  	} while (addr += PAGE_SIZE, addr < end);
->  }
->  
-> @@ -1482,15 +1504,32 @@ static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
->  		WARN_ON(!pmd_present(pmd));
->  		if (pmd_sect(pmd)) {
->  			pmd_clear(pmdp);
-> +			if (free_mapped) {
-> +				/*
-> +				 * If page is part of an existing contiguous
-> +				 * memory block, individual TLB invalidation
-> +				 * here would not be appropriate. Instead it
-> +				 * will require clearing all entries for the
-> +				 * memory block and subsequently a TLB flush
-> +				 * for the entire range.
-> +				 */
-> +				WARN_ON(pmd_cont(pmd));
-> +
-> +				/*
-> +				 * TLB flush is essential for freeing memory.
-> +				 */
-> +				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
-> +				free_hotplug_page_range(pmd_page(pmd),
-> +							PMD_SIZE, altmap);
-> +			}
->  
->  			/*
-> -			 * One TLBI should be sufficient here as the PMD_SIZE
-> -			 * range is mapped with a single block entry.
-> +			 * TLB flush is batched in unmap_hotplug_range()
-> +			 * for the entire range, when memory need not be
-> +			 * freed. Besides linear mapping might have CONT
-> +			 * blocks where TLB flush needs to be done after
-> +			 * clearing all relevant entries.
->  			 */
-> -			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
-> -			if (free_mapped)
-> -				free_hotplug_page_range(pmd_page(pmd),
-> -							PMD_SIZE, altmap);
->  			continue;
->  		}
->  		WARN_ON(!pmd_table(pmd));
-> @@ -1515,15 +1554,20 @@ static void unmap_hotplug_pud_range(p4d_t *p4dp, unsigned long addr,
->  		WARN_ON(!pud_present(pud));
->  		if (pud_sect(pud)) {
->  			pud_clear(pudp);
-> +			if (free_mapped) {
-> +				/*
-> +				 * TLB flush is essential for freeing memory.
-> +				 */
-> +				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
-> +				free_hotplug_page_range(pud_page(pud),
-> +							PUD_SIZE, altmap);
-> +			}
->  
->  			/*
-> -			 * One TLBI should be sufficient here as the PUD_SIZE
-> -			 * range is mapped with a single block entry.
-> +			 * TLB flush is batched in unmap_hotplug_range()
-> +			 * for the entire range, when memory need not be
-> +			 * freed.
->  			 */
-> -			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
-> -			if (free_mapped)
-> -				free_hotplug_page_range(pud_page(pud),
-> -							PUD_SIZE, altmap);
->  			continue;
->  		}
->  		WARN_ON(!pud_table(pud));
-> @@ -1553,6 +1597,7 @@ static void unmap_hotplug_p4d_range(pgd_t *pgdp, unsigned long addr,
->  static void unmap_hotplug_range(unsigned long addr, unsigned long end,
->  				bool free_mapped, struct vmem_altmap *altmap)
->  {
-> +	unsigned long start = addr;
->  	unsigned long next;
->  	pgd_t *pgdp, pgd;
->  
-> @@ -1574,6 +1619,14 @@ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
->  		WARN_ON(!pgd_present(pgd));
->  		unmap_hotplug_p4d_range(pgdp, addr, next, free_mapped, altmap);
->  	} while (addr = next, addr < end);
-> +
-> +	/*
-> +	 * Batched TLB flush only for linear mapping which
-> +	 * might contain CONT blocks, and does not require
-> +	 * freeing up memory as well.
-> +	 */
-> +	if (!free_mapped)
-> +		flush_tlb_kernel_range(start, end);
->  }
->  
->  static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
+Best regards,
+-- 
+Leo Yan <leo.yan@arm.com>
 
 
