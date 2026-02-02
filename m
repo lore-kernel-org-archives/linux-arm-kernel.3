@@ -4,56 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FDEE73158
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 11:06:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E621E73159
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 11:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yjF5zgk/sWH+g5BFra7P8U1t2QRZ1JC/kEPXSss4VCQ=; b=kgelgfrjPb+fTbTJr+Akwbc8ya
-	VCdUknJ5CwWr88okIYsmdifQUx73G4VF5ixlq8g1EDlEweQaDcjZ8ca/RCdCkvHlYtFkpKbB3cucQ
-	8gfiBsJ4pLuuvTmgnGjIeAOnmkaWgp1uw7bGP0UyjxVKtf8HgChj4TEiW90fP0tWHcg7X2OgJSDh3
-	Of15eMGT9PbQFMBN8i+XLzzU2+QjnLmcadV8NujQJ7d/l2Av4lUlQvEE/LwFrQNyK+XQbz4bLyW0/
-	rd9+jkOegClepFZHAq8W9Ln2TIeP2HZ5OXt5b8GunxnV7xP4PiPqmuNxsqt77axxstqk9rAtkMkKX
-	LWBcX/gw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YK1bIPZnnWv7pQYIyhk35+mOVNMBab8mq9bTqqdASAg=; b=SomGv6diGKLIovozZaRPV+KSYG
+	/xi5UTkaNKcQ7bX9ZwvXVrzetNTp5lm3HxzfeCMWPSWTWkzgx4QcilPo9j1u6AJqMsCHL+30UiUgV
+	J2mZpRnHWQTkMbHa5bpRN+Q/YMV8/zFj0mAflTaqG2TvLrG5sQY3e2wh0GYrmD7JOaAr6Ut9/CGPg
+	eH4hmntDGrF5dLu4gdxtG6hmxrbEC+n6q9aldn/0spcbKeo7nsTqkJZr1Op/3Bs1MHhnVVtwLtHSL
+	bw74VQKZpCPBab8lg/NLB7fCRY2B2L2JNcnBw47El5JnUIcWMcgWcRHcUSY8J288mcNNAyh9Tmr69
+	yU0kTQTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmrlS-00000004sFx-2NF2;
-	Mon, 02 Feb 2026 11:06:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1vmrlU-00000004sGg-27yR;
+	Mon, 02 Feb 2026 11:06:44 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmrlO-00000004sFD-3WCL
+	id 1vmrlR-00000004sFZ-42HD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 11:06:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F112339;
-	Mon,  2 Feb 2026 03:06:31 -0800 (PST)
-Received: from [10.163.168.36] (unknown [10.163.168.36])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0530E3F7A6;
+	Mon, 02 Feb 2026 11:06:43 +0000
+Received: from CPC-namja-026ON.redmond.corp.microsoft.com (unknown [4.213.232.19])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 2C45720B7167;
 	Mon,  2 Feb 2026 03:06:34 -0800 (PST)
-Message-ID: <7790afb1-df77-4c14-90f1-1499f4e68f94@arm.com>
-Date: Mon, 2 Feb 2026 16:36:31 +0530
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 2C45720B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1770030400;
+	bh=YK1bIPZnnWv7pQYIyhk35+mOVNMBab8mq9bTqqdASAg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=rDLRrBIC+PuwHWuZRDUn1bNSeLTo7bn6JCiV/ZM1HvjeiM6WLaX53h53yDp6MvcWb
+	 vXyWWf4Moz8HSk4Ogpv1PSyNJ3j1GZOIWriHLA7pVpZWmpfotYkVhOAxbknZEK/kTL
+	 mGi7sIcvYoGJMxF5ZqiIHh8Lf0Hp3cZYreq6HUEU=
+From: Naman Jain <namjain@linux.microsoft.com>
+To: Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nsc@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>
+Cc: Masahiro Yamada <masahiroy@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	thomas.weissschuh@linutronix.de,
+	Tamir Duberstein <tamird@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Naman Jain <namjain@linux.microsoft.com>,
+	Kees Cook <kees@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Saurabh Singh Sengar <ssengar@linux.microsoft.com>
+Subject: [RFC PATCH] kbuild: Make --build-id linker flag configurable
+Date: Mon,  2 Feb 2026 11:06:31 +0000
+Message-ID: <20260202110631.978412-1-namjain@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64/mm: Reject memory removal that splits a kernel
- leaf mapping
-To: Ryan Roberts <ryan.roberts@arm.com>, linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Yang Shi <yang@os.amperecomputing.com>, Christoph Lameter <cl@gentwo.org>,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20260202042617.504183-1-anshuman.khandual@arm.com>
- <20260202042617.504183-3-anshuman.khandual@arm.com>
- <10088a12-332f-490e-9726-3015f99e264a@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <10088a12-332f-490e-9726-3015f99e264a@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_030638_979897_3B5C1EF3 
-X-CRM114-Status: GOOD (  34.96  )
+X-CRM114-CacheID: sfid-20260202_030642_075677_5E783943 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,247 +85,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/02/26 3:12 PM, Ryan Roberts wrote:
-> On 02/02/2026 04:26, Anshuman Khandual wrote:
->> Linear and vmemmap mapings that get teared down during a memory hot remove
->> operation might contain leaf level entries on any page table level. If the
->> requested memory range's linear or vmemmap mappings falls within such leaf
->> entries, new mappings need to be created for the remaning memory mapped on
->> the leaf entry earlier, following standard break before make aka BBM rules.
-> 
-> I think it would be good to mention that the kernel cannot tolerate BBM so
-> remapping to fine grained leaves would not be possible on systems without
-> BBML2_NOABORT.
+Build ID hashes include file paths, so building the same source from
+different directories produces different binaries. This breaks
+reproducible builds.
 
-Sure will add that.
+Add KBUILD_BUILD_ID variable (default: sha1) to allow overriding:
 
-> 
->>
->> Currently memory hot remove operation does not perform such restructuring,
->> and so removing memory ranges that could split a kernel leaf level mapping
->> need to be rejected.
-> 
-> Perhaps it is useful to mention that while memory_hotplug.c does appear to
-> permit hot-unplugging arbitrary ranges of memory, the higher layers that drive
-> memory_hotplug (e.g. ACPI, virtio, ...) all appear to treat memory as fixed size
-> devices so it is impossible to hotunplug a different amount than was previously
-> hotplugged, and so we should never see a rejection in practice, but adding the
-> check makes us robust against a future change.
+    make KBUILD_BUILD_ID=none
 
-Agreed, will update the commit message.
+The variable is exported to VDSO Makefiles which also include a
+fallback default for standalone invocation.
 
-> 
->>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-kernel@vger.kernel.org
->> Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
->> Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
->> Cc: stable@vger.kernel.org
->> Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
->> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->> ---
->>  arch/arm64/mm/mmu.c | 126 ++++++++++++++++++++++++++++++++++++++++++++
->>  1 file changed, 126 insertions(+)
->>
->> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->> index 8ec8a287aaa1..9d59e10fb3de 100644
->> --- a/arch/arm64/mm/mmu.c
->> +++ b/arch/arm64/mm/mmu.c
->> @@ -2063,6 +2063,129 @@ void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
->>  	__remove_pgd_mapping(swapper_pg_dir, __phys_to_virt(start), size);
->>  }
->>  
->> +
->> +static bool split_kernel_leaf_boundary(unsigned long addr)
-> 
-> The name currently makes it sound like we are asking for the mapping to be split
-> (we have existing functions to do this that are named similarly). Perhaps a
-> better name would be addr_splits_leaf()?
+Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+---
+Hi,
+Sending this change for RFC, as it is quite possible that this is a
+generic problem and I may be missing something.
 
-Agreed that name sounds bit confusing and ambiguous as there is already
-a similarly named function. Will rename it as addr_splits_kernel_leaf()
-instead.
+I am trying to implement reproducible builds for one of my product
+kernel. I referred https://reproducible-builds.org/docs/build-path/
+and tried to use both -fdebug-prefix-map=OLD=NEW and
+-fmacro-prefix-map=OLD=NEW, but still could not achieve bit by bit
+binary reproducibility without overwriting build-id to none. 
+If I move the kernel to same path in other setup, I was able to create
+same binary hash, however, without it, there is some difference in
+build-id hash values.
 
-> 
->> +{
->> +	pgd_t *pgdp, pgd;
->> +	p4d_t *p4dp, p4d;
->> +	pud_t *pudp, pud;
->> +	pmd_t *pmdp, pmd;
->> +	pte_t *ptep, pte;
->> +
->> +	/*
->> +	 * PGD: If addr is PGD aligned then addr already
->> +	 * describes a leaf boundary.
->> +	 */
->> +	if (ALIGN_DOWN(addr, PGDIR_SIZE) == addr)
->> +		return false;
->> +
->> +	pgdp = pgd_offset_k(addr);
->> +	pgd = pgdp_get(pgdp);
->> +	if (!pgd_present(pgd))
->> +		return false;
->> +
->> +	/*
->> +	 * P4D: If addr is P4D aligned then addr already
->> +	 * describes a leaf boundary.
->> +	 */
->> +	if (ALIGN_DOWN(addr, P4D_SIZE) == addr)
->> +		return false;
->> +
->> +	p4dp = p4d_offset(pgdp, addr);
->> +	p4d = p4dp_get(p4dp);
->> +	if (!p4d_present(p4d))
->> +		return false;
->> +
->> +	/*
->> +	 * PUD: If addr is PUD aligned then addr already
->> +	 * describes a leaf boundary.
->> +	 */
->> +	if (ALIGN_DOWN(addr, PUD_SIZE) == addr)
->> +		return false;
->> +
->> +	pudp = pud_offset(p4dp, addr);
->> +	pud = pudp_get(pudp);
->> +	if (!pud_present(pud))
->> +		return false;
->> +
->> +	if (pud_leaf(pud))
->> +		return true;
->> +
->> +	/*
->> +	 * CONT_PMD: If addr is CONT_PMD aligned then
->> +	 * addr already describes a leaf boundary.
->> +	 */
->> +	if (ALIGN_DOWN(addr, CONT_PMD_SIZE) == addr)
->> +		return false;
->> +
->> +	pmdp = pmd_offset(pudp, addr);
->> +	pmd = pmdp_get(pmdp);
->> +	if (!pmd_present(pmd))
->> +		return false;
->> +
->> +	if (pmd_leaf(pmd) && pmd_cont(pmd))
->> +		return true;
->> +
->> +	/*
->> +	 * PMD: If addr is PMD aligned then addr already
->> +	 * describes a leaf boundary.
->> +	 */
->> +	if (ALIGN_DOWN(addr, PMD_SIZE) == addr)
->> +		return false;
->> +
->> +	if (pmd_leaf(pmd))
->> +		return true;
->> +
->> +	/*
->> +	 * CONT_PTE: If addr is CONT_PTE aligned then addr
->> +	 * already describes a leaf boundary.
->> +	 */
->> +	if (ALIGN_DOWN(addr, CONT_PTE_SIZE) == addr)
->> +		return false;
->> +
->> +	ptep = pte_offset_kernel(pmdp, addr);
->> +	pte = __ptep_get(ptep);
->> +	if (!pte_present(pte))
->> +		return false;
->> +
->> +	if (pte_valid(pte) && pte_cont(pte))
-> 
-> Why do you need pte_valid() here? You have already checked !pte_present(). Are
-> you expecting a case of present but not valid (PTE_PRESENT_INVALID)? If so, do
-> you need to consider that for the other levels too? (pmd_leaf() only checks
-> pmd_present()).
-> > Personally I think you can just drop the pte_valid() check here.
+Reproducibility wiki says "In most cases however, post-processing is
+required to either remove the build path or to normalize it to a
+predefined value.". I have tried that, and it works, but wanted to
+conclude if that is my last option here.
 
-Added pte_valid() for abundance of caution but it is not really
-necessary though. Sure will drop it off.
+Thanks.
 
-> 
->> +		return true;
->> +
->> +	if (ALIGN_DOWN(addr, PAGE_SIZE) == addr)
->> +		return false;
->> +	return true;
->> +}
->> +
->> +static bool can_unmap_without_split(unsigned long pfn, unsigned long nr_pages)
->> +{
->> +	unsigned long linear_start, linear_end, phys_start, phys_end;
->> +	unsigned long vmemmap_size, vmemmap_start, vmemmap_end;
-> 
-> nit: do we need all these variables. Perhaps just:
-> 
-> unsigned long sz, start, end, phys_start, phys_end;
-> 
-> are sufficient?
+---
+ Makefile                          | 8 ++++++--
+ arch/arm64/kernel/vdso/Makefile   | 5 ++++-
+ arch/arm64/kernel/vdso32/Makefile | 5 ++++-
+ arch/x86/entry/vdso/Makefile      | 5 ++++-
+ 4 files changed, 18 insertions(+), 5 deletions(-)
 
-Alright. I guess start and end can be re-used both for linear and
-vmemmap mapping.
+diff --git a/Makefile b/Makefile
+index 3373308d2217c..3fcff4af200d7 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1132,8 +1132,12 @@ KBUILD_AFLAGS   += $(KAFLAGS)
+ KBUILD_CFLAGS   += $(KCFLAGS)
+ KBUILD_RUSTFLAGS += $(KRUSTFLAGS)
+ 
+-KBUILD_LDFLAGS_MODULE += --build-id=sha1
+-LDFLAGS_vmlinux += --build-id=sha1
++# Can be overridden for reproducible builds by using "make KBUILD_BUILD_ID=none"
++KBUILD_BUILD_ID ?= sha1
++export KBUILD_BUILD_ID
++
++KBUILD_LDFLAGS_MODULE += --build-id=$(KBUILD_BUILD_ID)
++LDFLAGS_vmlinux += --build-id=$(KBUILD_BUILD_ID)
+ 
+ KBUILD_LDFLAGS	+= -z noexecstack
+ ifeq ($(CONFIG_LD_IS_BFD),y)
+diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
+index 7dec05dd33b70..b3ee5982b4676 100644
+--- a/arch/arm64/kernel/vdso/Makefile
++++ b/arch/arm64/kernel/vdso/Makefile
+@@ -9,6 +9,9 @@
+ # Include the generic Makefile to check the built vdso.
+ include $(srctree)/lib/vdso/Makefile.include
+ 
++# Fallback for standalone builds, normally inherited from top-level Makefile
++KBUILD_BUILD_ID ?= sha1
++
+ obj-vdso := vgettimeofday.o note.o sigreturn.o vgetrandom.o vgetrandom-chacha.o
+ 
+ # Build rules
+@@ -22,7 +25,7 @@ btildflags-$(CONFIG_ARM64_BTI_KERNEL) += -z force-bti
+ # routines, as x86 does (see 6f121e548f83 ("x86, vdso: Reimplement vdso.so
+ # preparation in build-time C")).
+ ldflags-y := -shared -soname=linux-vdso.so.1 \
+-	     -Bsymbolic --build-id=sha1 -n $(btildflags-y)
++	     -Bsymbolic --build-id=$(KBUILD_BUILD_ID) -n $(btildflags-y)
+ 
+ ifdef CONFIG_LD_ORPHAN_WARN
+   ldflags-y += --orphan-handling=$(CONFIG_LD_ORPHAN_WARN_LEVEL)
+diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
+index 9d0efed91414c..991aed67e65a2 100644
+--- a/arch/arm64/kernel/vdso32/Makefile
++++ b/arch/arm64/kernel/vdso32/Makefile
+@@ -5,6 +5,9 @@
+ 
+ include $(srctree)/lib/vdso/Makefile.include
+ 
++# Fallback for standalone builds, normally inherited from top-level Makefile
++KBUILD_BUILD_ID ?= sha1
++
+ # Same as cc-*option, but using CC_COMPAT instead of CC
+ ifeq ($(CONFIG_CC_IS_CLANG), y)
+ CC_COMPAT ?= $(CC)
+@@ -87,7 +90,7 @@ VDSO_AFLAGS += -D__ASSEMBLY__
+ # From arm vDSO Makefile
+ VDSO_LDFLAGS += -Bsymbolic --no-undefined -soname=linux-vdso.so.1
+ VDSO_LDFLAGS += -z max-page-size=4096 -z common-page-size=4096
+-VDSO_LDFLAGS += -shared --build-id=sha1
++VDSO_LDFLAGS += -shared --build-id=$(KBUILD_BUILD_ID)
+ VDSO_LDFLAGS += --orphan-handling=$(CONFIG_LD_ORPHAN_WARN_LEVEL)
+ 
+ 
+diff --git a/arch/x86/entry/vdso/Makefile b/arch/x86/entry/vdso/Makefile
+index f247f5f5cb44d..fefddc91b41ea 100644
+--- a/arch/x86/entry/vdso/Makefile
++++ b/arch/x86/entry/vdso/Makefile
+@@ -6,6 +6,9 @@
+ # Include the generic Makefile to check the built vDSO:
+ include $(srctree)/lib/vdso/Makefile.include
+ 
++# Fallback for standalone builds, normally inherited from top-level Makefile
++KBUILD_BUILD_ID ?= sha1
++
+ # Files to link into the vDSO:
+ vobjs-y := vdso-note.o vclock_gettime.o vgetcpu.o vgetrandom.o vgetrandom-chacha.o
+ vobjs32-y := vdso32/note.o vdso32/system_call.o vdso32/sigreturn.o
+@@ -155,7 +158,7 @@ quiet_cmd_vdso = VDSO    $@
+ 		       $(VDSO_LDFLAGS) $(VDSO_LDFLAGS_$(filter %.lds,$(^F))) \
+ 		       -T $(filter %.lds,$^) $(filter %.o,$^)
+ 
+-VDSO_LDFLAGS = -shared --hash-style=both --build-id=sha1 --no-undefined \
++VDSO_LDFLAGS = -shared --hash-style=both --build-id=$(KBUILD_BUILD_ID) --no-undefined \
+ 	$(call ld-option, --eh-frame-hdr) -Bsymbolic -z noexecstack
+ 
+ quiet_cmd_vdso_and_check = VDSO    $@
 
-> 
->> +
->> +	/* Assert linear map edges do not split a leaf entry */
->> +	phys_start = PFN_PHYS(pfn);
->> +	phys_end = phys_start + nr_pages * PAGE_SIZE;
->> +	linear_start = __phys_to_virt(phys_start);
->> +	linear_end =  __phys_to_virt(phys_end);
->> +	if (split_kernel_leaf_boundary(linear_start) ||
->> +	    split_kernel_leaf_boundary(linear_end)) {
->> +		pr_warn("[%lx %lx] splits a leaf entry in linear map\n",
->> +			phys_start, phys_end);
->> +		return false;
->> +	}
->> +
->> +	/* Assert vmemmap edges do not split a leaf entry */
->> +	vmemmap_size = nr_pages * sizeof(struct page);
->> +	vmemmap_start = (unsigned long) pfn_to_page(pfn);
-> 
-> nit:                                   ^
-> 
-> I don't think we would normally have that space?
-
-Sure will drop that.
-
-> 
->> +	vmemmap_end = vmemmap_start + vmemmap_size;
->> +	if (split_kernel_leaf_boundary(vmemmap_start) ||
->> +	    split_kernel_leaf_boundary(vmemmap_end)) {
->> +		pr_warn("[%lx %lx] splits a leaf entry in vmemmap\n",
->> +			phys_start, phys_end);
->> +		return false;
->> +	}
->> +	return true;
->> +}
->> +
->>  /*
->>   * This memory hotplug notifier helps prevent boot memory from being
->>   * inadvertently removed as it blocks pfn range offlining process in
->> @@ -2083,6 +2206,9 @@ static int prevent_bootmem_remove_notifier(struct notifier_block *nb,
->>  	if ((action != MEM_GOING_OFFLINE) && (action != MEM_OFFLINE))
->>  		return NOTIFY_OK;
->>  
->> +	if (!can_unmap_without_split(pfn, arg->nr_pages))
->> +		return NOTIFY_BAD;
->> +
-> 
-> Personally, I'd keep the bootmem check first and do this check after. That means
-> an existing warning will not change.
-
-Makes sense, will move it after existing bootmem check. BTW the function
-still named as prevent_bootmem_remove_notifier() although now it's going
-to check leaf boundaries as well. Should the function be renamed as well
-to something more generic e.g prevent_memory_remove_notifier() ?
-
-> 
-> Thanks,
-> Ryan
-> 
->>  	for (; pfn < end_pfn; pfn += PAGES_PER_SECTION) {
->>  		unsigned long start = PFN_PHYS(pfn);
->>  		unsigned long end = start + (1UL << PA_SECTION_SHIFT);
-> 
+base-commit: 63804fed149a6750ffd28610c5c1c98cce6bd377
+-- 
+2.43.0
 
 
