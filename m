@@ -4,113 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1280E73159
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 11:03:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FDEE73158
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 11:06:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YKyCweRY/zYJ2E03k3/fXoBmI71V3FKCayjwlKR/TGc=; b=03pS0LXNwnqJaIZC2oBvTBBhrb
-	umtXatdEL7iFYolca7FWPzHI2IW+iCx9wShJUF10BRtHyMjEijnMGEPHZifkbm/AP1d1vyCwNd1xG
-	yJtTbXiarSNQwFwXJDWkDporAlRDezXEc2gJsAjAwgxOXL2J8vaCXzwOx72vj7sTRKdaimjEvjOBM
-	m2GduWjydIFZJJpplvX6d5hgfryPJKEKaanZlJgTUrQL0mxW0JoCgGgXeYyC6miC7LhjtvBxsURha
-	WSF/BZHS0DAPh8PNT1n4TJ3PrHffTcwmbh+Vk1B8hhOxmQh2NA0x+ymoez07iOdJwcHVfGBmYl8CU
-	SBJHC5Gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yjF5zgk/sWH+g5BFra7P8U1t2QRZ1JC/kEPXSss4VCQ=; b=kgelgfrjPb+fTbTJr+Akwbc8ya
+	VCdUknJ5CwWr88okIYsmdifQUx73G4VF5ixlq8g1EDlEweQaDcjZ8ca/RCdCkvHlYtFkpKbB3cucQ
+	8gfiBsJ4pLuuvTmgnGjIeAOnmkaWgp1uw7bGP0UyjxVKtf8HgChj4TEiW90fP0tWHcg7X2OgJSDh3
+	Of15eMGT9PbQFMBN8i+XLzzU2+QjnLmcadV8NujQJ7d/l2Av4lUlQvEE/LwFrQNyK+XQbz4bLyW0/
+	rd9+jkOegClepFZHAq8W9Ln2TIeP2HZ5OXt5b8GunxnV7xP4PiPqmuNxsqt77axxstqk9rAtkMkKX
+	LWBcX/gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmriY-00000004rz0-40WD;
-	Mon, 02 Feb 2026 11:03:42 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmriV-00000004ryW-3sOs
+	id 1vmrlS-00000004sFx-2NF2;
+	Mon, 02 Feb 2026 11:06:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vmrlO-00000004sFD-3WCL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 11:03:41 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-501488a12cbso52875351cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 03:03:39 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770030218; cv=none;
-        d=google.com; s=arc-20240605;
-        b=esFJEQHSRxO/xL4SpaqPsbU8J6f45iXmJ3FeBe0MTY2WH1I30dRnuShmX/K3yHXh33
-         zWkWuSQwD288Ki56Qi0wBJ7QdL6zCecOlTaFfor8O2F3QPD/md+g2ilMr5QbGBwgGDXR
-         k0XqPwYFTzJyZXc0GXaElLdCT6wOS0pvzHAmg7T5WM55NYex8I9Mdg9evSaFnHLnvJce
-         qy4n5ZmvVNwPAfBo04BlKc1/AlyZanZAiF1Q+OWlUP9OtqtXxx1m3lJOwBZxvW6zHUKy
-         a+vXlxpK1WvYIN5zl6rz7b5jkRqe1uahrubTTZydbh6VxwKqTDlOZWASEhHCI8GbIm0u
-         5hnQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=YKyCweRY/zYJ2E03k3/fXoBmI71V3FKCayjwlKR/TGc=;
-        fh=ve2arzt7XiNbpTNNsYFBunrgWK8nQSFZoKR0VZh/MVk=;
-        b=WvSFjOwc2KdZl1FVJ4reTGHhaaBPagy+KJpWJX0Ja/8gFE2T81XaYT/lDLiJ1RItnn
-         HAxHfD5ewlnyDLtSthHDI9m+M9XDSYsTm4c/X++oXgwkMLGdAQLSwAHLyW7YFjN1zY+Z
-         I9s4dVz7NDW52xg9pHrqvGTdO0cUtc6aURC1Vqhq1hCr/fH15aPS/fvudKtZrV1uBRC5
-         72MUqx6qRfCXZF0q0yWvlSI6QlPOuvIlbOD4MreESs5txKxYfiTWF3Z46MIU5PE98T6V
-         j1KqweixoUu0IeV4XgQQsBUq2To6s+5ko1PACPdtx+y0NLs4N1D2rasvTo+il3O/GneO
-         KjKA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770030218; x=1770635018; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=YKyCweRY/zYJ2E03k3/fXoBmI71V3FKCayjwlKR/TGc=;
-        b=SXE/LEx+kA1j6AgSk6A0XxyGgdlD6V1rzzBHY2FQTNdgip0jrNGdhhYmK2mO1o4TC3
-         6VUJp0/n65cZlEQUcdp//m6jBjftOrBBigH2w7zo/AYhjAEcsFkSzQk41GFmO87n3hH3
-         UHRRVvpbYB/UdMoU4pOZPfhXuryFvTCz9Bz6egAB4pOaDpSRp/T3H3yZwDNjnT4EtJuv
-         +1NcMXqCvLP5jIJZ7tyGWmh50Xb+kIyiL0Frr4U5yXt910fkELRlcrVz+EdXRGsPo0OA
-         yU9olb+yw9vsCVCtH9i7vRCqy/0Qp/2MM4IZF6v+hLCxWk94E8SlQJiUX8tAZlRuUrQK
-         C0MQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770030218; x=1770635018;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YKyCweRY/zYJ2E03k3/fXoBmI71V3FKCayjwlKR/TGc=;
-        b=vRgFOT7I1ZPKU67gGRcYe+/sx4GxZ5QEdEvWFxYbs2RMBBOTXIKHvoczS1W4SKmBz8
-         CLPGr0WBvMhPPKqlZYnRZH4DcmDc2AVP9mkY/1L85SBvNekd6dUwy0b8JFloqZiJeI+O
-         ALUEzZEhw6hKDnBTiXJ7WU+N1KIgMYCna+OhOrCi9s5kyM7cYnAiAQpnIhVz1K7ajqzn
-         d7iprIbBpm55dOmEolSD9GMQeiyQakBVEXxPp9u01rXilz7zWdFhBp9Uk2u2Yc9lqGO/
-         TKW9a4khSLVoZ6wnMaNYvoRxs5v88opPebKeoRq+D4hvTD+CJ3+KPA9bf6PsYj0nK+Ko
-         kEDg==
-X-Forwarded-Encrypted: i=1; AJvYcCUryy7oNdeAfSmhPtQkzVmxPtX8rSicJLIwRL7SMwEBaSkAml12tx50X/VYL8lPOZTu1bnjr8Z3E3E8yrQahftV@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPNCPRUBLT/lZrvWzVclTQHqg2mbmsa0CPNDgD7NB/3b08FbgQ
-	DSbWtHN01JxST2l9XwNLVRg2iod1H8vOlUNjGlyfiUWBWJ87FfROc3+4YQzHGPl8iS8GzUsPK4X
-	kSuuMzIj92NO5+6Rp+QH3gp1Hy/RMkE8=
-X-Gm-Gg: AZuq6aJoM9zyMPgLQp01cTDuNe9OP1vji0FtH3RNJl+790TZON1JuuxYqUljBexC9r8
-	OotbQ2S+ospZ1JVVPTk7WPiOSnMsVIq3K6plgerhFfbUr+9AU1WyTL+kjwC1wishaGrebzYT6ky
-	uilWJRyuAATryU0xZAD4qwj44/kG37EdLQpjlUh1bPi+nVVAebUqDto6unVYmbLU821tcpXEa8A
-	9vqth0M4aal6etz27COdE0b7Vbey5EppuKt/w3NvIyEsalzibIEFn04uqz+gN/tQtWSCJkYGL7n
-	3M/exw==
-X-Received: by 2002:a05:622a:2d3:b0:4ed:b5d8:a192 with SMTP id
- d75a77b69052e-505d225e1admr144749431cf.38.1770030218237; Mon, 02 Feb 2026
- 03:03:38 -0800 (PST)
+	Mon, 02 Feb 2026 11:06:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F112339;
+	Mon,  2 Feb 2026 03:06:31 -0800 (PST)
+Received: from [10.163.168.36] (unknown [10.163.168.36])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0530E3F7A6;
+	Mon,  2 Feb 2026 03:06:34 -0800 (PST)
+Message-ID: <7790afb1-df77-4c14-90f1-1499f4e68f94@arm.com>
+Date: Mon, 2 Feb 2026 16:36:31 +0530
 MIME-Version: 1.0
-References: <20240121203009.9257-1-ansuelsmth@gmail.com> <65d62b60.050a0220.c7b96.614e@mx.google.com>
- <666ad6e0.df0a0220.f8b16.4a5e@mx.google.com> <CACRpkdYJoNRpciyQE_A6dkb8f6Jsy4+qwb4w9K3bss2mkZpp1A@mail.gmail.com>
- <ZmsXdWWidNjXdbSa@shell.armlinux.org.uk> <666b2379.5d0a0220.c7eec.8b6f@mx.google.com>
- <CAMuHMdWnNzktSecsPX_anf=PCuLrZUT-6TO7KXGCHeQVTS974g@mail.gmail.com> <aYCDOio-YdUJAf2v@shell.armlinux.org.uk>
-In-Reply-To: <aYCDOio-YdUJAf2v@shell.armlinux.org.uk>
-From: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
-Date: Mon, 2 Feb 2026 12:03:24 +0100
-X-Gm-Features: AZwV_QiTDDhKlR-DjOL_QYqdYWBnqyRZFFNahQhLt3ETm-DBaSj6eMWp56yABi4
-Message-ID: <CA+_ehUx=3Ci2hN0YYkLxBNwOu_NTHFe_ZKkw9TH+bU-4PwTD-A@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] ARM: decompressor: support AUTO_ZRELADDR and
- appended DTB
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Andrew Morton <akpm@linux-foundation.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, 
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, "Mike Rapoport (IBM)" <rppt@kernel.org>, 
-	Eric DeVolder <eric.devolder@oracle.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Kees Cook <keescook@chromium.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konrad.dybcio@somainline.org>, John Crispin <john@phrozen.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64/mm: Reject memory removal that splits a kernel
+ leaf mapping
+To: Ryan Roberts <ryan.roberts@arm.com>, linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Yang Shi <yang@os.amperecomputing.com>, Christoph Lameter <cl@gentwo.org>,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20260202042617.504183-1-anshuman.khandual@arm.com>
+ <20260202042617.504183-3-anshuman.khandual@arm.com>
+ <10088a12-332f-490e-9726-3015f99e264a@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <10088a12-332f-490e-9726-3015f99e264a@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_030339_981310_07A9B391 
-X-CRM114-Status: GOOD (  29.52  )
+X-CRM114-CacheID: sfid-20260202_030638_979897_3B5C1EF3 
+X-CRM114-Status: GOOD (  34.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,48 +68,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il giorno lun 2 feb 2026 alle ore 11:58 Russell King (Oracle)
-<linux@armlinux.org.uk> ha scritto:
->
-> On Mon, Feb 02, 2026 at 11:26:49AM +0100, Geert Uytterhoeven wrote:
-> > FTR, I did provide my Tested-by for the first patch in [1].
-> > I still have this series in my local tree, which I test regularly on
-> > a variety of Renesas ARM32 platforms and on BeagleBone Black.
-> >
-> > In fact, I had completely forgotten about this series, to the point
-> > that I bisected a failure in booting mainline on one of my boards
-> > using my current .config to the absence of the first patch ;-)
-> > Apparently during the past years, I had modified my .config to make it
-> > more generic, and make better use of the DTB (incl. chosen/bootargs),
-> > which has a dependency on the first patch...
->
-> What I would like to know is why anyone is using appended DTBs in this
-> day and age, when surely by now, Arm based boot loaders have realised
-> that Arm moved to use device trees ages ago, and the kernel requires
-> a DTB in addition to the kernel image itself.
->
-> Appended DTB support was only there as a stop-gap for those boot
-> loaders that were around before DTB support was added, and have no
-> capability of dealing with a separate DTB.
->
-> Come on. It's 2026. DTB has been supported on 32-bit ARM for fifteen
-> years. Surely everyone's now got modern boot loaders.
->
-> If not, it's time to say this: fix the boot loader.
->
+On 02/02/26 3:12 PM, Ryan Roberts wrote:
+> On 02/02/2026 04:26, Anshuman Khandual wrote:
+>> Linear and vmemmap mapings that get teared down during a memory hot remove
+>> operation might contain leaf level entries on any page table level. If the
+>> requested memory range's linear or vmemmap mappings falls within such leaf
+>> entries, new mappings need to be created for the remaning memory mapped on
+>> the leaf entry earlier, following standard break before make aka BBM rules.
+> 
+> I think it would be good to mention that the kernel cannot tolerate BBM so
+> remapping to fine grained leaves would not be possible on systems without
+> BBML2_NOABORT.
 
-The main problem is that sometimes it's not possible to update the bootloader
-at all. Either they never provided the source or Uboot is not even used.
+Sure will add that.
 
-And on some device updating the bootloader is risky as you would end up
-in a brick. (no way to recover it)
+> 
+>>
+>> Currently memory hot remove operation does not perform such restructuring,
+>> and so removing memory ranges that could split a kernel leaf level mapping
+>> need to be rejected.
+> 
+> Perhaps it is useful to mention that while memory_hotplug.c does appear to
+> permit hot-unplugging arbitrary ranges of memory, the higher layers that drive
+> memory_hotplug (e.g. ACPI, virtio, ...) all appear to treat memory as fixed size
+> devices so it is impossible to hotunplug a different amount than was previously
+> hotplugged, and so we should never see a rejection in practice, but adding the
+> check makes us robust against a future change.
 
-Also other case usually sign the bootloader and permit to load whatever
-image you want so also problematic to update the bootloader.
+Agreed, will update the commit message.
 
-Sadly for these device, it's full of corner situation where the Vendor used
-a badly configured SDK and made a single bootloader on it.
+> 
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
+>> Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
+>> Cc: stable@vger.kernel.org
+>> Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>>  arch/arm64/mm/mmu.c | 126 ++++++++++++++++++++++++++++++++++++++++++++
+>>  1 file changed, 126 insertions(+)
+>>
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index 8ec8a287aaa1..9d59e10fb3de 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -2063,6 +2063,129 @@ void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
+>>  	__remove_pgd_mapping(swapper_pg_dir, __phys_to_virt(start), size);
+>>  }
+>>  
+>> +
+>> +static bool split_kernel_leaf_boundary(unsigned long addr)
+> 
+> The name currently makes it sound like we are asking for the mapping to be split
+> (we have existing functions to do this that are named similarly). Perhaps a
+> better name would be addr_splits_leaf()?
 
-For example QCOM Uboot SDK still target ancient 2012 version if I'm not
-wrong.
+Agreed that name sounds bit confusing and ambiguous as there is already
+a similarly named function. Will rename it as addr_splits_kernel_leaf()
+instead.
+
+> 
+>> +{
+>> +	pgd_t *pgdp, pgd;
+>> +	p4d_t *p4dp, p4d;
+>> +	pud_t *pudp, pud;
+>> +	pmd_t *pmdp, pmd;
+>> +	pte_t *ptep, pte;
+>> +
+>> +	/*
+>> +	 * PGD: If addr is PGD aligned then addr already
+>> +	 * describes a leaf boundary.
+>> +	 */
+>> +	if (ALIGN_DOWN(addr, PGDIR_SIZE) == addr)
+>> +		return false;
+>> +
+>> +	pgdp = pgd_offset_k(addr);
+>> +	pgd = pgdp_get(pgdp);
+>> +	if (!pgd_present(pgd))
+>> +		return false;
+>> +
+>> +	/*
+>> +	 * P4D: If addr is P4D aligned then addr already
+>> +	 * describes a leaf boundary.
+>> +	 */
+>> +	if (ALIGN_DOWN(addr, P4D_SIZE) == addr)
+>> +		return false;
+>> +
+>> +	p4dp = p4d_offset(pgdp, addr);
+>> +	p4d = p4dp_get(p4dp);
+>> +	if (!p4d_present(p4d))
+>> +		return false;
+>> +
+>> +	/*
+>> +	 * PUD: If addr is PUD aligned then addr already
+>> +	 * describes a leaf boundary.
+>> +	 */
+>> +	if (ALIGN_DOWN(addr, PUD_SIZE) == addr)
+>> +		return false;
+>> +
+>> +	pudp = pud_offset(p4dp, addr);
+>> +	pud = pudp_get(pudp);
+>> +	if (!pud_present(pud))
+>> +		return false;
+>> +
+>> +	if (pud_leaf(pud))
+>> +		return true;
+>> +
+>> +	/*
+>> +	 * CONT_PMD: If addr is CONT_PMD aligned then
+>> +	 * addr already describes a leaf boundary.
+>> +	 */
+>> +	if (ALIGN_DOWN(addr, CONT_PMD_SIZE) == addr)
+>> +		return false;
+>> +
+>> +	pmdp = pmd_offset(pudp, addr);
+>> +	pmd = pmdp_get(pmdp);
+>> +	if (!pmd_present(pmd))
+>> +		return false;
+>> +
+>> +	if (pmd_leaf(pmd) && pmd_cont(pmd))
+>> +		return true;
+>> +
+>> +	/*
+>> +	 * PMD: If addr is PMD aligned then addr already
+>> +	 * describes a leaf boundary.
+>> +	 */
+>> +	if (ALIGN_DOWN(addr, PMD_SIZE) == addr)
+>> +		return false;
+>> +
+>> +	if (pmd_leaf(pmd))
+>> +		return true;
+>> +
+>> +	/*
+>> +	 * CONT_PTE: If addr is CONT_PTE aligned then addr
+>> +	 * already describes a leaf boundary.
+>> +	 */
+>> +	if (ALIGN_DOWN(addr, CONT_PTE_SIZE) == addr)
+>> +		return false;
+>> +
+>> +	ptep = pte_offset_kernel(pmdp, addr);
+>> +	pte = __ptep_get(ptep);
+>> +	if (!pte_present(pte))
+>> +		return false;
+>> +
+>> +	if (pte_valid(pte) && pte_cont(pte))
+> 
+> Why do you need pte_valid() here? You have already checked !pte_present(). Are
+> you expecting a case of present but not valid (PTE_PRESENT_INVALID)? If so, do
+> you need to consider that for the other levels too? (pmd_leaf() only checks
+> pmd_present()).
+> > Personally I think you can just drop the pte_valid() check here.
+
+Added pte_valid() for abundance of caution but it is not really
+necessary though. Sure will drop it off.
+
+> 
+>> +		return true;
+>> +
+>> +	if (ALIGN_DOWN(addr, PAGE_SIZE) == addr)
+>> +		return false;
+>> +	return true;
+>> +}
+>> +
+>> +static bool can_unmap_without_split(unsigned long pfn, unsigned long nr_pages)
+>> +{
+>> +	unsigned long linear_start, linear_end, phys_start, phys_end;
+>> +	unsigned long vmemmap_size, vmemmap_start, vmemmap_end;
+> 
+> nit: do we need all these variables. Perhaps just:
+> 
+> unsigned long sz, start, end, phys_start, phys_end;
+> 
+> are sufficient?
+
+Alright. I guess start and end can be re-used both for linear and
+vmemmap mapping.
+
+> 
+>> +
+>> +	/* Assert linear map edges do not split a leaf entry */
+>> +	phys_start = PFN_PHYS(pfn);
+>> +	phys_end = phys_start + nr_pages * PAGE_SIZE;
+>> +	linear_start = __phys_to_virt(phys_start);
+>> +	linear_end =  __phys_to_virt(phys_end);
+>> +	if (split_kernel_leaf_boundary(linear_start) ||
+>> +	    split_kernel_leaf_boundary(linear_end)) {
+>> +		pr_warn("[%lx %lx] splits a leaf entry in linear map\n",
+>> +			phys_start, phys_end);
+>> +		return false;
+>> +	}
+>> +
+>> +	/* Assert vmemmap edges do not split a leaf entry */
+>> +	vmemmap_size = nr_pages * sizeof(struct page);
+>> +	vmemmap_start = (unsigned long) pfn_to_page(pfn);
+> 
+> nit:                                   ^
+> 
+> I don't think we would normally have that space?
+
+Sure will drop that.
+
+> 
+>> +	vmemmap_end = vmemmap_start + vmemmap_size;
+>> +	if (split_kernel_leaf_boundary(vmemmap_start) ||
+>> +	    split_kernel_leaf_boundary(vmemmap_end)) {
+>> +		pr_warn("[%lx %lx] splits a leaf entry in vmemmap\n",
+>> +			phys_start, phys_end);
+>> +		return false;
+>> +	}
+>> +	return true;
+>> +}
+>> +
+>>  /*
+>>   * This memory hotplug notifier helps prevent boot memory from being
+>>   * inadvertently removed as it blocks pfn range offlining process in
+>> @@ -2083,6 +2206,9 @@ static int prevent_bootmem_remove_notifier(struct notifier_block *nb,
+>>  	if ((action != MEM_GOING_OFFLINE) && (action != MEM_OFFLINE))
+>>  		return NOTIFY_OK;
+>>  
+>> +	if (!can_unmap_without_split(pfn, arg->nr_pages))
+>> +		return NOTIFY_BAD;
+>> +
+> 
+> Personally, I'd keep the bootmem check first and do this check after. That means
+> an existing warning will not change.
+
+Makes sense, will move it after existing bootmem check. BTW the function
+still named as prevent_bootmem_remove_notifier() although now it's going
+to check leaf boundaries as well. Should the function be renamed as well
+to something more generic e.g prevent_memory_remove_notifier() ?
+
+> 
+> Thanks,
+> Ryan
+> 
+>>  	for (; pfn < end_pfn; pfn += PAGES_PER_SECTION) {
+>>  		unsigned long start = PFN_PHYS(pfn);
+>>  		unsigned long end = start + (1UL << PA_SECTION_SHIFT);
+> 
+
 
