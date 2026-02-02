@@ -4,78 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8195E73146
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 08:57:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B9E1E73147
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 09:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZLZMuDSaLum3lZeNGFbi2PdhCi3/HMn1WnF6o814fEI=; b=DeqNfJM4GXLDWoAD8nMP3wXFW4
-	vLIO1zm+mJWzWMpkAcaK/ddYZ4fk7IOfmBNE9AYkZRg40yR27t2XdBqZYoKtbnD95sPQtaG+aKwHt
-	Qkor22DWOJ8HznZjYqA37Kl7JpmVHZE9gRfOe4LAKoAPx7ZVrBhps0k9n3qW3hf6d2Ocon0+HqWso
-	eNXb7Qi3t1o7sEcPkaTaXOTViOcbZ6EicdSDTEW6Jw0FKje8a9ouU/L3XDKS9jyAVwp4yNvPeYuwu
-	DHXYPeeIS8+W96E9jWDes/6Gem3Efed+cW/yvJ2bS5FvmzpzS97Zr0k+RwCc2Nvp3vOxp84sJg9F4
-	k0c204Cw==;
+	bh=mCcD9bj7awZZLZPuAnMOEAmooVssTLmcQS2kNDZinC8=; b=B499UXYC1pQXITNNvgRyTtHDRa
+	8FxKU9kiY22wL8Sw/3HvLLr7D7JW93V2S9T1Pl6c5DQKwlh9KA/ZtWzYA+C7b7I/BuSJTKEOX5RZi
+	D7q/XaC/Twk2/bI2L076dDrSW3wY8xMOdxNSwMvcQ1UFoRP3hDpN5e5Kt4s7ylw7c5nx79VTCDsTC
+	06CueAuU11x19YX3dzG086glCn+ByvNfLKNv2w/p7ZfDLMT9LnQK05oZ6QYmBZn8LBoGEmg06BFB9
+	ZCiM7L9kzKKkh9tKKYDEbRbe/brYS10nYeSgf4XCd3Vvp5MAj//Md5VB32iYOKO8mhkgNbIDkQR+0
+	U60d9RRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmpkQ-00000004fkC-281n;
-	Mon, 02 Feb 2026 08:57:30 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1vmpnG-00000004g8G-4ATo;
+	Mon, 02 Feb 2026 09:00:27 +0000
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmpkM-00000004fhd-1tPZ
+	id 1vmpnE-00000004g7r-0zd5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 08:57:27 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-477c49f273fso41327665e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 00:57:25 -0800 (PST)
+	Mon, 02 Feb 2026 09:00:25 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-505d3baf1a7so933691cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 01:00:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770022822; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Z/aEVq3TNCNmcITEdV2MoNZaM8sD6oKf8+S1bYRX+m6exho8+BUTlJ06MIVIydzYF0
+         9HJ3urVVXJYhhF4rjAKrBnd122KaQpzyQtWpLxDRn+0ng7TJAGP7QU3Wr2YYItWDKdui
+         1egyQc6qyE+bunaC1ELorxjzdMhURYRl1UvRTYfM9O8gKmLO2R14ENgh69DHgKKA1H5O
+         fWPYnwlbBLcr9lU9JWNzfnTaB1S9if8CwMBKuw2ngLpuoHd1F6dtVJsS5GJN9CXdZIms
+         v627y1qKtnnXTU+z3fL4UMLH35i1jxIUvtxHuiU+doRpQTBCdepEwJIQwHIWKffO5LJ/
+         ba6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=mCcD9bj7awZZLZPuAnMOEAmooVssTLmcQS2kNDZinC8=;
+        fh=+kgnWcVEH+6m/cl4EzliRfC8XzlAEwtaccXGhVRE8rA=;
+        b=BHup8IWZuWEMYfv/HpLao0wmqLAzbV+LMjGDw5Tf9bie9WzrkNcvjhlXkb8J2FCjVl
+         V6ULeUTLszittPUKR4LHmbLB9gmQCKmUDHS4EdCyDdhgKJK4HMyx9XcOp9Ol94cMtS8b
+         3xQv1m4p6gQtXcbMlbBS+H/fuT1xZ/NMX+nxh0eB4ZTVKrRKu00ZK79p900D/Y+mUiiZ
+         ifkapGp3hiFUaMouwWztw4mgCgen9utxKp8we1/IziKirek8rXtoR7c0+Kbg/M/iWYzj
+         57boycl/oFIhiek6o67MRTqckJR1+/dEBGhwcxMJgDj1NpXm3zEdTOPX6aoDoZpt/V6o
+         oIEg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1770022644; x=1770627444; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZLZMuDSaLum3lZeNGFbi2PdhCi3/HMn1WnF6o814fEI=;
-        b=DGma2nTNK98KTxmNYpTdGHjnJBHfjy7bcwzJ5oKKip1wCZG8Mc49RggfYaHfOmadMe
-         hiTJjYF2k/1wYJpSZ+ZpB0bJtMk/sGZE+VvUgrEnH+0RFUPAXyhBq7VEs1SCx0BN084k
-         RBwJMu7olrv5jrPEeiuKOZrbKgXueZ9cYR8o7KQggIz94Wujywb2uPZHlFvsQKl7VzR4
-         S598Z/O0+f2oXdjIe2r/1hmnf5pHgNGqwSWVmP6N59yA6rOXYx4Ceg6BoOrexJN4Gh+J
-         ZQ7NkBZ0+cz8rbpEpHHohqyX8dYaaLQHr5sMcDZ3tuTXkjm+KmtySAqOWq8lgTCliDEb
-         iYqg==
+        d=google.com; s=20230601; t=1770022822; x=1770627622; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=mCcD9bj7awZZLZPuAnMOEAmooVssTLmcQS2kNDZinC8=;
+        b=ox5Ey7c1OLHNLgnzgBZIQXnnTf9lpM5NQ0vLKBLSHD0TYfDVKEPz4801lhaNux9G6K
+         KzyXkOMkLZ1sllt/9CiCOO/45YPrcSnMQhpZNZvh1loeJwRI3zxU6y/qS//cybTAg/6h
+         /mliMmGTKYsc1UPbdRNHas+R9AjGV7KJwgHsGcTDp8lMVzP6VeCDFeIQDZQFHukTKvVj
+         Zy0l7WHFHjQkYZvBUzkSdwOYcaJxvZEQTGKmgRmEAGFP6CSTXBAGp69puxyhfU98FVaM
+         Ll5A36eW++31G3Nk+OaU0dpfOaSZJOtWjLrmNo94i0OQxmH8v+Jszk9HKAZjLQDBQUJP
+         i3gA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770022644; x=1770627444;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZLZMuDSaLum3lZeNGFbi2PdhCi3/HMn1WnF6o814fEI=;
-        b=fX3FLeKAr6tcRnHvJ5w79a5K4UjAbmt1R4uW0Xq0+YNs5F0Bf5cc9zScLdA6uBx6IB
-         Qkp6TnrgydCSr5xXb8B0HeZCxSV8+UMHB5Qs9h2evs6N8R8UpZHWggdd+cE6hOTv1us/
-         z2gTTIe5kL5rseyqoKn8e88V8hC6KI5ezQ6ww7b2XlnQgGte7Di1wNEBKHc+ixTDEX0Q
-         HxLhFMpK+7geTiXTfUOQqymS9XPlWz78xj4AlnorEuh+YSy9szFVL9bTMU8KKfhkCNvw
-         2JmOCMvFy5oY+SUG4WLB34JLLo4+sq7e6R+I2XH2wUoVuicufXWJhNfZVjzUx82hQ+hw
-         L+2A==
-X-Forwarded-Encrypted: i=1; AJvYcCVffAYeOQDlYZYB5eKmOLYiryPnjhGMZAjfN0Hu/yN3QrytvFfkwqgSVt6uvflv3MOnAVvJFRay9DRVxUxonDiN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy35HDYiDw5ztgWhyT7YRpRpzXBHOj2GbFAtCmQIi8soDlhYYtF
-	YkEQyt61zMk9Rey3Sm9SCT2MT1e/S4OhkMyYvhmsEQbYtGRoh7Hz/M01t9f8NWHgzVTNW/oU5h7
-	aaw==
-X-Received: from wmi9.prod.google.com ([2002:a05:600c:209:b0:480:4a03:7b77])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:8716:b0:47e:d943:ec08
- with SMTP id 5b1f17b1804b1-482db4919a6mr128609935e9.28.1770022644456; Mon, 02
- Feb 2026 00:57:24 -0800 (PST)
-Date: Mon,  2 Feb 2026 08:57:20 +0000
-In-Reply-To: <20260202085721.3954942-1-tabba@google.com>
-Mime-Version: 1.0
-References: <20260202085721.3954942-1-tabba@google.com>
-X-Mailer: git-send-email 2.53.0.rc1.225.gd81095ad13-goog
-Message-ID: <20260202085721.3954942-3-tabba@google.com>
-Subject: [PATCH v1 2/3] KVM: arm64: Reimplement vgic-debug XArray iteration
+        d=1e100.net; s=20230601; t=1770022822; x=1770627622;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mCcD9bj7awZZLZPuAnMOEAmooVssTLmcQS2kNDZinC8=;
+        b=WCTuRNUY96e51rlTCcocxrohu+z4VlXUJ8gah5ODMWwI+D8S254IX7I+NkWSwEIQNu
+         3dZl2hhG7e3Sq9l7a9BW+zu7+8FFIDVnB+d36dFpGCFBW6epN4s63xQ4sLi0Q6FCy3p8
+         vG72O7EDVNnOwsspRqfrUn9pFHYR+pE4xtep7idr9nMXYs/z4A2CGgevNd9PZXlhhrce
+         qDQMgbdsUHHL0geCE79Vlnm07ViDK0dFJPizZebElR5W+Y6XT50ycyFmnMy8FObhGiRH
+         /6um9H870Dx6q0fqYeRUjePByh+gu2Q+QR9zjVSiuFjtmiY1hlksBCaH9Bm8xYHl2wZC
+         mFWA==
+X-Forwarded-Encrypted: i=1; AJvYcCVlZE91zajyZgcoJ1Kse+br7PNvfqcPaiAb9nQ2N5naIj6wBybvos0wNoJ6W44XRe2t5S9JCIJX3svtD4Xhe04T@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5duqUYFymbQ6k9AQY5Q1s91OMWmt5//b1hXoWd9AMf992J9eO
+	SuGKDy9wZkWNBK/jPbeXCeYhfHKJpztKk8exXf0Y1Ap1IJ8HCiplcMXyocaZPbzZIRHLZlOYwHZ
+	lHI+H1bOkdVFkk30m/TY8JzSheHldJocIksz3h8t1
+X-Gm-Gg: AZuq6aKeOlRXUsjCnG6bTrAqPmvqLZBAm4ws5zuAYLAl8RTnnmeq2ogGMtZWY04b+/n
+	Q2DNBvZPXM2kUKBHYDixJPn/vWAaCAJo3oA5dlGB7g1RyJZcvSngyfdkrmkQezh7ER5rjWr04Kh
+	gAaGB53oNDxi/VJI7xAEo2omra5cxr0LyAzWAhVMD53W4F3kNNVxWWBEe8AtZtLwACjqE4WE4Hy
+	meUJeYvRhcVGCB09KfCBm4Ly4o/KOoIkfmWvTLyUxGX9cvM66Es1u+g+UZWtTX52Z7UEXaL
+X-Received: by 2002:a05:622a:3d1:b0:4f1:9c3f:2845 with SMTP id
+ d75a77b69052e-505dfb30e91mr17084781cf.9.1770022821656; Mon, 02 Feb 2026
+ 01:00:21 -0800 (PST)
+MIME-Version: 1.0
+References: <20260126121655.1641736-1-maz@kernel.org> <20260126121655.1641736-21-maz@kernel.org>
+In-Reply-To: <20260126121655.1641736-21-maz@kernel.org>
 From: Fuad Tabba <tabba@google.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, tabba@google.com
+Date: Mon, 2 Feb 2026 08:59:45 +0000
+X-Gm-Features: AZwV_QiYpw-7eH_Ok5Bnjv2eot8sO20awaRxhk21veOJg4c86-z9Wey20QWTlg4
+Message-ID: <CA+EHjTxAEah7N1myCgc-XRDjSFLiQcYHQtNjLWt=Ns_Rag6vPw@mail.gmail.com>
+Subject: Re: [PATCH 20/20] KVM: arm64: Add debugfs file dumping computed RESx values
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_005726_517880_13BB4489 
-X-CRM114-Status: GOOD (  21.34  )
+X-CRM114-CacheID: sfid-20260202_010024_300106_D6025687 
+X-CRM114-Status: GOOD (  29.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,196 +116,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vgic-debug interface implementation uses XArray marks
-(`LPI_XA_MARK_DEBUG_ITER`) to "snapshot" LPIs at the start of iteration.
-This modifies global state for a read-only operation and complicates
-reference counting, leading to leaks if iteration is aborted or fails.
+Hi Marc,
 
-Reimplement the iterator to use dynamic iteration logic:
+On Mon, 26 Jan 2026 at 12:17, Marc Zyngier <maz@kernel.org> wrote:
+>
+> Computing RESx values is hard. Verifying that they are correct is
+> harder. Add a debugfs file called "resx" that will dump all the RESx
+> values for a given VM.
+>
+> I found it useful, maybe you will too.
 
-- Remove `lpi_idx` from `struct vgic_state_iter`.
-- Replace the XArray marking mechanism with dynamic iteration using
-  `xa_find_after(..., XA_PRESENT)`.
-- Wrap XArray traversals in `rcu_read_lock()`/`rcu_read_unlock()` to
-  ensure safety against concurrent modifications (e.g., LPI unmapping).
-- Handle potential races where an LPI is removed during iteration by
-  gracefully skipping it in `show()`, rather than warning.
-- Remove the unused `LPI_XA_MARK_DEBUG_ITER` definition.
+I'm sure I will :)
 
-This simplifies the lifecycle management of the iterator and prevents
-resource leaks associated with the marking mechanism, and paves the way
-for using a standard seq_file iterator.
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/include/asm/kvm_host.h |  1 +
+>  arch/arm64/kvm/sys_regs.c         | 98 +++++++++++++++++++++++++++++++
+>  2 files changed, 99 insertions(+)
+>
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index c82b071ade2a5..54072f6ec9d4b 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -375,6 +375,7 @@ struct kvm_arch {
+>
+>         /* Iterator for idreg debugfs */
+>         u8      idreg_debugfs_iter;
+> +       u16     sr_resx_iter;
 
-Signed-off-by: Fuad Tabba <tabba@google.com>
----
- arch/arm64/kvm/vgic/vgic-debug.c | 68 ++++++++++----------------------
- include/kvm/arm_vgic.h           |  1 -
- 2 files changed, 20 insertions(+), 49 deletions(-)
+Storing `sr_resx_iter` in `struct kvm_arch` effectively makes this
+debugfs file exclusive (returning -EBUSY on contention). Standard
+`seq_file` implementations should be stateless, using the `loff_t
+*pos` argument to track the index. This allows multiple users to read
+the file simultaneously without blocking each other.
 
-diff --git a/arch/arm64/kvm/vgic/vgic-debug.c b/arch/arm64/kvm/vgic/vgic-debug.c
-index bb92853d1fd3..ec3d0c1fe703 100644
---- a/arch/arm64/kvm/vgic/vgic-debug.c
-+++ b/arch/arm64/kvm/vgic/vgic-debug.c
-@@ -25,11 +25,9 @@
- struct vgic_state_iter {
- 	int nr_cpus;
- 	int nr_spis;
--	int nr_lpis;
- 	int dist_id;
- 	int vcpu_id;
- 	unsigned long intid;
--	int lpi_idx;
- };
- 
- static void iter_next(struct kvm *kvm, struct vgic_state_iter *iter)
-@@ -45,13 +43,15 @@ static void iter_next(struct kvm *kvm, struct vgic_state_iter *iter)
- 	 * Let the xarray drive the iterator after the last SPI, as the iterator
- 	 * has exhausted the sequentially-allocated INTID space.
- 	 */
--	if (iter->intid >= (iter->nr_spis + VGIC_NR_PRIVATE_IRQS - 1) &&
--	    iter->nr_lpis) {
--		if (iter->lpi_idx < iter->nr_lpis)
--			xa_find_after(&dist->lpi_xa, &iter->intid,
--				      VGIC_LPI_MAX_INTID,
--				      LPI_XA_MARK_DEBUG_ITER);
--		iter->lpi_idx++;
-+	if (iter->intid >= (iter->nr_spis + VGIC_NR_PRIVATE_IRQS - 1)) {
-+		if (iter->intid == VGIC_LPI_MAX_INTID + 1)
-+			return;
-+
-+		rcu_read_lock();
-+		if (!xa_find_after(&dist->lpi_xa, &iter->intid,
-+				   VGIC_LPI_MAX_INTID, XA_PRESENT))
-+			iter->intid = VGIC_LPI_MAX_INTID + 1;
-+		rcu_read_unlock();
- 		return;
- 	}
- 
-@@ -61,44 +61,21 @@ static void iter_next(struct kvm *kvm, struct vgic_state_iter *iter)
- 		iter->intid = 0;
- }
- 
--static int iter_mark_lpis(struct kvm *kvm)
-+static int vgic_count_lpis(struct kvm *kvm)
- {
- 	struct vgic_dist *dist = &kvm->arch.vgic;
--	unsigned long intid, flags;
- 	struct vgic_irq *irq;
-+	unsigned long intid;
- 	int nr_lpis = 0;
- 
--	xa_lock_irqsave(&dist->lpi_xa, flags);
--
--	xa_for_each(&dist->lpi_xa, intid, irq) {
--		if (!vgic_try_get_irq_ref(irq))
--			continue;
--
--		__xa_set_mark(&dist->lpi_xa, intid, LPI_XA_MARK_DEBUG_ITER);
-+	rcu_read_lock();
-+	xa_for_each(&dist->lpi_xa, intid, irq)
- 		nr_lpis++;
--	}
--
--	xa_unlock_irqrestore(&dist->lpi_xa, flags);
-+	rcu_read_unlock();
- 
- 	return nr_lpis;
- }
- 
--static void iter_unmark_lpis(struct kvm *kvm)
--{
--	struct vgic_dist *dist = &kvm->arch.vgic;
--	unsigned long intid, flags;
--	struct vgic_irq *irq;
--
--	xa_for_each_marked(&dist->lpi_xa, intid, irq, LPI_XA_MARK_DEBUG_ITER) {
--		xa_lock_irqsave(&dist->lpi_xa, flags);
--		__xa_clear_mark(&dist->lpi_xa, intid, LPI_XA_MARK_DEBUG_ITER);
--		xa_unlock_irqrestore(&dist->lpi_xa, flags);
--
--		/* vgic_put_irq() expects to be called outside of the xa_lock */
--		vgic_put_irq(kvm, irq);
--	}
--}
--
- static void iter_init(struct kvm *kvm, struct vgic_state_iter *iter,
- 		      loff_t pos)
- {
-@@ -108,8 +85,6 @@ static void iter_init(struct kvm *kvm, struct vgic_state_iter *iter,
- 
- 	iter->nr_cpus = nr_cpus;
- 	iter->nr_spis = kvm->arch.vgic.nr_spis;
--	if (kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3)
--		iter->nr_lpis = iter_mark_lpis(kvm);
- 
- 	/* Fast forward to the right position if needed */
- 	while (pos--)
-@@ -121,7 +96,7 @@ static bool end_of_vgic(struct vgic_state_iter *iter)
- 	return iter->dist_id > 0 &&
- 		iter->vcpu_id == iter->nr_cpus &&
- 		iter->intid >= (iter->nr_spis + VGIC_NR_PRIVATE_IRQS) &&
--		(!iter->nr_lpis || iter->lpi_idx > iter->nr_lpis);
-+		iter->intid > VGIC_LPI_MAX_INTID;
- }
- 
- static void *vgic_debug_start(struct seq_file *s, loff_t *pos)
-@@ -178,7 +153,6 @@ static void vgic_debug_stop(struct seq_file *s, void *v)
- 
- 	mutex_lock(&kvm->arch.config_lock);
- 	iter = kvm->arch.vgic.iter;
--	iter_unmark_lpis(kvm);
- 	kfree(iter);
- 	kvm->arch.vgic.iter = NULL;
- 	mutex_unlock(&kvm->arch.config_lock);
-@@ -188,13 +162,14 @@ static void print_dist_state(struct seq_file *s, struct vgic_dist *dist,
- 			     struct vgic_state_iter *iter)
- {
- 	bool v3 = dist->vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3;
-+	struct kvm *kvm = s->private;
- 
- 	seq_printf(s, "Distributor\n");
- 	seq_printf(s, "===========\n");
- 	seq_printf(s, "vgic_model:\t%s\n", v3 ? "GICv3" : "GICv2");
- 	seq_printf(s, "nr_spis:\t%d\n", dist->nr_spis);
- 	if (v3)
--		seq_printf(s, "nr_lpis:\t%d\n", iter->nr_lpis);
-+		seq_printf(s, "nr_lpis:\t%d\n", vgic_count_lpis(kvm));
- 	seq_printf(s, "enabled:\t%d\n", dist->enabled);
- 	seq_printf(s, "\n");
- 
-@@ -291,16 +266,13 @@ static int vgic_debug_show(struct seq_file *s, void *v)
- 	if (iter->vcpu_id < iter->nr_cpus)
- 		vcpu = kvm_get_vcpu(kvm, iter->vcpu_id);
- 
--	/*
--	 * Expect this to succeed, as iter_mark_lpis() takes a reference on
--	 * every LPI to be visited.
--	 */
- 	if (iter->intid < VGIC_NR_PRIVATE_IRQS)
- 		irq = vgic_get_vcpu_irq(vcpu, iter->intid);
- 	else
- 		irq = vgic_get_irq(kvm, iter->intid);
--	if (WARN_ON_ONCE(!irq))
--		return -EINVAL;
-+
-+	if (!irq)
-+		return 0;
- 
- 	raw_spin_lock_irqsave(&irq->irq_lock, flags);
- 	print_irq_state(s, irq, vcpu);
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index b261fb3968d0..d32fafbd2907 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -300,7 +300,6 @@ struct vgic_dist {
- 	 */
- 	u64			propbaser;
- 
--#define LPI_XA_MARK_DEBUG_ITER	XA_MARK_0
- 	struct xarray		lpi_xa;
- 
- 	/* used by vgic-debug */
--- 
-2.53.0.rc1.225.gd81095ad13-goog
+>
+>         /* Hypercall features firmware registers' descriptor */
+>         struct kvm_smccc_features smccc_feat;
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 88a57ca36d96c..f3f92b489b588 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -5090,12 +5090,110 @@ static const struct seq_operations idregs_debug_sops = {
+>
+>  DEFINE_SEQ_ATTRIBUTE(idregs_debug);
+>
+> +static const struct sys_reg_desc *sr_resx_find(struct kvm *kvm, u16 pos)
+> +{
+> +       unsigned long i, sr_idx = 0;
+> +
+> +       for (i = 0; i < ARRAY_SIZE(sys_reg_descs); i++) {
+> +               const struct sys_reg_desc *r = &sys_reg_descs[i];
+> +
+> +               if (r->reg < __SANITISED_REG_START__)
+> +                       continue;
+> +
+> +               if (sr_idx == pos)
+> +                       return r;
+> +
+> +               sr_idx++;
+> +       }
+> +
+> +       return NULL;
+> +}
+> +
+> +static void *sr_resx_start(struct seq_file *s, loff_t *pos)
+> +{
+> +       struct kvm *kvm = s->private;
+> +       u16 *iter;
+> +
+> +       guard(mutex)(&kvm->arch.config_lock);
 
+My understanding of `guard()` is that it releases the lock as soon as
+the current scope ends (i.e., when `sr_resx_start() `returns). If the
+intention was to protect the iteration, it seems like `sr_resx_next()`
+and `sr_resx_show()` would end up running unprotected. That said,
+converting this to a standard `seq_file` implementation should remove
+the need for locking altogether.
+
+I guess you based your code on the existing code for the idregs
+debugfs. I had a look at that, and at vgic-debug, and I think they
+both can be simplified and made more robust [1]. I also have a diff
+that converts this to use `seq_file`. It's pretty similar to what I
+have for idregs in the series I sent out [2]. Let me know if you'd
+like me to share it.
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/20260202085721.3954942-1-tabba@google.com/
+[2] https://lore.kernel.org/all/20260202085721.3954942-2-tabba@google.com/
+
+
+
+
+> +
+> +       if (!kvm->arch.sysreg_masks)
+> +               return NULL;
+> +
+> +       iter = &kvm->arch.sr_resx_iter;
+> +       if (*iter != (u16)~0)
+> +               return ERR_PTR(-EBUSY);
+> +
+> +       *iter = *pos;
+> +       if (!sr_resx_find(kvm, *iter))
+> +               iter = NULL;
+> +
+> +       return iter;
+> +}
+> +
+> +static void *sr_resx_next(struct seq_file *s, void *v, loff_t *pos)
+> +{
+> +       struct kvm *kvm = s->private;
+> +
+> +       (*pos)++;
+> +
+> +       if (sr_resx_find(kvm, kvm->arch.sr_resx_iter + 1)) {
+> +               kvm->arch.sr_resx_iter++;
+> +
+> +               return &kvm->arch.sr_resx_iter;
+> +       }
+> +
+> +       return NULL;
+> +}
+> +
+> +static void sr_resx_stop(struct seq_file *s, void *v)
+> +{
+> +       struct kvm *kvm = s->private;
+> +
+> +       if (IS_ERR(v))
+> +               return;
+> +
+> +       guard(mutex)(&kvm->arch.config_lock);
+> +
+> +       kvm->arch.sr_resx_iter = ~0;
+> +}
+> +
+> +static int sr_resx_show(struct seq_file *s, void *v)
+> +{
+> +       const struct sys_reg_desc *desc;
+> +       struct kvm *kvm = s->private;
+> +       struct resx resx;
+> +
+> +       desc = sr_resx_find(kvm, kvm->arch.sr_resx_iter);
+> +
+> +       if (!desc->name)
+> +               return 0;
+> +
+> +       resx = kvm_get_sysreg_resx(kvm, desc->reg);
+> +
+> +       seq_printf(s, "%20s:\tRES0:%016llx\tRES1:%016llx\n",
+> +                  desc->name, resx.res0, resx.res1);
+> +
+> +       return 0;
+> +}
+> +
+> +static const struct seq_operations sr_resx_sops = {
+> +       .start  = sr_resx_start,
+> +       .next   = sr_resx_next,
+> +       .stop   = sr_resx_stop,
+> +       .show   = sr_resx_show,
+> +};
+> +
+> +DEFINE_SEQ_ATTRIBUTE(sr_resx);
+> +
+>  void kvm_sys_regs_create_debugfs(struct kvm *kvm)
+>  {
+>         kvm->arch.idreg_debugfs_iter = ~0;
+> +       kvm->arch.sr_resx_iter = ~0;
+>
+>         debugfs_create_file("idregs", 0444, kvm->debugfs_dentry, kvm,
+>                             &idregs_debug_fops);
+> +       debugfs_create_file("resx", 0444, kvm->debugfs_dentry, kvm,
+> +                           &sr_resx_fops);
+>  }
+>
+>  static void reset_vm_ftr_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *reg)
+> --
+> 2.47.3
+>
 
