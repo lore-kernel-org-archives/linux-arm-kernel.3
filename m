@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8CF0E7FDD8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 20:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51672E7FDD7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 20:37:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/7Pyo6ef5RcCyEtcsdwmvB8O4C4smcfln1dAVL0iSCU=; b=2Vg4d2c456KZ2r2JKYOnoY9HG1
-	9be+YnOI9jAAzj+poFnbp+7Fu4XyKDWOAoOZrjSKQoMy76PtzfHiIn1//y4WI5lDjGHcglL/1OA4+
-	613qifibwVmKe3EorBk+4c6uAvUmdJY2BnQlQ5IegRvSHecSAC07TyBNZ3YMQPY1Q/DP5QSSN1oxe
-	Ah0aCjfnXXyrDl9usJIX8PTzPSrlg4JBJiFpnacNLrCOAtsXGUDD07680rG/ptryp++/5gyshK9o7
-	DcQMSyfnmMxviQGvVo3XasXxYMJ7c8ThRKu1ANpJlTbqdY74YEVinslc9nI9dnTypDjejX8MRchc5
-	hYVkNrxA==;
+	bh=Vocir3EbqQR2TAUW5GQyBdcTVWbGxxyzOWpjIrtmS1g=; b=2jGoS5IWcSk6+o5CmuqAL6qiW4
+	MXNV0syfuOKkaRRaEDCD45AkUKDj6wCbDvOTuu7Cf1uKpd5hhDlMB+MoIZ1XQEXHxwWQD8jGQkCE3
+	/7MOq2YHK5wFGxzo2COtH0dbtCj2yfeZA8RH1ogrEL0EDEoEt0FXWQLNIiAa6+zaytmNMKej7TWr7
+	uARyNhXPu+o5MVT7KThBtdrX8FjQHomUaSxHGsZYH0Eh0KR/CEBvAsU0esoDSrbl8FD+f0di7z1yS
+	C4UA4LqmFg5z0f5dLUVd5yiwT2A5BlmYPSTH376dKHUPVcLZXOYAdZqikfESU0qHVFN/32hMDMw25
+	84FmdtKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn0g2-00000005cdG-40nG;
-	Mon, 02 Feb 2026 20:37:42 +0000
+	id 1vn0fz-00000005caE-2RFa;
+	Mon, 02 Feb 2026 20:37:39 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn0fy-00000005cYu-1dKW
+	id 1vn0fw-00000005cXI-3pKH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 20:37:39 +0000
+	Mon, 02 Feb 2026 20:37:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DCFDD444A8;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2247944462;
 	Mon,  2 Feb 2026 20:37:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B2BDDC2BCAF;
-	Mon,  2 Feb 2026 20:37:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id F184AC2BC86;
+	Mon,  2 Feb 2026 20:37:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1770064656;
-	bh=aIxdhfft82t0LR/tguShdCXtDz/e/UoBlZbo+TcBruU=;
+	bh=DPRlDntlu0iKeJf/CMopdHlJpBQ0BaeVB92s+jp4gPI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=St01odn+LFAwYbWH3LbiGNi3o+cLVov3o26fCA5sA8v4cpazmtzXRzF2f5zXyZz8I
-	 jGIHtxPKvFOJdddIJS5FH9uoXa2iw5lnFN7Qza1H0sB1jvh8EgqW+eIbszq3m+5mKd
-	 QyYdqMxo0ZDzOGki3qA5sovLiuf6oP61HUeLG/rPLoJOeSjoOSEc0lfqhsDmXyCcT1
-	 qqiuxCF1xMl0dgBtMxCQfurkYL0kWwpUkaYBk4LN+UGN148r1dQZtKOPN8gNpv96+x
-	 JgvM4ooGiutEs22fVN3EofnHcMCAHQ79/7jpqvcz+xpchiLmBSV+zyoMpbiFgncwVJ
-	 38EkKvhxWuVWg==
+	b=WmFBf0A8+WyIQh8CR08LMOJb6ODe925tph9qKHoSKRpMV+ZyvRxoz7g2kN4TC2H6b
+	 p6FzcBdD7EqvVZpSWhp5lsgSm+C55sQrYp545Bu4sZzAkL0Miqxw7e3l4OhfbDtkF2
+	 pbSBrh3Rgf8HcxPhSXvQudtBUcUhqNOthlvkTQxrCld5f5Y4t23MOa/OXRmni9fQcV
+	 ts2MDbfMvUOTNqXDIZedLM7YFZTh2930boF52DYkxhsfbZmn6OF2Y3BWUWFhL0NrcM
+	 9490bjH+JG+f0lBOocW9Fh1uwCu+lbwk0pdZ/NCA3icQKZ9u4r9PHRKqnBvr1kG0E5
+	 gzHch2KSfa0Nw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9D9C1E7FDD0;
-	Mon,  2 Feb 2026 20:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E30DAE7FDD0;
+	Mon,  2 Feb 2026 20:37:35 +0000 (UTC)
 From: Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org>
-Date: Mon, 02 Feb 2026 20:37:24 +0000
-Subject: [PATCH v9 7/7] i2c: xiic: skip input clock setup on non-OF systems
+Date: Mon, 02 Feb 2026 20:37:20 +0000
+Subject: [PATCH v9 3/7] i2c: xiic: switch to generic device property
+ accessors
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260202-i2c-xiic-v9-7-ce4695f5267d@nexthop.ai>
+Message-Id: <20260202-i2c-xiic-v9-3-ce4695f5267d@nexthop.ai>
 References: <20260202-i2c-xiic-v9-0-ce4695f5267d@nexthop.ai>
 In-Reply-To: <20260202-i2c-xiic-v9-0-ce4695f5267d@nexthop.ai>
 To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
@@ -62,19 +63,19 @@ Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770064654; l=1208;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770064654; l=2990;
  i=abdurrahman@nexthop.ai; s=20260119; h=from:subject:message-id;
- bh=qAOgrbSGsxp0qSeRvLqeFzjiQ6yMVDZel5cRWAUzEco=;
- b=RvPUnGkIwT65/8Ukp0VGrxU1fvDeEccXellEgYK7PbZskP99R9ZlqKf/9m0bPPHIFsdSGi4uP
- AthFPKugAdRCbOREm48E4SZzQeeaoxdnyWVQUPfdPmUKm7w30zm8hkK
+ bh=k0KDwbzoPFBnih9Js9Y0osMzTW9DrweWovD0ZQMqow4=;
+ b=hT4pIYna2kjLsAHgZEkq91lzyiUfBMTqWNz2EViDNnJP7gdkgiH7RVjrslfqj3JYoI+mV/5PP
+ uO9oEJFOw28CkdhXBeBNTR1LAuLlzIRoLipl+gD+NNPuNI+xw4XMR8P
 X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
  pk=S+ysnf+NwMcBdHBlyKIUEAtaFGSIhQwcJcgcXhq0osg=
 X-Endpoint-Received: by B4 Relay for abdurrahman@nexthop.ai/20260119 with
  auth_id=608
 X-Original-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_123738_487456_57CDFAA3 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20260202_123737_021661_8CB2AFDA 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,38 +93,94 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 
-Currently Linux does not implement ACPI ClockInput to describe clock
-resources, unlike DT. However the xiic driver is happy if something
-magically enables the clock before the driver probes, and does not
-turn it off again. The clock should always be considered optional for
-ACPI.
+Use generic device property accessors.
 
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 ---
- drivers/i2c/busses/i2c-xiic.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ drivers/i2c/busses/i2c-xiic.c | 20 ++++++--------------
+ 1 file changed, 6 insertions(+), 14 deletions(-)
 
 diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
-index 2c0470452221..017e33d4309c 100644
+index 4cb7c40fb565..60d417a2266e 100644
 --- a/drivers/i2c/busses/i2c-xiic.c
 +++ b/drivers/i2c/busses/i2c-xiic.c
-@@ -1463,10 +1463,12 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+@@ -27,7 +27,6 @@
+ #include <linux/platform_data/i2c-xiic.h>
+ #include <linux/io.h>
+ #include <linux/slab.h>
+-#include <linux/of.h>
+ #include <linux/clk.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/iopoll.h>
+@@ -1408,7 +1407,6 @@ static const struct i2c_adapter xiic_adapter = {
+ 	.algo = &xiic_algorithm,
+ };
  
- 	spin_lock_init(&i2c->atomic_lock);
+-#if defined(CONFIG_OF)
+ static const struct xiic_version_data xiic_2_00 = {
+ 	.quirks = DYNAMIC_MODE_READ_BROKEN_BIT,
+ };
+@@ -1419,14 +1417,13 @@ static const struct of_device_id xiic_of_match[] = {
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, xiic_of_match);
+-#endif
  
--	i2c->clk = devm_clk_get_enabled(&pdev->dev, NULL);
--	if (IS_ERR(i2c->clk))
--		return dev_err_probe(&pdev->dev, PTR_ERR(i2c->clk),
--				     "failed to enable input clock.\n");
-+	if (is_of_node(dev_fwnode(dev))) {
-+		i2c->clk = devm_clk_get_enabled(dev, NULL);
-+		if (IS_ERR(i2c->clk))
-+			return dev_err_probe(&pdev->dev, PTR_ERR(i2c->clk),
-+					"failed to enable input clock.\n");
-+	}
+ static int xiic_i2c_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct xiic_i2c *i2c;
+ 	struct xiic_i2c_platform_data *pdata;
+-	const struct of_device_id *match;
++	const struct xiic_version_data *data;
+ 	struct resource *res;
+ 	int ret, irq;
+ 	u8 i;
+@@ -1436,12 +1433,9 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 	if (!i2c)
+ 		return -ENOMEM;
  
- 	i2c->dev = dev;
+-	match = of_match_node(xiic_of_match, pdev->dev.of_node);
+-	if (match && match->data) {
+-		const struct xiic_version_data *data = match->data;
+-
++	data = device_get_match_data(dev);
++	if (data)
+ 		i2c->quirks = data->quirks;
+-	}
  
+ 	i2c->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+ 	if (IS_ERR(i2c->base))
+@@ -1458,7 +1452,7 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 	i2c->adap = xiic_adapter;
+ 	i2c_set_adapdata(&i2c->adap, i2c);
+ 	i2c->adap.dev.parent = &pdev->dev;
+-	i2c->adap.dev.of_node = pdev->dev.of_node;
++	device_set_node(&i2c->adap.dev, dev_fwnode(dev));
+ 	snprintf(i2c->adap.name, sizeof(i2c->adap.name),
+ 		 DRIVER_NAME " %s", pdev->name);
+ 
+@@ -1482,8 +1476,7 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 
+ 	/* SCL frequency configuration */
+ 	i2c->input_clk = clk_get_rate(i2c->clk);
+-	ret = of_property_read_u32(pdev->dev.of_node, "clock-frequency",
+-				   &i2c->i2c_clk);
++	ret = device_property_read_u32(dev, "clock-frequency", &i2c->i2c_clk);
+ 	/* If clock-frequency not specified in DT, do not configure in SW */
+ 	if (ret || i2c->i2c_clk > I2C_MAX_FAST_MODE_PLUS_FREQ)
+ 		i2c->i2c_clk = 0;
+@@ -1494,8 +1487,7 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	i2c->singlemaster =
+-		of_property_read_bool(pdev->dev.of_node, "single-master");
++	i2c->singlemaster = device_property_read_bool(dev, "single-master");
+ 
+ 	/*
+ 	 * Detect endianness
 
 -- 
 2.52.0
