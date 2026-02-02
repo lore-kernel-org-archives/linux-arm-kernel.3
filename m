@@ -4,63 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 170A9E7DEEE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0ED5E7DEF3
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 15:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hDSJE4EkTKFGGkPhn4SeHIi1SiIBeSssNODaa+nXt/0=; b=qsSO1Jp5GyUejgcfjrGko4ftEa
-	KZs3Ec+gdnh+0qzthIrHwhdwgHckz9n1QrWVU9K6H1PtcP/KGW5TgaglTUoQXb/clSEhVIuH/GCdp
-	zx16owwN1BRuPzWRarDxTS3E7EzLIUQsF/qFBI8iXrXd61sxOQ7e4npenF9pS+diKm3LBQEU8TwtL
-	2lKBVKIqqijtKBxbBaBybJ+TFdE+xUGeJO5QvNMBdHPEDDkrhPFNLyuvZTQxyRR+bxa4yHedbd1QS
-	PMHFsV0+N1TJlsUIiTZ/MHGSBWBxKrfFXFWDtco5pJ7DQnYpgHwAuQdYcMctXy9C8TTvI+SRpspL6
-	Cdy5SQiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QLQJlIi1xp3GOgxJrSuyTGl+kKtHgLV5lTV9J+BYkDY=; b=CAcTbOYzvcTC7/FzvSMg6jwBr/
+	ju0d8BrVgReEnIPJ0DJxxhHBfwtDtTZ5cN3fIHHY2abC4UqtFvRL0NDix8r9rNuDPgvIG3/EKsRGY
+	+U6IuqjJcJ9EpPDleUXK9VIdC+6lRztHsrVxCvPwRBVQsPYpBqEna4Wg8+fPTlNbsEIpVBsekw0FX
+	mjZf/SySrdGawSydH16YEkNEOtcXm2LPzrko4wjCht3rcNn1IRrsrJxAsjNzaD6q0/61sH7QL2OvA
+	uIfhNbXAYBsVRwqEheCAHfWmEd/HNGHkLfLISfe1qIGOEWMYp2wWwd22cQlmXm+zftSSDUCKCNZoN
+	iQjNqLPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmvZv-00000005ALo-2yJz;
-	Mon, 02 Feb 2026 15:11:03 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1vmvZw-00000005AM4-0pJq;
+	Mon, 02 Feb 2026 15:11:04 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmvZk-00000005AK5-2Sj6
+	id 1vmvZs-00000005AKd-45Yy
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 02 Feb 2026 15:11:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=hDSJE4EkTKFGGkPhn4SeHIi1SiIBeSssNODaa+nXt/0=; b=OK3srajgyUf9c4eoWt+HpqmoeF
-	zCW8TWlSyPm5QmnzBxjRM8Wx9F3ZpamTfBVahM5HHOI5XgWP29DS6PmBGlUf4qDn5gea1FCwpm381
-	DoBFgexDF4X8Vd1KCovhH/Oed2GyXV3PAbB9JeAY+DyhJ8kdxKS5vw80qFKy0kmYC3gl4MUy2dflO
-	Vb9o9dFXoYvMH3W9BYfKqALbQf5KqVPqk3HTnrZdKR8Y7Ftsf7f1KUcDmnPNKFc+26Y+TLygkRyzY
-	rzH6MTrJJ+VgiKqGp+eoF1PA2Q4oyEurjrvFhB7c7KyLpm/9hXpoAUOPLP03nJYcfFdAdowBLokg1
-	wAorNQzA==;
-Received: from authenticated user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.94.2)
-	(envelope-from <leitao@debian.org>)
-	id 1vmvZf-00481y-9s; Mon, 02 Feb 2026 15:10:47 +0000
-Date: Mon, 2 Feb 2026 07:10:43 -0800
-From: Breno Leitao <leitao@debian.org>
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>, Mark Brown <broonie@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64/gcs: Fix error handling in
- arch_set_shadow_stack_status()
-Message-ID: <aYC-UhyMdh2YJSty@gmail.com>
-References: <20260130-arm64_cgs-v1-1-c9b6942b6b70@debian.org>
- <aYC4WygNsqtGePnq@willie-the-truck>
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-432d2670932so4209647f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 07:11:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1770045059; x=1770649859; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=QLQJlIi1xp3GOgxJrSuyTGl+kKtHgLV5lTV9J+BYkDY=;
+        b=RlruWYHLvL3u/OGPsGiOvrDM5d7FkhykhN+t5w/tWV+awQM4wAKFuFGiAPnBzqm0RY
+         vYpXVqDohxBxh6iLqIDQ+C5rpmcebYllWirJv9bMv/dw9tLAyeYXr3CQIDPHd6VFfNSw
+         cgaTG4DyV/yt9VBaHw0j11fUlPW3aZKiOAF7cW5FpjZ9bH7ePqpSclSAPRox4noivH98
+         zmiqZS6z12nh+3WQu5r6rzS66pgnW9WCBdKSqaYXw46qAfgBZCSBXTRVnFc5h4bhJ1w1
+         TOG/0TVcZzG0YoZUpgkmutOuBI3OMxMo2AIc4InYvS7SxobfHa5w19ysitMo9eL/qBJ3
+         TKRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770045059; x=1770649859;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QLQJlIi1xp3GOgxJrSuyTGl+kKtHgLV5lTV9J+BYkDY=;
+        b=UTH6x0NSFksaUqwh7E8pPmlZGh4tvgv7EW0TOgskZq7DBH1E4v8bdw63T0h9kEpNyV
+         nFGD+zFf4uASL1WqqEMN61aqsdDGKQKqSkbhupzek74uTGWYIXjH1jfEfLsPIyqMjvz+
+         7Zx/VGmPPRerfq77/shvKG3qrI5Vw6fyaPpK5K/B5XC8xo7iVShWHYoGHvIH3oNTIepK
+         HbN9vqrXLxN80wWxQ7FJBfwomfuOs2fgbGJoRx20GTWXohFbI3J+Z+4O2azYR3O17buF
+         skLS8o1348ID5O/fJzUIOlc7oUSr9eiLAotEsdEcUxTh+03jtPgvJeOkYprOksECBEsj
+         5J3w==
+X-Forwarded-Encrypted: i=1; AJvYcCUu6qqf+zGnOm3NKDDRxTwgIwQ6BZ7mkwZojIvBenQ1XmtZyZoEEqvAf9yEZfvj0v9NGFIF51knrzg5M+/hXS1t@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx49FcNr2tZ7uX7zwRfIjcumJ4YMcYVt+Av43eJ1HoEO2XcU6QQ
+	1j9+xLGm22Q8asyjQoQ9xgks45xCX/eUsH056/CSm9wB2DiWXoQ1yKEXkDduPsAOBWU=
+X-Gm-Gg: AZuq6aKD4UpVPqnFELurNf3TQ4aFCHW7o09/i3LJPAgkTvWtWVRa1hAd1wvoHiNIVPe
+	gtepd+BfQOfhh8+RXkhOo50H5GpAGlpZwlmbygoKlP7goQmHBmPvb4jRTpNwSscuVxeciYZl+b2
+	mUYSo1/SdoO/+H9Lq1pCT24JOqbHbnV41P5p1zQ4+rniwYTblf3iC6M5JVbW7Z7Q/tFaHVD/ROp
+	+uc4tIt4kQR/On7M3aGq3tJMkhbXyTkBWH3zp6/WV9QsYxGIGUA7iVMY2+wx/2aoxCDKcubsa/q
+	+HJ2To9VZPkclYhV9l04qqKp3A9G2XaBGwLTlR9lpDpmwV+nUtz+HthF5IxFpm/HXsYM2KdAWeJ
+	Qfcea9lazmB9WW+ypDEOPO50CyU1N7esNUC6Zx2nB1ufNyY9oKcucpWWVGdjbJHxWA85s55qLOW
+	u8T9YBA1HzONOsTvPkqaggnI/FaCs=
+X-Received: by 2002:a5d:64e6:0:b0:435:982d:97ee with SMTP id ffacd0b85a97d-435f3ab9a44mr19652025f8f.57.1770045055569;
+        Mon, 02 Feb 2026 07:10:55 -0800 (PST)
+Received: from vingu-cube.. ([2a01:e0a:f:6020:7cf3:628:f0e:cd4d])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e10edfccsm42845021f8f.17.2026.02.02.07.10.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Feb 2026 07:10:54 -0800 (PST)
+From: Vincent Guittot <vincent.guittot@linaro.org>
+To: ciprianmarian.costea@oss.nxp.com,
+	s32@nxp.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Vincent Guittot <vincent.guittot@linaro.org>
+Subject: [PATCH v2] PCI: s32g: Fix ports parsing
+Date: Mon,  2 Feb 2026 16:10:50 +0100
+Message-ID: <20260202151050.1446165-1-vincent.guittot@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aYC4WygNsqtGePnq@willie-the-truck>
-X-Debian-User: leitao
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_071101_318865_9562256E 
-X-CRM114-Status: GOOD (  23.29  )
+X-CRM114-CacheID: sfid-20260202_071101_364513_25970373 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,45 +104,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 02, 2026 at 02:44:43PM +0000, Will Deacon wrote:
-> On Fri, Jan 30, 2026 at 01:43:09AM -0800, Breno Leitao wrote:
-> > alloc_gcs() returns an error-encoded pointer on failure, which comes
-> > from do_mmap(), not NULL.
-> > 
-> > The current NULL check fails to detect errors, which could lead to using
-> > an invalid GCS address.
-> > 
-> > Use IS_ERR_VALUE() to properly detect errors, consistent with the
-> > check in gcs_alloc_thread_stack().
-> > 
-> > Fixes: b57180c75c7eb ("arm64/gcs: Implement shadow stack prctl() interface")
-> > Signed-off-by: Breno Leitao <leitao@debian.org>
-> > ---
-> > PS: This was compiled-tested only, given I unfortunately don't have
-> > a hardware to test on _yet_.
-> > ---
-> >  arch/arm64/mm/gcs.c | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
-> > index 6e93f78de79b1..efce7642b1d7b 100644
-> > --- a/arch/arm64/mm/gcs.c
-> > +++ b/arch/arm64/mm/gcs.c
-> > @@ -199,8 +199,8 @@ int arch_set_shadow_stack_status(struct task_struct *task, unsigned long arg)
-> >  
-> >  		size = gcs_size(0);
-> >  		gcs = alloc_gcs(0, size);
-> > -		if (!gcs)
-> > -			return -ENOMEM;
-> > +		if (IS_ERR_VALUE(gcs))
-> > +			return PTR_ERR((void *)gcs);
-> 
-> Why do you need to go via PTR_ERR() here? 'gcs' is an 'unsigned long' so
-> can't we just return that directly?
+No error return is missing after the loop resulting in removing the
+ports from the list.
 
-yea, PTR_ERR() is not helping here. We can definitely return gcs
-directly.
+Fixes: 5cbc7d3e316e ("PCI: s32g: Add NXP S32G PCIe controller driver (RC)")
+Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+---
 
-I will update it,
---breno
+Change since v1:
+- handle correctly the case when there is no child port
+
+ drivers/pci/controller/dwc/pcie-nxp-s32g.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g.c b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
+index 47745749f75c..b3ec38099fa3 100644
+--- a/drivers/pci/controller/dwc/pcie-nxp-s32g.c
++++ b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
+@@ -282,12 +282,12 @@ static int s32g_pcie_parse_ports(struct device *dev, struct s32g_pcie *s32g_pp)
+ 
+ 		ret = s32g_pcie_parse_port(s32g_pp, of_port);
+ 		if (ret)
+-			goto err_port;
++			break;
+ 	}
+ 
+-err_port:
+-	list_for_each_entry_safe(port, tmp, &s32g_pp->ports, list)
+-		list_del(&port->list);
++	if (ret)
++		list_for_each_entry_safe(port, tmp, &s32g_pp->ports, list)
++			list_del(&port->list);
+ 
+ 	return ret;
+ }
+-- 
+2.43.0
+
 
