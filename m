@@ -4,84 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B3BE7DF19
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 18:33:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D57FE7DF19
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 18:42:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=y0SQA2DCPtCAyrCB1taAmCcHiX9Y9ssa35y7xR4oBdg=; b=AZnYVoJT8RdZik+ZuYcnmwz4OH
-	KMNvUSiGlhVeDGhecZbM3xxe2jzgkVHtDHSq5EsgVKWa+OJiAuLY65X1XHZGe9n/SsPNIQjGUe715
-	shwKKyz4BWoDKYTkJUxUBiCCwkaCsJVf/B2hjGQS6rzjGqyOQ0x1c86iRFy3tN99NNPadDdJrpD7A
-	EtRsx06F3BC9SzyN2SubcSZoXtO4/PRoPZFcV/hjMmaUrOXqQLl4rL7tfHoQsZuGIQ3oo69BLYoZk
-	VNkbTt9kuZJ/vQTsGZgLWnOyGRUeiL607SBH1Cg8b/gcy4YKJrvhegGD1ojRguQdegYK6ZfCio69x
-	VMH3bCrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/qEQYWsSx8Q7/0bHl07emI6DeSqa7zmHvysvb3pOmXM=; b=1J5CEw36hdQy8ptLhOIPpqHShO
+	WTPBR3djsn00voB6yEMfPXPOFV/VdzQah1+RjVd2971bRwhHVbcikKLVf1Gjctb3nYAmGUg2UcFji
+	XjOyTEAkGfKQ1p1W4/Z5OP0IrQPLZ4XSjxELz7lNpaOwI7URiS2uudaoY0e37XNimarzj3k/haAFB
+	x6sivViWxvkrx4PGqbi3Lr1RvoIJHsiapEhtcahsMqt7GZulf2S5ItLwrlxZKifPE/VLxInqJ82gm
+	cOxU8xnoWqdNZAibDq50KQpvNWRyn5c6iffNv961H+nTJZY0y0ebpGtXA1+jh29q08X4U/dCwXPZa
+	4a0qT7Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmyji-00000005QaF-2TTO;
-	Mon, 02 Feb 2026 18:33:22 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmyjf-00000005QZV-3G2l
+	id 1vmysl-00000005Qtb-2qcy;
+	Mon, 02 Feb 2026 18:42:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vmysi-00000005Qsn-2drz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 18:33:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=y0SQA2DCPtCAyrCB1taAmCcHiX9Y9ssa35y7xR4oBdg=; b=tTDixZsKE24SXoghdvPSJIy8bc
-	OY+nKwrZMGHsblrqfVwV+w5FzXC4t0XVVaaBBBZLJsSWb0WmCBybILhPr+TbSpU2xYj1m0+dYUkHi
-	GVb/T3KLnt+/2P9nV8NjF5SfretBVNqa+HbAzxlxtrIMoE6Wrhe+0fzl3u6COvhsLNQev2LyKRuA2
-	4ct4blldhRSM0ke44hB0deUx1+jbr92jFIHpXXqlkSwxEkvq2YPF1UthY+Dxo0KxkBSmNALUNn2E+
-	qDwzGSAvDXLcGsnH+Zh1G7IlUutt6iVONhthX+0mkIt6y0VUpbEJlB2EPCFoSa5k1HlrWgzyG68Lo
-	yb0ORK4A==;
-Received: from authenticated user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.94.2)
-	(envelope-from <leitao@debian.org>)
-	id 1vmyjP-004Eqm-Q4; Mon, 02 Feb 2026 18:33:04 +0000
-From: Breno Leitao <leitao@debian.org>
-Date: Mon, 02 Feb 2026 10:32:51 -0800
-Subject: [PATCH v2] arm64/gcs: Fix error handling in
- arch_set_shadow_stack_status()
+	Mon, 02 Feb 2026 18:42:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ACBCC339;
+	Mon,  2 Feb 2026 10:42:30 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9F3B03F778;
+	Mon,  2 Feb 2026 10:42:36 -0800 (PST)
+Date: Mon, 2 Feb 2026 18:42:34 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: James Clark <james.clark@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Alexandru Elisei <Alexandru.Elisei@arm.com>,
+	Anshuman Khandual <Anshuman.Khandual@arm.com>,
+	Rob Herring <Rob.Herring@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	Robin Murphy <Robin.Murphy@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] perf: arm_spe: Add barrier before enabling profiling
+ buffer
+Message-ID: <20260202184234.GC3481290@e132581.arm.com>
+References: <20260123-james-spe-relaxation-v1-1-4ccb88fa7bc5@linaro.org>
+ <20260130202437.GB3481290@e132581.arm.com>
+ <aYDWpc8Jh4SqMcD5@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260202-arm64_cgs-v2-1-e6a837edf021@debian.org>
-X-B4-Tracking: v=1; b=H4sIANLtgGkC/03N0QrCIBTG8VeRcz1DzVzuqveIEdOdthM0Q5cUw
- 3ePrS66/ODP71sgYSRM0LAFImZKFCZomKoY+LGbBuTUQ8NACWWEVJZ38W70xQ+Ja2uOshbq0Eu
- EisEj4pVem3Vuvzs93Q39vAJrMVKaQ3xvZ1mu3c/diz83Sy65t85YrZxxtTj16KibdiEO0JZSP
- mSeIOa1AAAA
-X-Change-ID: 20260129-arm64_cgs-496817025d1e
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, 
- Thiago Jung Bauermann <thiago.bauermann@linaro.org>, 
- Mark Brown <broonie@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel-team@meta.com, Breno Leitao <leitao@debian.org>
-X-Mailer: b4 0.15-dev-f4305
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1367; i=leitao@debian.org;
- h=from:subject:message-id; bh=MmPseQkgfaXXHt/9anSYmv5Kd61ckl4pLRDdwCFqgN4=;
- b=owEBbAKT/ZANAwAIATWjk5/8eHdtAcsmYgBpgO3bMxMjQORPcK48PqktX1No+2mRwB7F6LhCu
- zXTewSqDOiJAjIEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaYDt2wAKCRA1o5Of/Hh3
- bZSVD/dytK0P3BZSDUHDJxU/yCmzV6hGAp5K8Q5aOuTXPXFXcl1Xw3hiMz4hOEzRzBKnH9tt0gZ
- 6rAul496Tnusr5EATsIjSFd8D2MZKcnMV1L2TShE7vB8DbPN4txylihnsrpI/DqTzEs5tuO7Io5
- s0kMxxdJGy13qGD2bxxJAwpNTIt1/bST8KPhoOwhJgyyt2Io3K0p6AHmWrx1Vt8ozzlbH1i7+Ql
- 3rm5Q34NufWbf1xu8JS9lm7eGL5oELHK05TvbabeuKdLffi8pa8KrnjHb8wWV+/xGCcWNKJHliz
- oEtlEslte00pLwVYBBvwqFwhYrFr+5bhtXTVuPbbKw71uyC3Jw24tR9vnZj5RF0dGFuyitd0Rfv
- 7NhrkrncuuoJdk1+fp1pou8z9DBjdvt16J26L2XUZpLBd55xMZ0Bmi+bEzGGBcemrgcdI6HmhHN
- EoY0yo1uUeIR0KLFDuNjcJY5yLhdFZMMiIkhdC7DlsIPoJkrHWdZzAh+CkA0+dSzUHrM6cmb/22
- rrRNH3N/uUPHptRhBbpqOPBYx/emTfJbOrs0kUrbY64aSkuKA5Rf10fKLhAuRktDQlGKzOlxqvW
- xsOnOfcbHVERVuiMqAhAIbWcYiQqdWjx1wNxEjgp2PtxSL6s4C9MQpLq8FzEyVpw5x1HQW78Q2X
- 1RClQ37Qc5hyq
-X-Developer-Key: i=leitao@debian.org; a=openpgp;
- fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
-X-Debian-User: leitao
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aYDWpc8Jh4SqMcD5@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_103320_056966_CD5E1AAD 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20260202_104240_787912_2D6E9F19 
+X-CRM114-Status: GOOD (  25.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,48 +74,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-alloc_gcs() returns an error-encoded pointer on failure, which comes
-from do_mmap(), not NULL.
+On Mon, Feb 02, 2026 at 04:53:57PM +0000, Will Deacon wrote:
 
-The current NULL check fails to detect errors, which could lead to using
-an invalid GCS address.
+[...]
 
-Use IS_ERR_VALUE() to properly detect errors, consistent with the
-check in gcs_alloc_thread_stack().
+> > > To avoid redundant isb()s in the IRQ handler, remove the isb() between
+> > > the PMBLIMITR_EL1 write and SYS_PMBSR_EL1 as it doesn't matter which
+> > > order these happen in now that all the previous configuration is covered
+> > > by the new isb().
+> > 
+> > The isb() in the interrupt handler is useful and should not be removed.
+> > 
+> > See the sequence in the interrupt handler:
+> > 
+> >     arm_spe_perf_aux_output_begin() {
+> >         write_sysreg_s(base, SYS_PMBPTR_EL1);
+> > 
+> >         // Ensure the write pointer is ordered
+> >         isb();
+> > 
+> >         write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
+> >     }
+> > 
+> >     // Ensure the limit pointer is ordered
+> >     isb();
+> > 
+> >     // Profiling is enabled:
+> >     //   (PMBLIMITR_EL1.E==1) && (PMBSR_EL1.S==0) && (not discard mode)
+> >     write_sysreg_s(0, SYS_PMBSR_EL1);
+> > 
+> > The first isb() ensures that the write pointer update is ordered.  The
+> > second isb() ensures that the limit pointer is visible before profiling
+> > is enabled by clearing the PMBSR_EL1.S bit.  When handling a normal
+> > maintenance interrupt, PMBSR_EL1.S is set by the SPE to stop tracing,
+> > while PMBLIMITR_EL1.E remains set.  Clearing PMBSR_EL1.S therefore
+> > effectively re-enables profiling.
+> > 
+> > Since the second isb() is a synchronization for both the write pointer
+> > and the limit pointer before profiling is enabled, it could be argued
+> > that the first isb() is redundant in the interrupt handling.  However,
+> > the first isb() is crucial for the arm_spe_pmu_start() case, and keeping
+> > it in the interrupt handler does no harm and simplifies code maintenance.
+> > 
+> > In short, if preserves the second isb() instead of removing it, the
+> > change looks good to me.
+> 
+> I'm not sure I follow your logic as to why both ISBs are required, but
+> I'd have thought that if perf_aux_output_begin() fails when called from
+> arm_spe_perf_aux_output_begin() in the irqhandler, we need the ISB
+> because we're going to clear pmblimitr_el1 to 0 and that surely has
+> to be ordered before clearing pmbsr?
 
-Fixes: b57180c75c7eb ("arm64/gcs: Implement shadow stack prctl() interface")
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Breno Leitao <leitao@debian.org>
----
-Changes in v2:
-- Remove unnecessary PTR_ERR() conversion (Will)
-- Link to v1: https://patch.msgid.link/20260130-arm64_cgs-v1-1-c9b6942b6b70@debian.org
----
- arch/arm64/mm/gcs.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+I think the ISB after arm_spe_perf_aux_output_begin() in the irq
+handler is required for both the failure and success cases.
 
-diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
-index 6e93f78de79b1..04a23a497f205 100644
---- a/arch/arm64/mm/gcs.c
-+++ b/arch/arm64/mm/gcs.c
-@@ -199,8 +199,8 @@ int arch_set_shadow_stack_status(struct task_struct *task, unsigned long arg)
- 
- 		size = gcs_size(0);
- 		gcs = alloc_gcs(0, size);
--		if (!gcs)
--			return -ENOMEM;
-+		if (IS_ERR_VALUE(gcs))
-+			return gcs;
- 
- 		task->thread.gcspr_el0 = gcs + size - sizeof(u64);
- 		task->thread.gcs_base = gcs;
+For a normal maintenance interrupt, an ISB is inserted between writing
+PMBLIMITR_EL1 and PMBSR_EL1 to ensure that a valid limit write is
+visible before tracing restarts.  This ensures that the following
+conditions are safely met:
 
----
-base-commit: 8dfce8991b95d8625d0a1d2896e42f93b9d7f68d
-change-id: 20260129-arm64_cgs-496817025d1e
+  "While the Proﬁling Buﬀer is enabled, proﬁling is not stopped, and
+   Discard mode is not enabled, all of the following must be true:
 
-Best regards,
---  
-Breno Leitao <leitao@debian.org>
+   The current write pointer must be at least one sample record below
+   the write limit pointer.
 
+   PMBPTR_EL1.PTR[63:56] must equal PMBLIMITR_EL1.LIMIT[63:56],
+   regardless of the value of the applicable TBI bit."
+
+Thanks,
+Leo
 
