@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0711E7315D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 12:55:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6EFFE73158
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 13:05:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uEc8TvjnHa5ctWLyR7nKKcSQVtFV4OpS/QLW1YcL9eM=; b=Sc0YBmj/hTMgIy8OJqo0ZpuJ/t
-	r1u9krN8lSkAZZCU9CVJA8l5hgVJrRsFvlyBt2gFVx5HWdAbW7xYzLFK5BWCGmsD2kfeyBBBVmhip
-	LVh3jxuJdW7Z31nYhreHCCHax82Q3zfB8uL3TjFfnqiXIlJbXwv2oqzUyM18V1cQWrIV9voVMKkJC
-	OqBzthShKnCptqCPLtYCUZ9z9t3YfNRDe5minYvqAJ2rTkGX2SSWlRSWpljDz8bXm3puj6pip4dmg
-	v50eavh4XNpxCtR2gCil62IDJh3kdYT/pAW56aoq2q08NJf0Xbfcs6fdzFaEOaUmvq0cSReadtXJg
-	v7l5Xnyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DaIRa8+hj7hUcUtCLpq5uVaY4q/WBE+WwNIl0Oyop/g=; b=iApjsIJm3N/ucApVCq6WrYAN0u
+	56wEyDKg1rYb2xFj6bme1Ad+E/Oatv1oDUq/ej5QoGjm06QEv6o6dr05rCi/zFKE5LgDFDEwN2CFP
+	64QXqA1RWGWAaTkRfRFBlV3+aeQmxm7wGBfibuP28kYrujN0evAccJw0xXNiFAWSN39MTjpMKtynB
+	SuzZiJSb7eubHqv9H4FghLV8DBA563Mf4tr3bMAl1E3P4eFKnDyQoNwB3V1XXzSguzi9fALNeImZH
+	cK6rKY9VioSBRt8SqhbJYqzjiIgDWg6LLAXMs0mPU4h5IPZizCtOTisqBibAZbkLo2fFxpxsMqqN2
+	KWIq5HmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmtSB-00000004yQF-1mNP;
-	Mon, 02 Feb 2026 12:54:55 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vmtcF-00000004z3o-1Sfr;
+	Mon, 02 Feb 2026 13:05:19 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmtS7-00000004yPY-2GkF
+	id 1vmtcD-00000004z3K-03zi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 12:54:53 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id B82DE1A2B9D;
-	Mon,  2 Feb 2026 12:54:40 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 887B360767;
-	Mon,  2 Feb 2026 12:54:40 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 58917119A8891;
-	Mon,  2 Feb 2026 13:54:35 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1770036879; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=uEc8TvjnHa5ctWLyR7nKKcSQVtFV4OpS/QLW1YcL9eM=;
-	b=O0uWghrHWXwaACUvUJKHzbTu4QLw59L0R/2S+wlYL3pxoyfqk9f0c54BD6+7bowN2+12Ss
-	awylkXRFZduyC7o/tZRzRy2Y+FvEl1fsjer/2iNtWqE/oeazmwF3OdJC12pTpFjuFmM6d+
-	SYqN8LApm6ddErnuQWEuzOo1BYdvSHbo1dsSl9jtjZA5xK06bTDVCqU3aFNMMOC5oduXzS
-	MeezuuwwWFo2CucaaYP2gfY8ktltTJ2J4ubZEYqcAr2ahRPaIxtr9G64JSWFY/FtIQG18m
-	sr5VJPZ5L4V3rQ7mAIYfmfJxvp4PfwYEagT1VRqllmmwKQRaI87K3GNxXGD59w==
-Message-ID: <825baaef-bd76-4e2c-94ef-3daddf55243b@bootlin.com>
-Date: Mon, 2 Feb 2026 13:54:34 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] soc: fsl: qbman: fix race condition in qman_destroy_fq
-To: Christophe Leroy <chleroy@kernel.org>,
- Marco Crivellari <marco.crivellari@suse.com>, Kees Cook <kees@kernel.org>,
- Roy Pledge <roy.pledge@nxp.com>, Claudiu Manoil <claudiu.manoil@nxp.com>,
- Scott Wood <oss@buserror.net>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- CHAMPSEIX Thomas <thomas.champseix@alstomgroup.com>
-References: <20251223072549.397625-1-richard.genoud@bootlin.com>
-From: Richard GENOUD <richard.genoud@bootlin.com>
-Content-Language: en-US, fr
-Organization: Bootlin
-In-Reply-To: <20251223072549.397625-1-richard.genoud@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+	Mon, 02 Feb 2026 13:05:18 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-48071615686so34733665e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 05:05:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1770037514; x=1770642314; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=DaIRa8+hj7hUcUtCLpq5uVaY4q/WBE+WwNIl0Oyop/g=;
+        b=MEBrRMaO7Xx4Wzzk+DPXnXnNerdbr4fXYAuo12bBzgv+KAM1RbDMKM3mYAAPPxuFEJ
+         NmKreJ4ExsTS+an69hqVqVhDth4kcGi3QbZ2gthsrlo53PEggTq4fW9PonFJcpy6POEf
+         +N7xVqlqkmRA/LFOhWBlQoHZq5ZKqxK1pTKtEzquduAS/7WVAdORgmLoJAUpSqLhFngt
+         xlb3GqD/TEPOj2K3++OdjqnS21HQHAr/Nw15xUwAnVGWHMyP9fl3XKg6yasUkbm7jJYb
+         eGk7pKRSlzac1rypDLhSvIqW8B18CVW4y1l8Rht/NrjG6ifDmkK0yTKXNeSQrF+kA8NB
+         MW5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770037514; x=1770642314;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=DaIRa8+hj7hUcUtCLpq5uVaY4q/WBE+WwNIl0Oyop/g=;
+        b=rYEKc/4hihxcinElOUofB32dafozSgWcE8WpIhvClZ3mWTzqdMW5n2dqZUHizn1CSJ
+         lkB29YQ/d6q2Xvb/Xlxpv/NyFS53JwECL+5T+ydmvkHlsRJot1ogU459yGg6XMOdVvfS
+         BN196k90r8aE1104oHs5hqVp97SL4UNJMiHXgwCIoOIQFTdtiul5VLSJ2S1mP5EYFcUy
+         f0RNrrbJ2ibtXUZrl7Q40vrn4XYtrzgM7BDXc2FJJsKYWraz+NMR0TV8OdewYrNyYSTo
+         IOjtNlY8qbIsPA4JrwvjzFO8uCIRsiF3kx4ddlYBTNGlX/V7cX1Qh+kb06NvSvwj5Ow4
+         gKYw==
+X-Forwarded-Encrypted: i=1; AJvYcCUxic8QRwlJBev0X5StAyDdFyvRiiHTxLIKlowkr8PIYSe6dCtniRd60X8z4Uv4GtLc71EdIxNpjthWT2v26r73@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjsppgWkCB4LTrVDH/bwL4GW/MP3Igv6w+lK9T4uWdf2M515o/
+	qYPEjPaAIUUpw1xCpnN7NVIkMur9d7tZvScQb0TCIZ7uY1Nj66GANpDhrcmS4YOxUXk2UwH2Tv3
+	uyw==
+X-Received: from wmnv9.prod.google.com ([2002:a05:600c:4449:b0:477:9976:8214])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:a00a:b0:480:69b6:dfed
+ with SMTP id 5b1f17b1804b1-482db47d0d1mr157567225e9.24.1770037514308; Mon, 02
+ Feb 2026 05:05:14 -0800 (PST)
+Date: Mon,  2 Feb 2026 13:04:24 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.53.0.rc1.225.gd81095ad13-goog
+Message-ID: <20260202130513.49436-1-tabba@google.com>
+Subject: [PATCH v1] KVM: arm64: nv: Use kvm_phys_size() for VNCR invalidation range
+From: Fuad Tabba <tabba@google.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org, qperret@google.com, tabba@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_045451_719555_9D0434D0 
-X-CRM114-Status: GOOD (  26.21  )
+X-CRM114-CacheID: sfid-20260202_050517_095918_B5AFBD29 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,98 +88,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 23/12/2025 à 08:25, Richard Genoud a écrit :
-> When QMAN_FQ_FLAG_DYNAMIC_FQID is set, there's a race condition between
-> fq_table[fq->idx] state and freeing/allocating from the pool and
-> WARN_ON(fq_table[fq->idx]) in qman_create_fq() gets triggered.
-> 
-> Indeed, we can have:
->           Thread A                             Thread B
->      qman_destroy_fq()                    qman_create_fq()
->        qman_release_fqid()
->          qman_shutdown_fq()
->          gen_pool_free()
->             -- At this point, the fqid is available again --
->                                             qman_alloc_fqid()
->             -- so, we can get the just-freed fqid in thread B --
->                                             fq->fqid = fqid;
->                                             fq->idx = fqid * 2;
->                                             WARN_ON(fq_table[fq->idx]);
->                                             fq_table[fq->idx] = fq;
->       fq_table[fq->idx] = NULL;
-> 
-> And adding some logs between qman_release_fqid() and
-> fq_table[fq->idx] = NULL makes the WARN_ON() trigger a lot more.
-> 
-> To prevent that, ensure that fq_table[fq->idx] is set to NULL before
-> gen_pool_free() is called by using smp_wmb().
-> 
+KVM: arm64: nv: Use kvm_phys_size() for VNCR invalidation range
 
-Tested on a LS1046A based board.
-With this patch, the warning is not triggered anymore.
+Protected mode uses `pkvm_mappings` of the union inside `struct kvm_pgtable`.
+This aliases `ia_bits`, which is used in non-protected mode.
 
-Tested-by: CHAMPSEIX Thomas <thomas.champseix@alstomgroup.com>
+Attempting to use `pgt->ia_bits` in kvm_nested_s2_unmap() and
+kvm_nested_s2_wp() results in reading mapping pointers or state as a
+shift amount. This triggers a UBSAN shift-out-of-bounds error:
 
-> Fixes: c535e923bb97 ("soc/fsl: Introduce DPAA 1.x QMan device driver")
-> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
-> ---
->   drivers/soc/fsl/qbman/qman.c | 24 ++++++++++++++++++++++--
->   1 file changed, 22 insertions(+), 2 deletions(-)
-> 
-> NB: I'm not 100% sure of the need of a barrier here, since even without
-> it, the WARN_ON() wasn't triggered any more.
-> 
-> diff --git a/drivers/soc/fsl/qbman/qman.c b/drivers/soc/fsl/qbman/qman.c
-> index 6b392b3ad4b1..39a3e7aab6ff 100644
-> --- a/drivers/soc/fsl/qbman/qman.c
-> +++ b/drivers/soc/fsl/qbman/qman.c
-> @@ -1827,6 +1827,8 @@ EXPORT_SYMBOL(qman_create_fq);
->   
->   void qman_destroy_fq(struct qman_fq *fq)
->   {
-> +	int leaked;
-> +
->   	/*
->   	 * We don't need to lock the FQ as it is a pre-condition that the FQ be
->   	 * quiesced. Instead, run some checks.
-> @@ -1834,11 +1836,29 @@ void qman_destroy_fq(struct qman_fq *fq)
->   	switch (fq->state) {
->   	case qman_fq_state_parked:
->   	case qman_fq_state_oos:
-> -		if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID))
-> -			qman_release_fqid(fq->fqid);
-> +		/*
-> +		 * There's a race condition here on releasing the fqid,
-> +		 * setting the fq_table to NULL, and freeing the fqid.
-> +		 * To prevent it, this order should be respected:
-> +		 */
-> +		if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID)) {
-> +			leaked = qman_shutdown_fq(fq->fqid);
-> +			if (leaked)
-> +				pr_debug("FQID %d leaked\n", fq->fqid);
-> +		}
->   
->   		DPAA_ASSERT(fq_table[fq->idx]);
->   		fq_table[fq->idx] = NULL;
-> +
-> +		if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID) && !leaked) {
-> +			/*
-> +			 * fq_table[fq->idx] should be set to null before
-> +			 * freeing fq->fqid otherwise it could by allocated by
-> +			 * qman_alloc_fqid() while still being !NULL
-> +			 */
-> +			smp_wmb();
-> +			gen_pool_free(qm_fqalloc, fq->fqid | DPAA_GENALLOC_OFF, 1);
-> +		}
->   		return;
->   	default:
->   		break;
-> 
-> base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
+    UBSAN: shift-out-of-bounds in arch/arm64/kvm/nested.c:1127:34
+    shift exponent 174565952 is too large for 64-bit type 'unsigned long'
+    Call trace:
+     __ubsan_handle_shift_out_of_bounds+0x28c/0x2c0
+     kvm_nested_s2_unmap+0x228/0x248
+     kvm_arch_flush_shadow_memslot+0x98/0xc0
+     kvm_set_memslot+0x248/0xce0
 
+Fix this by using kvm_phys_size() to determine the IPA size. This helper
+is independent of the software page table representation and works
+correctly for both protected and non-protected modes, as it derives the
+size directly from VTCR_EL2.
 
+Fixes: 7270cc9157f47 ("KVM: arm64: nv: Handle VNCR_EL2 invalidation from MMU notifiers")
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+Based on Linux 6.19-rc8
+---
+ arch/arm64/kvm/nested.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index cdeeb8f09e72..eb9666ba15b4 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1108,7 +1108,7 @@ void kvm_nested_s2_wp(struct kvm *kvm)
+ 			kvm_stage2_wp_range(mmu, 0, kvm_phys_size(mmu));
+ 	}
+ 
+-	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
++	kvm_invalidate_vncr_ipa(kvm, 0, kvm_phys_size(&kvm->arch.mmu));
+ }
+ 
+ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+@@ -1124,7 +1124,7 @@ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+ 			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+ 	}
+ 
+-	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
++	kvm_invalidate_vncr_ipa(kvm, 0, kvm_phys_size(&kvm->arch.mmu));
+ }
+ 
+ void kvm_nested_s2_flush(struct kvm *kvm)
+
+base-commit: 18f7fcd5e69a04df57b563360b88be72471d6b62
 -- 
-Richard Genoud, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+2.53.0.rc1.225.gd81095ad13-goog
+
 
