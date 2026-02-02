@@ -4,95 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F904E7DEEE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 15:12:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79DA5E7DEF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 15:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=blBZowIYxmGQt/qp8Zqs7qxe8LPuadPVWAo6HXJFncM=; b=wpEugJgtFXCpldpn/kEFYsf1/4
-	IY8Ybtzk3sVJOWYRAZV86CHRSpQl5bAqyM4E0R+xb1F+M+WM+J4GQpnEccM4S51CBYtEnwXJCszex
-	ZO0+9PwLSkgiu/wCIkq3Hn70TK8CjKKFRnrKYW0NVpUalJvVhkPcL3kZVPTR/mHo0iKwB6DgYOc69
-	NIeFCViwA06Clvw5z2QOuec07rY+8RmrTic394zXPYlYccglI5iEgY5M+FcDBJbMFJTLMIPWJrmmk
-	D3bBMTdVsYvJMJQ4V/P9oewn0hNq3LAKhZLIM0FKAd6c3SGoDe8xk3+uF+9G/yyEyLh3XTyOd2Aa4
-	3iQeuilQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fK0UNuTXnFjqKpqCbxl7apHrA2QHhXM8zAwjoqglbco=; b=V8SqI6nWyOXuVzr3A7XR1X56cE
+	L6rQn9ogEIKK/JpsFtAacIiiaw+WSKOz7fhHvlHSKnKnYUtcAz0Ri9rtffxMp0q3XqSlavD4xsyyM
+	M3G/albwqVIQVLHvSfH9t6D9KehMYRHhe+tQAyv6+3Fn79z/xZuXAWLDpuaPiFUHzmA2PWOeK29qQ
+	uFM1LVTwQ2oXXVYj+7U7ti8S4YNcN1CtSOt9j3aRRk8gYSs+xRZc69kH1wHO5omWKPzXGhLFnnrLH
+	ftPmkuG6wRPf5liOpwEHcJhE/YlSEmsBxzKyevx7pBGQ0pgb3uBn3Ymz27IQoX72BLrMc+U5bp/38
+	zNWfuY6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmvav-00000005AVA-38cP;
-	Mon, 02 Feb 2026 15:12:05 +0000
-Received: from mail-oa1-x31.google.com ([2001:4860:4864:20::31])
+	id 1vmvbu-00000005AdO-0awb;
+	Mon, 02 Feb 2026 15:13:06 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmvas-00000005ATm-0sGk
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 15:12:04 +0000
-Received: by mail-oa1-x31.google.com with SMTP id 586e51a60fabf-409de4132b5so937139fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 07:12:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1770045120; x=1770649920; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=blBZowIYxmGQt/qp8Zqs7qxe8LPuadPVWAo6HXJFncM=;
-        b=nR/SkclbZ1scjMWxXLTR/1gWjawXU6tEkel5tQVBUFqPE+tBS03sILZdN5ElRbbx6w
-         M/esFqIauv9enIYA93qbXXbiAPibk783fxqxDqP/W84khqeJm+7u6dVsTE8f/wAANiOs
-         br5B9SUA/jiRS33bMvWe8cTx2pZGvUlvRAQqXBksayUY8oRa/4W6WKeHIPSZm4+iEnNO
-         2jBq6s2nhT5dzWxEqLffln11h2UtMPknibV5RmguJznSaIWo49bT1Dj8fzaVzsyV/2C3
-         e0ziFwy+VCxAp92eF6qUkcScpn7W24QW/sIR3YQeFUDrwtDIsjHncHUpM/sV5+Rkgc05
-         lFZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770045120; x=1770649920;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=blBZowIYxmGQt/qp8Zqs7qxe8LPuadPVWAo6HXJFncM=;
-        b=EcfQtUV/U3qD9Q9CIt2rNmcQohOUbtZq1AB8bPNXeKDhtw0Jva4BoGCLS4QhbNpAgq
-         4PRthBS9qIvt0WBwVel6Cx0IlOcy2BVdZkEcpXcB0ckKTpNedxKaMsQiZzEm/gHqnGWD
-         b7Yhnigb8fnQ79ox/N5e5a1HXMgDyPl/9qBPwU1srNWKJmCMRknlWJx0uNlq12pl1GBF
-         zjBqceuNEYkpelitvQpLNn+XRCQmcTuNzLXLR2reYBuvqiC/snXHodNYet8qDgu7hVhL
-         INoGzoPdrAbDP/hF7PySZRDJLkShr2D0YgkUgJh2Npt0sSOsylY/DF4Ds6vLy7PSdrU3
-         Qd6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVXlmJXnmfXdnzkp8IygdhTWtbg7ATITlf/pw/AUnjgr/ZsrYbd8LGwC7Ph8kQdgDp475KTxA8VF0OfN4wQ/qIR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuXmASnk3SOciliFZNrHAEv0TioAiaVMZQMoOulPr8yjgE/TaG
-	1bBtAQfi9DEp+gbs0DLnb3Ek9HRqWYjFYSG+9u/m1c0jKTzD3RUFlTpKFtt8Fcy+e50=
-X-Gm-Gg: AZuq6aIibt9H0cpGKtAHrOmJPcK8/WCoyGAElTjBeMJ6b/q9RBpukses34qo/Ezrz32
-	peawl0pB7FiJL2ZCiKyFZ51imgjUl1qpr+K+p/O2PZDNCUTxpEiu7/yOHqPgW1mgjvk798oPMnw
-	sc/kxwIJnHNa8BlGpMI4b0oxz7XTosQ0okxtsk2cEQYKNqJhg8q5i4KSS5a16UZ34/oxjq5Z3g4
-	PqyJF5FtcAvfAO9hnGB9/On9aA0Mii7GTQUfnlln40UFUJbAYNQEav7/3iPldX2iUxtv+QIFNsd
-	MW8ODK18a1vA9we38pP2HZownHUwwMqoe3l64Y1LbJxYTvmAVUkiOGIWMboIPTxf4j6QT4OMorf
-	9EY6ofXpf6/GWfN4OIl5hi4ddmzVfC6FOFoZkx7Qst1Bq6/Wt7SFaWyip9b91EWkbwKV9NQpJb8
-	I4Pe0lSOTiiTJLVnYdDqO95P/YAqLtlatvTwSkaexdD65If2Q9VkZ6g1zmueDXUOo8B3PKUNE=
-X-Received: by 2002:a05:6820:1621:b0:663:c86:e9e2 with SMTP id 006d021491bc7-6630f043bb8mr5049423eaf.35.1770045120281;
-        Mon, 02 Feb 2026 07:12:00 -0800 (PST)
-Received: from ?IPV6:2600:8803:e7e4:500:3695:6954:27c2:42ef? ([2600:8803:e7e4:500:3695:6954:27c2:42ef])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-662f99447b5sm10006110eaf.2.2026.02.02.07.11.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Feb 2026 07:11:59 -0800 (PST)
-Message-ID: <01eb6fc5-4a71-4877-8a62-ef397a1036c9@baylibre.com>
-Date: Mon, 2 Feb 2026 09:11:58 -0600
+	id 1vmvbp-00000005Acg-0GVZ;
+	Mon, 02 Feb 2026 15:13:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1770045177;
+	bh=fK0UNuTXnFjqKpqCbxl7apHrA2QHhXM8zAwjoqglbco=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=KiALrxnpXHJNOBviH4hrLAhS6g40n2NUloKgX4tpKeb/saL9oHnuoWZbyBS6VeRC5
+	 or2D8fcLMlSDWHBeJdkvBT83cb/rY17oyzpyxn+OjtC2SQNkm3gyWgkBwXlos4J+Fs
+	 vM+Tgb1DCy4bNdsp2MmUabrAQoQttJWuXBY+TdP3nC3LJXKE4UyyKKtfxKk47vKKEh
+	 RoI2rSZxSzJTmfjVqn6jzgukaCzf4yQAJNsML5wz3Cte1GGfikbzVM1bvdAFgCgwEa
+	 O2kkor0DIvKfAYRUF9DBUG2VO7OI3g0bsFg8p4LYuWKu9kLOl22b4mdZi0VegCTB7N
+	 Sk6RV6uwW8t3g==
+Received: from [IPv6:2606:6d00:15:210e::5ac] (unknown [IPv6:2606:6d00:15:210e::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7F23E17E1274;
+	Mon,  2 Feb 2026 16:12:55 +0100 (CET)
+Message-ID: <da9f044152383cacd50989b025fdce08a654bbe3.camel@collabora.com>
+Subject: Re: [PATCH 1/2] media: rkvdec: reduce excessive stack usage in
+ assemble_hw_pps()
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Arnd Bergmann <arnd@arndb.de>, Arnd Bergmann <arnd@kernel.org>, Detlev
+ Casanova <detlev.casanova@collabora.com>, Ezequiel Garcia
+ <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>, Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+ Nathan Chancellor	 <nathan@kernel.org>, Hans Verkuil
+ <hverkuil+cisco@kernel.org>
+Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling
+	 <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	llvm@lists.linux.dev
+Date: Mon, 02 Feb 2026 10:12:53 -0500
+In-Reply-To: <3b89635f-1c1c-4e4e-b0a9-2bbd0f21bc90@app.fastmail.com>
+References: <20260202094804.1231706-1-arnd@kernel.org>
+	 <16baade123f563ea92e6117bf78c56e8617daf14.camel@collabora.com>
+	 <3b89635f-1c1c-4e4e-b0a9-2bbd0f21bc90@app.fastmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-0n1upZ0VLiSy35LHgcM0"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] iio: adc: at91_adc: change at91_ts_sample to return
- void
-To: Antoniu Miclaus <antoniu.miclaus@analog.com>,
- Jonathan Cameron <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-iio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260202115733.21382-1-antoniu.miclaus@analog.com>
-Content-Language: en-US
-From: David Lechner <dlechner@baylibre.com>
-In-Reply-To: <20260202115733.21382-1-antoniu.miclaus@analog.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_071202_494195_CFA5922D 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260202_071301_277357_2BCECFE7 
+X-CRM114-Status: GOOD (  38.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,14 +98,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/2/26 5:57 AM, Antoniu Miclaus wrote:
-> The return value of at91_ts_sample() is never checked by its caller.
-> Change the return type to void to make this explicit. The error
-> conditions are already logged via dev_err() which provides sufficient
-> visibility into hardware issues.
-> 
-> Signed-off-by: Antoniu Miclaus <antoniu.miclaus@analog.com>
-> ---
-Reviewed-by: David Lechner <dlechner@baylibre.com>
 
+--=-0n1upZ0VLiSy35LHgcM0
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Arnd,
+
+Le lundi 02 f=C3=A9vrier 2026 =C3=A0 15:09 +0100, Arnd Bergmann a =C3=A9cri=
+t=C2=A0:
+> On Mon, Feb 2, 2026, at 14:42, Nicolas Dufresne wrote:
+> > Le lundi 02 f=C3=A9vrier 2026 =C3=A0 10:47 +0100, Arnd Bergmann a =C3=
+=A9crit=C2=A0:
+> > > From: Arnd Bergmann <arnd@arndb.de>
+> > >=20
+> > > The rkvdec_pps had a large set of bitfields, all of which
+> > > as misaligned. This causes clang-21 and likely other versions to
+> > > produce absolutely awful object code and a warning about very
+> > > large stack usage, on targets without unaligned access:
+> > >=20
+> > > drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c:966:12: error: st=
+ack frame size (1472) exceeds limit (1280) in 'rkvdec_vp9_start' [-Werror,-=
+Wframe-larger-than]
+> >=20
+> > We had already addressed and validated that on clang-21, which indicate=
+s me that
+> > we likely are missing an architecture (or a config) in our CI. Can you =
+document
+> > which architecture, configuration and flags was affected so we can add =
+it on our
+> > side ?
+> >=20
+> > Our media pipeline before sending to Linus and the clang builds trace a=
+re in the
+> > following link, in case it matters.
+> >=20
+> > https://gitlab.freedesktop.org/linux-media/media-committers/-/pipelines=
+/1588731
+> > https://gitlab.freedesktop.org/linux-media/media-committers/-/jobs/9160=
+4655
+>=20
+> The configuration that hit this for me was an ARMv7-M NOMMU build. I'm
+> doing 'randconfig' builds here, so I inevitably hit some corner cases
+> that all deterministic CI systems miss. I don't think that you should
+> add ARMv7-M here, since that would take up useful build resources
+> from something more important. There are no drviers/media/ actual
+> users on ARMv7-M, and next time it is going to be something else.
+>=20
+> > > Part of the problem here is how all the bitfield accesses are
+> > > inlined into a function that already has large structures on
+> > > the stack.
+> >=20
+> > Another observation is that you had to enable ASAN to make it miss-beha=
+ve on for
+> > loop unrolling (with complex bitfield writes).=C2=A0 All I've obtained =
+by visiting
+> > the Link: is that its armv7-a architecture.
+>=20
+> Right, this randconfig build likely got closer to the warning
+> limit because of the inherent overhead in KASAN, but the problem
+> with the unaligned bitfields was something that I could later
+> reproduce without KASAN, on ARMv5 and MIPS32r2.
+>=20
+> This is something we should fix in clang.
+
+All fair comments. I plan to take this into fixes (no changes needed), hope=
+fully
+for rc-2.
+
+Performance wise, this code is to replace read/mask/write into hardware
+registers which was significantly slower for this amount of registers (~200
+32bit integers) and this type of IP (its not sram). This is run once per fr=
+ame.
+In practice, if we hand code the read/mask/write, the performance should
+eventually converge to using bitfield and letting the compiler do this mask=
+ing,
+I was being optimistic on how the compiler would behave. If performance of =
+that
+is truly a problem, we can always just prepare the ram register ahead of th=
+e
+operation queue (instead of doing it in the executor).
+
+One thing to remind, you can't optimize the data structure layout, since th=
+ey
+need to match the register layout. But while fixing some of the stack repor=
+t
+previously, I did endup up moving few things out of loops (which is not cle=
+arly
+feasible in this patch). I did not checked all the code (only the failing o=
+ne).
+One of the bad pattern which costed stack (and overhead probably) was the u=
+se of
+switch() statement to pick one of the unaligned register location, with tha=
+t
+switch being part of an unrolled loop. If you ever spot these, and have tim=
+e,
+please just manually unroll the switch out of the loop (its actually less c=
+ode).
+
+> =C2=A0
+> > > Mark set_field_order_cnt() as noinline_for_stack, and split out
+> > > the following accesses in assemble_hw_pps() into another noinline
+> > > function, both of which now using around 800 bytes of stack in the
+> > > same configuration.
+> > >=20
+> > > There is clearly still something wrong with clang here, but
+> > > splitting it into multiple functions reduces the risk of stack
+> > > overflow.
+> >=20
+> > We've tried really hard to avoid this noninline_for_stack just because =
+compilers
+> > are buggy. I'll have a look again in case I find some ideas, but meanwh=
+ile, with
+> > failing architecture in the commit message:
+> >=20
+> > Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+>=20
+> Thanks!
+>=20
+> =C2=A0=C2=A0=C2=A0=C2=A0 Arnd
+
+
+thanks to you,
+Nicolas
+
+--=-0n1upZ0VLiSy35LHgcM0
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaYC+9QAKCRDZQZRRKWBy
+9GSlAP98wAwsGZINllsCHn4BZIWdyEFzPQNWZpW54689SrMU7QD9GzjnPH5SIbIo
+XpCL/RFia9fph8ZEiB+jh8mL7sloZAc=
+=zvGH
+-----END PGP SIGNATURE-----
+
+--=-0n1upZ0VLiSy35LHgcM0--
 
