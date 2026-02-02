@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A3C2E7314F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 09:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D3B2E73153
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 09:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YAvmKi3hsvzW6nv7LkB68RadxFUbuCEDMZYs46lHvL0=; b=Y70/Yc7Sg2AC2loKDMr8R1Gltv
-	wqdEjlEkmcJEHEaPW3Q3VSZ0slD7CZe+GAJ7dAD7TjaQUq2wo6AznBbCOLYz4l0HUyBROR+McJaYW
-	F4TXUwwUg0bzhM4x+IfhlzvQZtzqbffVAB6Ts/g6iz44K1HaEkWrv7Us8Wh8ULoBi7PbDi/E82y27
-	fTJOU5sIwn3CxK8c/VLRsamEp7mFt80Ei04A71muTDLeOlojwUjwPnRLtyb410Tx/0i/4aeI/EFwN
-	bocjBRfNz48ZSayciQIhK4KD59NQL0rm9TvCWANjpynzN47ccZd04hRyiNwzftyYFuS9YNaDpL5Rv
-	dHXPnVfg==;
+	bh=ypC6x63tCv4pl2PC805Ac7Qmgqywy3pvfFrbBrPuzXM=; b=z9pNcG3rt89Wnl/MnVrnso88z6
+	oLWVJ20dfhEf36ZxhQ68qLcIzwBKXq2LxWcqSO5D4FtBFIBohkR1kiEA7Alv5uZ55nAkxHNYw7aQ6
+	x/GX5l5wa+gKsiLLT9u7d7FCScL71E86lWtapFgs7A3ChV8dnkmCXqddOSCbCDOMwmyN9eAeOSkdl
+	B82VcZRwxlCHpzt6rs+jcUfyDoZDIu+akIfeUwpYayyoDiQtbVGjn0MR0GTPrwgsbODgoEEkLGD9J
+	XIeyYen10wvZSkkf+97q5axW9zJiTtlx649zeRGUr5xeombOc5S8m2QxlQH5fnvl2S5HbRO8mQq03
+	+3XzExJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmqKG-00000004iD9-2C6V;
-	Mon, 02 Feb 2026 09:34:32 +0000
+	id 1vmqKK-00000004iFw-12Mo;
+	Mon, 02 Feb 2026 09:34:36 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmqKE-00000004iBX-0e9N
+	id 1vmqKI-00000004iEB-09ch
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 09:34:31 +0000
+	Mon, 02 Feb 2026 09:34:35 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 29F111042;
-	Mon,  2 Feb 2026 01:34:22 -0800 (PST)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D10323F740;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 49857339;
 	Mon,  2 Feb 2026 01:34:26 -0800 (PST)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F13173F740;
+	Mon,  2 Feb 2026 01:34:30 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 02 Feb 2026 09:33:58 +0000
-Subject: [PATCH v3 2/8] coresight: Get parent device reference after sink
- ID map allocation
+Date: Mon, 02 Feb 2026 09:34:00 +0000
+Subject: [PATCH v3 4/8] coresight: Refactor output connection sysfs link
+ cleanup
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260202-arm_coresight_refactor_dev_register-v3-2-03292470c48c@arm.com>
+Message-Id: <20260202-arm_coresight_refactor_dev_register-v3-4-03292470c48c@arm.com>
 References: <20260202-arm_coresight_refactor_dev_register-v3-0-03292470c48c@arm.com>
 In-Reply-To: <20260202-arm_coresight_refactor_dev_register-v3-0-03292470c48c@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -52,16 +52,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770024862; l=1925;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770024862; l=2578;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=v8hOuJQdDEBlD38eo0j6UUmixknMHjP9NrjDN5honac=;
- b=39gG8zfb/u0JQBGcXycJFnHkZSrdZIxTXtEGyVbFS9tF1UoGCLnXJmORQz4LWcCynvinC2KsA
- d3f5ZaKXiz7AepG8eMGypxPTDNSwGEtImjS40+PYO61YNho7+bjEx+i
+ bh=cmyvq1C7wZeFM8E1TcSGCB73Pj6R0IzcUt1GLvbqHMo=;
+ b=XYchsLP0pTamnHX4Pshe4rdMgIoYncawb7gi7U3KFLIr3ZK0qaz7gyjgnSWTtZ6AuAdfY85/Z
+ pB8O8tp7C+DCA6rNGPoz7mniaTS7dIayOBdwfd4zWcBOf8XdPhC2OcB
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_013430_241227_5D5D5401 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20260202_013434_255845_923B5087 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,51 +76,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The parent device's reference count is incremented before allocating the
-sink ID map.  If the allocation fails, the reference count is not
-decremented, preventing proper cleanup.
+To use a central place for releasing connections, move the output
+connection sysfs link cleanup into coresight_remove_conns().
 
-Fix this by incrementing the reference count only after the sink ID map
-is successfully allocated.
+Also update the comments accordingly.
 
-Fixes: 5ad628a76176 ("coresight: Use per-sink trace ID maps for Perf sessions")
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c | 16 +++++++---------
+ 1 file changed, 7 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index fe345832c4564bd55b39ca8bcde0a93afdc11a68..26e7ab4005413ab5c59f3ca663b92a681263b488 100644
+index 5aa178b4def336770ae2b7647372174345564776..4b2cc1806c4f9cdd8a22dbce930973aef41f00c6 100644
 --- a/drivers/hwtracing/coresight/coresight-core.c
 +++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1349,12 +1349,6 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
- 	csdev->dev.parent = desc->dev;
- 	csdev->dev.release = coresight_device_release;
- 	csdev->dev.bus = &coresight_bustype;
--	/*
--	 * Hold the reference to our parent device. This will be
--	 * dropped only in coresight_device_release().
--	 */
--	csdev->dev.fwnode = fwnode_handle_get(dev_fwnode(desc->dev));
--	dev_set_name(&csdev->dev, "%s", desc->name);
+@@ -1152,7 +1152,6 @@ static int coresight_clear_filter_source(struct device *dev, void *data)
+ 	return 0;
+ }
  
- 	if (csdev->type == CORESIGHT_DEV_TYPE_SINK ||
- 	    csdev->type == CORESIGHT_DEV_TYPE_LINKSINK) {
-@@ -1366,6 +1360,14 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
- 			goto err_out;
- 		}
+-/* coresight_remove_conns - Remove other device's references to this device */
+ static void coresight_remove_conns(struct coresight_device *csdev)
+ {
+ 	int i, j;
+@@ -1162,10 +1161,6 @@ static void coresight_remove_conns(struct coresight_device *csdev)
+ 		bus_for_each_dev(&coresight_bustype, NULL, csdev,
+ 				 coresight_clear_filter_source);
+ 
+-	/*
+-	 * Remove the input connection references from the destination device
+-	 * for each output connection.
+-	 */
+ 	for (i = 0; i < csdev->pdata->nr_outconns; i++) {
+ 		conn = csdev->pdata->out_conns[i];
+ 		if (conn->filter_src_fwnode) {
+@@ -1176,6 +1171,13 @@ static void coresight_remove_conns(struct coresight_device *csdev)
+ 		if (!conn->dest_dev)
+ 			continue;
+ 
++		/* Remove sysfs links for the output connection */
++		coresight_remove_links(csdev, conn);
++
++		/*
++		 * Remove the input connection references from the destination
++		 * device for each output connection.
++		 */
+ 		for (j = 0; j < conn->dest_dev->pdata->nr_inconns; ++j)
+ 			if (conn->dest_dev->pdata->in_conns[j] == conn) {
+ 				conn->dest_dev->pdata->in_conns[j] = NULL;
+@@ -1306,9 +1308,6 @@ void coresight_release_platform_data(struct coresight_device *csdev,
+ 	struct coresight_connection **conns = pdata->out_conns;
+ 
+ 	for (i = 0; i < pdata->nr_outconns; i++) {
+-		/* If we have made the links, remove them now */
+-		if (csdev && conns[i]->dest_dev)
+-			coresight_remove_links(csdev, conns[i]);
+ 		/*
+ 		 * Drop the refcount and clear the handle as this device
+ 		 * is going away
+@@ -1424,7 +1423,6 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
  	}
-+
-+	/*
-+	 * Hold the reference to our parent device. This will be
-+	 * dropped only in coresight_device_release().
-+	 */
-+	csdev->dev.fwnode = fwnode_handle_get(dev_fwnode(desc->dev));
-+	dev_set_name(&csdev->dev, "%s", desc->name);
-+
- 	/*
- 	 * Make sure the device registration and the connection fixup
- 	 * are synchronised, so that we don't see uninitialised devices
+ 
+ err_out:
+-	/* Cleanup the connection information */
+ 	coresight_release_platform_data(NULL, desc->dev, desc->pdata);
+ 	return ERR_PTR(ret);
+ }
 
 -- 
 2.34.1
