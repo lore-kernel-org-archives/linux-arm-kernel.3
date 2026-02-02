@@ -4,161 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9866AD172B3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 01:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF56FD172AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 01:56:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kucq8Qu1xJ05a/ByoaqjC4uaNi1fpEW8h/kk1s+U7jw=; b=IZ1XYO0qhJyFZbKo9byY00Cowh
-	zTKmKVdjzJo++AgtRZ/tK9eO9FoRoS//jOOLBQP453JAjki5/oRw/jR4b+seNbpTLuzls6v2sO2kG
-	ZVmN9VZuGlCQnAHmNQDZRh6dDQmpjJlaJhWV6GQLFD1hUuoUkeLnAHYm32ZhVQhlNlfsqzrepPz4f
-	uZdOGhaoNbYlanTZOG1+bNuQPtpPbZFXw9lafjAZ2sVIhw61W3L9wNcomyc5kXLOVIedVOxpM6KKJ
-	e3kjcy5a0o95KJb4f/GS87SAKMS3ig6LGMww5MLOhi2dXHePc7QeBDyRbokNzF1Lw2QMM7eJiB89U
-	oY1ntIoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zKMyhwj1CFOlY+qo9L/Ll46UsMAktS3TMkFqPphW4YM=; b=hczx+h9SY7uFQXSnhYKsh2vjph
+	Ai9G+BEIk1gjJShgWn4+rlOg25m0y7WGIuAXjO6oQo+daeDz10Y4idGgD+ugr0RmF4JyeW4ARUBVn
+	0UI7hy8hml2UYu+weKQl6JsArhJWCR4eJoi/A/0y80PT4+dgrVMgxBGydyERD1vlPJiVGz+jsBvt4
+	dDDWu+FDNJMvZvvgoalSaKiGk6HiLzv5a0mBZsliR1oHSftWDECC32xL4fR/Qmn3kGPHr++Jnc4jG
+	qNXbMSp6CpCcoo3GzElrbE9i9Ne+Ezs53k+hiPOKp2qHnKlYM+44QqK2g2XjBHNGBNbpEV34f+Rp5
+	Q+fi9pnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmj9E-00000004Jqi-200B;
-	Mon, 02 Feb 2026 01:54:40 +0000
-Received: from mail-swedencentralazon11013006.outbound.protection.outlook.com ([52.101.83.6] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vmjAV-00000004JyK-3lqr;
+	Mon, 02 Feb 2026 01:55:59 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmj9B-00000004JqK-3USs
+	id 1vmjAS-00000004JxR-3hxi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 01:54:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DbnXsTggojRxklvJI6iBrhGHVnOUIKKiggbGDFaK12aYkDgyPWDU9NmqY73AY8dsBVa2RQDBfZItfDvOQs5yn1yrMfYCgnCtBK2vjyp2NkdwYsKNo7AMwOGitgM73qkfsPN+F2t8NQg5ZLhg6oc0DlRqlUkPvcL8KGHq46KSRrHqQTpOME18EdflE8pfW+Y6GoWtHaqHITPU1t54Sy2fjSUBke3S4oa8teOzC+NCRkzGTEEVKW9Ir8dZwkONSlrVX3ZUrlKdrodHh/vZ5aGTQEVgHlkoJII+oLZfik2Y0uA9PFTZAIMhYJN9JHp4QeN202xbkvsLWpiYcASJ8NrCmg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kucq8Qu1xJ05a/ByoaqjC4uaNi1fpEW8h/kk1s+U7jw=;
- b=hTZNQAB40Zp/qg3FhGVYAt+v/oPlOgL0a7unxBYM7QvfXcLLwDNwOkBjklZnyT/LBzq2cHthtbyXq3FgxBBGTYRBpqFRSeKg0fMH1pDnjr/zcgEqzEdzspDLjMY2BC+USzWcZpmTGwd+pUR0W9MTD+4McAuzkdcSwnAPO4QWyhj66HqEqdh7P5y3p0YNk7044ldBRkQ22YOW4CyAWuDDOohb9tTFonr6KapnwHpWNEHXdXIDTQrvlvl7YYhL1n2lLJ6LKAdx/tSfc0rANYW4pREgyI9FeINWsgTS0FTKIXmkyYN3TItqGSLS+SC6eal1N+ByIh33/lCmlmgisjGN3g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kucq8Qu1xJ05a/ByoaqjC4uaNi1fpEW8h/kk1s+U7jw=;
- b=p58dtMxxuhNvwtUGaKWQ79OVw0MR32Ifmd2C250q0CHPBtWR9LqUEIsF3hcki8r8ej0pexwjXWiqxB1llSmgJrso/cVvJ4MRv/pccQd4WKX1BYvlyu8CBWplIqD8e8VPHE8TH+dGhBRVkdRnl+vPjYs1xjhSP3T/6KOSavoo3WaWyR4ZqbBr17Yi5E0zgsbC4qHZlrSbrXx1e8vs0PnurMNhIvte28gOaYaYoUmDJphuRmRNQ3mrZiwgDju85wWXcjPwrSFwXYYv2IBqO48DAfMcfOKmCr5HDs+WOaXnhDbTJlfJUa7Qud+dJbeVCH9ofKsknjzKcZcyJwp13m8/Ag==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by VI0PR04MB10663.eurprd04.prod.outlook.com (2603:10a6:800:260::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Mon, 2 Feb
- 2026 01:54:30 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%5]) with mapi id 15.20.9564.006; Mon, 2 Feb 2026
- 01:54:30 +0000
-Date: Mon, 2 Feb 2026 09:56:03 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Lukasz Majewski <lukma@nabladev.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 0/4] clk: vf610: Add clocks to support MTIP L2 switch
-Message-ID: <aYAEM8pcuumly+hc@shlinux89>
-References: <20260129095442.1646748-1-lukma@nabladev.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260129095442.1646748-1-lukma@nabladev.com>
-X-ClientProxiedBy: SI2PR06CA0007.apcprd06.prod.outlook.com
- (2603:1096:4:186::9) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Mon, 02 Feb 2026 01:55:58 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2a76b39587aso109045ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Feb 2026 17:55:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769997355; cv=none;
+        d=google.com; s=arc-20240605;
+        b=bQF34qI9IhYKO8dqjYSd4dLJb1xp4ngUCdqr9OUCeKLxEROqTDPJM32ewuOSNZyN10
+         X/ikmWg4G95cCQNM1vOThyLe8Cp5cYyjH/dN7LJdCWmuFRPcQdmtefZkFxUnY8M2cIXq
+         v8ErdVZUCg+OcpNKFLDP3gsprFMPBbhwh4x6QSP/AAnmuRQo4leQoNjbLmYnF5daA/hh
+         iae9mfS7PSmll3LGicmBDjYDkRseioK88bnkH5CJtASF08PYp6sltP9/yz6MHLrk56zv
+         h/0Hn+Xrq8/sQWAYMNey9qlqksPL6o50he+8wSaTusEgo/93Op/qyfPRuSCvM96jxGms
+         0CfQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=zKMyhwj1CFOlY+qo9L/Ll46UsMAktS3TMkFqPphW4YM=;
+        fh=k+O917tSS5gv/kUcevvm54ErNNEoxHl/ll2Va5oKpc4=;
+        b=dNXuMV/ZSusV628NovYsLSmFRcjgkHrXkMbOC5eliVhWs03G+FX4ABNtJwGyB6zvKj
+         sqovQDUZ4yCRdNvomEaxbs1jQf4RvqSPNCBXlI4gaAoAcjHwhOO/VFUBbvODyxBuo0Sd
+         0go3f3dWrpg/BDnKhXvgleJI17aK5lcTWoOGDTBQGxosK9OnofX1VFQQnPX4ro3k4gU1
+         aeM7seHnseetk2SlY6RCRmHapzjC2zrj6FUCxcKm1qsSxovJjQYUDdU5XPcR2EgAkvHv
+         QWa9VR5ivdByArdLbOhop1cZZ6S+vLR1nEEwmr5N7QZbHvBaX4jRtv5WT6XnbrO8CMaK
+         9KNw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1769997355; x=1770602155; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zKMyhwj1CFOlY+qo9L/Ll46UsMAktS3TMkFqPphW4YM=;
+        b=W7sz1F1nkoFRx+dFhb/TmJLif0cRg55RutcHCQpl8KWns2P3LMUrJTwm9dtBvaklYP
+         777Q5RuhsSSznLfkJ1jWISGFIsi/R9YcVzYO3tQKmGgB+1WbUyQfWUquS2hTR9RqaY6a
+         oQq6j4ysrWcyDK48JNg5snmlnCnYFjbL2THaYaQkTWYEBTu5kPBJFQV4hHTzBIOQ3B9u
+         /XBCtZa52GgfGMYjkpyYjx65udI3RjCzn0S6H6HiKCyVagaqS9CnZzqQfYNBqL9GFKIj
+         gMOUXPdyYm8VXgdDOuI/xuktFQVo/yuIGx3H+uOCzuz8S0LOYukgdlKZQSyw0PjIpK2n
+         o+Sw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769997355; x=1770602155;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=zKMyhwj1CFOlY+qo9L/Ll46UsMAktS3TMkFqPphW4YM=;
+        b=UOcxSVXB/zAeEaC/81fcs/88PU/7XlZa4WWH60k8x7TL8bMskwlgyEQJ8qtD0T7qkC
+         /gU6NTjLZOAdM3u4txK6RCQfdGdkRXQQKbnuKWBlQdxDysLseYqEw0Hgya8a1rQ2IGQ7
+         p/OaDtwyfZVh+1Bn06j6mUBoZSmAo8KUw3NeUnMjP0gX37RF1WI2fHolz2RpH7dbXDky
+         Y1DNTMMIzs5ZSVU0VOWRVoFCKueqvGY9cHhmlUrLI5jgT1BMj3/FZcTw2wW38z4EKYnX
+         MgRprJjvFoq1stfAW6xrXPqfFQJkKWkWrMgB1C3KNmQvhX/epvLAH4n9JIW1l/yXNQhX
+         AD5A==
+X-Forwarded-Encrypted: i=1; AJvYcCUYQQQkTi595Dsr/x2sX1MZ+/0B3ReYgu20UhsY3J+UG7nY49+KyHxsxNw94Ayv6/qN4UkBORVyvtaFeDgMFVKA@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHjA5THWul/FZz/rDxaHMl5W/IY7FzrIy/DdeJYoT3dw9hT086
+	oPLXZWvDSEcE4A5IH2NWHF50ivX+yxW9iW8g4Es66G1Ox+3U7xhbvWB20uIHyFjVOR9wBqBmQhF
+	XPayhuOqIShNOZDr8ATvOU6/QamQh6q00PpRddLhG
+X-Gm-Gg: AZuq6aLpaSWj5OaMimiHmMq0/JNbLVnbsbe68qZjTa5yJHS9qSNNr7iBEqHzfvPImuL
+	GNgtFBrDlc6uB/5e1u0Pj742dnBmvfZdJdIVmkn+xPsQRtCX1+UzajM/g7G7+0owcr7XWvcSHvK
+	ZsY9IKaUqlA4t1psTKzMQDB/Tmuo+d4aJQ4QpW/mWMFmfd4+5bkIR98m5runKt6HQRJhyBUTaLg
+	hsELEO4GYXG7RN9+m6avjSjOQoAiedQiefiGVghEU60MPNXQvCsF5OJXK77f2Ij/LBppxYj1Ksc
+	MrLlOhf1ykXzgDz5g+reVZNvoA==
+X-Received: by 2002:a17:903:1b46:b0:295:3f35:a315 with SMTP id
+ d9443c01a7336-2a8f508a028mr1388475ad.5.1769997354552; Sun, 01 Feb 2026
+ 17:55:54 -0800 (PST)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI0PR04MB10663:EE_
-X-MS-Office365-Filtering-Correlation-Id: 614cc1e5-fcc1-4e63-009d-08de61fe0122
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|19092799006|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?u/dLMmdMNI+OUdilbN8dqqTEs4lX+3b0A18m/FNV/QNlOdaF83a+byDTXnEo?=
- =?us-ascii?Q?hDnHqbcx1ILUjmJJ6SvR/7ozI67GdfU60zKhJoNOyuFkb+qn0bZRg+e2Eu44?=
- =?us-ascii?Q?R1vVwFM+yZH9GODd1WiEToiCTAS2FiRpB2avLbJCeRfGK1+2GKZrak0xmQV7?=
- =?us-ascii?Q?cz9skFLafuL+xH8++dJv75bkv7f0C0nPJsdVtrXGgh9SWLk02E3pyO2OWYPC?=
- =?us-ascii?Q?8Bm6ser4znw/YBtQjJPKQvcTahpqnE68jFDiIFxWbkB75ww8ooOMoRkWTPHI?=
- =?us-ascii?Q?ujOc3FEHrxvsuIq3zwwCHr1pj9Ny1TDtl8hToIHMcs3wRMoiMUTYcVVZ+Yd4?=
- =?us-ascii?Q?2uryF6G5rQwgw5yzzh8AYC3hbxdD82YoF8eowRK/zfNuJFNuFvOxkI6oELrq?=
- =?us-ascii?Q?3mJnQ0fz5PFRgeO8ix6fitbOBov55mHVwBL4zs1P+3bO5na9r8N7wtPpGtko?=
- =?us-ascii?Q?dllVTArkueNxaX/ej7kFZlEh85DbQBxrakv5EOSNUVGpRZKjzoDgoReMkN71?=
- =?us-ascii?Q?Ac3oK0TkAc+oN7qUWqXOeU+0L9rPA/hnq/2YvyQQ+lGgWiVsLeu74dzxaCmr?=
- =?us-ascii?Q?9QCs4QfxQNGXo+lTqcILOxbUCXwFvh/Wp1mSkksxI9CN7aRvxr0FWgDb2SJV?=
- =?us-ascii?Q?mvgjlpJzhQYRKmkquMvPNPwqcJukvFotmQnYD48+vv5DbaDEjlptdNOgipFL?=
- =?us-ascii?Q?NBX8awxB9Syy6IHiilNNwUxAWl7UvdSGwRyoIzIyYFiEyfGf93uodE5ygfAn?=
- =?us-ascii?Q?GvGowUtn7d+WLhltxnzWVrTk9pgvsJoHKivKKb3HFSZNvNETaeTlJoO94tTM?=
- =?us-ascii?Q?LaddY+Wc+v19KnL9SDl+tgr0JQ/8/q2pDMQIkpg4WEk6oJXodVODIJg71hd5?=
- =?us-ascii?Q?o+yCzaePe0KZv+Lcal0pA/g3gx79ilbxht7429uhEnGILYLFRB025aOjOxmu?=
- =?us-ascii?Q?dm6Amg333kMgMDmYHvYfTp1nqXNMc4v+RDuMHF5vHqWQrybaY2hfyfd/ZFry?=
- =?us-ascii?Q?n8OViV2dHwTb1NmH6q9EQfubgosuQMK+0Bw+UarQekbh2wJ4IKHk4ESdnzeK?=
- =?us-ascii?Q?lj/yfQd5fLFwLY88sTd5Z74WelM7kz0MuzCmgMWiHV4Hh/9W1JxA+hoDHWI4?=
- =?us-ascii?Q?++GfTm850U9v8Ik3cvJ9yuN05M7ySfrR8sHb4fIhlY+Imc0bf6ycOcAGFmdG?=
- =?us-ascii?Q?p8qlafathrp9hSHaSlVUgUlXQp8aWitIZKx9hdVYAIGaDBT6DR9Wtt15/IJX?=
- =?us-ascii?Q?kDRwvVMue4RM9gbDzlaJum4uj7p3OK/dcCKzXIxuzcuFaAX16s85YaVHNYQd?=
- =?us-ascii?Q?aiMrj9a8d2FCMmEoXDyZgQg6U0XALCqxnrSFAwhvzm88U3FRUINVMSR1FMwu?=
- =?us-ascii?Q?BWCuXGv8ps9vHZsyZwE2Ii7gLAtHZwjQAywtb6uhM2ryIFuz0Yb4H5/1TPQx?=
- =?us-ascii?Q?E3qpKGLwjpcOkMosBe/OTu+WJ5GAxTRtcQaVAJZyy1iUw0RcWzMGLDY5ylLM?=
- =?us-ascii?Q?ZV19kX58CDEss0G/DYkTzcYdz03iGvNR6jeOlyjyRhEfk7ZA8FS6NSqVmjzh?=
- =?us-ascii?Q?X4TF25eeAF98xqAZC/o1MNXzcLBgMl/TWjCGCM79/T69ElCuUb3TKH6e0RD+?=
- =?us-ascii?Q?p85grzFP1BouoBJfkmzQMgs=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(19092799006)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aiLinMLZQJsP99hwCbaFSYxYR2fReGPZI6SDS3VlxCoVt8q8wXg0UhwtBdvd?=
- =?us-ascii?Q?HlTRMjQHWUT3xH660ZF/+dgaYcIpZxcolskjqNIWaLZInHdSJ4HjE7hcZpgY?=
- =?us-ascii?Q?qsCrV6HxeuR/3IVQUQ9OZctJmlEHCfcTsXlOdnRo9+fgRmeFbKEZwR9WYzfQ?=
- =?us-ascii?Q?Ahobvm8vsi8yltrxoxM2J7w/IhYHSlEy1J/c+8PUTSErxUik6rvVpDNV5sQ5?=
- =?us-ascii?Q?c4y2DHtOsykU3tcrRyFGVelUDLYPK4CPHgU/cStwRzfpmUkR5F3n8gFZiSJV?=
- =?us-ascii?Q?roXDpRocaXfJ5S8nIUnDSSpK/A5Sck2xzB5LCOEUn2VIsCAZYLuRMuzbZefZ?=
- =?us-ascii?Q?n+5GjAAE98uU1KG+7ZNsod+iXX1GdXoi8KILPdxSTS91OoN1leaEgxkaugyc?=
- =?us-ascii?Q?pgDoc1u+oHmClrjROj3BiTy0fNFJSd58GdJtCWCm8QbYvWqIAmMcNYHVdvmo?=
- =?us-ascii?Q?uZ4NJhBYloPr59eNR0t+rKXkdmQj9Uuxu3BvPjoWFavvTfgZ/f2TDZiRVvXR?=
- =?us-ascii?Q?ag+g8dhhJ9MqMB/O32q44Lcici5LR2WoISLdHdo+irZACSCVzEUTmPDRsYhj?=
- =?us-ascii?Q?g55J9J8cV5DDpViDp2pEo4iuIODPm9B275O74yiZQ/KJ2aRW0/hMxDIg/Fu9?=
- =?us-ascii?Q?FL8cZcohM8kWFUFoPtWwO9WK9H1ZqnjIQ4nlF7tyBeSRQA5wCoVWpmUqykIK?=
- =?us-ascii?Q?vjAhq+SB9HiMslTAYsTx7XbOT4mWJ7UO2UrYtJIKQWytcLY1eoCvk6ybyoDO?=
- =?us-ascii?Q?1owrJtJsv8tMxwAeQpCwDBPvSm53MlBa/dhq7qQe56gCOq991JJhqj6HVWTc?=
- =?us-ascii?Q?pG2Sv9/Jrzu9wSeq42VYw4s58fVp0DI2jujOxuQlW4EgBHIExgbJtEhekCsx?=
- =?us-ascii?Q?1RpBsVRTREKcLvLrfpG1lgCzSnjyElmOpdvHuG7DNfTBIFV+QZMjVOKAoTNn?=
- =?us-ascii?Q?C2BE2CboCUqD5v00U+uv1T7jDyQhgbGQgo+brK2m2OQpnJPdA7mKiSeKkTc+?=
- =?us-ascii?Q?ER83FgF5Q4QJKBNy6zqk/KqOgKZTdh7xxcNHq3gO9VmWhRupV/gB12f0Jczw?=
- =?us-ascii?Q?MaEafGonow4ITpi3hdSQGDbCmGC+SyJRxdCPS7wjpT7eRfZPHHXahxSfFaEg?=
- =?us-ascii?Q?uZphPCwpcceVMNv1hU903/8qLImgDN3hnynHQRtUFR9N44pReOVBsT2uoiZv?=
- =?us-ascii?Q?8fXjBtpebk48rZUViKmBzRYsCDWFnx3byOOcnkuCj8guXVeNzu0124PcJlGi?=
- =?us-ascii?Q?0HpwwqZwGcQ3vbXaH5E5Bog3XHajuh5aWjvTTKzXiTw0m+WxjahK+WlfZ2EG?=
- =?us-ascii?Q?y190+ikoHjGQOwvE5cumlleuqqbQq0d6OwT27nQ56c5/CWkdppjXjyE2brPV?=
- =?us-ascii?Q?sUBmOynjJ3LwXg8qc7Cpf9GHGvBPrMP1PGQFGezwoENU+S96nlobou3RYyl2?=
- =?us-ascii?Q?OsNoNvtAz8QIEMdtvB/j+Zwh5doFTEvnUdk500Tj1atiePWwblhzOUeoy67l?=
- =?us-ascii?Q?U56idAnU3Byec3EAMEWdV6Zx0wUlRek6YRQJbmxBxssKORZkwPnLys4umxjH?=
- =?us-ascii?Q?LR8Exoaog8ZpddcjVEn4GQMYz2a1tmtd9rZwgrwro4rNJb2aEw1xvP8W5b5J?=
- =?us-ascii?Q?vjt14Lb1sGo3kbGMXKljdJ40lGDG5sFryPDWAomqrw6lF72s98I3it2+Tyy8?=
- =?us-ascii?Q?YxPBH8G2oVfF6HHBqRvAGD1MERqsNHPDpuuI3Ae+JbkfF887y4lNb/5dQkmh?=
- =?us-ascii?Q?P8KQtJrBhg=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 614cc1e5-fcc1-4e63-009d-08de61fe0122
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Feb 2026 01:54:30.6036
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cyOO6UD33q52QQBOGBUPP+cmnQWwOs7Njy+7ITM3IQW9BgmO8EtyWyDG9jG+Zr2EIIHV+fa/UekUgoyul4T5ZA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10663
+References: <20260131200224.1296136-1-irogers@google.com> <20260131200224.1296136-3-irogers@google.com>
+ <20260201170459.GA584@debian-dev>
+In-Reply-To: <20260201170459.GA584@debian-dev>
+From: Ian Rogers <irogers@google.com>
+Date: Sun, 1 Feb 2026 17:55:43 -0800
+X-Gm-Features: AZwV_Qhcem8Bk7pzFsCUDa55vlzfQf_z4Xlvnl5l4tr16HwWCArY51n37Nz_Lv8
+Message-ID: <CAP-5=fXedkNLSWXVRJy7SDknx3Mb+BqUHPf7Oo7JSHshgoJ0qQ@mail.gmail.com>
+Subject: Re: [PATCH v2 2/6] perf kvm stat: Remove use of the arch directory
+To: Leo Yan <leo.yan@linux.dev>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+	Mike Leach <mike.leach@linaro.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Shimin Guo <shimin.guo@skydio.com>, Yunseong Kim <ysk@kzalloc.com>, 
+	Athira Rajeev <atrajeev@linux.ibm.com>, Quan Zhou <zhouquan@iscas.ac.cn>, 
+	Andrew Jones <ajones@ventanamicro.com>, Anup Patel <anup@brainfault.org>, 
+	Dapeng Mi <dapeng1.mi@linux.intel.com>, Thomas Falcon <thomas.falcon@intel.com>, 
+	Blake Jones <blakejones@google.com>, Swapnil Sapkal <swapnil.sapkal@amd.com>, 
+	Kan Liang <kan.liang@linux.intel.com>, Howard Chu <howardchu95@gmail.com>, 
+	Anubhav Shelat <ashelat@redhat.com>, Aditya Bodkhe <aditya.b1@linux.ibm.com>, 
+	Chun-Tse Shao <ctshao@google.com>, Andi Kleen <ak@linux.intel.com>, 
+	Dmitry Vyukov <dvyukov@google.com>, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260201_175437_881560_8B44485D 
-X-CRM114-Status: UNSURE (   8.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260201_175556_962523_42280638 
+X-CRM114-Status: GOOD (  25.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,17 +133,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 29, 2026 at 10:54:38AM +0100, Lukasz Majewski wrote:
->This patch series:
->- cleans up clocks' setup on vf610 by moving VF610_CLK_END define
->  to driver code
->- introduces support for several clocks required by MTIP switch IP block
+On Sun, Feb 1, 2026 at 9:05=E2=80=AFAM Leo Yan <leo.yan@linux.dev> wrote:
 >
->Lukasz Majewski (4):
->  clk: vf610: Move VF610_CLK_END define to clk-vf610 driver
->  dt-bindings: clock: vf610: Drop VF610_CLK_END define
->  dt-bindings: clock: vf610: Add definitions for MTIP L2 switch
->  clk: vf610: Add support for the Ethernet switch clocks
+> On Sat, Jan 31, 2026 at 12:02:20PM -0800, Ian Rogers wrote:
+>
+> [...]
+>
+> > @@ -1666,7 +1661,7 @@ kvm_events_record(struct perf_kvm_stat *kvm, int =
+argc, const char **argv)
+> >               return ret;
+> >       }
+> >
+> > -     for (events_tp =3D kvm_events_tp; *events_tp; events_tp++)
+> > +     for (events_tp =3D kvm_events_tp(); *events_tp; events_tp++)
+> >               events_tp_size++;
+> >
+> >       rec_argc =3D ARRAY_SIZE(record_args) + argc + 2 +
+> > @@ -1681,7 +1676,7 @@ kvm_events_record(struct perf_kvm_stat *kvm, int =
+argc, const char **argv)
+> >
+> >       for (j =3D 0; j < events_tp_size; j++) {
+> >               rec_argv[i++] =3D STRDUP_FAIL_EXIT("-e");
+> > -             rec_argv[i++] =3D STRDUP_FAIL_EXIT(kvm_events_tp[j]);
+> > +             rec_argv[i++] =3D STRDUP_FAIL_EXIT(kvm_events_tp()[j]);
+> >       }
+>
+> Nitpick: we can assign reuse events_tp throughout the
+> kvm_events_record().  Something like:
+>
+>   events_tp =3D kvm_events_tp();
+>   for (j =3D 0; events_tp[j]; j++)
+>        events_tp_size++;
+>
+>   ...
+>
+>   for (j =3D 0; j < events_tp_size; j++) {
+>        rec_argv[i++] =3D STRDUP_FAIL_EXIT("-e");
+>        rec_argv[i++] =3D STRDUP_FAIL_EXIT(events_tp[j]);
+>   }
+>
+> [...]
+>
+> > +int setup_kvm_events_tp(struct perf_kvm_stat *kvm)
+> > +{
+> > +     switch (EM_HOST) {
+> > +     case EM_PPC:
+> > +     case EM_PPC64:
+> > +             return __setup_kvm_events_tp_powerpc(kvm);
+> > +     default:
+> > +             return 0;
+> > +     }
+> > +}
+> > +
+> > +int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid)
+> > +{
+> > +     switch (EM_HOST) {
+> > +     case EM_AARCH64:
+> > +             return __cpu_isa_init_arm64(kvm);
+> > +     case EM_LOONGARCH:
+> > +             return __cpu_isa_init_loongarch(kvm);
+> > +     case EM_PPC:
+> > +     case EM_PPC64:
+> > +             return __cpu_isa_init_powerpc(kvm);
+> > +     case EM_RISCV:
+> > +             return __cpu_isa_init_riscv(kvm);
+> > +     case EM_S390:
+> > +             return __cpu_isa_init_s390(kvm, cpuid);
+> > +     case EM_X86_64:
+> > +     case EM_386:
+> > +             return __cpu_isa_init_x86(kvm, cpuid);
+> > +     default:
+> > +             pr_err("Unsupported kvm-stat host %d\n", EM_HOST);
+> > +             return -1;
+> > +     }
+> > +}
+>
+> For a general solution, I'd prefer to use "install" + callback methods
+> rather than the opened code.  E.g., each arch installs a structure
+> with callbacks:
+>
+>   struct kvm_stat_arch kvm_stat_aarch64 {
+>       .setup_events_tp =3D NULL;
+>       .cpu_isa_init    =3D __cpu_isa_init_arm64;
+>       ...
+>   };
+>
+> Then at the init phase, we can install arch's structure:
+>
+>   switch (EM_HOST) {
+>   case EM_AARCH64:
+>       kvm_stat_arch_init(&kvm_stat_aarch64);
+>       break;
+>   ...
+>   }
+>
+> Afterwards, it is no need to check EM_HOST anymore, it can simply
+> invoke the arch's callback:
+>
+>   int cpu_isa_init(struct perf_kvm_stat *kvm, const char *cpuid)
+>   {
+>       if (!arch_kvm_stat || !arch_kvm_stat->cpu_isa_init)
+>           return -1;
+>
+>       return arch_kvm_stat->cpu_isa_init(kvm, cpuid);
+>   }
+>
+> As a result, we can avoid spreading "switch (EM_HOST)" everywhere.
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
+So the use of switch(EM_HOST) is to just show the equivalence between
+the before and after code. The EM_HOST has become an e_machine read
+from the session/env by the end of the series. I agree there is naming
+clean up, etc. that can be done to the kvm_stat code but I just wanted
+to focus the series on the removal of the arch directory by way of
+switching to using the e_machine value.
+
+Thanks,
+Ian
+
+> Thanks,
+> Leo
+>
 
