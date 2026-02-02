@@ -4,56 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD906D172C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 04:26:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA87D172CC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 05:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bp1GoSAVURn+ajIdvsX4NLJ2kLcBwh0pa16LEr0wz+g=; b=npA4pFA+WQ6ZpO/72TISjDOk+X
-	91zekoO3PpW9THlfBIGSydO/57HHueY7icTY3CndsyAT/7ZWd2skYbrif1glRY7H6DPM6fXV/TkVE
-	o+wozI9K8gK/TP2dB/86sb/oXGH/6Sw3uT3jEY/LBJ5gDJxp76ORW7SyNidv3LU2bfh/qt0gjCFpL
-	oCj/h5FqXikrExv66Ee0kfMgWxxj+a9+zVC6nDfgPkdqXAVCev/P8eLLOUTXVlyGG5YxGlZ86i0ka
-	nfnt+f94j7rCmMHHJWes3XHZZyi0xBgcs+fX+y7CvVAGgGgF4gW/z0aUi83n1WfC+FLr+1HweoLGu
-	rrQPP1YQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pjbiA4RQMfYKLmkhjuBB5OyBq3Fn1YFJd6sTAf8pd+I=; b=Jjf3HHpzxCt4QHq3z+6OGC7m/3
+	bu3csQs4BpQRKXkOdRMXXo8gOb/HvpzZiV8rGj09v5GQfydRDefzSgohNQ+wXafn75XzSEZHE1Hbl
+	2OngwI4g+c0Y3IxbxFyWE0ej+VQ6UoTOo3Qj4T2L5oslgDNyeP1642Uqk8uUniI+LqvYlaIrBX5ev
+	gbsjCz3T2QPvdZ083rkTCPOHyRudL5t2UM8ehWsehZ8hEmQAQvpZ8+S6M1Z0BBYBedVkmSA1omFTX
+	gAb852rEKT7Su/AfkH1tPLDDYBNDkvDVz1rEk6cDElRBlonpUgXWW36vcS3liw4HjnmGE6BImBwlm
+	XUs2hCiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmlWO-00000004Pv4-2nqY;
-	Mon, 02 Feb 2026 04:26:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmlW9-00000004PsG-1Yl3
+	id 1vmmBX-00000004Rl8-38hV;
+	Mon, 02 Feb 2026 05:09:15 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vmmBS-00000004RkF-270i
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 04:26:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C100D1042;
-	Sun,  1 Feb 2026 20:26:20 -0800 (PST)
-Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D2D5E3F740;
-	Sun,  1 Feb 2026 20:26:25 -0800 (PST)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Christoph Lameter <cl@gentwo.org>,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH 2/2] arm64/mm: Reject memory removal that splits a kernel leaf mapping
-Date: Mon,  2 Feb 2026 04:26:17 +0000
-Message-Id: <20260202042617.504183-3-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20260202042617.504183-1-anshuman.khandual@arm.com>
-References: <20260202042617.504183-1-anshuman.khandual@arm.com>
+	Mon, 02 Feb 2026 05:09:13 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-bd1ce1b35e7so2493000a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Feb 2026 21:09:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770008947; x=1770613747; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=pjbiA4RQMfYKLmkhjuBB5OyBq3Fn1YFJd6sTAf8pd+I=;
+        b=hkLsjksvMdpt/sdr2pwD2UvvrKCq0EhkI8FVUC53crNqQEA5vlsKPrxYlgdLHLbX1g
+         wVDFWHXrHw/z5h3le4UoBSJ1Xm65wOkUeun2XaklsLFxulxqJACMaScrYSUH5yY4mmca
+         MjR/PhGTRH4nCOdp9xXmy/DDfLwkydEWKfMEHewq5xUyyyLjvqh2w0MVlNS6Ntk+WirZ
+         yJKQmX5bIX4/5jUCSgkhyQtHb9VF9On2YEuC2bhTbhEERLmC5R3aulfAL7HQluHFP5Wz
+         GAwV7Q1gVtlR8d5PGy+qgM0pESGYX8cwsGIS8bpv6iAWKVMJA7TiWRdOnsknHdZKeQHg
+         pmRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770008947; x=1770613747;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pjbiA4RQMfYKLmkhjuBB5OyBq3Fn1YFJd6sTAf8pd+I=;
+        b=HN1odmfgYaYf6wOtyjiG/RBSR/a+NR1YwOJXU+tStCzLClpXQyasocqUpsWC3CunDg
+         y4oQJkOhvmAQEAZGz8dKQr3Aq7syp8k/OhDzgCpOVYl4xF6DumbCZoORvxeq70RW5WOG
+         riegH3DvRci9yqzL/Ay14hMBLz8swb6ZxVEPD/YMVb/yaY2fEY505YBU/epJnQV0pVeB
+         bbI46I0ac0ZY0hlnwVyhvleszAWHRB4Djwgz4AlcooDuCGOylKjXDBXBvNTv7PFaRq75
+         mvgeDzgFvj2Z54jHdFc40JgHPjriYFZ22g+KKldzNL/0b8ztxDaBbSQXIIMK6u/TCDui
+         dY7w==
+X-Forwarded-Encrypted: i=1; AJvYcCXsXRBvloODdt9W1JvDs6kqB+7EKXFHhBk2+50uRrl59sDxpugqsCpzHmgnmCwueUihkR/3ivxJYYgcJziQ1SM0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfNe0E95091vlhAgyG5uufy4MkP5kfjkxPeJD1ORl3BrAC9I/H
+	dwpi3cGonW9g7eWCD/CM9h+HFs5KLIHidPE49o0PQHXfjkD7ge7uU9C+
+X-Gm-Gg: AZuq6aLj3hCOOcCGJ74QsgCmJCjNFUKMvOU7XA/m16PgQQth1hntQBpA7g4Aq8TWJjY
+	Qke7q6Gy7JCjBDZ2qSi/2hJP7GJtIHPN+eye5Pew/B9BcMdyba8PzuqFifsD6PN2DYAa0c7A1R0
+	2GcuYcE6i9jLzjTM9c1+CMNOSvreTfah3GUyKHJHqgdLjE43+VxNdFwdctrgzB1Aw9CDiebIvEZ
+	iAe6TYxtke6BAxAaUgWpDMqOOyHgrx6qYXru+0/legGSpCDFoNRlrhdI5v0ru1N7Uu2mVUeD7Qc
+	R/Km0SDgwX74WhePJKix14dNm1JHsrjB2hwWp3jpGpdPUUTJqUCc+Pb6ovIqguTJ76V8+1Q42XT
+	48QEEdCIznB1QWiLU/aAlzh0P6wg6LvP0JogGZx7li6aQpCv4Xmo44ctGtmvjl1Jyjz63F8S51g
+	zTUDlk8rN3tHu6N/SUidqtm3SrNBFK4RtqXuWlzHHQDgKRBfSJFx+1Jis=
+X-Received: by 2002:a05:6a21:1509:b0:38e:9acd:97b3 with SMTP id adf61e73a8af0-392e01a7a57mr9582307637.73.1770008946706;
+        Sun, 01 Feb 2026 21:09:06 -0800 (PST)
+Received: from google.com (61-230-34-48.dynamic-ip.hinet.net. [61.230.34.48])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a88b346de2sm128805315ad.0.2026.02.01.21.09.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 01 Feb 2026 21:09:06 -0800 (PST)
+Date: Mon, 2 Feb 2026 13:09:01 +0800
+From: Kuan-Wei Chiu <visitorckw@gmail.com>
+To: James Clark <james.clark@linaro.org>
+Cc: suzuki.poulose@arm.com, mike.leach@linaro.org,
+	alexander.shishkin@linux.intel.com, gregkh@linuxfoundation.org,
+	mathieu.poirier@linaro.org, leo.yan@arm.com, Al.Grant@arm.com,
+	jserv@ccns.ncku.edu.tw, marscheng@google.com, ericchancf@google.com,
+	milesjiang@google.com, nickpan@google.com,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v3] coresight: etm3x: Fix cntr_val_show() to match
+ cntr_val_store() behavior
+Message-ID: <aYAxbbkHslAP9RBN@google.com>
+References: <20251202082613.3265761-1-visitorckw@gmail.com>
+ <3bec7ceb-61a8-4b38-a794-02ee2fc9e68c@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3bec7ceb-61a8-4b38-a794-02ee2fc9e68c@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260201_202629_642417_516ED7FA 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20260201_210910_636143_2F3ECBF8 
+X-CRM114-Status: GOOD (  29.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,174 +104,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Linear and vmemmap mapings that get teared down during a memory hot remove
-operation might contain leaf level entries on any page table level. If the
-requested memory range's linear or vmemmap mappings falls within such leaf
-entries, new mappings need to be created for the remaning memory mapped on
-the leaf entry earlier, following standard break before make aka BBM rules.
+On Tue, Dec 02, 2025 at 09:26:19AM +0000, James Clark wrote:
+> 
+> 
+> On 02/12/2025 8:26 am, Kuan-Wei Chiu wrote:
+> > The cntr_val_show() function was intended to print the values of all
+> > counters using a loop. However, due to a buffer overwrite issue with
+> > sprintf(), it effectively only displayed the value of the last counter.
+> > 
+> > The companion function, cntr_val_store(), allows users to modify a
+> > specific counter selected by 'cntr_idx'. To maintain consistency
+> > between read and write operations and to align with the ETM4x driver
+> > behavior, modify cntr_val_show() to report only the value of the
+> > currently selected counter.
+> > 
+> > This change removes the loop and the "counter %d:" prefix, printing
+> > only the hexadecimal value. It also adopts sysfs_emit() for standard
+> > sysfs output formatting.
+> > 
+> > Fixes: a939fc5a71ad ("coresight-etm: add CoreSight ETM/PTM driver")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
+> > ---
+> > Build test only.
+> > 
+> > Changes in v3:
+> > - Switch format specifier to %#x to include the 0x prefix.
+> > - Add Cc stable
+> > 
+> > v2: https://lore.kernel.org/lkml/20251201095228.1905489-1-visitorckw@gmail.com/
+> > 
+> >   .../hwtracing/coresight/coresight-etm3x-sysfs.c   | 15 ++++-----------
+> >   1 file changed, 4 insertions(+), 11 deletions(-)
+> > 
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> > index 762109307b86..b3c67e96a82a 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> > @@ -717,26 +717,19 @@ static DEVICE_ATTR_RW(cntr_rld_event);
+> >   static ssize_t cntr_val_show(struct device *dev,
+> >   			     struct device_attribute *attr, char *buf)
+> >   {
+> > -	int i, ret = 0;
+> >   	u32 val;
+> >   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> >   	struct etm_config *config = &drvdata->config;
+> >   	if (!coresight_get_mode(drvdata->csdev)) {
+> >   		spin_lock(&drvdata->spinlock);
+> > -		for (i = 0; i < drvdata->nr_cntr; i++)
+> > -			ret += sprintf(buf, "counter %d: %x\n",
+> > -				       i, config->cntr_val[i]);
+> > +		val = config->cntr_val[config->cntr_idx];
+> >   		spin_unlock(&drvdata->spinlock);
+> > -		return ret;
+> > -	}
+> > -
+> > -	for (i = 0; i < drvdata->nr_cntr; i++) {
+> > -		val = etm_readl(drvdata, ETMCNTVRn(i));
+> > -		ret += sprintf(buf, "counter %d: %x\n", i, val);
+> > +	} else {
+> > +		val = etm_readl(drvdata, ETMCNTVRn(config->cntr_idx));
+> >   	}
+> > -	return ret;
+> > +	return sysfs_emit(buf, "%#x\n", val);
+> >   }
+> >   static ssize_t cntr_val_store(struct device *dev,
+> 
+> Reviewed-by: James Clark <james.clark@linaro.org>
+> 
+Thanks for the review!
+Is there anything else I need to do for this fix to land?
 
-Currently memory hot remove operation does not perform such restructuring,
-and so removing memory ranges that could split a kernel leaf level mapping
-need to be rejected.
-
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
-Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
-Cc: stable@vger.kernel.org
-Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
- arch/arm64/mm/mmu.c | 126 ++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 126 insertions(+)
-
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 8ec8a287aaa1..9d59e10fb3de 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -2063,6 +2063,129 @@ void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
- 	__remove_pgd_mapping(swapper_pg_dir, __phys_to_virt(start), size);
- }
- 
-+
-+static bool split_kernel_leaf_boundary(unsigned long addr)
-+{
-+	pgd_t *pgdp, pgd;
-+	p4d_t *p4dp, p4d;
-+	pud_t *pudp, pud;
-+	pmd_t *pmdp, pmd;
-+	pte_t *ptep, pte;
-+
-+	/*
-+	 * PGD: If addr is PGD aligned then addr already
-+	 * describes a leaf boundary.
-+	 */
-+	if (ALIGN_DOWN(addr, PGDIR_SIZE) == addr)
-+		return false;
-+
-+	pgdp = pgd_offset_k(addr);
-+	pgd = pgdp_get(pgdp);
-+	if (!pgd_present(pgd))
-+		return false;
-+
-+	/*
-+	 * P4D: If addr is P4D aligned then addr already
-+	 * describes a leaf boundary.
-+	 */
-+	if (ALIGN_DOWN(addr, P4D_SIZE) == addr)
-+		return false;
-+
-+	p4dp = p4d_offset(pgdp, addr);
-+	p4d = p4dp_get(p4dp);
-+	if (!p4d_present(p4d))
-+		return false;
-+
-+	/*
-+	 * PUD: If addr is PUD aligned then addr already
-+	 * describes a leaf boundary.
-+	 */
-+	if (ALIGN_DOWN(addr, PUD_SIZE) == addr)
-+		return false;
-+
-+	pudp = pud_offset(p4dp, addr);
-+	pud = pudp_get(pudp);
-+	if (!pud_present(pud))
-+		return false;
-+
-+	if (pud_leaf(pud))
-+		return true;
-+
-+	/*
-+	 * CONT_PMD: If addr is CONT_PMD aligned then
-+	 * addr already describes a leaf boundary.
-+	 */
-+	if (ALIGN_DOWN(addr, CONT_PMD_SIZE) == addr)
-+		return false;
-+
-+	pmdp = pmd_offset(pudp, addr);
-+	pmd = pmdp_get(pmdp);
-+	if (!pmd_present(pmd))
-+		return false;
-+
-+	if (pmd_leaf(pmd) && pmd_cont(pmd))
-+		return true;
-+
-+	/*
-+	 * PMD: If addr is PMD aligned then addr already
-+	 * describes a leaf boundary.
-+	 */
-+	if (ALIGN_DOWN(addr, PMD_SIZE) == addr)
-+		return false;
-+
-+	if (pmd_leaf(pmd))
-+		return true;
-+
-+	/*
-+	 * CONT_PTE: If addr is CONT_PTE aligned then addr
-+	 * already describes a leaf boundary.
-+	 */
-+	if (ALIGN_DOWN(addr, CONT_PTE_SIZE) == addr)
-+		return false;
-+
-+	ptep = pte_offset_kernel(pmdp, addr);
-+	pte = __ptep_get(ptep);
-+	if (!pte_present(pte))
-+		return false;
-+
-+	if (pte_valid(pte) && pte_cont(pte))
-+		return true;
-+
-+	if (ALIGN_DOWN(addr, PAGE_SIZE) == addr)
-+		return false;
-+	return true;
-+}
-+
-+static bool can_unmap_without_split(unsigned long pfn, unsigned long nr_pages)
-+{
-+	unsigned long linear_start, linear_end, phys_start, phys_end;
-+	unsigned long vmemmap_size, vmemmap_start, vmemmap_end;
-+
-+	/* Assert linear map edges do not split a leaf entry */
-+	phys_start = PFN_PHYS(pfn);
-+	phys_end = phys_start + nr_pages * PAGE_SIZE;
-+	linear_start = __phys_to_virt(phys_start);
-+	linear_end =  __phys_to_virt(phys_end);
-+	if (split_kernel_leaf_boundary(linear_start) ||
-+	    split_kernel_leaf_boundary(linear_end)) {
-+		pr_warn("[%lx %lx] splits a leaf entry in linear map\n",
-+			phys_start, phys_end);
-+		return false;
-+	}
-+
-+	/* Assert vmemmap edges do not split a leaf entry */
-+	vmemmap_size = nr_pages * sizeof(struct page);
-+	vmemmap_start = (unsigned long) pfn_to_page(pfn);
-+	vmemmap_end = vmemmap_start + vmemmap_size;
-+	if (split_kernel_leaf_boundary(vmemmap_start) ||
-+	    split_kernel_leaf_boundary(vmemmap_end)) {
-+		pr_warn("[%lx %lx] splits a leaf entry in vmemmap\n",
-+			phys_start, phys_end);
-+		return false;
-+	}
-+	return true;
-+}
-+
- /*
-  * This memory hotplug notifier helps prevent boot memory from being
-  * inadvertently removed as it blocks pfn range offlining process in
-@@ -2083,6 +2206,9 @@ static int prevent_bootmem_remove_notifier(struct notifier_block *nb,
- 	if ((action != MEM_GOING_OFFLINE) && (action != MEM_OFFLINE))
- 		return NOTIFY_OK;
- 
-+	if (!can_unmap_without_split(pfn, arg->nr_pages))
-+		return NOTIFY_BAD;
-+
- 	for (; pfn < end_pfn; pfn += PAGES_PER_SECTION) {
- 		unsigned long start = PFN_PHYS(pfn);
- 		unsigned long end = start + (1UL << PA_SECTION_SHIFT);
--- 
-2.30.2
+Regards,
+Kuan-Wei
 
 
