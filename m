@@ -4,110 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84DD1E7DF08
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 16:53:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50963E7DF08
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 16:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QGLSQGBxItX/p5vDeLcxHCTPSeYQPRqcWlnQBJSqWY0=; b=pu3Lkk1cC7GgzElyG5S1c0ZrQW
-	WOg/fi88EpklgzwotaCl3ZAUaE8rv9WH+Wa1+RmPtwoLQEXEAwbdpw2SvIA7W28XPinxQ8GN4buB+
-	MIkuSwFC66ZV4NMmcQXjEd0EhBQqzJZj8lhwOKR7gkHcaki4UTnnOYavWGqmtA+HBWNr7qJrR47TJ
-	wQsCxXHD7s5xR5Ku35igpxbxQMKXqf9DwhW4RVTp1YXXxsUZoiEagLG3zCF2WOzflLXn/KWwB/qbl
-	d7HJmZ2hR8HdpURFFWbPlC0MZ+K2rwdz2PCdpzsPQiUfxYS0nzh8mhPaY3R946KzqRdDeHODLU5IT
-	IwJ7CUVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vbhczSAPq8d3aMIIKjhWusNqPo3EvBJR+D5a1k/6bME=; b=4yuMxE9qPuQdsmexS8BnagkAM9
+	iZ50CogFwpqX5lhAAwreFICx83nmwLsMnqucQh4E+fHbSt1Ru+OYJRD8rp6IAzeA8A5gBw1tCBbyv
+	ugJS9rnPpCTaNqNMjgqMxUKewvTlNzYEB5bt4WVjKq1U+Dms2okNccmouuNy/WhhjrXyP2iWI2RoM
+	E9fTOLA6yzCkdciMOM9VyvfveL8YM80wo0M5JF7Bd3n1/c5DqZIDMtcar+mym30lV+hcNgcircM8q
+	XUbR65o0dkQsBNnkEIlzMf6ciUfNZaA/MRJeXdNGW1bYmfFcaALPV8KDhZ8Of/s9uhVoFxz9d+pbo
+	hpszhEQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmxAW-00000005K7r-2vBr;
-	Mon, 02 Feb 2026 16:52:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vmxBd-00000005KI6-1IDa;
+	Mon, 02 Feb 2026 16:54:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmxAV-00000005K7N-2U66
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Feb 2026 16:52:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=QGLSQGBxItX/p5vDeLcxHCTPSeYQPRqcWlnQBJSqWY0=; b=onY5147C5u9Oan07bna4HEHOCG
-	6gomz8U9twcLn4L/6TrUjS8azGVumGGWFaoURpavZ8SUp634g6DMHUFhbgjoDRz7lrIka34lpUDbn
-	xku3x8doMUtLolCOzCgm1oGGoawdPPQftWhPeTzGqkFyYW6W7j2bPb21Tt5g21p/x9nIlOoAlLeGe
-	OfmOpYzxvJU0noJKUtMW0rHk1ZHnSZP2f6/WhEL7wmmD2MY+r+1KPpFc9MWqQ9aDO4zdzs7Te+PIK
-	sx0/L+k4qGTN/TCv2HgU00q/5fWBy/RP25qUXjPsHlMYcTw+QN3eaA3S8bBrLVoNoIv6s75bwbAQY
-	XnXuh57A==;
-Received: from mail-ed1-x542.google.com ([2a00:1450:4864:20::542])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmxAS-0000000EsSj-2qnJ
+	id 1vmxBb-00000005KHp-3XTI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 16:52:54 +0000
-Received: by mail-ed1-x542.google.com with SMTP id 4fb4d7f45d1cf-658d4059b79so6937728a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 08:52:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1770051169; x=1770655969; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QGLSQGBxItX/p5vDeLcxHCTPSeYQPRqcWlnQBJSqWY0=;
-        b=WDnzuC5/dOXgk7nNrh3IFA9PTK0V10lbhOF2z4Clmjur7h07uoFkpb9m3juG0cUqrB
-         zAXvVwHglyec9uZOy7Ep+PL14DJ74/WChOpkeRlomgQrsatdnsFQoAIpkWHtIbmlU9Bo
-         NTOr9wggs4sZJ6O1M9wXpMzAib+ZTCeD4n8lo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770051169; x=1770655969;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=QGLSQGBxItX/p5vDeLcxHCTPSeYQPRqcWlnQBJSqWY0=;
-        b=waVT9mvfyWORzSsoLLfGBNKTmWJ3Yyaku+cXrAMTSxBIupXXypJkZ/MsufjmrkbUWF
-         rtiuMDpoh/oc/8g6+mrPv9hdFBZA4H1cIPveXxq8qOxHhJQw4LYw5NSGY8FkzmwvkZj4
-         GOaNasulxFq7XazmnaigTY8qh1jcsYJIW8EEYK2r5CD1S3vr/9AQWc1jF7LZtcVdIsMO
-         8xHmgZKyekGs24e6bROBBoVqFdhqVkSIAQPvRpPTNjUTR0xV232NdNo1hqzmAdETsmSR
-         /QR6rXtrInp5Qffm3aSIg+RkrB9UHjjYFOI1a8ys+G8jMeW0lMKxpt/mvDTB0bWiJK2V
-         gmcQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU5NGizibO2uK2+a8c5tJkpY9two6ePj67653T9fBqFCCFUzUiVEPmstoDEYY8II5O+MEBH7sjDhs07H92gbVOB@lists.infradead.org
-X-Gm-Message-State: AOJu0YyNim/aOgBgDwzTkGd1XPGlxSKRY9TKqf7VWVbWxlUfs1DOYjkZ
-	t8vQlp4+jDTKRrA+r3neXEZSfokNKCEq/CCvvpn8e76M3wTDMprETqUowceyp7V0v+1WeVnN8ZX
-	krm8OaPVx
-X-Gm-Gg: AZuq6aL1GR7e4/9JFlNaeQ0yNGKgBLrPrO0mPKYnmcP+PCSfLRU0FThqqTgxsLd+esD
-	jq7Le0pLMvP/U6woW3JyTr1K8ThYznn2AKxNulshMYglC40jt6Zo6wADF1tQsRp2eZEKUWuM5fP
-	XcXOXtWm2CvomBYSfNY41yBI9MTqjkU49PhbiwI6NBcvB55YQV2qD30x3XanctJkXn1nmtY8ULa
-	SJYbT6rX/LqwPmVsREnnPhJJwTB7SIdYklRnvadklsMlNqn5UQpbjfYHrJYC6S5QWniSilJJNvZ
-	ysz+XytDkq6bc9zqApzq5JZurgL0szJHNtSOf1tvyHdZaWJi1P4M7r4sXH+PwTjjnOH8d7Lc64T
-	eaxtkv9LA3mkrWYDVKvYbVyiMbdtFe8DYm6WjmFir0aKN9fMpcpyWRWqkcicOlWOUXZmR9G/Unq
-	MKOs1ieQb0WYMnytcH4M4yP6kW8uoEU1rFjQzmLinHd7AMJPo9hA==
-X-Received: by 2002:a17:906:7316:b0:b73:4d06:bc8 with SMTP id a640c23a62f3a-b8dff7a1b9amr720720866b.53.1770051169047;
-        Mon, 02 Feb 2026 08:52:49 -0800 (PST)
-Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com. [209.85.128.47])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8dbefc69ebsm905729266b.20.2026.02.02.08.52.47
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Feb 2026 08:52:47 -0800 (PST)
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-48068ed1eccso43079965e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 08:52:47 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWU3p4j0qeqnhRdlhWEDizgz5jFePPalU6P3ARQHNBfUV57tVmWwXrARFn/Mlf5ZRX3Neg1H0FV6iRCxcZX1G4D@lists.infradead.org
-X-Received: by 2002:a05:600c:8b12:b0:47d:5e02:14e5 with SMTP id
- 5b1f17b1804b1-482db44e7f7mr158073105e9.5.1770051167405; Mon, 02 Feb 2026
- 08:52:47 -0800 (PST)
+	Mon, 02 Feb 2026 16:54:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CE79C60010;
+	Mon,  2 Feb 2026 16:54:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37C9FC116C6;
+	Mon,  2 Feb 2026 16:54:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770051242;
+	bh=ewFJ7lIw0mhiwj4TSfTYPWEKSHxdvWRNCspn7DwLvv8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=q9U8RKjYB1tzrvCrgN9afni5xXdEzT5RQ/+pjQUmEOb9zLuvqDCv1Nef3VxzTJ2ms
+	 fyjTvE+F3qjgD3HF1RBId1ZWneCaEIXNsSE7vn0XaWPu62s68DIqx0QwmGVxU7v65i
+	 arO7mNom+PH8kQYPkTWXb8pAg0pP1iIm57i4i+KvJoeF5Hn+6zicjv75Fxy/ACZ25Y
+	 wPNmX7eHGPAsBig5Isf+7S2QHxKYMa/XkWH173jx4y4f1WNRJKD+6bV5o1dBMx/VKG
+	 3e90A92oHAFFWk5klfyM6PuHw1lZZeaJ+7jTFNZyXXPnJl8EncMmD9JIXIEmzpNvGc
+	 3Pl2FVlWutSMQ==
+Date: Mon, 2 Feb 2026 16:53:57 +0000
+From: Will Deacon <will@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: James Clark <james.clark@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Alexandru Elisei <Alexandru.Elisei@arm.com>,
+	Anshuman Khandual <Anshuman.Khandual@arm.com>,
+	Rob Herring <Rob.Herring@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	Robin Murphy <Robin.Murphy@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] perf: arm_spe: Add barrier before enabling profiling
+ buffer
+Message-ID: <aYDWpc8Jh4SqMcD5@willie-the-truck>
+References: <20260123-james-spe-relaxation-v1-1-4ccb88fa7bc5@linaro.org>
+ <20260130202437.GB3481290@e132581.arm.com>
 MIME-Version: 1.0
-References: <cover.1769191673.git.robin.murphy@arm.com> <a00a59dcef3693efb02a8ee942848fbeaeaf05ba.1769191673.git.robin.murphy@arm.com>
- <CAD=FV=ViHWqjMGfYFgHBNRY-ex2vZjMaYoYLJb=vcUfPQRb9FA@mail.gmail.com>
-In-Reply-To: <CAD=FV=ViHWqjMGfYFgHBNRY-ex2vZjMaYoYLJb=vcUfPQRb9FA@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Mon, 2 Feb 2026 08:52:36 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=UKL5mSr3b_0eBuYZ04RFjFLAG1ZRw=JC5wtPy=t7+7wA@mail.gmail.com>
-X-Gm-Features: AZwV_Qg8mOHmFnRAdN4OmDJbt-Yo140VuLppfyIQONLjHwqHVTpsMUgdZpTJYuk
-Message-ID: <CAD=FV=UKL5mSr3b_0eBuYZ04RFjFLAG1ZRw=JC5wtPy=t7+7wA@mail.gmail.com>
-Subject: Re: [PATCH v2 2/4] drm/panel-edp: Move FriendlyELEC HD702E
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: heiko@sntech.de, neil.armstrong@linaro.org, thierry.reding@gmail.com, 
-	sam@ravnborg.org, jesszhan0024@gmail.com, dri-devel@lists.freedesktop.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_165252_783263_D24DFA68 
-X-CRM114-Status: GOOD (  19.04  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260130202437.GB3481290@e132581.arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,45 +78,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, Jan 30, 2026 at 08:24:37PM +0000, Leo Yan wrote:
+> On Fri, Jan 23, 2026 at 04:03:53PM +0000, James Clark wrote:
+> > The Arm ARM known issues document [1] states that the architecture will
+> > be relaxed so that the profiling buffer must be correctly configured
+> > when ProfilingBufferEnabled() && !SPEProfilingStopped() &&
+> > PMBLIMITR_EL1.FM != DISCARD:
+> > 
+> >   R24557
+> > 
+> >   While the Profiling Buffer is enabled, profiling is not stopped, and
+> >   Discard mode is not enabled, all of the following must be true:
+> > 
+> >   * The current write pointer must be at least one sample record below
+> >     the write limit pointer.
+> > 
+> > The same relaxation also says that writes may be completely ignored:
+> > 
+> >   When the Profiling Buffer is enabled, profiling is not stopped, and
+> >   Discard mode is not enabled, the PE might ignore a direct write to any
+> >   of the following Profiling Buffer registers, other than a direct write
+> >   to PMBLIMITR_EL1 that clears PMBLIMITR_EL1.E from 1 to 0:
+> > 
+> >   * The current write pointer, PMBPTR_EL1.
+> >   * The Limit pointer, PMBLIMITR_EL1.
+> >   * PMBSR_EL1.
 
-On Sat, Jan 24, 2026 at 3:52=E2=80=AFPM Doug Anderson <dianders@chromium.or=
-g> wrote:
->
-> Hi,
->
-> On Fri, Jan 23, 2026 at 11:22=E2=80=AFAM Robin Murphy <robin.murphy@arm.c=
-om> wrote:
-> >
-> > FriendlyELEC's HD702E module is an eDP panel (in as much as it's some
-> > LVDS LCD behind a Chrontel CH7511B eDP bridge), so move its data over
-> > to the eDP driver, also resolving the warning about the missing bpc
-> > value in the process.
-> >
-> > The unfortunate combination of HPD not being wired up and the RK3399 eD=
-P
-> > controller's behaviour seems to result in the EDID not being readable
-> > over DP-AUX without probing the panel first, thus the hard-coded mode i=
-s
-> > still needed to get things going.
-> >
-> > Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-> > Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-> > ---
-> > v2: Clarify issue with the generic binding
-> > ---
-> >  drivers/gpu/drm/panel/panel-edp.c    | 26 ++++++++++++++++++++++++++
-> >  drivers/gpu/drm/panel/panel-simple.c | 25 -------------------------
-> >  2 files changed, 26 insertions(+), 25 deletions(-)
->
-> Reviewed-by: Douglas Anderson <dianders@chromium.org>
->
-> I'll plan to apply patches #1 and #2 in ~1 week to drm-misc-next if
-> there are no other comments. If someone else wants to beat me to it,
-> though, I'm also OK w/ that.
+Oh nice, since when was it ok to relax the architecture and break
+existing drivers that were perfectly fine before? The SPE spec's not
+worth the paper it's written on...
 
-Pushed patches to drm-misc-next:
+Anyway, we're not changing the driver without a comment next to the new
+isb() explaining the backwards incompatible change.
 
-[2/4] drm/panel-edp: Move FriendlyELEC HD702E
-      commit: 5c323ea948ff0f9e50418119cbbb3d94f2bd6a96
+> > When arm_spe_pmu_start() occurs, SPEProfilingStopped() is false
+> > (PMBSR_EL1.S == 0) meaning that the write to PMBLIMITR_EL1 now becomes
+> > the point where the buffer configuration must be correct by, rather than
+> > the "When profiling becomes enabled" (StatisticalProfilingEnabled())
+> > from the old rule which is much later when PMSCR_EL1 is written.
+> > 
+> > If the writes to PMBLIMITR_EL1 and PMBPTR_EL1 are re-ordered then a
+> > misconfigured state could be observed, resulting in a buffer management
+> > event. Or the write to PMBPTR_EL1 could be ignored.
+> > 
+> > Fix it by adding an isb() after the write to PMBPTR_EL1 to ensure that
+> > this completes before enabling the buffer.
+> 
+> Makes sense.
+> 
+> > To avoid redundant isb()s in the IRQ handler, remove the isb() between
+> > the PMBLIMITR_EL1 write and SYS_PMBSR_EL1 as it doesn't matter which
+> > order these happen in now that all the previous configuration is covered
+> > by the new isb().
+> 
+> The isb() in the interrupt handler is useful and should not be removed.
+> 
+> See the sequence in the interrupt handler:
+> 
+>     arm_spe_perf_aux_output_begin() {
+>         write_sysreg_s(base, SYS_PMBPTR_EL1);
+> 
+>         // Ensure the write pointer is ordered
+>         isb();
+> 
+>         write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
+>     }
+> 
+>     // Ensure the limit pointer is ordered
+>     isb();
+> 
+>     // Profiling is enabled:
+>     //   (PMBLIMITR_EL1.E==1) && (PMBSR_EL1.S==0) && (not discard mode)
+>     write_sysreg_s(0, SYS_PMBSR_EL1);
+> 
+> The first isb() ensures that the write pointer update is ordered.  The
+> second isb() ensures that the limit pointer is visible before profiling
+> is enabled by clearing the PMBSR_EL1.S bit.  When handling a normal
+> maintenance interrupt, PMBSR_EL1.S is set by the SPE to stop tracing,
+> while PMBLIMITR_EL1.E remains set.  Clearing PMBSR_EL1.S therefore
+> effectively re-enables profiling.
+> 
+> Since the second isb() is a synchronization for both the write pointer
+> and the limit pointer before profiling is enabled, it could be argued
+> that the first isb() is redundant in the interrupt handling.  However,
+> the first isb() is crucial for the arm_spe_pmu_start() case, and keeping
+> it in the interrupt handler does no harm and simplifies code maintenance.
+> 
+> In short, if preserves the second isb() instead of removing it, the
+> change looks good to me.
+
+I'm not sure I follow your logic as to why both ISBs are required, but
+I'd have thought that if perf_aux_output_begin() fails when called from
+arm_spe_perf_aux_output_begin() in the irqhandler, we need the ISB
+because we're going to clear pmblimitr_el1 to 0 and that surely has
+to be ordered before clearing pmbsr?
+
+Will
 
