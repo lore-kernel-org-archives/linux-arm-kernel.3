@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A00E73152
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 10:02:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A21CE7314A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 10:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J5BGzuN2ty2qBHUEoZnjE5Et++MOWK6EDUcZfLtgETA=; b=yp3PMfvT39rS4A/1i8nCf6rb1M
-	jAlX5Ds29qC4fnrjdt/BowKY0ALFlpgvphQKnNAONtJ57C3PoQFKXDh33SMphvMP8uzi7XygHkPP+
-	EKnkBqmLxjvPxSusGm/h7I14qug+itpNQzwLz0T9pZY24BXB/okoeZr/wo7N7VcUwcPLEZnaYSAN9
-	HZ6T4QrZa4gdw0US9KourQcQutztDpBRTasHZ5uL49NVi8iRWT8MqLsRZUDtdB83FKfkD16hQuT19
-	+G3NIxtfMdH4wV2MuLRlDcJYMBKKF6p4yP+Rg9eYCMtUngSf7E8A1KQ4cupbTCkcvjOpy3rp0jMCb
-	0x5PVuUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qE//TZYliqp6X02AKuMaRivUK7A25u9E1VF9BpM0TMk=; b=4Kw2mX4EVIaXtBY1127ulW/X3u
+	VIklVQUARlBADaiHpaCeX3P+QdwGNxezCc7GUmODmYC7g8LxMPeGs5DKPhQBGY7MWeHNYkvIbNRXW
+	ordpbuw3l5TGkEYqaPnNqWvaUKRvk/vHNM0yYmGpWTMmVxQ9syW6+9PaXPiLgZHO74+IuZGcwn8TO
+	R1jdQaW4vVVOsW7uLvxlOVdtVtd6ZWSsUuPZxhf4mteMdBz8X71mk3PU2vSU4XzjUDkrVJw5Nag7A
+	OGv151xViK9rKnLIgC62T31I/0+fnrLVYR6v0y9Ki3oTBrt94Nb7qBQPfgi9dMkzSBIpZPiNzv+l+
+	zT/p/m2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmqlE-00000004lTq-3YCM;
-	Mon, 02 Feb 2026 10:02:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vmqmd-00000004liD-2GxF;
+	Mon, 02 Feb 2026 10:03:51 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmqlC-00000004lSk-17uf;
-	Mon, 02 Feb 2026 10:02:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2AC8C42E0B;
-	Mon,  2 Feb 2026 10:02:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89750C116D0;
-	Mon,  2 Feb 2026 10:02:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770026535;
-	bh=J5BGzuN2ty2qBHUEoZnjE5Et++MOWK6EDUcZfLtgETA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=izUCAWIaKJ/T/MeoqThDFIpU9m/ilQsmhgs5NRtAHvYODSJah93V/vr51/RY57sL8
-	 dcs9cd2JoKMRfduTEtDpIeuB7tzFn6RTbKeIQYQ08io5rp08F9rWlCat9YuV+uqkCd
-	 oUNoKGhUeEuyBDhrsO6aOhi6WKD1EW+Ac60QUNrsXxZhGGl3wvBpmPTdSOBrtG0vbz
-	 HBAkR4YaYch/E3rC6woFF227/LxDn7prPwo+f0KmIfA17U4pEEtu0JYvxJsd2NTPNh
-	 RLfhJTcMycPZdGg/aMpwM9oFtR7OPxsZDxkme2ZBuagt2hVBM3Nvz4SFxjnwBj1qcE
-	 ceg0Lo7O7EAAQ==
-Date: Mon, 2 Feb 2026 11:02:09 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Grimmauld <grimmauld@grimmauld.de>
-Cc: Anand Moon <linux.amoon@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
+	id 1vmqma-00000004lhf-0405;
+	Mon, 02 Feb 2026 10:03:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=qE//TZYliqp6X02AKuMaRivUK7A25u9E1VF9BpM0TMk=; b=eA1Cmf3U+AlNGD3kezQEHFQU7H
+	Zt3u9f/cbJvdhlAFql5AhdZoiLL75RWbOH/2eSY5hh+N2CrPD7egUkBjs1ovtny44Es4CfvjhTq60
+	zNn1H5xTzlhL3SJaCzP5aTcX0y/9ndInm/RN+ZpAewZ151oKc70BwsBua6XRg5eP9lvGcwEPpQ+Tx
+	fW9Szrs4qEeRA69pIz2fl9vEQtCfy7FVXCq2I4wdtZaIB9N+rc33iFT4yxek+V5r+37A/hzYbVcVS
+	6efIrTGycDva1NtLWyrmLlCFPiwes2xv2Y4maLdAFraBLEzwidd/MS3Hsp49V/4sOGMP0dP2zlbQ/
+	6E24bRZA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60412)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vmqmL-000000003lt-0zDK;
+	Mon, 02 Feb 2026 10:03:33 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vmqmG-000000003Ij-3gQt;
+	Mon, 02 Feb 2026 10:03:28 +0000
+Date: Mon, 2 Feb 2026 10:03:28 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] PCI: dw-rockchip: Enable async probe by default
-Message-ID: <aYB2IVdh_kth1wtn@ryzen>
-References: <20240809073610.2517-1-linux.amoon@gmail.com>
- <aXtpg0V_sifQEWHJ@grimm-nixos-ssd-2>
- <aXyHITrZ89Mmn8_J@ryzen>
+	linux-rockchip@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next v2 00/10] net: stmmac: rk: cleanups v3: mode and
+ speed for most
+Message-ID: <aYB2cKRu3DQh6yXK@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aXyHITrZ89Mmn8_J@ryzen>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_020222_340443_B625227C 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20260202_020348_324267_554D7680 
+X-CRM114-Status: UNSURE (   6.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,18 +84,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 30, 2026 at 11:25:37AM +0100, Niklas Cassel wrote:
-> Note that I've built the network PHY driver that phylib wants to load
-> (CONFIG_REALTEK_PHY=y) as built-in. As long as the PHY driver is built
-> as built-in, I don't think that the problem the modules code is warning
-> about can happen. (But I also don't understand why it is trying to load
-> a module when the driver is built as built-in in the first place...)
+Hi,
 
-FWIW, the reason why PHYLIB tries to load the module even though it is built
-as built-in (i.e. is already loaded) is explained by the following comment:
-https://github.com/torvalds/linux/blob/v6.19-rc8/drivers/net/phy/phy_device.c#L852-L855
+Third installment in the rk cleanups, this converts the interface mode
+and speed configuration for most RK SoCs.
 
+--
+v2: disable clocks on regmap_write() failure
 
-Kind regards,
-Niklas
+ drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 846 ++++++++++---------------
+ 1 file changed, 345 insertions(+), 501 deletions(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
