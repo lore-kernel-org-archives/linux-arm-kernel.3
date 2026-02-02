@@ -4,53 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5C70E7DEF4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 14:28:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B87BDE7DEF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 14:28:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BsYw1jdHI6UNaHJ0xGEA+g0R+OyYdE59KzSX/GWoWYg=; b=RRWxR690xhjHzBP5WTjJKhcfAW
-	WKEBTjGK+XBUwxBXcRZtxzUpiQROib9jF4MME+4fVUazu0Q2m9P4J1o8k1RLZHkgk6t9JjQmiIEOl
-	+KcCfNZHO5wjTImOEjweGlFU8ft08fCEcxRs7j1oOhm2Bx1aRbqrKsbkQXgLIJJCsNwB55+SIeK9K
-	QkI9hECx//RpffGn6EGuUZ8AFufQtYdWnvuH41n0zw1fF6bXa8uKcdO72VL3mEkc96BjVR5a7Q8aU
-	5hwl2uirO4mJMT8KB2m3TPhO1PfcuL4eKnNlj9NybPpOIyYzN2YB9m2DLD0z2KxqRnyXNvFPf0l20
-	pPBL6PwQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=j9uLyV9kFLJGHA7zrDn69gzb5Tm23oRDPvMLnu7DPy0=; b=4AIEgvPja6FBT7
+	pnoX/KxmfXcPq6ZNuXTPwl2b+bfRhIygAo7A9ppve8ovcve+vbYWztNbxtMmkmSRue7B7QXFtulW1
+	TSzniActvhZGfpygpInk5QSs0MkGK+ectbJl9nxKy2YmmV/W1Qn68rTk4qf8LCrOlH+d3Z1uytnmZ
+	CJF/SpBYOSSnr9BLfsIIx+Yi1ID0Uy8Sh0g5LsmyOMrjE0K3avHXStApGzoK5an4cbH0mclcsuo2b
+	tdit+A/sLjzFn3k6vqBswJaq5DxEBrf/xdAUYNltNGiX7w2gg6Jvp1X6bC3n/fZqs9vV1Y4ifF8lp
+	kgdfd5+hRN82BOHizEiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmuuk-0000000567e-3Miv;
-	Mon, 02 Feb 2026 14:28:30 +0000
+	id 1vmuuj-0000000566a-2cvE;
+	Mon, 02 Feb 2026 14:28:29 +0000
 Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmuud-0000000564R-2xUc;
-	Mon, 02 Feb 2026 14:28:24 +0000
+	id 1vmuuc-0000000564O-13uo;
+	Mon, 02 Feb 2026 14:28:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description;
-	bh=BsYw1jdHI6UNaHJ0xGEA+g0R+OyYdE59KzSX/GWoWYg=; b=aTgBNQQhltAuw96wTOS8uy9t3o
-	u5GM4R+satqAZlav3VkjHQMCbIG+RU7NskjwGA0dSj4hMrzgo3GbAQY6aonNxs5O34lCC8JVWXB3v
-	20VQ2YCokPSqSK2xreRzSFq2dcdhkY71p3FBlRSJ2FhYaloOS6gMTGmL/sJzYm7H8d2IyQ3Gk3Kwy
-	x8pNfhc+PtmsR1Yq3cwsj/0kUr/8gf54yPRr6qfmF39F41WG2wO3E8fcR4C0B+soL7U3O+sRwqt1w
-	ZVwyNntOpXeIXXsnuzW2YYLxdpZPW2fi2O9huq1p51c0Ip/wltzgBdMk6rNaGHud87OYBeFFeLHmu
-	1y8f8MTQ==;
+	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=j9uLyV9kFLJGHA7zrDn69gzb5Tm23oRDPvMLnu7DPy0=; b=pAP2QGa3zgjdrxhHkBkctEe5b4
+	ANZYe1bm/0fZydyOBYtIgfw7OxYc4p7YtvRDaw6WWQebKcCOm0UAg0fcAOPRJ5qEzwYkDzMedxPaK
+	yU7eg8/K84YPFcuPxyKJffM/3IQJWOksoQfELQJocH8DEdFxC+w2BQaPRTjUKrpU4F+6Tw5zEyDg5
+	rOSE9fC2mTnHuSN48uje3X3J2O+ASRyFQFzCbtCcKZ2QiHuOiRyoRm+M50YGycH0XnDqbXdmRQSuM
+	14SAIgAcPAKkrmcbpbdwdVbXYMik5CpAMfF2jBw9vlhp/zhLsmqOzo/S3h2jMeXG1NKp2Yya/qEDI
+	EJf+ftwQ==;
 Received: from authenticated user
 	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
 	(Exim 4.94.2)
 	(envelope-from <leitao@debian.org>)
-	id 1vmuuT-0046Xj-1B; Mon, 02 Feb 2026 14:28:13 +0000
+	id 1vmuuJ-0046XU-Lw; Mon, 02 Feb 2026 14:28:04 +0000
 From: Breno Leitao <leitao@debian.org>
-Date: Mon, 02 Feb 2026 06:27:40 -0800
-Subject: [PATCH v2 2/2] docs: add ABI documentation for
- /sys/kernel/hwerr_recovery_stats/
+Subject: [PATCH v2 0/2] vmcoreinfo: Expose hardware error recovery
+ statistics via sysfs
+Date: Mon, 02 Feb 2026 06:27:38 -0800
+Message-Id: <20260202-vmcoreinfo_sysfs-v2-0-8f3b5308b894@debian.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260202-vmcoreinfo_sysfs-v2-2-8f3b5308b894@debian.org>
-References: <20260202-vmcoreinfo_sysfs-v2-0-8f3b5308b894@debian.org>
-In-Reply-To: <20260202-vmcoreinfo_sysfs-v2-0-8f3b5308b894@debian.org>
+X-B4-Tracking: v=1; b=H4sIAFu0gGkC/33NQQqDMBCF4auEWZtigtXqqvcoUjTO6BSalIwNF
+ fHuRbvv8sHP91YQjIwCjVohYmLh4KFRNlPgps6PqHmARoHNbZkbW+v0dCEiewp3WYREExXlpaq
+ r2g1nyBS8IhJ/DvLW/ra8+we6eXf2YmKZQ1yOz2T27g+fjDbalIUzhIYwr64D9tz5U4gjtNu2f
+ QEZ/HDywwAAAA==
+X-Change-ID: 20260129-vmcoreinfo_sysfs-ff4687979cd5
 To: akpm@linux-foundation.org, bhe@redhat.com
 Cc: linux-kernel@vger.kernel.org, kexec@lists.infradead.org, 
  linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, 
@@ -58,26 +61,26 @@ Cc: linux-kernel@vger.kernel.org, kexec@lists.infradead.org,
  vgoyal@redhat.com, zhiquan1.li@intel.com, olja@meta.com, 
  Breno Leitao <leitao@debian.org>, kernel-team@meta.com
 X-Mailer: b4 0.15-dev-f4305
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3053; i=leitao@debian.org;
- h=from:subject:message-id; bh=18gfPfnS76lTnOnvubbkQRKtlWGXJGHF5diwW/VEeLw=;
- b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBpgLRtcjZ4+WBywa2wxT1191HPWP7OKn4XR6Tn9
- uqH93TzJzmJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaYC0bQAKCRA1o5Of/Hh3
- bXbeEACoupF1Pf8XMs+rEdztojnWgDL4it51PtcayAHw+CQ6Wdp1MY6lxhkmj0g1+YNf+SwxbRl
- QynpeiRWj8Q15AddCGhpfuh7Uj4EuytJ6LXF18iIygYbwxlqC6GHxcYALJDCe/0RCpvnmrB5t0C
- KFSumDtE69FQYF2XESSku2W12rRODBRbnqvMWXdUkdVUobQyWmVhzGrntc7YDDX8MAg9si7Q6RQ
- WRrOTx28/G/RnNnzV/y4JBPjPJWV6Ibb7xGBrpVoiOJSJzEkGPBbKl6ZE+Fm3a+CmQp50aOLeWp
- yEscW50qSksuh0MyMdyDr1YhG+1vibIu/YUePZscz/cU7lK2dO+lORrafpeeEHHVbS5mnxmeM+R
- XDzkv+QiSPJIz1SAblR4iVeIwJYVuhI8irPOuv5KvdGWG1LE9aCEb/IZQKF3zQ3fOl5ywUK97JR
- SgoWnzj4yei259VzhSdUsgb9UR3RhGX8IX5TN8YJ7Yip9jK2Q4h3GL9loYly8g0c3ptWRDSaV4f
- eL50p/ADmpWoj899YL94PfCLUhZ8LSx+/QrwOdWmq3n6l46BPoEdrrF9LcXVnNDXIjw1tfAlhA8
- SAOGRYTZHatuaHp8sqoHRksVztne8OSrCPc70LI+pubdyQxWbmjuYKvYSVq59R3S/0PBxZm0oAF
- 6TW1S81PupfKqIw==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1992; i=leitao@debian.org;
+ h=from:subject:message-id; bh=gI1rB1UnSjdCFeqDmDgt6zB+vX19MFGXqv9RVorUFSo=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBpgLRt8/uJvmAO9WWOHLmnUuQuY2PdOl13iumgj
+ 4SNdyDegrmJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaYC0bQAKCRA1o5Of/Hh3
+ bQnFEACdMj0oOmwbD8xG7FWlRTtT8LyTyEBdZ2U2fGf6rlMswS0oVubjyxCmqe1ZUwXn3UvQV4h
+ T2zW3gibCr24Mu7/kx05Xb8y/IJsebfdJZoNrBvVjtO3J61LYdHxAFtJtRBuTy7kWOSAVU65Gn2
+ wOKdK26E7mHmZexrJncyFZwzNndbKNQWiAg4KE+bZLIPs2hCfNVgXgQZYOOiU1HUlIk9LALzTNk
+ rvjbknxALwyzWIvnYPGLPP5ZDXG1VkS8DWM5UPPdcOUUY424KLESaAPK+CWWpA4NACa3Og+mHwd
+ QExGhwKue4aegJaVbrb08ZHJwnIZgeToucqSZ8J6gBZnAelKrWwtxnQN3O6TKLhXO0C9COZZowV
+ 0ZEZJsek7p48pSXSHTyzJj8+1nHU8GMTLo6zNkclnoBCcD/DYM4S2BBu8zg0ORTzFBCSuoRvX1O
+ Ie+7Mo/8uixMTI4Zez234AshN0GIw5vKjGoWQxEgizgPR1gdMg9Pr11S/5BM0w/cqCdimOgVuc6
+ +1JgrAYaazS/Rp0kT6wGRqJpH6zVBeOebeyOr4Aq/uA3PsutJpPuw0C9lf7wthZXqtNpXQWrBYH
+ ZN1pm7heacYfkYcTaJBeOIwh8B3r9OY1oiqfNEk5Xh+qO+/M9FbegCi9cStJzH3CYi1uxpTkCyY
+ z4THSJjcVKrxQ+g==
 X-Developer-Key: i=leitao@debian.org; a=openpgp;
  fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
 X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_062823_787206_F673FD06 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20260202_062822_323850_5BA141A4 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,87 +95,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the new hwerr_recovery_stats sysfs directory that exposes
-hardware error recovery statistics.
+The kernel already tracks recoverable hardware errors (CPU, memory, PCI,
+CXL, etc.) in the hwerr_data array for vmcoreinfo crash dump analysis.
+However, this data is only accessible after a crash.
 
-Update hw-recoverable-errors.rst to reference the new sysfs interface
-for runtime monitoring.
+This series adds a sysfs directory at /sys/kernel/hwerr_recovery_stats/ to
+expose these statistics at runtime, allowing monitoring tools to track
+hardware health without requiring a kernel crash.
+
+The directory contains one file per error subsystem:
+  /sys/kernel/hwerr_recovery_stats/{cpu, memory, pci, cxl, others}
+
+Each file contains a single integer representing the error count.
+
+This is useful for:
+- Proactive detection of failing hardware components
+- Time-series tracking of recoverable errors
+- System health monitoring in cloud environments
+
+To: akpm@linux-foundation.org
+Cc: kexec@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-acpi@vger.kernel.org
+To: bhe@redhat.com
+Cc: linux-kernel@vger.kernel.org
+Cc: dyoung@redhat.com
+Cc: tony.luck@intel.com
+Cc: xueshuai@linux.alibaba.com
+Cc: vgoyal@redhat.com
+Cc: zhiquan1.li@intel.com
+Cc: olja@meta.com
 
 Signed-off-by: Breno Leitao <leitao@debian.org>
 ---
- .../ABI/testing/sysfs-kernel-hwerr_recovery_stats  | 47 ++++++++++++++++++++++
+Changes in v2:
+- Renamed vmcore_stats to hwerr_stats
+- Separate each subsystem in multiple sysfs entries, one per file
+- Link to v1: https://patch.msgid.link/20260129-vmcoreinfo_sysfs-v1-1-164c1fe1fe07@debian.org
+
+---
+Breno Leitao (2):
+      vmcoreinfo: expose hardware error recovery statistics via sysfs
+      docs: add ABI documentation for /sys/kernel/hwerr_recovery_stats/
+
+ .../ABI/testing/sysfs-kernel-hwerr_recovery_stats  | 47 ++++++++++++++++++
  Documentation/driver-api/hw-recoverable-errors.rst |  3 +-
- 2 files changed, 49 insertions(+), 1 deletion(-)
+ kernel/vmcore_info.c                               | 55 ++++++++++++++++++++++
+ 3 files changed, 104 insertions(+), 1 deletion(-)
+---
+base-commit: 4d310797262f0ddf129e76c2aad2b950adaf1fda
+change-id: 20260129-vmcoreinfo_sysfs-ff4687979cd5
 
-diff --git a/Documentation/ABI/testing/sysfs-kernel-hwerr_recovery_stats b/Documentation/ABI/testing/sysfs-kernel-hwerr_recovery_stats
-new file mode 100644
-index 0000000000000..4cb9f5a89fba9
---- /dev/null
-+++ b/Documentation/ABI/testing/sysfs-kernel-hwerr_recovery_stats
-@@ -0,0 +1,47 @@
-+What:		/sys/kernel/hwerr_recovery_stats/
-+Date:		February 2026
-+KernelVersion:	6.20
-+Contact:	Breno Leitao <leitao@debian.org>
-+Description:
-+		Directory containing hardware error recovery statistics.
-+		These statistics track recoverable hardware errors that the
-+		kernel has handled since boot.
-+
-+		Each file contains a single integer representing the count
-+		of recovered errors for that subsystem.
-+
-+What:		/sys/kernel/hwerr_recovery_stats/cpu
-+Date:		February 2026
-+KernelVersion:	6.20
-+Contact:	Breno Leitao <leitao@debian.org>
-+Description:
-+		Count of CPU-related recovered errors (MCE, ARM processor
-+		errors).
-+
-+What:		/sys/kernel/hwerr_recovery_stats/memory
-+Date:		February 2026
-+KernelVersion:	6.20
-+Contact:	Breno Leitao <leitao@debian.org>
-+Description:
-+		Count of memory-related recovered errors.
-+
-+What:		/sys/kernel/hwerr_recovery_stats/pci
-+Date:		February 2026
-+KernelVersion:	6.20
-+Contact:	Breno Leitao <leitao@debian.org>
-+Description:
-+		Count of PCI/PCIe AER non-fatal recovered errors.
-+
-+What:		/sys/kernel/hwerr_recovery_stats/cxl
-+Date:		February 2026
-+KernelVersion:	6.20
-+Contact:	Breno Leitao <leitao@debian.org>
-+Description:
-+		Count of CXL (Compute Express Link) recovered errors.
-+
-+What:		/sys/kernel/hwerr_recovery_stats/others
-+Date:		February 2026
-+KernelVersion:	6.20
-+Contact:	Breno Leitao <leitao@debian.org>
-+Description:
-+		Count of other hardware recovered errors.
-diff --git a/Documentation/driver-api/hw-recoverable-errors.rst b/Documentation/driver-api/hw-recoverable-errors.rst
-index fc526c3454bd7..4aefcd103be22 100644
---- a/Documentation/driver-api/hw-recoverable-errors.rst
-+++ b/Documentation/driver-api/hw-recoverable-errors.rst
-@@ -36,7 +36,8 @@ Data Exposure and Consumption
-   types like CPU, memory, PCI, CXL, and others.
- - It is exposed via vmcoreinfo crash dump notes and can be read using tools
-   like `crash`, `drgn`, or other kernel crash analysis utilities.
--- There is no other way to read these data other than from crash dumps.
-+- It is also exposed via sysfs at ``/sys/kernel/hwerr_recovery_stats/`` for runtime
-+  monitoring without requiring a crash dump.
- - These errors are divided by area, which includes CPU, Memory, PCI, CXL and
-   others.
- 
-
--- 
-2.47.3
+Best regards,
+--  
+Breno Leitao <leitao@debian.org>
 
 
