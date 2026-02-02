@@ -4,84 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D85E7DF0F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 18:20:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7530CE7DF19
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 18:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2G1YPwbreUxncFwnY/ItlGnuP4ErdGMc1jU89ycS1Q0=; b=n4/QFTidFfzEQBzEjeOvi8Pe7r
-	lXhDOkypk+4TqZNFRwS6ANa+dGgAlJLUZvPZXOn3wKt3SlMOyJhKamPT0/yZXetEy33g2ts2q4H71
-	bxF375sxpNwAPV34OiA5B+TkB5Y4+LZgaqBWz78Ii94Az3WYbhR8GSDdUqAYt5jBZTMI/RkKws/Mc
-	1JNFLZkaC9PTDSSwdwrIKdVuQJN0hMAFRbnFGNir1I9CHEhsO1I6jpd83jiDEkmqa7VMucdWV//UJ
-	TgQhH6lZliAZbW9OibgKhxnpIl+/ScZxZHR7BkIvo/Qr1YG1vEIm2ljvVPuDg18H+qaijZa6Prg1w
-	bkt80S7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UmAP85T4hD2xzqQLiYF8/uEGgU9rFd+QCSkTmTB/L8k=; b=dMlE/KX3O1BnuOWjjBABrNuY6c
+	XptqVsapR/lnmLJO0CZGbceQn3xl8PfImte37qr3BVLKYiXB6kJJuiiTQ282CNfZlUP60SXu30qa9
+	rGJOkGUy5INU0G9QZ3U1BCPBSx6Gqkd+y1TIJs9HBYrmh+9xI6aaLqt85bdANjd1iVaR/F8vwhid8
+	5iajDFadJ9PopfTqBnU8lKGdx16Bk5p3mNc6HwI5lBRDO+2m6I+WDFy7RaqCZWaYujOt3XFnolk1a
+	/mOKMBiH5e8V8G+oKiRZ7tzNXAM44LUFYUJtrEKp1DoOLXv5kVGZtzLawCe5hI3OVBa7M5+JF+31F
+	QH9fEeZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmyX9-00000005Pp3-1OBb;
-	Mon, 02 Feb 2026 18:20:23 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1vmydV-00000005Q8X-1npX;
+	Mon, 02 Feb 2026 18:26:57 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmyX5-00000005Pog-46il
+	id 1vmydT-00000005Q8C-2Dgv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 18:20:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1770056420; x=1801592420;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=rbCK6zyQfYtDifhYSyzXCEckvE8IP7GcmV+g5x8drgg=;
-  b=l8HLO3ka5lvv3HX0ehm/v4FW+Z6At8jGMpQaksLqV2vC/uYTdkxJJx8r
-   184nUzxSUKCDICBBH3q0bkmxfFKjGFLW5NBRAr514gXT5GkHOYvJO+Hyd
-   FL+fNMuNPTBWH/dnUcRQQbv42OydbtJZBmrMTFQZhDz4afs7nhOpkbqS8
-   PMTSALTTknZOQQGzEE0i9ZlvGkAB3C9LqZRMAQ8vqgV0QFisNuyQwxxOl
-   UP52T9OHDh2ZVWP7Ou9JFb1lRQxBMCnTVigKuGNy+3C97sWGpzz6HoAqP
-   FFv8/mjl75YlVo0FMfZX+AT3XsUbjl7vU4iF8gPjDFKxV5MCpf5QFoz+s
-   Q==;
-X-CSE-ConnectionGUID: Zbjjhu0ZRN+j5WGb1JoAhw==
-X-CSE-MsgGUID: kffX6NZ5R1eCJuouKa1Svw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11690"; a="75076671"
-X-IronPort-AV: E=Sophos;i="6.21,269,1763452800"; 
-   d="scan'208";a="75076671"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Feb 2026 10:20:18 -0800
-X-CSE-ConnectionGUID: 1ikHsIPOT3SbygX7/wxZrA==
-X-CSE-MsgGUID: Zm5hPKFcT9qmEjWYYsSCvw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,269,1763452800"; 
-   d="scan'208";a="214121632"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 02 Feb 2026 10:20:15 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vmyWx-00000000fq0-47hS;
-	Mon, 02 Feb 2026 18:20:11 +0000
-Date: Tue, 3 Feb 2026 02:20:11 +0800
-From: kernel test robot <lkp@intel.com>
-To: Vladimir Moravcevic <vmoravcevic@axiado.com>,
-	Krutik Shah <krutikshah@axiado.com>,
-	Prasad Bolisetty <pbolisetty@axiado.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
-	Vladimir Moravcevic <vmoravcevic@axiado.com>
-Subject: Re: [PATCH 2/3] usb: gadget: udc: Add UDC driver for Axiado Device
- controller IP Corigine
-Message-ID: <202602030223.QlbiPC8d-lkp@intel.com>
-References: <20260202-axiado-ax3000-usb-device-controller-v1-2-45ce0a8b014f@axiado.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260202-axiado-ax3000-usb-device-controller-v1-2-45ce0a8b014f@axiado.com>
+	Mon, 02 Feb 2026 18:26:56 +0000
+Received: by mail-pf1-x443.google.com with SMTP id d2e1a72fcca58-8230c2d3128so2510827b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 10:26:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nexthop.ai; s=google; t=1770056814; x=1770661614; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UmAP85T4hD2xzqQLiYF8/uEGgU9rFd+QCSkTmTB/L8k=;
+        b=dvQT+kNhloCU0h3w1t2xkCpnO9ZcQDnqtjpnhd7P+R5Jz60gxjqQQbkEZ+yB6I/br0
+         4s418vaVVD6sTQyCD6/qGvmWEh40eJ1JDCtG5fWXn+RxvNV/jG7ZHTXnIYUo0EByCUbg
+         Sk5aDVOgm7PSMECXn4mcqeTrAiBrncYaeuajniKohxg1UND/nEDgloFO0v1DrJ99HLmg
+         FUtDbz08FM10su/pV/DVdoVM9hJDh4jjCcTIFnx1eRPaGbWix/e3jHWXPXBR3VfhnAGa
+         27Y/TY8Z+V6Rlepj9iDHNu/NDiOGu8YuJhX6IT6dhRajjhhA4N3r9bJ+9Q5wiSEM6Th8
+         gyqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770056814; x=1770661614;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UmAP85T4hD2xzqQLiYF8/uEGgU9rFd+QCSkTmTB/L8k=;
+        b=DqtdS0OwtDqptPe3SkoLLUfDMHtvE39mCj+BUC7eSA7t7Olv3oSHKlpPsJxtj4Hv8E
+         QON/x/m7pMnZWUapp5MPqTQc4ZzQNiw5jrLZkHDBysmzhwJp86V6xDJTGWNhGdNLhccQ
+         qqSSfmaVztV+q6dHGbf7q+JpyWpwrMGdnCv9CKrn5VYRhd8Cd3lhhWht8oUQMTkV/HKy
+         2cI8cDj9yEu9YCD4dTCNplzI7gJLia4dRtwki2jU3KEv8M1O/gDRSqigNrN77cIbLkjF
+         1e1IZVNrbLz9VT7w8FBrHNmiz7ehHCiF8zN8s7PZ/k8h6QziEVGNkp9mpv6mt22RcTh7
+         bXvg==
+X-Forwarded-Encrypted: i=1; AJvYcCVLLZ5iVCJwhJVy+ethr7vX4N2vZYBuLU1VklkxwxHk7nM3WfE59OkCYk8zenOAObnmAfIAyG+sbdJ10XCLuKtt@lists.infradead.org
+X-Gm-Message-State: AOJu0YznPmezhntC1mnr16JOPOOZJtgkyfigMQA7evZefYravUmHDsH2
+	3nb9lXAIRHJCTwvPnXVRN7r03BauaQWtMDWcp3QcKoffLGUFm+0cJQwonaizNNseKaA=
+X-Gm-Gg: AZuq6aKpPfZ3idPKmYBygIrKxIlMvPXe/9p9yB85vBBICAqaiICUoKeWbh3J7EQmiJT
+	NVzi39R8EgO5pqUUCgmR1LcoiT5EEDGioPRAjim4h/5/p4TyfUC97QIv+pz7NntSuLLxTxhvo3m
+	CBs+2XogwoxByR8UbERnxoMudM+WiZ5Rol1CL/npa+2PkSzCsL9OP1CG1PJyFY5I2FGdqBIsBHA
+	GEEdREY2ZlrZUCGZ6mXSWxhtyuAQYTpy/V8c/LZ33oQVHrgcAMYXIoXeFAt2Vy4KLd3IRIaEjUS
+	TckikL88gW7Pp9G8Bj2UctE+AT/ZDYKvLqJp5eUSzvEC9xHiv2Dwlpf88pI2f6eRwf4kzuX7eiS
+	hoE/4AKbDnssAnDtwFjGCcGqYq3h/xuyxPtALdF0G3/H5q8humqkMxHjMSs1K7xYKgrIh5gX/3f
+	b8CHhtoevYkzoi+Vzc1PT/kPtuO7AUIzE+uww8TpVivBBjG1txUqwq5NZE3W5QrntVEgWGRSouO
+	co11qSVXg==
+X-Received: by 2002:a05:6a21:34c1:b0:38b:ecae:671b with SMTP id adf61e73a8af0-392dfd7bb59mr12340570637.0.1770056814292;
+        Mon, 02 Feb 2026 10:26:54 -0800 (PST)
+Received: from smtpclient.apple (c-24-16-26-157.hsd1.wa.comcast.net. [24.16.26.157])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82379b59e10sm16991693b3a.25.2026.02.02.10.26.52
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 02 Feb 2026 10:26:53 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
+Subject: Re: [PATCH v7 1/6] i2c: xiic: skip input clock setup on non-OF
+ systems
+From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+In-Reply-To: <8be34da2-bf0e-47a0-bf91-3329ed0ec8ab@lunn.ch>
+Date: Mon, 2 Feb 2026 10:26:42 -0800
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
+ Michal Simek <michal.simek@amd.com>,
+ Andi Shyti <andi.shyti@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <7B60C48F-B2BA-4443-A4B7-F5086667A1F1@nexthop.ai>
+References: <20260129-i2c-xiic-v7-0-727e434897ef@nexthop.ai>
+ <20260129-i2c-xiic-v7-1-727e434897ef@nexthop.ai>
+ <ab9dc191-59c1-40a9-bbf1-e6c082af128a@lunn.ch>
+ <2428D892-89F9-4013-9681-AD9BD76B0874@nexthop.ai>
+ <aX3VqGlIUGCvMY5p@smile.fi.intel.com>
+ <CAGYn4vxRbPVFvzm1b_mk2KvnRcJSO0Ewmx1tCTEALaZAu+ZQJQ@mail.gmail.com>
+ <8be34da2-bf0e-47a0-bf91-3329ed0ec8ab@lunn.ch>
+To: Andrew Lunn <andrew@lunn.ch>
+X-Mailer: Apple Mail (2.3864.300.41.1.7)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_102020_163014_02B32B34 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20260202_102655_696532_2D31175D 
+X-CRM114-Status: GOOD (  26.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,415 +116,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vladimir,
-
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on 63804fed149a6750ffd28610c5c1c98cce6bd377]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Vladimir-Moravcevic/dt-bindings-usb-axiado-ax3000-udc-Add-Axiado-UDC/20260202-211951
-base:   63804fed149a6750ffd28610c5c1c98cce6bd377
-patch link:    https://lore.kernel.org/r/20260202-axiado-ax3000-usb-device-controller-v1-2-45ce0a8b014f%40axiado.com
-patch subject: [PATCH 2/3] usb: gadget: udc: Add UDC driver for Axiado Device controller IP Corigine
-config: nios2-allmodconfig (https://download.01.org/0day-ci/archive/20260203/202602030223.QlbiPC8d-lkp@intel.com/config)
-compiler: nios2-linux-gcc (GCC) 11.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260203/202602030223.QlbiPC8d-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202602030223.QlbiPC8d-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   In file included from include/linux/printk.h:621,
-                    from include/asm-generic/bug.h:31,
-                    from ./arch/nios2/include/generated/asm/bug.h:1,
-                    from include/linux/bug.h:5,
-                    from include/linux/random.h:6,
-                    from include/linux/net.h:18,
-                    from drivers/usb/gadget/udc/crg_udc.c:7:
-   drivers/usb/gadget/udc/crg_udc.c: In function 'crg_udc_epcx_setup':
->> drivers/usb/gadget/udc/crg_udc.c:624:31: warning: format '%ld' expects argument of type 'long int', but argument 5 has type 'unsigned int' [-Wformat=]
-     624 |         dev_dbg(crg_udc->dev, "DCI %d, sizeof ep_cx %ld\n", DCI, sizeof(struct ep_cx_s));
-         |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/dynamic_debug.h:231:29: note: in definition of macro '__dynamic_func_call_cls'
-     231 |                 func(&id, ##__VA_ARGS__);                       \
-         |                             ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:261:9: note: in expansion of macro '_dynamic_func_call_cls'
-     261 |         _dynamic_func_call_cls(_DPRINTK_CLASS_DFLT, fmt, func, ##__VA_ARGS__)
-         |         ^~~~~~~~~~~~~~~~~~~~~~
-   include/linux/dynamic_debug.h:284:9: note: in expansion of macro '_dynamic_func_call'
-     284 |         _dynamic_func_call(fmt, __dynamic_dev_dbg,              \
-         |         ^~~~~~~~~~~~~~~~~~
-   include/linux/dev_printk.h:165:9: note: in expansion of macro 'dynamic_dev_dbg'
-     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |         ^~~~~~~~~~~~~~~
-   include/linux/dev_printk.h:165:30: note: in expansion of macro 'dev_fmt'
-     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                              ^~~~~~~
-   drivers/usb/gadget/udc/crg_udc.c:624:9: note: in expansion of macro 'dev_dbg'
-     624 |         dev_dbg(crg_udc->dev, "DCI %d, sizeof ep_cx %ld\n", DCI, sizeof(struct ep_cx_s));
-         |         ^~~~~~~
-   drivers/usb/gadget/udc/crg_udc.c:624:55: note: format string is defined here
-     624 |         dev_dbg(crg_udc->dev, "DCI %d, sizeof ep_cx %ld\n", DCI, sizeof(struct ep_cx_s));
-         |                                                     ~~^
-         |                                                       |
-         |                                                       long int
-         |                                                     %d
-   In file included from include/linux/printk.h:621,
-                    from include/asm-generic/bug.h:31,
-                    from ./arch/nios2/include/generated/asm/bug.h:1,
-                    from include/linux/bug.h:5,
-                    from include/linux/random.h:6,
-                    from include/linux/net.h:18,
-                    from drivers/usb/gadget/udc/crg_udc.c:7:
-   drivers/usb/gadget/udc/crg_udc.c: In function 'setup_datastage_trb':
->> drivers/usb/gadget/udc/crg_udc.c:774:31: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 4 has type 'dma_addr_t' {aka 'unsigned int'} [-Wformat=]
-     774 |         dev_dbg(crg_udc->dev, "dma = 0x%llx, ", usb_req->dma);
-         |                               ^~~~~~~~~~~~~~~~
-   include/linux/dynamic_debug.h:231:29: note: in definition of macro '__dynamic_func_call_cls'
-     231 |                 func(&id, ##__VA_ARGS__);                       \
-         |                             ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:261:9: note: in expansion of macro '_dynamic_func_call_cls'
-     261 |         _dynamic_func_call_cls(_DPRINTK_CLASS_DFLT, fmt, func, ##__VA_ARGS__)
-         |         ^~~~~~~~~~~~~~~~~~~~~~
-   include/linux/dynamic_debug.h:284:9: note: in expansion of macro '_dynamic_func_call'
-     284 |         _dynamic_func_call(fmt, __dynamic_dev_dbg,              \
-         |         ^~~~~~~~~~~~~~~~~~
-   include/linux/dev_printk.h:165:9: note: in expansion of macro 'dynamic_dev_dbg'
-     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |         ^~~~~~~~~~~~~~~
-   include/linux/dev_printk.h:165:30: note: in expansion of macro 'dev_fmt'
-     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                              ^~~~~~~
-   drivers/usb/gadget/udc/crg_udc.c:774:9: note: in expansion of macro 'dev_dbg'
-     774 |         dev_dbg(crg_udc->dev, "dma = 0x%llx, ", usb_req->dma);
-         |         ^~~~~~~
-   drivers/usb/gadget/udc/crg_udc.c:774:43: note: format string is defined here
-     774 |         dev_dbg(crg_udc->dev, "dma = 0x%llx, ", usb_req->dma);
-         |                                        ~~~^
-         |                                           |
-         |                                           long long unsigned int
-         |                                        %x
-   In file included from include/linux/printk.h:621,
-                    from include/asm-generic/bug.h:31,
-                    from ./arch/nios2/include/generated/asm/bug.h:1,
-                    from include/linux/bug.h:5,
-                    from include/linux/random.h:6,
-                    from include/linux/net.h:18,
-                    from drivers/usb/gadget/udc/crg_udc.c:7:
-   drivers/usb/gadget/udc/crg_udc.c: In function 'crg_udc_queue_trbs':
->> drivers/usb/gadget/udc/crg_udc.c:896:25: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
-     896 |                         (void *)sg_addr, buffer_length, num_trbs_needed);
-         |                         ^
-   include/linux/dynamic_debug.h:231:29: note: in definition of macro '__dynamic_func_call_cls'
-     231 |                 func(&id, ##__VA_ARGS__);                       \
-         |                             ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:261:9: note: in expansion of macro '_dynamic_func_call_cls'
-     261 |         _dynamic_func_call_cls(_DPRINTK_CLASS_DFLT, fmt, func, ##__VA_ARGS__)
-         |         ^~~~~~~~~~~~~~~~~~~~~~
-   include/linux/dynamic_debug.h:284:9: note: in expansion of macro '_dynamic_func_call'
-     284 |         _dynamic_func_call(fmt, __dynamic_dev_dbg,              \
-         |         ^~~~~~~~~~~~~~~~~~
-   include/linux/dev_printk.h:165:9: note: in expansion of macro 'dynamic_dev_dbg'
-     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |         ^~~~~~~~~~~~~~~
-   drivers/usb/gadget/udc/crg_udc.c:894:17: note: in expansion of macro 'dev_dbg'
-     894 |                 dev_dbg(crg_udc->dev,
-         |                 ^~~~~~~
-   drivers/usb/gadget/udc/crg_udc.c:881:13: warning: variable 'num_sgs' set but not used [-Wunused-but-set-variable]
-     881 |         u32 num_sgs = 0;
-         |             ^~~~~~~
-   drivers/usb/gadget/udc/crg_udc.c: In function 'crg_udc_ep_enable':
-   drivers/usb/gadget/udc/crg_udc.c:1812:26: warning: variable 'uccr' set but not used [-Wunused-but-set-variable]
-    1812 |         struct crg_uccr *uccr;
-         |                          ^~~~
-   drivers/usb/gadget/udc/crg_udc.c:1811:25: warning: variable 'epcx' set but not used [-Wunused-but-set-variable]
-    1811 |         struct ep_cx_s *epcx;
-         |                         ^~~~
-   In file included from include/linux/printk.h:621,
-                    from include/asm-generic/bug.h:31,
-                    from ./arch/nios2/include/generated/asm/bug.h:1,
-                    from include/linux/bug.h:5,
-                    from include/linux/random.h:6,
-                    from include/linux/net.h:18,
-                    from drivers/usb/gadget/udc/crg_udc.c:7:
-   drivers/usb/gadget/udc/crg_udc.c: In function 'init_ep0':
-   drivers/usb/gadget/udc/crg_udc.c:2681:31: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 4 has type 'dma_addr_t' {aka 'unsigned int'} [-Wformat=]
-    2681 |         dev_dbg(crg_udc->dev, "ep0 ring dma addr = 0x%llx\n", udc_ep_ptr->tran_ring_info.dma);
-         |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/dynamic_debug.h:231:29: note: in definition of macro '__dynamic_func_call_cls'
-     231 |                 func(&id, ##__VA_ARGS__);                       \
-         |                             ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:261:9: note: in expansion of macro '_dynamic_func_call_cls'
-     261 |         _dynamic_func_call_cls(_DPRINTK_CLASS_DFLT, fmt, func, ##__VA_ARGS__)
-         |         ^~~~~~~~~~~~~~~~~~~~~~
-   include/linux/dynamic_debug.h:284:9: note: in expansion of macro '_dynamic_func_call'
-     284 |         _dynamic_func_call(fmt, __dynamic_dev_dbg,              \
-         |         ^~~~~~~~~~~~~~~~~~
-   include/linux/dev_printk.h:165:9: note: in expansion of macro 'dynamic_dev_dbg'
-     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |         ^~~~~~~~~~~~~~~
-   include/linux/dev_printk.h:165:30: note: in expansion of macro 'dev_fmt'
-     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                              ^~~~~~~
-   drivers/usb/gadget/udc/crg_udc.c:2681:9: note: in expansion of macro 'dev_dbg'
-    2681 |         dev_dbg(crg_udc->dev, "ep0 ring dma addr = 0x%llx\n", udc_ep_ptr->tran_ring_info.dma);
-         |         ^~~~~~~
-   drivers/usb/gadget/udc/crg_udc.c:2681:57: note: format string is defined here
-    2681 |         dev_dbg(crg_udc->dev, "ep0 ring dma addr = 0x%llx\n", udc_ep_ptr->tran_ring_info.dma);
-         |                                                      ~~~^
-         |                                                         |
-         |                                                         long long unsigned int
-         |                                                      %x
-   In file included from include/linux/printk.h:621,
-                    from include/asm-generic/bug.h:31,
-                    from ./arch/nios2/include/generated/asm/bug.h:1,
-                    from include/linux/bug.h:5,
-                    from include/linux/random.h:6,
-                    from include/linux/net.h:18,
-                    from drivers/usb/gadget/udc/crg_udc.c:7:
-   drivers/usb/gadget/udc/crg_udc.c: In function 'getstatusrequest':
-   drivers/usb/gadget/udc/crg_udc.c:3131:31: warning: format '%llx' expects argument of type 'long long unsigned int', but argument 4 has type 'dma_addr_t' {aka 'unsigned int'} [-Wformat=]
-    3131 |         dev_dbg(crg_udc->dev, "udc_req_ptr->usb_req.dma = 0x%llx\n",
-         |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/dynamic_debug.h:231:29: note: in definition of macro '__dynamic_func_call_cls'
-     231 |                 func(&id, ##__VA_ARGS__);                       \
-         |                             ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:261:9: note: in expansion of macro '_dynamic_func_call_cls'
-     261 |         _dynamic_func_call_cls(_DPRINTK_CLASS_DFLT, fmt, func, ##__VA_ARGS__)
-         |         ^~~~~~~~~~~~~~~~~~~~~~
-   include/linux/dynamic_debug.h:284:9: note: in expansion of macro '_dynamic_func_call'
-     284 |         _dynamic_func_call(fmt, __dynamic_dev_dbg,              \
-         |         ^~~~~~~~~~~~~~~~~~
-   include/linux/dev_printk.h:165:9: note: in expansion of macro 'dynamic_dev_dbg'
-     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |         ^~~~~~~~~~~~~~~
-   include/linux/dev_printk.h:165:30: note: in expansion of macro 'dev_fmt'
-     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                              ^~~~~~~
-   drivers/usb/gadget/udc/crg_udc.c:3131:9: note: in expansion of macro 'dev_dbg'
-    3131 |         dev_dbg(crg_udc->dev, "udc_req_ptr->usb_req.dma = 0x%llx\n",
-         |         ^~~~~~~
-   drivers/usb/gadget/udc/crg_udc.c:3131:64: note: format string is defined here
-    3131 |         dev_dbg(crg_udc->dev, "udc_req_ptr->usb_req.dma = 0x%llx\n",
-         |                                                             ~~~^
-         |                                                                |
-         |                                                                long long unsigned int
-         |                                                             %x
-   drivers/usb/gadget/udc/crg_udc.c: In function 'crg_udc_common_irq':
-   drivers/usb/gadget/udc/crg_udc.c:4250:13: warning: variable 'retval' set but not used [-Wunused-but-set-variable]
-    4250 |         int retval = 0;
 
 
-vim +624 drivers/usb/gadget/udc/crg_udc.c
+> On Feb 2, 2026, at 5:21=E2=80=AFAM, Andrew Lunn <andrew@lunn.ch> =
+wrote:
+>=20
+> On Sat, Jan 31, 2026 at 08:30:40PM -0500, Abdurrahman Hussain wrote:
+>> On Sat Jan 31, 2026 at 10:12 AM UTC, Andy Shevchenko wrote:
+>>> On Thu, Jan 29, 2026 at 03:29:45PM -0800, Abdurrahman Hussain wrote:
+>>>>> On Jan 29, 2026, at 2:43=E2=80=AFPM, Andrew Lunn <andrew@lunn.ch> =
+wrote:
+>>>>> On Thu, Jan 29, 2026 at 09:43:13PM +0000, Abdurrahman Hussain via =
+B4 Relay wrote:
+>>>=20
+>>>>>> The xiic driver supports operation without explicit clock =
+configuration
+>>>>>> when clocks cannot be specified via firmware, such as on =
+ACPI-based
+>>>>>> systems.
+>>>>>=20
+>>>>> Are you saying it is technically impossible to specify a clock in
+>>>>> ACPI?
+>>>>>=20
+>>>>> Maybe a more accurate would be:
+>>>>>=20
+>>>>> The xiic driver supports operation without explicit clock
+>>>>> configuration when the clocks are not specified via firmware, such =
+as
+>>>>> when the ACPI tables are missing the description of the clocks.
+>>>>=20
+>>>> Actually, ACPI (since 6.5) added a ClockInput() macro that can be =
+added to
+>>>> _CRS of a device node. The ACPI subsystem in kernel could parse =
+these and
+>>>> convert into proper clocks integrated with the CCF. But, AFAIK, =
+this idea was
+>>>> rejected in the past.
+>>>=20
+>>> Rejected by which side? CCF?
+>>> Because specification still has that.
+>>=20
+>> I think the argument was that on ACPI based systems clocks are =
+"owned"
+>> by AML and there could be syncronizations issuebetween AML and the =
+OS.
+>>=20
+>> See =
+https://www.mail-archive.com/linux-kernel@vger.kernel.org/msg1712165.html
+>=20
+> Doesn't that just mean there needs to be a call into AML to request it
+> take an action on a clock? Otherwise, why even have ClockInput()? This
+> link is to quite an old thread, 2018, where as ClockInput seems to be
+> pretty new.
+>=20
+> The fact ClockInput() exists, means at some point somebody will
+> implement it. Once it has been implemented, somebody might need to use
+> it with xiic? Because it is mandatory in DT, and there is no ACPI
+> binding document for xiic, they could make it mandatory in ACPI as
+> well. And then your device breaks.
+>=20
 
-   609	
-   610	static void crg_udc_epcx_setup(struct crg_udc_ep *udc_ep)
-   611	{
-   612		struct crg_gadget_dev *crg_udc = udc_ep->crg_udc;
-   613		const struct usb_endpoint_descriptor *desc = udc_ep->desc;
-   614		const struct usb_ss_ep_comp_descriptor *comp_desc = udc_ep->comp_desc;
-   615		u8 DCI = udc_ep->DCI;
-   616		struct ep_cx_s *epcx = (struct ep_cx_s *)(crg_udc->p_epcx + DCI - 2);
-   617		enum EP_TYPE_E ep_type;
-   618		u16 maxburst = 0;
-   619		u8 maxstreams = 0;
-   620		u16 maxsize;
-   621		u32 dw;
-   622	
-   623		dev_dbg(crg_udc->dev, "crgudc->p_epcx %p, epcx %p\n", crg_udc->p_epcx, epcx);
- > 624		dev_dbg(crg_udc->dev, "DCI %d, sizeof ep_cx %ld\n", DCI, sizeof(struct ep_cx_s));
-   625		dev_dbg(crg_udc->dev, "desc epaddr = 0x%x\n", desc->bEndpointAddress);
-   626	
-   627		/*corigine gadget dir should be opposite to host dir*/
-   628		if (usb_endpoint_dir_out(desc))
-   629			ep_type = usb_endpoint_type(desc) + EP_TYPE_INVALID2;
-   630		else
-   631			ep_type = usb_endpoint_type(desc);
-   632	
-   633		maxsize = usb_endpoint_maxp(desc) & 0x07ff; /* D[0:10] */
-   634	
-   635		if (crg_udc->gadget.speed >= USB_SPEED_SUPER) {
-   636			maxburst = comp_desc->bMaxBurst;
-   637	
-   638			if (usb_endpoint_xfer_bulk(udc_ep->desc))
-   639				maxstreams = comp_desc->bmAttributes & 0x1f;
-   640	
-   641		} else if ((crg_udc->gadget.speed == USB_SPEED_HIGH ||
-   642			crg_udc->gadget.speed == USB_SPEED_FULL) &&
-   643				(usb_endpoint_xfer_int(udc_ep->desc) ||
-   644					usb_endpoint_xfer_isoc(udc_ep->desc))) {
-   645			if (crg_udc->gadget.speed == USB_SPEED_HIGH)
-   646				maxburst = (usb_endpoint_maxp(desc) >> 11) & 0x3;
-   647			if (maxburst == 0x3) {
-   648				dev_err(crg_udc->dev, "invalid maxburst\n");
-   649				maxburst = 0x2;
-   650			}
-   651		}
-   652	
-   653		/* fill ep_dw0 */
-   654		dw = 0;
-   655		dw = SETF_VAR(EP_CX_LOGICAL_EP_NUM, dw, udc_ep->DCI / 2);
-   656		dw = SETF_VAR(EP_CX_INTERVAL, dw, desc->bInterval);
-   657		if (maxstreams) {
-   658			dev_err(crg_udc->dev, "%s maxstream=%d is not expected\n",
-   659				__func__, maxstreams);
-   660		}
-   661		epcx->dw0 = cpu_to_le32(dw);
-   662	
-   663		/* fill ep_dw1 */
-   664		dw = 0;
-   665		dw = SETF_VAR(EP_CX_EP_TYPE, dw, ep_type);
-   666		dw = SETF_VAR(EP_CX_MAX_PACKET_SIZE, dw, maxsize);
-   667		dw = SETF_VAR(EP_CX_MAX_BURST_SIZE, dw, maxburst);
-   668		epcx->dw1 = cpu_to_le32(dw);
-   669	
-   670		/* fill ep_dw2 */
-   671		dw = lower_32_bits(udc_ep->tran_ring_info.dma) & EP_CX_TR_DQPT_LO_MASK;
-   672		dw = SETF_VAR(EP_CX_DEQ_CYC_STATE, dw, udc_ep->pcs);
-   673		epcx->dw2 = cpu_to_le32(dw);
-   674	
-   675		/* fill ep_dw3 */
-   676		dw = upper_32_bits(udc_ep->tran_ring_info.dma);
-   677		epcx->dw3 = cpu_to_le32(dw);
-   678		/* Ensure that epcx is updated */
-   679		wmb();
-   680	}
-   681	
-   682	static void crg_udc_epcx_update_dqptr(struct crg_udc_ep *udc_ep)
-   683	{
-   684		struct crg_gadget_dev *crg_udc = udc_ep->crg_udc;
-   685		u8 DCI = udc_ep->DCI;
-   686		struct ep_cx_s *epcx = (struct ep_cx_s *)(crg_udc->p_epcx + DCI - 2);
-   687		u32 dw;
-   688		dma_addr_t dqptaddr;
-   689		u32 cmd_param0;
-   690	
-   691		if (DCI == 0) {
-   692			dev_err(crg_udc->dev, "%s Cannot update dqptr for ep0\n", __func__);
-   693			return;
-   694		}
-   695	
-   696		dqptaddr = tran_trb_virt_to_dma(udc_ep, udc_ep->deq_pt);
-   697	
-   698		/* fill ep_dw2 */
-   699		dw = lower_32_bits(dqptaddr) & EP_CX_TR_DQPT_LO_MASK;
-   700		dw = SETF_VAR(EP_CX_DEQ_CYC_STATE, dw, udc_ep->pcs);
-   701		epcx->dw2 = cpu_to_le32(dw);
-   702	
-   703		/* fill ep_dw3 */
-   704		dw = upper_32_bits(dqptaddr);
-   705		epcx->dw3 = cpu_to_le32(dw);
-   706	
-   707		cmd_param0 = (0x1 << udc_ep->DCI);
-   708		/* Ensure that dqptr is updated */
-   709		wmb();
-   710	
-   711		crg_issue_command(crg_udc, CRG_CMD_SET_TR_DQPTR, cmd_param0, 0);
-   712	}
-   713	
-   714	static void setup_status_trb(struct crg_gadget_dev *crg_udc,
-   715			struct transfer_trb_s *p_trb,
-   716			struct usb_request *usb_req, u8 pcs, u8 set_addr, u8 stall)
-   717	{
-   718		u32 tmp, dir = 0;
-   719	
-   720		/* There are some cases where seutp_status_trb() is called with
-   721		 * usb_req set to NULL.
-   722		 */
-   723	
-   724		p_trb->dw0 = 0;
-   725		p_trb->dw1 = 0;
-   726	
-   727		dev_dbg(crg_udc->dev, "data_buf_ptr_lo = 0x%x, data_buf_ptr_hi = 0x%x\n",
-   728			p_trb->dw0, p_trb->dw1);
-   729	
-   730		tmp = 0;
-   731		tmp = SETF_VAR(TRB_INTR_TARGET, tmp, 0);
-   732		p_trb->dw2 = tmp;
-   733	
-   734		tmp = 0;
-   735		tmp = SETF_VAR(TRB_CYCLE_BIT, tmp, pcs);
-   736		tmp = SETF_VAR(TRB_INTR_ON_COMPLETION, tmp, 1);/*IOC:1*/
-   737		tmp = SETF_VAR(TRB_TYPE, tmp, TRB_TYPE_XFER_STATUS_STAGE);
-   738	
-   739		dir = (crg_udc->setup_status == STATUS_STAGE_XFER) ? 0 : 1;
-   740		tmp = SETF_VAR(DATA_STAGE_TRB_DIR, tmp, dir);
-   741	
-   742		tmp = SETF_VAR(TRB_SETUP_TAG, tmp, crg_udc->setup_tag);
-   743		tmp = SETF_VAR(STATUS_STAGE_TRB_STALL, tmp, stall);
-   744		tmp = SETF_VAR(STATUS_STAGE_TRB_SET_ADDR, tmp, set_addr);
-   745	
-   746		p_trb->dw3 = tmp;
-   747		dev_dbg(crg_udc->dev, "trb_dword2 = 0x%x, trb_dword3 = 0x%x\n",
-   748				p_trb->dw2, p_trb->dw3);
-   749		/* Ensure that status trb is updated */
-   750		wmb();
-   751	}
-   752	
-   753	static void knock_doorbell(struct crg_gadget_dev *crg_udc, int DCI)
-   754	{
-   755		u32 tmp;
-   756		struct crg_uccr *uccr;
-   757	
-   758		uccr = crg_udc->uccr;
-   759		/* Ensure evreything is written before notifying the HW */
-   760		wmb();
-   761	
-   762		tmp = CRG_U3DC_DB_TARGET(DCI);
-   763		dev_dbg(crg_udc->dev, "DOORBELL = 0x%x\n", tmp);
-   764		writel(tmp, &uccr->doorbell);
-   765	}
-   766	
-   767	static void setup_datastage_trb(struct crg_gadget_dev *crg_udc,
-   768			struct transfer_trb_s *p_trb, struct usb_request *usb_req,
-   769			u8 pcs, u32 num_trb, u32 transfer_length, u32 td_size,
-   770			u8 IOC, u8 AZP, u8 dir, u8 setup_tag)
-   771	{
-   772		u32 tmp;
-   773	
- > 774		dev_dbg(crg_udc->dev, "dma = 0x%llx, ", usb_req->dma);
-   775		dev_dbg(crg_udc->dev, "buf = 0x%lx, ", (unsigned long)usb_req->buf);
-   776	
-   777		p_trb->dw0 = lower_32_bits(usb_req->dma);
-   778		p_trb->dw1 = upper_32_bits(usb_req->dma);
-   779	
-   780		dev_dbg(crg_udc->dev, "data_buf_ptr_lo = 0x%x, data_buf_ptr_hi = 0x%x\n",
-   781			p_trb->dw0, p_trb->dw1);
-   782	
-   783	
-   784		/* TRB_Transfer_Length
-   785		 *For USB_DIR_OUT, this field is the number of data bytes expected from
-   786		 *xhc. For USB_DIR_IN, this field is the number of data bytes the device
-   787		 *will send.
-   788		 */
-   789		tmp = 0;
-   790		tmp = SETF_VAR(TRB_TRANSFER_LEN, tmp, transfer_length);
-   791		tmp = SETF_VAR(TRB_TD_SIZE, tmp, td_size);
-   792		tmp = SETF_VAR(TRB_INTR_TARGET, tmp, 0);
-   793		p_trb->dw2 = tmp;
-   794	
-   795		tmp = 0;
-   796		tmp = SETF_VAR(TRB_CYCLE_BIT, tmp, pcs);
-   797		tmp = SETF_VAR(TRB_INTR_ON_SHORT_PKT, tmp, 1);
-   798		tmp = SETF_VAR(TRB_INTR_ON_COMPLETION, tmp, IOC);
-   799		tmp = SETF_VAR(TRB_TYPE, tmp, TRB_TYPE_XFER_DATA_STAGE);
-   800		tmp = SETF_VAR(TRB_APPEND_ZLP, tmp, AZP);
-   801		tmp = SETF_VAR(DATA_STAGE_TRB_DIR, tmp, dir);
-   802		tmp = SETF_VAR(TRB_SETUP_TAG, tmp, setup_tag);
-   803	
-   804		p_trb->dw3 = tmp;
-   805		/* Ensure that datastage trb is updated */
-   806		wmb();
-   807	
-   808		dev_dbg(crg_udc->dev, "trb_dword0 = 0x%x, trb_dword1 = 0x%x trb_dword2 = 0x%x, trb_dword3 = 0x%x\n",
-   809				p_trb->dw0, p_trb->dw1, p_trb->dw2, p_trb->dw3);
-   810	}
-   811	
+That makes sense. I might have misread the thread and came to the wrong
+conclusion that converting ClockInput() into a CCF clocks was
+undesirable. Thank you for clarifying. Maybe I can start looking into =
+adding
+support for this after this series is merged.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> By putting in the commit message something like:
+>=20
+> Currently Linux does not implement ACPI ClockInput to describe clock
+> resources, unlike DT. However the xiic driver is happy if something
+> magically enables the clock before the driver probes, and does not
+> turn it off again. The clock should always be considered optional for
+> ACPI.
+>=20
+> That should act has a hint to future developers hacking on xiic not to
+> make it mandatory.
+>=20
+
+Yes, that is much more clear and concise! I am going to use this =
+paragraph
+verbatim in the commit message. Thanks for all the feedback, Andrew!
+
+Best regards,
+Abdurrahman
+
+
 
