@@ -4,96 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 954DBE7DF11
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 18:06:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52BA9E7DF16
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 18:08:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hP28cdxrwSqvRO3deSNeh79vlUUMJieXCHAu3kVx4q4=; b=A7JMG5KYXNmgN/LFEWZ7iF9xB1
-	ZIx/pz7bxzOXwICA0sff3QLki30KVncgPqkzGVlJv3uWj//LAkhZZN2Dz7Lpr6q/RQQbDTgK3dDdi
-	MRRY0QjJ5XNYXWgndWpc2uKbYNhUP9OXAyiut//BS+Un5YaDNQQ6+0gFTWdEEx8xFw0uM3SMuZbAy
-	Nv6wuyHsVshGuaxiEy9VBSdW4lLCrw6szIYz0jJxU7HObGOnqs+wXLCn0sglZkxtwXfJHujOrlJ8e
-	+O8ogvsd2uxHMwD2kWBKvqjHw6vCAuxoaHUd9RFxsuotPZ3cbhpH2t9+eHGHxsuLL77ehQrlSw5cQ
-	yASnjQwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F8nmJNYA2lQjU4+qs8oOjHrg0i1hA4xuDHcHJv4bmlI=; b=aTAOjmlC4bvQAMj71nO24abJIE
+	1HW2PC4DQ238wwmsQ/7Jpl17FynLBgw9AxifR/r505nfQHYAgniF/yjF967L9aG5mhgi+mTW3ai+j
+	NKG9kqlQgk7MSLGFSwrm0hNYW8j8f+xl678HPHrmzyVf6hILhQYWP6WUUYSeGB8lK3wxtAw+plQp2
+	g3sF0Gol95sOua+VvVrCGMe1vsYIZDEN/Kn19d/cfnQjvCHwfLhd4FUyj4P/LKoxUAHUAn6OT6Qov
+	Z4ujQgY8Du3S/8B9XMX++LX+ez+Fq53u04OFGRRoy3HVahwEVdTSJWkpwls6uwK764+yrblxpB7xU
+	Hy/sJDjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmyJS-00000005Ork-0wJ5;
-	Mon, 02 Feb 2026 18:06:14 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1vmyLM-00000005P2A-4Aqn;
+	Mon, 02 Feb 2026 18:08:13 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmyJO-00000005Oqr-21Zy
+	id 1vmyLK-00000005P1R-18bO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 18:06:12 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-658d4059b79so7065400a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 10:06:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770055567; cv=none;
+	Mon, 02 Feb 2026 18:08:11 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-64b9dfc146fso26565a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 10:08:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770055688; cv=none;
         d=google.com; s=arc-20240605;
-        b=jOPpEpNpSp7GnHxuHk8KisWPR0qwXHKQM04lpeNACItXYKcJR2ibNhX5FOC6yCPL60
-         R6kAoVBG6v3mnYTDonPvTFPKc/zn0LgYI69LGTKEZu7S4TyYwLtSI6JzIWgi258ke0Qx
-         bVJFp1DoeT5PU/uQxs4/aKn36Tblyn2YF3kaABXKTM5+rr6iM40+09IoXnJclJ1JYFkq
-         /QKxNefcZC0J0KZUZ61qRv+IP11HPyy57BM9l7v5OdFIkYsXPEAtsydXL/YURx/pmw6r
-         xTquPFsTicPWmMwE9EVwytffvEq6vyIQZHiVADKBFBqZbusbPbM6E1cZXdsEFRbjcgCR
-         KDkQ==
+        b=UI6zRqQ0OaA21+IWABVcXpvQDYVvxPYaRHQOvxbf46mCgWjTLYPMxQik4josX79K3V
+         Bv5pxGnDiGbL/xAUJsXEcK4J3c6gW9WONgVcDf50vTlHd0SLcWKQXZb/Mkx46fgzzrLO
+         bKa+rCqIF2zLyNMxpyYs/M9WX5pIKfFlcSqE2SE5U3bcpr4pu6nokmPYBQntxUWCerwK
+         Wf5N1A9+aK9vngKTX2obZfK+LMiAqvROvsBEBrZmpzz6dphEe8LOtIf2PE6eLf8oJpN2
+         F23s/Kv+ELhus7cLhila+bIX4Mga5THz9GZUxcDCIo1kt6saUR0CXxLSLaCdyOna8WHp
+         ai+Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=hP28cdxrwSqvRO3deSNeh79vlUUMJieXCHAu3kVx4q4=;
-        fh=3Nkk2QaJs/z+M1ybxlTrP8f+PkoK6xRnwu9Zcnkwy2I=;
-        b=Km6RFSWV5knBZLYE3JxzpLkzEo0DIoNNozuW47nJqVpRw3PpjLmG/V1jlpW5i4NN7I
-         e3/hCWT+PJPWkipIVwYLEpbPiKsaJaQJYOM5usitVY8TTJwVeQnbpHJdJD7V9jo7YbLD
-         7zj+nhOR2gvg74Np+w7Gk9W2Hy+4WKyJt8sHXtK99E7CKrdgxIhsitcCi+DS/KHNJTpg
-         A28Zd/WsAX9X6jkuDqICBv01zdqEgR1iFduW0Bm74tEIozVFhpNkK0K1IZFiN3e+RXam
-         q1f9bXL/3neD4D481FtnLK/e538ZjxV66S+IcN/n1BfdPmqLufychamZnGijf2zpWvlp
-         2u/w==;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=F8nmJNYA2lQjU4+qs8oOjHrg0i1hA4xuDHcHJv4bmlI=;
+        fh=VlcKaJfj0AgDNHwbg8QW8wUl4ShGniAzrzdxPK2mRHQ=;
+        b=HzzKtqFmxXBoUWugFHtq+ZXMToA9Be0wTnwLR8srjThw9YcB6RWsPNbt3T8Uwcblby
+         qy4JkUW8SsifBPfwjHgKkxHDhdnpR9OhjF+6DP7buVMKs/J2zzwUcJARdp9n+XCdVTrb
+         7Y61Fo9f+IjPLZHh5gJ8MwyY2iG0m/BtUs+OFtmiSrzRijmErTiMQY2flyC7uBOperyA
+         UAl+3Mi6CRbs2Tgr0yfIL0YPVGjSFnLiQ44WMQbXOgzlY4lnWGZln2gSPzLQoQxs81Fj
+         2w/kO0I6ZH+fyQoVbfVOy2y8WGUp1p0t44wQIA3fjclk7V4o3MUZ6ql++i0SbgL91ImA
+         zlWQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770055567; x=1770660367; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hP28cdxrwSqvRO3deSNeh79vlUUMJieXCHAu3kVx4q4=;
-        b=Viq91pAtTryaKmIlQoqp8G30dutCPW9gQpwIsVHIMi/rJ3s83uwUG7FmiH8VADOZgt
-         DuiaYTVGia/9HsjjSla13soTludwUc4I5RkX0p3O/hsx4jGG9JHU0z0q0qru06pYpoJH
-         LdIiIoABm6GCpat6ON65J0A035RBaakkheBEvcaQhmwQ2w0ma6bdy9Jq/DstREpy8gbQ
-         uqb9sDcCSvMY5ijdKMh3AIMgDegw2gVuvkNltLET3Tk1dn8Iadfb6hPzw0mL51uqkmoY
-         uDJ+e6V4SsAPHWNfWr29XzUmCDuCyXSH2wtO7Uy9RKZmpliio/pHVHLAaNBzenQzt3He
-         iWrA==
+        d=gmail.com; s=20230601; t=1770055688; x=1770660488; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=F8nmJNYA2lQjU4+qs8oOjHrg0i1hA4xuDHcHJv4bmlI=;
+        b=molvdKyd/IjpTkkQ1iw/MwmAYJDgP+NH/VnkEjPwUwCkPh7UnIfdjZRZ7sSCnIRpcn
+         dHwROVXkSdBA6WqbNyNZnRGuz+0v+mgUZqLyuFgr95DZqe6gj5RsRvMbFdNAqL/6/9Mr
+         hZt7i5NzvMW/FlUZfGP79c5f7lthZgJZVuLcj0YR3iMtlnzAT7Uv24wfhWl+9ltIeqVy
+         4+atPQ0OemfuZ9wpijKlZPRLfznx5Jptek/8ckHCkwP8/WR00z3h/d4jtOqSlM6rvEot
+         hYfklmAC9JY5SGpDjCTz8Q+4f//D5uCusBGKZ5Y8b7olMMrKjYUQn1d1rh3xLca8agxs
+         z4Aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770055567; x=1770660367;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=hP28cdxrwSqvRO3deSNeh79vlUUMJieXCHAu3kVx4q4=;
-        b=pomfWHSvQxj1eilyLc3SFCuKR8rVsTECGIJBOluM1nBCmwDCQmT0NsoWzW1JvAfLej
-         dr2P9F21KECUIBsHFXa1CgHACmxzmplpgqdcLaQ8zyi8CBAHdIqWwMOlium5pv8fUdlQ
-         iXG0mGCOJGBZ/roAb8wMLtMCfI9Jr4CYq5meszFem08jkZOvZa3XNr9pazjjDWVhbBAg
-         e+DCtu+rTfEqiRDIQ1CTLO4zzyAgKj258pw2e6y9ddxsXityxXCeeCj5Q/vljhUgNUgk
-         A4RK7bRhSx538wXAbILVqeBzlfKqKJ+zYSg17aLxfl3G1eQMxtc452CHzWnXW0S/PQNi
-         EO+g==
-X-Forwarded-Encrypted: i=1; AJvYcCUfX2Zy74DjZ2v9PO383Cw27DMhpTXVO3Mc0nH6aEzkgg/ZpqSZtvi5hM5pMiYY1VR4kZjmKAHEWgbClfU5kpVH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZOyPPklfejiLD/16VEnVsAzKbt7kvlsde3qU0sZ6xNsaJE8vP
-	QSgoCAPMBHp8BaZUSaUSmrhtMUlIV9H8hWCmid/Iu0VcSZ+zxvRMPjoRlLTQ9DXODgZ4EnXI4yF
-	6MFi18HjQKblobffW7Z+mCrj3irn13Gg=
-X-Gm-Gg: AZuq6aLHEUtAEswmTFjoyTIFp9g/45SnAgnTMdrVGUFUIb4/zF7478VeUD7NyRbFXba
-	hdVVH2jX0DOUN9Ahutgyndpdmh6eB3cHGd5FOaUXRfcpuu2wBVI/69tuuskJsV9r23aaib4M82n
-	ZDefhQvPLnhWr0BrJPs3Nx5rIU1eCEadnpR3S6MnvfryJ8iv8Wg5Na/On0BW+lkm40Tt1Jc/TbM
-	46Q0KGNPa4rBt1bMannknTTYQFKbA7Pu8+ZpdCk6LNsoPiROYIuTetcWuYn3pILg68=
-X-Received: by 2002:a05:6402:3582:b0:658:bd60:43d0 with SMTP id
- 4fb4d7f45d1cf-658de5915d5mr6621282a12.21.1770055567216; Mon, 02 Feb 2026
- 10:06:07 -0800 (PST)
+        d=1e100.net; s=20230601; t=1770055688; x=1770660488;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=F8nmJNYA2lQjU4+qs8oOjHrg0i1hA4xuDHcHJv4bmlI=;
+        b=msOZbKSWK5/DYKpWrpgZpG06lEydfa8Je2q0fgk4evoksP3C3f5vW3MkWxtHPcu1/p
+         dNW7p+2e5YZOReNj24QaZKxuTZ3ZMNzc2G+TGJOBY3PSdem8lHGehn37eduQV1a5H+r9
+         9NrWNTi1qzsmcrOjLzdc1z+ULFBYd1n0Q76gzbkIDdqK5M33m12uqJlguqtPwXB/H+8f
+         KiqWqzmdkWu1XNo2FIQVn9ly7OuZisoeNGfigGXqcM6MDi0AzWGCoBAVO+nfSSs7kQ1v
+         vKSmVEFsfiE+zQJ+reNwdNfYuSf8urvR00DtRK1RdnDWRL87Ad4JQPZpICn8WecFLpJ+
+         a+hw==
+X-Forwarded-Encrypted: i=1; AJvYcCXdYkK4IgxzcG+2rqOqJPWqzXcL/rpy7hfsTI2CfYUKYrrOkQv+QnrPZwKhLgFL8pd5GARLB91HglK1EZg6+Snb@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfXmBlCpphpBGH3bm5nWT4wysgTsfOJludVoy2SLC2ewh8x/n6
+	1uqXvzAyXqybJ2tDvAkdxo9b6J/R27qeKHSh7YhX6s4RHtyTqiDf1s2BTyKMLXqj7xiXOvws+0B
+	Mj7E5glQYlzhcjjuhy9a0eDQI0an7HaA=
+X-Gm-Gg: AZuq6aIGEr2q6Zie+hyPLIz6CLp0BO1KBWKyQozgQkrNF62UzU7Pc3HiUSxe1zdy9U/
+	TO7OONCypN8o2kmKqzqfS0LJw5z2vIDWbXmSTWNi253TzgjFUkzbm7WecwMZ8nT9jJ4sP2WV8nM
+	4WArQn68ccRi+LA74GCnaBEx9hRyT9UY1BwY+ioWfASgWsd07q7M8a9cxoTbw+lTLljqxT3ZRgk
+	STnVlaAvhe0XV52y1cwgPz0r3oHNOutuTGYnLt7zUHnUAJDEv2+bsei+hhq0GPjoCo=
+X-Received: by 2002:a05:6402:1a53:b0:62f:9091:ff30 with SMTP id
+ 4fb4d7f45d1cf-659327eb130mr152714a12.3.1770055687927; Mon, 02 Feb 2026
+ 10:08:07 -0800 (PST)
 MIME-Version: 1.0
 References: <20240809073610.2517-1-linux.amoon@gmail.com> <aXtpg0V_sifQEWHJ@grimm-nixos-ssd-2>
- <aXyHITrZ89Mmn8_J@ryzen> <CANAwSgTQ-cdyzd2WjHMYCY33p7um3CpjMeTzRO7vcd0fTF6X9Q@mail.gmail.com>
- <aYB0ctHF1ZeIIzbq@ryzen>
-In-Reply-To: <aYB0ctHF1ZeIIzbq@ryzen>
+ <aXyHITrZ89Mmn8_J@ryzen> <aYB2IVdh_kth1wtn@ryzen>
+In-Reply-To: <aYB2IVdh_kth1wtn@ryzen>
 From: Anand Moon <linux.amoon@gmail.com>
-Date: Mon, 2 Feb 2026 23:35:48 +0530
-X-Gm-Features: AZwV_QhVyDIKKP1nVuDrTcVF0I-NAOiYLCyqmT1Lu3YFL9MwXYNqEXtkEO2A9s8
-Message-ID: <CANAwSgSR7AYCvMXSo5UskTF3LJToOnPV9JE4XBAUzrCbWGKD_w@mail.gmail.com>
+Date: Mon, 2 Feb 2026 23:37:50 +0530
+X-Gm-Features: AZwV_QiGldhVnV5gsPLLz7K7IUZirLvxF_bXbz8XfJgEu77Yy7zS1U4IFVWDkH8
+Message-ID: <CANAwSgQtWifFNFe-rK7s9VCPJ68A7LSP+va2zZWr8W+vgZOjYw@mail.gmail.com>
 Subject: Re: [PATCH v2] PCI: dw-rockchip: Enable async probe by default
 To: Niklas Cassel <cassel@kernel.org>
 Cc: Grimmauld <grimmauld@grimmauld.de>, 
@@ -103,10 +101,9 @@ Cc: Grimmauld <grimmauld@grimmauld.de>,
 	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_100610_677713_06B07493 
-X-CRM114-Status: GOOD (  34.67  )
+X-CRM114-CacheID: sfid-20260202_100810_404091_BD92D3C5 
+X-CRM114-Status: GOOD (  18.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,130 +118,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Niklas,
+Hi Niklas
 
-On Mon, 2 Feb 2026 at 15:25, Niklas Cassel <cassel@kernel.org> wrote:
+On Mon, 2 Feb 2026 at 15:32, Niklas Cassel <cassel@kernel.org> wrote:
 >
-> On Sat, Jan 31, 2026 at 03:08:42PM +0530, Anand Moon wrote:
-> > >
-> > I=E2=80=99ve attempted to reproduce the warning but was unable to trigg=
-er it locally.
-> >
-> > I have tested with the built-in module
-> > CONFIG_R8169=3Dy
-> > CONFIG_R8169_LEDS=3Dy
-> >
-> > As well as the module
-> > CONFIG_R8169=3Dm
-> > CONFIG_R8169_LEDS=3Dy
-> >
+> On Fri, Jan 30, 2026 at 11:25:37AM +0100, Niklas Cassel wrote:
+> > Note that I've built the network PHY driver that phylib wants to load
+> > (CONFIG_REALTEK_PHY=y) as built-in. As long as the PHY driver is built
+> > as built-in, I don't think that the problem the modules code is warning
+> > about can happen. (But I also don't understand why it is trying to load
+> > a module when the driver is built as built-in in the first place...)
 >
-> I'm running with:
-> CONFIG_R8169=3Dy
-> CONFIG_PHYLIB=3Dy
-> CONFIG_REALTEK_PHY=3Dy
-> CONFIG_REALTEK_PHY_HWMON=3Dy
+> FWIW, the reason why PHYLIB tries to load the module even though it is built
+> as built-in (i.e. is already loaded) is explained by the following comment:
+> https://github.com/torvalds/linux/blob/v6.19-rc8/drivers/net/phy/phy_device.c#L852-L855
 >
-I feel CONFIG_R8169 should not be built into the kernel image.
-Since the driver is registered via module_pci_driver(rtl8169_pci_driver),
-it is intended to be loaded as a module. In addition, this driver
-requires external firmware
-during initialization, which could make a built=E2=80=91in configuration pr=
-oblematic.
-Keeping it modular ensures proper firmware loading and avoids
-early=E2=80=91boot failures.
+Yes, I have gone through the history of changes.
 
-> CONFIG_PCIE_ROCKCHIP_DW=3Dy
-> CONFIG_PCIE_ROCKCHIP_DW_HOST=3Dy
-> CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY=3Dy
-> (PHY for the PCIe 2x)
->
-> $ cat /proc/cmdline
-> root=3D/dev/nfs nfsroot=3D192.168.1.10:/srv/nfs/rootfs_rc,nfsvers=3D4 ip=
-=3Ddhcp earlycon rootwait loglevel=3D8
->
-> Considering that all PHY drivers (for both Ethernet and PCIe),
-> and drivers (for both Ethernet and PCIe) are built as built-in,
-> having nfsroot=3D on the kernel command line should be no issue.
->
-> But, perhaps that is the reason why you cannot reproduce it?
-Thanks for sharing your setup.
->
->
-> > >
-> > > Having async probing for the Rockchip PCIe controller driver, which i=
-s
-> > > used a LOT of rockchip based SoCs, is a good thing, so I don't think =
-it
-> > > is right to avoid enabling async probing just because it results in a
-> > > splat on a single rockchip based board (rock5b).
-> > >
-> > Yes, this could help in the module probe pci module.
-> >
-> > Earlier, I thought gmac will control the r8169 module, but I was wrong.
-> > Could you please try these changes at your end? These changes are
-> > related to MIMO..
-> >
-> > $ git diff ./arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-> > b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-> > index b3e76ad2d869..fb3a8ba4085a 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-> > @@ -477,7 +477,6 @@ &pcie2x1l0 {
-> >  &pcie2x1l2 {
-> >         pinctrl-names =3D "default";
-> >         pinctrl-0 =3D <&pcie2_2_rst>;
-> > -       reset-gpios =3D <&gpio3 RK_PB0 GPIO_ACTIVE_HIGH>;
-> >         vpcie3v3-supply =3D <&vcc3v3_pcie2x1l2>;
-> >         status =3D "okay";
-> >  };
-> > @@ -535,6 +534,12 @@ pcie3_vcc3v3_en: pcie3-vcc3v3-en {
-> >                 };
-> >         };
-> >
-> > +       rtl8211f {
-> > +               rtl8211f_0_rst: rtl8211f-0-rst {
-> > +                       rockchip,pins =3D <3 RK_PB0 RK_FUNC_GPIO &pcfg_=
-pull_none>;
-> > +               };
-> > +       };
-> > +
-> >         usb {
-> >                 usbc0_int: usbc0-int {
-> >                         rockchip,pins =3D <3 RK_PB4 RK_FUNC_GPIO &pcfg_=
-pull_none>;
-> > @@ -550,6 +555,19 @@ &pwm1 {
-> >         status =3D "okay";
-> >  };
-> >
-> > +&mdio0 {
-> > +       rgmii_phy0: ethernet-phy@1 {
-> > +               /* RTL8211F */
-> > +               compatible =3D "ethernet-phy-id001c.c916";
-> > +               reg =3D <0x1>;
-> > +               pinctrl-names =3D "default";
-> > +               pinctrl-0 =3D <&rtl8211f_0_rst>;
-> > +               reset-assert-us =3D <20000>;
-> > +               reset-deassert-us =3D <100000>;
-> > +               reset-gpios =3D <&gpio3 RK_PB0 GPIO_ACTIVE_LOW>;
-> > +       };
-> > +};
-> > +
-> >  &rknn_core_0 {
-> >         npu-supply =3D <&vdd_npu_s0>;
-> >         sram-supply =3D <&vdd_npu_s0>;
-> >
->
-> I tried your patch above, but I still see the splat.
->
-> But as I said, I don't think the splat should be a showstopper.
-Thanks for clarifying this issue. I will resubmit once I have
-conducted further testing.
 >
 > Kind regards,
 > Niklas
-
 Thanks
 -Anand
 
