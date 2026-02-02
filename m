@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 227C3E7DF1F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 19:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B900E7DF1F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 19:14:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cjT2P46cgvM3nyh/kXEjvqkxlTx4XGDlaIbAn45KjYw=; b=LzBvAf6Zx1jvB4qt7SUB9ZQN6D
-	3JzIP+ppOBqKfDwYF8zVvnBGqhJAoyC2EUIfQKrm16WKJpZpohiU1ovAfqDyOQ5Lr09jk7GVzbV+G
-	tBXtXvbFtnGrJY4P0kgtrNPA1tOqCwEiRR+1pqlRn+dFn9O0xeH5I8QF9UuH48Pd6oHUB8Hy0E2fE
-	r9rR5PIXcjp0JFUzvMvJB980CVtpbGoPxX3T1n0PlrUT1FoZrVqnnAWh9Xw3B8fNPoXJ5nSxIIr0N
-	Qzik/gxqkcOqa/4GXMJrNo2+oK3IFDqdhux6Ge3+DAe2ClTU8eTFAlOnNDo/+pdAgQWs/+Lb9gOfH
-	T0mDHRAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bVkcYxAVhufuef/ENcEvNyW+zIlFMV8++eatl6zfTVs=; b=EUlinspzlCRWL3wrK+BAHqJkAT
+	Mm5tLg5uKwRtqyUhfw7AVMyxSQvlFBqKThgSCoQ8cHGjxICpVRMZ+sO2g85w1yt2NRuaJ4oL5duEI
+	hFz+p2UQguaC4HK99yFFKT8S84VpPMEgWUD9ubz3sRlTd3vVdFn6Ik+JDclKQwnr0CCL613GdgkfH
+	YLqpdjziJHbA1dq5wPASKSIB1dgtetuZRUadaDhDE3EyrgsPC8x5hbxWGm9n+qJCbJOrY6ZDi2Kpc
+	Q0SLD/zEI+uife/XF5dLF91hKl5hjSDh59LgrYePRmiZusNjrXtD8JFyPMvYxdVBA10Km/O+kqCWy
+	UodgB8cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmzMw-00000005UZd-3DuK;
-	Mon, 02 Feb 2026 19:13:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmzMu-00000005UYn-1cgZ
+	id 1vmzNA-00000005UcE-0HdF;
+	Mon, 02 Feb 2026 19:14:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vmzN7-00000005UbX-44dh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 19:13:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 545FA405C4;
-	Mon,  2 Feb 2026 19:13:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 460A6C116C6;
-	Mon,  2 Feb 2026 19:13:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770059631;
-	bh=bVNExOecclgFUYczf53ULyUIujXLZbcCGWlArLy5Srg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qo2fkX6zhNO6/ZZPfsT8pTBSn1FSKNP/wNRp/EdO9cTMiPLJ/eGxI1hE2ANyGtNzX
-	 QITb/IWbFQcM4r8psiYTvSpQqbQpK4V13ZBGX9r30D0a/hQ1685/7Tpui/FrMn7WpV
-	 k+w0yrEqANMg39VBGvxKgmsIXBJHIhxrpDbM3cBShUptCBsuUFiJbIRXjqB+HEbgCc
-	 9Y1pZjNDXa5zjR67NSYuKezM7oNUubB7Rv54usQsKE+5H0eCjIvregkNuoYC9Dwxa7
-	 hur9/BMjEOL+fv7de+8QFvepcTwn0S30cRRU6mnhtZ2CoWWjS0uIiuShvhjcPS3Fg1
-	 dL9TTdPYbcGlQ==
-From: Will Deacon <will@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Marco Elver <elver@google.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	Ingo Molnar <mingo@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Waiman Long <longman@redhat.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	llvm@lists.linux.dev,
-	David Laight <david.laight.linux@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
+	Mon, 02 Feb 2026 19:14:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 972C5339;
+	Mon,  2 Feb 2026 11:13:58 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8BFBC3F740;
+	Mon,  2 Feb 2026 11:14:04 -0800 (PST)
+Date: Mon, 2 Feb 2026 19:14:02 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: James Clark <james.clark@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Alexandru Elisei <Alexandru.Elisei@arm.com>,
+	Anshuman Khandual <Anshuman.Khandual@arm.com>,
+	Rob Herring <Rob.Herring@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	Robin Murphy <Robin.Murphy@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/3] arm64: Fixes for __READ_ONCE() with CONFIG_LTO=y
-Date: Mon,  2 Feb 2026 19:13:42 +0000
-Message-ID: <177004685649.2187917.2406852216797394665.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260130132951.2714396-1-elver@google.com>
-References: <20260130132951.2714396-1-elver@google.com>
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] perf: arm_spe: Add barrier before enabling profiling
+ buffer
+Message-ID: <20260202191402.GD3481290@e132581.arm.com>
+References: <20260123-james-spe-relaxation-v1-1-4ccb88fa7bc5@linaro.org>
+ <20260130202437.GB3481290@e132581.arm.com>
+ <aYDWpc8Jh4SqMcD5@willie-the-truck>
+ <20260202184234.GC3481290@e132581.arm.com>
+ <aYDzh1B9Cnr_expJ@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <aYDzh1B9Cnr_expJ@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_111352_448145_B089AD2B 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20260202_111406_058544_6E2D1A61 
+X-CRM114-Status: GOOD (  24.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +76,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 30 Jan 2026 14:28:23 +0100, Marco Elver wrote:
-> While investigating a Clang Context Analysis [1] false positive [2], I started
-> to dig deeper into arm64's __READ_ONCE() implementation with LTO. That rabbit
-> hole led me to find one critical bug with the current implementation (patch 1),
-> and subtle improvements that then enabled me to fix the original false positive.
+On Mon, Feb 02, 2026 at 06:57:11PM +0000, Will Deacon wrote:
+
+[...]
+
+
+> > > I'm not sure I follow your logic as to why both ISBs are required, but
+> > > I'd have thought that if perf_aux_output_begin() fails when called from
+> > > arm_spe_perf_aux_output_begin() in the irqhandler, we need the ISB
+> > > because we're going to clear pmblimitr_el1 to 0 and that surely has
+> > > to be ordered before clearing pmbsr?
+> > 
+> > I think the ISB after arm_spe_perf_aux_output_begin() in the irq
+> > handler is required for both the failure and success cases.
+> > 
+> > For a normal maintenance interrupt, an ISB is inserted between writing
+> > PMBLIMITR_EL1 and PMBSR_EL1 to ensure that a valid limit write is
+> > visible before tracing restarts.  This ensures that the following
+> > conditions are safely met:
+> > 
+> >   "While the Proﬁling Buﬀer is enabled, proﬁling is not stopped, and
+> >    Discard mode is not enabled, all of the following must be true:
+> > 
+> >    The current write pointer must be at least one sample record below
+> >    the write limit pointer.
+> > 
+> >    PMBPTR_EL1.PTR[63:56] must equal PMBLIMITR_EL1.LIMIT[63:56],
+> >    regardless of the value of the applicable TBI bit."
 > 
-> Patch 1 fixes a bug where READ_ONCE() on types larger than 8 bytes (non-atomic
-> fallback) incorrectly qualified the pointer rather than the pointee as volatile.
-> This resulted in a lack of "once" semantics for large struct loads.
-> 
-> [...]
+> Hmm, so let's say we've executed the first ISB. At that point, the
+> Profiling Buffer is disabled (PMBLIMITR_EL1.E = 0) and profiling is
+> stopped (PMBSR_EL1.S = 1).
 
-Applied first patch only to arm64 (for-next/core), thanks!
+This is not true.  PMBLIMITR_EL1.E is always 1 during interrupt
+handling.
 
-[1/3] arm64: Fix non-atomic __READ_ONCE() with CONFIG_LTO=y
-      https://git.kernel.org/arm64/c/bb0c99e08ab9
+> If we *don't* have the second ISB then either
+> PMBLIMITR_EL1 is written first or PMBSR_EL1 is written first. But the
+> text you quoted will only come into effect once they've both happened,
+> right? In which case, why does the order matter for the success case?
 
-Cheers,
--- 
-Will
+Yes, both PMBLIMITR_EL1.E == 1 and PMBSR_EL1.S == 0 must be true to
+enable tracing.
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+However, the tricky part is that PMBLIMITR_EL1.E remains 1 throughout
+the sequence.  Writing PMBLIMITR_EL1 effectively only sets the limit,
+while clearing PMBSR_EL1 is the distinct step that enables tracing.
+
+Thanks,
+Leo
 
