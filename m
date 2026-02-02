@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FA8EE7DEF2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 14:56:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DC4E7DEF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 14:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r9CT2H+uz3ERa2jBFKO6fCNSKr0uIo64StJcK6hJkgg=; b=wHYyWsbhgyLJy1AdqTwUZl4vU3
-	g9N1O9o/AtfycFYY4/QWck+Alyi2b7LBBjxZZlTQJTdDyF1SArFVZnyQatPLRYvXPBEgQweCNaHoi
-	qK6nmwhFZI2VRJ6/mvaI3ze8yRgT/YiNeFIwZnrakAhkIvNLh3TWVeKRUIbHqNdYZf5uB8t33Naxq
-	zyqa/L71IgoyweqNj4moczp7RO4H26qQmjl+w1vxiHcDmnIydyuK2BatXMryrK+KqIGM6Oj3dT1Ri
-	4CVZkdjvHWUYZ/BmsGj0h88w+YUMqVJGE1ZSpRDRmTI+dbUqqSAURsCxgYpXU4S4Cnlz9Ims9XhwZ
-	6zfEygYA==;
+	bh=udxGf0xljtegrIJMFi88Nd41JfqjJkfTxsoBLvLuTok=; b=tJ9RqZBtSNGmf282a6UK60bGsx
+	WKyh3kngwB6QiQ4jMt9EsZMtjz1/ls1Yl6dvNXWRlQ1jyoTFaiE2c5oNq6pQ4rzh9todA1u2OXnW7
+	SOuJBXVy5r26OfaVzEcj27OxvfPVzX8+cGBd7ng1dY1FePfrl4bFoKEpMRh3vFnFj5PYlAeHYjRcg
+	CDPa0m3bygZvmKL8QjZi5hRI+hPrPmqWjH2JMP0bBLQHvsdIEgRdD5LWVq/25ZXNMQUU4OR2bvwWO
+	1kpcpCCdgoYKsmXaku5YprUQDj5vV08Us30JhdHeG7KBSy0+Q41EMDrkHI3HtUP0CQsTwLF52Ct4M
+	+eb5AB+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmvLT-000000058Vu-3oGZ;
-	Mon, 02 Feb 2026 14:56:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vmvLV-000000058WX-04dp;
+	Mon, 02 Feb 2026 14:56:09 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmvLR-000000058Uy-2Ip4
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 14:56:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 521BF4358D;
-	Mon,  2 Feb 2026 14:56:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30355C116C6;
-	Mon,  2 Feb 2026 14:56:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770044163;
-	bh=/EEdBOPFOkFatjqAoJx76sQaNiSIsTwcgFVOLGrY1HU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SJKoBUVBwIEdP0ez+/+iTLxXI9dg2/8/e4Bi+0zzGtm/ZM3a5rwzNfaDvlJHvIjZd
-	 T7pS1A93ZyE5Wpc9Pwx3A0B+cgdd+iqB6TgZLF3pD2zxmmb0HxGqI6H2JDOPpcKB0C
-	 CeeNhyKCh5wcM3TQQH3jOvc5mCS+GW12lXy9IP2F+L9uyue/G8URz1KY2CWoSEnZv3
-	 pA9NE+O5KpZ7XI0nlBPVipwVgrYa02pp1G/hdlNs0VIB2B5TylOWqkak+yGMKfLlM3
-	 JgTwJHxmBLDuS+7ooKAjibaPjdn5rpxa6pC1zIDFMUMgU5Jn8/R6UTKXG7hdVStaV1
-	 Aag9mpgttmYyQ==
-Date: Mon, 2 Feb 2026 14:55:58 +0000
-From: Will Deacon <will@kernel.org>
-To: Jinjiang Tu <tujinjiang@huawei.com>
-Cc: akpm@linux-foundation.org, david@kernel.org, catalin.marinas@arm.com,
-	zengheng4@huawei.com, ryan.roberts@arm.com,
-	anshuman.khandual@arm.com, wangkefeng.wang@huawei.com,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-Subject: Re: [PATCH v3] arm64: mm: fix pass user prot to ioremap_prot in
- generic_access_phys
-Message-ID: <aYC6_lSm_eJeKIcn@willie-the-truck>
-References: <20260130073807.99474-1-tujinjiang@huawei.com>
+	id 1vmvLQ-000000058Up-3iPn;
+	Mon, 02 Feb 2026 14:56:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=udxGf0xljtegrIJMFi88Nd41JfqjJkfTxsoBLvLuTok=; b=BvP8XhFNFHfFYcqQ5d1LiHaXxr
+	JQvdJk6EbKEyUY/RbHqipwCf0fNGkgB9egtxe2JkNeUWe/0A9zIarl54uaWyUnn5Bi5k1KaIz/uyi
+	/36dmO2/lMn8zSQkOJb1hb3YIWnoCkoutMpxK5Wqwfwmp4ZX/abo4PnE28gKqxjNJVro=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vmvLI-005pyz-Am; Mon, 02 Feb 2026 15:55:56 +0100
+Date: Mon, 2 Feb 2026 15:55:56 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Quentin Schulz <quentin.schulz@cherry.de>
+Cc: Quentin Schulz <foss+kernel@0leil.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Heiko Stuebner <heiko.stuebner@cherry.de>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] arm64: dts: rockchip: fix Ethernet PHY not found on
+ PX30 Cobra
+Message-ID: <38452338-6e65-47ad-a696-b90c02ac42f0@lunn.ch>
+References: <20260202-px30-eth-phy-v1-0-ef365be64922@cherry.de>
+ <20260202-px30-eth-phy-v1-1-ef365be64922@cherry.de>
+ <33d3bdd5-0fed-41f6-8b8c-9690e7665346@lunn.ch>
+ <567d6404-2a71-43ad-8ba7-5053fe1576bd@cherry.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260130073807.99474-1-tujinjiang@huawei.com>
+In-Reply-To: <567d6404-2a71-43ad-8ba7-5053fe1576bd@cherry.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_065605_625681_5D3A6E98 
-X-CRM114-Status: GOOD (  23.88  )
+X-CRM114-CacheID: sfid-20260202_065604_953698_B3362AC1 
+X-CRM114-Status: GOOD (  32.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,109 +76,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 30, 2026 at 03:38:07PM +0800, Jinjiang Tu wrote:
-> Here is a syzkaller error log:
->   [0000000020ffc000] pgd=080000010598d403, p4d=080000010598d403, pud=0800000125ddb403,
->                      pmd=080000007833c403, pte=01608000007fcfcf
->   Unable to handle kernel read from unreadable memory at virtual address ffff80008ea89000
->   KASAN: probably user-memory-access in range [0x0000000475448000-0x0000000475448007]
->   Mem abort info:
->     ESR = 0x000000009600000f
->     EC = 0x25: DABT (current EL), IL = 32 bits
->     SET = 0, FnV = 0
->     EA = 0, S1PTW = 0
->     FSC = 0x0f: level 3 permission fault
->   Data abort info:
->     ISV = 0, ISS = 0x0000000f, ISS2 = 0x00000000
->     CM = 0, WnR = 0, TnD = 0, TagAccess = 0
->     GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
->   swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000001244aa000
->   [ffff80008ea89000] pgd=100000013ffff403, p4d=100000013ffff403, pud=100000013fffe403,
-> 		     pmd=100000010a453403, pte=01608000007fcfcf
->   Internal error: Oops: 000000009600000f [#1] SMP
->   Modules linked in: team
->   CPU: 1 PID: 10840 Comm: syz.9.83 Kdump: loaded Tainted: G
->   Hardware name: QEMU KVM Virtual Machine, BIOS 0.0.0 02/06/2015
->   pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
->   pc : __memcpy_fromio+0x80/0xf8
->   lr : generic_access_phys+0x20c/0x2b8
->   sp : ffff8000a0507960
->   x29: ffff8000a0507960 x28: 1ffff000140a0f44 x27: ffff00003833cfe0
->   x26: 0000000000000000 x25: 0000000000001000 x24: 0010000000000001
->   x23: ffff80008ea89000 x22: ffff00004ea63000 x21: 0000000000001000
->   x20: ffff80008ea89000 x19: ffff00004ea62000 x18: 0000000000000000
->   x17: 0000000000000000 x16: 0000000000000000 x15: ffff8000806f1e3c
->   x14: ffff8000806f1d44 x13: 0000000041b58ab3 x12: ffff7000140a0f23
->   x11: 1ffff000140a0f22 x10: ffff7000140a0f22 x9 : ffff800080579d24
->   x8 : 0000000000000004 x7 : 0000000000000003 x6 : 0000000000000001
->   x5 : ffff8000a0507910 x4 : ffff7000140a0f22 x3 : dfff800000000000
->   x2 : 0000000000001000 x1 : ffff80008ea89000 x0 : ffff00004ea62000
->   Call trace:
->     __memcpy_fromio+0x80/0xf8
->     generic_access_phys+0x20c/0x2b8
->     __access_remote_vm+0x46c/0x5b8
->     access_remote_vm+0x18/0x30
->     environ_read+0x238/0x3e8
->     vfs_read+0xe4/0x2b0
->     ksys_read+0xcc/0x178
->     __arm64_sys_read+0x4c/0x68
->     invoke_syscall+0x68/0x1a0
->     el0_svc_common.constprop.0+0x11c/0x150
->     do_el0_svc+0x38/0x50
->     el0_svc+0x50/0x258
->     el0t_64_sync_handler+0xc0/0xc8
->     el0t_64_sync+0x1a4/0x1a8
->   Code: 91002339 aa1403f7 8b190276 d503201f (f94002f8)
+On Mon, Feb 02, 2026 at 03:02:08PM +0100, Quentin Schulz wrote:
+> Hi Andrew,
 > 
-> The local syzkaller first maps I/O address from /dev/mem to userspace,
-> overiding the stack vma with MAP_FIXED flag. As a result, when reading
-> /proc/$pid/environ, generic_access_phys() is called to access the region,
-> which triggers a PAN permission-check fault and causes a kernel access
-> fault.
+> On 2/2/26 2:52 PM, Andrew Lunn wrote:
+> > On Mon, Feb 02, 2026 at 11:27:25AM +0100, Quentin Schulz wrote:
+> > > From: Quentin Schulz <quentin.schulz@cherry.de>
+> > > 
+> > > When not passing the PHY ID with an ethernet-phy-idX.Y compatible
+> > > property, the MDIO bus will attempt to auto-detect the PHY by reading
+> > > its registers and then probing the appropriate driver. For this to work,
+> > > the PHY needs to be in a working state.
+> > > 
+> > > Unfortunately, the net subsystem doesn't control the PHY reset GPIO when
+> > > attempting to auto-detect the PHY. This means the PHY needs to be in a
+> > > working state when entering the Linux kernel. This historically has been
+> > > the case for this device, but only because the bootloader was taking
+> > > care of initializing the Ethernet controller even when not using it.
+> > > We're attempting to support the removal of the network stack in the
+> > > bootloader, which means the Linux kernel will be entered with the PHY
+> > > still in reset and now Ethernet doesn't work anymore.
+> > > 
+> > > The devices in the field only ever had a TI DP83825, so let's simply
+> > > bypass the auto-detection mechanism entirely by passing the appropriate
+> > > PHY IDs via the compatible.
+> > > 
+> > > Cc: stable@vger.kernel.org
+> > > Fixes: bb510ddc9d3e ("arm64: dts: rockchip: add px30-cobra base dtsi and board variants")
+> > > Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+> > 
+> > What is the justification for stable?
+> > 
 > 
-> The root cause is that generic_access_phys() passes a user pte to
-> ioremap_prot(), the user pte sets PTE_USER and PTE_NG bits.  Consequently,
-> any subsequent kernel-mode access to the remapped address raises a fault.
-> 
-> To fix it, define arch_mk_kernel_prot() to convert user prot to kernel
-> prot for arm64, and call arch_mk_kernel_prot() in generic_access_phys(),
-> so that a user prot is passed to ioremap_prot().
-> 
-> Fixes: 893dea9ccd08 ("arm64: Add HAVE_IOREMAP_PROT support")
-> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
-> Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
-> ---
-> Changes in v3:
->  * arch_mk_kernel_prot() always grant read/write permissions.
-> 
->  arch/arm64/include/asm/io.h |  8 ++++++++
->  mm/memory.c                 | 12 +++++++++++-
->  2 files changed, 19 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
-> index 83e03abbb2ca..fe3040d59119 100644
-> --- a/arch/arm64/include/asm/io.h
-> +++ b/arch/arm64/include/asm/io.h
-> @@ -267,6 +267,14 @@ int arm64_ioremap_prot_hook_register(const ioremap_prot_hook_t hook);
->  
->  #define ioremap_prot ioremap_prot
->  
-> +#define arch_mk_kernel_prot arch_mk_kernel_prot
-> +static inline pgprot_t arch_mk_kernel_prot(pgprot_t user_prot)
-> +{
-> +	ptdesc_t mem_type = pgprot_val(user_prot) & PTE_ATTRINDX_MASK;
-> +
-> +	return __pgprot_modify(PAGE_KERNEL, PTE_ATTRINDX_MASK, mem_type);
-> +}
+> Bootloader without network stack = no network in Linux.
 
-Do we really need another arch helper here?
+I can see this multiple ways....
 
-It looks to me like generic_access_phys() is the only caller of
-ioremap_prot() outside of arch/, so why not just handle the user_prot in
-there on arm64? You could rename the existing ioremap_prot() function in
-arch/arm64/mm/ioremap.c to e.g. __ioremap_prot(), switch over the
-callers in arch/arm64 and then add ioremap_prot() to wrap that with your
-pgprot modification above.
+Changing the bootloader introduces a regression. Hence you cannot
+change the bootloader.
 
-Will
+I personally also don't like boot loaders with basic functionality
+missing. Why cripple the bootloader by removing the network stack?
+
+But i also don't like Linux being dependent on the bootloader. Because
+some vendors ship boards with crippled bootloaders and you need to
+replace the bootloader. And then hidden vendor initialization is not
+in the mainline version of the bootloader, and something breaks in
+Linux.  Making Linux more robust is generally ongoing development, not
+a bug fix.
+
+However, it bootloader developers decide to break the contract between
+the bootloader and the kernel, regressions have been reported, then it
+would make sense to backport the fix to work around the bootloader
+breakage.
+
+I don't know the internal of uboot too well. Can you remove the IP
+stack, but leave the drivers? Get the driver to probe and setup the
+PHY, so you keep the agreed contract with Linux, but you also get the
+crippled bootloader you want.
+
+For the commit message, i would like to see a reasoned argument, based
+on
+
+https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
+
+why this should be in stable.
+
+	 Andrew
+
 
