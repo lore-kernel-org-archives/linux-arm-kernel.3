@@ -4,74 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F339E7DF08
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 16:54:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 077FDE7DF0C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 17:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dFkuMT/PbjlmykiEzaX0lWh1FmgYYTDl3OTPj1VFmSY=; b=KU4L6sHyAjiv6ghPOzD0bkcO7F
-	dL5TCKddZuxudvmvslY05oLTJ/tUsLxF3YNiSPkVsyS0vmIoVdeVCrF0WoDxv4O2Zo8oQolkOQsSx
-	08JBupTdNXFLmFDAVwHwTU4mRZVkHuo+6Hjq8PXI+5h93zaMCXvFwg1I+bQLoUxbIzQ0F6RJGywEw
-	3BimQisa23NyG20O16edHR+eMgvImhdcxThLgXgeBGYa2sha3J+B7w9eR+FPrFr22v/RqgdtFT6Eo
-	KD4CUAyeEVK+rHzGq+f2BIVtY8UlM8Hzp+TIYM5r9zumhAIb9pvnRUy/WYQ5fs86i4h1tIxQIip/L
-	JymtkZFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GI+ra4XFLShnydK/2m1O36TI0V8Tq0yYe+Uz1t6wvaU=; b=FtmtKHabYjSLd6coezgPPgoioR
+	Xs98aShktoDAEXWymRmS2NHlifPdzuq7UhRMKBX1dM7DEo/oV3YoSiAVEsimK1yJBylFhshu62xGi
+	VzhvouKV04q1713XrYKlnSk3qwheCTHs3zJlTjpQo9jG7k/16N/d1xWFfzkNjkNOerz0U7QAfzrSX
+	Fn2k4PfvNafG+l0L2bUkpIu85Hh4raanPnrhFr5cceNRIjdGWop2FaBYoaLFISDSumHSNojADXSeB
+	IFWKquovUOHdOdqbfbnCtd362REOqLFQ1lMDodBpCUNbhsibg3jIefPQufdFpdAqwyTfF3HjHyuBg
+	eKoAyadA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmxCD-00000005KMS-3p4P;
-	Mon, 02 Feb 2026 16:54:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vmxPC-00000005L7p-1W8Y;
+	Mon, 02 Feb 2026 17:08:06 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmxCB-00000005KLx-3yX4;
-	Mon, 02 Feb 2026 16:54:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EBAAE419F4;
-	Mon,  2 Feb 2026 16:54:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3571C116C6;
-	Mon,  2 Feb 2026 16:54:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770051278;
-	bh=dFkuMT/PbjlmykiEzaX0lWh1FmgYYTDl3OTPj1VFmSY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kI8WLpuYhsvo6gYvA61W/ciV+aGtbvKXKU+5m7TEoukt08Chnc1n9CkRrqroECPrN
-	 MbhZ3R+dsdxBL9CtiFBCYhlKOSzsTxECZQVxO6JuRk+Ad5/Lfhsji5zkkJEmHBGjVc
-	 AQQZWDOC3SCOztTIXdav3VmmVTZ7MMt/AN0+L/8usZiFYfKLHNQpNLXIpc7+3igurc
-	 l6QT/rJ9P4v1zA/KqWEakBz2DdoTznGWy2K/sG1FCPR+TeSCHjb0ofIP9yCcZJz1TW
-	 U+ohk0EKSvoLp1xMlxgbswOaIklRLgUbij0n/hKcAABmC0KzLQaJXglOvZwAhReMMj
-	 Z62dzUs4rlLUQ==
-Date: Mon, 2 Feb 2026 16:54:32 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Yassine Oudjana <y.oudjana@protonmail.com>,
-	Laura Nao <laura.nao@collabora.com>,
-	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
-	Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
-	kernel@collabora.com, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v3 1/5] clk: Respect CLK_OPS_PARENT_ENABLE during recalc
-Message-ID: <e98290b1-274a-4f8c-b629-11c1167b0370@sirena.org.uk>
-References: <20251010-mtk-pll-rpm-v3-0-fb1bd15d734a@collabora.com>
- <6678782.DvuYhMxLoT@workhorse>
- <daa1906b-a112-4158-aec2-ad1d29b4fe35@sirena.org.uk>
- <3745487.e9J7NaK4W3@workhorse>
- <176962688200.4027.9869545980331892869@lazor>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="/Ml7kgeSsfDfeG+D"
-Content-Disposition: inline
-In-Reply-To: <176962688200.4027.9869545980331892869@lazor>
-X-Cookie: Save energy: be apathetic.
+	id 1vmxP8-00000005L7N-2o7C
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Feb 2026 17:08:05 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id A96C0C237F3;
+	Mon,  2 Feb 2026 17:08:01 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id BEF2560767;
+	Mon,  2 Feb 2026 17:07:56 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E9F3E119A8888;
+	Mon,  2 Feb 2026 18:07:46 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1770052075; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=GI+ra4XFLShnydK/2m1O36TI0V8Tq0yYe+Uz1t6wvaU=;
+	b=2qqhM+kSc6wGOF8joN8LTC5kMrxJrGg/XunkxEBv7HGKWW75HyI0OdOn6hM8FhiIoOLbd3
+	kHALb7zczTwoPZSq91G5IncAHvcy0wuQxdViDhp5+SaJMI5+bRdhUut5E8nKtdG7PfHZrw
+	wfJbj7b8NpuTQ82Q7C59YXf/GnO4Ez9sSQi8RlXObT92OBp/oEgSUUqhHhP0DWRka9WRBM
+	BZOMylxjxQIkqjQpb5J+CGZqmx1wcgdyFr4RScLEWf6q0A4MXs8foeSROFNQtH1EePquOT
+	H3mPAR8Vaaedr9txCYvBevjRa6wIuJ3HvG0l192QPEg5vPqY0IwWYEx8dVK7cQ==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 02 Feb 2026 18:07:45 +0100
+Message-Id: <DG4N39EA7RN5.NARFDHX3IXGE@bootlin.com>
+Subject: Re: [PATCH v5 20/25] drm/tilcdc: Use devm_drm_of_get_bridge()
+ helper
+Cc: "Jyri Sarha" <jyri.sarha@iki.fi>, "Tomi Valkeinen"
+ <tomi.valkeinen@ideasonboard.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Russell King" <linux@armlinux.org.uk>,
+ "Bartosz Golaszewski" <brgl@bgdev.pl>, "Tony Lindgren" <tony@atomide.com>,
+ "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Markus
+ Schneider-Pargmann" <msp@baylibre.com>, "Bajjuri Praneeth"
+ <praneeth@ti.com>, "Louis Chauvet" <louis.chauvet@bootlin.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
+ <miguel.gazquez@bootlin.com>, "Herve Codina" <herve.codina@bootlin.com>,
+ <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-omap@vger.kernel.org>
+To: "Kory Maincent" <kory.maincent@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.20.1
+References: <20260123-feature_tilcdc-v5-0-5a44d2aa3f6f@bootlin.com>
+ <20260123-feature_tilcdc-v5-20-5a44d2aa3f6f@bootlin.com>
+ <DG269FV5MZ8I.2VFNJXA0N2Y26@bootlin.com>
+ <20260202105717.53067aae@kmaincent-XPS-13-7390>
+In-Reply-To: <20260202105717.53067aae@kmaincent-XPS-13-7390>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_085440_010516_F55A240D 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20260202_090802_993940_F002AA11 
+X-CRM114-Status: GOOD (  17.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,34 +96,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon Feb 2, 2026 at 10:57 AM CET, Kory Maincent wrote:
+> On Fri, 30 Jan 2026 20:31:11 +0100
+> "Luca Ceresoli" <luca.ceresoli@bootlin.com> wrote:
+>
+>> Hi Kory,
+>>
+>> On Fri Jan 23, 2026 at 5:12 PM CET, Kory Maincent (TI.com) wrote:
+>> > Replace drm_of_find_panel_or_bridge() with the newer
+>> > devm_drm_of_get_bridge() helper which simplifies the code by:
+>> > - Automatically handling both panel and bridge cases internally
+>> > - Managing the panel-to-bridge conversion when needed
+>> > - Using devres for resource management, eliminating manual cleanup
+>> >
+>> > This removes the need for explicit panel-to-bridge conversion via
+>> > devm_drm_panel_bridge_add_typed() and the associated error handling pa=
+th.
+>
+> ...
+>
+>> >  	encoder =3D drmm_simple_encoder_alloc(ddev, struct tilcdc_encoder,
+>> >  					    base, DRM_MODE_ENCODER_NONE);
+>> > @@ -73,12 +70,5 @@ int tilcdc_encoder_create(struct drm_device *ddev)
+>> >  	}
+>> >  	priv->encoder =3D encoder;
+>> >
+>> > -	if (panel) {
+>> > -		bridge =3D devm_drm_panel_bridge_add_typed(ddev->dev, panel,
+>> > -
+>> > DRM_MODE_CONNECTOR_DPI);
+>>
+>> You are introducing a subtle difference here: while you pass the connect=
+or
+>> type to devm_drm_panel_bridge_add_typed(), devm_drm_of_get_bridge() does
+>> not take it and expects it to ahve been set previously and errors out if=
+ it
+>> hasn't.
+>>
+>> Can you ensure the connector type is alway set before this
+>> devm_drm_of_get_bridge() call?
+>
+> The connector type should be set by the bridge or the panel driver.
+>
+> https://elixir.bootlin.com/linux/v6.18.6/source/drivers/gpu/drm/bridge/pa=
+nel.c#L397
+>  * This function is deprecated and should not be used in new drivers. Use
+>  * devm_drm_panel_bridge_add() instead, and fix panel drivers as necessar=
+y if
+>  * they don't report a connector type.
 
---/Ml7kgeSsfDfeG+D
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Ah, right, so it means this patch might cause some regressions due to panel
+drivers to be fixed. So it's fine as long as you are ready to handle such
+regression, should any happen.
 
-On Wed, Jan 28, 2026 at 12:01:22PM -0700, Stephen Boyd wrote:
+Also other patches did exactly the same, e.g.:
 
-> BTW, I don't know what this patch is actually fixing, so I'm going to
-> revert it. When it is resubmitted please describe the problem you're
-> seeing.
+  commit 6e1853589ea6 ("drm/lcdif: switch to devm_drm_of_get_bridge")
+  commit a43dd76bacd0 ("drm/vc4: dsi: Switch to devm_drm_of_get_bridge")
 
-The patch is still in -next today and the issues it causes are still
-visible.
+And so:
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
---/Ml7kgeSsfDfeG+D
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmmA1sgACgkQJNaLcl1U
-h9CLcgf9EffwFr6JBb9N99fIsh3a56gSqW4r3a8ReNkp5RkHVfGkrLGXLY/JQlcA
-lPrw0kTevGyqgvtyy9FVxO6qL4vSyMp/detgVS/sfQ5C1PpSBziZ9UbCg3icdnvL
-/Wf5HqiF+tjB6iKlXZ/HjI2ZRqs81oZgPf5bXrMSKMcw61Xp9OTJkvZOd8jK/V+k
-otYmjdIjM9+RCc3NFkhC/o7kNZu3iAuP4E1BnwjNbjkl4jKqhPF/vbP6uepW7r3L
-0n9k8ZThsA6zw3nsC2nGR2vKqjlhqfHk9fZamyuDRLfmMtSy97Iesx4b3LxcbY/g
-WFA/Shdt6/EseS46U+3RtkyEp/ncCQ==
-=Y9/u
------END PGP SIGNATURE-----
-
---/Ml7kgeSsfDfeG+D--
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
