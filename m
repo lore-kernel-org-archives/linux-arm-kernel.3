@@ -4,75 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F44EE7314A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 10:05:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0965FE73153
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 10:20:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u3V0uhd3GFGTLZW7cNDsJiAyDxAIjbyEm0qLQnrg6lM=; b=zAAAmLafIjuXh1MGZewGGNUbAF
-	1shiv1kZ65mTRh9s5Gg/XsV4zrphnpgmViSt2fJlheED+zap+ck2Kic9op7rCEKFYR5TjllPlZ1mx
-	5G5jk+M8YsdhBKGfGeyAIr5KP5ywZwcMkvc0HpUC1sEtajVPqqyN+LMovticHgN+zN8ZoFsJWn3Kx
-	syW9eHub5oWYpcSh6W0yD3bKjawGPqGWDvwvYBmTXwpjKz7O1//NjLWWx2KrqNWiR2IDQIEMzuzLt
-	5uZgyXf2Tg+4UkjIRL4wXHh801zR6VD2ziPuTLBjVNdsbX2gSLzk5gh7wF5UPSmTNq/oDTXG1HWCj
-	IPOFczag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=FwFqYqYfD15PAdwyyngrCMvzCO2FQbIKwm0H2nGhazc=; b=VI1LaFHLt3wo8X30a8vlGinuUW
+	Gy+gX3EafHHmWukTJtxc45Fx2XM3LNMYae3qyQiTY5FmymxZYWS4itJJRyoH44FaAPGqhkKPsALf+
+	BsG9zye+peVcwJos29eMQBHai+/z542kAKtekoH0pi/oYvLH621z7VAYNJjlR86NaLwTlUtiiNwYe
+	D2TyEnahvRZ2KOiGb7VpqekbCFW1qQKyKhXWqZihaCCDwFHgszfRUYt0tUGvqpp9uBRCCdW0e0I+3
+	a60tO7Trfnd0dZFPQzyNmLDeyJgiafP6p5zSzV6Iv1v4zLq7030UTSufv0V2oErCOc8d1zfSyvlzA
+	6pbPSjjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmqnm-00000004mcj-1C9K;
-	Mon, 02 Feb 2026 10:05:02 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vmr2O-00000004nmv-3B8z;
+	Mon, 02 Feb 2026 10:20:08 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmqng-00000004mUY-3krO;
-	Mon, 02 Feb 2026 10:04:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=u3V0uhd3GFGTLZW7cNDsJiAyDxAIjbyEm0qLQnrg6lM=; b=soW07ikRCrSl+9n5JvY+8ZefSA
-	F1DyKZeB/XL8Ax42lQNDRXC6WgetKkIu64TIthY49pO9j5BBtTicadTXlHrXZ9PU+9wWNk0tcHeOi
-	oAqLh2hM63q/GlEhQzWUMy/eZrtrC/J7cJTebmCQEy7XSQe3jioZHIW4YJYCstT5LwiDZyrB0Yfyi
-	FKXsVzMEhUiGNA/sqbAuPm4SI5yMf650x1mG2bVnMdBwc57bUPKC6svkrYr7/8zn5KHWW279/Sdh8
-	1I6LQpVNC6ZvJ5XhPVgM4MmaCFrEsQA7x2CJKKxr3X0I0tdifGuk3noZv2gqBFgN5DnYmC8Jg3qJC
-	MUpg+BHg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:45324 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vmqnU-000000003oh-431y;
-	Mon, 02 Feb 2026 10:04:45 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vmqnR-00000007VDE-2fM1;
-	Mon, 02 Feb 2026 10:04:41 +0000
-In-Reply-To: <aYB2cKRu3DQh6yXK@shell.armlinux.org.uk>
-References: <aYB2cKRu3DQh6yXK@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v2 10/10] net: stmmac: rk: convert px30
+	id 1vmr2K-00000004nkt-1QSg
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Feb 2026 10:20:07 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20260202101954epoutp04ca958e1fc9bfede651f605a26ee3742c~QZrgBHVB71801918019epoutp041
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Feb 2026 10:19:54 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20260202101954epoutp04ca958e1fc9bfede651f605a26ee3742c~QZrgBHVB71801918019epoutp041
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1770027594;
+	bh=FwFqYqYfD15PAdwyyngrCMvzCO2FQbIKwm0H2nGhazc=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=G7e7tKyKPr5aobWH5L10YT6N2ZSmWQ8gM1VEwEHERz6/xRmv9nrvHYUmURD4RIknM
+	 2NCfImvJvqSbq+ukcisEb1axJIvflwCf4Jm6ofLd63yCP4jk0Nx0c1Vkp2AJAnzOrJ
+	 83ta1cTVPDaiL7QhRVx9zHEN4PckBwyRbcO4WhqM=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20260202101953epcas5p276fc3ec430574a19245421b56232efbd~QZrfadcfL0758407584epcas5p2x;
+	Mon,  2 Feb 2026 10:19:53 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.93]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4f4N084nqWz6B9m5; Mon,  2 Feb
+	2026 10:19:52 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20260202101952epcas5p37eb879d5f55e7bdc8a90b86abe34eb4a~QZreJ_-_G2979829798epcas5p3_;
+	Mon,  2 Feb 2026 10:19:52 +0000 (GMT)
+Received: from bose.samsungds.net (unknown [107.108.83.9]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260202101949epsmtip1d80c1ee20aa6ed9ccba1120809826f39~QZrbwpLJ31774317743epsmtip1L;
+	Mon,  2 Feb 2026 10:19:49 +0000 (GMT)
+From: Raghav Sharma <raghav.s@samsung.com>
+To: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com,
+	alim.akhtar@samsung.com, mturquette@baylibre.com, sboyd@kernel.org,
+	robh@kernel.org, conor+dt@kernel.org, sunyeal.hong@samsung.com,
+	shin.son@samsung.com
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, chandan.vn@samsung.com,
+	dev.tailor@samsung.com, karthik.sun@samsung.com, Raghav Sharma
+	<raghav.s@samsung.com>
+Subject: [PATCH 0/3] Add clock support for CMU_G3D
+Date: Mon,  2 Feb 2026 16:05:52 +0530
+Message-Id: <20260202103555.2089376-1-raghav.s@samsung.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260202101952epcas5p37eb879d5f55e7bdc8a90b86abe34eb4a
+X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vmqnR-00000007VDE-2fM1@rmk-PC.armlinux.org.uk>
-Date: Mon, 02 Feb 2026 10:04:41 +0000
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-543,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20260202101952epcas5p37eb879d5f55e7bdc8a90b86abe34eb4a
+References: <CGME20260202101952epcas5p37eb879d5f55e7bdc8a90b86abe34eb4a@epcas5p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_020457_241692_9B1DED83 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20260202_022004_904157_93CBEC74 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,73 +94,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use rk_set_clk_mac_speed() rather than px30 specific function for
-configuring RMII clock.
+This series adds clock support for the CMU_G3D block.
+G3D block is for Graphics
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Patch[1/3]: dt-bindings: clock: exynosautov920: add g3d clock definitions
+        - Adds DT binding for CMU_G3D and clock definitions
+
+Patch[2/3]: clk: samsung: exynosautov920: add block g3d clock support
+        - Adds CMU_G3D clock driver support
+
+Patch[3/3]: arm64: dts: exynosautov920: add CMU_G3D clock DT nodes
+        - Adds dt node for CMU_G3D
+
+Signed-off-by: Raghav Sharma <raghav.s@samsung.com>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 38 ++-----------------
- 1 file changed, 4 insertions(+), 34 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index d74c32365a33..c56cc40683a3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -264,49 +264,19 @@ static void rk_gmac_integrated_fephy_powerdown(struct rk_priv_data *priv,
- 
- #define PX30_GRF_GMAC_CON1		0x0904
- 
--/* PX30_GRF_GMAC_CON1 */
--#define PX30_GMAC_SPEED_10M		GRF_CLR_BIT(2)
--#define PX30_GMAC_SPEED_100M		GRF_BIT(2)
--
- static void px30_set_to_rmii(struct rk_priv_data *bsp_priv)
- {
- }
- 
--static int px30_set_speed(struct rk_priv_data *bsp_priv,
--			  phy_interface_t interface, int speed)
--{
--	struct clk *clk_mac_speed = bsp_priv->clks[RK_CLK_MAC_SPEED].clk;
--	struct device *dev = bsp_priv->dev;
--	unsigned int con1;
--	long rate;
--
--	if (!clk_mac_speed) {
--		dev_err(dev, "%s: Missing clk_mac_speed clock\n", __func__);
--		return -EINVAL;
--	}
--
--	if (speed == 10) {
--		con1 = PX30_GMAC_SPEED_10M;
--		rate = 2500000;
--	} else if (speed == 100) {
--		con1 = PX30_GMAC_SPEED_100M;
--		rate = 25000000;
--	} else {
--		dev_err(dev, "unknown speed value for RMII! speed=%d", speed);
--		return -EINVAL;
--	}
--
--	regmap_write(bsp_priv->grf, PX30_GRF_GMAC_CON1, con1);
--
--	return clk_set_rate(clk_mac_speed, rate);
--}
--
- static const struct rk_gmac_ops px30_ops = {
- 	.set_to_rmii = px30_set_to_rmii,
--	.set_speed = px30_set_speed,
-+	.set_speed = rk_set_clk_mac_speed,
- 
- 	.gmac_grf_reg = PX30_GRF_GMAC_CON1,
- 	.gmac_phy_intf_sel_mask = GENMASK_U16(6, 4),
-+
-+	.clock_grf_reg = PX30_GRF_GMAC_CON1,
-+	.clock.mac_speed_mask = BIT_U16(2),
- };
- 
- #define RK3128_GRF_MAC_CON0	0x0168
+Raghav Sharma (3):
+  dt-bindings: clock: exynosautov920: add g3d clock definitions
+  clk: samsung: exynosautov920: add block g3d clock support
+  arm64: dts: exynosautov920: add cmu_g3d clock DT nodes
+
+ .../clock/samsung,exynosautov920-clock.yaml   | 21 ++++++++
+ .../arm64/boot/dts/exynos/exynosautov920.dtsi | 13 +++++
+ drivers/clk/samsung/clk-exynosautov920.c      | 52 +++++++++++++++++++
+ .../clock/samsung,exynosautov920.h            |  6 +++
+ 4 files changed, 92 insertions(+)
+
+
+base-commit: 4c87cdd0328495759f6e9f9f4e1e53ef8032a76f
 -- 
-2.47.3
+2.34.1
 
 
