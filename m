@@ -4,64 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DC4E7DEF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 14:56:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E54E7DEF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 15:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=udxGf0xljtegrIJMFi88Nd41JfqjJkfTxsoBLvLuTok=; b=tJ9RqZBtSNGmf282a6UK60bGsx
-	WKyh3kngwB6QiQ4jMt9EsZMtjz1/ls1Yl6dvNXWRlQ1jyoTFaiE2c5oNq6pQ4rzh9todA1u2OXnW7
-	SOuJBXVy5r26OfaVzEcj27OxvfPVzX8+cGBd7ng1dY1FePfrl4bFoKEpMRh3vFnFj5PYlAeHYjRcg
-	CDPa0m3bygZvmKL8QjZi5hRI+hPrPmqWjH2JMP0bBLQHvsdIEgRdD5LWVq/25ZXNMQUU4OR2bvwWO
-	1kpcpCCdgoYKsmXaku5YprUQDj5vV08Us30JhdHeG7KBSy0+Q41EMDrkHI3HtUP0CQsTwLF52Ct4M
-	+eb5AB+g==;
+	bh=tjY8IMEcwraRaAcklulnPu0XEgItry8qPQsBSr8viBU=; b=FJPUys8a9dhF2ktzkeRRQqWlIr
+	qu/DoulMqGSQti5butLTTtm1vjxAkQP74Q18IXeVarL2bBgcoUI7I63XqTcBgUMhSoHxGD3dtwkl5
+	Yl67AqroTjnvNsKpF6VkxqFqEFZJYQIniNq2iA2Nx42ByJyHE9HgiyM58pItmLusF2nLvaYU8vdyz
+	rDYP9CgtNpVKRaQT8edR+2IBvpWNw5BnDLNSJRQFT8oo4uq5UIaz/VV2MZHakHyOCiMRVWUPnllMw
+	WNjh2PG/lQyXvQqXhdgoaAdhl48JEcH+JZ+eg38zLqxP21wKMr+ryJ3ruh/ri9/Ng5v4B5nBevHhI
+	5/e2NmpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmvLV-000000058WX-04dp;
-	Mon, 02 Feb 2026 14:56:09 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vmvPx-000000058xk-0hAm;
+	Mon, 02 Feb 2026 15:00:45 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmvLQ-000000058Up-3iPn;
-	Mon, 02 Feb 2026 14:56:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=udxGf0xljtegrIJMFi88Nd41JfqjJkfTxsoBLvLuTok=; b=BvP8XhFNFHfFYcqQ5d1LiHaXxr
-	JQvdJk6EbKEyUY/RbHqipwCf0fNGkgB9egtxe2JkNeUWe/0A9zIarl54uaWyUnn5Bi5k1KaIz/uyi
-	/36dmO2/lMn8zSQkOJb1hb3YIWnoCkoutMpxK5Wqwfwmp4ZX/abo4PnE28gKqxjNJVro=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vmvLI-005pyz-Am; Mon, 02 Feb 2026 15:55:56 +0100
-Date: Mon, 2 Feb 2026 15:55:56 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: Quentin Schulz <foss+kernel@0leil.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Heiko Stuebner <heiko.stuebner@cherry.de>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 1/2] arm64: dts: rockchip: fix Ethernet PHY not found on
- PX30 Cobra
-Message-ID: <38452338-6e65-47ad-a696-b90c02ac42f0@lunn.ch>
-References: <20260202-px30-eth-phy-v1-0-ef365be64922@cherry.de>
- <20260202-px30-eth-phy-v1-1-ef365be64922@cherry.de>
- <33d3bdd5-0fed-41f6-8b8c-9690e7665346@lunn.ch>
- <567d6404-2a71-43ad-8ba7-5053fe1576bd@cherry.de>
+	id 1vmvPq-000000058w5-2m79
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Feb 2026 15:00:44 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-59b6d5bd575so4474973e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 07:00:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770044436; cv=none;
+        d=google.com; s=arc-20240605;
+        b=JMwkNPcru97xf/D1Lb6psTGnKfOlGX0Una2Ff2nx8bKaFat3aK6c5UP/ibQWfS/ykK
+         4YSiV/IhPn9LYjiT+OLDpJZQNoGmHw6cQQZxITXtVUAH62B6kIWlFP7UgUZ67y37SyZ8
+         zJQjL/mAR5UHXAZjx2onG6UvwmtGwFJku5Pu4haMN7sTjYjlpn0gzuCn1Efg6gcksikC
+         hNbLP0lkPZ1Fv0Emip/aZvm2gA6nIzWYPSukiYgj/lXgptKJe1D37x8l/VtXbaM/cAnF
+         xo467GqmF1lJzOXXCeduNjAjbivYNxpQm+tJfALddiPV91N5O0K3CHERkxnq3KFR+u5/
+         2Y7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=tjY8IMEcwraRaAcklulnPu0XEgItry8qPQsBSr8viBU=;
+        fh=rZPxir/ExQVwYVMyeL/VZo7YvBiSBf6nayhfMQgFVoI=;
+        b=Yq3GqkTOJNYsrBjnBPW2WBQO5J8KCs5AwiUYayhP4H3htdKgzeliztU7r/wO2ujrbX
+         YvC8jJsrJyyHqPxHrhE/yqNLHzw6pRzK8gCEJS1QWIX+lFid1X/ferAIOiuU81Rz4+3c
+         FC2CBwkSY55kAIjEtUCXN32n2pvw/UClgcce3o5ZNss2X/5BlOxxY3s9rlQZHDArekDZ
+         66iReUDeitedKwLrQCYfA2No5oa4fc0LfNZQGx1J7QTa04e7Lxa6QruCa+I/HBNZN5op
+         YGRcT6S1G+hgEmJfZp5L+ZeI8LL8k3+EvN/t3bE2VbuxC3SeilXYF7e/GlV3JZEQNbSY
+         87UA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1770044436; x=1770649236; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=tjY8IMEcwraRaAcklulnPu0XEgItry8qPQsBSr8viBU=;
+        b=UNzYblhH/fOUNyeKpH5NoLSQqvgREbP//rbyMzmk6P88ED1+w3fQOvze3/mysERL22
+         538C1RUReIlo9GoZ8T7i7bEkxOE8UKgmI6n2zKTutvy/eAsZbRzvK6YJfaW7Vzwvr0+h
+         Yysox08Lr5IFyWD+eaNPPo/RsdL/e0LwDpAK9Sdec0Pil3P7LzLNHkqIU+wYSs5JenxU
+         03hZX0mYAKKCiLFiiMhjEt72j6PyorfZNWyIPz/dw9FCqTxSAx5f0qAD1U8cCFzz2T14
+         CefaBKQJnbA3mpQsYv2ZtvnB7sCwOxM6MwzxwUM099NXNC1/5fDivutwQG0d9WmvHNlz
+         oYeg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770044436; x=1770649236;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tjY8IMEcwraRaAcklulnPu0XEgItry8qPQsBSr8viBU=;
+        b=CCRlh05pMho8XNJT1Rj3IxIZQ+OzFfG5egQlC+e53GkQtK3Dt8TsDmEsMSOEe1O947
+         B0QYH2K/yaOhHGcuLczK7WQbH07bY75naQyM6KoOQaN6DioWNuCYR8hHVrodBHQvO7Id
+         sAWOVZ21oIVP972MET9TRM7x5DFAd3ZSBZNwn1ygCZ45OuM6+u6zIly8kS8rXufWLDux
+         AJ2SVUX8e5chvPDEcBWhUfDphMsAJ/vEH6ttE+QQEOObL9rC2c41T0UQfhPBT5lPPzz0
+         KWjDcsnfcjxMAfe6uRc3ecDUVkm4vWsIu4PmGPnxM38VCFE0mhA88pKMpYisZGWBRQKb
+         Lecw==
+X-Forwarded-Encrypted: i=1; AJvYcCXRjSqgUpo+EJ6h1aG/tYgTWPBcj+Pjq0UTbG0bKAbNqD58UCmu4A2ftH5i59I5+JRopaWjfN48XvQ9UdEt98ng@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaHY7lGExNahlPUJSKMqBXnpaXdYEVbx5wfzASY6fF9sdgo4/0
+	03NjcQ/Aqzl+VE8tuQ+oNI6taiHtXyIA470/QgjAMjVe4vXgZbhACEHvsGMy+N2vC9WuTpu4HMT
+	91FBXYWZ1b8TFaLcU40ZI/DxIvi9fBmLq/OG6aWoR5A==
+X-Gm-Gg: AZuq6aJ+ousAD7wASD7ZggMSK5BjWMq+MO05JFcp7bORGGjy0GH1bn88rnrLp0txJRr
+	EKK+LSkM/VtKkv2xQkpWjLv1fJ3B4rYk7qFXzeRskzChIZ8RSVeg7OyJe55QMw03ZEBi2u8rGd8
+	4ejWFOJrQPlupBBt79RQ1w2lQCSaEa8ACilDPwqArPDpuUveKKcI0XRyOYYGVyhF3hcQPX/cf+y
+	1TrEI/T1c1TcRkiFt9j2HjSrLhoAxBpG/5hF959USz+bxKwrtsheXWpaAfKK2VGBVHqpHr8
+X-Received: by 2002:a05:6512:1114:b0:59d:cb2c:9b60 with SMTP id
+ 2adb3069b0e04-59e16443c8cmr3908427e87.40.1770044435428; Mon, 02 Feb 2026
+ 07:00:35 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <567d6404-2a71-43ad-8ba7-5053fe1576bd@cherry.de>
+References: <20260202064820.347550-1-irving-ch.lin@mediatek.com>
+In-Reply-To: <20260202064820.347550-1-irving-ch.lin@mediatek.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Mon, 2 Feb 2026 15:59:57 +0100
+X-Gm-Features: AZwV_QgUchHwCanQC14NjkrQfkr08G0f7AUahWDnGm1YzWor4lHgCWR2MlI4fGQ
+Message-ID: <CAPDyKFokrMP05rqbACON-ov+=diKpRfxywEqyuJHNnUk72L4kA@mail.gmail.com>
+Subject: Re: [PATCH 0/3] Add support for MT8189 power controller
+To: "irving.ch.lin" <irving-ch.lin@mediatek.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Matthias Brugger <mbrugger@suse.com>, devicetree@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com, 
+	Qiqi Wang <qiqi.wang@mediatek.com>, sirius.wang@mediatek.com, 
+	vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_065604_953698_B3362AC1 
-X-CRM114-Status: GOOD (  32.17  )
+X-CRM114-CacheID: sfid-20260202_070038_805245_BADA4D48 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,72 +119,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 02, 2026 at 03:02:08PM +0100, Quentin Schulz wrote:
-> Hi Andrew,
-> 
-> On 2/2/26 2:52 PM, Andrew Lunn wrote:
-> > On Mon, Feb 02, 2026 at 11:27:25AM +0100, Quentin Schulz wrote:
-> > > From: Quentin Schulz <quentin.schulz@cherry.de>
-> > > 
-> > > When not passing the PHY ID with an ethernet-phy-idX.Y compatible
-> > > property, the MDIO bus will attempt to auto-detect the PHY by reading
-> > > its registers and then probing the appropriate driver. For this to work,
-> > > the PHY needs to be in a working state.
-> > > 
-> > > Unfortunately, the net subsystem doesn't control the PHY reset GPIO when
-> > > attempting to auto-detect the PHY. This means the PHY needs to be in a
-> > > working state when entering the Linux kernel. This historically has been
-> > > the case for this device, but only because the bootloader was taking
-> > > care of initializing the Ethernet controller even when not using it.
-> > > We're attempting to support the removal of the network stack in the
-> > > bootloader, which means the Linux kernel will be entered with the PHY
-> > > still in reset and now Ethernet doesn't work anymore.
-> > > 
-> > > The devices in the field only ever had a TI DP83825, so let's simply
-> > > bypass the auto-detection mechanism entirely by passing the appropriate
-> > > PHY IDs via the compatible.
-> > > 
-> > > Cc: stable@vger.kernel.org
-> > > Fixes: bb510ddc9d3e ("arm64: dts: rockchip: add px30-cobra base dtsi and board variants")
-> > > Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
-> > 
-> > What is the justification for stable?
-> > 
-> 
-> Bootloader without network stack = no network in Linux.
+On Mon, 2 Feb 2026 at 07:48, irving.ch.lin <irving-ch.lin@mediatek.com> wrote:
+>
+> From: Irving-CH Lin <irving-ch.lin@mediatek.com>
+>
+>   This series add support for the power controllers
+> of MediaTek's new SoC, MT8189. With these changes, other modules
+> can easily manage power resources using standard Linux APIs,
+> such as the pm_runtime API on MT8189 platform.
+>
+> Irving-CH Lin (3):
+>   dt-bindings: power: Add MediaTek MT8189 power domain
+>   pmdomain: mediatek: Add bus protect control flow for MT8189
+>   pmdomain: mediatek: Add power domain driver for MT8189 SoC
+>
+>  .../power/mediatek,power-controller.yaml      |   1 +
+>  drivers/pmdomain/mediatek/mt8189-pm-domains.h | 485 ++++++++++++++++++
+>  drivers/pmdomain/mediatek/mtk-pm-domains.c    |  36 +-
+>  drivers/pmdomain/mediatek/mtk-pm-domains.h    |   5 +
+>  .../dt-bindings/power/mediatek,mt8189-power.h |  38 ++
+>  5 files changed, 560 insertions(+), 5 deletions(-)
+>  create mode 100644 drivers/pmdomain/mediatek/mt8189-pm-domains.h
+>  create mode 100644 include/dt-bindings/power/mediatek,mt8189-power.h
+>
+> --
+> 2.45.2
+>
 
-I can see this multiple ways....
+The series applied for next, thanks!
 
-Changing the bootloader introduces a regression. Hence you cannot
-change the bootloader.
-
-I personally also don't like boot loaders with basic functionality
-missing. Why cripple the bootloader by removing the network stack?
-
-But i also don't like Linux being dependent on the bootloader. Because
-some vendors ship boards with crippled bootloaders and you need to
-replace the bootloader. And then hidden vendor initialization is not
-in the mainline version of the bootloader, and something breaks in
-Linux.  Making Linux more robust is generally ongoing development, not
-a bug fix.
-
-However, it bootloader developers decide to break the contract between
-the bootloader and the kernel, regressions have been reported, then it
-would make sense to backport the fix to work around the bootloader
-breakage.
-
-I don't know the internal of uboot too well. Can you remove the IP
-stack, but leave the drivers? Get the driver to probe and setup the
-PHY, so you keep the agreed contract with Linux, but you also get the
-crippled bootloader you want.
-
-For the commit message, i would like to see a reasoned argument, based
-on
-
-https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
-
-why this should be in stable.
-
-	 Andrew
-
+Kind regards
+Uffe
 
