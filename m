@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50963E7DF08
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 16:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F339E7DF08
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 16:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vbhczSAPq8d3aMIIKjhWusNqPo3EvBJR+D5a1k/6bME=; b=4yuMxE9qPuQdsmexS8BnagkAM9
-	iZ50CogFwpqX5lhAAwreFICx83nmwLsMnqucQh4E+fHbSt1Ru+OYJRD8rp6IAzeA8A5gBw1tCBbyv
-	ugJS9rnPpCTaNqNMjgqMxUKewvTlNzYEB5bt4WVjKq1U+Dms2okNccmouuNy/WhhjrXyP2iWI2RoM
-	E9fTOLA6yzCkdciMOM9VyvfveL8YM80wo0M5JF7Bd3n1/c5DqZIDMtcar+mym30lV+hcNgcircM8q
-	XUbR65o0dkQsBNnkEIlzMf6ciUfNZaA/MRJeXdNGW1bYmfFcaALPV8KDhZ8Of/s9uhVoFxz9d+pbo
-	hpszhEQA==;
+	bh=dFkuMT/PbjlmykiEzaX0lWh1FmgYYTDl3OTPj1VFmSY=; b=KU4L6sHyAjiv6ghPOzD0bkcO7F
+	dL5TCKddZuxudvmvslY05oLTJ/tUsLxF3YNiSPkVsyS0vmIoVdeVCrF0WoDxv4O2Zo8oQolkOQsSx
+	08JBupTdNXFLmFDAVwHwTU4mRZVkHuo+6Hjq8PXI+5h93zaMCXvFwg1I+bQLoUxbIzQ0F6RJGywEw
+	3BimQisa23NyG20O16edHR+eMgvImhdcxThLgXgeBGYa2sha3J+B7w9eR+FPrFr22v/RqgdtFT6Eo
+	KD4CUAyeEVK+rHzGq+f2BIVtY8UlM8Hzp+TIYM5r9zumhAIb9pvnRUy/WYQ5fs86i4h1tIxQIip/L
+	JymtkZFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmxBd-00000005KI6-1IDa;
-	Mon, 02 Feb 2026 16:54:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vmxCD-00000005KMS-3p4P;
+	Mon, 02 Feb 2026 16:54:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmxBb-00000005KHp-3XTI
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 16:54:03 +0000
+	id 1vmxCB-00000005KLx-3yX4;
+	Mon, 02 Feb 2026 16:54:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CE79C60010;
-	Mon,  2 Feb 2026 16:54:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37C9FC116C6;
-	Mon,  2 Feb 2026 16:54:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EBAAE419F4;
+	Mon,  2 Feb 2026 16:54:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3571C116C6;
+	Mon,  2 Feb 2026 16:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770051242;
-	bh=ewFJ7lIw0mhiwj4TSfTYPWEKSHxdvWRNCspn7DwLvv8=;
+	s=k20201202; t=1770051278;
+	bh=dFkuMT/PbjlmykiEzaX0lWh1FmgYYTDl3OTPj1VFmSY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=q9U8RKjYB1tzrvCrgN9afni5xXdEzT5RQ/+pjQUmEOb9zLuvqDCv1Nef3VxzTJ2ms
-	 fyjTvE+F3qjgD3HF1RBId1ZWneCaEIXNsSE7vn0XaWPu62s68DIqx0QwmGVxU7v65i
-	 arO7mNom+PH8kQYPkTWXb8pAg0pP1iIm57i4i+KvJoeF5Hn+6zicjv75Fxy/ACZ25Y
-	 wPNmX7eHGPAsBig5Isf+7S2QHxKYMa/XkWH173jx4y4f1WNRJKD+6bV5o1dBMx/VKG
-	 3e90A92oHAFFWk5klfyM6PuHw1lZZeaJ+7jTFNZyXXPnJl8EncMmD9JIXIEmzpNvGc
-	 3Pl2FVlWutSMQ==
-Date: Mon, 2 Feb 2026 16:53:57 +0000
-From: Will Deacon <will@kernel.org>
-To: Leo Yan <leo.yan@arm.com>
-Cc: James Clark <james.clark@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Alexandru Elisei <Alexandru.Elisei@arm.com>,
-	Anshuman Khandual <Anshuman.Khandual@arm.com>,
-	Rob Herring <Rob.Herring@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	Robin Murphy <Robin.Murphy@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] perf: arm_spe: Add barrier before enabling profiling
- buffer
-Message-ID: <aYDWpc8Jh4SqMcD5@willie-the-truck>
-References: <20260123-james-spe-relaxation-v1-1-4ccb88fa7bc5@linaro.org>
- <20260130202437.GB3481290@e132581.arm.com>
+	b=kI8WLpuYhsvo6gYvA61W/ciV+aGtbvKXKU+5m7TEoukt08Chnc1n9CkRrqroECPrN
+	 MbhZ3R+dsdxBL9CtiFBCYhlKOSzsTxECZQVxO6JuRk+Ad5/Lfhsji5zkkJEmHBGjVc
+	 AQQZWDOC3SCOztTIXdav3VmmVTZ7MMt/AN0+L/8usZiFYfKLHNQpNLXIpc7+3igurc
+	 l6QT/rJ9P4v1zA/KqWEakBz2DdoTznGWy2K/sG1FCPR+TeSCHjb0ofIP9yCcZJz1TW
+	 U+ohk0EKSvoLp1xMlxgbswOaIklRLgUbij0n/hKcAABmC0KzLQaJXglOvZwAhReMMj
+	 Z62dzUs4rlLUQ==
+Date: Mon, 2 Feb 2026 16:54:32 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Yassine Oudjana <y.oudjana@protonmail.com>,
+	Laura Nao <laura.nao@collabora.com>,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
+	kernel@collabora.com, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v3 1/5] clk: Respect CLK_OPS_PARENT_ENABLE during recalc
+Message-ID: <e98290b1-274a-4f8c-b629-11c1167b0370@sirena.org.uk>
+References: <20251010-mtk-pll-rpm-v3-0-fb1bd15d734a@collabora.com>
+ <6678782.DvuYhMxLoT@workhorse>
+ <daa1906b-a112-4158-aec2-ad1d29b4fe35@sirena.org.uk>
+ <3745487.e9J7NaK4W3@workhorse>
+ <176962688200.4027.9869545980331892869@lazor>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="/Ml7kgeSsfDfeG+D"
 Content-Disposition: inline
-In-Reply-To: <20260130202437.GB3481290@e132581.arm.com>
+In-Reply-To: <176962688200.4027.9869545980331892869@lazor>
+X-Cookie: Save energy: be apathetic.
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260202_085440_010516_F55A240D 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,100 +86,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 30, 2026 at 08:24:37PM +0000, Leo Yan wrote:
-> On Fri, Jan 23, 2026 at 04:03:53PM +0000, James Clark wrote:
-> > The Arm ARM known issues document [1] states that the architecture will
-> > be relaxed so that the profiling buffer must be correctly configured
-> > when ProfilingBufferEnabled() && !SPEProfilingStopped() &&
-> > PMBLIMITR_EL1.FM != DISCARD:
-> > 
-> >   R24557
-> > 
-> >   While the Profiling Buffer is enabled, profiling is not stopped, and
-> >   Discard mode is not enabled, all of the following must be true:
-> > 
-> >   * The current write pointer must be at least one sample record below
-> >     the write limit pointer.
-> > 
-> > The same relaxation also says that writes may be completely ignored:
-> > 
-> >   When the Profiling Buffer is enabled, profiling is not stopped, and
-> >   Discard mode is not enabled, the PE might ignore a direct write to any
-> >   of the following Profiling Buffer registers, other than a direct write
-> >   to PMBLIMITR_EL1 that clears PMBLIMITR_EL1.E from 1 to 0:
-> > 
-> >   * The current write pointer, PMBPTR_EL1.
-> >   * The Limit pointer, PMBLIMITR_EL1.
-> >   * PMBSR_EL1.
 
-Oh nice, since when was it ok to relax the architecture and break
-existing drivers that were perfectly fine before? The SPE spec's not
-worth the paper it's written on...
+--/Ml7kgeSsfDfeG+D
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Anyway, we're not changing the driver without a comment next to the new
-isb() explaining the backwards incompatible change.
+On Wed, Jan 28, 2026 at 12:01:22PM -0700, Stephen Boyd wrote:
 
-> > When arm_spe_pmu_start() occurs, SPEProfilingStopped() is false
-> > (PMBSR_EL1.S == 0) meaning that the write to PMBLIMITR_EL1 now becomes
-> > the point where the buffer configuration must be correct by, rather than
-> > the "When profiling becomes enabled" (StatisticalProfilingEnabled())
-> > from the old rule which is much later when PMSCR_EL1 is written.
-> > 
-> > If the writes to PMBLIMITR_EL1 and PMBPTR_EL1 are re-ordered then a
-> > misconfigured state could be observed, resulting in a buffer management
-> > event. Or the write to PMBPTR_EL1 could be ignored.
-> > 
-> > Fix it by adding an isb() after the write to PMBPTR_EL1 to ensure that
-> > this completes before enabling the buffer.
-> 
-> Makes sense.
-> 
-> > To avoid redundant isb()s in the IRQ handler, remove the isb() between
-> > the PMBLIMITR_EL1 write and SYS_PMBSR_EL1 as it doesn't matter which
-> > order these happen in now that all the previous configuration is covered
-> > by the new isb().
-> 
-> The isb() in the interrupt handler is useful and should not be removed.
-> 
-> See the sequence in the interrupt handler:
-> 
->     arm_spe_perf_aux_output_begin() {
->         write_sysreg_s(base, SYS_PMBPTR_EL1);
-> 
->         // Ensure the write pointer is ordered
->         isb();
-> 
->         write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
->     }
-> 
->     // Ensure the limit pointer is ordered
->     isb();
-> 
->     // Profiling is enabled:
->     //   (PMBLIMITR_EL1.E==1) && (PMBSR_EL1.S==0) && (not discard mode)
->     write_sysreg_s(0, SYS_PMBSR_EL1);
-> 
-> The first isb() ensures that the write pointer update is ordered.  The
-> second isb() ensures that the limit pointer is visible before profiling
-> is enabled by clearing the PMBSR_EL1.S bit.  When handling a normal
-> maintenance interrupt, PMBSR_EL1.S is set by the SPE to stop tracing,
-> while PMBLIMITR_EL1.E remains set.  Clearing PMBSR_EL1.S therefore
-> effectively re-enables profiling.
-> 
-> Since the second isb() is a synchronization for both the write pointer
-> and the limit pointer before profiling is enabled, it could be argued
-> that the first isb() is redundant in the interrupt handling.  However,
-> the first isb() is crucial for the arm_spe_pmu_start() case, and keeping
-> it in the interrupt handler does no harm and simplifies code maintenance.
-> 
-> In short, if preserves the second isb() instead of removing it, the
-> change looks good to me.
+> BTW, I don't know what this patch is actually fixing, so I'm going to
+> revert it. When it is resubmitted please describe the problem you're
+> seeing.
 
-I'm not sure I follow your logic as to why both ISBs are required, but
-I'd have thought that if perf_aux_output_begin() fails when called from
-arm_spe_perf_aux_output_begin() in the irqhandler, we need the ISB
-because we're going to clear pmblimitr_el1 to 0 and that surely has
-to be ordered before clearing pmbsr?
+The patch is still in -next today and the issues it causes are still
+visible.
 
-Will
+--/Ml7kgeSsfDfeG+D
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmmA1sgACgkQJNaLcl1U
+h9CLcgf9EffwFr6JBb9N99fIsh3a56gSqW4r3a8ReNkp5RkHVfGkrLGXLY/JQlcA
+lPrw0kTevGyqgvtyy9FVxO6qL4vSyMp/detgVS/sfQ5C1PpSBziZ9UbCg3icdnvL
+/Wf5HqiF+tjB6iKlXZ/HjI2ZRqs81oZgPf5bXrMSKMcw61Xp9OTJkvZOd8jK/V+k
+otYmjdIjM9+RCc3NFkhC/o7kNZu3iAuP4E1BnwjNbjkl4jKqhPF/vbP6uepW7r3L
+0n9k8ZThsA6zw3nsC2nGR2vKqjlhqfHk9fZamyuDRLfmMtSy97Iesx4b3LxcbY/g
+WFA/Shdt6/EseS46U+3RtkyEp/ncCQ==
+=Y9/u
+-----END PGP SIGNATURE-----
+
+--/Ml7kgeSsfDfeG+D--
 
