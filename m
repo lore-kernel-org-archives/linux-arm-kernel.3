@@ -4,177 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB190E7DEEE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 15:36:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89769E7DEF6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 15:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F3btKMzYNY8reGB0o5YYU7Q4u9OcynSkz40hrjzFuI4=; b=wK5PnrpiOkFZemFAekk9Xr6IYE
-	O0U/gvqws2LXHuCG6rtYein/4nUF/vazUSTHj+uIq2DsBt2yk3ob9DNWgxEcaRkWBon6+l0j4OCbq
-	C7XhWv2Qoshmrk8lWBB5i14oNo5YY27eeqzHxQLNtbduRBN6azmFwdTpG87MJv1y46/taLm8zDacV
-	gfHhC4KgojTY2/kGHTo1gYN8EkleUtrQeuM+nI3ESKMc6JJxVMK5Y3Ex7PRh4luEXO6RJIHpk9UyO
-	nXz1dbM69HIVejmt9rdAjKlY3TtgzMQy0EnQD818xBQw1ZktEyiT1oOcyVyRsubmMNp+eVB+vSjDk
-	kVXxLHWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aSL2a4dz4q/APgbl8Q8Mh7iH7a4SNBvs18iz1k3EzMA=; b=c9hwhYiWYWhHzh5folkNYJW1jT
+	otvda+cnsGqP9hvHop4RWQhaMLHTrOjmN71LxBtPEGB77yMMTRS3Q9pGHt8VjTK7p5u5S+vpCcMh/
+	Lu0PkzHltm4ars5mCADKXqRA8Mpg/dumSb++acUw9+FsVpXxW3aJCDlBQCy+ZUTpLoWgEP2Q2orKK
+	mciqfYij8i8KOtFfuxI8e4tWQ5vBi1nYP5CkhWbzTDFyi4ziWyTNVQuk4iSlqEx3Bt4OYQb6gLHEY
+	7PV3FTK8VPpQIKZoSi0izwVoIY686/9lWZqu6lpZdWmozQxo8ej9IfTamcbkuHkmGbk5ZezslUuQw
+	gCKtLq/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmvyd-00000005CGz-1aIB;
-	Mon, 02 Feb 2026 15:36:35 +0000
-Received: from mail-northeuropeazon11012042.outbound.protection.outlook.com ([52.101.66.42] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vmvyp-00000005CIG-49fE;
+	Mon, 02 Feb 2026 15:36:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmvya-00000005CGO-3zDB
+	id 1vmvyp-00000005CHw-0qtB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 15:36:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dl4qhMZcMxe0P6kKh5k/VWC4Gq8jEkI7rT4wF8GWxSHquLvXrxddg5H4ei9QxzOiVQEeTvU43naaXtH4CnA4z8QYYuKOpJSZIXmGPtR/ncwebeLNuNX4QSjIp/CvsecSfQrsaqiY9WGwnznLD7N/uRLXy+RO9XSEvV7dEo9hS/qd4w+Wcbp0AmRjhTuTQT9u0OleYIy5EQ6DzEOUs7tOOs0B/QHFVs72PCMsvb7EIfuGgeH/ZMc6zrQWlGLzEl4EaunONbWfKwhfNPFON1lSs7HjkvRC4h+xyLvJqDp7QxrqP5UvWuDCScVJX2BPjTIOSTO4Un1RnF0WbO6D9EZglw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=F3btKMzYNY8reGB0o5YYU7Q4u9OcynSkz40hrjzFuI4=;
- b=MFSoOoWIWWPaFVCM1vtULD5TVbk1JUHcVfRFUylU/5Pnvu2z3ksdlJnIjis1zkoV9/hAtPyk0NoWAKvVbisrqjgGtLN2R+61aVDiLzERWbzIjTVCY8RHQEAigYwfK7tp1cAaz0xMTXPya5+D/V4thwFrfMmHvNPR/MCnxL34/sRW3iNoFns1O1K8QhQKSO2Kbizm7+nNp0G5hJIoMHNsKH65SFkX/l7Yit7eVpSDF078Qa2X77VKFs/oeEAB9Klw/hXv6W/gFCArO6sQ5sLyA9T4GlGVGUNMOrL7Q71AeeJKvMLmzCCjnIEy7mNoJdy+gPF4y9Dgh5fxpceZv+MlaA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=F3btKMzYNY8reGB0o5YYU7Q4u9OcynSkz40hrjzFuI4=;
- b=AaduWTnDnjAdTJmNR0gYwdcXkajc6fB189DTU02uS1+09MFjO7U3v+uUCTA7i7h4s7uuSizE+UNZXIuMcyclfOCxY1m1CeRI+gJq2g/qcqfEcQ3m78DROXA26iTNnSn4+0tRq0MUd0RwNBSCNPegplAGRgDaucftQoYqOmYIYXnfkt45dMN55O5D+Y8yEOZuxeH1z3pJ1SSs0xL4Wg4bmwEvNe/2HCxLMxT6Zqc1m1Ekz/osh5vzlj8VgkS4nOlz66angapv3aHwKBXhDWInMICBr9iXGjiX4j4GYd6rVptDn7EB9Yk1c9J0EIbRFQVlWODt2QmBzXIf3+eVlgPPZA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PAWPR04MB11569.eurprd04.prod.outlook.com (2603:10a6:102:50a::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Mon, 2 Feb
- 2026 15:36:27 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9564.016; Mon, 2 Feb 2026
- 15:36:26 +0000
-Date: Mon, 2 Feb 2026 10:36:15 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Li Jun <jun.li@nxp.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] usb: dwc3: add may_lose_power flag
-Message-ID: <aYDEb+nZe2efehEr@lizhi-Precision-Tower-5810>
-References: <20260202-add-flatten-dts-based-dwc3-imx-driver-v1-0-c44a5e919380@nxp.com>
- <20260202-add-flatten-dts-based-dwc3-imx-driver-v1-2-c44a5e919380@nxp.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260202-add-flatten-dts-based-dwc3-imx-driver-v1-2-c44a5e919380@nxp.com>
-X-ClientProxiedBy: SJ0PR05CA0209.namprd05.prod.outlook.com
- (2603:10b6:a03:330::34) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Mon, 02 Feb 2026 15:36:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4584960010;
+	Mon,  2 Feb 2026 15:36:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AACDC2BC86;
+	Mon,  2 Feb 2026 15:36:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770046606;
+	bh=WI6zutmVBSxRxobYaH3/CHHeRqahghvOWUS1hAR6f9s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tZeEBiyj67lav4qkYYDtamQukkvU4UhwkXxxUd7IGB3J8tok8/UGdeU/bYWf8vcy1
+	 32lYKKSfiDF5MyL3k8+rkj4WtW+JC0MMGaAzyQkV4jZ1cZ1/6ikLAKeiIMZQjWx658
+	 ZLmkrIIW2u9BX9XSVZNdcZlJEtcuD/HChCtuu9h30eP/MD6+npqcEFjzQ6QF1ObyTn
+	 XMNHY6odUN/gBuMisa1sTHMMYv77QjN3Udd2qRMED7S9Gt1zNEmzTInajbXFFeD97Y
+	 tpVYTswxHkfSUb+5QmeBy3Y1PxgsIkEKV9cGSmcfC7w8JNGAk9x3cUZVe9dglCI/qR
+	 MO8x6HRGKnbfQ==
+Date: Mon, 2 Feb 2026 15:36:40 +0000
+From: Will Deacon <will@kernel.org>
+To: Marco Elver <elver@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Boqun Feng <boqun.feng@gmail.com>, Waiman Long <longman@redhat.com>,
+	Bart Van Assche <bvanassche@acm.org>, llvm@lists.linux.dev,
+	David Laight <david.laight.linux@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] arm64: Optimize __READ_ONCE() with CONFIG_LTO=y
+Message-ID: <aYDEiOutq3_O8irP@willie-the-truck>
+References: <20260130132951.2714396-1-elver@google.com>
+ <20260130132951.2714396-3-elver@google.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAWPR04MB11569:EE_
-X-MS-Office365-Filtering-Correlation-Id: ec8517f3-70f9-4936-574e-08de6270d3d0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|19092799006|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RnRnRUN6YTl4Rkk3MmpIbFByam5hQy9XcXo3TTlaZVVJWk5yWXZHOXVlLzBr?=
- =?utf-8?B?M3VGaUhOWjNabStDUDJVTlRLK2ZWL28vajVjWERQd0V3VHJZbTFmZDUwYnNq?=
- =?utf-8?B?enl3NFdRdmlBUzQ2bllkd1d5aHRoZUtjaUlRSjdjbittY3Jtb1VCRTduZzE1?=
- =?utf-8?B?ZDZOTnBlZm15bFhxdy9PSWJ0SXQrTlhZaklLcXdnaDVhekQ0L1BJbWpCd1pW?=
- =?utf-8?B?bXFRUnVPRWZEdjRTSnMxM0I1T0JaeUcvZDV4TVVMVDJWem5ZK3NWclhDb254?=
- =?utf-8?B?TEdrY2I2Q1VqdERKK1BUdndUZTkzVWM5UTNobXQ0Z2E1WHJsWTR1YW9SQ1Ba?=
- =?utf-8?B?VTlmbTc2Z1UwNHMrenY2T1JHZWtwQWdCb3BURHNYU3hLM2x4dEdZT3ZabjFl?=
- =?utf-8?B?ZjNEVDdZNTN4Tkk0MHgydFlPWlgyMkllZ0hSdFo0UC95YkIybGYzK3pjY04z?=
- =?utf-8?B?K0pFTk5jbTJCMnVtRjJGbzI3MFVqUGZMQTlnaXlFZWhWWGFPckJqV0d1RE9j?=
- =?utf-8?B?V1YweDJRUmcwMzRoZllSK1hGdmU0ZFRpb1drRytxS3RCWk1idHNkdm5Uc1Iv?=
- =?utf-8?B?RnB1MTJnN3ovN0UwclZiK2FEQ1pTRENub2tMYWhlbm8yVFo1ai9Ma3htRnhy?=
- =?utf-8?B?b0ZjZWQ2U25ITTZiVUNqRmdaOGFDc3JSM0l3bUhNaGw4R0F3UnpyVGo3REs4?=
- =?utf-8?B?bEVDNGpQVWxtV3E2Nko4OXNKUmo1UHEzZi81bmlUZU01a1BLaDRGVlNXOG1h?=
- =?utf-8?B?bHVhMDEwZnpWamFHUzVLcFNQakowZE1KaVB4UGdnWXdOVlh4d29WRUowT1Q4?=
- =?utf-8?B?emV3ajNIVU53MG51b2J6ZG5PWkxJeUV4STdNejJIVnNpY2VDL3NIZEVaRFZm?=
- =?utf-8?B?SDBzMDd0WG5VcThzcjZ3WisvdzhrcmVNb1FudXgrL2FGL25ubERHenB0dWFt?=
- =?utf-8?B?SlZyYkNiZjNyRmdKUHBVU3BiL085MHpLenlnVCs2b2c4UHRpY1dCOFM5QmR0?=
- =?utf-8?B?TElSa3diTi84NU8wM250WU1XWXQyaitCWUJoUVRQQkgvVkpvTkw1cUZ6My9n?=
- =?utf-8?B?aDd6dG5sa1Z3Nm94c3FlOHBkL2RMaktNRVpOWjJVUHNyQWRoT3JYYlVpRHYx?=
- =?utf-8?B?OGxncG5OeVhEbzhadFVkNS95dWtFSFdDQ2VQZ2RJdXVOUzB0SElWUk9aWjd0?=
- =?utf-8?B?a3BoaHI2S1VaNDVjWjladDlZeHZZb2FZVnNjZlhsVW9FYTZNODJEMmM2OUhK?=
- =?utf-8?B?TUZHWGhSMzRxemRmYmlJOG5aUnRTaUFiRUkvUU1EQWR3M3JXS21kL0l6c1h6?=
- =?utf-8?B?UmJtYVRoek1iOHE3c3ZCNFJsZWNQeFBsVnF4bnZEcjZxdXV2bzQrRUgvak9Z?=
- =?utf-8?B?R1BIWS8xM3E0Sy9WdW1nSld4RFdjbS9xNnoybnkvWlZrSXVSdnEvUjQwUXha?=
- =?utf-8?B?T2JkRFRNRVJ2d1VoY2JDbHdJT2ZOYk5kc3ZNTU5QQVNzeFgyaUdtQmNBM1pC?=
- =?utf-8?B?eElpem9UQ0FITGR6aFJUZC9rQ3VjQkNLM20rcHRGa1JPMk5qNmZmU0JYa1No?=
- =?utf-8?B?ckpVbnQweDBCUDRiTVlDSEl4U2dVK3ZQVHVFOTEwcCtUMkk4WEV1VGlCRkxY?=
- =?utf-8?B?MUZiaXpqbHRrYTd0UjVwcjNDeGE5Z1ErQVI0VXlyN004dzh2ODVJU1c3NDRs?=
- =?utf-8?B?clVmSFozQlpkeE15Q3Ryd2I0MWNPcGZ4d3FlTVBMQ1V1QVRydXlLZmYwVERB?=
- =?utf-8?B?WGdQa2lMRmhpeGQ2TTVISWo0dTBoelplYmF3dndRVmVBS1pRQ0pxY0Rsdmt1?=
- =?utf-8?B?VU5sUGhHaWJZVG15VHV5OVp6b1JWbFNaK2FFR3pBSGxtQ0taUkFRVUozcU5E?=
- =?utf-8?B?MHFZWGpLUzRGSGQwMWwwb0FQeUsvR3FUQmJqK09ad2RlNXRFQjd6SlJXRklE?=
- =?utf-8?B?VWMvRmtsVWZkZFhRT2VjeG45L1g1WVJGbEtKTDlJQ1drSm1Hdng4UmJUNGVR?=
- =?utf-8?B?QXhVMkdKMHdpZEhkTlJNNTVUNFUzVmNlSHR5a2dsZUZtSGZPN0FldjVvelBT?=
- =?utf-8?B?Yi8wRkY3VGhpYXg5Z0VCQ1h2dG0wS3docms3akl5V05GZmd1TUROSzhxWnRv?=
- =?utf-8?B?N2pzK3lteCsxOTNHUjllS1J3a3F4YlpYWXh5NUR5TnlLQUc0YUVGek5IaUsz?=
- =?utf-8?Q?XpKpEz5Z2gPkjRk+44PbVwo=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UzNmNXpWYUJCSDd4dnNrb3BsUlJTanRXRHR3TzltUkdUQ2JaYTQxK1dxUW1M?=
- =?utf-8?B?WnRoWHdsUDBLNlpZWUhZbWVWUXQ1TmFnaHdmZ1REVWdCKzRtSnp5M0hTTkV2?=
- =?utf-8?B?c0EvRmw2a25sNmNyb1d3T1VPQndCOGFkZFZZS2VmQlBqNStrbi9FS2xvTFhF?=
- =?utf-8?B?SjJ4bXV2MUpWdURzUlh1TGFVTkFUd3pXUEFRRW8rRXFGSDlobGFQR05yRW9Z?=
- =?utf-8?B?a2pSR2liUHRNV1ZHR3VmUks3L0krVmZWbUJaL3ByeG1nYjF1eGY5UFdjTk9o?=
- =?utf-8?B?WVRuSmVWRkVwV1VReXRYU29VYXRRZk5VMjlDOFZWdHNNc0JrVEVKV2FuaklE?=
- =?utf-8?B?YlFPME80N21NZGYrKzBoaFRvWFBGV2hQaDhpdjJiSTArdmdvbFdmSnVRYXht?=
- =?utf-8?B?WWZyNDNVMWZtVUlia0tzNjk5MHBmY0ljQzNtZk80Wklmb2lMNmx1Z2RJUEt1?=
- =?utf-8?B?ZkpvRWdmTmFVVWNHc2IzeE9BWGtnYmMzcWZ0NEdyUDQzMkJCV3ZvNndWR2Zn?=
- =?utf-8?B?UTRXNzRhZVlvNjA1SFRXUTFOeVFuRm5wVEJBaHBGRnhXMUhPb1grOXNoc3li?=
- =?utf-8?B?V0hWekpSazZxZUUzWDV1ZWx2NmpzY2pjSzgxZE5XRmQxZWkyTmVoL2t0MGJT?=
- =?utf-8?B?VlNXNXhUdXRCNWxoSThBQnhJRUFkK3Y2TFJWTEk0a0NaYmZOTjlpcWhQbHU1?=
- =?utf-8?B?NEhSdEhIaWhYb0dtQ0h0Q1hNN1NJUjVxMEFHY2Q4bHJUdUZHS1gwTkwvVGlo?=
- =?utf-8?B?cFpsQUhMR1FXSkhSWjlrZVJCQ05HRFNpbkV2NzZqNThJYXpHcmpmVXc3b0pw?=
- =?utf-8?B?Y0Q3Y05yeEpCUXVSKzFOa0pORW1xNm1xMXRuNjlHbVBMK1dJU3BEdTJVeHFt?=
- =?utf-8?B?eDY0enQ1SkVFV3draHZhY3l6ZzVjWS91SWw3N1BSbm9JcDY5K1RsRENtYXox?=
- =?utf-8?B?NHZmdTMxdGZnc2pMYTJTcGRSY2ZTcjZoakJzL3FwR2ZKOXpCRURUR1dORHJ2?=
- =?utf-8?B?NmxkWHpJZ0xSckJndThTUjhvK3NFenpyekJ1aU9XeWVpbGhpc0FDQzF4TXYz?=
- =?utf-8?B?ZkNSMEh5eENzRDcyL2QreUdLSUFsMzdQa0Rra2hyZHlzeFNMSUpmdEJOa0lB?=
- =?utf-8?B?Y0lNYXArcW9tbUFNSGRLejAwbG1PZ2VvS2ZKeWFSMDh6SGpYZjhHWkVEWkZk?=
- =?utf-8?B?Y2N3cnl5SlZPQVI1RTY5TVQwQWlCaXZFTWpWWXN0Q2t4c1FocW5UOUQ2Y1Zr?=
- =?utf-8?B?bVo0WjN3ZWFweTMrOFg4V2p0SWZmY1o1bXJ3VVo0Um1zMlB1WGt3MUozenpM?=
- =?utf-8?B?Rloxb1puLzY3RnVpbkxyR1dSRmdpekFvd2pEZFhySm94d3lGZnJHZWxSYm0v?=
- =?utf-8?B?ZmN4OTBIZjRBdW10LzBMMHNEajRqME1nd0cxbG5MOThpSUJ4WlZJc2FrWlVO?=
- =?utf-8?B?ZTlTdU81d0hUY3Nsb2IrRVRSOEo1WllkR1JOeEdFMllJMENoZ1ZlbzFINHU4?=
- =?utf-8?B?bVVQWFRoME9UOXpCMGxuQWxDYi9MYWhmREVpeCtQTmQrMnQ3Mm80c2lsODZD?=
- =?utf-8?B?b3BzT1VLeVA1QnZTb2RDR2JyTTVIb1Y1VDdWY2JUbmlSWFZiNlBvZHFlbGZs?=
- =?utf-8?B?YkFzUmtaSEVMenRKSWtVZDVIckpHUDRUQUJyMWpaRkdBQzg5bkRlUE9McnVh?=
- =?utf-8?B?SXNudzFhNGRJMFpmNGRYTUNCa2JydkYrc1liUVVhZUIyQ3lKT05wTTg5SjZt?=
- =?utf-8?B?eVhFMFZRVHB6dGo1ZWZpSU81UmhKUmhJT1lGcTN1MERBWFkwYXRXbGowakl4?=
- =?utf-8?B?ZHpTL3FFR01nbzU5V0szVlpxWUV2VUI1c2sxTURtMm1xZXFxbFU3TVlqLzln?=
- =?utf-8?B?Mm5BbFlYU2ZPOHc2RTY3V3JTWFpySXR2SFR6R0hFOTFkWW1RTm5zS3Z5Z3Vw?=
- =?utf-8?B?RUlFMHFqNGFPSjk3MTFMTjh0V2VUNEhyVGUwVjNnNmp3ZDBhNHN2c3NLQmNq?=
- =?utf-8?B?SHdKY25nTm5uWFBsRUt1MlJ6d08zdXEvUEd1Uy9FTCt5TGhVYm0yTDdlbXhF?=
- =?utf-8?B?REVzQ3ZJbVNFdGlLY1dCSXR1OVc1NFRaYlF0c0VpRWw2di9Od1AwT0RveVMw?=
- =?utf-8?B?YmwyVVNUelhTd0N3bmpLdlpVZThJQjNRSDQ3dXVneTl5N3VHS0N2UkVYcW1r?=
- =?utf-8?B?ZDdsdkZWd05GdTNTODg5SWFydmx4Z0RmalBBNnk0ZjV3ZVJUSmdTWkxkQXhB?=
- =?utf-8?B?ZU8zSURaNEN2TmFvOUhlelFLSHZUUmk0dk1oZm5PRTUzUEIyajE2S2xGUk5z?=
- =?utf-8?Q?ir5RLQmf737cwT9WdQ?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ec8517f3-70f9-4936-574e-08de6270d3d0
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Feb 2026 15:36:26.6444
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hhjdfob0PVZeRXeEWTeEA+YQ+iUjhkKTrr1E+QL/zFkTpmMktbY5Yfw+wdb+VaiKstBH0tCWdQM9QdmWImU1Ag==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB11569
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_073633_139471_B8F820D7 
-X-CRM114-Status: GOOD (  25.94  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260130132951.2714396-3-elver@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,105 +75,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 02, 2026 at 06:27:46PM +0800, Xu Yang wrote:
-> The current design assumes that the controller remains powered
-> when wakeup is enabled. However, some SoCs provide wakeup
-> capability even when the controller itself is powered down, using
-> separate dedicated wakeup logic. This allows additional power
-> savings, but requires the controller to be fully re‑initialized
-> after system resume.
->
-> To support these SoCs, introduce a flag to track the controller’s
-> power state and use it throughout the suspend/resume flow.
-
-Nit: next time, wrap at pos 75 to reduce some lines.
-
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
->
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+On Fri, Jan 30, 2026 at 02:28:25PM +0100, Marco Elver wrote:
+> Rework arm64 LTO __READ_ONCE() to improve code generation as follows:
+> 
+> 1. Replace _Generic-based __unqual_scalar_typeof() with more complete
+>    __rwonce_typeof_unqual(). This strips qualifiers from all types, not
+>    just integer types, which is required to be able to assign (must be
+>    non-const) to __u.__val in the non-atomic case (required for #2).
+> 
+> Once our minimum compiler versions are bumped, this just becomes
+> TYPEOF_UNQUAL() (or typeof_unqual() should we decide to adopt C23
+> naming).  Sadly the fallback version of __rwonce_typeof_unqual() cannot
+> be used as a general TYPEOF_UNQUAL() fallback (see code comments).
+> 
+> One subtle point here is that non-integer types of __val could be const
+> or volatile within the union with the old __unqual_scalar_typeof(), if
+> the passed variable is const or volatile. This would then result in a
+> forced load from the stack if __u.__val is volatile; in the case of
+> const, it does look odd if the underlying storage changes, but the
+> compiler is told said member is "const" -- it smells like UB.
+> 
+> 2. Eliminate the atomic flag and ternary conditional expression. Move
+>    the fallback volatile load into the default case of the switch,
+>    ensuring __u is unconditionally initialized across all paths.
+>    The statement expression now unconditionally returns __u.__val.
+> 
+> This refactoring appears to help the compiler improve (or fix) code
+> generation.
+> 
+> With a defconfig + LTO + debug options builds, we observe different
+> codegen for the following functions:
+> 
+> 	btrfs_reclaim_sweep (708 -> 1032 bytes)
+> 	btrfs_sinfo_bg_reclaim_threshold_store (200 -> 204 bytes)
+> 	check_mem_access (3652 -> 3692 bytes) [inlined bpf_map_is_rdonly]
+> 	console_flush_all (1268 -> 1264 bytes)
+> 	console_lock_spinning_disable_and_check (180 -> 176 bytes)
+> 	igb_add_filter (640 -> 636 bytes)
+> 	igb_config_tx_modes (2404 -> 2400 bytes)
+> 	kvm_vcpu_on_spin (480 -> 476 bytes)
+> 	map_freeze (376 -> 380 bytes)
+> 	netlink_bind (1664 -> 1656 bytes)
+> 	nmi_cpu_backtrace (404 -> 400 bytes)
+> 	set_rps_cpu (516 -> 520 bytes)
+> 	swap_cluster_readahead (944 -> 932 bytes)
+> 	tcp_accecn_third_ack (328 -> 336 bytes)
+> 	tcp_create_openreq_child (1764 -> 1772 bytes)
+> 	tcp_data_queue (5784 -> 5892 bytes)
+> 	tcp_ecn_rcv_synack (620 -> 628 bytes)
+> 	xen_manage_runstate_time (944 -> 896 bytes)
+> 	xen_steal_clock (340 -> 296 bytes)
+> 
+> Increase of some functions are due to more aggressive inlining due to
+> better codegen (in this build, e.g. bpf_map_is_rdonly is no longer
+> present due to being inlined completely).
+> 
+> Signed-off-by: Marco Elver <elver@google.com>
 > ---
->  drivers/usb/dwc3/core.c | 9 +++++++--
->  drivers/usb/dwc3/core.h | 2 ++
->  drivers/usb/dwc3/glue.h | 3 +++
->  3 files changed, 12 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
-> index c07ffe82c85049364c38c7ba152aab0ff764d95e..9d4326da5ec7669fa714707fb24556723cab51b8 100644
-> --- a/drivers/usb/dwc3/core.c
-> +++ b/drivers/usb/dwc3/core.c
-> @@ -2314,6 +2314,9 @@ int dwc3_core_probe(const struct dwc3_probe_data *data)
->  			goto err_exit_debugfs;
->  	}
->
-> +	if (data->core_may_lose_power)
-> +		dwc->may_lose_power = true;
-> +
->  	pm_runtime_put(dev);
->
->  	dma_set_max_seg_size(dev, UINT_MAX);
-> @@ -2462,7 +2465,8 @@ static int dwc3_suspend_common(struct dwc3 *dwc, pm_message_t msg)
->  		dwc3_core_exit(dwc);
->  		break;
->  	case DWC3_GCTL_PRTCAP_HOST:
-> -		if (!PMSG_IS_AUTO(msg) && !device_may_wakeup(dwc->dev)) {
-> +		if (!PMSG_IS_AUTO(msg) &&
-> +		    (!device_may_wakeup(dwc->dev) || dwc->may_lose_power)) {
->  			dwc3_core_exit(dwc);
->  			break;
->  		}
-> @@ -2525,7 +2529,8 @@ static int dwc3_resume_common(struct dwc3 *dwc, pm_message_t msg)
->  		dwc3_gadget_resume(dwc);
->  		break;
->  	case DWC3_GCTL_PRTCAP_HOST:
-> -		if (!PMSG_IS_AUTO(msg) && !device_may_wakeup(dwc->dev)) {
-> +		if (!PMSG_IS_AUTO(msg) &&
-> +		    (!device_may_wakeup(dwc->dev) || dwc->may_lose_power)) {
->  			ret = dwc3_core_init_for_resume(dwc);
->  			if (ret)
->  				return ret;
-> diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
-> index 08cc6f2b5c23631a752c77fd7394e5876c929f0a..5b1358f36490a001bc9e68139224f7be70a57995 100644
-> --- a/drivers/usb/dwc3/core.h
-> +++ b/drivers/usb/dwc3/core.h
-> @@ -1117,6 +1117,7 @@ struct dwc3_glue_ops {
->   * @usb3_lpm_capable: set if hadrware supports Link Power Management
->   * @usb2_lpm_disable: set to disable usb2 lpm for host
->   * @usb2_gadget_lpm_disable: set to disable usb2 lpm for gadget
-> + * @may_lose_power: set to indicate the core may lose power during pm suspend
->   * @disable_scramble_quirk: set if we enable the disable scramble quirk
->   * @u2exit_lfps_quirk: set if we enable u2exit lfps quirk
->   * @u2ss_inp3_quirk: set if we enable P3 OK for U2/SS Inactive quirk
-> @@ -1369,6 +1370,7 @@ struct dwc3 {
->  	unsigned		usb3_lpm_capable:1;
->  	unsigned		usb2_lpm_disable:1;
->  	unsigned		usb2_gadget_lpm_disable:1;
-> +	unsigned		may_lose_power:1;
->
->  	unsigned		disable_scramble_quirk:1;
->  	unsigned		u2exit_lfps_quirk:1;
-> diff --git a/drivers/usb/dwc3/glue.h b/drivers/usb/dwc3/glue.h
-> index df86e14cb706ca509206677f644da2a7225b1b26..b428a9f4a32625e7331f8492a408f7c20c915825 100644
-> --- a/drivers/usb/dwc3/glue.h
-> +++ b/drivers/usb/dwc3/glue.h
-> @@ -29,6 +29,8 @@ struct dwc3_properties {
->   *		be ignored by the DWC3 core, as they are managed by the glue
->   * @skip_core_init_mode: Skip the finial initialization of the target mode, as
->   *		it must be managed by the glue
-> + * @core_may_lose_power: indicate the controller may not remain power during
-> + *		system suspend/resume
->   * @properties: dwc3 software manage properties
->   */
->  struct dwc3_probe_data {
-> @@ -36,6 +38,7 @@ struct dwc3_probe_data {
->  	struct resource *res;
->  	bool ignore_clocks_and_resets;
->  	bool skip_core_init_mode;
-> +	bool core_may_lose_power;
->  	struct dwc3_properties properties;
->  };
->
->
-> --
-> 2.34.1
->
+> v3:
+> * Comment.
+> 
+> v2:
+> * Add __rwonce_typeof_unqual() as fallback for old compilers.
+> ---
+>  arch/arm64/include/asm/rwonce.h | 21 +++++++++++++++++----
+>  1 file changed, 17 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
+> index fc0fb42b0b64..42c9e8429274 100644
+> --- a/arch/arm64/include/asm/rwonce.h
+> +++ b/arch/arm64/include/asm/rwonce.h
+> @@ -19,6 +19,20 @@
+>  		"ldapr"	#sfx "\t" #regs,				\
+>  	ARM64_HAS_LDAPR)
+>  
+> +#ifdef USE_TYPEOF_UNQUAL
+> +#define __rwonce_typeof_unqual(x) TYPEOF_UNQUAL(x)
+> +#else
+> +/*
+> + * Fallback for older compilers (Clang < 19).
+> + *
+> + * Uses the fact that, for all supported Clang versions, 'auto' correctly drops
+> + * qualifiers. Unlike typeof_unqual(), the type must be completely defined, i.e.
+> + * no forward-declared struct pointer dereferences.  The array-to-pointer decay
+> + * case does not matter for usage in READ_ONCE() either.
+> + */
+> +#define __rwonce_typeof_unqual(x) typeof(({ auto ____t = (x); ____t; }))
+> +#endif
+
+I know that CONFIG_LTO practically depends on Clang, but it's a bit
+grotty relying on that assumption here. Ideally, it would be
+straightforward to enable the strong READ_ONCE() semantics on arm64
+regardless of the compiler.
+
+>  /*
+>   * When building with LTO, there is an increased risk of the compiler
+>   * converting an address dependency headed by a READ_ONCE() invocation
+> @@ -32,8 +46,7 @@
+>  #define __READ_ONCE(x)							\
+>  ({									\
+>  	typeof(&(x)) __x = &(x);					\
+> -	int atomic = 1;							\
+> -	union { __unqual_scalar_typeof(*__x) __val; char __c[1]; } __u;	\
+> +	union { __rwonce_typeof_unqual(*__x) __val; char __c[1]; } __u;	\
+>  	switch (sizeof(x)) {						\
+>  	case 1:								\
+>  		asm volatile(__LOAD_RCPC(b, %w0, %1)			\
+> @@ -56,9 +69,9 @@
+>  			: "Q" (*__x) : "memory");			\
+>  		break;							\
+>  	default:							\
+> -		atomic = 0;						\
+> +		__u.__val = *(volatile typeof(*__x) *)__x;		\
+
+Since we're not providing acquire semantics for the non-atomic case,
+what we really want is the generic definition of __READ_ONCE() from
+include/asm-generic/rwonce.h here. The header inclusion mess prevents
+that, but why can't we just inline that definition here for the
+'default' case? If TYPEOF_UNQUAL() leads to better codegen, shouldn't
+we use that to implement __unqual_scalar_typeof() when it is available?
+
+I fear I'm missing something here, but it just feels like we're
+optimising a pretty niche case (arm64 + LTO + non-atomic __READ_ONCE())
+in a way that looks more generally applicable.
+
+Will
 
