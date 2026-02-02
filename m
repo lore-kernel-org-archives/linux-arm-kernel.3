@@ -4,190 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C851E7DEFE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 16:32:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8396FE7DF00
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 16:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Reply-To:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sKErp/jPqQ/LTAD5fzT/Xc+TBOyhMK0LpM0Qa+ZxWIE=; b=o9/3SJkR8N5UxARjjfXkKtsBR2
-	bl9+rNzHCHZu11e3gXjZKiDHFI6fpTENebWrchW/76GO66syH1ActvCZqdYD8tcEj4/ho8z3V4GhB
-	q3JnpSPZ8CjE3qOn4gTIszbJAfTjG/q7UcTgybg2813mmmoTCy9+XyUTTfpeB594OxwgQ8LEKbSJG
-	WGKJk8qNAhseh5sAxoTih3I9lGF93rAgGGyUSFybWHljlXQP7IhPpAfel8a4wHZ8VGvTRmmjlW7pn
-	Np3CzLpVm7pZSaUlgDJ4poC6k+4Dsq59/Ame3T1ll6fFLhMMB2+LeZxe509/G+HCHWGWRvumGhmwY
-	9ItRNGZw==;
+	bh=wOpBAlejMQlf8l36+6BJOJmGY4gq2Qds1l7yR6luOBM=; b=D7ICDm3hYgo8wtsgSIBbN4Wumn
+	/YYWaG0ev37LYlVUildsyRurgHu0mDFDikJETAcFFE2G+xRTnqF0uDYgltmH+uam89dOI7iR+ydQc
+	h3kE89VXOdoN80LgkB9oUOPvHnk4I3+tAUQwpJkBpuFMGKf7rl9zFQffR9GNgeU0zMxruUjpCW65Z
+	TLDvYIUX7WHZcSk48MRXMH5rwDGpx9erm2M43S0kKv2WtgJvYAXuhcZBTc35RrPaM74pz6Og5NQi/
+	IF4BczUB7cxGbCXwltTTKZgdBrYlESoRxc7IUbZv4e5DWRk5Fqbg6ShYpphUIr3tj+4r/WEKiz+b2
+	FX4NVOrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmwqU-00000005Ips-2A4h;
-	Mon, 02 Feb 2026 16:32:14 +0000
+	id 1vmwqf-00000005IxS-11VG;
+	Mon, 02 Feb 2026 16:32:25 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmwqS-00000005IoC-3nqy;
-	Mon, 02 Feb 2026 16:32:13 +0000
+	id 1vmwqd-00000005Iwc-2eaF;
+	Mon, 02 Feb 2026 16:32:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:In-Reply-To:
-	From:References:Cc:To:Subject:Date:Message-ID:Sender:Reply-To:
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=sKErp/jPqQ/LTAD5fzT/Xc+TBOyhMK0LpM0Qa+ZxWIE=; b=pnP3r30bbIK4xSAKggPcMVsBAU
-	7DGTdeDyCY5fPVtmmDgPULGTJxwBbGawJZ50bih3f871QNa+3FGNW0CsIju7Q2IRv6ZEF9zL+MTXK
-	LkImeRAi15ckdNuMlfKKlTjUyWlnxdUXsAgsfK7ZbeFIDLrK5GzcsEktKhe80QiyXrlt8RUDmow6k
-	zXkXLA2RDRar/nso4urrDVlY8yprGE4/Wr100LCUYFrLXntC6NC6rtJ45lwAkPIvSpWGrY8aTsoBC
-	ipFzJDdFxV4j5H4KnbR/reOHRTrauUGn0y7a3xhaR0fTLKaJOegw+dwjolDgPe3QvQm6p56GdFzvo
-	MphZKg+g==;
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	bh=wOpBAlejMQlf8l36+6BJOJmGY4gq2Qds1l7yR6luOBM=; b=TRdURifyGorxqYhF+Xe6NQmQKv
+	e3FXp1BxThFJbkOEu4okyaJVdbHeJzPowbHjeNQpsSAM+0ofryNflYOIGvjTiWQ78ROHqD6KOHilw
+	smdx0kPf4Ojm46C2+Xijl3zlyfIDSEOq4zT6uu2ZXJCB18nb6pABu52cFVtfVxZH7PwQAgsKWH8zW
+	ZnjEcDr++ZyahxOaCjzlbu1z7BdKo0OXpNGh7qqQ895dTFEEV9Jv4rpTf0gnh3KtqV1eqTVNAj/4Q
+	XU8bUy8GlfvMPDT8hGfwXbHEq2sqLYQ7mpIX1d34jgo/D+cqQdWfFtLQ1fdJ/5FFeF9ukczzEy7+l
+	7tRreH9w==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmwqP-0000000Eqf9-1JVP;
-	Mon, 02 Feb 2026 16:32:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oZl4DRbfeGIrSWGmpxyENJiEZ0KzmRUojtQ2ocDC5rAc2odmGmWJa4E9lBzFI8AQQihONK+Ou6TYN7icOLX3Cm2HagNbQM+7cH8t+/J6k3wMsoMg2ZtLQwrxQBdwcVsw/M6i96ovHYfkr/weiJj5wgw3JIB/7vDE/Vu3DdQ4joCPBs/9JCB4Sw8JMCd099HmfOmwJnaNFD5d2S25T4xwBauDvfq1ZAmLvNc+VUJWvLn02l3Qsrk1dZ/FYE9M3wBQWer3k3Pb8m553LfZDWV4ma1LnTqZqLTq7FxdBDl9WaC32jEeugSatMkKsf6Czm6TtDqz0rrNBJYzv2Cv6eQhig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sKErp/jPqQ/LTAD5fzT/Xc+TBOyhMK0LpM0Qa+ZxWIE=;
- b=zQ9NPFQ0h5d57zTqywCNJ+7G9CEnA1KvtERW8zFiIqs7VVk4jibYhiXWtMTpIlVH/epKZAJYPDBc2S/dRhju0e37ZvqVtnobjGnDzFkGtGtPkWPY9BFuzBA5d4FrUIDX+yqEjfkkpAnQxfPgx7FBrcvGiqk5VkJBaIVNx26CWZbB9kWve9irfSQE74ONHL6mvp5j6nB+ILFP4E/qBrU5vPW6g5fNiV00nrLWTk1Ftd5pjJecECrhff79YDBS26I73tk2O3G4gTZBoF9X+b+CARFOsU65sAWb+b5WfOQhwyMSCdreqWW937ILH5betXnbkjAtvcHPgFgEWai621E39w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sKErp/jPqQ/LTAD5fzT/Xc+TBOyhMK0LpM0Qa+ZxWIE=;
- b=d8nEfFFsnTFKssg3XGyQfNt/RdMOCdj2GNuiKh4e0JKZ1REJmAN7cG5NlTTRS9ONnwrfsV+D+8luz+MtHp7Cbq3k9+JOGA1eB+Ut4RzJ3aiUvjI27ZaiBMOODaRQ1sruJimHOHvXwUkbStml2t0KU8hhDDGrWn2GH7f81LiQvR0=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from GVXPR04MB12038.eurprd04.prod.outlook.com (2603:10a6:150:2be::5)
- by VI0PR04MB11937.eurprd04.prod.outlook.com (2603:10a6:800:307::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Mon, 2 Feb
- 2026 16:32:00 +0000
-Received: from GVXPR04MB12038.eurprd04.prod.outlook.com
- ([fe80::6c04:8947:f2f0:5e78]) by GVXPR04MB12038.eurprd04.prod.outlook.com
- ([fe80::6c04:8947:f2f0:5e78%6]) with mapi id 15.20.9564.016; Mon, 2 Feb 2026
- 16:32:00 +0000
-Message-ID: <b2f12140-ee3d-45bc-864e-d51317c83b8d@cherry.de>
-Date: Mon, 2 Feb 2026 17:31:58 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: dts: rockchip: fix Ethernet PHY not found on
- PX30 Cobra
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Quentin Schulz <foss+kernel@0leil.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Heiko Stuebner <heiko.stuebner@cherry.de>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20260202-px30-eth-phy-v1-0-ef365be64922@cherry.de>
- <20260202-px30-eth-phy-v1-1-ef365be64922@cherry.de>
- <33d3bdd5-0fed-41f6-8b8c-9690e7665346@lunn.ch>
- <567d6404-2a71-43ad-8ba7-5053fe1576bd@cherry.de>
- <38452338-6e65-47ad-a696-b90c02ac42f0@lunn.ch>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <38452338-6e65-47ad-a696-b90c02ac42f0@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-X-ClientProxiedBy: FR4P281CA0345.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:ea::6) To GVXPR04MB12038.eurprd04.prod.outlook.com
- (2603:10a6:150:2be::5)
+	id 1vmwqa-0000000Eqg7-32nv;
+	Mon, 02 Feb 2026 16:32:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1770049939;
+	bh=EbEcrN/Wa7xsaLg8FjqJkY67F/gdBSGhJKVWbuWvgtY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=SLt97rhGMZFLOSh/T2m5qPWsdjbnIbe7p98Ae65y+OIRQAPOHS5V7IiMNMJt2I5q0
+	 i8ip9fNtICHk6o6pP8+dtXzQGFVHCvfM5l2vCrGS9u8gV0anm7Sm3oM5Np5XNfi7p4
+	 xINUFjlpdXXeyOgbj8r49BNxczNTUkWTSSDNaJ0qxVd9DDhiUospsvhNAoH2mvzrLd
+	 UI62ZkxaQoRAt9T7khg/yKusIiGkgDuNI6w/uLPtiMvMUBt1yOl7Ns20s5ijq135wa
+	 80FZLW6lxw/1LFITVFCEXcA77i+53ndesDm3xomWB0ux5Z/6/2vXbUtnyziBKy/Vr3
+	 zk1XLtA9yL2hw==
+Received: from [IPv6:2606:6d00:15:210e::5ac] (unknown [IPv6:2606:6d00:15:210e::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3CFB417E1276;
+	Mon,  2 Feb 2026 17:32:17 +0100 (CET)
+Message-ID: <ca81b8b03651cdb4f997c89fffd489407be59b8b.camel@collabora.com>
+Subject: Re: [PATCH 2/2] media: rkvdec: reduce stack usage in
+ rkvdec_init_v4l2_vp9_count_tbl()
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Arnd Bergmann <arnd@kernel.org>, Detlev Casanova	
+ <detlev.casanova@collabora.com>, Ezequiel Garcia
+ <ezequiel@vanguardiasur.com.ar>,  Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Nathan Chancellor	
+ <nathan@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Nick Desaulniers	
+ <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, Justin
+ Stitt <justinstitt@google.com>, Hans Verkuil <hverkuil+cisco@kernel.org>, 
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	llvm@lists.linux.dev, Jonas Karlman <jonas@kwiboo.se>, Alex Bee	
+ <knaerzche@gmail.com>
+Date: Mon, 02 Feb 2026 11:32:16 -0500
+In-Reply-To: <20260202094804.1231706-2-arnd@kernel.org>
+References: <20260202094804.1231706-1-arnd@kernel.org>
+	 <20260202094804.1231706-2-arnd@kernel.org>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-2jK0PyPR5gtYSVPZSaBh"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12038:EE_|VI0PR04MB11937:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1fbd1873-98b2-408e-d963-08de627896ba
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TDd0SXlCTUZmTEZZcnlsUmJIOUU0STRZenlqNHJMVEQ2NEFuMjJLbGNvWnl1?=
- =?utf-8?B?SXBUazFwMDI0TlZQZ0dRU2p4Z2FBWUlndnJmRFdGZHVUU3h4VlpoRUpPMnlm?=
- =?utf-8?B?ZEgwUlRPejRJUmlnbWczWWtOUk1OZGMraS9kL25qVXF5Q0pLa0ZMeXZiWm1x?=
- =?utf-8?B?bzF3QWNDMmRURmpya2d4VmVpcnVsU29YUVJiTm1SZFdsQXNPWTRrK0FycWMx?=
- =?utf-8?B?ZHNSelZnZXIxVVVFUlpyT0FuV1FncGQxTzVuQzhRTlJ3ZjA2dXNhOGtaaFNV?=
- =?utf-8?B?eGx4emNJNmN0MVc5aFZHM09VQnB4Z3g0SmNYQ2hyNDA5dmdvVFZSUnFlb0Q3?=
- =?utf-8?B?TEllTCtDaTlzWk9DZDRrNUhQN2J4TmVGOWlva3d4aUhvbE5GdDRMWmI1blBh?=
- =?utf-8?B?N2xIZlprbnpXVUV0VkZSLzBTamZ6RFB4MkRvSEFHMzcyUXdVdTJyQUFYNzhJ?=
- =?utf-8?B?YzM2bFlIL3ZJdS9jZkhOSTd0V3E5U1BXRlIzU1pUUHhhUWE2MTlkWGZid3E1?=
- =?utf-8?B?UlRzb1R2TmJwbmsvSlBETGtUL1FDRzBxaGZUM1BrNTJrcnZRNEVFL3EvZFZy?=
- =?utf-8?B?elNSRk5RY3I3dmRRc1pzVHFqUzR2SDFyemx4cndXME9yRkxHZnpvNENHZEVP?=
- =?utf-8?B?Smo4RTExWVdDenFYdFJvb2xFYWYyekliYXhKK3VWRVFiOVcxa2pNRFBrd3I4?=
- =?utf-8?B?RVY0bEdtK1k1ek93T05ZQUlEYjEvTE1YODJ3aDBGZ3VmNWVKMXRWNnFiQzU1?=
- =?utf-8?B?RGMyL3dMVU9NckNoeXFpWTUxVlE3Wk1XdjNVdGozU0VoNDdmclZlM1FpNHR0?=
- =?utf-8?B?VDg3VWNENTNqdG5abXZxMHc2OHk5MVpIL2VaTk56NlVoektmaC9Dbi9teVRU?=
- =?utf-8?B?dDFueHV0a3VUSFZCanRtUTNRU2RDaXY2dEd0WUJFUGtSV2pldUJydzM1ZnFn?=
- =?utf-8?B?bnk0VU5aZmNLNmpkc0FubVdyWXV5aVhLNWIxa0RocnBqR3JOcWNuY0x2Nmha?=
- =?utf-8?B?dFFVNmZvbFlLZ2EzZU96VWhLeEZYQ09LOExPYVVEUUVQMGZlK21HdG9Ic015?=
- =?utf-8?B?aTVlZFQ2MHgrN2pvdmY4RU1zVFU0ZE1HQVBhbWsxamI0NFg2VGc5MEZ2ckZw?=
- =?utf-8?B?bDM5cnFVWGJYaDNKYXd5eThHakJiZVozSXgyWDYvMUhFR2duUVNGMzFOVS9F?=
- =?utf-8?B?YXgrVG9BZ1JJNGJ1UmpkYzQ2L2VsZTE2QStlQ21lZWhHbkRTdThFK3Y3MkR6?=
- =?utf-8?B?TFZJUTZQc3FYRVdJWkloZDZadEhzYXV4SVlUS0lhQUtvRCtFQUZRMFVicWVa?=
- =?utf-8?B?RWhkK1FvUUpIWmFpRGtrWVlXZ3oveFJJRU9FY1hZU0JYNWpwdElSOHZ4bFFz?=
- =?utf-8?B?Q2ZQenFUSXpNMHcrUlpzM1NsVWRTdytBSnlRbkh4MkRxVTVJOVE5bDZhK0kv?=
- =?utf-8?B?eGV1dnRSOUJtQjQ5U3E3ZzhFSytCQnA3NzcyajZlVUR6M2JaQmNlWlFMTzUr?=
- =?utf-8?B?UGhtVDFXVTk3Tk9MOXZsMWVPUzJvMWpCcFNac2RpQVpMTnM1M2RPL0luM0tH?=
- =?utf-8?B?RHFxZWR2NTd0REZMcWFkL0ZUSzk5RldtQ2V5eWZSTmdoR2k1UElTaVVIRzUz?=
- =?utf-8?B?K3hLcFJTV3k4TUZzS2dkK0tDVlMySEJaamM3ZERISVJEL0NTQnlJWnAxekJZ?=
- =?utf-8?B?SVRhS3FrekNwd2JPa1dLeTh1UFc2QUFkU3F2NTZJbUR2OUFrc0t6MysrcXZX?=
- =?utf-8?B?eHFQcXJQQVRNS01kZy91V3Q0bHlCV1U5NlEyWGNaUXMzRkVqTGtlU0xXZHFM?=
- =?utf-8?B?emlyLzB4ek5iVUtkM2NvR2QzT0ppcSt3Z1Uvd1JYUUtSSmlvMHNmNTZpL0Nm?=
- =?utf-8?B?c0NIZWp2NUZ0bXdHWGZOdGNXb0hHWUgrcjlJdkNwNkhCczVKOVVVRVByZ1ph?=
- =?utf-8?B?c2UxT2RQdEpva3R1dHAzbGJHenV4bjF5bzJSWDJPcUNsNGJ3UGhNbzZkTnQ3?=
- =?utf-8?B?OFBNaENSVDBuSVpMVjBRQmxZRCtFNnZMekNsczQ1andKL1EzNEpGazN6cjBu?=
- =?utf-8?B?clBETzVGT2thcDRxWkI2OG1yWlJWR3d6NWdZNlJvN0tnc1RuSUlOaldUUXcw?=
- =?utf-8?Q?oDaU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12038.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?V05SVVhVSG9lbFpZS21ISUFPcUY4RUk4SXdWcmEvTExrVytvRlhOYkpVZngy?=
- =?utf-8?B?bGhFME80eks3N1VuYlVYQitjSXl6Vm5vNDVoaE91a0dEK2Z3bVFqSXJqSEZu?=
- =?utf-8?B?OTkwYTRnUHY2VXU1KzdKdkt4ZG9ST09nUDRzUkxBSTlFVHdiME1aOGd4bmVw?=
- =?utf-8?B?TWFjRW9BL3REb1AwN3RwRy9DMGVwTWhYc2JpTVdRZDRQZnVXOE1UUy9mYm5P?=
- =?utf-8?B?eWFZd2pTUzFjMHNQU0FxTVQ5Y2pWQ1YxMjllald5bi9YaHExMDlCd0pmWTRh?=
- =?utf-8?B?dEJJcjEyZXR5VkM3YjlhVkdSUURFNXBRU2xNeHZYdmszSHNIQm1WQitZTTd3?=
- =?utf-8?B?MDE1VHN2aGI2MVNNOC9SWS8zYjVkWGd2WFIrRklVMGsvTEFZQzIyQldBYjk4?=
- =?utf-8?B?ZmU1Y2dqWnNBRWU5dEdlZnpKOS9hY2UvVUJXc0hjL1BLQVVVVnE3MjlzVllS?=
- =?utf-8?B?cm5LUC9UVWxFZVllUldwTVlscTQrNERHN1R5UHVBaG1ZZzNsK1hDV3RoQnA3?=
- =?utf-8?B?UjhrZGtwdmhJN0VPOTBWOVM1WnFDYzVvbXVia0JOSWlmUEVyMmZ3MTJ5SnVm?=
- =?utf-8?B?S3g5elczUkVJVEpPZ3dGakRFMW4zeWZxSU5sMGlsVWdVMTJyNk9ELzN5WktY?=
- =?utf-8?B?b0QrbGQxeVlNeXR4US9FRW9PenM1NnFRRmZBZWtRZHdxR1ZCZ0VVc3ZJUlUx?=
- =?utf-8?B?YUlsWnB4YzhPaGNkOXhWcmx4WGUySkhLazY0ODI1VXlTS0lHVGVmV01VOFAr?=
- =?utf-8?B?cFlEcUMwTkVRdzJwMFE2NmYrdTMyTFBiYUlkM3dLcjlVTy8wQXhlOHhudnRx?=
- =?utf-8?B?K040eTQrRWdzSmFybnJ3NkU4ZVNaWFNUMWZVM1ZiMVZqVGNtL0RPM2xNNnV2?=
- =?utf-8?B?UlloczBocTYxZzRNREtCcmlqM0dVYzFDWk01d01UTGpLR2pYK3o1WEZWaTFX?=
- =?utf-8?B?NjlJcVZleTAyWlc4VjlTTHdldEtzZklUNkNuc1VoMnZZK1pSSldMbGZ3dmtr?=
- =?utf-8?B?WWd1SUVDNzVzQXdCdXQ2SVRrOG1ZQytuaFRVdnBQUWxtZGNFdzVhT05LditR?=
- =?utf-8?B?anhaVDdBSytnK2Y0eE5rZGNSK2JGMXdUV2FOREFBNzVuL3RpNVNuTmZGejBQ?=
- =?utf-8?B?U3dHQ3hUMnJCaE1zRjBqTFpwUjZVUUtxVHVxUFJFZXBhdll1ci9mNkRZSVoz?=
- =?utf-8?B?Z1E4ZFlONkoxQWUrZXpiN2VXYmplUE5IcFM1M1phOWt2cGJrM3FBYXcwT09F?=
- =?utf-8?B?dlN1Y1U3SWZsUVM4WHlxSmlBUEVDVFJoMFRCKzFhT2ozbVlOc2F4RVZFcDg2?=
- =?utf-8?B?SmFNNjc2c29SL3JhTnBNZnpneTE3L1NUaUZFbUhtSVBzd292N0kzOW9uZXlI?=
- =?utf-8?B?clhKMVZ4bnZnamJ5cUtmUmlHaGpPTkE1dDRQN010S0NLcnhwYSswSnVTRS9M?=
- =?utf-8?B?R3FsVTdyQ1V3TmsxeVZ6bFlsRlREM0hycmNXOVlzTzdITW1PSkFQcXNDVUI4?=
- =?utf-8?B?TkQvYk9pYUlKNUZFeVpGWWc0YkdMUGllM3FGNUVTMXUvRmJuVkdjS1lqK1Iv?=
- =?utf-8?B?K2NjU3REMjJhTThrWGFDa001TEUxQUIydGs2b3RkR2wva0c0WmJyYWNOZGRn?=
- =?utf-8?B?T3oyMVIxVGxLTFRDY1kxcFZFM2NkbTZGQzFCclAzOEhaYWhtanlKRDFpNnYw?=
- =?utf-8?B?QzVoblh4WkwzaU0vbkFHZEdhY3ZQdm0wd0NpT1FEVkg1dmVFRm5KRUF6T2x4?=
- =?utf-8?B?ZDhUYXZHWWh1bGVKNC9jd2d1RjFqMFdNQmlDemZFV0tJbm8ySUxaS2JZL1Zw?=
- =?utf-8?B?VWtJa0t3aXJTc3RSdWczcEQwYVorQzR4NHkyZExNSmc5V09OOXUzTmMyZ1BD?=
- =?utf-8?B?VWtIeEwvNm1HOEtlMHJEdUk5dTFJcGxDZEVYU00zYWdHSXJCZlgzK0RQNHRS?=
- =?utf-8?B?Z2NTbVRTeFFBOTEyYTYvNkdSallUdHBZUExHd1RycFA2NVhiZHNqL0dtVmJM?=
- =?utf-8?B?TlI3OUVMT1JESDJZRldOaGF4NjJ6MzNReUwyQy9oc3pjMEd6OVk5NTRsaXl0?=
- =?utf-8?B?blJsanMzSXRVZDI2QlZ1U01sTEY3YXdtWllka0FwTGtMdDZGM3dEeXJ2TUVK?=
- =?utf-8?B?ZkJNUFhlOVhKdloxc2YyS05wUnlKY3huamxrVnVGYjlFbDczakJ5eWJYUUhv?=
- =?utf-8?B?aVEySVNOelIwdUN2MXZhV003bzZ3Wkg5cmFJRE1TbkR5cU1iRG1nVE9CQ0NV?=
- =?utf-8?B?OTUxS3k1OXJtc1p6dDAydW45OGdqQUpHUFJmS0pRb2traTJ1RWFXcExseHAz?=
- =?utf-8?B?eWpzTUlFb3hYdVo5TXhFampXQ1FuMFlkbFJNbElIR3ZFUG5iR2FYQT09?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1fbd1873-98b2-408e-d963-08de627896ba
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12038.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Feb 2026 16:31:59.8680
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XAnISWFIAa/N5nM1ZjratNGRbxFJEngrpjAF1Y9tCl6zoGovfPSkbiUYMjcSXj9PBmb8DuhdZDSYY5KtA5IyxVYal72bJMto0XpfZ5CspZo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11937
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_163209_524082_FE27E053 
-X-CRM114-Status: GOOD (  41.61  )
+X-CRM114-CacheID: sfid-20260202_163220_956943_65C42360 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -202,157 +112,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/2/26 3:55 PM, Andrew Lunn wrote:
-> On Mon, Feb 02, 2026 at 03:02:08PM +0100, Quentin Schulz wrote:
->> Hi Andrew,
->>
->> On 2/2/26 2:52 PM, Andrew Lunn wrote:
->>> On Mon, Feb 02, 2026 at 11:27:25AM +0100, Quentin Schulz wrote:
->>>> From: Quentin Schulz <quentin.schulz@cherry.de>
->>>>
->>>> When not passing the PHY ID with an ethernet-phy-idX.Y compatible
->>>> property, the MDIO bus will attempt to auto-detect the PHY by reading
->>>> its registers and then probing the appropriate driver. For this to work,
->>>> the PHY needs to be in a working state.
->>>>
->>>> Unfortunately, the net subsystem doesn't control the PHY reset GPIO when
->>>> attempting to auto-detect the PHY. This means the PHY needs to be in a
->>>> working state when entering the Linux kernel. This historically has been
->>>> the case for this device, but only because the bootloader was taking
->>>> care of initializing the Ethernet controller even when not using it.
->>>> We're attempting to support the removal of the network stack in the
->>>> bootloader, which means the Linux kernel will be entered with the PHY
->>>> still in reset and now Ethernet doesn't work anymore.
->>>>
->>>> The devices in the field only ever had a TI DP83825, so let's simply
->>>> bypass the auto-detection mechanism entirely by passing the appropriate
->>>> PHY IDs via the compatible.
->>>>
->>>> Cc: stable@vger.kernel.org
->>>> Fixes: bb510ddc9d3e ("arm64: dts: rockchip: add px30-cobra base dtsi and board variants")
->>>> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
->>>
->>> What is the justification for stable?
->>>
->>
->> Bootloader without network stack = no network in Linux.
-> 
-> I can see this multiple ways....
-> 
-> Changing the bootloader introduces a regression. Hence you cannot
-> change the bootloader.
-> 
 
-Ringneck is a SoM (system-on-module), I don't control what the user 
-wants to do with it. So they may never have the networking stack enabled 
-in the first place (I provide a U-Boot defconfig to use with the devkit, 
-but I don't control what they do with it; it's also supported upstream 
-so if they want to use that, they can).
+--=-2jK0PyPR5gtYSVPZSaBh
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> I personally also don't like boot loaders with basic functionality
-> missing. Why cripple the bootloader by removing the network stack?
-> 
+Le lundi 02 f=C3=A9vrier 2026 =C3=A0 10:47 +0100, Arnd Bergmann a =C3=A9cri=
+t=C2=A0:
+> From: Arnd Bergmann <arnd@arndb.de>
+>=20
+> The deeply nested loop in rkvdec_init_v4l2_vp9_count_tbl() needs a lot
+> of registers, so when the clang register allocator runs out, it ends up
+> spilling countless temporaries to the stack:
+>=20
+> drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c:966:12: error: stack =
+frame size (1472) exceeds limit (1280) in 'rkvdec_vp9_start' [-Werror,-Wfra=
+me-larger-than]
+>=20
+> Marking this function as noinline_for_stack keeps it out of
+> rkvdec_vp9_start(), giving the compiler more room for optimization.
+>=20
+> The resulting code is good enough that both the total stack usage
+> and the loop get enough better to stay under the warning limit,
+> though it's still slow, and would need a larger rework if this
+> function ends up being called in a fast path.
+>=20
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-The answer is pretty simple here, no network stack, no bug to exploit 
-there, smaller binary, faster boot. On finished products with secure 
-boot, a crippled bootloader is fine (and desired). It does what it's 
-supposed to do, nothing else. I also don't control what our clients will 
-do with our SoM in their product (and I don't necessarily have feedback 
-either).
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-> But i also don't like Linux being dependent on the bootloader. Because
+> ---
+> =C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c | 3 ++-
+> =C2=A01 file changed, 2 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c b/driver=
+s/media/platform/rockchip/rkvdec/rkvdec-vp9.c
+> index ba51a7c2fe55..1c875d5a2bac 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
+> @@ -893,7 +893,8 @@ static void rkvdec_vp9_done(struct rkvdec_ctx *ctx,
+> =C2=A0	update_ctx_last_info(vp9_ctx);
+> =C2=A0}
+> =C2=A0
+> -static void rkvdec_init_v4l2_vp9_count_tbl(struct rkvdec_ctx *ctx)
+> +static noinline_for_stack void
+> +rkvdec_init_v4l2_vp9_count_tbl(struct rkvdec_ctx *ctx)
+> =C2=A0{
+> =C2=A0	struct rkvdec_vp9_ctx *vp9_ctx =3D ctx->priv;
+> =C2=A0	struct rkvdec_vp9_intra_frame_symbol_counts *intra_cnts =3D vp9_ct=
+x->count_tbl.cpu;
 
-That's my main concern and only reason for marking this a stable 
-candidate. We shouldn't have to rely on the bootloader doing something.
+--=-2jK0PyPR5gtYSVPZSaBh
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
-> some vendors ship boards with crippled bootloaders and you need to
-> replace the bootloader. And then hidden vendor initialization is not
-> in the mainline version of the bootloader, and something breaks in
-> Linux.  Making Linux more robust is generally ongoing development, not
-> a bug fix.
-> 
-> However, it bootloader developers decide to break the contract between
-> the bootloader and the kernel, regressions have been reported, then it
-> would make sense to backport the fix to work around the bootloader
-> breakage.
-> 
+-----BEGIN PGP SIGNATURE-----
 
-This issue is not related to an API between the bootloader and kernel, 
-so there's no explicit contract.
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaYDRkAAKCRDZQZRRKWBy
+9HFyAP0RF5b0OenNAGH35mTowVmYp7pBvzgVyYN7ehX7jmx8VAEAw6AY+q+q1f2m
+VfoYBMjnRCRr5g/hOebJT5oXUy814QA=
+=fZxd
+-----END PGP SIGNATURE-----
 
-> I don't know the internal of uboot too well. Can you remove the IP
-> stack, but leave the drivers? Get the driver to probe and setup the
-
-There would be no reason for U-Boot to support having networking drivers 
-compiled in when there's no network stack so I would even go as far as 
-saying if that's the case, it's a bug. If I were to enable a MAC 
-controller and Ethernet PHY drivers with menuconfig, I'd expect them to 
-be working in U-Boot.
-
-In any case, I'm not interested in doing that if that even is possible. 
-Audit companies and certification authorities may look into what's 
-compiled in and ask questions about those drivers or stacks. Not 
-compiled in, don't need to argue about them (I have had to do this for 
-every CVE in the kernel in the past, so it's not a theoretical).
-
-> PHY, so you keep the agreed contract with Linux, but you also get the
-> crippled bootloader you want.
-> 
-
-If I wanted to go this route, I can simply toggle the PHY reset GPIO in 
-U-Boot and be done with it. I still cannot control whether our Ringneck 
-users had the network stack enabled in their bootloader and cannot force 
-them to patch it to either add the network stack or this PHY reset 
-toggling. I want a clean solution if I can have one.
-
-Cobra support was upstreamed with this issue, so I could see this as not 
-being a candidate for stable but an improvement according to the 
-standard you stated.
-
-Ringneck on the other hand used to work without a network stack in 
-U-Boot before 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e463625af7f92c4a9f097f7fb87f6baaad6e762a, 
-so I think this is a regression (I don't control the bootloader of the 
-final user, only the default one on our devkit but even then, I don't 
-control what they flash on their setups).
-
-Also just to be clear, Theobroma (theobroma-systems.com domain name for 
-mails, "tsd," prefix in compatibles) was acquired by CHERRY (cherry.de 
-domain name for mails) in 2021, we're the manufacturer, vendor and 
-developer of the boards in this patch series. (Not sure if it helps, but 
-I can imagine some confusion with my mail address and the original name 
-of the device manufacturer).
-
-> For the commit message, i would like to see a reasoned argument, based
-> on
-> 
-> https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
-> 
-> why this should be in stable.
-> 
-
-Since you haven't answered on patch 2, I'm assuming that
-
-"""
-Note that this is only an issue since commit e463625af7f9 ("arm64: dts:
-rockchip: move reset to dedicated eth-phy node on ringneck") as before
-that commit the reset was done by the MAC controller before starting the
-MDIO auto-detection mechanism, via the snps,reset-* properties.
-"""
-
-is a reasoned argument for making that patch a stable candidate.
-
-I don't care too much about stable releases for Cobra as no third party 
-is or will be involved in BSP development so I know for sure which 
-version we're using and that it is appropriately patched (until we 
-migrate to a newer kernel with this patch merged). Also, we're the only 
-one able to change anything on that device due to secure boot so no need 
-to care about hypothetical flashing. So Heiko, if you agree with Andrew 
-here you can either drop the trailer when applying this patch or I can 
-send a v2 dropping the Cc: stable trailer for the Cobra patch.
-
-For what it's worth, I agree with what you've said Andrew. I sympathize 
-with the dilemma.
-
-Quentin
+--=-2jK0PyPR5gtYSVPZSaBh--
 
