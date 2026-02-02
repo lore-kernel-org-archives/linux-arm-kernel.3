@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 315D4E7DF0F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 17:53:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EE81E7DF11
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Feb 2026 18:01:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PLJBzF8XMNLAElcGlGb8b7F08g/dPrSHSPMb9dnbOA4=; b=lFQfacLTuwUzZ3ko0KuzyV947/
-	9VShuej+jScw1zyMgVy3+DrzkglukhNmlYpZmsSKDFJJwYMl0IC2VJ0emL2w4B09cce7SILHub5z2
-	VJgKXR9BYgHut9TN7Y0Ms6Hw4IN9jgE4RZ34SslJUqzKFmhrcRMNtDz9ROpqY6UN7R8bgj2DRkqOv
-	z1c/dZtfb9/A4UsiIEW9Fy38kcuxzATD1YtR5D+d6DzpFm51gaBX8JZkF0m2HqIN4cYPDU2vdWi+z
-	hSkW/btTHlgyjRivtauQj3tu4s8iOEmoEVNH3+h6aCGDtvVShiXGxCeLYeNP4LQBmj/MEAvFmyJt6
-	gv9gXIig==;
+	bh=foeRVFWuQzMNDcyrjqNWunUCm6DHD+y9yvlBwjiz+cw=; b=SKPLXRSCbR0G8JRqpnPkwnBuT9
+	Uuu0A9KsOfnhy3Kdvn+CwUgTyZf9UzFlFq/iqUF4ar+NeUpAVaGDeDvXDE/3k3lkYISUsEq2uGJle
+	WEoNWGhNxT82s/u/NLouHpYIqorustddyIjXSA70FL9HrdmQIasZNnkeXCxlMcCkqeJJGMPhuyZwv
+	MzVNtj39mtzdHWlV2c+/9nvcsm1dXJeMoXWuvIt0IoBNUbbEv7qvp+burwzS0CeoBOojE6+UbN2ri
+	wEHwYGR9vg5IwfGgOXy2AN3dkWhU0Dgc4MOZYbEZE2WO6JUMTmeyumZWTf9hz3ksWiwVy5LsAKKnT
+	LEBntGLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmy71-00000005OBm-1YeT;
-	Mon, 02 Feb 2026 17:53:23 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1vmyFB-00000005Ock-18rm;
+	Mon, 02 Feb 2026 18:01:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vmy6y-00000005OBQ-38If
+	id 1vmyF9-00000005OcO-22Vu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Feb 2026 17:53:22 +0000
-DKIM-Signature: a=rsa-sha256; b=QfW1jbjatg2bVdWxDvuz5A/nLWLsTXHi7UxA9Q21rB27IhSdYu3WJD+dr3KUFitWvEIcjvbhqO6gmjZuhEqelZoOkv8Vr0bZX9vPYhYZX9PnZUK3oQ4KNB3sdDnO+ZgCrqVoLtIi+Vl/mKbVkz4YZKAWHxgHk8ouRCIZULTgOd9Nk6sKSASnnWEM6fUqNUTA8a7IR4hArRyFS6kaJC1rKfC7rmLQM+uVbm7CkRj+yaNXKhkH5uR/3RjP16NnBWqW2zFBjygi5D+42DAQ7x2N43deYb/KJQ5rEFpKNzElhSrsohYcLKYkmBZiJYdV3bub18ZUQLftE45fgYSKWt/vRA==; s=purelymail2; d=purelymail.com; v=1; bh=7kxye65VCI+h5vlPs0yvkT/19UOY1PNPUa2UQ4bXrDo=; h=Feedback-ID:Received:Received:From:To:Subject:Date;
-Feedback-ID: 21632:4007:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -938854233;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Mon, 02 Feb 2026 17:52:31 +0000 (UTC)
-Received: from peko by dell.be.48ers.dk with local (Exim 4.98.2)
-	(envelope-from <peter@korsgaard.com>)
-	id 1vmy67-00000007HHQ-3gE8;
-	Mon, 02 Feb 2026 18:52:27 +0100
-From: Peter Korsgaard <peter@korsgaard.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Sean Anderson <sean.anderson@linux.dev>,  Vincenzo Frascino
- <vincenzo.frascino@arm.com>,  Liam Girdwood <lgirdwood@gmail.com>,
-  linux-sound@vger.kernel.org,  Jaroslav Kysela <perex@perex.cz>,
-  linux-kernel@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  Michal Simek <michal.simek@amd.com>,  Takashi Iwai <tiwai@suse.com>
-Subject: Re: [PATCH 2/2] ASoC: xilinx: xlnx_i2s: Discover parameters from
- registers
-In-Reply-To: <06b3d7e0-27b5-433c-85db-23e4c5ef5472@sirena.org.uk> (Mark
-	Brown's message of "Thu, 29 Jan 2026 18:46:23 +0000")
-References: <20260129172315.3871602-1-sean.anderson@linux.dev>
-	<20260129172315.3871602-3-sean.anderson@linux.dev>
-	<700e4e67-a2ed-4b37-a00b-303bbc5ee6cd@sirena.org.uk>
-	<a95d7feb-4d94-4b25-be96-c7c367342c19@linux.dev>
-	<a17602f1-537e-46e6-a85d-8a005a0443a2@sirena.org.uk>
-	<21a738e6-6585-4479-b797-f8b17df91aed@linux.dev>
-	<06b3d7e0-27b5-433c-85db-23e4c5ef5472@sirena.org.uk>
-Date: Mon, 02 Feb 2026 18:52:27 +0100
-Message-ID: <87jywvvxr8.fsf@dell.be.48ers.dk>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Mon, 02 Feb 2026 18:01:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BC8E541900;
+	Mon,  2 Feb 2026 18:01:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4984CC116C6;
+	Mon,  2 Feb 2026 18:01:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770055306;
+	bh=Q+HGkIOAkSlkxkzWQ67n18RZvloHmIsyR0HqYnUNBiQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IEZWzm0VVPzmX6yGzTUj9Tl532/y41Mv2Gx5anPMJ3n4Vv5OfZzytqXZ+0xhrtT3U
+	 4Dk3sFwwS9ilT7W+d+FSPJnxhSAZK3GhLQNLoFTFGD0OtpFQJ5Yp+73NALJio5i23s
+	 9Nua1iOpDBV0JvNAunSJhkPbPx1FN5EKlpV5QE1SX8u5O6gMz+Xy35QXOA73u/5w9N
+	 yFVVCD6kfDxD8n7HmFKNa7vW91vuzivvS9NZJdda4JzfN6KWHzdi7XTVt/VnHfLXoP
+	 ZH5IqyXlM+GPZGv1fiahHuZF6WfFkAhptCtQYN1+VoIoHW7JwaX+b+qWC+LOQz0X4s
+	 M8nc6+/bxarQQ==
+Date: Mon, 2 Feb 2026 18:01:42 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Peter Maydell <peter.maydell@linaro.org>
+Cc: arm-mail-list <linux-arm-kernel@lists.infradead.org>,
+	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: inconsistent SME2 ID register fields confuse kernel into
+ reporting but not enabling it
+Message-ID: <6731ba86-cd65-4d5c-9ee2-55aa59094eaa@sirena.org.uk>
+References: <CAFEAcA9yyLBa1Hp-2CrSsHBOBcGKSg6Rr3uvfZPckcRsTXDC8w@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="N/BTGxtXPxBHmZXY"
+Content-Disposition: inline
+In-Reply-To: <CAFEAcA9yyLBa1Hp-2CrSsHBOBcGKSg6Rr3uvfZPckcRsTXDC8w@mail.gmail.com>
+X-Cookie: Bedfellows make strange politicians.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_095320_868757_C07AC1E3 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20260202_100147_588989_E35711EB 
+X-CRM114-Status: GOOD (  23.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +76,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->>>>> "Mark" == Mark Brown <broonie@kernel.org> writes:
 
-Hi,
+--N/BTGxtXPxBHmZXY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
- >> and go "Ah, there are the properties I need." On some Xilinx cores this
- >> is the only way to discover certain properties, so people have gotten into
- >> the habit of using them even when these properties can be read from the
- >> device itself.
+On Mon, Feb 02, 2026 at 11:37:46AM +0000, Peter Maydell wrote:
 
- > Oh.  If the properties are there it's reasonable and sensible to use
- > them, them being redundant is a concern when specifying the binding but
- > once things are there any discrepency should usually be resolved in
- > favour of the binding.
+> I noticed that if the CPU reports an inconsistent set of SME2 related
+> ID register fields, this confuses the kernel into reporting it in
+> hwcaps and /proc/cpuinfo but not actually enabling it (so userspace
+> programs fall over with SIGILL).
 
-I also think making the hardware registers take priority over the DTS
-makes sense (E.G. what this patch does), as the DTS can get out of sync
-with the (programmable) HW configuration if the FPGA config is changed
-and a DTS update is forgotten.
+> The immediate cause of this is a QEMU bug, but Marc suggested that
+> you'd be interested in this report for potentially making the
+> kernel more robust against it.
 
+We do have some cross checking of ID registers in the kernel, though
+other than big.LITTLE consistency it's fairly limited - mainly for cases
+that are architecturally valid but unhelpful (ID_AA64ZFR0_EL1 indicating
+SME features on a SME only system) and those where it's part of the
+implementation of an ID register override.  Mostly we assume that the
+system described by the ID registers is joined up by default.
 
- >> I would rather remove it for the code size reduction and simplication.
+> The repro case is to use a current head-of-git QEMU (I tested with
+> commit 587f4a1805c83a4e) and tell it '-cpu max,sme=on'. The QEMU
+> bug means that this gives you a CPU that generally reports SME2p1
+> but incorrectly has the ID_AA64PFR1_EL1.SME field set to 1, not 2.
 
- > We're talking a couple of function calls with no error handling here,
- > I'm not sure anyone concerned about that kind of impact is running
- > Linux.
+> but the code that generates /proc/cpuinfo and the hwcaps must
+> be looking at something else (I think ID_AA64SMFR0_EL1.SMEver) and
+> not cross-checking whether the earlier probing enabled SME2,
+> because it reports sme2 and sme2p1:
 
-Agreed, but the HW registers should by definition always be in sync with
-the IP block configuration, where the DTS update involves a manual
-update so it may not, so the HW registers are more reliable than the DTS.
+Yes, we use ID_AA64ZFR0_EL1.SVEver and ID_AA64SMFR0_EL1.SMEver for the
+SVE/SME version hwcaps - this mainly falls out of the fact that we have
+those for the point revisions of the features, plus the fact that we
+didn't do anything that prompted a bump of ID_AA64PFR0_EL1.SVE yet so
+there's only SVEver to look at for that.
 
--- 
-Bye, Peter Korsgaard
+I think we probably should add an explicit override here since we
+support command line overriding of ID_AA64PFR1_EL1.SME so a user could
+set id_aa64pfr1.sme=1 explicitly on a SME2 system for some reason which
+would lead to the same invalid configuration that qemu generated here.
+This gets a bit annoying since we've also got the various subfeatures
+which will have their own dependencies on the core SME version, while
+things that don't use any new architectural state probably aren't worth
+restricting anything that interacts with ZT0 would be unimplementable on
+a SME1 system and someone might reasonably check only the subfeature
+capability and assume that SME2 is available based on it.
+
+--N/BTGxtXPxBHmZXY
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmmA5oUACgkQJNaLcl1U
+h9D4xQf/Yest+O1Ww8dUk4tDDnONJfgPzG7/YN550/WqeWOND3TXyFVV/+Tj0sCs
+YXOPMNLmPG/nrFdygmVQQoyjGLxmLc7iscFbp1qqwf+uM/mmfKjCKNYeZ8lvYuKO
+WkKq8XAJEwSWzsWs+5zshp3FqCT7q3HRWqxZOslkXChvE8MdnpZkBmZy5l3UgcRN
+KpOYZvVP39/wSdIlxCWZ8fs5wl5OMEzw5Pj0QVBqtwcouRNj1xvu8OCEOicas9EF
+OJEG00SmkH4Fa5eoPAIBUqhYcrFiNxHVkLQiSSApPKDcwi3j/VIAIuo3DhPHIH7I
++phOkHnWh7d/3eTanm6k4mvDL9KeNA==
+=4oVw
+-----END PGP SIGNATURE-----
+
+--N/BTGxtXPxBHmZXY--
 
