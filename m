@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB0DCE7FDF3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 01:19:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08454E7FDFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 01:30:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6WLwAzn0H5ty8AFN+1OyWBxNluLTKkZwNtuyX7IP0Lc=; b=Fp1Zdrxf23utJlFMcI+ixECNTC
-	CGosc9JqH7TEUEgjn00PsIx2ZtfpnOnqwDgeyQJAy6gLiNq687Qgh80f2T+m8qhCaFFdvBAS3RAPy
-	7h6zSIkxdsJrF9ZxtIc6gq1TxVuFJr0nbm9NO7iMeCOWV1HKpUD1yvEiAsI5ZesGf/i/+GTopT09B
-	pmmncoGe2PkAnrZPqR8KAZAxcqw/OH5stD5MEebO2Di1QLbtO8UWlcqLa6v68QeDrZ52P0pAh0Ads
-	ea3yhtRe4iz04ub90tfyNP7qF9ngR5IwN8pDzNF95Zxe/2tJUSYOdceEvdTIdJ7UszF98jBcCSboq
-	HXMeUoZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cN1xWaZx4V5p1mmI+/Up+Gl4z1V9poFr+YMGEg1sZoQ=; b=hgtRVqzjm+EYB6J8KYkjtpGn0d
+	p+AVH7l2XETkx95GkA3sj8m62z5q4mtKoNmzru0dpd5KG9azJohJ52fqgOkYygCdgSuA0gGDfvxVm
+	pZMnAWc0xCuqjPTUGbu/kOSUFly+Nr3xnRUvtIaPteiugixfZGQ3VWRbco9jW3SJtpiMoaZCd2Otp
+	R0OeTsSHfSOyUQDTIiusJ7uBmG7AaScUI9FIz5XBwJ+9fe9TW0ZUdYeZsf/zD9MaEg7N9Dt7FLw/J
+	VU1jivFv4tpHTIhZmT+sVd+VdIdQPUY71UDCDvie5+D5hxU6XwcmbyxkT7EqXiZH5kf0WH2UluSM5
+	SWnf7yRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn54J-00000005qIV-3P1D;
-	Tue, 03 Feb 2026 01:19:03 +0000
-Received: from lgeamrelo11.lge.com ([156.147.23.51])
+	id 1vn5F5-00000005qeg-48Za;
+	Tue, 03 Feb 2026 01:30:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn54G-00000005qIB-0j49
+	id 1vn5F3-00000005qeU-3qCI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 01:19:02 +0000
-Received: from unknown (HELO lgeamrelo02.lge.com) (156.147.1.126)
-	by 156.147.23.51 with ESMTP; 3 Feb 2026 10:18:50 +0900
-X-Original-SENDERIP: 156.147.1.126
-X-Original-MAILFROM: chanho.min@lge.com
-Received: from unknown (HELO BRUNHILD) (10.178.31.97)
-	by 156.147.1.126 with ESMTP; 3 Feb 2026 10:18:50 +0900
-X-Original-SENDERIP: 10.178.31.97
-X-Original-MAILFROM: chanho.min@lge.com
-Date: Tue, 3 Feb 2026 10:18:50 +0900
-From: Chanho Min <chanho.min@lge.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Kael D'Alcamo <dev@kael-k.io>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 0/2]  arm64: dts: Initial support for LG1215 TV SoC
-Message-ID: <aYFM+mHqhfCuWgRP@BRUNHILD>
-References: <20260112053421.3185738-1-chanho.min@lge.com>
+	Tue, 03 Feb 2026 01:30:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DEC17600B0;
+	Tue,  3 Feb 2026 01:30:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94099C116C6;
+	Tue,  3 Feb 2026 01:30:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770082208;
+	bh=yJVIJ4YS6UmkxQKb9LKEdsSjjzw7jw9gGAX8FKtHuB4=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=YCnqQ2eKMf9a/XkL3EHXTt2NJqgAGI14BWymwVDVZELXzfEz5CGP7X+SZAjw+4Llu
+	 bYaEEN7CkclcIkzZCWTF5i6kOaIL9UVKrliTsFlxEq7y91WcRJkARO4GKPokWYlXql
+	 KDlWyWDZSskwGqxzp3fdq8+qozqcjuGWz1+2kuyBiq4Nj6lAwQtq9lbxnn1WWzK3It
+	 MFAiju7vlGsXfd9BQYbXtll8X8tSkFkB3LI+038dEj9XRnfU579xVPEARLOw0nz6sf
+	 UoqtA7PKlW3eigNs+jV72JJsKvUCHYPoFfCGW8yTy4qME0lkXx91b3iJ6JI5NZIxQu
+	 ZBz/XzkMKhJ7w==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 90F013808200;
+	Tue,  3 Feb 2026 01:30:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260112053421.3185738-1-chanho.min@lge.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_171900_471466_E2D65DB8 
-X-CRM114-Status: GOOD (  14.43  )
+Subject: Re: [PATCH net] net: stmmac: fix stm32 (and potentially others)
+ resume
+ regression
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177008220538.1265245.15446704290450615368.git-patchwork-notify@kernel.org>
+Date: Tue, 03 Feb 2026 01:30:05 +0000
+References: <E1vlujh-00000007Hkw-2p6r@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1vlujh-00000007Hkw-2p6r@rmk-PC.armlinux.org.uk>
+To: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Cc: andrew@lunn.ch, marex@nabladev.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, pabeni@redhat.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,41 +76,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 02:34:19PM +0900, Chanho Min wrote:
-> This patch series adds initial device tree support for the LG1215
-> TV SoC and its reference board
-> 
-> Chanho Min (2):
->   dt-bindings: arm: lg: Add compatible for LG1215 SoC and reference
->     board
->   arm64: dts: lg: Initial support for LG1215 SoC and reference board
-> 
-> v2:
->  - Switched to "lg," prefix
->  - Dropped vendor-prefixes.yaml change
->  - Fixed DT coding style issues (validated with DTB_CHECK=y make)
-> 
-> v3:
->  - Removed changelog from commit message
-> 
->  .../devicetree/bindings/arm/lge.yaml          |   5 +
->  arch/arm64/boot/dts/lg/Makefile               |   1 +
->  arch/arm64/boot/dts/lg/lg1215-ref.dts         |  50 +++
->  arch/arm64/boot/dts/lg/lg1215.dtsi            | 290 ++++++++++++++++++
->  4 files changed, 346 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/lg/lg1215-ref.dts
->  create mode 100644 arch/arm64/boot/dts/lg/lg1215.dtsi
-Hi,
+Hello:
 
-Gentle ping on the LG1215 series (v3) — Acked-by received, but still not picked up.
-Any update or is it waiting in a queue somewhere?
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Thanks!
-Chanho
+On Fri, 30 Jan 2026 20:04:57 +0000 you wrote:
+> Marek reported that suspending stm32 causes the following errors when
+> the interface is administratively down:
+> 
+> 	$ echo devices > /sys/power/pm_test
+> 	$ echo mem > /sys/power/state
+> 	...
+> 	ck_ker_eth2stp already disabled
+> 	...
+> 	ck_ker_eth2stp already unprepared
+> 	...
+> 
+> [...]
+
+Here is the summary with links:
+  - [net] net: stmmac: fix stm32 (and potentially others) resume regression
+    https://git.kernel.org/netdev/net/c/dbbec8c5a79f
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
-> 
-> -- 
-> 2.34.1
-> 
 
