@@ -4,122 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 435CAE87855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 18:33:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 318E5E87855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 18:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t3vv76smtIuT2OXkL6CzgGGbQ/ZXl+Qn6Gh6GsyLJoE=; b=j2uY0CVGjIaX5cKBzo0vgLfWTl
-	k52PpMlK8IY4BdTRX/xVpUXbjw6HWjubue98MS/9NR6JSem1y8EA8G6oQzXVtewgtivTv+y1NYy4B
-	4Q8cYINXf6/4j59PiLO6ywOA14voLC46kzcRZF03BHxvAP/kuLZG2viZZkHiiwJSMbljgJummLntN
-	nlvtlQ3Z+6nELau80jd8ZjxN76SzAIw+7Mu8F/QC7fo8n6sTpaCONZM8DuqadPngBdH01W9OjuJrH
-	5zBYnYw+AJHoVYPdtuWFSGKXkkXLs/1vKcR/4tlOp0jljz5q9rIZWHMakvUGlNpmHczgrcGJhYQa0
-	mtArtpTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fmMDwkQq2iwVDliWxFWk/iFlFtXRM0ZIS2g0y5/ESCc=; b=dbxv2VgRRPz+CSbhTF72tnIN7S
+	7pMjElUGooN6UwV5P9joidqFmqJDJVsnvo8lVCs4iYCEGgSqq6Gz0+Vcpd1UB3tEGsPbQR4Zn984q
+	bmZDV2hiOA9FTMe7KT1vFW3IXRpLrP3moKYayzFkB8VxJTWj+Q8pGv9BJcJPRxNH/120TnhPyBQsN
+	G6nHxdW042q8enxdyr3My8qKvniyHvsdv9189CZe4J05Sj+WkiZOcukWafKX0JGFRewEBGG7thVKR
+	wDlwNjvJmrDua6ytZgPcOG7wLj7ZPNCRvjrjRYT43xzMhdJ8z24fTHl0qd+t9UKkd/dh5BoZ/26g6
+	BZerd7dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnLDH-000000079on-1lam;
-	Tue, 03 Feb 2026 18:33:23 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vnLHU-00000007A6r-2ZXX;
+	Tue, 03 Feb 2026 18:37:44 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnLDF-000000079oW-3nsg
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 03 Feb 2026 18:33:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=t3vv76smtIuT2OXkL6CzgGGbQ/ZXl+Qn6Gh6GsyLJoE=; b=aDgLfXQN5yvbT1salP6rg6U01f
-	zFLF8TxKoIWcRy4Nf3O71h+JBQxJbpwpKCDS5VCIf1mQLHu9pwvQ4vOAufmEPe0wHHLyY9vS3+PHc
-	RfDuVzGrO3mHwjH+aEmdZZxYSC8sB0JhluKcAj6de1AKVKcSWyXvWqr7Iy3zxYwcMJk+u/PeA1Wem
-	wn/7/L6IyfmN7a3mIhtAQhFa/B13pKb4FPHoqk9rhHV4BPYWbKqmhdk4TXpzzsgeK84dTGyJlL5RH
-	9nkYzodvdMPdavfTHxNq4uPhKD553WIyUo8lPhSYRLCLmAqGZqgfAjOSJCsWe/So/gWCdWipawPOE
-	T+enZ4Ew==;
-Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnLDC-0000000GrGA-22KV
+	id 1vnLHQ-00000007A6L-3oQY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 18:33:20 +0000
-Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-40866608701so3193110fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 10:33:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770143596; cv=none;
-        d=google.com; s=arc-20240605;
-        b=JhLWA5CLPzkFfHTd+66n3WJWJVaOw69tLZX+BSpBFlril3lv/er1IaUCQgM7LvhVUY
-         5E0zp9hpLiJxwpt8bD+a4zAZK+/C/Cb2lBa1RO9VLfpnkSCyxw6Tiqe4sy71vqh1UD6N
-         pbqZnBulV3dVBTRlbNEXN7USwH5lCxjuscYqGhLc+hzc9B0nBRxtkKgqNk9QTHfuPEET
-         0zdTZPYDWsNJWZ4ocRitsn1OMuL9MPVz/H94wS+Kr8IhVDpeJP9mbrZEaR2NZON6YiO7
-         FnHGC/PYaxSG69lsv3TcuUv0IHYWCcWYgVXEF6JYyHClYBzmLKPAgT6QPZ8dSVOxuMKu
-         VS6Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=t3vv76smtIuT2OXkL6CzgGGbQ/ZXl+Qn6Gh6GsyLJoE=;
-        fh=sgdUmqWFABRXFqLbzu6qpEBIeaz8CeKj4guHaQ7EYM0=;
-        b=dE7WOsqH26KN4Vr76fTF1ygBav9yQyH6IgvQk3GBsAZ2HjO01s4c5TkVhcItZjVP8r
-         pVE+f7uNMQ1w6uEW8bqIUwgjixdkQivEARcIzo6gCNcTc7YRC5ATVZLnu50CZtbi43Y+
-         sErnHLkS3TZ3O5jj7xh7vIR8uuzIcnHl0fQ7R7Pjj6WEazd07T+F/DXGVj1+T2hD1Pek
-         QV84ndf5AJlbsLzGZHknj6OJsZdLoil3a8PYXzHCrUVQ0lO5eDYJ+6DZSW23yc2uQgjx
-         LvUqBeZTOnN9slKGhaX+UC/Dj4+0Am9ENHg9KDrqNo0/BaESY1CpigaR3yCkYBMobVx7
-         0QVg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gateworks.com; s=google; t=1770143596; x=1770748396; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=t3vv76smtIuT2OXkL6CzgGGbQ/ZXl+Qn6Gh6GsyLJoE=;
-        b=hqXkM9KoXW6nKjd2CQt7ommhCajfsXgnE9Tc+jgPW4fuBpo/oRjcyTtTE3PcL1+CxY
-         Iq2Cxq641afYED8lJ/vSscuktx9VDoFPLUOoARlJUidQc6ccMWTU7QvBZW9Z8P1gVbLt
-         PMJMi+QUwlMrmhe2WIqPNbRZq3I5lwhFrOn1bkUfk8zHY5g/vVCNbQAgyPce9B4vMJoE
-         Vy5Ro2i9HmrxB6d0i2fO5fFgpleebxSQb8OHEm4kTdbCTI2lkPFKLDJQ9rAask45bbTq
-         BTYZf6+I+g9DPstZ5GhMkurNYFVQWzAVR/okG6t4dfr57TAEjnGVvM9Y7CNlcHAZF5QP
-         vgSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770143596; x=1770748396;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=t3vv76smtIuT2OXkL6CzgGGbQ/ZXl+Qn6Gh6GsyLJoE=;
-        b=LNeFE08Xaki7OPMnb0AAbHVIFcJN29DdR81X0O+KAh0IBpNjaMpezW1WQ212W5RH93
-         Azc9XK+15qNyD8DyuN3iYLx7hHRJNxVmEgHYOSvchinZX/3TRC7h08vZ9SORUGF8FD91
-         5tV+aVscGWpNfZXDP6fKJrXRRwU/KFQ+T8auN6lKFggsEomgy8add4OtEnL4jmQWPX8y
-         MBtW9ia4djitZuvTnqiRICV+vzHZ/+6Cs0FHi29G8gfOAMFHs+K2/5CkUruufO6bnXJf
-         qq8TiXdKa45nhG7K92ywtIdY4PLCkWH9CEw1zgBdmYmd4BefqX9G8ViuSCAdI8h1K/3D
-         rTWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXRFf+vSHbBQaL+El8DH/m2pY/ZBTr2ho7LO47EMPWK6mV4IdPjDTpuNKmgNWAt5B8roo+Hs26lfhPRKPOIsA8h@lists.infradead.org
-X-Gm-Message-State: AOJu0YyG0m5Ttiq4Gi0nrcrgXku0XYsUQzCPHEG7DfBQgmOoP/JZ6yIS
-	6ephJJtrcH0ZWOtNi1OMMcpaVMTHOd0S5bKjhM6ofrfOLXGaCTfyuax98H4NCtdIsY8kkUwyVen
-	PHB90izGL1b1L7+qyyM0gpaiOI9jaaZ7uFw2cHCEXyQ==
-X-Gm-Gg: AZuq6aKKPtYeH65jO8npNlqemmgBoVDa7yrjN7BH4mnLWaPAx7oXjEzn+Mb/yFyoJ9n
-	EdUNfZ2ZtvEOo0cINi+0YGvoYTvj5JQ1ernwX6ZHZDHYCV8SyNSqFE2mjLz9CF9+6mp52RZ+Bd+
-	yLf6NSusDIQxN/MSNZsJg17IXUz0MF7aZiyQR94aYQFM7rT+hqpjrm22dTOoEYfYY7DdAHEWIJZ
-	ietI9rhPufBMhZoKLqibQ3yXcgeXz/H0dtPU+6ZjfTiMjRXsgJlwWpiMovmOLoSDrxOAsg=
-X-Received: by 2002:a05:6820:460b:b0:65d:aa2:2e30 with SMTP id
- 006d021491bc7-66a20e5a269mr232470eaf.28.1770143595944; Tue, 03 Feb 2026
- 10:33:15 -0800 (PST)
+	Tue, 03 Feb 2026 18:37:43 +0000
+Received: from ideasonboard.com (net-93-65-100-155.cust.vodafonedsl.it [93.65.100.155])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 1926A1C6;
+	Tue,  3 Feb 2026 19:36:56 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1770143816;
+	bh=fmMDwkQq2iwVDliWxFWk/iFlFtXRM0ZIS2g0y5/ESCc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Yem4XMWCy+HPKv3z9WNB/Yrho9MJpE6K54IDbeEn2KSp4UtK2RnNAxUWx3MwqXVtn
+	 /K2qAsbPno24abpBoYr78k1VDgWaa+0Ove0nxjRFKeOmajX6G1aS5X/mZks/5tHoDL
+	 G/paDouT3gO2TopC5Z+HQUvdreLDTTqUFL2WceQI=
+Date: Tue, 3 Feb 2026 19:37:34 +0100
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Michael Riesch <michael.riesch@collabora.com>
+Cc: Antoine Bouyer <antoine.bouyer@nxp.com>, julien.vuillaumier@nxp.com, 
+	alexi.birlinger@nxp.com, daniel.baluta@nxp.com, peng.fan@nxp.com, frank.li@nxp.com, 
+	jacopo.mondi@ideasonboard.com, laurent.pinchart@ideasonboard.com, mchehab@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, niklas soderlund <niklas.soderlund@ragnatech.se>
+Subject: Re: [EXT] Re: [RFC v1 00/11] Add iMX95 neoisp driver
+Message-ID: <aYI0CrKLGeiZMlD8@zed>
+References: <20260123080938.3367348-1-antoine.bouyer@nxp.com>
+ <544a98f3-d451-4ca1-b7d0-0b0a1238f66a@collabora.com>
+ <c8536c80-2f58-4eae-9336-436d772206df@nxp.com>
+ <22b3916a-a12f-4ea2-8863-8ebd9cb498b0@collabora.com>
 MIME-Version: 1.0
-References: <20260202181029.1832198-1-tharvey@gateworks.com>
- <20260202181029.1832198-2-tharvey@gateworks.com> <aYD4BwB3McK45vCk@lizhi-Precision-Tower-5810>
-In-Reply-To: <aYD4BwB3McK45vCk@lizhi-Precision-Tower-5810>
-From: Tim Harvey <tharvey@gateworks.com>
-Date: Tue, 3 Feb 2026 10:33:03 -0800
-X-Gm-Features: AZwV_QhKjPJbA6Vmjf-Q_euzKlxloI1sFd5BwuS6dzfZRpW8mJuxXVqgU-TfAA4
-Message-ID: <CAJ+vNU0rwpoedAvPH5whLSXKHXX+jbsnAy1hKx_0To8KoMqBvA@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: imx: Add i.mx8mm Gateworks GW7906 dts support
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <22b3916a-a12f-4ea2-8863-8ebd9cb498b0@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_183318_726528_97E53C06 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20260203_103741_380641_EF08EEA2 
+X-CRM114-Status: GOOD (  54.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,998 +75,1145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 2, 2026 at 11:16=E2=80=AFAM Frank Li <Frank.li@nxp.com> wrote:
+Hello
+
+On Thu, Jan 29, 2026 at 12:00:24AM +0100, Michael Riesch wrote:
+> Hi Antoine,
 >
-> On Mon, Feb 02, 2026 at 10:10:29AM -0800, Tim Harvey wrote:
-> > The GW7906 is based on the i.MX8M Mini SoC featuring:
-> >  - LPDDR4 DRAM
-> >  - eMMC FLASH
-> >  - microSD connector with UHS support
-> >  - LIS2DE12 3-axis accelerometer
-> >  - Gateworks System Controller
-> >  - IMX8M FEC
-> >  - software selectable RS232/RS485/RS422 serial transceiver
-> >  - PMIC
-> >  - 1x isolated RS232 UART
-> >  - 1x off-board bi-directional opto-isolated digital I/O
-> >  - 1x M.2 A-E Key Socket and 1x MiniPCIe socket with USB2.0 and PCIe
-> >    (resistor loading to route PCIe/USB2 between M.2 and MiniPCIe socket=
-)
+> Thanks for your response.
+>
+> On 1/28/26 09:17, Antoine Bouyer wrote:
+> > Hi Michael
 > >
-> > Signed-off-by: Tim Harvey <tharvey@gateworks.com>
-> > ---
->
-> Any difference with gateworks,imx8mm-gw7904? Can reuse existed file?
->
-
-Hi Frank,
-
-It has much more commonality with the gw7903 - I'll submit a v2 using
-that as a base.
-
->
-> >  arch/arm64/boot/dts/freescale/Makefile        |   1 +
-> >  .../dts/freescale/imx8mm-venice-gw7906.dts    | 869 ++++++++++++++++++
-> >  2 files changed, 870 insertions(+)
-> >  create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-venice-gw7906.=
-dts
+> > On 1/26/26 10:44 AM, Michael Riesch wrote:
+> >>
+> >>
+> >> Hi Antoine,
+> >>
+> >> On 1/23/26 09:09, Antoine Bouyer wrote:
+> >>> Hi all,
+> >>>
+> >>> This RFC patch series introduces the NXP Neo Image Signal Processor
+> >>> (ISP)
+> >>> driver, used in the NXP i.MX95 SoC and future devices in the i.MX9
+> >>> family.
+> >>> The series also includes updates to the generic v4l2-isp interface to
+> >>> support extended statistics required by the Neo ISP.
+> >>>
+> >>> The Neo ISP processes one or more camera streams, converting RAW formats
+> >>> into YUV or RGB outputs. Its architecture is largely influenced by the
+> >>> PISP driver. The hardware supports up to eight contexts, with three sink
+> >>> pads (main input, HDR input, and parameter buffers) and three source
+> >>> pads
+> >>> (RGB output, IR output, and statistics metadata).
+> >>>
+> >>> At this stage, both legacy (fixed-size) and extensible (dynamic-size)
+> >>> parameter/statistics buffers are supported through the generic v4l2-isp
+> >>> framework, similar to rkisp1 and Mali-C55. The driver currently supports
+> >>> M2M operation; direct CSI-to-ISP streaming is not yet implemented.
+> >>
+> >> How do you envisage the direct CSI-to-ISP streaming shall be supported?
 > >
-> > diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/d=
-ts/freescale/Makefile
-> > index 700bab4d3e60..83fc7faf81d8 100644
-> > --- a/arch/arm64/boot/dts/freescale/Makefile
-> > +++ b/arch/arm64/boot/dts/freescale/Makefile
-> > @@ -167,6 +167,7 @@ dtb-$(CONFIG_ARCH_MXC) +=3D imx8mm-venice-gw7901.dt=
-b
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mm-venice-gw7902.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mm-venice-gw7903.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mm-venice-gw7904.dtb
-> > +dtb-$(CONFIG_ARCH_MXC) +=3D imx8mm-venice-gw7906.dtb
+> > At this stage, this streaming mode still needs to be evaluated on
+> > neoisp. We should follow the integration model used by existing ISP
+> > drivers to avoid duplicating solutions.
 >
-> Please run https://github.com/lznuaa/dt-format for new dts to keep nice
-> node order,
+> Fair point, but I have had the impression that there are not many
+> examples (if any). The rkisp1 driver, for instance, only supports inline
+> mode although the HW should be able to do both.
 >
-> If output result is not good enough, let know
-
-I notice you asking people to do this but is that tool robust? Every
-dts I through at it crashes:
-
-$ git clone https://github.com/lznuaa/dt-format.git
-$ cd dt-format
-$ make
-$ ./dt-format ~/linux-6.18/arch/arm64/boot/dts/freescale/imx8mm-evk.dts
-Segmentation fault (core dumped)
-
-Best Regards,
-
-Tim
-
+> But any pointers most welcome, I won't claim I have the full overview.
 >
-> Frank
->
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mm-verdin-nonwifi-dahlia.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mm-verdin-nonwifi-dev.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mm-verdin-nonwifi-ivy.dtb
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7906.dts b/a=
-rch/arm64/boot/dts/freescale/imx8mm-venice-gw7906.dts
-> > new file mode 100644
-> > index 000000000000..ec146a2b7549
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7906.dts
-> > @@ -0,0 +1,869 @@
-> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> > +/*
-> > + * Copyright 2026 Gateworks Corporation
-> > + */
-> > +
-> > +/dts-v1/;
-> > +
-> > +#include <dt-bindings/gpio/gpio.h>
-> > +#include <dt-bindings/input/linux-event-codes.h>
-> > +#include <dt-bindings/leds/common.h>
-> > +#include <dt-bindings/net/ti-dp83867.h>
-> > +#include <dt-bindings/phy/phy-imx8-pcie.h>
-> > +
-> > +#include "imx8mm.dtsi"
-> > +
-> > +/ {
-> > +     model =3D "Gateworks Venice GW7906 i.MX8MM board";
-> > +     compatible =3D "gateworks,imx8mm-gw7906", "fsl,imx8mm";
-> > +
-> > +     aliases {
-> > +             ethernet0 =3D &fec1;
-> > +             rtc0 =3D &gsc_rtc;
-> > +             rtc1 =3D &snvs_rtc;
-> > +             usb0 =3D &usbotg1;
-> > +     };
-> > +
-> > +     chosen {
-> > +             stdout-path =3D &uart2;
-> > +     };
-> > +
-> > +     memory@40000000 {
-> > +             device_type =3D "memory";
-> > +             reg =3D <0x0 0x40000000 0 0x80000000>;
-> > +     };
-> > +
-> > +     gpio-keys {
-> > +             compatible =3D "gpio-keys";
-> > +
-> > +             key-user-pb {
-> > +                     label =3D "user_pb";
-> > +                     gpios =3D <&gpio 2 GPIO_ACTIVE_LOW>;
-> > +                     linux,code =3D <BTN_0>;
-> > +             };
-> > +
-> > +             key-user-pb1x {
-> > +                     label =3D "user_pb1x";
-> > +                     linux,code =3D <BTN_1>;
-> > +                     interrupt-parent =3D <&gsc>;
-> > +                     interrupts =3D <0>;
-> > +             };
-> > +
-> > +             key-erased {
-> > +                     label =3D "key_erased";
-> > +                     linux,code =3D <BTN_2>;
-> > +                     interrupt-parent =3D <&gsc>;
-> > +                     interrupts =3D <1>;
-> > +             };
-> > +
-> > +             key-eeprom-wp {
-> > +                     label =3D "eeprom_wp";
-> > +                     linux,code =3D <BTN_3>;
-> > +                     interrupt-parent =3D <&gsc>;
-> > +                     interrupts =3D <2>;
-> > +             };
-> > +
-> > +             switch-hold {
-> > +                     label =3D "switch_hold";
-> > +                     linux,code =3D <BTN_5>;
-> > +                     interrupt-parent =3D <&gsc>;
-> > +                     interrupts =3D <7>;
-> > +             };
-> > +     };
-> > +
-> > +     led-controller {
-> > +             compatible =3D "gpio-leds";
-> > +             pinctrl-names =3D "default";
-> > +             pinctrl-0 =3D <&pinctrl_gpio_leds>;
-> > +
-> > +             led-0 {
-> > +                     function =3D LED_FUNCTION_STATUS;
-> > +                     color =3D <LED_COLOR_ID_RED>;
-> > +                     label =3D "led01_red";
-> > +                     gpios =3D <&gpio5 5 GPIO_ACTIVE_HIGH>;
-> > +                     default-state =3D "off";
-> > +             };
-> > +
-> > +             led-1 {
-> > +                     function =3D LED_FUNCTION_STATUS;
-> > +                     color =3D <LED_COLOR_ID_GREEN>;
-> > +                     label =3D "led01_grn";
-> > +                     gpios =3D <&gpio4 30 GPIO_ACTIVE_HIGH>;
-> > +                     default-state =3D "off";
-> > +             };
-> > +
-> > +             led-2 {
-> > +                     function =3D LED_FUNCTION_STATUS;
-> > +                     color =3D <LED_COLOR_ID_RED>;
-> > +                     label =3D "led02_red";
-> > +                     gpios =3D <&gpio5 2 GPIO_ACTIVE_HIGH>;
-> > +                     default-state =3D "off";
-> > +             };
-> > +
-> > +             led-3 {
-> > +                     function =3D LED_FUNCTION_STATUS;
-> > +                     color =3D <LED_COLOR_ID_GREEN>;
-> > +                     label =3D "led02_grn";
-> > +                     gpios =3D <&gpio1 14 GPIO_ACTIVE_HIGH>;
-> > +                     default-state =3D "off";
-> > +             };
-> > +
-> > +             led-4 {
-> > +                     function =3D LED_FUNCTION_STATUS;
-> > +                     color =3D <LED_COLOR_ID_RED>;
-> > +                     label =3D "led03_red";
-> > +                     gpios =3D <&gpio1 9 GPIO_ACTIVE_HIGH>;
-> > +                     default-state =3D "off";
-> > +             };
-> > +
-> > +             led-5 {
-> > +                     function =3D LED_FUNCTION_STATUS;
-> > +                     color =3D <LED_COLOR_ID_GREEN>;
-> > +                     label =3D "led03_grn";
-> > +                     gpios =3D <&gpio5 3 GPIO_ACTIVE_HIGH>;
-> > +                     default-state =3D "off";
-> > +             };
-> > +
-> > +             led-6 {
-> > +                     function =3D LED_FUNCTION_STATUS;
-> > +                     color =3D <LED_COLOR_ID_RED>;
-> > +                     label =3D "led04_red";
-> > +                     gpios =3D <&gpio4 29 GPIO_ACTIVE_HIGH>;
-> > +                     default-state =3D "off";
-> > +             };
-> > +
-> > +             led-7 {
-> > +                     function =3D LED_FUNCTION_STATUS;
-> > +                     color =3D <LED_COLOR_ID_GREEN>;
-> > +                     label =3D "led04_grn";
-> > +                     gpios =3D <&gpio4 28 GPIO_ACTIVE_HIGH>;
-> > +                     default-state =3D "off";
-> > +             };
-> > +
-> > +             led-8 {
-> > +                     function =3D LED_FUNCTION_STATUS;
-> > +                     color =3D <LED_COLOR_ID_RED>;
-> > +                     label =3D "led05_red";
-> > +                     gpios =3D <&gpio1 13 GPIO_ACTIVE_HIGH>;
-> > +                     default-state =3D "off";
-> > +             };
-> > +
-> > +             led-9 {
-> > +                     function =3D LED_FUNCTION_STATUS;
-> > +                     color =3D <LED_COLOR_ID_GREEN>;
-> > +                     label =3D "led05_grn";
-> > +                     gpios =3D <&gpio4 31 GPIO_ACTIVE_HIGH>;
-> > +                     default-state =3D "off";
-> > +             };
-> > +
-> > +             led-a {
-> > +                     function =3D LED_FUNCTION_STATUS;
-> > +                     color =3D <LED_COLOR_ID_RED>;
-> > +                     label =3D "led06_red";
-> > +                     gpios =3D <&gpio5 4 GPIO_ACTIVE_HIGH>;
-> > +                     default-state =3D "off";
-> > +             };
-> > +
-> > +             led-b {
-> > +                     function =3D LED_FUNCTION_STATUS;
-> > +                     color =3D <LED_COLOR_ID_GREEN>;
-> > +                     label =3D "led06_grn";
-> > +                     gpios =3D <&gpio1 8 GPIO_ACTIVE_HIGH>;
-> > +                     default-state =3D "off";
-> > +             };
-> > +     };
-> > +
-> > +     pcie0_refclk: pcie0-refclk {
-> > +             compatible =3D "fixed-clock";
-> > +             #clock-cells =3D <0>;
-> > +             clock-frequency =3D <100000000>;
-> > +     };
-> > +
-> > +     reg_3p3v: regulator-3p3v {
-> > +             compatible =3D "regulator-fixed";
-> > +             regulator-name =3D "3P3V";
-> > +             regulator-min-microvolt =3D <3300000>;
-> > +             regulator-max-microvolt =3D <3300000>;
-> > +             regulator-always-on;
-> > +     };
-> > +};
-> > +
-> > +&A53_0 {
-> > +     cpu-supply =3D <&buck2>;
-> > +};
-> > +
-> > +&A53_1 {
-> > +     cpu-supply =3D <&buck2>;
-> > +};
-> > +
-> > +&A53_2 {
-> > +     cpu-supply =3D <&buck2>;
-> > +};
-> > +
-> > +&A53_3 {
-> > +     cpu-supply =3D <&buck2>;
-> > +};
-> > +
-> > +&ddrc {
-> > +     operating-points-v2 =3D <&ddrc_opp_table>;
-> > +
-> > +     ddrc_opp_table: opp-table {
-> > +             compatible =3D "operating-points-v2";
-> > +
-> > +             opp-25000000 {
-> > +                     opp-hz =3D /bits/ 64 <25000000>;
-> > +             };
-> > +
-> > +             opp-100000000 {
-> > +                     opp-hz =3D /bits/ 64 <100000000>;
-> > +             };
-> > +
-> > +             opp-750000000 {
-> > +                     opp-hz =3D /bits/ 64 <750000000>;
-> > +             };
-> > +     };
-> > +};
-> > +
-> > +&fec1 {
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&pinctrl_fec1>;
-> > +     phy-mode =3D "rgmii-id";
-> > +     phy-handle =3D <&ethphy0>;
-> > +     local-mac-address =3D [00 00 00 00 00 00];
-> > +     status =3D "okay";
-> > +
-> > +     mdio {
-> > +             #address-cells =3D <1>;
-> > +             #size-cells =3D <0>;
-> > +
-> > +             ethphy0: ethernet-phy@0 {
-> > +                     compatible =3D "ethernet-phy-ieee802.3-c22";
-> > +                     reg =3D <0>;
-> > +                     ti,clk-output-sel =3D <DP83867_CLK_O_SEL_OFF>;
-> > +                     ti,rx-internal-delay =3D <DP83867_RGMIIDCTL_2_00_=
-NS>;
-> > +                     ti,tx-internal-delay =3D <DP83867_RGMIIDCTL_2_00_=
-NS>;
-> > +                     tx-fifo-depth =3D <DP83867_PHYCR_FIFO_DEPTH_4_B_N=
-IB>;
-> > +                     rx-fifo-depth =3D <DP83867_PHYCR_FIFO_DEPTH_4_B_N=
-IB>;
-> > +
-> > +                     leds {
-> > +                             #address-cells =3D <1>;
-> > +                             #size-cells =3D <0>;
-> > +
-> > +                             led@1 {
-> > +                                     reg =3D <1>;
-> > +                                     color =3D <LED_COLOR_ID_AMBER>;
-> > +                                     function =3D LED_FUNCTION_LAN;
-> > +                                     default-state =3D "keep";
-> > +                             };
-> > +
-> > +                             led@2 {
-> > +                                     reg =3D <2>;
-> > +                                     color =3D <LED_COLOR_ID_GREEN>;
-> > +                                     function =3D LED_FUNCTION_LAN;
-> > +                                     default-state =3D "keep";
-> > +                             };
-> > +                     };
-> > +             };
-> > +     };
-> > +};
-> > +
-> > +&gpio1 {
-> > +     gpio-line-names =3D "", "", "", "", "", "", "", "",
-> > +             "", "", "rs422_en#", "rs485_en#", "rs232_en#", "", "", ""=
-,
-> > +             "", "", "", "", "", "", "", "",
-> > +             "", "", "", "", "", "", "", "";
-> > +};
-> > +
-> > +&gpio2 {
-> > +     gpio-line-names =3D "", "", "", "", "", "", "dig1_ctl", "",
-> > +             "dig1_out#", "dig1_in", "", "", "", "", "", "",
-> > +             "", "", "", "", "", "", "", "",
-> > +             "", "", "", "", "", "", "", "";
-> > +};
-> > +
-> > +&gpio5 {
-> > +     gpio-line-names =3D "", "", "", "", "", "", "", "",
-> > +             "", "", "", "", "pci_wdis#", "", "", "",
-> > +             "", "", "", "", "", "", "", "",
-> > +             "", "", "", "", "", "", "", "";
-> > +};
-> > +
-> > +&i2c1 {
-> > +     clock-frequency =3D <100000>;
-> > +     pinctrl-names =3D "default", "gpio";
-> > +     pinctrl-0 =3D <&pinctrl_i2c1>;
-> > +     pinctrl-1 =3D <&pinctrl_i2c1_gpio>;
-> > +     scl-gpios =3D <&gpio5 14 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-> > +     sda-gpios =3D <&gpio5 15 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-> > +     status =3D "okay";
-> > +
-> > +     gsc: gsc@20 {
-> > +             compatible =3D "gw,gsc";
-> > +             reg =3D <0x20>;
-> > +             pinctrl-0 =3D <&pinctrl_gsc>;
-> > +             interrupt-parent =3D <&gpio4>;
-> > +             interrupts =3D <26 IRQ_TYPE_EDGE_FALLING>;
-> > +             interrupt-controller;
-> > +             #interrupt-cells =3D <1>;
-> > +             #address-cells =3D <1>;
-> > +             #size-cells =3D <0>;
-> > +
-> > +             adc {
-> > +                     compatible =3D "gw,gsc-adc";
-> > +                     #address-cells =3D <1>;
-> > +                     #size-cells =3D <0>;
-> > +
-> > +                     channel@6 {
-> > +                             gw,mode =3D <0>;
-> > +                             reg =3D <0x06>;
-> > +                             label =3D "temp";
-> > +                     };
-> > +
-> > +                     channel@8 {
-> > +                             gw,mode =3D <3>;
-> > +                             reg =3D <0x08>;
-> > +                             label =3D "vdd_bat";
-> > +                     };
-> > +
-> > +                     channel@82 {
-> > +                             gw,mode =3D <2>;
-> > +                             reg =3D <0x82>;
-> > +                             label =3D "vin";
-> > +                             gw,voltage-divider-ohms =3D <22100 1000>;
-> > +                             gw,voltage-offset-microvolt =3D <700000>;
-> > +                     };
-> > +
-> > +                     channel@84 {
-> > +                             gw,mode =3D <2>;
-> > +                             reg =3D <0x84>;
-> > +                             label =3D "vdd_5p0";
-> > +                             gw,voltage-divider-ohms =3D <10000 10000>=
-;
-> > +                     };
-> > +
-> > +                     channel@86 {
-> > +                             gw,mode =3D <2>;
-> > +                             reg =3D <0x86>;
-> > +                             label =3D "vdd_3p3";
-> > +                             gw,voltage-divider-ohms =3D <10000 10000>=
-;
-> > +                     };
-> > +
-> > +                     channel@88 {
-> > +                             gw,mode =3D <2>;
-> > +                             reg =3D <0x88>;
-> > +                             label =3D "vdd_0p9";
-> > +                     };
-> > +
-> > +                     channel@8c {
-> > +                             gw,mode =3D <2>;
-> > +                             reg =3D <0x8c>;
-> > +                             label =3D "vdd_soc";
-> > +                     };
-> > +
-> > +                     channel@8e {
-> > +                             gw,mode =3D <2>;
-> > +                             reg =3D <0x8e>;
-> > +                             label =3D "vdd_arm";
-> > +                     };
-> > +
-> > +                     channel@90 {
-> > +                             gw,mode =3D <2>;
-> > +                             reg =3D <0x90>;
-> > +                             label =3D "vdd_1p8";
-> > +                     };
-> > +
-> > +                     channel@92 {
-> > +                             gw,mode =3D <2>;
-> > +                             reg =3D <0x92>;
-> > +                             label =3D "vdd_dram";
-> > +                     };
-> > +
-> > +                     channel@a2 {
-> > +                             gw,mode =3D <2>;
-> > +                             reg =3D <0xa2>;
-> > +                             label =3D "vdd_gsc";
-> > +                             gw,voltage-divider-ohms =3D <10000 10000>=
-;
-> > +                     };
-> > +             };
-> > +     };
-> > +
-> > +     gpio: gpio@23 {
-> > +             compatible =3D "nxp,pca9555";
-> > +             reg =3D <0x23>;
-> > +             gpio-controller;
-> > +             #gpio-cells =3D <2>;
-> > +             interrupt-parent =3D <&gsc>;
-> > +             interrupts =3D <4>;
-> > +     };
-> > +
-> > +     eeprom@50 {
-> > +             compatible =3D "atmel,24c02";
-> > +             reg =3D <0x50>;
-> > +             pagesize =3D <16>;
-> > +     };
-> > +
-> > +     eeprom@51 {
-> > +             compatible =3D "atmel,24c02";
-> > +             reg =3D <0x51>;
-> > +             pagesize =3D <16>;
-> > +     };
-> > +
-> > +     eeprom@52 {
-> > +             compatible =3D "atmel,24c02";
-> > +             reg =3D <0x52>;
-> > +             pagesize =3D <16>;
-> > +     };
-> > +
-> > +     eeprom@53 {
-> > +             compatible =3D "atmel,24c02";
-> > +             reg =3D <0x53>;
-> > +             pagesize =3D <16>;
-> > +     };
-> > +
-> > +     gsc_rtc: rtc@68 {
-> > +             compatible =3D "dallas,ds1672";
-> > +             reg =3D <0x68>;
-> > +     };
-> > +};
-> > +
-> > +&i2c2 {
-> > +     clock-frequency =3D <400000>;
-> > +     pinctrl-names =3D "default", "gpio";
-> > +     pinctrl-0 =3D <&pinctrl_i2c2>;
-> > +     pinctrl-1 =3D <&pinctrl_i2c2_gpio>;
-> > +     scl-gpios =3D <&gpio5 16 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-> > +     sda-gpios =3D <&gpio5 17 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-> > +     status =3D "okay";
-> > +
-> > +     pmic@4b {
-> > +             compatible =3D "rohm,bd71847";
-> > +             reg =3D <0x4b>;
-> > +             pinctrl-names =3D "default";
-> > +             pinctrl-0 =3D <&pinctrl_pmic>;
-> > +             interrupt-parent =3D <&gpio3>;
-> > +             interrupts =3D <8 IRQ_TYPE_LEVEL_LOW>;
-> > +             rohm,reset-snvs-powered;
-> > +             #clock-cells =3D <0>;
-> > +             clocks =3D <&osc_32k>;
-> > +             clock-output-names =3D "clk-32k-out";
-> > +
-> > +             regulators {
-> > +                     /* vdd_soc: 0.805-0.900V (typ=3D0.8V) */
-> > +                     BUCK1 {
-> > +                             regulator-name =3D "buck1";
-> > +                             regulator-min-microvolt =3D <700000>;
-> > +                             regulator-max-microvolt =3D <1300000>;
-> > +                             regulator-boot-on;
-> > +                             regulator-always-on;
-> > +                             regulator-ramp-delay =3D <1250>;
-> > +                     };
-> > +
-> > +                     /* vdd_arm: 0.805-1.0V (typ=3D0.9V) */
-> > +                     buck2: BUCK2 {
-> > +                             regulator-name =3D "buck2";
-> > +                             regulator-min-microvolt =3D <700000>;
-> > +                             regulator-max-microvolt =3D <1300000>;
-> > +                             regulator-boot-on;
-> > +                             regulator-always-on;
-> > +                             regulator-ramp-delay =3D <1250>;
-> > +                             rohm,dvs-run-voltage =3D <1000000>;
-> > +                             rohm,dvs-idle-voltage =3D <900000>;
-> > +                     };
-> > +
-> > +                     /* vdd_0p9: 0.805-1.0V (typ=3D0.9V) */
-> > +                     BUCK3 {
-> > +                             regulator-name =3D "buck3";
-> > +                             regulator-min-microvolt =3D <700000>;
-> > +                             regulator-max-microvolt =3D <1350000>;
-> > +                             regulator-boot-on;
-> > +                             regulator-always-on;
-> > +                     };
-> > +
-> > +                     /* vdd_3p3 */
-> > +                     BUCK4 {
-> > +                             regulator-name =3D "buck4";
-> > +                             regulator-min-microvolt =3D <3000000>;
-> > +                             regulator-max-microvolt =3D <3300000>;
-> > +                             regulator-boot-on;
-> > +                             regulator-always-on;
-> > +                     };
-> > +
-> > +                     /* vdd_1p8 */
-> > +                     BUCK5 {
-> > +                             regulator-name =3D "buck5";
-> > +                             regulator-min-microvolt =3D <1605000>;
-> > +                             regulator-max-microvolt =3D <1995000>;
-> > +                             regulator-boot-on;
-> > +                             regulator-always-on;
-> > +                     };
-> > +
-> > +                     /* vdd_dram */
-> > +                     BUCK6 {
-> > +                             regulator-name =3D "buck6";
-> > +                             regulator-min-microvolt =3D <800000>;
-> > +                             regulator-max-microvolt =3D <1400000>;
-> > +                             regulator-boot-on;
-> > +                             regulator-always-on;
-> > +                     };
-> > +
-> > +                     /* nvcc_snvs_1p8 */
-> > +                     LDO1 {
-> > +                             regulator-name =3D "ldo1";
-> > +                             regulator-min-microvolt =3D <1600000>;
-> > +                             regulator-max-microvolt =3D <1900000>;
-> > +                             regulator-boot-on;
-> > +                             regulator-always-on;
-> > +                     };
-> > +
-> > +                     /* vdd_snvs_0p8 */
-> > +                     LDO2 {
-> > +                             regulator-name =3D "ldo2";
-> > +                             regulator-min-microvolt =3D <800000>;
-> > +                             regulator-max-microvolt =3D <900000>;
-> > +                             regulator-boot-on;
-> > +                             regulator-always-on;
-> > +                     };
-> > +
-> > +                     /* vdda_1p8 */
-> > +                     LDO3 {
-> > +                             regulator-name =3D "ldo3";
-> > +                             regulator-min-microvolt =3D <1800000>;
-> > +                             regulator-max-microvolt =3D <3300000>;
-> > +                             regulator-boot-on;
-> > +                             regulator-always-on;
-> > +                     };
-> > +
-> > +                     LDO4 {
-> > +                             regulator-name =3D "ldo4";
-> > +                             regulator-min-microvolt =3D <900000>;
-> > +                             regulator-max-microvolt =3D <1800000>;
-> > +                             regulator-boot-on;
-> > +                             regulator-always-on;
-> > +                     };
-> > +
-> > +                     LDO6 {
-> > +                             regulator-name =3D "ldo6";
-> > +                             regulator-min-microvolt =3D <900000>;
-> > +                             regulator-max-microvolt =3D <1800000>;
-> > +                             regulator-boot-on;
-> > +                             regulator-always-on;
-> > +                     };
-> > +             };
-> > +     };
-> > +};
-> > +
-> > +&i2c3 {
-> > +     clock-frequency =3D <400000>;
-> > +     pinctrl-names =3D "default", "gpio";
-> > +     pinctrl-0 =3D <&pinctrl_i2c3>;
-> > +     pinctrl-1 =3D <&pinctrl_i2c3_gpio>;
-> > +     scl-gpios =3D <&gpio5 18 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-> > +     sda-gpios =3D <&gpio5 19 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-> > +     status =3D "okay";
-> > +
-> > +     accelerometer@19 {
-> > +             pinctrl-names =3D "default";
-> > +             pinctrl-0 =3D <&pinctrl_accel>;
-> > +             compatible =3D "st,lis2de12";
-> > +             reg =3D <0x19>;
-> > +             st,drdy-int-pin =3D <1>;
-> > +             interrupt-parent =3D <&gpio1>;
-> > +             interrupts =3D <15 IRQ_TYPE_LEVEL_LOW>;
-> > +     };
-> > +};
-> > +
-> > +&pcie_phy {
-> > +     fsl,refclk-pad-mode =3D <IMX8_PCIE_REFCLK_PAD_INPUT>;
-> > +     fsl,clkreq-unsupported;
-> > +     clocks =3D <&pcie0_refclk>;
-> > +     clock-names =3D "ref";
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&pcie0 {
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&pinctrl_pcie0>;
-> > +     reset-gpio =3D <&gpio5 11 GPIO_ACTIVE_LOW>;
-> > +     clocks =3D <&clk IMX8MM_CLK_PCIE1_ROOT>, <&pcie0_refclk>,
-> > +              <&clk IMX8MM_CLK_PCIE1_AUX>;
-> > +     assigned-clocks =3D <&clk IMX8MM_CLK_PCIE1_AUX>,
-> > +                       <&clk IMX8MM_CLK_PCIE1_CTRL>;
-> > +     assigned-clock-rates =3D <10000000>, <250000000>;
-> > +     assigned-clock-parents =3D <&clk IMX8MM_SYS_PLL2_50M>,
-> > +                              <&clk IMX8MM_SYS_PLL2_250M>;
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&disp_blk_ctrl {
-> > +     status =3D "disabled";
-> > +};
-> > +
-> > +&pgc_mipi {
-> > +     status =3D "disabled";
-> > +};
-> > +
-> > +/* console */
-> > +&uart2 {
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&pinctrl_uart2>;
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&usbotg1 {
-> > +     dr_mode =3D "host";
-> > +     disable-over-current;
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +/* microSD */
-> > +&usdhc2 {
-> > +     pinctrl-names =3D "default", "state_100mhz", "state_200mhz";
-> > +     pinctrl-0 =3D <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-> > +     pinctrl-1 =3D <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
-> > +     pinctrl-2 =3D <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
-> > +     cd-gpios =3D <&gpio2 12 GPIO_ACTIVE_LOW>;
-> > +     bus-width =3D <4>;
-> > +     vmmc-supply =3D <&reg_3p3v>;
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +/* eMMC */
-> > +&usdhc3 {
-> > +     pinctrl-names =3D "default", "state_100mhz", "state_200mhz";
-> > +     pinctrl-0 =3D <&pinctrl_usdhc3>;
-> > +     pinctrl-1 =3D <&pinctrl_usdhc3_100mhz>;
-> > +     pinctrl-2 =3D <&pinctrl_usdhc3_200mhz>;
-> > +     assigned-clocks =3D <&clk IMX8MM_CLK_USDHC3>;
-> > +     assigned-clock-rates =3D <400000000>;
-> > +     bus-width =3D <8>;
-> > +     non-removable;
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&wdog1 {
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&pinctrl_wdog>;
-> > +     fsl,ext-reset-output;
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&iomuxc {
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&pinctrl_hog>;
-> > +
-> > +     pinctrl_hog: hoggrp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_GPIO1_IO10_GPIO1_IO10      0x4000004=
-1 /* RS422# */
-> > +                     MX8MM_IOMUXC_GPIO1_IO11_GPIO1_IO11      0x4000004=
-1 /* RS485# */
-> > +                     MX8MM_IOMUXC_GPIO1_IO12_GPIO1_IO12      0x4000004=
-1 /* RS232# */
-> > +                     MX8MM_IOMUXC_SD1_DATA7_GPIO2_IO9        0x4000004=
-1 /* DIG1_IN */
-> > +                     MX8MM_IOMUXC_SD1_DATA6_GPIO2_IO8        0x4000004=
-1 /* DIG1_OUT */
-> > +                     MX8MM_IOMUXC_SD1_DATA4_GPIO2_IO6        0x4000004=
-1 /* DIG1_CTL */
-> > +                     MX8MM_IOMUXC_ECSPI2_MISO_GPIO5_IO12     0x4000004=
-1 /* PCI_WDIS# */
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_accel: accelgrp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_GPIO1_IO15_GPIO1_IO15      0x159
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_fec1: fec1grp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_ENET_MDC_ENET1_MDC                 0=
-x3
-> > +                     MX8MM_IOMUXC_ENET_MDIO_ENET1_MDIO               0=
-x3
-> > +                     MX8MM_IOMUXC_ENET_TD3_ENET1_RGMII_TD3           0=
-x1f
-> > +                     MX8MM_IOMUXC_ENET_TD2_ENET1_RGMII_TD2           0=
-x1f
-> > +                     MX8MM_IOMUXC_ENET_TD1_ENET1_RGMII_TD1           0=
-x1f
-> > +                     MX8MM_IOMUXC_ENET_TD0_ENET1_RGMII_TD0           0=
-x1f
-> > +                     MX8MM_IOMUXC_ENET_RD3_ENET1_RGMII_RD3           0=
-x91
-> > +                     MX8MM_IOMUXC_ENET_RD2_ENET1_RGMII_RD2           0=
-x91
-> > +                     MX8MM_IOMUXC_ENET_RD1_ENET1_RGMII_RD1           0=
-x91
-> > +                     MX8MM_IOMUXC_ENET_RD0_ENET1_RGMII_RD0           0=
-x91
-> > +                     MX8MM_IOMUXC_ENET_TXC_ENET1_RGMII_TXC           0=
-x0
-> > +                     MX8MM_IOMUXC_ENET_RXC_ENET1_RGMII_RXC           0=
-x91
-> > +                     MX8MM_IOMUXC_ENET_RX_CTL_ENET1_RGMII_RX_CTL     0=
-x91
-> > +                     MX8MM_IOMUXC_ENET_TX_CTL_ENET1_RGMII_TX_CTL     0=
-x1f
-> > +                     MX8MM_IOMUXC_SAI2_TXFS_GPIO4_IO24               0=
-x19 /* IRQ# */
-> > +                     MX8MM_IOMUXC_SAI2_TXC_GPIO4_IO25                0=
-x19 /* RST# */
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_gsc: gscgrp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_SAI2_TXD0_GPIO4_IO26       0x159
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_i2c1: i2c1grp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_I2C1_SCL_I2C1_SCL          0x400001c=
-3
-> > +                     MX8MM_IOMUXC_I2C1_SDA_I2C1_SDA          0x400001c=
-3
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_i2c1_gpio: i2c1gpiogrp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_I2C1_SCL_GPIO5_IO14        0x400001c=
-3
-> > +                     MX8MM_IOMUXC_I2C1_SDA_GPIO5_IO15        0x400001c=
-3
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_i2c2: i2c2grp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_I2C2_SCL_I2C2_SCL          0x400001c=
-3
-> > +                     MX8MM_IOMUXC_I2C2_SDA_I2C2_SDA          0x400001c=
-3
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_i2c2_gpio: i2c2gpiogrp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_I2C2_SCL_GPIO5_IO16        0x400001c=
-3
-> > +                     MX8MM_IOMUXC_I2C2_SDA_GPIO5_IO17        0x400001c=
-3
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_i2c3: i2c3grp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_I2C3_SCL_I2C3_SCL          0x400001c=
-3
-> > +                     MX8MM_IOMUXC_I2C3_SDA_I2C3_SDA          0x400001c=
-3
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_i2c3_gpio: i2c3gpiogrp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_I2C3_SCL_GPIO5_IO18        0x400001c=
-3
-> > +                     MX8MM_IOMUXC_I2C3_SDA_GPIO5_IO19        0x400001c=
-3
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_gpio_leds: gpioledgrp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_SPDIF_EXT_CLK_GPIO5_IO5    0x19
-> > +                     MX8MM_IOMUXC_SAI3_RXD_GPIO4_IO30        0x19
-> > +                     MX8MM_IOMUXC_SAI3_MCLK_GPIO5_IO2        0x19
-> > +                     MX8MM_IOMUXC_GPIO1_IO14_GPIO1_IO14      0x19
-> > +                     MX8MM_IOMUXC_GPIO1_IO09_GPIO1_IO9       0x19
-> > +                     MX8MM_IOMUXC_SPDIF_TX_GPIO5_IO3         0x19
-> > +                     MX8MM_IOMUXC_SAI3_RXC_GPIO4_IO29        0x19
-> > +                     MX8MM_IOMUXC_SAI3_RXFS_GPIO4_IO28       0x19
-> > +                     MX8MM_IOMUXC_GPIO1_IO13_GPIO1_IO13      0x19
-> > +                     MX8MM_IOMUXC_SAI3_TXFS_GPIO4_IO31       0x19
-> > +                     MX8MM_IOMUXC_SPDIF_RX_GPIO5_IO4         0x19
-> > +                     MX8MM_IOMUXC_GPIO1_IO08_GPIO1_IO8       0x19
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_pcie0: pciegrp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_ECSPI2_MOSI_GPIO5_IO11     0x41
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_pmic: pmicgrp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_NAND_DATA02_GPIO3_IO8      0x41
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_uart2: uart2grp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_UART2_RXD_UART2_DCE_RX     0x140
-> > +                     MX8MM_IOMUXC_UART2_TXD_UART2_DCE_TX     0x140
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_usdhc2: usdhc2grp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK         0x190
-> > +                     MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD         0x1d0
-> > +                     MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0     0x1d0
-> > +                     MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1     0x1d0
-> > +                     MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2     0x1d0
-> > +                     MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3     0x1d0
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK         0x194
-> > +                     MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD         0x1d4
-> > +                     MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0     0x1d4
-> > +                     MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1     0x1d4
-> > +                     MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2     0x1d4
-> > +                     MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3     0x1d4
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK         0x196
-> > +                     MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD         0x1d6
-> > +                     MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0     0x1d6
-> > +                     MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1     0x1d6
-> > +                     MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2     0x1d6
-> > +                     MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3     0x1d6
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_usdhc2_gpio: usdhc2-gpiogrp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_SD2_CD_B_GPIO2_IO12        0x1c4
-> > +                     MX8MM_IOMUXC_GPIO1_IO04_USDHC2_VSELECT  0x1d0
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_usdhc3: usdhc3grp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_NAND_WE_B_USDHC3_CLK       0x190
-> > +                     MX8MM_IOMUXC_NAND_WP_B_USDHC3_CMD       0x1d0
-> > +                     MX8MM_IOMUXC_NAND_DATA04_USDHC3_DATA0   0x1d0
-> > +                     MX8MM_IOMUXC_NAND_DATA05_USDHC3_DATA1   0x1d0
-> > +                     MX8MM_IOMUXC_NAND_DATA06_USDHC3_DATA2   0x1d0
-> > +                     MX8MM_IOMUXC_NAND_DATA07_USDHC3_DATA3   0x1d0
-> > +                     MX8MM_IOMUXC_NAND_RE_B_USDHC3_DATA4     0x1d0
-> > +                     MX8MM_IOMUXC_NAND_CE2_B_USDHC3_DATA5    0x1d0
-> > +                     MX8MM_IOMUXC_NAND_CE3_B_USDHC3_DATA6    0x1d0
-> > +                     MX8MM_IOMUXC_NAND_CLE_USDHC3_DATA7      0x1d0
-> > +                     MX8MM_IOMUXC_NAND_CE1_B_USDHC3_STROBE   0x190
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_usdhc3_100mhz: usdhc3-100mhzgrp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_NAND_WE_B_USDHC3_CLK       0x194
-> > +                     MX8MM_IOMUXC_NAND_WP_B_USDHC3_CMD       0x1d4
-> > +                     MX8MM_IOMUXC_NAND_DATA04_USDHC3_DATA0   0x1d4
-> > +                     MX8MM_IOMUXC_NAND_DATA05_USDHC3_DATA1   0x1d4
-> > +                     MX8MM_IOMUXC_NAND_DATA06_USDHC3_DATA2   0x1d4
-> > +                     MX8MM_IOMUXC_NAND_DATA07_USDHC3_DATA3   0x1d4
-> > +                     MX8MM_IOMUXC_NAND_RE_B_USDHC3_DATA4     0x1d4
-> > +                     MX8MM_IOMUXC_NAND_CE2_B_USDHC3_DATA5    0x1d4
-> > +                     MX8MM_IOMUXC_NAND_CE3_B_USDHC3_DATA6    0x1d4
-> > +                     MX8MM_IOMUXC_NAND_CLE_USDHC3_DATA7      0x1d4
-> > +                     MX8MM_IOMUXC_NAND_CE1_B_USDHC3_STROBE   0x194
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_NAND_WE_B_USDHC3_CLK       0x196
-> > +                     MX8MM_IOMUXC_NAND_WP_B_USDHC3_CMD       0x1d6
-> > +                     MX8MM_IOMUXC_NAND_DATA04_USDHC3_DATA0   0x1d6
-> > +                     MX8MM_IOMUXC_NAND_DATA05_USDHC3_DATA1   0x1d6
-> > +                     MX8MM_IOMUXC_NAND_DATA06_USDHC3_DATA2   0x1d6
-> > +                     MX8MM_IOMUXC_NAND_DATA07_USDHC3_DATA3   0x1d6
-> > +                     MX8MM_IOMUXC_NAND_RE_B_USDHC3_DATA4     0x1d6
-> > +                     MX8MM_IOMUXC_NAND_CE2_B_USDHC3_DATA5    0x1d6
-> > +                     MX8MM_IOMUXC_NAND_CE3_B_USDHC3_DATA6    0x1d6
-> > +                     MX8MM_IOMUXC_NAND_CLE_USDHC3_DATA7      0x1d6
-> > +                     MX8MM_IOMUXC_NAND_CE1_B_USDHC3_STROBE   0x196
-> > +             >;
-> > +     };
-> > +
-> > +     pinctrl_wdog: wdoggrp {
-> > +             fsl,pins =3D <
-> > +                     MX8MM_IOMUXC_GPIO1_IO02_WDOG1_WDOG_B    0xc6
-> > +             >;
-> > +     };
-> > +};
-> > --
-> > 2.25.1
 > >
+> > Below are my initial thoughts on the specific points you raised:
+> >
+> >>   - How shall the final media graph(s) look like?
+> >
+> > The media entities would remain mostly identical, except for the absence
+> > of ISI. The topology would be a direct linkg from sensor->csi-
+> >>formatter->neoisp.
+
+If support for inline mode has to be added later, the ISP will need to
+be registered in the same media graph of the CSI-2 receiver to be able
+to link the two, right ?
+
+How do you envision to control the ISP operating mode, because I'm
+afraid if you register the ISP in its own media graph, you're locking
+yourself there as implementing inline mode would require a different
+media topology with all the implications on the rest of the userspace
+stack.
+
+This might not be a problem if you know that the inline vs m2m mode is
+SoC sythesis time parameter. Some SoCs will integrate neoisp inline, some
+other as m2m. In this case you'll likely need two pipeline handlers
+in libcamera, but if that's per SoC-line maybe is acceptable. The fact
+you suggests in inline mode there won't be an ISI makes me think this
+actually depends on the SoC design ?
+
+However, if you plan to allow deferring inline/m2m mode selection to
+the system integrators or even have it as a run-time parameter, then
+you should really consider having the ISP in the same media graph as
+the CSI-2 receiver and operate the whole CSI-2/ISI/ISP as a single
+media graph, where you could select the operating mode through media link
+enablement or dts endpoint connections
+
+Niklas (in cc) has addressed a similar situation, where inline and m2m
+mode can be selected by link enablement at runtime here
+https://patchwork.linuxtv.org/project/linux-media/patch/20251225171054.1370856-3-niklas.soderlund+renesas@ragnatech.se/
+(see risp_cs_internal_ops)
+
+>
+> OK, I thought that ISI was still around...
+>
+> >
+> >>   - How many media devices are registered and which driver registers it
+> >>     or them?
+> >
+> > That will be part of the evaluation. My initial assumption is that
+> > neoisp would be the appropriate component to register the media device
+> > in this mode, since ISI is not involved, and ISI currently performs the
+> > registration in the M2M configuration.
+
+Isn't the ISP registering its own media graph ?
+
+Can we get a copy of all media graphs on an i.MX95 system including
+the ISI and the CSI-2 receiver ?
+
+If I'm not mistaken you'll have 8 copies of the ISP media graphs, and
+that's exactly what we're working on with the context framework :)
+
+
+>
+> ... since it is not, your assumption seems very reasonable.
+>
+> >
+> >>   - How can the user decide whether direct (csi2isp) or indirect
+> >>     (mem2mem) streaming shall be used?
+> >
+> > That will also be part of the evaluation. From dts would be my first
+> > option, but may prevent using both modes on same platform then.
+>
+> Of course this depends what the hardware is able to do, but in case the
+> HW is reconfigurable easily, I doubt that device tree is a good choice
+> to solve that.
+> >
+> >>
+> >> While it is certainly OK to introduce this support only at a later
+> >> stage, it makes sense to consider this right from the start to avoid
+> >> some nasty changes e.g. in how this hardware is exposed to user space.
+> >>
+> >> Also, we are facing a similiar challenge with recent Rockchip ISP
+> >> hardware (RK3588, RK3576, ...) and it would be great to hear your
+> >> thoughts about that.
+> >
+> > Is there an existing discussion thread available on this topic? I would
+> > be very interested in following it.
+>
+> Not yet, I am afraid. But there should be one or two soon (TM) :-)
+
+It's probably time to have one :)
+
+>
+> Thanks and regards,
+> Michael
+>
+> >
+> > Thanks
+> > Antoine
+> >
+> >>
+> >> Thanks in advance and best regards,
+> >> Michael
+> >>
+> >>>
+> >>> This series is posted as RFC because extending the v4l2-isp interface
+> >>> may
+> >>> overlap with ongoing work. If similar development already exists, I am
+> >>> happy to rebase or adapt the series accordingly. If preferred, the
+> >>> series
+> >>> can also be split into two parts: the v4l2-isp rework and the Neo ISP
+> >>> driver introduction.
+> >>>
+> >>> A few checkpatch warnings in v4l2-ioctl.c remain intentionally to stay
+> >>> consistent with the existing style in that file.
+> >>>
+> >>> Testing was performed on the i.MX95 EVK using the media/next kernel in
+> >>> standalone M2M mode. End-to-end camera-to-ISP capture has been validated
+> >>> using the downstream NXP kernel, as some hardware dependencies are not
+> >>> yet upstreamed.
+> >>>
+> >>> Thanks,
+> >>> Antoine
+> >>>
+> >>> ---
+> >>> Here are v4l2-compliance test results:
+> >>>
+> >>> v4l2-compliance 1.28.1-5233, 64 bits, 64-bit time_t
+> >>> v4l2-compliance SHA: fc15e229d9d3 2024-07-23 19:22:15
+> >>>
+> >>> Compliance test for neoisp device /dev/media0:
+> >>>
+> >>> Media Driver Info:
+> >>>        Driver name      : neoisp
+> >>>        Model            : neoisp
+> >>>        Serial           :
+> >>>        Bus info         : platform:4ae00000.isp
+> >>>        Media version    : 6.19.0
+> >>>        Hardware revision: 0x00000002 (2)
+> >>>        Driver version   : 6.19.0
+> >>>
+> >>> Required ioctls:
+> >>>        test MEDIA_IOC_DEVICE_INFO: OK
+> >>>        test invalid ioctls: OK
+> >>>
+> >>> Allow for multiple opens:
+> >>>        test second /dev/media0 open: OK
+> >>>        test MEDIA_IOC_DEVICE_INFO: OK
+> >>>        test for unlimited opens: OK
+> >>>
+> >>> Media Controller ioctls:
+> >>>        test MEDIA_IOC_G_TOPOLOGY: OK
+> >>>        Entities: 7 Interfaces: 7 Pads: 12 Links: 13
+> >>>        test MEDIA_IOC_ENUM_ENTITIES/LINKS: OK
+> >>>        test MEDIA_IOC_SETUP_LINK: OK
+> >>>
+> >>> Total for neoisp device /dev/media0: 8, Succeeded: 8, Failed: 0,
+> >>> Warnings: 0
+> >>> --------------------------------------------------------------------------------
+> >>> Compliance test for neoisp device /dev/video0:
+> >>>
+> >>> Driver Info:
+> >>>        Driver name      : neoisp
+> >>>        Card type        : neoisp
+> >>>        Bus info         : platform:4ae00000.isp
+> >>>        Driver version   : 6.19.0
+> >>>        Capabilities     : 0x8ca03000
+> >>>                Video Capture Multiplanar
+> >>>                Video Output Multiplanar
+> >>>                Metadata Capture
+> >>>                Metadata Output
+> >>>                Streaming
+> >>>                Extended Pix Format
+> >>>                Device Capabilities
+> >>>        Device Caps      : 0x04202000
+> >>>                Video Output Multiplanar
+> >>>                Streaming
+> >>>                Extended Pix Format
+> >>> Media Driver Info:
+> >>>        Driver name      : neoisp
+> >>>        Model            : neoisp
+> >>>        Serial           :
+> >>>        Bus info         : platform:4ae00000.isp
+> >>>        Media version    : 6.19.0
+> >>>        Hardware revision: 0x00000002 (2)
+> >>>        Driver version   : 6.19.0
+> >>> Interface Info:
+> >>>        ID               : 0x0300000a
+> >>>        Type             : V4L Video
+> >>> Entity Info:
+> >>>        ID               : 0x00000008 (8)
+> >>>        Name             : neoisp-input0
+> >>>        Function         : V4L2 I/O
+> >>>        Pad 0x01000009   : 0: Source
+> >>>          Link 0x0200000c: to remote pad 0x1000002 of entity
+> >>> 'neoisp' (Image Signal Processor): Data, Enabled, Immutable
+> >>>
+> >>> Required ioctls:
+> >>>        test MC information (see 'Media Driver Info' above): OK
+> >>>        test VIDIOC_QUERYCAP: OK
+> >>>        test invalid ioctls: OK
+> >>>
+> >>> Allow for multiple opens:
+> >>>        test second /dev/video0 open: OK
+> >>>        test VIDIOC_QUERYCAP: OK
+> >>>        test VIDIOC_G/S_PRIORITY: OK
+> >>>        test for unlimited opens: OK
+> >>>
+> >>> Debug ioctls:
+> >>>        test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+> >>>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+> >>>
+> >>> Input ioctls:
+> >>>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+> >>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+> >>>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+> >>>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+> >>>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+> >>>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+> >>>
+> >>> Output ioctls:
+> >>>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+> >>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+> >>>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+> >>>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+> >>>
+> >>> Input/Output configuration ioctls:
+> >>>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+> >>>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+> >>>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+> >>>        test VIDIOC_G/S_EDID: OK (Not Supported)
+> >>>
+> >>> Control ioctls:
+> >>>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK (Not Supported)
+> >>>        test VIDIOC_QUERYCTRL: OK (Not Supported)
+> >>>        test VIDIOC_G/S_CTRL: OK (Not Supported)
+> >>>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK (Not Supported)
+> >>>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+> >>>        Standard Controls: 0 Private Controls: 0
+> >>>
+> >>> Format ioctls:
+> >>>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+> >>>        test VIDIOC_G/S_PARM: OK (Not Supported)
+> >>>        test VIDIOC_G_FBUF: OK (Not Supported)
+> >>>        test VIDIOC_G_FMT: OK
+> >>>        test VIDIOC_TRY_FMT: OK
+> >>>        test VIDIOC_S_FMT: OK
+> >>>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+> >>>        test Cropping: OK
+> >>>        test Composing: OK (Not Supported)
+> >>>        test Scaling: OK
+> >>>
+> >>> Codec ioctls:
+> >>>        test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+> >>>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+> >>>        test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+> >>>
+> >>> Buffer ioctls:
+> >>>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+> >>>        test CREATE_BUFS maximum buffers: OK
+> >>>        test VIDIOC_REMOVE_BUFS: OK
+> >>>        test VIDIOC_EXPBUF: OK
+> >>>        test Requests: OK (Not Supported)
+> >>>
+> >>> Total for neoisp device /dev/video0: 48, Succeeded: 48, Failed: 0,
+> >>> Warnings: 0
+> >>> --------------------------------------------------------------------------------
+> >>> Compliance test for neoisp device /dev/video1:
+> >>>
+> >>> Driver Info:
+> >>>        Driver name      : neoisp
+> >>>        Card type        : neoisp
+> >>>        Bus info         : platform:4ae00000.isp
+> >>>        Driver version   : 6.19.0
+> >>>        Capabilities     : 0x8ca03000
+> >>>                Video Capture Multiplanar
+> >>>                Video Output Multiplanar
+> >>>                Metadata Capture
+> >>>                Metadata Output
+> >>>                Streaming
+> >>>                Extended Pix Format
+> >>>                Device Capabilities
+> >>>        Device Caps      : 0x04202000
+> >>>                Video Output Multiplanar
+> >>>                Streaming
+> >>>                Extended Pix Format
+> >>> Media Driver Info:
+> >>>        Driver name      : neoisp
+> >>>        Model            : neoisp
+> >>>        Serial           :
+> >>>        Bus info         : platform:4ae00000.isp
+> >>>        Media version    : 6.19.0
+> >>>        Hardware revision: 0x00000002 (2)
+> >>>        Driver version   : 6.19.0
+> >>> Interface Info:
+> >>>        ID               : 0x03000010
+> >>>        Type             : V4L Video
+> >>> Entity Info:
+> >>>        ID               : 0x0000000e (14)
+> >>>        Name             : neoisp-input1
+> >>>        Function         : V4L2 I/O
+> >>>        Pad 0x0100000f   : 0: Source
+> >>>          Link 0x02000012: to remote pad 0x1000003 of entity
+> >>> 'neoisp' (Image Signal Processor): Data
+> >>>
+> >>> Required ioctls:
+> >>>        test MC information (see 'Media Driver Info' above): OK
+> >>>        test VIDIOC_QUERYCAP: OK
+> >>>        test invalid ioctls: OK
+> >>>
+> >>> Allow for multiple opens:
+> >>>        test second /dev/video1 open: OK
+> >>>        test VIDIOC_QUERYCAP: OK
+> >>>        test VIDIOC_G/S_PRIORITY: OK
+> >>>        test for unlimited opens: OK
+> >>>
+> >>> Debug ioctls:
+> >>>        test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+> >>>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+> >>>
+> >>> Input ioctls:
+> >>>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+> >>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+> >>>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+> >>>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+> >>>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+> >>>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+> >>>
+> >>> Output ioctls:
+> >>>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+> >>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+> >>>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+> >>>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+> >>>
+> >>> Input/Output configuration ioctls:
+> >>>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+> >>>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+> >>>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+> >>>        test VIDIOC_G/S_EDID: OK (Not Supported)
+> >>>
+> >>> Control ioctls:
+> >>>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK (Not Supported)
+> >>>        test VIDIOC_QUERYCTRL: OK (Not Supported)
+> >>>        test VIDIOC_G/S_CTRL: OK (Not Supported)
+> >>>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK (Not Supported)
+> >>>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+> >>>        Standard Controls: 0 Private Controls: 0
+> >>>
+> >>> Format ioctls:
+> >>>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+> >>>        test VIDIOC_G/S_PARM: OK (Not Supported)
+> >>>        test VIDIOC_G_FBUF: OK (Not Supported)
+> >>>        test VIDIOC_G_FMT: OK
+> >>>        test VIDIOC_TRY_FMT: OK
+> >>>        test VIDIOC_S_FMT: OK
+> >>>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+> >>>        test Cropping: OK
+> >>>        test Composing: OK (Not Supported)
+> >>>        test Scaling: OK
+> >>>
+> >>> Codec ioctls:
+> >>>        test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+> >>>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+> >>>        test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+> >>>
+> >>> Buffer ioctls:
+> >>>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+> >>>        test CREATE_BUFS maximum buffers: OK
+> >>>        test VIDIOC_REMOVE_BUFS: OK
+> >>>        test VIDIOC_EXPBUF: OK
+> >>>        test Requests: OK (Not Supported)
+> >>>
+> >>> Total for neoisp device /dev/video1: 48, Succeeded: 48, Failed: 0,
+> >>> Warnings: 0
+> >>> --------------------------------------------------------------------------------
+> >>> Compliance test for neoisp device /dev/video2:
+> >>>
+> >>> Driver Info:
+> >>>        Driver name      : neoisp
+> >>>        Card type        : neoisp
+> >>>        Bus info         : platform:4ae00000.isp
+> >>>        Driver version   : 6.19.0
+> >>>        Capabilities     : 0x8ca03000
+> >>>                Video Capture Multiplanar
+> >>>                Video Output Multiplanar
+> >>>                Metadata Capture
+> >>>                Metadata Output
+> >>>                Streaming
+> >>>                Extended Pix Format
+> >>>                Device Capabilities
+> >>>        Device Caps      : 0x0c200000
+> >>>                Metadata Output
+> >>>                Streaming
+> >>>                Extended Pix Format
+> >>> Media Driver Info:
+> >>>        Driver name      : neoisp
+> >>>        Model            : neoisp
+> >>>        Serial           :
+> >>>        Bus info         : platform:4ae00000.isp
+> >>>        Media version    : 6.19.0
+> >>>        Hardware revision: 0x00000002 (2)
+> >>>        Driver version   : 6.19.0
+> >>> Interface Info:
+> >>>        ID               : 0x03000016
+> >>>        Type             : V4L Video
+> >>> Entity Info:
+> >>>        ID               : 0x00000014 (20)
+> >>>        Name             : neoisp-params
+> >>>        Function         : V4L2 I/O
+> >>>        Pad 0x01000015   : 0: Source
+> >>>          Link 0x02000018: to remote pad 0x1000004 of entity
+> >>> 'neoisp' (Image Signal Processor): Data, Enabled
+> >>>
+> >>> Required ioctls:
+> >>>        test MC information (see 'Media Driver Info' above): OK
+> >>>        test VIDIOC_QUERYCAP: OK
+> >>>        test invalid ioctls: OK
+> >>>
+> >>> Allow for multiple opens:
+> >>>        test second /dev/video2 open: OK
+> >>>        test VIDIOC_QUERYCAP: OK
+> >>>        test VIDIOC_G/S_PRIORITY: OK
+> >>>        test for unlimited opens: OK
+> >>>
+> >>> Debug ioctls:
+> >>>        test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+> >>>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+> >>>
+> >>> Input ioctls:
+> >>>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+> >>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+> >>>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+> >>>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+> >>>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+> >>>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+> >>>
+> >>> Output ioctls:
+> >>>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+> >>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+> >>>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+> >>>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+> >>>
+> >>> Input/Output configuration ioctls:
+> >>>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+> >>>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+> >>>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+> >>>        test VIDIOC_G/S_EDID: OK (Not Supported)
+> >>>
+> >>> Control ioctls:
+> >>>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK (Not Supported)
+> >>>        test VIDIOC_QUERYCTRL: OK (Not Supported)
+> >>>        test VIDIOC_G/S_CTRL: OK (Not Supported)
+> >>>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK (Not Supported)
+> >>>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+> >>>        Standard Controls: 0 Private Controls: 0
+> >>>
+> >>> Format ioctls:
+> >>>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+> >>>        test VIDIOC_G/S_PARM: OK (Not Supported)
+> >>>        test VIDIOC_G_FBUF: OK (Not Supported)
+> >>>        test VIDIOC_G_FMT: OK
+> >>>        test VIDIOC_TRY_FMT: OK
+> >>>        test VIDIOC_S_FMT: OK
+> >>>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+> >>>        test Cropping: OK (Not Supported)
+> >>>        test Composing: OK (Not Supported)
+> >>>        test Scaling: OK (Not Supported)
+> >>>
+> >>> Codec ioctls:
+> >>>        test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+> >>>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+> >>>        test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+> >>>
+> >>> Buffer ioctls:
+> >>>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+> >>>        test CREATE_BUFS maximum buffers: OK
+> >>>        test VIDIOC_REMOVE_BUFS: OK
+> >>>        test VIDIOC_EXPBUF: OK
+> >>>        test Requests: OK (Not Supported)
+> >>>
+> >>> Total for neoisp device /dev/video2: 48, Succeeded: 48, Failed: 0,
+> >>> Warnings: 0
+> >>> --------------------------------------------------------------------------------
+> >>> Compliance test for neoisp device /dev/video3:
+> >>>
+> >>> Driver Info:
+> >>>        Driver name      : neoisp
+> >>>        Card type        : neoisp
+> >>>        Bus info         : platform:4ae00000.isp
+> >>>        Driver version   : 6.19.0
+> >>>        Capabilities     : 0x8ca03000
+> >>>                Video Capture Multiplanar
+> >>>                Video Output Multiplanar
+> >>>                Metadata Capture
+> >>>                Metadata Output
+> >>>                Streaming
+> >>>                Extended Pix Format
+> >>>                Device Capabilities
+> >>>        Device Caps      : 0x04201000
+> >>>                Video Capture Multiplanar
+> >>>                Streaming
+> >>>                Extended Pix Format
+> >>> Media Driver Info:
+> >>>        Driver name      : neoisp
+> >>>        Model            : neoisp
+> >>>        Serial           :
+> >>>        Bus info         : platform:4ae00000.isp
+> >>>        Media version    : 6.19.0
+> >>>        Hardware revision: 0x00000002 (2)
+> >>>        Driver version   : 6.19.0
+> >>> Interface Info:
+> >>>        ID               : 0x0300001c
+> >>>        Type             : V4L Video
+> >>> Entity Info:
+> >>>        ID               : 0x0000001a (26)
+> >>>        Name             : neoisp-frame
+> >>>        Function         : V4L2 I/O
+> >>>        Pad 0x0100001b   : 0: Sink
+> >>>          Link 0x0200001e: from remote pad 0x1000005 of entity
+> >>> 'neoisp' (Image Signal Processor): Data, Enabled
+> >>>
+> >>> Required ioctls:
+> >>>        test MC information (see 'Media Driver Info' above): OK
+> >>>        test VIDIOC_QUERYCAP: OK
+> >>>        test invalid ioctls: OK
+> >>>
+> >>> Allow for multiple opens:
+> >>>        test second /dev/video3 open: OK
+> >>>        test VIDIOC_QUERYCAP: OK
+> >>>        test VIDIOC_G/S_PRIORITY: OK
+> >>>        test for unlimited opens: OK
+> >>>
+> >>> Debug ioctls:
+> >>>        test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+> >>>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+> >>>
+> >>> Input ioctls:
+> >>>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+> >>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+> >>>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+> >>>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+> >>>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+> >>>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+> >>>
+> >>> Output ioctls:
+> >>>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+> >>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+> >>>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+> >>>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+> >>>
+> >>> Input/Output configuration ioctls:
+> >>>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+> >>>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+> >>>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+> >>>        test VIDIOC_G/S_EDID: OK (Not Supported)
+> >>>
+> >>> Control ioctls:
+> >>>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK (Not Supported)
+> >>>        test VIDIOC_QUERYCTRL: OK (Not Supported)
+> >>>        test VIDIOC_G/S_CTRL: OK (Not Supported)
+> >>>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK (Not Supported)
+> >>>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+> >>>        Standard Controls: 0 Private Controls: 0
+> >>>
+> >>> Format ioctls:
+> >>>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+> >>>        test VIDIOC_G/S_PARM: OK (Not Supported)
+> >>>        test VIDIOC_G_FBUF: OK (Not Supported)
+> >>>        test VIDIOC_G_FMT: OK
+> >>>        test VIDIOC_TRY_FMT: OK
+> >>>        test VIDIOC_S_FMT: OK
+> >>>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+> >>>        test Cropping: OK (Not Supported)
+> >>>        test Composing: OK (Not Supported)
+> >>>        test Scaling: OK
+> >>>
+> >>> Codec ioctls:
+> >>>        test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+> >>>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+> >>>        test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+> >>>
+> >>> Buffer ioctls:
+> >>>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+> >>>        test CREATE_BUFS maximum buffers: OK
+> >>>        test VIDIOC_REMOVE_BUFS: OK
+> >>>        test VIDIOC_EXPBUF: OK
+> >>>        test Requests: OK (Not Supported)
+> >>>
+> >>> Total for neoisp device /dev/video3: 48, Succeeded: 48, Failed: 0,
+> >>> Warnings: 0
+> >>> --------------------------------------------------------------------------------
+> >>> Compliance test for neoisp device /dev/video4:
+> >>>
+> >>> Driver Info:
+> >>>        Driver name      : neoisp
+> >>>        Card type        : neoisp
+> >>>        Bus info         : platform:4ae00000.isp
+> >>>        Driver version   : 6.19.0
+> >>>        Capabilities     : 0x8ca03000
+> >>>                Video Capture Multiplanar
+> >>>                Video Output Multiplanar
+> >>>                Metadata Capture
+> >>>                Metadata Output
+> >>>                Streaming
+> >>>                Extended Pix Format
+> >>>                Device Capabilities
+> >>>        Device Caps      : 0x04201000
+> >>>                Video Capture Multiplanar
+> >>>                Streaming
+> >>>                Extended Pix Format
+> >>> Media Driver Info:
+> >>>        Driver name      : neoisp
+> >>>        Model            : neoisp
+> >>>        Serial           :
+> >>>        Bus info         : platform:4ae00000.isp
+> >>>        Media version    : 6.19.0
+> >>>        Hardware revision: 0x00000002 (2)
+> >>>        Driver version   : 6.19.0
+> >>> Interface Info:
+> >>>        ID               : 0x03000022
+> >>>        Type             : V4L Video
+> >>> Entity Info:
+> >>>        ID               : 0x00000020 (32)
+> >>>        Name             : neoisp-ir
+> >>>        Function         : V4L2 I/O
+> >>>        Pad 0x01000021   : 0: Sink
+> >>>          Link 0x02000024: from remote pad 0x1000006 of entity
+> >>> 'neoisp' (Image Signal Processor): Data
+> >>>
+> >>> Required ioctls:
+> >>>        test MC information (see 'Media Driver Info' above): OK
+> >>>        test VIDIOC_QUERYCAP: OK
+> >>>        test invalid ioctls: OK
+> >>>
+> >>> Allow for multiple opens:
+> >>>        test second /dev/video4 open: OK
+> >>>        test VIDIOC_QUERYCAP: OK
+> >>>        test VIDIOC_G/S_PRIORITY: OK
+> >>>        test for unlimited opens: OK
+> >>>
+> >>> Debug ioctls:
+> >>>        test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+> >>>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+> >>>
+> >>> Input ioctls:
+> >>>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+> >>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+> >>>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+> >>>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+> >>>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+> >>>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+> >>>
+> >>> Output ioctls:
+> >>>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+> >>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+> >>>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+> >>>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+> >>>
+> >>> Input/Output configuration ioctls:
+> >>>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+> >>>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+> >>>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+> >>>        test VIDIOC_G/S_EDID: OK (Not Supported)
+> >>>
+> >>> Control ioctls:
+> >>>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK (Not Supported)
+> >>>        test VIDIOC_QUERYCTRL: OK (Not Supported)
+> >>>        test VIDIOC_G/S_CTRL: OK (Not Supported)
+> >>>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK (Not Supported)
+> >>>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+> >>>        Standard Controls: 0 Private Controls: 0
+> >>>
+> >>> Format ioctls:
+> >>>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+> >>>        test VIDIOC_G/S_PARM: OK (Not Supported)
+> >>>        test VIDIOC_G_FBUF: OK (Not Supported)
+> >>>        test VIDIOC_G_FMT: OK
+> >>>        test VIDIOC_TRY_FMT: OK
+> >>>        test VIDIOC_S_FMT: OK
+> >>>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+> >>>        test Cropping: OK (Not Supported)
+> >>>        test Composing: OK (Not Supported)
+> >>>        test Scaling: OK
+> >>>
+> >>> Codec ioctls:
+> >>>        test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+> >>>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+> >>>        test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+> >>>
+> >>> Buffer ioctls:
+> >>>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+> >>>        test CREATE_BUFS maximum buffers: OK
+> >>>        test VIDIOC_REMOVE_BUFS: OK
+> >>>        test VIDIOC_EXPBUF: OK
+> >>>        test Requests: OK (Not Supported)
+> >>>
+> >>> Total for neoisp device /dev/video4: 48, Succeeded: 48, Failed: 0,
+> >>> Warnings: 0
+> >>> --------------------------------------------------------------------------------
+> >>> Compliance test for neoisp device /dev/video5:
+> >>>
+> >>> Driver Info:
+> >>>        Driver name      : neoisp
+> >>>        Card type        : neoisp
+> >>>        Bus info         : platform:4ae00000.isp
+> >>>        Driver version   : 6.19.0
+> >>>        Capabilities     : 0x8ca03000
+> >>>                Video Capture Multiplanar
+> >>>                Video Output Multiplanar
+> >>>                Metadata Capture
+> >>>                Metadata Output
+> >>>                Streaming
+> >>>                Extended Pix Format
+> >>>                Device Capabilities
+> >>>        Device Caps      : 0x04a00000
+> >>>                Metadata Capture
+> >>>                Streaming
+> >>>                Extended Pix Format
+> >>> Media Driver Info:
+> >>>        Driver name      : neoisp
+> >>>        Model            : neoisp
+> >>>        Serial           :
+> >>>        Bus info         : platform:4ae00000.isp
+> >>>        Media version    : 6.19.0
+> >>>        Hardware revision: 0x00000002 (2)
+> >>>        Driver version   : 6.19.0
+> >>> Interface Info:
+> >>>        ID               : 0x03000028
+> >>>        Type             : V4L Video
+> >>> Entity Info:
+> >>>        ID               : 0x00000026 (38)
+> >>>        Name             : neoisp-stats
+> >>>        Function         : V4L2 I/O
+> >>>        Pad 0x01000027   : 0: Sink
+> >>>          Link 0x0200002a: from remote pad 0x1000007 of entity
+> >>> 'neoisp' (Image Signal Processor): Data, Enabled
+> >>>
+> >>> Required ioctls:
+> >>>        test MC information (see 'Media Driver Info' above): OK
+> >>>        test VIDIOC_QUERYCAP: OK
+> >>>        test invalid ioctls: OK
+> >>>
+> >>> Allow for multiple opens:
+> >>>        test second /dev/video5 open: OK
+> >>>        test VIDIOC_QUERYCAP: OK
+> >>>        test VIDIOC_G/S_PRIORITY: OK
+> >>>        test for unlimited opens: OK
+> >>>
+> >>> Debug ioctls:
+> >>>        test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+> >>>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+> >>>
+> >>> Input ioctls:
+> >>>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+> >>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+> >>>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+> >>>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+> >>>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+> >>>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+> >>>
+> >>> Output ioctls:
+> >>>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+> >>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+> >>>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+> >>>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+> >>>
+> >>> Input/Output configuration ioctls:
+> >>>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+> >>>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+> >>>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+> >>>        test VIDIOC_G/S_EDID: OK (Not Supported)
+> >>>
+> >>> Control ioctls:
+> >>>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK (Not Supported)
+> >>>        test VIDIOC_QUERYCTRL: OK (Not Supported)
+> >>>        test VIDIOC_G/S_CTRL: OK (Not Supported)
+> >>>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK (Not Supported)
+> >>>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+> >>>        Standard Controls: 0 Private Controls: 0
+> >>>
+> >>> Format ioctls:
+> >>>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+> >>>        test VIDIOC_G/S_PARM: OK (Not Supported)
+> >>>        test VIDIOC_G_FBUF: OK (Not Supported)
+> >>>        test VIDIOC_G_FMT: OK
+> >>>        test VIDIOC_TRY_FMT: OK
+> >>>        test VIDIOC_S_FMT: OK
+> >>>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+> >>>        test Cropping: OK (Not Supported)
+> >>>        test Composing: OK (Not Supported)
+> >>>        test Scaling: OK (Not Supported)
+> >>>
+> >>> Codec ioctls:
+> >>>        test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+> >>>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+> >>>        test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+> >>>
+> >>> Buffer ioctls:
+> >>>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+> >>>        test CREATE_BUFS maximum buffers: OK
+> >>>        test VIDIOC_REMOVE_BUFS: OK
+> >>>        test VIDIOC_EXPBUF: OK
+> >>>        test Requests: OK (Not Supported)
+> >>>
+> >>> Total for neoisp device /dev/video5: 48, Succeeded: 48, Failed: 0,
+> >>> Warnings: 0
+> >>> --------------------------------------------------------------------------------
+> >>> Compliance test for neoisp device /dev/v4l-subdev0:
+> >>>
+> >>> Driver Info:
+> >>>        Driver version   : 6.19.0
+> >>>        Capabilities     : 0x00000000
+> >>>        Client Capabilities: 0x0000000000000002
+> >>> interval-uses-which Media Driver Info:
+> >>>        Driver name      : neoisp
+> >>>        Model            : neoisp
+> >>>        Serial           :
+> >>>        Bus info         : platform:4ae00000.isp
+> >>>        Media version    : 6.19.0
+> >>>        Hardware revision: 0x00000002 (2)
+> >>>        Driver version   : 6.19.0
+> >>> Interface Info:
+> >>>        ID               : 0x0300002c
+> >>>        Type             : V4L Sub-Device
+> >>> Entity Info:
+> >>>        ID               : 0x00000001 (1)
+> >>>        Name             : neoisp
+> >>>        Function         : Image Signal Processor
+> >>>        Pad 0x01000002   : 0: Sink
+> >>>          Link 0x0200000c: from remote pad 0x1000009 of entity
+> >>> 'neoisp-input0' (V4L2 I/O): Data, Enabled, Immutable
+> >>>        Pad 0x01000003   : 1: Sink
+> >>>          Link 0x02000012: from remote pad 0x100000f of entity
+> >>> 'neoisp-input1' (V4L2 I/O): Data
+> >>>        Pad 0x01000004   : 2: Sink
+> >>>          Link 0x02000018: from remote pad 0x1000015 of entity
+> >>> 'neoisp-params' (V4L2 I/O): Data, Enabled
+> >>>        Pad 0x01000005   : 3: Source
+> >>>          Link 0x0200001e: to remote pad 0x100001b of entity 'neoisp-
+> >>> frame' (V4L2 I/O): Data, Enabled
+> >>>        Pad 0x01000006   : 4: Source
+> >>>          Link 0x02000024: to remote pad 0x1000021 of entity 'neoisp-
+> >>> ir' (V4L2 I/O): Data
+> >>>        Pad 0x01000007   : 5: Source
+> >>>          Link 0x0200002a: to remote pad 0x1000027 of entity 'neoisp-
+> >>> stats' (V4L2 I/O): Data, Enabled
+> >>>
+> >>> Required ioctls:
+> >>>        test MC information (see 'Media Driver Info' above): OK
+> >>>        test VIDIOC_SUDBEV_QUERYCAP: OK
+> >>>        test invalid ioctls: OK
+> >>>
+> >>> Allow for multiple opens:
+> >>>        test second /dev/v4l-subdev0 open: OK
+> >>>        test VIDIOC_SUBDEV_QUERYCAP: OK
+> >>>        test for unlimited opens: OK
+> >>>
+> >>> Debug ioctls:
+> >>>        test VIDIOC_LOG_STATUS: OK (Not Supported)
+> >>>
+> >>> Input ioctls:
+> >>>        test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+> >>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+> >>>        test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+> >>>        test VIDIOC_ENUMAUDIO: OK (Not Supported)
+> >>>        test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_AUDIO: OK (Not Supported)
+> >>>        Inputs: 0 Audio Inputs: 0 Tuners: 0
+> >>>
+> >>> Output ioctls:
+> >>>        test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+> >>>        test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+> >>>        test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+> >>>        test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+> >>>        Outputs: 0 Audio Outputs: 0 Modulators: 0
+> >>>
+> >>> Input/Output configuration ioctls:
+> >>>        test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+> >>>        test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+> >>>        test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+> >>>        test VIDIOC_G/S_EDID: OK (Not Supported)
+> >>>
+> >>> Sub-Device ioctls (Sink Pad 0):
+> >>>        Try Stream 0
+> >>>        test Try VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/
+> >>> FRAME_INTERVAL: OK (Not Supported)
+> >>>        test Try VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+> >>>        test Try VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+> >>>        Active Stream 0
+> >>>        test Active VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/
+> >>> FRAME_INTERVAL: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_FRAME_INTERVAL: OK (Not Supported)
+> >>>
+> >>> Sub-Device ioctls (Sink Pad 1):
+> >>>        Try Stream 0
+> >>>        test Try VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/
+> >>> FRAME_INTERVAL: OK (Not Supported)
+> >>>        test Try VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+> >>>        test Try VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+> >>>        Active Stream 0
+> >>>        test Active VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/
+> >>> FRAME_INTERVAL: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_FRAME_INTERVAL: OK (Not Supported)
+> >>>
+> >>> Sub-Device ioctls (Sink Pad 2):
+> >>>        Try Stream 0
+> >>>        test Try VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/
+> >>> FRAME_INTERVAL: OK (Not Supported)
+> >>>        test Try VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+> >>>        test Try VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+> >>>        Active Stream 0
+> >>>        test Active VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/
+> >>> FRAME_INTERVAL: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_FRAME_INTERVAL: OK (Not Supported)
+> >>>
+> >>> Sub-Device ioctls (Source Pad 3):
+> >>>        Try Stream 0
+> >>>        test Try VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/
+> >>> FRAME_INTERVAL: OK (Not Supported)
+> >>>        test Try VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+> >>>        test Try VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+> >>>        Active Stream 0
+> >>>        test Active VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/
+> >>> FRAME_INTERVAL: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_FRAME_INTERVAL: OK (Not Supported)
+> >>>
+> >>> Sub-Device ioctls (Source Pad 4):
+> >>>        Try Stream 0
+> >>>        test Try VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/
+> >>> FRAME_INTERVAL: OK (Not Supported)
+> >>>        test Try VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+> >>>        test Try VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+> >>>        Active Stream 0
+> >>>        test Active VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/
+> >>> FRAME_INTERVAL: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_FRAME_INTERVAL: OK (Not Supported)
+> >>>
+> >>> Sub-Device ioctls (Source Pad 5):
+> >>>        Try Stream 0
+> >>>        test Try VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/
+> >>> FRAME_INTERVAL: OK (Not Supported)
+> >>>        test Try VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+> >>>        test Try VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+> >>>        Active Stream 0
+> >>>        test Active VIDIOC_SUBDEV_ENUM_MBUS_CODE/FRAME_SIZE/
+> >>> FRAME_INTERVAL: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_FMT: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_SELECTION/CROP: OK (Not Supported)
+> >>>        test Active VIDIOC_SUBDEV_G/S_FRAME_INTERVAL: OK (Not Supported)
+> >>>
+> >>> Control ioctls:
+> >>>        test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+> >>>        test VIDIOC_QUERYCTRL: OK
+> >>>        test VIDIOC_G/S_CTRL: OK
+> >>>        test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+> >>>        test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
+> >>>        test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+> >>>        Standard Controls: 1 Private Controls: 1
+> >>>
+> >>> Format ioctls:
+> >>>        test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK (Not
+> >>> Supported)
+> >>>        test VIDIOC_G/S_PARM: OK (Not Supported)
+> >>>        test VIDIOC_G_FBUF: OK (Not Supported)
+> >>>        test VIDIOC_G_FMT: OK (Not Supported)
+> >>>        test VIDIOC_TRY_FMT: OK (Not Supported)
+> >>>        test VIDIOC_S_FMT: OK (Not Supported)
+> >>>        test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+> >>>        test Cropping: OK (Not Supported)
+> >>>        test Composing: OK (Not Supported)
+> >>>        test Scaling: OK (Not Supported)
+> >>>
+> >>> Codec ioctls:
+> >>>        test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+> >>>        test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+> >>>        test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+> >>>
+> >>> Buffer ioctls:
+> >>>        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK (Not Supported)
+> >>>        test CREATE_BUFS maximum buffers: OK
+> >>>        test VIDIOC_REMOVE_BUFS: OK
+> >>>        test VIDIOC_EXPBUF: OK (Not Supported)
+> >>>        test Requests: OK (Not Supported)
+> >>>
+> >>> Total for neoisp device /dev/v4l-subdev0: 88, Succeeded: 88, Failed:
+> >>> 0, Warnings: 0
+> >>>
+> >>> Grand Total for neoisp device /dev/media0: 384, Succeeded: 384,
+> >>> Failed: 0, Warnings: 0
+> >>>
+> >>> ---
+> >>> Antoine Bouyer (11):
+> >>>    media: uapi: v4l2-isp: Add v4l2 ISP extensible statistics definitions
+> >>>    media: v4l2-isp: Add helper function to compute extended stats size
+> >>>    media: Documentation: uapi: Update V4L2 ISP for extensible stats
+> >>>    media: Documentation: Add NXP neoisp driver documentation
+> >>>    dt-bindings: media: Add nxp neoisp support
+> >>>    media: v4l2-ctrls: Add user control base for NXP neoisp controls
+> >>>    media: Add meta formats supported by NXP neoisp driver
+> >>>    media: uapi: Add NXP NEOISP user interface header file
+> >>>    media: platform: Add NXP Neoisp Image Signal Processor
+> >>>    media: platform: neoisp: Add debugfs support
+> >>>    arm64: dts: freescale: imx95: Add NXP neoisp device tree node
+> >>>
+> >>>   .../admin-guide/media/nxp-neoisp-diagram.dot  |   22 +
+> >>>   .../admin-guide/media/nxp-neoisp.dot          |   16 +
+> >>>   .../admin-guide/media/nxp-neoisp.rst          |  189 ++
+> >>>   .../admin-guide/media/v4l-drivers.rst         |    1 +
+> >>>   .../devicetree/bindings/media/nxp,neoisp.yaml |   65 +
+> >>>   .../userspace-api/media/v4l/meta-formats.rst  |    1 +
+> >>>   .../media/v4l/metafmt-nxp-neoisp.rst          |  114 +
+> >>>   .../userspace-api/media/v4l/v4l2-isp.rst      |   42 +-
+> >>>   MAINTAINERS                                   |    9 +
+> >>>   .../boot/dts/freescale/imx95-19x19-evk.dts    |    4 +
+> >>>   arch/arm64/boot/dts/freescale/imx95.dtsi      |   11 +
+> >>>   drivers/media/platform/nxp/Kconfig            |    1 +
+> >>>   drivers/media/platform/nxp/Makefile           |    1 +
+> >>>   drivers/media/platform/nxp/neoisp/Kconfig     |   15 +
+> >>>   drivers/media/platform/nxp/neoisp/Makefile    |    8 +
+> >>>   drivers/media/platform/nxp/neoisp/neoisp.h    |  270 ++
+> >>>   .../media/platform/nxp/neoisp/neoisp_ctx.c    | 2798 +++++++++++++++++
+> >>>   .../media/platform/nxp/neoisp/neoisp_ctx.h    |   85 +
+> >>>   .../platform/nxp/neoisp/neoisp_debugfs.c      |  503 +++
+> >>>   .../media/platform/nxp/neoisp/neoisp_fmt.h    |  509 +++
+> >>>   drivers/media/platform/nxp/neoisp/neoisp_hw.h |  577 ++++
+> >>>   .../media/platform/nxp/neoisp/neoisp_main.c   | 1999 ++++++++++++
+> >>>   .../media/platform/nxp/neoisp/neoisp_nodes.h  |   60 +
+> >>>   .../media/platform/nxp/neoisp/neoisp_regs.h   | 2501 +++++++++++++++
+> >>>   drivers/media/v4l2-core/v4l2-ioctl.c          |    4 +
+> >>>   include/media/v4l2-isp.h                      |   13 +
+> >>>   include/uapi/linux/media/nxp/nxp_neoisp.h     | 1968 ++++++++++++
+> >>>   include/uapi/linux/media/v4l2-isp.h           |   85 +
+> >>>   include/uapi/linux/v4l2-controls.h            |    6 +
+> >>>   include/uapi/linux/videodev2.h                |    6 +
+> >>>   30 files changed, 11880 insertions(+), 3 deletions(-)
+> >>>   create mode 100644 Documentation/admin-guide/media/nxp-neoisp-
+> >>> diagram.dot
+> >>>   create mode 100644 Documentation/admin-guide/media/nxp-neoisp.dot
+> >>>   create mode 100644 Documentation/admin-guide/media/nxp-neoisp.rst
+> >>>   create mode 100644 Documentation/devicetree/bindings/media/
+> >>> nxp,neoisp.yaml
+> >>>   create mode 100644 Documentation/userspace-api/media/v4l/metafmt-
+> >>> nxp-neoisp.rst
+> >>>   create mode 100644 drivers/media/platform/nxp/neoisp/Kconfig
+> >>>   create mode 100644 drivers/media/platform/nxp/neoisp/Makefile
+> >>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp.h
+> >>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp_ctx.c
+> >>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp_ctx.h
+> >>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp_debugfs.c
+> >>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp_fmt.h
+> >>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp_hw.h
+> >>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp_main.c
+> >>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp_nodes.h
+> >>>   create mode 100644 drivers/media/platform/nxp/neoisp/neoisp_regs.h
+> >>>   create mode 100644 include/uapi/linux/media/nxp/nxp_neoisp.h
+> >>>
+> >>
+> >
+>
+>
 
