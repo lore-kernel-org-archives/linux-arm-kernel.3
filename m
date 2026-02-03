@@ -4,90 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB91CE8B37E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 23:13:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 004C7E8B377
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 23:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hCOjNNMnUuznv6tosNTA/iIRiTXu2wBeg3Ia+sthXnc=; b=MkcFqxCFZC03779hVBsm10y000
-	PuoKC2lYcEh8uzP9f17Qoq+IIgW5lHJ0TIYGYi2OIgdA2d2mlcDYa8gxioF+wfiYywXkErkqdgKAX
-	NFUMOiw5EnvDM/X/hfuqH9C97eAJkou1/IM/syePURjA9GP0DBOpWiNErBSEJ2IUs/0ZvXOfln+p6
-	zuf6mHbeZm+Mz+IOibLqv9n2vfU2CX/PjICcypo9KocRa3qvu1lX2HZLOCrJoThS7i/XzXbs+Xe4R
-	kF6uGHSQTKYISP9JiJLvyHAV00ZrjyO5CsmD7/B1ApnpS7+0Ghmu/nlObQQHh8mdFWcHDCbqSojur
-	QgPGqZug==;
+	bh=Z7WOj5U2IKN4VeRDxxTLqwza/w2Xwu+5kotPhqdf6QY=; b=IZuBBXMY7vGZ+Ch7nWww4iV50u
+	5cjglTbo+iGiUjCpcgaEkGexfXm0UX3Pw02gYsuy34eKpm4kI18qtDXerjQdhVcls8ptL474qz0eZ
+	8zrLWUFWuXHsddxzV5EjFKZ6YVlizE6YMl7DH7hrfk6SyOqL1YbLaOYo+WSVwY/dz1E50OZ85QQp8
+	6fE5qaFflWQ6BoUP2MHm3kxAeqSIc1Ql8B9z8PCKS4dX/guqHuLWK4Sx1vXFyiXCYFsNio7WlaeFz
+	XQpTQ0qXuyYr7yh9LHxaA3fvAoaGgxdPW8B529RGX0bDjTMKO2da+nvfZI+IaXRiGrmWSVWoM/9y9
+	5JYmramg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnPZq-00000007Xfj-1DUl;
-	Tue, 03 Feb 2026 23:12:58 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1vnPd4-00000007Xxx-3gMT;
+	Tue, 03 Feb 2026 23:16:18 +0000
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnPZn-00000007XfG-3FGy
+	id 1vnPd2-00000007XxP-1TZM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 23:12:57 +0000
-Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-8230c2d3128so3343337b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 15:12:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1770160374; x=1770765174; darn=lists.infradead.org;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hCOjNNMnUuznv6tosNTA/iIRiTXu2wBeg3Ia+sthXnc=;
-        b=npyuiFMTUKA+MYfdP0Wg8DQFyb6VdF1UiurYJf0deiHIH/LbARARdZMNPYdjVHONZC
-         ISzwCWWyYQVNgrgiD1Hh5ql8/TROE/12EZuQkvIIP0ZECvi+rVsMnh5fb+ArXtyjeGrH
-         qnNa+8WQk+/akoyCjAl/uc8GUKEBJ6NxPnNC7QuRJ+Hl+8/34OCP0rEYqTH1wz/lpRYk
-         Mjbd0hycM0abipRyx5Fu1pttcWVdNhdHiXN0urCQwx94HZ/Ye5a4sJf2NG4+WSRVlFXB
-         fY8v/nVa8gGJ197P5v/AYDSP1RTWT9IFVVr2LvSuJOzhYIwTSUncqFEG94hXAdCg0NKo
-         a4CA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770160374; x=1770765174;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hCOjNNMnUuznv6tosNTA/iIRiTXu2wBeg3Ia+sthXnc=;
-        b=wSnvCjYoFW0Czmxi3rwLrFKuPW+6Wd6iUDj5Ini9mnvu2L/oCNLQNGlDnUUwiejazB
-         37XwP9YDIKVWRRla0yN/tZtNS4RoM0d+yzPDKkMBgUvsQGtuRlkYAfOrlygLQd5tgD8G
-         eKXHU+Q5WH6wRq4u9hYl4CMcXbRO/onkqULTuiCx6iAnwhIsYOYfF8MbpngZjc4QNCth
-         hNTKpOfXyIqIRC32pP177/+Y77hMP9IXoT7BEdy4e1XSXDsA84H77k/j3YPxn3liacYS
-         T5o3Y99OVWyAN1s2otWhHOQfxpIPvaRcdPIfcIpPTokzEA9D96p6Ek+UYazSRLz3Ynb2
-         8jaw==
-X-Forwarded-Encrypted: i=1; AJvYcCU8j3aADoKd89xIJwj9Pnggmoa4GgpVzxaKBiczGiUnI1lpPi/Qf26aE+I2BAkVyQwIcGpOU6AHstOGTJXWqvoJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGgs+YwwIkeUdgCACTaiO90GztFF6ecF3IYe4h0jM31hMdpU7I
-	h5Zb4MtYitMUmoC70h+rxv+a4M8J8nvbMjD6GLRgey4vBe3q/QCPwaf132Y+sjo2HDI=
-X-Gm-Gg: AZuq6aLcGkZh8yXZ+BrLtZ2yUyGsCZsfakZoppFyF7ok+75m1+oPMfIh/b6PVGUvQFS
-	bZG4jIonKVaGZ0cje6x93ugEzDz8D2JRDbmU4nBLg7l+CPbQaLhvpSIPC4QctMBCWTNUa2wDlAq
-	guHs28T/AgJxom26u5fOoMw1wHy8ckaPoWACAUCLAcUeE0VyVHmQJiLOyK5It9q6Ww77ErpUUqR
-	xYXlIqn8Mg+7wcLQCwmTKdLwMW/2zubJZ7C8RmQ6BEYnM3ZyTnHK7wKcft4B5EjNpjMDMX8zh/U
-	OTtoA8LTPwcYuvB3uQawWXFx+VrchnnlHQv4yfHaLTvQCoUILOtDBio4efWU3TKhP6akeOHpDzs
-	Eck0/9DbwJ0xulMdsta3IrrO7Q05zCnFai3njK1v2tAEWWnZYE6dBQOhbUT9UDn2pSPCfajjXHU
-	lYUwKrnMeK4pwR9N/O4Gg=
-X-Received: by 2002:a05:6a20:9185:b0:366:58cc:b74b with SMTP id adf61e73a8af0-393720cfdddmr966865637.21.1770160374489;
-        Tue, 03 Feb 2026 15:12:54 -0800 (PST)
-Received: from localhost ([71.212.200.220])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c6c84c70e08sm321672a12.20.2026.02.03.15.12.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Feb 2026 15:12:53 -0800 (PST)
-From: Kevin Hilman <khilman@baylibre.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>, Cristian Marussi
- <cristian.marussi@arm.com>, devicetree@vger.kernel.org,
- linux-pm@vger.kernel.org, arm-scmi@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC v5 1/2] pmdomain: core: support domain hierarchy via
- power-domain-map
-In-Reply-To: <20260127151735.GA1699112-robh@kernel.org>
-References: <20260122-pmdomain-hierarchy-onecell-v5-0-76855ec856bd@baylibre.com>
- <20260122-pmdomain-hierarchy-onecell-v5-1-76855ec856bd@baylibre.com>
- <20260127151735.GA1699112-robh@kernel.org>
-Date: Tue, 03 Feb 2026 15:12:53 -0800
-Message-ID: <7hjywtzaiy.fsf@baylibre.com>
+	Tue, 03 Feb 2026 23:16:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=c7gbmEVO+W+EGHXIXp83IfsGwDj8Lp1XgOEsSyVqmGKbxIyd4Z8N3fN/JH4a3vZl+V0TulfKqQ6naZmB+gSa6KMvIEBkyUH5/jFso8SDURfQaTFz28G059oui60BuZfEj1P6eFaJTQrbbB27rjcRk39fpOsQPtk/5Spc6uJ+QXFLQO6x67yvmrkvDSQK3hyU4ns97ayUH7VLubEkqEIkRjIO+9M5WRcTuKQ0ND7WajnZvIQsGJuQ4vTGprNwX9VTHo9y2Ozu4VB9Ys6oSq0ra1Jd9327W1zbv36hWZSURXwKSWZz6tOIqiFTaDICNkF/sf6wliDPxmoyBP4Btm94+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Z7WOj5U2IKN4VeRDxxTLqwza/w2Xwu+5kotPhqdf6QY=;
+ b=QTPmyNnAbe464QW0+oMeuD6qBFjv5vE8pkJVGCQZu++QSbWtc2fAbWba/wYN8kn+diGS+IZ6TJ/3AIRkt6PMvd4YVbiCbmk2idCcVEkbmxVvKS59xHnF/PY8cW/fg5NkG89tieZJRbY5YFXi6rzpD05EAVZ6U/eQWdCnFU98pp44v8/EPQ1CFAoWeGbuTGZMyaaeznvTwnI+AGg0INGVXXhKiynCel6mPZArqbYoLXCcT5YNrtXfppgPKTKn0aMSJLusjjbXuzUy8C/a0kDJ259okbpGb6gr5/u7rNXaR8oV3GsWSC2oW03YbYOm2uW8Km+hzztN21JvAM3TGwPkLg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Z7WOj5U2IKN4VeRDxxTLqwza/w2Xwu+5kotPhqdf6QY=;
+ b=c5dzd0VVdocdJKQX8lcspL4tOBm+iBSwjBsiYEro0RS0YUJeYZLAr4Z4aUrp4smeD/YdKLwPsZi1YrIHSmwAhKxP5ZclMR8xOyYG6xmKDzEnAMMfVYe/QfDeOfzA3V7FNPWZ/L9Z+Qhlj8j7PwRnAqkzoMQ/bXwKHdF4v8IljQgIDHhMdSFm9G1AvlopMqFOA3OLdlSpycY6KY10DQWJXEul3agePVJaJG5MraPQdzMHfTFNOq1RZrGDvHIHwuKiBHplC1mQkFskWj6Uzo4FIPY9ZeQyATUluYvBQXFTxg5O6imcg6K10M+z6ToZTg2XliS7nfUwK+/fZYAQKqH6hw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by DS2PR12MB9589.namprd12.prod.outlook.com (2603:10b6:8:279::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Tue, 3 Feb
+ 2026 23:16:09 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9587.010; Tue, 3 Feb 2026
+ 23:16:08 +0000
+Date: Tue, 3 Feb 2026 19:16:07 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, dan.j.williams@intel.com,
+	"Tian, Kevin" <kevin.tian@intel.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"praan@google.com" <praan@google.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>
+Subject: Re: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Message-ID: <20260203231607.GE3931454@nvidia.com>
+References: <69727e7ded712_3095100ab@dwillia2-mobl4.notmuch>
+ <BN9PR11MB527649A0049CA195E7BCF9218C90A@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <20260127150440.GF1134360@nvidia.com>
+ <69795d0366a9_1d33100d3@dwillia2-mobl4.notmuch>
+ <20260128130520.GV1134360@nvidia.com>
+ <aYGEDv86r4a6l2Dv@Asurada-Nvidia>
+ <20260203143348.GA3931454@nvidia.com>
+ <aYI0LUdXqrjmRcMo@Asurada-Nvidia>
+ <20260203175540.GC3931454@nvidia.com>
+ <0472f0f6-2f13-459e-857d-d5003f2f0ac4@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0472f0f6-2f13-459e-857d-d5003f2f0ac4@arm.com>
+X-ClientProxiedBy: BL1PR13CA0243.namprd13.prod.outlook.com
+ (2603:10b6:208:2ba::8) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DS2PR12MB9589:EE_
+X-MS-Office365-Filtering-Correlation-Id: 768939c9-cfbf-4548-651a-08de637a3698
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qTyRa8nxyAUYqh/bJuQMFvV+yWDOO2CvXeks0RPduIYLorhjgUrMYB78zM8d?=
+ =?us-ascii?Q?kcw1FdFh8Ls1rLPHaXjSk86mMCpAjS+O06PCWsr4TUgvU7PSFff90zjzsa3x?=
+ =?us-ascii?Q?GA6Ao8OtUvnQ4eB6N7bOPq5Kw0gi0kXmMb/7QYjolnVSSsKyB7MxPE+lk7ap?=
+ =?us-ascii?Q?M2ODVLwFDyz1G6MTbV3o/9Bp+pw/DJmWI0+XB2tW0QnDxMqfz3ywxshXqrgu?=
+ =?us-ascii?Q?7FSSxmszbVrrvwCE/kCFd/8P3lxX7E7wNJ4nBthAiPXhNTaI7ejFaD4a4Z3D?=
+ =?us-ascii?Q?9pGd312BVJ39kUg4YkGHR8ba3saCIYUlEDifkEwjxme8/5cAk/Msyxkrzu0Q?=
+ =?us-ascii?Q?gM/0qYJx4c3OAdhNe+MNErUreTP+pgFUSeyGp8C5tGG12egDa9mWKePVAxJc?=
+ =?us-ascii?Q?llNNG5vqXlA+3HGp8vw2SGMWPc3m3owI/Z8/AandI2NZoXs/GzQe85C4wVAS?=
+ =?us-ascii?Q?9Y9zzjHzSfTSY3GPkc/V7CGpNSGAh5zcyl+LboQ1YKdJ0UyV43vRDukzKXwO?=
+ =?us-ascii?Q?t8xUykhjou0vWaw0RSdz/bT0CWaa9uwvZbr49LqlF6pyUGzQsqgvgjlclz5F?=
+ =?us-ascii?Q?CUepJlULamFCKdU8Hq+6jaQBQG3QFJmMLdUP7vJBEM1+9BVKCshZT6p1rRze?=
+ =?us-ascii?Q?2cqpLh/r32+jvB0oU0IFw+T6ZDKd2J9ol3am+iAkRLCszEwMW8cQ9ap3PESw?=
+ =?us-ascii?Q?jx8/5GxMHNtYCb2ytNxU9iNmOBDVstceNhbPc1O4fXsZ+3rF4iIuFNSgs5QY?=
+ =?us-ascii?Q?dJOakCPEB4/aMJLwyWAh69hSbNIx+eFx4Yzy+ihmKDQLdiMQhQ6Ledy0sbxS?=
+ =?us-ascii?Q?2kHaabFu6v/ffl+YkBFrLLOUEkzCoqZwITXfs8iqyntFWHMNuF43up7NZujN?=
+ =?us-ascii?Q?VPG4fhG2ZBdva6xBTBNnQ1w9surTIYArGjFdoVUnv5p8ntmcaeyFHhoZzMoo?=
+ =?us-ascii?Q?jl2KHjuB3oatDK5HO1htIPLfWQrUG2pNk3bQYlH9vMmsbOGKxrlJlr2wu5oH?=
+ =?us-ascii?Q?mm8UfnSwCgezWjGcKJuoJtTixt4FVq82XonyC2SvNmmrbDotd9FFGJulfqwl?=
+ =?us-ascii?Q?XzT90MmNnlJmfD+nhvBa8zxg11owDBg8cyGCqmf0GqzayCoxdG1vAIC8UYoN?=
+ =?us-ascii?Q?ORdH4qXhco+AdjhHyoRnVKQD+SPGqgJPhJYGc08DlWKy4AfX7lQdKcCqjAFZ?=
+ =?us-ascii?Q?A5w3nZzEMm7ABI+IUfm6q2Isuadd/tUDIzgA40dq4T2e3OjOWpVOLSSEClfR?=
+ =?us-ascii?Q?XJkokfbFVI5tMckkpMKS4VCP1eV+ecuxYGxYdR2DOsuXV62se41OWOaNDmpq?=
+ =?us-ascii?Q?FxoYIgIBgAjCLGwC1vNj2zrlKRg4Lye8My0kDgseTp53aJ1YeM5MEQrKBghh?=
+ =?us-ascii?Q?m3JEGTL79R1quopJ3Ixkl/kdRealOLF8KPWJgN5VudQM2H5qJdf/IgHta2mn?=
+ =?us-ascii?Q?h7kv7ladJiLCY0RyX4RH+6d9ohtsVIzwc8DrlX3qy7j8b2ewdsclzRNoSxlS?=
+ =?us-ascii?Q?Lf+s+oELjl5otfLAylD6kOcsM6a/tA4x5XXaATAFeJwHVqLmV1mXKuUI6YY4?=
+ =?us-ascii?Q?irho4FWvx66dL8tCJl4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?g0H2SD0rqoca4jP7ZaGonSuKYb5qu1PDswJK7JOW8z4PghWKviLVVOE+kdFl?=
+ =?us-ascii?Q?z5Gm0XepIbPc4B6peCVccAlaqEfkL4oHDQ2Rh4qMKT6S0bNEVgI+2J0heveH?=
+ =?us-ascii?Q?1jLODBAN46ftO4QLy/I2Ef7Le3BQo1/05oDQb0UY/MmcgEFKD2kyFmTXt0MX?=
+ =?us-ascii?Q?EufyNRWIuGzSynRvNs4ohmkCFmiojCyHyNv7Am9gpmHpCOIwypivanxU10/R?=
+ =?us-ascii?Q?szzhuMy1VjvlNrEH1pzsohwIkF8FwsFOzQ8RUyKP0njorggeu2K6OMhPFxQm?=
+ =?us-ascii?Q?mba42v2A9JAlmyvn5HXjEEDFXAI1T2yie/vrpybsoQhRTJGbLTCnvscQUiiT?=
+ =?us-ascii?Q?oyyKOtuZWN6MXHyS7TU3san3PQESYzbBTADvtbPRoNcUt2Q2RwCOtu8scr+B?=
+ =?us-ascii?Q?SQa7F0wn9uMtsnHmP2apmElEWDXwCINAFRQmig1nyvPTS3/2+RdVBpBneL4o?=
+ =?us-ascii?Q?Myy5AjTOP3iAAJ3M3+coDOC7auY1L2HHHPZNRVx4IC2fOlZYhxZONZI59J+4?=
+ =?us-ascii?Q?hwQptcD7PJjnOYIssIyv37+ru2VqjDxe7Br7RHYiQ8J3FLvffww4o3O6ZKWS?=
+ =?us-ascii?Q?rCHGs6fw7s2WQAaiOWtkBL3f8KEe3uhuXuDf6LA1lNxi6+nUe4b3cxkWl/2p?=
+ =?us-ascii?Q?hvINuzijd82bBV5ucbieHUlKD1Z/PSKHoZZVu4uC+hLktPPr65nhmu7lrgsE?=
+ =?us-ascii?Q?S0N7QtB4fh4JLcN/G67hre7AbM8AlgV37tEs+6jGcceS9F2qdHM+18gCEDtT?=
+ =?us-ascii?Q?pKE0vufDylkFUb/5Rgw4heGSz/sPp3cGP3YGrDIXk3+Z2Y4sV8U3wDnTu0vs?=
+ =?us-ascii?Q?z8xrLyhBGPQXlz6y8pX0FsD5DgE3yD7F7XdkB0P0EqjtrBbZOnD7dDOyTeJI?=
+ =?us-ascii?Q?Km+dJ5fVwWWW1IpTvgCr/GIvVQvKb3+WhpkCXk2LP8ukxzuKCs6AT9TuH3Xi?=
+ =?us-ascii?Q?7Rb9WVvB3249MIrXG8W3RDWFZgsPiKURNbCXuQZ//QmmCyCMfthnbG4KxjNJ?=
+ =?us-ascii?Q?nOJ6a3z1376G/uK+EAd8zlRs91o9avpr1Wn/2r4yePDZX6j6C7Dc6yMPPM3V?=
+ =?us-ascii?Q?AfkgoVwv8Rjcm2RFL2S7auPF88WfoeJAEv1nVcpky7n7566sOqEYcgaxLxI0?=
+ =?us-ascii?Q?j7uiDrZlI9J0Bv3XQW8SiRC34ew/JpdowPDXyzN21uqkEIkxEpA4EWV9uIXO?=
+ =?us-ascii?Q?z6rGVwX5HScDW5LEmkRmlJNGWbB1TyGjbb6+1Qx5aHGv7YzTHC2HNQ+WxnPb?=
+ =?us-ascii?Q?E9kjyV0JUNcv9G7gIP8z+mrW2jG9v7Zh2rtuvOZFdhsgoNI3W0rB/DCJ7YqZ?=
+ =?us-ascii?Q?t5zEGQMUp8uY4ITYy6a9l5pP/G+r3/obZS100ydEK41aggZ1snR7U9t9QlLB?=
+ =?us-ascii?Q?yG6vz/HHSkyAlXZCeZ0LQmmuka/uArHq3HCXBnEryoFAJ2PLB3TGavyjZBX/?=
+ =?us-ascii?Q?eBjWR52UfpCq/bqzSsmnCBvLyTyKs4S91T+uHVsZrYtVHMAVY8C/IED7GbgU?=
+ =?us-ascii?Q?miB4duHWWQaUsEJy8R2s9We95DQJirk6X/vtUrCj8/r6ypKCMKr4FPbJ8ilh?=
+ =?us-ascii?Q?Jx+1SpKm6/Wr8/yKStHFQhc1JHe/wDDNwgYjlLjnBikc6vxHcKW/nJ+sbngR?=
+ =?us-ascii?Q?Bvru+s+vS+cHcoiKZ8xvgJSh9JxSK+bXn66YlBO44FNTB4XrLrIiiBpKINXt?=
+ =?us-ascii?Q?hO6vxTnQhwLcd3d+owG1YVY3e7JoQeCWDXt8vX/JEDAc17G+3PLDA0+z6hXB?=
+ =?us-ascii?Q?LCChyZNtAQ=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 768939c9-cfbf-4548-651a-08de637a3698
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2026 23:16:08.8654
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Cb3bgv8UN2bo3o+oCvMo9MgDX6iyQrorxw1v1FIk1oQLHUkqJrybnKiMmTOxpYzF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB9589
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_151255_812626_FFC8CA09 
-X-CRM114-Status: GOOD (  20.24  )
+X-CRM114-CacheID: sfid-20260203_151616_416250_19060FEC 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,70 +183,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rob Herring <robh@kernel.org> writes:
+On Tue, Feb 03, 2026 at 06:59:35PM +0000, Robin Murphy wrote:
+> Realistically this combination cannot exist bare-metal, since if the device
+> requires to send ATS TT's to access an RMR then the SMMU would have to be
+> enabled pre-boot, so then the RMR means we cannot ever disable it to
+> reconfigure, so we'd be stuffed from the start...
 
-> On Thu, Jan 22, 2026 at 05:14:00PM -0800, Kevin Hilman (TI) wrote:
->> Add of_genpd_[add|remove]_subdomain_map() helper functions to support
->> hierarchical PM domains defined by using power-domains-map
->
-> power-domain-map. No 's'.
->
->> property (c.f. nexus node maps in DT spec, section 2.5.1).
->> 
->> This enables PM domain providers with #power-domain-cells > 0 to
->> establish subdomain relationships via the power-domain-map property,
->> which was not previously possible.
->> 
->> These new helper functions:
->> - uses an OF helper to iterate to over entries in power-domain-map
->> - For each mapped entry: extracts child specifier, resolves parent phandle,
->>   extracts parent specifier args, and establishes subdomain relationship
->> - Calls genpd_[add|remove]_subdomain() with proper gpd_list_lock mutex protection
->> 
->> Example from k3-am62l.dtsi:
->> 
->>   scmi_pds: protocol@11 {
->>       #power-domain-cells = <1>;
->>       power-domain-map = <15 &MAIN_PD>,  /* TIMER0 */
->>                          <19 &WKUP_PD>;  /* WKUP_TIMER0 */
->>   };
->> 
->>   MAIN_PD: power-controller-main {
->>       #power-domain-cells = <0>;
->>   };
->> 
->>   WKUP_PD: power-controller-main {
->>       #power-domain-cells = <0>;
->>   };
->> 
->> This allows SCMI power domain 15 to become a subdomain of MAIN_PD, and
->> domain 19 to become a subdomain of WKUP_PD.
->
-> One concern I have here is generally *-map is transparent meaning when 
-> you lookup <&scmi_pds 15>, &MAIN_PD is returned as the provider. It's 
-> also possible to have a map point to another map until you get to the 
-> final provider. The only way we have to support both behaviors is the 
-> consumer has to specify (i.e. with of_parse_phandle_with_args_map() vs. 
-> of_parse_phandle_with_args()), but the consumer shouldn't really know 
-> this detail.
->
-> Maybe a transparent map of power-domains would never make sense. IDK. If 
-> so, then there's not really any issue since the pmdomain core handles 
-> everyone the same way.
+This thread has gotten mixed up..
 
-I don't really know enough about potential usage of maps to know if
-there's ever a usecase for transparent maps.  However, the problem I'm
-trying to solve is less about transparent maps, and more about
-describing hierarchy in a situation where "leaf" domains of the same
-type (e.g. SCMI) can have different parent domains.
+First this series as it is has nothing to do with RMRs.
 
-When I first proposed this[1], I didn't use a map, but you suggested I
-try using a map[2].  So I'm not sure if I misunderstood what you
-proposed, or if now that you see it implemented, you're second guessing if
-the map is the right approach.
+What the latter part is discussing is a future series to implement
+what I think MS calls "boot DMA security". Meaning we don't get into a
+position of allowing a device access to OS memory, even through ATS
+translated requests, until after userspace has approved the device.
 
-Kevin
+This is something that should combine with Dynamic Root of Trust for
+Measurement, as DRTM is much less useful if DMA can mutate the OS code
+after the DTRM returns.
 
-[1] https://lore.kernel.org/r/20250528-pmdomain-hierarchy-onecell-v1-1-851780700c68@baylibre.com
-[2] https://lore.kernel.org/r/20250528203532.GA704342-robh@kernel.org
+It is also meaningful for systems with encrypted PCI where the OS can
+measure the PCI device before permitting it access to anything.
+
+So... When we do implement this new security mode, what should it do
+if FW attempts to attack the kernel with these nonsensical RMR
+configurations? With DRTM we explicitly don't trust the FW for
+security anymore, so it is a problem.
+
+I strongly suspect the answer is that RMR has to be ignored in this
+more secure mode.
+
+> However I think there would be no point exposing the ATS details to
+> the VM to begin with. It's the host's decision to trust the device
+> to play in the translated PA space and system cache coherency
+> protocol, and no guest would be allowed to mess with those aspects
+> either way, so there seems no obvious good reason for them to know
+> at all.
+
+If the vSMMU is presented then the guest must be aware of the ATS
+because only the guest can generate the ATC invalidations for changes
+in the S1.
+
+Without a vSMMU the ATS can be hidden from the guest.
+
+Jason
 
