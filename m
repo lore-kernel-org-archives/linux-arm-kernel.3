@@ -4,81 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FFB3E8783D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 14:42:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB592E87839
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 14:51:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JImBtx2rleM56GexehanlSHjvETbI+zQg7hACbfsRAk=; b=JrhyzUun7jQOKhLbFDCKGE3x1E
-	FtZfLhmcxlaz0cn5eiPoVX9kYv85CSTuDx4PjSGqtrzSq2kErzvmrT+JUO65MXkIcwylNsX07X9Az
-	QplBV2yYC73m5vyUuNhxDztBCqp2nT1gP/zN5G8BJbamSc6TrcMehCdJxbZ5il7u8/aDdWttOrIk6
-	4P0K6FQ9OufM2uM/lCVNrrSWH0L+dwSZ1dgSDbQ35frw4I79Ih0AIywlxTSPGWxO19jVBgGmYSPC1
-	VaH9wjqGhdsYOe4sBkoDTroHB5fyEsRj0Krg4IfvQZ6qFxnzHAM/68nT6PFfdrWwWkLonB4tYdO6f
-	11QGkPMw==;
+	bh=gVDbMP2h4x/mUb6G2s8x3K2KoBv6D/1Du/nOa/GGM5s=; b=E+Srb0Zd0nTSg/ZhtPvNMsq7x2
+	bZKKvBpOAUuW3AGV6s50Fo2G+GkYcslpqG343GbXoay0EgQEk6XJAFzxp7Axn0KZpwo6/D9+2PLtR
+	rffUa2Kg5B2e4MeL5di97MiJnG8goqg1m7EyF6wmUvnvaaHT/qDP61xUAo2t0hO9/GaLjUckeBcCU
+	XdjWOkShTiaerVnMbZ78GzCGTvVfaAleN8CIU2kMPQNQiQPCZ7P4Bn51lnfnBEGLuhWMbaTRQNWJQ
+	AOdwfPxirF6ATX4MA2suo9EmdZlzjuWpiMZxljaqpkqCDjOX1BlhmId9on5mOvwtpOwc6gj/fnJ0u
+	Gg2el2/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnHc6-00000006mjR-1NW8;
-	Tue, 03 Feb 2026 14:42:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vnHkp-00000006nCG-2qtj;
+	Tue, 03 Feb 2026 14:51:47 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnHc5-00000006mjG-2rXj;
-	Tue, 03 Feb 2026 14:42:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BB9B160132;
-	Tue,  3 Feb 2026 14:42:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8CC1C116D0;
-	Tue,  3 Feb 2026 14:42:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770129764;
-	bh=5ezdefhGyTXcbjuTpqXROio3/fvSXh9q7JAF4cMtYiw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PPJ3309dmaWJP+2oPYosTZ8pHHHNaWduhQLA6Y1f2PFNkz5zGqmiRSrPnKMWMNTvl
-	 gQq38H6X9pL2JP83mWhHokUuv0ddj1LEaWfZOXSq5QnqjTMqhzpu5HOHFawV5qWxk2
-	 kGaDsgcA6sRmuP+5wXBw35FvNpAjt8q4DHZZWbQ7bEfEeGTs/G18M1e1rrAxLymKBj
-	 N4ypTDLIO2EuoaW1fiocyST0Hba2gmCqn3AsIVvFsUko88G5fGRqe3+uas/vf3jzON
-	 zWMhPYcWtexyipq7u4afqy1tB2pHnOxFoTRWvh5JN0FruWPJRIs+DBhIpjZ7JYVlz1
-	 bz2en7O0FYuEg==
-Date: Tue, 3 Feb 2026 11:42:41 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Shimin Guo <shimin.guo@skydio.com>, Yunseong Kim <ysk@kzalloc.com>,
-	Athira Rajeev <atrajeev@linux.ibm.com>,
-	Quan Zhou <zhouquan@iscas.ac.cn>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>,
-	Dapeng Mi <dapeng1.mi@linux.intel.com>,
-	Thomas Falcon <thomas.falcon@intel.com>,
-	Blake Jones <blakejones@google.com>,
-	Swapnil Sapkal <swapnil.sapkal@amd.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	Howard Chu <howardchu95@gmail.com>,
-	Anubhav Shelat <ashelat@redhat.com>,
-	Aditya Bodkhe <aditya.b1@linux.ibm.com>,
-	Chun-Tse Shao <ctshao@google.com>, Andi Kleen <ak@linux.intel.com>,
-	Dmitry Vyukov <dvyukov@google.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 0/6] perf Cross platform KVM support
-Message-ID: <aYIJYVp6T4ClBw0M@x1>
-References: <20260131200224.1296136-1-irogers@google.com>
+	id 1vnHkm-00000006nAr-32iT
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Feb 2026 14:51:45 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4806dffc64cso44198995e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 06:51:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1770130302; x=1770735102; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=gVDbMP2h4x/mUb6G2s8x3K2KoBv6D/1Du/nOa/GGM5s=;
+        b=FEj9prLwN9F8Acvtb4AWjF9sQkGlLx30COTgfrivDNI65dCN0rlngEk/SXshALMNZV
+         g1Xn596C3BJNWJ5Av8zOFD+ngcGPteJRxETNEg9wI0JyoAKgrUW1MMgcZT/cdVveuDms
+         JKSiY/wwelGC66D4FBxeKHxqgu59BaUR2DFD7K5egDJ7REs/LPEKZZ3iNu2N7TVa4oNV
+         DU56gM02HlDMBpSEJu9gzv+snl3rpqzrcUTL43Ei+10THFAXTQjpXOMGJZDza4LD8cD+
+         OHFeK0Y8oiqovxNoQb45DTl//jM3xwtXP0nbF5bKw0koxTqOEFKqNcPvQAxZiwO5uPpS
+         hkXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770130302; x=1770735102;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gVDbMP2h4x/mUb6G2s8x3K2KoBv6D/1Du/nOa/GGM5s=;
+        b=Z4KeDF5+Ys/QmMCDS3l/BIGuzEAdGrgLa0f/CGhz0PWb5sLleGN+eoTffI8iOtz+Zl
+         z7t1f8DuLPjugH/hNfiPqUbenFiV5wWQk1qliJxBi9WJGDZS3RNt/24x78Ac/WQ/CrUq
+         O3mXH84jxQSnpJxe/Ps1mRAH7UF9lX5RT53frpoE/GyDNCSwkbi8iKJ7hrbEBKCkN6jx
+         awV8QITIJ1NcdbtRRl1K1qydnatkevLOBUksCwMU1hf6722w8e35jAllTMYNWzkQJFS3
+         +MjgdxtQHviaHEkSvguoAK2Ce3L39JTl4WmWqZTT2yuUSd6ZvyCz5+JAv2lQPHYOQq6X
+         6xgg==
+X-Forwarded-Encrypted: i=1; AJvYcCXkGqA+lo5uguEqffraYpYnUwnKuHopIa5t5NEEIpSxRWuq3keTEZXbvmrOW8Bl1dTUiVcH/Z8XYhkX5iKZEiSu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyn+8gey6UoJgS1nOlxerx5YE8/zM25O1nkRDou77nVd4FdZljR
+	e6elZIS2wnRe0nW3pbzZfMMbQLAmASAeLUIycZECHpLnk5LIKGAl+d4lj4Nqvj4YDGU=
+X-Gm-Gg: AZuq6aJ09CurLKP9FDU1/wVnWZEU5SqM7Sv6O0fO38DmMI9jdFc8Uvovkie8VwPkUWe
+	a0et4LRQqmfIQTz8ftrIR6Sb2a48SF5sjkbLXICAJtr7rswKL6zL4uPMRgXT/9+JsVF7tZ36j86
+	jHohqu5/0wxquZB4ZomEF/2DFeWcbfDXCKcnwH6AKKvBca3vyQ9mF/QEwU6VyWIX4djLpfmUROA
+	o9hsJ8raD0Oc8P5m4yTzbXE6CJQfW7S7ft7Dy60Uu+PC0Up6a1OqNgctjrVzkDubdKUofrDOe3m
+	dyzBw9N61MKiLNgcgabfEyvkfBpllyAMEg52ihGoNcUh3cARCfXVRubMpTAeDsc2gcuVK+hdl7y
+	F3LhrCVL9auCaIvE4xDjfcPmPUnDG0Ez//3scZ5dRoI3cwhIKSFyNzfSr/U/YKm0vOWisuRwGJM
+	vaquKryDQDFbZYg3a8
+X-Received: by 2002:a05:600c:859b:b0:482:df17:bbbc with SMTP id 5b1f17b1804b1-482df17bd2cmr154388865e9.20.1770130302262;
+        Tue, 03 Feb 2026 06:51:42 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-482dffd47c2sm121508595e9.0.2026.02.03.06.51.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Feb 2026 06:51:41 -0800 (PST)
+Date: Tue, 3 Feb 2026 17:51:38 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Chester Lin <chester62515@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	imx@lists.linux.dev, Jakub Kicinski <kuba@kernel.org>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Matthias Brugger <mbrugger@suse.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, linaro-s32@linaro.org
+Subject: Re: [PATCH v6 0/3] s32g: Use a syscon for GPR
+Message-ID: <aYILejxAJef9F8bn@stanley.mountain>
+References: <cover.1769764941.git.dan.carpenter@linaro.org>
+ <bdb7cd69-7dcd-4e8a-b04a-14a2eb902311@redhat.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260131200224.1296136-1-irogers@google.com>
+In-Reply-To: <bdb7cd69-7dcd-4e8a-b04a-14a2eb902311@redhat.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260203_065144_788757_8B2722FF 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,84 +115,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 31, 2026 at 12:02:18PM -0800, Ian Rogers wrote:
-> The existing perf kvm code is using the arch directory, which means a
-> data file can only be processed on the same machine type that it was
-> recorded. Switch to using the ELF machine of the session at runtime to
-> set up the KVM support, making it cross-architectural. So that the ELF
-> machine number is available early in initialization add it to the perf
-> data file header.
+On Tue, Feb 03, 2026 at 12:18:54PM +0100, Paolo Abeni wrote:
+> On 1/30/26 2:19 PM, Dan Carpenter wrote:
+> > 
+> > Dan Carpenter (3):
+> >   net: stmmac: s32: use a syscon for S32_PHY_INTF_SEL_RGMII
+> >   dt-bindings: net: nxp,s32-dwmac: Use the GPR syscon
+> >   dts: s32g: Add GPR syscon region
 > 
-> v2: Wire up the perf data header to have the e_machine and allow early
->     initialization of the KVM operations based upon it.
-> v1: https://lore.kernel.org/lkml/20260128074106.788156-1-irogers@google.com/
+> It looks like patch 3/3 depends on 1/3 but it should land in a different
+> tree, as patches 1 && 2 looks suitable for 'net-next' and 3/3 should
+> probably go via the arm/freescale tree.
 
-Thanks, applied to perf-tools-next,
+Yep.  The driver needs to be updated first before the device tree.
+(The new driver is compatible with old device trees, of course).
 
-- Arnaldo
- 
-> Ian Rogers (6):
->   perf test kvm: Add stat live testing
->   perf kvm stat: Remove use of the arch directory
->   perf kvm: Wire up e_machine
->   perf session: Add e_flags to the e_machine helper
->   perf header: Add e_machine/e_flags to the header
->   perf thread: Don't require machine to compute the e_machine
 > 
->  tools/perf/Makefile.config                    |   4 -
->  tools/perf/arch/arm64/Makefile                |   1 -
->  tools/perf/arch/arm64/util/Build              |   1 -
->  tools/perf/arch/loongarch/Makefile            |   1 -
->  tools/perf/arch/loongarch/util/Build          |   1 -
->  tools/perf/arch/powerpc/Makefile              |   1 -
->  tools/perf/arch/powerpc/util/Build            |   1 -
->  tools/perf/arch/riscv/Makefile                |   1 -
->  tools/perf/arch/riscv/util/Build              |   2 -
->  tools/perf/arch/s390/Makefile                 |   1 -
->  tools/perf/arch/s390/util/Build               |   1 -
->  tools/perf/arch/x86/Makefile                  |   1 -
->  tools/perf/arch/x86/util/Build                |   1 -
->  tools/perf/builtin-kvm.c                      |  73 +++---
->  tools/perf/builtin-report.c                   |   4 +-
->  tools/perf/builtin-script.c                   |   6 +-
->  tools/perf/tests/shell/kvm.sh                 |  30 ++-
->  tools/perf/util/Build                         |   3 +-
->  tools/perf/util/env.h                         |   3 +
->  tools/perf/util/evsel.c                       |   6 +-
->  tools/perf/util/evsel.h                       |   1 +
->  tools/perf/util/header.c                      |  33 +++
->  tools/perf/util/header.h                      |   1 +
->  tools/perf/util/kvm-stat-arch/Build           |   6 +
->  .../kvm-stat-arch}/arm64_exception_types.h    |   0
->  .../kvm-stat-arch}/book3s_hcalls.h            |   0
->  .../kvm-stat-arch}/book3s_hv_exits.h          |   0
->  .../kvm-stat-arch/kvm-stat-arm64.c}           |  43 ++--
->  .../kvm-stat-arch/kvm-stat-loongarch.c}       |  48 ++--
->  .../kvm-stat-arch/kvm-stat-powerpc.c}         |  61 ++---
->  .../kvm-stat-arch/kvm-stat-riscv.c}           |  42 ++--
->  .../kvm-stat-arch/kvm-stat-s390.c}            |  38 ++--
->  .../kvm-stat-arch/kvm-stat-x86.c}             |  44 ++--
->  .../kvm-stat-arch}/riscv_trap_types.h         |   2 +-
->  tools/perf/util/kvm-stat.c                    | 215 +++++++++++++++++-
->  tools/perf/util/kvm-stat.h                    |  70 ++++--
->  .../scripting-engines/trace-event-python.c    |   8 +-
->  tools/perf/util/session.c                     |  62 ++++-
->  tools/perf/util/session.h                     |   2 +-
->  tools/perf/util/thread.c                      |   5 +
->  40 files changed, 606 insertions(+), 217 deletions(-)
->  create mode 100644 tools/perf/util/kvm-stat-arch/Build
->  rename tools/perf/{arch/arm64/util => util/kvm-stat-arch}/arm64_exception_types.h (100%)
->  rename tools/perf/{arch/powerpc/util => util/kvm-stat-arch}/book3s_hcalls.h (100%)
->  rename tools/perf/{arch/powerpc/util => util/kvm-stat-arch}/book3s_hv_exits.h (100%)
->  rename tools/perf/{arch/arm64/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-arm64.c} (62%)
->  rename tools/perf/{arch/loongarch/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-loongarch.c} (77%)
->  rename tools/perf/{arch/powerpc/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-powerpc.c} (78%)
->  rename tools/perf/{arch/riscv/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-riscv.c} (57%)
->  rename tools/perf/{arch/s390/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-s390.c} (77%)
->  rename tools/perf/{arch/x86/util/kvm-stat.c => util/kvm-stat-arch/kvm-stat-x86.c} (88%)
->  rename tools/perf/{arch/riscv/util => util/kvm-stat-arch}/riscv_trap_types.h (96%)
+> We either need explicit ack from freescale maintainers or this should be
+> split across subtrees, right?
 > 
-> -- 
-> 2.53.0.rc1.225.gd81095ad13-goog
-> 
+
+regards,
+dan carpenter
 
