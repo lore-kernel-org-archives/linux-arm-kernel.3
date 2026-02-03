@@ -4,87 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD06E8B363
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 21:09:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 580CDE8B368
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 21:44:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oOaC7ZgINNg0twPrRky8t1EuRrSsqF9vkFHbkRc80e0=; b=ueJZbbbFAAlSxJDnm/wpdNwdIA
-	pY23pdvKwGSVUbG6QD6LwxfZkIXPOK0H+djvzbqjSrlt7RSUCgmMLaMOp2JK6CVgSK90Tpd1NqarW
-	j4yMQeRGNIjDNjGtrjLiIBB1fpwbg6dFhJNCykkFEcvwaHCJeUcZ68lPJQdcR4P7UsnDLPYBziD4n
-	VZw0yRxz+e0ixeTKZu5FkU3Uh0bKj7BBkf5AIYQM+/KgzZaQ5n2Q21B9S5oA+oIJVLsUSet9ip5QU
-	IYERSgjradRLx1FFMHiq3YQ37wi37VkiOs9gF/uZ2k/qGHQZzbCu+6PIkyaExsIzVDg3qkcwG2bn/
-	FHi4JFZg==;
+	bh=kVVhYwAB50AWWIaraddEfMSRrDKPDH7uRzDSlCjkop8=; b=s1Venvn0Ecuf/sIUSG22z+sTc/
+	Lb1quRqPp9ZBMsDxaG0oPqPZTs+pqvHHFE7Utu9AyNicus8QF5gO3DAnfhOMx3c1vNv/ndtl3k0mY
+	rDFnJbx57vTyN0cKPbcsc12W3vDrpCN4UghbJps7eaK95fV6flh9cbliS2aYqkU4nnRmQJYcKmjx9
+	b/6UCT7ED5mZQ2oEA2nPOOblNb2e0jXDDTwcxLQyGl6d37tBIS4IJhAxi4QGOM0a/yE3pdmu1KHgc
+	mI+7E8US8ukF51bHq7xW1+wP3dR0QTWDyjm4tk/V2pz1+AklaCkR8YQhi1WUBPJyXhoMfIyuf0jPG
+	8qEYlJ7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnNdn-00000007MNo-3DNC;
-	Tue, 03 Feb 2026 21:08:55 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnNdl-00000007MNS-2Pb6
+	id 1vnOBq-00000007O4o-1w4b;
+	Tue, 03 Feb 2026 21:44:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vnOBn-00000007O3f-15fH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 21:08:54 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-48068ed1eccso56095455e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 13:08:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770152931; x=1770757731; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=oOaC7ZgINNg0twPrRky8t1EuRrSsqF9vkFHbkRc80e0=;
-        b=L4ZawwVvxSYB3kV3FtN9Vm+i02NObYawF327WHScpCpRJ9klVdQITkteVRBO/DR1QT
-         dN7EzGcGhE5qAmeNxxi25FazV9gF+g8+mBt+AG394/AZI7sjnYXiqBrexElnkf+8Zkdd
-         YXbEitgRwvH1o2lXR95Cs3dONUNEW9d3v3YqhnLihSJ4JpPX8QvaRe/kca1ibL507gLX
-         lkOBdBrbAzaUQ/fjQmkUJEqIHpAWiPIZOzJlHm5EgSB/zNtB0I1XMQ8wc8Kjid3XbzTZ
-         2GQFuJxLiQQFzzf9xoybPbnplg77Gvuw4gC3/JwhnXpE/WkOO851M/t+2MKexVgTADrg
-         WcUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770152931; x=1770757731;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oOaC7ZgINNg0twPrRky8t1EuRrSsqF9vkFHbkRc80e0=;
-        b=CuTjudSNpdsos90nphz2sgE6ZxV1e/CXW6wnnPA0ourfYsovqBgshAny4PjwzIMG5q
-         bszV787evp/944175LzYnsG8Vx4/hGb3u62VPCYgLULOdkLHNY39/cqSv24lwFLX6Lzz
-         +cSW4dvIbIMrWIXQoJT8LBrbCj+FtyXqpwF4Zj19w1n0mrlXaYC70PchYiK7J4THaKdf
-         24KT0mLKbSXzFLBQmfL1FNTtPfK0toNL1Xa/qyqAwuKuneFlBbO2pcPI4zf2DImCNhab
-         Yj2IyJppp+66P6C4pGqJ70yDij6JpiGqKrSbKzMPOmIHYzmKc1nGaXok2BWM94ogJBiV
-         UKGg==
-X-Forwarded-Encrypted: i=1; AJvYcCVzomYTERVxeWBaJZIFUCF64O90Z37I5sjIEuW2pe67+QTOLGCGkeavjNzjvgea+6zJWV2H1Qekb4AsDcYiU3v+@lists.infradead.org
-X-Gm-Message-State: AOJu0YyksSqcOm/GQTq0awi1EZJjxh0nikSQUvbqUDmBNO+KXFKaL6+6
-	juFJLC2VMnIlDjYeNs/TMzFsMfPP7EV2b9gLLpSAqg1HjGXLeWnI2nC7
-X-Gm-Gg: AZuq6aIusQZlBWoZefmqEKQmeH6APrQr4uCps6QXWN3XNNNTUzoUXbF9qz5Vb13EiNV
-	kgK8rccNTuhBy0hUMRfr/03NmQ8XyH2zWqnhSUlM9tLVavT1UqiWxJQKuiKsn2kcNfM8vup+aE6
-	XsgdH1+NQVeFthxVbblMtHQieqsRWMlvyW3b7j4H9wL+FiLPKcKhtMkvGb6T5gjte4p2YMkACmE
-	w+GOpGeosRGx2Mwg5KeOuUA8dLWOsGr9T+TSURkGmSks7riex7Jrtj5hh88AiJrnXDsrhvKAdEQ
-	d6On27YUd5QyWsLilmHJB8hHwo2as+GB6bjpvI6QxYfQlYPDW1G3UfQaQxfy2C0ZYO/pv7YjS4b
-	fhnTmaZLgmVPKCn3nf/xwT9eCWpul5hfcYluakME4vB8ldlduIf3P3fCF7dHxAxf9K15pVc7FsP
-	ejBKle24xQvA==
-X-Received: by 2002:a05:600c:35c8:b0:477:9ce2:a0d8 with SMTP id 5b1f17b1804b1-4830e8d1e59mr15873095e9.0.1770152930823;
-        Tue, 03 Feb 2026 13:08:50 -0800 (PST)
-Received: from localhost ([87.254.0.129])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-483051292bcsm125902805e9.5.2026.02.03.13.08.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Feb 2026 13:08:50 -0800 (PST)
-From: Colin Ian King <colin.i.king@gmail.com>
-To: Marc Zyngier <maz@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Cc: kernel-janitors@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] irqchip/gic-v5: Fix spelling mistake "ouside" -> "outside"
-Date: Tue,  3 Feb 2026 21:07:35 +0000
-Message-ID: <20260203210735.5036-1-colin.i.king@gmail.com>
-X-Mailer: git-send-email 2.51.0
+	Tue, 03 Feb 2026 21:44:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 139BB339;
+	Tue,  3 Feb 2026 13:43:53 -0800 (PST)
+Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 086BA3F778;
+	Tue,  3 Feb 2026 13:43:53 -0800 (PST)
+From: Ben Horgan <ben.horgan@arm.com>
+To: ben.horgan@arm.com
+Cc: amitsinght@marvell.com,
+	baisheng.gao@unisoc.com,
+	baolin.wang@linux.alibaba.com,
+	carl@os.amperecomputing.com,
+	dave.martin@arm.com,
+	david@kernel.org,
+	dfustini@baylibre.com,
+	fenghuay@nvidia.com,
+	gshan@redhat.com,
+	james.morse@arm.com,
+	jonathan.cameron@huawei.com,
+	kobak@nvidia.com,
+	lcherian@marvell.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	peternewman@google.com,
+	punit.agrawal@oss.qualcomm.com,
+	quic_jiles@quicinc.com,
+	reinette.chatre@intel.com,
+	rohit.mathew@arm.com,
+	scott@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	tan.shaopeng@fujitsu.com,
+	xhao@linux.alibaba.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	corbet@lwn.net,
+	maz@kernel.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	kvmarm@lists.linux.dev,
+	zengheng4@huawei.com,
+	linux-doc@vger.kernel.org
+Subject: [PATCH v4 00/41] arm_mpam: Add KVM/arm64 and resctrl glue code
+Date: Tue,  3 Feb 2026 21:43:01 +0000
+Message-ID: <20260203214342.584712-1-ben.horgan@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_130853_636847_5ADC54DD 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20260203_134403_378983_AD173F61 
+X-CRM114-Status: GOOD (  23.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,27 +92,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is a spelling mistake in a pr_err message. Fix it.
+This new version of the mpam missing pieces series has a few significant
+changes in the mpam driver part of the series. The heuristics for deciding
+if features should be exposed are tightened. This is to fix some
+inaccuracies and avoid overcommitting before needed - shout if this changes
+anything on your platform. The final patch adds documentation which
+explains which features you should expect. The ABMC emulation is dropped
+for the moment as it requires resctrl changes to support for MPAM without
+breaking the abi. The default 5% gap for min_bw is dropped in favour of a
+simple default (kept for grace). The series is based on x86/resctrl [1] as
+resctrl has telemetry patches queued which change the arch interface.
 
-Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
----
- drivers/irqchip/irq-gic-v5-its.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Fixes that are in 6.19-rc8 are dropped from the series but
+b9f5c38e4af1 ("arm_mpam: Use non-atomic bitops when modifying feature bitmap")
+is required to avoid an alignment fault in the kunit tests.
 
-diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
-index e24ce3d9fb62..8c4cf8430871 100644
---- a/drivers/irqchip/irq-gic-v5-its.c
-+++ b/drivers/irqchip/irq-gic-v5-its.c
-@@ -902,7 +902,7 @@ static int gicv5_its_alloc_eventid(struct gicv5_its_dev *its_dev, msi_alloc_info
- 		event_id_base = info->hwirq;
- 
- 		if (event_id_base >= its_dev->num_events) {
--			pr_err("EventID ouside of ITT range; cannot allocate an ITT entry!\n");
-+			pr_err("EventID outside of ITT range; cannot allocate an ITT entry!\n");
- 
- 			return -EINVAL;
- 		}
+Thank you for all the testing and reviewing so far! It all helps.
+
+Changelogs in patches
+
+From James' cover letter:
+
+This is the missing piece to make MPAM usable resctrl in user-space. This has
+shed its debugfs code and the read/write 'event configuration' for the monitors
+to make the series smaller.
+
+This adds the arch code and KVM support first. I anticipate the whole thing
+going via arm64, but if goes via tip instead, the an immutable branch with those
+patches should be easy to do.
+
+Generally the resctrl glue code works by picking what MPAM features it can expose
+from the MPAM drive, then configuring the structs that back the resctrl helpers.
+If your platform is sufficiently Xeon shaped, you should be able to get L2/L3 CPOR
+bitmaps exposed via resctrl. CSU counters work if they are on/after the L3. MBWU
+counters are considerably more hairy, and depend on hueristics around the topology,
+and a bunch of stuff trying to emulate ABMC.
+If it didn't pick what you wanted it to, please share the debug messages produced
+when enabling dynamic debug and booting with:
+| dyndbg="file mpam_resctrl.c +pl"
+
+I've not found a platform that can test all the behaviours around the monitors,
+so this is where I'd expect the most bugs.
+
+The MPAM spec that describes all the system and MMIO registers can be found here:
+https://developer.arm.com/documentation/ddi0598/db/?lang=en
+(Ignored the 'RETIRED' warning - that is just arm moving the documentation around.
+ This document has the best overview)
+
+Based on:
+[1] git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git x86/cache
+(To include telemetry code which changes the resctrl arch interface)
+
+The series can be retrieved from:
+https://gitlab.arm.com/linux-arm/linux-bh.git mpam_resctrl_glue_v4
+(Final commit is a fix already in 6.19-rc8)
+
+v3 can be found at:
+https://lore.kernel.org/linux-arm-kernel/20260112165914.4086692-1-ben.horgan@arm.com/
+
+v2 can be found at:
+https://lore.kernel.org/linux-arm-kernel/20251219181147.3404071-1-ben.horgan@arm.com/
+
+rfc can be found at:
+https://lore.kernel.org/linux-arm-kernel/20251205215901.17772-1-james.morse@arm.com/
+
+
+Ben Horgan (10):
+  arm64/sysreg: Add MPAMSM_EL1 register
+  KVM: arm64: Preserve host MPAM configuration when changing traps
+  KVM: arm64: Make MPAMSM_EL1 accesses UNDEF
+  arm64: mpam: Drop the CONFIG_EXPERT restriction
+  arm64: mpam: Initialise and context switch the MPAMSM_EL1 register
+  KVM: arm64: Use kernel-space partid configuration for hypercalls
+  arm_mpam: resctrl: Add rmid index helpers
+  arm_mpam: resctrl: Add kunit test for rmid idx conversions
+  arm_mpam: resctrl: Wait for cacheinfo to be ready
+  arm64: mpam: Add initial MPAM documentation
+
+Dave Martin (2):
+  arm_mpam: resctrl: Convert to/from MPAMs fixed-point formats
+  arm_mpam: resctrl: Add kunit test for control format conversions
+
+James Morse (25):
+  arm64: mpam: Context switch the MPAM registers
+  arm64: mpam: Re-initialise MPAM regs when CPU comes online
+  arm64: mpam: Advertise the CPUs MPAM limits to the driver
+  arm64: mpam: Add cpu_pm notifier to restore MPAM sysregs
+  arm64: mpam: Add helpers to change a task or cpu's MPAM PARTID/PMG
+    values
+  KVM: arm64: Force guest EL1 to use user-space's partid configuration
+  arm_mpam: resctrl: Add boilerplate cpuhp and domain allocation
+  arm_mpam: resctrl: Sort the order of the domain lists
+  arm_mpam: resctrl: Pick the caches we will use as resctrl resources
+  arm_mpam: resctrl: Implement resctrl_arch_reset_all_ctrls()
+  arm_mpam: resctrl: Add resctrl_arch_get_config()
+  arm_mpam: resctrl: Implement helpers to update configuration
+  arm_mpam: resctrl: Add plumbing against arm64 task and cpu hooks
+  arm_mpam: resctrl: Add CDP emulation
+  arm_mpam: resctrl: Add support for 'MB' resource
+  arm_mpam: resctrl: Add support for csu counters
+  arm_mpam: resctrl: Pick classes for use as mbm counters
+  arm_mpam: resctrl: Pre-allocate free running monitors
+  arm_mpam: resctrl: Allow resctrl to allocate monitors
+  arm_mpam: resctrl: Add resctrl_arch_rmid_read() and
+    resctrl_arch_reset_rmid()
+  arm_mpam: resctrl: Update the rmid reallocation limit
+  arm_mpam: resctrl: Add empty definitions for assorted resctrl
+    functions
+  arm64: mpam: Select ARCH_HAS_CPU_RESCTRL
+  arm_mpam: resctrl: Call resctrl_init() on platforms that can support
+    resctrl
+  arm_mpam: Quirk CMN-650's CSU NRDY behaviour
+
+Shanker Donthineni (4):
+  arm_mpam: Add quirk framework
+  arm_mpam: Add workaround for T241-MPAM-1
+  arm_mpam: Add workaround for T241-MPAM-4
+  arm_mpam: Add workaround for T241-MPAM-6
+
+ Documentation/arch/arm64/index.rst          |    1 +
+ Documentation/arch/arm64/mpam.rst           |   93 +
+ Documentation/arch/arm64/silicon-errata.rst |    9 +
+ arch/arm64/Kconfig                          |    6 +-
+ arch/arm64/include/asm/el2_setup.h          |    3 +-
+ arch/arm64/include/asm/mpam.h               |   96 +
+ arch/arm64/include/asm/resctrl.h            |    2 +
+ arch/arm64/include/asm/thread_info.h        |    3 +
+ arch/arm64/kernel/Makefile                  |    1 +
+ arch/arm64/kernel/cpufeature.c              |   21 +-
+ arch/arm64/kernel/mpam.c                    |   62 +
+ arch/arm64/kernel/process.c                 |    7 +
+ arch/arm64/kvm/hyp/include/hyp/switch.h     |   12 +-
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c          |    9 +
+ arch/arm64/kvm/hyp/vhe/sysreg-sr.c          |   13 +
+ arch/arm64/kvm/sys_regs.c                   |    2 +
+ arch/arm64/tools/sysreg                     |    8 +
+ drivers/resctrl/Kconfig                     |    9 +-
+ drivers/resctrl/Makefile                    |    1 +
+ drivers/resctrl/mpam_devices.c              |  257 ++-
+ drivers/resctrl/mpam_internal.h             |  105 +-
+ drivers/resctrl/mpam_resctrl.c              | 1861 +++++++++++++++++++
+ drivers/resctrl/test_mpam_resctrl.c         |  364 ++++
+ include/linux/arm_mpam.h                    |   32 +
+ 24 files changed, 2949 insertions(+), 28 deletions(-)
+ create mode 100644 Documentation/arch/arm64/mpam.rst
+ create mode 100644 arch/arm64/include/asm/mpam.h
+ create mode 100644 arch/arm64/include/asm/resctrl.h
+ create mode 100644 arch/arm64/kernel/mpam.c
+ create mode 100644 drivers/resctrl/mpam_resctrl.c
+ create mode 100644 drivers/resctrl/test_mpam_resctrl.c
+
 -- 
-2.51.0
+2.43.0
 
 
