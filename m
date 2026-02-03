@@ -4,56 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB6CE87826
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 13:04:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C608BE87823
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 13:08:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7f7LOJpzTq6WGvSLw+vMfEVieSqAeOF3O2MG1vOgfHg=; b=brKuh9KFnOa1ZOoGX+6JOsUZdh
-	qdGkJclzjDKenx88vmdO1y1JvTJIn5KXAUbNhAmA6CtqJJmItuImdUcBfVXzylts5TMrvJbzIXtRa
-	AJl+VfEfR3lU78cDp5s7bGcN7/KW0Vv0vNiFrX6W/pRlPLKI0L25ufpIumRu4KC3KSc2X1pjEvRy+
-	pLhwSUEAmkr5KMABg6RNCGCcfGLOsrRz19+vsd49d+4AIidYpf8DAdgv/+MlKdFzqYW20p5HCb1KN
-	Qq+sL1Qz/bR3DKraih9GEhlhIuXP7jykOqsr1zKTD6/7KQvvAwwgZGJJdXpFkt5KVd6vjPzykAdo+
-	qc1DzF3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DiID0kDVCXOypOoyMuzULCyA0s96GlAJL9OBsw1Kai0=; b=ITD+e4CISAnTg5vAyxqNZvMlTc
+	PjWgBIUDoF3veFJ2WuBJ0R7cPKI3N0NCz2aR0I+hFSRBTLqzWFYypluCzjxmU46flH73mdLrKAvgP
+	8SPyow6RNnGz4KZxdIc01lxOEoLokgqPFOY+gaiekreBqZoHYtC6/tJBbMj3xPGQRzU01mGneFBtm
+	VVDiMtrqEzZIOO8BL0FA1jsTPargwg4VvWSyuw0tUHozl2rvbhCw0Qwi3pd1OCV1+ia0syiaVVk6r
+	KFS8iGaGdsPo54ehnMvzA1c8LzUQcPu4O+lTfnvvAR0rEt//DYwERc9LwQfybNEov4uKjJE18iv8R
+	3jdqhFIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnG4h-00000006dcz-0bf0;
-	Tue, 03 Feb 2026 13:04:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnG4e-00000006dbf-0JKR
+	id 1vnG8u-00000006eK8-1fkA;
+	Tue, 03 Feb 2026 13:08:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vnG8r-00000006eJg-274k
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 13:04:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5D7C0497;
-	Tue,  3 Feb 2026 05:04:00 -0800 (PST)
-Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 68C763F632;
-	Tue,  3 Feb 2026 05:04:05 -0800 (PST)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Christoph Lameter <cl@gentwo.org>,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH V2 1/2] arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
-Date: Tue,  3 Feb 2026 13:03:47 +0000
-Message-Id: <20260203130348.612150-2-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20260203130348.612150-1-anshuman.khandual@arm.com>
-References: <20260203130348.612150-1-anshuman.khandual@arm.com>
+	Tue, 03 Feb 2026 13:08:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 15361419A2;
+	Tue,  3 Feb 2026 13:08:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2E4BC19421;
+	Tue,  3 Feb 2026 13:08:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770124107;
+	bh=ERzJQs+ogmgSsz2jOjgrhJNR97TY+ErDM0YSHLbWBPk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OZzukd4WV0HQ4RfqAwiKZ3wguxJQbATAMAs0jIB2ffv6Mouu5hLwh20jwt9YgArTK
+	 RLN0xWMoXW1R4OYA3xmVjCjCuFzS7zofmgNLixa5hKuslzVDzMyb7FOHJwsWSGC8Fg
+	 5AaIixXcmpWIWt+ee/OqESW+R97Wq908ZzW9knvyRSnDTOQfFKbq6xb5xHrmfLVv53
+	 QhfX7zD+R5OgKiefemLK8sfVMaEBPhMgq76cAc3oVdXjmGRQQM8qr1jZj7FnxFGeW3
+	 a2zkOTytfjKHuYosjXSt1wOXHALk927DhF6T5Kg+mucwIYl/GDPrcyu7aP7AVhwQWf
+	 sAciYqCZ2XsJQ==
+Date: Tue, 3 Feb 2026 18:38:18 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Sherry Sun <sherry.sun@nxp.com>
+Cc: hongxing.zhu@nxp.com, l.stach@pengutronix.de, Frank.Li@nxp.com, 
+	bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com, 
+	imx@lists.linux.dev, kernel@pengutronix.de, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V3 02/10] PCI: imx6: Add support for parsing the reset
+ property in new Root Port binding
+Message-ID: <nekxn5osukwkumqfh4qabj6okhtv4tdwrnthza4x54psrhauyf@p3lhia4mkhb4>
+References: <20260203015614.2957479-1-sherry.sun@nxp.com>
+ <20260203015614.2957479-3-sherry.sun@nxp.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260203015614.2957479-3-sherry.sun@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_050408_186696_6AD12471 
-X-CRM114-Status: GOOD (  17.64  )
+X-CRM114-CacheID: sfid-20260203_050829_693152_53141E30 
+X-CRM114-Status: GOOD (  36.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,177 +77,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During a memory hot remove operartion both linear and vmemmap mappings for
-the memory range being removed, get unmapped via unmap_hotplug_range() but
-mapped pages get freed only for vmemmap mapping. This is just a sequential
-operation where each table entry gets cleared, followed by a leaf specific
-TLB flush, and then followed by memory free operation when applicable.
+On Tue, Feb 03, 2026 at 09:56:06AM +0800, Sherry Sun wrote:
+> DT binding allows specifying 'reset' property in both host bridge and
+> Root Port nodes, but specifying in the host bridge node is marked as
+> deprecated. So add support for parsing the new binding that uses
+> 'reset-gpios' property for PERST#.
+> 
+> The initial idea is to add the PCIe M.2 KeyE connector support and PCI
+> power control framework to the pcie-imx6 driver. Since the new
+> M.2/pwrctrl model is implemented based on Root Ports and requires the
+> pwrctrl driver to bind to a Root Port device, we need to introduce a
+> Root Port child node on i.MX boards that provide an M.2 connector.
+> 
+> To follow a more standardized DT structure, it also makes sense to move
+> the reset-gpios and wake-gpios properties into the Root Port node. These
+> signals logically belong to the Root Port rather than the host bridge,
+> and placing them there aligns with the new M.2/pwrctrl model.
+> 
+> To maintain DT backwards compatibility, fallback to the legacy method of
+> parsing the host bridge node if the reset property is not present in the
+> Root Port node.
+> 
+> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 123 +++++++++++++++++++++++---
+>  1 file changed, 109 insertions(+), 14 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index a5b8d0b71677..e3ba68976bee 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -148,10 +148,15 @@ struct imx_lut_data {
+>  	u32 data2;
+>  };
+>  
+> +struct imx_pcie_port {
+> +	struct list_head	list;
+> +	struct gpio_desc	*reset;
+> +};
+> +
 
-This approach was simple and uniform both for vmemmap and linear mappings.
-But linear mapping might contain CONT marked block memory where it becomes
-necessary to first clear out all entire in the range before a TLB flush.
-This is as per the architecture requirement. Hence batch all TLB flushes
-during the table tear down walk and finally do it in unmap_hotplug_range().
+I'd love to abstract the Root Port properties in a generic struct so that we can
+introduce generic APIs to parse the ports. But I'm not asking you to implement
+it :)
 
-Prior to this fix, it was hypothetically possible for a speculative access
-to a higher address in the contiguous block to fill the TLB with shattered
-entries for the entire contiguous range after a lower address had already
-been cleared and invalidated. Due to the table entries being shattered, the
-subsequent TLB invalidation for the higher address would not then clear the
-TLB entries for the lower address, meaning stale TLB entries could persist.
+>  struct imx_pcie {
+>  	struct dw_pcie		*pci;
+> -	struct gpio_desc	*reset_gpiod;
+>  	struct clk_bulk_data	*clks;
+> +	struct list_head	ports;
+>  	int			num_clks;
+>  	bool			supports_clkreq;
+>  	bool			enable_ext_refclk;
+> @@ -897,29 +902,35 @@ static int imx95_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+>  
+>  static void imx_pcie_assert_core_reset(struct imx_pcie *imx_pcie)
+>  {
+> +	struct imx_pcie_port *port;
+> +
+>  	reset_control_assert(imx_pcie->pciephy_reset);
+>  
+>  	if (imx_pcie->drvdata->core_reset)
+>  		imx_pcie->drvdata->core_reset(imx_pcie, true);
+>  
+>  	/* Some boards don't have PCIe reset GPIO. */
+> -	gpiod_set_value_cansleep(imx_pcie->reset_gpiod, 1);
+> +	list_for_each_entry(port, &imx_pcie->ports, list)
+> +		gpiod_set_value_cansleep(port->reset, 1);
+>  }
+>  
+>  static int imx_pcie_deassert_core_reset(struct imx_pcie *imx_pcie)
+>  {
+> +	struct imx_pcie_port *port;
+> +
+>  	reset_control_deassert(imx_pcie->pciephy_reset);
+>  
+>  	if (imx_pcie->drvdata->core_reset)
+>  		imx_pcie->drvdata->core_reset(imx_pcie, false);
+>  
+>  	/* Some boards don't have PCIe reset GPIO. */
+> -	if (imx_pcie->reset_gpiod) {
+> -		msleep(100);
+> -		gpiod_set_value_cansleep(imx_pcie->reset_gpiod, 0);
+> -		/* Wait for 100ms after PERST# deassertion (PCIe r5.0, 6.6.1) */
+> -		msleep(100);
+> -	}
+> +	list_for_each_entry(port, &imx_pcie->ports, list)
+> +		if (port->reset) {
+> +			msleep(100);
 
-Besides it also helps in improving the performance via TLBI range operation
-along with reduced synchronization instructions. The time spent executing
-unmap_hotplug_range() improved 97% measured over a 2GB memory hot removal
-in KVM guest.
+PCIE_T_PERST_CLK_US
 
-This scheme is not applicable during vmemmap mapping tear down where memory
-needs to be freed and hence a TLB flush is required after clearing out page
-table entry.
+> +			gpiod_set_value_cansleep(port->reset, 0);
+> +			/* Wait for 100ms after PERST# deassertion (PCIe r5.0, 6.6.1) */
+> +			msleep(100);
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
-Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
-Cc: stable@vger.kernel.org
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
- arch/arm64/mm/mmu.c | 81 +++++++++++++++++++++++++++++++++++++--------
- 1 file changed, 67 insertions(+), 14 deletions(-)
+Remove the comment and just use PCIE_T_PVPERL_MS.
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 8e1d80a7033e..8ec8a287aaa1 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1458,10 +1458,32 @@ static void unmap_hotplug_pte_range(pmd_t *pmdp, unsigned long addr,
- 
- 		WARN_ON(!pte_present(pte));
- 		__pte_clear(&init_mm, addr, ptep);
--		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--		if (free_mapped)
-+		if (free_mapped) {
-+			/*
-+			 * If page is part of an existing contiguous
-+			 * memory block, individual TLB invalidation
-+			 * here would not be appropriate. Instead it
-+			 * will require clearing all entries for the
-+			 * memory block and subsequently a TLB flush
-+			 * for the entire range.
-+			 */
-+			WARN_ON(pte_cont(pte));
-+
-+			/*
-+			 * TLB flush is essential for freeing memory.
-+			 */
-+			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
- 			free_hotplug_page_range(pte_page(pte),
- 						PAGE_SIZE, altmap);
-+		}
-+
-+		/*
-+		 * TLB flush is batched in unmap_hotplug_range()
-+		 * for the entire range, when memory need not be
-+		 * freed. Besides linear mapping might have CONT
-+		 * blocks where TLB flush needs to be done after
-+		 * clearing all relevant entries.
-+		 */
- 	} while (addr += PAGE_SIZE, addr < end);
- }
- 
-@@ -1482,15 +1504,32 @@ static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
- 		WARN_ON(!pmd_present(pmd));
- 		if (pmd_sect(pmd)) {
- 			pmd_clear(pmdp);
-+			if (free_mapped) {
-+				/*
-+				 * If page is part of an existing contiguous
-+				 * memory block, individual TLB invalidation
-+				 * here would not be appropriate. Instead it
-+				 * will require clearing all entries for the
-+				 * memory block and subsequently a TLB flush
-+				 * for the entire range.
-+				 */
-+				WARN_ON(pmd_cont(pmd));
-+
-+				/*
-+				 * TLB flush is essential for freeing memory.
-+				 */
-+				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
-+				free_hotplug_page_range(pmd_page(pmd),
-+							PMD_SIZE, altmap);
-+			}
- 
- 			/*
--			 * One TLBI should be sufficient here as the PMD_SIZE
--			 * range is mapped with a single block entry.
-+			 * TLB flush is batched in unmap_hotplug_range()
-+			 * for the entire range, when memory need not be
-+			 * freed. Besides linear mapping might have CONT
-+			 * blocks where TLB flush needs to be done after
-+			 * clearing all relevant entries.
- 			 */
--			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--			if (free_mapped)
--				free_hotplug_page_range(pmd_page(pmd),
--							PMD_SIZE, altmap);
- 			continue;
- 		}
- 		WARN_ON(!pmd_table(pmd));
-@@ -1515,15 +1554,20 @@ static void unmap_hotplug_pud_range(p4d_t *p4dp, unsigned long addr,
- 		WARN_ON(!pud_present(pud));
- 		if (pud_sect(pud)) {
- 			pud_clear(pudp);
-+			if (free_mapped) {
-+				/*
-+				 * TLB flush is essential for freeing memory.
-+				 */
-+				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
-+				free_hotplug_page_range(pud_page(pud),
-+							PUD_SIZE, altmap);
-+			}
- 
- 			/*
--			 * One TLBI should be sufficient here as the PUD_SIZE
--			 * range is mapped with a single block entry.
-+			 * TLB flush is batched in unmap_hotplug_range()
-+			 * for the entire range, when memory need not be
-+			 * freed.
- 			 */
--			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--			if (free_mapped)
--				free_hotplug_page_range(pud_page(pud),
--							PUD_SIZE, altmap);
- 			continue;
- 		}
- 		WARN_ON(!pud_table(pud));
-@@ -1553,6 +1597,7 @@ static void unmap_hotplug_p4d_range(pgd_t *pgdp, unsigned long addr,
- static void unmap_hotplug_range(unsigned long addr, unsigned long end,
- 				bool free_mapped, struct vmem_altmap *altmap)
- {
-+	unsigned long start = addr;
- 	unsigned long next;
- 	pgd_t *pgdp, pgd;
- 
-@@ -1574,6 +1619,14 @@ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
- 		WARN_ON(!pgd_present(pgd));
- 		unmap_hotplug_p4d_range(pgdp, addr, next, free_mapped, altmap);
- 	} while (addr = next, addr < end);
-+
-+	/*
-+	 * Batched TLB flush only for linear mapping which
-+	 * might contain CONT blocks, and does not require
-+	 * freeing up memory as well.
-+	 */
-+	if (!free_mapped)
-+		flush_tlb_kernel_range(start, end);
- }
- 
- static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
+> +		}
+>  
+>  	return 0;
+>  }
+> @@ -1642,6 +1653,76 @@ static const struct dev_pm_ops imx_pcie_pm_ops = {
+>  				  imx_pcie_resume_noirq)
+>  };
+>  
+> +static void imx_pcie_delete_ports(void *data)
+> +{
+> +	struct imx_pcie *pcie = data;
+> +	struct imx_pcie_port *port, *tmp;
+> +
+> +	list_for_each_entry_safe(port, tmp, &pcie->ports, list)
+> +		list_del(&port->list);
+> +}
+> +
+> +static int imx_pcie_parse_port(struct imx_pcie *pcie, struct device_node *node)
+> +{
+> +	struct device *dev = pcie->pci->dev;
+> +	struct imx_pcie_port *port;
+> +	struct gpio_desc *reset;
+> +
+> +	reset = devm_fwnode_gpiod_get(dev, of_fwnode_handle(node),
+> +				      "reset", GPIOD_OUT_HIGH, "PCIe reset");
+
+s/"PCIe reset"/"PERST#"
+
+> +	if (IS_ERR(reset))
+> +		return PTR_ERR(reset);
+> +
+> +	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
+> +	if (!port)
+> +		return -ENOMEM;
+> +
+> +	port->reset = reset;
+> +	INIT_LIST_HEAD(&port->list);
+> +	list_add_tail(&port->list, &pcie->ports);
+> +
+> +	return 0;
+> +}
+> +
+> +static int imx_pcie_parse_ports(struct imx_pcie *pcie)
+> +{
+> +	struct device *dev = pcie->pci->dev;
+> +	int ret = -ENOENT;
+> +
+> +	for_each_available_child_of_node_scoped(dev->of_node, of_port) {
+> +		if (!of_node_is_type(of_port, "pci"))
+> +			continue;
+> +		ret = imx_pcie_parse_port(pcie, of_port);
+> +		if (ret) {
+> +			imx_pcie_delete_ports(pcie);
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static int imx_pcie_parse_legacy_binding(struct imx_pcie *pcie)
+> +{
+> +	struct device *dev = pcie->pci->dev;
+> +	struct imx_pcie_port *port;
+> +	struct gpio_desc *reset;
+> +
+> +	reset = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
+> +	if (IS_ERR(reset))
+> +		return PTR_ERR(reset);
+> +
+> +	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
+> +	if (!port)
+> +		return -ENOMEM;
+> +
+> +	port->reset = reset;
+> +	INIT_LIST_HEAD(&port->list);
+> +	list_add_tail(&port->list, &pcie->ports);
+> +
+> +	return 0;
+> +}
+> +
+>  static int imx_pcie_probe(struct platform_device *pdev)
+>  {
+>  	struct device *dev = &pdev->dev;
+> @@ -1660,6 +1741,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  	if (!pci)
+>  		return -ENOMEM;
+>  
+> +	INIT_LIST_HEAD(&imx_pcie->ports);
+> +
+>  	pci->dev = dev;
+>  	pci->ops = &dw_pcie_ops;
+>  
+> @@ -1688,12 +1771,24 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  			return PTR_ERR(imx_pcie->phy_base);
+>  	}
+>  
+> -	/* Fetch GPIOs */
+> -	imx_pcie->reset_gpiod = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
+> -	if (IS_ERR(imx_pcie->reset_gpiod))
+> -		return dev_err_probe(dev, PTR_ERR(imx_pcie->reset_gpiod),
+> -				     "unable to get reset gpio\n");
+> -	gpiod_set_consumer_name(imx_pcie->reset_gpiod, "PCIe reset");
+> +	ret = imx_pcie_parse_ports(imx_pcie);
+> +	if (ret) {
+> +		if (ret != -ENOENT)
+> +			return dev_err_probe(dev, ret, "Failed to parse Root Port: %d\n", ret);
+> +
+> +		/*
+> +		 * In the case of properties not populated in Root Port node,
+> +		 * fallback to the legacy method of parsing the Host Bridge
+> +		 * node. This is to maintain DT backwards compatibility.
+> +		 */
+> +		ret = imx_pcie_parse_legacy_binding(imx_pcie);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret, "Unable to get reset gpio: %d\n", ret);
+> +	}
+> +
+> +	ret = devm_add_action_or_reset(dev, imx_pcie_delete_ports, imx_pcie);
+> +	if (ret)
+> +		return ret;
+
+I'd prefer to do it in err labels.
+
+- Mani
+
 -- 
-2.30.2
-
+மணிவண்ணன் சதாசிவம்
 
