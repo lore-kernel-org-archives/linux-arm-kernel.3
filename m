@@ -4,158 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1AE3E8784D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 17:11:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0B5E8784E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 17:12:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K9rF8Xt+7zTBS2wG4AFt0m3mXaP3gtnarqVxiYblcKk=; b=GeMTiNUHeaH4sw9VnKwiClqjoT
-	OBPYngTrcBuDqJ9EJRb7oK19yA7gNnfAw/2pwE/dj9M6dGZjolPMX/BrOfCbFOKhQgPcg+NuQLIWx
-	iuU58sEPinf8bd74YR8jJMDQHye9gQDTCsV/SEnWA8oxHB4hZgMSR2zu6+x7z4/ijjJSD+1K05UyT
-	Fg+EzmpKVBcf2EMkaZhkFHnIcsmN2U5vTVU7yz4xPEzugADwPCWx9xQNIconNzoq5SWM63O7kILUe
-	p7rpfGNYV6bPAhP/WIvdvTcDQUno7qrZ2ew372EKsWmH8AomRDPyzjAl2Pl38JkeRZLu3Z1tLgm6I
-	bqNkhGrA==;
+	bh=Q/RzIoETwq7EI8AtWKZybI6w+H5plu3IYaH4qKanRYc=; b=hj2DuGqBztimzUNT4mRgYIpFYX
+	IHBZXPa743uHV7VP6R2c2xNd+P3gkDDGRR8+4SSsc6jJWHd8jz7fP5KW2ckYOaRzEqJg3u7Z9J3JJ
+	lZOtae538AihjgFW2aQXtrbbtkARHCZOvp5ppoCbxUP3p6RBTfKzK1goP+sftS42cCMhRPfZQQBRe
+	aVG4tIjf1Rky4wSIHFF3w8fCbOzaO9MNZW4PvDIRUM3tF+3fa7/BRAn2FqfSXpNunVuder1NdJk85
+	J5RY8QJGnCeGJI5k4qtVtEuoqO0eNnCdxejg+6SGd1OXnc5NofF4GYjl6ILbOJsl2f5iSpPNdEzd2
+	FUYXg6ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnJw8-000000071WN-2Cim;
-	Tue, 03 Feb 2026 17:11:36 +0000
-Received: from mail-francecentralazon11013025.outbound.protection.outlook.com ([40.107.162.25] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vnJxJ-000000071gF-2Oxg;
+	Tue, 03 Feb 2026 17:12:49 +0000
+Received: from mail1.manjaro.org ([2a01:4f8:c010:b6e8::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnJw5-000000071Vu-2OMN
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 17:11:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H1qrN8KMhVckCikS0QPzjSmoj/JOjxljKXkgNvFkbG8OIk9HyUdmY2ZbvGpxsBaEKI7hnnnrzaWnrwM+bVPsCO4+l59/05csz/DsFi3Q/ZJUGmSAQjK68Fp6MhsMGt0LnXTW0u2LeicqZX07syIBmhWkdch4HU8mQokc7KapfzA2R4ooZlHSjX+7G14wFRR+VGFSW1dD1ka1Ru4Z47bKTgK1YtoW/7ijjTBvfT8mFz3QhjeF9q97FUin68TvbfIeEOslD6GDLjQd6KxbkoYBKtma6JE8Ab4Eo4jZ34YE3Rofk0oyItuAp80/snYnPiFUlkfjnzn/i0z9F/yF+3wNug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K9rF8Xt+7zTBS2wG4AFt0m3mXaP3gtnarqVxiYblcKk=;
- b=q/6und8RLhKK0f4W0oxamhfIUF42lWE71wFtzr0siDui3AmptplPUVbz13fHoGVM4bLMzp/d+2jhypDhOdnn9YPXjpxMCYAoVKWzELaN2u0oMQZQBn7Nb6Uq7oePArqwsODs6nZRA1vu/BA+LL6tXg+aQuieiqMBSZkrmvUxWpg9Q6Ann9zCk6LoFNYrGyouZo0jCuHFS/+Mf/4CleYgy4EedMd/o8Zo/ZWfBK80RiPaeF40pvZJJagThlKM2aMMCMQhFWEHn3Z8cneuiWMOtQ4dYN2aCEUlzHs7vQ8uNPdyjzvtM1ABnzQq7s6WSs7TsSfZXRWR7u1kEu9EfqvO1g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=K9rF8Xt+7zTBS2wG4AFt0m3mXaP3gtnarqVxiYblcKk=;
- b=YVP8GjUV7IWwvv+1quOnOjEOmh/vtH2coV2f2cjjSeQG7G0nag316iGtFsp7E5/GQEKPJBfWwnzdxqAU087Zfo7ltoIVoldsBhQtJgCKNjolh7Zem/VgBiD8jK3U0gTKE1aNH2DbUb9pSZIJCNvdQHMjRMr5oYn7G5bSXPoyn31RbFG+3Jor/Gie4r3gPEVKEf2+2gRdYtbyq2C3+l3nxPRKSOkdLESa48ix7delqNbFrUsB2DnoS1IDZCxk27kBLrlgfe0BX8nIukf8JtkHC32+712dCiftXxY5KUEFGgI8jwHSPNSmfKpdBACq0CQDtRVcXJbanvu19XLtV3hUDQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AM7PR04MB6838.eurprd04.prod.outlook.com (2603:10a6:20b:10a::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Tue, 3 Feb
- 2026 17:11:28 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9587.010; Tue, 3 Feb 2026
- 17:11:27 +0000
-Date: Tue, 3 Feb 2026 12:11:19 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	s.hauer@pengutronix.de, festevam@gmail.com, shawnguo@kernel.org,
-	daniel.baluta@nxp.com, dario.binacchi@amarulasolutions.com,
-	alexander.stein@ew.tq-group.com, Markus.Niebel@tq-group.com,
-	matthias.schiffer@tq-group.com, y.moog@phytec.de,
-	josua@solid-run.com, francesco.dolcini@toradex.com,
-	primoz.fiser@norik.com, imx@lists.linux.dev, kernel@pengutronix.de,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH V5 5/5] arm64: dts: imx93: Add i.MX93 Wireless EVK board
- support
-Message-ID: <aYIsN90NALJuw1ly@lizhi-Precision-Tower-5810>
-References: <20260203080137.1492376-1-sherry.sun@nxp.com>
- <20260203080137.1492376-6-sherry.sun@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260203080137.1492376-6-sherry.sun@nxp.com>
-X-ClientProxiedBy: PH8P222CA0014.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:2d7::20) To DU0PR04MB9372.eurprd04.prod.outlook.com
- (2603:10a6:10:35b::7)
+	id 1vnJxF-000000071ff-0SEY;
+	Tue, 03 Feb 2026 17:12:47 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id F2DB041C6B;
+	Tue,  3 Feb 2026 18:12:37 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
+	t=1770138761; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Q/RzIoETwq7EI8AtWKZybI6w+H5plu3IYaH4qKanRYc=;
+	b=NuUOa/tWVQA88Evlzzmypa+ZhmtZ9WD5NE3qkTSvFW9VDfzrlzWn/ica/Oh19ldTQOQex1
+	CG9Fzqx/MhWhIrx46uP60Hpriu/XwRWX0tUqFIbbDG19lngzHUuzJCSIS+GwVeQadyPf90
+	VxkSaSy9cqfGiwqZM3p0SoZDp1w/pOF25hTsRFUJ99YTCucmLrE+ehN97OzMwKkEm3Xq/f
+	ov+VWlccOepeSU/UKtDTG7Rom3SqhOaZgZr3a+oEmlU0ZQUEZdr69c7BNzN7k3IFODzDgL
+	FduwERu9VmRpfmuGf7o30rvVO61f3yK3rO1DnmotOQR50cKw3Q49+moMFBH42g==
+From: "Dragan Simic" <dsimic@manjaro.org>
+In-Reply-To: <20260203151013.305032-1-jerrysteve1101@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+References: <705908c9-4552-d808-783e-3ce0cf45bbff@manjaro.org> <20260203151013.305032-1-jerrysteve1101@gmail.com>
+Date: Tue, 03 Feb 2026 18:12:37 +0100
+Cc: alchark@gmail.com, andyshrk@163.com, conor+dt@kernel.org, devicetree@vger.kernel.org, heiko@sntech.de, krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, robh@kernel.org
+To: "Jun Yan" <jerrysteve1101@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM7PR04MB6838:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7979611d-0a39-4652-93eb-08de63474466
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|19092799006|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IQQlF3gt0urledypyFUlbfYaEK/WfSSopCE6S2TSFyYdjOH6FkwLJmzKjkM5?=
- =?us-ascii?Q?oQT7Izd5/YDEICucp1xLgY8voy2DJXJqIFGRc2AwC0wwleLKuEng6mMUWba9?=
- =?us-ascii?Q?aBYRNTsI5BvIk+0TV6V0nBJqh7z3oTcTfzYC2ncQDJN4SpDwu/OW1qIGrHaK?=
- =?us-ascii?Q?hVybfiVg65SuRXl9P77ewQ0AoD+/0pqOsM17iQAn5yZJM8CtS8gak9gjbycS?=
- =?us-ascii?Q?oe/LAUlXVhQwUpS3fGJqHjCy5S5fmCZh63mw0JhdJjGI9y2DNEuBwp86KeX5?=
- =?us-ascii?Q?YvPyW3tv4K+89mHt39DP3mrLPAKbNqwC/5ouLQeR4nUWhB/m0Pmzvut8HxEB?=
- =?us-ascii?Q?O1bqyQnBmhWnRuCmLE912hlbiYmhvMPnu4XKIkTKaWAF07SckpulO8QYF4I0?=
- =?us-ascii?Q?nJ9pKJdu5zL60543lxgo0U2LFhFj1NAUJLQuRrsjrOLhCSUxShdF5sZlfyVG?=
- =?us-ascii?Q?t4eBP8sZYQRyncYfn9e2ok9QtIbVR/KUq5ngNBtYaVFYos9QEJ2muHgrj8WJ?=
- =?us-ascii?Q?tZTg7Ei6pfxwQ2RMpQMVgKbWovmopig2Wvoa3j6QdiT1QbPNI4hovVT82uhS?=
- =?us-ascii?Q?KMuci7EdzezkdfGo/QWVTyrZvp56UBf+1NgyBcGrTdtu9kac/oPvxr9uvejq?=
- =?us-ascii?Q?nTaAe+qnfEEPqmXfDt1svHkl4pG13Cp7zm2aWzTXnsE52XgzdRxbqsGXAO31?=
- =?us-ascii?Q?1vU8U5NF/4X4iyd6YdW7lz+4rJLHnWz+Pg7TBtpQbX2CkiNuBp4lD4bCzgVR?=
- =?us-ascii?Q?oUaSQPP1yjglriNcXdZD4r0xx6i4ZAdYyh08tHAMsGSIWq7xK/E5b8GnVA6J?=
- =?us-ascii?Q?+yOB9TLroMWIv9dwd/Zql1PA/M6tS3z8Ogiq2bsD4XW68jAscF9OJZKyoE1L?=
- =?us-ascii?Q?4nUfaAerqIc2tC97qXlBIOKDZdllsoxNzPnMarxtPCo1lh/fXB/aVVu+I7K8?=
- =?us-ascii?Q?3R4vKw4cu8uC+fj72iI1wsSxD88JjjSEPKOKsr3ljBIqTLEtuRKYkjG7zxuQ?=
- =?us-ascii?Q?RRVxLscaCh9ZJvctzrePPSx1UJEWVYTzPk68vJ4+GZve1FaJhD9+kbCA188U?=
- =?us-ascii?Q?Ekq8WuRxfKpRYcNMCdtZynVhBZ7vV9fk6nk5AsbtgNeMxCuFL26R1HcoawLU?=
- =?us-ascii?Q?NZW8t4Sb6JUd68fsOL2q3UcO8KPd4r4AQcJMfSYgMTxbw0wUpdGopEtpYsvl?=
- =?us-ascii?Q?0y8YlStAQ/FPrvIBViG67Gx9N6wikxxdCBLwa1LeQdgsPMt1kVQt8YQBD7I0?=
- =?us-ascii?Q?SdakYtl224z1YKTR8vI8m4wrY6sVrSZO8BbLKYzrCbEAiL8ls5KPQ0740AzX?=
- =?us-ascii?Q?CVFKqxMGMIUr23q3li6zEKesgqoFibFpatQyuKpSOiMjdZQZUZ6Y23qrmoIO?=
- =?us-ascii?Q?O1hV4xYON9cMY61QBj1t72qAigFrtvOSPGoKrXVI7HNnpu27A6ji7/u45HV4?=
- =?us-ascii?Q?YsbtzJy3tTvOS844WhoN9oKNKGQwsnhy0GXKROc0wGla9ZqdRMAHM2EsAmSg?=
- =?us-ascii?Q?5PvwADVuweCjaAhk61mbirRqWvltmnEAHBykCHPHDH9tSOe5NsGsaB6KnS76?=
- =?us-ascii?Q?iRF8rvFybBBAlPJTgn5X8M6QTKqy1Z6gg9qEsCxuFt25KfnST70FvL5EoqTu?=
- =?us-ascii?Q?QI4GTNj2lHE8D+D6LrP4L2A=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fnStxpLX3jBdLr6kO6M5YtqmijadRn0xUhcqxbssEy/D7fi/m7mMJ//jPgbk?=
- =?us-ascii?Q?xw7EIQrB7FZ5qmIW8Zo6DDWBusx6LBFCeVFmK+RD/Y9+WtHP6gLDV3PTVNt6?=
- =?us-ascii?Q?LDKjTgQsIGptRdZh2snj0xR8Yniy3Up6dbSO8+L9sN8u8z1s8SNMYWLQ2RwJ?=
- =?us-ascii?Q?V6e1adwGFfSOC2Nz1nY0GVXyf1QPo/kEduU4AqLACy44xSDAR8azdy3HYGzY?=
- =?us-ascii?Q?nzGznaW2ahTqqnYj+21Cgo4aGtkW0uo5TChwFpuElcDrRZp+BxO0KIJ5zsbk?=
- =?us-ascii?Q?ZoqEobvN9/+RIR2a/yOjmDoxpGxxBOi6OuaknPAuM+nAHa4DWC3bc5y9wuNQ?=
- =?us-ascii?Q?CEm4lZRbyMDT01ARReA6m7iLJMSn9VBEbXOE0vyHJu39/UhgnhZaKcPfqpQi?=
- =?us-ascii?Q?exyDYH1cZxIjt/cA10+Nxa6p3mWobE/OOeKeoZjx765O7ZMR1vR3UsPGU5Zq?=
- =?us-ascii?Q?HOKhsnJjBHFiugIATuFUniDogwMnvoyCI2X8gWvwfNuhkY13LyHwyLprkhqj?=
- =?us-ascii?Q?OCl0MenmOVEiIrrHMZKlqk3DC4xj0TRq7su6ltLKJuTPoMaC4CwMWkNINi21?=
- =?us-ascii?Q?3B7jBu7rPQ5hGOlhxm1i2y4V8MPyI6BV82Y626dNpTOBO5Hwta8Do6KDejGG?=
- =?us-ascii?Q?FIPkGgi/gLEJhBG/9kr+fLKwsDAvDQLyc5zNXOnHOKCEE77OJvKih8IuAIot?=
- =?us-ascii?Q?WYfX1rjKOhIJJ+6q57P9013JOLVfiBIpmvjm6s2UwRyuTKNTmG2T79yTEub4?=
- =?us-ascii?Q?psKYJshNoUGkb4QCYrUQQYse5ivjmGuv2WfxEgOfpWztO9xybH7N8+ibDB2v?=
- =?us-ascii?Q?EJAmecdBv/mjyjiYmCAUPZj7s4+K8uAs6klpCexrAMmErlEBifxaHhV0t28V?=
- =?us-ascii?Q?/pG5EgbUMXliBBL6FzpaWSchAZA+JKR2pURm2NYQ6Tv/brHpnUKgJFWaLshq?=
- =?us-ascii?Q?21spm2Pduwo25a53nIJ5BMYNXZM/I6cLXnzMJveiPQ7itQ27PMDGn/+silaq?=
- =?us-ascii?Q?Xo3hk3gIqPRsozNLJqsag62URJJYjVmvwVpCz/M97Lde3yOuJdBtJC6cCzR1?=
- =?us-ascii?Q?AZs7OVJemlQDjiBq91cwep9dp6ZS9bum5+YxsOfYQvW5wrybIyZ9Y22eQPQa?=
- =?us-ascii?Q?8iiGLnjz4xO9cxOMuLH7DiTTMGTVxdhv+qucLRhwuF4KvYh6yWhw853wF2vc?=
- =?us-ascii?Q?GSrza7LVCjnyY4Z1xtBwXBgFLVsA7H5R92zylHMuwKfwq+UxVh2+zVS2C3J+?=
- =?us-ascii?Q?nP3cKpr1HMdjVMJs3bg72jY9fUTxw0Ics0si1Kj+nxPyaRyoofHZdik81J6F?=
- =?us-ascii?Q?CurhhNvZonT7THsKGKvc9H7jL0FONXrzWaP/Wtkdk9qJkYgPAIMgWsUvuT00?=
- =?us-ascii?Q?pZ3cmRHfDUWBNMJy1RC9OhYPbx64+JsOjlX6GIixl3EIKBZf6KaxwSNXfDZw?=
- =?us-ascii?Q?AyQ2cYkaUazX2vWnSHdP6hoUAalXu9Tkzz5syTcIPcZcBnmGCMNsaW8ve+iF?=
- =?us-ascii?Q?DPfDfzCuafsH1rFyyZTf4JyyxsyyZ2C8ceGMKNqizKMoG/Adx6EWcZmcorxn?=
- =?us-ascii?Q?gqRN82VTS4LRKy/SXLkEBS/2dicnQ3sMGyDjn3+NmXZewB4q3tZIqHKPa2nr?=
- =?us-ascii?Q?vR1D7tR8bh9bRP5faid9UA4hsWLeAtP/CvjUYUG39HIRydxMMBOB5trGUkZY?=
- =?us-ascii?Q?mClt65FaEOIiwwJnd0XbysOoI3zGugylWvxV7l/XxEnwGtA8?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7979611d-0a39-4652-93eb-08de63474466
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9372.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2026 17:11:27.8078
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VYfkpHHIVrAAHF77pFnl97rr4dYpTwWLPo3r4NvxTOeKnCOhltno0FqtL3ACsCuiMc7X44bB7gErRBEAZINsoA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6838
+Message-ID: <f6eb572c-dd2c-9606-4fb5-b26b51bbbb06@manjaro.org>
+Subject: =?utf-8?q?Re=3A?= [PATCH v3 3/3] =?utf-8?q?arm64=3A?==?utf-8?q?_dts=3A?=
+ =?utf-8?q?_rockchip=3A?= Add OneThing Edge Cube series
+User-Agent: SOGoMail 5.12.3
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: None
+X-Rspamd-Fuzzy: 4d8686c9e18ae259edcb18fbfd3b0c43d48bb8492706122afcdcffd3f170db1beae6de266bce58e1b5874c7e84fd60e44ae1a487be8ceb28d76f935daafaea6c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_091133_611571_75AFD924 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20260203_091245_560481_D68FCBA1 
+X-CRM114-Status: GOOD (  27.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,100 +69,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 03, 2026 at 04:01:37PM +0800, Sherry Sun wrote:
-> i.MX93 Wireless SiP is created by integrating i.MX93 and IW610 WLCSP
-> (Wi-Fi + BLE + 802.15.4). And i.MX93 Wireless EVK board with the i.MX93
-> Wireless SiP basically reuse the i.MX93 11x11 EVK board, with some minor
-> functional and pin connection differences. Reuse the new
-> imx93-evk-common.dtsi and add the board-specific changes here.
->
-> Here are the detailed differences between i.MX93 Wireless EVK and i.MX93
-> 11x11 EVK board.
->
-> Function differences:
-> Function	i.MX93W EVK			i.MX93 EVK
-> WIFI/BT		IW610 in i.MX93W		IW612 M.2 module
-> MQS		N				Y
-> PDM MIC		N				Y
-> M.2		N				Y
-> RPi 40-pin HDR	Limited support(pin conflict) 	Y
->
-> Pin connection differences:
-> Function  Signal name	i.MX93W EVK		i.MX93 EVK
-> WIFI/BT	  SPI_FRM	SAI1_TXFS (spi1.PCS0)	GPIO_IO08 (spi3.PCS0)
-> 	  SPI_TXD	SAI1_TXC (spi1.SIN)	GPIO_IO09 (spi3.SIN)
-> 	  SPI_RXD	SAI1_RXD0 (spi1.SOUT)	GPIO_IO10 (spi3.SOUT)
-> 	  SPI_CLK	SAI1_TXD0 (spi1.SCK)	GPIO_IO11 (spi3.SCK)
-> 	  SPI_INT	CCM_CLKO1		on-board IO expander
-> 	  NB_WAKE_IN	PDM_CLK			on-module IO expander
-> 	  WL_WAKE_IN	PDM_BIT_STREAM0		on-module IO expander
-> 	  IND_RST_WL	PDM_BIT_STREAM1		on-module IO expander
-> 	  IND_RST_NB	GPIO_IO28		on-module IO expander
-> 	  PDn		GPIO_IO29		on-module IO expander
-> 	  NB_WAKE_OUT	GPIO_IO14		on-board IO expander
-> 	  WL_WAKE_OUT	GPIO_IO15		CCM_CLKO1
-> I2C3	  I2C3_SDA	GPIO_IO00		GPIO_IO28
-> 	  I2C3_SCL	GPIO_IO01		GPIO_IO29
->
-> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/Makefile       |  1 +
->  arch/arm64/boot/dts/freescale/imx93w-evk.dts | 23 ++++++++++++++++++++
->  2 files changed, 24 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/freescale/imx93w-evk.dts
->
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> index 700bab4d3e60..8837d7ec4f3e 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -439,6 +439,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba91xxca.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxca.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-var-som-symphony.dtb
-> +dtb-$(CONFIG_ARCH_MXC) += imx93w-evk.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx943-evk.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-frdm.dtb
-> diff --git a/arch/arm64/boot/dts/freescale/imx93w-evk.dts b/arch/arm64/boot/dts/freescale/imx93w-evk.dts
-> new file mode 100644
-> index 000000000000..9832b82b6ce2
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/imx93w-evk.dts
-> @@ -0,0 +1,23 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright 2026 NXP
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "imx93w.dtsi"
-> +#include "imx93-evk-common.dtsi"
-> +
-> +/ {
-> +	model = "NXP i.MX93W EVK board";
-> +	compatible = "fsl,imx93-wireless-evk", "fsl,imx93";
-> +};
-> +
+Hello Jun,
 
-&lpi2c3 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_lpi2c3>;
-};
+On Tuesday, February 03, 2026 16:10 CET, Jun Yan <jerrysteve1101@gmail.=
+com> wrote:
+> > On Monday, February 02, 2026 16:04 CET, Jun Yan <jerrysteve1101@gma=
+il.com> wrote:
+> > > The OneThing Edge Cube (OEC) series features the RK3566 SoC, 8GB
+> > > eMMC storage, and supports one SATA interface, one Gigabit Ethern=
+et
+> > > port, and one USB 3.0 port.
+> > >=20
+> > > Other than the difference in RAM capacity, the OEC and OEC-turbo =
+are
+> > > identical in all other specifications.
+> > >=20
+> > >   Specification:
+> > >     - Rockchip RK3566
+> > >     - LPDDR4X 2GB (OEC) / 4GB (OEC-turbo)
+> > >     - eMMC 8GB
+> > >     - Gigabit Ethernet port x 1
+> > >     - USB 3.0 port x 1
+> > >     - USB-C 2.0 port x 1
+> > >     - 12V DC Power supply
+> > >     - SATA 3.0 connector x 1
+> > >=20
+> > > These devices do not have a PMIC, and their hardware circuit desi=
+gn
+> > > is highly similar to that of the rk3566-box-demo[1]. Hardware sch=
+ematics
+> > > are not available at this time, with the vendor firmware dts avai=
+lable
+> > > for reference[2].
+> > >=20
+> > > Ethernet, USB 3.0 and SATA 3.0 ports tested, all working well.
+> > >=20
+> > > [1] https://elixir.bootlin.com/linux/v6.18.6/source/arch/arm64/bo=
+ot/dts/rockchip/rk3566-box-demo.dts
+> > > [2] https://archive.org/download/wxy-oec-RK3566-4G-dump/wxy-oec-R=
+K3566-4G-dump.dts
+> > >=20
+> > > Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+> > > ---
+> > >  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+> > >  .../rockchip/rk3566-onething-oec-series.dts   | 312 ++++++++++++=
+++++++
+> > >  2 files changed, 313 insertions(+)
+> > >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-=
+oec-series.dts
+> > >=20
+> > > diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/b=
+oot/dts/rockchip/Makefile
+> > > index 4d384f153c13..234fa53abe17 100644
+> > > --- a/arch/arm64/boot/dts/rockchip/Makefile
+> > > +++ b/arch/arm64/boot/dts/rockchip/Makefile
+> > > @@ -104,6 +104,7 @@ dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-a=
+nbernic-rg353v.dtb
+> > >  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-anbernic-rg353vs.dtb
+> > >  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-anbernic-rg503.dtb
+> > >  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-odroid-m1s.dtb
+> > > +dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-onething-oec-series.=
+dtb
+> > >  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-orangepi-3b-v1.1.dtb
+> > >  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-orangepi-3b-v2.1.dtb
+> > >  dtb-$(CONFIG=5FARCH=5FROCKCHIP) +=3D rk3566-pinenote-v1.1.dtb
+> > > diff --git a/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-ser=
+ies.dts b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-series.dts
+> > > new file mode 100644
+> > > index 000000000000..2007b93e190e
+> > > --- /dev/null
+> > > +++ b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-series.dts
+> > > @@ -0,0 +1,312 @@
+> > > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > > +
+> > > +/dts-v1/;
+> > > +
+> > > +#include <dt-bindings/gpio/gpio.h>
+> > > +#include <dt-bindings/leds/common.h>
+> > > +#include <dt-bindings/pinctrl/rockchip.h>
+> > > +#include "rk3566.dtsi"
+> > > +
+> > > +/ {
+> > > +	model =3D "OneThing OEC/OEC-turbo";
+> > > +	compatible =3D "onething,oec-turbo", "onething,oec", "rockchip,=
+rk3566";
+> >=20
+> > Thanks for the v3!  After thinking a bit more about it, it would be=
+ better
+> > to name the board dtb "rk3566-onething-edge-cube.dtb" and omit the =
+"series"
+> > part, because the only difference between the board variants is the=
+ amount
+> > of DRAM.  Also, "onething,oec-turbo" should be removed from the com=
+patibles,
+> > and the single compatible renamed to "onething,edge-cube", because =
+I see no
+> > need to have an additional compatible, which may be added later if =
+really
+> > needed for some unforeseen differentiating purpose.
+> >=20
+> > Also, it might be better to use "OneThing Edge Cube/Edge Cube Turbo=
+" as the
+> > combined name, because "Edge Cube" is more self-descriptive than ju=
+st "OEC",
+> > which may also help with various search engines down the road.
+>=20
+> Sorry for the quick follow-up.
+> In official documentation (Most of it is in Chinese) from OneThing Te=
+ch[1],=20
+> the designations "OEC/OEC-turbo" are more commonly and widely used.
+> for this reason, I propose retaining the "OEC/OEC-turbo" naming in th=
+e model=20
+> property.
 
-Although it is small reduntant, it help understand how pinctrl_lpi2c3 used.
+I see, that's an interesting twist.  As some kind of a compromise, it w=
+ould
+be best to have the board dtb named "rk3566-onething-edge-cube.dtb" and=
+ use
+"OneThing Edge Cube (OEC)/OEC Turbo" as the combined name.  That way th=
+e
+board dtb name isn't too short, while "OEC" is present in the model nam=
+e,
+for search engines to pick it up, hopefully, and for people to see it i=
+n
+a few places. :)
 
-Frank
+> [1] https://help.onethingcloud.com/be81/OEC1/80c5
 
-> +&iomuxc {
-> +	pinctrl_lpi2c3: lpi2c3grp {
-> +		fsl,pins = <
-> +			MX93_PAD_GPIO_IO00__LPI2C3_SDA			0x40000b9e
-> +			MX93_PAD_GPIO_IO01__LPI2C3_SCL			0x40000b9e
-> +		>;
-> +	};
-> +};
-> --
-> 2.37.1
->
 
