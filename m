@@ -4,72 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C32BE83076
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 10:04:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29789E83077
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 10:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I/WLesTWjIpwef38SdQ4JX0gdMp0IJsjyMkm8xAgFWc=; b=gBTyHhA1wQgxmHTfW+CXsRK7lJ
-	VoXl4QOkshjcnqfjvtqO/ECzeI4hli5y3gD9fv1giG8nfBXLBglT1Cxz82+1w83C11lzU/im+7DWU
-	8SRtmSEWvdmdBUYrgAruKUhdaWnFl4PhNtwBnFq/dDKi5jVEZKNc0wQpOKbQmp0QeZg/bNTb5nOdh
-	ypZxP0TgxrzMpBb3ndnANK3robdg0NBh/3qb0+fHo4lLccedqjYQrzz00iC9vfnbo24qM327GwMpM
-	6uy98xgPi1cYoTgpji5YcyTU1bBt+GSvh7NGi8udQsjDy+Vp9GyhuwQyVdyjvOdoQN24ttZoXAyx+
-	7IutzZKw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RTaOmh9wnqbOJNsuDkJBw5xu/ZxW0Le6p4u6pemJa+w=; b=BRKNoGbJgv/Ey9JiHBYl/irGeP
+	xC3c81Kb6iCHA8bdRtk8Y0y7Y19F25KNsleN7M7g2y6cDCKeTa/V1rzXYd0r688eVs/tQnRxxrshj
+	IdBYUhJUcuVXdkrlLjUcMj4RlJufM7s45HawaGja9VtQmaIkMnO1ANe/fWYm/auCSRF5y3zplg6DI
+	nA7fwVPDGNEJdbfIY4KTU+OlBQnlzI8T3J/LvXScgU6F9TzVr4GhAwMdPE5r0vzxG8Pn3flyx7/ia
+	lgxqysvyXqemREJFXlv0qPv52aIIvRSulZfKk6R1z6I2RZ/ye0x4txwUtrl109gZ0V1mp1p2Sv53o
+	l4RBH3rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnDGc-00000006RRK-2KwF;
-	Tue, 03 Feb 2026 10:04:18 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1vnDHC-00000006RUx-3fkE;
+	Tue, 03 Feb 2026 10:04:56 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnDGa-00000006RQS-1G2D
+	id 1vnDHA-00000006RUa-0xXO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 10:04:17 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4f4zbH658Rz9thY;
-	Tue,  3 Feb 2026 11:03:55 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1770113036;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=I/WLesTWjIpwef38SdQ4JX0gdMp0IJsjyMkm8xAgFWc=;
-	b=kIGWXhrH/fv5Z6UEAwBwiKWnU1HgR++qoAwUtaSjL0r2h36xtP6PXwALTo9+2xHpHvNDpX
-	7zzG/igQFe7TZlu/681yxRxR8YlgD6kHLF6QuhXJseIxd0hRuJkjd7lHXb4skFBFEXqdzh
-	jgCyWStCK5A94b3tELO/6fl8zgCGCNMb/s3//jcJUMlZV/K5Pr/H1HM+uH6cHsMNb0K0+p
-	dqlec2zoPzHAwiMB28GejqjFcDd7uK3S7/EQdz1XjIryuXQq9Qs4emeM15JzfeIKdplYVO
-	6p1jwz37A7xjGvN5mW8FZ4tYdhEKjcGECe2yHgo5PKxvwsyUKjSv9jnrfNM/XA==
-Date: Tue, 3 Feb 2026 11:03:41 +0100
-From: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukasz.majewski@mailbox.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: andrew@lunn.ch, shawnguo@kernel.org, krzk+dt@kernel.org,
- linux-kernel@vger.kernel.org, edumazet@google.com, netdev@vger.kernel.org,
- pabeni@redhat.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- conor+dt@kernel.org, horms@kernel.org, richardcochran@gmail.com,
- robh@kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, wahrenst@gmx.net, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com
-Subject: Re: [net-next,v22,4/7] net: mtip: Add net_device_ops functions to
- the L2 switch driver
-Message-ID: <20260203110341.1ce21455@wsk>
-In-Reply-To: <20260203014247.824561-2-kuba@kernel.org>
-References: <20260131233459.1625279-5-lukasz.majewski@mailbox.org>
-	<20260203014247.824561-2-kuba@kernel.org>
-Organization: mailbox.org
+	Tue, 03 Feb 2026 10:04:53 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-47ee76e8656so72045195e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 02:04:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770113090; x=1770717890; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RTaOmh9wnqbOJNsuDkJBw5xu/ZxW0Le6p4u6pemJa+w=;
+        b=UK8ARsEtagPfpXkUcV0JmYYuB5ZAsaihZZ0L+17JNlx9Odjk4J5oElvijfe1bowO0N
+         y+NWm9oCQ6egYkEjyuWyCaTkO4vE+F+Gzqr3Pt+DZiroiBB3TOwBvIfoez2PrOR8sOGx
+         WdPGQdGgAWZaoCkNVO8IjEsD4oNg1LFJz0nKP7hC6IrcHjxdxNjX64/Rt6As9uic4S7R
+         P3JbcvS7kc72ncyFkTydy72ycZiA9bwi5X8miCGN2WRz9Tx/1G47J4iN9OVD6cVliZxe
+         5ln6sghtGz1j4m6MtXP/1UCDpF5lwfBq4LFTrjrKyQMx2zT/DLAv1p1bKqWVoiL3Iyj6
+         n3iA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770113090; x=1770717890;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RTaOmh9wnqbOJNsuDkJBw5xu/ZxW0Le6p4u6pemJa+w=;
+        b=dbbawQbds8VvInIHa/Z7j8R9XFbbQMzydqd0dV2cBAZW3kWQWFACBHzV1A4wxxdATN
+         9SzXLJZpprXAW3DVhCb/r2PyBUrfORkFtk6ifbEReRdKH/1WHC/e+rktymrl+pvCegCB
+         yomtfK3Xe+u68LB8q0J8Z7Y5hI0Jov8PSk5MMQCAqon6EdYYGuImWM7fvKy3CJpmsvab
+         LiiH7c9BZY6C910Ef+6Fd1eN1av6hxMGbDzsDeMPdOhVZ855DKf+fEZJOkosGgqHDN7O
+         Bc17r9HyQFXiiA2LXbCb8Egm1cV/XzD83W1G1apZYQTRKRqNzSDbol51YJRkrGXKS3aK
+         4Mvg==
+X-Forwarded-Encrypted: i=1; AJvYcCU9xuQrgHoU6xEJbBMfCTq53wY2utTFfZgc3ufcfigLMpxytX5P1WiTQl4IUra3By5dqGjU3jc2UhBPtcxL6f5U@lists.infradead.org
+X-Gm-Message-State: AOJu0YxS1Sb4P4QsLNF0fRO011k8MRF78/KcqPXvpardrqQB/AZZsDXL
+	88FAOcR5GJem27B9Noyvzau6SLhtyRe+846q4sQoL/00S8ZFN9WTwYRM
+X-Gm-Gg: AZuq6aJmWplIL+gWxldO6p2TAwIoxKzWukzvQzgXVLRKhJNh2kHYIYaovKIn29Bg9GI
+	5TrMSF1HsVuVFMAVbgzKrXQtlokgJ//r8l++EApq3UypkQgGo6gBlOfdLY/g9FB+fjtJ8bomb4E
+	kF78ARn71LueX0uJ2yu8fZToCQGfFeIzn8PfvQGxqjhbMvII8MUYfdF9QD+U3rWSavH/iwwluhh
+	Ssv+F7R0zDJ1h9UvhSbPdqE+w1gURlrVMEjn1/+PGRCYEL0paQvO+8GK+ShIQ/01mMOKA49hb+v
+	z0tFAa7bpnRT45N0c/apHm00MIYNKj96HpAez8Brs1Ji1+v5sXlziAxqBDB1j1REqnl9wCPVNh4
+	O5X519wmcoOlBeDeYgmKgwurBKwkvtJkY8xDQrdttwqDo+CZ4Bjxpavu1GDRrFDCARqFD90ZOIF
+	gD1Mtb3QG1yeMm1pETIJeVqs1S0YRzAANwaPBjmA==
+X-Received: by 2002:a05:600c:350a:b0:480:6910:abd1 with SMTP id 5b1f17b1804b1-482db491f3emr167091755e9.18.1770113089849;
+        Tue, 03 Feb 2026 02:04:49 -0800 (PST)
+Received: from SMW024614.wbi.nxp.com ([128.77.115.158])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-482dffd47c2sm115534365e9.0.2026.02.03.02.04.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Feb 2026 02:04:49 -0800 (PST)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Chancel Liu <chancel.liu@nxp.com>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: [PATCH v3 0/2] Enable AONMIX MQS for IMX95-15x15-FRDM board
+Date: Tue,  3 Feb 2026 02:03:30 -0800
+Message-ID: <20260203100332.915-1-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-MBO-RS-ID: fe9904b47499ae8f7ea
-X-MBO-RS-META: zwqoyhezb5rx5qmpyzoc4ik3614jqbee
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_020416_484021_F908BDA0 
-X-CRM114-Status: GOOD (  24.63  )
+X-CRM114-CacheID: sfid-20260203_020452_274907_D8E20E33 
+X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,115 +106,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
->=20
-> For local reproduction steps see
-> https://netdev-ai.bots.linux.dev/ai-local.html ---
-> net: mtip: Add net_device_ops functions to the L2 switch driver
->=20
-> This patch adds net_device_ops callbacks for the MTIP L2 switch
-> driver, including transmit, multicast configuration, MAC address
-> handling, and timeout recovery functions.
->=20
-> > diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
-> > b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c ---
-> > a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c +++
-> > b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c =20
->=20
-> [ ... ]
->=20
-> > +static netdev_tx_t mtip_start_xmit_port(struct sk_buff *skb,
-> > +					struct net_device *dev,
-> > int port) +{
-> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
-> > +	struct switch_enet_private *fep =3D priv->fep;
-> > +	unsigned short status;
-> > +	unsigned int index;
-> > +	struct cbd_t *bdp;
-> > +	void *bufaddr;
-> > +
-> > +	spin_lock_bh(&fep->hw_lock); =20
->=20
-> [ ... ]
->=20
-> > +	/* Save skb pointer. */
-> > +	fep->tx_skbuff[index] =3D skb; =20
->=20
-> mtip_start_xmit_port() stores sk_buffs in fep->tx_skbuff[index] and
-> creates DMA mappings, but mtip_switch_tx() which should complete TX
-> operations is empty:
->=20
-> static void mtip_switch_tx(struct switch_enet_private *fep)
-> {
-> }
->=20
-> The NAPI poll handler mtip_rx_napi() calls mtip_switch_tx() to reclaim
-> transmitted buffers. Since it does nothing, won't every transmitted
-> packet leak the skb and DMA mapping? Also, dirty_tx is never
-> advanced, so the TX ring will fill (cur_tx =3D=3D dirty_tx) and stop
-> accepting packets.
->=20
-> jakub: maybe add a TODO comment transiently here, since later patch
-> implements the cleanup?
+This series enables AONMIX MQS (i.e. MQS1) for the IMX95-15x15-FRDM board.
 
-The mtip_switch_tx() is empty as we have agreed, that I will divide
-this driver to several patches to ease the review.
+---
+Changes in v3:
+- drop binding patch - picked up by Mark
+- split DTS patch into SoC and board patches.
+- link to v2: https://lore.kernel.org/lkml/20260126145537.2301-1-laurentiumihalcea111@gmail.com/
 
-Adding TODO seems to only make AI review happy, as:
+Changes in v2:
+- adjust binding commit message as suggested by Frank
+- replace whitespaces with tabs in MQS pinctrl definition
+- link to v1: https://lore.kernel.org/lkml/20260120150329.1486-1-laurentiumihalcea111@gmail.com/
+---
 
-- The patch which adds support for FEC_MTIP_L2SW in Kconfig will be
-  sent after the driver is accepted to net-next
+Laurentiu Mihalcea (2):
+  arm64: dts: imx95: add AONMIX MQS node
+  arm64: dts: imx95-15x15-frdm: support AONMIX MQS
 
-- Those commits are even now bisectable when FEC_MTIP_L2SW is
-  enabled (when I test the setup).
+ .../boot/dts/freescale/imx95-15x15-frdm.dts   | 73 +++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx95.dtsi      |  5 ++
+ 2 files changed, 78 insertions(+)
 
-Anyway, if you still would like to have the TODO comment, then please
-give me a hint how it shall be written to make the AI happy...
+-- 
+2.43.0
 
-
-
-And maybe a few my thoughts:
-
-1. AI review seems to bring each time different issues - even the
-"grammatic" ones were not provided with the first AI generated review.
-
-2. I have tried to setup claudie> to run the patch set through it -
-however, it requires a paid account on a cloud/AI vendor (and I guess
-that different vendors' AI engines produce different output for the same
-"AI prompt")?
-
-
-Anyway, I do appreciate the AI review - it provides very deep insights
-through the code.
-
->=20
-> > +static void mtip_timeout(struct net_device *dev, unsigned int
-> > txqueue) +{
-> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
-> > +
-> > +	dev->stats.tx_errors++; =20
->=20
-> Jakub Kicinski noted in v16 review that tx_errors are already counted
-> by the network stack, and the statistic is exposed per-queue in
-> sysfs. Does incrementing tx_errors here double-count timeout events?
->=20
-> https://lore.kernel.org/all/20250725151618.0bc84bdb@kernel.org/
->=20
-
-Yes, this shall been removed.
-
-> > +	DO_ONCE(mtip_print_hw_state, dev);
-> > +
-> > +	schedule_work(&priv->tx_timeout_work);
-> > +} =20
-
-
-
---=20
-Best regards,
-
-=C5=81ukasz Majewski
 
