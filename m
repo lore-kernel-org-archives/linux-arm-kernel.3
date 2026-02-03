@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A2FE8B368
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 21:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC2EE8B368
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 21:45:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s3YdpmZB5vsU1Wy7HCVXXNCI5BbhI2/4Hmu9Sk8radk=; b=NSwkAXb1JOE9Xt2TApdcx8gWdQ
-	PVDw12hrASjGBH0d3irpA+5wbaxnXcw/mziQ7AdfbogRZC8+c+E6n/CHx3DRQNOaLaHt9FasBq2zE
-	muU/aFnzv437u2BAoRsnyijZI+PpBKjsWGek7QN9aRkP9de1ic+uJqjqEiQoQxiuH3wL7NcrP3+gW
-	UuivxUl7IysvO16D87IwOsj5YFt3FTFHsH4n7OzBE9jLhWOQW1/iu1zCTNLPaxHq47OAqTERPXAmw
-	cHoWnr6vGyuobIurSTY8SFMElWIQRy4oMT1KxXi5iSnDQVThCRglqLciuf6pw/Ovg8bQJ1FrQSvoh
-	oQ4C6Www==;
+	bh=4lowGkJv0OXp/9o+FeMZqvnGJc5QuPnYWcymsMpUMs0=; b=v6JLwWF0ab9FTGkceA+bi6Q5eS
+	M4Na1EWThItceFxORt8ThdA95Kxxm0LKjUqNoa0JTNqhVaud3NqV29Bu4FMqEcwm/bHErzupqm6Rl
+	ymSyHLlh9X98vOvXnEbW6IfqQuu8g5oYXaBGNVjIEm8AQOLq04NGL3mA7ziFGtvjYT5TAaNPaYk1+
+	tRSGkpo4DPKKMJ4s4Wx/S2CgLcmPrBBSpZn0JBWj/N7z7kgGclxQqCBmhM3Z4ERxxS787y8lNblHH
+	IsBFKZWaH32TYKMYQgjcEyfCXF9KQ2WECQlLv8+i1YhgqGENBoc7AaWuHJPsVvaG0bEPvkuMbFxQQ
+	ZYGtzKsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnOCs-00000007Opt-3wJE;
-	Tue, 03 Feb 2026 21:45:10 +0000
+	id 1vnOCw-00000007Oud-1d0E;
+	Tue, 03 Feb 2026 21:45:14 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnOCo-00000007Olw-1Ins
+	id 1vnOCt-00000007Oq5-13SH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 21:45:09 +0000
+	Tue, 03 Feb 2026 21:45:13 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D5D69339;
-	Tue,  3 Feb 2026 13:44:57 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA443339;
+	Tue,  3 Feb 2026 13:45:03 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AB23E3F778;
-	Tue,  3 Feb 2026 13:44:58 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8F17E3F778;
+	Tue,  3 Feb 2026 13:45:04 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -70,17 +70,17 @@ Cc: amitsinght@marvell.com,
 	zengheng4@huawei.com,
 	linux-doc@vger.kernel.org,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v4 11/41] KVM: arm64: Force guest EL1 to use user-space's partid configuration
-Date: Tue,  3 Feb 2026 21:43:12 +0000
-Message-ID: <20260203214342.584712-12-ben.horgan@arm.com>
+Subject: [PATCH v4 12/41] KVM: arm64: Use kernel-space partid configuration for hypercalls
+Date: Tue,  3 Feb 2026 21:43:13 +0000
+Message-ID: <20260203214342.584712-13-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260203214342.584712-1-ben.horgan@arm.com>
 References: <20260203214342.584712-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_134506_514575_EB46D87C 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20260203_134511_366503_D297521F 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,68 +95,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
-
-While we trap the guest's attempts to read/write the MPAM control
-registers, the hardware continues to use them. Guest-EL0 uses KVM's
-user-space's configuration, as the value is left in the register, and
-guest-EL1 uses either the host kernel's configuration, or in the case of
-VHE, the UNKNOWN reset value of MPAM1_EL1.
-
-We want to force the guest-EL1 to use KVM's user-space's MPAM
-configuration. On nVHE rely on MPAM0_EL1 and MPAM1_EL1 always being
-programmed the same and on VHE copy MPAM0_EL1 into the guest's
-MPAM1_EL1. There is no need to restore as this is out of context once TGE
-is set.
+On nVHE systems whether or not MPAM is enabled, EL2 continues to use
+partid-0 for hypercalls, even when the host may have configured its kernel
+threads to use a different partid. 0 may have been assigned to another
+task. Copy the EL1 MPAM register to EL2. This ensures hypercalls use the
+same partid as the kernel thread does on the host.
 
 Tested-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Tested-by: Peter Newman <peternewman@google.com>
-Signed-off-by: James Morse <james.morse@arm.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Changes since rfc:
-Drop the unneeded __mpam_guest_load() in nvhre and the MPAM1_EL1 save restore
-Defer EL2 handling until next patch
-
 Changes since v2:
-Use mask (Oliver)
----
- arch/arm64/kvm/hyp/vhe/sysreg-sr.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+Use mask
+Use read_sysreg_el1 to cope with hvhe
 
-diff --git a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-index f28c6cf4fe1b..9fb8e6628611 100644
---- a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-+++ b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-@@ -183,6 +183,18 @@ void sysreg_restore_guest_state_vhe(struct kvm_cpu_context *ctxt)
- }
- NOKPROBE_SYMBOL(sysreg_restore_guest_state_vhe);
+Changes since v3:
+Set MPAM2_EL2.MPAMEN to 1 as we rely on that before and after
+---
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index a7c689152f68..b25a5ddb9cf0 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -635,6 +635,15 @@ static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
+ 	unsigned long hcall_min = 0;
+ 	hcall_t hfn;
  
-+/*
-+ * The _EL0 value was written by the host's context switch and belongs to the
-+ * VMM. Copy this into the guest's _EL1 register.
-+ */
-+static inline void __mpam_guest_load(void)
-+{
-+	u64 mask = MPAM0_EL1_PARTID_D | MPAM0_EL1_PARTID_I | MPAM0_EL1_PMG_D | MPAM0_EL1_PMG_I;
++	if (system_supports_mpam()) {
++		u64 mask = MPAM1_EL1_PARTID_D | MPAM1_EL1_PARTID_I |
++			MPAM1_EL1_PMG_D | MPAM1_EL1_PMG_I;
++		u64 val = MPAM2_EL2_MPAMEN | (read_sysreg_el1(SYS_MPAM1) & mask);
 +
-+	if (system_supports_mpam())
-+		write_sysreg_el1(read_sysreg_s(SYS_MPAM0_EL1) & mask, SYS_MPAM1);
-+}
++		write_sysreg_s(val, SYS_MPAM2_EL2);
++		isb();
++	}
 +
- /**
-  * __vcpu_load_switch_sysregs - Load guest system registers to the physical CPU
-  *
-@@ -222,6 +234,7 @@ void __vcpu_load_switch_sysregs(struct kvm_vcpu *vcpu)
- 	 */
- 	__sysreg32_restore_state(vcpu);
- 	__sysreg_restore_user_state(guest_ctxt);
-+	__mpam_guest_load();
- 
- 	if (unlikely(is_hyp_ctxt(vcpu))) {
- 		__sysreg_restore_vel2_state(vcpu);
+ 	/*
+ 	 * If pKVM has been initialised then reject any calls to the
+ 	 * early "privileged" hypercalls. Note that we cannot reject
 -- 
 2.43.0
 
