@@ -4,101 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFAF5E87857
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 18:42:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19746E87855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 18:51:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m3VGg504G3cQPpoih1XQjOxr/w/r3kYf3MN3VPcw+vI=; b=OlR+lcr/hNht9Anfmg9BrQvQw/
-	hZfbEfEx07v5WEAF+abC3iSOVIKFGTrRNw1KUMdtGyAAow5r4bh7dBDxUuiPfxkKgErBWYTlhorFp
-	sSl42eDy82cg85py4dUTV1rFJAbjdH9XUJO6/z6D3g2LE23yh/ADD2T2yEBaUtFCI3lgHgDPJZ/JU
-	YwQO3r7zwsPHrMtz+YvLZ+Lo8OIhxZ6eRmE16ImIGoxDLJaM0qbLg+Omt2GbN7/EAvpE1HCrDDPw0
-	5O6dduquWXaiUOv9lgNVShNmkLDbw2Uz+IkGk2LNtqjhyw543bWvmyYbdysPD0gs4Acs3aj+sKxsi
-	ZD/eeSGA==;
+	bh=+Rfw0XG2ThbAXfeMl6ZSUUMc+ZydcYLefy3zvZERR6M=; b=XGXp8A3dZRD5JAgoly7bbAjLpF
+	G/KMHuSA2RGr9zwHZCuWpfGr0AW+hexJ5mczmFxRh5SLVSJRvd9s8KPjLwzxv9q6eP6WwlGasqwdl
+	MFENrc7412eKMO5KpoG9rAerA5uNvFbMYjM0OguP6hel6+nrjDhwuyIadMAXZJuSgz6SR8mkri7Ed
+	evlGK0ZCWvYLIjMwInBiVTyxa+GCzuZS3lgUKZ4XGGZiSf8HhzkaYFeEioshRjVCRjylH+VwES8Dn
+	yHpF59CkTwzxKmXHrMc10L6nKoj/Y+H5vqIM+Ow40LYPh4MSBzRA5nvediBmnbWF8cqWFGh3hHGLN
+	iJyyA1Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnLLx-00000007B8N-2gNb;
-	Tue, 03 Feb 2026 18:42:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vnLUL-00000007CHh-0Q9X;
+	Tue, 03 Feb 2026 18:51:01 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnLLs-00000007AxI-08Cz;
-	Tue, 03 Feb 2026 18:42:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=m3VGg504G3cQPpoih1XQjOxr/w/r3kYf3MN3VPcw+vI=; b=lKk0u0JpgBHppgiKSlw+9vuCHF
-	gRjrqnUQ9F7EyyBWEAixmjXQhLwo927NQ3mGpv6YHQM3GWGazAkmmqzRSV3eZCuG9OO9UWkwvX80n
-	tCCFSLmcyYReSGHkN74w4S3bPSMkbWQdLaJ9Rzw6VDREEb7D8J0sAAPLexlN4AypDfCluGSQ+hhU+
-	mcqdblkE2CY1yZH6jKLR6yt1eljoUm5k4HxOKNERck7kYoJz6zYuC8MyctNdxtZi+A+RVHlsIs7VV
-	xmtIEggAlmi1d2GqCdj8JdCVyYtUZt6wfu0crBbw/6KUUzWJ4+Bf6f/OY10oH/XzvMcw1eBLP4nwy
-	Kv2QWIqw==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnLLo-0000000GsBc-3Acw;
-	Tue, 03 Feb 2026 18:42:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1770144125;
-	bh=fiS+Dsf7kejX8rScYfkmaaLrPJb2gNjvgY69POQjL74=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qJCm4VpzioKSrLqOhsnrXy+XjjfgZLRcdFMPKUg57jnrcJZTQuNF/Un0LmagglpFx
-	 bbaqqJUbgEHRfdFZ5FC+pC9E/QjSbqhjSDTaLwVuXz/gBdbyaBae5MUZ+hpRNspIKT
-	 J9PbAtfD8hlfrwEvJLlfAjTJehKIPMZYCvAEj6jQPB1sGVmJTRSxv3G7d0oR0RGbc9
-	 kiLAi8FML7lfbGUMLfgBPh9OlOcNajNQIaoAMFDWOuOZ6NpcsexTqEH1c+P8ug3Xto
-	 DR/E7R1XDmc75g4xlGVVDmeM1Jo1TgiYVboYQ6WyhPPFKKCsmEgKAy/pi5kLtB5JEs
-	 VTkFdXbeL7xGg==
-Received: from jupiter.universe (dyndsl-091-248-189-143.ewe-ip-backbone.de [91.248.189.143])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 81F6B17E0927;
-	Tue,  3 Feb 2026 19:42:05 +0100 (CET)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 4B637480027; Tue, 03 Feb 2026 19:42:05 +0100 (CET)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Tue, 03 Feb 2026 19:41:28 +0100
-Subject: [PATCH 2/7] phy: rockchip: usbdp: Fix LFPS detect threshold
- control
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260203-rockchip-usbdp-cleanup-v1-2-16a6f92ed176@collabora.com>
-References: <20260203-rockchip-usbdp-cleanup-v1-0-16a6f92ed176@collabora.com>
-In-Reply-To: <20260203-rockchip-usbdp-cleanup-v1-0-16a6f92ed176@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: Andy Yan <andy.yan@rock-chips.com>, 
- Yubing Zhang <yubing.zhang@rock-chips.com>, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- William Wu <william.wu@rock-chips.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1464;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=6KTsI7g25/YTK5NqGxPQGl5yWawgw8+Ad7FeccmRckk=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGmCQX0N/sukoZNN81S2a1Xt9AvKmgNodU1mh
- f4X/sB6QfKB+IkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJpgkF9AAoJENju1/PI
- O/qaN2sP/jUtS/35QjGdbSsXIl9TsKYB2ct9jnfFprR4enUwqpT5vMrJZ1ygscdBtqbflVn41q9
- WkUQ6VArXS2Tep1zAlaC03XvUcKt93Yk5zehyjQrlmO8x+ssXzNmTC/Y1CNrD5FuVr2GEMGyEK4
- pg78ZH9orwsCq0Umw1jQZlOH0UEH9NceerQ8s00Ek6rsDm6FMJoe8/bKBnFb6CeodPxh4/d3Ao7
- anpUGarJxBSle1whl4n6th9fxpgQZ32Zycn386lXg0HuvfQoYQLZ91ujCNWY7jT94ZEpiAxytPR
- cGTyzY5OipVxrYOhPz/vN0Oh2uk73zDom3fmh6w2rR0NkYA0TBXgjnXdmWNwB9YXey2ZTtKI+b9
- 1xsqVoJtbqDaRPGWuDLrnpUtg8hJLWaKF6Bb/ge34+g20RBiecF3NzXWsR+gw/B+7PoqqZj56do
- /Qlc0Js8Lsm5yrnbLqJfCHd0UBhVEJJzCrj+hp11k7U1Yqufi2bvKLiszpKYsIdkEIM7KlMOppx
- CWoCOFYBKpeK4IOK5jc7oKmV9SjFjTnid6K5olMKRKhRUqIrOpMEz4NXivHohnhJ5e1kBJU1djZ
- nha4I4WfabKI+cvL7F2F7khBrVzXQVgeu+j0ca8kKtiyaP9hyMt2tjhtU4F8VnnQaS6ugpHwzVK
- 1HRqu9O2iEmjBu/a8Fuo7AA==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+	id 1vnLUI-00000007CH8-0XPa
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Feb 2026 18:50:59 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2a90055b9e9so15255145ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 10:50:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nexthop.ai; s=google; t=1770144657; x=1770749457; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+Rfw0XG2ThbAXfeMl6ZSUUMc+ZydcYLefy3zvZERR6M=;
+        b=kRXiSDXwdNtw5oH1n+G8tu91nR/0knusKxtGi+rieLrUZAuF2F1cUpZkGHysICwnbG
+         LwRcnADS+TRqwkjMrJnnjskxvDSQbLv2Iv8LAMvE475crcFZ50w5bG137lICQoCxyZor
+         /Ca0WZqJm9SGwLhMJWg9GZL7n20iyZ4Oqi+m5+bJVvnCfiDXBM4Ccl80X/SetXUvQWkj
+         w2NdrX/9asaWaytazOrCt0qzmO4ahsWWoaWqOfvp0TSrON6xIwp1wkfm7bOWE1a+IrMJ
+         2Hq1KXLtHkafcZ5z68pCgp100NNXROkLXHU6xrAfeSKA1Tijw6qLh61ffNSdOklNmxAq
+         pJfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770144657; x=1770749457;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=+Rfw0XG2ThbAXfeMl6ZSUUMc+ZydcYLefy3zvZERR6M=;
+        b=F66TiUGVO0qMLMcvwE5XV0P6vIvXeW7N7zASb12Yhyfy4SNkYMF7gos9/mDl3P09Oz
+         o3rBo+BPHeXiy/cAmGVQalfzn0XA9EV1/oS+1B0VjHVfyFaMjIGdGWY64jiy/U4QxXLK
+         HSOEm+JtLqNr8swWzmzMeQ53Y1n6gT7ZuQrbY0uYzMQJ1LNDG7dMaSDJsLK8BO+NFnk6
+         Mve6CnzrxjhuE+cFNgYIGJ2txtn+LDfBE5i5/wt8fhzQwBhnBBbxcqTzSq22RLs71MH9
+         syS6Nz1w/ibnvUsQ7dyL+0DevfVod17ql1wh5+u7oi0ilMp+tDEe/fwB+QJak7eT8vHv
+         lYGA==
+X-Forwarded-Encrypted: i=1; AJvYcCX14WDzZQv7cOk+Enzb0ACERHXa8ygz1Cj2oy4zmTa/OU0Wrc+xKuUcbHPSYyNYQXxExpwCkQ+vxcQ5gY0ykw1B@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywi0xYstiH+L8bIFxVH9OJzmaAco5jmu5Nn3uXk+gKzGNi8sx1Y
+	ySbX0OLDLX1FDTAHTa95LxkJJL7UaQHGVnT0rBYfKHdHywA+kAJoOaSQjWg/fgSKvSI=
+X-Gm-Gg: AZuq6aJAHW6Q4LodF+v8m4soPpnK4R9tAPdC0e1bG2BD8pQ4cRHC7JlDEd6gRiPthgz
+	x9R80hR7Ttonn7z7Af6KZeraQnMc/BoCtY1zI0hXxBNoDioGsu2lZAifAOLwCMCZqqfs/TOhShx
+	QlzNdoO9PWouskq9B/wTZu5uOdSmbcsZxH88w7yXxKpiGj+G3hyl9pkDGu82vyNKwJmXnZkt6rA
+	yKPUYDuVkG7UDARPcN3cFK6gc2Nm4KLP673MgcxVjgBH1Iz3nvVsUJXNoas2v0DPFDMudS9ODlR
+	3WMZSd7GoDCVeXDqkyKiZ+CvbQ0bd8u6/rfWDjKXuk7no4jHXcNGLYDk8LTVaPA8KK3BJpQmHij
+	y+1pIXpr2ndTpMjs0LrOsBfXVyI0Wc7LN1/XZCROlf8JRl7OcBx/KFDlSc8T3bLzt7Q6/Bd9I7e
+	8Kj6YBn9/Tds16/9tmXymEN9CfF4zDrp4iCVQPxlMVCctutQ==
+X-Received: by 2002:a17:903:19cf:b0:2a7:aa14:82f7 with SMTP id d9443c01a7336-2a933b9d152mr3156645ad.10.1770144657038;
+        Tue, 03 Feb 2026 10:50:57 -0800 (PST)
+Received: from smtpclient.apple ([2601:602:8701:5361:2dd6:2d53:d593:7d46])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a933888e8csm2181465ad.29.2026.02.03.10.50.55
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 03 Feb 2026 10:50:55 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
+Subject: Re: [PATCH v9 6/7] i2c: xiic: use numbered adapter registration
+From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+In-Reply-To: <1ac7be34-22b1-4d93-9957-fc7ade9a2649@lunn.ch>
+Date: Tue, 3 Feb 2026 10:50:44 -0800
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
+ Michal Simek <michal.simek@amd.com>,
+ Andi Shyti <andi.shyti@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <DF13B121-56F2-4987-A47B-99A20E18554E@nexthop.ai>
+References: <20260202-i2c-xiic-v9-0-ce4695f5267d@nexthop.ai>
+ <20260202-i2c-xiic-v9-6-ce4695f5267d@nexthop.ai>
+ <aYIYBheQgIN71os8@smile.fi.intel.com>
+ <2F830E87-F00A-4A54-A5CC-E59BD2C5C7B2@nexthop.ai>
+ <1ac7be34-22b1-4d93-9957-fc7ade9a2649@lunn.ch>
+To: Andrew Lunn <andrew@lunn.ch>
+X-Mailer: Apple Mail (2.3864.300.41.1.7)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_184212_944731_3077CD6D 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20260203_105058_175600_B64642ED 
+X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,44 +112,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: William Wu <william.wu@rock-chips.com>
 
-According to the LFPS Tx Low Power/LFPS Rx Detect Threshold [1],
-the device under test(DUT) must not respond if LFPS below the
-minimum LFPS Rx Detect Threshold 100mV. Test fail on Rockchip
-platforms, because the default LFPS detect threshold is set to
-65mV.
 
-The USBDP PHY LFPS detect threshold voltage could be set to
-30mV ~ 140mV, and since there could be 10-20% PVT variation,
-we set LFPS detect threshold voltage to 110mV.
+> On Feb 3, 2026, at 10:31=E2=80=AFAM, Andrew Lunn <andrew@lunn.ch> =
+wrote:
+>=20
+> On Tue, Feb 03, 2026 at 10:14:49AM -0800, Abdurrahman Hussain wrote:
+>>=20
+>>=20
+>>> On Feb 3, 2026, at 7:45=E2=80=AFAM, Andy Shevchenko =
+<andriy.shevchenko@intel.com> wrote:
+>>>=20
+>>> On Mon, Feb 02, 2026 at 08:37:23PM +0000, Abdurrahman Hussain via B4 =
+Relay wrote:
+>>>=20
+>>>> Use i2c_add_numbered_adapter() to allow platform devices to specify
+>>>> fixed bus numbers when needed.
+>>>=20
+>>> Not sure about this. Doesn't it break the current approach? Please, =
+double
+>>> check that.
+>>>=20
+>>> --=20
+>>> With Best Regards,
+>>> Andy Shevchenko
+>>>=20
+>>>=20
+>>=20
+>> If pdev->id is PLATFORM_DEVID_NONE(-1) then =
+i2c_add_numbered_adapter()
+>> falls back to dynamic allocation and calls i2c_add_adapter().
+>>=20
+>> Many existing i2c drivers use the same approach, see i2c-pxa.c and
+>> i2c-pnx.c etc.
+>=20
+> It is not about if other drivers do this. Its about does this change
+> the behaviour of this driver, so that I2C busses get different IDs
+> then before, and so cause regressions?
+>=20
+> You need to explain in the commit message why you think this is safe.
+>=20
+>    Andrew
 
-[1] https://compliance.usb.org/resources/LFPS_Rx_Tx_Low_Power_Compliance_Update_Rev5.pdf
+Before, the driver was always doing the dynamic allocation due to
+i2c_add_adapter(). So there could not have been a system that relied on
+consistent i2c bus numbering. Even between reboots bus numbering could =
+change.
 
-Signed-off-by: William Wu <william.wu@rock-chips.com>
-[Taken over from rockchip's kernel tree; the registers are not described
-in the TRM]
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+The systems that did set pdev->id and were expecting a consistent i2c =
+bus
+numbering were broken to begin with.
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index b494819be284..7e4142aef192 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -413,7 +413,8 @@ static const struct reg_sequence rk_udphy_init_sequence[] = {
- 	{0x0070, 0x7d}, {0x0074, 0x68},
- 	{0x0af4, 0x1a}, {0x1af4, 0x1a},
- 	{0x0440, 0x3f}, {0x10d4, 0x08},
--	{0x20d4, 0x08}, {0x0024, 0x6e}
-+	{0x20d4, 0x08}, {0x0024, 0x6e},
-+	{0x09c0, 0x0a}, {0x19c0, 0x0a}
- };
- 
- static inline int rk_udphy_grfreg_write(struct regmap *base,
+This patch won=E2=80=99t break any existing systems or cause =
+regressions.
 
--- 
-2.51.0
+
 
 
