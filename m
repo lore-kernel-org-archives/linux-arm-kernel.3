@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA082E8B368
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 21:47:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7099E8B368
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 21:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wnvUEA07YELaFDYSzKl7/cYISQbqOabgJkIB6WhIRtE=; b=k1s+uJs7Ty6pdgc1t/DvJDuYxu
-	IEpCEYf7OCrU9TElXW2b2mheuvGX+yJ/CBiYLO33YJDlub2sFIissunfOBS5tLf/A+NeqCmSA0fDK
-	MHg9LTCjnk6LxGRRJR5zvVMGmk/8UgpcEgeCpyT0YJmpCyDc+eH/qRL6fBsF/gYyPPDC6bSUEb70T
-	k7FCSNTmsgWxuAojX/eb2uKZmQR63kJFuJH7nj4XePWP/cFemUqRhrMHdCbdL7YGSsE+Hz/BclbDn
-	lUcFDFuPURAlwsryZMUWckr+Iow1r1inXlmDtXTE+yjSXhQewyyxVN1cCq98LHNszKzse/8+sAG9+
-	pTq9M/yg==;
+	bh=e2QvIW3y5z6P9AO2I0tQmpwmCFYXMKNEKe8RG4FxK1I=; b=PqG2ny8Jauem+jeZEekHdQMLnA
+	aIT5FP9MsLReyd1Xb/dDD8Zvvx1rEv2P2p+eqOZtd4xSEYfRq5u1ltVXGlVc9T5h/tfVPR/eTDGQW
+	cmzcVWlf/toViqrFgENB7mJYw5aWQ/+4dKUMQQpYUBC0jPS66rxVaPRe9jih8SRe45OiJU/Ti+6W9
+	xL33fGACrPVTMSd/+q0ewWnnAQBDFWnQVHR8s4nk9QnViWUxC6EphnDA3xVs6JwF4xsxF2kXXzB+Q
+	IQuNNGJnoaRPYPHc01tRNpZwtgq2cv0ZrZjC0sGoEEHbJRDkpGaj7MFgZPWwHs9u4ALMjjSlpk2lQ
+	JVIKk5GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnOEl-00000007Qaz-1Sb2;
-	Tue, 03 Feb 2026 21:47:07 +0000
+	id 1vnOEr-00000007Qgo-3UDR;
+	Tue, 03 Feb 2026 21:47:13 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnOEh-00000007QXH-1VKp
+	id 1vnOEm-00000007Qcs-3D0L
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 21:47:06 +0000
+	Tue, 03 Feb 2026 21:47:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A1B831063;
-	Tue,  3 Feb 2026 13:46:55 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 852B1150C;
+	Tue,  3 Feb 2026 13:47:01 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 771513F778;
-	Tue,  3 Feb 2026 13:46:56 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5AD1A3F778;
+	Tue,  3 Feb 2026 13:47:02 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -70,17 +70,17 @@ Cc: amitsinght@marvell.com,
 	zengheng4@huawei.com,
 	linux-doc@vger.kernel.org,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v4 31/41] arm_mpam: resctrl: Add resctrl_arch_rmid_read() and resctrl_arch_reset_rmid()
-Date: Tue,  3 Feb 2026 21:43:32 +0000
-Message-ID: <20260203214342.584712-32-ben.horgan@arm.com>
+Subject: [PATCH v4 32/41] arm_mpam: resctrl: Update the rmid reallocation limit
+Date: Tue,  3 Feb 2026 21:43:33 +0000
+Message-ID: <20260203214342.584712-33-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260203214342.584712-1-ben.horgan@arm.com>
 References: <20260203214342.584712-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_134703_514508_46914DEC 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20260203_134708_955132_0BB18EB3 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,14 +97,12 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: James Morse <james.morse@arm.com>
 
-resctrl uses resctrl_arch_rmid_read() to read counters. CDP emulation means
-the counter may need reading in three different ways. The same goes for
-reset.
+resctrl's limbo code needs to be told when the data left in a cache is
+small enough for the partid+pmg value to be re-allocated.
 
-The helpers behind the resctrl_arch_ functions will be re-used for the ABMC
-equivalent functions.
-
-Add the rounding helper for checking monitor values while we're here.
+x86 uses the cache size divided by the number of rmid users the cache may
+have. Do the same, but for the smallest cache, and with the number of
+partid-and-pmg users.
 
 Tested-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
@@ -113,200 +111,76 @@ Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Changes since rfc:
-cfg initialisation style
-code flow at end of read_mon_cdp_safe()
-
 Changes since v2:
-Whitespace changes
+Move waiting for cache info into it's own patch
 
 Changes since v3:
-Update function signatures
-Remove abmc check
+Move check class is csu higher (just kept to document intent)
+continue -> break
+
+to squash update rmid limits
+use raw_smp_processor_id()
 ---
- drivers/resctrl/mpam_resctrl.c | 152 +++++++++++++++++++++++++++++++++
- include/linux/arm_mpam.h       |   5 ++
- 2 files changed, 157 insertions(+)
+ drivers/resctrl/mpam_resctrl.c | 39 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
 diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index e2c534a68898..e8102cc74de8 100644
+index e8102cc74de8..e2b1afca5f01 100644
 --- a/drivers/resctrl/mpam_resctrl.c
 +++ b/drivers/resctrl/mpam_resctrl.c
-@@ -334,6 +334,158 @@ void resctrl_arch_mon_ctx_free(struct rdt_resource *r,
- 	resctrl_arch_mon_ctx_free_no_wait(evtid, mon_idx);
+@@ -486,6 +486,42 @@ void resctrl_arch_reset_rmid(struct rdt_resource *r, struct rdt_l3_mon_domain *d
+ 	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
  }
  
-+static int __read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
-+		      enum mpam_device_features mon_type,
-+		      int mon_idx,
-+		      enum resctrl_conf_type cdp_type, u32 closid, u32 rmid, u64 *val)
++/*
++ * The rmid realloc threshold should be for the smallest cache exposed to
++ * resctrl.
++ */
++static int update_rmid_limits(struct mpam_class *class)
 +{
-+	struct mon_cfg cfg;
++	u32 num_unique_pmg = resctrl_arch_system_num_rmid_idx();
++	struct mpam_props *cprops = &class->props;
++	struct cacheinfo *ci;
 +
-+	if (!mpam_is_enabled())
-+		return -EINVAL;
++	lockdep_assert_cpus_held();
 +
-+	/* Shift closid to account for CDP */
-+	closid = resctrl_get_config_index(closid, cdp_type);
-+
-+	if (mon_idx == USE_PRE_ALLOCATED) {
-+		int mbwu_idx = resctrl_arch_rmid_idx_encode(closid, rmid);
-+
-+		mon_idx = mon->mbwu_idx_to_mon[mbwu_idx];
-+		if (mon_idx == -1)
-+			return -EINVAL;
-+	}
-+
-+	if (irqs_disabled()) {
-+		/* Check if we can access this domain without an IPI */
-+		return -EIO;
-+	}
-+
-+	cfg = (struct mon_cfg) {
-+		.mon = mon_idx,
-+		.match_pmg = true,
-+		.partid = closid,
-+		.pmg = rmid,
-+	};
-+
-+	return mpam_msmon_read(mon_comp, &cfg, mon_type, val);
-+}
-+
-+static int read_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
-+			     enum mpam_device_features mon_type,
-+			     int mon_idx, u32 closid, u32 rmid, u64 *val)
-+{
-+	if (cdp_enabled) {
-+		u64 code_val = 0, data_val = 0;
-+		int err;
-+
-+		err = __read_mon(mon, mon_comp, mon_type, mon_idx,
-+				 CDP_CODE, closid, rmid, &code_val);
-+		if (err)
-+			return err;
-+
-+		err = __read_mon(mon, mon_comp, mon_type, mon_idx,
-+				 CDP_DATA, closid, rmid, &data_val);
-+		if (err)
-+			return err;
-+
-+		*val += code_val + data_val;
++	if (!mpam_has_feature(mpam_feat_msmon_csu, cprops))
 +		return 0;
-+	}
 +
-+	return __read_mon(mon, mon_comp, mon_type, mon_idx,
-+			  CDP_NONE, closid, rmid, val);
-+}
-+
-+/* MBWU when not in ABMC mode, and CSU counters. */
-+int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
-+			   u32 closid, u32 rmid, enum resctrl_event_id eventid,
-+			   void *arch_priv, u64 *val, void *arch_mon_ctx)
-+{
-+	struct mpam_resctrl_dom *l3_dom;
-+	struct mpam_component *mon_comp;
-+	u32 mon_idx = *(u32 *)arch_mon_ctx;
-+	enum mpam_device_features mon_type;
-+	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
-+
-+	resctrl_arch_rmid_read_context_check();
-+
-+	if (eventid >= QOS_NUM_EVENTS || !mon->class)
-+		return -EINVAL;
-+
-+	l3_dom = container_of(hdr, struct mpam_resctrl_dom, resctrl_mon_dom.hdr);
-+	mon_comp = l3_dom->mon_comp[eventid];
-+
-+	switch (eventid) {
-+	case QOS_L3_OCCUP_EVENT_ID:
-+		mon_type = mpam_feat_msmon_csu;
-+		break;
-+	case QOS_L3_MBM_LOCAL_EVENT_ID:
-+	case QOS_L3_MBM_TOTAL_EVENT_ID:
-+		mon_type = mpam_feat_msmon_mbwu;
-+		break;
-+	default:
++	/*
++	 * Assume cache levels are the same size for all CPUs...
++	 * The check just requires any online CPU and it can't go offline as we
++	 * hold the cpu lock.
++	 */
++	ci = get_cpu_cacheinfo_level(raw_smp_processor_id(), class->level);
++	if (!ci || ci->size == 0) {
++		pr_debug("Could not read cache size for class %u\n",
++			 class->level);
 +		return -EINVAL;
 +	}
 +
-+	return read_mon_cdp_safe(mon, mon_comp, mon_type, mon_idx,
-+				 closid, rmid, val);
-+}
-+
-+static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
-+			int mon_idx,
-+			enum resctrl_conf_type cdp_type, u32 closid, u32 rmid)
-+{
-+	struct mon_cfg cfg = { };
-+
-+	if (!mpam_is_enabled())
-+		return;
-+
-+	/* Shift closid to account for CDP */
-+	closid = resctrl_get_config_index(closid, cdp_type);
-+
-+	if (mon_idx == USE_PRE_ALLOCATED) {
-+		int mbwu_idx = resctrl_arch_rmid_idx_encode(closid, rmid);
-+		mon_idx = mon->mbwu_idx_to_mon[mbwu_idx];
++	if (!resctrl_rmid_realloc_limit ||
++	    ci->size < resctrl_rmid_realloc_limit) {
++		resctrl_rmid_realloc_limit = ci->size;
++		resctrl_rmid_realloc_threshold = ci->size / num_unique_pmg;
 +	}
 +
-+	if (mon_idx == -1)
-+		return;
-+	cfg.mon = mon_idx;
-+	mpam_msmon_reset_mbwu(mon_comp, &cfg);
-+}
-+
-+static void reset_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
-+			       int mon_idx, u32 closid, u32 rmid)
-+{
-+	if (cdp_enabled) {
-+		__reset_mon(mon, mon_comp, mon_idx, CDP_CODE, closid, rmid);
-+		__reset_mon(mon, mon_comp, mon_idx, CDP_DATA, closid, rmid);
-+	} else {
-+		__reset_mon(mon, mon_comp, mon_idx, CDP_NONE, closid, rmid);
-+	}
-+}
-+
-+/* Called via IPI. Call with read_cpus_lock() held. */
-+void resctrl_arch_reset_rmid(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
-+			     u32 closid, u32 rmid, enum resctrl_event_id eventid)
-+{
-+	struct mpam_resctrl_dom *l3_dom;
-+	struct mpam_component *mon_comp;
-+	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
-+
-+	if (!mpam_is_enabled())
-+		return;
-+
-+	/* Only MBWU counters are relevant, and for supported event types. */
-+	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
-+		return;
-+
-+	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
-+	mon_comp = l3_dom->mon_comp[eventid];
-+
-+	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
++	return 0;
 +}
 +
  static bool cache_has_usable_cpor(struct mpam_class *class)
  {
  	struct mpam_props *cprops = &class->props;
-diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
-index e1461e32af75..86d5e326d2bd 100644
---- a/include/linux/arm_mpam.h
-+++ b/include/linux/arm_mpam.h
-@@ -67,6 +67,11 @@ struct rdt_resource;
- void *resctrl_arch_mon_ctx_alloc(struct rdt_resource *r, enum resctrl_event_id evtid);
- void resctrl_arch_mon_ctx_free(struct rdt_resource *r, enum resctrl_event_id evtid, void *ctx);
- 
-+static inline unsigned int resctrl_arch_round_mon_val(unsigned int val)
-+{
-+	return val;
-+}
+@@ -991,6 +1027,9 @@ static void mpam_resctrl_pick_counters(void)
+ 			/* CSU counters only make sense on a cache. */
+ 			switch (class->type) {
+ 			case MPAM_CLASS_CACHE:
++				if (update_rmid_limits(class))
++					break;
 +
- /**
-  * mpam_register_requestor() - Register a requestor with the MPAM driver
-  * @partid_max:		The maximum PARTID value the requestor can generate.
+ 				counter_update_class(QOS_L3_OCCUP_EVENT_ID, class);
+ 				break;
+ 			default:
 -- 
 2.43.0
 
