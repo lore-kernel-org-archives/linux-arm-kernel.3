@@ -4,67 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58D17E8784E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 17:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DDA4E8784E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 17:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=x4Ww3Qu09xzqgxeP4bQd3Q8WPsq0VdcZ9o/BqeRG6iE=; b=WMIiperbymySiC5wKvRuDQPj6B
-	JyrSbFTpS9oZ64lmFwq0IIkJvjmOragKHUO/L9XEQ3CwTI+htPIvdJ+SgsRBeFfSfMXtobtgI8BKU
-	ZiP/g5eo20vR9ahO149LNJc8DmaRYxaEyf1tX2yVRusi8NiMypS+fs2IhyXNNjvJQ8IBiHc40FfwS
-	DczUsuXij+nbtTHlJvPuOJnOWoxvbMSJie6CJucf45hnNULsufcNj3A0pQbXY/qg4jJ0K9QHaW4b4
-	Q9bEdKu5x6jCEYNXVz9mWF1yDbfpuYZevrE/MGA5ZX1Ry0w/PUvvCoYO/l0ZFDcOTihcisWep/s00
-	phdvzt0w==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fpSajIVZjkZZLcEgZT2wYAImlkh3WeN99av2xam9naA=; b=fhQfkvE8LdXqdlTw+6RuR44Op5
+	LoVhj46eZjPxGbBhSD++WuQzltKQuQ8b0OzS6IOVQHZ6x1WtPqGOBsocyPNdShFjggpMThko27UV7
+	3qzHk2zTAYZLguOSfCQUzB2mrJGx2c0RfnTRRoWwWP+qFUCI8xSFJc97BuIHNKohqAgYoBMTRVOrW
+	gJHg8UIwgvxaZxyMXWhh3nT1g15kIipSzR6AJOMZfaJt8i5DJNCyNCjQGQEIkIZ+IJcAy2+2norSq
+	y9eiFY+8jxIYKxNiuFzr8KegInHZczQ3zaoILF6vvTD5jY3SMfB6gCP8Z+t1tVA85/iPpSOqu4I6x
+	bBHYwn/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnK0j-000000071xn-1sSy;
-	Tue, 03 Feb 2026 17:16:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vnK4F-000000072K8-195y;
+	Tue, 03 Feb 2026 17:19:59 +0000
+Received: from fhigh-a3-smtp.messagingengine.com ([103.168.172.154])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnK0i-000000071xY-1Cz3
+	id 1vnK47-000000072Ik-3vm1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 17:16:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 52EEF6013E;
-	Tue,  3 Feb 2026 17:16:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8305AC116D0;
-	Tue,  3 Feb 2026 17:16:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770138979;
-	bh=V+hRYaveht9zKYaY/x1O5Uifx5AVMz4lD+Sn9iPlVes=;
-	h=From:To:Cc:Subject:Date:From;
-	b=GQ3cEh1/aMEa1eRzUixJkttpRawZoqz4f7u8KkkpBmx7jTWjibs1zj/DH+ViIr621
-	 BaVOfdcElW0Jd2Hky6y/TK26NkwP2HwruSO72btzEzmMR2OzqWIYiEyuUaGcT2xTHI
-	 O1az1+38QA0ZNAwVwieSa9LZ3XnWePr0nPiaB23h1E61I/XefUWLIoZXyuegyiWjuh
-	 c9OTs3K+1dHjBcMX9AhbCmVr9haOH51n2LeczDsMO/t7BwFvwiNiqULBrMEL9XWyt9
-	 RhRsyXe8IJgkLXAIl7ATvEE1FUbvn+cbR7sbYyQjNe7HmTlLzCBL8u1YQ/5kwGSh0I
-	 FOage/04NqELg==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>,
-	linux-clk@vger.kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Taniya Das <taniya.das@oss.qualcomm.com>,
-	Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-	=?UTF-8?q?Barnab=C3=A1s=20Cz=C3=A9m=C3=A1n?= <barnabas.czeman@mainlining.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Brian Masney <bmasney@redhat.com>,
-	Daniil Titov <daniilt971@gmail.com>,
-	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-	David Heidelberg <david@ixit.cz>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	George Moussalem <george.moussalem@outlook.com>,
-	Petr Hodina <petr.hodina@protonmail.com>
-Subject: [GIT PULL] Qualcomm clock updates for v6.20
-Date: Tue,  3 Feb 2026 11:16:16 -0600
-Message-ID: <20260203171616.2830464-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.52.0
+	Tue, 03 Feb 2026 17:19:56 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 3E96F1400087;
+	Tue,  3 Feb 2026 12:19:48 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Tue, 03 Feb 2026 12:19:48 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1770139188;
+	 x=1770225588; bh=fpSajIVZjkZZLcEgZT2wYAImlkh3WeN99av2xam9naA=; b=
+	euWKCmONC965n640l7qWtqVS3FYbGPKjBpEyaztDTFQPBii9umSgtdcBQIjqjmnf
+	jW43Dle9DCwQ9rWGrcmpqxuhmz9CU0fGEEtVbWcVxSKRyREcuKY1UPpQabJAUbBs
+	CSnx8pl+giDRZgK00FSRed51vYpUNPoyW6RysBQu7Ii4hNwOLWgrH8es38Mx//dg
+	Rgen+J+gaIC5PuoLfNdkpPQ7kbVR6QhEtECrz9Z1C9Pk6Miux2+oQlL/guGYmb2z
+	6wUdEKw1dSW28xAJg0hAeXZ35dNXPimwRnrne6B9nV1qR/1FqtnKc2wUbnQaqUbS
+	5gKMblzG64XE/qmN5F5yBg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1770139188; x=
+	1770225588; bh=fpSajIVZjkZZLcEgZT2wYAImlkh3WeN99av2xam9naA=; b=H
+	QJvMqr0ObN97cp+qltQa2RE9+zSX2qqLtSqAF+4Gc0wLqAEwxHy0m6T0iu4DkOMJ
+	+/quGG1sOL1BYdEgC8ASzxbI0b8MW6Rpc+jasTxMQYkEdNJ2aaMSy8VRTsQtyMN/
+	puRp+swlAgGIQbAcnsIV8zkfI0P5b/lqDSyfA2f+ABrjHwL2C2tnq0gkZA+fvV3g
+	qXYPeYkEmFfFwOJularvy64k13GkPykuEKZiRLUd+z4abpKJWtZkypruvjiXydM5
+	C6Z7azwVsOHHz2AMwqcD7JzxmVo2O4QmVZImSt7wv/6T4rGtaa19MiCGxKrhtr1X
+	gXc4v/WXS6/R7/FSxOlsA==
+X-ME-Sender: <xms:My6CaWwxx-o0fnEUSfc2ZpcWoAvF0DdgsiyPH6-jGQZuSN8NuioYzw>
+    <xme:My6CadHmVQC48cj1RZzetTQSO1CTzC9RMHmIFpFv5yIT-RCbngJzjUYBen-i1nXHj
+    9ZW51y_8v-jzUS2DMpQ9KF-hK7asmlJo7WtLrEVwCoEq1_1Tf87hF2S>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddukedtieefucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudehpdhmohguvgepshhmthhpohhu
+    thdprhgtphhtthhopegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrd
+    gtohhmpdhrtghpthhtohepphhrihhmvgdriigvnhhgsehhihhsihhlihgtohhnrdgtohhm
+    pdhrtghpthhtohepfigrnhhgiihhohhuudeshhhishhilhhitghonhdrtghomhdprhgtph
+    htthhopeiguhifvghiheeshhhishhilhhitghonhdrtghomhdprhgtphhtthhopehjohhn
+    rghthhgrnhdrtggrmhgvrhhonheshhhurgifvghirdgtohhmpdhrtghpthhtohepfhgrnh
+    hghhgrohduudeshhhurgifvghirdgtohhmpdhrtghpthhtoheplhhinhhugigrrhhmsehh
+    uhgrfigvihdrtghomhdprhgtphhtthhopehlihhuhihonhhglhhonhhgsehhuhgrfigvih
+    drtghomhdprhgtphhtthhopeifrghnghihuhhshhgrnhduvdeshhhurgifvghirdgtohhm
+X-ME-Proxy: <xmx:My6CaSs-8x-M5Euq5mYm0mJtPzc7Uw3rkmBe_thl3yMLioYZJbDdxg>
+    <xmx:My6CaW4-d9kt1Se1Jyq5ocJalsjzDBWT6BNbLdsuoUmK2cn6Oa4aHQ>
+    <xmx:My6Cae1tbz8dfv10Ebq7SG_5cDDWctAY62Jc5bfn7Xhz-nYmP3Qb3A>
+    <xmx:My6CaRgvWy80k3fPZzTH3NPJ59-iVB_3B9RC7Zqe5uaq5WaAgyI9MQ>
+    <xmx:NC6CacAZT5MVaB2eg7jHicvzTU8HwKwUjhpkbJAjLIOM95nEOtlItdMr>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 731EE70006A; Tue,  3 Feb 2026 12:19:47 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-ThreadId: AdHIckEZVcNF
+Date: Tue, 03 Feb 2026 18:19:25 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Yushan Wang" <wangyushan12@huawei.com>,
+ "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+ "Drew Fustini" <fustini@kernel.org>,
+ "Jonathan Cameron" <Jonathan.Cameron@huawei.com>,
+ "Krzysztof Kozlowski" <krzk@kernel.org>,
+ "Linus Walleij" <linus.walleij@linaro.org>, "Will Deacon" <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: fanghao11@huawei.com, linuxarm@huawei.com, liuyonglong@huawei.com,
+ prime.zeng@hisilicon.com, "Zhou Wang" <wangzhou1@hisilicon.com>,
+ "Wei Xu" <xuwei5@hisilicon.com>
+Message-Id: <a8ba1c0b-e7c8-44c5-b785-42752f7f5d8f@app.fastmail.com>
+In-Reply-To: <20260203161843.649417-2-wangyushan12@huawei.com>
+References: <20260203161843.649417-1-wangyushan12@huawei.com>
+ <20260203161843.649417-2-wangyushan12@huawei.com>
+Subject: Re: [PATCH 1/3] soc cache: L3 cache driver for HiSilicon SoC
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260203_091952_043634_0DD0918D 
+X-CRM114-Status: GOOD (  21.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,179 +122,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Feb 3, 2026, at 17:18, Yushan Wang wrote:
+> The driver will create a file of `/dev/hisi_l3c` on init, mmap
+> operations to it will allocate a memory region that is guaranteed to be
+> placed in L3 cache.
+>
+> The driver also provides unmap() to deallocated the locked memory.
+>
+> The driver also provides an ioctl interface for user to get cache lock
+> information, such as lock restrictions and locked sizes.
+>
+> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
 
-The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
+Hi Yushan,
 
-  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+Thanks for your submission. Since we are in the last week of
+the merge window, this is not going to be linux-7.0 material,
+but I'll have a quick look for now.
 
-are available in the Git repository at:
+>  .../userspace-api/ioctl/ioctl-number.rst      |   1 +
+>  MAINTAINERS                                   |   6 +
+>  drivers/soc/hisilicon/Kconfig                 |  11 +
+>  drivers/soc/hisilicon/Makefile                |   2 +
+>  drivers/soc/hisilicon/hisi_soc_l3c.c          | 357 ++++++++++++++++++
+>  include/uapi/misc/hisi_l3c.h                  |  28 ++
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-clk-for-6.20
+I don't think this should be in drivers/soc/, since I want
+to reserve that for internal drivers without a user visible
+interface other than the soc_device information. (yes, there
+are a few historic counterexamples)
 
-for you to fetch changes up to 012e012e4917da06b512a3074980c3091949befa:
+I also don't think this should be a hilicon specific interface,
+if possible. The functionality is not that unusual in the end.
 
-  clk: qcom: sm8750: Constify 'qcom_cc_desc' in SM8750 camcc (2026-01-28 14:23:35 -0600)
+We had similar concepts using the numactl system calls in the
+part, but I don't think we should do that here because you may
+need the numa interfaces for other purposes as well, and it
+may be confusing to existing callers.
 
-----------------------------------------------------------------
-Qualcomm clock updates for v6.20
+Having a generic madvise() based interface would be great,
+not sure if hardware support for that is common enough for that.
 
-Convert clock dividers from round_rate() to determine_rate().
+> +	/* Continuous physical memory is required for L3 cache lock. */
+> +	pg = alloc_contig_pages(1 << order, GFP_KERNEL | __GFP_NOWARN | 
+> __GFP_ZERO,
+> +				cpu_to_node(smp_processor_id()), NULL);
 
-Add support for global, tcsr, rpmh, display, gpu, camera, and video
-clock controllers for Kaanapali.
+Since this is a user allocation, should that be GFP_USER instead
+of GFP_KERNEL?
 
-Add support for camera clock controller for SM8750.
+> +/* HISI_L3C_INFO: cache lock info for HiSilicon SoC */
+> +#define HISI_L3C_LOCK_INFO	_IOW(0xBB, 1, unsigned long)
 
-Fix the SDCC RCGs to use shared_floor_ops across a variety of platforms.
+The specification here looks wrong, please see
+Documentation/driver-api/ioctl.rst
 
-Add support for global clock controller on MSM8940 and SDM439.
+I think for your implementation it should be
 
-----------------------------------------------------------------
-Barnabás Czémán (6):
-      dt-bindings: clock: gcc-msm8917: Add missing MDSS reset
-      clk: qcom: gcc-msm8917: Add missing MDSS reset
-      dt-bindings: clock: qcom: Add MSM8940 Global Clock Controller
-      dt-bindings: clock: qcom: Add SDM439 Global Clock Controller
-      clk: qcom: gcc-msm8953: Remove ALWAYS_ON flag from cpp_gdsc
-      clk: qcom: gcc-msm8917: Remove ALWAYS_ON flag from cpp_gdsc
+#define HISI_L3C_LOCK_INFO	_IOR(0xBB, 1, hisi_l3c_lock_info)
 
-Bjorn Andersson (4):
-      Merge branch '20251117-mdss-resets-msm8917-msm8937-v2-1-a7e9bbdaac96@mainlining.org' into clk-for-6.20
-      Merge branch '20260103-ufs_symbol_clk-v2-1-51828cc76236@oss.qualcomm.com' into clk-for-6.20
-      Merge branch '20251202-sm8750_camcc-v1-2-b3f7ef6723f1@oss.qualcomm.com' into clk-for-6.20
-      Merge branch '20260107-kaanapali-mmcc-v3-v3-0-8e10adc236a8@oss.qualcomm.com' into clk-for-6.20
+> +struct hisi_l3c_lock_info {
+> +	__u32 lock_region_num;
+> +	__u64 lock_size;
+> +	__u8 address_alignment;
+> +	__u64 max_lock_size;
+> +	__u64 min_lock_size;
+> +};
 
-Brian Masney (3):
-      clk: qcom: alpha-pll: convert from divider_round_rate() to divider_determine_rate()
-      clk: qcom: regmap-divider: convert from divider_ro_round_rate() to divider_ro_determine_rate()
-      clk: qcom: regmap-divider: convert from divider_round_rate() to divider_determine_rate()
+You are leaking kernel data because of the padding in this structure,
+please rearrange the members to avoid padding.
 
-Daniil Titov (2):
-      clk: qcom: gcc: Add support for Global Clock controller found on MSM8940
-      clk: qcom: gcc: Add support for Global Clock controller found on SDM439
+It may be better to use a different interface instead of ioctl(),
+possibly exporting global data in sysfs.
 
-David Heidelberg (1):
-      clk: qcom: dispcc-sm7150: Fix dispcc_mdss_pclk1_clk_src
-
-Dmitry Baryshkov (1):
-      clk: qcom: gfx3d: add parent to parent request map
-
-George Moussalem (1):
-      clk: qcom: gcc-ipq5018: flag sleep clock as critical
-
-Jagadeesh Kona (8):
-      clk: qcom: gcc-sm8450: Update the SDCC RCGs to use shared_floor_ops
-      clk: qcom: gcc-sm8750: Update the SDCC RCGs to use shared_floor_ops
-      clk: qcom: gcc-sm4450: Update the SDCC RCGs to use shared_floor_ops
-      clk: qcom: gcc-sdx75: Update the SDCC RCGs to use shared_floor_ops
-      clk: qcom: gcc-milos: Update the SDCC RCGs to use shared_floor_ops
-      clk: qcom: gcc-x1e80100: Update the SDCC RCGs to use shared_floor_ops
-      clk: qcom: gcc-qdu1000: Update the SDCC RCGs to use shared_floor_ops
-      clk: qcom: gcc-glymur: Update the SDCC RCGs to use shared_floor_ops
-
-Krzysztof Kozlowski (4):
-      clk: qcom: gcc-kaanapali: Fix double array initializer
-      clk: qcom: rpmh: Fix double array initializer on Kaanapali
-      clk: qcom: videocc-sm8750: Constify qcom_cc_desc
-      clk: qcom: sm8750: Constify 'qcom_cc_desc' in SM8750 camcc
-
-Petr Hodina (1):
-      clk: qcom: dispcc-sdm845: Enable parents for pixel clocks
-
-Taniya Das (20):
-      clk: qcom: rpmh: Update the clock suffix for Glymur
-      clk: qcom: rpmh: Add support for Kaanapali rpmh clocks
-      clk: qcom: Add TCSR clock driver for Kaanapali
-      clk: qcom: Add support for Global clock controller on Kaanapali
-      dt-bindings: clock: qcom,x1e80100-gcc: Add missing UFS mux clocks
-      clk: qcom: gcc-x1e80100: Add missing UFS symbol mux clocks
-      clk: qcom: rcg2: compute 2d using duty fraction directly
-      dt-bindings: clock: qcom: Add camera clock controller for SM8750 SoC
-      dt-bindings: clock: qcom: document Kaanapali DISPCC clock controller
-      dt-bindings: clock: qcom: Add support for CAMCC for Kaanapali
-      dt-bindings: clock: qcom: Add Kaanapali video clock controller
-      dt-bindings: clock: qcom: document the Kaanapali GPU Clock Controller
-      clk: qcom: clk-alpha-pll: Add support for controlling Rivian PLL
-      clk: qcom: camcc: Add camera clock controller driver for SM8750 SoC
-      clk: qcom: clk-alpha-pll: Update the PLL support for cal_l
-      clk: qcom: clk-alpha-pll: Add support for controlling Pongo EKO_T PLL
-      clk: qcom: dispcc: Add support for display clock controller Kaanapali
-      clk: qcom: camcc: Add support for camera clock controller for Kaanapali
-      clk: qcom: Add support for VideoCC driver for Kaanapali
-      clk: qcom: Add support for GPUCC and GXCLK for Kaanapali
-
-Vladimir Zapolskiy (2):
-      clk: qcom: gcc-sm8550: Use floor ops for SDCC RCGs
-      clk: qcom: gcc-sm8650: Use floor ops for SDCC RCGs
-
- .../bindings/clock/qcom,gcc-msm8953.yaml           |    6 +-
- .../bindings/clock/qcom,kaanapali-gxclkctl.yaml    |   63 +
- .../bindings/clock/qcom,sm8450-camcc.yaml          |   11 +
- .../bindings/clock/qcom,sm8450-gpucc.yaml          |    2 +
- .../bindings/clock/qcom,sm8450-videocc.yaml        |    3 +
- .../bindings/clock/qcom,sm8550-dispcc.yaml         |    2 +
- .../bindings/clock/qcom,x1e80100-gcc.yaml          |    8 +-
- drivers/clk/qcom/Kconfig                           |   71 +-
- drivers/clk/qcom/Makefile                          |    7 +
- drivers/clk/qcom/cambistmclkcc-kaanapali.c         |  437 +++
- drivers/clk/qcom/cambistmclkcc-sm8750.c            |  454 +++
- drivers/clk/qcom/camcc-kaanapali.c                 | 2661 +++++++++++++++
- drivers/clk/qcom/camcc-sm8750.c                    | 2710 +++++++++++++++
- drivers/clk/qcom/clk-alpha-pll.c                   |   41 +-
- drivers/clk/qcom/clk-alpha-pll.h                   |    7 +
- drivers/clk/qcom/clk-rcg2.c                        |    7 +-
- drivers/clk/qcom/clk-regmap-divider.c              |   16 +-
- drivers/clk/qcom/clk-rpmh.c                        |   60 +-
- drivers/clk/qcom/dispcc-kaanapali.c                | 1956 +++++++++++
- drivers/clk/qcom/dispcc-sdm845.c                   |    4 +-
- drivers/clk/qcom/dispcc-sm7150.c                   |    2 +-
- drivers/clk/qcom/gcc-glymur.c                      |    4 +-
- drivers/clk/qcom/gcc-ipq5018.c                     |    1 +
- drivers/clk/qcom/gcc-kaanapali.c                   | 3540 ++++++++++++++++++++
- drivers/clk/qcom/gcc-milos.c                       |    6 +-
- drivers/clk/qcom/gcc-msm8917.c                     |  282 +-
- drivers/clk/qcom/gcc-msm8953.c                     |    1 -
- drivers/clk/qcom/gcc-qdu1000.c                     |    4 +-
- drivers/clk/qcom/gcc-sdx75.c                       |    4 +-
- drivers/clk/qcom/gcc-sm4450.c                      |    6 +-
- drivers/clk/qcom/gcc-sm8450.c                      |    4 +-
- drivers/clk/qcom/gcc-sm8550.c                      |    4 +-
- drivers/clk/qcom/gcc-sm8650.c                      |    4 +-
- drivers/clk/qcom/gcc-sm8750.c                      |    4 +-
- drivers/clk/qcom/gcc-x1e80100.c                    |   76 +-
- drivers/clk/qcom/gpucc-kaanapali.c                 |  482 +++
- drivers/clk/qcom/gxclkctl-kaanapali.c              |   76 +
- drivers/clk/qcom/tcsrcc-kaanapali.c                |  141 +
- drivers/clk/qcom/videocc-kaanapali.c               |  821 +++++
- drivers/clk/qcom/videocc-sm8750.c                  |    2 +-
- include/dt-bindings/clock/qcom,gcc-msm8917.h       |    2 +
- .../clock/qcom,kaanapali-cambistmclkcc.h           |   33 +
- include/dt-bindings/clock/qcom,kaanapali-camcc.h   |  147 +
- include/dt-bindings/clock/qcom,kaanapali-dispcc.h  |  109 +
- include/dt-bindings/clock/qcom,kaanapali-gpucc.h   |   47 +
- .../dt-bindings/clock/qcom,kaanapali-gxclkctl.h    |   13 +
- include/dt-bindings/clock/qcom,kaanapali-videocc.h |   58 +
- .../dt-bindings/clock/qcom,sm8750-cambistmclkcc.h  |   30 +
- include/dt-bindings/clock/qcom,sm8750-camcc.h      |  151 +
- include/dt-bindings/clock/qcom,x1e80100-gcc.h      |    3 +
- 50 files changed, 14504 insertions(+), 79 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/qcom,kaanapali-gxclkctl.yaml
- create mode 100644 drivers/clk/qcom/cambistmclkcc-kaanapali.c
- create mode 100644 drivers/clk/qcom/cambistmclkcc-sm8750.c
- create mode 100644 drivers/clk/qcom/camcc-kaanapali.c
- create mode 100644 drivers/clk/qcom/camcc-sm8750.c
- create mode 100644 drivers/clk/qcom/dispcc-kaanapali.c
- create mode 100644 drivers/clk/qcom/gcc-kaanapali.c
- create mode 100644 drivers/clk/qcom/gpucc-kaanapali.c
- create mode 100644 drivers/clk/qcom/gxclkctl-kaanapali.c
- create mode 100644 drivers/clk/qcom/tcsrcc-kaanapali.c
- create mode 100644 drivers/clk/qcom/videocc-kaanapali.c
- create mode 100644 include/dt-bindings/clock/qcom,kaanapali-cambistmclkcc.h
- create mode 100644 include/dt-bindings/clock/qcom,kaanapali-camcc.h
- create mode 100644 include/dt-bindings/clock/qcom,kaanapali-dispcc.h
- create mode 100644 include/dt-bindings/clock/qcom,kaanapali-gpucc.h
- create mode 100644 include/dt-bindings/clock/qcom,kaanapali-gxclkctl.h
- create mode 100644 include/dt-bindings/clock/qcom,kaanapali-videocc.h
- create mode 100644 include/dt-bindings/clock/qcom,sm8750-cambistmclkcc.h
- create mode 100644 include/dt-bindings/clock/qcom,sm8750-camcc.h
+       Arnd
 
