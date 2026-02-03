@@ -4,96 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61026E87852
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 18:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D09C8E8784C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 18:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c0/ndP+Q6QYWzq22YHYUgQSQqkbwcgk08y+b5h1n8pQ=; b=IVG56z/hLIqGz5bo7qcSXW/jYJ
-	ZfaLIXndYqkUjs039U9aSyoacY1aDAlQiwi+aiN6sU0riB4TFI7nDvNfVXP2wOeFWO0yh7r1wjz4Y
-	zgmA7M//M9uSg5xVNw0MJAaHMAVDDhtDv48PULToKZ9ppTe7MKIeAcVJBm8qZP2IOd0Jm/InLN35A
-	0tKIfIbyUwcbW0RX7QAB2rfpAysoXotBsoQg5ObVnb+1XBYxE+sXhdxrTPIlUbF8M+Bs2JNaEEPKv
-	7BQub0Q712MGLwn1/HWsHg7sGiMa12H9TeoGMUb9y3AkscC+GMreU19BF94qW74m3kY7UUqCh9sw8
-	cWRPYNJw==;
+	bh=AhLtBFYuwe8sjQdJz53j2wA7HDUB30kbmrpluvLvkdw=; b=ZKHSGQ1eDSUzuJfKJu5ATB5oTg
+	XCgkYCoFt0mCWzR7L/zD8P4ePIA7HD5JcpsRCMnF0YLsXOTBkXcdTXIjMbT2vPEeE/fpSPesoElO9
+	V6hvi+LMXyGXS//TUPkxzvpMzkoA7VwoS9daEjxAlyTbcQ6I+JhJkBOAwtCoi2N9xFbiRf0IHwKrO
+	IalT3Tuo/kLEMMPcSn61IShsFu1+AC2WM6+lyuvkZ3JA/wOsl/UAgO6JtGmGFWgyoTebnzxzBm3Uy
+	VWPF1VzpJA32IUF5s5RGIRfL5k2GTmKgwx7OEVMfSpcZwuniv2IcDw4J6BEgf6Od6JhRwgaMSMvBv
+	lkwNezFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnKtf-000000076t8-0w2v;
-	Tue, 03 Feb 2026 18:13:07 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1vnKvZ-0000000773W-468X;
+	Tue, 03 Feb 2026 18:15:05 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnKtc-000000076sT-1ys4
+	id 1vnKvX-0000000772r-29Tj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 18:13:05 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-385d75e1a79so55652251fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 10:13:03 -0800 (PST)
+	Tue, 03 Feb 2026 18:15:04 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c6541e35fc0so3393127a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 10:15:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770142382; x=1770747182; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=c0/ndP+Q6QYWzq22YHYUgQSQqkbwcgk08y+b5h1n8pQ=;
-        b=Ydv4tk2zqyXzSR3wmeEfwAwR49rX2BO1jZw6+I+xeCDhhn8epDN1QE0i2RpGPE+odK
-         H9DI6gMwem5gLUhH6JErbZletaPWQAhaPmCeVGtYHuU2LafqcFth8w6n5JNCEpQeBV6J
-         VHsTXL96N6Zl3iWi26L12xRzUJ7mdAjX6fZ/Jmp+lU3ON2KKT++SV65IUJUvesmDdkd9
-         3kwlh4n4NGxFO5I5eqADGAQQJuKhySRtaYP97UYKZqn7Ndork4HBeXPPXphizf91KRik
-         FSL3uk6/DA2ORoDdQbCl90AP9cC4iysCY03LovXCZGjWTan+sb05+fKxWbMACfY9QWem
-         4Z0w==
+        d=nexthop.ai; s=google; t=1770142502; x=1770747302; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AhLtBFYuwe8sjQdJz53j2wA7HDUB30kbmrpluvLvkdw=;
+        b=ZFO3+m/kRiLbIUmqo/6GOsOHSq1xoyKISDKSXi1Yj6n4kCO+NDXQJTxn5ViaEsw73K
+         jObuCr+oOvHKU9cqGQTdkTfRUhL5dcpItMyG2YAEravjXDmBKXcZYBBgt4OvV+89fCk+
+         8YVKjuivKgjp4uE8NNuX6JVUdXO7fjAIjZrYF5zcE3QE8QtgN88qvcDg48djFuDJcq0u
+         rheB5O4o47LSVz3c0lWuNJKBUPNinqtd2C5dtpb2UJkGAOmxzW2Cieewr/olkyRbLkQ2
+         d/xO56UcGqVotnVEMvVUooX8nrRh1H2hYIZAu57fS5cC7xtfSBRJlDQac5mbTeozwKcv
+         8tJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770142382; x=1770747182;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=c0/ndP+Q6QYWzq22YHYUgQSQqkbwcgk08y+b5h1n8pQ=;
-        b=qMuottHygSwJRiXjRWvxL39LvawxtjBzJK4qiFj2cMLrRUS0hsakB1vRzOspzy7SbJ
-         qBFX1DGTCv10btcTl6UywGx+VpNw92rFLgd5ZTwGn5A6gjh6ifb2FUYfQaGSgWZOlmoB
-         8QLRbcVyK8M6P1Jhh5S24UDWhKIycPVBxi+Ah1g2sKa3B9ccAezQAAO/udQJo2C7uvwF
-         cGCGgBHoNFH96hXpSbtLz99TuCQHO4QXSLK+hdxkampzWYz/SWUEehOf0NKVL+ov+4yx
-         hv0KvG9Gu/TER+yjkIutDXE15tJIR9TXiS3mkCVXNjFewEIf1d8fRCUFqBbwo0yXlnrr
-         XcjA==
-X-Forwarded-Encrypted: i=1; AJvYcCVT3ZCNIE3BaUyFBbgTB8WdHyr6cEtpDkdx/8t3UWou2GYqNLNzdmI6SWLVgmcal/z6gjXFj3yMBFs2MWWH6ICd@lists.infradead.org
-X-Gm-Message-State: AOJu0YxaOLWa2Gn0hOLl7NbHcjG+dOiNMdwxPdV4jwhDyDrJxI8XBOva
-	8A50WXpOcb4rU8UAOLpNyhfBXpG2sQDCDlg1rAnacqFvVFcXc8vnwxcx
-X-Gm-Gg: AZuq6aIy+R77EI85hFPDA8IyV0wa69zjpEstFFkntDMPKZ1gWFz+pMmRDzWakf2xkY6
-	piR2PEusZHPjr21lpeYXgOteNFE6D5OlWG9+PcviYFF3c4lafpC0jUoh1hUc1u2mqQkLdwu7PJo
-	77MBObtVqMxbN5nI4N05SXkpSyB0gQ8MKOdU9sM0ZplR6vfR7zos4qsTIRzKCC0DO2Bnhg6v6vR
-	1pd8cJCm/i2a8ZIKqwSx9P1LF8rbRwLzRQHTopp0pLFuVXP+fqohV8HGNmkiVfkZYGIVQtKM+Xs
-	b8++KZiurXjO9H3i/2+DAhG35aN0lv8dkk/SbynjWT89MPV9+7vJsAg0vIlfQ576CbUMnngcO/C
-	wk8v2WPE02CsWCWnMDl6SpN+5QSi9hHMxUwgerChP5P0/8q48ppctVfLYDLBLtr4Azi+B42Kfi7
-	ICxDOssepjmZhu+LMlPe3djOFMuD9mT0+lzc/+SsNst96sMxTSCo4mMcBes68=
-X-Received: by 2002:a05:651c:550:b0:383:f43:ed45 with SMTP id 38308e7fff4ca-38691db7f7cmr1903191fa.30.1770142381698;
-        Tue, 03 Feb 2026 10:13:01 -0800 (PST)
-Received: from [10.0.0.100] (host-185-69-74-59.kaisa-laajakaista.fi. [185.69.74.59])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38692040049sm477121fa.26.2026.02.03.10.13.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 03 Feb 2026 10:13:01 -0800 (PST)
-Message-ID: <66bedd88-8ac6-45bb-866d-edaf436ee359@gmail.com>
-Date: Tue, 3 Feb 2026 20:14:12 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 15/19] dmaengine: ti: k3-udma-v2: New driver for K3
- BCDMA_V2
-To: Sai Sree Kartheek Adivi <s-adivi@ti.com>, vkoul@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com,
- ssantosh@kernel.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- vigneshr@ti.com
-Cc: r-sharma3@ti.com, gehariprasath@ti.com
-References: <20260130110159.359501-1-s-adivi@ti.com>
- <20260130110159.359501-16-s-adivi@ti.com>
- <98c254c5-94c1-49b0-b361-617639b781d8@gmail.com>
- <7abbd45d-e688-41b5-bde4-5d97877f3267@ti.com>
-From: =?UTF-8?Q?P=C3=A9ter_Ujfalusi?= <peter.ujfalusi@gmail.com>
-Content-Language: en-US
-In-Reply-To: <7abbd45d-e688-41b5-bde4-5d97877f3267@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20230601; t=1770142502; x=1770747302;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=AhLtBFYuwe8sjQdJz53j2wA7HDUB30kbmrpluvLvkdw=;
+        b=bwDreNzGgjRZ7GqIQYxIHt7d+VGF5ey19fwi58cUXplKiZoCv9V+WUxaalinL/6eRk
+         /jpP+n26bkbVJ6VkfjA1wYLx6dxuaG4dsiTz4LfkcvHsImnR8vEAApnsPCjYcTwepUXl
+         J08XSTtwDJChXQjcb6jHwcBSDG8oPFISVAAdKp7dRlj3iLBiGEkmMQX7kroYJTE4AZsA
+         IkQlywtm3PMcH469v0MBS8Sfxwf2gZLd9BlTZNnzH66AXfcMYuxbseat4og7+O2pPupA
+         gqOaI68fdtXBuLm3NayifJ6qZPJgg7U0T0lRrXfxzVNOGTrvxzj8u2Qmn4W3hwtG6osC
+         AI1w==
+X-Forwarded-Encrypted: i=1; AJvYcCUpnVZ6TJFPLs+2gINO3qvu3cp/rNWMo4gFfYGezX4vs39sGZUzYdD0kJ2MP5nAdasePSiKu4KIXFiaG2wVB5TM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw38UWQGDIQCm631PL5+Uld7ER/dIQvJyjJhssVisUsIgUlUZpT
+	h/JOqgPioBCU/qNiulpb1F7BEQqaRM0v2Qpjsk7u0PNiCLyL9RAhfaPskTBZZlVCDr8=
+X-Gm-Gg: AZuq6aLulTs1W7UxV7Ud96Szda0lqqsk4D/ABsP0w7G/lZ1aOOAP3kAgFt4Ha+pxSpw
+	QsdXE4LcPN6+ncXwQ9ryC8vsl9zEYhFhEaTDUsAYKNewsnmQHvkpFCHanx+HQbKNEastxk4EQSF
+	kjuq32U5ZOQJ6KYoLGrnrnHJk6CmYEVra3bvfCj4bYnuzUHmMnZems43BEnr7/TSE70XY19AYNU
+	PJawQihl8rfq7sLZqRF4jgPwZpi1aXKQyMPetIm0sBAK52nJbqWRUmXk19H2+SDRfbnqIMRyOSp
+	Zca3J8+TL0iHUibVQx54TBAWj+yXdZv+Z6YknikASAkT7ZL9637JdKeWtq3PddB4HMZq4ObGkUz
+	ENYJrym++oj6pGVXf++PqylY7b6ad/RiEr214qAdLduH7jagJH4zIYhUNXGsxFnWJEXz9tWZskP
+	FPqVJlkF69A1OjI5cn6eiAo8sAgtjdOOeXHB6uSthtULi7Rg==
+X-Received: by 2002:a17:902:f711:b0:269:b6c8:4a4b with SMTP id d9443c01a7336-2a933bc9acbmr2072775ad.6.1770142501839;
+        Tue, 03 Feb 2026 10:15:01 -0800 (PST)
+Received: from smtpclient.apple ([2601:602:8701:5361:2dd6:2d53:d593:7d46])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8241d43513esm32495b3a.43.2026.02.03.10.14.59
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 03 Feb 2026 10:15:00 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
+Subject: Re: [PATCH v9 6/7] i2c: xiic: use numbered adapter registration
+From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+In-Reply-To: <aYIYBheQgIN71os8@smile.fi.intel.com>
+Date: Tue, 3 Feb 2026 10:14:49 -0800
+Cc: Michal Simek <michal.simek@amd.com>,
+ Andi Shyti <andi.shyti@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <2F830E87-F00A-4A54-A5CC-E59BD2C5C7B2@nexthop.ai>
+References: <20260202-i2c-xiic-v9-0-ce4695f5267d@nexthop.ai>
+ <20260202-i2c-xiic-v9-6-ce4695f5267d@nexthop.ai>
+ <aYIYBheQgIN71os8@smile.fi.intel.com>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+X-Mailer: Apple Mail (2.3864.300.41.1.7)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_101304_526699_4EFF6762 
-X-CRM114-Status: GOOD (  22.04  )
+X-CRM114-CacheID: sfid-20260203_101503_581685_8CE3F2AA 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,71 +109,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kartheek,
 
-On 03/02/2026 10:22, Sai Sree Kartheek Adivi wrote:
->>> @@ -632,7 +641,8 @@ int udma_configure_statictr(struct udma_chan *uc,
->>> struct udma_desc *d,
->>>               d->static_tr.bstcnt = d->residue / d->sglen / div;
->>>           else
->>>               d->static_tr.bstcnt = d->residue / div;
->>> -    } else if (uc->ud->match_data->type == DMA_TYPE_BCDMA &&
->>> +    } else if ((uc->ud->match_data->type == DMA_TYPE_BCDMA ||
->>> +           uc->ud->match_data->type == DMA_TYPE_BCDMA_V2) &&
->> Have you thought of adding a version member to struct udma_match_data
->> and use that instead of distinct different types for BCDMA/PKTDMA?
->>
->> Here for example you would not need any change as the code is common for
->> both v1 and v2.
->
-> Hi Peter,
->
->
-> I'm preparing a v5 and wanted to align with you on the handling of
-> different dma
->
-> variants (udma, bcdma, pktdma & v1, v2).
->
->
-> Frank suggested moving toward feature flags (capabilities) in the
-> match_data,
->
-> rather than checking type. [1]
->
->
-> I want to get your thoughts on Frank's suggestion before I proceed. Do
-> you have
->
-> any strong objections to using feature flags? I see merit in that
-> approach for
->
-> scaling to possible future DMA variants in K3 SoCs.
-You have several differences here and there (small and big) between the
-v1 and v2, if you want to feature flag these out you would need to have
-a meaningful flag for each and every one of them.
 
-I find this a daunting task to be honest, so I would go with the simpler
-way to just use version to cover _all_ differences in one step.
-How one should be handling things if
-A) feature = FEATURE_1
-B) feature = FEATURE_2
-C) feature = FEATURE_1 | FEATURE_2
-D) feature = FEATURE_1 | FEATURE_2 | FEATURE_3
-E) feature = FEATURE_1 | FEATURE_3
-...
+> On Feb 3, 2026, at 7:45=E2=80=AFAM, Andy Shevchenko =
+<andriy.shevchenko@intel.com> wrote:
+>=20
+> On Mon, Feb 02, 2026 at 08:37:23PM +0000, Abdurrahman Hussain via B4 =
+Relay wrote:
+>=20
+>> Use i2c_add_numbered_adapter() to allow platform devices to specify
+>> fixed bus numbers when needed.
+>=20
+> Not sure about this. Doesn't it break the current approach? Please, =
+double
+> check that.
+>=20
+> --=20
+> With Best Regards,
+> Andy Shevchenko
+>=20
+>=20
 
-I think this might get out of hand easily, but you know the hardware
-better, which way fits better, which will scale better for the future.
+If pdev->id is PLATFORM_DEVID_NONE(-1) then i2c_add_numbered_adapter()
+falls back to dynamic allocation and calls i2c_add_adapter().
 
-Also, you set a FEATURE flag for V2, but it might be that in V3 revision
-the same thing must be done in a third way, so you would need to
-allocate a bit array to say that this feature have this three ways of
-handling, etc.
-
-Either way will help to make the code a bit cleaner, which is already in
-good shape.
-
--- 
-Péter
-
+Many existing i2c drivers use the same approach, see i2c-pxa.c and
+i2c-pnx.c etc.=
 
