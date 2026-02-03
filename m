@@ -4,94 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7576E87834
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 15:10:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3593BE8783D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 15:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MK5oboaEkHiYwSTjLFoCDPQwjjJ04uX2RfYZ7bqzPwQ=; b=T1NrKpMVG6pT9mpC2fxiKFvyBK
-	/r+UsLk4Zuna9IGSrlh0LdEzLL/OruQmyE3W9S0F4DcnfEEUjq5NAtAbnntSJszqvG83DHj26nc3i
-	citp40auPVwOw/SGVh3ODOe37c6Q5XyWmzepbZLNL/DWiLhNb1PqA+K16ehNKB7xmj3rciNERqmYT
-	0MfcOwqtZxu4xP65y5zyiFMkya1StsftrB+9PDkv8sekyKiDfeLfH47DIHlxylJFgV/ioM85PqyVk
-	QTetmDfx5bVrfqh3KKWjic/1ZVF+Ft6XrLi/9aEJBYv+I/Woq0pWyyh9rUwgyLUvdr2in5XFmP7rF
-	2SWrYpSA==;
+	bh=/Go8Y8gX1E62+o8zanhiH4g4wNTHN1UiOP35WNGMfiQ=; b=plvmeZ8ZBMuZ5QPNIttbZEGczI
+	57HRGvYRXtm6XfqjFOtBuIuMFMUlq9Rn2TlhHRvbdRaKBkh9yTM41gQG8iUeWygTtL8It+Pp/yBqU
+	pyXWa4maVH18TFo3DeXVrREDLlRzg7usQ8T8oHVZKoKihlKO5PvTv0Vba4/0mpTL4g4N+EvXxPsXz
+	dC+OXuUBnuufTyZsLVjUYCutbY3x1IfxXHVqNTMGHx53clHS+3Hi6XygsD9UqmKnPR295TaVb19mK
+	mP60oJhLe7nz/vO9bhVD4PhYtA9rhf9mUn21eXbTgijaJycEwZ0RGMUI3i8U2L8YZoEakhG/C5Z3f
+	rKSsjcNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnI2u-00000006otD-1De3;
-	Tue, 03 Feb 2026 15:10:28 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1vnILS-00000006ptM-1qkw;
+	Tue, 03 Feb 2026 15:29:38 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnI2q-00000006osR-3DiI
+	id 1vnILQ-00000006psw-07T1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 15:10:26 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-29f102b013fso59678495ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 07:10:24 -0800 (PST)
+	Tue, 03 Feb 2026 15:29:37 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-65939428896so1224697a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 07:29:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770132574; cv=none;
+        d=google.com; s=arc-20240605;
+        b=KWtEig9muyEpmLBa92VPTPcTJoHlpFdTnGlkS2wedb+6ieF/jC1Q6A0gnYEcQTQnWm
+         lIEYEWFskllsOMgHJfFvA38q1/VcmuTjtzty15rhveErQLuIohqb7P1Ub7F2ZFQ04znG
+         +5HHGApB7pGtjzyPAzmbJ5PECx5MQ+0QQnkiBkiXQhe1UQ/6KaVcTOSPErvSHjNJOZLH
+         ptIYkARNHRkdRhIT3+UImBvXNcJD428JfU4FfjAWspxT2QJYWWWbYT6K+R2tkZ5Sj0yL
+         nnwyxWbkaspL1aGGSp9j2XjlIAJdEfqB1QEb+LLx4WP2qgudhFL1wplVMZ3BN852AG+o
+         qDmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=/Go8Y8gX1E62+o8zanhiH4g4wNTHN1UiOP35WNGMfiQ=;
+        fh=4jabWLz4F2N9KEil/I1TkmpWWsEnS53JckaOooJS1uc=;
+        b=QzbYEejMyUSEYqIvk9zesFtvq7YUC7XwWB3QSHn2tPu1Ay5H/bcgqDUn+9MlDUB35V
+         zCUU8mVrJPIuyuJLbwUw+1atRl7Xpk6XN985num+WSjBItapk8DDjcUcLlC/sGVF6HuX
+         7z5vb1R0Ym1szoNX1PI/SXXHdzT+UPQx5LVwMkGafwR2P5zcXzVAqQuDmS5XR1ABEY4p
+         foscQYHdOi/3EJVS+baX1xhegDoiP/k8urL2oBBWUFUHFYnWszuTlmUUEN6IxUoq2pZp
+         KqCECnb1Bwmr3esnYjARmVJy+B8hjPqGolxC9S4FHBXZ4wc7kbpKFhoaU4/TzG6O+DXJ
+         NIxQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770131423; x=1770736223; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1770132574; x=1770737374; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MK5oboaEkHiYwSTjLFoCDPQwjjJ04uX2RfYZ7bqzPwQ=;
-        b=N5ybamT47rzRDafkTZcFlwlXP4nljkf1uQhWvkGgKRkf33jp5bME/L6BjGkmFGgifR
-         Ear/Jb6KxrZ5nkVkvbD9+yaSYx3UQRzUBsMzeTms/HNM/YI8wyzXTFV0b9AiuC3Pswzi
-         Blgm01+ulAPZTqqwLGRuN5kR9LcJrxaMR+wW8Z/cUOB3Fcur5hZ2QMBp0JGFdrRH09Ny
-         56ZWcXX//bmhtMTHepwLwBn+Zb2N0W1QJ9QO5rRNXd++OH7UQ5IfTzCd/Yib8HRwVvNh
-         VoDtEJ8L8PDEgZZCTiDOYN6PlTVvtp7I98VdWTYnnae7ce+fEvQzJUDJv3ZXDO0aP5lm
-         MKHw==
+        bh=/Go8Y8gX1E62+o8zanhiH4g4wNTHN1UiOP35WNGMfiQ=;
+        b=dFgnZMjRSjmKx9kQ39Uzke+/cPkYYTrk4giX1NnCpD+sTl8leDxz+WLWr15PJHUOzI
+         lwz18wLh7QPUQ3MdkSLlWicRlBwUDls8/5PzO0eMKKB+JoBKXvKbBzx3s8tkfzT61lHt
+         ZEBCnahNmsbzCPM32oYgCYRLbywwfS8Ft3RZK+9VcU9ZtR1JllphdYF/6UcEOU2dRhPb
+         e9YMrH6esBo3rOsFQ9vz48qTutG4bSuJvX+ZFFEf3c0UJL6FeEpv+txXqnSJpU8+AW7T
+         x2ipN8n2zrkQls06iPrH+0FL4dKcaBqktw5NUvgyVab917Xan5vb/H+wXJJv81igLpNE
+         k2uQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770131423; x=1770736223;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20230601; t=1770132574; x=1770737374;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=MK5oboaEkHiYwSTjLFoCDPQwjjJ04uX2RfYZ7bqzPwQ=;
-        b=YFIev0t9zwmqvW6jbjgqXiOg41NdOSjexKHY568e+95UUDB5Yu4HyICLite92yaBSi
-         OXn1dVnBQk7jcFVFeF+j+KFxZCVavgcvhqMgBRs/OsynD6nA0e6KlDlOB9lwluZeUceZ
-         Qs/P54Co50mWNdiVND8BfGWrKMZgetPHxFuWIp5YfSBw2ZVBXkBTRg0pfiqb3Oq5ZKwX
-         pwg6wRoIN4a4it9cZY2IYTDzOtL9sDIYAstCJpwh7U836BiSJwJFQQkp3t7G/nM4x2YU
-         EY3OKXoh6p1W/aGx0VjNjiLF73G3C4nLJhVQMFfNW657RCIy0dP6hr0BJegl+TxTB4J2
-         e99g==
-X-Forwarded-Encrypted: i=1; AJvYcCXBxMqqEydpl/9qCHdhE3BvGpw8KzvY3gbvw6ss21fvcb4fHIBpq+DfJc3K8MxF+z3ZGGMtKO4erFD48MCmE3gi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2rcD09KCWJSExHuokKRH1BupTcvqPkMTouKo2JvVD0L6ryoFc
-	4aQL4rM8SDeJJKJQzm/V2B0jZ2kBgwU6PcF8xTh9gM9/51VosEKTtLCu
-X-Gm-Gg: AZuq6aJP//vnz2xvPfuqQ0F/zC/SUHE5FqzKX95YEFFHo7wgjGmcScb3kGBmf/KTJmX
-	EGn7VMxYmZvZVU3wSf6Q6v35pILg7DrSrU5gaiPrdJ2E3SqaEK/16fgsL9odRyiCGtpBqGGZsGZ
-	wCWYa2J9+QXcvxdSBlAZILyfvY3VSfpmKL7EPUyL6jUAxH1oRukPk2jeKC5dY1G3ifOjx9/+PMh
-	mwA/gOqdH7jtvGosZzOY+aVk0ar08wUA7QMJdIui9JC5DnzrWVP0KctK0XmbuZNmkCRzt3SGuG6
-	nqkCQG/tZQiBk4jojyvvF9u3vFk7sQwI3QTosb1+mzoPYBGmhzc7RDvxAubu5X9H8+pmMo7CpTE
-	EXlUI+fvGbp/rX/mlokmsxM9gS1/VnxwiuQ87cNeQol9LnQRnr2i96DymbDIgJjeEGZt8Yqu7Pu
-	WTcaxDBeqH
-X-Received: by 2002:a17:903:1112:b0:2a0:d33d:a8f0 with SMTP id d9443c01a7336-2a8d993d3b3mr134577365ad.50.1770131422758;
-        Tue, 03 Feb 2026 07:10:22 -0800 (PST)
-Received: from arch.localdomain ([2409:8a28:a52:d2b1::1004])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a88b4c3e04sm172196585ad.46.2026.02.03.07.10.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Feb 2026 07:10:22 -0800 (PST)
-From: Jun Yan <jerrysteve1101@gmail.com>
-To: dsimic@manjaro.org
-Cc: alchark@gmail.com,
-	andyshrk@163.com,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	heiko@sntech.de,
-	jerrysteve1101@gmail.com,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	robh@kernel.org
-Subject: Re: [PATCH v3 3/3] arm64: dts: rockchip: Add OneThing Edge Cube series 
-Date: Tue,  3 Feb 2026 23:10:13 +0800
-Message-ID: <20260203151013.305032-1-jerrysteve1101@gmail.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <705908c9-4552-d808-783e-3ce0cf45bbff@manjaro.org>
-References: <705908c9-4552-d808-783e-3ce0cf45bbff@manjaro.org>
+        bh=/Go8Y8gX1E62+o8zanhiH4g4wNTHN1UiOP35WNGMfiQ=;
+        b=UZRJYq4Bz98DV+Q05nNNgxFWW/gl26eUTtOfRfv7GS2QPuUNTMyAJBgDl0/xRCzItf
+         rN8KJNYMSVckGT7YjavyNlJAy2owcWafQMc7dDsfCbhF0fFgB4/oynJ88a+oY3PXfIe4
+         AJ0rukqeifkDRYW4ETk5iKID0/Z4WQkbj02dAVBVPbPSMOqJxIzw8FpPTr6Z06fvLO9e
+         p/d7XfEzF4xFyxmbI5J6u2IxcWnxkAW/DD5AAw7xHwlX2iyjul8LersXMkdfcIdtW42V
+         256HYuEVeZqIXQRyz1lAixXOPvC9WU42IRSD7hYvXrVwszfOIe5MiJpbLN+S64A3WzP2
+         0b2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXFWaa1ehWO2bNVxbzaQZuYesH5zwZP3KGFOJXMUu+HJD6EN4Yz0s5ZaCZrcLsBBVPcya3UiGbWKSqL8IH/envq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4KDEVspAhnvfH67wdMin52j7xnocej7tqVl6StcDCviyu0Zgm
+	8bhbHR12IwcgFZmRcpQAfGnzNx3cTgZiTN+V7sqUGwOg92as4fkb9POgHDNIe7kf3PUHj9yFnPP
+	pIPZbNBgc5IB3JRhsDEVloskKQevUtDPuCuaC12k=
+X-Gm-Gg: AZuq6aIYPh20BZtQD1Oni6ZGflSQBmanG1+nSHydryhZr4R+uy+DVEjnzmso8zM9y6k
+	FgJEfVqrLGik6RxoxdfONhSHd8shCLkLDZPeGmm99rx2XFB+hAxc4RMrDaPpi4QUrNwDC/nK4bS
+	C/LeQVKMItJfnC3OlnXArp6jUnj7skVFPuZXozuOvr08PanVDloai9PLu+33tEJZkDPXS+4rcgy
+	Ev0XvtvJTj21428g8oPiUANT8D48tzsIuO70FCfWqmLEBb5RbM/nzJu4+rQmwbahj9jP14LloP2
+	nRadP7oXf626YUY9UlpafvANnDaxiDEimpEjifvDIoaNA174nhn0yKnqi8dNbj3JMQv0UQ==
+X-Received: by 2002:a17:907:1b07:b0:b86:ef1f:6d19 with SMTP id
+ a640c23a62f3a-b8dff7ad57dmr990029766b.59.1770132573415; Tue, 03 Feb 2026
+ 07:29:33 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260129201312.634819-1-florian.fainelli@broadcom.com> <20260129201312.634819-2-florian.fainelli@broadcom.com>
+In-Reply-To: <20260129201312.634819-2-florian.fainelli@broadcom.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Tue, 3 Feb 2026 17:28:57 +0200
+X-Gm-Features: AZwV_QigMJ4s7JE_KbPeSeyx-VsNtPBsrWImvTutmo18i_o_7klRldj22USRrsg
+Message-ID: <CAHp75VdnmPGr3WSiyjCrzbgJwOFE92gr7yUMb2QqS3+GGRtAiA@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] gpio: brcmstb: implement irq_mask_ack
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-kernel@vger.kernel.org, Doug Berger <opendmb@gmail.com>, 
+	Linus Walleij <linusw@kernel.org>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Christophe Leroy <chleroy@kernel.org>, 
+	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_071024_799870_65556D01 
-X-CRM114-Status: GOOD (  28.96  )
+X-CRM114-CacheID: sfid-20260203_072936_081069_AB97E125 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,94 +120,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Hello Jun,
-> 
-> On Monday, February 02, 2026 16:04 CET, Jun Yan <jerrysteve1101@gmail.com> wrote:
-> > The OneThing Edge Cube (OEC) series features the RK3566 SoC, 8GB
-> > eMMC storage, and supports one SATA interface, one Gigabit Ethernet
-> > port, and one USB 3.0 port.
-> > 
-> > Other than the difference in RAM capacity, the OEC and OEC-turbo are
-> > identical in all other specifications.
-> > 
-> >   Specification:
-> >     - Rockchip RK3566
-> >     - LPDDR4X 2GB (OEC) / 4GB (OEC-turbo)
-> >     - eMMC 8GB
-> >     - Gigabit Ethernet port x 1
-> >     - USB 3.0 port x 1
-> >     - USB-C 2.0 port x 1
-> >     - 12V DC Power supply
-> >     - SATA 3.0 connector x 1
-> > 
-> > These devices do not have a PMIC, and their hardware circuit design
-> > is highly similar to that of the rk3566-box-demo[1]. Hardware schematics
-> > are not available at this time, with the vendor firmware dts available
-> > for reference[2].
-> > 
-> > Ethernet, USB 3.0 and SATA 3.0 ports tested, all working well.
-> > 
-> > [1] https://elixir.bootlin.com/linux/v6.18.6/source/arch/arm64/boot/dts/rockchip/rk3566-box-demo.dts
-> > [2] https://archive.org/download/wxy-oec-RK3566-4G-dump/wxy-oec-RK3566-4G-dump.dts
-> > 
-> > Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
-> > ---
-> >  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
-> >  .../rockchip/rk3566-onething-oec-series.dts   | 312 ++++++++++++++++++
-> >  2 files changed, 313 insertions(+)
-> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-oec-series.dts
-> > 
-> > diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-> > index 4d384f153c13..234fa53abe17 100644
-> > --- a/arch/arm64/boot/dts/rockchip/Makefile
-> > +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> > @@ -104,6 +104,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg353v.dtb
-> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg353vs.dtb
-> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg503.dtb
-> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-odroid-m1s.dtb
-> > +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-onething-oec-series.dtb
-> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-orangepi-3b-v1.1.dtb
-> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-orangepi-3b-v2.1.dtb
-> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-pinenote-v1.1.dtb
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-series.dts b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-series.dts
-> > new file mode 100644
-> > index 000000000000..2007b93e190e
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-series.dts
-> > @@ -0,0 +1,312 @@
-> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> > +
-> > +/dts-v1/;
-> > +
-> > +#include <dt-bindings/gpio/gpio.h>
-> > +#include <dt-bindings/leds/common.h>
-> > +#include <dt-bindings/pinctrl/rockchip.h>
-> > +#include "rk3566.dtsi"
-> > +
-> > +/ {
-> > +	model = "OneThing OEC/OEC-turbo";
-> > +	compatible = "onething,oec-turbo", "onething,oec", "rockchip,rk3566";
-> 
-> Thanks for the v3!  After thinking a bit more about it, it would be better
-> to name the board dtb "rk3566-onething-edge-cube.dtb" and omit the "series"
-> part, because the only difference between the board variants is the amount
-> of DRAM.  Also, "onething,oec-turbo" should be removed from the compatibles,
-> and the single compatible renamed to "onething,edge-cube", because I see no
-> need to have an additional compatible, which may be added later if really
-> needed for some unforeseen differentiating purpose.
-> 
-> Also, it might be better to use "OneThing Edge Cube/Edge Cube Turbo" as the
-> combined name, because "Edge Cube" is more self-descriptive than just "OEC",
-> which may also help with various search engines down the road.
+On Thu, Jan 29, 2026 at 10:13=E2=80=AFPM Florian Fainelli
+<florian.fainelli@broadcom.com> wrote:
+>
+> From: Doug Berger <opendmb@gmail.com>
+>
+> The irq_mask_ack operation is slightly more efficient than doing
 
-Sorry for the quick follow-up.
-In official documentation (Most of it is in Chinese) from OneThing Tech[1], 
-the designations "OEC/OEC-turbo" are more commonly and widely used.
-for this reason, I propose retaining the "OEC/OEC-turbo" naming in the model 
-property.
+.irq_mask_ack()
 
-[1] https://help.onethingcloud.com/be81/OEC1/80c5
+> irq_mask and irq_ack separately.
 
-Best regards,
-Jun Yan
+.irq_mask()
+.irq_ack()
+
+> More importantly for this driver it bypasses the check of
+> irqd_irq_masked ensuring a previously masked but still active
+> interrupt gets remasked if unmasked at the hardware level. This
+> allows the driver to more efficiently unmask the wake capable
+> interrupts when quiescing without needing to enable the irqs
+> individually to clear the irqd_irq_masked state.
+
+...
+
+> +static void brcmstb_gpio_irq_mask_ack(struct irq_data *d)
+> +{
+> +       struct gpio_chip *gc =3D irq_data_get_irq_chip_data(d);
+> +       struct brcmstb_gpio_bank *bank =3D gpiochip_get_data(gc);
+> +       struct brcmstb_gpio_priv *priv =3D bank->parent_priv;
+
+> +       u32 mask =3D BIT(brcmstb_gpio_hwirq_to_offset(d->hwirq, bank));
+
+Use API to get HW IRQ from irq_data. This is documented in the GPIO
+documentation.
+
+> +
+> +       guard(gpio_generic_lock_irqsave)(&bank->chip);
+> +       __brcmstb_gpio_set_imask(bank, d->hwirq, false);
+> +       gpio_generic_write_reg(&bank->chip,
+> +                              priv->reg_base + GIO_STAT(bank->id), mask)=
+;
+> +}
+
+
+--=20
+With Best Regards,
+Andy Shevchenko
 
