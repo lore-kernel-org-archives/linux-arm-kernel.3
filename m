@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A34EDE87823
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 13:09:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC82FE87824
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 13:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9HTsXkVNnFwulZq7/Mzu85XDAt0kGwDI4fDwb3UTvCI=; b=JPUja9JbZYjOxrjrJbJzOPLQrF
-	koBHluGnHaRXcW3BqKoP/Lt91GP/xt2aEwkxHtvOVo41y7pUCHXPkS8mxSAjXNMT7zWe8x/y3tV04
-	d5lq/psupPs2+4ZVN27Vy3HFurGj4q+6GY5kd/dLAeRDnGGzeDIpb+CLc3RLK5bwMOx1489jwihC5
-	fD+12D5b3+GjyVNCfv4OdcEBfFclIoKuOfhbKdvW/mqgk77hZQfj9cugBPVjvtbQHVmec3sYXxP9R
-	TEUIzhhYR+I8rH8Rcy7WtWRK0k63d9EY6HZLKSs09ZM8SgJrc27naQvD4Mg3mZid1IZxsb9llyqhr
-	kfA+/D2g==;
+	bh=DqEfoVQW+S/wbK56us6FBxe4eLE4pqP9qq5Ho+feXg0=; b=st+dSZm+XkjseB+/jHyzj4nIXY
+	4libmU4pV6S9zxtXMLlPtBldN5f7vTlHnKRsVM9jYYOGeFzo34cMVw6GXMWRgEf7py5FsqfyqzsBn
+	GvMtGUsmcnUZkjP01MHTXCX24Nzm4Dw2ssDnbj3yP01/TiCdPp1Kggcr8OH4yqob3NTZ/NcZidN6c
+	DDGi8DDYUuHKHUbKLFHP8N3UKI4hAh3NvLiwbzUwy61bsxKM5xedmgFVvR7487WLxolFhzthtO+0R
+	b7cfIE/3dC9h2L6iBCm1dC8m8iHBAkLOAIbm4EQ9SEBmFX5BBXRLNPxdKqRPUkLJ/2YgGvGZLQiVI
+	Zo7U1MfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnG9e-00000006ePb-3ZO4;
-	Tue, 03 Feb 2026 13:09:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vnGGW-00000006eri-18vS;
+	Tue, 03 Feb 2026 13:16:24 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnG9d-00000006ePQ-1qlt
+	id 1vnGGU-00000006erA-08T6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 13:09:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7CB6360132;
-	Tue,  3 Feb 2026 13:09:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC1A9C116D0;
-	Tue,  3 Feb 2026 13:09:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770124156;
-	bh=MSFiS/LmupV3YopiS8HKbsx3Kh/IjnAnq0VI5uK+094=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hpl4q72CKM72QleOVs/y4d6Jr3g8fwYGdg8pMbFc5YKO0fDoWLxXx6xvuUpGWALjk
-	 L6rYCMUN5y8sSyPqmfCBk3A5KhvI2afw1pNQYi9jBPeQ76WEQroLPdn3nQRdHqgcEP
-	 Dbj5cdomtSt8ORq1W75qZaGhpYjiMBurxv/+I927aFbT08VSgL5aTVMmKpzaONSgE+
-	 nFGdckTuwKGKIWLkxYdd70reXJ9izP7Z0O4iySe7c2kBQylg/b8LRh/CcW3RtPzNgM
-	 n4oaxsZ0zTtRHXHzfmUYSrzUklSaARJK+fahiTYUurqjLK8OQXnMcHxPEOIgjGFrfL
-	 MF0pYABAi2j3A==
-Date: Tue, 3 Feb 2026 18:39:06 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: hongxing.zhu@nxp.com, l.stach@pengutronix.de, Frank.Li@nxp.com, 
-	bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com, 
-	imx@lists.linux.dev, kernel@pengutronix.de, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V3 03/10] arm: dts: imx6qdl: Add Root Port node and PERST
- property
-Message-ID: <mp25jwvoimpesfwtpmyeltdpbu7aznahxvkcn6jxg5jqzxck4i@pium66rnpdd3>
-References: <20260203015614.2957479-1-sherry.sun@nxp.com>
- <20260203015614.2957479-4-sherry.sun@nxp.com>
+	Tue, 03 Feb 2026 13:16:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=DqEfoVQW+S/wbK56us6FBxe4eLE4pqP9qq5Ho+feXg0=; b=DSo22puKAJc6J757xa9dy+juua
+	N2WMkIep7hEbXa7+auSowaMb+3Peyv9KGFR2dXunWxoLrJXF/S/oH4DKNVPhbrNaU6mZsXsHSW6Ro
+	8VZqdy47XMKB+Hfk2dnd/1a9YbYeN0uX0b3xS9wAIgPckBzrmrj0UGRGAi1XF6tpE0/8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vnGGB-005wry-Ku; Tue, 03 Feb 2026 14:16:03 +0100
+Date: Tue, 3 Feb 2026 14:16:03 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Min Lin <linmin@eswincomputing.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Krzysztof Kozlowski <krzk@kernel.org>, Bo Gan <ganboing@gmail.com>,
+	=?utf-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>,
+	devicetree@vger.kernel.org, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	netdev@vger.kernel.org, pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	ningyu@eswincomputing.com, pinkesh.vaghela@einfochips.com,
+	weishangjuan@eswincomputing.com
+Subject: Re: Re: Re: [PATCH v1 1/2] dt-bindings: ethernet: eswin: add clock
+ sampling control
+Message-ID: <dd8e35c7-d7a9-44d1-9929-5a6a1cfb4f05@lunn.ch>
+References: <e6f7da45-3dec-4af6-a5b1-a72210bf24f4@kernel.org>
+ <43923bf9-6202-4147-8eac-5bd7bb653fd4@gmail.com>
+ <bd202cfa-d6eb-4d0e-982d-b49795dd25f7@lunn.ch>
+ <009aefc4-fbc9-4f91-9230-23d18c281bf3@gmail.com>
+ <73ea5619.2b71.19bf847c80d.Coremail.linmin@eswincomputing.com>
+ <aXeydXuWEMDz-yVM@shell.armlinux.org.uk>
+ <32a1f814.2c79.19bfe173225.Coremail.linmin@eswincomputing.com>
+ <973f2b4b-bf8d-4a77-a27a-47495bc21ff8@gmail.com>
+ <5c835fe9.2d60.19c0325df03.Coremail.linmin@eswincomputing.com>
+ <43c97440.30bb.19c221bd137.Coremail.linmin@eswincomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260203015614.2957479-4-sherry.sun@nxp.com>
+In-Reply-To: <43c97440.30bb.19c221bd137.Coremail.linmin@eswincomputing.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260203_051622_072022_A3217CCE 
+X-CRM114-Status: UNSURE (   7.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,91 +88,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 03, 2026 at 09:56:07AM +0800, Sherry Sun wrote:
-> Since describing the PCIe PERST# property under Host Bridge node is now
-> deprecated, it is recommended to add it to the Root Port node, so
-> creating the Root Port node and add the reset-gpios property in Root
-> Port.
-> 
-> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> ---
->  arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi |  5 +++++
->  arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi         | 11 +++++++++++
->  arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts |  5 +++++
->  3 files changed, 21 insertions(+)
-> 
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-> index ba29720e3f72..fe9046c03ddd 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-> @@ -754,11 +754,16 @@ lvds0_out: endpoint {
->  &pcie {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_pcie>;
-> +	/* This property is deprecated, use reset-gpios from the Root Port node. */
->  	reset-gpio = <&gpio7 12 GPIO_ACTIVE_LOW>;
+> Do you think it would be reasonable for eth1 to have another different compatible
+> string, such as "eswin,eic7700-qos-eth-quirk"?
 
-You should just remove this property.
+I think you can argue the two Ethernets are not compatible with each
+other. But i personally would not use 'quirk'. Maybe something which
+says how they differ?
 
-- Mani
-
->  	vpcie-supply = <&reg_pcie>;
->  	status = "okay";
->  };
->  
-> +&pcie_port0 {
-> +	reset-gpios = <&gpio7 12 GPIO_ACTIVE_LOW>;
-> +};
-> +
->  &pwm1 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_pwm1>;
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> index 76e6043e1f91..eeb376193398 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> @@ -289,6 +289,17 @@ pcie: pcie@1ffc000 {
->  				 <&clks IMX6QDL_CLK_PCIE_REF_125M>;
->  			clock-names = "pcie", "pcie_bus", "pcie_phy";
->  			status = "disabled";
-> +
-> +			pcie_port0: pcie@0 {
-> +				compatible = "pciclass,0604";
-> +				device_type = "pci";
-> +				reg = <0x0 0x0 0x0 0x0 0x0>;
-> +				bus-range = <0x01 0xff>;
-> +
-> +				#address-cells = <3>;
-> +				#size-cells = <2>;
-> +				ranges;
-> +			};
->  		};
->  
->  		aips1: bus@2000000 { /* AIPS1 */
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts b/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
-> index c5b220aeaefd..6b12cab7175f 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
-> @@ -45,10 +45,15 @@ MX6QDL_PAD_GPIO_6__ENET_IRQ		0x000b1
->  };
->  
->  &pcie {
-> +	/* This property is deprecated, use reset-gpios from the Root Port node. */
->  	reset-gpio = <&max7310_c 5 GPIO_ACTIVE_LOW>;
->  	status = "okay";
->  };
->  
-> +&pcie_port0 {
-> +	reset-gpios = <&max7310_c 5 GPIO_ACTIVE_LOW>;
-> +};
-> +
->  &sata {
->  	status = "okay";
->  };
-> -- 
-> 2.37.1
-> 
-
--- 
-மணிவண்ணன் சதாசிவம்
+     Andrew
 
