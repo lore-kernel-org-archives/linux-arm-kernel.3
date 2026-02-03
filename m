@@ -4,82 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C637FE8B36B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 21:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 638F6E8B367
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 21:59:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CxeVWAJa+ttOHOJkuf/6Fs3ULrxyPeHZsq0SjaEZRZg=; b=HRT8OMtacxJ+vmclyNWxDS5iCe
-	Ze+jt8v4f2X4UZC00SxkTU82pFqib5vnDMtBHbf9Qhs5ZmXujVPpCAqJOAJCUMOvPp8CZPQMl5Jbt
-	MaplXpxG06zTx+BjWOkgzAhy18X4wbTJVMrwaVdvUWxn82L4st9loVgBaNSFLHgTT5F3DO5QO6pDX
-	lG1AIQuBz5NYJdaels10GRwQARqi0D7IKG8wKxB9PfhjmiIePVsQDq0YQyOPtMaow2CYqobJZYJYn
-	odFIa5r/T2GohVgKkgrUTXQSURTinG9VXSmov8CIHgegK7hgL3762Gbz61yA4nk6g5eQzxc1zGxx1
-	Q/vfXVqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HJj3/QP6caTVis5Rz+kzf4H/oWtK4J3y31szogVsajQ=; b=dRR3XjwZRswF+b0GHoqLnnqORI
+	59J7pTtSgJdSWWg5KmQRy5TjUMBwezfXliLcR+7r/of6vul0fnPGDc3PGMmPO316zC/wyMEj9XyzY
+	RwIZGk7NeGynindMM+9qCck0Hw3p7RMrtxcwtxQy2Plim3cvvA9YWvbCAVy35ikrPUrOY4xgJMK6j
+	7hyeld+GDHHAMdup0p8wd7kqlTeBg/M3fiF2NZNjGZMHc1bnaCD4jGBLjfSlXOkSLWRCGxkWlhbH3
+	Hpb8IMVB/TCLPmXJUhW48BxmkYfp/y4ctEYn2dKQZTzgQHpR1ueqZcEZkDOMlhe2eLAfB9jVS0tJh
+	A0zti8yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnOFg-00000007RQl-2XVl;
-	Tue, 03 Feb 2026 21:48:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnOFd-00000007RMS-0QXs
+	id 1vnOQW-00000007SMw-0hPk;
+	Tue, 03 Feb 2026 21:59:16 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vnOQQ-00000007SM3-275E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 21:48:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 25035339;
-	Tue,  3 Feb 2026 13:47:54 -0800 (PST)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 21C4B3F778;
-	Tue,  3 Feb 2026 13:47:54 -0800 (PST)
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	carl@os.amperecomputing.com,
-	dave.martin@arm.com,
-	david@kernel.org,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	peternewman@google.com,
-	punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com,
-	reinette.chatre@intel.com,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
-	maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev,
-	zengheng4@huawei.com,
-	linux-doc@vger.kernel.org
-Subject: [PATCH v4 41/41] arm64: mpam: Add initial MPAM documentation
-Date: Tue,  3 Feb 2026 21:43:42 +0000
-Message-ID: <20260203214342.584712-42-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260203214342.584712-1-ben.horgan@arm.com>
-References: <20260203214342.584712-1-ben.horgan@arm.com>
+	Tue, 03 Feb 2026 21:59:14 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-6505cac9879so9006053a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 13:59:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770155948; cv=none;
+        d=google.com; s=arc-20240605;
+        b=EGO5faO/Kb06kyjcVwUo256LL2TxcljJW7kqYW1+j1FQXI+qwHVq/ixX0yX+z3cYpj
+         YqWPf3oqu7XBOT6YsuVmrVn18fRax4ZYO119UOuu64jZbEs0feobBobNR4w6BNNRaCBY
+         UG1Xr0UKb66Ieot7anX3VNUjS3vldI/wnat6f9QteL9skHAgGnkO3e0gZmPdOvRN0kU3
+         4SqIk+I3jv0t+csM5p72FLv+gNGvqWWs/T4cDeNzYxx6HY+vkaMtJ5ucyJcmTrEtvDaf
+         LN9NZltCFQr8HY+ol22WCH9Yi09bIuoFLdoWwVqdq7GJcZgiFp/DCT4W5mJ6/OWCKbM+
+         s6Mw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=HJj3/QP6caTVis5Rz+kzf4H/oWtK4J3y31szogVsajQ=;
+        fh=FJK59t+KdetN5QG0TsLkLEKtzzULEWWpGNR7J9Bxve8=;
+        b=LIW4FC9B60/WjjY8zsmqcYGx7pdUV2BGAzchwZ7QI+GtvJn2IcLbBN7av9org8faFy
+         PShsXwftCLRJa5+Wnpj87rB97DbZQPHUPl+2AVunjIfmW2kbZmTqOtpdwXFrM5zrAz8z
+         9VMKHrQ0c0nnPVLBmAfs/hIihCurMRkmwg5t68ixcQL1ksBTKkLzgx4G6Bnc3tFs0uv7
+         FuMQIncHe2NL4yAqqTTxdG08Lu5hbEQTtwYtvsYVPYQdpV1HIfi/L/0XLLs2oYsWm2c0
+         beuoj8QU+MxJuh9a8ym/wIWl69iQ2XvOJt9l0Xv6WEKEEdEMMCzG8Xb8/ae0mAmiVnVo
+         eE6w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1770155948; x=1770760748; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=HJj3/QP6caTVis5Rz+kzf4H/oWtK4J3y31szogVsajQ=;
+        b=gniArbwHujo+r5Mb8/g5ccW6B1TqGoGjZmHbwp6LD8qi709giF1N8yPH++W40C7z0l
+         ZSnauap2SvhsMLgqOaneBKDXHrTz8eY+m/F2jqCPJOdXXUNmCnXM2R3bPD7ckyadpIxl
+         2O6XAV0B8Bx8WScaNRY/Zih80wpyfjWOijKkA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770155948; x=1770760748;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HJj3/QP6caTVis5Rz+kzf4H/oWtK4J3y31szogVsajQ=;
+        b=kn5CIWI33VdIRE3yFf4WS5wrU9S3GxQYPP1XuZfkg77hXwMkCdQj8bvbxfpip9ASb1
+         FZtEYvUdwFiqdycieVKfDA91IWj/JWlvYPBEM9h4iXe1MRSbJle+LZm8x7dvuLDoGArG
+         8z2CpJqBJ61Y47GpZWZVkI7eSQBkbTV6CWXlp9OgHw8HoneOMm1PrWw5jovGLnPDID0S
+         L3E8a7gsQf4D/Mx8+h1jWDbACg5gDlChDNG1eZDO4oe1SiCG3ey8lNH2GJw1pKPfVesG
+         240M6mZKLqTdnnDO8r8vb9wQvYBCoc9cFA0NH3FX/9l0HbfXsGTjS+epBg1tRLKMMQms
+         9r4w==
+X-Gm-Message-State: AOJu0YzgTecAyvvktbeHylKBU7qvilXyj8lUUDtUnf7BDF69g/B4POKq
+	cQD+SZAYnAKeHx4qEjtCrxWEEnQhxuJ6UDKTS/1EKo7PkPUn7aGJJFTqhJS8dYT+a1E/RieS3lN
+	lX/Tyqxd475IQclq1vF40BJJsy1TBuUTU5t87epzY9/bWMI3SEkDfEg==
+X-Gm-Gg: AZuq6aIuy2IQ1l2Jqmn9xzzpB3JQcevJsfpKVhFzWTwv3X6cdi9WNdbSNKR2YmslhmR
+	UJ2ksxQUVXqIRGRop6J7MUdZnG+XKShq5OZlzcfQXnJo0HrwYeOHo/EH9BaTHi0uaKDM9Re3MDE
+	nMIW7HZqDhxUDYNn2nGLIlL3IDv42fyslBktxmcfJwC160xoNhnI3Pf2QZHuhkMon6ZSxQitS0M
+	Mgxs47V6/4cBvLCbDzvPDuKnRROeX8mbktUBeIe2SOiOEFKwWv+CtSk76CFo3XNlzvGZbk=
+X-Received: by 2002:a17:907:1ca1:b0:b87:1d71:f44d with SMTP id
+ a640c23a62f3a-b8e9f10a4damr57769066b.11.1770155948501; Tue, 03 Feb 2026
+ 13:59:08 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260106162738.2605574-1-sjg@chromium.org> <CAFLszTgQWjewjYHWUhG44em+deNY9xWDFz_YohduWvM=Bd_D5A@mail.gmail.com>
+ <20260203045123.GB3049363@ax162>
+In-Reply-To: <20260203045123.GB3049363@ax162>
+From: Simon Glass <sjg@chromium.org>
+Date: Wed, 4 Feb 2026 10:59:11 +1300
+X-Gm-Features: AZwV_Qj3mtvlK51npKsxvp0S4DmwpPor2j5UgXAtFx_-Gz--puhV1FjqYFXFZsc
+Message-ID: <CAFLszTg3aDQoSj5YcszYQGWP85V85jvcL4uw611m66Ek8L9Eow@mail.gmail.com>
+Subject: Re: [PATCH v9 0/6] scripts/make_fit: Support ramdisks and faster operations
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	=?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
+	=?UTF-8?B?SiAuIE5ldXNjaMOkZmVy?= <j.ne@posteo.net>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Ahmad Fatoum <a.fatoum@pengutronix.de>, 
+	Nicolas Schier <nicolas@fjasle.eu>, Tom Rini <trini@konsulko.com>, 
+	Chen-Yu Tsai <wenst@chromium.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, David Sterba <dsterba@suse.com>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Kees Cook <kees@kernel.org>, Nick Terrell <terrelln@fb.com>, Nicolas Schier <nsc@kernel.org>, 
+	Petr Mladek <pmladek@suse.com>, linux-kbuild@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_134801_271493_C321C254 
-X-CRM114-Status: GOOD (  24.51  )
+X-CRM114-CacheID: sfid-20260203_135910_709340_E5C8094B 
+X-CRM114-Status: GOOD (  31.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,132 +118,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MPAM (Memory Partitioning and Monitoring) is now exposed to user-space via
-resctrl. Add some documentation so the user knows what features to expect.
+hI Nathan,
 
-Signed-off-by: James Morse <james.morse@arm.com>
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
----
-Changes by Ben:
-Some tidying, update for current heuristics
----
- Documentation/arch/arm64/index.rst |  1 +
- Documentation/arch/arm64/mpam.rst  | 93 ++++++++++++++++++++++++++++++
- 2 files changed, 94 insertions(+)
- create mode 100644 Documentation/arch/arm64/mpam.rst
+On Tue, 3 Feb 2026 at 17:51, Nathan Chancellor <nathan@kernel.org> wrote:
+>
+> Hi Simon,
+>
+> On Tue, Feb 03, 2026 at 03:45:36PM +1300, Simon Glass wrote:
+> > On Wed, 7 Jan 2026 at 05:27, Simon Glass <sjg@chromium.org> wrote:
+> > >
+> > > This series updates 'make image.fit' to support adding a ramdisk to the
+> > > FIT, provided as a parameter.
+> > >
+> > > It also includes a few performance improvement, so that building a FIT
+> > > from ~450MB of kernel/module/devicetree files only takes a few seconds
+> > > on a modern machine.
+> > >
+> > > For this version I have dropped inclusion of built modules, as there is
+> > > still more discussion to happen in that area.
+> > >
+> > > Changes in v9:
+> > > - Rename the variable to FIT_EXTRA_ARGS
+> > >
+> > > Changes in v8:
+> > > - Drop erroneous line 'kbuild: Allow adding modules into the FIT ...'
+> > >
+> > > Changes in v7:
+> > > - Add a note about the " -> ' change
+> > > - Add a new patch with the MAKE_FIT_FLAGS change
+> > > - Mention xz as well, in the commit message
+> > > - Drop patch 'scripts/make_fit: Provide a way to add built modules'
+> > > - Drop patch 'kbuild: Split out module targets into a variable'
+> > > - Drop patch 'kbuild: Allow adding modules into the FIT ramdisk'
+> > >
+> > > Changes in v6:
+> > > - Drop the load address for ramdisk, as it is not needed
+> > > - Bring back the ramdisk 'compression' property, set to 'none'
+> > >
+> > > Changes in v5:
+> > > - Fix 'use' typo
+> > >
+> > > Changes in v4:
+> > > - Update the commit message
+> > >
+> > > Changes in v3:
+> > > - Move the ramdisk chunk into the correct patch
+> > > - Add a comment at the top of the file about the -r option
+> > > - Count the ramdisk in the total files
+> > > - Update the commit message
+> > >
+> > > Changes in v2:
+> > > - Don't compress the ramdisk as it is already compressed
+> > >
+> > > Simon Glass (6):
+> > >   scripts/make_fit: Speed up operation
+> > >   scripts/make_fit: Support an initial ramdisk
+> > >   scripts/make_fit: Move dtb processing into a function
+> > >   kbuild: Support a FIT_EXTRA_ARGS environment variable
+> > >   scripts/make_fit: Support a few more parallel compressors
+> > >   scripts/make_fit: Compress dtbs in parallel
+> > >
+> > >  scripts/Makefile.lib |   2 +-
+> > >  scripts/make_fit.py  | 179 ++++++++++++++++++++++++++++++++++---------
+> > >  2 files changed, 145 insertions(+), 36 deletions(-)
+> >
+> > Can this series be applied, please?
+>
+> Who are you expecting to apply this series? It does not look like it has
+> gone through one tree consistently and it is not clear from the
+> addressees. I guess it could go through Kbuild?
 
-diff --git a/Documentation/arch/arm64/index.rst b/Documentation/arch/arm64/index.rst
-index 6a012c98bdcd..189fa760dade 100644
---- a/Documentation/arch/arm64/index.rst
-+++ b/Documentation/arch/arm64/index.rst
-@@ -23,6 +23,7 @@ ARM64 Architecture
-     memory
-     memory-tagging-extension
-     mops
-+    mpam
-     perf
-     pointer-authentication
-     ptdump
-diff --git a/Documentation/arch/arm64/mpam.rst b/Documentation/arch/arm64/mpam.rst
-new file mode 100644
-index 000000000000..0769bccff25e
---- /dev/null
-+++ b/Documentation/arch/arm64/mpam.rst
-@@ -0,0 +1,93 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+====
-+MPAM
-+====
-+
-+What is MPAM
-+============
-+  MPAM (Memory Partitioning and Monitoring) is a feature in the CPUs and memory
-+  system components such as the caches or memory controllers that allow memory
-+  traffic to be labelled, partitioned and monitored.
-+
-+  Traffic is labelled by the CPU, based on the control or monitor group the
-+  current task is assigned to using resctrl.  Partitioning policy can be set
-+  using the schemata file in resctrl, and monitor values read via resctrl.
-+  See Documentation/filesystems/resctrl.rst for more details.
-+
-+  This allows tasks that share memory system resources, such as caches, to be
-+  isolated from each other according to the partitioning policy (so called noisy
-+  neighbours).
-+
-+Supported Platforms
-+===================
-+  Use of this feature requires CPU support, support in the memory system
-+  components, and a description from firmware of where the MPAM device controls
-+  are in the MMIO address space. (e.g. the 'MPAM' ACPI table).
-+
-+  The MMIO device that provides MPAM controls/monitors for a memory system
-+  component is called a memory system component. (MSC).
-+
-+  Because the user interface to MPAM is via resctrl, only MPAM features that are
-+  compatible with resctrl can be exposed to user-space.
-+
-+  MSC are considered as a group based on the topology. MSC that correspond with
-+  the L3 cache are considered together, it is not possible to mix MSC between L2
-+  and L3 to 'cover' a resctrl schema.
-+
-+  The supported features are:
-+    * Cache portion bitmap controls (CPOR) on the L2 or L3 caches.  To expose
-+      CPOR at L2 or L3, every CPU must have a corresponding CPU cache at this
-+      level that also supports the feature.  Mismatched big/little platforms are
-+      not supported as resctrl's controls would then also depend on task
-+      placement.
-+
-+    * Memory bandwidth maximum controls (MBW_MAX) on or after the L3 cache.
-+      resctrl uses the L3 cache-id to identify where the memory bandwidth
-+      control is applied. For this reason the platform must have an L3 cache
-+      with cache-id's supplied by firmware. (It doesn't need to support MPAM.)
-+
-+      To be exported as the 'MB' schema, the topology of the group of MSC chosen
-+      must match the topology of the L3 cache so that the cache-id's can be
-+      repainted. For example: Platforms with Memory bandwidth maximum controls
-+      on CPU-less NUMA nodes cannot expose the 'MB' schema to resctrl as these
-+      nodes do not have a corresponding L3 cache. If the memory bandwidth
-+      control is on the memory rather than the L3 then there must be a single
-+      global L3 as otherwise it is unknown which L3 the traffic came from.
-+
-+      When the MPAM driver finds multiple groups of MSC it can use for the 'MB'
-+      schema, it prefers the group closest to the L3 cache.
-+
-+    * Cache Storage Usage (CSU) counters can expose the 'llc_occupancy' provided
-+      there is at least one CSU monitor on each MSC that makes up the L3 group.
-+      Exposing CSU counters from other caches or devices is not supported.
-+
-+    * Memory Bandwidth Usage (MBWU) on or after the L3 cache.  resctrl uses the
-+      L3 cache-id to identify where the memory bandwidth is measured. For this
-+      reason the platform must have an L3 cache with cache-id's supplied by
-+      firmware. (It doesn't need to support MPAM.)
-+
-+      Memory bandwidth monitoring makes use of MBWU monitors in each MSC that
-+      makes up the L3 group. If there are more monitors than the maximum number
-+      of control and monitor groups, these will be allocated and configured at
-+      boot. Otherwise, the monitors will not be usable as they are required to
-+      be free running. If the memory bandwidth monitoring is on the memory
-+      rather than the L3 then there must be a single global L3 as otherwise it
-+      is unknown which L3 the traffic came from.
-+
-+      To expose 'mbm_total_bytes', the topology of the group of MSC chosen must
-+      match the topology of the L3 cache so that the cache-id's can be
-+      repainted. For example: Platforms with Memory bandwidth monitors on
-+      CPU-less NUMA nodes cannot expose 'mbm_total_bytes' as these nodes do not
-+      have a corresponding L3 cache. 'mbm_local_bytes' is not exposed as MPAM
-+      cannot distinguish local traffic from global traffic.
-+
-+Feature emulation
-+=================
-+  MPAM will emulate the Code Data Prioritisation (CDP) feature on all platforms.
-+
-+Reporting Bugs
-+==============
-+  If you are not seeing the counters or controls you expect please share the
-+  debug messages produced when enabling dynamic debug and booting with:
-+  dyndbg="file mpam_resctrl.c +pl"
--- 
-2.43.0
+Yes, that's what I was thinking.
 
+Regards,
+Simon
 
