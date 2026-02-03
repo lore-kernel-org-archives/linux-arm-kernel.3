@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D611E83042
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 02:20:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CAE7E83041
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 02:20:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=641mfZC9UhARD4jrIgtik2gClfPhuW2WKmijqdYnG9Y=; b=CawF8EZ1vMHrR1UMqmkh9odptF
-	/MC3rba93uh+HsZl+J4PjT58RtHoBvbpfEg40v1zxXv65XQtzfk2kpjKM87mMkdqmuG8vZ5uvKAA7
-	09rTW2s2acndicVbKQ/wB9/pGyBjAqKESIs81GqlVpoQlTL1qxtLIkVOMfIg0+rUHo5bPfYdAp/LU
-	QqROc5JUgvNfxxs8shsL/xbVn6cMuP0l4oU3X7GwZLkiF+88rzQV0vcNokE/frzEcKyUU/cMfAVmQ
-	LWvuWy/0jW037RUZPFva0I9dcvsNGWCRZZjwz1S/gVLKU2AMvMayHqj7fUkr36cbqLnJDfsKv9y/p
-	j2stju/A==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FD7wA375MM/rZFmPVWGXM25NBnh0YgUcuiZ9KCpuHDs=; b=I/JubPSymN8PapCaK8ycnh6kI4
+	3LyoRtfmnMYeU4dOrfHR2v1xpm4fUimAIjbwzU9IYpeRIh7kQV+TFYWnlrYAoOCel3snIvY6w/HCC
+	wihEcGleg+CyotiCVzWoSBO2epYwoPcJK11UzlbtdgNenKpcV7c0TRDJ4c35aYgnw2A1xA/NBHwxF
+	kq4oZ3PHouxs6ZWMxyILxtH4uld9Hqp7u1QqR+pINkpIXkjoNWfM5+avDcrKFbUrNwARjzq1xJ1wN
+	XM0LzvuTGQO/iLli72uNdlqyuYDIs2Z2ivWRgVhk5bx0IKbhC6BYAURudf2wZSA5XGIgu1Aebzb37
+	RAABQcOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn621-00000005udZ-04Pb;
+	id 1vn621-00000005udn-1JLL;
 	Tue, 03 Feb 2026 02:20:45 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn61y-00000005ucG-2kqi
+	id 1vn61y-00000005ucE-2ia3
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 03 Feb 2026 02:20:43 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gMQWEXZFOnpNZCG+CGECYUKCDOJNkwy1Auzlojdnnv026LxE0yS4NFfLKFIkGj5R/CUUjzf9ZaQXhuNXE4bF37z2uVVR8lbXqdRugCLo53kX7MMf8XJzkClfGgqdfWNxV7NCmdv4mpSNzMg6ZMBkO8RCza08HtB1YyecrNKEp4lncYaPQxCqArGQtxOpT7g8BvMTAwIGgR67PdTqs3wnXDnKJMMpNznq3UjoF7BnvtyzjSzpygxqGBsOr+kUuGMd//jXiRu4xxdwRvY3ox+kV/WKhlVgH5114Hkpi/Wqu7Bvn2OFdInXZIj2ZA4rq3tP97P6Cq+pTMHIOjftGGC3xg==
+ b=g2NO2GErzoCOsvUaxhgyH0UpzQkavjoYUXgXSNuLyYMJnHZDvtBe02Ef6iV/SBR3cqK9UY+yDsgNnIWVCdUnqhCTw+4Ee1YA2oa/xiQAoA9QyeTpsov2x1YCkpLYHIoAVuNnOnYt7qkcuUeJ6yXSmR1I6ZyWzUkwxU9nrsQOtjRisGBmk3xTZ/YjSoIO1xGDnmyoXUSHFel8QdUdhCnWU/drEe4fqzMf5A5VcVmbgcJhpljMLDxmyuPNEE53sYftldUJaaoZv5uJeavqVpkhwYCexlYo8l85HGcL+LAnrvcWgBXv9xaZmfY2UPk5QWpUYfgr4S6oshD2ndKvlorEJw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=641mfZC9UhARD4jrIgtik2gClfPhuW2WKmijqdYnG9Y=;
- b=eaTG5fWOZCT25hlMcuLcQJPcRgBliHP0gk8YNOwm7l7NbDUfC2UgiXiCHSz3W7r+Ghb5REXlaslyHaDvfDLzIvrZDETlQswwtmVU2SI7pus575fSl+NaU/+5kpeMDhkseVf4szhpWbPNGA/gH5tLgDei98BMnp1TQEDfURkuIrJ/FeUVjE1QqVjMsn9U0IWhrDblTGE9ka5e1fW+jZju87NJn5VC6b0vZGnjuvw5qyNWTGVWXIR/o6eh3zuvAdMUTYhb8WQC7pJJ7gs7FEQQoOofJrJAJXZpeacMrhtJ5b8dgN1X2Y3CNUYFGQIokT0NS99pxaB6aarDTv+ZUktYDw==
+ bh=FD7wA375MM/rZFmPVWGXM25NBnh0YgUcuiZ9KCpuHDs=;
+ b=dvGIOIr6tyCtkE8/asW/9S/XBX9NOrhdeFSd+huCDqF6yO+tjxvlk0jfz4SPQstdmulXJDWd4/n566E9Dkznm0MdzEqN7ScXhf4TnRIbLpDEnYvkZ/mU9xgkHI8xa20u9QRuQhUMVRW2R/y9MHeeTSA5nmPRwgk78DWgjVnsBUqVTf4XyGcelrym0iBC78qkNlHXNDccCaIPdFXwhQ8O3qLY4U8v0HW/IGGXccK/VlV7O4mgpIheW7QdUTsVOaoAtDTTwRjv+/KvqW8ZCKEEiHhPgY5yd0zMzWnk4FBKaiSirUFHXF81fQcwvTSgXIibpJjODS+E2BTIwjKja77Mgw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from PS2PR02CA0081.apcprd02.prod.outlook.com (2603:1096:300:5c::21)
- by SI2PR06MB5290.apcprd06.prod.outlook.com (2603:1096:4:1e6::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Tue, 3 Feb
- 2026 02:20:33 +0000
-Received: from TY2PEPF0000AB85.apcprd03.prod.outlook.com
- (2603:1096:300:5c:cafe::4a) by PS2PR02CA0081.outlook.office365.com
- (2603:1096:300:5c::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.16 via Frontend Transport; Tue,
- 3 Feb 2026 02:20:36 +0000
+Received: from SI2P153CA0014.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::6) by
+ KL1PR06MB6624.apcprd06.prod.outlook.com (2603:1096:820:ef::14) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.16; Tue, 3 Feb 2026 02:20:32 +0000
+Received: from SG2PEPF000B66C9.apcprd03.prod.outlook.com
+ (2603:1096:4:140:cafe::b8) by SI2P153CA0014.outlook.office365.com
+ (2603:1096:4:140::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9587.12 via Frontend Transport; Tue,
+ 3 Feb 2026 02:20:28 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
  smtp.mailfrom=cixtech.com; dkim=none (message not signed)
  header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
@@ -55,11 +54,11 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- TY2PEPF0000AB85.mail.protection.outlook.com (10.167.253.5) with Microsoft
+ SG2PEPF000B66C9.mail.protection.outlook.com (10.167.240.20) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.20.9587.10 via Frontend Transport; Tue, 3 Feb 2026 02:20:32 +0000
 Received: from localhost.localdomain (unknown [172.16.64.196])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id AD5F9435071D;
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 894454350704;
 	Tue,  3 Feb 2026 10:20:31 +0800 (CST)
 From: Gary Yang <gary.yang@cixtech.com>
 To: lee@kernel.org,
@@ -73,67 +72,65 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	cix-kernel-upstream@cixtech.com,
 	Gary Yang <gary.yang@cixtech.com>
-Subject: [PATCH v6 3/3] arm64: dts: cix: add support for cix sky1 resets
-Date: Tue,  3 Feb 2026 10:20:31 +0800
-Message-ID: <20260203022031.4075627-4-gary.yang@cixtech.com>
+Subject: [PATCH v6 0/3] Add support for Cix Sky1 resets
+Date: Tue,  3 Feb 2026 10:20:28 +0800
+Message-ID: <20260203022031.4075627-1-gary.yang@cixtech.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20260203022031.4075627-1-gary.yang@cixtech.com>
-References: <20260203022031.4075627-1-gary.yang@cixtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB85:EE_|SI2PR06MB5290:EE_
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66C9:EE_|KL1PR06MB6624:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: ea640566-aebf-4044-b469-08de62cacf26
+X-MS-Office365-Filtering-Correlation-Id: feb498ec-ab02-427d-e662-08de62cacec7
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?H0Kzw7Y/nyxqkR4086G5lbxlFHh6iJs/VVovaS4kXvGMhcEcvTeofeEsGhUY?=
- =?us-ascii?Q?vb0FdQzW7yK1WS6YngHTryR562oMICGmGiDnjcDNxMPP0zJBZQLKce22PQ+H?=
- =?us-ascii?Q?MekeXKNAZS0tcKACIhCsrIt3IXCBvWPf4NqkfEUITCsUad+BIg9ghRtAFXee?=
- =?us-ascii?Q?SeDF8BiDisrCVIfL+zerqeg8vTziO1PUHjNDcG5jpptGdC0oH5ssHslI1oYp?=
- =?us-ascii?Q?FsYXtWzjtyYA6lUvE6uafj0YXKagFCJldx+wHAJhOGblVosYWzVrAZnUtGKl?=
- =?us-ascii?Q?XpSDrwVvD7MH3/dcaNCu0NvF0i7dqNtxmzpB1hqbIkVi164CVnLTqt9knkSB?=
- =?us-ascii?Q?62WBPalkWUSov3Y5zFFlNQp+IRa6ULb2OXzKe9zbdXSHhkFz3tqHmWd6L/Fv?=
- =?us-ascii?Q?Wjb/z9G27E3mAq2PB93t3kq8a7fclT46fQkrgYLXjAQeHkApuJZVmbTd480S?=
- =?us-ascii?Q?HlTSyDoBHk29AzL8iELBfEpU/B19Qf8tkXYirX2bvQBVLSHK4Hkb0prmvEtV?=
- =?us-ascii?Q?cDfoHpAdKitXR+FNS3VPeIioasxcp+G+8ggIf5ptXoo10fMUecA00Q/UkEop?=
- =?us-ascii?Q?OLdjPfCXXEYGE7DMQUuhJ2Mg28IgNRiuupKD6s4LFt7oSdfRT3EqAP4W05EM?=
- =?us-ascii?Q?iABcU3rB/zZjKpZT1yG18fu5KYz1dBAPIqsllM3ZTKWJvWyaPjwKIcJwP6A8?=
- =?us-ascii?Q?aGpb3AGlSPpEQaKP9tQggnqa6g/sEMTjuwFraq06nziUbxSkhhnuC1rAsbMP?=
- =?us-ascii?Q?03FW8bqSb6MM2q0SFXXEL0o0PgToJOT275/OSUYtrmj48s3tv4ePVlJERnfs?=
- =?us-ascii?Q?H/4WgkNegZ4Ejj2MSXyZwoOKwRMoJsqv3189kACdic4wiSuM6Sj4C0RrL+rw?=
- =?us-ascii?Q?J89Pi0KPbxVbHm0f8aGqeDs01DNlEMVqHTxXp+yzw9PNgUlRTYJoHxzrHNPd?=
- =?us-ascii?Q?w7Mn/P3PcK+ECnRuC9+48gqQhOwIAYIn8yt4Oi/oMPmXKAUKiYV5Wgy6bqSk?=
- =?us-ascii?Q?5++L8unbleTMpCLQSWSA+YC7S8SFVIoo7PYHwXfCUVqIYLd7JL2UpKaQ2AuU?=
- =?us-ascii?Q?XY0I+GRQWbuoSKkXYfqFhgmjdrCwosSM6/8AirWpw4CUHVXrG00tFHWw+479?=
- =?us-ascii?Q?YHuZUbI5IJ3yz1aT7iLY9P0Q5bhooxA6JZ84jLo+JRTp6Auz6rjvvfg9lo/o?=
- =?us-ascii?Q?o4r2Dcfs71lbxyhDNUmz65An+URkMPaVUzUyMHKoogMA9Xg4TWywW2k+5AgB?=
- =?us-ascii?Q?jiKGHeSCOsDsqdOiD9jqZEsEze+ZHQlVpaB9qucN5xqaQtzXvbSDOVDOyVb6?=
- =?us-ascii?Q?xbWad+BB7L8Lj3KCGbXxePwyOWnVvSgjn8qeNKk2UaERbOG4ufl4EiheAOPI?=
- =?us-ascii?Q?VBfSTyu6iQBn6LS4Zixbv+w72TupSBk3oHzTh2N7pd5jIJoATxLqHk+YLGZ0?=
- =?us-ascii?Q?17LE2bnKxWZwX7REO9oBJwMnjERST2QEaFyr4z189Yv98gwJWHlrvfQw55r/?=
- =?us-ascii?Q?AJlmcpWV8SqSITMsW3CYqfE8K8WYXdq++gRLIZ4DgdsTeJZfTHRiHLz/ds9z?=
- =?us-ascii?Q?3kCXzKkooduSdrNPBefx2Sf19RP2kttzrhAytOcXIBR8Q2ga8/UY7qNolKrQ?=
- =?us-ascii?Q?A3vAKjjw5H3zPKQQ43XWLDKuLm8rLlYe8h9pG+/JKX35jPctv+HGYLAI4ihJ?=
- =?us-ascii?Q?rSdAKQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1wQKlidr3bV0pF8FTWv29OqgT2u6M+qJjtDlbkzdHJ9vrgZn+iUmzZYLTqTD?=
+ =?us-ascii?Q?bev1jqCYmX6sHwCC9bHYK8ZK0aaBBIayN1wjOQ9akZIGnmDjLAGZpAv91zqv?=
+ =?us-ascii?Q?AlBfnklciJgbH71XyV2+wjYlmgTBjy2arn4gSrN74ZRqIG0JWqpHzzG71zsG?=
+ =?us-ascii?Q?fF55Bwy9I+0FLQOfN4IjnhsGmAg8xUsV55ZtKU+tqpWuM1L1xfhiZ0Ha+HLa?=
+ =?us-ascii?Q?0xo2yXwnJaBo0uNckYbKR28UxOm0FeC0NH9h4c8eBIwFkB4gvJYCrqjgtgIZ?=
+ =?us-ascii?Q?VddC4WV88xLbX8/CUFrtKkjBDfDZ5+oGRu9uaUefyQ3aGS9aUq2m5AcujP/G?=
+ =?us-ascii?Q?UMk8sO9LLRQnHGA+SnCRgqfuhfyET8iXeQTMN9irIVKauIXisOKnkL2nvdXm?=
+ =?us-ascii?Q?l0hCTwctTGkhm4FVbp5gU/EfYQW24X6QGn4H0UIloLQfwGObSk2VHLxsCKCa?=
+ =?us-ascii?Q?Gl3n4vMJaxy+HnoQqeyIVuJBDiqaqrSqZC72GHfHL+RcO+vYcrNYAvIA9aOU?=
+ =?us-ascii?Q?nt0Q2B7z6k6RxUalA9kQdlfy7KXcGLyJGDIzipEk9c7bM1jI7C5jpoKmDkDx?=
+ =?us-ascii?Q?Nw+rK8jCkCWlcoySbvjnN3MnJXYMvmTf/WIcLLz1VX5dxbFFJCzd4P4Ar12i?=
+ =?us-ascii?Q?znqhCrm0AZhlix9HZZQPrQxY16l19Ph+6Z7e90OmldZhnGKjfdM+PhGCIeg+?=
+ =?us-ascii?Q?zFXwNnN/1DzjZJFeshIKu+lRx7LR0kqcJ7CXyVXk9iKs9LMHCfJLgLBL9QIg?=
+ =?us-ascii?Q?8ePYitdMavDRnrofCdAthySnIxFSz6nzk7Lidw6uqtH9yCz1yb84rkOHKaO8?=
+ =?us-ascii?Q?VI8KIbKYhRRaxCh2+PU3v5qjmQxDTmzBZ5B1W8YKANgdRXN1qtkR4rKZGuFz?=
+ =?us-ascii?Q?Dexw+cMu7SObzqnoBd0LguegBcXMHXW2M2BNrg0zgEZZVz/15YByPGCYSzn8?=
+ =?us-ascii?Q?oQgpE/wxt6433syLkSRyqrOe+t+wOQcT15G5WIXqfjJ5KcKsvsojgNMaDFYT?=
+ =?us-ascii?Q?xsVgBWwsMO0Ck5LKDpJh7WCqnOlPXzQTseJqFujLm2AVwjR8hx6ejc42AYWs?=
+ =?us-ascii?Q?LNuKgl52Qd0yqV8qBC4wyqqAVXwcFAouhJtst9PuVe52G7SOPRmuFvc7QALY?=
+ =?us-ascii?Q?pQUM4sxF4kFB+U0azS7iz0RaV1LjcG4k+8sCnqnHOz8QHBdz40lFQ0LvZGRa?=
+ =?us-ascii?Q?qZSu2ySK2YPb1swnyoQUGPIFhVUVN+gIQkzxKSUrORm+AezNWjDDyC4bE7qn?=
+ =?us-ascii?Q?Y/iTH+Eryz41/C5EN/zGFT2nikQBduXdz+rFyb5mbmI59gq5efbWomIxmbEl?=
+ =?us-ascii?Q?r8XYyHEIH8BRS384yGeyPrqQzVBNDAlTttrhFr2YdojELoa6vsRU1m0mG2wQ?=
+ =?us-ascii?Q?LCEde52t+0gos39aajuJBN6q1vNiuWRhIIPZcfBC1H9pqiWKZJtkBL4DSipP?=
+ =?us-ascii?Q?EW0uShVSmVUB2zVMreROy6xuRiqELraDYYkDKZiSplvbvrVQeBgxVxt8ABIu?=
+ =?us-ascii?Q?P7pJ86+h0qy8qtnu4Nmo9v3iNK+sYsZvikk7H4kn0ot8dbejwG29pJFCn7Cl?=
+ =?us-ascii?Q?txL+Dg3RAtbePly5ptVkm7G938tdfKtpIz9AHWyAdTXVPH9FkR2gYh4PIf5Y?=
+ =?us-ascii?Q?fTcucGcw5txyfrkO4acjMrmGw5lsZllMt6MPmWM5+JoT/tpZ465Sy8xQwOa+?=
+ =?us-ascii?Q?72Yjmw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: cLPOTCGOXRCKr+QqF3nQHBbGxHDo2Ieg5r9GRFrH5wZysK2iD8JQY3HFqQ1/5yCmW6/qcOYCAKSZ2BoTTF0xaAoW+kXufUh+9Gz/eeOighqrwDvkTA1612/pGka3CuGiCTBD8SnUinete1G7XPzUsA3OFo1OfVWKFZk/enV5OM7G20IDKpR23blcTBmfoBBa5U1rlP7+lo0Agmz1nN34l1JsKPGuYX1S/fvq68UJkPrQ2WjXWhxmYxEj6GnQ/EtBMNJRikTL2evYnMndH0HRWcEoDydm6Wq18siJ6diSSF/ZbpyholcYpESz4RPBmVW5yjOO5FoEoRezU7xlKjmnKGq7o9ehUq0O6+K5iZ7JnrJGmAeR6k28OMQ8LGkYikDMp9fcjEl0pU82zv5PZdyUERmJ7jFFBisDwrcuIAI6mMmxtkUV8J2AG41A7NmvJeuP
+X-MS-Exchange-AntiSpam-MessageData-0: /rqhZhv0PWZc7l3cXMoqHG1IvipY/roM0ZpKP1JKqfRhJR2pHmSK5tth/KR8wKpdPxfCF8LkN2MlNx1JCrsDc6tDbV+qTYonXVuqQR0hCL/330wruV0VKAkTSfpyQgedmkebg8PR3UQLmGRV6eiiWBadB8SUOHPVHqFNV5+NwshEOEQUxSb27W7uvefp1p3wPMvOUlhuIszhMaqjdagEjnTlqHbAzyclL9dh+ptNARhmxw09QaxQkZC1SRypJ2v+HVb1QSAHuIzvN3a2+Iqvhz1CiRjL7UFP1l/0mcP/vf1wIBxroB+KWMcaTGDTM5OCXwePAu2Q/40bc7bPjElsHZ7QF15vl0dcrVs4J0154eTOkuGkXLwiORfvM7h+IBeJnEQSxF8HArovz7kJZvkVbA0Hcjvh3oglcBGUsuQ+43YRo3ok4wZg2lmVcLC0JkZd
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2026 02:20:32.9092
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2026 02:20:32.3560
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ea640566-aebf-4044-b469-08de62cacf26
+X-MS-Exchange-CrossTenant-Network-Message-Id: feb498ec-ab02-427d-e662-08de62cacec7
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB85.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66C9.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI2PR06MB5290
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB6624
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_182042_697772_75208928 
-X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-CacheID: sfid-20260202_182042_707732_3352EBB0 
+X-CRM114-Status: UNSURE (   9.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -149,46 +146,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are two reset conctrollers on Cix Sky1 Soc. One is located in S0
-domain, and the other is located in S0 and S5 domain.
+Patch 1: Add yaml file for Cix Sky1 resets
+Patch 2: Add driver codes for Cix Sky1 resets
+Patch 3: Add dts nodes for Cix Sky1 resets
 
-Signed-off-by: Gary Yang <gary.yang@cixtech.com>
----
- arch/arm64/boot/dts/cix/sky1.dtsi | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+v6 changes:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-system-control.yaml
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+scripts/checkpatch.pl 000*.patch
+- refine reset driver
+- fix dt-bindings style
 
-diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
-index 64b76905cbff..37dca97b6b67 100644
---- a/arch/arm64/boot/dts/cix/sky1.dtsi
-+++ b/arch/arm64/boot/dts/cix/sky1.dtsi
-@@ -348,6 +348,13 @@ i3c1: i3c@4100000 {
- 			status = "disabled";
- 		};
- 
-+		syscon: syscon@4160000 {
-+			compatible = "cix,sky1-system-control", "syscon",
-+				     "simple-mfd";
-+			reg = <0x0 0x4160000 0x0 0x100>;
-+			#reset-cells = <1>;
-+		};
-+
- 		iomuxc: pinctrl@4170000 {
- 			compatible = "cix,sky1-pinctrl";
- 			reg = <0x0 0x04170000 0x0 0x1000>;
-@@ -568,6 +575,13 @@ ppi_partition1: interrupt-partition-1 {
- 			};
- 		};
- 
-+		s5_syscon: s5-syscon@16000000 {
-+			compatible = "cix,sky1-s5-system-control", "syscon",
-+				     "simple-mfd";
-+			reg = <0x0 0x16000000 0x0 0x1000>;
-+			#reset-cells = <1>;
-+		};
-+
- 		iomuxc_s5: pinctrl@16007000 {
- 			compatible = "cix,sky1-pinctrl-s5";
- 			reg = <0x0 0x16007000 0x0 0x1000>;
+v5 changes:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-rst.yaml
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-system-controller.yaml
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+scripts/checkpatch.pl 000*.patch
+- refine reset driver
+- fix dt-bindings style
+
+v4 changes:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-rst.yaml
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+scripts/checkpatch.pl 000*.patch
+- add syscon
+- refine reset driver
+- fix dt-bindings style
+
+v3 changes:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-rst.yaml
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+scripts/checkpatch.pl 000*.patch
+- remove syscon
+
+v2 changes:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-rst.yaml
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+scripts/checkpatch.pl 000*.patch
+- fix dt-bindings style
+- refine reset driver
+
+Gary Yang (3):
+  dt-bindings: soc: cix: document the simple-mfd syscon on Sky1 SoC
+  reset: add Sky1 soc reset support
+  arm64: dts: cix: add support for cix sky1 resets
+
+ .../soc/cix/cix,sky1-system-control.yaml      |  49 +++++
+ arch/arm64/boot/dts/cix/sky1.dtsi             |  14 ++
+ drivers/reset/Kconfig                         |   7 +
+ drivers/reset/Makefile                        |   1 +
+ drivers/reset/reset-sky1-base.c               | 126 +++++++++++
+ drivers/reset/reset-sky1-fch.c                |  78 +++++++
+ drivers/reset/reset-sky1.c                    | 204 ++++++++++++++++++
+ drivers/soc/Kconfig                           |   1 +
+ drivers/soc/Makefile                          |   1 +
+ drivers/soc/cix/Kconfig                       |  11 +
+ drivers/soc/cix/Makefile                      |   1 +
+ drivers/soc/cix/sky1-system-control.c         |  47 ++++
+ include/dt-bindings/reset/cix,sky1-rst-fch.h  |  42 ++++
+ include/dt-bindings/reset/cix,sky1-rst.h      | 164 ++++++++++++++
+ include/linux/reset/sky1.h                    |  18 ++
+ 15 files changed, 764 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
+ create mode 100644 drivers/reset/reset-sky1-base.c
+ create mode 100644 drivers/reset/reset-sky1-fch.c
+ create mode 100644 drivers/reset/reset-sky1.c
+ create mode 100644 drivers/soc/cix/Kconfig
+ create mode 100644 drivers/soc/cix/Makefile
+ create mode 100644 drivers/soc/cix/sky1-system-control.c
+ create mode 100644 include/dt-bindings/reset/cix,sky1-rst-fch.h
+ create mode 100644 include/dt-bindings/reset/cix,sky1-rst.h
+ create mode 100644 include/linux/reset/sky1.h
+
 -- 
 2.49.0
 
