@@ -4,73 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D955E7FDFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 00:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70BB3E7FDE0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 00:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=74/WSz0klXArild+qNTMXu5HAVoXnsR2VdubFzeU5OA=; b=IkACwH26Bf7gNaHuGE4Ohaqk/z
-	jITrKpIBLe9VPEyQ8CjPI4wa1PTjVOB4gWod3rUl+b+PAcYWMLC/2KE4EAFfxOUmlfuYG2KvxFxaE
-	MDNvwbCV0Kc5DjjBGjzh7crulM0hTX0kzc1m9hV/w/dVbkQfc1Dm/epqYZKiu7DZc4QdZCYwQ/ZCe
-	UaqVZ2ZuAO93MYVY8JmkciOwVnVlNJPCZnF7q1tEwvEVzXoLagl/mzFr33Lt49umBW3Npthsqx5mc
-	IqNu237ZZ0nUnumlkjPDfQBZJ9d5wqF+pSS8EPXp7wvMMZjUbTj8abagxe7hckqiN13+a89SLLGEE
-	3QF/W8DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cnbZIEEYc7qpXnHl4ZHTwHEJ9GmdouAAJMZTX/GpBdE=; b=bLa2Fvqe/6WYzcEomyRyK+yhFB
+	Mu4dH+4JcDwHAe2BkO/d7Yw7W1zW237Vd6H4LmBFzltOuQpCJgTveTFu8TjjZye9oOpjBdIEdICpQ
+	xMlplf5oRlRu19zEqXO5WdWmcK8AbAi33bG8D+H19CPZma5dx1T2F22rghQoJbQrMYppgiOtPT3ZX
+	mCfkUjSXByEzAbndaEN5rV4atzAXcNMItzP0MVg4t/IWzTZXSw+/5XPwC+6p1iy2lCx/QzkCeWpSo
+	DqgsMKY8gMgq7pEPqCPVlk1SorEecb5tZ6tq7oV6WJ6OTFPe5rMs+CjlSTcC5vFk6ELhL7wed7Qjf
+	7upgBAkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn43D-00000005mK4-0EJf;
-	Tue, 03 Feb 2026 00:13:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vn46c-00000005mU3-2pmv;
+	Tue, 03 Feb 2026 00:17:22 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn43A-00000005mJj-29Qh
+	id 1vn46a-00000005mTa-2jWf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 00:13:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A4C6840788
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Feb 2026 00:13:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C11DC2BCB1
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Feb 2026 00:13:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770077623;
-	bh=74/WSz0klXArild+qNTMXu5HAVoXnsR2VdubFzeU5OA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=SLKNESQlId2a8NRBPqQGZn5WQjpkO5B1FQAiWsXcyI2CQfb2MOzMr8PyOLEITeCtC
-	 ah/G74xhRjV+qR6QUViFKxyCgI2yV32+bx9Fb8DsFOS/6Fazi7g+XSQQvvmTQUg/J7
-	 6jr2y2e6Ow0o373DXuwc4umHP1HyRVq7oln5T+yfrDISudc3Lgl5zlD0oFn48YAudH
-	 6G2lBoo7GvTwP9S4ZOb3mipAwYeslFdCIX7ULeH8NbLehbuiHk7Dimv2MAG2JqTT7U
-	 wWQiE5zxT1111IeOerlvWrvsrqTGiiAhilgJy7FaXD2n3pA2wLa3r01oovsdoK+P8V
-	 bsbASbxsi8V9w==
-Received: by mail-yx1-f51.google.com with SMTP id 956f58d0204a3-64938fce805so4505956d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 16:13:43 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWWLAFDngb9iwvHbp05Z9HHsil28EAttYB3W0yTMuvyx4lUTP9ZtZD3SI2PvLiAR9znHGDNaBarOKm5h05a1fUI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyQq0ZDsPHTX8lL2aXTD2GaDNLAjcUVrYBZHPHSrDEyy3x8FaZ
-	FhWmVcQIn5vy2fHVC4YfD2C1VTE1pvWSSaQxGx/NZiAlrIOIUOxP9TyUqEugoJfAVD/80LzdbV9
-	1BsNHO5/hCYNUIywMooH0mFNqvOx/oOk=
-X-Received: by 2002:a05:690e:1687:b0:649:b1d2:4915 with SMTP id
- 956f58d0204a3-649b1d24adamr8861755d50.48.1770077622616; Mon, 02 Feb 2026
- 16:13:42 -0800 (PST)
+	Tue, 03 Feb 2026 00:17:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=cnbZIEEYc7qpXnHl4ZHTwHEJ9GmdouAAJMZTX/GpBdE=; b=VHco1eedf+GGw5ftuQkpadN50P
+	7/H8FTN1MGUAxFL0qaQpqSUGBucDqIYDt2U6LLBoiqx7tvKS6VoTTBhrOYlT1RxPCi6HFdsETvIQp
+	sXTZAAPd5royUP8fucUiITv0PgZWrzYozcBefdUuZQOxe2GyOcd6r+F67dWJJ3SFiTt1LB02rYw7V
+	Pfll0qmBlvzg+6CwkRVObhvX8/S3fYitEX1qZyg0Dq3jn83YD/SjpS9v5OJyj6Us0yPmzm9hhgY8a
+	pVqBbhlOEvLVREJxuvD4A86L1kSexJyTYxCFgGMK+cpZoLagFf11xaAlc550PdCWJ+aDfbmBgHihf
+	j7NM+9ZA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:52622)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vn46R-000000004UO-08eh;
+	Tue, 03 Feb 2026 00:17:11 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vn46M-000000003qY-46I1;
+	Tue, 03 Feb 2026 00:17:07 +0000
+Date: Tue, 3 Feb 2026 00:17:06 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	Clark Wang <xiaoning.wang@nxp.com>,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>, imx@lists.linux.dev,
+	Jakub Kicinski <kuba@kernel.org>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
+	Wei Fang <wei.fang@nxp.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Subject: Re: [PATCH RFC net-next] net: stmmac: provide flag to disable EEE
+Message-ID: <aYE-gvuZdv7ezm7X@shell.armlinux.org.uk>
+References: <E1vNUjC-0000000FhjR-0h6P@rmk-PC.armlinux.org.uk>
+ <f95f73b9-d024-4697-bca1-02fb8bc044af@gmail.com>
+ <aYEj8VM5AfvcDHrl@shell.armlinux.org.uk>
 MIME-Version: 1.0
-References: <20260123-upstream_pinctrl_single-v2-0-40f8063cc5a2@aspeedtech.com>
-In-Reply-To: <20260123-upstream_pinctrl_single-v2-0-40f8063cc5a2@aspeedtech.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 3 Feb 2026 01:13:31 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=OXJdJZpjbo0_C03vcgPe5btum-J0uifvSJkMaUWG-=w@mail.gmail.com>
-X-Gm-Features: AZwV_QjrSedGM9ncbmebsgpUkO7L1UvY-Meo5qc4rUg0SMHd3RslWKmtaKN7o7g
-Message-ID: <CAD++jL=OXJdJZpjbo0_C03vcgPe5btum-J0uifvSJkMaUWG-=w@mail.gmail.com>
-Subject: Re: [PATCH v2 0/3] pinctrl: single: bit-per-mux DT flexibility, probe
- robustness, and consistent pinconf offsets
-To: Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: Tony Lindgren <tony@atomide.com>, Haojian Zhuang <haojian.zhuang@linaro.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	andrew@codeconstruct.com.au, BMC-SW@aspeedtech.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aYEj8VM5AfvcDHrl@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_161348_745827_40CAD540 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20260202_161720_714539_B8C5B4E2 
+X-CRM114-Status: GOOD (  14.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,72 +101,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Billy,
+On Mon, Feb 02, 2026 at 10:23:45PM +0000, Russell King (Oracle) wrote:
+> On Mon, Feb 02, 2026 at 08:54:52PM +0200, Ovidiu Panait wrote:
+> > If not, maybe this patch could be merged to add the flag that disables
+> > EEE and I will just send a patch to disable EEE on our platforms as well.
+> 
+> We still need the flag to disable EEE for platforms where lpi_intr_o is
+> logically OR'd with the other interrupts, so there's no way to ignore
+> its persistent assertion.
 
-thanks for your patch!
+I'll also state that we need both patches, but there's no point pushing
+my original patch (to allow EEE to be disabled) unless Laurent is going
+to also submit a patch to make use of the flag - the EEE disable and
+Laurent's patch needs to be part of a series. We don't merge stuff that
+adds facilities that have no users, because that's been proven time and
+time again to be a recipe for accumulating cruft.
 
-On Fri, Jan 23, 2026 at 4:41=E2=80=AFAM Billy Tsai <billy_tsai@aspeedtech.c=
-om> wrote:
+So, at the moment, "net: stmmac: provide flag to disable EEE" ain't
+going anywhere until there's a patch that makes use of the new flag.
 
-> This series is motivated by the pinmux and pin configuration register lay=
-out
-> of the ASPEED AST2700 SoC, which exposes several limitations in the curre=
-nt
-> pinctrl-single behavior on bit-per-mux platforms.
->
-> On AST2700, pinmux registers are laid out contiguously per pin, with each=
- pin
-> occupying a fixed-width bitfield and pins packed sequentially within shar=
-ed
-> registers. While the existing pinctrl-single,bits binding can represent t=
-his
-> layout, doing so requires manually constructing offset/mask/value tuples =
-that
-> do not map naturally to the hardware model and are error-prone to maintai=
-n.
-> In practice, describing pinmux configuration in terms of <pin_index func_=
-sel>
-> better reflects the underlying design, improves DTS readability, and redu=
-ces
-> the chance of mask or shift mistakes, while still preserving
-> pinctrl-single,bits as the preferred and fully supported binding when pre=
-sent.
->
-> AST2700 pin configuration registers follow the same per-pin packing schem=
-e as
-> pinmux, with both multi-bit and single-bit fields arranged sequentially p=
-er
-> pin. However, the current pinctrl-single pinconf offset calculation assum=
-es a
-> linear per-register layout, which does not align with this bit-per-pin sc=
-heme
-> when bit-per-mux or function-mask configurations are in use. Aligning pin=
-conf
-> offset computation with the pinmux logic ensures consistent and predictab=
-le
-> behavior and avoids incorrect pinconf operations on such platforms.
->
-> In addition, on many AST2700 systems the SCU register range containing th=
-e
-> pinctrl registers is commonly reserved by a top-level syscon node or by
-> firmware. In this configuration, devm_request_mem_region() can return -EB=
-USY
-> even though the registers are valid and intended to be shared. Since
-> pinctrl-single is a direct MMIO-based driver and does not integrate with
-> syscon/regmap, failing probe in this case prevents any pinmux configurati=
-on
-> from being applied. Treating this condition as a warning allows the drive=
-r to
-> initialize while still reporting the shared-resource situation.
->
-> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
-
-I would need the pinctrl-single maintainers to review this before merging.
-
-I personally would not try to extend pinctrl-single for this, I would
-write a custom driver using as much of the existing helpers as I can
-and use the pinmux =3D <...>; DT property.
-
-Yours,
-Linus Walleij
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
