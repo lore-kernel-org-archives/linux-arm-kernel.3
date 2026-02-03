@@ -4,72 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C6FEE8B37E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 23:34:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E82D1E8B385
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 23:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q95FEOqKEJlFrNQSBcQo7D6IdYS6YFx230wGHstnn1o=; b=qCUVjAvAR8LAxONNLvz7t1B4wp
-	MbC2gK1arSpzF+OOnl7V96aIpOfo/onB2xHIeSVoAhEyAED0Ub/hJeUMT6RX0a2xp25qmkjf5ASc0
-	ZPjQyvVAMi2vBvnD9lqTFGpBWTY5kf2kaHPXuX12sTIS/dTdWOn3zX1PbPCc1zvVT2MsSWt5TP8zh
-	L1+8EDRM/hFBLoP0M/AeqKq6WZsyDoVS8jpZuspPMdJKPl5LDB1Moc1ZdWHqNG66BTBXzqsFKVvUt
-	2obLI6n/7qNVkUrk3CMrwtbhbv3kbGTxbwDJdX3PXfSnHzHStb5PFjiVDe5wuNjBKLOsdMYSF4iK7
-	/HLimDTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fYGJl9M6Oj5ps42Ajunkmicm+93ZEJYnZZHZdB0GDfY=; b=zEcc/fNx2L4KfBb/RDv/wIKXGE
+	k6CmtwnuPR1bWcVodwks3UR9deqG0p6VsJJIpaWg6Q8ve73HEAzJ/HGRdgcBUBqannTB1elR8L93N
+	Rm9KF5qsCzOUI5Jh6/oydZMkF0JggGK3Wtl6qNXU0fz/xMhxxOjYJ1Cs461oJbwnUS7Oy9Do+cxQy
+	dmFq9dEP+CaBJJ3xEzXMWStqPBxBWva7CJGkQvCLhHBP8Wb7k9O845W/KW4XhjWT0fUtbQ5yHNVMX
+	AlXo+Vn+c+IKz6hV2di3CK4wkR8Zgop74ONbFPI6D/uFT3OdrZ98N5s5COFLJKTfxoaEi0aIRe+Vl
+	4rcLVtag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnPuz-00000007ZNV-3ncY;
-	Tue, 03 Feb 2026 23:34:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vnPyS-00000007ZhX-30IJ;
+	Tue, 03 Feb 2026 23:38:24 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnPuy-00000007ZN8-3i5t
+	id 1vnPyP-00000007ZhC-37BR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 23:34:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EE1B46013A
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Feb 2026 23:34:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F198C19425
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Feb 2026 23:34:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770161687;
-	bh=H3N6t3iT+lRw2Y3wcq0juSNfNc3ZLSsvKLjYx4BlJTM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=nqtchg46hJV6r1bQFLQT7aBrl24yYiUpMB5HgW9eCGF1JT/AyvItPIfcJRJxTC4A5
-	 C0CcRJov/r6C6UdEbHNQ+0GBUxZ/Kc99tCry5UO6nlDXm93PLJuMrp9ZRf1/0x2djE
-	 Uz9k49tDAjcnFpbt4vytBBRSxC2xDZmqx1YopK8OfLlbl8Uvd5Q078y1oa5RFDwncv
-	 Dt2ASczc/ILf0ZN6ez/txaG+HUebwqPiQcsiUZbriRUAQT8ePpOXFLIY7eb9HZ8HYJ
-	 54ISvN7+WcYtIrd9jA/MU/1iPGmvL4IHhm4Dp721CEaVKZlP6QUKKrx7EKwsPwzZ7C
-	 VyiMFb+TvNTKQ==
-Received: by mail-yx1-f46.google.com with SMTP id 956f58d0204a3-649523de905so547225d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 15:34:47 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXN+QO2i1ZeMygZTd1NBlYSppRm843G5YGdRN8jAukf+1jN151xaylrzI42Hkeob1Nawl1EfHT/HYl0rWSSFR15@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7mUVSZZGTXk0Dx4qsyHuiRaWRvJcyBf1CiomehHW4ZIAokDob
-	+EvPoVQYyD2kzxUoa3Rc+fdLfEyxhtMEfmbnygXbnRpyapKWavnJgKqrZPpj2/HDIkiHZWumULx
-	bO9Iaz64vxlJmq57e/6TlABJInYdgtqU=
-X-Received: by 2002:a05:690e:dce:b0:649:ba22:58d0 with SMTP id
- 956f58d0204a3-649dbec902amr1077376d50.29.1770161687019; Tue, 03 Feb 2026
- 15:34:47 -0800 (PST)
+	Tue, 03 Feb 2026 23:38:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1770161902; x=1801697902;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=VUA7xPz2k2DqTILvSG8MJrzRqVcjkXmJKeKSnbJhE8c=;
+  b=NnQBOqWxOS45NSYwDP+xhLKX29CwPGgVToFOiSqEJZhN6AtJ4WxPJAtB
+   jdtcX6D2yCbW66mu+LYc4n6Sx9Q2hqLvM1yPRAIJxHNWIkXRgZ4I1h00A
+   XWtIg8sluWb1s/WjO9VIjwLeM+QYNd4B2xS1pOaq7B09DD+DfFs6Iwv1K
+   T2UW3kjNpk5Io5xvzO5FqAMyWbEM4R9AqVeS+oqxzG4waEC390IdkG5cT
+   4W4umSHKeJItMkz12AX63MiFwSsqBawDSE9de1t/D5uQwapBAvzdvKvtA
+   WYK+woEqBXuNbVT3PHbE2Nb/U/jeV7u7Klr87a2WimDX2T6z7WPFWxfSz
+   Q==;
+X-CSE-ConnectionGUID: 0tG3zdwYRy2VScl3qo4xMQ==
+X-CSE-MsgGUID: e2mvt8/yQB6fVRrV2k6xVQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11691"; a="71065831"
+X-IronPort-AV: E=Sophos;i="6.21,271,1763452800"; 
+   d="scan'208";a="71065831"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2026 15:38:19 -0800
+X-CSE-ConnectionGUID: u2/E/qW7S8KctZQwAD6OFA==
+X-CSE-MsgGUID: Gj/xUhl9RSSVJf+5vGhJUw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,271,1763452800"; 
+   d="scan'208";a="209100278"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.99])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2026 15:38:17 -0800
+Date: Wed, 4 Feb 2026 01:38:14 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v9 7/7] i2c: xiic: skip input clock setup on non-OF
+ systems
+Message-ID: <aYKG5k5-6ll_RzQz@smile.fi.intel.com>
+References: <20260202-i2c-xiic-v9-0-ce4695f5267d@nexthop.ai>
+ <20260202-i2c-xiic-v9-7-ce4695f5267d@nexthop.ai>
+ <aYIYUNejGCVdekx7@smile.fi.intel.com>
+ <9F7815FA-80D8-4C96-B61F-5CA6CB405F7A@nexthop.ai>
 MIME-Version: 1.0
-References: <20260203-craftsman-battered-3491ff68f462@spud>
-In-Reply-To: <20260203-craftsman-battered-3491ff68f462@spud>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 4 Feb 2026 00:34:36 +0100
-X-Gmail-Original-Message-ID: <CAD++jLn8WOobPaoSrMLitFgFZc_6CH9BQbRy_Gdqq3BLhDXWQg@mail.gmail.com>
-X-Gm-Features: AZwV_Qi7lxnWnjXussICca0lyIFaqwLa7DfHaZmiOVa6EJi8C3uLkn3H5EkvZDE
-Message-ID: <CAD++jLn8WOobPaoSrMLitFgFZc_6CH9BQbRy_Gdqq3BLhDXWQg@mail.gmail.com>
-Subject: Re: [RFC] pinctrl: pinconf-generic: move ..dt_node_to_map_pinmux() to
- amlogic-am4 driver
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-amlogic@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <9F7815FA-80D8-4C96-B61F-5CA6CB405F7A@nexthop.ai>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260203_153821_878006_3DFB758C 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,46 +94,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 3, 2026 at 5:17=E2=80=AFPM Conor Dooley <conor@kernel.org> wrot=
-e:
+On Tue, Feb 03, 2026 at 10:38:51AM -0800, Abdurrahman Hussain wrote:
+> > On Feb 3, 2026, at 7:46 AM, Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+> > On Mon, Feb 02, 2026 at 08:37:24PM +0000, Abdurrahman Hussain via B4 Relay wrote:
 
-> From: Conor Dooley <conor.dooley@microchip.com>
->
-> pinconf_generic_dt_node_to_map_pinmux() is not actually a generic
-> function, and really belongs in the amlogic-am4 driver. There are three
-> reasons why.
-(...)
-> The other dt_node_to_map implementations accept a being called for
-> either a node containing pin configuration properties or a node
-> containing child nodes that each contain the configuration properties.
-> IOW, they support the following two devicetree configurations:
->
-> | cfg {
-> |       label: group {
-> |               pinmux =3D <asjhdasjhlajskd>;
-> |               config-item1;
-> |       };
-> | };
->
-> | label: cfg {
-> |       group1 {
-> |               pinmux =3D <dsjhlfka>;
-> |               config-item2;
-> |       };
-> |       group2 {
-> |               pinmux =3D <lsdjhaf>;
-> |               config-item1;
-> |       };
-> | };
->
-> pinconf_generic_dt_node_to_map_pinmux() only supports the latter.
+> >> Currently Linux does not implement ACPI ClockInput to describe clock
+> > 
+> > ClockInput() resource
+> > 
+> >> resources, unlike DT. However the xiic driver is happy if something
+> >> magically enables the clock before the driver probes, and does not
+> >> turn it off again. The clock should always be considered optional for
+> >> ACPI.
+> 
+> I just used the wording provided earlier by Andrew verbatim. But can change
+> to the following if you insist:
 
-This alone is a good reason to apply the patch.
+I do not alter the wording, I correct the mention of the respective resource.
+And yes, I insist.
 
-I have a strong urge to apply this already for v7.0 despite its RFC state.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Anyone against?
 
-Yours,
-Linus Walleij
 
