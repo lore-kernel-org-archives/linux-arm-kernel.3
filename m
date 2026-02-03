@@ -4,63 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4DDBE83040
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 03:31:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9570E83040
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 03:32:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6An+59kZrrX/6VO4uDw/aRmHE7vH01Ooy0Q4JMyt7Bk=; b=BeObhYuRbwwJnuGSbErNZdkYTb
-	VFe0+dw6wCjqaF9SQT4K14imUit8z3QO31PE2/RBJlOaXCxCj4oJCf95iCvawWs3YA1HquagvHJ+2
-	mOGVsw92ecTapdqNkeYBUkH77WDZDl3eeLPJxB+oqM+SWR89LIb70AR/tmtqZuQw40aOXkdcEjQBr
-	NeD4N0vDgq2beBvPy1Rh/kBoGvLh2EcsF9uOqVLy/6VYfUNFmoGuMgwPy/Y15sTuZjtJxB2uDAUr3
-	uT8t3t5K5IvoGTkYQ/uZtpgRpFmA9XPX1bgIG1Dq9ZGvmpIFgXiU5hpoZu9BLIy9ftYrspBmgnRJH
-	yk4Ehf2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bI5Tm/N0iB063FrE+kLOcR5Y+K33VOe9cZz/7aq8JXs=; b=TWC0p2+9eBlpdU8NFIOiIBB99T
+	KV1ytzEEibtArr0aCCcBuMeUcy1gcNU39ZQu5P/4SCEicNKa1ZTU1a9JdGw+IDljF9tbsOL06PVPd
+	GTbpuT3qmPmCDfHjEd5eYfnZ8A4gWN44OLlJsqZDLECf+xd4IiL7AzjQtHfInG+V23YpI4PLSASgo
+	1Y6x5Itsh0PexUuZtBn9VbC+4yraPxl000H1t+fDAVKICa1xesfC/G7AcVtsvBFTWXQtYtqmMM6bM
+	3rEMzUskCfsHhS21WI1LNKIY/N6/01X2rJW2lc4u7Px3oukip3eGY3+llPjLIJH1rvt4NAQGUVqnK
+	/kCE/XoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn78R-000000060eV-25L6;
-	Tue, 03 Feb 2026 03:31:27 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vn79G-000000060w3-3f9F;
+	Tue, 03 Feb 2026 03:32:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn78O-000000060ZJ-2hYp;
-	Tue, 03 Feb 2026 03:31:25 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 3 Feb
- 2026 11:31:04 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Tue, 3 Feb 2026 11:31:04 +0800
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-Date: Tue, 3 Feb 2026 11:30:55 +0800
-Subject: [PATCH RESEND v9 3/3] MAINTAINERS: Add ASPEED PCIe PHY driver
+	id 1vn79D-000000060uY-1yyp
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Feb 2026 03:32:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6B0C642D8B
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Feb 2026 03:32:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03E62C116D0;
+	Tue,  3 Feb 2026 03:32:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770089533;
+	bh=Dz4l/Mpl4ocfA9ZZ7i3KuAhbHda43AUDNhfdrlIP03Y=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Z1Yrdw/IWZNtJMDx7o0/q7+zt41o3HqKlRqEerCLm7Kqcg5lQmHW+YLQbAWvFcyxg
+	 hd9NxBWrDPO5UfYnNh4Xn6P4WbzZVcyJYRDo2wY3YTNOjqGRZ+7jMG36s0K52OQ7it
+	 WH9q5JN8guVVFoc3AMLKd5PqbBlAnio30QwssbSJsgR4OJSOdmjxw35ShxpCZ4fNcF
+	 JG1wNslQhkvyp48Erin1dspxV4qFBvxbnhfR/+VhIlRvwK40NyJV7QCdG4eTInwvtD
+	 5tVslr1Hlh3JM2yr+OB9ae+QX3Rewojme7Zrab54/ZYHPLL56wlNMhPoHqK0N1Pf+C
+	 Ydcake3QNr7HA==
+From: Dinh Nguyen <dinguyen@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	soc@lists.linux.dev
+Cc: dinguyen@kernel.org
+Subject: [GIT PULL v3] arm/arm64: dts: socfpga: updates for v6.20, version 3
+Date: Mon,  2 Feb 2026 21:32:11 -0600
+Message-ID: <20260203033211.149355-1-dinguyen@kernel.org>
+X-Mailer: git-send-email 2.42.0.411.g813d9a9188
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260203-upstream_pcie_rc-v9-3-899ee4efe94e@aspeedtech.com>
-References: <20260203-upstream_pcie_rc-v9-0-899ee4efe94e@aspeedtech.com>
-In-Reply-To: <20260203-upstream_pcie_rc-v9-0-899ee4efe94e@aspeedtech.com>
-To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>
-CC: <linux-aspeed@lists.ozlabs.org>, <linux-phy@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Jacky Chou <jacky_chou@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770089464; l=878;
- i=jacky_chou@aspeedtech.com; s=20251031; h=from:subject:message-id;
- bh=ukzk8V/+iAWF9vSX9HcoXRh6kD8Xte6R6G0Qmwo0orU=;
- b=G2CD879Xzlho3fMNFvzxuYw6vpDxxmu3kPHQoC7R0irjiN9C+xubhQ2NNQzDYi9eIaTbUhPsM
- p5ePUDdcGGVBFgY6mVCrSMZwJj6g2ntionuiImAp7GQIW0U1B6+BXtw
-X-Developer-Key: i=jacky_chou@aspeedtech.com; a=ed25519;
- pk=8XBx7KFM1drEsfCXTH9QC2lbMlGU4XwJTA6Jt9Mabdo=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_193124_688132_91D5512C 
-X-CRM114-Status: UNSURE (   6.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260202_193216_313777_008C7F87 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,34 +69,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add maintainer entry for ASPEED PCIe PHY driver.
+Hi soc maintainers,
 
-Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
----
- MAINTAINERS | 8 ++++++++
- 1 file changed, 8 insertions(+)
+This is version 3 of the PR.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index cf755238c429..a1979c574759 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3844,6 +3844,14 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/crypto/aspeed,*
- F:	drivers/crypto/aspeed/
- 
-+ASPEED PCIE PHY DRIVER
-+M:	Jacky Chou <jacky_chou@aspeedtech.com>
-+L:	linux-aspeed@lists.ozlabs.org (moderated for non-subscribers)
-+L:	linux-phy@lists.infradead.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/phy/aspeed,ast2600-pcie-phy.yaml
-+F:	drivers/phy/aspeed/pcie-phy-aspeed.c
-+
- ASPEED PECI CONTROLLER
- M:	Iwona Winiarska <iwona.winiarska@intel.com>
- L:	linux-aspeed@lists.ozlabs.org (moderated for non-subscribers)
+V2 of this PR had a typo in the patch ("dt-bindings: intel: Add Agilex eMMC
+support"). I incorrectly added the binding "intel,socfpga-agilex-emmc" which
+should have been "intel,socfpga-agilex-socdk-emmc". V3 has this fix.
 
--- 
-2.34.1
+Thanks
+Dinh
 
+
+The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
+
+  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux.git tags/socfpga_dts_updates_for_v6.20_v3
+
+for you to fetch changes up to 4d904af4d6ce29b9240ebecd35e31458d08cd577:
+
+  dt-bindings: intel: Add Agilex eMMC support (2026-02-02 21:02:33 -0600)
+
+----------------------------------------------------------------
+SoCFPGA DTS updates for v6.20, version 3
+- dt-bindings updates:
+	- Add intel,socfpga-agilex5-socdk-modular for the Agilex5 mod board
+	- Add intel,socfpga-agilex-emmc for the Agilex eMMC daughter board
+	- Move entries in intel,socfpga.yaml into altera.yaml
+	- Add syscon as a fallback for sys-mgr
+
+- Add dma-cohrerent property for Agilex5 NAND and DMA
+- Add support for the Agilex5 modular board
+- Add IOMMUS property for ethernet nodes for Agilex5
+- Use lowercase hex for dts files
+- Add #address-cells and #size-cells for sram
+- Fix dtbs_check warning for fpga-region
+- Move dma controller node for Agilex5 under simple-bus
+- Add support for the Agilex eMMC daughter board
+
+----------------------------------------------------------------
+Dinh Nguyen (4):
+      dt-bindings: arm: altera: combine Intel's SoCFPGA into altera.yaml
+      dt-bindings: altera: document syscon as fallback for sys-mgr
+      ARM: dts: socfpga: add #address-cells and #size-cells for sram node
+      ARM: dts: socfpga: fix dtbs_check warning for fpga-region
+
+Khairul Anuar Romli (2):
+      arm64: dts: socfpga: agilex5: Add dma-coherent property
+      arm64: dts: intel: agilex5: Add simple-bus node on top of dma controller node
+
+Krzysztof Kozlowski (1):
+      arm64: dts: altera: Use lowercase hex
+
+Nazim Amirul (1):
+      arm64: dts: socfpga: agilex5: Add IOMMUS property for ethernet nodes
+
+Ng Tze Yee (2):
+      arm64: dts: socfpga: agilex: add emmc support
+      dt-bindings: intel: Add Agilex eMMC support
+
+Niravkumar L Rabara (2):
+      dt-bindings: intel: Add Agilex5 SoCFPGA modular board
+      arm64: dts: socfpga: agilex5: add support for modular board
+
+ Documentation/devicetree/bindings/arm/altera.yaml  |  27 +++++
+ .../devicetree/bindings/arm/intel,socfpga.yaml     |  40 -------
+ .../bindings/soc/altera/altr,sys-mgr.yaml          |   6 +-
+ arch/arm/boot/dts/intel/socfpga/socfpga.dtsi       |   6 +-
+ .../boot/dts/intel/socfpga/socfpga_arria10.dtsi    |   6 +-
+ arch/arm64/boot/dts/altera/socfpga_stratix10.dtsi  |   2 +-
+ .../boot/dts/altera/socfpga_stratix10_socdk.dts    |   2 +-
+ .../dts/altera/socfpga_stratix10_socdk_nand.dts    |   4 +-
+ arch/arm64/boot/dts/intel/Makefile                 |   2 +
+ arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi     | 130 ++++++++++++---------
+ .../dts/intel/socfpga_agilex5_socdk_modular.dts    | 109 +++++++++++++++++
+ arch/arm64/boot/dts/intel/socfpga_agilex_socdk.dts |   2 +-
+ .../boot/dts/intel/socfpga_agilex_socdk_emmc.dts   | 105 +++++++++++++++++
+ arch/arm64/boot/dts/intel/socfpga_n5x_socdk.dts    |   4 +-
+ 14 files changed, 336 insertions(+), 109 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/arm/intel,socfpga.yaml
+ create mode 100644 arch/arm64/boot/dts/intel/socfpga_agilex5_socdk_modular.dts
+ create mode 100644 arch/arm64/boot/dts/intel/socfpga_agilex_socdk_emmc.dts
 
