@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7266E8B368
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 21:44:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E09E8B367
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 21:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=luC7sQm1RxXhl9W+pg/S5+nrZnuekwR30qApsvxQdeE=; b=D3JAx2WpvFMgXeB6DAZXewVsbM
-	nZMzN2KXb6PvQ5RD+j3VhhIyaVq45sOi+z5jyh1aPjMbS4dZ0Aos5dJxvuR28r9OhSZOm8ejpUyP0
-	GKtCFvTNs/JSBi/F1roGOjj4QvFeYsccSWqMdWlXidPWO3nYqAbbPqvBtb0YI1AcsZIBfQVOFyWYl
-	0pnM4ul6s8YNfpNvKhWbyAhHiC9iSMrfElU9E7Doudebj0RKyyTjlP39BNQqN8rW0U8Hw1CpTCMjh
-	SdCsoUcA3a98c++kZODBRsJIBFh8m9UCfvl/sKwY6vJMM+2pOVLqayoqK3kBPRtY8w3A9Zp/b2jry
-	3XbCrRnw==;
+	bh=zfQoNom5au+F84yWoui3xdGf6Wq553cHxcj/bhh8Z8I=; b=r8xDvEaDSVLVlssXrW6vmQYFOB
+	vvfyQqce8dLbs9kS08b+1K1P5fXLRUp8PrUxB2yyEZksFwE7ra/cTTN+qjVA33HLwzr/lx3feCcHQ
+	fZMjh3Q9TwPo1TK12TLSMHnEykeKASgubmuL7kuiBCdsLANDi935TEpnXPWp5Va0Io0iPPDjI5jYj
+	RIKGOf39jidGgovlKw7TqcLHSeiQPUL4o1akCANKrWduIBhcJX7H1YZGb96+7GYbONQlOQT/A0DyD
+	Q+eycsjrnsJIKKH3WZ56N7ewmb0vaZ+9bmHxOYYIrDzEPyTsNEfNyDou/khb02zN33MhVUHftnyn1
+	xttixRYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnOCG-00000007OHz-1rao;
-	Tue, 03 Feb 2026 21:44:32 +0000
+	id 1vnOCL-00000007OM8-3C7d;
+	Tue, 03 Feb 2026 21:44:37 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnOCD-00000007OFc-3QR8
+	id 1vnOCJ-00000007OJx-0lMa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 21:44:31 +0000
+	Tue, 03 Feb 2026 21:44:36 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7FC19339;
-	Tue,  3 Feb 2026 13:44:22 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B38E339;
+	Tue,  3 Feb 2026 13:44:28 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5684F3F778;
-	Tue,  3 Feb 2026 13:44:23 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3AE633F778;
+	Tue,  3 Feb 2026 13:44:29 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -68,19 +68,18 @@ Cc: amitsinght@marvell.com,
 	suzuki.poulose@arm.com,
 	kvmarm@lists.linux.dev,
 	zengheng4@huawei.com,
-	linux-doc@vger.kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v4 05/41] arm64: mpam: Re-initialise MPAM regs when CPU comes online
-Date: Tue,  3 Feb 2026 21:43:06 +0000
-Message-ID: <20260203214342.584712-6-ben.horgan@arm.com>
+	linux-doc@vger.kernel.org
+Subject: [PATCH v4 06/41] arm64: mpam: Drop the CONFIG_EXPERT restriction
+Date: Tue,  3 Feb 2026 21:43:07 +0000
+Message-ID: <20260203214342.584712-7-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260203214342.584712-1-ben.horgan@arm.com>
 References: <20260203214342.584712-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_134429_986066_A6DE15F1 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20260203_134435_262839_2A3D9EFB 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,76 +94,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+In anticipation of MPAM being useful remove the CONFIG_EXPERT restriction.
 
-Now that the MPAM system registers are expected to have values that change,
-reprogram them based on the previous value when a CPU is brought online.
-
-Previously MPAM's 'default PARTID' of 0 was always used for MPAM in
-kernel-space as this is the PARTID that hardware guarantees to
-reset. Because there are a limited number of PARTID, this value is exposed
-to user-space, meaning resctrl changes to the resctrl default group would
-also affect kernel threads.  Instead, use the task's PARTID value for
-kernel work on behalf of user-space too. The default of 0 is kept for both
-user-space and kernel-space when MPAM is not enabled.
-
-Tested-by: Gavin Shan <gshan@redhat.com>
-Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Tested-by: Peter Newman <peternewman@google.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Signed-off-by: James Morse <james.morse@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Changes since rfc:
-CONFIG_MPAM -> CONFIG_ARM64_MPAM
-Check mpam_enabled
-Comment about relying on ERET for synchronisation
-Update commit message
+ arch/arm64/Kconfig      | 2 +-
+ drivers/resctrl/Kconfig | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-Changes since v3:
-Always set MPAM1_EL1.MPAMEN rather than relying on it being read only
----
- arch/arm64/kernel/cpufeature.c | 19 ++++++++++++-------
- 1 file changed, 12 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index c840a93b9ef9..343018c6159f 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -86,6 +86,7 @@
- #include <asm/kvm_host.h>
- #include <asm/mmu.h>
- #include <asm/mmu_context.h>
-+#include <asm/mpam.h>
- #include <asm/mte.h>
- #include <asm/hypervisor.h>
- #include <asm/processor.h>
-@@ -2483,13 +2484,17 @@ test_has_mpam(const struct arm64_cpu_capabilities *entry, int scope)
- static void
- cpu_enable_mpam(const struct arm64_cpu_capabilities *entry)
- {
--	/*
--	 * Access by the kernel (at EL1) should use the reserved PARTID
--	 * which is configured unrestricted. This avoids priority-inversion
--	 * where latency sensitive tasks have to wait for a task that has
--	 * been throttled to release the lock.
--	 */
--	write_sysreg_s(0, SYS_MPAM1_EL1);
-+	int cpu = smp_processor_id();
-+	u64 regval = 0;
-+
-+	if (IS_ENABLED(CONFIG_ARM64_MPAM) && static_branch_likely(&mpam_enabled))
-+		regval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
-+
-+	write_sysreg_s(regval | MPAM1_EL1_MPAMEN, SYS_MPAM1_EL1);
-+	isb();
-+
-+	/* Synchronising the EL0 write is left until the ERET to EL0 */
-+	write_sysreg_s(regval, SYS_MPAM0_EL1);
- }
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index cdcc5b76a110..0e8fa195580b 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2026,7 +2026,7 @@ config ARM64_TLB_RANGE
  
- static bool
+ config ARM64_MPAM
+ 	bool "Enable support for MPAM"
+-	select ARM64_MPAM_DRIVER if EXPERT	# does nothing yet
++	select ARM64_MPAM_DRIVER
+ 	select ACPI_MPAM if ACPI
+ 	help
+ 	  Memory System Resource Partitioning and Monitoring (MPAM) is an
+diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
+index c808e0470394..c34e059c6e41 100644
+--- a/drivers/resctrl/Kconfig
++++ b/drivers/resctrl/Kconfig
+@@ -1,6 +1,6 @@
+ menuconfig ARM64_MPAM_DRIVER
+ 	bool "MPAM driver"
+-	depends on ARM64 && ARM64_MPAM && EXPERT
++	depends on ARM64 && ARM64_MPAM
+ 	help
+ 	  Memory System Resource Partitioning and Monitoring (MPAM) driver for
+ 	  System IP, e.g. caches and memory controllers.
 -- 
 2.43.0
 
