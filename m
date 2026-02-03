@@ -4,63 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3495E87821
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 12:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD992E87823
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 12:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0vGLMHKvFscghPzyWbOi+twGebsxyAmPI6wzOy1CPNA=; b=KWgu4rzzZ+he64uPOImjM6Ujiv
-	SeLYAHgnjZFBskZepolJh/QaK8wgN2lLYntw6EVO+CTXMUNsrQEp+dAWdIfli/0ZUsTMJE/ER0e7K
-	c+/r+AfZDaDwsPm2oGVV6Omu08+VOcu+loijkaI4dM/+4yBWEyV66JI1pi/GPJevRtzAxIpM3Jgt0
-	3T06TOsMcA/B+GpX7CEt6ytqea8ela+OpVP9cdU2XA2cq6wAQeI274uCKA8sTFBVPcH1bU1l2MLaV
-	iFCUWgSjhtipsC1QNz8VKyTZcE1Zax/haglCBHs8DbqlKkoxkvEEB9Zkz7qrzu3t/AaCC+3GdpUX3
-	WpXgVvsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KoyfT3Os4pQtUDlujEebg6EiOL0R82EtKNerfIW+df4=; b=gzLiZiH1HHeREVX/s1tRWBLMkv
+	gWeAHXFVbT8fVRVHcavsp/bH5vJpcKIYeQEogiSq6NgvkKpeAKpoYkYZM1VS+/0eQpeMqJRfrrP9r
+	JD9d8B8JsLro/HPZ1JWEoh5dV1FxpvoH0qjE952unsoxCuafToZRyACVvFLQRORz0AgOiYEeyeShT
+	3cEd+871PZZPt+oYV8lljltei/N67nqzmBMUctWKCxBTfkxhgQWRGC8e5U9nm1cUmpMYNF2ZiarKr
+	n3x8TFtvSBaLD3M8Qz0Ta3R0J45oHr9K16m/KAvPoo1kt9XZln0UZiIrpAJqVslHBAM2RMM3cIM5C
+	DEoj89OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnFGP-00000006aEE-0Jei;
-	Tue, 03 Feb 2026 12:12:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnFGM-00000006aDk-0lBC
+	id 1vnFmp-00000006cJy-37Ki;
+	Tue, 03 Feb 2026 12:45:43 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vnFmo-00000006cJe-0F8P
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 12:12:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5CAB0150C;
-	Tue,  3 Feb 2026 04:11:59 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 00BE63F632;
-	Tue,  3 Feb 2026 04:12:03 -0800 (PST)
-Date: Tue, 3 Feb 2026 12:11:57 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	Debbie Horsfall <debbie.horsfall@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] arm64: dts: zena: Add support for Zena CSS
-Message-ID: <aYHmDTboOtkgac00@pluto>
-References: <20260123-zena-css-v1-0-34adb95cdf89@arm.com>
- <20260123-zena-css-v1-2-34adb95cdf89@arm.com>
- <20260127132206.036892e4@donnerap.manchester.arm.com>
- <c1259bad-be4d-4489-840d-4ab2f4e466f2@arm.com>
- <8c343e6d-14f8-4f55-8218-bc3f0813e8cf@arm.com>
- <20260130-light-piquant-termite-fcbec4@sudeepholla>
+	Tue, 03 Feb 2026 12:45:43 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-655af782859so10152327a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 04:45:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770122739; cv=none;
+        d=google.com; s=arc-20240605;
+        b=KoYxq1nTqHEgrqA/d44Re76/zQ2aAQ+ibKpdEsPNoNsiP9fS3IyvGrZNSvlDsVOs3m
+         LEHb+AltC+PAPQr1CZP1x4DbblfSiQyuej8q2JwrmjWlZt6DVMEquFKPNKxurP7sjm9E
+         OVIXlBZXp+04MNuES6bZ0QVqH8jUZSQ8QFnh+OnWZktyGaiqDNUPgFE2JdhPZeH6NZxS
+         0h7LZrUNMB+IR7mfl5dEM8RF45hMAcu7ebaKsK8vUswYC1Z8/PVF4TlXo6fw4QJ+0Rj2
+         kihqyRsLIWsJApbzlup5STHaFoiK7QNdYBd/lY6nZtIQaMI0wpbzb0ecwebqgnOPz+DL
+         ZkyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=KoyfT3Os4pQtUDlujEebg6EiOL0R82EtKNerfIW+df4=;
+        fh=WG4byInXzzM8dkcO+1EQdwxX0f7GGqsbgx8kZlm6PNE=;
+        b=bIrUiZXDIWgXL4TiEO+pdZlTayGNHdVKtje1etPIdJWQ8NycafnIKbKFvUxBrNovrj
+         KZeBKwzmoImzR7bcKM5YdQ9lUX1UrD1l/BymzRnFNXOfJcPArOEkHx48ahWNtQeVaPoH
+         nKldpJnvtwv4S50rAiWTwPq4OqYS43z4bt8Ihya5Z0RAewyShZR7npb4cErs9bFCsf8G
+         dTbz72QamaLDL1YGzca0iOGcP+tvORHgLOKspgiVcN6abKt1zJjhVlXi7hKG3Up15CCY
+         cZzgE/6aEYox4SFJfTDc47bRPeU/4oGY0HMWo0xA8l6S2encqvxKfA5ZQK3QJ0RcQo7n
+         HsEQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770122739; x=1770727539; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KoyfT3Os4pQtUDlujEebg6EiOL0R82EtKNerfIW+df4=;
+        b=DaVtHh9+bJJNpQrRJB5nkXfcVDYVirmdasoU+/D+dmJbjnoloI3lZ1yDkhPhybOD7W
+         epEaJTbz5CHskcwvmpzIhB5cLpMZBxORHSMok9a4tusrN9Y1tB4lx//q3Zs72gmyyHe7
+         BplT5F/7gH4TKjDxmyim93OcqXaBHgv6Eg1j35A2XaSpuGIIIFjsKu/ThJh8TAXdYxxJ
+         sJJFEeD2Q1FLoEzJWCjUdO9FAi/xquG0k2PmUNP4pbz9KLlN1cbgcAq1RFyHWKnvb3WJ
+         K6sZbl1cg8Wcilm9ErsxUOdvkwEVJ/G+se8eaigsRDBThmkHfH3bNLaky5z5f/R04FH4
+         FFPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770122739; x=1770727539;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=KoyfT3Os4pQtUDlujEebg6EiOL0R82EtKNerfIW+df4=;
+        b=E4IkB6SntRbEx+XgWK4xVnA3lgYNjL+cQiRy4MAijx07h0fcEXdKbVIcQ+zPNwoQXL
+         PfcLt8FMdsS8Z36kriiP8sl4S277IsIa8otJBxPgwvumtJE65uaH5yG3db6iygXPhomL
+         74c+dL1z0mYeI2b1FBy+YeJHCtXj8hgNeeip6EeovSaNJRWxMkb1X2HJvqMAtkaiPvB0
+         ntaTSqPvVlGZjlvOxq4r+S8oqmkNqJX7q0VzPT8I9SVjinv0j3tCLKKrMrJZtL2v/fH5
+         A0rBU9+gWrTIRqpaz92YmuC16LXg7tbUipIvTiHU9BZ3P76vifvzVoKx4PscqOJHyyDp
+         Tovw==
+X-Forwarded-Encrypted: i=1; AJvYcCUai9IczahqaQcn0Ifg2SX9ChNaXNC88ZTx52VO+AkXz8LHyW5p5HSig6xZov4FXXAt6cB5zxzMTSSIXLOCjIi8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJ0z9rEPIuzmfiutRBBHn80pZWVD6Frh6VdPcIZ92VruJhqTRn
+	9HB18g15gCqoQtJA8YLyavLRD5fpBAAWnPytNnccAbuhlUczz25WaVyTvvmWcnhtSp9cXGYVdu+
+	w26k4w2L5HepywaGI+mpG/woDG1gLcLI=
+X-Gm-Gg: AZuq6aJTLmpmp/9AlD381s1X4HCFvMsPopVC9g1BEVrP3Zxv8kzJcrT1/RXKOalzIX/
+	6Si4qxvG17xlbdF0hQdbFKXO0TMuHD45bvIiXG7qtvaXin7mUPjxYF0fwicjep0qm1X4OVqFt0b
+	s8zWwaq6p0EwX1BcSxg/c5xo0t/QmiosjONEC7cFr2azT11Di8aPtrUZjHbrXqliPNtJtD3TCfV
+	PAupUj/f4QZjBcZeHF6ELXYfDCq0hN4rwFzvesYAvRkVnWnlVyl6Z/aoEczFnFgerKfBCKFr86a
+	kYLsvcrX6zDmv6PO
+X-Received: by 2002:a05:6402:2742:b0:658:17fb:4890 with SMTP id
+ 4fb4d7f45d1cf-658de557b0dmr7582231a12.9.1770122739020; Tue, 03 Feb 2026
+ 04:45:39 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260130-light-piquant-termite-fcbec4@sudeepholla>
+References: <20251021165212.749372-1-a.shimko.dev@gmail.com> <20251022-rugged-archetypal-wallaby-ecbecf@sudeepholla>
+In-Reply-To: <20251022-rugged-archetypal-wallaby-ecbecf@sudeepholla>
+From: Artem Shimko <a.shimko.dev@gmail.com>
+Date: Tue, 3 Feb 2026 15:45:28 +0300
+X-Gm-Features: AZwV_Qj6FEE6eaVt-7p5On-NoVPJ3F-fwGw9PBBGPKesyT86MTTFVEHHqRcyLok
+Message-ID: <CAOPX744bwwZHEODktumJbE1MUyfDgYj3vrexT7GRBZ6BTrECXw@mail.gmail.com>
+Subject: Re: [PATCH] firmware: arm_scmi: Add new sensor unit types
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_041210_371693_DB243140 
-X-CRM114-Status: GOOD (  24.27  )
+X-CRM114-CacheID: sfid-20260203_044542_158196_9EB68E02 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,95 +117,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 30, 2026 at 12:34:31PM +0000, Sudeep Holla wrote:
-> 
-> +Cristian(in case I am talking no sense)
-> 
-> On Fri, Jan 30, 2026 at 11:31:25AM +0100, Andre Przywara wrote:
-> > 
-> > So do you need just one "tx", but "rx" plus "rx_reply"? Which isn't valid in
-> > the current binding?
-> > If that's the case, then we would need a patch to relax the binding and
-> > allowing this combination as well.
-> > Looking into the kernel code it looks like the SCMI driver doesn't use
-> > mbox-names, but explicitly expects assignments depending on the number of
-> > mboxes? Somewhat confusing ...
+On Wed, Oct 22, 2025 at 12:22=E2=80=AFPM Sudeep Holla <sudeep.holla@arm.com=
+> wrote:
+> It is still alpha, we don't add anything into the kernel unless it is
+> of beta quality.
 
-Hi,
+Hi Sudeep,
 
-so the mbox-names are NOT mandatory, since the SCMI stack initially did
-NOT identify mboxes by names and such decision pre-dates me so I am not
-sure about the why...
+Just a polite ping.
 
-...anyway, when unidirectional mailboxes hw came along, in order to add
-clarity, WHILE maintaining backward compatibility, mbox-names were added
-only as optional and the stack really does NOT use them; the only thing
-that matters is the number and order of mboxes AND shmem areas: only the
-combination described in the mboxes binding description are allowed and
-accepted in order to manage both the case of unidirectional and
-bidirectional mailboxes while surviving backward compatibility.
+Is it still too early for 4.0 bet0?
 
-> > 
-> 
-> It is generally transmitted via tx, and tx_reply is necessary when the
-> platform has unidirectional channels. tx_reply is used to determine when the
-> synchronization commands have completed, without requiring polling of the
-> shared memory. rx_reply is necessary only if the platform firmware expects
-> it and doesn't poll the shared memory for OSPM/agent acknowledgement.
+Thank you!
 
-In SCMI you have generally A2P (Agent-to-Platform) bidirectional channels
-to send commands and receive related replies using one dedicated shmem and,
-optionally, a distinct dedicated unidirectional channel P2A, with a
-distinct dedicated shmem, for receiving notifications and/or delayed
-responses sent asynchronously by the platform.
-
-These two channels, A2P and P2A, maps in the SCMI stack (for historical
-reasons) respectively to TX and RX naming.
-
-If the underlying transport is based on birectional mailboxes you can
-happily have 2 mboxes "tx", "rx" with 2 dedicated mbox areas.
-
-Instead if your mailboxes are unidirectional like MHUv3, you will need
-effectively 2 mboxes to represent the 2 parts of the A2P birectional
-channel AND one mailbox to represent the P2A unidirectional channel,
-exactly like you do.
-
-So, if you want to add the optional mbox-names would be:
-
-	firmware {
-	    scmi {
-	         compatible = "arm,scmi";
-		 mbox-names = "tx", "tx_reply", "rx";
-		 mboxes = <&mbox_db_tx 0 0 0 &mbox_db_rx 0 0 0 &mbox_db_rx 0 0 2>
-                 shmem = <&scmi_shmem_tx &scmi_shmem_rx>;
-
-
-...since the first 2 mboxes effectively represents the 2 unidirectional
-sides of the A2P channel, with first being the cmd-request direction and
-the second being the cmd-reply direction, while the third mbox is just the
-P2A unidrectional channel...
-
-....so it is fine, even though admittedly fuorviating, that the tx_reply
-is attached to a db_rx block, since it is exactly what represents: the
-reply to a previously sent command.
-
-Anyway, being the names optional, the only thing that really matters in all
-of the above is that the numbers of mboxes and shmems matches:
-
-	 3 mbox / 2 shmem => SCMI TX and RX over 3 mailbox unidirectional channels 
-
-The additional optional rx_reply mboxes was added to represent P2A
-channels that have an completion interrupt.
-
-All of this madness was the best way I could find to address the problem
-of supporting such new unidirectional mailboxes in the SCMI while NOT
-breaking backward compatibility in the absence of mandatory naming from
-the start.
-
-Hope to have shed a light, beside having annoyed you all with all of the
-above flood of words :P
-
-Thanks,
-Cristian
-
+Regards,
+Artem
 
