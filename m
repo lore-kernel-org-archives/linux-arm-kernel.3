@@ -4,163 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B51AEE83052
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 05:14:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD769E83052
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 05:52:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=54tebQSuSAV5xmKJTTtq+UnKGS7GmY6XA5MnuGaJBMM=; b=ZIFyIK/MdahuD0lnM2UgYMAfGm
-	ZG27bXiFL2stHcZwIyLPFvwbFaP/fCYBzDC+wYA7pzFmai2d3q/ADwbatSJGp8Ik1wv945OMjuMcG
-	H+nQwUM+0xjXks84ObGaHZ/1hajZxERhEjN+zPaDg+9pdBaUJbEMpnysLonHPdwXeQdD8dqPDkRqB
-	PzED6v2lmIECv//AU413w5z3RK3axuvw0hnq0ZnAyTfwbg8d30mGb9I9dtj5xP7s6JcsbZK65KuLD
-	qXJVShuFnJrwm0669JI3GksC/CHy1W8UkxdpQBZtriPr2eJw1i41DziZ7txyYipmOYoGvOlvuvX2V
-	UfiXFJyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Kx92FTjEfxmmBtyqbWtwwR4Nqt7vpmhDYyQ2Akip5cQ=; b=AfvN8LdULOG+c2
+	GB7FO3IXppzazg912Y/AGYkA54mxTwA2zLjRDlRsSlJ1y0en7RN/ekd37neV8oYfMT8RMls6+VWom
+	9HJ9AlWHQHcPjXhYnz/ZpcuOgF5oA5zqnJqayzZCMubBIuNebMMpDagIKFUwhMdj6CdKlzkJPC/Ux
+	uuy1k1iuArffIhdcAoFCtixi0h20TYU+WmQL9NMqtEJ+XlJHDBSUCP2ObeBM3s2HmpJXItWWw25KY
+	AsI1+TwVOjW5ABZ65cepdmVrkfR6CfXMpJwQJ/QIWYwf2QxEI3bGqX/GNs5fzKnxJdDp4FE9u7mVt
+	STZIzWqbgx2ZmnoVFrIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn8k4-0000000650Q-07Uz;
-	Tue, 03 Feb 2026 05:14:24 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1vn9KJ-000000068M3-0alW;
+	Tue, 03 Feb 2026 05:51:51 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn8k0-00000006505-3Yal
+	id 1vn9KG-000000068LV-1xKy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 05:14:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KSn0dTw3rDdm361WLMFWfOSWkkAVnmylvKGhIEK0sJr39icCDGYFwt9V7bL22897FnJ7fSNaI+5dFGPyZ8pb1QkhMptPzIfpdZhqQ83c9/z9KdihK/lVpAPpON0sDrFIOG1gfsTR7bSt4ldGU9l70HueJAbMbNH+/QYTKxI85MbosCc24eaUeUbovcyXHmPksmDq0kikvkAZ1063nHibrOEKsAsC6Vd7pC5ZgpcETiiiHLNQNUW2Ioxc9CYxlfkhiu8mGOlmrOL51kBm+wOA2SNFyRugk/KVUczTBy+TxVdRzI37w5mqIaCbBmXRPBbcIW8tGPGLddwD42NyC8QUbw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=54tebQSuSAV5xmKJTTtq+UnKGS7GmY6XA5MnuGaJBMM=;
- b=U+eVE6fYSEfZrblhPzq+koJxekMaYjjnOhg71u7F/6idYbbQpCpoe+uANOjgkmjgatR1H0tzH3fgwS0Q9jVFOO8+6tV6YaAWyTi1lX28bfpaNXPFbyF7qI3rdZWGbjtkQGCXjC7gSK4BTr3WbOpFOMkQdGhCvFMvgXM2KpJNWPE3QNCNJo+2P82xyOHTiXvNhDTggPy0NXG0F/TVncuCddnV6tOeDNFDb2JmAtG/IBdY9+1m/H5ShzUb+tEejohuU2R+SpsvZZygwo8xZCKry5a6HscpT0swHGLurL/7lPQVJZ6takXelQnun3nilDHPFbCVTMgaAZtCVLjMNloSzg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=54tebQSuSAV5xmKJTTtq+UnKGS7GmY6XA5MnuGaJBMM=;
- b=ns0uI43z8fD6PFn6T6DREBCdj40JDl8rb5VAK5D7aVofpdL8jskq4meeC3LObZcIiVwWzF9g26UdDb+NH8AmHZHhyUtwPL/zd8FxaZPt4JHPa7ou2ZBT1j12CEHv/rlj/ZcJpnk2i3Vk1XdVbKRLREVC7MoFosY/q8Xv12UED8Ye5qALhmdo+x9E+mG81eLnrhKNDxaR776ahX9pVNB2WYrQCCYCFQ1YFBlS961OIT8QXOgEQkIzcBQvmI+bHqZJ91LS434jMYa8H8SZE5960rDtxOlM6fPnR1ax6NeDPQm83vIfYq6wtwc0kBu8qmpZEqML+zF3sEm9yCIgNbKdjA==
-Received: from BL1PR13CA0009.namprd13.prod.outlook.com (2603:10b6:208:256::14)
- by PH7PR12MB9201.namprd12.prod.outlook.com (2603:10b6:510:2e8::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.15; Tue, 3 Feb
- 2026 05:14:11 +0000
-Received: from BN3PEPF0000B071.namprd04.prod.outlook.com
- (2603:10b6:208:256:cafe::6e) by BL1PR13CA0009.outlook.office365.com
- (2603:10b6:208:256::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9587.12 via Frontend Transport; Tue,
- 3 Feb 2026 05:14:00 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BN3PEPF0000B071.mail.protection.outlook.com (10.167.243.116) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9587.10 via Frontend Transport; Tue, 3 Feb 2026 05:14:11 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 2 Feb
- 2026 21:13:53 -0800
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 2 Feb
- 2026 21:13:53 -0800
-Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.6)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 2 Feb 2026 21:13:51 -0800
-Date: Mon, 2 Feb 2026 21:13:50 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <dan.j.williams@intel.com>, "Tian, Kevin" <kevin.tian@intel.com>,
-	"Jonathan Cameron" <jonathan.cameron@huawei.com>, "will@kernel.org"
-	<will@kernel.org>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"bhelgaas@google.com" <bhelgaas@google.com>, "joro@8bytes.org"
-	<joro@8bytes.org>, "praan@google.com" <praan@google.com>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-cxl@vger.kernel.org"
-	<linux-cxl@vger.kernel.org>
-Subject: Re: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
-Message-ID: <aYGEDv86r4a6l2Dv@Asurada-Nvidia>
-References: <BL1PR11MB5271F0BDC68C2D7F172122E98C96A@BL1PR11MB5271.namprd11.prod.outlook.com>
- <20260121100307.00004e60@huawei.com>
- <20260121130315.GE1134360@nvidia.com>
- <6971b9406d069_1d33100df@dwillia2-mobl4.notmuch>
- <20260122131432.GJ1134360@nvidia.com>
- <69727e7ded712_3095100ab@dwillia2-mobl4.notmuch>
- <BN9PR11MB527649A0049CA195E7BCF9218C90A@BN9PR11MB5276.namprd11.prod.outlook.com>
- <20260127150440.GF1134360@nvidia.com>
- <69795d0366a9_1d33100d3@dwillia2-mobl4.notmuch>
- <20260128130520.GV1134360@nvidia.com>
+	Tue, 03 Feb 2026 05:51:49 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 612Je25t3459151
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 3 Feb 2026 05:51:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=Kx92FTjEfxmmBtyqbWtwwR
+	4Nqt7vpmhDYyQ2Akip5cQ=; b=Sr8QcVE3FoYUQUNLlnMv760u0nuK4Ki/rdXt6r
+	acBlYic60DfyXXVyPcHcQi9HJbSVWLMJ4tBpszzRcNPmbILpyW9xkQr3eMIjDx4+
+	GzKnpRWt0mFXivOnA7222b0RhkFQmk8T0k0oElpVKb8CBV8Jfaxgh4kXe3zktEyx
+	eZbgHWInmaZcbV0hInu7f/jZoweJQmlMxWnczYCSh5dw95KOVbhV1LOB8iFSK8SZ
+	pfG0egrntFsW6dws4u3yhIGHeZfURpH+ceDWWLyevrcL667ALvu1/kN/GC8Uc79G
+	iHzilPkcWp3nqEz+07ybFD1pffkucV8rZDCPAs00ymFDaHmw==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c2trbk1ek-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 05:51:46 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2a0f47c0e60so12209605ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 21:51:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1770097905; x=1770702705; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Kx92FTjEfxmmBtyqbWtwwR4Nqt7vpmhDYyQ2Akip5cQ=;
+        b=VFwlrg2bYnQXe+c9NrOgf65czvI31Rj9sIttb+KoT9RB5tQ2lXy7PNPsIKRbwrzpRV
+         jGm7D1vAV70VkGdcfNzI6sXmaoDdXDDx4O7cjROWS3pUhCJSmc2TZ7T5ezefDSaVdW+1
+         1dfrqjnof88k6rLtVxDZv6NZehQp9olNzvAJSwm4R9BFh0t77dzsGsFQbaeP4ZsGUFqK
+         zFslER0Qui+zUZfPjcQZL6X7gOsh4tzvlJb6l8kE9hrO/bRWHdDYmj9bnghuplYFntU7
+         VVPTRitWWVGpLUQGl1y1fTiMaCtirHoBCujk5OMmLfHGeNAr/Ph+RZvAqjWxOW/pf37h
+         HFNw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770097905; x=1770702705;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Kx92FTjEfxmmBtyqbWtwwR4Nqt7vpmhDYyQ2Akip5cQ=;
+        b=GMra1HHi2QIFZHZJLIRbFwoHdF1qsumAdek03T98+YR6MVwTEIAnQ+wtAhylSqOhXl
+         vHXG4Js/OWV2PRN0DCprEURn5kO8e9lAqflGcQCNVebXlQXC3L/RaQmQfmxzBgcJb6gC
+         UCzxdRmELtQekvcco2dXyLjt/DfBUO/Y9GqYD4DZ3nQrxBvx/s4uu8ztpCqFvIT5fmSe
+         e8hJAhQn2CK5YdlZwgShmRCSwFvzXyKbuKwcJZRBr+CzkWG0e1VxyOiLOjbWVKokueBA
+         a6PZvLDTt0gJ9TVqzNQ95no00myzB2NYmn/pHZA+nkI/fXKzSAMAJSzD40MWnqEU5b/B
+         Ia/A==
+X-Forwarded-Encrypted: i=1; AJvYcCV6afwZZPyUNVFon8n+crmVNoMsxcaOvP3wLNM8+yDnZ91qYDqnOsxCSXno0FG/dQWMNKTr+EQauIov1B2o4q7w@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXSmv3qvFk+0ltk53Uy33eWcJmcStMPOI407GJx6JkZbmMqV/W
+	mytsdrjvBvg8AARglNcEInu2oJtIv6FDr0FcXomw27INHHC0gtkSJ5kIs7UdXgfPPkXlGUiPFdx
+	70cjMqT0naRFd2+ZfaTte0k6ciEfUSJ9O8n7coAdiERbdl3MdEhZ62MNQJOU2Ayxsd0oVgl6wR7
+	Oynx9TqtN5HA==
+X-Gm-Gg: AZuq6aJMMc+/2CIbw02IJJ6/KuEuSHj2Wk47EAJGnJVAIyOSTW+szUqJ/8EoX2MacVR
+	Bi53W4fWnI0Mz6bAhpZZfj2C2Dl5/eAHsbT88gQkr+8SgImv2idDgwhy9eVA9WwSOHKdAEMUJjw
+	N5s+qswY5gdNI3Gx6I1VKW4tQZ0zPk88mktN/4nibACwXSa818iUnlvhYnW2PCE4qES7dCJPIT5
+	olfHlci3yZ8yRmn87Et1O/p6euhDA7SttEo9x/0wgicLioJ4ZWuWnzV2FIaN3OAUKag/+MU5jp6
+	c9WdGy7p9AwuRIzfkGnrkoeKg1T7e406XPqOX+buiFqueVwm7JayyRWNzWjHVEurVw+Oh411Cvk
+	qvh8FNm6EVynWzkRwSBb1dVjX5TbfROyGSWDikQrG/BLV2FQWA2dOvH2lmxMbDO0CelvtPfVg
+X-Received: by 2002:a17:903:17ce:b0:2a7:561e:690b with SMTP id d9443c01a7336-2a8d9a6024bmr139041705ad.58.1770097904936;
+        Mon, 02 Feb 2026 21:51:44 -0800 (PST)
+X-Received: by 2002:a17:903:17ce:b0:2a7:561e:690b with SMTP id d9443c01a7336-2a8d9a6024bmr139041125ad.58.1770097904415;
+        Mon, 02 Feb 2026 21:51:44 -0800 (PST)
+Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a88b6e4189sm157424735ad.83.2026.02.02.21.51.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Feb 2026 21:51:43 -0800 (PST)
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+Subject: [PATCH v12 0/8] coresight: ctcu: Enable byte-cntr function for TMC
+ ETR
+Date: Tue, 03 Feb 2026 13:51:16 +0800
+Message-Id: <20260203-enable-byte-cntr-for-ctcu-v12-0-7bf81b86b70e@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260128130520.GV1134360@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B071:EE_|PH7PR12MB9201:EE_
-X-MS-Office365-Filtering-Correlation-Id: a5cfb1b7-2c57-43c3-2959-08de62e31120
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|82310400026|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Qa/FIu2EwzPmyEpYAwr4rSVQsuQ33c++F7///2HRwEyg48CTXmHbsGZQBOhZ?=
- =?us-ascii?Q?0rb/FMF48ioZfxzKi6VNAk5G3W+qCJNxxwgXsFvWFUJrt6j3djz/MBFcrTkE?=
- =?us-ascii?Q?9raaJG1mxR1Rlkaku1AGG+70wbPDP6dfLQM7gZPmscjC1/e9vEDLVNOWn38d?=
- =?us-ascii?Q?7ugWgfxJ1D+Zr3zMaNnS6Qrc4b6puQ2SRjDSKAD8ByGXYpjNZ/3/rQEt5zk3?=
- =?us-ascii?Q?E5pvyZ7NIFOgry5cHXn2QUcY7qBZ5wBOaq6t1jWaWb6XKgIg8Llhirw3DcDb?=
- =?us-ascii?Q?2dACewruXEhmh9l0OTieZyHKPJv8ySSkrLkXhdhfoUpbravvB/dClVZmelZ7?=
- =?us-ascii?Q?7lNe+8jGbnIzqLndM/oPfFGWZD+4SjGlJ2pKybWbHUhsUy8BRUmrGpPuKYyH?=
- =?us-ascii?Q?5stpmMBFCaOLplnpS579O8XGol6tPq80dEYCLs3Evz38yJwor/6IAoABOP28?=
- =?us-ascii?Q?dh/RbfKTiBwWuYWMJuoPGljpM6+UjHmmV1MM1YbvLkXanEMxlFwyyYMwamMU?=
- =?us-ascii?Q?ma+IoB6L9x/au1F7BHQtBRGxcKTkfwuVW+qgRIBmEfdM0hn7L9ZwUg5i97IU?=
- =?us-ascii?Q?9JCTyoW5BpWDEXGUUujer+dVd+PY2UwG2AwDrHUmAJmneSJ8gMi8BuSY1VGd?=
- =?us-ascii?Q?EBRFkBXYQtKyJpsiKxqNqwpv8UwG0I0tkuQFOzeIJDhmntIxSUKHwbXfXTPF?=
- =?us-ascii?Q?Ah/x4GENqbUjkYNaqZkIz2S555ZBXAKRMLqfI7ic6Mh0uqXBPO37SVU2BQB4?=
- =?us-ascii?Q?6aYg+0bsGsyGGegBgh1ehtXV2cURO3Ndsd5xcD2aV9TJUVeksKhm32AjKZrT?=
- =?us-ascii?Q?3axjR/eD9W2zMrYrhndXwBUgeWd277a9KkDDHAIduFuEa+F/EVHmudQwbIoZ?=
- =?us-ascii?Q?GATOEPClR8H2a1F13g+1EogIp128KlKcy/6ygJ0hV8mpHBGHVmW4gBcoIMgg?=
- =?us-ascii?Q?dFtB/eGz08UvZE/OP4jobcFfBIuvXIFIRXCxG1FwBmwR8VdhpTADXSQVe0ab?=
- =?us-ascii?Q?kYQ6RLlipLtgxZhIvX3jbFzmn6N1ElJiP2Bz/Xh0kHpFyzsQYBMFcA3QDvx+?=
- =?us-ascii?Q?EttzOt6O18KPE7Pzr5K7mcToyH/fqrKtr/B6RSvdiFabGwbPUjp3zCgI2gPN?=
- =?us-ascii?Q?95XNposZr3obQav1o0NhEwqARETo1drrkmpgUu9ssUN3utGRctpR1iMS9PL5?=
- =?us-ascii?Q?yTEr8K1HSajIjynTVrzkjBCzIcBZXwEFnKjtZUcZYITplIVeH8dP0czup9AF?=
- =?us-ascii?Q?wAEGav5ZROgWTOGE5Zr+Q8i2/xokoKE3mUHyYEANPBNEGKsD1arzJJ8kCS+5?=
- =?us-ascii?Q?gL5QkcVVtIdp4voX7VHhqOxb2HzQ/dcwx1Q6kUbdlFYmYmqKqHE/oWyonArp?=
- =?us-ascii?Q?2gTlQDz1wd7dDw5hJaDHbYUQpBVSvrxmbWxUoZ2TFy6ldeEUvn1UVPWDzkLo?=
- =?us-ascii?Q?aR+zKmDRTlIyMvZqQxf58NyYPa6ePqOT/MIQjHBtONfLT03qydAm3azIMjhn?=
- =?us-ascii?Q?otKp/1uD7mtmxN2nq/DxWZG3Sn/rFho8Bfb3Oo2/9kfXqIV3yS5dK8zOxEtA?=
- =?us-ascii?Q?q9gCe2SkXZIx/diCk1NGaiS2Sr/MVfALYxv3oImu4HA8jzj0YH9QhipMIG65?=
- =?us-ascii?Q?qwIeWxI7OFTf0KteXuZNX0qlcCajKEDKg5W8tBMTh9C4dvfZyOvXSfYRYF5J?=
- =?us-ascii?Q?W3YfHw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(82310400026)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: OFOIVskXnTIOm4/fdPXaUTuM8/doQBg/91gfDE+24scNMvoSfuIzhBKoGt4gDa/5RV/G91QbftEKFcQQJdavpKeyiTb3sWwwHASk8U5+puQwCVkzrKlgkxi67eeukZmaMmUGNoJsJIdTwcq59CiUYASliLEnWhXOkhP15JoR01YlE7+blvJUDZ++qQJTL2TiD6wu8iNubcvQYbOnBenzWsPlyPLIpiPhMGxPpRJ4v2HjlwOatPsNkRxmQeaTtlzxlaoRMUFfrNdJhxUh/0Qxh2haBNl6RDTq7OFcfDPVIFMU0souCAQthAMNbrOz2qPBzOOTA4aIwPlmW778ejIxZatpWaigBbvLvR8iltLpNrBt0XnP9bE4IqTigcUr5BsMjZeve4Q22094Vxz928oFeu2nWyBD/Hq0VPlrsBTJxRffT+GXB7vXTey7n68Ip+3d
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2026 05:14:11.5803
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a5cfb1b7-2c57-43c3-2959-08de62e31120
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B071.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB9201
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANaMgWkC/33NwWoDIRAG4FcJnmtwRtdqT32P0oNOxkZI1lY3S
+ 0PYd68JLeTQ7GXg/+H/5iIa18xNvGwuovKcWy5jD4BPG0H7MH6wzLteCFQ4ACoteQzxwDKeJ5Y
+ 0TlWmUiVNdJJDMNG5hImjF33/WTnl7xv+9t7zPrep1PPt1+yu7a8KsKLOTiqpGTAlDRo8vJbWt
+ l+ncKByPG77EVd89ncgmjXQd9A5S8Z4m3hnHoCg/kSrOrkmguokon92rAmsT49IuCftKgmdJBW
+ StTHAQP+Ry7L8AHV7dfjBAQAA
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770097895; l=7152;
+ i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
+ bh=TajdE27mPP+2Kw/IFOmq88f6m5lOQWZXeP1BQhFHupI=;
+ b=9FpMdSycfxhalGXUc+02GOdp7pBGiuapcrYmjrsnmD+bO0CsvZ07SB8mAOnCWYY4khctT/N4s
+ BomoBO9dFLDA6oOrYultXd3VOJ9kVyP/XZ57C6tQs/FzK2uNFZ9K7BN
+X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
+ pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
+X-Proofpoint-ORIG-GUID: ApLqyiJWmnA2PhXYydnTgF2Jnkz7Bkv-
+X-Authority-Analysis: v=2.4 cv=dcmNHHXe c=1 sm=1 tr=0 ts=69818cf2 cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8
+ a=3NKmYVG5dUn0lDVUWD4A:9 a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: ApLqyiJWmnA2PhXYydnTgF2Jnkz7Bkv-
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjAzMDA0NCBTYWx0ZWRfXz/3WgC320cXH
+ tWTufYECWRcIymOIlqCXMocYhTqZbDwgkLVU1MonRFZHbTrxmu+whuMxXnAWXvq6g7cxIMnhbIJ
+ fV/uNoUJiw0ki8XiUgM/9S7pJ2hL28al0iEgSi2zi5MV56kzitg3MjWUMulYn8F1WNYTB+gZ9a5
+ ZjFXPuzhOnE85JXiZB/cumNXe9BAm7Ys4mEy/PT9hHCdpwaX/ahZRUYAHNvg+zm5DnprGcSGiII
+ 2oAKbi6S+QsQmrDGiEvu2jLKfL/nKzxG9FEB4ffK1IohF5C4CYljjJSNXUKL6gjHC9AxfuKwEcJ
+ eD4POARNZi2S60VTSU9mwgghUHHEfLhGFBhgE7HG/7gkhP7fgDv6ztW0pSE74dD/o8IgdsLR6Lx
+ RO+FFOrfJc7YUe8j3RddA2zfHyvdtF/d+Ii4cYgjh7PiGYU2/CIlYzW5uXSq25hdH+ZicQ8QAeG
+ gF4ijI1//lOFgerFJLA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-03_01,2026-02-02_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 malwarescore=0 impostorscore=0 lowpriorityscore=0 phishscore=0
+ bulkscore=0 suspectscore=0 clxscore=1015 priorityscore=1501 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602030044
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_211421_079331_33D99B67 
-X-CRM114-Status: GOOD (  29.11  )
+X-CRM114-CacheID: sfid-20260202_215148_645002_55744FCF 
+X-CRM114-Status: GOOD (  28.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,199 +165,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 09:05:20AM -0400, Jason Gunthorpe wrote:
-> On Tue, Jan 27, 2026 at 04:49:07PM -0800, dan.j.williams@intel.com wrote:
-> > > Yes, ARM took the position that ATS should be left disabled for
-> > > IDENTITY both because of SMMU constraints and also because it made
-> > > some sense that you wouldn't want ATS overhead just to get a 1:1
-> > > translation.
-> > 
-> > Does this mean that ARM already today does not enable ATS until driver
-> > attach, or is incremental work needed for that capability?
-> 
-> All of the iommu drivers setup an iommu translation and enable ATS
-> before any driver is bound.
-> 
-> We would need to do more work in the core to leave the translation
-> blocked when there is no driver. I don't think it is that difficult
+The byte-cntr function provided by the CTCU device is used to count the
+trace data entering the ETR. An interrupt is triggered if the data size
+exceeds the threshold set in the BYTECNTRVAL register. The interrupt
+handler counts the number of triggered interruptions.
 
-Hmm, not sure if we could use group->domain=NULL as "blocked..
+Based on this concept, the irq_cnt can be used to determine whether
+the etr_buf is full. The ETR device will be disabled when the active
+etr_buf is nearly full or a timeout occurs. The nearly full buffer will
+be switched to background after synced. A new buffer will be picked from
+the etr_buf_list, then restart the ETR device.
 
-Otherwise, I made a draft:
------------------------------------------------------------------
-diff --git a/drivers/base/dd.c b/drivers/base/dd.c
-index 349f31bedfa17..8ed15d5ea1f51 100644
---- a/drivers/base/dd.c
-+++ b/drivers/base/dd.c
-@@ -437,8 +437,6 @@ static int driver_sysfs_add(struct device *dev)
- {
- 	int ret;
- 
--	bus_notify(dev, BUS_NOTIFY_BIND_DRIVER);
--
- 	ret = sysfs_create_link(&dev->driver->p->kobj, &dev->kobj,
- 				kobject_name(&dev->kobj));
- 	if (ret)
-@@ -638,10 +636,12 @@ static int really_probe(struct device *dev, const struct device_driver *drv)
- 	if (ret)
- 		goto pinctrl_bind_failed;
- 
-+	bus_notify(dev, BUS_NOTIFY_BIND_DRIVER);
-+
- 	if (dev->bus->dma_configure) {
- 		ret = dev->bus->dma_configure(dev);
- 		if (ret)
--			goto pinctrl_bind_failed;
-+			goto bus_notify_bind_failed;
- 	}
- 
- 	ret = driver_sysfs_add(dev);
-@@ -717,9 +717,10 @@ static int really_probe(struct device *dev, const struct device_driver *drv)
- probe_failed:
- 	driver_sysfs_remove(dev);
- sysfs_failed:
--	bus_notify(dev, BUS_NOTIFY_DRIVER_NOT_BOUND);
- 	if (dev->bus && dev->bus->dma_cleanup)
- 		dev->bus->dma_cleanup(dev);
-+bus_notify_bind_failed:
-+	bus_notify(dev, BUS_NOTIFY_DRIVER_NOT_BOUND);
- pinctrl_bind_failed:
- 	device_links_no_driver(dev);
- 	device_unbind_cleanup(dev);
-@@ -1275,8 +1276,6 @@ static void __device_release_driver(struct device *dev, struct device *parent)
- 
- 		driver_sysfs_remove(dev);
- 
--		bus_notify(dev, BUS_NOTIFY_UNBIND_DRIVER);
--
- 		pm_runtime_put_sync(dev);
- 
- 		device_remove(dev);
-@@ -1284,6 +1283,8 @@ static void __device_release_driver(struct device *dev, struct device *parent)
- 		if (dev->bus && dev->bus->dma_cleanup)
- 			dev->bus->dma_cleanup(dev);
- 
-+		bus_notify(dev, BUS_NOTIFY_UNBIND_DRIVER);
-+
- 		device_unbind_cleanup(dev);
- 		device_links_driver_cleanup(dev);
- 
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index 2ca990dfbb884..af53dce00e29b 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -106,6 +106,7 @@ static int __iommu_attach_group(struct iommu_domain *domain,
- static struct iommu_domain *__iommu_paging_domain_alloc_flags(struct device *dev,
- 						       unsigned int type,
- 						       unsigned int flags);
-+static int __iommu_group_alloc_blocking_domain(struct iommu_group *group);
- 
- enum {
- 	IOMMU_SET_DOMAIN_MUST_SUCCEED = 1 << 0,
-@@ -618,12 +619,6 @@ static int __iommu_probe_device(struct device *dev, struct list_head *group_list
- 	ret = iommu_init_device(dev);
- 	if (ret)
- 		return ret;
--	/*
--	 * And if we do now see any replay calls, they would indicate someone
--	 * misusing the dma_configure path outside bus code.
--	 */
--	if (dev->driver)
--		dev_WARN(dev, "late IOMMU probe at driver bind, something fishy here!\n");
- 
- 	group = dev->iommu_group;
- 	gdev = iommu_group_alloc_device(group, dev);
-@@ -641,6 +636,15 @@ static int __iommu_probe_device(struct device *dev, struct list_head *group_list
- 	WARN_ON(group->default_domain && !group->domain);
- 	if (group->default_domain)
- 		iommu_create_device_direct_mappings(group->default_domain, dev);
-+
-+	/* Block translation requests from a device without driver */
-+	if (!dev->driver) {
-+		ret = __iommu_group_alloc_blocking_domain(group);
-+		if (ret)
-+			goto err_remove_gdev;
-+		group->domain = group->blocking_domain;
-+	}
-+
- 	if (group->domain) {
- 		ret = __iommu_device_set_domain(group, dev, group->domain, NULL,
- 						0);
-@@ -1781,19 +1785,70 @@ static int probe_iommu_group(struct device *dev, void *data)
- 	return ret;
- }
- 
-+static int iommu_attach_default_domain(struct device *dev)
-+{
-+	struct iommu_group *group = iommu_group_get(dev);
-+	int ret = 0;
-+
-+	if (!group)
-+		return 0;
-+
-+	mutex_lock(&group->mutex);
-+
-+	if (group->blocking_domain) {
-+		if (!group->default_domain) {
-+			ret = iommu_setup_default_domain(group, 0);
-+			if (!ret)
-+				iommu_setup_dma_ops(dev);
-+		} else if (group->domain == group->blocking_domain) {
-+			ret = __iommu_group_set_domain(
-+				group, group->default_domain);
-+		}
-+	}
-+
-+	mutex_unlock(&group->mutex);
-+	iommu_group_put(group);
-+	return ret;
-+}
-+
-+static void iommu_detach_default_domain(struct device *dev)
-+{
-+	struct iommu_group *group = iommu_group_get(dev);
-+
-+	if (!group)
-+		return;
-+
-+	mutex_lock(&group->mutex);
-+
-+	if (group->blocking_domain && group->domain != group->blocking_domain) {
-+		__iommu_attach_device(group->blocking_domain, dev,
-+				      group->domain);
-+		group->domain = group->blocking_domain;
-+	}
-+
-+	mutex_unlock(&group->mutex);
-+	iommu_group_put(group);
-+}
-+
- static int iommu_bus_notifier(struct notifier_block *nb,
- 			      unsigned long action, void *data)
- {
- 	struct device *dev = data;
-+	int ret;
- 
- 	if (action == BUS_NOTIFY_ADD_DEVICE) {
--		int ret;
--
- 		ret = iommu_probe_device(dev);
- 		return (ret) ? NOTIFY_DONE : NOTIFY_OK;
- 	} else if (action == BUS_NOTIFY_REMOVED_DEVICE) {
- 		iommu_release_device(dev);
- 		return NOTIFY_OK;
-+	} else if (action == BUS_NOTIFY_BIND_DRIVER) {
-+		ret = iommu_attach_default_domain(dev);
-+		return ret ? NOTIFY_DONE : NOTIFY_OK;
-+	} else if (action == BUS_NOTIFY_UNBOUND_DRIVER ||
-+		   action == BUS_NOTIFY_DRIVER_NOT_BOUND) {
-+		iommu_detach_default_domain(dev);
-+		return NOTIFY_OK;
- 	}
- 
- 	return 0;
------------------------------------------------------------------
+The byte-cntr reading functions can access data from the synced and
+deactivated buffer, transferring trace data from the etr_buf to userspace
+without stopping the ETR device.
 
-Thanks
-Nicolin
+The byte-cntr read operation has integrated with the file node tmc_etr,
+for example:
+/dev/tmc_etr0
+/dev/tmc_etr1
+
+There are two scenarios for the tmc_etr file node with byte-cntr function:
+1. BYTECNTRVAL register is configured and byte-cntr is enabled -> byte-cntr read
+2. BYTECNTRVAL register is reset or byte-cntr is disabled -> original behavior
+
+Shell commands to enable byte-cntr reading for etr0:
+echo 0x10000 > /sys/bus/coresight/devices/ctcu0/irq_threshold0
+echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
+echo 1 > /sys/bus/coresight/devices/etm0/enable_source
+cat /dev/tmc_etr0
+
+Reset the BYTECNTR register for etr0:
+echo 0 > /sys/bus/coresight/devices/ctcu0/irq_threshold0
+
+Changes in v12:
+1. Add a new function for retrieving the CTCU's coresight_dev instead of
+   refactor the existing function.
+Link to v11: https://lore.kernel.org/r/20260126-enable-byte-cntr-for-ctcu-v11-0-c0af66ba15cf@oss.qualcomm.com
+
+Changes in v11:
+1. Correct the description in patch1 for the function coresight_get_in_port.
+2. Renaming the sysfs_ops to tmc_sysfs_ops per Suzuki's suggestion.
+Link to v10: https://lore.kernel.org/r/20260122-enable-byte-cntr-for-ctcu-v10-0-22978e3c169f@oss.qualcomm.com
+
+Changes in v10:
+1. fix a free memory issue that is reported by robot for patch 2.
+Link to v9: https://lore.kernel.org/r/20251224-enable-byte-cntr-for-ctcu-v9-0-886c4496fed4@oss.qualcomm.com
+
+Changes in v9:
+1. Drop the patch: add a new API to retrieve the helper device
+2. Add a new patch to refactor the tmc_etr_get_catu_device function,
+   making it generic to support all types of helper devices associated with ETR.
+3. Optimizing the code for creating irq_threshold sysfs node.
+4. Remove interrupt-name property and obtain the IRQ based on the
+   in-port number.
+Link to v8: https://lore.kernel.org/r/20251211-enable-byte-cntr-for-ctcu-v8-0-3e12ff313191@oss.qualcomm.com
+
+Changes in V8:
+1. Optimizing the patch 1 and patch 2 according to Suzuki's comments.
+2. Combine the patch 3 and patch 4 together.
+3. Rename the interrupt-name to prevent confusion, for example:etr0->etrirq0.
+Link to V7 - https://lore.kernel.org/all/20251013-enable-byte-cntr-for-ctcu-v7-0-e1e8f41e15dd@oss.qualcomm.com/
+
+Changes in V7:
+1. rebased on tag next-20251010
+2. updated info for sysfs node document
+Link to V6 - https://lore.kernel.org/all/20250908-enable-byte-cntr-for-tmc-v6-0-1db9e621441a@oss.qualcomm.com/
+
+Changes in V6:
+1. rebased on next-20250905.
+2. fixed the issue that the dtsi file has re-named from sa8775p.dtsi to
+   lemans.dtsi.
+3. fixed some minor issues about comments.
+Link to V5 - https://lore.kernel.org/all/20250812083731.549-1-jie.gan@oss.qualcomm.com/
+
+Changes in V5:
+1. Add Mike's reviewed-by tag for patchset 1,2,5.
+2. Remove the function pointer added to helper_ops according to Mike's
+   comment, it also results the patchset has been removed.
+3. Optimizing the paired create/clean functions for etr_buf_list.
+4. Remove the unneeded parameter "reading" from the etr_buf_node.
+Link to V4 - https://lore.kernel.org/all/20250725100806.1157-1-jie.gan@oss.qualcomm.com/
+
+Changes in V4:
+1. Rename the function to coresight_get_in_port_dest regarding to Mike's
+comment (patch 1/10).
+2. Add lock to protect the connections regarding to Mike's comment
+(patch 2/10).
+3. Move all byte-cntr functions to coresight-ctcu-byte-cntr file.
+4. Add tmc_read_ops to wrap all read operations for TMC device.
+5. Add a function in helper_ops to check whether the byte-cntr is
+enabkled.
+6. Call byte-cntr's read_ops if byte-cntr is enabled when reading data
+from the sysfs node.
+Link to V3 resend - https://lore.kernel.org/all/20250714063109.591-1-jie.gan@oss.qualcomm.com/
+
+Changes in V3 resend:
+1. rebased on next-20250711.
+Link to V3 - https://lore.kernel.org/all/20250624060438.7469-1-jie.gan@oss.qualcomm.com/
+
+Changes in V3:
+1. The previous solution has been deprecated.
+2. Add a etr_buf_list to manage allcated etr buffers.
+3. Add a logic to switch buffer for ETR.
+4. Add read functions to read trace data from synced etr buffer.
+Link to V2 - https://lore.kernel.org/all/20250410013330.3609482-1-jie.gan@oss.qualcomm.com/
+
+Changes in V2:
+1. Removed the independent file node /dev/byte_cntr.
+2. Integrated the byte-cntr's file operations with current ETR file
+   node.
+3. Optimized the driver code of the CTCU that associated with byte-cntr.
+4. Add kernel document for the export API tmc_etr_get_rwp_offset.
+5. Optimized the way to read the rwp_offset according to Mike's
+   suggestion.
+6. Removed the dependency of the dts patch.
+Link to V1 - https://lore.kernel.org/all/20250310090407.2069489-1-quic_jiegan@quicinc.com/
+
+Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+---
+Jie Gan (8):
+      coresight: core: Refactoring ctcu_get_active_port and make it generic
+      coresight: tmc: add create/clean functions for etr_buf_list
+      coresight: tmc: Introduce tmc_sysfs_ops to wrap sysfs read operations
+      coresight: etr: add a new function to retrieve the CTCU device
+      dt-bindings: arm: add an interrupt property for Coresight CTCU
+      coresight: ctcu: enable byte-cntr for TMC ETR devices
+      coresight: tmc: integrate byte-cntr's sysfs_ops with tmc sysfs file_ops
+      arm64: dts: qcom: lemans: add interrupts to CTCU device
+
+ .../ABI/testing/sysfs-bus-coresight-devices-ctcu   |   8 +
+ .../bindings/arm/qcom,coresight-ctcu.yaml          |  10 +
+ arch/arm64/boot/dts/qcom/lemans.dtsi               |   3 +
+ drivers/hwtracing/coresight/Makefile               |   2 +-
+ drivers/hwtracing/coresight/coresight-core.c       |  24 ++
+ .../hwtracing/coresight/coresight-ctcu-byte-cntr.c | 366 +++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-ctcu-core.c  | 122 +++++--
+ drivers/hwtracing/coresight/coresight-ctcu.h       |  77 ++++-
+ drivers/hwtracing/coresight/coresight-priv.h       |   2 +
+ drivers/hwtracing/coresight/coresight-tmc-core.c   | 103 ++++--
+ drivers/hwtracing/coresight/coresight-tmc-etr.c    | 136 ++++++++
+ drivers/hwtracing/coresight/coresight-tmc.h        |  36 ++
+ 12 files changed, 829 insertions(+), 60 deletions(-)
+---
+base-commit: 47b7b5e32bb7264b51b89186043e1ada4090b558
+change-id: 20251203-enable-byte-cntr-for-ctcu-5a4b88f2feb9
+
+Best regards,
+-- 
+Jie Gan <jie.gan@oss.qualcomm.com>
+
 
