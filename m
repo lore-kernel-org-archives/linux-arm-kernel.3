@@ -4,151 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB721E83057
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 05:52:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AEA6E83057
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 06:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2hUWnOSTgpb39HiN4iScZAjggx5kZGetEG2O1nLvCqo=; b=3Lrg9m7gm0FlUWyN7woaHZQR+v
-	mXZGW0WAJpkC13npwTZFquNo30CsWActG0vpCBwXzi/51DTmXd77MFXkMz0q7PD+wW1/JbN4B757I
-	wuB2b+lMOoATOp/NDLARdu5qof5qPYG89oFPwO86TizNe1ZhFes5qKgPY8px7nCh05soYrNpq8pXc
-	8QMXLIf+LEyZw9tHEAck6JTzZZUFuT8coAek25n2HKNSBcnnkSLKcv8hL9lgQMOGxbuqrXdpecFPv
-	UPoWdyv4jRe1aGK1bkb4g1cwDwX4LKaacRrYGEMVrLd7R6QAdEWewxYCfNoI6WCT5kxjTpRBOLSG/
-	tBCcb0lQ==;
+	bh=6pn2t+jQqwxoi1mJ80RFtFYUwPK3JAB4g8JQHBr3tTk=; b=AAQKG6DjMVDIMyXDS3JmiaU3ys
+	Cnud/ee91kvd1JGAdD/ysr9Hq/f8XUiraaDVyeXsmPcVvj4z3tqbp/wu9jZkjhI4eRbMc+nkoS9PF
+	mD+14883Fp8X8D38l9FkSJpSl34jxn/80IRyKx/srLgwqNHIt52GVH6ecW9dcBOsIvRQ7tGuEzx/V
+	sLCOcgckWSGSZOoMmg0dxKhDqFJ7h9VIa8D7/VuH0W9SrwEjCYL4ToBBaY/wsZdkYcJvKaoEnKV8s
+	aVK75GkefV//xG+jJFCBd6GFOipNLOulvb4X4YoPO8VXxZcc6hObMMr820gPcMhVBmVg9uuDPErnJ
+	j+N6sr0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn9L9-000000068r1-0Dm0;
-	Tue, 03 Feb 2026 05:52:43 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vn9WA-00000006A48-2M0A;
+	Tue, 03 Feb 2026 06:04:06 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn9L4-000000068nr-29xc
+	id 1vn9W7-00000006A3n-1ysS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 05:52:42 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61344uDI2998767
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 3 Feb 2026 05:52:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	2hUWnOSTgpb39HiN4iScZAjggx5kZGetEG2O1nLvCqo=; b=K0kqsd8hcHXqDv+m
-	men3VgvgZm9iXoRodTQL9wLGndo3xuDNk6I3Bz1MWn0LLI046yfRvt1fvqRC4iPv
-	xmohmWjV6OpySZYccV/Fw306/+pe1nfhZ7L++CLfJXYXfo2ib92ZHCdbsmjETvVg
-	xH8M/pFaU9FCTBAxHTSnDidcS55hkwrGzAdTcDYstLilhocidCReyG21RH9/Sv4B
-	ggd/Z+1ExIZIo5k6H2VxE7htrRQWOdUYNS9tpIiulrcmKfEqGQ1qZL9YSgr/ENPT
-	k30gv1rE6RuiLpXXhFbL/U6a+iyMoUWrI7VHQPn6DN1MJMx5DnV3Q7e3pm14UPQO
-	wlIJng==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c2v0masw1-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 05:52:37 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2a0bb1192cbso44015965ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 21:52:37 -0800 (PST)
+	Tue, 03 Feb 2026 06:04:04 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-59dd490be5fso6771314e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 22:04:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1770097957; x=1770702757; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2hUWnOSTgpb39HiN4iScZAjggx5kZGetEG2O1nLvCqo=;
-        b=jvnveYw7gXZrM8Bk9YJ6pMdcyV1k+5G+O0q/yT9xLX5xonS3dOMrdeVNpJWc8KcW0m
-         MZ+hfJETM9o0SGmB/7kUb4Prw0Pp88+y1W1a20BlgE9CzpyYEbnMXeEdoQZ7FVkBSuV+
-         bXORJj1nyvNIW2swL7aRytAdw59MwOXuWKmdQoczO946eDkf2NbqD5EG0jwpTiKXBiOG
-         aIcIDUuNOQjGCXsXRVgmiSz0JQB2QLiRUClmPtuHEEAB2YXb//ZcQsaZ1/yyGFo1wWVI
-         JSmuVAGqzA9wJ2DMF6dD0HFTQubmxhtHo3moD55YRBybazNzEdbQZ/Q95/y01kSaY/g0
-         RosA==
+        d=gmail.com; s=20230601; t=1770098641; x=1770703441; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=6pn2t+jQqwxoi1mJ80RFtFYUwPK3JAB4g8JQHBr3tTk=;
+        b=YJsP8MtUP8PpttH7YqVAoa3fVbLzwhrvCdc9nkTp3cWMMI6S2iHIEo2sAnvhShLjh6
+         AzVit8kwCrrJcB1dq8kQl/a9UArvTVGiD7L0UfuFR43g/n8xxp2EykvFM4ZbI+r4W/wD
+         /vSvKLlY5sC/5aSztcRWUfUxYAY39vT6CZSmMCKie3gJ+Wx2fg/8BtpMibHQjmZj3SbT
+         5fEXmcpxY8hJj57mC2U7OWYRFSIrwtP7+NwZQjrZR1FC/HP9r/H454FwBmNt3u20CrIz
+         MPJjfxKtB6lM/QvDeT3uwYszdO6HG1mdO5ohSVTiHB18DwyN7i4pSypLQtOvg1F6hYcL
+         56HQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770097957; x=1770702757;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=2hUWnOSTgpb39HiN4iScZAjggx5kZGetEG2O1nLvCqo=;
-        b=NbqbayDvUNvoD6kwusnHSXE+Z3aYuxKAQpdvRkAFiRAJXwkdlOphmh/OkykGFmdizb
-         3QiwmpR7TD0Z4/BngAFbRhkYH3hlL/33zZO7B1fH4985cCFRPWEsdRcJcKIZQnudOj8i
-         EYMLwqIK9C8578sCZrW/mfAVeXR2yPyPVwU5TauyqXP3uUOplRJnSqSJVHo6gBQMQ7AZ
-         gamQNGJ2NIQPLxvIdXazj8Zy+okzlEGWb4xui/SVZHyN6sEKVNYUZmL3l6N6e8L+YmQV
-         D3MT1+oaXWngDRNykWD27nn7C9Df9R0zbtSv6GR8IV23iOpliu41ikEf4Ilkklbddr+0
-         DbBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUMlc8/ZlZPDlqbunw6017N1fd6CvK9vB66Sfel+Dqd/WyabK+zS8dMzi0AFW1D6P9OF30E4LN83BrCyZ8z0u75@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6O8r32BRDOR9vYauTLoqVng3YJGHAjX02CDQULkTmstrLwJNx
-	Imms0B8fr59dJBJXnv39jGmI/bCMIxI31f+sq7i+F//OewlzJLeBVa0D10IAashoONED7WjUgE0
-	OL5JYr5hjdy4VjdsnkriDQyfFPO7nEWEJKBo71JS2sPRkcspoz1zC5kWowoJKL0ZANYJHs/4GN6
-	hcBQ==
-X-Gm-Gg: AZuq6aLRSBFAvVHvNurPpEoxLZGPJoMvRij/LbC7BuKOH2HVoz/brbReQtqVgCu5IsJ
-	2h3p4BTNWYJ+xz8NJDT4ClABgevtE4aAFjMGobvxtCkbF2oqJoRYcNxwVkVa32/MOAmWlWXt0Ze
-	mOqVsAgzF1xaDRcvZ7mMxA0GwOyQt9HlQV/1bs7QhjkZV1LRKwwvveU88KJvoCKxAT1GtJJDyF/
-	6apWYlGi73SNllYS+xcoqk1lzK6akmB5bgXCoiAqnC5mOy0Mz+iDLhfuKQYV43FJ2nwyPG7E++l
-	QiPP/gNCXIPteNA2JYjBlvymEd9ZyUEflD5hwC+7F4o+NxKst/CVrdb2jhO6xXlnhd8b+94deJb
-	4xlFHuybXEYOUiM6h+VdykceMC4krReQgHuyYWjjLxpFO8mkPWR316BeroRJTTpPKeDFSB63f
-X-Received: by 2002:a17:903:4ca:b0:2a2:dc1f:78d8 with SMTP id d9443c01a7336-2a8d993fc9emr98505645ad.42.1770097956573;
-        Mon, 02 Feb 2026 21:52:36 -0800 (PST)
-X-Received: by 2002:a17:903:4ca:b0:2a2:dc1f:78d8 with SMTP id d9443c01a7336-2a8d993fc9emr98505295ad.42.1770097956098;
-        Mon, 02 Feb 2026 21:52:36 -0800 (PST)
-Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a88b6e4189sm157424735ad.83.2026.02.02.21.52.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Feb 2026 21:52:35 -0800 (PST)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Tue, 03 Feb 2026 13:51:24 +0800
-Subject: [PATCH v12 8/8] arm64: dts: qcom: lemans: add interrupts to CTCU
- device
+        d=1e100.net; s=20230601; t=1770098641; x=1770703441;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6pn2t+jQqwxoi1mJ80RFtFYUwPK3JAB4g8JQHBr3tTk=;
+        b=tVRXeVBmQsnL6IjqaMdf+xovX9FT/CtihaWeW1tr/14bU/lTo9N3qIXapTOAroAOOF
+         8YX5T5GDPJnFtCKs9/XD9ePPn26wLOzBthYdm9LBdwGsjaGk2+KcWAU1BQ6GwcNVmbJi
+         a+iT7f5ZCRgcFIonscYlmUTQusGqD0lrP3qiJRt9pZvzbyY9tx5c+2TJupSf9PbphcUw
+         fYm/SFZoPDS22iwbgqr8grzEtnkYmU3dLriZoSpBrRkdmamIt+U+VC6kgq7IEtbHLDZs
+         PmoWDt4O3ZpnaJIV1xpCsoo4RhhFA+dSxgki+eljUoZKl7Q//yKduv4ZopM8Ieb9rmET
+         DPZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX7RjrQksSzEmf3HHnLXEV0s/qh01qlBJDXMOULkEC8uVrFp/yeHwtYPnUhNG6pM83YokyXT1D+pGBDfhB5Cexx@lists.infradead.org
+X-Gm-Message-State: AOJu0YzD/Be1ilSjO+/MFW4Iqpj5ez4u33IzxT2fS2+6yIhIqY6sH8bG
+	AJBuI9WD6xrObtLDEa9RWMUfHqfdhdjox965E1UMZAK2N5hsH5FcpWgV
+X-Gm-Gg: AZuq6aIMTReUUmZZeGV+URkrwYFOhfft1SjmUOpK/9eeGH0fRc11hogP2jgec68e75v
+	nWMYxB4JZEvpNtlhnA22xNEK4JT1AGrZdnU+VZnxrwi/gTOw6vGK4f4o6MoBVyH7WC99CaGyHSM
+	vyhPaKNw3jF+hLdC1mEYV7U35ukxcnQY6loP+Bh+qPGnpzkVYBQWSBlGgPf4d+CgvodNCk8Zeuo
+	+P8mH3g1Gx+IIn4wkHHL5e8uwgUfQ/N72KULwozc54ziUHdQho5jg96GDoRoxXkRF6CEserrFkK
+	nHscNX6WCqAse5xtTIYTJtwZ1PQNKfKZAl2y4r9A83eJYnpy/EynVayOmpRXeEkHcuY17OZKDJV
+	si68SohI3pNymbs7xY9Q/0kEMzdEL4ETjJGDCh4yeNBaIgRqoGn+miErHRYXU58bufCeNGpZEqb
+	SWz6cASFVTglXbwxh1g2ukXXOGrThGcCALPlD68NzjDiY0a9ZkycB2b1eaErHExqXDstkq7w==
+X-Received: by 2002:a05:6512:3185:b0:59d:dcd9:73ac with SMTP id 2adb3069b0e04-59e16433759mr4731144e87.42.1770098640480;
+        Mon, 02 Feb 2026 22:04:00 -0800 (PST)
+Received: from [10.0.0.100] (host-185-69-74-59.kaisa-laajakaista.fi. [185.69.74.59])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59e0772d926sm3850762e87.13.2026.02.02.22.03.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Feb 2026 22:03:59 -0800 (PST)
+Message-ID: <e1817e62-5a1f-484d-aace-638f44f2bcb5@gmail.com>
+Date: Tue, 3 Feb 2026 08:05:11 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260203-enable-byte-cntr-for-ctcu-v12-8-7bf81b86b70e@oss.qualcomm.com>
-References: <20260203-enable-byte-cntr-for-ctcu-v12-0-7bf81b86b70e@oss.qualcomm.com>
-In-Reply-To: <20260203-enable-byte-cntr-for-ctcu-v12-0-7bf81b86b70e@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770097897; l=769;
- i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=U3SBm8Q4F2Lqg46nftP77Qbyf63TqJWnGptxyfW3r6I=;
- b=1uZvAUAeceK/WP/F0pOERpVVCDW2i192FDsv27hjFMUWbZ1zfioae9HdwPsbFgIfuTlV1q/S6
- RT6QhC8e2ZsByser15YbRD35K3uiM61LNYKv8pO5XpoAq2rbPQE+ImU
-X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
- pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Authority-Analysis: v=2.4 cv=dceNHHXe c=1 sm=1 tr=0 ts=69818d25 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=gBkj9RZkAcI1HbXH1KoA:9
- a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-GUID: Niy7mI-uA7TF8cVbN5jIVKXljL_V1ehd
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjAzMDA0NCBTYWx0ZWRfX8LCr5aalGSQA
- rpcfZgKWcVMahefR0oN3Fwa4qSFQ9+HOFpGrYdDs5htGHNRCdSFS3tRD/p4GwdopYn0TWOxZ8vb
- QXo4P5Kp62IwL0veaq5yX1h2buxTeHlF4hHTnD/Gq+51midIhwBP/J3xB5Hcj4kJn/3e/fRhhgr
- VE6gq8249TzVlV98EoaFOjaoMl/R3cD7QG7VYDbnug5LyXrDDHiDVgeIaXBl7iQZi4MX+Y4i+xn
- Wv3vQJFOgFmGkBJFayCshRw6V4AZRakDceIGFl7w17KjL2szqlOdp3JkR+Yb/B0jC0ehzJBcHa6
- xpg9Kdqkd8P/1aXQFIA9P2ddPTscBqcWcLCM47/gEoa1x5PAcMtvNmKrNw9uxM7cXhUPBfCEyhw
- ybZHzT9zVolGIjLrRjBIVMwN620oVlXynrudB2knivThXDSztnS5wv7kEnJbo7SLYc16aZFe/Tj
- +rcPAuAg8rcHN5+B0yA==
-X-Proofpoint-ORIG-GUID: Niy7mI-uA7TF8cVbN5jIVKXljL_V1ehd
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-03_01,2026-02-02_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 malwarescore=0 suspectscore=0
- lowpriorityscore=0 impostorscore=0 adultscore=0 phishscore=0 bulkscore=0
- clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
- definitions=main-2602030044
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 11/19] drivers: soc: ti: k3-ringacc: handle absence of
+ tisci
+To: Sai Sree Kartheek Adivi <s-adivi@ti.com>, vkoul@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com,
+ ssantosh@kernel.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ vigneshr@ti.com
+Cc: r-sharma3@ti.com, gehariprasath@ti.com
+References: <20260130110159.359501-1-s-adivi@ti.com>
+ <20260130110159.359501-12-s-adivi@ti.com>
+From: =?UTF-8?Q?P=C3=A9ter_Ujfalusi?= <peter.ujfalusi@gmail.com>
+Content-Language: en-US
+In-Reply-To: <20260130110159.359501-12-s-adivi@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_215238_700120_AA83A82E 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20260202_220403_534355_DF976470 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,30 +106,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add interrupts to enable byte-cntr function for TMC ETR devices.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/lemans.dtsi | 3 +++
- 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/qcom/lemans.dtsi b/arch/arm64/boot/dts/qcom/lemans.dtsi
-index 0b154d57ba24..75a468ddbf53 100644
---- a/arch/arm64/boot/dts/qcom/lemans.dtsi
-+++ b/arch/arm64/boot/dts/qcom/lemans.dtsi
-@@ -2776,6 +2776,9 @@ ctcu@4001000 {
- 			clocks = <&aoss_qmp>;
- 			clock-names = "apb";
- 
-+			interrupts = <GIC_SPI 270 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 262 IRQ_TYPE_EDGE_RISING>;
-+
- 			in-ports {
- 				#address-cells = <1>;
- 				#size-cells = <0>;
+On 30/01/2026 13:01, Sai Sree Kartheek Adivi wrote:
+> Handle absence of tisci with direct register writes. This will support
+> platforms that do not have tisci firmware like AM62L.
+> 
+> Remove TI_SCI_INTA_IRQCHIP dependency for TI_K3_RINGACC in Kconfig as
+> it is required conditionally (only for devices that has TI_SCI).
+> 
+> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+> ---
+>  drivers/soc/ti/Kconfig            |   1 -
+>  drivers/soc/ti/k3-ringacc.c       | 188 ++++++++++++++++++++++++++----
+>  include/linux/soc/ti/k3-ringacc.h |  17 +++
+>  3 files changed, 181 insertions(+), 25 deletions(-)
+> 
+> diff --git a/drivers/soc/ti/Kconfig b/drivers/soc/ti/Kconfig
+> index 163aadd589d3a..5499c0def527a 100644
+> --- a/drivers/soc/ti/Kconfig
+> +++ b/drivers/soc/ti/Kconfig
+> @@ -53,7 +53,6 @@ config WKUP_M3_IPC
+>  config TI_K3_RINGACC
+>  	tristate "K3 Ring accelerator Sub System"
+>  	depends on ARCH_K3 || COMPILE_TEST
+> -	depends on TI_SCI_INTA_IRQCHIP
+
+I guess (based on robot report) that the selects from
+TI_SCI_INTA_IRQCHIP and TI_SCI_INTA_MSI_DOMAIN are needed to be added here
 
 -- 
-2.34.1
+Péter
 
 
