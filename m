@@ -4,106 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BABDDE83057
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 06:56:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91D2FE83057
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 07:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hPfG7IVpjEneMOzN4kNdadNHZSe9In0bxUCOtJ3itiY=; b=qE5VtZHemlyyScueFHnyDznCvl
-	IZg5Qaniot+5IxUU+1m7tWGg5vnHV5H6FoXUcVbkTrObFrI6pECpcHvEwuYyHaC+uMLibP06S094a
-	WcGcteKZl+If8m7mt6AF+YGiWuRHfkap+iTubJ+X+hvB/aN6T04mInXo1RcBNXdhrwNjQQdb9kAjG
-	QM/uHmw/ud940w2rDoGuhCUCQouCF7YUnx7M5CUKnNTNLsREw3zgH92vb3ReWWF4yljXYPbXHqBVD
-	IfxiQVBrADnCmu9YIwBgwysKmQSetLdv4orn6Rh5+zSIlavyEKzM2zkUbbzrSWkA5Y0bJ9r10uphP
-	6cx/MKUQ==;
+	bh=JVK0dROhNrON4b+0PmAq1JrLEYoLB9gGhDZiNFwxyAg=; b=eKBK+kx4WbrEb2DammC20/GvG5
+	5VUQ8gKweI1GcIJUIOoDppcBryuBXK2q/pQS2wHsary5bHdk6VY8jloeijaokWXnRrpjPSq8MY2gA
+	Z5hMaT5bRl2p4TaExZXRKU/0D50ooHg+Msen7gVpcg2olYnPvIO4ym7Omp7TANXiDwY4JeHYf86lM
+	v28E78MiR+Vzmw9T7hgWhVEzqshAEJmXvJh6JEMaoBORHUNlGVmEinJELwbM4F3GBKuplZrtRZsdC
+	qm5dYjmpiQn+sk/+kwdmqCmQeJEV17E4BoOJ4h3rbHhkjZbSzTTAPf9m7twUSe+2Yo7mOuG1mAgS/
+	P6Ech+nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnAL0-00000006DIG-2zNw;
-	Tue, 03 Feb 2026 06:56:38 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1vnAQE-00000006Dgt-2Bxe;
+	Tue, 03 Feb 2026 07:02:02 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnAKy-00000006DHr-3x67
+	id 1vnAQB-00000006DgY-3q9v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 06:56:38 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-b87677a8abeso794634066b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 22:56:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770101794; cv=none;
-        d=google.com; s=arc-20240605;
-        b=XcDUa9CP791Qo72x6I54UdrVDgUXNMweXx4N62rTEnA7d0t0n3wrdIB9qXZftcuNLi
-         3jCw2xawWr2FxfxgenfAdYcLObhS6DqRd1kOuMPY6T7rj8D8lRK33JX7Uqy0Qe0WdU0f
-         8VP4DCCMFiM3xZT1cpSEollY9fsrfk4SNdlO2Tk5uLKYKm08dnWOlgwh1Ued4tA4gx4E
-         7DN6J1vHbf5IC+FrIVR46FGBpsx2sdLu2xb8Dc2rGU56Bz2g2KftmFioljHl0B7+3WEB
-         11aKw99A918tG2QKFg74Z/GuQMgM14rxGzCVHFhj5skICEjlbAI7SaGUNXB7clUAicbW
-         +mbw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=hPfG7IVpjEneMOzN4kNdadNHZSe9In0bxUCOtJ3itiY=;
-        fh=9F+GFcvyHzkTgL3/XYhhj641Hj+QnDfJ+47muhIKI3g=;
-        b=HUP9+NuENd4AfRiOkMjkKulUvlAMKt8yea4YG2ITUlryoxwn5wm+iFZ2LfIy6JljIt
-         Tl4AJynHD3EYDH4U2vvgVpPdiF2WUApQL7uuMms1OzzD1qCIBbyc03qiu3YUaViDpQ0U
-         BMGrWUyRxV8zh7R4ACy13dEmLbD8qFvPAG5H9oYiK7K2pPXrJXGVVIs4LFvaNXmw7GfD
-         fQo3FwkhB2qtKneWOJkNLx2POmMGjGhvPAxTWNlVkJs5enGTkPPXqjTFWtyotDhvKPhn
-         7C6gE0pOlNcHSYD37iTKKbPTfgQRsqVLP/hSu5cUveAe9yRPzlzoGJ5KdcZq2opTwbgi
-         NCNQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1770101794; x=1770706594; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=hPfG7IVpjEneMOzN4kNdadNHZSe9In0bxUCOtJ3itiY=;
-        b=Xhfe0aCovELZnQh8D2YwsLw2Dh3LOwvSMDDBm8jbMd/C4pDf135xgWdSGdJLH2SGeC
-         xO8BxotfUkZWsU6pwl3S7XB/oCFnieSTL04/eDkxdlXHfKFiqph2ybM7uZIpNgoSVGn7
-         EtJcQ8mUUcjPOopIhMg6KMFNO4iQ8+tbCDHHC1RNWaCcxduyMrngLJ1PTP2+mC57+0qV
-         KU7AhHBMzDRFr7kpl8KUo1wzm+flEwoW3bm+qBnuuJEH2s/p+fAFw20Li1/NKDuBiHbC
-         Ok7QpkIJI5hm0O1PRDdExe41tRsjpXGFvNsrsRlBJ5K3Z1bpUEsMFIBt6RqiDB5srHqC
-         rTvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770101794; x=1770706594;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hPfG7IVpjEneMOzN4kNdadNHZSe9In0bxUCOtJ3itiY=;
-        b=Ftp2CoWzIBqlGQOFAbloEfuF2pu9YYF63eK5RhU05SbpA2Eu4GRNjYo552hIsNjCZj
-         sOoMiEQNXFtcnbqmrDwRPZ+AyL+V2nFLTODgPHMMBINRIv2PquQ4NLPQ50gqDocoQyWV
-         prkDMUUdRRelefuVjHFDyNw4SXq8FpDwpyyn+uxl7r8fSis6TPH6r45mn1v8P/YJeMBh
-         ZqQ0V1HKs8Qw0b+GKyEBLbthWJEb1VbiUghXZVo3Yuc5DyCsGF/doBP9od2xfLrHhk94
-         d3bYQfva3Fau45U2HUPQf6hsxnWvDP/8RRZhTYx67fSffaVMYHd6UxEOpPNzq/vadwTp
-         7yLg==
-X-Forwarded-Encrypted: i=1; AJvYcCXVTv2F7B5xU3yPa1qPRcFbmFKb1Zd6T42p2LpNrEJ5HT3as/2vlUFxcKJIjV/kWw3RR57IFtpBzAskm0Yb95p2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/gfLN2JKYt7Ib7YkvF17P10wtwWqZrcBynaltrmEVfseu/J9e
-	wDciY8vqwC0bk1tXqGiiRjFEAldzbMOxaooMLUaZeRLo5WvijC3uK78l/LNJgmgzrtdQHleX6/4
-	8/3PouggwppFMm+BliQVck6XuKC5GIqmQhfdCSRX7b5GdF3mCtIxWPLE=
-X-Gm-Gg: AZuq6aLG0xOo7ygMUyDMfmbIdCsfIoqICn1vdra/cl4gHYC9ISk1fCN6X+9u5+s5D6E
-	U+nu/isds/6bdKDv/wP7owmIAbwjx4DlPNG1qX66j7LWnASRn2J9Aq5/+Ao5gv8SgjxQbdDWB6r
-	ORT8BPi0LfTCUdrhbrP369KbyaFgwzkDp0sf0PCE96EVHy71eEyyGq/KKV6MTdAmKaKmToJKeyB
-	DIKHur7vZ8Z2lv1ygo7IiMItzU9lZP/ewvsj4bSo31sVPkaBUmEezoBpQwsiHl/XwrNsUDobryC
-	vMcym/xEj5rHgMS6+cgGow==
-X-Received: by 2002:a17:907:94d0:b0:b87:892:f43b with SMTP id
- a640c23a62f3a-b8dff68456emr931355166b.42.1770101794402; Mon, 02 Feb 2026
- 22:56:34 -0800 (PST)
+	Tue, 03 Feb 2026 07:02:01 +0000
+Date: Tue, 3 Feb 2026 08:01:55 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1770102115;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JVK0dROhNrON4b+0PmAq1JrLEYoLB9gGhDZiNFwxyAg=;
+	b=Y6X/tVqKR1/RuAYcnkRutTFb137noBD2s8ZHmWJkI1ERnB8pVbP2JqgeEi7ypQGchzyTj1
+	113ct5tt+d5wvtnTybDcdMyRIMu24+RqQcTDbf1qX6tx9Naj2Xmq+T+lFdbiJqycvCIfXg
+	PPx/qgZdXpOGALs0jRzosJqXQvb2Ohgev+MGo7px7AXjLCKHROH+Vl3c4C1GB5OtiYirec
+	QLKlK36RHrFICe9HCSrr0Fzv53DrdTr+Nm5NV10S7AdufTBd1ygibdvql0Mm5d8F1B6RT5
+	tWfTUMWQ0o6d63+lkuNRDQj7i+A5l9gzE3dZdExLp/Vg18EyaSYAOyt/Cgf3Hg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1770102115;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JVK0dROhNrON4b+0PmAq1JrLEYoLB9gGhDZiNFwxyAg=;
+	b=rMCKswJmZv+FpshaDrpPyLa5JjQOPUcUxyBtKqrQySL1DnMzvwr2H7Vts1yEM4YbPv4qjy
+	um+3HZnTRasIDYDw==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Naman Jain <namjain@linux.microsoft.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Andy Lutomirski <luto@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
+	Tamir Duberstein <tamird@gmail.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Kees Cook <kees@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, linux-kbuild@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Saurabh Singh Sengar <ssengar@linux.microsoft.com>
+Subject: Re: [RFC PATCH] kbuild: Make --build-id linker flag configurable
+Message-ID: <20260203074853-7e380585-f7d6-47e7-94b1-cf16bbfb7a08@linutronix.de>
+References: <20260202110631.978412-1-namjain@linux.microsoft.com>
+ <20260202151101-d5558a6f-88d0-41dd-8816-18957a029ce8@linutronix.de>
+ <6eadf05f-21bf-47d7-abd8-e4694a21e6da@linux.microsoft.com>
 MIME-Version: 1.0
-References: <20260202151050.1446165-1-vincent.guittot@linaro.org>
- <aYDiFpGT5hEDDFhV@lizhi-Precision-Tower-5810> <CAKfTPtDjad7aowTQ3UJPi5Qqgzf3q8J=kASa-t3YM4zfjUv3-w@mail.gmail.com>
- <aYD+/iTSF8ikTLIY@lizhi-Precision-Tower-5810>
-In-Reply-To: <aYD+/iTSF8ikTLIY@lizhi-Precision-Tower-5810>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Tue, 3 Feb 2026 07:56:23 +0100
-X-Gm-Features: AZwV_Qg5Kwi9KHew4ku1K5fA0TmRsp-hVv0jTdHdOIruFI5le9h55MG348VMg14
-Message-ID: <CAKfTPtDcKw0qc3o70AT9_n2omejNrh9fnkwS5NWKQpqjaCnBdg@mail.gmail.com>
-Subject: Re: [PATCH v2] PCI: s32g: Fix ports parsing
-To: Frank Li <Frank.li@nxp.com>
-Cc: ciprianmarian.costea@oss.nxp.com, s32@nxp.com, lpieralisi@kernel.org, 
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, bhelgaas@google.com, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <6eadf05f-21bf-47d7-abd8-e4694a21e6da@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_225637_021641_1EBBCB57 
-X-CRM114-Status: GOOD (  25.55  )
+X-CRM114-CacheID: sfid-20260202_230200_105336_80ABFC30 
+X-CRM114-Status: GOOD (  47.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,66 +87,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2 Feb 2026 at 20:46, Frank Li <Frank.li@nxp.com> wrote:
->
-> On Mon, Feb 02, 2026 at 08:23:30PM +0100, Vincent Guittot wrote:
-> > On Mon, 2 Feb 2026 at 18:42, Frank Li <Frank.li@nxp.com> wrote:
-> > >
-> > > On Mon, Feb 02, 2026 at 04:10:50PM +0100, Vincent Guittot wrote:
-> > > > No error return is missing after the loop resulting in removing the
-> > > > ports from the list.
-> > > >
-> > > > Fixes: 5cbc7d3e316e ("PCI: s32g: Add NXP S32G PCIe controller driver (RC)")
-> > > > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > > > ---
-> > > >
-> > > > Change since v1:
-> > > > - handle correctly the case when there is no child port
-> > > >
-> > > >  drivers/pci/controller/dwc/pcie-nxp-s32g.c | 8 ++++----
-> > > >  1 file changed, 4 insertions(+), 4 deletions(-)
-> > > >
-> > > > diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g.c b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> > > > index 47745749f75c..b3ec38099fa3 100644
-> > > > --- a/drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> > > > +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> > > > @@ -282,12 +282,12 @@ static int s32g_pcie_parse_ports(struct device *dev, struct s32g_pcie *s32g_pp)
-> > > >
-> > > >               ret = s32g_pcie_parse_port(s32g_pp, of_port);
-> > > >               if (ret)
-> > > > -                     goto err_port;
-> > > > +                     break;
-> > > >       }
-> > > >
-> > > > -err_port:
-> > > > -     list_for_each_entry_safe(port, tmp, &s32g_pp->ports, list)
-> > > > -             list_del(&port->list);
-> > >
-> > > break and goto is logical equal here. So only need below if (ret).
-> >
-> > Yes it's similar that why I removed it, the goto becomes useless and
-> > make code less readable
->
-> But don't suggest change in this fixes patch, which should focus on the
-> key part.
+On Tue, Feb 03, 2026 at 11:58:11AM +0530, Naman Jain wrote:
+> On 2/2/2026 7:45 PM, Thomas Weißschuh wrote:
+> > Hi Naman,
+> > 
+> > On Mon, Feb 02, 2026 at 11:06:31AM +0000, Naman Jain wrote:
+> > > Build ID hashes include file paths, so building the same source from
+> > > different directories produces different binaries. This breaks
+> > > reproducible builds.
+> > > 
+> > > Add KBUILD_BUILD_ID variable (default: sha1) to allow overriding:
+> > > 
+> > >      make KBUILD_BUILD_ID=none
+> > > 
+> > > The variable is exported to VDSO Makefiles which also include a
+> > > fallback default for standalone invocation.
+> > > 
+> > > Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+> > > ---
+> > > Hi,
+> > > Sending this change for RFC, as it is quite possible that this is a
+> > > generic problem and I may be missing something.
+> > > 
+> > > I am trying to implement reproducible builds for one of my product
+> > > kernel. I referred https://reproducible-builds.org/docs/build-path/
+> > > and tried to use both -fdebug-prefix-map=OLD=NEW and
+> > > -fmacro-prefix-map=OLD=NEW, but still could not achieve bit by bit
+> > > binary reproducibility without overwriting build-id to none.
+> > > If I move the kernel to same path in other setup, I was able to create
+> > > same binary hash, however, without it, there is some difference in
+> > > build-id hash values.
+> > 
+> 
+> Hi Thomas,
+> Thanks for looking into this and sharing your inputs.
+> 
+> 
+> > Can you force the same build path during package building?
+> > That should avoid this issue.
+> 
+> Since we can't control where the user would clone their kernel, I was
+> initially skeptical to copy the kernel to a same build path like
+> /tmp/kernel/src directory due to uncertainties related to free space,
+> permissions, but I tried it now and it works fine. It should be OK for my
+> use-case.
+> 
+> I am currently using NixOS for reproducible build environment.
 
-It's not a suggested change, it's the fix. err_port is now wrong
-because it's the path for all cases.
+So users are already forced to use a specific distribution for rebuilding.
+Also requiring a specific build path doesn't look like a big step then.
 
->
-> Frank
->
-> >
-> > >
-> > > Frank
-> > >
-> > > > +     if (ret)
-> > > > +             list_for_each_entry_safe(port, tmp, &s32g_pp->ports, list)
-> > > > +                     list_del(&port->list);
-> > > >
-> > > >       return ret;
-> > > >  }
-> > > > --
-> > > > 2.43.0
-> > > >
+> > > Reproducibility wiki says "In most cases however, post-processing is
+> > > required to either remove the build path or to normalize it to a
+> > > predefined value.". I have tried that, and it works, but wanted to
+> > > conclude if that is my last option here.
+> > 
+> > I am not a fan of this aproach. The build id should stay usable.
+> > Can you figure out where the build paths are used?
+> > You may need to also compare the debug symbols.
+> > 
+> > > Thanks.
+> 
+> I agree.
+> We did not have any use of these build paths, but some vendors may be using
+> it to fetch the build information from the binaries.
+> If your comment was about in-kernel usage of these build paths, I'll look
+> into it.
+
+I'd like to know where the build paths in the binary are coming from.
+So we can fix the issue properly instead of working around it.
+You said you are using -fmacro-prefix-map and -fdebug-prefix-map to avoid them.
+(There is also -ffile-prefix-map which should be more robust and easy to use)
+
+> > > ---
+> > >   Makefile                          | 8 ++++++--
+> > >   arch/arm64/kernel/vdso/Makefile   | 5 ++++-
+> > >   arch/arm64/kernel/vdso32/Makefile | 5 ++++-
+> > >   arch/x86/entry/vdso/Makefile      | 5 ++++-
+> > >   4 files changed, 18 insertions(+), 5 deletions(-)
+> > > 
+> > > diff --git a/Makefile b/Makefile
+> > > index 3373308d2217c..3fcff4af200d7 100644
+> > > --- a/Makefile
+> > > +++ b/Makefile
+> > > @@ -1132,8 +1132,12 @@ KBUILD_AFLAGS   += $(KAFLAGS)
+> > >   KBUILD_CFLAGS   += $(KCFLAGS)
+> > >   KBUILD_RUSTFLAGS += $(KRUSTFLAGS)
+> > > -KBUILD_LDFLAGS_MODULE += --build-id=sha1
+> > > -LDFLAGS_vmlinux += --build-id=sha1
+> > > +# Can be overridden for reproducible builds by using "make KBUILD_BUILD_ID=none"
+> > > +KBUILD_BUILD_ID ?= sha1
+> > > +export KBUILD_BUILD_ID
+> > > +
+> > > +KBUILD_LDFLAGS_MODULE += --build-id=$(KBUILD_BUILD_ID)
+> > > +LDFLAGS_vmlinux += --build-id=$(KBUILD_BUILD_ID)
+> > >   KBUILD_LDFLAGS	+= -z noexecstack
+> > >   ifeq ($(CONFIG_LD_IS_BFD),y)
+> > > diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
+> > > index 7dec05dd33b70..b3ee5982b4676 100644
+> > > --- a/arch/arm64/kernel/vdso/Makefile
+> > > +++ b/arch/arm64/kernel/vdso/Makefile
+> > > @@ -9,6 +9,9 @@
+> > >   # Include the generic Makefile to check the built vdso.
+> > >   include $(srctree)/lib/vdso/Makefile.include
+> > > +# Fallback for standalone builds, normally inherited from top-level Makefile
+> > > +KBUILD_BUILD_ID ?= sha1
+> > > +
+> > 
+> > What kind of standalone builds?
+> > This doesn't look like it belongs into this patch.
+> > 
+> > (...)
+> 
+> The case I was trying to cover here was when we try to compile
+> arch/x86/entry/vdso/ separately, without the KBUILD_BUILD_ID coming from
+> main build scripts, "--build-id=" would be left empty, while we may want to
+> retain original value i.e. sha1.
+> 
+>     make ARCH=x86_64 arch/x86/entry/vdso/
+
+I don't think this is or should be supported.
+
+> arch/x86/entry/vdso/Makefile:
+> -VDSO_LDFLAGS = -shared --hash-style=both --build-id=sha1 --no-undefined \
+> +VDSO_LDFLAGS = -shared --hash-style=both --build-id=$(KBUILD_BUILD_ID)
+> --no-undefined \
+> 
+> Anyways, this may not be required now.
+
+
+Thomas
 
