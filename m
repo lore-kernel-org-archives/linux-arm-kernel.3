@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80A0BE8B368
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 21:44:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1E76E8B367
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 21:44:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xDnbTZkgpEcZfFc/K5y3MnXqzsYrZPhhxkutx0s5XKI=; b=whfn5TBrmecufCB7Y+wODFu8Uk
-	1OxhiSD0s3M9mXZ0sCNnLybjjGJBqN5zkdbc7v8vmAy0wo3c28gnKL8HKPdlt8WiA60ypWB6UMpiZ
-	1J60RqoCM73ESfxvtiB6izASWoqagFVpKv2tC0sdjqoLRfgWdyrhMlHnbwIiIUiLGJV++4u0EZEtg
-	vHklVyC1KMUOJj1KUZVi2hsbuT1Lp6m0awQz9efMzOswP5lCrT8a9tj2ICjKCOJX4EcFd4FWZybK3
-	4w3f67vENe5ZL2PUDU3R7MD2uiUzfwEQLoboO2Fo9IGIWICLsDabVCMeztI1zOhYMJtka812d/kzV
-	g6skGqag==;
+	bh=gjtcAMGxd5z56DiMDaw+WjDGaOJGhmQq+hTFv7VvUjA=; b=45X7L4pQDnliyc8jqozkfaytGA
+	YnqFL8e8E0f5odf1GfmQay040sakNtdbO5wxo3Dylepeuk5DaWoVwnHFI6IWyDxmban41dsREaHcL
+	NVGMSQi83mZOtetu3fvLL+hMhS8bHAdjuRZ/TQULrl58O82qt9262IBuCHthatr6kJb1XYCpuB0XC
+	wXa681/W7JMOk1wkPIN2TfUWllUe51jb30hOa5Z2aIJovV4HEGVfFHQp4ee1zxXwX/8PNjTK8Hppe
+	j64vSdOOXhQY+KafIcuWpIMKaDW0q4v+tAk/65CotFbmAKaGgkkTrOoR1Qy4lpKbAFtipy50og0QN
+	DsAptBbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnOC2-00000007O8A-0C0E;
-	Tue, 03 Feb 2026 21:44:18 +0000
+	id 1vnOC4-00000007O9s-3Z43;
+	Tue, 03 Feb 2026 21:44:20 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnOBy-00000007O6z-29CT
+	id 1vnOC2-00000007O8M-1Ef8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 21:44:15 +0000
+	Tue, 03 Feb 2026 21:44:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D94DE1063;
-	Tue,  3 Feb 2026 13:44:04 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B9841339;
+	Tue,  3 Feb 2026 13:44:10 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AE6743F778;
-	Tue,  3 Feb 2026 13:44:05 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9090F3F778;
+	Tue,  3 Feb 2026 13:44:11 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -70,17 +70,18 @@ Cc: amitsinght@marvell.com,
 	zengheng4@huawei.com,
 	linux-doc@vger.kernel.org,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v4 02/41] KVM: arm64: Preserve host MPAM configuration when changing traps
-Date: Tue,  3 Feb 2026 21:43:03 +0000
-Message-ID: <20260203214342.584712-3-ben.horgan@arm.com>
+Subject: [PATCH v4 03/41] KVM: arm64: Make MPAMSM_EL1 accesses UNDEF
+Date: Tue,  3 Feb 2026 21:43:04 +0000
+Message-ID: <20260203214342.584712-4-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260203214342.584712-1-ben.horgan@arm.com>
 References: <20260203214342.584712-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_134414_681908_992C4651 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20260203_134418_374475_A8182E24 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,15 +96,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When kvm enables or disables MPAM traps to EL2 it clears all other bits in
-MPAM2_EL2.  Notably, it clears the partition ids (PARTIDs) and performance
-monitoring groups (PMGs). Avoid changing these bits in anticipation of
-adding support for MPAM in the kernel. Otherwise, on a VHE system with the
-host running at EL2 where MPAM2_EL2 and MPAM1_EL1 access the same register,
-any attempt to use MPAM to monitor or partition resources for kernel space
-would be foiled by running a KVM guest. Additionally, MPAM2_EL2.EnMPAMSM is
-always set to 0 which causes MPAMSM_EL1 to always trap. Keep EnMPAMSM set
-to 1 when not in a guest so that the kernel can use MPAMSM_EL1.
+The MPAMSM_EL1 controls the MPAM labeling for an SMCU, Streaming Mode
+Compute Unit. As there is on MPAM support in kvm, make sure MPAMSM_EL1
+accesses trigger an UNDEF.
 
 Tested-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
@@ -112,48 +107,25 @@ Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
- arch/arm64/kvm/hyp/include/hyp/switch.h | 12 ++++++++----
- 1 file changed, 8 insertions(+), 4 deletions(-)
+Changes since v2:
+Remove paragraph from commit on allowed range of values
+---
+ arch/arm64/kvm/sys_regs.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index c5d5e5b86eaf..63195275a8b8 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -269,7 +269,8 @@ static inline void __deactivate_traps_hfgxtr(struct kvm_vcpu *vcpu)
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index c8fd7c6a12a1..72654ab984ee 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -3373,6 +3373,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
  
- static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
- {
--	u64 r = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1;
-+	u64 clr = MPAM2_EL2_EnMPAMSM;
-+	u64 set = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1;
- 
- 	if (!system_supports_mpam())
- 		return;
-@@ -279,18 +280,21 @@ static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
- 		write_sysreg_s(MPAMHCR_EL2_TRAP_MPAMIDR_EL1, SYS_MPAMHCR_EL2);
- 	} else {
- 		/* From v1.1 TIDR can trap MPAMIDR, set it unconditionally */
--		r |= MPAM2_EL2_TIDR;
-+		set |= MPAM2_EL2_TIDR;
- 	}
- 
--	write_sysreg_s(r, SYS_MPAM2_EL2);
-+	sysreg_clear_set_s(SYS_MPAM2_EL2, clr, set);
- }
- 
- static inline void __deactivate_traps_mpam(void)
- {
-+	u64 clr = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1 | MPAM2_EL2_TIDR;
-+	u64 set = MPAM2_EL2_EnMPAMSM;
+ 	{ SYS_DESC(SYS_MPAM1_EL1), undef_access },
+ 	{ SYS_DESC(SYS_MPAM0_EL1), undef_access },
++	{ SYS_DESC(SYS_MPAMSM_EL1), undef_access },
 +
- 	if (!system_supports_mpam())
- 		return;
+ 	{ SYS_DESC(SYS_VBAR_EL1), access_rw, reset_val, VBAR_EL1, 0 },
+ 	{ SYS_DESC(SYS_DISR_EL1), NULL, reset_val, DISR_EL1, 0 },
  
--	write_sysreg_s(0, SYS_MPAM2_EL2);
-+	sysreg_clear_set_s(SYS_MPAM2_EL2, clr, set);
- 
- 	if (system_supports_mpam_hcr())
- 		write_sysreg_s(MPAMHCR_HOST_FLAGS, SYS_MPAMHCR_EL2);
 -- 
 2.43.0
 
