@@ -4,82 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E82D1E8B385
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 23:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21F8BE8B37E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 23:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fYGJl9M6Oj5ps42Ajunkmicm+93ZEJYnZZHZdB0GDfY=; b=zEcc/fNx2L4KfBb/RDv/wIKXGE
-	k6CmtwnuPR1bWcVodwks3UR9deqG0p6VsJJIpaWg6Q8ve73HEAzJ/HGRdgcBUBqannTB1elR8L93N
-	Rm9KF5qsCzOUI5Jh6/oydZMkF0JggGK3Wtl6qNXU0fz/xMhxxOjYJ1Cs461oJbwnUS7Oy9Do+cxQy
-	dmFq9dEP+CaBJJ3xEzXMWStqPBxBWva7CJGkQvCLhHBP8Wb7k9O845W/KW4XhjWT0fUtbQ5yHNVMX
-	AlXo+Vn+c+IKz6hV2di3CK4wkR8Zgop74ONbFPI6D/uFT3OdrZ98N5s5COFLJKTfxoaEi0aIRe+Vl
-	4rcLVtag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MUtAEzuFZ3UXsgeYeGcULd0s9lsr291/wS31tUAYPQI=; b=AEhiopehFpZslmP/mIWs+rkY0N
+	rLu6rCeKZwp1Bk+vg2xtsvEIVDf57juoW3sux0nHxC3rzBmw+c+qHGqyfc4abSPz1ZaIa8CLGi6Mp
+	7hR9yUbLpe7DKP69aZlt/p2DcVXvdlQCgTGDVZtMWdpKTlZy1yVXlhsIl6x2BG7tpMf6Q4//7j0Vb
+	f8xLMCFFzR6MGRtjZiEanv7xVAPtfWojP9teOGaMFkZXGBbeja3YFTyhJkexrAneVr3Q9ycEFLBvE
+	jf1oOBLhOmoNwwZ+i6Zwt57iNP7HGq+fQh6dY3kAxZAnlDNBvTxO7iLvGO9aNDO6FM1YNsUCK267T
+	DvsN6uJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnPyS-00000007ZhX-30IJ;
-	Tue, 03 Feb 2026 23:38:24 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1vnQ4a-00000007aDw-1WrT;
+	Tue, 03 Feb 2026 23:44:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnPyP-00000007ZhC-37BR
+	id 1vnQ4X-00000007aDP-0ZRV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 23:38:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1770161902; x=1801697902;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=VUA7xPz2k2DqTILvSG8MJrzRqVcjkXmJKeKSnbJhE8c=;
-  b=NnQBOqWxOS45NSYwDP+xhLKX29CwPGgVToFOiSqEJZhN6AtJ4WxPJAtB
-   jdtcX6D2yCbW66mu+LYc4n6Sx9Q2hqLvM1yPRAIJxHNWIkXRgZ4I1h00A
-   XWtIg8sluWb1s/WjO9VIjwLeM+QYNd4B2xS1pOaq7B09DD+DfFs6Iwv1K
-   T2UW3kjNpk5Io5xvzO5FqAMyWbEM4R9AqVeS+oqxzG4waEC390IdkG5cT
-   4W4umSHKeJItMkz12AX63MiFwSsqBawDSE9de1t/D5uQwapBAvzdvKvtA
-   WYK+woEqBXuNbVT3PHbE2Nb/U/jeV7u7Klr87a2WimDX2T6z7WPFWxfSz
-   Q==;
-X-CSE-ConnectionGUID: 0tG3zdwYRy2VScl3qo4xMQ==
-X-CSE-MsgGUID: e2mvt8/yQB6fVRrV2k6xVQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11691"; a="71065831"
-X-IronPort-AV: E=Sophos;i="6.21,271,1763452800"; 
-   d="scan'208";a="71065831"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2026 15:38:19 -0800
-X-CSE-ConnectionGUID: u2/E/qW7S8KctZQwAD6OFA==
-X-CSE-MsgGUID: Gj/xUhl9RSSVJf+5vGhJUw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,271,1763452800"; 
-   d="scan'208";a="209100278"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.99])
-  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2026 15:38:17 -0800
-Date: Wed, 4 Feb 2026 01:38:14 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v9 7/7] i2c: xiic: skip input clock setup on non-OF
- systems
-Message-ID: <aYKG5k5-6ll_RzQz@smile.fi.intel.com>
-References: <20260202-i2c-xiic-v9-0-ce4695f5267d@nexthop.ai>
- <20260202-i2c-xiic-v9-7-ce4695f5267d@nexthop.ai>
- <aYIYUNejGCVdekx7@smile.fi.intel.com>
- <9F7815FA-80D8-4C96-B61F-5CA6CB405F7A@nexthop.ai>
+	Tue, 03 Feb 2026 23:44:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 63B62418A9
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Feb 2026 23:44:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45A99C2BC86
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Feb 2026 23:44:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770162280;
+	bh=MUtAEzuFZ3UXsgeYeGcULd0s9lsr291/wS31tUAYPQI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ugcyN0RqC48lMQVC290mr54/cSG8mF5qG6qEw1bXtuEg1AHRMdgpEol4MTB4WYgbx
+	 2xgqlBNWqkJckBepT2lyA7KPKwAVTR7exlJt6+nKU49bLYyk6a32A0JXHEgkYdX0JW
+	 JdKy89rOSuHUxQGG36O3GomJnrxi8DRpkj9qqaL1u59b5X03z9pAKndSF27sExk6Mu
+	 e+wEhvO8nkNb10Lh7E62jU/jKYzK+2n8Cn3jkoSu8teRtumFaYuuD7lBca1tjzvYHH
+	 DNwMUzf8L2cy3eu0zdga38VJVA/+z07Ak3oWCQxVORf+z7cadCUrLBIMwDdqHvpyx/
+	 3Nl558QdYMMaA==
+Received: by mail-yx1-f42.google.com with SMTP id 956f58d0204a3-64965ee303dso288785d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 15:44:40 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXUvbQgQbl+PqDf/101cN6FiNTO8pdu6su4zcrr3kjmA1vOI6zGL/+nzESl5Lu8gsgXlcc9SAGzCXqMmUdVrMVc@lists.infradead.org
+X-Gm-Message-State: AOJu0YykfxmPU0sNPKGS73AcMSkrATkooGa3rCX3poTz3VMSeFmmTLF9
+	H6hSuH5fwBwqLLpkfoOWDVMCnXqdtQDjJaNmmTSnydYhFiieISRnkiUNKr6soRmhC0UjGYzKEzO
+	jDJcjsYZwP0tMNkTxqbsbN198kOrBai4=
+X-Received: by 2002:a53:d8c6:0:b0:645:68cf:2bf4 with SMTP id
+ 956f58d0204a3-649db4ac96bmr877835d50.77.1770162279637; Tue, 03 Feb 2026
+ 15:44:39 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <9F7815FA-80D8-4C96-B61F-5CA6CB405F7A@nexthop.ai>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20260203-dev-b4-aaeon-mcu-driver-v3-0-0a19432076ac@bootlin.com> <20260203-dev-b4-aaeon-mcu-driver-v3-4-0a19432076ac@bootlin.com>
+In-Reply-To: <20260203-dev-b4-aaeon-mcu-driver-v3-4-0a19432076ac@bootlin.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 4 Feb 2026 00:44:27 +0100
+X-Gmail-Original-Message-ID: <CAD++jLmsx885MteExK0NcS6aD3BVimK82Z3bosSpUvSs8p4Cag@mail.gmail.com>
+X-Gm-Features: AZwV_QjuysNBoHyalaty048gguXHT55tueRC1-zJSip9FADgZXaoN46HJGRIgaE
+Message-ID: <CAD++jLmsx885MteExK0NcS6aD3BVimK82Z3bosSpUvSs8p4Cag@mail.gmail.com>
+Subject: Re: [PATCH v3 4/5] gpio: aaeon: Add GPIO driver for SRG-IMX8P MCU
+To: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, 
+	=?UTF-8?B?SsOpcsOpbWllIERhdXRoZXJpYmVz?= <jeremie.dautheribes@bootlin.com>, 
+	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_153821_878006_3DFB758C 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20260203_154441_213909_96CCFB10 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,28 +90,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 03, 2026 at 10:38:51AM -0800, Abdurrahman Hussain wrote:
-> > On Feb 3, 2026, at 7:46 AM, Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
-> > On Mon, Feb 02, 2026 at 08:37:24PM +0000, Abdurrahman Hussain via B4 Relay wrote:
+On Tue, Feb 3, 2026 at 5:21=E2=80=AFPM Thomas Perrot (Schneider Electric)
+<thomas.perrot@bootlin.com> wrote:
 
-> >> Currently Linux does not implement ACPI ClockInput to describe clock
-> > 
-> > ClockInput() resource
-> > 
-> >> resources, unlike DT. However the xiic driver is happy if something
-> >> magically enables the clock before the driver probes, and does not
-> >> turn it off again. The clock should always be considered optional for
-> >> ACPI.
-> 
-> I just used the wording provided earlier by Andrew verbatim. But can change
-> to the following if you insist:
+> Add GPIO driver for the Aaeon SRG-IMX8P embedded controller. This
+> driver supports 7 GPO (General Purpose Output) pins and 12 GPIO pins
+> that can be configured as inputs or outputs.
+>
+> The driver implements proper state management for GPO pins (which are
+> output-only) and full direction control for GPIO pins. During probe,
+> all pins are reset to a known state (GPOs low, GPIOs as inputs) to
+> prevent undefined behavior across system reboots, as the MCU does not
+> reset GPIO states on soft reboot.
+>
+> Co-developed-by: J=C3=A9r=C3=A9mie Dautheribes (Schneider Electric) <jere=
+mie.dautheribes@bootlin.com>
+> Signed-off-by: J=C3=A9r=C3=A9mie Dautheribes (Schneider Electric) <jeremi=
+e.dautheribes@bootlin.com>
+> Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.=
+com>
 
-I do not alter the wording, I correct the mention of the respective resource.
-And yes, I insist.
+Looks good to me!
 
--- 
-With Best Regards,
-Andy Shevchenko
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-
+Yours,
+Linus Walleij
 
