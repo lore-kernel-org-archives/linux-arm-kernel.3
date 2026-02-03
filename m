@@ -4,182 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B156E8305C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 07:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3A7BE8305B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 07:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zFsUK6VHwr0Hxx+ZXnbFkaszxvlcxKRg7LISXB60AFE=; b=yWNBEE9HVsLiHOLaXwM0Zf5n4n
-	gn2xN/UKWqQxm3aqCeGf7Kr7rxiMO7xfjBH0Qfh5hRMu9C/atynG9N7FyITbHUc5oXJDvU/5lc3pn
-	4gqOGsfrNGXQf+keEk1rsiO+nQM1NROFRcl72ffZPHd8OD6dimgHbTxH3R4xWMPpBBxePPalMl286
-	zvvQVadkGBXFhDTMu+xA+bwhA25hSXzX3Yyz4Z4pM6kdUXzSginIlI8LdWOVGCN6M8+mry1SJs/K3
-	3YW6SvCvijiLft97agPH6dr/XScYBlLa2emZXbTUnFZxaqwrTK2V+BepiUUTR4HidMszgMF4S/v3N
-	humA6D4w==;
+	bh=QNR5RxTwzTtZsop8+J+WBmJB6mqTYo7/2/cKx2YLwz8=; b=J6FcMHZY+l/7vT4MOMJibMCRYL
+	Wht1sz5lITnbMeSnf9xENM11fW5XC+aZed71zsD54pOD16dg66JsYfac764R2vPUh9nrf3Lx3TDX0
+	+gMfzYjb+8DL4qqgJmxsSBP7oCp/yZQoIM8/f9Bqd8+6hXWH3GoN0eToomckCs2ZcEoaJOreGoarY
+	V3jcneyIPCedvoyOtC8yuE9HevCTxv7cRojM4UToo4hDOFE/KcsEgyUTSR6iyUCb5+HXScRpa4fuE
+	6l6IBkZq3/4n9ryLBqWwqPtYal0tZtXzkaKx4igrX0h9qShWQC9IOlnE/D+L8gma/8Nh/SN2l9jWc
+	jvBC51eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnAbX-00000006EDJ-3v44;
-	Tue, 03 Feb 2026 07:13:43 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vnAhZ-00000006Edn-2zr9;
+	Tue, 03 Feb 2026 07:19:57 +0000
+Received: from mx-relay49-hz3.antispameurope.com ([94.100.134.238])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnAbV-00000006ECo-3xcT
+	id 1vnAhU-00000006EdL-37cM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 07:13:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RtVC8FnFYbr/MIYG7fj1KH8DhIKL4N54eKBye8o8l9BhJkrF3Gvp2XUqXhwyCGRTYXPoHq6JqNIwjSV88RAzADc5oCzpsbjrLjaEl01CtJpdFnpxWqCF0dIU3Fb/bUuQMV8PAuOsjhFapfNPUP89EXPwU+uxtkz4D83+sMlOM9jNu7eKoT8JWpDPFT+/M88aGKSbB/2ttZVVbB5FBV0XmxTj6fcXqXl12UXHG1C9RV9vgmpiC2k5vL7OXAHmoUcNk2nU0RyPwrF1Z6OiNpkN6TeUKeyw4sG54OgcOT3I1fBjT1Sq5TU57azfYwsVrMzS56gvyfyoJOYT7oyknZPH0A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zFsUK6VHwr0Hxx+ZXnbFkaszxvlcxKRg7LISXB60AFE=;
- b=oHSmAwY7/ByIdDdkl7l6hxkmPtClFbKRfRhQzKN79HRH9IXQV6lziZn82jY/RaE/D3daA1jeeUSI2TDhVJzoiXM+NzzyZIzr5426CJWOXoaSwrcHCpHRybSqsf7xH4WFUwdwr9mjL81bYh776hNKzs5OBBPwoGKkwM5ZSsXRKgKIUPFsvPfJ2TmtFSZyoFOP1AuZ40AMV2QkmWIeZvBa+OF3ZJfpvY/WMpWnatHrl8axkEsrScJgzj1LlAc/1/5fauQ+X5Z0ROkyJUeSLwNz06kI2kZnVjoFiE8Kh2rnEZPjhCj9FDbDWcR9xlfy3xMv6oU/LLmCCF+hbLSPCVC72g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zFsUK6VHwr0Hxx+ZXnbFkaszxvlcxKRg7LISXB60AFE=;
- b=nM70/h/iOwlIRZEdVJR0nXKb3CZhxIrGgwWsXp1UaNSVM6xKgO0Z8nqPXTnNFmsiZ8/9ubdgrMjEjaWs0f4XUsgEmBtp15mXCPP2VXmLTdIUnhMggyOsgPXwi8g3WW1iiHFSbhSJFnoItgkGO69gJy63eG9NAa+6GKp8wedkHKVTw9iD6hC4jv34RiJCcgD7i9OUGSJFghbwdi85ySrBH2swUAyToXa+hAS5ZIyMR+JndX58H4aXeXZd/3QcO5BMec8PWdfbhLKzS8tKLniWN+LxwUafrLl4EhlzisOF8ob4Po93ijo7wz/mJ+TAFu5UHirdNRaEP8Vg5XNM8KojJg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by GV1PR04MB11063.eurprd04.prod.outlook.com (2603:10a6:150:20c::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Tue, 3 Feb
- 2026 07:13:34 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.9564.016; Tue, 3 Feb 2026
- 07:13:34 +0000
-Message-ID: <ca3a8042-1394-4925-9c61-dbfcbf4cf7d9@oss.nxp.com>
-Date: Tue, 3 Feb 2026 15:13:21 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: imx8mq: Restore VPU G2 clock to 600MHz for
- 4K60fps decoding
-To: Nicolas Dufresne <nicolas@ndufresne.ca>, linux-media@vger.kernel.org
-Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
- benjamin.gaignard@collabora.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, p.zabel@pengutronix.de, sebastian.fricke@collabora.com,
- shawnguo@kernel.org, ulf.hansson@linaro.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
- l.stach@pengutronix.de, Frank.li@nxp.com, peng.fan@nxp.com,
- eagle.zhou@nxp.com, devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260130084133.2159-1-ming.qian@oss.nxp.com>
- <df8d5d5f28870752e77ec74f34fea7ceb6e97286.camel@ndufresne.ca>
- <0b24716b-438c-4185-8a93-3a3879147c24@oss.nxp.com>
- <169eba79e8e1f906b1a0b59e22a531dfc7e57a1f.camel@ndufresne.ca>
- <5e3431c69da07557edb20a252c4759be8c857f08.camel@ndufresne.ca>
-From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
-In-Reply-To: <5e3431c69da07557edb20a252c4759be8c857f08.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SI2PR02CA0042.apcprd02.prod.outlook.com
- (2603:1096:4:196::19) To PAXPR04MB8254.eurprd04.prod.outlook.com
- (2603:10a6:102:1cd::24)
+	Tue, 03 Feb 2026 07:19:56 +0000
+ARC-Authentication-Results: i=1; mx-gate49-hz3.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out01-hz1.hornetsecurity.com;
+ dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=QNR5RxTwzTtZsop8+J+WBmJB6mqTYo7/2/cKx2YLwz8=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1770103174;
+ b=BbrVJ0uXn/tN0is/CRh13jUy35K66wixtHSV4e88h6dxX+yFxMLsukAyyy9O+IucEm9NzdXR
+ nZtssDDyDEBzzUWr0GdQPTU08lUJqyrcdTjkOGVKC/XCzEAg2NOdlzqSHrNTeSae3+2ONMpR0s/
+ ViYyKkarUg/L7cig8o2iwNrU3qAzYR9YmZvcUXUex8bBZUOQ9nwSui0KN+Qcd5AgpAp/GKOEcQZ
+ ErrlN7W2rsLAfu5Sl27FK5FM0axrcfdmMVd0+MrmOvxxIQj/6DeuWSMDTRAqv6X2JoXQ8K5h/g5
+ mENx2z8Lzmdxl+uPM9DVvUI0Yqiz/iFWgU28DTZSCSx9Q==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1770103174;
+ b=ol4ETlcid1NFt0lokZx9cabNHqVAT8NF5XSPg4PpVch5bC3AvOn3A2651q02UpQx4oNLGbgK
+ Rmu3B6XXgw0686f3ywfj7wedZdwHgaXXDyoGgzotwuCKlyUV+t/vXQPWL1IgCqHPY3bfa8+hzS6
+ iN9jIX4C69lVUaWMMMzG17ODy9uYjLU4uRKLlWXPk+gx4s+cQRR4Ob5SFA+RR4eSSW9K6jHa8CJ
+ aYcXHR5eCtAzn973FrQCoabeiEiU8pfPg9EvNpQc1CQl9mVUg8vioVaJe11JLGAcKW1Q+1EomW2
+ 9/WtGTDcvVpgyrWqFYpIRP/rcmHUHfFTjBZl2/xnjWHEg==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay49-hz3.antispameurope.com;
+ Tue, 03 Feb 2026 08:19:34 +0100
+Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by smtp-out01-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 36261A41052;
+	Tue,  3 Feb 2026 08:19:14 +0100 (CET)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
+ Li Jun <jun.li@nxp.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+ Xu Yang <xu.yang_2@nxp.com>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Xu Yang <xu.yang_2@nxp.com>
+Subject: Re: [PATCH 1/3] dt-bindings: usb: introduce fsl,imx-dwc3
+Date: Tue, 03 Feb 2026 08:19:13 +0100
+Message-ID: <2820312.mvXUDI8C0e@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20260202-add-flatten-dts-based-dwc3-imx-driver-v1-1-c44a5e919380@nxp.com>
+References: <20260202-add-flatten-dts-based-dwc3-imx-driver-v1-0-c44a5e919380@nxp.com>
+ <20260202-add-flatten-dts-based-dwc3-imx-driver-v1-1-c44a5e919380@nxp.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|GV1PR04MB11063:EE_
-X-MS-Office365-Filtering-Correlation-Id: d7143f7b-d842-4640-b567-08de62f3bd97
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|19092799006|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bTFHekJ2WnBPVmhOQVY5U2Nkd0kwWk9aZWt6eVB5dmhRT25yVFdzcXFVWDlF?=
- =?utf-8?B?aHhoWWJETDVWRVIvNTdqNUhMallSVW5OejNVSFNqNEtyZzhaS1V0alpmdXRU?=
- =?utf-8?B?cUdhZ2ZHRThNL3dFQnEyS0ZxRmNJOEkwdHlpNGZldWJjeWpDalZhUUkyNjJj?=
- =?utf-8?B?Y0lnUHFIQVNsOWk5ZStqaDFJeWxHcUZ4eGNYYlRSaHNmemZ3TkRucGdFME5z?=
- =?utf-8?B?blRXSkwwVDdVckh2bkt3ZDFraGRkZVVTUk9WNXIrL3UzYzVqVVBxd2hIYzNl?=
- =?utf-8?B?OVJxeGdsWjUzWCtSNUlFQmxrZ1JXdUhNMEJSMTBMcXpHZmlVNWUwSEFnRWxV?=
- =?utf-8?B?Sk1qa1VFcS9LQ1pXZUhseUtjaURkOUNMeEk2UzlLY3N5V2J3SG1LaVl0MDEz?=
- =?utf-8?B?RlZpWDE4ajFHZC84OWVBSURHOHRFc210Zlk0ZEpISk1EdE1jcW1Ldi91dDlk?=
- =?utf-8?B?Q0FYY2RYRWgzd1FsU0dOamRjSGNERjJRcU0yLzZZY2JNWEYxbXkvb051aVdD?=
- =?utf-8?B?Rm1pWVpra3MzQm1DK1dsNGdBK2RCeEluUjZXQUpOaGFzSnZndDBDRS8wcVRC?=
- =?utf-8?B?RXhnUFE4TFJKd3NSRUFOV1ZyOUNLUC81U2VWYW5MdU9CRjdtSEZBVzBNWmVn?=
- =?utf-8?B?ckRqMFVwZjA2UWQyd28ybWxrOGw5OGFTMWl0d1puS3ZVaFdBbXJUclpwOUF4?=
- =?utf-8?B?aWNBRFJJTkEvSXlJeHFwWFJrcUpPSFhqSXF5UFUzRjRCZTZGdEdZamNNWjJ3?=
- =?utf-8?B?QnVMUGxyZUhVNkcxdDFPU2tIcC9oRUdwekRZWmtmRW9MaHBzMGJrdGpidWlP?=
- =?utf-8?B?R2lDZWt4T3p0MzhGczU4dUdsdUZ4TEpmeTloQTFaZEtsMnU0VDNpLzd0eVE5?=
- =?utf-8?B?MUtLdXFqUWtna3ZickxibEJRUE1qbjZQNE5zdkcwK3gwa0Rmd2VYeWhhdzRM?=
- =?utf-8?B?M2xtV3FwYW9NQ09FdTNzaVRGTnB1QmJlOC81amd1cStJbEZFM1N3TVRvTk94?=
- =?utf-8?B?TmZQUEJPK2hFU3pDRzc5UGdXRVdyTCtuUFh3Y25vVGladS9keHhyTEJ2dWtF?=
- =?utf-8?B?ckh6OU96VHA2bHZPSXY2SzFFSnpvaXVvaklQQ0IxdVlsRFVtMFYvRVNRN2FV?=
- =?utf-8?B?L0lVSzE5OXZMUkFJYXE1UWVJc0lIcHVZM0JETkJBdlJBMkRIOElIZGZrVGR3?=
- =?utf-8?B?czdQOFVQamZOL1Q3c2JvM2VudkxlelFpOFppcWp0WXpvWjVqN3FRM3JkOWU2?=
- =?utf-8?B?OUhTSnhQYmtkYVN3b2k3ZnVTVjF5UmV1Vnhob2ZRazUycjZVdXRTYmptWk9Q?=
- =?utf-8?B?WTFGWnI2NmtFYXI2UzJsSU9HNEJ0UitCK0dEY0U1WGhYSFBMZkVHd20zRUx5?=
- =?utf-8?B?eHRRc1lIbUJ1VHBZREM5bm9aUFZKOThBYlRjblJHbkdRM3FGdHQ4S3Znanhy?=
- =?utf-8?B?MDIzSlhiNi9yZU5WYWsvdXgvaFF2Q2E0K2ZxeDBsQzdtVEpLblIxamFrUlhv?=
- =?utf-8?B?SzB2cU00WFRHWGdiQzdlQlcydi9adllqMjJFZ0ltKzVsYXltTXBydTUvM2F2?=
- =?utf-8?B?UWRzY05jUXlWUHFadFh2UkxwakVTaC9CbWFBSkl6VzlCR1Bvc2M4dVk2enlQ?=
- =?utf-8?B?OEhDMHdPSUNNWG9KV2RoQnlYb3dybS9Cek05RlhIeVRsN2thMG5zZmtUOVRP?=
- =?utf-8?B?djgwMkp6SzU3bytobXBYckdzV280WkhzWEd5aEVhVnBNRkNKRkxXU0piWjFE?=
- =?utf-8?B?UGYxYW01NUVUZmJVbVdVM01CWnRIS3M5eDJEVUxCRkJOV1R0Qm5OcVduZlUw?=
- =?utf-8?B?R3ZuNWpDcWd3dlp1eEt2YStWTmRWNEtVNU4zaVVuTzVGbFdhQXRQK21Xa1pJ?=
- =?utf-8?B?U0pJVTljdGRld09ZZFhMa1QwZmltNDh0R3VQQWRKeFAxTThJWnlyMkwrZnl1?=
- =?utf-8?B?MkVMYmVNQ1pWTCtJUTZwcFBtT3RycGNRNDd1eTNFakNvaFhPY0JyY3RLNGdp?=
- =?utf-8?B?em56VS9BS0d0UjJ4em00cDY0anJRMTZoZHIraWdZTDNZbkVnK0ZXbnJGb053?=
- =?utf-8?B?cU1TRFdsVXV6RGdMMVI2ZjFwaEpnTmEwRURCUFFYR3ZjWEhtVjBVSTFWOEZJ?=
- =?utf-8?Q?u2xE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(19092799006)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Qy9pM2RkSmRtdkhrRlFlNG45cCt6WldIVXdzWTNKQnVxbmlobmcwZUtGOWxr?=
- =?utf-8?B?Q0FCNU1oZGFiN21hOXpsK0VxM0xnVXFJaE1LdWI5UzlhQkpMaWhTekU3YXFO?=
- =?utf-8?B?NWpzeUlTSWtEb3huMXJCTURRMXVFNUZKM3JaS3k3N1hvNmFWdWF4MXEvdXgx?=
- =?utf-8?B?UmNRRGVkNHJsQWFPL0k3V1MrNWdJaFp3ekQxdVZweldqU1JNUXVVanF3MXFi?=
- =?utf-8?B?ek53Qm0yRC8vTkwvZWdyTjB3Q09rVjlrM3B0WGFNVEg3a216ZlMxZUVxVkxR?=
- =?utf-8?B?MEJCYWw3T05DZ092c09yaUI4dC9kM0lKS0JYUitFMHExRkxXUWgvbElIc3BU?=
- =?utf-8?B?T0Zrd0hVb1EzMzZudS9wNnRGbGhzOFVWK0RkM3RVV1dyUzQxM1NMMXRJQ2ZE?=
- =?utf-8?B?Q0hudFBKRHpzdUlobGZLZ01uK3RkM3lqMGxMbmNFak5qdDVwZnF2eDNOaGhk?=
- =?utf-8?B?a3lyT1lzcDR1Y0tmdm9FMFMxNlYzNkJuMzgxSzlsMElyNW03WDZPSkduV24r?=
- =?utf-8?B?bVcxS0o2aUVseCs1b1c5V2dhQ3pLK1UzdzVrZ00wQnA5eWl3R0lsd1h3VXU5?=
- =?utf-8?B?cENrUysvSjh6TUZ4TENQb3lpcFoyRktBK2c2KzVvWlY4NkJ0YkgxVGRvbGNt?=
- =?utf-8?B?QVFoa1NjRE43UStYY2FNOGxCWkNSSVpYTDRLUUZOb2ZVTzJNZTNyS3RqV3F3?=
- =?utf-8?B?SGtxK2xabjd3SnZzY0kwZjdnTE1LNUJaODNDS0x2Tkt2ZzlrYzVNNHpHYkF0?=
- =?utf-8?B?ZmRxaVZLcEwvV2lVS3d3M0ZJbDVrTnNWZUZ1YkwzcW1lbEY2bWJreHhjeDRS?=
- =?utf-8?B?Q2ZQdUZRMHVZOStjUDBFU01tT3J3cVo0cXlSeVUzNGRBdXZpWXBiQWRPTU4z?=
- =?utf-8?B?UFJjUFRTaWI5eDNnaXYvUVFsTG15UERDR0g0Zkc5Q2w4MGlDMFg2dGVRejB3?=
- =?utf-8?B?Mml5QXh0aVhIdDdEUk9xNHJkb3dIQ1FSQnM1aGo4bG43TWErNjBWcnh4Z0J4?=
- =?utf-8?B?WU9wQlFkM1VZNTNLZWNjTGprUVArZHJnUEJKZDJjWVRmeFM1TmNQdGhZdklx?=
- =?utf-8?B?RUNXQ2pXNEdLTDNoTEMxbjVvUndOejlTQ3N6Wm50K2dHZVk5Z3NNaFVUbG45?=
- =?utf-8?B?YThWOG9lenZvYmVMUU81MVljdlNrei9mOGdma1FBWk82bjRUcmtKcW1QckFC?=
- =?utf-8?B?QWNoWnhqL3ZnQmozaGNZQjZCdVN6TFFuS1NGNjA3T3orSHduZlZZZWs0cFF2?=
- =?utf-8?B?SUwxbUQ0VHU1UHd5WEI0LzBtQ2RPT3l3OWlRd2l1SXhWZWxVczg1R3ZVU3Bq?=
- =?utf-8?B?TzBBeVZRTUFOUmUwQjM2aDdyWGtMM3hwRkNrUFFzc2xhUHg4SkxBNzJFNFND?=
- =?utf-8?B?S3F3TTdJWHlqSUkxQWJnNHlJYXJpclcycjJ3ODdxVW9ubHIyazBmUXRWUHdq?=
- =?utf-8?B?cDNNQkhMT3haV2FqTjRCMDByakM1ZGZiOFdHNGNCdEdNNTdIbmcvME9jMDND?=
- =?utf-8?B?dzJxYVN2RnRyY1VjVDhkc0lqdUlISkV0MVJLOHJEdkJEekJlRlpJZjVXczRJ?=
- =?utf-8?B?MU9oY0FHekJwOVpqRDVycnNPQTIxdHg3U3BmYk10VmloWUFGaG1aRyswR2xt?=
- =?utf-8?B?WTI1SmFVSzg2NmlyVE5LU2k1M2VPdEpjbUs0RkkzNnRjdk9qN2JKdDh1TTZS?=
- =?utf-8?B?Y1YyWE95YjRDdDdNb2JWeFhqcnpxOTJibnl5VkF0RDBMbHdPYVlyQzMwK3JG?=
- =?utf-8?B?TlZlc3BaTWxjU0lhUktVZEYrcWdpaHZwY2hLZlp0VXZqTnZzV1hadVpFQlRy?=
- =?utf-8?B?NHRwYk1ObGZ1SEZvNGFIUnFvMzRoaW1sV0Njd2F5MTdLUVU3Y2tFK2xhZzQ5?=
- =?utf-8?B?ZVFyS0ltL1h2cmt1YjN2d2l6Um1rSnIxUmNRYXVJUzNYMGJRMUdSbkFHM0Rm?=
- =?utf-8?B?ZWp4blpRTFg2S1g1YkJxbGU1NHBUZGsvOTN5VUY2d3JtWHFjOEVPSzFmQXFB?=
- =?utf-8?B?ckRGNWZrMC9xdE9sUnQ4L25xRWlEeVV3M1ZlMVNzamxnUkh3WnpFTnd0OVph?=
- =?utf-8?B?SHJqd3g5K2czMlVIaFpJNmpMVHh0S2gwem1rSlkrdzYvWkd2M2FkamUrYTBZ?=
- =?utf-8?B?TzhKNFFHWndSMkt2UENWTEc1a3cySk4zVG1iT1V5eXI2WXpua21FNElmQ0JO?=
- =?utf-8?B?MzAyZ0tDYTllWGFxbmZZblliUldzbERXbWN1cnJnZ01kenZoQTNVRzlDbFEr?=
- =?utf-8?B?b2xPMy8rQzlrNy9UMDBXdkg5T0RTclRHdGVaa0JGVmp0WUJkZnZTRkFMSHhB?=
- =?utf-8?B?LzRnZWM3a3haSStjbHlzcHdkZ1lhaFp0MHNNYThjUkIxRGE4OVdtQT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d7143f7b-d842-4640-b567-08de62f3bd97
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2026 07:13:33.9466
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Bp2h54hd/g14/vy8e1VW89IEVq2PmxSFNlVyD6hlqMW/pDKzq1zlHGPg9cLZ3j3HcOXAuVPRvCdGPAdZI47w7w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB11063
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay49-hz3.antispameurope.com with 4f4vxH13xBz3ybHd
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: b6b042cd698d2248267929566eccc0fd
+X-cloud-security: scantime:2.015
+DKIM-Signature: a=rsa-sha256;
+ bh=QNR5RxTwzTtZsop8+J+WBmJB6mqTYo7/2/cKx2YLwz8=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1770103173; v=1;
+ b=pwya1JUzHs5FYxy1RheV2mYcyXVq8oFEvjmQbdmkS7J+5W3xcWPccbw9c3mwbcMW6wEx+boD
+ hXbS54nx485WFfZsgRVlv9+h9TCcmwdehjyAijqdaWR5nJGXiMZ2qgI3CcK/cj+g5OSLbGhXPXs
+ PsZddK7qoUkx6oh3gBKM213MNnozA2+/i0Edp/2TVxXlc7lzzWzEvN71uE+SjKYKozC2ngbFUzr
+ E+9/zTImRluwk7zDM4Y3/xb9a2hSnxSK4vitl6yuO+Jm8Ek+dBMrc+Kn3eqH0/ks+z81zJGUFkh
+ fe6C7Y41EzM4kMChPwrz5FzLPZJuCEEv5GLTw1Gly+jTQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_231342_136072_E85518B1 
-X-CRM114-Status: GOOD (  20.00  )
+X-CRM114-CacheID: sfid-20260202_231953_050434_ACE9C4C1 
+X-CRM114-Status: GOOD (  24.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,113 +112,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+Am Montag, 2. Februar 2026, 11:27:45 CET schrieb Xu Yang:
+> The i.MX USB glue and DWC3 core are closely coupled. Describe the i.MX
+> USB block in a single block will bring more benefits than a parent-
+> child relation. The new binding is a copy of fsl,imx8mp-dwc3.yaml with
+> the needed modifications.
+>=20
+> Add the common compatible string "fsl,imx-dwc3" to indicate that the
+> flattened module should be selected. This compatible is also used by
+> "select" to inform the DeviceTree validator to apply this binding.
+>=20
+> To avoid redefining all the platform-specific compatibles, "select" is
+> used to tell the DeviceTree validator which binding to use solely on the
+> generic compatible.
+>=20
+> Mark fsl,imx8mp-dwc3 deprecated, to favor expressing future platforms
+> using the new combined binding.
+>=20
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> ---
+>  .../devicetree/bindings/usb/fsl,imx-dwc3.yaml      | 131 +++++++++++++++=
+++++++
+>  .../devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml   |  13 ++
+>  2 files changed, 144 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/usb/fsl,imx-dwc3.yaml b/Do=
+cumentation/devicetree/bindings/usb/fsl,imx-dwc3.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..bc6b9743396e8f6b698706caa=
+e71241b0512ce8b
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/usb/fsl,imx-dwc3.yaml
+> @@ -0,0 +1,131 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +# Copyright 2026 NXP
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/usb/fsl,imx-dwc3.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: NXP i.MX Soc USB Controller
+> +
+> +maintainers:
+> +  - Xu Yang <xu.yang_2@nxp.com>
+> +
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        const: fsl,imx-dwc3
+> +  required:
+> +    - compatible
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - fsl,imx95-dwc3
+> +          - fsl,imx943-dwc3
+> +          - fsl,imx8mp-dwc3
 
-On 2/3/2026 3:12 AM, Nicolas Dufresne wrote:
-> Hi,
-> 
-> Le lundi 02 février 2026 à 13:44 -0500, Nicolas Dufresne a écrit :
->>> This doesn't sound like just a VPU issue; it's related to the display or
->>> DDR.
->>> If not displayed, do the fluster test cases yield different results at
->>> 600MHz and 300MHz?
->>
->> Didn't you run these tests before sending ? I can try again, but in my
->> internal
->> notes, I wrote:
->>
->>    > Tested that, and everything becomes unstable
->>
->> That was before I figure-out the IRQ handler didn't handle exception bits that
->> didn't stop the decoder (or dry IRQ, which strangely is common from the G2).
-> 
-> Ran some fluster tests now. With this patch the results is not consistent
-> anymore. Then I ran it with weston being started, and in the middle of the test
-> the display turned black. Matches my past observation. We did reproduce this on
-> BSP kernel too. When the display goes black, the recent hantro drivers reports:
-> 
-> [  827.581586] hantro-vpu 38310000.video-codec: frame decode timed out.
-> [  827.720201] hantro-vpu 38310000.video-codec: not all macroblocks were
-> decoded.
-> 
-> 
-> I have local patches to reduce the cascade of errors, so it likely survived
-> longer then last time. I will send these patches soon. The "not all macroblocks
-> were decoded." is triggered by a bit in the status register that is not
-> documented in NXP TRM. I found that bit in some VC8000D documentation (the
-> sucessor of G2). I concluded it was the same meaning after looking at the failed
-> buffer visually, it is indeed missing couple of macroblocks near th end. Each
-> time we see this error, the DCSS gives up and turn either black, or sometimes
-> other color. The second case has been tracked to a DCSS Scaler underrun, the
-> first we don't know.
-> 
-> Fluster command ran (two threads, never completes):
-> 
-> ./fluster.py run -d GStreamer-H.265-V4L2SL-Gst1.0 -ts JCT-VC-HEVC_V1 -j2 -t90
-> 
-> Nicolas
+Can you please sort this? I would have expected the exact reverse ordering.
 
-My test results for fluster differ from yours.
-On my end, the results for JCT-VC-HEVC_V1 are consistent at both 300MHz 
-and 600MHz.
-And results remained unchanged after multiple tests.
+> +      - const: fsl,imx-dwc3
+> +
+> +  reg:
+> +    items:
+> +      - description: DWC3 core registers.
+> +      - description: HSIO Block Control registers.
+> +      - description: Wrapper registers of dwc3 core.
+> +
+> +  reg-names:
+> +    items:
+> +      - const: core
+> +      - const: blkctl
+> +      - const: glue
+> +
+> +  interrupts:
+> +    items:
+> +      - description: DWC3 controller interrupt.
+> +      - description: Wakeup interrupt from glue logic.
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: dwc_usb3
+> +      - const: wakeup
+> +
+> +  iommus:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: System hsio root clock
+> +      - description: SoC Bus Clock for AHB/AXI/Native
+> +      - description: Reference clock for generating ITP when UTMI/ULPI P=
+HY is suspended
+> +      - description: Suspend clock used for usb wakeup logic.
+> +
+> +  clock-names:
+> +    items:
+> +      - const: hsio
+> +      - const: bus_early
+> +      - const: ref
+> +      - const: suspend
+> +
+> +  fsl,permanently-attached:
+> +    type: boolean
+> +    description:
+> +      Indicates if the device attached to a downstream port is
+> +      permanently attached.
+> +
+> +  fsl,disable-port-power-control:
+> +    type: boolean
+> +    description:
+> +      Indicates whether the host controller implementation includes port
+> +      power control. Defines Bit 3 in capability register (HCCPARAMS).
+> +
+> +  fsl,over-current-active-low:
+> +    type: boolean
+> +    description:
+> +      Over current signal polarity is active low.
+> +
+> +  fsl,power-active-low:
+> +    type: boolean
+> +    description:
+> +      Power pad (PWR) polarity is active low.
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +  - power-domains
+> +
+> +allOf:
+> +  - $ref: snps,dwc3-common.yaml#
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    usb@4c100000 {
+> +      compatible =3D "fsl,imx943-dwc3", "fsl,imx-dwc3";
+> +      reg =3D <0x4c100000 0x10000>,
+> +            <0x4c010010 0x04>,
+> +            <0x4c1f0000 0x20>;
+> +      reg-names =3D "core", "blkctl", "glue";
+> +      clocks =3D <&scmi_clk 74>,    //IMX94_CLK_HSIO
+> +               <&scmi_clk 74>,    //IMX94_CLK_HSIO
+> +               <&scmi_clk 2>,     //IMX94_CLK_24M
+> +               <&scmi_clk 1>;     //IMX94_CLK_32K
+> +      clock-names =3D "hsio", "bus_early", "ref", "suspend";
+> +      interrupts =3D <GIC_SPI 180 IRQ_TYPE_LEVEL_HIGH>,
+> +                   <GIC_SPI 386 IRQ_TYPE_LEVEL_HIGH>;
+> +      interrupt-names =3D "dwc_usb3", "wakeup";
+> +      power-domains =3D <&scmi_devpd 13>;   //IMX94_PD_HSIO_TOP
+> +      phys =3D <&usb3_phy>, <&usb3_phy>;
+> +      phy-names =3D "usb2-phy", "usb3-phy";
+> +      snps,gfladj-refclk-lpm-sel-quirk;
+> +      snps,parkmode-disable-ss-quirk;
+> +      status =3D "disabled";
+> +    };
+> diff --git a/Documentation/devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml b=
+/Documentation/devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml
+> index 73e7a60a0060dee6417b9469251e121704b7a148..fd23c345149e0dba1ed3919a2=
+5195edf247cfc08 100644
+> --- a/Documentation/devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml
+> +++ b/Documentation/devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml
+> @@ -10,6 +10,19 @@ title: NXP iMX8MP Soc USB Controller
+>  maintainers:
+>    - Li Jun <jun.li@nxp.com>
+> =20
+> +deprecated: true
+> +
+> +select:
+> +  properties:
+> +    compatible:
+> +      oneOf:
+> +        - items:
+> +            - const: fsl,imx95-dwc3
+> +            - const: fsl,imx8mp-dwc3
 
-I'm not sure what caused the differences between us.
+Same here.
 
-Below are my test results:
+Best regards,
+Alexander
 
-600Mhz, 0.9v
-	cat /sys/kernel/debug/regulator/regulator_summary  |grep SW1C
-	 SW1C                             0    1      0 unknown   900mV     0mA 
-   825mV  1100mV
-	cat /sys/kernel/debug/clk/vpu_g2/clk_rate
-	600000000
+> +        - const: fsl,imx8mp-dwc3
+> +  required:
+> +    - compatible
+> +
+>  properties:
+>    compatible:
+>      oneOf:
+>=20
+>=20
 
-	./fluster.py run -ts JCT-VC-HEVC_V1 -d GStreamer-H.265-V4L2SL-Gst1.0 
--j2 -t 90
-	****************************************************************************************************
-	Running test suite JCT-VC-HEVC_V1 with decoder 
-GStreamer-H.265-V4L2SL-Gst1.0
-	Using 2 parallel job(s)
-	****************************************************************************************************
 
-	Ran 139/147 tests successfully               in 505.434 secs
-	Ran 139/147 tests successfully               in 505.350 secs
-	Ran 139/147 tests successfully               in 507.540 secs
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
-600Mhz, 1.0v
-	cat /sys/kernel/debug/regulator/regulator_summary  |grep SW1C
-	 SW1C                             0    1      0 unknown  1000mV     0mA 
-   825mV  1100mV
-	cat /sys/kernel/debug/clk/vpu_g2/clk_rate
-	600000000
 
-	./fluster.py run -ts JCT-VC-HEVC_V1 -d GStreamer-H.265-V4L2SL-Gst1.0 
--j2 -t 90
-	Ran 139/147 tests successfully               in 506.901 secs
-
-300Mhz, 0.9v
-	cat /sys/kernel/debug/regulator/regulator_summary  |grep SW1C
-	 SW1C                             0    1      0 unknown   900mV     0mA 
-   825mV  1100mV
-	cat /sys/kernel/debug/clk/vpu_g2/clk_rate
-	300000000
-
-	./fluster.py run -ts JCT-VC-HEVC_V1 -d GStreamer-H.265-V4L2SL-Gst1.0 
--j2 -t 90
-	Ran 139/147 tests successfully               in 506.063 secs
-
-Downstream v4l2 driver
-	cat /sys/kernel/debug/regulator/regulator_summary  |grep SW1C
-	 SW1C                             0    2      0 unknown  1000mV     0mA 
-   825mV  1100mV
-	cat /sys/kernel/debug/clk/vpu_g2/clk_rate
-	600000000
-
-	./fluster.py run -ts JCT-VC-HEVC_V1 -d GStreamer-H.265-V4L2-Gst1.0 -j2 
--t 90
-	Ran 136/147 tests successfully               in 460.435 secs
-
-Regards,
-Ming
 
