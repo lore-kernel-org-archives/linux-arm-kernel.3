@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFBCEE8304A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 04:51:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6643AE83050
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 05:02:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8AYDOnVeyr7XkjmW69gqzpd4sgSElLWRSK0PUikLTaw=; b=R8QEhqW6K9FjO+uZhd2S8kPJoB
-	EdnPyazQ1X4CSzYZ6p41yVJOAYzg/wfwuivA5my0GL78WzHz2QG9U87lFV+smfV/jMebA2JRUuynz
-	cbjITs5RGtyNpnyzREwVsxtMs1FPSPISPlZd5Fjqq3+LPkRCJt8yTnEgoYJlus0PuQdI1ij6D0O5Z
-	5beosclA393TbUDS9j/dhYlqFhrSjBFM6xh/AcgkExQUZJeWFQtdvE7g6+jpRtxBIY+tbtbnINuZP
-	4lBdJBwEMundB78HnwPYijB3tqcSa7WsijtUP1eQTHV9++aTaljy5Y7GATwaQviHjQnFYxvifT3h8
-	LW/v9jPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6mX6FbYbzZTtB0JD5VqQ4iWuqV6UN06FrHcdgjzsyLE=; b=GuebR1fqP/7FtsOlyHrk7V6fga
+	jF4lHL3SNVlPhTFjYV4AMBIHjr64y2J2w4eclpDJMK+f/yBVJYVA/+GAtp6FI9YSNgg33wv3X7a2S
+	fbrQi3tN0lhMSuVXOb3Ed+EeMjVkL4HB7MWi26/GKSNG8j4MO1KeIb3HT4oGewGQ3pI0RHU/15hSG
+	FlVrkbhlD65wdEhSU+7kjCGf1JtQ+dHkyPXqVyva/z/e88g8xFiN1cZTgqluaXsfL0lPA8EGoA8d4
+	wpfUQiv5AIOYNiLN9GUwF+9c0GZVP8YO+3HCr3EtiS8u3fLAO2JBbA4hpJWYU0yNued3/h5qLjgh0
+	KuwSurkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn8Nw-000000063zw-2TSd;
-	Tue, 03 Feb 2026 04:51:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vn8YM-000000064R7-05R2;
+	Tue, 03 Feb 2026 05:02:18 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn8Nu-000000063zo-1wo4
+	id 1vn8YI-000000064Q7-2wTK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 04:51:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8ACA7600C3;
-	Tue,  3 Feb 2026 04:51:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDCFDC116D0;
-	Tue,  3 Feb 2026 04:51:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770094289;
-	bh=vztEDDY5I/Z2WxelwAVH4Ye7ACWYcyxoY2rW84OdqMs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=thiESWPjK1xf1O+EirRXINuCiZij/qOhAY6hbP9dtc/OQoQCWPhA7bgfDS87ZGjMt
-	 DPJQps4Jyhhjopsw46qlZYMPIFmXJ2TC27NvSAdIpQ814JQ2RZqUIc/En3evkPs7BC
-	 kIesYpLSC4/ESGLt2BtcqjVNYTPU22YYVQ/YmiE3zWpZLTtUffRWeljLO+XH65uDtm
-	 fsSAEorqja6ONipyPjQl9nMsl8ZK8jSyyA+y+D8O+7ypjft5WttVrI9mw7j2T4tFMh
-	 9ppHjbKsyyZUUF8MXTI0zceUmWKivjlZ0lKhNQJtAFwgXndkChnt8F/aVypzzOkT3l
-	 gXhCKgoxvRD6Q==
-Date: Mon, 2 Feb 2026 21:51:23 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Simon Glass <sjg@chromium.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>,
-	J =?iso-8859-1?Q?=2E_Neusch=E4fer?= <j.ne@posteo.net>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Nicolas Schier <nicolas@fjasle.eu>, Tom Rini <trini@konsulko.com>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	Alice Ryhl <aliceryhl@google.com>, Ard Biesheuvel <ardb@kernel.org>,
-	David Sterba <dsterba@suse.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>, Kees Cook <kees@kernel.org>,
-	Nick Terrell <terrelln@fb.com>, Nicolas Schier <nsc@kernel.org>,
-	Petr Mladek <pmladek@suse.com>, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 0/6] scripts/make_fit: Support ramdisks and faster
- operations
-Message-ID: <20260203045123.GB3049363@ax162>
-References: <20260106162738.2605574-1-sjg@chromium.org>
- <CAFLszTgQWjewjYHWUhG44em+deNY9xWDFz_YohduWvM=Bd_D5A@mail.gmail.com>
+	Tue, 03 Feb 2026 05:02:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1770094932;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=6mX6FbYbzZTtB0JD5VqQ4iWuqV6UN06FrHcdgjzsyLE=;
+	b=bQaq2+kpv7MtKFxGwqiO2GZBfuYkTC1KiwwESyLpmrsvAiZb6QU6+/T1vfqtzm6p5oPtQc
+	pO1Mv9zXz/0vBWFg4RA9d3KdB3X1fUPqpfeQ/i5J058gED3aTVF/RrZtz5TwAcEX/cgq0t
+	b1F7C+s/OGacOCabT/dARwb+mn/C3jQ=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-3-WIGpg1WsO6OtslFAZO8cWg-1; Tue,
+ 03 Feb 2026 00:02:08 -0500
+X-MC-Unique: WIGpg1WsO6OtslFAZO8cWg-1
+X-Mimecast-MFC-AGG-ID: WIGpg1WsO6OtslFAZO8cWg_1770094927
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 78A63180035D;
+	Tue,  3 Feb 2026 05:02:07 +0000 (UTC)
+Received: from [172.20.163.214] (unknown [10.30.45.55])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id A3CD718004D8;
+	Tue,  3 Feb 2026 05:02:05 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.19.0-rc8,
+ upstream-arm-next, 5ade908b)
+Date: Tue, 03 Feb 2026 05:02:05 -0000
+To: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+ will@kernel.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAFLszTgQWjewjYHWUhG44em+deNY9xWDFz_YohduWvM=Bd_D5A@mail.gmail.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+Message-Id: <45547.126020300020800603@us-mta-3.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: jrJEjzKqs2QzHL2xcYnCXjMPhvLOH2ygT2siL-lhdWs_1770094927
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260202_210214_829411_76D9C976 
+X-CRM114-Status: UNSURE (   6.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,72 +84,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Simon,
+Hi, we tested your kernel and here are the results:
 
-On Tue, Feb 03, 2026 at 03:45:36PM +1300, Simon Glass wrote:
-> On Wed, 7 Jan 2026 at 05:27, Simon Glass <sjg@chromium.org> wrote:
-> >
-> > This series updates 'make image.fit' to support adding a ramdisk to the
-> > FIT, provided as a parameter.
-> >
-> > It also includes a few performance improvement, so that building a FIT
-> > from ~450MB of kernel/module/devicetree files only takes a few seconds
-> > on a modern machine.
-> >
-> > For this version I have dropped inclusion of built modules, as there is
-> > still more discussion to happen in that area.
-> >
-> > Changes in v9:
-> > - Rename the variable to FIT_EXTRA_ARGS
-> >
-> > Changes in v8:
-> > - Drop erroneous line 'kbuild: Allow adding modules into the FIT ...'
-> >
-> > Changes in v7:
-> > - Add a note about the " -> ' change
-> > - Add a new patch with the MAKE_FIT_FLAGS change
-> > - Mention xz as well, in the commit message
-> > - Drop patch 'scripts/make_fit: Provide a way to add built modules'
-> > - Drop patch 'kbuild: Split out module targets into a variable'
-> > - Drop patch 'kbuild: Allow adding modules into the FIT ramdisk'
-> >
-> > Changes in v6:
-> > - Drop the load address for ramdisk, as it is not needed
-> > - Bring back the ramdisk 'compression' property, set to 'none'
-> >
-> > Changes in v5:
-> > - Fix 'use' typo
-> >
-> > Changes in v4:
-> > - Update the commit message
-> >
-> > Changes in v3:
-> > - Move the ramdisk chunk into the correct patch
-> > - Add a comment at the top of the file about the -r option
-> > - Count the ramdisk in the total files
-> > - Update the commit message
-> >
-> > Changes in v2:
-> > - Don't compress the ramdisk as it is already compressed
-> >
-> > Simon Glass (6):
-> >   scripts/make_fit: Speed up operation
-> >   scripts/make_fit: Support an initial ramdisk
-> >   scripts/make_fit: Move dtb processing into a function
-> >   kbuild: Support a FIT_EXTRA_ARGS environment variable
-> >   scripts/make_fit: Support a few more parallel compressors
-> >   scripts/make_fit: Compress dtbs in parallel
-> >
-> >  scripts/Makefile.lib |   2 +-
-> >  scripts/make_fit.py  | 179 ++++++++++++++++++++++++++++++++++---------
-> >  2 files changed, 145 insertions(+), 36 deletions(-)
-> 
-> Can this series be applied, please?
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-Who are you expecting to apply this series? It does not look like it has
-gone through one tree consistently and it is not clear from the
-addressees. I guess it could go through Kbuild?
+Tested-by: CKI Project <cki-project@redhat.com>
 
-Cheers,
-Nathan
+Kernel information:
+    Commit message: Merge branch 'for-next/core' into for-kernelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2301514529
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
