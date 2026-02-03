@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C771E87846
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 16:16:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30DA6E87842
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 16:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jccrwaPGGr69RhfwkWEGEBNYwb91TaGunRmQVLJjJqA=; b=PTKXAz1qsv9nF4Ts+hi1AVWEQQ
-	FAeWYulY0bsuXse/LTrJA2Y+TzhqDSkoMxoRs2y0yQdjFy6wG3Uvd+KwM3X//Nx1FyKUH8zHOumAW
-	lqfG226msDHJdB61vMg4a/7fjxY4j4wEKYurfUFm7yL01k2F8l3fTpXBgVPkMxtPpw2ZcfbYnogV1
-	zxjq6bqyDRsNz+fZ4rrBIgUs6uyXEfLv0c0p1+XZ+JqxcUAPkTayLj+LYMEcX8BcB7I/soMLNU5jv
-	b6b9rdbzg4tzG1NZqfb9Y53Q6FJJVOtfzYAZvdUjyEtsIyq7LkIqErDD7NfZBlx0JbpORLfHrX41q
-	7gIy4uhg==;
+	bh=2ctbjtQXFh7WaLQpGDuVyer5fogYvtZe7iuJuOeTdM4=; b=cX4oUW4TtZvmeiWtqfd+kal8ar
+	NV1IfBsgrvEpU3iQpW4XDdi/oA+HXifbCyv0RozJNIfP9HHg3G41duxpVDbf7spho4bbgg7HGaIcC
+	Aw7tFNb1yBHDIFvGogli7KLn8/uZ2xBQSo4HXlbq0QBwxMW47zOVdOjO6JwcFvXY5+8x79ddZXes5
+	dapKKIbWQ5xpHH805WIuf3btu5H4Vu4Co8VgfySyR+W5d72WIvapyOx70au5N8gzvG4VwQj9aSTfI
+	7bgE6i2/LpXH5N1rl+gOc6+/zuaD1Tr7gTxT5Zi0bRIly6VigSmr0Vig0kFwfJFOFrFXLiFJlNA3x
+	vxYnBHZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnJ4E-00000006tlp-3i28;
-	Tue, 03 Feb 2026 16:15:54 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vnJ4O-00000006tpV-2w3d;
+	Tue, 03 Feb 2026 16:16:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnJ4B-00000006tkQ-3WC8
+	id 1vnJ4N-00000006tpB-3hH4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 16:15:53 +0000
-Received: from ideasonboard.com (net-93-65-100-155.cust.vodafonedsl.it [93.65.100.155])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 52E611C6;
-	Tue,  3 Feb 2026 17:15:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1770135306;
-	bh=DkKX1srFlOf/cA3V3LOS4z6CTtQcX81Fl8DmOWPMReg=;
+	Tue, 03 Feb 2026 16:16:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 46D2E601ED;
+	Tue,  3 Feb 2026 16:16:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF397C116D0;
+	Tue,  3 Feb 2026 16:16:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770135363;
+	bh=bhdGtd4WmowAH58NVum4rBSvvaM86Nvk07AmQZKvsvk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u2Wk5TNQujT72+Gbb4httoVy8nu6JSH8XZZHPIWk/X7mfhjsAYkAvTowvj4hNud9f
-	 vtxLLhHk3p4Oz1E3HCKsFGTItxsUBDAtA4AIHnHZrO9JsMmoLznWaDNt6UGsDAqU2y
-	 NjmEQj0scbxihkgKsJRckEVvk0CU/WE9LHjEGWOs=
-Date: Tue, 3 Feb 2026 17:15:44 +0100
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Antoine Bouyer <antoine.bouyer@nxp.com>
-Cc: julien.vuillaumier@nxp.com, alexi.birlinger@nxp.com, 
-	daniel.baluta@nxp.com, peng.fan@nxp.com, frank.li@nxp.com, 
-	jacopo.mondi@ideasonboard.com, laurent.pinchart@ideasonboard.com, mchehab@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [RFC v1 01/11] media: uapi: v4l2-isp: Add v4l2 ISP extensible
- statistics definitions
-Message-ID: <aYIb8ZIZDfCJZEZ9@zed>
-References: <20260123080938.3367348-1-antoine.bouyer@nxp.com>
- <20260123080938.3367348-2-antoine.bouyer@nxp.com>
+	b=B9wI+BAHK2mSETzQpb7XvsMA4hAJWj3U4owCD37kw1JDVYNRasFl6bSgRntwgUI0g
+	 +Ic3VbzTJgdEtgapWruosnipSDHqVow7/Bk0YrMxcda/SGvYdTosuHgPUQ0L2mfPPT
+	 J82lQ5a4t8EZrl2+nLzY0EzzHVxcZEKZ9GKh10LMIYn66y0IbZbdWNXTwAGMM/8Vm+
+	 66txt0lMT06fykGlkF0kClb+4zGD86Vi2e3as34Z7W39tgkzy1tjr6LcvxcKX7/STL
+	 iDylwZSkmCdvgmqq8wA67O8QGojnardZ4rco77qzn2UKrIV1vG5drhK8I7jQdLbx2j
+	 5HxeJ0jDUW65A==
+Date: Tue, 3 Feb 2026 16:15:57 +0000
+From: Lee Jones <lee@kernel.org>
+To: Gary Yang <gary.yang@cixtech.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	p.zabel@pengutronix.de, peter.chen@cixtech.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	cix-kernel-upstream@cixtech.com
+Subject: Re: [PATCH v6 0/3] Add support for Cix Sky1 resets
+Message-ID: <20260203161557.GA7629@google.com>
+References: <20260203021053.4073258-1-gary.yang@cixtech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260123080938.3367348-2-antoine.bouyer@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_081552_026015_CD6D3A3F 
-X-CRM114-Status: GOOD (  35.88  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260203021053.4073258-1-gary.yang@cixtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,167 +72,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Antoine
-  thanks a lot for extendable stats
+On Tue, 03 Feb 2026, Gary Yang wrote:
 
-On Fri, Jan 23, 2026 at 09:09:28AM +0100, Antoine Bouyer wrote:
-> Extend the v4l2-isp extensible format introduced for isp parameters buffer
-> to the statistics buffer as well.
->
-> Like for ISP configuration purpose, that will help supporting various ISP
-> hardware versions reporting different statistics data with less impact on
-> userspace.
->
-> The `v4l2_isp_stats_buffer` reuses the `v4l2_isp_params_buffer` container
-> definitions, with similar header, versions and flags. V0 and V1 versions
+> Patch 1: Add yaml file for Cix Sky1 resets
+> Patch 2: Add driver codes for Cix Sky1 resets
+> Patch 3: Add dts nodes for Cix Sky1 resets
+> 
+> v6 changes:
+> - Pass dts build check with below commands:
+> make O=$OUTKNL dt_binding_check
+> make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-system-control.yaml
+> make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+> scripts/checkpatch.pl 000*.patch
+> - refine reset driver
+> - fix dt-bindings style
+> 
+> v5 changes:
+> - Pass dts build check with below commands:
+> make O=$OUTKNL dt_binding_check
+> make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-rst.yaml
+> make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-system-controller.yaml
+> make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+> scripts/checkpatch.pl 000*.patch
+> - refine reset driver
+> - fix dt-bindings style
+> 
+> v4 changes:
+> - Pass dts build check with below commands:
+> make O=$OUTKNL dt_binding_check
+> make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-rst.yaml
+> make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+> scripts/checkpatch.pl 000*.patch
+> - add syscon
+> - refine reset driver
+> - fix dt-bindings style
+> 
+> v3 changes:
+> - Pass dts build check with below commands:
+> make O=$OUTKNL dt_binding_check
+> make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-rst.yaml
+> make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+> scripts/checkpatch.pl 000*.patch
+> - remove syscon
+> 
+> v2 changes:
+> - Pass dts build check with below commands:
+> make O=$OUTKNL dt_binding_check
+> make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-rst.yaml
+> make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+> scripts/checkpatch.pl 000*.patch
+> - fix dt-bindings style
+> - refine reset driver
+> 
+> Gary Yang (3):
+>   dt-bindings: soc: cix: document the simple-mfd syscon on Sky1 SoC
+>   reset: add Sky1 soc reset support
+>   arm64: dts: cix: add support for cix sky1 resets
+> 
+>  .../soc/cix/cix,sky1-system-control.yaml      |  49 +++++
+>  arch/arm64/boot/dts/cix/sky1.dtsi             |  14 ++
+>  drivers/reset/Kconfig                         |   7 +
+>  drivers/reset/Makefile                        |   1 +
+>  drivers/reset/reset-sky1-base.c               | 125 +++++++++++
+>  drivers/reset/reset-sky1-fch.c                |  78 +++++++
+>  drivers/reset/reset-sky1.c                    | 204 ++++++++++++++++++
+>  drivers/soc/Kconfig                           |   1 +
+>  drivers/soc/Makefile                          |   1 +
+>  drivers/soc/cix/Kconfig                       |  11 +
+>  drivers/soc/cix/Makefile                      |   1 +
+>  drivers/soc/cix/sky1-system-control.c         |  47 ++++
+>  include/dt-bindings/reset/cix,sky1-rst-fch.h  |  42 ++++
+>  include/dt-bindings/reset/cix,sky1-rst.h      | 164 ++++++++++++++
+>  include/linux/reset/sky1.h                    |  18 ++
 
-Why do you need two flags ?
+This is in my inbox because ...
 
-Params had to introduce two because we had two drivers already
-mainlined using the pre-v4l2-isp version of extensible params which
-had defined their version identifier as 1 and 0 and we didn't want to
-break existing userspace using those identifiers. So we had to accept
-both V0 and V1 as "first version of the v4l2-isp extensible parameters
-format".
+>  15 files changed, 763 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
+>  create mode 100644 drivers/reset/reset-sky1-base.c
+>  create mode 100644 drivers/reset/reset-sky1-fch.c
+>  create mode 100644 drivers/reset/reset-sky1.c
+>  create mode 100644 drivers/soc/cix/Kconfig
+>  create mode 100644 drivers/soc/cix/Makefile
+>  create mode 100644 drivers/soc/cix/sky1-system-control.c
+>  create mode 100644 include/dt-bindings/reset/cix,sky1-rst-fch.h
+>  create mode 100644 include/dt-bindings/reset/cix,sky1-rst.h
+>  create mode 100644 include/linux/reset/sky1.h
 
-For stats we don't have users, so I guess we can start with V1 == 0 ?
-
-> are provided to match with params versions. On the other side, ENABLE and
-> DISABLE flags are not really meaningfull for statistics purpose. So VALID
-> and INVALID flags are introduced. Purpose is to force ISP driver to
-> validate a statistics buffer, before it is consumed by userspace.
-
-Interesting. What do you mean with "validate a statistics buffer" ?
-And if a driver has to do validation, why would it send upstream a
-non-validated buffer ?
-
->
-> Signed-off-by: Antoine Bouyer <antoine.bouyer@nxp.com>
-> ---
->  include/uapi/linux/media/v4l2-isp.h | 85 +++++++++++++++++++++++++++++
->  1 file changed, 85 insertions(+)
->
-> diff --git a/include/uapi/linux/media/v4l2-isp.h b/include/uapi/linux/media/v4l2-isp.h
-> index 779168f9058e..ed1279b86694 100644
-> --- a/include/uapi/linux/media/v4l2-isp.h
-> +++ b/include/uapi/linux/media/v4l2-isp.h
-> @@ -99,4 +99,89 @@ struct v4l2_isp_params_buffer {
->  	__u8 data[] __counted_by(data_size);
->  };
->
-> +/**
-> + * enum v4l2_isp_stats_version - V4L2 ISP statistics versioning
-> + *
-> + * @V4L2_ISP_STATS_VERSION_V0: First version of the V4L2 ISP statistics format
-> + *			       (for compatibility)
-> + * @V4L2_ISP_STATS_VERSION_V1: First version of the V4L2 ISP statistics format
-> + *
-> + * V0 and V1 are identical, and comply with V4l2 ISP parameters versions. So
-> + * both V0 and V1 refers to the first version of the V4L2 ISP statistics
-> + * format.
-> + *
-> + * Future revisions of the V4L2 ISP statistics format should start from the
-> + * value of 2.
-> + */
-> +enum v4l2_isp_stats_version {
-> +	V4L2_ISP_STATS_VERSION_V0 = 0,
-> +	V4L2_ISP_STATS_VERSION_V1,
-
-As suggested I would make V1 == 0
-
-> +};
-> +
-> +#define V4L2_ISP_PARAMS_FL_BLOCK_VALID		(1U << 0)
-> +#define V4L2_ISP_PARAMS_FL_BLOCK_INVALID	(1U << 1)
-> +
-> +/*
-> + * Reserve the first 8 bits for V4L2_ISP_STATS_FL_* flag.
-> + *
-> + * Driver-specific flags should be defined as:
-> + * #define DRIVER_SPECIFIC_FLAG0     ((1U << V4L2_ISP_STATS_FL_DRIVER_FLAGS(0))
-> + * #define DRIVER_SPECIFIC_FLAG1     ((1U << V4L2_ISP_STATS_FL_DRIVER_FLAGS(1))
-> + */
-> +#define V4L2_ISP_STATS_FL_DRIVER_FLAGS(n)       ((n) + 8)
-
-Currently we have no users of V4L2_ISP_PARAMS_FL_DRIVER_FLAGS so we
-could even consider making it a V4L2_ISP_FL_DRIVER_FLAGS
-
-Or do you think it is worth creating a new symbol ?
-
-> +
-> +/**
-> + * struct v4l2_isp_stats_block_header - V4L2 extensible statistics block header
-> + * @type: The statistics block type (driver-specific)
-> + * @flags: A bitmask of block flags (driver-specific)
-> + * @size: Size (in bytes) of the statistics block, including this header
-> + *
-> + * This structure represents the common part of all the ISP statistics blocks.
-> + * Each statistics block shall embed an instance of this structure type as its
-> + * first member, followed by the block-specific statistics data.
-> + *
-> + * The @type field is an ISP driver-specific value that identifies the block
-> + * type. The @size field specifies the size of the parameters block.
-> + *
-> + * The @flags field is a bitmask of per-block flags V4L2_STATS_ISP_FL_* and
-> + * driver-specific flags specified by the driver header.
-> + */
-> +struct v4l2_isp_stats_block_header {
-> +	__u16 type;
-> +	__u16 flags;
-> +	__u32 size;
-> +} __attribute__((aligned(8)));
-> +
-
-This is currently identical to v4l2_isp_params_block_header.
-
-Can we create a single header for both stats and params and provide a
-
-#define v4l2_isp_params_block_header v4l2_isp_block_header
-
-for maintaining compatibility with existing users ?
-
-Or do you expect stats and params to eventually need different headers ?
-
-> +/**
-> + * struct v4l2_isp_stats_buffer - V4L2 extensible statistics data
-> + * @version: The statistics buffer version (driver-specific)
-> + * @data_size: The statistics data effective size, excluding this header
-> + * @data: The statistics data
-> + *
-> + * This structure contains the statistics information of the ISP hardware,
-> + * serialized for userspace into a data buffer. Each statistics block is
-> + * represented by a block-specific structure which contains a
-> + * :c:type:`v4l2_isp_stats_block_header` entry as first member. Driver
-> + * populates the @data buffer with statistics information of the ISP blocks it
-> + * intends to share to userspace. As a consequence, the data buffer effective
-> + * size changes according to the number of ISP blocks that driver intends to
-> + * provide and is set by the driver in the @data_size field.
-> + *
-> + * The statistics buffer is versioned by the @version field to allow modifying
-> + * and extending its definition. Driver shall populate the @version field to
-> + * inform the userpsace about the version it intends to use. The userspace will
-> + * parse and handle the @data buffer according to the data layout specific to
-> + * the indicated version.
-> + *
-> + * For each ISP block that driver wants to report, a block-specific structure
-> + * is appended to the @data buffer, one after the other without gaps in
-> + * between. Driver shall populate the @data_size field with the effective
-> + * size, in bytes, of the @data buffer.
-> + */
-> +struct v4l2_isp_stats_buffer {
-> +	__u32 version;
-> +	__u32 data_size;
-> +	__u8 data[] __counted_by(data_size);
-> +};
-> +
-
-Same question. Should we introduce a struct v4l2_isp_buffer ?
-
-Thanks!
-
->  #endif /* _UAPI_V4L2_ISP_H_ */
-> --
-> 2.52.0
->
->
+-- 
+Lee Jones [李琼斯]
 
