@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E09E8B367
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 21:44:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 052BFE8B368
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 21:44:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zfQoNom5au+F84yWoui3xdGf6Wq553cHxcj/bhh8Z8I=; b=r8xDvEaDSVLVlssXrW6vmQYFOB
-	vvfyQqce8dLbs9kS08b+1K1P5fXLRUp8PrUxB2yyEZksFwE7ra/cTTN+qjVA33HLwzr/lx3feCcHQ
-	fZMjh3Q9TwPo1TK12TLSMHnEykeKASgubmuL7kuiBCdsLANDi935TEpnXPWp5Va0Io0iPPDjI5jYj
-	RIKGOf39jidGgovlKw7TqcLHSeiQPUL4o1akCANKrWduIBhcJX7H1YZGb96+7GYbONQlOQT/A0DyD
-	Q+eycsjrnsJIKKH3WZ56N7ewmb0vaZ+9bmHxOYYIrDzEPyTsNEfNyDou/khb02zN33MhVUHftnyn1
-	xttixRYg==;
+	bh=Z2O8Uqm64vMSk1iP2QJWHeNpVukawPcEzvVYS+XHj+A=; b=gWbsPQhi+rbWBWoocE94TEN0q4
+	efGXagLpI5zJvvB1BGP+uXIpwwf0WgqaLSKdKx8dxV+SvWGfAzWdjrlBsJSQhc4N4ILf9bwX7WKSN
+	eRz3gDDxcNwcQwOUTaY8ivVKWRG6b6TszcoYJv5uYOJ5o9Ub+CbnaT8cdOJFhpVaZGzzp4UwCJz+P
+	fClvNAN1Reap3JxPQPU0P9XPlVb1HvFAXeWj+G341LORXbktUVMG0N5JsKp5SN6O4VfzJ1gumKvc3
+	nlP0275DiSvzGm7fd81nRmRjM/EG8sWIZATL2IizqzF1n9gWSuf6lw5VlQ0+NKS+oeGL1a+4j0HmU
+	6/H/P13g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnOCL-00000007OM8-3C7d;
-	Tue, 03 Feb 2026 21:44:37 +0000
+	id 1vnOCR-00000007ORT-2mRJ;
+	Tue, 03 Feb 2026 21:44:43 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnOCJ-00000007OJx-0lMa
+	id 1vnOCP-00000007OPL-0fgl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 21:44:36 +0000
+	Tue, 03 Feb 2026 21:44:42 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B38E339;
-	Tue,  3 Feb 2026 13:44:28 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F658339;
+	Tue,  3 Feb 2026 13:44:34 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3AE633F778;
-	Tue,  3 Feb 2026 13:44:29 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 03D583F778;
+	Tue,  3 Feb 2026 13:44:34 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -68,18 +68,19 @@ Cc: amitsinght@marvell.com,
 	suzuki.poulose@arm.com,
 	kvmarm@lists.linux.dev,
 	zengheng4@huawei.com,
-	linux-doc@vger.kernel.org
-Subject: [PATCH v4 06/41] arm64: mpam: Drop the CONFIG_EXPERT restriction
-Date: Tue,  3 Feb 2026 21:43:07 +0000
-Message-ID: <20260203214342.584712-7-ben.horgan@arm.com>
+	linux-doc@vger.kernel.org,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Subject: [PATCH v4 07/41] arm64: mpam: Advertise the CPUs MPAM limits to the driver
+Date: Tue,  3 Feb 2026 21:43:08 +0000
+Message-ID: <20260203214342.584712-8-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260203214342.584712-1-ben.horgan@arm.com>
 References: <20260203214342.584712-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_134435_262839_2A3D9EFB 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20260203_134441_244427_514548EA 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,39 +95,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In anticipation of MPAM being useful remove the CONFIG_EXPERT restriction.
+From: James Morse <james.morse@arm.com>
 
+Requestors need to populate the MPAM fields for any traffic they send on
+the interconnect. For the CPUs these values are taken from the
+corresponding MPAMy_ELx register. Each requestor may have a limit on the
+largest PARTID or PMG value that can be used. The MPAM driver has to
+determine the system-wide minimum supported PARTID and PMG values.
+
+To do this, the driver needs to be told what each requestor's limit is.
+
+CPUs are special, but this infrastructure is also needed for the SMMU and
+GIC ITS. Call the helper to tell the MPAM driver what the CPUs can do.
+
+The return value can be ignored by the arch code as it runs well before the
+MPAM driver starts probing.
+
+Tested-by: Gavin Shan <gshan@redhat.com>
+Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Tested-by: Peter Newman <peternewman@google.com>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Signed-off-by: James Morse <james.morse@arm.com>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
- arch/arm64/Kconfig      | 2 +-
- drivers/resctrl/Kconfig | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/kernel/mpam.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index cdcc5b76a110..0e8fa195580b 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2026,7 +2026,7 @@ config ARM64_TLB_RANGE
+diff --git a/arch/arm64/kernel/mpam.c b/arch/arm64/kernel/mpam.c
+index 9866d2ca0faa..e6feff2324ac 100644
+--- a/arch/arm64/kernel/mpam.c
++++ b/arch/arm64/kernel/mpam.c
+@@ -3,6 +3,7 @@
  
- config ARM64_MPAM
- 	bool "Enable support for MPAM"
--	select ARM64_MPAM_DRIVER if EXPERT	# does nothing yet
-+	select ARM64_MPAM_DRIVER
- 	select ACPI_MPAM if ACPI
- 	help
- 	  Memory System Resource Partitioning and Monitoring (MPAM) is an
-diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
-index c808e0470394..c34e059c6e41 100644
---- a/drivers/resctrl/Kconfig
-+++ b/drivers/resctrl/Kconfig
-@@ -1,6 +1,6 @@
- menuconfig ARM64_MPAM_DRIVER
- 	bool "MPAM driver"
--	depends on ARM64 && ARM64_MPAM && EXPERT
-+	depends on ARM64 && ARM64_MPAM
- 	help
- 	  Memory System Resource Partitioning and Monitoring (MPAM) driver for
- 	  System IP, e.g. caches and memory controllers.
+ #include <asm/mpam.h>
+ 
++#include <linux/arm_mpam.h>
+ #include <linux/jump_label.h>
+ #include <linux/percpu.h>
+ 
+@@ -11,3 +12,14 @@ DEFINE_PER_CPU(u64, arm64_mpam_default);
+ DEFINE_PER_CPU(u64, arm64_mpam_current);
+ 
+ u64 arm64_mpam_global_default;
++
++static int __init arm64_mpam_register_cpus(void)
++{
++	u64 mpamidr = read_sanitised_ftr_reg(SYS_MPAMIDR_EL1);
++	u16 partid_max = FIELD_GET(MPAMIDR_EL1_PARTID_MAX, mpamidr);
++	u8 pmg_max = FIELD_GET(MPAMIDR_EL1_PMG_MAX, mpamidr);
++
++	return mpam_register_requestor(partid_max, pmg_max);
++}
++/* Must occur before mpam_msc_driver_init() from subsys_initcall() */
++arch_initcall(arm64_mpam_register_cpus)
 -- 
 2.43.0
 
