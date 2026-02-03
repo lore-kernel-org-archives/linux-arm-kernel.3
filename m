@@ -4,71 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD3C3E8306E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 09:33:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F782E8306E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 09:33:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TZgaVLCY9fez33b8STeKxleWhUne5wE+uD78HDyFgeY=; b=Gtu1Tl6cAIM1s4eagn5Gjvj6nm
-	bHapDYq//F7dcBekicGe7AP6QTKfwr7cDJ1WNs9hYphKbRLgpBZeOmOFtGCLdUgDHeUuFt7JNNpel
-	LphDOIGgmBgeKwXKrt9guunFPmBscqyvY6gJ3OfvdjJxTD8ZEvFaRrPgihOoM16P5QBqNs37RMI8M
-	6ykkZbPOwclZ8vkhl6QowxU1wcMHIQ25baJdbX218kB9uICYIwcQ53LF34fI7FMicENjM2Lqf4wZ1
-	ycozdpIbOYTJ8wDrbpSJvQDJgnhJGDSYC0xv28Q6hh+afxyuS4zQI2J9SYDYLyfDhgVxfMGuaC4B6
-	9miIjPjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=u0laHcyRQqMcqzyGUiX+7U/mo2y9fWruTI7bRibaktY=; b=aZ15QKFRQXhOVv
+	jmQGd7g4ovhFOMSNmfAt8Njcwil34QnQXg3KjTFFvvenkjyJXQIvYYjjI+7TzmgMXEbe9FioD1W+q
+	CEZ460bDFr3fGbucoEw/nkDpWAU8VClDluG4Xc5f+2zZsiz6hxN8XKdSL3FBmQTqeYqG3Lj4Poj2Q
+	1RH50UDDLtleOWHo/1wBN+Qy+6ZSmMRGQJz04ckNSvY55gpJJvkH0TgSE0twdMWa7e4Ha+/5q0NsH
+	ZEFPZQ8vXsfuBNUGWX3/feV29nGmK35NjCBLmMGZUw7VY4IWmGh+0vZEZiqo0ZnOcGLb1LLlx62fa
+	Pu7LoA60Ck4nPV++urOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnCmJ-00000006NWy-0exz;
-	Tue, 03 Feb 2026 09:32:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vnCma-00000006NaB-1yuI;
+	Tue, 03 Feb 2026 09:33:16 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnCmH-00000006NWk-2lg9
+	id 1vnCmY-00000006NZf-0ipb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 09:32:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7D620601DF;
-	Tue,  3 Feb 2026 09:32:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68AF6C116D0;
-	Tue,  3 Feb 2026 09:32:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770111174;
-	bh=/utzMXOJX5gCDjWBkQ9yLfbWbERk4i8hccxVrPhrXIo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=buR04DwtD+g+x2F6ZRj1C5RLxfU9c8QZktPUJ+cm22izdpXmynFsPMobDv5eHnrwq
-	 HtdFJefGpvwcb9noF5iglW23NuNQYRRT221DCpT702LV1TEsFa+88qZd5CRkRk3GL1
-	 ngR3OJ6A6270bfDuNffHp3CdOn7/KdR7yfYLlfgy14sKzS089fim3cjzpXjRUAOQgO
-	 ucri0wlmxFOrBW09QQV/Zt/eupjA+WgSd53NKyGZWYCOLbUxwx4FC6Dax6ggn8lR9G
-	 MkLUhbKPAxdalB5HCdDeybnr6rrKWcQr07o85sGVAandnqXVSIA6BfKIZVD+voGJZ8
-	 7UBenwbBYDt5w==
-Date: Tue, 3 Feb 2026 09:32:49 +0000
-From: Will Deacon <will@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Leo Yan <leo.yan@arm.com>, Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Alexandru Elisei <Alexandru.Elisei@arm.com>,
-	Anshuman Khandual <Anshuman.Khandual@arm.com>,
-	Rob Herring <Rob.Herring@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	Robin Murphy <Robin.Murphy@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] perf: arm_spe: Add barrier before enabling profiling
- buffer
-Message-ID: <aYHAwakKuoXturtV@willie-the-truck>
-References: <20260123-james-spe-relaxation-v1-1-4ccb88fa7bc5@linaro.org>
- <20260130202437.GB3481290@e132581.arm.com>
- <aYDWpc8Jh4SqMcD5@willie-the-truck>
- <20260202184234.GC3481290@e132581.arm.com>
- <aYDzh1B9Cnr_expJ@willie-the-truck>
- <20260202191402.GD3481290@e132581.arm.com>
- <95e205af-3dec-48c7-8a0d-293629f1551b@linaro.org>
+	Tue, 03 Feb 2026 09:33:15 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6134ibm52102245
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 3 Feb 2026 09:33:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=u0laHcyRQqMcqzyGUiX+7U
+	/mo2y9fWruTI7bRibaktY=; b=Sc4SyQPDkesghXqJhHjryJTjMZEeoEEmV5rXBp
+	HU1pxylIkGITFG5gaS9rm30gkw7RA6oodAtSh4NBcFtna1x3jk9ewA3n6kdZReAg
+	RU55ntpIAhH33LIxerU/YfvDqb+/q+qxK3rUoI7NvhiigpyjcZA45+0/3ZUGsEMh
+	wR7XxrZsvXxtza3f817WGN0BnL87GmW/9w6ObTsLVuO7eEM/E2heoEmc+1/FUtKU
+	dCI0jMJ6qF893+LBkb++DI/hcXcd9dyhiveAvGzCUEtBlkBwcWtUjv1lRQnN6jQ0
+	tmYN+4E5FdxUKj3ySdALcs66jhjFYAkK5Kxy6ZdJMyVWYjhg==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c2t5ebwur-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 09:33:13 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2a77040ede0so54203885ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 01:33:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1770111193; x=1770715993; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=u0laHcyRQqMcqzyGUiX+7U/mo2y9fWruTI7bRibaktY=;
+        b=Ga+LUv1bKjuRafVYfF4ukCtdFN+OJAGy71kYfmYDCZHy2Tjj61VHrWC03EX10J+g/W
+         xm9Jue/tDZ7EM6N1T7B/FmU/ZT8DZYm+CPcP4VsranwevBWBNhe4GeLtsMM2Eb8mtD2R
+         c+YR/AdsbJgdF+N5DBNFwQ4MD7wMW2/jzvmUS3yZPtHWCUU6NFY6VxWBWM/GW+lInvot
+         W95bCdVT/tYbsYJl4RFD4LtsFd1sYZU9BS0O45xjsoWHGd61IftufQE+1JUihPX/rfBD
+         2w/yRC4rx2RnxGocLlGs+s67QbP4bA0Qc2IcVhrVbpaT98UNwuL2tdGsP3eybF2Jmonl
+         ieSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770111193; x=1770715993;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=u0laHcyRQqMcqzyGUiX+7U/mo2y9fWruTI7bRibaktY=;
+        b=dLmxAy6o4UKN7doUVZBK+H0afhgaZoGzsaRpDor9zzf3Asy1wxImEN6zN9xSaJXq0j
+         GqrSHKwT3Fq7EUTGKHtGh2fv/wOdKJo1g9G6O8bOwiFDqkY5TZ8SOZS0eXO0qPyLLURT
+         2KDCn8mKRRXXFGm5FzsmxgEEYL5hfYBcoGFP/BoFpI21tGNqI9/0z5NNK5k9x9zz2/RS
+         YtrNV70Y0+CTPCr1uynTZqQCcjLbMLO91etSOzfY2dLksQQryFJVkTlld+AJZF2hVBMK
+         CEHNOoeW95WPIdsBs1f8M9+qgavHTJ5mTeYq77RUvp/qhMYXmzh9f7e+Lwv90zLYp+FL
+         q2PQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXRoZ5JAsfa9Si3r4L8iOh9Gfdn38+MrQCqgPByaeAKHYqNtzVQEa6NsEjDf5suqLLZK/oVtIOVpsDOrfu7aPtK@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNlSfpNu3ObxZChn2MmkxGz2ZeGcMnftBs3KqBa9CKE45u+amj
+	gduKliIHwWzaTZSs87UvtsqMtLJyhLtHedivQ+Am66kQUZSA6iU4PTHL0zMuKIQiZCS7bYE67gS
+	rRHaLBDBwuYsMfhgBFuwe8PcTT8otRZmDk90SpRjW+SNzGRCzQdz8SOWo6V4taFPUdnSQJIxNOd
+	1NvA==
+X-Gm-Gg: AZuq6aKpjA3le/gOL3nrhfRhiTvjkTQAMr4o30SyAUvY/lPeGoC3nOaaDh912WhwRhA
+	yBrQWHP4P8DAlsXWLtvkG9qtWMMB+nKJhG2L1YgLTD4IOYUhkzyRCUPhhFTG+yK89Kdfh3zSBVw
+	clnK8/Q2oh2zK11DZhPZrps76EyGcFs5LOcO/gYouYRGPUwC3uVmvLf9/B6yDeGaJkwj58iLawJ
+	t1sN1kxMG+rq6Alc2V/6AqabyTJkwKJ+JDFJu8wM/DWxTXct3bMBx0Yua1NFa6USt/RWekaQApT
+	ujgqhVPYfoTRVJnoDUDVYIhbnUhd5jYc85PFCAUNzmDeI8hjV4BqZsPuP3YXu9pCXYZW2yOx38h
+	Sx3gSE76JYnHK7skY4hk+N4ff0IFd38eCjofqv0hk62rye909MqYDP2QMCmsxd2bNH0FVO8fM
+X-Received: by 2002:a17:903:124c:b0:2a7:3db0:6efe with SMTP id d9443c01a7336-2a8d959344fmr141413335ad.12.1770111192864;
+        Tue, 03 Feb 2026 01:33:12 -0800 (PST)
+X-Received: by 2002:a17:903:124c:b0:2a7:3db0:6efe with SMTP id d9443c01a7336-2a8d959344fmr141413085ad.12.1770111192392;
+        Tue, 03 Feb 2026 01:33:12 -0800 (PST)
+Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a88b3eedd0sm162489155ad.3.2026.02.03.01.33.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Feb 2026 01:33:12 -0800 (PST)
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+Subject: [PATCH v2 0/3] Enable CTCU and ETR devices for multiple QCOM
+ platforms
+Date: Tue, 03 Feb 2026 17:32:48 +0800
+Message-Id: <20260203-enable-ctcu-and-etr-v2-0-aacc7bd7eccb@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <95e205af-3dec-48c7-8a0d-293629f1551b@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAMHAgWkC/32NTQ6CMBSEr0Le2kf6ExVceQ/DorQPaQIttoVoS
+ O9u5QBuJvkmmW92iBQsRbhVOwTabLTeFRCnCvSo3JPQmsIgmLgwwSSSU/1EqJNeUTmDlAJKPrT
+ UGs6axkBZLoEG+z6sj67waGPy4XOcbPzX/vdtHBmqs7xyJUiLvrn7GOvXqibt57kuAV3O+Qu5Z
+ 2gNvQAAAA==
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770111187; l=1615;
+ i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
+ bh=XccZ96lDk92iWJrEvzXKPxaQ7i+4YFT1eB80lzaLe3A=;
+ b=HYNegZBQeqLhA/pAeMb8NnSR07v4leZeJ4ohDhazXGy7TLosKqvwaOAOfu02zm8lM00YeLG9O
+ GhSWE786Ue3BcNcWh3W+xkbMSZlu96fWyWN9nR9RvgYdFw6F+6YY01Q
+X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
+ pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjAzMDA3NCBTYWx0ZWRfXwbLDVHN+DsVk
+ xQQteXmy22AYM84I3iGKbhd1YDdKsFf4mn9jlWZsZqVaALksDtqM9PJ80ynWm8V9PxN9qck1bza
+ six541Z9v7puutRkdWG7/VvvV+Klk+M3eGr8QhawcVPAM85v9G0JhyHpm3jHfsKsVl1/oygdaCx
+ CJIV80I6XHiavw9R3OgCzXAk9VagqOIu1mKs7OOXrBBagYEiBX0jocs4QWZNiE189plm8Y1WzqO
+ GNO7w3zgcfM94Ey6WY5stCYYF3w00VivHugvF7mN1muHd7ODHJPk2y+Dp72mx+mxTfB1kTJxchS
+ NUTLMNKv+SIdzaGO68fhX0tsybCHPwOykYtliGiXa6+qlMXCs5Js+9cdyw2psQ22gRJG4oHOaLA
+ NS22g6gkQHFlXDfPfo3rjzw3fho5wyH9wmA27YIbESkmUCp7vveXwEUjE+L3fKcPp3abRBVXK96
+ PDcAfArOqqndunG2Bkw==
+X-Proofpoint-GUID: PO_2AE_9pXdtEk1FIfA1ybOyI5jXGxtD
+X-Authority-Analysis: v=2.4 cv=NOfYOk6g c=1 sm=1 tr=0 ts=6981c0d9 cx=c_pps
+ a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=pO0fZtIvyn0UN2_VQdIA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=GvdueXVYPmCkWapjIL-Q:22
+X-Proofpoint-ORIG-GUID: PO_2AE_9pXdtEk1FIfA1ybOyI5jXGxtD
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-03_03,2026-02-02_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 bulkscore=0 priorityscore=1501 suspectscore=0 impostorscore=0
+ adultscore=0 lowpriorityscore=0 clxscore=1015 malwarescore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602030074
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260203_013314_214539_60F0A641 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,74 +160,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 03, 2026 at 09:29:56AM +0000, James Clark wrote:
-> 
-> 
-> On 02/02/2026 7:14 pm, Leo Yan wrote:
-> > On Mon, Feb 02, 2026 at 06:57:11PM +0000, Will Deacon wrote:
-> > 
-> > [...]
-> > 
-> > 
-> > > > > I'm not sure I follow your logic as to why both ISBs are required, but
-> > > > > I'd have thought that if perf_aux_output_begin() fails when called from
-> > > > > arm_spe_perf_aux_output_begin() in the irqhandler, we need the ISB
-> > > > > because we're going to clear pmblimitr_el1 to 0 and that surely has
-> > > > > to be ordered before clearing pmbsr?
-> > > > 
-> > > > I think the ISB after arm_spe_perf_aux_output_begin() in the irq
-> > > > handler is required for both the failure and success cases.
-> > > > 
-> > > > For a normal maintenance interrupt, an ISB is inserted between writing
-> > > > PMBLIMITR_EL1 and PMBSR_EL1 to ensure that a valid limit write is
-> > > > visible before tracing restarts.  This ensures that the following
-> > > > conditions are safely met:
-> > > > 
-> > > >    "While the Proﬁling Buﬀer is enabled, proﬁling is not stopped, and
-> > > >     Discard mode is not enabled, all of the following must be true:
-> > > > 
-> > > >     The current write pointer must be at least one sample record below
-> > > >     the write limit pointer.
-> > > > 
-> > > >     PMBPTR_EL1.PTR[63:56] must equal PMBLIMITR_EL1.LIMIT[63:56],
-> > > >     regardless of the value of the applicable TBI bit."
-> > > 
-> > > Hmm, so let's say we've executed the first ISB. At that point, the
-> > > Profiling Buffer is disabled (PMBLIMITR_EL1.E = 0) and profiling is
-> > > stopped (PMBSR_EL1.S = 1).
-> > 
-> > This is not true.  PMBLIMITR_EL1.E is always 1 during interrupt
-> > handling.
+The DT‑binding patch adds platform‑specific compatibles for the
+CTCU device, and the following Qualcomm platforms are included:
+Kaanapali
+Pakala(sm8750)
+Hamoa
+Glymur
 
-Ah, yes, thank you for correcting me here.
+Since the base Coresight DT patches for the Kaanapali and Glymur
+platforms have not yet been applied, I created DT patches only
+for the Pakala and Hamoa platforms. I will submit the Kaanapali
+and Glymur patches once their corresponding base Coresight DT patches
+are merged.
 
-> > > If we *don't* have the second ISB then either
-> > > PMBLIMITR_EL1 is written first or PMBSR_EL1 is written first. But the
-> > > text you quoted will only come into effect once they've both happened,
-> > > right? In which case, why does the order matter for the success case?
-> > 
-> > Yes, both PMBLIMITR_EL1.E == 1 and PMBSR_EL1.S == 0 must be true to
-> > enable tracing.
-> > 
-> > However, the tricky part is that PMBLIMITR_EL1.E remains 1 throughout
-> > the sequence.  Writing PMBLIMITR_EL1 effectively only sets the limit,
-> > while clearing PMBSR_EL1 is the distinct step that enables tracing.
-> > 
-> > Thanks,
-> > Leo
-> 
-> I think Leo is correct that the old isb() is still needed. I removed it
-> under the assumption that PMBLIMITR_EL1.E was unset in the interrupt
-> handler. Possibly because the previous version re-arranged the handler to do
-> that.
-> 
-> If PMBLIMITR_EL1.E is set, we have to make sure clearing PMBSR_EL1 comes
-> last as it's the thing that defines the point where both pointers must be
-> correct by.
+The Hamoa‑related patches were posted in a separate email, and I
+have included them in the current patch series.
 
-Agreed that we can't remove the existing isb, but please see my other
-reply as I'm not entirely sure we need to add an extra isb to handle the
-arch relaxation.
+Link to the previous Hamoa patch series:
+https://lore.kernel.org/all/20251106-enable-etr-and-ctcu-for-hamoa-v2-0-cdb3a18753aa@oss.qualcomm.com/
 
-Will
+Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+---
+Changes in v2:
+- change back to the numeric compatible from pakala to sm8750.
+- Link to v1: https://lore.kernel.org/r/20260203-enable-ctcu-and-etr-v1-0-a5371a2ec2b8@oss.qualcomm.com
+
+---
+Jie Gan (3):
+      dt-binding: document QCOM platforms for CTCU device
+      arm64: dts: qcom: hamoa: enable ETR and CTCU devices
+      arm64: dts: qcom: sm8750: enable ETR and CTCU devices
+
+ .../bindings/arm/qcom,coresight-ctcu.yaml          |   4 +
+ arch/arm64/boot/dts/qcom/hamoa.dtsi                | 160 ++++++++++++++++++-
+ arch/arm64/boot/dts/qcom/sm8750.dtsi               | 177 +++++++++++++++++++++
+ 3 files changed, 340 insertions(+), 1 deletion(-)
+---
+base-commit: 193579fe01389bc21aff0051d13f24e8ea95b47d
+change-id: 20260203-enable-ctcu-and-etr-31f9e9d1088d
+
+Best regards,
+-- 
+Jie Gan <jie.gan@oss.qualcomm.com>
+
 
