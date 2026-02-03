@@ -4,110 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DDA4E8784E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 17:20:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0FB0E8784E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 17:22:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fpSajIVZjkZZLcEgZT2wYAImlkh3WeN99av2xam9naA=; b=fhQfkvE8LdXqdlTw+6RuR44Op5
-	LoVhj46eZjPxGbBhSD++WuQzltKQuQ8b0OzS6IOVQHZ6x1WtPqGOBsocyPNdShFjggpMThko27UV7
-	3qzHk2zTAYZLguOSfCQUzB2mrJGx2c0RfnTRRoWwWP+qFUCI8xSFJc97BuIHNKohqAgYoBMTRVOrW
-	gJHg8UIwgvxaZxyMXWhh3nT1g15kIipSzR6AJOMZfaJt8i5DJNCyNCjQGQEIkIZ+IJcAy2+2norSq
-	y9eiFY+8jxIYKxNiuFzr8KegInHZczQ3zaoILF6vvTD5jY3SMfB6gCP8Z+t1tVA85/iPpSOqu4I6x
-	bBHYwn/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cszXiMlqsjG1D2pn004woeOK5A9sc8alD/Og/RoPjPI=; b=KrBvlkES5fneLVAAvrgYa0A4J4
+	uh//+gmMxSoa1rx/Yhf5v8ZLBQAz/j0GMppXtO4DXfEY9GL1zrhQEAcPCLcBZ+Dt5HANg9q+GO8wz
+	Gfj8F2jCPXo85cLH/6SsxFwsym3H4QdkpafihiJL/202oisudT4cT8g5C6fNeeajCvx3bm3LAZnyd
+	CeK8x3zxNOJKKA8Cb983o/Nn6ueYuJ0lIQ2nH/q7DE86fnRv9BxM2JSGsjD7fXipjzLHr57SxzDlL
+	H4lKwcsxWYyxXU9Lkzs2GdTAM03jgdLTDc5P29qcX0M36mlUsE3WLbG+OZlMaPdBOQgvchv2mD0O2
+	x0vnaDYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnK4F-000000072K8-195y;
-	Tue, 03 Feb 2026 17:19:59 +0000
-Received: from fhigh-a3-smtp.messagingengine.com ([103.168.172.154])
+	id 1vnK68-000000072Ym-24gg;
+	Tue, 03 Feb 2026 17:21:56 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnK47-000000072Ik-3vm1
+	id 1vnK63-000000072Xd-20Cf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 17:19:56 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 3E96F1400087;
-	Tue,  3 Feb 2026 12:19:48 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Tue, 03 Feb 2026 12:19:48 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1770139188;
-	 x=1770225588; bh=fpSajIVZjkZZLcEgZT2wYAImlkh3WeN99av2xam9naA=; b=
-	euWKCmONC965n640l7qWtqVS3FYbGPKjBpEyaztDTFQPBii9umSgtdcBQIjqjmnf
-	jW43Dle9DCwQ9rWGrcmpqxuhmz9CU0fGEEtVbWcVxSKRyREcuKY1UPpQabJAUbBs
-	CSnx8pl+giDRZgK00FSRed51vYpUNPoyW6RysBQu7Ii4hNwOLWgrH8es38Mx//dg
-	Rgen+J+gaIC5PuoLfNdkpPQ7kbVR6QhEtECrz9Z1C9Pk6Miux2+oQlL/guGYmb2z
-	6wUdEKw1dSW28xAJg0hAeXZ35dNXPimwRnrne6B9nV1qR/1FqtnKc2wUbnQaqUbS
-	5gKMblzG64XE/qmN5F5yBg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1770139188; x=
-	1770225588; bh=fpSajIVZjkZZLcEgZT2wYAImlkh3WeN99av2xam9naA=; b=H
-	QJvMqr0ObN97cp+qltQa2RE9+zSX2qqLtSqAF+4Gc0wLqAEwxHy0m6T0iu4DkOMJ
-	+/quGG1sOL1BYdEgC8ASzxbI0b8MW6Rpc+jasTxMQYkEdNJ2aaMSy8VRTsQtyMN/
-	puRp+swlAgGIQbAcnsIV8zkfI0P5b/lqDSyfA2f+ABrjHwL2C2tnq0gkZA+fvV3g
-	qXYPeYkEmFfFwOJularvy64k13GkPykuEKZiRLUd+z4abpKJWtZkypruvjiXydM5
-	C6Z7azwVsOHHz2AMwqcD7JzxmVo2O4QmVZImSt7wv/6T4rGtaa19MiCGxKrhtr1X
-	gXc4v/WXS6/R7/FSxOlsA==
-X-ME-Sender: <xms:My6CaWwxx-o0fnEUSfc2ZpcWoAvF0DdgsiyPH6-jGQZuSN8NuioYzw>
-    <xme:My6CadHmVQC48cj1RZzetTQSO1CTzC9RMHmIFpFv5yIT-RCbngJzjUYBen-i1nXHj
-    9ZW51y_8v-jzUS2DMpQ9KF-hK7asmlJo7WtLrEVwCoEq1_1Tf87hF2S>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddukedtieefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudehpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrd
-    gtohhmpdhrtghpthhtohepphhrihhmvgdriigvnhhgsehhihhsihhlihgtohhnrdgtohhm
-    pdhrtghpthhtohepfigrnhhgiihhohhuudeshhhishhilhhitghonhdrtghomhdprhgtph
-    htthhopeiguhifvghiheeshhhishhilhhitghonhdrtghomhdprhgtphhtthhopehjohhn
-    rghthhgrnhdrtggrmhgvrhhonheshhhurgifvghirdgtohhmpdhrtghpthhtohepfhgrnh
-    hghhgrohduudeshhhurgifvghirdgtohhmpdhrtghpthhtoheplhhinhhugigrrhhmsehh
-    uhgrfigvihdrtghomhdprhgtphhtthhopehlihhuhihonhhglhhonhhgsehhuhgrfigvih
-    drtghomhdprhgtphhtthhopeifrghnghihuhhshhgrnhduvdeshhhurgifvghirdgtohhm
-X-ME-Proxy: <xmx:My6CaSs-8x-M5Euq5mYm0mJtPzc7Uw3rkmBe_thl3yMLioYZJbDdxg>
-    <xmx:My6CaW4-d9kt1Se1Jyq5ocJalsjzDBWT6BNbLdsuoUmK2cn6Oa4aHQ>
-    <xmx:My6Cae1tbz8dfv10Ebq7SG_5cDDWctAY62Jc5bfn7Xhz-nYmP3Qb3A>
-    <xmx:My6CaRgvWy80k3fPZzTH3NPJ59-iVB_3B9RC7Zqe5uaq5WaAgyI9MQ>
-    <xmx:NC6CacAZT5MVaB2eg7jHicvzTU8HwKwUjhpkbJAjLIOM95nEOtlItdMr>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 731EE70006A; Tue,  3 Feb 2026 12:19:47 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 03 Feb 2026 17:21:55 +0000
+Received: from ideasonboard.com (net-93-65-100-155.cust.vodafonedsl.it [93.65.100.155])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id DFB265B2;
+	Tue,  3 Feb 2026 18:11:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1770138667;
+	bh=uv/ua4SyFTeWme9R2HrUzPu7c2XRAYMDkdaAjA1vo7k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=F1TZfolXvPsvgFLxHYfMti7S+L2cWPijXVQdBHQnwiaOIz0ZQclg1PbGR7+eMH8TB
+	 Ufxc0ASBOyJWaaEzeRj1kY05nZoFfkuMM1cK9ZM6fuW2G6COVY3q57DEiZRoJwUTu4
+	 jLGRYegmsoBlFPvHJIzYRjgI5KgWXWwkqbFU4QLU=
+Date: Tue, 3 Feb 2026 18:11:44 +0100
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Antoine Bouyer <antoine.bouyer@nxp.com>
+Cc: julien.vuillaumier@nxp.com, alexi.birlinger@nxp.com, 
+	daniel.baluta@nxp.com, peng.fan@nxp.com, frank.li@nxp.com, 
+	jacopo.mondi@ideasonboard.com, laurent.pinchart@ideasonboard.com, mchehab@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [RFC v1 07/11] media: Add meta formats supported by NXP neoisp
+ driver
+Message-ID: <aYIsHfpMc2DZXYBr@zed>
+References: <20260123080938.3367348-1-antoine.bouyer@nxp.com>
+ <20260123080938.3367348-8-antoine.bouyer@nxp.com>
 MIME-Version: 1.0
-X-ThreadId: AdHIckEZVcNF
-Date: Tue, 03 Feb 2026 18:19:25 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Yushan Wang" <wangyushan12@huawei.com>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Drew Fustini" <fustini@kernel.org>,
- "Jonathan Cameron" <Jonathan.Cameron@huawei.com>,
- "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Linus Walleij" <linus.walleij@linaro.org>, "Will Deacon" <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: fanghao11@huawei.com, linuxarm@huawei.com, liuyonglong@huawei.com,
- prime.zeng@hisilicon.com, "Zhou Wang" <wangzhou1@hisilicon.com>,
- "Wei Xu" <xuwei5@hisilicon.com>
-Message-Id: <a8ba1c0b-e7c8-44c5-b785-42752f7f5d8f@app.fastmail.com>
-In-Reply-To: <20260203161843.649417-2-wangyushan12@huawei.com>
-References: <20260203161843.649417-1-wangyushan12@huawei.com>
- <20260203161843.649417-2-wangyushan12@huawei.com>
-Subject: Re: [PATCH 1/3] soc cache: L3 cache driver for HiSilicon SoC
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260123080938.3367348-8-antoine.bouyer@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_091952_043634_0DD0918D 
-X-CRM114-Status: GOOD (  21.94  )
+X-CRM114-CacheID: sfid-20260203_092151_657425_B772FF1B 
+X-CRM114-Status: GOOD (  17.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,78 +73,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 3, 2026, at 17:18, Yushan Wang wrote:
-> The driver will create a file of `/dev/hisi_l3c` on init, mmap
-> operations to it will allocate a memory region that is guaranteed to be
-> placed in L3 cache.
+Hi Antoine
+
+On Fri, Jan 23, 2026 at 09:09:34AM +0100, Antoine Bouyer wrote:
+> This patch adds new v4l2 meta formats definitions and descriptions used by
+> neoisp driver for the parameters and statistics buffers:
+>  - `V4L2_META_FMT_NEO_ISP_PARAMS` used for the legacy fixed-size
+> parameters buffer structure.
+>  - `V4L2_META_FMT_NEO_ISP_EXT_PARAMS` used for the generic v4l2-isp
+> extensible parameters structure, supporting a non-fixed-size buffer and
+> changeable ISP configuration blocks.
+>  - `V4L2_META_FMT_NEO_ISP_STATS` used for the legacy fixed-size statistics
+> buffer structure.
+>  - `V4L2_META_FMT_NEO_ISP_EXT_STATS` used for the generic v4l2-isp
+> extensible statistics structure, supporting a non-fixed-size buffer
+> and changeable ISP statistics blocks.
+
+Uh interesting, you have existing userspace that needs legacy formats ?
+
 >
-> The driver also provides unmap() to deallocated the locked memory.
+> Signed-off-by: Antoine Bouyer <antoine.bouyer@nxp.com>
+> ---
+>  drivers/media/v4l2-core/v4l2-ioctl.c | 4 ++++
+>  include/uapi/linux/videodev2.h       | 6 ++++++
+>  2 files changed, 10 insertions(+)
 >
-> The driver also provides an ioctl interface for user to get cache lock
-> information, such as lock restrictions and locked sizes.
+> diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
+> index 37d33d4a363d..c797cf11be38 100644
+> --- a/drivers/media/v4l2-core/v4l2-ioctl.c
+> +++ b/drivers/media/v4l2-core/v4l2-ioctl.c
+> @@ -1471,6 +1471,10 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
+>  	case V4L2_META_FMT_C3ISP_STATS:		descr = "Amlogic C3 ISP Statistics"; break;
+>  	case V4L2_META_FMT_MALI_C55_PARAMS:	descr = "ARM Mali-C55 ISP Parameters"; break;
+>  	case V4L2_META_FMT_MALI_C55_STATS:	descr = "ARM Mali-C55 ISP 3A Statistics"; break;
+> +	case V4L2_META_FMT_NEO_ISP_PARAMS:	descr = "NXP Neo ISP 3A Parameters"; break;
+> +	case V4L2_META_FMT_NEO_ISP_EXT_PARAMS:	descr = "NXP Neo ISP ext 3A Parameters"; break;
+> +	case V4L2_META_FMT_NEO_ISP_STATS:	descr = "NXP Neo ISP 3A Statistics"; break;
+> +	case V4L2_META_FMT_NEO_ISP_EXT_STATS:	descr = "NXP Neo ISP ext 3A Statistics"; break;
+>  	case V4L2_PIX_FMT_NV12_8L128:	descr = "NV12 (8x128 Linear)"; break;
+>  	case V4L2_PIX_FMT_NV12M_8L128:	descr = "NV12M (8x128 Linear)"; break;
+>  	case V4L2_PIX_FMT_NV12_10BE_8L128:	descr = "10-bit NV12 (8x128 Linear, BE)"; break;
+> diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
+> index 848e86617d5c..5f4992452c66 100644
+> --- a/include/uapi/linux/videodev2.h
+> +++ b/include/uapi/linux/videodev2.h
+> @@ -889,6 +889,12 @@ struct v4l2_pix_format {
+>  #define V4L2_META_FMT_MALI_C55_PARAMS	v4l2_fourcc('C', '5', '5', 'P') /* ARM Mali-C55 Parameters */
+>  #define V4L2_META_FMT_MALI_C55_STATS	v4l2_fourcc('C', '5', '5', 'S') /* ARM Mali-C55 3A Statistics */
 >
-> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
-
-Hi Yushan,
-
-Thanks for your submission. Since we are in the last week of
-the merge window, this is not going to be linux-7.0 material,
-but I'll have a quick look for now.
-
->  .../userspace-api/ioctl/ioctl-number.rst      |   1 +
->  MAINTAINERS                                   |   6 +
->  drivers/soc/hisilicon/Kconfig                 |  11 +
->  drivers/soc/hisilicon/Makefile                |   2 +
->  drivers/soc/hisilicon/hisi_soc_l3c.c          | 357 ++++++++++++++++++
->  include/uapi/misc/hisi_l3c.h                  |  28 ++
-
-I don't think this should be in drivers/soc/, since I want
-to reserve that for internal drivers without a user visible
-interface other than the soc_device information. (yes, there
-are a few historic counterexamples)
-
-I also don't think this should be a hilicon specific interface,
-if possible. The functionality is not that unusual in the end.
-
-We had similar concepts using the numactl system calls in the
-part, but I don't think we should do that here because you may
-need the numa interfaces for other purposes as well, and it
-may be confusing to existing callers.
-
-Having a generic madvise() based interface would be great,
-not sure if hardware support for that is common enough for that.
-
-> +	/* Continuous physical memory is required for L3 cache lock. */
-> +	pg = alloc_contig_pages(1 << order, GFP_KERNEL | __GFP_NOWARN | 
-> __GFP_ZERO,
-> +				cpu_to_node(smp_processor_id()), NULL);
-
-Since this is a user allocation, should that be GFP_USER instead
-of GFP_KERNEL?
-
-> +/* HISI_L3C_INFO: cache lock info for HiSilicon SoC */
-> +#define HISI_L3C_LOCK_INFO	_IOW(0xBB, 1, unsigned long)
-
-The specification here looks wrong, please see
-Documentation/driver-api/ioctl.rst
-
-I think for your implementation it should be
-
-#define HISI_L3C_LOCK_INFO	_IOR(0xBB, 1, hisi_l3c_lock_info)
-
-> +struct hisi_l3c_lock_info {
-> +	__u32 lock_region_num;
-> +	__u64 lock_size;
-> +	__u8 address_alignment;
-> +	__u64 max_lock_size;
-> +	__u64 min_lock_size;
-> +};
-
-You are leaking kernel data because of the padding in this structure,
-please rearrange the members to avoid padding.
-
-It may be better to use a different interface instead of ioctl(),
-possibly exporting global data in sysfs.
-
-       Arnd
+> +/* Vendor specific - used for NXP NEOISP sub-system */
+> +#define V4L2_META_FMT_NEO_ISP_PARAMS		v4l2_fourcc('N', 'N', 'I', 'P') /* NXP NEOISP Parameters */
+> +#define V4L2_META_FMT_NEO_ISP_EXT_PARAMS	v4l2_fourcc('N', 'N', 'E', 'P') /* NXP NEOISP Ext Params */
+> +#define V4L2_META_FMT_NEO_ISP_STATS		v4l2_fourcc('N', 'N', 'I', 'S') /* NXP NEOISP Statistics */
+> +#define V4L2_META_FMT_NEO_ISP_EXT_STATS		v4l2_fourcc('N', 'N', 'E', 'S') /* NXP NEOISP Ext Stats */
+> +
+>  #ifdef __KERNEL__
+>  /*
+>   * Line-based metadata formats. Remember to update v4l_fill_fmtdesc() when
+> --
+> 2.52.0
+>
+>
 
