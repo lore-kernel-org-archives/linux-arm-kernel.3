@@ -4,146 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6DB9E8306E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 09:50:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD46BE83072
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 09:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mi5bo05RB6v2dHGqgCtZm4yd7bhovE802npJty6f5bI=; b=hLQ70ubT6r/O/Q1Sl5iGJIUuuz
-	Md2DseMYFqDTNgt8w0FGhOAc6V80rlf1vjzIysKtDD/FWhiFjq3/aJRB+1cOsWOnYCAdCnxrf5iQ+
-	yyKFwuLZcVtVWJH965C08ksAoS/lX3bKFrfTGOMzuOdVMF15TaX1ksGMvxqrJj8VUM66zD7b+1ZNW
-	i0AE01kMGADFUdG/aq1S007dPHJJOcDdwva9rgmnUgEsUab4jxBPK11t+cOUFokZj9ZSOXpA5UVQ2
-	XsN8hmEenZ6otHEc30QikVfG932nfGkdcozXEAS6yQvCCUq/e1gc6pIRKMsnFRA2mWZic/6YlTkBs
-	kfe7rUrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RL8/ntmLbz7GfoTyFS9PYa6ILY9/8FH2UwySorYf6Js=; b=zrqGYqFYUiTgtt
+	ykRizlpgfz+yC1h2qCIy+Tv76dlXKyKJcXHXvv472U6Uq23G09+HTa27U2ZKcKJ1IExJfofoNpJX0
+	YV5S5BnMkMtFuZ17tbLnu5001w1ZFCtYIN3I4aaCHJQRLY9Uq0PGJXEY05zryWV/evHfYqBc0WU8g
+	iq7jpIuGgTVa9JayeEUYI+VKZdk96RYwhauVXAuheA7qf1v279EgGWZLkVqeGN1LTvImdGYSk/9z2
+	ZCTZWeQT3c840jTQufTUBO3/ZP6GlkMAQ7hDUZpFMz2JcWgMXpjqBGGG0jNpaGly2ybJc/maWsb/l
+	IoSkRHg1R0Df5eBcQ3ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnD3E-00000006PZU-37UM;
-	Tue, 03 Feb 2026 09:50:28 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vnD3T-00000006Pd8-2RwX;
+	Tue, 03 Feb 2026 09:50:43 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnD3B-00000006PZ9-3mwU
+	id 1vnD3R-00000006PcG-1DHZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 09:50:27 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6135WB422101907
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 3 Feb 2026 09:50:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	mi5bo05RB6v2dHGqgCtZm4yd7bhovE802npJty6f5bI=; b=lLaoq70MAh0zrGXy
-	D/YDaNsoKdv5e6NU4vHNHGiIXobkBmc5WguJHvmrkdoQnE4yTKBsnkcrhiUX6Qyn
-	rgJqPyKd7BZa9N63gFtA6KL4P3bZ/dfQp4dIfviof06+rLlU9sTig80Xn/cMv3nW
-	I2KQj9LUAMwOupJraR6w6AvvJxENjb19zNDPZg2dUrPu+1lliICd69oymvXldCAu
-	TAtfS3uRqArZCg6oC1E4c2RBp0lrSoAeqfMs+5JPIPcHlgiBDsw4Oma/OggQAvNT
-	ztBWjbqWz7Z5P7+2cmeQ3xA+i3nLDj0ihxAiPgvbDwBK/TE0NfR/gURfCdX4Mt6g
-	xBdrOg==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c2t5ebym8-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 09:50:25 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-35464d7c539so2292258a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 01:50:25 -0800 (PST)
+	Tue, 03 Feb 2026 09:50:42 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-c46d68f2b4eso3355205a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 01:50:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1770112225; x=1770717025; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=mi5bo05RB6v2dHGqgCtZm4yd7bhovE802npJty6f5bI=;
-        b=OYd5vn3iEcEjmx9nl0Ege5q5x7v4tgoTvK58f/7NnFEo0Lp01OzIUbdnXy1nx7PmNI
-         isKD3fsq52xgyju2DxEpx8RdxX6iPKqmnNfJY4HpL/zrrS+NL+dVYKkPDCXA4aQ8AUQi
-         d65fzMv7+SFjghnIRSeqfSM2HC5zMankGcrFRkgmJyw1sLh0gx6CftoqwoF8peo3Yb1f
-         3t8uhpSCLuzC37w3XIstgBlR1/jheK+GAs+IecpOI4nlNUbGAzknlJNQBCTZeH+p2/sQ
-         Xu3YhrZbm4T6YsnspbRC85eayL1t7muGK7mLcrz2eHfZo8MSAPhJ2oDR9f9LJYDVLdXa
-         aUQA==
+        d=gmail.com; s=20230601; t=1770112240; x=1770717040; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RL8/ntmLbz7GfoTyFS9PYa6ILY9/8FH2UwySorYf6Js=;
+        b=YMsDM+aftJTVp/P68yhKD3YHpGZJ97Ki3PYU/unjadjiLqrp23tzGasIznZ8Y/o0Ar
+         rjbQ6i4udXfCuxkGNz3Idv5S6Gl6sN+RMO+vjHUcocctZBxbDoYOLBvNk5lD7UK7PAu3
+         dLLdt5Gg5rIqinPpCzuiPoYKI8ZlZblzZ9z8f49qjCPvks6SZ3qYfq3u6Hzt93mYukSp
+         SXCXPqsjpor1VTUaP6fLqx1cF4ngkbY87zjd8L4EWzGWZTwGxSFjaUabBRIkQxw0bK47
+         wfFwL9dXhHUs2fn+GYXs+NWoru0h5yrqF7VULKuUTNOVL9URv62nZ2vSyMl3BtnIpiRl
+         iRiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770112225; x=1770717025;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mi5bo05RB6v2dHGqgCtZm4yd7bhovE802npJty6f5bI=;
-        b=dV6NtT02t3HdEcVGRGj8acHNaRSD1IClzBI7wzHzyfjyUPvQ2wvfyYTx8Lx85O/xrg
-         rBDOyXH61Ps1sqXaouVX9BiPDbUs7xp574wIK3xMYlV3g4p6LgyygezyKANqu4bPocJE
-         Ts38gr2Jm+4tlOlDt/ck1viEu6QH3HFrd3nNPgO6wr17SLW7bygSPC4mFmZE0Nvt6R1p
-         D5+IgoHiSRNfTu+vo1hsgasfV7LzF6EGLak5sU82sxzP8nMn12mWbFxDf9oPAUr7TDLa
-         6XhIspQtMJtYmUOJASAMnO/opN2Tcbso8QD5Tf2KFVxcqfobBbixJZ0cOFr/GCaNC0T1
-         rmEg==
-X-Forwarded-Encrypted: i=1; AJvYcCUoaMe0OWO9YL44pBefIXk7k6cVr2+X4cOy0wKV1UoB02AoHiPDDHRyRL717XTjNTqHkFFbZz99JEN9PJvAr0Bg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9+A+kQjCIi4RYIsNOyVglqgC2yd9riDffIKfNwfl6XI0vAJx+
-	Z87lroVFfypKoy5p0neSH0eYsaPubA2Tfn9YJ8q3+qbLrr7XyFhoqzb12CbJiRaXrKk10JQ/chZ
-	SVOpU/OSuhdAkrgmT75GLLuNghxYWOympa+fVx7X9TgqcWOV7jyOzo8wrcshBX4F9oCe1VPKnq1
-	1oNQ==
-X-Gm-Gg: AZuq6aJ7PEsmZR5dzvy0JRrg3eh9NqjCeAOWjIPRFDxFRLdxAm34T64CafQWEZs9/n0
-	6Rd/ugu6Idv/gZUeaGcMFcppkHIVPC3mge84UNkHFmK2aMhGpzLGXS88QDRODztzPX4pUwXzNzO
-	E+WtS0+5div1kymRMy+AjlcMMOmEFi3X0+CMp5EWLuvL4PF1A8E0Fk1/aCP2NNEeVHAESdvxKk5
-	QFTFlaonZixXjYNzyrZSEywtoJsYoN/nMDUpeFGJ7H8LmhGE86HdsQu/0+zNScN/wIEKeWDMXA8
-	qw5258MIn7Q+HjE2bPmFrvPJTES102eesVETmIj1OhPPf8axynMflf7hscMjWprfd8fW55xBTtY
-	iR+7rKrx3pWZAsnwPknmnA5IUovGLIK9/8sobzo165oTAbw3kn40qaK98/EE/ZHyxv40SFBEsGA
-	==
-X-Received: by 2002:a17:90b:2ec8:b0:340:b572:3b7d with SMTP id 98e67ed59e1d1-3543b39824bmr12784268a91.19.1770112224666;
-        Tue, 03 Feb 2026 01:50:24 -0800 (PST)
-X-Received: by 2002:a17:90b:2ec8:b0:340:b572:3b7d with SMTP id 98e67ed59e1d1-3543b39824bmr12784240a91.19.1770112224139;
-        Tue, 03 Feb 2026 01:50:24 -0800 (PST)
-Received: from [10.133.33.97] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3547afcd119sm2013991a91.1.2026.02.03.01.50.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 03 Feb 2026 01:50:23 -0800 (PST)
-Message-ID: <c14ba722-5195-472b-a4d6-3b8f6421df7b@oss.qualcomm.com>
-Date: Tue, 3 Feb 2026 17:50:17 +0800
+        d=1e100.net; s=20230601; t=1770112240; x=1770717040;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RL8/ntmLbz7GfoTyFS9PYa6ILY9/8FH2UwySorYf6Js=;
+        b=Pp3hZ0yh0LlUX4j4Br1qozi/34uIP9+Lk6mgZS42GuZzwIcL3pBVh0dRp4PBTEQoIU
+         tzJT8lz+gI9YL3WpSSTISQkLTS5yQuVw4BlHzfQg9cSm52v3/H3AmXawnD19FT9FQdMg
+         1JyVvfQdEVimpzqwMnnD7c0X+mMDlQeTH2vMsacmaODYUInb/bamBk+02jkTaCSi7IpS
+         bO+pgE8J7ya6nz99MjjaLzm3ks1knW45oqH0H0iDci4NIvIdAofpJSik2Jat2eG9Oeyi
+         skTeVdApF1Eu1lKDhZmkUsRB1Nh3lLSPRSlJePoPmZVRP5fndWo3XA+rUi/crXsuRjgK
+         kLbQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWofGd3j3p5vLU7n+eTlYQk2RgnZFXDhZ4EDqtcwpfVolbUm/QcUHPO2OY57Q4pGV/Pbzk/pK3Hs2Gp+bk+dhia@lists.infradead.org
+X-Gm-Message-State: AOJu0Yym6ckZqcwRIrVfYeSiY6c8TYDuvVxG7y6UCo3q6iRPwZqp/vZx
+	GjQiZ4lUUx1EZuhhfim2frEqMCgZRBz17roHRwQoT+VU5on+aNvDULA3
+X-Gm-Gg: AZuq6aINpyF/18Y9z0AUu46S0qim5hzy+xdffArbwpteKf75tIVhzD3dGakkym/cXrP
+	92yd34BA8XjzDL21edsFx3Ur+6X3np5IGI+n1RMtjHzOIqsPfYkDIpLCIddC6rDMUY2YxuZ7WD6
+	CWrDlmm1AD/nFr3KGM9YWz1c9Ep2LhyD6GaxfHQxNhwD73glogilw/ZKUF3BPNqkY3M1xfxbCxh
+	4tG8IQTn+5Vdw2A2U1fuVxCZPVdzlgpjseX/EkyzImAghppM4S8PNa5Iw2ODdt4/I/4o/i3kx13
+	cUlw3QNh464DL+28vxwP3fRjVnG7TSwmQLvGasmBnk15mODogPGPGKdaqNeBQAXJX+RUPDH5GGb
+	Qle5h4XAa8Uqd0qoZmifQooLpKwKaln3uef5uiNpNFDMVWPQdZ+Xl4RwsEL8PWlyVpH3q1Egeuy
+	tZOpyxq6Qu9i7d0gjMLMrFiffWEwENGv7C1KolhV1ouiCsbJZl/VvcWOzUprg4Ivg=
+X-Received: by 2002:a05:6a21:790:b0:364:1339:97c2 with SMTP id adf61e73a8af0-392dffffe23mr14554241637.14.1770112240073;
+        Tue, 03 Feb 2026 01:50:40 -0800 (PST)
+Received: from localhost.localdomain (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c642a336a1csm17535332a12.19.2026.02.03.01.50.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Feb 2026 01:50:39 -0800 (PST)
+From: Potin Lai <potin.lai.pt@gmail.com>
+Subject: [PATCH v2 0/2] Add Meta (Facebook) SanMiguel BMC (AST2620)
+Date: Tue, 03 Feb 2026 17:48:13 +0800
+Message-Id: <20260203-sanmiguel_init_dts-v2-0-6a5682c32b38@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] arm64: dts: qcom: hamoa: enable ETR and CTCU
- devices
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
- <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-References: <20260203-enable-ctcu-and-etr-v2-0-aacc7bd7eccb@oss.qualcomm.com>
- <20260203-enable-ctcu-and-etr-v2-2-aacc7bd7eccb@oss.qualcomm.com>
- <c739da90-de92-4d84-bb5a-e653a9fbdcef@oss.qualcomm.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <c739da90-de92-4d84-bb5a-e653a9fbdcef@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjAzMDA3NyBTYWx0ZWRfX02GVI74vQwLQ
- RzP3VT3QHfdj3BIqPbHTB3D6NDsclK6I6KeOA6QeFcVGgncShEdt+I2gWQ2r2O8h+oQRuhRpM8N
- uiCbJ2drzYEl+tHGAJdFM9d5K4Gle/Oe+wt8akChJ3hlbHGQYRtzC3B8rRdtN0bWLtNhFBd9iyP
- UvIEGOU43pj2qK8C6FkcNxoX1CT85K/X/iLLvG8ii388BsxPksbk8j/VWdsvgNspGiuIKN2xyxF
- fB57wi6DugGpHSLO+zhXoCQEABIFCRyYRKOyT4iW2eg2q7HDM03D+TgnWqhSZ0K8DkUJo1z0bik
- 1GeQihubq7TFL8g+ukXbnw3z6zSXfA69Pou/dUAN4SlWWmyL7uPkGPZejyXlMe6n+1LlvK+05ox
- 9DHBze1+MZBH0tL1ITitUELkoWRJ6WoRDk3iImwCIm5QE8VtV+dE+vqkwRtYEhVwb62+Gr42ODw
- OnnfL4QdF9mKR8rx4Xg==
-X-Proofpoint-GUID: H4zo7HQMeWXvcyIjbNK-e1J6owEb0tQU
-X-Authority-Analysis: v=2.4 cv=NOfYOk6g c=1 sm=1 tr=0 ts=6981c4e1 cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=6DexCDkPx0JeSCrEoRYA:9
- a=QEXdDO2ut3YA:10 a=iS9zxrgQBfv6-_F4QbHw:22
-X-Proofpoint-ORIG-GUID: H4zo7HQMeWXvcyIjbNK-e1J6owEb0tQU
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-03_03,2026-02-02_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 bulkscore=0 priorityscore=1501 suspectscore=0 impostorscore=0
- adultscore=0 lowpriorityscore=0 clxscore=1015 malwarescore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602030077
+X-B4-Tracking: v=1; b=H4sIAF3EgWkC/32NQQ7CIBREr9L8tRigVq0r72GaBuFLf9KCASSah
+ ruLPYCbSd4k82aFiIEwwqVZIWCmSN5VkLsG9KScRUamMkguj7wGi8otZF84j+QojSZFduq1ube
+ t7rjpoA6fAR/03qS3ofJEMfnw2T6y+LV/dVkwzjTnslV4EOe+v9pF0bzXfoGhlPIFOhJrqLQAA
+ AA=
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Patrick Williams <patrick@stwcx.xyz>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Cosmo Chou <cosmo.chou@quantatw.com>, Mike Hsieh <Mike_Hsieh@quantatw.com>, 
+ Potin Lai <potin.lai@quantatw.com>, Roger Kan <Roger.Kan@quantatw.com>, 
+ Potin Lai <potin.lai.pt@gmail.com>
+X-Mailer: b4 0.12.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770112237; l=903;
+ i=potin.lai.pt@gmail.com; s=20240724; h=from:subject:message-id;
+ bh=u0zWzVB/IbD5oQY4O26nV5N+KWOpDsoPDXV4B5J0j6k=;
+ b=bjYFW176Y/+F1LIHvROPz0o13EZ5avX9lVW0ZmD/Tox+xxQ9TytzDUNlUSeAowYi4jCsnzI8C
+ 2CPIP0/fYiVALW2Sj/kads1HKs1Q3uxEeHj1TneJL4J/lnM8IeErl6e
+X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
+ pk=6Z4H4V4fJwLteH/WzIXSsx6TkuY5FOcBBP+4OflJ5gM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_015025_974729_C0253AB3 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20260203_015041_333449_6FD5B1B7 
+X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,48 +114,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add Linux device tree entries for Meta (Facebook) SanMiguel specific
+devices connected to the AST2620 BMC SoC.
 
+Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
+---
+Changes in v2:
+- change mac0 phy-mode to rgmii-id
+- remove max-speed attribute from mac0
+- Link to v1: https://lore.kernel.org/r/20260202-sanmiguel_init_dts-v1-0-c0023ae41899@gmail.com
 
-On 2/3/2026 5:44 PM, Konrad Dybcio wrote:
-> On 2/3/26 10:32 AM, Jie Gan wrote:
->> Embedded Trace Router(ETR) is working as a DDR memory sink to collect
->> tracing data from source device.
->>
->> The CTCU serves as the control unit for the ETR device, managing its
->> behavior to determine how trace data is collected.
->>
->> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
->> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->> ---
->>   arch/arm64/boot/dts/qcom/hamoa.dtsi | 160 +++++++++++++++++++++++++++++++++++-
->>   1 file changed, 159 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/boot/dts/qcom/hamoa.dtsi b/arch/arm64/boot/dts/qcom/hamoa.dtsi
->> index db65c392e618..88ec29446ba1 100644
->> --- a/arch/arm64/boot/dts/qcom/hamoa.dtsi
->> +++ b/arch/arm64/boot/dts/qcom/hamoa.dtsi
->> @@ -6771,6 +6771,35 @@ data-pins {
->>   			};
->>   		};
->>   
->> +		ctcu@10001000 {
->> +			compatible = "qcom,hamoa-ctcu", "qcom,sa8775p-ctcu";
-> 
-> Sorry for not pointing that out explicitly the previous time around,
-> but 'hamoa' also falls under the "had numerical compatibles" category
+---
+Potin Lai (2):
+      dt-bindings: arm: aspeed: add Meta SanMiguel BMC
+      ARM: dts: aspeed: add Meta SanMiguel BMC
 
-I saw the dtsi is renamed to hamoa.dtsi but we still need to use 
-qcom,x1e80100 for hamoa?
+ .../devicetree/bindings/arm/aspeed/aspeed.yaml     |    1 +
+ arch/arm/boot/dts/aspeed/Makefile                  |    1 +
+ .../dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts   | 1161 ++++++++++++++++++++
+ 3 files changed, 1163 insertions(+)
+---
+base-commit: 24d479d26b25bce5faea3ddd9fa8f3a6c3129ea7
+change-id: 20260202-sanmiguel_init_dts-79cdb33c50d5
 
-Thanks,
-Jie
-
-> (you'll see the only hits for "qcom,hamoa" are "qcom,hamoa-iot-evk"
-> which is a board name)
-> 
-> Glymur and Kaanapali are, understandably, Glymur and Kaanapali
-> respectively
-> 
-> Konrad
+Best regards,
+-- 
+Potin Lai <potin.lai.pt@gmail.com>
 
 
