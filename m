@@ -4,78 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A02A8E6E80E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 11:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAF00E6E80F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 11:13:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
-	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=szFGRLlVCEwZRRovS/jad1iKZfVKQX8FqT/CwFCFTuw=; b=MlaBJO+S3/MV4p6NIYdV7Z6kpK
-	NwtBXPGMNL0t1ORZgwP43V0UwNRi3NZJmJV5jGukG6lOl7YfnXoZuoTNX2iPsth0phu3gPRFWI22D
-	djxzoPFSLouQ33Fu6SHfRGF0im4fBImnkc7WkCPPVOnlXJuVixfIFlKyhrLyRd3sS0X2Y49dMmAg3
-	Onzbwe94yQ7DaxbXfuUGtrOp1/o5Zw5Ld/XDqiAQcVrl23q9hM559hx6qtxk+w4jIQvLNlCXXQTNu
-	zpXXmnmw6cA8LJtD4ONz5Odl6FNJ/hAaacToTpY6o+B5dy59cBqu33V2ojhyBfZ2ZkfAJQlJVJJVJ
-	XwG2Xt6g==;
+	bh=GNmObizV/hegVQH4jRQ5q/gIzT5fq7ym8fuFQbOaxmg=; b=ASpsqCw8obXNQ6NZhH/sXMPECa
+	7aqiRueXN9rtb1wlwDy3SvivoGc9hHgRngXzLJFr1iBfeoh5DhzO9VGvYZgaVgA6L+f30jQc5rZNV
+	EhlVPWZ+Ua6akBOTcdC7fb2M58flGd2alJQZWOQWlVTX+lONd8AqrTE6Kmsbhtp5sEjQJygZRs+4I
+	Ol+HE5OIHvZeIzsG8WqyAySdE6zXmCshU9iUSjaUde1UCyUHVT7F0VxHNl8B9HNjiz2sQV9fqC3Lv
+	hQVX+W9w94NhkmXF/9K/qFtlIn1vHGWxGNJpEIS6wSUoTUesd8VxkqGSP96UhQdoEJLxoP9ZS92wo
+	3WU4bGLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnEKN-00000006WU5-1RQS;
-	Tue, 03 Feb 2026 11:12:15 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vnELV-00000006Wbi-38LT;
+	Tue, 03 Feb 2026 11:13:25 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnEKI-00000006WTE-2GUG
+	id 1vnELT-00000006WbK-1UWX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 11:12:13 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 88BF4C211DD;
-	Tue,  3 Feb 2026 11:12:12 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 4351F60728;
-	Tue,  3 Feb 2026 11:12:07 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 49DDD119A8888;
-	Tue,  3 Feb 2026 12:11:54 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1770117125; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=szFGRLlVCEwZRRovS/jad1iKZfVKQX8FqT/CwFCFTuw=;
-	b=DPoX7rqxJKZUDYyaRDR7/S+6t9BTtJqy8WOm0KmHCdu7fbDoA48IJeL5CmMiKa5CyLOhPX
-	1m04Tm1xnpB+4RqSBdn7YL51+pYU3mHNquNAHCkDuVG/s86TDceDYJ9NzVKwqMLOP+ckgr
-	l5IyZPCe6xDcieA1XnO/XkU+hCgZUUoC71wA9QWyEwKGBoUn6jkxFv+oPWNTwgiVXpO+3X
-	zROF2ReXs0saPeDrmiua4EgvrIFBe8Jc+tbqSIiRARGUc+JofQISJrkPs/wocHLOBMIBdh
-	sPveengo3QMRO55rX/CBQjMu9HRt0XLeznsH2BnuNRYnSdvxUSFDSepExnD74A==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 03 Feb 2026 12:11:53 +0100
-Message-Id: <DG5A5BNULPQX.HRWTJLN9UQ2W@bootlin.com>
-To: =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- <andrzej.hajda@intel.com>, <neil.armstrong@linaro.org>, <rfoss@kernel.org>,
- "Damon Ding" <damon.ding@rock-chips.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v8 00/18] Apply drm_bridge_connector and panel_bridge
- helper for the Analogix DP driver
-Cc: <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
- <jernej.skrabec@gmail.com>, <maarten.lankhorst@linux.intel.com>,
- <mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
- <simona@ffwll.ch>, <shawnguo@kernel.org>, <s.hauer@pengutronix.de>,
- <kernel@pengutronix.de>, <festevam@gmail.com>, <inki.dae@samsung.com>,
- <sw0312.kim@samsung.com>, <kyungmin.park@samsung.com>, <krzk@kernel.org>,
- <alim.akhtar@samsung.com>, <jingoohan1@gmail.com>,
- <p.zabel@pengutronix.de>, <hjc@rock-chips.com>, <andy.yan@rock-chips.com>,
- <dmitry.baryshkov@oss.qualcomm.com>, <dianders@chromium.org>,
- <m.szyprowski@samsung.com>, <jani.nikula@intel.com>,
- <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
- <linux-samsung-soc@vger.kernel.org>, <linux-rockchip@lists.infradead.org>
-X-Mailer: aerc 0.20.1
-References: <20251217093321.3108939-1-damon.ding@rock-chips.com>
- <6571983.R56niFO833@diego>
-In-Reply-To: <6571983.R56niFO833@diego>
-X-Last-TLS-Session-Version: TLSv1.3
+	Tue, 03 Feb 2026 11:13:24 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-430f2ee2f00so3501692f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 03:13:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1770117201; x=1770722001; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=GNmObizV/hegVQH4jRQ5q/gIzT5fq7ym8fuFQbOaxmg=;
+        b=a5ABFFTvLUuKPbVbsFGXNjV4HD3fOwmYLvzoNUt7sDMxlurWo5YeTseUJH39JUl9vp
+         AXulfIO53zjv4vkWCkXBDC+JPcriKCi79LACbNvbCfpTHbejwp5LbbEWgNYkQzr9pU2T
+         7tNKUdzHej/9GhD6sW/SRcaHGEp13lrPmxZVinI9d+1qLAcZtffbVh7U9Ed327EYJlTq
+         fdoSBBdRqBzOxa9mtDQJq3M3QrV9q8xwqXxivOA3pXlcKUJFm0xWC9UT5U+OVp9u1czV
+         apPN/eh1FeE4Frgc7JzkufX14eYKDwjvi3Amkg+4oOQ9/D0N3PuF4ToPYODrewEniagT
+         vgPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770117201; x=1770722001;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GNmObizV/hegVQH4jRQ5q/gIzT5fq7ym8fuFQbOaxmg=;
+        b=NRMsSHYZHKOktV6lOAUYSnEXpZnwS0+QIkfJK3cjLvY+K3Aou9jxXumIMwIQHp2slf
+         8mkRc/cx6ul5p8hMVGbB+GsGKR2GzSgEHxQx0RTfxa4hf5n/WHswHQ7Ec8k/3lxEdhNP
+         mKUhK1FHp3Z3E8KmJz7JB/u3hvUvWyz3NenuZWk30bQimHIYu8eJIJt9FcSiRysVsri6
+         lceUha/hppT6Rzf99MsbmHls4VeGlp5pQSLVWRg7H7qEfJ2jdNRIIpURIRa7QioppAku
+         ZgWy3ouPLo4M4B4G+dkGC0+o43rN5oD6KTKjO26ZulDkm0Skx00949lqNCcTw1C+c4s+
+         wi1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUxYh1h555G5Ks7pSNkPCpMjiEZrPOQDdGQeSSYJeB0qgiQEm/1C+XF9uhMFWQtbu88QkZyC7HqTdKit2VDl2t+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRoAv/O4X6F8YiE43OIhZ9SKr8eyeVyPLtanEvl3PYvmnzmBck
+	D1IvgKIjBpTAGqSyR5dLs2INQT5LY4q12jsXzOfOQ6mGeoM40WSDItnmDbMX+lQ5XXM=
+X-Gm-Gg: AZuq6aIH/nEpnF2z0hshKHKyiRPlmMVEaUpgd7qJSPww/pJ8JigDoqXkaDRQkacJSDV
+	rTPOI0QpDRsvGFFYkzhouaqwYJ1SIdG/pymSPX2d92rrqsHiPz/eBT7pnbsahID+XWGAGp7nO4U
+	Uf/IqdWtDl2c8jz08GFvtInx9TF8IgbFnFXkHTrMGgvouyXmBbuNmOShNtLmuKeJ6W4YQw9sK5C
+	8ptZkqZ7OoluQ8CO6t/oROjXw3In1VDvtkzZb83FqBR+q1H9rW/8NaIgMyR0yQ4vB/5I44p+d8k
+	Gfocc8lRGej7r/NGONklmJcXpm59bZOj2LK+QXN68X5X2TXeH0eW9Dth6P7vrbKJ1fjDTsz0qrv
+	svPdd4nRIxm0sLbIiJDbh4riw2/Qs/p5x+XzLCcKXWeZ0NlJjBs83Btq/BYO4dshqJIUL7DQIoV
+	b2Z8JKETKUhW94iR/9
+X-Received: by 2002:adf:cc87:0:b0:436:cea:6165 with SMTP id ffacd0b85a97d-4360cea6188mr5522685f8f.6.1770117201362;
+        Tue, 03 Feb 2026 03:13:21 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-436143d81desm3147732f8f.42.2026.02.03.03.13.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 03 Feb 2026 03:13:21 -0800 (PST)
+Message-ID: <38866ed3-f726-434b-af78-6dc30547f3df@linaro.org>
+Date: Tue, 3 Feb 2026 11:13:19 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/8] coresight: Fix device registration and
+ unregistration
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Mao Jinlong <quic_jinlmao@quicinc.com>
+References: <20260202-arm_coresight_refactor_dev_register-v3-0-03292470c48c@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260202-arm_coresight_refactor_dev_register-v3-0-03292470c48c@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_031210_741975_2870AC27 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20260203_031323_431859_79B53027 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,45 +107,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Heiko, Damon,
 
-On Mon Jan 19, 2026 at 5:06 PM CET, Heiko St=C3=BCbner wrote:
-> Hi Damon,
->
-> Am Mittwoch, 17. Dezember 2025, 10:33:03 Mitteleurop=C3=A4ische Normalzei=
-t schrieb Damon Ding:
->> PATCH 1 is to ensure the last bridge declares OP_EDID or OP_MODES or bot=
-h.
->> PATCH 2 is a small format optimization for struct analogid_dp_device.
->> PATCH 3 is to perform mode setting in &drm_bridge_funcs.atomic_enable.
->> PATCH 4 is to add a new parameter to store the point of next bridge.
->> PATCH 5 is to make legacy bridge driver more universal.
->> PATCH 6-11 are preparations for apply drm_bridge_connector helper.
->> PATCH 12 is to apply the drm_bridge_connector helper.
->> PATCH 13-15 are to move the panel/bridge parsing to the Analogix side.
->> PATCH 16 is to attach the next bridge on Analogix side uniformly.
->> PATCH 17-18 are to apply the panel_bridge helper.
->
-> On top of all the recent bridge-related commits, this series still works
-> on my rk3588-eDP board - when the display is plugged in on boot.
->
-> As that is the current state we also had before, this series:
-> Tested-by: Heiko Stuebner <heiko@sntech.de> on rk3588
 
-I'm appplying patches 1-3 and got a checkpatch warning for each patch:
+On 02/02/2026 9:33 am, Leo Yan wrote:
+> This series is to fix and refactor CoreSight device registration and
+> unregistration, it can be divided into three small parts:
+> 
+>    Patches 01-03: Three fixes for memory leak, device reference and mutex
+>                   protection.
+>    Patches 04-05: Move connection cleanup operations into
+>                   coresight_remove_conns().
+>    Patches 06-08: Refactor error handling in coresight_register().
+> 
+> This series is verified on Juno board with kmemleak detector.
+> 
+> For kmemleak verifying:
+> 
+>    echo clear > /sys/kernel/debug/kmemleak
+>    insmod coresight modules
+>    rmmod coresight modules
+>    echo scan > /sys/kernel/debug/kmemleak
+> 
+> The result shows no memory leak during a cycle of device registration
+> and unregistration.
+> 
+> ---
+> Changes in v3:
+> - Updated patch 01 to use coesight core layer for device index list
+>    (Suzuki).
+> - Link to v2: https://lore.kernel.org/r/20260126-arm_coresight_refactor_dev_register-v2-0-b5a3c0441c15@arm.com
+> 
+> Changes in v2:
+> - Refined the commit log in patch 06 (Suzuki).
+> - Unified to call coresight_unregister() for error handling (Suzuki).
+> - Refactor connection and sysfs group release.
+> - Link to v1: https://lore.kernel.org/linux-arm-kernel/20250512154108.23920-1-leo.yan@arm.com/
+> 
+> To: Suzuki K Poulose <suzuki.poulose@arm.com>
+> To: Mike Leach <mike.leach@arm.com>
+> To: James Clark <james.clark@linaro.org>
+> To: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+> To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> To: Mathieu Poirier <mathieu.poirier@linaro.org>
+> To: Mao Jinlong <quic_jinlmao@quicinc.com>
+> Cc: coresight@lists.linaro.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> 
+> ---
+> Leo Yan (8):
+>        coresight: Fix memory leak in coresight_alloc_device_name()
+>        coresight: Get parent device reference after sink ID map allocation
+>        coresight: Protect unregistration with mutex
+>        coresight: Refactor output connection sysfs link cleanup
+>        coresight: Refactor sysfs connection group cleanup
+>        coresight: Move sink validation into etm_perf_add_symlink_sink()
+>        coresight: Do not mix success path with failure handling
+>        coresight: Unify error handling in coresight_register()
+> 
+>   drivers/hwtracing/coresight/coresight-catu.c       |   4 +-
+>   drivers/hwtracing/coresight/coresight-core.c       | 230 +++++++++++++--------
+>   drivers/hwtracing/coresight/coresight-ctcu-core.c  |   4 +-
+>   drivers/hwtracing/coresight/coresight-cti-core.c   |  19 +-
+>   drivers/hwtracing/coresight/coresight-dummy.c      |   7 +-
+>   drivers/hwtracing/coresight/coresight-etb10.c      |   4 +-
+>   drivers/hwtracing/coresight/coresight-etm-perf.c   |   5 +-
+>   drivers/hwtracing/coresight/coresight-funnel.c     |   4 +-
+>   drivers/hwtracing/coresight/coresight-platform.c   |   2 +-
+>   drivers/hwtracing/coresight/coresight-priv.h       |   3 +-
+>   drivers/hwtracing/coresight/coresight-replicator.c |   4 +-
+>   drivers/hwtracing/coresight/coresight-stm.c        |   4 +-
+>   drivers/hwtracing/coresight/coresight-tmc-core.c   |  12 +-
+>   drivers/hwtracing/coresight/coresight-tnoc.c       |   4 +-
+>   drivers/hwtracing/coresight/coresight-tpda.c       |   4 +-
+>   drivers/hwtracing/coresight/coresight-tpdm.c       |   4 +-
+>   drivers/hwtracing/coresight/coresight-tpiu.c       |   4 +-
+>   drivers/hwtracing/coresight/ultrasoc-smb.c         |   4 +-
+>   include/linux/coresight.h                          |  14 +-
+>   19 files changed, 175 insertions(+), 161 deletions(-)
+> ---
+> base-commit: eebe8dbd8630f51cf70b1f68a440cd3d7f7a914d
+> change-id: 20260120-arm_coresight_refactor_dev_register-f16c069db41d
+> 
+> Best regards,
 
-  WARNING: Unexpected content after email: 'Heiko Stuebner <heiko@sntech.de=
-> on rk3588', should be: 'Heiko Stuebner <heiko@sntech.de> (on rk3588)'
+Reviewed-by: James Clark <james.clark@linaro.org>
 
-I'm fixing it while applying those 3 patches.
-
-Damon, can you fix that for the remaining patches before sending a new
-iteration?
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
