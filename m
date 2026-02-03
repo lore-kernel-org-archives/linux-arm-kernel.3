@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31637E6E7E6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 10:26:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D085E6E7F3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 10:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QMUZ/RsSngzA2DOopAjpO7D4Ng+U+FwYb5fA0UXud2A=; b=rccMzP4Xw67lSVciDPxTdP5osc
-	epLe7omdWYhkS5hxY0zvL4ea2BUYPcIlnJIe/EdSoSEx4bfqIoBK1BWoRv0ASix4hVlHQWOjmcJqF
-	FBBIZWjRA4CWE+2KRpaX+wq6SdcTRchFt9b/KhgT5U1QvCJHcSThkFvbTp7HuHSuT3laer+Vhpqp7
-	xydufRn89fRfNSlcvabZfUOX5E0MV5308i4HEf/fXP8oxesDbnplu7cLWSGD7w+NY2kEwpDN7eldz
-	N/r4YG0FdzyvhwXGpkm/xJeL5PDlXqK56I4MGkMlzo57FGovYVjrKiZPHuE6R0ZqBCWF+CjOT40TF
-	8kk/Z3oQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bRfBR2ihr1Hvugw6vtHQLI0Ym/lkBNhBRCmAfREIyxE=; b=jAHytypfbE/eyl
+	pAM+BstBV3eoKy26YPHgDXJOw7Jiz64fq3Q31XbWeUXhS0EPZn3BBzjPOVAdOWLE4yYUDVl6j33+q
+	IqIQwyaIoSd2g6Wxlv2wOdhofohX0k4tdWt8mZdTiOXKZML69ocSzGj+1N4jRwAqlf55tSq5mtMoc
+	ESARvpMHnixNArY7eq9zllcMfdY8ZEuXNXymttCjTtyH2arNS3xmAmcq2IjopUz5IzqdQXYpyy1tu
+	hX1o8rEW9MJAikoH9c3bjqp6Cdu5K2uWuby2SGnHh0X604uepmG2+rGaitqsCAGLTUlnMZk0uv1wP
+	4c/bQ2EwN/VYsp3Ktl4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnDby-00000006TLq-2iZv;
-	Tue, 03 Feb 2026 10:26:22 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1vnDl4-00000006U4p-25y8;
+	Tue, 03 Feb 2026 10:35:46 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnDbw-00000006TLI-0v84
+	id 1vnDl1-00000006U4N-1vqG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 10:26:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1770114380; x=1801650380;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=QYSyRyz/KNe8g75+aUGgAZFcRWSJp4MQIT2Dpm2e+gI=;
-  b=XhUoFJy7ye8+Bf7WEx3Xe2eLG9jNocHjC2NPxdjhN6Xw5n43aBOk3/0H
-   xK8/O28D+B4bY/mzaUltEvnzU9RdkacOZ7lr24fSDXkbIiucG1HenZC+Z
-   rwZnx27SN23PJodQDgS8Rl++v5QitRZx+jf69VYXxZ4xkof51T4VLLcxg
-   Xyd5eVCWLvAW2lv7xqWnU/tTAiu+ZIGNDMX3Dz5tNCL4O2wNpFq5De0F1
-   Jj9UfMpjcUT+MdssFuFuCl8FjJaD5+LNYkfcqElTwDqsN7eqSd9iMlCUj
-   slU6cxMeMO4u9ACN0P9VyBE9kDeRPIYu5DMURfQknHW3u9p+4KPveerK3
-   w==;
-X-CSE-ConnectionGUID: 6CUplTxUTCyOd7Fyv3ivSw==
-X-CSE-MsgGUID: I8APF+BaSaChyN3AvoqRVA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11690"; a="96738961"
-X-IronPort-AV: E=Sophos;i="6.21,270,1763452800"; 
-   d="scan'208";a="96738961"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2026 02:26:19 -0800
-X-CSE-ConnectionGUID: j3nOvX5aTQuQ/KI4ctPsjA==
-X-CSE-MsgGUID: pP1ZD7WQRkuPTRRCkx9Kgw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,270,1763452800"; 
-   d="scan'208";a="209097557"
-Received: from black.igk.intel.com (HELO black) ([10.91.253.5])
-  by orviesa010.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2026 02:26:15 -0800
-From: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-To: "Yingchao Deng (Consultant)" <quic_yingdeng@quicinc.com>, Yingchao Deng
- <yingchao.deng@oss.qualcomm.com>, Steven Rostedt <rostedt@goodmis.org>,
- Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Jonathan Corbet <corbet@lwn.net>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>
-Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Tingwei
- Zhang <tingwei.zhang@oss.qualcomm.com>, Yuanfang Zhang
- <yuanfang.zhang@oss.qualcomm.com>, Jinlong Mao
- <jinlong.mao@oss.qualcomm.com>, alexander.shishkin@linux.intel.com
-Subject: Re: [PATCH v5] stm: class: Add MIPI OST protocol support
-In-Reply-To: <dac5b6f0-5d0d-4dcd-b615-cdf9b81f4bf6@quicinc.com>
-References: <20260129-p_ost-v5-1-2b14fff39428@oss.qualcomm.com>
- <83qzr7a0tm.fsf@black.igk.intel.com>
- <dac5b6f0-5d0d-4dcd-b615-cdf9b81f4bf6@quicinc.com>
-Date: Tue, 03 Feb 2026 11:26:13 +0100
-Message-ID: <83ldha9l8a.fsf@black.igk.intel.com>
+	Tue, 03 Feb 2026 10:35:45 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id EF1FDC211C9;
+	Tue,  3 Feb 2026 10:35:45 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B938F60728;
+	Tue,  3 Feb 2026 10:35:40 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5C0E0119A8888;
+	Tue,  3 Feb 2026 11:35:32 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1770114939; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=bRfBR2ihr1Hvugw6vtHQLI0Ym/lkBNhBRCmAfREIyxE=;
+	b=CHWLALwwA2F5W2UxPktS6mEnQMxcVu4RX39BagTkuj/jK2nchiKFQjS810l9U+vr0iGF1L
+	tDlprtqF4vq0anoK7Kxkddos5DULV1Y5b85Vu3FYHVOx7jeYMcIYYY1lB3G9pcmIU8McDp
+	iglo5d+8XB1svWRBGcUOlm3OR10eOzNZVObDG7scU2pnAcyzGsNSB/B8Nh2Tu0Vbz7c3E2
+	lga4RG/kd+j4rlEUQ/TBHWopnMeSijDwNbT+KxOFknzC9ld+Mhx1PitjJtm/HgIJiI61I3
+	zLGRi5AyHLJA8/HIuh4D4roTAPwX2ZN6KPXAsffCfrC56+X55j9AMdt0/e/9cQ==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: [PATCH v5] drm/bridge: add of_drm_find_and_get_bridge() and a
+ managed *next_bridge, deprecate of_drm_find_bridge()
+Date: Tue, 03 Feb 2026 11:35:24 +0100
+Message-Id: <20260203-drm-bridge-alloc-getput-drm_of_find_bridge-v5-0-66bda8d617b4@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAGzPgWkC/5XOy2rDMBAF0F8JWldF70dX/Y9SjGRJyYBjBdk1L
+ cH/3nFoaEtWXt47cO5cyZQb5Im8HK6k5QUmqCMG/XQg/SmMx0whYSaCCc05tzS1M40NEl7CMNS
+ eHvN8+Zi3vqulKzCm7udulWdSGquUSwTBS8sFPm9jb++YTzDNtX3dthe+tfcZv2dm4ZRRlqJ3w
+ ZasrHqNtc4DjM99PZNtaBF/cOF24QJx54oLnNncB/GIy19ccLMLl4hHzY0uITqm3SOu7rhh+MA
+ uXCEejIhKeh9MLP/xdV2/ASz84Rj9AQAA
+X-Change-ID: 20251117-drm-bridge-alloc-getput-drm_of_find_bridge-74903367448d
+To: Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.15-dev-5464f
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_022620_267660_91783E14 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20260203_023543_667869_CAD90DE1 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,64 +91,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"Yingchao Deng (Consultant)" <quic_yingdeng@quicinc.com> writes:
+This v4 contains the leftovers of the v3 series that deprecated
+of_drm_find_bridge(), added a replacement which handles bridge refcounting,
+and converted some of the direct users. All patches have been applied
+except the imx8qxp-pixel-link ones, which still need a review for the first
+patch.
 
-> On 1/30/2026 5:48 PM, Alexander Shishkin wrote:
->> Yingchao Deng<yingchao.deng@oss.qualcomm.com> writes:
->>
->>> +	for (i = 1; i < ARRAY_SIZE(str_ost_entity_type); i++) {
->>> +		if (i == pn->entity_type)
->>> +			sz += sysfs_emit_at(page, sz, "[%s] ", str_ost_entity_type[i]);
->>> +		else
->>> +			sz += sysfs_emit_at(page, sz, "%s ", str_ost_entity_type[i]);
->>> +	}
->> Greg hates this. Documentation [0] says "preferably": "Attributes should
->> be ASCII text files, preferably with only one value per file.", but
->> somebody will get yelled at if this gets spotted, and since it's
->> probably going to be me, let's maybe not do this.
-> Using two sysfs nodes, entity_available (listing supported options)
-> and entity (the current value), is this acceptable?
+@Liu, patch 1 is waiting for a review and it's non-trivial, it would be
+nice if you could have a look at that one at least.
 
-My apologies, I didn't see that this was a configfs attribute (as it
-should be).
+This is part of the work to support hotplug of DRM bridges. The grand plan
+was discussed in [0].
 
-Having said that, these ost types are almost enum stm_source_type. The
-console is missing, but there is already a console source, so adding it
-to the enum and the making the console source driver type that makes
-sense. And once you have that, you'll get the entity type in your
-ost_write() method via the @source parameter. Then, you'll only need a
-tiny lookup table that maps enum stm_source_type to OST_ENTITY_* and use
-that in the encoded packet.
+Here's the work breakdown (➜ marks the current series):
 
-This leaves the question of OST_ENTITY_TYPE_NONE and
-OST_ENTITY_TYPE_DIAG. They are both unclear to me. OST_ENTITY_TYPE_NONE
-basically means "no type, reject write", meaning that type 0 in an OST
-packet is invalid, which seems weird and wasteful, is that what the
-protocol spec says?
+ 1. ➜ add refcounting to DRM bridges struct drm_bridge,
+      based on devm_drm_bridge_alloc()
+    A. ✔ add new alloc API and refcounting (v6.16)
+    B. ✔ convert all bridge drivers to new API (v6.17)
+    C. ✔ kunit tests (v6.17)
+    D. ✔ add get/put to drm_bridge_add/remove() + attach/detach()
+         and warn on old allocation pattern (v6.17)
+    E. ➜ add get/put on drm_bridge accessors
+       1. ✔ drm_bridge_chain_get_first_bridge(), add cleanup action (v6.18)
+       2. ✔ drm_bridge_get_prev_bridge() (v6.18)
+       3. ✔ drm_bridge_get_next_bridge() (v6.19)
+       4. ✔ drm_for_each_bridge_in_chain() (v6.19)
+       5. ✔ drm_bridge_connector_init (v6.19)
+       6. … protect encoder bridge chain with a mutex
+       7. ➜ of_drm_find_bridge()
+          a. ➜✔… add of_drm_get_bridge(), convert basic direct users
+	         (v6.20?, one driver still pending)
+	  b. convert other direct users
+	  c. convert bridge-only drm_of_find_panel_or_bridge() users
+       8. drm_of_find_panel_or_bridge, *_of_get_bridge
+       9. ✔ enforce drm_bridge_add before drm_bridge_attach (v6.19)
+    F. ✔ debugfs improvements
+       1. ✔ add top-level 'bridges' file (v6.16)
+       2. ✔ show refcount and list lingering bridges (v6.19)
+ 2. … handle gracefully atomic updates during bridge removal
+    A. ✔ Add drm_dev_enter/exit() to protect device resources (v6.20?)
+    B. … protect private_obj removal from list
+ 3. … DSI host-device driver interaction
+ 4. ✔ removing the need for the "always-disconnected" connector
+ 5. finish the hotplug bridge work, moving code to the core and potentially
+    removing the hotplug-bridge itself (this needs to be clarified as
+    points 1-3 are developed)
 
-OST_ENTITY_TYPE_DIAG is also not explained; since we're already in the
-tracing territory, "diag" may mean anything at all. From its value being
-at the upper end of the 8-bit spectrum, I'm guessing it either something
-very specialized or something very generic. Can it be a catch-all for
-STM_USER (which is a catch-all)? Alternatively, you could propagate the
-matched policy node's name to the pdrv->write() and in ost_write() check
-if it's "diag" to select this type. strncmp() in pdrv->write() is not
-ideal, though.
+[0] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com/#t
 
-Either way, no extra attribute needed.
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+Changes in v5:
+- Changed the only remaining patch after Liu Ying's requests for code
+  readability
+- Link to v4: https://lore.kernel.org/r/20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-0-a62b4399a6bf@bootlin.com
 
-Because,
+Changes in v4:
+- Added review trailers
+- Link to v3: https://lore.kernel.org/r/20251216-drm-bridge-alloc-getput-drm_of_find_bridge-v3-0-b5165fab8058@bootlin.com
 
-# mkdir diag ftrace console
-# echo diag > diag/entity
-# echo ftrace > ftrace/entity
-# echo console > console/entity
+Changes in v3:
+- Completely rewrote using the __drm_bridge_free() idea to prevent
+  use-after-free of the next_bridge for the common cases
+- Added needed cleanups to the imx8qxp-pixel-link and imx8qxp-pxl2dpi
+  drivers
+- Removed various patches converting simple cases, to reduce the number of
+  e-mails sent; will be moved to the follow-up series
+- Link to v2: https://lore.kernel.org/r/20251128-drm-bridge-alloc-getput-drm_of_find_bridge-v2-0-88f8a107eca2@bootlin.com
 
-is really a hat on a hat.
+Changes in v2:
+- All patches: renamed drm_of_find_bridge() -> of_drm_get_bridge()
+- Various fixes and improvements to patches 1-6, see individual patches
+  changelog
+- Removed bouncing recipient: Edmund Dea <edmund.j.dea@intel.com>
+- Link to v1: https://lore.kernel.org/r/20251119-drm-bridge-alloc-getput-drm_of_find_bridge-v1-0-0db98a7fe474@bootlin.com
 
-Would something like this work for you?
+---
+Luca Ceresoli (1):
+      drm/bridge: imx8qxp-pixel-link: get/put the next bridge
 
-Thanks,
---
-Alex
+ drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c | 17 ++++++++++-------
+ 1 file changed, 10 insertions(+), 7 deletions(-)
+---
+base-commit: 4a0f7d0f51c0965a8a394a8c5d65be2d24e362df
+change-id: 20251117-drm-bridge-alloc-getput-drm_of_find_bridge-74903367448d
+
+Best regards,
+--  
+Luca Ceresoli <luca.ceresoli@bootlin.com>
+
 
