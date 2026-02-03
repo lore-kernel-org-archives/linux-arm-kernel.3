@@ -4,116 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C5DE87842
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 15:41:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBC95E87841
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 15:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2GolLxBI7M4FrQQ01gPdYp9MHSke1dJvpw9m0JW/AlM=; b=zTGTJwIie1Z9LMJ4ez7Agk3RV0
-	T6SAEKbgRnZrLUFrsrCtuPvuWH0RYiM7XbquSRnVCKQZVTNPg2VLHnBwQ65vW3rXrJbuiQDgiXKVC
-	ErDwHF54BRN8gSCikbrWIcTwhoWRkwnSIKO8VLdhz/nRKQLL7FAzApdnl93yOBM56f4ENot7dcyJe
-	cvVx4wEWIluRemMCceLrjVY2Iow8TYP5GNAOw78oeEZi59Msx5saAd/5rzNGd6RfvgDzfk3AsOofk
-	0SE4a+VpApme9sOzlw7/sQ4AwjZJ9FdKrSTPM5BQdVJIhSH8jBfudhGUwqPm319tOYWH00Avsn4ZJ
-	Eq1vesaQ==;
+	bh=MPr3/K2IA7B+Psb1GDUE9EqV/EGskCr88s3zkU61kl0=; b=UyFqMS/aqgJDr3xhPvxs+ZwUaV
+	zP0oMSbnJx2IuzaOvP9WPrj6KYogBCVGXKW4SPUJhPThFs1KaGEiSWEp2pwXRiJOKYzXG5upfUN3q
+	5bCB4J+cBe6MGdmBCIRTccbn+6oz1e8/CjRsPm/DD3rN71hc0xBhwbLHdrIW3SmCBMNonmlZ4ZdjU
+	Lr6BuIc32kFc5ba+fHwWYWJ87WgKBZyJYJ8QzYRKRF1qgXVgO7g6Fk75eubx/NegshZfQpEP10WuK
+	nIn5oM8ucqFdCRlUqPJTIrWhCMk7uu9dsr5BxKvu1z2RMCbj72tH7jW75Fw82YN8Ruwsq+TsWVDb5
+	yLretDQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnIWT-00000006qZu-2PBH;
-	Tue, 03 Feb 2026 15:41:01 +0000
-Received: from mail-qk1-x743.google.com ([2607:f8b0:4864:20::743])
+	id 1vnIWu-00000006qdb-0D8D;
+	Tue, 03 Feb 2026 15:41:28 +0000
+Received: from mail-northeuropeazon11010042.outbound.protection.outlook.com ([52.101.84.42] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnIWP-00000006qZP-31lM
+	id 1vnIWs-00000006qce-0Ve2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 15:40:59 +0000
-Received: by mail-qk1-x743.google.com with SMTP id af79cd13be357-8c5320536bfso601597585a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 07:40:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1770133256; x=1770738056; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=2GolLxBI7M4FrQQ01gPdYp9MHSke1dJvpw9m0JW/AlM=;
-        b=qZCutr7bxCxGtYrLOaEZBZdmN1HBIPs1dWa7ODNVVIPnsrVfs7bdiyoFXoPbtCFHxE
-         FU0GRwpGHsRD2vegOgmWDYgJAjwA49Z2k6pT3XSNZRD+t3DTDMQUHpcjoPGLjSSH/pDY
-         53FZGZ+MlhNfprj+2QZ7OmwvIlU6Vh/GFPeoV344AQPggjnofIjT3r69RR1+ztGy+led
-         zSF8MO6Dp5fJONUy2dW0M4Bu8MdqqSvSTdDZBB8SOGQDTRBuAy1HOXQJ18KT6T/xC0e7
-         7apHVsPni/l+4qtmmbYljWnIbfcuWI8bFumWjWFiUsOvbA8E3NREduY1eA6dBr4bqIpL
-         qKpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770133256; x=1770738056;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2GolLxBI7M4FrQQ01gPdYp9MHSke1dJvpw9m0JW/AlM=;
-        b=S88aTuBIReRMnWxC2sNy8Tw59jGjkpfi9e3oKfZJSkGzsDh+rK4HX5aC0qMgapzYHs
-         1Tzk8FJ3pi+BBcrrNGF/pnX015YAYM4PM7XbuXs1mRfHHawI3kODU5LiH7BP70YVMMj+
-         Gyyw/0HBoIopWHkxR0UR8s2sHhKj7HQItGQAcpiH6iI+7sM30VCcYE2Z63enUjFZjFGu
-         IO8SJwPNtdzkdSTpMPiwuUYQgsb81xt2hhjNk5m1ySI8ub1erVdDGrTfRLNTmhD7jLeJ
-         KI+/XkOBWaWM7gbqt6qeHWiftHAv23GvVMBaWwbExkr2C8f5MFhRUbZXwBAXsxZVKv6v
-         pucA==
-X-Forwarded-Encrypted: i=1; AJvYcCVzhutUBRo2LzPKfGwt5I5dnvlWR6W0DNyqbpjfqG9knqAvXF0ci0EfxkOsdaCZew6UVGTGS1bh4KjOzAYjH+dU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxApT//VVxPcu1C39IB9KBOnYxsuesRzHRzMwDEp3DXirQPhmjW
-	WkdGRfCkeS547fPOKeDw2LFKJEeKMatbtq9iCMTuADMUzxpNDwppm4BPbyoD73wErl4=
-X-Gm-Gg: AZuq6aLdUrypSQ4udtqTP4eIxjPCMIgh6lKrt1Z0CpFW1heSrX4MfMGx6D5/RBYKOMg
-	PAZAxl6Es/7Bv4TG5GXz57VaWi2lpQf/iypeq6kgEeip//Gc919RIpj94X+Kw0MBkwGmNFVedwA
-	ZzpP/wOFFcQJoPPuKp6rAhxsQhFBm629HJAR9eaXLE0txrJcUR0AAIGakSF/J2BuM/SIBOLLCUK
-	x84RjFqiq1Z0TK/varJ1w21hCWjFEfmU7PANHXk94l42fRuNF3pI5WG8WzthzBtERp656UEsHYn
-	KgDmeEt9AIuKuEFXzS5WexuczqnU57IMjocfuXi6VCDbTo4xLX5g8PPwK3UYAQmWUQNEPMN+WEQ
-	KUKlUX+P6T/zr5q2B+/y5Bry6MPVN0G3Gdd7xIJDLQyWXp9C2YczXCE7DbQFvBUH2JxoSfKpitA
-	UzMrNplU+mXytsSlF92uevZlqvdSU=
-X-Received: by 2002:a05:620a:7105:b0:8c6:d2ca:1d0e with SMTP id af79cd13be357-8c9eb2584c3mr2033310985a.11.1770133256006;
-        Tue, 03 Feb 2026 07:40:56 -0800 (PST)
-Received: from ?IPv6:2606:6d00:15:210e::5ac? ([2606:6d00:15:210e::5ac])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c711ba6c58sm1610151685a.23.2026.02.03.07.40.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Feb 2026 07:40:55 -0800 (PST)
-Message-ID: <db9016a39f612cc93ee070c1eba4e4471a89a5cd.camel@ndufresne.ca>
-Subject: Re: [PATCH] arm64: dts: imx8mq: Restore VPU G2 clock to 600MHz for
- 4K60fps decoding
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>, Marco Felsch
-	 <m.felsch@pengutronix.de>
-Cc: linux-media@vger.kernel.org, imx@lists.linux.dev,
- ulf.hansson@linaro.org, 	Frank.li@nxp.com, peng.fan@nxp.com,
- festevam@gmail.com, robh@kernel.org, 	benjamin.gaignard@collabora.com,
- sebastian.fricke@collabora.com, 	linux-imx@nxp.com,
- devicetree@vger.kernel.org, conor+dt@kernel.org, 	p.zabel@pengutronix.de,
- linux-pm@vger.kernel.org, s.hauer@pengutronix.de, 	mchehab@kernel.org,
- linux-arm-kernel@lists.infradead.org, eagle.zhou@nxp.com, 
-	linux-kernel@vger.kernel.org, kernel@pengutronix.de,
- hverkuil-cisco@xs4all.nl, 	krzk+dt@kernel.org, shawnguo@kernel.org,
- l.stach@pengutronix.de
-Date: Tue, 03 Feb 2026 10:40:52 -0500
-In-Reply-To: <cd07dc6e-1f19-4a59-8ee5-81a36d51bf1c@oss.nxp.com>
-References: <20260130084133.2159-1-ming.qian@oss.nxp.com>
-	 <df8d5d5f28870752e77ec74f34fea7ceb6e97286.camel@ndufresne.ca>
-	 <0b24716b-438c-4185-8a93-3a3879147c24@oss.nxp.com>
-	 <169eba79e8e1f906b1a0b59e22a531dfc7e57a1f.camel@ndufresne.ca>
-	 <5e3431c69da07557edb20a252c4759be8c857f08.camel@ndufresne.ca>
-	 <ca3a8042-1394-4925-9c61-dbfcbf4cf7d9@oss.nxp.com>
-	 <20260203083110.woan3gmc3qdh7nmm@pengutronix.de>
-	 <cd07dc6e-1f19-4a59-8ee5-81a36d51bf1c@oss.nxp.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-okkgKqsgZ+IV64MKbOhB"
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+	Tue, 03 Feb 2026 15:41:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B3822qZNXRbJmeKttjd09dhDzo8H5dyjwm79hb+pbXRgoQ3y0BICqCLmdy3Dg3g66wBwHthpzvjpubDpbgkEqbdKrTMR0CFrVd8xUNw8qCf2E52nNiBGUnW+bhavN9V2c32mayfqsAUq6Yddov3L1WvtLVIMaRrakq7ETKjKJLUZLfrdL3UfpLNJ7OGGhns1c43AehYwq8FnOlYJHtk01sqE5vnj9yzR4rZ7OrCvzska+CBPu0Gqqsg+IQOebrsTTsQymiFe7NrRrKSuJBqjd/0EFldSsVoWzbiSobFvR9ibHjxoqVnajW035iai3ZghhWaYVCzGahyHzh3Wp932IA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MPr3/K2IA7B+Psb1GDUE9EqV/EGskCr88s3zkU61kl0=;
+ b=naZlnP4/ywMd6YJwvCDaOXznWruxNsXdDuYnncYM8KErqoqLF/MX9SWTUwqJWrYdXJhX5bSnspziv3rWBPiHcX6Ep+XRWxckI2hlJl3O1ooV4WQXtwX4IhEYwU/Dd2gDFjkob2JDPFbjIJv4Y5e7kY6/LUH18LbtQD2x2NMSpMf5zeGJg8CnrR/jv9kYfS3VGdefrynatAjpgt8vuABbupSBamtYgQoz0iDCbL7GbcWrfm/ypdElKls9Jpue6SzIKuHUFoCYKgYkO4iB8jx5MuK9D2PNVFu1k1uuUkjfoBXNGem0UKcPyJN5y2m/JakWqfbVBQvyKULY96aPCTNfGw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MPr3/K2IA7B+Psb1GDUE9EqV/EGskCr88s3zkU61kl0=;
+ b=eT7EZS1o7iVFPse0+3Ez8Uy1lCSrRFtGeKXb+P7uCuzazSeDvB/MQ0FCLpi7c61d9dxpcQWSglyIZNEklAVFHO5bMXlyCWKepidlfqi7qLNzK+9Bo+td1vZHZN9srkKcFqYJ4qBWB96cSL3wnF8Ov+LW/hFpukQhyi/scmN/h5s3gG039CYD1J08VTaruaXp6zHHaSKoPfm55v9rVsO6lGyhTPto3xoeq+z/7gUExct9boyiIqh8CyqaGFJPllHiH3ONGE3QSISs0TsHEpt9qyF/vVojnEU2G04BLnqEc7ZDG6JVRA77F1TGTqfawUa4as1rKBT3MWA1v9KA+RaLxw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com (2603:10a6:10:35b::7)
+ by AS8PR04MB7974.eurprd04.prod.outlook.com (2603:10a6:20b:2a1::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Tue, 3 Feb
+ 2026 15:41:21 +0000
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4]) by DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4%4]) with mapi id 15.20.9564.016; Tue, 3 Feb 2026
+ 15:41:21 +0000
+Date: Tue, 3 Feb 2026 10:41:11 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: ciprianmarian.costea@oss.nxp.com, s32@nxp.com, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] PCI: s32g: Fix ports parsing
+Message-ID: <aYIXFzOoQXq8Xtyv@lizhi-Precision-Tower-5810>
+References: <20260202151050.1446165-1-vincent.guittot@linaro.org>
+ <aYDiFpGT5hEDDFhV@lizhi-Precision-Tower-5810>
+ <CAKfTPtDjad7aowTQ3UJPi5Qqgzf3q8J=kASa-t3YM4zfjUv3-w@mail.gmail.com>
+ <aYD+/iTSF8ikTLIY@lizhi-Precision-Tower-5810>
+ <CAKfTPtDcKw0qc3o70AT9_n2omejNrh9fnkwS5NWKQpqjaCnBdg@mail.gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAKfTPtDcKw0qc3o70AT9_n2omejNrh9fnkwS5NWKQpqjaCnBdg@mail.gmail.com>
+X-ClientProxiedBy: BY3PR05CA0021.namprd05.prod.outlook.com
+ (2603:10b6:a03:254::26) To DU0PR04MB9372.eurprd04.prod.outlook.com
+ (2603:10a6:10:35b::7)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9372:EE_|AS8PR04MB7974:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7d0ca6b9-1366-4e70-3106-08de633aadc9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|366016|52116014|376014|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bKnKLkLIr3bsv2JfbG9rRIoTHHdszuuIZSfDvbg04wgLTJqxvn4i6npc7JXb?=
+ =?us-ascii?Q?PT5K1U+iRM7PAhwrc4L7dJ7JAh/nbTF0UiRYefittsI85mx+8XtCz6v2nLsf?=
+ =?us-ascii?Q?mR1pZPZ2I1AUSJW/dBy0TSwu4uaWoQxQgp131EnEPzIq1MAkneGvvgE3P157?=
+ =?us-ascii?Q?W4AMUrldiavkgxStM5Wfhsndwh399EPE83Bw1utynaZO+0+rHTnWcGPW7Jvt?=
+ =?us-ascii?Q?4qFGju3WiYaGPEtjlxVWI3iXWs87N/tChhjwL5sJDgT8Knib7mkeXLRt3Iwz?=
+ =?us-ascii?Q?TeeU5R/RJhX/BA3UqsLyJ5Ulh7R6g1bF/xOknY6G7Xbrho2OsC6K4GdEYdPo?=
+ =?us-ascii?Q?nvWRFwYHwk/99fq/HQDt5G+iwi96Zwz0BPeSOFzkiV7iyR01pxhPQgZgFWnx?=
+ =?us-ascii?Q?r4x2WzjN6wpP6nGLPHt0oDtqBQFiu3UMub/gBYWapXeZeHrFbxmKvaeVU1sq?=
+ =?us-ascii?Q?G16GDsC2/63qQKgjxxujNNFv+Mt/JH+P6JA05jAt1FUvh7mn4Qojxk+7exJO?=
+ =?us-ascii?Q?mEU3dyGfbWVtbkCxX2X6/hwx8oFZuIIUYiTZtCrm7+hFniXoPD359vopnsEL?=
+ =?us-ascii?Q?UzL7/TVjfp9qTgRwA4vAkK23Tt8B7ehQFJFFsV0wHD0cjxTmjPr5PRHBxALd?=
+ =?us-ascii?Q?tnom9lhi44COyaTpMIPwVCIIjgQr1v1ayOqE6t4PjLfDjKqDptE+aAkXw2DI?=
+ =?us-ascii?Q?ZFqpo18dnuuCxOETRaOA0RegYqHsb/mqn7KppA6YqgMO+8pt+xjW6YwJN+F1?=
+ =?us-ascii?Q?VWszY/4LBmrMOq/rd39uTfpuany0TRIykIQJwpRCQS2HteOTJnJee6L4BP/2?=
+ =?us-ascii?Q?9neCNIxoV+losCgVPaZrlYo8656jMWA5wtSqLVp2W8zw3PaJ83pboK7W0eeC?=
+ =?us-ascii?Q?zt5PBSFWW5ZmHzDoX50I098TJeWErf49zucwB/4pbwA3I6lbNGuVXHTFYEDi?=
+ =?us-ascii?Q?CTVQLlOUhb6TASuA8JZDwaXyx4iijgskajMtFlvdL9YDHkSCqdLLKrDZnmRg?=
+ =?us-ascii?Q?TVIt4Y3R2X1cAfuj/h8DyVgODuCH/OJZQrtaO+BwtfgXYQagVWtw4ONEWTXH?=
+ =?us-ascii?Q?3sQtjMotju05CHXFeVnXY5++hJM8Lcy3kgeqc4lboCM9Lx7XDgBbpCZTv9EL?=
+ =?us-ascii?Q?iiGTs/thLyM2kINi+ysZ7c3qZgi0acum8HunoDfn0REsntVcRkuHpFNgxB8G?=
+ =?us-ascii?Q?AOcye8iXfpX7oglqOh9k2HeMkhqzov86Uc0lKIm4qeNsO5MDvDhsDBEZ6NNM?=
+ =?us-ascii?Q?d0k7nR61ep/R2gMoaQsrFXUoh0PI3G0tSoF8mIT+IZEjcTJIZS7KcOxj5T3L?=
+ =?us-ascii?Q?p45v+YUJlYxEvZLTeikvR+6aGxhZK8zcFmIBB/UsnAY2M5LSi8sM6KJBOicq?=
+ =?us-ascii?Q?o10zV5xDRxToHyFYYdLlDLpDIicu0jSLNGXE0kaJyjEfEd/ZlUFnLBgAVGZJ?=
+ =?us-ascii?Q?ZLU5FexM06UtQoX1tM3ZT6C15v6TWOW8oJgZ5mF+HW0xJj3LEn3/o5CiIAhA?=
+ =?us-ascii?Q?V4PI0ZwwDgXy0Q5SEMzZuJjPatkvbg2ut3yK5gAv/OsZTe8Bx/YoWZClko+9?=
+ =?us-ascii?Q?EZZjeE1Hpbw1OFZT+logcB1fLW177cb7KxU0qxxa9VkXeWL3rcJkURuxsdl2?=
+ =?us-ascii?Q?U4u61bcitgnRjgzBe7CTsV0=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9372.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(366016)(52116014)(376014)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GnNKI8fxANwkikGxHgVK7oN0mzgNj5pZRYgGZ3/oQT6iHG636DuffCX9Yzgo?=
+ =?us-ascii?Q?oriAvxNLziTWDCSpkOZRTYNUmwoqkGRgBNq65E5eW9tAoErNnhDGUDuGDlgK?=
+ =?us-ascii?Q?Klr0DA3P1nM+Qq1p+2Fe+/HSJ56WXMqTRh/n2qOP3+lgVz1jropyioklwsbI?=
+ =?us-ascii?Q?wZSknftdn38tQrZbEq44NrhD9joNhgWWIyM7fMIh8yeTGHJYM00oqnnl33Pl?=
+ =?us-ascii?Q?d2w6NbTNfu2Egb1atkgSyuqbT6JZOJpvJbNInYtD3ktBpskRobVGVgoGUWeP?=
+ =?us-ascii?Q?+TjnXHS5k6/1WHKjIVIX6Bw1kFf7Dwnk0n6Sh/OBaWTUoeLMB0m7popIqgry?=
+ =?us-ascii?Q?XqQdCBwUa9FrSOsOQVt2qmonRYxhJWAtytrxZ0ouWFJm6qiSx85xBqBwv9wq?=
+ =?us-ascii?Q?BSdde/9MgG39GoIx5SzV8BDYrVPhLlrhAdBkQkr3q5TJh8Efc+GPaAt0CSLr?=
+ =?us-ascii?Q?I/pez+E0O8L4oNMimNiU0cNDFyBi6mai4fDxEoMVYC9GMKUGfvdnOE/sLVn5?=
+ =?us-ascii?Q?yTZ+aF6IsX8tiqD+h+PzP8V/n5TowuFQeNpz+OV5dtWKgW5HsfCX2r8ggjKn?=
+ =?us-ascii?Q?hY6Jh8d6R9fytnNreZq0Fm9sMvldgmT9tuevLgVQ/n2BYG2RgjPbVxmDYhlK?=
+ =?us-ascii?Q?i9+mDjUm5yFLkIUDQbx4f3AWYYavErzMB3SbG2Zh+Pae308hECUQN6OD6cXr?=
+ =?us-ascii?Q?2I42raI283uTbMRoe9JrsUJ/BgH9BlbLd5fG3Y9rLFPXJUVX1R25xJrz5bw8?=
+ =?us-ascii?Q?83+kv8zEf6I3p5T1S+6mGgXxdfx9MU7W5OwRdd1i30pvlv8ohg7j3XH/uG7T?=
+ =?us-ascii?Q?oPFA/GTqeOpPRDqOcT4L+/kV1AuvnhbS57VRZZ24pdZOiI1eQPdXV6I90YYT?=
+ =?us-ascii?Q?h6+lWkLHIHcWq31/GfJWOhJg30H3mP6hRQKr2uhJrgh7jxg2wLtcSrE5tqd2?=
+ =?us-ascii?Q?yjdcVZBcIBTSlyeJ75osh09z+xWadQsTwkJ3zmZf6+LiS3ysbx7ECpUCQxBY?=
+ =?us-ascii?Q?z+rJTrJXqgPotGrPhx5711U8oEp+hraFvE3LXXZFeQ9K9yCvUNJnnTTmjSB+?=
+ =?us-ascii?Q?EIH/IoFqIlV7/po7xMKror8C8SGL+aCLTo6NmOxwPA5vA9S3BQJcTPfzr730?=
+ =?us-ascii?Q?GHUh7Y51WbgLIIZBLkdbgdQeMXnfIU2U16bU7sGygYj7yqtQxoqAHMevyp1m?=
+ =?us-ascii?Q?e6Oh+1gG4xI3A+UV03SouAkeq7tnBQTmz5jvHE9dz5pvr6WKLrBzTn7tjaQc?=
+ =?us-ascii?Q?4YMN5DsGGxfmAusXjP3ASQrm5wr+XnaACazd1Gke36SvSvxkoutXx2LlXeRC?=
+ =?us-ascii?Q?xCUKbZdUFzLNpTcXKCc2N3ZgAO9vfiNFE9hckah5ukQbxuVXusauK+2+LfsJ?=
+ =?us-ascii?Q?+uG7IbqxG3q3gT3576CSveEjHpDEf2iWJzRI0cmEG5/5+teYw72bBwDrkgGw?=
+ =?us-ascii?Q?nSwRKf3/ZuQYMDQwhwM8I2cSpQ+nYGi18WYjN8WCmgryiE37qDhJqolI6oJB?=
+ =?us-ascii?Q?oDO/bbkwIKYIU9PTPNvkmT5AdVngjdq6GQi3A0iLpZ5r0whqnhjoTgzERS3b?=
+ =?us-ascii?Q?D+sbWDoQRhHuMW4j77vztHRysiuhS1SFR0jhk+Uk07Y+sxqZX6z+nFFiG+pa?=
+ =?us-ascii?Q?Nu2GdL8Qi/dGQFe823IctaBqYQZmh4w+fbNpTfAot/F1t6/CmbWEbiCeW96+?=
+ =?us-ascii?Q?Ea9ffet2ygA1MHpm3v3jZMPHVBL/ZJxeSFllHPsooVKiQBwS/8lpx45XdMIY?=
+ =?us-ascii?Q?HrtP//Ynvg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7d0ca6b9-1366-4e70-3106-08de633aadc9
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9372.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2026 15:41:20.9645
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kgQDrcF+vm0z1Ut+uCJgPnqNds7DhLOugfPYrEcNRRrvBoUydltrJcx3EyXqCprRrUdOrMCyWbx3Mzh1JXTnzg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7974
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_074057_916644_E7463547 
-X-CRM114-Status: GOOD (  40.62  )
+X-CRM114-CacheID: sfid-20260203_074126_165080_06C2786C 
+X-CRM114-Status: GOOD (  26.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,276 +168,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Feb 03, 2026 at 07:56:23AM +0100, Vincent Guittot wrote:
+> On Mon, 2 Feb 2026 at 20:46, Frank Li <Frank.li@nxp.com> wrote:
+> >
+> > On Mon, Feb 02, 2026 at 08:23:30PM +0100, Vincent Guittot wrote:
+> > > On Mon, 2 Feb 2026 at 18:42, Frank Li <Frank.li@nxp.com> wrote:
+> > > >
+> > > > On Mon, Feb 02, 2026 at 04:10:50PM +0100, Vincent Guittot wrote:
+> > > > > No error return is missing after the loop resulting in removing the
+> > > > > ports from the list.
+> > > > >
+> > > > > Fixes: 5cbc7d3e316e ("PCI: s32g: Add NXP S32G PCIe controller driver (RC)")
+> > > > > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> > > > > ---
+> > > > >
+> > > > > Change since v1:
+> > > > > - handle correctly the case when there is no child port
+> > > > >
+> > > > >  drivers/pci/controller/dwc/pcie-nxp-s32g.c | 8 ++++----
+> > > > >  1 file changed, 4 insertions(+), 4 deletions(-)
+> > > > >
+> > > > > diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g.c b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
+> > > > > index 47745749f75c..b3ec38099fa3 100644
+> > > > > --- a/drivers/pci/controller/dwc/pcie-nxp-s32g.c
+> > > > > +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
+> > > > > @@ -282,12 +282,12 @@ static int s32g_pcie_parse_ports(struct device *dev, struct s32g_pcie *s32g_pp)
+> > > > >
+> > > > >               ret = s32g_pcie_parse_port(s32g_pp, of_port);
+> > > > >               if (ret)
+> > > > > -                     goto err_port;
+> > > > > +                     break;
+> > > > >       }
+> > > > >
+> > > > > -err_port:
+> > > > > -     list_for_each_entry_safe(port, tmp, &s32g_pp->ports, list)
+> > > > > -             list_del(&port->list);
+> > > >
+> > > > break and goto is logical equal here. So only need below if (ret).
+> > >
+> > > Yes it's similar that why I removed it, the goto becomes useless and
+> > > make code less readable
+> >
+> > But don't suggest change in this fixes patch, which should focus on the
+> > key part.
+>
+> It's not a suggested change, it's the fix. err_port is now wrong
+> because it's the path for all cases.
 
---=-okkgKqsgZ+IV64MKbOhB
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+But "goto" is the same as orginal "break". Really fix is below "if (ret)".
 
-Le mardi 03 f=C3=A9vrier 2026 =C3=A0 16:53 +0800, Ming Qian(OSS) a =C3=A9cr=
-it=C2=A0:
-> Hi Marco,
->=20
-> On 2/3/2026 4:31 PM, Marco Felsch wrote:
-> > [You don't often get email from m.felsch@pengutronix.de. Learn why this=
- is important at https://aka.ms/LearnAboutSenderIdentification=C2=A0]
-> >=20
-> > Hi,
-> >=20
-> > sorry for jumping in.
-> >=20
-> > On 26-02-03, Ming Qian(OSS) wrote:
-> > > Hi Nicolas,
-> > >=20
-> > > On 2/3/2026 3:12 AM, Nicolas Dufresne wrote:
-> > > > Hi,
-> > > >=20
-> > > > Le lundi 02 f=C3=A9vrier 2026 =C3=A0 13:44 -0500, Nicolas Dufresne =
-a =C3=A9crit :
-> > > > > > This doesn't sound like just a VPU issue; it's related to the d=
-isplay or
-> > > > > > DDR.
-> > > > > > If not displayed, do the fluster test cases yield different res=
-ults at
-> > > > > > 600MHz and 300MHz?
-> > > > >=20
-> > > > > Didn't you run these tests before sending ? I can try again, but =
-in my
-> > > > > internal
-> > > > > notes, I wrote:
-> > > > >=20
-> > > > > =C2=A0=C2=A0=C2=A0 > Tested that, and everything becomes unstable
-> > > > >=20
-> > > > > That was before I figure-out the IRQ handler didn't handle except=
-ion bits that
-> > > > > didn't stop the decoder (or dry IRQ, which strangely is common fr=
-om the G2).
-> > > >=20
-> > > > Ran some fluster tests now. With this patch the results is not cons=
-istent
-> > > > anymore. Then I ran it with weston being started, and in the middle=
- of the test
-> > > > the display turned black. Matches my past observation. We did repro=
-duce this on
-> > > > BSP kernel too. When the display goes black, the recent hantro driv=
-ers reports:
-> > > >=20
-> > > > [=C2=A0 827.581586] hantro-vpu 38310000.video-codec: frame decode t=
-imed out.
-> > > > [=C2=A0 827.720201] hantro-vpu 38310000.video-codec: not all macrob=
-locks were
-> > > > decoded.
-> > > >=20
-> > > >=20
-> > > > I have local patches to reduce the cascade of errors, so it likely =
-survived
-> > > > longer then last time. I will send these patches soon. The "not all=
- macroblocks
-> > > > were decoded." is triggered by a bit in the status register that is=
- not
-> > > > documented in NXP TRM. I found that bit in some VC8000D documentati=
-on (the
-> > > > sucessor of G2). I concluded it was the same meaning after looking =
-at the failed
-> > > > buffer visually, it is indeed missing couple of macroblocks near th=
- end. Each
-> > > > time we see this error, the DCSS gives up and turn either black, or=
- sometimes
-> > > > other color. The second case has been tracked to a DCSS Scaler unde=
-rrun, the
-> > > > first we don't know.
-> > > >=20
-> > > > Fluster command ran (two threads, never completes):
-> > > >=20
-> > > > ./fluster.py run -d GStreamer-H.265-V4L2SL-Gst1.0 -ts JCT-VC-HEVC_V=
-1 -j2 -t90
-> > > >=20
-> > > > Nicolas
-> > >=20
-> > > My test results for fluster differ from yours.
-> > > On my end, the results for JCT-VC-HEVC_V1 are consistent at both 300M=
-Hz and
-> > > 600MHz.
-> > > And results remained unchanged after multiple tests.
+Frank
 
-After more testing, the fluster test is stable for NV12/NV15 tiled output f=
-or me
-too. I'm running the tests with linear NV12/P010, which imply an extra set =
-of
-buffer. I will check if I can give you a easy way to test the linear format=
-s. I
-also have couple of streams that systematically breaks at specific spot (hi=
-gh
-complexity scenes) with the provided patch. As most licensed content, this =
-is
-not sharable as-is. I will try and see if I can find a way to share somethi=
-ng.
-
-> > >=20
-> > > I'm not sure what caused the differences between us.
-> >=20
-> > Once it comes to system stability, you need to ensure that your
-> > bootstack is aligned e.g. same TF-A version and sometimes same
-> > bootloader since there might be workarounds/erratum applied by the boot
-> > firmware.
-> >=20
-> > Regards,
-> > =C2=A0=C2=A0 Marco
-> >=20
->=20
-> Thanks for the reminder, and I agree.
-> I think we need to align our board environment first.
-
-I do likely have slightly different bootchain, and of course all the HDMI
-component are downstream, but I can't really isolate the dramatic issue of =
-this
-overclock without a display component of some sort. Its a huge differentiat=
-or in
-the bandwidth consumption which is the main challenge on this SoC so far. 1=
-0bit
-videos makes things a lot worse fwiw.
-
-We did review latest IMX vendor firmware package and can confirm we are run=
-ning
-the latest memory training blob and HDMI firmware.
-
-Nicolas
-
-> Regards,
-> Ming
->=20
-> > >=20
-> > > Below are my test results:
-> > >=20
-> > > 600Mhz, 0.9v
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 cat /sys/kernel/debug/regulator/=
-regulator_summary=C2=A0 |grep SW1C
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 SW1C=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=
-=C2=A0=C2=A0=C2=A0 1=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0 unknown=C2=A0=C2=A0 90=
-0mV=C2=A0=C2=A0=C2=A0=C2=A0 0mA
-> > > 825mV=C2=A0 1100mV
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 cat /sys/kernel/debug/clk/vpu_g2=
-/clk_rate
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 600000000
-> > >=20
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ./fluster.py run -ts JCT-VC-HEVC=
-_V1 -d GStreamer-H.265-V4L2SL-Gst1.0 -j2 -t
-> > > 90
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ********************************=
-********************************************************************
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Running test suite JCT-VC-HEVC_V=
-1 with decoder
-> > > GStreamer-H.265-V4L2SL-Gst1.0
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Using 2 parallel job(s)
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ********************************=
-********************************************************************
-> > >=20
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Ran 139/147 tests successfully=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 in 505.434 secs
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Ran 139/147 tests successfully=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 in 505.350 secs
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Ran 139/147 tests successfully=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 in 507.540 secs
-> > >=20
-> > > 600Mhz, 1.0v
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 cat /sys/kernel/debug/regulator/=
-regulator_summary=C2=A0 |grep SW1C
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 SW1C=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=
-=C2=A0=C2=A0=C2=A0 1=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0 unknown=C2=A0 1000mV=
-=C2=A0=C2=A0=C2=A0=C2=A0 0mA
-> > > 825mV=C2=A0 1100mV
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 cat /sys/kernel/debug/clk/vpu_g2=
-/clk_rate
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 600000000
-> > >=20
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ./fluster.py run -ts JCT-VC-HEVC=
-_V1 -d GStreamer-H.265-V4L2SL-Gst1.0 -j2 -t
-> > > 90
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Ran 139/147 tests successfully=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 in 506.901 secs
-> > >=20
-> > > 300Mhz, 0.9v
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 cat /sys/kernel/debug/regulator/=
-regulator_summary=C2=A0 |grep SW1C
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 SW1C=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=
-=C2=A0=C2=A0=C2=A0 1=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0 unknown=C2=A0=C2=A0 90=
-0mV=C2=A0=C2=A0=C2=A0=C2=A0 0mA
-> > > 825mV=C2=A0 1100mV
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 cat /sys/kernel/debug/clk/vpu_g2=
-/clk_rate
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 300000000
-> > >=20
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ./fluster.py run -ts JCT-VC-HEVC=
-_V1 -d GStreamer-H.265-V4L2SL-Gst1.0 -j2 -t
-> > > 90
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Ran 139/147 tests successfully=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 in 506.063 secs
-> > >=20
-> > > Downstream v4l2 driver
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 cat /sys/kernel/debug/regulator/=
-regulator_summary=C2=A0 |grep SW1C
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 SW1C=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0=
-=C2=A0=C2=A0=C2=A0 2=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0 unknown=C2=A0 1000mV=
-=C2=A0=C2=A0=C2=A0=C2=A0 0mA
-> > > 825mV=C2=A0 1100mV
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 cat /sys/kernel/debug/clk/vpu_g2=
-/clk_rate
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 600000000
-> > >=20
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ./fluster.py run -ts JCT-VC-HEVC=
-_V1 -d GStreamer-H.265-V4L2-Gst1.0 -j2 -t
-> > > 90
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Ran 136/147 tests successfully=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 in 460.435 secs
-> > >=20
-> > > Regards,
-> > > Ming
-> > >=20
-> > >=20
-> >=20
-> > --
-> > #gernperDu
-> > #CallMeByMyFirstName
-> >=20
-> > Pengutronix e.K.=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |
-> > Steuerwalder Str. 21=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 | https://www.pengutronix.de/=C2=A0|
-> > 31137 Hildesheim, Germany=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | Phone: +49-5121=
--206917-0=C2=A0=C2=A0=C2=A0 |
-> > Amtsgericht Hildesheim, HRA 2686=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 | Fax:=C2=A0=C2=A0 +49-5121-206917-9=C2=A0=C2=A0=C2=
-=A0 |
-
---=-okkgKqsgZ+IV64MKbOhB
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaYIXBQAKCRDZQZRRKWBy
-9BdEAP91RCuQpeIs8WIAVqMpbGlTfJSJeLeq5HmQ5J1hZGuwXwD/WVhjnKNga4Pq
-kYR1FIhai0zcA1k4q9wESua75qp+hQM=
-=GTde
------END PGP SIGNATURE-----
-
---=-okkgKqsgZ+IV64MKbOhB--
+>
+> >
+> > Frank
+> >
+> > >
+> > > >
+> > > > Frank
+> > > >
+> > > > > +     if (ret)
+> > > > > +             list_for_each_entry_safe(port, tmp, &s32g_pp->ports, list)
+> > > > > +                     list_del(&port->list);
+> > > > >
+> > > > >       return ret;
+> > > > >  }
+> > > > > --
+> > > > > 2.43.0
+> > > > >
 
