@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2087E8B362
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 21:46:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E2BE8B368
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 21:47:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=otwASEoWGrr7uH9oaTiqUvVMyppjsim4lcnt0qXspWo=; b=0fkzmKwf4RVMfyfb4Z+v3RPiYl
-	qSdaYJVEeMfzqP92IW9ou6t3tVbdyXOmclScqkF054VIiZvE/ur7bS+xxHc8Uw0yG9u9wErmFB71z
-	Lzlmv3aOFoMsMgO819kNEDUbHIc0vZFEHspzfwGpFSeD4ysj/EEj522yxK2Kx3hDbdJfgAGC7fl/U
-	mPh/Vt5hjeY4k4MtLrb3zFM6xVpet2f438AFJ6Ly3j2Ll0sG8Joye6OPzWStFHH7yM9Nns05zrYML
-	lVTOpLGr6nXoth/7pwqpS5q7b4q6n+uUqgz9FeUE2w1p3fNba0Zj3eG8ZYersOfTjJwVJ6OZEoFSh
-	F2qHaAUw==;
+	bh=wfnHOwYUgViy5m3tdjjWqp2P4tjaz6+A1pOr7sR5t2k=; b=ktonYgY7nsvmIbzHv4teEn6Up8
+	1bx/k09T11eTcKVCuPnsiMSVUbIkFW712D7YvrmDteekp/aZ4iZBvyppYhX2n/KH3Gghm7CbZOtWf
+	kzy/wAVXz5lXjG4NHH8oY397i0I303papCz7jDUic5qAXxFKqWQIaznPSdNVHf1uDfX0NHhpi8lSo
+	KUjRJ2xkrFQSrxdYaeDjewwOwPSovFleobUzVYTEPqKcYAXX95t7gMwM9WFrxR/Fj2oKukwN3EofS
+	u7s21rFqSkTVdBXTuB3MadEs4+kK8i99RcKJ1yvaNHgNzyaOkPj89UuRutacLCIRr1UWEzWEqdmUn
+	HZE+2p1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnOEX-00000007QO1-320i;
-	Tue, 03 Feb 2026 21:46:53 +0000
+	id 1vnOEd-00000007QTF-0HI6;
+	Tue, 03 Feb 2026 21:46:59 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnOEV-00000007QLu-1lIj
+	id 1vnOEa-00000007QQf-2Zrk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 21:46:52 +0000
+	Tue, 03 Feb 2026 21:46:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DAAB9339;
-	Tue,  3 Feb 2026 13:46:43 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BB379497;
+	Tue,  3 Feb 2026 13:46:49 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B05EC3F778;
-	Tue,  3 Feb 2026 13:46:44 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 93B3E3F778;
+	Tue,  3 Feb 2026 13:46:50 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -70,17 +70,17 @@ Cc: amitsinght@marvell.com,
 	zengheng4@huawei.com,
 	linux-doc@vger.kernel.org,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH v4 29/41] arm_mpam: resctrl: Pre-allocate free running monitors
-Date: Tue,  3 Feb 2026 21:43:30 +0000
-Message-ID: <20260203214342.584712-30-ben.horgan@arm.com>
+Subject: [PATCH v4 30/41] arm_mpam: resctrl: Allow resctrl to allocate monitors
+Date: Tue,  3 Feb 2026 21:43:31 +0000
+Message-ID: <20260203214342.584712-31-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260203214342.584712-1-ben.horgan@arm.com>
 References: <20260203214342.584712-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_134651_563518_405D334F 
-X-CRM114-Status: GOOD (  18.68  )
+X-CRM114-CacheID: sfid-20260203_134656_760086_48C6D2E9 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,146 +97,182 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: James Morse <james.morse@arm.com>
 
-When there are enough monitors, the resctrl mbm local and total files can
-be exposed. These need all the monitors that resctrl may use to be
-allocated up front.
+When resctrl wants to read a domain's 'QOS_L3_OCCUP', it needs to allocate
+a monitor on the corresponding resource. Monitors are allocated by class
+instead of component.
 
-Add helpers to do this.
+If there are enough MBM monitors, they will be pre-allocated and
+free-running.
 
-If a different candidate class is discovered, the old array should be
-free'd and the allocated monitors returned to the driver.
+Add helpers to allocate a CSU monitor. These helper return an out of range
+value for MBM counters.
+
+Allocating a montitor context is expected to block until hardware resources
+become available. This only makes sense for QOS_L3_OCCUP as unallocated MBM
+counters are losing data.
 
 Tested-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Tested-by: Peter Newman <peternewman@google.com>
-Signed-off-by: James Morse <james.morse@arm.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
+Changes since rfc:
+USE_RMID_IDX -> USE_PRE_ALLOCATED in comment
+Remove unnecessary arch_mon_ctx = NULL
+
 Changes since v2:
-Code flow tidying (Jonathan)
+Add include of resctrl_types.h as dropped from earlier patch
+
+Changes since v3:
+Don't mention ABMC in commit message
 ---
- drivers/resctrl/mpam_internal.h |  3 +-
- drivers/resctrl/mpam_resctrl.c  | 81 ++++++++++++++++++++++++++++++++-
- 2 files changed, 81 insertions(+), 3 deletions(-)
+ drivers/resctrl/mpam_internal.h | 14 ++++++-
+ drivers/resctrl/mpam_resctrl.c  | 67 +++++++++++++++++++++++++++++++++
+ include/linux/arm_mpam.h        |  5 +++
+ 3 files changed, 85 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index bab6eea60dae..5f4ac4fabc0d 100644
+index 5f4ac4fabc0d..549faa9df0f3 100644
 --- a/drivers/resctrl/mpam_internal.h
 +++ b/drivers/resctrl/mpam_internal.h
-@@ -356,7 +356,8 @@ struct mpam_resctrl_res {
- struct mpam_resctrl_mon {
- 	struct mpam_class	*class;
+@@ -29,6 +29,14 @@ struct platform_device;
+ #define PACKED_FOR_KUNIT
+ #endif
  
--	/* per-class data that resctrl needs will live here */
-+	/* Array of allocated MBWU monitors, indexed by (closid, rmid). */
-+	int			*mbwu_idx_to_mon;
++/*
++ * This 'mon' values must not alias an actual monitor, so must be larger than
++ * U16_MAX, but not be confused with an errno value, so smaller than
++ * (u32)-SZ_4K.
++ * USE_PRE_ALLOCATED is used to avoid confusion with an actual monitor.
++ */
++#define USE_PRE_ALLOCATED	(U16_MAX + 1)
++
+ static inline bool mpam_is_enabled(void)
+ {
+ 	return static_branch_likely(&mpam_enabled);
+@@ -212,7 +220,11 @@ enum mon_filter_options {
  };
  
- static inline int mpam_alloc_csu_mon(struct mpam_class *class)
+ struct mon_cfg {
+-	u16			mon;
++	/*
++	 * mon must be large enough to hold out of range values like
++	 * USE_PRE_ALLOCATED
++	 */
++	u32			mon;
+ 	u8			pmg;
+ 	bool			match_pmg;
+ 	bool			csu_exclude_clean;
 diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index c96c434c9454..8c57fd48e560 100644
+index 8c57fd48e560..e2c534a68898 100644
 --- a/drivers/resctrl/mpam_resctrl.c
 +++ b/drivers/resctrl/mpam_resctrl.c
-@@ -645,10 +645,58 @@ static void mpam_resctrl_pick_mba(void)
- 	}
+@@ -22,6 +22,8 @@
+ 
+ #include "mpam_internal.h"
+ 
++DECLARE_WAIT_QUEUE_HEAD(resctrl_mon_ctx_waiters);
++
+ /*
+  * The classes we've picked to map to resctrl resources, wrapped
+  * in with their resctrl structure.
+@@ -267,6 +269,71 @@ struct rdt_resource *resctrl_arch_get_resource(enum resctrl_res_level l)
+ 	return &mpam_resctrl_controls[l].resctrl_res;
  }
  
-+static void __free_mbwu_mon(struct mpam_class *class, int *array,
-+			    u16 num_mbwu_mon)
++static int resctrl_arch_mon_ctx_alloc_no_wait(enum resctrl_event_id evtid)
 +{
-+	for (int i = 0; i < num_mbwu_mon; i++) {
-+		if (array[i] < 0)
-+			continue;
++	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[evtid];
 +
-+		mpam_free_mbwu_mon(class, array[i]);
-+		array[i] = ~0;
++	if (!mon->class)
++		return -EINVAL;
++
++	switch (evtid) {
++	case QOS_L3_OCCUP_EVENT_ID:
++		/* With CDP, one monitor gets used for both code/data reads */
++		return mpam_alloc_csu_mon(mon->class);
++	case QOS_L3_MBM_LOCAL_EVENT_ID:
++	case QOS_L3_MBM_TOTAL_EVENT_ID:
++		return USE_PRE_ALLOCATED;
++	default:
++		return -EOPNOTSUPP;
 +	}
 +}
 +
-+static int __alloc_mbwu_mon(struct mpam_class *class, int *array,
-+			    u16 num_mbwu_mon)
++void *resctrl_arch_mon_ctx_alloc(struct rdt_resource *r,
++				 enum resctrl_event_id evtid)
 +{
-+	for (int i = 0; i < num_mbwu_mon; i++) {
-+		int mbwu_mon = mpam_alloc_mbwu_mon(class);
++	DEFINE_WAIT(wait);
++	int *ret;
 +
-+		if (mbwu_mon < 0) {
-+			__free_mbwu_mon(class, array, num_mbwu_mon);
-+			return mbwu_mon;
-+		}
-+		array[i] = mbwu_mon;
-+	}
-+
-+	return 0;
-+}
-+
-+static int *__alloc_mbwu_array(struct mpam_class *class, u16 num_mbwu_mon)
-+{
-+	int err;
-+	size_t array_size = num_mbwu_mon * sizeof(int);
-+	int *array __free(kfree) = kmalloc(array_size, GFP_KERNEL);
-+
-+	if (!array)
++	ret = kmalloc(sizeof(*ret), GFP_KERNEL);
++	if (!ret)
 +		return ERR_PTR(-ENOMEM);
 +
-+	memset(array, -1, array_size);
++	do {
++		prepare_to_wait(&resctrl_mon_ctx_waiters, &wait,
++				TASK_INTERRUPTIBLE);
++		*ret = resctrl_arch_mon_ctx_alloc_no_wait(evtid);
++		if (*ret == -ENOSPC)
++			schedule();
++	} while (*ret == -ENOSPC && !signal_pending(current));
++	finish_wait(&resctrl_mon_ctx_waiters, &wait);
 +
-+	err = __alloc_mbwu_mon(class, array, num_mbwu_mon);
-+	if (err)
-+		return ERR_PTR(err);
-+	return_ptr(array);
++	return ret;
 +}
 +
- static void counter_update_class(enum resctrl_event_id evt_id,
- 				 struct mpam_class *class)
++static void resctrl_arch_mon_ctx_free_no_wait(enum resctrl_event_id evtid,
++					      u32 mon_idx)
++{
++	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[evtid];
++
++	if (!mon->class)
++		return;
++
++	if (evtid == QOS_L3_OCCUP_EVENT_ID)
++		mpam_free_csu_mon(mon->class, mon_idx);
++
++	wake_up(&resctrl_mon_ctx_waiters);
++}
++
++void resctrl_arch_mon_ctx_free(struct rdt_resource *r,
++			       enum resctrl_event_id evtid, void *arch_mon_ctx)
++{
++	u32 mon_idx = *(u32 *)arch_mon_ctx;
++
++	kfree(arch_mon_ctx);
++
++	resctrl_arch_mon_ctx_free_no_wait(evtid, mon_idx);
++}
++
+ static bool cache_has_usable_cpor(struct mpam_class *class)
  {
--	struct mpam_class *existing_class = mpam_resctrl_counters[evt_id].class;
-+	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[evt_id];
-+	struct mpam_class *existing_class = mon->class;
-+	u16 num_mbwu_mon = class->props.num_mbwu_mon;
-+	int *new_array, *existing_array = mon->mbwu_idx_to_mon;
+ 	struct mpam_props *cprops = &class->props;
+diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+index 7d23c90f077d..e1461e32af75 100644
+--- a/include/linux/arm_mpam.h
++++ b/include/linux/arm_mpam.h
+@@ -5,6 +5,7 @@
+ #define __LINUX_ARM_MPAM_H
  
- 	if (existing_class) {
- 		if (class->level == 3) {
-@@ -663,8 +711,37 @@ static void counter_update_class(enum resctrl_event_id evt_id,
- 		}
- 	}
+ #include <linux/acpi.h>
++#include <linux/resctrl_types.h>
+ #include <linux/types.h>
  
--	mpam_resctrl_counters[evt_id].class = class;
-+	pr_debug("Updating event %u to use class %u\n", evt_id, class->level);
-+
-+	/* Might not need all the monitors */
-+	num_mbwu_mon = __mpam_monitors_free_running(num_mbwu_mon);
-+
-+	if (evt_id != QOS_L3_OCCUP_EVENT_ID && num_mbwu_mon) {
-+		/*
-+		 * This is the pre-allocated free-running monitors path. It always
-+		 * allocates one monitor per PARTID * PMG.
-+		 */
-+		WARN_ON_ONCE(num_mbwu_mon != resctrl_arch_system_num_rmid_idx());
-+
-+		new_array = __alloc_mbwu_array(class, num_mbwu_mon);
-+		if (IS_ERR(new_array)) {
-+			pr_debug("Failed to allocate MBWU array\n");
-+			return;
-+		}
-+		mon->mbwu_idx_to_mon = new_array;
-+
-+		if (existing_array) {
-+			pr_debug("Releasing previous class %u's monitors\n",
-+				 existing_class->level);
-+			__free_mbwu_mon(existing_class, existing_array, num_mbwu_mon);
-+			kfree(existing_array);
-+		}
-+	} else if (evt_id != QOS_L3_OCCUP_EVENT_ID) {
-+		pr_debug("Not pre-allocating free-running counters\n");
-+	}
-+
- 	exposed_mon_capable = true;
-+	mon->class = class;
- }
+ struct mpam_msc;
+@@ -62,6 +63,10 @@ u32 resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid);
+ void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid);
+ u32 resctrl_arch_system_num_rmid_idx(void);
  
- static void mpam_resctrl_pick_counters(void)
++struct rdt_resource;
++void *resctrl_arch_mon_ctx_alloc(struct rdt_resource *r, enum resctrl_event_id evtid);
++void resctrl_arch_mon_ctx_free(struct rdt_resource *r, enum resctrl_event_id evtid, void *ctx);
++
+ /**
+  * mpam_register_requestor() - Register a requestor with the MPAM driver
+  * @partid_max:		The maximum PARTID value the requestor can generate.
 -- 
 2.43.0
 
