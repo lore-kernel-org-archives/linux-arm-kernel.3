@@ -4,102 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C9CEE87821
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 13:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63DBDE87826
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 13:04:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QfrRwcFVbs7HXzfXIJF1G4CMBzqUTb6IXs918LJA2kU=; b=b/sO/IEZcrMfdQsU2qeoJSoSmd
-	dqldoiAXzIhwXI0+/n6OhBaByVOWaJltT41Yj6KWASHqzfwX3+jWzZu9Doz1pN101NCJT777We5ae
-	UaAqeH6hmjZ+UZn6pxUzg8zwUYM0ZSiDvPSGEoAzXIvG9KzVfpo1f2BWVNwu6zaiAvoLYgv6gVZxU
-	o3LDto4pIsrmii9GS/PmCdqUnEnzgfXlDmf7qH4H7UX71Geze5ycdJkmbUni6GIUEybNplzhPD7hU
-	1FfJEeMu8CCzND21SXBgbV3j6CtKAFleodPNhZq+1PrElXOv6fdRSw319GeVAp8jYbxYWeqIW3Mch
-	+PSCUHpQ==;
+	bh=Og5PN+Ukm1tlhuhYm65+Up+Ca67soOLk804qgS+HGsU=; b=P7ANqqka0uDB1oSfC5GBETsPcG
+	DHh6t/WNytCP7g5/jGWOH6mMvAA0mIfzqDxJ7oQx3Pw86nSEzWF0MQLA6G9BSH3TGD8sdoOC1ceQQ
+	xmUEK4y2G1L60aUMlxD+tVlf7U8PVWF+Kx/fq464bLO46CepoTIK9xL1I+uljUoqWheygyDeUvCmi
+	D8WsZCEXJ/7EyAgd9qhO7y03F/SL+8czLfbLtgJB7rhvca1wsnQgWoWEwNUsNIN6wcfhhFbFjFE9B
+	1ZZ44frPjaEsoTuD+vl/vEGIAmeZ7RRQbH4JXJWspZWE2DU2zjxIUOdH75MTjj0Xm7cYJLATwMhAQ
+	7UuCT0Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnG1C-00000006dAN-36g6;
-	Tue, 03 Feb 2026 13:00:34 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnG1A-00000006d9z-1lYf
+	id 1vnG4i-00000006ddb-1tFb;
+	Tue, 03 Feb 2026 13:04:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vnG4f-00000006dcA-0ls0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 13:00:34 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-6582e8831aeso8595637a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 05:00:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1770123630; x=1770728430; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QfrRwcFVbs7HXzfXIJF1G4CMBzqUTb6IXs918LJA2kU=;
-        b=A0ekiy6F7052ORJTDkYB/qgFthBK9g6De6E3tsXTiy+8n56ayNEbzkDqj1Zv4g4Esp
-         y1ngQWbgYhXc2HPf5u3WoMcFRVVMve8mFUwtbQQSiE6LauwUu53M2AG8IVDkpjRboSrW
-         d3bLg/up91tgSDxpX/L/EuhnzycdK4C9OLr8Z/97cfzI77rLTU4OL88lGht3HT/7Q1N2
-         /O7FkrG6agVHiItK2TjPG+fX/PZSi9uBQxoSZXmlqbw1RuYlq9cxC8eYsU3avb7gBlqa
-         nzNc2MtusjNgTPXz6w+hS6HYEkgaTV9Rd4cbWITYrrViri0EVHEiY7OokD85l6JayyPT
-         YEew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770123630; x=1770728430;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QfrRwcFVbs7HXzfXIJF1G4CMBzqUTb6IXs918LJA2kU=;
-        b=RW4Z6SSEE5SjfX27d6lUw64gb1/s3ztPGC5r1UQJE9TSLbFp7bfdaF+7gtwom4v5vT
-         QI9pGGucXF9L2jyfSh/Nc+KIu+5tWZqJY7bculBdiUfTCKMkzbzUYZP8TxVMgnul3yE1
-         9ei8OtkIh37/bXk9wcZadmGohhLy1U0Wr1jI0q0zEfWtWEc7erilB5cgqq7F7p1tNJ3L
-         eZLpQmbEq5jl4koBVSCM7qsmCyu695mfG0aPs90/J35iZdzyRkMWEEb/RuaEE9GAUZGQ
-         TbAcZ99GGDX6mVedKcCNs37fF6Q0X712rcDi4FGhijOg1/GCgW6F/mHwehT00uIrmQ/x
-         qUbQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVkLuTqzORoNd3YDAPuF5u2ntNRGxIZkwl7lnaZUpoEN24I6F3cL0RCykoM81AE8MaQRlMMz/EaQ8wIoVbESsoz@lists.infradead.org
-X-Gm-Message-State: AOJu0YyNqUMDzk/XcG8jznjG/U4A3dPYIwHfQsBvZqHDL1EGcaS5kavn
-	pkyEuSQRSzgSaji7sRdFQZw+vhXyVsG+vefWhy0CapBoje43ShAL/vZN5rZ8nXsPgy4=
-X-Gm-Gg: AZuq6aJPfrdE2llYwrQwXBDzRcclvs84KdX05KSQFIAnURH4htf9opnoRDmem86AUst
-	8FOMKSDiuImLA/u1A3X0BRihoA3qXdGDkZYHNweC+9FtSVn3o5EhVvkWQ9g+EMF6kzltHea2q0V
-	VuTW/WDWSkYZNYAqgcVJdhYjvs7ZjrtFeQXhVCr0zQ2ZwkyoMsXeoJgyDZP7d3GhYUTvY65iSmK
-	A0ratFEEED6dbini8XzDdDLzENMdBxaVUChx9hl9JyHhn4r1N6T3GE50xcNUYP3Rfxa000sfgz5
-	kS8zpTNU1idb+kWDiBgCmdKyH8Lgw662COcAD3M4tjWGxta4j/+id2sQOrauJ3qZaV5KgzsMmIx
-	Eaq0kFmlVf4ga5Db2+wyJfy8TLoLaKgms2G24Gua/wy7ltSlCuTAeBBL6wG3WP8T/6jrzWOl518
-	SCQMtL071TmeI=
-X-Received: by 2002:a17:907:1b20:b0:b86:f558:ecad with SMTP id a640c23a62f3a-b8dff5260f2mr877455366b.7.1770123628657;
-        Tue, 03 Feb 2026 05:00:28 -0800 (PST)
-Received: from draig.lan ([185.124.0.126])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8dbf1c5b38sm1024503866b.53.2026.02.03.05.00.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Feb 2026 05:00:28 -0800 (PST)
-Received: from draig (localhost [IPv6:::1])
-	by draig.lan (Postfix) with ESMTP id 1C5C05F841;
-	Tue, 03 Feb 2026 13:00:27 +0000 (GMT)
-From: =?utf-8?Q?Alex_Benn=C3=A9e?= <alex.bennee@linaro.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>,  Joey Gouly <joey.gouly@arm.com>,
-  Catalin Marinas <catalin.marinas@arm.com>,  Suzuki K Poulose
- <suzuki.poulose@arm.com>,  Will Deacon <will@kernel.org>,  Paolo Bonzini
- <pbonzini@redhat.com>,  Jonathan Corbet <corbet@lwn.net>,  Shuah Khan
- <shuah@kernel.org>,  Oliver Upton <oupton@kernel.org>,  Dave Martin
- <Dave.Martin@arm.com>,  Fuad Tabba <tabba@google.com>,  Mark Rutland
- <mark.rutland@arm.com>,  Ben Horgan <ben.horgan@arm.com>,
-  linux-arm-kernel@lists.infradead.org,  kvmarm@lists.linux.dev,
-  linux-kernel@vger.kernel.org,  kvm@vger.kernel.org,
-  linux-doc@vger.kernel.org,  linux-kselftest@vger.kernel.org,  Peter
- Maydell <peter.maydell@linaro.org>,  Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v9 01/30] arm64/sysreg: Update SMIDR_EL1 to DDI0601 2025-06
-In-Reply-To: <20251223-kvm-arm64-sme-v9-1-8be3867cb883@kernel.org> (Mark
-	Brown's message of "Tue, 23 Dec 2025 01:20:55 +0000")
-References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
-	<20251223-kvm-arm64-sme-v9-1-8be3867cb883@kernel.org>
-User-Agent: mu4e 1.14.0-pre1; emacs 30.1
-Date: Tue, 03 Feb 2026 13:00:27 +0000
-Message-ID: <87o6m6nfro.fsf@draig.linaro.org>
+	Tue, 03 Feb 2026 13:04:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06CB71042;
+	Tue,  3 Feb 2026 05:04:02 -0800 (PST)
+Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 125BA3F632;
+	Tue,  3 Feb 2026 05:04:06 -0800 (PST)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Christoph Lameter <cl@gentwo.org>,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH V2 2/2] arm64/mm: Reject memory removal that splits a kernel leaf mapping
+Date: Tue,  3 Feb 2026 13:03:48 +0000
+Message-Id: <20260203130348.612150-3-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20260203130348.612150-1-anshuman.khandual@arm.com>
+References: <20260203130348.612150-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_050032_508717_EAAA349F 
-X-CRM114-Status: UNSURE (   7.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260203_050409_306049_1444D017 
+X-CRM114-Status: GOOD (  19.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,18 +68,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mark Brown <broonie@kernel.org> writes:
+Linear and vmemmap mapings that get teared down during a memory hot remove
+operation might contain leaf level entries on any page table level. If the
+requested memory range's linear or vmemmap mappings falls within such leaf
+entries, new mappings need to be created for the remaning memory mapped on
+the leaf entry earlier, following standard break before make aka BBM rules.
+But kernel cannot tolerate BBM amd hemce remapping to fine grained leaves
+would not be possible on systems without BBML2_NOABORT.
 
-> Update the definiton of SMIDR_EL1 in the sysreg definition to reflect the
-> information in DD0601 2025-06. This includes somewhat more generic ways of
-> describing the sharing of SMCUs, more information on supported priorities
-> and provides additional resolution for describing affinity groups.
->
-> Signed-off-by: Mark Brown <broonie@kernel.org>
+Currently memory hot remove operation does not perform such restructuring,
+and so removing memory ranges that could split a kernel leaf level mapping
+need to be rejected.
 
-Reviewed-by: Alex Benn=C3=A9e <alex.bennee@linaro.org>
+while memory_hotplug.c does appear to permit hot removing arbitrary ranges
+of memory, the higher layers that drive memory_hotplug (e.g. ACPI, virtio,
+...) all appear to treat memory as fixed size devices. So it is impossible
+to hotunplug a different amount than was previously hotplugged, and hence
+we should never see a rejection in practice, but adding the check makes us
+robust against a future change.
 
---=20
-Alex Benn=C3=A9e
-Virtualisation Tech Lead @ Linaro
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
+Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
+Cc: stable@vger.kernel.org
+Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+---
+ arch/arm64/mm/mmu.c | 155 ++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 149 insertions(+), 6 deletions(-)
+
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 8ec8a287aaa1..3fb9bcbd739a 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -2063,6 +2063,142 @@ void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
+ 	__remove_pgd_mapping(swapper_pg_dir, __phys_to_virt(start), size);
+ }
+ 
++
++static bool addr_splits_kernel_leaf(unsigned long addr)
++{
++	pgd_t *pgdp, pgd;
++	p4d_t *p4dp, p4d;
++	pud_t *pudp, pud;
++	pmd_t *pmdp, pmd;
++	pte_t *ptep, pte;
++
++	/*
++	 * PGD level:
++	 *
++	 * If addr is PGD_SIZE aligned - already on a leaf boundary
++	 */
++	if (ALIGN_DOWN(addr, PGDIR_SIZE) == addr)
++		return false;
++
++	pgdp = pgd_offset_k(addr);
++	pgd = pgdp_get(pgdp);
++	if (!pgd_present(pgd))
++		return false;
++
++	/*
++	 * P4D level:
++	 *
++	 * If addr is P4D_SIZE aligned - already on a leaf boundary
++	 */
++	if (ALIGN_DOWN(addr, P4D_SIZE) == addr)
++		return false;
++
++	p4dp = p4d_offset(pgdp, addr);
++	p4d = p4dp_get(p4dp);
++	if (!p4d_present(p4d))
++		return false;
++
++	/*
++	 * PUD level:
++	 *
++	 * If addr is PUD_SIZE aligned - already on a leaf boundary
++	 */
++	if (ALIGN_DOWN(addr, PUD_SIZE) == addr)
++		return false;
++
++	pudp = pud_offset(p4dp, addr);
++	pud = pudp_get(pudp);
++	if (!pud_present(pud))
++		return false;
++
++	if (pud_leaf(pud))
++		return true;
++
++	/*
++	 * CONT_PMD level:
++	 *
++	 * If addr is CONT_PMD_SIZE aligned - already on a leaf boundary
++	 */
++	if (ALIGN_DOWN(addr, CONT_PMD_SIZE) == addr)
++		return false;
++
++	pmdp = pmd_offset(pudp, addr);
++	pmd = pmdp_get(pmdp);
++	if (!pmd_present(pmd))
++		return false;
++
++	if (pmd_cont(pmd))
++		return true;
++
++	/*
++	 * PMD level:
++	 *
++	 * If addr is PMD_SIZE aligned - already on a leaf boundary
++	 */
++	if (ALIGN_DOWN(addr, PMD_SIZE) == addr)
++		return false;
++
++	if (pmd_leaf(pmd))
++		return true;
++
++	/*
++	 * CONT_PTE level:
++	 *
++	 * If addr is CONT_PTE_SIZE aligned - already on a leaf boundary
++	 */
++	if (ALIGN_DOWN(addr, CONT_PTE_SIZE) == addr)
++		return false;
++
++	ptep = pte_offset_kernel(pmdp, addr);
++	pte = __ptep_get(ptep);
++	if (!pte_present(pte))
++		return false;
++
++	if (pte_cont(pte))
++		return true;
++
++	/*
++	 * PTE level:
++	 *
++	 * If addr is PAGE_SIZE aligned - already on a leaf boundary
++	 */
++	if (ALIGN_DOWN(addr, PAGE_SIZE) == addr)
++		return false;
++	return true;
++}
++
++static bool can_unmap_without_split(unsigned long pfn, unsigned long nr_pages)
++{
++	unsigned long phys_start, phys_end, size, start, end;
++
++	phys_start = PFN_PHYS(pfn);
++	phys_end = phys_start + nr_pages * PAGE_SIZE;
++
++	/*
++	 * PFN range's linear map edges are leaf entry aligned
++	 */
++	start = __phys_to_virt(phys_start);
++	end =  __phys_to_virt(phys_end);
++	if (addr_splits_kernel_leaf(start) || addr_splits_kernel_leaf(end)) {
++		pr_warn("[%lx %lx] splits a leaf entry in linear map\n",
++			phys_start, phys_end);
++		return false;
++	}
++
++	/*
++	 * PFN range's vmemmap edges are leaf entry aligned
++	 */
++	size = nr_pages * sizeof(struct page);
++	start = (unsigned long)pfn_to_page(pfn);
++	end = start + size;
++	if (addr_splits_kernel_leaf(start) || addr_splits_kernel_leaf(end)) {
++		pr_warn("[%lx %lx] splits a leaf entry in vmemmap\n",
++			phys_start, phys_end);
++		return false;
++	}
++	return true;
++}
++
+ /*
+  * This memory hotplug notifier helps prevent boot memory from being
+  * inadvertently removed as it blocks pfn range offlining process in
+@@ -2071,8 +2207,11 @@ void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
+  * In future if and when boot memory could be removed, this notifier
+  * should be dropped and free_hotplug_page_range() should handle any
+  * reserved pages allocated during boot.
++ *
++ * This also blocks any memory remove that would have caused a split
++ * in leaf entry in kernel linear or vmemmap mapping.
+  */
+-static int prevent_bootmem_remove_notifier(struct notifier_block *nb,
++static int prevent_memory_remove_notifier(struct notifier_block *nb,
+ 					   unsigned long action, void *data)
+ {
+ 	struct mem_section *ms;
+@@ -2118,11 +2257,15 @@ static int prevent_bootmem_remove_notifier(struct notifier_block *nb,
+ 			return NOTIFY_DONE;
+ 		}
+ 	}
++
++	if (!can_unmap_without_split(pfn, arg->nr_pages))
++		return NOTIFY_BAD;
++
+ 	return NOTIFY_OK;
+ }
+ 
+-static struct notifier_block prevent_bootmem_remove_nb = {
+-	.notifier_call = prevent_bootmem_remove_notifier,
++static struct notifier_block prevent_memory_remove_nb = {
++	.notifier_call = prevent_memory_remove_notifier,
+ };
+ 
+ /*
+@@ -2172,7 +2315,7 @@ static void validate_bootmem_online(void)
+ 	}
+ }
+ 
+-static int __init prevent_bootmem_remove_init(void)
++static int __init prevent_memory_remove_init(void)
+ {
+ 	int ret = 0;
+ 
+@@ -2180,13 +2323,13 @@ static int __init prevent_bootmem_remove_init(void)
+ 		return ret;
+ 
+ 	validate_bootmem_online();
+-	ret = register_memory_notifier(&prevent_bootmem_remove_nb);
++	ret = register_memory_notifier(&prevent_memory_remove_nb);
+ 	if (ret)
+ 		pr_err("%s: Notifier registration failed %d\n", __func__, ret);
+ 
+ 	return ret;
+ }
+-early_initcall(prevent_bootmem_remove_init);
++early_initcall(prevent_memory_remove_init);
+ #endif
+ 
+ pte_t modify_prot_start_ptes(struct vm_area_struct *vma, unsigned long addr,
+-- 
+2.30.2
+
 
