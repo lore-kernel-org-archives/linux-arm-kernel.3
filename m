@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BCFEE8784C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CB40E8784B
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 16:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QevzsQbWse+C1l+8XJta67f4FItAv3WrAQLidqSWWrU=; b=dZLBOFiNPBRzDreeNQopN5nILZ
-	r4mcyJhrV5zk2yL4mltVStYKPWBXfVNtDyTFsXOoI1L0iiyawcjpbC906J7KxwI9b1ycULXYb7QtW
-	kaRXnbY8YRymoJJlN8TFyWgvpe/8bETqieZLc3Tj+Gv44Dm28HKt5BrEafiAXwua+0p92ThI9JyeX
-	ifVTR46gLliRGn7t+kQ9A1wU3Ljb/SyqcVX+iTdICJhF0gk4uhFda8cpltJRKaKzY6dtwyAy+Iyiy
-	oTxmtwZQwFdR26iPkEsVkRPGsIXoycG9c4IjqINCR5gUj6bl3gdvAxQrFk5O4Cavg6kvU9wDY/z2C
-	bKTm22lg==;
+	bh=pt5V2nufve3MH6LDqLRonvLSeBGydgpvpl+qJrQ/OvA=; b=x6E9rJqTyndATnXXbEIppvWMuN
+	ZcOTS1+Jp0WY4/c5xasEA3uPIy36n8L+fKVaEBP0OTfJlx8fV1ySc5ILK897gtOe+M2t6I1cLugBa
+	rDrAvAskbhlNwwe9Kuet4o8UQifXYpzmkTnFzkmREQQYNMNCrRU7iOY5VLwoe5++A+aF9ydoIbM1v
+	HpIKvHan0GJ9VKAA/Ql7P4+LEs2ZE3uERV6iVRBtjcWAst6TjFmuS/g6r0AK0eNfXEbfuD0c8giYd
+	TF75dRB7qt4iIRxaNvz4tnbU59Qh2yWpHbyV7ragd7iItgaVWxnE8Am9TZcuMsub7eafxNM45Sctp
+	JrA6tinA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnJYA-00000006y5x-2IIy;
-	Tue, 03 Feb 2026 16:46:50 +0000
+	id 1vnJY9-00000006y3P-0vJf;
+	Tue, 03 Feb 2026 16:46:49 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnJY2-00000006xu3-02ml;
+	id 1vnJY2-00000006xtz-0ETw;
 	Tue, 03 Feb 2026 16:46:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1770137195;
-	bh=82Au6WbWX/XbCYAat9JgxZ9XoB6C4noOyfxXXw3R4ZQ=;
+	bh=F8u3Q4lThH6JCSUtdBTKMGgSMOrb+9XbXSLjDkPJv8M=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=MulHVc3yiKVg7EWuJeNcLS2fBW7s8YZaucy6nKJslCoK0599F5Co2+amb5k6/oCy4
-	 q4RHc7+05HH/Y1X0ZENSK/+bcm/X7gFm5LZcLJPYUxngf6LMgcmW2l5gQ+VIidY78Y
-	 cbzZkQCyk5tNDOfc4sDjLKQ9Hz1fXNRw5L84CujUsbQgkyIpaS5DbsEmQhNeXGlVvf
-	 VVLOe1WwgYBFMcwHh2L+tMu5+s4cts/3gsYfDMqwuVf9qRzmwVCneunRrBcI6WjR+a
-	 vcDxMGzYSWnuDcssXDINeKShZ05nqUnMN0t6fqdwwIGJYM0gnjmW82RFrQYZgEqyAN
-	 5ft2eUywD9T4w==
+	b=ilHrWHC9U7euwdq8OX8oqGOGIsVckVqm7sUdr2EwqDtqE65aIWnJcdeAIpK+pi+db
+	 uKNKLxj4UeaiNhlKG+vNKT4EdlKvoHpfUL+TAyH09LCIc7enJzS0SdPRgXFdon5PCP
+	 lDLwYmd093eBglou6rVrDkgURuOGO2HQabtfYE4+xeXDQNrQ3QZCRBZrt3betf+kbW
+	 inThm7M8TxEmQH2AZzc5CvhY8pYdGYYX9tbGPinSvoWDXv7ELwc20NrDAhbP/Bgwu7
+	 78GFXHYEYQv6PG6x7tV06mg63XwXh2Sj78Wn91EYVYsNX/JGKn3sZslevq8fknK9oR
+	 +grpXY0DcJ5nA==
 Received: from jupiter.universe (dyndsl-091-248-189-143.ewe-ip-backbone.de [91.248.189.143])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0067517E35DC;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D6ACE17E35C8;
 	Tue,  3 Feb 2026 17:46:34 +0100 (CET)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 16BE348002A; Tue, 03 Feb 2026 17:46:34 +0100 (CET)
+	id 1AF9C48002D; Tue, 03 Feb 2026 17:46:34 +0100 (CET)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Tue, 03 Feb 2026 17:46:27 +0100
-Subject: [PATCH v2 05/10] ASoC: rockchip: spdif: Improve sample rate
- support
+Date: Tue, 03 Feb 2026 17:46:30 +0100
+Subject: [PATCH v2 08/10] ASoC: rockchip: spdif: Add support for format
+ S32_LE
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260203-rockchip-spdif-cleanup-and-bsp-sync-v2-5-4412016cf577@collabora.com>
+Message-Id: <20260203-rockchip-spdif-cleanup-and-bsp-sync-v2-8-4412016cf577@collabora.com>
 References: <20260203-rockchip-spdif-cleanup-and-bsp-sync-v2-0-4412016cf577@collabora.com>
 In-Reply-To: <20260203-rockchip-spdif-cleanup-and-bsp-sync-v2-0-4412016cf577@collabora.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
@@ -63,28 +63,28 @@ Cc: Alexey Charkov <alchark@gmail.com>,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-kernel@vger.kernel.org, kernel@collabora.com, 
  Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Sugar Zhang <sugar.zhang@rock-chips.com>
+ Sugar Zhang <sugar.zhang@rock-chips.com>, Zohn Ni <zohn.ni@rock-chips.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=978;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3109;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=abFzezjxkX7Ga9S847nmHHXXVGcpC1hL5V81nWEem+0=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGmCJmnlJblPCn7rXthXDQ7QZwe+rXMNzyAun
- gvqdZUa7vwCCIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJpgiZpAAoJENju1/PI
- O/qarJ0P/2rFxf2AuNxjA3t7xD8breTSS/u56B3jPD15IadbdT1CxmzPE83hpo6vBrPFJZ0yxDO
- 4ZtGaquoFQAFjRlqeO2PAh7Z3fuN4PZs8224e0NBPJZ+IYVihU+l37wGstacdJ6/JcX1vAEtlht
- ZlkDbHAkZQbWVAXC9LyTrcoUj1vYJ+dC2cEqQ346W51cbBGnBq9lca1V50v7peQCvaYPXfVpTFm
- Fv6V9Uk5CUxvjyU7E7P7nQnsfxY/0OdLTY4mhMfjRzXqLFTYLcPZcBX+vO7o9Jofu/fDWDzoa9D
- 4wZbRWm3GQC+aGBPRSqh+KrUyH1r2jyKqq3643IoVvyJ/NCA6D5uw6O2gA+8dF1Wyq5DkSWDPUp
- kA3jYiWXUpxtvgSJyDGXfTErPFhqRpArwgEYMpUtiemIthu3bEVqJnRGrXNcWoKMGDK8UgS9GrT
- aw7mG2SjagbIcGEkdQwfBjcTF47EwSpoN4QlzAKyDmmH/ZV75yzMC9HUwKrWaNbhDv9YX0kkHle
- ycuLZwsX+rrp4EcRN3uqVhGrPLRo6saUHCbwzIrY7W7UkFiyr2Zc8LfXakX9M5cxqhqFNd7t4Ih
- kI0Zcwl6PzxJi3qtFj9KKjoBnD0zAKI38tBsQiGxe4Z2s1K6OwZe/VeBg1KJV+VzmB35rt3Mon8
- 8TKNSldmYQQA5+5rYYjwqaQ==
+ bh=ZTB+C6/WOs0DScK8wBWi6AQ4GJhK0F8kVAr5NV0OuEE=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGmCJmlbGhY75qLpThU6zhxgGCskk6hGKSzm/
+ rWNfuUMJtx8YokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJpgiZpAAoJENju1/PI
+ O/qaR7oP/i22QvfRjCUUq7L4qgROnqkFgrCg7aDDLCOE1MeJUrizPORn8KZ0/r0kBtjUQVGQY8V
+ I69c9S5wK1KPomh3qcgHY0YNwrIAxuk52VATxcrZNbFbusr7QIV2QMdkDgvinVn3/JN44cmkVZM
+ 476r2ecTP3eT7+jSS+TFsQYpNOYV8jQEeWbqPAfFaiAKIlh0YYn5ZD1fWoiRxJyw9J7IwJDDgb2
+ uAy10gGyN1v78IoxbN0Vk5tb6hMYoMTwDhk2eGXS59ApNeoJEfaradMJESSOkFfCDFe/NQ02XIX
+ nktL3XL6x9WabCEwovwApvS99d9OsFVjFdIxFFM8KEll8iWGlzL6la9HAoyhYKDlUc3qlLberDz
+ Z/5YW2tG+F25jFmDI6AgMlhTY9hfO10Pnub544QKCsRf9Z4s6xGfywwevIJ72icgxgeYTSXQB29
+ /DYhPsrrgQmYQKrUlTzIv2C/UZyHVdJsl2bJSEY6EGbliEJrU0v7Dv3vuArCHJ+OUc45E3DO+vM
+ e5bjGkwS69K0ecYE/Pbu5q1UiIp724PI3K8kTS0fkkRVqU1qcgVn+V8VYrXehDeG4irG8NQk+7U
+ JZyk5foHVTq/beePJsXr4tigvuckiDKNdoIXZy0gtD/Odc/f1rHv07VkZ0uP8Rsjqo9EFDDMly0
+ t17pstr0LoQYyZNg5SlMxEg==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_084642_209828_C899B463 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20260203_084642_277949_98890B3B 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,31 +101,93 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Sugar Zhang <sugar.zhang@rock-chips.com>
 
-The hardware supports all sample rates up to 19.2kHz.
+Treat 32 bit sample width as if it was 24 bits using only the
+24 most significant bits.
 
+Co-developed-by: Zohn Ni <zohn.ni@rock-chips.com>
+Signed-off-by: Zohn Ni <zohn.ni@rock-chips.com>
 Signed-off-by: Sugar Zhang <sugar.zhang@rock-chips.com>
+[I've merged the channel-swapping fix from Zohn Ni into Sugar Zhang's
+patch introducing the problem in the first place]
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- sound/soc/rockchip/rockchip_spdif.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+ sound/soc/rockchip/rockchip_spdif.c | 22 ++++++++++++++++++++--
+ sound/soc/rockchip/rockchip_spdif.h |  8 ++++++++
+ 2 files changed, 28 insertions(+), 2 deletions(-)
 
 diff --git a/sound/soc/rockchip/rockchip_spdif.c b/sound/soc/rockchip/rockchip_spdif.c
-index 1c62fcb0d8d4..55d64fd4c93b 100644
+index 3b66d97f0582..d06573f22805 100644
 --- a/sound/soc/rockchip/rockchip_spdif.c
 +++ b/sound/soc/rockchip/rockchip_spdif.c
-@@ -188,11 +188,7 @@ static struct snd_soc_dai_driver rk_spdif_dai = {
- 		.stream_name = "Playback",
- 		.channels_min = 2,
- 		.channels_max = 2,
--		.rates = (SNDRV_PCM_RATE_32000 |
--			  SNDRV_PCM_RATE_44100 |
--			  SNDRV_PCM_RATE_48000 |
--			  SNDRV_PCM_RATE_96000 |
--			  SNDRV_PCM_RATE_192000),
-+		.rates = SNDRV_PCM_RATE_8000_192000,
+@@ -99,21 +99,38 @@ static int rk_spdif_hw_params(struct snd_pcm_substream *substream,
+ 	switch (params_format(params)) {
+ 	case SNDRV_PCM_FORMAT_S16_LE:
+ 		val |= SPDIF_CFGR_VDW_16;
++		val |= SPDIF_CFGR_ADJ_RIGHT_J;
+ 		break;
+ 	case SNDRV_PCM_FORMAT_S20_3LE:
+ 		val |= SPDIF_CFGR_VDW_20;
++		val |= SPDIF_CFGR_ADJ_RIGHT_J;
+ 		break;
+ 	case SNDRV_PCM_FORMAT_S24_LE:
+ 		val |= SPDIF_CFGR_VDW_24;
++		val |= SPDIF_CFGR_ADJ_RIGHT_J;
++		break;
++	case SNDRV_PCM_FORMAT_S32_LE:
++		val |= SPDIF_CFGR_VDW_24;
++		val |= SPDIF_CFGR_ADJ_LEFT_J;
+ 		break;
+ 	default:
+ 		return -EINVAL;
+ 	}
+ 
++	/*
++	 * clear MCLK domain logic before setting Fmclk and Fsdo to ensure
++	 * that switching between S16_LE and S32_LE audio does not result
++	 * in accidential channels swap.
++	 */
++	regmap_update_bits(spdif->regmap, SPDIF_CFGR, SPDIF_CFGR_CLR_MASK,
++			   SPDIF_CFGR_CLR_EN);
++	udelay(1);
++
+ 	ret = regmap_update_bits(spdif->regmap, SPDIF_CFGR,
+ 				 SPDIF_CFGR_CLK_DIV_MASK |
+ 				 SPDIF_CFGR_HALFWORD_ENABLE |
+-				 SDPIF_CFGR_VDW_MASK, val);
++				 SDPIF_CFGR_VDW_MASK |
++				 SPDIF_CFGR_ADJ_MASK, val);
+ 
+ 	return ret;
+ }
+@@ -203,7 +220,8 @@ static struct snd_soc_dai_driver rk_spdif_dai = {
+ 		.rates = SNDRV_PCM_RATE_8000_192000,
  		.formats = (SNDRV_PCM_FMTBIT_S16_LE |
  			    SNDRV_PCM_FMTBIT_S20_3LE |
- 			    SNDRV_PCM_FMTBIT_S24_LE),
+-			    SNDRV_PCM_FMTBIT_S24_LE),
++			    SNDRV_PCM_FMTBIT_S24_LE |
++			    SNDRV_PCM_FMTBIT_S32_LE),
+ 	},
+ 	.ops = &rk_spdif_dai_ops,
+ };
+diff --git a/sound/soc/rockchip/rockchip_spdif.h b/sound/soc/rockchip/rockchip_spdif.h
+index fcc28b6c4f58..acf64986a2e0 100644
+--- a/sound/soc/rockchip/rockchip_spdif.h
++++ b/sound/soc/rockchip/rockchip_spdif.h
+@@ -17,6 +17,14 @@
+ #define SPDIF_CFGR_CLK_DIV_MASK		(0xff << SPDIF_CFGR_CLK_DIV_SHIFT)
+ #define SPDIF_CFGR_CLK_DIV(x)		((x-1) << SPDIF_CFGR_CLK_DIV_SHIFT)
+ 
++#define SPDIF_CFGR_CLR_MASK		BIT(7)
++#define SPDIF_CFGR_CLR_EN		BIT(7)
++#define SPDIF_CFGR_CLR_DIS		0
++
++#define SPDIF_CFGR_ADJ_MASK		BIT(3)
++#define SPDIF_CFGR_ADJ_LEFT_J		BIT(3)
++#define SPDIF_CFGR_ADJ_RIGHT_J		0
++
+ #define SPDIF_CFGR_HALFWORD_SHIFT	2
+ #define SPDIF_CFGR_HALFWORD_DISABLE	(0 << SPDIF_CFGR_HALFWORD_SHIFT)
+ #define SPDIF_CFGR_HALFWORD_ENABLE	(1 << SPDIF_CFGR_HALFWORD_SHIFT)
 
 -- 
 2.51.0
