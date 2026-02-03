@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41232E87846
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 16:24:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79722E87846
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 16:24:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=i9uso56hUT5t/wNRAf0vCD6owXov4F7UMG6tU1Kk5yM=; b=iSM42U8zDdeySav5f+o52Ap8SF
-	eex5aCXJLMtAgQYMbTwJ/zdBes9GUhAbw3iqPNpql1dfLSRsOkMseIijKvPccTUt+aLo4cHUrQYa7
-	UfWNPlGe7TAPu2y2edwNHfJ7uB76JnaNK542y2q5hAjOXV7jer0UUB+P/zAGnVwUP7BueaYifbhtY
-	fghl2FnAVJh/yx2ZmyohfQ0XXPv93u6KvnRMoh79lN7rG+Bp5hpEO62YfVOyg8D2IOseHOAMFzw0k
-	zIMFsPkqvnB0DczADc5wwsHc5NZps7cjTUmpqek6U/oBY+egSZnYOtsXI7JRWaBErS0tvJs+Wk60S
-	Oew6XDyQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tQyv24/iXdQ2aRdQ2HpqyQ52xvrvAW0EJ7tcYz/lItk=; b=L/RcpaUfkyOThyNMIwgNN7sOav
+	EYzMBKu19ECVS1YgxM+0CpJUP8Y95LjZkqhS2jEH33+uv801RGY5wksna0jrUmEVg+dMjOaHEGp0k
+	DdxcEXLfM3yCmZoV4TtQJXPiqksooE69x9XBWxpecvqniPFF7OqVo7J37LbfhiUHzLPZ3BdqCPA2m
+	yOzz15K19hztzcwKZ4AKQaCyipFIYWO1E+G1K3pcs8iycVuYBkw65UoKGhW6jLTCXBLy537JJaA3l
+	eb8q0SJKEa4ESPj5ewHqDcfzs8AOeEum0FPXAwnFLsgtCo1PhYZLiRECFmYp1stjSIoSc1fEu0E3h
+	QZBs4jxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnJCM-00000006wWj-3eYr;
-	Tue, 03 Feb 2026 16:24:18 +0000
+	id 1vnJCY-00000006wbn-0mZ1;
+	Tue, 03 Feb 2026 16:24:30 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnJCK-00000006wWN-2Xke
+	id 1vnJCW-00000006wYT-0CAU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 16:24:17 +0000
+	Tue, 03 Feb 2026 16:24:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 77CBE429EF;
-	Tue,  3 Feb 2026 16:24:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38322C116D0;
-	Tue,  3 Feb 2026 16:24:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7EA6C429EF;
+	Tue,  3 Feb 2026 16:24:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67218C16AAE;
+	Tue,  3 Feb 2026 16:24:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770135854;
-	bh=3aWB9czdX77ko627FLVQ27Wjd4hw35wKPWJ59FT1Nc8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=VEoKDQcSOZMiRh7FM1iEhhRu5QbWSUeI7ZduuVBt7+h6MKTUV1peDI5N7SUYtjOve
-	 5sKwd/aFYFzW9gHn5KtTmYOHBWo2FabQdNkrvF9HIo3FbARyx+7G0mWZ9kvjrdhNLj
-	 vm0icwyb1WptXgOTyZtI8grYrK0iaffW6tPoF/X0CPCzmmm6cR3ax8ge+hcQy7CzRg
-	 4KyDqET42t87Ufjq01zYu6QDyLP7xu6u9tEfyckoh0c5uTf7nwe3zni4O8sVIC1k85
-	 GqnGpWs9wTmgX8egAXDRdZbWmRzuuVc9Gbbn4m152LHuq7dur6RXPO070iOliwNX0e
-	 sRdYOZHhplnew==
+	s=k20201202; t=1770135865;
+	bh=8NKPdRGnNXMEdz6SK51aPIBdadbt+NTxQ5tH5rjBnLo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=MaUjymV4lKdPf0XW+6SntLKjqRu0SDylDV87yaAezrkqan0kKNSBHX779dFlqpeQH
+	 FYhIfLq5kq5KszvVkPnx0PHf3l15PcMZIVUgs0J6Yq+4d+hAtwCy0yj00Mw4kuIf3c
+	 kNVfliAXcz4lqQSy32MHVXv7mwLZWtGN6hVn6imLl9F6pUW+ExsN3UrvXI/Bn6UtWK
+	 DSHsp6w8Z9Xsh6QPHfipea6LeSd4dZh7u3TVVsZeyljiBZhTf3H8xZUPYfCfb2nbQN
+	 2FfoIUVILOtvCm9ceEcjJgtGjp8HPYY2hFXlmeSA+X5SHOE8cbIZtle9RYq7ivoNqd
+	 PtWit4mC/NaAQ==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Will Deacon <will@kernel.org>,
 	Robin Murphy <robin.murphy@arm.com>,
@@ -51,17 +51,18 @@ To: Will Deacon <will@kernel.org>,
 Cc: linux-arm-kernel@lists.infradead.org,
 	iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: [PATCH 1/2] [RFC] debugobjects: avoid gcc-16.0.1 section mismatch
-Date: Tue,  3 Feb 2026 17:23:59 +0100
-Message-Id: <20260203162406.2215716-1-arnd@kernel.org>
+	Arnd Bergmann <arnd@arndb.de>
+Subject: [PATCH 2/2] [RFC] iommu: io-pgtable-arm-v7s: avoid gcc-16.0.1 section mismatch
+Date: Tue,  3 Feb 2026 17:24:00 +0100
+Message-Id: <20260203162406.2215716-2-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260203162406.2215716-1-arnd@kernel.org>
+References: <20260203162406.2215716-1-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_082416_762088_7F1AD7A2 
-X-CRM114-Status: GOOD (  15.20  )
+X-CRM114-CacheID: sfid-20260203_082428_184615_70E47519 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,39 +80,59 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 From: Arnd Bergmann <arnd@arndb.de>
 
 gcc-16 has gained some more advanced inlining techniques that enable
-it to inline the is_static_object() function pointer into a specialized
-version of lookup_object_or_alloc:
+it to inline the dummy_tlb_add_page() and dummy_tlb_flush() function
+pointers into a specialized version of __arm_v7s_unmap:
 
-WARNING: modpost: vmlinux: section mismatch in reference: lookup_object_or_alloc.part.0+0x1ac (section: .text) -> is_static_object (section: .init.text)
+WARNING: modpost: vmlinux: section mismatch in reference: __arm_v7s_unmap+0x2cc (section: .text) -> dummy_tlb_add_page (section: .init.text)
 
 From what I can tell, the transformation is correct, as this
-is only called when lookup_object_or_alloc() is called from
-debug_objects_selftest(), which is also __init.
+is only called when __arm_v7s_unmap() is called from
+arm_v7s_do_selftests(), which is also __init.
 
 I have not come up with a good workaround, so this simply marks
-is_static_object() as not __init. Since there are currently only two
+dummy_tlb_add_page() as not __init. Since there are currently only two
 files where this happens, that may be an easy way out.
 
 If anyone has a better idea for how to deal with that, let me know!
 
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- lib/debugobjects.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/iommu/io-pgtable-arm-v7s.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/lib/debugobjects.c b/lib/debugobjects.c
-index 89a1d6745dc2..056957c4e52f 100644
---- a/lib/debugobjects.c
-+++ b/lib/debugobjects.c
-@@ -1195,7 +1195,7 @@ struct self_test {
+diff --git a/drivers/iommu/io-pgtable-arm-v7s.c b/drivers/iommu/io-pgtable-arm-v7s.c
+index 523355e91a2c..705885924afb 100644
+--- a/drivers/iommu/io-pgtable-arm-v7s.c
++++ b/drivers/iommu/io-pgtable-arm-v7s.c
+@@ -775,23 +775,23 @@ struct io_pgtable_init_fns io_pgtable_arm_v7s_init_fns = {
  
- static __initconst const struct debug_obj_descr descr_type_test;
+ #ifdef CONFIG_IOMMU_IO_PGTABLE_ARMV7S_SELFTEST
  
--static bool __init is_static_object(void *addr)
-+static bool is_static_object(void *addr)
+-static struct io_pgtable_cfg *cfg_cookie __initdata;
++static struct io_pgtable_cfg *cfg_cookie;
+ 
+ static void __init dummy_tlb_flush_all(void *cookie)
  {
- 	struct self_test *obj = addr;
+ 	WARN_ON(cookie != cfg_cookie);
+ }
  
+-static void __init dummy_tlb_flush(unsigned long iova, size_t size,
++static void dummy_tlb_flush(unsigned long iova, size_t size,
+ 				   size_t granule, void *cookie)
+ {
+ 	WARN_ON(cookie != cfg_cookie);
+ 	WARN_ON(!(size & cfg_cookie->pgsize_bitmap));
+ }
+ 
+-static void __init dummy_tlb_add_page(struct iommu_iotlb_gather *gather,
+-				      unsigned long iova, size_t granule,
+-				      void *cookie)
++static void dummy_tlb_add_page(struct iommu_iotlb_gather *gather,
++			       unsigned long iova, size_t granule,
++			       void *cookie)
+ {
+ 	dummy_tlb_flush(iova, granule, granule, cookie);
+ }
 -- 
 2.39.5
 
