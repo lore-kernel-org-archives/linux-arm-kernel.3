@@ -4,65 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79722E87846
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 16:24:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA70E87845
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 16:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tQyv24/iXdQ2aRdQ2HpqyQ52xvrvAW0EJ7tcYz/lItk=; b=L/RcpaUfkyOThyNMIwgNN7sOav
-	EYzMBKu19ECVS1YgxM+0CpJUP8Y95LjZkqhS2jEH33+uv801RGY5wksna0jrUmEVg+dMjOaHEGp0k
-	DdxcEXLfM3yCmZoV4TtQJXPiqksooE69x9XBWxpecvqniPFF7OqVo7J37LbfhiUHzLPZ3BdqCPA2m
-	yOzz15K19hztzcwKZ4AKQaCyipFIYWO1E+G1K3pcs8iycVuYBkw65UoKGhW6jLTCXBLy537JJaA3l
-	eb8q0SJKEa4ESPj5ewHqDcfzs8AOeEum0FPXAwnFLsgtCo1PhYZLiRECFmYp1stjSIoSc1fEu0E3h
-	QZBs4jxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l2ttDn1w1QA2Cz+Z+5lpKBPVG/z+n2qwJYLNRD++3uA=; b=jIai62yLXQnTTMLr8Ch9kYnyCn
+	J8dS7ojQsWynJR1FFJ5Fp9M36utnwDNw7yt4ghONSHwZwj/s764mt0MkHIAqL4MD1vm7D9cCThSie
+	VtytWnUv8KmydAVOTZursr/dnApAPCfpsjgHMj8ILSta6WKdZXTUK2E/2InPieXwLAnoh/Rzv/8Mj
+	zvp3KcUNXhNNjjfXi2QEULyLvAZMWma3CARzq2RvSNtrQdq/aZWZHEFI6QA6GnT6Xjm8mrRiYjNCG
+	+wXoBX2NKgPBM0AdL/Sc3Fk9cST5J4aI/n8oOQx4PeymcN/nfzY5mPrRoQCpZYhpczDNMiZeOERmU
+	a4lSAYGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnJCY-00000006wbn-0mZ1;
-	Tue, 03 Feb 2026 16:24:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vnJGj-00000006wuR-3iwR;
+	Tue, 03 Feb 2026 16:28:49 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnJCW-00000006wYT-0CAU
+	id 1vnJGh-00000006wu5-2n8G
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 16:24:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7EA6C429EF;
-	Tue,  3 Feb 2026 16:24:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67218C16AAE;
-	Tue,  3 Feb 2026 16:24:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770135865;
-	bh=8NKPdRGnNXMEdz6SK51aPIBdadbt+NTxQ5tH5rjBnLo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MaUjymV4lKdPf0XW+6SntLKjqRu0SDylDV87yaAezrkqan0kKNSBHX779dFlqpeQH
-	 FYhIfLq5kq5KszvVkPnx0PHf3l15PcMZIVUgs0J6Yq+4d+hAtwCy0yj00Mw4kuIf3c
-	 kNVfliAXcz4lqQSy32MHVXv7mwLZWtGN6hVn6imLl9F6pUW+ExsN3UrvXI/Bn6UtWK
-	 DSHsp6w8Z9Xsh6QPHfipea6LeSd4dZh7u3TVVsZeyljiBZhTf3H8xZUPYfCfb2nbQN
-	 2FfoIUVILOtvCm9ceEcjJgtGjp8HPYY2hFXlmeSA+X5SHOE8cbIZtle9RYq7ivoNqd
-	 PtWit4mC/NaAQ==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Thomas Gleixner <tglx@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>
-Subject: [PATCH 2/2] [RFC] iommu: io-pgtable-arm-v7s: avoid gcc-16.0.1 section mismatch
-Date: Tue,  3 Feb 2026 17:24:00 +0100
-Message-Id: <20260203162406.2215716-2-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260203162406.2215716-1-arnd@kernel.org>
-References: <20260203162406.2215716-1-arnd@kernel.org>
+	Tue, 03 Feb 2026 16:28:49 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-c61343f82d7so2329329a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 08:28:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1770136126; x=1770740926; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=l2ttDn1w1QA2Cz+Z+5lpKBPVG/z+n2qwJYLNRD++3uA=;
+        b=q1JBU66hRyzihwM2ej3eHGuSk3yTq/9OSCuTxgYWUgdFe66tTOFAQ8iNTdsnhaTEOK
+         4qN2CWcE5Jw8ApbLbujsjkcSJUMQiojk1syr9onW5PPnn1GNFbVjr2LUZd2FJzmSRjlm
+         NIodmgtTWTjEOemPh0wWlgq/LbQvpKGgTDYTsFwZRkPgGBSdjoXTQJnAfGI81t1FMyky
+         skh02khdIQDr7UhqaBhTwXu1jAnRV2aJ291qB1ppPkNlRHwAQb4ABupL2m0wRhbheAfy
+         j5sME1zgNGTA/0m36tqv/PGbBi8xCfXDjq6vunJcEeJbV/faH6RvoQyM7rYr7k+Bqp+1
+         W+3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770136126; x=1770740926;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=l2ttDn1w1QA2Cz+Z+5lpKBPVG/z+n2qwJYLNRD++3uA=;
+        b=cYXutHltW51Y89hnmK1UKww82f1TQMfilgA3ix8JAK6stiUZ6TY4rzlArTptdSJzWH
+         ifgXzlFyUwxn/E8UeyNYoeFx0zl/4jGgaKRZCyrJDUJEP2HxLsh1mDP6NhOOftzZzOed
+         v1iUz7mLALTa2O9nMSD3yB/sOsSndhmLgax1gSqZZqFo7EqcjPDO2eI1vV/dTH+QI5St
+         tZwY52WubJkAof5SNIKMxa18qL7pj5G6QUU6Lzs3R7qyM08wrvhDl+lvSvsBCtVoLEoe
+         W5oiiZNN6M6e2uTlXqWU9dZFXJBWnWFaE1Edx9lWekDKDeAFZLNV9C1ml5GxGslTXZgf
+         +wUg==
+X-Forwarded-Encrypted: i=1; AJvYcCWwTmBq6+zaaeh4AOBgzoFpqiHwLdHdJ37FdqdOuUZrDo439Nlmu+oXhYPXpLaEZBtGHWKxjoq8mxu7rDmZgeFY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw634mqbcx/TRqmdN0SrHt2gGwlLRywE17DnphIh/kbuSNfznBp
+	gPHhWP2OKSMhDghpAydZMJtEbiX4d6nevOwHfTBCWjNMAdGXmCaua/PBe/21bC466rXaDk0NH+c
+	BX4MzbWw=
+X-Gm-Gg: AZuq6aKNrxAHxdmrbIqmpzB/tvHp5VY4dz5RMheIKE5Y4KrL2ob8bcurPeXF/Ij9upI
+	8nvQ1ELNkeoHLLsy/WI3iW6LWVUkr4qEl/pRkHUE/EukLerMQDGcxm7Bmt5i3VIhG/mVlwttc5E
+	6OsrIbOJgvoaoxCrMU46UZPEuMeOkWDyUKSisbCJY5Z3VAJObMsVQAO03XM8b79/WmHbahLSE8v
+	hRFk0Grm6fBPQbB4Xahh5Mym1vwUgi+GuTSLTzKFl+4sPMKFYvWXcUWdr6cPEWZXi03HZoVRC5c
+	J+agvrUmqXjxkjUxHB2aSseygMPgRJus/V0TqOHWLDMceTaWn6IV0z49qDvHyTthIbHgHeZU2jD
+	Gave7+XOJuOMkbWp8wkV6IluLQz8dNAB54T9q3Rb3YGoEk0fAgm2dUyzFnR5ow1lo1/EkzgscsD
+	JhTKsDD0CukgVs
+X-Received: by 2002:a17:902:f690:b0:2a0:e94e:5df6 with SMTP id d9443c01a7336-2a8d81818c8mr134926125ad.50.1770136125857;
+        Tue, 03 Feb 2026 08:28:45 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:8fb0:b75b:356:3f2b])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a88b4c3d57sm177851015ad.60.2026.02.03.08.28.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Feb 2026 08:28:45 -0800 (PST)
+Date: Tue, 3 Feb 2026 09:28:42 -0700
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>, Frank Li <frank.li@nxp.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>, stable@vger.kernel.org
+Subject: Re: [PATCH v3] remoteproc: imx: Fix invalid loaded resource table
+ detection
+Message-ID: <aYIiOtUpTebzMZcd@p14s>
+References: <20260129-imx-rproc-fix-v3-1-fc4e41e6e750@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260129-imx-rproc-fix-v3-1-fc4e41e6e750@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_082428_184615_70E47519 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20260203_082847_706991_081351D1 
+X-CRM114-Status: GOOD (  27.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,63 +106,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Thu, Jan 29, 2026 at 09:44:48AM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> imx_rproc_elf_find_loaded_rsc_table() may incorrectly report a loaded
+> resource table even when the current firmware does not provide one.
+> 
+> When the device tree contains a "rsc-table" entry, priv->rsc_table is
+> non-NULL and denotes where a resource table would be located if one is
+> present in memory. However, when the current firmware has no resource
+> table, rproc->table_ptr is NULL. The function still returns
+> priv->rsc_table, and the remoteproc core interprets this as a valid loaded
+> resource table.
+> 
+> Fix this by returning NULL from imx_rproc_elf_find_loaded_rsc_table() when
+> there is no resource table for the current firmware (i.e. when
+> rproc->table_ptr is NULL). This aligns the function's semantics with the
+> remoteproc core: a loaded resource table is only reported when a valid
+> table_ptr exists.
+> 
+> With this change, starting firmware without a resource table no longer
+> triggers a crash.
+> 
+> Fixes: e954a1bd1610 ("remoteproc: imx_rproc: Use imx specific hook for find_loaded_rsc_table")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+> Changes in v3:
+> - Update patch subject and commit message using this one [1]
+>   [1] https://lore.kernel.org/all/CANLsYkyrz+A1iEabGZ6rFybFo4=mM+TPVDRSckFB2YUS_7aKow@mail.gmail.com/
+> - Link to v2: https://lore.kernel.org/r/20260127-imx-rproc-fix-v2-1-7288fcf74385@nxp.com
+> 
+> Changes in v2:
+> - Per Mathieu, Check rproc->table_ptr, update commit log
+> - Include R-b from Frank
+> - Link to v1: https://lore.kernel.org/r/20260122-imx-rproc-fix-v1-1-36cc64369a40@nxp.com
+> ---
+>  drivers/remoteproc/imx_rproc.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index 375de79168a1c8d11b87ac1bd63774a3feac106d..f5f916d6790519360f446f063e09d018c5654953 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -729,6 +729,10 @@ imx_rproc_elf_find_loaded_rsc_table(struct rproc *rproc, const struct firmware *
+>  {
+>  	struct imx_rproc *priv = rproc->priv;
+>  
+> +	/* No resource table in the firmware */
+> +	if (!rproc->table_ptr)
+> +		return NULL;
+> +
+>  	if (priv->rsc_table)
+>  		return (struct resource_table *)priv->rsc_table;
+>
 
-gcc-16 has gained some more advanced inlining techniques that enable
-it to inline the dummy_tlb_add_page() and dummy_tlb_flush() function
-pointers into a specialized version of __arm_v7s_unmap:
+Applied.
 
-WARNING: modpost: vmlinux: section mismatch in reference: __arm_v7s_unmap+0x2cc (section: .text) -> dummy_tlb_add_page (section: .init.text)
-
-From what I can tell, the transformation is correct, as this
-is only called when __arm_v7s_unmap() is called from
-arm_v7s_do_selftests(), which is also __init.
-
-I have not come up with a good workaround, so this simply marks
-dummy_tlb_add_page() as not __init. Since there are currently only two
-files where this happens, that may be an easy way out.
-
-If anyone has a better idea for how to deal with that, let me know!
-
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- drivers/iommu/io-pgtable-arm-v7s.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/iommu/io-pgtable-arm-v7s.c b/drivers/iommu/io-pgtable-arm-v7s.c
-index 523355e91a2c..705885924afb 100644
---- a/drivers/iommu/io-pgtable-arm-v7s.c
-+++ b/drivers/iommu/io-pgtable-arm-v7s.c
-@@ -775,23 +775,23 @@ struct io_pgtable_init_fns io_pgtable_arm_v7s_init_fns = {
- 
- #ifdef CONFIG_IOMMU_IO_PGTABLE_ARMV7S_SELFTEST
- 
--static struct io_pgtable_cfg *cfg_cookie __initdata;
-+static struct io_pgtable_cfg *cfg_cookie;
- 
- static void __init dummy_tlb_flush_all(void *cookie)
- {
- 	WARN_ON(cookie != cfg_cookie);
- }
- 
--static void __init dummy_tlb_flush(unsigned long iova, size_t size,
-+static void dummy_tlb_flush(unsigned long iova, size_t size,
- 				   size_t granule, void *cookie)
- {
- 	WARN_ON(cookie != cfg_cookie);
- 	WARN_ON(!(size & cfg_cookie->pgsize_bitmap));
- }
- 
--static void __init dummy_tlb_add_page(struct iommu_iotlb_gather *gather,
--				      unsigned long iova, size_t granule,
--				      void *cookie)
-+static void dummy_tlb_add_page(struct iommu_iotlb_gather *gather,
-+			       unsigned long iova, size_t granule,
-+			       void *cookie)
- {
- 	dummy_tlb_flush(iova, granule, granule, cookie);
- }
--- 
-2.39.5
-
+Thanks,
+Mathieu
+  
+> 
+> ---
+> base-commit: e3b32dcb9f23e3c3927ef3eec6a5842a988fb574
+> change-id: 20260122-imx-rproc-fix-e206f8e6e477
+> 
+> Best regards,
+> -- 
+> Peng Fan <peng.fan@nxp.com>
+> 
 
