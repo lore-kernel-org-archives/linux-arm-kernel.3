@@ -4,78 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF7E6E8B377
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 23:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C6FEE8B37E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 23:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X3OCu/vZ0+qnXKwcMUbCErKdVAJ8duvO3nNP8PiJONE=; b=oLVUYSkVrsPlg//Jtm7KoZPLLb
-	su0sGdZhjCHrVc2g8VgTCrAB+EIFfVXxo86IzDrLSodNTb5ZCUpAIDKcpUtbwYYmjmQxotlQQxtO/
-	gviznf/OL3gq8HNyxQobUbdWR85FGHzjwe5mFupS1I+VWd9HcKTaqN6bICbSQiT6WZAmsMIgP3LLJ
-	n3gtPorg5owvLY8Q7dCE8DP6R6WzICHHTMEI5VMCC5sxStsLYQUZOJnwR0CZisepbZgW/yOST8ZGk
-	6/CyjggEiMVmBiYYVVAt3oZdT0b5Z9csj/ae29CRNV5vJoezyBj2oJFEvifSlovhyXK3UcP8FAILu
-	Rb2BWkrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q95FEOqKEJlFrNQSBcQo7D6IdYS6YFx230wGHstnn1o=; b=qCUVjAvAR8LAxONNLvz7t1B4wp
+	MbC2gK1arSpzF+OOnl7V96aIpOfo/onB2xHIeSVoAhEyAED0Ub/hJeUMT6RX0a2xp25qmkjf5ASc0
+	ZPjQyvVAMi2vBvnD9lqTFGpBWTY5kf2kaHPXuX12sTIS/dTdWOn3zX1PbPCc1zvVT2MsSWt5TP8zh
+	L1+8EDRM/hFBLoP0M/AeqKq6WZsyDoVS8jpZuspPMdJKPl5LDB1Moc1ZdWHqNG66BTBXzqsFKVvUt
+	2obLI6n/7qNVkUrk3CMrwtbhbv3kbGTxbwDJdX3PXfSnHzHStb5PFjiVDe5wuNjBKLOsdMYSF4iK7
+	/HLimDTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnPfL-00000007YJE-1jYG;
-	Tue, 03 Feb 2026 23:18:39 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vnPuz-00000007ZNV-3ncY;
+	Tue, 03 Feb 2026 23:34:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnPfI-00000007YIS-1Z6d
+	id 1vnPuy-00000007ZN8-3i5t
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 23:18:37 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--ff4.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::ff4])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 27D023A4;
-	Wed,  4 Feb 2026 00:17:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1770160672;
-	bh=JLvdn8c+w8EK175ZjsQD8328a8YMf7HlLS6KIMPD2J4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ASL6uVy+l61WXBOcb/BAGP2WpnImm1KBztFatWHrjlPrp5EkvorBDCbcku7zqjwop
-	 AS5akvYHIoKc3VE5nO19wH3wf1tj+HSNhtWvqe6bYM5YFz2B25I6JDCCCHR/dV+0at
-	 eULHhmqTSHDuz/Eg2ZidnMrO34VtKMJpevIqWB7I=
-Date: Wed, 4 Feb 2026 01:18:32 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Ovidiu Panait <ovidiu.panait.oss@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	Clark Wang <xiaoning.wang@nxp.com>,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>, imx@lists.linux.dev,
-	Jakub Kicinski <kuba@kernel.org>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Wei Fang <wei.fang@nxp.com>
-Subject: Re: [PATCH RFC net-next] net: stmmac: provide flag to disable EEE
-Message-ID: <20260203231832.GB133801@killaraus>
-References: <E1vNUjC-0000000FhjR-0h6P@rmk-PC.armlinux.org.uk>
- <f95f73b9-d024-4697-bca1-02fb8bc044af@gmail.com>
- <aYEj8VM5AfvcDHrl@shell.armlinux.org.uk>
- <aYE-gvuZdv7ezm7X@shell.armlinux.org.uk>
+	Tue, 03 Feb 2026 23:34:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EE1B46013A
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Feb 2026 23:34:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F198C19425
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Feb 2026 23:34:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770161687;
+	bh=H3N6t3iT+lRw2Y3wcq0juSNfNc3ZLSsvKLjYx4BlJTM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=nqtchg46hJV6r1bQFLQT7aBrl24yYiUpMB5HgW9eCGF1JT/AyvItPIfcJRJxTC4A5
+	 C0CcRJov/r6C6UdEbHNQ+0GBUxZ/Kc99tCry5UO6nlDXm93PLJuMrp9ZRf1/0x2djE
+	 Uz9k49tDAjcnFpbt4vytBBRSxC2xDZmqx1YopK8OfLlbl8Uvd5Q078y1oa5RFDwncv
+	 Dt2ASczc/ILf0ZN6ez/txaG+HUebwqPiQcsiUZbriRUAQT8ePpOXFLIY7eb9HZ8HYJ
+	 54ISvN7+WcYtIrd9jA/MU/1iPGmvL4IHhm4Dp721CEaVKZlP6QUKKrx7EKwsPwzZ7C
+	 VyiMFb+TvNTKQ==
+Received: by mail-yx1-f46.google.com with SMTP id 956f58d0204a3-649523de905so547225d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 15:34:47 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXN+QO2i1ZeMygZTd1NBlYSppRm843G5YGdRN8jAukf+1jN151xaylrzI42Hkeob1Nawl1EfHT/HYl0rWSSFR15@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7mUVSZZGTXk0Dx4qsyHuiRaWRvJcyBf1CiomehHW4ZIAokDob
+	+EvPoVQYyD2kzxUoa3Rc+fdLfEyxhtMEfmbnygXbnRpyapKWavnJgKqrZPpj2/HDIkiHZWumULx
+	bO9Iaz64vxlJmq57e/6TlABJInYdgtqU=
+X-Received: by 2002:a05:690e:dce:b0:649:ba22:58d0 with SMTP id
+ 956f58d0204a3-649dbec902amr1077376d50.29.1770161687019; Tue, 03 Feb 2026
+ 15:34:47 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aYE-gvuZdv7ezm7X@shell.armlinux.org.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_151836_573698_ED6304EE 
-X-CRM114-Status: GOOD (  20.93  )
+References: <20260203-craftsman-battered-3491ff68f462@spud>
+In-Reply-To: <20260203-craftsman-battered-3491ff68f462@spud>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 4 Feb 2026 00:34:36 +0100
+X-Gmail-Original-Message-ID: <CAD++jLn8WOobPaoSrMLitFgFZc_6CH9BQbRy_Gdqq3BLhDXWQg@mail.gmail.com>
+X-Gm-Features: AZwV_Qi7lxnWnjXussICca0lyIFaqwLa7DfHaZmiOVa6EJi8C3uLkn3H5EkvZDE
+Message-ID: <CAD++jLn8WOobPaoSrMLitFgFZc_6CH9BQbRy_Gdqq3BLhDXWQg@mail.gmail.com>
+Subject: Re: [RFC] pinctrl: pinconf-generic: move ..dt_node_to_map_pinmux() to
+ amlogic-am4 driver
+To: Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-amlogic@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,39 +84,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+On Tue, Feb 3, 2026 at 5:17=E2=80=AFPM Conor Dooley <conor@kernel.org> wrot=
+e:
 
-On Tue, Feb 03, 2026 at 12:17:06AM +0000, Russell King (Oracle) wrote:
-> On Mon, Feb 02, 2026 at 10:23:45PM +0000, Russell King (Oracle) wrote:
-> > On Mon, Feb 02, 2026 at 08:54:52PM +0200, Ovidiu Panait wrote:
-> > > If not, maybe this patch could be merged to add the flag that disables
-> > > EEE and I will just send a patch to disable EEE on our platforms as well.
-> > 
-> > We still need the flag to disable EEE for platforms where lpi_intr_o is
-> > logically OR'd with the other interrupts, so there's no way to ignore
-> > its persistent assertion.
-> 
-> I'll also state that we need both patches, but there's no point pushing
-> my original patch (to allow EEE to be disabled) unless Laurent is going
-> to also submit a patch to make use of the flag - the EEE disable and
-> Laurent's patch needs to be part of a series. We don't merge stuff that
-> adds facilities that have no users, because that's been proven time and
-> time again to be a recipe for accumulating cruft.
+> From: Conor Dooley <conor.dooley@microchip.com>
+>
+> pinconf_generic_dt_node_to_map_pinmux() is not actually a generic
+> function, and really belongs in the amlogic-am4 driver. There are three
+> reasons why.
+(...)
+> The other dt_node_to_map implementations accept a being called for
+> either a node containing pin configuration properties or a node
+> containing child nodes that each contain the configuration properties.
+> IOW, they support the following two devicetree configurations:
+>
+> | cfg {
+> |       label: group {
+> |               pinmux =3D <asjhdasjhlajskd>;
+> |               config-item1;
+> |       };
+> | };
+>
+> | label: cfg {
+> |       group1 {
+> |               pinmux =3D <dsjhlfka>;
+> |               config-item2;
+> |       };
+> |       group2 {
+> |               pinmux =3D <lsdjhaf>;
+> |               config-item1;
+> |       };
+> | };
+>
+> pinconf_generic_dt_node_to_map_pinmux() only supports the latter.
 
-Sorry for having dropped the ball on this. Your patch arrived just when
-I travelled to Japan for a month, and then it got burried in my inbox.
-Now that it has resurfaced, and that an issue that prevented i.MX8MP
-from booting with v6.19-rc has been fixed, I'll rebase my kernel and
-finally fix that problem.
+This alone is a good reason to apply the patch.
 
-Once again, thank you for all your help with this issue, you have been
-extremely helpful and I'm very grateful.
+I have a strong urge to apply this already for v7.0 despite its RFC state.
 
-> So, at the moment, "net: stmmac: provide flag to disable EEE" ain't
-> going anywhere until there's a patch that makes use of the new flag.
+Anyone against?
 
--- 
-Regards,
-
-Laurent Pinchart
+Yours,
+Linus Walleij
 
