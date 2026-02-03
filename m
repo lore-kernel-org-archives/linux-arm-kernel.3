@@ -4,53 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11ED2E8784C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 18:17:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30BF5E87855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 18:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zERQGDkpzo19ryIESqEexWtJlPeGhsgatD8vZJknrhU=; b=UDh0e63XHL9LpjelAkr++O+KLa
-	SHIZJh4SLi9zf4d8GXk+rWnjdSUdOszl4+7YxDoLGa6dzX4DPGqkYzs/IMfjZ7cGK6G5W0ZDUZXDa
-	ytG9XnSFoPqPejwsk3fs45PieZyPji2Tl25b9s/PFt6EtPtKhCaEQwarqTUSZy1wXd8KqQIOGQDLS
-	v90UbdOHZd2h+X+aw+Gpzi7eXKjlDKakz9CJ9AVpTeEDY+hUY6jKTnhXatB2SwPh8yqLea9682kdo
-	FuP02dziwI3957vAtZ9KfwGnV2gtNCi1cF6Xgxm22hcvYCagS17AKYiZPe26+0bNA6L+/XGo0lJVS
-	PI9TvwrA==;
+	bh=oYhe8dDtvNlpyrT2WI8oHXc9QY8uA1iM2uNTGW8KnM4=; b=Adp70C01JnehJ2e/sPxIQAvrZ4
+	DyqciPd9T7Kf8Oh7uqnvqnsKsT10UJsam4GI80D1e0AGwCTwgq9nr67+cZoE+uJpJ8q33vGJXbejg
+	04nY+s/eQFwhtpdVSbsQc26HHxBMq0vA/B+WNwArCnFhe58eFJPA0wQWmgImj8ttqTKdpHZ7iWGX6
+	35syhhDtL43CUyNL9Lct4i1X1wgKI5/b59aJSdo1eC/xAulGq/8odWYXXzd6V3IY9t7PneTQpVD6p
+	wa3whqkI4hwrg8VZx4/lN9tVQ9uQKrm5n1v3GDlcITi0hZpAOEW8V+QBWAGvQhJNcjQhnkC71clOI
+	jlKk5Wlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnKy8-000000077NI-3Pca;
-	Tue, 03 Feb 2026 18:17:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnKy6-000000077MQ-0Xg8
+	id 1vnL05-000000077lW-1aBM;
+	Tue, 03 Feb 2026 18:19:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vnL03-000000077kk-0Ljz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 18:17:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E9A69339;
-	Tue,  3 Feb 2026 10:17:31 -0800 (PST)
-Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EAA573F740;
-	Tue,  3 Feb 2026 10:17:36 -0800 (PST)
-Date: Tue, 3 Feb 2026 18:17:33 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
+	Tue, 03 Feb 2026 18:19:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2A89D60143;
+	Tue,  3 Feb 2026 18:19:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8C4EC19421;
+	Tue,  3 Feb 2026 18:19:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770142781;
+	bh=oYhe8dDtvNlpyrT2WI8oHXc9QY8uA1iM2uNTGW8KnM4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=T6wPJU9fcBNS1G8ixyYw7EI2dBsyL6+oDqXyjWP4dYx3yAjicK5jiBb7Hoi/jo5y+
+	 JwSBwuRpP0YzyXrndGNqNByXXty0EmIuLsLVd9+RadcELpJ7xr4zG2DCpa4HY5Wsvj
+	 9ZoMFJgL/QOemYxSc9BY2iABitIJQV25h8zMgxag9YhsMiL/+CXERs7hhYg0WbsKJs
+	 pDkKtGJS0gKRJ7SVM2sp4fGT9N5RyrYHtwZ98o6Hrca86HnHkEQjK+PRe0FLN95fbF
+	 dsdZNxvL8m4xzaScnmMn9ca72VmCABTeBIQJDL4ruTCg1UAUHb3fzKw5yto9ELQucM
+	 apIaApoW45O1g==
+Date: Tue, 3 Feb 2026 18:19:38 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+Cc: Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: hugetlbpage: avoid unused-but-set-parameter
- warning (gcc-16)
-Message-ID: <aYI7vUJKWVmzz5Yi@arm.com>
-References: <20260203162147.2103175-1-arnd@kernel.org>
+Subject: Re: [PATCH v4] spi: xilinx: use device property accessors.
+Message-ID: <235729f3-4a81-4b1d-8ce4-c2a394b542db@sirena.org.uk>
+References: <20260203-spi-xilinx-v4-1-42f7c326061b@nexthop.ai>
+ <849bf95a-133e-4faa-973c-19342afca327@sirena.org.uk>
+ <1DCB4BC6-372C-432C-A6C1-B089711CF8A0@nexthop.ai>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2e0gAuQCD+J7pxBs"
 Content-Disposition: inline
-In-Reply-To: <20260203162147.2103175-1-arnd@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_101742_211084_AF9F0FDD 
-X-CRM114-Status: GOOD (  20.89  )
+In-Reply-To: <1DCB4BC6-372C-432C-A6C1-B089711CF8A0@nexthop.ai>
+X-Cookie: Your supervisor is thinking about you.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,67 +72,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 03, 2026 at 05:21:23PM +0100, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> gcc-16 warns about an instance that older compilers did not:
-> 
-> arch/arm64/mm/hugetlbpage.c: In function 'huge_pte_clear':
-> arch/arm64/mm/hugetlbpage.c:369:57: error: parameter 'addr' set but not used [-Werror=unused-but-set-parameter=]
-> 
-> The issue here is that __pte_clear() does not actually use its second
-> argument when CONFIG_ARM64_CONTPTE is disabled.
-> 
-> Reword this to compute the offset each time instead of updating the
-> argument variable. I checked that the resulting object code is
-> unchanged.
-> 
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  arch/arm64/mm/hugetlbpage.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> index a42c05cf5640..4ad7662e8323 100644
-> --- a/arch/arm64/mm/hugetlbpage.c
-> +++ b/arch/arm64/mm/hugetlbpage.c
-> @@ -374,8 +374,8 @@ void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
->  
->  	ncontig = num_contig_ptes(sz, &pgsize);
->  
-> -	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
-> -		__pte_clear(mm, addr, ptep);
-> +	for (i = 0; i < ncontig; i++, ptep++)
-> +		__pte_clear(mm, addr + pgsize*i, ptep);
 
-Should we not fix the macro instead? Either with a (void)(addr) or just
-turn it into an inline function (still compiling):
+--2e0gAuQCD+J7pxBs
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 64d5f1d9cce9..c248b033a472 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -179,8 +179,6 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
- 	__pte(__phys_to_pte_val((phys_addr_t)(pfn) << PAGE_SHIFT) | pgprot_val(prot))
+On Tue, Feb 03, 2026 at 10:16:46AM -0800, Abdurrahman Hussain wrote:
+> > On Feb 3, 2026, at 4:48=E2=80=AFAM, Mark Brown <broonie@kernel.org> wro=
+te:
+> > On Tue, Feb 03, 2026 at 01:55:12AM +0000, Abdurrahman Hussain via B4 Re=
+lay wrote:
 
- #define pte_none(pte)		(!pte_val(pte))
--#define __pte_clear(mm, addr, ptep) \
--				__set_pte(ptep, __pte(0))
- #define pte_page(pte)		(pfn_to_page(pte_pfn(pte)))
+> >> ---
+> >> Changes in v4:
+> >> - Removed patches making the irq optional.
+> >> - Link to v3: https://lore.kernel.org/r/20260122-spi-xilinx-v3-1-8cea2=
+0e82f0b@nexthop.ai
+> >> ---
 
- /*
-@@ -1320,6 +1318,12 @@ static inline bool pud_user_accessible_page(pud_t pud)
- /*
-  * Atomic pte/pmd modifications.
-  */
-+static inline void __pte_clear(struct mm_struct *mm,
-+			       unsigned long addr, pte_t *ptep)
-+{
-+	__set_pte(ptep, __pte(0));
-+}
-+
- static inline int __ptep_test_and_clear_young(struct vm_area_struct *vma,
- 					      unsigned long address,
- 					      pte_t *ptep)
+> > That was the changelog for v3 as well (and you dropped the changelog for
+> > v3=E2=80=A6).
 
+> Sorry, I haven=E2=80=99t realized v3 was the same. Do you want me to chan=
+ge anything in this patch?
+
+No, it's more just understanding what the change is.
+
+--2e0gAuQCD+J7pxBs
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmmCPDkACgkQJNaLcl1U
+h9Dl3Af6AlIRYHP0eQB/A7CYtmSVJ0OAvt+0gQq0ZAdT3DfA47WKUL/SaSqqkDu5
+TG3Kxk68eC0ys9N3tryzti4VyXdSxmUevLe3EDUAAyHMhJl1daIz9WouMdfcoa1d
+H54BR60JsUAgS/q8sJ1+l+1oLn3a6I2ePobuNkGGW6W1gB32veTVGgACSpu/xkDj
+51kZ8r6TFgPcarzD4JkjOQXholP8IW5DKGXi2ybtuY+DWbb06pISPxQurstSbOMH
+NReQPc76d1A46m/l06corm+yPDTgQCRBnlkaivS32APRVgnIZahFv9QIakpoI3a6
+Z8WgLTJFZQIEZ2oPQwkva6M2wbfPEw==
+=pbOu
+-----END PGP SIGNATURE-----
+
+--2e0gAuQCD+J7pxBs--
 
