@@ -4,111 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF7FE8305D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 07:51:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D848DE8305C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 07:51:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dzMuEZYMn/hj9SYdAXLTnPBjRskZLNxUP6ZIZEqwunk=; b=nCETSPuyAYdCS0ejj0P0G3/4u9
-	nfCo1Xk4TssHdowAPwa56TU3yUb0pyLXnrb9PYXwPJQKwZp2t9EgUex+HiAEptq5O0VNSDiZ1HFjH
-	NnMq2yHfr+lTSCY2zL+9MotCNorxRRRKh+DUieTTAOrzbdbvIDk/SxwjdcFblEy5yiopD/2WfgyiA
-	zorQYfM/nQkwJ5m9sGuaodtQ4xSReMie2YiuFGtPzaPkx6IbAJxi2gvVPq3b5hiiE+mn7t+lT6bcV
-	BJDcsHgZq+79rsZ+LjEoP0Of+gwbDCqeIlwFXc+e/P+qOqLU6uymUoIRK9f3+hJhvN2P/joDe30+K
-	IZu95obQ==;
+	bh=FS+hTaw/K2eRYQwHrNMpe00V2QzUj9TPnE0uxI9cze0=; b=e4XST24mLMo/YftEkhHlrc7jtL
+	32wQy6WE296ft8yregkobFadeMJBCSiSEKxFvOFA/hssHySePEg3nE5gIvP9ciN0TTCltu2z5vT1R
+	taDqFH2sfSkDPezJpMWVYCN3P84TZWUKiWLL1mP6U0S7Izv2hl4t72xmLuMrPqOMD8stCw+G328x3
+	23Ifu//gFqLhiflvPo1S0ADudEFfWDbuccAfNSvLOqaBNtz78c7KH6HF6r0ye63WuBKPkKZfHu7SH
+	E6yzgHlvV/wyp9FzWou9XZs1sQA7I3ZiRN+B29rHnveRzDR3+WukJjd91HnIB+MZI/9DWUw2c8KUZ
+	YdeEeH6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnBBc-00000006GB9-22oV;
-	Tue, 03 Feb 2026 07:51:00 +0000
-Received: from mail-dl1-x1229.google.com ([2607:f8b0:4864:20::1229])
+	id 1vnBCB-00000006GFH-3SsH;
+	Tue, 03 Feb 2026 07:51:35 +0000
+Received: from mail-centralusazon11011006.outbound.protection.outlook.com ([52.101.62.6] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnBBZ-00000006GAo-3ZfZ
+	id 1vnBC8-00000006GEb-2fBq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 07:50:58 +0000
-Received: by mail-dl1-x1229.google.com with SMTP id a92af1059eb24-12460a7caa2so8078378c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Feb 2026 23:50:57 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770105056; cv=none;
-        d=google.com; s=arc-20240605;
-        b=HtSH3QihcBb236KAo1i5zm2AMozNPob7qGOw1tORCMJHiRLfMzR28riN0LaCHupUGO
-         zI4LKAR2PiaxeogTI4SsQY38DazKgARlaxFIvSV0M6f+vFJFVgkKL1dPYNNxuKsVu9Bi
-         llnYzxz/E2U4YpHq6Soi/7y6LL/XPS/bg+HUIM23J134Ncmu4Dtq7ZIc8cGIIVljqZyN
-         8YBLiGYOGnl6kE9ZMWki+da6ky3xFrLSoOpObcj1up+lCMPwKsHTFl4dEymOTSq8oWNY
-         veG6uv5jxr9AjOqnYurIjyjsTLe6vzNNqDkTYDLcrTcRMZWwIYHuUwIW18Oos2FlG9Mo
-         7EQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=dzMuEZYMn/hj9SYdAXLTnPBjRskZLNxUP6ZIZEqwunk=;
-        fh=V57RlLG0WLRruI0EVLqCse1OIKubRRbaMUQ+zseqPCs=;
-        b=G2kTOZERbd2INBRu9s2oWw0AcWRDt2b7h0pC5Uhxm/kaYDYHmSJupQL36v0pHLcoJs
-         +g/yPOhfjNHRt44Iq89KP27FCj17QCwbGarmc3270Jbx6TmMGjGVi2RIa7GfFLb81Ebe
-         rgx3+7DK1vylS30JnWzxDIW2TesmN2g9t0JUhsC3ERxQUw+4P+3+dCSOGUktTfyhwNDH
-         KDgCdqUjUgJ0NQPy/jEzT9+Or/zLIv74+uJO3XqLhNJmp/wqGyeN/6ldqvGi1uSLpMOU
-         aQFTAne5kdZCK4F+Eka5FberxXkO0KU/ehI4JumTigBVyP+zMiZk9xmM6zO0ORZzyAz1
-         W3yw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770105056; x=1770709856; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dzMuEZYMn/hj9SYdAXLTnPBjRskZLNxUP6ZIZEqwunk=;
-        b=iZdBUgFPUgQPBPtifYhExzk1kqCbWo36e5FHIKDSOIlrjdPDi8YcXdC6G95vBcPRs8
-         Dur/gpAHs5QUq27M/lZR8wr0lWjfQnx35Rb8VrpySy9ZalE8ZvsAZZbDCvazMdIQhlQr
-         SOc3lQniUSWp53qA7Vnzqq0CiYBcnkzo+VlU2LFQULwYkMKkHGLQyYS0qn9jYUvBiEVr
-         4JDua2k9Kcw6KXd30sg22odkJhzQJbLLFs+CWx+hk4oyfYNpXnlDdvU+5srRIbNPahVp
-         akRnqQ5YVJAgjg/maRNqkN2weY2TFJdG1V3jk1Sk8M6AxzomSpMJe3CWMOAVG/yU8Jha
-         Sxuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770105056; x=1770709856;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=dzMuEZYMn/hj9SYdAXLTnPBjRskZLNxUP6ZIZEqwunk=;
-        b=PRc7JkKfS8haAuz5k3hgQo2t6rMq/Aa/N1STbVO8Y+sBTn/INrQdrTFsKa7CduEDdW
-         WE7F9wmKD4CB9A09uPT5PbVSEVP5L8AwRYcwZzCNguyU9IIofhIao/gnQsX6bDkuHbvY
-         KuzZwbKh5QoTLkFlnWBwNNhOu6wuyvkyEEvBnL2FhMv6nCnBSpxxp7bH09k5xXisvJQu
-         g0EYuG/02g75F+7JMLKtizPZFsbCPuJlBsDWe5UwxQknuLykcz7qtG1zALOWdt7sbXGi
-         2dWtMb+pYAbVuGUlODoqfhB4KqBTD4YQXFLITzEcdWfIEAhWN9makAqweMBRsRxbY79n
-         PrHw==
-X-Forwarded-Encrypted: i=1; AJvYcCUDeO4Iwq++ivfnM58bdbXyAHfMLMH+tIxi7A0g4fQ5Q+aTjK5k/MC34PmCFGyNai7j6QZGgcVES5TqzbdwNvWL@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywbsbu7m7frinAmwjLE88zSKsBqzItghJ+KSDDWkaUeCGsuLc2L
-	9kkdEfTo7XJtyzvFZ+C8yALMeBcGsll7sBZQjouT5bytdFplBEmh2u1teOyxIQ3+dnsRKUFKpZR
-	EHeMNqWcVCr9EhNcU6naYDMTntn2xWCE=
-X-Gm-Gg: AZuq6aILAnjMRl9jCgRzoyi+6CA4vRmhu8gHgIngbQteY+xgtEF22z3Zh4vY6nC+3em
-	Hz6J26EqeH2Wl3PalGuF/j5H02DC6odbSbL/OnmhPqw8AU9my8ay2uvIX7YY+jKeSO5SIWBgVB8
-	IlT2pT0A0KdhDOFglqEicf08K5SNjt4tHxLUcVM2LGYLVE95rTZlHhFlvOiD9Mt+ONty8iNfEsk
-	rqnvdN5leD3mXMGulCAqQHqHjGYIeffwWFmGepfC4J6FwA4RSKgaVO9qSAHMbBll27Bl7QOkKUZ
-	XD7REAwT61hPZ5RrYndxzOPGnx7hYWVji9RpsIy2aY4yE5A36xRzb2ezNcroxSt/VUFogGDBEfE
-	vHd59SCsM7w==
-X-Received: by 2002:a05:7022:41e:b0:124:9e46:82fb with SMTP id
- a92af1059eb24-125c1010d65mr5955626c88.38.1770105056409; Mon, 02 Feb 2026
- 23:50:56 -0800 (PST)
+	Tue, 03 Feb 2026 07:51:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GkbWXVG2pX0jGDd2H5Z1XlNp4jgg3XwRqJDps0a4bzwGCi22AsTLCjPj036Zk3owyZCY6wtYtWDUmNaSpPSyWagEvMPJJWpofQhRy2ZrtFJAO6bo5xwrcDfiQaNfuvn+oNeq3QVroxoOIEIf1WAt5OijnKB5RQ0k9ycJYdsuYievbMa2Y/8nLgzrO+pAgLR6jXKZF5LBo29VgcgXxDYbV+Z3F9jOnol/6nikTm8ktepYMBSZTejO8cx7Wueo1hAVYf0BPQJT8VNq0LG3REwFBeRufXLO+VrucwKngGXuFoYulAW34rmsBVD7UpoPZPZpYoQhGHLRDKanG7dfz5Zjag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FS+hTaw/K2eRYQwHrNMpe00V2QzUj9TPnE0uxI9cze0=;
+ b=GmZPMnlpHIeF82V5UNbivRZ3Q2rusS6YDhgIexcDqb2IcJk7gJFTCXV4vYjNzMTdPNZ/xlz/Dxil/JQQU84By8oAYQPQJCv6eoqrIA7uVV/OsVJGhtWnC23cK+6Dx0s/Gcll4s1yCyV4dQaqB4/QpZQiIxVvV602y2RQXMSRodXtImPU0iFtvnrkj/4S5VhSSknQ9o2LuLX1umdPNXeeI7HMrKrO48VxhwXVSkUyGxXjEhc2ime6GH7MHg5+5tFotr4jOgQzfJa8Wp1KFDyqJo1+DwrTZRt2NUPUGMv2Rq4HV75o1PozK5kap4GdyJu4X+zzfoWCtrut+QaFpSRwNg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FS+hTaw/K2eRYQwHrNMpe00V2QzUj9TPnE0uxI9cze0=;
+ b=G2IDi1WDz5ht/zLd2yL+9CUQBGh+wNFz5/xt2u8fxyZspAGb0tT0jfrhpdKwDPiwzr+Hg0Xmtr/WtnJL2tTYJAZAFn4U7v/HizlM3/H4t88B9k0SeQOW0SmXVo+ibP/jp349mGUhkS2o+PYqbN1BXkZHvi6q5Gn5ewmpcC34QR4=
+Received: from SN6PR04CA0097.namprd04.prod.outlook.com (2603:10b6:805:f2::38)
+ by LV3PR10MB7793.namprd10.prod.outlook.com (2603:10b6:408:1b8::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Tue, 3 Feb
+ 2026 07:51:27 +0000
+Received: from SN1PEPF0002BA50.namprd03.prod.outlook.com
+ (2603:10b6:805:f2:cafe::66) by SN6PR04CA0097.outlook.office365.com
+ (2603:10b6:805:f2::38) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.16 via Frontend Transport; Tue,
+ 3 Feb 2026 07:51:27 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ SN1PEPF0002BA50.mail.protection.outlook.com (10.167.242.73) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9587.10 via Frontend Transport; Tue, 3 Feb 2026 07:51:26 +0000
+Received: from DFLE200.ent.ti.com (10.64.6.58) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 3 Feb
+ 2026 01:51:22 -0600
+Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE200.ent.ti.com
+ (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 3 Feb
+ 2026 01:51:22 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 3 Feb 2026 01:51:22 -0600
+Received: from [172.24.233.239] (uda0498651.dhcp.ti.com [172.24.233.239])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6137pHDh3149600;
+	Tue, 3 Feb 2026 01:51:18 -0600
+Message-ID: <f423267e-4324-4770-877f-78869ed6a360@ti.com>
+Date: Tue, 3 Feb 2026 13:21:17 +0530
 MIME-Version: 1.0
-References: <20260129-imx-rproc-fix-v3-1-fc4e41e6e750@nxp.com>
- <CAEnQRZA-nMai9-CEdMqnr2drqBRXXPOKE3a+_3j4S_=x-bM0pQ@mail.gmail.com> <aYDN6X0WVT9nV8fg@p14s>
-In-Reply-To: <aYDN6X0WVT9nV8fg@p14s>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Tue, 3 Feb 2026 09:53:38 +0200
-X-Gm-Features: AZwV_Qi4gqYVwTTFEPdJsETuT6WyCitJtTK7rW3QVszmKRnozagvutFj3QflZ74
-Message-ID: <CAEnQRZBVhijvq0VRTKXpW7va2Dxprzz-cnvvj=z90FPXRK+TSA@mail.gmail.com>
-Subject: Re: [PATCH v3] remoteproc: imx: Fix invalid loaded resource table detection
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Iuliana Prodan <iuliana.prodan@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>, 
-	Frank Li <frank.li@nxp.com>, linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Peng Fan <peng.fan@nxp.com>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 16/19] dmaengine: ti: k3-udma-v2: Add support for
+ PKTDMA V2
+To: =?UTF-8?Q?P=C3=A9ter_Ujfalusi?= <peter.ujfalusi@gmail.com>,
+	<vkoul@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <nm@ti.com>, <ssantosh@kernel.org>,
+	<dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<vigneshr@ti.com>
+CC: <r-sharma3@ti.com>, <gehariprasath@ti.com>
+References: <20260130110159.359501-1-s-adivi@ti.com>
+ <20260130110159.359501-17-s-adivi@ti.com>
+ <bb476db0-1421-4fdd-9415-85839425f9b9@gmail.com>
+Content-Language: en-US
+From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+In-Reply-To: <bb476db0-1421-4fdd-9415-85839425f9b9@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA50:EE_|LV3PR10MB7793:EE_
+X-MS-Office365-Filtering-Correlation-Id: dc854461-b732-48bd-193e-08de62f90871
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700013|82310400026|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VnV6d1B3Mkd4YTVVQ0ViVkxLWmpzcVl3Q0VZa3R1SjA2RWFMNFBEeG1qRmkr?=
+ =?utf-8?B?MU5NN2dDd2dKb215ODBpV1Izd0NSNGdxSFBia1hEcmg1MWd1UWNoQmY0QjA5?=
+ =?utf-8?B?bUc5ODQ5WUcvWDdKYWIyS0VlVUhJMmg2aXhyN3hLSWVuQzJLb3BFa0IweVVY?=
+ =?utf-8?B?bmVwc3c0dXRXVDdxL3RRejNVUDhRTXN5dGdvNmZBNHNNRDE4emU3d0RMdmlu?=
+ =?utf-8?B?TDZpd1A2aXNWSm9GdWg2ditSYm1TRmNSTU5ERThoUDZybVVQK0hMR0tUeDh6?=
+ =?utf-8?B?cGljRU1pblBlc2JPVEJwNGFWR2h2VHlqRndxVlZlOVpNaU12T1VMOG8ycFcw?=
+ =?utf-8?B?Q1pMSEgwNHpCL3ozNWR0ZmloWVJQM1lidUZkVkpVUk1pa2R1YjlVMlV4Kzgv?=
+ =?utf-8?B?ejkzZmljVDEzdnpjbm1Ta2R3VjdMdDRsVDEzRmdkS0ljSGdOWmFsbk5BcGln?=
+ =?utf-8?B?aGEyUnlXSVpkQklZalFoUGxJMjRabFFtYzVOU0NXSS9Gc0VxTEFNQXpLeGJj?=
+ =?utf-8?B?QW9DVnJnb0FvR1NQY0h3YmNLcE9ZOXQwNjFteWREQzlEc3dOZVR2Q0s1aTFJ?=
+ =?utf-8?B?d0xGSEU2RFlHZVQ3R2NaN3R3Wm5mVzBnTjl5SHBaZE13NVJ6NzY0bTJWZWpI?=
+ =?utf-8?B?WE1iRGU2Z202WHhqdldLWGx6b1pKUXJQK2ZmcnlzcG9SQnp4Sm4wTFl5SHpa?=
+ =?utf-8?B?WExZOHZHL3hLTnI4KzBoQndna1VHYWYyV1dkcWx1dFZRRC9pRVNrRkRsQzJN?=
+ =?utf-8?B?TWFTbndXdCs1NFJHTkFEa21nNEVLK0hnWVh2OXFkZkhNazh6eTBYUjhiaDNx?=
+ =?utf-8?B?aStBZ2lXcDI5VXNVdjBSemlGTHlobXR5UGVwQ3FtdkpocWNBcTBaU3QvYnRh?=
+ =?utf-8?B?aGltN0Fjb3NQTmVPekZ5eUJybm5NMFc2dVhPOERCSlpUTlNGMC9vNCtpbXNX?=
+ =?utf-8?B?YktLMHJ0NVg3aUYwekoyTC8rL3BET0tPWFpia0RCbzNlVHJNNU1nVEV3djlV?=
+ =?utf-8?B?dVN3MEJoUEluaXc4eWlnYzNVLzQ3dmlSaGhEdTVUNlZPUW9YN3NPSWNvdHQx?=
+ =?utf-8?B?TjBDYUcyTER0Y29nSzdBeUZlWXh1ZHVILzJhYmRCR3Z2b0RXZU1DQ0FxbXVu?=
+ =?utf-8?B?NVByUlc4Y1YvSW5SRmhNWmV6b3pnbC9WUW5FRXJzMVUyWjZRbWNHdEgvZzVw?=
+ =?utf-8?B?TU1yN1BJNG9PNlhJR2pGaGhrd3AyalNkL1llY0Nidy9Qa3lYOVgxL2pCb3Y1?=
+ =?utf-8?B?SkJmR01YREZuNzB6clhWNDF6Tk5MZ3llTlRqUTB3TGhlRWNuYmYveFFmQTVN?=
+ =?utf-8?B?bVNGVkJwY1RGRkFwNXRPbVpLQW4vVkNzZEE2aGxTQ1FPVE05V1FOMFlha1Fn?=
+ =?utf-8?B?NTlaYk1TbzdJa3ZBSlZGZkc4L2tQOUhZMy9tWXRZK3pXSnVJNkM3RFRyOTc5?=
+ =?utf-8?B?WlBNQnFIbmNwNDNDS2N1ejY4V1lBMVQyL2ZUaklBcUxBWjVaeU8rR2hrN0FS?=
+ =?utf-8?B?R2gwU2M5YytSVWZQbVljYWU5RnJTQ3BSZ1pvakxBUVVCSnBEZGIyeXlldWVT?=
+ =?utf-8?B?WTEzZ2lMYndFOStWc2FVdUJTSjl1bzVLS3hmTlRMcGk5QTN0S2QrUWtUUUZ4?=
+ =?utf-8?B?dDlXWEJocjZhVExRZll0UHVjTzZYZDcyR2lrSUcxcUJSRCtrd1BBT1gvRmYv?=
+ =?utf-8?B?YmtxZXZuUktBSW9HT09Ib1EzTDJHcUM1a1JDcXlmTzBORnBDQUs5Tk1kTENy?=
+ =?utf-8?B?VE05NEw5ZldvNExhZFdTQUs4aHpMSXEwRmZpTlMyQjBCOHBtMGFwb1Z5RTIr?=
+ =?utf-8?B?UVhhSVc1aXJRM0pTblN0U1RyQmk0Z2lZYk03SUh2SURocGVYSm56dEFicVZS?=
+ =?utf-8?B?a29xMXJ1d284WnRKOTBGSkUvdEx3RC8xSVI3blVRa2p0dEh1S253M3ViMVNM?=
+ =?utf-8?B?VmpYL0ZFaXVpZ3YvZmU5M0RGeW5ZelBqRlVrR2M2M3E2QnN2aExNcnB5VjJ6?=
+ =?utf-8?B?eGY2dHVaaFpXb205SXpGN2JjREdMcVd6MXJLRjk0czZscGlqa2JOeWw0TlBW?=
+ =?utf-8?B?NVlidms5OHRXRzFYVzZWclJSQ091WTdSaktKbVhGK00vNC9lNUVYcC9jUlMy?=
+ =?utf-8?B?Zis5M3BZeStSVDhHYzZiM29yS1pUUHlMNjhwNjlUWFBvYTFYWDB6WmswY0tI?=
+ =?utf-8?B?dEk4MDJIQk1PUmZwS2V1bTVNNG9WRHlRby9ia3ZFNnJQdFFGZklSSEpPSE5S?=
+ =?utf-8?B?T1JRY05OQXhlQWpzRzBPa0dwZ0x3PT0=?=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700013)(82310400026)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: jdYvTrx/X/qodyfaWxYVnekjzWkosiEVTbLFWWmjq5EkCo72iofifd27quqxT5b5fz9pfeK5ez2O/SUNa+DoFP27pl3umlQh2dZNLSSIw4D6HvSxqSqpc1OGt+1XW0kuztpFE4gEXUPrh17qtKwMd4qTvpBRgPHZ0RpHTIwEDQaml87SrADDjBELR4xkfAAJItQYeAUIVULmssYKm901a6igRDDOfsdmerjV225oMmjypBQXK4dP5gXzyDuFtE4Hr2CjQhrBZFdqaThe81ppmDR71gTizlTCtzfPVZ10A5t35PA67uVDKcY2QFk7BS94pmmn0O7+znVVG1KZxqNMJbzcdt3XJd4gk8E+W87060mKtePwneAK+ozBpAAdg6ZR2uRfEVHl4ixNlbEF5oeTQPQxUjIo0aLBibYsQd2nzGjzL8gkfoLHvGnmyHflk4yO
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2026 07:51:26.0429
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: dc854461-b732-48bd-193e-08de62f90871
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA50.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR10MB7793
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_235057_900820_3799EFC9 
-X-CRM114-Status: GOOD (  36.01  )
+X-CRM114-CacheID: sfid-20260202_235132_824304_EE52AE86 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,96 +174,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 2, 2026 at 6:16=E2=80=AFPM Mathieu Poirier
-<mathieu.poirier@linaro.org> wrote:
->
-> On Thu, Jan 29, 2026 at 06:02:21PM +0200, Daniel Baluta wrote:
-> > On Thu, Jan 29, 2026 at 3:45=E2=80=AFAM Peng Fan (OSS) <peng.fan@oss.nx=
-p.com> wrote:
-> > >
-> > > From: Peng Fan <peng.fan@nxp.com>
-> > >
-> > > imx_rproc_elf_find_loaded_rsc_table() may incorrectly report a loaded
-> > > resource table even when the current firmware does not provide one.
-> > >
-> > > When the device tree contains a "rsc-table" entry, priv->rsc_table is
-> > > non-NULL and denotes where a resource table would be located if one i=
-s
-> > > present in memory. However, when the current firmware has no resource
-> > > table, rproc->table_ptr is NULL. The function still returns
-> > > priv->rsc_table, and the remoteproc core interprets this as a valid l=
-oaded
-> > > resource table.
-> > >
-> > > Fix this by returning NULL from imx_rproc_elf_find_loaded_rsc_table()=
- when
-> > > there is no resource table for the current firmware (i.e. when
-> > > rproc->table_ptr is NULL). This aligns the function's semantics with =
-the
-> > > remoteproc core: a loaded resource table is only reported when a vali=
-d
-> > > table_ptr exists.
-> > >
-> > > With this change, starting firmware without a resource table no longe=
-r
-> > > triggers a crash.
-> > >
-> > > Fixes: e954a1bd1610 ("remoteproc: imx_rproc: Use imx specific hook fo=
-r find_loaded_rsc_table")
-> > > Cc: stable@vger.kernel.org
-> > > Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> >
-> > Changes looks good to  me >
-> >
-> > > --- a/drivers/remoteproc/imx_rproc.c
-> > > +++ b/drivers/remoteproc/imx_rproc.c
-> > > @@ -729,6 +729,10 @@ imx_rproc_elf_find_loaded_rsc_table(struct rproc=
- *rproc, const struct firmware *
-> > >  {
-> > >         struct imx_rproc *priv =3D rproc->priv;
-> > >
-> > > +       /* No resource table in the firmware */
-> > > +       if (!rproc->table_ptr)
-> > > +               return NULL;
-> >
-> > I wonder if we can make this change generic because it should happen
-> > on other platforms also.
-> >
-> > Maybe something like this:
-> >
-> > remoteproc: core: Only copy loaded table when valid
-> >
-> > Copy resource table in memory only when:
-> > * the current loaded firmware provides one
-> > AND
-> > * there is an explicit request to have the rsc table copied in memory
-> > via rsc-table
-> >
-> > --- a/drivers/remoteproc/remoteproc_core.c
-> > +++ b/drivers/remoteproc/remoteproc_core.c
-> > @@ -1281,7 +1281,7 @@ static int rproc_start(struct rproc *rproc,
-> > const struct firmware *fw)
-> >          * that any subsequent changes will be applied to the loaded ve=
-rsion.
-> >          */
-> >         loaded_table =3D rproc_find_loaded_rsc_table(rproc, fw);
-> > -       if (loaded_table) {
-> > +       if (rproc->cached_table && loaded_table) {
->
-> But we would be doing the check for rproc->table_ptr twice (->table_ptr a=
-nd
-> ->cached_table should be the same).  The way it is currently writting for=
-ces
-> vendor specific implementation of rproc_elf_find_loaded_rsc_table() to do=
- the
-> right thing.
->
-> The merge window has been pushed by a week, giving me an opportunity to m=
-erge
-> this patch.  Should I do that or should we continue discussing the best
-> approach?
 
-Let's go with Peng's approach:
-
-Acked-by: Daniel Baluta <daniel.baluta@nxp.com>
+On 03/02/26 11:55, Péter Ujfalusi wrote:
+>
+> On 30/01/2026 13:01, Sai Sree Kartheek Adivi wrote:
+>> The PKTDMA V2 is different than the existing PKTDMA supported by the
+>> k3-udma driver.
+>>
+>> The changes in PKTDMA V2 are:
+>> - Autopair: There is no longer a need for PSIL pair and AUTOPAIR bit
+>>    needs to set in the RT_CTL register.
+>> - Static channel mapping: Each channel is mapped to a single
+>>    peripheral.
+>> - Direct IRQs: There is no INT-A and interrupt lines from DMA are
+>>    directly connected to GIC.
+>> - Remote side configuration handled by DMA. So no need to write to
+>>    PEER registers to START / STOP / PAUSE / TEARDOWN.
+> Plus I suppose..
+>
+>> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+>> ---
+>>   drivers/dma/ti/k3-udma-common.c |  29 ++++-
+>>   drivers/dma/ti/k3-udma-v2.c     | 219 ++++++++++++++++++++++++++++++--
+>>   drivers/dma/ti/k3-udma.h        |   3 +
+>>   3 files changed, 232 insertions(+), 19 deletions(-)
+>>
+>> diff --git a/drivers/dma/ti/k3-udma-common.c b/drivers/dma/ti/k3-udma-common.c
+>> index ba0fc048234ac..d6459bcc17599 100644
+>> --- a/drivers/dma/ti/k3-udma-common.c
+>> +++ b/drivers/dma/ti/k3-udma-common.c
+>> @@ -2461,12 +2461,21 @@ int pktdma_setup_resources(struct udma_dev *ud)
+>>   
+>>   	ud->tchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->tchan_cnt),
+>>   					   sizeof(unsigned long), GFP_KERNEL);
+>> +	bitmap_zero(ud->tchan_map, ud->tchan_cnt);
+>>   	ud->tchans = devm_kcalloc(dev, ud->tchan_cnt, sizeof(*ud->tchans),
+>>   				  GFP_KERNEL);
+>> -	ud->rchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->rchan_cnt),
+>> -					   sizeof(unsigned long), GFP_KERNEL);
+>> -	ud->rchans = devm_kcalloc(dev, ud->rchan_cnt, sizeof(*ud->rchans),
+>> -				  GFP_KERNEL);
+>> +	if (ud->match_data->type == DMA_TYPE_PKTDMA_V2) {
+>> +		ud->rchan_map = ud->tchan_map;
+>> +		ud->rchans = ud->tchans;
+>> +		ud->chan_map = ud->tchan_map;
+>> +		ud->chans = ud->tchans;
+> It has single channel space and the TX/RX functionality alternates
+> within the space?
+> chX: TX, chX+1: TX, chX+2: RX, chX+3: TX, etc?
+Yes Peter, that is the case.
+>
+>> +	} else {
+>> +		ud->rchan_map = devm_kmalloc_array(dev, BITS_TO_LONGS(ud->rchan_cnt),
+>> +						   sizeof(unsigned long), GFP_KERNEL);
+>> +		bitmap_zero(ud->rchan_map, ud->rchan_cnt);
+>> +		ud->rchans = devm_kcalloc(dev, ud->rchan_cnt, sizeof(*ud->rchans),
+>> +					  GFP_KERNEL);
+>> +	}
+> ...
+>
+>> diff --git a/drivers/dma/ti/k3-udma-v2.c b/drivers/dma/ti/k3-udma-v2.c
+>> index af06d25fd598b..6761a079025ba 100644
+>> --- a/drivers/dma/ti/k3-udma-v2.c
+>> +++ b/drivers/dma/ti/k3-udma-v2.c
+>> @@ -744,6 +744,146 @@ static int bcdma_v2_alloc_chan_resources(struct dma_chan *chan)
+>>   	return ret;
+>>   }
+>>   
+>> +static int pktdma_v2_alloc_chan_resources(struct dma_chan *chan)
+>> +{
+>> +	struct udma_chan *uc = to_udma_chan(chan);
+>> +	struct udma_dev *ud = to_udma_dev(chan->device);
+>> +	u32 irq_ring_idx;
+>> +	__be32 addr[2] = {0, 0};
+>> +	struct of_phandle_args out_irq;
+>> +	int ret;
+> Nitpick: revers christmas tree declaration order.
+>
 
