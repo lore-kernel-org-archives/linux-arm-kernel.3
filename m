@@ -4,108 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C795E8782F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 13:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E9CE87834
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 14:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oiDNEn6LPf3NNMPn5SjpOYR+1H1anFvHfyh9Q60C1l0=; b=uE2dhQPIYdXMsEAvjWIifmFSHK
-	NjEM+fW+MEDpdqth2hhHuskaR2H/KfKFJXPHjuMLJXwea23+17X3DyCBvAHG7Dhp9PXC4r3POhNSM
-	shPoVUKzam29GLD7qoKsJDIyFwXgjKLI32Y1XNq9IMe/f6JKdApSuGqKyt4ziAI3BUPQpRTft2FnS
-	mDVGF/4b0FGqECfW2TQUIqPbHew2+cuKF5YGG4UkQKCAEpQR9Ov7gYbYG/3EXfrRJcYyooBImEEWX
-	QFLG/72YYKaJbd4JMWTy9XB9IOYtcyO/bD33WR/JlDvgL5GHUikq7gazKw0rOQRuOmbl/3MQS8RyP
-	NMabO8OA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fowIpKqJviHJgBCccb8EV60zwlK5oi6juyi1HkwBxOI=; b=n74jS1/SV7C953DxjVS34CEwSG
+	nbIJt/66mrC9jKNyx+lzaHFjDdAWsVMc2WdWCvFNhPIK5h7kN1CQCOknc23mdPzSj0HRUmhMZTWEb
+	b4f0JcMt+UbFWOsG3J9u7VHc/yEgkpHCxIk8bQ9NsVIYHvCnONRuhxWCSN0I7sOYleA+XY94Y/Mq4
+	b19f7Nr1D1qBf54B5rw8azS+z0RV5Kl4xMbkZopqLx5nmw63vO2BRPlxXzrwkRKRD0xlNNPVhVX2Y
+	fv7k+wtulAxScaSWaAuZKCqoymLivRVJsQbC7izH2d8fVZ4u1hIoPedqv7xllW4qTa/y2/cCIU6tr
+	8ADxZ5vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnGtC-00000006iQs-3PUj;
-	Tue, 03 Feb 2026 13:56:22 +0000
-Received: from mail-dl1-x1230.google.com ([2607:f8b0:4864:20::1230])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnGtA-00000006iQP-0k49
+	id 1vnH49-00000006jFn-3DTb;
+	Tue, 03 Feb 2026 14:07:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vnH47-00000006jEo-07jw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 13:56:21 +0000
-Received: by mail-dl1-x1230.google.com with SMTP id a92af1059eb24-1233bb90317so614176c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 05:56:19 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770126979; cv=none;
-        d=google.com; s=arc-20240605;
-        b=PQHMBtAuboQWuFr73VuxKjoTtOaZo3O1S7yffRBhoPRcFasesMITpX/q6+UChD0VaR
-         cZKmXqU8bvMXir6vnthBRfE8J1YDtu6mzRHbWDGIS2Cald3eqqgRTjNBwZRcq6SS1sty
-         SI7NtojW5wBnygXjvj+MBe3phuIYLPJnLoWMRyxPQ8zrjpQAMVoUVbrrYYyGz0lx8AcG
-         xrpKNH43u2T1YpqLHGnG7XIgNgK9KJrYpPokjnkGPS+ZbLc/fTzdQGiINXy3wZlZAZgh
-         fDlMlh3VIHZ9HJPvAZ74vmrXODWw4+ZZPRi1vExAZNtJzQdTzaGvM1xH6BzAlQnBSas+
-         t7Yg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=oiDNEn6LPf3NNMPn5SjpOYR+1H1anFvHfyh9Q60C1l0=;
-        fh=WhxVV/NE6Rfqcgb9pFYxXOSffv06WAMM6fMJagk87/8=;
-        b=csRF25EwMKZdUiopDkmXLA9F8wUDC4eBqMFNUYBHI9QX1RTldNWyTYi8g8JLp+bNrD
-         TvDEM0oHznfZg6PyRxbM3Tp3ZSL8mbSygkqAUGgNtkfZyoud4Kq8Ke0bCZY4XiaRSFHC
-         j7hlGeyEttVnj9ozYSW2vmrkS101uIfcPWko0rODG5qZ2k6nhsi1nqpyHnUMnF3iQalj
-         7lVPjgtODtHxKjTC7hmIUvCvHs+UMrJL41keZ5ADFxU9VFrma/SP5k2gCkcYNwppRJ4j
-         4WsKnFnvGBWDsNwUHT3TFy4VKApU1jdvT3uPAuaJnTbK5xxkSfDjQieogowUuQLYp8zn
-         4UaA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770126979; x=1770731779; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oiDNEn6LPf3NNMPn5SjpOYR+1H1anFvHfyh9Q60C1l0=;
-        b=QGuOMpUgcNnuduqOcxiVQp7B62u2QuRNQL/8eEBelWzGihfzbJIBreEM8h8Jvc8Y0n
-         6iO+N6T82tVHHIEHASLoivZjKm3nAjRTqYdw9hFm1pWh9RKeUoCAFCzdnXrptQad7SFg
-         4MWmheml+922E8orYFUaPSZ3g8cxDuoIs1WdVe3GyTC6ZFNqrmR3Ig8bmVsnAz6X2Xp1
-         juB+JIQoD9d/z6rk0aHtM+FZp4DdYwViT3X7Wr57MKqN+sRePjfkZuf5c8kLNa5SnTEw
-         dfHyk7K7sUj9Ug8+TJbq7DkUR4cWAp19Bj9Q8fSwKdXgPoYCfT7iO25Y8Yxg/DS62WRs
-         BIyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770126979; x=1770731779;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=oiDNEn6LPf3NNMPn5SjpOYR+1H1anFvHfyh9Q60C1l0=;
-        b=vOXxjI+a5eZ1DRy1zYMSdIfOQYM3RFWb1yUlekWUulmxKANDipcictNlDdFlZdJ60D
-         0u/5MYRjNNE7ChWRHhnDcTXffpH0UbmfRH2U6jrPFlFho3HE592Rm3ou7KSh1AN/iaI9
-         XsyVfSwZGxriALmxZhM+BzHoE/O8GxFFvUYUQEPuFw/2D0IPgsDBq18Fvk3aKXkm7aZ2
-         +n8bPae5MUHpfpnoM4SO3bND8EkOTCxu1NKfC5cOCTT7ZzzT1PtLOVmM9P/LWulHBEug
-         KSQYFsbGrbNdjAAV+hjuLqggWtn+j2hQ+oj7jxNCTbRPrzDAklYbgmiJzY1Kigwp6D/W
-         3QfA==
-X-Forwarded-Encrypted: i=1; AJvYcCWISMwg6BQujPEpe8Xb5r8Jxm1BdA5ln4iquOI8H2QXEm1AYaHnWqMg8VGj/vhnmet/7m5bFD4qy9uHBT3ozfzM@lists.infradead.org
-X-Gm-Message-State: AOJu0YynwGu9Bmd4/RALCjKnZiDioWeKN9KHjACu1Qu/iHtTAkJ+TXL8
-	C4iIEEy5XMvfN5ikzkt6a1t5dSAm2unPqmCkKdn9GYMOr4ye/heAHNBLMtY1uism4iXfLz6Mp9H
-	HhGPSnSSCHjBIWx7zn8l7R0NaXt8kybQ=
-X-Gm-Gg: AZuq6aL+mbFiDgnPigkpebkFiQDUcEOaiHCmVQ95GBYu5+8XQp5kotcVRnMG/qCxQ0f
-	bIhKDXmU/ntpiqDClO88IFXasfCUw+hKJhVqEFXOyiY8l1b0yIVTnLsnR2LuHX5smmJ6s7QSLg9
-	ekdNtbQApzKsSg54PNbp/0ksz//8N690w/v+r1t2vc8m1Zir9yNoibSSBFLPtBUKIU/a2Vukm+m
-	DwVEBds0iMK/X6o1sAJSfaWGAYfI9wG0y6jQ33ZIjLPIJO5AtrdmVQpDCl8ta7N/HxIUiFP2T2v
-	dz1XHWfNOZQ0yPzsXrmkLMmjLwzg2OHFkvD9DwlCuJH+EwnWCnDFxs6O0SvdgQju1saDBr38YPU
-	GiREm2ikIdQ==
-X-Received: by 2002:a05:7022:90c:b0:121:d898:edae with SMTP id
- a92af1059eb24-126ea91f3e4mr1123936c88.24.1770126979199; Tue, 03 Feb 2026
- 05:56:19 -0800 (PST)
+	Tue, 03 Feb 2026 14:07:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 58149339;
+	Tue,  3 Feb 2026 06:07:29 -0800 (PST)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C0B4F3F740;
+	Tue,  3 Feb 2026 06:07:34 -0800 (PST)
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org
+Cc: mark.rutland@arm.com,
+	ilkka@os.amperecomputing.com,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	stable@vger.kernel.org
+Subject: [PATCH v2] perf/arm-cmn: Reject unsupported hardware configurations
+Date: Tue,  3 Feb 2026 14:07:29 +0000
+Message-Id: <fb6a80013d47936ced4d6398388ed71594d02ee8.1770127120.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 MIME-Version: 1.0
-References: <20260202-imx31_dts_warning-v1-0-434dd2643c3b@nxp.com> <20260202-imx31_dts_warning-v1-5-434dd2643c3b@nxp.com>
-In-Reply-To: <20260202-imx31_dts_warning-v1-5-434dd2643c3b@nxp.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Tue, 3 Feb 2026 15:59:04 +0200
-X-Gm-Features: AZwV_Qju5F7xT8vnmaZowdmwJ5PbMdVnDwBoeT5wIv_XHgkftgb91IXvaA8NXhI
-Message-ID: <CAEnQRZCWcWaDGSFVvV0AT3rp7pO+iPXNnXW+4Dum9PwOFy3nQA@mail.gmail.com>
-Subject: Re: [PATCH 05/10] ARM: dts: imx51-babbage: rename at45db321d@1 to flash@1
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Russell King <linux@armlinux.org.uk>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_055620_219751_0AFE27C3 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20260203_060739_329830_B8F8966B 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,41 +63,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 2, 2026 at 9:45=E2=80=AFPM Frank Li <Frank.Li@nxp.com> wrote:
->
-> Rename at45db321d@1 to flash@1 to fix below CHECK_DTBS warnings:
-> at45db321d@1 (atmel,at45db321d): $nodename:0: 'at45db321d@1' does not mat=
-ch '^(flash|.*sram|nand)(@.*)?$'
->         from schema $id: http://devicetree.org/schemas/mtd/atmel,dataflas=
-h.yaml
->
+So far we've been fairly lax about accepting both unknown CMN models
+(at least with a warning), and unknown revisions of those which we
+do know, as although things do frequently change between releases,
+typically enough remains the same to be somewhat useful for at least
+some basic bringup checks. However, we also make assumptions of the
+maximum supported sizes and numbers of things in various places, and
+there's no guarantee that something new might not be bigger and lead
+to nasty array overflows. Make sure we only try to run on things that
+actually match our assumptions and so will not risk memory corruption.
 
-The commit message should say *why* the commit is needed and not
-focus on fixing the warnings from a tool.
+We have at least always failed on completely unknown node types, so
+update that error message for clarity and consistency too.
 
-e.g:
+Cc: stable@vger.kernel.org
+Fixes: 7819e05a0dce ("perf/arm-cmn: Revamp model detection")
+Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+v2: Fix comment typo, improve error messages
 
-ARM: dts: imx51-babbage: Use generic name for flash node
+ drivers/perf/arm-cmn.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
 
-Prefer generic node name 'flash' over the existing specific one to reflect
-the function of the device.
+diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+index 2903e01f951f..364a4fd8f2c0 100644
+--- a/drivers/perf/arm-cmn.c
++++ b/drivers/perf/arm-cmn.c
+@@ -2422,6 +2422,15 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+ 			arm_cmn_init_node_info(cmn, reg & CMN_CHILD_NODE_ADDR, dn);
+ 			dn->portid_bits = xp->portid_bits;
+ 			dn->deviceid_bits = xp->deviceid_bits;
++			/*
++			 * Logical IDs are assigned from 0 per node type, so as
++			 * soon as we see one bigger than expected, we can assume
++			 * there are more than we can cope with.
++			 */
++			if (dn->logid > CMN_MAX_NODES_PER_EVENT) {
++				dev_err(cmn->dev, "Node ID invalid for supported CMN versions: %d\n", dn->logid);
++				return -ENODEV;
++			}
+ 
+ 			switch (dn->type) {
+ 			case CMN_TYPE_DTC:
+@@ -2471,7 +2480,7 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+ 				break;
+ 			/* Something has gone horribly wrong */
+ 			default:
+-				dev_err(cmn->dev, "invalid device node type: 0x%x\n", dn->type);
++				dev_err(cmn->dev, "Device node type invalid for supported CMN versions: 0x%x\n", dn->type);
+ 				return -ENODEV;
+ 			}
+ 		}
+@@ -2499,6 +2508,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+ 		cmn->mesh_x = cmn->num_xps;
+ 	cmn->mesh_y = cmn->num_xps / cmn->mesh_x;
+ 
++	if (max(cmn->mesh_x, cmn->mesh_y) > CMN_MAX_DIMENSION) {
++		dev_err(cmn->dev, "Mesh size invalid for supported CMN versions: %dx%d\n", cmn->mesh_x, cmn->mesh_y);
++		return -ENODEV;
++	}
+ 	/* 1x1 config plays havoc with XP event encodings */
+ 	if (cmn->num_xps == 1)
+ 		dev_warn(cmn->dev, "1x1 config not fully supported, translate XP events manually\n");
+-- 
+2.39.2.101.g768bb238c484.dirty
 
-This fixes below CHECK_DTBS warning:
- at45db321d@1 (atmel,at45db321d): $nodename:0: 'at45db321d@1' does not
-match '^(flash|.*sram|nand)(@.*)?$'
-         from schema $id: http://devicetree.org/schemas/mtd/atmel,dataflash=
-.yaml
-
-<snip>
-
-> -       flash: at45db321d@1 {
-> +       flash: flash@1 {
->                 #address-cells =3D <1>;
->                 #size-cells =3D <1>;
->                 compatible =3D "atmel,at45db321d", "atmel,at45", "atmel,d=
-ataflash";
->
-
-Thanks,
-Daniel.
 
