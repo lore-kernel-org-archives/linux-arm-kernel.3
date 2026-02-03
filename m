@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAF00E6E80F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 11:13:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6407CE6E80F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 11:16:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GNmObizV/hegVQH4jRQ5q/gIzT5fq7ym8fuFQbOaxmg=; b=ASpsqCw8obXNQ6NZhH/sXMPECa
-	7aqiRueXN9rtb1wlwDy3SvivoGc9hHgRngXzLJFr1iBfeoh5DhzO9VGvYZgaVgA6L+f30jQc5rZNV
-	EhlVPWZ+Ua6akBOTcdC7fb2M58flGd2alJQZWOQWlVTX+lONd8AqrTE6Kmsbhtp5sEjQJygZRs+4I
-	Ol+HE5OIHvZeIzsG8WqyAySdE6zXmCshU9iUSjaUde1UCyUHVT7F0VxHNl8B9HNjiz2sQV9fqC3Lv
-	hQVX+W9w94NhkmXF/9K/qFtlIn1vHGWxGNJpEIS6wSUoTUesd8VxkqGSP96UhQdoEJLxoP9ZS92wo
-	3WU4bGLA==;
+	bh=VrhNkAcR4O9t+aOkubVrk5pFhzyBj02L09FZbkYaGZk=; b=pLrcgUz47UVmUOjBUgOSW8y5Q6
+	i5qY4610SOvJ8tv8UF1MfOjNc7DimlpbXb9OaLcWwX2zFSZCcvoRlgoDheXvjle0yRynC2gAB7udS
+	bNAQocXYxzqp0oZl2hREUgvB0ZGeL07WuxYtf+aYWH4L+P/g1RN8Q+m/Q1xW4uz/r2KAZt32BrT2k
+	MlZGmFb+5kQjIxNcNRfyjf+aCRCqOxlto75tVf8tEIBwG3dOFt4+ufSsGgTNbXCaiKViNo/i6eqh1
+	xHYm+IloHq2jgPGUm1S3bRwIZ/+AOtxxMyhfRIn5x9zLLQjJhvCNQlD7xeoK1lHLYmQoDJ94k3Dgw
+	da523Crw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnELV-00000006Wbi-38LT;
-	Tue, 03 Feb 2026 11:13:25 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1vnEO1-00000006WlC-0wBF;
+	Tue, 03 Feb 2026 11:16:01 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnELT-00000006WbK-1UWX
+	id 1vnENy-00000006Wkp-39iG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 11:13:24 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-430f2ee2f00so3501692f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 03:13:22 -0800 (PST)
+	Tue, 03 Feb 2026 11:15:59 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-42fb2314f52so3218863f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 03:15:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1770117201; x=1770722001; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1770117357; x=1770722157; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=GNmObizV/hegVQH4jRQ5q/gIzT5fq7ym8fuFQbOaxmg=;
-        b=a5ABFFTvLUuKPbVbsFGXNjV4HD3fOwmYLvzoNUt7sDMxlurWo5YeTseUJH39JUl9vp
-         AXulfIO53zjv4vkWCkXBDC+JPcriKCi79LACbNvbCfpTHbejwp5LbbEWgNYkQzr9pU2T
-         7tNKUdzHej/9GhD6sW/SRcaHGEp13lrPmxZVinI9d+1qLAcZtffbVh7U9Ed327EYJlTq
-         fdoSBBdRqBzOxa9mtDQJq3M3QrV9q8xwqXxivOA3pXlcKUJFm0xWC9UT5U+OVp9u1czV
-         apPN/eh1FeE4Frgc7JzkufX14eYKDwjvi3Amkg+4oOQ9/D0N3PuF4ToPYODrewEniagT
-         vgPw==
+        bh=VrhNkAcR4O9t+aOkubVrk5pFhzyBj02L09FZbkYaGZk=;
+        b=PJoD/4ry1ZLdXTueY2BB+Yj69ee11SO9nN6SNcdv98OjZo0eEPMv/1zfa1XjeYkFR4
+         T+OzaDKRuci9vEhFNWBA3tg0HYiZECDcc6lGtCCgTMSv3qa50YfXeZc/pUiDx8WVj618
+         UmlR4znyT2YbXEgv1Mme9A7iXTA0R+QWAJ1MAZjsgjR7COmqkzas5eVG6LteJi6CGgZ7
+         hqbFchuGQOW1+UY4gzFzYHKzNfqIK0GO1lHIE5Pb2g1745aCKNLxBZZDPA33Nf1bjKJ8
+         5uournesY5O3ftGf+kd/GPulzT2qL7kpJYPQODb7wGHjFK1G8gvykzKj3tqSdV2MzSgd
+         HpoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770117201; x=1770722001;
+        d=1e100.net; s=20230601; t=1770117357; x=1770722157;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=GNmObizV/hegVQH4jRQ5q/gIzT5fq7ym8fuFQbOaxmg=;
-        b=NRMsSHYZHKOktV6lOAUYSnEXpZnwS0+QIkfJK3cjLvY+K3Aou9jxXumIMwIQHp2slf
-         8mkRc/cx6ul5p8hMVGbB+GsGKR2GzSgEHxQx0RTfxa4hf5n/WHswHQ7Ec8k/3lxEdhNP
-         mKUhK1FHp3Z3E8KmJz7JB/u3hvUvWyz3NenuZWk30bQimHIYu8eJIJt9FcSiRysVsri6
-         lceUha/hppT6Rzf99MsbmHls4VeGlp5pQSLVWRg7H7qEfJ2jdNRIIpURIRa7QioppAku
-         ZgWy3ouPLo4M4B4G+dkGC0+o43rN5oD6KTKjO26ZulDkm0Skx00949lqNCcTw1C+c4s+
-         wi1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUxYh1h555G5Ks7pSNkPCpMjiEZrPOQDdGQeSSYJeB0qgiQEm/1C+XF9uhMFWQtbu88QkZyC7HqTdKit2VDl2t+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRoAv/O4X6F8YiE43OIhZ9SKr8eyeVyPLtanEvl3PYvmnzmBck
-	D1IvgKIjBpTAGqSyR5dLs2INQT5LY4q12jsXzOfOQ6mGeoM40WSDItnmDbMX+lQ5XXM=
-X-Gm-Gg: AZuq6aIH/nEpnF2z0hshKHKyiRPlmMVEaUpgd7qJSPww/pJ8JigDoqXkaDRQkacJSDV
-	rTPOI0QpDRsvGFFYkzhouaqwYJ1SIdG/pymSPX2d92rrqsHiPz/eBT7pnbsahID+XWGAGp7nO4U
-	Uf/IqdWtDl2c8jz08GFvtInx9TF8IgbFnFXkHTrMGgvouyXmBbuNmOShNtLmuKeJ6W4YQw9sK5C
-	8ptZkqZ7OoluQ8CO6t/oROjXw3In1VDvtkzZb83FqBR+q1H9rW/8NaIgMyR0yQ4vB/5I44p+d8k
-	Gfocc8lRGej7r/NGONklmJcXpm59bZOj2LK+QXN68X5X2TXeH0eW9Dth6P7vrbKJ1fjDTsz0qrv
-	svPdd4nRIxm0sLbIiJDbh4riw2/Qs/p5x+XzLCcKXWeZ0NlJjBs83Btq/BYO4dshqJIUL7DQIoV
-	b2Z8JKETKUhW94iR/9
-X-Received: by 2002:adf:cc87:0:b0:436:cea:6165 with SMTP id ffacd0b85a97d-4360cea6188mr5522685f8f.6.1770117201362;
-        Tue, 03 Feb 2026 03:13:21 -0800 (PST)
+        bh=VrhNkAcR4O9t+aOkubVrk5pFhzyBj02L09FZbkYaGZk=;
+        b=efK2BXISPflv3i5IoRrc5je/QtFFIopj5BvfeX1u3km0zCQTNdQ/n2ysMzSOkFYDOO
+         LARZDD4D7QKDhPxB6j4Bjtm6+4/SPJwwgop4oTIa0f6n/1+Tcmiwesgm7LWIyZHmRtSQ
+         ptJZWX7wtMOtYGh+u4MLYElQ8stINObYbtU4mF/aW6vTpJ1AHhwS11t6LLDT3Mazo6On
+         3L57JhL+qc6BvU6n5sKd8A5trxjUAQN9gfkJO7VY2bxtzMdk8/0uin5VbrdbEgy2+TqU
+         xzKpAhDKagJ1Ryg3qapeBk9yBW7w+4rQmKsv+XAAhsgne9tRgmbdDRN1j8Y4MaWjMuGE
+         Dc3w==
+X-Forwarded-Encrypted: i=1; AJvYcCVfmFwJPF2fV+XSSvGsprIyxhDGbk5jEVCRiRewWEvkCXFrJZCr4Db1HtviR44TbmzO6ztS2Vvov5S11sEkvu+O@lists.infradead.org
+X-Gm-Message-State: AOJu0YwanHY235Ex2fS02iQoE73TKTUjHsHfmjXndwI04pqbS369nsIq
+	6PcjhSFiO6fFlySWVYCo49vCa0EKsVWl2TvfW/8QQR1UGyMjClaJuLNClrKNezWt728=
+X-Gm-Gg: AZuq6aIiIraRnz9QEApcF/CgPEx+h8Rq/ZTymuLmV8I9GX5tp+MgajuZtL/zZsKQYPp
+	PnALBqFE4LXF5xIIJc7avy4/cS6+/M4koSJjcmLO56yrElTuopSmEX38Q3McDsxZQfUct+zlchN
+	BIXAqwhX3cn6R7gOdOMDpF32hOzxEnSHcS63MpikoRI8cXjZAvvSy4yxe8sSOV6j5l46l140BJ9
+	75Xkoztc7jhUs3G4V4E+Zfvtk4GggLXrQsu/bpQMosRvjVhh47d7uyXYXHjf/4jH7WeL3e2gaLo
+	rf7CANR7k8k5Bd/vzkN62dwKNGJejRVFXCp399GCVk0BU6BfNMzwmmev4jCLLUvwErjmjRO16xD
+	RKC+bTDBXJ27xV8LqaM+STYKo2hRIdNBcQEOj7NpB5E+vwuMGHV9XGHuy2Z5ZhF01svxcvLOOjh
+	axqgSwGYPx1WjK9ocZ
+X-Received: by 2002:a05:600c:1d8c:b0:47b:deb9:15fb with SMTP id 5b1f17b1804b1-482db4970e2mr191238095e9.33.1770117356881;
+        Tue, 03 Feb 2026 03:15:56 -0800 (PST)
 Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-436143d81desm3147732f8f.42.2026.02.03.03.13.20
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-482e2e3bf18sm121781685e9.19.2026.02.03.03.15.55
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 03 Feb 2026 03:13:21 -0800 (PST)
-Message-ID: <38866ed3-f726-434b-af78-6dc30547f3df@linaro.org>
-Date: Tue, 3 Feb 2026 11:13:19 +0000
+        Tue, 03 Feb 2026 03:15:56 -0800 (PST)
+Message-ID: <e451547b-15a7-4296-a5da-379640c141c7@linaro.org>
+Date: Tue, 3 Feb 2026 11:15:55 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/8] coresight: Fix device registration and
- unregistration
+Subject: Re: [PATCH v3 8/8] coresight: Unify error handling in
+ coresight_register()
 To: Leo Yan <leo.yan@arm.com>
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
@@ -85,14 +85,15 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  Mathieu Poirier <mathieu.poirier@linaro.org>,
  Mao Jinlong <quic_jinlmao@quicinc.com>
 References: <20260202-arm_coresight_refactor_dev_register-v3-0-03292470c48c@arm.com>
+ <20260202-arm_coresight_refactor_dev_register-v3-8-03292470c48c@arm.com>
 Content-Language: en-US
 From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260202-arm_coresight_refactor_dev_register-v3-0-03292470c48c@arm.com>
+In-Reply-To: <20260202-arm_coresight_refactor_dev_register-v3-8-03292470c48c@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_031323_431859_79B53027 
-X-CRM114-Status: GOOD (  19.69  )
+X-CRM114-CacheID: sfid-20260203_031558_837670_9BB7C456 
+X-CRM114-Status: GOOD (  23.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,89 +110,83 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 02/02/2026 9:33 am, Leo Yan wrote:
-> This series is to fix and refactor CoreSight device registration and
-> unregistration, it can be divided into three small parts:
+On 02/02/2026 9:34 am, Leo Yan wrote:
+> Unify error handling during registration:
 > 
->    Patches 01-03: Three fixes for memory leak, device reference and mutex
->                   protection.
->    Patches 04-05: Move connection cleanup operations into
->                   coresight_remove_conns().
->    Patches 06-08: Refactor error handling in coresight_register().
+> 1) Failures before device registration are handled by err_out, which
+>     releases platform data.
 > 
-> This series is verified on Juno board with kmemleak detector.
+> 2) Jump to the out_unlock label on failures after device registration
+>     to unwind the flow via coresight_unregister().
 > 
-> For kmemleak verifying:
+> The "registered" variable is no longer used, remove it.
 > 
->    echo clear > /sys/kernel/debug/kmemleak
->    insmod coresight modules
->    rmmod coresight modules
->    echo scan > /sys/kernel/debug/kmemleak
-> 
-> The result shows no memory leak during a cycle of device registration
-> and unregistration.
-> 
-> ---
-> Changes in v3:
-> - Updated patch 01 to use coesight core layer for device index list
->    (Suzuki).
-> - Link to v2: https://lore.kernel.org/r/20260126-arm_coresight_refactor_dev_register-v2-0-b5a3c0441c15@arm.com
-> 
-> Changes in v2:
-> - Refined the commit log in patch 06 (Suzuki).
-> - Unified to call coresight_unregister() for error handling (Suzuki).
-> - Refactor connection and sysfs group release.
-> - Link to v1: https://lore.kernel.org/linux-arm-kernel/20250512154108.23920-1-leo.yan@arm.com/
-> 
-> To: Suzuki K Poulose <suzuki.poulose@arm.com>
-> To: Mike Leach <mike.leach@arm.com>
-> To: James Clark <james.clark@linaro.org>
-> To: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-> To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> To: Mathieu Poirier <mathieu.poirier@linaro.org>
-> To: Mao Jinlong <quic_jinlmao@quicinc.com>
-> Cc: coresight@lists.linaro.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
 > Signed-off-by: Leo Yan <leo.yan@arm.com>
-> 
 > ---
-> Leo Yan (8):
->        coresight: Fix memory leak in coresight_alloc_device_name()
->        coresight: Get parent device reference after sink ID map allocation
->        coresight: Protect unregistration with mutex
->        coresight: Refactor output connection sysfs link cleanup
->        coresight: Refactor sysfs connection group cleanup
->        coresight: Move sink validation into etm_perf_add_symlink_sink()
->        coresight: Do not mix success path with failure handling
->        coresight: Unify error handling in coresight_register()
+>   drivers/hwtracing/coresight/coresight-core.c | 17 +++++------------
+>   1 file changed, 5 insertions(+), 12 deletions(-)
 > 
->   drivers/hwtracing/coresight/coresight-catu.c       |   4 +-
->   drivers/hwtracing/coresight/coresight-core.c       | 230 +++++++++++++--------
->   drivers/hwtracing/coresight/coresight-ctcu-core.c  |   4 +-
->   drivers/hwtracing/coresight/coresight-cti-core.c   |  19 +-
->   drivers/hwtracing/coresight/coresight-dummy.c      |   7 +-
->   drivers/hwtracing/coresight/coresight-etb10.c      |   4 +-
->   drivers/hwtracing/coresight/coresight-etm-perf.c   |   5 +-
->   drivers/hwtracing/coresight/coresight-funnel.c     |   4 +-
->   drivers/hwtracing/coresight/coresight-platform.c   |   2 +-
->   drivers/hwtracing/coresight/coresight-priv.h       |   3 +-
->   drivers/hwtracing/coresight/coresight-replicator.c |   4 +-
->   drivers/hwtracing/coresight/coresight-stm.c        |   4 +-
->   drivers/hwtracing/coresight/coresight-tmc-core.c   |  12 +-
->   drivers/hwtracing/coresight/coresight-tnoc.c       |   4 +-
->   drivers/hwtracing/coresight/coresight-tpda.c       |   4 +-
->   drivers/hwtracing/coresight/coresight-tpdm.c       |   4 +-
->   drivers/hwtracing/coresight/coresight-tpiu.c       |   4 +-
->   drivers/hwtracing/coresight/ultrasoc-smb.c         |   4 +-
->   include/linux/coresight.h                          |  14 +-
->   19 files changed, 175 insertions(+), 161 deletions(-)
-> ---
-> base-commit: eebe8dbd8630f51cf70b1f68a440cd3d7f7a914d
-> change-id: 20260120-arm_coresight_refactor_dev_register-f16c069db41d
-> 
-> Best regards,
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index 955af43010446803030973c72f07315492b2fcf3..65cf975493c86de42515845147d90497aa20c595 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -1326,7 +1326,6 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+>   {
+>   	int ret;
+>   	struct coresight_device *csdev;
+> -	bool registered = false;
+>   
+>   	csdev = kzalloc(sizeof(*csdev), GFP_KERNEL);
+>   	if (!csdev) {
+> @@ -1380,7 +1379,8 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+>   		 * All resources are free'd explicitly via
+>   		 * coresight_device_release(), triggered from put_device().
+>   		 */
+> -		goto out_unlock;
+> +		mutex_unlock(&coresight_mutex);
+> +		goto err_out;
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+I'm not sure if replacing the "registered" system with extra calls to 
+unlock is necessarily better. I think the whole point of out_unlock was 
+to have a single call to unlock so it couldn't be forgotten or didn't 
+need to be duplicated.
+
+Probably a better way to clean this up would be to pull out a function 
+for all the stuff that needs to be locked and use guard(). Then do the 
+stuff that doesn't need to be locked after that function. Either way it 
+doesn't look wrong.
+
+>   	}
+>   
+>   	ret = etm_perf_add_symlink_sink(csdev);
+> @@ -1390,12 +1390,8 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+>   	 * coresight_device_release() triggered from put_device(), which is in
+>   	 * turn called from function device_unregister().
+>   	 */
+> -	if (ret && ret != -EOPNOTSUPP) {
+> -		device_unregister(&csdev->dev);
+> +	if (ret && ret != -EOPNOTSUPP)
+>   		goto out_unlock;
+> -	}
+> -	/* Device is now registered */
+> -	registered = true;
+>   
+>   	ret = coresight_create_conns_sysfs_group(csdev);
+>   	if (ret)
+> @@ -1415,11 +1411,8 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+>   out_unlock:
+>   	mutex_unlock(&coresight_mutex);
+>   
+> -	/* Unregister the device if needed */
+> -	if (registered) {
+> -		coresight_unregister(csdev);
+> -		return ERR_PTR(ret);
+> -	}
+> +	coresight_unregister(csdev);
+> +	return ERR_PTR(ret);
+>   
+>   err_out:
+>   	coresight_release_platform_data(desc->dev, desc->pdata);
+> 
 
 
