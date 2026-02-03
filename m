@@ -4,67 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5009E8305F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 08:32:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5689AE83063
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 08:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+Ry+NWSCCN7z6pnli5crDc4C7kD20vNARto9OvcFV68=; b=MLPsd6ZYWK/JuLhMmHgrS3Qjlg
-	SlGgPEJg3s1aH9JJEx+zi99lPrKXqBaT6wi8HlLaaNQ6wCBiCsSApkZsEIFkuOWa16CBsAB5w/mMw
-	PnqRw3dY+5LmPJ77pGdYV3HdVZB+vOTfX3oPdVEey/ec5qqjvu6kXj5HK9LzWvWQO92Ryy4RkMlgw
-	4e7gkDQKlRqaP/UpuNMiJd/KXTLQt53gfydNdB1TyE1uZRO5x+Hvz7dihJeLeQG1KExfuCbeXsxnM
-	/tOExsM+pTbwRuYnYEOAfLSEGgxr9VGFPKwD13LDTEDDjl1cnxxY8eMrMx74nexCAxnoZKnQVgHGj
-	bxkTtEtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ry0FHVTHq/pJe0PrqW5meMtNFTvAS6/0OqoEfkOx9WI=; b=Shz1wVpYFJCR6+JzcTUi/zDXYm
+	8L65YqN+LZqYv2nD0Da7itcjYxFL3vsW7oiRzwxPDzgBlMhbl9QLICk+HQtkGH6RB2LnnzQcMpsQK
+	DeCKgZHKu7Sxf4EclCLJncO4VurfMa+OYSItuyfQ4nZnHugdzl9dHicyt/vCIpncLazI6aYMTrau+
+	J8h2dO+qaqast3vZjZpFA3kY8fFbX0SXLtDbnEvcTHZss6vhFuH26lY8zeAFgrigAGT+lQpI+32Fi
+	EjP3Sw3IyjNNBD2p1uwhOPd/1V8dFu6qfoX2KMeW+yRmS9o108Fm1p6EY+S3tY8IWYHdBOp8ZeeAn
+	YyxcjjRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnBps-00000006JZe-069t;
-	Tue, 03 Feb 2026 08:32:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vnBq5-00000006JcW-2Rjt;
+	Tue, 03 Feb 2026 08:32:49 +0000
+Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnBpp-00000006JYw-3jaa;
-	Tue, 03 Feb 2026 08:32:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B3EFC40B62;
-	Tue,  3 Feb 2026 08:32:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 160B1C116D0;
-	Tue,  3 Feb 2026 08:32:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770107551;
-	bh=Rxqd6CZwBn18DO82HK4+2RYTRznPltmfeG6JDWGATF8=;
-	h=From:Date:Subject:To:Cc:From;
-	b=nRuQmNY7tHHkXXX3CEDKDi3qX9Bc9CY+8ueHn7ndQ+m2AIyj6XNX+hj7l6W4xN5XZ
-	 svPYoNCZ+OGWSgb/GUklF5Zy1pbOwkCSuuqDEcSk0JXlxmhWEdLXtbG+YbVu+9DFLI
-	 Mny2S3v533zHOwz6Vyed4SCRAQ1DpsZ5jAGV/g6ypnNQS9FFLkdFb/cX3UGTDLtqlr
-	 Dju9Sb+Ww5xQ3QlGIKmiKanQl7eJFwJL66m9VKiabaVuil53hq2y6M0frODPdXTrVa
-	 gcLzyhgXkMk/opPJX3nGTF1CiOS2B/sOEMVHaTkRVhcefC7gaaFk4IHHqSPX94oeqk
-	 qz8NjpcU9PjdQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 03 Feb 2026 09:32:02 +0100
-Subject: [PATCH mt76] wifi: mt76: mt7996: Add eMLSR support
+	id 1vnBq3-00000006Jbt-29sw
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Feb 2026 08:32:48 +0000
+Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-1249b9f5703so7098407c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 00:32:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770107566; cv=none;
+        d=google.com; s=arc-20240605;
+        b=BCq1iqj2kJO3KM+rqxs3DWLPmSzvlEuB5GtgQygsRng9IWeFtmBiBSOR1Rvfxfth11
+         RmB4Pk2RewDy0udOB6a3NwNVluhamBDnPNMOPm7wEeR1R2t/Gvo5Vqekiwk3MF8y22jw
+         uhk1IUglrLYsFGBVFvf+EsMdGhBUeWj26jbwtYe2WWY2An+K0/wN4Zp2ca40B1QmyffR
+         DAmo72ZCgtQ3D9hvEo4P/a3miwnxGQvpVLlZqnfqLeMeiYBrM614TybiDNmU9R1FQG5o
+         LD1ogGLvBrNtAaAWcwHmhlx/NzZfoJSgFM+rEkQE7TX++uNIwNTOMpt5dOS31iVVi6FZ
+         jKrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ry0FHVTHq/pJe0PrqW5meMtNFTvAS6/0OqoEfkOx9WI=;
+        fh=nj9bBWJb8VrYM6cPBLuGHvBDkc2t0asO4y8IIEIvL7c=;
+        b=YdmegiGplJsf4nwiCJXdUHSEuc6Z45vbyTUCRfBOO/a085u23V35Y8vPbrzG/ZfwW+
+         gVomKAwjZ+8Ylgw/7YNlOnUEn/l6DoJC/TemR9THlaeoOIyDycGGWfjRPLC8Yr/trD/g
+         akeK+x25o68wXwaQ3aEL8056AILBZGQV9xEZFuy48xaW0yheq1MCii/EKzzgmNQssse8
+         3evEbriqRiUxnUawirmWknT/j/q2Cg8UhtnE6ygUThEsvFsAXeSbuWYrv0UyaiVATe3d
+         OH7cQWKMfPTItrHO/RzfWQOu2MgPBKN5Ns9FdHLdIoHnQd7BUSLN+izYqSM42nHG9xlV
+         AHVg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770107566; x=1770712366; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ry0FHVTHq/pJe0PrqW5meMtNFTvAS6/0OqoEfkOx9WI=;
+        b=QkSZ6/Sg07aPB7M9SmnFdPugt0LoMaRFRFQ7jNprw0sJJHNRGwprDkgNL0SzesXVOL
+         811g60ik/OCTeILQU9SZ+9LKtubIHFFQlBKTTyIE1QLbI27ZV2mOG/cNf4YNqbN/s5Zq
+         PpVpddj2z4gv/oETbzoA1hIxq7XsDuAuA9UVNK+5MJBNN7g1zQ7UmWHs7JuqhzNtDfb0
+         YnucotLJjWE/iLGWtJRZ/FxPLS3r47tqPjdsKI5xyZLw+Kq7mC/ACjA2IoVNL4x+4Uf4
+         dLSitvAfnUDed2MCGkoIZTwET6g8Pqa2uqDzdDfoa1UbUGB78WvYO7dc+BtbEM2eIyBr
+         edKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770107566; x=1770712366;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ry0FHVTHq/pJe0PrqW5meMtNFTvAS6/0OqoEfkOx9WI=;
+        b=LL5B7RbzbtD+FVeaOv6PMOOyNbU04njOekxp4gZVkXAV123PrTeUfLnKdtIuAzFHuG
+         uizhW2zaODqvls+8V7z09PTO6kJtycOXG74J4wMOPHHd7vBawtb5bAmVof6FDwBvIuIY
+         W68gOxQDOhfaHodRfjqtd70clO53oNfDl16/zy83P9FL/Q0kl6M+AAevVRYZFW+J/5+q
+         rMgubDYir8pzENtAAEYp71CxCYZmjHBSIjkdu/H8wK8xt+8MuP76isx8oHsvE2V5t9Yo
+         hzpxNPrf9LlzFODnsnoV9mTxrTVVF2Woxj2Qb7hkJ0HDrye3toRyjSTpKsLAcT3mgKSn
+         CvhQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXTsneZs0OLXD9f13qiuGpjDMvEqZH0rKx43f47QuyhdDVtaWQoCWHAIsTB6H2w4Jusxfu1crMuC/z2ED+hQtag@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNRaPhyJenr/k9kW1g/fi4E8iunjFl7qn5viqN41n8kPEVecy8
+	0uVESrlJutigZocfze73Dnn6MayHTumGT2coRSsHtTiTfeb4ksfiMH4idt8Yp69T02g/pKpFqpG
+	bAssqA4vBoHnUMTj5XwbSbYRBWZNZsTk=
+X-Gm-Gg: AZuq6aKfu86itp1f9ZPWMimUocv8M5INC+KnZKDWSRZEKMpSmwn+e8VCXtxmiIwO/HK
+	2f/WeH2FDlq6ygfSVHQpBScJTKKXom5oiIRDkXVs2Jws4IUAb3/60yJtOpFTS/IuUV1qzon8MFk
+	gjMCAm+bniehRKcdmpSirBS5T3xV279Bz3mbw2YedWs8Aej/3qoBX6HGlqOAr5bV2D93DWct1Q+
+	0DKs4PjRJY/j/yXc5dojH/x/e7w69G6a5W/sWIoca284nOf3mrfijyQRE8BCc6X5DCxEj/ZUU3X
+	GgzUZaxMrRKOo0SohRtLlY7k/2lkDW4YzJiJzc+R7gfgjIDljPjyt2Eh9LZkJJvAETdgNn5RZdX
+	s/0wVkypcDQ==
+X-Received: by 2002:a05:7022:160b:b0:119:e569:f60d with SMTP id
+ a92af1059eb24-125c0f8c302mr7264388c88.6.1770107566507; Tue, 03 Feb 2026
+ 00:32:46 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260203-mt7996-emlsr-v1-1-38ffb3d5110c@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDIwNj3dwSc0tLM93U3JziIl3L5GSLRDMLk+TkpEQloJaCotS0zAqwcdG
- xtbUA6rvh0l4AAAA=
-X-Change-ID: 20260203-mt7996-emlsr-9cc8a684ccba
-To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- MeiChia Chiu <MeiChia.Chiu@mediatek.com>, 
- Christian Marangi <ansuelsmth@gmail.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+References: <20260203031345.3850533-1-shengjiu.wang@nxp.com> <20260203031345.3850533-3-shengjiu.wang@nxp.com>
+In-Reply-To: <20260203031345.3850533-3-shengjiu.wang@nxp.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Tue, 3 Feb 2026 10:35:27 +0200
+X-Gm-Features: AZwV_Qgw24M2z0kseZy1hei1NjvsOXkgK0vaXVyKxBbNrRS-X0jSjdoVh3qv9-s
+Message-ID: <CAEnQRZAgjyKYZEJ9FVqRsCfzLOqwbRZXahqMMNdJpP54NAQ1PQ@mail.gmail.com>
+Subject: Re: [PATCH v3 2/4] ASoC: fsl_asrc_m2m: Add option to start ASRC
+ before DMA device for M2M
+To: Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, 
+	perex@perex.cz, tiwai@suse.com, linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_003234_096709_D0FAC8B4 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20260203_003247_589973_4CA59600 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,176 +123,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: MeiChia Chiu <MeiChia.Chiu@mediatek.com>
+On Tue, Feb 3, 2026 at 5:13=E2=80=AFAM Shengjiu Wang <shengjiu.wang@nxp.com=
+> wrote:
+>
+> There is a limitation on i.MX952 that dma request is not cleared at the
+> end of conversion with dma slave mode. Which causes sample is dropped
+> from the input fifo on the second time if dma is triggered before the
+> client device and EDMA may copy wrong data from output fifo as the output
+> fifo is not ready in the beginning.
+>
+> The solution is to trigger asrc before dma on i.MX952, and add delay to
+> wait output data is generated then start the EDMA for output, otherwise
+> the m2m function has noise issues.
+>
+> So add an option to start ASRC first for M2M before ASRC is enabled on
+> i.MX952.
+>
+> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
 
-Implement set_eml_op_mode mac80211 callback in order to introduce eMLSR
-support.
 
-Tested-by: Christian Marangi <ansuelsmth@gmail.com>
-Signed-off-by: MeiChia Chiu <MeiChia.Chiu@mediatek.com>
-Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- .../net/wireless/mediatek/mt76/mt76_connac_mcu.h   |  9 ++++
- drivers/net/wireless/mediatek/mt76/mt7996/main.c   | 16 +++++++
- drivers/net/wireless/mediatek/mt76/mt7996/mcu.c    | 55 ++++++++++++++++++++++
- drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  4 ++
- 4 files changed, 84 insertions(+)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.h b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.h
-index f44977f9093da76a9f5e2b4d7ce147de28c5b18e..b8629c0a1639b3f55d2133bdea28fa6cae552cac 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.h
-@@ -628,6 +628,13 @@ struct sta_rec_tx_proc {
- 	__le32 flag;
- } __packed;
- 
-+struct sta_rec_eml_op {
-+	__le16 tag;
-+	__le16 len;
-+	u8 link_bitmap;
-+	u8 link_ant_num[3];
-+} __packed;
-+
- /* wtbl_rec */
- 
- struct wtbl_req_hdr {
-@@ -796,6 +803,7 @@ struct wtbl_raw {
- 					 sizeof(struct sta_rec_he_6g_capa) + \
- 					 sizeof(struct sta_rec_pn_info) + \
- 					 sizeof(struct sta_rec_tx_proc) + \
-+					 sizeof(struct sta_rec_eml_op) + \
- 					 sizeof(struct tlv) +		\
- 					 MT76_CONNAC_WTBL_UPDATE_MAX_SIZE)
- 
-@@ -832,6 +840,7 @@ enum {
- 	STA_REC_PN_INFO = 0x26,
- 	STA_REC_KEY_V3 = 0x27,
- 	STA_REC_HDRT = 0x28,
-+	STA_REC_EML_OP = 0x29,
- 	STA_REC_HDR_TRANS = 0x2B,
- 	STA_REC_MAX_NUM
- };
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index 7046bf26d8ed6776ea114592f8b89c8b2a605339..48e4cd5af9293cedb9018fd9148dceac67bc4653 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -2368,6 +2368,21 @@ mt7996_reconfig_complete(struct ieee80211_hw *hw,
- 					     MT7996_WATCHDOG_TIME);
- }
- 
-+static int
-+mt7996_set_eml_op_mode(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
-+		       struct ieee80211_sta *sta,
-+		       struct ieee80211_eml_params *eml_params)
-+{
-+	struct mt7996_dev *dev = mt7996_hw_dev(hw);
-+	int ret;
-+
-+	mutex_lock(&dev->mt76.mutex);
-+	ret = mt7996_mcu_set_emlsr_mode(dev, vif, sta, eml_params);
-+	mutex_unlock(&dev->mt76.mutex);
-+
-+	return ret;
-+}
-+
- const struct ieee80211_ops mt7996_ops = {
- 	.add_chanctx = mt76_add_chanctx,
- 	.remove_chanctx = mt76_remove_chanctx,
-@@ -2431,4 +2446,5 @@ const struct ieee80211_ops mt7996_ops = {
- 	.change_vif_links = mt7996_change_vif_links,
- 	.change_sta_links = mt7996_mac_sta_change_links,
- 	.reconfig_complete = mt7996_reconfig_complete,
-+	.set_eml_op_mode = mt7996_set_eml_op_mode,
- };
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-index 8e1c8e1d6a99f093a2b7d7dc3a0c56f3a4bc220b..3098bddc5f6d6d33433bc653d5ef63bbe5c740fb 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-@@ -1302,6 +1302,61 @@ int mt7996_mcu_set_protection(struct mt7996_phy *phy, struct mt7996_vif_link *li
- 				     MCU_WM_UNI_CMD(BSS_INFO_UPDATE), true);
- }
- 
-+int mt7996_mcu_set_emlsr_mode(struct mt7996_dev *dev,
-+			      struct ieee80211_vif *vif,
-+			      struct ieee80211_sta *sta,
-+			      struct ieee80211_eml_params *eml_params)
-+{
-+	struct mt7996_sta *msta = (struct mt7996_sta *)sta->drv_priv;
-+	struct mt7996_sta_link *msta_link;
-+	struct sta_rec_eml_op *eml_op;
-+	struct mt7996_vif_link *link;
-+	struct sk_buff *skb;
-+	struct tlv *tlv;
-+
-+	msta_link = mt76_dereference(msta->link[eml_params->link_id],
-+				     &dev->mt76);
-+	if (!msta_link)
-+		return -EINVAL;
-+
-+	link = mt7996_vif_link(dev, vif, eml_params->link_id);
-+	if (!link)
-+		return -EINVAL;
-+
-+	skb = __mt76_connac_mcu_alloc_sta_req(&dev->mt76, &link->mt76,
-+					      &msta_link->wcid,
-+					      MT7996_STA_UPDATE_MAX_SIZE);
-+	if (IS_ERR(skb))
-+		return PTR_ERR(skb);
-+
-+	tlv = mt76_connac_mcu_add_tlv(skb, STA_REC_EML_OP, sizeof(*eml_op));
-+	eml_op = (struct sta_rec_eml_op *)tlv;
-+	eml_op->link_bitmap = 0;
-+
-+	if (eml_params->control & IEEE80211_EML_CTRL_EMLSR_MODE) {
-+		unsigned long link_bitmap = eml_params->link_bitmap;
-+		unsigned int link_id;
-+
-+		for_each_set_bit(link_id, &link_bitmap,
-+				 IEEE80211_MLD_MAX_NUM_LINKS) {
-+			struct mt76_phy *mphy;
-+
-+			link = mt7996_vif_link(dev, vif, link_id);
-+			if (!link)
-+				continue;
-+
-+			mphy = mt76_vif_link_phy(&link->mt76);
-+			if (!mphy)
-+				continue;
-+
-+			eml_op->link_bitmap |= BIT(mphy->band_idx);
-+		}
-+	}
-+
-+	return mt76_mcu_skb_send_msg(&dev->mt76, skb,
-+				     MCU_WMWA_UNI_CMD(STA_REC_UPDATE), true);
-+}
-+
- int mt7996_mcu_set_timing(struct mt7996_phy *phy, struct ieee80211_vif *vif,
- 			  struct ieee80211_bss_conf *link_conf)
- {
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-index 3ff730e36fa60830cc9ba5311643b008860cec22..c5d60c273cf8e15e3d54e2d851acbd83ce69719d 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-@@ -875,6 +875,10 @@ int mt7996_mcu_wtbl_update_hdr_trans(struct mt7996_dev *dev,
- 				     struct mt7996_vif_link *link,
- 				     struct mt7996_sta_link *msta_link);
- int mt7996_mcu_cp_support(struct mt7996_dev *dev, u8 mode);
-+int mt7996_mcu_set_emlsr_mode(struct mt7996_dev *dev,
-+			      struct ieee80211_vif *vif,
-+			      struct ieee80211_sta *sta,
-+			      struct ieee80211_eml_params *eml_params);
- #ifdef CONFIG_MAC80211_DEBUGFS
- void mt7996_sta_add_debugfs(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
- 			    struct ieee80211_sta *sta, struct dentry *dir);
-
----
-base-commit: 4eefc435c985f4dfdba9afb1c705f0e17377c084
-change-id: 20260203-mt7996-emlsr-9cc8a684ccba
-
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
