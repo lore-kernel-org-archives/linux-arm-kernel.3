@@ -4,156 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 016F5E8306D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 09:14:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F364E8306F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 09:23:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bMXLAKM4ovq+1df3U8CtISeTem7Fnsj6ij/KfouyvMA=; b=i4etyI6OeGrgcToGoxtYUdEw1Z
-	wd3jMCB9VRsG2gjXy91ozdXRvziTmH1RZ6GNZhPaO4pVu8D1RhXt3Xqlwx4ZL//ETGS3nrW9UyKI5
-	d6pYCMs4mNAKfwx64SFj7C/erh9bVFikI76bD5SKlyTSarq+kEOcwZem2uAWQlSJUcFI5jX0cCbLn
-	16DPfcWGX9vuKGV1OR/+pjs2MV27AwCrjxdTD5qGSBD3aavx6KVhpj2VUxtTNQ70WdFxjE+7jXppN
-	8HBZw2/bh3XB3kf0NLz2r2NyDp19QTL2b7NbVcKvaByLRTqO978jnmmOMYnFeFvtzj6AQxTLHVKRU
-	SkkLTjaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2KABNSDjuT+qisv8pF/NnMHycwEO8d1/r5QwUcLnk6U=; b=vquTbzJwAEwdLY3TQzUVFRzjCO
+	wsuOhQe5bmuyVyNhehL76fvlyNm1nv45lbhpn9O8QUGEjNj33eVshfxkVTHE/OepINkr/pdYGprfQ
+	vDk8QlQVAsrwHEgZEPCVBLZ1bgOhPxvwIYK2XQqGS524I2PVUzAoJHhl8F6IHPLzbBqXhBiZKNL4c
+	ILjuHngSS1I3f3P0s2vTwnV7W8TwsTWpgFYEBzm7A1hs3zuk3gpDHVoTXImFoKUZ+M0pgE4facHxf
+	R3ZGIZnH3qOu5dkqtdRujNvgv6EPeo0YqBBXLq4MczX7mk6Zyg3Krjk4JJzcRfJsBC4v/f808bNFk
+	VQAcml3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnCUF-00000006ML8-2jDn;
-	Tue, 03 Feb 2026 09:14:19 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vnCco-00000006Mic-3v5G;
+	Tue, 03 Feb 2026 09:23:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnCUD-00000006MKo-1sK3
+	id 1vnCck-00000006MiC-424r
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 09:14:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ON3CaGeK4Fa+i5tZfEq98xl4DVonjiZKmi5JpBb5pED0aybIplpBtWuKhNmntIyp/0V0RFuZ2tiSz2MeZyHxOtSy6Lrh+5sQtFkwSaA9bH8BvIp2MsvwKmBeW+Mw/ExEdIOaxy29tHTM60rqVVJPwb3teyRt9ghAyHE6nZPeTyAxUaVWOqIkHK0j2mtSU6HpMMmjo2iBdd2lbQrY/fm+oLB3jxdf1F+syt1wtVG4+lq2T1etLPYo1t+VynNNlMPU5SR/jK4fHA8ukRQ0Bt+HgsdbwoAXmXIeMbBDEZVLF6NRsQ3Ar40xudaagMhVCNWeA0URRXr/4YvI3rusqjMYRQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bMXLAKM4ovq+1df3U8CtISeTem7Fnsj6ij/KfouyvMA=;
- b=rTeuDsr++z6Mxq2xktykQs/H53y9RQsWAbXCVG/DHWD80ZjXevhJyF9LwmYJ2HNDShIUo5wKz8cNXtMxpbATf6/l+jYqVjzPv9ZuWWt9ebRJoMJnoMhEYcNaxnqGtJNEkcR3c+bCUYfhxXwX61/v9u0LrgSsxuNc6KrRO/t+2fpSatjIcYa020Vp3Rd4qNEosP9Rt2uYfDUAjX5fctAWTSPAx6xRFs2VVtdksm2nmkdq7HE7woWEWc8zTNAUBZWlFKZ5y6tu2c6J5dzJXUR2KsS5gM+AY8IVGTJdusjOr1cif2TVPPj32VVFgKXdBo9bYQc/fSFCYG9LJb0bySwJwg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bMXLAKM4ovq+1df3U8CtISeTem7Fnsj6ij/KfouyvMA=;
- b=VTlry7t+5+SvFNOyBhuWKaPI4Ar2DHmAApkmwE8J0rE6Kemk3CTYZ7+KXQquufnEjN141UEu+qTyT9vrwKhoxxb92giIXbZfkYOEUvqQhrpJ7fPj7ci+ssxio/4cSGlvadxaKOA4Y0VQR402bzdQGTTIvL6Byh/9ftrVdqg/tqGwA9+kVq5Js3sqe0Yyym1pUKbQolUmdsDzYmH479BSqe5+zYTv3R23iJtCJTcic9Z2Dlv5lSkwWVZbK5nZRHmm6N/f278xhW+UXAOcndnl2fRJiw5oJNRQfyIvbPCA1SdH9GbJoR4F5frUts6RdIWf3nB4zQ4rWppW8rOumkz0Og==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from GV2PR04MB12102.eurprd04.prod.outlook.com (2603:10a6:150:30c::7)
- by AM9PR04MB8132.eurprd04.prod.outlook.com (2603:10a6:20b:3eb::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Tue, 3 Feb
- 2026 09:14:11 +0000
-Received: from GV2PR04MB12102.eurprd04.prod.outlook.com
- ([fe80::ba38:9cef:8457:c944]) by GV2PR04MB12102.eurprd04.prod.outlook.com
- ([fe80::ba38:9cef:8457:c944%4]) with mapi id 15.20.9564.016; Tue, 3 Feb 2026
- 09:14:11 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: imx@lists.linux.dev,
-	kernel@pengutronix.de,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] arm64: dts: imx943-evk: add usdhc3 for SDIO WiFi support
-Date: Tue,  3 Feb 2026 17:14:59 +0800
-Message-Id: <20260203091459.1595474-1-sherry.sun@nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR03CA0089.apcprd03.prod.outlook.com
- (2603:1096:4:7c::17) To GV2PR04MB12102.eurprd04.prod.outlook.com
- (2603:10a6:150:30c::7)
+	Tue, 03 Feb 2026 09:23:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1ECF5433CD;
+	Tue,  3 Feb 2026 09:23:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0277C116D0;
+	Tue,  3 Feb 2026 09:23:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770110586;
+	bh=ZVWcyVwZHUhFXo6LJeC3Z8mNCMQ6uLWORrt4JJJgWoM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Er8Q2Fy+KBEfe4dDqx7IvFyR/8sVI3aszh3mPZOyTzp9datuBbwu0YZ9Df9Wf8ADc
+	 ySS90/Wy7AJ4ECljJj4WaeRjrR2Bn1BeIXI186phcK1DR79f9qCXRBERAquluZ/g+W
+	 /N2qS+USjW3ZbS9W+FewcJ7UAPQouY0UXa2V//9FAj721/YnBK6QA0KM8q+pWtgHX/
+	 w/v8n8+lcKW9XfRnVx9dcbv19CtapYXdGK+F1fmlfw27FJCUcOCItSz1swP1Nd7uvp
+	 naMfcdk1CuXKpQ9J7SfvNnsGeW8Y3dX1q9FT7eiI8wbw7Tltd/QMpTT9ZbOkSjqh7c
+	 qETKVIut85/YQ==
+Date: Tue, 3 Feb 2026 09:23:00 +0000
+From: Will Deacon <will@kernel.org>
+To: Jinjiang Tu <tujinjiang@huawei.com>
+Cc: akpm@linux-foundation.org, david@kernel.org, catalin.marinas@arm.com,
+	zengheng4@huawei.com, ryan.roberts@arm.com,
+	anshuman.khandual@arm.com, wangkefeng.wang@huawei.com,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
+Subject: Re: [PATCH v3] arm64: mm: fix pass user prot to ioremap_prot in
+ generic_access_phys
+Message-ID: <aYG-dGzR6MuPSQBK@willie-the-truck>
+References: <20260130073807.99474-1-tujinjiang@huawei.com>
+ <aYC6_lSm_eJeKIcn@willie-the-truck>
+ <73396cda-e12c-484f-ab84-b09e7aab8bb0@huawei.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB12102:EE_|AM9PR04MB8132:EE_
-X-MS-Office365-Filtering-Correlation-Id: 208ffab6-2512-4d60-d92b-08de630497b2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|19092799006|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?yT9pOsUxWgeJpBKMliozMDEAY1xPJNAHlyRljsRcg5NZWWT9wT9Jx5s5TR8m?=
- =?us-ascii?Q?pLqBpbww2JYR6MNR3k3xGqdZIT8nFZbDDL1UYIfeg1X7bKh1vHjxCmTSkjaC?=
- =?us-ascii?Q?tWieQGqep6J/X6fDlpq0+IYazlpWJ4EtvN+0aeiiU9Zut53a5HWkO7L/c7eg?=
- =?us-ascii?Q?+KXuNoTuJtLyERByhhO/F4m+986Y6lOQwbVKeXggoPnKF7/Mg6olEiJ+TVv+?=
- =?us-ascii?Q?PLCPrhqPOooDoCBEr+4gbw0jAeLhyVbEbV3H+CEHGxKoesMY4bn9MYS3+Enu?=
- =?us-ascii?Q?XHh0vTUig5DXpIO0Yi0GB9TwzZJBkN04nutsuBSH7Vu6xk0F9LClNcBcYqLK?=
- =?us-ascii?Q?SCOVxhr9JcYN2nh64EJF1wrzMmjcdwmsYq8FbDlTDpv7NeIOv/XW6xiVU6hr?=
- =?us-ascii?Q?zctGU/niOwABECYSiiB5zxqMHKYvjKAKAJfg19fXPAAZvq9DWBHqkGO5rdqq?=
- =?us-ascii?Q?wPT9n6TdJtEZPY/L9VOc/OD290rQxRs9jTssFyr6KPQKV7q7WqhKU8zxGdgy?=
- =?us-ascii?Q?bU76I+sopEWoqP3qk1fwLrKLplTbncjygLy3DMhZAsRdJInVbcFtaSt8I4st?=
- =?us-ascii?Q?emz+n5ioBsczXU1wPrQqAaHCOrU7gsJ0hpnk7oI2BjTGdnwxT4W1B79VkKWC?=
- =?us-ascii?Q?0QTknWD7HGklBFz2XpL9tJxL/mz67Ymm/m/X4L66stSTDjHZM8aukXmvSWGV?=
- =?us-ascii?Q?KBhKK5+f3MwsreMLiPaW/9o8dS2DHQqRSCObXW+qRuwhhrLR8M+Q9bvYkfv+?=
- =?us-ascii?Q?ml4VAdn1plzc6tbcOvO9IMM2Qud9aiRM7lo2loJ1+mehWKo7XOu5yT0Xv/2k?=
- =?us-ascii?Q?HG2BQYJNfQI/MlWaW3qB+0WrTOVCqn16zsph5nr4UC0B135r9EsP7razomu4?=
- =?us-ascii?Q?D6khTO7iDQNsaukXWxfsTcDnNeOh0nojzPKebvEaRXIFl+6GieDPVluwQIkm?=
- =?us-ascii?Q?H3ywgbiHY7Ij+vdbNhfqxliWL6pzrt6mCFOb8jK3m3BgMA1uff7Y18hGEV+T?=
- =?us-ascii?Q?JWv2101vhHbH0JMF5ugUxTp7ISNgFEdI9HUZKvAtXgJW1LZKglFTxcw15Brz?=
- =?us-ascii?Q?SnFxjj8yRASaOldlE0jmPCkSm6HRJbernWlJdDTWpZXYK15rhEFzGQdcuHTN?=
- =?us-ascii?Q?DWTmsyVR+lqhEexb03D3jLSEDnaT0C7mHtnBN6vilkJ9NIg74h0crdekWrHO?=
- =?us-ascii?Q?TNVpKgySEzZjbcRsMImDn4H07e2L0WEdRx+tANwKf+SiaHYIqfQYsNIEn8LR?=
- =?us-ascii?Q?T2rVPqdw6qlx/FzgdZUGGzml69HDgrcAfLm+nPQjXXZzqCoaQ1ziPTq1zyMZ?=
- =?us-ascii?Q?BcHb6s5Zlzct/lZylgbQ9QPV0yh9uMPagm1we9iILYhDsYFZHwVhZKec2iGx?=
- =?us-ascii?Q?1/RF7c3Bq6c3pzBJ9jzPPnD7UEKjOHfhn9uJms/84K74A1m34YGcXdyz9+E3?=
- =?us-ascii?Q?2oXpHkvdVCO/KDepqmHUI3ZzOqDsfP5+SVjjZgIdKk1ZdXTbgKknzA/7fEi9?=
- =?us-ascii?Q?kuRwR2twKUj0ZCl9dsrvjOR6a8EuzxVbOU19U7pDUbnuJNo11DnIHm+ABTWt?=
- =?us-ascii?Q?YKe/sTBL3ge/+eCtXIVCAKDYsXcGj/OukYhAlTeirx6+N1K2h0IlNIrQM1CK?=
- =?us-ascii?Q?Y8abNCyfj+BRsy6z5D8H3+0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12102.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?D/Brwcw/lozEmIU+pj0RyGPPhkEdzLyzArTfv+1yxXFjJYUBmGvwh+TWoSK6?=
- =?us-ascii?Q?V7MVQlAdmDSwbVoSGmUNE8icyvA8gviXGZQokbHk1rugcmyM2hrOI+2hxnKH?=
- =?us-ascii?Q?bK+thazGm+k89ml8yEjRtwDxcZlcLJvGRcJa91pL33ngE/wF+U4OE/LBIl1J?=
- =?us-ascii?Q?lZdd69qZGlWs53JXPvbEhNuGabhQ+aFIVf1xuiBWyEm/QC+H1cjfXjUtYw2h?=
- =?us-ascii?Q?P2vUhA9eK+eKM5SpnT3jl4j7BSZrrojpXVO3VT+Je2aLPHVc1EDXSdF1x+WU?=
- =?us-ascii?Q?a/LzafazAZxDQ6RbsQF51cCgHp4YE4sfq4hn/3nVMtuUmeYJd1GcwMlYjXSK?=
- =?us-ascii?Q?f4PR/VIBDUkYlr/EExAa7v2ngkLTuxVJhauNhR43ZSttGGFnzplUhLWiFri5?=
- =?us-ascii?Q?SLtoX93p3t3r0lCI6avpFh5s/tGv9BoDsvMj+AK/nTXRT1wkeO4jgo6slB7Q?=
- =?us-ascii?Q?9IarGlQ6HPQLIQn62gq02uAVj/MOEWiw+BH41WaR58/2pw2g307yRrepJBqo?=
- =?us-ascii?Q?Gr3o4rOQY6wGb6/RKwQcRkWW1MbW0/7jgpuBHZqpKPOnFvkWxjWDDPgc7XAU?=
- =?us-ascii?Q?qRJOT8RYnkWrUKHCMlpUHgkHUwc+m5gmGR5QVrZjXF/K9OSejSCkl6iSXgEG?=
- =?us-ascii?Q?hw3iwsDPAKMbz8tmaZ4YJ6yq0TfPVNw4f0mBV6tkwY/c3rZdOLVGD/Ousg9x?=
- =?us-ascii?Q?Pf8iXXZ22xfZic9+MUDI1mD/6dywdDKLkx07JXTo45+mYbiBwDtuLHwgOW3c?=
- =?us-ascii?Q?CNDQH4jonrgJEhe+3RLOBZ5TXoLK3fG+r7gXYMxOaqJAQkjQd8/zrYg9Dygl?=
- =?us-ascii?Q?GaCUr/Tysy1mG4YJcvy6HVizniYOsAFuwWnwxJyTcs8JBxUobk2zWSWu03rH?=
- =?us-ascii?Q?U24AZf0XMcsbSBu0mdf5iqG6Sd3GsgVlJ/FF6JIpn+jQX7OIOOcAtZmEuUDu?=
- =?us-ascii?Q?3NWn7z6snIenSRp0Xz6jJFWwBsm8QJ9AcKVLJhSycw2AyD8CyCJzgOIm5nj3?=
- =?us-ascii?Q?nEqDyHFQUuZIiz6Rk4eAwUHgX3XfPEJddy1FIMFCwJdhFDg3V2Q21aE9OvmM?=
- =?us-ascii?Q?IyRBhOJiQdU8Pj2R7o8Z9M+eQWRLEIjcCdc01qU9tJfTq3WmNxA7ES5iXwC6?=
- =?us-ascii?Q?rwDo7M1eK+F87j4Dh1EIuQdzDzeQGIwGy8Lj/w0jK5QfOpVgG7SHr1RuxrgV?=
- =?us-ascii?Q?HGNOM3fKU9rqFipQzlofEvwHV2u1ni7bJ/iaidaI/Kx9cZxKhxJWz9scDNtN?=
- =?us-ascii?Q?3DhcXIcQUtx244YGZQjAVTZ77bqCU3b42ee4DOloS9APCiyaHjbo92SrkZlf?=
- =?us-ascii?Q?mxH/8qUbb0bqBdiWD5FnU0ApIiJOJzqCuSnTxzO+ImSFS6bJIPaevJoUH2Wg?=
- =?us-ascii?Q?U+KYqaucDOK8Sxb53nI7Is/YFHUQcL5N+gBWpTtD5ocBujfxdIyzlNW5UJEW?=
- =?us-ascii?Q?/r2xGifntdzj1Fw3d0g82OEgOS2mcBhEGqS6K3+fGYTFfbdTR0nNKVobcM6Y?=
- =?us-ascii?Q?ENY6/Y/Wpd8b5DfIdFWOvoFhbaSdCMjrdgTGG7ivGnappeGjpVoBvjIFuO6+?=
- =?us-ascii?Q?0M3s2rtlKj5wcNmQWzG86sGhjQn7u46h6OnYvLF7q3w0+lj2vTvCbZpAmNos?=
- =?us-ascii?Q?E4R4ArNZPs+77SHxxC4F0Rg9/nDx5tyfpodnemUzMFxkMnIP4FXbmkkoeTP/?=
- =?us-ascii?Q?aioOtqWBYlGre2pm/CGpqZsnVuNrIsMBEDj31jTMheBDZZRp7T84OgNvcVXH?=
- =?us-ascii?Q?LppdnxngTQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 208ffab6-2512-4d60-d92b-08de630497b2
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12102.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2026 09:14:11.0846
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DWrKfW99e7+x/9E9BYTrTNDf/pvQsOAkBDYSEgYsz1Oacg2mXDg26uJlmF+f1i5JL7q8jyiO9OxNYqB2CZA1lg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8132
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <73396cda-e12c-484f-ab84-b09e7aab8bb0@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_011417_515684_C3B54B95 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20260203_012307_153713_7E365C7A 
+X-CRM114-Status: GOOD (  29.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,116 +77,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add usdhc3 to support M.2 SDIO WiFi on i.MX943 EVK board.
+On Tue, Feb 03, 2026 at 11:38:15AM +0800, Jinjiang Tu wrote:
+> 
+> 在 2026/2/2 22:55, Will Deacon 写道:
+> > On Fri, Jan 30, 2026 at 03:38:07PM +0800, Jinjiang Tu wrote:
+> > > Here is a syzkaller error log:
+> > >    [0000000020ffc000] pgd=080000010598d403, p4d=080000010598d403, pud=0800000125ddb403,
+> > >                       pmd=080000007833c403, pte=01608000007fcfcf
+> > >    Unable to handle kernel read from unreadable memory at virtual address ffff80008ea89000
+> > >    KASAN: probably user-memory-access in range [0x0000000475448000-0x0000000475448007]
+> > >    Mem abort info:
+> > >      ESR = 0x000000009600000f
+> > >      EC = 0x25: DABT (current EL), IL = 32 bits
+> > >      SET = 0, FnV = 0
+> > >      EA = 0, S1PTW = 0
+> > >      FSC = 0x0f: level 3 permission fault
+> > >    Data abort info:
+> > >      ISV = 0, ISS = 0x0000000f, ISS2 = 0x00000000
+> > >      CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+> > >      GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> > >    swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000001244aa000
+> > >    [ffff80008ea89000] pgd=100000013ffff403, p4d=100000013ffff403, pud=100000013fffe403,
+> > > 		     pmd=100000010a453403, pte=01608000007fcfcf
+> > >    Internal error: Oops: 000000009600000f [#1] SMP
+> > >    Modules linked in: team
+> > >    CPU: 1 PID: 10840 Comm: syz.9.83 Kdump: loaded Tainted: G
+> > >    Hardware name: QEMU KVM Virtual Machine, BIOS 0.0.0 02/06/2015
+> > >    pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> > >    pc : __memcpy_fromio+0x80/0xf8
+> > >    lr : generic_access_phys+0x20c/0x2b8
+> > >    sp : ffff8000a0507960
+> > >    x29: ffff8000a0507960 x28: 1ffff000140a0f44 x27: ffff00003833cfe0
+> > >    x26: 0000000000000000 x25: 0000000000001000 x24: 0010000000000001
+> > >    x23: ffff80008ea89000 x22: ffff00004ea63000 x21: 0000000000001000
+> > >    x20: ffff80008ea89000 x19: ffff00004ea62000 x18: 0000000000000000
+> > >    x17: 0000000000000000 x16: 0000000000000000 x15: ffff8000806f1e3c
+> > >    x14: ffff8000806f1d44 x13: 0000000041b58ab3 x12: ffff7000140a0f23
+> > >    x11: 1ffff000140a0f22 x10: ffff7000140a0f22 x9 : ffff800080579d24
+> > >    x8 : 0000000000000004 x7 : 0000000000000003 x6 : 0000000000000001
+> > >    x5 : ffff8000a0507910 x4 : ffff7000140a0f22 x3 : dfff800000000000
+> > >    x2 : 0000000000001000 x1 : ffff80008ea89000 x0 : ffff00004ea62000
+> > >    Call trace:
+> > >      __memcpy_fromio+0x80/0xf8
+> > >      generic_access_phys+0x20c/0x2b8
+> > >      __access_remote_vm+0x46c/0x5b8
+> > >      access_remote_vm+0x18/0x30
+> > >      environ_read+0x238/0x3e8
+> > >      vfs_read+0xe4/0x2b0
+> > >      ksys_read+0xcc/0x178
+> > >      __arm64_sys_read+0x4c/0x68
+> > >      invoke_syscall+0x68/0x1a0
+> > >      el0_svc_common.constprop.0+0x11c/0x150
+> > >      do_el0_svc+0x38/0x50
+> > >      el0_svc+0x50/0x258
+> > >      el0t_64_sync_handler+0xc0/0xc8
+> > >      el0t_64_sync+0x1a4/0x1a8
+> > >    Code: 91002339 aa1403f7 8b190276 d503201f (f94002f8)
+> > > 
+> > > The local syzkaller first maps I/O address from /dev/mem to userspace,
+> > > overiding the stack vma with MAP_FIXED flag. As a result, when reading
+> > > /proc/$pid/environ, generic_access_phys() is called to access the region,
+> > > which triggers a PAN permission-check fault and causes a kernel access
+> > > fault.
+> > > 
+> > > The root cause is that generic_access_phys() passes a user pte to
+> > > ioremap_prot(), the user pte sets PTE_USER and PTE_NG bits.  Consequently,
+> > > any subsequent kernel-mode access to the remapped address raises a fault.
+> > > 
+> > > To fix it, define arch_mk_kernel_prot() to convert user prot to kernel
+> > > prot for arm64, and call arch_mk_kernel_prot() in generic_access_phys(),
+> > > so that a user prot is passed to ioremap_prot().
+> > > 
+> > > Fixes: 893dea9ccd08 ("arm64: Add HAVE_IOREMAP_PROT support")
+> > > Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+> > > Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
+> > > ---
+> > > Changes in v3:
+> > >   * arch_mk_kernel_prot() always grant read/write permissions.
+> > > 
+> > >   arch/arm64/include/asm/io.h |  8 ++++++++
+> > >   mm/memory.c                 | 12 +++++++++++-
+> > >   2 files changed, 19 insertions(+), 1 deletion(-)
+> > > 
+> > > diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
+> > > index 83e03abbb2ca..fe3040d59119 100644
+> > > --- a/arch/arm64/include/asm/io.h
+> > > +++ b/arch/arm64/include/asm/io.h
+> > > @@ -267,6 +267,14 @@ int arm64_ioremap_prot_hook_register(const ioremap_prot_hook_t hook);
+> > >   #define ioremap_prot ioremap_prot
+> > > +#define arch_mk_kernel_prot arch_mk_kernel_prot
+> > > +static inline pgprot_t arch_mk_kernel_prot(pgprot_t user_prot)
+> > > +{
+> > > +	ptdesc_t mem_type = pgprot_val(user_prot) & PTE_ATTRINDX_MASK;
+> > > +
+> > > +	return __pgprot_modify(PAGE_KERNEL, PTE_ATTRINDX_MASK, mem_type);
+> > > +}
+> > Do we really need another arch helper here?
+> 
+> For arc, powerpc, ioremap_prot() simply copy the user pte prot to the kernel page table too.
+> So maybe we should fix for the two archs too, and we should define a arch helper here.
+> But I'm not familiar with them.
 
-Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx943-evk.dts | 63 ++++++++++++++++++++
- 1 file changed, 63 insertions(+)
+My point is that we already have the helper: ioremap_prot(). Just fix
+that for arm64 and cc the other arch maintainers if you're not sure how
+to fix it for them. What we don't need to do is add an additional helper.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-index f54404c9bfc9..8f4f6875d036 100644
---- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-@@ -20,6 +20,7 @@ aliases {
- 		i2c5 = &lpi2c6;
- 		mmc0 = &usdhc1;
- 		mmc1 = &usdhc2;
-+		mmc2 = &usdhc3;
- 		serial0 = &lpuart1;
- 		serial5 = &lpuart6;
- 	};
-@@ -54,6 +55,33 @@ dmic: dmic {
- 		#sound-dai-cells = <0>;
- 	};
- 
-+	reg_m2_pwr: regulator-m2-pwr {
-+		compatible = "regulator-fixed";
-+		regulator-name = "M.2-power";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&pcal6416_i2c3_u46 2 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		/*
-+		 * M.2 device only can be enabled(W_DISABLE1#) after all Power
-+		 * Rails reach their minimum operating voltage (PCI Express M.2
-+		 * Specification r5.1 3.1.4 Power-up Timing).
-+		 * Set a delay equal to the max value of Tsettle here.
-+		 */
-+		startup-delay-us = <5000>;
-+	};
-+
-+	reg_m2_wlan: regulator-wlan {
-+		compatible = "regulator-fixed";
-+		regulator-name = "WLAN_EN";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&reg_m2_pwr>;
-+		gpio = <&pcal6416_i2c3_u46 5 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+
- 	reg_usdhc2_vmmc: regulator-usdhc2 {
- 		compatible = "regulator-fixed";
- 		off-on-delay-us = <12000>;
-@@ -145,6 +173,12 @@ memory@80000000 {
- 		reg = <0x0 0x80000000 0x0 0x80000000>;
- 		device_type = "memory";
- 	};
-+
-+	usdhc3_pwrseq: usdhc3_pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&pcal6416_i2c3_u46 4 GPIO_ACTIVE_LOW>;
-+	};
-+
- };
- 
- &enetc1 {
-@@ -760,6 +794,18 @@ IMX94_PAD_SD2_RESET_B__GPIO4_IO27	0x31e
- 		>;
- 	};
- 
-+	pinctrl_usdhc3: usdhc3grp {
-+		fsl,pins = <
-+			IMX94_PAD_GPIO_IO48__USDHC3_CLK		0x158e
-+			/* Need to config the SION for CMD pad, refer to ERR053138 */
-+			IMX94_PAD_GPIO_IO49__USDHC3_CMD		0x4000138e
-+			IMX94_PAD_GPIO_IO50__USDHC3_DATA0	0x138e
-+			IMX94_PAD_GPIO_IO51__USDHC3_DATA1	0x138e
-+			IMX94_PAD_GPIO_IO52__USDHC3_DATA2	0x138e
-+			IMX94_PAD_GPIO_IO53__USDHC3_DATA3	0x138e
-+		>;
-+	};
-+
- 	pinctrl_xspi1: xspi1grp {
- 		fsl,pins = <
- 			IMX94_PAD_XSPI1_SCLK__XSPI1_A_SCLK	0x3fe
-@@ -802,6 +848,23 @@ &usdhc2 {
- 	status = "okay";
- };
- 
-+&usdhc3 {
-+	/*
-+	 * Only enable SDIO2.0 mode as the corresponding GPIO pads are 3.3V, the
-+	 * max frequency is 50MHz.
-+	 */
-+	pinctrl-0 = <&pinctrl_usdhc3>;
-+	pinctrl-1 = <&pinctrl_usdhc3>;
-+	pinctrl-names = "default", "sleep";
-+	bus-width = <4>;
-+	vmmc-supply = <&reg_m2_wlan>;
-+	mmc-pwrseq = <&usdhc3_pwrseq>;
-+	keep-power-in-suspend;
-+	non-removable;
-+	wakeup-source;
-+	status = "okay";
-+};
-+
- &wdog3 {
- 	fsl,ext-reset-output;
- 	status = "okay";
--- 
-2.37.1
-
+Will
 
