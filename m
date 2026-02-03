@@ -4,78 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17290E7317E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 01:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B607E7317E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 01:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rg1DU/XeyVT2ygAI0kcHcX8EFBp1aZcW4C/j1cNjSas=; b=l2zIou1w1cSI6YyeWvj634GPpN
-	S3zVBijp1zeB52c5fGBb3XT65KMTyz7Ur/ypdrHnZFF85CYPoiq5whHnz48ynYU5PCdAR9qSPAgwY
-	u46wKRkU7sOjOFVaf2jGsB1VxRj9et7EHQRDuGj8v6ls8h/S6j7PCQ0Hv9+YDpptB+p6Y51CMpfWh
-	P3n50hrmsgvwKIDgS8sKkdw+fIpKThKZ93O46jJ1sUzT/5Fe3q0731eOzp/yqNGC8g1A87EgNU70S
-	Tid5Csq9h7H/ZIFLQZOT/RO64pXf7kQUUzLnvP1IhL+4mtC6vmgZuMJjQvKLhmIl6e41eNhcmnhSk
-	b19olLsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i71PXuWHJx9H5ZEiiFAQtK4cjMHvGGv7qZVPFty6hhw=; b=VDK6UMBh2D3y2Xe5h8HNksOAVG
+	BYVBsYk75zkymN9d3jyezm65kq0SO7jJq11LhV6E5y6muvtE4i7cTnNLHmrIYhDKY8TsnwgWGiIn1
+	hSjnV/MEZ+oVXgT45Pt8/Nd0uhde154jfmuHcmLK/1kkJE7OU586XOdFTcEmfeTr/cz6D8mC1N7ul
+	MGTLcCk5S1UpID5flASQBvW+AiPfbc7HV1GtpVBbyusGT8rG3sO6eUvfvXHW1Vvbl1+OeYmWxop50
+	1Sn19qBG0IAdWvFL+Ha4TYyfAAs9xJ4/v7Px9hDk0PGNUptMuVHR+3txhYhFRq7jB2vDGPLNQ+ygZ
+	svfuTExg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn5Sv-00000005rfm-2zI4;
-	Tue, 03 Feb 2026 01:44:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vn5ZO-00000005s0o-2S0s;
+	Tue, 03 Feb 2026 01:51:10 +0000
+Received: from mail-swedencentralazon11013032.outbound.protection.outlook.com ([52.101.83.32] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn5St-00000005rew-1yPk
+	id 1vn5ZL-00000005s0T-212U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 01:44:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0873B405AC;
-	Tue,  3 Feb 2026 01:44:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 025F1C116C6;
-	Tue,  3 Feb 2026 01:44:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770083066;
-	bh=uniYDI0bTTA8++3uJAQoOjtAdjCqnnfCLvtGF7pr7Ug=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rSweUKQbO6ntU9uzE0+2CGsGehX5MKkDQGvDDPMLXyYUfhHUlHEPnQjUJoeC8JyGT
-	 vUJfryFNq0NvbnLbaUajc0cTzpBIMKP6qcPWUjOoyEDo3i/5Z3nW64laUu0aAJcdtU
-	 AqJb74XI4bxpUsvYAE3SsofXg1YniULwWrxo2foLJoDk9FsOqYb3EkJZ1eg5npii4Y
-	 KvJ27eKXhTPS7idTQ68jji9H+SBhVhtIhU40/0hBf4SaZD5W6Mbc2tUyZ4FqwjeQsR
-	 +F/DDMhNsO5TYLnZzL+7bkzX7cemi6RAZSgCVlmHmL+TWYKGnfmW9TsqAeQwv7OPwv
-	 /ik84nTmwEa3w==
-From: Jakub Kicinski <kuba@kernel.org>
-To: lukasz.majewski@mailbox.org
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	andrew@lunn.ch,
-	shawnguo@kernel.org,
-	krzk+dt@kernel.org,
-	linux-kernel@vger.kernel.org,
-	edumazet@google.com,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	conor+dt@kernel.org,
-	horms@kernel.org,
-	richardcochran@gmail.com,
-	robh@kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	wahrenst@gmx.net,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Subject: Re: [net-next,v22,7/7] net: mtip: Extend the L2 switch driver for imx287 with bridge operations
-Date: Mon,  2 Feb 2026 17:44:07 -0800
-Message-ID: <20260203014406.825146-2-kuba@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260131233459.1625279-8-lukasz.majewski@mailbox.org>
-References: <20260131233459.1625279-8-lukasz.majewski@mailbox.org>
+	Tue, 03 Feb 2026 01:51:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HbHppx6Isc1Zd60794kASXO3okyJbzqlY4YS5RHz2mjo9H074WpQO9OPm6iIi63SXfuukSmlDrdfuLBGQpCZLKSL1c5DDLjxtmVNtBseWY+GNfq67diOkD66pCSIJyym9zVSpR7p8QkLx9rjKZaRWGIisScdzbITE74RpgvsWaGjgg+TA8bQb5nfXeLrCCZ2F6SxHhFxMr1mwHZk362QlDMMILQRx4/hlnOTEqjTz+3KkC0HN/ySSPorA8epWnJwG6RQGySWorzdWU6Eky36DflWJMloCUJEoup9FQdu6MnwQMY/rHMZGrfxF6ugg9vjPzBDL+/xqopSF8Q4/ZZopg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=i71PXuWHJx9H5ZEiiFAQtK4cjMHvGGv7qZVPFty6hhw=;
+ b=FKNX2H2OGcUY5/itJs+7WeYJWAFslJU8Z/qGma6yoz//87rApY+bRd4fypjBFB5nYbc7UqUetQo3ojdLGFVsrdL6v7xxhgW3m1YuE7PnVK9N2b1j8TdaUuGcnl5NAAuiBXZ25ceiv6EEfLMK6pYaaFH2lGzgvMv6bCFVPYG6dSPSNsrHlg06Ik/um8qvT+x2hd7DY+kBTeN994tt265NZtiMy51p3HyhXJbbQft2LtGaVXu4ITwtW+7fxaXxLtjUQ+f4RU15SDPlQBMw9ucZU7GVHuPgJIF7574tn00uqZohCbOcLP9WOejS6/dUuT5SmGnMQIJ0dY6PYK3mzV4Qwg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=i71PXuWHJx9H5ZEiiFAQtK4cjMHvGGv7qZVPFty6hhw=;
+ b=Tao1Lce9vlF1/1WpWAu2skf9/AMjwm0dwxll+iSlJ9TSTWjI6Y/mCI1KSe0fdWNq/a8+7C+cBc2qsRESKk2rw061krh1rOOLIxZjFf+0/jmq3PfMZ1MEkaNfl3futgOh4cWVef2gthajcCBuqAX9ODTccH3gQDLTzy64ChqPZ1T3Ewi6eWqz00ZoEkVcKNOkBMqWlpGGjm+/aR3EXZxm/XX6ZnjKDAfQ1S0rwL4g1uI18bDgm6v5krRACXcI21DvF/A40GwW5Mj3VHlbR850edJ9e2qV3FlTXzRubfI1Zj+xi7sbkbF3VXpOXF8o0J40XBlIO+RZWXi3nak/h2CRKg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by VI0PR04MB11722.eurprd04.prod.outlook.com (2603:10a6:800:2ed::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.7; Tue, 3 Feb
+ 2026 01:51:00 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%5]) with mapi id 15.20.9564.006; Tue, 3 Feb 2026
+ 01:51:00 +0000
+Date: Tue, 3 Feb 2026 09:52:39 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Russell King <linux@armlinux.org.uk>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 08/10] ARM: dts: imx7ulp: remove #clock-cells from
+ clock-controller@40410000
+Message-ID: <aYFU5w1LpxoUiQH/@shlinux89>
+References: <20260202-imx31_dts_warning-v1-0-434dd2643c3b@nxp.com>
+ <20260202-imx31_dts_warning-v1-8-434dd2643c3b@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260202-imx31_dts_warning-v1-8-434dd2643c3b@nxp.com>
+X-ClientProxiedBy: SG2PR06CA0193.apcprd06.prod.outlook.com (2603:1096:4:1::25)
+ To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI0PR04MB11722:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6e93b972-4824-4b08-2d0f-08de62c6ae78
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|7416014|376014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mbRouJGH6kxaL494pRCwxTxubWrur+oeCGEWMNZLsAL3llnNv4b9PhGOEWOx?=
+ =?us-ascii?Q?jBbnaSHbISXsXk7sLnZB9ejzMR8GHJ6xEWp/0XUVRflcXLCxBOS63QHMt1R7?=
+ =?us-ascii?Q?r3xyqosxZK+N+2ooY5W3QEMiUw6hl2DRqM2B/ah6xVosPJASbYHCB5filvfF?=
+ =?us-ascii?Q?kkyanavQwgrzjiuHRXQbUnYc/5uWAETZRUr5AyxtkwAAYFIoHB8N/qCABWCn?=
+ =?us-ascii?Q?M9+nCiEmRP0UoqF8Dv8uA0zq6RydMgJzf3WAksF3Jt1+ogFiwkA5Ah/Dc7oX?=
+ =?us-ascii?Q?QVBey5WeTa3JrtaFP4wi/au88Y+MCorjBVG1xEdrK9cyMwV/HEXxgEO/x6zC?=
+ =?us-ascii?Q?5g7b3KEGMN2Kc8FJesxV0eFCVlv1UfxfVEhvwFpHQTDa/CwxVKGixYFmBzf0?=
+ =?us-ascii?Q?YsKQEG1/yIJp7dZBS8bK0RGAbwu9XiZJt73w48LsOLz17TrJ9uh5Qs/IizUV?=
+ =?us-ascii?Q?R5ZT/C/41oOY5uzOvCCYdYDIf8HEn1jpSlRP2c7N+xbwzhzA3M9vrM/aCLwH?=
+ =?us-ascii?Q?lKEX+XXy5aEOXbIBPVol+mDN3pMt3WbuHG5lkxGh+BK6D//88fxfGECL3ax5?=
+ =?us-ascii?Q?yVf2qu6qiQ9mVjB36lj6JsjxnWdCyVE6ZJ7KXBILW0mwckqQBWRGMt99HYmj?=
+ =?us-ascii?Q?CEk3ej1fyu6o/WMjscNybg5Nxxfqw3znwx/VvVYOPtlYTOcHsA2/2kUFjac+?=
+ =?us-ascii?Q?h6Wg53Zc8z68vARcPejTP+to8Axix3jczhYbqgkD4r/ztXSTXaF3QykFz8GN?=
+ =?us-ascii?Q?lsNEbEYjGMZ1mQhm6Mdy+T1PTaRo7EQdYw88rY8OidJCcHGmdF9dKq0YwHh7?=
+ =?us-ascii?Q?EHsKxgCNt40jWgDruF7jtBnAEQbUWTs3rR1Za91HHaLPmyWAWvBsmp95aefo?=
+ =?us-ascii?Q?XFdQ4NgOmrPT5VSqsu1tDxb2thQXQDDxc0y1vPQY0ZAzCl3jz5yomE3u2Ze4?=
+ =?us-ascii?Q?C7rG9vrMIUryXk+cyTKJ8EbS1+WX/uKQXHbV6GJKDjqgIUbWLLrKhehHJQ/5?=
+ =?us-ascii?Q?fFtfvtgdiKUjE2B2BcgusZtxulpxGJ9IE+MT3TRblSoWQ6sNJyyd13yEm3tB?=
+ =?us-ascii?Q?9gxsSY4ByrZjqDG+fhm5Ev5t/ulXG60+mPRarLmFXntl/PXCHQO+QPCzaTS8?=
+ =?us-ascii?Q?KiolY7MLE/KiaKWNOc8cZf+YriEeYFH3uHHNoI116kpye2qUa4cFR3vPFD+/?=
+ =?us-ascii?Q?wJ9NKv5Sg7dumkqlj5Kot+d1uo/jKtM+uH/7OwhGrAYi0hQrnLy64l90e7nY?=
+ =?us-ascii?Q?LLqcRQZBqOujQfYsy3ad6wfPDjeB5lckexvkKc1EswsudfWiR8sn0a60yB5d?=
+ =?us-ascii?Q?7EowJveZFBokJdZVHil+XaLgLmDKvCNG1lzTAa6T/27nTkpDF4tTRIQ0NGRa?=
+ =?us-ascii?Q?BGdRc+ngfdppEe5KZG2pC8HGrc4JF3C/OLpnvEPxqtzjMsznFj6x4MTSkv3l?=
+ =?us-ascii?Q?lFOmiygwhGkrmTVS9aZZyyxjO9TZSJ6Iqb4qF0ITXsLjTQIGH/ZnRkIPn+7T?=
+ =?us-ascii?Q?Xb1yZPfvpO72YIepyQQP5kZAja8V96LDbtE0RqLx6zb5abZvVzHcsIBpw7XX?=
+ =?us-ascii?Q?h+598bpUa/TN1aX2eO67IFU14QNny4rf9NrVUPhH3gbULMPMHH0Z5+J5soK7?=
+ =?us-ascii?Q?gnX19PtcH6svf0jZ4+JhIgE=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZoE6mDpGJBVfEUqZovZE9QmLKcslgm0o2RD+3vcyhL2fAmK2nSo/HFE5D0UD?=
+ =?us-ascii?Q?rz42F4ZVUYhldtGEdf1BDluKBvFArU/7EZVJQvQXPTgZDNdimWhfnXT5joVO?=
+ =?us-ascii?Q?CSn9DSoGBqaEQiOynZtS+8U+E7Q53+z4R/2AVBq2+DUsWDzL74GuRpx5LONz?=
+ =?us-ascii?Q?pbOL0r5S1l4MUgZR0kvCNrBC7FKktSV2Oak44TLbyemTnWzQGbrvlcb04fvZ?=
+ =?us-ascii?Q?6JZumhvurNzcSc90SAxZhmZgvVSRcBOMhAxKuWTDu38pZUSeu0JQExaKtR+E?=
+ =?us-ascii?Q?4AmDBaVTXWvhPYzqVhq2oleCtczfpTlash/eEiQ8e4c6O0k3vBMvxF7cBOR8?=
+ =?us-ascii?Q?1mqrWKGRUAkab+AwLRdKwBfWmKz9D/02XDurZVaQC4BTRVHlzrhN1ugOHdcJ?=
+ =?us-ascii?Q?ZxIlHytVK04ds+FOYoUWHnr5qLIhudt/m0RRlYAY8vhHqfkGa69j0NDomCgS?=
+ =?us-ascii?Q?gfbBbQ84QYDNnzjp0VdOvwBJ72ICxa60s33ABsoYkIjvo1HtJ79Uwg5ZkQKs?=
+ =?us-ascii?Q?9Dz4QOmnEl6DztD06LnednZfxLWvSCy4x91sGJw72TLuepvntl6P0N1zFRRX?=
+ =?us-ascii?Q?azMARDzJb1XBkkWuHBxQxy/UzBHsv+1H4yQtF7b5LzawkNE67+XvAu265wzf?=
+ =?us-ascii?Q?wFGakDSWQ3TQfWv2gD0qlfW2ls9x1FNI8TTir002msdVg7KSnNL+vqRLbZzW?=
+ =?us-ascii?Q?2h6h6a+j8vHHOZ2bKSYNF/PXXUOJTm2mUuX5Kd0QyQbvh5zZ1jQzu0+J/8qe?=
+ =?us-ascii?Q?hBxnW9xcaItl1v5mPlOvgN4CGGFjgP+y4eh9WHAs0YQSUNblFGThxk4ExPPl?=
+ =?us-ascii?Q?ma0zqTdyC7k1HM/iqBPaXKBpdzvv8sdwxnHsp6ZAT7/UtyxMvSOGLifPejYq?=
+ =?us-ascii?Q?+woKFf+uqSjjZ6+Oy4s+S3aUQn+c4bf21rOGW6XSDjyg0ELd0QmarKXfuuD4?=
+ =?us-ascii?Q?o1ZCzHktz3zoqHsvD7PN038P1Y8IvlZwtJNesGtVYQBjFOsEQpST/eTA3MaI?=
+ =?us-ascii?Q?sfo/rAsYddSvZ52oN/qcS72b/fD5eTBgg988GT2sjW+IwiAIow7ZlVRSq7ol?=
+ =?us-ascii?Q?JoPkmIjXFNni2kPgqpAq676VOCLn4g6mT3B7AZ/NtNXrahekMFfdlguBtpAM?=
+ =?us-ascii?Q?CJBmezi959Q13QdMGN943uyJJ6y8lHEL7zAPWTKrvMcAzT3IKKZoEwZjMFT6?=
+ =?us-ascii?Q?8lu9NkpOpLhMqwKJAhduOQ64X2Wt9NkSQk9pzE2mW64XHeo7BaIg9a07zpXh?=
+ =?us-ascii?Q?nbKd/Zwt6qDOBFZa/PlN97adWm/aaoN44YG/CQv0RT3S8ptbCITykEuh8TjJ?=
+ =?us-ascii?Q?8DfkpAp0GaixaG0rpwbxd1NNZaBCL0/AcV6YOcmPDXmNX0uKN08lRcsrZPJR?=
+ =?us-ascii?Q?bbIe+GFn64RIz0pBup0rTsRywIkNgdUemCWZk4ALzIH+mdshvVJDt8ALl57I?=
+ =?us-ascii?Q?JIOnFF49OnXbsyggptqbaqLuCUxf4POIymlnhUOnTISXYBu+C1AOnRhAy+d2?=
+ =?us-ascii?Q?UutS0tVdgaimC5cQuRWOr+9ICLXyr3mAAx4YgZK6YKhbJ19tr+uNY8iIZoLf?=
+ =?us-ascii?Q?dYpgTIDG/tAp3WtBBjzqC+w5aBmTH9rqjYP8SOTBxjzPYEMD9i125iNktyRb?=
+ =?us-ascii?Q?vZe7A8wWLSkLZnVAUzw5R03Np6s5z+aaco3OIOtPZMCjDx4QfwRdRVql/FO1?=
+ =?us-ascii?Q?wmBl0vneyCSAX+fjAGrEZXyPgOpzrLbiVyQsNEkox4KrLoo0mnYL4NkAdChE?=
+ =?us-ascii?Q?umOBQWxeEQ=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e93b972-4824-4b08-2d0f-08de62c6ae78
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2026 01:51:00.5593
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gxjXskys3dFpw5zCspn8mQJGuju4XkLwyOy+wEcZepwS5IGfuHhvR/zOpSWM2p+860hOz3b5ut6wnfwNcNQRxA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11722
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_174427_565329_F49358F6 
-X-CRM114-Status: GOOD (  15.43  )
+X-CRM114-CacheID: sfid-20260202_175107_519924_53D612DF 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,69 +171,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
+On Mon, Feb 02, 2026 at 02:43:25PM -0500, Frank Li wrote:
+>According to the fsl,imx7ulp-pm.yaml binding, clock-controller@40410000 is
+>not a clock provider. Remove the #clock-cells property to fix the following
+>CHECK_DTBS warning:
+>  clock-controller@40410000 (fsl,imx7ulp-smc1): '#clock-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
+>
+>Signed-off-by: Frank Li <Frank.Li@nxp.com>
+>---
+> arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi | 1 -
+> 1 file changed, 1 deletion(-)
+>
+>diff --git a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi b/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
+>index 880b9a4f32b0846a773dbf9ad30715c84ac2fda6..6d8853d36d930aabb98fb57f49d6153ca6597561 100644
+>--- a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
+>+++ b/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
+>@@ -291,7 +291,6 @@ pcc2: clock-controller@403f0000 {
+> 		smc1: clock-controller@40410000 {
+> 			compatible = "fsl,imx7ulp-smc1";
+> 			reg = <0x40410000 0x1000>;
+>-			#clock-cells = <1>;
 
-For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
----
-net: mtip: Extend the L2 switch driver for imx287 with bridge operations
+Need to fix binding, this is a clock controller and needs #clock-cells to work
+properly.
 
-This commit adds bridge offloading support to the MTIP L2 switch driver,
-allowing the switch to offload packet switching when a bridge is
-created on its interfaces.
+There is a driver for this compatible:
+drivers/clk/imx/clk-imx7ulp.c
 
-> diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
-> --- /dev/null
-> +++ b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
-> @@ -0,0 +1,132 @@
+Regards,
+Peng
 
-[ ... ]
-
-> +static int mtip_ndev_port_link(struct net_device *ndev,
-> +			       struct net_device *br_ndev,
-> +			       struct netlink_ext_ack *extack)
-> +{
-> +	struct mtip_ndev_priv *priv = netdev_priv(ndev), *other_priv;
-> +	struct switch_enet_private *fep = priv->fep;
-> +	struct net_device *other_ndev;
-> +	int err;
-> +
-> +	/* Check if one port of MTIP switch is already bridged */
-> +	if (fep->br_members && !fep->br_offload) {
-> +		/* Get the second bridge ndev */
-> +		other_ndev = fep->ndev[fep->br_members - 1];
-> +		other_priv = netdev_priv(other_ndev);
-> +		if (other_priv->master_dev != br_ndev) {
-> +			NL_SET_ERR_MSG_MOD(extack,
-> +					   "L2 offloading only possible for the same bridge!");
-> +			return -EOPNOTSUPP;
-> +		}
-> +
-> +		fep->br_offload = 1;
-> +		mtip_switch_dis_port_separation(fep);
-> +		mtip_clear_atable(fep);
-> +	}
-> +
-> +	err = switchdev_bridge_port_offload(ndev, ndev, NULL, NULL, NULL,
-> +					    false, extack);
-> +	if (err) {
-> +		dev_err(&ndev->dev, "can't offload bridge port %s [err: %d]\n",
-> +			ndev->name, err);
-> +		return err;
-> +	}
-
-When switchdev_bridge_port_offload() fails after the second port joins the
-same bridge, should the error path also revert br_offload and port
-separation state?
-
-In mtip_ndev_port_link() when the second port joins, the code sets
-fep->br_offload = 1 and calls mtip_switch_dis_port_separation() before
-attempting switchdev_bridge_port_offload(). If that call fails, the error
-returns without reverting these changes.
-
-This could leave the hardware with port separation disabled and br_offload
-set to 1, even though only one port is actually bridged.
-
-This concern was raised by Jakub Kicinski:
-https://lore.kernel.org/netdev/20260131015440.972531-1-kuba@kernel.org/
+> 			clocks = <&scg1 IMX7ULP_CLK_CORE_DIV>,
+> 				 <&scg1 IMX7ULP_CLK_HSRUN_CORE_DIV>;
+> 			clock-names = "divcore", "hsrun_divcore";
+>
+>-- 
+>2.34.1
+>
 
