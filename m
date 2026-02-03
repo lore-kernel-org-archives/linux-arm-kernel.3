@@ -4,89 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70BB3E7FDE0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 00:17:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5A77E7FDE0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 00:21:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cnbZIEEYc7qpXnHl4ZHTwHEJ9GmdouAAJMZTX/GpBdE=; b=bLa2Fvqe/6WYzcEomyRyK+yhFB
-	Mu4dH+4JcDwHAe2BkO/d7Yw7W1zW237Vd6H4LmBFzltOuQpCJgTveTFu8TjjZye9oOpjBdIEdICpQ
-	xMlplf5oRlRu19zEqXO5WdWmcK8AbAi33bG8D+H19CPZma5dx1T2F22rghQoJbQrMYppgiOtPT3ZX
-	mCfkUjSXByEzAbndaEN5rV4atzAXcNMItzP0MVg4t/IWzTZXSw+/5XPwC+6p1iy2lCx/QzkCeWpSo
-	DqgsMKY8gMgq7pEPqCPVlk1SorEecb5tZ6tq7oV6WJ6OTFPe5rMs+CjlSTcC5vFk6ELhL7wed7Qjf
-	7upgBAkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+2XTSPZI0r7r0xxXuEFfDuh4AMy4Nmaw4oOpOLhAvXI=; b=uM2cQi5aoqRF9XlFS41u9Ig/WC
+	rJe59KsYfUp6J8RKu8ASo7E5zfJ3V2VHeVDYr1alpdj6S6QO7wn35cuKjuIf9An2Tii49H0L74K/I
+	rAiRG3l6WKyeXfXTuH4JIVtG9nAB0zi6vWdNsN8oXYHWkj7+aBIm1S1cJCPPFlAaGqgIiAS3euw97
+	cVbB3qjE84qWz7s4ChTx0yw7GP1Jp0VrJPT51+I5Ss0Dk0/En9m4h5SBgrUsRsVeUbSJNYdxFzAzp
+	aD0fhC832THIjrwf1MLL1BaNjyNn74glGy/SFEjAT5rBXqXl80F5qVhytvMW5lf9M0kVpZPi36uJo
+	HIjrM5fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn46c-00000005mU3-2pmv;
-	Tue, 03 Feb 2026 00:17:22 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vn4Az-00000005mgk-1igR;
+	Tue, 03 Feb 2026 00:21:53 +0000
+Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn46a-00000005mTa-2jWf
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 00:17:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=cnbZIEEYc7qpXnHl4ZHTwHEJ9GmdouAAJMZTX/GpBdE=; b=VHco1eedf+GGw5ftuQkpadN50P
-	7/H8FTN1MGUAxFL0qaQpqSUGBucDqIYDt2U6LLBoiqx7tvKS6VoTTBhrOYlT1RxPCi6HFdsETvIQp
-	sXTZAAPd5royUP8fucUiITv0PgZWrzYozcBefdUuZQOxe2GyOcd6r+F67dWJJ3SFiTt1LB02rYw7V
-	Pfll0qmBlvzg+6CwkRVObhvX8/S3fYitEX1qZyg0Dq3jn83YD/SjpS9v5OJyj6Us0yPmzm9hhgY8a
-	pVqBbhlOEvLVREJxuvD4A86L1kSexJyTYxCFgGMK+cpZoLagFf11xaAlc550PdCWJ+aDfbmBgHihf
-	j7NM+9ZA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:52622)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vn46R-000000004UO-08eh;
-	Tue, 03 Feb 2026 00:17:11 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vn46M-000000003qY-46I1;
-	Tue, 03 Feb 2026 00:17:07 +0000
-Date: Tue, 3 Feb 2026 00:17:06 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	Clark Wang <xiaoning.wang@nxp.com>,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>, imx@lists.linux.dev,
-	Jakub Kicinski <kuba@kernel.org>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	id 1vn4Aw-00000005mev-1R6P;
+	Tue, 03 Feb 2026 00:21:51 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1770078104;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=+2XTSPZI0r7r0xxXuEFfDuh4AMy4Nmaw4oOpOLhAvXI=;
+	b=FJ6tOz39ef3x9lh948TOCFUoh+KaPWT5sVuHy7f6TNRN961P6OhIhTYx8BzBhwsRkuCnIk
+	7ZX4HfvTe1DCCbScLcc5RJgoTVjeyK+cLEbgABoOu2v2hblyR4dfOFPbvuwTb1AuLaSmVc
+	G8bsfPUu8zZv8/2dra5Tpp53PzK7PvE=
+From: Sean Anderson <sean.anderson@linux.dev>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	linux-phy@lists.infradead.org
+Cc: =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	linux-kernel@vger.kernel.org,
+	Michal Simek <michal.simek@amd.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-pci@vger.kernel.org,
+	Neil Armstrong <neil.armstrong@linaro.org>,
 	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Wei Fang <wei.fang@nxp.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Subject: Re: [PATCH RFC net-next] net: stmmac: provide flag to disable EEE
-Message-ID: <aYE-gvuZdv7ezm7X@shell.armlinux.org.uk>
-References: <E1vNUjC-0000000FhjR-0h6P@rmk-PC.armlinux.org.uk>
- <f95f73b9-d024-4697-bca1-02fb8bc044af@gmail.com>
- <aYEj8VM5AfvcDHrl@shell.armlinux.org.uk>
+	Thippeswamy Havalige <thippeswamy.havalige@amd.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Sean Anderson <sean.anderson@linux.dev>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org
+Subject: [PATCH 0/8] phy: zynqmp: Perform complete initialization, including ILL calibration
+Date: Mon,  2 Feb 2026 19:21:20 -0500
+Message-Id: <20260203002128.935842-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aYEj8VM5AfvcDHrl@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_161720_714539_B8C5B4E2 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20260202_162150_542360_A9BDB057 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,26 +81,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 02, 2026 at 10:23:45PM +0000, Russell King (Oracle) wrote:
-> On Mon, Feb 02, 2026 at 08:54:52PM +0200, Ovidiu Panait wrote:
-> > If not, maybe this patch could be merged to add the flag that disables
-> > EEE and I will just send a patch to disable EEE on our platforms as well.
-> 
-> We still need the flag to disable EEE for platforms where lpi_intr_o is
-> logically OR'd with the other interrupts, so there's no way to ignore
-> its persistent assertion.
+This series completely initializes the GTRs in Linux, making all
+bootloader initialization (as performed by init_serdes() in
+psu_init_gpl.c) optional. This gives the following advantages:
 
-I'll also state that we need both patches, but there's no point pushing
-my original patch (to allow EEE to be disabled) unless Laurent is going
-to also submit a patch to make use of the flag - the EEE disable and
-Laurent's patch needs to be part of a series. We don't merge stuff that
-adds facilities that have no users, because that's been proven time and
-time again to be a recipe for accumulating cruft.
+- On some boards (mine) the reference clocks may not be configured in
+  SPL/FSBL. So ILL calibration will fail (and take a long time to do so)
+  unless we defer initialization to U-Boot/Linux where the phy driver
+  can request the clocks.
+- If PCIe/SATA are not used in U-Boot, ILL calibration can be deferred
+  until Linux when it can be done it parallel with other initialization.
+- We will have flexibility to switch between different configurations at
+  runtime. For example, this could allow supporting both SATA and PCIe M.2
+  cards with [1].
 
-So, at the moment, "net: stmmac: provide flag to disable EEE" ain't
-going anywhere until there's a patch that makes use of the new flag.
+I have tested this series with DP, PCIe, SGMII, and SATA. USB3 is broken
+on my dev board at the moment (independent of this series; need to
+investigate) so I have not tested that. I have an equivalent set of
+patches for U-Boot that I will try to post soon.
+
+[1] https://lore.kernel.org/linux-pci/20260107-pci-m2-v5-0-8173d8a72641@oss.qualcomm.com/
+
+
+Sean Anderson (8):
+  dt-bindings: pci: xilinx-nwl: Add resets
+  phy: zynqmp: Refactor bus width configuration into helper
+  phy: zynqmp: Refactor common phy initialization into a helper
+  phy: zynqmp: Calibrate ILL if necessary
+  phy: zynqmp: Initialize chicken bits
+  PCI: xilinx-nwl: Split phy_init from phy_power_on
+  PCI: xilinx-nwl: Reset the core during probe
+  arm64: zynqmp: Add PCIe resets
+
+ .../bindings/pci/xlnx,nwl-pcie.yaml           |  17 +
+ arch/arm64/boot/dts/xilinx/zynqmp.dtsi        |   4 +
+ drivers/pci/controller/pcie-xilinx-nwl.c      | 255 +++++++--
+ drivers/phy/xilinx/phy-zynqmp.c               | 487 +++++++++++++++++-
+ 4 files changed, 713 insertions(+), 50 deletions(-)
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.35.1.1320.gc452695387.dirty
+
 
