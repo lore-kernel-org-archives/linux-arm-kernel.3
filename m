@@ -4,76 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52935E83070
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 10:01:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C32BE83076
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 10:04:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UENQcPP3bF2ZA0ADQ4abpHHj29Ib66umM+PFjhQQHc8=; b=uQlnd5f9S94iYIdBXYow+IQYaU
-	tiyTJf45yPHNweJ79+ZrbRH3Rm3OeiIgmUBzE5C20ACVcACKr+4aX11m+4JbNm9D1IfinKM2cJlNN
-	4LyTwlhOiVLXtb1GfVRmAxdWeV8XLUcjruRK3qTcieUxQWJJ8gm8FwSYgsHKpyiCcXd0vu/pGLyyn
-	OSm3sXJmUDb0+xCGrTi6aUPU0Kve2mTf8ogg2wFS6wMVi3Kp1cq032WaK7cKv9btU/eqlV8UjYGxi
-	c3agWbtiIKYBJ/BPR2uV8p/hQrO6d+Uy29ZtsGTRP2KV81m0swwtYXkpsb8I1pqyDSwZaZ0LQiLkX
-	/0wJ3YDA==;
+	bh=I/WLesTWjIpwef38SdQ4JX0gdMp0IJsjyMkm8xAgFWc=; b=gBTyHhA1wQgxmHTfW+CXsRK7lJ
+	VoXl4QOkshjcnqfjvtqO/ECzeI4hli5y3gD9fv1giG8nfBXLBglT1Cxz82+1w83C11lzU/im+7DWU
+	8SRtmSEWvdmdBUYrgAruKUhdaWnFl4PhNtwBnFq/dDKi5jVEZKNc0wQpOKbQmp0QeZg/bNTb5nOdh
+	ypZxP0TgxrzMpBb3ndnANK3robdg0NBh/3qb0+fHo4lLccedqjYQrzz00iC9vfnbo24qM327GwMpM
+	6uy98xgPi1cYoTgpji5YcyTU1bBt+GSvh7NGi8udQsjDy+Vp9GyhuwQyVdyjvOdoQN24ttZoXAyx+
+	7IutzZKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnDE2-00000006R3A-2MWJ;
-	Tue, 03 Feb 2026 10:01:38 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vnDGc-00000006RRK-2KwF;
+	Tue, 03 Feb 2026 10:04:18 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnDE0-00000006R1S-1xnE
+	id 1vnDGa-00000006RQS-1G2D
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 10:01:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=UENQcPP3bF2ZA0ADQ4abpHHj29Ib66umM+PFjhQQHc8=; b=yH6Ed3idSUHAp6Lx+IkGjLwpve
-	IRjQphIw8UGp9DcXazS3s2pSSQmisnwPXCWIM5g944Qvh9hkJbLZ3KL9KnpSQu7/7g7scRNGKGG9K
-	6ACw0TVHKzVs6fSG8+naujz/PxO/7DXPII6/qzAAHDg5pAfxw8AgMqe1IhaFXuRfRpazLXlYEc61A
-	t2Gm0QLAVG/DjMTUgsg4B9/1l2v8YRuGiO41J6vNgorE4lFVpsLWfxXbQoLFdv4eCq7EktqP8TpLT
-	DcGVu5NtOUuJhfjujpEgD/jVfsp/DF6fQOIyCsQnNfM0J9qC6F97F37kL+O3RnNSwWYDmHTBXHThC
-	pgsweyRQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:57930 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vnDDu-000000004xS-2otx;
-	Tue, 03 Feb 2026 10:01:30 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vnDDt-00000007XxF-3uUK;
-	Tue, 03 Feb 2026 10:01:29 +0000
-In-Reply-To: <aYHHWm5UkD1JVa7D@shell.armlinux.org.uk>
-References: <aYHHWm5UkD1JVa7D@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 4/4] net: stmmac: move serdes power methods to
- stmmac_[open|release]()
+	Tue, 03 Feb 2026 10:04:17 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4f4zbH658Rz9thY;
+	Tue,  3 Feb 2026 11:03:55 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1770113036;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=I/WLesTWjIpwef38SdQ4JX0gdMp0IJsjyMkm8xAgFWc=;
+	b=kIGWXhrH/fv5Z6UEAwBwiKWnU1HgR++qoAwUtaSjL0r2h36xtP6PXwALTo9+2xHpHvNDpX
+	7zzG/igQFe7TZlu/681yxRxR8YlgD6kHLF6QuhXJseIxd0hRuJkjd7lHXb4skFBFEXqdzh
+	jgCyWStCK5A94b3tELO/6fl8zgCGCNMb/s3//jcJUMlZV/K5Pr/H1HM+uH6cHsMNb0K0+p
+	dqlec2zoPzHAwiMB28GejqjFcDd7uK3S7/EQdz1XjIryuXQq9Qs4emeM15JzfeIKdplYVO
+	6p1jwz37A7xjGvN5mW8FZ4tYdhEKjcGECe2yHgo5PKxvwsyUKjSv9jnrfNM/XA==
+Date: Tue, 3 Feb 2026 11:03:41 +0100
+From: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukasz.majewski@mailbox.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: andrew@lunn.ch, shawnguo@kernel.org, krzk+dt@kernel.org,
+ linux-kernel@vger.kernel.org, edumazet@google.com, netdev@vger.kernel.org,
+ pabeni@redhat.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ conor+dt@kernel.org, horms@kernel.org, richardcochran@gmail.com,
+ robh@kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, wahrenst@gmx.net, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com
+Subject: Re: [net-next,v22,4/7] net: mtip: Add net_device_ops functions to
+ the L2 switch driver
+Message-ID: <20260203110341.1ce21455@wsk>
+In-Reply-To: <20260203014247.824561-2-kuba@kernel.org>
+References: <20260131233459.1625279-5-lukasz.majewski@mailbox.org>
+	<20260203014247.824561-2-kuba@kernel.org>
+Organization: mailbox.org
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vnDDt-00000007XxF-3uUK@rmk-PC.armlinux.org.uk>
-Date: Tue, 03 Feb 2026 10:01:29 +0000
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-MBO-RS-ID: fe9904b47499ae8f7ea
+X-MBO-RS-META: zwqoyhezb5rx5qmpyzoc4ik3614jqbee
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_020136_520712_341D70EE 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20260203_020416_484021_F908BDA0 
+X-CRM114-Status: GOOD (  24.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,87 +84,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the SerDes power up and down calls for the non-"after linkup"
-case out of __stmmac_open() and __stmmac_release() into the
-stmmac_open() and stmmac_release() methods, which means the SerDes
-will only change power state on administrative changes or suspend/
-resume, not while changing the interface MTU.
+Hi Jakub,
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 21 +++++++++----------
- 1 file changed, 10 insertions(+), 11 deletions(-)
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
+>=20
+> For local reproduction steps see
+> https://netdev-ai.bots.linux.dev/ai-local.html ---
+> net: mtip: Add net_device_ops functions to the L2 switch driver
+>=20
+> This patch adds net_device_ops callbacks for the MTIP L2 switch
+> driver, including transmit, multicast configuration, MAC address
+> handling, and timeout recovery functions.
+>=20
+> > diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+> > b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c ---
+> > a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c +++
+> > b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c =20
+>=20
+> [ ... ]
+>=20
+> > +static netdev_tx_t mtip_start_xmit_port(struct sk_buff *skb,
+> > +					struct net_device *dev,
+> > int port) +{
+> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > +	struct switch_enet_private *fep =3D priv->fep;
+> > +	unsigned short status;
+> > +	unsigned int index;
+> > +	struct cbd_t *bdp;
+> > +	void *bufaddr;
+> > +
+> > +	spin_lock_bh(&fep->hw_lock); =20
+>=20
+> [ ... ]
+>=20
+> > +	/* Save skb pointer. */
+> > +	fep->tx_skbuff[index] =3D skb; =20
+>=20
+> mtip_start_xmit_port() stores sk_buffs in fep->tx_skbuff[index] and
+> creates DMA mappings, but mtip_switch_tx() which should complete TX
+> operations is empty:
+>=20
+> static void mtip_switch_tx(struct switch_enet_private *fep)
+> {
+> }
+>=20
+> The NAPI poll handler mtip_rx_napi() calls mtip_switch_tx() to reclaim
+> transmitted buffers. Since it does nothing, won't every transmitted
+> packet leak the skb and DMA mapping? Also, dirty_tx is never
+> advanced, so the TX ring will fill (cur_tx =3D=3D dirty_tx) and stop
+> accepting packets.
+>=20
+> jakub: maybe add a TODO comment transiently here, since later patch
+> implements the cleanup?
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 05b0b080bade..d561b0a0f5ac 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4134,12 +4134,6 @@ static int __stmmac_open(struct net_device *dev,
- 
- 	stmmac_reset_queues_param(priv);
- 
--	if (!(priv->plat->flags & STMMAC_FLAG_SERDES_UP_AFTER_PHY_LINKUP)) {
--		ret = stmmac_legacy_serdes_power_up(priv);
--		if (ret < 0)
--			return ret;
--	}
--
- 	ret = stmmac_hw_setup(dev);
- 	if (ret < 0) {
- 		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
-@@ -4170,7 +4164,6 @@ static int __stmmac_open(struct net_device *dev,
- 
- 	stmmac_release_ptp(priv);
- init_error:
--	stmmac_legacy_serdes_power_down(priv);
- 	return ret;
- }
- 
-@@ -4196,9 +4189,15 @@ static int stmmac_open(struct net_device *dev)
- 	if (ret)
- 		goto err_runtime_pm;
- 
-+	if (!(priv->plat->flags & STMMAC_FLAG_SERDES_UP_AFTER_PHY_LINKUP)) {
-+		ret = stmmac_legacy_serdes_power_up(priv);
-+		if (ret < 0)
-+			goto err_disconnect_phy;
-+	}
-+
- 	ret = __stmmac_open(dev, dma_conf);
- 	if (ret)
--		goto err_disconnect_phy;
-+		goto err_serdes;
- 
- 	kfree(dma_conf);
- 
-@@ -4207,6 +4206,8 @@ static int stmmac_open(struct net_device *dev)
- 
- 	return ret;
- 
-+err_serdes:
-+	stmmac_legacy_serdes_power_down(priv);
- err_disconnect_phy:
- 	phylink_disconnect_phy(priv->phylink);
- err_runtime_pm:
-@@ -4241,9 +4242,6 @@ static void __stmmac_release(struct net_device *dev)
- 	/* Release and free the Rx/Tx resources */
- 	free_dma_desc_resources(priv, &priv->dma_conf);
- 
--	/* Powerdown Serdes if there is */
--	stmmac_legacy_serdes_power_down(priv);
--
- 	stmmac_release_ptp(priv);
- 
- 	if (stmmac_fpe_supported(priv))
-@@ -4269,6 +4267,7 @@ static int stmmac_release(struct net_device *dev)
- 
- 	__stmmac_release(dev);
- 
-+	stmmac_legacy_serdes_power_down(priv);
- 	phylink_disconnect_phy(priv->phylink);
- 	pm_runtime_put(priv->device);
- 
--- 
-2.47.3
+The mtip_switch_tx() is empty as we have agreed, that I will divide
+this driver to several patches to ease the review.
 
+Adding TODO seems to only make AI review happy, as:
+
+- The patch which adds support for FEC_MTIP_L2SW in Kconfig will be
+  sent after the driver is accepted to net-next
+
+- Those commits are even now bisectable when FEC_MTIP_L2SW is
+  enabled (when I test the setup).
+
+Anyway, if you still would like to have the TODO comment, then please
+give me a hint how it shall be written to make the AI happy...
+
+
+
+And maybe a few my thoughts:
+
+1. AI review seems to bring each time different issues - even the
+"grammatic" ones were not provided with the first AI generated review.
+
+2. I have tried to setup claudie> to run the patch set through it -
+however, it requires a paid account on a cloud/AI vendor (and I guess
+that different vendors' AI engines produce different output for the same
+"AI prompt")?
+
+
+Anyway, I do appreciate the AI review - it provides very deep insights
+through the code.
+
+>=20
+> > +static void mtip_timeout(struct net_device *dev, unsigned int
+> > txqueue) +{
+> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > +
+> > +	dev->stats.tx_errors++; =20
+>=20
+> Jakub Kicinski noted in v16 review that tx_errors are already counted
+> by the network stack, and the statistic is exposed per-queue in
+> sysfs. Does incrementing tx_errors here double-count timeout events?
+>=20
+> https://lore.kernel.org/all/20250725151618.0bc84bdb@kernel.org/
+>=20
+
+Yes, this shall been removed.
+
+> > +	DO_ONCE(mtip_print_hw_state, dev);
+> > +
+> > +	schedule_work(&priv->tx_timeout_work);
+> > +} =20
+
+
+
+--=20
+Best regards,
+
+=C5=81ukasz Majewski
 
