@@ -4,51 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E9CE87834
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 14:07:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F032E87835
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 14:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fowIpKqJviHJgBCccb8EV60zwlK5oi6juyi1HkwBxOI=; b=n74jS1/SV7C953DxjVS34CEwSG
-	nbIJt/66mrC9jKNyx+lzaHFjDdAWsVMc2WdWCvFNhPIK5h7kN1CQCOknc23mdPzSj0HRUmhMZTWEb
-	b4f0JcMt+UbFWOsG3J9u7VHc/yEgkpHCxIk8bQ9NsVIYHvCnONRuhxWCSN0I7sOYleA+XY94Y/Mq4
-	b19f7Nr1D1qBf54B5rw8azS+z0RV5Kl4xMbkZopqLx5nmw63vO2BRPlxXzrwkRKRD0xlNNPVhVX2Y
-	fv7k+wtulAxScaSWaAuZKCqoymLivRVJsQbC7izH2d8fVZ4u1hIoPedqv7xllW4qTa/y2/cCIU6tr
-	8ADxZ5vQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uEVDyNGIeHf4pNw+X2bXrhjpf8wdFUs1OWtMdxxb5PU=; b=t0cJyz6dUU318YGrpwfBXkyCQb
+	/AWWwMxfgRvOo8CPXSHcXZYak7sd1I9dPd6jibJowD85CJw9Rllcl2S8HJR79aufUjMsAjsZkA5be
+	kPgdczxauvvkcnTleBcJhP8j0M+wOclo/6vfQIU/yjdZMeSu10rptSVXEp1/ouJupg9GkYyaif0f1
+	50Xw/tzvGiLhHcb5cX6qJpQ0+oyqRZ+0MpWTwe6JY4r1Nc2UGeyr48o4i15RYOnjygLLfRIlJxb1S
+	Q5OUFV404EEqFwp1G4WOu/qcAZiJ5BN0idW3inIwIEPq20oV5nbsa65nUvqddRTLvweYu3y2Y2NIU
+	bNU5FPgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnH49-00000006jFn-3DTb;
-	Tue, 03 Feb 2026 14:07:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnH47-00000006jEo-07jw
+	id 1vnH4l-00000006jKe-0Jx8;
+	Tue, 03 Feb 2026 14:08:19 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vnH4j-00000006jJe-0DmQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 14:07:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 58149339;
-	Tue,  3 Feb 2026 06:07:29 -0800 (PST)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.85])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C0B4F3F740;
-	Tue,  3 Feb 2026 06:07:34 -0800 (PST)
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org
-Cc: mark.rutland@arm.com,
-	ilkka@os.amperecomputing.com,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: [PATCH v2] perf/arm-cmn: Reject unsupported hardware configurations
-Date: Tue,  3 Feb 2026 14:07:29 +0000
-Message-Id: <fb6a80013d47936ced4d6398388ed71594d02ee8.1770127120.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
+	Tue, 03 Feb 2026 14:08:18 +0000
+Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-81dab89f286so2822170b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 06:08:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770127696; x=1770732496; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uEVDyNGIeHf4pNw+X2bXrhjpf8wdFUs1OWtMdxxb5PU=;
+        b=GNCC4UEvERBcIwaO0MoYgn+aa/jQ3Vq+PWrloGxL5SUI6It2r3gd4FV6unyph5JDmR
+         OmRn6GPJOD+ppFDbkp55ILABkAcDFBrEfDfCsiu9GRiO3zjtg5qN63J7azXEvcPsiw/2
+         tfyy2pDx/qtw2wX5OoTK/DUngH++0q7u0Xl9qkwg+4Lajoa9qaCaoPnLBHv36RcB8L8F
+         pJTJ+F9M9v8Z4sGnbMfnFOhSpt2zNsT+SWciefPuOBiVIjfdOCL2K4uj/9v1HmZ/DVUs
+         GjOSKtuUqmkkB+vG328LwKEUizOttSgtuIVAe3XQlOHfKHP6Il6k79I02JuBVd1hRPiq
+         I8pA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770127696; x=1770732496;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=uEVDyNGIeHf4pNw+X2bXrhjpf8wdFUs1OWtMdxxb5PU=;
+        b=at2Sl4h2Vj+PQz5NqsKskpXTgUUDSUC/n9H3WmRmvCFXVo2FTz+IuU1H6ScCcGPcsm
+         01eWWUhQ64DiO2BstWiuqQCsT72cMjBo4s7X1nQVqTOxUTlrDel7u4IwwHG5DHi8e/7B
+         f4Bkger0ktrB+r1JEUJHqJCYJgGgOr7BRzmKOotlb5miV1MpcntHrnIj5gwb65RyL65J
+         L3vjtzzlxflBnBVquYhTTjB9T6pSE29tgLY03owgvw5pMLkU0V3cUHW56P3KjeRVHU5s
+         EmZnuDIJ6pKPAP6GoE7gBR8hJQYNybFTKSrrmOr2B8+hsmZUIM7vbRAKypPeWu8aNMWh
+         dMug==
+X-Forwarded-Encrypted: i=1; AJvYcCX2n0FxEVFAwOAPJBb94G7c/EjzvWYt5lfHipScfM7dnxS3k0NHxTQp4CLkSl6A5Zf5AOX9DbpFrmA6CUw/d+GB@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYg0ZxYYaWjbQ+jpBEbb48m1us7uULDmRdmjE4U1y/juPa8+6K
+	/rupos0Fz/tJdGrbPSGmhUEy/C8ampqzy12qvsM9d5fxAgz/RhLfki7Y
+X-Gm-Gg: AZuq6aJTeB1Pt314b/OPprQMgboaofK6//yuNT12EfQ6ExH2+TtK0dga/ENrP7BhaBv
+	Az+xoiUyZ/bHEWAXHJzbm8E155uYrd8DvnYHv+dHXrsp8giC83zEPdnxPaRTUV9PrRnpuO3hD/0
+	DdfA/7dTNUaef64BR/oYSwkYOkqt2lRuEX2D0zJHhiMH2OQst1o908nawAOk5H7ynrd9dZYVket
+	Wi48k/ajT0yj3rJt0YcMTNxpmdGIpHcPZuNReGe9rOqsw6auCSK69REJUPO7RcHY15w189YdFJo
+	d/jHUUYqiFua4/4hQwRkXAyDssEuAXiPPViswqWHoeomC6FmCkY5+4lQvpp9ePV6NTpS3a9iLBP
+	Kizerc6gYtydWlpyXcFqDQkx/N2drpknqxxdp34EwB3QQ7+3RK0HcuL634A12OrczJFvD3CXHhn
+	7yKGtBVOHKXHFCRuXQzqvMNDKt0A==
+X-Received: by 2002:a05:6a21:8888:b0:392:e81f:6711 with SMTP id adf61e73a8af0-392e81f696bmr11458034637.8.1770127695989;
+        Tue, 03 Feb 2026 06:08:15 -0800 (PST)
+Received: from junjungu-PC.localdomain ([2408:820c:9008:ba52:f091:7dff:927e:f788])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3543d52c396sm7694684a91.4.2026.02.03.06.08.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Feb 2026 06:08:15 -0800 (PST)
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Tue, 03 Feb 2026 22:07:57 +0800
+Subject: [PATCH v3 1/2] clk: imx: imx6q: Fix device node reference leak in
+ pll6_bypassed()
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260203-clk-imx6q-v3-1-6cd2696bb371@gmail.com>
+References: <20260203-clk-imx6q-v3-0-6cd2696bb371@gmail.com>
+In-Reply-To: <20260203-clk-imx6q-v3-0-6cd2696bb371@gmail.com>
+To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Lucas Stach <l.stach@pengutronix.de>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Akshay Bhat <akshay.bhat@timesys.com>, 
+ Ranjani Vaidyanathan <Ranjani.Vaidyanathan@nxp.com>, 
+ Shawn Guo <shawnguo@kernel.org>
+Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Felix Gu <ustc.gu@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770127681; l=1359;
+ i=ustc.gu@gmail.com; h=from:subject:message-id;
+ bh=WD9h0fFVKsfX86DefFgHgmW9sLJVVxtbAMFvxApruCc=;
+ b=wXAWXX5AmnINy0EhIfleVbe6g2DbP1E2ngkrqcfESd6zIOLTsamfvNCQ5N2/Z0tXObOxAKayW
+ 41Nf1MuQstPCrduCmw3LSegnipFmeLm3NxmMflgZk4fI7MuO3mnAE0h
+X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_060739_329830_B8F8966B 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20260203_060817_097387_84748F82 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,70 +117,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-So far we've been fairly lax about accepting both unknown CMN models
-(at least with a warning), and unknown revisions of those which we
-do know, as although things do frequently change between releases,
-typically enough remains the same to be somewhat useful for at least
-some basic bringup checks. However, we also make assumptions of the
-maximum supported sizes and numbers of things in various places, and
-there's no guarantee that something new might not be bigger and lead
-to nasty array overflows. Make sure we only try to run on things that
-actually match our assumptions and so will not risk memory corruption.
+The function pll6_bypassed() calls of_parse_phandle_with_args()
+but never calls of_node_put() to release the reference, causing
+a memory leak.
 
-We have at least always failed on completely unknown node types, so
-update that error message for clarity and consistency too.
+Fix this by adding proper cleanup calls on all exit paths.
 
-Cc: stable@vger.kernel.org
-Fixes: 7819e05a0dce ("perf/arm-cmn: Revamp model detection")
-Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+Fixes: 3cc48976e9763 ("clk: imx6q: handle ENET PLL bypass")
+Signed-off-by: Felix Gu <ustc.gu@gmail.com>
 ---
-v2: Fix comment typo, improve error messages
+v3 changes:
+- Fix Frank's comment, add check before calling of_node_put().
+---
+ drivers/clk/imx/clk-imx6q.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
- drivers/perf/arm-cmn.c | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
+diff --git a/drivers/clk/imx/clk-imx6q.c b/drivers/clk/imx/clk-imx6q.c
+index bf4c1d9c9928..ba696cf34fe3 100644
+--- a/drivers/clk/imx/clk-imx6q.c
++++ b/drivers/clk/imx/clk-imx6q.c
+@@ -238,8 +238,11 @@ static bool pll6_bypassed(struct device_node *node)
+ 			return false;
+ 
+ 		if (clkspec.np == node &&
+-		    clkspec.args[0] == IMX6QDL_PLL6_BYPASS)
++		    clkspec.args[0] == IMX6QDL_PLL6_BYPASS) {
++			of_node_put(clkspec.np);
+ 			break;
++		}
++		of_node_put(clkspec.np);
+ 	}
+ 
+ 	/* PLL6 bypass is not part of the assigned clock list */
+@@ -249,6 +252,9 @@ static bool pll6_bypassed(struct device_node *node)
+ 	ret = of_parse_phandle_with_args(node, "assigned-clock-parents",
+ 					 "#clock-cells", index, &clkspec);
+ 
++	if (!ret)
++		of_node_put(clkspec.np);
++
+ 	if (clkspec.args[0] != IMX6QDL_CLK_PLL6)
+ 		return true;
+ 
 
-diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-index 2903e01f951f..364a4fd8f2c0 100644
---- a/drivers/perf/arm-cmn.c
-+++ b/drivers/perf/arm-cmn.c
-@@ -2422,6 +2422,15 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 			arm_cmn_init_node_info(cmn, reg & CMN_CHILD_NODE_ADDR, dn);
- 			dn->portid_bits = xp->portid_bits;
- 			dn->deviceid_bits = xp->deviceid_bits;
-+			/*
-+			 * Logical IDs are assigned from 0 per node type, so as
-+			 * soon as we see one bigger than expected, we can assume
-+			 * there are more than we can cope with.
-+			 */
-+			if (dn->logid > CMN_MAX_NODES_PER_EVENT) {
-+				dev_err(cmn->dev, "Node ID invalid for supported CMN versions: %d\n", dn->logid);
-+				return -ENODEV;
-+			}
- 
- 			switch (dn->type) {
- 			case CMN_TYPE_DTC:
-@@ -2471,7 +2480,7 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 				break;
- 			/* Something has gone horribly wrong */
- 			default:
--				dev_err(cmn->dev, "invalid device node type: 0x%x\n", dn->type);
-+				dev_err(cmn->dev, "Device node type invalid for supported CMN versions: 0x%x\n", dn->type);
- 				return -ENODEV;
- 			}
- 		}
-@@ -2499,6 +2508,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 		cmn->mesh_x = cmn->num_xps;
- 	cmn->mesh_y = cmn->num_xps / cmn->mesh_x;
- 
-+	if (max(cmn->mesh_x, cmn->mesh_y) > CMN_MAX_DIMENSION) {
-+		dev_err(cmn->dev, "Mesh size invalid for supported CMN versions: %dx%d\n", cmn->mesh_x, cmn->mesh_y);
-+		return -ENODEV;
-+	}
- 	/* 1x1 config plays havoc with XP event encodings */
- 	if (cmn->num_xps == 1)
- 		dev_warn(cmn->dev, "1x1 config not fully supported, translate XP events manually\n");
 -- 
-2.39.2.101.g768bb238c484.dirty
+2.43.0
 
 
