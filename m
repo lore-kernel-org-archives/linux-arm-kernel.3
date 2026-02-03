@@ -4,185 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 790EDE7FDE0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 01:15:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB0DCE7FDF3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 01:19:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3vx9Lnu0+BgNAGkXr3TmswFZyiNb/JfQxOAltSPF9/0=; b=v3Bnp1YVzVfjIm+2aqyUmk3b6w
-	fg3GmCVIYvV+Fv9uhnsCA/gsbYSPRj7V3mOSRGrzEJIdfJq95spD3mHhlgLihmnAQZtxej2liArIB
-	6qC1oemZloBn6BxMFhdNuvFexm7tZFf9vN0x6PQBDLnUwoNZyLrXVbJg5/dhXzkeqld+JjQjgLuJ9
-	rQePSlSDirvjFO1XmSzkIvWnyuR9Dj5i1PG3loWl2ZNbdOiTmrYOa7mF4tnmEhRtnAoXspAYcqBpv
-	xuNt3QF6j7yspEUqrN5fNAFn5zL8cNf2g4tRPPW9leMnsnmv44bnJQ6/TMzNzXYg6NI6j++slHyqP
-	9r7MXMrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6WLwAzn0H5ty8AFN+1OyWBxNluLTKkZwNtuyX7IP0Lc=; b=Fp1Zdrxf23utJlFMcI+ixECNTC
+	CGosc9JqH7TEUEgjn00PsIx2ZtfpnOnqwDgeyQJAy6gLiNq687Qgh80f2T+m8qhCaFFdvBAS3RAPy
+	7h6zSIkxdsJrF9ZxtIc6gq1TxVuFJr0nbm9NO7iMeCOWV1HKpUD1yvEiAsI5ZesGf/i/+GTopT09B
+	pmmncoGe2PkAnrZPqR8KAZAxcqw/OH5stD5MEebO2Di1QLbtO8UWlcqLa6v68QeDrZ52P0pAh0Ads
+	ea3yhtRe4iz04ub90tfyNP7qF9ngR5IwN8pDzNF95Zxe/2tJUSYOdceEvdTIdJ7UszF98jBcCSboq
+	HXMeUoZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn50i-00000005q1y-0M7E;
-	Tue, 03 Feb 2026 01:15:20 +0000
-Received: from mail-northeuropeazon11011041.outbound.protection.outlook.com ([52.101.65.41] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vn54J-00000005qIV-3P1D;
+	Tue, 03 Feb 2026 01:19:03 +0000
+Received: from lgeamrelo11.lge.com ([156.147.23.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn50f-00000005q1c-3w7F
+	id 1vn54G-00000005qIB-0j49
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 01:15:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vUsxZVgcEvoql+xT5lrPYHwyuIi2o6KsbKuljGTf6oxG4KXHfIB+SVAZLsqbCltcSBnEjk4C8cDWOsGd088TWIyV5FjjrNVxz9Rg0FY98abzYWg0EhGQCOgeIQpPgaLZTdnuvsUtAHE2c1vWUkOBYxqoeuYapSZb1VGQZGm4YsdFqltFvNmHdSMaCca5Lqi7jmVSeKIksBgwOfUytjNP56cKMgjwft8vEPtx/62vzMYEBxZUGskqBeA47gG2pkahMo9oQbK9pM3c0QPgYi0AiAT8LHax/DjMYv+RRqcEtfSIgJNV9JT+rb/Kk/ZQ5C51tAgBVp9scsCNP8NlTw3Dig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3vx9Lnu0+BgNAGkXr3TmswFZyiNb/JfQxOAltSPF9/0=;
- b=hE7IlbRr8vGYPYKo26jnEIo3+RDnS4cXwCU/66fhUbYrlsO/Da58cG/N0DpjnvhXcyV2m43hmkT0Zq8S8aS4rFdZS5BOZp9OUovuYSP+k4vdmcxm/gFpdSZQJA85qaYI8duQcVNvBKIwMeO1FOjKupnhCidPLmTsz2N7kbH2gjrPLpEm6L7hYH8CB1K41EcDzuNYyW3RgthehqVVuoJ/DVE09haSZv3rm5XZZcusDQidnewe3uoAersaaZEgaN4CSPAchEV1XzB+hFhag5VPmP0fDo+y+i4hagYloyd7qRWTT2GGGLfcfj8/N836X1jQMXjP224NoTpFxkuTYMH9Ig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3vx9Lnu0+BgNAGkXr3TmswFZyiNb/JfQxOAltSPF9/0=;
- b=nXTQBf9q3cQknRfx9BQOmDiGxzBz8Yatl7HobY4aXJr+O+++Ad2fvxZUNmsMGlnHhqAbcm0da+dgczaCEMNL93YfQWw9G806qTZ3xrZb15xbnu66rIqwKN3gN/6upqvXSFWf+URk7Wa15SRPUesUcvLMfSWK+RE94YknnEgt1XBhcTakVEzljMW7Y3zfMkUd8h69WS/lz71h56qhyMAQei+mG5F2rMaREUbAyTdXIxlV77yLZxeG00xaxt5iHPIOL6GjwM5+F2SdKmEfx03Du94jvfUMINxsLjvapXE5z8U+Nn1yDdmtjnbKwIiL7r/glJ8s63xFCG8Sxt2c+9zzVw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AS8PR04MB8213.eurprd04.prod.outlook.com (2603:10a6:20b:3f3::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Tue, 3 Feb
- 2026 01:15:13 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%5]) with mapi id 15.20.9564.006; Tue, 3 Feb 2026
- 01:15:12 +0000
-Date: Tue, 3 Feb 2026 09:16:44 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: Xu Yang <xu.yang_2@nxp.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
-	Li Jun <jun.li@nxp.com>,
-	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/3] usb: dwc3: add may_lose_power flag
-Message-ID: <aYFMfPeeQusS1UR4@shlinux89>
-References: <20260202-add-flatten-dts-based-dwc3-imx-driver-v1-0-c44a5e919380@nxp.com>
- <20260202-add-flatten-dts-based-dwc3-imx-driver-v1-2-c44a5e919380@nxp.com>
- <20260203002405.5wxsceuc47m6hrud@synopsys.com>
+	Tue, 03 Feb 2026 01:19:02 +0000
+Received: from unknown (HELO lgeamrelo02.lge.com) (156.147.1.126)
+	by 156.147.23.51 with ESMTP; 3 Feb 2026 10:18:50 +0900
+X-Original-SENDERIP: 156.147.1.126
+X-Original-MAILFROM: chanho.min@lge.com
+Received: from unknown (HELO BRUNHILD) (10.178.31.97)
+	by 156.147.1.126 with ESMTP; 3 Feb 2026 10:18:50 +0900
+X-Original-SENDERIP: 10.178.31.97
+X-Original-MAILFROM: chanho.min@lge.com
+Date: Tue, 3 Feb 2026 10:18:50 +0900
+From: Chanho Min <chanho.min@lge.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Kael D'Alcamo <dev@kael-k.io>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 0/2]  arm64: dts: Initial support for LG1215 TV SoC
+Message-ID: <aYFM+mHqhfCuWgRP@BRUNHILD>
+References: <20260112053421.3185738-1-chanho.min@lge.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260203002405.5wxsceuc47m6hrud@synopsys.com>
-X-ClientProxiedBy: SI2PR06CA0010.apcprd06.prod.outlook.com
- (2603:1096:4:186::6) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS8PR04MB8213:EE_
-X-MS-Office365-Filtering-Correlation-Id: 50533a00-1b44-4db3-93ab-08de62c1ae44
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VmxUdkVxWlpVM3Bvd2pQdEs1MGdFUDhCT3l1RXRURHBPKzVUdnFuNW5wVjBy?=
- =?utf-8?B?RlJ3NTdDVUxlVmgwck5md2MrMGhjWm8vMGoxdHBHb3pXcHpLb042RXlCQ05o?=
- =?utf-8?B?dFJPRjdqWnpSK1pIUVFMNk9JUUdQcDV1YmNYTmNDcVFFNU13L2dKRm9IYXJi?=
- =?utf-8?B?dXdGUXBSQ2RQU1ByV0YxYUFPTWpPbmU2ZWlMdzJTekx1ZkRycUEyb2Q3SlRn?=
- =?utf-8?B?b2E5djBQdkZuOFZSd3Evc0l4Z2hKZEVtYlhMM05MWURHelZnOE45d3RzY3VT?=
- =?utf-8?B?SkszNUJMWWcrOW9XSDBVSWhvSEs2OWR0cWFxSkZqbXJGYzNLU0tHRXhUNjFZ?=
- =?utf-8?B?S25uTGlpSHFxY2lHdkg2TThEaEw2QUtzZWFqM3ZhTlZBVzBIRlRNbzNDemhz?=
- =?utf-8?B?eTJxY0VlWG9OemFsYnVwcGwwUy9xQUtHck0zekRpUTFzaXNKQlJHZFhFVklR?=
- =?utf-8?B?OFhZdSswZ0syR1dTNDlyaCtCNXNJeTlTT3RLN3lKMjQzUkRSbFp6WUZ6QWpp?=
- =?utf-8?B?WG9RQXkzZlVDd0gwOG40N2FJTGJGZCtiR0Nla2prb05uRFdsN24yZ1Bld09H?=
- =?utf-8?B?elZzb0gxN2ptTXN3dDVTVjl1U1BueU4wNzJ6VzAySHE4S3V2QmZTV2RsdlZn?=
- =?utf-8?B?MVRNZkJBODRKODFvRDB3dHI4UGhyQ2YwU0Y5VzVKdWdqZENDWHRIa1lUNDRm?=
- =?utf-8?B?OUVjT0dxRDdqQ3JvR0NnRW9JdEplMTZIVGdMSUpHejdlK0JxSmVFcHZDT3c0?=
- =?utf-8?B?dlBnZzNOeklwb1IveGtqK1lpVTh5L2VNNXE4V1VncW1vUVFFSUd5V3RZam44?=
- =?utf-8?B?R3c0b0dka0JINjRHUC8xQkpLaWp5dVZPVjR6TkpIYUxFUHhhb0plTkNidEwy?=
- =?utf-8?B?L0c2VTM4cmdhNTI2UTlrWlpENzQ0aUY1OGlaQlJMam01N3hjeWU4TzVXUFM3?=
- =?utf-8?B?MWtQdDFHdjg2dHpQTFh4b25nVVM1b0FHbkYrb0htL3dJaVNZVU5oeURkQ0ox?=
- =?utf-8?B?YUF3c2hlT0lzbVF3YWw3SWllcWNzQ1VNMnZLTklVQzRVVThPdFpoUjhDVlpE?=
- =?utf-8?B?cnk4ODZHSDZmV09WWk5sWDQ5MGV3b1NCSmEwWG4weDdxZWdGOW8vUWRLS2t1?=
- =?utf-8?B?aW9pSHpHTzNHa3ZzZWloMU8xc1lBTjhGV3JPM0JCOHhuODBwb0JPeTZnN1Jz?=
- =?utf-8?B?RENraVVWY0pFU3hiME5Bd09HYjE4VFROM1pDTWdkQW9IdXpFNmdKSEJzMFlD?=
- =?utf-8?B?RUdQcTdjcFNMSWVrOVlIV25YVXNMM3BhREU5Zld1aHZBRDZJNkcvbG5wVEV4?=
- =?utf-8?B?UlhoNW1Fb1dBK0pkVHVGQ1k1b0pKRXZXa0hmaytVVkR2Szh3TG1UR0pSeS8w?=
- =?utf-8?B?eVZlM3E1ZjEzZnNjT01ZOVcrNDkrVEJsMFkvRWxEaDQ0MmttQ2hzbHFwOWRO?=
- =?utf-8?B?aVRSZFFTNHdreS9INFptZFhTUlVJSzAxUngrUmdVdDRYV0NhL0F0S00ydkRV?=
- =?utf-8?B?c1g0clBTY3pDaGNJNVA4NnNIUkRkTkVMVjkwbk9XY3pHaDc0bXhTMTNTSG4y?=
- =?utf-8?B?V2puaWZFTUN1dm9GY01UZ2ZVWGY3QlloeWdqQzhHcXl5UGJxUG5rWE9HaWc1?=
- =?utf-8?B?bTlVUEIza0wvdFhKYURmSkRqdmhJcVVSYTRrV0F4VmUwdmE3d2xhblpsR1lp?=
- =?utf-8?B?MEFkWkI2OVJnL1g2YjFxVVdkUkxIVEducUZpdWtCVWtXR3NjVnJXdnpaT3JQ?=
- =?utf-8?B?SjJ1WkJ5UDRQOVg0b3JxZGszbVJ3RDI2T0lCSVVZa0pzV1dWSG05UVVSZncw?=
- =?utf-8?B?Rm5qcklKakJNOXNSbjJPM0JyUm1jNjVReFhVN1VLVUVDMmZkRldMaFREejlp?=
- =?utf-8?B?cStlMmVrb2ZzTHBGKzMyalAxN1FSQmxRM0M3L256VHdjajlEVk5ZbmtXNGdi?=
- =?utf-8?B?MUF1ZkowbHZRa3VrZHdIMUpjNzFiM0dKL3M4Z1ZLVkZnVE1lc3o2VkEwYzI0?=
- =?utf-8?B?TzJXT0hvQlJHQ1Q0RnhnMWJ4YTdUejErd1ZQYjJaYlhkcXNMYjNKRnc1NklJ?=
- =?utf-8?B?bkQrNk9LWkM3c3pCengwVitZVVJRQjMxQUFITWdGSEtCTlVkcEVXLzFWSm1W?=
- =?utf-8?B?dFYvZWxxS3hqcjZiUzNqTVU2aGRmOURNRUFqemZvVEFNTlJjTE8xUWU2M1BE?=
- =?utf-8?Q?6o/bn0JObUBKrMaKGLvcU8k=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z1JzVmVGRzNMSVZaRmRBVXE0ZDZzOWtZM2RyeG1OZkRtMmZnVjA0bzNvSjZv?=
- =?utf-8?B?aVVlakdUR3JmWnduVndmZ1J0TFo2YVdCT2g1cUJDcXUyUXpWQlZlMzdpUGlR?=
- =?utf-8?B?b3JHT3JrWndXYVpHdzhsYnUyRXJrSG9Edm5PRHN4YUJNNzd3dDR3RjdvVHdu?=
- =?utf-8?B?eHlWdjBEekpEN3ozUzA4SkQ2WmZLZzFBWjNHYTNNMWI5bG91WVQrckVDL0Ra?=
- =?utf-8?B?VElnWEFTQW03RVNEeE9JekNDWGd1Q241NlVzMlJsK2k5eGVZMC9PaXlVS2dQ?=
- =?utf-8?B?K0NCdEtkSi9hSEhwbmMzeW5RUFloYVF2Qmt3cmZwV3lsdE1TSk1JZ0FVUzY4?=
- =?utf-8?B?am1Bbmhhb0JGSzFWVC9nOFRSdnhzenBmNmkzUStRTjBuR0FrVURjaFEzZkdC?=
- =?utf-8?B?cFM5UzJiV0pqdTlTZm5qbWpzclZRb0dMaWVaTjBsakxLSVRDMnZmdTVmZzh4?=
- =?utf-8?B?WlN3NGVZS1U4RmR4czlNM3JDREZFZUhYclhQMW81THZvUGxmenVqT1VGc2RU?=
- =?utf-8?B?MHBPT3dPTnNZRy83VXRYQzE5azBUT1VGUHVaUWx3em8rYlI3cXFDSWR6Unpz?=
- =?utf-8?B?dWJmUDc3WFhzVlhOY3JxcHB2eFNmVUQ1OFk4Y0tmc0laMThPcUIvV2h6QzNL?=
- =?utf-8?B?YStjYU5xcUtUdnJwS2g0dmlYbWFVM29INWd0UXZhQ01zd2dkeGJEUk1XejNP?=
- =?utf-8?B?dmk0WTJTTzh5dDk1cjh1Yys5bzVnSytLbzFGalRzQ0xOS3BWVUdiMi9JNCtO?=
- =?utf-8?B?ZGs0dFJOVEpreFQxa29jdFZqKzErUVR1K2huZ1VBbkdQY1hXTm5QQmdpMFpS?=
- =?utf-8?B?RkV6WFhoVHg3cUtMTVhJbEVrWmVFM25ETDI4OE5yaE5FOWo0clVMcDd3YzBI?=
- =?utf-8?B?NW1vNkRReFp0cXpNMDYyNVRVQzJVSzZad3NzSUhDZjcrZnRxbmU3eFFMeHVU?=
- =?utf-8?B?aXdCRVZpWnpnQWllNXdtZHJKSVZ4VFFjTy90RVo0R0kzRmtjYkl3N0E1Y1Rv?=
- =?utf-8?B?OVIvZ29TSEkxMmhndlQ0NVJHcXc4cysrTWV3ZmNISUlkVnpvaUVSSEZxV0xF?=
- =?utf-8?B?cksxOGtnblU0QlV5aUx4dmVpbXpJMncxRTVFWlI3UWVRaHhZamNkNWF5emtp?=
- =?utf-8?B?a3oyUE9yV1drbldTczAvRjR2WFJzNm45ek44SXdmdHQyVzlIcVV6MkY4Q1Fr?=
- =?utf-8?B?N29EUzU2a2EzN0dtWEczVEpkMEJxQ2pOZ3B3VnJjNmJVSnprRUtmY2g0MGor?=
- =?utf-8?B?VzkyUGNLOFU3Qm5TekU3c1E0U1FVMGo3TkpSWHpxVjkvRkRiT1FkUHY5WnM3?=
- =?utf-8?B?RnBFTUZDYjBHSlpZSS9JWHZBbFpkS1lpOVBmdDJFaUg1b1pJWHhyRkhybHRC?=
- =?utf-8?B?akFCOGlnYlFoUmNxSG5IdE52QjlSaTJnVlZ0ZEZ4aXVPdis1dmV6Si96SHhh?=
- =?utf-8?B?bEpsRXh4ZHp2TExFQ2Z4bUlNeEl5T3BjR1M2TERFY01QYVlxQjlhZU5CakdG?=
- =?utf-8?B?SnREN3BPbXJta2V2cjVaZ3ljeXJ1MlJxUUhLUGZFcE9RQU10cThBQlFCdGRB?=
- =?utf-8?B?L1k3NmJmVzFSTFczRzdrRU1jU2RSbXphQkVKQmZUY1c3L0Q4VkVLWW1uL1FZ?=
- =?utf-8?B?TGNCU1hJdzVzMGVUMFlnYm96WkEzYW9zcFJIT2lJRkV4VThkbzlsSlI5ZnQ1?=
- =?utf-8?B?U1UzZzVBQW0wOFFoNVkrR1NPczFhOU0rQlk5d2Z2cjB5V0JlSjN4N01YMDAy?=
- =?utf-8?B?OFBKd2VrUDJFbHc2NUR6Vzc4RG5TNXdlMG9xVUVNMXZBUDVlNlhpT3hoampP?=
- =?utf-8?B?R0t0SnJVQVhiZjRTTkxKRmhKdFpibjdialo4ekVqL2huNm5qUUlFZ0dMVEp2?=
- =?utf-8?B?NFdkWklSN1k2QXRSY3l2NTg0UTdHOXBjMmRoZjdjZTU3b3haeCtWbGtWY0Zw?=
- =?utf-8?B?dlNlSTBLQWNZQlJXY0IzWENpcnQrU1AxNExQamJVbVBiOW43TENoYy92cWx6?=
- =?utf-8?B?SjE2K29IeXVFR3RXaThDNDc4ME5FeWxWTlhkdVB0Nk5uVHVUWnZENTA1UWsr?=
- =?utf-8?B?OXQxbnpOU2ZobUQvaWo3VTluMHJWUDVzeUxFNkVESzFHMGdzL3k5VGNiNWov?=
- =?utf-8?B?SlVoWG5wSVRzNVBsLzBaKzl0K0Jqd1hBOFNERzZ4SHRVUCt5LzFzZ2FtNVJy?=
- =?utf-8?B?ZzZYakVjMTFNeG9pRml1MWIwYXMwZytBdzlWMFlYaDJQY3YzdDAzVkdvQkcv?=
- =?utf-8?B?QWpyTURDOWxaK1YxUThlR1kyMXl4cmY0MUpyNnJ6S2FzYXhuR3ZDQ0lweXND?=
- =?utf-8?B?TWpsUW84Z1MvbEVUdERMdlYwN25OWVdnV25kZVhMNXZiZ2FLM1RKQT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 50533a00-1b44-4db3-93ab-08de62c1ae44
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2026 01:15:12.8491
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SJKLOaHCRlNS0i95uR6QdIAvCpFMqt+ERAOdbZYnEN4aM0rHmB5HOXC1zFX5VHlJzPj7IuBfPWFi+Rnhsfe0Lg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8213
+In-Reply-To: <20260112053421.3185738-1-chanho.min@lge.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_171517_989913_81C5BC31 
-X-CRM114-Status: GOOD (  19.95  )
+X-CRM114-CacheID: sfid-20260202_171900_471466_E2D65DB8 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -197,89 +72,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 03, 2026 at 12:24:08AM +0000, Thinh Nguyen wrote:
->On Mon, Feb 02, 2026, Xu Yang wrote:
->> The current design assumes that the controller remains powered
->> when wakeup is enabled. However, some SoCs provide wakeup
->> capability even when the controller itself is powered down, using
->> separate dedicated wakeup logic. This allows additional power
->> savings, but requires the controller to be fully re‑initialized
->> after system resume.
->> 
->> To support these SoCs, introduce a flag to track the controller’s
->> power state and use it throughout the suspend/resume flow.
->> 
->> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
->> ---
->>  drivers/usb/dwc3/core.c | 9 +++++++--
->>  drivers/usb/dwc3/core.h | 2 ++
->>  drivers/usb/dwc3/glue.h | 3 +++
->>  3 files changed, 12 insertions(+), 2 deletions(-)
->> 
->> diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
->> index c07ffe82c85049364c38c7ba152aab0ff764d95e..9d4326da5ec7669fa714707fb24556723cab51b8 100644
->> --- a/drivers/usb/dwc3/core.c
->> +++ b/drivers/usb/dwc3/core.c
->> @@ -2314,6 +2314,9 @@ int dwc3_core_probe(const struct dwc3_probe_data *data)
->>  			goto err_exit_debugfs;
->>  	}
->>  
->> +	if (data->core_may_lose_power)
->
->Can this be passed down as part of the dwc3_properties within the
->probe_data? I'm trying to consolidate all the dwc3 properties to one
->place.
->
->> +		dwc->may_lose_power = true;
->> +
->>  	pm_runtime_put(dev);
->>  
->>  	dma_set_max_seg_size(dev, UINT_MAX);
->> @@ -2462,7 +2465,8 @@ static int dwc3_suspend_common(struct dwc3 *dwc, pm_message_t msg)
->>  		dwc3_core_exit(dwc);
->>  		break;
->>  	case DWC3_GCTL_PRTCAP_HOST:
->> -		if (!PMSG_IS_AUTO(msg) && !device_may_wakeup(dwc->dev)) {
->> +		if (!PMSG_IS_AUTO(msg) &&
->> +		    (!device_may_wakeup(dwc->dev) || dwc->may_lose_power)) {
->>  			dwc3_core_exit(dwc);
->>  			break;
->>  		}
->> @@ -2525,7 +2529,8 @@ static int dwc3_resume_common(struct dwc3 *dwc, pm_message_t msg)
->>  		dwc3_gadget_resume(dwc);
->>  		break;
->>  	case DWC3_GCTL_PRTCAP_HOST:
->> -		if (!PMSG_IS_AUTO(msg) && !device_may_wakeup(dwc->dev)) {
->> +		if (!PMSG_IS_AUTO(msg) &&
->> +		    (!device_may_wakeup(dwc->dev) || dwc->may_lose_power)) {
->>  			ret = dwc3_core_init_for_resume(dwc);
->>  			if (ret)
->>  				return ret;
->> diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
->> index 08cc6f2b5c23631a752c77fd7394e5876c929f0a..5b1358f36490a001bc9e68139224f7be70a57995 100644
->> --- a/drivers/usb/dwc3/core.h
->> +++ b/drivers/usb/dwc3/core.h
->> @@ -1117,6 +1117,7 @@ struct dwc3_glue_ops {
->>   * @usb3_lpm_capable: set if hadrware supports Link Power Management
->>   * @usb2_lpm_disable: set to disable usb2 lpm for host
->>   * @usb2_gadget_lpm_disable: set to disable usb2 lpm for gadget
->> + * @may_lose_power: set to indicate the core may lose power during pm suspend
->>   * @disable_scramble_quirk: set if we enable the disable scramble quirk
->>   * @u2exit_lfps_quirk: set if we enable u2exit lfps quirk
->>   * @u2ss_inp3_quirk: set if we enable P3 OK for U2/SS Inactive quirk
->> @@ -1369,6 +1370,7 @@ struct dwc3 {
->>  	unsigned		usb3_lpm_capable:1;
->>  	unsigned		usb2_lpm_disable:1;
->>  	unsigned		usb2_gadget_lpm_disable:1;
->> +	unsigned		may_lose_power:1;
->
->This name sounds like a quirk of a broken SoC.
->
->Perhaps rename this to something such as power_lost_on_suspend or
->needs_full_reinit?
+On Mon, Jan 12, 2026 at 02:34:19PM +0900, Chanho Min wrote:
+> This patch series adds initial device tree support for the LG1215
+> TV SoC and its reference board
+> 
+> Chanho Min (2):
+>   dt-bindings: arm: lg: Add compatible for LG1215 SoC and reference
+>     board
+>   arm64: dts: lg: Initial support for LG1215 SoC and reference board
+> 
+> v2:
+>  - Switched to "lg," prefix
+>  - Dropped vendor-prefixes.yaml change
+>  - Fixed DT coding style issues (validated with DTB_CHECK=y make)
+> 
+> v3:
+>  - Removed changelog from commit message
+> 
+>  .../devicetree/bindings/arm/lge.yaml          |   5 +
+>  arch/arm64/boot/dts/lg/Makefile               |   1 +
+>  arch/arm64/boot/dts/lg/lg1215-ref.dts         |  50 +++
+>  arch/arm64/boot/dts/lg/lg1215.dtsi            | 290 ++++++++++++++++++
+>  4 files changed, 346 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/lg/lg1215-ref.dts
+>  create mode 100644 arch/arm64/boot/dts/lg/lg1215.dtsi
+Hi,
 
-How about out_band_wakeup?
+Gentle ping on the LG1215 series (v3) — Acked-by received, but still not picked up.
+Any update or is it waiting in a queue somewhere?
 
-Regards
-Peng
+Thanks!
+Chanho
+
+
+> 
+> -- 
+> 2.34.1
+> 
 
