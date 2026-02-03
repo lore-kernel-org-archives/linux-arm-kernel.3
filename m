@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE7EE8782F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48FA2E87831
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 13:37:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eKTeLY9f0IKkgBW1AFClGkUgEuQDZUiFeow1u5ltZ78=; b=URD5y32i8vVmbElvENOpcWX5Lb
-	bWMEhwm4QJgme873VZF+xShdp8yI+rDd2Z2ckgO/Xxb58l3X7Y7HPIYsq/z/jCSbV6B3+p6tVGVRe
-	a4DrJX+9QiowY6Yo6MZGB++FIfK46HMO10uYH7vFWuGD6FMHpq5WZ4GY4vtiiIehIqGtR7g9hoYeF
-	Ss8dpBZc0oY7t5NW7hZgl5JYnNmWtDF5js5DxizpcYt7d2pMW4BkkiBISmNtZ+qr3GLsD0cs/Uhp/
-	/4x9rja6k7NHQMsjkImufKinq60uOtS3Hj9vKJoHgEdSs/5I+pGOwpq79tXnp/HQYus2fm1BxHnyA
-	J+QOVgpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0OmR7IcBjZ5/SmEciMeHVWWbvI+Yv2j0arxgRpAgb9A=; b=F3x8G7VQnzkrIj37uzm8GQdcom
+	46nsvA1lN7mxdOECeh3/SLFs305G1yU5NRqaxmt6eWPMgu3mBs8x0wc1NOI+29gpj2e+OICLwFIWX
+	73ryM5VAvygmxBQGYhtpV8//c7p75+xtx0Z4x2bl0Yp43yNF9N6xZfHuGbJjhJRvj0+Wk7TpuWigp
+	IGrDgELIxmo6ZvqmuM8E5fEDjeqw8EGw2iNgunvuKO1ABrht9Ko50PbZciI3Db9WHtjUYjBZPy4x8
+	IUW+9wsDW0PF3NQYIqodvfQ4lO+7Q/XVai8PVh8qErRELQ3dXTiOhxHqjdbdq6kAZNh159jWjbGdP
+	oj15iljA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnGas-00000006g69-1Pm6;
-	Tue, 03 Feb 2026 13:37:26 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1vnGar-00000006g5f-41DX;
+	Tue, 03 Feb 2026 13:37:25 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnGao-00000006fzB-3RJT
+	id 1vnGan-00000006fyS-3raA
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 03 Feb 2026 13:37:24 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=eKTeLY9f0IKkgBW1AFClGkUgEuQDZUiFeow1u5ltZ78=;
-	b=Wn/6CpTnR2135bQmt7Aj1Zq+tNyfbUAzxE/bheeZE2qoJdhAMq1EfkVsM31IHZIJ2C8WTNRim
-	7UTBjInNCs/m1KfDHKM5RUQBeeH88iNB0OExPl9L59nQjjXtLVdCRC9FAXoloc7m7QBJGyax1pm
-	d/1aoq0joUU65BtYNU9B1Io=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4f54FP6nT8z1prLM;
-	Tue,  3 Feb 2026 21:33:45 +0800 (CST)
+	bh=0OmR7IcBjZ5/SmEciMeHVWWbvI+Yv2j0arxgRpAgb9A=;
+	b=S1Ay/oOmYS9KF1mw8aecgvL2+fCIGOrEOE6Ax2E/Yi3DIULf0c93Lbjn4p8ZTa4JTcFwSjfat
+	DcFUzzLRxj+Yn5dhXj3d/xeE3/rzwrfWKeP+uU6PxVU1OAesXo+wNrsyHS4LarCx5GcRcbqPh/p
+	GretA31dbdDd4KOsXSwIOMk=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4f54DD1G8vz1cyPV;
+	Tue,  3 Feb 2026 21:32:44 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 74A5B40538;
-	Tue,  3 Feb 2026 21:37:19 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 861B04055B;
+	Tue,  3 Feb 2026 21:37:17 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 3 Feb
- 2026 21:37:17 +0800
+ 2026 21:37:15 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
 	<shuah@kernel.org>, <kees@kernel.org>, <luto@amacapital.net>,
@@ -56,21 +56,21 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
 	<richard.weiyang@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v12 09/13] arm64/ptrace: Not check _TIF_SECCOMP/SYSCALL_EMU for syscall_exit_work()
-Date: Tue, 3 Feb 2026 21:37:24 +0800
-Message-ID: <20260203133728.848283-10-ruanjinjie@huawei.com>
+Subject: [PATCH v12 08/13] arm64: syscall: Rework el0_svc_common()
+Date: Tue, 3 Feb 2026 21:37:23 +0800
+Message-ID: <20260203133728.848283-9-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260203133728.848283-1-ruanjinjie@huawei.com>
 References: <20260203133728.848283-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_053723_223278_F677F84A 
-X-CRM114-Status: GOOD (  15.37  )
+X-CRM114-CacheID: sfid-20260203_053722_284913_F152DCA8 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,40 +85,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As syscall_exit_work() do not handle seccomp, so not check _TIF_SECCOMP
-for syscall_exit_work().
+The generic syscall syscall_exit_work() has the following content:
 
-And as the man manual of PTRACE_SYSEMU and PTRACE_SYSEMU_SINGLESTEP
-said, "For PTRACE_SYSEMU, continue and stop on entry to the next system
-call, which will not be executed. For PTRACE_SYSEMU_SINGLESTEP, do the same
-but also singlestep if not a system call.". So only the syscall entry need
-to be reported for SYSCALL_EMU, so not check _TIF_SYSCALL_EMU for
-syscall_exit_work().
+| audit_syscall_exit(regs)
+| trace_sys_exit(regs, ...)
+| ptrace_report_syscall_exit(regs, step)
 
-After this, audit_syscall_exit() and report_syscall_exit() will
-no longer be called if only SECCOMP and/or SYSCALL_EMU is set.
+The generic syscall syscall_exit_to_user_mode_work() has
+the following form:
 
-And remove has_syscall_work() by the way as currently it is only used in
-el0_svc_common().
+| unsigned long work = READ_ONCE(current_thread_info()->syscall_work)
+| rseq_syscall()
+| if (unlikely(work & SYSCALL_WORK_EXIT))
+|	syscall_exit_work(regs, work)
 
-This is another preparation for moving arm64 over to the generic
-entry code.
+In preparation for moving arm64 over to the generic entry code,
+rework el0_svc_common() as below:
 
-Link：https://man7.org/linux/man-pages/man2/ptrace.2.html
+- Rename syscall_trace_exit() to syscall_exit_work().
+
+- Add syscall_exit_to_user_mode_work() function to replace
+  the combination of read_thread_flags() and syscall_exit_work(),
+  also move the syscall exit check logic into it. Move has_syscall_work()
+  helper into asm/syscall.h for reuse.
+
+- As currently rseq_syscall() is always called and itself is controlled
+  by the CONFIG_DEBUG_RSEQ macro, so the CONFIG_DEBUG_RSEQ check
+  is removed.
+
+Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/arm64/include/asm/syscall.h     | 5 -----
- arch/arm64/include/asm/thread_info.h | 3 +++
- arch/arm64/kernel/ptrace.c           | 2 +-
- arch/arm64/kernel/syscall.c          | 2 +-
- 4 files changed, 5 insertions(+), 7 deletions(-)
+ arch/arm64/include/asm/syscall.h |  7 ++++++-
+ arch/arm64/kernel/ptrace.c       | 14 +++++++++++---
+ arch/arm64/kernel/syscall.c      | 20 +-------------------
+ 3 files changed, 18 insertions(+), 23 deletions(-)
 
 diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
-index bee5208c0006..85ed31dfe293 100644
+index 7feb3cda6530..bee5208c0006 100644
 --- a/arch/arm64/include/asm/syscall.h
 +++ b/arch/arm64/include/asm/syscall.h
-@@ -114,11 +114,6 @@ static inline int syscall_get_arch(struct task_struct *task)
+@@ -114,7 +114,12 @@ static inline int syscall_get_arch(struct task_struct *task)
  	return AUDIT_ARCH_AARCH64;
+ }
+ 
++static inline bool has_syscall_work(unsigned long flags)
++{
++	return unlikely(flags & _TIF_SYSCALL_WORK);
++}
++
+ int syscall_trace_enter(struct pt_regs *regs, unsigned long flags);
+-void syscall_trace_exit(struct pt_regs *regs, unsigned long flags);
++void syscall_exit_to_user_mode_work(struct pt_regs *regs);
+ 
+ #endif	/* __ASM_SYSCALL_H */
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index 50344a2d7b88..499ee0a5b9cd 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -2453,10 +2453,8 @@ int syscall_trace_enter(struct pt_regs *regs, unsigned long flags)
+ 	return ret ? : syscall;
+ }
+ 
+-void syscall_trace_exit(struct pt_regs *regs, unsigned long flags)
++static void syscall_exit_work(struct pt_regs *regs, unsigned long flags)
+ {
+-	rseq_syscall(regs);
+-
+ 	audit_syscall_exit(regs);
+ 
+ 	if (flags & _TIF_SYSCALL_TRACEPOINT)
+@@ -2466,6 +2464,16 @@ void syscall_trace_exit(struct pt_regs *regs, unsigned long flags)
+ 		report_syscall_exit(regs);
+ }
+ 
++void syscall_exit_to_user_mode_work(struct pt_regs *regs)
++{
++	unsigned long flags = read_thread_flags();
++
++	rseq_syscall(regs);
++
++	if (has_syscall_work(flags) || flags & _TIF_SINGLESTEP)
++		syscall_exit_work(regs, flags);
++}
++
+ /*
+  * SPSR_ELx bits which are always architecturally RES0 per ARM DDI 0487D.a.
+  * We permit userspace to set SSBS (AArch64 bit 12, AArch32 bit 23) which is
+diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
+index e8fd0d60ab09..66d4da641d97 100644
+--- a/arch/arm64/kernel/syscall.c
++++ b/arch/arm64/kernel/syscall.c
+@@ -65,11 +65,6 @@ static void invoke_syscall(struct pt_regs *regs, unsigned int scno,
+ 	choose_random_kstack_offset(get_random_u16());
  }
  
 -static inline bool has_syscall_work(unsigned long flags)
@@ -126,49 +185,32 @@ index bee5208c0006..85ed31dfe293 100644
 -	return unlikely(flags & _TIF_SYSCALL_WORK);
 -}
 -
- int syscall_trace_enter(struct pt_regs *regs, unsigned long flags);
- void syscall_exit_to_user_mode_work(struct pt_regs *regs);
- 
-diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
-index 24fcd6adaa33..ef1462b9b00b 100644
---- a/arch/arm64/include/asm/thread_info.h
-+++ b/arch/arm64/include/asm/thread_info.h
-@@ -110,6 +110,9 @@ void arch_setup_new_exec(void);
- 				 _TIF_SYSCALL_TRACEPOINT | _TIF_SECCOMP | \
- 				 _TIF_SYSCALL_EMU)
- 
-+#define _TIF_SYSCALL_EXIT_WORK	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_AUDIT | \
-+				 _TIF_SYSCALL_TRACEPOINT)
-+
- #ifdef CONFIG_SHADOW_CALL_STACK
- #define INIT_SCS							\
- 	.scs_base	= init_shadow_call_stack,			\
-diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index 499ee0a5b9cd..e68aa386ea48 100644
---- a/arch/arm64/kernel/ptrace.c
-+++ b/arch/arm64/kernel/ptrace.c
-@@ -2470,7 +2470,7 @@ void syscall_exit_to_user_mode_work(struct pt_regs *regs)
- 
- 	rseq_syscall(regs);
- 
--	if (has_syscall_work(flags) || flags & _TIF_SINGLESTEP)
-+	if (unlikely(flags & _TIF_SYSCALL_EXIT_WORK) || flags & _TIF_SINGLESTEP)
- 		syscall_exit_work(regs, flags);
- }
- 
-diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
-index 66d4da641d97..ec478fc37a9f 100644
---- a/arch/arm64/kernel/syscall.c
-+++ b/arch/arm64/kernel/syscall.c
-@@ -101,7 +101,7 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
- 		return;
+ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
+ 			   const syscall_fn_t syscall_table[])
+ {
+@@ -130,21 +125,8 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
  	}
  
--	if (has_syscall_work(flags)) {
-+	if (unlikely(flags & _TIF_SYSCALL_WORK)) {
- 		/*
- 		 * The de-facto standard way to skip a system call using ptrace
- 		 * is to set the system call to -1 (NO_SYSCALL) and set x0 to a
+ 	invoke_syscall(regs, scno, sc_nr, syscall_table);
+-
+-	/*
+-	 * The tracing status may have changed under our feet, so we have to
+-	 * check again. However, if we were tracing entry, then we always trace
+-	 * exit regardless, as the old entry assembly did.
+-	 */
+-	if (!has_syscall_work(flags) && !IS_ENABLED(CONFIG_DEBUG_RSEQ)) {
+-		flags = read_thread_flags();
+-		if (!has_syscall_work(flags) && !(flags & _TIF_SINGLESTEP))
+-			return;
+-	}
+-
+ trace_exit:
+-	flags = read_thread_flags();
+-	syscall_trace_exit(regs, flags);
++	syscall_exit_to_user_mode_work(regs);
+ }
+ 
+ void do_el0_svc(struct pt_regs *regs)
 -- 
 2.34.1
 
