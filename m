@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C608BE87823
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 13:08:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A34EDE87823
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 13:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DiID0kDVCXOypOoyMuzULCyA0s96GlAJL9OBsw1Kai0=; b=ITD+e4CISAnTg5vAyxqNZvMlTc
-	PjWgBIUDoF3veFJ2WuBJ0R7cPKI3N0NCz2aR0I+hFSRBTLqzWFYypluCzjxmU46flH73mdLrKAvgP
-	8SPyow6RNnGz4KZxdIc01lxOEoLokgqPFOY+gaiekreBqZoHYtC6/tJBbMj3xPGQRzU01mGneFBtm
-	VVDiMtrqEzZIOO8BL0FA1jsTPargwg4VvWSyuw0tUHozl2rvbhCw0Qwi3pd1OCV1+ia0syiaVVk6r
-	KFS8iGaGdsPo54ehnMvzA1c8LzUQcPu4O+lTfnvvAR0rEt//DYwERc9LwQfybNEov4uKjJE18iv8R
-	3jdqhFIw==;
+	bh=9HTsXkVNnFwulZq7/Mzu85XDAt0kGwDI4fDwb3UTvCI=; b=JPUja9JbZYjOxrjrJbJzOPLQrF
+	koBHluGnHaRXcW3BqKoP/Lt91GP/xt2aEwkxHtvOVo41y7pUCHXPkS8mxSAjXNMT7zWe8x/y3tV04
+	d5lq/psupPs2+4ZVN27Vy3HFurGj4q+6GY5kd/dLAeRDnGGzeDIpb+CLc3RLK5bwMOx1489jwihC5
+	fD+12D5b3+GjyVNCfv4OdcEBfFclIoKuOfhbKdvW/mqgk77hZQfj9cugBPVjvtbQHVmec3sYXxP9R
+	TEUIzhhYR+I8rH8Rcy7WtWRK0k63d9EY6HZLKSs09ZM8SgJrc27naQvD4Mg3mZid1IZxsb9llyqhr
+	kfA+/D2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnG8u-00000006eK8-1fkA;
-	Tue, 03 Feb 2026 13:08:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vnG9e-00000006ePb-3ZO4;
+	Tue, 03 Feb 2026 13:09:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnG8r-00000006eJg-274k
+	id 1vnG9d-00000006ePQ-1qlt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 13:08:30 +0000
+	Tue, 03 Feb 2026 13:09:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 15361419A2;
-	Tue,  3 Feb 2026 13:08:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2E4BC19421;
-	Tue,  3 Feb 2026 13:08:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7CB6360132;
+	Tue,  3 Feb 2026 13:09:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC1A9C116D0;
+	Tue,  3 Feb 2026 13:09:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770124107;
-	bh=ERzJQs+ogmgSsz2jOjgrhJNR97TY+ErDM0YSHLbWBPk=;
+	s=k20201202; t=1770124156;
+	bh=MSFiS/LmupV3YopiS8HKbsx3Kh/IjnAnq0VI5uK+094=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OZzukd4WV0HQ4RfqAwiKZ3wguxJQbATAMAs0jIB2ffv6Mouu5hLwh20jwt9YgArTK
-	 RLN0xWMoXW1R4OYA3xmVjCjCuFzS7zofmgNLixa5hKuslzVDzMyb7FOHJwsWSGC8Fg
-	 5AaIixXcmpWIWt+ee/OqESW+R97Wq908ZzW9knvyRSnDTOQfFKbq6xb5xHrmfLVv53
-	 QhfX7zD+R5OgKiefemLK8sfVMaEBPhMgq76cAc3oVdXjmGRQQM8qr1jZj7FnxFGeW3
-	 a2zkOTytfjKHuYosjXSt1wOXHALk927DhF6T5Kg+mucwIYl/GDPrcyu7aP7AVhwQWf
-	 sAciYqCZ2XsJQ==
-Date: Tue, 3 Feb 2026 18:38:18 +0530
+	b=hpl4q72CKM72QleOVs/y4d6Jr3g8fwYGdg8pMbFc5YKO0fDoWLxXx6xvuUpGWALjk
+	 L6rYCMUN5y8sSyPqmfCBk3A5KhvI2afw1pNQYi9jBPeQ76WEQroLPdn3nQRdHqgcEP
+	 Dbj5cdomtSt8ORq1W75qZaGhpYjiMBurxv/+I927aFbT08VSgL5aTVMmKpzaONSgE+
+	 nFGdckTuwKGKIWLkxYdd70reXJ9izP7Z0O4iySe7c2kBQylg/b8LRh/CcW3RtPzNgM
+	 n4oaxsZ0zTtRHXHzfmUYSrzUklSaARJK+fahiTYUurqjLK8OQXnMcHxPEOIgjGFrfL
+	 MF0pYABAi2j3A==
+Date: Tue, 3 Feb 2026 18:39:06 +0530
 From: Manivannan Sadhasivam <mani@kernel.org>
 To: Sherry Sun <sherry.sun@nxp.com>
 Cc: hongxing.zhu@nxp.com, l.stach@pengutronix.de, Frank.Li@nxp.com, 
@@ -50,19 +50,16 @@ Cc: hongxing.zhu@nxp.com, l.stach@pengutronix.de, Frank.Li@nxp.com,
 	krzk+dt@kernel.org, conor+dt@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com, 
 	imx@lists.linux.dev, kernel@pengutronix.de, linux-pci@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V3 02/10] PCI: imx6: Add support for parsing the reset
- property in new Root Port binding
-Message-ID: <nekxn5osukwkumqfh4qabj6okhtv4tdwrnthza4x54psrhauyf@p3lhia4mkhb4>
+Subject: Re: [PATCH V3 03/10] arm: dts: imx6qdl: Add Root Port node and PERST
+ property
+Message-ID: <mp25jwvoimpesfwtpmyeltdpbu7aznahxvkcn6jxg5jqzxck4i@pium66rnpdd3>
 References: <20260203015614.2957479-1-sherry.sun@nxp.com>
- <20260203015614.2957479-3-sherry.sun@nxp.com>
+ <20260203015614.2957479-4-sherry.sun@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260203015614.2957479-3-sherry.sun@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_050829_693152_53141E30 
-X-CRM114-Status: GOOD (  36.12  )
+In-Reply-To: <20260203015614.2957479-4-sherry.sun@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,228 +74,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 03, 2026 at 09:56:06AM +0800, Sherry Sun wrote:
-> DT binding allows specifying 'reset' property in both host bridge and
-> Root Port nodes, but specifying in the host bridge node is marked as
-> deprecated. So add support for parsing the new binding that uses
-> 'reset-gpios' property for PERST#.
-> 
-> The initial idea is to add the PCIe M.2 KeyE connector support and PCI
-> power control framework to the pcie-imx6 driver. Since the new
-> M.2/pwrctrl model is implemented based on Root Ports and requires the
-> pwrctrl driver to bind to a Root Port device, we need to introduce a
-> Root Port child node on i.MX boards that provide an M.2 connector.
-> 
-> To follow a more standardized DT structure, it also makes sense to move
-> the reset-gpios and wake-gpios properties into the Root Port node. These
-> signals logically belong to the Root Port rather than the host bridge,
-> and placing them there aligns with the new M.2/pwrctrl model.
-> 
-> To maintain DT backwards compatibility, fallback to the legacy method of
-> parsing the host bridge node if the reset property is not present in the
-> Root Port node.
+On Tue, Feb 03, 2026 at 09:56:07AM +0800, Sherry Sun wrote:
+> Since describing the PCIe PERST# property under Host Bridge node is now
+> deprecated, it is recommended to add it to the Root Port node, so
+> creating the Root Port node and add the reset-gpios property in Root
+> Port.
 > 
 > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
 > ---
->  drivers/pci/controller/dwc/pci-imx6.c | 123 +++++++++++++++++++++++---
->  1 file changed, 109 insertions(+), 14 deletions(-)
+>  arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi |  5 +++++
+>  arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi         | 11 +++++++++++
+>  arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts |  5 +++++
+>  3 files changed, 21 insertions(+)
 > 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index a5b8d0b71677..e3ba68976bee 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -148,10 +148,15 @@ struct imx_lut_data {
->  	u32 data2;
->  };
->  
-> +struct imx_pcie_port {
-> +	struct list_head	list;
-> +	struct gpio_desc	*reset;
-> +};
-> +
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
+> index ba29720e3f72..fe9046c03ddd 100644
+> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
+> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
+> @@ -754,11 +754,16 @@ lvds0_out: endpoint {
+>  &pcie {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&pinctrl_pcie>;
+> +	/* This property is deprecated, use reset-gpios from the Root Port node. */
+>  	reset-gpio = <&gpio7 12 GPIO_ACTIVE_LOW>;
 
-I'd love to abstract the Root Port properties in a generic struct so that we can
-introduce generic APIs to parse the ports. But I'm not asking you to implement
-it :)
-
->  struct imx_pcie {
->  	struct dw_pcie		*pci;
-> -	struct gpio_desc	*reset_gpiod;
->  	struct clk_bulk_data	*clks;
-> +	struct list_head	ports;
->  	int			num_clks;
->  	bool			supports_clkreq;
->  	bool			enable_ext_refclk;
-> @@ -897,29 +902,35 @@ static int imx95_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
->  
->  static void imx_pcie_assert_core_reset(struct imx_pcie *imx_pcie)
->  {
-> +	struct imx_pcie_port *port;
-> +
->  	reset_control_assert(imx_pcie->pciephy_reset);
->  
->  	if (imx_pcie->drvdata->core_reset)
->  		imx_pcie->drvdata->core_reset(imx_pcie, true);
->  
->  	/* Some boards don't have PCIe reset GPIO. */
-> -	gpiod_set_value_cansleep(imx_pcie->reset_gpiod, 1);
-> +	list_for_each_entry(port, &imx_pcie->ports, list)
-> +		gpiod_set_value_cansleep(port->reset, 1);
->  }
->  
->  static int imx_pcie_deassert_core_reset(struct imx_pcie *imx_pcie)
->  {
-> +	struct imx_pcie_port *port;
-> +
->  	reset_control_deassert(imx_pcie->pciephy_reset);
->  
->  	if (imx_pcie->drvdata->core_reset)
->  		imx_pcie->drvdata->core_reset(imx_pcie, false);
->  
->  	/* Some boards don't have PCIe reset GPIO. */
-> -	if (imx_pcie->reset_gpiod) {
-> -		msleep(100);
-> -		gpiod_set_value_cansleep(imx_pcie->reset_gpiod, 0);
-> -		/* Wait for 100ms after PERST# deassertion (PCIe r5.0, 6.6.1) */
-> -		msleep(100);
-> -	}
-> +	list_for_each_entry(port, &imx_pcie->ports, list)
-> +		if (port->reset) {
-> +			msleep(100);
-
-PCIE_T_PERST_CLK_US
-
-> +			gpiod_set_value_cansleep(port->reset, 0);
-> +			/* Wait for 100ms after PERST# deassertion (PCIe r5.0, 6.6.1) */
-> +			msleep(100);
-
-Remove the comment and just use PCIE_T_PVPERL_MS.
-
-> +		}
->  
->  	return 0;
->  }
-> @@ -1642,6 +1653,76 @@ static const struct dev_pm_ops imx_pcie_pm_ops = {
->  				  imx_pcie_resume_noirq)
->  };
->  
-> +static void imx_pcie_delete_ports(void *data)
-> +{
-> +	struct imx_pcie *pcie = data;
-> +	struct imx_pcie_port *port, *tmp;
-> +
-> +	list_for_each_entry_safe(port, tmp, &pcie->ports, list)
-> +		list_del(&port->list);
-> +}
-> +
-> +static int imx_pcie_parse_port(struct imx_pcie *pcie, struct device_node *node)
-> +{
-> +	struct device *dev = pcie->pci->dev;
-> +	struct imx_pcie_port *port;
-> +	struct gpio_desc *reset;
-> +
-> +	reset = devm_fwnode_gpiod_get(dev, of_fwnode_handle(node),
-> +				      "reset", GPIOD_OUT_HIGH, "PCIe reset");
-
-s/"PCIe reset"/"PERST#"
-
-> +	if (IS_ERR(reset))
-> +		return PTR_ERR(reset);
-> +
-> +	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
-> +	if (!port)
-> +		return -ENOMEM;
-> +
-> +	port->reset = reset;
-> +	INIT_LIST_HEAD(&port->list);
-> +	list_add_tail(&port->list, &pcie->ports);
-> +
-> +	return 0;
-> +}
-> +
-> +static int imx_pcie_parse_ports(struct imx_pcie *pcie)
-> +{
-> +	struct device *dev = pcie->pci->dev;
-> +	int ret = -ENOENT;
-> +
-> +	for_each_available_child_of_node_scoped(dev->of_node, of_port) {
-> +		if (!of_node_is_type(of_port, "pci"))
-> +			continue;
-> +		ret = imx_pcie_parse_port(pcie, of_port);
-> +		if (ret) {
-> +			imx_pcie_delete_ports(pcie);
-> +			return ret;
-> +		}
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +static int imx_pcie_parse_legacy_binding(struct imx_pcie *pcie)
-> +{
-> +	struct device *dev = pcie->pci->dev;
-> +	struct imx_pcie_port *port;
-> +	struct gpio_desc *reset;
-> +
-> +	reset = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
-> +	if (IS_ERR(reset))
-> +		return PTR_ERR(reset);
-> +
-> +	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
-> +	if (!port)
-> +		return -ENOMEM;
-> +
-> +	port->reset = reset;
-> +	INIT_LIST_HEAD(&port->list);
-> +	list_add_tail(&port->list, &pcie->ports);
-> +
-> +	return 0;
-> +}
-> +
->  static int imx_pcie_probe(struct platform_device *pdev)
->  {
->  	struct device *dev = &pdev->dev;
-> @@ -1660,6 +1741,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  	if (!pci)
->  		return -ENOMEM;
->  
-> +	INIT_LIST_HEAD(&imx_pcie->ports);
-> +
->  	pci->dev = dev;
->  	pci->ops = &dw_pcie_ops;
->  
-> @@ -1688,12 +1771,24 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  			return PTR_ERR(imx_pcie->phy_base);
->  	}
->  
-> -	/* Fetch GPIOs */
-> -	imx_pcie->reset_gpiod = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
-> -	if (IS_ERR(imx_pcie->reset_gpiod))
-> -		return dev_err_probe(dev, PTR_ERR(imx_pcie->reset_gpiod),
-> -				     "unable to get reset gpio\n");
-> -	gpiod_set_consumer_name(imx_pcie->reset_gpiod, "PCIe reset");
-> +	ret = imx_pcie_parse_ports(imx_pcie);
-> +	if (ret) {
-> +		if (ret != -ENOENT)
-> +			return dev_err_probe(dev, ret, "Failed to parse Root Port: %d\n", ret);
-> +
-> +		/*
-> +		 * In the case of properties not populated in Root Port node,
-> +		 * fallback to the legacy method of parsing the Host Bridge
-> +		 * node. This is to maintain DT backwards compatibility.
-> +		 */
-> +		ret = imx_pcie_parse_legacy_binding(imx_pcie);
-> +		if (ret)
-> +			return dev_err_probe(dev, ret, "Unable to get reset gpio: %d\n", ret);
-> +	}
-> +
-> +	ret = devm_add_action_or_reset(dev, imx_pcie_delete_ports, imx_pcie);
-> +	if (ret)
-> +		return ret;
-
-I'd prefer to do it in err labels.
+You should just remove this property.
 
 - Mani
+
+>  	vpcie-supply = <&reg_pcie>;
+>  	status = "okay";
+>  };
+>  
+> +&pcie_port0 {
+> +	reset-gpios = <&gpio7 12 GPIO_ACTIVE_LOW>;
+> +};
+> +
+>  &pwm1 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&pinctrl_pwm1>;
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
+> index 76e6043e1f91..eeb376193398 100644
+> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
+> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
+> @@ -289,6 +289,17 @@ pcie: pcie@1ffc000 {
+>  				 <&clks IMX6QDL_CLK_PCIE_REF_125M>;
+>  			clock-names = "pcie", "pcie_bus", "pcie_phy";
+>  			status = "disabled";
+> +
+> +			pcie_port0: pcie@0 {
+> +				compatible = "pciclass,0604";
+> +				device_type = "pci";
+> +				reg = <0x0 0x0 0x0 0x0 0x0>;
+> +				bus-range = <0x01 0xff>;
+> +
+> +				#address-cells = <3>;
+> +				#size-cells = <2>;
+> +				ranges;
+> +			};
+>  		};
+>  
+>  		aips1: bus@2000000 { /* AIPS1 */
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts b/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
+> index c5b220aeaefd..6b12cab7175f 100644
+> --- a/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
+> +++ b/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
+> @@ -45,10 +45,15 @@ MX6QDL_PAD_GPIO_6__ENET_IRQ		0x000b1
+>  };
+>  
+>  &pcie {
+> +	/* This property is deprecated, use reset-gpios from the Root Port node. */
+>  	reset-gpio = <&max7310_c 5 GPIO_ACTIVE_LOW>;
+>  	status = "okay";
+>  };
+>  
+> +&pcie_port0 {
+> +	reset-gpios = <&max7310_c 5 GPIO_ACTIVE_LOW>;
+> +};
+> +
+>  &sata {
+>  	status = "okay";
+>  };
+> -- 
+> 2.37.1
+> 
 
 -- 
 மணிவண்ணன் சதாசிவம்
