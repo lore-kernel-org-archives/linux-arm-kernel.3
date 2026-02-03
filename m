@@ -4,145 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0729E8305F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 08:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7B6EE83060
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 08:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/8BteOiMQUQIF65nTYBAYVzMPaKDyNONfq59RhKWQ6k=; b=gIx8kAPIm9y+ey4yAJXlRyEhad
-	5PZgvcQXAPTAwXk5YBI9h6ir/Qei8u2P06eenke0i59E9dfyNo5HOnmhtvTOpctZPNJ13VRJmK7WI
-	rMhundh+4x0r6X5AKbL3UIVlJ474JjNlmOQmTx5hjKqoGjBCIy5fOoSmCVjtK4oH2g63PvgCrmzsi
-	We8JjHwC72+LFshl2nccW6kMAmSUoeaG1CE163G5LHYViM+SmoLycZacxoUmXFFL1lOMscjB9jgiQ
-	0VwvTTbcnlH27QRx8kc2vUolf7ezitON/uoP/4tyU1GknNqm4fJ3kzMoF3Jt1nPmfl1EcXuOxz3Lp
-	csl0Zo3w==;
+	bh=2b2djF6kYQEb8MIvztBfQVDWIZgTPrl/cDjCCDXcIL8=; b=wRSoIovV2QcdXqUp5eSbsPojLS
+	0xSpLdwK8tr+3/fB9h+YII2ar9Y/jG8qiCJdpT8m4dcJ7zb4v0nBUhdr9UxeviAmWq+6bXCx/3OOj
+	j51U+V3aUPD/TYnk0vAwYn62RmmPN/iiwKQ5VEiQcxmORRboVHr+T1fV2Kp47kvEN/H4PS0Rg/05C
+	siNtvnU/jWwESMyRWd8fSroBekcdCfuBTCWE+WxH/3UsR9yDfqPH4fpHWRubuiM3ksWXCJ2yTKLWX
+	EegkKKqFdvF0116oBt6iryzH0tKE6AJRewcH8XfN72FGCorWy6L2oLI80svq+4ep5XEnxKC/6Noar
+	XIdGDhUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnBT5-00000006Hhx-0EvY;
-	Tue, 03 Feb 2026 08:09:03 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vnBfs-00000006IP5-1WMu;
+	Tue, 03 Feb 2026 08:22:16 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnBT0-00000006Hg3-44NY
+	id 1vnBfo-00000006IOK-2ce1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 08:09:01 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6136DSsw2848579
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 3 Feb 2026 08:08:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	/8BteOiMQUQIF65nTYBAYVzMPaKDyNONfq59RhKWQ6k=; b=ofmQk2d9sujhHeln
-	XGR7XTN0v2Wk25d8ucoOLTkjW2ONc1GGuoA2dw/Ujm5IboQolhh0NVDuioDh13Vj
-	Lh+VkO0+5d/Ke+owdkVSyHh6Uu1o2NqVXDXo5VvBg67Wrgb9QX9IfO2RYBeMDyBN
-	X2BmHpCTYVRNVQHl/jfXy7r2FfqgRlFiWix20wFIqEOl82a1BOEISxi5dogeZxFR
-	x499iALL8HKaS6ky5W69RT5+IZNm8b3TdRB8GdE8O/r5POgkcbPXtsRri8bZPYBR
-	EVA7MhVj8cX3Fa22q8d76/q6A6G2gkrpfDF29gv0YTCU0Du5gDTAZahvK5xFZL5D
-	0cpRzA==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c2tqtkjf3-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 08:08:58 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2a8f8c81d02so27534305ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 00:08:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1770106138; x=1770710938; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/8BteOiMQUQIF65nTYBAYVzMPaKDyNONfq59RhKWQ6k=;
-        b=S4uwLBPeUs/kodf/NJwHtIKC+0M6jZCPLkV67lqr0x0eOe9lMqYwzlz8ATEou3ZSsU
-         fvTOaSDBjPk1wKqhlC9nPMsDFZRQROAIQf+pkQ29pMHs+gTlZTPFpwjZerDvcLHryE7c
-         fk4QkDifcGfssNYHWD34LLRMsMVHFEKZ8/Dj9DEuQz4FsGHfVPPz8gTL3spNYMIdoyzu
-         a+KDTnR3O1pPWRPe70RR96z3Mz9VZ8QN2ikfyPuEmNqpZmsg1eF7+L8sRd8Wi7fYBtoN
-         x2P+GF4ecpF4anBSOkhfHKqQqAzH7o+VNgBiut6PMxgwLsWBIP5WjS51bpoNPJrxQY5C
-         uqaA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770106138; x=1770710938;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=/8BteOiMQUQIF65nTYBAYVzMPaKDyNONfq59RhKWQ6k=;
-        b=gI/uwYolVSOkOYoZyns6fDbvaoEHLo2hPbQnfVcj+kgadWYeuc5rZsbsb+o5N5OY3w
-         PXXaBLzrctfg1fryuXWPqVwD8HYMAcnosohUIYo2L2iJr0UJLNwAq1Mx9/0mIkVqJrH4
-         2tzHjsWxKCrAIOM62t864bYwLrMb7vAsVzPVKPAOQn87ihulogMcPV/k5T0jM1cnodZb
-         etvxYFdGrToUbm1ulktjFB3CiXxzqGeQu+tYRqfROVszRVIgzuu3QbXFO/80aYMLFm2p
-         u3Wh4GhvS5OsJdG2gUVmWwgzBacnuxXEkcDg5lbMfZ+cs8UX0vaurLyyzvicmqlqs5rM
-         OK5w==
-X-Forwarded-Encrypted: i=1; AJvYcCWmN4oq5+nt+wjAeW9b+JHra42w3siwE6+YSjfU1wqtdZCJx0EdeIrOPoH45ocHVJyfZOU9DFSzXE1FpOwdmT57@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoU5ehPClHhNEdEiAFjbMhfaW3aM7Y3gqVqKvlgXeeHcFgPBvg
-	2zXA9Cu3dSBWOaCjdECi0SzixfbKN5Ht3MHvki60uxhw1UiPb1PwSbS0/Jm1F17PxL55aLwXpGc
-	tdd/WjTR5eh2kIFxzQvA7tn+iMJ641xr3+okSYXbAeNa6mhnvG3wy+HWsqbbWWCThDiudpaJkOU
-	GKRQ==
-X-Gm-Gg: AZuq6aIOcY9DftI5hq7IfxaQSZAJUcPjkwXXk1RwsOxa1zRTlSiGyR3kg9Z40Ul7cpA
-	VlnTgT5W4JL6kimCVoQVbpGm8jk0XgTVCGwIQVfvb/xBPjE1h+nr6UEWAEz36ofHN40fkFAYhU9
-	lGlWIC98QbrFumdN1oKo73m6IgvE5Oqhafjtu+Y/Bwn5/Sf/R2VzSrAP0mjLwXgV9fI4TTV9Hsn
-	NH2Xh1F0EUfQvAk1QOFA9fy3s6UADKS8dqzeCE3pQSK5OYITQqxecO8C57BkBQKC4SIi1J2uwKX
-	hDCDVdSZUNHuohhpsVbVtoh3VYNgt55Bf59qfeKHbtFtWFYJAyvVDzoxLUvaID5e6S4Ttru+qn6
-	GS48SMLchFLjqOVBolliUweOpek9vx3Zb5mLeW+cjsugEsD3hreD5x/D4O+fn8euhwvub1d5p
-X-Received: by 2002:a17:902:e810:b0:2a8:7814:47cc with SMTP id d9443c01a7336-2a8d96a2ba4mr132671185ad.16.1770106137735;
-        Tue, 03 Feb 2026 00:08:57 -0800 (PST)
-X-Received: by 2002:a17:902:e810:b0:2a8:7814:47cc with SMTP id d9443c01a7336-2a8d96a2ba4mr132670965ad.16.1770106137245;
-        Tue, 03 Feb 2026 00:08:57 -0800 (PST)
-Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a8e512bc2asm103144485ad.100.2026.02.03.00.08.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Feb 2026 00:08:56 -0800 (PST)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Tue, 03 Feb 2026 16:08:26 +0800
-Subject: [PATCH 3/3] arm64: dts: qcom: pakala: enable ETR and CTCU devices
+	Tue, 03 Feb 2026 08:22:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MFh5knt1SGgSHzJuW/KtFKxvkr6438CiofDqWP70RA0KUWkSLnK6UeSAEBFAy6vzxLz2GRG5N6R47ucyLs8GxfMt2TpaXW4I0qPGznDcLP7NtS/VxRS/ReK6/bZ+PbkgAJs2yXMXU20+yKlHtfkS4PQTc3iu66dnanbTi4FJi+5v94cseJ6tjOYkSAw9Jp0huk3O822xT3DirAFVRusZwLx8BQ1koHN4ov7Ti1rEUJr/oLYachRcRpU+sbpdd3nnDvO9OXIi8cT7bYcX11Woh8BJDt27skYoq0tNgXLBVlG7FqoLXySIZ55f7pBEDVnvabWydM2vZHDThpkTpQfRUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2b2djF6kYQEb8MIvztBfQVDWIZgTPrl/cDjCCDXcIL8=;
+ b=Ip++jQnVvoSbqttiUSr8aw5NbDqJ1uspD0jC2N2vjK4tXCjLTX8nBhWOkVeemHBrRkap+D72gEjlmegKiSBHuaE2x8FKxfuLDxasvpHius3ZUIHSYi3iExoqvMnXVrfJueA4xlawnXLPGy7KUDjxBAsmLYdJ94AnjF/XabZf1t8HBTSRaf5JW3b0LrG5Aa10TMqtMLtxsAk9Mkbpq5Js7zuj/x8IqErIpmy628D4bPvOY8YBhUFtoGTWbPTkJiAQlYtx19MEFO0ZoMxmYRT5f1Cj3oKU9aPbQW0IHU0zeVyIqMngtLmBJkYJ/NWpL5mfkC6XL7LZ09LsC1mwNN+B5A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2b2djF6kYQEb8MIvztBfQVDWIZgTPrl/cDjCCDXcIL8=;
+ b=PfcRtVoS/wiRUSto1ItsNCL9RluabpF5wXE2vQ55am1QK0I2Jhb6TWi8DvMQToz9/PBHxUsvRSrJu53b3opN7/ucTLRypESOnbPJhc7ghGC8Yo3g1BDCCfpJop6nuRPhOr6VB8LIj/UTQQgZduJos8CLp6P0SR3Bg/icluYycdA=
+Received: from BL1P223CA0014.NAMP223.PROD.OUTLOOK.COM (2603:10b6:208:2c4::19)
+ by IA6PR10MB997611.namprd10.prod.outlook.com (2603:10b6:208:5dd::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Tue, 3 Feb
+ 2026 08:22:07 +0000
+Received: from MN1PEPF0000ECD5.namprd02.prod.outlook.com
+ (2603:10b6:208:2c4:cafe::ff) by BL1P223CA0014.outlook.office365.com
+ (2603:10b6:208:2c4::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.16 via Frontend Transport; Tue,
+ 3 Feb 2026 08:22:07 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ MN1PEPF0000ECD5.mail.protection.outlook.com (10.167.242.133) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9587.10 via Frontend Transport; Tue, 3 Feb 2026 08:22:06 +0000
+Received: from DFLE214.ent.ti.com (10.64.6.72) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 3 Feb
+ 2026 02:22:05 -0600
+Received: from DFLE208.ent.ti.com (10.64.6.66) by DFLE214.ent.ti.com
+ (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 3 Feb
+ 2026 02:22:05 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE208.ent.ti.com
+ (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 3 Feb 2026 02:22:05 -0600
+Received: from [172.24.233.239] (uda0498651.dhcp.ti.com [172.24.233.239])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6138M0153190785;
+	Tue, 3 Feb 2026 02:22:01 -0600
+Message-ID: <7abbd45d-e688-41b5-bde4-5d97877f3267@ti.com>
+Date: Tue, 3 Feb 2026 13:52:00 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260203-enable-ctcu-and-etr-v1-3-a5371a2ec2b8@oss.qualcomm.com>
-References: <20260203-enable-ctcu-and-etr-v1-0-a5371a2ec2b8@oss.qualcomm.com>
-In-Reply-To: <20260203-enable-ctcu-and-etr-v1-0-a5371a2ec2b8@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770106119; l=4424;
- i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=jlz2/IuYwpwugUkJK8inilpdrM/O+cK7IPZqI00q7tc=;
- b=PcFxVB+XYy87wJxG+AWxfBdsvE4KvdwHczaqCOjVODxZdubTvQ7JHxLVIm188H8LlZHHEE4B2
- +mLfXWPtdZdBIp+8AsjXiGdYIRRWWwT98pdS9JmUpupzhGFngm2FKcT
-X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
- pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Authority-Analysis: v=2.4 cv=XP89iAhE c=1 sm=1 tr=0 ts=6981ad1a cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=kFQAvpsttJVeTngcj60A:9
- a=QEXdDO2ut3YA:10 a=GvdueXVYPmCkWapjIL-Q:22
-X-Proofpoint-GUID: G22bOwafh4TQXb9bfmeszE6UD9vle9BP
-X-Proofpoint-ORIG-GUID: G22bOwafh4TQXb9bfmeszE6UD9vle9BP
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjAzMDA2NCBTYWx0ZWRfX7rGDkXHNxTjj
- uZycN9McSCby/Tc9UkGB71biGIZea+Nhog8ts1PDwn4ejTh4C8fzGi6qG1X7QBCEqtvMzxLFBjk
- 7B2RM/CNAG6qlVvQaZZOqchJlfIqANooI0y3gteiCVaQhoYCXkuOzX3uc+38H9E1WDKubDVKlK0
- k58NkdLnQ+PqQZJeFbSMRit0/8XGsXm7b/IDmF37n8fLQhxn5K7CpnaVMo6N0f7ffGsYbjRY6If
- 7UEHiCZIIx5jEaj2/UXwRUCvKSByhCf5HekCW4qQ5+HDXFMR1vbLMmlPVfTHJHXrX2a8SyeckqY
- qeqYDbaX9uPT9tFv8iTdFaz1M5vHUXarknpTX8DdkVt3zr42pU408f/jpkEy7mQXc8SbY28wMW5
- Yt70xA0GKmCJMHMDS2AXFGlTyEFNBoNoqNcUYlzpnHv4QcY1ZMGGuieVk+x9bhimxPpzpwC9TWL
- fJox5k2bI64npxUIWjA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-03_02,2026-02-02_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 phishscore=0 adultscore=0 impostorscore=0 malwarescore=0
- priorityscore=1501 spamscore=0 suspectscore=0 lowpriorityscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602030064
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 15/19] dmaengine: ti: k3-udma-v2: New driver for K3
+ BCDMA_V2
+To: =?UTF-8?Q?P=C3=A9ter_Ujfalusi?= <peter.ujfalusi@gmail.com>,
+	<vkoul@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <nm@ti.com>, <ssantosh@kernel.org>,
+	<dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<vigneshr@ti.com>
+CC: <r-sharma3@ti.com>, <gehariprasath@ti.com>
+References: <20260130110159.359501-1-s-adivi@ti.com>
+ <20260130110159.359501-16-s-adivi@ti.com>
+ <98c254c5-94c1-49b0-b361-617639b781d8@gmail.com>
+Content-Language: en-US
+From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+In-Reply-To: <98c254c5-94c1-49b0-b361-617639b781d8@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000ECD5:EE_|IA6PR10MB997611:EE_
+X-MS-Office365-Filtering-Correlation-Id: ee0e94d0-1577-478f-8175-08de62fd518e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|7416014|82310400026|1800799024|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UnhWdlVWcTV3cWpYNm8vQ3VTbHF4N2kwNnNSMGM3RHpxRVBvRkRhbkdwM1Fn?=
+ =?utf-8?B?MHpSNkNTZ2pzSnlSMlZ0blYza3RvNnN0SGdaL3lvWjErU0FIZkZvV0xZYVg2?=
+ =?utf-8?B?T1djYVdOWlhGNkcyTlF1S3dyRitxZDhrSnJsejJBWnRqbTJOUDhWT0p5UVpj?=
+ =?utf-8?B?UmQ5eGxVUGJtTW1lTXhUVUovQ3lMRVh3eUJXSm1MUnVXbG93cUI4VEhRMFMx?=
+ =?utf-8?B?UGN4QUh1OTI4N09keFJSTGJ6bytMSUZvdEprekJjM1NaT2x2Nmt3d0tJa0dF?=
+ =?utf-8?B?eFNvbldBeWh6VWpVVXdCcjNvdm5HVUh4ejJ0RTMvM3dhWWdzeDJ1ZkROVEhs?=
+ =?utf-8?B?b3l5cUd2UW5VWFZUQmxGR09yRmFPdW1IandtYUNjQnVabVkvYnZDL2ViSWd6?=
+ =?utf-8?B?ZXladU54azhMK2IrQ1ZXRGlHc2x4clAxV1NGc3JrRm4xQWd1Wno1ZXpTRE5F?=
+ =?utf-8?B?b1k0M2FRT29WZFJaZ0RYa0p5SWNrMThwYmhwUjBWSGNFNEdxM1hCd0NlSHdo?=
+ =?utf-8?B?VDlYcFc1bEdUNFE4NCtwZFZBbzZhUFJFdjVvUDZZc2xMR0JGTWxRdlFGbU93?=
+ =?utf-8?B?WlFYVTRkZjlPdWtPaElRWG1YVkxRSGZGakN0bjZ3Y0plSkRLOEZOL05ycytm?=
+ =?utf-8?B?d2NGMDBkSUxXT0V1Yy9ERXFnanRodVllcHduWmNCcTM3UmgxTitWMzl2c1dL?=
+ =?utf-8?B?UWVXSU9USFZMOU5ZV1htcHFBQnc4akFRTnhXZzkxZHVUbE5wcmgxdzl1S1RI?=
+ =?utf-8?B?YzhURDJ4bjlSZkR1UUg1Rzg1L3ZoemNzS3ZSYzVlZkJFOGdnY3BQWVFKMk1F?=
+ =?utf-8?B?T1Q2czRlak05Ny9kTjBieGxHaWdoekQyZVVxRVBrNWFabjhTNnJlenlLbUsr?=
+ =?utf-8?B?WkhxWHJlaG01c3R4cXViZ1ovU010U3lEMkNQWWdoaFBiOEVQV1J6NGxJZG0y?=
+ =?utf-8?B?UFlzc2xENnpIbVQ2YmxYZGtuYXJiL3V1bDZEZzNyNklHL0FjcEVHRk53eWlw?=
+ =?utf-8?B?REJHc0ZOWk5wc29vSDJ4RjRaaFNtaUIyc1FmRHpNT1BCVVh5aUg5aUN2a2pr?=
+ =?utf-8?B?aWdPbVFwVGtVUFhPdUFLNG9ZS2tJWkk0MHdOSjgyUDUrNG1tT05hR1RTNTg1?=
+ =?utf-8?B?OXJSMnFCSFRiaXBaazUrdngzVldiUFZ5Z3VXd2dYTENKM3FBa3ptb2JkL3Na?=
+ =?utf-8?B?Q1NxOFNDQW1GWU91VjdrbDRNRHVEZkJCaEg3MkZjNmVOUGc2aC9ZSXVwQUFS?=
+ =?utf-8?B?WmhXQ2JtaWFNSWJTVkJNSEpKY3VDckVoMmlUWUtwUGU0L2JkL3dLVVVkcjF1?=
+ =?utf-8?B?UDB6QlpDeHNGL0tCbWpxMlFqSTk3Uys5cGxGbExNaFA4SnYzc0pMaG56cGFt?=
+ =?utf-8?B?dUErRXRZNDZVeFJrY25JdElua0V1aVlTTTFZeG1pUW5yL0Y0dGdCUlVwamRp?=
+ =?utf-8?B?cW9NaWlIdUhzcXFESWJ2anJZTjl3cW5MUS9aeXVFYlNydWVzMTYvcFpzVEla?=
+ =?utf-8?B?ZDhreGUzL1FrK2orRkl0YWkzSlBGVDh6NmxRcU5RenNTcFZVYkNhMEtFTUhF?=
+ =?utf-8?B?ZnRvRFlPM2poazd1RnBNM2FQdHBNc1F0bjUrSFQxWHJ5elZ5UnpSVXJTMTUw?=
+ =?utf-8?B?NVdsTm1YWnJWWE9vUjRrYmQ3ZjhpNFoxNU1NYUpVUWlvL2UvS3V1cURDODNL?=
+ =?utf-8?B?WFhibm1EbTJNK0FFYk5yMVRmVFFXaTFUQUZkd3A1K3ozcWtNeGwyWGx4VWNn?=
+ =?utf-8?B?dzRDbDdoMlJ1MXc0amlPQW92RlFHY1pLcEtvZXJ6SzdxTkN5U3RZanpCdDUx?=
+ =?utf-8?B?T2twN25uWmhCQmlkSFhJOXV3Q0Q3Y0N5UnB5Q3pacCtQUUpjM2NmbTRCbjVM?=
+ =?utf-8?B?VFdhOHo2bG1yQ3lrRGpRTGxKaGRNb3B1RUV2MWhoYmE0TFZOREFmRjI4NHVH?=
+ =?utf-8?B?Qy8yQXlJc3BqV2VJNWhXUHZZTWNWdWlpRmgvU05FemRwVmZxWG0vdEhqNElQ?=
+ =?utf-8?B?ZXhrN1NVcmFWZXBvQlVYQk5seWRKL2tXektKbDM1QVp1NnlSb3liVTJha0dq?=
+ =?utf-8?B?Y1FUY3JNOGtEalNaZXJ1VnlpMGJMejcyWnhzM0FQcGduK3VVMTZDbW5KSlE2?=
+ =?utf-8?B?QkxGNzM4bFY1OVI0TDBOc0x1SnZwcTAvbFNZVE1BMWJuY0lNaHZ5Yzlha1pk?=
+ =?utf-8?B?ZmJTQWV6c1cvWmlHazBPSVQ1YmE1MjExNFdDTkVYL200VmQ0TEZsQkd6S0Ex?=
+ =?utf-8?Q?ZZdLqd4inpHcI1BUIUZw/qvyfbwKoT7OT52gxa1Tyw=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700013)(376014)(7416014)(82310400026)(1800799024)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: YA9boEr+3PKxmItqGgAVaVBVAQTrw6JUqjVzWxLwgkHpf1TEFI4FSO7aSCMrkPW8KX8dWy0FaBli6Jy5npXx9I6ocW3U3tmH5aFAritekY2/tbY6/slZYwEZkKPt1th2xoJBm75aqMU2FTPBijkBT1fOWSM5t5CBAALxZCWtCC8qmKZaB1AippYys3XKAsL5ZQQnOwwEmv1bsljytx43slv9BpnLTdKhGWvBydE90BICDTQHC41OUNsjtxurKVT5nwfFCjPFid4VIBYWAL2gH2B7IjmtekF6/FccHUQ4Cstu/OE/AW9tn2ZDe3kKDG1OBxPM5e8DckhfaDcQIVkfoRRbogRIdyeLv6iUTZXmywD2mdDTuVVDLCfHtI2tmaseugXxRO8bGO+8U2LKIsW2P9Iy7+NNww/VzJEcABxM+4xO1mG7cqLmRhWIZ+rh4km3
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2026 08:22:06.6604
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ee0e94d0-1577-478f-8175-08de62fd518e
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000ECD5.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA6PR10MB997611
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_000859_026641_D1D01342 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20260203_002212_774220_617C5BD2 
+X-CRM114-Status: GOOD (  22.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,219 +174,215 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Embedded Trace Router(ETR) is working as a DDR memory sink to collect
-tracing data from source device and the CTCU device serves as the
-control unit for the ETR device.
 
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/sm8750.dtsi | 177 +++++++++++++++++++++++++++++++++++
- 1 file changed, 177 insertions(+)
+On 03/02/26 12:07, Péter Ujfalusi wrote:
+>
+> On 30/01/2026 13:01, Sai Sree Kartheek Adivi wrote:
+>> Add support for BCDMA_V2.
+>>
+>> The BCDMA_V2 is different than the existing BCDMA supported by the
+>> k3-udma driver.
+>>
+>> The changes in BCDMA_V2 are:
+>> - Autopair: There is no longer a need for PSIL pair and AUTOPAIR bit
+>>    needs to set in the RT_CTL register.
+>> - Static channel mapping: Each channel is mapped to a single peripheral.
+>> - Direct IRQs: There is no INT-A and interrupt lines from DMA are
+>>    directly connected to GIC.
+>> - Remote side configuration handled by DMA. So no need to write to PEER
+>>    registers to START / STOP / PAUSE / TEARDOWN.
+>>
+>> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+>> ---
+>>   drivers/dma/ti/Kconfig            |   16 +-
+>>   drivers/dma/ti/Makefile           |    1 +
+>>   drivers/dma/ti/k3-udma-common.c   |   75 +-
+>>   drivers/dma/ti/k3-udma-v2.c       | 1283 +++++++++++++++++++++++++++++
+>>   drivers/dma/ti/k3-udma.h          |  117 +--
+>>   include/linux/soc/ti/k3-ringacc.h |    3 +
+>>   6 files changed, 1429 insertions(+), 66 deletions(-)
+>>   create mode 100644 drivers/dma/ti/k3-udma-v2.c
+>>
+>> diff --git a/drivers/dma/ti/Kconfig b/drivers/dma/ti/Kconfig
+>> index 712e456015459..ada2ea8aca4b0 100644
+>> --- a/drivers/dma/ti/Kconfig
+>> +++ b/drivers/dma/ti/Kconfig
+>> @@ -49,6 +49,18 @@ config TI_K3_UDMA
+>>   	  Enable support for the TI UDMA (Unified DMA) controller. This
+>>   	  DMA engine is used in AM65x and j721e.
+>>   
+>> +config TI_K3_UDMA_V2
+>> +	tristate "Texas Instruments K3 UDMA v2 support"
+>> +	depends on ARCH_K3
+>> +	select DMA_ENGINE
+>> +	select DMA_VIRTUAL_CHANNELS
+>> +	select TI_K3_UDMA_COMMON
+>> +	select TI_K3_RINGACC
+>> +	select TI_K3_PSIL
+>> +        help
+>> +	  Enable support for the TI UDMA (Unified DMA) v2 controller. This
+>> +	  DMA engine is used in AM62L.
+>> +
+>>   config TI_K3_UDMA_COMMON
+>>   	tristate
+>>   	default n
+>> @@ -56,14 +68,14 @@ config TI_K3_UDMA_COMMON
+>>   config TI_K3_UDMA_GLUE_LAYER
+>>   	tristate "Texas Instruments UDMA Glue layer for non DMAengine users"
+>>   	depends on ARCH_K3 || COMPILE_TEST
+>> -	depends on TI_K3_UDMA
+>> +	depends on TI_K3_UDMA || TI_K3_UDMA_V2
+> At this point the glue layer should not have dependency on UDMA_V2 as it
+> only receives BCDMA support, which is not used by the glue?
+>
+>>   	help
+>>   	  Say y here to support the K3 NAVSS DMA glue interface
+>>   	  If unsure, say N.
+>>   
+>>   config TI_K3_PSIL
+>>          tristate
+>> -       default TI_K3_UDMA
+>> +       default TI_K3_UDMA || TI_K3_UDMA_V2
+>>   
+>>   config TI_DMA_CROSSBAR
+>>   	bool
+>> diff --git a/drivers/dma/ti/Makefile b/drivers/dma/ti/Makefile
+>> index 41bfba944dc6c..296aa3421e71b 100644
+>> --- a/drivers/dma/ti/Makefile
+>> +++ b/drivers/dma/ti/Makefile
+>> @@ -3,6 +3,7 @@ obj-$(CONFIG_TI_CPPI41) += cppi41.o
+>>   obj-$(CONFIG_TI_EDMA) += edma.o
+>>   obj-$(CONFIG_DMA_OMAP) += omap-dma.o
+>>   obj-$(CONFIG_TI_K3_UDMA) += k3-udma.o
+>> +obj-$(CONFIG_TI_K3_UDMA_V2) += k3-udma-v2.o
+>>   obj-$(CONFIG_TI_K3_UDMA_COMMON) += k3-udma-common.o
+>>   obj-$(CONFIG_TI_K3_UDMA_GLUE_LAYER) += k3-udma-glue.o
+>>   k3-psil-lib-objs := k3-psil.o \
+>> diff --git a/drivers/dma/ti/k3-udma-common.c b/drivers/dma/ti/k3-udma-common.c
+>> index 0ffc6becc402e..ba0fc048234ac 100644
+>> --- a/drivers/dma/ti/k3-udma-common.c
+>> +++ b/drivers/dma/ti/k3-udma-common.c
+>> @@ -171,8 +171,13 @@ bool udma_is_desc_really_done(struct udma_chan *uc, struct udma_desc *d)
+>>   	    uc->config.dir != DMA_MEM_TO_DEV || !(uc->config.tx_flags & DMA_PREP_INTERRUPT))
+>>   		return true;
+>>   
+>> -	peer_bcnt = udma_tchanrt_read(uc, UDMA_CHAN_RT_PEER_BCNT_REG);
+>> -	bcnt = udma_tchanrt_read(uc, UDMA_CHAN_RT_BCNT_REG);
+>> +	if (uc->ud->match_data->type >= DMA_TYPE_BCDMA_V2) {
+>> +		peer_bcnt = udma_chanrt_read(uc, UDMA_CHAN_RT_PERIPH_BCNT_REG);
+>> +		bcnt = udma_chanrt_read(uc, UDMA_CHAN_RT_BCNT_REG);
+>> +	} else {
+>> +		peer_bcnt = udma_tchanrt_read(uc, UDMA_CHAN_RT_PEER_BCNT_REG);
+>> +		bcnt = udma_tchanrt_read(uc, UDMA_CHAN_RT_BCNT_REG);
+>> +	}
+>>   
+>>   	/* Transfer is incomplete, store current residue and time stamp */
+>>   	if (peer_bcnt < bcnt) {
+>> @@ -319,6 +324,7 @@ udma_prep_slave_sg_tr(struct udma_chan *uc, struct scatterlist *sgl,
+>>   	size_t tr_size;
+>>   	int num_tr = 0;
+>>   	int tr_idx = 0;
+>> +	u32 extra_flags = 0;
+> nitpick: reverse christmas tree order
+>
+>>   	u64 asel;
+>>   
+>>   	/* estimate the number of TRs we will need */
+>> @@ -342,6 +348,9 @@ udma_prep_slave_sg_tr(struct udma_chan *uc, struct scatterlist *sgl,
+>>   	else
+>>   		asel = (u64)uc->config.asel << K3_ADDRESS_ASEL_SHIFT;
+>>   
+>> +	if (dir == DMA_MEM_TO_DEV && uc->ud->match_data->type == DMA_TYPE_BCDMA_V2)
+> I would add the evaluation order in reverse to skip checking direction
+> for UDMA_V1.
+>
+>> +		extra_flags = CPPI5_TR_CSF_EOP;
+>> +
+>>   	tr_req = d->hwdesc[0].tr_req_base;
+>>   	for_each_sg(sgl, sgent, sglen, i) {
+>>   		dma_addr_t sg_addr = sg_dma_address(sgent);
+>> @@ -358,7 +367,7 @@ udma_prep_slave_sg_tr(struct udma_chan *uc, struct scatterlist *sgl,
+>>   
+>>   		cppi5_tr_init(&tr_req[tr_idx].flags, CPPI5_TR_TYPE1, false,
+>>   			      false, CPPI5_TR_EVENT_SIZE_COMPLETION, 0);
+>> -		cppi5_tr_csf_set(&tr_req[tr_idx].flags, CPPI5_TR_CSF_SUPR_EVT);
+>> +		cppi5_tr_csf_set(&tr_req[tr_idx].flags, CPPI5_TR_CSF_SUPR_EVT | extra_flags);
+>>   
+>>   		sg_addr |= asel;
+>>   		tr_req[tr_idx].addr = sg_addr;
+>> @@ -372,7 +381,7 @@ udma_prep_slave_sg_tr(struct udma_chan *uc, struct scatterlist *sgl,
+>>   				      false, false,
+>>   				      CPPI5_TR_EVENT_SIZE_COMPLETION, 0);
+>>   			cppi5_tr_csf_set(&tr_req[tr_idx].flags,
+>> -					 CPPI5_TR_CSF_SUPR_EVT);
+>> +					 CPPI5_TR_CSF_SUPR_EVT | extra_flags);
+>>   
+>>   			tr_req[tr_idx].addr = sg_addr + tr0_cnt1 * tr0_cnt0;
+>>   			tr_req[tr_idx].icnt0 = tr1_cnt0;
+>> @@ -632,7 +641,8 @@ int udma_configure_statictr(struct udma_chan *uc, struct udma_desc *d,
+>>   			d->static_tr.bstcnt = d->residue / d->sglen / div;
+>>   		else
+>>   			d->static_tr.bstcnt = d->residue / div;
+>> -	} else if (uc->ud->match_data->type == DMA_TYPE_BCDMA &&
+>> +	} else if ((uc->ud->match_data->type == DMA_TYPE_BCDMA ||
+>> +		   uc->ud->match_data->type == DMA_TYPE_BCDMA_V2) &&
+> Have you thought of adding a version member to struct udma_match_data
+> and use that instead of distinct different types for BCDMA/PKTDMA?
+>
+> Here for example you would not need any change as the code is common for
+> both v1 and v2.
 
-diff --git a/arch/arm64/boot/dts/qcom/sm8750.dtsi b/arch/arm64/boot/dts/qcom/sm8750.dtsi
-index f56b1f889b85..1e39503360ef 100644
---- a/arch/arm64/boot/dts/qcom/sm8750.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sm8750.dtsi
-@@ -3574,6 +3574,35 @@ tcsrcc: clock-controller@f204008 {
- 			#reset-cells = <1>;
- 		};
- 
-+		ctcu@10001000 {
-+			compatible = "qcom,pakala-ctcu", "qcom,sa8775p-ctcu";
-+			reg = <0x0 0x10001000 0x0 0x1000>;
-+
-+			clocks = <&aoss_qmp>;
-+			clock-names = "apb";
-+
-+			in-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					ctcu_in0: endpoint {
-+						remote-endpoint = <&etr0_out>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					ctcu_in1: endpoint {
-+						remote-endpoint = <&etr1_out>;
-+					};
-+				};
-+			};
-+		};
-+
- 		stm@10002000 {
- 			compatible = "arm,coresight-stm", "arm,primecell";
- 			reg = <0x0 0x10002000 0x0 0x1000>,
-@@ -3687,6 +3716,122 @@ funnel_in0_out: endpoint {
- 			};
- 		};
- 
-+		replicator@10046000 {
-+			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
-+			reg = <0x0 0x10046000 0x0 0x1000>;
-+
-+			clocks = <&aoss_qmp>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				port {
-+					qdss_rep_in: endpoint {
-+						remote-endpoint = <&swao_rep_out0>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					qdss_rep_out0: endpoint {
-+						remote-endpoint = <&etr_rep_in>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tmc@10048000 {
-+			compatible = "arm,coresight-tmc", "arm,primecell";
-+			reg = <0x0 0x10048000 0x0 0x1000>;
-+
-+			clocks = <&aoss_qmp>;
-+			clock-names = "apb_pclk";
-+
-+			iommus = <&apps_smmu 0x04e0 0x0>;
-+			arm,scatter-gather;
-+
-+			in-ports {
-+				port {
-+					etr0_in: endpoint {
-+						remote-endpoint = <&etr_rep_out0>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					etr0_out: endpoint {
-+						remote-endpoint = <&ctcu_in0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		replicator@1004e000 {
-+			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
-+			reg = <0x0 0x1004e000 0x0 0x1000>;
-+
-+			clocks = <&aoss_qmp>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				port {
-+					etr_rep_in: endpoint {
-+						remote-endpoint = <&qdss_rep_out0>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					etr_rep_out0: endpoint {
-+						remote-endpoint = <&etr0_in>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					etr_rep_out1: endpoint {
-+						remote-endpoint = <&etr1_in>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tmc_etr1: tmc@1004f000 {
-+			compatible = "arm,coresight-tmc", "arm,primecell";
-+			reg = <0x0 0x1004f000 0x0 0x1000>;
-+
-+			clocks = <&aoss_qmp>;
-+			clock-names = "apb_pclk";
-+
-+			iommus = <&apps_smmu 0x0500 0x0>;
-+			arm,scatter-gather;
-+			arm,buffer-size = <0x400000>;
-+
-+			in-ports {
-+				port {
-+					etr1_in: endpoint {
-+						remote-endpoint = <&etr_rep_out1>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					etr1_out: endpoint {
-+						remote-endpoint = <&ctcu_in1>;
-+					};
-+				};
-+			};
-+		};
-+
- 		tpdm@10800000 {
- 			compatible = "qcom,coresight-tpdm", "arm,primecell";
- 			reg = <0x0 0x10800000 0x0 0x1000>;
-@@ -4357,6 +4502,38 @@ tmc_etf_in: endpoint {
- 					};
- 				};
- 			};
-+
-+			out-ports {
-+				port {
-+					tmc_etf_out: endpoint {
-+						remote-endpoint = <&swao_rep_in>;
-+					};
-+				};
-+			};
-+		};
-+
-+		replicator@10b06000 {
-+			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
-+			reg = <0x0 0x10b06000 0x0 0x1000>;
-+
-+			clocks = <&aoss_qmp>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				port {
-+					swao_rep_in: endpoint {
-+						remote-endpoint = <&tmc_etf_out>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					swao_rep_out0: endpoint {
-+						remote-endpoint = <&qdss_rep_in>;
-+					};
-+				};
-+			};
- 		};
- 
- 		tpda@10b08000 {
+Hi Peter,
 
--- 
-2.34.1
 
+I'm preparing a v5 and wanted to align with you on the handling of 
+different dma
+
+variants (udma, bcdma, pktdma & v1, v2).
+
+
+Frank suggested moving toward feature flags (capabilities) in the 
+match_data,
+
+rather than checking type. [1]
+
+
+I want to get your thoughts on Frank's suggestion before I proceed. Do 
+you have
+
+any strong objections to using feature flags? I see merit in that 
+approach for
+
+scaling to possible future DMA variants in K3 SoCs.
+
+
+Thanks,
+
+Kartheek
+
+[1] https://lore.kernel.org/all/aXzXYMixFpuornQF@lizhi-Precision-Tower-5810/
+
+>
+>>   		   uc->config.dir == DMA_DEV_TO_MEM &&
+>>   		   uc->cyclic) {
+>>   		/*
+> ...
+>
+>> diff --git a/drivers/dma/ti/k3-udma-v2.c b/drivers/dma/ti/k3-udma-v2.c
+>> new file mode 100644
+>> index 0000000000000..af06d25fd598b
+>> --- /dev/null
+>> +++ b/drivers/dma/ti/k3-udma-v2.c
+> ...
+>
+>> +static bool udma_v2_dma_filter_fn(struct dma_chan *chan, void *param)
+>> +{
+>> +	struct udma_chan_config *ucc;
+>> +	struct psil_endpoint_config *ep_config;
+>> +	struct udma_v2_filter_param *filter_param;
+>> +	struct udma_chan *uc;
+>> +	struct udma_dev *ud;
+> nitpick: reverse christmas tree order
+> also in few other places.
+>
 
