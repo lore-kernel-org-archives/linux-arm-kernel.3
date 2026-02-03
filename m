@@ -4,102 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E12FE8B36D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 22:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2E80E8B37C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 22:51:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7c0NPTkqLZrpseRrb77cJ9keUj/pZc1R94Glr/7UpBo=; b=Y9ttKJ5jZq+T6mhiRosEuDZ01z
-	8ujg7UAlC9I85DJ3OZ4r3YrYdGIrVFZw0bPosUM5q+OFXbNfdmZ8LSBdD3Az3rNeGAKWNUeWThvSn
-	tpYmVeiSn5I/82KnyI8ary7uD3Bc8xYHROpnXyLO45B67R+3qgYMECuLy4cYDl96iTVwwCURMq/Ag
-	S3sSErVk+OTGOdF1gyk2AXzgo3JfqErq8+hhXFRjnczHnSbPEH56zjY8MFMrsht6xc29pbbnJbGfD
-	LtsMIA8VlAYy0fir+aGorbug7wojLHmmcVofs9z1bsNTxrs0cJF64jtjEFLNgiWf4U6bAR0/r35ct
-	9NC+aNhw==;
+	bh=tPQv4WlH2owebWbygjg/uIpQecVTMQ2ymZYgF+Xd0ss=; b=j0a70ir1puDjgfAisXZ4w8Jd71
+	sr4cP75o2q9HCOyim5UJwSZIM+F+LEbcCLVXQxh7pm+Cp3Tp0tQG2V2wt7j9Ozo63zIRdi3k+xWv4
+	ohJYrOKH27dTwtHWwLDSXiXkZBU0oCO0wacRGKtcvmrM9dusKWiPtk3okXZoP9WWEKz0J10ERscGy
+	E5y69XCFP93HIVsZWJ3v3evsfDqgEp1fLOCjshRd7aD1N9rxf+QlJD/9aCbvCQOYyig6Xy8ud8NWU
+	Qg8kHEf/dGsn4gNLj1xruR3RkXgOmoSdz2cWGtJ41p1O3Gmc/fYuBEJxoU/f84gq5sAso2ejnzqb1
+	fcsbbiRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnOh6-00000007TYT-40jo;
-	Tue, 03 Feb 2026 22:16:24 +0000
-Received: from mail-oo1-xc2e.google.com ([2607:f8b0:4864:20::c2e])
+	id 1vnPEs-00000007VS1-20a3;
+	Tue, 03 Feb 2026 22:51:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnOh2-00000007TXT-3ZKS
+	id 1vnPEr-00000007VQj-1cGw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 22:16:23 +0000
-Received: by mail-oo1-xc2e.google.com with SMTP id 006d021491bc7-662fc35291eso3410949eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 14:16:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1770156979; x=1770761779; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=7c0NPTkqLZrpseRrb77cJ9keUj/pZc1R94Glr/7UpBo=;
-        b=ffM8O8DHJ6C0wmvlRpdvXnP2sIEUrcHUx2TuvBKq9Ww0iC7vSy1WkOqvCKy1QEFtLV
-         qBFkVpTsaeXuLcgRKkndcXjLmGJWpzmzh02P+D4cEXKVU5yaotUw3Z8O21uiPid3mPPr
-         l4D38FU2H0Ae7DaszyFU7kIBJdjbsPs55rTn1na+Ll+/rG52WQjNa7Ju6/HBQ57mwh4w
-         A1cx1Y+y65hLcTQtfaDtdNXgYRiJ944BMAviWUqVjBGZTOoBEipAHdoN6SDxcqfHyjJf
-         8EAB2aF8BpAa/O5N+WyrEBlhEAARy4NKhsTzHDlDEFOK/QBXYpMwn3S+ONn85Q20pOeM
-         Xklw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770156979; x=1770761779;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7c0NPTkqLZrpseRrb77cJ9keUj/pZc1R94Glr/7UpBo=;
-        b=pvgXTQmlOg165g8y896Th4S0OFoi0AVx9589noCwMFCgrsbEnSUOhnjEYOKYoG1m2S
-         r+4gurvVyrFi97wERdlrYqoeb/4snCrw9AZkEWcOBynA9YNaWYG8phKDPeOoYLr9nu0h
-         YJSzQN7FEGn4wKww8wwLKAyBhi6fm18npAlIeeOpPls3YKlTrxNxCqc5MHFD7kkRb1uz
-         cbZzf2XhfvyX+Fcgr7XaQj+A3zSJxXGPEbJg+muQAn21XI0xpn6atHS6SBZeS2vIcvLx
-         xMeXr3dAwUhrDgS0WSNHdCUP8HRv3LQQkBCSNuDVE8dNxvHYPDw3YvKANybHX3r99gI/
-         t86g==
-X-Forwarded-Encrypted: i=1; AJvYcCVyljJ2cjBZqjjje90hX/bZ3D+dK62rxN43ECdo0bwnTXyaM8zB/4hjhXzlFxZrohptvES9Rw/EBEuzh/8oy+pg@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmEcy8eKdlRSvSuuj6pzcEO586oCWzxDs9TJ8uPFgXV2Cu4vdC
-	9d9cmdYJKHzvy1DwgJ25FQ5rRs1SyCrvElv9inyhVJMYCeM+qWDdjg3tXcoDbajHp74=
-X-Gm-Gg: AZuq6aJwOGp80XSONQrNpTlW+XziSkoMAuVm8QdX6pnd4gGBZpEKtRS8wsmRPkIPH7a
-	J04CZSJv3Tzz3DA4FEO/xtGJMp6pR//4nso1feN/YQ0+yuDG4HPhJ3ZEnCp8dXxO5gt63r5Eu4v
-	Vkuy2ZPHnvRZXgCP9UoHX9wN+A3WKejZ+8Css4ibCYcU8r6naqomr2l0fhit1D1/5p5dTHF1NzY
-	U2fURDp2pgrKZQ8tWTsQ4nEsbO0xSA84X/h+/r/8Ti+C5vI660kB5OuLLoEsJ/rIMBTT7R7f0u5
-	IBwdH7fHlSr0yg+mYmJ7hSxifofsL1tXz5/punbcVhO/szQ7I+GZ/EWZlCGXLCO/YYHQgIioFbs
-	QtwcvL8d+KLUtDAw0CQD0PUmjZMGcXOfk6JUIoCXNtUksXdGA7+qnJd4BnRciN8OH6DzdhpiBx6
-	5ZF9cUAWsZ6xBBVnjEJeG6//C9jrDivksIwqI08+A6laChsfXzoIoC89E=
-X-Received: by 2002:a05:6820:f09:b0:65f:66c5:c3e with SMTP id 006d021491bc7-66a20d658eemr547793eaf.22.1770156979083;
-        Tue, 03 Feb 2026 14:16:19 -0800 (PST)
-Received: from ?IPV6:2600:8803:e7e4:500:8e13:880:992:e796? ([2600:8803:e7e4:500:8e13:880:992:e796])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-40a544e77fdsm481769fac.21.2026.02.03.14.16.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 03 Feb 2026 14:16:18 -0800 (PST)
-Message-ID: <37d5b1a4-93e2-4fde-ab56-186d34f8835b@baylibre.com>
-Date: Tue, 3 Feb 2026 16:16:17 -0600
+	Tue, 03 Feb 2026 22:51:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6481660135;
+	Tue,  3 Feb 2026 22:51:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0DADAC19425;
+	Tue,  3 Feb 2026 22:51:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770159076;
+	bh=WIsio3xJl7rFG6i+Wdy5HAAvD1EekkX6WpVS4M6abVo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=ltVLQAxga3Qyxs3RpZ5CRbYX+Z278vVRupivy6/JJVSqOlppznjHoC32C0G47edAj
+	 n/Q2eQMqALqSk6CZRMbYYaUNURLar0L420OP+eGQE93SXmT2WtI3CVft/+NCYa7+7u
+	 d3EPXTlw4FTOGXDV2V9r7U3R8KZMXSV0A/2V4hgpuc+ivdxSDCh/Wx8oaVW7dDUi3W
+	 je9u6fR9DEoE5/j36hhEm0G5t/2pQtjFYA3hjeqCweFeFvoB0ZLS9pyd2PHpYP5OrB
+	 HWV/QAcn3XwAuKtwBQn+PAFddxR4470YFGJxjv5aC0YeuBR1CdoWwt01P2xYiQ+gDw
+	 cOgHWp//OQojA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EB30DE8B377;
+	Tue,  3 Feb 2026 22:51:15 +0000 (UTC)
+From: Amit Sunil Dhamne via B4 Relay <devnull+amitsd.google.com@kernel.org>
+Date: Tue, 03 Feb 2026 22:50:27 +0000
+Subject: [PATCH v5 1/5] dt-bindings: mfd: maxim,max77759: reference
+ power-supply schema and add regulator property
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 01/18] dt-bindings: clock: Add MediaTek MT8189 clock
-To: "irving.ch.lin" <irving-ch.lin@mediatek.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Bartosz Golaszewski <brgl@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>,
- Miles Chen <miles.chen@mediatek.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com,
- Qiqi Wang <qiqi.wang@mediatek.com>, sirius.wang@mediatek.com,
- vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
-References: <20260202062840.342707-1-irving-ch.lin@mediatek.com>
- <20260202062840.342707-2-irving-ch.lin@mediatek.com>
-Content-Language: en-US
-From: David Lechner <dlechner@baylibre.com>
-In-Reply-To: <20260202062840.342707-2-irving-ch.lin@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_141621_136212_7F7988DA 
-X-CRM114-Status: GOOD (  10.81  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260203-max77759-charger-v5-1-b50395376a5f@google.com>
+References: <20260203-max77759-charger-v5-0-b50395376a5f@google.com>
+In-Reply-To: <20260203-max77759-charger-v5-0-b50395376a5f@google.com>
+To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Lee Jones <lee@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Badhri Jagan Sridharan <badhri@google.com>, 
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>, 
+ Amit Sunil Dhamne <amitsd@google.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770159074; l=1957;
+ i=amitsd@google.com; s=20241031; h=from:subject:message-id;
+ bh=WZ6aV7fc/rvM5gLfGblUb3sNdr5qL+35K68aSUsYdfI=;
+ b=Ho46QWOSyVGIf0KXlgl0mAFvWuyz3lFkS9s+NvtojUCM/a9fA6bDwPGJHX6cyTX1Ho4iu4kZV
+ GjXCblBcIQ9AibEM78G/1mSMqurkqNpvfpxta0xwpajen/QSXkUD5/y
+X-Developer-Key: i=amitsd@google.com; a=ed25519;
+ pk=wD+XZSST4dmnNZf62/lqJpLm7fiyT8iv462zmQ3H6bI=
+X-Endpoint-Received: by B4 Relay for amitsd@google.com/20241031 with
+ auth_id=262
+X-Original-From: Amit Sunil Dhamne <amitsd@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,23 +93,72 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: amitsd@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/2/26 12:28 AM, irving.ch.lin wrote:
-> From: Irving-CH Lin <irving-ch.lin@mediatek.com>
->
-> Add dt schema and IDs for the clocks of MediaTek MT8189 SoC.
-> The MT8189 clock IP provide clock control for main system
-> (apmixedsys, topcksys and vlpcksys) and
-> subsys (eg. peri, mfg, venc/vdec ...).
->
+From: Amit Sunil Dhamne <amitsd@google.com>
 
-> +#define CLK_TOP_VOWPLL                                  174
+Extend the max77759 binding to reference power-supply schema, so that
+PMIC node can reference its supplier. Also, add regulator property to
+control CHGIN (OTG) voltage.
 
-This one seems out of place. It is not used in the driver. It is
-a fixed 1:1 divider AFAKCT, so should not be included. (And this
-line has spaces while the rest of the file uses tabs for indent.)
+Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: André Draszik <andre.draszik@linaro.org>
+---
+ .../devicetree/bindings/mfd/maxim,max77759.yaml          | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml b/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
+index 525de9ab3c2b7b431e48497330640857540625b1..42e4a84d52043c09bd073dec391a3bd76dbd359b 100644
+--- a/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
++++ b/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
+@@ -16,6 +16,9 @@ description: |
+   The MAX77759 includes Battery Charger, Fuel Gauge, temperature sensors, USB
+   Type-C Port Controller (TCPC), NVMEM, and a GPIO expander.
+ 
++allOf:
++  - $ref: /schemas/power/supply/power-supply.yaml#
++
+ properties:
+   compatible:
+     const: maxim,max77759
+@@ -37,12 +40,18 @@ properties:
+   nvmem-0:
+     $ref: /schemas/nvmem/maxim,max77759-nvmem.yaml
+ 
++  chgin-otg-regulator:
++    type: object
++    description: Provides Boost for sourcing VBUS.
++    $ref: /schemas/regulator/regulator.yaml#
++    unevaluatedProperties: false
++
+ required:
+   - compatible
+   - interrupts
+   - reg
+ 
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+@@ -59,6 +68,11 @@ examples:
+ 
+             interrupt-controller;
+             #interrupt-cells = <2>;
++            power-supplies = <&maxtcpci>;
++
++            chgin-otg-regulator {
++                regulator-name = "chgin-otg";
++            };
+ 
+             gpio {
+                 compatible = "maxim,max77759-gpio";
+
+-- 
+2.53.0.rc2.204.g2597b5adb4-goog
 
 
 
