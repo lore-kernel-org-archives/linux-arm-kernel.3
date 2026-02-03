@@ -4,147 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D48E8307B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 10:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AAE1E8307C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 10:17:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BwydnwgkADB6zoBphbfTvoWDQ4jJFOTu4lyIkJYnOfo=; b=b/xUKioYchJ8NfSy6PBH7ENzll
-	Ds6VsOQ6ZcYERL1NKxSBHityN4/6LjA8DIz32VtRxgMFaScaSJ2sfQLYmNcbR437BRjTkw+2KY/jb
-	ahrot2nYcNcno8TyO+ynv2o7J9abrZPALwl3NElGGW131xFHV8zx94i9+c34vt1PSt37lAlJgM+eb
-	LbLHFF9Id42ePSgFg5PjYH1iC9qzgQ9dp8V924tA0/ndWkfTVMjj8PpJXflQJPsPtclheb6jBMtJX
-	BwQG9fjIsHRwE/0yDkAuRwvtfg69FC8eix4erTYC63oSDwT9bpGOHutQdiNnDaVfa99nmRJLA+Vm+
-	2eTYJWLA==;
+	bh=fscSYj6Edq1KO+eKiUWNHrblwvs+zwoKFQhpyWKzmWc=; b=K9b8u8y09Qap5oUVl3iYOrPNng
+	H5u6YMxkT6ghRB+Mbi9nLyjmWY7aG8f3zwqRg3rzxIBhA/csP6ohtiNRPaR6Eoq6urecwDhoLfy4I
+	d41FWeAc+1i7lKpbC54HnkOH5eTfH43tnwwL5ym5+0lwBPBhLwXqwFR4Od2/O2J2gv993E6Hzrb8f
+	M9Au5gIdFXgbWWRYAnJH+6vQXEJrgj3RhLHG9Usit+0Mko9lHwEX03ZvB1H0/7pbFIJC2hmWOAzfr
+	1MLWtBJHl8Fjyc/RFxgr40gSOXu17VACFHvFPbEraD163MAd66S/mlv5xEwSLjVKvH5QljYirqTsd
+	NAvoi7Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnDPS-00000006SEv-3ovI;
-	Tue, 03 Feb 2026 10:13:26 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vnDT0-00000006SWh-0KuQ;
+	Tue, 03 Feb 2026 10:17:06 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnDPQ-00000006SES-2hLP
+	id 1vnDSx-00000006SWK-2e45
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Feb 2026 10:13:25 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6137eqcP255196
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 3 Feb 2026 10:13:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	BwydnwgkADB6zoBphbfTvoWDQ4jJFOTu4lyIkJYnOfo=; b=BznxzEMpxOC8eLdf
-	xvXw3ohy3CDDPKAE4wlvMy4u/NISLVjYJ5Lea1nUG33rEhe9NeAoh2LoART7Tc7L
-	cpwQTSGML+WyW5Q8AktnWNaYmKz2NzpL1zrKNIPshlXfmUe4SqcM/VkH1HRkYIwx
-	WXeTrDl1IU2HKkbLsEZcW5yMY4h8mbjhqOY8OHsUYl8wBTe5zWb34JLaJTMdd+tu
-	39F29BJA1kjPoLSdTRuH2MwNeVE0lWJ4vSLQpt1vflh7GdC7bdfJhFXEl6IdO/hi
-	TnvEHuF2TogMUOlCcMIcxaFnsiskmn+MOUJ3jrEOuumJQoThwZeVOCaoP56Rl+GT
-	VCqQ7g==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4c2v0kknt7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 10:13:24 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8c533f07450so140701285a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 02:13:23 -0800 (PST)
+	Tue, 03 Feb 2026 10:17:04 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-4359a302794so3713094f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 02:17:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1770113603; x=1770718403; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1770113822; x=1770718622; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=BwydnwgkADB6zoBphbfTvoWDQ4jJFOTu4lyIkJYnOfo=;
-        b=aS2e8llsylftPJd2jdlISwbgNkLkLxHFhJflPJUrKS/9RxtKQzzcxIrOyW8hdib9vb
-         ri37A2nAlPSKjqQWt1e1bu7mRDkSawRHCJNxsHZMZPfQMYAMx5wzJ5JvGQdPS397p9D2
-         w9wrg2EVQmVHSQV6B9YV6QnvdKsKjH51yDEnT9dTmsM2DNeblE+viyALSbZVg3A+4SEF
-         i9lT/Vt6XL9NsXBkV+mYEkWvw3aqYorxECf72c7vexOyndX3ySqD05XJpQagqCULRFT2
-         nkPOvWcYwkyUZ1AYp7m/mpwTe7nU2b6UqbM5FBMjY3rktfbXNd2j9myldRHOzQo+BmFu
-         cVVg==
+        bh=fscSYj6Edq1KO+eKiUWNHrblwvs+zwoKFQhpyWKzmWc=;
+        b=JBObwCAwMfbsvWmzdycaMYy3zgqXnK+hBnB6BQgoCy1DU9f+6jcmc/DneJvygmLs6j
+         O3QWOFfirYAvo5FNRjSSV1XMzfmcx5swsfgS0aJT35i+HmHofbuQ/UhK8reuuUSTAZbx
+         8BPpShEqJCYGmcKuPWPTzuU7C0Ii+WXarljU0St8Kb/L4EZIW9lLo2T2jjPbWXZsTSYW
+         vC+8ob/Z+/J+jnq/jAn1BAgFWtcoYTwMC+pz+tIo4T6cTuc845EqkCZOPYjWpsdmv59x
+         9kIS20DWXV6d3C8E6RJLQH2lMpzTYgLu0TZ0N6Suf7d9ZRLb3JdRZQLSWDsu+Bi98mub
+         ko0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770113603; x=1770718403;
+        d=1e100.net; s=20230601; t=1770113822; x=1770718622;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=BwydnwgkADB6zoBphbfTvoWDQ4jJFOTu4lyIkJYnOfo=;
-        b=ISCw5A01c5XX3boafesj2wKO7WYakswlhZbgpnO5wqsFDOUI/8mIkQLE7/GNmPe/la
-         R6j8YN/+ydHWzhcoz166qiZzhh0Z1wMeuxeB9g1mzXpjVwADuKMDjVonswy5YlLHNS5v
-         HoGqT4A0D0JYKEVz97r3OFzAYHcpq8lUxfHdlP/CWQxqNbsQphK0wcjqFRP3S3Qh4X55
-         49OD2/Zm7DFf+3+6394cZLiHU0vkTJo2Xh5I0OvxVSuluItPBrOWMNKuHb+Fcmef65Bm
-         zfNXe8gWzTFbS8nrGYq1G2NNvWyD4XB9+TJTuI9gjeozCXKiIioYMwSCu6hjstyWoel0
-         5RMw==
-X-Forwarded-Encrypted: i=1; AJvYcCWhjlCQOG6G+VmYprLax/RjbS+hxF54+EMmbI/Q51nR446PueAyVFEYOOFjlTyWbD3kZjt++Bkoi7fZ7bMCFbo1@lists.infradead.org
-X-Gm-Message-State: AOJu0YypEVvyXT9vPqlke19t31lEK9V3LbpHgQE0lLLfzm4aOCriSvGI
-	ZnqYBaXnRobQgd+HvUKojCw1+pQ50gO0mjO7VAhuSWFQetm7qKWSHX3rLuN7F5zuw/XKVhaSmDv
-	JFnjk4LmEbAudUrkwgL3Gfuu735mm3DZcg3e7PPcAxjVhEMWdbg5+QVHmeH6GCQYMvFn4eVeAyj
-	e4mA==
-X-Gm-Gg: AZuq6aJU4p0cqxRhLivB/80h6CLFvo+TS3VEqMVHjMnZuBWgNncHNA1Hgjfn6vIgsfh
-	L6k9yS9JL7t3ZAi+65Jj49pmNH6LjseycsOsFMfAH44U4mwWG9UBagLk2Xf0n2sRngOoxCo62XU
-	I+wQtb6raF9Q3qaBSuAITDioRfUusLpDRVbrHt9uxTW8C6pysYVjWP5X/1ws/tciWswoDrP/0H8
-	3fhsN/sE4u4FJTLb32cjPhef/3QkwvCpHRHMn2Zmk2D4PBn7iLzVdWEdDd+IZnNxBRbjJTjMA3O
-	NjhkqbpR90HL+XAkxS6RdJEQ1G/vdmzbb+J4BwCtIwkrKQ+R35Mu475wiiQVQ7bop8HsrNmrcKz
-	coKUCXnTZ2d7w96JcAsAygYeY39u40xpq/Xrizqna3yiZlvJ2wx/Vll0Q8gYP9ts4EMY=
-X-Received: by 2002:a05:620a:454b:b0:8c6:ca3d:4e0a with SMTP id af79cd13be357-8c9eb285634mr1471866985a.3.1770113603008;
-        Tue, 03 Feb 2026 02:13:23 -0800 (PST)
-X-Received: by 2002:a05:620a:454b:b0:8c6:ca3d:4e0a with SMTP id af79cd13be357-8c9eb285634mr1471864385a.3.1770113602464;
-        Tue, 03 Feb 2026 02:13:22 -0800 (PST)
-Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-658b4256a4bsm9283483a12.2.2026.02.03.02.13.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 03 Feb 2026 02:13:21 -0800 (PST)
-Message-ID: <0ff093e9-39a8-41df-81eb-c2f753a32a71@oss.qualcomm.com>
-Date: Tue, 3 Feb 2026 11:13:19 +0100
+        bh=fscSYj6Edq1KO+eKiUWNHrblwvs+zwoKFQhpyWKzmWc=;
+        b=LcHTrfBoRpHss8Qk6lF0K8RtRuSdc9HdZHawoOkuyZyWvfFQePguvPaHaEiX8QDi7S
+         2Axf0CHT0QGqw2kJTOoCqIIg9d0Y+cq3bhooPwjL7QSpSpo3m4mXS3aWaactMsxEZHAr
+         odQHJD7s//00XjD+4UQx6kruVP2Nqu9aOSgZ6/o6t6BM30DMtrrNYyDkAaBLGDPHNtp6
+         212UGgXi1NJJceI9L39h5mFgv+IM26D3P5IcQrwYDvpYfYuqQ89WCtoCBTyqiHFWOVv0
+         LUVRoRbGUkjBBEgIyHdPOyhAk6NxcfNCZv/Pm01y5Rob1e1Yab54+oghXkpk0zPP/PHh
+         O76g==
+X-Forwarded-Encrypted: i=1; AJvYcCVRsY3JkyWR6OP2Wg+mgt1mvXhqlFbaFrnl2vhE0pxJkwETPU77F/lThWid/z+i9A9zO0X9I8KSqAPg1dHJw9tc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyi+0WCHNhycUz8UHBYaOG3aspBK7UiYpFe7ysRSjN7+rOT5gaM
+	YW+ESYsVgzdIBLWCMbf4DWNC/827ZCaSQEc4tZ5JeSVXRlbgWh51Sc8u
+X-Gm-Gg: AZuq6aJR9e5BoZxTvgjZWKYD7xXZdz2htlA6SVgS8YXO6fnNONrcEyGXe+CPSzkS78M
+	rrghYl66ovA4v/5dmTFjiaB6vhobx69dsSRMJJJ/HINPUzFQFKXPLeDyL/aP5qLYaPF6XYyvQvm
+	Brd05QysgcHNioPx5+vyhbJE7VzAhGxRYyELRY3LgwpfqGt03XRQYCLMfqQ02TGNCJZreYP/q5M
+	7RFVmlnn3+vNAvPC05Ayx6bx9jGZrbA3F2SjVLak9WkfSfPAMnbMatKd+q8FjkfrQqHxwskStwO
+	iMNwqWD3NcKjWz6df2h5vtIOCPIE4JKZ1RRW4zGHcMKGj3fuuAZCPczfGx1PwWr8MT5ZzvKkq66
+	EPfEQ/m68rHdUxXNOLSxOzyckIBMbbkKMpu3+PJOtBpjtkBbg6xXsU5VHCHieLtovUS+E8bXRJa
+	phSb+6IXjyRc21aI55fWSHs7u5mAC/o5RszKNrRx4mlQA=
+X-Received: by 2002:a05:6000:2c01:b0:42f:8816:a509 with SMTP id ffacd0b85a97d-435f3ad2726mr23780172f8f.62.1770113821338;
+        Tue, 03 Feb 2026 02:17:01 -0800 (PST)
+Received: from [10.25.220.39] ([128.77.115.158])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435e135422csm53010801f8f.40.2026.02.03.02.16.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Feb 2026 02:17:00 -0800 (PST)
+Message-ID: <d9c72c09-0b10-4b5a-a49a-ec93764bdbab@gmail.com>
+Date: Tue, 3 Feb 2026 02:16:57 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-binding: document QCOM platforms for CTCU device
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-References: <20260203-enable-ctcu-and-etr-v1-0-a5371a2ec2b8@oss.qualcomm.com>
- <20260203-enable-ctcu-and-etr-v1-1-a5371a2ec2b8@oss.qualcomm.com>
- <6019b38d-3a15-41f5-989e-1f576c327446@oss.qualcomm.com>
- <6c823646-9085-409e-a692-ae3e77347742@oss.qualcomm.com>
- <5911fe77-fe2c-4321-96a9-a1b6b3b5d1e3@arm.com>
- <a74b8e61-6e15-400a-a7aa-d589f3545421@oss.qualcomm.com>
- <cab2be55-2ea4-4bca-a574-eb6800cc38f1@arm.com>
+Subject: Re: [PATCH v3 1/2] arm64: dts: imx95: Reserve eDMA channels 0-1 for
+ V2X
+To: Peng Fan <peng.fan@oss.nxp.com>, Joy Zou <joy.zou@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+ Peng Fan <peng.fan@nxp.com>, Ye Li <ye.li@nxp.com>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+References: <20260130-b4-imx95-v2x-v3-0-95af05bece95@nxp.com>
+ <20260130-b4-imx95-v2x-v3-1-95af05bece95@nxp.com>
+ <aYAYeQaGK2RUFQs6@shlinux89>
 Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <cab2be55-2ea4-4bca-a574-eb6800cc38f1@arm.com>
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+In-Reply-To: <aYAYeQaGK2RUFQs6@shlinux89>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=Reqdyltv c=1 sm=1 tr=0 ts=6981ca44 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=CS0xlA_fLX8Yt5LHUfsA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjAzMDA4MSBTYWx0ZWRfX8P07X112bqmY
- oChZdHNuN8QpnMkCVz8LoBjUN34jZHtobQMK0Ose+59sskOG0f1tjgVl1wf7qFOhAn0CHSh49aj
- qO+r/+Sk66auvwGqUOWCuRstA89T3nN1cv0CIdgEj6igy+W/mlht+ZAo4zALF259QZxp/uo4qCO
- UYJe/sr1q9OZDR/NUwH+3zhzpOpoqxt8Df0IWlu62hMfVZwn7mkxCYUTq4jXITV1bsAw/GLBUo8
- D1rNRHcpFzcAZ9vF0K0HMtBLvQWuT21I/nY6tWN5yMQ6H04WRy2qty0xBPX7r8sqECUPPFVDq0J
- XEuRSIwA0/3PSjIU8jVkI0YWZJxaopCdi6CiPLNwJEiqgbz8h7eWhtCbeEiaCJQRtk7/L0ige3+
- Yd5h0VgbgVx9rEgjSkRxNnX0Wib/4b887bIsFQkDtg2LM+ueYwluPT3UIAeFZRpICEm53arMTeD
- N7gJ9WUguxCzwB8V5Hw==
-X-Proofpoint-GUID: lGXqvoId5vdj9kh7ZFFj5R_11r4Lc8y7
-X-Proofpoint-ORIG-GUID: lGXqvoId5vdj9kh7ZFFj5R_11r4Lc8y7
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-03_03,2026-02-02_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 suspectscore=0 adultscore=0 lowpriorityscore=0
- clxscore=1015 phishscore=0 impostorscore=0 malwarescore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602030081
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_021324_687872_2A588EED 
-X-CRM114-Status: GOOD (  21.63  )
+X-CRM114-CacheID: sfid-20260203_021703_688910_3FFE311C 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,76 +111,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/3/26 10:44 AM, Suzuki K Poulose wrote:
-> On 03/02/2026 09:36, Konrad Dybcio wrote:
->> On 2/3/26 10:31 AM, Suzuki K Poulose wrote:
->>> On 03/02/2026 09:00, Jie Gan wrote:
->>>>
->>>>
->>>> On 2/3/2026 4:50 PM, Konrad Dybcio wrote:
->>>>> On 2/3/26 9:08 AM, Jie Gan wrote:
->>>>>> Document the platforms that fallback to using the qcom,sa8775p-ctcu
->>>>>> compatible for probing.
->>>>>>
->>>>>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->>>>>> ---
->>>>>>    Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml | 4 ++++
->>>>>>    1 file changed, 4 insertions(+)
->>>>>>
->>>>>> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight- ctcu.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight- ctcu.yaml
->>>>>> index e002f87361ad..68853db52bef 100644
->>>>>> --- a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
->>>>>> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
->>>>>> @@ -29,6 +29,10 @@ properties:
->>>>>>        oneOf:
->>>>>>          - items:
->>>>>>              - enum:
->>>>>> +              - qcom,glymur-ctcu
->>>>>> +              - qcom,hamoa-ctcu
->>>>>> +              - qcom,kaanapali-ctcu
->>>>>> +              - qcom,pakala-ctcu
->>>>>
->>>>> Platforms with existing numeric compatibles should continue to use them,
->>>>> so that the mess is somewhat containable
->>>>
->>>> Sure Konrad. So for Pakala, I will change it back to qcom,sm8750-ctcu
->>>
->>> Why do we need different compatibles for the others ? Are they not all compliant to the CTCU programming model ? i.e., sa8775p-ctcu ? or even,
->>> a generic,
->>>
->>> qcom,coresight-ctcu
+
+On 2/1/2026 7:22 PM, Peng Fan wrote:
+> Hi Joy,
+>
+> Sorry to jump in at V3.
+>
+> On Fri, Jan 30, 2026 at 05:36:27PM +0800, Joy Zou wrote:
+>> Reserve eDMA channels 0 and 1 on the AXI eDMA controller for exclusive
+>> use by V2X (Vehicle-to-Everything) fast hash operations.
 >>
->> It's a huge anti-pattern with the DT maintainers, since a compatible is
->> the only way to effectively differentiate different implementations (i.e.
->> instances on different SoCs) of an IP block
-> 
-> Do you mean, same IP block integrated to different SoC ? Or are they
-> different implementations altogether ? Why are these not applicable for
-> other components ? (e.g., Tnoc, I-Tnoc, TPDA, TPDM etc ?)
-
-The former.
-
-I think coresight bindings are fully generic, since they have been in
-place for about as long as the arm64 port, which precedes actual bindings
-validation (yaml dt-bindings) and in those times the requirements were way
-more lax
-
-Konrad
-
->> This is important for the case where a DTB is shipped as part of firmware
->> and can not be replaced - if some quirk needs to be applied retroactively,
->> we can look for "qcom,glymur-ctcu" without affecting all the 50 other'
->> users of the effectively-identical IP block
-> 
-> Fair enough, thank for the explanation.
-> 
-> Kind regards
-> Suzuki
-> 
+>> Reviewed-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>> Tested-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>> Signed-off-by: Joy Zou <joy.zou@nxp.com>
+>> ---
+>> arch/arm64/boot/dts/freescale/imx95.dtsi | 2 ++
+>> 1 file changed, 2 insertions(+)
 >>
->> In this case, we're already reducing the impact on the driver, as that
->> only looks for the single fallback compatible (qcom,sa8775p-ctcu)
->>
->> Konrad
-> 
+>> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+>> index 55e2da094c889fc7c1096d0e36f31ae118d2a982..9ac82da2ff440e08ae8378d7ff830a568d50a354 100644
+>> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
+>> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+>> @@ -631,6 +631,8 @@ edma2: dma-controller@42000000 {
+>> 				reg = <0x42000000 0x210000>;
+>> 				#dma-cells = <3>;
+>> 				dma-channels = <64>;
+>> +				/* channels 0 and 1 reserved for V2X fast hash */
+>> +				dma-channel-mask = <0x3>;
+> This is wrong. Per dt-binding,
+> dma-channel-mask means Bitmask of available DMA channels in ascending order,
+> The usage in this patch does not match the dt-binding.
+
+
+Ah, good catch. It would seem like our EDMA driver reverses the meaning of the "dma-channel-mask"
+
+bits (i.e. bit x set means channel x reserved instead of channel x available).
+
+
+Now, I wonder how we should be proceeding with this. According to the DT binding, our devicetree
+
+configurations are wrong. Since there seem to be only 8 upstream instances in which this property is
+
+being used I guess it wouldn't be so difficult to correct the driver's behavior and then correct the
+
+devicetrees?
+
 
