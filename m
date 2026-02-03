@@ -4,76 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99CC1E7FDD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 01:55:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2D32E7317E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Feb 2026 01:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=69eMcYIoXRFleYg/vueTarbTtX1PTyvJiqoYMwd9bHE=; b=kO/oCATdPXp7/qXAmebY0DFolH
-	8GAMBHn37devdWc/u+21AN+0KJN8v7O0AYj8PfG2jJfl156cpGNZ5ThtQYVzyXNc3pILYpGkm2Dp+
-	XE+yjIiG6yp1gNotlIfYqzkkJ0NqOuWdbS31DuzKh192ddejolRQHBG5b7mFsZcNeYec80dTjVA2W
-	ZzTkA1SR/H+qUFNeHavbF9HurNS6Um6Fjn0PRe8SSwCknHs8yVeCkpp750aYCE5gJbr10AyVpZadT
-	lLqyaDLo20C/xFyOnl5YIRjci1MeYjpfAwsS/ZKCCflzmJ684qniA0XsVixjovXkD7bx4DQjbDYO9
-	NiMSEWWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7AAUIdt/gf2A7VQtr+SzucXQehnd+7wyJMS+RnVjaLc=; b=FXpWNdqR2050jDU0Siqke3t+El
+	XUQ29KRMuUl62NHGV5lxs5MCPqvsxipPiL/xjkTNwXumP2SNpNLBBb09OJuiNdVSu+50MASlThhVy
+	l0NDeMNokREABb3VYQOjTz1qVw7jN5m0EJlFgEZbm9+3icQRVMRVO04wFcd10NLNh9+C8OeDa58y0
+	89ogPO/OC2EFqn8HSDrz+J87+540pSJetzd1rADEr3pEIdvG9XNal+4t0x4sWA81KJUPl04iOPyaG
+	hBvaBCVyhG9VGtkzfwJRX1ipQyfc7u10QxlP8J2nRm3BMBC6itbY5Gt06FUk0bX2zGzV+wSqolp5q
+	cDKXuiPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn5dV-00000005sAo-29eN;
+	id 1vn5dV-00000005sAY-0wAo;
 	Tue, 03 Feb 2026 01:55:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vn5dS-00000005s9t-1iEB
+	id 1vn5dS-00000005s9u-1iXX
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 03 Feb 2026 01:55:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CF75A44356;
-	Tue,  3 Feb 2026 01:55:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9F240C19422;
-	Tue,  3 Feb 2026 01:55:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770083719;
-	bh=IW/+JrbrQIvK+EQCG3nXnsBAjmMT2tbO68ByxNyFyHE=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=Kgr9chCvLZbhou3vdF+YfiY0wLnGvAmYNw7iYWGQxhJeF3uiypF6+exd4Vvr238DE
-	 RvBEVin4n0y1SAw52je39GyouY/vJL0KHf56mDuNgkIXAb71bn/J9YkKSLHhXc6Cdm
-	 /0nj96exxUZUL4J3kegOwRiVs3Yww68NORr/lp8C9FnFoQeatosTaBciX9kFv9y9fE
-	 3AxDFKu4tovrwXvv0920eECgX2qeo2y+ZC504cwD2lwWZ+loD7I5cB6ctPvpqAR3uZ
-	 BFAYbgonlAp7ZH8XysmlCgD8lvOJ47odx2ee0rd1iQGUCIf/ZZ7l2HZjfMen/ouXwW
-	 n4Gogqqnnqr3w==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8FBE3E7FDD6;
-	Tue,  3 Feb 2026 01:55:19 +0000 (UTC)
-From: Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org>
-Date: Tue, 03 Feb 2026 01:55:12 +0000
-Subject: [PATCH v4] spi: xilinx: use device property accessors.
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=W0An2JWhPH5C69PTcUwE5rQG55uRHJ8t6nhXe+3kF1XW99ffoJY1gi/OT8Qqhp2HlLXv7VEhfan8NqGMK4JUJPNVhSG+bHuScFpMcpetQHAJEyOLioYcGk83DowP9uvZLui8nyXfSEwuNBqv3I/jJ2t+M0S/0f1pshC6MNfGwkl1D8if5G6weA9VgUa2oH0c40C57PhZT/JftYb0zhcH2DkuYzCPPNvL52fud6OkUsCzfydgPbeXAeYouqSCUY1GA1wWzu++GOoGEdysvpA37gIBbDjn811cpDFvOn7a5B5NgseQ9aqB7Avsi5837REqjqUp6IOK5iRTFX3bmLjARA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7AAUIdt/gf2A7VQtr+SzucXQehnd+7wyJMS+RnVjaLc=;
+ b=zBr8zol3VpUKFz096VFu4yjoTF10bWH5ABg8f5MQvE0JvLxkcBT52Amjw9osA2F44T8mv4uIPUbgKKdIaOXIzT5Rk2N5w5YY/P8/Ilba9Bq6jalF5ctF9PZkyLcq66wVtMzIHi17XUgNZkTtuFrSWwWQbBoF7dL/xm1rodYgTWXRrnWybm/2jF0afSzwxWw6a53qHRU3ss8SI50oWNUj1wuVnamS+cg2G7H2mUdvZoBYtgZCBJt2Bl0yEEKBhOlxugBlFwc9G6PpGqRzwahqAllk8fGMYzKx+ym56U8O/4VWjMlBa6JVtKDqAm+RrkKm6w7D4W0FL0HYDqvm3T7hwA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7AAUIdt/gf2A7VQtr+SzucXQehnd+7wyJMS+RnVjaLc=;
+ b=kVyNJs7K/XMobS3XKflQUzbLp8o8fW/8gaEr3Rl1f2V5sE9W/lQ2+kYbWZMnYSIBZRXOOx1HyYYpPgPo1m6DOssFTes7Me83GucFk7xlH4oiphGQIR3YAdYvRn+O/HDscEbGeMZItYxsXb9U3dswG7v6M5BUQZUA3+6Hf3/3axWInCgDOT0QYsJ+i+U57xQEhAtgxvdPxMkQ2PWA9+dnuLK9X2pQkeYH+++Hcx2RrSVMNEd47GIRfUNQxtNmae4DWIIjMMx6i0A0zA6kUVSyMA4roj8oFQTAGW+fNL5WREtdpNWacmy0gLHjbd0ClvdGW9SegDQSOBtWd7vQ/SITyQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by GVXPR04MB10301.eurprd04.prod.outlook.com
+ (2603:10a6:150:1dd::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Tue, 3 Feb
+ 2026 01:55:15 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::2943:c36f:6a8c:81f7]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::2943:c36f:6a8c:81f7%5]) with mapi id 15.20.9564.016; Tue, 3 Feb 2026
+ 01:55:15 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: hongxing.zhu@nxp.com,
+	l.stach@pengutronix.de,
+	Frank.Li@nxp.com,
+	bhelgaas@google.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com
+Cc: imx@lists.linux.dev,
+	kernel@pengutronix.de,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH V3 00/10] pci-imx6: Add support for parsing the reset property in new Root Port binding
+Date: Tue,  3 Feb 2026 09:56:04 +0800
+Message-Id: <20260203015614.2957479-1-sherry.sun@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Type: text/plain; charset=
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SG2PR01CA0125.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:40::29) To VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260203-spi-xilinx-v4-1-42f7c326061b@nexthop.ai>
-X-B4-Tracking: v=1; b=H4sIAH9VgWkC/03OQQ6DIBCF4asY1sXAqJR21Xs0LkDHMklFA9bYG
- O9eNF24/Bfvy1tZxEAY2T1bWcCZIg0+RXnJWOOMfyGnNjUDAUpIqXkciS/0Jr9wabUu28qqSt5
- YGowBO1oO7Fmn7sLQ88kFNGfiKiTIQuWgKgDBJTe2/YRgXG/8w+MyuWHMDe2gozgN4Xucm4ud/
- SMA5x9zkRTdoAGBGjphz0y9bdsPsT+ax+YAAAA=
-X-Change-ID: 20260118-spi-xilinx-1b884d5b6519
-To: Mark Brown <broonie@kernel.org>, Michal Simek <michal.simek@amd.com>
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Abdurrahman Hussain <abdurrahman@nexthop.ai>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770083719; l=1424;
- i=abdurrahman@nexthop.ai; s=20260119; h=from:subject:message-id;
- bh=JnhvafHbNCA383rSJUeixD1NuH8QF2CYjO1pAgK3Pbs=;
- b=4kZg1Y5eIQ5AUsqkxYCepuzdNSwUt5ZgPJLeCt7hsoG5JfExAcj+26GBMPshRjiD0GsWqGkjc
- OOf6cP+lKA7DoDZkCl5vICaChIHBevWJvMGBxn2578x8A+B0y0Ucs/B
-X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
- pk=S+ysnf+NwMcBdHBlyKIUEAtaFGSIhQwcJcgcXhq0osg=
-X-Endpoint-Received: by B4 Relay for abdurrahman@nexthop.ai/20260119 with
- auth_id=608
-X-Original-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|GVXPR04MB10301:EE_
+X-MS-Office365-Filtering-Correlation-Id: fae75862-f336-4970-1540-08de62c74612
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|366016|1800799024|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0SKYlKOfjj0EqjDc7on0NYEETg/W8/TO5QG4jUctvD2o12HVLZPPR2F9I/Aa?=
+ =?us-ascii?Q?wG1JYz7uXL541MCosiNW9FTwOIFX6p+hP/qsoqAjdjTT6AtZJj5Q/HrGJG2u?=
+ =?us-ascii?Q?jOybm0cDiNejIoDBBzY1s3KIEQm6ojnWQ1VrQORQs3SXyGc8BpXOdW5GLyPg?=
+ =?us-ascii?Q?4ymo4Hj1CLvxWbY5uB5RJRa8yUE/ppl/OYwr/jZzSGGtmgQl81KAyJwNs5yr?=
+ =?us-ascii?Q?UhPGV5IeDs+zaPEh/h/dGu13ED/ZjMgBIkdMNmifzq4W4DACvy1Tq4SQHeEe?=
+ =?us-ascii?Q?6n6MCwHN2Eh6pJWDgabpm/Vt6KaGwUPnjBrLIGyxNQN+DM/kwkdU41Iidlec?=
+ =?us-ascii?Q?wx+rf+VG0vxpOw2P7qi7A58warzR0FQvGCed9HwAWlt0bjeFJ8SWFIPRjs3Y?=
+ =?us-ascii?Q?ixqchHT6HiqpufuNUFzGMi1zFp1Q1u5mqUfLVyPUpbchPsOwt+t7Itl50fQG?=
+ =?us-ascii?Q?vVq3ENx5aleYx9AHr0NdHAZ/afrOS0ufcx+9nARpq00cxZus1bAtzDce/MAe?=
+ =?us-ascii?Q?4rovuvL/J8Es+Kxd2werY/t6zsQuLkbfU46UAr6RyfGut/BHqslKYuuMwUsn?=
+ =?us-ascii?Q?FmHBs1j4bXaP/4osDVZIQojXcFwRZ/ueUC8zIEM2oKXYxxXhJIeQFEgIYj5N?=
+ =?us-ascii?Q?hBmlWIGMyDOLkq7hEDZWhTtVCH9Po+PTIOcvQSDvbWE1gI7dootcz2hW3b+9?=
+ =?us-ascii?Q?BJTYs3jnv3cZ9GXP6uWGmiY6K3QQ6l+gzufGQvpqWcUspbuIsaiNQDUrthwV?=
+ =?us-ascii?Q?noQY6h9boymKb92wCKklg+eja9EVvAYUbkjHiCl5hpNaKNjQl2Dr40nO9D+E?=
+ =?us-ascii?Q?nSG4JfNiUKFqnLUTjJ4JR9PkagsbSGCcuQeJh9QinInnXEyCXNfzSor0Qyil?=
+ =?us-ascii?Q?eMO8G8P9wsxu+kzkMzgX18SFGoBSLKl3UqdZkC9OCMBMnag8bT+PQd8dOwei?=
+ =?us-ascii?Q?nTCXMze+b7v7XBSzTDPksEGUG97oOFS9M1uABEjZcvNGgG1QoLCbp5CIIaKp?=
+ =?us-ascii?Q?//JfOzRSFP2D7q8IKTcUyUY1knwWphtpZE6Ep2su+jPHnZ6Luu4Qq7Ot+cPU?=
+ =?us-ascii?Q?8pdu3BjwzegMLqTLpbA0MyBvTfNefVOjlsWPmjYp8c8yhd7m4ipLyaHUcLzT?=
+ =?us-ascii?Q?qg/sAAMXyk6NOWpPtcnrg92R91dCwMnzYe/ZstWS0BfaHaQYrxAROrtKuxfO?=
+ =?us-ascii?Q?N6vnCj/T2Dljm9O0EBXIOUUBKnTK/tZc9/KC+9GIGlEslELPvm9IKTGzOAsb?=
+ =?us-ascii?Q?jN6QLiPGMiNoDoJasFlUpYKYrxxL7SPDBjHLzYQeVcv0xs2kejoi33m9ocbZ?=
+ =?us-ascii?Q?xcTJ/lE32Th2PASQTyg8xjF18vYhF9tACZ73vpINDfLG2oFPb/uFwCsJfCen?=
+ =?us-ascii?Q?/I7KdymUS3I3SLZPTAM293W1fV9HuzDnvSll4WBWHWykjRo5LvQdSav4uBIi?=
+ =?us-ascii?Q?idBEP1IiumnCantrL7sTh2/rlj4Q7ru0qnBbQynp/6VIVNJmPSgV0qUPxvLW?=
+ =?us-ascii?Q?JWNsz+acEx+qA+65rYHAjVm9s3QZLfT9VbipKE0lW/7h0MwciuynVDexVyTh?=
+ =?us-ascii?Q?5T1w5Yr6IGe+akhFAOcHXYywT+uBTBK7oYqrB/1Bp70obKqZofVhU23Q18lK?=
+ =?us-ascii?Q?nBKIdlgJT6JJ7DalqW7hUKx7yWLCmpDs99RUdyJqX2ix?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qDbtfgIN24g+pLwGJm3+xV3Ua/Ph5kICYkHeTNs/RPtt1ZpjgKeRdoeDt24r?=
+ =?us-ascii?Q?1l4yVIFvEyW0RXEIXeycmt+IungO5MZtN3qSOi9ZKQy+1IqQtUuGosAey7uZ?=
+ =?us-ascii?Q?/Hnk/Vqx6Ijo4qhK2XxSUV2ClDGh3QEpKnG0YFMm2SIItVI+klW6fPI9cOvo?=
+ =?us-ascii?Q?itL7f0BLw9L09OAvmjptd25fjXAeA4inZFI/3+uwfKVfIdLQSQBtAZWe9bWn?=
+ =?us-ascii?Q?MJc2aycKA7b751/5tmKteMQuAqDYAWp+12LMK7AeS5QygVqdHRY+1ihtIG6B?=
+ =?us-ascii?Q?RoGGwmCj9OPcBsjXXtezig7Mz0h60eglqfc5Lnq6ua4JpZWA1OQZhUgyB7No?=
+ =?us-ascii?Q?AEjIwOUhdjy+md9+AMleeNU32CqrvC3m82e8m+5Nzdu+bBoCTDR3qLwt7U0q?=
+ =?us-ascii?Q?0Kxl23cpfujhwL/ajEY4iYyhYy0XJ8yQDKKjFjpvgeELL5CERxTu1AGAQlF3?=
+ =?us-ascii?Q?MiPRMLtUEM8r0yR+aQ8GTwQGqpDIiZWJIYPiNsltc/P39/pQlIo80LY1v4Br?=
+ =?us-ascii?Q?pPYIzv8Bk0mIPR3LPfsMjlBdXOfx6ltoWnxz6HQ5OVitNiK50IXits3JpvNu?=
+ =?us-ascii?Q?WOzQgClYGoC9LcXpzvNT7t04oMgLh39ibf2lNosGP/bpZVnLZaTPEdxyfp/2?=
+ =?us-ascii?Q?9YDHNvgOhSCP8yrCw3ycTlV2noOY7vR0JyP4jPu3EjsvNSEPgHdTknIymYCd?=
+ =?us-ascii?Q?bPZF6BGsdPj451UvbKQeTHAUAm24xobUS3qSdz3ooCZFSIcu56iMu2ZyoqY0?=
+ =?us-ascii?Q?VlG0P/355o4whhQDo4XImufnX/a9zQCwc+GC9MaF5DsyesUT6oR9y9Mvih2f?=
+ =?us-ascii?Q?1ApnAu4p5a0HNE/sbOg6Mwbju/DUEZoX0pZU+s1deH3cBDnMNuD9bK/f0qf3?=
+ =?us-ascii?Q?wX9rW+iw6PQsbtJuEBF7T39D2QH9DJUYiFXNBG6P6JplP1mSZPXCQvorlW4i?=
+ =?us-ascii?Q?7x5yGTiofVaRDixAMWx/ccuv8rw8LiYcJp0nwnIftq6fxWWEzCsCh2VaO/cK?=
+ =?us-ascii?Q?RUkVdwinhlos8tt26PakXJSbF5St3D5xOsBDRdz5VOOFVAzcGhUd6qkOuWJo?=
+ =?us-ascii?Q?mrvuACdq+5CiNdpEeBoWiOoe40PJli9BljtRn9SpJPegvjWUzQUY1bI2Fx3n?=
+ =?us-ascii?Q?/fAghtZclR3XZYjov4kkCCxyZQyxBuYQVT23KY0wEE8qzFMkNqSJKgdozaA3?=
+ =?us-ascii?Q?FSzDrby90DWce2Pd8b0cRNg8ZWFpeW2CfA00Gjm8TTl0k/Mcyj3v9eofgrGj?=
+ =?us-ascii?Q?OFy4Qr3cTUSqmz1shSUgdXCHYCx/ZsX2j6WOz29ZtOpqvoLQyrGAqxl33PIH?=
+ =?us-ascii?Q?twXnpc/XNrnZ4UKUIrRrch7QWvm1BkcFPlLQBWt+5KIYC6/IcD8H1/JukbSY?=
+ =?us-ascii?Q?2b8qv1+O6m71a+W6qP6bPAQ9zOy//r3pp9/qaCeE61g2fsP73U1epts9aCKc?=
+ =?us-ascii?Q?Nr0qMo4nGXQc3RzWpcc9aImwUSrDhYW5OTv2Op5oHntsD1gcj0B5Mp+JzT1A?=
+ =?us-ascii?Q?/zhOTi0QUDkz7XhKnU8d17LNuvHWB2+NzaggNmWrX6og6/EDaKoaEDOVFneF?=
+ =?us-ascii?Q?ho53f9hyvLXEtU0fZhnUMYkl16SWdHwzka8Az9ZegJ6vQi3mq4/Qf+RXHp94?=
+ =?us-ascii?Q?4tcSkMEfsxOyOx1X0vYab8lhlTutAF+VrcgcCtJA+SbOxyJYIdEC9+4NURmr?=
+ =?us-ascii?Q?+t02iiDmvbIntkFXWTo0UYs5S8iCnUBXuLpq2zC/nRDkD4/g3j/MF4K4mdBc?=
+ =?us-ascii?Q?KXCVRdvSeg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fae75862-f336-4970-1540-08de62c74612
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2026 01:55:15.7878
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: oYyH5UbtjogPRjL4VJp5Id0ioIu43P61X+QsH5VVI+PH30wra16oiSPSA9cBMvOeZO/pHdITFnDrwJjzv3MRyw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10301
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260202_175522_544111_171C7374 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20260202_175522_481939_7DD9D5C9 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,58 +172,99 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: abdurrahman@nexthop.ai
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+This patch set adds support for parsing the reset property in new Root Port
+binding in pci-imx6 driver, similar to the implementation in the qcom pcie
+driver[1].
 
-Switch to device property accessors.
+The plan is to add the wake-gpio property to the root port in subsequent
+patches. Also, the vpcie-supply property will be moved to the root port
+node later based on the refactoring patch set for the PCI pwrctrl
+framework[2]. 
 
-Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+The initial idea is to adopt the Manivannan’s recent PCIe M.2 KeyE
+connector support patch set[3] and PCI power control framework patches[2],
+and extend them to the pcie-imx6 driver. Since the new M.2/pwrctrl model is
+implemented based on Root Ports and requires the pwrctrl driver to bind to
+a Root Port device, we need to introduce a Root Port child node on i.MX
+boards that provide an M.2 connector.
+
+To follow a more standardized DT structure, it also makes sense to move
+the reset-gpios and wake-gpios properties into the Root Port node. These
+signals logically belong to the Root Port rather than the host bridge,
+and placing them there aligns with the new M.2/pwrctrl model.
+
+Regarding backward compatibility, as Frank suggested, I will not remove
+the old reset-gpio property from existing DTS files to avoid function
+break.
+
+For new i.MX platforms — such as the upcoming i.MX952-evk will add
+vpcie-supply, reset-gpios, and wake-gpios directly under the Root Port
+node.
+Therefore, driver updates are needed to support both the legacy
+properties and the new standardized Root Port based layout.
+
+[1] https://lore.kernel.org/linux-pci/20250702-perst-v5-0-920b3d1f6ee1@qti.qualcomm.com/
+[2] https://lore.kernel.org/linux-pci/20260115-pci-pwrctrl-rework-v5-0-9d26da3ce903@oss.qualcomm.com/
+[3] https://lore.kernel.org/linux-pci/20260112-pci-m2-e-v4-0-eff84d2c6d26@oss.qualcomm.com/
+
+Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
 ---
-Switch to generic device property accessors.
+Changes in V2:
+1. Improve the patch#2 commit message as Frank suggested.
+2. Add Reviewed-by tag for patch#1.
 
-2.52.0
-
-base-commit: 944aacb68baf7624ab8d277d0ebf07f025ca137c
+Changes in V2:
+1. Improve the patch#1 commit message as Frank suggested.
+2. Also mark the reset-gpio-active-high property as deprecated in
+   imx6q-pcie DT binding as Rob suggested.
+3. The imx_pcie_delete_ports() has been moved up so that the
+   imx_pcie_parse_ports() can call this helper function in error handling.
+4. Keep the old reset-gpio property in the host bridge node for the
+   existing dts files and add comments to avoid confusion.
 ---
-Changes in v4:
-- Removed patches making the irq optional.
-- Link to v3: https://lore.kernel.org/r/20260122-spi-xilinx-v3-1-8cea20e82f0b@nexthop.ai
----
- drivers/spi/spi-xilinx.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/spi/spi-xilinx.c b/drivers/spi/spi-xilinx.c
-index c86dc56f38b4..c4b70e95b695 100644
---- a/drivers/spi/spi-xilinx.c
-+++ b/drivers/spi/spi-xilinx.c
-@@ -405,11 +405,11 @@ static int xilinx_spi_probe(struct platform_device *pdev)
- 		bits_per_word = pdata->bits_per_word;
- 		force_irq = pdata->force_irq;
- 	} else {
--		of_property_read_u32(pdev->dev.of_node, "xlnx,num-ss-bits",
--					  &num_cs);
--		ret = of_property_read_u32(pdev->dev.of_node,
--					   "xlnx,num-transfer-bits",
--					   &bits_per_word);
-+		device_property_read_u32(&pdev->dev, "xlnx,num-ss-bits",
-+					 &num_cs);
-+		ret = device_property_read_u32(&pdev->dev,
-+					       "xlnx,num-transfer-bits",
-+					       &bits_per_word);
- 		if (ret)
- 			bits_per_word = 8;
- 	}
+Sherry Sun (10):
+  dt-bindings: PCI: fsl,imx6q-pcie: Add reset GPIO in Root Port node
+  PCI: imx6: Add support for parsing the reset property in new Root Port
+    binding
+  arm: dts: imx6qdl: Add Root Port node and PERST property
+  arm: dts: imx6sx: Add Root Port node and PERST property
+  arm: dts: imx7d: Add Root Port node and PERST property
+  arm64: dts: imx8mm: Add Root Port node and PERST property
+  arm64: dts: imx8mp: Add Root Port node and PERST property
+  arm64: dts: imx8mq: Add Root Port node and PERST property
+  arm64: dts: imx8dxl/qm/qxp: Add Root Port node and PERST property
+  arm64: dts: imx95: Add Root Port node and PERST property
 
----
-base-commit: 944aacb68baf7624ab8d277d0ebf07f025ca137c
-change-id: 20260118-spi-xilinx-1b884d5b6519
+ .../bindings/pci/fsl,imx6q-pcie.yaml          |  32 +++++
+ .../arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi |   5 +
+ arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi        |  11 ++
+ .../arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts |   5 +
+ arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtsi     |   5 +
+ arch/arm/boot/dts/nxp/imx/imx6sx.dtsi         |  11 ++
+ arch/arm/boot/dts/nxp/imx/imx7d-sdb.dts       |   5 +
+ arch/arm/boot/dts/nxp/imx/imx7d.dtsi          |  11 ++
+ .../boot/dts/freescale/imx8-ss-hsio.dtsi      |  11 ++
+ arch/arm64/boot/dts/freescale/imx8dxl-evk.dts |   5 +
+ arch/arm64/boot/dts/freescale/imx8mm-evk.dtsi |   5 +
+ arch/arm64/boot/dts/freescale/imx8mm.dtsi     |  11 ++
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts  |   5 +
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  11 ++
+ arch/arm64/boot/dts/freescale/imx8mq-evk.dts  |  10 ++
+ arch/arm64/boot/dts/freescale/imx8mq.dtsi     |  22 ++++
+ arch/arm64/boot/dts/freescale/imx8qm-mek.dts  |  10 ++
+ .../boot/dts/freescale/imx8qm-ss-hsio.dtsi    |  22 ++++
+ arch/arm64/boot/dts/freescale/imx8qxp-mek.dts |   5 +
+ .../boot/dts/freescale/imx95-15x15-evk.dts    |   5 +
+ .../boot/dts/freescale/imx95-19x19-evk.dts    |  10 ++
+ arch/arm64/boot/dts/freescale/imx95.dtsi      |  22 ++++
+ drivers/pci/controller/dwc/pci-imx6.c         | 123 ++++++++++++++++--
+ 23 files changed, 348 insertions(+), 14 deletions(-)
 
-Best regards,
 -- 
-Abdurrahman Hussain <abdurrahman@nexthop.ai>
-
+2.37.1
 
 
