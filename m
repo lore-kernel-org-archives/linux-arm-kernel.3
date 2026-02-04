@@ -4,92 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53AB3E8B387
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 01:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55C15E8B383
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 01:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CGPjH6AcFKANrVP0dRuQVJ4d96MDnQ2QMhahTHhHJ7I=; b=Ij4AnY6tPXF2+bnvKghcL5xsWw
-	PYD1IwW3qaJFZhxRgU5yOgzh6bgIirZlFF1fCOzCWZ3144TB5JeuxIcrW14crAqy0mkcHMs6lfug8
-	w702tqju3qbK8MLrLFsK915jjYaeHEL2MQIIFWPcgxljcMTRL67lKAl4UKTFbhFJAdBPbelQ+GCDC
-	V8dyl2Nu/QTSgTI9srzkfH7T9jknG8baUwFfowolQuKhJisWsBXybLgakzziZctvPFqGunJHeO3aN
-	/RshUaGw6h10xTqsTajNoQzvIEgNAt/Y3Vqt0HhiCrD0dSSbn045bwcoJT1/aM/6XcaEpKvSszd8k
-	Mi7ayrMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L+0hqhwwEEcFoOBs1tRRgPrd1kMmn8Imhm5OGfDiaX8=; b=0DHIhcYEuHATYzWo8d0hSzPS8y
+	GsUwrcp89elvdTtFjiKcFKMID1DqIAAD3xF8KlaBRKhATIaH9FmYp5uINOcqFhDlFTDk0zzp2LUmX
+	gVN3L8Zkx7LNUB85O7lwYq1+1u/LT4zLI0PT62kHOMBxYNDGIfkImWwTB2IRo2e3ewKb9b2lrU31J
+	aYVAVq4dOYCXvKqc2YwwyUrunYJxYMWQfPN/hkKNOB6o5QwTe0ykhRGarbjTg9gOz4mHQRBFzyH4C
+	IxzBIPBnMVQqj1YxbNq5rUvy7z5TozLssIUd4sSTmyVVrgpo7rdW7gSVdyRhXPQPsOuwgJQqkJ5up
+	0sN0AkQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnRg8-00000007gSW-0NwW;
-	Wed, 04 Feb 2026 01:27:36 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vnRhO-00000007gbB-1zbU;
+	Wed, 04 Feb 2026 01:28:54 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnRg5-00000007gRc-2bWK
+	id 1vnRhL-00000007gaZ-1P5m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 01:27:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=CGPjH6AcFKANrVP0dRuQVJ4d96MDnQ2QMhahTHhHJ7I=; b=GKIBEfUYLBkpuT/p9D1vF9bNln
-	HXlhQHwtLtfMhl13EV0deROU3LXkHijy/sjSIJhh43STwjkRaway73ObORbh5+zrU63+gkuSq2ySB
-	2KIPgSNbJmkxmL0yHG8UKZx2/C2402kFp35Q7Rn6yh5hBWM2wdlsq2Qi4860BnM2a9Del7cjtvsR3
-	SYOOfVcSNMsJxrDxyLcDKnfsak8qQRbkESuRoOWTMxUpt0+imHJjU9M0VUgGk3HMMRSVZOui/Iep9
-	hqwoyWAEyxy8+brsKCLkwJYZ1zmStIxctwFu16uro8wCQDoYUd2TAnKITE2QU2LZ6gYAASU5LvkMX
-	pgYu43KA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:45098)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vnRfi-000000005lo-0rUF;
-	Wed, 04 Feb 2026 01:27:10 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vnRfc-000000004sf-3BlI;
-	Wed, 04 Feb 2026 01:27:04 +0000
-Date: Wed, 4 Feb 2026 01:27:04 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>,
-	"Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Eric DeVolder <eric.devolder@oracle.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Kees Cook <keescook@chromium.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@somainline.org>,
-	John Crispin <john@phrozen.org>
-Subject: Re: [PATCH v2 0/2] ARM: decompressor: support AUTO_ZRELADDR and
- appended DTB
-Message-ID: <aYKgaDtb7Ba09Paf@shell.armlinux.org.uk>
-References: <65d62b60.050a0220.c7b96.614e@mx.google.com>
- <666ad6e0.df0a0220.f8b16.4a5e@mx.google.com>
- <CACRpkdYJoNRpciyQE_A6dkb8f6Jsy4+qwb4w9K3bss2mkZpp1A@mail.gmail.com>
- <ZmsXdWWidNjXdbSa@shell.armlinux.org.uk>
- <666b2379.5d0a0220.c7eec.8b6f@mx.google.com>
- <CAMuHMdWnNzktSecsPX_anf=PCuLrZUT-6TO7KXGCHeQVTS974g@mail.gmail.com>
- <aYCDOio-YdUJAf2v@shell.armlinux.org.uk>
- <CA+_ehUx=3Ci2hN0YYkLxBNwOu_NTHFe_ZKkw9TH+bU-4PwTD-A@mail.gmail.com>
- <86v7gf9z92.wl-maz@kernel.org>
- <CAD++jLkgtgi1obmiuon=1XhOmT5cwtsMmBE37-wkzE_W55ZV2Q@mail.gmail.com>
+	Wed, 04 Feb 2026 01:28:53 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=L+0hqhwwEEcFoOBs1tRRgPrd1kMmn8Imhm5OGfDiaX8=;
+	b=zpUsv6Z5Y8Lo53Zlj04UUtA46/PV3thl93doCgX194Q7eZyh0HmebxnRFUajgX1o5/q3btODi
+	ek88WT3o7pvrEB2dTiOuq3PuG/qz27cnuVfJ6Ko/7BEGuUev5OQRCD3I3EoqKqGIwGNB3PIDPMj
+	ZN1eBcP//+5yOU2Fe4SmtUs=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4f5N135NR4zLlSB;
+	Wed,  4 Feb 2026 09:24:07 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 852DD40363;
+	Wed,  4 Feb 2026 09:28:41 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 4 Feb 2026 09:28:39 +0800
+Message-ID: <2699bcdc-8d56-7fe9-fa9a-a3d61476e806@huawei.com>
+Date: Wed, 4 Feb 2026 09:28:26 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAD++jLkgtgi1obmiuon=1XhOmT5cwtsMmBE37-wkzE_W55ZV2Q@mail.gmail.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v12 00/13] arm64: entry: Convert to Generic Entry
+Content-Language: en-US
+To: Thomas Gleixner <tglx@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <oleg@redhat.com>, <shuah@kernel.org>, <kees@kernel.org>,
+	<luto@amacapital.net>, <wad@chromium.org>, <kevin.brodsky@arm.com>,
+	<akpm@linux-foundation.org>, <charlie@rivosinc.com>, <ldv@strace.io>,
+	<anshuman.khandual@arm.com>, <mark.rutland@arm.com>, <ryan.roberts@arm.com>,
+	<thuth@redhat.com>, <song@kernel.org>, <ada.coupriediaz@arm.com>,
+	<broonie@kernel.org>, <pengcan@kylinos.cn>, <liqiang01@kylinos.cn>,
+	<kmal@cock.li>, <dvyukov@google.com>, <reddybalavignesh9979@gmail.com>,
+	<richard.weiyang@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
+References: <20260203133728.848283-1-ruanjinjie@huawei.com>
+ <87bji552uk.ffs@tglx>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <87bji552uk.ffs@tglx>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_172733_659932_91177117 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20260203_172851_841719_2D923C1B 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,19 +87,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 04, 2026 at 01:36:29AM +0100, Linus Walleij wrote:
-> However, I think it is a thick requirement to put on hobbyist
-> contributors to go and write entite boot loaders from scratch,
-> I think it's a fine requirement to put on Qualcomm or Renesas
-> paid maintainers.
 
-If we're talking about older boards, then why have they only recently
-became a problem, when, presumably, they've been working fine for a
-decade or so?
 
-If we're talking about more modern boards, then I have zero sympathy.
+On 2026/2/3 22:16, Thomas Gleixner wrote:
+> On Tue, Feb 03 2026 at 21:37, Jinjie Ruan wrote:
+>> Currently, x86, Riscv, Loongarch use the Generic Entry which makes
+>> maintainers' work easier and codes more elegant. arm64 has already
+>> successfully switched to the Generic IRQ Entry in commit
+>> b3cf07851b6c ("arm64: entry: Switch to generic IRQ entry"), it is
+>> time to completely convert arm64 to Generic Entry.
+>>
+>> The goal is to bring arm64 in line with other architectures that already
+>> use the generic entry infrastructure, reducing duplicated code and
+>> making it easier to share future changes in entry/exit paths, such as
+>> "Syscall User Dispatch".
+>>
+>> This patch set is rebased on "sched/core". And the performance
+> 
+> Why are you using sched/core, which contains a lot of unrelated
+> changes. core/entry is the one which has the prerequisites and nothing
+> else....
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+By the way，it looks like core/entry and arm64 for-next/entry have
+diverged: the first three patches of this series are already in arm64
+for-next/entry but missing from core/entry.
+Perhaps the two branches should be reconciled so that both contain the
+same baseline.
+
+> 
+> 
 
