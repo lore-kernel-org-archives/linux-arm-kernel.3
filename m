@@ -4,108 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02DBAE95375
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 10:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0343BE9537C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 11:01:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kY7fp7PgRMRvrZC+OlVEnEmguT5LKW9pH/1apzccJLU=; b=gkYQK3BnLQwissPqcjgFYtq4m0
-	qoZfQbXkv96QmAIK6vN46dvls6ZsU0r0vuZcBNlCbtQ9TdsJ3kjQbU1oLN1XAcg6dXrkRmtdYjmp+
-	U14sYb29LcNot0zUwP8tAwvggslalAknens/82dE73+HEwxDm5IXfDmTloPlhAMxOWNpoaip9ltPS
-	+hNqUJvhA1zc0ONld0ye++xzW13a0AqiiCIjtcZ14SsUb46D42JMS/GCehocjgsx6HYO+J1C48ugV
-	5PIgjxLKXUsgLIaz+dNlupxZWxXl9SZ5xZ7oOUr8s6dfEpEBiB+1cdgmN+WwDf56u4oRJ/dMqpBeU
-	3J7i5lzw==;
+	bh=fZmRzw0UO0vo2/+RdTbe3Czfuc5YBOuRbRLbvZUi5Wg=; b=yCjEuLQDjfmqF6XOw/vEy8ihMZ
+	f3RO6No8su0iShVOwaE1EoRo2G/5ESjn/LzgPtram+15wrMosdEWOlknpTxbwcO70h2nXRj7I4/Hp
+	qByESGlcSKW8e+BC45cvCMkksH23H4GvgsWzdbBrqa8xVuAysF962GBR4W5vCTc/b6wE10qe1HiSM
+	lAmqlekQKcHx1qEkkRYGKyH43V7AyA/Trk1j0QNmd5cSxX8I/FDN7HqLylN9XM/lhsfEG1Eek7+6r
+	Lh/QBPnHKIpxFgJclgvGVU/Lbs0cHKbl/kHGrLgRfEDQbTpjzCyv74OmO25qX4wRq72W9vaeHSH5v
+	ag567DUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnaPD-00000008IzQ-38HW;
-	Wed, 04 Feb 2026 10:46:43 +0000
-Received: from mail-dl1-x1234.google.com ([2607:f8b0:4864:20::1234])
+	id 1vnadd-00000008K2e-2lLU;
+	Wed, 04 Feb 2026 11:01:37 +0000
+Received: from mail-ua1-f45.google.com ([209.85.222.45])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnaPA-00000008Iyn-3itc
+	id 1vnada-00000008K27-1Ut2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 10:46:42 +0000
-Received: by mail-dl1-x1234.google.com with SMTP id a92af1059eb24-124a677c9afso3925768c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 02:46:40 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770201999; cv=none;
-        d=google.com; s=arc-20240605;
-        b=fn+VMei+fXXwlmE0KzYe3g6YVTWSDrci6G7bRhuYaBOFHFMO/7lig2TxRYp8uz4fHq
-         cQT+Vuig0wRclmuWz8NIkSllm13STcx19d7hccoGzCCDbCSsyMj+2TdbpVwIhuCIqxCu
-         8PxFsKymVIOFj37Rs3dS4ImNAbzjzHve7a+Vj4Zm8EbE/U4WSda+uc7Zs8K37YAi9RkG
-         LAZ62s4PrE5z/Ws0Psf9YPSVRCrF5njC7EnnmkAYokh6pYWykeoENqDOi5+nCJ9Ob7gA
-         A7aNMtD7dUa4CMZomsIfyFtB9ke7PGlX5t9oC2TvTLvRyrwD1t0S8Tmlu93SKs7jg3Qu
-         01tw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=kY7fp7PgRMRvrZC+OlVEnEmguT5LKW9pH/1apzccJLU=;
-        fh=z9hxUSSR7+ITjieiA8eXKubbhDT37aSSfvDcVC8gDPg=;
-        b=hR2Z49Lisyv+N0rxttGhwat27DLvVBY4z7hp6gY3zmH2yCcYEf5NwBaZno4LyUXapX
-         1y0kD1kD64aJ5VNTak0Op3oiG/xYfPv9K2SATqcMYriySPGCnOZqNeeYBoMd/YqjvW11
-         XJ9NCPT8h9rqqd9/x7CwhTXw0SD8+W7eWyExT8/MROgYK3r628o1o0vJ5eu/aL7qUPq8
-         MzVO093gffctRp6jNMss9FVTBa2A+8Y2SIbC9T+aWCB//JYlzqDbdBmnQaoQMdj9lQp7
-         HSpeuWBZPMMLPsqyYZWkysBPw/++Y5MreSEPKgp4KCWxA3FFYEX4P6uY8dJJslh7Aj2m
-         J6Uw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1770201999; x=1770806799; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=kY7fp7PgRMRvrZC+OlVEnEmguT5LKW9pH/1apzccJLU=;
-        b=q2lJYo6m4erCMhzi8w6/OnwBUCcHF3zRcf3akEDs3jlxHFsvGqYKC5jII78DOetvbz
-         p6d5wDOcwzSYAS1eg9qK/1cMoY+UBtk+Wxae+w/AWJOrvBL7sMoRRwjQjJK+m4unVyQk
-         7XKRKEpy5RCoddPDgShnXkVFQfM36nGWldRIoIP5zTI3ECo9wz0UEbHs75dorj3O0ddh
-         rjLf8bXaTrkii96saatw5PftA9TJhJhuvNyOG17YDjpDBEm0ZjgkhfJahqq/5kldV4S3
-         S2R+alFx+WOStPm1EZwahLwn4pN66ipc0VAeBjHnbtpqbHaRH/Rpo7pwNoYHobUi5GWI
-         trMg==
+	Wed, 04 Feb 2026 11:01:35 +0000
+Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-948aa4f524dso2131199241.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 03:01:33 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770201999; x=1770806799;
+        d=1e100.net; s=20230601; t=1770202892; x=1770807692;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=kY7fp7PgRMRvrZC+OlVEnEmguT5LKW9pH/1apzccJLU=;
-        b=LHb+YYrtcdLRgWlkydCmOCq7nP8/NhtiE4J5ZUUePUNiwcfGoP39FrPY9z+p3radRO
-         VDQypHIm/cLfc1lbNQyJdDS3jMRf5UQly642kIjjenufwJn4Z12mAnjmxC1e2v/bUyur
-         mCJQVlpCzL+2U/JfdQB50+UJyz7Pj/p1Zfrnl0BbucpQ3sgSAwdvbj/krrQBBuIoVH5o
-         xknwGAfXhadlv6iOXFjt/7QV5X4O9ej80r2jOpVT73LdBSSgh6tFpP+CIrar0l2gJMie
-         M+hprxBwTNwZkZefp+5D0IKl30qYuOa/+oZc+hk33ivhM0ZPxzt1hCjQoXsD7upr/hvv
-         29ng==
-X-Forwarded-Encrypted: i=1; AJvYcCUBW80TXumAbFNOFDA0PnFFPLEEJKfj3DAfl/cMkfk7P7fRm0O54Bo2so99Xj+ClC5aKZU7By0e+wxWLsgyV+Pb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxr+OrxBV6a4G49QAdyKb2nyUJs3kjtb0//9Uzp+Qk1JT47HSfn
-	QpBS6N7WjE/JMcXx+I9T4HmS/z4lt0eOg99uxPU7whUcRSlnFEISQ879jUzSfUVpHYpcYeEnQFl
-	RD14bS0Wp96rj/zxtCKFuMM3Oioxu7C1rbN4+9vLh
-X-Gm-Gg: AZuq6aK7qWpgFh1re1QudVlwg+CNk2F6BpWIMa7AFmTl4Ws0X+kHR9OPpCEbHIRfwqT
-	or+5XG/W68kUHDVtkOPpoJDpBS5h7bFnQm7VcT9z1ZaTqiO7daH1PKXYRO8wH6+/l39krDAJzzX
-	oakoQuN15mtfGyD77GPABHcbw2qI0mtBEHNRRrU+HsaTcAZxaiKgewmCdRunNiJWVU4pO3CEem4
-	VSC6G13T3NdLEcxqyCEu2M1YzByg0orTR0YF1KKeygD9KgwllMj5XpikGg7RaJ+WiMy6umGKD65
-	yW7rp2DsPbPvOrmkNqmKBBdCxg==
-X-Received: by 2002:a05:7022:eacf:b0:119:e55a:9bf5 with SMTP id
- a92af1059eb24-126f478dab9mr1212137c88.17.1770201998956; Wed, 04 Feb 2026
- 02:46:38 -0800 (PST)
+        bh=fZmRzw0UO0vo2/+RdTbe3Czfuc5YBOuRbRLbvZUi5Wg=;
+        b=mx8zcOXgEDtrjLcHTMThHJZJtrXn4gvyJnCoBxNsbsTd1ZHwp/mEd19EMnE7Sip36f
+         /22/weAnPXFOukrUyY7nUX/f2h4LcEpd/cAiNMG9DeP7V83mlhgHp4sb1lclj7UoCTW6
+         0kPxs6Ko4qvZPU/xtuEc4WhfdbiH3JIbhVcnyW7AXFnpZlhyjvLdZESkfrwDsFGMBXU0
+         rf+FDV/H4v5brqaN+G6umjP8Jfo+CwiJjI55j945vHg7ovWGkJz6iAmGmPnc2kyLvbpH
+         SBh2gihAdQPQiRLspcuLaFSD5SJPCTJTvZpAbJTXvPEVF11NMM7xGMGcYjdAg8gD8JLm
+         G1yw==
+X-Forwarded-Encrypted: i=1; AJvYcCW09InEtaiXDgxGC17Vk5OUmE2ubSgCVamRwtgjKXaK0EYdxy6rLD8nsR3FSoQw8MfX7DX5/JpPxQDv5T0NkE4d@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRMQzH5vLJG4oGPl/K5+c7EOm5ISbXSzZeUu+GGG62mNai7zcq
+	svJXDb59knZDq/8v1v3q1qN3zQacNslMLMtZrzZljLqiIUA+OhHnI6+QJqB3obd4XY4=
+X-Gm-Gg: AZuq6aKR9gXjoQGVjvs006y3I/ivsibxnYFDthnD71UZSxkd2izijW+/yTvOn9W/ut4
+	PNn8c8FWOlL9Tf9f7CCFyH5aIbOfEkFhXdEJVBZzlomsvqHP/lhz0W+OVif7Dj4Rg+W8V9ZA75+
+	66Xzaw0dHAP2D3ScMhz/AMJ3/ciS3gRAUcukJHoB63lGsLEZhkfhpke32sGifFtM+oXzm9VzDKH
+	L8KsWgNKMbqCCg2Z864gOV+mn/CjyH5GZHrZ8WkD8duIU4Q8AYLEK0hSjmr7Ae5SOczTF4s9HqH
+	9daawNQyZXLucwhe+ncQxo6Ez92q0KLsSryrJPKfYPD5UyPBM4DX2jLbjyFqkU9KksZyCguWh3b
+	mmGiNtzOr3kqwvpDjbKKIFN33oPc9HGoiyHqIGxh9wcmzKSERPBIskVnyjOxp4fxSYsnzWmnT89
+	/tQdz1kzofUl/YHCES3TkhKXLOgKc6HMJzzMLr9stdMvg3U1kG8KcS
+X-Received: by 2002:a05:6102:3ed4:b0:5ef:a8da:8b26 with SMTP id ada2fe7eead31-5f9395a3167mr814226137.27.1770202892181;
+        Wed, 04 Feb 2026 03:01:32 -0800 (PST)
+Received: from mail-vk1-f171.google.com (mail-vk1-f171.google.com. [209.85.221.171])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5f93aa2ce09sm754233137.11.2026.02.04.03.01.32
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Feb 2026 03:01:32 -0800 (PST)
+Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-563610de035so4424022e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 03:01:32 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXC0jqbE7v+d9A9q/xN76HO/+SRnRpuufAoKPHtyip3lmiLm0mq9bqBPKkKu/Us6NXxFbJTKy74PyTf5374EGb4@lists.infradead.org
+X-Received: by 2002:a05:6102:3707:b0:5f5:47fa:d520 with SMTP id
+ ada2fe7eead31-5f93949b9c5mr1005127137.11.1770202421943; Wed, 04 Feb 2026
+ 02:53:41 -0800 (PST)
 MIME-Version: 1.0
-References: <20260130132951.2714396-1-elver@google.com> <20260130132951.2714396-4-elver@google.com>
- <aYDFOIskB20CbztD@willie-the-truck> <20260202192923.0707e463@pumpkin> <aYHgNSF5a3F7UGU_@willie-the-truck>
-In-Reply-To: <aYHgNSF5a3F7UGU_@willie-the-truck>
-From: Marco Elver <elver@google.com>
-Date: Wed, 4 Feb 2026 11:46:02 +0100
-X-Gm-Features: AZwV_QgT8kiMwUIl_me4txlYVSU9o0fAA5wwpILgXvkftY8OJh5BYQhTCavfUPo
-Message-ID: <CANpmjNNzx-zc_-ZPgwe5DoWLmexw5irT2n+XMUqxTrfwxTxTmg@mail.gmail.com>
-Subject: Re: [PATCH v3 3/3] arm64, compiler-context-analysis: Permit alias
- analysis through __READ_ONCE() with CONFIG_LTO=y
-To: Will Deacon <will@kernel.org>
-Cc: David Laight <david.laight.linux@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Boqun Feng <boqun.feng@gmail.com>, 
-	Waiman Long <longman@redhat.com>, Bart Van Assche <bvanassche@acm.org>, llvm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel test robot <lkp@intel.com>, Boqun Feng <boqun@kernel.org>
+References: <65d62b60.050a0220.c7b96.614e@mx.google.com> <666ad6e0.df0a0220.f8b16.4a5e@mx.google.com>
+ <CACRpkdYJoNRpciyQE_A6dkb8f6Jsy4+qwb4w9K3bss2mkZpp1A@mail.gmail.com>
+ <ZmsXdWWidNjXdbSa@shell.armlinux.org.uk> <666b2379.5d0a0220.c7eec.8b6f@mx.google.com>
+ <CAMuHMdWnNzktSecsPX_anf=PCuLrZUT-6TO7KXGCHeQVTS974g@mail.gmail.com>
+ <aYCDOio-YdUJAf2v@shell.armlinux.org.uk> <CA+_ehUx=3Ci2hN0YYkLxBNwOu_NTHFe_ZKkw9TH+bU-4PwTD-A@mail.gmail.com>
+ <86v7gf9z92.wl-maz@kernel.org> <CAD++jLkgtgi1obmiuon=1XhOmT5cwtsMmBE37-wkzE_W55ZV2Q@mail.gmail.com>
+ <aYKgaDtb7Ba09Paf@shell.armlinux.org.uk>
+In-Reply-To: <aYKgaDtb7Ba09Paf@shell.armlinux.org.uk>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 4 Feb 2026 11:53:30 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdX99kB5oDoxy8=yk_D8g=bCwwUON-uMkT7zSPq0=DASVA@mail.gmail.com>
+X-Gm-Features: AZwV_QhhJxqrTR_22lOy1yb59hSHrrMaeGG8yCU0hfXcMFH8x-xzifd8o28DJPk
+Message-ID: <CAMuHMdX99kB5oDoxy8=yk_D8g=bCwwUON-uMkT7zSPq0=DASVA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] ARM: decompressor: support AUTO_ZRELADDR and
+ appended DTB
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	"Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Andrew Morton <akpm@linux-foundation.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, 
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Jonathan Corbet <corbet@lwn.net>, "Mike Rapoport (IBM)" <rppt@kernel.org>, 
+	Eric DeVolder <eric.devolder@oracle.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Kees Cook <keescook@chromium.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konrad.dybcio@somainline.org>, John Crispin <john@phrozen.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_024640_924516_6D557BB0 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20260204_030134_425079_1F63708A 
+X-CRM114-Status: GOOD (  28.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,32 +109,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 3 Feb 2026 at 12:47, Will Deacon <will@kernel.org> wrote:
-[...]
-> > > What does GCC do with this? :/
-> >
-> > GCC currently doesn't see it, LTO is clang only.
+Hi Russell,
+
+On Wed, 4 Feb 2026 at 02:27, Russell King (Oracle)
+<linux@armlinux.org.uk> wrote:
+> On Wed, Feb 04, 2026 at 01:36:29AM +0100, Linus Walleij wrote:
+> > However, I think it is a thick requirement to put on hobbyist
+> > contributors to go and write entite boot loaders from scratch,
+> > I think it's a fine requirement to put on Qualcomm or Renesas
+> > paid maintainers.
 >
-> LTO is just one way that a compiler could end up breaking dependency
-> chains, so I really want to maintain the option to enable this path for
-> GCC in case we run into problems caused by other optimisations in future.
+> If we're talking about older boards, then why have they only recently
+> became a problem, when, presumably, they've been working fine for a
+> decade or so?
 
-It will work for GCC, but only from GCC 11. Before that __auto_type
-does not drop qualifiers:
-https://godbolt.org/z/sc5bcnzKd (switch to GCC 11 to see it compile)
+These boards may have been working fine, given the right "legacy"
+kernel config options were used.  However, some of these option make
+the resulting kernel limited to that platform or even to a specific
+board (e.g. when CONFIG_CMDLINE needs to be used).
 
-So to summarize, all supported Clang versions deal with __auto_type
-correctly for the fallback; GCC from version 11 does (kernel currently
-supports GCC 8 and above). From GCC 14 and Clang 19 we have
-__typeof_unqual__.
+The KZM-A9-GT I "need" this for never had upstream U-Boot (I don't
+think I ever had any U-Boot sources).  I can boot a shmobile_defconfig
+multi-platform kernel[*] fine, iff the first patch is applied.
 
-I really don't see another way forward; there's no other good way to
-solve this issue. I would advise against pessimizing new compilers and
-features because maybe one day we might still want to enable this
-version of READ_ONCE() for GCC 8-10.
+[*] I mean vmlinux, as the actual image used for booting will still be
+    different (uImage/zImage with/without appended DTB).
 
-Should we one day choose to enable this READ_ONCE() version for GCC,
-we will (a) either have bumped the minimum GCC version to 11+, or (b)
-we can only do so from GCC 11. At this point GCC 11 was released 5
-years ago!
+Thanks!
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
