@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B43D9E8B383
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 01:43:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1550E8B383
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 01:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zEK8dYeiZlfHz/auDIUohU7W5bv0cBLTjLP1bJkilpc=; b=HnvFvj84+aZH2rcDbkxzo0CoHz
-	sMnDc9Jq8kRi8mjYGnnuj0s61LqieoHevGX3OF6e/G2DTU13xbqNWIHrAmUHmHzck/5Njigld5vbB
-	vVAFWL4j6Bz9ybDp0delwTvusz9nKzhwe/ZMr4a6hjSEbaaZ5AectNt9cjRX9ry4y71bEwNyzdxfh
-	fpkLmySF2Yj8rISH7k6Z0kPUdAUAWhqm9fZZU/tINApW73hs2FDpM8HHPbByd17noVDukAPvYWZfm
-	I+Ve47sBNu9UAkoR5f9C4rUbWQ48QbkaOa7i8fnVs7TsQwr626JsH9TOA0P2QX1nNlnRPgiUCOjfO
-	3aRGLl3A==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qArFy9W/qh08BmAGWtzZZCsoMBSnbZbAIXbbmaAcFIo=; b=rjNsn3F/2PYcLLOlP08EdFm+ax
+	NxsjLvc1mLGSBzlRDccX8Hc+sdybyYafdc5+T0eMSSK2S/5+5Fsb3mF8Om0SDlqzycdfZb0O1fCLG
+	TfjGTKl1shoR8+lhRfKtiJHPSi0PYLPjCaUWsu2GUGl3fQNUOfahWZdw0+Onnj8c2bN2uOwaaLc7/
+	F2My9ufDWGTbKLvqLBAMmbKgzCXqsphJww0spTKpGYhjkm2tRyNVGpgIUXiOwQ+O/Lt1dFPtuWKLi
+	FLDn/AuInwPVFm4tnPS2NAr48B1UJAgZvP3t9I/gFIu3AKrKRzuzibOLvEHlxkHek9dB86ZxOxlCZ
+	WrFLIptA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnRvE-00000007hvp-2Pfo;
-	Wed, 04 Feb 2026 01:43:12 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vnRzE-00000007iVx-0ats;
+	Wed, 04 Feb 2026 01:47:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnRvC-00000007htt-2xrp
+	id 1vnRzC-00000007iVc-1b5l
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 01:43:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1770169389;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=zEK8dYeiZlfHz/auDIUohU7W5bv0cBLTjLP1bJkilpc=;
-	b=Cbjed1lFTbyplQZPcIt7B3EP46R8YpxMzpOAUctQVkrx1aIMB/wC0cghlndtbGvZpLhY2t
-	a7I+OdVDwYvAjfEnv4UC3ukXo3Apms4o09yU2EtbVYmJ0wHU/XO6wNCXRA1kFelL9KVssl
-	yP443Yz2ha1TN47zFkPPikQpGB22gl0=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-161-WLk-f6frMQCdR3CM3QTzfw-1; Tue,
- 03 Feb 2026 20:43:06 -0500
-X-MC-Unique: WLk-f6frMQCdR3CM3QTzfw-1
-X-Mimecast-MFC-AGG-ID: WLk-f6frMQCdR3CM3QTzfw_1770169385
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 00EF51956060;
-	Wed,  4 Feb 2026 01:43:05 +0000 (UTC)
-Received: from [172.20.128.30] (unknown [10.30.44.30])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 530471956048;
-	Wed,  4 Feb 2026 01:43:03 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.19.0-rc8,
- upstream-arm-next, 7772d147)
-Date: Wed, 04 Feb 2026 01:43:03 -0000
-To: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
- will@kernel.org
+	Wed, 04 Feb 2026 01:47:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1224E44426;
+	Wed,  4 Feb 2026 01:47:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2907C116D0;
+	Wed,  4 Feb 2026 01:47:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770169635;
+	bh=EtMmNO0INyqsoTPYTVYPBU1hfHnKquGk52ClsNNa3xA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=FupUAjoYyJSFprj0Sql3B8gqvRQF6RVKpaWm99ti+8tf64Kq4mtfH6anuNPVkDymQ
+	 fGlEdN7QWSRUACrO77juDSxaqKr5zNTf7UGpYQLcg2QnS1hLISuMqjdA4+3ZHLgY77
+	 CrDlVJqw0lJD5aRLJHOBYmWbBBDJ7NHkxRLNc08IKF65tAxGMmJvOVoRSUWIiWBHxA
+	 6w0sEzP1pHKVb2zVpC0Abe8/gaVAj8kAX21srQol/NeFVAoIXDugUDwPR5AVMjIfuN
+	 TsikZ+OnwcKCw4oq0jNGFu7OtULbQ7mfTfpSKCwxldgkOHKtNvFH+PJs6Bw2Uyv5ES
+	 bq3cCzlFuaXwA==
+Date: Tue, 3 Feb 2026 17:47:14 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukasz.majewski@mailbox.org>
+Cc: andrew@lunn.ch, shawnguo@kernel.org, krzk+dt@kernel.org,
+ linux-kernel@vger.kernel.org, edumazet@google.com, netdev@vger.kernel.org,
+ pabeni@redhat.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ conor+dt@kernel.org, horms@kernel.org, richardcochran@gmail.com,
+ robh@kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, wahrenst@gmx.net, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com
+Subject: Re: [net-next,v22,2/7] net: mtip: The L2 switch driver for imx287
+Message-ID: <20260203174714.79388301@kernel.org>
+In-Reply-To: <20260203211955.23ef4355@wsk>
+References: <20260131233459.1625279-3-lukasz.majewski@mailbox.org>
+	<20260203013909.822898-2-kuba@kernel.org>
+	<20260203211955.23ef4355@wsk>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-Message-Id: <29790.126020320430600725@us-mta-161.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: yyZqgd7lea32XsChHuivQ_o3R4JSlqvk76wwJqZlH8w_1770169385
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_174310_813160_8D84786A 
-X-CRM114-Status: UNSURE (   6.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260203_174718_479687_03816395 
+X-CRM114-Status: GOOD (  20.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +78,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Tue, 3 Feb 2026 21:19:55 +0100 =C5=81ukasz Majewski wrote:
+> > > +static void mtip_write_atable(struct switch_enet_private *fep, int
+> > > index,
+> > > +			      u32 write_lo, u32 write_hi)
+> > > +{
+> > > +	struct addr_table64b_entry __iomem *atable_base =3D
+> > > +		fep->hwentry->mtip_table64b_entry;
+> > > +
+> > > +	writel(write_lo, &atable_base[index].lo);
+> > > +	writel(write_hi, &atable_base[index].hi);
+> > > +}   =20
+> >=20
+> > Can these functions race with concurrent access? Looking at the
+> > callers, mtip_write_atable is called from two different paths:
+> >=20
+> > 1. Static entry updates: mtip_config_switch -> esw_mac_addr_static ->
+> >    mtip_update_atable_static -> mtip_write_atable (no lock held)
+> >=20
+> > 2. Dynamic entry updates: timer callback -> mtip_mgnt_timer ->
+> >    mtip_atable_dynamicms_learn_migration ->
+> > mtip_update_atable_dynamic1 -> mtip_write_atable (learn_lock held)
+> >=20
+> > The learn_lock only protects the dynamic entry path. The static entry
+> > path runs during link changes (mtip_switch_restart called from
+> > mtip_adjust_link) without lock protection.
+> >=20
+> > Both paths can access the same hash block in the address table
+> > (determined by GET_BLOCK_PTR(hash)). If the timer fires during a link
+> > change callback, both can concurrently access the table, potentially
+> > causing torn reads (reading .lo from one entry version and .hi from
+> > another) or torn writes (the entry is in an inconsistent state
+> > between the two writel calls).
+> >=20
+> > Would extending learn_lock to protect all address table access work,
+> > or is a separate hw_lock needed for hardware register access?
+> >  =20
+>=20
+> This is handled in another way:
+>=20
+> 1. Partial write is not possible as this IP block handles it in order
+> (with some kind of 'latch' registers):
+>=20
+> "VFxxx Controller Reference Manual, Rev. 0, 10/2016"
+> 11.5.4 MAC address lookup table
+>=20
+> "Each entry must be written or read with the low address accessed first
+> followed by the high address"
+>=20
+> 2. The code for dynamic IP writing will not "touch" the entries for
+> "static" MAC addresses - Figure 11-70 - bit 49 is "Record Type":
+> 	1 - static entry
+> 	0 - dynamic entry
+>=20
+> IMHO, we are "safe" here.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+My reading of the AI's comment was that there is no lock in SW so two
+SW threads can write:
 
-Tested-by: CKI Project <cki-project@redhat.com>
-
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2303887241
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+   Thread A   Thread B
+   write_lo
+              write_lo
+              write_hi
+   write_hi
 
