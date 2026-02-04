@@ -4,78 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00735EA7943
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 20:01:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A1DEA7947
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 20:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kd5J4KD+UWilIWXl775s3u3AtyqpuOqe1d0igb4DjAA=; b=k7SggY1htkXL2txmt9ELi9DxPy
-	IzLVzbqusnl8u0HJfTGsnuVDUE58gYwAvkqt1fw/sgRs4Hu42Torn4mMfOOaQrrOJTLZxjOBj9bU5
-	jsWQshsbRTTHpAHHnMmijgE9sN9YFqc0y7vrDLPyLtJCaM4IGRwr22gLCLG92koVRbewAPt236Nld
-	IqI85Hux1NXsw3LqA8VxOjFV5v8aIND8Lt4trySqLXi6lVLeGLDUqYnaSyRKh0up/XufMmxrixaJZ
-	bW7eJNEHOAiMrzdHCeasBN+rJzEA5uOvr82V+mPvurrXIdcCayFdYP5LdSm5uWJXuq/oS8sIvBEdY
-	Oyl21K+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nW00FZO4zTIM3ix7TBNI1AHWYdDvd3wlp3ueF2QqLfc=; b=qX5fUm/WEyQL3MGaoZK+4FK1Db
+	qVku1gcNDxkCcIFSfdFo0nbWwQtpOhg30n28DyLIyRx6KHfH/jdt+pH5+IF93NfUx986bWF3Xqpit
+	lvMSbE2tZcH0TMfTw9mMGOQXFswSwgqP2Dl3rZlW/egWKYmUDFEq4dAJZU1rWpJhH0Iv0SWknGJqx
+	kMCAXakouJqaU0uV+5rhyx6mLxf/ojCzDq9lwKECuE+bBbaWiXyzN3NsxQdtw9Nw0EiqKPFFgRlHp
+	CFYeqYzXvPdCVNjXFZTc+ReLMB0QO8hPHTBfiXaWYWA2b2eLqLjDyg2CsUztrteDdxtHOpugYx3U5
+	GPyCLgfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnj4G-000000091Ff-3TlB;
-	Wed, 04 Feb 2026 20:01:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vnj5L-0000000920c-1V9d;
+	Wed, 04 Feb 2026 20:02:47 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnj4F-000000091BP-1J9s;
-	Wed, 04 Feb 2026 20:01:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Kd5J4KD+UWilIWXl775s3u3AtyqpuOqe1d0igb4DjAA=; b=Plki93Y0Vg2Z02yx9+FEnzgMGz
-	Frkfzx0V8NKR4Lr+NCI7ylSr+VZTvlviKazEkMiKPHd5IwUjcNh4BGvNf8oAJsLtj8X+uBU04qai8
-	wWvG/SBIpAGg5VcA1fTk499mXZ/ZM/N4ipqii10r41A8Mdajmur6vspH3hiISQEFG2DK1HXYwnoMu
-	sk5ZwInCtUpoPCH80rFz7gJWyy0M5b8Pd90Qsv+KWdwh6a7R9HknzaHrBJKIuUf8hPqJiQE4k9FsX
-	V9iv09y9VOLtZWNa+ovsYVgwILrUFUp9A4XgvxEdIZBYpL9QJIinzHwBXvtbmNYT6PE3NdXKUkBU9
-	D/JiwJNQ==;
-Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnj47-00000001BQP-3IVf;
-	Wed, 04 Feb 2026 20:01:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=Kd5J4KD+UWilIWXl775s3u3AtyqpuOqe1d0igb4DjAA=; b=t1vzuh4BbUI7J8iR5DF6aPXWu9
-	cRtor9rSOEClYtro/eJzqXsDxY1ywe6TGGvU5O9n5Hk8vm+q+BrFZJifHcC55IEY+0ODy+z5hyqM7
-	B60pbQ9Jgn2LCQYdppcEiH5llI1QB4NbPb2B/7C/ybfAT3n9xcYKVhdalqfUVQwVM+u+r+Og4qEiN
-	xgzswZdFjAsPvvBrJOuSDtLYippmhkiClUgHWbvzT792dOmvEdRaBv46sQbmrhmTTU9vlUra2V3NB
-	sTITHHb1Xxb8/C8MbAiIczc+6fMdbJTVM2vikQ1mrertPl2tgRBrIk02sJuydrSBANQQCAjNsqe18
-	WQt2CSkQ==;
-Received: from i53875ac7.versanet.de ([83.135.90.199] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vnj3v-0070xM-9X; Wed, 04 Feb 2026 21:01:19 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Andrew Lunn <andrew@lunn.ch>,
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 4/6] net: stmmac: rk: rk3528: gmac0 only supports RMII
-Date: Wed, 04 Feb 2026 21:01:19 +0100
-Message-ID: <3881472.Sgy9Pd6rRy@diego>
-In-Reply-To: <E1vnYy1-00000007hp3-0hKm@rmk-PC.armlinux.org.uk>
-References: <aYMN2gZMfLPKuukG@shell.armlinux.org.uk>
- <E1vnYy1-00000007hp3-0hKm@rmk-PC.armlinux.org.uk>
+	id 1vnj5I-000000091yH-1snn;
+	Wed, 04 Feb 2026 20:02:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1770235360;
+	bh=xeVIe8cmrntR0enuK392UB2SXROYBNmtYamPiBlWwyw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=IR2U3YZ9XeUWH2ccVQaIHAil82kaplR8ZdUbQIp3gsKJHSJoihkRV+aBQphygD6r9
+	 RXvrVP5R3+d0ayg2mWnrgtooW8OyAR9CZmoL+0HqtQU6IzdXEN8wyL1t4PWQj845JZ
+	 KZo4Fkt/3/hgWDf7cNxfu7hKwd29jCQumr4zSwA3tkMeZca8g764if0L3OJ1l3zGZM
+	 YAGx9C4L9DNZzqr5HJVRPopap5Ri/AbuMGqTnLenH53fnpVTsrsyYfv69gi/g+Mwo4
+	 tgXOD/7jUzy35naUJAlOtTo9ysqbB3VTX7QlAYl94kNL/DZtzYf9hxX1K9tjP6dsdl
+	 SULP+VjTxB2Fg==
+Received: from localhost (unknown [82.79.138.145])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CB79A17E13D3;
+	Wed,  4 Feb 2026 21:02:40 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Wed, 04 Feb 2026 22:02:28 +0200
+Subject: [PATCH v7 1/4] uapi: Provide DIV_ROUND_CLOSEST()
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260204-rk3588-bgcolor-v7-1-78d1d01c5ca1@collabora.com>
+References: <20260204-rk3588-bgcolor-v7-0-78d1d01c5ca1@collabora.com>
+In-Reply-To: <20260204-rk3588-bgcolor-v7-0-78d1d01c5ca1@collabora.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Melissa Wen <melissa.srw@gmail.com>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
+ Diederik de Haas <diederik@cknow-tech.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_200134_602550_F189FD9F 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260204_120244_649430_3941503D 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,30 +87,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 4. Februar 2026, 10:14:33 Mitteleurop=C3=A4ische Normalzeit sc=
-hrieb Russell King (Oracle):
-> RK3528 gmac0 dtsi contains:
->=20
->                 gmac0: ethernet@ffbd0000 {
->                         phy-handle =3D <&rmii0_phy>;
->                         phy-mode =3D "rmii";
->=20
->                         mdio0: mdio {
->                                 rmii0_phy: ethernet-phy@2 {
->                                         phy-is-integrated;
->                                 };
->                         };
->                 };
->=20
-> This follows the same pattern as rk3328, where this gmac instance
-> only supports RMII. Disable RGMII in phylink's supported_interfaces
-> mask for this gmac instance.
->=20
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Currently DIV_ROUND_CLOSEST() is only available for the kernel via
+include/linux/math.h.
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Expose it to userland as well by adding __KERNEL_DIV_ROUND_CLOSEST() as
+a common definition in uapi.
 
+Additionally, ensure it allows building ISO C applications by switching
+from the 'typeof' GNU extension to the ISO-friendly __typeof__.
 
+Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+Tested-by: Diederik de Haas <diederik@cknow-tech.com>
+Acked-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ include/linux/math.h       | 18 +-----------------
+ include/uapi/linux/const.h | 18 ++++++++++++++++++
+ 2 files changed, 19 insertions(+), 17 deletions(-)
 
+diff --git a/include/linux/math.h b/include/linux/math.h
+index 6dc1d1d32fbc..1e8fb3efbc8c 100644
+--- a/include/linux/math.h
++++ b/include/linux/math.h
+@@ -89,23 +89,7 @@
+ }							\
+ )
+ 
+-/*
+- * Divide positive or negative dividend by positive or negative divisor
+- * and round to closest integer. Result is undefined for negative
+- * divisors if the dividend variable type is unsigned and for negative
+- * dividends if the divisor variable type is unsigned.
+- */
+-#define DIV_ROUND_CLOSEST(x, divisor)(			\
+-{							\
+-	typeof(x) __x = x;				\
+-	typeof(divisor) __d = divisor;			\
+-	(((typeof(x))-1) > 0 ||				\
+-	 ((typeof(divisor))-1) > 0 ||			\
+-	 (((__x) > 0) == ((__d) > 0))) ?		\
+-		(((__x) + ((__d) / 2)) / (__d)) :	\
+-		(((__x) - ((__d) / 2)) / (__d));	\
+-}							\
+-)
++#define DIV_ROUND_CLOSEST __KERNEL_DIV_ROUND_CLOSEST
+ /*
+  * Same as above but for u64 dividends. divisor must be a 32-bit
+  * number.
+diff --git a/include/uapi/linux/const.h b/include/uapi/linux/const.h
+index b8f629ef135f..565f309b9df8 100644
+--- a/include/uapi/linux/const.h
++++ b/include/uapi/linux/const.h
+@@ -50,4 +50,22 @@
+ 
+ #define __KERNEL_DIV_ROUND_UP(n, d) (((n) + (d) - 1) / (d))
+ 
++/*
++ * Divide positive or negative dividend by positive or negative divisor
++ * and round to closest integer. Result is undefined for negative
++ * divisors if the dividend variable type is unsigned and for negative
++ * dividends if the divisor variable type is unsigned.
++ */
++#define __KERNEL_DIV_ROUND_CLOSEST(x, divisor)		\
++({							\
++	__typeof__(x) __x = x;				\
++	__typeof__(divisor) __d = divisor;		\
++							\
++	(((__typeof__(x))-1) > 0 ||			\
++	 ((__typeof__(divisor))-1) > 0 ||		\
++	 (((__x) > 0) == ((__d) > 0))) ?		\
++		(((__x) + ((__d) / 2)) / (__d)) :	\
++		(((__x) - ((__d) / 2)) / (__d));	\
++})
++
+ #endif /* _UAPI_LINUX_CONST_H */
+
+-- 
+2.52.0
 
 
