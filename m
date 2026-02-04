@@ -4,87 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2536CEA7946
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 20:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54A90EA7946
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 21:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3HSdgK9Ht2fP7rByPNvPOtQygotTmOr97BiUZ61bEe4=; b=AXTJUyCHJuNPf5b/Ka2HnEVYiV
-	7nL1Ryk9jqti3LoFvWHr4c8Df3rkqGYsOxi7yCtE7xVZaipNaiu/BL97qcOF6hYQ/QiNxJp0Q2n7U
-	Dmfe9DqBtzOq3ShifO5SNTUAu10/175MRa/vr6s6WrptYO/pYBpo+Ct0fPivAelu8uyZmitmGYudd
-	GKgtQEExQOmUd7KuVw3ogK0nXZGLHIlJXmX6r9B0cXgSehCbCGvpX0gR5E9vjv2yyzNZ/ub3yanCH
-	mxUWI8Eg1C21f15Rt5uYoMl06CQKPw3dH+a8qXWTxKCIHqUqT0U2DBPqEYgBOQUCT88gwk0XmsAWu
-	XjFfG6Cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9aBBoaAY+POSrzneGG989Xszwk+7DoOl/OY2QF3iPZ8=; b=XBcuByey0rthnyC1qs3DxK1Qa+
+	+RrxR6TN70Eao+d6MceQYC5T4/c8GOMHH86gYB/L+2hluG9efSlcyox7CLlocFWiOjw7qf0O7JfVd
+	3ob2gUEdrIQD9dLq5fyEvIIbuVM2CSIeYrUUQ+jwbqsMmqfwnmQjHHzmCDW05gsZgljW/Hf2r+asa
+	r8gI2YwvvD20V28sXmTwya6cyN6jrLOJXr4wq4P+kIYXO1AXyBkdIrjMRjA79MEZLJvMuZfhc3XQ7
+	cVuGpgJ6gO98KuDNBEBH9HDWYHf3QVLb+hJjXwrYQZVO2bnWrBVjnln/Blz9MUPg3C+LYkVStYJ+J
+	lEXMraIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnjbj-000000093g4-0LUN;
-	Wed, 04 Feb 2026 20:36:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vnk8i-000000095N9-0nwp;
+	Wed, 04 Feb 2026 21:10:20 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnjbh-000000093fw-1fZg
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 04 Feb 2026 20:36:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=3HSdgK9Ht2fP7rByPNvPOtQygotTmOr97BiUZ61bEe4=; b=n9g8nWKVAOOUETBtBJ3wcw0wrC
-	3to0eUNR2VPD8ZFvEczv63CdagFXBLD1Erl4xNRfk1EdDy6pdHaYrN93L0QAnK9JXmFJR2PipEJbm
-	+90ERy+dJpgQU6lPAmCUFl227Xp8+OBO57goUB792P+rFEbmOwcAuSnbEXf5c9TxE3n8zYJ/FxvWC
-	qm6RRjBaeKiWgWDy+HlJIo2PZTOFSrakjw+Xsq/AzlYFoOg83NcRl49ePC5H4C9J1hF5whtZCug4/
-	Kb7nOhPQnwKgSasS5Z/YEdRNMjYPVxacHPM+zp7OUbI/KhCib43GsWa/l/LYaPXdX3e0p7jY/4VQe
-	d5btPj6g==;
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnjbe-00000001DCo-1G3w
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 20:36:12 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 433634E423F8;
-	Wed,  4 Feb 2026 20:36:07 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id EDEA360705;
-	Wed,  4 Feb 2026 20:36:06 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 024F7119A865B;
-	Wed,  4 Feb 2026 21:36:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1770237365; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=3HSdgK9Ht2fP7rByPNvPOtQygotTmOr97BiUZ61bEe4=;
-	b=oCnokV3ZbWAGL9oCVSJV4cMxSsxKwSeY05TG5vUCyfP02P9BEa7K/w/d8cn1BtWvtFJX6S
-	ustJvJKVYUGqxNctEkGiFPTcHTVB4hV3/6yclCW7E3dS4ZoqsAZ40qe8/niAUgVQVuocrf
-	z4vWapYW53zngYsiwncm44wVBFCffz/8TibcXTfYzeyIQ88MBrmhkxzktuQn8OxYlHdZgw
-	krfEfsPHQGVAfwnc2BkWPEQrXze289OdgyvQSZdj2O51PLm5+ayH9klxhjhc7xZhAz+aux
-	HBOOFh6yHkhCuQ2fISbt2UZQSeNC41lgzPWKIEtQ10lNL6FM9/jCH07benltnw==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: William Zhang <william.zhang@broadcom.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,  Hauke Mehrtens
- <hauke@hauke-m.de>,  zajec5@gmail.com,
-  bcm-kernel-feedback-list@broadcom.com,  Rob Herring <robh@kernel.org>,
-  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
- <conor+dt@kernel.org>,  linux-arm-kernel@lists.infradead.org,
-  devicetree@vger.kernel.org,  Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH -next] ARM: dts: BCM5301X: Drop extra NAND controller
- compatible
-In-Reply-To: <CAHi4H7EVLsgVL5KCERTX5XBNTMvZDNxePzo48Zp5dsfDdoCV1Q@mail.gmail.com>
-	(William Zhang's message of "Wed, 4 Feb 2026 09:36:51 -0800")
-References: <20260204091530.624230-1-miquel.raynal@bootlin.com>
-	<CAHi4H7EVLsgVL5KCERTX5XBNTMvZDNxePzo48Zp5dsfDdoCV1Q@mail.gmail.com>
-User-Agent: mu4e 1.12.7; emacs 30.2
-Date: Wed, 04 Feb 2026 21:36:01 +0100
-Message-ID: <87ldh8fdqm.fsf@bootlin.com>
+	id 1vnk8f-000000095Ma-1AtM;
+	Wed, 04 Feb 2026 21:10:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1770239417; x=1801775417;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=8BGUP+Fh8sJoIk+wDhGM6z4Q5hkH9tUOVqzPdwjSySk=;
+  b=ByZyaTLGeLve+sVkxvNfGvuSBRx4NhWLSHuXdoznVcAvRrB7M0hbIWM+
+   yMq+bB+y5gt8GaYcCzHRtapEhWY+PbaSB9CFcDCyFjKqbMvcYiQi7+aUA
+   8+/wBRTLwUh9eIAs4zEaSJO7+buK0sBCpjWOoYA5Ylzi8b7KXMugGIId6
+   Q6bnto97FeuNsXqJ0iK0TA0gfGppqQbss5vXgTKYrBwxQvyqk83hphjhl
+   po5oQRzcnkz0c8bgG9Bg+ghmlNjvL5JzwUWtXb8Fxi8MZf11Rk0WZYYvY
+   0IJH2LHcQVGF9rDmbRw1M7G2NvHDJPEKWAVzH53vzePxYKa1vpvIWFfyP
+   g==;
+X-CSE-ConnectionGUID: RV7I4O9JSwOkxprv4iBMwg==
+X-CSE-MsgGUID: S8bBE2m+Qt2o2rxP5+agAQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11691"; a="81748681"
+X-IronPort-AV: E=Sophos;i="6.21,273,1763452800"; 
+   d="scan'208";a="81748681"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2026 13:10:17 -0800
+X-CSE-ConnectionGUID: 7aeGqPOERc25kyYZt88EPg==
+X-CSE-MsgGUID: iAE4JCIoS9+oWNVbTP0NyQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,273,1763452800"; 
+   d="scan'208";a="214806959"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.188])
+  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2026 13:10:12 -0800
+Date: Wed, 4 Feb 2026 23:10:09 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Louis Chauvet <louis.chauvet@bootlin.com>,
+	Haneen Mohammed <hamohammed.sa@gmail.com>,
+	Melissa Wen <melissa.srw@gmail.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Matt Roper <matthew.d.roper@intel.com>,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	Diederik de Haas <diederik@cknow-tech.com>
+Subject: Re: [PATCH v6 2/4] drm: Add CRTC background color property
+Message-ID: <aYO1sY0DAkI00uDx@smile.fi.intel.com>
+References: <20260129-rk3588-bgcolor-v6-0-c15f755a4055@collabora.com>
+ <20260129-rk3588-bgcolor-v6-2-c15f755a4055@collabora.com>
+ <aXsp2s5a7sJL7Itp@smile.fi.intel.com>
+ <97a4fd2d-62e2-41ad-8ee9-d2551c3ab312@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <97a4fd2d-62e2-41ad-8ee9-d2551c3ab312@collabora.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_203610_454022_FB0FD251 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260204_131017_363242_0DC1AD80 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,30 +103,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello William,
+On Wed, Feb 04, 2026 at 10:32:23PM +0200, Cristian Ciocaltea wrote:
+> On 1/29/26 11:37 AM, Andy Shevchenko wrote:
+> > On Thu, Jan 29, 2026 at 02:58:52AM +0200, Cristian Ciocaltea wrote:
 
->> diff --git a/arch/arm/boot/dts/broadcom/bcm-ns.dtsi b/arch/arm/boot/dts/=
-broadcom/bcm-ns.dtsi
->> index d0d5f7e52a91..46b650abdb90 100644
->> --- a/arch/arm/boot/dts/broadcom/bcm-ns.dtsi
->> +++ b/arch/arm/boot/dts/broadcom/bcm-ns.dtsi
->> @@ -479,7 +479,7 @@ thermal: thermal@2c0 {
->>         };
->>
->>         nand_controller: nand-controller@18028000 {
->> -               compatible =3D "brcm,nand-iproc", "brcm,brcmnand-v6.1", =
-"brcm,brcmnand";
->> +               compatible =3D "brcm,nand-iproc", "brcm,brcmnand-v6.1";
->>                 reg =3D <0x18028000 0x600>, <0x1811a408 0x600>, <0x18028=
-f00 0x20>;
->>                 reg-names =3D "nand", "iproc-idm", "iproc-ext";
->>                 interrupts =3D <GIC_SPI 68 IRQ_TYPE_LEVEL_HIGH>;
->
-> Acked-by: William Zhang <william.zhang@broadcom.com>
+...
 
-Do you mind if I take it on top of the commit it fixes?
+> >> +#define __DRM_ARGB64_PREP_BPC(c, shift, bpc)({				\
+> > 
+> > Not sure if this is an accepted style in DRM, by I find it difficult
+> > to follow. I would expect the "({" be on a separate line.
+> 
+> I initially got confused by the plethora of different styles, e.g. in
+> "include/linux/math.h" we can find:
+> 
+>   #define rounddown(x, y) (				\
+>   [...]
+> 
+>   #define DIV_ROUND_CLOSEST_ULL(x, divisor)(		\
+>   [...]
+> 
+>   #define mult_frac(x, n, d)	\
+>   ({				\
+>   [...]
+> 
+>   #define abs_diff(a, b) ({			\
+>   [...]
 
-Thanks,
-Miqu=C3=A8l
+
+math.h is a collection of APIs from the past from different years and code,
+that's why the style is inconsistent (a lot!). So better not to take that
+as an example.
+
+> I agree your option is the most readable one, hence I used it consistently in
+> v7.
+
+Thanks!
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
