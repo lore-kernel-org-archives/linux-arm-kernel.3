@@ -4,108 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11944E9538A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 11:40:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D695E9538C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 11:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pzk9ekf+w5m7EprZs0DpKyLz/hJhYQ3DquAy3S2RPkE=; b=sI+gXUcKhQwzwir7+bqKKbiA8y
-	MI0EyE9MdtfCp2lnZ7UEm/UUhyDvuCFTXL4XslRXw4F2sm0DYNYxmy3my9f5nsJeQrF6fMpREJcfz
-	PLJ2zGQUOUAzYqScGYcTlqS7tCaVc4pL608kBC47bIEDXOLbjEFTumWXFhDbGtSOrAU+xNVhfPFNv
-	2WNMJb8ckSaNETqop+KFIJtkk3UQQ84j7oDKdYE/lQoM8dV/dvRq7AMgpEESweHDZvW7F9aEvtYhq
-	aSClVV4aWNgYeGfsjPyPVNlDrTX1sPr3wk5WLp+IRyO1OBBhn3NdMnj/O3Y0kae5VMMQGd4/AhHBP
-	m3NFlElg==;
+	bh=eXFbGUaTRc27Gg/mkTDm2ud1ZC3qfqrbMm6Kd130aJk=; b=3F5vvOpFuh16ozCwiCnF+jbhez
+	N2wXQSyE7EbX0shihUhXOnt/pchRjJS8simU2WeTK+hqzH29rWBRQSWIIUTfOkHRB7O+t/iblK6RW
+	e6HHNLKaipP71euO12kj/psRAo9DAPyXOVS2hImbRZiE1oMuStGRagwDSIkUHf9tXCoTHlkHB/+1v
+	Jia+bi8VKfaynrrCK7zKwAnM2zECZ2qsSHbEO4IEGnFw/y5zaWiBA5ScXfQHLwUj6e7IzycDr2z/I
+	lWoj1SJiDoSY6BcD4YLql09M0GZqOnXbPO1W0sCAZd1EElv6Ovk2AeYku/JDZgb09z+Jn1YWkutZa
+	blJRUnLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnbFT-00000008NbP-05dv;
-	Wed, 04 Feb 2026 11:40:43 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1vnbTf-00000008OXK-2Z8s;
+	Wed, 04 Feb 2026 11:55:23 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnbFQ-00000008Nae-0ymT
+	id 1vnbTc-00000008OWz-41rD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 11:40:41 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-59b76844f89so6381475e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 03:40:39 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770205237; cv=none;
-        d=google.com; s=arc-20240605;
-        b=BFWjagRCW9a0pXkv6QmgQoQ3uWass7uYKZ2/BqoVJhF1V9cK13E6ZFrVEbk+FrbpJ9
-         CrJ4zD3jMtSMkFjZsCil8qeCa/sqT/0WQIz+tC4Vui/I2RMUONEOiEQ76eAs3rXiod7f
-         VRDbEfw80r/HoOzNSYPQp6EWd9TzhkY9wYsREshdGuDVHz1u7M7O44HjyPatdsQsBopG
-         soFcbq1KTSfwOWSHVfmvh7clVyCfPdivtzwCQEqBgPWrkGbw0s5R/6sZHK226HPgNair
-         1n+EJukmq2n1DwLBbL7yYyAKedLHrUQEAno9UwVzk9E202KBFJ2VR5to9LAPq0drT82Q
-         gilw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Pzk9ekf+w5m7EprZs0DpKyLz/hJhYQ3DquAy3S2RPkE=;
-        fh=hO4/FyL7N24LkBN3Fu3KEtBjIpbrWatPA5Pw23Z+CJA=;
-        b=LOWkq9NUFwphn9ERfUJsLTOW3x+Ow/jKIAo9xj0qgCODlkoHPdw3KopjGwKMQQvn3Z
-         H0eogR3PgtMBTueQ2DC3PXwVD5msCZ7pZCrmqKBXW8ntBStXGTsqGCqVohtgypZYMVNn
-         eG1bTbcTm80TRylnwLlSheXIefFXZVKcn1f8SckOgBKAs48qVN9LoviNlldvkPVXHUlL
-         T0PeeNxyobO0OZ1wZBX/XvCcnLGZjoow9qWj2uvo/9r98rcUwxxUZ133h0bqh9hqeSri
-         hru4ZxW1faaEqa4Dk2M66DlKv04Fr7VGMhd2TCZ2EJianmcvWUNQm82gCApuJxI+D1aC
-         jwqA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1770205237; x=1770810037; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Pzk9ekf+w5m7EprZs0DpKyLz/hJhYQ3DquAy3S2RPkE=;
-        b=Yus3zqKnf8evz3RRivco3hlCK1VzAn5Tf2fSB2RTOyyxGWi2zM2WxgCSjwg+qbuS4V
-         Lu3xTt1HfsKpL1KhjTDWTPTQ/eFvx5Pp7CbvN64Ohbe5VnL+HfzG4hVra4Ze8TNdXo5a
-         CZ/khyxb64/Mc/E/kwxXzVSC+vXoaai53Kj55eh1/PvFVui/aejUj21uBujGyYyVkG7l
-         FVySct/fSPkIepi05Tc7m2Dta7WpJO538Y0qB4eveoM7MSfsWqyOn1qsc5mHPI9Tlq3z
-         4rsL+tfLrfYOHwWerqNG2A3o+jOyCFdFwt+txbWQae++aTpr+HmlRkNFHbgD2UoGNIlW
-         lUgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770205237; x=1770810037;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Pzk9ekf+w5m7EprZs0DpKyLz/hJhYQ3DquAy3S2RPkE=;
-        b=nnOBp4xd58uMSGWC6gErtpwXG7mFSqiAgAS5J4G0VtalK09WohBZmu2ja11rXHlYW/
-         i4AKJQPjQ1Od/m+r1F8nJZS6O/NO48Wp+IzX6N85j0OKek6+1kmg6g/5Mn2ei3MOjyw8
-         DMvhS8MAvE4Tx9lhaaVNlRrcpCgptiZoC6I1Xb7NtQK4VkeqNd10VrUlM2LRM4Lex7hp
-         /BkiU6D4bZpk06Qj/2xx69h9SgKlBhr7nTUyJx4bAZxFkTm22l97QeTOb2MmSC0tA/QB
-         S438sZ1+G8tKOes4w/5TNqC9AFszC9mbx+yw96tJaOEp7efAwwlNgQjMg8EFIS5lKDLe
-         xP8A==
-X-Forwarded-Encrypted: i=1; AJvYcCVhuaX1H9pFTxj+cXw9XJwdtvmhnPM1C6Z3jjMaMv5gZxFkBFOOnC+CiRQuFOLEO3UO4dqqA5R/RsZZc6914LW0@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNbxaNkx4u/aDv3hwWQKCSZE0G0TeLa6GvEPPi3sQaXud/j2/H
-	sLIRjvpxrg+XH3lWhe2Oka7dqv7vCSxywC4i94M8J3tRvsmwkusS7Sdj0992ubFTsUlLXNON7GK
-	X/rYu/KKeM1scxhtQimamB6IW+0qeLFTGpG/hZIArSA==
-X-Gm-Gg: AZuq6aJLc3S3uYcsP9sGR50a9SIeHiUL4PYwzBgJJ4Gwr+La4wYeXHLDVCg2pQtKoTb
-	RmaaK+2UFEyaUg/QBC+vrw5T2mu+Zj7PXOY0lsPyfTk7eR4IjeKyHJVIUEtXYxDb/Uh4KVZM9YJ
-	wHNtdJXxXFq4tveX22huNGb0UxvjBwXdwRPB0T/VNHM5fQ4ZO+xa3DzDjKyFSxp8idUyNww1lBJ
-	9Ye0RytdCSBeRxTNxnLIZpQZxQOGFjn52eNONOUF5wUI0dgSLXxd+d8MeiJIICM0FQcs4kZ6gMJ
-	k2Q4bJg=
-X-Received: by 2002:a05:6512:1085:b0:59e:14f:a4d7 with SMTP id
- 2adb3069b0e04-59e38c2d748mr1017297e87.27.1770205237316; Wed, 04 Feb 2026
- 03:40:37 -0800 (PST)
+	Wed, 04 Feb 2026 11:55:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=eXFbGUaTRc27Gg/mkTDm2ud1ZC3qfqrbMm6Kd130aJk=; b=q/AbKVZ6+U7v+Irjsxp+zWYhPB
+	GsoftaZQ8v7s/xoW60KXi3ZFRObZGXdfLUbyRJvXXeo6AWt7JfSKeZTjeQmJgkSQFPwwR6uxM7ded
+	sPzCAxEJsl/Q/BJoEvXCJwdvZFKh2ejawWYtbeQw8396q7iBvmxXn0mpfeBVLC4k9mr9h4rOzTjEn
+	RhKMUig/9lVjvyyNbXJ4YOSUrXh52LerpNSWid2zokehT+IB4ZbJKIpzuUHhPQUDJWNNoDS+dG/dZ
+	uw0y4qUrQNeqaG4V434u5WDTmfP+n2I+6iMKILzf5P1SUQlwYdGUD9HUJMg1w3q0kfdzkZkEevoEX
+	fQ38Uwvw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38630)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vnbTM-000000006HX-06bB;
+	Wed, 04 Feb 2026 11:55:04 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vnbTH-000000005K8-1TTx;
+	Wed, 04 Feb 2026 11:54:59 +0000
+Date: Wed, 4 Feb 2026 11:54:59 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	"Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Eric DeVolder <eric.devolder@oracle.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Kees Cook <keescook@chromium.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@somainline.org>,
+	John Crispin <john@phrozen.org>
+Subject: Re: [PATCH v2 0/2] ARM: decompressor: support AUTO_ZRELADDR and
+ appended DTB
+Message-ID: <aYMzk9cIgD-XDujY@shell.armlinux.org.uk>
+References: <CACRpkdYJoNRpciyQE_A6dkb8f6Jsy4+qwb4w9K3bss2mkZpp1A@mail.gmail.com>
+ <ZmsXdWWidNjXdbSa@shell.armlinux.org.uk>
+ <666b2379.5d0a0220.c7eec.8b6f@mx.google.com>
+ <CAMuHMdWnNzktSecsPX_anf=PCuLrZUT-6TO7KXGCHeQVTS974g@mail.gmail.com>
+ <aYCDOio-YdUJAf2v@shell.armlinux.org.uk>
+ <CA+_ehUx=3Ci2hN0YYkLxBNwOu_NTHFe_ZKkw9TH+bU-4PwTD-A@mail.gmail.com>
+ <86v7gf9z92.wl-maz@kernel.org>
+ <CAD++jLkgtgi1obmiuon=1XhOmT5cwtsMmBE37-wkzE_W55ZV2Q@mail.gmail.com>
+ <aYKgaDtb7Ba09Paf@shell.armlinux.org.uk>
+ <CAMuHMdX99kB5oDoxy8=yk_D8g=bCwwUON-uMkT7zSPq0=DASVA@mail.gmail.com>
 MIME-Version: 1.0
-References: <20260202074730.738760-1-xu.yang_2@nxp.com> <CAPDyKFpqfo1R8Qkq284L9DTURjZnvm_n8W3a6KQTomg7A-M_Ug@mail.gmail.com>
- <lh3cb2r3qvv2ar76ai33fjiuseqyiwoks2zjrmowknvut4qfcg@2db76miyk4wn>
-In-Reply-To: <lh3cb2r3qvv2ar76ai33fjiuseqyiwoks2zjrmowknvut4qfcg@2db76miyk4wn>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 4 Feb 2026 12:40:01 +0100
-X-Gm-Features: AZwV_QiX5AkXx_w9Zse93HKg4-tfhffXTYB6o8jqYrd0yS7lV2JQJGMo75ani6o
-Message-ID: <CAPDyKFpFfhMTtAp63cjB2eVR78mbhBEzzSBr1Zxk-14YT448Lw@mail.gmail.com>
-Subject: Re: [PATCH 1/2] pmdomain: imx8mp-blk-ctrl: set awake path for
- power_dev if attached device needs wakeup
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, peng.fan@nxp.com, jun.li@nxp.com, 
-	rafael.j.wysocki@intel.com, a.fatoum@pengutronix.de, ping.bai@nxp.com, 
-	shawnguo@kernel.org, l.stach@pengutronix.de, linux-pm@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdX99kB5oDoxy8=yk_D8g=bCwwUON-uMkT7zSPq0=DASVA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_034040_323146_10066921 
-X-CRM114-Status: GOOD (  31.80  )
+X-CRM114-CacheID: sfid-20260204_035521_019074_4B9B4D1A 
+X-CRM114-Status: GOOD (  34.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,74 +103,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 4 Feb 2026 at 09:48, Xu Yang <xu.yang_2@nxp.com> wrote:
->
-> On Tue, Feb 03, 2026 at 12:06:28PM +0100, Ulf Hansson wrote:
-> > On Mon, 2 Feb 2026 at 08:46, Xu Yang <xu.yang_2@nxp.com> wrote:
-> > > +
-> > > +               list_for_each_entry(pdd, &domain->genpd.dev_list, list_node) {
-> > > +                       if (device_awake_path(pdd->dev)) {
-> > > +                               device_set_awake_path(domain->power_dev);
-> > > +                               break;
-> > > +                       }
-> > > +               }
+On Wed, Feb 04, 2026 at 11:53:30AM +0100, Geert Uytterhoeven wrote:
+> Hi Russell,
+> 
+> On Wed, 4 Feb 2026 at 02:27, Russell King (Oracle)
+> <linux@armlinux.org.uk> wrote:
+> > On Wed, Feb 04, 2026 at 01:36:29AM +0100, Linus Walleij wrote:
+> > > However, I think it is a thick requirement to put on hobbyist
+> > > contributors to go and write entite boot loaders from scratch,
+> > > I think it's a fine requirement to put on Qualcomm or Renesas
+> > > paid maintainers.
 > >
-> > This is really messy in my opinion. Ideally the above should not be
-> > used by a genpd provider as it's internal data structures are managed
-> > by genpd itself.
-> >
-> > If I understand correctly, this problem boils down to the fact that we
-> > should have tried harder to model child/parent domains, rather than
-> > using runtime PM to manage the parent domains. I understand there are
-> > problems with that, due to specific power on/off sequences we have for
-> > imx power-domains, but I wonder if those could be managed better by
-> > using genpd on/off notifiers?
->
-> Indeed. I have tried using subdomain will resolve the wakeup issue because
-> the parent domain will manage the child domain. But I shouldn't use
-> subdomain and runtime PM way together to avoid any unexpected behaviors
-> according to my understanding.
+> > If we're talking about older boards, then why have they only recently
+> > became a problem, when, presumably, they've been working fine for a
+> > decade or so?
+> 
+> These boards may have been working fine, given the right "legacy"
+> kernel config options were used.  However, some of these option make
+> the resulting kernel limited to that platform or even to a specific
+> board (e.g. when CONFIG_CMDLINE needs to be used).
 
-Well, there is nothing wrong with using child/parent domain in
-combination with runtime PM.
+The 32-git ARM kernel has had a way to pass the command line to the
+kernel from the boot loader since day one.
 
-Although in general using runtime PM to manage parents domains from
-child domains, should be better managed by genpd itself.
+	First it was the struct param_struct.
+	Then it was the ATAGs that was introduced pre-git.
+	Now it is DT.
 
->
-> >
-> > Anyway, that said. Rather than walking through the list of devices as
-> > above, I suggest that you use the ->power_off() callback for the
-> > corresponding genpd(s) to dev in combination with a genpd power on/off
-> > notifier for the corresponding genpd that the power_dev is attached
-> > to.
-> >
-> > More precisely, if the "child domain(s)" that corresponds to "dev" has
-> > not been powered-off (because device_awake_path() is set for some
-> > device) during system suspend, the power-off notifier should return
-> > NOTIFY_BAD to prevent the "parent domain" that corresponds to
-> > power_dev from being powered-off.
-> >
-> > Would that work, you think?
->
-> Thank you for the suggestion. It works for me.
+The kernel retains code to parse all three methods of passing data
+from the boot loader to the kernel. The decompressor has support
+for merging the ATAGs into the appended DTB, which includes merging
+the command line into the DTB.
 
-Great!
+Without an appended DTB, the pointer to one of the above will be
+passed to the kernel, the kernel will figure out what it has and
+parse one of the three ways, and use the command line there.
 
->
-> With this way the rejected count is increasing. Does this have any impact?
-> The count is just used for statistics, right?
+The only case where CONFIG_CMDLINE should be used is when there is
+no command line passed, no way to change it, etc. At that point
+there are two options:
 
-Yes, it's used for statistics.
+1. Augment the kernel's generated FDT with the command line node
+   and load that modified FDT or append it to the compressed image.
 
->
-> # cat /sys/kernel/debug/pm_genpd/usb-otg2/idle_states
-> State          Time Spent(ms) Usage      Rejected   Above      Below
-> S0             1203           0          1          0          0
->
-> Thanks,
-> Xu Yang
+2. Use CONFIG_CMDLINE, which means that the kernel _will_ become
+   specific to the platform that needs those arguments. No getting
+   away from that in this case.
 
-Kind regards
-Uffe
+Maybe you haven't explained the problem very well, but I don't see
+any issue with this.
+
+> The KZM-A9-GT I "need" this for never had upstream U-Boot (I don't
+> think I ever had any U-Boot sources).  I can boot a shmobile_defconfig
+> multi-platform kernel[*] fine, iff the first patch is applied.
+
+So, what have you been doing for the last 14 years to boot this
+platform (merged in 2012) without this patch?
+
+Please explain:
+
+- how it worked before - I want to know how the DTB is passed to the
+  kernel, what information is provided from the boot loader, whether
+  that gets merged into the DTB, etc. All the fine nitty gritty of
+  how it worked and what doesn't work, what the problems were etc.
+
+- what changed (it sounds like you want extra features)
+
+- why (in detail) it doesn't work now.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
