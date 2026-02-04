@@ -4,103 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51ABAE8B397
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 04:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65E1CE8B399
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 04:50:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rs6BBarzwmD2Zm1TSaGTp7E5XeDaUo3g+3j+s/whg7M=; b=iu6VIngJHSNFUi3uBXRZglDf4A
-	HcM2FU/JeA1JIgv0bexBS+JOM95WZI9bJk2rp+t3w+wTemyV0kKKuKjWduHFkyVRLdQOXBIlTZwI/
-	EynQbd5XDEDLvXoSyJ/HuthkpcqdO9HhjAx4LeRr6L1A6TopDw6AHO6AlQdnoQTPtHsOueFtsqOlO
-	5VxQElrWiCMNDVDxOhlEfdSjx5APCuPvftX4wXOImfpB7S26SsrzF6G7O+pR2nGxywYuTokMTdcQP
-	r1lMe0YLMrxFtM3Gts23c76eRdwHQZVemjBBnjp0QldEq6z2H+/5e7qOK2CiQxXghzREse9jKw545
-	PrE0WPzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PmCqip5mPQyQoU3Z28moyHcEYxE3bHuGiD9r0E/G2BM=; b=H/FbuWc64PV2gCiI6VQprpgbkZ
+	4N4YN1SHJ2W2H2ftuJGvk0JCXwA2roHlNjRNfaHgjoNnZQiIt+H/GBIrsddWSeNyxwRKxgljcGiCU
+	IrAOpxMveVO7JLEBSaHr2tG3xEs4j+4f9yLPbpLq55k/gW2meOXVfDzfyHK44uWH7dWMzEfOjP0+s
+	Aknz6G//gsQEC7j3e0ywtmzZk9i5oss6+eDT1YVuXsLUhJ+/D9yx1tmYYVVG2SBXp8/Vn7XqStTLS
+	YnzSYOd/FiKERxr7IACPCGDvP0gC6AkBIJQTWyLU/1MP8bVZWvKSZrrYhL3GMPhmUAYf9H+nTbLfO
+	h5ikKWdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnUDK-00000007sxr-2E84;
-	Wed, 04 Feb 2026 04:10:02 +0000
-Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnUDH-00000007sxA-3cXi
+	id 1vnUq8-00000007uPy-3qlr;
+	Wed, 04 Feb 2026 04:50:08 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vnUq6-00000007uPb-0GaS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 04:10:01 +0000
-Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-89473dca8aaso74131056d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 20:09:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770178198; x=1770782998; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Rs6BBarzwmD2Zm1TSaGTp7E5XeDaUo3g+3j+s/whg7M=;
-        b=On433+PD83VMm2y/AJzgHjk6EyRoPy1F6ii8a7cFEp7qkNUks8gnqRyuKl+Omdq2fl
-         L5iS39YMm8BYOaH3BvbOI6Liew7F3WcPjg5MTH5O/Hnc0SxKofNncydBLQ1nfRD+qcCi
-         z/keaom2InP2rPkrKtUCfnYGH2SHLbCQPhBOgxwZV4qSvxNZq2tk79dcvy6OPoEWfBV2
-         zF0f+DIpEUzsdL+O/m2p/nDEbvthzBgQVAcMWBPB8aGowZRfBtDhfw/PS1wMN8pqxaDX
-         DTAK4l6opxU27ZVWLgomRF9Vt5ZOfo8Jc/gtrRNo0JRDWPzl+IRXovZthiaHsX6j2rY9
-         d/pA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770178198; x=1770782998;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Rs6BBarzwmD2Zm1TSaGTp7E5XeDaUo3g+3j+s/whg7M=;
-        b=ZBmiqtPUKIORAAAvivmyVnq+Rj75lbK9qstrppE0CZ7zYLbMCctL8HeSPIOKd8LP+O
-         MH/ALJIBOtopooTtSLWpoXYJUVHaiMBx/IZCx60LBg9dvy/QfKYE2By5QafaKqWIasiJ
-         dUZo3NVUMQBQNR06zrmcg07H8CTw7bZzKrTQhzyJf66sGSPy4BY0xE0hVZF/sxn3s7aa
-         60JzwEsRjo8Fhh6lbtwmNTq+7fUrj5ltN7tYJRNQcCoMsZoSONPqdRB1688HrSDNdbaK
-         BMNAUhW5kUSJ+RC56tPtdnO03SXBdY+d9ar70R641bKRoCZXh/jkHpueE4tjUzzvuRvC
-         XXkg==
-X-Forwarded-Encrypted: i=1; AJvYcCXpXfWSBH7RfEIl1TtsJWXSniQP4ycJQJCdqdQYJYs7Gwg2Bs3Kp2DgXUZ8mTdTRvIdWVQruP/5OEb1Qt9Hoh81@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxc0113LeTiZQMqsXyZmAgR1XSW/AeCDOKtu82/bAzagJ+i7EED
-	W6X2nbAgk49Pwni7JJEyxgRarsf8bFJUsG2vbSv+U2yZCkk7CjoWQXL0wN6/tnMM
-X-Gm-Gg: AZuq6aLDVnjSoXH8cz0cwzanwfdvCINyxRqy3B0l3n5V9G0dGUiySqx6DEUWpzbk5V4
-	RBHirngwo/L0uSNuwsvcSZiJXS0JduGBfhcn4ae2n0kGp6O3PfpEPRq4w5h3dvmNolRlZ2y1bDD
-	B6M4Rw6cNTKqlyQhzpGmZHUh+aCyPoPdOYHZ8Kk0FiGQ1on2d84yY7+S4HsY3bc3sp0LRdQfxPj
-	J7QDvpftaVrFaPRlbqZE/aaooROT+NcOIDwhA0jjM58QEmmJk4Vn87bNlIHn+mYqlOogJJgr6bw
-	6CrH0uBlycHqJAmzvuk8nVqr+OpyvEljt8spAxZ9hDrLbug+4i5pj4JjRB+jW4iKYftsI2JsP6D
-	ZgV+QxSbxXkfZKy93ZrMG7HgUMLTXbD463xSz/JjxRXPcPwXOQYWGrLycGFe2WTFHHtt4WnrCLm
-	Cyjt49FgYD/g==
-X-Received: by 2002:a05:7022:f103:b0:119:e56b:91f2 with SMTP id a92af1059eb24-126f47daa76mr613066c88.35.1770171313127;
-        Tue, 03 Feb 2026 18:15:13 -0800 (PST)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b832feacc6sm940814eec.35.2026.02.03.18.15.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Feb 2026 18:15:12 -0800 (PST)
-Date: Wed, 4 Feb 2026 10:14:47 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Yanteng Si <siyanteng@cqsoftware.com.cn>, 
-	Yao Zi <ziyao@disroot.org>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Shangjuan Wei <weishangjuan@eswincomputing.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Chen-Yu Tsai <wens@kernel.org>, Zhi Li <lizhi2@eswincomputing.com>, 
-	Boon Khai Ng <boon.khai.ng@altera.com>, Quentin Schulz <quentin.schulz@cherry.de>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next v4 3/3] net: stmmac: Add glue layer for Spacemit
- K3 SoC
-Message-ID: <aYKq4qlgCDo42rnw@inochi.infowork>
-References: <20260130022705.1059214-1-inochiama@gmail.com>
- <20260130022705.1059214-4-inochiama@gmail.com>
- <aYI00Exytbgbnuzp@shell.armlinux.org.uk>
+	Wed, 04 Feb 2026 04:50:07 +0000
+Received: from [100.79.224.184] (unknown [4.194.122.144])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 13FB220B7168;
+	Tue,  3 Feb 2026 20:49:56 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 13FB220B7168
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1770180603;
+	bh=PmCqip5mPQyQoU3Z28moyHcEYxE3bHuGiD9r0E/G2BM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=j1bz8F8YxE4xnn53aklwMt8nHfgEPfBxejt8gAI8F5YXM0wyF6Zj3CpTqGJ1Z2aPI
+	 c2ddzsUfBCTRAgFcP/T8Sa892oQ/zTdm49b2KTeJQON5X9yztbTmIONlM5xCH92kUl
+	 K0vAMcew1Ie//trE6io3nw9VyZMGcl77gQ896uSs=
+Message-ID: <7fc77fc4-9d5f-4786-9cca-3d32fb018fd2@linux.microsoft.com>
+Date: Wed, 4 Feb 2026 10:19:53 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aYI00Exytbgbnuzp@shell.armlinux.org.uk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] kbuild: Make --build-id linker flag configurable
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H . Peter Anvin" <hpa@zytor.com>, Masahiro Yamada <masahiroy@kernel.org>,
+ Miguel Ojeda <ojeda@kernel.org>, Tamir Duberstein <tamird@gmail.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Kees Cook <kees@kernel.org>,
+ Ard Biesheuvel <ardb@kernel.org>, linux-kbuild@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Saurabh Singh Sengar <ssengar@linux.microsoft.com>
+References: <20260202110631.978412-1-namjain@linux.microsoft.com>
+ <20260202151101-d5558a6f-88d0-41dd-8816-18957a029ce8@linutronix.de>
+ <6eadf05f-21bf-47d7-abd8-e4694a21e6da@linux.microsoft.com>
+ <20260203074853-7e380585-f7d6-47e7-94b1-cf16bbfb7a08@linutronix.de>
+Content-Language: en-US
+From: Naman Jain <namjain@linux.microsoft.com>
+In-Reply-To: <20260203074853-7e380585-f7d6-47e7-94b1-cf16bbfb7a08@linutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_200959_908513_8BB17B2D 
-X-CRM114-Status: GOOD (  25.21  )
+X-CRM114-CacheID: sfid-20260203_205006_152460_CD47DAE7 
+X-CRM114-Status: GOOD (  34.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,71 +81,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 03, 2026 at 05:48:00PM +0000, Russell King (Oracle) wrote:
-> On Fri, Jan 30, 2026 at 10:27:04AM +0800, Inochi Amaoto wrote:
-> > +/* ctrl register bits */
-> > +#define CTRL_PHY_INTF_RGMII		BIT(3)
-> > +#define CTRL_PHY_INTF_MII		BIT(4)
-> > +#define CTRL_WAKE_IRQ_EN		BIT(9)
-> > +#define CTRL_PHY_IRQ_EN			BIT(12)
-> 
-> Thanks for updating these.
-> 
-> > +static int spacemit_dwmac_update_ifconfig(struct plat_stmmacenet_data *plat_dat,
-> > +					  struct stmmac_resources *stmmac_res,
-> > +					  struct regmap *apmu,
-> > +					  unsigned int ctrl_offset)
-> > +{
-> > +	unsigned int mask = CTRL_PHY_INTF_MII | CTRL_PHY_INTF_RGMII | CTRL_WAKE_IRQ_EN;
-> > +	unsigned int val = 0;
-> > +
-> > +	switch (plat_dat->phy_interface) {
-> > +	case PHY_INTERFACE_MODE_MII:
-> > +		val = CTRL_PHY_INTF_MII;
-> > +		break;
-> > +
-> > +	case PHY_INTERFACE_MODE_RMII:
-> > +		break;
-> > +
-> > +	case PHY_INTERFACE_MODE_RGMII:
-> > +	case PHY_INTERFACE_MODE_RGMII_ID:
-> > +	case PHY_INTERFACE_MODE_RGMII_RXID:
-> > +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> > +		val = CTRL_PHY_INTF_RGMII;
-> > +		break;
-> > +
-> > +	default:
-> > +		return -EOPNOTSUPP;
-> > +	}
-> > +
-> > +	if (stmmac_res->wol_irq >= 0)
-> > +		val |= CTRL_WAKE_IRQ_EN;
-> > +
-> > +	return regmap_update_bits(apmu, ctrl_offset, mask, val);
-> 
-> I would suggest that this is split into two parts - first, this is
-> renamed and reduced to just controlling CTRL_WAKE_IRQ_EN.
-> 
-> Next, a function hooked into plat_dat->set_phy_intf_sel which sets
-> the CTRL_PHY_INTF_RGMII and CTRL_PHY_INTF_MII bits as appropriate.
-> Note that this function is passed the dwmac's own phy_intf_sel
-> value from common.h which will be PHY_INTF_SEL_GMII_MII,
-> PHY_INTF_SEL_RGMII or PHY_INTF_SEL_RMII for you.
-> 
-> It would also be good to have plat_dat->get_interfaces populated
-> using phy_interface_set_rgmii(), and __set_bit(PHY_INTERFACE_MODE_MII)
-> and __set_bit(PHY_INTERFACE_MODE_RMII) to indicate to phylink which
-> interface modes are permissable.
-> 
-> Thanks.
-> 
-> -- 
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
-Thanks for your detailed guide, I will try to switch to these helper
-apis in the next version.
+
+On 2/3/2026 12:31 PM, Thomas Weißschuh wrote:
+> On Tue, Feb 03, 2026 at 11:58:11AM +0530, Naman Jain wrote:
+>> On 2/2/2026 7:45 PM, Thomas Weißschuh wrote:
+>>> Hi Naman,
+>>>
+>>> On Mon, Feb 02, 2026 at 11:06:31AM +0000, Naman Jain wrote:
+>>>> Build ID hashes include file paths, so building the same source from
+>>>> different directories produces different binaries. This breaks
+>>>> reproducible builds.
+>>>>
+>>>> Add KBUILD_BUILD_ID variable (default: sha1) to allow overriding:
+>>>>
+>>>>       make KBUILD_BUILD_ID=none
+>>>>
+>>>> The variable is exported to VDSO Makefiles which also include a
+>>>> fallback default for standalone invocation.
+>>>>
+>>>> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+>>>> ---
+>>>> Hi,
+>>>> Sending this change for RFC, as it is quite possible that this is a
+>>>> generic problem and I may be missing something.
+>>>>
+>>>> I am trying to implement reproducible builds for one of my product
+>>>> kernel. I referred https://reproducible-builds.org/docs/build-path/
+>>>> and tried to use both -fdebug-prefix-map=OLD=NEW and
+>>>> -fmacro-prefix-map=OLD=NEW, but still could not achieve bit by bit
+>>>> binary reproducibility without overwriting build-id to none.
+>>>> If I move the kernel to same path in other setup, I was able to create
+>>>> same binary hash, however, without it, there is some difference in
+>>>> build-id hash values.
+>>>
+>>
+>> Hi Thomas,
+>> Thanks for looking into this and sharing your inputs.
+>>
+>>
+>>> Can you force the same build path during package building?
+>>> That should avoid this issue.
+>>
+>> Since we can't control where the user would clone their kernel, I was
+>> initially skeptical to copy the kernel to a same build path like
+>> /tmp/kernel/src directory due to uncertainties related to free space,
+>> permissions, but I tried it now and it works fine. It should be OK for my
+>> use-case.
+>>
+>> I am currently using NixOS for reproducible build environment.
+> 
+> So users are already forced to use a specific distribution for rebuilding.
+> Also requiring a specific build path doesn't look like a big step then.
+
+Ack.
+
+> 
+>>>> Reproducibility wiki says "In most cases however, post-processing is
+>>>> required to either remove the build path or to normalize it to a
+>>>> predefined value.". I have tried that, and it works, but wanted to
+>>>> conclude if that is my last option here.
+>>>
+>>> I am not a fan of this aproach. The build id should stay usable.
+>>> Can you figure out where the build paths are used?
+>>> You may need to also compare the debug symbols.
+>>>
+>>>> Thanks.
+>>
+>> I agree.
+>> We did not have any use of these build paths, but some vendors may be using
+>> it to fetch the build information from the binaries.
+>> If your comment was about in-kernel usage of these build paths, I'll look
+>> into it.
+> 
+> I'd like to know where the build paths in the binary are coming from.
+> So we can fix the issue properly instead of working around it.
+> You said you are using -fmacro-prefix-map and -fdebug-prefix-map to avoid them.
+> (There is also -ffile-prefix-map which should be more robust and easy to use)
+
+I was suspecting these are coming from linker scripts, in VDSO 
+compilation but I could not pin-point to the real issue here. I will 
+check more to find out what exactly is missing here.
+
+> 
+>>>> ---
+>>>>    Makefile                          | 8 ++++++--
+>>>>    arch/arm64/kernel/vdso/Makefile   | 5 ++++-
+>>>>    arch/arm64/kernel/vdso32/Makefile | 5 ++++-
+>>>>    arch/x86/entry/vdso/Makefile      | 5 ++++-
+>>>>    4 files changed, 18 insertions(+), 5 deletions(-)
+>>>>
+>>>> diff --git a/Makefile b/Makefile
+>>>> index 3373308d2217c..3fcff4af200d7 100644
+>>>> --- a/Makefile
+>>>> +++ b/Makefile
+>>>> @@ -1132,8 +1132,12 @@ KBUILD_AFLAGS   += $(KAFLAGS)
+>>>>    KBUILD_CFLAGS   += $(KCFLAGS)
+>>>>    KBUILD_RUSTFLAGS += $(KRUSTFLAGS)
+>>>> -KBUILD_LDFLAGS_MODULE += --build-id=sha1
+>>>> -LDFLAGS_vmlinux += --build-id=sha1
+>>>> +# Can be overridden for reproducible builds by using "make KBUILD_BUILD_ID=none"
+>>>> +KBUILD_BUILD_ID ?= sha1
+>>>> +export KBUILD_BUILD_ID
+>>>> +
+>>>> +KBUILD_LDFLAGS_MODULE += --build-id=$(KBUILD_BUILD_ID)
+>>>> +LDFLAGS_vmlinux += --build-id=$(KBUILD_BUILD_ID)
+>>>>    KBUILD_LDFLAGS	+= -z noexecstack
+>>>>    ifeq ($(CONFIG_LD_IS_BFD),y)
+>>>> diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
+>>>> index 7dec05dd33b70..b3ee5982b4676 100644
+>>>> --- a/arch/arm64/kernel/vdso/Makefile
+>>>> +++ b/arch/arm64/kernel/vdso/Makefile
+>>>> @@ -9,6 +9,9 @@
+>>>>    # Include the generic Makefile to check the built vdso.
+>>>>    include $(srctree)/lib/vdso/Makefile.include
+>>>> +# Fallback for standalone builds, normally inherited from top-level Makefile
+>>>> +KBUILD_BUILD_ID ?= sha1
+>>>> +
+>>>
+>>> What kind of standalone builds?
+>>> This doesn't look like it belongs into this patch.
+>>>
+>>> (...)
+>>
+>> The case I was trying to cover here was when we try to compile
+>> arch/x86/entry/vdso/ separately, without the KBUILD_BUILD_ID coming from
+>> main build scripts, "--build-id=" would be left empty, while we may want to
+>> retain original value i.e. sha1.
+>>
+>>      make ARCH=x86_64 arch/x86/entry/vdso/
+> 
+> I don't think this is or should be supported.
+
+Ack.
+
+> 
+>> arch/x86/entry/vdso/Makefile:
+>> -VDSO_LDFLAGS = -shared --hash-style=both --build-id=sha1 --no-undefined \
+>> +VDSO_LDFLAGS = -shared --hash-style=both --build-id=$(KBUILD_BUILD_ID)
+>> --no-undefined \
+>>
+>> Anyways, this may not be required now.
+> 
+> 
+> Thomas
 
 Regards,
-Inochi
+Naman
 
