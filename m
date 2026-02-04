@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99A06E95394
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 12:34:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E22DE95397
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 12:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=258RcRsPMpMT2Qz5JVwYK0I4JavHEDB9+KA3oXvdIms=; b=TrqpLZEs3dmiXtk8Pfgqd8VHmV
-	YD6e45RUyjECFQOSH4Y+nZvHnV7Au4XGjH1e6f1j0FeA/rkefadg2wlZyX9WKX0Oi78zn0q1csXC1
-	RSWNeExz2uvP+52E+oOSg3yYpyeekdyayeNk5feaJik3xrjfNHSWklzV/D+STLxiClsp2uFtCyzcR
-	Jy4JAkNljxJkU8e7d/tKctmQu2naZWVuNxsvEheJQ1bmVrl9Spu4D62RmvEE79+lp0bp1VKmnCOwF
-	0kchdi6ydlWKT8JYIw+iUbpzSubPGQDRYm2UeG6G+ozfy/z4Zq/qiC/ExKEbauOMr9ph0awxv/bPI
-	zjh4JnMA==;
+	bh=6yEKI73VKLvzDqr7uSAMuMxn+tuw5FrM4zMLUDwTa88=; b=CNvilfm7ocQ08worwJg8KZNaP+
+	wypXxn7fozAGdZjjf1qjYx6hX2LnQ9/ecRnDnRUf/cJ2fDtmmXermKKyo+efTzOiBZ9BUcqRU5sjK
+	xjp7W2bhYfJ6pAZ55CPOv/XRr7LXAISMbFEN2L0eKQYn0ipQ2eAuBq0wKjc9eZXruz0r2soD2ELWm
+	ZYIKjuVzPCb/XP+yqFbxc7Hybo+nOwL/1ZbTJeCexyKBlcALRK4Wn3WQ9ihWcncxiUTIgQ7CAgihr
+	Ere6xt/iEUlpr8etAlqq5mrslAHEdcyOMcmw9RGldM5t/4ybuOMtKQO1g5uwTAwvhtH/QmT80l7TV
+	/dtaH1Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnc5H-00000008Rr1-0Npb;
-	Wed, 04 Feb 2026 12:34:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vnc7X-00000008S4L-2hVv;
+	Wed, 04 Feb 2026 12:36:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnc5E-00000008Rqb-2kxU
+	id 1vnc7W-00000008S4C-1oyd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 12:34:13 +0000
+	Wed, 04 Feb 2026 12:36:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0540F4169C;
-	Wed,  4 Feb 2026 12:34:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46458C4CEF7;
-	Wed,  4 Feb 2026 12:34:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8B5BB60126;
+	Wed,  4 Feb 2026 12:36:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E12EC4CEF7;
+	Wed,  4 Feb 2026 12:36:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770208451;
-	bh=AHCivJDP5GD4OkZ5utB49/t1kFWdOSJ8prtPUFvZDG0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KiToyLjjCR1nTGa50S+wkB8PvJazj2qYOSlcD/TRBD0REFefCrv0GR/ITEIQWBBKr
-	 ZTMgraWW5tzNmc6J84Kbctoen0pRB/76UckTZ3Y8sWjIaeOO/sEx84pKV1tBeOJibd
-	 VnMHyLqxHktn+OetUF07woScFMr9Fd1gPJjQDp1lLiNq4Sodx5s2nvjE2d+NsGDl6x
-	 F8WP1Dj1nDwYgoYn3e1bJJ/NuBw/j5uNFIQP3Jy+ZeJ0sa0dBdj6QWr6F0WPNHai7N
-	 sMIuECPEIE++t78svtxJ9mK27FhxbdcDbuncQ5yU/wz8WJq44Ag8bJ8maSjFazkq8z
-	 JSjYzFdXEMF1g==
-Date: Wed, 4 Feb 2026 18:03:55 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: Frank Li <frank.li@nxp.com>, Hongxing Zhu <hongxing.zhu@nxp.com>, 
-	"l.stach@pengutronix.de" <l.stach@pengutronix.de>, "bhelgaas@google.com" <bhelgaas@google.com>, 
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>, 
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
-	"festevam@gmail.com" <festevam@gmail.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH V3 03/10] arm: dts: imx6qdl: Add Root Port node and PERST
- property
-Message-ID: <gshz5zc7qkfkqkla2mkpu7jjf3sctrqf5jo5vszzgxzpegxzni@yhdqkykyn2ar>
-References: <20260203015614.2957479-1-sherry.sun@nxp.com>
- <20260203015614.2957479-4-sherry.sun@nxp.com>
- <mp25jwvoimpesfwtpmyeltdpbu7aznahxvkcn6jxg5jqzxck4i@pium66rnpdd3>
- <VI0PR04MB12114DBBE58AB89BEEDC28C019298A@VI0PR04MB12114.eurprd04.prod.outlook.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+	s=k20201202; t=1770208593;
+	bh=WlKEmANlhoeYrCXJWHvB6TEn3KZY7nVZyZZFjxfGCjA=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=or6ep/MUEO7Rkex66GhNLO9OYipPgu06PJg7NW/33ibtdHH2m02TsTdiDhyX/l6Z5
+	 wfssj/Rje5IF9rfnvmQVVuos8Tjoq1FN4NWlMRDNtdGlhN9pySdaJCYij1o71WX/VL
+	 tOCqh0Q1I536ccACHHrUKCFgUELVz07w7e/A6vhnq18KJhdj8E5/3wrupaIqZ2NfU3
+	 alXciDDqmylM3kHTmk8kKltFlhss3RTZPU0zJGUN9UQYgE63ThKVbA4Mege2wQR+AW
+	 5LpTgEupm+VahhqVNdHaAE/NJEBFf6TxQvOL5ih70zBTa5+MLzyzo7NTtRpjD4XZ2L
+	 /423lnRjms8yg==
+Date: Wed, 04 Feb 2026 06:36:32 -0600
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <VI0PR04MB12114DBBE58AB89BEEDC28C019298A@VI0PR04MB12114.eurprd04.prod.outlook.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_043412_735775_023A2F5C 
-X-CRM114-Status: GOOD (  24.12  )
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, Li Jun <jun.li@nxp.com>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ Frank Li <frank.li@nxp.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-usb@vger.kernel.org
+To: Xu Yang <xu.yang_2@nxp.com>
+In-Reply-To: <20260204-add-flatten-dts-based-dwc3-imx-driver-v2-1-d2c9b5a58c01@nxp.com>
+References: <20260204-add-flatten-dts-based-dwc3-imx-driver-v2-0-d2c9b5a58c01@nxp.com>
+ <20260204-add-flatten-dts-based-dwc3-imx-driver-v2-1-d2c9b5a58c01@nxp.com>
+Message-Id: <177020859226.1501535.7850161479548058687.robh@kernel.org>
+Subject: Re: [PATCH v2 1/3] dt-bindings: usb: introduce fsl,imx-dwc3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,112 +76,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 04, 2026 at 06:44:07AM +0000, Sherry Sun wrote:
-> > On Tue, Feb 03, 2026 at 09:56:07AM +0800, Sherry Sun wrote:
-> > > Since describing the PCIe PERST# property under Host Bridge node is
-> > > now deprecated, it is recommended to add it to the Root Port node, so
-> > > creating the Root Port node and add the reset-gpios property in Root
-> > > Port.
-> > >
-> > > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> > > ---
-> > >  arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi |  5 +++++
-> > >  arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi         | 11 +++++++++++
-> > >  arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts |  5 +++++
-> > >  3 files changed, 21 insertions(+)
-> > >
-> > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-> > > b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-> > > index ba29720e3f72..fe9046c03ddd 100644
-> > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-> > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-> > > @@ -754,11 +754,16 @@ lvds0_out: endpoint {  &pcie {
-> > >  	pinctrl-names = "default";
-> > >  	pinctrl-0 = <&pinctrl_pcie>;
-> > > +	/* This property is deprecated, use reset-gpios from the Root Port
-> > > +node. */
-> > >  	reset-gpio = <&gpio7 12 GPIO_ACTIVE_LOW>;
-> > 
-> > You should just remove this property.
+
+On Wed, 04 Feb 2026 19:06:16 +0800, Xu Yang wrote:
+> The i.MX USB glue and DWC3 core are closely coupled. Describe the i.MX
+> USB block in a single block will bring more benefits than a parent-
+> child relation. The new binding is a copy of fsl,imx8mp-dwc3.yaml with
+> the needed modifications.
 > 
-> Hi Manivannan,
+> Add the common compatible string "fsl,imx-dwc3" to indicate that the
+> flattened module should be selected. This compatible is also used by
+> "select" to inform the DeviceTree validator to apply this binding.
 > 
-> Actually I have discussed with Frank about this in V1, Frank suggested add
-> comments here instead of removing the old property, just in case the dts
-> used by old kernel to avoid function break. Or maybe we can at least keep it
-> for some kernel release, then remove it later.
+> To avoid redefining all the platform-specific compatibles, "select" is
+> used to tell the DeviceTree validator which binding to use solely on the
+> generic compatible.
+> 
+> Mark fsl,imx8mp-dwc3 deprecated, to favor expressing future platforms
+> using the new combined binding.
+> 
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> 
+> ---
+> Changes in v2:
+>  - reorder compatible property
+> ---
+>  .../devicetree/bindings/usb/fsl,imx-dwc3.yaml      | 131 +++++++++++++++++++++
+>  .../devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml   |  13 ++
+>  2 files changed, 144 insertions(+)
 > 
 
-If the new DT breaks the old kernel, then the kernel needs to be upgraded. But
-typically, one would update both kernel + DT or just the kernel, not just DT.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-- Mani
+yamllint warnings/errors:
 
-> Best Regards
-> Sherry
-> > 
-> > >  	vpcie-supply = <&reg_pcie>;
-> > >  	status = "okay";
-> > >  };
-> > >
-> > > +&pcie_port0 {
-> > > +	reset-gpios = <&gpio7 12 GPIO_ACTIVE_LOW>; };
-> > > +
-> > >  &pwm1 {
-> > >  	pinctrl-names = "default";
-> > >  	pinctrl-0 = <&pinctrl_pwm1>;
-> > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> > > b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> > > index 76e6043e1f91..eeb376193398 100644
-> > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> > > @@ -289,6 +289,17 @@ pcie: pcie@1ffc000 {
-> > >  				 <&clks IMX6QDL_CLK_PCIE_REF_125M>;
-> > >  			clock-names = "pcie", "pcie_bus", "pcie_phy";
-> > >  			status = "disabled";
-> > > +
-> > > +			pcie_port0: pcie@0 {
-> > > +				compatible = "pciclass,0604";
-> > > +				device_type = "pci";
-> > > +				reg = <0x0 0x0 0x0 0x0 0x0>;
-> > > +				bus-range = <0x01 0xff>;
-> > > +
-> > > +				#address-cells = <3>;
-> > > +				#size-cells = <2>;
-> > > +				ranges;
-> > > +			};
-> > >  		};
-> > >
-> > >  		aips1: bus@2000000 { /* AIPS1 */
-> > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
-> > > b/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
-> > > index c5b220aeaefd..6b12cab7175f 100644
-> > > --- a/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
-> > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
-> > > @@ -45,10 +45,15 @@ MX6QDL_PAD_GPIO_6__ENET_IRQ
-> > 	0x000b1
-> > >  };
-> > >
-> > >  &pcie {
-> > > +	/* This property is deprecated, use reset-gpios from the Root Port
-> > > +node. */
-> > >  	reset-gpio = <&max7310_c 5 GPIO_ACTIVE_LOW>;
-> > >  	status = "okay";
-> > >  };
-> > >
-> > > +&pcie_port0 {
-> > > +	reset-gpios = <&max7310_c 5 GPIO_ACTIVE_LOW>; };
-> > > +
-> > >  &sata {
-> > >  	status = "okay";
-> > >  };
-> > > --
-> > > 2.37.1
-> > >
-> > 
-> > --
-> > மணிவண்ணன் சதாசிவம்
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/usb/fsl,imx-dwc3.example.dtb: /example-0/usb@4c100000: failed to match any schema with compatible: ['fsl,imx943-dwc3', 'fsl,imx-dwc3']
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/usb/fsl,imx-dwc3.example.dtb: usb@4c100000 (fsl,imx943-dwc3): compatible:0: 'fsl,imx943-dwc3' is not one of ['fsl,imx8mp-dwc3', 'fsl,imx94-dwc3', 'fsl,imx95-dwc3']
+	from schema $id: http://devicetree.org/schemas/usb/fsl,imx-dwc3.yaml
 
--- 
-மணிவண்ணன் சதாசிவம்
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260204-add-flatten-dts-based-dwc3-imx-driver-v2-1-d2c9b5a58c01@nxp.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
