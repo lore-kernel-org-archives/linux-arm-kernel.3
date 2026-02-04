@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2863DE9539C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 13:27:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B478E95396
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 13:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wB0VLDAPToQ8yD4B2A1a5exUgv0J2v5YL3Ju3cLJeTI=; b=yNqu2u9YhtkaPkMP3kJXhpqwf5
-	FmVcp1iR9j7wHBqnxd54S7LkToUGIdr2LasUM5GTbLogIHaSQRfCbUVrNn36Z1mTAPNg9/+M5elcu
-	610GqNYDPIi3WeLdoJeadqvigEru30lFK81ceHRQMUjN3cQugz+VQ1pe5i66r41XxfIg1F1KQa5Sq
-	ouD/cKOTT7pIcTZBOFd3fUsFqA/AHwUMSIoDh/YA1uuaSC4V5f1/tvW8XLEN7yE3/dpkmeLNy+VaU
-	lTvp0g3GLzKK4sy9VZcX8Qlcr3BQkkHiK0K0mt2sJdBIBJ3v/yv7EikwSlrRak7MlsXM+PBBcuIxs
-	oHzgdk1g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iSDNEyCwakS1Ym6Pza3YQfvhZWkeeNtC0qOGvxZYQyQ=; b=xECgbZZh9ninS5Cxf/+PjvxZMv
+	zq3cM/JC8VRaqTh1WXtJzhFHNot6rAcPegLKLeuhlng1G8hD+kuESpJ3ZqGVf1/w80Q5B3790DE0q
+	7vxw4He2iJDaj2jXNsNMkiumqfQKJpi2TFVnCISSC3BXbes4nLGyFDl94St32Pnomnn9hG8HgA1wP
+	0I9UKPHBMntQFJuBUYOxFqrtKXFFFuyRoJ0aBm4Vt61ecqQ4mPDHw/7XhwXCknhn2GrcgffCrdC8/
+	I4yQ2zgO2mSA3n3+/lCBwOSTihEBki6TOR9X4yhKfPAfKze2ehfyOFmfEeBWTgXiXJ+w47YK/UskG
+	B2V6SmvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vncuV-00000008VUh-3Sl4;
-	Wed, 04 Feb 2026 13:27:11 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1vncuY-00000008VWe-0THI;
+	Wed, 04 Feb 2026 13:27:14 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vncuS-00000008VTw-2EZs
+	id 1vncuV-00000008VUf-4AcL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 13:27:10 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-352c414bbbeso478463a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 05:27:08 -0800 (PST)
+	Wed, 04 Feb 2026 13:27:13 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-c06cb8004e8so2793329a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 05:27:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770211627; x=1770816427; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=wB0VLDAPToQ8yD4B2A1a5exUgv0J2v5YL3Ju3cLJeTI=;
-        b=icA6IlJYLLuGJi8k62akX7TEJJvatMCX2WfaKkk1pm6kQsc34MbWmTUD4Hizh/LONf
-         +xECSTLHekhKvudC0k7Wz4M5iMkljwXmm7jqxGa59IT4JvMaoIyUsWW0iTWfnoQQy1WD
-         06NB8YJDVuxUxAu3aCvQVx6OmIZ8DUczmpE4JtAHpZhKiNkBTSAnBjkVLxVaNEkPo1xY
-         giOFo3jAwexLxq4BbUwB5uy9s51KFXK/yHMKhwdjndqDRgf3OEHEnywtmCzweUhJPa60
-         fQCy1FNJ01aepGeGc8HvW8Fr6L30vIdhbMaawo5Ud5iTx4qHQlB0eT84ttESpE4WFEbk
-         56Rw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770211627; x=1770816427;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1770211631; x=1770816431; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wB0VLDAPToQ8yD4B2A1a5exUgv0J2v5YL3Ju3cLJeTI=;
-        b=WfL1VTb+QGzfTpakfOCuACo21jGFX0o6g0IN3T6eIh6XrX4z0dyK8EHbhznymn3cGT
-         /JY5sX1f/yHveXlpg3N9AJNDE+88R0MqvmUcKwd/acVpOOkDTN6FRzWIJweQFTrOQo8+
-         G0DBNNxaf2m9QlsnLU6BH7mdBGWI7pSASH/IHuOktsX8Umi15SVtlzzVJz2b1jL6bwgR
-         MExf7yGHQB9k/rcRhf26jft/SjiTgweISVCKQRnV40YvS/OEJ1cVjjuaaEep02v7nv1P
-         P7W3FN2np1Hxqn9DDE1NXCGFGyF/vxnYQpmVVYJ4z4t5HPhQdPBU5TplQezTlhRJ0cPt
-         cHvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW8bZXVLF9iitwOnzj9VizFg96bkmilH45KpoMj+XN7o4OW7rH+TtvM9pDwbFgq5aTFMNtaUHCyxcaGtdWcRflf@lists.infradead.org
-X-Gm-Message-State: AOJu0YxtrJE1T7RAhk2/Rv2kGGSvf7ieN3wiLaYcmqlFAsw8+WeuIXN/
-	XAqrfZdj935/4Zcc+XPt3Vwq+X9Y1ZwyJD22Apws0eMsUykdfRFxf3iY
-X-Gm-Gg: AZuq6aLYUuH4naKfk66sEypKEavgmDlXwJgHelkKSbjSo6ptcNtKWnPH+EfASV4C3+k
-	42ogGvXSRcjXHvWJObAf2vtD9xbmEasDp4Og8oxDCtPUYCV16zNTIIqkXl/7Gb/cY6qtUVkx6Xl
-	d60tZCFmTtDPKF/FNG0+fVck4Dx3Hsjck4aX71bCeetSLqzSAaSh8EO3k7rn9FppK55wjfnkkuc
-	GWWwNtBpVr0Aw/DyBxk9LTWqvEtlwQF2nHrD3EmX7iGPDnTSNsopGArGpLISob4kYt+NBm4RCJA
-	f6HCSiGkB0aM7BgCJOFYegfMNjedvVOdAQBtFKzHa0oTKB2HGhmHQLKwCve4s7mcxWBmEDHPUtR
-	nubqwXC6v5yNpWeWzgk7z+BPTYF3mbjR5YnnYnyiIVca7+GMmUx8Bpj1bVttaM4nfjbCpLQYg2F
-	hPsOwHQRqg
-X-Received: by 2002:a17:90a:d64d:b0:352:d0cf:9d18 with SMTP id 98e67ed59e1d1-354776e0a54mr6454276a91.5.1770211627186;
-        Wed, 04 Feb 2026 05:27:07 -0800 (PST)
+        bh=iSDNEyCwakS1Ym6Pza3YQfvhZWkeeNtC0qOGvxZYQyQ=;
+        b=d8sm7HCb4lNsvLi+tJqnr3D9XMEW9bsPxSvVSly5RlSs9xnIus9MJRLqqRg13yloBv
+         1gBtKpeUbbkmL4t02DS0iy1sRGbgWFSHgTlAIPk2cBR+JZyvKjjCTXTvN3YYZ4wFKJ9q
+         NP9/m9Yynlm9grxaUATxnMbnJ4octRtGD4fsjDdIrI1pltjxmJmibukEtUMkM52uelzg
+         uBYsgYXiWTwU3ebT+8YSMneDYRjcw6h7bpcBixMscHLRIU15rCNgKpuIIrJ+Pitq3g0v
+         SPMo2bI1fL7f/ZSiHI0QFE1RMM+vkcw/nr801WEhgmZPvxKaH842f0ZFAlYKtfPgNZrS
+         tXVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770211631; x=1770816431;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=iSDNEyCwakS1Ym6Pza3YQfvhZWkeeNtC0qOGvxZYQyQ=;
+        b=PXYG7L+fnhaxm5yviv9PvXr1auMmEo6wAP6ewljI/Mv0w+l7E3WykGeL00mE5Gf/mG
+         kkvbROJTtREI+f5ZU312CtEv75+9EYlhDRYSXXR81h0/LJHcXIUG43e6Z0T9F700oKaE
+         OS686KD8Wej8wGmGtWGIVYPHUZvMsUMEBvxclbaIjsnBG4Q91H1N3APyNoRXwZjMiehg
+         fth2PAo8m5DNPuxcx2Tv3ptHxhA0k4ln0qs/Hj20yBA5l+1yZdlVjzSDv32cq4BAheHp
+         UZKWJClj92ufhFPI5/HmU2v7vSk0hfCbSd9gEOSr8X+bSTd3g1Xhemxq1lYBA0qT41dq
+         BCXQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVD3tgBT/9QBL/Ip54PNircpOBjF4lcpWxq2rkGqneP+8Ddh/dPcfT7PyrhWkVOJTQ8uMN8/x2828v6Eqh45Lk5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJlRe5EI4HFLm4ZEFRAUGLtXrZL9pVwRANkkmiwZQUqADHDnbK
+	WpAM8hoYTdHQ3t312CyW+257ZvIFWXDY79DJWU38oYCf+f3VuACovwJg
+X-Gm-Gg: AZuq6aIuo8RtrmkKc5TYv5Ko7CM8TqB7sXwtbg+QABqeUtm0nKrRy97TBZe7jDlgLfZ
+	ACSo1IQffYiFjVN8HB5LQbtJeXSss0y2PX+DjhuUUENNJ2ycx5x/Rx5obEDGQpIbPLM1Nz177ho
+	CG7qOM1//nJMJYw6IRmVUU01L/jYHjRsKUG5PeJqmBIK3Y+5rIROjRrDjZhaEKjX3YBp8j63H7m
+	hpxNKWU1zKmxl5bEqjxSrfRM14wWfNdQ5G8cphu8X3BsaqvoMJgpp+IXB2zv439fkjNqKzOs0pJ
+	iI4v0QskA/qzZQDkkWu/IlSBOLmsMgKyNbo6PcEbSFrbfgS30IzkL3wLN572YOcZWq3jzx0h9y5
+	D1+nJ6o5VwB1SpXfODYrjFiEy4TiRFtglcsyUaFc2N6KLBcsVMfik9Tcn/Dr5XbJE/p+ibFBXT2
+	/QYgBhIAEJ
+X-Received: by 2002:a17:90b:554f:b0:353:2e1:95f6 with SMTP id 98e67ed59e1d1-354871bd5cfmr2596812a91.32.1770211630997;
+        Wed, 04 Feb 2026 05:27:10 -0800 (PST)
 Received: from arch.localdomain ([2409:8a28:a52:d2b1::1004])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35487726e6bsm875763a91.6.2026.02.04.05.27.04
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35487726e6bsm875763a91.6.2026.02.04.05.27.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Feb 2026 05:27:06 -0800 (PST)
+        Wed, 04 Feb 2026 05:27:10 -0800 (PST)
 From: Jun Yan <jerrysteve1101@gmail.com>
 To: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -79,17 +80,20 @@ Cc: robh@kernel.org,
 	alchark@gmail.com,
 	dsimic@manjaro.org,
 	andyshrk@163.com,
-	Jun Yan <jerrysteve1101@gmail.com>
-Subject: [PATCH v4 0/3] board: rockchip: add OneThing Edge Cube series
-Date: Wed,  4 Feb 2026 21:26:53 +0800
-Message-ID: <20260204132700.329894-1-jerrysteve1101@gmail.com>
+	Jun Yan <jerrysteve1101@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v4 1/3] dt-bindings: vendor-prefixes: Add Shenzhen OneThing Technologies Co., Ltd.
+Date: Wed,  4 Feb 2026 21:26:54 +0800
+Message-ID: <20260204132700.329894-2-jerrysteve1101@gmail.com>
 X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260204132700.329894-1-jerrysteve1101@gmail.com>
+References: <20260204132700.329894-1-jerrysteve1101@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_052708_576597_D0D9E41E 
-X-CRM114-Status: GOOD (  14.43  )
+X-CRM114-CacheID: sfid-20260204_052712_028447_D1F90A12 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,61 +108,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the OneThing Edge Cube series, Rockchip 
-RK3566-based PCDN (P2P Content Delivery Network) devices originally 
-marketed by OneThing Tech.
+OneThing is a company engaged in edge computing.
 
-The V4 patch includes minor improvements.
+Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-The V3 patch merges the separate dts files for OEC and OEC-turbo,
-following Dragan Simic's suggestion.
-
-The V2 patch adds a new device, the OneThing OEC. Together with the 
-V1 patch OneThing OEC-turbo, these two devices share identical hardware 
-specifications except for the RAM capacity, enabling convenient support
-implementation.
-
-The V1 patch was submitted quite some time ago and is now in an archived
-state[1]. it has not been processed due to scheduling conflicts –
-apologies for this.
-
-Changes in v4:
-- Use a unified compatible name for OEC and OEC-turbo.
-- Drop the "series" string from the board dtb name.
-- Use a self-descriptive model name for the dtb.
-- Link to v3: https://lore.kernel.org/all/20260202150437.270567-1-jerrysteve1101@gmail.com/
-
-Changes in v3:
-- Use a single device tree for both OEC and OEC-turbo.
-- Align the compatible strings in dt-bindings and device tree.
-- Link to v2: https://lore.kernel.org/all/20260131153106.31723-1-jerrysteve1101@gmail.com/
-
-Changes in v2:
-- Fix typo in vendor-prefixes.
-- Simplify company and device names.
-- Add the new device OEC as part of the OneThing Edge Cube series for support.
-- Set display-subsystem node to "disabled" instead of using "delete-node".
-- Using generic node names for leds.
-- Follow DTS codeing style in vcc5v0_usb_host_en pinctrl node.
-- Modify the phy_mode of GMAC from rgmii to rgmii-id.
-- Adjust device tree node ordering to follow code style.
-- Link to v1: https://lore.kernel.org/all/20250713163255.163669-1-jerrysteve1101@gmail.com/
-
-[1] https://patchwork.kernel.org/project/linux-rockchip/cover/20250713163255.163669-1-jerrysteve1101@gmail.com/
-
-Jun Yan (3):
-  dt-bindings: vendor-prefixes: Add Shenzhen OneThing Technologies Co.,
-    Ltd.
-  dt-bindings: arm: rockchip: Add OneThing Edge Cube series
-  arm64: dts: rockchip: Add OneThing Edge Cube series
-
- .../devicetree/bindings/arm/rockchip.yaml     |   5 +
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../rockchip/rk3566-onething-edge-cube.dts    | 312 ++++++++++++++++++
- 4 files changed, 320 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-edge-cube.dts
-
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index ee7fd3cfe203..49607cf2941e 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1199,6 +1199,8 @@ patternProperties:
+     description: One Laptop Per Child
+   "^oneplus,.*":
+     description: OnePlus Technology (Shenzhen) Co., Ltd.
++  "^onething,.*":
++    description: Shenzhen OneThing Technologies Co., Ltd.
+   "^onie,.*":
+     description: Open Network Install Environment group
+   "^onion,.*":
 -- 
 2.52.0
 
