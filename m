@@ -4,163 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2C7EE9537B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 11:18:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C859BE9537B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 11:25:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qPGueOcdCs/n2ABx4XDstga8oG0Bn1IOn2kP1euUCpU=; b=nY7q/d1g3M73CeN+kYH4XLh8/b
-	lFwxzOmorTl/T9fakL3ovNWKL8HugSYRsiEVZFVkSyroGEB1lcKYP9in4JbTc+pk55Nkr8eQNfwEG
-	WGY7Ev2LSQyUeiwQ7MGP7bBz+yqDIyux4uYPVINdAd+syKsDObj3UW6XUjGrkWaavi4HIbmfkkXVN
-	zoThmBQz+FEZt8bFFxkRvVtB8yNH3HeQ2Ntwud1BujfQjXPlVUuhlt8S6FuFxJ1tI+GtR99v6/mTs
-	E8Yd+Vt2PFE5T7FfwRIkDxS9TCzQqC+s0RdGVgb/zodBvxrAMSH6sQ2YF4qDBgcWggwVeKuME8kJV
-	sOVWrg6A==;
+	bh=ocGPMfy53H8ZoJl2+HSfpJHlssgDH3KAbSEcxXMr1k8=; b=fjRu4lr4uV94pRGNX3CrbCoW6q
+	ePExoM6aMpoBntoCwytHw98MOsp15tV2o7U91ziAzupqk6wCfE2YXrUkdbknqEHCUUI5sfUJYkpSG
+	BKIYXZY4BbTzin6WVEqACs81U5tT42Ehhnr/PxrFg1It0ADyPX4t6+pYTXKSwy1JrE+H5AhF+QHtN
+	kx7LgObB3cgjsuA1p15qH5JbtefECSBn4SbyVtJziSDad7Izy2C+QcEnu8OywGST9LFlh9QhyYQW5
+	63BTMKzMXBUN644lLmDk1R+Cebvi8xdUqS/hKd+MkRU9Yrrnr1B9/qDu/ifhtJYlLBn6lRYX11cA7
+	ymlxt4cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnauL-00000008LgN-0fRc;
-	Wed, 04 Feb 2026 11:18:53 +0000
-Received: from mail-northcentralusazon11012034.outbound.protection.outlook.com ([40.107.200.34] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1vnb0Z-00000008M0E-05Un;
+	Wed, 04 Feb 2026 11:25:19 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnauI-00000008Lfa-1g6P
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 11:18:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=v2TDbLk2UODyS9hTZyWU9I8Y+NhrfrcXlKBkRnse/g5IwvUyXupL1ZuzPafE3U//nbiunSxMezx0rbBKVYv3HKM0PZEmbgNPZrVNZ1Nivi7/fqoD8pxQdMGojph5o90/OUfoTglR/aDCkesg/BH8znBKUKOtW2623QwsUHJkfuYay/S+OSgyARiR85GmwSTlnxO15S+gL6KxOXeA4PBxFnJ1UF10SzL01DDc5zsaK/4TyTeoQXv/cEZdEa+zoGp1ABXfNzNyfI4FhXrLxqAgWmWF4utOcvfUOLzeZxvXGw/zQorwvLQVAA9IYFDQ2/CfZ0j//DzHjxf3eXng3b0e7w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qPGueOcdCs/n2ABx4XDstga8oG0Bn1IOn2kP1euUCpU=;
- b=XZf6BLq5ha1WDdtYwoDNLPPn4YA9mLlU4tVA9+gRaQSFVLZ3kUjExYbV7IzUDm0Ownn9aPqAfww/q4ydiOvJj+jJREYLmB1k32gL0xKT6DDghmBWUi7FEtIGZZPisyhC2OZe4EO3vYcr+FgMfT+jbhH1zedUZrY6F0h02FvevmR812BnLZll81M89g4Ffh/QnxkMsXTQSWe1vfh3qtnFVRwd2kr7e6/9qo9mQ9QIUoL9FzzPX8ijCK301vKF8heZO2kZNz1MEi5a6aFGVrI0rIMawHRYdYHL44ceSHZg9hhEX7TOsP3KLDSaSbgzsLmzQVXGxZ7Iw2TNzdB/qVpJDA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qPGueOcdCs/n2ABx4XDstga8oG0Bn1IOn2kP1euUCpU=;
- b=uKtjUDEo84Oy2wg32X4/4RG1idi7ageHFN0+FNYdpJPiCHo69giobwTIylk1JoXJx6SNZbR38UqvYnKx/Xj88hALiKOXdjr5rKFRq86HC9nJHPDKx1DGevZPXbcOXVxACddwqWedNBdSXRpD3QgD7XxGmDjkHeKCKoCjQPa3RLY=
-Received: from BYAPR08CA0039.namprd08.prod.outlook.com (2603:10b6:a03:117::16)
- by DS0PR10MB8077.namprd10.prod.outlook.com (2603:10b6:8:1f9::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.8; Wed, 4 Feb
- 2026 11:18:45 +0000
-Received: from SJ1PEPF000026C5.namprd04.prod.outlook.com
- (2603:10b6:a03:117:cafe::d1) by BYAPR08CA0039.outlook.office365.com
- (2603:10b6:a03:117::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9587.12 via Frontend Transport; Wed,
- 4 Feb 2026 11:18:45 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- SJ1PEPF000026C5.mail.protection.outlook.com (10.167.244.102) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9587.10 via Frontend Transport; Wed, 4 Feb 2026 11:18:45 +0000
-Received: from DLEE209.ent.ti.com (157.170.170.98) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 4 Feb
- 2026 05:18:44 -0600
-Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE209.ent.ti.com
- (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 4 Feb
- 2026 05:18:44 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE213.ent.ti.com
- (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 4 Feb 2026 05:18:44 -0600
-Received: from [10.24.69.13] (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 614BIdnP1445698;
-	Wed, 4 Feb 2026 05:18:39 -0600
-Message-ID: <84dfd44f-56e6-4d1a-a1c3-702988236f3f@ti.com>
-Date: Wed, 4 Feb 2026 16:48:38 +0530
+	id 1vnb0V-00000008Lyp-4Ane;
+	Wed, 04 Feb 2026 11:25:17 +0000
+Received: from t16.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 5E1B210C4;
+	Wed,  4 Feb 2026 12:24:30 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1770204271;
+	bh=iclPN213YkwPa7GEz0O6Lo/r6Ez5c+6GrJlnrVg1GZ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=I9Ba2pMZwtZSybtnMEdOBP0t/mo3fP4PY8d9Lo3MRnP9uOIzMtjSE+VRC8lzugVDT
+	 LMH6Feh3sZoewAhb1udhgHhos9uggsP6Kc75OKE9y6yCADp8Vcuej5tOCt5bru85Q2
+	 6kCFBVxhvfnSovc2XGyIZc5ggDjyX8MZgB1fNt6o=
+From: Isaac Scott <isaac.scott@ideasonboard.com>
+To: linux-media@vger.kernel.org
+Cc: dafna@fastmail.com,
+	laurent.pinchart@ideasonboard.com,
+	mchehab@kernel.org,
+	heiko@sntech.de,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Isaac Scott <isaac.scott@ideasonboard.com>
+Subject: [PATCH v1 1/6] media: rkisp1-resizer: Add YUV source formats to resizer
+Date: Wed,  4 Feb 2026 11:25:01 +0000
+Message-ID: <20260204112506.3706049-2-isaac.scott@ideasonboard.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260204112506.3706049-1-isaac.scott@ideasonboard.com>
+References: <20260204112506.3706049-1-isaac.scott@ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 1/2] net: ti: icssg-prueth: Add Frame Preemption
- MAC Merge support
-To: Simon Horman <horms@kernel.org>
-CC: <vadim.fedorenko@linux.dev>, <jacob.e.keller@intel.com>, <afd@ti.com>,
-	<pmohan@couthit.com>, <basharath@couthit.com>, <vladimir.oltean@nxp.com>,
-	<rogerq@kernel.org>, <danishanwar@ti.com>, <pabeni@redhat.com>,
-	<kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
-	<andrew+netdev@lunn.ch>, <linux-arm-kernel@lists.infradead.org>,
-	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, <srk@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>
-References: <20260107125111.2372254-1-m-malladi@ti.com>
- <20260107125111.2372254-2-m-malladi@ti.com>
- <aWkAXHXHHOD9SDBt@horms.kernel.org>
-Content-Language: en-US
-From: Meghana Malladi <m-malladi@ti.com>
-In-Reply-To: <aWkAXHXHHOD9SDBt@horms.kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000026C5:EE_|DS0PR10MB8077:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3f436e9c-ef1e-49dc-9c6c-08de63df293f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aHBveUlYaUxIVTE4aUFGVElTYXhBL1lzSnNJdWdDdFE2Wk51K3VZN0NDZkhW?=
- =?utf-8?B?ek5HTThCekhSdWtDdWxaaU55OHJUY3FFQTMwSElZU0Nxbk1OcHRZRUxVbzZR?=
- =?utf-8?B?aUc3R3MreUJLQkxPN3ZGcEJuMjVXd0QrOHdzK2lTNUViM0JJZ2d0a1NjWCtk?=
- =?utf-8?B?eGUxKytzUFNpejZuVkwvS3k4d29XSFRNRFZxT2M3M1RHYTNwMTFya0ZFeWI5?=
- =?utf-8?B?LzlYVjN1N3lQM282WDU1S0R2RWNEUUZlSFEwdGFpZzdrMDBOUitOWk1lM0Vz?=
- =?utf-8?B?SEpCbFlxQ3N4Y2ZqOUFLSkpSL20yS1hiUjJORmJWWXNITUJmZjVNdXdyMzcx?=
- =?utf-8?B?SnRWYit3bFNWOEZ4eW4xNUlIbTErWU5oVHMyZ0JkbkR2RitEb2ZWVFIyZkRS?=
- =?utf-8?B?WWJyR3poNk55L3krWGRKN1pkOGk0WXZBcnd0dXpPWFFlK0o3RnE4OTgycWdn?=
- =?utf-8?B?cmdWQUkyb3kvY1p6eVdxdXl6NFRnQnkzdStqTmgzUk5HQ0oyZytLd0gxVGEw?=
- =?utf-8?B?a3JMeTYrVHk5L2hjUmpPb0dOeUVRdFRLZG0xTm5PTC9KRnEraHJ4a1lPTE9L?=
- =?utf-8?B?cVl5cVg0eHYrSXYrQ0lOR1A5dGU1SlJ4dUdaRzVuUmVza2RabGZ3ck8wZS9M?=
- =?utf-8?B?cDl3elN6L25iL3FFUjRzTzN0TXJxSXhxRnhVOXE2NmIrejFPWXp5TDByS2o0?=
- =?utf-8?B?UjFNeHplL2pObUhNcGhWY1EyQnZpV0k0b29IK01lcUVwVE1Jc0l2ZDZMM20x?=
- =?utf-8?B?RWNSdXlNL2NzaXV0SzJaZ0JQUGs2U1JQSWl5SzJ3TTZkZ3ova1QwS0EvNUNj?=
- =?utf-8?B?blhHYTVwdTlBVmt5TUtMM2c1dmdZdUlJaHl4SGtPWDYvcTB3bm1xdDdQcy9y?=
- =?utf-8?B?cUFqUHJEcnpTbG40RUg1cTNmdlRRbFZ2M3ZmL3k2Y3hCSlRSZXZSazhrN3pT?=
- =?utf-8?B?ZkhnQTFGVndiZTdlNGtoYk52eDJaUjZXU205Y2Fnek9CNldIbEZRdDJqcCtk?=
- =?utf-8?B?Tldncm5UckRiTFgrZ0tFcGVYbWQ4QXFYL2RZaDNNcVI0VWRvK2JlN2RFbkp6?=
- =?utf-8?B?dGtFQU9MK2kvWC9OSHNUc1Z3ajcxRjZoTVpxcnFQaWN6SnZsc0tuV2FMSUEv?=
- =?utf-8?B?UEF1OVRkNEJLb1NESDdWSksvTTc5M1JiTmRUTW5VQ3pUdytlVlhxeUswejl2?=
- =?utf-8?B?T0ZqNFRYMktDZ09KMnRzOTFkR0JCMzY1aW1RMHI5KzRjaVFnMTJDTXljWFZB?=
- =?utf-8?B?cnRIWGh1NlFFOW10cWsreHEzSVF0dEJLRTEvc2FWWjZlVFNLZFl2YTRBaC9p?=
- =?utf-8?B?S2pJdVhIcHM2MzZ3MjRUOHRkVTJobFlvRjNwSVEvdXh3Y1c5VGxjWFJBTm5p?=
- =?utf-8?B?YS9hZzdhaVZxcTZZNE5YRlNTSHdSWU1qQm00eGtCK2xKeHE1d3ZIL0RMVUNm?=
- =?utf-8?B?eWtTT2dZMXc4L0FQaEVYT2k4blU2VVJLek1PRldqUlQxZ2x4V1BydjZuZlZr?=
- =?utf-8?B?VExTU3ZjRWdUcEFua1hYb3d4NWdEdzZFQzkzU0I0a2I4NGVEaVRDMk5WRzc1?=
- =?utf-8?B?dVFUdjBqVFNsaUdCUHRMY2JzZVF1NXBTc1lIbnJaMjNPTnllaEwzKy9TNlpv?=
- =?utf-8?B?UzE3WDEzcFBHQjluV3IzdlRqV3JaWllxcmxwOGVZekVpdGR3UlZlcFgwTWxs?=
- =?utf-8?B?YnFLdEZIcG9TL21NcG0yR1Jwa2w3WmJWU0dHb1RINXVEdHpsTmhFQ0xSdldY?=
- =?utf-8?B?M2gwYndGN2N6VzY1bGEzM3UzZVdWOURiT3VRY2FjZldmcEdkUks3S0VIa3RM?=
- =?utf-8?B?NXdWVUZXTWh4b0JnMjE0S3RWUTdxTlN3Y1NSckFpTDNyYnBHSVlpaXRQb0ts?=
- =?utf-8?B?SDhGckVLZURlWExSL1dVVUxjbzM0ei9kRU9BM2ZlaU1NNllPdHYzYXBsdzJN?=
- =?utf-8?B?VjZlSDRqTmM1b0dyallwcHpqS0s4d1o2bFVOb2NlSmpvNFl3YnB5anRYVW1q?=
- =?utf-8?B?VHNEc0MzT2pIaUM4cU45b1QvV3FtTWdVWGZsTUhYSkZjUDljTXlINFdtRHN5?=
- =?utf-8?B?TlFsbDNKR2JFQVVmaTdQeHB0Wi9veTNyYVVLQWZST3VwSUZGR0Z4dWdUZ28y?=
- =?utf-8?B?ZmE0RFlTcFVFakJkK1ZvWHV1L3h2ZXZBTHdSSUFIbCtaMFkwamJMQVBCTmYr?=
- =?utf-8?B?VUdBUkw5c0U3K2RxS3NIL0ZCUS9CbkNSRkY5Mkt4MHhwMVhJdm9tTkgvbEJW?=
- =?utf-8?B?eHdTTEE5TUExTkRsRStPSGJ1RGRnPT0=?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: eWTnpwOS3S8MtOySbkrlhTucym+SHc8icLjeyCyTqS5f6hrgsGd/tWklg5XNrWOMmj8QGg9PwCZz/WuJgut1ZtaqfAHj8983uZmkt+8KAFSk9U7IAKXYKVXhDeDwoZpwjqf1y+El56r62YQNQtb5Oaz0tPzzTbTEV6Ra16HjNkkA0d/mNFHJe+KOMO8OOoKPgN98qdQRkcH6qxee5fyXl9VwRJ7j3uUnkYUZR2BPTsp+RSTkUlXEqUEeXFxLRHxce7lqFw8UazU8itSkQ6rdIbV+LM4zv9yBd7JRoRLEd9wecpRBoFgvhGQ+BN+1JUtQ4sG8SlZSKmViWk0uQwa5PSHPYmCUPeB3fZ2wp8y0+aIxvQqhLS/70p8KkFjp1imm0HB9PZezAFt3p1oad+olWxJ5J5WfWcNRF9p3qPRWNesJVH1rSkjPWsRRG+zO60JX
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2026 11:18:45.3250
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3f436e9c-ef1e-49dc-9c6c-08de63df293f
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000026C5.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB8077
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_031850_445616_850DBE0F 
-X-CRM114-Status: GOOD (  18.61  )
+X-CRM114-CacheID: sfid-20260204_032516_229223_33868363 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,73 +71,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Simon,
+To be able to use YUV bypass, YUV formats need to be available on the
+source pad of the rkisp1 resizer. Add them.
 
-On 1/15/26 20:27, Simon Horman wrote:
-> On Wed, Jan 07, 2026 at 06:21:10PM +0530, Meghana Malladi wrote:
->> This patch adds utility functions to configure firmware to enable
->> IET FPE. The highest priority queue is marked as Express queue and
->> lower priority queues as pre-emptable, as the default configuration
->> which will be overwritten by the mqprio tc mask passed by tc qdisc.
->> Driver optionally allow configure the Verify state machine in the
->> firmware to check remote peer capability. If remote fails to respond
->> to Verify command, then FPE is disabled by firmware and TX FPE active
->> status is disabled.
->>
->> This also adds the necessary hooks to enable IET/FPE feature in ICSSG
->> driver. IET/FPE gets configured when Link is up and gets disabled when link
->> goes down or device is stopped.
->>
->> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> 
-> ...
-> 
->>   /* The buf includes headroom compatible with both skb and xdpf */
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.c b/drivers/net/ethernet/ti/icssg/icssg_qos.c
-> 
-> ...
-> 
->> +static int emac_tc_setup_mqprio(struct net_device *ndev, void *type_data)
->> +{
->> +	struct tc_mqprio_qopt_offload *mqprio = type_data;
->> +	struct prueth_emac *emac = netdev_priv(ndev);
->> +	struct prueth_qos_mqprio *p_mqprio;
->> +	int ret;
->> +
->> +	if (mqprio->qopt.hw == TC_MQPRIO_HW_OFFLOAD_TCS)
->> +		return -EOPNOTSUPP;
->> +
->> +	if (!mqprio->qopt.num_tc) {
->> +		netdev_reset_tc(ndev);
->> +		p_mqprio->preemptible_tcs = 0;
-> 
-> Hi MD & Meghana,
-> 
-> p_mqprio is dereferenced here.
-> But it isn't initialised yet.
-> 
-> Flagged by Clang 21.1.7 W=1 build for arm64.
-> 
+Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
+---
+ .../platform/rockchip/rkisp1/rkisp1-resizer.c     | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-Thanks for catching this.
-Will include W=1 build test in my checklist before posting in upstream 
-from next time :)
-
->> +		return 0;
->> +	}
->> +
->> +	ret = prueth_mqprio_validate(ndev, mqprio);
->> +	if (ret)
->> +		return ret;
->> +
->> +	p_mqprio = &emac->qos.mqprio;
->> +	memcpy(&p_mqprio->mqprio, mqprio, sizeof(*mqprio));
->> +	netdev_set_num_tc(ndev, mqprio->qopt.num_tc);
->> +
->> +	return 0;
->> +}
-> 
-> ...
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-resizer.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-resizer.c
+index 8e6b753d3081..e72b76ab078c 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-resizer.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-resizer.c
+@@ -23,11 +23,26 @@ struct rkisp1_rsz_yuv_mbus_info {
+ };
+ 
+ static const struct rkisp1_rsz_yuv_mbus_info rkisp1_rsz_yuv_src_formats[] = {
++	{
++		.mbus_code	= MEDIA_BUS_FMT_UYVY8_2X8, /* YUV422 */
++		.hdiv		= 1,
++		.vdiv		= 1,
++	},
++	{
++		.mbus_code	= MEDIA_BUS_FMT_VYUY8_2X8, /* YUV422 */
++		.hdiv		= 1,
++		.vdiv		= 1,
++	},
+ 	{
+ 		.mbus_code	= MEDIA_BUS_FMT_YUYV8_2X8, /* YUV422 */
+ 		.hdiv		= 2,
+ 		.vdiv		= 1,
+ 	},
++	{
++		.mbus_code	= MEDIA_BUS_FMT_YVYU8_2X8, /* YUV422 */
++		.hdiv		= 1,
++		.vdiv		= 1,
++	},
+ 	{
+ 		.mbus_code	= MEDIA_BUS_FMT_YUYV8_1_5X8, /* YUV420 */
+ 		.hdiv		= 2,
+-- 
+2.43.0
 
 
