@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E504E95374
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 10:12:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B6F2E95372
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 10:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UyTpBAyQI5OR7vNweD0HHwtT71emEXEcP1PrKJwpdlI=; b=cUimTbcL0EPtwhKcEvJo/BQEYv
-	NAsXzXzSXoxWAqM58SxMHW/RDXZraceuJUJKxEuqgpVmiDwFDN0kGNxRVWGEdNEb3OVRyu2rWqmit
-	gn0tJRyBT5TnelPsd/Z5sbpxrzj9hw+tyZDGTjR2nDzvVrgJs58OMvnu3Mlpj2/Gw3YrjBt4VFiG8
-	/NG8Orm9AXaxeOZ+RPMwoyRoTFs9BvhRMBdtElkF5GaOWssaEBDwb0noO+Ss4TNVBnKxBT0s9qAXM
-	GrLG/KWaI4eKDzdUnQ7X4JwznSLYvtbIh6qQINCmf9Ce5yXdOuUs7dj3p8FgyR7uBDtrN1B4XDan0
-	ERB/72Cw==;
+	bh=IwWA1LLBPs2vynQg2yn6QXC9gmJcYahA/MlJ+D2JiH8=; b=a+FsMCO7mbijdokFkz22YT3cVo
+	F2+pUcO02DoylbpP/x8hgrA0v3QHXC6f0m0+EBMr82pRnrR7JZWp5jmJObcalpsKjqbapB6y0AZ0t
+	nPBmgy4B6KSFnytgOVSSUO76iIktwAAVpI2yauOB+WNvfFWXmhQ3Fz72NDavlsqk2aTXHmmUuUD6R
+	+FbHwpcEgkIwUpXK9bseovFVMF6SydxDqyOWYHSeaOgq5C/mRnbjiecyinFZWnZvDB6ngi8FwyP6G
+	hfse0xJR5oPyNk46CUZ+bgHWOFyM3dEbgwchr12yNWxcELgcCVO/UFJG4w6Jxm9SQNdrxT/58Al6N
+	F7HPH29w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnZra-00000008Gru-1Wg1;
-	Wed, 04 Feb 2026 10:11:58 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1vna0S-00000008HKt-42QC;
+	Wed, 04 Feb 2026 10:21:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnZrX-00000008Gr7-2yXi
+	id 1vna0Q-00000008HKn-3zuZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 10:11:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1770199915; x=1801735915;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=VCztL+ZGIqEKl+3prqcGfzggNapxW9kzpdyfA9ixefg=;
-  b=iZNq96JM3U0lovQnWzcmReh3Es0PnSZEVpHeKeYa4f0J+RAOePsQTGFa
-   mExvPPc5t8Os3l8rBiB59HnIayath7TI4mnKM08ogYzWMFYM5vxaAdXcp
-   SSjHTLNXd+0EC6ZhZpJouuB3Q/0VqvgrH6P7XN4McDzKQWDVmNG9r7kZz
-   CjNNS9J6gtnnih962p+zFoN5Doxd1QmHdL3bExobnFb2Ab9hToyDGm/td
-   tWzKAGvgN8l2i8w6SKiR7Ukqj8udblapHKEE885KZYpVhlROnX8wgM3ry
-   V7tqSM9O5UF/JT97RlsZYFmickyKIKXluZYx/sL3eBA59x6vhx0E5d6i4
-   g==;
-X-CSE-ConnectionGUID: HaKpHEU5Rye2mn034+6tcQ==
-X-CSE-MsgGUID: eAKnXX9PQCeruI0D96eBbA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11691"; a="75004736"
-X-IronPort-AV: E=Sophos;i="6.21,272,1763452800"; 
-   d="scan'208";a="75004736"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2026 02:11:52 -0800
-X-CSE-ConnectionGUID: jygyKsJoSMi7YU6MZZBLBw==
-X-CSE-MsgGUID: ExVi6qRYQre5wvCap/MlSQ==
-X-ExtLoop1: 1
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.188])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2026 02:11:49 -0800
-Date: Wed, 4 Feb 2026 12:11:47 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org>,
-	abdurrahman@nexthop.ai, Michal Simek <michal.simek@amd.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v10 1/7] i2c: xiic: switch to devres managed APIs
-Message-ID: <aYMbY62uJo95yc1l@smile.fi.intel.com>
-References: <20260204-i2c-xiic-v10-0-c2b996425235@nexthop.ai>
- <20260204-i2c-xiic-v10-1-c2b996425235@nexthop.ai>
- <20260204100034.000050b2@huawei.com>
+	Wed, 04 Feb 2026 10:21:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 062B46012A
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Feb 2026 10:21:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3DD0C2BCAF
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Feb 2026 10:21:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770200465;
+	bh=Hj7x3CQjfXXL9ZenZPjtTI8pLd5bZeX0sDzqTErLSIc=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=OCHL0Dg57GkVCGYR9qxO3dPsPvwFgifBaPbu9AnWVsi3KemLy2RLmImf437IQzjRZ
+	 nw1fY497U5qJCOKpk0B9B17xyzqt1BumJC9qwg7zHPDQ03kwUHwt0XobKk2U3XnG6I
+	 gnVU7BGvLrr9lbTLCnIx8NlNzE51l4JtteRaSswEyh8NW94o8Z8lvpD3Pcq4p0Aa8U
+	 nchLmhs4muCLwNcdOVmCfV4A0cz/7CC7axDxG6JU7jByJTb+i/ZywP7XxuRqza9A8i
+	 kOAQZsCzCS4+y/UKwJ6q1Wdac8GFSvOMpAxOyh2N/E3yEsL5nZ1fYQWRoCP3C6jnyd
+	 zmidxj1HYcgTA==
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-385bdc72422so55211941fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 02:21:05 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXIJrAo9euzhpb1iOpvy9uHCj5aRGG5Iq4SefEg7DTro0dp32G7dp+wwZ7PvTW0Pe8qxzZ0mRXYcbWEn3oAMu/U@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxo+nExtIz0D7o0lgo3k8bi1hj67jDJRDDHrjzbrFdGvUg2F3K5
+	dkAdwBzzqu8F0i7hrWYlN6mP5tP31KtVJOLsRxqqwth9sLJnFtSiO9Omji4LDv9lbJG86Xdhb+1
+	0hDekk4BD6bkverJ2ryQZnYtCmUbp0VL5a7TqPqFRCw==
+X-Received: by 2002:a05:651c:41d6:b0:383:1232:379a with SMTP id
+ 38308e7fff4ca-38691c5dea5mr11058671fa.2.1770200464304; Wed, 04 Feb 2026
+ 02:21:04 -0800 (PST)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 4 Feb 2026 05:21:02 -0500
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 4 Feb 2026 05:21:02 -0500
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260203-dev-b4-aaeon-mcu-driver-v3-3-0a19432076ac@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260204100034.000050b2@huawei.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_021155_816382_239C0853 
-X-CRM114-Status: GOOD (  13.39  )
+References: <20260203-dev-b4-aaeon-mcu-driver-v3-0-0a19432076ac@bootlin.com> <20260203-dev-b4-aaeon-mcu-driver-v3-3-0a19432076ac@bootlin.com>
+Date: Wed, 4 Feb 2026 05:21:02 -0500
+X-Gmail-Original-Message-ID: <CAMRc=MeJ+WdsYXpwW2dRVXYQGoXfHw1EQ4TqbHJph6-H6zy-uA@mail.gmail.com>
+X-Gm-Features: AZwV_QilL0KBTJiJFRhGwOT3AJqFCpnUraNwgkBHTK4L_FTOjWvtlMKtC9O-nuQ
+Message-ID: <CAMRc=MeJ+WdsYXpwW2dRVXYQGoXfHw1EQ4TqbHJph6-H6zy-uA@mail.gmail.com>
+Subject: Re: [PATCH v3 3/5] mfd: aaeon: Add SRG-IMX8P MCU driver
+To: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, 
+	=?UTF-8?B?SsOpcsOpbWllIERhdXRoZXJpYmVz?= <jeremie.dautheribes@bootlin.com>, 
+	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,52 +92,280 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 04, 2026 at 10:00:34AM +0000, Jonathan Cameron wrote:
-> On Wed, 04 Feb 2026 07:01:58 +0000
-> Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org> wrote:
+On Tue, 3 Feb 2026 17:21:12 +0100, "Thomas Perrot (Schneider
+Electric)" <thomas.perrot@bootlin.com> said:
+> Add Multi-Function Device (MFD) driver for the Aaeon SRG-IMX8P
+> embedded controller. This driver provides the core I2C communication
+> interface and registers child devices (GPIO and watchdog controllers).
+>
+> The MCU firmware version is queried during probe and logged for
+> diagnostic purposes. All I2C transactions are serialized using a mutex
+> to ensure proper communication with the microcontroller.
+>
+> Co-developed-by: J=C3=A9r=C3=A9mie Dautheribes (Schneider Electric) <jere=
+mie.dautheribes@bootlin.com>
+> Signed-off-by: J=C3=A9r=C3=A9mie Dautheribes (Schneider Electric) <jeremi=
+e.dautheribes@bootlin.com>
+> Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.=
+com>
+> ---
+>  MAINTAINERS                   |   2 +
+>  drivers/mfd/Kconfig           |  10 +++
+>  drivers/mfd/Makefile          |   2 +
+>  drivers/mfd/aaeon-mcu.c       | 137 ++++++++++++++++++++++++++++++++++++=
+++++++
+>  include/linux/mfd/aaeon-mcu.h |  20 ++++++
+>  5 files changed, 171 insertions(+)
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index ea9d55f76f3509c7f6ba6d1bc86ca2e2e71aa954..f91b6a1826d04bef8a0f88221=
+f6c8e8a3652cd77 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -191,6 +191,8 @@ M:	Thomas Perrot <thomas.perrot@bootlin.com>
+>  R:	J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootlin.com>
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
+> +F:	drivers/mfd/aaeon-mcu.c
+> +F:	include/linux/mfd/aaeon-mcu.h
+>
+>  AAEON UPBOARD FPGA MFD DRIVER
+>  M:	Thomas Richard <thomas.richard@bootlin.com>
+> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+> index aace5766b38aa5e46e32a8a7b42eea238159fbcf..7a1ceedece899faad7a03a1fe=
+7b1c91b72253c05 100644
+> --- a/drivers/mfd/Kconfig
+> +++ b/drivers/mfd/Kconfig
+> @@ -1574,6 +1574,16 @@ config AB8500_CORE
+>  	  the irq_chip parts for handling the Mixed Signal chip events.
+>  	  This chip embeds various other multimedia functionalities as well.
+>
+> +config MFD_AAEON_MCU
+> +	tristate "Aaeon SRG-IMX8P MCU Driver"
+> +	depends on I2C || COMPILE_TEST
+> +	select MFD_CORE
+> +	help
+> +	  Select this option to enable support for the Aaeon SRG-IMX8P
+> +	  onboard microcontroller (MCU). This driver provides the core
+> +	  functionality to communicate with the MCU over I2C. The MCU
+> +	  provides GPIO and watchdog functionality.
+> +
+>  config MFD_DB8500_PRCMU
+>  	bool "ST-Ericsson DB8500 Power Reset Control Management Unit"
+>  	depends on UX500_SOC_DB8500
+> diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
+> index e75e8045c28afae975ac61d282b3b85af5440119..0bc3a10c787c55730131224fc=
+1053fe35657dd71 100644
+> --- a/drivers/mfd/Makefile
+> +++ b/drivers/mfd/Makefile
+> @@ -304,3 +304,5 @@ obj-$(CONFIG_MFD_RSMU_SPI)	+=3D rsmu_spi.o rsmu_core.=
+o
+>  obj-$(CONFIG_MFD_UPBOARD_FPGA)	+=3D upboard-fpga.o
+>
+>  obj-$(CONFIG_MFD_LOONGSON_SE)	+=3D loongson-se.o
+> +
+> +obj-$(CONFIG_MFD_AAEON_MCU)	+=3D aaeon-mcu.o
+> diff --git a/drivers/mfd/aaeon-mcu.c b/drivers/mfd/aaeon-mcu.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..4f2420668106453549ab42888=
+bbfd50363bdfc45
+> --- /dev/null
+> +++ b/drivers/mfd/aaeon-mcu.c
+> @@ -0,0 +1,137 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Aaeon MCU driver
+> + *
+> + * Copyright (C) 2025 Bootlin
+> + * Author: J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootlin.co=
+m>
+> + * Author: Thomas Perrot <thomas.perrot@bootlin.com>
+> + */
+> +
+> +#include <linux/cleanup.h>
+> +#include <linux/err.h>
+> +#include <linux/i2c.h>
+> +#include <linux/mfd/aaeon-mcu.h>
+> +#include <linux/mfd/core.h>
+> +#include <linux/mutex.h>
+> +#include <linux/platform_device.h>
+> +
+> +#define AAEON_MCU_FW_VERSION	0x76
+> +
+> +/**
+> + * struct aaeon_mcu_dev - Internal representation of the Aaeon MCU
+> + * @dev: Pointer to kernel device structure
+> + * @i2c_lock: Mutex to serialize I2C bus access
+> + */
+> +struct aaeon_mcu_dev {
+> +	struct device *dev;
+> +	struct mutex i2c_lock;
 
-...
+If you wrapped your client in an i2c regmap, you could drop this mutex and
+subsequently the entire structure making your driver even smaller.
 
-> > -	return 0;
-> > -
-> > -err_pm_disable:
-> > -	pm_runtime_disable(&pdev->dev);
-> > -	pm_runtime_set_suspended(&pdev->dev);
-> > -
-> >  	return ret;
-> Trivial but if you are respinning...
-> If you get here we know ret must be 0, so make that explicit to the reader as it
-> was before with
-> 	return 0;
+> +};
+> +
+> +static const struct mfd_cell aaeon_mcu_devs[] =3D {
+> +	{
+> +		.name =3D "aaeon-mcu-wdt",
+> +	},
+> +	{
+> +		.name =3D "aaeon-mcu-gpio",
+> +	},
+> +};
+> +
+> +static int aaeon_mcu_read_version(struct device *dev, u8 index, u8 *vers=
+ion)
+> +{
+> +	u8 cmd[3] =3D { AAEON_MCU_FW_VERSION, index, 0x00 };
+> +
+> +	return aaeon_mcu_i2c_xfer(dev, cmd, sizeof(cmd), version, sizeof(*versi=
+on));
+> +}
+> +
+> +static int aaeon_mcu_print_fw_version(struct i2c_client *client)
+> +{
+> +	struct device *dev =3D &client->dev;
+> +	u8 major, minor;
+> +	int ret;
+> +
+> +	ret =3D aaeon_mcu_read_version(dev, 0x00, &major);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret =3D aaeon_mcu_read_version(dev, 0x01, &minor);
+> +	if (ret)
+> +		return ret;
+> +
+> +	dev_dbg(dev, "firmware version: v%d.%d\n", major, minor);
+> +
 
-> Otherwise they need to look up a few lines to realize that is true.
+Do we *really* need this? If you'd at least used this to change the behavio=
+r
+of the driver or check if the version is supported, but you just read it an=
+d
+never use it. I'd drop this and aaeon_mcu_read_version() above. That would =
+make
+the driver even smallerer.
 
-Right and this is already the line above, just wrong one was removed.
+> +	return 0;
+> +}
+> +
+> +int aaeon_mcu_i2c_xfer(struct device *dev,
+> +		       const u8 *cmd, int cmd_len,
+> +		       u8 *rsp, int rsp_len)
+> +{
+> +	struct i2c_client *client =3D to_i2c_client(dev);
+> +	struct aaeon_mcu_dev *mcu =3D i2c_get_clientdata(client);
+> +	int ret;
+> +
+> +	guard(mutex)(&mcu->i2c_lock);
+> +
+> +	ret =3D i2c_master_send(client, cmd, cmd_len);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	ret =3D i2c_master_recv(client, rsp, rsp_len);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	if (ret !=3D rsp_len) {
+> +		dev_err(dev,
+> +			"i2c recv count error (expected: %d, actual: %d)\n",
+> +			rsp_len, ret);
+> +		return -EIO;
+> +	}
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(aaeon_mcu_i2c_xfer);
+> +
+> +static int aaeon_mcu_probe(struct i2c_client *client)
+> +{
+> +	struct aaeon_mcu_dev *mcu;
+> +	int ret;
+> +
+> +	mcu =3D devm_kzalloc(&client->dev, sizeof(*mcu), GFP_KERNEL);
+> +	if (!mcu)
+> +		return -ENOMEM;
+> +
+> +	i2c_set_clientdata(client, mcu);
+> +	mcu->dev =3D &client->dev;
+> +
+> +	ret =3D devm_mutex_init(&client->dev, &mcu->i2c_lock);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret =3D aaeon_mcu_print_fw_version(client);
+> +	if (ret) {
+> +		dev_err(&client->dev, "unable to read firmware version\n");
+> +		return ret;
+> +	}
+> +
+> +	return devm_mfd_add_devices(mcu->dev, PLATFORM_DEVID_NONE, aaeon_mcu_de=
+vs,
+> +				    ARRAY_SIZE(aaeon_mcu_devs), NULL, 0, NULL);
+> +}
+> +
+> +static const struct of_device_id aaeon_mcu_of_match[] =3D {
+> +	{ .compatible =3D "aaeon,srg-imx8p-mcu" },
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(of, aaeon_mcu_of_match);
+> +
+> +static struct i2c_driver aaeon_mcu_driver =3D {
+> +	.driver =3D {
+> +		.name =3D "aaeon_mcu",
+> +		.of_match_table =3D aaeon_mcu_of_match,
+> +	},
+> +	.probe =3D aaeon_mcu_probe,
+> +};
+> +module_i2c_driver(aaeon_mcu_driver);
+> +
+> +MODULE_DESCRIPTION("Aaeon MCU Driver");
+> +MODULE_AUTHOR("J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootli=
+n.com>");
+> +MODULE_LICENSE("GPL");
+> diff --git a/include/linux/mfd/aaeon-mcu.h b/include/linux/mfd/aaeon-mcu.=
+h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..2e9f5f316f33b70c732faa850=
+576cee596455dab
+> --- /dev/null
+> +++ b/include/linux/mfd/aaeon-mcu.h
+> @@ -0,0 +1,20 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +/*
+> + * Aaeon MCU driver definitions
+> + *
+> + * Copyright (C) 2025 Bootlin
+> + * Author: J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootlin.co=
+m>
+> + * Author: Thomas Perrot <thomas.perrot@bootlin.com>
+> + */
+> +
+> +#ifndef __LINUX_MFD_AAEON_MCU_H
+> +#define __LINUX_MFD_AAEON_MCU_H
+> +
+> +#include <linux/device.h>
 
-...
+Don't pull this in if you don't need to know the layout of the structure. J=
+ust
+use a forward declaration for struct device.
 
-> > -	pm_runtime_disable(&pdev->dev);
-> > -	pm_runtime_set_suspended(&pdev->dev);
-> >  	pm_runtime_dont_use_autosuspend(&pdev->dev);
-> 
-> Take a look at docs for the devm_runtime_enable() that is called
-> by the cleanup for devm_pm_runtime_set_active_enabled()
-> 
-> Short story, it will call pm_runtime_dont_use_autosuspend() for you
+> +#include <linux/types.h>
+> +
+> +int aaeon_mcu_i2c_xfer(struct device *dev,
+> +		       const u8 *cmd, int cmd_len,
+> +		       u8 *rsp, int rsp_len);
+> +
+> +#endif /*  __LINUX_MFD_AAEON_MCU_H */
+>
+> --
+> 2.52.0
+>
+>
 
-Good catch! It's not obvious from the devm_pm_*() naming... :-(
-
-...
-
-This definitely means v11 should be send at some point, but,
-Abdurrahman, do not hurry with it, this series missed the cycle
-anyway, we have a few *weeks* to polish this.
-
-That said, send it after v6.20-rc1 (or v7.0-rc1) is out.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Bartosz
 
