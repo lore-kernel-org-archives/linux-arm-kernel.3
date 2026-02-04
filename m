@@ -4,62 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94AA8EA794B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 22:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBA82EA7943
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 22:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hwK2TPE8Z7VCLMo8ORcc+nca2Q/+K8Eniwo0pmtPz1A=; b=qwCRi0JvCZ340bNWSG5nQR5GEN
-	rB2MGrbZWNNX9rJ6WaVm4NuMxfQRet5yYBCbEqk6WXzTWC0uqX+UvH4Z7u5HIFINdi1urTN3lMej/
-	NAPJNbW3x0yqEyKhlNmPFrP0zISktqrEHpPfiM4iCFS5AyGBjzW2C76zypWdtayI6izW3nZR7bMCy
-	np26zOoOgjBhME24aXoq9nOoPUkLmzx8NLScbtIFFZVwfQy6xevwnv4/Puc+N6cpsaRhj5MvO1k3P
-	0uvU415cw22ju/BL7I/H31pRbLNRr47PfZyz8UxPnQpFi+biejqqAsxd7wNjTHlOET7GIR2WP9mvo
-	5eCxG9EQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=W6X2dsQPq2l8SRo3hRjzQHtfDVHEvWZ/2OAmqXW62GA=; b=EBmrvBxSV3LYd41K2HtyqGZ/Jr
+	MhSiRaLcIHhajYADFtOgeAIS/ISpXdp8CyoeY+Wd4PgMG/TI1bl7SOS1Li11AN8OL8s+GESEG13R0
+	0of0nvC5OAuAZe898OIXStbAKYgApwJc0mHqSioS8sowh1lf7llA7kHgoJtIjm0UBe8PCO/47juc6
+	tiytwzqVxLqM2t2BR7GdkLlptpCCJhfUveo5S+wPQYEssZrOI54fnSN4uea8hWE7jBmglch5Evvue
+	8kgACh5h8rNB6lnGZmZ/Tkn6XdIdVOWV/zjrP62cz/8eozygXMojudE0iyJCOsj88HKd/fQKo4jdm
+	vZnAaWPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnlc4-000000098vK-1Unx;
-	Wed, 04 Feb 2026 22:44:44 +0000
-Received: from smtprelay0014.hostedemail.com ([216.40.44.14] helo=relay.hostedemail.com)
+	id 1vnlhq-000000099F0-0tWj;
+	Wed, 04 Feb 2026 22:50:42 +0000
+Received: from finn.gateworks.com ([108.161.129.64] helo=finn.localdomain)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnlc1-000000098ul-0YuW
+	id 1vnlhm-000000099Di-0d87
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 22:44:42 +0000
-Received: from omf01.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay01.hostedemail.com (Postfix) with ESMTP id 08C361C13A;
-	Wed,  4 Feb 2026 22:44:34 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf01.hostedemail.com (Postfix) with ESMTPA id 8C11460010;
-	Wed,  4 Feb 2026 22:44:30 +0000 (UTC)
-Date: Wed, 4 Feb 2026 17:45:02 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
- linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
- joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
- kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- jstultz@google.com, qperret@google.com, will@kernel.org,
- aneesh.kumar@kernel.org, kernel-team@android.com,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v11 00/30] Tracefs support for pKVM
-Message-ID: <20260204174502.06d6e02e@gandalf.local.home>
-In-Reply-To: <20260131132848.254084-1-vdonnefort@google.com>
-References: <20260131132848.254084-1-vdonnefort@google.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Wed, 04 Feb 2026 22:50:40 +0000
+Received: from syn-068-189-091-139.biz.spectrum.com ([68.189.91.139] helo=tharvey.pdc.gateworks.com)
+	by finn.localdomain with esmtp (Exim 4.95)
+	(envelope-from <tharvey@gateworks.com>)
+	id 1vnlhW-00EvLM-FV;
+	Wed, 04 Feb 2026 22:50:22 +0000
+From: Tim Harvey <tharvey@gateworks.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Tim Harvey <tharvey@gateworks.com>
+Subject: [PATCH v2 1/2] dt-bindings: arm: fsl: Add Gateworks GW7906 board
+Date: Wed,  4 Feb 2026 14:50:19 -0800
+Message-Id: <20260204225020.2039367-1-tharvey@gateworks.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Server: rspamout06
-X-Rspamd-Queue-Id: 8C11460010
-X-Stat-Signature: 7jotxs4bft4oqga453rcsoz77gixrbth
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1+55NIOMUfSEl+N2ypkA4LkTl+xYz6Ea4Q=
-X-HE-Tag: 1770245070-131592
-X-HE-Meta: U2FsdGVkX1/nC1z6BLY3Br+vNzZ+OBSyJBsxnqi1VA4x6I1RmQ4EaAIefPOXKXy9+gV1hP8mKiyrgt9x/KK3Ucg+lfUaLqaK1qTQ6BqJSvMX5GMnr+qxK3gYBdSUNcga/Gi2hclKS0i5BKhleW2D9wqnR+SsjWnfQYOf7qMAD2PcWFJAAicMYVR45w/ZsbGQqvonT2lQAe3Y919tGdzvz9s++gzHDFFTKd8D+uY0zeHDf+tkkDfJPKLVf1DJQQWdDALkJ6tSNXSJaNTgDnW4Paoe+TxApyw8RFeppKU4QPys/tcxhex4BrRHVDWzwHOdZhwrrt06Upe2tdjPeWBk23bmmQDD1/GHodoOuHRgrNtUUlP2olrRfg==
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_144441_236722_1B257A4B 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20260204_145038_188932_60E0FFEC 
+X-CRM114-Status: UNSURE (   7.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,28 +69,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 31 Jan 2026 13:28:18 +0000
-Vincent Donnefort <vdonnefort@google.com> wrote:
+Add support for the Gateworks GW7906 board based on the
+i.MX8M Mini SoC.
 
-> changes since v10
+Signed-off-by: Tim Harvey <tharvey@gateworks.com>
+---
+v2:
+ - no changes
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-BTW, it's always nice to add a link to the previous version here. That way
-it makes it easy to backtrace from one version to the next (and reviewers
-to see what they said the last time).
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 68a2d5fecc43..46a85f8f9e5c 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -963,6 +963,7 @@ properties:
+               - fsl,imx8mm-evkb           # i.MX8MM EVKB Board
+               - gateworks,imx8mm-gw75xx-0x # i.MX8MM Gateworks Board
+               - gateworks,imx8mm-gw7904
++              - gateworks,imx8mm-gw7906   # i.MX8MM Gateworks Board
+               - gw,imx8mm-gw71xx-0x       # i.MX8MM Gateworks Development Kit
+               - gw,imx8mm-gw72xx-0x       # i.MX8MM Gateworks Development Kit
+               - gw,imx8mm-gw73xx-0x       # i.MX8MM Gateworks Development Kit
+-- 
+2.25.1
 
-Changes since v10: https://lore.kernel.org/all/20260126104419.1649811-1-vdonnefort@google.com/
-
--- Steve
-
-
-> 
->   - Move kerneldoc to .c files (Steven)
->   - Return EBUSY on buffer_size_kb write if buffer is loaded (Steven)
->   - Remove rb_iter/rb_iters union in trace_remote_iterator (Steven)
->   - Rename a refactor trace file seq_operations (Steven)
->   - Make trace_get_cpu() accessible to trace_remote.c (Steven)
->   - Remove unnecessary cpus_read_unlock() (Steven)
->   - !preempt on remote_test driver buffer writing (Steven)
->   - Do not fail selftest if cpu/online is unavailable (Steven)
->   - Add rational for trace_remote into documentation (Steven)
 
