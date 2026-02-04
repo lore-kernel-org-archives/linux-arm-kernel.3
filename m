@@ -4,91 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D695E9538C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 11:55:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDE6AE9538D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 12:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eXFbGUaTRc27Gg/mkTDm2ud1ZC3qfqrbMm6Kd130aJk=; b=3F5vvOpFuh16ozCwiCnF+jbhez
-	N2wXQSyE7EbX0shihUhXOnt/pchRjJS8simU2WeTK+hqzH29rWBRQSWIIUTfOkHRB7O+t/iblK6RW
-	e6HHNLKaipP71euO12kj/psRAo9DAPyXOVS2hImbRZiE1oMuStGRagwDSIkUHf9tXCoTHlkHB/+1v
-	Jia+bi8VKfaynrrCK7zKwAnM2zECZ2qsSHbEO4IEGnFw/y5zaWiBA5ScXfQHLwUj6e7IzycDr2z/I
-	lWoj1SJiDoSY6BcD4YLql09M0GZqOnXbPO1W0sCAZd1EElv6Ovk2AeYku/JDZgb09z+Jn1YWkutZa
-	blJRUnLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aqNMzU1Qw+T1MRI2oqS9RMu5Na9ZwPrUfIxVrukiy8k=; b=OajO37yfqGa2Dkp7AU5kXWqaGW
+	RzXPvs3+HTFrewNmcdXmRirfC/4tngcaMwvWw3tJFtJDDW7bW3HV7llxR8PO2jhddVYy76iCLlZLs
+	P6ehNsp3hPux1CtJXu2l7oXK2SdsKzNXbGqo3zJ3XUJM9r0TJjABBpeJVqmS2yv5f98AoBihLwcKM
+	aHehxer1HaIEf4tJLE278dmrl5GxMVGyI5CdDfKzNZ6LmhpAzln1y5zGPYchgQXQAHKaOLDJbyHme
+	fIkNbiYpzU6XdyIdzeCPLKgJWQm2iBPm+OMpddNVk6fv6CamOTk4ZA53IIzbsPkLGIJdhO0p2pev2
+	rNxPa0vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnbTf-00000008OXK-2Z8s;
-	Wed, 04 Feb 2026 11:55:23 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vnbYZ-00000008OqU-2Svw;
+	Wed, 04 Feb 2026 12:00:27 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnbTc-00000008OWz-41rD
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 11:55:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=eXFbGUaTRc27Gg/mkTDm2ud1ZC3qfqrbMm6Kd130aJk=; b=q/AbKVZ6+U7v+Irjsxp+zWYhPB
-	GsoftaZQ8v7s/xoW60KXi3ZFRObZGXdfLUbyRJvXXeo6AWt7JfSKeZTjeQmJgkSQFPwwR6uxM7ded
-	sPzCAxEJsl/Q/BJoEvXCJwdvZFKh2ejawWYtbeQw8396q7iBvmxXn0mpfeBVLC4k9mr9h4rOzTjEn
-	RhKMUig/9lVjvyyNbXJ4YOSUrXh52LerpNSWid2zokehT+IB4ZbJKIpzuUHhPQUDJWNNoDS+dG/dZ
-	uw0y4qUrQNeqaG4V434u5WDTmfP+n2I+6iMKILzf5P1SUQlwYdGUD9HUJMg1w3q0kfdzkZkEevoEX
-	fQ38Uwvw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38630)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vnbTM-000000006HX-06bB;
-	Wed, 04 Feb 2026 11:55:04 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vnbTH-000000005K8-1TTx;
-	Wed, 04 Feb 2026 11:54:59 +0000
-Date: Wed, 4 Feb 2026 11:54:59 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	"Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Eric DeVolder <eric.devolder@oracle.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Kees Cook <keescook@chromium.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@somainline.org>,
-	John Crispin <john@phrozen.org>
-Subject: Re: [PATCH v2 0/2] ARM: decompressor: support AUTO_ZRELADDR and
- appended DTB
-Message-ID: <aYMzk9cIgD-XDujY@shell.armlinux.org.uk>
-References: <CACRpkdYJoNRpciyQE_A6dkb8f6Jsy4+qwb4w9K3bss2mkZpp1A@mail.gmail.com>
- <ZmsXdWWidNjXdbSa@shell.armlinux.org.uk>
- <666b2379.5d0a0220.c7eec.8b6f@mx.google.com>
- <CAMuHMdWnNzktSecsPX_anf=PCuLrZUT-6TO7KXGCHeQVTS974g@mail.gmail.com>
- <aYCDOio-YdUJAf2v@shell.armlinux.org.uk>
- <CA+_ehUx=3Ci2hN0YYkLxBNwOu_NTHFe_ZKkw9TH+bU-4PwTD-A@mail.gmail.com>
- <86v7gf9z92.wl-maz@kernel.org>
- <CAD++jLkgtgi1obmiuon=1XhOmT5cwtsMmBE37-wkzE_W55ZV2Q@mail.gmail.com>
- <aYKgaDtb7Ba09Paf@shell.armlinux.org.uk>
- <CAMuHMdX99kB5oDoxy8=yk_D8g=bCwwUON-uMkT7zSPq0=DASVA@mail.gmail.com>
+	id 1vnbYW-00000008Opk-0hSQ;
+	Wed, 04 Feb 2026 12:00:25 +0000
+X-UUID: 1283c2ba01c111f1a16f0188aa809bee-20260204
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=aqNMzU1Qw+T1MRI2oqS9RMu5Na9ZwPrUfIxVrukiy8k=;
+	b=OU6ZtDEKYYAo7KV4BW5z4hplCHYaTL24iCpf9Cc9TJAxDsiZTb6j8jc6i3XQCvB6bp5nqxpPCRB7vwMT9r7sS7ady7MvIw2rllaU7LHjggfFXdcIP+AHYOobfY0ktDmNRP1QpYx1ESa0b8425uBfF5ti/P5h4NwPxApxrvP1idU=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:a2d0e2ab-2c29-4649-a0eb-e49669aeac68,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:1,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:1
+X-CID-META: VersionHash:89c9d04,CLOUDID:063fec5a-a957-4259-bcca-d3af718d7034,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA
+	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 1283c2ba01c111f1a16f0188aa809bee-20260204
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
+	(envelope-from <dengjun.su@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1257625685; Wed, 04 Feb 2026 05:00:17 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Wed, 4 Feb 2026 20:00:14 +0800
+Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Wed, 4 Feb 2026 20:00:14 +0800
+From: Dengjun Su <dengjun.su@mediatek.com>
+To: <linux-kernel@vger.kernel.org>, Peter Zijlstra <peterz@infradead.org>
+CC: <dengjun.su@mediatek.com>, <mike.zhang@mediatek.com>,
+	<haiqiang.gong@mediatek.com>, <peijun.huang@mediatek.com>, Ingo Molnar
+	<mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot
+	<vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel
+ Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+Subject: [PATCH v2 RESEND] sched: fix incorrect schedstats for rt and dl thread
+Date: Wed, 4 Feb 2026 19:59:29 +0800
+Message-ID: <20260204115959.3183567-1-dengjun.su@mediatek.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdX99kB5oDoxy8=yk_D8g=bCwwUON-uMkT7zSPq0=DASVA@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_035521_019074_4B9B4D1A 
-X-CRM114-Status: GOOD (  34.63  )
+X-CRM114-CacheID: sfid-20260204_040024_216944_9DC2E720 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,75 +90,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 04, 2026 at 11:53:30AM +0100, Geert Uytterhoeven wrote:
-> Hi Russell,
-> 
-> On Wed, 4 Feb 2026 at 02:27, Russell King (Oracle)
-> <linux@armlinux.org.uk> wrote:
-> > On Wed, Feb 04, 2026 at 01:36:29AM +0100, Linus Walleij wrote:
-> > > However, I think it is a thick requirement to put on hobbyist
-> > > contributors to go and write entite boot loaders from scratch,
-> > > I think it's a fine requirement to put on Qualcomm or Renesas
-> > > paid maintainers.
-> >
-> > If we're talking about older boards, then why have they only recently
-> > became a problem, when, presumably, they've been working fine for a
-> > decade or so?
-> 
-> These boards may have been working fine, given the right "legacy"
-> kernel config options were used.  However, some of these option make
-> the resulting kernel limited to that platform or even to a specific
-> board (e.g. when CONFIG_CMDLINE needs to be used).
+For RT and DL thread, only 'set_next_task_(rt/dl)' will call
+'update_stats_wait_end_(rt/dl)' to update schedstats information.
+However, during the migration process,
+'update_stats_wait_start_(rt/dl)' will be called twice, which
+will cause the values of wait_max and wait_sum to be incorrect.
+The specific output as follows:
+$ cat /proc/6046/task/6046/sched | grep wait
+wait_start                                   :             0.000000
+wait_max                                     :        496717.080029
+wait_sum                                     :       7921540.776553
 
-The 32-git ARM kernel has had a way to pass the command line to the
-kernel from the boot loader since day one.
+A complete schedstats information update flow of migrate should be
+__update_stats_wait_start() [enter queue A, stage 1] ->
+__update_stats_wait_end()   [leave queue A, stage 2] ->
+__update_stats_wait_start() [enter queue B, stage 3] ->
+__update_stats_wait_end()   [start running on queue B, stage 4]
 
-	First it was the struct param_struct.
-	Then it was the ATAGs that was introduced pre-git.
-	Now it is DT.
+    Stage 1: prev_wait_start is 0, and in the end, wait_start records the
+    time of entering the queue.
+    Stage 2: task_on_rq_migrating(p) is true, and wait_start is updated to
+    the waiting time on queue A.
+    Stage 3: prev_wait_start is the waiting time on queue A, wait_start is
+    the time of entering queue B, and wait_start is expected to be greater
+    than prev_wait_start. Under this condition, wait_start is updated to
+    (the moment of entering queue B) - (the waiting time on queue A).
+    Stage 4: the final wait time = (time when starting to run on queue B)
+    - (time of entering queue B) + (waiting time on queue A) = waiting
+    time on queue B + waiting time on queue A.
 
-The kernel retains code to parse all three methods of passing data
-from the boot loader to the kernel. The decompressor has support
-for merging the ATAGs into the appended DTB, which includes merging
-the command line into the DTB.
+The current problem is that stage 2 does not call __update_stats_wait_end
+to update wait_start, which causes the final computed wait time = waiting
+time on queue B + the moment of entering queue A, leading to incorrect
+wait_max and wait_sum.
 
-Without an appended DTB, the pointer to one of the above will be
-passed to the kernel, the kernel will figure out what it has and
-parse one of the three ways, and use the command line there.
+Add 'update_stats_wait_end_(rt/dl)' in 'update_stats_dequeue_(rt/dl)' to
+update schedstats information when dequeue_task.
 
-The only case where CONFIG_CMDLINE should be used is when there is
-no command line passed, no way to change it, etc. At that point
-there are two options:
+Signed-off-by: Dengjun Su <dengjun.su@mediatek.com>
+---
+v2: changes according to Peter's suggestions
+    1. add fix for dl class;
+    2. add more commit message to explain the reasons for the
+       modifications.
+---
+ kernel/sched/deadline.c | 4 ++++
+ kernel/sched/rt.c       | 7 ++++++-
+ 2 files changed, 10 insertions(+), 1 deletion(-)
 
-1. Augment the kernel's generated FDT with the command line node
-   and load that modified FDT or append it to the compressed image.
-
-2. Use CONFIG_CMDLINE, which means that the kernel _will_ become
-   specific to the platform that needs those arguments. No getting
-   away from that in this case.
-
-Maybe you haven't explained the problem very well, but I don't see
-any issue with this.
-
-> The KZM-A9-GT I "need" this for never had upstream U-Boot (I don't
-> think I ever had any U-Boot sources).  I can boot a shmobile_defconfig
-> multi-platform kernel[*] fine, iff the first patch is applied.
-
-So, what have you been doing for the last 14 years to boot this
-platform (merged in 2012) without this patch?
-
-Please explain:
-
-- how it worked before - I want to know how the DTB is passed to the
-  kernel, what information is provided from the boot loader, whether
-  that gets merged into the DTB, etc. All the fine nitty gritty of
-  how it worked and what doesn't work, what the problems were etc.
-
-- what changed (it sounds like you want extra features)
-
-- why (in detail) it doesn't work now.
-
+diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+index 319439fe1870..610243a56bf8 100644
+--- a/kernel/sched/deadline.c
++++ b/kernel/sched/deadline.c
+@@ -2115,10 +2115,14 @@ update_stats_dequeue_dl(struct dl_rq *dl_rq, struct sched_dl_entity *dl_se,
+ 			int flags)
+ {
+ 	struct task_struct *p = dl_task_of(dl_se);
++	struct rq *rq = rq_of_dl_rq(dl_rq);
+ 
+ 	if (!schedstat_enabled())
+ 		return;
+ 
++	if (p != rq->curr)
++		update_stats_wait_end_dl(dl_rq, dl_se);
++
+ 	if ((flags & DEQUEUE_SLEEP)) {
+ 		unsigned int state;
+ 
+diff --git a/kernel/sched/rt.c b/kernel/sched/rt.c
+index f1867fe8e5c5..12f2efddca9f 100644
+--- a/kernel/sched/rt.c
++++ b/kernel/sched/rt.c
+@@ -1302,13 +1302,18 @@ update_stats_dequeue_rt(struct rt_rq *rt_rq, struct sched_rt_entity *rt_se,
+ 			int flags)
+ {
+ 	struct task_struct *p = NULL;
++	struct rq *rq = rq_of_rt_rq(rt_rq);
+ 
+ 	if (!schedstat_enabled())
+ 		return;
+ 
+-	if (rt_entity_is_task(rt_se))
++	if (rt_entity_is_task(rt_se)) {
+ 		p = rt_task_of(rt_se);
+ 
++		if (p != rq->curr)
++			update_stats_wait_end_rt(rt_rq, rt_se);
++	}
++
+ 	if ((flags & DEQUEUE_SLEEP) && p) {
+ 		unsigned int state;
+ 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.43.0
+
 
