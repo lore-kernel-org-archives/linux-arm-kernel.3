@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D8CDE95396
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 13:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9184E8307C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 13:46:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UCualjpzLBrdwCPJv0gUmlcf7nSDxWmIfVGRzvs7nek=; b=NWpfohdSsAy+ZzQQOP3TCHTiR/
-	Nu1B71fmJscBFyu5Ce1k8uQbkh8XNDX0u7NYv921eCIe0ltuTR9C5+s3xMeP5eLt9n6Z4uF7zFRB+
-	qIkjUf/vBhTO65yeBktHL/kowikucj2jUyEIwkfjn6O81QFGIt8X7JW6PeD3io+yWWNgDID/dqxwb
-	wPtxzoguOeSaARDU1RQsUMv5lL/bpVptf55a+djRxU33p/ItzhSIKxM8c5Ia0+79anYhcjaRZpSjS
-	NpbXllcR6Gu4P9sTEZSGipf9CqonWxard7XcUTh8YxTF+rQF0e7Qqofz/Fh5wJeIPff6f7JYJABkb
-	yzdzwBFA==;
+	bh=2PjivaO6AkZUBjWQn1LsOs42p1r07xdaorVu9bCVbrs=; b=hFDlmcm0vCLw70sewc81xq3DQX
+	/9g67XgAvlNzN7D7on1SBumhJnMQyu5Gt2p0qKfNSbl6FOPb10oDA0YaCwQUpYXP1IvUM1QHRwhO6
+	tpTwd3eAGuRUA1S874lmiQEKNvYDIUipCsN68Q+oSyq4u7Jfk23/71yYi4/RucSRc/4G0x1YgpkAU
+	/Sv3WcyrBicSGE81jFn2OozGlCiY2xnbTwxojJxVg99lSoSbBKdd+MMtEw+2Dq6YgderI68uURSSz
+	BSNZF7B1Yfc9b88naTM32jWrzoW1ctqtQ3H0C9On7sUVPgTG6jRh040DUmfHq1mAAT0t1KOF/rv8n
+	q7cRqEhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vndBi-00000008XGq-2YjY;
-	Wed, 04 Feb 2026 13:44:58 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vndD9-00000008Xdw-21Em;
+	Wed, 04 Feb 2026 13:46:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vndBg-00000008XGQ-1L7T
+	id 1vndD8-00000008Xda-3NXv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 13:44:57 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4f5hQX5fT2zHnGkY;
-	Wed,  4 Feb 2026 21:43:48 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3273A40086;
-	Wed,  4 Feb 2026 21:44:50 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 4 Feb
- 2026 13:44:48 +0000
-Date: Wed, 4 Feb 2026 13:44:47 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Linus Walleij <linusw@kernel.org>
-CC: Yushan Wang <wangyushan12@huawei.com>, <alexandre.belloni@bootlin.com>,
-	<arnd@arndb.de>, <fustini@kernel.org>, <krzk@kernel.org>,
-	<linus.walleij@linaro.org>, <will@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<fanghao11@huawei.com>, <linuxarm@huawei.com>, <liuyonglong@huawei.com>,
-	<prime.zeng@hisilicon.com>, <wangzhou1@hisilicon.com>,
-	<xuwei5@hisilicon.com>, SeongJae Park <sj@kernel.org>, <linux-mm@kvack.org>
-Subject: Re: [PATCH 1/3] soc cache: L3 cache driver for HiSilicon SoC
-Message-ID: <20260204134447.00000afd@huawei.com>
-In-Reply-To: <20260204134020.00002393@huawei.com>
-References: <20260203161843.649417-1-wangyushan12@huawei.com>
-	<20260203161843.649417-2-wangyushan12@huawei.com>
-	<CAD++jLn+TDfu-aQ+Kfm=unYp4Zjg=endP3GGzZcpuYFR=s1K1g@mail.gmail.com>
-	<20260204134020.00002393@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Wed, 04 Feb 2026 13:46:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7D35760133
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Feb 2026 13:46:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 296D1C2BCB1
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Feb 2026 13:46:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770212785;
+	bh=FeNff6zrjmWciUFlh0FSiM0w5E8BMY8phPcL5rje6kU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=BN55b8y8vF/yHrrykpQ43Zn0LHvDzf2+bGJNgcy6WXsqL4Kpv1QojF89LlTyE93bE
+	 njQmmPFPEuUm2wamRAPJCprkjdqXLHEev03w5hsMDeYoOdk2ebeDC41AhsuOOSJ+Bq
+	 ffj/zE1iT4/bd9826iLY+1XyCs4BXnpptBMJaeUQC0pfDLL3CSQ1+AuxBx4oay0Uxl
+	 GH3CHfp0B0M1rGxCZMrwc0XlmfO0KyDX3WfKw61mVghM/QZMe+xMkZrNqPZ0Rpf8O5
+	 0tjqJpkOxRcyKY1bvpBVOk852tpdUVo8d8aVCLmsvM2/dkHkg/TQ8W5GKGvMqvyh0f
+	 W3YlP0Bfbn4Tg==
+Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-b884cb1e717so139136166b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 05:46:25 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVCUVdX05Srjef1McGobDzBfKEiAGtKXOGy12oHNBkTplFwbmrYlouEWB03V7WSckkCNWEdWQOGBrzlxycn5wF9@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnHPI3nWkcwN3GUZsTcZR+uv3sNxglIX9h4DKomf6DCGz9Yauw
+	MfbNTyvA8xflwGhqBzA30hllcn3zVepaw81eqRu1BDf2rua5Cpr08GFjkPz9kYf8f5YmVp//Ehy
+	2LlNrrJBAVqFGLCB2HxFVsco/a1mkLA==
+X-Received: by 2002:a17:907:7ba1:b0:b88:440b:65c4 with SMTP id
+ a640c23a62f3a-b8e838d36e3mr446539666b.25.1770212783590; Wed, 04 Feb 2026
+ 05:46:23 -0800 (PST)
 MIME-Version: 1.0
+References: <20260204-add-flatten-dts-based-dwc3-imx-driver-v2-0-d2c9b5a58c01@nxp.com>
+ <20260204-add-flatten-dts-based-dwc3-imx-driver-v2-1-d2c9b5a58c01@nxp.com>
+In-Reply-To: <20260204-add-flatten-dts-based-dwc3-imx-driver-v2-1-d2c9b5a58c01@nxp.com>
+From: Rob Herring <robh@kernel.org>
+Date: Wed, 4 Feb 2026 07:46:11 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqLcqSKgNjx2nejwjSsNPwqAmEsRHX-6YwE-8r_32C4=ZQ@mail.gmail.com>
+X-Gm-Features: AZwV_QjSgm66I4Qb-FM5KDeDvEBpAt3nGOL-hi0EvlGrPlxaGX84UJJRpnPN54o
+Message-ID: <CAL_JsqLcqSKgNjx2nejwjSsNPwqAmEsRHX-6YwE-8r_32C4=ZQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: usb: introduce fsl,imx-dwc3
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, Li Jun <jun.li@nxp.com>, 
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-usb@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
- dubpeml500005.china.huawei.com (7.214.145.207)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_054456_679857_7E9DE172 
-X-CRM114-Status: GOOD (  43.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,113 +85,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Feb 4, 2026 at 5:05=E2=80=AFAM Xu Yang <xu.yang_2@nxp.com> wrote:
+>
+> The i.MX USB glue and DWC3 core are closely coupled. Describe the i.MX
+> USB block in a single block will bring more benefits than a parent-
+> child relation. The new binding is a copy of fsl,imx8mp-dwc3.yaml with
+> the needed modifications.
+>
+> Add the common compatible string "fsl,imx-dwc3" to indicate that the
+> flattened module should be selected. This compatible is also used by
+> "select" to inform the DeviceTree validator to apply this binding.
+>
+> To avoid redefining all the platform-specific compatibles, "select" is
+> used to tell the DeviceTree validator which binding to use solely on the
+> generic compatible.
+>
+> Mark fsl,imx8mp-dwc3 deprecated, to favor expressing future platforms
+> using the new combined binding.
+>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+>
+> ---
+> Changes in v2:
+>  - reorder compatible property
+> ---
+>  .../devicetree/bindings/usb/fsl,imx-dwc3.yaml      | 131 +++++++++++++++=
+++++++
+>  .../devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml   |  13 ++
+>  2 files changed, 144 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/usb/fsl,imx-dwc3.yaml b/Do=
+cumentation/devicetree/bindings/usb/fsl,imx-dwc3.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..6932804516948bc0f8457553e=
+ee7e5ee704237f0
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/usb/fsl,imx-dwc3.yaml
+> @@ -0,0 +1,131 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +# Copyright 2026 NXP
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/usb/fsl,imx-dwc3.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: NXP i.MX Soc USB Controller
+> +
+> +maintainers:
+> +  - Xu Yang <xu.yang_2@nxp.com>
+> +
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        const: fsl,imx-dwc3
+> +  required:
+> +    - compatible
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - fsl,imx8mp-dwc3
 
-Fixed linux-mm address that got added a few emails back.
+You can't reuse the same compatible for a new binding.
 
-On Wed, 4 Feb 2026 13:40:20 +0000
-Jonathan Cameron <jonathan.cameron@huawei.com> wrote:
+> +          - fsl,imx94-dwc3
+> +          - fsl,imx95-dwc3
+> +      - const: fsl,imx-dwc3
 
-> On Wed, 4 Feb 2026 01:10:01 +0100
-> Linus Walleij <linusw@kernel.org> wrote:
->=20
-> > Hi Yushan,
-> >=20
-> > thanks for your patch!
-> >=20
-> > On Tue, Feb 3, 2026 at 5:18=E2=80=AFPM Yushan Wang <wangyushan12@huawei=
-.com> wrote: =20
-> > >
-> > > The driver will create a file of `/dev/hisi_l3c` on init, mmap
-> > > operations to it will allocate a memory region that is guaranteed to =
-be
-> > > placed in L3 cache.
-> > >
-> > > The driver also provides unmap() to deallocated the locked memory.
-> > >
-> > > The driver also provides an ioctl interface for user to get cache lock
-> > > information, such as lock restrictions and locked sizes.
-> > >
-> > > Signed-off-by: Yushan Wang <wangyushan12@huawei.com>   =20
-> >=20
-> > The commit message does not say *why* you are doing this?
-> >  =20
-> > > +config HISI_SOC_L3C
-> > > +       bool "HiSilicon L3 Cache device driver"
-> > > +       depends on ACPI
-> > > +       depends on ARM64 || COMPILE_TEST
-> > > +       help
-> > > +         This driver provides the functions to lock L3 cache entries=
- from
-> > > +         being evicted for better performance.   =20
-> >=20
-> > Here is the reason though.
-> >=20
-> > Things like this need to be CC to linux-mm@vger.kernel.org.
-> >=20
-> > I don't see why userspace would be so well informed as to make decisions
-> > about what should be locked in the L3 cache and not?
-> >=20
-> > I see the memory hierarchy as any other hardware: a resource that is
-> > allocated and arbitrated by the kernel.
-> >=20
-> > The MM subsytem knows which memory is most cache hot.
-> > Especially when you use DAMON DAMOS, which has the sole
-> > purpose of executing actions like that. Here is a good YouTube.
-> > https://www.youtube.com/watch?v=3DxKJO4kLTHOI =20
-> Hi Linus,
->=20
-> This typically isn't about cache hot.  It it were, the data would
-> be in the cache without this. It's about ensuring something that would
-> otherwise unlikely to be there is in the cache.
->=20
-> Normally that's a latency critical region.  In general the kernel
-> has no chance of figuring out what those are ahead of time, only
-> userspace can know (based on profiling etc) that is per workload.
-> The first hit matters in these use cases and it's not something
-> the prefetchers can help with.
->=20
-> The only thing we could do if this was in kernel would be to
-> have userspace pass some hints and then let the kernel actually
-> kick off the process. That just boils down to using a different
-> interface to do what this driver is doing (and that's the conversaion
-> this series is trying to get going)  It's a finite resource
-> and you absolutely need userspace to be able to tell if it
-> got what it asked for or not.
->=20
-> Damon might be useful for that preanalysis though but it can't do
-> anything for the infrequent extremely latency sensitive accesses.
-> Normally this is fleet wide stuff based on intensive benchmarking
-> of a few nodes.  Same sort of approach as the original warehouse
-> scale computing paper on tuning zswap capacity across a fleet.
-> Its an extreme form of profile guided optimization (and not
-> currently automatic I think?). If we are putting code in this
-> locked region, the program has been carefully recompiled / linked
-> to group the critical parts so that we can use the minimum number
-> of these locked regions. Data is a little simpler.
->=20
-> It's kind of similar to resctl but at a sub process granularity.
->=20
-> >=20
-> > Shouldn't the MM subsystem be in charge of determining, locking
-> > down and freeing up hot regions in L3 cache?
-> >=20
-> > This looks more like userspace is going to determine that but
-> > how exactly? By running DAMON? Then it's better to keep the
-> > whole mechanism in the kernel where it belongs and let the
-> > MM subsystem adapt locked L3 cache to the usage patterns. =20
->=20
-> I haven't yet come up with any plausible scheme by which the MM
-> subsystem could do this.
->=20
-> I think what we need here Yushan, is more detail on end to end
-> use cases for this.  Some examples etc as clearer motivation.
->=20
-> Jonathan
->=20
-> >=20
-> > Yours,
-> > Linus Walleij
-> >  =20
->=20
+Drop. If you want a fallback, use the 1st SoC's compatible.
 
+> +
+> +  reg:
+> +    items:
+> +      - description: DWC3 core registers
+> +      - description: HSIO Block Control registers
+> +      - description: Wrapper registers of dwc3 core
+> +
+> +  reg-names:
+> +    items:
+> +      - const: core
+> +      - const: blkctl
+> +      - const: glue
+> +
+> +  interrupts:
+> +    items:
+> +      - description: DWC3 controller interrupt
+> +      - description: Wakeup interrupt from glue logic
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: dwc_usb3
+> +      - const: wakeup
+> +
+> +  iommus:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: System hsio root clock
+> +      - description: SoC Bus Clock for AHB/AXI/Native
+> +      - description: Reference clock for generating ITP when UTMI/ULPI P=
+HY is suspended
+> +      - description: Suspend clock used for usb wakeup logic
+> +
+> +  clock-names:
+> +    items:
+> +      - const: hsio
+> +      - const: bus_early
+> +      - const: ref
+> +      - const: suspend
+> +
+> +  fsl,permanently-attached:
+> +    type: boolean
+> +    description:
+> +      Indicates if the device attached to a downstream port is
+> +      permanently attached
+> +
+> +  fsl,disable-port-power-control:
+> +    type: boolean
+> +    description:
+> +      Indicates whether the host controller implementation includes port
+> +      power control. Defines Bit 3 in capability register (HCCPARAMS)
+> +
+> +  fsl,over-current-active-low:
+> +    type: boolean
+> +    description:
+> +      Over current signal polarity is active low
+> +
+> +  fsl,power-active-low:
+> +    type: boolean
+> +    description:
+> +      Power pad (PWR) polarity is active low
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +  - power-domains
+> +
+> +allOf:
+> +  - $ref: snps,dwc3-common.yaml#
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    usb@4c100000 {
+> +      compatible =3D "fsl,imx943-dwc3", "fsl,imx-dwc3";
+> +      reg =3D <0x4c100000 0x10000>,
+> +            <0x4c010010 0x04>,
+> +            <0x4c1f0000 0x20>;
+> +      reg-names =3D "core", "blkctl", "glue";
+> +      clocks =3D <&scmi_clk 74>,    //IMX94_CLK_HSIO
+> +               <&scmi_clk 74>,    //IMX94_CLK_HSIO
+> +               <&scmi_clk 2>,     //IMX94_CLK_24M
+> +               <&scmi_clk 1>;     //IMX94_CLK_32K
+> +      clock-names =3D "hsio", "bus_early", "ref", "suspend";
+> +      interrupts =3D <GIC_SPI 180 IRQ_TYPE_LEVEL_HIGH>,
+> +                   <GIC_SPI 386 IRQ_TYPE_LEVEL_HIGH>;
+> +      interrupt-names =3D "dwc_usb3", "wakeup";
+> +      power-domains =3D <&scmi_devpd 13>;   //IMX94_PD_HSIO_TOP
+> +      phys =3D <&usb3_phy>, <&usb3_phy>;
+> +      phy-names =3D "usb2-phy", "usb3-phy";
+> +      snps,gfladj-refclk-lpm-sel-quirk;
+> +      snps,parkmode-disable-ss-quirk;
+> +      status =3D "disabled";
+
+Examples should be enabled.
+
+> +    };
+> diff --git a/Documentation/devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml b=
+/Documentation/devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml
+> index 73e7a60a0060dee6417b9469251e121704b7a148..fd23c345149e0dba1ed3919a2=
+5195edf247cfc08 100644
+> --- a/Documentation/devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml
+> +++ b/Documentation/devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml
+> @@ -10,6 +10,19 @@ title: NXP iMX8MP Soc USB Controller
+>  maintainers:
+>    - Li Jun <jun.li@nxp.com>
+>
+> +deprecated: true
+> +
+> +select:
+> +  properties:
+> +    compatible:
+> +      oneOf:
+> +        - items:
+> +            - const: fsl,imx95-dwc3
+> +            - const: fsl,imx8mp-dwc3
+> +        - const: fsl,imx8mp-dwc3
+> +  required:
+> +    - compatible
+> +
+>  properties:
+>    compatible:
+>      oneOf:
+>
+> --
+> 2.34.1
+>
+>
 
