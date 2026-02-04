@@ -4,71 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BDCDE9D416
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 17:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78086E9D417
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 17:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qMd6eVgyTaMp2dz0Bmva0s1vsJYaGNF3GbW8MNURkF8=; b=KdUq4VcFroG9/DeGR5dHeSPgK1
-	ZtfocsDFLI3Yyxi1mzfU0omMZmEz+rQm1G4+WZT8mbly1+bx1ckkScFVfgux7EP66pmi6ldD349ZM
-	KXtDuXhgBLH/PoVWLY8I92By9c05P3g5vqszr3vJJvSMY9pPaBEhamEXZTIw4XnesDnuIKP6IxTw2
-	EwtZrvbiaBGwrFfXhwTUvQOaqNY6AN5OusUUEctxnfG1uav2snmRPhYKDcdXbNO/DKP6DENbh8xWO
-	u6l7M9zPNPsn9UrIAnFW19smH3OeNag8Gqxr//voR0WpiOUn2hyMKA0zPeDAavoaYBXPnYSL+IsL8
-	6IrB5IMA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vtnPblNidasHdzF3fCc40f6SCufCocsQtBk3FA5AuTQ=; b=fNnzdGr0wfbSwGuCvO4Vv6NEQm
+	6xGvOFZahMdRXC3YtqChdBDU80VyzKEesm5FkJFhWMqbjg0wCUhKb5Rbz9waVKJYSybikjRgLL9uz
+	pna6l7/P5AOaOI83DL0ohc1YToldUyJ4zvYW/Kl8kKTO+MIuY14CQ1RUB3ti0ShNvdGGlsgygg/lR
+	tGoNIa+qlKv1SbwKd317qhv2WWB35RkmgO+6moGjz0iMCT6yJbJJZfDLKKs9wZOHhwdvC4jcGOV7L
+	cxYb0kWh1YejWNabN/zWCZmqs4nyKOZQSnoNjKvY6bkmjQNMuluvJCGjljNafHcGTREVktYm5Sz78
+	1QsdaoHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vngJq-00000008p1c-35Ii;
-	Wed, 04 Feb 2026 17:05:34 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vngJv-00000008p3C-09sk;
+	Wed, 04 Feb 2026 17:05:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vngJo-00000008p0n-2ztp
+	id 1vngJt-00000008p26-0xbq
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 04 Feb 2026 17:05:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=vtnPblNidasHdzF3fCc40f6SCufCocsQtBk3FA5AuTQ=; b=cNtDziMibHJ/XYoXae04gQuota
+	0b0fuUOmaO4bxO0uOLMSGOKb801GqxyikhpSs958/CARoJlKw3wWtwu2t5/M1p6atCOraHXT5MwMx
+	B+tNbuWPFvwQsaTtLcURiE/I1o/S/Q4iLj8Ji+gDeicYdYayMniW9PSfRqSKs6bBWuvkYnEjKwlqI
+	ToQquHhKpf0BU7xF+Sv/q7w0Dh+OEx7yulwoSv3EoEp4uJB85aJ01TrHFuT9kIaNG8wIa3lTWhjta
+	kuyhIBfaR3WbW+1ucGuJ4XpENxGpnG0DzxfPIK55Lj7KoVRAvUAjlPQgOq/bKT5WggeMzSp09dit5
+	yQapaoXg==;
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vngJp-00000000x70-3Mgy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 17:05:33 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4806d23e9f1so119115e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 09:05:31 -0800 (PST)
+	Wed, 04 Feb 2026 17:05:35 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4806dffc64cso193815e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 09:05:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770224730; x=1770829530; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=qMd6eVgyTaMp2dz0Bmva0s1vsJYaGNF3GbW8MNURkF8=;
-        b=MCqx8H+BdPqpwfDaZpObx+YSqB8k9mJ1jbTl6faktuphGG6wQezY9s3n94GFWYanAk
-         8t7ClFMLf88b2eqSMZYF/Z4x77dFNOpQDQVh/NAQY0rTNhdxDTzffQmF9kvDeZyg+ABl
-         ZnazfZpzHLRs+TgCQ7HsTEo5/hdmo2XtBXYvMyjhEn7uaOsDsZpmi+CQYLg88H+OefsM
-         rhGdNVgUCW4rW5gxYajSVZX2oIt3X0CGi2bHu/NW30aRyAkLVolXOpBsg+DW7qsqzm6R
-         0tih5Ot1YAoBXMrZEgh7FhtjID39ORcmyeNHZD/bNbzRDHSUMrEmJqadBo257flZZeGG
-         KnWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770224730; x=1770829530;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1770224731; x=1770829531; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=qMd6eVgyTaMp2dz0Bmva0s1vsJYaGNF3GbW8MNURkF8=;
-        b=DkwzQB7Woo9qUaAk6qwJxGkJzEoyDNb8Lp9LvlIGaTLPc83Fi/MiPD1xyO/eR8Pf9j
-         eEJxLMOzk+CcfvMIUT/REuOD8qbKInrAThOYPk+5T/rsKevOhZOubjA8dxwVb27qPZf4
-         RqWzGLYqo27OuJtMqdnnzF4iDTepIFjOuhqegEvYF+8odKUWTLkclbDsS5e0igaCsd4m
-         wG/M2b+co84N5U1bBolxwVhWLcr2FPihR0ptndHH/nc0TFi4+12R+FLUVc5taDEGjrYK
-         gQvZXwehthKinPeH1JVae+OyVzqjklbNlHZnhfl/3H5J0goageZtBXnyggoKsUnsgnMZ
-         Ld8w==
-X-Forwarded-Encrypted: i=1; AJvYcCVoxf90LqeX1wWpXwW2uSEYut49R32jGftZgEtGKpH0+cQN3/o1one0zzS9CcDsv6BPDrjaBg7CmBPCOTV2n/yH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlEbEEY1qujajF6OC578qX2iA6wTWB7mIzMB2qBych3/qLbDhw
-	xy6ZtQP+s/ILnCnRexWGw6PYWlM/sZ4saTp/4HESOtYbbsagQ7c1AsHL
-X-Gm-Gg: AZuq6aLD3yv8WhdEsTpw4CyJA6/XNoFghp/fD4SzTZ5V43pextJjbhpDc1EYxuCEhR8
-	WEh/7osynkth5odFoE47ZY2ECIULO/2YhDZx+8GiutkCBL0w5Ot/coAr30NN+NnViECyqKPHd5R
-	YZ88vmEFfgtfvV9CLkvAi6Yoj2+3G6vkuvnwplrz6dd2ZgpxFvOUicbQrmd38SR+GPOji+gIVhE
-	Vr2qbO4mcGUFrjpdDxLcApgpitY8ubrKJAnsppbZUphPkG13S7I1J/gHiN/U5uBar7qx8acMcyr
-	Xre/sxidPcLJBAD3XqzCYkpidd9gVZw1IFHbV3tyMWZQm3gc8RWhukKNzDQA9Md7/cAfqk656q8
-	4JXIA8CE+sUS2bJhNCS4UozHlH9Kq7anogBJ9vP4e1QpPIkZ/wctuig8NIuAf/SF+6lNwdVVTLp
-	XjQjAy/1D/p6tkl4qEqItWbVZTr9fkw5Pd0wTevbX8sKUADX7JIiRdF4kcRU1EWs4Ctv8eFtqdb
-	ZIZG/sMkOHOOeB+qUz1pxxIVE2m
-X-Received: by 2002:a05:600c:680a:b0:480:6c75:ddce with SMTP id 5b1f17b1804b1-4830e9a9b17mr51563435e9.33.1770224730178;
-        Wed, 04 Feb 2026 09:05:30 -0800 (PST)
+        bh=vtnPblNidasHdzF3fCc40f6SCufCocsQtBk3FA5AuTQ=;
+        b=fBTkw1xUmAw2zXm5coyCvk4vk9kfwg8b8hruov3SQeYBqeUp0qZS5jNmP78f/wboQk
+         0uDuyGgnlDUZp0lSangr4k7mUy9xP+HBuAj1Su1j+TlFgm8WQtHs1NFiF/wD3+ueZhfR
+         ha/kgKSYQ2JRU76beK0klQ43Nk5BOnvcw+f+SpOAdvrtpZFFyMOlAlx5lxN8jJDLpXkD
+         BPYWqTa0QNZKGyQlyflGUoajEFErHu1T9N3cZ7aV5zfVIZySxi80/TQ1rlttxaiuP87G
+         fcBb76mM6xie3tdaJdpGwDuoDNjbPnleZBmxMuF6d2f+CjhfM3zwVAYX2dgqK2+bDiir
+         5XJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770224731; x=1770829531;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=vtnPblNidasHdzF3fCc40f6SCufCocsQtBk3FA5AuTQ=;
+        b=FBp1GzWhSk2kmPhqoiAb6jHcBwsul3+nDYQtZmOIpMHP+KduhmRst70cUEUVYkVHmH
+         LGNknCdo7VQLu+1l8cTEf6YmoT6cpxQD0/Zs1n+aI3184MyUjHvCrOZSY+ZJRr1qACvE
+         n0NthVuiqGUL4kL0NBunILcxrwCtP3nRplh1qmmJtTPXkieIwOsP1D4Dv8oMN4ridRI1
+         2/xp3kmGMMyQeUWuba11lNuIJuj9phb9QFifBmw5VrZDtkWJr+UFU030sLNtn0Sr1hIU
+         K18W5V6DGK9oy8u09OXgyFPrm/y3bCSWpVi5F/yDhFO849Axa2QATgI11wQv41iD6l9q
+         2pAw==
+X-Forwarded-Encrypted: i=1; AJvYcCUVYgZ48vsJhsv0EKbJOdzg6vOoctQwA68N2t7Ff9XZ71aZF20+ZbfcriERirE35b0pFPDeA7QEO8RBZ3+QA//Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjzZbjY6kTTx6GpuVblpDw+Kk5t8E6d4EP54ENgzMLUGFv2dWK
+	lM2/DxfWNKmtNutaZmp5nS/iDNPzp/w25F2eksELiXiKBMt9iHASqiCt
+X-Gm-Gg: AZuq6aJIL8mlTDY/vMXmlmKME8exojBNu9UaRoUwjGH/erG5ktvnh2U76FHlQhpzoP8
+	RY5I6QNGYShRs4PC3AB7dq3O4i0G9qdVuX71P5cfLnHYxwrNXfl3bZ1uArymGDiTx7QjJneytDy
+	Ijpvt/3oScGVhTxlA3P5x7bXA5XeWZnZW++UlzMY5dwE9OCa2jJ9qcYPYz4ZJIqw4w8YOAEBLQA
+	Z3j4rt1hZP+YpguGiBC9Dp7uY67UhGkQbT661E8P8Lr09oQ/HNzdOCzHMYES8oKxgtn0Ekm6KpK
+	1VoeVh8jwI3zzjVemMRitRGVn80Q/eF7vEMbvEGjVvQNFXm5pKKL0Vf7gKodbwQ1hTv267Y9q6R
+	o+s65fEi5nVOyrq7tLtZD74p9s5aaCyck8ti91X2oOhBQg2xWBtOhiMIUzbon/slVFZUSH2E72y
+	mj67I5wdo339Ew4Of7iA20j6cQAkFPZT+XQ95RAwmO/txtTjnCP9Dkd3ZhMPKn2uL8sNbLtgF/j
+	RpIKPUAZqmNO/+5Cw4C4ZBwDbYcuWXTNh94ZUo=
+X-Received: by 2002:a05:600c:a088:b0:47e:e7e5:ff32 with SMTP id 5b1f17b1804b1-4830e98388dmr42262415e9.34.1770224731449;
+        Wed, 04 Feb 2026 09:05:31 -0800 (PST)
 Received: from Lord-Beerus.station (net-188-152-100-94.cust.vodafonedsl.it. [188.152.100.94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4830ec10011sm38044465e9.0.2026.02.04.09.05.28
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4830ec10011sm38044465e9.0.2026.02.04.09.05.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Feb 2026 09:05:29 -0800 (PST)
+        Wed, 04 Feb 2026 09:05:31 -0800 (PST)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: Rob Herring <robh@kernel.org>,
@@ -91,15 +107,18 @@ Cc: kernel@pengutronix.de,
 	francesco.dolcini@toradex.com,
 	maudspierings@gocontroll.com,
 	Stefano Radaelli <stefano.r@variscite.com>
-Subject: [PATCH v1 0/3] Add support for Variscite DART-MX91 and Sonata board
-Date: Wed,  4 Feb 2026 18:03:53 +0100
-Message-ID: <20260204170356.35169-1-stefano.r@variscite.com>
+Subject: [PATCH v1 1/3] dt-bindings: arm: fsl: add Variscite DART-MX91 Boards
+Date: Wed,  4 Feb 2026 18:03:54 +0100
+Message-ID: <20260204170356.35169-2-stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260204170356.35169-1-stefano.r@variscite.com>
+References: <20260204170356.35169-1-stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_090532_770385_B41017B1 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20260204_170534_111349_1D8D95EE 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,33 +133,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for the Variscite DART-MX91 system on
-module and the Sonata carrier board.
+From: Stefano Radaelli <stefano.r@variscite.com>
 
-The series includes:
-- Device tree bindings documentation for both SOM and carrier board
-- SOM device tree with on-module peripherals
-- Sonata carrier board device tree with board-specific features
+Add DT compatible strings for Variscite DART-MX91 SoM and Variscite
+development carrier Board.
 
-The implementation follows the standard SOM + carrier board pattern
-where the SOM dtsi contains only peripherals mounted on the module,
-while carrier-specific interfaces are enabled in the board dts.
+Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Stefano Radaelli (3):
-  dt-bindings: arm: fsl: add Variscite DART-MX91 Boards
-  arm64: dts: freescale: Add support for Variscite DART-MX91
-  arm64: dts: imx91-var-dart: Add support for Variscite Sonata board
-
- .../devicetree/bindings/arm/fsl.yaml          |   6 +
- arch/arm64/boot/dts/freescale/Makefile        |   1 +
- .../dts/freescale/imx91-var-dart-sonata.dts   | 498 ++++++++++++++++++
- .../boot/dts/freescale/imx91-var-dart.dtsi    | 468 ++++++++++++++++
- 4 files changed, 973 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
-
-
-base-commit: 18f7fcd5e69a04df57b563360b88be72471d6b62
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 336669e16d7a..4c200a67600e 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1524,6 +1524,12 @@ properties:
+           - const: phytec,imx93-phycore-som # phyCORE-i.MX93 SoM
+           - const: fsl,imx93
+ 
++      - description: Variscite DART-MX91 based boards
++        items:
++          - const: variscite,var-dart-mx91-sonata # Variscite DART-MX91 on Sonata Development Board
++          - const: variscite,var-dart-mx91 # Variscite DART-MX91 SOM
++          - const: fsl,imx91
++
+       - description: Variscite VAR-SOM-MX93 based boards
+         items:
+           - const: variscite,var-som-mx93-symphony
 -- 
 2.47.3
 
