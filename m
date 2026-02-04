@@ -4,53 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CE6EE9539D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 13:28:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13806E9539A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 13:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RzoZGfJ3UGb4X8LnUl/xbNsXfuomNQ1dg2MKO5nS3ig=; b=c5lbnzn2acwClHFkpa4d1JrkUk
-	Q1q9mnwmrJ1O1XDIPZwHvF+xkjSTBrXX4CKcTo1xKlD4ZA3KarNp7qf2QUoVw/1YSOGpGEic34N0g
-	/lO42Pfl/wCqeq8w4H4xxtsZKthGKV0C39M7gM3YgBWwkAUzsNK/SFBQ8bNtq4qxYNOUEOkhP71Op
-	hFhMEfdV6KtXyTnWV0XRgcy949NXpTMhruBLsAIbN+iu6IEwT2i9HBVN1aAVMLLjplxvf1xaf1rM1
-	95weihRENK4CfLPo4koXT7ZDQN3wvDi6Q3SfcPfIXaA/01gYPBwSqYoOy7pKoA24lIYJzBMgFbjxB
-	Od6sMbMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tCHDBqM6ytMvHYp/gV4FYmcPy+UxCdoKP3RWyGt2jks=; b=Gl3chh0fOQeOaaThzryJmHaZ5N
+	U+8wEZzPHsuADRJooaeDt90721Zvt7LYi5telQMOY0+5jf2Ejw1laMxjOKFTnedo23JUT5cWYpzTl
+	kfJr3fkboUwBRCwZJ7e66FqSTJeM2kt7aWbiTWKYmQ57qHxTYwT8ehX6EZJghjNIBOtcTij0lDhoW
+	SvbNRnguu8aDdfFQaDSgzmnF/JNAh1s6cxBK+jeceyOpkzIzhUZECc5jCv/NnY/T4Elp+e3JakczC
+	PJh+OOKnB6cTb6OrfgpfD1T9Y/fwiCvxmqo4aS1fTOqNZ2r/x9eTyQyq33RwDeRynlLdDOKXrqdk0
+	mj8M7tEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vncvi-00000008W1x-34p6;
-	Wed, 04 Feb 2026 13:28:26 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vncxQ-00000008WCt-27rl;
+	Wed, 04 Feb 2026 13:30:12 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vncvg-00000008W1N-1XVA;
-	Wed, 04 Feb 2026 13:28:25 +0000
-Received: from thinkpad.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7E385833;
-	Wed,  4 Feb 2026 14:27:40 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1770211660;
-	bh=N7u+XCuPg7ooZrjh/omtH2eXFLHztWNIiAKaMOIHINs=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=S/MilP8496uV47zy5etQsOQ8A/t2OeFeRCLJY75Bs1RTYIRWoSN5/tGuzPU+F00kO
-	 rQdT83agQrysXHwyRZFCOzEjAhzRelxztWx5t+IXmn1jOjXm4zFSNail7heqAcwlXr
-	 4Y04R+hkNPcdT6kEcQMN9K6IhcLPJ9s+W2thFYDY=
-Content-Type: text/plain; charset="utf-8"
+	id 1vncxN-00000008WCO-4C6d
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Feb 2026 13:30:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=tCHDBqM6ytMvHYp/gV4FYmcPy+UxCdoKP3RWyGt2jks=; b=kKNTXVc6poLvYmBbI9GJF1XvGT
+	2AwzNnp2Q3jVa1HnVN98MHP9+h30YWiKYpVzikQ6AWGdxXPcGLLfqoy3yCXHRYV0cHRFbnrVTzZ+Z
+	0vk1r2F91EdHgO2oY9u5wjT3DMkLEdYFEid0L6QLugbENRudvslVfRyoLsohMz7nccikL2zK/wsIG
+	Cp34le1I/WhqXrFdZzB9E5WKJcC3PdCkdUJ6RkZtd2/fsBEML1vEJN8SKpYvKvO3GZeVC0nq9hjnh
+	jatqzD34HOvie9uVdNyc5qa78RjA7PkRDEAvR29Wl3jRhO7LZNAfcUxyvXZlAgElSta4UxKRIegjZ
+	VtLFVMkw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:52534)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vncx7-000000006O0-1edz;
+	Wed, 04 Feb 2026 13:29:53 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vncx3-000000005PP-1Uvf;
+	Wed, 04 Feb 2026 13:29:49 +0000
+Date: Wed, 4 Feb 2026 13:29:49 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	"Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Eric DeVolder <eric.devolder@oracle.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Kees Cook <keescook@chromium.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@somainline.org>,
+	John Crispin <john@phrozen.org>
+Subject: Re: [PATCH v2 0/2] ARM: decompressor: support AUTO_ZRELADDR and
+ appended DTB
+Message-ID: <aYNJzbSxfpRza4no@shell.armlinux.org.uk>
+References: <CAMuHMdWnNzktSecsPX_anf=PCuLrZUT-6TO7KXGCHeQVTS974g@mail.gmail.com>
+ <aYCDOio-YdUJAf2v@shell.armlinux.org.uk>
+ <CA+_ehUx=3Ci2hN0YYkLxBNwOu_NTHFe_ZKkw9TH+bU-4PwTD-A@mail.gmail.com>
+ <86v7gf9z92.wl-maz@kernel.org>
+ <CAD++jLkgtgi1obmiuon=1XhOmT5cwtsMmBE37-wkzE_W55ZV2Q@mail.gmail.com>
+ <aYKgaDtb7Ba09Paf@shell.armlinux.org.uk>
+ <CAMuHMdX99kB5oDoxy8=yk_D8g=bCwwUON-uMkT7zSPq0=DASVA@mail.gmail.com>
+ <aYMzk9cIgD-XDujY@shell.armlinux.org.uk>
+ <aYNAAsD6dlMi-35Q@shell.armlinux.org.uk>
+ <CAMuHMdWxA5Uq2m5sfiG8=WzqKiEmXA0sp4fYGWOvQwhzubDUXg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260204113710.GA156228@killaraus>
-References: <20260204112506.3706049-1-isaac.scott@ideasonboard.com> <20260204112506.3706049-4-isaac.scott@ideasonboard.com> <20260204113710.GA156228@killaraus>
-Subject: Re: [PATCH v1 3/6] media: rkisp1-isp: Add target_format
-From: Isaac Scott <isaac.scott@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, dafna@fastmail.com, mchehab@kernel.org, heiko@sntech.de, linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Date: Wed, 04 Feb 2026 13:28:19 +0000
-Message-ID: <177021169954.3716406.14336965804921334134@isaac-ThinkPad-T16-Gen-2>
-User-Agent: alot/0.10
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdWxA5Uq2m5sfiG8=WzqKiEmXA0sp4fYGWOvQwhzubDUXg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_052824_578914_421BA98B 
-X-CRM114-Status: GOOD (  22.15  )
+X-CRM114-CacheID: sfid-20260204_053010_214748_2E6ABA0F 
+X-CRM114-Status: GOOD (  59.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,76 +103,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent,
+On Wed, Feb 04, 2026 at 01:58:21PM +0100, Geert Uytterhoeven wrote:
+> Hi Russell,
+> 
+> On Wed, 4 Feb 2026 at 13:48, Russell King (Oracle)
+> <linux@armlinux.org.uk> wrote:
+> > On Wed, Feb 04, 2026 at 11:54:59AM +0000, Russell King (Oracle) wrote:
+> > > On Wed, Feb 04, 2026 at 11:53:30AM +0100, Geert Uytterhoeven wrote:
+> > > > On Wed, 4 Feb 2026 at 02:27, Russell King (Oracle)
+> > > > <linux@armlinux.org.uk> wrote:
+> > > > > On Wed, Feb 04, 2026 at 01:36:29AM +0100, Linus Walleij wrote:
+> > > > > > However, I think it is a thick requirement to put on hobbyist
+> > > > > > contributors to go and write entite boot loaders from scratch,
+> > > > > > I think it's a fine requirement to put on Qualcomm or Renesas
+> > > > > > paid maintainers.
+> > > > >
+> > > > > If we're talking about older boards, then why have they only recently
+> > > > > became a problem, when, presumably, they've been working fine for a
+> > > > > decade or so?
+> > > >
+> > > > These boards may have been working fine, given the right "legacy"
+> > > > kernel config options were used.  However, some of these option make
+> > > > the resulting kernel limited to that platform or even to a specific
+> > > > board (e.g. when CONFIG_CMDLINE needs to be used).
+> > >
+> > > The 32-git ARM kernel has had a way to pass the command line to the
+> > > kernel from the boot loader since day one.
+> > >
+> > >       First it was the struct param_struct.
+> > >       Then it was the ATAGs that was introduced pre-git.
+> > >       Now it is DT.
+> > >
+> > > The kernel retains code to parse all three methods of passing data
+> > > from the boot loader to the kernel. The decompressor has support
+> > > for merging the ATAGs into the appended DTB, which includes merging
+> > > the command line into the DTB.
+> > >
+> > > Without an appended DTB, the pointer to one of the above will be
+> > > passed to the kernel, the kernel will figure out what it has and
+> > > parse one of the three ways, and use the command line there.
+> > >
+> > > The only case where CONFIG_CMDLINE should be used is when there is
+> > > no command line passed, no way to change it, etc. At that point
+> > > there are two options:
+> > >
+> > > 1. Augment the kernel's generated FDT with the command line node
+> > >    and load that modified FDT or append it to the compressed image.
+> > >
+> > > 2. Use CONFIG_CMDLINE, which means that the kernel _will_ become
+> > >    specific to the platform that needs those arguments. No getting
+> > >    away from that in this case.
+> > >
+> > > Maybe you haven't explained the problem very well, but I don't see
+> > > any issue with this.
+> > >
+> > > > The KZM-A9-GT I "need" this for never had upstream U-Boot (I don't
+> > > > think I ever had any U-Boot sources).  I can boot a shmobile_defconfig
+> > > > multi-platform kernel[*] fine, iff the first patch is applied.
+> > >
+> > > So, what have you been doing for the last 14 years to boot this
+> > > platform (merged in 2012) without this patch?
+> > >
+> > > Please explain:
+> > >
+> > > - how it worked before - I want to know how the DTB is passed to the
+> > >   kernel, what information is provided from the boot loader, whether
+> > >   that gets merged into the DTB, etc. All the fine nitty gritty of
+> > >   how it worked and what doesn't work, what the problems were etc.
+> > >
+> > > - what changed (it sounds like you want extra features)
+> > >
+> > > - why (in detail) it doesn't work now.
+> >
+> > I want to know:
+> >
+> > - Where RAM is located.
+> > - Where the kernel is being loaded.
+> 
+> tftp 0x43000000 kzm9g/zImage.dtb
+> bootz
+> 
+> > - Whether the platform reserves any RAM that may overlap with the kernel
+> >   or where the kernel wants to locate itself in RAM.
+> >
+> > From what I can see from arch/arm/boot/dts/renesas/sh73a0-kzm9g.dts,
+> > memory is at 0x4000000..0x5fffffff - 512MiB.
+> 
+> Correct.
+> 
+> > So, provided you load and execute the compressed kernel image within
+> > the first 128Mi of memory (0x40000000 - 0x48000000), then it will select
+> > 0x40008000 to decompress itself. I can find no mention of any reserved
+> > memory regions in the DT file, so this should be fine.
+> >
+> > If you're loading the compressed kernel at some wildly different
+> > address, then yes, it probably won't work.
+> 
+> It also works when loaded at e.g. 0x42000000 or 0x44000000,
+> but not at 0x41000000 (all with [PATCH 1/2] applied).
 
-Thank you for the review!
+So let's assume the kernel is loaded at 0x43000000.
 
-Quoting Laurent Pinchart (2026-02-04 11:37:10)
-> On Wed, Feb 04, 2026 at 11:25:03AM +0000, Isaac Scott wrote:
-> > In passthough mode, we want to make sure the output format of the ISP is
-> > identical to the input format. Add logic to ensure the format we
-> > configure the output of the ISP with is the sink format when we are in
-> > bypass, and the source format if we are not.
->=20
-> I don't think that's right. In bypass mode, userspace needs to configure
-> the same format on the image sink and image source pads of the ISP, and
-> not set any cropping. The crop rectangle on the source pad should
-> contain the information you need.
->=20
+                mov     r0, pc
+                and     r0, r0, #0xf8000000
 
-Yes, that makes sense. I suppose the idea here was to "enforce" it, but
-perhaps we shouldn't be potentially overwriting a format userspace is
-setting. I'll take another look for v2.
+This will result in r0 being 0x40000000. This becomes the mem_start
+argument in fdt_check_mem_start().
 
-Best wishes,
-Isaac
+We look for an appended DTB, and skip the validation that
+fdt_check_mem_start() does. If this were to go ahead, then this would
+find that 0x40000000 is within the memory@40000000 node, and thus this
+would return "mem_start".
 
-> > Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
-> > ---
-> >  drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c | 13 +++++++------
-> >  1 file changed, 7 insertions(+), 6 deletions(-)
-> >=20
-> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/driv=
-ers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> > index f636d738b7e8..716bd7f3c66d 100644
-> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> > @@ -175,9 +175,10 @@ static void rkisp1_gasket_disable(struct rkisp1_de=
-vice *rkisp1)
-> >  static void rkisp1_config_ism(struct rkisp1_isp *isp,
-> >                             const struct v4l2_subdev_state *sd_state)
-> >  {
-> > -     const struct v4l2_rect *src_crop =3D
-> > +     const struct v4l2_rect *target_crop =3D
-> >               v4l2_subdev_state_get_crop(sd_state,
-> > -                                        RKISP1_ISP_PAD_SOURCE_VIDEO);
-> > +                     (isp->rkisp1->in_bypass ?
-> > +                             RKISP1_ISP_PAD_SINK_VIDEO : RKISP1_ISP_PA=
-D_SOURCE_VIDEO));
-> >       struct rkisp1_device *rkisp1 =3D isp->rkisp1;
-> >       u32 val;
-> > =20
-> > @@ -185,10 +186,10 @@ static void rkisp1_config_ism(struct rkisp1_isp *=
-isp,
-> >       rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_MAX_DX, 0);
-> >       rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_MAX_DY, 0);
-> >       rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_DISPLACE, 0);
-> > -     rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_H_OFFS, src_crop->left);
-> > -     rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_V_OFFS, src_crop->top);
-> > -     rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_H_SIZE, src_crop->width);
-> > -     rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_V_SIZE, src_crop->height);
-> > +     rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_H_OFFS, target_crop->left);
-> > +     rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_V_OFFS, target_crop->top);
-> > +     rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_H_SIZE, target_crop->width=
-);
-> > +     rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_V_SIZE, target_crop->heigh=
-t);
-> > =20
-> >       /* IS(Image Stabilization) is always on, working as output crop */
-> >       rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_CTRL, 1);
->=20
-> --=20
-> Regards,
->=20
-> Laurent Pinchart
+Then:
+
+                /* Determine final kernel image address. */
+                add     r4, r0, #TEXT_OFFSET
+
+will place the decompressed kernel at 0x40008000.
+
+However, as placing the kernel at 0x41000000 doesn't boot, that
+suggests some memory is being removed from the kernel. If adding a
+call to fdt_check_mem_start() after the ATAG-to-FDT parsing has
+been performed fixes this, it suggests the ATAGs change this.
+
+So, with a booted kernel, what does:
+
+$ hexdump -e '"%8.8_ax  " 8/4 "%08x " "\n"' /sys/firmware/devicetree/base/memory\@40000000/reg
+
+say? Has this been modified from 00000040 00000020 ? I think it
+will be.
+
+That means there's a simple fix: as there is likely reserved memory
+at the start of RAM, reflecting that in this platform's .dts would
+fix this issue without needing to change the decompressor.
+
+If you don't want to change the reg in the memory@ node, then there's
+/chosen/linux,usable-memory-range which can be used to specify the
+usable memory base and size (same format as reg).
+
+Another option would be to add linux,usable-memory to the memory@
+node that specifies the range of usable memory while still specifying
+the full memory range in the reg property.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
