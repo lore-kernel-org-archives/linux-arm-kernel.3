@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD6BE95375
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 10:38:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E4CCE95375
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 10:39:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cmBXQFWwMJpNA6HYvHV+pn0Z7Isl9C8hhe8elfOnPD4=; b=EQ2leWEpedEYeoEO+y3M1UZ6yp
-	ARSKoij6LN99b0RpCMQN3qLtvG+6UvZVDhibcijJbFyGN0cGCWxsC7kBrXxAQhG6NV1tGH1OHOV4u
-	8OJJZsHY0y4geVRmQAxCetxg/RiIlF/vNxNakc8h8ZEPQV2Z0TwM51L9IA6KjlbVH0yt7Zq7yw28K
-	Gku9YIMjGtUDj6O9FX4HVd7gkq/Nilm9VxGcFnwwW8HMTaPudV/p4ZTV7OkpZxaha+0qqP4/+m84D
-	gCh02yr6HyTYGgvm97jcwsvmJMsAjWsZlQkpR1v8e4iCYLX/0qeh+g5bFaaBtXT7gO5rxPKAHShuf
-	Avfu59sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a8sEp2rrQWLyGRRnZjwYD6KJ38E1O463IcDN5Ricygs=; b=hrMQH53bxiFe9/Jq91/09zDiLT
+	FaKC5acByespVz1e6vYbcniIwP93E7N7pW3DNB9KuhZB92+mmaTfSjQeZQxXo4K7GGQ6vJsXvp3o6
+	BdruLeDoHqgGFFjPcWAgr06IfztzYKbG9gCgtg+D3Ymfr/EjXsXLYbGeYEcil8gqe6s6AJP0Fwxcs
+	/wTq7QcmL/NkaunKqONXES8aBXIqsLUfwwbEGso85JLb13SDx+1yUS9FF9SUSI3fAX1wR5cH4n4WX
+	dsTUuSvFVPuZ+pOEy8HxVKs7XZXQ6UbtbFI5ox9SFdyS1Xi99/NWDjVtt1TSoMX3/30hCnIZLuD3X
+	V7pG3rFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnaGx-00000008IN1-1cbu;
-	Wed, 04 Feb 2026 10:38:11 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vnaIO-00000008IUz-3Csh;
+	Wed, 04 Feb 2026 10:39:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnaGt-00000008IMc-3KKb
+	id 1vnaIN-00000008IUg-2PGT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 10:38:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
-	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=cmBXQFWwMJpNA6HYvHV+pn0Z7Isl9C8hhe8elfOnPD4=; b=hfQ2YHQGZIQm0RQasJiJholAJ4
-	W8EaKCsaNrbAclFFje09t0ZJg3V9Fysk4jo/8059NJOFCFZgN/uWmgEX9nf9F51qmlixOhJoIZcXS
-	zRvFZQUduZdslxT/ACRO61vDTzJXkSkV2TMbzk1elI+uJMF90wlldW4LupYMH1q3o5AuFSP3X6+Uu
-	tMms6oQxwtYvFBotgzcJrjThgJPJRxAsb7B5FfliZBocxzscxeM1A2FssY7mqQoTe4Q7TJ/jaYv0W
-	P8QVYnPm25HlblUSdiFXh71VdJFlp+zxJ2XxTyFo/jjzy7k4Wf+3dXsT02dIA3tacRcz8tOS0MXkc
-	b4/hjrgw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:53300 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vnaGl-000000006DG-3gVg;
-	Wed, 04 Feb 2026 10:37:59 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vnaGl-00000007i9f-0ZMw;
-	Wed, 04 Feb 2026 10:37:59 +0000
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	imx@lists.linux.dev,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Subject: [PATCH net-next] net: stmmac: imx: fix iMX93 register definitions
+	Wed, 04 Feb 2026 10:39:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 89F7A6012B;
+	Wed,  4 Feb 2026 10:39:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61E9CC4CEF7;
+	Wed,  4 Feb 2026 10:39:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770201578;
+	bh=jWq9hzFrHn4T0n/HkYPD0UMv27FmeuY0AJk3lrTEpgg=;
+	h=From:To:Subject:In-Reply-To:References:Date:From;
+	b=td6G3Ueyt9785VTOqQpQ1qDCNtWh4EIIq2k7oN3izFRukPxS8bE8VtXwyVFOk/qTB
+	 IuhNla7cwOkfGGcQMY3Wm7aAOVxGjGOSS8kZEIARYbWMo99zrx6dx+n8xTHMed11Je
+	 I04yrGUhFA1hs+dIEQigixrZmdMWgOB+4hUVwnPDGQ+vJpX1HrO9xVu2hUE+ft9hML
+	 yYauzvTd8NT4xRUvHU4gJBaAk25bzyFymQUg0qhaeAdn7xMtK8UcipfBdudOkgIpZI
+	 g/d7NrjEwbuoedp9i1NcRre823hhg5KPSklBpea4yfcxdpQRzl+zHbrjkity/Jp8ZR
+	 Bh0wWcsZK/ydw==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
+ will@kernel.org, oleg@redhat.com, shuah@kernel.org, kees@kernel.org,
+ luto@amacapital.net, wad@chromium.org, kevin.brodsky@arm.com,
+ akpm@linux-foundation.org, charlie@rivosinc.com, ldv@strace.io,
+ anshuman.khandual@arm.com, mark.rutland@arm.com, ryan.roberts@arm.com,
+ thuth@redhat.com, song@kernel.org, ada.coupriediaz@arm.com,
+ broonie@kernel.org, pengcan@kylinos.cn, liqiang01@kylinos.cn,
+ kmal@cock.li, dvyukov@google.com, reddybalavignesh9979@gmail.com,
+ richard.weiyang@gmail.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v12 00/13] arm64: entry: Convert to Generic Entry
+In-Reply-To: <2699bcdc-8d56-7fe9-fa9a-a3d61476e806@huawei.com>
+References: <20260203133728.848283-1-ruanjinjie@huawei.com>
+ <87bji552uk.ffs@tglx> <2699bcdc-8d56-7fe9-fa9a-a3d61476e806@huawei.com>
+Date: Wed, 04 Feb 2026 11:39:34 +0100
+Message-ID: <87y0l823o9.ffs@tglx>
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vnaGl-00000007i9f-0ZMw@rmk-PC.armlinux.org.uk>
-Date: Wed, 04 Feb 2026 10:37:59 +0000
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_023808_125948_C6507E80 
-X-CRM114-Status: GOOD (  14.30  )
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,92 +76,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When looking at the iMX93 documentation, the definitions in the driver
-do not correspond with the documentation, which makes the driver
-confusing.
+On Wed, Feb 04 2026 at 09:28, Jinjie Ruan wrote:
+> On 2026/2/3 22:16, Thomas Gleixner wrote:
+>> On Tue, Feb 03 2026 at 21:37, Jinjie Ruan wrote:
+>>> Currently, x86, Riscv, Loongarch use the Generic Entry which makes
+>>> maintainers' work easier and codes more elegant. arm64 has already
+>>> successfully switched to the Generic IRQ Entry in commit
+>>> b3cf07851b6c ("arm64: entry: Switch to generic IRQ entry"), it is
+>>> time to completely convert arm64 to Generic Entry.
+>>>
+>>> The goal is to bring arm64 in line with other architectures that already
+>>> use the generic entry infrastructure, reducing duplicated code and
+>>> making it easier to share future changes in entry/exit paths, such as
+>>> "Syscall User Dispatch".
+>>>
+>>> This patch set is rebased on "sched/core". And the performance
+>>=20
+>> Why are you using sched/core, which contains a lot of unrelated
+>> changes. core/entry is the one which has the prerequisites and nothing
+>> else....
+>
+> By the way=EF=BC=8Cit looks like core/entry and arm64 for-next/entry have
+> diverged: the first three patches of this series are already in arm64
+> for-next/entry but missing from core/entry.
+> Perhaps the two branches should be reconciled so that both contain the
+> same baseline.
 
-The driver, for example, re-uses a definition for bit 0 for two
-different registers, where this bit have completely different purposes.
+The first three patches of this series are ARM specific and have nothing
+to do with the queued core/entry changes in tip. They are independent of
+each other and these three ARM64 changes have no business in my tree.
 
-Fix this by renaming the second register, and adding a definition that
-reflects the true purpose of bit 0 in the first register (EQOS enable.)
+If the ARM64 folks want to apply the rest of your series then they have
+to pull the core/entry branch into their for-next/core branch first so
+the whole thing builds.
 
-Replace MX93_GPR_ENET_QOS_INTF_MODE_MASK with MX93_GPR_ENET_QOS_ENABLE
-and MX93_GPR_ENET_QOS_INTF_SEL_MASK as MX93_GPR_ENET_QOS_INTF_MODE_MASK
-is not a register field.
+But given that the merge window opens on sunday, this is probably moot
+anyway and the rest of this series can go on top of rc1 in the ARM64
+tree w/o any further complications.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../net/ethernet/stmicro/stmmac/dwmac-imx.c   | 25 +++++++++++--------
- 1 file changed, 14 insertions(+), 11 deletions(-)
+Thanks,
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-index ecc0c3483423..c4e85197629d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-@@ -28,11 +28,11 @@
- #define GPR_ENET_QOS_CLK_TX_CLK_SEL	(0x1 << 20)
- #define GPR_ENET_QOS_RGMII_EN		(0x1 << 21)
- 
--#define MX93_GPR_ENET_QOS_INTF_MODE_MASK	GENMASK(3, 0)
- #define MX93_GPR_ENET_QOS_INTF_SEL_MASK		GENMASK(3, 1)
--#define MX93_GPR_ENET_QOS_CLK_GEN_EN		(0x1 << 0)
--#define MX93_GPR_ENET_QOS_CLK_SEL_MASK		BIT_MASK(0)
--#define MX93_GPR_CLK_SEL_OFFSET			(4)
-+#define MX93_GPR_ENET_QOS_ENABLE		BIT(0)
-+
-+#define MX93_ENET_CLK_SEL_OFFSET		(4)
-+#define MX93_ENET_QOS_CLK_TX_SEL_MASK		BIT_MASK(0)
- 
- #define DMA_BUS_MODE			0x00001000
- #define DMA_BUS_MODE_SFT_RESET		(0x1 << 0)
-@@ -95,17 +95,18 @@ static int imx93_set_intf_mode(struct imx_priv_data *dwmac, u8 phy_intf_sel)
- 	if (phy_intf_sel == PHY_INTF_SEL_RMII && dwmac->rmii_refclk_ext) {
- 		ret = regmap_clear_bits(dwmac->intf_regmap,
- 					dwmac->intf_reg_off +
--					MX93_GPR_CLK_SEL_OFFSET,
--					MX93_GPR_ENET_QOS_CLK_SEL_MASK);
-+					MX93_ENET_CLK_SEL_OFFSET,
-+					MX93_ENET_QOS_CLK_TX_SEL_MASK);
- 		if (ret)
- 			return ret;
- 	}
- 
- 	val = FIELD_PREP(MX93_GPR_ENET_QOS_INTF_SEL_MASK, phy_intf_sel) |
--	      MX93_GPR_ENET_QOS_CLK_GEN_EN;
-+	      MX93_GPR_ENET_QOS_ENABLE;
- 
- 	return regmap_update_bits(dwmac->intf_regmap, dwmac->intf_reg_off,
--				  MX93_GPR_ENET_QOS_INTF_MODE_MASK, val);
-+				  MX93_GPR_ENET_QOS_INTF_SEL_MASK |
-+				  MX93_GPR_ENET_QOS_ENABLE, val);
- };
- 
- static int imx_dwmac_clks_config(void *priv, bool enabled)
-@@ -205,7 +206,8 @@ static void imx93_dwmac_fix_speed(void *priv, int speed, unsigned int mode)
- 	old_ctrl = readl(dwmac->base_addr + MAC_CTRL_REG);
- 	ctrl = old_ctrl & ~CTRL_SPEED_MASK;
- 	regmap_update_bits(dwmac->intf_regmap, dwmac->intf_reg_off,
--			   MX93_GPR_ENET_QOS_INTF_MODE_MASK, 0);
-+			   MX93_GPR_ENET_QOS_INTF_SEL_MASK |
-+			   MX93_GPR_ENET_QOS_ENABLE, 0);
- 	writel(ctrl, dwmac->base_addr + MAC_CTRL_REG);
- 
- 	 /* Ensure the settings for CTRL are applied. */
-@@ -213,9 +215,10 @@ static void imx93_dwmac_fix_speed(void *priv, int speed, unsigned int mode)
- 
- 	usleep_range(10, 20);
- 	iface &= MX93_GPR_ENET_QOS_INTF_SEL_MASK;
--	iface |= MX93_GPR_ENET_QOS_CLK_GEN_EN;
-+	iface |= MX93_GPR_ENET_QOS_ENABLE;
- 	regmap_update_bits(dwmac->intf_regmap, dwmac->intf_reg_off,
--			   MX93_GPR_ENET_QOS_INTF_MODE_MASK, iface);
-+			   MX93_GPR_ENET_QOS_INTF_SEL_MASK |
-+			   MX93_GPR_ENET_QOS_ENABLE, iface);
- 
- 	writel(old_ctrl, dwmac->base_addr + MAC_CTRL_REG);
- }
--- 
-2.47.3
-
+        tglx
 
