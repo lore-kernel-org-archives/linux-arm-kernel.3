@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6337E9538E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 12:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C15CAE9538E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 12:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iiS4eTLTlfT3RVxU/ABXfJiQo/MuxwnDJLMoJPVresk=; b=zH/gz7nFy2Tl5OkqE1+4tXjDOk
-	bb6G9T5D5iBpCp/it/s6gtuRcEB4Nobfc6zx1GQI+yIyWT+ekaNtjoK5EkdlW+lGs1dj4/RzmvSUi
-	eBJKYO8+uhMKi1V6icDsMN1e8Z+KoaverzOPCKKuv4dlXLc48wKbJriXrwFbEpCB5j0s/tKSMSkYx
-	Wy6DSqAb6vf44QBELB3Bc1hZyN6yAPACS08NLwKFGAwxow9lR0yM1Sz4P4pouN+pmUaRoSYgFzEAk
-	7/kuE5yBOag6PwuswWleAS9rCRiwR1sNiUR5Wy9dBshnWi2Apj73UnJs98vUjTvgUWggLyctmtnH1
-	ll3VKHnA==;
+	bh=PS8BU9a/3YeXo2x5LjyA74Ox7/XDo7xbvYgs7GvlaYQ=; b=utYsKrIKfVp5WkYmLBcHsUljkl
+	8kwlxHn8rtUVaXrjgy10hi3qsT4sTbwbqUgtO7IIu6bcaZuGwgL/jaryVtRxTI1DxFtm1h1lO+yPM
+	POEt+F0KL4u9LPfgSN6HtREVOuH+jMgB5NSpD/esEUpfknTPXrd6gWK13Uu8c5Lg4qAf/PlYusjvM
+	p3utjjAYW29ZODNIBt1rU9UczqN8yqFX/tHGdXEekvaICgotcAladCtboPPaXqVJtgaxCYTUHzFBd
+	qDr5jxi0fwQU1/IqAW8skOeWLGVJIRIGDt458FJOwATlt/Vhg745ri2VBIO2WGT3WJ41EDAZip8oS
+	SLm170og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnbZH-00000008OxC-3qBn;
-	Wed, 04 Feb 2026 12:01:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vnbZK-00000008OyQ-30zT;
+	Wed, 04 Feb 2026 12:01:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnbZG-00000008Ox3-22V8
+	id 1vnbZI-00000008OxA-0DtV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 12:01:10 +0000
+	Wed, 04 Feb 2026 12:01:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B146760010;
+	by tor.source.kernel.org (Postfix) with ESMTP id 2D6276012B;
+	Wed,  4 Feb 2026 12:01:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D674CC4CEF7;
 	Wed,  4 Feb 2026 12:01:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6676CC4CEF7;
-	Wed,  4 Feb 2026 12:01:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770206469;
-	bh=pFrd/M6Si4XMj9SNVLy6nTDn9r2/yk+RUG1kfMNsMN4=;
+	s=k20201202; t=1770206470;
+	bh=lH9HiQe1icK5XV1tUanZj5QknosMljGA5uHaf6rP8m0=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=gp1GwpWD4YY6CruFRUAnfeE2gfDgcScLUF0+tWJltGw2MrVkoZEaGuFptGf891zNs
-	 H7ns6lW2rBLMmsxvKWw4Dcd4DoKkM30Ixk4h919wKaeOrXZCBds3RONNNFyx3ZphyE
-	 UzehBk08WsgdtTDrWWaYk3zwc7enlhwMFFSl1I7s3i6qhFmyKEmlBwdT3B6lvE2fLv
-	 zOqs+LgUa2jrtFzH6FhCuWuS397vVmJ5AqvYgRet+SCslcmeS1eFAX0XH73GjbH3Jq
-	 SzCMlYdxIP+lYf4zkwwxQHkoCkv8IN7LFEiylacDDOngKSSNe3soUEmUHKb4fP71jj
-	 BPsqmfSdIdL3Q==
+	b=bnpkVKXq5h15PAsjSTSPDSsEdh7lZDngaFg/U/5F12w7+fW73XQPtblt2JvCdle3A
+	 YPljGeR1CbxodJm7wh/a3geWpw3P2qi6f+bC20hQZ+7oSBJAxBlcHg/jUQgdRtb2wH
+	 jDV8CGa/r89NepR+LSHoQPe5fiwtdzFXkANps8X8FqblRG/B2fjWMOxyyaKhDpgPK6
+	 vfFmRRhfLBXDS5zKHTV/jxix1akvDDe5/7EpwTHm6JkkBAmm4xdhCRhbjGJkoWuNuJ
+	 ta6p57Vvh/6dEPSdS3A+YoA81SlFZi2y/oSjGSa4X2cXchqrZ8YkPp2o0TUbncK1sk
+	 P5ve/YyqgGKKA==
 From: Mark Brown <broonie@kernel.org>
 To: Michal Simek <michal.simek@amd.com>, 
  Abdurrahman Hussain <abdurrahman@nexthop.ai>
 Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org
-In-Reply-To: <20260122-spi-xilinx-v3-1-8cea20e82f0b@nexthop.ai>
-References: <20260122-spi-xilinx-v3-1-8cea20e82f0b@nexthop.ai>
-Subject: Re: [PATCH v3] spi: xilinx: use device property accessors.
-Message-Id: <177020646814.61613.1868990347848506059.b4-ty@kernel.org>
-Date: Wed, 04 Feb 2026 12:01:08 +0000
+In-Reply-To: <20260203-spi-xilinx-v4-1-42f7c326061b@nexthop.ai>
+References: <20260203-spi-xilinx-v4-1-42f7c326061b@nexthop.ai>
+Subject: Re: [PATCH v4] spi: xilinx: use device property accessors.
+Message-Id: <177020646960.61613.6842316976047547845.b4-ty@kernel.org>
+Date: Wed, 04 Feb 2026 12:01:09 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -70,7 +70,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 22 Jan 2026 09:00:29 +0000, Abdurrahman Hussain wrote:
+On Tue, 03 Feb 2026 01:55:12 +0000, Abdurrahman Hussain wrote:
 > Switch to device property accessors.
 > 
 > 
