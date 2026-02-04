@@ -4,66 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E80E9D414
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 16:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F141FE9D411
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 16:44:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vN2Fj+2T2XPqSPUh4mDggrlLoRDdPCRl/rJL6Rv9elc=; b=DR2USupFCNRYhIb/B3WL1mXQiH
-	nbYyJkVNHZl+rEMN/SYKVoSqPqCydQzg4V0mZRmZDNYN6KTzBNwaQs73IpGQWf1AilL7E310WDFvQ
-	WE5rxAXEctCHjzJhY/NGZTFGhQzP9GyxVPlsvg7TvPZC0QqZ2k4oWRgBQbRXMG9B6Xx/qtC8CatBk
-	ZRne7fC41Vo0sYgkucT56EAF+iW5JE0GBNahkpt0cVJu7snio0V4AR4OM5HKnYwkb9Ia9IvglY1WM
-	Y46p2F0vHWAnl5G8lC5vo9cVGmR96cXFxoy7OC51gHiuJgRtQpZPOa/63DlbQgOVa4gdNZuNbZ/MP
-	ptfTWJNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IzKJaoczdQEQEObD6XYuu8yLDPQ9u0G3kGlKyfFHZOE=; b=pZG4JaDJafmoXHFCsp5+9WXDJq
+	/XIhN4yyrrPe0mJ/Pn53dq4JX7uiytgxBMrqVcAB37131J+n9IFzPGN6b4H4Y5qEbauRCfQvKaidi
+	4ZM96Wtq3Ebz9fs3b3Gekiq291QRGTgGpWKN3rOrmaiRLY8Kbsvwzs7h2IanJ6IRgUjtTF/Lg1i5/
+	puCoaiZ2+NdaUrH+hbf90yIsE8ZXBso26HuBMfW9ybjRi27t58pqOmzaKi4LpdTzzEnVS28hnDocS
+	nuBy9+gEAkFvTCTPEDudCnnqVDUCTK9zOTix/B45aWw0QxuKpkvXfVWmcDe3JgVZPSPR+/X4WWP3J
+	dYRRWtGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnfyf-00000008mZP-0RjW;
-	Wed, 04 Feb 2026 16:43:41 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.166.228])
+	id 1vnfz0-00000008miS-2NO4;
+	Wed, 04 Feb 2026 16:44:02 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnfyZ-00000008mWp-44yc
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 16:43:38 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 91E18C0131A0;
-	Wed,  4 Feb 2026 08:43:34 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 91E18C0131A0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1770223414;
-	bh=aQ6io+2IWsIte0MsWzzpbJF5HbgYitCJkmM4x6GAIfY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=kc9IJovmyU+rs/rSt5OKjWnvlTHXadbVRIq5M1fs2ndJWGnbpZqs9NaVJXV3SArKJ
-	 fbOJtmj1s5Ydew3q+xuAjmb00jPkvc9i3PTqMuIzqIm6HTLxky08vOc3Gl1hYt+FD4
-	 QWHRwt60+60t2eJscwYhQii/22lIFnbNx4CCxhbo=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 700031B85C;
-	Wed,  4 Feb 2026 08:43:34 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: linux-kernel@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Doug Berger <opendmb@gmail.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	linux-gpio@vger.kernel.org (open list:GPIO SUBSYSTEM),
-	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE)
-Subject: [PATCH v5 0/3] gpio: brcmstb: wake-up interrupt improvements
-Date: Wed,  4 Feb 2026 08:43:30 -0800
-Message-ID: <20260204164333.1146039-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
+	id 1vnfyy-00000008mgQ-08Je;
+	Wed, 04 Feb 2026 16:44:01 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--ff4.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::ff4])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 88E73593;
+	Wed,  4 Feb 2026 17:43:15 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1770223395;
+	bh=qldJ6sgrNVhQ6+tMXyVzxSoNgaT7hsfl7eFw2SC7SYA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SiHcPyGf0AEpN8eWR17GhmL1DwNCRD7xM0HnZ15NDAzsVpgnO5N9uwJTLJkHgTEvc
+	 o+rq9bafM9vx45FqFPuBhhDISq38Z0LN64vyUwhwJwWmEobPKoHpWVxFRFofKFh5C1
+	 uS6hMnz87sngNVI0SPpXjgaFfAKmszYC7YkK9lYE=
+Date: Wed, 4 Feb 2026 18:43:56 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Isaac Scott <isaac.scott@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, dafna@fastmail.com, mchehab@kernel.org,
+	heiko@sntech.de, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 1/6] media: rkisp1-resizer: Add YUV source formats to
+ resizer
+Message-ID: <20260204164356.GC170964@killaraus>
+References: <20260204112506.3706049-1-isaac.scott@ideasonboard.com>
+ <20260204112506.3706049-2-isaac.scott@ideasonboard.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260204112506.3706049-2-isaac.scott@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_084336_098701_8EB095A6 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20260204_084400_206606_9503CB8E 
+X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,42 +68,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes in v5:
+On Wed, Feb 04, 2026 at 11:25:01AM +0000, Isaac Scott wrote:
+> To be able to use YUV bypass, YUV formats need to be available on the
+> source pad of the rkisp1 resizer. Add them.
+> 
+> Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
+> ---
+>  .../platform/rockchip/rkisp1/rkisp1-resizer.c     | 15 +++++++++++++++
+>  1 file changed, 15 insertions(+)
+> 
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-resizer.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-resizer.c
+> index 8e6b753d3081..e72b76ab078c 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-resizer.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-resizer.c
+> @@ -23,11 +23,26 @@ struct rkisp1_rsz_yuv_mbus_info {
+>  };
+>  
+>  static const struct rkisp1_rsz_yuv_mbus_info rkisp1_rsz_yuv_src_formats[] = {
+> +	{
+> +		.mbus_code	= MEDIA_BUS_FMT_UYVY8_2X8, /* YUV422 */
+> +		.hdiv		= 1,
+> +		.vdiv		= 1,
+> +	},
+> +	{
+> +		.mbus_code	= MEDIA_BUS_FMT_VYUY8_2X8, /* YUV422 */
+> +		.hdiv		= 1,
+> +		.vdiv		= 1,
+> +	},
+>  	{
+>  		.mbus_code	= MEDIA_BUS_FMT_YUYV8_2X8, /* YUV422 */
+>  		.hdiv		= 2,
+>  		.vdiv		= 1,
+>  	},
+> +	{
+> +		.mbus_code	= MEDIA_BUS_FMT_YVYU8_2X8, /* YUV422 */
+> +		.hdiv		= 1,
 
-- collected additional Reviewed-by tags
-- utilize irq_hw_number_t in brcmstb_gpio_set_imask()
-- clarified that irq_mask_ack/irq_mask/irq_ack are functions
+Shouldn't hdiv be 2 for all those new formats ?
 
-Changes in v4:
+But overall, I don't think those formats are needed. I would be very
+surprised if the resizer used different YUV orders on its output bus.
+Can't you use MEDIA_BUS_FMT_YUYV8_2X8 unconditionally ?
 
-- Provide a leading patch that utilizes irqd_to_hwirq(d) to fetch the HW
-  IRQ number
-- Utilise .irq_mask and .irq_mask_ack notation in the commit message
-
-Changes in v3:
-
-- added Linus' R-b tag
-- removed useless comments
-
-Changes in v2:
-
-- corrected the patch implementing irq_mask_ack to write properly to the
-  STAT register, this was not the case
-- create a separate helper to write to the IMASK register to make the
-  code more readable
-- remove unnecessary cast of unsigned long to u32
-
-Doug Berger (2):
-  gpio: brcmstb: implement .irq_mask_ack()
-  gpio: brcmstb: allow parent_irq to wake
-
-Florian Fainelli (1):
-  gpio: brcmstb: Utilize irqd_to_hwirq(d) instead of d->hwirq
-
- drivers/gpio/gpio-brcmstb.c | 125 +++++++++++++++++++++++++-----------
- 1 file changed, 87 insertions(+), 38 deletions(-)
+> +		.vdiv		= 1,
+> +	},
+>  	{
+>  		.mbus_code	= MEDIA_BUS_FMT_YUYV8_1_5X8, /* YUV420 */
+>  		.hdiv		= 2,
 
 -- 
-2.43.0
+Regards,
 
+Laurent Pinchart
 
