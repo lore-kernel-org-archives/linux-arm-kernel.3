@@ -4,185 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EDB8E95392
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 12:29:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99A06E95394
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 12:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MQL8eioVm4JQOoopAp35c66ByPDWxnXcGTZpSje17ZY=; b=j31L4iVVD6jappxRRaO/VtVppo
-	eR08myjvEl9ATRJpMiZawtMt8PTzjy16kY9E7O2oB0OrJDUUeDzVNv46o19OvdbYsm0x3OThlcDyx
-	h/oZ3Wmo0ftzvCWukJE4lSWeLQQ9/NEiIxvdtQHJVmoaH+z7seiHvpYrqEsuafcPy1wFgj/EQAcd/
-	SDdR58kl16sqftWA0BeeuN6Q6w57J5H7kHpwcVTNO+RWj6Nx7Ytlx+aKNfPTIRBQD97tnHhJvj7c9
-	E00VK1OJEMKwPF+i5nusPioH8QGR3b2PE1RNaxTPmhK44g/Lsb22gn0+eeXEzzUa2P8IjDRz4hWb/
-	bwjsGtuQ==;
+	bh=258RcRsPMpMT2Qz5JVwYK0I4JavHEDB9+KA3oXvdIms=; b=TrqpLZEs3dmiXtk8Pfgqd8VHmV
+	YD6e45RUyjECFQOSH4Y+nZvHnV7Au4XGjH1e6f1j0FeA/rkefadg2wlZyX9WKX0Oi78zn0q1csXC1
+	RSWNeExz2uvP+52E+oOSg3yYpyeekdyayeNk5feaJik3xrjfNHSWklzV/D+STLxiClsp2uFtCyzcR
+	Jy4JAkNljxJkU8e7d/tKctmQu2naZWVuNxsvEheJQ1bmVrl9Spu4D62RmvEE79+lp0bp1VKmnCOwF
+	0kchdi6ydlWKT8JYIw+iUbpzSubPGQDRYm2UeG6G+ozfy/z4Zq/qiC/ExKEbauOMr9ph0awxv/bPI
+	zjh4JnMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnc03-00000008RH0-2K89;
-	Wed, 04 Feb 2026 12:28:51 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vnc5H-00000008Rr1-0Npb;
+	Wed, 04 Feb 2026 12:34:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnc01-00000008RG9-2m6Y
+	id 1vnc5E-00000008Rqb-2kxU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 12:28:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GSbHoXWA1rwK/Q2L2KrthA/uY8+u/gY7xgcwD3kz6wfMaFSFgh5Nh4/+1BEffhfMogFN5e/+QMOqCLTCDMMXTq52+xhXv4TJjHikwbFVfxUz/SGafp9kbSRIMRiwbNbtwDReL5zUa/LZn54wjyvkchYBqz6GHhZL9Q+kaRZE22KahU2DIw2gS2Gb9ndO7S8C4eUJjjTdedOe8TBTSa/DS5BW6smPjl/YXd+b+yA7nBZEgm0TdRDygQId9jG5ZTOCFoB41Ug8X2S6xjvoCYbUOcuuQ402ulyOtEyVPCrVVDPCvxxTDeGF1MUWo2nOqCjTKMtMu7sHLIm5AsDCAKCMtA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MQL8eioVm4JQOoopAp35c66ByPDWxnXcGTZpSje17ZY=;
- b=f4stqJQt7VZUJ1VfmrtLkJSGfjIPs5EzrOlPEaDWqsXjJbHCPLhYunnhf+CtGwNhqwhxvyL4bSQKsMK7C7kFBKKvY8WJxQLsT4xihq2LCVx2N0lYBjCxdUSlZgTm/RNaO/3qrOlqONNUXm65OdF6QAJkjK0h858htPqh/VpP2QWibMi2Dy96CCR+wlQtvcHvnqI2i4J80p4r5eTXoiwDU3nfj8OvQiZxHNp+fQPJcuy179kcSw9+SypuZ2XgRLS5ZP7MyUTc3x4ljrEqFRkkSG8mzdEq8tt2BgaIy2gilUioofuowV3LshMUW6/Bok/rgkFj5yPmGmF8YJLo67qodA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MQL8eioVm4JQOoopAp35c66ByPDWxnXcGTZpSje17ZY=;
- b=ECr5ONsN6wlX5Ls8Q5t13ox7N4jeZynnTTnkvG7ZP0ySLJ665TUjq2PrE3WdaCoKbbVmvZFMYII4leQvqBcFTYWkJPIZ02ixVJanWsWC6J/PoXP1oZGSyP0BB/nD0PjPirpO8cUUyem4oRcB78BDP4So+/oNfYMy6tlZvYKy6xqpYyYLadLOcrYEM6BXkvCWSUMUu5Ue/q02XGTa8rli8Liq/7I8lT8ooUlIcOeo9WjMqyNf1DxPYzhkTM5/F8e4L6jQG/Zzy0eZ39sNXG5cdMzgEEzI6KrANl6IyqAONu8I9/oS6qz2gTjlWjBwsMtpLl6O4mNbDvj0WqrCiEcPMA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
- by VI1PR04MB6847.eurprd04.prod.outlook.com (2603:10a6:803:134::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Wed, 4 Feb
- 2026 12:28:25 +0000
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::e99:f504:ce75:9bed]) by AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::e99:f504:ce75:9bed%3]) with mapi id 15.20.9564.016; Wed, 4 Feb 2026
- 12:28:25 +0000
-Message-ID: <4cdba05c-f4aa-4ec1-9a73-2c0983c1aa73@oss.nxp.com>
-Date: Wed, 4 Feb 2026 14:31:20 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/5] mfd: aaeon: Add SRG-IMX8P MCU driver
-To: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- =?UTF-8?B?SsOpcsOpbWllIERhdXRoZXJpYmVz?= <jeremie.dautheribes@bootlin.com>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
- <linux@roeck-us.net>, Lee Jones <lee@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-gpio@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-References: <20260203-dev-b4-aaeon-mcu-driver-v3-0-0a19432076ac@bootlin.com>
- <20260203-dev-b4-aaeon-mcu-driver-v3-3-0a19432076ac@bootlin.com>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <20260203-dev-b4-aaeon-mcu-driver-v3-3-0a19432076ac@bootlin.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM4PR0302CA0027.eurprd03.prod.outlook.com
- (2603:10a6:205:2::40) To AS8PR04MB8247.eurprd04.prod.outlook.com
- (2603:10a6:20b:3f2::13)
+	Wed, 04 Feb 2026 12:34:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0540F4169C;
+	Wed,  4 Feb 2026 12:34:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46458C4CEF7;
+	Wed,  4 Feb 2026 12:34:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770208451;
+	bh=AHCivJDP5GD4OkZ5utB49/t1kFWdOSJ8prtPUFvZDG0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KiToyLjjCR1nTGa50S+wkB8PvJazj2qYOSlcD/TRBD0REFefCrv0GR/ITEIQWBBKr
+	 ZTMgraWW5tzNmc6J84Kbctoen0pRB/76UckTZ3Y8sWjIaeOO/sEx84pKV1tBeOJibd
+	 VnMHyLqxHktn+OetUF07woScFMr9Fd1gPJjQDp1lLiNq4Sodx5s2nvjE2d+NsGDl6x
+	 F8WP1Dj1nDwYgoYn3e1bJJ/NuBw/j5uNFIQP3Jy+ZeJ0sa0dBdj6QWr6F0WPNHai7N
+	 sMIuECPEIE++t78svtxJ9mK27FhxbdcDbuncQ5yU/wz8WJq44Ag8bJ8maSjFazkq8z
+	 JSjYzFdXEMF1g==
+Date: Wed, 4 Feb 2026 18:03:55 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Sherry Sun <sherry.sun@nxp.com>
+Cc: Frank Li <frank.li@nxp.com>, Hongxing Zhu <hongxing.zhu@nxp.com>, 
+	"l.stach@pengutronix.de" <l.stach@pengutronix.de>, "bhelgaas@google.com" <bhelgaas@google.com>, 
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>, 
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
+	"festevam@gmail.com" <festevam@gmail.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH V3 03/10] arm: dts: imx6qdl: Add Root Port node and PERST
+ property
+Message-ID: <gshz5zc7qkfkqkla2mkpu7jjf3sctrqf5jo5vszzgxzpegxzni@yhdqkykyn2ar>
+References: <20260203015614.2957479-1-sherry.sun@nxp.com>
+ <20260203015614.2957479-4-sherry.sun@nxp.com>
+ <mp25jwvoimpesfwtpmyeltdpbu7aznahxvkcn6jxg5jqzxck4i@pium66rnpdd3>
+ <VI0PR04MB12114DBBE58AB89BEEDC28C019298A@VI0PR04MB12114.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|VI1PR04MB6847:EE_
-X-MS-Office365-Filtering-Correlation-Id: 173a876f-5939-4d16-41e9-08de63e8e456
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|19092799006|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bzZoZ3ZNd0R3Slh6a0xlcUN2d2xVeHE3Tkl3R0c1eVZGc0lQYVNmZ0hjMnl6?=
- =?utf-8?B?RklWRUxtTDRpci9LcU9IWVJUS0taMENFTDhVQ2tpQ0p1RUlocUNsdEQ3VXBW?=
- =?utf-8?B?WExQNGh6UFEzakZ2ZTZUMVl3M2tnNFhTWVpUUm5ZcFZDTEZQUWdJUUtKOXIv?=
- =?utf-8?B?Z1pRVHFHbUwwOTAxTkZ0VjhwYnVYZWR3bTB5QUFPV2hCY1F4bEU4Smc4Qk9x?=
- =?utf-8?B?b0lUMmo1V3YzcVJaQVU4QUs2V2VjL0pRTlZGT2dURS9ZemJxbXB1SDZNbFlh?=
- =?utf-8?B?aC93WGIwWlBSemdxMnNKQjdOTnhpMUtrMjVDYS9vakNtY2V5VkpQWk9vSUh3?=
- =?utf-8?B?dWQ1QmhJaEVJcENoUXN3ZU5PZkFsdUNkaitUdWVLUnhHT1pFQUE3d0VyTXo1?=
- =?utf-8?B?bFhtT3hmeUY1TzBvM3hQWFNxT2VEMnB2V2JvRSt6RmVsSjlCbG5NZUdnVGZB?=
- =?utf-8?B?Y095dUx4aG1xb1NCZkF4SGJMTXltc3ZTQ21VeVduT2NLMC9iYWEvajRTVE9D?=
- =?utf-8?B?QU1TK282MWJGc3E1czcrRFhOWGZ5ZENuMng4U1ZVVWtSRzFja2RBSTZVWG1k?=
- =?utf-8?B?UUV2Y2EyMy9oK24wWE5qelBHelIrQ05Ka0JNVUhrUjNVUDB0WWZ5eS9XdVVs?=
- =?utf-8?B?bTluam1mUXVGZ0JhZEpxTDJRZW9PckoreUNjS0JWVFFNSzJEQ3JxbG1mbDZE?=
- =?utf-8?B?VUYrVUpaUjVkeVFkN3UrK1d6bFFUdlYrSW8yM09ORWRZU1ZUKzlVYm45WlNo?=
- =?utf-8?B?Q0lZZkNac0tVYUZYeGxlWHlCVzZJY2xDV2hyTExUT1VCbUNEdVhaL0lsclFr?=
- =?utf-8?B?S2M4OUE1RGIyMkNwRXBBZXFTa0NyNkhIUDhZeFg4RzZYaTZhWDBRZi9zK2F4?=
- =?utf-8?B?SXZEeEVOTHBrWkIrMXM0K1NMYVZ4VUVqRUJhNjJkdjVmekF2NkdyQUhvMHkr?=
- =?utf-8?B?ZTRJTjZXM2NsOVROMlZ1WnFZK1QxODY3OXJNeGZwN001NWoySlRUaGVwWVZa?=
- =?utf-8?B?NFUvTHBBTXZxR0cwZzkxdEwyRkhGRzJOaEpyc2xNVmMvbGVxb1lSWlFFbW9I?=
- =?utf-8?B?L210YjJIazl1NDBNdHNIeVF4Mk9tb09tR3lYQkw3alhIMWIvSmp1SVB0dGcr?=
- =?utf-8?B?MDR2RFlBcnRBYlJlTWR0VVJIYUJnTjZBbUMwS3R4RU56dVpVWWR4WGUvbnB1?=
- =?utf-8?B?SWZVZHEvT20wSkJ6SjFucExLOU5ONWN2cFBlenpOam9hQ3VPVWJGUDNsbkdw?=
- =?utf-8?B?anhlamVYWWNkVTRBWDM1V3V2M1ZNc2RtTnJKOGxFOUdpS0hKWVp1Y2l3ZWRy?=
- =?utf-8?B?bTJmMWVMbUhIeTJicHBYTXZ4MnFGVlhYL21WTnNocTRZQzlNQ1BPRkZLMTdM?=
- =?utf-8?B?MTBjazFpN2JFRVNEU0JCdE5CVzg3Z2RiMWgyZHBzZ2NCc2Z6QnV1V0tZckdR?=
- =?utf-8?B?eEhacXl6QjltWmVZRFovTTduQUxyTEVrVjgxN0UxQy9OSmRHNGlmRFgyZEQ2?=
- =?utf-8?B?V3Z0aWI4MzBoaUVhcUxDNzJGWmlxTEdEWVRaT0JhQXB6ZWFUVXZOMHVSb3ds?=
- =?utf-8?B?V2JtWnNtYUdiaXJWendCdC9mOFJ0Y0V4MnVZbnhqR04rbkNjWkQyRDJZSm40?=
- =?utf-8?B?emdYN1ZjaGF2NHZlSVlicVN0MEZjeG5jdm9GTVhtMHREbytPeVpOZlFQQnls?=
- =?utf-8?B?eWRTbHorWStTQWo5d0E3QkZ2R1ZKNSszbXlVOFBZd2hXYS9YakI5VzNrQ05n?=
- =?utf-8?B?dVJlU0pucGFFTTYraTd6bENQWE1Hd2JEcWFVNnVOS1UrNm1tTElmbG52S0ZQ?=
- =?utf-8?B?QkYzK25oL2JnZnlOdE5JeE5kcDgvWDJ6NHN4bWtxZWxVMG01cE1Ha3lQaTEv?=
- =?utf-8?B?aENjb2tYVmJpcDAvcW04Z2ZqeTFXblRMaGwrQ3MwRC9vOFlMZUxjZlo0enFY?=
- =?utf-8?B?dTJVSzd2a095TlB5WFFRNng0c0Q0MVBiQ3gwaGdlN3EyNENUbkFLMVBKYk8y?=
- =?utf-8?B?SUR4SkVsakRKT1hnekhOS2lUd3lWMXQ1czlDMkJQRlViRUVhczE1dWI3K1Vp?=
- =?utf-8?B?aXAvNkZRQVdUeUlTblY2MGlVb3dIWEEreGk3S0NuSjlvb0tYOEpBSzZ4SmpC?=
- =?utf-8?B?Z01Ic2FEaDhlZ3dsMmROL2NXV1puUFgzdkluMHNMVHhnR0JnaUJTQS9tWjAx?=
- =?utf-8?B?aGc9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(19092799006)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RjZ6SkxsUmVlZ2RmTXhNdHhFMHJiQkVnckltVURPaElCSk42UVdjbmJubTdW?=
- =?utf-8?B?TEdJbjZHcVVXYmh0NU9IUnVUYldVeUd0ank0VG9vZGRIVWpkK2wxNmFtSGdZ?=
- =?utf-8?B?Snc5WWZGcnVuUzlUcTV3Y0h3R0FtREJ0QTBEU0ZoSURWWkVyTElDZUI3N2hp?=
- =?utf-8?B?aStHQWk2Z0Y3RHNBSE9Pb1pWMUxQaVJLWUtqTmZqcjRULzNDLzdLdExCbG9G?=
- =?utf-8?B?Z01rNmk1TmNQL0Eybm1JVFBWV1p3ZVVGTDlsNDFOL25rOFRFQjBFdUNUbTdT?=
- =?utf-8?B?K045N05hVXZuNEZ4MnpmRHY1bFlNVXhpZ1UrMDJnYm5taUFvdmN1bXhZK293?=
- =?utf-8?B?NEk1Uk1kbmNSYlBOTi9SVWNCL3paU2NDbVlJWVRIZ09DQXNpcDlBa1FncHJM?=
- =?utf-8?B?VTh4SGFjc3IvME1LTGxkQWszbFFMRzdQNnZIQ0VybEIwQlVTZGRTbm1kVU9z?=
- =?utf-8?B?d2xRNkY5SFNwYmF6NlZuLytBbjFmS2tMNDZIcVQvZjZyUTM4NUoyZkQ2dW54?=
- =?utf-8?B?MzgzOXE5RzFseFV3bzVyclVBMll6RXFUTitKdmpvSEhuY1E2ZG9TZkFmSHhN?=
- =?utf-8?B?V1VFcmF5QjdlM0xsYk9mMjd0b0ZOajRCMjVWaUE3dGlMb1hSMnVrZk9nQkIx?=
- =?utf-8?B?V0V2V3VuUk9EVWRwT3pRckVIbzl5ekxEQlBBbEdvaWY4YkgwQTdlMFRyOWo2?=
- =?utf-8?B?R1Npdm40OVhycE1XNGtDNmIraXFuN2Vuc1RoaEUxSnJaa0lBbVViVWxwMVU0?=
- =?utf-8?B?VVFtNDBnTlVhcGV0VjNWRitXYTIxYk4vbmMydm5qYSt6THZJTUUzL1JCWkRD?=
- =?utf-8?B?SHlUSm1WWGlGK1NPVktsZXc1VER3RjVpempqVmltTHVyMmdXOHY0V3prLy9L?=
- =?utf-8?B?d0RLUjYwd3gvc3EvZUF2dStSdU1yMWRxK0lOS1pQOXV3UlJheEJ2eHprWVhL?=
- =?utf-8?B?V242bWhaS0VsY3dlc0NSM0lvc2lEK0ZibzhSdzU0Wm00RE9tWFlscXV2dnkx?=
- =?utf-8?B?RGZ3WE95MUxuVDlGSUJSTXRCWEtwQlhvTE51OXJ2M3BlNjBlb1hsdE0zUUox?=
- =?utf-8?B?QzdVNndlejBhemV3MFdDZzhDTklZUDR6QWxkQUpvcnJvSGhmdUlJd0VRUzRy?=
- =?utf-8?B?OTBtNzJPa05VbHJUdlZ2VUkzblZnVEdQQkdZMjhBSy9JWU9hR1huTkdLckho?=
- =?utf-8?B?QkFYWlVxMEpuMnhuYjBNQ3pyelhEeXp2NmhoNVRqdkUrd3dOOWdobVhSUGNn?=
- =?utf-8?B?Y3FKTkk5dTlVTjRFcDhYalphLzNrRmQxWmwxTEN1WHlzeFo0NjdpampwWlMz?=
- =?utf-8?B?MTBOaEpmc3Y3VVJuYjNoZzYzNFRXZ1hCVk8xazVNckhWbXZ6eFdqdGloQlYr?=
- =?utf-8?B?UXFBcVpDcmcxWFFvM3d4bFV1SmJLVDd4S3NTSlVVZ1VZc1V0TVEvYm1zKzcy?=
- =?utf-8?B?enpORWQ0N3F4UG5hNzI2aEU0VlM3czkyYmFHR1BDcndkVjZjSmNFNGYvOEhX?=
- =?utf-8?B?VGhRTFRGcE1LaFNLWlh1ZFVxM2Z5b01jZm1RNE5MLys5Ly9KTVZnYld6NzRv?=
- =?utf-8?B?VFVuUHF5WGRDSkRFRGxvcnEySGxXREhqUlgxbU9Bd0Y2RGttV1YxMWgrMVow?=
- =?utf-8?B?NzF3OWpIbWgrL1NKYXNDS000NWF0UkRNTHNOTmhVNHZNVVRzZWEvNW9Rd3Er?=
- =?utf-8?B?WG9BdEtveHNjazVabThvc1BsMmtkeVIwSVR1MkVDeVhCaUZOdnU4ZTBncGd5?=
- =?utf-8?B?TUFndUo0Z0dWckNpS2tiODFDeHp3bjJ6Wm9qOEdTeUlQYWFjaDg4c1ppTVdC?=
- =?utf-8?B?cXlZVXVyWkg2UHp2dFFPT3Ira29wUW8vZnR5NjEzM0VBUzNwQzJlekpEajAx?=
- =?utf-8?B?aE81RVBOVW5ET0pHaXFKNjdYZ0p1K0VMNDNnYkJLUkxjalBJQzVqU1d0ekYz?=
- =?utf-8?B?Q1J4bDhiNW1EY0FtY09WZkxCNEFmMVFyUmdvSTJoY3ZiTVNyMFRZbkErZlBi?=
- =?utf-8?B?MjRWU0tOR0tsUFJoMFZ2eVpBTW94QXlWRHh1MWFNeGJUN0NMbHpxZFF0alNl?=
- =?utf-8?B?Wnd6VnlIWk1XVlpmZjVoZ0hTeVBmekJWUjRadlZDcVZNcWFlR0xoVTJaNUQ0?=
- =?utf-8?B?THRVVlZLSWNJcGJPTDF4RWEybVN5akpYUXdCY3lCT0dhZWlqUW16KzM3VlFN?=
- =?utf-8?B?RzRkc25rbEpNMUxKQnNhK2ZkTlBHVDRZZWYwRy9aRDNBWlh4VTIzZUxkNE9Q?=
- =?utf-8?B?ZW5LYi8xajlGTXJsR3RZWTREUndnbENRbHhPd1cycFY4U2xWbzk5dnlML0Zz?=
- =?utf-8?B?S09oNi8xMGZVL0YzSjlNNjZhS1Bka2YweE1RMHlKaDdhaCtvQzE4Zz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 173a876f-5939-4d16-41e9-08de63e8e456
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2026 12:28:24.9417
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YZrPhc4NnvXPqfTeGp+yKiD6k2U7IT7l2eFVy5vfJNglPqGYSq9Zgu3/UA6UyD2ZXVTgvACAIA8DMuq4v0J0ww==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6847
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <VI0PR04MB12114DBBE58AB89BEEDC28C019298A@VI0PR04MB12114.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_042849_705979_343D06E0 
-X-CRM114-Status: UNSURE (   6.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260204_043412_735775_023A2F5C 
+X-CRM114-Status: GOOD (  24.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -197,16 +83,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/3/26 18:21, Thomas Perrot (Schneider Electric) wrote:
-> @@ -304,3 +304,5 @@ obj-$(CONFIG_MFD_RSMU_SPI)	+= rsmu_spi.o rsmu_core.o
->  obj-$(CONFIG_MFD_UPBOARD_FPGA)	+= upboard-fpga.o
->  
->  obj-$(CONFIG_MFD_LOONGSON_SE)	+= loongson-se.o
-> +
-> +obj-$(CONFIG_MFD_AAEON_MCU)	+= aaeon-mcu.o
+On Wed, Feb 04, 2026 at 06:44:07AM +0000, Sherry Sun wrote:
+> > On Tue, Feb 03, 2026 at 09:56:07AM +0800, Sherry Sun wrote:
+> > > Since describing the PCIe PERST# property under Host Bridge node is
+> > > now deprecated, it is recommended to add it to the Root Port node, so
+> > > creating the Root Port node and add the reset-gpios property in Root
+> > > Port.
+> > >
+> > > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> > > ---
+> > >  arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi |  5 +++++
+> > >  arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi         | 11 +++++++++++
+> > >  arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts |  5 +++++
+> > >  3 files changed, 21 insertions(+)
+> > >
+> > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
+> > > b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
+> > > index ba29720e3f72..fe9046c03ddd 100644
+> > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
+> > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
+> > > @@ -754,11 +754,16 @@ lvds0_out: endpoint {  &pcie {
+> > >  	pinctrl-names = "default";
+> > >  	pinctrl-0 = <&pinctrl_pcie>;
+> > > +	/* This property is deprecated, use reset-gpios from the Root Port
+> > > +node. */
+> > >  	reset-gpio = <&gpio7 12 GPIO_ACTIVE_LOW>;
+> > 
+> > You should just remove this property.
+> 
+> Hi Manivannan,
+> 
+> Actually I have discussed with Frank about this in V1, Frank suggested add
+> comments here instead of removing the old property, just in case the dts
+> used by old kernel to avoid function break. Or maybe we can at least keep it
+> for some kernel release, then remove it later.
+> 
 
-Looks like this lines are sorted and your new addition should be around:
+If the new DT breaks the old kernel, then the kernel needs to be upgraded. But
+typically, one would update both kernel + DT or just the kernel, not just DT.
 
-obj-$(CONFIG_MFD_ACT8945A)»     += act8945a.o
+- Mani
 
+> Best Regards
+> Sherry
+> > 
+> > >  	vpcie-supply = <&reg_pcie>;
+> > >  	status = "okay";
+> > >  };
+> > >
+> > > +&pcie_port0 {
+> > > +	reset-gpios = <&gpio7 12 GPIO_ACTIVE_LOW>; };
+> > > +
+> > >  &pwm1 {
+> > >  	pinctrl-names = "default";
+> > >  	pinctrl-0 = <&pinctrl_pwm1>;
+> > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
+> > > b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
+> > > index 76e6043e1f91..eeb376193398 100644
+> > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
+> > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
+> > > @@ -289,6 +289,17 @@ pcie: pcie@1ffc000 {
+> > >  				 <&clks IMX6QDL_CLK_PCIE_REF_125M>;
+> > >  			clock-names = "pcie", "pcie_bus", "pcie_phy";
+> > >  			status = "disabled";
+> > > +
+> > > +			pcie_port0: pcie@0 {
+> > > +				compatible = "pciclass,0604";
+> > > +				device_type = "pci";
+> > > +				reg = <0x0 0x0 0x0 0x0 0x0>;
+> > > +				bus-range = <0x01 0xff>;
+> > > +
+> > > +				#address-cells = <3>;
+> > > +				#size-cells = <2>;
+> > > +				ranges;
+> > > +			};
+> > >  		};
+> > >
+> > >  		aips1: bus@2000000 { /* AIPS1 */
+> > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
+> > > b/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
+> > > index c5b220aeaefd..6b12cab7175f 100644
+> > > --- a/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
+> > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
+> > > @@ -45,10 +45,15 @@ MX6QDL_PAD_GPIO_6__ENET_IRQ
+> > 	0x000b1
+> > >  };
+> > >
+> > >  &pcie {
+> > > +	/* This property is deprecated, use reset-gpios from the Root Port
+> > > +node. */
+> > >  	reset-gpio = <&max7310_c 5 GPIO_ACTIVE_LOW>;
+> > >  	status = "okay";
+> > >  };
+> > >
+> > > +&pcie_port0 {
+> > > +	reset-gpios = <&max7310_c 5 GPIO_ACTIVE_LOW>; };
+> > > +
+> > >  &sata {
+> > >  	status = "okay";
+> > >  };
+> > > --
+> > > 2.37.1
+> > >
+> > 
+> > --
+> > மணிவண்ணன் சதாசிவம்
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
