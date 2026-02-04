@@ -4,60 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EFC6E83EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 08:02:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 358F0E83EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 08:05:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AWgmNjGWwQV13D+38ejosrAo31ABQAS2uwlNqDmUuqU=; b=X2IkgJsG4JkeaMx5zN4xu9DiJO
-	Lhv8o36lX0NyWQ3XeZlogzZOuepUL9dFzwybUoVXZs7h9Oaa/bjQewsljPowGFRyHsGT30jYjrChk
-	2SPTa+Xp5wpbjjVfEJK9ftc2XhJW4SFiOprkZMRoSE/zUncKXhpEMiY1u3DO3rDEX10DCj15bU9U9
-	DsWfS04ZS5/PK+dHZGgNWDed+gnzhfdzlcGnNDO4lkAlz9kjSKEnc255OpMNY5snOpp5AHjNlLB8z
-	SSmfEegJiNzBFOraMI6Qjm1xQ6+lot9NmLvWZ2GSQ3fP/ZNqEzFy6C8WPtHDI8NYEgW/MQF8+NBTR
-	fkj557Hw==;
+	bh=5p/GG6am0De+54Jw2KORk5R626u+IDpCl/qGStKE3Xw=; b=sFDaLiX+wHWB6mIUHjHPj9N89N
+	ZMws8vNZ4nDnkFf0RBLkGx+jYG+6ISw7ZzIEKwOyhTprubRB+0p6XywTGUeqO4XAYXSP0LA2KJ8yp
+	4x0EOuD6FfkpEY4+K+U4VRxH9zMLTp5z9Lz+PqWv6LA0YPC2gIRuaLrMT7gLQ9pTy6vP+YzOXHUTO
+	3CstW8wRlw6DODv720sXtpDMnSHI67uLapSLAb0NMqhxWdQ1zDGF11PpOyXs1zZinl9gEaBWgo++1
+	h5wsr8Ltck2l5YagDA3/CAhAfhQNa3vy3Wy39uPFtkXXoJZOQWLK2sGNn/LnhItNWO3zpOfp4IZdJ
+	ozEQn4rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnXqE-0000000853c-0qgv;
-	Wed, 04 Feb 2026 08:02:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vnXtP-000000085Ey-078J;
+	Wed, 04 Feb 2026 08:05:43 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnXqD-0000000853W-0oqS
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 08:02:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4B832600C3;
-	Wed,  4 Feb 2026 08:02:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51BD3C4CEF7;
-	Wed,  4 Feb 2026 08:02:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770192144;
-	bh=nRrC8wphQ1dc/BfGnKr7IWUN3Ln6veciQrvR7VK7Ook=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=A0kyECe9zWPpUVDyRYGYpTfDn14yi64ekYqYmxZee7Riz1wWcOOBoyPnRXZ/6ekBA
-	 sNc4VzDWLWlT3A1k4Aw7mJiZMUwHw6oEFSFZTHE8ryyOt1dKipxppN9S9TzScTMZqi
-	 yze/jCixMgyabO3dGH4wr/ZeYI61T2M+PEjxmVLQk1Bg0RECk6vblAGzsX18Yng2ob
-	 5yOu8Okf4u/0a8LiJkoxtZC2lmEWnBz0drbjEYOmqH0BUU0+4bUkpHUhUarROd17Zz
-	 KietqbYBSlFdrKRu4vE42l9J4uOkfT6geC68q+juJN2jBUWJZw2VD6NS6al3zQRYHC
-	 7X8/lbcymdzJA==
-Date: Wed, 4 Feb 2026 09:02:19 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Felix Gu <ustc.gu@gmail.com>
-Cc: Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Maxime Ripard <mripard@kernel.org>, Wolfram Sang <wsa@kernel.org>, 
-	Boris Brezillon <bbrezillon@kernel.org>, Arnd Bergmann <arnd@arndb.de>, linux-i2c@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] i2c: sun6i-p2wi: Fix device node reference leak in
- p2wi_probe()
-Message-ID: <aYL2OAdZTV78Vsy0@zenone.zhora.eu>
-References: <20260201-p2wi-v1-1-e0ec9cda82b3@gmail.com>
+	id 1vnXtL-000000085EJ-43ED;
+	Wed, 04 Feb 2026 08:05:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1770192340; x=1801728340;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=DDwHMOsMUXm6WJ1FhegVa/SYna+oMCYrxCy4oam8+74=;
+  b=EfCVzjh+oBr2nXy4A8qQLXPanLT6siDtLaJlR9nGz+USQWArGxPJClKy
+   faQX9hWykkXUjYgfHyqXUyhh1HtJYh215J0DXLljbZPUpXI39ebd9eYqz
+   xC7foA3qnh+5enWM2wM9wGoOFc2EF8W5GCt364F2vU9861uGRITeYjrep
+   FdwGpSAz+NTv7mzJPyamF5iQGrJZBNtI7NIY4L4Hzq2Zb2S8pVI8mLq5x
+   wTSq+1hcjdCL3CB2iEd/FLuPhYyPSvzHuRE7P5BXiNUQVSKrNSPWEg6Gf
+   b5ty3km8mE+Xqi83E31kIdGLfm2KtC3aK1FF+Gs1ikAHXskgkiz0K63nj
+   w==;
+X-CSE-ConnectionGUID: EqvbRBaFR2SC6420wWu/0g==
+X-CSE-MsgGUID: dTBPDmFTSyyRV7hX++xNRA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11691"; a="73974813"
+X-IronPort-AV: E=Sophos;i="6.21,272,1763452800"; 
+   d="scan'208";a="73974813"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2026 00:05:38 -0800
+X-CSE-ConnectionGUID: gieHYdZRQuSMnX4Z5OrgTQ==
+X-CSE-MsgGUID: ZLpUHnB4SdKCro4KdvDuew==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,272,1763452800"; 
+   d="scan'208";a="209473784"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa007.fm.intel.com with ESMTP; 04 Feb 2026 00:05:36 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1003)
+	id 5881F95; Wed, 04 Feb 2026 09:05:34 +0100 (CET)
+Date: Wed, 4 Feb 2026 09:05:34 +0100
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Conor Dooley <conor@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Xianwei Zhao <xianwei.zhao@amlogic.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC] pinctrl: pinconf-generic: move ..dt_node_to_map_pinmux()
+ to amlogic-am4 driver
+Message-ID: <aYL9zgEyCarrluvP@black.igk.intel.com>
+References: <20260203-craftsman-battered-3491ff68f462@spud>
+ <CAD++jLn8WOobPaoSrMLitFgFZc_6CH9BQbRy_Gdqq3BLhDXWQg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260201-p2wi-v1-1-e0ec9cda82b3@gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAD++jLn8WOobPaoSrMLitFgFZc_6CH9BQbRy_Gdqq3BLhDXWQg@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260204_000540_044539_B6D3CA29 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,62 +95,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Felix,
+On Wed, Feb 04, 2026 at 12:34:36AM +0100, Linus Walleij wrote:
+> On Tue, Feb 3, 2026 at 5:17 PM Conor Dooley <conor@kernel.org> wrote:
 
-On Sun, Feb 01, 2026 at 02:29:00AM +0800, Felix Gu wrote:
-> Use the __free(device_node) scoped variable to automatically release
-> the device node reference, preventing a device node reference leak.
+> > pinconf_generic_dt_node_to_map_pinmux() is not actually a generic
+> > function, and really belongs in the amlogic-am4 driver. There are three
+> > reasons why.
+> (...)
+> > The other dt_node_to_map implementations accept a being called for
+> > either a node containing pin configuration properties or a node
+> > containing child nodes that each contain the configuration properties.
+> > IOW, they support the following two devicetree configurations:
+> >
+> > | cfg {
+> > |       label: group {
+> > |               pinmux = <asjhdasjhlajskd>;
+> > |               config-item1;
+> > |       };
+> > | };
+> >
+> > | label: cfg {
+> > |       group1 {
+> > |               pinmux = <dsjhlfka>;
+> > |               config-item2;
+> > |       };
+> > |       group2 {
+> > |               pinmux = <lsdjhaf>;
+> > |               config-item1;
+> > |       };
+> > | };
+> >
+> > pinconf_generic_dt_node_to_map_pinmux() only supports the latter.
 > 
-> Fixes: 3e833490fae5 ("i2c: sunxi: add P2WI (Push/Pull 2 Wire Interface) controller support")
-> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
-> ---
->  drivers/i2c/busses/i2c-sun6i-p2wi.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+> This alone is a good reason to apply the patch.
 > 
-> diff --git a/drivers/i2c/busses/i2c-sun6i-p2wi.c b/drivers/i2c/busses/i2c-sun6i-p2wi.c
-> index fb5280b8cf7f..652b37b57159 100644
-> --- a/drivers/i2c/busses/i2c-sun6i-p2wi.c
-> +++ b/drivers/i2c/busses/i2c-sun6i-p2wi.c
-> @@ -184,7 +184,6 @@ static int p2wi_probe(struct platform_device *pdev)
->  {
->  	struct device *dev = &pdev->dev;
->  	struct device_node *np = dev->of_node;
-> -	struct device_node *childnp;
->  	unsigned long parent_clk_freq;
->  	u32 clk_freq = I2C_MAX_STANDARD_MODE_FREQ;
->  	struct p2wi *p2wi;
-> @@ -223,7 +222,8 @@ static int p2wi_probe(struct platform_device *pdev)
->  	 * In this case the target_addr is set to -1 and won't be checked when
->  	 * launching a P2WI transfer.
->  	 */
-> -	childnp = of_get_next_available_child(np, NULL);
-> +	struct device_node *childnp __free(device_node) =
-> +		of_get_next_available_child(np, NULL);
-
-A few spontaneous questions here:
-
-- Why are you moving the declaration of childnp in the middle of
-  the function?
-
-- Have you run checkpatch.pl before sending the patch?
-
-- Is of_get_next_available_child() allocating the device_node?
-
-- Have you tested the patch?
-
-Thanks,
-Andi
-
->  	if (childnp) {
->  		ret = of_property_read_u32(childnp, "reg", &target_addr);
->  		if (ret) {
+> I have a strong urge to apply this already for v7.0 despite its RFC state.
 > 
-> ---
-> base-commit: 33a647c659ffa5bdb94abc345c8c86768ff96215
-> change-id: 20260201-p2wi-a199cdfe69e0
-> 
-> Best regards,
-> -- 
-> Felix Gu <ustc.gu@gmail.com>
-> 
+> Anyone against?
+
+Quite the opposite! I fully support unloading pin control core from OF-centric
+code. Note, please, remove extra '.' (dot) in the Subject.o
+Acked-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
