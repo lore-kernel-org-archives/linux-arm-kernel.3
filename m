@@ -4,96 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B85E83F1C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 13:59:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D5E2E83F1C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 14:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MjQ6qUG2HLYgzsYnXuZnUfhc6ZoDRghKpOikRD3m81Y=; b=Sn3q35EVfmaLM2vx+vTNC8bR+J
-	VE0TAvn7QzbOHO4zScf5YzBXORaUcwdVJJT56slMSnUDsycSW8pOiXBNlcQJAqh4KAsV4MFaLbbxx
-	hjuXibeVJXFaLTyq8hTsLnQVYju+EdOXQvsJYLMHHf04VqkV3itetsLR/PmbqUOhyWruJogNSkhhG
-	RTpfr15pH8vmYNL/obb2edNfRqBITop8DYY3kcIatA3NyL9/HiLzdnuER1YpBT51OK+w1XWPZ6Y82
-	yuv+9iqojC4Rtxbp4W4fTHN0TxhO7tTthSz9V+ehkOVttED7W1MKL0+4r0n3SWN88IRGIT2UT0838
-	PB7JyD8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7e2SWyb/IamYJ3N1S7YmOSHPuhUu5A42iRYImCpz40w=; b=BnDsZiLj7Lg0cV6JZi1iYmTJ7n
+	78goz3j23hth9MBfobDV+8ydnQ9pK6kI46FW7HSpsyP8kxgjvaB1Z5/jEX3TnUFnEAF+dO9DJlJMb
+	YdpCGe0OM5snVDcjv1J37jZYfpo+DjG2NBYafNBIxIP3459ac/tvl1Kj+UdX3gbypJfoyYqLKS8lC
+	qyaLKZ31mJbc11pwWEQM8khyp3jizRSVcWRCrFS6MA6AwBHI9kTJjbGitG5qqsgkufxEQmoOftrAe
+	Zwcv60fBEML/XOd0VqEpB5Ln/BGQ0ObgmEWvD9mCQL70jBLEIpk3KLSI/wNGp9p6kY+fxMUnOwVa2
+	kL8FDTbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vndPb-00000008YYt-17DB;
-	Wed, 04 Feb 2026 13:59:19 +0000
-Received: from mail-pj1-f46.google.com ([209.85.216.46])
+	id 1vndRE-00000008YiL-2t8A;
+	Wed, 04 Feb 2026 14:01:00 +0000
+Received: from mail-westus3azon11012052.outbound.protection.outlook.com ([40.107.209.52] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vndPX-00000008YYU-2cmZ
+	id 1vndRA-00000008Yha-3GAO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 13:59:17 +0000
-Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3530e7b3dc2so5366522a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 05:59:15 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770213554; x=1770818354;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MjQ6qUG2HLYgzsYnXuZnUfhc6ZoDRghKpOikRD3m81Y=;
-        b=PKR86x5pfwz7QOCYQAFJYkynEsvSM0bqTG3VdapNZzdyM/3MZuraxo84TVEpVoeaRN
-         9CnDMCUfP55XyHdz8Fb5FD/DCkrR8MM+Cyexrb0SAoRuzG/02+sR01E5tgvjDJNtrV3+
-         UT07rH+x714s0NaN84i0vY4I9NC2WdBhP6I4uIh4My85rY4w1qJUdrnIyLMeAcMVklPq
-         OELTh+BZEMxp3ffY1uHmefHdXJUL24DugWkt+YfkaI0iIbjnx5VCZMftsgq2Zu+FZ6+F
-         1+s7KLc/KL5U139ov3SdXObODqmFjhKGk25wO+uLZ85r4M1/XcPJFCQBQEkgGtHjWddX
-         iCtw==
-X-Forwarded-Encrypted: i=1; AJvYcCWafBb77ra4Oe0Uht6q4YgzjgEvpOne+5BuZenOSaEVpVwIMH6cuOZKLNWNlJ88a1PBHhfNPxaID7AKaeI+AkNw@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVp9Muv/V2Fpp5yiE9yhDyFKVZKZBHXZFuSxGjyWFcSBIBmccj
-	nO1aJhlVsLaLcF9M7MKtrkM2pZONl8efxtspkRrn2JYOeYYQ4p2Kuc4iklra4mm/
-X-Gm-Gg: AZuq6aISMTQqHwJlRhxT9STrcTR1ZEuGg2IiXiy5POCABnXKvpiqI8HQaQN+Obe4RXi
-	Qg42RRwKUsHrHdDr/zOm5bAHfPBWTx17yMya0Gg/7Mm0l8J/o2mHDQLeNHE80uprJqIzYkMp5Ur
-	hn08Tw+sBJYpnjz8SVqc/n0UeJlPboBhdG4m88lxSxjYMdxVzYJK+XhqlIM7/l/O5VfKAd0uBz0
-	RBU5uR9FHiaDgh17KLmv8Zuikzbv++x5yNjQeKSf9AMVHYs1E2EQ2nsyWMusOXrEHlMcpvAzoaj
-	Y0shUE4PNU9PUkaORn5F3ND6lKsNXoW1WiVteC1tnKsKRSOBLKvE86Z4P1mr+R4UsgbsaOjPKI4
-	OYsS0N8Q7jjCzU9RrRgJrGTBAFdoXFpZMU5Qq6CbzOTVQzQwwjs3+LbJeF5Xqu9Wseh8Z8zM6Sv
-	twszYBaY2OQEVaBEJHXrUEJD34rCDA/2WApAsTGVV6tPmXVJkRbqZuoOiy+dxQOSU=
-X-Received: by 2002:a17:90b:3015:b0:343:5f43:933e with SMTP id 98e67ed59e1d1-354871938f1mr1882676a91.19.1770213554102;
-        Wed, 04 Feb 2026 05:59:14 -0800 (PST)
-Received: from mail-pf1-f181.google.com (mail-pf1-f181.google.com. [209.85.210.181])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-354872beb69sm1443838a91.1.2026.02.04.05.59.13
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Feb 2026 05:59:13 -0800 (PST)
-Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-81e93c5961cso5657041b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 05:59:13 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVDisjxpC6K1n9IMqTI0zKTJK0b92T8Qu7eRifbvUQ6zASn6fVXScLxKvDmk1v+sX2oTYeQGe+hcr/6IZYlGAvh@lists.infradead.org
-X-Received: by 2002:a05:6102:5092:b0:5f5:5857:35c0 with SMTP id
- ada2fe7eead31-5f9394de26emr865883137.13.1770213145469; Wed, 04 Feb 2026
- 05:52:25 -0800 (PST)
+	Wed, 04 Feb 2026 14:00:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=puLeGM2EsqzdqB/DPOg4gZ5AKObI5ixixyId6E0f8pMSAuAqziAQsD0E3uyJgc4O9WDL/3UmNlUnV8kEk8coLt7HHVl9bmGxEB2igwCz+aGP27WeGeAy7An/qY3O81lo8yRAetefM6Sqp6yWNeVGEN0iz7+D5vRjFDIbgDtV+gWBDJ6iGjcFaZaR7msvPJdtTX/CxQwEhCuJyMwLwDfbJjuY3VvxPx690+yFcIe1XJae6oyMfviMRwkjaRcogNeBPQZIRQP/lk9JuqFILWRG9QNMzCkdIfZQBY1f0+bM4KfoxYp9CNTo5e0o9V3BBzCN5V0ZditeGMVpTe9ajkjuww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7e2SWyb/IamYJ3N1S7YmOSHPuhUu5A42iRYImCpz40w=;
+ b=tA9dkbMAuyIJK3Mjuijvi/7r4nDRq+YH2dCnwCgspof6bduQR7/Sg9DPo7ICRQAzfDiRTMQA5e1GPCgXDWvqrn5hE4S1PjqeqeuCc6j9+95gY1EL/gvNAJcn0i3c02XGX6vVJumqR6OmCq9VTh225+ZgrhmZLbmTaHxkGy1iG3OjTJn3xXvxdpm9oqduXcMYjkjM5Dmb+0sj1XuGG8Sc42QzWN0Ygq+y3MXyWpvpehIu84yMRWCupcTpqqCA3m7WXmt8NbOZ2bcZv6ppmMgPavdsXRXZxNlqLr5rmtBIHv3d06eXvUPz++wkwkEoI1VLUnryadcehCUx1VKonfVlgg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=linux.dev smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7e2SWyb/IamYJ3N1S7YmOSHPuhUu5A42iRYImCpz40w=;
+ b=YqG5+9QrF88B4ST715aBqGWM9u4uDNrhZEF50LyNToP1yLNFaKFdXyNx9uOazuz+K2aN+iY0QeVyy3gnhrinvG2ObaqpEkPGYhVLDKoJG4QnVZnv3/Zf6YoR1I3sjZ3+snNYKckFupWjqEu0xeawBRBO3WJtZEYAFKG/bRZGsS8=
+Received: from DM6PR08CA0057.namprd08.prod.outlook.com (2603:10b6:5:1e0::31)
+ by DS0PR10MB6248.namprd10.prod.outlook.com (2603:10b6:8:d0::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Wed, 4 Feb
+ 2026 14:00:49 +0000
+Received: from DS2PEPF00003444.namprd04.prod.outlook.com
+ (2603:10b6:5:1e0:cafe::1d) by DM6PR08CA0057.outlook.office365.com
+ (2603:10b6:5:1e0::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9587.12 via Frontend Transport; Wed,
+ 4 Feb 2026 14:00:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ DS2PEPF00003444.mail.protection.outlook.com (10.167.17.71) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9587.10 via Frontend Transport; Wed, 4 Feb 2026 14:00:49 +0000
+Received: from DLEE205.ent.ti.com (157.170.170.85) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 4 Feb
+ 2026 08:00:48 -0600
+Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 4 Feb
+ 2026 08:00:48 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 4 Feb 2026 08:00:48 -0600
+Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 614E0mVk1657231;
+	Wed, 4 Feb 2026 08:00:48 -0600
+Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 614E0l0l002165;
+	Wed, 4 Feb 2026 08:00:47 -0600
+From: Meghana Malladi <m-malladi@ti.com>
+To: <vadim.fedorenko@linux.dev>, <jacob.e.keller@intel.com>,
+	<horms@kernel.org>, <parvathi@couthit.com>, <afd@ti.com>, <m-malladi@ti.com>,
+	<vladimir.oltean@nxp.com>, <rogerq@kernel.org>, <danishanwar@ti.com>,
+	<pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
+	<davem@davemloft.net>, <andrew+netdev@lunn.ch>
+CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <srk@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>
+Subject: [PATCH net-next v2 0/2] Add Frame Preemption MAC Merge support for ICSSG
+Date: Wed, 4 Feb 2026 19:30:42 +0530
+Message-ID: <20260204140044.4086725-1-m-malladi@ti.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <CAMuHMdWnNzktSecsPX_anf=PCuLrZUT-6TO7KXGCHeQVTS974g@mail.gmail.com>
- <aYCDOio-YdUJAf2v@shell.armlinux.org.uk> <CA+_ehUx=3Ci2hN0YYkLxBNwOu_NTHFe_ZKkw9TH+bU-4PwTD-A@mail.gmail.com>
- <86v7gf9z92.wl-maz@kernel.org> <CAD++jLkgtgi1obmiuon=1XhOmT5cwtsMmBE37-wkzE_W55ZV2Q@mail.gmail.com>
- <aYKgaDtb7Ba09Paf@shell.armlinux.org.uk> <CAMuHMdX99kB5oDoxy8=yk_D8g=bCwwUON-uMkT7zSPq0=DASVA@mail.gmail.com>
- <aYMzk9cIgD-XDujY@shell.armlinux.org.uk> <aYNAAsD6dlMi-35Q@shell.armlinux.org.uk>
- <CAMuHMdWxA5Uq2m5sfiG8=WzqKiEmXA0sp4fYGWOvQwhzubDUXg@mail.gmail.com> <aYNJzbSxfpRza4no@shell.armlinux.org.uk>
-In-Reply-To: <aYNJzbSxfpRza4no@shell.armlinux.org.uk>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 4 Feb 2026 14:52:14 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdX3eO2P=vGEe2LmPgVa90ZSxP8fxqmW+J-cLPQqwgW0pA@mail.gmail.com>
-X-Gm-Features: AZwV_QjvQAenbz8M6GyIuU3AA1rYHVlHp80RpCsN_vKYNyL9vHaPjvqPcHo9OuY
-Message-ID: <CAMuHMdX3eO2P=vGEe2LmPgVa90ZSxP8fxqmW+J-cLPQqwgW0pA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] ARM: decompressor: support AUTO_ZRELADDR and
- appended DTB
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	"Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Andrew Morton <akpm@linux-foundation.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, 
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Jonathan Corbet <corbet@lwn.net>, "Mike Rapoport (IBM)" <rppt@kernel.org>, 
-	Eric DeVolder <eric.devolder@oracle.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Kees Cook <keescook@chromium.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konrad.dybcio@somainline.org>, John Crispin <john@phrozen.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS2PEPF00003444:EE_|DS0PR10MB6248:EE_
+X-MS-Office365-Filtering-Correlation-Id: 54558082-6898-4343-fcc0-08de63f5cd28
+X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|36860700013|82310400026|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Tm031pPUJ98nrwxODHOFdZoJeybtxNUdyrakmOxgg2iRxskZlovTd8Al7pdA?=
+ =?us-ascii?Q?HOF4Lw47MCkjpYieayMPo6T8eGDAhro5kPAjQ7nw2czli8HhLMw/PUDu1U1X?=
+ =?us-ascii?Q?Zu8QSp/Nu3iWVFDo90yWSWM5SC3N0B7VADn88OQswj8i6ke365AzHMs0qB8v?=
+ =?us-ascii?Q?TmovWKPsPZ5fqcmezj/fy9m04w7A+/T7Mb/54en8oukf8vEHatR+8qUYYkUg?=
+ =?us-ascii?Q?WHgzQ6+WUPunEX0PiLqnVsNzKJ8vTq3lffyw89Mb9iWMN6DnqL1hCsj2G66v?=
+ =?us-ascii?Q?bwRqLpEPQp7YXKz2o6qsJgxjiwpZ68PqfJMPvehuh+Nr+MYOxMoMsgfx5ELO?=
+ =?us-ascii?Q?XVBL/reUifmcxwCYPDMRZPPDiksat9dN+j1cqXL0tyn6berTBs3zsxeZlfXa?=
+ =?us-ascii?Q?l/jYR21slxRke1CEx1mRDUyl/aF5g97pRGIcO6pTIC7tzWURsSnhNUnCeV7b?=
+ =?us-ascii?Q?2esVl/p2H5xwMeWrW3XZP+8zTOL5TdQ6QsQDpUBp1DtbDciLaSloyl9IV4Bb?=
+ =?us-ascii?Q?mNhkDbxoIPP0/AsTJVs1afJr9gcRAREMG3ghNyf/Z5wK3485cV/xA6SDlMVA?=
+ =?us-ascii?Q?+TnTHeZYyZEdyGhfn7akAWCzb9HvuTEhCJK2onoNIK2FYpt/aPOoBiGTTMW2?=
+ =?us-ascii?Q?4J1Op7TTOoM6qYRRAj2wJ1nFL/2i3jKPO5DggpYZ70wqDyWEAoA4N2+PBkVp?=
+ =?us-ascii?Q?YCRkeBa2tGklmnn4tAwgXh9WMw0BxU+OPxOdsSOxOQ1hWG8YicFc07KBis28?=
+ =?us-ascii?Q?7j4M+H8F3CIYBiiqLAUwEgsRu5RJm3LV6H9+b5qjBSZ6BqfTwlFg+aa6G6uG?=
+ =?us-ascii?Q?iStZ2pgGm0P95PX4sowh4E/3PbzlcVZIZhiH2QFNfSUy72aBodvwuS7Yvbky?=
+ =?us-ascii?Q?AwfOJvZwewtIYCkofYWNmUhDFeevpqYeHp3cXOazYy4u853xG0EUUni1GHvC?=
+ =?us-ascii?Q?DEZ1VucvFA6EdQhBv9UpQFYnnEIgwDSNV0YZSK7nDiFDRb8b+fEXSyX7Obgy?=
+ =?us-ascii?Q?24G6WtdzADL7BIRDYRsw6xq13NnM9ZlcJcxxHwtMoyEL3Yjim7tt8fRViYZg?=
+ =?us-ascii?Q?mxg4wVlE2hOFRf9DODEoY6i+RHWL1oomCN4mVf3WQc2kgyS9pGQMmW9iiw7s?=
+ =?us-ascii?Q?CWdrbnMadCdPebmGCjEaOzWMDnu0ACsNtouXEGB6KXVr00K1JxRdI+2gpCSx?=
+ =?us-ascii?Q?dVdZEQSH1ME/3bGAIhkj5CQcr0/P5f11MCkcb6aOcjmV9+V7zycfZjCZQSFI?=
+ =?us-ascii?Q?TMDBdIbFOJOOp3IqLjiQVq+WhQppaos20NrGdS+ZBO0STna6JuxCs0i8QjJi?=
+ =?us-ascii?Q?T/bsFRyLa2z58zDYWQ9BQ6mLaEP2dBmuvDNB+UcqstvTPV7FTCzBA42Evs8W?=
+ =?us-ascii?Q?+ll/3eozM83FQfwSFeBs8IkIXsFuWpmFCx3+C1BHDqlX94n6APJ9jXx0DwRt?=
+ =?us-ascii?Q?wUm73/9daOLxSKI3turKqsZcisdqSV+OH5gJqKFtK0GODhBb+drpgFYMwSlb?=
+ =?us-ascii?Q?MPZs0pUKH2VfKJpzBWGwhjya4qk6EHSXvXUZi3TRvX24UPKT17iekuRWXaOL?=
+ =?us-ascii?Q?HsAXMN7JEeXFCv44OZ5/ykmiug+EQ9RMcuXJ99eVgp/cVim9o/daKUj25GwE?=
+ =?us-ascii?Q?d5HY8mZTPE1pD4RJL6ojopIUgXcKxm1pQNpVwG9QZHGR/Ya8aXuMMLn3Doq3?=
+ =?us-ascii?Q?NTfm+j4fAJ47P2D7X6vE0CsURgA=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(36860700013)(82310400026)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Ihf7kPFE1pFIvwGQXMCra/rGfp8BGwO+uiFJib11xhJq5IqmMLYJ8rOMo90WU2nVqngAbNunkS2Pbb56mpyS2CLGYy8hPaYyzV8YxmK89TPG7zngkEPZdGQ97pn2h05tNq4/xkqU+FtwVSQAahdYLkoNr7PXb8C5XU1Wje0hUR52WdTZikp0ZDCicdffUiRmimRKBs1pOyJjcTLdUj0pVFF+YzuGzfkfFHU75gMQPPA7Vt1a49VLFXZudLDc5mpxbcpaGCmZFGstbxoLWM4qUcVg3j3inL2n5XckIdIzNrAWQXfXaCopNFPJ9KUW0BZSbIaZmmHwKLvG5lQr4swdiDStnelN51MDsD9N0n9vDMR53Mzrv2aqMEbBp5mFc39K/+NiqEZ4XZnOBe67j9jhIKOQ93AP9Pjnf0BDTCEFBkN0JF964BSbM4n9F57G4FJH
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2026 14:00:49.2211
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 54558082-6898-4343-fcc0-08de63f5cd28
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF00003444.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB6248
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_055915_692921_02150541 
-X-CRM114-Status: GOOD (  74.04  )
+X-CRM114-CacheID: sfid-20260204_060056_931032_A5CF39ED 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,176 +164,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+This patch series adds QoS support to the ICSSG PRUETH driver.
+The first patch implements mqprio qdisc handling and TC offload hooks
+so userspace can request TC mappings and queue counts.
 
-On Wed, 4 Feb 2026 at 14:29, Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
-> On Wed, Feb 04, 2026 at 01:58:21PM +0100, Geert Uytterhoeven wrote:
-> > On Wed, 4 Feb 2026 at 13:48, Russell King (Oracle)
-> > <linux@armlinux.org.uk> wrote:
-> > > On Wed, Feb 04, 2026 at 11:54:59AM +0000, Russell King (Oracle) wrote:
-> > > > On Wed, Feb 04, 2026 at 11:53:30AM +0100, Geert Uytterhoeven wrote:
-> > > > > On Wed, 4 Feb 2026 at 02:27, Russell King (Oracle)
-> > > > > <linux@armlinux.org.uk> wrote:
-> > > > > > On Wed, Feb 04, 2026 at 01:36:29AM +0100, Linus Walleij wrote:
-> > > > > > > However, I think it is a thick requirement to put on hobbyist
-> > > > > > > contributors to go and write entite boot loaders from scratch,
-> > > > > > > I think it's a fine requirement to put on Qualcomm or Renesas
-> > > > > > > paid maintainers.
-> > > > > >
-> > > > > > If we're talking about older boards, then why have they only recently
-> > > > > > became a problem, when, presumably, they've been working fine for a
-> > > > > > decade or so?
-> > > > >
-> > > > > These boards may have been working fine, given the right "legacy"
-> > > > > kernel config options were used.  However, some of these option make
-> > > > > the resulting kernel limited to that platform or even to a specific
-> > > > > board (e.g. when CONFIG_CMDLINE needs to be used).
-> > > >
-> > > > The 32-git ARM kernel has had a way to pass the command line to the
-> > > > kernel from the boot loader since day one.
-> > > >
-> > > >       First it was the struct param_struct.
-> > > >       Then it was the ATAGs that was introduced pre-git.
-> > > >       Now it is DT.
-> > > >
-> > > > The kernel retains code to parse all three methods of passing data
-> > > > from the boot loader to the kernel. The decompressor has support
-> > > > for merging the ATAGs into the appended DTB, which includes merging
-> > > > the command line into the DTB.
-> > > >
-> > > > Without an appended DTB, the pointer to one of the above will be
-> > > > passed to the kernel, the kernel will figure out what it has and
-> > > > parse one of the three ways, and use the command line there.
-> > > >
-> > > > The only case where CONFIG_CMDLINE should be used is when there is
-> > > > no command line passed, no way to change it, etc. At that point
-> > > > there are two options:
-> > > >
-> > > > 1. Augment the kernel's generated FDT with the command line node
-> > > >    and load that modified FDT or append it to the compressed image.
-> > > >
-> > > > 2. Use CONFIG_CMDLINE, which means that the kernel _will_ become
-> > > >    specific to the platform that needs those arguments. No getting
-> > > >    away from that in this case.
-> > > >
-> > > > Maybe you haven't explained the problem very well, but I don't see
-> > > > any issue with this.
-> > > >
-> > > > > The KZM-A9-GT I "need" this for never had upstream U-Boot (I don't
-> > > > > think I ever had any U-Boot sources).  I can boot a shmobile_defconfig
-> > > > > multi-platform kernel[*] fine, iff the first patch is applied.
-> > > >
-> > > > So, what have you been doing for the last 14 years to boot this
-> > > > platform (merged in 2012) without this patch?
-> > > >
-> > > > Please explain:
-> > > >
-> > > > - how it worked before - I want to know how the DTB is passed to the
-> > > >   kernel, what information is provided from the boot loader, whether
-> > > >   that gets merged into the DTB, etc. All the fine nitty gritty of
-> > > >   how it worked and what doesn't work, what the problems were etc.
-> > > >
-> > > > - what changed (it sounds like you want extra features)
-> > > >
-> > > > - why (in detail) it doesn't work now.
-> > >
-> > > I want to know:
-> > >
-> > > - Where RAM is located.
-> > > - Where the kernel is being loaded.
-> >
-> > tftp 0x43000000 kzm9g/zImage.dtb
-> > bootz
-> >
-> > > - Whether the platform reserves any RAM that may overlap with the kernel
-> > >   or where the kernel wants to locate itself in RAM.
-> > >
-> > > From what I can see from arch/arm/boot/dts/renesas/sh73a0-kzm9g.dts,
-> > > memory is at 0x4000000..0x5fffffff - 512MiB.
-> >
-> > Correct.
-> >
-> > > So, provided you load and execute the compressed kernel image within
-> > > the first 128Mi of memory (0x40000000 - 0x48000000), then it will select
-> > > 0x40008000 to decompress itself. I can find no mention of any reserved
-> > > memory regions in the DT file, so this should be fine.
-> > >
-> > > If you're loading the compressed kernel at some wildly different
-> > > address, then yes, it probably won't work.
-> >
-> > It also works when loaded at e.g. 0x42000000 or 0x44000000,
-> > but not at 0x41000000 (all with [PATCH 1/2] applied).
->
-> So let's assume the kernel is loaded at 0x43000000.
->
->                 mov     r0, pc
->                 and     r0, r0, #0xf8000000
->
-> This will result in r0 being 0x40000000. This becomes the mem_start
-> argument in fdt_check_mem_start().
->
-> We look for an appended DTB, and skip the validation that
-> fdt_check_mem_start() does. If this were to go ahead, then this would
-> find that 0x40000000 is within the memory@40000000 node, and thus this
-> would return "mem_start".
->
-> Then:
->
->                 /* Determine final kernel image address. */
->                 add     r4, r0, #TEXT_OFFSET
->
-> will place the decompressed kernel at 0x40008000.
->
-> However, as placing the kernel at 0x41000000 doesn't boot, that
-> suggests some memory is being removed from the kernel. If adding a
-> call to fdt_check_mem_start() after the ATAG-to-FDT parsing has
-> been performed fixes this, it suggests the ATAGs change this.
->
-> So, with a booted kernel, what does:
->
-> $ hexdump -e '"%8.8_ax  " 8/4 "%08x " "\n"' /sys/firmware/devicetree/base/memory\@40000000/reg
->
-> say? Has this been modified from 00000040 00000020 ? I think it
-> will be.
+It also integrates a driver-side mechanism to program the firmware
+with the IET/FPE preemption mask and to kick the firmware verify state
+machine when frame preemption is enabled. The second patch adds ethtool
+perations for the MAC Merge (Frame Preemption) sublayer, exposing .get_mm,
+.set_mm and .get_mm_stats so admins can view and change MAC Merge
+parameters and retrieve preemption statistics.
 
-Thank you. Output is:
+MD Danish Anwar (2):
+  net: ti: icssg-prueth: Add Frame Preemption MAC Merge support
+  net: ti: icssg-prueth: Add ethtool ops for Frame Preemption MAC Merge
 
-    00000000  00000041 0000001f
+ drivers/net/ethernet/ti/Makefile              |   2 +-
+ drivers/net/ethernet/ti/icssg/icssg_config.h  |   9 -
+ drivers/net/ethernet/ti/icssg/icssg_ethtool.c |  86 ++++++-
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c  |   5 +
+ drivers/net/ethernet/ti/icssg/icssg_prueth.h  |   5 +-
+ drivers/net/ethernet/ti/icssg/icssg_qos.c     | 216 ++++++++++++++++++
+ drivers/net/ethernet/ti/icssg/icssg_qos.h     |  78 +++++++
+ drivers/net/ethernet/ti/icssg/icssg_stats.c   |   1 -
+ drivers/net/ethernet/ti/icssg/icssg_stats.h   |   5 +
+ .../net/ethernet/ti/icssg/icssg_switch_map.h  |   5 +
+ 10 files changed, 399 insertions(+), 13 deletions(-)
+ create mode 100644 drivers/net/ethernet/ti/icssg/icssg_qos.c
+ create mode 100644 drivers/net/ethernet/ti/icssg/icssg_qos.h
 
-So the first 16 MiB was indeed removed.
 
-> That means there's a simple fix: as there is likely reserved memory
-> at the start of RAM, reflecting that in this platform's .dts would
-> fix this issue without needing to change the decompressor.
-
-Unfortunately that does not seem to work.
-
-> If you don't want to change the reg in the memory@ node, then there's
-> /chosen/linux,usable-memory-range which can be used to specify the
-> usable memory base and size (same format as reg).
-
-Neither does this...
-
-> Another option would be to add linux,usable-memory to the memory@
-> node that specifies the range of usable memory while still specifying
-> the full memory range in the reg property.
-
-... or this.
-
-Don't all of these methods rely on fdt_check_mem_start() operating on
-the appended DTB, i.e. on what [PATCH v2 1/2] does?
-
-Thanks!
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
+base-commit: 9a9424c756feee9ee6e717405a9d6fa7bacdef08
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.43.0
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
