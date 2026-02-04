@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14DDEE8B397
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 04:04:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51ABAE8B397
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 04:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kCf4lzrMziBndOsmo8GuusOdBN8cx0cDMD3sdQZPXW0=; b=dTUogtfFU0phumgSKbS+XIgFyb
-	n17/IIHQwNr1C9EPZk+jtoSJE0gx4Z1m9ffCtMZTDTltfPBe0ut0SRLBqL4IHhverdlYkZBOGVmHJ
-	pZGjHzsuhpCUDoB6V1BCrN6A1/Ga7uGbhzrPSXteyRk8QKHZhodsCTQfzKIiTEv3aIYr7AEqFUpJM
-	6LHxvEmSfxSBxoy5e9R3hNAphZUl0sV/YLKAAs+52l57AycSWRx7PbPCIAoyDJb3y6C7BlzHLdARq
-	Z8gHEDGd8M3eYw7HfGItajvbJslxVTT3Wo02TG770i8t5TDbJKpLFsF9NWO8Y2tmJSOj1q8ofbuYF
-	+0x72Mtg==;
+	bh=Rs6BBarzwmD2Zm1TSaGTp7E5XeDaUo3g+3j+s/whg7M=; b=iu6VIngJHSNFUi3uBXRZglDf4A
+	HcM2FU/JeA1JIgv0bexBS+JOM95WZI9bJk2rp+t3w+wTemyV0kKKuKjWduHFkyVRLdQOXBIlTZwI/
+	EynQbd5XDEDLvXoSyJ/HuthkpcqdO9HhjAx4LeRr6L1A6TopDw6AHO6AlQdnoQTPtHsOueFtsqOlO
+	5VxQElrWiCMNDVDxOhlEfdSjx5APCuPvftX4wXOImfpB7S26SsrzF6G7O+pR2nGxywYuTokMTdcQP
+	r1lMe0YLMrxFtM3Gts23c76eRdwHQZVemjBBnjp0QldEq6z2H+/5e7qOK2CiQxXghzREse9jKw545
+	PrE0WPzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnU7T-00000007sgu-2wen;
-	Wed, 04 Feb 2026 04:03:59 +0000
-Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	id 1vnUDK-00000007sxr-2E84;
+	Wed, 04 Feb 2026 04:10:02 +0000
+Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnU7S-00000007sga-0RE3
+	id 1vnUDH-00000007sxA-3cXi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 04:03:59 +0000
-Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-8c70ab3b5fcso863431585a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 20:03:57 -0800 (PST)
+	Wed, 04 Feb 2026 04:10:01 +0000
+Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-89473dca8aaso74131056d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 20:09:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770177837; x=1770782637; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1770178198; x=1770782998; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kCf4lzrMziBndOsmo8GuusOdBN8cx0cDMD3sdQZPXW0=;
-        b=LVqaxekKCX4mJs565QFis56ZVfw+d+nAY5Ln9MRrKe/L/Z+S6bxh16bpKuYqrDZkdX
-         jPAdtRhXYhrshHx+K2bUYSiHwzgvRpWA0vwSDSa6s/jt6bNNXVNGMNDEvgvk60sPGjV6
-         Ruf+ZkFd5rKDmSzlly/gWPwdpSIFliS+b0akxHav/1RfNCaOeOxYumptqDHlEEiOpfNP
-         BmpIREQAXs/o5HSBx7xD3P2eLRsSAtcuEk78k0v3GROEOqJEYlliGRFzzHHkRHXgoSgJ
-         cWrIuBWBv4Ije4N+MKSfz3nfbQWLpSBhs4KTRIWkFj5uekbGK0HRwZgmX9mrGZgXsAuf
-         QvhQ==
+        bh=Rs6BBarzwmD2Zm1TSaGTp7E5XeDaUo3g+3j+s/whg7M=;
+        b=On433+PD83VMm2y/AJzgHjk6EyRoPy1F6ii8a7cFEp7qkNUks8gnqRyuKl+Omdq2fl
+         L5iS39YMm8BYOaH3BvbOI6Liew7F3WcPjg5MTH5O/Hnc0SxKofNncydBLQ1nfRD+qcCi
+         z/keaom2InP2rPkrKtUCfnYGH2SHLbCQPhBOgxwZV4qSvxNZq2tk79dcvy6OPoEWfBV2
+         zF0f+DIpEUzsdL+O/m2p/nDEbvthzBgQVAcMWBPB8aGowZRfBtDhfw/PS1wMN8pqxaDX
+         DTAK4l6opxU27ZVWLgomRF9Vt5ZOfo8Jc/gtrRNo0JRDWPzl+IRXovZthiaHsX6j2rY9
+         d/pA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770177837; x=1770782637;
+        d=1e100.net; s=20230601; t=1770178198; x=1770782998;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=kCf4lzrMziBndOsmo8GuusOdBN8cx0cDMD3sdQZPXW0=;
-        b=DA2lhgMnAzt6KBK2KDI4TCkyNQA7FQkqiNgl3zHVxBnO+9KpSbL6xN7/58XCxsV4eC
-         JVe1S2vYdO9mJBo9+yumgJXWeVxyvk6zpieokaxO1aPKpL2KCx8vTjFlUBJ+aBJsM5OT
-         K6fTeziPvMuUqoNkN60IkYOzVcGLBd0baYiv7qfbapjUbXD8SQZmlEa3Y064MAKOqGXn
-         u6TFUQ4Zu2mqhPlQMuRtjIoSjQZ0HE31zwhP82FrhqWe4gm24PQNVErdlBbdeg532CVM
-         hyNfAyWgtyZnzzYZx3xksVidWU36OYqY81w6u13Y+dhDCCqHtVCcmsRjQ+lVID/6x/Vi
-         VEfg==
-X-Forwarded-Encrypted: i=1; AJvYcCVkpB0l4vb9j3/m2EErAcjlkHFy/M+VWR+0VUdHL+hfBiH7WkrxOVWI9hQ7pGomHA/T/PVxBo9ufUaX/GYQOqG/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuNU1Fq1U7+lo16NPKR0zj0NnJSNBKOttfttAYTi4nyHyI5Oni
-	iGSL3TFreNaqle2j1ogND8+CTSwG4PKHTRF6r6E8gagsxEiEjyYIe9B9
-X-Gm-Gg: AZuq6aLc1WzBydN3WCppVyRjhQoQ9AqwUrhRs+e61mUMvIRhRc1ZJQhIEdq5PnMXFpc
-	evExfO29QtuLldTI61ZE6O6ych/nqhHbS68ZiF+Kenhggds8Vq4vB3n2dlRvuOdUVPtKCv5Y566
-	m+EcI42GZeseX2LOy0FYwpQniku43/F/QbfPYiVcQMQhbNEv2hp2mMqw/qcxLP5FPZHyYAQuDpg
-	XbHhe/4ZwmJGVkFnuVX1e32Ii3ZMY2aLFBEqxh/Oi2KkCdwn4sJtOhfkg0ISRlky6J1s9NiWoWm
-	VWo1L48Sv02mMOc4V4bbyrfpOp4HULflcve4haSBnWjMnKgx2g9sCfBPhcOwgmS5qqTzYUF7pM3
-	s9KiucJfcHDZEljcQykiAKox6jYISKAvIZb8KanGzHZYony9sdAIxTHTbW6dKKo6uKykiIUhrM3
-	rAZoBmIfnLmhPKGVi+cQQO
-X-Received: by 2002:a05:7301:7003:b0:2b7:32fe:4bbb with SMTP id 5a478bee46e88-2b832895197mr603971eec.11.1770171121283;
-        Tue, 03 Feb 2026 18:12:01 -0800 (PST)
+        bh=Rs6BBarzwmD2Zm1TSaGTp7E5XeDaUo3g+3j+s/whg7M=;
+        b=ZBmiqtPUKIORAAAvivmyVnq+Rj75lbK9qstrppE0CZ7zYLbMCctL8HeSPIOKd8LP+O
+         MH/ALJIBOtopooTtSLWpoXYJUVHaiMBx/IZCx60LBg9dvy/QfKYE2By5QafaKqWIasiJ
+         dUZo3NVUMQBQNR06zrmcg07H8CTw7bZzKrTQhzyJf66sGSPy4BY0xE0hVZF/sxn3s7aa
+         60JzwEsRjo8Fhh6lbtwmNTq+7fUrj5ltN7tYJRNQcCoMsZoSONPqdRB1688HrSDNdbaK
+         BMNAUhW5kUSJ+RC56tPtdnO03SXBdY+d9ar70R641bKRoCZXh/jkHpueE4tjUzzvuRvC
+         XXkg==
+X-Forwarded-Encrypted: i=1; AJvYcCXpXfWSBH7RfEIl1TtsJWXSniQP4ycJQJCdqdQYJYs7Gwg2Bs3Kp2DgXUZ8mTdTRvIdWVQruP/5OEb1Qt9Hoh81@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxc0113LeTiZQMqsXyZmAgR1XSW/AeCDOKtu82/bAzagJ+i7EED
+	W6X2nbAgk49Pwni7JJEyxgRarsf8bFJUsG2vbSv+U2yZCkk7CjoWQXL0wN6/tnMM
+X-Gm-Gg: AZuq6aLDVnjSoXH8cz0cwzanwfdvCINyxRqy3B0l3n5V9G0dGUiySqx6DEUWpzbk5V4
+	RBHirngwo/L0uSNuwsvcSZiJXS0JduGBfhcn4ae2n0kGp6O3PfpEPRq4w5h3dvmNolRlZ2y1bDD
+	B6M4Rw6cNTKqlyQhzpGmZHUh+aCyPoPdOYHZ8Kk0FiGQ1on2d84yY7+S4HsY3bc3sp0LRdQfxPj
+	J7QDvpftaVrFaPRlbqZE/aaooROT+NcOIDwhA0jjM58QEmmJk4Vn87bNlIHn+mYqlOogJJgr6bw
+	6CrH0uBlycHqJAmzvuk8nVqr+OpyvEljt8spAxZ9hDrLbug+4i5pj4JjRB+jW4iKYftsI2JsP6D
+	ZgV+QxSbxXkfZKy93ZrMG7HgUMLTXbD463xSz/JjxRXPcPwXOQYWGrLycGFe2WTFHHtt4WnrCLm
+	Cyjt49FgYD/g==
+X-Received: by 2002:a05:7022:f103:b0:119:e56b:91f2 with SMTP id a92af1059eb24-126f47daa76mr613066c88.35.1770171313127;
+        Tue, 03 Feb 2026 18:15:13 -0800 (PST)
 Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b832fafc2fsm746589eec.24.2026.02.03.18.12.00
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b832feacc6sm940814eec.35.2026.02.03.18.15.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Feb 2026 18:12:00 -0800 (PST)
-Date: Wed, 4 Feb 2026 10:11:36 +0800
+        Tue, 03 Feb 2026 18:15:12 -0800 (PST)
+Date: Wed, 4 Feb 2026 10:14:47 +0800
 From: Inochi Amaoto <inochiama@gmail.com>
 To: "Russell King (Oracle)" <linux@armlinux.org.uk>, 
 	Inochi Amaoto <inochiama@gmail.com>
@@ -88,19 +88,19 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	spacemit@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
 	linux-arm-kernel@lists.infradead.org, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next v4 1/3] dt-bindings: net: Add support for
- Spacemit K3 dwmac
-Message-ID: <aYKqh7SmoHO83Avr@inochi.infowork>
+Subject: Re: [PATCH net-next v4 3/3] net: stmmac: Add glue layer for Spacemit
+ K3 SoC
+Message-ID: <aYKq4qlgCDo42rnw@inochi.infowork>
 References: <20260130022705.1059214-1-inochiama@gmail.com>
- <20260130022705.1059214-2-inochiama@gmail.com>
- <aYIyuulFADU_j3V0@shell.armlinux.org.uk>
+ <20260130022705.1059214-4-inochiama@gmail.com>
+ <aYI00Exytbgbnuzp@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aYIyuulFADU_j3V0@shell.armlinux.org.uk>
+In-Reply-To: <aYI00Exytbgbnuzp@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_200358_147447_4EA60CDB 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20260203_200959_908513_8BB17B2D 
+X-CRM114-Status: GOOD (  25.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,24 +115,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 03, 2026 at 05:39:06PM +0000, Russell King (Oracle) wrote:
-> On Fri, Jan 30, 2026 at 10:27:02AM +0800, Inochi Amaoto wrote:
-> > +  clocks:
-> > +    items:
-> > +      - description: GMAC main clock
+On Tue, Feb 03, 2026 at 05:48:00PM +0000, Russell King (Oracle) wrote:
+> On Fri, Jan 30, 2026 at 10:27:04AM +0800, Inochi Amaoto wrote:
+> > +/* ctrl register bits */
+> > +#define CTRL_PHY_INTF_RGMII		BIT(3)
+> > +#define CTRL_PHY_INTF_MII		BIT(4)
+> > +#define CTRL_WAKE_IRQ_EN		BIT(9)
+> > +#define CTRL_PHY_IRQ_EN			BIT(12)
 > 
-> If you know what this is in terms of dwmac databook clock terms, it
-> would be helpful to use it here. I suspect "application clock" would
-> probably summarise it, that being the clock for the bus interfaces
-> that dwmac provides to the host.
+> Thanks for updating these.
+> 
+> > +static int spacemit_dwmac_update_ifconfig(struct plat_stmmacenet_data *plat_dat,
+> > +					  struct stmmac_resources *stmmac_res,
+> > +					  struct regmap *apmu,
+> > +					  unsigned int ctrl_offset)
+> > +{
+> > +	unsigned int mask = CTRL_PHY_INTF_MII | CTRL_PHY_INTF_RGMII | CTRL_WAKE_IRQ_EN;
+> > +	unsigned int val = 0;
+> > +
+> > +	switch (plat_dat->phy_interface) {
+> > +	case PHY_INTERFACE_MODE_MII:
+> > +		val = CTRL_PHY_INTF_MII;
+> > +		break;
+> > +
+> > +	case PHY_INTERFACE_MODE_RMII:
+> > +		break;
+> > +
+> > +	case PHY_INTERFACE_MODE_RGMII:
+> > +	case PHY_INTERFACE_MODE_RGMII_ID:
+> > +	case PHY_INTERFACE_MODE_RGMII_RXID:
+> > +	case PHY_INTERFACE_MODE_RGMII_TXID:
+> > +		val = CTRL_PHY_INTF_RGMII;
+> > +		break;
+> > +
+> > +	default:
+> > +		return -EOPNOTSUPP;
+> > +	}
+> > +
+> > +	if (stmmac_res->wol_irq >= 0)
+> > +		val |= CTRL_WAKE_IRQ_EN;
+> > +
+> > +	return regmap_update_bits(apmu, ctrl_offset, mask, val);
+> 
+> I would suggest that this is split into two parts - first, this is
+> renamed and reduced to just controlling CTRL_WAKE_IRQ_EN.
+> 
+> Next, a function hooked into plat_dat->set_phy_intf_sel which sets
+> the CTRL_PHY_INTF_RGMII and CTRL_PHY_INTF_MII bits as appropriate.
+> Note that this function is passed the dwmac's own phy_intf_sel
+> value from common.h which will be PHY_INTF_SEL_GMII_MII,
+> PHY_INTF_SEL_RGMII or PHY_INTF_SEL_RMII for you.
+> 
+> It would also be good to have plat_dat->get_interfaces populated
+> using phy_interface_set_rgmii(), and __set_bit(PHY_INTERFACE_MODE_MII)
+> and __set_bit(PHY_INTERFACE_MODE_RMII) to indicate to phylink which
+> interface modes are permissable.
+> 
+> Thanks.
 > 
 > -- 
 > RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
 > FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
-That's a good point, In fact, I have no dwmac databook now. So if you
-think it is fine, I will change this description to the "application
-clock". Thanks.
+Thanks for your detailed guide, I will try to switch to these helper
+apis in the next version.
 
 Regards,
 Inochi
