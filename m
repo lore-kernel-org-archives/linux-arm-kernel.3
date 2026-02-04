@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89B37E95392
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 12:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47FDEE95392
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 12:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l4Upu6y9qvUH3XLA76sEOnoii/Bz0yJPZDUENsX5xhg=; b=DFBP/CR6iK4kgfunCVrnlOstiL
-	ydAH4eokGILDU29vqkf+oIPHs7vRasfXLRv/Xbcd7SkdWtDrndUDASxk3Hsk2PeauXi3JJqbXxJTQ
-	2vn0irbI20XM9Iox7dDHhUrQ1VdJDsAKB2SXQpENZFaB0aM0IcXszDJZEjdYButnlp4B7kCpDp9Hp
-	AaZ70l6v4+he9FjHQHDFrUxte5TQ5muOoAYg404E2LlxV7hVHFbd4WCIOl0noovZdxfqTMa815vMM
-	Z8Z/H5z+a4nJxgSWk2BGlF/usXR6arqqCYBnj9rAmeKSylCB9gwSa1jobKvRlId0LPkKo8tMXBah8
-	mmMezPeQ==;
+	bh=0sPXImA7DEGl/Yls/PeLeuHlZNf9Mc7dZ3M998acnXs=; b=axcKlA0DG4nYsQLv2Oksnc++CV
+	2vPOpPvmagE0EMror+WFyoaE3Ff37/VBQ1a95zEtcSEneVXzRVYMYPHzRpAP+qd4Pdq+/24g3kebu
+	TZ7xOdRM4QlDLvKjBHLxxTBOz+14VBWycXUWZsgPhedt9Ye19L7uPwxoYoo8B7pWrd/LoOLGrms5G
+	0TtnpvRo4br2EdJdcQ9PS3vIOrxA8zn+qnrfHpUO1AbKg03b38j2ygLcZ9P6y48kKUr4d5ji+rnmE
+	tGaVvUvmMcbIA/S2mbMKevEXxoRNORPtLHFUiKQ7hzAO+LYYM5GS/elhWJr7Pn9lo6riXupSJX2Jd
+	yGlfeczg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vncN2-00000008T24-48nM;
-	Wed, 04 Feb 2026 12:52:37 +0000
-Received: from mail-vk1-f177.google.com ([209.85.221.177])
+	id 1vncSt-00000008THu-0oUX;
+	Wed, 04 Feb 2026 12:58:39 +0000
+Received: from mail-ua1-f53.google.com ([209.85.222.53])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vncMz-00000008T1g-1xhy
+	id 1vncSq-00000008THY-47hi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 12:52:34 +0000
-Received: by mail-vk1-f177.google.com with SMTP id 71dfb90a1353d-566360cab02so4953228e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 04:52:33 -0800 (PST)
+	Wed, 04 Feb 2026 12:58:38 +0000
+Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-948a374845fso2609339241.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 04:58:36 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770209552; x=1770814352;
+        d=1e100.net; s=20230601; t=1770209915; x=1770814715;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=l4Upu6y9qvUH3XLA76sEOnoii/Bz0yJPZDUENsX5xhg=;
-        b=PxmVN68T3QwHtKu0DfbZFj6/Ho8SkQDSm2XK2S7PE1oKtFbwJsLiqRgyTB2pDWneV5
-         cWQKbbqW9tuNNQjrGmJyC/L1gU4+VdPZ5Lr+yY66gUqphvyRMIv7onTYoHoy1ZyKNfcc
-         pZ3M8btcEcpRRHe3UMTUbnoWhYsCRd/lsSsnucjsxQT9rBwhPhqvMJmIJ1/RpLbMxjYm
-         wpfh0WUSjuHxT1F49AO9LbMYvx+YW6ZrHxSFlTufb6eyst0SJw12BgYAC7pYO+HmQ4FG
-         RYgA4XLSHyUt4dFH5Wvb6D/9rilU8nrJQRb6tJ+iwAg5aYjmXAO3gX3z4i94O/Y9+W5v
-         w+fA==
-X-Forwarded-Encrypted: i=1; AJvYcCX4Q39j5T7cn91lpxj0/GAXlmNiCY1mt1K/HqxSL+BJSIq9/FTtpkh9ItDoWj/q9x2KWivdzGzU1bfLAnUotyjY@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQ+FqNNfFZIZrb+mkYY43yN3Mk9tr9RexXgUR0mM8nuTmW25PM
-	7Y0ivD1ITa2zjuk1iVOX1jn+qaXciTJDZeTP7tYrcvoyPsRXyMeDiE/bd5ijtcZB
-X-Gm-Gg: AZuq6aLs4DT8Hzr4Ghdk6ez4uNQH3iKvqmlQTT1TnbVbhw4++5Irj4nO8zst5Y6PJeG
-	z+ymHOLd+/zdZrDIITumUOl39lip5+VkvWQQ0eLVPRyuOBgVWmnUTp7WbzCdSPxwjVopLXt6xYP
-	6um4N2qrw2jJNVzucEerHgZdkVStyhWFLmQzIaEVaWpl84XwNqts5rPpj+qoYouI58gNZL5lQ4v
-	leJ+mlaimAilnHuE9Fw+5B/hvQyfZFzvu2AGCn8kWKBh78L4OdlGG9SkZLOIXKsZdKarwzNdU7e
-	gq2mLEez75/ZKwZprFeVrlOKnAc4Pf5+IGaJnBTgEaIrJuUkCv6sJ2FQFoXe38tSUGogCmUWywb
-	/x8BcyHUyGqB/FRkZlIM0XY4vPJz0+P5+erwwaoZ2lxPZPa4B/qBme1GSUKbonG4D/OJUebZ+EW
-	fjD7Y/PIs8S/9nD6KGn3Clv6UJ/F3imsE9txYqvDE6UxocdXIu
-X-Received: by 2002:a05:6123:14f:b0:566:2568:df1c with SMTP id 71dfb90a1353d-566e800fd1amr905742e0c.7.1770209551653;
-        Wed, 04 Feb 2026 04:52:31 -0800 (PST)
-Received: from mail-ua1-f41.google.com (mail-ua1-f41.google.com. [209.85.222.41])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-566e80f4bffsm1021750e0c.6.2026.02.04.04.52.30
+        bh=0sPXImA7DEGl/Yls/PeLeuHlZNf9Mc7dZ3M998acnXs=;
+        b=D+QU8d4RCAxe72C1MeLvVKwce8SWLeFEqDxAyVXUOakRhrLVgcdUKg/P2UO6NuNZpR
+         BV0yiwzU+Ak1/BKnZ2Y2RyKyS1FWe40FPKV6FAnNYzoTS2CHf9P37l+6fJblcRziagQl
+         qeSk+ro3ugKdL6Igc9fbW+uXopr94xXuss5ywG2CsD5AoG/AP/PjMl24l53lCJQKeLbg
+         efuas0NeCiBNJ4J+CAbAB9HYk2nf66q7/Hqi+Zxzvr6HrNlqPex7Uj9GX7MyqdNN5EXn
+         GH2laCPS85Maw7GgvvHfkzKN+9UQ+dwlG8j8jUpY0NkfcYgq4vcMvWoS3Bb8goh167Xj
+         TApQ==
+X-Forwarded-Encrypted: i=1; AJvYcCULxeJGiZWS5CqAEBKcvzpUwVPQIaABNJOEHuYAO3IKVdoFMiTZSi9ssCQ9RyBxwWEftn0fkn5xOgoG9E9qGbLl@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywag1w3rSx+wsSIsG+YMo+6MfyWArxMWKgevYTwoPLAd22+TO0G
+	eDyKVdDR8DaSIlY9xXs4U/r5KMUICpK8+36MwinZwmArgRPVOilxef//1tGy9QBH
+X-Gm-Gg: AZuq6aKZfdqRyojtWfjcpjsBrhs6QYnQt1SkJaYYrKi+IGW2WMvY0aj7DOEmJn3+mye
+	fgGYtq9B82iq1y1N5ikna38ciH/Ob7HSNP6e/hyv3qZzFFIKS6uotvEadthQkL95hlUTiHuKQ85
+	FWQmEmuapdICIp7uCtpV8PC6fLfgqKlP77pLh1/VJr+HPClR+km7GR0g4VPNuKg7/OAlhENUcWA
+	CQzG0pYAuf7hU8a+TMsnTgEtgBnPelTWXikMjfKpfbKE7rJUSBMjLA80VdE6CcrDdsEHxsix7/5
+	sjBj01gW/49NZi1i7B9hDIs9YRkIwdTBk2XrieoA0NsJTKHZb3Lic+HObNLwdybiLBO0r/Q9CGn
+	3ovndtW33+bE85ItUeRzWTkh0Ad4/HZHBxNV7i4fJkm4rOr+Afkl+U5KZCPmuKKIJpIA7OmpKXY
+	ZPrNlEBCxRuZXqagtrnrhAe4kiL321A63tH3gjmFK9RshBwY8H
+X-Received: by 2002:a05:6102:ccd:b0:5f1:7aad:7c04 with SMTP id ada2fe7eead31-5f939611d17mr1022400137.41.1770209915346;
+        Wed, 04 Feb 2026 04:58:35 -0800 (PST)
+Received: from mail-vs1-f51.google.com (mail-vs1-f51.google.com. [209.85.217.51])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5f93aa2ce09sm823867137.11.2026.02.04.04.58.33
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Feb 2026 04:52:30 -0800 (PST)
-Received: by mail-ua1-f41.google.com with SMTP id a1e0cc1a2514c-948aa4f524dso2186198241.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 04:52:30 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWWKFTwfMW/3skzaYo7BuHMtAad4IZyGkT0qKd98fZNwwxVew3x3+6zt/dkyS6ywTgbTuPEZpy2fs+HY3mojt27@lists.infradead.org
-X-Received: by 2002:a05:6102:390b:b0:5ed:d33:a65d with SMTP id
- ada2fe7eead31-5f9395c400bmr1090817137.34.1770209550435; Wed, 04 Feb 2026
- 04:52:30 -0800 (PST)
+        Wed, 04 Feb 2026 04:58:34 -0800 (PST)
+Received: by mail-vs1-f51.google.com with SMTP id ada2fe7eead31-5f535ff78abso4523811137.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 04:58:33 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVTYOKtKsX6HK6pbUFlM7D3/tGPOuE1asP0tbQbqhwqWytd8Hf70bbcKSGTFz+lpy7FiLiXtYA054GtX+zQYpFd@lists.infradead.org
+X-Received: by 2002:a05:6102:cc6:b0:5f8:e2eb:43d with SMTP id
+ ada2fe7eead31-5f9394cd30amr961084137.10.1770209913314; Wed, 04 Feb 2026
+ 04:58:33 -0800 (PST)
 MIME-Version: 1.0
-References: <CACRpkdYJoNRpciyQE_A6dkb8f6Jsy4+qwb4w9K3bss2mkZpp1A@mail.gmail.com>
- <ZmsXdWWidNjXdbSa@shell.armlinux.org.uk> <666b2379.5d0a0220.c7eec.8b6f@mx.google.com>
+References: <ZmsXdWWidNjXdbSa@shell.armlinux.org.uk> <666b2379.5d0a0220.c7eec.8b6f@mx.google.com>
  <CAMuHMdWnNzktSecsPX_anf=PCuLrZUT-6TO7KXGCHeQVTS974g@mail.gmail.com>
  <aYCDOio-YdUJAf2v@shell.armlinux.org.uk> <CA+_ehUx=3Ci2hN0YYkLxBNwOu_NTHFe_ZKkw9TH+bU-4PwTD-A@mail.gmail.com>
  <86v7gf9z92.wl-maz@kernel.org> <CAD++jLkgtgi1obmiuon=1XhOmT5cwtsMmBE37-wkzE_W55ZV2Q@mail.gmail.com>
  <aYKgaDtb7Ba09Paf@shell.armlinux.org.uk> <CAMuHMdX99kB5oDoxy8=yk_D8g=bCwwUON-uMkT7zSPq0=DASVA@mail.gmail.com>
- <aYMzk9cIgD-XDujY@shell.armlinux.org.uk>
-In-Reply-To: <aYMzk9cIgD-XDujY@shell.armlinux.org.uk>
+ <aYMzk9cIgD-XDujY@shell.armlinux.org.uk> <aYNAAsD6dlMi-35Q@shell.armlinux.org.uk>
+In-Reply-To: <aYNAAsD6dlMi-35Q@shell.armlinux.org.uk>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 4 Feb 2026 13:52:19 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdW17KB4ru+YQ0U3+a481scMuM=Gvksw2crkp2PBfRDhzA@mail.gmail.com>
-X-Gm-Features: AZwV_Qh3HhCCmTszwYH9EfGsO5meEpYrcbygMkHzZOyRgDs3cMtUnqo0qcnzYTA
-Message-ID: <CAMuHMdW17KB4ru+YQ0U3+a481scMuM=Gvksw2crkp2PBfRDhzA@mail.gmail.com>
+Date: Wed, 4 Feb 2026 13:58:21 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWxA5Uq2m5sfiG8=WzqKiEmXA0sp4fYGWOvQwhzubDUXg@mail.gmail.com>
+X-Gm-Features: AZwV_QiDUMlqUgxgUOGS5PB89T4dxlI-Bjh1smVIc3uluI8H-5RCBK5Dg5SMbNE
+Message-ID: <CAMuHMdWxA5Uq2m5sfiG8=WzqKiEmXA0sp4fYGWOvQwhzubDUXg@mail.gmail.com>
 Subject: Re: [PATCH v2 0/2] ARM: decompressor: support AUTO_ZRELADDR and
  appended DTB
 To: "Russell King (Oracle)" <linux@armlinux.org.uk>
@@ -93,8 +92,8 @@ Cc: Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
 	Konrad Dybcio <konrad.dybcio@somainline.org>, John Crispin <john@phrozen.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_045233_674242_D06D9674 
-X-CRM114-Status: GOOD (  54.52  )
+X-CRM114-CacheID: sfid-20260204_045837_060689_FDD80069 
+X-CRM114-Status: GOOD (  60.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,89 +110,107 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Russell,
 
-On Wed, 4 Feb 2026 at 12:55, Russell King (Oracle)
+On Wed, 4 Feb 2026 at 13:48, Russell King (Oracle)
 <linux@armlinux.org.uk> wrote:
-> On Wed, Feb 04, 2026 at 11:53:30AM +0100, Geert Uytterhoeven wrote:
-> > On Wed, 4 Feb 2026 at 02:27, Russell King (Oracle)
-> > <linux@armlinux.org.uk> wrote:
-> > > On Wed, Feb 04, 2026 at 01:36:29AM +0100, Linus Walleij wrote:
-> > > > However, I think it is a thick requirement to put on hobbyist
-> > > > contributors to go and write entite boot loaders from scratch,
-> > > > I think it's a fine requirement to put on Qualcomm or Renesas
-> > > > paid maintainers.
+> On Wed, Feb 04, 2026 at 11:54:59AM +0000, Russell King (Oracle) wrote:
+> > On Wed, Feb 04, 2026 at 11:53:30AM +0100, Geert Uytterhoeven wrote:
+> > > On Wed, 4 Feb 2026 at 02:27, Russell King (Oracle)
+> > > <linux@armlinux.org.uk> wrote:
+> > > > On Wed, Feb 04, 2026 at 01:36:29AM +0100, Linus Walleij wrote:
+> > > > > However, I think it is a thick requirement to put on hobbyist
+> > > > > contributors to go and write entite boot loaders from scratch,
+> > > > > I think it's a fine requirement to put on Qualcomm or Renesas
+> > > > > paid maintainers.
+> > > >
+> > > > If we're talking about older boards, then why have they only recently
+> > > > became a problem, when, presumably, they've been working fine for a
+> > > > decade or so?
 > > >
-> > > If we're talking about older boards, then why have they only recently
-> > > became a problem, when, presumably, they've been working fine for a
-> > > decade or so?
+> > > These boards may have been working fine, given the right "legacy"
+> > > kernel config options were used.  However, some of these option make
+> > > the resulting kernel limited to that platform or even to a specific
+> > > board (e.g. when CONFIG_CMDLINE needs to be used).
 > >
-> > These boards may have been working fine, given the right "legacy"
-> > kernel config options were used.  However, some of these option make
-> > the resulting kernel limited to that platform or even to a specific
-> > board (e.g. when CONFIG_CMDLINE needs to be used).
+> > The 32-git ARM kernel has had a way to pass the command line to the
+> > kernel from the boot loader since day one.
+> >
+> >       First it was the struct param_struct.
+> >       Then it was the ATAGs that was introduced pre-git.
+> >       Now it is DT.
+> >
+> > The kernel retains code to parse all three methods of passing data
+> > from the boot loader to the kernel. The decompressor has support
+> > for merging the ATAGs into the appended DTB, which includes merging
+> > the command line into the DTB.
+> >
+> > Without an appended DTB, the pointer to one of the above will be
+> > passed to the kernel, the kernel will figure out what it has and
+> > parse one of the three ways, and use the command line there.
+> >
+> > The only case where CONFIG_CMDLINE should be used is when there is
+> > no command line passed, no way to change it, etc. At that point
+> > there are two options:
+> >
+> > 1. Augment the kernel's generated FDT with the command line node
+> >    and load that modified FDT or append it to the compressed image.
+> >
+> > 2. Use CONFIG_CMDLINE, which means that the kernel _will_ become
+> >    specific to the platform that needs those arguments. No getting
+> >    away from that in this case.
+> >
+> > Maybe you haven't explained the problem very well, but I don't see
+> > any issue with this.
+> >
+> > > The KZM-A9-GT I "need" this for never had upstream U-Boot (I don't
+> > > think I ever had any U-Boot sources).  I can boot a shmobile_defconfig
+> > > multi-platform kernel[*] fine, iff the first patch is applied.
+> >
+> > So, what have you been doing for the last 14 years to boot this
+> > platform (merged in 2012) without this patch?
+> >
+> > Please explain:
+> >
+> > - how it worked before - I want to know how the DTB is passed to the
+> >   kernel, what information is provided from the boot loader, whether
+> >   that gets merged into the DTB, etc. All the fine nitty gritty of
+> >   how it worked and what doesn't work, what the problems were etc.
+> >
+> > - what changed (it sounds like you want extra features)
+> >
+> > - why (in detail) it doesn't work now.
 >
-> The 32-git ARM kernel has had a way to pass the command line to the
-> kernel from the boot loader since day one.
+> I want to know:
 >
->         First it was the struct param_struct.
->         Then it was the ATAGs that was introduced pre-git.
->         Now it is DT.
->
-> The kernel retains code to parse all three methods of passing data
-> from the boot loader to the kernel. The decompressor has support
-> for merging the ATAGs into the appended DTB, which includes merging
-> the command line into the DTB.
->
-> Without an appended DTB, the pointer to one of the above will be
-> passed to the kernel, the kernel will figure out what it has and
-> parse one of the three ways, and use the command line there.
->
-> The only case where CONFIG_CMDLINE should be used is when there is
-> no command line passed, no way to change it, etc. At that point
-> there are two options:
->
-> 1. Augment the kernel's generated FDT with the command line node
->    and load that modified FDT or append it to the compressed image.
->
-> 2. Use CONFIG_CMDLINE, which means that the kernel _will_ become
->    specific to the platform that needs those arguments. No getting
->    away from that in this case.
->
-> Maybe you haven't explained the problem very well, but I don't see
-> any issue with this.
+> - Where RAM is located.
+> - Where the kernel is being loaded.
 
-I am fully aware I didn't explain it sufficiently, but I don't remember
-all the details.  The important part is that I never got the kernel
-commandline passing from U-Boot env to the kernel to work on KZM-A9-GT,
-until after I had applied "[PATCH v2 1/2] ARM: decompressor: support
-memory start validation for appended DTB".
-And without that patch, my current .config no longer boots.
+tftp 0x43000000 kzm9g/zImage.dtb
+bootz
 
-> > The KZM-A9-GT I "need" this for never had upstream U-Boot (I don't
-> > think I ever had any U-Boot sources).  I can boot a shmobile_defconfig
-> > multi-platform kernel[*] fine, iff the first patch is applied.
+> - Whether the platform reserves any RAM that may overlap with the kernel
+>   or where the kernel wants to locate itself in RAM.
 >
-> So, what have you been doing for the last 14 years to boot this
-> platform (merged in 2012) without this patch?
->
-> Please explain:
->
-> - how it worked before - I want to know how the DTB is passed to the
->   kernel, what information is provided from the boot loader, whether
->   that gets merged into the DTB, etc. All the fine nitty gritty of
->   how it worked and what doesn't work, what the problems were etc.
->
-> - what changed (it sounds like you want extra features)
->
-> - why (in detail) it doesn't work now.
+> From what I can see from arch/arm/boot/dts/renesas/sh73a0-kzm9g.dts,
+> memory is at 0x4000000..0x5fffffff - 512MiB.
 
-I'll add this investigation to my (too long) list of TODOs (so I may
-or may not get to it this decade ;-)
+Correct.
+
+> So, provided you load and execute the compressed kernel image within
+> the first 128Mi of memory (0x40000000 - 0x48000000), then it will select
+> 0x40008000 to decompress itself. I can find no mention of any reserved
+> memory regions in the DT file, so this should be fine.
+>
+> If you're loading the compressed kernel at some wildly different
+> address, then yes, it probably won't work.
+
+It also works when loaded at e.g. 0x42000000 or 0x44000000,
+but not at 0x41000000 (all with [PATCH 1/2] applied).
 
 Gr{oetje,eeting}s,
 
                         Geert
 
---
+-- 
 Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
 In personal conversations with technical people, I call myself a hacker. But
