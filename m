@@ -4,65 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF92FE8B386
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 01:11:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C97A2E8B386
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 01:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yuy21SNmfWxzpFF0eJ4b0zFUlyJrnPrFewYXFx3Z9UI=; b=xNlhvtHYaDLBCM3+Nz/5zqGcE+
-	QVHNH9j6SrLuGMrOMoXBMK9zfsUT4WuUs0zZgvRirDEmD3LspmAS1YFmpAb6KReiXosbwj3EKLj0e
-	yO7Bd9wnxL58GYIzDI6uNTd0B37D9m+GS1BAltMSjQkh6epZTKYWemrgZCkZ5EBYJkuXdhe3jsirc
-	SsbV82nbiUKvLU1cfpieq5PZ4BBKuJRC+pAtb4RurMt8oHba65t7WSapV7iWbyn2L0IgVHgR/vhxu
-	y0BSf6m8oU+pM+Lz2S1CZ7zckgTFev+m154Pr6JH/LFGb1er18M9iaq7h8jrdfHFepE4LKqctLvmI
-	AUn8NUUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sab77aD3NRaoRo9PD9BOaCGAGHr4ZUPWfgWJALWIRPg=; b=oRcMJdlWXZFugwtcKywaILx3O8
+	irIIHzNT08kgaScg0yJXqHj0tBaemAHNvEsTfRiPuS6x5i8Ddq8OeooN/UzrSTfUd0NZH4pR3LeP6
+	PKRkDuh+QH7ynhbSXDK0u8xJ9QOY35wz7t3uiZhqRR9255xuwvxiY9XRxTr/oelBLKIFCYLQ03n0D
+	Mr1R98w1iUcU4pHaSsd7zrMkvJ0p4aoGgxvOQm4580FbmN3T4L3phDJ+wbu7fPKwQblESyI+X2LTi
+	H1tL4YuvvwihybbND5xbZZDINxRcywqDX0LhJgtldnNozB13Tl/VM04Q4b5Gq0AI6h/IWphran6Ip
+	tb8ljQUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnRQj-00000007fdj-0aYb;
-	Wed, 04 Feb 2026 01:11:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vnRTh-00000007ft8-04dt;
+	Wed, 04 Feb 2026 01:14:46 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnRQg-00000007fcm-1LMh
+	id 1vnRTd-00000007fsX-3iDs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 01:11:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2AB6143FC4;
-	Wed,  4 Feb 2026 01:11:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 651EEC116D0;
-	Wed,  4 Feb 2026 01:11:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770167494;
-	bh=s3lTpYIuHg8HtlxmezJcghRfziSTcL3CioyEyTkqFRE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=p2lFmhByFND7qXjvgfs/szKRGNPi2tJ2Cj5gt9TEI3tzeqwHwK9LXozN3MAs7BN4L
-	 NlKGBP02EVcvLINUFRrQ66c/y40Ng/o30IrWEV6AFtoVuM8PPgUzrG1EAGhxrm61Rc
-	 8zysuDmNBAF7e0tlQ76+0MyLZRZncVKkuvHcStVrOoVPgy3No7cG/DbOouM/GOK8Ku
-	 pH+A/ZQWhEAxuNCqEKiVvkA1GqxundSbQXTj0JVXxxwdxMKYiFSVqz/hChD74qqJM1
-	 5T4RTV/3CMH1YlF+TdbkBd56nxkgsFRvKVSdCuCKBOMX522kSFiaSEm9AYAzx6PSgD
-	 NSJEA+uBxg7nA==
-Date: Wed, 4 Feb 2026 02:11:29 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, 
-	Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v9 4/7] i2c: xiic: cosmetic cleanup
-Message-ID: <aYKcc0IGO9jroObH@zenone.zhora.eu>
-References: <20260202-i2c-xiic-v9-0-ce4695f5267d@nexthop.ai>
- <20260202-i2c-xiic-v9-4-ce4695f5267d@nexthop.ai>
- <aYIXagCXYb4DrDLp@smile.fi.intel.com>
- <DE565BCD-28D6-4844-BCEE-A1F60DC84662@nexthop.ai>
+	Wed, 04 Feb 2026 01:14:43 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Sab77aD3NRaoRo9PD9BOaCGAGHr4ZUPWfgWJALWIRPg=;
+	b=wZ7gQZbdRK1+GZJS0jqOE3vl4vndzym+EBkMx/e87JCQYlMowNqiiWFcFFSOLsIodNDjDP7VH
+	Pbf6sr2gRUP2LA39TVUIGDKMjf5xKd0XjR+qKjsbVrgUGRo0+8feiw2xtUjSeNAl8zXJCQVGVWv
+	edQ7DVAwewg5jGt33bT1164=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4f5Mhn016vzRhXJ;
+	Wed,  4 Feb 2026 09:10:01 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6D26A4056A;
+	Wed,  4 Feb 2026 09:14:34 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 4 Feb 2026 09:14:32 +0800
+Message-ID: <a22ccdb5-5449-5e48-790a-5c3dd0de7544@huawei.com>
+Date: Wed, 4 Feb 2026 09:14:31 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <DE565BCD-28D6-4844-BCEE-A1F60DC84662@nexthop.ai>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v12 00/13] arm64: entry: Convert to Generic Entry
+Content-Language: en-US
+To: Thomas Gleixner <tglx@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <oleg@redhat.com>, <shuah@kernel.org>, <kees@kernel.org>,
+	<luto@amacapital.net>, <wad@chromium.org>, <kevin.brodsky@arm.com>,
+	<akpm@linux-foundation.org>, <charlie@rivosinc.com>, <ldv@strace.io>,
+	<anshuman.khandual@arm.com>, <mark.rutland@arm.com>, <ryan.roberts@arm.com>,
+	<thuth@redhat.com>, <song@kernel.org>, <ada.coupriediaz@arm.com>,
+	<broonie@kernel.org>, <pengcan@kylinos.cn>, <liqiang01@kylinos.cn>,
+	<kmal@cock.li>, <dvyukov@google.com>, <reddybalavignesh9979@gmail.com>,
+	<richard.weiyang@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
+References: <20260203133728.848283-1-ruanjinjie@huawei.com>
+ <87bji552uk.ffs@tglx>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <87bji552uk.ffs@tglx>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260203_171138_374880_6652AC7B 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20260203_171442_557082_F55C1D94 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +88,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> >> Re-use dev pointer instead of referencing &pdev->dev everywhere.
-> > 
-> > ...
-> > 
-> >> - dev_dbg(&pdev->dev, "mmio %08lx irq %d scl clock frequency %d\n",
-> >> + dev_dbg(dev, "mmio %08lx irq %d scl clock frequency %d\n",
-> >> (unsigned long)res->start, irq, i2c->i2c_clk);
-> > 
-> > No need to do this here as we change the format string afterwards anyway.
-> > 
-> > But I leave it up to Andi, I won't prevent this to go in, if he agrees.
-> > 
-> > -- 
-> > With Best Regards,
-> > Andy Shevchenko
-> > 
-> > 
+
+
+On 2026/2/3 22:16, Thomas Gleixner wrote:
+> On Tue, Feb 03 2026 at 21:37, Jinjie Ruan wrote:
+>> Currently, x86, Riscv, Loongarch use the Generic Entry which makes
+>> maintainers' work easier and codes more elegant. arm64 has already
+>> successfully switched to the Generic IRQ Entry in commit
+>> b3cf07851b6c ("arm64: entry: Switch to generic IRQ entry"), it is
+>> time to completely convert arm64 to Generic Entry.
+>>
+>> The goal is to bring arm64 in line with other architectures that already
+>> use the generic entry infrastructure, reducing duplicated code and
+>> making it easier to share future changes in entry/exit paths, such as
+>> "Syscall User Dispatch".
+>>
+>> This patch set is rebased on "sched/core". And the performance
 > 
-> No worries, I can do this in the following patch, since there is going to be
-> a v 10 anyways.
+> Why are you using sched/core, which contains a lot of unrelated
+> changes. core/entry is the one which has the prerequisites and nothing
+> else....
 
-This would be merged next week anyway, so, please, send a v10 as
-there are many little changes (if we were out of time I would
-have manually changed things before merging, but that's not the
-case, yet).
+Sorry for misunderstanding your v11 reply—however, these patches can
+still be applied directly to the core/entry branch.
 
-Andi
+Thanks,
+Jinjie
+> 
+> 
 
