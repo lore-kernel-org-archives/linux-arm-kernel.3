@@ -4,91 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE80DE95398
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 12:48:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6E96E95392
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 12:49:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OE3Y7fLeZPRewo7EBhh65kVu2li8CGC4bTrvBrJ/zrc=; b=bVmfe8jrupCl5XjD4sez/SEAwM
-	sxVSPM9xKYgOXb4/CEJTtehjvjqr9q/MvNOgpdGqsRToXPJjqgELwK23KEn4aQvbLS3p0zq9OXp+I
-	Wq1WhWqXpCV0hWLPbriyKffMkCumEyXuvEOQDtkxFDfgktE2/AzoQgdNpwGrFOmlgedoltEOB1WYm
-	E0TJlKirM0qIkevOQuFBw1U9aFVyl1zHFqB6ueiu7mLZD7Cgjj6y0EyINZNCpfE+sddBSQnqW9y/V
-	CObiJCGmfuW6c1pTToeih1vsqVGHUsX7tHtRXnZQos5PQVDCkWYop07TH/xImnG9kGsRcVLkkkJ6P
-	iu1zL6yg==;
+	bh=c7nQS+b1C7TnjA3qx1zycIJ3zbrllhDogxrXEMKQCQM=; b=007oI6q6LPBa6Q1aj//pqolUJ1
+	yYD+rPSjTAp+T7Jtx0qYMOPv5jIcWxzJik8aGSghLMxfq4uresG5F1SLAtDcFM0lcllWrpBHT3fmD
+	mqMxTUF4FHmMeU5s+Y+eNWmsWkgps8DSane7RMTNZM/wu4BCVDneVnTDZJ1BFXP89uy8radzQvugR
+	rTyBh3rkiq1RPkoAH7EEhvpB1XarY6rUVkKRBhYehmwEaRywBtJqsRNWSKEGDyDAzjuaGgbXCpoIr
+	AifzzOP+f1hbneAF8csWXSbh8kutZ0lY2LJDt87oIcdUE/YzfY+tNL2j+SCI6URMm/H5QLxXVUjYh
+	VpyOJLpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vncIz-00000008SgK-01sj;
-	Wed, 04 Feb 2026 12:48:25 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vncJU-00000008Slj-3Tzw;
+	Wed, 04 Feb 2026 12:48:56 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vncIw-00000008Sfw-0nCQ
+	id 1vncJR-00000008Sl8-3yKq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 12:48:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=OE3Y7fLeZPRewo7EBhh65kVu2li8CGC4bTrvBrJ/zrc=; b=Rem122p7lChgfwBXwf4hbVCmpF
-	zB6lj5hzsYaobmcgi9Z7hHQQ8bElojxgFsEstJc9/2DFpzoAgb/hpWsLGsx2UUxgVx5O6W7OskvFf
-	cxIDREBnYRqCbJnRowgSFsqHwT2ae/OTV2pgTXKLwGn3i1TSKkqIaeMbn/2B1r6J7WUfTsBS5Xc6j
-	sWrzqiAV6dv4RQGJrLu4/9NZGpnV1h1DtH/KNHtVfLvYabsGfRQHDRA7WBWcIz28bcacTYSNdvnlM
-	qGVH5vs/2mdRnM+8edSbt9DrVux/za4OOz8/B2tnFH+isYkiuw24AM20uTLUobiBRhBEgyIMub5NZ
-	+K6drk4A==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:52140)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vncIg-000000006Kn-1ubA;
-	Wed, 04 Feb 2026 12:48:06 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vncIc-000000005ND-2GCi;
-	Wed, 04 Feb 2026 12:48:02 +0000
-Date: Wed, 4 Feb 2026 12:48:02 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	"Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Eric DeVolder <eric.devolder@oracle.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Kees Cook <keescook@chromium.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@somainline.org>,
-	John Crispin <john@phrozen.org>
-Subject: Re: [PATCH v2 0/2] ARM: decompressor: support AUTO_ZRELADDR and
- appended DTB
-Message-ID: <aYNAAsD6dlMi-35Q@shell.armlinux.org.uk>
-References: <ZmsXdWWidNjXdbSa@shell.armlinux.org.uk>
- <666b2379.5d0a0220.c7eec.8b6f@mx.google.com>
- <CAMuHMdWnNzktSecsPX_anf=PCuLrZUT-6TO7KXGCHeQVTS974g@mail.gmail.com>
- <aYCDOio-YdUJAf2v@shell.armlinux.org.uk>
- <CA+_ehUx=3Ci2hN0YYkLxBNwOu_NTHFe_ZKkw9TH+bU-4PwTD-A@mail.gmail.com>
- <86v7gf9z92.wl-maz@kernel.org>
- <CAD++jLkgtgi1obmiuon=1XhOmT5cwtsMmBE37-wkzE_W55ZV2Q@mail.gmail.com>
- <aYKgaDtb7Ba09Paf@shell.armlinux.org.uk>
- <CAMuHMdX99kB5oDoxy8=yk_D8g=bCwwUON-uMkT7zSPq0=DASVA@mail.gmail.com>
- <aYMzk9cIgD-XDujY@shell.armlinux.org.uk>
+	Wed, 04 Feb 2026 12:48:55 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b8849dc12f6so973198466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 04:48:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1770209332; x=1770814132; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=c7nQS+b1C7TnjA3qx1zycIJ3zbrllhDogxrXEMKQCQM=;
+        b=jfOiNYUCR5oFuvsO2Lbzs66WK79bkSK4uT1J7GeMZ9hjJM/nQ5sWNjuLjHmtndWq7p
+         QUpbwIDENwcZvAIro4oFh0fvicMZB6aqq+1FI22DnMxiacHsnc1j2CBRLnr8XQ1GJREE
+         thMliySGL/UNmQoTHh0WmfJYSw9gfDf1ENnEamaMH/d5r3qjsUZ/le6UyQ+kXosSqWRA
+         BIRhMgMnQ2cE1PtF0wnTdAwE9lWo6Ml5+CJZkqVrFsEDe3qAePGepSC3RNmN05PxGkDt
+         UdiEDDuktB0tXEJ4NbE9Vx2gF/33H+bja3niXDA9potOLoLVQhFnpJF9G/fNSMn6eu7o
+         50yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770209332; x=1770814132;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=c7nQS+b1C7TnjA3qx1zycIJ3zbrllhDogxrXEMKQCQM=;
+        b=uh9Jajp3hMe4u9MEi0uvFXsDp6sFoGqeBoT95H9LiqhRQR2fM/PRQR55emAePzG0jW
+         YJFn+0kRossnX8bRwOjg1N56XFfF8JhjUdqPg+vGdk+8esb2t+ilQI+XKwM+Z0bPnRDT
+         bcxFxCHwmrmKScFhS3ijrvEfK+ti4h7b3jAQM/L1W5ma7zLd1pKpdj4987PczeaEAr/w
+         7g/MtedmkV9xBLjP8goLsPqb9nMDYTDqE3sYNJGmTclmWGHOLOx3FJE6zDhbHtM8vcLf
+         dycwec2GcZAELggH86cs57AIUWBYl9N5WZG7UyuFgBV4+hJs0J4+1s/YIzCBUO2crizp
+         v+LA==
+X-Forwarded-Encrypted: i=1; AJvYcCXsurHrhqinLApIldlMLUvF8InGyXXjeusmAKPVPZ0fo6e8CAXSKmi/Tx+Dr5D4SIdRJCtqhy9NtD3o/JcX8uMz@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIry5yH70hM6hunNbfku+RpV30f8q0ro+boTdLWEfEGIkM2iqL
+	wlBkS4VyWxqniA2mnXRiLbm7gtXljon9lonOcCM8KEZrpAWBl6uJ060OFLG2XPruuo8=
+X-Gm-Gg: AZuq6aKmCbJopnJNjyUBwfpfFQ+JHBbTd8GVqYLnNODxk+58MGq8rr26IiF0PaIqVGe
+	JAQbom8r/OvO55R+2kC2yc5eQBUeKIZCdfSfa+GTEwzgAaNNV9JP3f963iq5GjmuMkqoAyZ7mHw
+	Ir52uRWf1ztD8RD5Rbb5MN3n7rlhf0fZW0nE851uskZQzdzkKtqplE9OrpguHjbuFhmOuFaR/A0
+	aXVFcPotp07Ao/Ko3nlAoh/miIyw/N1XGQ3cmNoSa3b2eXgw3qXYWNf7oGL10+X9E1BRJIBTwLD
+	2tfUNRkuUpOOB/KnazsPjl5Upz3CgNP3jJ1ukShA3rAPgF4x2XwE2WeOe1x4+dX41D0G5J38S2r
+	HkD0qKeE8eseU9r2TYv4qpC2C/1paNRGKF142WhS/RwbVE4ocRwUvNVJfmJWzZMu8pUOGls938D
+	uwY7lQcv3RVfgXFQzkFJ+Q8t2icSRz
+X-Received: by 2002:a17:907:7b82:b0:b87:1c20:7c63 with SMTP id a640c23a62f3a-b8e9f070f41mr222195666b.20.1770209331712;
+        Wed, 04 Feb 2026 04:48:51 -0800 (PST)
+Received: from draszik.lan ([212.129.76.169])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8e9fef0006sm121834066b.41.2026.02.04.04.48.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Feb 2026 04:48:51 -0800 (PST)
+Message-ID: <3ab2d8cd112441dc1d7ab5097f5b1b64c7e415ab.camel@linaro.org>
+Subject: Re: [PATCH v5 4/5] power: supply: max77759: add charger driver
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: amitsd@google.com, Sebastian Reichel <sre@kernel.org>, Rob Herring	
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
+ <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, Greg Kroah-Hartman	
+ <gregkh@linuxfoundation.org>, Badhri Jagan Sridharan <badhri@google.com>, 
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, Peter Griffin
+ <peter.griffin@linaro.org>, Tudor Ambarus	 <tudor.ambarus@linaro.org>, Alim
+ Akhtar <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, RD
+ Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
+Date: Wed, 04 Feb 2026 12:49:07 +0000
+In-Reply-To: <20260203-max77759-charger-v5-4-b50395376a5f@google.com>
+References: <20260203-max77759-charger-v5-0-b50395376a5f@google.com>
+	 <20260203-max77759-charger-v5-4-b50395376a5f@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-2+build4 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aYMzk9cIgD-XDujY@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_044822_258714_AE5C03A1 
-X-CRM114-Status: GOOD (  47.53  )
+X-CRM114-CacheID: sfid-20260204_044854_201960_776FD888 
+X-CRM114-Status: GOOD (  25.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,102 +108,1010 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 04, 2026 at 11:54:59AM +0000, Russell King (Oracle) wrote:
-> On Wed, Feb 04, 2026 at 11:53:30AM +0100, Geert Uytterhoeven wrote:
-> > Hi Russell,
-> > 
-> > On Wed, 4 Feb 2026 at 02:27, Russell King (Oracle)
-> > <linux@armlinux.org.uk> wrote:
-> > > On Wed, Feb 04, 2026 at 01:36:29AM +0100, Linus Walleij wrote:
-> > > > However, I think it is a thick requirement to put on hobbyist
-> > > > contributors to go and write entite boot loaders from scratch,
-> > > > I think it's a fine requirement to put on Qualcomm or Renesas
-> > > > paid maintainers.
-> > >
-> > > If we're talking about older boards, then why have they only recently
-> > > became a problem, when, presumably, they've been working fine for a
-> > > decade or so?
-> > 
-> > These boards may have been working fine, given the right "legacy"
-> > kernel config options were used.  However, some of these option make
-> > the resulting kernel limited to that platform or even to a specific
-> > board (e.g. when CONFIG_CMDLINE needs to be used).
-> 
-> The 32-git ARM kernel has had a way to pass the command line to the
-> kernel from the boot loader since day one.
-> 
-> 	First it was the struct param_struct.
-> 	Then it was the ATAGs that was introduced pre-git.
-> 	Now it is DT.
-> 
-> The kernel retains code to parse all three methods of passing data
-> from the boot loader to the kernel. The decompressor has support
-> for merging the ATAGs into the appended DTB, which includes merging
-> the command line into the DTB.
-> 
-> Without an appended DTB, the pointer to one of the above will be
-> passed to the kernel, the kernel will figure out what it has and
-> parse one of the three ways, and use the command line there.
-> 
-> The only case where CONFIG_CMDLINE should be used is when there is
-> no command line passed, no way to change it, etc. At that point
-> there are two options:
-> 
-> 1. Augment the kernel's generated FDT with the command line node
->    and load that modified FDT or append it to the compressed image.
-> 
-> 2. Use CONFIG_CMDLINE, which means that the kernel _will_ become
->    specific to the platform that needs those arguments. No getting
->    away from that in this case.
-> 
-> Maybe you haven't explained the problem very well, but I don't see
-> any issue with this.
-> 
-> > The KZM-A9-GT I "need" this for never had upstream U-Boot (I don't
-> > think I ever had any U-Boot sources).  I can boot a shmobile_defconfig
-> > multi-platform kernel[*] fine, iff the first patch is applied.
-> 
-> So, what have you been doing for the last 14 years to boot this
-> platform (merged in 2012) without this patch?
-> 
-> Please explain:
-> 
-> - how it worked before - I want to know how the DTB is passed to the
->   kernel, what information is provided from the boot loader, whether
->   that gets merged into the DTB, etc. All the fine nitty gritty of
->   how it worked and what doesn't work, what the problems were etc.
-> 
-> - what changed (it sounds like you want extra features)
-> 
-> - why (in detail) it doesn't work now.
+On Tue, 2026-02-03 at 22:50 +0000, Amit Sunil Dhamne via B4 Relay wrote:
+> From: Amit Sunil Dhamne <amitsd@google.com>
+>=20
+> Add support for MAX77759 battery charger driver. This is a 4A 1-Cell
+> Li+/LiPoly dual input switch mode charger. While the device can support
+> USB & wireless charger inputs, this implementation only supports USB
+> input. This implementation supports both buck and boost modes.
+>=20
+> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+> ---
+> =C2=A0MAINTAINERS=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 6 +
+> =C2=A0drivers/power/supply/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 11 +
+> =C2=A0drivers/power/supply/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
+> =C2=A0drivers/power/supply/max77759_charger.c | 777 +++++++++++++++++++++=
++++++++++++
+> =C2=A04 files changed, 795 insertions(+)
+>=20
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 67db88b04537b431c927b73624993233eef43e3f..7f6d1c5c2569a1d1536642b07=
+5b3e6939553382a 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -15553,6 +15553,12 @@ F:	drivers/mfd/max77759.c
+> =C2=A0F:	drivers/nvmem/max77759-nvmem.c
+> =C2=A0F:	include/linux/mfd/max77759.h
+> =C2=A0
+> +MAXIM MAX77759 BATTERY CHARGER DRIVER
+> +M:	Amit Sunil Dhamne <amitsd@google.com>
+> +L:	linux-kernel@vger.kernel.org
+> +S:	Maintained
+> +F:	drivers/power/supply/max77759_charger.c
+> +
+> =C2=A0MAXIM MAX77802 PMIC REGULATOR DEVICE DRIVER
+> =C2=A0M:	Javier Martinez Canillas <javier@dowhile0.org>
+> =C2=A0L:	linux-kernel@vger.kernel.org
+> diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
+> index 92f9f7aae92f249aa165e68dbcd4cebb569286ea..3a2cdb95c98e44324151ac2b8=
+6d740ae2923ee77 100644
+> --- a/drivers/power/supply/Kconfig
+> +++ b/drivers/power/supply/Kconfig
+> @@ -631,6 +631,17 @@ config CHARGER_MAX77705
+> =C2=A0	help
+> =C2=A0	=C2=A0 Say Y to enable support for the Maxim MAX77705 battery char=
+ger.
+> =C2=A0
+> +config CHARGER_MAX77759
+> +	tristate "Maxim MAX77759 battery charger driver"
+> +	depends on MFD_MAX77759 && REGULATOR
+> +	default MFD_MAX77759
+> +	help
+> +	=C2=A0 Say M or Y here to enable the MAX77759 battery charger. MAX77759
+> +	=C2=A0 charger is a function of the MAX77759 PMIC. This is a dual input
+> +	=C2=A0 switch-mode charger. This driver supports buck and OTG boost mod=
+es.
+> +
+> +	=C2=A0 If built as a module, it will be called max77759_charger.
+> +
+> =C2=A0config CHARGER_MAX77976
+> =C2=A0	tristate "Maxim MAX77976 battery charger driver"
+> =C2=A0	depends on I2C
+> diff --git a/drivers/power/supply/Makefile b/drivers/power/supply/Makefil=
+e
+> index 4b79d5abc49a7fd1e37a26d0c89f94d9fe3a916f..6af905875ad5e3b393a703040=
+5355b9a975870f6 100644
+> --- a/drivers/power/supply/Makefile
+> +++ b/drivers/power/supply/Makefile
+> @@ -128,3 +128,4 @@ obj-$(CONFIG_CHARGER_SURFACE)	+=3D surface_charger.o
+> =C2=A0obj-$(CONFIG_BATTERY_UG3105)	+=3D ug3105_battery.o
+> =C2=A0obj-$(CONFIG_CHARGER_QCOM_SMB2)	+=3D qcom_smbx.o
+> =C2=A0obj-$(CONFIG_FUEL_GAUGE_MM8013)	+=3D mm8013.o
+> +obj-$(CONFIG_CHARGER_MAX77759)	+=3D max77759_charger.o
+> diff --git a/drivers/power/supply/max77759_charger.c b/drivers/power/supp=
+ly/max77759_charger.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..8c7465c1e7cdd0ff7e8d2a134=
+752ebf7812f28ac
+> --- /dev/null
+> +++ b/drivers/power/supply/max77759_charger.c
+> @@ -0,0 +1,777 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * max77759_charger.c - Battery charger driver for MAX77759 charger devi=
+ce.
+> + *
+> + * Copyright 2025 Google LLC.
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/cleanup.h>
+> +#include <linux/device.h>
+> +#include <linux/devm-helpers.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/irq.h>
+> +#include <linux/linear_range.h>
+> +#include <linux/math64.h>
+> +#include <linux/mfd/max77759.h>
+> +#include <linux/module.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/mutex.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/power_supply.h>
+> +#include <linux/regmap.h>
+> +#include <linux/regulator/driver.h>
+> +#include <linux/string_choices.h>
+> +#include <linux/workqueue.h>
+> +
+> +/* Default values for Fast Charge Current & Float Voltage */
+> +#define CHG_CC_DEFAULT_UA			2266770
+> +#define CHG_FV_DEFAULT_MV			4300
+> +
+> +#define MAX_NUM_RETRIES				3
+> +#define PSY_WORK_RETRY_DELAY_MS			10
+> +
+> +#define FOREACH_IRQ(S)			\
+> +	S(AICL),			\
+> +	S(CHGIN),			\
+> +	S(CHG),				\
+> +	S(INLIM),			\
+> +	S(BAT_OILO),			\
+> +	S(CHG_STA_CC),			\
+> +	S(CHG_STA_CV),			\
+> +	S(CHG_STA_TO),			\
+> +	S(CHG_STA_DONE)
+> +
+> +#define GENERATE_ENUM(e)		e
+> +#define GENERATE_STRING(s)		#s
+> +
+> +enum {
+> +	FOREACH_IRQ(GENERATE_ENUM)
+> +};
+> +
+> +static const char *const chgr_irqs_str[] =3D {
+> +	FOREACH_IRQ(GENERATE_STRING)
+> +};
+> +
+> +#define NUM_IRQS			ARRAY_SIZE(chgr_irqs_str)
+> +
+> +enum {
+> +	MAX77759_CHGR_RANGE_CHGCC,
+> +	MAX77759_CHGR_RANGE_CHG_CV_PRM_LO,
+> +	MAX77759_CHGR_RANGE_CHG_CV_PRM_HI,
+> +	MAX77759_CHGR_RANGE_CHGIN_ILIM,
+> +};
+> +
+> +static const struct linear_range chg_ranges[] =3D {
+> +	LINEAR_RANGE_IDX(MAX77759_CHGR_RANGE_CHGCC, MAX77759_CHGR_CHGCC_MIN_UA,
+> +			 MAX77759_CHGR_CHGCC_MIN_REG,
+> +			 MAX77759_CHGR_CHGCC_MAX_REG,
+> +			 MAX77759_CHGR_CHGCC_STEP_UA),
+> +	LINEAR_RANGE_IDX(MAX77759_CHGR_RANGE_CHG_CV_PRM_LO,
+> +			 MAX77759_CHGR_CHG_CV_PRM_LO_MIN_MV,
+> +			 MAX77759_CHGR_CHG_CV_PRM_LO_MIN_REG,
+> +			 MAX77759_CHGR_CHG_CV_PRM_LO_MAX_REG,
+> +			 MAX77759_CHGR_CHG_CV_PRM_LO_STEP_MV),
+> +	LINEAR_RANGE_IDX(MAX77759_CHGR_RANGE_CHG_CV_PRM_HI,
+> +			 MAX77759_CHGR_CHG_CV_PRM_HI_MIN_MV,
+> +			 MAX77759_CHGR_CHG_CV_PRM_HI_MIN_REG,
+> +			 MAX77759_CHGR_CHG_CV_PRM_HI_MAX_REG,
+> +			 MAX77759_CHGR_CHG_CV_PRM_HI_STEP_MV),
+> +	LINEAR_RANGE_IDX(MAX77759_CHGR_RANGE_CHGIN_ILIM,
+> +			 MAX77759_CHGR_CHGIN_ILIM_MIN_UA,
+> +			 MAX77759_CHGR_CHGIN_ILIM_MIN_REG,
+> +			 MAX77759_CHGR_CHGIN_ILIM_MAX_REG,
+> +			 MAX77759_CHGR_CHGIN_ILIM_STEP_UA),
+> +};
 
-I want to know:
+I wouldn't use macros for the selectors and values, as that makes it very
+hard to reason about. Please see existing regulator and power supply
+drivers, which almost all use the values directly for legibility. Then you
+can also drop them from the header file.
 
-- Where RAM is located.
-- Where the kernel is being loaded.
-- Whether the platform reserves any RAM that may overlap with the kernel
-  or where the kernel wants to locate itself in RAM.
+Also, the linear range APIs support arrays of ranges, so
+MAX77759_CHGR_RANGE_CHG_CV_PRM_LO and MAX77759_CHGR_RANGE_CHG_CV_PRM_HI
+could be moved into their own range[], allowing to simplify some code
+below.
 
-From what I can see from arch/arm/boot/dts/renesas/sh73a0-kzm9g.dts,
-memory is at 0x4000000..0x5fffffff - 512MiB.
+> +
+> +struct max77759_charger {
+> +	struct device *dev;
+> +	struct regmap *regmap;
+> +	struct power_supply *psy;
+> +	struct regulator_dev *chgin_otg_rdev;
+> +	struct notifier_block nb;
+> +	struct power_supply *tcpm_psy;
+> +	struct delayed_work psy_work;
+> +	u32 psy_work_retry_cnt;
+> +	int irqs[NUM_IRQS];
+> +	struct mutex lock; /* protects the state below */
+> +	enum max77759_chgr_mode mode;
+> +};
+> +
+> +static inline int unlock_prot_regs(struct max77759_charger *chg, bool un=
+lock)
+> +{
+> +	return regmap_update_bits(chg->regmap, MAX77759_CHGR_REG_CHG_CNFG_06,
+> +				=C2=A0 MAX77759_CHGR_REG_CHG_CNFG_06_CHGPROT, unlock
+> +				=C2=A0 ? MAX77759_CHGR_REG_CHG_CNFG_06_CHGPROT : 0);
+> +}
+> +
+> +static int charger_input_valid(struct max77759_charger *chg)
+> +{
+> +	u32 val;
+> +	int ret;
+> +
+> +	ret =3D regmap_read(chg->regmap, MAX77759_CHGR_REG_CHG_INT_OK, &val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return (val & MAX77759_CHGR_REG_CHG_INT_CHG) &&
+> +		(val & MAX77759_CHGR_REG_CHG_INT_CHGIN);
+> +}
+> +
+> +static int get_online(struct max77759_charger *chg)
+> +{
+> +	u32 val;
+> +	int ret;
+> +
+> +	ret =3D charger_input_valid(chg);
+> +	if (ret <=3D 0)
+> +		return ret;
+> +
+> +	ret =3D regmap_read(chg->regmap, MAX77759_CHGR_REG_CHG_DETAILS_02, &val=
+);
+> +	if (ret)
+> +		return ret;
+> +
+> +	guard(mutex)(&chg->lock);
+> +	return (val & MAX77759_CHGR_REG_CHG_DETAILS_02_CHGIN_STS) &&
+> +		(chg->mode =3D=3D MAX77759_CHGR_MODE_CHG_BUCK_ON);
+> +}
+> +
+> +static int get_status(struct max77759_charger *chg)
+> +{
+> +	u32 val;
+> +	int ret;
+> +
+> +	ret =3D regmap_read(chg->regmap, MAX77759_CHGR_REG_CHG_DETAILS_01, &val=
+);
+> +	if (ret)
+> +		return ret;
+> +
+> +	switch (FIELD_GET(MAX77759_CHGR_REG_CHG_DETAILS_01_CHG_DTLS, val)) {
+> +	case MAX77759_CHGR_CHG_DTLS_PREQUAL:
+> +	case MAX77759_CHGR_CHG_DTLS_CC:
+> +	case MAX77759_CHGR_CHG_DTLS_CV:
+> +	case MAX77759_CHGR_CHG_DTLS_TO:
+> +		return POWER_SUPPLY_STATUS_CHARGING;
+> +	case MAX77759_CHGR_CHG_DTLS_DONE:
+> +		return POWER_SUPPLY_STATUS_FULL;
+> +	case MAX77759_CHGR_CHG_DTLS_TIMER_FAULT:
+> +	case MAX77759_CHGR_CHG_DTLS_SUSP_BATT_THM:
+> +	case MAX77759_CHGR_CHG_DTLS_OFF_WDOG_TIMER:
+> +	case MAX77759_CHGR_CHG_DTLS_SUSP_JEITA:
+> +		return POWER_SUPPLY_STATUS_NOT_CHARGING;
+> +	case MAX77759_CHGR_CHG_DTLS_OFF:
+> +		return POWER_SUPPLY_STATUS_DISCHARGING;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	return POWER_SUPPLY_STATUS_UNKNOWN;
+> +}
+> +
+> +static int get_charge_type(struct max77759_charger *chg)
+> +{
+> +	u32 val;
+> +	int ret;
+> +
+> +	ret =3D regmap_read(chg->regmap, MAX77759_CHGR_REG_CHG_DETAILS_01, &val=
+);
+> +	if (ret)
+> +		return ret;
+> +
+> +	switch (FIELD_GET(MAX77759_CHGR_REG_CHG_DETAILS_01_CHG_DTLS, val)) {
+> +	case MAX77759_CHGR_CHG_DTLS_PREQUAL:
+> +		return POWER_SUPPLY_CHARGE_TYPE_TRICKLE;
+> +	case MAX77759_CHGR_CHG_DTLS_CC:
+> +	case MAX77759_CHGR_CHG_DTLS_CV:
+> +		return POWER_SUPPLY_CHARGE_TYPE_FAST;
+> +	case MAX77759_CHGR_CHG_DTLS_TO:
+> +		return POWER_SUPPLY_CHARGE_TYPE_STANDARD;
+> +	case MAX77759_CHGR_CHG_DTLS_DONE:
+> +	case MAX77759_CHGR_CHG_DTLS_TIMER_FAULT:
+> +	case MAX77759_CHGR_CHG_DTLS_SUSP_BATT_THM:
+> +	case MAX77759_CHGR_CHG_DTLS_OFF_WDOG_TIMER:
+> +	case MAX77759_CHGR_CHG_DTLS_SUSP_JEITA:
+> +	case MAX77759_CHGR_CHG_DTLS_OFF:
+> +		return POWER_SUPPLY_CHARGE_TYPE_NONE;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	return POWER_SUPPLY_CHARGE_TYPE_UNKNOWN;
+> +}
+> +
+> +static int get_chg_health(struct max77759_charger *chg)
+> +{
+> +	u32 val;
+> +	int ret;
+> +
+> +	ret =3D regmap_read(chg->regmap, MAX77759_CHGR_REG_CHG_DETAILS_00, &val=
+);
+> +	if (ret)
+> +		return ret;
+> +
+> +	switch (FIELD_GET(MAX77759_CHGR_REG_CHG_DETAILS_OO_CHGIN_DTLS, val)) {
+> +	case MAX77759_CHGR_CHGIN_DTLS_VBUS_UNDERVOLTAGE:
+> +	case MAX77759_CHGR_CHGIN_DTLS_VBUS_MARGINAL_VOLTAGE:
+> +		return POWER_SUPPLY_HEALTH_UNDERVOLTAGE;
+> +	case MAX77759_CHGR_CHGIN_DTLS_VBUS_OVERVOLTAGE:
+> +		return POWER_SUPPLY_HEALTH_OVERVOLTAGE;
+> +	case MAX77759_CHGR_CHGIN_DTLS_VBUS_VALID:
+> +		return POWER_SUPPLY_HEALTH_GOOD;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	return POWER_SUPPLY_HEALTH_UNKNOWN;
+> +}
+> +
+> +static int get_batt_health(struct max77759_charger *chg)
+> +{
+> +	u32 val;
+> +	int ret;
+> +
+> +	ret =3D regmap_read(chg->regmap, MAX77759_CHGR_REG_CHG_DETAILS_01, &val=
+);
+> +	if (ret)
+> +		return ret;
+> +
+> +	switch (FIELD_GET(MAX77759_CHGR_REG_CHG_DETAILS_01_BAT_DTLS, val)) {
+> +	case MAX77759_CHGR_BAT_DTLS_NO_BATT_CHG_SUSP:
+> +		return POWER_SUPPLY_HEALTH_NO_BATTERY;
+> +	case MAX77759_CHGR_BAT_DTLS_DEAD_BATTERY:
+> +		return POWER_SUPPLY_HEALTH_DEAD;
+> +	case MAX77759_CHGR_BAT_DTLS_BAT_CHG_TIMER_FAULT:
+> +		return POWER_SUPPLY_HEALTH_SAFETY_TIMER_EXPIRE;
+> +	case MAX77759_CHGR_BAT_DTLS_BAT_OKAY:
+> +	case MAX77759_CHGR_BAT_DTLS_BAT_ONLY_MODE:
+> +		return POWER_SUPPLY_HEALTH_GOOD;
+> +	case MAX77759_CHGR_BAT_DTLS_BAT_UNDERVOLTAGE:
+> +		return POWER_SUPPLY_HEALTH_UNDERVOLTAGE;
+> +	case MAX77759_CHGR_BAT_DTLS_BAT_OVERVOLTAGE:
+> +		return POWER_SUPPLY_HEALTH_OVERVOLTAGE;
+> +	case MAX77759_CHGR_BAT_DTLS_BAT_OVERCURRENT:
+> +		return POWER_SUPPLY_HEALTH_OVERCURRENT;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	return POWER_SUPPLY_HEALTH_UNKNOWN;
+> +}
+> +
+> +static int get_health(struct max77759_charger *chg)
+> +{
+> +	int ret;
+> +
+> +	ret =3D get_online(chg);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	if (ret) {
+> +		ret =3D get_chg_health(chg);
+> +		if (ret < 0 || ret !=3D POWER_SUPPLY_HEALTH_GOOD)
+> +			return ret;
+> +	}
+> +
+> +	return get_batt_health(chg);
+> +}
+> +
+> +static int get_fast_charge_current(struct max77759_charger *chg)
+> +{
+> +	u32 regval, val;
+> +	int ret;
+> +
+> +	ret =3D regmap_read(chg->regmap, MAX77759_CHGR_REG_CHG_CNFG_02, &regval=
+);
+> +	if (ret)
+> +		return ret;
+> +
+> +	regval =3D FIELD_GET(MAX77759_CHGR_REG_CHG_CNFG_02_CHGCC, regval);
+> +	if (regval <=3D MAX77759_CHGR_CHGCC_MIN_REG)
+> +		return MAX77759_CHGR_CHGCC_MIN_UA;
 
-So, provided you load and execute the compressed kernel image within
-the first 128Mi of memory (0x40000000 - 0x48000000), then it will select
-0x40008000 to decompress itself. I can find no mention of any reserved
-memory regions in the DT file, so this should be fine.
+I'd reference your linear range here, instead of open-coding/duplicating,
+making it less likely to reference a wrong value, or helping to avoid mista=
+kes
+if chg_ranges[] ever changed in the future:
 
-If you're loading the compressed kernel at some wildly different
-address, then yes, it probably won't work.
++	if (regval < chg_ranges[MAX77759_CHGR_RANGE_CHGCC].min_sel)
++		return chg_ranges[MAX77759_CHGR_RANGE_CHGCC].min;
 
-This is documented in Documentation/arch/arm/booting.rst:
+> +
+> +	ret =3D linear_range_get_value(&chg_ranges[MAX77759_CHGR_RANGE_CHGCC],
+> +				=C2=A0=C2=A0=C2=A0=C2=A0 regval, &val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return ret ? ret : val;
 
- The zImage may also be placed in system RAM and called there.  The
- kernel should be placed in the first 128MiB of RAM.  It is recommended
- that it is loaded above 32MiB in order to avoid the need to relocate
- prior to decompression, which will make the boot process slightly
- faster.
+The above is duplicating the test of ret. How about:
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
++	regval =3D FIELD_GET(MAX77759_CHGR_REG_CHG_CNFG_02_CHGCC, regval);
++	/* use max() here because first few selectors are valid and all same */
++	regval =3D max(regval, chg_ranges[MAX77759_CHGR_RANGE_CHGCC].min_sel);
++=09
++	ret =3D linear_range_get_value(&chg_ranges[MAX77759_CHGR_RANGE_CHGCC],
++				     regval, &val);
++
++	return ret ? ret : val;
+
+> +}
+> +
+> +static int set_fast_charge_current_limit(struct max77759_charger *chg,
+> +					 u32 cc_max_ua)
+> +{
+> +	bool found;
+> +	u32 regval;
+> +	int ret;
+> +
+> +	ret =3D linear_range_get_selector_high(&chg_ranges[MAX77759_CHGR_RANGE_=
+CHGCC],
+> +					=C2=A0=C2=A0=C2=A0=C2=A0 cc_max_ua, &regval, &found);
+> +	if (!found)
+> +		return -EINVAL;
+> +
+> +	return regmap_update_bits(chg->regmap, MAX77759_CHGR_REG_CHG_CNFG_02,
+> +				=C2=A0 MAX77759_CHGR_REG_CHG_CNFG_02_CHGCC, regval);
+> +}
+> +
+> +static int get_float_voltage(struct max77759_charger *chg)
+> +{
+> +	u32 regval, val;
+> +	int ret;
+> +
+> +	ret =3D regmap_read(chg->regmap, MAX77759_CHGR_REG_CHG_CNFG_04, &regval=
+);
+> +	if (ret)
+> +		return ret;
+> +
+> +	regval =3D FIELD_GET(MAX77759_CHGR_REG_CHG_CNFG_04_CHG_CV_PRM, regval);
+> +	switch (regval) {
+> +	case MAX77759_CHGR_CHG_CV_PRM_HI_MIN_REG ... MAX77759_CHGR_CHG_CV_PRM_H=
+I_MAX_REG:
+> +		ret =3D linear_range_get_value(&chg_ranges[MAX77759_CHGR_RANGE_CHG_CV_=
+PRM_HI],
+> +					=C2=A0=C2=A0=C2=A0=C2=A0 regval, &val);
+> +		break;
+> +	case MAX77759_CHGR_CHG_CV_PRM_LO_MIN_REG ... MAX77759_CHGR_CHG_CV_PRM_L=
+O_MAX_REG:
+> +		ret =3D linear_range_get_value(&chg_ranges[MAX77759_CHGR_RANGE_CHG_CV_=
+PRM_LO],
+> +					=C2=A0=C2=A0=C2=A0=C2=A0 regval, &val);
+> +		break;
+> +	default:
+> +		ret =3D -EINVAL;
+> +		break;
+> +	}
+> +
+> +	return ret ? ret : val;
+> +}
+
+For the case statements, I'd again reference each linear range's .min_sel
+and .max_sel here, instead of open-coding.
+
+That said, if you switched to using linear_range_get_value_array() instead
+of manually determining which range to use, you wouldn't need the switch
+statement in the first place.
+
+> +
+> +static int set_float_voltage_limit(struct max77759_charger *chg, u32 fv_=
+mv)
+> +{
+> +	u32 regval;
+> +	bool found;
+> +	int ret;
+> +
+> +	if (fv_mv >=3D MAX77759_CHGR_CHG_CV_PRM_LO_MIN_MV &&
+> +	=C2=A0=C2=A0=C2=A0 fv_mv <=3D MAX77759_CHGR_CHG_CV_PRM_LO_MAX_MV) {
+> +		ret =3D linear_range_get_selector_high(&chg_ranges[MAX77759_CHGR_RANGE=
+_CHG_CV_PRM_LO],
+> +						=C2=A0=C2=A0=C2=A0=C2=A0 fv_mv, &regval, &found);
+> +	} else if (fv_mv >=3D MAX77759_CHGR_CHG_CV_PRM_HI_MIN_MV &&
+> +		=C2=A0=C2=A0 fv_mv <=3D MAX77759_CHGR_CHG_CV_PRM_HI_MAX_MV) {
+> +		ret =3D linear_range_get_selector_high(&chg_ranges[MAX77759_CHGR_RANGE=
+_CHG_CV_PRM_HI],
+> +						=C2=A0=C2=A0=C2=A0=C2=A0 fv_mv, &regval, &found);
+> +	} else {
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (!found)
+> +		return -EINVAL;
+
+If you're only going by found, you don't need ret.
+
+Is there an underlying reason to use linear_range_get_selector_high()?
+Could it use linear_range_get_selector_low_array() instead? Or maybe
+it'd make sense to introduce a linear_range_get_selector_high_array()?
+
+> +
+> +	return regmap_update_bits(chg->regmap, MAX77759_CHGR_REG_CHG_CNFG_04,
+> +				=C2=A0 MAX77759_CHGR_REG_CHG_CNFG_04_CHG_CV_PRM,
+> +				=C2=A0 regval);
+> +}
+> +
+> +static int get_input_current_limit(struct max77759_charger *chg)
+> +{
+> +	u32 regval, val;
+> +	int ret;
+> +
+> +	ret =3D regmap_read(chg->regmap, MAX77759_CHGR_REG_CHG_CNFG_09, &regval=
+);
+> +	if (ret)
+> +		return ret;
+> +
+> +	regval =3D FIELD_GET(MAX77759_CHGR_REG_CHG_CNFG_09_CHGIN_ILIM, regval);
+> +	if (regval <=3D MAX77759_CHGR_CHGIN_ILIM_MIN_REG)
+> +		return MAX77759_CHGR_CHGIN_ILIM_MIN_UA;
+> +
+> +	ret =3D linear_range_get_value(&chg_ranges[MAX77759_CHGR_RANGE_CHGIN_IL=
+IM],
+> +				=C2=A0=C2=A0=C2=A0=C2=A0 regval, &val);
+> +
+> +	return ret ? ret : val;
+
+Similar to get_fast_charge_current() above.
+
+> +}
+> +
+> +static int set_input_current_limit(struct max77759_charger *chg, int ili=
+m_ua)
+> +{
+> +	u32 regval;
+> +
+> +	if (ilim_ua < 0)
+> +		return -EINVAL;
+> +
+> +	linear_range_get_selector_within(&chg_ranges[MAX77759_CHGR_RANGE_CHGIN_=
+ILIM],
+> +					 ilim_ua, &regval);
+> +
+> +	return regmap_update_bits(chg->regmap, MAX77759_CHGR_REG_CHG_CNFG_09,
+> +				=C2=A0 MAX77759_CHGR_REG_CHG_CNFG_09_CHGIN_ILIM,
+> +				=C2=A0 regval);
+> +}
+> +
+> +static const enum power_supply_property max77759_charger_props[] =3D {
+> +	POWER_SUPPLY_PROP_ONLINE,
+> +	POWER_SUPPLY_PROP_PRESENT,
+> +	POWER_SUPPLY_PROP_STATUS,
+> +	POWER_SUPPLY_PROP_CHARGE_TYPE,
+> +	POWER_SUPPLY_PROP_HEALTH,
+> +	POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT_MAX,
+> +	POWER_SUPPLY_PROP_CONSTANT_CHARGE_VOLTAGE_MAX,
+> +	POWER_SUPPLY_PROP_INPUT_CURRENT_LIMIT,
+> +};
+> +
+> +static int max77759_charger_get_property(struct power_supply *psy,
+> +					 enum power_supply_property psp,
+> +					 union power_supply_propval *pval)
+> +{
+> +	struct max77759_charger *chg =3D power_supply_get_drvdata(psy);
+> +	int ret;
+> +
+> +	switch (psp) {
+> +	case POWER_SUPPLY_PROP_ONLINE:
+> +		ret =3D get_online(chg);
+> +		break;
+> +	case POWER_SUPPLY_PROP_PRESENT:
+> +		ret =3D charger_input_valid(chg);
+> +		break;
+> +	case POWER_SUPPLY_PROP_STATUS:
+> +		ret =3D get_status(chg);
+> +		break;
+> +	case POWER_SUPPLY_PROP_CHARGE_TYPE:
+> +		ret =3D get_charge_type(chg);
+> +		break;
+> +	case POWER_SUPPLY_PROP_HEALTH:
+> +		ret =3D get_health(chg);
+> +		break;
+> +	case POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT_MAX:
+> +		ret =3D get_fast_charge_current(chg);
+> +		break;
+> +	case POWER_SUPPLY_PROP_CONSTANT_CHARGE_VOLTAGE_MAX:
+> +		ret =3D get_float_voltage(chg);
+> +		break;
+> +	case POWER_SUPPLY_PROP_INPUT_CURRENT_LIMIT:
+> +		ret =3D get_input_current_limit(chg);
+> +		break;
+> +	default:
+> +		ret =3D -EINVAL;
+> +	}
+> +
+> +	pval->intval =3D ret;
+> +	return ret < 0 ? ret : 0;
+> +}
+> +
+> +static const struct power_supply_desc max77759_charger_desc =3D {
+> +	.name =3D "max77759-charger",
+> +	.type =3D POWER_SUPPLY_TYPE_USB,
+> +	.properties =3D max77759_charger_props,
+> +	.num_properties =3D ARRAY_SIZE(max77759_charger_props),
+> +	.get_property =3D max77759_charger_get_property,
+> +};
+> +
+> +static int charger_set_mode(struct max77759_charger *chg,
+> +			=C2=A0=C2=A0=C2=A0 enum max77759_chgr_mode mode)
+> +{
+> +	int ret;
+> +
+> +	guard(mutex)(&chg->lock);
+> +
+> +	if (chg->mode =3D=3D mode)
+> +		return 0;
+> +
+> +	if ((mode =3D=3D MAX77759_CHGR_MODE_CHG_BUCK_ON ||
+> +	=C2=A0=C2=A0=C2=A0=C2=A0 mode =3D=3D MAX77759_CHGR_MODE_OTG_BOOST_ON) &=
+&
+> +	=C2=A0=C2=A0=C2=A0 chg->mode !=3D MAX77759_CHGR_MODE_OFF) {
+> +		dev_err(chg->dev, "Invalid mode transition from %d to %d",
+> +			chg->mode, mode);
+> +		return -EINVAL;
+> +	}
+> +
+> +	ret =3D regmap_update_bits(chg->regmap, MAX77759_CHGR_REG_CHG_CNFG_00,
+> +				 MAX77759_CHGR_REG_CHG_CNFG_00_MODE, mode);
+> +	if (ret)
+> +		return ret;
+> +
+> +	chg->mode =3D mode;
+> +	return 0;
+> +}
+> +
+> +static int enable_chgin_otg(struct regulator_dev *rdev)
+> +{
+> +	struct max77759_charger *chg =3D rdev_get_drvdata(rdev);
+> +
+> +	return charger_set_mode(chg, MAX77759_CHGR_MODE_OTG_BOOST_ON);
+> +}
+> +
+> +static int disable_chgin_otg(struct regulator_dev *rdev)
+> +{
+> +	struct max77759_charger *chg =3D rdev_get_drvdata(rdev);
+> +
+> +	return charger_set_mode(chg, MAX77759_CHGR_MODE_OFF);
+> +}
+> +
+> +static int chgin_otg_status(struct regulator_dev *rdev)
+> +{
+> +	struct max77759_charger *chg =3D rdev_get_drvdata(rdev);
+> +
+> +	guard(mutex)(&chg->lock);
+> +	return chg->mode =3D=3D MAX77759_CHGR_MODE_OTG_BOOST_ON;
+> +}
+> +
+> +static const struct regulator_ops chgin_otg_reg_ops =3D {
+> +	.enable =3D enable_chgin_otg,
+> +	.disable =3D disable_chgin_otg,
+> +	.is_enabled =3D chgin_otg_status,
+> +};
+> +
+> +static const struct regulator_desc chgin_otg_reg_desc =3D {
+> +	.name =3D "chgin-otg",
+> +	.of_match =3D of_match_ptr("chgin-otg-regulator"),
+> +	.owner =3D THIS_MODULE,
+> +	.ops =3D &chgin_otg_reg_ops,
+> +	.fixed_uV =3D 5000000,
+> +	.n_voltages =3D 1,
+> +};
+> +
+> +static irqreturn_t irq_handler(int irq, void *data)
+> +{
+> +	struct max77759_charger *chg =3D data;
+> +	struct device *dev =3D chg->dev;
+> +	int i;
+> +
+> +	for (i =3D 0; i < NUM_IRQS && chg->irqs[i] !=3D irq; i++)
+> +		;
+> +
+> +	if (i =3D=3D NUM_IRQS) {
+> +		dev_err(dev, "Unable to handle irq=3D%d", irq);
+
+This needs to be dev_err_ratelimited() as mentioned before. You don't want
+to render the system unusable due to excessive potential logging.
+
+> +		return IRQ_NONE;
+> +	}
+> +
+> +	if (i =3D=3D BAT_OILO)
+> +		dev_warn(dev, "Battery over-current threshold crossed");
+
+dev_warn_ratelimited()
+
+> +
+> +	power_supply_changed(chg->psy);
+> +	return IRQ_HANDLED;
+> +}
+
+It seems the i=3D=3DNUM_IRQS test is only required because it's trying to
+figure out if it is the BAT_OILO irq. How about instead:
+
+
+static irqreturn_t irq_handler(int irq, void *data)
+{
+	struct max77759_charger *chg =3D data;
+
+	power_supply_changed(chg->psy);
+
+	return IRQ_HANDLED;
+}
+
+static irqreturn_t bat_oilo_irq_handler(int irq, void *data)
+{
+	struct max77759_charger *chg =3D data;
+
+	dev_warn_ratelimited(chg->dev, "Battery over-current threshold crossed");
+
+	return irq_handler(irq, data);
+}
+
+and then in max77759_init_irqhandler(), you pick bat_oilo_irq_handler()
+for i=3D=3DBAT_OILO and irq_handler() otherwise? This way, lots of unnecess=
+ary
+tests are avoided for the usual cases, and even for unexpected ones.
+
+Would that work?
+
+> +
+> +static int max77759_init_irqhandler(struct max77759_charger *chg)
+> +{
+> +	struct device *dev =3D chg->dev;
+> +	int i, ret;
+> +
+> +	for (i =3D 0; i < ARRAY_SIZE(chgr_irqs_str); i++) {
+> +		ret =3D platform_get_irq_byname(to_platform_device(dev),
+> +					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 chgr_irqs_str[i]);
+> +		if (ret < 0)
+> +			return dev_err_probe(dev, ret,
+> +					=C2=A0=C2=A0=C2=A0=C2=A0 "Failed to get irq resource for %s",
+> +					=C2=A0=C2=A0=C2=A0=C2=A0 chgr_irqs_str[i]);
+> +
+> +		chg->irqs[i] =3D ret;
+> +		ret =3D devm_request_threaded_irq(dev, chg->irqs[i], NULL,
+> +						irq_handler, 0, dev_name(dev),
+> +						chg);
+
+Could you supplement dev_name() here with the irq description please,
+to e.g. give more meaningful output in /proc/interrupts etc:
+
+	name =3D devm_kasprintf(dev, GFP_KERNEL, "%s:%s", dev_name(dev),
+			      chgr_irqs_str[i]);
+
+(+ error handling), and then use name in the request irq call instead of
+dev_name(dev).
+
+> +		if (ret)
+> +			return dev_err_probe(dev, ret,
+> +					=C2=A0=C2=A0=C2=A0=C2=A0 "Unable to register irq handler for %s",
+> +					=C2=A0=C2=A0=C2=A0=C2=A0 chgr_irqs_str[i]);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int max77759_charger_init(struct max77759_charger *chg)
+> +{
+> +	struct power_supply_battery_info *info;
+> +	u32 regval, fast_chg_curr, fv;
+> +	int ret;
+> +
+> +	ret =3D regmap_read(chg->regmap, MAX77759_CHGR_REG_CHG_CNFG_00, &regval=
+);
+> +	if (ret)
+> +		return ret;
+> +
+> +	chg->mode =3D FIELD_GET(MAX77759_CHGR_REG_CHG_CNFG_00_MODE, regval);
+> +	ret =3D charger_set_mode(chg, MAX77759_CHGR_MODE_OFF);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (power_supply_get_battery_info(chg->psy, &info)) {
+> +		fv =3D CHG_FV_DEFAULT_MV;
+> +		fast_chg_curr =3D CHG_CC_DEFAULT_UA;
+> +	} else {
+> +		fv =3D info->constant_charge_voltage_max_uv / 1000;
+> +		fast_chg_curr =3D info->constant_charge_current_max_ua;
+> +	}
+> +
+> +	ret =3D set_fast_charge_current_limit(chg, fast_chg_curr);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret =3D set_float_voltage_limit(chg, fv);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret =3D unlock_prot_regs(chg, true);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Disable wireless charging input */
+> +	ret =3D regmap_update_bits(chg->regmap, MAX77759_CHGR_REG_CHG_CNFG_12,
+> +				 MAX77759_CHGR_REG_CHG_CNFG_12_WCINSEL, 0);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret =3D regmap_update_bits(chg->regmap, MAX77759_CHGR_REG_CHG_CNFG_18,
+> +				 MAX77759_CHGR_REG_CHG_CNFG_18_WDTEN, 0);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return unlock_prot_regs(chg, false);
+> +}
+> +
+> +static void psy_work_item(struct work_struct *work)
+> +{
+> +	struct max77759_charger *chg =3D
+> +		container_of(work, struct max77759_charger, psy_work.work);
+> +	union power_supply_propval current_limit, online;
+> +	int ret;
+> +
+> +	ret =3D power_supply_get_property(chg->tcpm_psy,
+> +					POWER_SUPPLY_PROP_CURRENT_MAX,
+> +					&current_limit);
+> +	if (ret) {
+> +		dev_err(chg->dev,
+> +			"Failed to get CURRENT_MAX psy property, ret=3D%d",
+> +			ret);
+> +		goto err;
+> +	}
+> +
+> +	ret =3D power_supply_get_property(chg->tcpm_psy, POWER_SUPPLY_PROP_ONLI=
+NE,
+> +					&online);
+> +	if (ret) {
+> +		dev_err(chg->dev,
+> +			"Failed to get ONLINE psy property, ret=3D%d",
+> +			ret);
+> +		goto err;
+> +	}
+> +
+> +	if (online.intval && current_limit.intval) {
+> +		ret =3D set_input_current_limit(chg, current_limit.intval);
+> +		if (ret) {
+> +			dev_err(chg->dev,
+> +				"Unable to set current limit, ret=3D%d", ret);
+> +			goto err;
+> +		}
+> +
+> +		charger_set_mode(chg, MAX77759_CHGR_MODE_CHG_BUCK_ON);
+> +	} else {
+> +		charger_set_mode(chg, MAX77759_CHGR_MODE_OFF);
+> +	}
+> +
+> +	chg->psy_work_retry_cnt =3D 0;
+> +	return;
+> +
+> +err:
+> +	charger_set_mode(chg, MAX77759_CHGR_MODE_OFF);
+> +	if (chg->psy_work_retry_cnt >=3D MAX_NUM_RETRIES)
+> +		return;
+
+I'd say this final giving up could benefit from a dev_err(), while ...
+
+> +
+> +	++chg->psy_work_retry_cnt;
+> +	dev_err(chg->dev, "Retrying %u/%u chg psy_work",
+> +		chg->psy_work_retry_cnt, MAX_NUM_RETRIES);
+
+... this one could be demoted (but doesn't have to).
+
+That'd make it easier to determine if it's still in the process of
+trying, or if it has given up fully.
+
+> +	schedule_delayed_work(&chg->psy_work,
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 msecs_to_jiffies(PSY_WORK_RETRY_DELAY_=
+MS));
+> +}
+> +
+> +static int psy_changed(struct notifier_block *nb, unsigned long evt, voi=
+d *data)
+> +{
+> +	struct max77759_charger *chg =3D container_of(nb, struct max77759_charg=
+er,
+> +						=C2=A0=C2=A0=C2=A0 nb);
+> +	static const char *psy_name =3D "tcpm-source";
+> +	struct power_supply *psy =3D data;
+> +
+> +	if (!strnstr(psy->desc->name, psy_name, strlen(psy_name)) ||
+> +	=C2=A0=C2=A0=C2=A0 evt !=3D PSY_EVENT_PROP_CHANGED)
+> +		return NOTIFY_OK;
+> +
+> +	chg->tcpm_psy =3D psy;
+
+Do you need locking here? What if this is changed while a previous
+psy_work_item() is still executing?
+
+
+Cheers,
+Andre'
+
+
+> +	schedule_delayed_work(&chg->psy_work, 0);
+> +
+> +	return NOTIFY_OK;
+> +}
+> +
+> +static void max_tcpci_unregister_psy_notifier(void *nb)
+> +{
+> +	power_supply_unreg_notifier(nb);
+> +}
+> +
+> +static int max77759_charger_probe(struct platform_device *pdev)
+> +{
+> +	struct regulator_config chgin_otg_reg_cfg;
+> +	struct power_supply_config psy_cfg;
+> +	struct device *dev =3D &pdev->dev;
+> +	struct max77759_charger *chg;
+> +	int ret;
+> +
+> +	device_set_of_node_from_dev(dev, dev->parent);
+> +	chg =3D devm_kzalloc(dev, sizeof(*chg), GFP_KERNEL);
+> +	if (!chg)
+> +		return -ENOMEM;
+> +
+> +	platform_set_drvdata(pdev, chg);
+> +	chg->dev =3D dev;
+> +	chg->regmap =3D dev_get_regmap(dev->parent, "charger");
+> +	if (!chg->regmap)
+> +		return dev_err_probe(dev, -ENODEV, "Missing regmap");
+> +
+> +	ret =3D devm_mutex_init(dev, &chg->lock);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to initialize lock");
+> +
+> +	psy_cfg.fwnode =3D dev_fwnode(dev);
+> +	psy_cfg.drv_data =3D chg;
+> +	chg->psy =3D devm_power_supply_register(dev, &max77759_charger_desc,
+> +					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 &psy_cfg);
+> +	if (IS_ERR(chg->psy))
+> +		return dev_err_probe(dev, -EPROBE_DEFER,
+> +				=C2=A0=C2=A0=C2=A0=C2=A0 "Failed to register psy, ret=3D%ld",
+> +				=C2=A0=C2=A0=C2=A0=C2=A0 PTR_ERR(chg->psy));
+> +
+> +	ret =3D max77759_charger_init(chg);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				=C2=A0=C2=A0=C2=A0=C2=A0 "Failed to initialize max77759 charger");
+> +
+> +	chgin_otg_reg_cfg.dev =3D dev;
+> +	chgin_otg_reg_cfg.driver_data =3D chg;
+> +	chgin_otg_reg_cfg.of_node =3D dev_of_node(dev);
+> +	chg->chgin_otg_rdev =3D devm_regulator_register(dev, &chgin_otg_reg_des=
+c,
+> +						=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 &chgin_otg_reg_cfg);
+> +	if (IS_ERR(chg->chgin_otg_rdev))
+> +		return dev_err_probe(dev, PTR_ERR(chg->chgin_otg_rdev),
+> +				=C2=A0=C2=A0=C2=A0=C2=A0 "Failed to register chgin otg regulator");
+> +
+> +	ret =3D devm_delayed_work_autocancel(dev, &chg->psy_work, psy_work_item=
+);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to initialize psy work");
+> +
+> +	chg->nb.notifier_call =3D psy_changed;
+> +	ret =3D power_supply_reg_notifier(&chg->nb);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				=C2=A0=C2=A0=C2=A0=C2=A0 "Unable to register psy notifier");
+> +
+> +	ret =3D devm_add_action_or_reset(dev, max_tcpci_unregister_psy_notifier=
+,
+> +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 &chg->nb);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				=C2=A0=C2=A0=C2=A0=C2=A0 "Failed to add devm action to unregister ps=
+y notifier");
+> +
+> +	return max77759_init_irqhandler(chg);
+> +}
+> +
+> +static const struct platform_device_id max77759_charger_id[] =3D {
+> +	{ .name =3D "max77759-charger", },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(platform, max77759_charger_id);
+> +
+> +static struct platform_driver max77759_charger_driver =3D {
+> +	.driver =3D {
+> +		.name =3D "max77759-charger",
+> +		.probe_type =3D PROBE_PREFER_ASYNCHRONOUS,
+> +	},
+> +	.probe =3D max77759_charger_probe,
+> +	.id_table =3D max77759_charger_id,
+> +};
+> +module_platform_driver(max77759_charger_driver);
+> +
+> +MODULE_AUTHOR("Amit Sunil Dhamne <amitsd@google.com>");
+> +MODULE_DESCRIPTION("Maxim MAX77759 charger driver");
+> +MODULE_LICENSE("GPL");
 
