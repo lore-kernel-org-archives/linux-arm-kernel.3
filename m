@@ -4,97 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0343BE9537C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 11:01:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F260E9537E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 11:05:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fZmRzw0UO0vo2/+RdTbe3Czfuc5YBOuRbRLbvZUi5Wg=; b=yCjEuLQDjfmqF6XOw/vEy8ihMZ
-	f3RO6No8su0iShVOwaE1EoRo2G/5ESjn/LzgPtram+15wrMosdEWOlknpTxbwcO70h2nXRj7I4/Hp
-	qByESGlcSKW8e+BC45cvCMkksH23H4GvgsWzdbBrqa8xVuAysF962GBR4W5vCTc/b6wE10qe1HiSM
-	lAmqlekQKcHx1qEkkRYGKyH43V7AyA/Trk1j0QNmd5cSxX8I/FDN7HqLylN9XM/lhsfEG1Eek7+6r
-	Lh/QBPnHKIpxFgJclgvGVU/Lbs0cHKbl/kHGrLgRfEDQbTpjzCyv74OmO25qX4wRq72W9vaeHSH5v
-	ag567DUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+cf4oLWAvo5Jmfml0JEEbsOUKZ3OEtR5FFYNHt5g/b0=; b=E6VS6F2/xTMjbECCq3wsSXkKet
+	6W13+TZlZFDI/mFnrrc/5jO1ttnzoU7wFzwoSfW4mjcqG5+8JyAs3wNKJL9nar53/y7hB2zyUHQ2i
+	kmSqUkmyl39tO5whh0mm0qwDJfr8kz/JE8F1zAIhO7hJVG4hs02L6m/2yvwDYU9i46YjDO8JFH2Ru
+	2b3dB9Z1+a2hBfgDvMvir7p2A8u0pU8c/mSZ/hn9fo8GhW8ciU8hbOUKPmSu6AlXdYkP919APu1/e
+	/KBJyZWtrEHBxOtJP/Yab8cy6+iWr7xuIqPWjLxezi7/HVeJPqWcls9h2WSrGVOYDthpMtx43M4rQ
+	iO5YEMmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnadd-00000008K2e-2lLU;
-	Wed, 04 Feb 2026 11:01:37 +0000
-Received: from mail-ua1-f45.google.com ([209.85.222.45])
+	id 1vnah8-00000008KE6-0qv5;
+	Wed, 04 Feb 2026 11:05:15 +0000
+Received: from mail-francesouthazon11011001.outbound.protection.outlook.com ([40.107.130.1] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnada-00000008K27-1Ut2
+	id 1vnah4-00000008KDO-3NwY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 11:01:35 +0000
-Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-948aa4f524dso2131199241.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 03:01:33 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770202892; x=1770807692;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fZmRzw0UO0vo2/+RdTbe3Czfuc5YBOuRbRLbvZUi5Wg=;
-        b=mx8zcOXgEDtrjLcHTMThHJZJtrXn4gvyJnCoBxNsbsTd1ZHwp/mEd19EMnE7Sip36f
-         /22/weAnPXFOukrUyY7nUX/f2h4LcEpd/cAiNMG9DeP7V83mlhgHp4sb1lclj7UoCTW6
-         0kPxs6Ko4qvZPU/xtuEc4WhfdbiH3JIbhVcnyW7AXFnpZlhyjvLdZESkfrwDsFGMBXU0
-         rf+FDV/H4v5brqaN+G6umjP8Jfo+CwiJjI55j945vHg7ovWGkJz6iAmGmPnc2kyLvbpH
-         SBh2gihAdQPQiRLspcuLaFSD5SJPCTJTvZpAbJTXvPEVF11NMM7xGMGcYjdAg8gD8JLm
-         G1yw==
-X-Forwarded-Encrypted: i=1; AJvYcCW09InEtaiXDgxGC17Vk5OUmE2ubSgCVamRwtgjKXaK0EYdxy6rLD8nsR3FSoQw8MfX7DX5/JpPxQDv5T0NkE4d@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRMQzH5vLJG4oGPl/K5+c7EOm5ISbXSzZeUu+GGG62mNai7zcq
-	svJXDb59knZDq/8v1v3q1qN3zQacNslMLMtZrzZljLqiIUA+OhHnI6+QJqB3obd4XY4=
-X-Gm-Gg: AZuq6aKR9gXjoQGVjvs006y3I/ivsibxnYFDthnD71UZSxkd2izijW+/yTvOn9W/ut4
-	PNn8c8FWOlL9Tf9f7CCFyH5aIbOfEkFhXdEJVBZzlomsvqHP/lhz0W+OVif7Dj4Rg+W8V9ZA75+
-	66Xzaw0dHAP2D3ScMhz/AMJ3/ciS3gRAUcukJHoB63lGsLEZhkfhpke32sGifFtM+oXzm9VzDKH
-	L8KsWgNKMbqCCg2Z864gOV+mn/CjyH5GZHrZ8WkD8duIU4Q8AYLEK0hSjmr7Ae5SOczTF4s9HqH
-	9daawNQyZXLucwhe+ncQxo6Ez92q0KLsSryrJPKfYPD5UyPBM4DX2jLbjyFqkU9KksZyCguWh3b
-	mmGiNtzOr3kqwvpDjbKKIFN33oPc9HGoiyHqIGxh9wcmzKSERPBIskVnyjOxp4fxSYsnzWmnT89
-	/tQdz1kzofUl/YHCES3TkhKXLOgKc6HMJzzMLr9stdMvg3U1kG8KcS
-X-Received: by 2002:a05:6102:3ed4:b0:5ef:a8da:8b26 with SMTP id ada2fe7eead31-5f9395a3167mr814226137.27.1770202892181;
-        Wed, 04 Feb 2026 03:01:32 -0800 (PST)
-Received: from mail-vk1-f171.google.com (mail-vk1-f171.google.com. [209.85.221.171])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5f93aa2ce09sm754233137.11.2026.02.04.03.01.32
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Feb 2026 03:01:32 -0800 (PST)
-Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-563610de035so4424022e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 03:01:32 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXC0jqbE7v+d9A9q/xN76HO/+SRnRpuufAoKPHtyip3lmiLm0mq9bqBPKkKu/Us6NXxFbJTKy74PyTf5374EGb4@lists.infradead.org
-X-Received: by 2002:a05:6102:3707:b0:5f5:47fa:d520 with SMTP id
- ada2fe7eead31-5f93949b9c5mr1005127137.11.1770202421943; Wed, 04 Feb 2026
- 02:53:41 -0800 (PST)
+	Wed, 04 Feb 2026 11:05:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JiQ9GoWbc5UxzX28Fj+InJwnSD3ce7vun8ti83FsJJsYOVKVJoE7H5TdZvnZmHka14IqpjMh9qcspui/zwVMyXO/9igGVXB00PPgE+btXXHkuv71Spxgd7u/MJEXV3ZXe9lhDfMVtXiQ9jiSIqxLaJED6U810QiAxfSWVl6yiksfNxa6n318HqZ9r5GEIs9CEQk9+b+gaWnp3HBRmzF4HSr169HHbvuLaRbWQhJL/YYiYmr3wJaQQjPD5Sl+LFotKhZnoYKfZPCOyznLFR0H1vWo/wpOagjb+S1Y9ekkfLU2W/5QleBYgDcTtkWZassk9HReKAzBf8qMbZc9YiES4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+cf4oLWAvo5Jmfml0JEEbsOUKZ3OEtR5FFYNHt5g/b0=;
+ b=iB9VSzdatUUsgO2A78GvrtENrVXf6qm22WWvfBConnduIS38OcZjB9HRtbQyFT41wV2FgBEiZma+SQkBECaoqHUheiBm3rt3+skFMs51RiGgy83pnbFZfOoFoO+22ESxtEGLNWEl6siJBzFgT0Bb7SnJ+PesmhwFSlKWlj1tuWI59ufudii0UIcRfBtRPl9qYzACrzn0YH98I+k6bfgYC5AhnL/tfXTh3+GPXi9pRgeNzKyw3hIA4prftIJ0Y+uAzENp+MW/88vxgzdPuxTooEmFcmwp14EVMyTwriZjkXc6O+jvadL1xufEILpSj6sYRpYGSzH9h2Qi6KD5xQeekw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+cf4oLWAvo5Jmfml0JEEbsOUKZ3OEtR5FFYNHt5g/b0=;
+ b=HRRKkWt/yiMdByZOV0Oa92xX2ZPzD1+QaPB4a3FHU2skaZM4UCdSV1bMxsHNN5OjwxyIKy/T2CabCbI6eDKPofK8dWRHxhoPMZ668v6J+4V9xFNg9qcDpqc7XDia3L6TTTZWWZOlK40eHSRTRggwaOG7d4bS/K74I/xBLWV27F2z3EOKayItsg0fS4DV2piWhysonXUj3pMXU+3vh6vXKC0RBMDK1Pt7j7sq0BkZnB0Hzi4UmumclEi7lSIGp5Z8tO1Gpnqz9uBLarzMaND74XRT6ORJIKepL8xsLuZ6osvom1/TmjsvdM1/OJlvRdUvpk89u07ccr6qsSbJKmANUw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8829.eurprd04.prod.outlook.com (2603:10a6:102:20c::17)
+ by GV2PR04MB11303.eurprd04.prod.outlook.com (2603:10a6:150:2a3::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Wed, 4 Feb
+ 2026 11:05:05 +0000
+Received: from PAXPR04MB8829.eurprd04.prod.outlook.com
+ ([fe80::52de:f9c9:8c2e:7dd5]) by PAXPR04MB8829.eurprd04.prod.outlook.com
+ ([fe80::52de:f9c9:8c2e:7dd5%5]) with mapi id 15.20.9587.010; Wed, 4 Feb 2026
+ 11:05:04 +0000
+From: Xu Yang <xu.yang_2@nxp.com>
+Subject: [PATCH v2 0/3] add DWC3 i.MX driver based on flatten devicetree
+Date: Wed, 04 Feb 2026 19:06:15 +0800
+Message-Id: <20260204-add-flatten-dts-based-dwc3-imx-driver-v2-0-d2c9b5a58c01@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACcog2kC/5WNQQ6CMBBFr0K6dkyBgpaV9zAsxnaQSaSQtqkYw
+ t2t3MDNT95fvLeJQJ4piK7YhKfEgWeXoToVwozongRsM4tKVq3MA2gtDC+MkRzYGOCBgSzYt6m
+ BpxWs50QedEsKFQ66uUiRXYungdejc+8zjxzi7D9HNpW/999CKkGCUQob0qWur/Lm1uVs5kn0+
+ 75/AYxEskLYAAAA
+X-Change-ID: 20260202-add-flatten-dts-based-dwc3-imx-driver-96e4a4af9570
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
+ Li Jun <jun.li@nxp.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Xu Yang <xu.yang_2@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770203208; l=1943;
+ i=xu.yang_2@nxp.com; s=20250815; h=from:subject:message-id;
+ bh=HzjA1hcZjarDnU88hnqAELecdLaolYzmU2dy5wCzbL8=;
+ b=6nvXH2KZkv/RdCxF+JtuuKFbGUaPziCMTv9dOko5nEJ56KWHXitdnUY4tOVH9eLxV5Z6GMmML
+ aZNynKFf++WC4SQgD0cCwkb0+PYRaP9h2nOR9veCgXeCR9CX6nkM3p2
+X-Developer-Key: i=xu.yang_2@nxp.com; a=ed25519;
+ pk=5c2HwftfKxFlMJboUe40+xawMtfnp5F8iEiv5CiKS+4=
+X-ClientProxiedBy: SG2P153CA0030.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::17)
+ To PAXPR04MB8829.eurprd04.prod.outlook.com (2603:10a6:102:20c::17)
 MIME-Version: 1.0
-References: <65d62b60.050a0220.c7b96.614e@mx.google.com> <666ad6e0.df0a0220.f8b16.4a5e@mx.google.com>
- <CACRpkdYJoNRpciyQE_A6dkb8f6Jsy4+qwb4w9K3bss2mkZpp1A@mail.gmail.com>
- <ZmsXdWWidNjXdbSa@shell.armlinux.org.uk> <666b2379.5d0a0220.c7eec.8b6f@mx.google.com>
- <CAMuHMdWnNzktSecsPX_anf=PCuLrZUT-6TO7KXGCHeQVTS974g@mail.gmail.com>
- <aYCDOio-YdUJAf2v@shell.armlinux.org.uk> <CA+_ehUx=3Ci2hN0YYkLxBNwOu_NTHFe_ZKkw9TH+bU-4PwTD-A@mail.gmail.com>
- <86v7gf9z92.wl-maz@kernel.org> <CAD++jLkgtgi1obmiuon=1XhOmT5cwtsMmBE37-wkzE_W55ZV2Q@mail.gmail.com>
- <aYKgaDtb7Ba09Paf@shell.armlinux.org.uk>
-In-Reply-To: <aYKgaDtb7Ba09Paf@shell.armlinux.org.uk>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 4 Feb 2026 11:53:30 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdX99kB5oDoxy8=yk_D8g=bCwwUON-uMkT7zSPq0=DASVA@mail.gmail.com>
-X-Gm-Features: AZwV_QhhJxqrTR_22lOy1yb59hSHrrMaeGG8yCU0hfXcMFH8x-xzifd8o28DJPk
-Message-ID: <CAMuHMdX99kB5oDoxy8=yk_D8g=bCwwUON-uMkT7zSPq0=DASVA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] ARM: decompressor: support AUTO_ZRELADDR and
- appended DTB
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	"Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Andrew Morton <akpm@linux-foundation.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, 
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Jonathan Corbet <corbet@lwn.net>, "Mike Rapoport (IBM)" <rppt@kernel.org>, 
-	Eric DeVolder <eric.devolder@oracle.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Kees Cook <keescook@chromium.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konrad.dybcio@somainline.org>, John Crispin <john@phrozen.org>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8829:EE_|GV2PR04MB11303:EE_
+X-MS-Office365-Filtering-Correlation-Id: cf623f9b-4e2f-4055-a4e1-08de63dd3ffe
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|19092799006|366016|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WnVqN0ZCQThNZy9zbFJabGxsQWUzdUpzaDJxRHg4aHZiSHFxaVZmUlBHRTA5?=
+ =?utf-8?B?TEd5TCtkU0tqMnprUVg1aVRQY0VQbDd3eHhNR2QzMlNndnlEMXNoVlRCd3lB?=
+ =?utf-8?B?RFJpVUJORk00OU1HQ1RkMm5qWlh2WFBxTGtNcVp3d0Q1K0srR0JuMHJlT1BZ?=
+ =?utf-8?B?QmsyRHRPQTluN2N4YUd5VFBJZjBYMGpqb0NaZGFEV3lkaWg1WWZsU21DR0Fp?=
+ =?utf-8?B?aXg5OTR2VFZscFQ0Z2tCSk1aMGF0U3FYclMxMDJHM3c4SUIxN2NkMGErT3dI?=
+ =?utf-8?B?T1U2UWk5b05ibko5OVNteXdNNXErTml0cCtPWVp4WngvSUYrd1ZNVTlOWXJD?=
+ =?utf-8?B?Mk51bDRZYnM2RXRiMW5XKzNjcHpOcjRpZGFoOWc5V1hnRXQzUnYvREFpeU80?=
+ =?utf-8?B?YWxETy9ndGFDWmN0eHQ0MS9SOGE3OGpzeDR2NEJoMzJ1VTlaRkV1T2c1UU16?=
+ =?utf-8?B?SGc5S0tjdlFER3RiOUNvbjNNZWpLU0ZxMmNseWloak12SDFqV0dNbU5BU2Jl?=
+ =?utf-8?B?czZmRDRMRVc5UkN3Y25SbkFyeGY5enlxWmlYdDcxN3RuTmlmYUpaWmsxeHZX?=
+ =?utf-8?B?aThtaTBvT1RzTC82NTRXdjRrNmdhOThFZ3ZnQ1BKNTRxKzZkSU9mSENqQzZN?=
+ =?utf-8?B?SUVvTUFQS3JBUm5zNGs0MDVreUtoeUt2aTVFSHhpQ1R5Qno2aUZibnduenJu?=
+ =?utf-8?B?dEwzN096eG5pK1MzS1J3cENvbnhoZ3REdnFjWWpmckJ2MDBWN1NyTjI1UGVl?=
+ =?utf-8?B?L2pSTDUyYVJ3MHBSS3NvaU9zODNEZU5XSHRzbTdReHZwUW13cFNUUXNnYlBR?=
+ =?utf-8?B?clVoQ0NFZXF0cEIzQWVKSVFKSnpZQ0N4bWNTWGNMc2N2YXNxUG9LaVFudFBO?=
+ =?utf-8?B?aklzR0dyc2xWcC9yS255dk1JS1NPNm8rYmpGNldSTnZ3REdVODEvY1QwbkdP?=
+ =?utf-8?B?OEFsKzFOWWprRkVIcUVqemI0bWs5eW40d0RBYWd2SFhOOU1oN1VrUzA2TzJ1?=
+ =?utf-8?B?M1VoSVpoS1pNcDU3c0N3Snl0STFjSkdPTWhQUGlBSXJFVWFHMzVCN1ovR0JC?=
+ =?utf-8?B?NUpteFhDT2ptS3Q4aFhraXREbFNwMExkWFlTQTA1L1dLZkFVLytRbGRGY21w?=
+ =?utf-8?B?d0JYeEs0UkNFR2xrY0t5aXNKN1N4dElxZUpsM3grUURZck1DZ0JhbE96ckN0?=
+ =?utf-8?B?Ti9RQlB3Wk1lU2lJQnJTZUNJY201eldaY2lrV2tzNmUzMEY5SjZmcXFMZDkr?=
+ =?utf-8?B?ZFdxR2lJUExYbnZleGpHV1FmYjUzSTc2UURTK3RGK1RWek5LR1JvVlVXMkI0?=
+ =?utf-8?B?QTdEOW9yZUFBdkVxcktHNkd4Zm1SZy9QcVNrVVhEMmxmRmRpbE1WZXBrejFG?=
+ =?utf-8?B?NEpncGUzZkZUU0lqTjNCaHRKemt3cHFXOWI2dEg2MGEvQkJObStPUmhqY3Vo?=
+ =?utf-8?B?d0tWd1dRQ00vUlVkUjczL2gySlJTa2xMMXNwMzVFbkFrRlo1TmdyKzZXOHNV?=
+ =?utf-8?B?bTdPalZoMGVUUEVQV3NhUUY4RndndWFPR1dYV0NKWUxreitRc0QrWkdkRk1B?=
+ =?utf-8?B?Y0R2cHVmeVozTWNsVWlCT3BjVzJGcXArR0t2dzhFYWI5c0tNWktLc1QranU1?=
+ =?utf-8?B?NUJ0Z3VNelNGaEh1V3VmMWdpeFdqdGZRRWRYTlVLa0FjVFdQWlhwSkJ0Q2N4?=
+ =?utf-8?B?ZFNXRmZWNkp5QnR0OE5rM2FMT0VnR2IzdWEyV28rUTNhUDJQWS9Sb0czTzNs?=
+ =?utf-8?B?TDBXQVZ6UWF1V3FKTDVaMktyOEwzcitWT1BvTXM3YUpNL21mYUt5U1plTXpY?=
+ =?utf-8?B?WnlUWkJvT3A2SEhsL3hWMUxiVmhLdTB2OGhzbVFJTVBVMHJRTUY1WVJaWnpT?=
+ =?utf-8?B?R3ZJbTNERWVlRHYrRHR2L3MwZXVXT0dwdHg3NlR2OUxtZjUxeHhPYTJOS2pW?=
+ =?utf-8?B?eDB1YzVQbXQwd2p6bElkRkpzNnczS05MUmlUV3ZTZ1JiLzZMZlc1cjN4am1r?=
+ =?utf-8?B?WmhRek9PV2t0cmVsTmpRSlNXY3lEb0RhaC81d2d4M3FnbXlqQVl4WER0Q1lk?=
+ =?utf-8?B?L3NaM0FGSDdabFlOMXNnMThWTkluaUpmR3dBY2llQWE0UFp4Y3l5OWVZdllC?=
+ =?utf-8?B?bmsrNk5PdE9qZ05pbWZWZXFzbDVmUGpDcFVHaUIybTZreFlwdGp2QWd1N2N4?=
+ =?utf-8?Q?lzcwvibFEKtL1C4yKwVPua7B5ZlZRv9NALuTBNWefQxK?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8829.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(19092799006)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZDNRYWR1K29Kb3N6NHdGSjlYS0dLYVhtaTl6TFRlZURiZVdOelF3YWVESzNT?=
+ =?utf-8?B?cWZrbnNONG5Md0hUeGhLSERmeTd0QmMwS0E3NDIwTWN6RFAxTEE4K2FLRUNq?=
+ =?utf-8?B?RUJ5TUxsWkZDWlpmT0RUdStGNDFlRGJ0VjFkUTgxVW9xVnBrMFZaczQya0J3?=
+ =?utf-8?B?dkRuT1BiSFZ5VnV1RW02KzRBcWFHd0JJZVB4NjUzOGNiYXZkOTFiZG0rcTRR?=
+ =?utf-8?B?VGpDL2tIVnJXU0xRMEdRelNvQUc4RUZOc3dlWnVUZUtEdkQxRjE2ajl6UWhW?=
+ =?utf-8?B?ZzRUbTNIWVc1YXp3WXJnZ1h3U0VtMkpnQzBlc3N4TE9UZXBJd21IZ1l3cS9v?=
+ =?utf-8?B?MTVhL0tBa3lPY0wxczRIVjdsYThPSTA0RXJxdlZDSzh4M3Y0NnZEcmdTWlEv?=
+ =?utf-8?B?Q1BYTjY3NnBMZkZlR1dMY0FBMkNJcWZuZVN2NlJTbVZmdGljNTVVVHd3WER6?=
+ =?utf-8?B?VDlyODNydFdtbnYxOCt0aWllYVI2d3dZYlF3K2V0ajR6TXlFQXo4ZE5QQ00v?=
+ =?utf-8?B?TDU4VjZYMUhBS1ZyaGMvdy8rYkJHN0pHYkZtQXNtSGgrc1NYRGgxdXBjQ05U?=
+ =?utf-8?B?Mno0cHdUOER2S2ZaUU9Mcmw3R0R4dkJSaFJsamd5bFYwRGo0RXZmbVk5T3la?=
+ =?utf-8?B?TVBqS2lHM3VEU3J6QWxIMVFlRnhZS0VUdFJwMnRNVTdJcXYrcWxLem83YVo5?=
+ =?utf-8?B?R2w2ZU1UN29UcHhxUWZ3a3U2US9pUzhubXhPeXcrSFJHbUlSNnpTczY3MXU1?=
+ =?utf-8?B?WE5NZ3Nlb3NSWmFHVGJ1bzdod1BrUFlkMUJZR3YvOSs0QndFVkFyaXM0T0xZ?=
+ =?utf-8?B?dDdhL09lcjhodXpoNFBrb2xKWkRZSDNDUmtCN0FjKzBZWFNUOWxkQmcxMXQv?=
+ =?utf-8?B?djVVSjFkdGdNQXNObzdyczBPcVpFNEorSFRBOHMxdnk3c1ZsZ2t6VnBmK0o4?=
+ =?utf-8?B?UjJHaHFPRE80QjdvdTZTM3A1cVBGT2QxcFN4VzFvVDg3blVxMW5najBNbGFl?=
+ =?utf-8?B?Um9oYjBqYnU3OE5qTGd0dHBMdytrc0ZkcFBQaW84MUtuYmlRNVByTHNXWnIz?=
+ =?utf-8?B?czBhQXRESzVGb1N3K2F2THd1T3FLWDRjYnY1Z2VuZnpzSVlKQVYyd0NERzMr?=
+ =?utf-8?B?RE4ydmpkeWFQcTEzS3E0aUpXdzVIdU8zMVFQTEFTK1c1dkh2Q0F5bmtzVi9z?=
+ =?utf-8?B?bXZENXdHUWplYjZOaGxsa1BGNjExSjNrMkltWVluMDNvMDEwRytKTmxIQ1Vj?=
+ =?utf-8?B?MmdydjF0VURsa0pkUmlsaytBM0pITTFzMkZtR2dOMHlZTjhrMlFjV1FUc0Zj?=
+ =?utf-8?B?dFVvSWI4VzJzb0RmT0NRS1dWVk4vbWxnTzFZaGZGTW1tVG9sWWlVNVg1ajls?=
+ =?utf-8?B?WlpLRW0rb2k0a2VKSFpuZk5KWFJ2YUFKN2VFN1pCSW51bkxNWG1zM0lWYTBu?=
+ =?utf-8?B?c3J2M3RpZDdmeFhjcG5EV1lEVzhCTCtORVE0S2tvTzYvNkVadjdWQTltN1dn?=
+ =?utf-8?B?bzhNS0VBbkJjY2U5UHltL2hUUjliU2ZLSE9QQTZhbHNaNllibGg4ajR1Y0VD?=
+ =?utf-8?B?MDBrVVJqOFN1QUE2elQ3T095dDFDMkpmSUZZdlJZQUVtQ2lJeFk5QzR6bGFE?=
+ =?utf-8?B?RGY1djl4Kzg1L2xXVXJURkMrSnIvSkd0SzYvcjJXbHpkQzNiNXZHbTJXSG9Q?=
+ =?utf-8?B?eGZhZkFsaFZhMnlWQjZMeXBzSkIzOFR0M3E3ejhLa3hDaUxBS0lLZGlDT3dk?=
+ =?utf-8?B?UmlYN1JEWHM4Qi9GZlBFU29sNHZsMkpwT2VDU2NMamFsUk1qS2NuYVJlVzVn?=
+ =?utf-8?B?cjlwckN5NWhzVTVDQTdIY0E2WjhYR0NaR1Z5Rlg3aFh1QnRXRi9PKzNGZGls?=
+ =?utf-8?B?U2RCN091RktzNjBDa0dzZkM5MjVvcHZ0U2htN1JPbTF1RUxRaE93NDdyajcw?=
+ =?utf-8?B?bEw2MTNpZ09paDgrQ20xMnd3UTdjODVrVndyWi8vRm1jNVF3aFVxVzZ0TE9w?=
+ =?utf-8?B?K2pueE9JSkIvL2M5eTN5dWd6Mi9ZbEp4ak1kVlBOUTNLd21jWEZMOUdYNVFu?=
+ =?utf-8?B?ODBVbVpHOEsxbUpOYVZoTVNDVjlmR1RrTE9XMUxVaE5XYmxhZ2hZOWwxTlhV?=
+ =?utf-8?B?WmV6QmtjVjFDMlVSalZMSE5Vb1FoQ0ZNQzcxRnJ3RjVoLzJnNWpUVUpUL3FU?=
+ =?utf-8?B?dUNtdlpwNFU0ZHZ2cktEYW11ZUdiRHFzdzN2eUxsWHp1WWNNTGF4QzgrUUNz?=
+ =?utf-8?B?dy9LczJKY0k5cG9ZTlM3K3ZCcEE3cWxSQ1pqS3lOeXJXbHJjTWZ0Tkt0MHVN?=
+ =?utf-8?B?aW5aUDdPa1liT0ZoZG12UFFiM1J2ekI2NVJhVlo5dDNVbll5c29GZz09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cf623f9b-4e2f-4055-a4e1-08de63dd3ffe
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8829.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2026 11:05:04.8010
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: L5KqTiUFZLAT28cct1b4Ybd5BK/HqcBDeRANvni7ed0JFSQEL+5UkNoxC5soLWDP1L+Y+Zm46v6dYHvbpOT2kQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11303
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_030134_425079_1F63708A 
-X-CRM114-Status: GOOD (  28.17  )
+X-CRM114-CacheID: sfid-20260204_030510_854418_F8CDBA86 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,42 +196,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+The i.MX USB glue and DWC3 core are closely coupled. Describe the i.MX
+USB block in a single block will bring more benefits than a parent-
+child relation.
 
-On Wed, 4 Feb 2026 at 02:27, Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
-> On Wed, Feb 04, 2026 at 01:36:29AM +0100, Linus Walleij wrote:
-> > However, I think it is a thick requirement to put on hobbyist
-> > contributors to go and write entite boot loaders from scratch,
-> > I think it's a fine requirement to put on Qualcomm or Renesas
-> > paid maintainers.
->
-> If we're talking about older boards, then why have they only recently
-> became a problem, when, presumably, they've been working fine for a
-> decade or so?
+Now DWC3 USB common driver already support to do more key jobs in glue
+driver, such as power management and core initialization. Now let's
+make a step and add a flatten devicetree based driver.
 
-These boards may have been working fine, given the right "legacy"
-kernel config options were used.  However, some of these option make
-the resulting kernel limited to that platform or even to a specific
-board (e.g. when CONFIG_CMDLINE needs to be used).
+The first one add a new "fsl,imx-dwc3" binding to describe all i.MX
+related USB controller.
 
-The KZM-A9-GT I "need" this for never had upstream U-Boot (I don't
-think I ever had any U-Boot sources).  I can boot a shmobile_defconfig
-multi-platform kernel[*] fine, iff the first patch is applied.
+Then, to support wakeup capability even when controller experienced
+power lost, a fix patch is added to make controller work after system
+resume back.
 
-[*] I mean vmlinux, as the actual image used for booting will still be
-    different (uImage/zImage with/without appended DTB).
+---
+Changes in v2:
+- reorder compatible property
+- rename may_lose_power to needs_full_reinit
+- remove Frank review by tag due to some changes
+- fix code style in dwc3-imx.c
+- disable wakeup irq when register interrupt by default
+- remove runtime PM operations in dwc3_imx_remove()
+- Link to v1: https://lore.kernel.org/r/20260202-add-flatten-dts-based-dwc3-imx-driver-v1-0-c44a5e919380@nxp.com
 
-Thanks!
+---
+Xu Yang (3):
+      dt-bindings: usb: introduce fsl,imx-dwc3
+      usb: dwc3: add needs_full_reinit flag
+      usb: dwc3: introduce flatten model driver of i.MX Soc
 
-Gr{oetje,eeting}s,
+ .../devicetree/bindings/usb/fsl,imx-dwc3.yaml      | 131 +++++++
+ .../devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml   |  13 +
+ drivers/usb/dwc3/Kconfig                           |  12 +
+ drivers/usb/dwc3/Makefile                          |   1 +
+ drivers/usb/dwc3/core.c                            |   9 +-
+ drivers/usb/dwc3/core.h                            |   3 +
+ drivers/usb/dwc3/dwc3-imx.c                        | 430 +++++++++++++++++++++
+ drivers/usb/dwc3/glue.h                            |   3 +
+ 8 files changed, 600 insertions(+), 2 deletions(-)
+---
+base-commit: 0a06917432a762d6233f88963c0b53e48dbac6b4
+change-id: 20260202-add-flatten-dts-based-dwc3-imx-driver-96e4a4af9570
 
-                        Geert
-
+Best regards,
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Xu Yang <xu.yang_2@nxp.com>
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
