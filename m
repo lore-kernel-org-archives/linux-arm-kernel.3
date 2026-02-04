@@ -4,171 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDAE0E95396
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 13:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DEAEE95396
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 13:21:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QBoNm0G5dE61sa1attSq4k6MykQBQSe6yo1GcDwbHsY=; b=zHxCQ4XX/rMt+kG8nwHlTUZ5s9
-	rgq1it5OaaDJQamrJ4fk9s/FJwhKicqfRXV4Q2NSl7jvtfDsYeiFmw1Ih2CDiD+FY9bRwH7NucKC6
-	m9UyYhxUrdwdC7DBk3cnBaKZIooa63Cj+icvxHQR4uQiCi5aJUVNRAnXUCJm5feVH3qBEhrqHHOZh
-	A3LGYjZmOLaHMpteFJEGkaEKci6GfZhFHlJNKEjnTvfiM8Ownzbf+iZPLdhZI7VjhHl/G9suOuHH4
-	k3UgfW2FMYa9O4KX3Ys6i0rcjbCrHG0oSR9wIYId2K7ciwR1T71lyChTMlNwba7Q9mGRMrybxhpe8
-	vOueul8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rKC9479RtmvQxjIDGbP/TybkiDx+Ouj854nFtYQtJb4=; b=VBXZJEagCp5EPd86gqrNy1p/So
+	YdU1ocP5fOeTdel8WJ6mREa5NLPdFedfew6prA3YzppoTMiPSNz51XQRgxF19rnuUheawJaFj+I0V
+	Sz1HTPGHqsKT/Bc4A72It2AM3fauF3uSBqEDLK/HFTOxkM+6+s+5X3Sa0izD0/iSpG5oOmRSS7yrm
+	66UJaNjjLwZElut35TYIKxBI4FQQgUoHiqBKUbb/ao+zipz3EAFOkda1c6uZwhcJQPR9W6olRZfje
+	9TOVavBmBQwmVGUlHynbwikxXF8lrN2hRuTispitQuc3IHatEn8o27EnYiDPvxpyQ1Q72A/cK46BB
+	JGtMJLEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vncoM-00000008UXP-2yIF;
-	Wed, 04 Feb 2026 13:20:50 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1vncoU-00000008Uae-2RmC;
+	Wed, 04 Feb 2026 13:20:58 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vncoK-00000008UWq-327G
+	id 1vncoS-00000008UZF-09g2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 13:20:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hXAclwh2Cml4Z/th43shG4D11O1IPD8HS5I2Oii+tXP6pvlbDK8AML9eancvfKijFVSvnwiHZQYSD8mqm50Lx0NNvZisccYIJkkX5G5lN+AitXfeLwTQa2J8Sw+Dyb+79F0I2GYqi9nBVNYgOHw+DlWzoMzWN2x2DcMre6qeHpfxGZ0mhLJ7KJc89OiOf7/3rCeTQYntiyctgtzGaC1sKI3IqEDvmxsqHLqo3i8SuOThHocA3SMAfDOTCrI2JjKXPwWKciOkBwo5VqR6jnaQvhVQbgpYtq6CKmQvIwCJJprbVAIsnpmvYvjO2bIsWBMpj0aJ4cOxC17FxR50nvLnVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QBoNm0G5dE61sa1attSq4k6MykQBQSe6yo1GcDwbHsY=;
- b=c9M7WkXjXOmhUp0e3pz5JqtU6K+TJaa2PGdUknvWKpXIs9gFscgCDWftuvvIPBswbNQ6fQI0Uh/vocmB9iralG/w4UpODpcFhZIpBsQheT66Uxo7WvF5EbE5pByPrsTzDqrqIYrK2tH7tMZv4r2xHnk+VLzZCJhM9qfm8o6a6aW7dtxxsTgSqBd+aeKmBScQdRw2gPS2c90xL+x6TvlN6kRcoNRwsngN7//Nnbyf/L8Ep4QmBbGeayfCXmbwewb47dYWrs7rzpbGDCm6okDbUYBw1jiWzhfZBQThyE9vGhUkQGfal1S71oy7eCk17DWgJZoRiqbqcDf5GDpj88Wkxg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QBoNm0G5dE61sa1attSq4k6MykQBQSe6yo1GcDwbHsY=;
- b=FrCgvFaBujqa6TugJjRBNNCmwgyB4LXyDLLtatsSzxxry5rtR4SbepjZ9JSBS2R+gDyFN79J+y4XGIxqB1zqNp3i2cV7E2WycZLqJsKhUv0BWagKPkDnYhgiMBJ1Hl+hWmAgpTlrOCzE/4MA+yh33/ZmxBFai64gIUNqWZ9obvofVe1oNCrvb4zw/aDijARPfR9twCky6J2Do/rAs4kyMl0gbrJZu/aXgWDPMs2v/Tss/6oUfKlsYSQz9nH2s0O8V7vrUll1j/01WfwvMydQddpXuzTpU7cosfkHaMs4oUUbGwhF3trHHybXz9GQp3XsYRdWSCwDnVATgwTLdctO+g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by SJ0PR12MB8113.namprd12.prod.outlook.com (2603:10b6:a03:4e0::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Wed, 4 Feb
- 2026 13:20:40 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9587.010; Wed, 4 Feb 2026
- 13:20:39 +0000
-Date: Wed, 4 Feb 2026 09:20:31 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, dan.j.williams@intel.com,
-	"Tian, Kevin" <kevin.tian@intel.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"joro@8bytes.org" <joro@8bytes.org>,
-	"praan@google.com" <praan@google.com>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>
-Subject: Re: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
-Message-ID: <20260204132031.GF3931454@nvidia.com>
-References: <20260127150440.GF1134360@nvidia.com>
- <69795d0366a9_1d33100d3@dwillia2-mobl4.notmuch>
- <20260128130520.GV1134360@nvidia.com>
- <aYGEDv86r4a6l2Dv@Asurada-Nvidia>
- <20260203143348.GA3931454@nvidia.com>
- <aYI0LUdXqrjmRcMo@Asurada-Nvidia>
- <20260203175540.GC3931454@nvidia.com>
- <0472f0f6-2f13-459e-857d-d5003f2f0ac4@arm.com>
- <20260203231607.GE3931454@nvidia.com>
- <69b9a009-55bb-4330-b64a-99b20bd9abef@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <69b9a009-55bb-4330-b64a-99b20bd9abef@arm.com>
-X-ClientProxiedBy: BL1PR13CA0225.namprd13.prod.outlook.com
- (2603:10b6:208:2bf::20) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Wed, 04 Feb 2026 13:20:57 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2a79998d35aso6970485ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 05:20:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770211255; x=1770816055; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rKC9479RtmvQxjIDGbP/TybkiDx+Ouj854nFtYQtJb4=;
+        b=Enx13wlIHk3qLXgyVJN3jfjCYQPdsI2J0SE4hBO5BhngP4ao/Uz56lM7EAhZbh/Z5C
+         JzqLK/zwFBWhyHD/hjman+OTLLrYexNvAJdUUycozmNIuwTBHNJr8wwoCcKX4rAL3gDD
+         c1TNffkilaqmWA1jyB889PaCf6mck4hcmGjFK6pswB6CPKgT44YcW0Ad1HFjeN75yzaH
+         VOhGxK+RrF/5bQTtRIFP9eZveUMVI+ZOKo6W/heQoOUxE5sltHbGJptCwI+qJ3nwNaMr
+         9WWHM86QEKlW8RKy7ohV6EV/6X8zJy0jbJDW0+bugZj+t5ibD6XDv5HIEXdErR+ou5rn
+         5IXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770211255; x=1770816055;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=rKC9479RtmvQxjIDGbP/TybkiDx+Ouj854nFtYQtJb4=;
+        b=O3xSBMfQDVehsds2GxolvOHeJT0nucFKzVNjpBD457xO92rtAltldHkKe9lQy4BqM4
+         1XcVJg7Kv9HyZUbiQBfWbZUBR8yZ+sS5kqCqw4RW602rEzFzpbEw3U7OM08mD8vmcSPU
+         BqycTvM5NBwB7WzDAnFTT4zxte1iHL7elH9upZG6XYJhjZoeqHXJSMGgzltJTzRfZlG3
+         pb3/YuV1fdnO06GMCq6D6IOyPXuAlumdd48vkrG3/5uwnNw0RQrOLxwehg7+LBws07uP
+         NomN1kYRyu+NHl6IuyKjJbYpwwty09ulD5u2OPAObnoO6BdPEkd1oJDb3LJtR9TFObns
+         +3pw==
+X-Forwarded-Encrypted: i=1; AJvYcCVLeg52gNQg0kZ6DjtBxWhxrhmY9cFBpuJ3A2vrN66A7eYC1P1ky+mKpK7e5GdQfX/q+Yhi6rAumws7zj6CipSJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzA5ITERyh6UKwpXus02PWCfwu2cpkJ//m/TIM8siB/viSZ4OJD
+	QDviCDhOzWJIQzAwWC40h92sfDQ/HVnp43MxSbMH8Nq1pV0II+bWsQBy1/Q2gw73
+X-Gm-Gg: AZuq6aLAHfZCMDFz/QjJNBzn4IIt9WosSJf7Uauz1EusXsF9VjUr6BPsfSnkwRXBzVg
+	Vr7R5UTCS45EpAccUDIv4tBL2UAgUx2AcIuhaGRrFtKcS4BLKWtDamKwFgeEChh+ELR5ka3FWaU
+	RC7bULwI3btowoYizEvN7cdeIKXCd1UXKxo1PWtF3GwvlpmV0VrPz9bl2b2KkwgSSE4GjuwBOrr
+	3ROOG0MSLa6D4IA0mb5+aZzoBCOmP4yRHkxYLAd76znuU2kVXLpviLp+vw6FVFBk7CXdhAths53
+	bDYySq2MiUb6FV0cIc1Eoy92hHlpTU7Fq3BKnAn9TXT48o8u4q2knbXhkUFZ6qzr28VTaBVJVmC
+	ldaAGQc1CWHVEDUAOIquMfdskITgV9HVPaL0VXMapYRXvAGxug1wr5jbEzsB9gjh2/TK/FwKguq
+	raRSAqOms8
+X-Received: by 2002:a17:902:ec82:b0:29b:e512:752e with SMTP id d9443c01a7336-2a933fad904mr38729415ad.47.1770211254785;
+        Wed, 04 Feb 2026 05:20:54 -0800 (PST)
+Received: from arch.localdomain ([2409:8a28:a52:d2b1::1004])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a93397cd43sm24287045ad.91.2026.02.04.05.20.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Feb 2026 05:20:54 -0800 (PST)
+From: Jun Yan <jerrysteve1101@gmail.com>
+To: dsimic@manjaro.org
+Cc: alchark@gmail.com,
+	andyshrk@163.com,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	heiko@sntech.de,
+	jerrysteve1101@gmail.com,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	robh@kernel.org
+Subject: Re: [PATCH v3 3/3] arm64: dts: rockchip: Add OneThing Edge Cube series
+Date: Wed,  4 Feb 2026 21:20:49 +0800
+Message-ID: <20260204132049.327451-1-jerrysteve1101@gmail.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <f6eb572c-dd2c-9606-4fb5-b26b51bbbb06@manjaro.org>
+References: <f6eb572c-dd2c-9606-4fb5-b26b51bbbb06@manjaro.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SJ0PR12MB8113:EE_
-X-MS-Office365-Filtering-Correlation-Id: a2967390-9809-40d9-ee60-08de63f030e4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WyvNOvp9NUanJZARESEB6uzebY4EjNUjvk5bPN9qWE/xqqTVQC2bTyqtXA/m?=
- =?us-ascii?Q?mctbvbp2YqTk6sk4tYwK1+qRheHZavTC4tjZ88kamGAAVNRl6SRElN3XO9eU?=
- =?us-ascii?Q?0lnE98LKMYnZ7sbQEIlEmdNNHc4RIZ5EfeuS/HooSpwRoY7pdgTXyIqYo1c9?=
- =?us-ascii?Q?XWvYyq981TLqiMi+12+fmruejRhga1fB9wFXT5L0YGbhzTFdPxN/gxkLRveb?=
- =?us-ascii?Q?FqNN79ICY1HfyrYXfrACa7wk1YoEgbkjBZZoZKSpJa4eUH6vlPmStvuMW0Ot?=
- =?us-ascii?Q?31XbmoOjZpXbJteTm5Ag6vr1yENd8aC17UGAAkm18Y4LAgGFi3ZTMTenDmNN?=
- =?us-ascii?Q?VhiJYiK9FPiSxOo0jmZZQAVVm6A6Qs0UtC6t8Uj5NVWLauyQc6ueF5D/s6KQ?=
- =?us-ascii?Q?ryJAwXXmYyiM0sD+DMUoiq8A35A93j9HIcraFpMNNB18lQFtDLyj2sqVP5F5?=
- =?us-ascii?Q?foXo7k7f1yTqmIsNVXckjvU/U1ohUsdwjA23xXUCOSLKNBA/kFREZVpEtewK?=
- =?us-ascii?Q?wJeYVZDx+O7/HlNNKgsz9dwztQoBguvvwaPD5KGgN34yKhggGR2qiUjSv/oP?=
- =?us-ascii?Q?WAVPIhi+0JfoNr9pkgdOb41QyXx8Kpsqfj6QhFGgdWk4XswgQ3/tq0MR9Q47?=
- =?us-ascii?Q?Jswk0ye19GL1JrEUZgqQ9i/yV6X0BMdq7tIgPec1W5Rtz5st4VZ5sO8nQOUa?=
- =?us-ascii?Q?YXYuI/CXFxatGB71vig6rCKnJVTDVP6TQqTUfTKHLzVydNWqeaXj/o3gD62E?=
- =?us-ascii?Q?CPNUZzRMg6D8XFB41a5V8MkCQaD63AL1U3hKxoUZB0BxKNFbipcM6WZF+zx3?=
- =?us-ascii?Q?2xMgk8Hq1feDU4GNaAA+75w1muY733NQ61wx2+j08WGv84VDH6C+c11wNJDy?=
- =?us-ascii?Q?2MW4BHt/dTVWvZLCMNJGiQXitgtz5nQI5538wl6ubp1A/C5vTZO6ITKNPJrq?=
- =?us-ascii?Q?m5djESw/TEJgv2I+r1PkywSj96KbHSt+38/SYK2VlfpdaWWLOChcwqxJe9Ml?=
- =?us-ascii?Q?1f9NW5C9lHyU/c7ID0ij7lyAyYF6RdevLozmpYBJ3F8Mo0LdX3126VbAERZD?=
- =?us-ascii?Q?jxgdiT3IdtFopWGku+PFo06dCWZ7WVg4YHtA/1ifOJjBMLJgrqE4qnka3uWW?=
- =?us-ascii?Q?U1bVy9NXkP6RmYgR+oDwmBxPEqW0k7jXlA4tp8xfb9J8nO9Qi/sD+bgXs506?=
- =?us-ascii?Q?y+db5EoF+UIHO7NlRKhEBLraOWPmL0i8Rby/niXgQyKlG/eeP98nCbioHl+Z?=
- =?us-ascii?Q?pevBUy39YRB0P2S7Liq5hT0QJ25+B+UZ4zjE1MtNdMWC5SJ3yQFZfTZIkuTo?=
- =?us-ascii?Q?ec9jSOZ5O/NrEnBfeFZ1BZh5yyKH1A8R14oUidwU6neEirSrZIMncyzw428+?=
- =?us-ascii?Q?Dd74YqrpG4ke4h6ZBJmKIZgoWbFDhSHMafwti53tqzgrYCRgiFOdCAdNdMjO?=
- =?us-ascii?Q?S+mbF9hk0Vbtcm5T/Er1jrC81EGojSM/5s+/b57o4ZssicdtxUI/TH8dngdE?=
- =?us-ascii?Q?vGXY9mAkNFpDVG1VIIw15qVwtHDeO9LmQTgg9w3MnCq7kX5jiGSLmjdDQftv?=
- =?us-ascii?Q?KuLPRkPRGU19B3RvO4c=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Lfks73VkRyzYL3lctGQxXi+bpEfxlJ4fg8A1uLxXmmpwQ6ooso3ezVfIEAZJ?=
- =?us-ascii?Q?oZT2TC9vc1Z/wZeK2ySXIVIm0cDrU60sxf26RsjHhGdI1OLtie8N88jC47ba?=
- =?us-ascii?Q?Z1uWBdLsKVLHeQ7TyeawobrfSsE4+ITcG+pMy9Q5Q2i86bykrKaWWa6Abgm8?=
- =?us-ascii?Q?fOVTJR8rpO0N8quU8GAUFlzx5NKXQu/zc1fYKsuiOOFbe+v2CBwCWvJ2PHnu?=
- =?us-ascii?Q?GSypLwD5lNC98Nuqm/sWRDCl+z5W1i42OvbNoU4uUadaSuA2BCnJBwsfva7P?=
- =?us-ascii?Q?QcH2VthEhJXVljRM+1PGQeXv6BB67DPW52AS4sltf1dZeChBhc73hHSmAgnZ?=
- =?us-ascii?Q?QItndrSG41EWlt5s4ZGDv41NXpiCZ6N+Rc82zgx2pZ3jc2ozKRLOxIA0Nloq?=
- =?us-ascii?Q?fj4DRijneF/1Gw5Au2wWHCil7hVfHvYtPMssvQGNDsupiAjJGfZ1VIIxo9y0?=
- =?us-ascii?Q?tIfBSbsSzCA0/kf9UabErlAhnLfrynH3ho+46mPwDSplkUuDQHtNmpktuSRS?=
- =?us-ascii?Q?TY6Zbj+trSzrPX4o8aQC0ua5/SXuBDfULMuG9ObpkxCIFUVIYlVSVzD58hOM?=
- =?us-ascii?Q?IFiJWz9hgwUkWXyrsOGnXwVYU/tRFqE3hUJ5bCuxiYukPnPrA0KKRYqFPbek?=
- =?us-ascii?Q?wKqUok40bjFnCV5eap0vRXx+44gUt7+njSsOiMV5fKFxNED/jw+lJ7AJ+t+9?=
- =?us-ascii?Q?CwUSb4oe6W8MiLlEuEWD8m89nxJo1IU8ISJt/bhlz7mP0z8wLGySUZ9/VNAN?=
- =?us-ascii?Q?8Owni/ViytDJeptqh9HjnbL8HPGbcbZoGJyZkHyBvLYLgrYSK/kZdcujQPiY?=
- =?us-ascii?Q?zRLCOcKuzqGyp+IsFc+SM8APBBgH5Yiabe6riKi5f4SrROgzr/5BazmmQ+WL?=
- =?us-ascii?Q?X3DjzIIJEGz8B8CxsA9mJg3RMTTVkIEAGqkIQK4D4gE8u8Z427Tovq007OfO?=
- =?us-ascii?Q?PW8+eSUyKZ4zMuzhQTSlc1XKgvHCNh56UZANg1ofcA7VM30LNJWbo4FQpmCl?=
- =?us-ascii?Q?f1LKdgIxwO1dLSHDdBsxqN5oGoB1kAY2iozOPwi1u23FGJCduPZo6e1kmXqy?=
- =?us-ascii?Q?pXx+nBY4rr0D4Zb57ghSJLtwpMwQzfHj+4Vcpypkr0u303+A6jF9imzMTz00?=
- =?us-ascii?Q?QwZELJqTa7L7Q2nP/aW3Tz+xIhhwKeTXp9kberqpMScfIItQDycRBgsDvPDP?=
- =?us-ascii?Q?uoap8fAQ4PiRqPtZDqxGMgGeBnbRwSONJr3l2JwTeSyBjbWCjWBnSLpvaFYS?=
- =?us-ascii?Q?w8lvA0iKM/WpkrBhtU5lKyCZi4rxS+TGZ1+uGazcc8ptiWmh7/jyNMAiWFFR?=
- =?us-ascii?Q?fxgur3YezMf34Be0q6AcOKa0hXH7FTkKysAJAUkBUKubl/YFDFVM3fnneCwj?=
- =?us-ascii?Q?M7e28uX754CiRW218RiRcWyGyBu4D2bOAUe63p5+0cT/ly1+HnqxgF+RjrVl?=
- =?us-ascii?Q?PTOxkCAyz2wWvaiUf1b7YuRwD9GfvRVKyx8tpxkZG5sP5JxqYdsbcTowEFoD?=
- =?us-ascii?Q?Y3wi1ZHz61ndRUgfyxujpny+B4K31o5veKlzbGShIfkbe9v9fFhb9wZpldx5?=
- =?us-ascii?Q?YXVBYCn5Xba+1+simG1VLIxSx4lPBHTB9RXmLF4f9geP6x1J6VgqBSHWghcm?=
- =?us-ascii?Q?i79pCD98YAHaDFKVWeQmPx5cKrmffruNl+Di8ZI1UocTSyIcwdgEcK/xV9fu?=
- =?us-ascii?Q?GBB7mXpDt24QqHapZ1rT3qcSEBn8RneFMpkXS9BgolTzwFt2hh+C6K/E4hI7?=
- =?us-ascii?Q?VGTGPE90DQ=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a2967390-9809-40d9-ee60-08de63f030e4
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2026 13:20:39.8135
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: orBXoy6ccheTnarV3304upI4uC8saQm6UPOaCX6fFiJWdLR6iLACXzFCN6jy6Blu
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB8113
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_052048_776122_930CA12E 
-X-CRM114-Status: GOOD (  32.62  )
+X-CRM114-CacheID: sfid-20260204_052056_102235_FDEF5C23 
+X-CRM114-Status: GOOD (  36.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,77 +106,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 04, 2026 at 12:18:15PM +0000, Robin Murphy wrote:
-> > I strongly suspect the answer is that RMR has to be ignored in this
-> > more secure mode.
+Hello,
+
+> Hello Jun,
 > 
-> Yes, I think the only valid case for having an RMR and expecting it to work
-> in combination with these other things is if the device has some firmware or
-> preloaded configuration in memory which it will still need to access at that
-> address once an OS driver starts using it, but does not need to access
-> *during* the boot-time handover. 
-
-Splash screens are the most obvious case here where the framebuffer
-may be in DMA'able memory and must go through the iommu..
-
-At least we are already shipping products where the GPU has DRAM based
-framebuffer, the GPU requires ATS for alot of functions, but the
-framebuffer scan out does not use ATS.
-
-Sigh. So that will be exciting to make work at some point.
-
-> Thus it seems fair to still honour the
-> reserved regions upon attaching to a default domain, but not worry too much
-> about being in a transient blocking state in the interim if it's unavoidable
-> for other reasons (at worst maybe just log a warning that we're
-> doing so).
-
-The interest in the blocking state was to disable ATS.
-
-Maybe another approach would be to have a "RMR blocking" domain which is a
-paging domain that tells the driver explicitly not to enable ATS for
-it.
-
-Then we could validate the RMR range is OK and install this special
-domain and still have security against translated TLPs..
-
-> > > However I think there would be no point exposing the ATS details to
-> > > the VM to begin with. It's the host's decision to trust the device
-> > > to play in the translated PA space and system cache coherency
-> > > protocol, and no guest would be allowed to mess with those aspects
-> > > either way, so there seems no obvious good reason for them to know
-> > > at all.
+> On Tuesday, February 03, 2026 16:10 CET, Jun Yan <jerrysteve1101@gmail.com> wrote:
+> > > On Monday, February 02, 2026 16:04 CET, Jun Yan <jerrysteve1101@gmail.com> wrote:
+> > > > The OneThing Edge Cube (OEC) series features the RK3566 SoC, 8GB
+> > > > eMMC storage, and supports one SATA interface, one Gigabit Ethernet
+> > > > port, and one USB 3.0 port.
+> > > > 
+> > > > Other than the difference in RAM capacity, the OEC and OEC-turbo are
+> > > > identical in all other specifications.
+> > > > 
+> > > >   Specification:
+> > > >     - Rockchip RK3566
+> > > >     - LPDDR4X 2GB (OEC) / 4GB (OEC-turbo)
+> > > >     - eMMC 8GB
+> > > >     - Gigabit Ethernet port x 1
+> > > >     - USB 3.0 port x 1
+> > > >     - USB-C 2.0 port x 1
+> > > >     - 12V DC Power supply
+> > > >     - SATA 3.0 connector x 1
+> > > > 
+> > > > These devices do not have a PMIC, and their hardware circuit design
+> > > > is highly similar to that of the rk3566-box-demo[1]. Hardware schematics
+> > > > are not available at this time, with the vendor firmware dts available
+> > > > for reference[2].
+> > > > 
+> > > > Ethernet, USB 3.0 and SATA 3.0 ports tested, all working well.
+> > > > 
+> > > > [1] https://elixir.bootlin.com/linux/v6.18.6/source/arch/arm64/boot/dts/rockchip/rk3566-box-demo.dts
+> > > > [2] https://archive.org/download/wxy-oec-RK3566-4G-dump/wxy-oec-RK3566-4G-dump.dts
+> > > > 
+> > > > Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+> > > > ---
+> > > >  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+> > > >  .../rockchip/rk3566-onething-oec-series.dts   | 312 ++++++++++++++++++
+> > > >  2 files changed, 313 insertions(+)
+> > > >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-oec-series.dts
+> > > > 
+> > > > diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+> > > > index 4d384f153c13..234fa53abe17 100644
+> > > > --- a/arch/arm64/boot/dts/rockchip/Makefile
+> > > > +++ b/arch/arm64/boot/dts/rockchip/Makefile
+> > > > @@ -104,6 +104,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg353v.dtb
+> > > >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg353vs.dtb
+> > > >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg503.dtb
+> > > >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-odroid-m1s.dtb
+> > > > +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-onething-oec-series.dtb
+> > > >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-orangepi-3b-v1.1.dtb
+> > > >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-orangepi-3b-v2.1.dtb
+> > > >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-pinenote-v1.1.dtb
+> > > > diff --git a/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-series.dts b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-series.dts
+> > > > new file mode 100644
+> > > > index 000000000000..2007b93e190e
+> > > > --- /dev/null
+> > > > +++ b/arch/arm64/boot/dts/rockchip/rk3566-onething-oec-series.dts
+> > > > @@ -0,0 +1,312 @@
+> > > > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > > > +
+> > > > +/dts-v1/;
+> > > > +
+> > > > +#include <dt-bindings/gpio/gpio.h>
+> > > > +#include <dt-bindings/leds/common.h>
+> > > > +#include <dt-bindings/pinctrl/rockchip.h>
+> > > > +#include "rk3566.dtsi"
+> > > > +
+> > > > +/ {
+> > > > +	model = "OneThing OEC/OEC-turbo";
+> > > > +	compatible = "onething,oec-turbo", "onething,oec", "rockchip,rk3566";
+> > > 
+> > > Thanks for the v3!  After thinking a bit more about it, it would be better
+> > > to name the board dtb "rk3566-onething-edge-cube.dtb" and omit the "series"
+> > > part, because the only difference between the board variants is the amount
+> > > of DRAM.  Also, "onething,oec-turbo" should be removed from the compatibles,
+> > > and the single compatible renamed to "onething,edge-cube", because I see no
+> > > need to have an additional compatible, which may be added later if really
+> > > needed for some unforeseen differentiating purpose.
+> > > 
+> > > Also, it might be better to use "OneThing Edge Cube/Edge Cube Turbo" as the
+> > > combined name, because "Edge Cube" is more self-descriptive than just "OEC",
+> > > which may also help with various search engines down the road.
 > > 
-> > If the vSMMU is presented then the guest must be aware of the ATS
-> > because only the guest can generate the ATC invalidations for changes
-> > in the S1.
+> > Sorry for the quick follow-up.
+> > In official documentation (Most of it is in Chinese) from OneThing Tech[1], 
+> > the designations "OEC/OEC-turbo" are more commonly and widely used.
+> > for this reason, I propose retaining the "OEC/OEC-turbo" naming in the model 
+> > property.
 > 
-> Only if you assume DVM or some other mechanism for the guest to issue S1
-> invalidations directly to the hardware - with an emulated CMDQ we can do
-> whatever we like.
+> I see, that's an interesting twist.  As some kind of a compromise, it would
+> be best to have the board dtb named "rk3566-onething-edge-cube.dtb" and use
+> "OneThing Edge Cube (OEC)/OEC Turbo" as the combined name.  That way the
+> board dtb name isn't too short, while "OEC" is present in the model name,
+> for search engines to pick it up, hopefully, and for people to see it in
+> a few places. :)
+> 
+I appreciate the compromise and fully agree with it: naming the dtb 
+"rk3566-onething-edge-cube.dtb" and using "OneThing Edge Cube (OEC)/OEC Turbo" 
+as the combined name.
 
-With alot of work yes, but that is not the model that is implemented
-today.
+The V4 patch will follow shortly.
 
-If the hypervisor has to generate a ATC invalidation from an IOTLB
-invalidation then it also needs a map of ASID to RID&PASID, which it
-can only build by inspecting all the CD tables. The VMMs in nesting
-mode don't read the CD tables at all today, so they don't implement
-this option.
+Best regards,
 
-> And in fact, I think we actually *have* to if the host has enabled ATS
-> itself, since we cannot assume that a guest is going to choose to use it,
-> thus we cannot rely on the guest issuing ATCIs in order to get the correct
-> behaviour it expects unless and until we've seen it set EATS appropriately
-> in all the corresponding vSTEs. 
+Jun Yan
 
-Due to the above we've done the reverse, the host does not get to
-unilaterally decide ATS policy, it follows the guest's vEATS setting
-so that we never have a situation where the hypervisor has to generate
-ATC invalidations.
+> > [1] https://help.onethingcloud.com/be81/OEC1/80c5
 
-The kernel offers the VMM the freedom to do it either way, but today
-all the VMMs I'm aware of choose the above path.
-
-Jason
 
