@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7C19EA794A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 23:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFFA6EA7943
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 23:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LaWiECPU4BKQYc79do/lWWbfggCJBf09zRAj93n6vAo=; b=Ahl3YEc0jRRVrZc6U2z6iKsdE+
-	NrWo0WA8Kw+pnuzv2s0nhkcG9TH0nO9+aQzd67A+N1vbXzyZSOFDmgUqTU4dIEaa6rjtfkJZcPqVH
-	rIo4AFaJH+vH9y51z1sImBBbwbtGGMYR8t0Jo2ZFc5uBArlvpCkSb/t96wySLnAQeHdUgobUbJN0U
-	/N8XfzFSu7TnDfzNdkCzPlO0aIljJ7mcWQNshvP3EHovds0lGBLeT3GpvKdSHKa+UQ7UMjYrsCrHn
-	ZZu9bGprEgPO9uBnexWIIYsV3MUxdDdpVDRPcBjaaWSbgdZpN/OjK2i6JQlcNKEbEnHZRsWevTT2v
-	oWT/0aOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=97Ap1Y+//eUOokDUA00PyBdbjuIWMwSv9o+hwdpNhs8=; b=i8NpCyTnaWKdyfZeUAQm+rGCbb
+	xImpsmwBtrMiBk7M9Hh2NGQRD6Nqo4hcGC8v2aQkd7hHWp67DAyzYz7LDdH3OzobXBkJAKLmOb+mZ
+	ON/c+Oa0cEanLhqYiWIUOOUwkWoiR2dBNlNVKMyJrCnBu2631rrK9PGHnHLjVdu/y8msDhk/wSbGf
+	7G+Ghvb1khIWTKS1WmipPPGtnshzJFHhR47Vdiaw0JCgAvuPzOrAnIS766+F5PyIgch/WhXTbmfXl
+	+ocWFFPt1GT9EfPPUmul3nn+UOQfkTNNYkz8wM2BgHZM17Q1TeCuCM/LFk1PrsGK8N/cl27jWjsCM
+	RsCnE6gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnmLc-00000009BhZ-0eGP;
-	Wed, 04 Feb 2026 23:31:48 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1vnmez-00000009CKP-0Npg;
+	Wed, 04 Feb 2026 23:51:49 +0000
+Received: from smtprelay0011.hostedemail.com ([216.40.44.11] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnmLZ-00000009Bh2-14QV
+	id 1vnmev-00000009CIN-3WpO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 23:31:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1770247905; x=1801783905;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=A/mvAOGLp0G4x6EUjGVks/0dtJp82veA/rORZI0S8Wg=;
-  b=GSnkKvbEES2fpUd30PUr2nSXFqhisrJxzjKtTkVOdEXtoPnPm5LdCalh
-   PVvDcvkSH30kwVSu3rTEoIwBOZEsyNakCfMqiP1LtAoVOxrKu/tg6a5m/
-   NbranFlIy4mCVOBHs3X3Ez3kGzGfDxYoCMfwujgOgHxGqzysKHKiGTVlU
-   kBfWlvWZq5GeVmsb2QwkB67wlAtUdqHVojdaSoT4EPY+8OtdRRg2hhBvr
-   l/tCzQpHF8TXrNVnjuJh1QH6NRRn8s99MZBw53ZnH4DRO2W3vg/KhDdbL
-   VLRS5wYpGKmII1oLpCd0P2kBN+7uYVk2rIePHXtR3HzoQiukKHMgoB3y7
-   A==;
-X-CSE-ConnectionGUID: juWm8ExuSGesDugKzm9Rvw==
-X-CSE-MsgGUID: 2qKgKsw+R2+NLCqOgjG3dA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11691"; a="70639518"
-X-IronPort-AV: E=Sophos;i="6.21,273,1763452800"; 
-   d="scan'208";a="70639518"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2026 15:31:44 -0800
-X-CSE-ConnectionGUID: iEEz9+dLScWuQn2rczeETA==
-X-CSE-MsgGUID: X4qQQThbRaKum4g/bOa/uA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,273,1763452800"; 
-   d="scan'208";a="210340839"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa008.jf.intel.com with ESMTP; 04 Feb 2026 15:31:40 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vnmLR-00000000jEu-1zGT;
-	Wed, 04 Feb 2026 23:31:37 +0000
-Date: Thu, 5 Feb 2026 07:30:53 +0800
-From: kernel test robot <lkp@intel.com>
-To: Meghana Malladi <m-malladi@ti.com>, vadim.fedorenko@linux.dev,
-	jacob.e.keller@intel.com, horms@kernel.org, parvathi@couthit.com,
-	afd@ti.com, vladimir.oltean@nxp.com, rogerq@kernel.org,
-	danishanwar@ti.com, pabeni@redhat.com, kuba@kernel.org,
-	edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, srk@ti.com,
-	Vignesh Raghavendra <vigneshr@ti.com>
-Subject: Re: [PATCH net-next v2 2/2] net: ti: icssg-prueth: Add ethtool ops
- for Frame Preemption MAC Merge
-Message-ID: <202602050744.pYAnjG71-lkp@intel.com>
-References: <20260204140044.4086725-3-m-malladi@ti.com>
+	Wed, 04 Feb 2026 23:51:47 +0000
+Received: from omf20.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay09.hostedemail.com (Postfix) with ESMTP id 4060189282;
+	Wed,  4 Feb 2026 23:51:41 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf20.hostedemail.com (Postfix) with ESMTPA id B707820026;
+	Wed,  4 Feb 2026 23:51:37 +0000 (UTC)
+Date: Wed, 4 Feb 2026 18:52:08 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ jstultz@google.com, qperret@google.com, will@kernel.org,
+ aneesh.kumar@kernel.org, kernel-team@android.com,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v11 07/30] tracing: Add non-consuming read to trace
+ remotes
+Message-ID: <20260204185208.646a6d26@gandalf.local.home>
+In-Reply-To: <20260131132848.254084-8-vdonnefort@google.com>
+References: <20260131132848.254084-1-vdonnefort@google.com>
+	<20260131132848.254084-8-vdonnefort@google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260204140044.4086725-3-m-malladi@ti.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: rc897n4neqrzffmy5bwxequx16k9k68r
+X-Rspamd-Server: rspamout04
+X-Rspamd-Queue-Id: B707820026
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1/Ug8nGe0Gf7FQbvjd8QIxY+vOatIo4YEA=
+X-HE-Tag: 1770249097-281872
+X-HE-Meta: U2FsdGVkX19QuWmWiD0qoMvcPrCDIa66yNvX3WgJTiFEHjFug71lKkUU96DxhEFh/gnacu8eUy7IDlJY7CNNRoCM7qI+ez05asPVIQPqz5k9RlN2Ixt2EktEDnf6LlCsH6oRTq5euDNMn2yHyaiYhRLp69pP3TGoQ6/CfvAj0AGb+p9P/4Jo1uMCiFlsqrryg+Wl03vRC/TI7Sv4235Gqm5idHjF7raddKarS4mzVrKPIKSLNrxxgYhFFuBwWpGBSt9+L+1IX8979Y9IIvl8dnCM8CjSECz5Suzwbcj3H/906qfOg8c/pWMtkIVBeTXw+R46FK6Tt1xPxoUYkf8Bn0UG/moDv+EZ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_153145_360592_845C4669 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20260204_155145_948629_02EBCE95 
+X-CRM114-Status: GOOD (  25.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,104 +76,448 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Meghana,
+On Sat, 31 Jan 2026 13:28:25 +0000
+Vincent Donnefort <vdonnefort@google.com> wrote:
 
-kernel test robot noticed the following build warnings:
+> -static struct trace_remote_iterator *trace_remote_iter(struct trace_remote *remote, int cpu)
+> +static void __free_ring_buffer_iter(struct trace_remote_iterator *iter, int cpu)
+> +{
+> +	if (!iter->rb_iter)
+> +		return;
 
-[auto build test WARNING on 9a9424c756feee9ee6e717405a9d6fa7bacdef08]
+Hmm, can't iter->rb_iter be NULL when iter->rb_iters[] is used?
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Meghana-Malladi/net-ti-icssg-prueth-Add-Frame-Preemption-MAC-Merge-support/20260204-220543
-base:   9a9424c756feee9ee6e717405a9d6fa7bacdef08
-patch link:    https://lore.kernel.org/r/20260204140044.4086725-3-m-malladi%40ti.com
-patch subject: [PATCH net-next v2 2/2] net: ti: icssg-prueth: Add ethtool ops for Frame Preemption MAC Merge
-config: arm64-defconfig (https://download.01.org/0day-ci/archive/20260205/202602050744.pYAnjG71-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260205/202602050744.pYAnjG71-lkp@intel.com/reproduce)
+> +
+> +	if (cpu != RING_BUFFER_ALL_CPUS) {
+> +		ring_buffer_read_finish(iter->rb_iter);
+> +		return;
+> +	}
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		if (iter->rb_iters[cpu])
+> +			ring_buffer_read_finish(iter->rb_iters[cpu]);
+> +	}
+> +
+> +	kfree(iter->rb_iters);
+> +}
+> +
+> +static int __alloc_ring_buffer_iter(struct trace_remote_iterator *iter, int cpu)
+> +{
+> +	if (cpu != RING_BUFFER_ALL_CPUS) {
+> +		iter->rb_iter = ring_buffer_read_start(iter->remote->trace_buffer, cpu, GFP_KERNEL);
+> +
+> +		return iter->rb_iter ? 0 : -ENOMEM;
+> +	}
+> +
+> +	iter->rb_iters = kcalloc(nr_cpu_ids, sizeof(*iter->rb_iters), GFP_KERNEL);
+> +	if (!iter->rb_iters)
+> +		return -ENOMEM;
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		iter->rb_iters[cpu] = ring_buffer_read_start(iter->remote->trace_buffer, cpu,
+> +							     GFP_KERNEL);
+> +		if (!iter->rb_iters[cpu]) {
+> +			__free_ring_buffer_iter(iter, RING_BUFFER_ALL_CPUS);
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202602050744.pYAnjG71-lkp@intel.com/
+For instance, we call __free_ring_buffer_iter() here, but I don't see
+iter->rb_iter being set.
 
-All warnings (new ones prefixed by >>):
-
-   In file included from drivers/net/ethernet/ti/icssg/icssg_prueth.h:48,
-                    from drivers/net/ethernet/ti/icssg/icssg_prueth.c:34:
->> drivers/net/ethernet/ti/icssg/icssg_stats.h:93:38: warning: 'icssg_all_miig_stats' defined but not used [-Wunused-const-variable=]
-      93 | static const struct icssg_miig_stats icssg_all_miig_stats[] = {
-         |                                      ^~~~~~~~~~~~~~~~~~~~
+-- Steve
 
 
-vim +/icssg_all_miig_stats +93 drivers/net/ethernet/ti/icssg/icssg_stats.h
+> +			return -ENOMEM;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static struct trace_remote_iterator
+> +*trace_remote_iter(struct trace_remote *remote, int cpu, enum tri_type type)
+>  {
+>  	struct trace_remote_iterator *iter = NULL;
+>  	int ret;
+>  
+>  	lockdep_assert_held(&remote->lock);
+>  
+> +	if (type == TRI_NONCONSUMING && !trace_remote_loaded(remote))
+> +		return NULL;
+>  
+>  	ret = trace_remote_get(remote, cpu);
+>  	if (ret)
+> @@ -279,9 +352,21 @@ static struct trace_remote_iterator *trace_remote_iter(struct trace_remote *remo
+>  	if (iter) {
+>  		iter->remote = remote;
+>  		iter->cpu = cpu;
+> +		iter->type = type;
+>  		trace_seq_init(&iter->seq);
+> -		INIT_DELAYED_WORK(&iter->poll_work, __poll_remote);
+> -		schedule_delayed_work(&iter->poll_work, msecs_to_jiffies(remote->poll_ms));
+> +
+> +		switch (type) {
+> +		case TRI_CONSUMING:
+> +			INIT_DELAYED_WORK(&iter->poll_work, __poll_remote);
+> +			schedule_delayed_work(&iter->poll_work, msecs_to_jiffies(remote->poll_ms));
+> +			break;
+> +		case TRI_NONCONSUMING:
+> +			ret = __alloc_ring_buffer_iter(iter, cpu);
+> +			break;
+> +		}
+> +
+> +		if (ret)
+> +			goto err;
+>  
+>  		return iter;
+>  	}
+> @@ -305,10 +390,100 @@ static void trace_remote_iter_free(struct trace_remote_iterator *iter)
+>  
+>  	lockdep_assert_held(&remote->lock);
+>  
+> +	switch (iter->type) {
+> +	case TRI_CONSUMING:
+> +		cancel_delayed_work_sync(&iter->poll_work);
+> +		break;
+> +	case TRI_NONCONSUMING:
+> +		__free_ring_buffer_iter(iter, iter->cpu);
+> +		break;
+> +	}
+> +
+>  	kfree(iter);
+>  	trace_remote_put(remote);
+>  }
+>  
+> +static void trace_remote_iter_read_start(struct trace_remote_iterator *iter)
+> +{
+> +	struct trace_remote *remote = iter->remote;
+> +	int cpu = iter->cpu;
+> +
+> +	/* Acquire global reader lock */
+> +	if (cpu == RING_BUFFER_ALL_CPUS && iter->type == TRI_CONSUMING)
+> +		down_write(&remote->reader_lock);
+> +	else
+> +		down_read(&remote->reader_lock);
+> +
+> +	if (cpu == RING_BUFFER_ALL_CPUS)
+> +		return;
+> +
+> +	/*
+> +	 * No need for the remote lock here, iter holds a reference on
+> +	 * remote->nr_readers
+> +	 */
+> +
+> +	/* Get the per-CPU one */
+> +	if (WARN_ON_ONCE(!remote->pcpu_reader_locks))
+> +		return;
+> +
+> +	if (iter->type == TRI_CONSUMING)
+> +		down_write(&remote->pcpu_reader_locks[cpu]);
+> +	else
+> +		down_read(&remote->pcpu_reader_locks[cpu]);
+> +}
+> +
+> +static void trace_remote_iter_read_finished(struct trace_remote_iterator *iter)
+> +{
+> +	struct trace_remote *remote = iter->remote;
+> +	int cpu = iter->cpu;
+> +
+> +	/* Release per-CPU reader lock */
+> +	if (cpu != RING_BUFFER_ALL_CPUS) {
+> +		/*
+> +		 * No need for the remote lock here, iter holds a reference on
+> +		 * remote->nr_readers
+> +		 */
+> +		if (iter->type == TRI_CONSUMING)
+> +			up_write(&remote->pcpu_reader_locks[cpu]);
+> +		else
+> +			up_read(&remote->pcpu_reader_locks[cpu]);
+> +	}
+> +
+> +	/* Release global reader lock */
+> +	if (cpu == RING_BUFFER_ALL_CPUS && iter->type == TRI_CONSUMING)
+> +		up_write(&remote->reader_lock);
+> +	else
+> +		up_read(&remote->reader_lock);
+> +}
+> +
+> +static struct ring_buffer_iter *__get_rb_iter(struct trace_remote_iterator *iter, int cpu)
+> +{
+> +	return iter->cpu != RING_BUFFER_ALL_CPUS ? iter->rb_iter : iter->rb_iters[cpu];
+> +}
+> +
+> +static struct ring_buffer_event *
+> +__peek_event(struct trace_remote_iterator *iter, int cpu, u64 *ts, unsigned long *lost_events)
+> +{
+> +	struct ring_buffer_event *rb_evt;
+> +	struct ring_buffer_iter *rb_iter;
+> +
+> +	switch (iter->type) {
+> +	case TRI_CONSUMING:
+> +		return ring_buffer_peek(iter->remote->trace_buffer, cpu, ts, lost_events);
+> +	case TRI_NONCONSUMING:
+> +		rb_iter = __get_rb_iter(iter, cpu);
+> +		rb_evt = ring_buffer_iter_peek(rb_iter, ts);
+> +		if (!rb_evt)
+> +			return NULL;
+> +
+> +		*lost_events = ring_buffer_iter_dropped(rb_iter);
+> +
+> +		return rb_evt;
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+>  static bool trace_remote_iter_read_event(struct trace_remote_iterator *iter)
+>  {
+>  	struct trace_buffer *trace_buffer = iter->remote->trace_buffer;
+> @@ -318,7 +493,7 @@ static bool trace_remote_iter_read_event(struct trace_remote_iterator *iter)
+>  		if (ring_buffer_empty_cpu(trace_buffer, cpu))
+>  			return false;
+>  
+> -		if (!ring_buffer_peek(trace_buffer, cpu, &iter->ts, &iter->lost_events))
+> +		if (!__peek_event(iter, cpu, &iter->ts, &iter->lost_events))
+>  			return false;
+>  
+>  		iter->evt_cpu = cpu;
+> @@ -333,7 +508,7 @@ static bool trace_remote_iter_read_event(struct trace_remote_iterator *iter)
+>  		if (ring_buffer_empty_cpu(trace_buffer, cpu))
+>  			continue;
+>  
+> -		if (!ring_buffer_peek(trace_buffer, cpu, &ts, &lost_events))
+> +		if (!__peek_event(iter, cpu, &ts, &lost_events))
+>  			continue;
+>  
+>  		if (ts >= iter->ts)
+> @@ -347,6 +522,20 @@ static bool trace_remote_iter_read_event(struct trace_remote_iterator *iter)
+>  	return iter->ts != U64_MAX;
+>  }
+>  
+> +static void trace_remote_iter_move(struct trace_remote_iterator *iter)
+> +{
+> +	struct trace_buffer *trace_buffer = iter->remote->trace_buffer;
+> +
+> +	switch (iter->type) {
+> +	case TRI_CONSUMING:
+> +		ring_buffer_consume(trace_buffer, iter->evt_cpu, NULL, NULL);
+> +		break;
+> +	case TRI_NONCONSUMING:
+> +		ring_buffer_iter_advance(__get_rb_iter(iter, iter->evt_cpu));
+> +		break;
+> +	}
+> +}
+> +
+>  static int trace_remote_iter_print_event(struct trace_remote_iterator *iter)
+>  {
+>  	unsigned long usecs_rem;
+> @@ -369,13 +558,14 @@ static int trace_pipe_open(struct inode *inode, struct file *filp)
+>  {
+>  	struct trace_remote *remote = inode->i_private;
+>  	struct trace_remote_iterator *iter;
+> -	int cpu = RING_BUFFER_ALL_CPUS;
+> -
+> -	if (inode->i_cdev)
+> -		cpu = (long)inode->i_cdev - 1;
+> +	int cpu = tracing_get_cpu(inode);
+>  
+>  	guard(mutex)(&remote->lock);
+> -	iter = trace_remote_iter(remote, cpu);
+> +
+> +	iter = trace_remote_iter(remote, cpu, TRI_CONSUMING);
+> +	if (IS_ERR(iter))
+> +		return PTR_ERR(iter);
+> +
+>  	filp->private_data = iter;
+>  
+>  	return IS_ERR(iter) ? PTR_ERR(iter) : 0;
+> @@ -410,6 +600,8 @@ static ssize_t trace_pipe_read(struct file *filp, char __user *ubuf, size_t cnt,
+>  	if (ret < 0)
+>  		return ret;
+>  
+> +	trace_remote_iter_read_start(iter);
+> +
+>  	while (trace_remote_iter_read_event(iter)) {
+>  		int prev_len = iter->seq.seq.len;
+>  
+> @@ -418,9 +610,11 @@ static ssize_t trace_pipe_read(struct file *filp, char __user *ubuf, size_t cnt,
+>  			break;
+>  		}
+>  
+> -		ring_buffer_consume(trace_buffer, iter->evt_cpu, NULL, NULL);
+> +		trace_remote_iter_move(iter);
+>  	}
+>  
+> +	trace_remote_iter_read_finished(iter);
+> +
+>  	goto copy_to_user;
+>  }
+>  
+> @@ -430,14 +624,123 @@ static const struct file_operations trace_pipe_fops = {
+>  	.release	= trace_pipe_release,
+>  };
+>  
+> +static void *trace_next(struct seq_file *m, void *v, loff_t *pos)
+> +{
+> +	struct trace_remote_iterator *iter = m->private;
+> +
+> +	++*pos;
+> +
+> +	if (!iter || !trace_remote_iter_read_event(iter))
+> +		return NULL;
+> +
+> +	trace_remote_iter_move(iter);
+> +	iter->pos++;
+> +
+> +	return iter;
+> +}
+> +
+> +static void *trace_start(struct seq_file *m, loff_t *pos)
+> +{
+> +	struct trace_remote_iterator *iter = m->private;
+> +	loff_t i;
+> +
 
-c1e10d5dc7a1be MD Danish Anwar 2023-08-01   92  
-550ee90ac61c1f MD Danish Anwar 2024-08-22  @93  static const struct icssg_miig_stats icssg_all_miig_stats[] = {
-c1e10d5dc7a1be MD Danish Anwar 2023-08-01   94  	/* Rx */
-550ee90ac61c1f MD Danish Anwar 2024-08-22   95  	ICSSG_MIIG_STATS(rx_packets, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22   96  	ICSSG_MIIG_STATS(rx_broadcast_frames, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22   97  	ICSSG_MIIG_STATS(rx_multicast_frames, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22   98  	ICSSG_MIIG_STATS(rx_crc_errors, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22   99  	ICSSG_MIIG_STATS(rx_mii_error_frames, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  100  	ICSSG_MIIG_STATS(rx_odd_nibble_frames, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  101  	ICSSG_MIIG_STATS(rx_frame_max_size, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  102  	ICSSG_MIIG_STATS(rx_max_size_error_frames, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  103  	ICSSG_MIIG_STATS(rx_frame_min_size, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  104  	ICSSG_MIIG_STATS(rx_min_size_error_frames, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  105  	ICSSG_MIIG_STATS(rx_over_errors, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  106  	ICSSG_MIIG_STATS(rx_class0_hits, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  107  	ICSSG_MIIG_STATS(rx_class1_hits, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  108  	ICSSG_MIIG_STATS(rx_class2_hits, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  109  	ICSSG_MIIG_STATS(rx_class3_hits, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  110  	ICSSG_MIIG_STATS(rx_class4_hits, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  111  	ICSSG_MIIG_STATS(rx_class5_hits, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  112  	ICSSG_MIIG_STATS(rx_class6_hits, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  113  	ICSSG_MIIG_STATS(rx_class7_hits, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  114  	ICSSG_MIIG_STATS(rx_class8_hits, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  115  	ICSSG_MIIG_STATS(rx_class9_hits, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  116  	ICSSG_MIIG_STATS(rx_class10_hits, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  117  	ICSSG_MIIG_STATS(rx_class11_hits, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  118  	ICSSG_MIIG_STATS(rx_class12_hits, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  119  	ICSSG_MIIG_STATS(rx_class13_hits, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  120  	ICSSG_MIIG_STATS(rx_class14_hits, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  121  	ICSSG_MIIG_STATS(rx_class15_hits, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  122  	ICSSG_MIIG_STATS(rx_smd_frags, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  123  	ICSSG_MIIG_STATS(rx_bucket1_size, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  124  	ICSSG_MIIG_STATS(rx_bucket2_size, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  125  	ICSSG_MIIG_STATS(rx_bucket3_size, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  126  	ICSSG_MIIG_STATS(rx_bucket4_size, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  127  	ICSSG_MIIG_STATS(rx_64B_frames, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  128  	ICSSG_MIIG_STATS(rx_bucket1_frames, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  129  	ICSSG_MIIG_STATS(rx_bucket2_frames, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  130  	ICSSG_MIIG_STATS(rx_bucket3_frames, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  131  	ICSSG_MIIG_STATS(rx_bucket4_frames, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  132  	ICSSG_MIIG_STATS(rx_bucket5_frames, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  133  	ICSSG_MIIG_STATS(rx_bytes, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  134  	ICSSG_MIIG_STATS(rx_tx_total_bytes, false),
-c1e10d5dc7a1be MD Danish Anwar 2023-08-01  135  	/* Tx */
-550ee90ac61c1f MD Danish Anwar 2024-08-22  136  	ICSSG_MIIG_STATS(tx_packets, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  137  	ICSSG_MIIG_STATS(tx_broadcast_frames, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  138  	ICSSG_MIIG_STATS(tx_multicast_frames, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  139  	ICSSG_MIIG_STATS(tx_odd_nibble_frames, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  140  	ICSSG_MIIG_STATS(tx_underflow_errors, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  141  	ICSSG_MIIG_STATS(tx_frame_max_size, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  142  	ICSSG_MIIG_STATS(tx_max_size_error_frames, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  143  	ICSSG_MIIG_STATS(tx_frame_min_size, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  144  	ICSSG_MIIG_STATS(tx_min_size_error_frames, false),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  145  	ICSSG_MIIG_STATS(tx_bucket1_size, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  146  	ICSSG_MIIG_STATS(tx_bucket2_size, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  147  	ICSSG_MIIG_STATS(tx_bucket3_size, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  148  	ICSSG_MIIG_STATS(tx_bucket4_size, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  149  	ICSSG_MIIG_STATS(tx_64B_frames, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  150  	ICSSG_MIIG_STATS(tx_bucket1_frames, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  151  	ICSSG_MIIG_STATS(tx_bucket2_frames, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  152  	ICSSG_MIIG_STATS(tx_bucket3_frames, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  153  	ICSSG_MIIG_STATS(tx_bucket4_frames, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  154  	ICSSG_MIIG_STATS(tx_bucket5_frames, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  155  	ICSSG_MIIG_STATS(tx_bytes, true),
-550ee90ac61c1f MD Danish Anwar 2024-08-22  156  };
-550ee90ac61c1f MD Danish Anwar 2024-08-22  157  
+FYI, this is where you take locks for iteration of files.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> +	if (!iter)
+> +		return NULL;
+> +
+> +	if (!*pos) {
+> +		iter->pos = -1;
+> +		return trace_next(m, NULL, &i);
+> +	}
+> +
+> +	i = iter->pos;
+> +	while (i < *pos) {
+> +		iter = trace_next(m, NULL, &i);
+> +		if (!iter)
+> +			return NULL;
+> +	}
+> +
+> +	return iter;
+> +}
+> +
+> +static int trace_show(struct seq_file *m, void *v)
+> +{
+> +	struct trace_remote_iterator *iter = v;
+> +
+> +	trace_seq_init(&iter->seq);
+> +
+> +	if (trace_remote_iter_print_event(iter)) {
+> +		seq_printf(m, "[EVENT %d PRINT TOO BIG]\n", iter->evt->id);
+> +		return 0;
+> +	}
+> +
+> +	return trace_print_seq(m, &iter->seq);
+> +}
+> +
+> +static void trace_stop(struct seq_file *s, void *v) { }
+
+And stop is where you release the locks.
+
+> +
+> +static const struct seq_operations trace_sops = {
+> +	.start		= trace_start,
+> +	.next		= trace_next,
+> +	.show		= trace_show,
+> +	.stop		= trace_stop,
+> +};
+> +
+> +static int trace_open(struct inode *inode, struct file *filp)
+> +{
+> +	struct trace_remote *remote = inode->i_private;
+> +	struct trace_remote_iterator *iter = NULL;
+> +	int cpu = tracing_get_cpu(inode);
+> +	int ret;
+> +
+> +	if (!(filp->f_mode & FMODE_READ))
+> +		return 0;
+> +
+> +	guard(mutex)(&remote->lock);
+> +
+> +	iter = trace_remote_iter(remote, cpu, TRI_NONCONSUMING);
+> +	if (IS_ERR(iter))
+> +		return PTR_ERR(iter);
+
+So if iter is bad we exit out here.
+
+> +
+> +	ret = seq_open(filp, &trace_sops);
+> +	if (ret) {
+> +		trace_remote_iter_free(iter);
+> +		return ret;
+> +	}
+> +
+> +	if (iter)
+
+Why test if iter exists here?
+
+> +		trace_remote_iter_read_start(iter);
+
+But still, the above grabs locks in the open, where it can return to user
+space while still holding the locks? That's a no-no.
+
+You can use the seq file start and stop for locking.
+
+-- Steve
+
+> +
+> +	((struct seq_file *)filp->private_data)->private = (void *)iter;
+> +
+> +	return 0;
+> +}
+> +
+> +static int trace_release(struct inode *inode, struct file *filp)
+> +{
+> +	struct trace_remote_iterator *iter;
+> +
+> +	if (!(filp->f_mode & FMODE_READ))
+> +		return 0;
+> +
+> +	iter = ((struct seq_file *)filp->private_data)->private;
+> +	seq_release(inode, filp);
+> +
+> +	if (!iter)
+> +		return 0;
+> +
+> +	guard(mutex)(&iter->remote->lock);
+> +
+> +	trace_remote_iter_read_finished(iter);
+> +	trace_remote_iter_free(iter);
+> +
+> +	return 0;
+> +}
+> +
+>  static ssize_t trace_write(struct file *filp, const char __user *ubuf, size_t cnt, loff_t *ppos)
+>  {
+>  	struct inode *inode = file_inode(filp);
+>  	struct trace_remote *remote = inode->i_private;
+> -	int cpu = RING_BUFFER_ALL_CPUS;
+> -
+> -	if (inode->i_cdev)
+> -		cpu = (long)inode->i_cdev - 1;
+> +	int cpu = tracing_get_cpu(inode);
+>  
+>  	guard(mutex)(&remote->lock);
+>  
+> @@ -447,7 +750,11 @@ static ssize_t trace_write(struct file *filp, const char __user *ubuf, size_t cn
+>  }
+>  
+>  static const struct file_operations trace_fops = {
+> +	.open		= trace_open,
+>  	.write		= trace_write,
+> +	.read		= seq_read,
+> +	.read_iter	= seq_read_iter,
+> +	.release	= trace_release,
+>  };
+>  
+>  static int trace_remote_init_tracefs(const char *name, struct trace_remote *remote)
+> @@ -566,6 +873,7 @@ int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs,
+>  	remote->trace_buffer_size = 7 << 10;
+>  	remote->poll_ms = 100;
+>  	mutex_init(&remote->lock);
+> +	init_rwsem(&remote->reader_lock);
+>  
+>  	if (trace_remote_init_tracefs(name, remote)) {
+>  		kfree(remote);
+
 
