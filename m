@@ -4,56 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A3D6E9D418
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 17:05:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BDCDE9D416
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 17:05:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b5U76WFJa4aJl6uKB7i3VfwbBmMItemRM9wT4/dhs2U=; b=oIeCNWP79UzxZ7CAxMUc6y/xrU
-	t/F1FSR1SwcfEwTjDkF3HTmJwiok9HSgXUXN/qwG4swu6EPH/WuXqTpIcTYU5yW4hnb13o/qEcnsi
-	DZOMeBHpvOoYb8P1Q5C88+EZM2jyLYbKi7vC4prGVRd9VSEf7koeqoBekAdYhHT5iBDWe8RG0OD+w
-	YyGk/vygDHSJ7QIQilK47XWjNuKiJVjCG6bMK/7GYs+UZz8vRK4WEQpE+4q/CuZZrtBFhLoRXcyub
-	v4K1kwD8tNCnHajkUNZCaogMdT6Asg9JtI22UhIoVUUEJynBfjcyGwTuwuFifu/vgMiT9gHX4FxmF
-	DblbJVFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qMd6eVgyTaMp2dz0Bmva0s1vsJYaGNF3GbW8MNURkF8=; b=KdUq4VcFroG9/DeGR5dHeSPgK1
+	ZtfocsDFLI3Yyxi1mzfU0omMZmEz+rQm1G4+WZT8mbly1+bx1ckkScFVfgux7EP66pmi6ldD349ZM
+	KXtDuXhgBLH/PoVWLY8I92By9c05P3g5vqszr3vJJvSMY9pPaBEhamEXZTIw4XnesDnuIKP6IxTw2
+	EwtZrvbiaBGwrFfXhwTUvQOaqNY6AN5OusUUEctxnfG1uav2snmRPhYKDcdXbNO/DKP6DENbh8xWO
+	u6l7M9zPNPsn9UrIAnFW19smH3OeNag8Gqxr//voR0WpiOUn2hyMKA0zPeDAavoaYBXPnYSL+IsL8
+	6IrB5IMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vngJJ-00000008ow1-0ahl;
-	Wed, 04 Feb 2026 17:05:01 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vngJq-00000008p1c-35Ii;
+	Wed, 04 Feb 2026 17:05:34 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vngJG-00000008ovI-1sU7;
-	Wed, 04 Feb 2026 17:04:59 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--ff4.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::ff4])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 22D545B2;
-	Wed,  4 Feb 2026 18:04:14 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1770224654;
-	bh=b4FHxE4k6c9u5owRl/0A1kf9dqtDLXPF6jx78vI4wa0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VUrNrcSaUZ8WVpjhC6pBBWWabssL/xgdyAyuC2PwRYRa9xwCRIgpfmOLlBeeHKXx8
-	 dGY0zKRaiU6L9CoBTN9hUS6UdrWKNE/DLb1SSeBieHWelw+KaMxJm7bU4eDnvmFVGH
-	 cwQ3gwMBPuNCc+cZ8M0OWwSFa0dMp/EnruwBH6KQ=
-Date: Wed, 4 Feb 2026 19:04:54 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Isaac Scott <isaac.scott@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, dafna@fastmail.com, mchehab@kernel.org,
-	heiko@sntech.de, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 2/6] media: rkisp1-isp: Add in_bypass flag for YUV
- bypass
-Message-ID: <20260204170454.GD170964@killaraus>
-References: <20260204112506.3706049-1-isaac.scott@ideasonboard.com>
- <20260204112506.3706049-3-isaac.scott@ideasonboard.com>
+	id 1vngJo-00000008p0n-2ztp
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Feb 2026 17:05:33 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4806d23e9f1so119115e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 09:05:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770224730; x=1770829530; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qMd6eVgyTaMp2dz0Bmva0s1vsJYaGNF3GbW8MNURkF8=;
+        b=MCqx8H+BdPqpwfDaZpObx+YSqB8k9mJ1jbTl6faktuphGG6wQezY9s3n94GFWYanAk
+         8t7ClFMLf88b2eqSMZYF/Z4x77dFNOpQDQVh/NAQY0rTNhdxDTzffQmF9kvDeZyg+ABl
+         ZnazfZpzHLRs+TgCQ7HsTEo5/hdmo2XtBXYvMyjhEn7uaOsDsZpmi+CQYLg88H+OefsM
+         rhGdNVgUCW4rW5gxYajSVZX2oIt3X0CGi2bHu/NW30aRyAkLVolXOpBsg+DW7qsqzm6R
+         0tih5Ot1YAoBXMrZEgh7FhtjID39ORcmyeNHZD/bNbzRDHSUMrEmJqadBo257flZZeGG
+         KnWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770224730; x=1770829530;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qMd6eVgyTaMp2dz0Bmva0s1vsJYaGNF3GbW8MNURkF8=;
+        b=DkwzQB7Woo9qUaAk6qwJxGkJzEoyDNb8Lp9LvlIGaTLPc83Fi/MiPD1xyO/eR8Pf9j
+         eEJxLMOzk+CcfvMIUT/REuOD8qbKInrAThOYPk+5T/rsKevOhZOubjA8dxwVb27qPZf4
+         RqWzGLYqo27OuJtMqdnnzF4iDTepIFjOuhqegEvYF+8odKUWTLkclbDsS5e0igaCsd4m
+         wG/M2b+co84N5U1bBolxwVhWLcr2FPihR0ptndHH/nc0TFi4+12R+FLUVc5taDEGjrYK
+         gQvZXwehthKinPeH1JVae+OyVzqjklbNlHZnhfl/3H5J0goageZtBXnyggoKsUnsgnMZ
+         Ld8w==
+X-Forwarded-Encrypted: i=1; AJvYcCVoxf90LqeX1wWpXwW2uSEYut49R32jGftZgEtGKpH0+cQN3/o1one0zzS9CcDsv6BPDrjaBg7CmBPCOTV2n/yH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlEbEEY1qujajF6OC578qX2iA6wTWB7mIzMB2qBych3/qLbDhw
+	xy6ZtQP+s/ILnCnRexWGw6PYWlM/sZ4saTp/4HESOtYbbsagQ7c1AsHL
+X-Gm-Gg: AZuq6aLD3yv8WhdEsTpw4CyJA6/XNoFghp/fD4SzTZ5V43pextJjbhpDc1EYxuCEhR8
+	WEh/7osynkth5odFoE47ZY2ECIULO/2YhDZx+8GiutkCBL0w5Ot/coAr30NN+NnViECyqKPHd5R
+	YZ88vmEFfgtfvV9CLkvAi6Yoj2+3G6vkuvnwplrz6dd2ZgpxFvOUicbQrmd38SR+GPOji+gIVhE
+	Vr2qbO4mcGUFrjpdDxLcApgpitY8ubrKJAnsppbZUphPkG13S7I1J/gHiN/U5uBar7qx8acMcyr
+	Xre/sxidPcLJBAD3XqzCYkpidd9gVZw1IFHbV3tyMWZQm3gc8RWhukKNzDQA9Md7/cAfqk656q8
+	4JXIA8CE+sUS2bJhNCS4UozHlH9Kq7anogBJ9vP4e1QpPIkZ/wctuig8NIuAf/SF+6lNwdVVTLp
+	XjQjAy/1D/p6tkl4qEqItWbVZTr9fkw5Pd0wTevbX8sKUADX7JIiRdF4kcRU1EWs4Ctv8eFtqdb
+	ZIZG/sMkOHOOeB+qUz1pxxIVE2m
+X-Received: by 2002:a05:600c:680a:b0:480:6c75:ddce with SMTP id 5b1f17b1804b1-4830e9a9b17mr51563435e9.33.1770224730178;
+        Wed, 04 Feb 2026 09:05:30 -0800 (PST)
+Received: from Lord-Beerus.station (net-188-152-100-94.cust.vodafonedsl.it. [188.152.100.94])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4830ec10011sm38044465e9.0.2026.02.04.09.05.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Feb 2026 09:05:29 -0800 (PST)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: kernel@pengutronix.de,
+	festevam@gmail.com,
+	alexander.stein@ew.tq-group.com,
+	dario.binacchi@amarulasolutions.com,
+	primoz.fiser@norik.com,
+	Markus.Niebel@tq-group.com,
+	y.moog@phytec.de,
+	josua@solid-run.com,
+	francesco.dolcini@toradex.com,
+	maudspierings@gocontroll.com,
+	Stefano Radaelli <stefano.r@variscite.com>
+Subject: [PATCH v1 0/3] Add support for Variscite DART-MX91 and Sonata board
+Date: Wed,  4 Feb 2026 18:03:53 +0100
+Message-ID: <20260204170356.35169-1-stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260204112506.3706049-3-isaac.scott@ideasonboard.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_090458_628277_2E4321D9 
-X-CRM114-Status: GOOD (  20.83  )
+X-CRM114-CacheID: sfid-20260204_090532_770385_B41017B1 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,72 +114,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Isaac,
+This patch series adds support for the Variscite DART-MX91 system on
+module and the Sonata carrier board.
 
-Thank you for the patch.
+The series includes:
+- Device tree bindings documentation for both SOM and carrier board
+- SOM device tree with on-module peripherals
+- Sonata carrier board device tree with board-specific features
 
-On Wed, Feb 04, 2026 at 11:25:02AM +0000, Isaac Scott wrote:
-> The rkisp1 features a 'bypass' mode for RAW and YUV formats. This
-> disables all ISP blocks, and makes the rkisp1 display input data from
-> the mipi csi receiver at the output, unmodified.
-> 
-> To determine whether we can activate bypass, we can detect whether both
-> the source and sink formats are YUV. If they are, we can set a new
-> in_bypass flag.
-> 
-> For YUV bypass, we should configure the ISP input to interpret incoming
-> H/VSYNC signals as data enable / disable. Add this.
-> 
-> Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
-> ---
->  drivers/media/platform/rockchip/rkisp1/rkisp1-common.h | 1 +
->  drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c    | 7 ++++++-
->  2 files changed, 7 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> index 5e6a4d5f6fd1..d90233e31ad3 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> @@ -532,6 +532,7 @@ struct rkisp1_device {
->  	struct rkisp1_debug debug;
->  	const struct rkisp1_info *info;
->  	int irqs[RKISP1_NUM_IRQS];
-> +	bool in_bypass;
->  	bool irqs_enabled;
->  };
->  
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> index 2311672cedb1..f636d738b7e8 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> @@ -212,6 +212,8 @@ static int rkisp1_config_isp(struct rkisp1_isp *isp,
->  	const struct v4l2_mbus_framefmt *sink_frm;
->  	const struct v4l2_rect *sink_crop;
->  
-> +	rkisp1->in_bypass = false;
-> +
->  	sink_frm = v4l2_subdev_state_get_format(sd_state,
->  						RKISP1_ISP_PAD_SINK_VIDEO);
->  	sink_crop = v4l2_subdev_state_get_crop(sd_state,
-> @@ -240,7 +242,10 @@ static int rkisp1_config_isp(struct rkisp1_isp *isp,
->  		}
->  	} else if (sink_fmt->pixel_enc == V4L2_PIXEL_ENC_YUV) {
->  		acq_mult = 2;
-> -		if (mbus_type == V4L2_MBUS_CSI2_DPHY) {
-> +		if (src_fmt->pixel_enc == V4L2_PIXEL_ENC_YUV) {
-> +			isp_ctrl = RKISP1_CIF_ISP_CTRL_ISP_MODE_DATA_MODE;
-> +			rkisp1->in_bypass = true;
+The implementation follows the standard SOM + carrier board pattern
+where the SOM dtsi contains only peripherals mounted on the module,
+while carrier-specific interfaces are enabled in the board dts.
 
-Based on the review of patches 3/6 and 5/6 I think this flag will
-become unused, so you can probably drop this patch too.
+Stefano Radaelli (3):
+  dt-bindings: arm: fsl: add Variscite DART-MX91 Boards
+  arm64: dts: freescale: Add support for Variscite DART-MX91
+  arm64: dts: imx91-var-dart: Add support for Variscite Sonata board
 
-> +		} else if (mbus_type == V4L2_MBUS_CSI2_DPHY) {
->  			isp_ctrl = RKISP1_CIF_ISP_CTRL_ISP_MODE_ITU601;
->  		} else {
->  			if (mbus_type == V4L2_MBUS_BT656)
+ .../devicetree/bindings/arm/fsl.yaml          |   6 +
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../dts/freescale/imx91-var-dart-sonata.dts   | 498 ++++++++++++++++++
+ .../boot/dts/freescale/imx91-var-dart.dtsi    | 468 ++++++++++++++++
+ 4 files changed, 973 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
 
+
+base-commit: 18f7fcd5e69a04df57b563360b88be72471d6b62
 -- 
-Regards,
+2.47.3
 
-Laurent Pinchart
 
