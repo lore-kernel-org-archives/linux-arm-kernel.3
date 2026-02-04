@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66683E83F05
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 18:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AB81E83F05
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 18:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jBQp3nLqWP8FzkdVHFvaNH+FKz7q+nqq4HbvzVC2Nu0=; b=T5SDlmdzU7kmwN2VnHohTOXB4C
-	Z9BM4ZtGBaX6pyazdHSvbq+tB0j5Z7KMydakIyRB78NkLHp0fG/cG8SWYOKaCVdg4upRH1eKr1nyz
-	D+hIx4Iuo384sCu82Yez3CMmlQ4tVUn4dngetj5aa8b70j4oq2Y3CrLokUwdz1O0EUf67aw4LYwjs
-	TLKxwyzNoxOQBboTMH2ii5GEQml6bQoH88kHDbpT5M8qB2xhqkfxk3/FnedZPohD0Ezzc6Lb3leFT
-	we2IkAaMbnhJPMz1WFDFi3rJeYc7J6jjoNABk3ondIfiNFVfnSuKcAoR/nyuXge8at/HkEfTlJUt0
-	U4JPKwzA==;
+	bh=D53HBMSb8J3Sayv18SrM/DE9F0UmWk5h0fESWtISmGk=; b=D7vUD0MU5Pg5UZoE8IP7Q6kz+y
+	TtjqOevFcyF5ku9M5CTffgt8hGDzluJzEjwLZl9ovTse6pUl/iZfU8hayfukLYMCf3zOJjf9Jk3ev
+	KBq7AHujPLlLI6fCG7bgKfULwG090PcwuNpNBJ7aBXNLTNKwTvZKErpKShnFGnb4iQ4ZcmOQw82/J
+	hGfxOdDzUt4EXCk9iQnoSFkLEP90yjGwcGQX7G1XXObXKqAhs2avvMnc02MOw8TpbyYXSiIXX6M93
+	drZJxAXesGYdmiPSabxm/Ov2m0ps/G8xTfC43RLpccC3DxsBoK32B7Sc4x/aYslT4c5/FoHgZ/zwm
+	6vbKxZjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnhF3-00000008u5r-07IX;
-	Wed, 04 Feb 2026 18:04:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vnhFx-00000008uBo-1Wc6;
+	Wed, 04 Feb 2026 18:05:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnhF2-00000008u5k-1ADK
+	id 1vnhFt-00000008uAt-1D6q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 18:04:40 +0000
+	Wed, 04 Feb 2026 18:05:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7ADCA60018;
-	Wed,  4 Feb 2026 18:04:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49896C4CEF7;
-	Wed,  4 Feb 2026 18:04:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BD5BF44351;
+	Wed,  4 Feb 2026 18:05:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEEA5C4CEF7;
+	Wed,  4 Feb 2026 18:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770228279;
-	bh=jBQp3nLqWP8FzkdVHFvaNH+FKz7q+nqq4HbvzVC2Nu0=;
+	s=k20201202; t=1770228332;
+	bh=D53HBMSb8J3Sayv18SrM/DE9F0UmWk5h0fESWtISmGk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XiM/vKOWNK91k16+wMf/KvrhwbJ6NFyvbtXkWOVwjmzZCPRxJN6PY8RXr5ziRjKB+
-	 R9aSFT9o/FHbv4v2OOfiWatyfue9hrEHPxKvKa+H7m/HAyB4ras2wLyWGjl8ekpjLs
-	 UYMn+/SJz/Qr3Rg6m0uBjNXQ6xhWODWJZJMHcgMFLiT44j36bkX5qC5l1EDmdo2P1h
-	 DZmRnUNe80PVYJAHiRR2km7FokPulAzVgQeTRj0AMkA/rmrKbp9ZVs8slwEKZTMV+/
-	 4HniVwhcTVEwwzOgeOlP+FVdFQtyZ1ohnRN/NggPAbWT3T7jOTWnz0yi4IqR7BE9X0
-	 m7RCaFbzmbGlg==
-Date: Wed, 4 Feb 2026 18:04:34 +0000
+	b=pOQQAbpbHHN5f/fj4I01Akhm1tnXd7hZcHsy+xPUcBhQqM9gyqJno5/f+Vhk2gQMj
+	 hkrzVva5m7ye/mH8zCnMexlu3qedsbvICbo2Mt80cZPJfwE3F3K0HQjqoQTrfe6Lt2
+	 iUuCctyQrJrcA0D8jpOe0qil8snJgwmCTHPTwcXfXZLupK4wzGvRnkTF70aLdUuwqe
+	 kMrPR9X9H7XWn1h4YqPBSnrEwKvcaOzZazS0D3fjBo9FdqRq3BeNw8+djTogiDDobK
+	 W0sBcL4I4R6Wo75++wYUT4ZyjbjAaaBaUC0LDEvm8qsCGsA0L5cjypWpFgmb7IH/fh
+	 DG8vULMHH+5KQ==
+Date: Wed, 4 Feb 2026 18:05:26 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Potin Lai <potin.lai.pt@gmail.com>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Patrick Williams <patrick@stwcx.xyz>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, Cosmo Chou <cosmo.chou@quantatw.com>,
-	Mike Hsieh <Mike_Hsieh@quantatw.com>,
-	Potin Lai <potin.lai@quantatw.com>,
-	Roger Kan <Roger.Kan@quantatw.com>
-Subject: Re: [PATCH v2 1/2] dt-bindings: arm: aspeed: add Meta SanMiguel BMC
-Message-ID: <20260204-pentagram-undrilled-3c85ec087a2b@spud>
-References: <20260203-sanmiguel_init_dts-v2-0-6a5682c32b38@gmail.com>
- <20260203-sanmiguel_init_dts-v2-1-6a5682c32b38@gmail.com>
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, kernel@pengutronix.de,
+	festevam@gmail.com, alexander.stein@ew.tq-group.com,
+	dario.binacchi@amarulasolutions.com, primoz.fiser@norik.com,
+	Markus.Niebel@tq-group.com, y.moog@phytec.de, josua@solid-run.com,
+	francesco.dolcini@toradex.com, maudspierings@gocontroll.com,
+	Stefano Radaelli <stefano.r@variscite.com>
+Subject: Re: [PATCH v1 1/3] dt-bindings: arm: fsl: add Variscite DART-MX91
+ Boards
+Message-ID: <20260204-brute-daydream-871c0be53454@spud>
+References: <20260204170356.35169-1-stefano.r@variscite.com>
+ <20260204170356.35169-2-stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8hOsCkrKAc3Pq8Lt"
+	protocol="application/pgp-signature"; boundary="0sR0klTatUnpUM59"
 Content-Disposition: inline
-In-Reply-To: <20260203-sanmiguel_init_dts-v2-1-6a5682c32b38@gmail.com>
+In-Reply-To: <20260204170356.35169-2-stefano.r@variscite.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260204_100535_027890_A8EFED14 
+X-CRM114-Status: UNSURE (   6.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,23 +84,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---8hOsCkrKAc3Pq8Lt
+--0sR0klTatUnpUM59
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 pw-bot: not-applicable
 
---8hOsCkrKAc3Pq8Lt
+--0sR0klTatUnpUM59
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaYOKMQAKCRB4tDGHoIJi
-0hsIAQDcWkSEb+P7WnSB/EHaS0NN88Ti/rykerSiGLt2jE9mYQEAzYAaHgX6rASe
-Gfdsh6cxkDzBBA/abp5+aRh1+kIgCw4=
-=PuSJ
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaYOKZgAKCRB4tDGHoIJi
+0qetAQCq2VcboFqXT/rCNQlQcHVzPO2WoYqZa/iOZzp1ZmH/MQD/XUYg+z8frbj7
+i+WGA6DX7wrdlLaJ7mRO90s8yYiYeAY=
+=RrWE
 -----END PGP SIGNATURE-----
 
---8hOsCkrKAc3Pq8Lt--
+--0sR0klTatUnpUM59--
 
