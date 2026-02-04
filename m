@@ -4,57 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D022CEA7942
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 19:19:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EC4BEA7942
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 19:45:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5O1b3FfR1Vp+0do34cNQaTZ7/jUxE68vpVVGzruC3Os=; b=O1xudyOXN6i+pQbWVGObAbfXSl
-	nmFdEfFa4eOECV4FPOy/ZedTE8TfPPxprF57/TWhzV/vxy7WzCM2tjbUqBwB/bFeMyhyYEa04Rozi
-	drBmL4o4s4yaRq+1OPUi5Jy7b+MFqnRsj4281Rs37hZwK69UMcKQupMO7MPwFtNYDnrJ0BZH4kGd2
-	kwe2iTMZq3uq0EgTuKHDFNpXBgNvtjeZtc8Rg2qRVl4IxHhpo/B8NrQvaoGS2/NWLQODt/Cd95bBZ
-	A50sIaHBW9wUwsWnOio6srNHhr1ObKYZW8BtNWqGAoqJjbhmqsn4QDok8yLB9aJP06cMiyKsfI2jn
-	r/A/7NCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OtTXycwaNjKB0KLJRpyIH2+Tje7b9Xv8ztjIiiizGcs=; b=ygG1EDr003T8WBYXFfAtaoXozw
+	ZmLn8g5Xwt66WUu3xltP91XQBOWguTGl3dVbFuHcZrQ5I2A0tptoOq5cXLh4MtMJPyK2sTsWLl9Pp
+	I1VXKtWPzM/0/OiBOytIkDwYaPpVx9xnIt/yJHyjWB2SS7UoVaL7BI4S9bfRhVBVddMNL8GWc6eeW
+	WF3sFnQazof9wINWbei41O2+/3EL2EWQSPF2yEGRQExuwQN913zpbt+DOZ//rr7cTusnoMHSKw4BK
+	SmBPlK3lyFy3UtvLMAVsOdFbjcBtU6hny1bq6b1kjEDR5XhPeFFNUOagy3yiu8ux6yHLpMGFmtD5H
+	/lW7l5/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vniPd-00000008yLR-1JzP;
-	Wed, 04 Feb 2026 19:19:41 +0000
-Received: from mail-106119.protonmail.ch ([79.135.106.119])
+	id 1vnioM-00000008zjN-0YSg;
+	Wed, 04 Feb 2026 19:45:14 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vniPa-00000008yKd-0Ad5
+	id 1vnioJ-00000008zij-2uYe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 19:19:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
-	s=protonmail3; t=1770232774; x=1770491974;
-	bh=5O1b3FfR1Vp+0do34cNQaTZ7/jUxE68vpVVGzruC3Os=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=Hg+7dYS/2u7X3bM1eA4paCvWzimSdHWwbgXrKgioMbfMEf1Wpf8BY/+saHQoyZszt
-	 bDHmPXCfeeQRtxjwPqbq2rHGBS2QgUAbxlZtketBG46xUYWdhRZDRVX+4uBmIqps99
-	 FANUtjN7BJ2yDoh9GrhmKWTUxINp0uRMLZmF3YHrR3sZYyq0NtdKvj0kfm+onN+/s2
-	 xrfNYD3AaEwDWFVBNIVQkMo8RrlurFpb8K766nA6RgJ7NwoHmfDAF08I4X1L6jNIeT
-	 9oSzPWGQnlezLVtaDbP8A0gAnyH2m1Mb2eD3Uun6d5zeYvvRrrKEngZw6RCv47eZg/
-	 6pcdxtvTEW1lg==
-Date: Wed, 04 Feb 2026 19:19:27 +0000
-To: Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>
-From: Maciej Wieczor-Retman <m.wieczorretman@pm.me>
-Cc: m.wieczorretman@pm.me, Samuel Holland <samuel.holland@sifive.com>, Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>, linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-Subject: [PATCH v10 02/13] kasan: arm64: x86: Make special tags arch specific
-Message-ID: <2680630ab18d648422d3ce2775b76f8afa0d1e01.1770232424.git.m.wieczorretman@pm.me>
-In-Reply-To: <cover.1770232424.git.m.wieczorretman@pm.me>
-References: <cover.1770232424.git.m.wieczorretman@pm.me>
-Feedback-ID: 164464600:user:proton
-X-Pm-Message-ID: e73d08e0b0321a8680dcd736a6f57b61ed147d52
+	Wed, 04 Feb 2026 19:45:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=myeH4YCb8n5H1j8MVvJNuhQFYIZEf+pEHgfTgQW0yQ1a6sD6ejlljXBonFP4gPrJO/wC0n1d8dH53ayT4SPsTiT01C/E0ocJNq0ax0VORqoAtHS3qJIldZV1qKK/J9uU74fKFcozzOhhjyzmpRsUnReZJV0/9HgZ33hdSF+WqgqwCMYN/WbJD4Z0jsyvKSc2sBlMi7fn4fOb7lC6MXqJ1OVbTw8NtHFLjUjaoindGhJp+cVx4CN0Gyw9joFs8KEpMdVyfKgGPG5Jy5gSwiX7U5XLFDlUoygwcWWIwRe25xCM2/0kM4ORbFt1HtbsRYdkqjkIClYj+lDG0yUig69iUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OtTXycwaNjKB0KLJRpyIH2+Tje7b9Xv8ztjIiiizGcs=;
+ b=l3Uid/+3B5U1xsRxg7AJYDvy6EkIbTCMG71SVkyJXMcrM/Hi/+92jzpxAmW+0SlPSmXr6AqtNW516m4nkeneb66kGc9ELxn0l1EADjnVVG3zZCmtd8Npjp//t38mwAtZ4tUXksiYls6D7LASV3xqjQMhODv6UwKB5cvoFgnKfsAIVn3+k9tHfK/3hwpjm8xM5S4MC/Ou5VcUmg/+d66vhMBFQLfT0DkKxi103z8TZs+pb+MkQ02T4N5TrfOudc+9q1huxiHGgHso/pSlsKEgJj5/1pN91k2JAMi6ED40Iklxp1R3thgZ+keHDoSGaLgKlkyXMMBq4fBCrH8Nns8HOA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OtTXycwaNjKB0KLJRpyIH2+Tje7b9Xv8ztjIiiizGcs=;
+ b=UbwzKW01kk8eV0hmVhaCzEKBshYqpq0fM20s6ap7InNw1lMWAEH+1L1AoX00HaXechBs+TQNk6vB+GBOdyFgC7LdtUrenfiLNymapd2CFhxsgolgnX/i/NWMAo1dQnKsoCR+04RQ6XjXah/kzj4S8z9M1a2Twjg6OYAXxHGwdEB2yQwa4HTov96wtj2gtzK0ZKp7DnbVhczHjSvJBU5CjCAzC8NUW2e6oVFAbfP1iJUQ3VRwe1amBdWeIJobh+3ckTRjY5JskopDqYVZfNz6Itu+5vwmwOXPyqW1PxSIOea6jk0ZXkpySAfPxuwcZhjyWgAUwk09+lRodnZLcOupTw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by GV1PR04MB10306.eurprd04.prod.outlook.com (2603:10a6:150:1c9::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Wed, 4 Feb
+ 2026 19:45:05 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9587.010; Wed, 4 Feb 2026
+ 19:45:05 +0000
+Date: Wed, 4 Feb 2026 14:44:55 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, kernel@pengutronix.de,
+	festevam@gmail.com, alexander.stein@ew.tq-group.com,
+	dario.binacchi@amarulasolutions.com, primoz.fiser@norik.com,
+	Markus.Niebel@tq-group.com, y.moog@phytec.de, josua@solid-run.com,
+	francesco.dolcini@toradex.com, maudspierings@gocontroll.com,
+	Stefano Radaelli <stefano.r@variscite.com>
+Subject: Re: [PATCH v1 2/3] arm64: dts: freescale: Add support for Variscite
+ DART-MX91
+Message-ID: <aYOht2HNhEIS8VZV@lizhi-Precision-Tower-5810>
+References: <20260204170356.35169-1-stefano.r@variscite.com>
+ <20260204170356.35169-3-stefano.r@variscite.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260204170356.35169-3-stefano.r@variscite.com>
+X-ClientProxiedBy: BYAPR03CA0028.namprd03.prod.outlook.com
+ (2603:10b6:a02:a8::41) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV1PR04MB10306:EE_
+X-MS-Office365-Filtering-Correlation-Id: 04037965-df93-444b-5c83-08de6425e50f
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?omUEunTRlb00a+SylDXk4IkDjdbh91u46LhX6YMTd7HI5t3CRY5pps2xUlOw?=
+ =?us-ascii?Q?wxG1a6wAsM3i27VPR3yKDCZyDEafOutSxQqGdt8GYbmq1urGcsVcqTAm21sb?=
+ =?us-ascii?Q?UIB4i4Xayef3hcSh6QuW1r/7EtUAOXKkJNnF3ilTx3ykap5LqvF+qaJ+OZQk?=
+ =?us-ascii?Q?GdfILAsaCSDbJZr9nB7vWbyEfUiAV0vA3hrHxl2boQsNnofKmcG7MOXWbHR8?=
+ =?us-ascii?Q?Ka2DgzmCPy+rmP/XoE5ywAM7si4yr4L6S1103Ftr/2Ae5xAdoZ3K0c+Ze6PI?=
+ =?us-ascii?Q?Z0mO56thKtqwYjVi87ZQCFrfWm5REENAbb4suinQfxCQKIuK6TDD9it9g+v4?=
+ =?us-ascii?Q?FVFVMxEjMUmWdpliF4MCg90fsgHmCFdOsHxcRwGZ2W+PKa+f8DP7r8cu4Kde?=
+ =?us-ascii?Q?PFOawvRFBWiuGNMrlMbUwnmzi/wG3+LYiUAn9dnrVpGs8Ab0rIFNgHh4zGqu?=
+ =?us-ascii?Q?JkK28gkoGMEwnwgOXQDaptAdEtxDTgnltTckEtvSQ+Mt6JwjkDUVBYZ5v+FU?=
+ =?us-ascii?Q?dnGl3zdNa+M9DoZY6w/A8jWayTJBGVIXjXZyj4HgZmB0LYnqyg8M1y8oL2x0?=
+ =?us-ascii?Q?tlQ0Wg+A+QmYMyi6GojlZ5wOCDlfbDnD23J0vypksGp+DFi8ozpQIMVcPQjK?=
+ =?us-ascii?Q?p3lVhSDuiMLGd5EMknVI8cVPqt+nUFHtAYwxp7g+Xq5c58CDDrk7tYqBIat9?=
+ =?us-ascii?Q?qUBb3YzkSVG5Tp+GKGKTIqumZBY9XemGTcX0nG4akcRMW9E5LIh62pOJYhiz?=
+ =?us-ascii?Q?/6gD4MhzOf/id7gpmxcTb3sjH0DQpY4VLpbR/B1uPoOcgGpd+b+G3HCILZ/Y?=
+ =?us-ascii?Q?svp1JrEuTvdo6r2dTCHcPAkt46CyG+OFgGphYSa07GDjINYCrSBmoxn1CWie?=
+ =?us-ascii?Q?bX1OHl/ya8I/qaCWPDeCxe5mqXDU5p97AKWFMdqwvdrMTVvNhjSJIUGWWyv7?=
+ =?us-ascii?Q?lQXdlWrRXRnW1Ia5cXcYcK0DCeBjvx2cjT/SfIIR1I42Xn9zqVQeU8UH4Hxb?=
+ =?us-ascii?Q?YN7DhGuLNzAsrZ9gMepKqUH3r3Q3Wk9I9ouIDalWTFwSlb2lbaa+42V8k+op?=
+ =?us-ascii?Q?vCg/tk/JzFYzhebnGdmQnCXCuY9IqU2WFRiydXcXI7BT2+ra+WsYrV/ls3wN?=
+ =?us-ascii?Q?mnQjnnYL/l6q/ydlIhlVkhEpF/mNCqh6bdWO6WMR1TUw+fScy2oWUOFb7O1D?=
+ =?us-ascii?Q?5cwrl2r28kIg2hyPahwf/PmpywxHnXLcFAxiepzBr0y2SVXGgH5qjU4sV9RA?=
+ =?us-ascii?Q?6GyJMN9c85f2n0AFsxXJups6P8sQMyzFIkGvBvAlZChxXfBcxgsjGI/hCG3J?=
+ =?us-ascii?Q?RgKWVlL4iVoFAtpcM7UpUdM8fA7T1bLjBGKreHEko7IXG0wmBnN3HDcEGc1t?=
+ =?us-ascii?Q?UGPmwksINBLf/4IdanVZC2dOeNlzzgWoF/Do6G1n9vPVfN1IqyAliVyoEBm0?=
+ =?us-ascii?Q?WtFRLQ4egKN4RbQGoIgpEE9P/dyLtdseVlLAiQT0/EYnWyWGcqTIwsbPU9e3?=
+ =?us-ascii?Q?wGt+mQkw3Bw/TDZF4kOUv1tr23jwgwx8g2ZPQKZlrvfn8iJWlqjKLxXofn+9?=
+ =?us-ascii?Q?s3FnpqoLvGV/tS6jFe9W6e5MOM1g4mnGW+JVA3WaUOyqDF/rnDbzk9iXCTBE?=
+ =?us-ascii?Q?oQ5+v2KIa8sK4aqfdOrUfck=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hbIUwg1nnpAsUprcz57s3x4bzB2wnAP5k90zn8bZsaGOMYOR2wG3Zs8gmuAC?=
+ =?us-ascii?Q?7vK5PtZZeGQ56jfsYQgkfprrrjjcARiINsv1JbGuTVbYV3uxNmqsUnFdQ2nn?=
+ =?us-ascii?Q?hDN5tCt0LQKOXf2TZf+Z31eKOCSvWf1pzK/qxxdGXRKTWll5gJk5gtUdRegN?=
+ =?us-ascii?Q?6TCFPVSk8SI4muRNqd7oyneP+xP5LTJD7GzWospNFgFv9H8pHQhyEF2TbkzM?=
+ =?us-ascii?Q?uLj2rQwvCFJomW3zwtoBDAlWbp43NFntrvtOrXJoPCoUfRjksNGpZy3moKQB?=
+ =?us-ascii?Q?e2JupskQvo++iKfvIojgfQ4iSSZYRLvUuhoRNT3UdCttjeQi5vLYUXT4Ij+d?=
+ =?us-ascii?Q?3NVXB8+N4jrxPsMp0tiRcOinTxFtOiQmd2F/1tNjIV0ba2FzgPUaFQXCzYKQ?=
+ =?us-ascii?Q?q43SASXXMWQqKWtFOEahyS9BGU0e70cZc1NPatM9DJcfVXEqoGkIYAsCYORg?=
+ =?us-ascii?Q?5j0ywN83AopJMo5isOQAc6DnrMB0Fx+5Zo3IHLHTlWk8sZrHUfUVtdPbV5fi?=
+ =?us-ascii?Q?YHuM3N7rZ5dD36XJygmwCdUjEl88kEgI9HIMf5hnurpsAM1f0xdCJW7CFcxA?=
+ =?us-ascii?Q?nqILPEnBFGFX1WPrwYFcFLnvWwh6RblXR54FtGgvACwi5ERmyEdmRxgUqJg2?=
+ =?us-ascii?Q?rChGE2V5S1943rYofAyLozadymobAxTB7s/Ir0QG1+RxZ7kkkn3FptSSEXvb?=
+ =?us-ascii?Q?8ih5BLZN2oOm01DtLmhPlkR2kih46WOPZ+dS+f5d7lUmidXv2tMLxbtgFhSW?=
+ =?us-ascii?Q?Yz5YWWVzMgkp5x0rTEHkk72JyBTMYaUUMJpZnZ5dUzG5mRV2s7Edh76AgkcW?=
+ =?us-ascii?Q?0XUOuSSlMKgGIMeMl59DhVxwEb697U1FIzMDXjiiwATUwWIgUN5AMLq5EDFz?=
+ =?us-ascii?Q?W8g/a18cEf94ZibrDynovUvRATrgfGpZm03xyc0ahUL0jxDUsT7djhgJwMYD?=
+ =?us-ascii?Q?5B100ugXyRWmFbp3rO4RRWP/i61uYtCgSupPnhkzn59hpAEbTzjRMW64v3Lg?=
+ =?us-ascii?Q?qTopm7X0e7kDwxrKhfTyz0gzDKCArpakwEtrR3UZhfIdbrhPYi3gF78o8bM7?=
+ =?us-ascii?Q?+/T+T7PKMTRf+nGyBaFVsabLKleNMKD1p4m0i3VI36w15mvJiWCobY8c/TG/?=
+ =?us-ascii?Q?dElSg3SO2kilDqIRanC+qR0gC1GAEUsX6pKRqPWZQVSbMhVFvZsOwWDAFUAM?=
+ =?us-ascii?Q?ey8uZSxQ7H4agVnikoR7K93pPwAz5n2oArr55a+dzT0zdvbBQsUNq4YnJWES?=
+ =?us-ascii?Q?3doxox/5Tdzh2kgWOJQ8ExNl9ywi1SW2U8VbmfuEqgEg3zn/g6czFCjBe50b?=
+ =?us-ascii?Q?MFe0JDEF5F3tkjfKDCIvXB4f8R6yY6qNKp+X2Py4S96fatr5Fb3uy5iO6bI5?=
+ =?us-ascii?Q?hagsSt1Kx5B4Fwgaypci6QoAQy99Bae0NTIOeX7taJsjndnqUv13amKDHOtM?=
+ =?us-ascii?Q?lbVfuZiQC7pjbch/IoAnxx7JuqSYxTG0FIA6I1e/hEbxeziB3es32x1JrH92?=
+ =?us-ascii?Q?rbq4Zl3WZZh2MrkbxqDauUfhyI/Ty1kk6i193YDaRRTLQXl8e1qNCsWYRHgZ?=
+ =?us-ascii?Q?S6Rbmzde8IrdikaatpN7mF2qsLChFp4+pfeHDcs/iyFsID8fPcimROtzEgi2?=
+ =?us-ascii?Q?Fmf0EOSg7DoZbi28ZPrxgfSwRi7NgGUCif24HEYzY59y430L+epekMINmo6L?=
+ =?us-ascii?Q?JL/DEE6PPrR6+mF+eFZTsnVvJwRJ41lYVBii+V0YGuqVRN7M?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 04037965-df93-444b-5c83-08de6425e50f
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2026 19:45:05.4795
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: c1M30MooRa4vu+yaCHcfT4hSNjw29ydEfchpzNn/vFN/buBMUDiff/P6s7HQSAcHCOYcX9sHuGqLj7kbao6Yzg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10306
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_111938_932022_1B4FB5E6 
-X-CRM114-Status: GOOD (  24.00  )
+X-CRM114-CacheID: sfid-20260204_114511_749560_77E07D45 
+X-CRM114-Status: GOOD (  16.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,274 +171,397 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Samuel Holland <samuel.holland@sifive.com>
+On Wed, Feb 04, 2026 at 06:03:55PM +0100, Stefano Radaelli wrote:
+> From: Stefano Radaelli <stefano.r@variscite.com>
+>
+> Add device tree support for the Variscite DART-MX91 system on module.
+> This SOM is designed to be used with various carrier boards.
+>
+> The module includes:
+> - NXP i.MX91 MPU processor
+> - Up to 2GB of LPDDR4 memory
+> - Up to 128GB of eMMC storage memory
+> - Integrated 10/100/1000 Mbps Ethernet Transceiver
+> - Codec audio WM8904
+> - WIFI6 dual-band 802.11ax/ac/a/b/g/n with optional 802.15.4 and Bluetooth
+>
+> Only SOM-specific peripherals are enabled by default. Carrier board
+> specific interfaces are left disabled to be enabled in the respective
+> carrier board device trees.
+>
+> Link: https://variscite.com/system-on-module-som/i-mx-9/i-mx-91/dart-mx91/
+>
+> Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+> ---
+...
+> +
+> +&lpi2c3 {
+> +	clock-frequency = <400000>;
+> +	pinctrl-names = "default", "sleep", "gpio";
+> +	pinctrl-0 = <&pinctrl_lpi2c3>;
+> +	pinctrl-1 = <&pinctrl_lpi2c3_gpio>;
+> +	pinctrl-2 = <&pinctrl_lpi2c3_gpio>;
+> +	scl-gpios = <&gpio2 29 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> +	sda-gpios = <&gpio2 28 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> +	status = "okay";
+> +
+> +	pmic@25 {
+> +		compatible = "nxp,pca9451a";
+> +		reg = <0x25>;
+> +
+> +		regulators {
+> +			buck1: BUCK1 {
+> +				regulator-name = "BUCK1";
+> +				regulator-min-microvolt = <650000>;
+> +				regulator-max-microvolt = <2237500>;
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +				regulator-ramp-delay = <3125>;
+> +			};
+> +
+> +			buck2: BUCK2 {
+> +				regulator-name = "BUCK2";
+> +				regulator-min-microvolt = <600000>;
+> +				regulator-max-microvolt = <2187500>;
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +				regulator-ramp-delay = <3125>;
+> +			};
+> +
+> +			buck4: BUCK4{
+> +				regulator-name = "BUCK4";
+> +				regulator-min-microvolt = <600000>;
+> +				regulator-max-microvolt = <3400000>;
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +			};
+> +
+> +			buck5: BUCK5{
+> +				regulator-name = "BUCK5";
+> +				regulator-min-microvolt = <600000>;
+> +				regulator-max-microvolt = <3400000>;
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +			};
+> +
+> +			buck6: BUCK6 {
+> +				regulator-name = "BUCK6";
+> +				regulator-min-microvolt = <600000>;
+> +				regulator-max-microvolt = <3400000>;
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +			};
+> +
+> +			ldo1: LDO1 {
+> +				regulator-name = "LDO1";
+> +				regulator-min-microvolt = <1600000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +			};
+> +
+> +			ldo4: LDO4 {
+> +				regulator-name = "LDO4";
+> +				regulator-min-microvolt = <800000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +			};
+> +
+> +			ldo5: LDO5 {
+> +				regulator-name = "LDO5";
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +			};
+> +		};
+> +	};
+> +
+> +	wm8904: audio-codec@1a {
 
-KASAN's tag-based mode defines multiple special tag values. They're
-reserved for:
-- Native kernel value. On arm64 it's 0xFF and it causes an early return
-  in the tag checking function.
-- Invalid value. 0xFE marks an area as freed / unallocated. It's also
-  the value that is used to initialize regions of shadow memory.
-- Min and max values. 0xFD is the highest value that can be randomly
-  generated for a new tag. 0 is the minimal value with the exception of
-  arm64's hardware mode where it is equal to 0xF0.
+order as hex address value
 
-Metadata macro is also defined:
-- Tag width equal to 8.
-
-Tag-based mode on x86 is going to use 4 bit wide tags so all the above
-values need to be changed accordingly.
-
-Make tag width and native kernel tag arch specific for x86 and arm64.
-
-Base the invalid tag value and the max value on the native kernel tag
-since they follow the same pattern on both mentioned architectures.
-
-Also generalize KASAN_SHADOW_INIT and 0xff used in various
-page_kasan_tag* helpers.
-
-Give KASAN_TAG_MIN the default value of zero, and move the special value
-for hw_tags arm64 to its arch specific kasan-tags.h.
-
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-Co-developed-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
-Signed-off-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
-Acked-by: Will Deacon <will@kernel.org> (for the arm part)
-Reviewed-by: Andrey Konovalov <andreyknvl@gmail.com>
-Reviewed-by: Andrey Ryabinin <ryabinin.a.a@gmail.com>
----
-Changelog v9:
-- Add Andrey Ryabinin's Reviewed-by tag.
-- Add Andrey Konovalov's Reviewed-by tag.
-
-Changelog v8:
-- Add Will's Acked-by tag.
-
-Changelog v7:
-- Reorder defines of arm64 tag width to prevent redefinition warnings.
-- Remove KASAN_TAG_MASK so it's only defined in mmzone.h (Andrey
-  Konovalov)
-- Merge the 'support tag widths less than 8 bits' with this patch since
-  they do similar things and overwrite each other. (Alexander)
-
-Changelog v6:
-- Add hardware tags KASAN_TAG_WIDTH value to the arm64 arch file.
-- Keep KASAN_TAG_MASK in the mmzone.h.
-- Remove ifndef from KASAN_SHADOW_INIT.
-
-Changelog v5:
-- Move KASAN_TAG_MIN to the arm64 kasan-tags.h for the hardware KASAN
-  mode case.
-
-Changelog v4:
-- Move KASAN_TAG_MASK to kasan-tags.h.
-
-Changelog v2:
-- Remove risc-v from the patch.
-
- MAINTAINERS                         |  2 +-
- arch/arm64/include/asm/kasan-tags.h | 14 ++++++++++++++
- arch/arm64/include/asm/kasan.h      |  2 --
- arch/arm64/include/asm/uaccess.h    |  1 +
- arch/x86/include/asm/kasan-tags.h   |  9 +++++++++
- include/linux/kasan-tags.h          | 19 ++++++++++++++-----
- include/linux/kasan.h               |  3 +--
- include/linux/mm.h                  |  6 +++---
- include/linux/page-flags-layout.h   |  9 +--------
- 9 files changed, 44 insertions(+), 21 deletions(-)
- create mode 100644 arch/arm64/include/asm/kasan-tags.h
- create mode 100644 arch/x86/include/asm/kasan-tags.h
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index bbcb5bf5e2c6..e27bdb0f100d 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -13586,7 +13586,7 @@ L:=09kasan-dev@googlegroups.com
- S:=09Maintained
- B:=09https://bugzilla.kernel.org/buglist.cgi?component=3DSanitizers&produc=
-t=3DMemory%20Management
- F:=09Documentation/dev-tools/kasan.rst
--F:=09arch/*/include/asm/*kasan.h
-+F:=09arch/*/include/asm/*kasan*.h
- F:=09arch/*/mm/kasan*
- F:=09include/linux/kasan*.h
- F:=09lib/Kconfig.kasan
-diff --git a/arch/arm64/include/asm/kasan-tags.h b/arch/arm64/include/asm/k=
-asan-tags.h
-new file mode 100644
-index 000000000000..259952677443
---- /dev/null
-+++ b/arch/arm64/include/asm/kasan-tags.h
-@@ -0,0 +1,14 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_KASAN_TAGS_H
-+#define __ASM_KASAN_TAGS_H
-+
-+#define KASAN_TAG_KERNEL=090xFF /* native kernel pointers tag */
-+
-+#ifdef CONFIG_KASAN_HW_TAGS
-+#define KASAN_TAG_MIN=09=090xF0 /* minimum value for random tags */
-+#define KASAN_TAG_WIDTH=09=094
-+#else
-+#define KASAN_TAG_WIDTH=09=098
-+#endif
-+
-+#endif /* ASM_KASAN_TAGS_H */
-diff --git a/arch/arm64/include/asm/kasan.h b/arch/arm64/include/asm/kasan.=
-h
-index 42d8e3092835..ad10931ddae7 100644
---- a/arch/arm64/include/asm/kasan.h
-+++ b/arch/arm64/include/asm/kasan.h
-@@ -6,8 +6,6 @@
-=20
- #include <linux/linkage.h>
- #include <asm/memory.h>
--#include <asm/mte-kasan.h>
--#include <asm/pgtable-types.h>
-=20
- #define arch_kasan_set_tag(addr, tag)=09__tag_set(addr, tag)
- #define arch_kasan_reset_tag(addr)=09__tag_reset(addr)
-diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uacc=
-ess.h
-index 6490930deef8..ccd41a39e3a1 100644
---- a/arch/arm64/include/asm/uaccess.h
-+++ b/arch/arm64/include/asm/uaccess.h
-@@ -22,6 +22,7 @@
- #include <asm/cpufeature.h>
- #include <asm/mmu.h>
- #include <asm/mte.h>
-+#include <asm/mte-kasan.h>
- #include <asm/ptrace.h>
- #include <asm/memory.h>
- #include <asm/extable.h>
-diff --git a/arch/x86/include/asm/kasan-tags.h b/arch/x86/include/asm/kasan=
--tags.h
-new file mode 100644
-index 000000000000..68ba385bc75c
---- /dev/null
-+++ b/arch/x86/include/asm/kasan-tags.h
-@@ -0,0 +1,9 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_KASAN_TAGS_H
-+#define __ASM_KASAN_TAGS_H
-+
-+#define KASAN_TAG_KERNEL=090xF /* native kernel pointers tag */
-+
-+#define KASAN_TAG_WIDTH=09=094
-+
-+#endif /* ASM_KASAN_TAGS_H */
-diff --git a/include/linux/kasan-tags.h b/include/linux/kasan-tags.h
-index 4f85f562512c..ad5c11950233 100644
---- a/include/linux/kasan-tags.h
-+++ b/include/linux/kasan-tags.h
-@@ -2,13 +2,22 @@
- #ifndef _LINUX_KASAN_TAGS_H
- #define _LINUX_KASAN_TAGS_H
-=20
-+#if defined(CONFIG_KASAN_SW_TAGS) || defined(CONFIG_KASAN_HW_TAGS)
-+#include <asm/kasan-tags.h>
-+#endif
-+
-+#ifndef KASAN_TAG_WIDTH
-+#define KASAN_TAG_WIDTH=09=090
-+#endif
-+
-+#ifndef KASAN_TAG_KERNEL
- #define KASAN_TAG_KERNEL=090xFF /* native kernel pointers tag */
--#define KASAN_TAG_INVALID=090xFE /* inaccessible memory tag */
--#define KASAN_TAG_MAX=09=090xFD /* maximum value for random tags */
-+#endif
-+
-+#define KASAN_TAG_INVALID=09(KASAN_TAG_KERNEL - 1) /* inaccessible memory =
-tag */
-+#define KASAN_TAG_MAX=09=09(KASAN_TAG_KERNEL - 2) /* maximum value for ran=
-dom tags */
-=20
--#ifdef CONFIG_KASAN_HW_TAGS
--#define KASAN_TAG_MIN=09=090xF0 /* minimum value for random tags */
--#else
-+#ifndef KASAN_TAG_MIN
- #define KASAN_TAG_MIN=09=090x00 /* minimum value for random tags */
- #endif
-=20
-diff --git a/include/linux/kasan.h b/include/linux/kasan.h
-index 81c83dcfcebe..c6febd1362e8 100644
---- a/include/linux/kasan.h
-+++ b/include/linux/kasan.h
-@@ -40,8 +40,7 @@ typedef unsigned int __bitwise kasan_vmalloc_flags_t;
- /* Software KASAN implementations use shadow memory. */
-=20
- #ifdef CONFIG_KASAN_SW_TAGS
--/* This matches KASAN_TAG_INVALID. */
--#define KASAN_SHADOW_INIT 0xFE
-+#define KASAN_SHADOW_INIT KASAN_TAG_INVALID
- #else
- #define KASAN_SHADOW_INIT 0
- #endif
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index f0d5be9dc736..e424e68569a2 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -1953,7 +1953,7 @@ static inline u8 page_kasan_tag(const struct page *pa=
-ge)
-=20
- =09if (kasan_enabled()) {
- =09=09tag =3D (page->flags.f >> KASAN_TAG_PGSHIFT) & KASAN_TAG_MASK;
--=09=09tag ^=3D 0xff;
-+=09=09tag ^=3D KASAN_TAG_KERNEL;
- =09}
-=20
- =09return tag;
-@@ -1966,7 +1966,7 @@ static inline void page_kasan_tag_set(struct page *pa=
-ge, u8 tag)
- =09if (!kasan_enabled())
- =09=09return;
-=20
--=09tag ^=3D 0xff;
-+=09tag ^=3D KASAN_TAG_KERNEL;
- =09old_flags =3D READ_ONCE(page->flags.f);
- =09do {
- =09=09flags =3D old_flags;
-@@ -1985,7 +1985,7 @@ static inline void page_kasan_tag_reset(struct page *=
-page)
-=20
- static inline u8 page_kasan_tag(const struct page *page)
- {
--=09return 0xff;
-+=09return KASAN_TAG_KERNEL;
- }
-=20
- static inline void page_kasan_tag_set(struct page *page, u8 tag) { }
-diff --git a/include/linux/page-flags-layout.h b/include/linux/page-flags-l=
-ayout.h
-index 760006b1c480..b2cc4cb870e0 100644
---- a/include/linux/page-flags-layout.h
-+++ b/include/linux/page-flags-layout.h
-@@ -3,6 +3,7 @@
- #define PAGE_FLAGS_LAYOUT_H
-=20
- #include <linux/numa.h>
-+#include <linux/kasan-tags.h>
- #include <generated/bounds.h>
-=20
- /*
-@@ -72,14 +73,6 @@
- #define NODE_NOT_IN_PAGE_FLAGS=091
- #endif
-=20
--#if defined(CONFIG_KASAN_SW_TAGS)
--#define KASAN_TAG_WIDTH 8
--#elif defined(CONFIG_KASAN_HW_TAGS)
--#define KASAN_TAG_WIDTH 4
--#else
--#define KASAN_TAG_WIDTH 0
--#endif
--
- #ifdef CONFIG_NUMA_BALANCING
- #define LAST__PID_SHIFT 8
- #define LAST__PID_MASK  ((1 << LAST__PID_SHIFT)-1)
---=20
-2.53.0
-
-
+Frank
+> +		compatible = "wlf,wm8904";
+> +		reg = <0x1a>;
+> +		#sound-dai-cells = <0>;
+> +		clocks = <&clk IMX93_CLK_SAI1_GATE>;
+> +		clock-names = "mclk";
+> +		AVDD-supply = <&buck5>;
+> +		CPVDD-supply = <&buck5>;
+> +		DBVDD-supply = <&buck4>;
+> +		DCVDD-supply = <&buck5>;
+> +		MICVDD-supply = <&buck5>;
+> +		wlf,drc-cfg-names = "default", "peaklimiter", "tradition",
+> +				    "soft", "music";
+> +		/*
+> +		 * Config registers per name, respectively:
+> +		 * KNEE_IP = 0,   KNEE_OP = 0,     HI_COMP = 1,   LO_COMP = 1
+> +		 * KNEE_IP = -24, KNEE_OP = -6,    HI_COMP = 1/4, LO_COMP = 1
+> +		 * KNEE_IP = -42, KNEE_OP = -3,    HI_COMP = 0,   LO_COMP = 1
+> +		 * KNEE_IP = -45, KNEE_OP = -9,    HI_COMP = 1/8, LO_COMP = 1
+> +		 * KNEE_IP = -30, KNEE_OP = -10.5, HI_COMP = 1/4, LO_COMP = 1
+> +		 */
+> +		wlf,drc-cfg-regs = /bits/ 16 <0x01af 0x3248 0x0000 0x0000>,
+> +				   /bits/ 16 <0x04af 0x324b 0x0010 0x0408>,
+> +				   /bits/ 16 <0x04af 0x324b 0x0028 0x0704>,
+> +				   /bits/ 16 <0x04af 0x324b 0x0018 0x078c>,
+> +				   /bits/ 16 <0x04af 0x324b 0x0010 0x050e>;
+> +		/* GPIO1 = DMIC_CLK, don't touch others */
+> +		wlf,gpio-cfg = <0x0018>, <0xffff>, <0xffff>, <0xffff>;
+> +		/* DMIC is connected to IN1L */
+> +		wlf,in1l-as-dmicdat1;
+> +	};
+> +};
+> +
+> +/* BT module */
+> +&lpuart5 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_uart5>, <&pinctrl_bt>;
+> +	uart-has-rtscts;
+> +	status = "okay";
+> +
+> +	bluetooth {
+> +		compatible = "nxp,88w8987-bt";
+> +	};
+> +};
+> +
+> +&sai1 {
+> +	pinctrl-names = "default", "sleep";
+> +	pinctrl-0 = <&pinctrl_sai1>;
+> +	pinctrl-1 = <&pinctrl_sai1_sleep>;
+> +	assigned-clocks = <&clk IMX93_CLK_SAI1>;
+> +	assigned-clock-parents = <&clk IMX93_CLK_AUDIO_PLL>;
+> +	assigned-clock-rates = <12288000>;
+> +	#sound-dai-cells = <0>;
+> +	fsl,sai-mclk-direction-output;
+> +	status = "okay";
+> +};
+> +
+> +/* eMMC */
+> +&usdhc1 {
+> +	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+> +	pinctrl-0 = <&pinctrl_usdhc1>;
+> +	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
+> +	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
+> +	bus-width = <8>;
+> +	non-removable;
+> +	status = "okay";
+> +};
+> +
+> +/* WiFi */
+> +&usdhc3 {
+> +	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
+> +	pinctrl-0 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_wlan>;
+> +	pinctrl-1 = <&pinctrl_usdhc3_100mhz>, <&pinctrl_usdhc3_wlan>;
+> +	pinctrl-2 = <&pinctrl_usdhc3_200mhz>, <&pinctrl_usdhc3_wlan>;
+> +	pinctrl-3 = <&pinctrl_usdhc3_sleep>, <&pinctrl_usdhc3_wlan>;
+> +	mmc-pwrseq = <&wifi_pwrseq>;
+> +	keep-power-in-suspend;
+> +	bus-width = <4>;
+> +	non-removable;
+> +	wakeup-source;
+> +	status = "okay";
+> +};
+> +
+> +&wdog3 {
+> +	status = "okay";
+> +};
+> +
+> +&iomuxc {
+> +	pinctrl_bt: btgrp {
+> +		fsl,pins = <
+> +			MX91_PAD_ENET2_MDIO__GPIO4_IO15				0x51e
+> +		>;
+> +	};
+> +
+> +	pinctrl_eqos: eqosgrp {
+> +		fsl,pins = <
+> +			MX91_PAD_ENET1_MDC__ENET1_MDC				0x57e
+> +			MX91_PAD_ENET1_MDIO__ENET_QOS_MDIO			0x57e
+> +			MX91_PAD_ENET1_RD0__ENET_QOS_RGMII_RD0			0x57e
+> +			MX91_PAD_ENET1_RD1__ENET_QOS_RGMII_RD1			0x57e
+> +			MX91_PAD_ENET1_RD2__ENET_QOS_RGMII_RD2			0x57e
+> +			MX91_PAD_ENET1_RD3__ENET_QOS_RGMII_RD3			0x57e
+> +			MX91_PAD_ENET1_RXC__ENET_QOS_RGMII_RXC			0x5fe
+> +			MX91_PAD_ENET1_RX_CTL__ENET_QOS_RGMII_RX_CTL		0x57e
+> +			MX91_PAD_ENET1_TD0__ENET_QOS_RGMII_TD0			0x57e
+> +			MX91_PAD_ENET1_TD1__ENET1_RGMII_TD1			0x57e
+> +			MX91_PAD_ENET1_TD2__ENET_QOS_RGMII_TD2			0x57e
+> +			MX91_PAD_ENET1_TD3__ENET_QOS_RGMII_TD3			0x57e
+> +			MX91_PAD_ENET1_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK	0x5fe
+> +			MX91_PAD_ENET1_TX_CTL__ENET_QOS_RGMII_TX_CTL		0x57e
+> +			MX91_PAD_UART2_TXD__GPIO1_IO7				0x51e
+> +		>;
+> +	};
+> +
+> +	pinctrl_eqos_sleep: eqos-sleepgrp {
+> +		fsl,pins = <
+> +			MX91_PAD_ENET1_MDC__GPIO4_IO0				0x31e
+> +			MX91_PAD_ENET1_MDIO__GPIO4_IO1				0x31e
+> +			MX91_PAD_ENET1_RD0__GPIO4_IO10				0x31e
+> +			MX91_PAD_ENET1_RD1__GPIO4_IO11				0x31e
+> +			MX91_PAD_ENET1_RD2__GPIO4_IO12				0x31e
+> +			MX91_PAD_ENET1_RD3__GPIO4_IO13				0x31e
+> +			MX91_PAD_ENET1_RXC__GPIO4_IO9				0x31e
+> +			MX91_PAD_ENET1_RX_CTL__GPIO4_IO8			0x31e
+> +			MX91_PAD_ENET1_TD0__GPIO4_IO5				0x31e
+> +			MX91_PAD_ENET1_TD1__GPIO4_IO4				0x31e
+> +			MX91_PAD_ENET1_TD2__GPIO4_IO3				0x31e
+> +			MX91_PAD_ENET1_TD3__GPIO4_IO2				0x31e
+> +			MX91_PAD_ENET1_TXC__GPIO4_IO7				0x31e
+> +			MX91_PAD_ENET1_TX_CTL__GPIO4_IO6			0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_lpi2c3: lpi2c3grp {
+> +		fsl,pins = <
+> +			MX91_PAD_GPIO_IO28__LPI2C3_SDA				0x40000b9e
+> +			MX91_PAD_GPIO_IO29__LPI2C3_SCL				0x40000b9e
+> +		>;
+> +	};
+> +
+> +	pinctrl_lpi2c3_gpio: lpi2c3gpiogrp {
+> +		fsl,pins = <
+> +			MX91_PAD_GPIO_IO28__GPIO2_IO28				0x40000b9e
+> +			MX91_PAD_GPIO_IO29__GPIO2_IO29				0x40000b9e
+> +		>;
+> +	};
+> +
+> +	pinctrl_sai1: sai1grp {
+> +		fsl,pins = <
+> +			MX91_PAD_SAI1_TXC__SAI1_TX_BCLK				0x31e
+> +			MX91_PAD_SAI1_TXFS__SAI1_TX_SYNC			0x31e
+> +			MX91_PAD_SAI1_TXD0__SAI1_TX_DATA0			0x31e
+> +			MX91_PAD_SAI1_RXD0__SAI1_RX_DATA0			0x31e
+> +			MX91_PAD_I2C2_SDA__SAI1_RX_BCLK				0x31e
+> +			MX91_PAD_I2C2_SCL__SAI1_RX_SYNC				0x31e
+> +			MX91_PAD_UART2_RXD__SAI1_MCLK				0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_sai1_sleep: sai1-sleepgrp {
+> +		fsl,pins = <
+> +			MX91_PAD_SAI1_TXC__GPIO1_IO12				0x31e
+> +			MX91_PAD_SAI1_TXFS__GPIO1_IO11				0x31e
+> +			MX91_PAD_SAI1_TXD0__GPIO1_IO13				0x31e
+> +			MX91_PAD_SAI1_RXD0__GPIO1_IO14				0x31e
+> +			MX91_PAD_UART2_RXD__GPIO1_IO6				0x31e
+> +			MX91_PAD_I2C2_SDA__GPIO1_IO3				0x31e
+> +			MX91_PAD_I2C2_SCL__GPIO1_IO2				0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_uart5: uart5grp {
+> +		fsl,pins = <
+> +			MX91_PAD_DAP_TDO_TRACESWO__LPUART5_TX			0x31e
+> +			MX91_PAD_DAP_TDI__LPUART5_RX				0x31e
+> +			MX91_PAD_DAP_TMS_SWDIO__LPUART5_RTS_B			0x31e
+> +			MX91_PAD_DAP_TCLK_SWCLK__LPUART5_CTS_B			0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc1: usdhc1grp {
+> +		fsl,pins = <
+> +			MX91_PAD_SD1_CLK__USDHC1_CLK				0x1582
+> +			MX91_PAD_SD1_CMD__USDHC1_CMD				0x1382
+> +			MX91_PAD_SD1_DATA0__USDHC1_DATA0			0x1382
+> +			MX91_PAD_SD1_DATA1__USDHC1_DATA1			0x1382
+> +			MX91_PAD_SD1_DATA2__USDHC1_DATA2			0x1382
+> +			MX91_PAD_SD1_DATA3__USDHC1_DATA3			0x1382
+> +			MX91_PAD_SD1_DATA4__USDHC1_DATA4			0x1382
+> +			MX91_PAD_SD1_DATA5__USDHC1_DATA5			0x1382
+> +			MX91_PAD_SD1_DATA6__USDHC1_DATA6			0x1382
+> +			MX91_PAD_SD1_DATA7__USDHC1_DATA7			0x1382
+> +			MX91_PAD_SD1_STROBE__USDHC1_STROBE			0x1582
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
+> +		fsl,pins = <
+> +			MX91_PAD_SD1_CLK__USDHC1_CLK				0x158e
+> +			MX91_PAD_SD1_CMD__USDHC1_CMD				0x138e
+> +			MX91_PAD_SD1_DATA0__USDHC1_DATA0			0x138e
+> +			MX91_PAD_SD1_DATA1__USDHC1_DATA1			0x138e
+> +			MX91_PAD_SD1_DATA2__USDHC1_DATA2			0x138e
+> +			MX91_PAD_SD1_DATA3__USDHC1_DATA3			0x138e
+> +			MX91_PAD_SD1_DATA4__USDHC1_DATA4			0x138e
+> +			MX91_PAD_SD1_DATA5__USDHC1_DATA5			0x138e
+> +			MX91_PAD_SD1_DATA6__USDHC1_DATA6			0x138e
+> +			MX91_PAD_SD1_DATA7__USDHC1_DATA7			0x138e
+> +			MX91_PAD_SD1_STROBE__USDHC1_STROBE			0x158e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
+> +		fsl,pins = <
+> +			MX91_PAD_SD1_CLK__USDHC1_CLK				0x15fe
+> +			MX91_PAD_SD1_CMD__USDHC1_CMD				0x13fe
+> +			MX91_PAD_SD1_DATA0__USDHC1_DATA0			0x13fe
+> +			MX91_PAD_SD1_DATA1__USDHC1_DATA1			0x13fe
+> +			MX91_PAD_SD1_DATA2__USDHC1_DATA2			0x13fe
+> +			MX91_PAD_SD1_DATA3__USDHC1_DATA3			0x13fe
+> +			MX91_PAD_SD1_DATA4__USDHC1_DATA4			0x13fe
+> +			MX91_PAD_SD1_DATA5__USDHC1_DATA5			0x13fe
+> +			MX91_PAD_SD1_DATA6__USDHC1_DATA6			0x13fe
+> +			MX91_PAD_SD1_DATA7__USDHC1_DATA7			0x13fe
+> +			MX91_PAD_SD1_STROBE__USDHC1_STROBE			0x15fe
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc3: usdhc3grp {
+> +		fsl,pins = <
+> +			MX91_PAD_SD3_CLK__USDHC3_CLK				0x1582
+> +			MX91_PAD_SD3_CMD__USDHC3_CMD				0x1382
+> +			MX91_PAD_SD3_DATA0__USDHC3_DATA0			0x1382
+> +			MX91_PAD_SD3_DATA1__USDHC3_DATA1			0x1382
+> +			MX91_PAD_SD3_DATA2__USDHC3_DATA2			0x1382
+> +			MX91_PAD_SD3_DATA3__USDHC3_DATA3			0x1382
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc3_100mhz: usdhc3-100mhzgrp {
+> +		fsl,pins = <
+> +			MX91_PAD_SD3_CLK__USDHC3_CLK				0x158e
+> +			MX91_PAD_SD3_CMD__USDHC3_CMD				0x138e
+> +			MX91_PAD_SD3_DATA0__USDHC3_DATA0			0x138e
+> +			MX91_PAD_SD3_DATA1__USDHC3_DATA1			0x138e
+> +			MX91_PAD_SD3_DATA2__USDHC3_DATA2			0x138e
+> +			MX91_PAD_SD3_DATA3__USDHC3_DATA3			0x138e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
+> +		fsl,pins = <
+> +			MX91_PAD_SD3_CLK__USDHC3_CLK				0x15fe
+> +			MX91_PAD_SD3_CMD__USDHC3_CMD				0x13fe
+> +			MX91_PAD_SD3_DATA0__USDHC3_DATA0			0x13fe
+> +			MX91_PAD_SD3_DATA1__USDHC3_DATA1			0x13fe
+> +			MX91_PAD_SD3_DATA2__USDHC3_DATA2			0x13fe
+> +			MX91_PAD_SD3_DATA3__USDHC3_DATA3			0x13fe
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc3_sleep: usdhc3-sleepgrp {
+> +		fsl,pins = <
+> +			MX91_PAD_SD3_CLK__GPIO3_IO20				0x31e
+> +			MX91_PAD_SD3_CMD__GPIO3_IO21				0x31e
+> +			MX91_PAD_SD3_DATA0__GPIO3_IO22				0x31e
+> +			MX91_PAD_SD3_DATA1__GPIO3_IO23				0x31e
+> +			MX91_PAD_SD3_DATA2__GPIO3_IO24				0x31e
+> +			MX91_PAD_SD3_DATA3__GPIO3_IO25				0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc3_wlan: usdhc3wlangrp {
+> +		fsl,pins = <
+> +			MX91_PAD_ENET2_MDC__GPIO4_IO14				0x51e
+> +			MX91_PAD_SD2_RESET_B__GPIO3_IO7				0x51e
+> +		>;
+> +	};
+> +};
+> --
+> 2.47.3
+>
 
