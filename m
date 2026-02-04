@@ -4,65 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65390E9536E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 09:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46A0FE95367
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 10:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Iwwxy3noKPthWts2g0NLeHIWJ+yBKjzgf4fExmNwWaY=; b=Hqkruvym3MJq4WSUMVHP/Sm7o3
-	q1vUmgYz0A49n7SpaYv2DNaK5Am5DRQd1xTtxzgnzXjjECNkcQbVnYjPRqU6+f3RSYbJCBO/cSzbg
-	8gf9J4Ev/XUsydkUB7t3tsBY+aDlVvGBRn7gdccSQubdjZMU7q9BzjJetMkqkB6v9FvHgtgtg5n34
-	2yuSgLRnipb4EUYvAUkRkgRBtSG4ndlmPPJjd6k6M7kjjNTbpczXjFymrC33T1g90T28ei3WSBleP
-	L0Epu8N10ONtFGW+mwPeOH/Kzkkhqm9o8axzF8vPyW/zuu8CwRAHNTDGCG4kA2FcneW8BsnLHiXmJ
-	9CJs+SMg==;
+	bh=17mdBVJ/BxCpkvtQ0p/YqUqnFTuIJSk9AaIKX6mK0A4=; b=lnuScPQHlvRrOqXGDgWAlq2U75
+	G5euNfqMWLTkZRVq1xVt88hJ3PRe89Xl0A0H8eiNVEp7GTHe3jfxJg+7y80SQqVYwgUnbDBDp5b4h
+	5LLkIi8SBqjihyazqRFQh1uVED4UuxgHQv6YjAUffFJz9I7PZwyhoUS1+kIsq69dJhZVLsh2kDiKt
+	EBK2lZYEC0lYdrDfTxje0WnbMJkUS9JrAroOJFjFNIDrsyMd4ww1u8bDbs781LdfZHX1LkCsGCd+I
+	tHVQuLzu2kGMUpP2Lv77/KpbUYFgQi8JpjVU2/Firntp8f84SFTZa7uzRRSbUTA8ZoA+z8YDKKa2Z
+	TUZ05wrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnZbp-00000008FtX-0V53;
-	Wed, 04 Feb 2026 09:55:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnZbn-00000008FtP-09YN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 04 Feb 2026 09:55:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Iwwxy3noKPthWts2g0NLeHIWJ+yBKjzgf4fExmNwWaY=; b=U5LWLlrScnl1VcYNVBMIlK0/Wa
-	1peT6FjERuGHcgtbflib9KnMkTixTBHeWCeVvHrTgNaW690joaUNu1HebtPwp7ianVB53JukD8ool
-	lOcqVoedy6BOVqaEutkl2ZCx+d/yiUDQlajZYgU7nLKOqttHVM7zOxVuWqLqaPxpY+Y1fYjhgh4b8
-	uTZtlHpTM0FZPblLx4m4DrCXcb5VQOdZfnIawuJ/slL0LwgaDbS+wMLDjGGc/nRCeAMZ0w73AkVsJ
-	yxkob5gkCP6oSCqK4scoPOS4a98YkIrKiz3+2Wzlpv6++3bwOlZ8+qcBB1ZiSltWCRWoJqTjbCk5U
-	9GDOdaaA==;
+	id 1vnZgi-00000008GAc-3R6J;
+	Wed, 04 Feb 2026 10:00:44 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnZbg-00000000G5j-3uyd
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vnZgg-00000008GAE-0H4u
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 09:55:35 +0000
+	Wed, 04 Feb 2026 10:00:43 +0000
 Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4f5bHk6JbkzJ46l1;
-	Wed,  4 Feb 2026 17:52:34 +0800 (CST)
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4f5bRr4S31zHnH7q;
+	Wed,  4 Feb 2026 17:59:36 +0800 (CST)
 Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id 766D640572;
-	Wed,  4 Feb 2026 17:53:23 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id B5DB740572;
+	Wed,  4 Feb 2026 18:00:37 +0800 (CST)
 Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
  (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 4 Feb
- 2026 09:53:22 +0000
-Date: Wed, 4 Feb 2026 09:53:21 +0000
+ 2026 10:00:35 +0000
+Date: Wed, 4 Feb 2026 10:00:34 +0000
 From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Colin Ian King <colin.i.king@gmail.com>
-CC: Marc Zyngier <maz@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<kernel-janitors@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] irqchip/gic-v5: Fix spelling mistake "ouside" ->
- "outside"
-Message-ID: <20260204095321.00006324@huawei.com>
-In-Reply-To: <20260203210735.5036-1-colin.i.king@gmail.com>
-References: <20260203210735.5036-1-colin.i.king@gmail.com>
+To: Abdurrahman Hussain via B4 Relay
+	<devnull+abdurrahman.nexthop.ai@kernel.org>
+CC: <abdurrahman@nexthop.ai>, Michal Simek <michal.simek@amd.com>, Andi Shyti
+	<andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andy Shevchenko
+	<andriy.shevchenko@intel.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>
+Subject: Re: [PATCH v10 1/7] i2c: xiic: switch to devres managed APIs
+Message-ID: <20260204100034.000050b2@huawei.com>
+In-Reply-To: <20260204-i2c-xiic-v10-1-c2b996425235@nexthop.ai>
+References: <20260204-i2c-xiic-v10-0-c2b996425235@nexthop.ai>
+	<20260204-i2c-xiic-v10-1-c2b996425235@nexthop.ai>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
@@ -71,8 +60,8 @@ X-Originating-IP: [10.203.177.15]
 X-ClientProxiedBy: lhrpeml100010.china.huawei.com (7.191.174.197) To
  dubpeml500005.china.huawei.com (7.214.145.207)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_095533_925074_BED8154A 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20260204_020042_409870_9F419513 
+X-CRM114-Status: GOOD (  19.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,32 +76,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue,  3 Feb 2026 21:07:35 +0000
-Colin Ian King <colin.i.king@gmail.com> wrote:
+On Wed, 04 Feb 2026 07:01:58 +0000
+Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org> wrote:
 
-> There is a spelling mistake in a pr_err message. Fix it.
+> From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 > 
-> Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
-FWIW - obviously correct.
+> Simplify the error code paths by switching to devres managed helper
+> functions.
+> 
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+> Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+A quick drive by review whilst I have a coffee...
+
+1st one is a taste thing. Second one is kind of a bug - be it one that
+I think is probably harmless.
 
 > ---
->  drivers/irqchip/irq-gic-v5-its.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  drivers/i2c/busses/i2c-xiic.c | 29 ++++++++++++-----------------
+>  1 file changed, 12 insertions(+), 17 deletions(-)
 > 
-> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
-> index e24ce3d9fb62..8c4cf8430871 100644
-> --- a/drivers/irqchip/irq-gic-v5-its.c
-> +++ b/drivers/irqchip/irq-gic-v5-its.c
-> @@ -902,7 +902,7 @@ static int gicv5_its_alloc_eventid(struct gicv5_its_dev *its_dev, msi_alloc_info
->  		event_id_base = info->hwirq;
+> diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
+> index 28015d77599d..16ff83fe280b 100644
+> --- a/drivers/i2c/busses/i2c-xiic.c
+> +++ b/drivers/i2c/busses/i2c-xiic.c
+> @@ -1423,6 +1423,7 @@ MODULE_DEVICE_TABLE(of, xiic_of_match);
 >  
->  		if (event_id_base >= its_dev->num_events) {
-> -			pr_err("EventID ouside of ITT range; cannot allocate an ITT entry!\n");
-> +			pr_err("EventID outside of ITT range; cannot allocate an ITT entry!\n");
+>  static int xiic_i2c_probe(struct platform_device *pdev)
+>  {
+> +	struct device *dev = &pdev->dev;
+>  	struct xiic_i2c *i2c;
+>  	struct xiic_i2c_platform_data *pdata;
+>  	const struct of_device_id *match;
+> @@ -1461,7 +1462,10 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+>  	snprintf(i2c->adap.name, sizeof(i2c->adap.name),
+>  		 DRIVER_NAME " %s", pdev->name);
 >  
->  			return -EINVAL;
->  		}
+> -	mutex_init(&i2c->lock);
+> +	ret = devm_mutex_init(dev, &i2c->lock);
+> +	if (ret)
+> +		return ret;
+> +
+>  	spin_lock_init(&i2c->atomic_lock);
+>  
+>  	i2c->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+> @@ -1472,8 +1476,9 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+>  	i2c->dev = &pdev->dev;
+>  	pm_runtime_set_autosuspend_delay(i2c->dev, XIIC_PM_TIMEOUT);
+>  	pm_runtime_use_autosuspend(i2c->dev);
+> -	pm_runtime_set_active(i2c->dev);
+> -	pm_runtime_enable(i2c->dev);
+> +	ret = devm_pm_runtime_set_active_enabled(dev);
+> +	if (ret)
+> +		return ret;
+>  
+>  	/* SCL frequency configuration */
+>  	i2c->input_clk = clk_get_rate(i2c->clk);
+> @@ -1489,7 +1494,7 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+>  
+>  	if (ret < 0) {
+>  		dev_err_probe(&pdev->dev, ret, "Cannot claim IRQ\n");
+> -		goto err_pm_disable;
+> +		return ret;
+>  	}
+>  
+>  	i2c->singlemaster =
+> @@ -1508,16 +1513,14 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+>  		i2c->endianness = BIG;
+>  
+>  	ret = xiic_reinit(i2c);
+> -	if (ret < 0) {
+> -		dev_err_probe(&pdev->dev, ret, "Cannot xiic_reinit\n");
+> -		goto err_pm_disable;
+> -	}
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Cannot xiic_reinit\n");
+>  
+>  	/* add i2c adapter to i2c tree */
+>  	ret = i2c_add_adapter(&i2c->adap);
+>  	if (ret) {
+>  		xiic_deinit(i2c);
+> -		goto err_pm_disable;
+> +		return ret;
+>  	}
+>  
+>  	if (pdata) {
+> @@ -1529,12 +1532,6 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+>  	dev_dbg(&pdev->dev, "mmio %08lx irq %d scl clock frequency %d\n",
+>  		(unsigned long)res->start, irq, i2c->i2c_clk);
+>  
+> -	return 0;
+> -
+> -err_pm_disable:
+> -	pm_runtime_disable(&pdev->dev);
+> -	pm_runtime_set_suspended(&pdev->dev);
+> -
+>  	return ret;
+Trivial but if you are respinning...
+If you get here we know ret must be 0, so make that explicit to the reader as it
+was before with
+	return 0;
+
+Otherwise they need to look up a few lines to realize that is true.
+
+>  }
+>  
+> @@ -1555,8 +1552,6 @@ static void xiic_i2c_remove(struct platform_device *pdev)
+>  		xiic_deinit(i2c);
+>  
+>  	pm_runtime_put_sync(i2c->dev);
+> -	pm_runtime_disable(&pdev->dev);
+> -	pm_runtime_set_suspended(&pdev->dev);
+>  	pm_runtime_dont_use_autosuspend(&pdev->dev);
+
+Take a look at docs for the devm_runtime_enable() that is called
+by the cleanup for devm_pm_runtime_set_active_enabled()
+
+Short story, it will call pm_runtime_dont_use_autosuspend() for you
+
+>  }
+>  
+> 
 
 
