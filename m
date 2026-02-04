@@ -4,77 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F03EA7947
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 20:32:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2536CEA7946
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 20:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nYRiCFb5LsU0iriLu+Q4K1Gft/kImdlL0psypnwbTXc=; b=EN8kKOx4DFNvGFipYQT4q4IZWi
-	GmE8hq6OfbfC+gWKkU97Z06Cxvv9sls1rkeCOAuUM2afWNSFMlQMbqHQw5M45moneR1tecVLgTWtj
-	Id2tAMsi/8dGU9ren4/2PFs7Mlp5f+21cpE5STLtTrwQQQzPsz1L/kO0QQcNk0V3pvU6VAUQ+PyCg
-	dxPcoSxS83u1g5ntWPVmiFxXjQQ2JApJ6DCHfWhFnBxx1fBoNJsNZn1Ujm8LirgZwx5W/DTLvLC4N
-	QZLzwSpDYtv/3u4xZfaJEzAtJiE28pAu/1xwC2QnT+5cQ/hkdamf3ERWE7EKaV3VpXHX9GY9YepDW
-	akXLu/cw==;
+	bh=3HSdgK9Ht2fP7rByPNvPOtQygotTmOr97BiUZ61bEe4=; b=AXTJUyCHJuNPf5b/Ka2HnEVYiV
+	7nL1Ryk9jqti3LoFvWHr4c8Df3rkqGYsOxi7yCtE7xVZaipNaiu/BL97qcOF6hYQ/QiNxJp0Q2n7U
+	Dmfe9DqBtzOq3ShifO5SNTUAu10/175MRa/vr6s6WrptYO/pYBpo+Ct0fPivAelu8uyZmitmGYudd
+	GKgtQEExQOmUd7KuVw3ogK0nXZGLHIlJXmX6r9B0cXgSehCbCGvpX0gR5E9vjv2yyzNZ/ub3yanCH
+	mxUWI8Eg1C21f15Rt5uYoMl06CQKPw3dH+a8qXWTxKCIHqUqT0U2DBPqEYgBOQUCT88gwk0XmsAWu
+	XjFfG6Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnjY7-000000093Sy-0wMi;
-	Wed, 04 Feb 2026 20:32:31 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vnjbj-000000093g4-0LUN;
+	Wed, 04 Feb 2026 20:36:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnjY4-000000093SU-1lk2;
-	Wed, 04 Feb 2026 20:32:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1770237145;
-	bh=a5HSgzMe6JzpxSmMVQbxrnjFpksd7486GnNw1YVR+nc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cs3rpa8Fe3jTdxyppmsK8KRRNbyqKWp39e7A/bIbO5JqbczcCVOE67fj8m7N/Muud
-	 3nH7ZY734SEWfGASW7iONGl1Bx/QN12mv2OOxhybhJ5GIINJL81uQwmaf678/YsHLn
-	 1Qooo+akVTa1j5ujmGUdNs27RrNZHUbR0Uo6IwcK1Fq2ZKWs5iCGYbTUoOLeKFa4AR
-	 R0n2pLbJS3KCcuvZEuscTuR2UXOlAH9DAbgNPz1f16tAe8E/YFYfn9fziP8Ub7OhWN
-	 FYXiuE6HedPjNyTwyJXelCkZ2VpsFg5zlGG2vLRDJYcu6kzi8cxfTvHKit1cZ9okUp
-	 1kFu9OA8PMARw==
-Received: from [192.168.1.90] (unknown [82.79.138.145])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4863917E12C6;
-	Wed,  4 Feb 2026 21:32:24 +0100 (CET)
-Message-ID: <97a4fd2d-62e2-41ad-8ee9-d2551c3ab312@collabora.com>
-Date: Wed, 4 Feb 2026 22:32:23 +0200
+	id 1vnjbh-000000093fw-1fZg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 04 Feb 2026 20:36:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=3HSdgK9Ht2fP7rByPNvPOtQygotTmOr97BiUZ61bEe4=; b=n9g8nWKVAOOUETBtBJ3wcw0wrC
+	3to0eUNR2VPD8ZFvEczv63CdagFXBLD1Erl4xNRfk1EdDy6pdHaYrN93L0QAnK9JXmFJR2PipEJbm
+	+90ERy+dJpgQU6lPAmCUFl227Xp8+OBO57goUB792P+rFEbmOwcAuSnbEXf5c9TxE3n8zYJ/FxvWC
+	qm6RRjBaeKiWgWDy+HlJIo2PZTOFSrakjw+Xsq/AzlYFoOg83NcRl49ePC5H4C9J1hF5whtZCug4/
+	Kb7nOhPQnwKgSasS5Z/YEdRNMjYPVxacHPM+zp7OUbI/KhCib43GsWa/l/LYaPXdX3e0p7jY/4VQe
+	d5btPj6g==;
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vnjbe-00000001DCo-1G3w
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Feb 2026 20:36:12 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 433634E423F8;
+	Wed,  4 Feb 2026 20:36:07 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id EDEA360705;
+	Wed,  4 Feb 2026 20:36:06 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 024F7119A865B;
+	Wed,  4 Feb 2026 21:36:02 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1770237365; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=3HSdgK9Ht2fP7rByPNvPOtQygotTmOr97BiUZ61bEe4=;
+	b=oCnokV3ZbWAGL9oCVSJV4cMxSsxKwSeY05TG5vUCyfP02P9BEa7K/w/d8cn1BtWvtFJX6S
+	ustJvJKVYUGqxNctEkGiFPTcHTVB4hV3/6yclCW7E3dS4ZoqsAZ40qe8/niAUgVQVuocrf
+	z4vWapYW53zngYsiwncm44wVBFCffz/8TibcXTfYzeyIQ88MBrmhkxzktuQn8OxYlHdZgw
+	krfEfsPHQGVAfwnc2BkWPEQrXze289OdgyvQSZdj2O51PLm5+ayH9klxhjhc7xZhAz+aux
+	HBOOFh6yHkhCuQ2fISbt2UZQSeNC41lgzPWKIEtQ10lNL6FM9/jCH07benltnw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: William Zhang <william.zhang@broadcom.com>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,  Hauke Mehrtens
+ <hauke@hauke-m.de>,  zajec5@gmail.com,
+  bcm-kernel-feedback-list@broadcom.com,  Rob Herring <robh@kernel.org>,
+  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
+ <conor+dt@kernel.org>,  linux-arm-kernel@lists.infradead.org,
+  devicetree@vger.kernel.org,  Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH -next] ARM: dts: BCM5301X: Drop extra NAND controller
+ compatible
+In-Reply-To: <CAHi4H7EVLsgVL5KCERTX5XBNTMvZDNxePzo48Zp5dsfDdoCV1Q@mail.gmail.com>
+	(William Zhang's message of "Wed, 4 Feb 2026 09:36:51 -0800")
+References: <20260204091530.624230-1-miquel.raynal@bootlin.com>
+	<CAHi4H7EVLsgVL5KCERTX5XBNTMvZDNxePzo48Zp5dsfDdoCV1Q@mail.gmail.com>
+User-Agent: mu4e 1.12.7; emacs 30.2
+Date: Wed, 04 Feb 2026 21:36:01 +0100
+Message-ID: <87ldh8fdqm.fsf@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/4] drm: Add CRTC background color property
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Louis Chauvet <louis.chauvet@bootlin.com>,
- Haneen Mohammed <hamohammed.sa@gmail.com>,
- Melissa Wen <melissa.srw@gmail.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Matt Roper <matthew.d.roper@intel.com>,
- =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- Diederik de Haas <diederik@cknow-tech.com>
-References: <20260129-rk3588-bgcolor-v6-0-c15f755a4055@collabora.com>
- <20260129-rk3588-bgcolor-v6-2-c15f755a4055@collabora.com>
- <aXsp2s5a7sJL7Itp@smile.fi.intel.com>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <aXsp2s5a7sJL7Itp@smile.fi.intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_123228_635772_2DB8F75B 
-X-CRM114-Status: GOOD (  18.59  )
+X-CRM114-CacheID: sfid-20260204_203610_454022_FB0FD251 
+X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,74 +99,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/29/26 11:37 AM, Andy Shevchenko wrote:
-> On Thu, Jan 29, 2026 at 02:58:52AM +0200, Cristian Ciocaltea wrote:
->> Some display controllers can be hardware programmed to show non-black
->> colors for pixels that are either not covered by any plane or are
->> exposed through transparent regions of higher planes.  This feature can
->> help reduce memory bandwidth usage, e.g. in compositors managing a UI
->> with a solid background color while using smaller planes to render the
->> remaining content.
+Hello William,
+
+>> diff --git a/arch/arm/boot/dts/broadcom/bcm-ns.dtsi b/arch/arm/boot/dts/=
+broadcom/bcm-ns.dtsi
+>> index d0d5f7e52a91..46b650abdb90 100644
+>> --- a/arch/arm/boot/dts/broadcom/bcm-ns.dtsi
+>> +++ b/arch/arm/boot/dts/broadcom/bcm-ns.dtsi
+>> @@ -479,7 +479,7 @@ thermal: thermal@2c0 {
+>>         };
 >>
->> To support this capability, introduce the BACKGROUND_COLOR standard DRM
->> mode property, which can be attached to a CRTC through the
->> drm_crtc_attach_background_color_property() helper function.
->>
->> Additionally, define a 64-bit ARGB format value to be built with the
->> help of a couple of dedicated DRM_ARGB64_PREP*() helpers.  Individual
->> color components can be extracted with desired precision using the
->> corresponding DRM_ARGB64_GET*() macros.
-> 
-> ...
-> 
->> +/*
->> + * Put 16-bit ARGB values into a standard 64-bit representation that can be
->> + * used for ioctl parameters, inter-driver communication, etc.
->> + *
->> + * If the component values being provided contain less than 16 bits of
->> + * precision, use a conversion ratio to get a better color approximation.
->> + * The ratio is computed as (2^16 - 1) / (2^bpc - 1), where bpc and 16 are
->> + * the input and output precision, respectively.
-> 
-> Not sure if you should explicitly mention that "bpc must not be 0"
-> (it can be derived from the "division by 0" in the given formula,
-> but still...).
+>>         nand_controller: nand-controller@18028000 {
+>> -               compatible =3D "brcm,nand-iproc", "brcm,brcmnand-v6.1", =
+"brcm,brcmnand";
+>> +               compatible =3D "brcm,nand-iproc", "brcm,brcmnand-v6.1";
+>>                 reg =3D <0x18028000 0x600>, <0x1811a408 0x600>, <0x18028=
+f00 0x20>;
+>>                 reg-names =3D "nand", "iproc-idm", "iproc-ext";
+>>                 interrupts =3D <GIC_SPI 68 IRQ_TYPE_LEVEL_HIGH>;
+>
+> Acked-by: William Zhang <william.zhang@broadcom.com>
 
-Comment section updated in v7 [1], though I somehow missed to mention it in the
-changelog. :-(
-
-> 
->> + */
->> +#define __DRM_ARGB64_PREP(c, shift)					\
->> +	(((__u64)(c) & __GENMASK(15, 0)) << (shift))
->> +
->> +#define __DRM_ARGB64_PREP_BPC(c, shift, bpc)({				\
-> 
-> Not sure if this is an accepted style in DRM, by I find it difficult
-> to follow. I would expect the "({" be on a separate line.
-
-I initially got confused by the plethora of different styles, e.g. in
-"include/linux/math.h" we can find:
-
-  #define rounddown(x, y) (				\
-  [...]
-
-  #define DIV_ROUND_CLOSEST_ULL(x, divisor)(		\
-  [...]
-
-  #define mult_frac(x, n, d)	\
-  ({				\
-  [...]
-
-  #define abs_diff(a, b) ({			\
-  [...]
-
-I agree your option is the most readable one, hence I used it consistently in
-v7.
+Do you mind if I take it on top of the commit it fixes?
 
 Thanks,
-Cristian
-
-[1] https://lore.kernel.org/all/20260204-rk3588-bgcolor-v7-0-78d1d01c5ca1@collabora.com/
+Miqu=C3=A8l
 
 
