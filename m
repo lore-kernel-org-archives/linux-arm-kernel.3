@@ -4,107 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B7AE9D3E7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 14:35:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88CA5E9D3F9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 15:04:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qs8kXAX9DSECmo0hIsKWGPWeQx+EzOKrLeqIOYIIodk=; b=3BIbCUM6xO5voIrwHxA/VsMTw2
-	8o0Ej+vnCDLYQ1hk0EBJacCK/dJTrnQSca0bG1rj4M3KPt0AIgWI09MTa3y/U+IP/Lx9t3jf0Sb/O
-	N4ENE2t3qmxyh1z2Gjds839YMLDR0X425XxZmHQsa10wNHazRtPrCNErmEjXI7hh0tQCBZgcjQLXX
-	LqPfjwC6QJiDMFwhAV05w6vDjIoGgs6/mnW3sg1vgY4B1SJQZK/OyXIFaF67tZ3L/hGITAqWowaDy
-	bSAQYgCK/QvCSOSGEck8CUS3KfBG9p0V/hPiRgGDdokOjJ2PZubQy7CiTOENZ2GqYUAmYE+N/sxYi
-	2YNB0IVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=V+jIX2+PXJPcmc9ucwjmh1dIDrajSC6GG82tgislS3M=; b=3ly0ygNsLADBsi
+	EqqXD1oh0Dmxw4wFJKpNt8//2WI3ec0VzsHOL19qLe44xeD3EIfEA05XT9uIYJ68xt9wMMZ2fZ8qN
+	pBRk0++zye+KhPP/c0QT9QIWeNe3RhSyQWBgQpd20f6HalrmJ0HgHOcjTCWksCd1zmQODzK8Gr1JI
+	2O/WBajHbbWPzJBAX7aipF700IIr91LUn9h+QwBmEamOYROBPBX52a4Pn21PQHIisqY0AZZAi08Om
+	SElRuKujMTlQQtqru003yE53yDLjkGJQ4xR07hbxeEe4HS+zY1hqxkmYGtm4b7QzvmWM+xXeYAmFT
+	T8HRj2Bn5CxAN04rsMDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vndyq-00000008bAT-2NrC;
-	Wed, 04 Feb 2026 14:35:44 +0000
-Received: from mail-yx1-xb132.google.com ([2607:f8b0:4864:20::b132])
+	id 1vneQN-00000008cvu-1yhs;
+	Wed, 04 Feb 2026 15:04:11 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vndyl-00000008b9h-3PUi
+	id 1vneQG-00000008cre-0QQ8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 14:35:43 +0000
-Received: by mail-yx1-xb132.google.com with SMTP id 956f58d0204a3-649d4690174so2042541d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 06:35:39 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770215738; cv=none;
-        d=google.com; s=arc-20240605;
-        b=C7Qf8T2wVzGXmjVnTS9lxK/aWGhxcBK1qvMB5b5WS0HUZ2L1KhuScjPTwc12x7wnAR
-         wHTHrs7vKG2XXV/bIB1X7mrdfX5aHIJpotBt/2+F8zaoGgByu43Ejfqz8+g6Y4XWVQWP
-         Q5VYKlNiK0PpArpdyLeBiQgBG7A/IRw7L9n5RHL3t5/kGyrynfjDw8C5Zjugan0Rhv/D
-         qwrQIenKmIwYU839Er8bVOhHTooBeqluvhFuLy1zAkkbq16nFt8EBPnLG2PUAKVf+NgK
-         5dUZ7c/0zrF+mA/rwk/S9MfkZw131IJifNiDhha8J9Gqk4xN1rs84WWFH59u2WrxFE3f
-         tTvA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=qs8kXAX9DSECmo0hIsKWGPWeQx+EzOKrLeqIOYIIodk=;
-        fh=0rVHmliDOWn2V9tgbVuAm8ItMHj8XZeTlQIP/b/kmfU=;
-        b=CT/S4sHMjSlazgkmpvOoUNL369+nn4y77446dQFuyeVgPBbmBzo1PeVpBJ8i6dSOUs
-         WozFsCws2DQf5EC7LTIQ4QfPs+673JVrAwJLxtkEK0kBF/Uo27Y6COFCL0ch8cE/x7Cs
-         ZnYaNV7+8XfKcxqUh6vL97I80o6E3/KMkxxJL6BAtrEe63iVTdsE4YLHJeF5ISccsXuo
-         nQSG37rYcU1qxcvllj8TNkPzIgoD6+aXD/VingAzdSVx7STqL3Dfjn9XeNlV5tj9AEFC
-         glpemq/H9r9+8BriNADdgCuDICJwyU1gE10yMmYVADxAT5hecb7RlmLWPOX60hTK8xKd
-         AR1w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1770215738; x=1770820538; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=qs8kXAX9DSECmo0hIsKWGPWeQx+EzOKrLeqIOYIIodk=;
-        b=cy36cYUMRUf1ecS4DWP3FeSm9OGPvgtbIE3bHeXr4mILQV2ix+dU10i1gCCM9l8IbB
-         lEq2Tl826yMKuXd8InQQ1hMUaVf6yj48rYv1nDx93bYUymqfwR3zkdaIdSqmLj1n+mgF
-         WKthG1xOs3OWi0LmfUX+FTjVj3eDnQuj/scJpZlBDqocekAKXEy46eYblccSL8N0Arwe
-         K693/MLPp7ol/HxmZBHHzauXpxjqF9X/cHK2yodhtm0XL2y/WUmoUHfNILeq2qeY5w4P
-         NgLV8YqcK6v53WXcy5CN//cEqM120c/CPNaXbX4xf9sYI8ZdvGQM1VzwQaVCubW5qyFu
-         9NzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770215738; x=1770820538;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qs8kXAX9DSECmo0hIsKWGPWeQx+EzOKrLeqIOYIIodk=;
-        b=GztLtxtUWWlxokMpgANFtuUEWtQnHAUm1OILeg2Yr+f1HNbSkobh50f/4o2u8MStQw
-         ut8pAnKLAs4TrlUS1b9s0PS0yW6HuhCZ26j5Meb5f7Fff86CcUL6aEPXsF8H6qfnUj5M
-         oTwGIjF8w8zelTivAveCbobcO+xJ4WcjXuKj25i7ke6KXO0RSGZCBFzh7iCAwS2cAPYf
-         f0SgStKW6CmHm7ko9XXrEhR7422wSIh6/gUvZ0PpUwKZyTb1zi5IuCTth4o03HQkzxyR
-         MFWyNX0c5E729SsgDZkEiJt77i9LwKndEHwja7KZ1kwHL4AoxrksRALvNQip19j/oqj2
-         TXZA==
-X-Forwarded-Encrypted: i=1; AJvYcCXcXU075fgomSG+q+yJNDKHWSASQxLW7djtvJxKazueKrDSufaXVfeHpDdbJFDXOBqe+Gww/Su51/ocQHTamvDJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZRw90mhhlHhWHSu8JrdX3V04O+iI8tJFduN7ho9lJT4CJ2zfb
-	B3LpXHvB4DTvD6LbltIRPPIcH/wtAn0MnUisqR84e/zezD9GjmBU7+olpFShOhTb2C5AmXD6ePF
-	i8+0f7pN/+h4L5x8xuZZOz18R0bV68uj0kV589hJRRw==
-X-Gm-Gg: AZuq6aLp0ya69PL94gRFr4uokQp6+oKXbMXuCEZjpp8IDkm8kBEOVue3K8pevNlbuUz
-	DnfmUhd/sXtisLcbs3T5/r+7KFBJ9/WOSTsmoBrRXQbzN4oIdtX4EEmKxsBzeA9npavkcjhrdmL
-	GnwV+gNL/otmHQ28AvraewshXJSXTZhcnO2qFtOLRYkBqp7DIEbGFLBypT7h+NpkX1l50aJXUGu
-	bVoqCVJ2mkFEoKUH21/giobI5oQNHe+zad0Fo19OK0qoeHEiuUxvazh5kNJAJALJVFgHndz7ctK
-	73Qqn0w=
-X-Received: by 2002:a53:c0d0:0:b0:649:d4ce:243f with SMTP id
- 956f58d0204a3-649db33fb9cmr2174177d50.3.1770215738543; Wed, 04 Feb 2026
- 06:35:38 -0800 (PST)
+	Wed, 04 Feb 2026 15:04:08 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 1BE061A2BE9;
+	Wed,  4 Feb 2026 15:03:58 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id DD7AC60705;
+	Wed,  4 Feb 2026 15:03:57 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8CCF6119A88F7;
+	Wed,  4 Feb 2026 16:03:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1770217437; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=V+jIX2+PXJPcmc9ucwjmh1dIDrajSC6GG82tgislS3M=;
+	b=01PkKoQC1tWnJDivPZCN6FUoxPPYQ5fkmldZ1ChoPh6qJ4Eak5r19qTPIXuaEsS3rctQTS
+	UDqv+7SI/uDAUEpgFS4OX1ictqFq75Q5AiN3iqT+TO/Wkg0Se3vG8jZ6N7wpdHXCVahTco
+	l3uPFR08DjXa8IjLKj9m1PLdZU1ksK1G+vG+rLSKF6ZrIJIYEJ9T3gkEqa0tvwI8MFtXmy
+	mc3Qv1B7sRXckugiaCh/98fsUCx2hrYQ8aBDpFuSLSY5LDEvmA9+Yt2yIwarQIupHRptIB
+	lGBsBCYvenL5w2l6kr/3gfoMyRMzDFD/kS8qoDpNNBpBWpWVDEghKvxllldh8A==
+From: "Thomas Richard (TI)" <thomas.richard@bootlin.com>
+Subject: [PATCH v4 0/4] firmware: ti_sci: Introduce BOARDCFG_MANAGED mode
+ for Jacinto family
+Date: Wed, 04 Feb 2026 16:03:37 +0100
+Message-Id: <20260204-ti-sci-jacinto-s2r-restore-irq-v4-0-67820af39eac@bootlin.com>
 MIME-Version: 1.0
-References: <20260204020709.24604-1-ot_cathy.xu@mediatek.com>
-In-Reply-To: <20260204020709.24604-1-ot_cathy.xu@mediatek.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 4 Feb 2026 15:35:00 +0100
-X-Gm-Features: AZwV_QjKyxhBAxAWnQN3ZmPtmDSh2TTxzwvjZf3Uhrpoyqis27NsaHph3OPTLhw
-Message-ID: <CAPDyKFrGgf1+vYVA6S1SJTZ8+n9WJo91e1VWeWq8p3RNHz1qtw@mail.gmail.com>
-Subject: Re: [PATCH] mmc: mtk-sd: disable new_tx/rx and modify related
- settings for mt8189
-To: Cathy Xu <ot_cathy.xu@mediatek.com>
-Cc: Chaotian Jing <chaotian.jing@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-mmc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, Mengqi Zhang <Mengqi.Zhang@mediatek.com>, 
-	Wenbin Mei <Wenbin.Mei@mediatek.com>, Andy-ld Lu <Andy-ld.Lu@mediatek.com>, 
-	Yong Mao <yong.mao@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMpfg2kC/4XOTW7CMBAF4KsgrzvVeGxI0hX3QCxc/5Sp2rixT
+ QRCuXsdKhShLrJ8T6PvzU1kn9hn8ba5ieRHzhz7GvTLRtiT6T88sKtZENJWokQoDNkyfBrLfYm
+ QKUHyucRUL9MAmlqP2AYn0YqK/CQf+HIfOBz/cvLDue6UpTzxDFzvT4xybh97zdreKAFBaaeV6
+ hzpxuzfYyxf3L/a+C1mfKQFlLQOUgWNbptgVAhE8j+oFpBwuwqqCjrcdTvVNdo4/QxO0/QLGdw
+ c4IUBAAA=
+X-Change-ID: 20251010-ti-sci-jacinto-s2r-restore-irq-428e008fd10c
+To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
+ Santosh Shilimkar <ssantosh@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>
+Cc: Gregory CLEMENT <gregory.clement@bootlin.com>, 
+ richard.genoud@bootlin.com, Udit Kumar <u-kumar1@ti.com>, 
+ Prasanth Mantena <p-mantena@ti.com>, Abhash Kumar <a-kumar2@ti.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-clk@vger.kernel.org, 
+ "Thomas Richard (TI)" <thomas.richard@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_063541_783765_00CE86F0 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20260204_070404_635211_AD6396E6 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,48 +87,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 4 Feb 2026 at 03:09, Cathy Xu <ot_cathy.xu@mediatek.com> wrote:
->
-> Disable new_tx/rx and modify related settings helps avoid data
-> transmission instability, and better compatibility for mt8189.
->
-> Signed-off-by: Cathy Xu <ot_cathy.xu@mediatek.com>
+The fourth iteration of this series adds support for two new firmware
+capabilities:
+- MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST: Indicates that DM-Firmware is not
+  able to restore IRQ context during resume after suspend-to-ram.
+- MSG_FLAG_CAPS_LPM_CLK_CONTEXT_LOST: Indicates that DM-Firmware is not
+  able to restore clock context (rate and parent configuration) during
+  resume after suspend-to-ram.
 
-Should this have a fixes/stable tag?
+Now, ti_sci driver determines whether to restore IRQs based on the
+MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST capability rather than the
+BOARDCFG_MANAGED mode. The same logic applies to the clock context.
 
-Kind regards
-Uffe
+Both J784s4 and J7200 platforms support these new capabilities. A
+corresponding pull request has been submitted on DM-Firmware side to
+define and enable these capabilities.
 
-> ---
->  drivers/mmc/host/mtk-sd.c | 10 +++++-----
->  1 file changed, 5 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
-> index 302ac8529c4f..b2680cc054bd 100644
-> --- a/drivers/mmc/host/mtk-sd.c
-> +++ b/drivers/mmc/host/mtk-sd.c
-> @@ -682,15 +682,15 @@ static const struct mtk_mmc_compatible mt8189_compat = {
->         .needs_top_base = true,
->         .pad_tune_reg = MSDC_PAD_TUNE0,
->         .async_fifo = true,
-> -       .data_tune = true,
-> +       .data_tune = false,
->         .busy_check = true,
->         .stop_clk_fix = true,
-> -       .stop_dly_sel = 1,
-> -       .pop_en_cnt = 2,
-> +       .stop_dly_sel = 3,
-> +       .pop_en_cnt = 8,
->         .enhance_rx = true,
->         .support_64g = true,
-> -       .support_new_tx = true,
-> -       .support_new_rx = true,
-> +       .support_new_tx = false,
-> +       .support_new_rx = false,
->         .support_spm_res_release = true,
->  };
->
-> --
-> 2.45.2
->
+The value for the BOARDCFG_MANAGED mode has also been fixed.
+
+Public documentation for BOARDCFG_MANAGED mode and these new capabilities
+is currently unavailable. I will update the series with relevant
+documentation references as soon as they become available.
+
+I rebased the series on linux-next next-20260202.
+
+Best Regards,
+Thomas
+
+Signed-off-by: Thomas Richard (TI) <thomas.richard@bootlin.com>
+---
+Changes in v4:
+- rebase on linux-next next-20260202.
+- fix BOARDCFG_MANAGED value.
+- add MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST firmware capability.
+- add MSG_FLAG_CAPS_LPM_CLK_CONTEXT_LOST firmware capability.
+- Link to v3: https://lore.kernel.org/r/20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com
+
+Changes in v3:
+- rebased on linux-next
+- sci-clk: context_restore() operation restores also rate.
+- Link to v2: https://lore.kernel.org/r/20251127-ti-sci-jacinto-s2r-restore-irq-v2-0-a487fa3ff221@bootlin.com
+
+Changes in v2:
+- ti_sci: use hlist to store IRQs.
+- sci-clk: add context_restore operation
+- ti_sci: restore clock parents during resume
+- Link to v1: https://lore.kernel.org/r/20251017-ti-sci-jacinto-s2r-restore-irq-v1-0-34d4339d247a@bootlin.com
+
+---
+Thomas Richard (TI) (4):
+      firmware: ti_sci: add BOARDCFG_MANAGED mode support
+      firmware: ti_sci: add support for restoring IRQs during resume
+      clk: keystone: sci-clk: add restore_context() operation
+      firmware: ti_sci: add support for restoring clock context during resume
+
+ drivers/clk/keystone/sci-clk.c |  42 +++++++++--
+ drivers/firmware/ti_sci.c      | 164 ++++++++++++++++++++++++++++++++++++++---
+ drivers/firmware/ti_sci.h      |   6 ++
+ 3 files changed, 192 insertions(+), 20 deletions(-)
+---
+base-commit: c6fb8985458d675f32a22788f30afcba754b6d78
+change-id: 20251010-ti-sci-jacinto-s2r-restore-irq-428e008fd10c
+
+Best regards,
+-- 
+Thomas Richard (TI) <thomas.richard@bootlin.com>
+
 
