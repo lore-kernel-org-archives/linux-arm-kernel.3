@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 826DEE9D40F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 16:33:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADD05E9D40F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 16:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tghBpVNRN8kMsqE+bEpNSug4Qe716Cw4ZYis7x7QKlg=; b=tC3GKODg75s1K9O/bWgj96qfgf
-	5l7MMLUUWB697tULCZD0x8U7yqarH5BJwX2V/eNPcgoKgoZueatHm6HhSlxhA+B4A14M2Gi4XqsiV
-	LHPf/v7LduFOtDmg96GhXgtELrqbf631COCgu76Ay4xb5h9ibims1fgodv1DGmAey2My1XNTUrSKw
-	FsV2UY5aKDC0KMo1HmmsMbaNVGMB2lC6uv/K7GnmmapK8t7yNHza0XjCwOHxfCfsuqkCFZYRA+CZe
-	Ri6SA4ET/YRWO80NUb9Lul47dRA6IBbRJwfU6x1oFBsjjV6gTnu0VjEEUSAgHhOWuYbwCanwU4SNY
-	Jz6GFngA==;
+	bh=YtWXBHq2lcY0B2Rqyb+pE75tSBjgB/loLoBl9VXzBO8=; b=GXPGVnzipDLkAvGyfs9QObQl6G
+	F1KAPEfSotmBkCJjTnFRY5D6LiOq7kDV5I7oQV8cdBD9pXf8RVoZ2NgUN9YbDUQlJCNcVzkUl+IEk
+	qCU/XvM02x3AN0mukoiPxYfDWzWuH6hLR62rqIKIh2b/iXMnhL+vDpM+NGTvv2qNPekGGyj3szKbe
+	bWYh4TfXNTSTplfbpXbfokxRpQAoAXsXPXzJydDlsuBUDIwsGbt+j2giRE9GLUAOACDonT1x+Z/Ig
+	g1KGzo+Ub9Vyldifou4pnefSI62paOoH9qK4uyciaJriZAistYbM1TC7fQf8RpYMc0qguhphWFGOC
+	2hw/ITEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnfog-00000008lMe-2rTf;
-	Wed, 04 Feb 2026 16:33:22 +0000
+	id 1vnfrD-00000008lfe-0Cvq;
+	Wed, 04 Feb 2026 16:35:59 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnfod-00000008lLs-2af9
+	id 1vnfrA-00000008lex-2jRu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 16:33:20 +0000
+	Wed, 04 Feb 2026 16:35:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0EC3C4346C;
-	Wed,  4 Feb 2026 16:33:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADE50C116C6;
-	Wed,  4 Feb 2026 16:33:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 42D924080F;
+	Wed,  4 Feb 2026 16:35:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0FF2C4CEF7;
+	Wed,  4 Feb 2026 16:35:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770222796;
-	bh=vGUdrP9f8bzyMrk2MhQOk5OCdnX7t/LoR9oHraUNTvs=;
+	s=k20201202; t=1770222955;
+	bh=b55cNPA4UGm1kxxCOKwyiRzZZe2Dcu9HtwMc2LpvfLk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oUyGXZd7nCw58nsV+VJcuJ9CM9+gbjOJU3fst9huZsh/834chl7BkBj5HPNHFqKfb
-	 jDg5wH48KKBHUPkhgHo+Odf0QG0EyF+bjlXCQR7wM9HZeI00Pqxe+5RVUZlhZfQ1Px
-	 EwvNOQlLo42iPZECRVvCjNIsflWzbso/dNRe1RLId2oVJ9psUKeIUwdc3TAcMjPuTM
-	 F04A2ALyINa9fTVD0/X+L5P+UzjYEU0KmMjTsfhW8bHAvNI+vRxnIckerIGu75/wDz
-	 EPVsadjDBXdbxtrwP1yPThPoS9Sda8CmE7xagMaJJrxGBeBVeF0xw/qo/BFzOhdqqq
-	 iosHNhxhmZ52g==
-Date: Wed, 4 Feb 2026 16:33:10 +0000
-From: Simon Horman <horms@kernel.org>
-To: Parvathi Pudi <parvathi@couthit.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, danishanwar@ti.com,
-	rogerq@kernel.org, pmohan@couthit.com, basharath@couthit.com,
-	afd@ti.com, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, alok.a.tiwari@oracle.com,
-	pratheesh@ti.com, j-rameshbabu@ti.com, vigneshr@ti.com,
-	praneeth@ti.com, srk@ti.com, rogerq@ti.com, krishna@couthit.com,
-	mohan@couthit.com
-Subject: Re: [PATCH net-next v13 0/3] STP/RSTP SWITCH support for PRU-ICSSM
- Ethernet driver
-Message-ID: <aYN0xmOIaHeAvWNI@horms.kernel.org>
-References: <20260130124559.1182780-1-parvathi@couthit.com>
+	b=bdEqR/D8vYsvP4rOW71wItbb4oS4aFlgB+qyvn7nTUo+JeNwh7I0tnFqFyjcxZwx2
+	 WB0osxKOIDqxIrOnK4nxlAsKiT3jUq/qbXglmiQv+0Jc6yfnh6yDZNR03CLkNRab7w
+	 SHifqoYmKygeQ8mK69u6RF0mKToO63c6FphTJ2gtutGullcqYtatEaqz5mR8Zcn0Kn
+	 uGcItP5wFZOVJWjpjFHlkK320iTrghzE1FG5wKgGVh1k5DOLK371uu1+VaS82Rf26W
+	 QdKz+KQC/gk9kXBHI9V2rx8ZO5Z4LgFEDivKOGKUKUI803XsHExmBjk8CtDxWukK+L
+	 tYAKKAe6SEKbg==
+Date: Wed, 4 Feb 2026 16:35:50 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Peter Maydell <peter.maydell@linaro.org>
+Cc: arm-mail-list <linux-arm-kernel@lists.infradead.org>,
+	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: inconsistent SME2 ID register fields confuse kernel into
+ reporting but not enabling it
+Message-ID: <bbe45492-0e97-4396-be32-6fb3f990c122@sirena.org.uk>
+References: <CAFEAcA9yyLBa1Hp-2CrSsHBOBcGKSg6Rr3uvfZPckcRsTXDC8w@mail.gmail.com>
+ <6731ba86-cd65-4d5c-9ee2-55aa59094eaa@sirena.org.uk>
+ <CAFEAcA-FhJtBerdCwHoL5F3nuN5beC=44ZfK24xzVDENRMFfkA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ZNq325WdrAIzeCwP"
 Content-Disposition: inline
-In-Reply-To: <20260130124559.1182780-1-parvathi@couthit.com>
+In-Reply-To: <CAFEAcA-FhJtBerdCwHoL5F3nuN5beC=44ZfK24xzVDENRMFfkA@mail.gmail.com>
+X-Cookie: Are you having fun yet?
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_083319_694920_A00DCD0F 
-X-CRM114-Status: GOOD (  25.69  )
+X-CRM114-CacheID: sfid-20260204_083556_710709_70E0CAD3 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,80 +78,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 30, 2026 at 06:13:42PM +0530, Parvathi Pudi wrote:
-> Hi,
-> 
-> The DUAL-EMAC patch series for Megabit Industrial Communication Sub-system
-> (ICSSM), which provides the foundational support for Ethernet functionality
-> over PRU-ICSS on the TI SOCs (AM335x, AM437x, and AM57x), was merged into
-> net-next recently [1].
-> 
-> This patch series enhances the PRU-ICSSM Ethernet driver to support bridge
-> (STP/RSTP) SWITCH mode, which has been implemented using the "switchdev"
-> framework and interacts with the "mstp daemon" for STP and RSTP management
-> in userspace.
-> 
-> When the  SWITCH mode is enabled, forwarding of Ethernet packets using
-> either the traditional store-and-forward mechanism or via cut-through is
-> offloaded to the two PRU based Ethernet interfaces available within the
-> ICSSM. The firmware running on the PRU inspects the bridge port states and
-> performs necessary checks before forwarding a packet. This improves the
-> overall system performance and significantly reduces the packet forwarding
-> latency.
-> 
-> Protocol switching from Dual-EMAC to bridge (STP/RSTP) SWITCH mode can be
-> done as follows.
-> 
-> Assuming eth2 and eth3 are the two physical ports of the ICSS2 instance:
-> 
-> >> brctl addbr br0
-> >> ip maddr add 01:80:c2:00:00:00 dev br0
-> >> ip link set dev br0 address $(cat /sys/class/net/eth2/address)
-> >> brctl addif br0 eth2
-> >> brctl addif br0 eth3
-> >> mstpd
-> >> brctl stp br0 on
-> # STP to RSTP mode
-> >> mstpctl setforcevers br0 rstp
-> >> ip link set dev br0 up
-> 
-> To revert back to the default dual EMAC mode, the steps are as follows:
-> 
-> >> ip link set dev br0 down
-> >> brctl delif br0 eth2
-> >> brctl delif br0 eth3
-> >> brctl delbr br0
-> 
-> The patches presented in this series have gone through the patch verification
-> tools and no warnings or errors are reported.
-> 
-> Sample test logs obtained from AM33x, AM43x and AM57x verifying the
-> functionality on Linux next kernel are available here:
-> 
-> [Interface up Testing](https://gist.github.com/ParvathiPudi/91b05f4e6d69d72f55ddd4e95301ab20)
-> 
-> [Ping Testing](https://gist.github.com/ParvathiPudi/9e7573ea85ef72a3ebcbdb4c902f3b8a)
-> 
-> [Iperf Testing](https://gist.github.com/ParvathiPudi/30abedf115aba19542e0156486766553)
-> 
-> [1] https://lore.kernel.org/all/20250912104741.528721-1-parvathi@couthit.com/
-> 
-> This is the v13 of the patch series [v1]. This version of the patchset
-> addresses the comments made on [v12] of the series.
-> 
-> Changes from v12 to v13:
-> 
-> *) Reverted the use of kmalloc_obj() and kzalloc_obj() back to kmalloc() and kzalloc(),
-> since the corresponding changes are not reflected in the net-next branch.
-> *) Addressed AI review warnings on patch 3 of the series.
-> *) Rebased the series on latest net-next.
 
-Thanks,
+--ZNq325WdrAIzeCwP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-I notice that this series has been marked as Changes Requested in
-Patchwork. But overall it looks good to me.
+On Wed, Feb 04, 2026 at 03:54:05PM +0000, Peter Maydell wrote:
+> On Mon, 2 Feb 2026 at 18:01, Mark Brown <broonie@kernel.org> wrote:
 
-Feel free to add the following for the series:
-Reviewed-by: Simon Horman <horms@kernel.org>
+> > We do have some cross checking of ID registers in the kernel, though
+> > other than big.LITTLE consistency it's fairly limited - mainly for cases
+> > that are architecturally valid but unhelpful (ID_AA64ZFR0_EL1 indicating
+> > SME features on a SME only system)
 
+> Hmm, what do you have in mind there? I ask because I was just
+> working on this for QEMU and am wondering if I misinterpreted
+> the Arm ARM. My reading of the definition of ID_AA64ZFR0_EL1
+> is that there are some features that an SME-only system
+> *must* report there, as well as some fields which are SVE-only
+> and which an SME-only system will report as 0. (I agree with
+> the description of this as "unhelpful" -- it would have been
+> clearer if SME features and feature levels were exclusively
+> in AA64SMFR0, so that an SME-no-SVE CPU reported ZFR0 as 0.)
+
+Exactly what you described there, leading to the situation where if we
+just set hwcaps based purely on the value of ID_AA64ZFR0_EL1 on a SME
+only system we end up setting SVE only hwcaps and potentially confusing
+userspace into thinking SVE is supported on a SME only system.  This was
+the case for a long time but was fixed by Marc in 064737920bdb ("arm64:
+Filter out SVE hwcaps when FEAT_SVE isn't implemented").
+
+--ZNq325WdrAIzeCwP
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmmDdWYACgkQJNaLcl1U
+h9AVKgf/XxgOqs859IjjBGLpOTG2nTmHeYToLO6qelNxZ2Ti+sH0wbR22HKoFEFn
+F8sGNv26gxXVgneZqlexDyOi4uSkwgiNLSUkmT8Q54Pn3prVcOVcK5F771a7Cx99
+NQRlb1fYoF2nP3TpnkkYRsnwCNkr+Uev8tswe5wEpdY3EdvUHy68qakpA3uNC8AD
+cFq58LPKu8eHZow7M0deroaySpmodesliXBcCiIU6Y6cAtaPzxkD6yuxr+d8hWRB
+9WQkXBE/gsIDj2TmRDBQZKz3LSyUM7IiQjqx2kNB+zlxwshpY3D4koWBm5LA/HkU
+ItsLaIMbt4dWhOraVWDmymYGv1K5dg==
+=ySWK
+-----END PGP SIGNATURE-----
+
+--ZNq325WdrAIzeCwP--
 
