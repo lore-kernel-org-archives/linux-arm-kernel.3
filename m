@@ -4,96 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0DF4E9539B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 13:15:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDAE0E95396
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 13:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ftubfnbHJMifavaHfusKulTde0Z2b2i2QG/AKOLuw4=; b=oi30MfFyl5W2wDtTefaM/21WFv
-	EQ9oAW5A9mlnW08jG5H5qlZjPrCna4Vuvb95N3FWrpE+VpCqw7M/oVrS4FvAktztGcbmGtDzqrTg7
-	eciuRfIZvfulbseuVKawCVxhzFSE5CZDax5pDeOOiVeY6BBdVATBfexSX3B/1GRgm+wLXS+hB/Jn3
-	4C4SP4/XZE5JjpTdSJ+ho8U2yifEVpQ5s0QaAmu0SG5RxhZXYh8NE2u3mSXhPqWs31/W8qDxBCDR0
-	DrZUplEW3lEILlDjYPseqEJ/fdBSWPoSxKeqyvth+K4AVElvwV6FVz3bv38eEU904sLqKXJKxuDAN
-	QoctiFUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QBoNm0G5dE61sa1attSq4k6MykQBQSe6yo1GcDwbHsY=; b=zHxCQ4XX/rMt+kG8nwHlTUZ5s9
+	rgq1it5OaaDJQamrJ4fk9s/FJwhKicqfRXV4Q2NSl7jvtfDsYeiFmw1Ih2CDiD+FY9bRwH7NucKC6
+	m9UyYhxUrdwdC7DBk3cnBaKZIooa63Cj+icvxHQR4uQiCi5aJUVNRAnXUCJm5feVH3qBEhrqHHOZh
+	A3LGYjZmOLaHMpteFJEGkaEKci6GfZhFHlJNKEjnTvfiM8Ownzbf+iZPLdhZI7VjhHl/G9suOuHH4
+	k3UgfW2FMYa9O4KX3Ys6i0rcjbCrHG0oSR9wIYId2K7ciwR1T71lyChTMlNwba7Q9mGRMrybxhpe8
+	vOueul8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnciu-00000008UCU-3msN;
-	Wed, 04 Feb 2026 13:15:12 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1vncoM-00000008UXP-2yIF;
+	Wed, 04 Feb 2026 13:20:50 +0000
+Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnciq-00000008UAj-0kel
+	id 1vncoK-00000008UWq-327G
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 13:15:09 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-c54f700b5b1so4376511a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 05:15:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770210907; x=1770815707; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=8ftubfnbHJMifavaHfusKulTde0Z2b2i2QG/AKOLuw4=;
-        b=Lo3hE+pa1e1HiyeYO0zlnZ2T/6d32ZA8LK8jKyCZAWRW558eIoLpQMmtKSXXTOw1/Y
-         uWxRQC8YmsKDKglu8GN7PDngVXzis+bMD/MTGBc4fShQMFNeVSVf3wJbA3h+yhnKCC5Q
-         hAFEq9iMsszFUtE8JsI8NDCCc28m3QEQohlyLN2XapR8Xu2WaXJCLgesSgbHBtFDPoh2
-         fzJEM82fOyRthy2FoJxCQH3E2Y5CvrSzitibjPNM8rc4HF1yIdACXRI943jMxs3DnbNb
-         +aTF0fWOqqSpOL7VpjKB5oRDqUJig2MMhcK55ndD2e83x5nQ6jr1IrdB4WIMVvyDs7DR
-         131Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770210907; x=1770815707;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8ftubfnbHJMifavaHfusKulTde0Z2b2i2QG/AKOLuw4=;
-        b=FsGyw0EtpaZZaUGiFvpOsjVVwuQhnBhboTP/ZuPWqersNkuKf86/wGqhbGSOaDkFCF
-         SKWoiAFRNswoto9g6NLkhRNaTAQLM1irDjRPqMoyG5eHfOlpmWHPun6f3nfGbnUi/txy
-         YEOjTvgu/71px2UAYLvMY2KnbnDrWHNwfaaU0MemWZ4opMRS3W9KpGXg3LODm1JG6IBc
-         Vo3vclGrtYUAQddOYf7v/MGumHSTB20vj+Re/a2Ax+rf0ZRe4qZyoV+RpkboR+LKZTZI
-         AZsooh6XGOr3dI5zGrHkHeBhq1by5d5QNw/wm/1C5eRRsTVpn+IU68o/ByWjRLjXtYFS
-         rpEQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU51o2fNx5kE1axGwxEPl+1boVym6fwMUygC8JtsWJTLc2k1aHTL4x4oji50DjkwUMt5qIgKPdQQQLv7ERxH/3B@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzN9n0Ap4ADtOaGed6Bw5ptDOba/6QnWUSv3cPF8RoVRVO2ESd
-	yNmPBD5xveZxyrsIu/JhVYiMOSC4DzcGOHZVnaWXk0WvTCKt1gK/08txLHlxtg==
-X-Gm-Gg: AZuq6aL7XbshwUAp1BWUUjB1346GlnDJjtYmGF53rUzvVzT8KNXUtKqoFyiXgGsGMjV
-	sRokNijnTeAmoxLOJ3TCajF4eI5P47naSrBzrurLGVHyU19CLeAW72Zt3VGmcpoUC7Tq+MFqfJz
-	TGfi54MZolao8GIciR8aeX2/X26dJ2gPFln8c22znKhfaEwlYaxZPSmOfPxPTPkTNtnR0kyACjN
-	PYSH68aZ/TbTXr9J9wx3ButZLzhC/MbcomTJxecd8LsjrknK0j7UfyGyO66rtTLsr9hsCcopYKA
-	XUrQHkZuQ6OGer7ZoOOB6c0VCnfVVxmBc3MxkxSn2VCLcY0zw06WrAqJNGBKa28DO0xnyYOfE3Q
-	jBdTJ1sA3HtmAp3TFWZrIzDN3IS3CJ5ulpAAWxOShA0t0xqVynlF9wc9UphjX7LdItwm3vAoJ0U
-	KCvvaSBRIcVzSqybusQMyzfSlUCS9QaS0TWCI=
-X-Received: by 2002:a05:6a20:9396:b0:38b:dec8:9d9a with SMTP id adf61e73a8af0-393724c1cc1mr2968310637.55.1770210906967;
-        Wed, 04 Feb 2026 05:15:06 -0800 (PST)
-Received: from [192.168.1.7] ([115.99.252.105])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c6c8553e888sm2101202a12.31.2026.02.04.05.15.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Feb 2026 05:15:06 -0800 (PST)
-Message-ID: <7bb66a07-51c5-4e9a-b484-e96a8f12c783@gmail.com>
-Date: Wed, 4 Feb 2026 18:45:00 +0530
+	Wed, 04 Feb 2026 13:20:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hXAclwh2Cml4Z/th43shG4D11O1IPD8HS5I2Oii+tXP6pvlbDK8AML9eancvfKijFVSvnwiHZQYSD8mqm50Lx0NNvZisccYIJkkX5G5lN+AitXfeLwTQa2J8Sw+Dyb+79F0I2GYqi9nBVNYgOHw+DlWzoMzWN2x2DcMre6qeHpfxGZ0mhLJ7KJc89OiOf7/3rCeTQYntiyctgtzGaC1sKI3IqEDvmxsqHLqo3i8SuOThHocA3SMAfDOTCrI2JjKXPwWKciOkBwo5VqR6jnaQvhVQbgpYtq6CKmQvIwCJJprbVAIsnpmvYvjO2bIsWBMpj0aJ4cOxC17FxR50nvLnVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QBoNm0G5dE61sa1attSq4k6MykQBQSe6yo1GcDwbHsY=;
+ b=c9M7WkXjXOmhUp0e3pz5JqtU6K+TJaa2PGdUknvWKpXIs9gFscgCDWftuvvIPBswbNQ6fQI0Uh/vocmB9iralG/w4UpODpcFhZIpBsQheT66Uxo7WvF5EbE5pByPrsTzDqrqIYrK2tH7tMZv4r2xHnk+VLzZCJhM9qfm8o6a6aW7dtxxsTgSqBd+aeKmBScQdRw2gPS2c90xL+x6TvlN6kRcoNRwsngN7//Nnbyf/L8Ep4QmBbGeayfCXmbwewb47dYWrs7rzpbGDCm6okDbUYBw1jiWzhfZBQThyE9vGhUkQGfal1S71oy7eCk17DWgJZoRiqbqcDf5GDpj88Wkxg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QBoNm0G5dE61sa1attSq4k6MykQBQSe6yo1GcDwbHsY=;
+ b=FrCgvFaBujqa6TugJjRBNNCmwgyB4LXyDLLtatsSzxxry5rtR4SbepjZ9JSBS2R+gDyFN79J+y4XGIxqB1zqNp3i2cV7E2WycZLqJsKhUv0BWagKPkDnYhgiMBJ1Hl+hWmAgpTlrOCzE/4MA+yh33/ZmxBFai64gIUNqWZ9obvofVe1oNCrvb4zw/aDijARPfR9twCky6J2Do/rAs4kyMl0gbrJZu/aXgWDPMs2v/Tss/6oUfKlsYSQz9nH2s0O8V7vrUll1j/01WfwvMydQddpXuzTpU7cosfkHaMs4oUUbGwhF3trHHybXz9GQp3XsYRdWSCwDnVATgwTLdctO+g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by SJ0PR12MB8113.namprd12.prod.outlook.com (2603:10b6:a03:4e0::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Wed, 4 Feb
+ 2026 13:20:40 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9587.010; Wed, 4 Feb 2026
+ 13:20:39 +0000
+Date: Wed, 4 Feb 2026 09:20:31 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, dan.j.williams@intel.com,
+	"Tian, Kevin" <kevin.tian@intel.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"praan@google.com" <praan@google.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>
+Subject: Re: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Message-ID: <20260204132031.GF3931454@nvidia.com>
+References: <20260127150440.GF1134360@nvidia.com>
+ <69795d0366a9_1d33100d3@dwillia2-mobl4.notmuch>
+ <20260128130520.GV1134360@nvidia.com>
+ <aYGEDv86r4a6l2Dv@Asurada-Nvidia>
+ <20260203143348.GA3931454@nvidia.com>
+ <aYI0LUdXqrjmRcMo@Asurada-Nvidia>
+ <20260203175540.GC3931454@nvidia.com>
+ <0472f0f6-2f13-459e-857d-d5003f2f0ac4@arm.com>
+ <20260203231607.GE3931454@nvidia.com>
+ <69b9a009-55bb-4330-b64a-99b20bd9abef@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <69b9a009-55bb-4330-b64a-99b20bd9abef@arm.com>
+X-ClientProxiedBy: BL1PR13CA0225.namprd13.prod.outlook.com
+ (2603:10b6:208:2bf::20) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] dt-bindings: usb: atmel,at91rm9200-ohci: convert to
- DT schema
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Claudiu Beznea
- <claudiu.beznea@tuxon.dev>, Herve Codina <herve.codina@bootlin.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260201-atmel-usb-v1-0-d1a3e93003f1@gmail.com>
- <20260201-atmel-usb-v1-1-d1a3e93003f1@gmail.com>
-Content-Language: en-US
-From: Charan Pedumuru <charan.pedumuru@gmail.com>
-In-Reply-To: <20260201-atmel-usb-v1-1-d1a3e93003f1@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SJ0PR12MB8113:EE_
+X-MS-Office365-Filtering-Correlation-Id: a2967390-9809-40d9-ee60-08de63f030e4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WyvNOvp9NUanJZARESEB6uzebY4EjNUjvk5bPN9qWE/xqqTVQC2bTyqtXA/m?=
+ =?us-ascii?Q?mctbvbp2YqTk6sk4tYwK1+qRheHZavTC4tjZ88kamGAAVNRl6SRElN3XO9eU?=
+ =?us-ascii?Q?0lnE98LKMYnZ7sbQEIlEmdNNHc4RIZ5EfeuS/HooSpwRoY7pdgTXyIqYo1c9?=
+ =?us-ascii?Q?XWvYyq981TLqiMi+12+fmruejRhga1fB9wFXT5L0YGbhzTFdPxN/gxkLRveb?=
+ =?us-ascii?Q?FqNN79ICY1HfyrYXfrACa7wk1YoEgbkjBZZoZKSpJa4eUH6vlPmStvuMW0Ot?=
+ =?us-ascii?Q?31XbmoOjZpXbJteTm5Ag6vr1yENd8aC17UGAAkm18Y4LAgGFi3ZTMTenDmNN?=
+ =?us-ascii?Q?VhiJYiK9FPiSxOo0jmZZQAVVm6A6Qs0UtC6t8Uj5NVWLauyQc6ueF5D/s6KQ?=
+ =?us-ascii?Q?ryJAwXXmYyiM0sD+DMUoiq8A35A93j9HIcraFpMNNB18lQFtDLyj2sqVP5F5?=
+ =?us-ascii?Q?foXo7k7f1yTqmIsNVXckjvU/U1ohUsdwjA23xXUCOSLKNBA/kFREZVpEtewK?=
+ =?us-ascii?Q?wJeYVZDx+O7/HlNNKgsz9dwztQoBguvvwaPD5KGgN34yKhggGR2qiUjSv/oP?=
+ =?us-ascii?Q?WAVPIhi+0JfoNr9pkgdOb41QyXx8Kpsqfj6QhFGgdWk4XswgQ3/tq0MR9Q47?=
+ =?us-ascii?Q?Jswk0ye19GL1JrEUZgqQ9i/yV6X0BMdq7tIgPec1W5Rtz5st4VZ5sO8nQOUa?=
+ =?us-ascii?Q?YXYuI/CXFxatGB71vig6rCKnJVTDVP6TQqTUfTKHLzVydNWqeaXj/o3gD62E?=
+ =?us-ascii?Q?CPNUZzRMg6D8XFB41a5V8MkCQaD63AL1U3hKxoUZB0BxKNFbipcM6WZF+zx3?=
+ =?us-ascii?Q?2xMgk8Hq1feDU4GNaAA+75w1muY733NQ61wx2+j08WGv84VDH6C+c11wNJDy?=
+ =?us-ascii?Q?2MW4BHt/dTVWvZLCMNJGiQXitgtz5nQI5538wl6ubp1A/C5vTZO6ITKNPJrq?=
+ =?us-ascii?Q?m5djESw/TEJgv2I+r1PkywSj96KbHSt+38/SYK2VlfpdaWWLOChcwqxJe9Ml?=
+ =?us-ascii?Q?1f9NW5C9lHyU/c7ID0ij7lyAyYF6RdevLozmpYBJ3F8Mo0LdX3126VbAERZD?=
+ =?us-ascii?Q?jxgdiT3IdtFopWGku+PFo06dCWZ7WVg4YHtA/1ifOJjBMLJgrqE4qnka3uWW?=
+ =?us-ascii?Q?U1bVy9NXkP6RmYgR+oDwmBxPEqW0k7jXlA4tp8xfb9J8nO9Qi/sD+bgXs506?=
+ =?us-ascii?Q?y+db5EoF+UIHO7NlRKhEBLraOWPmL0i8Rby/niXgQyKlG/eeP98nCbioHl+Z?=
+ =?us-ascii?Q?pevBUy39YRB0P2S7Liq5hT0QJ25+B+UZ4zjE1MtNdMWC5SJ3yQFZfTZIkuTo?=
+ =?us-ascii?Q?ec9jSOZ5O/NrEnBfeFZ1BZh5yyKH1A8R14oUidwU6neEirSrZIMncyzw428+?=
+ =?us-ascii?Q?Dd74YqrpG4ke4h6ZBJmKIZgoWbFDhSHMafwti53tqzgrYCRgiFOdCAdNdMjO?=
+ =?us-ascii?Q?S+mbF9hk0Vbtcm5T/Er1jrC81EGojSM/5s+/b57o4ZssicdtxUI/TH8dngdE?=
+ =?us-ascii?Q?vGXY9mAkNFpDVG1VIIw15qVwtHDeO9LmQTgg9w3MnCq7kX5jiGSLmjdDQftv?=
+ =?us-ascii?Q?KuLPRkPRGU19B3RvO4c=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Lfks73VkRyzYL3lctGQxXi+bpEfxlJ4fg8A1uLxXmmpwQ6ooso3ezVfIEAZJ?=
+ =?us-ascii?Q?oZT2TC9vc1Z/wZeK2ySXIVIm0cDrU60sxf26RsjHhGdI1OLtie8N88jC47ba?=
+ =?us-ascii?Q?Z1uWBdLsKVLHeQ7TyeawobrfSsE4+ITcG+pMy9Q5Q2i86bykrKaWWa6Abgm8?=
+ =?us-ascii?Q?fOVTJR8rpO0N8quU8GAUFlzx5NKXQu/zc1fYKsuiOOFbe+v2CBwCWvJ2PHnu?=
+ =?us-ascii?Q?GSypLwD5lNC98Nuqm/sWRDCl+z5W1i42OvbNoU4uUadaSuA2BCnJBwsfva7P?=
+ =?us-ascii?Q?QcH2VthEhJXVljRM+1PGQeXv6BB67DPW52AS4sltf1dZeChBhc73hHSmAgnZ?=
+ =?us-ascii?Q?QItndrSG41EWlt5s4ZGDv41NXpiCZ6N+Rc82zgx2pZ3jc2ozKRLOxIA0Nloq?=
+ =?us-ascii?Q?fj4DRijneF/1Gw5Au2wWHCil7hVfHvYtPMssvQGNDsupiAjJGfZ1VIIxo9y0?=
+ =?us-ascii?Q?tIfBSbsSzCA0/kf9UabErlAhnLfrynH3ho+46mPwDSplkUuDQHtNmpktuSRS?=
+ =?us-ascii?Q?TY6Zbj+trSzrPX4o8aQC0ua5/SXuBDfULMuG9ObpkxCIFUVIYlVSVzD58hOM?=
+ =?us-ascii?Q?IFiJWz9hgwUkWXyrsOGnXwVYU/tRFqE3hUJ5bCuxiYukPnPrA0KKRYqFPbek?=
+ =?us-ascii?Q?wKqUok40bjFnCV5eap0vRXx+44gUt7+njSsOiMV5fKFxNED/jw+lJ7AJ+t+9?=
+ =?us-ascii?Q?CwUSb4oe6W8MiLlEuEWD8m89nxJo1IU8ISJt/bhlz7mP0z8wLGySUZ9/VNAN?=
+ =?us-ascii?Q?8Owni/ViytDJeptqh9HjnbL8HPGbcbZoGJyZkHyBvLYLgrYSK/kZdcujQPiY?=
+ =?us-ascii?Q?zRLCOcKuzqGyp+IsFc+SM8APBBgH5Yiabe6riKi5f4SrROgzr/5BazmmQ+WL?=
+ =?us-ascii?Q?X3DjzIIJEGz8B8CxsA9mJg3RMTTVkIEAGqkIQK4D4gE8u8Z427Tovq007OfO?=
+ =?us-ascii?Q?PW8+eSUyKZ4zMuzhQTSlc1XKgvHCNh56UZANg1ofcA7VM30LNJWbo4FQpmCl?=
+ =?us-ascii?Q?f1LKdgIxwO1dLSHDdBsxqN5oGoB1kAY2iozOPwi1u23FGJCduPZo6e1kmXqy?=
+ =?us-ascii?Q?pXx+nBY4rr0D4Zb57ghSJLtwpMwQzfHj+4Vcpypkr0u303+A6jF9imzMTz00?=
+ =?us-ascii?Q?QwZELJqTa7L7Q2nP/aW3Tz+xIhhwKeTXp9kberqpMScfIItQDycRBgsDvPDP?=
+ =?us-ascii?Q?uoap8fAQ4PiRqPtZDqxGMgGeBnbRwSONJr3l2JwTeSyBjbWCjWBnSLpvaFYS?=
+ =?us-ascii?Q?w8lvA0iKM/WpkrBhtU5lKyCZi4rxS+TGZ1+uGazcc8ptiWmh7/jyNMAiWFFR?=
+ =?us-ascii?Q?fxgur3YezMf34Be0q6AcOKa0hXH7FTkKysAJAUkBUKubl/YFDFVM3fnneCwj?=
+ =?us-ascii?Q?M7e28uX754CiRW218RiRcWyGyBu4D2bOAUe63p5+0cT/ly1+HnqxgF+RjrVl?=
+ =?us-ascii?Q?PTOxkCAyz2wWvaiUf1b7YuRwD9GfvRVKyx8tpxkZG5sP5JxqYdsbcTowEFoD?=
+ =?us-ascii?Q?Y3wi1ZHz61ndRUgfyxujpny+B4K31o5veKlzbGShIfkbe9v9fFhb9wZpldx5?=
+ =?us-ascii?Q?YXVBYCn5Xba+1+simG1VLIxSx4lPBHTB9RXmLF4f9geP6x1J6VgqBSHWghcm?=
+ =?us-ascii?Q?i79pCD98YAHaDFKVWeQmPx5cKrmffruNl+Di8ZI1UocTSyIcwdgEcK/xV9fu?=
+ =?us-ascii?Q?GBB7mXpDt24QqHapZ1rT3qcSEBn8RneFMpkXS9BgolTzwFt2hh+C6K/E4hI7?=
+ =?us-ascii?Q?VGTGPE90DQ=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a2967390-9809-40d9-ee60-08de63f030e4
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2026 13:20:39.8135
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: orBXoy6ccheTnarV3304upI4uC8saQm6UPOaCX6fFiJWdLR6iLACXzFCN6jy6Blu
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB8113
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_051508_225290_07F49606 
-X-CRM114-Status: GOOD (  22.25  )
+X-CRM114-CacheID: sfid-20260204_052048_776122_930CA12E 
+X-CRM114-Status: GOOD (  32.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,120 +183,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 01-02-2026 17:04, Charan Pedumuru wrote:
-> Convert Atmel AT91RM9200 / AT91SAM9 style OHCI USB Host
-> Controller binding to DT schema.
-> Changes during conversion:
-> - Include "usb-ohci" as a fallback compatible to allow at91 OHCI
->   driver matching.
+On Wed, Feb 04, 2026 at 12:18:15PM +0000, Robin Murphy wrote:
+> > I strongly suspect the answer is that RMR has to be ignored in this
+> > more secure mode.
 > 
-> Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
-> ---
->  .../bindings/usb/atmel,at91rm9200-ohci.yaml        | 85 ++++++++++++++++++++++
->  1 file changed, 85 insertions(+)
+> Yes, I think the only valid case for having an RMR and expecting it to work
+> in combination with these other things is if the device has some firmware or
+> preloaded configuration in memory which it will still need to access at that
+> address once an OS driver starts using it, but does not need to access
+> *during* the boot-time handover. 
 
-Hi Rob,
+Splash screens are the most obvious case here where the framebuffer
+may be in DMA'able memory and must go through the iommu..
 
-For this patch, can I modify the existing generic-ohci.yaml file to include the compatible "atmel,at91rm9200-ohci" to it and define missing properties, as the fall back compatible "usb-ohci" is already defined for other vendors there, can I drop this patch and make changes for generic-ohci.yaml file and include it in the patch series for the next revision?
+At least we are already shipping products where the GPU has DRAM based
+framebuffer, the GPU requires ATS for alot of functions, but the
+framebuffer scan out does not use ATS.
 
+Sigh. So that will be exciting to make work at some point.
+
+> Thus it seems fair to still honour the
+> reserved regions upon attaching to a default domain, but not worry too much
+> about being in a transient blocking state in the interim if it's unavoidable
+> for other reasons (at worst maybe just log a warning that we're
+> doing so).
+
+The interest in the blocking state was to disable ATS.
+
+Maybe another approach would be to have a "RMR blocking" domain which is a
+paging domain that tells the driver explicitly not to enable ATS for
+it.
+
+Then we could validate the RMR range is OK and install this special
+domain and still have security against translated TLPs..
+
+> > > However I think there would be no point exposing the ATS details to
+> > > the VM to begin with. It's the host's decision to trust the device
+> > > to play in the translated PA space and system cache coherency
+> > > protocol, and no guest would be allowed to mess with those aspects
+> > > either way, so there seems no obvious good reason for them to know
+> > > at all.
+> > 
+> > If the vSMMU is presented then the guest must be aware of the ATS
+> > because only the guest can generate the ATC invalidations for changes
+> > in the S1.
 > 
-> diff --git a/Documentation/devicetree/bindings/usb/atmel,at91rm9200-ohci.yaml b/Documentation/devicetree/bindings/usb/atmel,at91rm9200-ohci.yaml
-> new file mode 100644
-> index 000000000000..f04de6d553d2
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/usb/atmel,at91rm9200-ohci.yaml
-> @@ -0,0 +1,85 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/usb/atmel,at91rm9200-ohci.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Atmel AT91RM9200 / AT91SAM9 style OHCI USB Host Controller
-> +
-> +maintainers:
-> +  - Nicolas Ferre <nicolas.ferre@microchip.com>
-> +  - Alexandre Belloni <alexandre.belloni@bootlin.com>
-> +
-> +description:
-> +  The Atmel AT91RM9200 / AT91SAM9 OHCI USB Host Controller implements a
-> +  USB 1.1 Open Host Controller Interface (OHCI) compliant host interface.
-> +  It provides low-speed and full-speed USB host functionality and is
-> +  integrated into Atmel AT91RM9200 and AT91SAM9 family SoCs.
-> +
-> +allOf:
-> +  - $ref: /schemas/usb/usb.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - const: atmel,at91rm9200-ohci
-> +          - const: usb-ohci
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    minItems: 3
-> +    maxItems: 3
-> +
-> +  clock-names:
-> +    items:
-> +      - const: ohci_clk
-> +      - const: hclk
-> +      - const: uhpck
-> +
-> +  num-ports:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: Number of downstream ports supported by this OHCI controller
-> +    minimum: 1
-> +    maximum: 15
-> +
-> +  atmel,vbus-gpio:
-> +    description: GPIO used to control or sense the USB VBUS power.
-> +    minItems: 1
-> +    maxItems: 3
-> +
-> +  atmel,oc-gpio:
-> +    description: GPIO used to signal USB overcurrent condition.
-> +    minItems: 1
-> +    maxItems: 3
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +  - clock-names
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/at91.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +    #include <dt-bindings/gpio/gpio.h>
-> +    usb@500000 {
-> +        compatible = "atmel,at91rm9200-ohci", "usb-ohci";
-> +        reg = <0x500000 0x100000>;
-> +        interrupts = <20 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks = <&uhphs_clk>, <&uhphs_clk>, <&uhpck>;
-> +        clock-names = "ohci_clk", "hclk", "uhpck";
-> +        atmel,vbus-gpio = <&pioA 18 GPIO_ACTIVE_HIGH>;
-> +        atmel,oc-gpio   = <&pioB 10 GPIO_ACTIVE_LOW>;
-> +        num-ports = <2>;
-> +    };
-> +...
-> 
+> Only if you assume DVM or some other mechanism for the guest to issue S1
+> invalidations directly to the hardware - with an emulated CMDQ we can do
+> whatever we like.
 
--- 
-Best Regards,
-Charan.
+With alot of work yes, but that is not the model that is implemented
+today.
 
+If the hypervisor has to generate a ATC invalidation from an IOTLB
+invalidation then it also needs a map of ASID to RID&PASID, which it
+can only build by inspecting all the CD tables. The VMMs in nesting
+mode don't read the CD tables at all today, so they don't implement
+this option.
+
+> And in fact, I think we actually *have* to if the host has enabled ATS
+> itself, since we cannot assume that a guest is going to choose to use it,
+> thus we cannot rely on the guest issuing ATCIs in order to get the correct
+> behaviour it expects unless and until we've seen it set EATS appropriately
+> in all the corresponding vSTEs. 
+
+Due to the above we've done the reverse, the host does not get to
+unilaterally decide ATS policy, it follows the guest's vEATS setting
+so that we never have a situation where the hypervisor has to generate
+ATC invalidations.
+
+The kernel offers the VMM the freedom to do it either way, but today
+all the VMMs I'm aware of choose the above path.
+
+Jason
 
