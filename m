@@ -4,58 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36F02EA794B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 22:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A896EA794B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 22:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mNveEdcWkqZy0//v4/AVZBspu+t1ixuAVjlYnG33EcQ=; b=I1iNWVEi3N6R4A+UluM67Y4C/U
-	AKAuXzQhbDMHslFLis8pN/RnV22nedlOGt5tNA4GRl2tmeh9LpTOH7Z5tWsx7lEY3MzCgKrnGIZdy
-	aLIOQy7S1xEd8bcXyO1HnL/NJ74e8VT+zq4ZXq/etsbcZXpcRy5RuxpwBzOytDnOlAq6/HMSyeFdR
-	MnszJiE1P7PDn/dMpc2qz4VtnzdWzjs3w2BWZDfqcRnK140dK6Mgn6eR52tOnOSwb+If4YED1mpGW
-	QNSiZOlFJhaJYAI1aQMtCOiOfHIP6aEh1iGHGi+eC1/OKE51Vb4VFqNK6ASWKjdSUaWVl+oPw4uST
-	QwwTSzww==;
+	bh=Z5UzvzLmALW/J/GE++S3i6d2Iky9+XfaKNKG7mM9WtE=; b=EDMImC1X8se8HrYH1HV/0aRWAO
+	UL6WdbjTfYCVR2XxYP8MXOu1VWc4H0g6vFdLZEWWQkacg9KYDYd7QjC79tN7YDZujkxLtiuuADu4A
+	SOynbgk4ZotmdRZG0yunKxnNpncTgrdGCNx85RPLhhiOijLtwMxsUmYOEt+c2FGNpuK61WX0LyShq
+	TKTMJAmBBElPMr22m7pNY2RAlHfZ4O4u8AQ9OimBQBWMsv3HejjtW5hDOE5Ithh+slmS+Tp2SfeCR
+	aFX1+jLq2cUGkj391g1qiQYQiCSbWUx7h8twYazGSF1bGwe4QY8PTIrq20Xiz8RjvN5uuZ/736mKs
+	zT4HWA2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnlhp-000000099EN-1mIW;
-	Wed, 04 Feb 2026 22:50:41 +0000
-Received: from finn.gateworks.com ([108.161.129.64] helo=finn.localdomain)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnlhm-000000099Dj-0fyR
+	id 1vnlk4-000000099Sl-2ewe;
+	Wed, 04 Feb 2026 22:53:00 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vnlk1-000000099SP-2w4l
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 22:50:39 +0000
-Received: from syn-068-189-091-139.biz.spectrum.com ([68.189.91.139] helo=tharvey.pdc.gateworks.com)
-	by finn.localdomain with esmtp (Exim 4.95)
-	(envelope-from <tharvey@gateworks.com>)
-	id 1vnlhX-00EvLM-C7;
-	Wed, 04 Feb 2026 22:50:23 +0000
-From: Tim Harvey <tharvey@gateworks.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Tim Harvey <tharvey@gateworks.com>
-Subject: [PATCH v2 2/2] arm64: dts: imx: Add i.mx8mm Gateworks GW7906 dts support
-Date: Wed,  4 Feb 2026 14:50:20 -0800
-Message-Id: <20260204225020.2039367-2-tharvey@gateworks.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260204225020.2039367-1-tharvey@gateworks.com>
-References: <20260204225020.2039367-1-tharvey@gateworks.com>
+	Wed, 04 Feb 2026 22:52:58 +0000
+Received: from [192.168.0.88] (192-184-212-33.fiber.dynamic.sonic.net [192.184.212.33])
+	by linux.microsoft.com (Postfix) with ESMTPSA id DEE1A20B7165;
+	Wed,  4 Feb 2026 14:52:54 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DEE1A20B7165
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1770245576;
+	bh=Z5UzvzLmALW/J/GE++S3i6d2Iky9+XfaKNKG7mM9WtE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WRTdZ9uJTVLymkfOfIxV/mdTmRbSBVGTmX/jmPPeEgCSDSMH26Wilz0a29fQ/3wuF
+	 26O87PUBnkruF1dKfqxHH2BIxDaX71xJllhukTXd6Mau/w0rxZIJGj7z8MlW8YNMoU
+	 mMKyyrmq2O3XbDNK0EssAoX5zLZd7QsVX4EGmAzo=
+Message-ID: <596c9549-9edc-91f3-7473-e206ddc68e76@linux.microsoft.com>
+Date: Wed, 4 Feb 2026 14:52:54 -0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.13.1
+Subject: Re: [PATCH v0 15/15] mshv: Populate mmio mappings for PCI passthru
+Content-Language: en-US
+To: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-pci@vger.kernel.org, linux-arch@vger.kernel.org, kys@microsoft.com,
+ haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
+ longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
+ lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+ robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
+ nunodasneves@linux.microsoft.com, mhklinux@outlook.com
+References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
+ <20260120064230.3602565-16-mrathor@linux.microsoft.com>
+ <aXAxmYm4zbOzGztz@skinsburskii.localdomain>
+ <45e7a4c0-f1d8-b8b4-8c03-56d06845323b@linux.microsoft.com>
+ <aXevWXolgNrrLltF@skinsburskii.localdomain>
+ <f39a501e-478f-66ff-26c8-229ca3991f4f@linux.microsoft.com>
+ <aXkKhGvpaHUGclI-@skinsburskii.localdomain>
+ <8d798da6-1720-ceea-f1b0-62ca675085c8@linux.microsoft.com>
+ <aYDROXpR5kvlylGG@skinsburskii.localdomain>
+From: Mukesh R <mrathor@linux.microsoft.com>
+In-Reply-To: <aYDROXpR5kvlylGG@skinsburskii.localdomain>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_145038_193512_392F57DB 
-X-CRM114-Status: GOOD (  15.20  )
+X-CRM114-CacheID: sfid-20260204_145257_798110_862AEF25 
+X-CRM114-Status: GOOD (  29.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,149 +86,276 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GW7906 is based on the i.MX8M Mini SoC featuring:
- - LPDDR4 DRAM
- - eMMC FLASH
- - microSD connector with UHS support
- - LIS2DE12 3-axis accelerometer
- - Gateworks System Controller
- - IMX8M FEC
- - software selectable RS232/RS485/RS422 serial transceiver
- - PMIC
- - 1x isolated RS232 UART
- - 1x off-board bi-directional opto-isolated digital I/O
- - 1x M.2 A-E Key Socket and 1x MiniPCIe socket with USB2.0 and PCIe
-   (resistor loading to route PCIe/USB2 between M.2 and MiniPCIe socket)
+On 2/2/26 08:30, Stanislav Kinsburskii wrote:
+> On Fri, Jan 30, 2026 at 02:17:24PM -0800, Mukesh R wrote:
+>> On 1/27/26 10:57, Stanislav Kinsburskii wrote:
+>>> On Mon, Jan 26, 2026 at 07:07:22PM -0800, Mukesh R wrote:
+>>>> On 1/26/26 10:15, Stanislav Kinsburskii wrote:
+>>>>> On Fri, Jan 23, 2026 at 06:19:15PM -0800, Mukesh R wrote:
+>>>>>> On 1/20/26 17:53, Stanislav Kinsburskii wrote:
+>>>>>>> On Mon, Jan 19, 2026 at 10:42:30PM -0800, Mukesh R wrote:
+>>>>>>>> From: Mukesh Rathor <mrathor@linux.microsoft.com>
+>>>>>>>>
+>>>>>>>> Upon guest access, in case of missing mmio mapping, the hypervisor
+>>>>>>>> generates an unmapped gpa intercept. In this path, lookup the PCI
+>>>>>>>> resource pfn for the guest gpa, and ask the hypervisor to map it
+>>>>>>>> via hypercall. The PCI resource pfn is maintained by the VFIO driver,
+>>>>>>>> and obtained via fixup_user_fault call (similar to KVM).
+>>>>>>>>
+>>>>>>>> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+>>>>>>>> ---
+>>>>>>>>      drivers/hv/mshv_root_main.c | 115 ++++++++++++++++++++++++++++++++++++
+>>>>>>>>      1 file changed, 115 insertions(+)
+>>>>>>>>
+>>>>>>>> diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
+>>>>>>>> index 03f3aa9f5541..4c8bc7cd0888 100644
+>>>>>>>> --- a/drivers/hv/mshv_root_main.c
+>>>>>>>> +++ b/drivers/hv/mshv_root_main.c
+>>>>>>>> @@ -56,6 +56,14 @@ struct hv_stats_page {
+>>>>>>>>      	};
+>>>>>>>>      } __packed;
+>>>>>>>> +bool hv_nofull_mmio;   /* don't map entire mmio region upon fault */
+>>>>>>>> +static int __init setup_hv_full_mmio(char *str)
+>>>>>>>> +{
+>>>>>>>> +	hv_nofull_mmio = true;
+>>>>>>>> +	return 0;
+>>>>>>>> +}
+>>>>>>>> +__setup("hv_nofull_mmio", setup_hv_full_mmio);
+>>>>>>>> +
+>>>>>>>>      struct mshv_root mshv_root;
+>>>>>>>>      enum hv_scheduler_type hv_scheduler_type;
+>>>>>>>> @@ -612,6 +620,109 @@ mshv_partition_region_by_gfn(struct mshv_partition *partition, u64 gfn)
+>>>>>>>>      }
+>>>>>>>>      #ifdef CONFIG_X86_64
+>>>>>>>> +
+>>>>>>>> +/*
+>>>>>>>> + * Check if uaddr is for mmio range. If yes, return 0 with mmio_pfn filled in
+>>>>>>>> + * else just return -errno.
+>>>>>>>> + */
+>>>>>>>> +static int mshv_chk_get_mmio_start_pfn(struct mshv_partition *pt, u64 gfn,
+>>>>>>>> +				       u64 *mmio_pfnp)
+>>>>>>>> +{
+>>>>>>>> +	struct vm_area_struct *vma;
+>>>>>>>> +	bool is_mmio;
+>>>>>>>> +	u64 uaddr;
+>>>>>>>> +	struct mshv_mem_region *mreg;
+>>>>>>>> +	struct follow_pfnmap_args pfnmap_args;
+>>>>>>>> +	int rc = -EINVAL;
+>>>>>>>> +
+>>>>>>>> +	/*
+>>>>>>>> +	 * Do not allow mem region to be deleted beneath us. VFIO uses
+>>>>>>>> +	 * useraddr vma to lookup pci bar pfn.
+>>>>>>>> +	 */
+>>>>>>>> +	spin_lock(&pt->pt_mem_regions_lock);
+>>>>>>>> +
+>>>>>>>> +	/* Get the region again under the lock */
+>>>>>>>> +	mreg = mshv_partition_region_by_gfn(pt, gfn);
+>>>>>>>> +	if (mreg == NULL || mreg->type != MSHV_REGION_TYPE_MMIO)
+>>>>>>>> +		goto unlock_pt_out;
+>>>>>>>> +
+>>>>>>>> +	uaddr = mreg->start_uaddr +
+>>>>>>>> +		((gfn - mreg->start_gfn) << HV_HYP_PAGE_SHIFT);
+>>>>>>>> +
+>>>>>>>> +	mmap_read_lock(current->mm);
+>>>>>>>
+>>>>>>> Semaphore can't be taken under spinlock.
+>>>>>
+>>>>>>
+>>>>>> Yeah, something didn't feel right here and I meant to recheck, now regret
+>>>>>> rushing to submit the patch.
+>>>>>>
+>>>>>> Rethinking, I think the pt_mem_regions_lock is not needed to protect
+>>>>>> the uaddr because unmap will properly serialize via the mm lock.
+>>>>>>
+>>>>>>
+>>>>>>>> +	vma = vma_lookup(current->mm, uaddr);
+>>>>>>>> +	is_mmio = vma ? !!(vma->vm_flags & (VM_IO | VM_PFNMAP)) : 0;
+>>>>>>>
+>>>>>>> Why this check is needed again?
+>>>>>>
+>>>>>> To make sure region did not change. This check is under lock.
+>>>>>>
+>>>>>
+>>>>> How can this happen? One can't change VMA type without unmapping it
+>>>>> first. And unmapping it leads to a kernel MMIO region state dangling
+>>>>> around without corresponding user space mapping.
+>>>>
+>>>> Right, and vm_flags would not be mmio expected then.
+>>>>
+>>>>> This is similar to dangling pinned regions and should likely be
+>>>>> addressed the same way by utilizing MMU notifiers to destpoy memoty
+>>>>> regions is VMA is detached.
+>>>>
+>>>> I don't think we need that. Either it succeeds if the region did not
+>>>> change at all, or just fails.
+>>>>
+>>>
+>>> I'm afraid we do, as if the driver mapped a page with the previous
+>>> memory region, and then the region is unmapped, the page will stay
+>>> mapped in the hypervisor, but will be considered free by kernel, which
+>>> in turn will lead to GPF upn next allocation.
+>>
+>> There are no ram pages for mmio regions. Also, we don't do much with
+>> mmio regions other than tell the hyp about it.
+>>
+> 
+> So, are you saying that the hypervisor does not use these pages and only
+> tracks them? That would make things easier.
+> However, if we later try to map a GPA that is already mapped, will the
+> hypervisor return an error?
 
-The GW7906 has much in common with the GW7903 so it is used as a base.
-Differences include:
- - different GbE PHY
- - a couple of new GPIO's added
- - removal of uart1
- - removal of io-expander
+Hypervisor does not return an error.
 
-Signed-off-by: Tim Harvey <tharvey@gateworks.com>
----
-v2:
- - ran through dt-format
- - use gw7903 as a base due to little difference in boards
----
- arch/arm64/boot/dts/freescale/Makefile        |  1 +
- .../dts/freescale/imx8mm-venice-gw7906.dts    | 92 +++++++++++++++++++
- 2 files changed, 93 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-venice-gw7906.dts
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 700bab4d3e60..83fc7faf81d8 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -167,6 +167,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7901.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7902.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7903.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7904.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw7906.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-dahlia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-verdin-nonwifi-ivy.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7906.dts b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7906.dts
-new file mode 100644
-index 000000000000..c4d0610e34ab
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7906.dts
-@@ -0,0 +1,92 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2026 Gateworks Corporation
-+ */
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/net/ti-dp83867.h>
-+
-+#include "imx8mm-venice-gw7903.dts"
-+
-+/ {
-+	compatible = "gateworks,imx8mm-gw7906", "fsl,imx8mm";
-+	model = "Gateworks Venice GW7906 i.MX8MM board";
-+};
-+
-+&fec1 {
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		ethphy0: ethernet-phy@0 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <0>;
-+			rx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-+			tx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-+			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
-+			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-+			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-+
-+			leds {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				led@1 {
-+					reg = <1>;
-+					color = <LED_COLOR_ID_AMBER>;
-+					default-state = "keep";
-+					function = LED_FUNCTION_LAN;
-+				};
-+
-+				led@2 {
-+					reg = <2>;
-+					color = <LED_COLOR_ID_GREEN>;
-+					default-state = "keep";
-+					function = LED_FUNCTION_LAN;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&gpio2 {
-+	gpio-line-names = "", "", "", "", "", "", "dig1_ctl", "",
-+		"dig1_out#", "dig1_in", "", "", "", "", "", "",
-+		"", "", "", "", "", "", "", "",
-+		"", "", "", "", "", "", "", "";
-+};
-+
-+&gpio5 {
-+	gpio-line-names = "iob", "ioa", "", "", "", "", "", "",
-+		"", "", "", "", "pci_wdis#", "", "", "",
-+		"", "", "", "", "", "", "", "",
-+		"", "", "", "", "", "", "", "";
-+};
-+
-+&i2c1 {
-+	/delete-node/ gpio@27;
-+};
-+
-+&iomuxc {
-+	pinctrl-0 = <&pinctrl_hog>;
-+	pinctrl-names = "default";
-+
-+	pinctrl_hog: hoggrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_GPIO1_IO10_GPIO1_IO10	0x40000041 /* RS422# */
-+			MX8MM_IOMUXC_GPIO1_IO11_GPIO1_IO11	0x40000041 /* RS485# */
-+			MX8MM_IOMUXC_GPIO1_IO12_GPIO1_IO12	0x40000041 /* RS232# */
-+			MX8MM_IOMUXC_SD1_DATA7_GPIO2_IO9	0x40000041 /* DIG1_IN */
-+			MX8MM_IOMUXC_SD1_DATA6_GPIO2_IO8	0x40000041 /* DIG1_OUT */
-+			MX8MM_IOMUXC_SD1_DATA4_GPIO2_IO6	0x40000041 /* DIG1_CTL */
-+			MX8MM_IOMUXC_ECSPI2_MISO_GPIO5_IO12	0x40000041 /* PCI_WDIS# */
-+			MX8MM_IOMUXC_SAI3_TXD_GPIO5_IO1		0x40000041 /* IOA */
-+			MX8MM_IOMUXC_SAI3_TXC_GPIO5_IO0		0x40000041 /* IOB */
-+		>;
-+	};
-+};
-+
-+&uart1 {
-+	status = "disabled";
-+};
--- 
-2.25.1
+
+> Thanks,
+> Stanislav
+> 
+>> Thanks,
+>> -Mukesh
+>>
+>>
+>>> With pinned regions we issue is similar but less impacting: pages can't
+>>> be released by user space unmapping and thus will be simply leaked, but
+>>> the system stays intact.
+>>>
+>>> MMIO regions are simila to movable region in this regard: they don't
+>>> reference the user pages, and thus this guest region replaement is a
+>>> stright wat to kernel panic.
+>>>
+>>>>
+>>>>>>> The region type is stored on the region itself.
+>>>>>>> And the type is checked on the caller side.
+>>>>>>>
+>>>>>>>> +	if (!is_mmio)
+>>>>>>>> +		goto unlock_mmap_out;
+>>>>>>>> +
+>>>>>>>> +	pfnmap_args.vma = vma;
+>>>>>>>> +	pfnmap_args.address = uaddr;
+>>>>>>>> +
+>>>>>>>> +	rc = follow_pfnmap_start(&pfnmap_args);
+>>>>>>>> +	if (rc) {
+>>>>>>>> +		rc = fixup_user_fault(current->mm, uaddr, FAULT_FLAG_WRITE,
+>>>>>>>> +				      NULL);
+>>>>>>>> +		if (rc)
+>>>>>>>> +			goto unlock_mmap_out;
+>>>>>>>> +
+>>>>>>>> +		rc = follow_pfnmap_start(&pfnmap_args);
+>>>>>>>> +		if (rc)
+>>>>>>>> +			goto unlock_mmap_out;
+>>>>>>>> +	}
+>>>>>>>> +
+>>>>>>>> +	*mmio_pfnp = pfnmap_args.pfn;
+>>>>>>>> +	follow_pfnmap_end(&pfnmap_args);
+>>>>>>>> +d
+>>>>>>>> +unlock_mmap_out:
+>>>>>>>> +	mmap_read_unlock(current->mm);
+>>>>>>>> +unlock_pt_out:
+>>>>>>>> +	spin_unlock(&pt->pt_mem_regions_lock);
+>>>>>>>> +	return rc;
+>>>>>>>> +}
+>>>>>>>> +
+>>>>>>>> +/*
+>>>>>>>> + * At present, the only unmapped gpa is mmio space. Verify if it's mmio
+>>>>>>>> + * and resolve if possible.
+>>>>>>>> + * Returns: True if valid mmio intercept and it was handled, else false
+>>>>>>>> + */
+>>>>>>>> +static bool mshv_handle_unmapped_gpa(struct mshv_vp *vp)
+>>>>>>>> +{
+>>>>>>>> +	struct hv_message *hvmsg = vp->vp_intercept_msg_page;
+>>>>>>>> +	struct hv_x64_memory_intercept_message *msg;
+>>>>>>>> +	union hv_x64_memory_access_info accinfo;
+>>>>>>>> +	u64 gfn, mmio_spa, numpgs;
+>>>>>>>> +	struct mshv_mem_region *mreg;
+>>>>>>>> +	int rc;
+>>>>>>>> +	struct mshv_partition *pt = vp->vp_partition;
+>>>>>>>> +
+>>>>>>>> +	msg = (struct hv_x64_memory_intercept_message *)hvmsg->u.payload;
+>>>>>>>> +	accinfo = msg->memory_access_info;
+>>>>>>>> +
+>>>>>>>> +	if (!accinfo.gva_gpa_valid)
+>>>>>>>> +		return false;
+>>>>>>>> +
+>>>>>>>> +	/* Do a fast check and bail if non mmio intercept */
+>>>>>>>> +	gfn = msg->guest_physical_address >> HV_HYP_PAGE_SHIFT;
+>>>>>>>> +	mreg = mshv_partition_region_by_gfn(pt, gfn);
+>>>>>>>
+>>>>>>> This call needs to be protected by the spinlock.
+>>>>>>
+>>>>>> This is sorta fast path to bail. We recheck under partition lock above.
+>>>>>>
+>>>>>
+>>>>> Accessing the list of regions without lock is unsafe.
+>>>>
+>>>> I am not sure why? This check is done by a vcpu thread, so regions
+>>>> will not have just gone away.
+>>>>
+>>>
+>>> This is shared resources. Multiple VP thread get into this function
+>>> simultaneously, so there is a race already. But this one we can live
+>>> with without locking as they don't mutate the list of the regions.
+>>>
+>>> The issue happens when VMM adds or removed another region as it mutates
+>>> the list and races with VP threads doing this lookup.
+>>>
+>>> Thanks,
+>>> Stanislav
+>>>
+>>>
+>>>> Thanks,
+>>>> -Mukesh
+>>>>
+>>>>
+>>>>> Thanks,
+>>>>> Stanislav
+>>>>>
+>>>>>> Thanks,
+>>>>>> -Mukesh
+>>>>>>
+>>>>>>
+>>>>>>> Thanks,
+>>>>>>> Stanislav
+>>>>>>>
+>>>>>>>> +	if (mreg == NULL || mreg->type != MSHV_REGION_TYPE_MMIO)
+>>>>>>>> +		return false;
+>>>>>>>> +
+>>>>>>>> +	rc = mshv_chk_get_mmio_start_pfn(pt, gfn, &mmio_spa);
+>>>>>>>> +	if (rc)
+>>>>>>>> +		return false;
+>>>>>>>> +
+>>>>>>>> +	if (!hv_nofull_mmio) {		/* default case */
+>>>>>>>> +		gfn = mreg->start_gfn;
+>>>>>>>> +		mmio_spa = mmio_spa - (gfn - mreg->start_gfn);
+>>>>>>>> +		numpgs = mreg->nr_pages;
+>>>>>>>> +	} else
+>>>>>>>> +		numpgs = 1;
+>>>>>>>> +
+>>>>>>>> +	rc = hv_call_map_mmio_pages(pt->pt_id, gfn, mmio_spa, numpgs);
+>>>>>>>> +
+>>>>>>>> +	return rc == 0;
+>>>>>>>> +}
+>>>>>>>> +
+>>>>>>>>      static struct mshv_mem_region *
+>>>>>>>>      mshv_partition_region_by_gfn_get(struct mshv_partition *p, u64 gfn)
+>>>>>>>>      {
+>>>>>>>> @@ -666,13 +777,17 @@ static bool mshv_handle_gpa_intercept(struct mshv_vp *vp)
+>>>>>>>>      	return ret;
+>>>>>>>>      }
+>>>>>>>> +
+>>>>>>>>      #else  /* CONFIG_X86_64 */
+>>>>>>>> +static bool mshv_handle_unmapped_gpa(struct mshv_vp *vp) { return false; }
+>>>>>>>>      static bool mshv_handle_gpa_intercept(struct mshv_vp *vp) { return false; }
+>>>>>>>>      #endif /* CONFIG_X86_64 */
+>>>>>>>>      static bool mshv_vp_handle_intercept(struct mshv_vp *vp)
+>>>>>>>>      {
+>>>>>>>>      	switch (vp->vp_intercept_msg_page->header.message_type) {
+>>>>>>>> +	case HVMSG_UNMAPPED_GPA:
+>>>>>>>> +		return mshv_handle_unmapped_gpa(vp);
+>>>>>>>>      	case HVMSG_GPA_INTERCEPT:
+>>>>>>>>      		return mshv_handle_gpa_intercept(vp);
+>>>>>>>>      	}
+>>>>>>>> -- 
+>>>>>>>> 2.51.2.vfs.0.1
+>>>>>>>>
 
 
