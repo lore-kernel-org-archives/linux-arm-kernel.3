@@ -4,93 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CBEBEA794A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 23:22:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7C19EA794A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 23:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jUPYl25/I/xaiQSwfhlSBNd7Hf3mIc4vRgkGcNTxP+o=; b=U+leKPNxMAOAnX7Ual6j/crKkq
-	JmwsyYaBjC3vJHeUs6BguP9nsxEAdQNzbQUmyOwxj3PTllAYb7hnRbcsS7LGuGWfVjT5N5WiTSSuD
-	mzfXO4BrHlo3WjhAcDR3eRnoks13lW3aHS5U9xq0AB1AKWVXjDzrWGsBmOsykoe1jcfIILAEwtQfn
-	yiug/qei6/cIvyOXB1rjnlWtmQX7zO1oEoLVfufflI1jdbpZHAqFBl82h9I8JY7KHHbzPVLmGJo3z
-	7TMszgb8tI2WHc0/3cvY56F4Cs4aTmm/Q8DfGBk5gaoU2v57gKx2kGXKNcgPGZMDaqptSJYRniMuP
-	6cAu4J5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LaWiECPU4BKQYc79do/lWWbfggCJBf09zRAj93n6vAo=; b=Ahl3YEc0jRRVrZc6U2z6iKsdE+
+	NrWo0WA8Kw+pnuzv2s0nhkcG9TH0nO9+aQzd67A+N1vbXzyZSOFDmgUqTU4dIEaa6rjtfkJZcPqVH
+	rIo4AFaJH+vH9y51z1sImBBbwbtGGMYR8t0Jo2ZFc5uBArlvpCkSb/t96wySLnAQeHdUgobUbJN0U
+	/N8XfzFSu7TnDfzNdkCzPlO0aIljJ7mcWQNshvP3EHovds0lGBLeT3GpvKdSHKa+UQ7UMjYrsCrHn
+	ZZu9bGprEgPO9uBnexWIIYsV3MUxdDdpVDRPcBjaaWSbgdZpN/OjK2i6JQlcNKEbEnHZRsWevTT2v
+	oWT/0aOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnmCP-00000009B3I-2eNy;
-	Wed, 04 Feb 2026 23:22:17 +0000
-Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
+	id 1vnmLc-00000009BhZ-0eGP;
+	Wed, 04 Feb 2026 23:31:48 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnmCM-00000009B2K-3eTX
+	id 1vnmLZ-00000009Bh2-14QV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 23:22:16 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4f5xFr5FHNz9th0;
-	Thu,  5 Feb 2026 00:22:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1770247328;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=jUPYl25/I/xaiQSwfhlSBNd7Hf3mIc4vRgkGcNTxP+o=;
-	b=nx5hGD84YpwLQE5ISYb8EhFYHYd55Ava0d/82Uq/1kYQHBAHBHW9Hoc2znL9bqtq2AP/vW
-	nfudTgcJIA0EVWIPzX20A3KVwcOLRd2yXTkmG7ttec1W+RxXsvMF3wTUI8/gDua+meyr+j
-	wdjTDx5O79ZmWv++gAq/KZiltx1TvQXllui60O4XQmluA5Txt5LxVbDmIRZPUhDwMps/i6
-	emIdJ6LmMbYwoUAd/XnZvNeneD2TP2rboFMKB7irda79mZDBlch+mHEiffkjCawZ5+olVb
-	yRWDFjSkUQuSXN1mVAxhN1c8k6EwXY5NE5FDiSifBtbA8INjlPU2652HxzNRxQ==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b="Naz589/k";
-	spf=pass (outgoing_mbo_mout: domain of lukasz.majewski@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=lukasz.majewski@mailbox.org
-From: Lukasz Majewski <lukasz.majewski@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1770247326;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=jUPYl25/I/xaiQSwfhlSBNd7Hf3mIc4vRgkGcNTxP+o=;
-	b=Naz589/kaMWyIosGEF/Rd/gURaV0AXT1/yfFZnKXKqGf7zkRO9hMewjOZRj7er1cuEh0EF
-	oGJcdXeoKsdTFpcF7UZpkbDClV2HEo9YhVUpI1XtKrmKmzEFoYgtcLIqib2sRZlbMyHckO
-	R0SaFbubQnFXffvxQfenf/Afglxu1s8Hc1bklMg2UP9nIGBqxTlKzKN+quxMnQ4LV8Q4A6
-	zgkoW+tAXymgPguoWIUBKIAGDvX5CfYQWLoyJbmzdpbJC5vlcuisWN7+dZ9adKZdmD7TVf
-	stVI4TZBTCYVOG3eA1AZOoNYTe5eQUoYHe9EBussQyab/y62RXbYg71B2In0ew==
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Simon Horman <horms@kernel.org>,
-	Lukasz Majewski <lukasz.majewski@mailbox.org>
-Subject: [net-next v23 0/7] net: mtip: Add support for MTIP imx287 L2 switch driver
-Date: Thu,  5 Feb 2026 00:21:28 +0100
-Message-Id: <20260204232135.1024665-1-lukasz.majewski@mailbox.org>
+	Wed, 04 Feb 2026 23:31:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1770247905; x=1801783905;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=A/mvAOGLp0G4x6EUjGVks/0dtJp82veA/rORZI0S8Wg=;
+  b=GSnkKvbEES2fpUd30PUr2nSXFqhisrJxzjKtTkVOdEXtoPnPm5LdCalh
+   PVvDcvkSH30kwVSu3rTEoIwBOZEsyNakCfMqiP1LtAoVOxrKu/tg6a5m/
+   NbranFlIy4mCVOBHs3X3Ez3kGzGfDxYoCMfwujgOgHxGqzysKHKiGTVlU
+   kBfWlvWZq5GeVmsb2QwkB67wlAtUdqHVojdaSoT4EPY+8OtdRRg2hhBvr
+   l/tCzQpHF8TXrNVnjuJh1QH6NRRn8s99MZBw53ZnH4DRO2W3vg/KhDdbL
+   VLRS5wYpGKmII1oLpCd0P2kBN+7uYVk2rIePHXtR3HzoQiukKHMgoB3y7
+   A==;
+X-CSE-ConnectionGUID: juWm8ExuSGesDugKzm9Rvw==
+X-CSE-MsgGUID: 2qKgKsw+R2+NLCqOgjG3dA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11691"; a="70639518"
+X-IronPort-AV: E=Sophos;i="6.21,273,1763452800"; 
+   d="scan'208";a="70639518"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2026 15:31:44 -0800
+X-CSE-ConnectionGUID: iEEz9+dLScWuQn2rczeETA==
+X-CSE-MsgGUID: X4qQQThbRaKum4g/bOa/uA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,273,1763452800"; 
+   d="scan'208";a="210340839"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by orviesa008.jf.intel.com with ESMTP; 04 Feb 2026 15:31:40 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vnmLR-00000000jEu-1zGT;
+	Wed, 04 Feb 2026 23:31:37 +0000
+Date: Thu, 5 Feb 2026 07:30:53 +0800
+From: kernel test robot <lkp@intel.com>
+To: Meghana Malladi <m-malladi@ti.com>, vadim.fedorenko@linux.dev,
+	jacob.e.keller@intel.com, horms@kernel.org, parvathi@couthit.com,
+	afd@ti.com, vladimir.oltean@nxp.com, rogerq@kernel.org,
+	danishanwar@ti.com, pabeni@redhat.com, kuba@kernel.org,
+	edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, srk@ti.com,
+	Vignesh Raghavendra <vigneshr@ti.com>
+Subject: Re: [PATCH net-next v2 2/2] net: ti: icssg-prueth: Add ethtool ops
+ for Frame Preemption MAC Merge
+Message-ID: <202602050744.pYAnjG71-lkp@intel.com>
+References: <20260204140044.4086725-3-m-malladi@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 1a65e745695a95c5e45
-X-MBO-RS-META: ackt1q4t6kc7djdtdctky69jssasp49z
-X-Rspamd-Queue-Id: 4f5xFr5FHNz9th0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260204140044.4086725-3-m-malladi@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_152215_080449_8440D4CA 
-X-CRM114-Status: GOOD (  21.32  )
+X-CRM114-CacheID: sfid-20260204_153145_360592_845C4669 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,135 +93,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for More Than IP's L2 switch driver embedded
-in some NXP's SoCs. This one has been tested on imx287, but is also available
-in the vf610.
+Hi Meghana,
 
-In the past there has been performed some attempts to upstream this driver:
+kernel test robot noticed the following build warnings:
 
-1. The 4.19-cip based one [1]
-2. DSA based one for 5.12 [2] - i.e. the switch itself was treat as a DSA switch
-   with NO tag appended.
-3. The extension for FEC driver for 5.12 [3] - the trick here was to fully reuse
-   FEC when the in-HW switching is disabled. When bridge offloading is enabled,
-   the driver uses already configured MAC and PHY to also configure PHY.
+[auto build test WARNING on 9a9424c756feee9ee6e717405a9d6fa7bacdef08]
 
-All three approaches were not accepted as eligible for upstreaming.
+url:    https://github.com/intel-lab-lkp/linux/commits/Meghana-Malladi/net-ti-icssg-prueth-Add-Frame-Preemption-MAC-Merge-support/20260204-220543
+base:   9a9424c756feee9ee6e717405a9d6fa7bacdef08
+patch link:    https://lore.kernel.org/r/20260204140044.4086725-3-m-malladi%40ti.com
+patch subject: [PATCH net-next v2 2/2] net: ti: icssg-prueth: Add ethtool ops for Frame Preemption MAC Merge
+config: arm64-defconfig (https://download.01.org/0day-ci/archive/20260205/202602050744.pYAnjG71-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260205/202602050744.pYAnjG71-lkp@intel.com/reproduce)
 
-The driver from this series has following features:
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202602050744.pYAnjG71-lkp@intel.com/
 
-1. It is fully separated from fec_main - i.e. can be used interchangeable
-   with it. To be more specific - one can build them as modules and
-   if required switch between them when e.g. bridge offloading is required.
+All warnings (new ones prefixed by >>):
 
-   To be more specific:
-        - Use FEC_MAIN: When one needs support for two ETH ports with separate
-          uDMAs used for both and bridging can be realized in SW.
-
-        - Use MTIPL2SW: When it is enough to support two ports with only uDMA0
-          attached to switch and bridging shall be offloaded to HW. 
-
-2. This driver uses MTIP's L2 switch internal VLAN feature to provide port
-   separation at boot time. Port separation is disabled when bridging is
-   required.
-
-3. Example usage:
-        Configuration:
-        ip link set lan0 up; sleep 1;
-        ip link set lan1 up; sleep 1;
-        ip link add name br0 type bridge;
-        ip link set br0 up; sleep 1;
-        ip link set lan0 master br0;
-        ip link set lan1 master br0;
-        bridge link;
-        ip addr add 192.168.2.17/24 dev br0;
-        ping -c 5 192.168.2.222
-
-        Removal:
-        ip link set br0 down;
-        ip link delete br0 type bridge;
-        ip link set dev lan1 down
-        ip link set dev lan0 down
-
-4. Limitations:
-        - Driver enables and disables switch operation with learning and ageing.
-        - Missing is the advanced configuration (e.g. adding entries to FBD). This is
-          on purpose, as up till now we didn't had consensus about how the driver
-          shall be added to Linux.
-          However, on top of this patch set the code with SWITCHDEV support (v6.6.
-          PREEMPT_RT enabled) has been implemented in [4].
-
-5. Clang build:
-	make LLVM_SUFFIX=-19 LLVM=1 mrproper
-	cp ./arch/arm/configs/mxs_defconfig .config
-	make ARCH=arm LLVM_SUFFIX=-19 LLVM=1 W=1 menuconfig
-	make ARCH=arm LLVM_SUFFIX=-19 LLVM=1 W=1 -j8 LOADADDR=0x40008000 uImage dtbs
-
-        make LLVM_SUFFIX=-19 LLVM=1 mrproper
-        make LLVM_SUFFIX=-19 LLVM=1 allmodconfig
-        make LLVM_SUFFIX=-19 LLVM=1 W=1 drivers/net/ethernet/freescale/mtipsw/ | tee llvm_build.log
-        make LLVM_SUFFIX=-19 LLVM=1 W=1 -j8 | tee llvm_build.log
-
-6. Kernel compliance checks:
-	make coccicheck MODE=report J=4 M=drivers/net/ethernet/freescale/mtipsw/
-        make allmodconfig; ~/work/src/smatch/smatch_scripts/kchecker drivers/net/ethernet/freescale/mtipsw/
-
-7. GCC:
-        make mrproper
-        make allmodconfig
-        make W=1 drivers/net/ethernet/freescale/mtipsw/
-
-        
-        [source OE/Yocto SDK build environment]
-        CROSS_COMPILE=arm-poky-linux-gnueabi- ARCH=arm make mrproper
-        cp ./arch/arm/configs/mxs_defconfig .config
-        CROSS_COMPILE=arm-poky-linux-gnueabi- ARCH=arm make menuconfig
-        CROSS_COMPILE=arm-poky-linux-gnueabi- ARCH=arm make -j8 LOADADDR=0x40008000 uImage dtbs
-
-8. DT_SCHEMA checks:
-        source ~/.venv/bin/activate
-        source /opt/poky/3.1.31/environment-setup-armv5e-poky-linux-gnueabi
-        make dt_binding_check DT_SCHEMA_FILES=nxp,imx28-mtip-switch.yaml
-        make CHECK_DTBS=y DT_SCHEMA_FILES=nxp,imx28-mtip-switch.yaml nxp/mxs/imx28-xea.dtb
+   In file included from drivers/net/ethernet/ti/icssg/icssg_prueth.h:48,
+                    from drivers/net/ethernet/ti/icssg/icssg_prueth.c:34:
+>> drivers/net/ethernet/ti/icssg/icssg_stats.h:93:38: warning: 'icssg_all_miig_stats' defined but not used [-Wunused-const-variable=]
+      93 | static const struct icssg_miig_stats icssg_all_miig_stats[] = {
+         |                                      ^~~~~~~~~~~~~~~~~~~~
 
 
-Links:
-[1] - https://github.com/lmajewski/linux-imx28-l2switch/commits/master
-[2] - https://github.com/lmajewski/linux-imx28-l2switch/tree/imx28-v5.12-L2-upstream-RFC_v1
-[3] - https://source.denx.de/linux/linux-imx28-l2switch/-/tree/imx28-v5.12-L2-upstream-switchdev-RFC_v1?ref_type=heads
-[4] - https://github.com/lmajewski/linux-imx28-l2switch/commits/vf610-linux-6.6.y-mtipl2sw
+vim +/icssg_all_miig_stats +93 drivers/net/ethernet/ti/icssg/icssg_stats.h
 
-
-Lukasz Majewski (7):
-  dt-bindings: net: Add MTIP L2 switch description
-  net: mtip: The L2 switch driver for imx287
-  net: mtip: Add buffers management functions to the L2 switch driver
-  net: mtip: Add net_device_ops functions to the L2 switch driver
-  net: mtip: Add mtip_switch_{rx|tx} functions to the L2 switch driver
-  net: mtip: Extend the L2 switch driver with management operations
-  net: mtip: Extend the L2 switch driver for imx287 with bridge
-    operations
-
- .../bindings/net/nxp,imx28-mtip-switch.yaml   |  150 ++
- MAINTAINERS                                   |    7 +
- drivers/net/ethernet/freescale/Kconfig        |    1 +
- drivers/net/ethernet/freescale/Makefile       |    1 +
- drivers/net/ethernet/freescale/mtipsw/Kconfig |   13 +
- .../net/ethernet/freescale/mtipsw/Makefile    |    4 +
- .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 2032 +++++++++++++++++
- .../net/ethernet/freescale/mtipsw/mtipl2sw.h  |  648 ++++++
- .../ethernet/freescale/mtipsw/mtipl2sw_br.c   |  138 ++
- .../ethernet/freescale/mtipsw/mtipl2sw_mgnt.c |  442 ++++
- 10 files changed, 3436 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/Kconfig
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/Makefile
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.h
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
+c1e10d5dc7a1be MD Danish Anwar 2023-08-01   92  
+550ee90ac61c1f MD Danish Anwar 2024-08-22  @93  static const struct icssg_miig_stats icssg_all_miig_stats[] = {
+c1e10d5dc7a1be MD Danish Anwar 2023-08-01   94  	/* Rx */
+550ee90ac61c1f MD Danish Anwar 2024-08-22   95  	ICSSG_MIIG_STATS(rx_packets, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22   96  	ICSSG_MIIG_STATS(rx_broadcast_frames, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22   97  	ICSSG_MIIG_STATS(rx_multicast_frames, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22   98  	ICSSG_MIIG_STATS(rx_crc_errors, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22   99  	ICSSG_MIIG_STATS(rx_mii_error_frames, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  100  	ICSSG_MIIG_STATS(rx_odd_nibble_frames, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  101  	ICSSG_MIIG_STATS(rx_frame_max_size, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  102  	ICSSG_MIIG_STATS(rx_max_size_error_frames, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  103  	ICSSG_MIIG_STATS(rx_frame_min_size, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  104  	ICSSG_MIIG_STATS(rx_min_size_error_frames, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  105  	ICSSG_MIIG_STATS(rx_over_errors, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  106  	ICSSG_MIIG_STATS(rx_class0_hits, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  107  	ICSSG_MIIG_STATS(rx_class1_hits, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  108  	ICSSG_MIIG_STATS(rx_class2_hits, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  109  	ICSSG_MIIG_STATS(rx_class3_hits, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  110  	ICSSG_MIIG_STATS(rx_class4_hits, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  111  	ICSSG_MIIG_STATS(rx_class5_hits, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  112  	ICSSG_MIIG_STATS(rx_class6_hits, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  113  	ICSSG_MIIG_STATS(rx_class7_hits, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  114  	ICSSG_MIIG_STATS(rx_class8_hits, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  115  	ICSSG_MIIG_STATS(rx_class9_hits, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  116  	ICSSG_MIIG_STATS(rx_class10_hits, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  117  	ICSSG_MIIG_STATS(rx_class11_hits, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  118  	ICSSG_MIIG_STATS(rx_class12_hits, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  119  	ICSSG_MIIG_STATS(rx_class13_hits, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  120  	ICSSG_MIIG_STATS(rx_class14_hits, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  121  	ICSSG_MIIG_STATS(rx_class15_hits, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  122  	ICSSG_MIIG_STATS(rx_smd_frags, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  123  	ICSSG_MIIG_STATS(rx_bucket1_size, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  124  	ICSSG_MIIG_STATS(rx_bucket2_size, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  125  	ICSSG_MIIG_STATS(rx_bucket3_size, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  126  	ICSSG_MIIG_STATS(rx_bucket4_size, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  127  	ICSSG_MIIG_STATS(rx_64B_frames, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  128  	ICSSG_MIIG_STATS(rx_bucket1_frames, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  129  	ICSSG_MIIG_STATS(rx_bucket2_frames, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  130  	ICSSG_MIIG_STATS(rx_bucket3_frames, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  131  	ICSSG_MIIG_STATS(rx_bucket4_frames, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  132  	ICSSG_MIIG_STATS(rx_bucket5_frames, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  133  	ICSSG_MIIG_STATS(rx_bytes, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  134  	ICSSG_MIIG_STATS(rx_tx_total_bytes, false),
+c1e10d5dc7a1be MD Danish Anwar 2023-08-01  135  	/* Tx */
+550ee90ac61c1f MD Danish Anwar 2024-08-22  136  	ICSSG_MIIG_STATS(tx_packets, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  137  	ICSSG_MIIG_STATS(tx_broadcast_frames, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  138  	ICSSG_MIIG_STATS(tx_multicast_frames, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  139  	ICSSG_MIIG_STATS(tx_odd_nibble_frames, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  140  	ICSSG_MIIG_STATS(tx_underflow_errors, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  141  	ICSSG_MIIG_STATS(tx_frame_max_size, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  142  	ICSSG_MIIG_STATS(tx_max_size_error_frames, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  143  	ICSSG_MIIG_STATS(tx_frame_min_size, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  144  	ICSSG_MIIG_STATS(tx_min_size_error_frames, false),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  145  	ICSSG_MIIG_STATS(tx_bucket1_size, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  146  	ICSSG_MIIG_STATS(tx_bucket2_size, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  147  	ICSSG_MIIG_STATS(tx_bucket3_size, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  148  	ICSSG_MIIG_STATS(tx_bucket4_size, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  149  	ICSSG_MIIG_STATS(tx_64B_frames, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  150  	ICSSG_MIIG_STATS(tx_bucket1_frames, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  151  	ICSSG_MIIG_STATS(tx_bucket2_frames, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  152  	ICSSG_MIIG_STATS(tx_bucket3_frames, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  153  	ICSSG_MIIG_STATS(tx_bucket4_frames, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  154  	ICSSG_MIIG_STATS(tx_bucket5_frames, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  155  	ICSSG_MIIG_STATS(tx_bytes, true),
+550ee90ac61c1f MD Danish Anwar 2024-08-22  156  };
+550ee90ac61c1f MD Danish Anwar 2024-08-22  157  
 
 -- 
-2.39.5
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
