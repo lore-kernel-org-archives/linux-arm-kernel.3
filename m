@@ -4,65 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0432E83EED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 08:31:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7196CE83EED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 08:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vJvGt7s8JNtP3SsZ3S09HKPpVrd466t4v0LgkkRbzps=; b=zA58eF4mulfcZoVn42QeRRiyk8
-	xewnnbnmZTs0A2A2+jPlXnZckDLDh4ilPjM3xJAqyLDpgBh4vxfYr30kyLFAh6HVLO2NrNojUWq5d
-	2PaZspiJt/lEaX6Yto6ClaN0AlF7ebzil3fbB2B4U3XeNlRUcxxLGRnTSDSa/9fnNtQBqJPcZDR/y
-	Wny/igHtH89WFepgI0xh0ksKJf+8s5NuMBxGKCb12zRmozHhDSEtCDZGA5XzZBR3//RrL3HSPZJAu
-	/LDgRBG7vlnRUcZufQXsv5+bvPn4LHC5r563y0SSLmP9kP6pe3OW98s6bd4DJIw1CkKJxXr+YW50M
-	YJ8cd/bw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NCBj3cPxAZ2MWLZLzwYwQAwVpnbK5N+pvGgxtEfjqps=; b=Mgg2YKRGvhNwDddCLRyaAqnCe5
+	2ByARyaKxsTq3pVBcx6WCT6fC4O4zmSvuPbtrcnUk6MKhCDF3/QLvB/SGYR8HSEV3Nf7u6p7GPU1G
+	w8JoMDx+1Emdr80JOFybSDr+dg1NP0oF6RkpZuY4JpHhQ3UFslZezNz2rPbtJLjoqX/sQNi6qyzU5
+	M9bR8HCKBieVA49LSXVejI18+VZpq8HSOu/2QNyNTGFWIHRfc0d7G9qUO6EG0FUNd9QG3mwCQBXEk
+	Xi4i4ablnR7IvCVLnIDBYciHeYyYlnU63TqhXr9BEnXlBAVMbsKS+0dIFrs2QchSiuFcH6Zi1MBjM
+	+6QIgHZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnYIF-0000000872X-0BjR;
-	Wed, 04 Feb 2026 08:31:23 +0000
-Received: from out-171.mta1.migadu.com ([2001:41d0:203:375::ab])
+	id 1vnYJ2-000000087Bm-0XDI;
+	Wed, 04 Feb 2026 08:32:12 +0000
+Received: from mail-westus2azon11010048.outbound.protection.outlook.com ([52.101.46.48] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnYI6-000000086ZJ-1rry
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 08:31:19 +0000
-Message-ID: <3f88cd49-68f1-4276-a067-b7c6beadb27c@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1770193746;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vJvGt7s8JNtP3SsZ3S09HKPpVrd466t4v0LgkkRbzps=;
-	b=ozkXa3oRSqL0pW6TZmVec7dzzDltMBrBxgtPsbRrpkqaxkwxYhT4d29cvEPDbyN7trAdBR
-	NgULJ6hqoKqhEMhjpdn1Q7jx3QjfMzCl5ffzYqrZpwwwZsJol11tJ5L0/AeZ8LmC1AXSv0
-	KFerAdFSk6IOSNvoHurxVupZFuuHYMU=
-Date: Wed, 4 Feb 2026 16:28:57 +0800
-MIME-Version: 1.0
-Subject: Re: [PATCH v3 02/16] KVM: arm64: nv: Implement nested Stage-2 page
- table walk logic
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, James Morse <james.morse@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- wanghaibin.wang@huawei.com
-References: <20240614144552.2773592-1-maz@kernel.org>
- <20240614144552.2773592-3-maz@kernel.org>
+	id 1vnYIz-000000087B0-0bSV;
+	Wed, 04 Feb 2026 08:32:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LlNkA0VSe+QC+qBphxoWcrWsShA2WXRBPp/auj+Sdnkekg8h6/kwoqi3j9msxt8jQqErf05h6C/Hhla/vswRVnK9x9+WDR0kogtCqh50dJhQ1SgCrAZ+UDlxlKusa0j4SoXPQhQ4M6Kx0Q64OOCox9q+XNJDN5Im9LAwExUW6XzHnVpo3noee079Z9Mn8U7hgGeqZnxHPZfVGLRMZOUxnpCgd0spgCyze2S/P7c+GEizZnKp83FFRQwASoMXQkALzLsXcufqq4M/YWOjl3K7lqO8H7e2qL8/6ucC5yBMC1wXqueDorGdVWETo9Rv+nrYZw7sfDLVJGopVd1MILiK+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NCBj3cPxAZ2MWLZLzwYwQAwVpnbK5N+pvGgxtEfjqps=;
+ b=BL+wO8bW0NVy34BJB1Q1VJPRiyV9oui9IUnlYXE4qjOqyts5+Y6qEhKd2xzOaAp/C76EcujbyjPPU8kBc7w+AhOHNDkPTGqWtCGG8sd0CyKNjyK00Q3bNsYhyx0Xcb0A4ColKI5O8R2bi0PDnEBpVs9/oBwpAOTJTckH9XdNDxhkNLuRzYz1Su7CAYlMlorRhuxCXb6c2ElrR0x4uZ1nMqzWvuWDPRCDiEAUVRI7chpj2/psD5Ncfx2NovKYdHQW9TTjaXo4CDYYznItQ24MKzjp8++dk16H985IAIT6Pr+rCvGw15ptwI16GIhFPcJPhXu/hkig59xfIvw9pDoXXg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NCBj3cPxAZ2MWLZLzwYwQAwVpnbK5N+pvGgxtEfjqps=;
+ b=lTy5EYQ8/YotMNfvqSRvqV6SFxX77N+KK+L+5xPZZvd1zOF3snLPnZa7lVd4vrs6pabxPRgLAnoHQ0Kub09N0CsJmKNL9sAmnatZy+lm/gBo3jKKRmU8R8ghRVJiekdlLXGGjiGQWFU4sICq6KqNxBd5qNYVmd/4xWgxHDN3DZE=
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com (2603:10b6:208:37c::15)
+ by IA1PR12MB6355.namprd12.prod.outlook.com (2603:10b6:208:3e1::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.13; Wed, 4 Feb
+ 2026 08:32:03 +0000
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::5151:8ae3:f31e:4c9c]) by MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::5151:8ae3:f31e:4c9c%6]) with mapi id 15.20.9587.010; Wed, 4 Feb 2026
+ 08:32:02 +0000
+From: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
+To: Sean Anderson <sean.anderson@linux.dev>, Laurent Pinchart
+	<laurent.pinchart@ideasonboard.com>, Vinod Koul <vkoul@kernel.org>,
+	"linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>
+CC: =?iso-8859-2?Q?Krzysztof_Wilczy=F1ski?= <kwilczynski@kernel.org>, Lorenzo
+ Pieralisi <lpieralisi@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "Simek, Michal" <michal.simek@amd.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Rob
+ Herring <robh@kernel.org>, "Havalige, Thippeswamy"
+	<thippeswamy.havalige@amd.com>, Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>, Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>
+Subject: RE: [PATCH 1/8] dt-bindings: pci: xilinx-nwl: Add resets
+Thread-Topic: [PATCH 1/8] dt-bindings: pci: xilinx-nwl: Add resets
+Thread-Index: AQHclKMaN+gl9NbYb0yLlFjVQ+L6PbVyM+0A
+Date: Wed, 4 Feb 2026 08:32:02 +0000
+Message-ID: <MN0PR12MB59537BC8B60D76CCE0B1391CB798A@MN0PR12MB5953.namprd12.prod.outlook.com>
+References: <20260203002128.935842-1-sean.anderson@linux.dev>
+ <20260203002128.935842-2-sean.anderson@linux.dev>
+In-Reply-To: <20260203002128.935842-2-sean.anderson@linux.dev>
+Accept-Language: en-US
 Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Zenghui Yu <zenghui.yu@linux.dev>
-In-Reply-To: <20240614144552.2773592-3-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=True;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2026-02-04T08:16:45.0000000Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
+ Internal Distribution
+ Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=3;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN0PR12MB5953:EE_|IA1PR12MB6355:EE_
+x-ms-office365-filtering-correlation-id: 14cb7612-25d5-4446-9ae0-08de63c7df43
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700021;
+x-microsoft-antispam-message-info: =?iso-8859-2?Q?WJMAQ4Y/Y/bZgQeP4h4sxBXYKEh1LlYP+MA2qRgn4/HgB5ci2M+P9RNiOg?=
+ =?iso-8859-2?Q?859RU2mha1tio4V9TheP3s2eahwezAzl9VMuF+MHDT1Na5SkLKvXK/K+GA?=
+ =?iso-8859-2?Q?szNlVZOY0sM++9OYviFm7DyXNT3RLIqQy7kOu4zbl3KN69JIGaeZxmeR7D?=
+ =?iso-8859-2?Q?0RwWOWJBeTq7qULaIscpQzmSSO8n5FebqIK0VbLnTH+jmLp0lfAtqCDa9G?=
+ =?iso-8859-2?Q?1miVRjQ2iRkqFde19QYR7Ld+BfCK9nCEAIJ/gsxfYjUTuxmP1FtA7YiQzg?=
+ =?iso-8859-2?Q?Q/VASPm47i3LngP40WnsiAo8cFE4oN3myuvUL0z0yJ1BP7AB65SCHsJRBE?=
+ =?iso-8859-2?Q?U6dA7kYFEHlKSagHLF0hly4qP+ZJIQ6CyRyY0i8hJo1wgV8NKUQMxUxj1/?=
+ =?iso-8859-2?Q?sOQLe4NFAGM383pxdPv+IDdF84QPrimrK36Pcu1VdkWo4daNpVPAmO4Bur?=
+ =?iso-8859-2?Q?kTBp6MwfPfwMJbOYcmbTioyiXaJiFNwyPmgoRPMRBpRW7DCyKOFkkmb9+t?=
+ =?iso-8859-2?Q?Z9ipamOkBvjmmZAzQgFJy+wYYZKyIH/a/uR+6YfAjsgVFplG2VWgAshL5L?=
+ =?iso-8859-2?Q?hAly17a3tLGauGGdh0F5D6KY+0lp1zdWHIE+JRu4FsbhAaNT9tH78fiwCR?=
+ =?iso-8859-2?Q?HD6F2X3HJtwBWMg0ktpsvU90jTJvleOk1eIxiVxWZiqeP7zgf6nb53KR/B?=
+ =?iso-8859-2?Q?2YkpR6QKEWkLsf/dvkZdMoSeVehmqB3+WHSuhxYHgjGrQolPa6VfHCNeAW?=
+ =?iso-8859-2?Q?gLHkD52QrNXXPp2A9iCjeu9UwNUdxoje+EoDJeFJ5u0RCAYAHd3CsScgrI?=
+ =?iso-8859-2?Q?+sZwvna0Xj4oc03b6JxA9RkmxBmHGXOF+doqTWFb4vAGQFapyKLtfvnQgf?=
+ =?iso-8859-2?Q?cOfIUKUNYMt0lJZp46NcS594e6qfro8oMk9ub6kTJjwKzSpeXuF8GGNh0w?=
+ =?iso-8859-2?Q?FL79BP0WUpZDl/KQvZ1GRuGeotB8ItRUyXvmcI1Nzs/1YfgdAdVhXRO9P5?=
+ =?iso-8859-2?Q?DVqholL++3SqMmkBBH/TMs8gm0XT0igmIklm2Fq64AMZJjVmL55L1eGjcL?=
+ =?iso-8859-2?Q?nZPXJJgGmzxNU9BJrNkbxK7peirInl8HDFwXrEKMQmG2dWoUbVBZPAy0cq?=
+ =?iso-8859-2?Q?eoUwWVu2r3fPUN/KRs8+liUe+tBrAmC3qGjc7v9jCqCvD3lKLsxErv0BcM?=
+ =?iso-8859-2?Q?dan9NvE1rLI3W96Pgh3VKZ+NpizqiN9N870GvXgSLL0iClFaVfIs9XNRsl?=
+ =?iso-8859-2?Q?8Wcsgf1fCk1+5C1MX9FEewTeFnBKPxe4KIYiDVG0Yd5vO5FDsGKm2KhR1I?=
+ =?iso-8859-2?Q?Uf8u2GWFvB8d2aE+7IQaYlZf23zEso4VWqaZ6LAbSiKK7gmaVd/1sixmWp?=
+ =?iso-8859-2?Q?mdGpuyqssffgdC8HHfcpfuj1nJaXI09ekGGAhr5LZJL2c4VDstBSz9pMEz?=
+ =?iso-8859-2?Q?HkOcnkukaXAtRQ6n47oShQ2gV9kRLlt4G00zP/5/CU7/Yv7NV+355uiUvV?=
+ =?iso-8859-2?Q?f7dfyGFM4ZaOd4bd6B4DmZZnDmm9O7ZlYddz0nbOVEB9eLMbHD+clHOKNO?=
+ =?iso-8859-2?Q?BYM9rYjn0fMP1PnflwsCI4RNAfQwL576Nq2choqg/Ix9PWiNVcGRlM19K9?=
+ =?iso-8859-2?Q?xGwHOmltiQPBXr5gOEHZvEhdgyWGB44GXM5wlknvkZB3WGOL1CiFF4ujCS?=
+ =?iso-8859-2?Q?4WQFwsRlqAt7H0jgd8c=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5953.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-2?Q?zreitFkwL7o/4QALIIH6GLZYcKtT1FCcGA76M3IL8RtiAtXL+X06pDaVLd?=
+ =?iso-8859-2?Q?EWCo27Bui0UVLTkJ6bKpYBFhMYOboTQhXtnG6Q0BKjVDKniEVd1jJTl/Eq?=
+ =?iso-8859-2?Q?FqL5h5MEW+/nPzYNBUg51n0+La7/CkTmt8S4OZx0E15lvG6o7HRVAv7EBQ?=
+ =?iso-8859-2?Q?K4mIWYBFIigNr7Ryte9JU5dD8j83FhZmNabUZA+qll3d6EslqiJRSj8gN5?=
+ =?iso-8859-2?Q?PiFiFTLDv5H1E+7/9FPt+tcS/Cp5qx9Ho/s/MqIXEzxlq7ICTli3ZJcHdA?=
+ =?iso-8859-2?Q?nQm9buASrhViesKTipJgkb+BzfBmWx7iOekOrhjCAIESgWB0v6L6mig4Eu?=
+ =?iso-8859-2?Q?wU2VQyAYAcQvJ8Cpi8BR6+6fJYnw3ks9ibfFhPvdkVvGnk+h8WYnfmZeiy?=
+ =?iso-8859-2?Q?oqLr1/z346EVw28txt93h9BG2WM6nsMNIuS5ckqJ1AYfB7KBPX7l8R8YqI?=
+ =?iso-8859-2?Q?s7q6qr7sNVeogU4onRZlfD5SmZkoTD6txjXVrvSi8lJ0Z2pw4MVyffmVEO?=
+ =?iso-8859-2?Q?iPNm6BcmbKdZDeDpBucB4rNFduhBwumkc02BbmpJfZ+1g7xSZWNcqph+ER?=
+ =?iso-8859-2?Q?AujN4y7Jc0rklt8kyUlibgEY2dNyRnJzLuZucXyap2Rm8Eh62jp9lgBOVw?=
+ =?iso-8859-2?Q?yXTAckyj401z9R0FVZ3OBQ51nRnDb0fjbXtAGa6RfRJ5N8NukanwuEytG9?=
+ =?iso-8859-2?Q?WyJ/zNG1u5GwXmthFp4cXNrC86jubKBWH1Wgi84CE+B1tcUImyhuYbLiV1?=
+ =?iso-8859-2?Q?3fppMP5N46aS+1g6d8cxDb926nb6OpWVzeApqGCTOor8coWZ6snXBjvIvs?=
+ =?iso-8859-2?Q?WA5psDzGXwaOD5PxcNBF+f+fDrA95XdrZDhB3+kg9BWf0dlnAoJroqWzcV?=
+ =?iso-8859-2?Q?snKQhqnm0JvLp/nbxQP0lmtMGzpv+fCMe8LQLRtFTXaUdZIeeDta3vy7ZA?=
+ =?iso-8859-2?Q?lbKJcpQB5xDBlzaW3V70TloEkDURASGP/bypWf06k5hejdeu2bGQDu1g1o?=
+ =?iso-8859-2?Q?acwiBTQBJPJG2f8SnnMUtnsOGGvljDgX6QRRXjWmr00aYkWGW9/hn0/H94?=
+ =?iso-8859-2?Q?FLNiAqPXQq9TLEIcbzyY9ZlaH2HqcYy6qwWmu2Ys/Hrwwm+yoFfNS6NVhj?=
+ =?iso-8859-2?Q?kiTsd1cAj1+kHyVOF8cEmHDDNxZf2wTOWhnkiFhe49+ToUVdvWlx6NQzYX?=
+ =?iso-8859-2?Q?NpGVZYSb0j6P3mxq0lW2dFhe2Hpu3cG+fd2B2ERwf42Phyh6HCpVmaWkO2?=
+ =?iso-8859-2?Q?R6ul4Vj5zCxTQrg3BosBJvzpKUuSKKgKryHMeyU2FtpY3kSHlhjyEgKKQq?=
+ =?iso-8859-2?Q?L6hyordAWt5GjpeL8EBbEfK2IOxOra9RU0+hXh0skTDN0aDHwA/w1GL33u?=
+ =?iso-8859-2?Q?HWxLJjzkWk4NcMsf674QhBENrHlUSnnrnmzO/R961UfILSUFW7A64Vbmny?=
+ =?iso-8859-2?Q?Q+ILQFRjjMaI6mZ+GPCYu+k1YEitiG2r4llbDL2qj9fFYtwsSLvt9MpfsH?=
+ =?iso-8859-2?Q?XonGlnKwzWt+Pto+1KCunmBnkiP05BfJCcVToOeTCRFJKeUDOB4ofy+IGb?=
+ =?iso-8859-2?Q?3N5a2GzWh8XcTes2jj+Hk4F8dpj2VMAp/ejPcc7uwe2I+PtYgYrCcZ65cJ?=
+ =?iso-8859-2?Q?TYqHvA+Fk3ik0W4pxEm/mUmJrPjW2ff+19TVmQdi1JfugjV3jxoYqyvyz0?=
+ =?iso-8859-2?Q?AgPGmf+7dVBkAUAOCfDXc0Qf7r/QHWN/8L+2fi0TqP0aS9BBOmYJEDeznl?=
+ =?iso-8859-2?Q?UO12ZcT4Qq2h2ylAbv0OlQTeEV2GnStZEmZae2UA0KuvBu?=
+Content-Type: text/plain; charset="iso-8859-2"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5953.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 14cb7612-25d5-4446-9ae0-08de63c7df43
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Feb 2026 08:32:02.7800
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Y8JSX9k+VcuoCsF9lcY4/xzQs0ZeVriRDCrz9epIfqecvgnQWLJn2ijknztAy9tM
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6355
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_003115_057755_29FDBA59 
-X-CRM114-Status: GOOD (  23.62  )
+X-CRM114-CacheID: sfid-20260204_003209_184585_78F99420 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,168 +179,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+[AMD Official Use Only - AMD Internal Distribution Only]
 
-[ chewing through the NV code.. ;-) ]
+> -----Original Message-----
+> From: Sean Anderson <sean.anderson@linux.dev>
+> Sent: Tuesday, February 3, 2026 5:51 AM
+> To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>; Vinod Koul
+> <vkoul@kernel.org>; linux-phy@lists.infradead.org
+> Cc: Krzysztof Wilczy=F1ski <kwilczynski@kernel.org>; Lorenzo Pieralisi
+> <lpieralisi@kernel.org>; Pandey, Radhey Shyam
+> <radhey.shyam.pandey@amd.com>; linux-kernel@vger.kernel.org; Simek, Micha=
+l
+> <michal.simek@amd.com>; linux-arm-kernel@lists.infradead.org; linux-
+> pci@vger.kernel.org; Neil Armstrong <neil.armstrong@linaro.org>; Rob Herr=
+ing
+> <robh@kernel.org>; Havalige, Thippeswamy <thippeswamy.havalige@amd.com>;
+> Manivannan Sadhasivam <mani@kernel.org>; Bjorn Helgaas
+> <bhelgaas@google.com>; Sean Anderson <sean.anderson@linux.dev>; Conor
+> Dooley <conor+dt@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>;
+> devicetree@vger.kernel.org
+> Subject: [PATCH 1/8] dt-bindings: pci: xilinx-nwl: Add resets
+>
+> Add resets so we can hold the bridge in reset while we perform phy calibr=
+ation.
 
-On 6/14/24 10:45 PM, Marc Zyngier wrote:
-> From: Christoffer Dall <christoffer.dall@linaro.org>
-> 
-> Based on the pseudo-code in the ARM ARM, implement a stage 2 software
-> page table walker.
+Seems like this should a required property?
 
-[...]
+Rest looks fine to me.
 
-> +static u32 compute_fsc(int level, u32 fsc)
-> +{
-> +	return fsc | (level & 0x3);
-> +}
+>
+> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+> ---
+>
+>  .../devicetree/bindings/pci/xlnx,nwl-pcie.yaml  | 17 +++++++++++++++++
+>  1 file changed, 17 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/pci/xlnx,nwl-pcie.yaml
+> b/Documentation/devicetree/bindings/pci/xlnx,nwl-pcie.yaml
+> index 9de3c09efb6e..7efb3dd9955f 100644
+> --- a/Documentation/devicetree/bindings/pci/xlnx,nwl-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/xlnx,nwl-pcie.yaml
+> @@ -69,6 +69,18 @@ properties:
+>    power-domains:
+>      maxItems: 1
+>
+> +  resets:
+> +    maxItems: 3
 > +
-> +static int get_ia_size(struct s2_walk_info *wi)
-> +{
-> +	return 64 - wi->t0sz;
-> +}
+> +  reset-names:
+> +    items:
+> +      - description: APB register block reset
+> +        const: cfg
+> +      - description: AXI-PCIe bridge reset
+> +        const: bridge
+> +      - description: PCIe MAC reset
+> +        const: ctrl
 > +
-> +static int check_base_s2_limits(struct s2_walk_info *wi,
-> +				int level, int input_size, int stride)
-> +{
-> +	int start_size, ia_size;
-> +
-> +	ia_size = get_ia_size(wi);
-> +
-> +	/* Check translation limits */
-> +	switch (BIT(wi->pgshift)) {
-> +	case SZ_64K:
-> +		if (level == 0 || (level == 1 && ia_size <= 42))
+>    iommus:
+>      maxItems: 1
+>
+> @@ -117,6 +129,7 @@ examples:
+>      #include <dt-bindings/interrupt-controller/irq.h>
+>      #include <dt-bindings/phy/phy.h>
+>      #include <dt-bindings/power/xlnx-zynqmp-power.h>
+> +    #include <dt-bindings/reset/xlnx-zynqmp-resets.h>
+>      soc {
+>          #address-cells =3D <2>;
+>          #size-cells =3D <2>;
+> @@ -146,6 +159,10 @@ examples:
+>              msi-parent =3D <&nwl_pcie>;
+>              phys =3D <&psgtr 0 PHY_TYPE_PCIE 0 0>;
+>              power-domains =3D <&zynqmp_firmware PD_PCIE>;
+> +            resets =3D <&zynqmp_reset ZYNQMP_RESET_PCIE_CFG>,
+> +                     <&zynqmp_reset ZYNQMP_RESET_PCIE_BRIDGE>,
+> +                     <&zynqmp_reset ZYNQMP_RESET_PCIE_CTRL>;
+> +            reset-names =3D "cfg", "bridge", "ctrl";
+>              iommus =3D <&smmu 0x4d0>;
+>              pcie_intc: legacy-interrupt-controller {
+>                  interrupt-controller;
+> --
+> 2.35.1.1320.gc452695387.dirty
 
-It looks broken as the pseudocode checks the limits based on
-*implemented PA size*, rather than on ia_size, which is essentially the
-input address size (64 - T0SZ) programmed by L1 hypervisor. They're
-different.
-
-We can probably get the implemented PA size by:
-
-AArch64.PAMax()
-{
-	parange = get_idreg_field_enum(kvm, ID_AA64MMFR0_EL1, PARANGE);
-	return id_aa64mmfr0_parange_to_phys_shift(parange);
-}
-
-Not sure if I've read the spec correctly.
-
-> +			return -EFAULT;
-> +		break;
-> +	case SZ_16K:
-> +		if (level == 0 || (level == 1 && ia_size <= 40))
-> +			return -EFAULT;
-> +		break;
-> +	case SZ_4K:
-> +		if (level < 0 || (level == 0 && ia_size <= 42))
-> +			return -EFAULT;
-> +		break;
-> +	}
-> +
-> +	/* Check input size limits */
-> +	if (input_size > ia_size)
-
-This is always false for the current code. ;-)
-
-> +		return -EFAULT;
-> +
-> +	/* Check number of entries in starting level table */
-> +	start_size = input_size - ((3 - level) * stride + wi->pgshift);
-> +	if (start_size < 1 || start_size > stride + 4)
-> +		return -EFAULT;
-> +
-> +	return 0;
-> +}
-> +
-> +/* Check if output is within boundaries */
-> +static int check_output_size(struct s2_walk_info *wi, phys_addr_t output)
-> +{
-> +	unsigned int output_size = wi->max_oa_bits;
-> +
-> +	if (output_size != 48 && (output & GENMASK_ULL(47, output_size)))
-> +		return -1;
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * This is essentially a C-version of the pseudo code from the ARM ARM
-> + * AArch64.TranslationTableWalk  function.  I strongly recommend looking at
-> + * that pseudocode in trying to understand this.
-> + *
-> + * Must be called with the kvm->srcu read lock held
-> + */
-> +static int walk_nested_s2_pgd(phys_addr_t ipa,
-> +			      struct s2_walk_info *wi, struct kvm_s2_trans *out)
-> +{
-> +	int first_block_level, level, stride, input_size, base_lower_bound;
-> +	phys_addr_t base_addr;
-> +	unsigned int addr_top, addr_bottom;
-> +	u64 desc;  /* page table entry */
-> +	int ret;
-> +	phys_addr_t paddr;
-> +
-> +	switch (BIT(wi->pgshift)) {
-> +	default:
-> +	case SZ_64K:
-> +	case SZ_16K:
-> +		level = 3 - wi->sl;
-> +		first_block_level = 2;
-> +		break;
-> +	case SZ_4K:
-> +		level = 2 - wi->sl;
-> +		first_block_level = 1;
-> +		break;
-> +	}
-> +
-> +	stride = wi->pgshift - 3;
-> +	input_size = get_ia_size(wi);
-> +	if (input_size > 48 || input_size < 25)
-> +		return -EFAULT;
-> +
-> +	ret = check_base_s2_limits(wi, level, input_size, stride);
-> +	if (WARN_ON(ret))
-> +		return ret;
-> +
-> +	base_lower_bound = 3 + input_size - ((3 - level) * stride +
-> +			   wi->pgshift);
-> +	base_addr = wi->baddr & GENMASK_ULL(47, base_lower_bound);
-> +
-> +	if (check_output_size(wi, base_addr)) {
-> +		out->esr = compute_fsc(level, ESR_ELx_FSC_ADDRSZ);
-
-With a wrongly programmed base address, we should report the ADDRSZ
-fault at level 0 (as per R_BFHQH and the pseudocode). It's easy to fix.
-
-> +static void vtcr_to_walk_info(u64 vtcr, struct s2_walk_info *wi)
-> +{
-> +	wi->t0sz = vtcr & TCR_EL2_T0SZ_MASK;
-> +
-> +	switch (vtcr & VTCR_EL2_TG0_MASK) {
-> +	case VTCR_EL2_TG0_4K:
-> +		wi->pgshift = 12;	 break;
-> +	case VTCR_EL2_TG0_16K:
-> +		wi->pgshift = 14;	 break;
-> +	case VTCR_EL2_TG0_64K:
-> +	default:	    /* IMPDEF: treat any other value as 64k */
-> +		wi->pgshift = 16;	 break;
-> +	}
-> +
-> +	wi->sl = FIELD_GET(VTCR_EL2_SL0_MASK, vtcr);
-> +	/* Global limit for now, should eventually be per-VM */
-> +	wi->max_oa_bits = min(get_kvm_ipa_limit(),
-                              ^^^
-
-Should we use AArch64.PAMax() instead? As the output address size is
-never larger than the implemented PA size.
-
-Now I'm wondering if we can let kvm_get_pa_bits() just return PAMax for
-(based on the exposed (to-L1) AA64MFR0.PARange value) and use it when
-possible.
-
-Thanks,
-Zenghui
 
