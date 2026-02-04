@@ -4,91 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13806E9539A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 13:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47727E9539C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 13:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tCHDBqM6ytMvHYp/gV4FYmcPy+UxCdoKP3RWyGt2jks=; b=Gl3chh0fOQeOaaThzryJmHaZ5N
-	U+8wEZzPHsuADRJooaeDt90721Zvt7LYi5telQMOY0+5jf2Ejw1laMxjOKFTnedo23JUT5cWYpzTl
-	kfJr3fkboUwBRCwZJ7e66FqSTJeM2kt7aWbiTWKYmQ57qHxTYwT8ehX6EZJghjNIBOtcTij0lDhoW
-	SvbNRnguu8aDdfFQaDSgzmnF/JNAh1s6cxBK+jeceyOpkzIzhUZECc5jCv/NnY/T4Elp+e3JakczC
-	PJh+OOKnB6cTb6OrfgpfD1T9Y/fwiCvxmqo4aS1fTOqNZ2r/x9eTyQyq33RwDeRynlLdDOKXrqdk0
-	mj8M7tEQ==;
+	bh=reWXVJnbB0b+dccVjXGJ0t4HJxMmmK+uhlT+Nj1J8Pc=; b=RULZvFKl//Bhc0fZSsrWaT6Tr+
+	SvIxCduHPhgjGODw1xwpycXzj18FJZLK8Us0tIgsLGrxZjycYAvsf5+dNlX5yEjGI00DzdYnjelA7
+	Z1m6Y7ZkJd7U1jdXcmlmITn9NHKtg3IA1C1Y1PEWMQ8M69UhX3pwSqndAlgEWqGhddUPIfj4Fy9ld
+	UK1XjwYGBabvpO5xrULWsBTdeuPVeDhjB3Ux5cwO9nRwG0dEEer7Bl8K8yUhht53KA8mVWhN9Ftma
+	podbcNTgGHrQfd5rn23nyDfznT1z+IRQS5cB0DXW7v3IFY8S7MfuMqNaSw3YlBBF8/8O9F8kV+N2K
+	87OUvRvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vncxQ-00000008WCt-27rl;
-	Wed, 04 Feb 2026 13:30:12 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vnczA-00000008WNI-3nIT;
+	Wed, 04 Feb 2026 13:32:00 +0000
+Received: from mail-westeuropeazon11010037.outbound.protection.outlook.com ([52.101.69.37] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vncxN-00000008WCO-4C6d
+	id 1vncz7-00000008WMp-3MND
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 13:30:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=tCHDBqM6ytMvHYp/gV4FYmcPy+UxCdoKP3RWyGt2jks=; b=kKNTXVc6poLvYmBbI9GJF1XvGT
-	2AwzNnp2Q3jVa1HnVN98MHP9+h30YWiKYpVzikQ6AWGdxXPcGLLfqoy3yCXHRYV0cHRFbnrVTzZ+Z
-	0vk1r2F91EdHgO2oY9u5wjT3DMkLEdYFEid0L6QLugbENRudvslVfRyoLsohMz7nccikL2zK/wsIG
-	Cp34le1I/WhqXrFdZzB9E5WKJcC3PdCkdUJ6RkZtd2/fsBEML1vEJN8SKpYvKvO3GZeVC0nq9hjnh
-	jatqzD34HOvie9uVdNyc5qa78RjA7PkRDEAvR29Wl3jRhO7LZNAfcUxyvXZlAgElSta4UxKRIegjZ
-	VtLFVMkw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:52534)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vncx7-000000006O0-1edz;
-	Wed, 04 Feb 2026 13:29:53 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vncx3-000000005PP-1Uvf;
-	Wed, 04 Feb 2026 13:29:49 +0000
-Date: Wed, 4 Feb 2026 13:29:49 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	"Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Eric DeVolder <eric.devolder@oracle.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Kees Cook <keescook@chromium.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@somainline.org>,
-	John Crispin <john@phrozen.org>
-Subject: Re: [PATCH v2 0/2] ARM: decompressor: support AUTO_ZRELADDR and
- appended DTB
-Message-ID: <aYNJzbSxfpRza4no@shell.armlinux.org.uk>
-References: <CAMuHMdWnNzktSecsPX_anf=PCuLrZUT-6TO7KXGCHeQVTS974g@mail.gmail.com>
- <aYCDOio-YdUJAf2v@shell.armlinux.org.uk>
- <CA+_ehUx=3Ci2hN0YYkLxBNwOu_NTHFe_ZKkw9TH+bU-4PwTD-A@mail.gmail.com>
- <86v7gf9z92.wl-maz@kernel.org>
- <CAD++jLkgtgi1obmiuon=1XhOmT5cwtsMmBE37-wkzE_W55ZV2Q@mail.gmail.com>
- <aYKgaDtb7Ba09Paf@shell.armlinux.org.uk>
- <CAMuHMdX99kB5oDoxy8=yk_D8g=bCwwUON-uMkT7zSPq0=DASVA@mail.gmail.com>
- <aYMzk9cIgD-XDujY@shell.armlinux.org.uk>
- <aYNAAsD6dlMi-35Q@shell.armlinux.org.uk>
- <CAMuHMdWxA5Uq2m5sfiG8=WzqKiEmXA0sp4fYGWOvQwhzubDUXg@mail.gmail.com>
+	Wed, 04 Feb 2026 13:31:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CQ/XFKPEoQEOXQdhIfkjgu1eqnEviRifC3Dx3rReKqub01ZZq3RC2WoEukHo+w2Dm07cPd54on4rLj3kegfsM1wXsW9mfSbcAytNDjsvc56+BUDGwue11zXv3qi0eKOVh3CM9g7oVFJVXSkIK/kIZ+gB+k02VIslPhIj5ZEUxjoPlTbngTA6uw1O404BsKjgG8bgSYNGtPAydtO/sn04s0MPkmk7ASNHjfnBh/FIrlyWHTSEybw6Mcr+TVAJWFNJo0X+6rf8Gzci8ASicyk6xYkDXyI11MZosZwOkwbllkocG0WVKWT2ketdpVuUiGkdU3RdpRrO9JDviCxv6bZBaA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=reWXVJnbB0b+dccVjXGJ0t4HJxMmmK+uhlT+Nj1J8Pc=;
+ b=d0YEFFderd/WSoQR+udaJ84/av+wv60cC87W3iJB+4C1Xij4SOV+EEE5GEAmGKWNrffzOKP0Aq5tZLlCYL8h69shd6JM8yDajE5+amLgomJfPa/2XmX0j/dIAndPdifordN4qsh/xrUYxAO9JoKjV6ADC/uEOVY94S705zJueuZgjt8cNiMDFjdWq0N0HKvKRIkFsh46/4w99d+UhDZ3hpqRhYJw16atU4dt5bNj7LZu7uPo7Z4Il5KovjXatoc8pZ5iTest2W3EGZmXflae17qAo/kLaC0h0VwwAf96GX/GS+vU9K5zNMsBPRzNMg5hSrkFtzlQw6NxC01MiPK17g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=reWXVJnbB0b+dccVjXGJ0t4HJxMmmK+uhlT+Nj1J8Pc=;
+ b=d5aLuH/dK78MDiAM/XzIoXGMKeHEw58iG7w0MtI64HsEt4nHzN96j1NyFxDQkDtDd4D9DAxx8+hfWGcXc4fknEpCYAtAkkZridxVOmHA/dST15N+wNcn+mrdag9lRU6v3+x+djJbu14SJnIr7FQ8SgtC9Sk9pzo+rn8C4uk1D6lkz36K+7zluz5iZiFVVo3qTnjn2dKmWkZvnJW3ZLEA2tGPbr7B5/ZvOg17pq4Nm6ZdoDC0yImeo947fvn/39cZiLt9l0o8tzKssSqY6FIXzagy0McZ9xKo4KtTfsVwpSW7uMCF77AHrB6ZAnrycGF43vE5m0EerkvoEGoZ2Ao9nQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA6PR04MB11910.eurprd04.prod.outlook.com
+ (2603:10a6:102:516::16) by PA1PR04MB12198.eurprd04.prod.outlook.com
+ (2603:10a6:102:560::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Wed, 4 Feb
+ 2026 13:31:51 +0000
+Received: from PA6PR04MB11910.eurprd04.prod.outlook.com
+ ([fe80::d3f0:3c24:f717:4989]) by PA6PR04MB11910.eurprd04.prod.outlook.com
+ ([fe80::d3f0:3c24:f717:4989%4]) with mapi id 15.20.9587.013; Wed, 4 Feb 2026
+ 13:31:51 +0000
+Message-ID: <b81b6e6a-10b7-43eb-b857-6c0d2636427e@nxp.com>
+Date: Wed, 4 Feb 2026 14:31:47 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: Re: [RFC v1 07/11] media: Add meta formats supported by NXP
+ neoisp driver
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Cc: julien.vuillaumier@nxp.com, alexi.birlinger@nxp.com,
+ daniel.baluta@nxp.com, peng.fan@nxp.com, frank.li@nxp.com,
+ laurent.pinchart@ideasonboard.com, mchehab@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+ s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+ linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260123080938.3367348-1-antoine.bouyer@nxp.com>
+ <20260123080938.3367348-8-antoine.bouyer@nxp.com> <aYIsHfpMc2DZXYBr@zed>
+Content-Language: fr
+From: Antoine Bouyer <antoine.bouyer@nxp.com>
+In-Reply-To: <aYIsHfpMc2DZXYBr@zed>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AS4PR10CA0011.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5dc::14) To PA6PR04MB11910.eurprd04.prod.outlook.com
+ (2603:10a6:102:516::16)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdWxA5Uq2m5sfiG8=WzqKiEmXA0sp4fYGWOvQwhzubDUXg@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA6PR04MB11910:EE_|PA1PR04MB12198:EE_
+X-MS-Office365-Filtering-Correlation-Id: b937e0bd-c7e5-4bc6-be04-08de63f1c0e1
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|19092799006;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bUE4eHgzRzAyVnJxcDcvRlR4RTV1a0dYdWVrZERUOXpMMkRGTndiR1A0N3Fi?=
+ =?utf-8?B?YWF4aUlNaWtYc1ZQME0rMWRWNjZuSHE0VlBCazF4akNrSFFoVzU0UW5ycjl5?=
+ =?utf-8?B?VGhFc0VJc2s2WVdpSTZmejFmcDRFQWs2OTExWGRwQU9GSkdwVVFYNTdVNCsw?=
+ =?utf-8?B?Q2NHcU5mUElncjltSGg3MmhYVkV6Sk5waG0rWUdUS0pNK0Z4VTFMRExLUGt5?=
+ =?utf-8?B?NjZEWndQZlBCRkdwQ2lPSmR0QUNscDc3K2Y0UlB2aGFHWWEraFFWVWJSa0JI?=
+ =?utf-8?B?Qm1sOTVEa0tzTThuZ3NIQUc0d2VnTGZVTjA3d0ZLc1p4WWVFYTFMNzhQaDMr?=
+ =?utf-8?B?aTEyanM2eFMvNDUzSTJIbUZiVU56YTI1VHl4OHA3Z2xkTm9MdWkxRTlONW9D?=
+ =?utf-8?B?dzIyS3dmNmVUTngvK0NCbHEzUzFReWI0N3MzWm9wU0lFZzJ5VE56RENrNkVv?=
+ =?utf-8?B?UE0rZFFuNHZDQmJtWVN4c01ZbjcwcnZ2Q0JxeWZOMnlmNG9CQnlIS3RyZW1E?=
+ =?utf-8?B?YUhEbFRRS1V0WC85UnB3cGxncVpSVGsrRllWWldkMWc1UE9YdjIzeEZKdFNs?=
+ =?utf-8?B?cU5qZ20vYWJ4MUZHUEQ3MVNDWmdmcFFwbnU3N0xlTnpEVGcyMUVpMVE3U3pJ?=
+ =?utf-8?B?WFdTNGZMN0VkTEJnZHlJU0hwWkFnV0xENHQ4MkJUV3NxK21nUHZBUFVsU0Iw?=
+ =?utf-8?B?UFU3b2hkUU9nTk81ZzI3Y2VYRjZNUm92RkxCQXpoMFc3NldZblFRTXlmSC9V?=
+ =?utf-8?B?bm9EbzRHTzRuT2ZqWjhFODJKS205eEMrM2lud1pMbE5JK0tqeUFEZW1zU2hF?=
+ =?utf-8?B?MlBnQ1BBa2MvWDZnWE12a25NSEY0TFZMaXBZNURoT1M5MTZYN2FFUEsxZlV2?=
+ =?utf-8?B?M2VoUHoxUXNBSXJNSTlQYTkwUDAvSThiS0U1eTVrT0VXN3oxbXdkQW16aGFp?=
+ =?utf-8?B?TVlWc3R1bXV4Y0RrTk9ZbGlYakcxZEFseDhCd1hkZWFWSmtmY3VoRklUT05i?=
+ =?utf-8?B?M2NMY3NYSFByUmVDV3hPb3l6VUVNaGE2ZlltSGNteXBialdBVFpmVy81YUgw?=
+ =?utf-8?B?YzQyQTVBekVJNmZJbUt5MXlsUkdKd1ZFRWllM1BKOEwvQ3I5SktpMVZMQi9a?=
+ =?utf-8?B?cnAySXBIenpicmtWS2NOWWF4OFZ6aC9neTV3Y2czMUlpQzhmUUVabzNMSENz?=
+ =?utf-8?B?NDBWREdvbEFJUzR4M2RFcWpWQmd3dHhFNjJWaHJEb01QRWVJSk9uOUFxSDVH?=
+ =?utf-8?B?TFZDYU5lbkNDZzREV2o1WFRzdFJnd056ckRCVHdFc0NzZUFwZ0Riclg0NGFT?=
+ =?utf-8?B?WWNLSjNNcFoyMVRLYjFKZlNRVDN3NElGeEluVXBQVDZmQlJVZnVTZG1xQnB6?=
+ =?utf-8?B?ajc3VjF0d1AxWXJRSTkraDZFVklKTm40WEVSbG9UK2kxSitwYUR1blZXc1Fy?=
+ =?utf-8?B?d05iSjRUR2xPYjhXMlo0N2I5cE9DUUZMNWJWVmNla0RySERZM3hTRHFEY1Bh?=
+ =?utf-8?B?UzZaUit6RDFTZ1YrQnB1UFJld3Y3LzkvY0JiekREdXRXMUhKMVlMYTZ6Nnor?=
+ =?utf-8?B?QU52dG1XMkpKQ3c3cUZ3bzNnQzNKcEc0dVdHQ3dkaVFjZVAwY0dzVG0zdmcx?=
+ =?utf-8?B?alZSakYwVjExVWpWYndBZ2VzRkJYdFpkRDNlQXFGNmlraDdNeC9vdk5aKzNx?=
+ =?utf-8?B?MWtYeFY5NVFqdDcrcGhoL2JOVU9RQ3VzZlVmTUJuTmh6dGVxWS80UHJHSmdT?=
+ =?utf-8?B?SmhBb3Y4amtvb3U5MlljU1BTWmhmRW1neXMvcjRJKzFiZHp6cmx2T2RhaFNZ?=
+ =?utf-8?B?bENsOGZTWFFpVDhxV0pKeUNtcGtubllnRHdlWWdTcGtEeVU3UXdCaUMrRXVi?=
+ =?utf-8?B?b0w4c25aZHRiNXZrOC9xVUJCM1ovTkhLTGpWa2xtdHdvOFgwTUlvNVBYYVdH?=
+ =?utf-8?B?dWt4VDBkdjBzQ292ODgzNHRhd0ZoZmRzNm5RREN0K2IxcjhSUlNMaUhKWmgw?=
+ =?utf-8?B?N2ZDMXc0c2RZWUphQk9WckxVNERPOEI4MWovQUtpQk9CekVIeE1JbE1RUFVr?=
+ =?utf-8?B?NDd6Y0RzYTZoN3FNZ0JETjNsKzU1UW12Rlc0UGZ4WnBzb1l6NjRCaG5NcWpD?=
+ =?utf-8?Q?kYy4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA6PR04MB11910.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(19092799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cVp3aVlpRndYUXFabVVFNmVyc3M0TW5ETzFYVzZ2ZnV6NGxhM0thYmlSenAz?=
+ =?utf-8?B?NGFOS1RYTFJRV3Nna0VMeG5qYlgxd1RWcnRUalZudXFlNDVvSGQ1K1pLUFow?=
+ =?utf-8?B?V1pNMlhSaGppTDFLRWE0dFpoNE1TWjdGVFhGVmw3eWMzbk5BMUNoU0oreThI?=
+ =?utf-8?B?ZWR6UEdXWWZJZFU1MlNCWVhiV3dWbUErMWNZZWtwbURDYmlWdW1PaTNlbTJ2?=
+ =?utf-8?B?Njc1VmVnaFk0S2xzTGNDVmJ2U1VrVXJoaldxTVIxSHlNOEl3RFhJcEtrM0VV?=
+ =?utf-8?B?SzdVVXp2WEhEd2h0VEhOWE04aGJZeTZ0cHpwYUlSUVI4SzhnQWVVdnpLMC83?=
+ =?utf-8?B?cUpvOXp1YWQ3Skd3UVR3SkF6NzFITjlBVFNpQXhhMDByaFJRc2hYd0ZXVzJN?=
+ =?utf-8?B?dmZOMmdZVmtVSmJ4dzY1YjJrd21LUS93SGtLc01veWFvdkRHdlZPVG1kM2R5?=
+ =?utf-8?B?bngxQmhBeXFOd0VJY0RGUnVTZGpmOXpDM1JNMEVrd1ZZVWdQL0pVZWJ2N2Q2?=
+ =?utf-8?B?SGxBY0Z4ZklqOXJFUTNVczNueHIrNXpVVjN0dkZNMC9kNnExSFJpY2lSS1ZR?=
+ =?utf-8?B?dXlNWHMxbmxPcTBpSlB4cnRRQ3RORENVUENPNWxZZnREdG96ZVZkMGdxc3No?=
+ =?utf-8?B?MGFqMGdZMzM0Sjh2VmcrSFJTcEJhdHdEQk9iTGdMUjdNYkEzUU9CZlAwWncz?=
+ =?utf-8?B?TmxyVnZIVjZYTW1jMnIyVFJveFF0RXdMTExsY0ZQWmpxRUoyTE5EM3M5N3k3?=
+ =?utf-8?B?YjdlekRZdEhPbGJiRUY1T1A4NjdrK1NRRk9yRnllOVhaVjFFTExMeWlScUFH?=
+ =?utf-8?B?dG15dFVSODhmdVBGelhBdkN4ODBKQzQyVnZzRFBRSTFjemdzRjkyZTQ4elRO?=
+ =?utf-8?B?cVNVRkhTaWFaeWx3K0ZiQ1BhVU8wSG93ODd6RG1FWW5vc3lZdUV1aVlxQm5Y?=
+ =?utf-8?B?QkN1V3Q2eS9NOHE2dk5WcXgzWXA5blNWdTNYZ1FuMnYrYXB4cFA3bDdXZmpC?=
+ =?utf-8?B?MnlmYmRmbkRudWQ3Snc4SDB5SEU1NTJEZjNobysrdUpHVXNBRDNYRWE1T1A1?=
+ =?utf-8?B?RE9uNEluWDJ5SkFJNjd6TVQyb250MFFZcExqT2FhSkN1ZjhUK2ZTRnhJZ2N2?=
+ =?utf-8?B?S2VDNFdxVVhQeGExZDZDNkpzWVJ3MDQyTSs0TVBsaXRRRllMb1FSZlYrYlZE?=
+ =?utf-8?B?c0s0cElOc3ZsS0R3aWtiTWxnU01qTjdpV2oyNnZKa0dPNi9ucXhSSkR6Y0RE?=
+ =?utf-8?B?empFMHdQcmNWbmY0NGxndmVpR09uTG0zM0I5anliM2FFNXdEcE9hL2dWa1l1?=
+ =?utf-8?B?djlWTmFiWnh6Snp2elFHcFEybGtsTjVJc1pWUDlyTHF6cUY4bjJqY0JNQm81?=
+ =?utf-8?B?VW9UZlpla1dMWVlVRmJGOWZFMUdMdFlxQkQxZlB6U0JHbThLZ2V1NGl6KzJQ?=
+ =?utf-8?B?akZjcjVlbktmT09ra2daSGIvc1lVRFNsUGFQaE45U2FUVDRnR3p2bkJBMnla?=
+ =?utf-8?B?OGpHWHdxZ0syNEJCQ3VXM1MvTFF6ekIyTFBUQWk3N3ppVlFFbnV4U1RSZmw5?=
+ =?utf-8?B?VzhlOFYwMUEvbjZRV01lL2crVC93RHM2cS9MWjRKNXViZUEyNm12KzQ4L0ZT?=
+ =?utf-8?B?UjI5aC9FSmFGRWdoa3hBNDllQTdLSVRvM0NFcDFacG03My9VOFJRY2pHNWJn?=
+ =?utf-8?B?UGkwZWVwaVFDQjgzcW5OL0MwZkRLcUJKVzJKcmNLYlU4SmxlclZ0U3o0Ykc2?=
+ =?utf-8?B?bHFQWFRoVlZEay9IVXJaSVBoMDZGY08xdDBuY2oybnM0clpXRGlUajdyNTFs?=
+ =?utf-8?B?WHNsUWFRYWowNFFBa2I0b1Y0ZlNJcVRjTExUanpGL2VpekQ1YWRBWm5BVGJi?=
+ =?utf-8?B?Z1M5eXhPR0d2UkpjbFEydnU2WEtPQ1YyWHhrRkVqaW8rMkJOKzFzSUExeFNY?=
+ =?utf-8?B?ZTFJelorNjRPRXRIdjJRaUpWYnlvZWxqWHRlNk8wRitISFBqRlpDUFJTaWIv?=
+ =?utf-8?B?RlJQeGZyRmdranYwR205SEJvYjJreVlwTWxiZmNFVTE3SDdHYVd4bENsdmsy?=
+ =?utf-8?B?ZmVTZ3R3NlJxTy9XWTNhN1hNN1BKN1l4NHhlS1BHS1UvK3lheHpBY0JiU3Jv?=
+ =?utf-8?B?anltYUJaZnE4aUkxN0l3OWhWbERBQzFhKzRPNW0xdHNWQVdCTks0Q25iTUF0?=
+ =?utf-8?B?OWcxK1EzZEtTUlczeTNYUFRJTzE5VnptNFZldUdwdnJEYkJsaldWNFE3V3ZX?=
+ =?utf-8?B?VTF1VmljVEh2cHVrVG0zRmJxZENxK2VuZk9abzE4ZjRBU3dFNjdiNkhzL1Ny?=
+ =?utf-8?B?bjZSR1I4YzRoNHpHZzF4bDY5cnlad2pjQ3BOTzJVb2p4MDRISDdrQT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b937e0bd-c7e5-4bc6-be04-08de63f1c0e1
+X-MS-Exchange-CrossTenant-AuthSource: PA6PR04MB11910.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2026 13:31:50.9245
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1aYcb917m6qKPcjL4w/tlq50IwhPtm6EzN9t319EJMt/zeHC9R1uOLQqeP5Ya4gwQvHIOwXjIizo2CVL9z3zUQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB12198
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_053010_214748_2E6ABA0F 
-X-CRM114-Status: GOOD (  59.29  )
+X-CRM114-CacheID: sfid-20260204_053157_890672_263B10E0 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,150 +188,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 04, 2026 at 01:58:21PM +0100, Geert Uytterhoeven wrote:
-> Hi Russell,
+Hi Jacopo
+
+Le 03/02/2026 à 18:11, Jacopo Mondi a écrit :
 > 
-> On Wed, 4 Feb 2026 at 13:48, Russell King (Oracle)
-> <linux@armlinux.org.uk> wrote:
-> > On Wed, Feb 04, 2026 at 11:54:59AM +0000, Russell King (Oracle) wrote:
-> > > On Wed, Feb 04, 2026 at 11:53:30AM +0100, Geert Uytterhoeven wrote:
-> > > > On Wed, 4 Feb 2026 at 02:27, Russell King (Oracle)
-> > > > <linux@armlinux.org.uk> wrote:
-> > > > > On Wed, Feb 04, 2026 at 01:36:29AM +0100, Linus Walleij wrote:
-> > > > > > However, I think it is a thick requirement to put on hobbyist
-> > > > > > contributors to go and write entite boot loaders from scratch,
-> > > > > > I think it's a fine requirement to put on Qualcomm or Renesas
-> > > > > > paid maintainers.
-> > > > >
-> > > > > If we're talking about older boards, then why have they only recently
-> > > > > became a problem, when, presumably, they've been working fine for a
-> > > > > decade or so?
-> > > >
-> > > > These boards may have been working fine, given the right "legacy"
-> > > > kernel config options were used.  However, some of these option make
-> > > > the resulting kernel limited to that platform or even to a specific
-> > > > board (e.g. when CONFIG_CMDLINE needs to be used).
-> > >
-> > > The 32-git ARM kernel has had a way to pass the command line to the
-> > > kernel from the boot loader since day one.
-> > >
-> > >       First it was the struct param_struct.
-> > >       Then it was the ATAGs that was introduced pre-git.
-> > >       Now it is DT.
-> > >
-> > > The kernel retains code to parse all three methods of passing data
-> > > from the boot loader to the kernel. The decompressor has support
-> > > for merging the ATAGs into the appended DTB, which includes merging
-> > > the command line into the DTB.
-> > >
-> > > Without an appended DTB, the pointer to one of the above will be
-> > > passed to the kernel, the kernel will figure out what it has and
-> > > parse one of the three ways, and use the command line there.
-> > >
-> > > The only case where CONFIG_CMDLINE should be used is when there is
-> > > no command line passed, no way to change it, etc. At that point
-> > > there are two options:
-> > >
-> > > 1. Augment the kernel's generated FDT with the command line node
-> > >    and load that modified FDT or append it to the compressed image.
-> > >
-> > > 2. Use CONFIG_CMDLINE, which means that the kernel _will_ become
-> > >    specific to the platform that needs those arguments. No getting
-> > >    away from that in this case.
-> > >
-> > > Maybe you haven't explained the problem very well, but I don't see
-> > > any issue with this.
-> > >
-> > > > The KZM-A9-GT I "need" this for never had upstream U-Boot (I don't
-> > > > think I ever had any U-Boot sources).  I can boot a shmobile_defconfig
-> > > > multi-platform kernel[*] fine, iff the first patch is applied.
-> > >
-> > > So, what have you been doing for the last 14 years to boot this
-> > > platform (merged in 2012) without this patch?
-> > >
-> > > Please explain:
-> > >
-> > > - how it worked before - I want to know how the DTB is passed to the
-> > >   kernel, what information is provided from the boot loader, whether
-> > >   that gets merged into the DTB, etc. All the fine nitty gritty of
-> > >   how it worked and what doesn't work, what the problems were etc.
-> > >
-> > > - what changed (it sounds like you want extra features)
-> > >
-> > > - why (in detail) it doesn't work now.
-> >
-> > I want to know:
-> >
-> > - Where RAM is located.
-> > - Where the kernel is being loaded.
+> Hi Antoine
 > 
-> tftp 0x43000000 kzm9g/zImage.dtb
-> bootz
+> On Fri, Jan 23, 2026 at 09:09:34AM +0100, Antoine Bouyer wrote:
+>> This patch adds new v4l2 meta formats definitions and descriptions used by
+>> neoisp driver for the parameters and statistics buffers:
+>>   - `V4L2_META_FMT_NEO_ISP_PARAMS` used for the legacy fixed-size
+>> parameters buffer structure.
+>>   - `V4L2_META_FMT_NEO_ISP_EXT_PARAMS` used for the generic v4l2-isp
+>> extensible parameters structure, supporting a non-fixed-size buffer and
+>> changeable ISP configuration blocks.
+>>   - `V4L2_META_FMT_NEO_ISP_STATS` used for the legacy fixed-size statistics
+>> buffer structure.
+>>   - `V4L2_META_FMT_NEO_ISP_EXT_STATS` used for the generic v4l2-isp
+>> extensible statistics structure, supporting a non-fixed-size buffer
+>> and changeable ISP statistics blocks.
 > 
-> > - Whether the platform reserves any RAM that may overlap with the kernel
-> >   or where the kernel wants to locate itself in RAM.
-> >
-> > From what I can see from arch/arm/boot/dts/renesas/sh73a0-kzm9g.dts,
-> > memory is at 0x4000000..0x5fffffff - 512MiB.
+> Uh interesting, you have existing userspace that needs legacy formats ?
+
+Yes we do have some available here (version with extensible formats will 
+be the next one):
+https://github.com/nxp-imx/libcamera
+
+Not in mainline, thought.
+
+BR
+Antoine
+
 > 
-> Correct.
-> 
-> > So, provided you load and execute the compressed kernel image within
-> > the first 128Mi of memory (0x40000000 - 0x48000000), then it will select
-> > 0x40008000 to decompress itself. I can find no mention of any reserved
-> > memory regions in the DT file, so this should be fine.
-> >
-> > If you're loading the compressed kernel at some wildly different
-> > address, then yes, it probably won't work.
-> 
-> It also works when loaded at e.g. 0x42000000 or 0x44000000,
-> but not at 0x41000000 (all with [PATCH 1/2] applied).
+>>
+>> Signed-off-by: Antoine Bouyer <antoine.bouyer@nxp.com>
+>> ---
+>>   drivers/media/v4l2-core/v4l2-ioctl.c | 4 ++++
+>>   include/uapi/linux/videodev2.h       | 6 ++++++
+>>   2 files changed, 10 insertions(+)
+>>
+>> diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
+>> index 37d33d4a363d..c797cf11be38 100644
+>> --- a/drivers/media/v4l2-core/v4l2-ioctl.c
+>> +++ b/drivers/media/v4l2-core/v4l2-ioctl.c
+>> @@ -1471,6 +1471,10 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
+>>        case V4L2_META_FMT_C3ISP_STATS:         descr = "Amlogic C3 ISP Statistics"; break;
+>>        case V4L2_META_FMT_MALI_C55_PARAMS:     descr = "ARM Mali-C55 ISP Parameters"; break;
+>>        case V4L2_META_FMT_MALI_C55_STATS:      descr = "ARM Mali-C55 ISP 3A Statistics"; break;
+>> +     case V4L2_META_FMT_NEO_ISP_PARAMS:      descr = "NXP Neo ISP 3A Parameters"; break;
+>> +     case V4L2_META_FMT_NEO_ISP_EXT_PARAMS:  descr = "NXP Neo ISP ext 3A Parameters"; break;
+>> +     case V4L2_META_FMT_NEO_ISP_STATS:       descr = "NXP Neo ISP 3A Statistics"; break;
+>> +     case V4L2_META_FMT_NEO_ISP_EXT_STATS:   descr = "NXP Neo ISP ext 3A Statistics"; break;
+>>        case V4L2_PIX_FMT_NV12_8L128:   descr = "NV12 (8x128 Linear)"; break;
+>>        case V4L2_PIX_FMT_NV12M_8L128:  descr = "NV12M (8x128 Linear)"; break;
+>>        case V4L2_PIX_FMT_NV12_10BE_8L128:      descr = "10-bit NV12 (8x128 Linear, BE)"; break;
+>> diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
+>> index 848e86617d5c..5f4992452c66 100644
+>> --- a/include/uapi/linux/videodev2.h
+>> +++ b/include/uapi/linux/videodev2.h
+>> @@ -889,6 +889,12 @@ struct v4l2_pix_format {
+>>   #define V4L2_META_FMT_MALI_C55_PARAMS        v4l2_fourcc('C', '5', '5', 'P') /* ARM Mali-C55 Parameters */
+>>   #define V4L2_META_FMT_MALI_C55_STATS v4l2_fourcc('C', '5', '5', 'S') /* ARM Mali-C55 3A Statistics */
+>>
+>> +/* Vendor specific - used for NXP NEOISP sub-system */
+>> +#define V4L2_META_FMT_NEO_ISP_PARAMS         v4l2_fourcc('N', 'N', 'I', 'P') /* NXP NEOISP Parameters */
+>> +#define V4L2_META_FMT_NEO_ISP_EXT_PARAMS     v4l2_fourcc('N', 'N', 'E', 'P') /* NXP NEOISP Ext Params */
+>> +#define V4L2_META_FMT_NEO_ISP_STATS          v4l2_fourcc('N', 'N', 'I', 'S') /* NXP NEOISP Statistics */
+>> +#define V4L2_META_FMT_NEO_ISP_EXT_STATS              v4l2_fourcc('N', 'N', 'E', 'S') /* NXP NEOISP Ext Stats */
+>> +
+>>   #ifdef __KERNEL__
+>>   /*
+>>    * Line-based metadata formats. Remember to update v4l_fill_fmtdesc() when
+>> --
+>> 2.52.0
+>>
+>>
 
-So let's assume the kernel is loaded at 0x43000000.
-
-                mov     r0, pc
-                and     r0, r0, #0xf8000000
-
-This will result in r0 being 0x40000000. This becomes the mem_start
-argument in fdt_check_mem_start().
-
-We look for an appended DTB, and skip the validation that
-fdt_check_mem_start() does. If this were to go ahead, then this would
-find that 0x40000000 is within the memory@40000000 node, and thus this
-would return "mem_start".
-
-Then:
-
-                /* Determine final kernel image address. */
-                add     r4, r0, #TEXT_OFFSET
-
-will place the decompressed kernel at 0x40008000.
-
-However, as placing the kernel at 0x41000000 doesn't boot, that
-suggests some memory is being removed from the kernel. If adding a
-call to fdt_check_mem_start() after the ATAG-to-FDT parsing has
-been performed fixes this, it suggests the ATAGs change this.
-
-So, with a booted kernel, what does:
-
-$ hexdump -e '"%8.8_ax  " 8/4 "%08x " "\n"' /sys/firmware/devicetree/base/memory\@40000000/reg
-
-say? Has this been modified from 00000040 00000020 ? I think it
-will be.
-
-That means there's a simple fix: as there is likely reserved memory
-at the start of RAM, reflecting that in this platform's .dts would
-fix this issue without needing to change the decompressor.
-
-If you don't want to change the reg in the memory@ node, then there's
-/chosen/linux,usable-memory-range which can be used to specify the
-usable memory base and size (same format as reg).
-
-Another option would be to add linux,usable-memory to the memory@
-node that specifies the range of usable memory while still specifying
-the full memory range in the reg property.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
