@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB64E8B385
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 00:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E03BE8B386
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 00:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6B7LEzFbT6KtS/eGZF26PxctL67vrgylUX7HQbWrfj0=; b=XSCMtrewIwbyhU4ubHo2GQROck
-	l1NeSxJvxIuO5kkiEN9UMItwfRevsK76wlQRcNcplEe4cSffBxQj5NzrHr9c10o7bhU1ZokYH3S5j
-	GktEKkgtHvhIBpatKXgCK5RbSIvxoQb5o7I4mqcR5xUSotxrocrEZv/3mdoehnP8gBnKxGoUmCMHh
-	cNkvDv3IEKPntd9pqSwhpAzH+zqF3dja5nW8G6aA4s9KgNCIh2r2nFBhlJXIf0kLEw8oZ00u38X1C
-	2H6atkYWnkD6Vm+NkcGPTzrZxhfO1MwFq6T9uyuAoU46V4khR8XSRZeeeXNciwMESyLF3s7WtFrTH
-	/pSpuZ7A==;
+	bh=2F+zIb/5zD4egLNhzOFMUm4MM0Zjnd7at1gQ+Nt2kw8=; b=ErG8mv1w07Cv2BUXqeROISqSFW
+	RGwm5B+xB6TTqn29Nn1t+CBHof/PsluAp/GnYWoFjM38eF6nRSiIbkgjFfvlwaDhZVdHuweXVS1VH
+	mD7DSa0+x/nOwMMa1ZwD/UfiGJfjGlejQtUpqjefOojToDRowHZwJGgVXyVvpfvri4KijkK8MApNf
+	Xoj13+Hi08xR6gAD2wwdIvel+5qm4L5poonC32uedyXG5ITqaIqsI1BQOuFlV0q5kqvJ2WlAy0dbz
+	RS6crGyv1HpmpB0kA8PoCdJpIZ3sDu4zbHSS+aUM0HpDN2prhWofRDvo3gD9+YN2ZT0x4OUFaNCYm
+	w92NcCOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnQTP-00000007c5t-1931;
-	Wed, 04 Feb 2026 00:10:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vnQgn-00000007cqM-07El;
+	Wed, 04 Feb 2026 00:24:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnQTG-00000007c5a-3XOY
+	id 1vnQgj-00000007cq1-1jgF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 00:10:14 +0000
+	Wed, 04 Feb 2026 00:24:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E4EF56013A
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Feb 2026 00:10:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DA1DC116D0
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Feb 2026 00:10:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 330FB444C4
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Feb 2026 00:24:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12E9CC2BC9E
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Feb 2026 00:24:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770163813;
-	bh=09clEcawHkNfyp7ZMAhgORt18mzDuzsUGyciBe/dhKk=;
+	s=k20201202; t=1770164648;
+	bh=2F+zIb/5zD4egLNhzOFMUm4MM0Zjnd7at1gQ+Nt2kw8=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=UwoKY34vmvoNNoxgZqa6MNxQLprvYduBWvBRqObyhrrELswQ4ybNwHPO1GTbwxzX3
-	 +iEV7bvNdvucd25O4ZMCfWWJ2Gx/sxfnptH7ONli/MKjAV56Ln/421Y1xGPwTZynFd
-	 iQh/o4XTAn09Af43BQyuzFXWtbzI+HIVVQP3yKVJ4tMsPjqgvYH9ZtEQ6B4eof60+1
-	 KAJOEN38uEwt0i0u5h/GcvFDJtua8Xs7jLzz2aROy95GOCO9dFMN3B7g1ndGLODaIC
-	 PWqPnf2WOCKiaP4Zj3xBLfU19TSmYki2juZWMoSsekjVIwgpJs2Y6+xFC+YnKEzpE4
-	 jfHgVn5aFuqIQ==
-Received: by mail-yx1-f41.google.com with SMTP id 956f58d0204a3-649523de91fso5726595d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 16:10:13 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWkX7DydcSqo3WNzYDeOHGlwnFe4ndxmOuw+po8OnE4LNYucjGaJTTSqMqf1lagZruEOIlKmqIIWz1DCKM/WPxh@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLfUI18X0BiEWbjR1C7+DaU+6seywPY4cR1MLJiWXXydMdL7ac
-	fWCOM93ljkaTMQjsnRdBOx9aJ/ljuWW3rW18GOzlLyw+AA6QArM45ulATQhKqSg+GZLkQPwXSaJ
-	Ev3f6vLWzSP7G6U8ygJekJnJ0zDcOqZ0=
-X-Received: by 2002:a53:cf4b:0:b0:649:b915:a050 with SMTP id
- 956f58d0204a3-649db32a9b0mr955246d50.9.1770163812988; Tue, 03 Feb 2026
- 16:10:12 -0800 (PST)
+	b=SW1wf0ypZCnWqc6gJQKBBrBpYOM1WpQ2sQOjsFV2/t5JcPyy3pB4LOhY8pckJZgnl
+	 QtpiDsDL8J96hv0ckTQqjDSeJSuHASokrI7GdSSZ1Thtu/eo0d8TyHr6fSBwsiCZj4
+	 2g7aIipEjY80vImVqSU2nPr/uH/znDvAh14U5AqYD1aPyV+2ZeWCcpi/Pi6Tt8Y64c
+	 SqQZsG/Fw90PBVILopR+2I/7VtqwDWzkgSLd68PMggVOgPdwBbncHJGSvFyy3VKX9k
+	 +WuZzjuo+Kfu1GGAC5vGbKK8H0cNxDPNbRqsGI8GW62r8Syr0eby59TZWam3p8z7df
+	 82GGPLMlC/UBg==
+Received: by mail-yx1-f45.google.com with SMTP id 956f58d0204a3-64931bbf70cso5584498d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Feb 2026 16:24:08 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWlYz1s98pb2oLXRUCcbUlrMzBgCytijYLpy9LOzIgF15x4MfFEzo0NcM17WfTfNRz/dTJJAKq/djuooZYBuUPt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/CGTDVorwoU1K4c2hKhu0S1A7rV85HAlkFJ75EC46LNv/C2vo
+	ZH8rjNqx7B5Tpw0yZb029OKd9F/4o0yMFgzabyEWIu8ju+nFFe3iVC7gUMo0R34h1eu/FkvICvd
+	SqmsM3vI1R5/K7JiK9xQu7nZ0TlSCSe0=
+X-Received: by 2002:a05:690c:3502:b0:794:e9a3:b132 with SMTP id
+ 00721157ae682-794fe630e3dmr27551617b3.4.1770164647352; Tue, 03 Feb 2026
+ 16:24:07 -0800 (PST)
 MIME-Version: 1.0
-References: <20260203161843.649417-1-wangyushan12@huawei.com> <20260203161843.649417-2-wangyushan12@huawei.com>
-In-Reply-To: <20260203161843.649417-2-wangyushan12@huawei.com>
+References: <20260203234529.1081148-1-florian.fainelli@broadcom.com> <20260203234529.1081148-2-florian.fainelli@broadcom.com>
+In-Reply-To: <20260203234529.1081148-2-florian.fainelli@broadcom.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 4 Feb 2026 01:10:01 +0100
-X-Gmail-Original-Message-ID: <CAD++jLn+TDfu-aQ+Kfm=unYp4Zjg=endP3GGzZcpuYFR=s1K1g@mail.gmail.com>
-X-Gm-Features: AZwV_QjvMWAiftJN6MLcoMpTXQm1LSYgxX_ibjpuO8tDCsBbv-OaJRt5BnOeM_g
-Message-ID: <CAD++jLn+TDfu-aQ+Kfm=unYp4Zjg=endP3GGzZcpuYFR=s1K1g@mail.gmail.com>
-Subject: Re: [PATCH 1/3] soc cache: L3 cache driver for HiSilicon SoC
-To: Yushan Wang <wangyushan12@huawei.com>
-Cc: alexandre.belloni@bootlin.com, arnd@arndb.de, fustini@kernel.org, 
-	Jonathan.Cameron@huawei.com, krzk@kernel.org, linus.walleij@linaro.org, 
-	will@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, fanghao11@huawei.com, linuxarm@huawei.com, 
-	liuyonglong@huawei.com, prime.zeng@hisilicon.com, wangzhou1@hisilicon.com, 
-	xuwei5@hisilicon.com, linux-mm@vger.kernel.org, SeongJae Park <sj@kernel.org>
+Date: Wed, 4 Feb 2026 01:23:56 +0100
+X-Gmail-Original-Message-ID: <CAD++jLkH-HpUXhQfgvy9XzQY6NH6Sr0x5CFFEg82_zBz-X-amg@mail.gmail.com>
+X-Gm-Features: AZwV_QhqXV-UUuEDRHCcMqOroIMeRyKz2VdLiO4Wc7_Cwhe-J4DhdP8YjQW0qcw
+Message-ID: <CAD++jLkH-HpUXhQfgvy9XzQY6NH6Sr0x5CFFEg82_zBz-X-amg@mail.gmail.com>
+Subject: Re: [PATCH v4 1/3] gpio: brcmstb: Utilize irqd_to_hwirq(d) instead of d->hwirq
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-kernel@vger.kernel.org, Doug Berger <opendmb@gmail.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Andy Shevchenko <andy.shevchenko@gmail.com>, 
+	Christophe Leroy <chleroy@kernel.org>, 
+	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260203_162409_470565_E59F1C8A 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,57 +86,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yushan,
+On Wed, Feb 4, 2026 at 12:45=E2=80=AFAM Florian Fainelli
+<florian.fainelli@broadcom.com> wrote:
 
-thanks for your patch!
-
-On Tue, Feb 3, 2026 at 5:18=E2=80=AFPM Yushan Wang <wangyushan12@huawei.com=
-> wrote:
+> Consistently use irqd_to_hwirq(d) which is the recommended helper to
+> fetch the hardware IRQ number from an irq_data structure. While at it,
+> update the brcmstb_gpio_set_imask() function signature to use the proper
+> type for the "hwirq" argument rather than "unsigned int".
 >
-> The driver will create a file of `/dev/hisi_l3c` on init, mmap
-> operations to it will allocate a memory region that is guaranteed to be
-> placed in L3 cache.
->
-> The driver also provides unmap() to deallocated the locked memory.
->
-> The driver also provides an ioctl interface for user to get cache lock
-> information, such as lock restrictions and locked sizes.
->
-> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
+> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
 
-The commit message does not say *why* you are doing this?
-
-> +config HISI_SOC_L3C
-> +       bool "HiSilicon L3 Cache device driver"
-> +       depends on ACPI
-> +       depends on ARM64 || COMPILE_TEST
-> +       help
-> +         This driver provides the functions to lock L3 cache entries fro=
-m
-> +         being evicted for better performance.
-
-Here is the reason though.
-
-Things like this need to be CC to linux-mm@vger.kernel.org.
-
-I don't see why userspace would be so well informed as to make decisions
-about what should be locked in the L3 cache and not?
-
-I see the memory hierarchy as any other hardware: a resource that is
-allocated and arbitrated by the kernel.
-
-The MM subsytem knows which memory is most cache hot.
-Especially when you use DAMON DAMOS, which has the sole
-purpose of executing actions like that. Here is a good YouTube.
-https://www.youtube.com/watch?v=3DxKJO4kLTHOI
-
-Shouldn't the MM subsystem be in charge of determining, locking
-down and freeing up hot regions in L3 cache?
-
-This looks more like userspace is going to determine that but
-how exactly? By running DAMON? Then it's better to keep the
-whole mechanism in the kernel where it belongs and let the
-MM subsystem adapt locked L3 cache to the usage patterns.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
 Yours,
 Linus Walleij
