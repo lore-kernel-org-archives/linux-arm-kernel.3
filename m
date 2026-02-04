@@ -4,91 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA21FE9538F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 12:10:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81291E95393
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 12:17:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EJtZH3fJEhinzYeX9oLa4RMlTVQiEZy/hlRDAYV69sI=; b=N16T9dehmj43BLcsszbjqqRuRe
-	1x9bCAAa2uZwtk1+fmoA07c4sbk01iKiTPCE/fCnymvS0+t5C1AmNQecYtVkdq5qk1iWSxbfDl6lL
-	GmlGu9B/lDIQg7PuYEAIvV9Kxs3lMYP371/5FlLtYwkxtLMg+MKrTgvXlZHJaEYtvtGROlw0a9M4z
-	tD/tJorWFcz5ryigTyRvPQemrqTiOE2oIUXhPrLPfZIqw/Ox80E65ajRn7rMurWNihBoqpmm4u95o
-	tmojCAGMEAH1KmtJN4i1jandgmssU08LrFivjWOhNGOesz6/6abREHQgQrK7pcAY/N0Rh/xjBVpDS
-	Ch7duBmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oBVsKp7U+To9N/uLjz9BWdVSLM9ncuG1DF9uDyqjbjA=; b=nwaplUNHjQtx32FPIAjh/03Oa8
+	T7HGB45s3mG7gmk4dPp2qXnN+PM7PhIayxcVHj7s9noBMMlqcr/7C2xcixH8Px4vlnS6k6EbD2Ba6
+	pThFAYzEZ4dmxlCw5fPRuilc82iz52MG4tJbNo3X2MAqMKDj1JjVBo/cWPeB4Ev9ZfhFHWaA8BoGR
+	l7s+NpcpXIRfSZn0d3gsNruCV4Lg72N3JeR7sS35SDduu0bCDjuUIiYCzA2eRy/c8rKw4B+IDmvOR
+	6aGHHpAc2c2SaNZ2oyeNUxF3mY7xgvgybWLsFrAPECYKtuXUT935gtMUQrzPRT5PMgpgItPuH5iGa
+	WYaqnCPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnbiJ-00000008Py3-2zLX;
-	Wed, 04 Feb 2026 12:10:31 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1vnbpK-00000008QPT-2RdZ;
+	Wed, 04 Feb 2026 12:17:46 +0000
+Received: from fhigh-a7-smtp.messagingengine.com ([103.168.172.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnbiG-00000008PxR-30Q6
+	id 1vnbpI-00000008QOU-0Hrp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 12:10:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1770207029; x=1801743029;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=+PD9kPlOhiNRJ5eVE2tCAKpwL+HFCmAsSnc7GfEb0C8=;
-  b=G77mW6wQq4s5XKTG3jzgKcEu4L0QVM+SinC5WActRav9wqcwbq4WHayJ
-   OqlVc9I/NYX3VzVtdAyaygQ4aruXcCkJRPoOO3EdvCRwsX5nzl8H++Z6i
-   OR4Nd5AUuTtBfh0aNRX0l2CuNaD7nKMOSErpzWDaNSfyIMKcnoKQfVfPk
-   HixJzNz2+Ik0XSRiuLNewF7y2dIj5X5KgqkEv9XyLck0LLz42epjCf8F1
-   Elpppt5AWW9D4AKXB6398SYVU2Dc2LZcqG4dm5UV3BKVXQVoofY2QegD2
-   8omQblaNoytO1jPzdfecjjPPDBjcnoeMMYWcLTKpJoS4s5+tpiE4qyhaq
-   w==;
-X-CSE-ConnectionGUID: Fn1EmLnuQ/296YT0jRbTPw==
-X-CSE-MsgGUID: 3ltyavTZRvixHrgKJkt5VQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11691"; a="71425506"
-X-IronPort-AV: E=Sophos;i="6.21,272,1763452800"; 
-   d="scan'208";a="71425506"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2026 04:10:27 -0800
-X-CSE-ConnectionGUID: jMqUk0dMRq+vKyxseg0bNg==
-X-CSE-MsgGUID: L6+UxEbmTEq/Tlho+El/GA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,272,1763452800"; 
-   d="scan'208";a="209244113"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 04 Feb 2026 04:10:21 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vnbi5-00000000hlQ-20h9;
-	Wed, 04 Feb 2026 12:10:17 +0000
-Date: Wed, 4 Feb 2026 20:10:14 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	=?iso-8859-1?Q?J=E9r=E9mie?= Dautheribes <jeremie.dautheribes@bootlin.com>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-watchdog@vger.kernel.org,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	"Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
-Subject: Re: [PATCH v3 4/5] gpio: aaeon: Add GPIO driver for SRG-IMX8P MCU
-Message-ID: <202602042017.bULyWOXm-lkp@intel.com>
-References: <20260203-dev-b4-aaeon-mcu-driver-v3-4-0a19432076ac@bootlin.com>
+	Wed, 04 Feb 2026 12:17:45 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 427EA1400089;
+	Wed,  4 Feb 2026 07:17:42 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Wed, 04 Feb 2026 07:17:42 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm2; t=1770207462; x=1770293862; bh=oB
+	VsKp7U+To9N/uLjz9BWdVSLM9ncuG1DF9uDyqjbjA=; b=Zjomvf1efYgmIx6748
+	twyeSHyAMG/hka4an+NAE5EjqWC2ebucn+OYRKMVEkFJOs3XOe1+HtbhV64n4dl9
+	AKdzZ9zmFDS9YKb8qIzGl7jZHBRz+uT65B0Zb1JBfLSpDPbmgEABFqtiFeWEuU4S
+	7b/EKO7FcrEJkqTJJd6PnR3lpZiqYPCYdiCMus5aTKlF9GYmMAi9VHzp+jSg/Ecg
+	80nTCgVhis9OVzcFAVyZ8f/9/CKk5mdekvKMWR5ZX2rs0QV4POFgav6JcBeiB8RP
+	+fZcBfNpqHLADsoJb0PbaejZ8fmuMnu8eqEhYDq1BWgmAsaZ85D0Bj1QvNf1TNAu
+	v2gw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm3; t=1770207462; x=1770293862; bh=oBVsKp7U+To9N/uLjz9BWdVSLM9n
+	cuG1DF9uDyqjbjA=; b=YcrYDk/mYDc0sUaAPrMWZtQsGC/WXIso7WBc6ICN37Ev
+	5yKMEVF1NjEAgzk3JsRQZtNvGk4I7bLdRFLFhv2797XARzXB8JUeWkghMkEvIO4D
+	s0s8lnGK/x0s113Rcss9y7+c7ue9lzZOyKFt+zuARKD89BquNE00Y7WoULdwCchd
+	U0ULXz0QZAHLnW4ciXWLuZgouobQLK3DnGBv6srna57Dy2NthDT1eoTkVzJqZCAb
+	8Ndoq4/CxC8K6sZG7u+JL3Dt5tHms6mnIDvUbJ+V7t1Ie3T/xFHd8B50mZf6UoEd
+	nMYu3CTf1ZJR+PjWOOAajTicw3HVwWGihnxKC0+Svg==
+X-ME-Sender: <xms:5TiDaawrKWGWxy6UyTxaV1wWyKjj532hx1SEyb1oTqZHKOBcnZY6uw>
+    <xme:5TiDaRH04qG1Rvx8DMDZ1DwnIQldMQOQbkJNtWnd-R9qVBTyj7qgVAd044BSJkEr3
+    8jgCeLZKKRtT_ogpnhZIgNRPzbixE249nPVfhdQSHos52Jhub9or6w>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddukedvgedvucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkffutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
+    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
+    epudelieegkeevueegtedtjedttdelgeehhfdvhfeuheethfduleffuddvueelveetnecu
+    ffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecurf
+    grrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphht
+    thhopeehpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehshhgrfihnghhuoheskh
+    gvrhhnvghlrdhorhhgpdhrtghpthhtohepthhorhhvrghlughssehlihhnuhigqdhfohhu
+    nhgurghtihhonhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlh
+    eslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehsohgtsehlihhs
+    thhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvgh
+    gvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:5TiDaRj3GH1E0G75nRhrVe-Q3Yu3q8fVaTFbgfEdPkolSBKuSiod4A>
+    <xmx:5TiDaecfhJSvppvzrPfGnJxk4i3jm_I_yuBQKpTBQCzfMiPli7TOYg>
+    <xmx:5TiDaRiPzI_lJ-6vrC4T2d1al2BKBu6uH0xTKrKI8JmjrfS6ClSApw>
+    <xmx:5TiDaWxMPiMKNzbQr0qXyu8j5qELepCU32ASBWfTcotJj48JyNWJAA>
+    <xmx:5jiDaXnK2kzcuhQ5oLDbvPEQ_O8di4IDSsWsi2vszp_8cYLR5Jue2Ozq>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 95ACE700069; Wed,  4 Feb 2026 07:17:41 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260203-dev-b4-aaeon-mcu-driver-v3-4-0a19432076ac@bootlin.com>
+Date: Wed, 04 Feb 2026 13:17:21 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: "Shawn Guo" <shawnguo@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev
+Message-Id: <d9748b0a-1b06-4d7e-93b0-3ceb96784fc1@app.fastmail.com>
+Subject: [GIT PULL] soc: fixes for 6.19, part 3
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_041028_824244_6FB52FA4 
-X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-CacheID: sfid-20260204_041744_580732_F12BF17E 
+X-CRM114-Status: UNSURE (   7.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,36 +109,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
+The following changes since commit 63804fed149a6750ffd28610c5c1c98cce6bd377:
 
-kernel test robot noticed the following build errors:
+  Linux 6.19-rc7 (2026-01-25 14:11:24 -0800)
 
-[auto build test ERROR on d358e5254674b70f34c847715ca509e46eb81e6f]
+are available in the Git repository at:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Thomas-Perrot-Schneider-Electric/dt-bindings-vendor-prefixes-Add-AAEON-vendor-prefix/20260204-004221
-base:   d358e5254674b70f34c847715ca509e46eb81e6f
-patch link:    https://lore.kernel.org/r/20260203-dev-b4-aaeon-mcu-driver-v3-4-0a19432076ac%40bootlin.com
-patch subject: [PATCH v3 4/5] gpio: aaeon: Add GPIO driver for SRG-IMX8P MCU
-config: mips-randconfig-r113-20260204 (https://download.01.org/0day-ci/archive/20260204/202602042017.bULyWOXm-lkp@intel.com/config)
-compiler: mips64-linux-gcc (GCC) 12.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260204/202602042017.bULyWOXm-lkp@intel.com/reproduce)
+  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.19-3
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202602042017.bULyWOXm-lkp@intel.com/
+for you to fetch changes up to c3cb2722e28969650c58d6defb09d57339a2a223:
 
-All errors (new ones prefixed by >>, old ones prefixed by <<):
+  Merge tag 'qcom-drivers-fixes-for-6.19' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into arm/fixes (2026-01-29 10:02:11 +0100)
 
->> ERROR: modpost: "aaeon_mcu_i2c_xfer" [drivers/gpio/gpio-aaeon-mcu.ko] undefined!
+----------------------------------------------------------------
+soc: fixes for 6.19, part 3
 
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for CAN_DEV
-   Depends on [n]: NETDEVICES [=n] && CAN [=m]
-   Selected by [m]:
-   - CAN [=m] && NET [=y]
+Shawn Guo is moving on from maintaining the NXP i.MX platform and hands
+over to Frank Li. Shawn has maintained the platform for 15 years after
+initially upstreaming support for i.MX6 and i.MX23/28, and his work has
+helped make this the most important industrial embedded Linux platform.
+Roughly one out of five devicetree files in mainline kernels are for
+the wider i.MX platform.  Many thanks to Shawn for the taking care of
+the platform all these years!
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+There are also two additional updates for the MAINTAINERS file, and
+a fix for error handling in the qualcomm smem driver.
+
+----------------------------------------------------------------
+Arnd Bergmann (2):
+      Merge tag 'imx-maintainers-6.20' of https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux into arm/fixes
+      Merge tag 'qcom-drivers-fixes-for-6.19' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into arm/fixes
+
+Christian Marangi (1):
+      soc: qcom: smem: fix qcom_smem_is_available and check if __smem is valid
+
+Shawn Guo (1):
+      MAINTAINERS: Replace Shawn with Frank as i.MX platform maintainer
+
+Sudeep Holla (1):
+      MAINTAINERS: Change Sudeep Holla's email address
+
+Yushan Wang (1):
+      MAINTAINERS: Add myself as maintainer of hisi_soc_hha
+
+ .mailmap                |  3 ++-
+ MAINTAINERS             | 41 +++++++++++++++++++++++------------------
+ drivers/soc/qcom/smem.c |  5 +++--
+ 3 files changed, 28 insertions(+), 21 deletions(-)
 
