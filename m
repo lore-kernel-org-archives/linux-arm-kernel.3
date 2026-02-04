@@ -4,63 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1473FE9539B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 13:15:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0DF4E9539B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Feb 2026 13:15:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fBc2rwYRPLu0JbOcwo887nyzO+rPuAKxPa8KqT7h7s4=; b=qRAZO5Nxxh/y03M+7dqtOs/vsr
-	dGo7RQ/qViTduCJJk7P+pFy//Vmc7Cf2IBOAPrxAWoNrbD8MZ2rm5BnQQ6ciYxkjcyWQZoSC6jpIh
-	zo7OtdjxJfMKS+/NHebnj7USf//La1yzLTP3dE9g283uCp5ibqRQOWOZ5Sx/khVzPB0rCNxEAjgjh
-	EJgEkZX2LCqp8L0gpV7xT95YUzf8IJIaNN2wryDJb7m0Z0dwAokAZDRPfuRNVUAsnguuWfmiSNZVt
-	Gh+H0RQTv5fZR+jYclxqpM5C7aXlBt8J8Z2QlcwND/PGKSpsQG2UprPeQ+mkdezWZsdQC8fq8jBcN
-	ewPmFh1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8ftubfnbHJMifavaHfusKulTde0Z2b2i2QG/AKOLuw4=; b=oi30MfFyl5W2wDtTefaM/21WFv
+	EQ9oAW5A9mlnW08jG5H5qlZjPrCna4Vuvb95N3FWrpE+VpCqw7M/oVrS4FvAktztGcbmGtDzqrTg7
+	eciuRfIZvfulbseuVKawCVxhzFSE5CZDax5pDeOOiVeY6BBdVATBfexSX3B/1GRgm+wLXS+hB/Jn3
+	4C4SP4/XZE5JjpTdSJ+ho8U2yifEVpQ5s0QaAmu0SG5RxhZXYh8NE2u3mSXhPqWs31/W8qDxBCDR0
+	DrZUplEW3lEILlDjYPseqEJ/fdBSWPoSxKeqyvth+K4AVElvwV6FVz3bv38eEU904sLqKXJKxuDAN
+	QoctiFUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vncig-00000008U8A-2VN8;
-	Wed, 04 Feb 2026 13:14:58 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vnciu-00000008UCU-3msN;
+	Wed, 04 Feb 2026 13:15:12 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vncie-00000008U7R-0Aur
+	id 1vnciq-00000008UAj-0kel
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Feb 2026 13:14:57 +0000
-Received: from ideasonboard.com (net-93-65-100-155.cust.vodafonedsl.it [93.65.100.155])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id F27EE833;
-	Wed,  4 Feb 2026 14:14:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1770210851;
-	bh=Nfoc7+w8xyU2KFGJ2g3NVQQ2nhWSMSasZ+FAcVUen80=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SW62mAuNolLJ3881WEkiRfWmRZ7eOwd1Yxnnwtck+8ragCUiX/rLIPtsBJbOrxW9D
-	 0fvs2A8APWQEb0vKEsUyIkHZ2lbtjLzm/qWc5TebIwoIBffoMNTSZPSgG5bw4mW7dW
-	 fGDjUmRwD8Bu154pgyIyRLk6ILo7WeeW1ryMoA5o=
-Date: Wed, 4 Feb 2026 14:14:50 +0100
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Antoine Bouyer <antoine.bouyer@nxp.com>
-Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
-	julien.vuillaumier@nxp.com, alexi.birlinger@nxp.com, daniel.baluta@nxp.com, peng.fan@nxp.com, 
-	frank.li@nxp.com, laurent.pinchart@ideasonboard.com, mchehab@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [RFC v1 01/11] media: uapi: v4l2-isp: Add v4l2 ISP extensible
- statistics definitions
-Message-ID: <aYNEtmJwnAtYitHO@zed>
-References: <20260123080938.3367348-1-antoine.bouyer@nxp.com>
- <20260123080938.3367348-2-antoine.bouyer@nxp.com>
- <aYIb8ZIZDfCJZEZ9@zed>
- <71b57f1c-be22-46a2-89a2-5abae11e0436@nxp.com>
+	Wed, 04 Feb 2026 13:15:09 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-c54f700b5b1so4376511a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 05:15:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770210907; x=1770815707; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8ftubfnbHJMifavaHfusKulTde0Z2b2i2QG/AKOLuw4=;
+        b=Lo3hE+pa1e1HiyeYO0zlnZ2T/6d32ZA8LK8jKyCZAWRW558eIoLpQMmtKSXXTOw1/Y
+         uWxRQC8YmsKDKglu8GN7PDngVXzis+bMD/MTGBc4fShQMFNeVSVf3wJbA3h+yhnKCC5Q
+         hAFEq9iMsszFUtE8JsI8NDCCc28m3QEQohlyLN2XapR8Xu2WaXJCLgesSgbHBtFDPoh2
+         fzJEM82fOyRthy2FoJxCQH3E2Y5CvrSzitibjPNM8rc4HF1yIdACXRI943jMxs3DnbNb
+         +aTF0fWOqqSpOL7VpjKB5oRDqUJig2MMhcK55ndD2e83x5nQ6jr1IrdB4WIMVvyDs7DR
+         131Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770210907; x=1770815707;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8ftubfnbHJMifavaHfusKulTde0Z2b2i2QG/AKOLuw4=;
+        b=FsGyw0EtpaZZaUGiFvpOsjVVwuQhnBhboTP/ZuPWqersNkuKf86/wGqhbGSOaDkFCF
+         SKWoiAFRNswoto9g6NLkhRNaTAQLM1irDjRPqMoyG5eHfOlpmWHPun6f3nfGbnUi/txy
+         YEOjTvgu/71px2UAYLvMY2KnbnDrWHNwfaaU0MemWZ4opMRS3W9KpGXg3LODm1JG6IBc
+         Vo3vclGrtYUAQddOYf7v/MGumHSTB20vj+Re/a2Ax+rf0ZRe4qZyoV+RpkboR+LKZTZI
+         AZsooh6XGOr3dI5zGrHkHeBhq1by5d5QNw/wm/1C5eRRsTVpn+IU68o/ByWjRLjXtYFS
+         rpEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU51o2fNx5kE1axGwxEPl+1boVym6fwMUygC8JtsWJTLc2k1aHTL4x4oji50DjkwUMt5qIgKPdQQQLv7ERxH/3B@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzN9n0Ap4ADtOaGed6Bw5ptDOba/6QnWUSv3cPF8RoVRVO2ESd
+	yNmPBD5xveZxyrsIu/JhVYiMOSC4DzcGOHZVnaWXk0WvTCKt1gK/08txLHlxtg==
+X-Gm-Gg: AZuq6aL7XbshwUAp1BWUUjB1346GlnDJjtYmGF53rUzvVzT8KNXUtKqoFyiXgGsGMjV
+	sRokNijnTeAmoxLOJ3TCajF4eI5P47naSrBzrurLGVHyU19CLeAW72Zt3VGmcpoUC7Tq+MFqfJz
+	TGfi54MZolao8GIciR8aeX2/X26dJ2gPFln8c22znKhfaEwlYaxZPSmOfPxPTPkTNtnR0kyACjN
+	PYSH68aZ/TbTXr9J9wx3ButZLzhC/MbcomTJxecd8LsjrknK0j7UfyGyO66rtTLsr9hsCcopYKA
+	XUrQHkZuQ6OGer7ZoOOB6c0VCnfVVxmBc3MxkxSn2VCLcY0zw06WrAqJNGBKa28DO0xnyYOfE3Q
+	jBdTJ1sA3HtmAp3TFWZrIzDN3IS3CJ5ulpAAWxOShA0t0xqVynlF9wc9UphjX7LdItwm3vAoJ0U
+	KCvvaSBRIcVzSqybusQMyzfSlUCS9QaS0TWCI=
+X-Received: by 2002:a05:6a20:9396:b0:38b:dec8:9d9a with SMTP id adf61e73a8af0-393724c1cc1mr2968310637.55.1770210906967;
+        Wed, 04 Feb 2026 05:15:06 -0800 (PST)
+Received: from [192.168.1.7] ([115.99.252.105])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c6c8553e888sm2101202a12.31.2026.02.04.05.15.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Feb 2026 05:15:06 -0800 (PST)
+Message-ID: <7bb66a07-51c5-4e9a-b484-e96a8f12c783@gmail.com>
+Date: Wed, 4 Feb 2026 18:45:00 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <71b57f1c-be22-46a2-89a2-5abae11e0436@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] dt-bindings: usb: atmel,at91rm9200-ohci: convert to
+ DT schema
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Claudiu Beznea
+ <claudiu.beznea@tuxon.dev>, Herve Codina <herve.codina@bootlin.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260201-atmel-usb-v1-0-d1a3e93003f1@gmail.com>
+ <20260201-atmel-usb-v1-1-d1a3e93003f1@gmail.com>
+Content-Language: en-US
+From: Charan Pedumuru <charan.pedumuru@gmail.com>
+In-Reply-To: <20260201-atmel-usb-v1-1-d1a3e93003f1@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_051456_359376_9878A2AC 
-X-CRM114-Status: GOOD (  55.79  )
+X-CRM114-CacheID: sfid-20260204_051508_225290_07F49606 
+X-CRM114-Status: GOOD (  22.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,226 +108,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Antoine
 
-On Wed, Feb 04, 2026 at 12:07:41PM +0100, Antoine Bouyer wrote:
-> Hi Jacopo
->
-> On 2/3/26 5:15 PM, Jacopo Mondi wrote:
-> >
-> >
-> > Hi Antoine
-> >    thanks a lot for extendable stats
-> >
-> > On Fri, Jan 23, 2026 at 09:09:28AM +0100, Antoine Bouyer wrote:
-> > > Extend the v4l2-isp extensible format introduced for isp parameters buffer
-> > > to the statistics buffer as well.
-> > >
-> > > Like for ISP configuration purpose, that will help supporting various ISP
-> > > hardware versions reporting different statistics data with less impact on
-> > > userspace.
-> > >
-> > > The `v4l2_isp_stats_buffer` reuses the `v4l2_isp_params_buffer` container
-> > > definitions, with similar header, versions and flags. V0 and V1 versions
-> >
-> > Why do you need two flags ?
-> >
-> > Params had to introduce two because we had two drivers already
-> > mainlined using the pre-v4l2-isp version of extensible params which
-> > had defined their version identifier as 1 and 0 and we didn't want to
-> > break existing userspace using those identifiers. So we had to accept
-> > both V0 and V1 as "first version of the v4l2-isp extensible parameters
-> > format".
-> >
-> > For stats we don't have users, so I guess we can start with V1 == 0 ?
->
-> I wanted to keep it aligned with params, so that any driver/userspace can
-> use the same API version value for both params and stats buffers, and limit
-> headache.
->
-> >
-> > > are provided to match with params versions. On the other side, ENABLE and
-> > > DISABLE flags are not really meaningfull for statistics purpose. So VALID
-> > > and INVALID flags are introduced. Purpose is to force ISP driver to
-> > > validate a statistics buffer, before it is consumed by userspace.
-> >
-> > Interesting. What do you mean with "validate a statistics buffer" ?
-> > And if a driver has to do validation, why would it send upstream a
-> > non-validated buffer ?
->
-> Like for version, I wanted to keep same header structure, including flags.
-> Since ENABLE/DISABLE is not relevant for statistics, I thought about using a
-> "validation" flag, to force driver confirming statistics blocks are valid or
-> not.
 
-See the question on the documentation patches.
+On 01-02-2026 17:04, Charan Pedumuru wrote:
+> Convert Atmel AT91RM9200 / AT91SAM9 style OHCI USB Host
+> Controller binding to DT schema.
+> Changes during conversion:
+> - Include "usb-ohci" as a fallback compatible to allow at91 OHCI
+>   driver matching.
+> 
+> Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
+> ---
+>  .../bindings/usb/atmel,at91rm9200-ohci.yaml        | 85 ++++++++++++++++++++++
+>  1 file changed, 85 insertions(+)
 
->
-> If you feel it is useless, I'm fine with removing it. Should I keep a flag
-> field anyway to stay aligned with params then ?
->
+Hi Rob,
 
-RkISP1 has support for both "legacy" and "extensible" formats because
-it has been mainline for a long time with the legacy format only. We
-couldn't simply replace the existing format with the new one because
-we would break existing users.
+For this patch, can I modify the existing generic-ohci.yaml file to include the compatible "atmel,at91rm9200-ohci" to it and define missing properties, as the fall back compatible "usb-ohci" is already defined for other vendors there, can I drop this patch and make changes for generic-ohci.yaml file and include it in the patch series for the next revision?
 
-All the other drivers that have been upstreamed with extensible only
-(Amlogic C3 and Mali C55) do not expose a legacy format as there was
-not prior version in mainline on which userspace might depend on.
+> 
+> diff --git a/Documentation/devicetree/bindings/usb/atmel,at91rm9200-ohci.yaml b/Documentation/devicetree/bindings/usb/atmel,at91rm9200-ohci.yaml
+> new file mode 100644
+> index 000000000000..f04de6d553d2
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/usb/atmel,at91rm9200-ohci.yaml
+> @@ -0,0 +1,85 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/usb/atmel,at91rm9200-ohci.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Atmel AT91RM9200 / AT91SAM9 style OHCI USB Host Controller
+> +
+> +maintainers:
+> +  - Nicolas Ferre <nicolas.ferre@microchip.com>
+> +  - Alexandre Belloni <alexandre.belloni@bootlin.com>
+> +
+> +description:
+> +  The Atmel AT91RM9200 / AT91SAM9 OHCI USB Host Controller implements a
+> +  USB 1.1 Open Host Controller Interface (OHCI) compliant host interface.
+> +  It provides low-speed and full-speed USB host functionality and is
+> +  integrated into Atmel AT91RM9200 and AT91SAM9 family SoCs.
+> +
+> +allOf:
+> +  - $ref: /schemas/usb/usb.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - const: atmel,at91rm9200-ohci
+> +          - const: usb-ohci
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    minItems: 3
+> +    maxItems: 3
+> +
+> +  clock-names:
+> +    items:
+> +      - const: ohci_clk
+> +      - const: hclk
+> +      - const: uhpck
+> +
+> +  num-ports:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description: Number of downstream ports supported by this OHCI controller
+> +    minimum: 1
+> +    maximum: 15
+> +
+> +  atmel,vbus-gpio:
+> +    description: GPIO used to control or sense the USB VBUS power.
+> +    minItems: 1
+> +    maxItems: 3
+> +
+> +  atmel,oc-gpio:
+> +    description: GPIO used to signal USB overcurrent condition.
+> +    minItems: 1
+> +    maxItems: 3
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/at91.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/gpio/gpio.h>
+> +    usb@500000 {
+> +        compatible = "atmel,at91rm9200-ohci", "usb-ohci";
+> +        reg = <0x500000 0x100000>;
+> +        interrupts = <20 IRQ_TYPE_LEVEL_HIGH>;
+> +        clocks = <&uhphs_clk>, <&uhphs_clk>, <&uhpck>;
+> +        clock-names = "ohci_clk", "hclk", "uhpck";
+> +        atmel,vbus-gpio = <&pioA 18 GPIO_ACTIVE_HIGH>;
+> +        atmel,oc-gpio   = <&pioB 10 GPIO_ACTIVE_LOW>;
+> +        num-ports = <2>;
+> +    };
+> +...
+> 
 
-Unless you have very convincing reason, I would certainly drop the
-legacy format and only use extensible.
+-- 
+Best Regards,
+Charan.
 
-Thanks
-  j
-
-> >
-> > >
-> > > Signed-off-by: Antoine Bouyer <antoine.bouyer@nxp.com>
-> > > ---
-> > >   include/uapi/linux/media/v4l2-isp.h | 85 +++++++++++++++++++++++++++++
-> > >   1 file changed, 85 insertions(+)
-> > >
-> > > diff --git a/include/uapi/linux/media/v4l2-isp.h b/include/uapi/linux/media/v4l2-isp.h
-> > > index 779168f9058e..ed1279b86694 100644
-> > > --- a/include/uapi/linux/media/v4l2-isp.h
-> > > +++ b/include/uapi/linux/media/v4l2-isp.h
-> > > @@ -99,4 +99,89 @@ struct v4l2_isp_params_buffer {
-> > >        __u8 data[] __counted_by(data_size);
-> > >   };
-> > >
-> > > +/**
-> > > + * enum v4l2_isp_stats_version - V4L2 ISP statistics versioning
-> > > + *
-> > > + * @V4L2_ISP_STATS_VERSION_V0: First version of the V4L2 ISP statistics format
-> > > + *                          (for compatibility)
-> > > + * @V4L2_ISP_STATS_VERSION_V1: First version of the V4L2 ISP statistics format
-> > > + *
-> > > + * V0 and V1 are identical, and comply with V4l2 ISP parameters versions. So
-> > > + * both V0 and V1 refers to the first version of the V4L2 ISP statistics
-> > > + * format.
-> > > + *
-> > > + * Future revisions of the V4L2 ISP statistics format should start from the
-> > > + * value of 2.
-> > > + */
-> > > +enum v4l2_isp_stats_version {
-> > > +     V4L2_ISP_STATS_VERSION_V0 = 0,
-> > > +     V4L2_ISP_STATS_VERSION_V1,
-> >
-> > As suggested I would make V1 == 0
-> >
-> > > +};
-> > > +
-> > > +#define V4L2_ISP_PARAMS_FL_BLOCK_VALID               (1U << 0)
-> > > +#define V4L2_ISP_PARAMS_FL_BLOCK_INVALID     (1U << 1)
-> > > +
-> > > +/*
-> > > + * Reserve the first 8 bits for V4L2_ISP_STATS_FL_* flag.
-> > > + *
-> > > + * Driver-specific flags should be defined as:
-> > > + * #define DRIVER_SPECIFIC_FLAG0     ((1U << V4L2_ISP_STATS_FL_DRIVER_FLAGS(0))
-> > > + * #define DRIVER_SPECIFIC_FLAG1     ((1U << V4L2_ISP_STATS_FL_DRIVER_FLAGS(1))
-> > > + */
-> > > +#define V4L2_ISP_STATS_FL_DRIVER_FLAGS(n)       ((n) + 8)
-> >
-> > Currently we have no users of V4L2_ISP_PARAMS_FL_DRIVER_FLAGS so we
-> > could even consider making it a V4L2_ISP_FL_DRIVER_FLAGS
-> >
-> > Or do you think it is worth creating a new symbol ?
->
-> To limit impact on potential on-going development, and future conflict,
-> creating new symbol may be safer IMO. But I'm fine with using a single
-> symbol if you prefer. Most probably this flag customization is not used yet
-> by any driver.
->
-> >
-> > > +
-> > > +/**
-> > > + * struct v4l2_isp_stats_block_header - V4L2 extensible statistics block header
-> > > + * @type: The statistics block type (driver-specific)
-> > > + * @flags: A bitmask of block flags (driver-specific)
-> > > + * @size: Size (in bytes) of the statistics block, including this header
-> > > + *
-> > > + * This structure represents the common part of all the ISP statistics blocks.
-> > > + * Each statistics block shall embed an instance of this structure type as its
-> > > + * first member, followed by the block-specific statistics data.
-> > > + *
-> > > + * The @type field is an ISP driver-specific value that identifies the block
-> > > + * type. The @size field specifies the size of the parameters block.
-> > > + *
-> > > + * The @flags field is a bitmask of per-block flags V4L2_STATS_ISP_FL_* and
-> > > + * driver-specific flags specified by the driver header.
-> > > + */
-> > > +struct v4l2_isp_stats_block_header {
-> > > +     __u16 type;
-> > > +     __u16 flags;
-> > > +     __u32 size;
-> > > +} __attribute__((aligned(8)));
-> > > +
-> >
-> > This is currently identical to v4l2_isp_params_block_header.
-> >
-> > Can we create a single header for both stats and params and provide a
-> >
-> > #define v4l2_isp_params_block_header v4l2_isp_block_header
-> >
-> > for maintaining compatibility with existing users ?
-> >
-> > Or do you expect stats and params to eventually need different headers ?
-> >
->
-> Current approach is to use same structure definitions as for params. So I'm
-> fine with creating a single header as suggested, and provide symbols to keep
-> compatibility.
->
-> > > +/**
-> > > + * struct v4l2_isp_stats_buffer - V4L2 extensible statistics data
-> > > + * @version: The statistics buffer version (driver-specific)
-> > > + * @data_size: The statistics data effective size, excluding this header
-> > > + * @data: The statistics data
-> > > + *
-> > > + * This structure contains the statistics information of the ISP hardware,
-> > > + * serialized for userspace into a data buffer. Each statistics block is
-> > > + * represented by a block-specific structure which contains a
-> > > + * :c:type:`v4l2_isp_stats_block_header` entry as first member. Driver
-> > > + * populates the @data buffer with statistics information of the ISP blocks it
-> > > + * intends to share to userspace. As a consequence, the data buffer effective
-> > > + * size changes according to the number of ISP blocks that driver intends to
-> > > + * provide and is set by the driver in the @data_size field.
-> > > + *
-> > > + * The statistics buffer is versioned by the @version field to allow modifying
-> > > + * and extending its definition. Driver shall populate the @version field to
-> > > + * inform the userpsace about the version it intends to use. The userspace will
-> > > + * parse and handle the @data buffer according to the data layout specific to
-> > > + * the indicated version.
-> > > + *
-> > > + * For each ISP block that driver wants to report, a block-specific structure
-> > > + * is appended to the @data buffer, one after the other without gaps in
-> > > + * between. Driver shall populate the @data_size field with the effective
-> > > + * size, in bytes, of the @data buffer.
-> > > + */
-> > > +struct v4l2_isp_stats_buffer {
-> > > +     __u32 version;
-> > > +     __u32 data_size;
-> > > +     __u8 data[] __counted_by(data_size);
-> > > +};
-> > > +
-> >
-> > Same question. Should we introduce a struct v4l2_isp_buffer ?
->
-> Yes, sounds reasonable.
->
-> BR
-> Antoine
->
-> >
-> > Thanks!
-> >
-> > >   #endif /* _UAPI_V4L2_ISP_H_ */
-> > > --
-> > > 2.52.0
-> > >
-> > >
->
 
