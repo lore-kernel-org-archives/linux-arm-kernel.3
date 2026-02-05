@@ -4,107 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F26EA7950
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 01:40:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8FB6EA7951
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 01:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ql7XnrRQpwwnuceZEbbuf6WcOeUUcSgZ0nMQ4Ij9Jcw=; b=DiZtsKO/5yJyrqPxTtgP1cnLji
-	svQ9YlydjkMdzPig3tZeOCCsRuGQS112RPr69Q1ifJYymEsM8Qfkf3uFl7S6544GitXjApcqJg1DG
-	8K0TR/Xd3H7cFsqV/+Gz6X3wu3knXZ1EN+16Qy1WnIpMr2zGcxlyB/kPXConUoiZg9toC35pt0Sab
-	qZ8H0DO8mwIQx/Lh9x8tmuGcZragmY/4DoSQ4d1Xm2tT/9v/+Gtp+KLMb7oSIudHA5ccNZc2bPj/q
-	G1DNIFxhx2kDGb8K/H8vJgxDaS/TPbF5K0TWXecIvFub+8CLGIKxl+xQ/xBq5IefC/9Vs02KL0nZ/
-	BynXho2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PPe2spkxIIKKXLNmjhdpUOc1VilVoI4P8TYSHODhbRU=; b=P6HT4G9izKca1bISt0qpSJY5ky
+	6XRsFN1uy7OMqhtyHrt3HjwIg+UTXxeZJ1N/Q6Cico/wnC41OSxWd4QH9slj12KECb27pMk1eqGTs
+	bafaWxQp4nhyUGwY9SuO2b3UoFQhwgmq0/ha+qdlSHLa/rNrzXkBWSTYaX7AWgPEsigkxgXihg3Fp
+	e+Wq68HOEa76Vk3fKmMmRDtaisn6mHlUJUD4g7t5DGZFOg7nZUpEehXRzWWrFRKlyio16JlzwPwPi
+	9eSDVNSqKLzmrYo6RVSyNMNeo8r1Yigtjvn346oTfOgGXQb663S2DfwffiQdh4r6hbxIaqI2crYSD
+	4F4eA6Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnoM6-00000009H2s-47YA;
-	Thu, 05 Feb 2026 01:40:26 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1vnoRi-00000009HaF-1IbG;
+	Thu, 05 Feb 2026 01:46:14 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnoM4-00000009H1n-2xSb
+	id 1vnoRf-00000009HZj-2kBV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 01:40:25 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-35338b3dd31so143469a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Feb 2026 17:40:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770255624; x=1770860424; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ql7XnrRQpwwnuceZEbbuf6WcOeUUcSgZ0nMQ4Ij9Jcw=;
-        b=KJ4mehkeOWVg7JbaaMALBSGLyrgT/3VOs0EbKSVihe7AcTaor9Qu0oR8Z+N22iZkiK
-         3/hHzrz70Yto1ojs2NTAiGbL7OocfoA214j5m5dmALGGCTQ58dOjH1w8DBYB520uK7dv
-         moy5y70/hbTdlAHQqUd5QZY73e/83uxPjMS7UrhpqIUgHE8/elQNwex+BjPMiDwLmUAm
-         ajbm/eQNB1qy/Z7lY4PF+0Zbstc7y5txBW0x4SQ91sK43qixRCyhNHN2RcuLTwFeTBwQ
-         a+WmBjfCHUSqlVgg93AgmCh7E4Qap2t7KyOT5rKI1rgcUlsMMYO49R5ShBYB5fs+jJ6v
-         roVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770255624; x=1770860424;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Ql7XnrRQpwwnuceZEbbuf6WcOeUUcSgZ0nMQ4Ij9Jcw=;
-        b=kaxyg0gN1v3WMRz9RSPFKVL5V/bRogIvzanr13xk8BvLfCy6l6HMqCV3Ye7cHnfKk/
-         UTmE/AFRfSqrWkHcY4NTTy7PVht5YQzntn7t7k9sHUoIqElPc7DunMtY+CWRV1rcBEcm
-         IlMGwXD+DZVKGsTLq5U+MRrHkg0CiX/GE3YSLhd3n6rAkk3QxL9UDvw9DWqJMPHkcXLi
-         6MGSiZuvADK0aTezpW89JEOV6NQ3ER5vN6r7bLChgj4W5WT0nLCKNpskqqnklmG7+wx0
-         jcXXiHfdv0kugVyuD0zGnqP0CGk/5MZgMt1NVsQr/FpX7OA3AmCk9cF7Xr6KcUr6+Hau
-         ihoQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVeouGYl7WpxpyyUaX4V8P40OEoV9ojLPdGWcNI1oygdruEvl90jeCjzfLhMwUc8CHJKqLPbH6yiqyZLgZ6PB6G@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyl5yvCob/VzsgQ+5UhCrFdfQJVYVUgd/Qi3gJ/gE52W1k14C+g
-	SLKbdlWcRldHrik8XemJTbJQrYsb7IxAhqDDRJdQ6DegBOh+DLSrtQkV
-X-Gm-Gg: AZuq6aLPJgIj+DJhAjidHfU0mPP95CWufJUf+NhBEjm47tWJ2CGBkGBLhi7M+IXQuM7
-	dBO2P6hkDIFDVlqxfKHPfygN5qa/cTpKN+q354rAA8wELeSngA5gvfD+spdKLZ6l+dMOB/3BruB
-	RkTEhdm3s7J//HeTEHmwFEbXbeK6ToVeGClcHDaRpMvQ/1/Tg4tVck8AlpC7AZ/wBuJz8L1mI4N
-	9AKfMbF7KkoITWFMPYnazuby34Ypv9Am4/dPeZIWGpxoZDa7CeLSL/tguvktRULNTluZTCi0OAQ
-	Lz8lB8Ev4vJUGKJKL5qSvc/nQgsW9k/0tN7be4dNdshcM//6hQ0btDEt38FgdfypSHOMpxSwT8b
-	liDYTJxfvo+GAjhrieoaUp1vA39y51Or+YILT7K7+/jbnnccXohIpf1sJSCsK3OVvTXRTV2eZ6+
-	xyGkdDup57ZYKOff1DyDcTBIPsRVVJgUTYSuua66XMPeK1iqX9Ist0NKQjN7Gs4nGq4Qm5KPJp
-X-Received: by 2002:a17:90b:5823:b0:34c:cb3c:f549 with SMTP id 98e67ed59e1d1-35487207d74mr3923205a91.29.1770255623678;
-        Wed, 04 Feb 2026 17:40:23 -0800 (PST)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3549c487a7bsm673571a91.16.2026.02.04.17.40.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Feb 2026 17:40:23 -0800 (PST)
-From: Joey Lu <a0987203069@gmail.com>
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	richardcochran@gmail.com
-Cc: alexandre.torgue@foss.st.com,
-	joabreu@synopsys.com,
-	ychuang3@nuvoton.com,
-	schung@nuvoton.com,
-	yclu4@nuvoton.com,
-	peppe.cavallaro@st.com,
-	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	openbmc@lists.ozlabs.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Joey Lu <a0987203069@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH net-next v11 3/3] net: stmmac: dwmac-nuvoton: Add dwmac glue for Nuvoton MA35 family
-Date: Thu,  5 Feb 2026 09:40:05 +0800
-Message-ID: <20260205014006.735408-4-a0987203069@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260205014006.735408-1-a0987203069@gmail.com>
-References: <20260205014006.735408-1-a0987203069@gmail.com>
+	Thu, 05 Feb 2026 01:46:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WwCHgIn+Ec/Am3hk+tWV93O9Tc0OVSDKiAVLqQKh2mbugdgbigLF3fRIS1xQBXHw6m/Ilfff5P5rR1F8uEcP8vTuZxIQFdYo068tgGiWFB6I0mIRhi8tMaMYQ4p9NgI/DELEC3vprZER6rgAQ4kyPkBMpHLEpp69Q1+4hY56kOEHb48ia8kA9IIlIKJY7J/t/GoXYOPk6uBWtbD4wnUs+Qb2QGK3paa0HrRXKKJPC/7y88l5R3o/6Ew7q2x4ejoEe4dBkeOfTzZUI6OBN5bXacTT7wu+acCKDJ6F1LAnhiNZjEEC0BNPQ8OXX2T9EojBbh5kNEcmsxEGEGmAD2VeYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PPe2spkxIIKKXLNmjhdpUOc1VilVoI4P8TYSHODhbRU=;
+ b=nvhRzOQyauGTokjX/nhlqgUmxOYBN6HrSWCQgMvukOpcjtI8Lcbq1FihXfJ0nGd/965ltZ/xocJgDloCFMVsrjfxXdCP9vvpL/4YJ2Ys5MjcG+7qdmBb8qqEJ9LURL8YPpYkL1n3r6nRBjlM5+TB7m/2XtjcfJy/OKguOSd53zpfxDHbDXZCFphi3tqeNcS3Wep/3+NF350FPGS50v4UJ0PP7GCXwqGjM9Y+2pO3c+l/EJ7thM209viprdnNJPNN47CNxp2RvPK1mC+lePRDl9p26GVBhhvN0MqjqC0a2dpQwhub/Dgevzi8SOkGMOoLyesF2Nx2VsLrC1aYYxUM7Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PPe2spkxIIKKXLNmjhdpUOc1VilVoI4P8TYSHODhbRU=;
+ b=Fel3xI+U/S1U0mJzzTg9tbHpAy2EjvXpsXyEDwz5EdS28lZXPS1r+wl/udvIoITBpPSlLNM5fgPS9Al28k2u5ZtWHzp4RAF/HzT4Kk/dFPDcCt7ODSznYLSIf1KPvK7V4tHf3Hl9pDAPhxC9WOH4+SC/Yce21aQRqhHYsAFsCvfZOIhE5Jj6dZn40slA/kSRtIvmoKd74qZxvwukREsIwCctmfz0+AfyV8wptnjBN8dAydSTfCUBrD3lwjmdE0QP6HW+u02545Kj5jOBjBpirN6A9cyPC7SQ40j4OmA/jlng8NAR7pZUwHH09ab+JXiHAYeWza9dbrGydHRoeellww==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by PAXPR04MB8441.eurprd04.prod.outlook.com (2603:10a6:102:1d8::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Thu, 5 Feb
+ 2026 01:45:50 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::20db:4017:28ea:911b]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::20db:4017:28ea:911b%4]) with mapi id 15.20.9587.010; Thu, 5 Feb 2026
+ 01:45:50 +0000
+Message-ID: <e8ada353-3e65-4014-9b94-622be6180c5b@oss.nxp.com>
+Date: Thu, 5 Feb 2026 09:45:41 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/4] media: imx-jpeg: Use devm_pm_runtime_enable()
+ helper
+To: Frank Li <Frank.li@nxp.com>
+Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, mirela.rabulea@oss.nxp.com,
+ nicolas@ndufresne.ca, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, xiahong.bao@nxp.com,
+ eagle.zhou@nxp.com, linux-imx@nxp.com, imx@lists.linux.dev,
+ linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260203082349.1082-1-ming.qian@oss.nxp.com>
+ <20260203082349.1082-3-ming.qian@oss.nxp.com>
+ <aYIopWM4U9YQB2SF@lizhi-Precision-Tower-5810>
+ <0f2cc5d0-9abe-47c6-abdc-42ebe5fb5b35@oss.nxp.com>
+ <aYNo_XjfrXA6tKX-@lizhi-Precision-Tower-5810>
+From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
+In-Reply-To: <aYNo_XjfrXA6tKX-@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SG2PR02CA0026.apcprd02.prod.outlook.com
+ (2603:1096:3:18::14) To PAXPR04MB8254.eurprd04.prod.outlook.com
+ (2603:10a6:102:1cd::24)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|PAXPR04MB8441:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7662b773-8182-427e-0321-08de64584a56
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Mkp2Umx2eDRFNXY5eVpjSlR3RnRwV3lhQ1k3ZmtRYldMc1l2QlhQMnNadXVn?=
+ =?utf-8?B?ZDBjaG56YTQyeGVLeVVsOEh4UllBZGVoTVRKczlqQ212Tm5qZjNTeVA1RVYz?=
+ =?utf-8?B?aTNnOWllYUlUbWpyamRHemZEWUd6MmV1YjNkRXc4dXVCYzU1RUVNREx1UlB4?=
+ =?utf-8?B?ajMxQ3J3YXhaMHJJbUJoMk44WjNwMGN6MGJvQ3VDS0dMVWVGNGU5SHlFanZ6?=
+ =?utf-8?B?dkcxUHhCSStSS05nZ3dKRWFsNnp3RDdjaWdOeHJnWU1yVlUrQjFtdm1hWWpG?=
+ =?utf-8?B?cjNKK21FMklVWTAzZFBhc0NLc1FzdlZLQzdSd1U1bHBhcXdUV3JuZ2hEeEFM?=
+ =?utf-8?B?elFNSzFnWHh3RnE0eWhsaEo0QzY2bHh2YlBIb00rN01IeHdmS3hrbHlzc3d3?=
+ =?utf-8?B?SVJTeWVRRkp2L2xFelNnTE1FNExpRmxOZDl1aDlRWHpHdlg4WGE1ZUdnYWxI?=
+ =?utf-8?B?L3FYZlYzb1N1TmlYdndIV1pQcnNkY3lUTDFTSytRQU5NVWs5bUh6WWJ5dGdh?=
+ =?utf-8?B?emRtREFPQjdrQmJSWk5RTjNaLzRJcG9jUEpDbTkwR1BnVmdXZ3hlVlNRYWFp?=
+ =?utf-8?B?d2Zad2liOWlFKzVYL3RBajErV2E2Vm1rU2VkUWlhUTRCY1p1c3dncDl3aDNs?=
+ =?utf-8?B?cnVpeU4zZTFFTW5TOTZVR01mQkRqam5INFJGQ1dPckk5YjdmdExJUFZyd012?=
+ =?utf-8?B?SVlaQjU1Nkd1Q1craDNjMEpXV1hVQldHa2hUazdoM2Rma08zb0ZyRzRWZysx?=
+ =?utf-8?B?OVFYTEpxUjEyMjhqaDBSdnRlQmhVSUgrWHpLc25yOEYra2JuY2Zrd2sxUFZw?=
+ =?utf-8?B?SlIxZnF1Nmt1dnllWjdreXJSbFdvalMzY3phZ1JQZ1BVbHZpSFNoOXFMUjEv?=
+ =?utf-8?B?WnlCQ29uUlBFVU5wLzFML3RKWTFwOTM3VDFzYXkzZHlIZXZrdmNSTkNpTUZM?=
+ =?utf-8?B?K0dqckc1VEhDL2t5Y0M2U2VndG9MTzcrNnRTSXlOL0VNK0M5SDA1bDN4ekdD?=
+ =?utf-8?B?NVZDZGdJZU5sb2I3TUFoUm5WOFhGUDB5MlJ6dEpZS3ZkTlFaeGhBL1pjamdL?=
+ =?utf-8?B?d0s2RytFR1ZET1BFbUhCY3R3SkJSaFptNUpJaVVERmkwdEdzN0MwUFNJVGJD?=
+ =?utf-8?B?Y1ZUaEdwcnlKVTRxRERJdmQ2cWN5REkzVGltKzZ5dnhHRkVCMThRd1UzNjlR?=
+ =?utf-8?B?NnFIZ2RMZDJvTGhCQzdNVnQ1czBQUzN6OWwzL1dvaEpRTmRKeDF1cjZtTGZy?=
+ =?utf-8?B?Z3Nra2w4L1ZhTmRxZHdNMkdrS0tuNkFmbEl6OWU1djhiZTRhK2J4Nk5oOW5M?=
+ =?utf-8?B?R0psWGFkOUJzZFB0ZENCWUFvU1dBTDYwb0R6K2xLemFkYjYxMlZ6ay92TVo2?=
+ =?utf-8?B?Z25KajFYVk5Pb1JnaTgzWFNEQVVKRVRWa1pEUm1MRlphcVdBWTZybFVmSzdl?=
+ =?utf-8?B?Y0VuTXYwQ05WN3k5bTVpNCtHZHN0UVBKcVRWREt4a0NBL1VJU05XcTVZTHVQ?=
+ =?utf-8?B?aUthSWwrZ3VrVm5MZ3F3U3ZCMEI5VThKWXFjUkxwRkFrMXNlQThaOWs2SXFh?=
+ =?utf-8?B?aFIwTEtSeHhCakkxY2pGWnlkejM4d21na1o4enU4S3lSQzl6TTg3TU5ZUDF2?=
+ =?utf-8?B?dHJiZXl0Z2VNMEhEWXpIaDdHTmVkcThpRHU4OUxiRHhmMUcxZzh2UXFoZmtk?=
+ =?utf-8?B?L01TVXA2K29wTWhhRytEOS9zUjFVdVdSOGQyTG9GNkhSallWZmtRRDh6eWp6?=
+ =?utf-8?B?V1Uwa05JNmM3MUJLUXYyV1Y0S0lOdzdoMjZJMWp1QmlKSGxkMHlITW85anVn?=
+ =?utf-8?B?Qm9iMWgxdnh2QTl3a3h3NzM2c2gwR01BVmdDaU1yMmJodUJyNnBKdklGS3V4?=
+ =?utf-8?B?cUdZQ3JNR0pNZHRxZVZmUE1QSm1iYWZXbnltMjlWU3ZnTUxZbzc3N0JwK3cz?=
+ =?utf-8?B?TXNWZlU0S0xFYlRZeXRpS0gveE1WM3NXU0xEd0ZOZjZybjl1V2E1TkdyK2c1?=
+ =?utf-8?B?Rm9sTStYVFM5NzlvM1lpSW5vRzNBV3FzWTdZWHdtM09Bc0piMEM1ajlXOVlx?=
+ =?utf-8?B?RXZuQUIrajVRVzFHQnMyeEhCMEQ1OWVtVjZYR3owend2VUhad1lCUkpMelJa?=
+ =?utf-8?Q?J+9o=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SWxLRDhJbDdMTk1LMVNTZ0E0M3ZiTzBxMDhFT21LbHNXWnZBdVdNc2NYSy9a?=
+ =?utf-8?B?QjlTeHZ6ZFJxbEJNeXp6dTZDdnIrUW8wYU5DSXFIYUZrZjgrSGxib2pXdGIv?=
+ =?utf-8?B?eEpNTVlFSlhicEliYWZObDNta0w2THlaejJkOUt6YmtaS0lYU2R5NTBVM2N5?=
+ =?utf-8?B?ZERYL2p0U0RlR1JXOTZUSG0xVWZUbGlxZDg1L0Z4ZlNmSmV4T1BFK016enVX?=
+ =?utf-8?B?UTh0T2hTK2RtVjRHUmJqdFVuN0dvRzZjR3orcVlzZENPSjhmRWcvV0crcUVT?=
+ =?utf-8?B?NHBrQVNKcmFXWUhqZjJQckNUeldhSmFyR21aYzM3eSt2WmlJa3dJOEFNUk1M?=
+ =?utf-8?B?M1FveXp1THpCNitRRGhoNDk2YjVZM2dFY0JYMExCeUE2S25QbU5sbXhLODZh?=
+ =?utf-8?B?OFRYMjRvWDNQbEVzYUdkSEtEbmVxS3gwQ0xPNFFraURmN2paUmhaYlJsYzk4?=
+ =?utf-8?B?S0M2eDNBVGt4b0cxcDUzM0JLVmVQUTFOUm9KMmdLck9jUXVod0hFa3RDRXRI?=
+ =?utf-8?B?Tzdzd2RyMUhsNCtkMC80ZmI2ZUNKcHdXTTVPUUU3STlyT25JOHNWb3JQNGpu?=
+ =?utf-8?B?dXFSd3dEUFAvZTBKaU9kb3JlZkdFZ1VmdlN0Tk42MkMvaGhaMDNBSW5qaXFD?=
+ =?utf-8?B?cGF6OU52Kyt5WVhuZHBOOW1KdXhiZzNNSUlBMzlWR0NJOGtBUkZVTWNVdFBJ?=
+ =?utf-8?B?UnZ2ek81ZzlSZ05mWDhDbkZOUmg1VXE0T0NVVDlOSGlnVzU2aDJvL1IyNEJR?=
+ =?utf-8?B?eFJXekt3S0Y1VXFqYkJsSmFaOGZFUkJvZHJkRHZZdGtPMk4rYXEvRk9jMlJO?=
+ =?utf-8?B?aWxVbHpqWUlmUk9LYWk5azEyYnFnREQyQVhHWFZVZWNLUzJMVUx3KzJvMnJF?=
+ =?utf-8?B?ajFSSVZwTHNrUXp0WEI0NkNZcEY5Y2pnN1EyTjdwcjVUZmlRSUtTR001ZkVh?=
+ =?utf-8?B?ZWdXYUNCSjdBTWhlNlRTQzNjVTJmckJ1RTQ2bHRmdE1TVmZITkNoS3pWV2Ro?=
+ =?utf-8?B?OHEwL2k1THFRSC9JOHFqcFkwN2dyQ0Z1cjBxditjeDMzQm45U2tLcGlPcXJ3?=
+ =?utf-8?B?bVJsdHVWWjdHd09kc0VVUTgzMk8xbnZrUlM5UWJ5WnFDTVlsdy9RSGlqY0Js?=
+ =?utf-8?B?YWV2VWtZbDBvb3daVms2cHZPbTVYOVJYMmhwbGxKbzZOTG5JVzBTRWs4TVhK?=
+ =?utf-8?B?S09ka21WRHRKbG1OanRSczJEeFkzTEJkTFVWMzBRZGZGNzdKVXZiUmozaGdR?=
+ =?utf-8?B?KzhjVFpiRFcvQmxnRGxkdHlYM052RzY3UWZkWmxPNDRaejkrazE4eDkrYzM3?=
+ =?utf-8?B?RFJTajRWRzR1Ri9zcW41b0ZkRHdWZStYNEwvbVFrUEZvTXl1dUgvMEc0SEtH?=
+ =?utf-8?B?aVdUekdaVjRFajJuVStVMENBL2ZBWlVaamIzckhpWUVTUE14eC9IeWh3MDRt?=
+ =?utf-8?B?UENZN0duVUdqbGZ0VXVqaUZUUjNUWUcxa043cDZwOHUrVDRzdDlSSEpDcFNO?=
+ =?utf-8?B?c1dZYnlkUE1hTExqUmJoemk5UmVvQXdCb2VoL3dVQkplOVNPVzF4Mkp0VFRJ?=
+ =?utf-8?B?Yll3Rk1NU3ZER0dRajVPR0tMNVlCRGZEOVk0dmk3LzNpVE5NcTluWlFuQVJI?=
+ =?utf-8?B?R0FNM3Naa2RDZWZHUTh5cmVOdG5ZU0JKcGVuaWhUWEtvMlVkTHNxUFVpSGc1?=
+ =?utf-8?B?bnBxYXJ1QzdXZWVRdFlSV3puRCtWeFFQQzhiZ2Z4ei9NRHNtc3hTZVhzMzc3?=
+ =?utf-8?B?d3pML0RvOWdBWktGV0NJdXVUc3dTbWZtODd3N1dMckVuUGxUVXFrTHhORHYy?=
+ =?utf-8?B?aEpNbmtIcThVQWkyT3NGMVNKdEEzZFFQbFU0T0oydWRrOHdNN0xBWjBYRnMr?=
+ =?utf-8?B?SUk4WDQ5bzhsMEpuTDZVTU94Z3pHVUhjbDJVQUk1OWVORmFCalBTdTVHTFU0?=
+ =?utf-8?B?cVRTMEZaQjJLNVZxd2QvNUVCcEVlUmlDK3hHNXo5cVpqcFgzc1I5WjZjRnBP?=
+ =?utf-8?B?dnNvbEhsSHd3OVo5SWpqKzR0eFVGMXZWRUs5cTVETFVGNjhpWFJnQ0o3eDl1?=
+ =?utf-8?B?Nit2ZGRSaTFIdTNhRjdBeTF3bWRwSXc3Qk5Ob0JFWEtqRHFmNHlWbUVKTkFj?=
+ =?utf-8?B?ZFRtdkdaZjVEdHJlT0llb0dDK0dmcFAzelczZnlQeUVjaWdzVzVPOG8vL21G?=
+ =?utf-8?B?NUxXV0JyS1dsT3UybzFUbldBMUU0cmF0a05tZWJ4c2psTThENkpYaDlXMGJl?=
+ =?utf-8?B?ajU4VWRkWk0wS1pRYkFzQ29GQnJ6Y1J6TzNyVkJuSURoY1hEbjlFSDVvMU9m?=
+ =?utf-8?B?MmI2TmtwSDZiSjlBSUxXYW5GSG12TWlCUzF1NnZJdEpBVWlUNld2Zz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7662b773-8182-427e-0321-08de64584a56
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Feb 2026 01:45:50.5696
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Njw3XIXAAfof47tvjCe2lBS1i+qoK3Cf0qJ3lgc9Bsa+3hQQpEeFPVMqB75ZjGKI8RCyE6xO2HgXF7jiBY7iWA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8441
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_174024_755415_8C6D418A 
-X-CRM114-Status: GOOD (  23.46  )
+X-CRM114-CacheID: sfid-20260204_174611_707047_E52D1314 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,232 +191,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Gigabit Ethernet on Nuvoton MA35 series using dwmac driver.
+Hi Frank,
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Signed-off-by: Joey Lu <a0987203069@gmail.com>
----
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-nuvoton.c   | 173 ++++++++++++++++++
- 3 files changed, 186 insertions(+)
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
+On 2/4/2026 11:42 PM, Frank Li wrote:
+> On Wed, Feb 04, 2026 at 09:36:06AM +0800, Ming Qian(OSS) wrote:
+>> Hi Frank,
+>>
+>> On 2/4/2026 12:56 AM, Frank Li wrote:
+>>> On Tue, Feb 03, 2026 at 04:23:39PM +0800, ming.qian@oss.nxp.com wrote:
+>>>> From: Ming Qian <ming.qian@oss.nxp.com>
+>>>>
+>>>> Use devm_pm_runtime_enable() to simplify probe and exit paths.
+>>>>
+>>>> No functional change.
+>>>>
+>>>> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+>>>> ---
+>>>>    drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c | 15 ++++++++++++---
+>>>>    1 file changed, 12 insertions(+), 3 deletions(-)
+>>>>
+>>>> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>>>> index 39022c1bf36d..877e6c4f7406 100644
+>>>> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>>>> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>>>> @@ -2971,12 +2971,22 @@ static int mxc_jpeg_probe(struct platform_device *pdev)
+>>>>    			  jpeg->dec_vdev->minor);
+>>>>
+>>>>    	platform_set_drvdata(pdev, jpeg);
+>>>> -	pm_runtime_enable(dev);
+>>>> +	ret = devm_pm_runtime_enable(dev);
+>>>> +	if (ret) {
+>>>> +		dev_err(dev, "Failed to enable runtime PM: %d\n", ret);
+>>>> +		goto err_pm;
+>>>> +	}
+>>>>
+>>>>    	return 0;
+>>>>
+>>>> +err_pm:
+>>>> +	video_unregister_device(jpeg->dec_vdev);
+>>>> +	/* set NULL to prevent double-free */
+>>>> +	jpeg->dec_vdev = NULL;
+>>>
+>>> code have not simplied, you add addtional goto label. You can use
+>>> devm_add_action_or_reset().
+>>>
+>>> Frank
+>>>
+>>
+>> I don't quite understand the difference compared to directly using
+>> devm_pm_runtime_enable.
+>>
+>> int devm_pm_runtime_enable(struct device *dev)
+>> {
+>> 	pm_runtime_enable(dev);
+>>
+>> 	return devm_add_action_or_reset(dev, pm_runtime_disable_action, dev);
+>> }
+>>
+>> We still need to check the return value of devm_add_action_or_reset and
+>> perform the corresponding error handling.
+>> We may still add the goto label.
+> 
+> Sorry, my means put video_device_release() to devm_add_action_or_reset() to
+> avoid goto.
+> 
+> If it is complex, you can keep original one.
+> 
+> Frank
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 07088d03dbab..861f1c6c14f1 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -132,6 +132,18 @@ config DWMAC_MESON
- 	  the stmmac device driver. This driver is used for Meson6,
- 	  Meson8, Meson8b and GXBB SoCs.
- 
-+config DWMAC_NUVOTON
-+	tristate "Nuvoton MA35 dwmac support"
-+	default ARCH_MA35
-+	depends on OF && (ARCH_MA35 || COMPILE_TEST)
-+	select MFD_SYSCON
-+	help
-+	  Support for Ethernet controller on Nuvoton MA35 series SoC.
-+
-+	  This selects the Nuvoton MA35 series SoC glue layer support
-+	  for the stmmac device driver. The nuvoton-dwmac driver is
-+	  used for MA35 series SoCs.
-+
- config DWMAC_QCOM_ETHQOS
- 	tristate "Qualcomm ETHQOS support"
- 	default ARCH_QCOM
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index c9263987ef8d..4ade030b634f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -20,6 +20,7 @@ obj-$(CONFIG_DWMAC_IPQ806X)	+= dwmac-ipq806x.o
- obj-$(CONFIG_DWMAC_LPC18XX)	+= dwmac-lpc18xx.o
- obj-$(CONFIG_DWMAC_MEDIATEK)	+= dwmac-mediatek.o
- obj-$(CONFIG_DWMAC_MESON)	+= dwmac-meson.o dwmac-meson8b.o
-+obj-$(CONFIG_DWMAC_NUVOTON)	+= dwmac-nuvoton.o
- obj-$(CONFIG_DWMAC_QCOM_ETHQOS)	+= dwmac-qcom-ethqos.o
- obj-$(CONFIG_DWMAC_RENESAS_GBETH) += dwmac-renesas-gbeth.o
- obj-$(CONFIG_DWMAC_ROCKCHIP)	+= dwmac-rk.o
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
-new file mode 100644
-index 000000000000..dd233e0a32ee
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
-@@ -0,0 +1,173 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Nuvoton DWMAC specific glue layer
-+ *
-+ * Copyright (C) 2025 Nuvoton Technology Corp.
-+ *
-+ * Author: Joey Lu <a0987203069@gmail.com>
-+ */
-+
-+#include <linux/mfd/syscon.h>
-+#include <linux/of_device.h>
-+#include <linux/of_net.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/stmmac.h>
-+
-+#include "stmmac.h"
-+#include "stmmac_platform.h"
-+
-+#define NVT_REG_SYS_GMAC0MISCR  0x108
-+#define NVT_REG_SYS_GMAC1MISCR  0x10C
-+
-+#define NVT_MISCR_RMII          BIT(0)
-+
-+/* Two thousand picoseconds are evenly mapped to a 4-bit field,
-+ * resulting in each step being 2000/15 picoseconds.
-+ */
-+#define NVT_PATH_DELAY_STEP     134
-+#define NVT_TX_DELAY_MASK       GENMASK(19, 16)
-+#define NVT_RX_DELAY_MASK       GENMASK(23, 20)
-+
-+struct nvt_priv_data {
-+	struct platform_device *pdev;
-+	struct regmap *regmap;
-+};
-+
-+static struct nvt_priv_data *
-+nvt_gmac_setup(struct platform_device *pdev, struct plat_stmmacenet_data *plat)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct nvt_priv_data *bsp_priv;
-+	phy_interface_t phy_mode;
-+	u32 macid, arg, reg;
-+	u32 tx_delay_step;
-+	u32 rx_delay_step;
-+	u32 miscr;
-+
-+	bsp_priv = devm_kzalloc(dev, sizeof(*bsp_priv), GFP_KERNEL);
-+	if (!bsp_priv)
-+		return ERR_PTR(-ENOMEM);
-+
-+	bsp_priv->regmap =
-+		syscon_regmap_lookup_by_phandle_args(dev->of_node, "nuvoton,sys", 1, &macid);
-+	if (IS_ERR(bsp_priv->regmap))
-+		return ERR_PTR(dev_err_probe(dev, PTR_ERR(bsp_priv->regmap),
-+				     "Failed to get sys register\n"));
-+	if (macid > 1) {
-+		dev_err(dev, "Invalid sys arguments\n");
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	if (of_property_read_u32(dev->of_node, "tx-internal-delay-ps", &arg)) {
-+		tx_delay_step = 0;
-+	} else {
-+		if (arg <= 2000) {
-+			tx_delay_step = (arg == 2000) ? 0xf : (arg / NVT_PATH_DELAY_STEP);
-+			dev_dbg(dev, "Set Tx path delay to 0x%x\n", tx_delay_step);
-+		} else {
-+			dev_err(dev, "Invalid Tx path delay argument.\n");
-+			return ERR_PTR(-EINVAL);
-+		}
-+	}
-+	if (of_property_read_u32(dev->of_node, "rx-internal-delay-ps", &arg)) {
-+		rx_delay_step = 0;
-+	} else {
-+		if (arg <= 2000) {
-+			rx_delay_step = (arg == 2000) ? 0xf : (arg / NVT_PATH_DELAY_STEP);
-+			dev_dbg(dev, "Set Rx path delay to 0x%x\n", rx_delay_step);
-+		} else {
-+			dev_err(dev, "Invalid Rx path delay argument.\n");
-+			return ERR_PTR(-EINVAL);
-+		}
-+	}
-+
-+	miscr = (macid == 0) ? NVT_REG_SYS_GMAC0MISCR : NVT_REG_SYS_GMAC1MISCR;
-+	regmap_read(bsp_priv->regmap, miscr, &reg);
-+	reg &= ~(NVT_TX_DELAY_MASK | NVT_RX_DELAY_MASK);
-+
-+	if (of_get_phy_mode(pdev->dev.of_node, &phy_mode)) {
-+		dev_err(dev, "missing phy mode property\n");
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	switch (phy_mode) {
-+	case PHY_INTERFACE_MODE_RGMII:
-+	case PHY_INTERFACE_MODE_RGMII_ID:
-+	case PHY_INTERFACE_MODE_RGMII_RXID:
-+	case PHY_INTERFACE_MODE_RGMII_TXID:
-+		reg &= ~NVT_MISCR_RMII;
-+		break;
-+	case PHY_INTERFACE_MODE_RMII:
-+		reg |= NVT_MISCR_RMII;
-+		break;
-+	default:
-+		dev_err(dev, "Unsupported phy-mode (%d)\n", phy_mode);
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	if (!(reg & NVT_MISCR_RMII)) {
-+		reg |= FIELD_PREP(NVT_TX_DELAY_MASK, tx_delay_step);
-+		reg |= FIELD_PREP(NVT_RX_DELAY_MASK, rx_delay_step);
-+	}
-+
-+	regmap_write(bsp_priv->regmap, miscr, reg);
-+
-+	bsp_priv->pdev = pdev;
-+
-+	return bsp_priv;
-+}
-+
-+static int nvt_gmac_probe(struct platform_device *pdev)
-+{
-+	struct plat_stmmacenet_data *plat_dat;
-+	struct stmmac_resources stmmac_res;
-+	struct nvt_priv_data *priv_data;
-+	int ret;
-+
-+	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-+	if (ret)
-+		return ret;
-+
-+	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-+	if (IS_ERR(plat_dat))
-+		return PTR_ERR(plat_dat);
-+
-+	/* Nuvoton DWMAC configs */
-+	plat_dat->core_type = DWMAC_CORE_GMAC;
-+	plat_dat->tx_fifo_size = 2048;
-+	plat_dat->rx_fifo_size = 4096;
-+	plat_dat->multicast_filter_bins = 0;
-+	plat_dat->unicast_filter_entries = 8;
-+
-+	priv_data = nvt_gmac_setup(pdev, plat_dat);
-+	if (IS_ERR(priv_data))
-+		return PTR_ERR(priv_data);
-+
-+	ret = stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id nvt_dwmac_match[] = {
-+	{ .compatible = "nuvoton,ma35d1-dwmac"},
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, nvt_dwmac_match);
-+
-+static struct platform_driver nvt_dwmac_driver = {
-+	.probe  = nvt_gmac_probe,
-+	.remove = stmmac_pltfr_remove,
-+	.driver = {
-+		.name           = "nuvoton-dwmac",
-+		.pm		= &stmmac_pltfr_pm_ops,
-+		.of_match_table = nvt_dwmac_match,
-+	},
-+};
-+module_platform_driver(nvt_dwmac_driver);
-+
-+MODULE_AUTHOR("Joey Lu <a0987203069@gmail.com>");
-+MODULE_DESCRIPTION("Nuvoton DWMAC specific glue layer");
-+MODULE_LICENSE("GPL");
--- 
-2.43.0
+OK, I get your point, and I prefer to keep it.
+
+Regards,
+Ming
+
+>>
+>> Regards,
+>> Ming
+>>
+>>>>    err_vdev_register:
+>>>> -	video_device_release(jpeg->dec_vdev);
+>>>> +	/* Only release if allocation succeeded but registration failed */
+>>>> +	if (jpeg->dec_vdev)
+>>>> +		video_device_release(jpeg->dec_vdev);
+>>>>
+>>>>    err_vdev_alloc:
+>>>>    	v4l2_m2m_release(jpeg->m2m_dev);
+>>>> @@ -3047,7 +3057,6 @@ static void mxc_jpeg_remove(struct platform_device *pdev)
+>>>>
+>>>>    	mxc_jpeg_free_slot_data(jpeg);
+>>>>
+>>>> -	pm_runtime_disable(&pdev->dev);
+>>>>    	video_unregister_device(jpeg->dec_vdev);
+>>>>    	v4l2_m2m_release(jpeg->m2m_dev);
+>>>>    	v4l2_device_unregister(&jpeg->v4l2_dev);
+>>>> --
+>>>> 2.52.0
+>>>>
 
 
