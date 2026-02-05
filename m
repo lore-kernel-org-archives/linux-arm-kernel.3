@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32708E91291
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 08:42:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27ABDE91292
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 08:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TDDN6nKpWMLgAjYqeQFgOlw2hPu9MgJa6srCHJoSLbw=; b=RLocjdXbG0tzwtHb1/16uhgu44
-	cIikHVVKQ8YqD87qJnesWTurqhS9DejG8sQmj5fwV7fGTyfDnMK9rbxyne/+D7iiN59PA9HQKRUMb
-	CfhtTC2efdlRnm0QZ2l4PKt8M5YAbNMx8qTuS5ZjcgOnm7BahqCWsOv3xBI33CfPEPNyNJIadKH1C
-	1kFS0TtLQiEYKrcOjHFfXlisR/NfTbzeFAji8L38EYi2jXuxLz74H56UV/recqBmLT7mzkwIxEyU1
-	uGmSrAZXYXVU50iTB111VzWAAa4B6EGO2MctYeYdtP8Klms73h/mXPTRuje/sDqKNykk26rUG5/Zo
-	x4Q3LocA==;
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ah96poweooP39XHipocL11TDAyJJlEOaH2JSHKLFb3g=; b=rvdbZS6Q8QeV5G0V7NgeSLPJhX
+	GPaLFKasTL/KWAjY7HZI2yUppVEmewHieMlVNwQe1xDHD2ErwKfK3NgdzAKMdOMSV6O7y9p2Z3PPF
+	Kv0RVb3JiyWKWcCfYVJZXAvp2pth2usWeWt165rJZdOor7ecSGBSVwtlSz+m7qyz5l/FiKRgq61gJ
+	VnMHkBbp5K79wj+j9lHAEKPmuBS6Rh4IgKsiBbcGh137kMpS14QK7mXMKZROtEyAousmRJrfN9liW
+	JYHRAxvmHpYcWJeOka2d82we9GxnUFlCxi0oa0uSNaMht/YnJjYrhq+tYXOC7kWimwBJvRxgfHT2i
+	6cN/Qk0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnuwo-00000009chb-3jrI;
-	Thu, 05 Feb 2026 08:42:46 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1vnv3V-00000009cxT-3EFk;
+	Thu, 05 Feb 2026 08:49:41 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnuwl-00000009chI-2Tv8
+	id 1vnv3S-00000009cwy-1Lz2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 08:42:46 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-03 (Coremail) with SMTP id rQCowABXZ879V4Rp4R+7Bw--.41404S2;
-	Thu, 05 Feb 2026 16:42:37 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: daniel.lezcano@linaro.org,
-	tglx@kernel.org,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	p.zabel@pengutronix.de,
-	mripard@kernel.org,
-	mans@mansr.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	Chen Ni <nichen@iscas.ac.cn>
-Subject: [PATCH] clocksource/drivers/sun5i: Handle error returns from devm_reset_control_get_optional_exclusive()
-Date: Thu,  5 Feb 2026 16:40:37 +0800
-Message-Id: <20260205084037.3661261-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	Thu, 05 Feb 2026 08:49:40 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id B29F4C243A8;
+	Thu,  5 Feb 2026 08:49:38 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A9527606FD;
+	Thu,  5 Feb 2026 08:49:32 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 263B5119A865B;
+	Thu,  5 Feb 2026 09:49:28 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1770281371; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ah96poweooP39XHipocL11TDAyJJlEOaH2JSHKLFb3g=;
+	b=e8SCd2iq+TafgZsnMRv1dDAFDbNxcYWS4reV/gXRxs5niK9nBASXfKtq8Aujo2KeEZ9hpK
+	+2unjWnkgk1UfnRVlTWATb51Zo5XVaks6lbUeTKD9IonZKzjl1XSVHLeZDJoLQ3r4p8DRa
+	v/VIA+WrV22IwVVJ8Kc6f09qdssqHDLOU8JsO+B7HV4ZJo5UXypXtusr98fqdS25y+cmNw
+	rdE9RcfUAmD8wehhFWWWySg/m35LDPaKmH100LGu3v2AScV6p3I4CMaWMEJEkGFIevNuZp
+	NL8xJyz/FylwEWyhpPttwMWMNNfYVfwckeCKrHrIJxdnNxIImcd34ejHdt1oSw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: William Zhang <william.zhang@broadcom.com>,  Hauke Mehrtens
+ <hauke@hauke-m.de>,  zajec5@gmail.com,
+  bcm-kernel-feedback-list@broadcom.com,  Rob Herring <robh@kernel.org>,
+  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
+ <conor+dt@kernel.org>,  linux-arm-kernel@lists.infradead.org,
+  devicetree@vger.kernel.org,  Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH -next] ARM: dts: BCM5301X: Drop extra NAND controller
+ compatible
+In-Reply-To: <8ee13309-537e-4a63-a402-289fd119118f@broadcom.com> (Florian
+	Fainelli's message of "Wed, 4 Feb 2026 13:21:46 -0800")
+References: <20260204091530.624230-1-miquel.raynal@bootlin.com>
+	<CAHi4H7EVLsgVL5KCERTX5XBNTMvZDNxePzo48Zp5dsfDdoCV1Q@mail.gmail.com>
+	<87ldh8fdqm.fsf@bootlin.com>
+	<8ee13309-537e-4a63-a402-289fd119118f@broadcom.com>
+User-Agent: mu4e 1.12.7; emacs 30.2
+Date: Thu, 05 Feb 2026 09:49:27 +0100
+Message-ID: <87fr7ffuco.fsf@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowABXZ879V4Rp4R+7Bw--.41404S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrZw15Cw1kXr1kZry5AF4Dtwb_yoWkCFg_GF
-	4Ivry7XrWrKrZxKF1qyw43AFW29as5Zr18WanYgaySka4UGrWUA34q9rZ8ZF18Ar4DKF9x
-	CFW3GrW3uw1akjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbTxFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
-	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
-	cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8Jw
-	ACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
-	0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r43MxAIw28IcxkI7VAKI48JMx
-	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
-	wI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20x
-	vE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v2
-	0xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxV
-	W8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbDPEDUUUUU==
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_004244_002552_99A7D813 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260205_004938_792263_4E5EDA1B 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,35 +85,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The devm_reset_control_get_optional_exclusive() function may return an
-ERR_PTR in case of genuine reset control acquisition errors, not just
-NULL which indicates the legitimate absence of an optional reset.
+Hi Florian,
 
-Add an IS_ERR() check after the call in sun5i_timer_probe(). On error,
-return the error code to ensure proper failure handling rather than
-proceeding with invalid pointers.
+On 04/02/2026 at 13:21:46 -08, Florian Fainelli <florian.fainelli@broadcom.=
+com> wrote:
 
-Fixes: 7e5bac610d2f ("clocksource/drivers/sun5i: Convert to platform device driver")
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
----
- drivers/clocksource/timer-sun5i.c | 3 +++
- 1 file changed, 3 insertions(+)
+> On 2/4/26 12:36, Miquel Raynal wrote:
+>> Hello William,
+>>=20
+>>>> diff --git a/arch/arm/boot/dts/broadcom/bcm-ns.dtsi b/arch/arm/boot/dt=
+s/broadcom/bcm-ns.dtsi
+>>>> index d0d5f7e52a91..46b650abdb90 100644
+>>>> --- a/arch/arm/boot/dts/broadcom/bcm-ns.dtsi
+>>>> +++ b/arch/arm/boot/dts/broadcom/bcm-ns.dtsi
+>>>> @@ -479,7 +479,7 @@ thermal: thermal@2c0 {
+>>>>          };
+>>>>
+>>>>          nand_controller: nand-controller@18028000 {
+>>>> -               compatible =3D "brcm,nand-iproc", "brcm,brcmnand-v6.1"=
+, "brcm,brcmnand";
+>>>> +               compatible =3D "brcm,nand-iproc", "brcm,brcmnand-v6.1";
+>>>>                  reg =3D <0x18028000 0x600>, <0x1811a408 0x600>, <0x18=
+028f00 0x20>;
+>>>>                  reg-names =3D "nand", "iproc-idm", "iproc-ext";
+>>>>                  interrupts =3D <GIC_SPI 68 IRQ_TYPE_LEVEL_HIGH>;
+>>>
+>>> Acked-by: William Zhang <william.zhang@broadcom.com>
+>> Do you mind if I take it on top of the commit it fixes?
+>
+> I already applied this change to the Broadcom ARM SoC tree. I don't
+> expect conflicts so if you prefer to take it, I can drop it.
 
-diff --git a/drivers/clocksource/timer-sun5i.c b/drivers/clocksource/timer-sun5i.c
-index f827d3f98f60..d7e012992170 100644
---- a/drivers/clocksource/timer-sun5i.c
-+++ b/drivers/clocksource/timer-sun5i.c
-@@ -286,6 +286,9 @@ static int sun5i_timer_probe(struct platform_device *pdev)
- 	}
- 
- 	rstc = devm_reset_control_get_optional_exclusive(dev, NULL);
-+	if (IS_ERR(rstc))
-+		return dev_err_probe(dev, PTR_ERR(rstc),
-+				     "failed to get reset\n");
- 	if (rstc)
- 		reset_control_deassert(rstc);
- 
--- 
-2.25.1
+It's okay, this will just generate a dtbs_check warning if it reaches
+Linus' tree before my branch, but honestly I don't think it matters
+much.
 
+Please keep it.
+
+Thanks!
+Miqu=C3=A8l
 
