@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47CD9EC1EAF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 12:50:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28912EC1EB2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 12:50:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3nwfMEfauZX4o9Pkm/lT0qqDPxFmtD3WMAZTpil1yHE=; b=D+P+0YSSAH7cFCk9yLVg/D5ahT
-	gcP/YyEB7OwdE4gR8dOnb1elkVvrEp/b4siYI76tDY+g4nPkp0MZSPFvyV2D9mRHCgf2hnwSMH4QJ
-	cNQum4CK0lZhJU13MfXMeyhZvZBjwwsfrlF2vbNH+1iE6CvSQVC1Cu1lRIEVByAWpLSak2RlcSxJY
-	oaVdvLItQG11j/NHLzNPN/AiuEsPXzahFNM1kW3a5ncszVYiUcMq3GgJo2OGst2pemxU8rpKM/bOF
-	M50gpHhpaBQGiMFqDCIcPgea8lFnkjsz7NpeVQnEWS511kq47+K/jdQ5aNeE/gdfPK3H44yo1aP46
-	LyFH7Mxw==;
+	bh=wT0qu7L3vnnIYE49+ri/Zy0uJQR4ZsNRqa4iBhmuI7M=; b=YlJNj/TuGYAnQmXwk6JaMbj4KS
+	vVfeP8RR5+z8LM1sM7ASI4oQm8UQtTbSbTlxDjwNg6CSoP4yYx6UDobto1IArpFh0tzHEvdeo+pwQ
+	f2bTRLA0Etxza7hef0p0MrawaRnep0A61kPnpBarLbqyGnRl5Meiq/2BurfSqYg6ExqKZXvVWKG3e
+	ilO9/CVeAOWDtsZRnbgrEIHJ44Z0+OAeLqJr7Q9QYieIUwQ7zRDUPQG/5LbqDQP+rjT3IQKHfRnwY
+	lhgYWkmjU7EnGjQA8X0opDCfBvTkjA3dMt5vYsCZMDQKxqpbRSEIKG+guRJUahAWVHXcxI8t5mh2V
+	KHdmF97w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnyon-00000009uVd-1aHQ;
-	Thu, 05 Feb 2026 12:50:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vnyor-00000009uWr-44yX;
+	Thu, 05 Feb 2026 12:50:49 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnyom-00000009uVE-0Gz8
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 12:50:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1D42460010;
-	Thu,  5 Feb 2026 12:50:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42B82C4CEF7;
-	Thu,  5 Feb 2026 12:50:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770295842;
-	bh=8ZSFvFFjrBn3umwkPpCWB7+Cv6fyC2OJgBqtdvIYlAw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JXdJqMsPnG5JvN/RqmqUjJrpoOZ+equY8ri6CNfNZrNfxnhMG35/Xn656s5MIv4g6
-	 gw8JOgWNwFnZ7ksOYtSDWCGJrkrSEkDLiFLcriiQ9jt/yxxKDzGGZ8Qq7Tz6mLo2L6
-	 oIC72ZtFxtiX9RjhN32IYlvFjmzl6vI3YW653nnoJQtCD2y/2QTgBvdcbFbJDxo/I8
-	 PnanOOQTdBm/UgbJS5aSZnaz2g9L2l1bDzrz/fb+kDcCcSxWKmHAJOgM2rcIGc/rOD
-	 ZX8bc4baFUOKebaOcVR2P1/tp6UVFRLU62W5or5m6Hv75YkfkuMqskRXljChRY93pS
-	 v1Yj17yLxog2Q==
-Date: Thu, 5 Feb 2026 13:50:40 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Janne Grunau <j@jannau.net>
-Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
-	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: interrupt-controller: apple,aic2:
- Add AICv3
-Message-ID: <20260205-pastoral-magnificent-cuscus-ce58ad@quoll>
-References: <20260128-irq-apple-aic3-v2-0-b4bc8e16c997@jannau.net>
- <20260128-irq-apple-aic3-v2-1-b4bc8e16c997@jannau.net>
+	id 1vnyom-00000009uVB-0FtR;
+	Thu, 05 Feb 2026 12:50:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=wT0qu7L3vnnIYE49+ri/Zy0uJQR4ZsNRqa4iBhmuI7M=; b=a7mkXjf4LL5AgEXRoE2URl8R6v
+	V0SZOFTlS11PqRt+J24lF89dz6lU8XCPJGCfnNUvrzx57QIL4pXQlxfm+TFsZbz0NrYt2zMtckL2D
+	rXt5bL7n8mIF1kKxUtbACTaPfyOUNA8ikZ7vNfD6dT4kazpBqVtDokX/rT1LzabRKU70G6rtngotk
+	jml4CTedCiY4fW9MfYUrXWAF5iAhlTVMRysCc1j/F9qFlcP5VswR2tifiL5CoB/N+J5/+dLt40qrs
+	vg7e5CAlfhaDBRHRDI7yKzvs7GjKKGCytqSltdhxO6Nwpy2jR2RnH1ZA6NGZvse0wuimH6g1sNt1z
+	qfUcQvWw==;
+Received: from i53875afe.versanet.de ([83.135.90.254] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vnyoc-00765Y-H7; Thu, 05 Feb 2026 13:50:35 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Kever Yang <kever.yang@rock-chips.com>, Willy Tarreau <w@1wt.eu>
+Cc: linux-rockchip@lists.infradead.org,
+ Finley Xiao <finley.xiao@rock-chips.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
+Subject: Re: [PATCH v3 3/3] nvmem: rockchip-otp: Add support for rk3562
+Date: Thu, 05 Feb 2026 13:50:34 +0100
+Message-ID: <3080333.vCJZsxu672@diego>
+In-Reply-To: <20250728190154.GA24527@1wt.eu>
+References: <20250415103203.82972-1-kever.yang@rock-chips.com>
+ <20250415103203.82972-4-kever.yang@rock-chips.com>
+ <20250728190154.GA24527@1wt.eu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260128-irq-apple-aic3-v2-1-b4bc8e16c997@jannau.net>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260205_045044_192386_16231574 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,112 +73,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 28, 2026 at 09:57:08AM +0100, Janne Grunau wrote:
-> AIC version 3 as found on the Apple M3 (t8122) is very similar to AICv2
-> in its base functionality. It can use the same device tree bindings as
-> AICv2 so add it to the AICv2 bindings.
-> This interrupt controller is used on all Apple SoCs starting with M3 up
-> to at least M5.
-> The only apparent difference is the increased IRQ config offset. Apple's
-> device tree codes this new offset as property of the "aic" node but the
-> value stayed constant for all SoCs with "aic,3". Since the SoC specific
-> compatible "apple,t8122-aic3" will be used in the driver this offset can
-> remain a driver implementation detail.
-> 
-> Signed-off-by: Janne Grunau <j@jannau.net>
-> ---
->  .../bindings/interrupt-controller/apple,aic2.yaml  | 45 +++++++++++++++++-----
->  1 file changed, 36 insertions(+), 9 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-> index ee5a0dfff437816056bda0de5523bf38be4f49ba..a6e2251fcc111340c0a27ab6912452f6b1255be2 100644
-> --- a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-> @@ -4,10 +4,10 @@
->  $id: http://devicetree.org/schemas/interrupt-controller/apple,aic2.yaml#
->  $schema: http://devicetree.org/meta-schemas/core.yaml#
->  
-> -title: Apple Interrupt Controller 2
-> +title: Apple Interrupt Controller 2 and 3
->  
->  maintainers:
-> -  - Hector Martin <marcan@marcan.st>
-> +  - Janne Grunau <j@jannau.net>
->  
->  description: |
->    The Apple Interrupt Controller 2 is a simple interrupt controller present on
-> @@ -28,14 +28,24 @@ description: |
->    which do not go through a discrete interrupt controller. It also handles
->    FIQ-based Fast IPIs.
->  
-> +  The Apple Interrupt Controller 3 is in its base functionality very similar to
-> +  the Apple Interrupt Controller 2 and uses the same device tree bindings. It is
-> +  found on Apple ARM SoCs platforms starting with t8122 (M3).
-> +
->  properties:
->    compatible:
-> -    items:
-> -      - enum:
-> -          - apple,t8112-aic
-> -          - apple,t6000-aic
-> -          - apple,t6020-aic
-> -      - const: apple,aic2
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - apple,t8112-aic
-> +              - apple,t6000-aic
-> +              - apple,t6020-aic
+Hi Willy,
 
-If you are re-shuffling these, you can as well sort alphanumerically.
+Am Montag, 28. Juli 2025, 21:01:54 Mitteleurop=C3=A4ische Normalzeit schrie=
+b Willy Tarreau:
+> On Tue, Apr 15, 2025 at 06:32:03PM +0800, Kever Yang wrote:
+> > From: Finley Xiao <finley.xiao@rock-chips.com>
+> >=20
+> > This adds the necessary data for handling otp on the rk3562.
+> >=20
+> > Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
+> > Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+>=20
+> Successfully tested with Jonas' patches on top of it on my
+> Radxa E20C (RK3528):
+>=20
+> Tested-by: Willy Tarreau <w@1wt.eu>
 
-> +          - const: apple,aic2
-> +      - items:
-> +          - enum:
-> +              - apple,t6030-aic3
-> +          - const: apple,t8122-aic3
-> +      - const: apple,t8122-aic3
+as you replied to the rk3562 variant, does that mean the rk3528
+uses the same variant data?
 
-Hm? How so this is not aic or aic2? We asked not to use generic compatibles
-for aic/aic2 - for all your early upstreamings. Our advice and request
-was in general rejected, although I could make a long term bet that we
-will be right. And here we are.
+Thanks
+Heiko
 
-Does this patch mean you finally agree with DT maintainers and abandon
-the generic compatible fiasko?
-
-
->  
->    interrupt-controller: true
->  
-> @@ -117,7 +127,9 @@ allOf:
->        properties:
->          compatible:
->            contains:
-> -            const: apple,t8112-aic
-> +            enum:
-> +              - apple,t8112-aic
-> +              - apple,t8122-aic3
->      then:
->        properties:
->          '#interrupt-cells':
-> @@ -141,4 +153,19 @@ examples:
->                    <0x2 0x8e10c000 0x0 0x4>;
->              reg-names = "core", "event";
->          };
-> +
-> +    };
-> +  - |
-> +    soc {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        aic_t8122: interrupt-controller@2d1000000 {
-> +            compatible = "apple,t8122-aic3";
-
-No need for new example which has no differences from other ones. Drop.
-
-Best regards,
-Krzysztof
 
 
