@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7112ECD993
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 17:40:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79C36ECD994
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 17:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7xI8SFJHpey4TdHsrtO3s1OYVeR4rk6YLvO0+Hbg4Go=; b=FH0TWY3QvNdSafMhiI6XHcnGmj
-	M0XxH+NfKy6bsTeYATI+HxGaSsDBs7a1nIuZgQ2q33els0RSNW/XuAF8E+DPjtnZ5x9WxqMsuXjZ2
-	vWr4EeiUeuXVB65JGKczjFIumfO6JeqcnjD9h0jD4YaFcmvHGfJ9VCRzuaflhEk+d6JSKlS3zwtU6
-	0wxO1+clndlCk0xdjrICStSBBCc8Ibfh0vLUMZLOxbKycBAI1Lx83ecTwkEtEL+HGSR6LqoqqILER
-	bEnixnBfGC10ae3La/G9OweyicPIHtMiDs6N/nn4npTdy0UDpITxXULxx7wJeNBeNZjkt7kbkrYmA
-	Ho2bJb4Q==;
+	bh=owxhRFXXXp5tKpxr1x72jU0ZyxfTAVdp3dG4BkXD5nk=; b=G2AUo0h6K8p+hoMRrT72k3vq3B
+	mCyEcx3HXMYGCbk8BPi7vDgAqILhvWfcr2tM9aRBZgEQf0PQVKB1+cHI9OXJyI7vGVObRbbKpeVh+
+	EwKnzyrZMFC2DDwYsw1llyT85i9PHpxMATptWSoUpGxAKf66Gt4XL//CnE7H70+OBrfVHHfnbvqbt
+	3W1RiSj8y9LptBHL3PM6oA/TrpxzGZpXBT4tp4FUJwvmLkm8lNlevRuXjM10TN7nSoxcmPff2NzqL
+	vU5lUpmnRg+hvv+C4aOgTg6r51AtUC2g12fESkZeRDumcwJgNMPslsN9J7GOyotIxbmT35iFTlRt/
+	vnZtHqBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo3L1-0000000AJJF-0q7w;
-	Thu, 05 Feb 2026 17:40:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vo3MP-0000000AJTk-2koG;
+	Thu, 05 Feb 2026 17:41:47 +0000
+Received: from smtprelay0010.hostedemail.com ([216.40.44.10] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo3Kz-0000000AJIj-1xUM
+	id 1vo3MM-0000000AJSn-3Sk2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 17:40:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AA4BF4406A;
-	Thu,  5 Feb 2026 17:40:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86D56C116D0;
-	Thu,  5 Feb 2026 17:40:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770313216;
-	bh=PlcHdDqlGOyoVV/PwNUW7cRCJ2IJFzAj92C8MJ6HqrA=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=NhIK2MM/FKJsRSf1wVPRCASRwziq9qpHvgaRa7SmsXH9VjtuwPwt5gUlV5TUXm+Xz
-	 XkslV/OC7bOdgcdu5XnNDhLnN1zusH261fVj9jivft7BFPwHw6GAvRmxnBvZiCMWoS
-	 +/r90Q6CoUCXAHM5APn68uTzZC+BlE5J4QEbtmpGPfmMrK6S6wAisEY7FvbwIV+KBa
-	 8CHtvOKErI+swfHIpywk0Bvau1Y+/T8PZDUIHwJ/yMGWd9iJL8ngU/hWcuerhaMG1y
-	 IhjbkBAqVmxF5rw/5ZgB8J6SzFNguadKPF/9EnsBxOldLurmdbxMCAQ8Ip9SCFb4lq
-	 Oi5ocOrUzolNw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 8524B3808200;
-	Thu,  5 Feb 2026 17:40:15 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Thu, 05 Feb 2026 17:41:44 +0000
+Received: from omf07.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay09.hostedemail.com (Postfix) with ESMTP id 0A3238C109;
+	Thu,  5 Feb 2026 17:41:37 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf07.hostedemail.com (Postfix) with ESMTPA id 1CB9120024;
+	Thu,  5 Feb 2026 17:41:34 +0000 (UTC)
+Date: Thu, 5 Feb 2026 12:42:08 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ jstultz@google.com, qperret@google.com, will@kernel.org,
+ aneesh.kumar@kernel.org, kernel-team@android.com,
+ linux-kernel@vger.kernel.org, Shuah Khan <skhan@linuxfoundation.org>,
+ linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v11 15/30] tracing: selftests: Add trace remote tests
+Message-ID: <20260205124208.2ed7cff8@gandalf.local.home>
+In-Reply-To: <20260131132848.254084-16-vdonnefort@google.com>
+References: <20260131132848.254084-1-vdonnefort@google.com>
+	<20260131132848.254084-16-vdonnefort@google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: stmmac: imx: fix iMX93 register definitions
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177031321407.505259.5073683709420571661.git-patchwork-notify@kernel.org>
-Date: Thu, 05 Feb 2026 17:40:14 +0000
-References: <E1vnaGl-00000007i9f-0ZMw@rmk-PC.armlinux.org.uk>
-In-Reply-To: <E1vnaGl-00000007i9f-0ZMw@rmk-PC.armlinux.org.uk>
-To: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Cc: andrew@lunn.ch, alexandre.torgue@foss.st.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, imx@lists.linux.dev,
- kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
- pabeni@redhat.com, kernel@pengutronix.de, s.hauer@pengutronix.de,
- shawnguo@kernel.org
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Server: rspamout07
+X-Rspamd-Queue-Id: 1CB9120024
+X-Stat-Signature: xrqfaergycraki9ixirzx4pqwqpkshpz
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1/AAJG0H2Y0nJ6yIVW93vc/rmOZvsTHdvc=
+X-HE-Tag: 1770313294-751280
+X-HE-Meta: U2FsdGVkX1+uuRgLPQ0ZgTKxMjzwxSS3wkxfEc/ttq2P0equ3WYuTk1Eo8BUqwVZX+pHP5PyilUVvCZrp/Id69DfyKfI2Lcp/JUghTpize8GQcHlrhj+pA1vcARhFNwS9fozq1kAOB1M5jjdhbgyyftg7E6q0Tm13V0vgY0dBYjaHm8CJ9e43ks2XZGIkfziMs32Vie/pcc9aL59qt67rJDOd8YNL9sFIg4S/bmc3qWX6TEookAaDBK0BzqiQTGiYhmLBwffXuSRZsCBHFPgG/lyEUt40fCk9nEWr/1+qTYjj82gzk1WqrJTqJK1Isyl4D6JObzKUKNVidE/baBu0TfHLiCDT7J7kI1mj9b80sNlo4rLU0R/bknCw+sIoPJs4g4uWStQ1N19ite56C3RWzGZxfFk+rXqZPVMs/Cnb5Q=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_094017_531089_D5C424E5 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20260205_094142_950431_E143C5A1 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +76,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Sat, 31 Jan 2026 13:28:33 +0000
+Vincent Donnefort <vdonnefort@google.com> wrote:
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Wed, 04 Feb 2026 10:37:59 +0000 you wrote:
-> When looking at the iMX93 documentation, the definitions in the driver
-> do not correspond with the documentation, which makes the driver
-> confusing.
+> Exercise the tracefs interface for trace remote with a set of tests to
+> check:
 > 
-> The driver, for example, re-uses a definition for bit 0 for two
-> different registers, where this bit have completely different purposes.
+>   * loading/unloading (unloading.tc)
+>   * reset (reset.tc)
+>   * size changes (buffer_size.tc)
+>   * consuming read (trace_pipe.tc)
+>   * non-consuming read (trace.tc)
 > 
-> [...]
+> Cc: Shuah Khan <skhan@linuxfoundation.org>
+> Cc: linux-kselftest@vger.kernel.org
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-Here is the summary with links:
-  - [net-next] net: stmmac: imx: fix iMX93 register definitions
-    https://git.kernel.org/netdev/net-next/c/7e7fcfb0798a
+This still fails:
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+=== Ftrace unit tests ===
+[1] Test trace remote buffer size	[PASS]
+[2] Test hypervisor trace buffer size	[UNSUPPORTED]
+[3] Test hypervisor trace buffer reset	[UNSUPPORTED]
+[4] Test hypervisor consuming trace read	[UNSUPPORTED]
+[5] Test hypervisor non-consuming trace read	[UNSUPPORTED]
+[6] Test hypervisor trace buffer unloading	[UNSUPPORTED]
+[7] Test trace remote reset	[PASS]
+[8] Test trace remote consuming read	[FAIL]
+[9] Test trace remote non-consuming read	[FAIL]
+[10] Test trace remote unloading	[PASS]
 
+I added this patch and the two failed tests now pass:
 
+diff --git a/tools/testing/selftests/ftrace/test.d/remotes/trace.tc b/tools/testing/selftests/ftrace/test.d/remotes/trace.tc
+index 081133ec45ff..dfc954a6a380 100644
+--- a/tools/testing/selftests/ftrace/test.d/remotes/trace.tc
++++ b/tools/testing/selftests/ftrace/test.d/remotes/trace.tc
+@@ -106,8 +106,10 @@ test_trace()
+     echo 0 > trace
+ 
+     for cpu in $(get_cpu_ids); do
+-        echo 0 > /sys/devices/system/cpu/cpu$cpu/online
+-        break
++        if [ -f /sys/devices/system/cpu/cpu$cpu/online ]; then
++            echo 0 > /sys/devices/system/cpu/cpu$cpu/online
++            break
++        fi
+     done
+ 
+     for i in $(seq 1 8); do
+diff --git a/tools/testing/selftests/ftrace/test.d/remotes/trace_pipe.tc b/tools/testing/selftests/ftrace/test.d/remotes/trace_pipe.tc
+index d28eaee10c7c..146f0a9fe311 100644
+--- a/tools/testing/selftests/ftrace/test.d/remotes/trace_pipe.tc
++++ b/tools/testing/selftests/ftrace/test.d/remotes/trace_pipe.tc
+@@ -102,8 +102,10 @@ test_trace_pipe()
+     echo 0 > trace
+ 
+     for cpu in $(get_cpu_ids); do
+-        echo 0 > /sys/devices/system/cpu/cpu$cpu/online
+-        break
++        if [ -f /sys/devices/system/cpu/cpu$cpu/online ]; then
++            echo 0 > /sys/devices/system/cpu/cpu$cpu/online
++            break
++        fi
+     done
+ 
+     for i in $(seq 1 8); do
+
+-- Steve
 
