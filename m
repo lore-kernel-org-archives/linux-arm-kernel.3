@@ -4,107 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9D25ECD995
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 19:04:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B04ECD998
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 19:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hi6J2khPpNMAzojO9x/Es638fROmeixlQjlRohOczGs=; b=2We3iZ3ueZCy4YAn5iSmYsN3ED
-	BG7VTMjkuw7n9m3vlGRPBLXhTfRSWC7lku4Hcfb7mCvejVYqXHo8lJGeQO3ZMKc1MZw7+Il87EIfC
-	dYoJo7H0HDN7AHHa4y/8IoYv2idRF9mdL2uTax9tMB8qy7F/rwrwT1zqpZeBKrdr8JpTRnOZytM1I
-	UtoOllnlUkh17I7k9VWV6NH2OlIJAXXNqBr4kJcQcNAJGKHuwu/p4JUlhIZqyT/hrZIWvukzWlJi8
-	0OlNaz6zii7iC+LvmwxdbgsPoKEAHJ7prM7p+mCKltonc01jM4OYkPhq4aHNRoxnrAtoSLVecYSWT
-	ZE95mIvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R6Qb+kMGvysBXnMkQffW3lm0/z4W8L2rlkrTy2pFEc0=; b=fuDSB9xR5q53PkUq1dRc8rKoCq
+	Uk1Uz/upn9lmUN82rhgo6Zl5KnNV/wZOwmnXq9LP7Kvw7xMk0rMOB6ZraZLVtPudx+fC+tbRpZ0VE
+	GVvAlnsDwCTWjP4gSgAMgf9XjniARcdrJ1C7K0m4Ud5Ahe6F9hVO/FpD2W/mKsrKEtKqzOyQF97sP
+	FSsdBNUX9bnwmc1Q6OHXcT6fGf4VTku1HDqWDSv0RJ0ZSxNAxMRTNLPyk4fWtYt/KAxRGSF7aOsll
+	PdkKEYjb1fEwzOS8W3YdHbDMElOgSguBGmbbCrwrIY12fC4RjVtWZAHRT6rl5YH9Brr0a3KAmNgET
+	+DkUN2sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo4eU-0000000APAD-3sUp;
-	Thu, 05 Feb 2026 19:04:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vo4nI-0000000AQ30-3T2L;
+	Thu, 05 Feb 2026 19:13:36 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo4eR-0000000AP9g-3vYM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 19:04:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1E09C4071F;
-	Thu,  5 Feb 2026 19:04:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3169CC116D0;
-	Thu,  5 Feb 2026 19:04:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770318267;
-	bh=6Pmfe3sjmAEMwlOPsTNyfR/KimTb80jqLcZCj+AQh4g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LnA6PQFL6sibmYdxJrnyCT09GMIujHS8SpsHmTkM6vObpevD0xpEHkUGcLNl9i58F
-	 MAf21OTsopdXJeP2JbbCdMTOAXDJALGg1L58NeuxSuLIhxSidnksiKiXXYlcDZPOeW
-	 dmi6QskdXWxkZQkRlJnCOIKmbxmgX7hPeKy3A2jgUTfn7kmEb0vONYQVkDFOzFHv2W
-	 JOP1pzzZspLRVZ0Hmm6wPy6Lo7eVLlBZj4cWjBr0Ohw78rvtNOVYuhjpWjHBIVNdYO
-	 p0NK6J9N0JcQE7KFMYDnXsWKm4djgEEi6iQqjUIKW30OP6TUsZqI2eleptCSmMu4Jx
-	 Mvwq2/kjrqzIA==
-Message-ID: <37966c65-69d6-466f-afe3-f17e549e369d@kernel.org>
-Date: Thu, 5 Feb 2026 20:04:22 +0100
+	id 1vo4nF-0000000AQ2Z-0a3j;
+	Thu, 05 Feb 2026 19:13:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1770318803; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Z+xw3Y3WvFDUOy3hH85NY5r5cDEJeA6u+ukx4WKTUNjbl76sMNaZqdP0NfGXQP/JKPuGP6gQXG8zmE64f6gJ9IXat2p0Iaqi9BvhOpxeum7OVfIugEpgVpdcPHHrkanGeF9y9GC/xqt1rtKJZ9ts/ElDDFx0BSWNC2ZQxTRS8zQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1770318803; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=R6Qb+kMGvysBXnMkQffW3lm0/z4W8L2rlkrTy2pFEc0=; 
+	b=d90s0tIiwru4tr9Rsnz/IW9zYIP/shW+lDgwnK8POAsRjv8sxwHLHaWNAbh4qPyrf8f971JaF3TdRt4pkH5EG+DEDgIoqN9tWD25nTIVcJGmt5E3HMzV/IituNyZjYN7KaYzYQzUhexyQERHVJKQyuXigOo+uBw/k6ihYWWGxUQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nfraprado@collabora.com;
+	dmarc=pass header.from=<nfraprado@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1770318803;
+	s=zohomail; d=collabora.com; i=nfraprado@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=R6Qb+kMGvysBXnMkQffW3lm0/z4W8L2rlkrTy2pFEc0=;
+	b=ZcSB19c0VZy9ZSGzQJ4z2FnBfcEzpmYxPPYvlf6OiEFPGmeHWNm2qU9hdgVvU5/2
+	+M8E9b72bFBuECEWcwL+xlYobCQub+RGpa5thc8wuxlJMMav0XwSMPNe0+EQLlvLnEQ
+	7X57Pjp6zSs7rfkJ3M0YhhubEvWpk5h7eRhvhc4w=
+Received: by mx.zohomail.com with SMTPS id 177031880234544.88725212487793;
+	Thu, 5 Feb 2026 11:13:22 -0800 (PST)
+Message-ID: <1394a4b34db511c921b2709a58dfaf28c1cce45c.camel@collabora.com>
+Subject: Re: [PATCH RFC 3/6] drm/mediatek: ovl: Fix misaligned layer source
+ size on AFBC mode
+From: =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado" <nfraprado@collabora.com>
+To: CK Hu =?UTF-8?Q?=28=E8=83=A1=E4=BF=8A=E5=85=89=29?=
+ <ck.hu@mediatek.com>,  "chunkuang.hu@kernel.org"	
+ <chunkuang.hu@kernel.org>, "simona@ffwll.ch" <simona@ffwll.ch>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "airlied@gmail.com" <airlied@gmail.com>,  "greenjustin@chromium.org"	
+ <greenjustin@chromium.org>, "p.zabel@pengutronix.de"
+ <p.zabel@pengutronix.de>,  "matthias.bgg@gmail.com"	
+ <matthias.bgg@gmail.com>
+Cc: Ariel D'Alessandro <ariel.dalessandro@collabora.com>, 
+ "dri-devel@lists.freedesktop.org"	 <dri-devel@lists.freedesktop.org>, Nancy
+ Lin =?UTF-8?Q?=28=E6=9E=97=E6=AC=A3=E8=9E=A2=29?=	
+ <Nancy.Lin@mediatek.com>, "linux-kernel@vger.kernel.org"	
+ <linux-kernel@vger.kernel.org>, Jason-JH Lin
+ =?UTF-8?Q?=28=E6=9E=97=E7=9D=BF=E7=A5=A5=29?=	 <Jason-JH.Lin@mediatek.com>,
+ "linux-arm-kernel@lists.infradead.org"	
+ <linux-arm-kernel@lists.infradead.org>, Daniel Stone
+ <daniels@collabora.com>,  "linux-mediatek@lists.infradead.org"	
+ <linux-mediatek@lists.infradead.org>, "kernel@collabora.com"	
+ <kernel@collabora.com>
+Date: Thu, 05 Feb 2026 14:13:20 -0500
+In-Reply-To: <3716cf4707924e97c097cfefa11c7feb09a1ee16.camel@mediatek.com>
+References: <20251230-mtk-afbc-fixes-v1-0-6c0247b66e32@collabora.com>
+		 <20251230-mtk-afbc-fixes-v1-3-6c0247b66e32@collabora.com>
+	 <3716cf4707924e97c097cfefa11c7feb09a1ee16.camel@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.56.2-8 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 3/3] arm64: dts: cix: add support for cix sky1 resets
-To: Gary Yang <gary.yang@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, p.zabel@pengutronix.de, peter.chen@cixtech.com,
- unicorn_wang@outlook.com, inochiama@gmail.com, alchark@gmail.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, cix-kernel-upstream@cixtech.com
-References: <20260204020644.155094-1-gary.yang@cixtech.com>
- <20260204020644.155094-4-gary.yang@cixtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260204020644.155094-4-gary.yang@cixtech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_110428_039258_0DFB6110 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20260205_111333_234685_D03E57C1 
+X-CRM114-Status: GOOD (  22.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,49 +96,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/02/2026 03:06, Gary Yang wrote:
-> There are two reset conctrollers on Cix Sky1 Soc. One is located in S0
-> domain, and the other is located in S0 and S5 domain.
-> 
-> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
-> ---
->  arch/arm64/boot/dts/cix/sky1.dtsi | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
-> index 64b76905cbff..37dca97b6b67 100644
-> --- a/arch/arm64/boot/dts/cix/sky1.dtsi
-> +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
-> @@ -348,6 +348,13 @@ i3c1: i3c@4100000 {
->  			status = "disabled";
->  		};
->  
-> +		syscon: syscon@4160000 {
-> +			compatible = "cix,sky1-system-control", "syscon",
-> +				     "simple-mfd";
-> +			reg = <0x0 0x4160000 0x0 0x100>;
-> +			#reset-cells = <1>;
-> +		};
-> +
->  		iomuxc: pinctrl@4170000 {
->  			compatible = "cix,sky1-pinctrl";
->  			reg = <0x0 0x04170000 0x0 0x1000>;
-> @@ -568,6 +575,13 @@ ppi_partition1: interrupt-partition-1 {
->  			};
->  		};
->  
-> +		s5_syscon: s5-syscon@16000000 {
+T24gVHVlLCAyMDI2LTAyLTAzIGF0IDAyOjAxICswMDAwLCBDSyBIdSAo6IOh5L+K5YWJKSB3cm90
+ZToKPiBPbiBUdWUsIDIwMjUtMTItMzAgYXQgMTE6MDMgLTAzMDAsIE7DrWNvbGFzIEYuIFIuIEEu
+IFByYWRvIHdyb3RlOgo+ID4gRnJvbTogQXJpZWwgRCdBbGVzc2FuZHJvIDxhcmllbC5kYWxlc3Nh
+bmRyb0Bjb2xsYWJvcmEuY29tPgo+ID4gCj4gPiBJbiBBRkJDIG1vZGUsIE9WTF9TUkNfU0laRSBt
+dXN0IGJlIGJsb2NrIGFsaWduZWQuIER1ZSB0byB0aGlzCj4gPiBsaW1pdGF0aW9uCj4gPiBvZiB0
+aGUgQUZCQyBmb3JtYXQsIE9WTF9DTElQIG5lZWRzIHRvIGJlIHVzZWQgdG8gYWNoaWV2ZSB0aGUK
+PiA+IGRlc2lyZWQKPiA+IG91dHB1dCBzaXplIG9mIHRoZSBsYXllciB3aGlsZSBzdGlsbCBtZWV0
+aW5nIHRoZSBhbGlnbm1lbnQKPiA+IGNvbnN0cmFpbnRzLgo+ID4gRmFpbHVyZSB0byBkbyB0aGlz
+IHdpbGwgcmVzdWx0IGluIHZibGFuayB0aW1lb3V0cyBhbmQgbm8gcmVuZGVyZWQKPiA+IG91dHB1
+dAo+ID4gd2hlbiB0aGUgQUZCQyBkYXRhIHNvdXJjZSBpc24ndCBhbGlnbmVkIHRvIHRoZSBBRkJD
+IGJsb2NrICgzMng4KS4KPiA+IAo+ID4gQ29uZmlndXJlIE9WTF9DTElQIHNvIHVuYWxpZ25lZCBB
+RkJDIGxheWVycyBjYW4gYmUgZGlzcGxheWVkLgo+ID4gCj4gPiBUaGUgZm9sbG93aW5nIGlsbHVz
+dHJhdGVzIGhvdyB0aGUgYWxpZ25tZW50IGlzIGFjaGlldmVkIHRocm91Z2ggdGhlCj4gPiBjbGlw
+Cj4gPiBzZXR0aW5ncyBmb3IgdGhlIGhvcml6b250YWwgY29vcmRpbmF0ZXMsIHRoZSB2ZXJ0aWNh
+bCBjb29yZGluYXRlcwo+ID4gYXJlCj4gPiBhbmFsb2dvdXM6Cj4gPiAKPiA+IC8tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cCj4gPiA+IMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwKPiA+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqAgLi4u
+Li4uLi4uLi4uLi4uLi4uLi4uLi4uwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8Cj4gPiA+IMKgwqDC
+oMKgwqDCoMKgwqDCoMKgIC4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLsKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgfAo+ID4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoCAuLi4uLi4uLi4uLi4uLi4uLi4uLi4u
+Li7CoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwKPiA+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqAgLi4u
+Li4uLi4uLi4uLi4uLi4uLi4uLi4uwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8Cj4gPiA+IMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwKPiA+IFwtLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0vCj4gPiDCoMKgwqDCoCB8wqDCoMKgwqDCoMKg
+IHzCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgwqDCoMKgwqDC
+oCB8Cj4gPiDCoMKgwqDCoCB8wqDCoMKgwqDCoMKgIHNyYy54McKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIHNyYy54MsKgIHwKPiA+IMKgwqDCoMKgIHzCoMKgwqDCoMKgwqAgfMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqDCoMKgwqDCoMKgIHwKPiA+
+IMKgwqDCoMKgIHzCoMKgwqDCoMKgwqAgfDwtLS0tLS0tLS0tLS0tLS0tLS0tLT58wqDCoMKgwqDC
+oMKgIHwKPiA+IMKgwqDCoMKgIHzCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBzcmNfd2lkdGjC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwKPiA+IMKgwqDCoMKgIHzCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCB8Cj4gPiDCoMKgwqDCoCBOICogQUZCQ19EQVRBX0JMT0NLX1dJRFRIwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqAgTSAqCj4gPiBBRkJDX0RBVEFfQkxPQ0tfV0lEVEgKPiA+IMKgwqDCoMKg
+IHzCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoCB8Cj4gPiDCoMKgwqDCoCB8PC0tLS0tPnzCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfDwtLS0tLT58Cj4gPiDCoMKgwqDCoMKgIGNs
+aXBfbGVmdMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBjbGlwX3Jp
+Z2h0Cj4gCj4gQXMgSSBrbm93LCBjcm9wIGlzIHVzZWQgdG8gZHJvcCBwaXhlbCBkYXRhLgo+IEZy
+b20gdGhlIG5hbWUgb2YgJ2NsaXBfbGVmdCcsIEkgdGhpbmsgaXQgd291bGQgZHJvcCB0aGUgbGVm
+dCBwYXJ0IG9mCj4gdGhpcyBpbWFnZS4KPiBCdXQgdXN1YWxseSB0aGUgaW1hZ2UgaXMgYWxpZ25l
+ZCB0byB0aGUgbGVmdCAoc3RhcnQgZnJvbSBheGlzIDApIGFuZAo+IGFwcGVuZCBnYXJiYWdlIGRh
+dGEgaW4gcmlnaHQgcGFydC4KPiBJZiBzbywgY2xpcF9sZWZ0IHNob3VsZCBiZSB6ZXJvIGFuZCBh
+bGwgdGhlIGNsaXAgd291bGQgYmUgY2xpcF9yaWdodC4KPiBUaGlzIGlzIHRoZSBub3JtYWwgYmVo
+YXZpb3IuCj4gSWYgT1ZMX0NST1AgZG9lcyBiZWhhdmUgYXMgdGhpcywgYWRkIGNvbW1lbnQgdG8g
+ZGVzY3JpYmUgdGhhdAo+IGNsaXBfbGVmdCBkb2VzIG5vdCBkcm9wIHBpeGVsIGRhdGEuCgpCb3Ro
+IGNsaXBfbGVmdCBhbmQgY2xpcF9yaWdodCB3b3JrIGluIHRoZSBzYW1lIHdheSwgYnkgZGlzY2Fy
+ZGluZyB0aGF0Cm1hbnkgcGl4ZWxzLCBvbiB0aGUgbGVmdCBhbmQgcmlnaHQsIHJlc3BlY3RpdmVs
+eSwgb2YgdGhlIHBsYW5lJ3MKZnJhbWVidWZmZXIgd2hlbiBjb21wb3NpdGluZyB0aGUgcGxhbmUg
+b24gdGhlIGZpbmFsIGltYWdlLgoKSW4gdGhlIHNpbXBsZXN0IGNhc2UsIHdoZW4gdGhlIGltYWdl
+IHRvIGJlIGRpc3BsYXllZCBpcyBsZWZ0LWFsaWduZWQsCmllIHNyYy54MSA9IDAsIHRoZW4geWVz
+LCBvbmx5IGNsaXBfcmlnaHQgd2lsbCBiZSB1c2VkIHRvIG1ha2Ugc3VyZSB0aGF0CnRoZSBwbGFu
+ZSdzIHdpZHRoIGFsaWducyB3aXRoIHRoZSBBRkJDX0RBVEFfQkxPQ0tfV0lEVEguCgpIb3dldmVy
+IGlmIG9ubHkgYSBzdWItcmVnaW9uIG9mIHRoZSBpbWFnZSBpcyB0byBiZSBkaXNwbGF5ZWQsIHRo
+ZW4Kc3JjLngxIHdpbGwgYmUgbm9uLXplcm8uIElmIHRoYXQgeCBvZmZzZXQgY29vcmRpbmF0ZSBh
+bGlnbnMgd2l0aCB0aGUKQUZCQ19EQVRBX0JMT0NLX1dJRFRILCB0aGVuIGFnYWluIGNsaXBfbGVm
+dCB3aWxsIGJlIDAsIGFuZCB3ZSdyZSBiYWNrCmF0IHRoZSBzaW1wbGVzdCBjYXNlLgoKQnV0IGlm
+IGl0IGRvZXNuJ3QgYWxpZ24swqB0aGVuIGNsaXBfbGVmdCB3aWxsIG5lZWQgdG8gYmUgdXNlZCB0
+byBlbnN1cmUKb25seSB0aGUgaW50ZW5kZWQgc3ViLXJlZ2lvbiBpcyBkaXNwbGF5ZWQsIGV2ZW4g
+dGhvdWdoIGl0IHN0YXJ0cyBpbiB0aGUKbWlkZGxlIG9mIGFuIEFGQkMgZGF0YSBibG9jay4KClRo
+aXMgaXMgYmVjYXVzZSBub3Qgb25seSB0aGUgd2lkdGggYW5kIGhlaWdodCBpbiBESVNQX1JFR19P
+VkxfU1JDX1NJWkUKbmVlZCB0byBiZSBhbGlnbmVkIHRvIHRoZSBBRkJDIGRhdGEgYmxvY2ssIGJ1
+dCBhbHNvIHRoZSBzdGFydGluZwphZGRyZXNzIGluIERJU1BfUkVHX09WTF9BRERSLCB3aGlsZSBz
+cmMueDEgYW5kIHNyYy54MiBzdXBwbGllZCBieQp1c2Vyc3BhY2UgYXJlIGFyYml0cmFyeSBhbmQg
+d29uJ3QgbmVjZXNzYXJpbHkgYWxpZ24sIGhlbmNlIHdlIHVzZSBib3RoCmNsaXBzIGFzIG5lZWRl
+ZCB0byBhY2hpZXZlIHRoZSBpbnRlbmRlZCBkaXNwbGF5IG91dGNvbWUgcmVzcGVjdGluZyB0aGUK
+aGFyZHdhcmUgY29uc3RyYWludHMuCgotLSAKVGhhbmtzLAoKTsOtY29sYXMK
 
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-If you cannot find a name matching your device, please check in kernel
-sources for similar cases or you can grow the spec (via pull request to
-DT spec repo).
-
-e.g. syscon
-
-
-Best regards,
-Krzysztof
 
