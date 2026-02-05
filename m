@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED310E91297
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 08:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0D4E91297
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 08:57:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xh6wHExqeA5n6IMsD3EGtDkJKvRvUzSg32v/BWdv0gE=; b=IrfKkJS8ghOVufWW2YlloTRjAD
-	5soDBVIaM0I5I1GsOX5w3sndYMo5REZ5mBPiTzEd9fXBsWqsEWRdEOxYoVICA5jDCmatopAeAIZ+Y
-	RIE33IeFrJu/adajDynBNmiJHreRlzYfZEbMIaxMhhI/AwPT27hB4x+YH/jmuOX4HrwaOl3H279e9
-	qYa1HTKWKiwdXoloM4IeNXMXgk2e5+bBJQUy7xI0CQof4RkxN858L0m9GswbIxCvxNzMjtPfGFOQe
-	PSTyK7gpC90zGqABwaz+SR34oZ9wPg3GUi3KZiiufq+uWFT57GvF/AGJG8jV1Egfsnr3amz+QM0ol
-	sfqk333w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=erjiEnS6gwZ0clBuqIdeKDuwy5dgGujHDytrq2wGuAI=; b=G69w1LHfTEqq4U9vUf065zoUCl
+	/oNzBucjpjf+vh/4t6CQh7rlEV88GT7pd/7lUyQrkNXSYFZ2X7LuMZDFo4MMLpaCJI9SMShKnAiaq
+	7YYmJkv7DifJcDmeLPTowmXL5nWawx+PbkNs96i7YuUAG+AhDNd8l/slLu6JJ7EINjT5+zJUmoPRP
+	bwl7OIxNkKZVLRvWz8y2Fqpe2FjdU+A8lRIPKXKdzRnaDX4vtIYPggjFhqEBaDadR3AD3mrGupRlD
+	vxQ1b0oiI5mbtMFTKuhYdnoA4rA71SNMumeMrHbadNQHUHe35qIbTQRVrSc/Mvif36+fwXe91xUIv
+	PTmuvBoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnvAR-00000009dle-03vh;
-	Thu, 05 Feb 2026 08:56:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vnvBD-00000009dvL-2dP2;
+	Thu, 05 Feb 2026 08:57:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnvAO-00000009dl4-1kKq;
-	Thu, 05 Feb 2026 08:56:49 +0000
+	id 1vnvBC-00000009duy-3hDc
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Feb 2026 08:57:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 01B164354B;
-	Thu,  5 Feb 2026 08:56:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E1D4C4CEF7;
-	Thu,  5 Feb 2026 08:56:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 28A77601D2;
+	Thu,  5 Feb 2026 08:57:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E522EC4CEF7;
+	Thu,  5 Feb 2026 08:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770281807;
-	bh=EpeKVSUECcB0qRTU/0YGWj2Tn1oofcM/dtc2qrBjOCE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VEqnGVOAoESTGAH1kB0Oty8u2WWao6axm3BidFtcpHznfrpYXSrc/a7v55Q6z+DGh
-	 iOcCxtSKu6pINMwf9h3nbdFgopXZWj2ZtBocy+n/FP3+gEbCio2NJuZPKA4H4L42Qj
-	 wcLsE38wpK1r1L1QRNrkPvyVM0/8ZTpqcfmVeLnMSZ8hAs9iI8ILQe+gJ8ugHtX3ZV
-	 k6UKX/HQ7GcLOlYspbbkhddXgkOtnY3dglQ1jZtlFDbbOF9/yk+8tDOvwkWIgLUwdh
-	 WDQg1xdSnzDg0kIHnBJdRRlIngHV33u6pFR44VxvoSp7Kdy3aJjFf/3Z6QE6XposNS
-	 S5GOd9t+tLwkw==
-Date: Thu, 5 Feb 2026 09:56:45 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 4/4] dt-bindings: interrupt-controller: aspeed: Remove
- legacy AST2700 interrupt binding
-Message-ID: <20260205-neat-honored-monkey-74d37a@quoll>
-References: <20260205-irqchip-v1-0-b0310e06c087@aspeedtech.com>
- <20260205-irqchip-v1-4-b0310e06c087@aspeedtech.com>
+	s=k20201202; t=1770281858;
+	bh=NMpINejUDk41lLVnO0baNt+n3V31uNWLnmlfSOm3zmo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=t+Jh54xmNkIHHGxBrC7IqS6P87tiotu9H6iVNJshyTNRzvuagX5mNzntr9/mMxZnp
+	 fzhsxEazwM31R+rBoX8Rvl2w8D9kHRk23eMXgcva+QxjiQDrQCu35vD/3qMPqIaQqq
+	 eOdg9BDIZK1sI+gYyarlWvoe9G8+TlNDbJPfu6ZKViIzOQ9CdKGG3+Jhc99PNwuZGp
+	 h/qYF0dtUVFcBUR/Ufw/S8lFPsaJrJBGBgFQqYe4d96CmV4nez23K03VHj5dRE9sg1
+	 K2Pl8FaJUXK9MoilYFz7rXQ6/mrR/cxWjqHsJOHKBHIh7y2TrnCUKA/2wrIZ1ACOhz
+	 v+jXWXit+mX3Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vnvB9-00000008kjb-1Jfv;
+	Thu, 05 Feb 2026 08:57:35 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Fuad Tabba <tabba@google.com>
+Cc: joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	Oliver Upton <oupton@kernel.org>
+Subject: Re: [PATCH v1 0/3] KVM: arm64: Standardize debugfs iterators
+Date: Thu,  5 Feb 2026 08:57:32 +0000
+Message-ID: <177028184517.3559278.15033024966094248612.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260202085721.3954942-1-tabba@google.com>
+References: <20260202085721.3954942-1-tabba@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260205-irqchip-v1-4-b0310e06c087@aspeedtech.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_005648_496853_C125682D 
-X-CRM114-Status: GOOD (  10.18  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, tabba@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, oupton@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,25 +86,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 05, 2026 at 02:07:22PM +0800, Ryan Chen wrote:
-> Remove the legacy AST2700 interrupt controller Devicetree binding.
+On Mon, 02 Feb 2026 08:57:18 +0000, Fuad Tabba wrote:
+> This series refactors the debugfs implementations for `idregs` and
+> `vgic-state` to use standard `seq_file` iterator patterns.
 > 
-> The legacy binding was limited to a PSP-centric view of the interrupt
-> architecture and cannot describe interrupt routing and protection for
-> the full AST2700 system.
+> The existing implementations relied on storing iterator state within
+> global VM structures (`kvm_arch` and `vgic_dist`). This approach
+> prevented concurrent reads of the debugfs files (returning -EBUSY) and
+> created improper dependencies between transient file operations and
+> long-lived VM state.
 > 
-> It is superseded by the new ASPEED AST2700 INTC0/INTC1 binding, which
-> describes the interrupt controllers at the block-function level.
+> [...]
 
-You just added all this ~year ago. I also do not understand how multiple
-previous revisions of patchset [1] were just ignored. No versioning, no
-references.
+Applied to next, thanks!
 
-This is either unprofessional or just wasting our time.
+[1/3] KVM: arm64: Use standard seq_file iterator for idregs debugfs
+      commit: dcd79ed450934421158d81600f1be4c2e2af20bf
+[2/3] KVM: arm64: Reimplement vgic-debug XArray iteration
+      commit: 5ab24969705a9adadbc1d3cff4c1c15df174eafb
+[3/3] KVM: arm64: Use standard seq_file iterator for vgic-debug debugfs
+      commit: fb21cb08566ebed91d5c876db5c013cc8af83b89
 
-[1] https://lore.kernel.org/all/20251030060155.2342604-1-ryan_chen@aspeedtech.com/
+Cheers,
 
-Best regards,
-Krzysztof
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
+
 
 
