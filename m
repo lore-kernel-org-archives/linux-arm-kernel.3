@@ -4,97 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13418ECD9AF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 22:02:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B37ECD9B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 22:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DSe1MS03T8BW9ZubjvfneKpDOJEdsi+I8lH8q1oaCb4=; b=1UsiF/iYv8//JjUZS2fiP0AQ6f
-	6BUCYORmkaNurilhTLbAULTzeNuQ3sbDQZmzONLXXrx2LaMOeNuLE39pIhVGAJufhxO32TLhuASvP
-	h4golqKPFj+Ca/YwsT07xOHN7TZnSdJx7PRYVejG4sdNDiPiuRFlam6pJaetKixOLFPDL16YTl9AY
-	0o53fdi8seeRGycDasBbYh6OAKbwft5V39i88gZNmiOnH36H8DN134NnQxzwLuxXzqum85fdeOmwf
-	gXdMTFkWsmr6wRH6s+06I496edGtZ8Mmz4CRXiWkyPmx4r9w5RUd1ox0bEVmTkBTFGSDtVTPni11r
-	cyTb4Cqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bzeO7zZ69I3XN/zyWY5Xw7az0QKbNdDG4yC9XwwJljg=; b=dwTfWZbins3T1Dvc2udIbkdjMd
+	6N3SlyRAhUYdx3q4l3ugrsExgPxmkPRdyzbnj7U3yu5+Kw6BQlyCWDcBQSDYQGVry1jBWaZwoZfLy
+	Lv4yKN6KretJ+Mvo2k+QZn3GL+sU//yU+qx/oAIuyLI3l/6G49KAHk32WqzjLNNLs1o5gUidHXiNY
+	kcMPbuy3dladH/toBiAk37Qz81qBYQsV5+9B2BulPvizBrKV1y+WavUadmKXijQ1OcwVMWE4qKYXQ
+	GLE68IGS/lvgUsu38H02nvIvZ1Q9GQ2HDPeTyKVvvRAZweA47wwUrnrm3saGZqYvRoXPGTH0tI+rb
+	jMdvuS+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo7Ql-0000000AYSO-0zRZ;
-	Thu, 05 Feb 2026 22:02:31 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1vo7h9-0000000AZ6K-1imw;
+	Thu, 05 Feb 2026 22:19:27 +0000
+Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo7QH-0000000AYQu-02Kp
+	id 1vo7h6-0000000AZ5U-27T8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 22:02:17 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-6581327d6baso2439636a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Feb 2026 14:02:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1770328919; x=1770933719; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=DSe1MS03T8BW9ZubjvfneKpDOJEdsi+I8lH8q1oaCb4=;
-        b=Hg2yBxWN9DHzaBTlMl7+luNl/cbaEaUpr0GvTDOyjSVnErGcYhjBM3tC7DGI4zu1ta
-         Vg5upDqJ54yN8ttXOEJdKrVAHbLCFEHX893dTDfeNtHdw6tokaPboEbOlZDNNWrEWsW/
-         neLLswRrOlN7Il9bjpD5XSHET7AMK04ZRF1uoWEnd2vJkyfDzhUA3QFFfQiMyS7J0yIz
-         fU9ujHI7TxvrW012rPDxxkpVBx3uaqv4eCljTBLTeETD0FooAjtgvvQvucggVECW5XKt
-         QFztsJZiZbdG0IrimS/Tlo2g3kGz+3HS4IDVldJ/dtnR1IseOB86p94srccYf3/2mGtz
-         XV6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770328919; x=1770933719;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DSe1MS03T8BW9ZubjvfneKpDOJEdsi+I8lH8q1oaCb4=;
-        b=VxJvwF8un2d+jqigw8bwG8vx8kcXQa2fUW6cZHrtLV52FCmD3mLQ4a2XtQDPeU337t
-         1J0KTdZc6UA/lLhptsfhbhCxe/BpzWzZw4HGX6nvYblsvCGUbercREd1THsN9jOIq8J7
-         GJi7t7WL3OuzhpBXHOaklnkbq2P5L2ssbp2a7bNDKwISb3nD4jw8LoyiXAlgJDOdNDs/
-         8QqAbAhjNbzoLiQTqJMWblBT/TCmmmxhJBY8FrBU9+IUWAyRT0BRDXjIoHPK4NsYSdVI
-         meR2RLLTeM00AykqrCufscWNMqIBrV/0pli2IZbX1TBQcNutWTMNL7NY03p9BDeZsTZM
-         snlA==
-X-Forwarded-Encrypted: i=1; AJvYcCXcPil9e/osmh+uHGzCbHxs1jFzJgbBa01ropDlvDVBLCmUmo/ill/khBGhQ1HnfHsvOUck7FsydMCdvWk5Nyeo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6IuK9JVGsEcYwfy7raRGyTtpdACLJMGR9BtOrDwct/GU1fyr8
-	kqMjWV8uTksg9lNRFMPTa+na2wCzj8vGURsrryOwBO/CUv6KwjSa3Bnno+SpRunJ7qw=
-X-Gm-Gg: AZuq6aLUy6vZBz6fUIb21ydtxWyFbp3VmE3Cc+cVxb2d9bHSHUxHofvK9ZMDeYaqKGN
-	ioEvNI1cQAG/jid/lV4DqtmBFVKZEDMkVn5WvNw7eT9WTokO/1+O9bQklh9YC4Tk2XB7RoE8bJq
-	vFWWMRzdKITsymODq6oIzvQx8IcXp3tLZcyE4bmjItz0c9HFvoyVN1zB/akRpdmca4mHIE+Q5cO
-	e5jhMZ2BMfCcZueEdO/a04dmHLhN3XAoeQyR/Dhi+cBt3LjNJGyN/i2paWgq54AUTKB/aIhoBwh
-	2CVCeN2zPClo3Pk2yE4g6tEEgv2b85bBeb+DEa/UemfJdDWOWqJih6hg0WmpsLlldnPUMKkZRjr
-	2ASb0xASGyOpq1o5Da4spSTPSWlaPw9rSTxf3XJRoI3vv8dCWA6kazvD8uQ+Gyy0NYeM4Jg15VL
-	kw3KhIFOrzjeV3GzOEtVrOV4YdssMRnm5Wl8l/C+hyxzD2nmMjiyjV6aPun61bHP5uwW77VVikl
-	l8BpA==
-X-Received: by 2002:a17:907:6d1e:b0:b8e:12f9:5fce with SMTP id a640c23a62f3a-b8edf4636b0mr25927466b.61.1770328918709;
-        Thu, 05 Feb 2026 14:01:58 -0800 (PST)
-Received: from puffmais2.c.googlers.com (244.175.141.34.bc.googleusercontent.com. [34.141.175.244])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8eda748963sm22893366b.12.2026.02.05.14.01.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Feb 2026 14:01:58 -0800 (PST)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Thu, 05 Feb 2026 22:01:57 +0000
-Subject: [PATCH] clk: samsung: gs101: harmonise symbol names (clock arrays)
+	Thu, 05 Feb 2026 22:19:26 +0000
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfout.phl.internal (Postfix) with ESMTP id DCBE9EC0568;
+	Thu,  5 Feb 2026 17:19:20 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-02.internal (MEProxy); Thu, 05 Feb 2026 17:19:20 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1770329960; x=1770416360; bh=bzeO7zZ69I
+	3XN/zyWY5Xw7az0QKbNdDG4yC9XwwJljg=; b=Y5jBh20B/zbvNv8ld+x1cD1QEi
+	w0I95yUwCHT0Qyo6pdIA5GBpFt7mK3ax7GQ1KenrlTN1DjLVcYV5sa1pBQu5ctzY
+	8WzQHfrDoIjH854yt7/w4GGUXyLg0OuNn9dbo8hN2QYlk6AfjKI2sGfAKwqB+/ii
+	xEe+gPfA+8xXuvDIT4Qqt8Lxfb3cdJSLBat8t+EG8BP0zDavxJeNLQPIqJto68Db
+	U/zJ5ewucxFuTOaRTV2GkjFQYHv9K1W668aWP6NaMXkYskqEdtqX8E7LuN+BwC1k
+	PyxufgO+oHp69azOqK8vx6Bveb5ut9V9AFk5T09/uLb4M9q/w3p8ATCLZjoA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1770329960; x=1770416360; bh=bzeO7zZ69I3XN/zyWY5Xw7az0QKbNdDG4yC
+	9XwwJljg=; b=VUGbsuPwFOZBgv/QprPB51PABGAZV7UBbXIGZ+wFrT5uA/ZAXiQ
+	16ffcCOOetFXg75p4iw7zNlDGuKUWXm5PrhQBA0YCCt+K3MbHqAAIGw8PsGp4N5d
+	Spl6MnvLUyCKjZb3mh/fKRi+e5LGHpiaPjS/huxXPllGqZWcPGFv4SgVFq2iOGRj
+	e73YUsm9lZS7Mp8eDGrfI7vd4z1Jxv2VmPHoh8ga+3ccd10anDErvUby5sEuK20w
+	IWdkR9+IE/ndmu8j8RxKfEBNK8+YkZx0dhxarESxNudjxohX153DmnGX4bR3iM/5
+	rjG/C+l2boOyxCVkW34uz3SJw7SZ4/PRvOg==
+X-ME-Sender: <xms:aBeFaYbYIVvtbPc1g1xO4vtwiHvOUSvB3xQ-M3zWAQ3mA9kCdnC5TQ>
+    <xme:aBeFafP_qsKKtQNjrA9rJofRnXSMclwzi3e3o1BT4QpV0zKI-SvFALEOTPej97eHJ
+    cygfQNyr-R8hRJqjDuNrVZqCJfRPB5zzbFTTgxrZV8ON7MWZWhsjhY>
+X-ME-Received: <xmr:aBeFaeWFGPsI2UGkM5JytbsR1DMr6khiHkQTxo_n2RjYNRewY3JuHyNYD0i01xoysyAD9ToNNPsJ9eiKHo1mRyJLchUJQc-xJUg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddukeeigeekucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
+    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpeeigf
+    dvheehleegiedtgfeljefgjeevfeejgeetkeetfeevtdefkeeluefhieegtdenucffohhm
+    rghinhepuggvvhhitggvthhrvggvrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenuc
+    frrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrghurdhnvghtpdhnsggprhgtphht
+    thhopeduuddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepshhvvghnsehkvghrnh
+    gvlhdrohhrghdprhgtphhtthhopehkrhiikheskhgvrhhnvghlrdhorhhgpdhrtghpthht
+    ohepnhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtohepthhglhigsehlihhnuhhtrh
+    honhhigidruggvpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphht
+    thhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrod
+    gutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghsrghhiheslhhishhtshdrlhhi
+    nhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhish
+    htshdrihhnfhhrrgguvggrugdrohhrgh
+X-ME-Proxy: <xmx:aBeFacL9hildb1R86kNZTiRGvVhzFFiVSSlflo-u5ziKOX828CNu2A>
+    <xmx:aBeFaRru2Gf4Iw4XBFc6nILrdcPQrreCJWdehWQmEHfcEv-uXzDjUg>
+    <xmx:aBeFabyOP1TGSu_w1B9VGKy4UALegcaa8nGKZ8Y-YS2H04IuSkMgAQ>
+    <xmx:aBeFadu7NWBmwVz8w9pRKksEePDgHlCHnliwirHlGR_Q9Q0rqZu4ZQ>
+    <xmx:aBeFadNZ7bNr-Uf-l8oXQSkVMEdLaaQN6dXC3oCAo6Sy1PxtSklF2vm_>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 5 Feb 2026 17:19:20 -0500 (EST)
+Date: Thu, 5 Feb 2026 23:19:18 +0100
+From: Janne Grunau <j@jannau.net>
+To: Sven Peter <sven@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: interrupt-controller: apple,aic2:
+ Add AICv3
+Message-ID: <20260205221918.GA71415@robin.jannau.net>
+References: <20260128-irq-apple-aic3-v2-0-b4bc8e16c997@jannau.net>
+ <20260128-irq-apple-aic3-v2-1-b4bc8e16c997@jannau.net>
+ <20260205-pastoral-magnificent-cuscus-ce58ad@quoll>
+ <8f506b2b-1309-4f9e-b8e6-4a73064ea2d0@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260205-clk-gs101-symbol-names-v1-1-a7d9a7a4d108@linaro.org>
-X-B4-Tracking: v=1; b=H4sIAFQThWkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDQyNj3eScbN30YkMDQ93iytyk/BzdvMTc1GJdA3NzEwsLC9Pk5MQkJaD
- mgqLUtMwKsMHRsbW1ALdxm+xoAAAA
-X-Change-ID: 20260123-clk-gs101-symbol-names-07748885ccab
-To: Peter Griffin <peter.griffin@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>
-Cc: Juan Yescas <jyescas@google.com>, kernel-team@android.com, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <8f506b2b-1309-4f9e-b8e6-4a73064ea2d0@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_140215_244779_C661648B 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20260205_141925_140494_970D7847 
+X-CRM114-Status: GOOD (  29.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,162 +119,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Most symbols for the clock descriptions (arrays) don't have a cmu_
-prefix and all symbols have a _clks suffix where appropriate.
+On Thu, Feb 05, 2026 at 07:01:51PM +0100, Sven Peter wrote:
+> Hi,
+> 
+> On 05.02.26 13:50, Krzysztof Kozlowski wrote:
+> > On Wed, Jan 28, 2026 at 09:57:08AM +0100, Janne Grunau wrote:
+> >> AIC version 3 as found on the Apple M3 (t8122) is very similar to AICv2
+> >> in its base functionality. It can use the same device tree bindings as
+> >> AICv2 so add it to the AICv2 bindings.
+> >> This interrupt controller is used on all Apple SoCs starting with M3 up
+> >> to at least M5.
+> >> The only apparent difference is the increased IRQ config offset. Apple's
+> >> device tree codes this new offset as property of the "aic" node but the
+> >> value stayed constant for all SoCs with "aic,3". Since the SoC specific
+> >> compatible "apple,t8122-aic3" will be used in the driver this offset can
+> >> remain a driver implementation detail.
+> >>
+> >> Signed-off-by: Janne Grunau <j@jannau.net>
+> >> ---
+> >>   .../bindings/interrupt-controller/apple,aic2.yaml  | 45 +++++++++++++++++-----
+> >>   1 file changed, 36 insertions(+), 9 deletions(-)
+> >>
+> >> diff --git a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+> >> index ee5a0dfff437816056bda0de5523bf38be4f49ba..a6e2251fcc111340c0a27ab6912452f6b1255be2 100644
+> >> --- a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+> >> +++ b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+> >> @@ -4,10 +4,10 @@
+> >>   $id: http://devicetree.org/schemas/interrupt-controller/apple,aic2.yaml#
+> >>   $schema: http://devicetree.org/meta-schemas/core.yaml#
+> >>   
+> >> -title: Apple Interrupt Controller 2
+> >> +title: Apple Interrupt Controller 2 and 3
+> >>   
+> >>   maintainers:
+> >> -  - Hector Martin <marcan@marcan.st>
+> >> +  - Janne Grunau <j@jannau.net>
+> >>   
+> >>   description: |
+> >>     The Apple Interrupt Controller 2 is a simple interrupt controller present on
+> >> @@ -28,14 +28,24 @@ description: |
+> >>     which do not go through a discrete interrupt controller. It also handles
+> >>     FIQ-based Fast IPIs.
+> >>   
+> >> +  The Apple Interrupt Controller 3 is in its base functionality very similar to
+> >> +  the Apple Interrupt Controller 2 and uses the same device tree bindings. It is
+> >> +  found on Apple ARM SoCs platforms starting with t8122 (M3).
+> >> +
+> >>   properties:
+> >>     compatible:
+> >> -    items:
+> >> -      - enum:
+> >> -          - apple,t8112-aic
+> >> -          - apple,t6000-aic
+> >> -          - apple,t6020-aic
+> >> -      - const: apple,aic2
+> >> +    oneOf:
+> >> +      - items:
+> >> +          - enum:
+> >> +              - apple,t8112-aic
+> >> +              - apple,t6000-aic
+> >> +              - apple,t6020-aic
+> > 
+> > If you are re-shuffling these, you can as well sort alphanumerically.
+> 
+> I don't have a strong opinion here but the last time this came up we 
+> agreed that we'd go with release order IIRC for consistency since that 
+> order is used in every other binding for this platform.
 
-Update the few outliers to also fall into this same scheme for
-consistency.
+The intended scheme as documented in some commit messages is first base
+Mx SoCs in release order and then Mx Pro/Max/Ultra SoCs in release
+order. This scheme isn't used consistently though. I think I fixed that
+in one or two bindings already but there are other using a different
+order.
+I think these unecessarily complex rules are guaranteed to lead to
+inconsistencies. I'll resort the entries alphabetically as that's the
+only rule with a chance of consistent use.
 
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
- drivers/clk/samsung/clk-gs101.c | 52 ++++++++++++++++++++---------------------
- 1 file changed, 26 insertions(+), 26 deletions(-)
-
-diff --git a/drivers/clk/samsung/clk-gs101.c b/drivers/clk/samsung/clk-gs101.c
-index 44a8ecd332fddce7d4e162219528462ce3c8c03f..d2bcd3a9daf8939157640c4e7a00da3d39ac309e 100644
---- a/drivers/clk/samsung/clk-gs101.c
-+++ b/drivers/clk/samsung/clk-gs101.c
-@@ -339,7 +339,7 @@
- #define GENERALIO_ACD_CHANNEL_3				0x3f0c
- #define GENERALIO_ACD_MASK				0x3f14
- 
--static const unsigned long cmu_top_clk_regs[] __initconst = {
-+static const unsigned long top_clk_regs[] __initconst = {
- 	PLL_LOCKTIME_PLL_SHARED0,
- 	PLL_LOCKTIME_PLL_SHARED1,
- 	PLL_LOCKTIME_PLL_SHARED2,
-@@ -638,7 +638,7 @@ static const unsigned long cmu_top_clk_regs[] __initconst = {
- 	GENERALIO_ACD_MASK,
- };
- 
--static const struct samsung_pll_clock cmu_top_pll_clks[] __initconst = {
-+static const struct samsung_pll_clock top_pll_clks[] __initconst = {
- 	/* CMU_TOP_PURECLKCOMP */
- 	PLL(pll_0517x, CLK_FOUT_SHARED0_PLL, "fout_shared0_pll", "oscclk",
- 	    PLL_LOCKTIME_PLL_SHARED0, PLL_CON3_PLL_SHARED0,
-@@ -952,7 +952,7 @@ PNAME(mout_cmu_cmuref_p)	= { "mout_cmu_top_boost_option1",
-  * For gates remove _UID _BLK _IPCLKPORT and _RSTNSYNC
-  */
- 
--static const struct samsung_mux_clock cmu_top_mux_clks[] __initconst = {
-+static const struct samsung_mux_clock top_mux_clks[] __initconst = {
- 	MUX(CLK_MOUT_PLL_SHARED0, "mout_pll_shared0", mout_pll_shared0_p,
- 	    PLL_CON0_PLL_SHARED0, 4, 1),
- 	MUX(CLK_MOUT_PLL_SHARED1, "mout_pll_shared1", mout_pll_shared1_p,
-@@ -1108,7 +1108,7 @@ static const struct samsung_mux_clock cmu_top_mux_clks[] __initconst = {
- 	    CLK_CON_MUX_MUX_CMU_CMUREF, 0, 1),
- };
- 
--static const struct samsung_div_clock cmu_top_div_clks[] __initconst = {
-+static const struct samsung_div_clock top_div_clks[] __initconst = {
- 	DIV(CLK_DOUT_CMU_BO_BUS, "dout_cmu_bo_bus", "gout_cmu_bo_bus",
- 	    CLK_CON_DIV_CLKCMU_BO_BUS, 0, 4),
- 	DIV(CLK_DOUT_CMU_BUS0_BUS, "dout_cmu_bus0_bus", "gout_cmu_bus0_bus",
-@@ -1253,13 +1253,13 @@ static const struct samsung_div_clock cmu_top_div_clks[] __initconst = {
- 	    "mout_pll_shared3", CLK_CON_DIV_PLL_SHARED3_DIV2, 0, 1),
- };
- 
--static const struct samsung_fixed_factor_clock cmu_top_ffactor[] __initconst = {
-+static const struct samsung_fixed_factor_clock top_ffactor_clks[] __initconst = {
- 	FFACTOR(CLK_DOUT_CMU_HSI0_USBDPDBG, "dout_cmu_hsi0_usbdpdbg",
- 		"gout_cmu_hsi0_usbdpdbg", 1, 4, 0),
- 	FFACTOR(CLK_DOUT_CMU_OTP, "dout_cmu_otp", "oscclk", 1, 8, 0),
- };
- 
--static const struct samsung_gate_clock cmu_top_gate_clks[] __initconst = {
-+static const struct samsung_gate_clock top_gate_clks[] __initconst = {
- 	GATE(CLK_GOUT_CMU_BUS0_BOOST, "gout_cmu_bus0_boost",
- 	     "mout_cmu_boost_option1", CLK_CON_GAT_CLKCMU_BUS0_BOOST, 21, 0, 0),
- 	GATE(CLK_GOUT_CMU_BUS1_BOOST, "gout_cmu_bus1_boost",
-@@ -1425,19 +1425,19 @@ static const struct samsung_gate_clock cmu_top_gate_clks[] __initconst = {
- };
- 
- static const struct samsung_cmu_info top_cmu_info __initconst = {
--	.pll_clks		= cmu_top_pll_clks,
--	.nr_pll_clks		= ARRAY_SIZE(cmu_top_pll_clks),
--	.mux_clks		= cmu_top_mux_clks,
--	.nr_mux_clks		= ARRAY_SIZE(cmu_top_mux_clks),
--	.div_clks		= cmu_top_div_clks,
--	.nr_div_clks		= ARRAY_SIZE(cmu_top_div_clks),
--	.fixed_factor_clks	= cmu_top_ffactor,
--	.nr_fixed_factor_clks	= ARRAY_SIZE(cmu_top_ffactor),
--	.gate_clks		= cmu_top_gate_clks,
--	.nr_gate_clks		= ARRAY_SIZE(cmu_top_gate_clks),
-+	.pll_clks		= top_pll_clks,
-+	.nr_pll_clks		= ARRAY_SIZE(top_pll_clks),
-+	.mux_clks		= top_mux_clks,
-+	.nr_mux_clks		= ARRAY_SIZE(top_mux_clks),
-+	.div_clks		= top_div_clks,
-+	.nr_div_clks		= ARRAY_SIZE(top_div_clks),
-+	.fixed_factor_clks	= top_ffactor_clks,
-+	.nr_fixed_factor_clks	= ARRAY_SIZE(top_ffactor_clks),
-+	.gate_clks		= top_gate_clks,
-+	.nr_gate_clks		= ARRAY_SIZE(top_gate_clks),
- 	.nr_clk_ids		= CLKS_NR_TOP,
--	.clk_regs		= cmu_top_clk_regs,
--	.nr_clk_regs		= ARRAY_SIZE(cmu_top_clk_regs),
-+	.clk_regs		= top_clk_regs,
-+	.nr_clk_regs		= ARRAY_SIZE(top_clk_regs),
- 	.auto_clock_gate	= true,
- 	.gate_dbg_offset	= GS101_GATE_DBG_OFFSET,
- 	.option_offset		= CMU_CMU_TOP_CONTROLLER_OPTION,
-@@ -2434,15 +2434,15 @@ PNAME(mout_hsi0_usb31drd_p)		= { "fout_usb_pll",
- 					    "dout_hsi0_usb31drd",
- 					    "fout_usb_pll" };
- 
--static const struct samsung_pll_rate_table cmu_hsi0_usb_pll_rates[] __initconst = {
-+static const struct samsung_pll_rate_table hsi0_usb_pll_rates[] __initconst = {
- 	PLL_35XX_RATE(24576000, 19200000, 150, 6, 5),
- 	{ /* sentinel */ }
- };
- 
--static const struct samsung_pll_clock cmu_hsi0_pll_clks[] __initconst = {
-+static const struct samsung_pll_clock hsi0_pll_clks[] __initconst = {
- 	PLL(pll_0518x, CLK_FOUT_USB_PLL, "fout_usb_pll", "oscclk",
- 	    PLL_LOCKTIME_PLL_USB, PLL_CON3_PLL_USB,
--	    cmu_hsi0_usb_pll_rates),
-+	    hsi0_usb_pll_rates),
- };
- 
- static const struct samsung_mux_clock hsi0_mux_clks[] __initconst = {
-@@ -2660,8 +2660,8 @@ static const struct samsung_fixed_rate_clock hsi0_fixed_clks[] __initconst = {
- };
- 
- static const struct samsung_cmu_info hsi0_cmu_info __initconst = {
--	.pll_clks		= cmu_hsi0_pll_clks,
--	.nr_pll_clks		= ARRAY_SIZE(cmu_hsi0_pll_clks),
-+	.pll_clks		= hsi0_pll_clks,
-+	.nr_pll_clks		= ARRAY_SIZE(hsi0_pll_clks),
- 	.mux_clks		= hsi0_mux_clks,
- 	.nr_mux_clks		= ARRAY_SIZE(hsi0_mux_clks),
- 	.div_clks		= hsi0_div_clks,
-@@ -2791,7 +2791,7 @@ static const struct samsung_cmu_info hsi0_cmu_info __initconst = {
- #define QCH_CON_UFS_EMBD_QCH_FMP													0x3094
- #define QUEUE_CTRL_REG_BLK_HSI2_CMU_HSI2												0x3c00
- 
--static const unsigned long cmu_hsi2_clk_regs[] __initconst = {
-+static const unsigned long hsi2_clk_regs[] __initconst = {
- 	PLL_CON0_MUX_CLKCMU_HSI2_BUS_USER,
- 	PLL_CON1_MUX_CLKCMU_HSI2_BUS_USER,
- 	PLL_CON0_MUX_CLKCMU_HSI2_MMC_CARD_USER,
-@@ -3166,8 +3166,8 @@ static const struct samsung_cmu_info hsi2_cmu_info __initconst = {
- 	.gate_clks		= hsi2_gate_clks,
- 	.nr_gate_clks		= ARRAY_SIZE(hsi2_gate_clks),
- 	.nr_clk_ids		= CLKS_NR_HSI2,
--	.clk_regs		= cmu_hsi2_clk_regs,
--	.nr_clk_regs		= ARRAY_SIZE(cmu_hsi2_clk_regs),
-+	.clk_regs		= hsi2_clk_regs,
-+	.nr_clk_regs		= ARRAY_SIZE(hsi2_clk_regs),
- 	.sysreg_clk_regs	= dcrg_memclk_sysreg,
- 	.nr_sysreg_clk_regs	= ARRAY_SIZE(dcrg_memclk_sysreg),
- 	.clk_name		= "bus",
-
----
-base-commit: 9845cf73f7db6094c0d8419d6adb848028f4a921
-change-id: 20260123-clk-gs101-symbol-names-07748885ccab
-
-Best regards,
--- 
-André Draszik <andre.draszik@linaro.org>
-
+Janne
 
