@@ -4,83 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10EF9E9129A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 14:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F527E9129A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 14:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bRVWE3ED+qlfGB15yo3/W08UQ3yzieK0S5+5eO797TY=; b=zCU8TxMrQw+0CwAiRhTuGBbBpN
-	EA+B0wRUb4IB+/SnUzI4h3ao9e3kCMaNiZxjox1EGE0rWMD6PEXG3pFD6VYFfzH9GNNFjdStrrG/4
-	t1yUkws1PsmkAOYJNp3gvKfxsyymAGuYVBtkxyGbmnlxZ2TYNAAk/4e9nkHTTUwl3BnNx8AXmkyTB
-	55Y0Fz7ClMNujYU87cvjs8tSENER66d6t81RDwrHmdcCcyuc1tXjWG0giDju7QUocPipGmPFSRLGN
-	0n8FLwCpH2BI3evS5hLpv7bbGuaRoHIltUC+N7hrMh8DJd327H7cmUQ6eGeFe63FxUebpB5n+yksx
-	d+5YUjKQ==;
+	bh=vT+aexIEoXIR4N2fNF6ZTNyTGT9npTh21qvkyox5aXo=; b=XQJaGkXzMGgtqrdRJV2MZmk70G
+	oBKv1V6gMyysfUiHiJ9uhBPWwI1ukIDr+9NQE9VmoEyXQR6UUJ1C9gwdInH4XIMlqLu5riE7+LEtx
+	H0m9HiTH8Yce00BxvrqnkvYkIDJfx7rCKqlXRvrsRQNUjZRrnikpQgPD67KdlV9pV3i+trpjraQQB
+	nzcciUYJx/ACVZ1bFh88MnnUJ7gnH1kdu9ma1AVqpfvzsnObQ2QIs3RpEXIy/kSh6oErnR1UDXK1j
+	lCve62ilS4YsGEbjithILYDDOAxMWJsyxODuS9gVSUga0h8KozDkUOjPx85oIZP9ZgD086CdeJXvH
+	oGdQkrxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo0jT-0000000A3Eh-0xgE;
-	Thu, 05 Feb 2026 14:53:23 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1vo0nF-0000000A3pK-3qk2;
+	Thu, 05 Feb 2026 14:57:17 +0000
+Received: from mail-northeuropeazon11010015.outbound.protection.outlook.com ([52.101.84.15] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo0jO-0000000A3EJ-28Yi;
-	Thu, 05 Feb 2026 14:53:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1770303198; x=1801839198;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=aDtyxCs7lbVhLpfGqokT/Ea6Fj/WXq34jH0cnUcPisk=;
-  b=C10CFRIOKWlPmwlH82Fajza4te6xpJCmWYI/HN0anflISyF3yO2Mjk4n
-   Wn7oFr3O6Q9YH3CaEyutsnNBzRUn6I2FQOBlpKktjIGmxfxq7f4uOh2yn
-   kJySKZHAD72RDjE7z+lCMxp+QZIopxRns+z8Ep9v4dbBAVxNEqObeekcv
-   FKOo4NXq4kiltv3574Ig0jTyY7B9V2b8ys1HYFu4wLYWf+xS3olJeRHex
-   JE8VMi4ntJ/mMEsbdxxMNvxN+B4MB5YhOR5cNoYzEYNo0mMd7i8uVYHgm
-   yUN0xjeiNb/tXt4smaG6Naosaqzn9StV0DezqStNeHWjcVHWoLqdJl8t1
-   Q==;
-X-CSE-ConnectionGUID: b5TsRCnESxudy7ZkLL7Vkg==
-X-CSE-MsgGUID: j+gMIA5jRLyz85RpDkqacg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11692"; a="59077473"
-X-IronPort-AV: E=Sophos;i="6.21,274,1763452800"; 
-   d="scan'208";a="59077473"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Feb 2026 06:53:16 -0800
-X-CSE-ConnectionGUID: 5/YIgV+0RtmfgWCkQ3QVZw==
-X-CSE-MsgGUID: rgbzNb7WRmO4CRpFG8/laQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,274,1763452800"; 
-   d="scan'208";a="233493595"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 05 Feb 2026 06:53:12 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vo0jF-00000000jto-3WuN;
-	Thu, 05 Feb 2026 14:53:09 +0000
-Date: Thu, 5 Feb 2026 22:52:16 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ryan Chen <ryan_chen@aspeedtech.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	Ryan Chen <ryan_chen@aspeedtech.com>
-Subject: Re: [PATCH 2/4] irqchip/ast2700-intcx: Add AST2700 INTC0/INTC1
- support
-Message-ID: <202602052233.HNk5pa4R-lkp@intel.com>
-References: <20260205-irqchip-v1-2-b0310e06c087@aspeedtech.com>
-MIME-Version: 1.0
+	id 1vo0nD-0000000A3oX-18dJ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Feb 2026 14:57:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=k3cKIcNjTx3mTD75/JRHsC+NGE+CpzdzeJqgQUOR6Zlh6Uca6NelAhtFayFaDAKfB1g0xFhOwQB0g4xAyzNGDO5r8Fc7r+v2GKb8TgdA8pxRHVRVNRPdx2oVnzhuG1fhvN5lIUjX3E6bOAB0G7mRzmrwxS3/QIP75KSsI9AbvYg/U3+/2xJ/+gbEllT52nYc1opGsSW+T9HBxydXpcAg/YMCa38u2nv4tQRp4id9C72QGdalFdfX7BnKPSPSTLH23WPS77z+JTxf4raXVjoi3RLS055pu6O0xQ2VzGhB6iegh45XvjH4wEostld/87wRR4HVyu06XgAcL1RMBuUSfg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vT+aexIEoXIR4N2fNF6ZTNyTGT9npTh21qvkyox5aXo=;
+ b=L3AyC9UngjEncojORvXY8q0OehuqUGzwnRF+mv49xeAlwaGWYDuXsb+tIC6NIJUh3mh/MYz8WCgBjPqNgDogNhPBhienl9lbS9RhkSfOuyRWBm/31lP7WPODrWwlX2ffKWu07jk4QlQ3C6uZeK8moRn7ioiWH+S5iaI5oNsCd7qHYlpn7R9oTe9nI+fafwoNtjWh6e81wwZAuVkCdLzyX/DouHomlDt1iATaMw7cGKygMz9cXB4Y8y3Oi6WHLOcyRe1TYo6Dyrtu9OCeybmwQX8gvxZ8EU4xWP+v8jmGhO02WXkv/LNjhp7ODbXh0Xi5+SBObaNATSlYSeHs7V+Rpg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vT+aexIEoXIR4N2fNF6ZTNyTGT9npTh21qvkyox5aXo=;
+ b=i5u9YLbzbuQAbCScTD8b+UNb6O1NjkHcSAm8U3KyxexI0CNBmE/blpYcRGomuJLUNvBPbJLb0q0wjKRcSIsZJT0R3w27QhziurAOhqsn8vbl62C5OY90DPyiYuSNFcFZq0t7N5+f5iJ9Qyv2rfdqUml3tXmIkrI7wkltVLJ1izPERp3OnyxuJZClvHudvruLWxDDvmaSW2V6DiAi0d9a8nOzCbzTWpbcyfk+8ie9xW8HAlbIBQvxzvup0bJOXECc47LMiZyuKspVf9hEHc0GA7qmy+IW9jZC2f7XRrJ5cMwpPL3efHJ2jNfkB0czLMszZY+c4TUE1feKyE4ojjW7Ug==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AS1PR04MB9560.eurprd04.prod.outlook.com (2603:10a6:20b:470::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Thu, 5 Feb
+ 2026 14:57:10 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9587.010; Thu, 5 Feb 2026
+ 14:57:10 +0000
+Date: Thu, 5 Feb 2026 09:57:00 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: maudspierings@gocontroll.com
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 4/5] arm64: dts: freescale: Add the GOcontroll
+ Moduline IV
+Message-ID: <aYSvvIJs1oJNNYWO@lizhi-Precision-Tower-5810>
+References: <20260205-mini_iv-v6-0-f7cdd8f88144@gocontroll.com>
+ <20260205-mini_iv-v6-4-f7cdd8f88144@gocontroll.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260205-irqchip-v1-2-b0310e06c087@aspeedtech.com>
+In-Reply-To: <20260205-mini_iv-v6-4-f7cdd8f88144@gocontroll.com>
+X-ClientProxiedBy: SJ0PR03CA0197.namprd03.prod.outlook.com
+ (2603:10b6:a03:2ef::22) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS1PR04MB9560:EE_
+X-MS-Office365-Filtering-Correlation-Id: f6dc57d8-9a1e-466f-cf4f-08de64c6d65f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|52116014|376014|7416014|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LxP4eNTVBO0ebIP+aNvB/JEwkqEpalcw/RVEq3Sws4Dy9fqGEKUHRV2YoDzJ?=
+ =?us-ascii?Q?ELzzo/Z430JIvVJaeyUF0XWTP4Mtu+2+6dgCQS1+NsMtodwzIcF+KHa3kzYa?=
+ =?us-ascii?Q?nCK3Xoo8B9qrLSLTWNhm7PZ1ZPV0MDQiibSdCX8gjU3kItli+1OqgOJLTeeW?=
+ =?us-ascii?Q?S9hDpjlSn7p6qeIjYOYOpJJMMPHAhd8EEU++DqOvh3F6UTGroCO9Y6WF7awI?=
+ =?us-ascii?Q?eF83aP4aXbB2ExjHc2BowAf7P7Ntt6M0a01XpFaXo2ALstoni/0BYQssR966?=
+ =?us-ascii?Q?ujclmpssSafl4HcPx5Mprry+rcemi2CkZfjbms0u9/A1ClDc1P/FLCjbyL1S?=
+ =?us-ascii?Q?C19nsXG/vl74jPb44olK2aSBDYnuyBK3DssLxV+im2tUHzWL5eFojoR2j2LK?=
+ =?us-ascii?Q?xJgnA3pyrSw/Q7iye3hRVOahApFgSnQTQPJBCcy/8uoNdltqmc0v9wA/hIq+?=
+ =?us-ascii?Q?WCR2pEgtvjaXC3isF44m6qXiY17eeyNkrCjoMGs31fzNC7qtYNrUaF9utgSo?=
+ =?us-ascii?Q?0rQ6IwIKFmb5SXbNPu+Wo4lSnewMO3090gf2DXLVUETOR9IcuQB+Szsu4bl0?=
+ =?us-ascii?Q?l9uRIw5Sie1oMyCurXih+QXjPyiKOYByubNwajOPIL/znJdthYTDiF5JNexu?=
+ =?us-ascii?Q?DNZBX5l41RpLi5F9KNCSUgZfcJbW6OW8bOmqFWczq4aYh0OtkMGDJTr9y8UO?=
+ =?us-ascii?Q?b8ji4KUQFg+13r64mJA9QfvXiLv7fK7+1p0pwWKyG3WIQrkFzTSo97+nYJu5?=
+ =?us-ascii?Q?Ql0nl4rty2Sy1yhIKGKF7OUVzMEAN4KIK31XKsNx7ibiyS0EKa3k5l/OFPGX?=
+ =?us-ascii?Q?NhSiuLpXvDWiYgVxG3x/befVE6MUaHMQuojrrEWB+F5AgzyAJ/A7IcvHI50K?=
+ =?us-ascii?Q?Ns5D3qWaCR1ag1PlhgDuR8Xd72JFMf07wN0PN/Gx4ZbVAF7T6lgy5iKj0o5l?=
+ =?us-ascii?Q?85wEw6K0wzAcz5R3Hpcj14utGUyax5C01aksWRJatXvLHrvulsBYIdy1Kif6?=
+ =?us-ascii?Q?9Y4PNbN1FOew+C8bkZV/0vLJ+bMLqns/C1987An5fghGs9U/dBrIB3nPFqf8?=
+ =?us-ascii?Q?yFmuCKHTy3PhoD4b06pVwX4wANcpIbqoMI5xs0BRtu4uYBY9oxSCd2Bz5Odw?=
+ =?us-ascii?Q?x/Qy8Rm94nZHR4sTtPmpI07Tv0TcisOCgeU6HsSRnGI32hpZ9NSSBa5KYeq2?=
+ =?us-ascii?Q?8eLn9jjab+mD92sII8oHEEdwfiWGtIynUe36pRiAQTBJnYoyZgzdzV/d//zT?=
+ =?us-ascii?Q?bBzkWbf5acNMURHMkqAp3Busn+uiDCyJCpkXg76BpMTWXARXq9NRwSWNs4OX?=
+ =?us-ascii?Q?oIgAbkLMINRTOyPcZ7oGYNNJ32cRXhgwNIq08aTvjHsSIvmNG7ovB3pS5P+J?=
+ =?us-ascii?Q?Zc0J1atI8XpeKwVwZUKv0JFOnnbuIKOltxI+U0+zOvQYQfU8ehzIRF96Te4A?=
+ =?us-ascii?Q?qwSknZAlNcN2nu8fI8I+DwEVHxMOOBBvLMdAqFSdvYVFNtpjRBYFgFzX7Tkd?=
+ =?us-ascii?Q?BDzMpnsDwuk6D2yhLPjEBsLyc8Ahifz4t6YZgtkkqBLUIShILLPfGtp9/xNW?=
+ =?us-ascii?Q?7OzRN+MpIENG7ZkIYa2ZBFJJye3Vc0NKdgQo7++NTOUclSouiaQXngrVK/VW?=
+ =?us-ascii?Q?Spg7kKGlJWUY3I5CAjXS/1A=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(52116014)(376014)(7416014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gBICjJfR2kedv72W4GVuCHgBNLxobLNamZAfDnzY+iVQhtTYFKntT6a6qbOI?=
+ =?us-ascii?Q?qDn21NAQ/ZEn5VDdHnq+BHETGC2Ok4uWtaxCHhlxkdE9tH8zb93rxcD1BpnY?=
+ =?us-ascii?Q?WdLlL41w4cHla/elOWHDOsuLfKrcW8wEwXy+vl6cX0zwYNmZmELivINM5VeV?=
+ =?us-ascii?Q?uM40afpHQVAYKd2OEod2vhCeRDDb2xTS+NTZlqarznA3Ffl30m4tRo8iyqjJ?=
+ =?us-ascii?Q?ykPGTrY1sxEEvuGHUSPlmpcU67o0lJthbioOCc4LfNnXHkLHNGJj+GyDNYq+?=
+ =?us-ascii?Q?Jsgo4geAF40nEeXLJFrEoQkv0hwsiIByKMlUzS+qzAPM/xcR/tykivTSPjEC?=
+ =?us-ascii?Q?Uy4HyrevVJELrQG8SHRTSpV4HAXyN8UlzEXoAkCNwizAOKJds0B4mVZph+DU?=
+ =?us-ascii?Q?8YVi0jUYvlulKzGlw0ieRdc2dq68UYolQBgo+B2jyjRJI2gwYW+TaiX+cjPJ?=
+ =?us-ascii?Q?9xB7jlxXy+48rZpQHHYdEGkGG+4xb7dzDuMH2Pd9CFnlrGllsHiPcBZ0dwRw?=
+ =?us-ascii?Q?XKTisark6LcyWCZQSzwCUCWayaSrZyqj00uzxlYiL6Sj7Y5xNiisdSHp9otI?=
+ =?us-ascii?Q?fa09TwZCIDaqwxkFHZzrq0224UlirXXhUYAGAjBH1m5tgK9cenc+sc67gj22?=
+ =?us-ascii?Q?/PlL9RzteqF2vMWrM0hwVA5a+pMfT9cIiyH4nDLBY+8SXpWZCqHSnhrzFvnZ?=
+ =?us-ascii?Q?8w5Mi/hAW9529am4m88K3c5zE/xNwOa7QrIhIAGVXZzfIWRbbqaGQ1JbyHc9?=
+ =?us-ascii?Q?i/ALjapoGKumWx7JFglNUcvLCNnxpOsfep2DY8yuTLDJwpYQJE+FiAaa6BYh?=
+ =?us-ascii?Q?ZzZuey1MrE6ny0wX3N1ToIUf+HtAvYw1KdZJTtWflkoKsfVTE/p15E5jd6Z+?=
+ =?us-ascii?Q?0OZIgRRQOSqtyLtlEywR7HSvfkZL+eqTO8NIR8ap1XElbORq20EUOl3G6Gus?=
+ =?us-ascii?Q?H8tYp+kUTx6qVB+sSrlsdM3SD8s5UtI9WbtjHMsXsWnSkXmEr9Gz1QBH3nEV?=
+ =?us-ascii?Q?lrQVVt93oLvoVQ/Ark1WrxEwcLEJAFqossagKLkISiJpEVx3775P2/4+DU/E?=
+ =?us-ascii?Q?mKf7w+10Xk62MTykCBzph7F9iHEAvFOFRA6bMeATwSudrS0QqOBR+w9Jic81?=
+ =?us-ascii?Q?piRP7W3kj2P6r/Bas8MLHLucxDaO6VtllO3FmG4ijvL9pV3nttU+HSVBOl1A?=
+ =?us-ascii?Q?v8OAtzrCv1iw8kukuk6ycTKEoVx7v1KpshdwkhJ9+B+LtSRNcqipLt5rJT4r?=
+ =?us-ascii?Q?Q9lQvLHlkHUfnAXHY87P0PU+iMElsyMaRyVoTgpCTPlxXeNAdFHsSND2oJab?=
+ =?us-ascii?Q?xeFm1rK4srN9gH8nayu/uHIDORne8wD8eLmnrD3takkGkak8LIqP8YcN6P84?=
+ =?us-ascii?Q?7qKJa9giHnWHW3zFBO5cF1hqxlQx8fRTNG79Mh+nCy66zzdEljFw8GnU0V2Z?=
+ =?us-ascii?Q?kt/SqU3isJdX7Jtviut+BEUcLnQ8nE7BbatmLT/wE+TEVCqXl+HmyXt4jzhr?=
+ =?us-ascii?Q?ItsRBAyitoFNYoDUYDM/RIu8iosv1hKbyWMrH+78uj6rRxy8A4fZ05aGFofw?=
+ =?us-ascii?Q?jofWT+bRU5KXOrbs0hkjOOa++Y0FavL3oT0uP7EFGb3J7fCKXAbXDeG54kBn?=
+ =?us-ascii?Q?c7qwKNmbr9WjjQb2ELTJiH+DOPyg/l8fi0GQBrhsyc/jUv15olyc9ov27m/3?=
+ =?us-ascii?Q?MhThsxBa+kra9sWk6xlb7/iJ++1NwiYwMlmEEti33U+GbR2F71RndD7E77IY?=
+ =?us-ascii?Q?L4PJua7a9w=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f6dc57d8-9a1e-466f-cf4f-08de64c6d65f
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Feb 2026 14:57:09.9715
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FEiwcCcg29Km+pojxhBcKlCDG+aISOWsdSRdaocUdLSvGsxR44mhRATXEKujFttsQKT/7M772YG25JZ8m+ZHAQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9560
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_065319_057680_552301D7 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20260205_065715_476030_AF628E86 
+X-CRM114-Status: GOOD (  18.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,379 +171,853 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+On Thu, Feb 05, 2026 at 02:48:28PM +0100, Maud Spierings via B4 Relay wrote:
+> From: Maud Spierings <maudspierings@gocontroll.com>
+>
+> The Moduline IV is a part of the wider GOcontroll Moduline ecosystem. These
+> are embedded controllers that focus on modularity with their swappable IO
+> modules.
+>
+> Features:
+> - up to 8 Moduline IO modules
+> - 4 CAN busses
+> - 1 LIN bus
+> - 1 Ethernet
+> - 4 RGB leds
+> - optional Wi-Fi/Bluetooth
+> - optional 4G/GPS
+>
+> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+> ---
+>  arch/arm64/boot/dts/freescale/Makefile             |   2 +
+>  .../imx8mm-tx8m-1610-moduline-iv-306-d.dts         | 799 +++++++++++++++++++++
+>  2 files changed, 801 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> index 700bab4d3e60..0b4c7cc6d062 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -126,6 +126,8 @@ imx8mm-evk-pcie-ep-dtbs += imx8mm-evk.dtb imx-pcie0-ep.dtbo
+>  imx8mm-evkb-pcie-ep-dtbs += imx8mm-evkb.dtb imx-pcie0-ep.dtbo
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mm-evk-pcie-ep.dtb imx8mm-evkb-pcie-ep.dtb
+>
+> +dtb-$(CONFIG_ARCH_MXC) += imx8mm-tx8m-1610-moduline-iv-306-d.dtb
+> +
 
-kernel test robot noticed the following build warnings:
+Keep alphabet order
 
-[auto build test WARNING on 8f0b4cce4481fb22653697cced8d0d04027cb1e8]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Chen/dt-bindings-interrupt-controller-aspeed-Add-ASPEED-AST2700-INTC0-INTC1/20260205-141046
-base:   8f0b4cce4481fb22653697cced8d0d04027cb1e8
-patch link:    https://lore.kernel.org/r/20260205-irqchip-v1-2-b0310e06c087%40aspeedtech.com
-patch subject: [PATCH 2/4] irqchip/ast2700-intcx: Add AST2700 INTC0/INTC1 support
-config: mips-allyesconfig (https://download.01.org/0day-ci/archive/20260205/202602052233.HNk5pa4R-lkp@intel.com/config)
-compiler: mips-linux-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260205/202602052233.HNk5pa4R-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202602052233.HNk5pa4R-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   In file included from arch/mips/include/asm/errno.h:11,
-                    from include/linux/err.h:8,
-                    from include/linux/cleanup.h:6,
-                    from include/linux/jump_label.h:78,
-                    from include/linux/dynamic_debug.h:6,
-                    from include/linux/printk.h:621,
-                    from include/asm-generic/bug.h:31,
-                    from arch/mips/include/asm/bug.h:42,
-                    from include/linux/bug.h:5,
-                    from include/linux/thread_info.h:13,
-                    from include/asm-generic/current.h:6,
-                    from ./arch/mips/include/generated/asm/current.h:1,
-                    from include/linux/sched.h:12,
-                    from include/linux/ratelimit.h:6,
-                    from include/linux/dev_printk.h:16,
-                    from include/linux/device.h:15,
-                    from drivers/irqchip/irq-ast2700-intc0.c:10:
->> arch/mips/include/uapi/asm/errno.h:18:9: warning: 'ENOMSG' redefined
-      18 | #define ENOMSG          35      /* No message of desired type */
-         |         ^~~~~~
-   In file included from drivers/irqchip/irq-ast2700-intc0.c:8:
-   include/uapi/asm-generic/errno.h:23:9: note: this is the location of the previous definition
-      23 | #define ENOMSG          42      /* No message of desired type */
-         |         ^~~~~~
->> arch/mips/include/uapi/asm/errno.h:19:9: warning: 'EIDRM' redefined
-      19 | #define EIDRM           36      /* Identifier removed */
-         |         ^~~~~
-   include/uapi/asm-generic/errno.h:24:9: note: this is the location of the previous definition
-      24 | #define EIDRM           43      /* Identifier removed */
-         |         ^~~~~
->> arch/mips/include/uapi/asm/errno.h:20:9: warning: 'ECHRNG' redefined
-      20 | #define ECHRNG          37      /* Channel number out of range */
-         |         ^~~~~~
-   include/uapi/asm-generic/errno.h:25:9: note: this is the location of the previous definition
-      25 | #define ECHRNG          44      /* Channel number out of range */
-         |         ^~~~~~
->> arch/mips/include/uapi/asm/errno.h:21:9: warning: 'EL2NSYNC' redefined
-      21 | #define EL2NSYNC        38      /* Level 2 not synchronized */
-         |         ^~~~~~~~
-   include/uapi/asm-generic/errno.h:26:9: note: this is the location of the previous definition
-      26 | #define EL2NSYNC        45      /* Level 2 not synchronized */
-         |         ^~~~~~~~
->> arch/mips/include/uapi/asm/errno.h:22:9: warning: 'EL3HLT' redefined
-      22 | #define EL3HLT          39      /* Level 3 halted */
-         |         ^~~~~~
-   include/uapi/asm-generic/errno.h:27:9: note: this is the location of the previous definition
-      27 | #define EL3HLT          46      /* Level 3 halted */
-         |         ^~~~~~
->> arch/mips/include/uapi/asm/errno.h:23:9: warning: 'EL3RST' redefined
-      23 | #define EL3RST          40      /* Level 3 reset */
-         |         ^~~~~~
-   include/uapi/asm-generic/errno.h:28:9: note: this is the location of the previous definition
-      28 | #define EL3RST          47      /* Level 3 reset */
-         |         ^~~~~~
->> arch/mips/include/uapi/asm/errno.h:24:9: warning: 'ELNRNG' redefined
-      24 | #define ELNRNG          41      /* Link number out of range */
-         |         ^~~~~~
-   include/uapi/asm-generic/errno.h:29:9: note: this is the location of the previous definition
-      29 | #define ELNRNG          48      /* Link number out of range */
-         |         ^~~~~~
->> arch/mips/include/uapi/asm/errno.h:25:9: warning: 'EUNATCH' redefined
-      25 | #define EUNATCH         42      /* Protocol driver not attached */
-         |         ^~~~~~~
-   include/uapi/asm-generic/errno.h:30:9: note: this is the location of the previous definition
-      30 | #define EUNATCH         49      /* Protocol driver not attached */
-         |         ^~~~~~~
->> arch/mips/include/uapi/asm/errno.h:26:9: warning: 'ENOCSI' redefined
-      26 | #define ENOCSI          43      /* No CSI structure available */
-         |         ^~~~~~
-   include/uapi/asm-generic/errno.h:31:9: note: this is the location of the previous definition
-      31 | #define ENOCSI          50      /* No CSI structure available */
-         |         ^~~~~~
->> arch/mips/include/uapi/asm/errno.h:27:9: warning: 'EL2HLT' redefined
-      27 | #define EL2HLT          44      /* Level 2 halted */
-         |         ^~~~~~
-   include/uapi/asm-generic/errno.h:32:9: note: this is the location of the previous definition
-      32 | #define EL2HLT          51      /* Level 2 halted */
-         |         ^~~~~~
->> arch/mips/include/uapi/asm/errno.h:28:9: warning: 'EDEADLK' redefined
-      28 | #define EDEADLK         45      /* Resource deadlock would occur */
-         |         ^~~~~~~
-   include/uapi/asm-generic/errno.h:7:9: note: this is the location of the previous definition
-       7 | #define EDEADLK         35      /* Resource deadlock would occur */
-         |         ^~~~~~~
->> arch/mips/include/uapi/asm/errno.h:29:9: warning: 'ENOLCK' redefined
-      29 | #define ENOLCK          46      /* No record locks available */
-         |         ^~~~~~
-   include/uapi/asm-generic/errno.h:9:9: note: this is the location of the previous definition
-       9 | #define ENOLCK          37      /* No record locks available */
-         |         ^~~~~~
->> arch/mips/include/uapi/asm/errno.h:30:9: warning: 'EBADE' redefined
-      30 | #define EBADE           50      /* Invalid exchange */
-         |         ^~~~~
-   include/uapi/asm-generic/errno.h:33:9: note: this is the location of the previous definition
-      33 | #define EBADE           52      /* Invalid exchange */
-         |         ^~~~~
->> arch/mips/include/uapi/asm/errno.h:31:9: warning: 'EBADR' redefined
-      31 | #define EBADR           51      /* Invalid request descriptor */
-         |         ^~~~~
-   include/uapi/asm-generic/errno.h:34:9: note: this is the location of the previous definition
-      34 | #define EBADR           53      /* Invalid request descriptor */
-         |         ^~~~~
->> arch/mips/include/uapi/asm/errno.h:32:9: warning: 'EXFULL' redefined
-      32 | #define EXFULL          52      /* Exchange full */
-         |         ^~~~~~
-   include/uapi/asm-generic/errno.h:35:9: note: this is the location of the previous definition
-      35 | #define EXFULL          54      /* Exchange full */
-         |         ^~~~~~
->> arch/mips/include/uapi/asm/errno.h:33:9: warning: 'ENOANO' redefined
-      33 | #define ENOANO          53      /* No anode */
-         |         ^~~~~~
-   include/uapi/asm-generic/errno.h:36:9: note: this is the location of the previous definition
-      36 | #define ENOANO          55      /* No anode */
-         |         ^~~~~~
->> arch/mips/include/uapi/asm/errno.h:34:9: warning: 'EBADRQC' redefined
-      34 | #define EBADRQC         54      /* Invalid request code */
-         |         ^~~~~~~
-   include/uapi/asm-generic/errno.h:37:9: note: this is the location of the previous definition
-      37 | #define EBADRQC         56      /* Invalid request code */
-         |         ^~~~~~~
->> arch/mips/include/uapi/asm/errno.h:35:9: warning: 'EBADSLT' redefined
-      35 | #define EBADSLT         55      /* Invalid slot */
-         |         ^~~~~~~
-   include/uapi/asm-generic/errno.h:38:9: note: this is the location of the previous definition
-      38 | #define EBADSLT         57      /* Invalid slot */
-         |         ^~~~~~~
->> arch/mips/include/uapi/asm/errno.h:36:9: warning: 'EDEADLOCK' redefined
-      36 | #define EDEADLOCK       56      /* File locking deadlock error */
-         |         ^~~~~~~~~
-   include/uapi/asm-generic/errno.h:40:9: note: this is the location of the previous definition
-      40 | #define EDEADLOCK       EDEADLK
-         |         ^~~~~~~~~
->> arch/mips/include/uapi/asm/errno.h:51:9: warning: 'EMULTIHOP' redefined
-      51 | #define EMULTIHOP       74      /* Multihop attempted */
-         |         ^~~~~~~~~
-   include/uapi/asm-generic/errno.h:55:9: note: this is the location of the previous definition
-      55 | #define EMULTIHOP       72      /* Multihop attempted */
-         |         ^~~~~~~~~
-   arch/mips/include/uapi/asm/errno.h:52:9: warning: 'EBADMSG' redefined
-      52 | #define EBADMSG         77      /* Not a data message */
-         |         ^~~~~~~
-   include/uapi/asm-generic/errno.h:57:9: note: this is the location of the previous definition
-      57 | #define EBADMSG         74      /* Not a data message */
-         |         ^~~~~~~
-   arch/mips/include/uapi/asm/errno.h:53:9: warning: 'ENAMETOOLONG' redefined
-      53 | #define ENAMETOOLONG    78      /* File name too long */
-         |         ^~~~~~~~~~~~
-   include/uapi/asm-generic/errno.h:8:9: note: this is the location of the previous definition
-       8 | #define ENAMETOOLONG    36      /* File name too long */
-         |         ^~~~~~~~~~~~
-   arch/mips/include/uapi/asm/errno.h:54:9: warning: 'EOVERFLOW' redefined
-      54 | #define EOVERFLOW       79      /* Value too large for defined data type */
-         |         ^~~~~~~~~
-   include/uapi/asm-generic/errno.h:58:9: note: this is the location of the previous definition
-      58 | #define EOVERFLOW       75      /* Value too large for defined data type */
-         |         ^~~~~~~~~
-   arch/mips/include/uapi/asm/errno.h:55:9: warning: 'ENOTUNIQ' redefined
-      55 | #define ENOTUNIQ        80      /* Name not unique on network */
-         |         ^~~~~~~~
-   include/uapi/asm-generic/errno.h:59:9: note: this is the location of the previous definition
-      59 | #define ENOTUNIQ        76      /* Name not unique on network */
-         |         ^~~~~~~~
-   arch/mips/include/uapi/asm/errno.h:56:9: warning: 'EBADFD' redefined
-      56 | #define EBADFD          81      /* File descriptor in bad state */
-         |         ^~~~~~
-   include/uapi/asm-generic/errno.h:60:9: note: this is the location of the previous definition
-      60 | #define EBADFD          77      /* File descriptor in bad state */
-         |         ^~~~~~
-   arch/mips/include/uapi/asm/errno.h:57:9: warning: 'EREMCHG' redefined
-      57 | #define EREMCHG         82      /* Remote address changed */
-         |         ^~~~~~~
-   include/uapi/asm-generic/errno.h:61:9: note: this is the location of the previous definition
-      61 | #define EREMCHG         78      /* Remote address changed */
-         |         ^~~~~~~
-   arch/mips/include/uapi/asm/errno.h:58:9: warning: 'ELIBACC' redefined
-      58 | #define ELIBACC         83      /* Can not access a needed shared library */
-         |         ^~~~~~~
-   include/uapi/asm-generic/errno.h:62:9: note: this is the location of the previous definition
-      62 | #define ELIBACC         79      /* Can not access a needed shared library */
-         |         ^~~~~~~
-   arch/mips/include/uapi/asm/errno.h:59:9: warning: 'ELIBBAD' redefined
-      59 | #define ELIBBAD         84      /* Accessing a corrupted shared library */
-         |         ^~~~~~~
-   include/uapi/asm-generic/errno.h:63:9: note: this is the location of the previous definition
-      63 | #define ELIBBAD         80      /* Accessing a corrupted shared library */
-         |         ^~~~~~~
-   arch/mips/include/uapi/asm/errno.h:60:9: warning: 'ELIBSCN' redefined
-      60 | #define ELIBSCN         85      /* .lib section in a.out corrupted */
-         |         ^~~~~~~
-   include/uapi/asm-generic/errno.h:64:9: note: this is the location of the previous definition
-      64 | #define ELIBSCN         81      /* .lib section in a.out corrupted */
-         |         ^~~~~~~
-   arch/mips/include/uapi/asm/errno.h:61:9: warning: 'ELIBMAX' redefined
-      61 | #define ELIBMAX         86      /* Attempting to link in too many shared libraries */
-         |         ^~~~~~~
-   include/uapi/asm-generic/errno.h:65:9: note: this is the location of the previous definition
-      65 | #define ELIBMAX         82      /* Attempting to link in too many shared libraries */
-         |         ^~~~~~~
-   arch/mips/include/uapi/asm/errno.h:62:9: warning: 'ELIBEXEC' redefined
-      62 | #define ELIBEXEC        87      /* Cannot exec a shared library directly */
-         |         ^~~~~~~~
-   include/uapi/asm-generic/errno.h:66:9: note: this is the location of the previous definition
-      66 | #define ELIBEXEC        83      /* Cannot exec a shared library directly */
-         |         ^~~~~~~~
-   arch/mips/include/uapi/asm/errno.h:63:9: warning: 'EILSEQ' redefined
-      63 | #define EILSEQ          88      /* Illegal byte sequence */
-         |         ^~~~~~
-   include/uapi/asm-generic/errno.h:67:9: note: this is the location of the previous definition
-      67 | #define EILSEQ          84      /* Illegal byte sequence */
-         |         ^~~~~~
-   arch/mips/include/uapi/asm/errno.h:64:9: warning: 'ENOSYS' redefined
-      64 | #define ENOSYS          89      /* Function not implemented */
-         |         ^~~~~~
-   include/uapi/asm-generic/errno.h:18:9: note: this is the location of the previous definition
-      18 | #define ENOSYS          38      /* Invalid system call number */
-         |         ^~~~~~
-   arch/mips/include/uapi/asm/errno.h:65:9: warning: 'ELOOP' redefined
-      65 | #define ELOOP           90      /* Too many symbolic links encountered */
-         |         ^~~~~
-   include/uapi/asm-generic/errno.h:21:9: note: this is the location of the previous definition
-      21 | #define ELOOP           40      /* Too many symbolic links encountered */
-         |         ^~~~~
-   arch/mips/include/uapi/asm/errno.h:66:9: warning: 'ERESTART' redefined
-      66 | #define ERESTART        91      /* Interrupted system call should be restarted */
-         |         ^~~~~~~~
-   include/uapi/asm-generic/errno.h:68:9: note: this is the location of the previous definition
-      68 | #define ERESTART        85      /* Interrupted system call should be restarted */
-         |         ^~~~~~~~
-   arch/mips/include/uapi/asm/errno.h:67:9: warning: 'ESTRPIPE' redefined
-      67 | #define ESTRPIPE        92      /* Streams pipe error */
-         |         ^~~~~~~~
-   include/uapi/asm-generic/errno.h:69:9: note: this is the location of the previous definition
-      69 | #define ESTRPIPE        86      /* Streams pipe error */
-
-
-vim +/ENOMSG +18 arch/mips/include/uapi/asm/errno.h
-
-61730c538f8281 David Howells 2012-10-09   17  
-61730c538f8281 David Howells 2012-10-09  @18  #define ENOMSG		35	/* No message of desired type */
-61730c538f8281 David Howells 2012-10-09  @19  #define EIDRM		36	/* Identifier removed */
-61730c538f8281 David Howells 2012-10-09  @20  #define ECHRNG		37	/* Channel number out of range */
-61730c538f8281 David Howells 2012-10-09  @21  #define EL2NSYNC	38	/* Level 2 not synchronized */
-61730c538f8281 David Howells 2012-10-09  @22  #define EL3HLT		39	/* Level 3 halted */
-61730c538f8281 David Howells 2012-10-09  @23  #define EL3RST		40	/* Level 3 reset */
-61730c538f8281 David Howells 2012-10-09  @24  #define ELNRNG		41	/* Link number out of range */
-61730c538f8281 David Howells 2012-10-09  @25  #define EUNATCH		42	/* Protocol driver not attached */
-61730c538f8281 David Howells 2012-10-09  @26  #define ENOCSI		43	/* No CSI structure available */
-61730c538f8281 David Howells 2012-10-09  @27  #define EL2HLT		44	/* Level 2 halted */
-61730c538f8281 David Howells 2012-10-09  @28  #define EDEADLK		45	/* Resource deadlock would occur */
-61730c538f8281 David Howells 2012-10-09  @29  #define ENOLCK		46	/* No record locks available */
-61730c538f8281 David Howells 2012-10-09  @30  #define EBADE		50	/* Invalid exchange */
-61730c538f8281 David Howells 2012-10-09  @31  #define EBADR		51	/* Invalid request descriptor */
-61730c538f8281 David Howells 2012-10-09  @32  #define EXFULL		52	/* Exchange full */
-61730c538f8281 David Howells 2012-10-09  @33  #define ENOANO		53	/* No anode */
-61730c538f8281 David Howells 2012-10-09  @34  #define EBADRQC		54	/* Invalid request code */
-61730c538f8281 David Howells 2012-10-09  @35  #define EBADSLT		55	/* Invalid slot */
-61730c538f8281 David Howells 2012-10-09  @36  #define EDEADLOCK	56	/* File locking deadlock error */
-61730c538f8281 David Howells 2012-10-09   37  #define EBFONT		59	/* Bad font file format */
-61730c538f8281 David Howells 2012-10-09   38  #define ENOSTR		60	/* Device not a stream */
-61730c538f8281 David Howells 2012-10-09   39  #define ENODATA		61	/* No data available */
-61730c538f8281 David Howells 2012-10-09   40  #define ETIME		62	/* Timer expired */
-61730c538f8281 David Howells 2012-10-09   41  #define ENOSR		63	/* Out of streams resources */
-61730c538f8281 David Howells 2012-10-09   42  #define ENONET		64	/* Machine is not on the network */
-61730c538f8281 David Howells 2012-10-09   43  #define ENOPKG		65	/* Package not installed */
-61730c538f8281 David Howells 2012-10-09   44  #define EREMOTE		66	/* Object is remote */
-61730c538f8281 David Howells 2012-10-09   45  #define ENOLINK		67	/* Link has been severed */
-61730c538f8281 David Howells 2012-10-09   46  #define EADV		68	/* Advertise error */
-61730c538f8281 David Howells 2012-10-09   47  #define ESRMNT		69	/* Srmount error */
-61730c538f8281 David Howells 2012-10-09   48  #define ECOMM		70	/* Communication error on send */
-61730c538f8281 David Howells 2012-10-09   49  #define EPROTO		71	/* Protocol error */
-61730c538f8281 David Howells 2012-10-09   50  #define EDOTDOT		73	/* RFS specific error */
-61730c538f8281 David Howells 2012-10-09  @51  #define EMULTIHOP	74	/* Multihop attempted */
-61730c538f8281 David Howells 2012-10-09  @52  #define EBADMSG		77	/* Not a data message */
-61730c538f8281 David Howells 2012-10-09  @53  #define ENAMETOOLONG	78	/* File name too long */
-61730c538f8281 David Howells 2012-10-09  @54  #define EOVERFLOW	79	/* Value too large for defined data type */
-61730c538f8281 David Howells 2012-10-09  @55  #define ENOTUNIQ	80	/* Name not unique on network */
-61730c538f8281 David Howells 2012-10-09  @56  #define EBADFD		81	/* File descriptor in bad state */
-61730c538f8281 David Howells 2012-10-09  @57  #define EREMCHG		82	/* Remote address changed */
-61730c538f8281 David Howells 2012-10-09  @58  #define ELIBACC		83	/* Can not access a needed shared library */
-61730c538f8281 David Howells 2012-10-09  @59  #define ELIBBAD		84	/* Accessing a corrupted shared library */
-61730c538f8281 David Howells 2012-10-09  @60  #define ELIBSCN		85	/* .lib section in a.out corrupted */
-61730c538f8281 David Howells 2012-10-09  @61  #define ELIBMAX		86	/* Attempting to link in too many shared libraries */
-61730c538f8281 David Howells 2012-10-09  @62  #define ELIBEXEC	87	/* Cannot exec a shared library directly */
-61730c538f8281 David Howells 2012-10-09  @63  #define EILSEQ		88	/* Illegal byte sequence */
-61730c538f8281 David Howells 2012-10-09  @64  #define ENOSYS		89	/* Function not implemented */
-61730c538f8281 David Howells 2012-10-09  @65  #define ELOOP		90	/* Too many symbolic links encountered */
-61730c538f8281 David Howells 2012-10-09  @66  #define ERESTART	91	/* Interrupted system call should be restarted */
-61730c538f8281 David Howells 2012-10-09  @67  #define ESTRPIPE	92	/* Streams pipe error */
-61730c538f8281 David Howells 2012-10-09  @68  #define ENOTEMPTY	93	/* Directory not empty */
-61730c538f8281 David Howells 2012-10-09  @69  #define EUSERS		94	/* Too many users */
-61730c538f8281 David Howells 2012-10-09  @70  #define ENOTSOCK	95	/* Socket operation on non-socket */
-61730c538f8281 David Howells 2012-10-09  @71  #define EDESTADDRREQ	96	/* Destination address required */
-61730c538f8281 David Howells 2012-10-09  @72  #define EMSGSIZE	97	/* Message too long */
-61730c538f8281 David Howells 2012-10-09  @73  #define EPROTOTYPE	98	/* Protocol wrong type for socket */
-61730c538f8281 David Howells 2012-10-09  @74  #define ENOPROTOOPT	99	/* Protocol not available */
-61730c538f8281 David Howells 2012-10-09  @75  #define EPROTONOSUPPORT 120	/* Protocol not supported */
-61730c538f8281 David Howells 2012-10-09  @76  #define ESOCKTNOSUPPORT 121	/* Socket type not supported */
-61730c538f8281 David Howells 2012-10-09  @77  #define EOPNOTSUPP	122	/* Operation not supported on transport endpoint */
-61730c538f8281 David Howells 2012-10-09  @78  #define EPFNOSUPPORT	123	/* Protocol family not supported */
-61730c538f8281 David Howells 2012-10-09  @79  #define EAFNOSUPPORT	124	/* Address family not supported by protocol */
-61730c538f8281 David Howells 2012-10-09  @80  #define EADDRINUSE	125	/* Address already in use */
-61730c538f8281 David Howells 2012-10-09  @81  #define EADDRNOTAVAIL	126	/* Cannot assign requested address */
-61730c538f8281 David Howells 2012-10-09  @82  #define ENETDOWN	127	/* Network is down */
-61730c538f8281 David Howells 2012-10-09  @83  #define ENETUNREACH	128	/* Network is unreachable */
-61730c538f8281 David Howells 2012-10-09  @84  #define ENETRESET	129	/* Network dropped connection because of reset */
-61730c538f8281 David Howells 2012-10-09  @85  #define ECONNABORTED	130	/* Software caused connection abort */
-61730c538f8281 David Howells 2012-10-09  @86  #define ECONNRESET	131	/* Connection reset by peer */
-61730c538f8281 David Howells 2012-10-09  @87  #define ENOBUFS		132	/* No buffer space available */
-61730c538f8281 David Howells 2012-10-09  @88  #define EISCONN		133	/* Transport endpoint is already connected */
-61730c538f8281 David Howells 2012-10-09  @89  #define ENOTCONN	134	/* Transport endpoint is not connected */
-61730c538f8281 David Howells 2012-10-09  @90  #define EUCLEAN		135	/* Structure needs cleaning */
-61730c538f8281 David Howells 2012-10-09  @91  #define ENOTNAM		137	/* Not a XENIX named type file */
-61730c538f8281 David Howells 2012-10-09  @92  #define ENAVAIL		138	/* No XENIX semaphores available */
-61730c538f8281 David Howells 2012-10-09  @93  #define EISNAM		139	/* Is a named type file */
-61730c538f8281 David Howells 2012-10-09  @94  #define EREMOTEIO	140	/* Remote I/O error */
-61730c538f8281 David Howells 2012-10-09   95  #define EINIT		141	/* Reserved */
-61730c538f8281 David Howells 2012-10-09   96  #define EREMDEV		142	/* Error 142 */
-61730c538f8281 David Howells 2012-10-09  @97  #define ESHUTDOWN	143	/* Cannot send after transport endpoint shutdown */
-61730c538f8281 David Howells 2012-10-09  @98  #define ETOOMANYREFS	144	/* Too many references: cannot splice */
-61730c538f8281 David Howells 2012-10-09  @99  #define ETIMEDOUT	145	/* Connection timed out */
-61730c538f8281 David Howells 2012-10-09 @100  #define ECONNREFUSED	146	/* Connection refused */
-61730c538f8281 David Howells 2012-10-09 @101  #define EHOSTDOWN	147	/* Host is down */
-61730c538f8281 David Howells 2012-10-09 @102  #define EHOSTUNREACH	148	/* No route to host */
-61730c538f8281 David Howells 2012-10-09  103  #define EWOULDBLOCK	EAGAIN	/* Operation would block */
-61730c538f8281 David Howells 2012-10-09 @104  #define EALREADY	149	/* Operation already in progress */
-61730c538f8281 David Howells 2012-10-09 @105  #define EINPROGRESS	150	/* Operation now in progress */
-0ca43435188b9f Eric Sandeen  2013-11-12 @106  #define ESTALE		151	/* Stale file handle */
-61730c538f8281 David Howells 2012-10-09 @107  #define ECANCELED	158	/* AIO operation canceled */
-61730c538f8281 David Howells 2012-10-09  108  
-61730c538f8281 David Howells 2012-10-09  109  /*
-61730c538f8281 David Howells 2012-10-09  110   * These error are Linux extensions.
-61730c538f8281 David Howells 2012-10-09  111   */
-61730c538f8281 David Howells 2012-10-09 @112  #define ENOMEDIUM	159	/* No medium found */
-61730c538f8281 David Howells 2012-10-09 @113  #define EMEDIUMTYPE	160	/* Wrong medium type */
-61730c538f8281 David Howells 2012-10-09 @114  #define ENOKEY		161	/* Required key not available */
-61730c538f8281 David Howells 2012-10-09 @115  #define EKEYEXPIRED	162	/* Key has expired */
-61730c538f8281 David Howells 2012-10-09 @116  #define EKEYREVOKED	163	/* Key has been revoked */
-61730c538f8281 David Howells 2012-10-09 @117  #define EKEYREJECTED	164	/* Key was rejected by service */
-61730c538f8281 David Howells 2012-10-09  118  
-61730c538f8281 David Howells 2012-10-09  119  /* for robust mutexes */
-61730c538f8281 David Howells 2012-10-09 @120  #define EOWNERDEAD	165	/* Owner died */
-61730c538f8281 David Howells 2012-10-09 @121  #define ENOTRECOVERABLE 166	/* State not recoverable */
-61730c538f8281 David Howells 2012-10-09  122  
-61730c538f8281 David Howells 2012-10-09 @123  #define ERFKILL		167	/* Operation not possible due to RF-kill */
-61730c538f8281 David Howells 2012-10-09  124  
-61730c538f8281 David Howells 2012-10-09 @125  #define EHWPOISON	168	/* Memory page has hardware error */
-61730c538f8281 David Howells 2012-10-09  126  
-61730c538f8281 David Howells 2012-10-09 @127  #define EDQUOT		1133	/* Quota exceeded */
-61730c538f8281 David Howells 2012-10-09  128  
-61730c538f8281 David Howells 2012-10-09  129  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Frank
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mm-icore-mx8mm-ctouch2.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mm-icore-mx8mm-edimm2.2.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mm-iot-gateway.dtb
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-iv-306-d.dts b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-iv-306-d.dts
+> new file mode 100644
+> index 000000000000..c454cd8dea5b
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-iv-306-d.dts
+> @@ -0,0 +1,799 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2025 Maud Spierings <maudspierings@gocontroll.com>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include <dt-bindings/leds/common.h>
+> +
+> +#include "imx8mm-tx8m-1610.dtsi"
+> +
+> +/ {
+> +	chassis-type = "embedded";
+> +	compatible = "gocontroll,moduline-iv-306-d", "karo,imx8mm-tx8m-1610", "fsl,imx8mm";
+> +	hardware = "Moduline IV V3.06-D";
+> +	model = "GOcontroll Moduline IV";
+> +
+> +	aliases {
+> +		spi0 = &ecspi2; /* spidev number compatibility */
+> +		spi1 = &ecspi3; /* spidev number compatibility */
+> +		spi2 = &ecspi1; /* spidev number compatibility */
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial2:115200n8";
+> +	};
+> +
+> +	mcp_clock: mcp-clock {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <20000000>;
+> +	};
+> +
+> +	reg_3v3_m2: regulator-3v3-m2 {
+> +		compatible = "regulator-fixed";
+> +		enable-active-high;
+> +		gpio = <&gpio4 8 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-0 = <&pinctrl_reg_m2>;
+> +		pinctrl-names = "default";
+> +		power-supply = <&reg_6v4>;
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-name = "3v3-m.2";
+> +	};
+> +
+> +	reg_5v0: regulator-5v0 {
+> +		compatible = "regulator-fixed";
+> +		power-supply = <&reg_6v4>;
+> +		regulator-always-on;
+> +		regulator-max-microvolt = <5000000>;
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-name = "5v0";
+> +	};
+> +
+> +	reg_6v4: regulator-6v4 {
+> +		compatible = "regulator-fixed";
+> +		regulator-always-on;
+> +		regulator-max-microvolt = <6400000>;
+> +		regulator-min-microvolt = <6400000>;
+> +		regulator-name = "6v4";
+> +	};
+> +
+> +	reg_can1_stby: regulator-can1-stby {
+> +		compatible = "regulator-fixed";
+> +		gpio = <&gpio3 16 GPIO_ACTIVE_LOW>;
+> +		pinctrl-0 = <&pinctrl_can1_reg>;
+> +		pinctrl-names = "default";
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-name = "can1-stby";
+> +	};
+> +
+> +	reg_can2_stby: regulator-can2-stby {
+> +		compatible = "regulator-fixed";
+> +		gpio = <&gpio3 17 GPIO_ACTIVE_LOW>;
+> +		pinctrl-0 = <&pinctrl_can2_reg>;
+> +		pinctrl-names = "default";
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-name = "can2-stby";
+> +	};
+> +
+> +	reg_can3_stby: regulator-can3-stby {
+> +		compatible = "regulator-fixed";
+> +		gpio = <&gpio1 11 GPIO_ACTIVE_LOW>;
+> +		pinctrl-0 = <&pinctrl_can3_reg>;
+> +		pinctrl-names = "default";
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-name = "can3-stby";
+> +	};
+> +
+> +	reg_can4_stby: regulator-can4-stby {
+> +		compatible = "regulator-fixed";
+> +		gpio = <&gpio3 8 GPIO_ACTIVE_LOW>;
+> +		pinctrl-0 = <&pinctrl_can4_reg>;
+> +		pinctrl-names = "default";
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-name = "can4-stby";
+> +	};
+> +
+> +	wifi_pwrseq: wifi-pwrseq {
+> +		compatible = "mmc-pwrseq-simple";
+> +		pinctrl-0 = <&pinctrl_wl_reg>;
+> +		pinctrl-names = "default";
+> +		post-power-on-delay-ms = <100>;
+> +		power-off-delay-us = <500000>;
+> +		reset-gpios = <&gpio3 3 GPIO_ACTIVE_LOW>;
+> +	};
+> +};
+> +
+> +/* SPI 2 */
+> +&ecspi1 {
+> +	cs-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>,
+> +		   <&gpio1 0 GPIO_ACTIVE_LOW>,
+> +		   <&gpio5 2 GPIO_ACTIVE_LOW>,
+> +		   <&gpio4 27 GPIO_ACTIVE_LOW>,
+> +		   <&gpio3 1 GPIO_ACTIVE_LOW>;
+> +	pinctrl-0 = <&pinctrl_ecspi1>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +
+> +	connector@0 {
+> +		compatible = "gocontroll,moduline-module-slot";
+> +		reg = <0>;
+> +		i2c-bus = <&i2c2>;
+> +		interrupt-parent = <&gpio1>;
+> +		interrupts = <7 IRQ_TYPE_EDGE_FALLING>;
+> +		reset-gpios = <&gpio1 5 GPIO_ACTIVE_LOW>;
+> +		slot-number = <3>;
+> +		spi-max-frequency = <54000000>;
+> +		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
+> +		vddhpp-supply = <&reg_6v4>;
+> +		vddp-supply = <&reg_5v0>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +	};
+> +
+> +	connector@1 {
+> +		compatible = "gocontroll,moduline-module-slot";
+> +		reg = <1>;
+> +		i2c-bus = <&i2c2>;
+> +		interrupt-parent = <&gpio5>;
+> +		interrupts = <21 IRQ_TYPE_EDGE_FALLING>;
+> +		reset-gpios = <&gpio3 15 GPIO_ACTIVE_LOW>;
+> +		slot-number = <4>;
+> +		spi-max-frequency = <54000000>;
+> +		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
+> +		vddhpp-supply = <&reg_6v4>;
+> +		vddp-supply = <&reg_5v0>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +	};
+> +
+> +	connector@2 {
+> +		compatible = "gocontroll,moduline-module-slot";
+> +		reg = <2>;
+> +		i2c-bus = <&i2c2>;
+> +		interrupt-parent = <&gpio5>;
+> +		interrupts = <1 IRQ_TYPE_EDGE_FALLING>;
+> +		reset-gpios = <&gpio4 25 GPIO_ACTIVE_LOW>;
+> +		slot-number = <5>;
+> +		spi-max-frequency = <54000000>;
+> +		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
+> +		vddhpp-supply = <&reg_6v4>;
+> +		vddp-supply = <&reg_5v0>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +	};
+> +
+> +	connector@3 {
+> +		compatible = "gocontroll,moduline-module-slot";
+> +		reg = <3>;
+> +		i2c-bus = <&i2c2>;
+> +		interrupt-parent = <&gpio4>;
+> +		interrupts = <26 IRQ_TYPE_EDGE_FALLING>;
+> +		reset-gpios = <&gpio4 28 GPIO_ACTIVE_LOW>;
+> +		slot-number = <6>;
+> +		spi-max-frequency = <54000000>;
+> +		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
+> +		vddhpp-supply = <&reg_6v4>;
+> +		vddp-supply = <&reg_5v0>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +	};
+> +
+> +	adc@4 {
+> +		compatible = "microchip,mcp3004";
+> +		reg = <4>;
+> +		spi-max-frequency = <2300000>;
+> +		vref-supply = <&reg_vdd_3v3>;
+> +	};
+> +};
+> +
+> +&ecspi2 {
+> +	cs-gpios = <&gpio3 23 GPIO_ACTIVE_LOW>,
+> +		   <&gpio5 9 GPIO_ACTIVE_LOW>,
+> +		   <&gpio3 2 GPIO_ACTIVE_LOW>,
+> +		   <&gpio5 25 GPIO_ACTIVE_LOW>;
+> +	pinctrl-0 = <&pinctrl_ecspi2>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +
+> +	connector@0 {
+> +		compatible = "gocontroll,moduline-module-slot";
+> +		reg = <0>;
+> +		i2c-bus = <&i2c2>;
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <19 IRQ_TYPE_EDGE_FALLING>;
+> +		reset-gpios = <&gpio3 24 GPIO_ACTIVE_LOW>;
+> +		slot-number = <7>;
+> +		spi-max-frequency = <54000000>;
+> +		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
+> +		vddhpp-supply = <&reg_6v4>;
+> +		vddp-supply = <&reg_5v0>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +	};
+> +
+> +	connector@1 {
+> +		compatible = "gocontroll,moduline-module-slot";
+> +		reg = <1>;
+> +		i2c-bus = <&i2c2>;
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <22 IRQ_TYPE_EDGE_FALLING>;
+> +		reset-gpios = <&gpio3 21 GPIO_ACTIVE_LOW>;
+> +		slot-number = <8>;
+> +		spi-max-frequency = <54000000>;
+> +		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
+> +		vddhpp-supply = <&reg_6v4>;
+> +		vddp-supply = <&reg_5v0>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +	};
+> +
+> +	can@2 {
+> +		compatible = "microchip,mcp25625";
+> +		reg = <2>;
+> +		clocks = <&mcp_clock>;
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <4 IRQ_TYPE_LEVEL_LOW>;
+> +		pinctrl-0 = <&pinctrl_can1>;
+> +		pinctrl-names = "default";
+> +		spi-max-frequency = <10000000>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +		xceiver-supply = <&reg_can1_stby>;
+> +	};
+> +
+> +	can@3 {
+> +		compatible = "microchip,mcp25625";
+> +		reg = <3>;
+> +		clocks = <&mcp_clock>;
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <13 IRQ_TYPE_LEVEL_LOW>;
+> +		pinctrl-0 = <&pinctrl_can2>;
+> +		pinctrl-names = "default";
+> +		spi-max-frequency = <10000000>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +		xceiver-supply = <&reg_can2_stby>;
+> +	};
+> +};
+> +
+> +&ecspi3 {
+> +	cs-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>,
+> +		   <&gpio1 10 GPIO_ACTIVE_LOW>,
+> +		   <&gpio5 5 GPIO_ACTIVE_LOW>,
+> +		   <&gpio5 4 GPIO_ACTIVE_LOW>;
+> +	pinctrl-0 = <&pinctrl_ecspi3>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +
+> +	connector@0 {
+> +		compatible = "gocontroll,moduline-module-slot";
+> +		reg = <0>;
+> +		i2c-bus = <&i2c2>;
+> +		interrupt-parent = <&gpio1>;
+> +		interrupts = <6 IRQ_TYPE_EDGE_FALLING>;
+> +		reset-gpios = <&gpio1 8 GPIO_ACTIVE_LOW>;
+> +		slot-number = <1>;
+> +		spi-max-frequency = <54000000>;
+> +		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
+> +		vddhpp-supply = <&reg_6v4>;
+> +		vddp-supply = <&reg_5v0>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +	};
+> +
+> +	connector@1 {
+> +		compatible = "gocontroll,moduline-module-slot";
+> +		reg = <1>;
+> +		i2c-bus = <&i2c2>;
+> +		interrupt-parent = <&gpio5>;
+> +		interrupts = <20 IRQ_TYPE_EDGE_FALLING>;
+> +		reset-gpios = <&gpio3 11 GPIO_ACTIVE_LOW>;
+> +		slot-number = <2>;
+> +		spi-max-frequency = <54000000>;
+> +		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
+> +		vddhpp-supply = <&reg_6v4>;
+> +		vddp-supply = <&reg_5v0>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +	};
+> +
+> +	can@2 {
+> +		compatible = "microchip,mcp25625";
+> +		reg = <2>;
+> +		clocks = <&mcp_clock>;
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <12 IRQ_TYPE_LEVEL_LOW>;
+> +		pinctrl-0 = <&pinctrl_can3>;
+> +		pinctrl-names = "default";
+> +		spi-max-frequency = <10000000>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +		xceiver-supply = <&reg_can3_stby>;
+> +	};
+> +
+> +	can@3 {
+> +		compatible = "microchip,mcp25625";
+> +		reg = <3>;
+> +		clocks = <&mcp_clock>;
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <18 IRQ_TYPE_LEVEL_LOW>;
+> +		pinctrl-0 = <&pinctrl_can4>;
+> +		pinctrl-names = "default";
+> +		spi-max-frequency = <10000000>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +		xceiver-supply = <&reg_can4_stby>;
+> +	};
+> +};
+> +
+> +&gpu_2d {
+> +	status = "disabled";
+> +};
+> +
+> +&gpu_3d {
+> +	status = "disabled";
+> +};
+> +
+> +&i2c2 {
+> +	clock-frequency = <400000>;
+> +	pinctrl-names = "default", "gpio";
+> +	pinctrl-0 = <&pinctrl_i2c2>;
+> +	pinctrl-1 = <&pinctrl_i2c2_gpio>;
+> +	scl-gpios = <&gpio5 16 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> +	sda-gpios = <&gpio5 17 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> +	status = "okay";
+> +};
+> +
+> +&i2c3 {
+> +	clock-frequency = <400000>;
+> +	pinctrl-0 = <&pinctrl_i2c3>;
+> +	pinctrl-1 = <&pinctrl_i2c3_gpio>;
+> +	pinctrl-names = "default", "gpio";
+> +	scl-gpios = <&gpio5 18 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> +	sda-gpios = <&gpio5 19 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> +	status = "okay";
+> +
+> +	lp5012@14 {
+> +		compatible = "ti,lp5012";
+> +		reg = <0x14>;
+> +		vled-supply = <&reg_6v4>;
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		multi-led@0 {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			reg = <0>;
+> +			color = <LED_COLOR_ID_RGB>;
+> +			label = "case-led1";
+> +
+> +			led@0 {
+> +				color = <LED_COLOR_ID_RED>;
+> +				reg = <0>;
+> +			};
+> +
+> +			led@1 {
+> +				color = <LED_COLOR_ID_GREEN>;
+> +				reg = <1>;
+> +			};
+> +
+> +			led@2 {
+> +				color = <LED_COLOR_ID_BLUE>;
+> +				reg = <2>;
+> +			};
+> +		};
+> +
+> +		multi-led@1 {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			reg = <1>;
+> +			color = <LED_COLOR_ID_RGB>;
+> +			label = "case-led2";
+> +
+> +			led@0 {
+> +				color = <LED_COLOR_ID_RED>;
+> +				reg = <0>;
+> +			};
+> +
+> +			led@1 {
+> +				color = <LED_COLOR_ID_GREEN>;
+> +				reg = <1>;
+> +			};
+> +
+> +			led@2 {
+> +				color = <LED_COLOR_ID_BLUE>;
+> +				reg = <2>;
+> +			};
+> +		};
+> +
+> +		multi-led@2 {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			reg = <2>;
+> +			color = <LED_COLOR_ID_RGB>;
+> +			label = "case-led3";
+> +
+> +			led@0 {
+> +				color = <LED_COLOR_ID_RED>;
+> +				reg = <0>;
+> +			};
+> +
+> +			led@1 {
+> +				color = <LED_COLOR_ID_GREEN>;
+> +				reg = <1>;
+> +			};
+> +
+> +			led@2 {
+> +				color = <LED_COLOR_ID_BLUE>;
+> +				reg = <2>;
+> +			};
+> +		};
+> +
+> +		multi-led@3 {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			reg = <3>;
+> +			color = <LED_COLOR_ID_RGB>;
+> +			label = "case-led4";
+> +
+> +			led@0 {
+> +				color = <LED_COLOR_ID_RED>;
+> +				reg = <0>;
+> +			};
+> +
+> +			led@1 {
+> +				color = <LED_COLOR_ID_GREEN>;
+> +				reg = <1>;
+> +			};
+> +
+> +			led@2 {
+> +				color = <LED_COLOR_ID_BLUE>;
+> +				reg = <2>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&iomuxc {
+> +	pinctrl_bt: btgrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_GPIO1_IO01_GPIO1_IO1
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_SAI5_MCLK_GPIO3_IO25
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
+> +			MX8MM_IOMUXC_ECSPI2_SS0_GPIO5_IO13
+> +				MX8MM_DSE_X1
+> +		>;
+> +	};
+> +
+> +	pinctrl_can1: can1grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_NAND_ALE_GPIO3_IO0
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_NAND_CE3_B_GPIO3_IO4
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
+> +		>;
+> +	};
+> +
+> +	pinctrl_can1_reg: can1reggrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_NAND_READY_B_GPIO3_IO16
+> +				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +		>;
+> +	};
+> +
+> +	pinctrl_can2: can2grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_SD2_CD_B_GPIO2_IO12
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_NAND_DATA07_GPIO3_IO13
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
+> +		>;
+> +	};
+> +
+> +	pinctrl_can2_reg: can2reggrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_NAND_WE_B_GPIO3_IO17
+> +				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +		>;
+> +	};
+> +
+> +	pinctrl_can3: can3grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_SPDIF_TX_GPIO5_IO3
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_NAND_DATA06_GPIO3_IO12
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
+> +		>;
+> +	};
+> +
+> +	pinctrl_can3_reg: can3reggrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_GPIO1_IO11_GPIO1_IO11
+> +				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +		>;
+> +	};
+> +
+> +	pinctrl_can4: can4grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_NAND_DQS_GPIO3_IO14
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_NAND_WP_B_GPIO3_IO18
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
+> +		>;
+> +	};
+> +
+> +	pinctrl_can4_reg: can4reggrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_NAND_DATA02_GPIO3_IO8
+> +				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +		>;
+> +	};
+> +
+> +	pinctrl_ecspi1: ecspi1grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_ECSPI1_MOSI_ECSPI1_MOSI
+> +				MX8MM_DSE_X4
+> +			MX8MM_IOMUXC_ECSPI1_MISO_ECSPI1_MISO
+> +				(MX8MM_DSE_X4 | MX8MM_HYS_SCHMITT)
+> +			MX8MM_IOMUXC_ECSPI1_SCLK_ECSPI1_SCLK
+> +				MX8MM_DSE_X4
+> +			MX8MM_IOMUXC_GPIO1_IO09_GPIO1_IO9
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_GPIO1_IO00_GPIO1_IO0
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_SAI3_MCLK_GPIO5_IO2
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_SAI2_MCLK_GPIO4_IO27
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_NAND_CE0_B_GPIO3_IO1
+> +				MX8MM_DSE_X1
+> +		>;
+> +	};
+> +
+> +	pinctrl_ecspi2: ecspi2grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_ECSPI2_MOSI_ECSPI2_MOSI
+> +				MX8MM_DSE_X4
+> +			MX8MM_IOMUXC_ECSPI2_MISO_ECSPI2_MISO
+> +				(MX8MM_DSE_X4 | MX8MM_HYS_SCHMITT)
+> +			MX8MM_IOMUXC_ECSPI2_SCLK_ECSPI2_SCLK
+> +				MX8MM_DSE_X4
+> +			MX8MM_IOMUXC_SAI5_RXD2_GPIO3_IO23
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_ECSPI1_SS0_GPIO5_IO9
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_NAND_CE1_B_GPIO3_IO2
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_UART2_TXD_GPIO5_IO25
+> +				MX8MM_DSE_X1
+> +		>;
+> +	};
+> +
+> +	pinctrl_ecspi3: ecspi3grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_UART1_TXD_ECSPI3_MOSI
+> +				MX8MM_DSE_X4
+> +			MX8MM_IOMUXC_UART2_RXD_ECSPI3_MISO
+> +				(MX8MM_DSE_X4 | MX8MM_HYS_SCHMITT)
+> +			MX8MM_IOMUXC_UART1_RXD_ECSPI3_SCLK
+> +				MX8MM_DSE_X4
+> +			MX8MM_IOMUXC_GPIO1_IO04_GPIO1_IO4
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_GPIO1_IO10_GPIO1_IO10
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_SPDIF_EXT_CLK_GPIO5_IO5
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_SPDIF_RX_GPIO5_IO4
+> +				MX8MM_DSE_X1
+> +		>;
+> +	};
+> +
+> +	pinctrl_i2c2: i2c2grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_I2C2_SCL_I2C2_SCL
+> +				MX8MM_I2C_DEFAULT
+> +			MX8MM_IOMUXC_I2C2_SDA_I2C2_SDA
+> +				MX8MM_I2C_DEFAULT
+> +		>;
+> +	};
+> +
+> +	pinctrl_i2c2_gpio: i2c2-gpiogrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_I2C2_SCL_GPIO5_IO16
+> +				MX8MM_I2C_DEFAULT
+> +			MX8MM_IOMUXC_I2C2_SDA_GPIO5_IO17
+> +				MX8MM_I2C_DEFAULT
+> +		>;
+> +	};
+> +
+> +	pinctrl_i2c3: i2c3grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_I2C3_SCL_I2C3_SCL
+> +				MX8MM_I2C_DEFAULT
+> +			MX8MM_IOMUXC_I2C3_SDA_I2C3_SDA
+> +				MX8MM_I2C_DEFAULT
+> +		>;
+> +	};
+> +
+> +	pinctrl_i2c3_gpio: i2c3-gpiogrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_I2C3_SCL_GPIO5_IO18
+> +				MX8MM_I2C_DEFAULT
+> +			MX8MM_IOMUXC_I2C3_SDA_GPIO5_IO19
+> +				MX8MM_I2C_DEFAULT
+> +		>;
+> +	};
+> +
+> +	pinctrl_reg_m2: reg-m2grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_SAI1_RXD6_GPIO4_IO8
+> +				MX8MM_DSE_X1
+> +		>;
+> +	};
+> +
+> +	pinctrl_uart1: uart1grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_SAI2_RXC_UART1_DCE_RX
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_SAI2_RXD0_UART1_DCE_RTS_B
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_SAI2_TXFS_UART1_DCE_CTS_B
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +		>;
+> +	};
+> +
+> +	pinctrl_uart2: uart2grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_SAI3_TXFS_UART2_DCE_RX
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_SAI3_TXC_UART2_DCE_TX
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_SAI3_RXD_UART2_DCE_RTS_B
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_SAI3_RXC_UART2_DCE_CTS_B
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +		>;
+> +	};
+> +
+> +	pinctrl_uart3: uart3grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_UART3_RXD_UART3_DCE_RX
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_UART3_TXD_UART3_DCE_TX
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +		>;
+> +	};
+> +
+> +	pinctrl_uart4: uart4grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_UART4_RXD_UART4_DCE_RX
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_UART4_TXD_UART4_DCE_TX
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc2: pinctrlusdhc2grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK
+> +				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD
+> +				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
+> +			MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0
+> +				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
+> +			MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1
+> +				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
+> +			MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2
+> +				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
+> +			MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3
+> +				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
+> +		>;
+> +	};
+> +
+> +	pinctrl_wl_int: wlintgrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_SAI5_RXC_GPIO3_IO20
+> +				(MX8MM_PULL_UP | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
+> +		>;
+> +	};
+> +
+> +	pinctrl_wl_reg: wlreggrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_NAND_CE2_B_GPIO3_IO3
+> +				MX8MM_DSE_X1
+> +		>;
+> +	};
+> +};
+> +
+> +&uart1 {
+> +	pinctrl-0 = <&pinctrl_uart1>;
+> +	pinctrl-names = "default";
+> +	uart-has-rtscts;
+> +	status = "okay";
+> +
+> +	bluetooth {
+> +		compatible = "infineon,cyw43439-bt", "brcm,bcm4329-bt";
+> +		device-wakeup-gpios = <&gpio5 13 GPIO_ACTIVE_HIGH>;
+> +		interrupt-names = "host-wakeup";
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <25 IRQ_TYPE_EDGE_FALLING>;
+> +		max-speed = <921600>;
+> +		pinctrl-0 = <&pinctrl_bt>;
+> +		pinctrl-names = "default";
+> +		shutdown-gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
+> +		vbat-supply = <&reg_3v3_m2>;
+> +		vddio-supply = <&reg_3v3_m2>;
+> +	};
+> +};
+> +
+> +&uart2 {
+> +	pinctrl-0 = <&pinctrl_uart2>;
+> +	pinctrl-names = "default";
+> +	uart-has-rtscts;
+> +	status = "okay";
+> +};
+> +
+> +&uart3 {
+> +	pinctrl-0 = <&pinctrl_uart3>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +};
+> +
+> +&uart4 {
+> +	pinctrl-0 = <&pinctrl_uart4>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +};
+> +
+> +&usbotg1 {
+> +	disable-over-current;
+> +	dr_mode = "peripheral";
+> +	status = "okay";
+> +};
+> +
+> +&usbotg2 {
+> +	disable-over-current;
+> +	dr_mode = "host";
+> +	vbus-supply = <&reg_5v0>;
+> +	status = "okay";
+> +};
+> +
+> +&usdhc2 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +	cap-power-off-card;
+> +	keep-power-in-suspend;
+> +	max-frequency = <50000000>;
+> +	mmc-pwrseq = <&wifi_pwrseq>;
+> +	non-removable;
+> +	pinctrl-0 = <&pinctrl_usdhc2>;
+> +	pinctrl-names = "default";
+> +	sd-uhs-sdr25;
+> +	vmmc-supply = <&reg_3v3_m2>;
+> +	status = "okay";
+> +
+> +	wifi@1 {
+> +		compatible = "infineon,cyw43439-fmac", "brcm,bcm4329-fmac";
+> +		reg = <1>;
+> +		pinctrl-0 = <&pinctrl_wl_int>;
+> +		pinctrl-names = "default";
+> +		interrupt-names = "host-wake";
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <20 IRQ_TYPE_LEVEL_LOW>;
+> +		brcm,board-type = "GOcontroll,moduline";
+> +	};
+> +};
+> +
+> +&vpu_blk_ctrl {
+> +	status = "disabled";
+> +};
+> +
+> +&vpu_g1 {
+> +	status = "disabled";
+> +};
+> +
+> +&vpu_g2 {
+> +	status = "disabled";
+> +};
+> +
+> +&wdog1 {
+> +	status = "okay";
+> +};
+>
+> --
+> 2.53.0
+>
+>
 
