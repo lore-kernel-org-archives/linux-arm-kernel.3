@@ -4,109 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D1EEC1EAD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 12:29:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A976CEC1EA5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 12:30:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FPtzW7OFw0YSwHggA8T3FW2RS82Y8LLhw8wrG3TWVbA=; b=aDggiGKjjUwqyOpM1OSOWFiFji
-	7BPsXSYdJrn5QK6P6/nFkNqeb6i7TBICd/9tcTeRarFsGorSUiKj9sfk+daKqt4DUt7a8DDeDzz9f
-	wEd9vjf1YmLphkO77uqgMPD6gWP9AmwgsEExs+7y5NupbS/nlJ6WWDymesZqMMp0TPMsarA3txYGM
-	bwSBFCQvbS5IJChhR2Y13RSE32GeN0rr5mpWjO/D63DmN/jwVOqrdVoFWdVN6dx44vk9eE4qMo2SQ
-	olxCu6wNY4+bxACvaXNcf1Vh2wLXLPaYP/igV2PZsY2h293Iim8Fv5BhAYvMAPOoqVSyYb0Xo+mQV
-	d+jLN+TQ==;
+	bh=e8MY+EqhN2Bw1t1vOGzCgEmWAD0c9+fT2885jbPp00g=; b=nf1axkUnZE7FcCs/WUcwIY5hQ3
+	Fbq/Omi7m9MYQPd1xrwZFhITJ8OMH8vTW+f1by+UzRUmcOo2PzMIKOoCygVz5bpRTJ+HKiFM0LM9h
+	aVFjOr/RkbEx5lhAS3gpAvK522Gsru6x52U/Ms74kwW4Qe+gf1KFWfM5kv3t4Dut9eyiI8GL0ti6R
+	SZlEiX2H0+9jx1LRbisdoZHLQ5KnoC98ACw9EFPWtXGW5ro+rf7KXxjgFTWN+UCmGpKmNWLeJN5dl
+	TA8qvfU8JtQPJ8/y7smvgE38fehR4K6fOatlrVU2zqAu3rVNlmmCVZrpykMYOxY8qa1AHubrmW2Rk
+	k+uTY3zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnyUB-00000009sV9-0z9o;
-	Thu, 05 Feb 2026 12:29:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vnyVQ-00000009shi-1jA1;
+	Thu, 05 Feb 2026 12:30:44 +0000
+Received: from mout.web.de ([217.72.192.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnyU7-00000009sUd-3y3u
+	id 1vnyVN-00000009shA-0TKK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 12:29:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1CEB843F4E;
-	Thu,  5 Feb 2026 12:29:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF70CC4CEF7;
-	Thu,  5 Feb 2026 12:29:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770294563;
-	bh=UzFwCg0HUO8+ELQo3bvgRW/gu48La9WIFgxKBZAhxPk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=b0Wm4ni5NgkW0deapzgk3A4KsMxgqj9eQ+HXuj7PT3WKbFHZiVOPYgcM7jjeH9oD5
-	 idbldzkBlrXuNKwYcPnYm+IVXSjNbmvYVScRfCHqkWtQ682UC+JskPcgSvpDHwO7gz
-	 mQcMKjQQA9i7oWfTahVu1rhmC3KG1F0GXaS1yWZZ/kKI47XyB8CunXgjDgTLx3r8J+
-	 4yPrc0n2BQq3xIE6i4dZxdSj07pGMhS/TUfhMQlCQC43FVkQ4CMuYpqVkKImcGlENn
-	 BCknFNR6gn/hJLl1/4Qx1vFOdbgrmddsBzjOI/xwRmhTKgqJ9uGyf1erMFj98xwwfz
-	 STi9fpiNK/DwQ==
-Message-ID: <762a8e34-e401-4b6c-ba73-35cfffcba4b2@kernel.org>
-Date: Thu, 5 Feb 2026 13:29:18 +0100
+	Thu, 05 Feb 2026 12:30:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1770294614; x=1770899414; i=markus.elfring@web.de;
+	bh=e8MY+EqhN2Bw1t1vOGzCgEmWAD0c9+fT2885jbPp00g=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=SOeoAv+DFg3pE4D35FMptZo+zd/UEyxKTqRor5eD3Pxjm05JjwGCEmst/lYC9lmb
+	 dX79ok5MCP7tKWhpI85bKtvfE5uP6nxJr5VwBbGL16sjEKSWKtwHNkrz+stUmpqe9
+	 MxPeY6NQhMrlx91eEl/7bfDEya7Fs5QY+8Ea5cwwnI0wevByCUC073BcOZA60mrZ1
+	 zf4K39JUGHFd1/cR8PVsagtjCCjmNYuyGf20VXU/R+VdYE7MOjEigcQp8BVVXHx29
+	 N7FB60wk+YGPKOA7vXRCeqGfpYnME9oEcMeRGzPSIpxb7DJiAsgQWLHAl8GoXNeiF
+	 4eVlM//PP1kkEPYDbA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.222]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1M59jC-1vms2E1dUi-00BObX; Thu, 05
+ Feb 2026 13:30:14 +0100
+Message-ID: <fb5e20b7-b858-4099-ad8b-900c367e1b22@web.de>
+Date: Thu, 5 Feb 2026 13:30:11 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: arm: Add Zena CSS compatibility
-To: Debbie Horsfall <debbie.horsfall@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
- Sudeep Holla <sudeep.holla@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260123-zena-css-v1-0-34adb95cdf89@arm.com>
- <20260123-zena-css-v1-1-34adb95cdf89@arm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260123-zena-css-v1-1-34adb95cdf89@arm.com>
+To: Chen Ni <nichen@iscas.ac.cn>, imx@lists.linux.dev, kernel@pengutronix.de,
+ linux-arm-kernel@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
+ Frank Li <Frank.Li@nxp.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Sascha Hauer <s.hauer@pengutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>
+References: <20260205034219.2531280-1-nichen@iscas.ac.cn>
+Subject: Re: [PATCH] reset: imx7: Check return value of regmap_attach_dev() in
+ imx7_reset_probe()
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20260205034219.2531280-1-nichen@iscas.ac.cn>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:PfbH0ePR8jK7BGnIuAZJhnTGzjgbXR4PrPdABj0tm2W+1xf9xE/
+ fNfWe+mUu+DMRElNXf5f1Yde3CqXPTNXDpfkaNAHXsfxa8BaZR0SCy/81TkI/LskBXeLDHy
+ PSUfTc3w3e/QiZzKUohMRw7kNXa2y0CBdI/9UmzSxfdFbpvtpCyDmdy0blfImD4cA6C7XzW
+ EaU6XXEI0hxpbFhmC2GZA==
+UI-OutboundReport: notjunk:1;M01:P0:7Uc3oTaCkqU=;i8/9JUXNmUoHSCMHMrhG3iuKBLt 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_042924_029955_337636B3 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260205_043041_503264_90291205 
+X-CRM114-Status: UNSURE (   5.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,25 +85,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/01/2026 18:37, Debbie Horsfall wrote:
-> Add compatibility to Arm Zena CSS Fixed Virtual Platform [1].
-> 
-> [1] https://www.arm.com/products/automotive/compute-subsystems/zena
-> 
-> Signed-off-by: Debbie Horsfall <debbie.horsfall@arm.com>
-> ---
->  .../devicetree/bindings/arm/arm,zena-css.yaml      | 31 ++++++++++++++++++++++
->  MAINTAINERS                                        |  5 ++++
->  2 files changed, 36 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/arm,zena-css.yaml b/Documentation/devicetree/bindings/arm/arm,zena-css.yaml
-> new file mode 100644
-> index 000000000000..42699b4db41e
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/arm/arm,zena-css.yaml
+> Add error checking for regmap_attach_dev() call in imx7_reset_probe()
+> function to ensure proper error propagation.
+=E2=80=A6
 
-This should really go to one YAML file for most of FVP from ARM.
+* Were any source code analysis tools involved here?
 
-Best regards,
-Krzysztof
+* Did anything hinder to add any tags (like =E2=80=9CFixes=E2=80=9D and =
+=E2=80=9CCc=E2=80=9D) accordingly?
+
+
+Regards,
+Markus
 
