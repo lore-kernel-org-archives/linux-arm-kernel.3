@@ -4,59 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F6ADE9128C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 07:43:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 667F3E9128C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 07:44:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kxAAsoCwSCWQ/fsyrWvwNOOGo7u767YkIi27jUP85K4=; b=t7JGTrNTg7n78S3KATVG7bhBhr
-	ZigA2Wyx78VLkmC+sm3+3wsgt/ovMVBowcEpmPSt29r72dmUk5okWd8w/FHW1+Is7+glixmyEaz/G
-	5Gl+Qq6ynzLLhM5bTnX5IMbP/FZ0NGYmMj4FwhKTe7fven1drRQls8ZGhIRyF9H/iaLk+ffwgXo9g
-	VVRlXbVhKzyN41Dwlduvd61ITxnJZnP3VlnujGw3xTGdlnrIrJ86jrvUI4HtYBSRM3Gvik1y953lO
-	/u8fd6akFvb3+QKGWz/h2GDkgXexdEKHO+rcWUtsQr+8SEgQjqx7dutzPn/tXbMJpql9ZqZuPgh9y
-	VOBJ+hPA==;
+	bh=Ntdpc/kmU25S8F1eDNB57650TuUB4jKAVLcNz3WP428=; b=UCwh01Q4bzwlb7uVJbGCulgwZT
+	MmPPjmeyW92BJMy1mPcCzijd3DVSMHajc363fe75GrnQ2qwPG2+OHI8O1UuM/4rr3RWWGu6MTSSCd
+	R67ciAV+0aGz4frd/qGxnsx4ORQt309aHzEJBoP8M/hIG2NPsuiqPCxQ5xbscK10QHp9xvaEEqkDk
+	/n70nckkZ1lPF6DmVPoDpo9kHAL2HpsApx/g28W4pqym4dUDYJm88JrM/70Sm0P1Dm65J4rEm4FIr
+	3v7liRwQI9w0347EaauWo6MAXQHhXNQ8YAEFlO2NbMtdD+JyypaOo9SPevIxQXHmNAomwjdGpyriP
+	yRyCYRjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnu1X-00000009ZhE-1N04;
-	Thu, 05 Feb 2026 07:43:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vnu2N-00000009Zob-151X;
+	Thu, 05 Feb 2026 07:44:27 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnu1V-00000009Zgz-2oFt
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 07:43:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B304C60010;
-	Thu,  5 Feb 2026 07:43:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE149C4CEF7;
-	Thu,  5 Feb 2026 07:43:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1770277412;
-	bh=jmTc98Ww6U1WEm7DhnUsuqNavBGcbSITF8l+RkaMFwM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qLSgS7EPfTvG1eNEc7J6aAsEz6Vmpw9HfoOjR3CBdepqtQ/Nm7EZPhBlCwpMIEW9g
-	 AhAVANKd96p5nFOyHDi/MAttnDkt14a+jEx5glzJpwm/wLhW7PbcBBhJ4S/IGOyDqp
-	 a2PCufX428/KIBfSfNlCgS9zJUxK+wwjOiTzb3EY=
-Date: Thu, 5 Feb 2026 08:43:29 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Vladimir Moravcevic <vmoravcevic@axiado.com>
-Cc: Krutik Shah <krutikshah@axiado.com>,
-	Prasad Bolisetty <pbolisetty@axiado.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org
-Subject: Re: [PATCH 3/3] MAINTAINERS: Add entries for the Axiado USB UDC
-Message-ID: <2026020550-uncle-bullfight-e15b@gregkh>
-References: <20260202-axiado-ax3000-usb-device-controller-v1-0-45ce0a8b014f@axiado.com>
- <20260202-axiado-ax3000-usb-device-controller-v1-3-45ce0a8b014f@axiado.com>
+	id 1vnu2I-00000009ZnJ-3xk6;
+	Thu, 05 Feb 2026 07:44:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=Ntdpc/kmU25S8F1eDNB57650TuUB4jKAVLcNz3WP428=; b=JD9cFskb0ndPxsKG6mTXNaig4G
+	AjzKOFM/uI2N0j2aUVwUgcC3SwPYbKsfsc1pabUNvUYnLLVx209LS6nhZAnvXY5BX8ICUrdVb19fB
+	wewmjBHYAs1usCTPHRkN+XodwpBydq99GjSElbGrZ60yAKYLCsDkDcI2lDDLpJbL4ceI7O3CDkc9e
+	gcwDxAN6xJeO50QVSckVR8cfFj13SswOLKmnJ2uunwIVKPVIny+RCf1Dqu85I4ryNCdQe+UbEhdnH
+	/3DMcq2+DuBck+ZT3iQb9/jkiVArfTRJLr/lktcrqnP/yb2Z08mPU/+Yf0zqn1Ed+RylgHGgzBWXu
+	ch73Pyqg==;
+Received: from i53875afe.versanet.de ([83.135.90.254] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vnu28-0074Ju-66; Thu, 05 Feb 2026 08:44:12 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 5/6] net: stmmac: rk: use rk_encode_wm16() for clock
+ selection
+Date: Thu, 05 Feb 2026 08:44:11 +0100
+Message-ID: <3561842.ZfL8zNpBrT@diego>
+In-Reply-To: <aYPHjS0wrtXlRb1a@shell.armlinux.org.uk>
+References: <aYMN2gZMfLPKuukG@shell.armlinux.org.uk> <20297648.sWSEgdgrri@diego>
+ <aYPHjS0wrtXlRb1a@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260202-axiado-ax3000-usb-device-controller-v1-3-45ce0a8b014f@axiado.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260204_234423_041382_0C7AA8C4 
+X-CRM114-Status: GOOD (  33.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,36 +76,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 02, 2026 at 05:16:30AM -0800, Vladimir Moravcevic wrote:
-> Add the MAINTAINERS entries for the Axiado USB Device Controller.
-> 
-> Co-developed-by: Krutik Shah <krutikshah@axiado.com>
-> Signed-off-by: Krutik Shah <krutikshah@axiado.com>
-> Co-developed-by: Prasad Bolisetty <pbolisetty@axiado.com>
-> Signed-off-by: Prasad Bolisetty <pbolisetty@axiado.com>
-> Signed-off-by: Vladimir Moravcevic <vmoravcevic@axiado.com>
-> ---
->  MAINTAINERS | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 67db88b04537..e63b6b308a3f 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -4234,6 +4234,16 @@ S:	Maintained
->  F:	Documentation/devicetree/bindings/sound/axentia,*
->  F:	sound/soc/atmel/tse850-pcm5142.c
->  
-> +AXIADO USB UDC DRIVER
-> +M:	Krutik Shah <krutikshah@axiado.com>
-> +M:	Prasad Bolisetty <pbolisetty@axiado.com>
-> +M:	Vladimir Moravcevic <vmoravcevic@axiado.com>
-> +L:	linux-usb@vger.kernel.org
-> +S:	Maintained
+Hi Russell,
 
-So you all are not paid to look after this?  That feels like an odd
-business decision of your company, but thanks for documenting it
-properly :(
+Am Mittwoch, 4. Februar 2026, 23:26:21 Mitteleurop=C3=A4ische Normalzeit sc=
+hrieb Russell King (Oracle):
+> On Wed, Feb 04, 2026 at 11:03:51PM +0100, Heiko St=C3=BCbner wrote:
+> > Am Mittwoch, 4. Februar 2026, 10:14:38 Mitteleurop=C3=A4ische Normalzei=
+t schrieb Russell King (Oracle):
+> > > Use rk_encode_wm16() for RMII clock gating control, and also for the
+> > > io_clksel bit used to select the transmit clock between CRU-derived
+> > > and IO-derived clock sources.
+> > >=20
+> > > Both of these were configured via the "set_clock_selection" method in
+> > > the SoC specific operations, but there is no requirement to change the
+> > > io_clksel except when enabling clocks.
+> > >=20
+> > > It is also possible that we don't need to ungate the RMII clock if we
+> > > are operating in RGMII mode, but this commit makes no change there.
+> > >=20
+> > > Split up the configuration of these as separate functions, and remove
+> > > the set_clock_selection() method. Since these clocking bits are in the
+> > > same register that we call the "speed" register, move the logic for
+> > > writing that register into rk_write_speed_grf_reg().
+> > >=20
+> > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > > ---
+> > >  .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 174 ++++++++--------=
+=2D-
+> > >  1 file changed, 75 insertions(+), 99 deletions(-)
+> > >=20
+> > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers=
+/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > index 4099cbc5d0de..ed9adac70f0a 100644
+> > > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > @@ -27,8 +27,17 @@
+> > >  struct rk_priv_data;
+> > > =20
+> > >  struct rk_clock_fields {
+> > > +	/* io_clksel_cru_mask - io_clksel bit in clock GRF register which,
+> > > +	 * when set, selects the tx clock from CRU.
+> > > +	 */
+> > > +	u16 io_clksel_cru_mask;
+> > > +	/* io_clksel_io_mask - io_clksel bit in clock GRF register which,
+> > > +	 * when set, selects the tx clock from IO.
+> > > +	 */
+> >=20
+> > nit: comment stile does not seem to follow the kernel coding style
+> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
+/Documentation/process/coding-style.rst#n622
+>=20
+> netdev has historically had this style which is separate from the rest
+> of the kernel. The file already uses this comment style, so it is
+> entirely correct to keep to the style which already exists in this
+> file, rather than mixing styles and turning it into a mess.
 
-greg k-h
+thanks for the clarification. Then the comment style is obviously fine.
+
+Regards
+Heiko
+
+
+> > Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+> > Tested-by: Heiko Stuebner <heiko@sntech.de> #px30,rk3328,rk3568,rk3588
+>=20
+>=20
+
+
+
+
 
