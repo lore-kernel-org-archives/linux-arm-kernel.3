@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 700F7EC1E9B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 11:08:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C94BEEC1EA0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 11:19:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KW5vB/Vw3XfpAvtftR7uGU0e8QnnsppX33V2Z5JCWjs=; b=0TKomB87/Id/hRQHXtiSjkwgtZ
-	UCdGrp4tp+ZVFF3miaPY1iiuYs2rJRZlfUJ1jbdBeUqZ0TPisZTCiSWXffU5Dp2yLEp222OhRdU5y
-	hxwgDU1+Y6CTHbZHm/UIYTg43SXq7j1v47drJtL6jlsbLALAC2m3UBhhY30cZkCXAHSE0GnOuY5gb
-	DG3c5Hvs8CteljcH3trjS0OXbZMsSpZqr8I37BWMR+arofHC4S8LZoEre8ievwSV3Px3LhE8BcthE
-	RhLFNvoXsy1f9zGQ4Lia1CikXyzw6jKOyW3gt+RfUYoOklaRO+KTNRnW3qF8jss+8/y06jnc/fUcY
-	LcxrReww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gtBNeFmth+hB0BG4YYb6qWCV78JJBEFBO6LnaUUXrtg=; b=d5DqiOKYbs0fy4GVqRI0IY/lgu
+	jCsbtxDzEsdy4F3OIxrbaZX3qjX8iShMv0pWnklLjQKEYm1ootk8B+JHNHCzB8K0VwyQC3w1vhp0b
+	/TjPtUqSszFMRkEzBlzPpDaQ9FEiksKB8MSdGHCQRfMzrRtba07hPFMK8Z5578MkrGC7iTL59Qg+K
+	IyOIpjyKErpE8EOhm0T3eLNZ7j3sl2mQlU7HKg8uuK7/wj8DSViOkel4Li2K+Sbd1XfU2kvoBVQ2q
+	iFWYzklG4zOqaSbtv8izVFtUs3NADdXO2zXepdrPPtHqA66zJTgIu7HbhJjjBd//hgP/i3P2W7DX8
+	ICgbF08g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnxDl-00000009onw-0jl0;
-	Thu, 05 Feb 2026 11:08:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vnxOY-00000009pDb-1Gdy;
+	Thu, 05 Feb 2026 11:19:34 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnxDk-00000009onq-0fn8
+	id 1vnxOU-00000009pDG-3EeW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 11:08:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 32481600AD;
-	Thu,  5 Feb 2026 11:08:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFD8EC19423;
-	Thu,  5 Feb 2026 11:08:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770289702;
-	bh=KRr5bjxloleM+AjFGvAP5BAhi15uf5B/cBZt51MJT3o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jR7ve9k6a0TtuqoQ3bWHXpWD9u+XVhWUBrE56+vmacl1cQVpOJ9GNIOPvskj0RDDh
-	 QHcRGtRnXVmUjazf/jtkjGXsznxKSr/IENSXB2B9f+QYfTN5Hbrkz5SR7eVPtxlpEg
-	 TBsDErnK8kc1iWdXBFiBQNpylip4bm+nQN0SzX0VxsbAa0ukcNe55c8yHtJy1cVZ8S
-	 Hq3OXx7cKJXXAhmJT03KmmWkZKqG5dz9J58RkSIP2N7azfewAZ0ILSRyNNGg8zdnCd
-	 UT5YqwNX29RX5pjsqyr66kHnYeYvykyNeRNTTm/1ZACPnubk4U2eQgHrCBYs7hA9JN
-	 ZcvHBJoXdZnsA==
-Date: Thu, 5 Feb 2026 11:08:18 +0000
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	Debbie Horsfall <debbie.horsfall@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] arm64: dts: zena: Add support for Zena CSS
-Message-ID: <20260205-intelligent-intrepid-robin-df42bd@sudeepholla>
-References: <20260123-zena-css-v1-0-34adb95cdf89@arm.com>
- <20260123-zena-css-v1-2-34adb95cdf89@arm.com>
- <20260127132206.036892e4@donnerap.manchester.arm.com>
- <c1259bad-be4d-4489-840d-4ab2f4e466f2@arm.com>
- <8c343e6d-14f8-4f55-8218-bc3f0813e8cf@arm.com>
- <20260130-light-piquant-termite-fcbec4@sudeepholla>
- <aYHmDTboOtkgac00@pluto>
+	Thu, 05 Feb 2026 11:19:32 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=gtBNeFmth+hB0BG4YYb6qWCV78JJBEFBO6LnaUUXrtg=;
+	b=wezTHypdGHmKi7XbrrQSKmKK4c5Y+Ns8Vkyz2hYgRuGyiPRWe/UdG9Qe6iBEdLegFHMigvfQN
+	qMojRzjjc2POrUkSGn4XxrQYf0WlzjGhViRXe+ZPOq2auItgmTxFerdgiX0xOBipiScZyzB1je6
+	lC5ta9UXYBRMTczjK696UHk=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4f6F4D4nY6zcZym;
+	Thu,  5 Feb 2026 19:14:52 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3044B40569;
+	Thu,  5 Feb 2026 19:19:17 +0800 (CST)
+Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 5 Feb 2026 19:19:17 +0800
+Received: from [10.67.120.139] (10.67.120.139) by
+ kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Thu, 5 Feb 2026 19:19:16 +0800
+Message-ID: <1d7abd11-2064-4437-8ad7-7cfe1b2e75c0@huawei.com>
+Date: Thu, 5 Feb 2026 19:19:15 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aYHmDTboOtkgac00@pluto>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] soc cache: L3 cache driver for HiSilicon SoC
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Arnd Bergmann <arnd@arndb.de>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, Drew Fustini <fustini@kernel.org>, "Jonathan
+ Cameron" <Jonathan.Cameron@huawei.com>, Linus Walleij
+	<linus.walleij@linaro.org>, Will Deacon <will@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<fanghao11@huawei.com>, <linuxarm@huawei.com>, <liuyonglong@huawei.com>,
+	<prime.zeng@hisilicon.com>, Zhou Wang <wangzhou1@hisilicon.com>, Wei Xu
+	<xuwei5@hisilicon.com>, Yushan Wang <wangyushan12@huawei.com>
+References: <20260203161843.649417-1-wangyushan12@huawei.com>
+ <20260203161843.649417-2-wangyushan12@huawei.com>
+ <a8ba1c0b-e7c8-44c5-b785-42752f7f5d8f@app.fastmail.com>
+ <e59c7556-d001-4a34-8db3-127dc25f3897@kernel.org>
+Content-Language: en-US
+From: wangyushan <wangyushan12@huawei.com>
+In-Reply-To: <e59c7556-d001-4a34-8db3-127dc25f3897@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.139]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemn100008.china.huawei.com (7.202.194.111)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260205_031931_427665_47189686 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,20 +91,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 03, 2026 at 12:11:57PM +0000, Cristian Marussi wrote:
-> 
-> All of this madness was the best way I could find to address the problem
-> of supporting such new unidirectional mailboxes in the SCMI while NOT
-> breaking backward compatibility in the absence of mandatory naming from
-> the start.
-> 
 
-You can attribute this to my expecting an overly ideal scenario with
-bidirectional mailbox channels across all platforms using SCMI. At the time, I
-did not anticipate the range of configurations that rely on unidirectional
-channels.
+On 2/5/2026 5:37 PM, Krzysztof Kozlowski wrote:
+> On 03/02/2026 18:19, Arnd Bergmann wrote:
+>> On Tue, Feb 3, 2026, at 17:18, Yushan Wang wrote:
+>>> The driver will create a file of `/dev/hisi_l3c` on init, mmap
+>>> operations to it will allocate a memory region that is guaranteed to be
+>>> placed in L3 cache.
+>>>
+>>> The driver also provides unmap() to deallocated the locked memory.
+>>>
+>>> The driver also provides an ioctl interface for user to get cache lock
+>>> information, such as lock restrictions and locked sizes.
+>>>
+>>> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
+>>
+>> Hi Yushan,
+>>
+>> Thanks for your submission. Since we are in the last week of
+>> the merge window, this is not going to be linux-7.0 material,
+>> but I'll have a quick look for now.
+>
+>
+> To be clear - this is a v3 but with removed previous history...
+>
+> Previous version:
+> https://lore.kernel.org/all/20251217102357.1730573-2-wangyushan12@huawei.com/
+>
+> Or even v4?
+>
+> https://lore.kernel.org/all/20250122065803.3363926-2-wangyushan12@huawei.com/
+>
+> Yushan, please start versioning your patches correctly. Use b4 or git
+> format-patch -vx
 
--- 
-Regards,
-Sudeep
+Hi Krzysztof,
+
+Sorry about the confusing versions, the complete history is as below:
+
+Link to v1: https://lore.kernel.org/all/20250107132907.3521574-1-wangyushan12@huawei.com
+
+Link to v2: https://lore.kernel.org/all/20250122065803.3363926-1-wangyushan12@huawei.com/
+
+Link to RFC v1: https://lore.kernel.org/all/20251125080542.3721829-1-wangyushan12@huawei.com/
+
+Link to RFC v2: https://lore.kernel.org/all/20251217102357.1730573-1-wangyushan12@huawei.com/
+
+Link to v1 again (this message): https://lore.kernel.org/all/20260203161843.649417-1-wangyushan12@huawei.com/
+
+>
+> Otherwise, please explain us how can we compare it with `b4 diff` with
+> previous version?
+>
+> Sending something AGAIN as v1 ignoring entire previous submission is
+> clear no go. Like you are trying till it succeeds. Negative review?
+> Let's try from v1 this time...
+>
+> This is not correct and it should not be my task to find your previous
+> discussions and decipher this v1.
+
+I did spin 2 versions to mainline as the actual v1, the thread was quiet.
+Then I made a major refactor to it and sent it as RFC, the thread went
+quiet again but some compile check issues popped up. I spinned 2
+versions of RFC for the compile issues and removed RFC in this version
+since no strong objection showed up.
+
+Apologize that I broke the rules and any inconvenience caused by it.
+As there's little discussion in previous patches, is it OK that we start
+here as v1?
+
+Anyway I will include the whole history in the coverletter to prevent
+more confusion.
+
+>
+>
+> Best regards,
+> Krzysztof
+>
+
+Thanks,
+Yushan
+
+
 
