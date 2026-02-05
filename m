@@ -4,75 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7658EEC1EAD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 12:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D1EEC1EAD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 12:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rvN0dK9YPTZR37dmblW/CZHdfZ6AVyfoh9CzpLsB8A8=; b=I+zvv+DDDpvkK792n0/37hhJqj
-	sDmWqz2XP/emOXG/VyaGYXUm+GwBS8Mh/qGYWMQP406Ej2sjrYpdN/VE9/EHZyvfK+e6ILinqVY9+
-	sUVabluXfQDMVpJtJh+rsDZ5Wib/SXOBk68Fqh8jffVFpqxw1qHAEPK+GbwWRLDhIUir1yCyHDpnD
-	ppdhYmQXiENYFZbQTq8OTXRC+PZZAP1y0pTveqrgmKFdwfYgawWt/N/5Ks9GgvEQMQ+CB4KTPsTro
-	RN3kf1jT8XExRYe8pXS/OAEZ/u+GD88O5L5BIHRxjDmgPsSrCNgcvHjggWYrF9VinXfggjszY/HXu
-	L3rsdRrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FPtzW7OFw0YSwHggA8T3FW2RS82Y8LLhw8wrG3TWVbA=; b=aDggiGKjjUwqyOpM1OSOWFiFji
+	7BPsXSYdJrn5QK6P6/nFkNqeb6i7TBICd/9tcTeRarFsGorSUiKj9sfk+daKqt4DUt7a8DDeDzz9f
+	wEd9vjf1YmLphkO77uqgMPD6gWP9AmwgsEExs+7y5NupbS/nlJ6WWDymesZqMMp0TPMsarA3txYGM
+	bwSBFCQvbS5IJChhR2Y13RSE32GeN0rr5mpWjO/D63DmN/jwVOqrdVoFWdVN6dx44vk9eE4qMo2SQ
+	olxCu6wNY4+bxACvaXNcf1Vh2wLXLPaYP/igV2PZsY2h293Iim8Fv5BhAYvMAPOoqVSyYb0Xo+mQV
+	d+jLN+TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnyMy-00000009s6S-1oes;
-	Thu, 05 Feb 2026 12:22:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vnyUB-00000009sV9-0z9o;
+	Thu, 05 Feb 2026 12:29:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnyMw-00000009s67-02TS
+	id 1vnyU7-00000009sUd-3y3u
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 12:21:59 +0000
+	Thu, 05 Feb 2026 12:29:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4C3A9405C0;
-	Thu,  5 Feb 2026 12:21:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16DECC19423;
-	Thu,  5 Feb 2026 12:21:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1CEB843F4E;
+	Thu,  5 Feb 2026 12:29:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF70CC4CEF7;
+	Thu,  5 Feb 2026 12:29:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770294116;
-	bh=VEFqDyWByreSKcWhQPFzxYfUI9+flyLzR/sbfbE5cLY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RmN8RPHbhOadUZn3ms2KlCtIRsVfvFZX/FwrO2nuwv5S0JpevKISrBgWRkbMHe1io
-	 KQyR4ouAsqhTD6kd0A2qPb56ENiPTXpND0obsMSBLUXgoo47cblcTxxID7I5cEc1vr
-	 124PIaG6ARtvJyo4qZNlP94fbA4TDScPry5QRpvLRNL4svfYPXYqM/3HZc2n5d7nFC
-	 CSaCBcXGd2d6SPJSYfTTi6A+C6lzpC+Rx15GlDK9D+lu9E3CTbV3/IPNo56ya4ft4E
-	 dZ926gKZ1bdGcup9e80MYT5twVdP3cCukLI+4GYfu+0jDJnxkvZQ4WbY6ubtJYWGtP
-	 NoIjrtLUmQJVA==
-Date: Thu, 5 Feb 2026 12:21:51 +0000
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Debbie Horsfall <debbie.horsfall@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] arm64: dts: zena: Add support for Zena CSS
-Message-ID: <20260205-wooden-cheerful-barracuda-0de1d2@sudeepholla>
-References: <20260123-zena-css-v1-0-34adb95cdf89@arm.com>
- <20260123-zena-css-v1-2-34adb95cdf89@arm.com>
- <20260127132206.036892e4@donnerap.manchester.arm.com>
- <c1259bad-be4d-4489-840d-4ab2f4e466f2@arm.com>
- <8c343e6d-14f8-4f55-8218-bc3f0813e8cf@arm.com>
- <20260130-light-piquant-termite-fcbec4@sudeepholla>
- <aYHmDTboOtkgac00@pluto>
- <20260205-intelligent-intrepid-robin-df42bd@sudeepholla>
- <445035bb-71be-4751-a014-9ca67b1c0cb4@arm.com>
+	s=k20201202; t=1770294563;
+	bh=UzFwCg0HUO8+ELQo3bvgRW/gu48La9WIFgxKBZAhxPk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=b0Wm4ni5NgkW0deapzgk3A4KsMxgqj9eQ+HXuj7PT3WKbFHZiVOPYgcM7jjeH9oD5
+	 idbldzkBlrXuNKwYcPnYm+IVXSjNbmvYVScRfCHqkWtQ682UC+JskPcgSvpDHwO7gz
+	 mQcMKjQQA9i7oWfTahVu1rhmC3KG1F0GXaS1yWZZ/kKI47XyB8CunXgjDgTLx3r8J+
+	 4yPrc0n2BQq3xIE6i4dZxdSj07pGMhS/TUfhMQlCQC43FVkQ4CMuYpqVkKImcGlENn
+	 BCknFNR6gn/hJLl1/4Qx1vFOdbgrmddsBzjOI/xwRmhTKgqJ9uGyf1erMFj98xwwfz
+	 STi9fpiNK/DwQ==
+Message-ID: <762a8e34-e401-4b6c-ba73-35cfffcba4b2@kernel.org>
+Date: Thu, 5 Feb 2026 13:29:18 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <445035bb-71be-4751-a014-9ca67b1c0cb4@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: arm: Add Zena CSS compatibility
+To: Debbie Horsfall <debbie.horsfall@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
+ Sudeep Holla <sudeep.holla@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260123-zena-css-v1-0-34adb95cdf89@arm.com>
+ <20260123-zena-css-v1-1-34adb95cdf89@arm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260123-zena-css-v1-1-34adb95cdf89@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_042158_078558_8CC315BB 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20260205_042924_029955_337636B3 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,37 +121,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 05, 2026 at 12:24:58PM +0100, Andre Przywara wrote:
+On 23/01/2026 18:37, Debbie Horsfall wrote:
+> Add compatibility to Arm Zena CSS Fixed Virtual Platform [1].
 > 
+> [1] https://www.arm.com/products/automotive/compute-subsystems/zena
 > 
-> On 2/5/26 12:08, Sudeep Holla wrote:
-> > On Tue, Feb 03, 2026 at 12:11:57PM +0000, Cristian Marussi wrote:
-> > > 
-> > > All of this madness was the best way I could find to address the problem
-> > > of supporting such new unidirectional mailboxes in the SCMI while NOT
-> > > breaking backward compatibility in the absence of mandatory naming from
-> > > the start.
-> > > 
-> > 
-> > You can attribute this to my expecting an overly ideal scenario with
-> > bidirectional mailbox channels across all platforms using SCMI. At the time, I
-> > did not anticipate the range of configurations that rely on unidirectional
-> > channels.
+> Signed-off-by: Debbie Horsfall <debbie.horsfall@arm.com>
+> ---
+>  .../devicetree/bindings/arm/arm,zena-css.yaml      | 31 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  5 ++++
+>  2 files changed, 36 insertions(+)
 > 
-> Would it make sense then to add mbox-names parsing to the code, to
-> accommodate new users? There is precedence in some drivers for introducing
-> xyz-names for clearer and unambiguous resolution, while still falling back
-> to some legacy, fixed associations in case the names property doesn't exist.
-> 
+> diff --git a/Documentation/devicetree/bindings/arm/arm,zena-css.yaml b/Documentation/devicetree/bindings/arm/arm,zena-css.yaml
+> new file mode 100644
+> index 000000000000..42699b4db41e
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/arm/arm,zena-css.yaml
 
-Yes, we can do that; however, my concern is that if RX and TX are swapped, the
-names would at least make this apparent. How should we handle shared memory
-(shmem), which does not have names? I may be overthinking this the current
-logic that checks the number of cells (mboxes and shmem) is likely sufficient,
-and we can infer an ordering from that but I would still prefer to avoid
-adding unnecessary complexity/mess.
+This should really go to one YAML file for most of FVP from ARM.
 
--- 
-Regards,
-Sudeep
+Best regards,
+Krzysztof
 
