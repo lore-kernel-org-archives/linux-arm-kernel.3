@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9964EE9129A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 09:15:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA5EE9129B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 09:21:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IhnniDnleOJRYD4v165EXk4k3ynNf9KHvznFDNU0nvA=; b=1bjaU1y0GJEWkDGs1+KFZZQY+/
-	LGOIm6L2nsR+HoXatyFtFZULTjluht76p66VG8Mt5rH400kowHMBFHug041GKKA6x6UuFZo3Q0f/z
-	/Tmo018Y0R9xA/EYrY/Tr9lVZSCoHOKfL+7HyLsAfp6vFqsz0tFjOH+A6kaaej33tk8Gnl5vxdPlW
-	zUC/5X+L0EYIs1e6j+KxYDAVKUf8AcaIJJuNbE/Bk6ZtpL30/RQHyodSPse5zqW/34wHy3mcndMUH
-	57zIz1G7cqegdnU/wYu0wsfg7WkUtJxWh9qhQEJFOa2RZW98zTCxoSxg/xZRDKMv6kBn5YxBCqG9y
-	auolQXPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YXHKXj2q+hUp7W4XE9lm91DIQvC5jxU9oZvddNKM1t8=; b=rDWuM6Ip7XrjpgAdJ0OknnNdl1
+	CWB01bKLJ9VQNy6IdS+ghMzl/bUjHYmohv033Clpd22zprTrrSH8kcg28bJ9YZWjDrmpKCH9Q6wm4
+	D727nwgMRbkhOq4NNZcOCko+bjEqINAFq1VOrALUqsJrpTXVl4e4doPt/p/Crc9uuwdPoFPL8/ZEx
+	Rh/Vl8Ph30HfQU1cqebrTcd8PmFOOHSxTZK73n1q75LC6dFx01aIDscbWzNrJw8vILpPiE07/Shhm
+	Nr8VWEvGDbVbt2ByXsMoQNAL3iiiH4YWIHoGhYjhAFdKthlWjQuAC7M2BAUh1wPFQXZfQSfnnLmww
+	v2vnTw7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnvSj-00000009gUY-2PvH;
-	Thu, 05 Feb 2026 09:15:45 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vnvXj-00000009gok-1C89;
+	Thu, 05 Feb 2026 09:20:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnvSe-00000009gUE-0Ej2
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 09:15:44 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 12CE01A2C1B;
-	Thu,  5 Feb 2026 09:15:38 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D84C2606FD;
-	Thu,  5 Feb 2026 09:15:37 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8FC30119A88F8;
-	Thu,  5 Feb 2026 10:15:32 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1770282937; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=IhnniDnleOJRYD4v165EXk4k3ynNf9KHvznFDNU0nvA=;
-	b=qyMfgDWdUTQb39ZA2e1rwvq040Mn39QlnEq8ButdLERRRFFrDldcetAZz+hJupSCvCKMSs
-	3og3PxJEbJRAyHmGx4MLBlkufiTOxvW2QYvBFnt8UO0i8jCimxuR2GjbKG2D7YwV+5okuQ
-	rMW9UwhQF5csUeyDCNqbcTiOIuqNnaFNRPKj3zf0QYteZ5rfgKHxAiiyy+ut2KXZIs7bZU
-	5C19+DI9/j2CckJoiR48hRSQoqChpmlXeiChe6pVVD5StioCCW8iqm9MV/pYha+/sYkroQ
-	kt3lCj+TGNCKjsuZt36p5XGAlFgknB1bKdmWdZnLorC3NiHf+6vvyyVFUdUvxw==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 05 Feb 2026 10:15:31 +0100
-Message-Id: <DG6WXBLE7CZ0.27X527V71HZ7N@bootlin.com>
-Subject: Re: [PATCH] drm/imx: parallel-display: check return value of
- devm_drm_bridge_add() in imx_pd_probe()
-Cc: <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-To: "Chen Ni" <nichen@iscas.ac.cn>, <p.zabel@pengutronix.de>,
- <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
- <tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
- <Frank.Li@nxp.com>, <s.hauer@pengutronix.de>, <kernel@pengutronix.de>,
- <festevam@gmail.com>, <louis.chauvet@bootlin.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.20.1
-References: <20260204090629.2209542-1-nichen@iscas.ac.cn>
-In-Reply-To: <20260204090629.2209542-1-nichen@iscas.ac.cn>
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_011540_248413_AC0115A1 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+	id 1vnvXi-00000009goP-1SF9;
+	Thu, 05 Feb 2026 09:20:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 78A2D600AD;
+	Thu,  5 Feb 2026 09:20:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EAFBC4CEF7;
+	Thu,  5 Feb 2026 09:20:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770283253;
+	bh=NRd5oHFvHBd6W3hDw0oXwMkQXN1d4sUNHl26Lk8tCEY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ez1qzQtTp6tu3mb1Ub20jyWGn7go7h/4yIexj4UGZgLB67tk6Gwl8kWZT+HPQp3uk
+	 rYszlsTGDnAoNuWwirmh/3mO4R9F5w1zeS58t683G+Bjuk+WDWlTV814/k04lv9HMu
+	 FLzuuwisxULTORI2i8G1ol2JBopn0pt9+F3C+GdhoEdi2At1eS6q1bmFsnZSz/JY8M
+	 q1DOEsLfMx8utTbBoVtxTNsZgAmkNYq9s0VxsARK9PfGMTSR5HPxdpUTMaeHKMKs4z
+	 5ARGxy/aS3yOL6oG4CjKYib1vdoBquN1VzidvBxMhjMoYW/1TgJO4O4RwUpK6L9ix+
+	 j6CtcKlz2BBMw==
+Date: Thu, 5 Feb 2026 10:20:50 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: "irving.ch.lin" <irving-ch.lin@mediatek.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Richard Cochran <richardcochran@gmail.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, 
+	Miles Chen <miles.chen@mediatek.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com, Qiqi Wang <qiqi.wang@mediatek.com>, sirius.wang@mediatek.com, 
+	vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
+Subject: Re: [PATCH v5 01/18] dt-bindings: clock: Add MediaTek MT8189 clock
+Message-ID: <20260205-garnet-okapi-of-experience-dd7f84@quoll>
+References: <20260202062840.342707-1-irving-ch.lin@mediatek.com>
+ <20260202062840.342707-2-irving-ch.lin@mediatek.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260202062840.342707-2-irving-ch.lin@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,22 +77,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Feb 4, 2026 at 10:06 AM CET, Chen Ni wrote:
-> Return the value of devm_drm_bridge_add() in order to propagate the
-> error properly, if it fails due to resource allocation failure or bridge
-> registration failure.
->
-> This ensures that the probe function fails safely rather than proceeding
-> with a potentially incomplete bridge setup.
->
-> Fixes: bf7e97910b9f ("drm/imx: parallel-display: add the bridge before at=
-taching it")
-> Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+On Mon, Feb 02, 2026 at 02:28:08PM +0800, irving.ch.lin wrote:
+> From: Irving-CH Lin <irving-ch.lin@mediatek.com>
+> 
+> Add dt schema and IDs for the clocks of MediaTek MT8189 SoC.
+> The MT8189 clock IP provide clock control for main system
+> (apmixedsys, topcksys and vlpcksys) and
+> subsys (eg. peri, mfg, venc/vdec ...).
+> 
+> Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
+> (cherry picked from commit e2402a4f2db8db0ef3cf8613f42397aaa199ad29)
 
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Drop...
 
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Best regards,
+Krzysztof
+
 
