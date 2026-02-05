@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60119ECD993
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 18:02:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4105ECD992
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 18:25:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IfdRQqulBEBH4+jaPnbnKKZjZeXKFgh1yBOcS9QKohM=; b=kZrtNiPLknGpyrhMrZl2Jbzz9B
-	eqg1YRgkHRXDkm8RYNbchV7hcGeC/d/9K7bUDX1QT+oGyeCThG21/hOm//i/jabTRDP1RuBVL8aKr
-	LhbaRGWsHcID2yAZy7bxqorAJk7D8bSt7IzqFAMgkLgL6cjv99lQAA1HnVTS1NEAUZtZCPLOOTobF
-	pjuDNWxUzl4WyCuPH9osDK0nDsFIJ68Okab90cfhvxFIr1ssrDGyzEWu27ExrZCdvZDGEJdc8sHpg
-	dgKMbYTS1H5W1oq/KJPkuAFoD6BiX9YZzTtzw+FDH/3O+fLpFGCv2UFZ+nsa7cSkO7mUe75wywC53
-	yrn5p2qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iNmwi1z8jZDjnrZLEVDb5PYedyOIG7zSKo+esztDpAw=; b=pcFjJhWdGo0PsQtosJATmR/lpC
+	5Z6MdWwx1XqiK5w/kX8FtMdOo7pN61KdMn/r/I2VyGq6QQQ3zyEin6OlnKymEF5+eiAYImx1lt8TZ
+	BHrGGLzOmrqQTeDPydRJ2FXoL9F42epGKE68LgyTZpzYuqj+SH8LysD1XwWuSPuDLnR8EKcJkvWiB
+	h+N3yLb6U+CRSwElnPtgCaV/49ZXxHvnHeLfizTg+9IS8xyFQvVDx+u6b3yQHZPnK7V1dJsh8ISu4
+	QXma9YcDxzbq49Aud06CmJuMk0T9uqIXvNsp4rLnokGfKKqa/+Bk+PPkBIbfNCPHp0UhAYvNXs6nY
+	Vq0YiUUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo3gC-0000000AKyT-2nSe;
-	Thu, 05 Feb 2026 18:02:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo3g1-0000000AKxp-2EVu
+	id 1vo42z-0000000AMXi-3AQt;
+	Thu, 05 Feb 2026 18:25:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vo42w-0000000AMWv-3Onh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 18:02:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EE6AB43CA6;
-	Thu,  5 Feb 2026 18:01:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7733AC116D0;
-	Thu,  5 Feb 2026 18:01:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770314515;
-	bh=Jfw7DB/NVA9J+9D9HNJnpKypCog0AebKB2y5FR+C5Go=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LPLjrAke8ush1zNg4q3/Ec1O4OAmeODrMUvL3D2HNorgziz1PEO1r7W7IH9abYzv1
-	 Wom2spzpKHHQQq+QHkNraJ3QymAPTUI5TmNYJWi3AAAyjYcD40ASAUDdmZ+PN/yosc
-	 Z8+N+Ug1K/IoEbsnBI8l7kIEC92sla5iHxM3W+KbdiQid4lsm7LnsVEXA+LPynyAy7
-	 IjMdWlY5bhewwXkdnMswdLBM3xs3tgQStBJr9i18hnFRcD2JCxfabcwgELMs6SYe0Z
-	 Rp1fGRn4cYGIsWDuhU5kyszWQ8ojr1yKxX7YalIiG0vHlKztpQM80oGyiESvdEjiuK
-	 9ZwUvuYopI8PQ==
-Message-ID: <8f506b2b-1309-4f9e-b8e6-4a73064ea2d0@kernel.org>
-Date: Thu, 5 Feb 2026 19:01:51 +0100
+	Thu, 05 Feb 2026 18:25:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7851A339;
+	Thu,  5 Feb 2026 10:25:34 -0800 (PST)
+Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 037653F632;
+	Thu,  5 Feb 2026 10:25:38 -0800 (PST)
+Date: Thu, 5 Feb 2026 18:25:36 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Jinjiang Tu <tujinjiang@huawei.com>, akpm@linux-foundation.org,
+	david@kernel.org, zengheng4@huawei.com, ryan.roberts@arm.com,
+	anshuman.khandual@arm.com, wangkefeng.wang@huawei.com,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
+Subject: Re: [PATCH v3] arm64: mm: fix pass user prot to ioremap_prot in
+ generic_access_phys
+Message-ID: <aYTgoFQjEs_5WyC-@arm.com>
+References: <20260130073807.99474-1-tujinjiang@huawei.com>
+ <aYC6_lSm_eJeKIcn@willie-the-truck>
+ <73396cda-e12c-484f-ab84-b09e7aab8bb0@huawei.com>
+ <aYG-dGzR6MuPSQBK@willie-the-truck>
+ <a4ee7faa-5b0d-4ffa-bc06-939d95ef7680@huawei.com>
+ <aYSp0--x_QgyiUWL@arm.com>
+ <aYTVAeMm5cFnuAL7@willie-the-truck>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: interrupt-controller: apple,aic2: Add
- AICv3
-To: Krzysztof Kozlowski <krzk@kernel.org>, Janne Grunau <j@jannau.net>
-Cc: Neal Gompa <neal@gompa.dev>, Thomas Gleixner <tglx@linutronix.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20260128-irq-apple-aic3-v2-0-b4bc8e16c997@jannau.net>
- <20260128-irq-apple-aic3-v2-1-b4bc8e16c997@jannau.net>
- <20260205-pastoral-magnificent-cuscus-ce58ad@quoll>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20260205-pastoral-magnificent-cuscus-ce58ad@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aYTVAeMm5cFnuAL7@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_100202_858559_CA115D37 
-X-CRM114-Status: GOOD (  22.98  )
+X-CRM114-CacheID: sfid-20260205_102542_882401_04E4922A 
+X-CRM114-Status: GOOD (  29.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,94 +72,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 05.02.26 13:50, Krzysztof Kozlowski wrote:
-> On Wed, Jan 28, 2026 at 09:57:08AM +0100, Janne Grunau wrote:
->> AIC version 3 as found on the Apple M3 (t8122) is very similar to AICv2
->> in its base functionality. It can use the same device tree bindings as
->> AICv2 so add it to the AICv2 bindings.
->> This interrupt controller is used on all Apple SoCs starting with M3 up
->> to at least M5.
->> The only apparent difference is the increased IRQ config offset. Apple's
->> device tree codes this new offset as property of the "aic" node but the
->> value stayed constant for all SoCs with "aic,3". Since the SoC specific
->> compatible "apple,t8122-aic3" will be used in the driver this offset can
->> remain a driver implementation detail.
->>
->> Signed-off-by: Janne Grunau <j@jannau.net>
->> ---
->>   .../bindings/interrupt-controller/apple,aic2.yaml  | 45 +++++++++++++++++-----
->>   1 file changed, 36 insertions(+), 9 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
->> index ee5a0dfff437816056bda0de5523bf38be4f49ba..a6e2251fcc111340c0a27ab6912452f6b1255be2 100644
->> --- a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
->> +++ b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
->> @@ -4,10 +4,10 @@
->>   $id: http://devicetree.org/schemas/interrupt-controller/apple,aic2.yaml#
->>   $schema: http://devicetree.org/meta-schemas/core.yaml#
->>   
->> -title: Apple Interrupt Controller 2
->> +title: Apple Interrupt Controller 2 and 3
->>   
->>   maintainers:
->> -  - Hector Martin <marcan@marcan.st>
->> +  - Janne Grunau <j@jannau.net>
->>   
->>   description: |
->>     The Apple Interrupt Controller 2 is a simple interrupt controller present on
->> @@ -28,14 +28,24 @@ description: |
->>     which do not go through a discrete interrupt controller. It also handles
->>     FIQ-based Fast IPIs.
->>   
->> +  The Apple Interrupt Controller 3 is in its base functionality very similar to
->> +  the Apple Interrupt Controller 2 and uses the same device tree bindings. It is
->> +  found on Apple ARM SoCs platforms starting with t8122 (M3).
->> +
->>   properties:
->>     compatible:
->> -    items:
->> -      - enum:
->> -          - apple,t8112-aic
->> -          - apple,t6000-aic
->> -          - apple,t6020-aic
->> -      - const: apple,aic2
->> +    oneOf:
->> +      - items:
->> +          - enum:
->> +              - apple,t8112-aic
->> +              - apple,t6000-aic
->> +              - apple,t6020-aic
+On Thu, Feb 05, 2026 at 05:36:01PM +0000, Will Deacon wrote:
+> On Thu, Feb 05, 2026 at 02:31:47PM +0000, Catalin Marinas wrote:
+> > On Thu, Feb 05, 2026 at 03:23:27PM +0800, Jinjiang Tu wrote:
+> > > 在 2026/2/3 17:23, Will Deacon 写道:
+> > > > On Tue, Feb 03, 2026 at 11:38:15AM +0800, Jinjiang Tu wrote:
+> > > > > 在 2026/2/2 22:55, Will Deacon 写道:
+> > > > > > On Fri, Jan 30, 2026 at 03:38:07PM +0800, Jinjiang Tu wrote:
+> > > > > > > +#define arch_mk_kernel_prot arch_mk_kernel_prot
+> > > > > > > +static inline pgprot_t arch_mk_kernel_prot(pgprot_t user_prot)
+> > > > > > > +{
+> > > > > > > +	ptdesc_t mem_type = pgprot_val(user_prot) & PTE_ATTRINDX_MASK;
+> > > > > > > +
+> > > > > > > +	return __pgprot_modify(PAGE_KERNEL, PTE_ATTRINDX_MASK, mem_type);
+> > > > > > > +}
+> > > > > > 
+> > > > > > Do we really need another arch helper here?
+> > [...]
+> > > > My point is that we already have the helper: ioremap_prot(). Just fix
+> > > > that for arm64 and cc the other arch maintainers if you're not sure how
+> > > > to fix it for them. What we don't need to do is add an additional helper.
+> > > 
+> > > ioremap_prot() may be called outside of arch/arm64 in the future, and I think
+> > > most of the cases will not pass a user prot to ioremap_prot().
+> > > 
+> > > generic_access_phys() is a special case, so I want to limit the modification to
+> > > generic_access_phys() only.
+> > 
+> > Or we can just have an ioremap_user_prot() (or some more meaningful
+> > name), defined by default as ioremap_prot(). It's still introducing a
+> > new macro though, unless we go and rename it on all architectures.
 > 
-> If you are re-shuffling these, you can as well sort alphanumerically.
+> ioremap_prot() has exactly one caller outside of arch code and that is
+> generic_access_phys(). We should just fix the arm64 implementation of
+> ioremap_prot() and not introduce any new macros. If a new caller comes
+> along later, we can figure out what to do then. We could shout if the
+> prot isn't a user prot so we detect the problem.
 
-I don't have a strong opinion here but the last time this came up we 
-agreed that we'd go with release order IIRC for consistency since that 
-order is used in every other binding for this platform.
+I was more worried about out of tree drivers using it since it's an
+EXPORT_SYMBOL(). We should remove the export anyway given that we have
+only a fixed number of memory types programmed in MAIR and all have
+corresponding ioremap wrappers already.
 
-> 
->> +          - const: apple,aic2
->> +      - items:
->> +          - enum:
->> +              - apple,t6030-aic3
->> +          - const: apple,t8122-aic3
->> +      - const: apple,t8122-aic3
-> 
-> Hm? How so this is not aic or aic2? We asked not to use generic compatibles
-> for aic/aic2 - for all your early upstreamings. Our advice and request
-> was in general rejected, although I could make a long term bet that we
-> will be right. And here we are.
-> 
-> Does this patch mean you finally agree with DT maintainers and abandon
-> the generic compatible fiasko?
+So yes, just fixing it in ioremap_prot() works for me if we also remove
+the export, just in case there are dodgy drivers out there.
 
-Yeah, see 
-https://lore.kernel.org/asahi/12ab93b7-1fc2-4ce0-926e-c8141cfe81bf@kernel.org/
-
-
-Best,
-
-Sven
-
+-- 
+Catalin
 
