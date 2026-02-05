@@ -4,62 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C37AEC1E81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 09:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 790FAEC1E83
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 09:37:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qneZW9L7gDazzyI+MygrSGV36rUIl9w8mKCRbWGP4l8=; b=ekFMlboeU+HR9NnPtcRvrb8AYq
-	a6+THZgP3lyg/2RtQR1pLrjfeNk3Ng78qlHQz43ChvANWjeTCbBftLcf/wJccm7zS9bbPUtt7dnYt
-	MYTmEtAWXPsxSHmftMP3fj/6BOgl+udKs8QLoMCEZXaO/nZzdjQzQ22RZCzuwQqC22kOARvg7Hys/
-	ZCBmAcQ097VFEBrA10cUeH7uQ5WTaM0HwYmPUTI9bgxKId37npDXdL4nVia4/jyr/bZsvk9rdFbq6
-	wECMPoLe8vkxNgeXV3A68SUiRSiiGvD5yNH2bvAgXmGwvsMQZzuFoiXY/KqeOHXVtgcCVVt55O08f
-	y8ku1JaA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FdiXU3gATHXBg38DvRzvaBBuf3skEnlLa8plovR3tSE=; b=jXsNMSRHfGqwjxRCqD2PqYKqfX
+	uVzhNGqv4aqga315sbtHkg/ww9RAeR8Ml2FjN26fdF73DODqC5IJTLP8eR/OUAVgL60PYVsFyIpjN
+	bUk5whDYDYp4D2SjI4T+hWPT0KjhOzFihB14hFfudF1MOoBn31Nfo5yeO/6RAJDs6os9ezN0KGkCg
+	yi0HnalXsbiMzN/QecuT8y5nY58ld+nRPpm+JienrTDa+6+4kouF9rOKBXjAGs3S+BmRKIdoc/CEw
+	I36EuGTJcU1BfKFLcUEkGRkjU1UQkyek+moHKBX5QRBORrM0+HP5/h6XYEbdSxPI4SovDLVpXRcGD
+	iPtnOikQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnvkl-00000009iCv-3P1c;
-	Thu, 05 Feb 2026 09:34:23 +0000
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net ([162.243.164.118])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnvki-00000009iBM-2Kgt
+	id 1vnvnb-00000009iO4-1Ht7;
+	Thu, 05 Feb 2026 09:37:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vnvnZ-00000009iNx-2VRo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 09:34:23 +0000
-Received: from prodtpl.icoremail.net (unknown [10.12.1.20])
-	by hzbj-icmmx-7 (Coremail) with SMTP id AQAAfwAnL2MNZIRp9xfLBg--.57S2;
-	Thu, 05 Feb 2026 17:34:05 +0800 (CST)
-Received: from localhost.localdomain (unknown [219.142.137.151])
-	by mail (Coremail) with SMTP id AQAAfwBXse4HZIRpuDMZAA--.29205S2;
-	Thu, 05 Feb 2026 17:34:00 +0800 (CST)
-From: Zhiyuan Dai <daizhiyuan@phytium.com.cn>
-To: will@kernel.org,
-	joro@8bytes.org
-Cc: robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Zhiyuan Dai <daizhiyuan@phytium.com.cn>
-Subject: [PATCH] iommu/arm-smmu-v3: Restrict MMU-700 errata 2268618 and 2812531 to affected
-Date: Thu,  5 Feb 2026 17:33:56 +0800
-Message-ID: <20260205093356.4328-1-daizhiyuan@phytium.com.cn>
-X-Mailer: git-send-email 2.43.0
+	Thu, 05 Feb 2026 09:37:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B4FB56011F;
+	Thu,  5 Feb 2026 09:37:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 604B6C16AAE;
+	Thu,  5 Feb 2026 09:37:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770284236;
+	bh=KJ5nTGmvWS/4H9TViSgIpLfvFD1y2wr7DU3HmowAn8I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cjyIuuu4vkYnIImSLQfdKkB1SPd5yPoQWdHjQaQ6s9T/x9t1THn+xh5rVqSlqwSYC
+	 yDNh1R2hPiwoTYJwHi5btIJ/u4VByzRej7f5UcR8BNJPYf9baHIkfhZ+Npw810Tqzn
+	 3m/HsXuHKRIi+9WWpqpha7S4t97tLTpaGJOGpxuHPXqAII/G+S6mJzSLwbB83Wjhps
+	 8QGuTqliBwt/tBZKgOFqUqR2RkOt8Msdi1UHnY2d9jLYbLC18zbCq9ciesE4+YJH9o
+	 rqNYiQ0QDzCfi3rfruaZSECi8kQs50hi+H2zpWU/RADmNjimnxloEBd5Q845w36+1T
+	 7kUuy8XkFobhQ==
+Message-ID: <e59c7556-d001-4a34-8db3-127dc25f3897@kernel.org>
+Date: Thu, 5 Feb 2026 10:37:11 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: AQAAfwBXse4HZIRpuDMZAA--.29205S2
-X-CM-SenderInfo: hgdl6xpl1xt0o6sk53xlxphulrpou0/
-Authentication-Results: hzbj-icmmx-7; spf=neutral smtp.mail=daizhiyuan
-	@phytium.com.cn;
-X-Coremail-Antispam: 1Uk129KBjvJXoW7Kw4UAr47Kry3tw43tFW5KFg_yoW8GrW8p3
-	Z5G3sY93s8WF1fAa9rJ3yDZw15Gas5Aa15Jay5u390gryDKry5GryxKayjgF4kCrWUXF1f
-	AF1vq3y5CF15ArJanT9S1TB71UUUUUJqnTZGkaVYY2UrUUUUj1kv1TuYvTs0mT0YCTnIWj
-	DUYxn0WfASr-VFAU7a7-sFnT9fnUUIcSsGvfJ3UbIYCTnIWIevJa73UjIFyTuYvj4RJUUU
-	UUUUU
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_013420_734201_72081FB1 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] soc cache: L3 cache driver for HiSilicon SoC
+To: Arnd Bergmann <arnd@arndb.de>, Yushan Wang <wangyushan12@huawei.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Drew Fustini <fustini@kernel.org>,
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: fanghao11@huawei.com, linuxarm@huawei.com, liuyonglong@huawei.com,
+ prime.zeng@hisilicon.com, Zhou Wang <wangzhou1@hisilicon.com>,
+ Wei Xu <xuwei5@hisilicon.com>
+References: <20260203161843.649417-1-wangyushan12@huawei.com>
+ <20260203161843.649417-2-wangyushan12@huawei.com>
+ <a8ba1c0b-e7c8-44c5-b785-42752f7f5d8f@app.fastmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <a8ba1c0b-e7c8-44c5-b785-42752f7f5d8f@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +121,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to SDEN-1786925, Arm errata 2268618 and 2812531 are present in
-r0p0, r0p1, and r1p0, and fixed in r1p1.
+On 03/02/2026 18:19, Arnd Bergmann wrote:
+> On Tue, Feb 3, 2026, at 17:18, Yushan Wang wrote:
+>> The driver will create a file of `/dev/hisi_l3c` on init, mmap
+>> operations to it will allocate a memory region that is guaranteed to be
+>> placed in L3 cache.
+>>
+>> The driver also provides unmap() to deallocated the locked memory.
+>>
+>> The driver also provides an ioctl interface for user to get cache lock
+>> information, such as lock restrictions and locked sizes.
+>>
+>> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
+> 
+> Hi Yushan,
+> 
+> Thanks for your submission. Since we are in the last week of
+> the merge window, this is not going to be linux-7.0 material,
+> but I'll have a quick look for now.
 
-Introduce this patch to avoid performance degradation caused by
-restricting features on unaffected revisions.
 
-Signed-off-by: Zhiyuan Dai <daizhiyuan@phytium.com.cn>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+To be clear - this is a v3 but with removed previous history...
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index d16d35c78c06..7eadb27eb9be 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4272,11 +4272,13 @@ static void arm_smmu_device_iidr_probe(struct arm_smmu_device *smmu)
- 				smmu->features &= ~ARM_SMMU_FEAT_NESTING;
- 			break;
- 		case IIDR_PRODUCTID_ARM_MMU_700:
--			/* Arm erratum 2812531 */
--			smmu->features &= ~ARM_SMMU_FEAT_BTM;
--			smmu->options |= ARM_SMMU_OPT_CMDQ_FORCE_SYNC;
--			/* Arm errata 2268618, 2812531 */
--			smmu->features &= ~ARM_SMMU_FEAT_NESTING;
-+			if (variant <= 1 && revision < 0) {
-+				/* Arm erratum 2812531 */
-+				smmu->features &= ~ARM_SMMU_FEAT_BTM;
-+				smmu->options |= ARM_SMMU_OPT_CMDQ_FORCE_SYNC;
-+				/* Arm errata 2268618, 2812531 */
-+				smmu->features &= ~ARM_SMMU_FEAT_NESTING;
-+			}
- 			break;
- 		}
- 		break;
--- 
-2.51.0
+Previous version:
+https://lore.kernel.org/all/20251217102357.1730573-2-wangyushan12@huawei.com/
 
+Or even v4?
+
+https://lore.kernel.org/all/20250122065803.3363926-2-wangyushan12@huawei.com/
+
+Yushan, please start versioning your patches correctly. Use b4 or git
+format-patch -vx
+
+Otherwise, please explain us how can we compare it with `b4 diff` with
+previous version?
+
+Sending something AGAIN as v1 ignoring entire previous submission is
+clear no go. Like you are trying till it succeeds. Negative review?
+Let's try from v1 this time...
+
+This is not correct and it should not be my task to find your previous
+discussions and decipher this v1.
+
+
+Best regards,
+Krzysztof
 
