@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40985E83F05
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 14:09:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB51E9129A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 14:26:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FMdUQcwaJlkGblzOKnn53bE3epLe9RSkTn5V1Z+LVww=; b=YzMb/MnCneXQDd/WrZJFvcVOGv
-	jr/znLJ49beUlSyZQPo1p0Nf6rFWWcFuN6hlg7rVj3B8tKD+5GGQjG05JuNczk1LpixaohfZmnDFv
-	w2SGhea59EIh9zsEm8ZvMn3WDUzt1SX7uoAydQEno+FS+nnQhbDcvWvVAdnWmIQTfWXrhIRf7H6gY
-	DiX1o1kk8p37NdeDDccbI0qVkA8hybAzbApXNcy4UvZWVDQbzwtMsBK+MVGQ9oaJE8WiI7Eu7vOuJ
-	cpSzZjbn4wq+aEMq2yigkZNd7D9qyFKErLFCp7jiMr30SpywizfWiOuLgDxL04hpAQeD/0T5aB1vT
-	x8bThlUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5xhgCdb8ep0MUSZSzP4umfl0hprQa7j65RkYqJwXC50=; b=BCVIFZ5Q+9uN9PyGVS1cLS1imY
+	0VfMNxtmKTSJRLEGWve8LF08VRlIBTNn4RChbJX99iYAIOJvCuOC9gsbJvPx/v9MfsQlcZtxRCjCb
+	DV9ieewL6Ai/tP8k3nugXXAy3MqUPZwrO8AxtX2bfGCwGUJK65T/aaEL0J93ImUlSgo1nailAM4+3
+	bBfrGKQZDfs6rEqKTerOKmFLM99RFlukdTmoR98tLedLOKf/Njk6d5O3ejk/KhvZva7swE1CaRz29
+	cwgJ1NElEZ/Jz/9z2JUxm2j0Pq2gmYqswo7Jy9wfY+qogFLvhZAT8Vrsb/9ywoMrm8EqJ7eDMO/7d
+	DxKMaHpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo02h-0000000A0fD-1pgS;
-	Thu, 05 Feb 2026 14:09:11 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vo0Jj-0000000A1Sq-1Ni7;
+	Thu, 05 Feb 2026 14:26:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo02b-0000000A0eo-3Npo
+	id 1vo0Jg-0000000A1ST-0qs8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 14:09:10 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4f6Jw81snCzJ467w;
-	Thu,  5 Feb 2026 22:08:08 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id 05EC740539;
-	Thu,  5 Feb 2026 22:08:59 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 5 Feb
- 2026 14:08:57 +0000
-Date: Thu, 5 Feb 2026 14:08:55 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
-	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
-	<kobak@nvidia.com>, <lcherian@marvell.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
-	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
-	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
-	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
-	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
-	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>,
-	<zengheng4@huawei.com>, <linux-doc@vger.kernel.org>
-Subject: Re: [PATCH v4 06/41] arm64: mpam: Drop the CONFIG_EXPERT
- restriction
-Message-ID: <20260205140855.00003313@huawei.com>
-In-Reply-To: <20260203214342.584712-7-ben.horgan@arm.com>
-References: <20260203214342.584712-1-ben.horgan@arm.com>
-	<20260203214342.584712-7-ben.horgan@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 05 Feb 2026 14:26:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1DA2F418B9;
+	Thu,  5 Feb 2026 14:26:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E753C4CEF7;
+	Thu,  5 Feb 2026 14:26:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770301603;
+	bh=hmGTxmhf2yhUyjpwEbkT9YrgxVbfiFkHG7RA52lTQ74=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=R2J4d+8d/kLtjWX81Pu/kl8qs396W/eqbqQin8NNtRJZler91/EuBlbEd+5wTySuh
+	 dq4IUMj6X409mZLHA6t1mBcmet2KJmBYTYF3GDLNqN8PfpbFejeNisMakCS3YvBsii
+	 4HXhM1q6DtTk/LXrG4qM27aU4bfunQIuBdoMOI0tXJ1lz+S6uMYJrRNWhzFj6/880f
+	 gOHNHx64o3Tmt/rO81i4sBkGyDFAniIB5qlGQ2JIpF0mwbmvhbBBOQWB4c0fvRFN0/
+	 PB9OEJfN1TIFxHTPzd7Y8zeRQHJwQEcyPQWWNNlocbobqqWxwoe21OGBeqRm33aftU
+	 9sXZqYJautIiQ==
+Date: Thu, 5 Feb 2026 14:26:37 +0000
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Debbie Horsfall <debbie.horsfall@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt-bindings: arm: Add Zena CSS compatibility
+Message-ID: <20260205-marigold-nautilus-of-defense-9da91f@sudeepholla>
+References: <20260123-zena-css-v1-0-34adb95cdf89@arm.com>
+ <20260123-zena-css-v1-1-34adb95cdf89@arm.com>
+ <762a8e34-e401-4b6c-ba73-35cfffcba4b2@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <762a8e34-e401-4b6c-ba73-35cfffcba4b2@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_060907_020855_8424B278 
-X-CRM114-Status: UNSURE (   5.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260205_062644_260188_89E23F0C 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,11 +80,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 3 Feb 2026 21:43:07 +0000
-Ben Horgan <ben.horgan@arm.com> wrote:
-
-> In anticipation of MPAM being useful remove the CONFIG_EXPERT restriction.
+On Thu, Feb 05, 2026 at 01:29:18PM +0100, Krzysztof Kozlowski wrote:
+> On 23/01/2026 18:37, Debbie Horsfall wrote:
+> > Add compatibility to Arm Zena CSS Fixed Virtual Platform [1].
+> > 
+> > [1] https://www.arm.com/products/automotive/compute-subsystems/zena
+> > 
+> > Signed-off-by: Debbie Horsfall <debbie.horsfall@arm.com>
+> > ---
+> >  .../devicetree/bindings/arm/arm,zena-css.yaml      | 31 ++++++++++++++++++++++
+> >  MAINTAINERS                                        |  5 ++++
+> >  2 files changed, 36 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/arm/arm,zena-css.yaml b/Documentation/devicetree/bindings/arm/arm,zena-css.yaml
+> > new file mode 100644
+> > index 000000000000..42699b4db41e
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/arm/arm,zena-css.yaml
 > 
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> This should really go to one YAML file for most of FVP from ARM.
+> 
+
+Fair point, we have existing FVPs in [1]. We can move this there as well
+but if it becomes too much or if we can get it more organised based on
+some category in the future, we can take it up then. For now, I am happy
+to shove it in [1].
+
+-- 
+Regards,
+Sudeep
+
+[1] Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
 
