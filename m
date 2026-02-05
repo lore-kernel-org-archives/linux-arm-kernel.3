@@ -4,155 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 516A3ECD997
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 18:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D145ECD995
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 18:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6KITCf7MerN31744upCXntDMHW1AnR5ZC0XJZtL1dl0=; b=JYfivtZiEAeT7tsgt9ec34SPnh
-	EUZFlB7Ylk4GjBI0Vd1Cfj7wqYBGd3R5Slw3ONaoc41UGSJqkNU6ttwJhfzEcqmUc0I5F1F9BFhT0
-	sE1mvKcyq0y2RmuzpBmhhveMmsAAByc2c7rol5B2CfJICy17pkrQ/4BC/0lidYsYcKziDdy65VNqD
-	FxlLcuLGiCDq6iELkAJ2BxZglm846gJ3KWgnN00yDQpSSsogPumyo2iJ3iIrWYgeFqtzRLjWryHZL
-	7TyHj5VTsMWL6NOxR69MZZhjtJddPuRIMvbC9TSMs9+My2vMJD0wGUf9olvtIzbofk0D2/CPIm9Q3
-	snW02J1w==;
+	bh=KO0xB+xmzULqqY6PqjNDWqiMvaiTGN2sWMUiGRmryfU=; b=EYm88sqOmLCsbzl4HtoyMv2iHq
+	ZQ3zzEMFaimAyi9eF2nVqDRgCvkOZnc5LuSpLicJX0VAUNyHtj817HdWsvt4vIVddSwqrurY7Sz5z
+	l5erx8WS6bLyBbCAnxCBad5s/LNR4uRzdA0y2oblk5vWCJM4IYikioM1qF+H+Q7iS+178tecibWS7
+	ihOcYalpQDaAXXCqO1Zzw7FBwfR+cUSDJPaS7v7BfPv06yyH1JXyx6CBpoiHn4vcOQMxe2EAMqrT3
+	v06IQM6GbM0IVnTenKuE18/WCtRpK8hCDw59vhi+jqBVCgbcJG1diYOIMb2NBF6PE4VdfMTI/tTYB
+	QWbZuHBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo4Oc-0000000ANwz-2gTu;
-	Thu, 05 Feb 2026 18:48:09 +0000
-Received: from mail-eastusazon11012018.outbound.protection.outlook.com ([52.101.53.18] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1vo4P3-0000000AO82-1VQk;
+	Thu, 05 Feb 2026 18:48:33 +0000
+Received: from sender4-of-o54.zoho.com ([136.143.188.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo4Oa-0000000ANvA-35Eo
+	id 1vo4P0-0000000AO6g-0a0h
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 18:48:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=O2TrPhhNpHt7rf1dhLn4eCBmv3CIU/RQjvAyes9OS8vtu3n8gRL95dbkWWTI8aNhYp0khoXYNRWFGwgC2+15TuZnByDWRSWoFjAvISA3VI376puM3IqbvpykD4wNjuEv1thhsaNasIODCPVA9yHYUVYWPQyua9mNgGRWZIjdWgT+CgFlJewDNrG8CokJu3a2nOvABVy/8p1YK5CjrESxM0cH09HS5t3zRKIT2MrS83iEghZ3IXe4ueEGk8mG2nFhia8/bJNkeCokCsDPGMnW8aIWnTiL4jUfhk4P3oE1IDgmN75pcx+ZyaCGJL6iHWt0C9azBaraFTal5Dt/igCXSQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6KITCf7MerN31744upCXntDMHW1AnR5ZC0XJZtL1dl0=;
- b=qZYgHwVmJqq8pV4DgmrTq9W13qHyLIQP3m/a+vWMg48JAEyXL6bp3g/jy/SZK6qZDHheGT0nmuXSmnQl0c3jsuhasXHnm8SbcmL8Xrw6VhokUHJ+Pn7IZGjKKOf0SGDQXQfdGRRwc/3J7ngHvY7O+s3OGU6r8FZmlmtcscucYwEF9S979EhsOhHvwIBU0PBgZj38nbw7ZG3GivnqKad8mnMGzb9ubogh/OL5Wdlv1Q64UrLk/tNU9zFwUFqL+HiSwn7iUQKtBC0/jAWdcvicZ1gSPMGBI1C3Tu/v5jZobg5qNptXHP1yfA8TEsAiOqary6cgCSJUgpugke68NsLakw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=linux.dev smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6KITCf7MerN31744upCXntDMHW1AnR5ZC0XJZtL1dl0=;
- b=gbmieBj8chIdctuEl6UdY/dymIkEpcJDIofrLLpCH6fUbN4Sno+AG7mJVjABP38bSLTtOsMntyU6vYp/Lf3efCqMOi4btw/3++XydoxTKX/epP6rtERNgDZQURoFnVFE7d2Kb8yThHR52fE7m+QWJoRybrRkPfINn+QgKUoJQBE=
-Received: from BYAPR04CA0018.namprd04.prod.outlook.com (2603:10b6:a03:40::31)
- by SA1PR10MB6613.namprd10.prod.outlook.com (2603:10b6:806:2be::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Thu, 5 Feb
- 2026 18:48:00 +0000
-Received: from CO1PEPF000066EA.namprd05.prod.outlook.com
- (2603:10b6:a03:40:cafe::53) by BYAPR04CA0018.outlook.office365.com
- (2603:10b6:a03:40::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9587.14 via Frontend Transport; Thu,
- 5 Feb 2026 18:47:59 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CO1PEPF000066EA.mail.protection.outlook.com (10.167.249.5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9587.10 via Frontend Transport; Thu, 5 Feb 2026 18:47:57 +0000
-Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 5 Feb
- 2026 12:47:57 -0600
-Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 5 Feb
- 2026 12:47:56 -0600
-Received: from fllvem-mr07.itg.ti.com (10.64.41.89) by DFLE213.ent.ti.com
- (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 5 Feb 2026 12:47:56 -0600
-Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
-	by fllvem-mr07.itg.ti.com (8.18.1/8.18.1) with ESMTP id 615Ilu8h694413;
-	Thu, 5 Feb 2026 12:47:56 -0600
-Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 615IltrX028686;
-	Thu, 5 Feb 2026 12:47:56 -0600
-From: Meghana Malladi <m-malladi@ti.com>
-To: <vadim.fedorenko@linux.dev>, <jacob.e.keller@intel.com>,
-	<horms@kernel.org>, <m-malladi@ti.com>, <basharath@couthit.com>,
-	<parvathi@couthit.com>, <afd@ti.com>, <vladimir.oltean@nxp.com>,
-	<rogerq@kernel.org>, <danishanwar@ti.com>, <pabeni@redhat.com>,
-	<kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
-	<andrew+netdev@lunn.ch>
-CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <srk@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>
-Subject: [PATCH net-next v3 2/2] net: ti: icssg-prueth: Add ethtool ops for Frame Preemption MAC Merge
-Date: Fri, 6 Feb 2026 00:17:47 +0530
-Message-ID: <20260205184747.2451816-3-m-malladi@ti.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260205184747.2451816-1-m-malladi@ti.com>
-References: <20260205184747.2451816-1-m-malladi@ti.com>
+	Thu, 05 Feb 2026 18:48:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1770317290; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=VxxiQZ8Si+cWrV870ZJYhAOLbxYCPc2kvxRJmkTJj9ac5/p5vkop8LbvtPVmvPqh32nFOfmDlxg1VfLPYNoQXM4+gepkfurb+m2l4IF4QaTLNJXGI414AmKUIU5Mn1CP+P76OqXQtnB+uUwdIOaE6S9Au5tS0Kz68v6Wj8tdvhI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1770317290; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=KO0xB+xmzULqqY6PqjNDWqiMvaiTGN2sWMUiGRmryfU=; 
+	b=R6uSDm0mWdBb5+zuOI2gdSwhzoxgvyLdgPpsFfhVhjvQmUVa4PdgcxuP6CNJKwa/A/WliUL1PPDeKatnsbZGa4lBOTOWecRzRgfpnIlK4Z/Dw78pHq/xSES8Vxdev+teat4Xm9FbYyGjwFGLgMbVt7AoyrGAdXeUxyHlomUKFMg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=anirudhrb.com;
+	spf=pass  smtp.mailfrom=anirudh@anirudhrb.com;
+	dmarc=pass header.from=<anirudh@anirudhrb.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1770317289;
+	s=zoho; d=anirudhrb.com; i=anirudh@anirudhrb.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=KO0xB+xmzULqqY6PqjNDWqiMvaiTGN2sWMUiGRmryfU=;
+	b=QKUYfyucCzTIaEgwNQ1g8534g9sEp095La2jtIZYHo7xgMTPibicMfizIFkdXFC5
+	kaSBXaKEcllmiPGx5snT87wtn971gQiHEkwospHXlcBhJ3SGqWwkXnAgTpUhQB1fJ+i
+	dA34i/fLky8JJj0NuE7xXx8beuP60bE/UxrLRCYc=
+Received: by mx.zohomail.com with SMTPS id 1770317286060380.11045380201017;
+	Thu, 5 Feb 2026 10:48:06 -0800 (PST)
+Date: Fri, 6 Feb 2026 00:17:54 +0530
+From: Anirudh Rayabharam <anirudh@anirudhrb.com>
+To: Mukesh R <mrathor@linux.microsoft.com>
+Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, linux-pci@vger.kernel.org, 
+	linux-arch@vger.kernel.org, kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org, 
+	decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org, 
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, 
+	hpa@zytor.com, joro@8bytes.org, lpieralisi@kernel.org, kwilczynski@kernel.org, 
+	mani@kernel.org, robh@kernel.org, bhelgaas@google.com, arnd@arndb.de, 
+	nunodasneves@linux.microsoft.com, mhklinux@outlook.com, romank@linux.microsoft.com
+Subject: Re: [PATCH v0 02/15] x86/hyperv: cosmetic changes in irqdomain.c for
+ readability
+Message-ID: <d7kv4dlv34ieh6o4wyb53wxwbiphbtlnn65g3tnxzjxilrdxu5@zrxlmhx2lye6>
+References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
+ <20260120064230.3602565-3-mrathor@linux.microsoft.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000066EA:EE_|SA1PR10MB6613:EE_
-X-MS-Office365-Filtering-Correlation-Id: 80971913-0e41-4195-7e08-08de64e71488
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700013|376014|82310400026|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?G4fpzkdRWDF6q1xA4qDQT+WXR8HtgedX416SnSY+lNFGMqX83SbjqZn4cob0?=
- =?us-ascii?Q?2NN51xYSDM17+mMNw8XNY0p+bV35xG1v3RvhTnTzMvREhbp6gNdrENzODc59?=
- =?us-ascii?Q?xwgMv7wvbsSNW1K5eQu8S0Jk84WRLhuPeuLDmTm2JO9HH11JE3nro1BWAcnY?=
- =?us-ascii?Q?HunrI8pIoa/rcdMSuuoJfJy/0PrwNOdjOvyFggFchRxx7AbnxsPrvOWvbwsZ?=
- =?us-ascii?Q?8yxVoS0LhPjZ2mQa3L5VY0YDRJsYbS932rphTzFrvBLkGmZJZcSWtaXMrNmg?=
- =?us-ascii?Q?EZKLeQoORZyTY/zVM+dW1HByw/AvFEbh+1S0Tq+0DhPiV7sH0jFBf9NrDvoY?=
- =?us-ascii?Q?1mWcaRSSOraGGLi6Ek1HCb2992ZSmqvcQoPHEScQHCwBUkJOGweeBgvuh7JE?=
- =?us-ascii?Q?/Tw0KprJc+DOfl4J59+DCOMC0Lx0Xr9Q/lkVMg6vXgNg7hTTcQUAEAfGwP/V?=
- =?us-ascii?Q?rZx5jkMJD9gT3Xh+Cq8Ka4nOxxYXO8zEBmhfdbd00v4wEEieIY6Oy6QG+/5I?=
- =?us-ascii?Q?ECQBTSd5ODHd8F5blzPHIvY+xHBqt3JYrxmyuoiDbhBnXrMGtIb7bUN2bfHE?=
- =?us-ascii?Q?YRr14BFr4ULRRNtRYKVsd/pv4R1zxoJS5SUA/vvsW/i4cpjpGPNufnpRGwuM?=
- =?us-ascii?Q?G2WSztGgHx7sr1ybcvLf+wfJTjXdm2v4aXE0DNrpLnqTCY9Jk7Ym893YcN0q?=
- =?us-ascii?Q?j+yGI0DP1tEmYkdVLhDpt/vQjjNp1pkqLLIuNsoir4VmoT9hqUYIJa/Q1rAM?=
- =?us-ascii?Q?SOXZEjeawWGLFNRhXK/tk/vz0wLkHDvAr814u+/G9Q5ZqpSqp7JWOMJNm+H5?=
- =?us-ascii?Q?sMGvliOCkyqk0N8m/bBel0TZRz4MBDVicE450gQSuUS3zoTZv4yM8CSK+hoX?=
- =?us-ascii?Q?nPCobtFC3DCIASCBiXtbmJrg2J3m8ihDyX8uF1o8yOdQlXJivuctYcOF3zPa?=
- =?us-ascii?Q?ElLdrGz6+nx8ekXqXiHfzJLZw2hm5qCv+ie3GpAzNjSZC2rBHiZhVTSd2fW8?=
- =?us-ascii?Q?pw4UuLzJ7V1dUFkA+7Mt5B2Ye1fSDy7RYy0W00Uvs60CmfyFbfNxtgq7AS3H?=
- =?us-ascii?Q?JesqyzYSRUFp6k7mkdTspGXomCCALw5VCWMuOfe4JPqdTwwFTs0hBW82z8Nv?=
- =?us-ascii?Q?6vAcgVNnfNAGn97Budj1tvZMB+yGe1hFgnuwGDi1NBpDyuzgsF1Ee68/qZEq?=
- =?us-ascii?Q?gOl3tLlW4lQhZe6rUS8pXiroGiusvHyA2L+emcqYy8YCcq1TW43PUP6oKEVT?=
- =?us-ascii?Q?Ru/pSiDcPuq9kAQ55oG0sfikDeFSDKxP9zWaVwRROA5SeVAa/cgL5yRDeChp?=
- =?us-ascii?Q?ByVfVVUwrAYXt71VSZvdnZ2yrsilTTFDqRg2E3xgRmGWsob5JmNWg0jqNwoa?=
- =?us-ascii?Q?mqoXuR9vmFItbxow6h7ii4+O7pP/eE7xdyZmnnjBsPyFMsY2lPXTRdhS5ujP?=
- =?us-ascii?Q?lEnuKLnFfBLVJ1v53sjeJVoUzdkbrhgmtgrAVT0Mn67R6dRj+fP+1MMnsLvk?=
- =?us-ascii?Q?L/vYboC5JJFJJQbzHNYPjbLO8AuUo1Z7e1cQg+WGOwGehfNhAdMWfzbWgh5G?=
- =?us-ascii?Q?dKnc1FBb0ETuiaO87h5uZAZcPw8bQbrGLlWKnnR2nJ2315XK3iQOyTCO1PJf?=
- =?us-ascii?Q?vEH5AdTEYYMUNk/hvKFWpiJoGjzBn4/wgSiFJMJ3grbTsXlJtMqKRPpuuseY?=
- =?us-ascii?Q?/+h40CfcLI1R9X4E2Y9PI8Trf3M=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(36860700013)(376014)(82310400026)(1800799024)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: qPmHbTekEHMyv2hLjEabDLuhyMnIdwM7WnyWKQ0piZ0JBVa488MMFnD5CwXn2+aoUnc98Gbckn0bexbNlaPjyOoXhvFgSE827vrdgGaYCsGziGukWXM0sKmFTAw859gDj/BaesLQfM6hPUTDGakScbT2bd7WMdT/oWF2eNIQ4xpC77prwtdTx92wUUgqvneoKqu2iDKgLhmiTKuSAFB/x0fsL0dWHK6NuJYvwVKH0UXHL5HtKOTxNVF0Kmg09SVL/RuPYFgP4smstPK3/a4yqizfT1xxUJwo+CKF9QE6+2rgyWQKRfUIaw93YBnc5yUxHZOH2960GwYprf1qT/X//jWM4zDWQVBv4ReOM2ftLevNhuChllaoB+wPW81Px8PPrQPisv43QmTONCbdiSgTGeLD5143CWByTdNiRTunZNhKf0MwYkD13Tn83nsdN0QP
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Feb 2026 18:47:57.6586
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 80971913-0e41-4195-7e08-08de64e71488
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066EA.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB6613
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260120064230.3602565-3-mrathor@linux.microsoft.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_104804_847056_40EC5236 
-X-CRM114-Status: GOOD (  21.73  )
+X-CRM114-CacheID: sfid-20260205_104830_249308_EC14AE9F 
+X-CRM114-Status: GOOD (  33.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,249 +85,437 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: MD Danish Anwar <danishanwar@ti.com>
+On Mon, Jan 19, 2026 at 10:42:17PM -0800, Mukesh R wrote:
+> From: Mukesh Rathor <mrathor@linux.microsoft.com>
+> 
+> Make cosmetic changes:
+>  o Rename struct pci_dev *dev to *pdev since there are cases of
+>    struct device *dev in the file and all over the kernel
+>  o Rename hv_build_pci_dev_id to hv_build_devid_type_pci in anticipation
+>    of building different types of device ids
+>  o Fix checkpatch.pl issues with return and extraneous printk
+>  o Replace spaces with tabs
+>  o Rename struct hv_devid *xxx to struct hv_devid *hv_devid given code
+>    paths involve many types of device ids
+>  o Fix indentation in a large if block by using goto.
+> 
+> There are no functional changes.
+> 
+> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+> ---
+>  arch/x86/hyperv/irqdomain.c | 197 +++++++++++++++++++-----------------
+>  1 file changed, 103 insertions(+), 94 deletions(-)
+> 
+> diff --git a/arch/x86/hyperv/irqdomain.c b/arch/x86/hyperv/irqdomain.c
+> index c3ba12b1bc07..f6b61483b3b8 100644
+> --- a/arch/x86/hyperv/irqdomain.c
+> +++ b/arch/x86/hyperv/irqdomain.c
+> @@ -1,5 +1,4 @@
+>  // SPDX-License-Identifier: GPL-2.0
+> -
+>  /*
+>   * Irqdomain for Linux to run as the root partition on Microsoft Hypervisor.
+>   *
+> @@ -14,8 +13,8 @@
+>  #include <linux/irqchip/irq-msi-lib.h>
+>  #include <asm/mshyperv.h>
+>  
+> -static int hv_map_interrupt(union hv_device_id device_id, bool level,
+> -		int cpu, int vector, struct hv_interrupt_entry *entry)
+> +static int hv_map_interrupt(union hv_device_id hv_devid, bool level,
+> +		int cpu, int vector, struct hv_interrupt_entry *ret_entry)
+>  {
+>  	struct hv_input_map_device_interrupt *input;
+>  	struct hv_output_map_device_interrupt *output;
+> @@ -32,7 +31,7 @@ static int hv_map_interrupt(union hv_device_id device_id, bool level,
+>  	intr_desc = &input->interrupt_descriptor;
+>  	memset(input, 0, sizeof(*input));
+>  	input->partition_id = hv_current_partition_id;
+> -	input->device_id = device_id.as_uint64;
+> +	input->device_id = hv_devid.as_uint64;
+>  	intr_desc->interrupt_type = HV_X64_INTERRUPT_TYPE_FIXED;
+>  	intr_desc->vector_count = 1;
+>  	intr_desc->target.vector = vector;
+> @@ -44,7 +43,7 @@ static int hv_map_interrupt(union hv_device_id device_id, bool level,
+>  
+>  	intr_desc->target.vp_set.valid_bank_mask = 0;
+>  	intr_desc->target.vp_set.format = HV_GENERIC_SET_SPARSE_4K;
+> -	nr_bank = cpumask_to_vpset(&(intr_desc->target.vp_set), cpumask_of(cpu));
+> +	nr_bank = cpumask_to_vpset(&intr_desc->target.vp_set, cpumask_of(cpu));
+>  	if (nr_bank < 0) {
+>  		local_irq_restore(flags);
+>  		pr_err("%s: unable to generate VP set\n", __func__);
+> @@ -61,7 +60,7 @@ static int hv_map_interrupt(union hv_device_id device_id, bool level,
+>  
+>  	status = hv_do_rep_hypercall(HVCALL_MAP_DEVICE_INTERRUPT, 0, var_size,
+>  			input, output);
+> -	*entry = output->interrupt_entry;
+> +	*ret_entry = output->interrupt_entry;
+>  
+>  	local_irq_restore(flags);
+>  
+> @@ -71,21 +70,19 @@ static int hv_map_interrupt(union hv_device_id device_id, bool level,
+>  	return hv_result_to_errno(status);
+>  }
+>  
+> -static int hv_unmap_interrupt(u64 id, struct hv_interrupt_entry *old_entry)
+> +static int hv_unmap_interrupt(u64 id, struct hv_interrupt_entry *irq_entry)
+>  {
+>  	unsigned long flags;
+>  	struct hv_input_unmap_device_interrupt *input;
+> -	struct hv_interrupt_entry *intr_entry;
+>  	u64 status;
+>  
+>  	local_irq_save(flags);
+>  	input = *this_cpu_ptr(hyperv_pcpu_input_arg);
+>  
+>  	memset(input, 0, sizeof(*input));
+> -	intr_entry = &input->interrupt_entry;
+>  	input->partition_id = hv_current_partition_id;
+>  	input->device_id = id;
+> -	*intr_entry = *old_entry;
+> +	input->interrupt_entry = *irq_entry;
+>  
+>  	status = hv_do_hypercall(HVCALL_UNMAP_DEVICE_INTERRUPT, input, NULL);
+>  	local_irq_restore(flags);
+> @@ -115,67 +112,71 @@ static int get_rid_cb(struct pci_dev *pdev, u16 alias, void *data)
+>  	return 0;
+>  }
+>  
+> -static union hv_device_id hv_build_pci_dev_id(struct pci_dev *dev)
+> +static union hv_device_id hv_build_devid_type_pci(struct pci_dev *pdev)
+>  {
+> -	union hv_device_id dev_id;
+> +	int pos;
+> +	union hv_device_id hv_devid;
+>  	struct rid_data data = {
+>  		.bridge = NULL,
+> -		.rid = PCI_DEVID(dev->bus->number, dev->devfn)
+> +		.rid = PCI_DEVID(pdev->bus->number, pdev->devfn)
+>  	};
+>  
+> -	pci_for_each_dma_alias(dev, get_rid_cb, &data);
+> +	pci_for_each_dma_alias(pdev, get_rid_cb, &data);
+>  
+> -	dev_id.as_uint64 = 0;
+> -	dev_id.device_type = HV_DEVICE_TYPE_PCI;
+> -	dev_id.pci.segment = pci_domain_nr(dev->bus);
+> +	hv_devid.as_uint64 = 0;
+> +	hv_devid.device_type = HV_DEVICE_TYPE_PCI;
+> +	hv_devid.pci.segment = pci_domain_nr(pdev->bus);
+>  
+> -	dev_id.pci.bdf.bus = PCI_BUS_NUM(data.rid);
+> -	dev_id.pci.bdf.device = PCI_SLOT(data.rid);
+> -	dev_id.pci.bdf.function = PCI_FUNC(data.rid);
+> -	dev_id.pci.source_shadow = HV_SOURCE_SHADOW_NONE;
+> +	hv_devid.pci.bdf.bus = PCI_BUS_NUM(data.rid);
+> +	hv_devid.pci.bdf.device = PCI_SLOT(data.rid);
+> +	hv_devid.pci.bdf.function = PCI_FUNC(data.rid);
+> +	hv_devid.pci.source_shadow = HV_SOURCE_SHADOW_NONE;
+>  
+> -	if (data.bridge) {
+> -		int pos;
+> +	if (data.bridge == NULL)
+> +		goto out;
+>  
+> -		/*
+> -		 * Microsoft Hypervisor requires a bus range when the bridge is
+> -		 * running in PCI-X mode.
+> -		 *
+> -		 * To distinguish conventional vs PCI-X bridge, we can check
+> -		 * the bridge's PCI-X Secondary Status Register, Secondary Bus
+> -		 * Mode and Frequency bits. See PCI Express to PCI/PCI-X Bridge
+> -		 * Specification Revision 1.0 5.2.2.1.3.
+> -		 *
+> -		 * Value zero means it is in conventional mode, otherwise it is
+> -		 * in PCI-X mode.
+> -		 */
+> +	/*
+> +	 * Microsoft Hypervisor requires a bus range when the bridge is
+> +	 * running in PCI-X mode.
+> +	 *
+> +	 * To distinguish conventional vs PCI-X bridge, we can check
+> +	 * the bridge's PCI-X Secondary Status Register, Secondary Bus
+> +	 * Mode and Frequency bits. See PCI Express to PCI/PCI-X Bridge
+> +	 * Specification Revision 1.0 5.2.2.1.3.
+> +	 *
+> +	 * Value zero means it is in conventional mode, otherwise it is
+> +	 * in PCI-X mode.
+> +	 */
+>  
+> -		pos = pci_find_capability(data.bridge, PCI_CAP_ID_PCIX);
+> -		if (pos) {
+> -			u16 status;
+> +	pos = pci_find_capability(data.bridge, PCI_CAP_ID_PCIX);
+> +	if (pos) {
+> +		u16 status;
+>  
+> -			pci_read_config_word(data.bridge, pos +
+> -					PCI_X_BRIDGE_SSTATUS, &status);
+> +		pci_read_config_word(data.bridge, pos + PCI_X_BRIDGE_SSTATUS,
+> +				     &status);
+>  
+> -			if (status & PCI_X_SSTATUS_FREQ) {
+> -				/* Non-zero, PCI-X mode */
+> -				u8 sec_bus, sub_bus;
+> +		if (status & PCI_X_SSTATUS_FREQ) {
+> +			/* Non-zero, PCI-X mode */
+> +			u8 sec_bus, sub_bus;
+>  
+> -				dev_id.pci.source_shadow = HV_SOURCE_SHADOW_BRIDGE_BUS_RANGE;
+> +			hv_devid.pci.source_shadow =
+> +					     HV_SOURCE_SHADOW_BRIDGE_BUS_RANGE;
+>  
+> -				pci_read_config_byte(data.bridge, PCI_SECONDARY_BUS, &sec_bus);
+> -				dev_id.pci.shadow_bus_range.secondary_bus = sec_bus;
+> -				pci_read_config_byte(data.bridge, PCI_SUBORDINATE_BUS, &sub_bus);
+> -				dev_id.pci.shadow_bus_range.subordinate_bus = sub_bus;
+> -			}
+> +			pci_read_config_byte(data.bridge, PCI_SECONDARY_BUS,
+> +					     &sec_bus);
+> +			hv_devid.pci.shadow_bus_range.secondary_bus = sec_bus;
+> +			pci_read_config_byte(data.bridge, PCI_SUBORDINATE_BUS,
+> +					     &sub_bus);
+> +			hv_devid.pci.shadow_bus_range.subordinate_bus = sub_bus;
+>  		}
+>  	}
+>  
+> -	return dev_id;
+> +out:
+> +	return hv_devid;
+>  }
+>  
+> -/**
+> - * hv_map_msi_interrupt() - "Map" the MSI IRQ in the hypervisor.
+> +/*
+> + * hv_map_msi_interrupt() - Map the MSI IRQ in the hypervisor.
+>   * @data:      Describes the IRQ
+>   * @out_entry: Hypervisor (MSI) interrupt entry (can be NULL)
+>   *
+> @@ -188,22 +189,23 @@ int hv_map_msi_interrupt(struct irq_data *data,
+>  {
+>  	struct irq_cfg *cfg = irqd_cfg(data);
+>  	struct hv_interrupt_entry dummy;
+> -	union hv_device_id device_id;
+> +	union hv_device_id hv_devid;
+>  	struct msi_desc *msidesc;
+> -	struct pci_dev *dev;
+> +	struct pci_dev *pdev;
+>  	int cpu;
+>  
+>  	msidesc = irq_data_get_msi_desc(data);
+> -	dev = msi_desc_to_pci_dev(msidesc);
+> -	device_id = hv_build_pci_dev_id(dev);
+> +	pdev = msi_desc_to_pci_dev(msidesc);
+> +	hv_devid = hv_build_devid_type_pci(pdev);
+>  	cpu = cpumask_first(irq_data_get_effective_affinity_mask(data));
+>  
+> -	return hv_map_interrupt(device_id, false, cpu, cfg->vector,
+> +	return hv_map_interrupt(hv_devid, false, cpu, cfg->vector,
+>  				out_entry ? out_entry : &dummy);
+>  }
+>  EXPORT_SYMBOL_GPL(hv_map_msi_interrupt);
+>  
+> -static inline void entry_to_msi_msg(struct hv_interrupt_entry *entry, struct msi_msg *msg)
+> +static void entry_to_msi_msg(struct hv_interrupt_entry *entry,
+> +			     struct msi_msg *msg)
+>  {
+>  	/* High address is always 0 */
+>  	msg->address_hi = 0;
+> @@ -211,17 +213,19 @@ static inline void entry_to_msi_msg(struct hv_interrupt_entry *entry, struct msi
+>  	msg->data = entry->msi_entry.data.as_uint32;
+>  }
+>  
+> -static int hv_unmap_msi_interrupt(struct pci_dev *dev, struct hv_interrupt_entry *old_entry);
+> +static int hv_unmap_msi_interrupt(struct pci_dev *pdev,
+> +				  struct hv_interrupt_entry *irq_entry);
+> +
+>  static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+>  {
+>  	struct hv_interrupt_entry *stored_entry;
+>  	struct irq_cfg *cfg = irqd_cfg(data);
+>  	struct msi_desc *msidesc;
+> -	struct pci_dev *dev;
+> +	struct pci_dev *pdev;
+>  	int ret;
+>  
+>  	msidesc = irq_data_get_msi_desc(data);
+> -	dev = msi_desc_to_pci_dev(msidesc);
+> +	pdev = msi_desc_to_pci_dev(msidesc);
+>  
+>  	if (!cfg) {
+>  		pr_debug("%s: cfg is NULL", __func__);
+> @@ -240,7 +244,7 @@ static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+>  		stored_entry = data->chip_data;
+>  		data->chip_data = NULL;
+>  
+> -		ret = hv_unmap_msi_interrupt(dev, stored_entry);
+> +		ret = hv_unmap_msi_interrupt(pdev, stored_entry);
+>  
+>  		kfree(stored_entry);
+>  
+> @@ -249,10 +253,8 @@ static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+>  	}
+>  
+>  	stored_entry = kzalloc(sizeof(*stored_entry), GFP_ATOMIC);
+> -	if (!stored_entry) {
+> -		pr_debug("%s: failed to allocate chip data\n", __func__);
+> +	if (!stored_entry)
+>  		return;
+> -	}
+>  
+>  	ret = hv_map_msi_interrupt(data, stored_entry);
+>  	if (ret) {
+> @@ -262,18 +264,21 @@ static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+>  
+>  	data->chip_data = stored_entry;
+>  	entry_to_msi_msg(data->chip_data, msg);
+> -
+> -	return;
+>  }
+>  
+> -static int hv_unmap_msi_interrupt(struct pci_dev *dev, struct hv_interrupt_entry *old_entry)
+> +static int hv_unmap_msi_interrupt(struct pci_dev *pdev,
+> +				  struct hv_interrupt_entry *irq_entry)
+>  {
+> -	return hv_unmap_interrupt(hv_build_pci_dev_id(dev).as_uint64, old_entry);
+> +	union hv_device_id hv_devid;
+> +
+> +	hv_devid = hv_build_devid_type_pci(pdev);
+> +	return hv_unmap_interrupt(hv_devid.as_uint64, irq_entry);
+>  }
+>  
+> -static void hv_teardown_msi_irq(struct pci_dev *dev, struct irq_data *irqd)
+> +/* NB: during map, hv_interrupt_entry is saved via data->chip_data */
+> +static void hv_teardown_msi_irq(struct pci_dev *pdev, struct irq_data *irqd)
+>  {
+> -	struct hv_interrupt_entry old_entry;
+> +	struct hv_interrupt_entry irq_entry;
+>  	struct msi_msg msg;
+>  
+>  	if (!irqd->chip_data) {
+> @@ -281,13 +286,13 @@ static void hv_teardown_msi_irq(struct pci_dev *dev, struct irq_data *irqd)
+>  		return;
+>  	}
+>  
+> -	old_entry = *(struct hv_interrupt_entry *)irqd->chip_data;
+> -	entry_to_msi_msg(&old_entry, &msg);
+> +	irq_entry = *(struct hv_interrupt_entry *)irqd->chip_data;
+> +	entry_to_msi_msg(&irq_entry, &msg);
+>  
+>  	kfree(irqd->chip_data);
+>  	irqd->chip_data = NULL;
+>  
+> -	(void)hv_unmap_msi_interrupt(dev, &old_entry);
+> +	(void)hv_unmap_msi_interrupt(pdev, &irq_entry);
+>  }
+>  
+>  /*
+> @@ -302,7 +307,8 @@ static struct irq_chip hv_pci_msi_controller = {
+>  };
+>  
+>  static bool hv_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
+> -				 struct irq_domain *real_parent, struct msi_domain_info *info)
+> +				 struct irq_domain *real_parent,
+> +				 struct msi_domain_info *info)
+>  {
+>  	struct irq_chip *chip = info->chip;
+>  
+> @@ -317,7 +323,8 @@ static bool hv_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
+>  }
+>  
+>  #define HV_MSI_FLAGS_SUPPORTED	(MSI_GENERIC_FLAGS_MASK | MSI_FLAG_PCI_MSIX)
+> -#define HV_MSI_FLAGS_REQUIRED	(MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS)
+> +#define HV_MSI_FLAGS_REQUIRED	(MSI_FLAG_USE_DEF_DOM_OPS |	\
+> +				 MSI_FLAG_USE_DEF_CHIP_OPS)
+>  
+>  static struct msi_parent_ops hv_msi_parent_ops = {
+>  	.supported_flags	= HV_MSI_FLAGS_SUPPORTED,
+> @@ -329,14 +336,13 @@ static struct msi_parent_ops hv_msi_parent_ops = {
+>  	.init_dev_msi_info	= hv_init_dev_msi_info,
+>  };
+>  
+> -static int hv_msi_domain_alloc(struct irq_domain *d, unsigned int virq, unsigned int nr_irqs,
+> -			       void *arg)
+> +static int hv_msi_domain_alloc(struct irq_domain *d, unsigned int virq,
+> +			       unsigned int nr_irqs, void *arg)
+>  {
+>  	/*
+> -	 * TODO: The allocation bits of hv_irq_compose_msi_msg(), i.e. everything except
+> -	 * entry_to_msi_msg() should be in here.
+> +	 * TODO: The allocation bits of hv_irq_compose_msi_msg(), i.e.
+> +	 *	 everything except entry_to_msi_msg() should be in here.
+>  	 */
+> -
+>  	int ret;
+>  
+>  	ret = irq_domain_alloc_irqs_parent(d, virq, nr_irqs, arg);
+> @@ -344,13 +350,15 @@ static int hv_msi_domain_alloc(struct irq_domain *d, unsigned int virq, unsigned
+>  		return ret;
+>  
+>  	for (int i = 0; i < nr_irqs; ++i) {
+> -		irq_domain_set_info(d, virq + i, 0, &hv_pci_msi_controller, NULL,
+> -				    handle_edge_irq, NULL, "edge");
+> +		irq_domain_set_info(d, virq + i, 0, &hv_pci_msi_controller,
+> +				    NULL, handle_edge_irq, NULL, "edge");
+>  	}
+> +
+>  	return 0;
+>  }
+>  
+> -static void hv_msi_domain_free(struct irq_domain *d, unsigned int virq, unsigned int nr_irqs)
+> +static void hv_msi_domain_free(struct irq_domain *d, unsigned int virq,
+> +			       unsigned int nr_irqs)
+>  {
+>  	for (int i = 0; i < nr_irqs; ++i) {
+>  		struct irq_data *irqd = irq_domain_get_irq_data(d, virq);
+> @@ -362,6 +370,7 @@ static void hv_msi_domain_free(struct irq_domain *d, unsigned int virq, unsigned
+>  
+>  		hv_teardown_msi_irq(to_pci_dev(desc->dev), irqd);
+>  	}
+> +
+>  	irq_domain_free_irqs_top(d, virq, nr_irqs);
+>  }
+>  
+> @@ -394,25 +403,25 @@ struct irq_domain * __init hv_create_pci_msi_domain(void)
+>  
+>  int hv_unmap_ioapic_interrupt(int ioapic_id, struct hv_interrupt_entry *entry)
+>  {
+> -	union hv_device_id device_id;
+> +	union hv_device_id hv_devid;
+>  
+> -	device_id.as_uint64 = 0;
+> -	device_id.device_type = HV_DEVICE_TYPE_IOAPIC;
+> -	device_id.ioapic.ioapic_id = (u8)ioapic_id;
+> +	hv_devid.as_uint64 = 0;
+> +	hv_devid.device_type = HV_DEVICE_TYPE_IOAPIC;
+> +	hv_devid.ioapic.ioapic_id = (u8)ioapic_id;
+>  
+> -	return hv_unmap_interrupt(device_id.as_uint64, entry);
+> +	return hv_unmap_interrupt(hv_devid.as_uint64, entry);
+>  }
+>  EXPORT_SYMBOL_GPL(hv_unmap_ioapic_interrupt);
+>  
+>  int hv_map_ioapic_interrupt(int ioapic_id, bool level, int cpu, int vector,
+>  		struct hv_interrupt_entry *entry)
+>  {
+> -	union hv_device_id device_id;
+> +	union hv_device_id hv_devid;
+>  
+> -	device_id.as_uint64 = 0;
+> -	device_id.device_type = HV_DEVICE_TYPE_IOAPIC;
+> -	device_id.ioapic.ioapic_id = (u8)ioapic_id;
+> +	hv_devid.as_uint64 = 0;
+> +	hv_devid.device_type = HV_DEVICE_TYPE_IOAPIC;
+> +	hv_devid.ioapic.ioapic_id = (u8)ioapic_id;
+>  
+> -	return hv_map_interrupt(device_id, level, cpu, vector, entry);
+> +	return hv_map_interrupt(hv_devid, level, cpu, vector, entry);
+>  }
+>  EXPORT_SYMBOL_GPL(hv_map_ioapic_interrupt);
+> -- 
+> 2.51.2.vfs.0.1
+> 
 
-Add driver support for viewing / changing the MAC Merge sublayer
-parameters and dump the Mac Merge stats via ethtool ops: .set_mm(),
-.get_mm() and .get_mm_stats().
-
-The minimum size of non-final mPacket fragments supported by the firmware
-without leading errors is 64 Bytes (in octets). Add a check to ensure
-user passed tx_min_frag_size argument via ethtool, honors this .
-Add pa stats registers to check statistics for preemption, which can be
-dumped using ethtool ops.
-
-Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-Signed-off-by: Meghana Malladi <m-malladi@ti.com>
----
-
-v3-v2:
-- Fixed build warning raised by kernel test bot
-v2-v1:
-- Following changes have been done as suggested by Vladimir Oltean <vladimir.oltean@nxp.com>
-* Add sanity check to ensure valid min_frag_size is requested by the user.
-* Add comments wherever applicable w.r.t min_frag_size.
-* Make it uniform to return all valures from the driver for .get_mm()
-* Use ETHTOOL_MM_MAX_VERIFY_TIME_MS macro for 128
-* Use NL_SET_ERR_MSG_MOD() wherever applicable
-* Re-schedule the iet work thread whenever there .set_mm() get called
-based on fpe_enabled flag.
-
- drivers/net/ethernet/ti/icssg/icssg_ethtool.c | 86 ++++++++++++++++++-
- drivers/net/ethernet/ti/icssg/icssg_prueth.h  |  5 +-
- drivers/net/ethernet/ti/icssg/icssg_qos.h     | 20 +++++
- drivers/net/ethernet/ti/icssg/icssg_stats.c   |  1 -
- drivers/net/ethernet/ti/icssg/icssg_stats.h   |  5 ++
- .../net/ethernet/ti/icssg/icssg_switch_map.h  |  5 ++
- 6 files changed, 118 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-index b715af21d23a..3c4ff154f6d1 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-@@ -6,7 +6,6 @@
-  */
- 
- #include "icssg_prueth.h"
--#include "icssg_stats.h"
- 
- static void emac_get_drvinfo(struct net_device *ndev,
- 			     struct ethtool_drvinfo *info)
-@@ -294,6 +293,88 @@ static int emac_set_per_queue_coalesce(struct net_device *ndev, u32 queue,
- 	return 0;
- }
- 
-+static int emac_get_mm(struct net_device *ndev, struct ethtool_mm_state *state)
-+{
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+	struct prueth_qos_iet *iet = &emac->qos.iet;
-+
-+	state->tx_enabled = iet->fpe_enabled;
-+	state->pmac_enabled = true;
-+	state->tx_min_frag_size = iet->tx_min_frag_size;
-+	/* 64Bytes is the minimum fragment size supported
-+	 * by the firmware. <64B leads to min frame errors
-+	 */
-+	state->rx_min_frag_size = 64;
-+	state->tx_active = iet->fpe_active;
-+	state->verify_enabled = iet->mac_verify_configure;
-+	state->verify_time = iet->verify_time_ms;
-+
-+	switch (iet->verify_status) {
-+	case ICSSG_IETFPE_STATE_DISABLED:
-+		state->verify_status = ETHTOOL_MM_VERIFY_STATUS_DISABLED;
-+		break;
-+	case ICSSG_IETFPE_STATE_SUCCEEDED:
-+		state->verify_status = ETHTOOL_MM_VERIFY_STATUS_SUCCEEDED;
-+		break;
-+	case ICSSG_IETFPE_STATE_FAILED:
-+		state->verify_status = ETHTOOL_MM_VERIFY_STATUS_FAILED;
-+		break;
-+	default:
-+		state->verify_status = ETHTOOL_MM_VERIFY_STATUS_UNKNOWN;
-+		break;
-+	}
-+
-+	/* 802.3-2018 clause 30.14.1.6, says that the aMACMergeVerifyTime
-+	 * variable has a range between 1 and 128 ms inclusive. Limit to that.
-+	 */
-+	state->max_verify_time = ETHTOOL_MM_MAX_VERIFY_TIME_MS;
-+
-+	return 0;
-+}
-+
-+static int emac_set_mm(struct net_device *ndev, struct ethtool_mm_cfg *cfg,
-+		       struct netlink_ext_ack *extack)
-+{
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+	struct prueth_qos_iet *iet = &emac->qos.iet;
-+	int err;
-+
-+	if (!cfg->pmac_enabled)
-+		NL_SET_ERR_MSG_MOD(extack, "preemptible MAC is always enabled");
-+
-+	err = icssg_qos_frag_size_min_to_add(cfg->tx_min_frag_size, extack);
-+	if (err)
-+		return err;
-+
-+	iet->verify_time_ms = cfg->verify_time;
-+	iet->tx_min_frag_size = cfg->tx_min_frag_size;
-+
-+	iet->fpe_enabled = cfg->tx_enabled;
-+	iet->mac_verify_configure = cfg->verify_enabled;
-+
-+	/* Re-trigger the state machine to incorporate the updated configuration */
-+	if (iet->fpe_enabled)
-+		atomic_set(&iet->enable_fpe_config, 1);
-+	else
-+		atomic_set(&iet->enable_fpe_config, 0);
-+
-+	schedule_work(&iet->fpe_config_task);
-+
-+	return 0;
-+}
-+
-+static void emac_get_mm_stats(struct net_device *ndev,
-+			      struct ethtool_mm_stats *s)
-+{
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+
-+	s->MACMergeFrameAssOkCount = emac_get_stat_by_name(emac, "FW_PREEMPT_ASSEMBLY_OK");
-+	s->MACMergeFrameAssErrorCount = emac_get_stat_by_name(emac, "FW_PREEMPT_ASSEMBLY_ERR");
-+	s->MACMergeFragCountRx = emac_get_stat_by_name(emac, "FW_PREEMPT_FRAG_CNT_RX");
-+	s->MACMergeFragCountTx = emac_get_stat_by_name(emac, "FW_PREEMPT_FRAG_CNT_TX");
-+	s->MACMergeFrameSmdErrorCount = emac_get_stat_by_name(emac, "FW_PREEMPT_BAD_FRAG");
-+}
-+
- const struct ethtool_ops icssg_ethtool_ops = {
- 	.get_drvinfo = emac_get_drvinfo,
- 	.get_msglevel = emac_get_msglevel,
-@@ -317,5 +398,8 @@ const struct ethtool_ops icssg_ethtool_ops = {
- 	.set_eee = emac_set_eee,
- 	.nway_reset = emac_nway_reset,
- 	.get_rmon_stats = emac_get_rmon_stats,
-+	.get_mm = emac_get_mm,
-+	.set_mm = emac_set_mm,
-+	.get_mm_stats = emac_get_mm_stats,
- };
- EXPORT_SYMBOL_GPL(icssg_ethtool_ops);
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-index 7a586038adf8..5271a013df64 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-@@ -45,6 +45,7 @@
- #include "icss_iep.h"
- #include "icssg_switch_map.h"
- #include "icssg_qos.h"
-+#include "icssg_stats.h"
- 
- #define PRUETH_MAX_MTU          (2000 - ETH_HLEN - ETH_FCS_LEN)
- #define PRUETH_MIN_PKT_SIZE     (VLAN_ETH_ZLEN)
-@@ -58,8 +59,8 @@
- 
- #define ICSSG_MAX_RFLOWS	8	/* per slice */
- 
--#define ICSSG_NUM_PA_STATS	32
--#define ICSSG_NUM_MIIG_STATS	60
-+#define ICSSG_NUM_PA_STATS	ARRAY_SIZE(icssg_all_pa_stats)
-+#define ICSSG_NUM_MIIG_STATS	ARRAY_SIZE(icssg_all_miig_stats)
- /* Number of ICSSG related stats */
- #define ICSSG_NUM_STATS (ICSSG_NUM_MIIG_STATS + ICSSG_NUM_PA_STATS)
- #define ICSSG_NUM_STANDARD_STATS 31
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.h b/drivers/net/ethernet/ti/icssg/icssg_qos.h
-index 8aa79b68ad54..b18a93f9181a 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_qos.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_qos.h
-@@ -55,4 +55,24 @@ void icssg_qos_link_up(struct net_device *ndev);
- void icssg_qos_link_down(struct net_device *ndev);
- int icssg_qos_ndo_setup_tc(struct net_device *ndev, enum tc_setup_type type,
- 			   void *type_data);
-+static inline int icssg_qos_frag_size_min_to_add(u32 min_frag_size,
-+						 struct netlink_ext_ack *extack)
-+{
-+	/* The minimum size of the non-final mPacket supported
-+	 * by the firmware is 64B and multiples of 64B.
-+	 */
-+	if (min_frag_size < 64) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "tx_min_frag_size must be at least 64 bytes");
-+		return -EINVAL;
-+	}
-+
-+	if (min_frag_size % (ETH_ZLEN + ETH_FCS_LEN)) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "tx_min_frag_size must be a multiple of 64 bytes");
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
- #endif /* __NET_TI_ICSSG_QOS_H */
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.c b/drivers/net/ethernet/ti/icssg/icssg_stats.c
-index 7159baa0155c..d27e1c48976f 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_stats.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_stats.c
-@@ -6,7 +6,6 @@
-  */
- 
- #include "icssg_prueth.h"
--#include "icssg_stats.h"
- #include <linux/regmap.h>
- 
- #define ICSSG_TX_PACKET_OFFSET	0xA0
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.h b/drivers/net/ethernet/ti/icssg/icssg_stats.h
-index 5ec0b38e0c67..f35ae1b4f846 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_stats.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_stats.h
-@@ -189,6 +189,11 @@ static const struct icssg_pa_stats icssg_all_pa_stats[] = {
- 	ICSSG_PA_STATS(FW_INF_DROP_PRIOTAGGED),
- 	ICSSG_PA_STATS(FW_INF_DROP_NOTAG),
- 	ICSSG_PA_STATS(FW_INF_DROP_NOTMEMBER),
-+	ICSSG_PA_STATS(FW_PREEMPT_BAD_FRAG),
-+	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_ERR),
-+	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_TX),
-+	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_OK),
-+	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_RX),
- 	ICSSG_PA_STATS(FW_RX_EOF_SHORT_FRMERR),
- 	ICSSG_PA_STATS(FW_RX_B0_DROP_EARLY_EOF),
- 	ICSSG_PA_STATS(FW_TX_JUMBO_FRM_CUTOFF),
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_switch_map.h b/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-index 7e053b8af3ec..855fd4ed0b3f 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-@@ -256,6 +256,11 @@
- #define FW_INF_DROP_PRIOTAGGED		0x0148
- #define FW_INF_DROP_NOTAG		0x0150
- #define FW_INF_DROP_NOTMEMBER		0x0158
-+#define FW_PREEMPT_BAD_FRAG		0x0160
-+#define FW_PREEMPT_ASSEMBLY_ERR		0x0168
-+#define FW_PREEMPT_FRAG_CNT_TX		0x0170
-+#define FW_PREEMPT_ASSEMBLY_OK		0x0178
-+#define FW_PREEMPT_FRAG_CNT_RX		0x0180
- #define FW_RX_EOF_SHORT_FRMERR		0x0188
- #define FW_RX_B0_DROP_EARLY_EOF		0x0190
- #define FW_TX_JUMBO_FRM_CUTOFF		0x0198
--- 
-2.43.0
-
+Reviewed-by: Anirudh Rayabharam (Microsoft) <anirudh@anirudhrb.com>
 
