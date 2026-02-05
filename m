@@ -4,107 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B37ECD9B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 22:19:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6779EECD9AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 22:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bzeO7zZ69I3XN/zyWY5Xw7az0QKbNdDG4yC9XwwJljg=; b=dwTfWZbins3T1Dvc2udIbkdjMd
-	6N3SlyRAhUYdx3q4l3ugrsExgPxmkPRdyzbnj7U3yu5+Kw6BQlyCWDcBQSDYQGVry1jBWaZwoZfLy
-	Lv4yKN6KretJ+Mvo2k+QZn3GL+sU//yU+qx/oAIuyLI3l/6G49KAHk32WqzjLNNLs1o5gUidHXiNY
-	kcMPbuy3dladH/toBiAk37Qz81qBYQsV5+9B2BulPvizBrKV1y+WavUadmKXijQ1OcwVMWE4qKYXQ
-	GLE68IGS/lvgUsu38H02nvIvZ1Q9GQ2HDPeTyKVvvRAZweA47wwUrnrm3saGZqYvRoXPGTH0tI+rb
-	jMdvuS+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ur3im+yw6s5lRPqHTVZ/rsr646t+2SdB/quvTIX3Qzs=; b=y5HnFW/Stxy7WvrIAnBadkTSEK
+	sNqxHzKfH+L6VK4mtEU6bTd2ZRwrX9j7GciHa8lwlsYVX/kcXyUGNtV4NH3kuO8YfjXVkFvsgKMs7
+	a3xQ91KxSI8+L+cG0b5gp77DB0xWfQRalJGnWXGKyfM6t5Li2uYgufZX7dBvwKmF39S3w+eKmRkHl
+	P45vNfZIjC+4fyMAXFkwAK8YO0JrtffR9RJkjx/YEIQAj42dlCD/6EpVM0jCtkIv9Kj8XqWA7E4sp
+	L01G2345tVyVfwHsNJ9Kgl0Ey93/Y/JbNe7eWlUZ/rdOjue/m6kF/rUKHUsZAPp0Brgh8eNJvO6R3
+	gPDa2q5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo7h9-0000000AZ6K-1imw;
-	Thu, 05 Feb 2026 22:19:27 +0000
-Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
+	id 1vo826-0000000Aa1O-1B8x;
+	Thu, 05 Feb 2026 22:41:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo7h6-0000000AZ5U-27T8
+	id 1vo823-0000000Aa1E-29hv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 22:19:26 +0000
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfout.phl.internal (Postfix) with ESMTP id DCBE9EC0568;
-	Thu,  5 Feb 2026 17:19:20 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-02.internal (MEProxy); Thu, 05 Feb 2026 17:19:20 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1770329960; x=1770416360; bh=bzeO7zZ69I
-	3XN/zyWY5Xw7az0QKbNdDG4yC9XwwJljg=; b=Y5jBh20B/zbvNv8ld+x1cD1QEi
-	w0I95yUwCHT0Qyo6pdIA5GBpFt7mK3ax7GQ1KenrlTN1DjLVcYV5sa1pBQu5ctzY
-	8WzQHfrDoIjH854yt7/w4GGUXyLg0OuNn9dbo8hN2QYlk6AfjKI2sGfAKwqB+/ii
-	xEe+gPfA+8xXuvDIT4Qqt8Lxfb3cdJSLBat8t+EG8BP0zDavxJeNLQPIqJto68Db
-	U/zJ5ewucxFuTOaRTV2GkjFQYHv9K1W668aWP6NaMXkYskqEdtqX8E7LuN+BwC1k
-	PyxufgO+oHp69azOqK8vx6Bveb5ut9V9AFk5T09/uLb4M9q/w3p8ATCLZjoA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1770329960; x=1770416360; bh=bzeO7zZ69I3XN/zyWY5Xw7az0QKbNdDG4yC
-	9XwwJljg=; b=VUGbsuPwFOZBgv/QprPB51PABGAZV7UBbXIGZ+wFrT5uA/ZAXiQ
-	16ffcCOOetFXg75p4iw7zNlDGuKUWXm5PrhQBA0YCCt+K3MbHqAAIGw8PsGp4N5d
-	Spl6MnvLUyCKjZb3mh/fKRi+e5LGHpiaPjS/huxXPllGqZWcPGFv4SgVFq2iOGRj
-	e73YUsm9lZS7Mp8eDGrfI7vd4z1Jxv2VmPHoh8ga+3ccd10anDErvUby5sEuK20w
-	IWdkR9+IE/ndmu8j8RxKfEBNK8+YkZx0dhxarESxNudjxohX153DmnGX4bR3iM/5
-	rjG/C+l2boOyxCVkW34uz3SJw7SZ4/PRvOg==
-X-ME-Sender: <xms:aBeFaYbYIVvtbPc1g1xO4vtwiHvOUSvB3xQ-M3zWAQ3mA9kCdnC5TQ>
-    <xme:aBeFafP_qsKKtQNjrA9rJofRnXSMclwzi3e3o1BT4QpV0zKI-SvFALEOTPej97eHJ
-    cygfQNyr-R8hRJqjDuNrVZqCJfRPB5zzbFTTgxrZV8ON7MWZWhsjhY>
-X-ME-Received: <xmr:aBeFaeWFGPsI2UGkM5JytbsR1DMr6khiHkQTxo_n2RjYNRewY3JuHyNYD0i01xoysyAD9ToNNPsJ9eiKHo1mRyJLchUJQc-xJUg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddukeeigeekucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
-    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpeeigf
-    dvheehleegiedtgfeljefgjeevfeejgeetkeetfeevtdefkeeluefhieegtdenucffohhm
-    rghinhepuggvvhhitggvthhrvggvrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenuc
-    frrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrghurdhnvghtpdhnsggprhgtphht
-    thhopeduuddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepshhvvghnsehkvghrnh
-    gvlhdrohhrghdprhgtphhtthhopehkrhiikheskhgvrhhnvghlrdhorhhgpdhrtghpthht
-    ohepnhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtohepthhglhigsehlihhnuhhtrh
-    honhhigidruggvpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphht
-    thhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrod
-    gutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghsrghhiheslhhishhtshdrlhhi
-    nhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhish
-    htshdrihhnfhhrrgguvggrugdrohhrgh
-X-ME-Proxy: <xmx:aBeFacL9hildb1R86kNZTiRGvVhzFFiVSSlflo-u5ziKOX828CNu2A>
-    <xmx:aBeFaRru2Gf4Iw4XBFc6nILrdcPQrreCJWdehWQmEHfcEv-uXzDjUg>
-    <xmx:aBeFabyOP1TGSu_w1B9VGKy4UALegcaa8nGKZ8Y-YS2H04IuSkMgAQ>
-    <xmx:aBeFadu7NWBmwVz8w9pRKksEePDgHlCHnliwirHlGR_Q9Q0rqZu4ZQ>
-    <xmx:aBeFadNZ7bNr-Uf-l8oXQSkVMEdLaaQN6dXC3oCAo6Sy1PxtSklF2vm_>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 5 Feb 2026 17:19:20 -0500 (EST)
-Date: Thu, 5 Feb 2026 23:19:18 +0100
-From: Janne Grunau <j@jannau.net>
-To: Sven Peter <sven@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Neal Gompa <neal@gompa.dev>,
-	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: interrupt-controller: apple,aic2:
- Add AICv3
-Message-ID: <20260205221918.GA71415@robin.jannau.net>
-References: <20260128-irq-apple-aic3-v2-0-b4bc8e16c997@jannau.net>
- <20260128-irq-apple-aic3-v2-1-b4bc8e16c997@jannau.net>
- <20260205-pastoral-magnificent-cuscus-ce58ad@quoll>
- <8f506b2b-1309-4f9e-b8e6-4a73064ea2d0@kernel.org>
+	Thu, 05 Feb 2026 22:41:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E84CC600AD;
+	Thu,  5 Feb 2026 22:41:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9DBFC4CEF7;
+	Thu,  5 Feb 2026 22:40:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770331260;
+	bh=1QH77lN80Kres8OgN/Z7IXiB0dr9VvTvVAnf9VM/fI4=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=BXubLqiAttaMUSHV+NfdZ+g5tJ3ciMr5Z+t5viM96e/rmcM3vwWJgObX4Z7u3Ln07
+	 99QwnpBcPTaNZ2msannroEA6RPs9O4mHfQ6VTjKMB0bAfuu52US4PplQPIdzzz1vfx
+	 52m4efwIkCwC4232WrLokp6LsVblt/2PR031ty25QIeic7XLNRb72l3VO34B77HUHj
+	 67hfRc5x5+WXy7PE2/dIuRHiSjc1/NnfCFN+3qjX0o1umib1tWN0v1ZgBzIYwN4r2Q
+	 lbcd4UG4rJ0cSyx5+SN9Ovc2A1pKlXE3bkXB3bYpmoIjDSrR3vVfCFZEtuHU0CQjjO
+	 ngNue4RAlvgug==
+From: Mark Brown <broonie@kernel.org>
+To: Shengjiu Wang <shengjiu.wang@gmail.com>, Xiubo Li <Xiubo.Lee@gmail.com>, 
+ Ziyi Guo <n7l8m4@u.northwestern.edu>
+Cc: Fabio Estevam <festevam@gmail.com>, 
+ Nicolin Chen <nicoleotsuka@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ kernel@pengutronix.de, linux-sound@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260205052429.4046903-1-n7l8m4@u.northwestern.edu>
+References: <20260205052429.4046903-1-n7l8m4@u.northwestern.edu>
+Subject: Re: [PATCH] ASoC: fsl: imx-rpmsg: use
+ snd_soc_find_dai_with_mutex() in probe
+Message-Id: <177033125765.213903.15587934334040553214.b4-ty@kernel.org>
+Date: Thu, 05 Feb 2026 22:40:57 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <8f506b2b-1309-4f9e-b8e6-4a73064ea2d0@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_141925_140494_970D7847 
-X-CRM114-Status: GOOD (  29.63  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-47773
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,81 +75,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 05, 2026 at 07:01:51PM +0100, Sven Peter wrote:
-> Hi,
+On Thu, 05 Feb 2026 05:24:29 +0000, Ziyi Guo wrote:
+> imx_rpmsg_probe() calls snd_soc_find_dai() without holding client_mutex.
+> However, snd_soc_find_dai() has lockdep_assert_held(&client_mutex)
+> indicating callers must hold this lock, as the function iterates over the
+> global component list.
 > 
-> On 05.02.26 13:50, Krzysztof Kozlowski wrote:
-> > On Wed, Jan 28, 2026 at 09:57:08AM +0100, Janne Grunau wrote:
-> >> AIC version 3 as found on the Apple M3 (t8122) is very similar to AICv2
-> >> in its base functionality. It can use the same device tree bindings as
-> >> AICv2 so add it to the AICv2 bindings.
-> >> This interrupt controller is used on all Apple SoCs starting with M3 up
-> >> to at least M5.
-> >> The only apparent difference is the increased IRQ config offset. Apple's
-> >> device tree codes this new offset as property of the "aic" node but the
-> >> value stayed constant for all SoCs with "aic,3". Since the SoC specific
-> >> compatible "apple,t8122-aic3" will be used in the driver this offset can
-> >> remain a driver implementation detail.
-> >>
-> >> Signed-off-by: Janne Grunau <j@jannau.net>
-> >> ---
-> >>   .../bindings/interrupt-controller/apple,aic2.yaml  | 45 +++++++++++++++++-----
-> >>   1 file changed, 36 insertions(+), 9 deletions(-)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-> >> index ee5a0dfff437816056bda0de5523bf38be4f49ba..a6e2251fcc111340c0a27ab6912452f6b1255be2 100644
-> >> --- a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-> >> +++ b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-> >> @@ -4,10 +4,10 @@
-> >>   $id: http://devicetree.org/schemas/interrupt-controller/apple,aic2.yaml#
-> >>   $schema: http://devicetree.org/meta-schemas/core.yaml#
-> >>   
-> >> -title: Apple Interrupt Controller 2
-> >> +title: Apple Interrupt Controller 2 and 3
-> >>   
-> >>   maintainers:
-> >> -  - Hector Martin <marcan@marcan.st>
-> >> +  - Janne Grunau <j@jannau.net>
-> >>   
-> >>   description: |
-> >>     The Apple Interrupt Controller 2 is a simple interrupt controller present on
-> >> @@ -28,14 +28,24 @@ description: |
-> >>     which do not go through a discrete interrupt controller. It also handles
-> >>     FIQ-based Fast IPIs.
-> >>   
-> >> +  The Apple Interrupt Controller 3 is in its base functionality very similar to
-> >> +  the Apple Interrupt Controller 2 and uses the same device tree bindings. It is
-> >> +  found on Apple ARM SoCs platforms starting with t8122 (M3).
-> >> +
-> >>   properties:
-> >>     compatible:
-> >> -    items:
-> >> -      - enum:
-> >> -          - apple,t8112-aic
-> >> -          - apple,t6000-aic
-> >> -          - apple,t6020-aic
-> >> -      - const: apple,aic2
-> >> +    oneOf:
-> >> +      - items:
-> >> +          - enum:
-> >> +              - apple,t8112-aic
-> >> +              - apple,t6000-aic
-> >> +              - apple,t6020-aic
-> > 
-> > If you are re-shuffling these, you can as well sort alphanumerically.
+> All other callers of snd_soc_find_dai() either hold client_mutex via the
+> snd_soc_bind_card() path or use the snd_soc_find_dai_with_mutex() wrapper.
 > 
-> I don't have a strong opinion here but the last time this came up we 
-> agreed that we'd go with release order IIRC for consistency since that 
-> order is used in every other binding for this platform.
+> [...]
 
-The intended scheme as documented in some commit messages is first base
-Mx SoCs in release order and then Mx Pro/Max/Ultra SoCs in release
-order. This scheme isn't used consistently though. I think I fixed that
-in one or two bindings already but there are other using a different
-order.
-I think these unecessarily complex rules are guaranteed to lead to
-inconsistencies. I'll resort the entries alphabetically as that's the
-only rule with a chance of consistent use.
+Applied to
 
-Janne
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+
+Thanks!
+
+[1/1] ASoC: fsl: imx-rpmsg: use snd_soc_find_dai_with_mutex() in probe
+      commit: 84faa91585fa22a161763f2fe8f84a602a196c87
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
