@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD8EE91290
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 09:04:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17BA4E91297
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 09:06:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+TKP0Y5FCmPZZbNXfbn8m8lbJddzuhZ7SMNmoZIUhQk=; b=XC5fWfQN6fENqt3IMRKdIzC5bL
-	eh+uS0D+ZVxt6UMAI2ZO7voUHcue6M3nCMnSU1sQV2pcwIz4IAhcIL7ZPlcLpFACUC44A67qYMrNX
-	a6GvjnHLb8I2T51gHXOGpS5mG4W/0xxx+yGh6fsddEZZFZ1wmGj1/cDBHmrAh+k+QRm9YMIx4TY5O
-	wy/JzFHo5Od294FR1NdO2rXBSHw+zyl/GhdX/DF+4DtaQoDqHuORRKaL5q54TWiKibXiEBz9jekFW
-	cXetUkh1EeBp1SFqg6O1TcM6SFocuTduGdRvyx51+a04/H2BMpmHClhrp2YFH43EW53N5fewak03X
-	+HJXxmTw==;
+	bh=Fx446SfCOvY8Y7VjGtm28+kcBlQIDW8MFZiPxUFkmKw=; b=EcrGF+0BDkS3qFTa2JGX2T+xyJ
+	IPyixrOAapmR9MT80cbJ4X9U+YhKBIFYViGtlkWPzU2PO2VsbFU6jV4F9fVH8sJWaFTUTw72xLMqF
+	5OEk4/8D76/UxnIMG9O/N9TzLAAa3SIWPOECENsq+xI8p/5Ev3WvO8+tgtWTUtE6yym0LuwfDgraS
+	uTGWxh6I2sshz/7SOqdM5p0EB+l2kf4IIuhQWXpvUOq05/pXZOs2L81c5gvmoBIe6NYjmcxGuIma6
+	xvfUq6Up1XiufXFkP8a4Med8iI5+Bj1DouC1gh3JlqNTpesFeIlOvo+D78HsWoV7Kcq1ZQ0hGNEG9
+	JzTQHn8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnvI7-00000009eiK-2nJ4;
-	Thu, 05 Feb 2026 09:04:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vnvK3-00000009evY-0JZJ;
+	Thu, 05 Feb 2026 09:06:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnvI6-00000009eiC-14WC
+	id 1vnvK0-00000009euo-2yPg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 09:04:46 +0000
+	Thu, 05 Feb 2026 09:06:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 41D5A6011F;
-	Thu,  5 Feb 2026 09:04:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53D09C4CEF7;
-	Thu,  5 Feb 2026 09:04:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E51394325A;
+	Thu,  5 Feb 2026 09:06:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F89EC4CEF7;
+	Thu,  5 Feb 2026 09:06:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770282285;
-	bh=4Q5WeQu/zTwn2zFF4bLWq5TBudvcoe4OZlMwzecKFa0=;
+	s=k20201202; t=1770282403;
+	bh=wop1MDyqRMZWsQk4JZXsjUmD3eQ+EYfWTPAV7uuZhs0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=il+tnjjqfcObw8VUHdAcqKUOKvG6tuOYzTMlPo2kfWf8EUmCbq1NyImS4afMIA6Y8
-	 7OUzGEGDWWj06W51MoP6zYw/ec/GYUbJyrHZyqp2Y/ZVQEShHi8ukXqT/iNarAo4Lt
-	 mXkNDGk7T2akLW2LVbS6I5+XDyVeVZr7KyGzP6/7k35UXcQY7NaSItCeqTMYnE/4+l
-	 CWGFfOZLRAYGZBlrtBmUJZXCcyOl+0XzUM4+Wr4Xshr5HOp9dlfBYwgh0YX3qqR2Hm
-	 c1xyGW+7iyGWzNe+CX1nKLO25gwDkwZkdZHYzJJhzvmWXEmeAcRs9MLoZrAzWt7VVj
-	 opVpoXShBcZgQ==
-Message-ID: <5ef32c40-41af-430d-a511-ba8322883e3a@kernel.org>
-Date: Thu, 5 Feb 2026 10:04:39 +0100
+	b=Lm6mfioHgKYTnD10rUl1ybeUS1J/LkEou9yIVTnDmauSRImgY0mtFiEJjAUwQk63N
+	 1tumNyGFg1e6qgAZB1Fvs1rbPsy+UewfBusScbuRFCKkbXFqFuIzVgNhpTUDdbV0Kk
+	 1EtoaAl/onkYIl55Oyh/9kUSnE4YeSzh2/Hf8g2SQ4T6zuA239UYMgNl8/r/TOFewC
+	 sdbjyrP3ANcY2gFzhBKQspDfV6FuhWc6DrpREfewfKc1hXWjG1VNreUVbhBaYLPQM2
+	 JpD4yIwvYBaYZ5h/iQ3ENLGpZkXic1Lcp72kufwsY6mDvdUpDNKsS3sHpti4sQIIIo
+	 s6JHqR9ywFjXQ==
+Message-ID: <559fe142-80ef-4f88-bb53-ce602b4e26af@kernel.org>
+Date: Thu, 5 Feb 2026 10:06:38 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 12/19] dt-bindings: dma: ti: Add K3 BCDMA V2
+Subject: Re: [PATCH v4 13/19] dt-bindings: dma: ti: Add K3 PKTDMA V2
 To: Sai Sree Kartheek Adivi <s-adivi@ti.com>, peter.ujfalusi@gmail.com,
  vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  nm@ti.com, ssantosh@kernel.org, dmaengine@vger.kernel.org,
@@ -54,7 +54,7 @@ To: Sai Sree Kartheek Adivi <s-adivi@ti.com>, peter.ujfalusi@gmail.com,
  linux-arm-kernel@lists.infradead.org, vigneshr@ti.com
 Cc: r-sharma3@ti.com, gehariprasath@ti.com
 References: <20260130110159.359501-1-s-adivi@ti.com>
- <20260130110159.359501-13-s-adivi@ti.com>
+ <20260130110159.359501-14-s-adivi@ti.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,9 +100,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260130110159.359501-13-s-adivi@ti.com>
+In-Reply-To: <20260130110159.359501-14-s-adivi@ti.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260205_010644_789616_6760AAFC 
+X-CRM114-Status: UNSURE (   6.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,35 +123,16 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On 30/01/2026 12:01, Sai Sree Kartheek Adivi wrote:
 > New binding document for
-> Texas Instruments K3 Block Copy DMA (BCDMA) V2.
+> Texas Instruments K3 Packet DMA (PKTDMA) V2.
 > 
-> BCDMA V2 is introduced as part of AM62L.
+> PKTDMA V2 is introduced as part of AM62L.
 > 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+> ---
+>  .../bindings/dma/ti/ti,k3-pktdma-v2.yaml      | 90 +++++++++++++++++++
 
-NAK, you ignored my review
-
-...
-
-> +
-> +        crypto@40800000 {
-> +            compatible = "ti,am62l-dthev2";
-
-NAK, you already received review. You cannot add more things here in hiding.
-
-
-> +            reg = <0x00 0x40800000 0x00 0x14000>;
-> +
-> +            dmas = <&main_bcdma 0 0 0x4700 0>,
-> +                   /* rx: Split channel, no trigger, PSI-L thread id, ASEL value */
-> +                   <&main_bcdma 0 0 0xc701 0>,
-> +                   /* tx1: Split channel, no trigger, PSI-L thread id, ASEL value */
-> +                   <&main_bcdma 0 0 0xc700 0>;
-> +                   /* tx2: Split channel, no trigger, PSI-L thread id, ASEL value */
-> +            dma-names = "rx", "tx1", "tx2";
-> +        };
-> +    };
-
+You ignored previous comments and repeated same mistake(s) here.
+Additionally you added more things which we did not ask you to add...
 
 Best regards,
 Krzysztof
