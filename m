@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94FAFECD983
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 16:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC455ECD981
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 16:20:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SIGtsCjedCkQ2XcBx++sVU0LQGhcodgsYVu5gusy8bY=; b=YHA3nL8xU5J/okgbKit/qlXnKh
-	RyNR/24XuCJWObbFnS72tJ+4ibfF4heNyYgQjlVcJoSQxnAeB2JQWlrej8zG/QneEVX4/SptWjiv1
-	aXW0WxfUEb8a3DVZhKMW1PYzgKy1r6TFtUebijmjhhsfVY0qQIVmXTm18LoxZuTkYceCBM0dE6kgx
-	tlnRuAelJuEAlQ9NIfln0ZhrmZFZoVSgpi7ZY4GXRn2imsADNEjjSl+LQWmDPnbQH4GLU8CsDeK+A
-	y+q8LCrzTroqLhcLwkbE054upMckQ8TRqXu6g1O9NyHIfbctRZe9DTUcfqBkerF5EVhM/NVtTmdaK
-	XfNzudEQ==;
+	bh=r5rQdE5T9qbmhnzprOOe/wAIrsJp3cap5DTTM0INxII=; b=gUB9Ykw1ABlWHg0d6+S9kxuh0W
+	Sj5twBMjg7VoDZiRfY+CLYmXin9br30RChQU3uPY+/WYf8J85FhlPhVgQNz4eu4VG2P3lwVTZ6BWl
+	oBKs/PoUqM1uc9caLO/JtWJ2e14ktkQG8fSB6+8EG5oZRGCMzU6e40zELxbLfUC+ekyNfnKJduovG
+	OkRb70B8nNVgQ4nmSDrLgfh3vjeWKz7F6s7Axwh+Mq2t65Ni0JDHpAU1JMlm0DrG6qe2oIIXuDFQD
+	Ly4nbej10VbNaAtxmpLcMQVY68LhAoL3WgqjMLzn/zQIoG9xjxrg21x6Yz8h60q1genSrSKQIdO3m
+	A+rr/3mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo221-0000000ADXu-12fH;
-	Thu, 05 Feb 2026 16:16:37 +0000
+	id 1vo263-0000000ADsf-05Fh;
+	Thu, 05 Feb 2026 16:20:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo21x-0000000ADXP-2hgL
+	id 1vo25z-0000000ADsI-45ca
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 16:16:35 +0000
+	Thu, 05 Feb 2026 16:20:45 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 56515339;
-	Thu,  5 Feb 2026 08:16:25 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC098339;
+	Thu,  5 Feb 2026 08:20:35 -0800 (PST)
 Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E314C3F632;
-	Thu,  5 Feb 2026 08:16:25 -0800 (PST)
-Date: Thu, 5 Feb 2026 16:16:23 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 85D6C3F632;
+	Thu,  5 Feb 2026 08:20:36 -0800 (PST)
+Date: Thu, 5 Feb 2026 16:20:33 +0000
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Ben Horgan <ben.horgan@arm.com>
 Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
@@ -51,17 +51,18 @@ Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
 	suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
 	zengheng4@huawei.com, linux-doc@vger.kernel.org,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: Re: [PATCH v4 04/41] arm64: mpam: Context switch the MPAM registers
-Message-ID: <aYTCV8E9ZFn4_FND@arm.com>
+Subject: Re: [PATCH v4 05/41] arm64: mpam: Re-initialise MPAM regs when CPU
+ comes online
+Message-ID: <aYTDUStE3RJp_ht4@arm.com>
 References: <20260203214342.584712-1-ben.horgan@arm.com>
- <20260203214342.584712-5-ben.horgan@arm.com>
+ <20260203214342.584712-6-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260203214342.584712-5-ben.horgan@arm.com>
+In-Reply-To: <20260203214342.584712-6-ben.horgan@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_081633_803031_30621355 
-X-CRM114-Status: GOOD (  27.98  )
+X-CRM114-CacheID: sfid-20260205_082044_049681_BEF62BDB 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,60 +77,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 03, 2026 at 09:43:05PM +0000, Ben Horgan wrote:
+On Tue, Feb 03, 2026 at 09:43:06PM +0000, Ben Horgan wrote:
 > From: James Morse <james.morse@arm.com>
 > 
-> MPAM allows traffic in the SoC to be labeled by the OS, these labels are
-> used to apply policy in caches and bandwidth regulators, and to monitor
-> traffic in the SoC. The label is made up of a PARTID and PMG value. The x86
-> equivalent calls these CLOSID and RMID, but they don't map precisely.
+> Now that the MPAM system registers are expected to have values that change,
+> reprogram them based on the previous value when a CPU is brought online.
 > 
-> MPAM has two CPU system registers that is used to hold the PARTID and PMG
-> values that traffic generated at each exception level will use. These can
-> be set per-task by the resctrl file system. (resctrl is the defacto
-> interface for controlling this stuff).
-> 
-> Add a helper to switch this.
-> 
-> struct task_struct's separate CLOSID and RMID fields are insufficient to
-> implement resctrl using MPAM, as resctrl can change the PARTID (CLOSID) and
-> PMG (sort of like the RMID) separately. On x86, the rmid is an independent
-> number, so a race that writes a mismatched closid and rmid into hardware is
-> benign. On arm64, the pmg bits extend the partid.
-> (i.e. partid-5 has a pmg-0 that is not the same as partid-6's pmg-0).  In
-> this case, mismatching the values will 'dirty' a pmg value that resctrl
-> believes is clean, and is not tracking with its 'limbo' code.
-> 
-> To avoid this, the partid and pmg are always read and written as a
-> pair. This requires a new u64 field. In struct task_struct there are two
-> u32, rmid and closid for the x86 case, but as we can't use them here do
-> something else. Add this new field, mpam_partid_pmg, to struct thread_info
-> to avoid adding more architecture specific code to struct task_struct.
-> Always use READ_ONCE()/WRITE_ONCE() when accessing this field.
-> 
-> Resctrl allows a per-cpu 'default' value to be set, this overrides the
-> values when scheduling a task in the default control-group, which has
-> PARTID 0. The way 'code data prioritisation' gets emulated means the
-> register value for the default group needs to be a variable.
-> 
-> The current system register value is kept in a per-cpu variable to avoid
-> writing to the system register if the value isn't going to change.  Writes
-> to this register may reset the hardware state for regulating bandwidth.
-> 
-> Finally, there is no reason to context switch these registers unless there
-> is a driver changing the values in struct task_struct. Hide the whole thing
-> behind a static key. This also allows the driver to disable MPAM in
-> response to errors reported by hardware. Move the existing static key to
-> belong to the arch code, as in the future the MPAM driver may become a
-> loadable module.
-> 
-> All this should depend on whether there is an MPAM driver, hide it behind
-> CONFIG_ARM64_MPAM.
+> Previously MPAM's 'default PARTID' of 0 was always used for MPAM in
+> kernel-space as this is the PARTID that hardware guarantees to
+> reset. Because there are a limited number of PARTID, this value is exposed
+> to user-space, meaning resctrl changes to the resctrl default group would
+> also affect kernel threads.  Instead, use the task's PARTID value for
+> kernel work on behalf of user-space too. The default of 0 is kept for both
+> user-space and kernel-space when MPAM is not enabled.
 > 
 > Tested-by: Gavin Shan <gshan@redhat.com>
 > Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 > Tested-by: Peter Newman <peternewman@google.com>
-> CC: Amit Singh Tomar <amitsinght@marvell.com>
 > Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 > Signed-off-by: James Morse <james.morse@arm.com>
 > Reviewed-by: Gavin Shan <gshan@redhat.com>
