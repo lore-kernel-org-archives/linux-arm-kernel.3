@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8776EC1EB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 13:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B3D0EC1EB5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 13:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hWKzf6vrUReo+tp1QBwyrmEp+vwwk6NvvtFGXbT83gY=; b=ky2sgOozyvJo3obMuYyyIecZAc
-	3rZm1hyMEQDboPY3/swe5cFjognZbQ/EsQlhBSwphKy6GWVbQwVO5nqILFuQt9aYAP6BdPx7M/Upl
-	BOqITjCpgRFjsMm6h94GCNAMn30zsrKtROdvj0u+eRJc1+vdD+KjB9NMW2Tw+ghV4b4iGpcODjQRA
-	V6cSVXXyYalbihn216vsic9v5Vq2wA0JLWz1yU3gIEGRVGWoEohnK8wopdc5LHqAumnSDA4AA7AiN
-	ux4LyCFhJnUmSR8HQCgSelmWQVjEb7vqyinIuZKKVe42KzWgi89cI+FMwFgR+e5In6i2WI3VIxpbp
-	wXyc6JrA==;
+	bh=hiGoBkEnV90MVWjY4YdaHWKIlAoMwCWJG9iOnM9l0eI=; b=t77TyKxsFi673w5E6Pf2Zr0Je6
+	HwaKylp5d2Da9/m61D9a/roNON6xllYmNqL4IF1CnB1usEfMbaO7bpvDSui7mhsBKcGPAN/cKvvn6
+	jLlGo8Wp7MxIS/8sH+XJY+OPV4AteLA6QWnLKsyXqLES8SWv0V9by+jMOgSTwPtNNBFSVEc5Y4Y7P
+	Ju2uohxwvX9tCAQcgf1IkZuHFT/ZsVB1qdPvVtABtWXsCemKdgI7ATaFxd7bm3FcjvoTcOv4zsgUX
+	CoBQkv5YAEr6iRInpx8Bho3Ke4eVwk5lYtIeCxzEI8VEKxMx8uCYIOQr/8XqSUs4bn0DV4afGofd5
+	biG55Xkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnzPC-00000009ws2-1Hhn;
-	Thu, 05 Feb 2026 13:28:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vnzSR-00000009x7T-31TA;
+	Thu, 05 Feb 2026 13:31:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnzPB-00000009wrm-05kh;
-	Thu, 05 Feb 2026 13:28:21 +0000
+	id 1vnzSQ-00000009x6i-0rkN;
+	Thu, 05 Feb 2026 13:31:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 71CBE60010;
-	Thu,  5 Feb 2026 13:28:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10184C4CEF7;
-	Thu,  5 Feb 2026 13:28:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1E70B60010;
+	Thu,  5 Feb 2026 13:31:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DD79C4CEF7;
+	Thu,  5 Feb 2026 13:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770298100;
-	bh=RVwIHojJPFtR1L6mECLDirnCU93wad5+Ug+yqXZvlGY=;
+	s=k20201202; t=1770298300;
+	bh=AUQFfU1fkfkYPuW5V8T6xoRa8uZPnGIai8orsPwhtOk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hCy9lXRU7VwFbtpEzZC8tJW3BxP0Y+kkOtXRSjO0Y/EbAqe2ZZTbmD3BTi+LY6IvV
-	 3VDoNHBAthurR5saMIBgCknSgSKPY2kGtXATsfjShk+vrtTpIeuOCp/3+PRWt4h+7V
-	 NfsIGMCSL9N8FHQWjGcnLmRfl9x363lCi8STV4b2xUCDb+V5S7N4RZFBFOyHW5eVAh
-	 p+nrJ0Y1mgPjQ2mbhzLmSLjkiqokuvr17PC7JJzYeMGiQeTE4nPNaH4ako1HCiqwT/
-	 303Cny++W7VOs+ai2NNL3LA5Vh9EvxCBWwE1HqldlEbOWmjNfjQjG11uvFZZKfRlIm
-	 Z5WIAf475MuMg==
-Date: Thu, 5 Feb 2026 14:28:13 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Hans Zhang <18255117159@163.com>
-Cc: Ricardo Pardini <ricardo@pardini.net>, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, bhelgaas@google.com, helgaas@kernel.org,
-	heiko@sntech.de, mani@kernel.org, yue.wang@amlogic.com,
-	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
-	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v7 0/2] PCI: Configure Root Port MPS during host probing
-Message-ID: <aYSa7d8G1adGho0z@ryzen>
-References: <20251127170908.14850-1-18255117159@163.com>
- <f5322597-c6dd-494a-863b-2caf24363f2d@pardini.net>
- <1ff0d069-14f0-439a-afca-4ecc1b569834@163.com>
+	b=M6eYmqV7WCmThEk7wZK3ZffIxf7rs/+OjSNoi+Fqwrb8lUVp8teCejpP7msvpLvAC
+	 4im2YokdR2XeIVsdFhKS1AMFgnaIUEqaqEgAAlGFXaVd+WDqO2Y/XlvNY/GjsWgBnE
+	 cJlxzesSJytLbOvjG0uVxaiRaFTcllpsD70oqQ3RrXAOjzXFeHRLwCVwe3LWlZwL+U
+	 AMdJNOZqkoYM4tVUhoblnUENgUYy1Ql1+RUyRKPKItRDopgGlDABE21jldTeh9W6//
+	 hr30x04VDIuYazXVMRJWmckA+1f3sKHc2sn5/BdAXrVKHgVKcUDxSM1cHzF1VxyhBQ
+	 UONJYSp0vSOhw==
+Date: Thu, 5 Feb 2026 14:31:38 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Andy Yan <andyshrk@163.com>
+Cc: dmitry.baryshkov@oss.qualcomm.com, heiko@sntech.de, alchark@gmail.com, 
+	andrzej.hajda@intel.com, conor+dt@kernel.org, cristian.ciocaltea@collabora.com, 
+	airlied@gmail.com, jernej.skrabec@gmail.com, jonas@kwiboo.se, 
+	kever.yang@rock-chips.com, krzk+dt@kernel.org, Laurent.pinchart@ideasonboard.com, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, neil.armstrong@linaro.org, 
+	nicolas.frattaroli@collabora.com, robh@kernel.org, rfoss@kernel.org, hjc@rock-chips.com, 
+	sebastian.reichel@collabora.com, simona@ffwll.ch, tzimmermann@suse.de, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH v2 1/5] dt-bindings: display: rockchip: Add rk3576
+ DisplayPort
+Message-ID: <20260205-shrewd-honeybee-of-diversity-f3e9c6@quoll>
+References: <20260201081338.407999-1-andyshrk@163.com>
+ <20260201081338.407999-2-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <1ff0d069-14f0-439a-afca-4ecc1b569834@163.com>
+In-Reply-To: <20260201081338.407999-2-andyshrk@163.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,74 +77,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 18, 2026 at 09:26:45PM +0800, Hans Zhang wrote:
-> On 2025/12/31 10:58, Ricardo Pardini wrote:
-> > On 27/11/2025 18:09, Hans Zhang wrote:
-> > > Current PCIe initialization exhibits a key optimization gap: Root Ports
-> > > may operate with non-optimal Maximum Payload Size (MPS) settings. While
-> > > downstream device configuration is handled during bus enumeration, Root
-> > > Port MPS values inherited from firmware or hardware defaults often fail
-> > > to utilize the full capabilities supported by controller hardware. This
-> > > results in suboptimal data transfer efficiency throughout the PCIe
-> > > hierarchy.
-> > > 
-> > > This patch series addresses this by:
-> > > 
-> > > 1. Core PCI enhancement (Patch 1):
-> > > - Proactively configures Root Port MPS during host controller probing
-> > > - Sets initial MPS to hardware maximum (128 << dev->pcie_mpss)
-> > > - Conditional on PCIe bus tuning being enabled (PCIE_BUS_TUNE_OFF unset)
-> > >    and not in PCIE_BUS_PEER2PEER mode (which requires default 128 bytes)
-> > > - Maintains backward compatibility via PCIE_BUS_TUNE_OFF check
-> > > - Preserves standard MPS negotiation during downstream enumeration
-> > > 
-> > > 2. Driver cleanup (Patch 2):
-> > > - Removes redundant MPS configuration from Meson PCIe controller driver
-> > > - Functionality is now centralized in PCI core
-> > > - Simplifies driver maintenance long-term
-> > > 
-> > > ---
-> > > Changes in v7:
-> > > - Exclude PCIE_BUS_PEER2PEER mode from Root Port MPS configuration
-> > > - Remove redundant check for upstream bridge (Root Ports don't have one)
-> > > - Improve commit message and code comments as per Bjorn.
-> > Hi Hans,
-> > 
-> > I've tested on an Odroid-HC4 with a SATA SSD (via an ASM1061) by
-> > applying your v7 on v6.19-rc3 + Bjorn's 20251103221930.1831376-1-
-> > helgaas@kernel.org ("PCI: meson: Remove meson_pcie_link_up() timeout,
-> > message, speed check" which is required to get the meson PCIe to work at
-> > all since 6.18). With that setup I get:
-> > 
-> > # hdparm --direct -t /dev/sda
-> >   Timing O_DIRECT disk reads: 832 MB in  3.00 seconds = 277.33 MB/sec
-> > 
-> > I've an identical machine, with a similar disk (even slightly faster, on
-> > paper), running plain 6.12.y and there I get:
-> > 
-> > # hdparm --direct -t /dev/sda
-> >   Timing O_DIRECT disk reads: 764 MB in  3.00 seconds = 254.26 MB/sec
-> > 
-> > I repeated those a few times, not very scientific, I know; but anyway:
-> > 
-> > Tested-by: Ricardo Pardini <ricardo@pardini.net> # on Odroid-HC4
-> > 
-> > I've also feedback from another user running with this series with
-> > success on a different meson PCIe machine, will ask them to TB as well;
-> > they had reported a significant drop in performance since v6.18 without
-> > this.
-> Hi,
+On Sun, Feb 01, 2026 at 04:13:27PM +0800, Andy Yan wrote:
+> From: Andy Yan <andy.yan@rock-chips.com>
 > 
-> Thank you very much for your test. Let's wait for Bjorn's reply.
+> The DisplayPort found on RK3576 is very similar to that of RK3588,
+> but work in dual pixel mode. And itself does not depend on the I2S
+> clock or the SPDIF clock when transmit audio.
+> 
+> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> 
+> ---
+> 
+> Changes in v2:
+> - Remove unnecessary maxItems
+> 
+>  .../display/rockchip/rockchip,dw-dp.yaml      | 27 ++++++++++++++++---
+>  1 file changed, 24 insertions(+), 3 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+> index 6345f0132d43..8a5299755abf 100644
+> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+> @@ -27,13 +27,11 @@ description: |
+>    * Pixel clock up to 594MHz
+>    * I2S, SPDIF audio interface
+>  
+> -allOf:
+> -  - $ref: /schemas/sound/dai-common.yaml#
+> -
+>  properties:
+>    compatible:
+>      enum:
+>        - rockchip,rk3588-dp
+> +      - rockchip,rk3576-dp
 
-Probably too late for the 6.20 / 7.0 merge window...
+Wrongly orderd. 76 < 88.
 
-But.. it would be nice with some kind of feedback from Bjorn.
+Best regards,
+Krzysztof
 
-Is there any chance that this gets applied for 6.21/7.1 or is there
-any fundamental objection against this series?
-
-
-Kind regards,
-Niklas
 
