@@ -4,70 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BE9EECD998
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 19:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16323ECD998
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 19:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LSSYkJlrbEPt5U5v9EB/8jk2+eRw0+NfeWP0evGajjo=; b=PCff9w5zm5nhVeQrKzQD62eGK0
-	IWe8BWv0Nxzus1HvpJKJS9aF0YyWnWp94aaTF0CCT75yoy/SXjwcrbT5j1KZq9GvhXejLDw9uZy96
-	HeRSd8tLJ01whkAuDXxLw/oeYZdiYFFnryW93l1uD2IAKvAKO4mt9YlaEUysy3UtXWYm7oU58tonq
-	Y6PJ+9/iubvNgkAY7aWWTQ2b/8XS+Z3iWaqK83Ub53C523FCPuB5PrBtOfquVBaq/EAALcydhsmlx
-	LTaZgq3HmjmJq3lkCe0Z1yHPexTPITD3sYbYvZxEpniticOj0VB0/q6G3cJHdkLeq1E43Swm893O/
-	prS1iiMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vmFlqkIkNu6xvUvAqEBq231tObXuQzPEymlXsN9NeUA=; b=uAf1jHjU60cKQw1LvYyATUO1s1
+	hsGwErKqKjH5jF+cP6b7JZR+b/5bGg0eNLxWZSjPZ5vWZq+qIY4mh3TQjKy1tGzNGjSObwpT35lzE
+	MfgTe5ka5zBKf2AQ0RM+vQsVrXgn3JJVWIIr9KtxyaMw6tVKSZnLv2x4qnKbJ+arxZXNIiLwr+So1
+	vsZnhQYtm1ev5QYgHJzSg+shHRT8/bbytXQcrCipwlQnxrP403ICSy/AYR++jjuduur5sKYFtOSkU
+	tskmVP8t0FwVUTJEWQd1uhXOtSFcwLmJ2JLy08ZLVJ/ysbH/AYvR2RoXUXVlouDaYA6jRTeHbJ5Qy
+	HKC+VKcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo4x1-0000000AQp4-36J3;
-	Thu, 05 Feb 2026 19:23:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vo5HW-0000000ARYT-3pdX;
+	Thu, 05 Feb 2026 19:44:50 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo4wy-0000000AQoe-0RBE
+	id 1vo5HU-0000000ARY6-24OT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 19:23:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3908C4431B;
-	Thu,  5 Feb 2026 19:23:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDAC8C4CEF7;
-	Thu,  5 Feb 2026 19:23:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770319414;
-	bh=G1U9qmKeYw7srGWrHZGGnGjqRH6CMWDQPVKmIp3JezE=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=RJNwh4mO/IzcwBr//npGg7UaMqf+CpIBk1v1Eg26Sum57PvQyj8eZmy1mJGKak/uw
-	 7YdiVZpidR8JBMEJWa9W/Ip2N96p6xmjUz5WyctsNQKDugg1lkculV0XaougDrVKGw
-	 06vWWgCi/e18OoYwS1VUUGf8VsitfAmfJemc+8lUpj9TmMOwv7VcQdI3YMOpi2Nb+V
-	 0i3KNvaozU/njDcWkzmHlfGCtBWcw7O5PXbh2OAvLSkTWs8zUavYuYim2sO4Lkiazr
-	 WmyAGsac3x7Zspfm2Y8jRrMAvA7TyX2zo6TzXPSzvbJw5WynP9PJRD0okbYaiNmtUd
-	 yR9HrJbF2iB7A==
-From: Nathan Chancellor <nathan@kernel.org>
-To: linux-arm-kernel@lists.infradead.org, Simon Glass <sjg@chromium.org>
-Cc: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
- =?utf-8?q?J_=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>, 
- Masahiro Yamada <masahiroy@kernel.org>, 
- Ahmad Fatoum <a.fatoum@pengutronix.de>, Tom Rini <trini@konsulko.com>, 
- Chen-Yu Tsai <wenst@chromium.org>, Alice Ryhl <aliceryhl@google.com>, 
- Ard Biesheuvel <ardb@kernel.org>, David Sterba <dsterba@suse.com>, 
- Josh Poimboeuf <jpoimboe@kernel.org>, Kees Cook <kees@kernel.org>, 
- Nathan Chancellor <nathan@kernel.org>, Nick Terrell <terrelln@fb.com>, 
- Nicolas Schier <nsc@kernel.org>, Petr Mladek <pmladek@suse.com>, 
- linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Nicolas Schier <nsc@kernel.org>
-In-Reply-To: <20260106162738.2605574-1-sjg@chromium.org>
-References: <20260106162738.2605574-1-sjg@chromium.org>
-Subject: Re: [PATCH v9 0/6] scripts/make_fit: Support ramdisks and faster
- operations
-Message-Id: <177031941047.2027657.11296594038346797555.b4-ty@kernel.org>
-Date: Thu, 05 Feb 2026 12:23:30 -0700
+	Thu, 05 Feb 2026 19:44:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=vmFlqkIkNu6xvUvAqEBq231tObXuQzPEymlXsN9NeUA=; b=A7kMgie1OeBmxHx9znE47EBgVz
+	E6Z1ET2DAGRgWJnDTIDeXAKmrDR9Q5RNUYKb3AIt0X2MqwfJfvpp0wfJwO2sdjKS8h8paQLyx9Bhk
+	y9CTtWgDbWTtiMh0lrZJaFtNJ4JUOyMAgSgIopsnQ/6kE5rtVmpg6iJ1J4Qq4H569JSM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vo5HK-006Hey-3K; Thu, 05 Feb 2026 20:44:38 +0100
+Date: Thu, 5 Feb 2026 20:44:38 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org
+Subject: Re: [PATCH RFC net-next] net: stmmac: add documentation about clocks
+Message-ID: <0ddd8a12-2c24-4730-9cf3-893ad4db0c6a@lunn.ch>
+References: <E1vo47h-00000007l0I-3rzN@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1vo47h-00000007l0I-3rzN@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_112336_197915_27CC4200 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20260205_114448_549224_915C756F 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,43 +68,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 06 Jan 2026 09:27:30 -0700, Simon Glass wrote:
-> This series updates 'make image.fit' to support adding a ramdisk to the
-> FIT, provided as a parameter.
+On Thu, Feb 05, 2026 at 06:30:37PM +0000, Russell King (Oracle) wrote:
+> Add documentation covering stmmac_clk, pclk, clk_ptp_ref and clk_tx_i
+> in the hope that this will help understand what each of these clocks
+> are for.
 > 
-> It also includes a few performance improvement, so that building a FIT
-> from ~450MB of kernel/module/devicetree files only takes a few seconds
-> on a modern machine.
+> There is confusion around stmmac_clk and pclk which can't be easily
+> resolved today as the Imagination Technologies Pistachio board that
+> pclk was introduced for has no public documentation and is likely now
+> obsolete. So the origins of pclk are lost to the winds of time.
 > 
-> [...]
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+> 
+> Is this worth documenting, despite the vagueness of stmmac_clk vs pclk?
+> Too verbose? Or not sufficient information? What do people think?
 
-Applied to
+I think it is worth documenting.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/kbuild/linux.git kbuild-next
+I also wounder how many DT authors will look here, and be able to
+translate the named used here to what snps,dwmac.yaml has:
 
-Thanks!
+  clock-names:
+    minItems: 1
+    maxItems: 10
+    additionalItems: true
+    contains:
+      enum:
+        - stmmaceth
+        - pclk
+        - ptp_ref
 
-[1/6] scripts/make_fit: Speed up operation
-      https://git.kernel.org/kbuild/c/621fd65adc825
-[2/6] scripts/make_fit: Support an initial ramdisk
-      https://git.kernel.org/kbuild/c/26428e7dd6a51
-[3/6] scripts/make_fit: Move dtb processing into a function
-      https://git.kernel.org/kbuild/c/873c2836982e1
-[4/6] kbuild: Support a FIT_EXTRA_ARGS environment variable
-      https://git.kernel.org/kbuild/c/9a329df6e0041
-[5/6] scripts/make_fit: Support a few more parallel compressors
-      https://git.kernel.org/kbuild/c/fcdcf22a34b07
-[6/6] scripts/make_fit: Compress dtbs in parallel
-      https://git.kernel.org/kbuild/c/c7c88b20cd422
+Maybe it is worth repeating this as comments here?
 
-Please look out for regression or issue reports or other follow up
-comments, as they may result in the patch/series getting dropped or
-reverted. Patches applied to an "unstable" branch are accepted pending
-wider testing in -next and any post-commit review; they will generally
-be moved to the main branch in a week if no issues are found.
-
-Best regards,
--- 
-Nathan Chancellor <nathan@kernel.org>
-
+      Andrew
 
