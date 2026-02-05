@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E2D0ECD9B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 21:42:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A3CECD9B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 21:42:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ykCzK4+rV2dgKa7+qS2lLnqsh4ES+AwZxLAa8QRXGOg=; b=VGHWFr8Ivmcn/9FlGNBoYDCZra
-	hc3vcyOi3Z25ynyyZLcmdM0XdrE1uwSkvLqPVg7m0w7NpZQY7WxC8dQhEiMsZPcQ5vSIh0qkwpES8
-	K5bqMYCTRITSRtq7PUxzS6ohvGaVmROThLg1nsrO8TJ4El82p4RTNSvhuDOdCXcTeIYDS5gM/Qw75
-	fcFI2D9zRnUvU8BHw6zGB/fxdPxw7RQ+zRLv7VSSAwjSw0guCrlkETw7oNQ4gRHwHEhAPNl843aBh
-	4vedbZoFu4tmjGlyP0/WCUg+DevVvF9UhJkKBvPk6K17DQOeGOQtx8T4fCJrug4vQhF4FY3P8ecLx
-	dwcUekEA==;
+	bh=i16W+jMqGdPhRLNJH4hwpWkbVoIp/hK7lVmz3Ju6fWY=; b=BZ8jHB0Y7+BF1OvrNZcb9Kj/Si
+	tlXvr/Q8cY5asAxkx15Uc66V6x5Nj48qg95s077zWMq3Bz6wuju5bhLAUv6BauTHPG7ndiyh4CIrc
+	ldOTaXsZgfbHX5MAYLo45Q1og1fpdelnr1Gca3zGjlDXGIFzz+8Wa0g1BoIrAJO/Kgbyg623P4Mf3
+	/G1KKFJMuWuB6FDXFRj0OeuYAbPQNcPB5fxqxpSWrpPGvSCUq2Mf4uGyoknS8wkcyI48MQKte7GZy
+	dYIptwiyym+J6niiJw9A4s++R5uQtiltOpPVmky+D9umNEF/S1uV2IsAESHDh6aVT8Er4y3HYUuqX
+	YKAylrqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo77Z-0000000AWue-0k1p;
-	Thu, 05 Feb 2026 21:42:41 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1vo77a-0000000AWvu-0YPM;
+	Thu, 05 Feb 2026 21:42:42 +0000
+Received: from mail-ej1-x643.google.com ([2a00:1450:4864:20::643])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo77T-0000000AWqA-1Pg3
+	id 1vo77T-0000000AWqB-44ua
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 21:42:37 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-b8869cd7bb1so3465966b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Feb 2026 13:42:34 -0800 (PST)
+	Thu, 05 Feb 2026 21:42:38 +0000
+Received: by mail-ej1-x643.google.com with SMTP id a640c23a62f3a-b8871718b05so231139266b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Feb 2026 13:42:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1770327753; x=1770932553; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1770327754; x=1770932554; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ykCzK4+rV2dgKa7+qS2lLnqsh4ES+AwZxLAa8QRXGOg=;
-        b=qyxzdHRBf+bR5eiNOpXaXw+6Nu5oMiV4kPS+b80OSqg+PMZNQz4yPzbgkp78bRFL5r
-         IhyhAeouRU1bzWtDop//Tf3wqoMUNpblJwNPI6JmOr8vRRQgtPVPAywd+F6lQC/DVevj
-         zdieQYBFF+Ni4qp0rML88xgHXPya9VJKbMhfyYk/8W3Mkh1xukD3bURV6uvExvom9lXb
-         QiEXS8hXi0oZny4fEZCeN5EhwFYVKVcDO6r8kDZbu1Vxa4MnYh6P2dMOjmHHl19ehkgk
-         NvMTuOsCS98rYes8+utN9sM2Luo8KGvomMs6M9p/BOBKvJedLhIecZZegQR97osTBzFZ
-         yxOA==
+        bh=i16W+jMqGdPhRLNJH4hwpWkbVoIp/hK7lVmz3Ju6fWY=;
+        b=ArbYuIHqQRR2IeHt86DNdGPAeMlBD3SdbBUHviU2mGDNhKC9fqImZmM3G7HmPiBmvr
+         7STIMxjEKR6gjFlpEsx7eSxEsJ4FwUhTFy7Uik2Y13ujGT6GqOlqDI1GQRfgtyJ8bALR
+         tCPZ5ZQTEnG6Z3Fm50pKvJRj7VInv7EIYaJn/hBTmjPsy5dO1u8WqbAxIj2mfzCDox6w
+         yPa9hs3ZvmZhiYxtUk+RqWVSRsIuPvAjp65UKmv1lIEkyhga/7P/rmnTl/jePx9rMOEn
+         xHFE9Uz2t3ZyzGiWz6OGIDjNwefp9ZM19yhd/DIpptq0NzPyACYpbEfLxij9kOjLaaUx
+         Ac6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770327753; x=1770932553;
+        d=1e100.net; s=20230601; t=1770327754; x=1770932554;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=ykCzK4+rV2dgKa7+qS2lLnqsh4ES+AwZxLAa8QRXGOg=;
-        b=GMyvScZJkmIRy7yAgt+07M5hPE69YhLTIjRBqjVulrbAQb9J29aWNDTaKN4Gr6/vt5
-         7AvLP+68MJTRk+O1RoGd6LO8bUsn4Ad77G5jWClR8kCdj1izbRRNN7/nYnCusdFYwAsq
-         HOqxdp2iNVFLUYjcJx8VuRyw7NYW+jgKMhB1i8vo5rnDZm3PD4b7sT7QUecDcPOFtq95
-         BW8W4ojvkD3Lh7sabW+3J96iUBq87QzZaZ5MIsmGEcvq1bTYIY3bhh0VsYaysEQdktxC
-         BBDAxCVInJ5FJL0UK9JbwM0muzowwmKW1t09ON9VQl3SbH/0GpDQYELMDvKEkKNMy6oO
-         OPdg==
-X-Forwarded-Encrypted: i=1; AJvYcCUjwAvaOVkoins18IpqHFN5uah7ExsO++qroQkpicKWxmDdH2PLpEcsmDveUx8CCHllNrW8bealPuRP6rlkqdUk@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhCudoB5dL/uC9n2PCz0PiO8bs77wRGFRi2gTutQpv8PQ/616b
-	ZgdS3EEvRXLdyDbmYZHb27zGx0tIDCWOdBDWRrQoU6L7Qc8piR3giViaAyb/mj4oAik=
-X-Gm-Gg: AZuq6aKvLSRG2HZgG4k3rIclv8TdF3Fb9qgRcxFHCby6MpXA0TLAzSGTVCTAPSLVmwi
-	MSXF+it04tZzbi+PvXOJ0jvppFNUDyyTP7dTgjyoSlsQi06WIQ6wo9QjDAWPsdoE+k7cA1c8P7M
-	kEIpTqpWKKAp8NiH6BgOIW/ucqR4CG3Utc/Sh+rGbDEDw3f1FEgZLzS89C4rNzarkhM/OJXm6C3
-	Shn1cRSxelbqsl6mqmqpnxVLx3ETbLlv6Zhx47Fy97LobixBh7S0jc3jZ8D/GT4zAcOuz9XWYrU
-	ldzLgkDHQ4keDBwPCY2AQ+jDsK6sPhhmuy2mtbWp0Td+LGC0EaSKEJ1jVhU/GP5nAJFdoK0DGmF
-	BAL2BuVY80lROhm//sMnEQq6o7gvBhzMS1zOY3CthWUUx4ZbmMJLYgQIrbqWa4HtOFtAN4GERVk
-	6ykVUPF49t6w3eA83SNVnSQ/YZJDfFcPjX9KoNI+O8AIC8iDFspGCPAkKMHVB+6bX3Sdg2KHHgN
-	kIk4g==
-X-Received: by 2002:a17:907:ea7:b0:b8d:be69:78bf with SMTP id a640c23a62f3a-b8edf19e91fmr26932766b.20.1770327753301;
+        bh=i16W+jMqGdPhRLNJH4hwpWkbVoIp/hK7lVmz3Ju6fWY=;
+        b=air2N97SsfclSJ68M6wyAPVhXuHMThM7v944E4YwisvuM9MK3wHeroVPtRcwShyb/u
+         o7X8QFNBbkanHZSNhz1B4Jgohqx5ffirz//Ubh5rli7rpA+ZI8Tno6U1cr/IUYHfoISW
+         tuNKqd8UyL+YslY0FhsSof9TI/F3RF3SOBtzjphHDgXMKA4wZpRp7a+yICOeBnGyE/bb
+         ENuBIXruYLCzs9VFwObKsmQ/Zn3QcXQ0Y0XIb5Ew3QEX1BI0yIPeg3bH2KkrL+WGnDMO
+         KqAMk6f/FJml32GZa2fETosVsHmMl71FKnalOia3U/THNoAubQVI6OKAQtHMAsc65kCs
+         TtAg==
+X-Forwarded-Encrypted: i=1; AJvYcCUBYSdHtiR1A/f3XgNXOeguu5lZfnsP/dhBL8putjmX74FQ5Swde/oyfJ05m7mjw5QJLjttueg38+kVLc9R3XH1@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUexJLx6wnGCw8YdGXsggYj029BpBZ+cX4rKazw485II8b5rsK
+	rC7d9W4O+MY2dcJezbsnV2xfS4vLXq2kXhDEMjJHeznKZS6eG/Xr1G4FElXd/R6gy68=
+X-Gm-Gg: AZuq6aI7htReUqW8fNwCO4MexylK1Au8fvrIlHdXiETKjpVRPNjgK9xSdvzjCpQPYFV
+	JIfHG6V0mkK0fhQQS7iWWBIxxW3jGnPOazP+QHpdphJcAPCtjn9NTHm8QO6A1wHV1S4orWSLnNn
+	9tRtzhH2+NdPCHl9/7FpEfEw69z7qmr9b8Qd+QhyYKW5P/1WW8PkizOUlLv7V+wfzp+9pGdzypV
+	OhnRZhSO0lw4rHJNM8FRj7AYvallN/Pr8ReJfBi/TCzcnzGBsKDskaiFtOG5DpsGgc8qJIRxsde
+	m9kJY6q/XaGkDQuC9QJwFzt/f0t5wXzbhZRgh9fvpaXBejq3jr5lkkYkkPkeCTjtrU/UkJKbnRQ
+	tsM+J7245bl7CJB1NbpisjxNB18T2cFRFfQ+di1GTJt1Jah9w8QYshGAgRgQ/JWsN9h+whicjQn
+	JKxLERUNQBWqA1xkvW528sRgmIGjZAF0fRV5wM8FaC9NWZ+8ov+NDTAuYAjDjsw+vp73q09VrSq
+	ASWmg==
+X-Received: by 2002:a17:907:9486:b0:b87:115c:4a2b with SMTP id a640c23a62f3a-b8edf23ea6amr25429766b.25.1770327753822;
         Thu, 05 Feb 2026 13:42:33 -0800 (PST)
 Received: from puffmais2.c.googlers.com (244.175.141.34.bc.googleusercontent.com. [34.141.175.244])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8eda7a0074sm21859966b.18.2026.02.05.13.42.32
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8eda7a0074sm21859966b.18.2026.02.05.13.42.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Feb 2026 13:42:32 -0800 (PST)
+        Thu, 05 Feb 2026 13:42:33 -0800 (PST)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Thu, 05 Feb 2026 21:42:30 +0000
-Subject: [PATCH v5 02/10] dt-bindings: power: samsung: add google,gs101-pd
+Date: Thu, 05 Feb 2026 21:42:31 +0000
+Subject: [PATCH v5 03/10] dt-bindings: soc: samsung: exynos-pmu: move
+ gs101-pmu into separate binding
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260205-gs101-pd-v5-2-ede49cdb57a6@linaro.org>
+Message-Id: <20260205-gs101-pd-v5-3-ede49cdb57a6@linaro.org>
 References: <20260205-gs101-pd-v5-0-ede49cdb57a6@linaro.org>
 In-Reply-To: <20260205-gs101-pd-v5-0-ede49cdb57a6@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -91,11 +92,12 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-pm@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_134235_391059_B82010E2 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20260205_134236_036399_68CD8F07 
+X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,99 +112,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the Google gs101 version of the Exynos power domains. A
-new compatible is needed because register fields have changed and
-because power domain operations involve interfacing with the TrustZone
-protection control on newer Exynos SoCs.
+The gs101-pmu binding is going to acquire various additional (pattern)
+properties that don't apply to other PMUs supported by this binding.
 
-Power domains can also have a power supply linked to them, so add
-optional support for that, too. It is believed that all (existing)
-platforms could benefit from this, hence it's not being limited to
-gs101-pd.
+To enable this, move google,gs101-pmu into a separate binding.
 
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
-
 ---
-v5:
-- add domain-supply and update commit message
-
 v4:
-- add new vendor property samsung,dtzpc
-- drop previous tags due to that
----
- .../devicetree/bindings/power/pd-samsung.yaml      | 33 ++++++++++++++++++++--
- 1 file changed, 30 insertions(+), 3 deletions(-)
+- update since 'syscon' was removed from gs101-pmu compatibles
+- update since 'select:' was removed from google,gs101-pmu.yaml
 
-diff --git a/Documentation/devicetree/bindings/power/pd-samsung.yaml b/Documentation/devicetree/bindings/power/pd-samsung.yaml
-index 9c2c51133457112ca0098c043e123f0a02fa1291..3f1a2dc178625f8cfdbb913d0c7cb5b2519fe477 100644
---- a/Documentation/devicetree/bindings/power/pd-samsung.yaml
-+++ b/Documentation/devicetree/bindings/power/pd-samsung.yaml
-@@ -13,12 +13,10 @@ description: |+
-   Exynos processors include support for multiple power domains which are used
-   to gate power to one or more peripherals on the processor.
- 
--allOf:
--  - $ref: power-domain.yaml#
--
- properties:
-   compatible:
-     enum:
-+      - google,gs101-pd
-       - samsung,exynos4210-pd
-       - samsung,exynos5433-pd
- 
-@@ -33,6 +31,9 @@ properties:
-     deprecated: true
-     maxItems: 1
- 
-+  domain-supply:
-+    description: domain regulator supply.
+v3:
+- use additionalProperties, not unevaluatedProperties
+- fix path in $id (Rob)
+- drop comment around 'select' (Rob)
+---
+ .../bindings/soc/google/google,gs101-pmu.yaml      | 56 ++++++++++++++++++++++
+ .../bindings/soc/samsung/exynos-pmu.yaml           | 20 --------
+ MAINTAINERS                                        |  1 +
+ 3 files changed, 57 insertions(+), 20 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml b/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..a06bd8ec3c20faf0b364d3d3ef1763502c2b09cf
+--- /dev/null
++++ b/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
+@@ -0,0 +1,56 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/soc/google/google,gs101-pmu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-   label:
-     description:
-       Human readable string with domain name. Will be visible in userspace
-@@ -44,11 +45,28 @@ properties:
-   power-domains:
-     maxItems: 1
- 
-+  samsung,dtzpc:
++title: Google GS101 Power Management Unit (PMU)
++
++maintainers:
++  - André Draszik <andre.draszik@linaro.org>
++
++properties:
++  compatible:
++    const: google,gs101-pmu
++
++  reg:
++    maxItems: 1
++
++  reboot-mode:
++    $ref: /schemas/power/reset/syscon-reboot-mode.yaml
++    type: object
++    description:
++      Reboot mode to alter bootloader behavior for the next boot
++
++  syscon-poweroff:
++    $ref: /schemas/power/reset/syscon-poweroff.yaml#
++    type: object
++    description:
++      Node for power off method
++
++  syscon-reboot:
++    $ref: /schemas/power/reset/syscon-reboot.yaml#
++    type: object
++    description:
++      Node for reboot method
++
++  google,pmu-intr-gen-syscon:
 +    $ref: /schemas/types.yaml#/definitions/phandle
 +    description:
-+      Distributed TrustZone Protection Control (DTZPC) node.
++      Phandle to PMU interrupt generation interface.
 +
++required:
++  - compatible
++  - reg
++  - google,pmu-intr-gen-syscon
++
++additionalProperties: false
++
++examples:
++  - |
++    system-controller@17460000 {
++        compatible = "google,gs101-pmu";
++        reg = <0x17460000 0x10000>;
++
++        google,pmu-intr-gen-syscon = <&pmu_intr_gen>;
++    };
+diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+index 76ce7e98c10f3738e7de5579904260dd906507c9..09368dbb6de6898e2988c398b2506f2c2b4e73bc 100644
+--- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
++++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+@@ -12,8 +12,6 @@ maintainers:
+ properties:
+   compatible:
+     oneOf:
+-      - enum:
+-          - google,gs101-pmu
+       - items:
+           - enum:
+               - samsung,exynos3250-pmu
+@@ -110,11 +108,6 @@ properties:
+     description:
+       Node for reboot method
+ 
+-  google,pmu-intr-gen-syscon:
+-    $ref: /schemas/types.yaml#/definitions/phandle
+-    description:
+-      Phandle to PMU interrupt generation interface.
+-
  required:
    - compatible
-   - "#power-domain-cells"
    - reg
+@@ -176,19 +169,6 @@ allOf:
+       properties:
+         dp-phy: false
  
-+allOf:
-+  - $ref: power-domain.yaml#
-+  - if:
-+      not:
-+        properties:
-+          compatible:
-+            contains:
-+              const: google,gs101-pd
-+    then:
-+      properties:
-+        samsung,dtzpc: false
-+
- unevaluatedProperties: false
- 
+-  - if:
+-      properties:
+-        compatible:
+-          contains:
+-            enum:
+-              - google,gs101-pmu
+-    then:
+-      required:
+-        - google,pmu-intr-gen-syscon
+-    else:
+-      properties:
+-        google,pmu-intr-gen-syscon: false
+-
  examples:
-@@ -66,3 +84,12 @@ examples:
-         #power-domain-cells = <0>;
-         label = "MFC";
-     };
-+
-+    power-domain@2080 {
-+        compatible = "google,gs101-pd";
-+        reg = <0x2080 0x80>;
-+        #power-domain-cells = <0>;
-+        label = "hsi0";
-+        domain-supply = <&ldo7m>;
-+        samsung,dtzpc = <&dtzpc_hsi0>;
-+    };
+   - |
+     #include <dt-bindings/clock/exynos5250.h>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 7fc1964b6beaf835a398a9bcee4ded191034d2e3..212fa7ca48b8272ebf189fa1d105b319a849c5c2 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -10856,6 +10856,7 @@ C:	irc://irc.oftc.net/pixel6-kernel-dev
+ F:	Documentation/devicetree/bindings/clock/google,gs101-clock.yaml
+ F:	Documentation/devicetree/bindings/phy/google,lga-usb-phy.yaml
+ F:	Documentation/devicetree/bindings/soc/google/google,gs101-dtzpc.yaml
++F:	Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
+ F:	Documentation/devicetree/bindings/soc/google/google,gs101-pmu-intr-gen.yaml
+ F:	Documentation/devicetree/bindings/usb/google,lga-dwc3.yaml
+ F:	arch/arm64/boot/dts/exynos/google/
 
 -- 
 2.53.0.rc2.204.g2597b5adb4-goog
