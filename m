@@ -4,161 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB1E7E91260
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 06:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB7B4E91288
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 07:25:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GnlMDjphfYRN694dreIcPaZ0gGOgyPZIRrhSPAe+kHo=; b=PoHzZKy7L/yGr13fGOwUtNRBSY
-	RdNGVtqMzhRzQlEPRiKycZLn2/Qh9LZ8tsCFJj/hnhUF9HUXo2N+klbTvHhsQDLoQzyKvgjx16K2k
-	oOVEXp0slwJPVdNdjVtle3KRrA8Fu/u6IESePyOYu92J+swbRNFB2EbpAVrAjU2xSqlJF44EQrt4s
-	vKu3+2Ytk85UREMTXFNH20ruHS4WIFaeFXSdQ66CVJl6FFMQPGsCEg6D0ByOmy7dZcnhElK7Src/z
-	T6InYPkHAnX+iXkI2TprnDD6Tz0rwapkA96nrmT7HvvZJ2ZxXTzZEUZDeo9SCDvj90wqyxOHiP80+
-	sy4s/RiQ==;
+	bh=Hk2FM+f8l5QrYyPbtUH9yZtELqXLs48+0tAxMfQcvO8=; b=VvTuGjudKfi1yKRrnRKmYoqrCr
+	SKDI9pZEgb46jtIofpmzgv1v/qJa9GFLD/kCZ3SHUthNjV6cNQyhS+rQCvqrhsMgYIvqKEH7haEoh
+	w8anDXFc85HtS7rxDrS/SdJq1B39tYOmc5bQdUCkc/dvIu7RJhSTRc+4FDuEiXv4HZ6QEhynXvhJY
+	UVJRipVMYvtuz24aLPK5HtFTamQNh/bVovsK7Knl5h0Megv+mUyr0thgfD40lLev05V8G9gtfyIwM
+	ysWSIh2iSeyyZygwugxBHuP9BMquSrt8l/ebiVisF0SOSCB75Kp42eSBcXL6XEnL735QeHzwZH+LD
+	mGLEdBRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnssk-00000009WAf-3rmJ;
-	Thu, 05 Feb 2026 06:30:26 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vntjU-00000009Y1h-0sQx;
+	Thu, 05 Feb 2026 07:24:56 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnssg-00000009WAG-2iB4
+	id 1vntjP-00000009Y17-3eo1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 06:30:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tCbrb3UN9k2CZDfpXK+4NwJATdlV9ioq5LMuz/mXGKdqx7d/3sq41h7OIGRYZE3pNtBTGi4Em/ghuu196YEf+ojp0+VkXOTZjDotCbrMM3/N229zNxQPKFIrAx9bavJz8SHO4i+2GpWLE6luN/76F8+JI2NkvOakHsaVCyq2awzDLmRZZed+c6YLayDbCy/ukW4UwJx0tCvqsrG2Rv1zVdKCx1B/haEzRULY1xf0QwaMGDUzqu/M3Zkwc8gRScMOy4DsNa0vIIuQ6bi+pUl/7ttV9RZb0fqXLRLTa/DaFPkmFExpMrb1myfsLIcp1pzSZVjzYohYSG9QLlOvaNfISw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GnlMDjphfYRN694dreIcPaZ0gGOgyPZIRrhSPAe+kHo=;
- b=Ay7mEC5a1STwXj0rsRgKCpNNR8xwAYv2n9C/zJE/PSkNz6UC6l2bTyvbtpSr3Sl5Y4spORN+l8z823PkNoOOCSIck2njY4xtPmRDa7WpYpBpbnm2dJGa49An591iSuw6FUgfRqNUpHwO6mjdisp/itNoNc6jhDN7DndDRTUWkm3TQSyzTqBJGw3iIxo7MaQyqVlKkN63tztvWgg88XpBgncowIBhn3HIdBa+hkQRuabE5uxNpJyGEwbD60B+S2QabK/J5rQxBT0guyIrdmxi8oHccn+natGMz83tAlSVAwTDk5DiQI+bvsCHgNASkq0YBNo+K7JT3vy7fHdtcltECA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GnlMDjphfYRN694dreIcPaZ0gGOgyPZIRrhSPAe+kHo=;
- b=ecAjw0719xF3IqLK7ANusWS5EEkqBE59QEsvyYNnORlgRSRdlzCDGHPrgY/7Bo/i8aOpUsKTA4FiuXnvgPAZ1FghX8ol5Dc4xf99IK11BPY8qm0sWSAVKdmKb/ZeiAyKTjt4K3mL3ApEoLzz2rJx4TnXGtQu+CiRHbX99hBvRSOrZsSsJ0l8UcAKBSPuXv7234IDomKYnyGqvmQJdQ2CQ6G8lT4dQB+gq1+ZUQwLLR18bRhqkt4YQ5VGBureOz3GqZYAKiwjTVV41YyssLPV1wb6tRTHViD0fIL3tUt5E5R/jTVs1NK8GBoVYtir360fCyXgST7BBK4ZTMVi/cMxlQ==
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by PA1PR04MB11429.eurprd04.prod.outlook.com
- (2603:10a6:102:4f3::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Thu, 5 Feb
- 2026 06:30:17 +0000
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994%5]) with mapi id 15.20.9587.010; Thu, 5 Feb 2026
- 06:30:17 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: Frank Li <frank.li@nxp.com>
-CC: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com"
-	<festevam@gmail.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH 3/3] arm64: dts: imx8mp-evk: Add usdhc1 for SDIO WiFi
- support
-Thread-Topic: [PATCH 3/3] arm64: dts: imx8mp-evk: Add usdhc1 for SDIO WiFi
- support
-Thread-Index: AQHclX5aiUCo7rm30Eq4+zUKNNhMcLVyramAgAD4+YA=
-Date: Thu, 5 Feb 2026 06:30:17 +0000
-Message-ID: <VI0PR04MB121142443CE87F6D9119108E19299A@VI0PR04MB12114.eurprd04.prod.outlook.com>
-References: <20260204023204.2382433-1-sherry.sun@nxp.com>
- <20260204023204.2382433-4-sherry.sun@nxp.com>
- <aYNn4UjvqPy_N-zF@lizhi-Precision-Tower-5810>
-In-Reply-To: <aYNn4UjvqPy_N-zF@lizhi-Precision-Tower-5810>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|PA1PR04MB11429:EE_
-x-ms-office365-filtering-correlation-id: d64aa997-8260-4e81-8f3c-08de64800794
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|1800799024|366016|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?ltpR8bO4BnKoDbH8hetojWduPz/JcwrO35esZpy1zFwBhlvLfCUXGFht1mmc?=
- =?us-ascii?Q?NVtlac0VYm3OJV952jzdlE8Q8j2Mw29ybkspFjJx9WinLQrIyCDmNU3YZ9YB?=
- =?us-ascii?Q?Ck1TtF3HBqcok+XQ0kabZc5TqLRSCMWIihlRIx6K4qCD9l/ngQZUw/6Cptno?=
- =?us-ascii?Q?fnaFLW9Xfwaf5+bzFbD1zpzXpsCUQSJxE7MDZ9/vhDD+rdRyshQ5qYmA/NAF?=
- =?us-ascii?Q?PIiOZZPdhnBZCKw2PMLS0p/hyXMUpQziooqKGeNGI7+pEn7HPAZ8V7G67tdL?=
- =?us-ascii?Q?I3AAY/eMjqAI5HTsJJfF2MMxdHPfFxM7dKaQ6RI53otk/HA+GJr8QeDVEp3o?=
- =?us-ascii?Q?o75Y/4VW1lk1uXwwXHEdCNxwjlSjepRK2a546hBmzidq52xFOYSTXOfTEKmN?=
- =?us-ascii?Q?OlOxixMFSdKrPCiW8QCsBDoI7VkMS6jBnMUhKQkwKAThEHKJwRMFx+yCbl1V?=
- =?us-ascii?Q?4B7652ydXzJMVOHZzUZs/t5s17sR7Y9GmneHJtOkF6lGkGx1V0MuvWeW58//?=
- =?us-ascii?Q?ML77e3uwKjMeE8SBOASroqF66+FWxY9O+HYVaAR4fpxBGZa7ZCLXO/OFl00t?=
- =?us-ascii?Q?QvXez89FE92gCTWW89zl7PVA1U5zGnWpaf83i94CMNnldcUkrlc8CIOzMGF3?=
- =?us-ascii?Q?lGzUOciJJxwAF+uwq8r3L70C0cM+AB/1ymWzGX8OYns81Wi63elgAyKWYxLT?=
- =?us-ascii?Q?PRl0KHqZKjMQ94c/H9dfT/ypNMBX8EZPMnNjncSn9qqwjgKmcnKqPTGaMg66?=
- =?us-ascii?Q?ov53REL+Z9/C4TY8D3rbFhgYqb1FyxQMUa06WSWvrmrMmrMJbz+yDE84EZLm?=
- =?us-ascii?Q?39jX76/ajgyrHieny5Ax2P4iWY3TufFgE1+jTmZv2pMWdO/hrcPJd3BUn8Rz?=
- =?us-ascii?Q?51pjs5k5S4i/RiDi++85mb2zjmImHXIm7Kbv9W8aijElWX8e1I5NDE3FQrP5?=
- =?us-ascii?Q?lxWExSS+gNz/QdQWCq9dJciveaRmooXu97B831UW6CRBg2JzxMp/7UJosuun?=
- =?us-ascii?Q?08tS/TH10tBt04Tza4VQk8goHf551D+5XNJME2o/TvjvsEgeIw9OEWIh76gi?=
- =?us-ascii?Q?zH/AIYWCk8BL/ehHhIeOoElv9ZUFHJCZMBj/IRiL6lxga1SYw7aicr6Ex9Ap?=
- =?us-ascii?Q?xcW5oih8M3Ptufx7cwtnWXK0d9Bh3M6zLFuzlkPoBy0/mExe/lONLWmAZ0LT?=
- =?us-ascii?Q?mozU1q25z7uHFe2GUK+7QOQrSnyOuGX/qTGw3zJwYzdf6776SpScgMI3NBxu?=
- =?us-ascii?Q?5ZJZqDEikunrOiVmkI5DvxS4USgxt2m5pNdUnt6p45O240nskSYa/owE+djd?=
- =?us-ascii?Q?9Kw/preaD56frWtT9GQ/Jjf+RjvBBNUVNdHK4IRbmijAL0VM6u3nFJ8C8gtO?=
- =?us-ascii?Q?b6dAT1AAabeMs7XbezgTcpxZYdpDcWUQivEi18UUT50BpSQmutkHpTg45Onl?=
- =?us-ascii?Q?dlB7NUvz890VQIfFufpJBP91rn2xaeBqccldwHsKgO5amTmh8K7MFYY94r1k?=
- =?us-ascii?Q?wt4mGWkYShZ+KMwjJApitxYFTOgLcSUKKELm1WeilXP0JxUtkFq7BwpHmLFf?=
- =?us-ascii?Q?oh5Y6WD4xgApCjxwON+P3yFSnI6RzGOj/plJuaqibE+S0inN6vkbxmTVW9h9?=
- =?us-ascii?Q?BSy2xB1cbUo/kEGRvUSravE=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(1800799024)(366016)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?U/D9KGC8StPTAeLwcOy39HHqywPxUi3pYMsb3ZCBrpspoJILeOdGC0EjYcTp?=
- =?us-ascii?Q?2FmtD8+154P19sph4QGA2B4WPQIcOEbjjR9wnjoL1ept/XWXb/DD9wmFG5VP?=
- =?us-ascii?Q?B8419UrKFpFNR+ni1viMc+MIItjc4/l/vhUtmFds39NKFiObZNl1dEvO1pb0?=
- =?us-ascii?Q?09RZmYPUpY8qDsLxCsM0L3M2pl/iGgHJZUe1rCcRjorhbc5O5sum501GvhXZ?=
- =?us-ascii?Q?+MPYTgTYI7bqnUkG7k6dY67FlTZ4t9OKgs7/PDgSsY8cbFwpzESIGOVPwg45?=
- =?us-ascii?Q?Xnovb44iKRpET4nL2h/yjIcK41WLlUSDbh8zrYBTJ1nhCxmxYddrQGDXAqpM?=
- =?us-ascii?Q?DR/yIeZiuGTJ457DB2R4/Z/2uUzoC9CqpPpgnv5p32vQb67+uMCbjT7nT0rX?=
- =?us-ascii?Q?u7DrLM2Pbp+Xb4F0Dy1Ro4E2uqju+XhlgToVWgAwOnKW2vqMo8TR5QK9fnU8?=
- =?us-ascii?Q?IXR7OT2w3VuQ7DgJoP6esnY+9LLYdKWqwg2dyHz3EkIVWo1a5QTe9o+IMrge?=
- =?us-ascii?Q?0viwk/uOxQO6m93aaUeNYrU/RZFT7XSi+2uHI81tOvbCJcLWBEFdIfBcFdDD?=
- =?us-ascii?Q?ZnazbDNFS5/XR5W21/S2pnTZPQS3pQoikltPpA3SYXiz/+0YEglPUgBculC/?=
- =?us-ascii?Q?niR4m8qSopBhPoWf8TpqhP8/5NHvQxaw6qHrKl9AgqNizvpxz6eoyrjXd8cV?=
- =?us-ascii?Q?BqLp8E5RBor/87j4SsdQmbzWGFYRr/6az+OQMy4w94feI6qm2fHHv/8wOsIQ?=
- =?us-ascii?Q?sig6SolGjv7vN+6OJiQNavJDmcznRm6FTQA38brO0wRv3Ux64NAKbums0Wza?=
- =?us-ascii?Q?KQAvhNol0jxfDcQC9U1qtekvxEIAXh/5oIqMzCqgTwieVK34MtoE+buG/0EA?=
- =?us-ascii?Q?8hPRiasULv7kjWRyGZUJaI9ZZomlWb06rvjClxxg56e2FJZpowwLgLVPDLOW?=
- =?us-ascii?Q?9WWPE2Bl8aSAJ9KeAtvUQ56SCwhy9UsRKAxWSMoaeZ8uKqsg5qc9kWXEHFlY?=
- =?us-ascii?Q?cu5i4I6dG+B1jl31xsVjK9BAkOWro7H0bwnV4pfLK985DrK0NRK23003q9eH?=
- =?us-ascii?Q?QEVKHpfssD1sTIg5hl3NGRPKS+1Sw8JGBYrfYOw/aeKao0AewCfQua4ApzR8?=
- =?us-ascii?Q?Amh7J9vAuvH+n+ws7mkPaVQWFpPlQxgsAMT/myCqBqitS8idQo/Y1e1z+O6j?=
- =?us-ascii?Q?VkNx98f2m2o38CUBXc/4xX6n4ZaKRgL0WCDIoLJ2YM9dWLgwyfzVH+ZHxPIp?=
- =?us-ascii?Q?Xay2Ps4IQeyJbtTmE9obbY7/MTtT3407CFiQFI9g7kyIXzKDLsfd2wvdumvI?=
- =?us-ascii?Q?/jIpQUGuZiRI47+d1J6d5h1ktwZlOEBmP9/3d1DNMnmmMg9yQddmLF0a/VQd?=
- =?us-ascii?Q?xD9S3zurqzWZlPhguOHoqE/6IFySSiZYO6/1twZANF8NJefZKqPnmyJyn5rW?=
- =?us-ascii?Q?pE1UCoMTPGnbhwjZwZbvfegQwHDiCci/Xo+uz08j3cc1YX4f9Dli6Tbtlc3K?=
- =?us-ascii?Q?S2M6wEvjrpNTIcxiU4XR5Uq/j8ljh5rVsP4VBsBnq3TufNEoUoW48Gv6r5Kf?=
- =?us-ascii?Q?dZZgSUJicRb3Qle2eBFW16d9SJtiXaLE37scLA1A/bpR6eGmq6mURsC5wap8?=
- =?us-ascii?Q?xUEOKUwUGA16pc7LyojjVjnSmXamZjnH3zhZ5dXiBLycrPZMrdpEy1PHEo1I?=
- =?us-ascii?Q?1AvWCbjV9oTx2ffYeIAo0npfPaAdlensBIw4XZT+wCc5jrH+?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 05 Feb 2026 07:24:54 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 520FD1FAD1;
+	Thu,  5 Feb 2026 08:24:43 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1770276284;
+	bh=Hk2FM+f8l5QrYyPbtUH9yZtELqXLs48+0tAxMfQcvO8=; h=From:To:Subject;
+	b=mHZXC9FOE9e7sWUjqd/61SX7F4M/OXDh8/ht7ZFS3317o1T/147F5uWo5nV7lOPBO
+	 Ye13Gws237zW1TOcOV70SRdEIl1mMnMOpnE8EfuOY3EI0KYH79MzhGBrqz+/1jcIKI
+	 DkzeC1Z1GvIaxTU4MJWUvXuTDQiRoh2Laj/bXaJVQoTvCnt9UbzHWlSRYl00EygIt4
+	 +eH6gTHBSABvNlEz1BS/7SVY/8Kq/7Jj2WhXf3JOYE1r6ksFKYhS7l2IcV164rQ7cU
+	 Chvq1+s3D7wn/ipQhHbdspJLeHBgHnr/mn/kkTbqM/06u93ked99LPOg4KI0y5wZMC
+	 LKjDP/oD46yWw==
+Date: Thu, 5 Feb 2026 08:24:39 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Judith Mendez <jm@ti.com>, Vitor Soares <ivitro@gmail.com>
+Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Vishal Mahaveer <vishalm@ti.com>,
+	Kevin Hilman <khilman@baylibre.com>, Dhruva Gole <d-gole@ti.com>,
+	Sebin Francis <sebin.francis@ti.com>,
+	Kendall Willis <k-willis@ti.com>, Akashdeep Kaur <a-kaur@ti.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org,
+	Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62a7-sk: Disable mmc Schmitt Trigger
+Message-ID: <20260205072439.GA4548@francesco-nb>
+References: <20260106-topic-am62a-mmc-pinctrl-v6-19-next-v1-1-1190ac29aadb@baylibre.com>
+ <c47697b4-6ebb-4af9-be96-c964d990835d@ti.com>
+ <DFO764ES0FNP.1SUQK9R0EUUDQ@baylibre.com>
+ <1a91fd40-e814-4b4c-8914-d8f0c4768e07@ti.com>
+ <DG59D7WGM35A.1WNIIMNCQ8U3C@baylibre.com>
+ <7ae7f6a1-0ee1-4d56-b1d0-f038a7d22b4c@ti.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d64aa997-8260-4e81-8f3c-08de64800794
-X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Feb 2026 06:30:17.8455
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: xy6WMqGnCUWyQbK74FGMbluEuRjX3BCkwR+4EsfHoVlROu8aKwAJY8YM2unzvI5R/WVXFPaEOafR1d+QwcmIbA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11429
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7ae7f6a1-0ee1-4d56-b1d0-f038a7d22b4c@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_223022_711895_28A912A8 
-X-CRM114-Status: GOOD (  16.50  )
+X-CRM114-CacheID: sfid-20260204_232452_943768_C0C85D54 
+X-CRM114-Status: GOOD (  37.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,124 +83,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Wed, Feb 04, 2026 at 10:32:04AM +0800, Sherry Sun wrote:
-> > Add usdhc1 to support M.2 SDIO WiFi on i.MX8MP EVK board.
-> >
-> > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> > ---
->=20
-> If prevous patch just add label, reg_m2_wlan, you can squash to this one.
+Hello Judith,
 
-Thanks, will try this method.
+On Wed, Feb 04, 2026 at 08:03:39PM -0600, Judith Mendez wrote:
+> On 2/3/26 4:35 AM, Markus Schneider-Pargmann wrote:
+> > On Wed Jan 14, 2026 at 11:04 PM CET, Judith Mendez wrote:
+> > > On 1/14/26 3:16 AM, Markus Schneider-Pargmann wrote:
+> > > > On Tue Jan 13, 2026 at 1:29 AM CET, Judith Mendez wrote:
+> > > > > On 1/6/26 10:22 AM, Markus Schneider-Pargmann (TI.com) wrote:
+> > > > > > Remove Schmitt Trigger from mmc pins. With Schmitt Trigger enabled
+> > > > > > u-boot SPL is not able to read u-boot from mmc:
+> > > > > > 
+> > > > > >        Trying to boot from MMC2
+> > > > > >        Error reading cluster
+> > > > > >        spl_load_image_fat: error reading image u-boot.img, err - -22
+> > > > > >        Error: -22
+> > > > > >        SPL: Unsupported Boot Device!
+> > > > > >        SPL: failed to boot from all boot devices
+> > > > > >        ### ERROR ### Please RESET the board ###
+> > > > > > 
+> > > > > > I bisected this issue between u-boot v2025.10 and v2026.01 and found the
+> > > > > > devicetree merge to be the problem. At a closer look I found the
+> > > > > > k3-pinctrl.h changes. Disabling the Schmitt Trigger fixes the u-boot SPL
+> > > > > > failure to read from mmc.
+> > > > > 
+> > > > > I have tested 4 AM62A SK boards and I cannot replicate the issue
+> > > > > you are seeing. I do not see an issue with Schmitt Trigger in U-boot
+> > > > > nor Linux /:
+> > > > 
+> > > > Thanks for testing.
+> > > > 
+> > > > > Can you please run a quick tap sweep on MMC1 and MMC0 interfaces like
+> > > > > so? https://gist.github.com/jmenti/f4a73a8323e44bf717c6d2c528c499ca
+> > > > > 
+> > > > > This will give me an idea if whether we should be talking about
+> > > > > revisiting characterization with ST_ENA=1.
+> > > > 
+> > > > The patch was a bit broken, but I think I managed to apply it to
+> > > > v2026.01 as it was supposed to be. (master currently doesn't boot even
+> > > > SPL, I don't have time right now to debug that).
+> > > 
+> > > as Nishanth, mentioned, master is missing two patches [0][1]
+> > > 
+> > > > 
+> > > > I attached the boot log. It does boot with your patch. Also can this be
+> > > > an issue with different SD cards?
+> > > 
+> > > Something does not quite add up,
+> > > 
+> > > Can you try the following 2 commands?
+> > > 
+> > > # mmc dev 1
+> > > # md.w 0xfa0810c
+> > 
+> > Finally here is the output from boot and executing these commands. I am
+> > now on v2026.04-rc1 with your sweep patch.
+> 
+> Thanks for sending over the tap sweep. I compiled a comparison table
+> here to show a bit of data for the u-boot tuning step:
+> https://gist.github.com/jmenti/5d42f1e43fb357083eaa813cfee484a8
+> 
+> Based on the data I can conclude the following:
+> 1. you seem to have more errors than I do
+> 2. there seems to be an issue with the chosen final tap setting
+> 3. the chosen final tap setting should still have worked for you
+> but did not.
+> 
+> For #2, something in the tuning results seems off so let me investigate
+> this on my end and Ill get back.
+> For #3, will have to discuss this internally & test a couple more things,
+> then come back with more information.
+> 
+> Meanwhile, I am interested to see what are the tap sweep results for the
+> failing Verdin board, if those can be sent as well, that would be great
+> info.
 
-Best Regards
-Sherry
+Verdin is now booting fine. The boot failure was related to other U-Boot
+bugs (as Nishanth mentioned) that are now fixed.
 
->=20
-> Frank
-> >  arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 59
-> ++++++++++++++++++++
-> >  1 file changed, 59 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-> b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-> > index f86d6b428a47..0b45ff73a5a9 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-> > @@ -250,6 +250,13 @@ cpu {
-> >  		};
-> >  	};
-> >
-> > +	usdhc1_pwrseq: usdhc1_pwrseq {
-> > +		compatible =3D "mmc-pwrseq-simple";
-> > +		pinctrl-names =3D "default";
-> > +		pinctrl-0 =3D <&pinctrl_usdhc1_pwrseq>;
-> > +		reset-gpios =3D <&gpio2 10 GPIO_ACTIVE_LOW>;
-> > +	};
-> > +
-> >  	reserved-memory {
-> >  		#address-cells =3D <2>;
-> >  		#size-cells =3D <2>;
-> > @@ -863,6 +870,19 @@ &uart3 {
-> >  	status =3D "okay";
-> >  };
-> >
-> > +&usdhc1 {
-> > +	pinctrl-names =3D "default", "state_100mhz", "state_200mhz";
-> > +	pinctrl-0 =3D <&pinctrl_usdhc1>;
-> > +	pinctrl-1 =3D <&pinctrl_usdhc1_100mhz>;
-> > +	pinctrl-2 =3D <&pinctrl_usdhc1_200mhz>;
-> > +	keep-power-in-suspend;
-> > +	non-removable;
-> > +	wakeup-source;
-> > +	mmc-pwrseq =3D <&usdhc1_pwrseq>;
-> > +	vmmc-supply =3D <&reg_m2_wlan>;
-> > +	status =3D "okay";
-> > +};
-> > +
-> >  &usdhc2 {
-> >  	assigned-clocks =3D <&clk IMX8MP_CLK_USDHC2>;
-> >  	assigned-clock-rates =3D <400000000>;
-> > @@ -1169,6 +1189,45 @@
-> MX8MP_IOMUXC_ECSPI1_MISO__UART3_DCE_CTS		0x140
-> >  		>;
-> >  	};
-> >
-> > +	pinctrl_usdhc1: usdhc1grp {
-> > +		fsl,pins =3D <
-> > +			MX8MP_IOMUXC_SD1_CLK__USDHC1_CLK	0x190
-> > +			MX8MP_IOMUXC_SD1_CMD__USDHC1_CMD	0x1d0
-> > +			MX8MP_IOMUXC_SD1_DATA0__USDHC1_DATA0
-> 	0x1d0
-> > +			MX8MP_IOMUXC_SD1_DATA1__USDHC1_DATA1
-> 	0x1d0
-> > +			MX8MP_IOMUXC_SD1_DATA2__USDHC1_DATA2
-> 	0x1d0
-> > +			MX8MP_IOMUXC_SD1_DATA3__USDHC1_DATA3
-> 	0x1d0
-> > +		>;
-> > +	};
-> > +
-> > +	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
-> > +		fsl,pins =3D <
-> > +			MX8MP_IOMUXC_SD1_CLK__USDHC1_CLK	0x194
-> > +			MX8MP_IOMUXC_SD1_CMD__USDHC1_CMD	0x1d4
-> > +			MX8MP_IOMUXC_SD1_DATA0__USDHC1_DATA0
-> 	0x1d4
-> > +			MX8MP_IOMUXC_SD1_DATA1__USDHC1_DATA1
-> 	0x1d4
-> > +			MX8MP_IOMUXC_SD1_DATA2__USDHC1_DATA2
-> 	0x1d4
-> > +			MX8MP_IOMUXC_SD1_DATA3__USDHC1_DATA3
-> 	0x1d4
-> > +		>;
-> > +	};
-> > +
-> > +	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
-> > +		fsl,pins =3D <
-> > +			MX8MP_IOMUXC_SD1_CLK__USDHC1_CLK	0x196
-> > +			MX8MP_IOMUXC_SD1_CMD__USDHC1_CMD	0x1d6
-> > +			MX8MP_IOMUXC_SD1_DATA0__USDHC1_DATA0
-> 	0x1d6
-> > +			MX8MP_IOMUXC_SD1_DATA1__USDHC1_DATA1
-> 	0x1d6
-> > +			MX8MP_IOMUXC_SD1_DATA2__USDHC1_DATA2
-> 	0x1d6
-> > +			MX8MP_IOMUXC_SD1_DATA3__USDHC1_DATA3
-> 	0x1d6
-> > +		>;
-> > +	};
-> > +
-> > +	pinctrl_usdhc1_pwrseq: usdhc1pwrseq {
-> > +		fsl,pins =3D <
-> > +			MX8MP_IOMUXC_SD1_RESET_B__GPIO2_IO10	0x140
-> > +		>;
-> > +	};
-> > +
-> >  	pinctrl_usdhc2: usdhc2grp {
-> >  		fsl,pins =3D <
-> >  			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK	0x190
-> > --
-> > 2.37.1
-> >
+Thanks
+Francesco
+
 
