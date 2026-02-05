@@ -4,65 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC7CCEC1EAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 12:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC6C0EC1EA5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 12:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qSG0aRohbGb0tpwrwMSVLkygfswX+S8xga2s7G+y8zg=; b=n4ciXroyWjOiBKzxdxmLG/2/Mm
-	biOUF8ga5HJfJS30Kkfr44bOqsHN2B6VgQWOeyn9J3X2XqX2170c8+9x4tipp2ZOpxZAgF2nn082R
-	QvBeqvHdmhcSegEGL+/9OwJvZYJaF2MJsJdGEfDTTbR6lcV5jM+gLXnPnVFCq/DSecO0LiXAb3cg+
-	GRvhXP73XrtJ18f+78ifXNwQaK2O3Hlq7FTei7Mq39aLLtm/WV/OTv+AVrlPu/5lwCF88CxDJqx7j
-	76YZIdIR0+cEo+7tw9jvhTcqTyBYISWW+atBSy9IlkL9FjH74Ko/n5f8HPEv+lH08qTJG6jN8Cdpy
-	m0Vi3EiQ==;
+	bh=cL7O3uVDCTzeVPeRYqpOq9fHpY2+S/3XpeviYiLPjLk=; b=IvdRW3Mbt8amymDJNCQ6BeLQl2
+	FUmkywnqXjxs+DQe4TLiG9OztNKhqcWHazCOQmgXj7Aus56W274WGnFcG4INFNmmDEBXgxXXyBbcW
+	JlDSj4CBC58n4IsmlySkLIsUeOP3Ak67Gdceb3lUpDECFPI7IRGJGy3d6LYhQhxqOJSroeBgXKaYP
+	59r/6d4BKBaU5euwa1vupZaYfME4OM1SlOJF3jSFe8ZNhvKq9DuUcgx8p0HWlskfbaQYNnKsP5cv6
+	Qj7GtDpNNoCqyowe8IZZZBFQqoi8cHv6FAFLGM67gNo/gNlbydc1nUiqOam1/PJKemfJ3yyedhzsT
+	gOgd7o+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnyVV-00000009sjZ-35Sy;
-	Thu, 05 Feb 2026 12:30:49 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vnyaO-00000009t72-30UY;
+	Thu, 05 Feb 2026 12:35:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnyVS-00000009shu-24km;
-	Thu, 05 Feb 2026 12:30:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1770294642;
-	bh=uND1ONUGdNhpoclQ5sqn36Q9nqz74LEUWRO+lp7PPWU=;
+	id 1vnyaN-00000009t6w-1usx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Feb 2026 12:35:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6704560128;
+	Thu,  5 Feb 2026 12:35:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFD5BC4CEF7;
+	Thu,  5 Feb 2026 12:35:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770294950;
+	bh=nel5r3ZPIAdk3n4G92llr+nSLeoO+qouhLLFg0wwKG4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=O6WJ1OH9sjuOjCUfTuTUHRKgw7hpjfNMDr4o8IJD8FHKeyWqDlRaR/gFdzwws6JOP
-	 TbsXvDxkjKTNqQCawECwYmWneKx5qp9WMK5AMwSBSPuQAnHAld6hT2sB7kdKGUBfLl
-	 Mmfnn+NFNI7XSr4DzD+kCTeIAPDVLnnzoMsFzlPIH+JG4K4tp0ACpuQ6QHFfVzoUth
-	 PofobZYSsBh2iT2tLdjJnYjypp3Ttl6ddtj6jq4IkDG76o9Vd3yyBNREnCtPMvcMak
-	 6ZClfSyQbq7rYGVkBoUmwITNo5A05UevRspsaAnca0YSqxUauIkiPhuuSUpxSJ2eBD
-	 nV+wtHyPasPLg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7FC0917E0017;
-	Thu,  5 Feb 2026 13:30:42 +0100 (CET)
-Message-ID: <a880d5d9-348e-4777-ae7f-69bdf7794e58@collabora.com>
-Date: Thu, 5 Feb 2026 13:30:42 +0100
+	b=Pbff6F4QdxJ/x6ARKtAQdlxQOFd/8rzHtFzil+lFHMIIbQP5kTdYiioesGV5YC1lw
+	 79DNKgGVmEb2YVgcbAQnbTUDzOydcAMp3BqxfIPuVgxSC3Qu3r/K5BV0Na/dT8kF8T
+	 dEDKTyH5sOA4HI6FzL1we7NuRD8kFFWF8qPW8GZ9kdXVABT2FF9y34Hc1R7RYKMJwa
+	 +h44Dmmp8OVNDIHZlyrTvWKpi/GRLb4E1BijCdEoJN5Je3QOgx/AZR+qHvNntsRxNm
+	 9ek5DeZ1r1kB4pJrwgnFvbe9gUCjnT/ElCeyGNo6fDiW0xFE6D7t8PFFr0Jd+Nv+76
+	 sRgX3rzWJU8PQ==
+Message-ID: <76da2e9b-1b57-4bd1-b577-9001d01c7b9a@kernel.org>
+Date: Thu, 5 Feb 2026 13:35:46 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] remoteproc: mediatek: Unprepare SCP clock during system
- suspend
-To: Tzung-Bi Shih <tzungbi@kernel.org>, Bjorn Andersson
- <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>,
- Chen-Yu Tsai <wenst@chromium.org>, linux-remoteproc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20260204085442.1822123-1-tzungbi@kernel.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH 2/2] arm64: dts: zena: Add support for Zena CSS
+To: Debbie Horsfall <debbie.horsfall@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
+ Sudeep Holla <sudeep.holla@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260123-zena-css-v1-0-34adb95cdf89@arm.com>
+ <20260123-zena-css-v1-2-34adb95cdf89@arm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-In-Reply-To: <20260204085442.1822123-1-tzungbi@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260123-zena-css-v1-2-34adb95cdf89@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_043046_717714_FA03D4F7 
-X-CRM114-Status: GOOD (  27.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,109 +118,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 04/02/26 09:54, Tzung-Bi Shih ha scritto:
-> Prior to commit d935187cfb27 ("remoteproc: mediatek: Break lock
-> dependency to prepare_lock"), `scp->clk` was prepared and enabled only
-> when it needs to communicate with the SCP.  The commit d935187cfb27
-> moved the prepare operation to remoteproc's prepare(), keeping the clock
-> prepared as long as the SCP is running.
+On 23/01/2026 18:37, Debbie Horsfall wrote:
+> Introduce the Zena CSS Fixed Virtual Platform (FVP) dts. This is
+> currently the only Zena CSS variant, however the common definitions are
+> included in a common dtsi for extensibility.
 > 
-> The power consumption due to the prolonged clock preparation can be
-> negligible when the system is running, as SCP is designed to be a very
-> power efficient processor.
-> 
-> However, the clock remains prepared even when the system enters system
-> suspend.  This prevents the underlying clock controller (and potentially
-> the parent PLLs) from shutting down, which increases power consumption
-> and may block the system from entering deep sleep states.
-> 
-> Add suspend and resume callbacks.  Unprepare the clock in suspend() if
-> it was active and re-prepare it in resume() to ensure the clock is
-> properly disabled during system suspend, while maintaining the "always
-> prepared" semantics while the system is active.
-> 
-> Fixes: d935187cfb27 ("remoteproc: mediatek: Break lock dependency to prepare_lock")
-> Signed-off-by: Tzung-Bi Shih <tzungbi@kernel.org>
-
-Would be great if you could mention that in this driver, at the moment of writing,
-there is no .attach() callback, hence rproc->state can never be RPROC_ATTACHED (as
-in case that would also leave the clock prepared).
-
-In any case, even though I don't exactly *love* how this is actually done, I don't
-really have any better option.
-
-But....
-
+> Signed-off-by: Debbie Horsfall <debbie.horsfall@arm.com>
 > ---
->   drivers/remoteproc/mtk_scp.c | 28 ++++++++++++++++++++++++++++
->   1 file changed, 28 insertions(+)
+>  MAINTAINERS                              |   1 +
+>  arch/arm64/boot/dts/arm/Makefile         |   1 +
+>  arch/arm64/boot/dts/arm/zena-css-fvp.dts |  55 ++
+>  arch/arm64/boot/dts/arm/zena-css.dtsi    | 826 +++++++++++++++++++++++++++++++
+>  4 files changed, 883 insertions(+)
 > 
-> diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
-> index 4651311aeb07..6200c687e232 100644
-> --- a/drivers/remoteproc/mtk_scp.c
-> +++ b/drivers/remoteproc/mtk_scp.c
-> @@ -1592,12 +1592,40 @@ static const struct of_device_id mtk_scp_of_match[] = {
->   };
->   MODULE_DEVICE_TABLE(of, mtk_scp_of_match);
->   
-> +#ifdef CONFIG_PM_SLEEP
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 90d88137adf1..d1d2dae6a71e 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -3727,6 +3727,7 @@ ARM/ZENA CSS PLATFORM
+>  M:	Debbie Horsfall <debbie.horsfall@arm.com>
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/arm/arm,zena-css.yaml
+> +F:	arch/arm64/boot/dts/arm/zena-css*
 
-...you don't need this ifdef as when CONFIG_PM_SLEEP is not set the macro
-SET_SYSTEM_SLEEP_PM_OPS is stubbed out (check pm.h).
+Eeeh, this is getting more and more messier.
 
-After removing the ifdef, there'll be something to change, specifically:
+All ARM designs or at least all similar like all ARM FVP should have one
+group maintainers and that entry now claims "versatile express".
 
-> +static int scp_suspend(struct device *dev)
+Additional entries for submaintainers is fine, but honestly with this
+split of bindings this is getting more and more messier.
 
-static int __maybe_unused scp_suspend(struct device *dev)
-{
+I know that ARM is kind of "special" but when it comes to SoCs it should
+not be.
 
-> +{
-> +	struct mtk_scp *scp = dev_get_drvdata(dev);
-> +	struct rproc *rproc = scp->rproc;
+Sort out this mess, please, before get accept another platform.
+
+...
+
+
+> +		cpu-map {
 > +
-> +	/* Only unprepare if the SCP is running and holding the clock */
-> +	if (rproc->state == RPROC_RUNNING)
-> +		clk_unprepare(scp->clk);
-> +	return 0;
-> +}
+
+No opening blank lines.
+
+> +			cluster0 {
 > +
-> +static int scp_resume(struct device *dev)
+> +				core0 {
+> +					cpu = <&CPU0>;
 
-static int __maybe_unused scp_resume(struct device *dev)
-{
+Labels are lowercase. See DTS coding style.
 
-After which,
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
-Cheers,
-Angelo
-
-> +{
-> +	struct mtk_scp *scp = dev_get_drvdata(dev);
-> +	struct rproc *rproc = scp->rproc;
+> +				};
 > +
-> +	if (rproc->state == RPROC_RUNNING)
-> +		return clk_prepare(scp->clk);
-> +	return 0;
-> +}
-> +#endif
+> +				core1 {
+> +					cpu = <&CPU1>;
+> +				};
 > +
-> +static const struct dev_pm_ops scp_pm_ops = {
-> +	SET_SYSTEM_SLEEP_PM_OPS(scp_suspend, scp_resume)
-> +};
+> +				core2 {
+> +					cpu = <&CPU2>;
+> +				};
 > +
->   static struct platform_driver mtk_scp_driver = {
->   	.probe = scp_probe,
->   	.remove = scp_remove,
->   	.driver = {
->   		.name = "mtk-scp",
->   		.of_match_table = mtk_scp_of_match,
-> +		.pm = &scp_pm_ops,
->   	},
->   };
->   
+> +				core3 {
+> +					cpu = <&CPU3>;
+> +				};
+> +			};
+> +
+
+...
+
+> +	memory@80000000 {
+> +		device_type = "memory";
+> +
+> +		/* Bank 0: start = 0x0000_0000_8000_0000, size = ~2 GiB (0x7F00_0000) */
+> +		reg = <
+> +			0x00000000  0x80000000  0x00000000  0x7F000000
+
+Lowercase hex. Also,
+> +			0x00000200  0x00000000  0x00000000  0x80000000
+> +		>;
+> +	};
+> +
+> +	timer {
+> +		compatible = "arm,armv8-timer";
+> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+> +			<GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+> +			<GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+> +			<GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
+> +			<GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+> +	};
+> +
+> +	soc_clk24mhz: clock-24000000 {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <24000000>;
+> +		clock-output-names = "refclk24mhz";
+> +	};
+> +
+> +	soc: soc {
+> +		compatible = "simple-bus";
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges;
+> +
+> +		timer@1a810000 {
+> +			compatible = "arm,armv7-timer-mem";
+> +			reg = <0x0 0x1a810000 0 0x10000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			/* Map child space [0x0..0x30000) to parent @ 0x1a810000 */
+> +			ranges = <0x0 0x0 0x1a810000 0x00030000>;
+> +
+> +			frame@20000 {
+> +				frame-number = <0>;
+> +				interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>;
+> +				reg = <0x20000 0x10000>;
+> +			};
+> +		};
+> +
+> +		gic: interrupt-controller@20800000 {
+> +			compatible = "arm,gic-v3";
+> +			#redistributor-regions = <16>;
+> +			reg = <0x0 0x20800000 0x0 0x10000>,    /* GICD */
+> +				<0x0 0x20880000 0x0 0x40000>,    /* 16 * GICR */
+> +				<0x0 0x208c0000 0x0 0x40000>,
+> +				<0x0 0x20900000 0x0 0x40000>,
+> +				<0x0 0x20940000 0x0 0x40000>,
+> +				<0x0 0x20980000 0x0 0x40000>,
+> +				<0x0 0x209c0000 0x0 0x40000>,
+> +				<0x0 0x20a00000 0x0 0x40000>,
+> +				<0x0 0x20a40000 0x0 0x40000>,
+> +				<0x0 0x20a80000 0x0 0x40000>,
+> +				<0x0 0x20ac0000 0x0 0x40000>,
+> +				<0x0 0x20b00000 0x0 0x40000>,
+> +				<0x0 0x20b40000 0x0 0x40000>,
+> +				<0x0 0x20b80000 0x0 0x40000>,
+> +				<0x0 0x20bc0000 0x0 0x40000>,
+> +				<0x0 0x20c00000 0x0 0x40000>,
+> +				<0x0 0x20c40000 0x0 0x40000>;
+> +			#interrupt-cells = <3>;
+> +			#address-cells = <2>;
+> +			#size-cells = <2>;
+> +			ranges;
+> +			interrupt-controller;
+> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
+> +
+> +			its1: msi-controller@20840000 {
+> +				compatible = "arm,gic-v3-its";
+> +				reg = <0x0 0x20840000 0x0 0x40000>;
+> +				msi-controller;
+> +				#msi-cells = <1>;
+> +			};
+> +		};
+> +
+> +		/* UART is fixed as 24MHz, both UARTCLK and PCLK */
+> +		soc_serial0: serial@1a400000 {
+
+That's some messed ordering. What sort of ordering rule is followed by
+ALL ARM SoCs? Not standard DTS coding style? If not, which one and why?
+
+> +			compatible = "arm,pl011", "arm,primecell";
+> +			reg = <0x0 0x1a400000 0x0 0x10000>;
+> +			interrupts = <GIC_SPI 52 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&soc_clk24mhz>, <&soc_clk24mhz>;
+> +			clock-names = "uartclk", "apb_pclk";
+> +		};
+> +
+> +		watchdog@1a420000 {
+> +			compatible = "arm,sbsa-gwdt";
+> +			reg = <0x0 0x1a420000 0x0 0x10000>,
+> +			      <0x0 0x1a430000 0x0 0x10000>;
+> +			interrupts = <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
+> +		};
+> +
+> +		rtc@300d0000 {
+> +			compatible = "arm,pl031", "arm,primecell";
+> +			reg = <0x0 0x300d0000 0x0 0x10000>;
+> +			interrupts = <GIC_SPI 268 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&soc_clk24mhz>;
+> +			clock-names = "apb_pclk";
+> +		};
+> +
+
+No trailing blank lines either. Please clean up your code so it looks
+intentional and well organized.
 
 
+> +	};
+> +
+> +	psci {
+> +		compatible = "arm,psci-1.0", "arm,psci-0.2", "arm,psci";
+> +		method = "smc";
+> +		cpu_suspend = <0xc4000001>;
+> +		cpu_off = <0x84000002>;
+> +		cpu_on = <0xc4000003>;
+> +	};
+> +
+> +	sram: sram@104000 {
+> +		compatible = "mmio-sram";
+> +		reg = <0x0 0x104000 0x0 0x00001000>;
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		ranges = <0 0x0 0x104000 0x00001000>;
+> +
+> +		scmi_shmem_tx: scpshmem-sram-section@0 {
+> +			compatible = "arm,scmi-shmem";
+> +			reg = <0x0 0x100>;
+> +		};
+> +		scmi_shmem_rx: scpshmem-sram-section@100 {
+> +			compatible = "arm,scmi-shmem";
+> +			reg = <0x100 0x100>;
+> +		};
+> +	};
+> +
+> +	mbox_db_tx: mailbox@40020000 {
+
+MMIO nodes are under soc.
+
+
+Best regards,
+Krzysztof
 
