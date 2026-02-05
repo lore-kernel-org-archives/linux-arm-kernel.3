@@ -4,71 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1DFBE91289
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 07:26:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 569ECE9128C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 07:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+4ZyWEJCZVnnCnU2G1d0LGtTbJEdxRfOeb0l2J6dqAA=; b=BFt7OU2ELtEBAj+d0XoGMlR24o
-	4J75oVhvlwgjH9iy93RiVyLA7WzZRJFE6sBLMaozr1uCk3mhQH+3/dzsvWniLQLuPwm1TSV5+ca88
-	FOTZpdX8R7369QGJz529/pcDAp4u+08RGN1NQN86f+nqYrr+4LAWlUVAFnAzZITF13Hd8Oeb3Lb+u
-	oAdLoc91+ugSdVBmWSrrSO1ECAWWt3HHpz8o4avdGpy6I1dIsnfwB1ZIFprzg/6wfsQzV73vRJGQS
-	r2kj5r3Ze2uhNgKtuW9QOH/BmWUVXCuHSx2Ibc4tN5y3JDK8THINHJUIEESJ/bFYmC2AnPQF5w57D
-	VdcdXOZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=od1djlX1THoJqqmk1vJ3FInniKDzm0CwoY+9aMLS3RI=; b=WlVArrwtaf+RZKHYSBQUzNxnyj
+	jE9XrOlPRGEJEGJ2tXgS+I+5p4R/6VK5jsLE65J909oKS8GT5m2RM8SBgNSE8Fp982eluXE6LWrxQ
+	xw7U7lVnjrlnnYdZokYvZtX5rBuL5nvJShIeoCFHJryN+E0Nq4J9WPBUsKSJThWb2PUv/aEY0KRT5
+	NMYu2k1yO7KzDQuxAJCUwL1fIMt1n+a2cHcrmf28qw9lkil3kI2sS+xHfRL8obPOmf5udOMgosAII
+	EJ131x5iVbTCT1QYlRj7fQI1lss9Yl0JS5GKCL0uc3ghvL0iIBKSsweqBlMlI7HpAldQb4Z71wkxa
+	iHq+ZidQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vntkc-00000009YIJ-09CZ;
-	Thu, 05 Feb 2026 07:26:06 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1vnts4-00000009YlP-0GqO;
+	Thu, 05 Feb 2026 07:33:48 +0000
+Received: from mail-westeuropeazon11013017.outbound.protection.outlook.com ([52.101.72.17] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vntkW-00000009XxR-2jiE
+	id 1vnts0-00000009Yl3-3TCK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 07:26:04 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=+4ZyWEJCZVnnCnU2G1d0LGtTbJEdxRfOeb0l2J6dqAA=;
-	b=57l68jqMmDAAFARIF7QD9ePiAbWm/6gmF1DOe9Qv5/n2NosZVn7Thm9/YwxkWYvgAWZbkZhvD
-	HvRRVKeHNcZfpPcTiRoxBQWGcd0tU1IM/dLGXWqHVGDVyJE/ZdMY99VmUuUcA9Xa97ylggW1/so
-	0btLtUJEvfZocNVr+FQgDzk=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4f67rL3hBMzcZym;
-	Thu,  5 Feb 2026 15:19:14 +0800 (CST)
-Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id B39C14056B;
-	Thu,  5 Feb 2026 15:23:38 +0800 (CST)
-Received: from [10.174.179.179] (10.174.179.179) by
- kwepemr500001.china.huawei.com (7.202.194.229) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 5 Feb 2026 15:23:28 +0800
-Message-ID: <a4ee7faa-5b0d-4ffa-bc06-939d95ef7680@huawei.com>
-Date: Thu, 5 Feb 2026 15:23:27 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm64: mm: fix pass user prot to ioremap_prot in
- generic_access_phys
-To: Will Deacon <will@kernel.org>
-CC: <akpm@linux-foundation.org>, <david@kernel.org>,
-	<catalin.marinas@arm.com>, <zengheng4@huawei.com>, <ryan.roberts@arm.com>,
-	<anshuman.khandual@arm.com>, <wangkefeng.wang@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>
-References: <20260130073807.99474-1-tujinjiang@huawei.com>
- <aYC6_lSm_eJeKIcn@willie-the-truck>
- <73396cda-e12c-484f-ab84-b09e7aab8bb0@huawei.com>
- <aYG-dGzR6MuPSQBK@willie-the-truck>
-From: Jinjiang Tu <tujinjiang@huawei.com>
-In-Reply-To: <aYG-dGzR6MuPSQBK@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+	Thu, 05 Feb 2026 07:33:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hIJF2kKpnm1kQtMPvbMFtIcK2S9R3f5LXUptHqLHvpO0nHfuYza8lTKTDg8PtvQAQGgqPB0xFI4AW+mvaOWiaNznCUg4tmmhxrr0VSZSMavmGwfo2o6+bPbKNoYrDwpK0ADxDcdHABAbb/9xjvxEJm0hSzs4X6mhRu1fVN0aY8EEUfnAehVipP3uP0qsF8qpCgKdsgRmsq4YhmLzWcKdtyRbGleHKsSkMbjG6t64HVVduPgf15zkalYIhVzHpSJKcnn3CP5gXoboPPUeunVsAa6hxydB4OMYjujqxACg8b9Q9fB09PUwtOnnChu5iC2T/GGMZL08Zrh+EOv3UH/C7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=od1djlX1THoJqqmk1vJ3FInniKDzm0CwoY+9aMLS3RI=;
+ b=TLuiEKQGBN2xst5aMBbyjsKimK3ve0KDT71eYl640+qT82LUIkqESyreIqFzeHO3WrNxjiDFE/yfdBInkTS4in4mAk0jtVupaNyTbbGRPyDv6xHqVKRp3mpEZDGtY73Qo3GgAjIUA5+nPjykjOiHUv7bAK7pYwaDjjdlFryErS/XFArdTYqzk+6Rv+NqIhF0wxaeiAg3tn2N1uP4r4r7sD7WDa7Mj9djdTzup+X0WSmTnru1DkCsWcjWdaqs0D4jqcdxJpTkEbESL3E5et9EiArVgfETKlzm3QDdBv2Nj3bvE2qIfr3P91xBodJh1ro1dxirIoU59+UWlEN6udwfWg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=od1djlX1THoJqqmk1vJ3FInniKDzm0CwoY+9aMLS3RI=;
+ b=Svjqb7a/rrSA/ffThyjM6Ibk8isqtpdlB3Y4J7vexbyoaGuOkGXzUVgz9jVrAG3Zlz0+CxIjOK45KWGYz9P/HouOz+W9jcDSMatzVOxd6Os6G4vV+AYvSEoEriUEHS/QWu3gcXjxJkF8LRl6y1ZxLEKnOzM5TWEfxSEZIgbz4lR0sDzGPMCMRumevSBHOqFbOgnnjZCSFjM0NzOjw2VguXJZnITRW0pflSgsU+uDhUwsG8pGVu2wUKuMaxAO9uMfXkK89sHaGegs5t9OP0brGq/2uXZpdMHQrOtJgLkaj1yV58Kn4WgnXbiDqogdHWXq0U53KKQlOjiKtNMADt6eGA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by AM7PR04MB6806.eurprd04.prod.outlook.com
+ (2603:10a6:20b:103::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.14; Thu, 5 Feb
+ 2026 07:33:40 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994%5]) with mapi id 15.20.9587.010; Thu, 5 Feb 2026
+ 07:33:40 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com
+Cc: imx@lists.linux.dev,
+	kernel@pengutronix.de,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH V2 0/2] arm64: dts: imx8mp-evk: Add usdhc1 for SDIO WiFi support
+Date: Thu,  5 Feb 2026 15:34:52 +0800
+Message-Id: <20260205073454.3709673-1-sherry.sun@nxp.com>
+X-Mailer: git-send-email 2.37.1
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.174.179.179]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemr500001.china.huawei.com (7.202.194.229)
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR02CA0108.apcprd02.prod.outlook.com
+ (2603:1096:4:92::24) To VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|AM7PR04MB6806:EE_
+X-MS-Office365-Filtering-Correlation-Id: ef057e56-c28d-48d4-60f2-08de6488e1e6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|19092799006|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?I8tW9YbhA+NYAfW49ClYgbbxbtoYVx4cRoVKwavhK4ceIf9nyBx52DBR1007?=
+ =?us-ascii?Q?ZDeU2s8lmVB6sFwzKLAHi9jiwj6Nei3U/rDnoKPL1grGnaK0T9P2OyjP3uxM?=
+ =?us-ascii?Q?UYJ7luObvTeVrRGU1rDRAqax5vqEY/VW+ZsJw7ivFgVOQHzrmtCJVW68YCbR?=
+ =?us-ascii?Q?3Vp2V4+/cP0HE/ezCtKI5bBDOF8IFSybZiJwO4oQDZwcug/Bb/kStOpewGqm?=
+ =?us-ascii?Q?3WVR0FzuYozTElmXrduqmeDamqUx4EEgH/2HrhU76l4O1dlXtOHgx2ngUMnb?=
+ =?us-ascii?Q?upNMv/W1UueZC1KExbuy0r0BWIRVnELzpf313pBF3gMRMwuy4WrZ1ByhYCvt?=
+ =?us-ascii?Q?BAWqEBCnFNNnxzUee1NX1Uy5BztcI5V02r3Y3RA4jNulfoZupK3xjYJgxHKz?=
+ =?us-ascii?Q?HBNu9WhPVBe22qOLGTjjhh1ze6mEweE9V2LANEeOgZX25XFugaePaq2NQTAM?=
+ =?us-ascii?Q?AeO21CfgKSmw11iIwkFjr4XAJW+4mdVQ4CTEkAe686BhQmsk2RLtd6Z0OkHk?=
+ =?us-ascii?Q?wYDhY/zP3dcek8mi1N/vdGVVAorV0GhWcrgMGSodKKd5XiZxLYXFx/zfYcvp?=
+ =?us-ascii?Q?GFGOdD/0CTBpmLSr+gfC+blxHxcqtYhwjkEmchm8p8ALry0ws8nW6o5oqzgA?=
+ =?us-ascii?Q?bqKspWtEOqJqBquEOfw5Vkc41Kc1Y5Y+1S8rqICXPr6ieaO643lWJSe+ImnQ?=
+ =?us-ascii?Q?BdGzkW+7M4UOBeG5m0cpUHx1+Pm80puscg7JiNnNiIWF3+h6/RL1zOAisFpa?=
+ =?us-ascii?Q?sWtRArKkIiO3K5yg4GyefY3ngSTFo3oQ2Uc062UdeV5KGZYwJDU95ignws1h?=
+ =?us-ascii?Q?a4DZw1z+wtk2weB68F3kzmmoXeMrN/TT8MrelcmeT/WeaeOEmECOKFAV0tIk?=
+ =?us-ascii?Q?MLi0fHhDuyKxMZAHdvQ1Tq6LlEYA8qkr9cXgTgIvnwQ13VoeuDGW1WDdZ6cR?=
+ =?us-ascii?Q?RpZ7pzrc5uWlV6CyEROlI6vcPCfSwvJm9PhYfJ6ibjXODt4kaOIBiqoty6DQ?=
+ =?us-ascii?Q?5Nhk+mN/jDUuWV4hrhhw/ZCGGVRRAwzwiaqgo6AxWqNAKBkO9GUPX5ZfFtEW?=
+ =?us-ascii?Q?DLWRipxSp5bzOi8YKl8ZNNv3BIy/+Cn0uE9klptMXIFXtAjVRLi684VZ9bRE?=
+ =?us-ascii?Q?238nnpQmTpQHUmeWLdAW6RL10uswJOKi1fZj1/9c8VKdkZjRdfIpXn1HZKQ3?=
+ =?us-ascii?Q?Y5tZMv5vCs6/dddZk/zfQr/tprUVR3xg5siEkfkXsd3uvtE/mLLp057G59wS?=
+ =?us-ascii?Q?89g9dVxliTauHGUp6as9i4oFbm7f29Qgy1BhbhiFv5E0t7u6bbMfwFgs/3y4?=
+ =?us-ascii?Q?JHYutro+4zXrs3R+0zZyi1N6mgukSrakaAlOwuWHXog4NrOpFNO1B1y06mSv?=
+ =?us-ascii?Q?DxtJ1vv+IUq3cd6ufEaxpwHc7FSlK3TEjneCfzEjRxdKdhnYKoQnjy5I5V8w?=
+ =?us-ascii?Q?T+/MjpnrLWyfOQOqBLcW2yrQIGJY9BCYnTaMPMSfCvfU7AGI3bmJxYn2Y6q+?=
+ =?us-ascii?Q?PXXLZrYLZuJ5N6WudXviZKLTx7qJeRH3AeC4bRCNLHZVBR4hposJhvPdpy43?=
+ =?us-ascii?Q?MnObB62Tjj1RV72bXb1vNA5Hai4jPu43j4ZvJpHWa3TqsUb8/0G9yN+RpMT/?=
+ =?us-ascii?Q?p11cIx0rdJtgNTwpHnORkH0=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?prLhDTcqEzGCGNoO8IV4sF/vbprecys3hcjuclVJNA/ndbEGS7zPSUi69nT6?=
+ =?us-ascii?Q?WbdZ/RxdmGTpEHD+ONoQO00AQQOVnJ35MYOHopQFmnJCHgId6jfWx+GfQMsx?=
+ =?us-ascii?Q?RFgHbPCwXaEfa8gmJRT7je06hAkHJpcpIHEF5y++Y4LdnG0/s04aSQfwmfVy?=
+ =?us-ascii?Q?kGJMQhKi/dVxMJnmYkXS4EksXD2qcH3lDLNVpnyiYQP4IhjAn91bTRQDnjcr?=
+ =?us-ascii?Q?dh2TDRp0JEtcPzY1W73I1Sc10pkQVwnAgO2/O6FXEnKIAEnEQHrmUSDDQ4zV?=
+ =?us-ascii?Q?eDu+fIbHKSMv9glrSqUWooBgH3mIQ5zn0QKjMJp5ZW6oHvi6dEBn+4o8cusV?=
+ =?us-ascii?Q?Z8/6FmzKoqX1v3naTPYdVQKX8sSDqk+bD4yPRcFqa0OOKOFFcxoC4fTFlmx+?=
+ =?us-ascii?Q?Re1StAJ+EHBxLoze60KDr/OQezbRe38BHfKzNM9x8K2yD+/s+nNmVcAjpInE?=
+ =?us-ascii?Q?C6al8vk1lEGxYyfjdymckpcySGdaVWtas5F3iTJj9eq3031qG8oK9QnJOaiu?=
+ =?us-ascii?Q?6Yzv8Cutzvq7Z6XzulQhlhwVACDK2OdLKRNM9Pap9XPxV0O+ehv1ERjV9XQY?=
+ =?us-ascii?Q?xuXW6QI1PZQa8zVqFHjo2DTqRSjpE7JSnKmxzKoaiWq0RNBUVbbW+726SzUh?=
+ =?us-ascii?Q?V02+lCqtZe2yKCuWSSGOOxkWAvLO4KbfUhU06IKHk+UHXA0HFMLs1jtfbce1?=
+ =?us-ascii?Q?/bhIdpgrMehma2cHvdQn7KCoiCFzwx8Ud5OxghoMcGGkrPj92Y8aeqtZfWeQ?=
+ =?us-ascii?Q?C2dUEYCYSL56de1Gz/iX2ATswYXb0BbgRTzhPsXdDnNg5jlqzzu7N34Np55r?=
+ =?us-ascii?Q?jzQl/3L1RToD8nlxFAwSMG2Zy01W/LLtavFZQTpidlVXDh5v+y5Yg5m7J+1H?=
+ =?us-ascii?Q?odOGgOOcG1orWzaqt/zczvyf1L3F/FXfrIM4yH457Lm0PHMK5SMpsFU/aWnu?=
+ =?us-ascii?Q?sDgcX+uCTM9tTX4Wctbt5v5VcCJ7YoUJvicvENrIiF5X5h+bIA4TEIfaLOwN?=
+ =?us-ascii?Q?dOXu0TKW4l7xl7H3FfCCFKqhtdY20IMEhJ2qdh0ObOrbqmqKdtIRdUDAgefm?=
+ =?us-ascii?Q?bGbncXIBsd47jCxDx+c2+6Qr19E2geEBgHpRAD3tpR4Z+KfWIFGbsT1hZjCI?=
+ =?us-ascii?Q?0wvVRdb8ErgOUzFxz+1m0eLBC0wwyD/Kkhuy5+1+iTKDDbBBRIIO8MNuywDX?=
+ =?us-ascii?Q?QT1WYIZ8e8HB42OlgsXzCnjrG6Q3buhMv+Wma4u40g5bOHxORu4d/MszwRPH?=
+ =?us-ascii?Q?cA5H84vLTDy/5D7VtOA0gxmQ/lLaVdmZAub3Xua7VrX5jm46EykEr9laJser?=
+ =?us-ascii?Q?aC4665rgb+aoxs+oMunMn8ZuY02RKoarA+kwHno3NVkmqPhL/3xNrHBDsu2m?=
+ =?us-ascii?Q?SpP8blDM881alzHeT3Lb9b3pBI++NNtkVvl0ugpkoHrBpKxiFahS6JsfgJB5?=
+ =?us-ascii?Q?ob4ychxfR+eiW+cvRkC5Qu1KQKNHxePgvQi7Y0Wy9ZE/qMJ9FQ1zyYhdb6lH?=
+ =?us-ascii?Q?GTTW79hFelMKD9eyFhh/Ct8T7dRYnGP2HLXhEWCJl8FOuG9cBDRi3xTu+Pc+?=
+ =?us-ascii?Q?tsm+nrLujW6g+RhSj5YmUupj1/NKtnpeiVneRDXtyy5onK6tqgDpba++1YCR?=
+ =?us-ascii?Q?i88jp9RSKQhON7U9pml6JZnwomED+kKdv1ijnf+jWnKdH0FiWcKEM5In+wb5?=
+ =?us-ascii?Q?fepg9JrYGWWXD62kWcm9upvnayeMDDV6T/yqN+KcmkHYVQu12TZEbC3AOxZX?=
+ =?us-ascii?Q?AaPhdNUx0g=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ef057e56-c28d-48d4-60f2-08de6488e1e6
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Feb 2026 07:33:40.2280
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: b4qVvzEy5keDn9/jGf1YeNqm7aPAFqLko8LHpc386yGYtHBAuwJwXFuUfFMlQwI6OLrNEB+Hpsw1n5jxK8s/mQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6806
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260204_232602_493599_A0A4FE61 
-X-CRM114-Status: GOOD (  19.14  )
+X-CRM114-CacheID: sfid-20260204_233344_877350_8B2BFA51 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,118 +169,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patch set adds usdhc1 support to enable M.2 SDIO WiFi on the
+i.MX8MP EVK. The M.2 connector on this board can operate in both PCIe
+and SDIO modes, and SDIO-based WLAN modules require proper power control
+through the same M.2 WLAN enable line (W_DISABLE1 on pin 56).
 
-在 2026/2/3 17:23, Will Deacon 写道:
-> On Tue, Feb 03, 2026 at 11:38:15AM +0800, Jinjiang Tu wrote:
->> 在 2026/2/2 22:55, Will Deacon 写道:
->>> On Fri, Jan 30, 2026 at 03:38:07PM +0800, Jinjiang Tu wrote:
->>>> Here is a syzkaller error log:
->>>>     [0000000020ffc000] pgd=080000010598d403, p4d=080000010598d403, pud=0800000125ddb403,
->>>>                        pmd=080000007833c403, pte=01608000007fcfcf
->>>>     Unable to handle kernel read from unreadable memory at virtual address ffff80008ea89000
->>>>     KASAN: probably user-memory-access in range [0x0000000475448000-0x0000000475448007]
->>>>     Mem abort info:
->>>>       ESR = 0x000000009600000f
->>>>       EC = 0x25: DABT (current EL), IL = 32 bits
->>>>       SET = 0, FnV = 0
->>>>       EA = 0, S1PTW = 0
->>>>       FSC = 0x0f: level 3 permission fault
->>>>     Data abort info:
->>>>       ISV = 0, ISS = 0x0000000f, ISS2 = 0x00000000
->>>>       CM = 0, WnR = 0, TnD = 0, TagAccess = 0
->>>>       GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
->>>>     swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000001244aa000
->>>>     [ffff80008ea89000] pgd=100000013ffff403, p4d=100000013ffff403, pud=100000013fffe403,
->>>> 		     pmd=100000010a453403, pte=01608000007fcfcf
->>>>     Internal error: Oops: 000000009600000f [#1] SMP
->>>>     Modules linked in: team
->>>>     CPU: 1 PID: 10840 Comm: syz.9.83 Kdump: loaded Tainted: G
->>>>     Hardware name: QEMU KVM Virtual Machine, BIOS 0.0.0 02/06/2015
->>>>     pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
->>>>     pc : __memcpy_fromio+0x80/0xf8
->>>>     lr : generic_access_phys+0x20c/0x2b8
->>>>     sp : ffff8000a0507960
->>>>     x29: ffff8000a0507960 x28: 1ffff000140a0f44 x27: ffff00003833cfe0
->>>>     x26: 0000000000000000 x25: 0000000000001000 x24: 0010000000000001
->>>>     x23: ffff80008ea89000 x22: ffff00004ea63000 x21: 0000000000001000
->>>>     x20: ffff80008ea89000 x19: ffff00004ea62000 x18: 0000000000000000
->>>>     x17: 0000000000000000 x16: 0000000000000000 x15: ffff8000806f1e3c
->>>>     x14: ffff8000806f1d44 x13: 0000000041b58ab3 x12: ffff7000140a0f23
->>>>     x11: 1ffff000140a0f22 x10: ffff7000140a0f22 x9 : ffff800080579d24
->>>>     x8 : 0000000000000004 x7 : 0000000000000003 x6 : 0000000000000001
->>>>     x5 : ffff8000a0507910 x4 : ffff7000140a0f22 x3 : dfff800000000000
->>>>     x2 : 0000000000001000 x1 : ffff80008ea89000 x0 : ffff00004ea62000
->>>>     Call trace:
->>>>       __memcpy_fromio+0x80/0xf8
->>>>       generic_access_phys+0x20c/0x2b8
->>>>       __access_remote_vm+0x46c/0x5b8
->>>>       access_remote_vm+0x18/0x30
->>>>       environ_read+0x238/0x3e8
->>>>       vfs_read+0xe4/0x2b0
->>>>       ksys_read+0xcc/0x178
->>>>       __arm64_sys_read+0x4c/0x68
->>>>       invoke_syscall+0x68/0x1a0
->>>>       el0_svc_common.constprop.0+0x11c/0x150
->>>>       do_el0_svc+0x38/0x50
->>>>       el0_svc+0x50/0x258
->>>>       el0t_64_sync_handler+0xc0/0xc8
->>>>       el0t_64_sync+0x1a4/0x1a8
->>>>     Code: 91002339 aa1403f7 8b190276 d503201f (f94002f8)
->>>>
->>>> The local syzkaller first maps I/O address from /dev/mem to userspace,
->>>> overiding the stack vma with MAP_FIXED flag. As a result, when reading
->>>> /proc/$pid/environ, generic_access_phys() is called to access the region,
->>>> which triggers a PAN permission-check fault and causes a kernel access
->>>> fault.
->>>>
->>>> The root cause is that generic_access_phys() passes a user pte to
->>>> ioremap_prot(), the user pte sets PTE_USER and PTE_NG bits.  Consequently,
->>>> any subsequent kernel-mode access to the remapped address raises a fault.
->>>>
->>>> To fix it, define arch_mk_kernel_prot() to convert user prot to kernel
->>>> prot for arm64, and call arch_mk_kernel_prot() in generic_access_phys(),
->>>> so that a user prot is passed to ioremap_prot().
->>>>
->>>> Fixes: 893dea9ccd08 ("arm64: Add HAVE_IOREMAP_PROT support")
->>>> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
->>>> Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
->>>> ---
->>>> Changes in v3:
->>>>    * arch_mk_kernel_prot() always grant read/write permissions.
->>>>
->>>>    arch/arm64/include/asm/io.h |  8 ++++++++
->>>>    mm/memory.c                 | 12 +++++++++++-
->>>>    2 files changed, 19 insertions(+), 1 deletion(-)
->>>>
->>>> diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
->>>> index 83e03abbb2ca..fe3040d59119 100644
->>>> --- a/arch/arm64/include/asm/io.h
->>>> +++ b/arch/arm64/include/asm/io.h
->>>> @@ -267,6 +267,14 @@ int arm64_ioremap_prot_hook_register(const ioremap_prot_hook_t hook);
->>>>    #define ioremap_prot ioremap_prot
->>>> +#define arch_mk_kernel_prot arch_mk_kernel_prot
->>>> +static inline pgprot_t arch_mk_kernel_prot(pgprot_t user_prot)
->>>> +{
->>>> +	ptdesc_t mem_type = pgprot_val(user_prot) & PTE_ATTRINDX_MASK;
->>>> +
->>>> +	return __pgprot_modify(PAGE_KERNEL, PTE_ATTRINDX_MASK, mem_type);
->>>> +}
->>> Do we really need another arch helper here?
->> For arc, powerpc, ioremap_prot() simply copy the user pte prot to the kernel page table too.
->> So maybe we should fix for the two archs too, and we should define a arch helper here.
->> But I'm not familiar with them.
-> My point is that we already have the helper: ioremap_prot(). Just fix
-> that for arm64 and cc the other arch maintainers if you're not sure how
-> to fix it for them. What we don't need to do is add an additional helper.
->
-ioremap_prot() may be called outside of arch/arm64 in the future, and I think
-most of the cases will not pass a user prot to ioremap_prot().
+Patch 1 corrects the IOMUX configuration by enabling the pull-select bit
+for the M.2 regulator GPIO, ensuring that the weak pull-up is actually
+applied.
+Patch 2 enables usdhc1 and associated pinctrl settings needed for SDIO
+WiFi operation on the M.2 connector.
 
-generic_access_phys() is a special case, so I want to limit the modification to
-generic_access_phys() only.
+---
+Changes in V2:
+1. Add fixes tag for patch#1.
+2. Remove the patch which renames the regulator node from reg_pcie0 to
+   reg_m2_wlan, instead add second label reg_m2_wlan to simply code.
+---
 
-Thanks.
+Sherry Sun (2):
+  arm64: dts: imx8mp-evk: Enable pull select bit for PCIe regulator GPIO
+    (M.2 W_DISABLE1)
+  arm64: dts: imx8mp-evk: Add usdhc1 for SDIO WiFi support
 
-> Will
->
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 63 +++++++++++++++++++-
+ 1 file changed, 61 insertions(+), 2 deletions(-)
+
+-- 
+2.37.1
+
 
