@@ -4,106 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC6C0EC1EA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 12:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47CD9EC1EAF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 12:50:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cL7O3uVDCTzeVPeRYqpOq9fHpY2+S/3XpeviYiLPjLk=; b=IvdRW3Mbt8amymDJNCQ6BeLQl2
-	FUmkywnqXjxs+DQe4TLiG9OztNKhqcWHazCOQmgXj7Aus56W274WGnFcG4INFNmmDEBXgxXXyBbcW
-	JlDSj4CBC58n4IsmlySkLIsUeOP3Ak67Gdceb3lUpDECFPI7IRGJGy3d6LYhQhxqOJSroeBgXKaYP
-	59r/6d4BKBaU5euwa1vupZaYfME4OM1SlOJF3jSFe8ZNhvKq9DuUcgx8p0HWlskfbaQYNnKsP5cv6
-	Qj7GtDpNNoCqyowe8IZZZBFQqoi8cHv6FAFLGM67gNo/gNlbydc1nUiqOam1/PJKemfJ3yyedhzsT
-	gOgd7o+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3nwfMEfauZX4o9Pkm/lT0qqDPxFmtD3WMAZTpil1yHE=; b=D+P+0YSSAH7cFCk9yLVg/D5ahT
+	gcP/YyEB7OwdE4gR8dOnb1elkVvrEp/b4siYI76tDY+g4nPkp0MZSPFvyV2D9mRHCgf2hnwSMH4QJ
+	cNQum4CK0lZhJU13MfXMeyhZvZBjwwsfrlF2vbNH+1iE6CvSQVC1Cu1lRIEVByAWpLSak2RlcSxJY
+	oaVdvLItQG11j/NHLzNPN/AiuEsPXzahFNM1kW3a5ncszVYiUcMq3GgJo2OGst2pemxU8rpKM/bOF
+	M50gpHhpaBQGiMFqDCIcPgea8lFnkjsz7NpeVQnEWS511kq47+K/jdQ5aNeE/gdfPK3H44yo1aP46
+	LyFH7Mxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnyaO-00000009t72-30UY;
-	Thu, 05 Feb 2026 12:35:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vnyon-00000009uVd-1aHQ;
+	Thu, 05 Feb 2026 12:50:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnyaN-00000009t6w-1usx
+	id 1vnyom-00000009uVE-0Gz8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 12:35:51 +0000
+	Thu, 05 Feb 2026 12:50:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6704560128;
-	Thu,  5 Feb 2026 12:35:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFD5BC4CEF7;
-	Thu,  5 Feb 2026 12:35:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1D42460010;
+	Thu,  5 Feb 2026 12:50:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42B82C4CEF7;
+	Thu,  5 Feb 2026 12:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770294950;
-	bh=nel5r3ZPIAdk3n4G92llr+nSLeoO+qouhLLFg0wwKG4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Pbff6F4QdxJ/x6ARKtAQdlxQOFd/8rzHtFzil+lFHMIIbQP5kTdYiioesGV5YC1lw
-	 79DNKgGVmEb2YVgcbAQnbTUDzOydcAMp3BqxfIPuVgxSC3Qu3r/K5BV0Na/dT8kF8T
-	 dEDKTyH5sOA4HI6FzL1we7NuRD8kFFWF8qPW8GZ9kdXVABT2FF9y34Hc1R7RYKMJwa
-	 +h44Dmmp8OVNDIHZlyrTvWKpi/GRLb4E1BijCdEoJN5Je3QOgx/AZR+qHvNntsRxNm
-	 9ek5DeZ1r1kB4pJrwgnFvbe9gUCjnT/ElCeyGNo6fDiW0xFE6D7t8PFFr0Jd+Nv+76
-	 sRgX3rzWJU8PQ==
-Message-ID: <76da2e9b-1b57-4bd1-b577-9001d01c7b9a@kernel.org>
-Date: Thu, 5 Feb 2026 13:35:46 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: zena: Add support for Zena CSS
-To: Debbie Horsfall <debbie.horsfall@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
- Sudeep Holla <sudeep.holla@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260123-zena-css-v1-0-34adb95cdf89@arm.com>
- <20260123-zena-css-v1-2-34adb95cdf89@arm.com>
+	s=k20201202; t=1770295842;
+	bh=8ZSFvFFjrBn3umwkPpCWB7+Cv6fyC2OJgBqtdvIYlAw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JXdJqMsPnG5JvN/RqmqUjJrpoOZ+equY8ri6CNfNZrNfxnhMG35/Xn656s5MIv4g6
+	 gw8JOgWNwFnZ7ksOYtSDWCGJrkrSEkDLiFLcriiQ9jt/yxxKDzGGZ8Qq7Tz6mLo2L6
+	 oIC72ZtFxtiX9RjhN32IYlvFjmzl6vI3YW653nnoJQtCD2y/2QTgBvdcbFbJDxo/I8
+	 PnanOOQTdBm/UgbJS5aSZnaz2g9L2l1bDzrz/fb+kDcCcSxWKmHAJOgM2rcIGc/rOD
+	 ZX8bc4baFUOKebaOcVR2P1/tp6UVFRLU62W5or5m6Hv75YkfkuMqskRXljChRY93pS
+	 v1Yj17yLxog2Q==
+Date: Thu, 5 Feb 2026 13:50:40 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260123-zena-css-v1-2-34adb95cdf89@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: Janne Grunau <j@jannau.net>
+Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: interrupt-controller: apple,aic2:
+ Add AICv3
+Message-ID: <20260205-pastoral-magnificent-cuscus-ce58ad@quoll>
+References: <20260128-irq-apple-aic3-v2-0-b4bc8e16c997@jannau.net>
+ <20260128-irq-apple-aic3-v2-1-b4bc8e16c997@jannau.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260128-irq-apple-aic3-v2-1-b4bc8e16c997@jannau.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,225 +72,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/01/2026 18:37, Debbie Horsfall wrote:
-> Introduce the Zena CSS Fixed Virtual Platform (FVP) dts. This is
-> currently the only Zena CSS variant, however the common definitions are
-> included in a common dtsi for extensibility.
+On Wed, Jan 28, 2026 at 09:57:08AM +0100, Janne Grunau wrote:
+> AIC version 3 as found on the Apple M3 (t8122) is very similar to AICv2
+> in its base functionality. It can use the same device tree bindings as
+> AICv2 so add it to the AICv2 bindings.
+> This interrupt controller is used on all Apple SoCs starting with M3 up
+> to at least M5.
+> The only apparent difference is the increased IRQ config offset. Apple's
+> device tree codes this new offset as property of the "aic" node but the
+> value stayed constant for all SoCs with "aic,3". Since the SoC specific
+> compatible "apple,t8122-aic3" will be used in the driver this offset can
+> remain a driver implementation detail.
 > 
-> Signed-off-by: Debbie Horsfall <debbie.horsfall@arm.com>
+> Signed-off-by: Janne Grunau <j@jannau.net>
 > ---
->  MAINTAINERS                              |   1 +
->  arch/arm64/boot/dts/arm/Makefile         |   1 +
->  arch/arm64/boot/dts/arm/zena-css-fvp.dts |  55 ++
->  arch/arm64/boot/dts/arm/zena-css.dtsi    | 826 +++++++++++++++++++++++++++++++
->  4 files changed, 883 insertions(+)
+>  .../bindings/interrupt-controller/apple,aic2.yaml  | 45 +++++++++++++++++-----
+>  1 file changed, 36 insertions(+), 9 deletions(-)
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 90d88137adf1..d1d2dae6a71e 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -3727,6 +3727,7 @@ ARM/ZENA CSS PLATFORM
->  M:	Debbie Horsfall <debbie.horsfall@arm.com>
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/arm/arm,zena-css.yaml
-> +F:	arch/arm64/boot/dts/arm/zena-css*
-
-Eeeh, this is getting more and more messier.
-
-All ARM designs or at least all similar like all ARM FVP should have one
-group maintainers and that entry now claims "versatile express".
-
-Additional entries for submaintainers is fine, but honestly with this
-split of bindings this is getting more and more messier.
-
-I know that ARM is kind of "special" but when it comes to SoCs it should
-not be.
-
-Sort out this mess, please, before get accept another platform.
-
-...
-
-
-> +		cpu-map {
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+> index ee5a0dfff437816056bda0de5523bf38be4f49ba..a6e2251fcc111340c0a27ab6912452f6b1255be2 100644
+> --- a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+> @@ -4,10 +4,10 @@
+>  $id: http://devicetree.org/schemas/interrupt-controller/apple,aic2.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: Apple Interrupt Controller 2
+> +title: Apple Interrupt Controller 2 and 3
+>  
+>  maintainers:
+> -  - Hector Martin <marcan@marcan.st>
+> +  - Janne Grunau <j@jannau.net>
+>  
+>  description: |
+>    The Apple Interrupt Controller 2 is a simple interrupt controller present on
+> @@ -28,14 +28,24 @@ description: |
+>    which do not go through a discrete interrupt controller. It also handles
+>    FIQ-based Fast IPIs.
+>  
+> +  The Apple Interrupt Controller 3 is in its base functionality very similar to
+> +  the Apple Interrupt Controller 2 and uses the same device tree bindings. It is
+> +  found on Apple ARM SoCs platforms starting with t8122 (M3).
 > +
+>  properties:
+>    compatible:
+> -    items:
+> -      - enum:
+> -          - apple,t8112-aic
+> -          - apple,t6000-aic
+> -          - apple,t6020-aic
+> -      - const: apple,aic2
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - apple,t8112-aic
+> +              - apple,t6000-aic
+> +              - apple,t6020-aic
 
-No opening blank lines.
+If you are re-shuffling these, you can as well sort alphanumerically.
 
-> +			cluster0 {
-> +
-> +				core0 {
-> +					cpu = <&CPU0>;
+> +          - const: apple,aic2
+> +      - items:
+> +          - enum:
+> +              - apple,t6030-aic3
+> +          - const: apple,t8122-aic3
+> +      - const: apple,t8122-aic3
 
-Labels are lowercase. See DTS coding style.
+Hm? How so this is not aic or aic2? We asked not to use generic compatibles
+for aic/aic2 - for all your early upstreamings. Our advice and request
+was in general rejected, although I could make a long term bet that we
+will be right. And here we are.
 
-
-> +				};
-> +
-> +				core1 {
-> +					cpu = <&CPU1>;
-> +				};
-> +
-> +				core2 {
-> +					cpu = <&CPU2>;
-> +				};
-> +
-> +				core3 {
-> +					cpu = <&CPU3>;
-> +				};
-> +			};
-> +
-
-...
-
-> +	memory@80000000 {
-> +		device_type = "memory";
-> +
-> +		/* Bank 0: start = 0x0000_0000_8000_0000, size = ~2 GiB (0x7F00_0000) */
-> +		reg = <
-> +			0x00000000  0x80000000  0x00000000  0x7F000000
-
-Lowercase hex. Also,
-> +			0x00000200  0x00000000  0x00000000  0x80000000
-> +		>;
-> +	};
-> +
-> +	timer {
-> +		compatible = "arm,armv8-timer";
-> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-> +			<GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-> +			<GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> +			<GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-> +			<GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
-> +	};
-> +
-> +	soc_clk24mhz: clock-24000000 {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +		clock-frequency = <24000000>;
-> +		clock-output-names = "refclk24mhz";
-> +	};
-> +
-> +	soc: soc {
-> +		compatible = "simple-bus";
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		timer@1a810000 {
-> +			compatible = "arm,armv7-timer-mem";
-> +			reg = <0x0 0x1a810000 0 0x10000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +			/* Map child space [0x0..0x30000) to parent @ 0x1a810000 */
-> +			ranges = <0x0 0x0 0x1a810000 0x00030000>;
-> +
-> +			frame@20000 {
-> +				frame-number = <0>;
-> +				interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>;
-> +				reg = <0x20000 0x10000>;
-> +			};
-> +		};
-> +
-> +		gic: interrupt-controller@20800000 {
-> +			compatible = "arm,gic-v3";
-> +			#redistributor-regions = <16>;
-> +			reg = <0x0 0x20800000 0x0 0x10000>,    /* GICD */
-> +				<0x0 0x20880000 0x0 0x40000>,    /* 16 * GICR */
-> +				<0x0 0x208c0000 0x0 0x40000>,
-> +				<0x0 0x20900000 0x0 0x40000>,
-> +				<0x0 0x20940000 0x0 0x40000>,
-> +				<0x0 0x20980000 0x0 0x40000>,
-> +				<0x0 0x209c0000 0x0 0x40000>,
-> +				<0x0 0x20a00000 0x0 0x40000>,
-> +				<0x0 0x20a40000 0x0 0x40000>,
-> +				<0x0 0x20a80000 0x0 0x40000>,
-> +				<0x0 0x20ac0000 0x0 0x40000>,
-> +				<0x0 0x20b00000 0x0 0x40000>,
-> +				<0x0 0x20b40000 0x0 0x40000>,
-> +				<0x0 0x20b80000 0x0 0x40000>,
-> +				<0x0 0x20bc0000 0x0 0x40000>,
-> +				<0x0 0x20c00000 0x0 0x40000>,
-> +				<0x0 0x20c40000 0x0 0x40000>;
-> +			#interrupt-cells = <3>;
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			ranges;
-> +			interrupt-controller;
-> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-> +
-> +			its1: msi-controller@20840000 {
-> +				compatible = "arm,gic-v3-its";
-> +				reg = <0x0 0x20840000 0x0 0x40000>;
-> +				msi-controller;
-> +				#msi-cells = <1>;
-> +			};
-> +		};
-> +
-> +		/* UART is fixed as 24MHz, both UARTCLK and PCLK */
-> +		soc_serial0: serial@1a400000 {
-
-That's some messed ordering. What sort of ordering rule is followed by
-ALL ARM SoCs? Not standard DTS coding style? If not, which one and why?
-
-> +			compatible = "arm,pl011", "arm,primecell";
-> +			reg = <0x0 0x1a400000 0x0 0x10000>;
-> +			interrupts = <GIC_SPI 52 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&soc_clk24mhz>, <&soc_clk24mhz>;
-> +			clock-names = "uartclk", "apb_pclk";
-> +		};
-> +
-> +		watchdog@1a420000 {
-> +			compatible = "arm,sbsa-gwdt";
-> +			reg = <0x0 0x1a420000 0x0 0x10000>,
-> +			      <0x0 0x1a430000 0x0 0x10000>;
-> +			interrupts = <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
-> +		};
-> +
-> +		rtc@300d0000 {
-> +			compatible = "arm,pl031", "arm,primecell";
-> +			reg = <0x0 0x300d0000 0x0 0x10000>;
-> +			interrupts = <GIC_SPI 268 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&soc_clk24mhz>;
-> +			clock-names = "apb_pclk";
-> +		};
-> +
-
-No trailing blank lines either. Please clean up your code so it looks
-intentional and well organized.
+Does this patch mean you finally agree with DT maintainers and abandon
+the generic compatible fiasko?
 
 
-> +	};
+>  
+>    interrupt-controller: true
+>  
+> @@ -117,7 +127,9 @@ allOf:
+>        properties:
+>          compatible:
+>            contains:
+> -            const: apple,t8112-aic
+> +            enum:
+> +              - apple,t8112-aic
+> +              - apple,t8122-aic3
+>      then:
+>        properties:
+>          '#interrupt-cells':
+> @@ -141,4 +153,19 @@ examples:
+>                    <0x2 0x8e10c000 0x0 0x4>;
+>              reg-names = "core", "event";
+>          };
 > +
-> +	psci {
-> +		compatible = "arm,psci-1.0", "arm,psci-0.2", "arm,psci";
-> +		method = "smc";
-> +		cpu_suspend = <0xc4000001>;
-> +		cpu_off = <0x84000002>;
-> +		cpu_on = <0xc4000003>;
-> +	};
+> +    };
+> +  - |
+> +    soc {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
 > +
-> +	sram: sram@104000 {
-> +		compatible = "mmio-sram";
-> +		reg = <0x0 0x104000 0x0 0x00001000>;
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		ranges = <0 0x0 0x104000 0x00001000>;
-> +
-> +		scmi_shmem_tx: scpshmem-sram-section@0 {
-> +			compatible = "arm,scmi-shmem";
-> +			reg = <0x0 0x100>;
-> +		};
-> +		scmi_shmem_rx: scpshmem-sram-section@100 {
-> +			compatible = "arm,scmi-shmem";
-> +			reg = <0x100 0x100>;
-> +		};
-> +	};
-> +
-> +	mbox_db_tx: mailbox@40020000 {
+> +        aic_t8122: interrupt-controller@2d1000000 {
+> +            compatible = "apple,t8122-aic3";
 
-MMIO nodes are under soc.
-
+No need for new example which has no differences from other ones. Drop.
 
 Best regards,
 Krzysztof
+
 
