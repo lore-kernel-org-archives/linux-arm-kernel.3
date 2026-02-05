@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939FCEA7967
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 05:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4556EA796A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 05:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NrtT7KU4gJ0dEdIjDgWpiG05vShFBP8NxSUhMseVNiY=; b=dh86I+8s3PShJ3Qt7MHF/9enyX
-	ilpXXZbDkOTpJ0cc7bh4XoowtVDOQjPK/Grm3pWij3GQ5aaR37zqrQz7m6Ox5R6RJkQVc0QOHEOTJ
-	v2Lwki8etII3fEJk5Bv5oclQvn6UnnjgHQ5Ywf6s6yt3xlqu99OL9mvEcXlA7dhUOxQ6CQArHI+Oj
-	UsaqqZsMBZOr/0JhVbhcJnAbi3fC+BM6omE9uuEoAWeSQPNIha83P+YYg3RQhBU4Qg04TiZUwa2z2
-	RzEFZ+wQHQqMqgqphcBY1o48LPzAA1m2tJZt5/Vj8w/zcAJ1pxeoQJRAXIn46ihSi4vMMAbc7QEyW
-	NeFEQvUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=A571uZhotylu9JdFcX5Npmf5si6YlipsMwAeG1kyemQ=; b=HQmboDsTuAQJE1W/eHBpw/1E6M
+	+xz1lNIK62wbDPcZJYD2i2MbL2BEHqplhrbDBFrJqMXkIMtbMc73lfWVemv6pfcA3gcbCxQaS4hL8
+	VVaIDEo3pdvQb8itBBlj1vERqJ5lOXPlGIeT0etSEsmswDFbkO7kA30L0jG03pM8M4YVT3TvkMKEH
+	v+DP7pbOJRKYPCx95++NYl0FptW6biEH8/K2wxtSG3OByirmB80gGACOp5JQDfCbgrBoMQLiwYmMS
+	pGksycj3CVcsXTeS5wtYeEiZB4sUjT6LHTy97n0Q9slHOEt/Jf5JWYUkn/+etbdEWYEinoxZKjj4q
+	eKpZs2ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnrTi-00000009QpJ-46IX;
-	Thu, 05 Feb 2026 05:00:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vnrcc-00000009RET-152Z;
+	Thu, 05 Feb 2026 05:09:42 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnrTh-00000009Qot-0yPM
+	id 1vnrcY-00000009RE4-0BYW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 05:00:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D7F0160129;
-	Thu,  5 Feb 2026 05:00:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B68AC4CEF7;
-	Thu,  5 Feb 2026 05:00:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770267626;
-	bh=tYHUc0qOX64BQ1IJlSdjRln/EKpaQ440UZi6+G7w4mw=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=ddpFw7J3on4isMCOt3H2lue5WuIcQR2SPQyCjWoZHpcNo1ZOTj+0PEi8E25EEkr8i
-	 yBMJnQGVARjtPRf9ef7LOw5vY/yM+9Y2z+ek1oOnVhhcPy7Lqh8R/kctmeagk57hxB
-	 J7O+Kj9pbl2a5JZU2QKOYIXxHBXHap+mc+VDMlo0wQQv5W2syvn5fsdPkfORbPJ1+S
-	 u+UUHFuQCX/dMT7rAwUxM2xANHv47aMRkTTr+88v+1jSOwGN6JqosnkOj0HydENAgR
-	 MHTZTCGLy25XnN2BhGDmzmOxgcKX3xyJbmTZnqJI3QUxi77k/zaWdow5KMAS1trpuU
-	 0849KzwxQ7hRQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id C27A63808200;
-	Thu,  5 Feb 2026 05:00:25 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Thu, 05 Feb 2026 05:09:40 +0000
+Received: from localhost (unknown [124.16.138.129])
+	by APP-03 (Coremail) with SMTP id rQCowAAnMskNJoRppZW4Bw--.38207S2;
+	Thu, 05 Feb 2026 13:09:33 +0800 (CST)
+From: Chen Ni <nichen@iscas.ac.cn>
+To: andersson@kernel.org,
+	mathieu.poirier@linaro.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chen Ni <nichen@iscas.ac.cn>
+Subject: [PATCH] remoteproc: imx_rproc: Check return value of regmap_attach_dev() in imx_rproc_mmio_detect_mode()
+Date: Thu,  5 Feb 2026 13:09:05 +0800
+Message-Id: <20260205050905.3031134-1-nichen@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: stmmac: remove support for lpi_intr_o
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177026762457.167759.15871089841650371979.git-patchwork-notify@kernel.org>
-Date: Thu, 05 Feb 2026 05:00:24 +0000
-References: <E1vnJbt-00000007YYN-28nm@rmk-PC.armlinux.org.uk>
-In-Reply-To: <E1vnJbt-00000007YYN-28nm@rmk-PC.armlinux.org.uk>
-To: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Cc: andrew@lunn.ch, alexandre.torgue@foss.st.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
- ovidiu.panait.oss@gmail.com, pabeni@redhat.com
+X-CM-TRANSID: rQCowAAnMskNJoRppZW4Bw--.38207S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7Xw4fKFWkCFykAr4xWry8Zrb_yoWDJFc_Ca
+	4a9rW8J3WFvrWYkw1q9r4FyF4qyry8ZF9avFW5KFZxJwn7XrnrAFWkZr17X3Z3Xr98Ar90
+	k34IvrW7AFnrujkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbTkFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
+	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW8WwCF04k20xvY0x0EwIxGrw
+	CFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE
+	14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
+	IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxK
+	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI
+	0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUBuWLUUUUU=
+X-Originating-IP: [124.16.138.129]
+X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260204_210938_448765_0B4A09F0 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +84,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Add error checking for regmap_attach_dev() call in
+imx_rproc_mmio_detect_mode() function to ensure proper error
+propagation.
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Return the value of regmap_attach_dev() if it fails to prevent
+proceeding with an incomplete regmap setup.
 
-On Tue, 03 Feb 2026 16:50:41 +0000 you wrote:
-> The dwmac databook for v3.74a states that lpi_intr_o is a sideband
-> signal which should be used to ungate the application clock, and this
-> signal is synchronous to the receive clock. The receive clock can run
-> at 2.5, 25 or 125MHz depending on the media speed, and can stop under
-> the control of the link partner. This means that the time it takes to
-> clear is dependent on the negotiated media speed, and thus can be 8,
-> 40, or 400ns after reading the LPI control and status register.
-> 
-> [...]
+Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+---
+ drivers/remoteproc/imx_rproc.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-Here is the summary with links:
-  - [net-next] net: stmmac: remove support for lpi_intr_o
-    https://git.kernel.org/netdev/net-next/c/14eb64db8ff0
-
-You are awesome, thank you!
+diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+index f5f916d67905..0e23f519c247 100644
+--- a/drivers/remoteproc/imx_rproc.c
++++ b/drivers/remoteproc/imx_rproc.c
+@@ -1007,7 +1007,9 @@ static int imx_rproc_mmio_detect_mode(struct rproc *rproc)
+ 	}
+ 
+ 	priv->regmap = regmap;
+-	regmap_attach_dev(dev, regmap, &config);
++	ret = regmap_attach_dev(dev, regmap, &config);
++	if (ret)
++		return dev_err_probe(dev, ret, "regmap attach failed\n");
+ 
+ 	if (priv->gpr) {
+ 		ret = regmap_read(priv->gpr, dcfg->gpr_reg, &val);
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.25.1
 
 
