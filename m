@@ -4,109 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 790FAEC1E83
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 09:37:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7889EC1E84
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 09:39:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FdiXU3gATHXBg38DvRzvaBBuf3skEnlLa8plovR3tSE=; b=jXsNMSRHfGqwjxRCqD2PqYKqfX
-	uVzhNGqv4aqga315sbtHkg/ww9RAeR8Ml2FjN26fdF73DODqC5IJTLP8eR/OUAVgL60PYVsFyIpjN
-	bUk5whDYDYp4D2SjI4T+hWPT0KjhOzFihB14hFfudF1MOoBn31Nfo5yeO/6RAJDs6os9ezN0KGkCg
-	yi0HnalXsbiMzN/QecuT8y5nY58ld+nRPpm+JienrTDa+6+4kouF9rOKBXjAGs3S+BmRKIdoc/CEw
-	I36EuGTJcU1BfKFLcUEkGRkjU1UQkyek+moHKBX5QRBORrM0+HP5/h6XYEbdSxPI4SovDLVpXRcGD
-	iPtnOikQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dpdEjTwUa2nIvssyS9tGP8C8RHluBGKgaX0/8wOSLqY=; b=oGkFef1m0qdpQDVmV3YE/GzNqt
+	CFZNP+17QFKo56afJiWqZIlX7GFqsESJ3DqjjXABTbw5u/S0hJ4b1Z5SzW0Sb7T3rd7Jufv04GsrF
+	qjqwdx7k5sJT7fy1kjyfKOapXHe+eZ+KCPpEP8iOgz78GGuUe+x0odQw41GUsf/jnAdwYj8CokP5H
+	OH3zKYMXyaV3igeg+w4os8fU/nc2/vZ8e19Wh+mPtztVExq3qbl+YuBQ+sEdXNUeo3zb3qujLPKfc
+	iNmCaEO1DCxjqZjM8kyE3W2tLHQ+rGU6CrAu2jF9kVKgSl83U+RGMLyIOuz9OmM465cejkItKVLlM
+	BSCgGBdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnvnb-00000009iO4-1Ht7;
-	Thu, 05 Feb 2026 09:37:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vnvpZ-00000009iYc-3IpV;
+	Thu, 05 Feb 2026 09:39:21 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnvnZ-00000009iNx-2VRo
+	id 1vnvpW-00000009iYC-35F4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 09:37:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B4FB56011F;
-	Thu,  5 Feb 2026 09:37:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 604B6C16AAE;
-	Thu,  5 Feb 2026 09:37:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770284236;
-	bh=KJ5nTGmvWS/4H9TViSgIpLfvFD1y2wr7DU3HmowAn8I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cjyIuuu4vkYnIImSLQfdKkB1SPd5yPoQWdHjQaQ6s9T/x9t1THn+xh5rVqSlqwSYC
-	 yDNh1R2hPiwoTYJwHi5btIJ/u4VByzRej7f5UcR8BNJPYf9baHIkfhZ+Npw810Tqzn
-	 3m/HsXuHKRIi+9WWpqpha7S4t97tLTpaGJOGpxuHPXqAII/G+S6mJzSLwbB83Wjhps
-	 8QGuTqliBwt/tBZKgOFqUqR2RkOt8Msdi1UHnY2d9jLYbLC18zbCq9ciesE4+YJH9o
-	 rqNYiQ0QDzCfi3rfruaZSECi8kQs50hi+H2zpWU/RADmNjimnxloEBd5Q845w36+1T
-	 7kUuy8XkFobhQ==
-Message-ID: <e59c7556-d001-4a34-8db3-127dc25f3897@kernel.org>
-Date: Thu, 5 Feb 2026 10:37:11 +0100
+	Thu, 05 Feb 2026 09:39:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=dpdEjTwUa2nIvssyS9tGP8C8RHluBGKgaX0/8wOSLqY=; b=QHr++8aDpN/fqF0E0cSew5phMI
+	eOaaHQaJem+IazKxQZH7RxAdBMUpjfUNxVqyhuRscxO36yvJg+GRBQyAoHUH0WcBLhHyiRRsh1RgQ
+	beaCJEKCRn3JxrS1R7cpvCkJXtetHGrGo0Fd9ettY94gAuW7M50+Jt2adpl6dnSqhCPom978IV6W7
+	VAEnODHHo+wjSFRjfnNdunhiVM15F0PIx9pI57/uRyKMaVfYVz/JtqMEmNchlvHblcysBhFfLMpOz
+	s2/Onlz03KvzKqJ2rFt/pZcWV8xcYc2aTEb33F0p+axybcHjHIBmTrf0MB+Ma6NM4tdfDXmJzFoID
+	xij5+MNw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43544)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vnvpA-0000000077B-0RIT;
+	Thu, 05 Feb 2026 09:38:56 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vnvp4-000000006FN-2Zn1;
+	Thu, 05 Feb 2026 09:38:50 +0000
+Date: Thu, 5 Feb 2026 09:38:50 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Joey Lu <a0987203069@gmail.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
+	richardcochran@gmail.com, alexandre.torgue@foss.st.com,
+	joabreu@synopsys.com, ychuang3@nuvoton.com, schung@nuvoton.com,
+	yclu4@nuvoton.com, peppe.cavallaro@st.com,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH net-next v11 3/3] net: stmmac: dwmac-nuvoton: Add dwmac
+ glue for Nuvoton MA35 family
+Message-ID: <aYRlKk-cCIhqGWX7@shell.armlinux.org.uk>
+References: <20260205014006.735408-1-a0987203069@gmail.com>
+ <20260205014006.735408-4-a0987203069@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] soc cache: L3 cache driver for HiSilicon SoC
-To: Arnd Bergmann <arnd@arndb.de>, Yushan Wang <wangyushan12@huawei.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Drew Fustini <fustini@kernel.org>,
- Jonathan Cameron <Jonathan.Cameron@huawei.com>,
- Linus Walleij <linus.walleij@linaro.org>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: fanghao11@huawei.com, linuxarm@huawei.com, liuyonglong@huawei.com,
- prime.zeng@hisilicon.com, Zhou Wang <wangzhou1@hisilicon.com>,
- Wei Xu <xuwei5@hisilicon.com>
-References: <20260203161843.649417-1-wangyushan12@huawei.com>
- <20260203161843.649417-2-wangyushan12@huawei.com>
- <a8ba1c0b-e7c8-44c5-b785-42752f7f5d8f@app.fastmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <a8ba1c0b-e7c8-44c5-b785-42752f7f5d8f@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260205014006.735408-4-a0987203069@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260205_013918_798146_856A792C 
+X-CRM114-Status: GOOD (  21.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,49 +88,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/02/2026 18:19, Arnd Bergmann wrote:
-> On Tue, Feb 3, 2026, at 17:18, Yushan Wang wrote:
->> The driver will create a file of `/dev/hisi_l3c` on init, mmap
->> operations to it will allocate a memory region that is guaranteed to be
->> placed in L3 cache.
->>
->> The driver also provides unmap() to deallocated the locked memory.
->>
->> The driver also provides an ioctl interface for user to get cache lock
->> information, such as lock restrictions and locked sizes.
->>
->> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
-> 
-> Hi Yushan,
-> 
-> Thanks for your submission. Since we are in the last week of
-> the merge window, this is not going to be linux-7.0 material,
-> but I'll have a quick look for now.
+Hi,
 
+On Thu, Feb 05, 2026 at 09:40:05AM +0800, Joey Lu wrote:
+> +
+> +struct nvt_priv_data {
+> +	struct platform_device *pdev;
 
-To be clear - this is a v3 but with removed previous history...
+This looks to me like it's write-only, does it serve a useful purpose?
 
-Previous version:
-https://lore.kernel.org/all/20251217102357.1730573-2-wangyushan12@huawei.com/
+> +	struct regmap *regmap;
 
-Or even v4?
+This doesn't seem to be used outside of nvt_gmac_setup().
 
-https://lore.kernel.org/all/20250122065803.3363926-2-wangyushan12@huawei.com/
+> +};
 
-Yushan, please start versioning your patches correctly. Use b4 or git
-format-patch -vx
+Given the above two comments, do you actually need struct nvt_priv_data ?
 
-Otherwise, please explain us how can we compare it with `b4 diff` with
-previous version?
+> +
+> +static struct nvt_priv_data *
+> +nvt_gmac_setup(struct platform_device *pdev, struct plat_stmmacenet_data *plat)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct nvt_priv_data *bsp_priv;
+> +	phy_interface_t phy_mode;
+> +	u32 macid, arg, reg;
+> +	u32 tx_delay_step;
+> +	u32 rx_delay_step;
+> +	u32 miscr;
+> +
+> +	bsp_priv = devm_kzalloc(dev, sizeof(*bsp_priv), GFP_KERNEL);
+> +	if (!bsp_priv)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	bsp_priv->regmap =
+> +		syscon_regmap_lookup_by_phandle_args(dev->of_node, "nuvoton,sys", 1, &macid);
+> +	if (IS_ERR(bsp_priv->regmap))
+> +		return ERR_PTR(dev_err_probe(dev, PTR_ERR(bsp_priv->regmap),
+> +				     "Failed to get sys register\n"));
+> +	if (macid > 1) {
+> +		dev_err(dev, "Invalid sys arguments\n");
+> +		return ERR_PTR(-EINVAL);
+> +	}
+> +
+> +	if (of_property_read_u32(dev->of_node, "tx-internal-delay-ps", &arg)) {
+> +		tx_delay_step = 0;
+> +	} else {
+> +		if (arg <= 2000) {
+> +			tx_delay_step = (arg == 2000) ? 0xf : (arg / NVT_PATH_DELAY_STEP);
+> +			dev_dbg(dev, "Set Tx path delay to 0x%x\n", tx_delay_step);
+> +		} else {
+> +			dev_err(dev, "Invalid Tx path delay argument.\n");
+> +			return ERR_PTR(-EINVAL);
+> +		}
+> +	}
+> +	if (of_property_read_u32(dev->of_node, "rx-internal-delay-ps", &arg)) {
+> +		rx_delay_step = 0;
+> +	} else {
+> +		if (arg <= 2000) {
+> +			rx_delay_step = (arg == 2000) ? 0xf : (arg / NVT_PATH_DELAY_STEP);
+> +			dev_dbg(dev, "Set Rx path delay to 0x%x\n", rx_delay_step);
+> +		} else {
+> +			dev_err(dev, "Invalid Rx path delay argument.\n");
+> +			return ERR_PTR(-EINVAL);
+> +		}
+> +	}
 
-Sending something AGAIN as v1 ignoring entire previous submission is
-clear no go. Like you are trying till it succeeds. Negative review?
-Let's try from v1 this time...
+Each of these could be moved into a separate function:
 
-This is not correct and it should not be my task to find your previous
-discussions and decipher this v1.
+static int nvt_gmac_get_delay(struct device *dev, const char *property)
+{
+	u32 arg;
 
+	if (of_property_read_u32(dev->of_node, property, &arg))
+		return 0;
 
-Best regards,
-Krzysztof
+	if (arg > 2000) {
+		dev_err(dev, "Invalid %s argument.\n", property);
+		return -EINVAL;
+	}
+
+	if (arg == 2000)
+		return 15;
+
+	return arg / NVT_PATH_DELAY_STEP;
+}
+
+then:
+	int ret;
+
+	ret = nvt_gmac_get_delay(dev, "tx-internal-delay-ps");
+	if (ret < 0)
+		return ERR_PTR(ret);
+
+	tx_delay = ret;
+
+	ret = nvt_gmac_get_delay(dev, "rx-internal-delay-ps");
+	if (ret < 0)
+		return ERR_PTR(ret);
+
+	rx_delay = ret;
+
+> +
+> +	miscr = (macid == 0) ? NVT_REG_SYS_GMAC0MISCR : NVT_REG_SYS_GMAC1MISCR;
+> +	regmap_read(bsp_priv->regmap, miscr, &reg);
+> +	reg &= ~(NVT_TX_DELAY_MASK | NVT_RX_DELAY_MASK);
+> +
+> +	if (of_get_phy_mode(pdev->dev.of_node, &phy_mode)) {
+> +		dev_err(dev, "missing phy mode property\n");
+> +		return ERR_PTR(-EINVAL);
+> +	}
+> +
+> +	switch (phy_mode) {
+> +	case PHY_INTERFACE_MODE_RGMII:
+> +	case PHY_INTERFACE_MODE_RGMII_ID:
+> +	case PHY_INTERFACE_MODE_RGMII_RXID:
+> +	case PHY_INTERFACE_MODE_RGMII_TXID:
+> +		reg &= ~NVT_MISCR_RMII;
+> +		break;
+> +	case PHY_INTERFACE_MODE_RMII:
+> +		reg |= NVT_MISCR_RMII;
+> +		break;
+> +	default:
+> +		dev_err(dev, "Unsupported phy-mode (%d)\n", phy_mode);
+> +		return ERR_PTR(-EINVAL);
+> +	}
+> +
+> +	if (!(reg & NVT_MISCR_RMII)) {
+> +		reg |= FIELD_PREP(NVT_TX_DELAY_MASK, tx_delay_step);
+> +		reg |= FIELD_PREP(NVT_RX_DELAY_MASK, rx_delay_step);
+
+You can move this inside the switch above under the RGMII case. Theses
+delays are, after all, only for RGMII.
+
+> +	}
+> +
+> +	regmap_write(bsp_priv->regmap, miscr, reg);
+
+Consider:
+
+	regmap_update_bits(bsp_priv->regmap, miscr,
+			   NVT_TX_DELAY_MASK | NVT_RX_DELAY_MASK |
+			   NVT_MISCR_RMII, reg);
+
+> +	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
+> +	if (IS_ERR(plat_dat))
+> +		return PTR_ERR(plat_dat);
+> +
+> +	/* Nuvoton DWMAC configs */
+> +	plat_dat->core_type = DWMAC_CORE_GMAC;
+
+Is the hardware not compatible with any of the compatible types that
+devm_stmmac_probe_config_dt() will automatically set this for you?
+Which version of the core do you have?
+
+> +	plat_dat->tx_fifo_size = 2048;
+> +	plat_dat->rx_fifo_size = 4096;
+
+There are tx-fifo-depth / rx-fifo-depth properties that can be used to
+describe these in DT.
+
+> +	plat_dat->multicast_filter_bins = 0;
+> +	plat_dat->unicast_filter_entries = 8;
+
+If this core is v3.50, v3.70 or v3.72, then there are
+snps,multicast-filter-bins and snps,perfect-filter-entries which
+can be used to describe both of these.
+
+Thanks.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
