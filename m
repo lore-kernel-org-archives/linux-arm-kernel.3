@@ -4,171 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A6A7EC1E91
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 10:05:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E1C6EC1E86
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 10:12:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sT33VbGygedwV2iG0PCPDcwTShNdj1VWC1P/C6HB09Y=; b=URG+OIhlgzcUcYvSdFrcK5Xw+C
-	RkJityK/8TQGukXInXFnksW5epIajXWl8mkpTKyqVw8etGgdxIcc/CpoK/nZUR+Fv9DrsgJax1yo3
-	KpvHCxubpTOdKkg7jItSBVHTeczkepxIMGiFm2O0wsr3eWtPk5uhM5lxw9CokygM1UPwI2sV+B2Lv
-	i5fBIJguzvp6l67GWCAvTLvL5HcTYhExXjJpgN3x/3F3QuR1wVf76m7dE7zL/crXk41rk4e6yMS5X
-	G488fmKRCnCX8J+TEshwd3ORTunJxsU7HKOtYJn9UYXlWfeRRdxvAgvAK932mUOQAHyOM6jwqxqIo
-	DeXq9Tew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0g/5cSIXjGo3ImCL2VsizCAIdAMiuL2cAntOyKg+ot4=; b=lbyMCXhJJ3PnOEoUZjGDGvjGzH
+	cpR2ZPTW6P64Lu6DM6pPKdrh0GaBxukzE0O1FF8szo2DU9nj0xr5gl3+k/+2/yzZFm8VARdOdbjQf
+	Ly/9b+5g7F5MSR74Lg5v37G34FixM/12DUuEOcjI+yAIAkMXmrDKH4VfrfFDfmkSn9dpUYQqbQREm
+	VieTIUg6iv5fDL5XUweGXF162/jaQo4CbzZv8gFj4Z8WsqRWX0mzR8vMBaOJW3tRz8yjR+X5pOoRh
+	GYrmuNca9vU20e1O1JQuevRxtFS8VcN6TBMQXDmpg94xtrnXo3woWHuQOU1sf3cYcsXEozN3rDY71
+	EJtuNLAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnwF7-00000009ktl-1PdS;
-	Thu, 05 Feb 2026 10:05:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vnwLN-00000009lHn-0Siw;
+	Thu, 05 Feb 2026 10:12:13 +0000
+Received: from mail-dl1-x122a.google.com ([2607:f8b0:4864:20::122a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnwF4-00000009ktc-0CtO
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Feb 2026 10:05:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=sT33VbGygedwV2iG0PCPDcwTShNdj1VWC1P/C6HB09Y=; b=Eaqy2FHgGBuwyxkZqsiPK3vKRu
-	0kjbDzDllv45yWPq80ZnpULGWGlZhGNKU4IZPoHSgpLgf24vlqzaywpI0lR7y6VxazUgj88tNNjOa
-	DW2XgfhuqLit9hhjS3gQXeTqHovGP/fu3xEK2I9jCJ2KR1WCmGrVwjsKxmvD2Ib6xm/hoJkDtk20m
-	flhrUNWMukLQcEJS/EfiK0jwjKJb5xzVBbaDuZqy06+nQaecv2/l6GPDMgOju7W3E0eHe8LqrInvV
-	ZxV7BSnj+5sShNAoIUp8H0q99gQuIxzbIJqZ0BrG45L01G5YXIgC11GcampMTBeCzrHYgwoYWBLU7
-	L8izdBHA==;
-Received: from mail-norwayeastazon11013006.outbound.protection.outlook.com ([40.107.159.6] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnwF0-00000001wNu-3fSp
+	id 1vnwLL-00000009lHQ-0rpW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 10:05:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=R+Us/brmKCEkAlUtf0vPQdnBSAKdkjHTcA04w+nvYWfFf0PmoWiDRMg6gD6MtILNdyGWtsjEoSkgtNyvs8m9vDb1W+EPAFU02dhMPD9AToyHQBtLfjxyYwUMPc48UHabyxtcTHtwecLkQBn9T3rKsWd9FBqSfm+eJH2Ao10dgXWc1F7q62XCS0rs9EV7tx1tB0rjmcxEuWDschmlhfV3ZdJg2BbejXz6O6xEISY2w+EcqFU4/UqewS4Cko19f2Jsg/lqn36FwKsv1PygJG24uKQVB9aEgUwHo1vxR/151u9WaRAwgS2Wppu0l+cAl8cSdCXkW3/OWIPPJ++3hID5tQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sT33VbGygedwV2iG0PCPDcwTShNdj1VWC1P/C6HB09Y=;
- b=IvVig0mc8xDj3EpbEmeRN35QLJafWX44/sVF6BXS4k/b4BtDqdRGtgAoGEEY2xMQSj4HV8GgPGahzjKXFLtQw64X/6qrbCCy6xmcr7onwW+wuJVLzo4Y2vjO4thWMHsIxGGwG8C8NFUwj4UBjcPmXUbV0LRnN24dQi5bhz+QdWt89ADBptParlDZ43s0TqpcHSLLGT9Ic8DkLDWeL5OMolEEgxs6sf3OuqO/dsByKPpFTEsx8r/DO2Cqot2/epo8v579qDkrb3YxLN/1KPhTXzdeFVZQUCKKQ6PF09II17QCOfrxQjWuuw05jNXcsw3+0/2twtKDOmxxEXCOwmKkVQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sT33VbGygedwV2iG0PCPDcwTShNdj1VWC1P/C6HB09Y=;
- b=BTSWbG+QQkOBW0RZps273g3nPxg67U/suc497sdJLOQzZrPsvDYwD3+L3zDRVX5m87EPn4q9P45g0rgOsoeBdJrS7DC/Th8IPjKhca7CJ6Zu0NB7DyH8lZPNVDWYB9gXMmkd0euebqQZVILWt9pwZWB1UMi43oHlnhZSMzx/YpbxNVAeRROT45pfY1wvlvnmgtYlJM6EXj9rUeHG5HF0a3ekkAOpSO0PlofkqSc26c6qS7iCaPVbIuAFEEJQifPQgK/+3wwkOR/QKKKoRd16ptkUZw3UU8phmoGJaZAxA5iKkOuOer0G9vDsf6kKl/KQSMwdVdydGpVHsuXyYuUBlg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by AM8PR04MB7745.eurprd04.prod.outlook.com
- (2603:10a6:20b:234::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Thu, 5 Feb
- 2026 10:05:32 +0000
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994%5]) with mapi id 15.20.9587.010; Thu, 5 Feb 2026
- 10:05:32 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: imx@lists.linux.dev,
-	kernel@pengutronix.de,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] arm64: dts: imx91-11x11-evk: Add usdhc3 for SDIO WiFi support
-Date: Thu,  5 Feb 2026 18:06:47 +0800
-Message-Id: <20260205100647.3745669-1-sherry.sun@nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5P287CA0063.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1b3::14) To VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13)
+	Thu, 05 Feb 2026 10:12:12 +0000
+Received: by mail-dl1-x122a.google.com with SMTP id a92af1059eb24-1233c155a42so1031313c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Feb 2026 02:12:10 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770286330; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ECBXn5x4Q36ixMKr8ysdG6rWViA9lihyuDi2Rx8LZiaNDq9nY/ncjVnf821d+BgapJ
+         o4zmaKzjhxzHxK8wbaa8cRtEABDmsAfl0DgbokVVGN1chURgO07fUxLqzH2vsddw7Uwm
+         V9HeeNPl/EuNIn+4AXSQT4XN7YdaI73Y8yLFid5kN8GD4SKeZ0ZYdCb2U0j2oyeQh3oU
+         vezd+o4gYHG3jCDiJ43NAaMQZ/Agwv0rFJTqfZkTiOWrIGTAzx1I2WYULsVGrVYhUmmZ
+         S6gtIxAmvt6YRD6W8XaoX1yh9368bhGbgp8UKHveBZ+gcp2Dkq8M1QdIfGzF3QbakU71
+         jzVQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=0g/5cSIXjGo3ImCL2VsizCAIdAMiuL2cAntOyKg+ot4=;
+        fh=x2EaeRyAb17II+44DEoXz7GU4REa6ZcBEYsylAto9Mc=;
+        b=F3KP2t0D9HRHC9uJNreQeMhSiJ8ruOP7hPlZTb9gP1YBB2YL2HbqdNLxgjp3CrKdT5
+         tyttg8z/7A2syDjcZJVb2PL3jL9Vfuu2jw+EbLfTvgiG2hMnYd8hstLVRxr8U8tHKJFC
+         1kyc+X9PfSlFySDId/PMSgB2xxpepISrJyeAmM19IW3i2CBpgVlWEE+k+N7AucQRutjp
+         MtyaKpXyflmVbihWmnZEUxLNghZKWMt/Tgl4eRJcfJzH2w0fpTbEKFisEw2xk62wp+76
+         CY8+bHgMAuAkf0P/xej2w5FvTrrXevON+hPi6JbFhClHsKm1ZgYx+a9KleSjS0MGdIHs
+         YXvw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770286330; x=1770891130; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0g/5cSIXjGo3ImCL2VsizCAIdAMiuL2cAntOyKg+ot4=;
+        b=OQzwRXKndFxJW7Ign0XMbTuIhmRBqJ8SaruB7XQSg5Fw12eh5g1Tov59bRiDEShrLn
+         VyOjvS0WVqZejCKzto0bfQLNe0ANE6ydsVILb08pnOG48AWSsxI65THfqHvMjlfH5QL9
+         IlcCgWzwpTasZvnmrfy2hFiDvgX08tl7tiTAxsD8IbBr6pkv2Ov5+61hLVc1AShrGk5a
+         ZpZUX21vZRE1NChRmWh/uc/e99nYzdTXvbUVGGTW6vC+6pmo5OY0I+n7/hdMW5mJ1v9i
+         TdGH8JZzMn9Iutzq4bsKAjg8Qb72jhRWeCQ/658mP0ZZXS0BQXWljgka8jXSqe7PZt+a
+         3GUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770286330; x=1770891130;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=0g/5cSIXjGo3ImCL2VsizCAIdAMiuL2cAntOyKg+ot4=;
+        b=GKnFEDWCWWnhupXLi2rbj+e9FbC2jHujn9iHCV9w/bItXjltjPXv+yCRKAYKHXw+6C
+         vB4I1RW9AJBk4nnByy9/QATYx5sydmFd5abROfJlENEKUSKmyMdyKNzqQzKn5pyRioYZ
+         fgnFN7zwZ0wxHR8TXnPmbrxwnVe79BmR3x1j+0XD5Pcczs6Df/HtVoCONLvsOMC+udVj
+         kn3sBUyvkO/hNJG0sLDhIM16L+WBebG7PbPgpWY0TYhit2a05IydHK6u2LlpoTCoMB+s
+         IqplmlTZa9dguOxqHas+OgLd+gB+R41Lp9kcYbR53KIdoTmn94aumPJeo5fR9UQSaVoe
+         Q6AA==
+X-Forwarded-Encrypted: i=1; AJvYcCW0i0U+SOTePEJ69RDJYKGq3oys1VibVBLuLM/cgw/0AahpgB8Wgyoh9wlxMB6CAOVpyHmJ+CRguuQmb1FhVWO/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWWiXft/cVAQqwQtVNspFM0o+1KANEv9oFwOUei192m0pIZHwo
+	h1SBFeaSgFhLWzR/+E+IgdBHNNDWUlc2RuRf20ZAHk1d+ctfNUZUcJZBfrTJ4c54Aviwe9Xw7nQ
+	dmvNexZFyTzHREAZDGslFEKckwHaoQqW4jQ==
+X-Gm-Gg: AZuq6aIxZLiQ/KH0kt509I0qRXP5BMpJ/kOOp2GGDs5lAu4rzYXs1nQ/wYFqDUhjsVk
+	J5wTCfCmMkOn/ZyN+sC0NzPSGmYcrTpjT1l+U0c00yJAHLXCbUB3I0dgSR3y8v0B/P0MrmTrd/I
+	FNYYAmV/7bwC0fN+ZoZiJIlbW6qMRpVV4fccQy5ai4rFOvSVOwj3Nd1cIXSFRqcQi34VUhvJ22H
+	qG34mVadzA+w6dhUVKjZuap4oV+EWM0GCqzcVCJ/162ZafLTOFh9tr1vUmtuFRSfZwuanIArWgM
+	YwPm8JzdAcKQdz3OCRGTyc0KbFmQRVXd8HpNXmGJpDf7QALP2ijto0ijpDjRHyYq7hT+aA9oH4Z
+	i0GHUghrFxQ==
+X-Received: by 2002:a05:7022:43a6:b0:11b:2138:4758 with SMTP id
+ a92af1059eb24-126f479a420mr3236887c88.21.1770286329645; Thu, 05 Feb 2026
+ 02:12:09 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|AM8PR04MB7745:EE_
-X-MS-Office365-Filtering-Correlation-Id: a5dad2e0-6d8c-4333-0d07-08de649e18e8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|7416014|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?rbbN89+ZShJ2GIV1e7EI+t84D6M6a2IpnQJpTVxtWKYoCuUvTKQ33GKudBoG?=
- =?us-ascii?Q?lsWT++Rfg0gfyCSgDQZp4gF7tPjTcx2L3oYBlGnYOhXB/saAnXBa1Zs5QlB4?=
- =?us-ascii?Q?uaQw7XFvjzVmnrx+a0ktNDoTMCKNDEvUyLNTGLGSSV2YrngvBvcpBDCcbSD4?=
- =?us-ascii?Q?b4KdI6VSg2+zj1O2Cis+w2LenvYuCqq4CJAPk7JlvpT4QC18xyjpa9a3KxY+?=
- =?us-ascii?Q?si3BgCIcprG6tnsM3k2d3oTSVi3HApnuwDuGQU7SsjMA32hP/GnLJlAPp/zm?=
- =?us-ascii?Q?+aWAXGxgSStzswSFNiNIXEfAUaAERIgu2etsDiSssXiCJjZSFcOkdRW+Z5jB?=
- =?us-ascii?Q?Hnf7fBVIckDaCJSXqgoeLe4875EI2kHywv4kUtgs5VgcdhYtmoY7lWUwvECS?=
- =?us-ascii?Q?fWSjxMTyjVSQarYyCTXzcZhskPYrQ4UYZeDXb35grGE9otlLg5e1SNxqmcdg?=
- =?us-ascii?Q?c+KZcwGURG6NsGOuvDTxNjdlyOJWIUZ9+DrK4tZ0O52Hky+2MBYpAUF8VAZa?=
- =?us-ascii?Q?fCQ8aKcFEyRykpqD9VX1/kx/gsocx9tHV7K/qrDZcUg8Gyl+cjIdXaJWIizA?=
- =?us-ascii?Q?duKoogfzG9OOed1CaQVXfbSQzwegwWKb00yDS4C12larLn9wWTP396aHcLCT?=
- =?us-ascii?Q?k6CfZi1xBTDgvO/4CAABmu0Au7rP8AauHidjnTaQSoHHNGdGVa8XLQWjPeC6?=
- =?us-ascii?Q?D7dlxIpGhXynko8GwTfcvSxcTzYEZNrTqNUSePb0/x0cyaC+BlsoeX0ruZN4?=
- =?us-ascii?Q?9Svc6VMqOORky/uwJbZtcpMvogBkhggDdh3U7zJU+e98AN/5WNNcx5H7lvEA?=
- =?us-ascii?Q?UlN3U/uKWETL5bYKc7KlnPbu7DRu+mZD/iLeCqTtkcZa2RpD3YKIpfnB9Z1W?=
- =?us-ascii?Q?jJXhvMH9WYs+0eupGzoCnRTAu5Pt8q+2BwpodHTw9O/Ud6DsoM64MKBaJdqY?=
- =?us-ascii?Q?3h2CsXqbyDG/dAedcRBACEiZ6ZHUFBEZA/AtTySqSxNOWArRpsl/WRykt+7L?=
- =?us-ascii?Q?FU1qJJ1xZl4mdltpPydciIUT/ZJC+5gH8RbZMIRdNUnE4O+CMzCwt/qIRBeG?=
- =?us-ascii?Q?g1aIgz77k/pN+hJRlamtYoaQoy802j9pOku71Xldvl3/WMiDf9rpnqph5fZg?=
- =?us-ascii?Q?vDFfOSKDtJ2roS7jA3u9LCLL3ygDh9nOxgEe1b4oh6PJEZ9ZO/MGOWHSb2rF?=
- =?us-ascii?Q?6OVAM+1ifxcbcvhOAhICsFdHsItQvgNeFVYsQCk9fvgmdRvNXyaDV1DNkoCa?=
- =?us-ascii?Q?YzZ1Xe0e5BrehCj3fJ5H7uqJZsAUC3UtbaAMmdF2sb1wIZniowiqMO58tyXM?=
- =?us-ascii?Q?AIFJHxHP53rYiGUZ1PttAr+bremYs0JVcJwFS32hKXVhosEdUNKYVxcpZeUE?=
- =?us-ascii?Q?YZsWv/J/Zk92wPfB+FfuYoWXOvIcJ4JuchXpBMKlGxFmy4EOi3OfeSAITgrs?=
- =?us-ascii?Q?xtz8LAOdedvhuWvWYio3kAuWEsAhMseb/a73ICyNW2VhpEMTO04tHgwVDQLK?=
- =?us-ascii?Q?/eeE4a2Q3IZKDjyIT8tNb1PrXC62PoEgT2EMnbhzEcjPhrQ421XGqMuezEJx?=
- =?us-ascii?Q?d28KBdo9p1ycYmeMYAiJcPWb08TuqcKyHZssv6pIILzNfCk3Lc+1Ee730rbs?=
- =?us-ascii?Q?2krrJqEPqK/9EtpDMwjV3CU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WctvFQDXpt58YJW1kQnDhAavrdNA7c/cUVsyMS5NSFktfIPqtIIONXnz9zVs?=
- =?us-ascii?Q?IvwQvP8XsL+5HAh0VEmSgwLJQBAO9QSXIQGhdn4yMYmJfE33qEUZDLaRSDDR?=
- =?us-ascii?Q?zf9Z8H4X7u1w1+IfIOVPkO18//l5fM95FiKKG3BEckIS4OqR3BPfHG69oPh0?=
- =?us-ascii?Q?W13FPe0D8RfR8HOJDfuB7nuGMviS6Pcc6N/2isPgkQEwQ3teuzPeSwWbGcuD?=
- =?us-ascii?Q?3Hjnhm4NqKjbK7kIptlq4cdibBBgdqhcgBcolsx7bCCy0IfjNUFTFKiTttKr?=
- =?us-ascii?Q?/zd8H7x5lAqVTat9g4HC2/cNopQvfVQK6R0uHUC5TGz+kymnfhASX8k4TPCd?=
- =?us-ascii?Q?axPGtBcoARc0O5GruqHo+SxCHK/7QfJJnQVgmfuF69vKkrOFiAVxXuxPSUTK?=
- =?us-ascii?Q?Zy6sSc9no9LytP6M2OyopqpEXrp8vag/9VY9lzlg9qQ3+pS2eoq08VcVHoDE?=
- =?us-ascii?Q?SEv7+uZV/j68Lfyiy9SXDJj0w8QZLRAwWVd5UQsGTUEahAEvdcaZ2p+tNMU4?=
- =?us-ascii?Q?iL9jBS4NQkuWgfR1ymd5Oxhkla23JbXrrWGZyFkfRKOi8+7de8hXwrWKRPyn?=
- =?us-ascii?Q?SyVPvr/rh3PlN29mcLaTyFVOTbWbohyciHmX+jtegmqzDeWxxiQs2piALPXy?=
- =?us-ascii?Q?NrcIc0UzARsLR4PgE+ENf7E0sywJKmdGnrEhArKuuuNXEAymruY342xUe8/a?=
- =?us-ascii?Q?gWsL2VYjg3GU3vx5okUDvE+DCQ3EJqbFTR1yBiqBc29cTDH3kD572oIZJBdf?=
- =?us-ascii?Q?cAeoL0Qp9qCGQ0N7v7sFRSUeYxzvo3MJH+9yj/xjWTpyY/v/GemKxtt4pqNc?=
- =?us-ascii?Q?rzoBExQU5RM1qcyQhiTiNXw5S3UhGGRbCIFCYK4uPVzQkdGq+X+bt5+P/zcO?=
- =?us-ascii?Q?5y4qUNW84LT3cz5iE2YcBu4P0KHclI/5OTUQXOor8zwkNSPDyYDm/tVl9zI+?=
- =?us-ascii?Q?v9WM7R1kAWtgoaOqX9FH+dETDxXED7iGJ5bnP8fkiN12uVtcu+iIaOqwaK2l?=
- =?us-ascii?Q?ZttNyka9hLNUs6ykYyZd3aI3eXzubcLvRaZpZyrbG9/x6HIYxXIMza7T4+iK?=
- =?us-ascii?Q?DR3JVMgAo9+mnDdabF2k0IxFI+7MhaJ3Muq+HAFs4Ptgd/reTJZ5rBTQxL5j?=
- =?us-ascii?Q?vDZxaH9nGSaqX8TdvksxhYtPdUltWuqyrJ3J30U/QSdzogQuBcel5Teu1ZBE?=
- =?us-ascii?Q?tl3eX400mqZTftYoevSHnHIgfIWX6dPNROnK80wiJXYLEb6jF7noYLI/NfT3?=
- =?us-ascii?Q?w21hwAx9Bfc1sJsgSswDwFYe0WkeAUSuVuDqDM1RATH6iFUrvP0tU6CeBsEd?=
- =?us-ascii?Q?Kna+9Ep5kSjp7BP4jrY1WnTvn1rw7tb9K5JwNfVdDujQlUhGHmCggLoe433G?=
- =?us-ascii?Q?nYUqNGuVRqMa8O8zDxFCpIi7vn7DjUGRc6fzbM36K9HecOfYdCK4cSB9fcn3?=
- =?us-ascii?Q?h389Hddqs/82XjqCzOOClkMs7/TOec4apSSkGlERk4n6PMI1PVw7rnOvXp/S?=
- =?us-ascii?Q?/pp88caGtBmYgW0p+jf01PlO0uw2w9Ys1MHkLkfRgvlKpdc9kRSFXWvFCnuh?=
- =?us-ascii?Q?piyyNOpug4BZ1G1f++/Cpf/IQM0AVCLpd6QFFdTDrZxJubOmWLGIpxM/5gqC?=
- =?us-ascii?Q?yKiGqNDCaq62gU5If9RIYHix3i+lPW7KaEVzXuo2N8Y6qziEB8BGyBBQBhFS?=
- =?us-ascii?Q?G0BBY9HTsyggGn0vH96NaQHPZBZ7Ci5ZZGHLCWGW0jxEjnYLGAt+k4HtNMeP?=
- =?us-ascii?Q?vXw7HzGi0w=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a5dad2e0-6d8c-4333-0d07-08de649e18e8
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Feb 2026 10:05:32.0501
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZgAlvwvFrIvQhDZeFozwF/3c0KhKq5AfHLjFNqlrx22oGW+vY/nXpBxCdWMfJneAfhfW9zAMjzxWkeco3Pi/Iw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7745
+References: <20260205100125.9095-1-stefano.r@variscite.com>
+In-Reply-To: <20260205100125.9095-1-stefano.r@variscite.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Thu, 5 Feb 2026 12:14:54 +0200
+X-Gm-Features: AZwV_QjJxBdSpSEqOMEqS_vmPt7Et7QepYBy906r-rPjo4KFoR-K-6KfSW1grbY
+Message-ID: <CAEnQRZDVsv8_uH5B6k-RsrQmSszGQ8OCJT=2a9AqNCq+TzP1kQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/3] Add support for Variscite DART-MX91 and Sonata board
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, kernel@pengutronix.de, 
+	festevam@gmail.com, alexander.stein@ew.tq-group.com, 
+	dario.binacchi@amarulasolutions.com, primoz.fiser@norik.com, 
+	Markus.Niebel@tq-group.com, y.moog@phytec.de, josua@solid-run.com, 
+	francesco.dolcini@toradex.com, maudspierings@gocontroll.com, 
+	pierluigi.p@variscite.com, Stefano Radaelli <stefano.r@variscite.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_100538_976127_B2B391EF 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20260205_021211_270862_3D194ADB 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,161 +125,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add usdhc3 to support M.2 SDIO WiFi on i.MX91 11x11 EVK board.
+On Thu, Feb 5, 2026 at 12:03=E2=80=AFPM Stefano Radaelli
+<stefano.radaelli21@gmail.com> wrote:
+>
+> This patch series adds support for the Variscite DART-MX91 system on
+> module and the Sonata carrier board.
+>
+> The series includes:
+> - Device tree bindings documentation for both SOM and carrier board
+> - SOM device tree with on-module peripherals
+> - Sonata carrier board device tree with board-specific features
+>
+> The implementation follows the standard SOM + carrier board pattern
+> where the SOM dtsi contains only peripherals mounted on the module,
+> while carrier-specific interfaces are enabled in the board dts.
+>
+> Stefano Radaelli (3):
+>   dt-bindings: arm: fsl: add Variscite DART-MX91 Boards
+>   arm64: dts: freescale: Add support for Variscite DART-MX91
+>   arm64: dts: imx91-var-dart: Add support for Variscite Sonata board
+>
+>  .../devicetree/bindings/arm/fsl.yaml          |   6 +
+>  arch/arm64/boot/dts/freescale/Makefile        |   1 +
+>  .../dts/freescale/imx91-var-dart-sonata.dts   | 498 ++++++++++++++++++
+>  .../boot/dts/freescale/imx91-var-dart.dtsi    | 468 ++++++++++++++++
+>  4 files changed, 973 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.d=
+ts
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
 
-Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
----
- .../boot/dts/freescale/imx91-11x11-evk.dts    | 96 +++++++++++++++++++
- 1 file changed, 96 insertions(+)
+LGTM for entire series:
 
-diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-index 03f460d62f7a..3a4a809b5e76 100644
---- a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-@@ -23,6 +23,7 @@ aliases {
- 		i2c2 = &lpi2c3;
- 		mmc0 = &usdhc1;
- 		mmc1 = &usdhc2;
-+		mmc2 = &usdhc3;
- 		rtc0 = &bbnsm_rtc;
- 		serial0 = &lpuart1;
- 		serial1 = &lpuart2;
-@@ -57,6 +58,15 @@ reg_audio_pwr: regulator-audio-pwr {
- 		enable-active-high;
- 	};
- 
-+	reg_m2_pwr: regulator-m2-pwr {
-+		compatible = "regulator-fixed";
-+		regulator-name = "M.2-power";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&pcal6524 13 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
- 	reg_usdhc2_vmmc: regulator-usdhc2 {
- 		compatible = "regulator-fixed";
- 		off-on-delay-us = <12000>;
-@@ -69,6 +79,23 @@ reg_usdhc2_vmmc: regulator-usdhc2 {
- 		enable-active-high;
- 	};
- 
-+	reg_usdhc3_vmmc: regulator-usdhc3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "WLAN_EN";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&reg_m2_pwr>;
-+		gpio = <&pcal6524 20 GPIO_ACTIVE_HIGH>;
-+		/*
-+		 * IW612 wifi chip needs more delay than other wifi chips to complete
-+		 * the host interface initialization after power up, otherwise the
-+		 * internal state of IW612 may be unstable, resulting in the failure of
-+		 * the SDIO3.0 switch voltage.
-+		 */
-+		startup-delay-us = <20000>;
-+		enable-active-high;
-+	};
-+
- 	reserved-memory {
- 		ranges;
- 		#address-cells = <2>;
-@@ -144,6 +171,11 @@ cpu {
- 			};
- 		};
- 	};
-+
-+	usdhc3_pwrseq: usdhc3_pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&pcal6524 12 GPIO_ACTIVE_LOW>;
-+	};
- };
- 
- &adc1 {
-@@ -246,6 +278,12 @@ pcal6524: gpio@22 {
- 		interrupt-parent = <&gpio3>;
- 		pinctrl-0 = <&pinctrl_pcal6524>;
- 		pinctrl-names = "default";
-+
-+		m2-pcm-level-shifter-hog {
-+			gpio-hog;
-+			gpios = <19 GPIO_ACTIVE_HIGH>;
-+			output-high;
-+		};
- 	};
- 
- 	pmic@25 {
-@@ -531,6 +569,21 @@ &usdhc2 {
- 	status = "okay";
- };
- 
-+&usdhc3 {
-+	bus-width = <4>;
-+	keep-power-in-suspend;
-+	mmc-pwrseq = <&usdhc3_pwrseq>;
-+	non-removable;
-+	pinctrl-0 = <&pinctrl_usdhc3>;
-+	pinctrl-1 = <&pinctrl_usdhc3_100mhz>;
-+	pinctrl-2 = <&pinctrl_usdhc3_200mhz>;
-+	pinctrl-3 = <&pinctrl_usdhc3_sleep>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-+	vmmc-supply = <&reg_usdhc3_vmmc>;
-+	wakeup-source;
-+	status = "okay";
-+};
-+
- &wdog3 {
- 	fsl,ext-reset-output;
- 	status = "okay";
-@@ -850,4 +903,47 @@ MX91_PAD_SD2_VSELECT__GPIO3_IO19                        0x51e
- 		>;
- 	};
- 
-+	pinctrl_usdhc3: usdhc3grp {
-+		fsl,pins = <
-+			MX91_PAD_SD3_CLK__USDHC3_CLK                            0x1582
-+			MX91_PAD_SD3_CMD__USDHC3_CMD                            0x1382
-+			MX91_PAD_SD3_DATA0__USDHC3_DATA0                        0x1382
-+			MX91_PAD_SD3_DATA1__USDHC3_DATA1                        0x1382
-+			MX91_PAD_SD3_DATA2__USDHC3_DATA2                        0x1382
-+			MX91_PAD_SD3_DATA3__USDHC3_DATA3                        0x1382
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_100mhz: usdhc3-100mhzgrp {
-+		fsl,pins = <
-+			MX91_PAD_SD3_CLK__USDHC3_CLK                            0x158e
-+			MX91_PAD_SD3_CMD__USDHC3_CMD                            0x138e
-+			MX91_PAD_SD3_DATA0__USDHC3_DATA0                        0x138e
-+			MX91_PAD_SD3_DATA1__USDHC3_DATA1                        0x138e
-+			MX91_PAD_SD3_DATA2__USDHC3_DATA2                        0x138e
-+			MX91_PAD_SD3_DATA3__USDHC3_DATA3                        0x138e
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
-+		fsl,pins = <
-+			MX91_PAD_SD3_CLK__USDHC3_CLK                            0x15fe
-+			MX91_PAD_SD3_CMD__USDHC3_CMD                            0x13fe
-+			MX91_PAD_SD3_DATA0__USDHC3_DATA0                        0x13fe
-+			MX91_PAD_SD3_DATA1__USDHC3_DATA1                        0x13fe
-+			MX91_PAD_SD3_DATA2__USDHC3_DATA2                        0x13fe
-+			MX91_PAD_SD3_DATA3__USDHC3_DATA3                        0x13fe
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_sleep: usdhc3grpsleep {
-+		fsl,pins = <
-+			MX91_PAD_SD3_CLK__GPIO3_IO20                             0x31e
-+			MX91_PAD_SD3_CMD__GPIO3_IO21                             0x31e
-+			MX91_PAD_SD3_DATA0__GPIO3_IO22                           0x31e
-+			MX91_PAD_SD3_DATA1__GPIO3_IO23                           0x31e
-+			MX91_PAD_SD3_DATA2__GPIO3_IO24                           0x31e
-+			MX91_PAD_SD3_DATA3__GPIO3_IO25                           0x31e
-+		>;
-+	};
- };
--- 
-2.37.1
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
+For next series please add a changelog for each new version added so
+that reviewers
+can easily follow what have changed since previous version.
 
