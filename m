@@ -4,107 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCEBCE91297
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 09:07:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5EC2E91297
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 09:08:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0yffgYOEUeeygLVuMIQPA9YzdxliEuSY82DuKFN+bec=; b=iK6iSACUFp2Z6/KaIMHWWWRhv1
-	3r2FAS2Vm9nD7pnyEYnhmLob07ENfKjPo/hF5tfYd8pUSJhxL4/+dgErxA1/w2uT/BlFbGucg4khj
-	A5BR340/oDUOjLfkcsu+6JYSyjW8CKSjJNqalPrQ6CqKDYQJxz+za+eAvItsDHsqqBR0Kh5yJ70tc
-	ue17/VsPupqf10RY73qAcqc3BoYC8kc3eo/I9Kj0NgThDed2JiXAu+7zlKcrdOVl+xFuH+zYt8xV/
-	MxPJEyaVE+8hC4ardV9EmkPik36FqziX5f/+BrvWIM5G3hG1zBEMfQUvhNHNKj4kGNZey/xurFfSE
-	EXfPvVNA==;
+	bh=KvrU3uNde3BgFNWLdKQwEHwdJHx5l7gVOibCnsUXbVA=; b=w/eRGZgmzEr8YuLJ3Ju4ZMz45u
+	k2QmCpV/2iJxkSzsMcZOiZ/SYiv6zBhRN+k2tpTnUnQS4ZIUGTfjWg7o3AhKVBBeyA8MZnmmW2UBa
+	OXk2GVvbl5Ix7uIdOCUKtVO3UiSafyUBj4OQb4scu2w9AYxJ2mBl1aHsFehtrVPm12NnoHHUGuvAe
+	U+nsmICKsmA3t7VxXa0sVwD8fHOVw1V5xbbCcwAZreQmKpxXOk04+9yU0Tjjjfe5k54v5Z7RdT/+x
+	1k+8Nm1ybvTp6+x0sdnk3m365nBSK33IaRDzyfivarSCuTyEGAaU/gTlotFFV51n/LGYx2RFbU0EC
+	NTrZeZGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnvKk-00000009f0o-26Je;
-	Thu, 05 Feb 2026 09:07:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vnvLp-00000009fB7-3bkb;
+	Thu, 05 Feb 2026 09:08:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnvKj-00000009f0c-0oMQ
+	id 1vnvLo-00000009fB0-3qf5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 09:07:29 +0000
+	Thu, 05 Feb 2026 09:08:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4C6166011F;
-	Thu,  5 Feb 2026 09:07:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4551C4CEF7;
-	Thu,  5 Feb 2026 09:07:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 552AB60122;
+	Thu,  5 Feb 2026 09:08:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0081EC4CEF7;
+	Thu,  5 Feb 2026 09:08:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770282448;
-	bh=uql8uFgoiXEVuMriDZhY2MyB/tFenhOYYTPRh/UgmtQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Dov8lyKPG8Mc1zgjrnm5kABTVAfnFlbW4CQ04XJaxop/1jZNnlkSuVR3BkkhTJrxA
-	 9bK00A/5ps2vVzXahXH1LmHTrIIb+YA+nwpe6BowvQVVJwa5R4y4xDNGI5p91v+x9D
-	 ZaL+9JzGD2MvX9Og7xrJJZ4WVkRjdrxSuMOfmI2kgWBJjgTNvBjtHaJ9wJ05TP5Zbb
-	 u0JWLLTN8TfZ6zinNXgHJEEkhYgcLL3eg8UfqAVCRKU7XBXGRNMhZhg6PTWkycbEEF
-	 35nq9f1cLS5FBgXx0pAD5UBWEf459huCxNtYGPt5yrSZ9Iye8vCWu47591NQuZ1jt4
-	 0JKSSJt3teNXA==
-Message-ID: <2b9edee7-cfca-4476-839c-b1b1e903c14f@kernel.org>
-Date: Thu, 5 Feb 2026 10:07:19 +0100
+	s=k20201202; t=1770282516;
+	bh=OhN6+wIzAdohK1eS9qgSF+1gf6+BUDXfBSY8Drbw8Wg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=IQd+Dd8Zhz/GIod6nkHUsaqxd5zPmnIgAdiFm0vowNhp/PfN97UlbOygWdyu0Q59i
+	 xNG7kdHu2qRAu9YmTdPqZIOWz9JP0DYMSsrca6DgVnXo5Cy0P9jB0b5N+/pL42pEkI
+	 s1MJ1Q4u94BwYaqbMro1fOL1T/VXO006fwsLeqn9x6WHxYTObrVuWyoj0NmQ9Mk/cG
+	 5uF0tBlChvsWgHvweZ/SMNGjvqHc9D1VZVu0lGm6iJP5UNBmBd8vmjkw/NkbvmcARk
+	 u6kqoVuvkqcnJdlT5NAn9L+z57CIMkxuxpIAc284p8bhdUCR7DSnFB9kIZUDo/TPZY
+	 fXWJubhWYMFag==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vnvLl-00000008kzS-2WCB;
+	Thu, 05 Feb 2026 09:08:33 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <tabba@google.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH v2 00/20] KVM: arm64: Generalise RESx handling
+Date: Thu,  5 Feb 2026 09:08:30 +0000
+Message-ID: <177028250536.3562664.3454274373045269376.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260202184329.2724080-1-maz@kernel.org>
+References: <20260202184329.2724080-1-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 19/19] dmaengine: ti: k3-udma: switch to synchronous
- descriptor freeing
-To: kernel test robot <lkp@intel.com>,
- Sai Sree Kartheek Adivi <s-adivi@ti.com>, peter.ujfalusi@gmail.com,
- vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- nm@ti.com, ssantosh@kernel.org, dmaengine@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, vigneshr@ti.com
-Cc: oe-kbuild-all@lists.linux.dev, r-sharma3@ti.com, gehariprasath@ti.com
-References: <20260130110159.359501-20-s-adivi@ti.com>
- <202601310444.S9H39g4c-lkp@intel.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <202601310444.S9H39g4c-lkp@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, tabba@google.com, will@kernel.org, catalin.marinas@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,44 +87,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/01/2026 21:37, kernel test robot wrote:
-> Hi Sai,
+On Mon, 02 Feb 2026 18:43:09 +0000, Marc Zyngier wrote:
+> Having spent some time dealing with some dark corners of the
+> architecture, I have realised that our RESx handling is a bit patchy.
+> Specially when it comes to RES1 bits, which are not clearly defined in
+> config.c, and rely on band-aids such as FIXED_VALUE.
 > 
-> kernel test robot noticed the following build warnings:
+> This series takes the excuse of adding SCTLR_EL2 sanitisation to bite
+> the bullet and pursue several goals:
 > 
-> [auto build test WARNING on vkoul-dmaengine/next]
-> [also build test WARNING on next-20260130]
-> [cannot apply to linus/master v6.19-rc7]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch#_base_tree_information]
-> 
-> url:    https://github.com/intel-lab-lkp/linux/commits/Sai-Sree-Kartheek-Adivi/dmaengine-ti-k3-udma-move-macros-to-header-file/20260130-191306
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git next
-> patch link:    https://lore.kernel.org/r/20260130110159.359501-20-s-adivi%40ti.com
-> patch subject: [PATCH v4 19/19] dmaengine: ti: k3-udma: switch to synchronous descriptor freeing
-> config: arm64-defconfig (https://download.01.org/0day-ci/archive/20260131/202601310444.S9H39g4c-lkp@intel.com/config)
-> compiler: aarch64-linux-gcc (GCC) 15.2.0
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260131/202601310444.S9H39g4c-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202601310444.S9H39g4c-lkp@intel.com/
-> 
-> All warnings (new ones prefixed by >>):
-> 
->    drivers/dma/ti/k3-udma-common.c: In function 'udma_desc_free':
->>> drivers/dma/ti/k3-udma-common.c:103:23: warning: unused variable 'flags' [-Wunused-variable]
->      103 |         unsigned long flags;
->          |                       ^~~~~
->>> drivers/dma/ti/k3-udma-common.c:100:26: warning: unused variable 'ud' [-Wunused-variable]
->      100 |         struct udma_dev *ud = to_udma_dev(vd->tx.chan->device);
->          |                          ^~
-> 
+> [...]
 
-Did you compile test your own code before sending?
+Applied to next, thanks!
 
-Best regards,
-Krzysztof
+[01/20] arm64: Convert SCTLR_EL2 to sysreg infrastructure
+        commit: d43f2741ca535e12c8030741d517a790db6e187e
+[02/20] KVM: arm64: Remove duplicate configuration for SCTLR_EL1.{EE,E0E}
+        commit: 72ac893be5c0d57891948401c028600ad019e850
+[03/20] KVM: arm64: Introduce standalone FGU computing primitive
+        commit: 7b5359a603e96a5faafe12fca85726416ccf8f0d
+[04/20] KVM: arm64: Introduce data structure tracking both RES0 and RES1 bits
+        commit: bb006d5aeaf6e2860d380f02cdb8c5504906c77c
+[05/20] KVM: arm64: Extend unified RESx handling to runtime sanitisation
+        commit: 7e28686832b96196da8eac9373fd33b8067be095
+[06/20] KVM: arm64: Inherit RESx bits from FGT register descriptors
+        commit: 834538c146f7d902419c657cbc43c30eb51ff499
+[07/20] KVM: arm64: Allow RES1 bits to be inferred from configuration
+        commit: 459fc4e77e1ac932e47cb4a6d1a01b3be79fd41c
+[08/20] KVM: arm64: Correctly handle SCTLR_EL1 RES1 bits for unsupported features
+        commit: 8d4281d7fcad4d5724d368564510f30f23fcc454
+[09/20] KVM: arm64: Convert HCR_EL2.RW to AS_RES1
+        commit: c6c22eeb9ee94bee87db5f44f2ea7f4819cd5413
+[10/20] KVM: arm64: Simplify FIXED_VALUE handling
+        commit: 8d94458263bb2d44d8ba461327a1e18c05cfc453
+[11/20] KVM: arm64: Add REQUIRES_E2H1 constraint as configuration flags
+        commit: ad90512f12fef5506d1f72cdfbd720eb701eab8c
+[12/20] KVM: arm64: Add RES1_WHEN_E2Hx constraints as configuration flags
+        commit: d406fcb2030e3efe2c5a7f043028cb3727f522d8
+[13/20] KVM: arm64: Move RESx into individual register descriptors
+        commit: 4afc6f9ee5ed2fc0e76fe403dd0d60b638f252b2
+[14/20] KVM: arm64: Simplify handling of HCR_EL2.E2H RESx
+        commit: d764914990e086ffec042e81fd811aa8d731937c
+[15/20] KVM: arm64: Get rid of FIXED_VALUE altogether
+        commit: 791dfac623f9c0133ddbde66380126382e8799a3
+[16/20] KVM: arm64: Simplify handling of full register invalid constraint
+        commit: d5b907e197027352c8d02e15042c1c740e1e3b70
+[17/20] KVM: arm64: Remove all traces of FEAT_TME
+        commit: ca9a07fbebae715ebbfbe88e38d30c3f0a44e384
+[18/20] KVM: arm64: Remove all traces of HCR_EL2.MIOCNCE
+        commit: ab74a4ed036752c37aa2b9edac89bdb325f08acc
+[19/20] KVM: arm64: Add sanitisation to SCTLR_EL2
+        commit: d3a87aeadf8ec9f96a6afe9542a6aeeb1542df7a
+[20/20] KVM: arm64: Add debugfs file dumping computed RESx values
+        commit: 917fac520cbfc4dcdf10a427ca5b917445ceea68
+
+Cheers,
+
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
+
+
 
