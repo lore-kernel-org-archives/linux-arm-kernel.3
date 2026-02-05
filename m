@@ -4,68 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB51E9129A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 14:26:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26736E9129C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 14:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5xhgCdb8ep0MUSZSzP4umfl0hprQa7j65RkYqJwXC50=; b=BCVIFZ5Q+9uN9PyGVS1cLS1imY
-	0VfMNxtmKTSJRLEGWve8LF08VRlIBTNn4RChbJX99iYAIOJvCuOC9gsbJvPx/v9MfsQlcZtxRCjCb
-	DV9ieewL6Ai/tP8k3nugXXAy3MqUPZwrO8AxtX2bfGCwGUJK65T/aaEL0J93ImUlSgo1nailAM4+3
-	bBfrGKQZDfs6rEqKTerOKmFLM99RFlukdTmoR98tLedLOKf/Njk6d5O3ejk/KhvZva7swE1CaRz29
-	cwgJ1NElEZ/Jz/9z2JUxm2j0Pq2gmYqswo7Jy9wfY+qogFLvhZAT8Vrsb/9ywoMrm8EqJ7eDMO/7d
-	DxKMaHpw==;
+	bh=fJlqPGsXf0b6vIU1M2K8abKxS0u2azgZ2Z3SVu6tYY4=; b=pA5PdULGRhNMWIR1srIxeNzdHJ
+	CnWSUvj1SutKZngrQDRhQHppSFX5+eErOzPZVAZLtHzsBgv8IT6XPBGcnGynqQLSMUaOtrukkEWSs
+	5pAiGBvl7DaI16SYdbNszpaVoFTYrY66S6m50xH0oOE5THkzQ9A1cT8x6KE1Gnoredomrz/UrYkLb
+	4wonpnCzl969qKhyCPmLP3Xr3ZBX5O+akmYFclk58XvcEfAAXyoq4x4CP/N5we+kW1QfSZX9hQn6d
+	jvSn20W8ed0Ji9QL0TiJzWgRswynIFt3M1TFVnvKCnckdsFjWhqxy9erXpRQJ0Cv/f9og6CeOVgzN
+	vKZPXDEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo0Jj-0000000A1Sq-1Ni7;
-	Thu, 05 Feb 2026 14:26:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo0Jg-0000000A1ST-0qs8
+	id 1vo0Oj-0000000A1lg-07OW;
+	Thu, 05 Feb 2026 14:31:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vo0Of-0000000A1lF-3Xna
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 14:26:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1DA2F418B9;
-	Thu,  5 Feb 2026 14:26:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E753C4CEF7;
-	Thu,  5 Feb 2026 14:26:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770301603;
-	bh=hmGTxmhf2yhUyjpwEbkT9YrgxVbfiFkHG7RA52lTQ74=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=R2J4d+8d/kLtjWX81Pu/kl8qs396W/eqbqQin8NNtRJZler91/EuBlbEd+5wTySuh
-	 dq4IUMj6X409mZLHA6t1mBcmet2KJmBYTYF3GDLNqN8PfpbFejeNisMakCS3YvBsii
-	 4HXhM1q6DtTk/LXrG4qM27aU4bfunQIuBdoMOI0tXJ1lz+S6uMYJrRNWhzFj6/880f
-	 gOHNHx64o3Tmt/rO81i4sBkGyDFAniIB5qlGQ2JIpF0mwbmvhbBBOQWB4c0fvRFN0/
-	 PB9OEJfN1TIFxHTPzd7Y8zeRQHJwQEcyPQWWNNlocbobqqWxwoe21OGBeqRm33aftU
-	 9sXZqYJautIiQ==
-Date: Thu, 5 Feb 2026 14:26:37 +0000
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Debbie Horsfall <debbie.horsfall@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt-bindings: arm: Add Zena CSS compatibility
-Message-ID: <20260205-marigold-nautilus-of-defense-9da91f@sudeepholla>
-References: <20260123-zena-css-v1-0-34adb95cdf89@arm.com>
- <20260123-zena-css-v1-1-34adb95cdf89@arm.com>
- <762a8e34-e401-4b6c-ba73-35cfffcba4b2@kernel.org>
+	Thu, 05 Feb 2026 14:31:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B8E54339;
+	Thu,  5 Feb 2026 06:31:45 -0800 (PST)
+Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 460083F73F;
+	Thu,  5 Feb 2026 06:31:50 -0800 (PST)
+Date: Thu, 5 Feb 2026 14:31:47 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Jinjiang Tu <tujinjiang@huawei.com>
+Cc: Will Deacon <will@kernel.org>, akpm@linux-foundation.org,
+	david@kernel.org, zengheng4@huawei.com, ryan.roberts@arm.com,
+	anshuman.khandual@arm.com, wangkefeng.wang@huawei.com,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
+Subject: Re: [PATCH v3] arm64: mm: fix pass user prot to ioremap_prot in
+ generic_access_phys
+Message-ID: <aYSp0--x_QgyiUWL@arm.com>
+References: <20260130073807.99474-1-tujinjiang@huawei.com>
+ <aYC6_lSm_eJeKIcn@willie-the-truck>
+ <73396cda-e12c-484f-ab84-b09e7aab8bb0@huawei.com>
+ <aYG-dGzR6MuPSQBK@willie-the-truck>
+ <a4ee7faa-5b0d-4ffa-bc06-939d95ef7680@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <762a8e34-e401-4b6c-ba73-35cfffcba4b2@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <a4ee7faa-5b0d-4ffa-bc06-939d95ef7680@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_062644_260188_89E23F0C 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20260205_063153_921205_BACDAF95 
+X-CRM114-Status: GOOD (  19.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,35 +70,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 05, 2026 at 01:29:18PM +0100, Krzysztof Kozlowski wrote:
-> On 23/01/2026 18:37, Debbie Horsfall wrote:
-> > Add compatibility to Arm Zena CSS Fixed Virtual Platform [1].
-> > 
-> > [1] https://www.arm.com/products/automotive/compute-subsystems/zena
-> > 
-> > Signed-off-by: Debbie Horsfall <debbie.horsfall@arm.com>
-> > ---
-> >  .../devicetree/bindings/arm/arm,zena-css.yaml      | 31 ++++++++++++++++++++++
-> >  MAINTAINERS                                        |  5 ++++
-> >  2 files changed, 36 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/arm/arm,zena-css.yaml b/Documentation/devicetree/bindings/arm/arm,zena-css.yaml
-> > new file mode 100644
-> > index 000000000000..42699b4db41e
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/arm/arm,zena-css.yaml
+On Thu, Feb 05, 2026 at 03:23:27PM +0800, Jinjiang Tu wrote:
+> 在 2026/2/3 17:23, Will Deacon 写道:
+> > On Tue, Feb 03, 2026 at 11:38:15AM +0800, Jinjiang Tu wrote:
+> > > 在 2026/2/2 22:55, Will Deacon 写道:
+> > > > On Fri, Jan 30, 2026 at 03:38:07PM +0800, Jinjiang Tu wrote:
+> > > > > +#define arch_mk_kernel_prot arch_mk_kernel_prot
+> > > > > +static inline pgprot_t arch_mk_kernel_prot(pgprot_t user_prot)
+> > > > > +{
+> > > > > +	ptdesc_t mem_type = pgprot_val(user_prot) & PTE_ATTRINDX_MASK;
+> > > > > +
+> > > > > +	return __pgprot_modify(PAGE_KERNEL, PTE_ATTRINDX_MASK, mem_type);
+> > > > > +}
+> > > > 
+> > > > Do we really need another arch helper here?
+[...]
+> > My point is that we already have the helper: ioremap_prot(). Just fix
+> > that for arm64 and cc the other arch maintainers if you're not sure how
+> > to fix it for them. What we don't need to do is add an additional helper.
 > 
-> This should really go to one YAML file for most of FVP from ARM.
+> ioremap_prot() may be called outside of arch/arm64 in the future, and I think
+> most of the cases will not pass a user prot to ioremap_prot().
 > 
+> generic_access_phys() is a special case, so I want to limit the modification to
+> generic_access_phys() only.
 
-Fair point, we have existing FVPs in [1]. We can move this there as well
-but if it becomes too much or if we can get it more organised based on
-some category in the future, we can take it up then. For now, I am happy
-to shove it in [1].
+Or we can just have an ioremap_user_prot() (or some more meaningful
+name), defined by default as ioremap_prot(). It's still introducing a
+new macro though, unless we go and rename it on all architectures.
 
 -- 
-Regards,
-Sudeep
-
-[1] Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
+Catalin
 
