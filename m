@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 650BAECD983
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 16:57:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28435ECD983
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 16:58:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KI/e9x8Tg/EUDnXQLu2wZX3QYxImEnG/7bTFxP0L9DI=; b=QAjSBoGNH96TnaTDxz8+JP1HZy
-	oW8Kyh0h/jSqZq+tURYK6uDEyq4Q/IgIQfbkz3imbguWy0d8CqjwhjLV+ihOIhR46pY0XnzJz0kf9
-	tceCj0U7rrnzNfp1ywqVm7PRAjRNMDvLhHk6S2jqlXDA03shVBEG8rGk5feiqCqbfl+YUwG+9m5z+
-	p875dHNut87qblVBXU38o4Ob/u1rU7ef3OBom/IGuK0LwViN89g5qDmJ1NHb6ZXBQBEBYsWYrXr2K
-	qGHVM/ap+m6bKOVytObZOAkWvS24LBhfBeKqqwhFg2s/7Co82bAF2MtEIBmFBPCNToCQhbqxGKTkJ
-	bsXlSsqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JGQJHpWpvKdPRVfoNpw03k35feDqxB4zZmj3BBi3MB4=; b=hiJCQ2+zCcvcZPC8OwPV4tqoBI
+	gGmncV9fydOTbVoN+MHHf+wLID4C6i+lUkSHiAd8mU5PLOvlU2UG9tgmrievZQb24XbxXiha9A8Ae
+	Xw3jctutFwKgl8Px5OBX+YYBOxzT1BYt9aa4yEMOvz5c2y9Bs6EpoC1XKZ7aZ344JYfBxlOBSyjrD
+	tcWM5TSBMBmFfw09Ll6lI//Gv3urzBAKBuQlBMv4z48UmZyjtyKetCno469xfc24ZWkdODpFva2Wr
+	Nc7NsfDkAMduUPAvjhQFttSixGfFXZw1aMR6HYTPemwwlt0rPmx5xZpyT+gpcYrNBDOn1KDP63s5I
+	k0ydP58w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo2fg-0000000AG4j-1CEY;
-	Thu, 05 Feb 2026 16:57:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo2fc-0000000AG4B-3HnB
+	id 1vo2gn-0000000AGDk-0gZy;
+	Thu, 05 Feb 2026 16:58:45 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vo2gl-0000000AGDM-2CMB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 16:57:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 776D0339;
-	Thu,  5 Feb 2026 08:57:25 -0800 (PST)
-Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 308293F778;
-	Thu,  5 Feb 2026 08:57:26 -0800 (PST)
-Date: Thu, 5 Feb 2026 16:57:23 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
+	Thu, 05 Feb 2026 16:58:44 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.83])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4f6Ngx3F7DzJ467X;
+	Fri,  6 Feb 2026 00:57:49 +0800 (CST)
+Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
+	by mail.maildlp.com (Postfix) with ESMTPS id 61C0540569;
+	Fri,  6 Feb 2026 00:58:40 +0800 (CST)
+Received: from localhost (10.48.151.164) by dubpeml500005.china.huawei.com
+ (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 5 Feb
+ 2026 16:58:38 +0000
+Date: Thu, 5 Feb 2026 16:58:37 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
 To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
-	dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
-	fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
-	jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	peternewman@google.com, punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com, reinette.chatre@intel.com,
-	rohit.mathew@arm.com, scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com, will@kernel.org, corbet@lwn.net,
-	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
-	zengheng4@huawei.com, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v4 41/41] arm64: mpam: Add initial MPAM documentation
-Message-ID: <aYTL86PYae5w89bx@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
+	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
+	<kobak@nvidia.com>, <lcherian@marvell.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
+	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
+	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
+	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
+	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
+	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>,
+	<zengheng4@huawei.com>, <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH v4 28/41] arm_mpam: resctrl: Pick classes for use as mbm
+ counters
+Message-ID: <20260205165837.00007a46@huawei.com>
+In-Reply-To: <20260203214342.584712-29-ben.horgan@arm.com>
 References: <20260203214342.584712-1-ben.horgan@arm.com>
- <20260203214342.584712-42-ben.horgan@arm.com>
+	<20260203214342.584712-29-ben.horgan@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260203214342.584712-42-ben.horgan@arm.com>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.151.164]
+X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
+ dubpeml500005.china.huawei.com (7.214.145.207)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_085733_721249_34DC30AC 
-X-CRM114-Status: UNSURE (   7.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260205_085843_717003_66B4E7D7 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,12 +84,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 03, 2026 at 09:43:42PM +0000, Ben Horgan wrote:
-> MPAM (Memory Partitioning and Monitoring) is now exposed to user-space via
-> resctrl. Add some documentation so the user knows what features to expect.
+On Tue, 3 Feb 2026 21:43:29 +0000
+Ben Horgan <ben.horgan@arm.com> wrote:
+
+> From: James Morse <james.morse@arm.com>
+> 
+> resctrl has two types of counters, NUMA-local and global. MPAM can only
+> count global either using MSC at the L3 cache or in the memory controllers.
+> When global and local equate to the same thing continue just to call it
+> global.
+> 
+> Because the class or component backing the event may not be 'the L3', it is
+> necessary for mpam_resctrl_get_domain_from_cpu() to search the monitor
+> domains too. This matters the most for 'monitor only' systems, where 'the
+> L3' control domains may be empty, and the ctrl_comp pointer NULL.
+> 
+> resctrl expects there to be enough monitors for every possible control and
+> monitor group to have one. Such a system gets called 'free running' as the
+> monitors can be programmed once and left running.  Any other platform will
+> need to emulate ABMC.
 > 
 > Signed-off-by: James Morse <james.morse@arm.com>
 > Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Seems fine to me.
+
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+
+
 
