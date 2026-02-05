@@ -4,73 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27ABDE91292
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 08:49:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 427D9E91293
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Feb 2026 08:50:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ah96poweooP39XHipocL11TDAyJJlEOaH2JSHKLFb3g=; b=rvdbZS6Q8QeV5G0V7NgeSLPJhX
-	GPaLFKasTL/KWAjY7HZI2yUppVEmewHieMlVNwQe1xDHD2ErwKfK3NgdzAKMdOMSV6O7y9p2Z3PPF
-	Kv0RVb3JiyWKWcCfYVJZXAvp2pth2usWeWt165rJZdOor7ecSGBSVwtlSz+m7qyz5l/FiKRgq61gJ
-	VnMHkBbp5K79wj+j9lHAEKPmuBS6Rh4IgKsiBbcGh137kMpS14QK7mXMKZROtEyAousmRJrfN9liW
-	JYHRAxvmHpYcWJeOka2d82we9GxnUFlCxi0oa0uSNaMht/YnJjYrhq+tYXOC7kWimwBJvRxgfHT2i
-	6cN/Qk0Q==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QtoltktCL7Mb8cjV2pMaqPgzSS7J+B/vYRfZG3v91i4=; b=bwkjTRfEe7mkGiqK3oXJqWAxPX
+	4ueIqdqrtMrLlnTZ8QoGiDd5P2LSwE0q/akw9dR4xr4ePR0N+d4bSLPAwpLewXQ73st7exQlBI4Kx
+	Z/66oO5EGpH8dsMDYfTfZ9Rf/i4JOXWs54KFsgtVzVjSbSRmQfDItaaIxskVZHhpvF2xCD7pcUCMH
+	IDOCTgh1zvU4jY7XOO12lN9P3fvbNj0nkzbWL/DBH8ZfHxWJ5fOBLNtZyFhCuWuehKRGQgQWeiNFU
+	qiiQPNzUpjJ4hWhiPb8dQbIS0xbIp3wq8WrqPIVpa7nsGjiApJamtQ3roAmfc8W7i1p2n8JXJAIEJ
+	awG1Z3xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnv3V-00000009cxT-3EFk;
-	Thu, 05 Feb 2026 08:49:41 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vnv3r-00000009czl-0Hf5;
+	Thu, 05 Feb 2026 08:50:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vnv3S-00000009cwy-1Lz2
+	id 1vnv3n-00000009cz5-1Fwa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Feb 2026 08:49:40 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id B29F4C243A8;
-	Thu,  5 Feb 2026 08:49:38 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id A9527606FD;
-	Thu,  5 Feb 2026 08:49:32 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 263B5119A865B;
-	Thu,  5 Feb 2026 09:49:28 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1770281371; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ah96poweooP39XHipocL11TDAyJJlEOaH2JSHKLFb3g=;
-	b=e8SCd2iq+TafgZsnMRv1dDAFDbNxcYWS4reV/gXRxs5niK9nBASXfKtq8Aujo2KeEZ9hpK
-	+2unjWnkgk1UfnRVlTWATb51Zo5XVaks6lbUeTKD9IonZKzjl1XSVHLeZDJoLQ3r4p8DRa
-	v/VIA+WrV22IwVVJ8Kc6f09qdssqHDLOU8JsO+B7HV4ZJo5UXypXtusr98fqdS25y+cmNw
-	rdE9RcfUAmD8wehhFWWWySg/m35LDPaKmH100LGu3v2AScV6p3I4CMaWMEJEkGFIevNuZp
-	NL8xJyz/FylwEWyhpPttwMWMNNfYVfwckeCKrHrIJxdnNxIImcd34ejHdt1oSw==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: William Zhang <william.zhang@broadcom.com>,  Hauke Mehrtens
- <hauke@hauke-m.de>,  zajec5@gmail.com,
-  bcm-kernel-feedback-list@broadcom.com,  Rob Herring <robh@kernel.org>,
-  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
- <conor+dt@kernel.org>,  linux-arm-kernel@lists.infradead.org,
-  devicetree@vger.kernel.org,  Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH -next] ARM: dts: BCM5301X: Drop extra NAND controller
- compatible
-In-Reply-To: <8ee13309-537e-4a63-a402-289fd119118f@broadcom.com> (Florian
-	Fainelli's message of "Wed, 4 Feb 2026 13:21:46 -0800")
-References: <20260204091530.624230-1-miquel.raynal@bootlin.com>
-	<CAHi4H7EVLsgVL5KCERTX5XBNTMvZDNxePzo48Zp5dsfDdoCV1Q@mail.gmail.com>
-	<87ldh8fdqm.fsf@bootlin.com>
-	<8ee13309-537e-4a63-a402-289fd119118f@broadcom.com>
-User-Agent: mu4e 1.12.7; emacs 30.2
-Date: Thu, 05 Feb 2026 09:49:27 +0100
-Message-ID: <87fr7ffuco.fsf@bootlin.com>
+	Thu, 05 Feb 2026 08:49:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4313460010
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Feb 2026 08:49:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09947C4CEF7;
+	Thu,  5 Feb 2026 08:49:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770281398;
+	bh=66u/EUj36ytdtqhkkdlwFIOWq8qHVnEcU05bCDIUITA=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=iIS187gGTIgnass74b0WBQvUo12Jgv/8lHExGAWUoXz2np7P770BMb8O8qcS3qNUV
+	 IARtIRWzud17rZaNetf573ZRpiE17uwF8MLTf2tVhx1TV7C149PUoN1wOVlYwtxvpr
+	 2Md60pXnbiuES8PONs1fbNA4MVoMA57G6i6yYn9DOh4HYLXYV79+RI32VD2RU7c8Un
+	 tphP0kaZ7HpTeTcyVvmoc3Qw6ikC5AqeN1I6AovvKhqovF/FIQ45BTa12vlqv9axX5
+	 jsdmB3qzLHoAAtP8lzfFb+VSU2wngg2iIBI+6ijdoVbEKdJbcfiqFOMwC+Uq3+n28w
+	 ekDzPcRJmX0iQ==
+Message-ID: <2fe11d07-2b95-4c38-8cac-183fd88dabe9@kernel.org>
+Date: Thu, 5 Feb 2026 09:49:55 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_004938_792263_4E5EDA1B 
-X-CRM114-Status: GOOD (  11.41  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT PULL] arm/arm64: dts: socfpga: updates for v6.20
+To: Dinh Nguyen <dinguyen@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ soc@lists.linux.dev
+References: <20260124200118.2789128-1-dinguyen@kernel.org>
+ <2b81a667-adad-4960-bc48-f60fbf740620@kernel.org>
+ <7c6de5dc-8396-4793-a4fa-184bfe4096f3@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <7c6de5dc-8396-4793-a4fa-184bfe4096f3@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,43 +114,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Florian,
-
-On 04/02/2026 at 13:21:46 -08, Florian Fainelli <florian.fainelli@broadcom.=
-com> wrote:
-
-> On 2/4/26 12:36, Miquel Raynal wrote:
->> Hello William,
->>=20
->>>> diff --git a/arch/arm/boot/dts/broadcom/bcm-ns.dtsi b/arch/arm/boot/dt=
-s/broadcom/bcm-ns.dtsi
->>>> index d0d5f7e52a91..46b650abdb90 100644
->>>> --- a/arch/arm/boot/dts/broadcom/bcm-ns.dtsi
->>>> +++ b/arch/arm/boot/dts/broadcom/bcm-ns.dtsi
->>>> @@ -479,7 +479,7 @@ thermal: thermal@2c0 {
->>>>          };
->>>>
->>>>          nand_controller: nand-controller@18028000 {
->>>> -               compatible =3D "brcm,nand-iproc", "brcm,brcmnand-v6.1"=
-, "brcm,brcmnand";
->>>> +               compatible =3D "brcm,nand-iproc", "brcm,brcmnand-v6.1";
->>>>                  reg =3D <0x18028000 0x600>, <0x1811a408 0x600>, <0x18=
-028f00 0x20>;
->>>>                  reg-names =3D "nand", "iproc-idm", "iproc-ext";
->>>>                  interrupts =3D <GIC_SPI 68 IRQ_TYPE_LEVEL_HIGH>;
+On 30/01/2026 13:12, Dinh Nguyen wrote:
+> 
+> 
+> On 1/28/26 12:48, Krzysztof Kozlowski wrote:
+>> On 24/01/2026 21:01, Dinh Nguyen wrote:
+>>> The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
 >>>
->>> Acked-by: William Zhang <william.zhang@broadcom.com>
->> Do you mind if I take it on top of the commit it fixes?
->
-> I already applied this change to the Broadcom ARM SoC tree. I don't
-> expect conflicts so if you prefer to take it, I can drop it.
+>>>    Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+>>>
+>>> are available in the Git repository at:
+>>>
+>>>    git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux.git tags/socfpga_dts_updates_for_v6.20
+>>>
+>>> for you to fetch changes up to 1a457681c075e1bd894df753087cb4268ce9f9e9:
+>>>
+>>>    arm64: dts: intel: agilex5: Add simple-bus node on top of dma controller node (2026-01-02 07:52:44 -0600)
+>>>
+>>> ----------------------------------------------------------------
+>>> SoCFPGA DTS updates for v6.20
+>>> - dt-bindings updates:
+>>> 	- Add dma-coherent for cdns,hp-nfc and snps,dw-axi-dmac
+>>> 	- Add intel,socfpga-agilex5-socdk-modular for the Agilex5 mod board
+>>> 	- Move entries in intel,socfpga.yaml into altera.yaml
+>>> 	- Add syscon as a fallback for sys-mgr
+>>>
+>>> - Add dma-cohrerent property for Agilex5 NAND and DMA
+>>> - Add support for the Agilex5 modular board
+>>> - Add IOMMUS property for ethernet nodes for Agilex5
+>>> - Use lowercase hex for dts files
+>>> - Add #address-cells and #size-cells for sram
+>>> - Fix dtbs_check warning for fpga-region
+>>> - Move dma controller node for Agilex5 under simple-bus
+>>>
+>>> ----------------------------------------------------------------
+>>> Dinh Nguyen (4):
+>>>        dt-bindings: arm: altera: combine Intel's SoCFPGA into altera.yaml
+>>>        dt-bindings: altera: document syscon as fallback for sys-mgr
+>>>        ARM: dts: socfpga: add #address-cells and #size-cells for sram node
+>>>        ARM: dts: socfpga: fix dtbs_check warning for fpga-region
+>>>
+>>> Khairul Anuar Romli (4):
+>>>        dt-bindings: mtd: cdns,hp-nfc: Add dma-coherent property
+>>>        dt-bindings: dma: snps,dw-axi-dmac: add dma-coherent property
+>>
+>>
+>> These are not SoC patches, unless maintainers are unresponsive which I
+>> believe is not a case here, so they should not be going via this tree.
+>>
+>> None of this, merged on 15th Dec, was fed to linux-next, so you don't
+>> even know if this conflicts with maintainer trees thus pushing conflict
+>> discover unto soc tree.
+>>
+>> Not being in the next is already a problem but gets more serious when
+>> taking other subsystem patches.
+>>
+>> That's my comment, but Arnd was looking at these whether to merge.
+>>
+> 
+> Apologies! I did not hear any feedback from those maintainers nor did I 
+> remind them, so that's my fault. Let me rework this PR and take those 
+> patches through the respective maintainer's tree.
 
-It's okay, this will just generate a dtbs_check warning if it reaches
-Linus' tree before my branch, but honestly I don't think it matters
-much.
 
-Please keep it.
+The bigger problem is that none of these were in the next. You need to
+solve this problem.
 
-Thanks!
-Miqu=C3=A8l
+Best regards,
+Krzysztof
 
