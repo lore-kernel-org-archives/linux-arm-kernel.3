@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2EEBEB28D4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 07:25:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B38CFEB28D6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 07:51:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1No5ZvlsgoJE+yC1Nqoigxav4jf77WH/f2pLm5U7tZI=; b=c0ZY9vwojyv20xYrjZ858UNjjZ
-	uid/YgORE46d8obVIE+E1XuLJUUgyzxKSeVEcqEVV2p5QRBOKtgP4bJFP1Qr22in0Y8AytSlrF6bL
-	xa04KFcpH1OzR/DPf6k7yZiiwvF7rU0waxaPNAWp0b5jNhsksItkAgXGeJal5qah5iEBtZbdzOs56
-	vohBnt8pOBf+9W2nUjm2nKZhCrAZXQKd6TUV693OhNuBKGUAH196SlMUi4XpOvEkOJ1+3+jPPwW+V
-	5+CsNenLEmHQcBKCwRzKkzWnF1alzO0ZwNsQj1PvqYRKYx/Fxrn1KRlXD4DB46G35oAQe/8WZFkWB
-	rBtYJ0gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XBqrw6KQmFjJQqDQ9j7AIyHa+3x4OD6xXOFjm0uAkJc=; b=d/Mdz3ZexnGyvHiuA74mDmkxqC
+	QLxmAPkcWjygv8gcd7iOMGQJZOOv2UHJgL28voHRfpaDZ1Hqw6MR7eq1hOpPC03UDm652vyxs5XYR
+	ZOllbUVpbHfTL8wouc9pVoC6sZCXTE6T+1vZmCV229az3e9uV7tPQHkUr4SedPuLVFOxcStJ+e5Wt
+	dxUsDTBygSmPU7/YoiscJck8yNF5by+3AYi/YmKolTD8qeNSFB4ZKOBwq9+2Qo7b49IDt1Bt9y1q1
+	uDs7CY0fv0VsCZSVi5BFHvi3FGjuwRFC86+nsKXw+FS0JYERB1CMuv9IlA/1i14aen46+PxCn+HJl
+	mLzerwHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voGD4-0000000AzIO-3LXO;
-	Fri, 06 Feb 2026 07:24:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1voGcp-0000000B0S7-3DE5;
+	Fri, 06 Feb 2026 07:51:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voGD3-0000000AzHt-2Nps
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 07:24:57 +0000
+	id 1voGco-0000000B0Rw-0kOL;
+	Fri, 06 Feb 2026 07:51:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A1468600AD;
-	Fri,  6 Feb 2026 07:24:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9EE4C116C6;
-	Fri,  6 Feb 2026 07:24:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1EBA660010;
+	Fri,  6 Feb 2026 07:51:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F98DC116C6;
+	Fri,  6 Feb 2026 07:51:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770362696;
-	bh=P0NhoGMuk6PH5jP7ZeN3aTohFrPPtEmPqpM83aqZXaA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sbREU9FbWU9quRswUeOLIUKRE/bDm8Dd898bYIyaKd6lRBhYQJrYLNlmiR48w5HJ4
-	 jX2mqq8d3PeteEFqF774P+9ph6+X/ttO5jVW3/leuQnp2Jkb0k+apFaCiR1vmuBbHv
-	 wdSXX/rzHb3FF+wJzpgK9mwJBFG0hcpwtPoS32pMdOAuAJBAgg8vP5Y36F4MhMdjS4
-	 GK/WQ6rbmR5Nhf/5eHsddDblCy+bEzTIDoiQWnWkGcB7Ji873P2pFFlVovIO9gQxAH
-	 8Y1UacvCmVaf0inBJTc5/wMA3qGIO6P7gYyKMPCVvA2vsQmNsrxMw0uAUTbiZoYT4Z
-	 3z9sYGgzA7RNg==
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-To: CHAMPSEIX Thomas <thomas.champseix@alstomgroup.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Kees Cook <kees@kernel.org>,
-	Roy Pledge <roy.pledge@nxp.com>,
-	Claudiu Manoil <claudiu.manoil@nxp.com>,
-	Scott Wood <oss@buserror.net>,
-	Richard Genoud <richard.genoud@bootlin.com>
-Cc: Christophe Leroy <chleroy@kernel.org>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] soc: fsl: qbman: fix race condition in qman_destroy_fq
-Date: Fri,  6 Feb 2026 08:24:38 +0100
-Message-ID: <177036249397.3323736.12618812589949729211.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20251223072549.397625-1-richard.genoud@bootlin.com>
-References: <20251223072549.397625-1-richard.genoud@bootlin.com>
+	s=k20201202; t=1770364292;
+	bh=xqbUcSUTpk4arpBV33lwK63+MR69RzUxztVajpd6IpA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QVRCeEVX4NnXHRYQVZb6WuR31nT0YfJbSMQsc1IcIk8zKF8I/rQVkHGNZ7yMt85oH
+	 uaW92gF7XGyL5HjlgYujTjtl5o0vA3beeM4Tw1zXc+SFo1F2LITXUy2R33r61TxLha
+	 lwxdLdpD6dfpnwu1HrudaJunjOsnm6G81QxyCyAdK3ss54QFXw5TBA/KPspq/LLyom
+	 7cykMPEMtKp+YBVZI159knhhpF6QEW0uHe9DL/ByJNx2OnU1gOr3Tu+IRBWjgmHx3A
+	 Xl7S/fpVsOXwZl0MWkbOcfxyJ3+HPPjfA1a9//G7+eANpq+7+XBuuZR3ndEo24lHYU
+	 /zqtO/fv1OvhA==
+Date: Fri, 6 Feb 2026 08:51:30 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Andy Yan <andyshrk@163.com>
+Cc: dmitry.baryshkov@oss.qualcomm.com, heiko@sntech.de, alchark@gmail.com, 
+	andrzej.hajda@intel.com, conor+dt@kernel.org, cristian.ciocaltea@collabora.com, 
+	airlied@gmail.com, jernej.skrabec@gmail.com, jonas@kwiboo.se, 
+	kever.yang@rock-chips.com, krzk+dt@kernel.org, Laurent.pinchart@ideasonboard.com, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, neil.armstrong@linaro.org, 
+	nicolas.frattaroli@collabora.com, robh@kernel.org, rfoss@kernel.org, hjc@rock-chips.com, 
+	sebastian.reichel@collabora.com, simona@ffwll.ch, tzimmermann@suse.de, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH v3 1/5] dt-bindings: display: rockchip: Add rk3576
+ DisplayPort
+Message-ID: <20260206-transparent-primitive-pig-7ea2f8@quoll>
+References: <20260206010421.443605-1-andyshrk@163.com>
+ <20260206010421.443605-2-andyshrk@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1195; i=chleroy@kernel.org; h=from:subject:message-id; bh=s/9qncZXkiRO4FXncL0CjHqdtLNJ8JipcvT2jBzGz1A=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWS2Tre68l9pplRo+duDR+4UMDO8TeRLrLGK//YjganWS DFS53JRRykLgxgXg6yYIsvx/9y7ZnR9Sc2fuksfZg4rE8gQBi5OAZjIbz5GhuNlWybsF21xr89T cmaMu/Z3Y0n5hGaNlvP13jG8coZ8pQx/ZS5NcztynVX7xYaddo7idenxPOsU3yycyzuvWt4kNSe REwA=
-X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260206010421.443605-2-andyshrk@163.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,35 +77,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 23 Dec 2025 08:25:49 +0100, Richard Genoud wrote:
-> When QMAN_FQ_FLAG_DYNAMIC_FQID is set, there's a race condition between
-> fq_table[fq->idx] state and freeing/allocating from the pool and
-> WARN_ON(fq_table[fq->idx]) in qman_create_fq() gets triggered.
+On Fri, Feb 06, 2026 at 09:04:11AM +0800, Andy Yan wrote:
+> From: Andy Yan <andy.yan@rock-chips.com>
 > 
-> Indeed, we can have:
->          Thread A                             Thread B
->     qman_destroy_fq()                    qman_create_fq()
->       qman_release_fqid()
->         qman_shutdown_fq()
->         gen_pool_free()
->            -- At this point, the fqid is available again --
->                                            qman_alloc_fqid()
->            -- so, we can get the just-freed fqid in thread B --
->                                            fq->fqid = fqid;
->                                            fq->idx = fqid * 2;
->                                            WARN_ON(fq_table[fq->idx]);
->                                            fq_table[fq->idx] = fq;
->      fq_table[fq->idx] = NULL;
+> The DisplayPort found on RK3576 is very similar to that of RK3588,
+> but work in dual pixel mode. And itself does not depend on the I2S
+> clock or the SPDIF clock when transmit audio.
 > 
-> [...]
+> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> 
+> ---
+> 
+> Changes in v3:
+> - Fix compatible order
 
-Applied, thanks!
-
-[1/1] soc: fsl: qbman: fix race condition in qman_destroy_fq
-      (no commit info)
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
--- 
-Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+Krzysztof
+
 
