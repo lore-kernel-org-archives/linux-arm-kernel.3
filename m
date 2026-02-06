@@ -4,167 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B13BECD99D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 02:02:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D4D7ECD9BB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 02:26:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PS/YsKCnFag21cpRzwog9SXf9avOiRpKoHHLSrI2p8Q=; b=mMJimgUmKva9ixa3vj1Jorki3C
-	6XljvIM+6a6Z/XWBSGg8MaVuOnac5WnkRL3azSj0TsoniCugUIPyRv68uCsV2eVUmAQ4jVbQoMwml
-	IgJfP+qDl4GG8pCZJspid1WUOQkhbuK//SxT4nk4cDo4Tn/uPLN01AMvSt6YSrvqHF3AuNOJWHrZ8
-	nvCeYjRYuHyHvnRG8tgsE46IY6kXgGnOsd/8RH5YTpORSgsuS8FscWnZI4Pm/2JVshiCjDBUaXZle
-	BNNGbWvqHM80gHSAh2hx/hvWbC+5bsPzt3lClA1HIhRYtNQYBWBXuYiKufzbxNSN2NwqfKDVfZ26W
-	3tB/oFAw==;
+	bh=EUdH/x1CAaRsn4Ee9EyZYjDWskMDSSZ27C82vCDOy54=; b=mFRUd+v7Zp83EcyHIk3ckYs6/K
+	u/pWxs6lNm6qlC9iSKhH7zzlK/WDJK0hrsAmJnl9qqY/g7yv+ITqFIaN6Srlzsn4MMZc3+shV0JYU
+	RE+sW6HWWNwGpLFih0XonRKIEyR19xwrJ7fmspG9L0Ntn8ixN4x1G+LjR7bzVBIK0dQBe7Ta1AL3i
+	cioimbVtZuJnlwG1EerLaG1YEltAqZSZCXx7K2cabdEOGDv/udwCcfep+Ag9i/mIOl8yZjBxmRlwt
+	qYZ6H2ey8/tNWg6flMF5SXw1fuZjfVbPATGDWFjzbh85PQCdqHsnlEnnZF7DpuUTcTrelj5fGzUuc
+	pv+dXTKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voBAq-0000000AjpR-2yYu;
-	Fri, 06 Feb 2026 02:02:24 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1voBYX-0000000Al1c-1rR6;
+	Fri, 06 Feb 2026 02:26:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voBAn-0000000Ajp6-38yX
+	id 1voBYV-0000000Al1E-0ijo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 02:02:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FCNGyTvj0pgOJP5jhpZQ+4/+9fRsSimOZn9BfXSnM3Kg8VrWuq4kzqN5OdTZ4FU9kuTXZBE6zjINnW+0336TxP0oLM20L8dpzLEk7KgK5YZnKXxwwzsboZg/2dh8WGOxn2IAG2SIXa6lRk9iwz/7sZcryAHBFvnwCROfGRcYkBbG66QU5c0+lt+LOrB1bgYbfPxYle7jvt3zClgbORZwci0c6ZpB8wxcmX6UhEQJP6Z8Da0hAeBzfZsHgRL93dUpWoxuHZUmMJaozn/a2gyJ5P/paz4/Sh9TV1YZY/GyPeihEmjdhIBnbOcxCiGyXLA266jAWfNgoc3gybZgs1grNQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PS/YsKCnFag21cpRzwog9SXf9avOiRpKoHHLSrI2p8Q=;
- b=Cz7/KT3hbh+CBnthBEdHxlY8y+N4DsNkPbSuz/tOfZTWO6+ggZap1+MQ4Y6xrKpPEVCOoHC87Gtfo5M2t86uE1eQrduWakGJ7fj9QroBhpK6fHNsIjzJTMVyrtEcMLEYek6fYAqjpVjZIvlUosjvYarAdknJLDYtw/Qxewv+cOctwBKen4jjqLOgazZuI3BudttP2cZjcgSMfWCCYLiPal0jn9Z40ntznq3BuWBLu7I8zm11E1E7maT0HE8NGHFnKTBy3wilV+HBRyVXRjkpaITO5nLwM7v8k2LOxLG0ZD2qb9bPiqj3qAZ/JmNIxpZNjOGdVSiz4KssmogVfieMkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PS/YsKCnFag21cpRzwog9SXf9avOiRpKoHHLSrI2p8Q=;
- b=K5nvC2fw7ylNjpcfOFngKRRopcNaD1WIpR4qVvxl0i+qPFmAGDkOzfa1dds7Y8eak0CBa8NN5gGU0J7bow6N1oV1Mlwh58m+bPHAcoC+ElOkg9tUAdXqg0GcwVF8hbIug3/KZircfuEkxPHBy49u1zNOPAaQidCaamvtmKUjUhHBjzzeiJjIcTY6G3XRY3IiQf/BETvGG6q13DmnusRpVdAdPF6CEnfxeO9oe61iCk79PPmAyjMZwPHbGT7jOyizGG67qVE1BKINcnDHUdnhV4GsCC6qZ8IY6RpVVsI/48jpWobISoRM43TSIJ7AKKnmzfyrMQrWrwGLHTt6xwBeuA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI1PR04MB7055.eurprd04.prod.outlook.com (2603:10a6:800:123::21)
- by VI0PR04MB12210.eurprd04.prod.outlook.com (2603:10a6:800:335::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.14; Fri, 6 Feb
- 2026 01:47:31 +0000
-Received: from VI1PR04MB7055.eurprd04.prod.outlook.com
- ([fe80::d6ab:1538:d868:bf8]) by VI1PR04MB7055.eurprd04.prod.outlook.com
- ([fe80::d6ab:1538:d868:bf8%7]) with mapi id 15.20.9564.014; Fri, 6 Feb 2026
- 01:47:31 +0000
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
-To: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Fri, 06 Feb 2026 02:26:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D5463444EE;
+	Fri,  6 Feb 2026 02:26:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC99CC4CEF7;
+	Fri,  6 Feb 2026 02:26:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770344805;
+	bh=4qPaqb0aOYjpeDtbgDXCpqKQsP3lR0Pf36lTaq1kiBk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=je7HVDGFE0hcT8cVZD/T8uXMz8pQQqDlMZd95T1gMzNt/ixaNmncGpygfKjD95IfV
+	 N0RI9P5auBeyI3I0+aEXQaeyDzKplMlyA55rKBfgY6yE/U6wQfpn04b58roj4tmAmv
+	 t3eGbhE6k4INPGXcM/ngpTDK7Ap3yBxq/FLJQ/Bwf9ZiJZuWrr8Ar6alHvpg9cF63l
+	 UApZ2LNOWGItsTVuoKQsbNgL97BHd+4nXNeDIoUZUxvdY3Yu8M/9yWrd6mb2JBvZDo
+	 jJzBQj0+nYxI0j70IXeKMFQ64KTsP/8QJfAwayfCWpcdxySW9Cdv49eflGd9cAmii2
+	 hOQDkDKbrkwyw==
+From: Jakub Kicinski <kuba@kernel.org>
+To: lukasz.majewski@mailbox.org
+Cc: Jakub Kicinski <kuba@kernel.org>,
 	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
+	andrew+netdev@lunn.ch,
 	linux-kernel@vger.kernel.org,
-	shengjiu.wang@gmail.com,
-	Xiubo.Lee@gmail.com,
-	nicoleotsuka@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	linuxppc-dev@lists.ozlabs.org
-Subject: [PATCH v4 4/4] ASoC: fsl_asrc_dma: allocate memory from dma device
-Date: Fri,  6 Feb 2026 09:48:05 +0800
-Message-Id: <20260206014805.3897764-5-shengjiu.wang@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20260206014805.3897764-1-shengjiu.wang@nxp.com>
-References: <20260206014805.3897764-1-shengjiu.wang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR04CA0004.apcprd04.prod.outlook.com
- (2603:1096:4:197::22) To VI1PR04MB7055.eurprd04.prod.outlook.com
- (2603:10a6:800:123::21)
+	krzk+dt@kernel.org,
+	davem@davemloft.net,
+	kernel@pengutronix.de,
+	devicetree@vger.kernel.org,
+	horms@kernel.org,
+	festevam@gmail.com,
+	andrew@lunn.ch,
+	conor+dt@kernel.org,
+	pabeni@redhat.com,
+	shawnguo@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	wahrenst@gmx.net,
+	richardcochran@gmail.com,
+	s.hauer@pengutronix.de,
+	netdev@vger.kernel.org,
+	edumazet@google.com,
+	robh@kernel.org
+Subject: Re: [net-next,v23,4/7] net: mtip: Add net_device_ops functions to the L2 switch driver
+Date: Thu,  5 Feb 2026 18:26:43 -0800
+Message-ID: <20260206022643.3197165-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260204232135.1024665-5-lukasz.majewski@mailbox.org>
+References: <20260204232135.1024665-5-lukasz.majewski@mailbox.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI1PR04MB7055:EE_|VI0PR04MB12210:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0f4d78ed-a2a1-457f-2d76-08de6521b138
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|52116014|1800799024|19092799006|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?P3PQh0E3ql56u8Z+LtgflGOQVPsEuFKLK8t8qyj0J2ZZWFm5Vt1LWABDv7gO?=
- =?us-ascii?Q?g0opI2rI7wHJ0FVlldzPD6F8eMviq9qm03y1yJrnv0/ilpLxtGZAiuTHDbVC?=
- =?us-ascii?Q?vea5bCi4y+2GsXYiPPuyEKXoOHb48oK9f00dBQEIlXETov+SbHKnrZdV+7GO?=
- =?us-ascii?Q?6qMHaNWfGLlvAgLFnTlngX2OHRKad7ThygKTOyqF+cvc5eyZZvDDPxtk12ym?=
- =?us-ascii?Q?mLK5EqOVsRcv0m8okE5VgwtyZegypUSqrAnkW2tPDIadM1/kqn+ikPJ3Kb6m?=
- =?us-ascii?Q?k5jcI++AmuG0pboWcm57uALapD15TPNCA+Jhx8eRQJqgE+B5xAcRHOg1kiHX?=
- =?us-ascii?Q?RCt7UQ8OoMLZvJU0X8MNDsrp9ZIZsq06VluCDwHzGZ5M9rokUVjNS3rCZQcp?=
- =?us-ascii?Q?0wm3BIuR3DKEpse7ToG90+inyymbeZYpGMTcsEcUuhdZdqQnBu3ZGk8Owias?=
- =?us-ascii?Q?LAJ2AHcALEJ+D1H8OqewTM+6Ul4S2ZQwQQZiBKUDVwKvepIa3zYQKUKJRUpu?=
- =?us-ascii?Q?I/DdAHxzcjcMrfnXu4aZawUV9JbmGGTZeMaVeg0aYUxnyM/Bn7Em+K8D2oLU?=
- =?us-ascii?Q?XzM+IxJRFq54v5pFYDd0N+WilmhV0NdT3sdcv4PMkwWrOt4n4Is2WhapHhNe?=
- =?us-ascii?Q?nggszfxoZzzXTW1xwZScpXqcHvbrIDwvKozEYwLrEDS4IK1Yx0Gxhb/+fNR6?=
- =?us-ascii?Q?ZygI0CM42an+IuTukHGt6hByYsZ1SGEq8SmA2Ihz5r9HNbCENhbxTe+VFLR9?=
- =?us-ascii?Q?J3Ugnvc9Ak+vTeO/iDfZgPCHzyccVOga+rWDTCwRjmoY3DhNwc5F0Qj46eyV?=
- =?us-ascii?Q?8V+0uzS5FT/74T3lSu0FJrftypJNqd+pLtMqLHECrWJbKi6xlTfbxOQe+83d?=
- =?us-ascii?Q?u2SrMlHUDNaxza92Pei1Mirdb07KPaiqHo1NlcLyRHvZa81duTVCjeT36xdn?=
- =?us-ascii?Q?2G0wJ8vCXfROGfkrxmjGCEz3hff0uUvYrXdJ0+BKZnKQZ7f72wgogb9gWBKx?=
- =?us-ascii?Q?CN+0gq7Z+L2VywTVeLBp/oMid5alsu6SCoDg8paxyCIz5TdTVwv0MTPxJaoz?=
- =?us-ascii?Q?ekgraBgM/b2lYNkuQ1RLX7/wqgucaFBtiWCOrkzPPAjr4cXtZ2reA8z5uzy5?=
- =?us-ascii?Q?u0GsOcDI9K53+gSoDIEheJVZaxOlZNrhL1yomRuXQ7anwtkGoBzjD1ORC2in?=
- =?us-ascii?Q?vEIsUmQ008gyawHEHh7Jyv+HXPjelD3x9VKRj4ghn2dQn7J+qs8samnjGNlb?=
- =?us-ascii?Q?qNJwB6UTew5dkzsgaO8EhHeWT04AB/IBpbWlHu7Y/93X54zSpKabuY4UtpVD?=
- =?us-ascii?Q?E8xGPkqhpz7EupC2wkqkMaiKnckmdwA4Tjd/AXlFpMVvixvhQcfoVbBlMDWS?=
- =?us-ascii?Q?vM69XjQGYgWqNt3r5VRUmswM1pbehxB7fofDH785Ll/3u0GTISqh6g/kA/h+?=
- =?us-ascii?Q?W1wlJYfAnsCEl98WieDQUkHumK2hJL43MEQGIhs2x7U79unFoiMSNdnmQHOq?=
- =?us-ascii?Q?Y4LjHNXOvvVPEhD1DPH/jS0Cfh+HFPFqVtFCW7XiYTI3/JDf30ijSRHO4ioz?=
- =?us-ascii?Q?rESsF98RmB0zPqi4BFNkvWTMUERcvOLnkpjFuEAhGL9jgWgEzIujVq5Oljm4?=
- =?us-ascii?Q?wM7ViOBtUReWOUfSGTqIEh2nzcc5PVfNH7QShsO/s23p?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR04MB7055.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(52116014)(1800799024)(19092799006)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6FFMGkndI5359mV/nOwiXAoosQy3brewmjT7Mkp+SevAdLzVpILEqJOfxicd?=
- =?us-ascii?Q?iFcMyKLa56JqQhopaxGVzQBx+e2eJ+B0NPj1pZJD0PH/IdIp0dlO/p/zHjvt?=
- =?us-ascii?Q?0QdTzUUnhX+VNBo0rwHO1MuBw6HBI3ICyCqVpdAMzX5jtWEjKliHXlPEeuGh?=
- =?us-ascii?Q?/mPz5LhUw+r0oI5iXVsK2UFpwO7ksU3LckiqIEoRazXaxsxk4UU7aUiJIHN4?=
- =?us-ascii?Q?G1Ad7U2rCISflH9weNeaVlsQyglBXTbyLBXpT1BvJMvx8q6AXYlgLLFF9vEp?=
- =?us-ascii?Q?nzQDE44WIhmf0s7Mp7+Pf7MINg4i8mNy+hlsFaZpTTHrpFOhptMBTmcyFjth?=
- =?us-ascii?Q?bw1NG2/1CiZvawKwyjTVBS6xOqXgXMM/AZH7CMbx+6eLEv1YC+p5H8vxWrCM?=
- =?us-ascii?Q?ysHv88zGlSjTiew7tYONbwcmARdcsPdw8YvIFpD4zDE9PAgt/soKcj9k4jDz?=
- =?us-ascii?Q?O4+RN/3Dd0eNHYY5xdoVcVaPbRPQFMb3i6IOv8waKGL7DAY6PTzu0PnzZG8D?=
- =?us-ascii?Q?B8ojdrepg7A32F5PJDgTrZQmYNJfsBCH98xl97edWLPi0k1eov0o7Kw9HAxu?=
- =?us-ascii?Q?3ZTElCbpR9DF3NmUnEBuThWkTuvDg9554fcAD6eedEKih0tmTII6XAEVJcTh?=
- =?us-ascii?Q?mo3FJkUUuagSurK38YhJDa4mCnfM0DfKMoUNpaLKkrX4Zqm30GcgsvyD+Tnr?=
- =?us-ascii?Q?YKi2+2lxB0UD/O+22ytXwNP7By8WpCUWKX8oIeq6op/p/4b/5u4PrZkFe8s5?=
- =?us-ascii?Q?uceQQhB86x6rSY0Gqq5zFazrPrfkxJBhmnokbmuz92LYBdtaOwx0fiaWxau0?=
- =?us-ascii?Q?33Z0eiJ6Vp7g00XDhUVI8D1JJ+neoiTeThfa0uIlBZ+L0TMNlc7uDbkbGqfB?=
- =?us-ascii?Q?tEUDnjz6ghvah+YsfH2OaoKELNFF/VFPtV/NaXoHMbmO+3lDr/ktDv+lLWcz?=
- =?us-ascii?Q?AHHRqlgGn2CExRcxtNhM74zvicJ/xj7r2a4PduN01O7DmT0Mk+hWmmdnze3v?=
- =?us-ascii?Q?GzBBQjr6dblKtZBcuutPL/3vXa/oFRIc2yrh/KHkYBUR+zD0MyWsz6c7342b?=
- =?us-ascii?Q?tUZ2OtD0GPIhasIO5CMkGvLqYw7IrOVhekvHXPy6x+CiORUZRGujqbAssly3?=
- =?us-ascii?Q?YkTckYxZS4vlMSyU5lUNS3jhyjc68Woo++9KmWD5FTlpF0HxopylBHy0/MlX?=
- =?us-ascii?Q?xsK3nmmOq4sY+m4KO8IgofDw4NoI8TiQjlCJlFMS3MT5Uojt2e40ETrWjMV3?=
- =?us-ascii?Q?9BxWaq1jR9ND0dhxHnER+ScS0EtwGWojYzdSbE29OwvaO/ZJkolq6QoPyxd9?=
- =?us-ascii?Q?mq1ZyHswyR3BNgjAMSu6H5mm6ch1Bnh654v9tVnc88dsqSulVxrovybad/IH?=
- =?us-ascii?Q?DyjHTIfu04PKTM7hFNamVLUFWycheWAw7NoeJ28ezPwL4bDX7XorwSWdrFOo?=
- =?us-ascii?Q?vEBUvbLxm9hotFJo3onLAfM4eTkJPBCTEXF0+0Fmegk8Ks+xG00LW9b2aJpu?=
- =?us-ascii?Q?ogTR2Rhy4Tn8fxySpSCNj1KOXuzm/hnhTlXql6pB8FFGBikCI0PTdUMKBL1/?=
- =?us-ascii?Q?p3q8k0zYrI+LcUKx7hYnyvfAMgWQBf1eM6IlWbtX9GuyvL9iODe9QNQtKFJg?=
- =?us-ascii?Q?azufBjLWuAMRbC9fTEhdUFua276NO8ds/8qAYRTTf2+g6Pj9SxPq1SENxRXf?=
- =?us-ascii?Q?ROyAg8JbcoePuLdPH6YESvi6ysF3FVrEK17TAE8UPo/mHfBGLVjJoHjfBPDQ?=
- =?us-ascii?Q?/CxKeEWVIg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0f4d78ed-a2a1-457f-2d76-08de6521b138
-X-MS-Exchange-CrossTenant-AuthSource: VI1PR04MB7055.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2026 01:47:31.7443
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: N5Zw+0hVPEh+wroXdr/oTGrSMOVXf7yIEQeXOwFcpdxEhrH03mN67BvsohfMOvzMvmyBVFQ/+iEG/Ud9jOwHEg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12210
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_180217_815001_85B42F21 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20260205_182647_339125_2442A06F 
+X-CRM114-Status: GOOD (  27.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,88 +90,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The dma-coherent property is used to indicate a device is capable of
-coherent DMA operations. On i.MX952, one of EDMA devices support such
-feature, in order to support the EDMA device, the memory needs to be
-allocated from the DMA device.
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
 
-Make this driver to support both non dma-coherent and dma-coherent dma
-engine.
-
-Remove dma coerce_mask_and coherent() because DMA provider already set it
-according to its capability.
-
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
 ---
- sound/soc/fsl/fsl_asrc_dma.c | 48 ++++++++++++++++++++++++++++++------
- 1 file changed, 41 insertions(+), 7 deletions(-)
+net: mtip: Add net_device_ops functions to the L2 switch driver
 
-diff --git a/sound/soc/fsl/fsl_asrc_dma.c b/sound/soc/fsl/fsl_asrc_dma.c
-index 7dacc06b2f02..348b0aabfa68 100644
---- a/sound/soc/fsl/fsl_asrc_dma.c
-+++ b/sound/soc/fsl/fsl_asrc_dma.c
-@@ -449,18 +449,52 @@ fsl_asrc_dma_pcm_pointer(struct snd_soc_component *component,
- static int fsl_asrc_dma_pcm_new(struct snd_soc_component *component,
- 				struct snd_soc_pcm_runtime *rtd)
- {
--	struct snd_card *card = rtd->card->snd_card;
-+	struct device *dev = component->dev;
-+	struct fsl_asrc *asrc = dev_get_drvdata(dev);
-+	struct fsl_asrc_pair *pair;
- 	struct snd_pcm *pcm = rtd->pcm;
-+	struct dma_chan *chan;
- 	int ret;
- 
--	ret = dma_coerce_mask_and_coherent(card->dev, DMA_BIT_MASK(32));
--	if (ret) {
--		dev_err(card->dev, "failed to set DMA mask\n");
--		return ret;
-+	pair = kzalloc(size_add(sizeof(*pair), asrc->pair_priv_size), GFP_KERNEL);
-+	if (!pair)
-+		return -ENOMEM;
-+
-+	pair->asrc = asrc;
-+	pair->private = (void *)pair + sizeof(struct fsl_asrc_pair);
-+
-+	/* Request a pair, which will be released later.
-+	 * Request pair function needs channel num as input, for this
-+	 * pair, we just request "1" channel temporarily.
-+	 */
-+	ret = asrc->request_pair(1, pair);
-+	if (ret < 0) {
-+		dev_err(dev, "failed to request asrc pair\n");
-+		goto req_pair_err;
-+	}
-+
-+	/* Request a dma channel, which will be released later. */
-+	chan = asrc->get_dma_channel(pair, IN);
-+	if (!chan) {
-+		dev_err(dev, "failed to get dma channel\n");
-+		ret = -EINVAL;
-+		goto dma_chan_err;
- 	}
- 
--	return snd_pcm_set_fixed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV,
--					    card->dev, FSL_ASRC_DMABUF_SIZE);
-+	ret = snd_pcm_set_fixed_buffer_all(pcm,
-+					   SNDRV_DMA_TYPE_DEV,
-+					   chan->device->dev,
-+					   FSL_ASRC_DMABUF_SIZE);
-+
-+	dma_release_channel(chan);
-+
-+dma_chan_err:
-+	asrc->release_pair(pair);
-+
-+req_pair_err:
-+	kfree(pair);
-+
-+	return ret;
- }
- 
- struct snd_soc_component_driver fsl_asrc_component = {
--- 
-2.34.1
+This patch provides callbacks for struct net_device_ops for MTIP L2
+switch.
 
+> diff --git a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+> index d209501a99b0..4c64681602d6 100644
+> --- a/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+> +++ b/drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+
+[ ... ]
+
+> @@ -618,6 +741,73 @@ static void mtip_switch_restart(struct net_device *dev, int duplex0,
+>  	mtip_config_switch(fep);
+>  }
+>
+> +static void mtip_print_hw_state(struct net_device *dev)
+> +{
+> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
+> +	struct switch_enet_private *fep = priv->fep;
+> +	struct cbd_t *bdp;
+> +	bool tx_full;
+> +	int i;
+> +
+> +	spin_lock_bh(&fep->hw_lock);
+> +	tx_full = fep->dirty_tx == fep->cur_tx &&
+> +		mtip_netif_queues_stopped(fep);
+> +
+> +	dev_info(&dev->dev, "%s: transmit timed out.\n", dev->name);
+> +	dev_info(&dev->dev,
+> +		 "Ring data: cur_tx 0x%p%s, dirty_tx 0x%p cur_rx: 0x%p\n",
+> +		 fep->cur_tx, tx_full ? " (full)" : "", fep->dirty_tx,
+> +		 fep->cur_rx);
+> +
+> +	bdp = fep->tx_bd_base;
+> +	dev_info(&dev->dev, " tx: %u buffers\n", TX_RING_SIZE);
+> +	for (i = 0; i < TX_RING_SIZE; i++) {
+> +		dev_info(&dev->dev, "  0x%p: %04x %04x %08x\n",
+> +			 bdp, bdp->cbd_sc, bdp->cbd_datlen,
+> +			 (int)bdp->cbd_bufaddr);
+> +		bdp++;
+> +	}
+> +
+> +	bdp = fep->rx_bd_base;
+> +	dev_info(&dev->dev, " rx: %lu buffers\n", RX_RING_SIZE);
+> +	for (i = 0 ; i < RX_RING_SIZE; i++) {
+> +		dev_info(&dev->dev, "  0x%p: %04x %04x %08x\n",
+> +			 bdp, bdp->cbd_sc, bdp->cbd_datlen,
+> +			 (int)bdp->cbd_bufaddr);
+> +		bdp++;
+> +	}
+> +	spin_unlock_bh(&fep->hw_lock);
+> +}
+> +
+> +static void mtip_timeout(struct net_device *dev, unsigned int txqueue)
+> +{
+> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
+> +
+> +	DO_ONCE(mtip_print_hw_state, dev);
+> +
+> +	schedule_work(&priv->tx_timeout_work);
+              ^^^^
+
+This isn't a regression, but as noted in your v22 response, timeouts are
+already counted by the network stack and exposed per-queue in sysfs. Does
+this driver need additional counting beyond what the stack provides?
+
+> +}
+> +
+> +static void mtip_timeout_work(struct work_struct *work)
+> +{
+> +	struct mtip_ndev_priv *priv =
+> +		container_of(work, struct mtip_ndev_priv, tx_timeout_work);
+> +	struct switch_enet_private *fep = priv->fep;
+> +	struct net_device *dev = priv->dev;
+> +
+> +	rtnl_lock();
+> +	if (netif_device_present(dev) || netif_running(dev)) {
+> +		napi_disable(&fep->napi);
+> +		netif_tx_lock_bh(dev);
+> +		mtip_switch_restart(dev, fep->full_duplex[0],
+> +				    fep->full_duplex[1]);
+> +		netif_tx_wake_all_queues(dev);
+> +		netif_tx_unlock_bh(dev);
+> +		napi_enable(&fep->napi);
+> +	}
+> +	rtnl_unlock();
+> +}
+
+[ ... ]
+
+> @@ -1096,6 +1286,92 @@ static int mtip_close(struct net_device *dev)
+>  	return 0;
+>  }
+>
+> +#define FEC_HASH_BITS	6		/* #bits in hash */
+> +static void mtip_set_multicast_list(struct net_device *dev)
+> +{
+> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
+> +	unsigned int hash_high = 0, hash_low = 0, crc;
+> +	struct switch_enet_private *fep = priv->fep;
+> +	void __iomem *enet_addr = fep->enet_addr;
+> +	struct netdev_hw_addr *ha;
+> +	unsigned char hash;
+> +
+> +	if (priv->portnum == 2)
+> +		enet_addr += MCF_ESW_ENET_PORT_OFFSET;
+> +
+> +	if (dev->flags & IFF_PROMISC) {
+> +		/* Promisc mode is required for switch - it is
+> +		 * already enabled during driver's probe.
+> +		 */
+> +		dev_dbg(&dev->dev, "%s: IFF_PROMISC\n", __func__);
+> +		return;
+> +	}
+> +
+> +	if (dev->flags & IFF_ALLMULTI) {
+> +		dev_dbg(&dev->dev, "%s: IFF_ALLMULTI\n", __func__);
+> +
+> +		/* Allow all multicast addresses */
+> +		writel(0xFFFFFFFF, enet_addr + MCF_FEC_GRP_HASH_TABLE_HIGH);
+> +		writel(0xFFFFFFFF, enet_addr + MCF_FEC_GRP_HASH_TABLE_LOW);
+> +
+> +		return;
+> +	}
+> +
+> +	netdev_for_each_mc_addr(ha, dev) {
+> +		/* Calculate crc32 value of mac address */
+> +		crc = ether_crc_le(dev->addr_len, ha->addr);
+> +
+> +		/* Only upper 6 bits (FEC_HASH_BITS) are used
+> +		 * which point to specific bit in the hash registers
+> +		 */
+> +		hash = (crc >> (32 - FEC_HASH_BITS)) & 0x3F;
+> +
+> +		if (hash > 31)
+> +			hash_high |= 1 << (hash - 32);
+> +		else
+> +			hash_low |= 1 << hash;
+> +	}
+> +
+> +	writel(hash_high, enet_addr + MCF_FEC_GRP_HASH_TABLE_HIGH);
+> +	writel(hash_low, enet_addr + MCF_FEC_GRP_HASH_TABLE_LOW);
+> +}
+> +
+> +static int mtip_set_mac_address(struct net_device *dev, void *p)
+> +{
+> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
+> +	struct switch_enet_private *fep = priv->fep;
+> +	void __iomem *enet_addr = fep->enet_addr;
+> +	struct sockaddr *addr = p;
+> +
+> +	if (!is_valid_ether_addr(addr->sa_data))
+> +		return -EADDRNOTAVAIL;
+> +	eth_hw_addr_set(dev, addr->sa_data);
+> +
+> +	if (priv->portnum == 2)
+> +		enet_addr += MCF_ESW_ENET_PORT_OFFSET;
+> +
+> +	writel(dev->dev_addr[3] | (dev->dev_addr[2] << 8) |
+> +	       (dev->dev_addr[1] << 16) | (dev->dev_addr[0] << 24),
+> +	       enet_addr + MCF_FEC_PALR);
+> +	writel((dev->dev_addr[5] << 16) | (dev->dev_addr[4] << 24),
+> +	       enet_addr + MCF_FEC_PAUR);
+> +
+> +	return mtip_update_atable_static((unsigned char *)dev->dev_addr,
+> +					 7, 7, fep);
+                                         ^^^^
+
+If mtip_update_atable_static() returns an error (like -ENOSPC when the
+address table is full), the device MAC address has already been updated
+by eth_hw_addr_set() and the hardware registers have been written.
+
+This leaves the system with a MAC address in dev->dev_addr and the
+hardware registers that isn't in the switch's address table. Should the
+MAC address change be rolled back on error, or should the address table
+be updated first before committing the MAC change?
+
+> +}
+
+[ ... ]
+
+> @@ -1210,6 +1492,8 @@ static int mtip_ndev_init(struct switch_enet_private *fep,
+>  			goto cleanup_created_ndev;
+>  		}
+>
+> +		INIT_WORK(&priv->tx_timeout_work, mtip_timeout_work);
+                 ^^^^
+
+Could there be a race if a TX timeout occurs between register_netdev()
+(which happens a few lines above at line 1488) and INIT_WORK() here?
+
+At line 1478, netdev_ops is set to &mtip_netdev_ops which includes
+.ndo_tx_timeout = mtip_timeout. Then register_netdev() is called at line
+1488, making the device active. If a TX timeout occurs before
+INIT_WORK() initializes the work struct, mtip_timeout() would call
+schedule_work() on an uninitialized work struct.
+
+Should INIT_WORK() be moved before register_netdev()?
+
+> +
+>  		dev_dbg(&fep->ndev[i]->dev, "%s: MTIP eth L2 switch %pM\n",
+>  			fep->ndev[i]->name, fep->ndev[i]->dev_addr);
+>  	}
 
