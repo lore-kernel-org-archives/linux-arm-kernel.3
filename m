@@ -4,96 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE54EE20B2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 16:10:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA76EE20B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 16:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HOEJZRVPudm8f+CgXHv89P8iLoQHtMeP5j8jQ4S4oiM=; b=orVXp8XLwfBCHteNux5nLPrPBv
-	DehmUPbD/ZKx86qGG1+S014zwjX5xC8CdCtXy9LbrsYeLCPo3uDQP+H2mk1xE21EOY9Rpi3fTZ64T
-	yQ+3V4H4P16zXcZYAUIaE6D9yyLc+ya3AuFUzp9oM2LLT8fWzuRUhrZiup2b9xKl1FPOTrbSCiPMo
-	pyTGR5fDw2UGpoyxzQJ0rJJU/bTKhQEYRJT6eTWnuKdBwWuDDn18zztwcX+XatTBrA4z3rPgT2HbH
-	5UI12IvP6zM5qzIE9fMlYGRPBeBJwux45MA94aEIQngziMjaoQ/zVrp6fpWIY4qE6aTxJ7lYZb1W3
-	iylc8vBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LSvytk37U4Xgaj3d6RQMXwC6c17Hmlh8sv3gVxNh4aM=; b=HuaJtG7iNeyE/AxwPiYlLjzEQw
+	wNiEv/jZNYwG0t/6aHXJSLwzKaljDQ5Gq5sLQ8RVqsJEAvO0miTnBkt5DUgUwBwW6dRtQEc/GftWe
+	kJ6+95RmREcdvAiAsSN4L6omdTp7OT7nn2krg/cgwCzmGmuW6GQYlcHOXx87jbV4iUc2ne0WA6iFv
+	O7bJBJ+Kgncsv+3pGEu/jQjezSCJAw+K4U3VQt2sDvt/rdGW4JnJJ+yAz4ymUIzQhE/XlnD+P9B/s
+	Bnjnk1QZoYWNpcZcYqKwbG7KmYgjyk+Wu59HuYGQ6+sZ+1uQH92hu+N0pLAGkMnponf4MorOPgiv4
+	Zg7su6Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voOPS-0000000BXdd-45NV;
-	Fri, 06 Feb 2026 16:10:18 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voOPQ-0000000BXcz-1Dxw
+	id 1voOUu-0000000BXuj-1Obr;
+	Fri, 06 Feb 2026 16:15:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1voOUr-0000000BXu9-3GsM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 16:10:17 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2a8a7269547so21001445ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Feb 2026 08:10:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1770394214; x=1770999014; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HOEJZRVPudm8f+CgXHv89P8iLoQHtMeP5j8jQ4S4oiM=;
-        b=SwpUBIWlGLdrlPjH/lPPYs56sTfFc9PkCTf3Ctmnv3OBvxreDeKg3zWdoKcP0amOU5
-         BOkF5zx7zHZwSBe6vvP+v1XXTTl/6fR6RBy7+m2nG0HtPCgPt9cBGSbY/9dCwErJjK1L
-         TA15ihhysYtJYNqKmiBnvJ1UBGWJ9mR1s2pQulJvJ85W0uFkqsTO2vI2IxpfBQvbtJ5y
-         MLkdyZwJ7L5RfSlNGRDn/7x+egUK3Q4fI4jUO7t8mTeM0z2XWPkkEEAD0avDuVnuMe9M
-         gZmIgYZzfyuBW3kBLAfexw/8bSK67uTH6D7zWqZp++vrCzmHDAY7lVzZRU8CAsmylgC8
-         fTDw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770394214; x=1770999014;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=HOEJZRVPudm8f+CgXHv89P8iLoQHtMeP5j8jQ4S4oiM=;
-        b=A38AyxT/WxnuyNsXRweLJh6YUJjI2MTQQFsFrCyYxeL7+5dN/xyaZOGak+wU5mjyU0
-         MeMfg6eXAnPZmVAZqMjebHV1wuipQMSTUmglywexOX9/CN3EvXSjoiMGBsCXAvdFpMSz
-         AAZjWEt4bXAhNw8FX1k9RWkv0TMHJWLuRYUWlGYAvjYdf9NZFCSe6y5dORk48Y52rxOa
-         Ktaanppaf69PtoWjDBqtWUXavWoIJvMXG+PdyKBsYVAG4AOiQyB7oXwZu4Pd2eib/DSl
-         r+fpeL21ZMvQWIAZZ29TDjic4ZtsmhrVDAAFJlt2W54NVy6eMiEAM7u+tPIm+8gG3jzH
-         aS2w==
-X-Forwarded-Encrypted: i=1; AJvYcCXRhYZi5B9GPmAmYeu6TeHJvUfbWuZt9wAHaPzybOHBsecz2HsZSLCvXJBkc+32Odye6WNqJACfIL2LE9v+qpsY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZw8MSgd0XJvkpb1jHxh4jjipHbAtesE1Zf+wfy60Vne9oQ9Vi
-	/n9PCuz8cF7OlcMa3pkYCkuFUqiqLlU0jJN3vne76N0vASZXaBMNEJ6Xpoy3P/9EoCwwNvqkbVO
-	sK7wkdJ0=
-X-Gm-Gg: AZuq6aJd7pi3D/wo5sz4NjJuloqd58SXBV9fvQo5zGgUzh6wEgN0YPrCK4blPVeyZqq
-	f9NALqrHy+wMovlnKGQzzZZ9u+AJEymw+XPitM/rB4Di1SuRggRGuo7MMKAg+HiWDyAPN3xR0sU
-	nxcAH7pXSD83+BZuaqgBnPRdouo2wtg0TtBX8EoAFeNIBn4aj+2Rr4ATKVfRBD+N0m72Y6X4Rn5
-	C5xvF/o76bBwSrE2+vOYfIr+yRKfyV5xfKX4lPEeuyhiTqHHUYVGDaWs7CUxjUvPbTGEJ9GxMqP
-	6xbtAUYRI8FbE6dB7KAjiclZ47NHN2p5SN2KRWcd5Q4GOA3B30IrPgxuUmTQ03Q5boywGIAaCBB
-	Pw9YzC0WWs1piYTWiE4APOlVtzhtHPtIoh/bRqFJ3ZG430P+JsoDkHW9LmhvOkFfnnsXHUUMGz6
-	JROHJEclcaEeYh
-X-Received: by 2002:a17:902:e5ca:b0:2a7:757b:35ad with SMTP id d9443c01a7336-2a95170b352mr36939965ad.42.1770394214292;
-        Fri, 06 Feb 2026 08:10:14 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:fa3:e3b4:3597:587a])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a951c722c3sm26045635ad.23.2026.02.06.08.10.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Feb 2026 08:10:13 -0800 (PST)
-Date: Fri, 6 Feb 2026 09:10:11 -0700
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Chen Ni <nichen@iscas.ac.cn>,
-	"andersson@kernel.org" <andersson@kernel.org>,
-	Frank Li <frank.li@nxp.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] remoteproc: imx_rproc: Check return value of
- regmap_attach_dev() in imx_rproc_mmio_detect_mode()
-Message-ID: <aYYSY3Rn3702zk3S@p14s>
-References: <20260205050905.3031134-1-nichen@iscas.ac.cn>
- <PAXPR04MB8459ABF483274720F6BB23188866A@PAXPR04MB8459.eurprd04.prod.outlook.com>
+	Fri, 06 Feb 2026 16:15:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 37384339;
+	Fri,  6 Feb 2026 08:15:43 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BE4B93F632;
+	Fri,  6 Feb 2026 08:15:45 -0800 (PST)
+Message-ID: <ccedea22-5a90-48c7-8feb-a6f9da6e931a@arm.com>
+Date: Fri, 6 Feb 2026 16:15:44 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <PAXPR04MB8459ABF483274720F6BB23188866A@PAXPR04MB8459.eurprd04.prod.outlook.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] soc cache: L3 cache driver for HiSilicon SoC
+To: wangyushan <wangyushan12@huawei.com>,
+ Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Linus Walleij <linusw@kernel.org>
+Cc: alexandre.belloni@bootlin.com, arnd@arndb.de, fustini@kernel.org,
+ krzk@kernel.org, linus.walleij@linaro.org, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ fanghao11@huawei.com, linuxarm@huawei.com, liuyonglong@huawei.com,
+ prime.zeng@hisilicon.com, wangzhou1@hisilicon.com, xuwei5@hisilicon.com,
+ linux-mm@vger.kernel.org, SeongJae Park <sj@kernel.org>,
+ reinette.chatre@intel.com, james.morse@arm.com,
+ Zeng Heng <zengheng4@huawei.com>, Tony Luck <tony.luck@intel.com>,
+ Dave Martin <Dave.Martin@arm.com>, Babu Moger <babu.moger@amd.com>
+References: <20260203161843.649417-1-wangyushan12@huawei.com>
+ <20260203161843.649417-2-wangyushan12@huawei.com>
+ <CAD++jLn+TDfu-aQ+Kfm=unYp4Zjg=endP3GGzZcpuYFR=s1K1g@mail.gmail.com>
+ <20260204134020.00002393@huawei.com>
+ <CAD++jLkEtpiTxaNB6vfHnbmoV1PPB7W4T_04eQrwk2os_zpfpA@mail.gmail.com>
+ <20260205101814.000072ec@huawei.com>
+ <2a42c4d7-c453-45a7-b569-89a3a2ee7246@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <2a42c4d7-c453-45a7-b569-89a3a2ee7246@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_081016_359768_CD95CDC2 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20260206_081553_893517_037CDABE 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,58 +79,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 06, 2026 at 03:34:41AM +0000, Peng Fan wrote:
-> > Subject: [PATCH] remoteproc: imx_rproc: Check return value of
-> > regmap_attach_dev() in imx_rproc_mmio_detect_mode()
-> > 
-> > Add error checking for regmap_attach_dev() call in
-> > imx_rproc_mmio_detect_mode() function to ensure proper error
-> > propagation.
-> > 
-> > Return the value of regmap_attach_dev() if it fails to prevent
-> > proceeding with an incomplete regmap setup.
-> > 
-> > Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
-> > ---
-> >  drivers/remoteproc/imx_rproc.c | 4 +++-
-> >  1 file changed, 3 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/remoteproc/imx_rproc.c
-> > b/drivers/remoteproc/imx_rproc.c index f5f916d67905..0e23f519c247
-> > 100644
-> > --- a/drivers/remoteproc/imx_rproc.c
-> > +++ b/drivers/remoteproc/imx_rproc.c
-> > @@ -1007,7 +1007,9 @@ static int
-> > imx_rproc_mmio_detect_mode(struct rproc *rproc)
-> >  	}
-> > 
-> >  	priv->regmap = regmap;
-> > -	regmap_attach_dev(dev, regmap, &config);
-> > +	ret = regmap_attach_dev(dev, regmap, &config);
-> > +	if (ret)
-> > +		return dev_err_probe(dev, ret, "regmap attach
-> > failed\n");
-> 
-> 
-> In the main probe, there is already dev_err_probe for
-> detect_mode. So I would use below style as other error
-> return in imx_rproc_mmio_detect_mode():
-> dev_err("regmap attach failed\n");
-> return ret;
-> 
-> Let's wait Mathieu's view.
->
+Hi Yushan,
 
-I agreew with Peng's assessment.
- 
-> Regards
-> Peng.
+On 2/6/26 09:54, wangyushan wrote:
 > 
-> > 
-> >  	if (priv->gpr) {
-> >  		ret = regmap_read(priv->gpr, dcfg->gpr_reg, &val);
-> > --
-> > 2.25.1
-> > 
+> On 2/5/2026 6:18 PM, Jonathan Cameron wrote:
+>> On Thu, 5 Feb 2026 10:12:33 +0100
+>> Linus Walleij <linusw@kernel.org> wrote:
+>>
+>>> But does the developer know if that hard kernel is importantest
+>>> taken into account all other processes running on the system,
+>>> and what happens if several processes say they have
+>>> such hard kernels? Who will arbitrate? That is usually the
+>>> kernels job.
+>>
+>> Take the closest example to this which is resctl (mpam on arm).
+>> This actually has a feature that smells a bit like this.
+>> Pseudo-cache locking.
+>>
+>> https://docs.kernel.org/filesystems/resctrl.html#cache-pseudo-locking
+>>
+>> My understanding is that the semantics of that don't align perfectly
+>> with what we have here.  Yushan can you add more on why we didn't
+>> try to fit into that scheme?  Other than the obvious bit that more
+>> general upstream support for the arch definitions of MPAM is a work in
+>> progress and fitting vendor specific features on top will be tricky
+>> for a while at least.  The hardware here is also independent of the
+>> MPAM support.
 > 
+> Intel cache pseudo lock requires help of IA32_PQR_ASSOC MSR, according
+> to [1], that register can save necessary information for processes acquired
+> cache pseudo locks, but Arm64 does not have the equivalent register.
+
+If you have MPAM, the per exception level MPAMx_ELy registers are
+somewhat equivalent. They tell you which partid and pmg identifiers the
+CPU is using and IA32_PQR_ASSOC tells you the closid and rmid which are
+much the same thing. Is there a difference that stops being equivalent
+in this scenario?
+
+> 
+> [1]: https://www.intel.com/content/www/us/en/developer/articles/technical/cache-allocation-technology-usage-models.html
+> 
+[...]
+
+Thanks,
+
+Ben
+
 
