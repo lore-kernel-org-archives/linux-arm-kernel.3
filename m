@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C762EB28F4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 08:48:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2119EB28F4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 08:51:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9yI5iPRvOz4GiAAEW95s++/YJ1LQZqNt5ccoaPzrCZw=; b=jAn8Tw+M+NKiEzp82HQS9ZyoDD
-	+rvl8V4bi9XI8cZ5ufHM22lDNlwOHSfljcV59SXHD55Xal8gmYm6hRoaz9xGpyxe3tHDHhpbP50nB
-	j+HF5BQUdKY9mGnUt2zclKQc0iaC71+vjm/QVUGwLmWclzIqxHKUndyNKmuHNU0A7QERdKNs5UW11
-	w7Y9Nv9LELGHd0juz7Y7i5ZGfNRFn7WYvBP2No/KB3XbOkPBzDBvT1l3LyI2YIHMkI0oD4dDrOqqi
-	tVrfwhuplmABcqFiOcruz7Zf9dM7HN2kDN/e1R0O3uluu/CMvk8N8EwmsA9jiAdtzylDMy9TojCWy
-	U48oC4Rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MinFAbbVOdoR83Ltkm3t2nF+VJzZlX8cRHfFjmhcvVA=; b=nlGRxInfRfES8sxagpUxnb/BGe
+	fM5WU8qhw5aRsGpyckFq1oOWQDKG+D6crKKAjrYtiBPTVq5MCzkgFP8FZZQpIUmwF/tMYtnrp02T1
+	7mx/mZWMK4UtskBbd58K/wKL0KUHy/Uwo5w4qY0neVNen7ariLh11SZ4u6CVxu53gvt0rCyCaHx/J
+	bRk2JUN/c368NGMR/Z7BoCy5qxvNzTOpk/+Z3COmadRHnsFXSYtTaoe28jiuRA13icvbLKj1msvux
+	N4LGd4Pxo8t4cQ73IX7W6tQOmztpPhzhea1DHbDB/pDmSNToeV9oUfMervkEIlEjqBhgqAJZqIwr5
+	bLtfaZvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voHVd-0000000B3Tm-3TFe;
-	Fri, 06 Feb 2026 08:48:13 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1voHYu-0000000B3eR-2oi4;
+	Fri, 06 Feb 2026 08:51:36 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voHVa-0000000B3TQ-1RvV;
-	Fri, 06 Feb 2026 08:48:12 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-03 (Coremail) with SMTP id rQCowADH4Ne_qoVp5pDLBw--.24764S2;
-	Fri, 06 Feb 2026 16:47:59 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	damon.ding@rock-chips.com
-Cc: dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chen Ni <nichen@iscas.ac.cn>
-Subject: [PATCH] drm/rockchip: analogix_dp: Add missing error check for platform_get_resource()
-Date: Fri,  6 Feb 2026 16:42:20 +0800
-Message-Id: <20260206084220.543267-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1voHYs-0000000B3e3-0RuV;
+	Fri, 06 Feb 2026 08:51:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1770367889;
+	bh=8cWuy2S8DaSwgYrlkHnpzPAslnN9oEH1hvc3lC/AbEU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=S8AZlDAuT2tMkIVDxejZ2ylBzw8HiUymsCvenm5Y7mbTxdH5oxHoRQjgfmPw5BXjM
+	 1emUHLByh6Ddnga8GY3MhAcLgsc+xfwjYAGWmz9K5nu8mijtlAa9bKirn25Pw6OQdC
+	 qljipE0581+rnnuWrJQLqgf40AWdy7WaUKOvidLL5t8dlI9qyTL0jXgMrsnftiUJlR
+	 P0AW6I6LVmqVslOT3T8tPTI9eRIjUGSwOKV3+Avnzq353IeJBCOlpPax5OGl53OThj
+	 T7g6Yjc5mxaFSNl0LaF7RFWyiL7mPRdHMp3yUEVrZCd00/TtzsqArmzZaNe2jsgJCm
+	 OofRdD7pvKQpg==
+Received: from eldfell (unknown [194.136.85.206])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: pq)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2C71117E001E;
+	Fri,  6 Feb 2026 09:51:29 +0100 (CET)
+Date: Fri, 6 Feb 2026 10:51:02 +0200
+From: Pekka Paalanen <pekka.paalanen@collabora.com>
+To: "=?UTF-8?B?TsOtY29sYXM=?= F. R. A. Prado" <nfraprado@collabora.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Chun-Kuang Hu
+ <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, daniels@collabora.com,
+ ariel.dalessandro@collabora.com, kernel@collabora.com
+Subject: Re: [PATCH 07/11] drm/colorop: Introduce HLG EOTF
+Message-ID: <20260206105102.1208fff9@eldfell>
+In-Reply-To: <20251223-mtk-ovl-pre-blend-colorops-v1-7-0cb99bd0ab33@collabora.com>
+References: <20251223-mtk-ovl-pre-blend-colorops-v1-0-0cb99bd0ab33@collabora.com>
+	<20251223-mtk-ovl-pre-blend-colorops-v1-7-0cb99bd0ab33@collabora.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowADH4Ne_qoVp5pDLBw--.24764S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrtF43GFWDAw15AFW7JF4UCFg_yoWfurc_K3
-	WxXr43WF18ZrnYkw47A3y3uFZav3ZI9r4kWa1IqFZIyF1DJF18XFyFvr4F9ayUtF42yFZx
-	G3Wjvr4Y9F15CjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbTAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j
-	6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_GFyl42xK82IYc2Ij64vIr4
-	1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK
-	67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI
-	8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAv
-	wI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14
-	v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUe9NVDUUUU
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
+Content-Type: multipart/signed; boundary="Sig_/Z3McZGD/cduzL_hjq1GrAml";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_004810_770857_20ACF424 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260206_005134_326958_8B07A59A 
+X-CRM114-Status: GOOD (  18.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,29 +81,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing error check for platform_get_resource() return value to
-prevent NULL pointer dereference when memory resource is not available.
+--Sig_/Z3McZGD/cduzL_hjq1GrAml
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-Fixes: 718b3bb9c0ab ("drm/rockchip: analogix_dp: Expand device data to support multiple edp display")
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
----
- drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 2 ++
- 1 file changed, 2 insertions(+)
+On Tue, 23 Dec 2025 16:44:48 -0300
+N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com> wrote:
 
-diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-index fdab71d51e2a..3f5be14010c1 100644
---- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-@@ -461,6 +461,8 @@ static int rockchip_dp_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+	if (!res)
-+		return -EINVAL;
- 
- 	i = 0;
- 	while (dp_data[i].reg) {
--- 
-2.25.1
+> Introduce definition of a hybrid log-gamma electro-optical transfer
+> function for 1D Curve colorops.
+>=20
+> Signed-off-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
+> ---
+>  drivers/gpu/drm/drm_colorop.c |  1 +
+>  include/drm/drm_colorop.h     | 10 ++++++++++
+>  2 files changed, 11 insertions(+)
+>=20
+> diff --git a/drivers/gpu/drm/drm_colorop.c b/drivers/gpu/drm/drm_colorop.c
+> index fafe45b93ff8..a19e03fb9c7c 100644
+> --- a/drivers/gpu/drm/drm_colorop.c
+> +++ b/drivers/gpu/drm/drm_colorop.c
+> @@ -79,6 +79,7 @@ static const char * const colorop_curve_1d_type_names[]=
+ =3D {
+>  	[DRM_COLOROP_1D_CURVE_BT2020_OETF] =3D "BT.2020 OETF",
+>  	[DRM_COLOROP_1D_CURVE_GAMMA22] =3D "Gamma 2.2",
+>  	[DRM_COLOROP_1D_CURVE_GAMMA22_INV] =3D "Gamma 2.2 Inverse",
+> +	[DRM_COLOROP_1D_CURVE_HLG_EOTF] =3D "HLG",
+>  };
+> =20
+>  static const struct drm_prop_enum_list drm_colorop_lut1d_interpolation_l=
+ist[] =3D {
+> diff --git a/include/drm/drm_colorop.h b/include/drm/drm_colorop.h
+> index ee6454b08b2d..8ec98521607d 100644
+> --- a/include/drm/drm_colorop.h
+> +++ b/include/drm/drm_colorop.h
+> @@ -126,6 +126,16 @@ enum drm_colorop_curve_1d_type {
+>  	 * The inverse of &DRM_COLOROP_1D_CURVE_GAMMA22
+>  	 */
+>  	DRM_COLOROP_1D_CURVE_GAMMA22_INV,
+> +
+> +	/**
+> +	 * @DRM_COLOROP_1D_CURVE_HLG_EOTF:
+> +	 *
+> +	 * enum string "HLG"
+> +	 *
+> +	 * Hybrid log-gamma transfer function.
+> +	 */
+> +	DRM_COLOROP_1D_CURVE_HLG_EOTF,
+> +
 
+Hi,
+
+if you read ITU-R BT.2100[1], you will see that the HLG EOTF has three
+parameters: the system gamma, the display nominal peak luminance, and
+the display black luminance. You cannot define a HLG EOTF or its
+inverse without these parameters. One might assume to derive the system
+gamma from the peak luminance, but I would like to leave that as a free
+parameter if possible, because I'm not convinced the formulas for it are
+universally applicable.
+
+The HLG OETF on the other hand is a fixed function. Did you mean that
+instead?
+
+
+[1]: https://gitlab.freedesktop.org/pq/color-and-hdr/-/blob/main/doc/specs.=
+md#itu-r-bt2100
+
+
+Thanks,
+pq
+
+--Sig_/Z3McZGD/cduzL_hjq1GrAml
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEJQjwWQChkWOYOIONI1/ltBGqqqcFAmmFq3YACgkQI1/ltBGq
+qqfkthAAl9JVF0BXYzyrmP1Q4T70bzj+epbVNcVjVbZlOwqrh+7gVLz7rrchimpN
+Sngz1zHLFa91+4ZkuzzGGPqxeCDOVhr0eraz6lrraMo0cWzQdtgfTkKLexw8t4ds
+67U5dv/QBYdDTfQRlxlMGM9hXtG044wNJk0QCzeQQvXSSY3sNNzCVf47JvW4VqW/
+/P3VfzkIP/VyPQqfeX+OFqthjrnMv0wZLR1e5JxzYtk+bXxV7b+KR249uLy61ddN
+4OGn3X2iufMMXyzY9WEq3nOMhhtWG4pzux2KE4OabdbwPRI+fsUadSnVMFQjs7eo
+nSD2mFTXG5DW4UNWnnrWeZKdZee74i+G2G8ojWS0zHqFZ9cRjr7WsAi50xbfl1du
+tLZKuHwOuX1kPgzEmMaNwrzlT/J1ROuSq/tRd3EXdXu6jqK4Abive/XDu1Nkltwt
+MwWkOqnuQ3gnVoGcsEw6Gk71EBl96JlQf1JFBE23FnaarllJXwYYZZVmDtwH1hMx
+LWb9YcDcFeKa+qcEsvvVrWZmP9umpN5h4BkJpLypuAKsq5+o6OnnUapHpc0EyLxD
+vqsVV/NZJyPXlMhyLcO/DUSefJHZKFZvShxZRXi+DRu7K3utFMvq8Qg9mZaJyByG
+CN7kNQAdDQM0ELz7I3pIEleHpeyC3HI80/AA94FgWoh1tdLgTQU=
+=jHqA
+-----END PGP SIGNATURE-----
+
+--Sig_/Z3McZGD/cduzL_hjq1GrAml--
 
