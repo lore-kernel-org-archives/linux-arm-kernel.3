@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE534EB28D4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 07:16:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83B1BEB28D4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 07:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nkMDM4rC7yGmXZE/CaMd6fZPIBX9ktS8WEKcs5QdQiM=; b=KCF0+OwkKAXiAd3uIte7LwYWoE
-	aB/vfSxb2ZSmqA4naV70rW4nCudzLPvfxVOz/nzwEUYsPBIGZ6NDyPza48gv+MmzecxZjQ+LWG57J
-	cgUbOh2k36xUDkhc+J5cCsmANrXRFhCyNPoNzipTHa2Z+zWmaLwvvMlBn2QzcKfONqI5RWoyhE/6k
-	cA5yDAVtwiGzwh4Ad0dQSCt86T9V32IszXx5c9DFQvbxP4/6aRDAGnZHkeeOrA5aOVwN7tdDJ4KIV
-	XLCmXEjQ9eJfWaqQuYVemzoNVf1KE9lVpVlOyWKLsEoawk5lRhRNCRIUCDx4+K+89a/qvrSe4Hotr
-	T/WK0q/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6zxvmzGfn77oMv8f/L64ck9Alqnf3zfR2ACLTuFHnTY=; b=ITZIBT5zxAjX91efV2/etC+loQ
+	PJ/xYRIrR7Dtmis/j6a2fZIG4nJrQ+TEGflCzqH2AZn/8SF9xou1Vaf3Asm6ZqyQ0xpKrUleQlyGP
+	G/ktNbfFO4CQoJjs0K0kOvR88EfPYKpdShfgKg+0bN/Y5Uq7iIYAX39uZI7wUXrkXdETBMFKE9TnK
+	OZzh48oyaThV4X/WuVpnC0FPyvINcMzZXDAepKnWXNEfwaKctES6qJldtGX2DeFyF47A7kLrsfqBp
+	3QruZ86f5z7gDfR7mIOQ16oT1xEltU1+ZfwcDKe11ryTDlO1HyX8aOUyL5ZVGWUGAvK2F8CJC0Q7O
+	tPJqlk2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voG4Y-0000000AyUj-45Su;
-	Fri, 06 Feb 2026 07:16:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1voG8L-0000000Aysl-35pW;
+	Fri, 06 Feb 2026 07:20:05 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voG4W-0000000AyUB-0YAo
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 07:16:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 34AA56001A;
-	Fri,  6 Feb 2026 07:16:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E952AC116C6;
-	Fri,  6 Feb 2026 07:16:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770362166;
-	bh=EQj88U1PIguqEAI0bHvHKRFIWmNh/CHWlfiSK+CikIg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ttr4vzmAOWkSVKpkh3mIiwxnjyQYBOLTV4WPmeC6K+A4UgVq/Q6trh5HHQpzZ4sPp
-	 hMpwYsrh05MItrVvB4p2pEIC/zTE9V4qIJD99iciQ1WGDAbbiHUBxkAqYKlrMV80Cp
-	 JRkr8kaumkUtREeJXcZG/3A+kvu6mxSI2EbFxMo8R9PcokrV0RLJ/EqIgOvH8+UAxc
-	 4iUALByznofDbaIUEyhTZJ/FW1+qUk6BeozjhHf7l2qy1rBrDqjKiMFMDFOoHiZK5s
-	 bK0KITp3JQh0NpLNVp72lAosI5sZEsyfW9EIWMyHM2AJAysrba0dQUd1kKROMeFrtS
-	 cxko2kfih5Jqg==
-Message-ID: <f942c10a-73a7-4185-865f-c74c11f6fdcc@kernel.org>
-Date: Fri, 6 Feb 2026 08:16:00 +0100
+	id 1voG8I-0000000Ays3-3Agf;
+	Fri, 06 Feb 2026 07:20:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1770362389;
+	bh=6zxvmzGfn77oMv8f/L64ck9Alqnf3zfR2ACLTuFHnTY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=XWfbtXZm184np09WhKFbaS0tWU1bijU/u7H3sLzCqp6rN9cBQBa9Welim19zq4OMT
+	 xNE/+2j79PCI3RUrr0jqrqIUlEEdMKYQciDfgz391kQPC/2+MDN/yUS/9tgkuy8BKE
+	 ZhNsoVLmBI54+0px9u9Foyq+j5pCq1zen8Bfll7lWOsgK/r65nDuZUbCQTJHGAyBSC
+	 XWt2G4aS1aKN4SfpWS0dBkC0gTwQS2YENwPCQIOT53goAVv0BA/YqUbgAO9YKk/W5Z
+	 jPPrMxwQ9I3vna6TtqmaxfZPhdmmnkvxUi/Gy1trFnzR6p+Ddy8+DDtGX2Bruf12uX
+	 12zv2rnFODgrw==
+Received: from [192.168.68.117] (unknown [180.150.112.60])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id B90EC6015A;
+	Fri,  6 Feb 2026 15:19:45 +0800 (AWST)
+Message-ID: <6de719dc84324166ed60bb8ec130cf2c9ef351f5.camel@codeconstruct.com.au>
+Subject: Re: [PATCH 0/4] Add AST2700 INTC0/INTC1 support
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Ryan Chen
+ <ryan_chen@aspeedtech.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley	 <joel@jms.id.au>, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt	 <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti	 <alex@ghiti.fr>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+ "devicetree@vger.kernel.org"	 <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"	
+ <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"	
+ <linux-aspeed@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"	
+ <linux-riscv@lists.infradead.org>, Jeremy Kerr <jk@codeconstruct.com.au>
+Date: Fri, 06 Feb 2026 17:49:44 +1030
+In-Reply-To: <d5e45c9f-f3c7-4289-8991-02bd2c5b9587@kernel.org>
+References: <20260205-irqchip-v1-0-b0310e06c087@aspeedtech.com>
+	 <20260205-intrepid-vengeful-deer-14e2eb@quoll>
+	 <TY2PPF5CB9A1BE69B07F90DFB245FAB735DF299A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+	 <d5e45c9f-f3c7-4289-8991-02bd2c5b9587@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] soc: fsl: qbman: fix race condition in qman_destroy_fq
-To: Richard GENOUD <richard.genoud@bootlin.com>,
- Marco Crivellari <marco.crivellari@suse.com>, Kees Cook <kees@kernel.org>,
- Roy Pledge <roy.pledge@nxp.com>, Claudiu Manoil <claudiu.manoil@nxp.com>,
- Scott Wood <oss@buserror.net>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- CHAMPSEIX Thomas <thomas.champseix@alstomgroup.com>
-References: <20251223072549.397625-1-richard.genoud@bootlin.com>
- <825baaef-bd76-4e2c-94ef-3daddf55243b@bootlin.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <825baaef-bd76-4e2c-94ef-3daddf55243b@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260205_232003_035904_56ACFF3F 
+X-CRM114-Status: GOOD (  36.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,101 +82,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Krzysztof,
 
-Le 02/02/2026 à 13:54, Richard GENOUD a écrit :
-> Le 23/12/2025 à 08:25, Richard Genoud a écrit :
->> When QMAN_FQ_FLAG_DYNAMIC_FQID is set, there's a race condition between
->> fq_table[fq->idx] state and freeing/allocating from the pool and
->> WARN_ON(fq_table[fq->idx]) in qman_create_fq() gets triggered.
->>
->> Indeed, we can have:
->>           Thread A                             Thread B
->>      qman_destroy_fq()                    qman_create_fq()
->>        qman_release_fqid()
->>          qman_shutdown_fq()
->>          gen_pool_free()
->>             -- At this point, the fqid is available again --
->>                                             qman_alloc_fqid()
->>             -- so, we can get the just-freed fqid in thread B --
->>                                             fq->fqid = fqid;
->>                                             fq->idx = fqid * 2;
->>                                             WARN_ON(fq_table[fq->idx]);
->>                                             fq_table[fq->idx] = fq;
->>       fq_table[fq->idx] = NULL;
->>
->> And adding some logs between qman_release_fqid() and
->> fq_table[fq->idx] = NULL makes the WARN_ON() trigger a lot more.
->>
->> To prevent that, ensure that fq_table[fq->idx] is set to NULL before
->> gen_pool_free() is called by using smp_wmb().
->>
-> 
-> Tested on a LS1046A based board.
-> With this patch, the warning is not triggered anymore.
-> 
-> Tested-by: CHAMPSEIX Thomas <thomas.champseix@alstomgroup.com>
+I've been working with Ryan to address what I considered some
+shortcomings of the original approach. For reference, I outlined my
+concerns on v4 of the previous series[1].
 
-This fix is now in linux-next. If everything goes well I will send a 
-pull request for this fix in rc2 or rc3.
+[1]: https://lore.kernel.org/all/1a2ca78746e00c2ec4bfc2953a897c48376ed36f.c=
+amel@codeconstruct.com.au/
 
-> 
->> Fixes: c535e923bb97 ("soc/fsl: Introduce DPAA 1.x QMan device driver")
->> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
->> ---
->>   drivers/soc/fsl/qbman/qman.c | 24 ++++++++++++++++++++++--
->>   1 file changed, 22 insertions(+), 2 deletions(-)
->>
->> NB: I'm not 100% sure of the need of a barrier here, since even without
->> it, the WARN_ON() wasn't triggered any more.
->>
->> diff --git a/drivers/soc/fsl/qbman/qman.c b/drivers/soc/fsl/qbman/qman.c
->> index 6b392b3ad4b1..39a3e7aab6ff 100644
->> --- a/drivers/soc/fsl/qbman/qman.c
->> +++ b/drivers/soc/fsl/qbman/qman.c
->> @@ -1827,6 +1827,8 @@ EXPORT_SYMBOL(qman_create_fq);
->>   void qman_destroy_fq(struct qman_fq *fq)
->>   {
->> +    int leaked;
->> +
->>       /*
->>        * We don't need to lock the FQ as it is a pre-condition that 
->> the FQ be
->>        * quiesced. Instead, run some checks.
->> @@ -1834,11 +1836,29 @@ void qman_destroy_fq(struct qman_fq *fq)
->>       switch (fq->state) {
->>       case qman_fq_state_parked:
->>       case qman_fq_state_oos:
->> -        if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID))
->> -            qman_release_fqid(fq->fqid);
->> +        /*
->> +         * There's a race condition here on releasing the fqid,
->> +         * setting the fq_table to NULL, and freeing the fqid.
->> +         * To prevent it, this order should be respected:
->> +         */
->> +        if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID)) {
->> +            leaked = qman_shutdown_fq(fq->fqid);
->> +            if (leaked)
->> +                pr_debug("FQID %d leaked\n", fq->fqid);
->> +        }
->>           DPAA_ASSERT(fq_table[fq->idx]);
->>           fq_table[fq->idx] = NULL;
->> +
->> +        if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID) && !leaked) {
->> +            /*
->> +             * fq_table[fq->idx] should be set to null before
->> +             * freeing fq->fqid otherwise it could by allocated by
->> +             * qman_alloc_fqid() while still being !NULL
->> +             */
->> +            smp_wmb();
->> +            gen_pool_free(qm_fqalloc, fq->fqid | DPAA_GENALLOC_OFF, 1);
->> +        }
->>           return;
->>       default:
->>           break;
->>
->> base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
-> 
-> 
+That reply proposed the new DT structure, and this series is a
+refinement & implementation of those ideas
+
+With that context:
+
+> On Thu, 2026-02-05 at 10:56 +0100, Krzysztof Kozlowski wrote:
+> On 05/02/2026 10:49, Ryan Chen wrote:
+>=20
+> > Subject: Re: [PATCH 0/4] Add AST2700 INTC0/INTC1 support
+> >=20
+> > On Thu, Feb 05, 2026 at 02:07:18PM +0800, Ryan Chen wrote:
+> > > This series replaces the existing AST2700 interrupt controller bindin=
+g
+> > > and driver. The original implementation was focused on a narrow,
+> > > PSP-centric view and could not fully describe the complexity of the
+> > > AST2700 interrupt fabric:
+> > >=20
+> > > * It was focused primarily on the perspective of the Primary Service
+> > > > Processor (PSP).
+> > > * It could not handle interrupt route configuration.
+> > > * It could not handle interrupt register protection.
+> > >=20
+> > > By contrast, the new bindings and drivers describe the interrupt
+> > > controllers at the block-function level and provide a unified binding
+> > > design that can be used from the perspective of any of the four
+> > > integrated processors (the Primary, Secondary and Tertiary Service
+> > > Processors, and the Boot MCU):
+> > >=20
+> > > Where and how did you address last feedback given to you here:
+> > >=20
+> > > https://lore.kernel.org/all/20250814-auspicious-thundering-jaybird-b7=
+6f4f@ku
+> > > oka/
+
+At this point the answer is that there wasn't a direct response.
+
+I acknowledge that I'm not Ryan, and that it is important that he
+responds directly to queries on his own patches. However, with the goal
+of having an upstream binding that better represents the hardware
+(along with a capable driver), I've pulled the concerns out of your
+linked feedback for discussion below.
+
+> > +  +-----+   +---------+
+> > +  | GIC |---|  INTC0  |
+> > +  +-----+   +---------+
+>=20
+> Same problem as last time. This tells me intc0 has not children...
+
+...
+
+> > +            +---------+
+> > +            |         |     +---------+
+> > +            | INTC0_11| +---| INTC1   |
+> > +            |         |     +---------+
+>=20
+> ...This tells that inc1 has no children (only intc0_11, which you said
+> is aspeed,ast2700-intc-ic !!!)....
+> (keep scrolling)
+
+...
+
+> > +patternProperties:
+> > +  "^interrupt-controller@":
+>=20
+> ... but this tells me that intc0 and intc1 has children.
+
+...
+
+> > +        intc0_11: interrupt-controller@1b00 {
+> > +          compatible =3D "aspeed,ast2700-intc-ic";
+> > +          reg =3D <0 0x12101b00 0 0x10>;
+>=20
+>=20
+> ... and that's quite wrong unit address. Also no resources in the
+> parent, so this entire split seems superficial and incorrect.
+
+This gets to the heart of it. I share the view that the split was
+superficial. It tried to recombine existing components to account for
+some change in hardware design between early revisions of the AST2700
+SoC. The original binding from Kevin was too fine-grained.
+
+I don't think the design of the diagrams helped the cause for
+understanding the proposed binding or the hardware architecture, and
+were misleading in the manner you outlined in the comments above.
+
+My reply at [1] above was an (indirect) attempt to address your
+concerns, though again I acknowledge I'm not Ryan and that review
+feedback needs direct responses from patch authors.
+
+The binding proposed in this series eliminates the subnodes and enables
+a complete implementation of routing for the hardware, as demonstrated
+by the proposed drivers. I think it better conforms to the documented
+DOs and DON'Ts for writing bindings by moving anything implied by the
+compatible to the driver implementation. I hadn't yet merged the base
+arch patches for the SoC because I had contentions with the already-
+accepted binding, and merging the arch patches would make an already
+difficult job of reversing that acceptance harder again.
+
+In essence, this is some pain, but I view it as pain on the path
+towards better DTS outcomes than we had for prior generations of ASPEED
+BMC SoCs.
+
+> > >=20
+> > > "This binding is not improving. You are not responding to REAL proble=
+ms
+> > > described to you. What's more, you send it in a way making our life
+> > > difficult, look:"
+> > >=20
+> > > So how did you make our life easier now?
+> >=20
+> > Hi Krzysztof,
+> >=20
+> > Thanks for your feedback.
+> >=20
+> > The series you commented on in Aug 2025 (v4 1/2) attempted to model
+> > The hardware by introducing parent compatibles (aspeed,ast2700-intc0 /
+> > aspeed,ast2700-intc1) with child "interrupt-controller@" nodes using
+> > aspeed,ast2700-intc-ic. In hindsight, that approach did not align well
+> > with the actual hardware structure and resulted in inconsistencies
+> > between the diagrams, the schema, and the register layout (including
+> > unit-address issues). It was also difficult to review in isolation.
+>=20
+> Read my question again:
+>=20
+> "So how did you make our life easier now?"
+>=20
+> And then read the earlier comment - what I expected of you. Please
+> answer these after the "look:" part.
+>=20
+> Answer these please. I am not going to review any of these because you
+> keep ignoring our process of handling patches and not really responding
+> to review comments.
+
+For what it's worth, Ryan has adopted b4 and so hopefully some of the
+expectations around the mechanics of patch review are less of a
+concern.
+
+In this specific case, because of the divergence in direction, we went
+with a separate series. The failure to link that earlier series in the
+cover letter was an unfortunate oversight. I'll take responsibility for
+that, as part of developing the series with Ryan.
+
+Sorry for causing you frustration.
+
+Is it acceptable if we take the following actions:
+
+   1. Do some b4 magic to transplant this series back onto [1]
+   2. Send a follow up revision with a link to this discussion in the
+      cover letter
+
+Andrew
 
 
