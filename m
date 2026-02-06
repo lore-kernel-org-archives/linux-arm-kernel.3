@@ -4,96 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8DD5EB28D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 07:13:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE534EB28D4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 07:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3UW7bwvIJSmR6JD5JewClPLgD/uZ6ndB7iEUdc/rSvY=; b=rX7osWmAAadN31rXAFOLIa6nYu
-	N48hyWLxbHbSekA5zfY4A1sUnBBibx88y1YEMQ+OHzrmJhZ5u1tVD+hPzj/I8zWBqKKoA/VApcT1J
-	URpvOhSO2A0NPxgrSus8S2tlFOowjReQrdaxDbd0q4Q+bubamJQvCH22bYpfxd9I4jtCb+I5A0LhY
-	pi2n3/WM/onvaxnQLacwUn4nWEwqg3vNjyZzq500H/Mjgvlo+gmT/JZ+WefkpIyJHnvpR7CUpw4C7
-	xGix8O1kRACE1mLte2xN6UZSHEq+XhmlAGA/mCTVi1tSNcSsGtCYjFCE3XnHoTxnnhnq2bYYSQwpo
-	/GBOLfrA==;
+	bh=nkMDM4rC7yGmXZE/CaMd6fZPIBX9ktS8WEKcs5QdQiM=; b=KCF0+OwkKAXiAd3uIte7LwYWoE
+	aB/vfSxb2ZSmqA4naV70rW4nCudzLPvfxVOz/nzwEUYsPBIGZ6NDyPza48gv+MmzecxZjQ+LWG57J
+	cgUbOh2k36xUDkhc+J5cCsmANrXRFhCyNPoNzipTHa2Z+zWmaLwvvMlBn2QzcKfONqI5RWoyhE/6k
+	cA5yDAVtwiGzwh4Ad0dQSCt86T9V32IszXx5c9DFQvbxP4/6aRDAGnZHkeeOrA5aOVwN7tdDJ4KIV
+	XLCmXEjQ9eJfWaqQuYVemzoNVf1KE9lVpVlOyWKLsEoawk5lRhRNCRIUCDx4+K+89a/qvrSe4Hotr
+	T/WK0q/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voG1X-0000000AyIU-41vf;
-	Fri, 06 Feb 2026 07:13:03 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1voG4Y-0000000AyUj-45Su;
+	Fri, 06 Feb 2026 07:16:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voG1V-0000000AyHV-1hva
+	id 1voG4W-0000000AyUB-0YAo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 07:13:02 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-3545cf80e1dso200150a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Feb 2026 23:13:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770361980; x=1770966780; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=3UW7bwvIJSmR6JD5JewClPLgD/uZ6ndB7iEUdc/rSvY=;
-        b=V0tvNd3S/V4C/J3rrcYTyKv9qSCiRaVOcfuA93vWou0pLnBbl2rWW06WIPBvsCP0ds
-         0IKxKRJOVwRsTPnAgQJenUco2M5wGUjOfIDEJzDCnbaiLqE1bHo6Miid7DO2dv0dA/5f
-         5bnNuH00pWmbv9aJTtUhUg331gT7rxSblMC7o7ULa03Vza1R+WuXuIX/eKyJ5o5r00vU
-         hT38P2+VLxsRtVDkKEpADtD654BrxOrX+K/xEpOeM+Q0c0IQJmIDXhA0tYSu4EgDIjqw
-         qcaU5tnM2s+wRJXL40az2riS0Ncxj6JFL8qtwumzjjRBwaJ7OmJ3OwQFFYHwN26CuXPU
-         CIXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770361980; x=1770966780;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3UW7bwvIJSmR6JD5JewClPLgD/uZ6ndB7iEUdc/rSvY=;
-        b=awcW2RX2l7arvcBe00PXCVAkv9ZWgYr9jon+Oo6CGzEW/l1pqg1OX0XF9gA0Gq1Nu2
-         phr0bZIAIBs/PAmx5t4bRjfNW/jcokOQs7gS8H+2RnFavkdVc2UMp4dgfc2NsLN9ZF33
-         uFx8d4xzM0WzebjnKxKiRcLyEAIf1Lc77eqRMtbbsWYm2joqWdyIIXmgPma/XTH6bJZJ
-         raMEi+dcd63KqboUtI4uILKqez4FMY4w+JbEp0TuiijiQriM3kje6+k9+YESeFA7FZEp
-         hfzBEIl39bpOtVnYrm1ktJQwSkUS/VVsNdMTlrqBS6R5MsPfQltneRFdJGke9VnhdCXb
-         UZ6g==
-X-Forwarded-Encrypted: i=1; AJvYcCWEiLSSs7mn4eBTU4zGAfdmH+ICKv3XguJ24FBw/hqQhi71kHur47Z/gDGu2d05M6f/XKdhz8pnJNLKa4N6FUpw@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrqqEEebdF7PRoSq6nGzAY5kqYzvN7sruODgP5TD2NbatdDRWr
-	trOLZUZcfF3eeWOAMOx3SfY0Fja55kwg4/hMxTcHod7sAjKD3wZRoKW+
-X-Gm-Gg: AZuq6aJ5OYHiEL6DxdVq7AajVrT/0noNDFao98x4IibT8EVv/GG4pDqIW53kNrf+iSQ
-	lkpO36LxuuTCzFh834W4dexItc7z8l3vYvan3HzpQu8A/dZRSBcwqMyArNRqCgzsfSAtmYsxxjS
-	5xQDGHv8fp6KzveU3Zr5u3zbXQJry1852VTCbjOe67KYJVtCtmU+Gt4cwhdJpqdj9P2rozjKmVa
-	J8/hjg7K4Sh3z9CZ3N2TqCH3p2pGMFk5xdTDRlmEthNYRlUkVm4dGp9mkCF08tbtSnZySX3ES27
-	jUDYggJboCZK/mcuLV5eG90/GlXXNWh7qFrQwNa8nd0BVesRbdThaUSrEe2hJ/l61hbS5Q3gvwK
-	dTkc1+iCLDZNix6qOZr7LEVFE45byxVhOr7FXPyXGy11r7jKvweh/2rdQj4T+ng8YDnEVV/48on
-	vTepzWy8+RKyWwWgPUgzO3p2inh2KRJL1ZmE8n5YLAAf2qSmselFvHIduwA52BlxZb
-X-Received: by 2002:a17:90a:dfcb:b0:330:bca5:13d9 with SMTP id 98e67ed59e1d1-354b3e5e993mr1427756a91.32.1770361980362;
-        Thu, 05 Feb 2026 23:13:00 -0800 (PST)
-Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c6dcb52494bsm1411203a12.10.2026.02.05.23.12.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Feb 2026 23:13:00 -0800 (PST)
-Message-ID: <a0910eb7-4597-45a7-b538-f2feb021f389@gmail.com>
-Date: Fri, 6 Feb 2026 15:12:57 +0800
+	Fri, 06 Feb 2026 07:16:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 34AA56001A;
+	Fri,  6 Feb 2026 07:16:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E952AC116C6;
+	Fri,  6 Feb 2026 07:16:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770362166;
+	bh=EQj88U1PIguqEAI0bHvHKRFIWmNh/CHWlfiSK+CikIg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Ttr4vzmAOWkSVKpkh3mIiwxnjyQYBOLTV4WPmeC6K+A4UgVq/Q6trh5HHQpzZ4sPp
+	 hMpwYsrh05MItrVvB4p2pEIC/zTE9V4qIJD99iciQ1WGDAbbiHUBxkAqYKlrMV80Cp
+	 JRkr8kaumkUtREeJXcZG/3A+kvu6mxSI2EbFxMo8R9PcokrV0RLJ/EqIgOvH8+UAxc
+	 4iUALByznofDbaIUEyhTZJ/FW1+qUk6BeozjhHf7l2qy1rBrDqjKiMFMDFOoHiZK5s
+	 bK0KITp3JQh0NpLNVp72lAosI5sZEsyfW9EIWMyHM2AJAysrba0dQUd1kKROMeFrtS
+	 cxko2kfih5Jqg==
+Message-ID: <f942c10a-73a7-4185-865f-c74c11f6fdcc@kernel.org>
+Date: Fri, 6 Feb 2026 08:16:00 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] arm64: dts: nuvoton: ma35d1: add display
- controller support
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: airlied@gmail.com, simona@ffwll.ch, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, ychuang3@nuvoton.com,
- schung@nuvoton.com, yclu4@nuvoton.com, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260129040532.382693-1-a0987203069@gmail.com>
- <20260129040532.382693-3-a0987203069@gmail.com>
- <20260205-tactful-warm-chicken-50bdc8@quoll>
-Content-Language: en-US
-From: Joey Lu <a0987203069@gmail.com>
-In-Reply-To: <20260205-tactful-warm-chicken-50bdc8@quoll>
+Subject: Re: [PATCH] soc: fsl: qbman: fix race condition in qman_destroy_fq
+To: Richard GENOUD <richard.genoud@bootlin.com>,
+ Marco Crivellari <marco.crivellari@suse.com>, Kees Cook <kees@kernel.org>,
+ Roy Pledge <roy.pledge@nxp.com>, Claudiu Manoil <claudiu.manoil@nxp.com>,
+ Scott Wood <oss@buserror.net>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ CHAMPSEIX Thomas <thomas.champseix@alstomgroup.com>
+References: <20251223072549.397625-1-richard.genoud@bootlin.com>
+ <825baaef-bd76-4e2c-94ef-3daddf55243b@bootlin.com>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <825baaef-bd76-4e2c-94ef-3daddf55243b@bootlin.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_231301_459675_D516E48E 
-X-CRM114-Status: GOOD (  13.87  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,56 +76,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On 2/5/2026 9:23 PM, Krzysztof Kozlowski wrote:
-> On Thu, Jan 29, 2026 at 12:05:31PM +0800, Joey Lu wrote:
->>   &uart0 {
->> @@ -129,3 +165,23 @@ &uart16 {
->>   	pinctrl-0 = <&pinctrl_uart16>;
->>   	status = "okay";
->>   };
->> +
->> +&panel {
->> +	port {
->> +		panel_in: endpoint@0 {
->> +			remote-endpoint = <&dpi_out>;
->> +		};
->> +	};
->> +};
->> +
->> +&display {
-> What sort of ordering rule is followed in Nuvoton? Why is it different
-> than DTS coding style? Why do you choose other style?
->
->> +	pinctrl-names = "default";
->> +	pinctrl-0 = <&pinctrl_display>;
->> +	status = "okay";
->> +
->> +	port {
->> +		dpi_out: endpoint@0 {
->> +			remote-endpoint = <&panel_in>;
->> +		};
->> +	};
->> +};
->> diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
->> index e51b98f5bdce..7d9d077f12b2 100644
->> --- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
->> +++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
->> @@ -379,5 +379,19 @@ uart16: serial@40880000 {
->>   			clocks = <&clk UART16_GATE>;
->>   			status = "disabled";
->>   		};
->> +
->> +		panel: panel {
-> No, there is no way your SoC has a panel.
->
-> Don't add fake stuff to your DTS.
->
-> Best regards,
-> Krzysztof
+Le 02/02/2026 à 13:54, Richard GENOUD a écrit :
+> Le 23/12/2025 à 08:25, Richard Genoud a écrit :
+>> When QMAN_FQ_FLAG_DYNAMIC_FQID is set, there's a race condition between
+>> fq_table[fq->idx] state and freeing/allocating from the pool and
+>> WARN_ON(fq_table[fq->idx]) in qman_create_fq() gets triggered.
+>>
+>> Indeed, we can have:
+>>           Thread A                             Thread B
+>>      qman_destroy_fq()                    qman_create_fq()
+>>        qman_release_fqid()
+>>          qman_shutdown_fq()
+>>          gen_pool_free()
+>>             -- At this point, the fqid is available again --
+>>                                             qman_alloc_fqid()
+>>             -- so, we can get the just-freed fqid in thread B --
+>>                                             fq->fqid = fqid;
+>>                                             fq->idx = fqid * 2;
+>>                                             WARN_ON(fq_table[fq->idx]);
+>>                                             fq_table[fq->idx] = fq;
+>>       fq_table[fq->idx] = NULL;
+>>
+>> And adding some logs between qman_release_fqid() and
+>> fq_table[fq->idx] = NULL makes the WARN_ON() trigger a lot more.
+>>
+>> To prevent that, ensure that fq_table[fq->idx] is set to NULL before
+>> gen_pool_free() is called by using smp_wmb().
+>>
+> 
+> Tested on a LS1046A based board.
+> With this patch, the warning is not triggered anymore.
+> 
+> Tested-by: CHAMPSEIX Thomas <thomas.champseix@alstomgroup.com>
 
-I'll move panel nodes out of dtsi into board dts.
+This fix is now in linux-next. If everything goes well I will send a 
+pull request for this fix in rc2 or rc3.
 
-Joey
+> 
+>> Fixes: c535e923bb97 ("soc/fsl: Introduce DPAA 1.x QMan device driver")
+>> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+>> ---
+>>   drivers/soc/fsl/qbman/qman.c | 24 ++++++++++++++++++++++--
+>>   1 file changed, 22 insertions(+), 2 deletions(-)
+>>
+>> NB: I'm not 100% sure of the need of a barrier here, since even without
+>> it, the WARN_ON() wasn't triggered any more.
+>>
+>> diff --git a/drivers/soc/fsl/qbman/qman.c b/drivers/soc/fsl/qbman/qman.c
+>> index 6b392b3ad4b1..39a3e7aab6ff 100644
+>> --- a/drivers/soc/fsl/qbman/qman.c
+>> +++ b/drivers/soc/fsl/qbman/qman.c
+>> @@ -1827,6 +1827,8 @@ EXPORT_SYMBOL(qman_create_fq);
+>>   void qman_destroy_fq(struct qman_fq *fq)
+>>   {
+>> +    int leaked;
+>> +
+>>       /*
+>>        * We don't need to lock the FQ as it is a pre-condition that 
+>> the FQ be
+>>        * quiesced. Instead, run some checks.
+>> @@ -1834,11 +1836,29 @@ void qman_destroy_fq(struct qman_fq *fq)
+>>       switch (fq->state) {
+>>       case qman_fq_state_parked:
+>>       case qman_fq_state_oos:
+>> -        if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID))
+>> -            qman_release_fqid(fq->fqid);
+>> +        /*
+>> +         * There's a race condition here on releasing the fqid,
+>> +         * setting the fq_table to NULL, and freeing the fqid.
+>> +         * To prevent it, this order should be respected:
+>> +         */
+>> +        if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID)) {
+>> +            leaked = qman_shutdown_fq(fq->fqid);
+>> +            if (leaked)
+>> +                pr_debug("FQID %d leaked\n", fq->fqid);
+>> +        }
+>>           DPAA_ASSERT(fq_table[fq->idx]);
+>>           fq_table[fq->idx] = NULL;
+>> +
+>> +        if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID) && !leaked) {
+>> +            /*
+>> +             * fq_table[fq->idx] should be set to null before
+>> +             * freeing fq->fqid otherwise it could by allocated by
+>> +             * qman_alloc_fqid() while still being !NULL
+>> +             */
+>> +            smp_wmb();
+>> +            gen_pool_free(qm_fqalloc, fq->fqid | DPAA_GENALLOC_OFF, 1);
+>> +        }
+>>           return;
+>>       default:
+>>           break;
+>>
+>> base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
+> 
+> 
 
 
