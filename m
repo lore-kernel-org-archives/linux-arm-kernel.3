@@ -4,158 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B245EE20B7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 16:20:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54A37EE20B8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 16:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EDgkS4adnBSG7MT8P6kUbnNpehrvFDxwmlBXUb3+Gn0=; b=hlr4mpt2EVROctywP0aNVC9Ozu
-	ocU7Ab7RP/AvhgafpD4V7nod0QILvIUW2w9Y9ZHRZ5+qH2WnrYdw01yjlZtYf424h4yngZM3S5BN9
-	He+KqpFIm9dx9zqLCUxaxTLQ8XQY7EH1aQBX2/dQTSCuDGCFMMT7AxYXLaYqSs/43y/OUOSss733p
-	cKdkWFP2+pDVsAxFrytTPod2AgKCyH3P+oeu1WxYYtQiCWkQd2N4kVJSpNxRiUdaiZI6r5FKAO0Ru
-	Ls+p38bOZ2c+TpchZE84ua6Db0oWom6UTVxWFeUHtkqh1cBO6zJ2liQYQaGuDHagHhTHQKBCaSObF
-	McIAZVkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fLftybbN8ivPeyXwk8NLfhAbzG7sAr9RazdOdi/8IEo=; b=2VgbG8FS6FGJAWi5oq4lHOu06x
+	yiaq5/4h19Ps0/6ZwR/4Ipfo89O68On02R1mNtLilhTlExkQOJH+NgFXQA1JRFvv3edBJcxZ7MlcY
+	LseyM3XMbnkuykYV+dKQ2XzN9xuEssW/fOFsrc+v70PwM7mvDOCaBSZRkv17PJRbZqLxAi7nnnHFf
+	+VL7GpOyOlpGgcz3Kjl2c+fUS/aCI4ioOuuZCOmntGNRZ2NFb9nWe5AsswUgGXoYNKaJhCIvN5bZw
+	mx+hWy3iAHNYcpZdf+Lk74od8yR/GFDG4AlqaQAlHgyoL1aMlYnzzmW88OPW0q12twfHbtkAPPzUV
+	kSiFRF8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voOYi-0000000BYHf-3x5s;
-	Fri, 06 Feb 2026 16:19:52 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1voOea-0000000BYdV-1Ffq;
+	Fri, 06 Feb 2026 16:25:56 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voOYg-0000000BYHI-0V5D
+	id 1voOeX-0000000BYd5-2CVt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 16:19:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=b9I28ZH1EDNIdZGDNhgL3yNwE8pBHxxoBpeuAHjPdvgRi+vjqzTGy0D+r28TXuT7yPPGX8PROkdGWkfF76ssn2fJl3RILAW9g3Fl8cZrMER2egoiLjL6MzppZni8H9nFCNUbZZLydoQoHdiuYctQZ7WAh5Vz1Y2IBqp1sOXkFgo7qa7GXjWFxNfLkQEuMiCHzpnxc95EDHTKIftkFwGZULuOrCehWhQ17kjymYKxGkQgm4CPf8jHhOualcCL++e+huxiC9XyQ+NsXQlE7EtX8MB8MedFYaMnSqFyCK3r3YWhE/pabBNJgzfwG1gz4BvVf/Z7SCf7gco4d2OVa1jeQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EDgkS4adnBSG7MT8P6kUbnNpehrvFDxwmlBXUb3+Gn0=;
- b=I07S+6X2Z+b0GcCwTHyZjCJBSVYikYX7TQxnp0JLC5dQ2YPHMpQuzq53wU5HMbGHdZ8+pTAVOLfljxzy0yySoyH8Bn3e3Q45jhjtVZnhnJb78OWgFxv0CYrZGwqzFyeZF0/jT8q5LU7cQu4P+22TOGxnY4Op8ZZVFlcTDzim+niTsc5w76l+Yxfr+/4squnAQX5SG//rBWs3miYRuV9v2uY0qNfj9KW35NwBe+jqrKly+T9c0iYZcBWcpKOWKhbxLHNbNYIzlFppk5KiiQ3dMWgZxreuDZwTB4CulTgeF9AkacvUhQtp5TmcJ3VRnjAmFy3Pcpi8q2GJHVr2nKXC9w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EDgkS4adnBSG7MT8P6kUbnNpehrvFDxwmlBXUb3+Gn0=;
- b=HEuvmlOuLubwcL/vEXBpHgl/ks12XmWfckoegFauBql3ggeVrtt9fXVcna6rOOLxd5YTVhn09ggNaTBC4v+UdbiGkCpjJRvF7C09IMdMR0c/FxEcCPhxLwVvTLTiTgJKWOIvDBEObmt9d9jt6reSFvxH8aGXIyoouCcAIcfQgM3vo95kpSYHJutaCnU8oUMyGBPwoagnxXMv1Y1fv7WwAmEZEvVfyjNVhNpTnsa4SA+M3xGWjOgZ5qJuAf0tT2GO2w7zp2lELQo5RUIzH4/odRVdopr92PdtX85oP7GFpGYEK98H0Ils32/ltVFz2uAnMDP2iDhvvGhcwkdpg0fYHA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AS8PR04MB8055.eurprd04.prod.outlook.com (2603:10a6:20b:2a4::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Fri, 6 Feb
- 2026 16:03:50 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9587.010; Fri, 6 Feb 2026
- 16:03:50 +0000
-Date: Fri, 6 Feb 2026 11:03:42 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Li Jun <jun.li@nxp.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] usb: dwc3: introduce flatten model driver of i.MX
- Soc
-Message-ID: <aYYQ3jJ8GVIz4FS0@lizhi-Precision-Tower-5810>
-References: <20260206-add-flatten-dts-based-dwc3-imx-driver-v3-0-ebd9b9b77049@nxp.com>
- <20260206-add-flatten-dts-based-dwc3-imx-driver-v3-3-ebd9b9b77049@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260206-add-flatten-dts-based-dwc3-imx-driver-v3-3-ebd9b9b77049@nxp.com>
-X-ClientProxiedBy: SA9PR13CA0097.namprd13.prod.outlook.com
- (2603:10b6:806:24::12) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Fri, 06 Feb 2026 16:25:55 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-59b6d004bd2so348817e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Feb 2026 08:25:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1770395150; x=1770999950; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fLftybbN8ivPeyXwk8NLfhAbzG7sAr9RazdOdi/8IEo=;
+        b=p3/45cqz2loxTCPX50Wnf7io7MWIxC7LD+dltOP1KriFKopuqHtXtZ87yDsJ1wTasw
+         kpK/Lt30oXs9cxQzOYEsCVqtFfJypaBnJ7VrKzCSBJf60vlmzsQH3EHBllQ1zudyeJIx
+         /DfK2GZd1SeagsBD2Ys8r8TMNZx9MNKAdF83x83XOfU7kMUugUSYAvJv0243O154h9Nt
+         PZ9VRXUZBGo9Hu06whyrYUuWNdbQp6MjppmLuaH+a/emnwGAkPDxA4CsraYnVajQuNM2
+         O8F0rVAazjfvDjRx1I+KPt0MtBQ9gogAPrKUmMmraH+C/PevKUb/TfAMdo6zV+8QqvlG
+         kPyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770395150; x=1770999950;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fLftybbN8ivPeyXwk8NLfhAbzG7sAr9RazdOdi/8IEo=;
+        b=dmGdjuw5lhygzAsxqXpRDCuJr9eujaN/WHFRwWmWngtkW62tI9NiXNZUjxRMoaUDJC
+         lF1FZpYDE/DSfewmRoamKBsqCvV1ZUDBcOvSCpyxaXeNEaKH3B9kBEXsQ8jT6JZyKkhG
+         WhTSqcGlN7YStYwf7urBLpc5rEQyKsJByzE949Y5kuctFoxk+PMzRhTErHmmLVQIcU1w
+         Nzt1Zipeexgn8g1eejvXUKKLn49sz0I10R2LB/dQAZ/CiAu657EdpcGnMPufwiX4rcD/
+         DFfGshOtvNopbxjQoOUTEVZV2f1lUKCdmRMwjWvBW/89cvW9i0oNPUE3WYiMutXv3OC6
+         7zOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUEt95ByEUkDUNIOyEDoUV13LZyYw0nBqFHI22Sp+gS97PViMLJtK19LYzHfAJe1U42AOsIDP69reTLP/5cSDb/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwuP8IcIcjZiltoudHFPz13q4U5ky9RTk3TMCEB0OjHyuvIWAts
+	euUg63DUew+ITXoZ1PoKYZNWe+6+ZgmRRHImv6kSd3ppURzjKHRYEOW5mYXpKW/I9G8=
+X-Gm-Gg: AZuq6aLUs11mavl/FTGhXd9MbCR2QBRiEVHm/k0NO25MUHU9zIX90bvvVhfJeG2sbw7
+	3pYeN2APzfR+vCquSLUJkuUmhoD1c+ii9MVQfytFI6ZUQ3ioL6842UwMQJvceiRIqWCY0w7W1v5
+	r5nMr7xNZGlk8Qu+womShjGh/HUQOGGJVlwS2Tv6NCSv5/2hV752JsHbFN1AaNREnIqh9qoqlIF
+	5r1jjURc6jOSDIEW81/gbTPAuJB9r7a4emi/H/q+mVx3ExyUIm5XfW6yekRRraxPwhWbfhpiG8o
+	dK8vJinDUW883268hIz2YJl3JZ4Duy4VPJrNcYGkBxODpSN7TZ5wFh17vdRUf5fmAv3RHZ9nwpY
+	4KXHO0nsBaucc5w2U2DVQJu5wbQNtFTdD5C8EYSOmcPss70+4dMYRioPK+Ab0k3CLpq956b3gK3
+	kWaTyOTWQkKNPN0w6DYCjfiF+8VdWz5WmbeCx5EYh3xAxEyKL1jN0wnEcVrkMrCBPjOQ==
+X-Received: by 2002:a05:651c:154c:b0:37a:7a9c:5c0f with SMTP id 38308e7fff4ca-386b51d93cemr7758311fa.3.1770395150443;
+        Fri, 06 Feb 2026 08:25:50 -0800 (PST)
+Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-386b623668asm6346741fa.3.2026.02.06.08.25.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 06 Feb 2026 08:25:49 -0800 (PST)
+Message-ID: <e0969b37-8a7b-416a-9789-8662ce7f3307@linaro.org>
+Date: Fri, 6 Feb 2026 18:25:48 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB8055:EE_
-X-MS-Office365-Filtering-Correlation-Id: 61ef1b52-48c0-4dd9-4833-08de65995128
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UsAZLSOjz2mu9YpioBmWFwcxRw9H3g0zW631vA/kWs3pB+WfhgT5A/rdQpmd?=
- =?us-ascii?Q?sAmv578r2YA10V37QZSmMVsSUNwRI+6xD++2n1SOyYX4E3Krewa3ME/qW8X4?=
- =?us-ascii?Q?W4pU9xwwXs0+naLaRYpN4MdTwLMehn4QFwEZuBbz7VgsSgxjIyYHWRkWoO+x?=
- =?us-ascii?Q?C4FsFX9KOA1RRRruG1PVDd+SXoN44WNSmHEq4A0bvTqZsarmda39V4bhy9gA?=
- =?us-ascii?Q?ZBHM1ocshfdgjrdfOJTyRML6gcXJd7ChdtoM4Wc2q0lA3WUvMX5wIMDgGZKn?=
- =?us-ascii?Q?yXnjDTZgaXjxQqklulff2LmMqXGtowOeeR/EhWgXqYlqyu1mm7QtMWnW9dYD?=
- =?us-ascii?Q?tymL9Nlz4f2U6pm/ypGjMnaTuSxiWRZnOGFGljayDREV98UQjTmsuB5F2Uhn?=
- =?us-ascii?Q?g1fQfK1t78Jl0MA2YxSLRj6VtAgPcnafKfk6zLmDgeZ1xGB+QbkuMMEyecj1?=
- =?us-ascii?Q?jnxac+cfwKajdFJMOEm0vLy4BqDb9eGSaRGI1/0hU6tTWxuEzQYYG/iW8ycv?=
- =?us-ascii?Q?cYHeplaUiIrTZnWLTeuuOvkjketuxO4/EgneUmXOBcAfIzfHrYgPASCPaWAc?=
- =?us-ascii?Q?/a6fzL8Ze9U/2MWeAGRxaqQW8iT4xxFdhvev7DaUicUlBeQg5EsIQehjVibo?=
- =?us-ascii?Q?9IBq7tUBOkhIMWW4+e8nHzttDelXipJzkfhATfzdwGfil8OUupBN7PuBwrVN?=
- =?us-ascii?Q?CapPlh23dbTNXHEgU8NqTr4CCee4CSKdH4194vI4Bpu5xtk4PQF8tUzvxy0n?=
- =?us-ascii?Q?ZcwcYeY4IlpjQwEIXcdoq5POK5UdcY1+woBbiWJ5d+3cV11hYDnLmH4hOOVn?=
- =?us-ascii?Q?JrdcFkmc4WfZ+/6cJXzRFUAzI5tspZaiKYwtBTsVin7zEfmtJXbKX3ZOnuu5?=
- =?us-ascii?Q?9G6ZkonePsesNCB6lnmzqFieFzfA9fAX84gMVcE4RIJ6MmQZWtHiZJN6Xm6u?=
- =?us-ascii?Q?C4derkQODd3ihr9rAVPNXeer0X4tYsJEYXa6G/XHUx3C/+JLEhRBLnX76v74?=
- =?us-ascii?Q?CTpvohcAgWNvwqp5+sooycwvKln3fCEAaAOF+ZZ9XnY1dkDmWrw028AsrVqF?=
- =?us-ascii?Q?jzXblN9Ir+G6M2xHV+niz/AW4H8eBg3NL0sNji1q1D/0JAH9bURWcNIovJPd?=
- =?us-ascii?Q?j0xk4mZi9Nuu2TBGIPVvRo/TPPOsLPdyOBCuvOS6VMFlue2laNbUBQSctkGF?=
- =?us-ascii?Q?SvSmp+BIl5rNI/e2kAV4W8wumL8I5e0mZBsr3VOaqsBuLAM65OYi4J8Luf6M?=
- =?us-ascii?Q?P/uXwemCjRdD6CDxUv92ZCPCEsHBxbEhtcygQiq/wScnQdz1l1WPG+s5NWp0?=
- =?us-ascii?Q?Gnov5BDI7/+Yy7Lv09hX9M3wFrrMsGDWJC+nVMR+Z3+MufHlEwWDIXzLsxrq?=
- =?us-ascii?Q?AOJbQ5f8I9oJXHQDq1NnjpTsJrexXNrUIDdQFgWkCpVjhXwP/U4HF8p0Pf2k?=
- =?us-ascii?Q?pTqFKOthAqkNdHbWNKIrcErdnadZcHSahrh0QAMbyGH1w/FALISNOUt8lImF?=
- =?us-ascii?Q?kPFUcf8eSJZ5aeSkxPvN0u8pyp3ujgAePjmzOsKgePaYkMrKuic2XCF9+TXh?=
- =?us-ascii?Q?u/N+qzjRksChScCh3zPULcvIvbjs9qTeTQWHe/KxIeqAXrpL+R6Q36s/Tmhs?=
- =?us-ascii?Q?W0RYUYEjXd3bzGqxRolNA1k=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KLDW5r2GeCviC+GJPgafZK9OC6Prb1sFfLosdgIT39girb4YIODILp3BRd6Z?=
- =?us-ascii?Q?gl9i6PF8dJ3rfnVrwtgD0asnMrqW6DzYDEhHKymqv5SZIU60zLf1anJ6UbOk?=
- =?us-ascii?Q?t0MPc9JdNxHxHi722jOGDM1U/ig8WZRBdnArLeEuFZExNAqo0pHfvGBvqplo?=
- =?us-ascii?Q?Vx4HyoXvghG5SjzuUtqJd4E3r7rrgpDbSbwI3y0qVYNEvJMCvXE6QDzezdxg?=
- =?us-ascii?Q?lVfZBghNKZ3FZB8otvJTZlE3rUXaoh1MFoTHTUiJCsZhFphXITEvNcWWEqih?=
- =?us-ascii?Q?YwFt464bqB1EQkaRbwbfv+GE4rYatx9qDTPhWh56yN+jleYrzSKbba0IHRn0?=
- =?us-ascii?Q?MDpWotzejdwlXW8lGfXWI5iWUb6qJdU/MZ/SKCgvMOGHQbSBP7Ssn0SdxDB2?=
- =?us-ascii?Q?RoHnBQNmq+Z2VvM3OdBZkhWJDa1BhkiWU7iLtAZ/MlIPS67sK4rlgFCYL1kK?=
- =?us-ascii?Q?y04/9MWzF+X8sEVS0OlXMZbEOFFga6zwy67Y+1Hj60hAvYaWAvXhy5/9CoRU?=
- =?us-ascii?Q?bHDZwbRo1mD5P3Ud1FV4/XQanhUB4B4cnrXWzwSYTySr4fTrpiGR/QI7YPma?=
- =?us-ascii?Q?N24KwD4JiIF5xrOXx5ar6YeIYsdjaV6kmIP0Ud0S4pvaiLi9ODaaYSxK0tUS?=
- =?us-ascii?Q?DZqFRl0oUrog0XAQrDv43VTHewKB8316x7t+GbWUZNg5EPSKoh+GIXG7OSqj?=
- =?us-ascii?Q?Kts8G4aAa1w4ofFS4DQL5HBmWAQXGpswi+GhE7oSKDlURByosWs2MSbK1cla?=
- =?us-ascii?Q?rPB1okzQbBf3poQWrvuS+HWRxlBly5w0LJwvFcv9PFGWDea9+4r+QElUtvEN?=
- =?us-ascii?Q?2lltGcApwjwntCM27uF8x87rfAvw53Hon77d2V+N+RnJBlnFP6gCRpwmYWtt?=
- =?us-ascii?Q?b1c3EAnNGKmrubd852EMeuL1CZ84jhSfzm83bu9flv3dVe3KuJTN3LPl4Nd8?=
- =?us-ascii?Q?AP1Pg+2AuhvapZmqHz9B0PfOGJckvKzH2UgG9Qpg50Fu/DTzQdOgG5AwuwIw?=
- =?us-ascii?Q?IzsN798kJM7HIlAKU+N8H8+nJJIJurWt0lIoUmHi3oAM+ORNt7Ks7KiNQC9m?=
- =?us-ascii?Q?sMo1GXqlOUp3y4onva1U61GLlKxHOct7+07r0DqdCF41jjk3hUAK4oWd9L6u?=
- =?us-ascii?Q?slNxuZKQZJni2DYmGOMaXydgrbEqOs2fviMxBfeKpN87i2GfSAYuKCMz2UJu?=
- =?us-ascii?Q?9k3upYzdPzm6Nt+t4Dvd7+k/ZVuywVuTOkBqFW+cwGh99V/8hMH0DATxuQHl?=
- =?us-ascii?Q?gAp+fzhPaqwTy76KrAL6wa332AsAkIuK6epMTbYEqNEyMxWsfIHlB4EXm6iW?=
- =?us-ascii?Q?t5YL/UzKxQn+wTg3tRrUzpdLCL8WIu6FzumYctvMWJKaKlbmJlhrcNY3vLP3?=
- =?us-ascii?Q?FXBEWwAtv1IQKqEcgkJN08AS+SxuU5ghy+Wb/82ZEv5OzxAZ6o227h/clmTA?=
- =?us-ascii?Q?oLyAnizngG3kQJZVRtVd6KGgplroaLq9a7fYQxjXlU8Kjhz8kmcGzrSpBsVY?=
- =?us-ascii?Q?+GLe4zyW11IrUxTwTx0/LbeeeGP67UJYypONJwOzV2Cp/PLqx+kBP4c7kWR0?=
- =?us-ascii?Q?mhc0AmPFS+F8TZSsiT3BK6fwV79fUd/Pvky79W+sbSe8Sk2udGNAwSvArc5G?=
- =?us-ascii?Q?eoqh77+2WsqAhhXFH90QraP5ll02PqtT9eIeVW5GZ3vmbZETlaz9HD9wgslT?=
- =?us-ascii?Q?ICT0Mva6OWj/waf5RVbCHDm/ildtEgTt1UaBzkXUM5KEUju6?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 61ef1b52-48c0-4dd9-4833-08de65995128
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2026 16:03:50.2532
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: l4QQ9Nw/N0nJWHWNhposTs825jkKVwvGV5e0zt8k8MxEa0JWaZw8nV7jQph7QWQkAN8zhNUwQS1njfBELdFt5A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8055
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 5/5] arm64: dts: qcom: talos-evk-camera: Add DT overlay
+To: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Robert Foss <rfoss@kernel.org>,
+ Todor Tomov <todor.too@gmail.com>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-i2c@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20260122-sm6150_evk-v5-0-039b170450a3@oss.qualcomm.com>
+ <20260122-sm6150_evk-v5-5-039b170450a3@oss.qualcomm.com>
+From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+In-Reply-To: <20260122-sm6150_evk-v5-5-039b170450a3@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_081950_591372_11F19ADE 
-X-CRM114-Status: GOOD (  32.63  )
+X-CRM114-CacheID: sfid-20260206_082553_606153_A6F4B93B 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,513 +112,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 06, 2026 at 06:18:51PM +0800, Xu Yang wrote:
-> The i.MX USB glue and DWC3 core are closely coupled. Describe the i.MX
-> USB block in a single block will bring more benefits than a parent-
-> child relation. To support the flatten model devicetree, DWC3 USB core
-> driver already support to directly register and initialize the core in
-> glue layer using one device. And many notification can be received in
-> glue layer timely and proper actions can be executed accordingly.
->
-> To align with mainstream, introduce a new driver to support flatten dwc3
-> devicetree model for i.MX Soc. Besides this driver disabling wakeup irq
-> when system is active, no other function change in this version compared
-> to dwc3-imx8mp.c
->
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
->
+On 1/22/26 12:48, Wenmeng Liu wrote:
+> Enable IMX577 via CCI on Taloss EVK Core Kit.
+
+Typo, s/Taloss/Talos/
+
+> 
+> The Talos EVK board does not include a camera sensor
+> by default, this DTSO has enabled the Arducam 12.3MP
+> IMX577 Mini Camera Module on the CSI-1 interface.
+> 
+> Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+> Signed-off-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
 > ---
-> Changes in v3:
->  - update compatible as nxp,imx8mp-dwc3
-> Changes in v2:
->  - improve commit message
->  - fix code style
->  - add IRQF_NO_AUTOEN
->  - remove pm_runtime_* in dwc3_imx_remove(), dwc3_core_remove()
->    will do that
-> ---
->  drivers/usb/dwc3/Kconfig    |  12 ++
->  drivers/usb/dwc3/Makefile   |   1 +
->  drivers/usb/dwc3/dwc3-imx.c | 429 ++++++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 442 insertions(+)
->
-> diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
-> index 240b15bc52cb..18169727a413 100644
-> --- a/drivers/usb/dwc3/Kconfig
-> +++ b/drivers/usb/dwc3/Kconfig
-> @@ -150,6 +150,18 @@ config USB_DWC3_IMX8MP
->  	  functionality.
->  	  Say 'Y' or 'M' if you have one such device.
->
-> +config USB_DWC3_IMX
-> +	tristate "NXP iMX Platform"
-> +	depends on OF && COMMON_CLK
-> +	depends on (ARCH_MXC && ARM64) || COMPILE_TEST
-> +	default USB_DWC3
-> +	help
-> +	  NXP iMX SoC use DesignWare Core IP for USB2/3
-> +	  functionality.
-> +	  This driver also handles the wakeup feature outside
-> +	  of DesignWare Core.
-> +	  Say 'Y' or 'M' if you have one such device.
-> +
->  config USB_DWC3_XILINX
->  	tristate "Xilinx Platforms"
->  	depends on (ARCH_ZYNQMP || COMPILE_TEST) && OF
-> diff --git a/drivers/usb/dwc3/Makefile b/drivers/usb/dwc3/Makefile
-> index 073bef5309b5..f37971197203 100644
-> --- a/drivers/usb/dwc3/Makefile
-> +++ b/drivers/usb/dwc3/Makefile
-> @@ -55,6 +55,7 @@ obj-$(CONFIG_USB_DWC3_ST)		+= dwc3-st.o
->  obj-$(CONFIG_USB_DWC3_QCOM)		+= dwc3-qcom.o
->  obj-$(CONFIG_USB_DWC3_QCOM)		+= dwc3-qcom-legacy.o
->  obj-$(CONFIG_USB_DWC3_IMX8MP)		+= dwc3-imx8mp.o
-> +obj-$(CONFIG_USB_DWC3_IMX)		+= dwc3-imx.o
->  obj-$(CONFIG_USB_DWC3_XILINX)		+= dwc3-xilinx.o
->  obj-$(CONFIG_USB_DWC3_OCTEON)		+= dwc3-octeon.o
->  obj-$(CONFIG_USB_DWC3_RTK)		+= dwc3-rtk.o
-> diff --git a/drivers/usb/dwc3/dwc3-imx.c b/drivers/usb/dwc3/dwc3-imx.c
+>   arch/arm64/boot/dts/qcom/Makefile                  |  3 ++
+>   .../boot/dts/qcom/talos-evk-camera-imx577.dtso     | 63 ++++++++++++++++++++++
+>   2 files changed, 66 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
+> index a2e48b58323c10735c8b98996cee6669e4f918e7..b505b5b1aa2feaaae691977b35a2d872751c4a46 100644
+> --- a/arch/arm64/boot/dts/qcom/Makefile
+> +++ b/arch/arm64/boot/dts/qcom/Makefile
+> @@ -349,8 +349,11 @@ dtb-$(CONFIG_ARCH_QCOM)	+= sm8650-qrd.dtb
+>   dtb-$(CONFIG_ARCH_QCOM)	+= sm8750-mtp.dtb
+>   dtb-$(CONFIG_ARCH_QCOM)	+= sm8750-qrd.dtb
+>   dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk.dtb
+> +dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk-camera-imx577.dtbo
+> +talos-evk-camera-imx577-dtbs	:= talos-evk.dtb talos-evk-camera-imx577.dtbo
+>   talos-evk-lvds-auo,g133han01-dtbs	:= \
+>   	talos-evk.dtb talos-evk-lvds-auo,g133han01.dtbo
+> +dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk-camera-imx577.dtb
+>   dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk-lvds-auo,g133han01.dtb
+>   x1e001de-devkit-el2-dtbs	:= x1e001de-devkit.dtb x1-el2.dtbo
+>   dtb-$(CONFIG_ARCH_QCOM)	+= x1e001de-devkit.dtb x1e001de-devkit-el2.dtb
+> diff --git a/arch/arm64/boot/dts/qcom/talos-evk-camera-imx577.dtso b/arch/arm64/boot/dts/qcom/talos-evk-camera-imx577.dtso
 > new file mode 100644
-> index 000000000000..3b154d075bcf
+> index 0000000000000000000000000000000000000000..53006a861878f9112673b9a0ad954bed7a5fdca5
 > --- /dev/null
-> +++ b/drivers/usb/dwc3/dwc3-imx.c
-> @@ -0,0 +1,429 @@
-> +// SPDX-License-Identifier: GPL-2.0
+> +++ b/arch/arm64/boot/dts/qcom/talos-evk-camera-imx577.dtso
+> @@ -0,0 +1,63 @@
+> +// SPDX-License-Identifier: BSD-3-Clause
 > +/*
-> + * dwc3-imx.c - NXP i.MX Soc USB3 Specific Glue layer
-> + *
-> + * Copyright 2026 NXP
+> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 > + */
 > +
-> +#include <linux/clk.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pm_runtime.h>
+> +/dts-v1/;
+> +/plugin/;
 > +
-> +#include "core.h"
-> +#include "glue.h"
+> +#include <dt-bindings/clock/qcom,qcs615-camcc.h>
+> +#include <dt-bindings/gpio/gpio.h>
 > +
-> +/* USB wakeup registers */
-> +#define USB_WAKEUP_CTRL			0x00
+> +&camss {
+> +	vdd-csiphy-1p2-supply = <&vreg_l11a>;
+> +	vdd-csiphy-1p8-supply = <&vreg_l12a>;
 > +
-> +/* Global wakeup interrupt enable, also used to clear interrupt */
-> +#define USB_WAKEUP_EN			BIT(31)
-> +/* Wakeup from connect or disconnect, only for superspeed */
-> +#define USB_WAKEUP_SS_CONN		BIT(5)
-> +/* 0 select vbus_valid, 1 select sessvld */
-> +#define USB_WAKEUP_VBUS_SRC_SESS_VAL	BIT(4)
-> +/* Enable signal for wake up from u3 state */
-> +#define USB_WAKEUP_U3_EN		BIT(3)
-> +/* Enable signal for wake up from id change */
-> +#define USB_WAKEUP_ID_EN		BIT(2)
-> +/* Enable signal for wake up from vbus change */
-> +#define	USB_WAKEUP_VBUS_EN		BIT(1)
-> +/* Enable signal for wake up from dp/dm change */
-> +#define USB_WAKEUP_DPDM_EN		BIT(0)
+> +	status = "okay";
 > +
-> +#define USB_WAKEUP_EN_MASK		GENMASK(5, 0)
+> +	ports {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
 > +
-> +/* USB glue registers */
-> +#define USB_CTRL0		0x00
-> +#define USB_CTRL1		0x04
+> +		port@1 {
+> +			reg = <1>;
 > +
-> +#define USB_CTRL0_PORTPWR_EN	BIT(12) /* 1 - PPC enabled (default) */
-> +#define USB_CTRL0_USB3_FIXED	BIT(22) /* 1 - USB3 permanent attached */
-> +#define USB_CTRL0_USB2_FIXED	BIT(23) /* 1 - USB2 permanent attached */
-> +
-> +#define USB_CTRL1_OC_POLARITY	BIT(16) /* 0 - HIGH / 1 - LOW */
-> +#define USB_CTRL1_PWR_POLARITY	BIT(17) /* 0 - HIGH / 1 - LOW */
-> +
-> +struct dwc3_imx {
-> +	struct dwc3	dwc;
-> +	struct device	*dev;
-> +	void __iomem	*blkctl_base;
-> +	void __iomem	*glue_base;
-> +	struct clk	*hsio_clk;
-> +	struct clk	*suspend_clk;
-> +	int		irq;
-> +	bool		pm_suspended;
-> +	bool		wakeup_pending;
+> +			csiphy1_ep: endpoint {
+> +				data-lanes = <0 1 2 3>;
+> +				remote-endpoint = <&imx577_ep1>;
+> +			};
+> +		};
+> +	};
 > +};
 > +
-> +#define to_dwc3_imx(d) container_of((d), struct dwc3_imx, dwc)
+> +&cci {
+> +	status = "okay";
+> +};
 > +
-> +static void dwc3_imx_configure_glue(struct dwc3_imx *dwc_imx)
-> +{
-> +	struct device	*dev = dwc_imx->dev;
-> +	u32		value;
+> +&cci_i2c1 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
 > +
-> +	if (!dwc_imx->glue_base)
-> +		return;
+> +	camera@1a {
+> +		compatible = "sony,imx577";
+> +		reg = <0x1a>;
 > +
-> +	value = readl(dwc_imx->glue_base + USB_CTRL0);
+> +		reset-gpios = <&tlmm 29 GPIO_ACTIVE_LOW>;
+> +		pinctrl-0 = <&cam2_default>;
+> +		pinctrl-names = "default";
 > +
-> +	if (device_property_read_bool(dev, "fsl,permanently-attached"))
+> +		clocks = <&camcc CAM_CC_MCLK2_CLK>;
+> +		assigned-clocks = <&camcc CAM_CC_MCLK2_CLK>;
+> +		assigned-clock-rates = <24000000>;
+> +
+> +		avdd-supply = <&vreg_s4a>;
+> +
+> +		port {
+> +			imx577_ep1: endpoint {
 
-can you parse it at probe and save into dwc3_imx to avoid parse dts every
-resume()?
+I'd suggest to rename "imx577_ep1" label by dropping the '1' at the end,
+it brings more confusion than meaning, at least in 'csiphy1_ep' name it
+means the CSIPHY id, but here "imx577_ep" would be better.
 
-Frank
-> +		value |= USB_CTRL0_USB2_FIXED | USB_CTRL0_USB3_FIXED;
-> +	else
-> +		value &= ~(USB_CTRL0_USB2_FIXED | USB_CTRL0_USB3_FIXED);
-> +
-> +	if (device_property_read_bool(dev, "fsl,disable-port-power-control"))
-> +		value &= ~USB_CTRL0_PORTPWR_EN;
-> +	else
-> +		value |= USB_CTRL0_PORTPWR_EN;
-> +
-> +	writel(value, dwc_imx->glue_base + USB_CTRL0);
-> +
-> +	value = readl(dwc_imx->glue_base + USB_CTRL1);
-> +	if (device_property_read_bool(dev, "fsl,over-current-active-low"))
-> +		value |= USB_CTRL1_OC_POLARITY;
-> +	else
-> +		value &= ~USB_CTRL1_OC_POLARITY;
-> +
-> +	if (device_property_read_bool(dev, "fsl,power-active-low"))
-> +		value |= USB_CTRL1_PWR_POLARITY;
-> +	else
-> +		value &= ~USB_CTRL1_PWR_POLARITY;
-> +
-> +	writel(value, dwc_imx->glue_base + USB_CTRL1);
-> +}
-> +
-> +static void dwc3_imx_wakeup_enable(struct dwc3_imx *dwc_imx, pm_message_t msg)
-> +{
-> +	struct dwc3	*dwc = &dwc_imx->dwc;
-> +	u32		val;
-> +
-> +	val = readl(dwc_imx->blkctl_base + USB_WAKEUP_CTRL);
-> +
-> +	if (dwc->current_dr_role == DWC3_GCTL_PRTCAP_HOST && dwc->xhci) {
-> +		val |= USB_WAKEUP_EN | USB_WAKEUP_DPDM_EN;
-> +		if (PMSG_IS_AUTO(msg))
-> +			val |= USB_WAKEUP_SS_CONN | USB_WAKEUP_U3_EN;
-> +	} else {
-> +		val |= USB_WAKEUP_EN | USB_WAKEUP_VBUS_EN |
-> +		       USB_WAKEUP_VBUS_SRC_SESS_VAL;
-> +	}
-> +
-> +	writel(val, dwc_imx->blkctl_base + USB_WAKEUP_CTRL);
-> +}
-> +
-> +static void dwc3_imx_wakeup_disable(struct dwc3_imx *dwc_imx)
-> +{
-> +	u32	val;
-> +
-> +	val = readl(dwc_imx->blkctl_base + USB_WAKEUP_CTRL);
-> +	val &= ~(USB_WAKEUP_EN | USB_WAKEUP_EN_MASK);
-> +	writel(val, dwc_imx->blkctl_base + USB_WAKEUP_CTRL);
-> +}
-> +
-> +static irqreturn_t dwc3_imx_interrupt(int irq, void *data)
-> +{
-> +	struct dwc3_imx	*dwc_imx = data;
-> +	struct dwc3	*dwc = &dwc_imx->dwc;
-> +
-> +	if (!dwc_imx->pm_suspended)
-> +		return IRQ_HANDLED;
-> +
-> +	disable_irq_nosync(dwc_imx->irq);
-> +	dwc_imx->wakeup_pending = true;
-> +
-> +	if (dwc->current_dr_role == DWC3_GCTL_PRTCAP_HOST && dwc->xhci)
-> +		pm_runtime_resume(&dwc->xhci->dev);
-> +	else if (dwc->current_dr_role == DWC3_GCTL_PRTCAP_DEVICE)
-> +		pm_runtime_get(dwc->dev);
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static void dwc3_imx_pre_set_role(struct dwc3 *dwc, enum usb_role role)
-> +{
-> +	if (role == USB_ROLE_HOST)
-> +		/*
-> +		 * For xhci host, we need disable dwc core auto
-> +		 * suspend, because during this auto suspend delay(5s),
-> +		 * xhci host RUN_STOP is cleared and wakeup is not
-> +		 * enabled, if device is inserted, xhci host can't
-> +		 * response the connection.
-> +		 */
-> +		pm_runtime_dont_use_autosuspend(dwc->dev);
-> +	else
-> +		pm_runtime_use_autosuspend(dwc->dev);
-> +}
-> +
-> +static struct dwc3_glue_ops dwc3_imx_glue_ops = {
-> +	.pre_set_role = dwc3_imx_pre_set_role,
+> +				link-frequencies = /bits/ 64 <600000000>;
+> +				data-lanes = <1 2 3 4>;
+> +				remote-endpoint = <&csiphy1_ep>;
+> +			};
+> +		};
+> +	};
 > +};
-> +
-> +static const struct property_entry dwc3_imx_properties[] = {
-> +	PROPERTY_ENTRY_BOOL("xhci-missing-cas-quirk"),
-> +	PROPERTY_ENTRY_BOOL("xhci-skip-phy-init-quirk"),
-> +	{},
-> +};
-> +
-> +static const struct software_node dwc3_imx_swnode = {
-> +	.properties = dwc3_imx_properties,
-> +};
-> +
-> +static int dwc3_imx_probe(struct platform_device *pdev)
-> +{
-> +	struct device		*dev = &pdev->dev;
-> +	struct dwc3_imx		*dwc_imx;
-> +	struct dwc3		*dwc;
-> +	struct resource		*res;
-> +	const char		*irq_name;
-> +	struct dwc3_probe_data	probe_data = {};
-> +	int			ret, irq;
-> +
-> +	dwc_imx = devm_kzalloc(dev, sizeof(*dwc_imx), GFP_KERNEL);
-> +	if (!dwc_imx)
-> +		return -ENOMEM;
-> +
-> +	platform_set_drvdata(pdev, dwc_imx);
-> +	dwc_imx->dev = dev;
-> +
-> +	dwc_imx->blkctl_base = devm_platform_ioremap_resource_byname(pdev, "blkctl");
-> +	if (IS_ERR(dwc_imx->blkctl_base))
-> +		return PTR_ERR(dwc_imx->blkctl_base);
-> +
-> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "glue");
-> +	if (!res) {
-> +		dev_warn(dev, "Base address for glue layer missing\n");
-> +	} else {
-> +		dwc_imx->glue_base = devm_ioremap_resource(dev, res);
-> +		if (IS_ERR(dwc_imx->glue_base))
-> +			return PTR_ERR(dwc_imx->glue_base);
-> +	}
-> +
-> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "core");
-> +	if (!res)
-> +		return dev_err_probe(dev, -ENODEV, "missing core memory resource\n");
-> +
-> +	dwc_imx->hsio_clk = devm_clk_get_enabled(dev, "hsio");
-> +	if (IS_ERR(dwc_imx->hsio_clk))
-> +		return dev_err_probe(dev, PTR_ERR(dwc_imx->hsio_clk),
-> +				     "Failed to get hsio clk\n");
-> +
-> +	dwc_imx->suspend_clk = devm_clk_get_enabled(dev, "suspend");
-> +	if (IS_ERR(dwc_imx->suspend_clk))
-> +		return dev_err_probe(dev, PTR_ERR(dwc_imx->suspend_clk),
-> +				     "Failed to get suspend clk\n");
-> +
-> +	irq = platform_get_irq_byname(pdev, "wakeup");
-> +	if (irq < 0)
-> +		return irq;
-> +	dwc_imx->irq = irq;
-> +
-> +	irq_name = devm_kasprintf(dev, GFP_KERNEL, "%s:wakeup", dev_name(dev));
-> +	if (!irq_name)
-> +		return dev_err_probe(dev, -ENOMEM, "failed to create irq_name\n");
-> +
-> +	ret = devm_request_threaded_irq(dev, irq, NULL, dwc3_imx_interrupt,
-> +					IRQF_ONESHOT | IRQF_NO_AUTOEN,
-> +					irq_name, dwc_imx);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to request IRQ #%d\n", irq);
-> +
-> +	ret = device_add_software_node(dev, &dwc3_imx_swnode);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to add software node\n");
-> +
-> +	dwc = &dwc_imx->dwc;
-> +	dwc->dev = dev;
-> +	dwc->glue_ops = &dwc3_imx_glue_ops;
-> +
-> +	probe_data.res = res;
-> +	probe_data.dwc = dwc;
-> +	probe_data.properties = DWC3_DEFAULT_PROPERTIES;
-> +	probe_data.properties.core_may_lose_power = true;
-> +
-> +	ret = dwc3_core_probe(&probe_data);
-> +	if (ret) {
-> +		device_remove_software_node(dev);
-> +		return ret;
-> +	}
-> +
-> +	device_set_wakeup_capable(dev, true);
-> +	return 0;
-> +}
-> +
-> +static void dwc3_imx_remove(struct platform_device *pdev)
-> +{
-> +	struct device	*dev = &pdev->dev;
-> +	struct dwc3	*dwc = dev_get_drvdata(dev);
-> +
-> +	dwc3_core_remove(dwc);
-> +	device_remove_software_node(dev);
-> +}
-> +
-> +static void dwc3_imx_suspend(struct dwc3_imx *dwc_imx, pm_message_t msg)
-> +{
-> +	if (PMSG_IS_AUTO(msg) || device_may_wakeup(dwc_imx->dev))
-> +		dwc3_imx_wakeup_enable(dwc_imx, msg);
-> +
-> +	enable_irq(dwc_imx->irq);
-> +	dwc_imx->pm_suspended = true;
-> +}
-> +
-> +static void dwc3_imx_resume(struct dwc3_imx *dwc_imx, pm_message_t msg)
-> +{
-> +	struct dwc3	*dwc = &dwc_imx->dwc;
-> +
-> +	dwc_imx->pm_suspended = false;
-> +	if (!dwc_imx->wakeup_pending)
-> +		disable_irq_nosync(dwc_imx->irq);
-> +
-> +	dwc3_imx_wakeup_disable(dwc_imx);
-> +
-> +	/* Upon power loss any previous configuration is lost, restore it */
-> +	dwc3_imx_configure_glue(dwc_imx);
-> +
-> +	if (dwc_imx->wakeup_pending) {
-> +		dwc_imx->wakeup_pending = false;
-> +		if (dwc->current_dr_role == DWC3_GCTL_PRTCAP_DEVICE)
-> +			pm_runtime_put_autosuspend(dwc->dev);
-> +		else
-> +			/*
-> +			 * Add wait for xhci switch from suspend
-> +			 * clock to normal clock to detect connection.
-> +			 */
-> +			usleep_range(9000, 10000);
-> +	}
-> +}
-> +
-> +static int dwc3_imx_runtime_suspend(struct device *dev)
-> +{
-> +	struct dwc3	*dwc = dev_get_drvdata(dev);
-> +	struct dwc3_imx	*dwc_imx = to_dwc3_imx(dwc);
-> +	int		ret;
-> +
-> +	dev_dbg(dev, "at %s\n", __func__);
-> +
-> +	ret = dwc3_runtime_suspend(dwc);
-> +	if (ret)
-> +		return ret;
-> +
-> +	dwc3_imx_suspend(dwc_imx, PMSG_AUTO_SUSPEND);
-> +	return 0;
-> +}
-> +
-> +static int dwc3_imx_runtime_resume(struct device *dev)
-> +{
-> +	struct dwc3	*dwc = dev_get_drvdata(dev);
-> +	struct dwc3_imx	*dwc_imx = to_dwc3_imx(dwc);
-> +
-> +	dev_dbg(dev, "at %s\n", __func__);
-> +
-> +	dwc3_imx_resume(dwc_imx, PMSG_AUTO_RESUME);
-> +	return dwc3_runtime_resume(dwc);
-> +}
-> +
-> +static int dwc3_imx_runtime_idle(struct device *dev)
-> +{
-> +	return dwc3_runtime_idle(dev_get_drvdata(dev));
-> +}
-> +
-> +static int dwc3_imx_pm_suspend(struct device *dev)
-> +{
-> +	struct dwc3	*dwc = dev_get_drvdata(dev);
-> +	struct dwc3_imx *dwc_imx = to_dwc3_imx(dwc);
-> +	int		ret;
-> +
-> +	dev_dbg(dev, "at %s\n", __func__);
-> +
-> +	ret = dwc3_pm_suspend(dwc);
-> +	if (ret)
-> +		return ret;
-> +
-> +	dwc3_imx_suspend(dwc_imx, PMSG_SUSPEND);
-> +
-> +	if (device_may_wakeup(dev)) {
-> +		enable_irq_wake(dwc_imx->irq);
-> +		device_set_out_band_wakeup(dev);
-> +	} else {
-> +		clk_disable_unprepare(dwc_imx->suspend_clk);
-> +	}
-> +
-> +	clk_disable_unprepare(dwc_imx->hsio_clk);
-> +
-> +	return 0;
-> +}
-> +
-> +static int dwc3_imx_pm_resume(struct device *dev)
-> +{
-> +	struct dwc3	*dwc = dev_get_drvdata(dev);
-> +	struct dwc3_imx *dwc_imx = to_dwc3_imx(dwc);
-> +	int		ret;
-> +
-> +	dev_dbg(dev, "at %s\n", __func__);
-> +
-> +	if (device_may_wakeup(dwc_imx->dev)) {
-> +		disable_irq_wake(dwc_imx->irq);
-> +	} else {
-> +		ret = clk_prepare_enable(dwc_imx->suspend_clk);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	ret = clk_prepare_enable(dwc_imx->hsio_clk);
-> +	if (ret) {
-> +		clk_disable_unprepare(dwc_imx->suspend_clk);
-> +		return ret;
-> +	}
-> +
-> +	dwc3_imx_resume(dwc_imx, PMSG_RESUME);
-> +
-> +	ret = dwc3_pm_resume(dwc);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return 0;
-> +}
-> +
-> +static void dwc3_imx_complete(struct device *dev)
-> +{
-> +	dwc3_pm_complete(dev_get_drvdata(dev));
-> +}
-> +
-> +static int dwc3_imx_prepare(struct device *dev)
-> +{
-> +	return dwc3_pm_prepare(dev_get_drvdata(dev));
-> +}
-> +
-> +static const struct dev_pm_ops dwc3_imx_dev_pm_ops = {
-> +	SYSTEM_SLEEP_PM_OPS(dwc3_imx_pm_suspend, dwc3_imx_pm_resume)
-> +	RUNTIME_PM_OPS(dwc3_imx_runtime_suspend, dwc3_imx_runtime_resume,
-> +		       dwc3_imx_runtime_idle)
-> +	.complete = pm_sleep_ptr(dwc3_imx_complete),
-> +	.prepare = pm_sleep_ptr(dwc3_imx_prepare),
-> +};
-> +
-> +static const struct of_device_id dwc3_imx_of_match[] = {
-> +	{ .compatible = "nxp,imx8mp-dwc3", },
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, dwc3_imx_of_match);
-> +
-> +static struct platform_driver dwc3_imx_driver = {
-> +	.probe		= dwc3_imx_probe,
-> +	.remove		= dwc3_imx_remove,
-> +	.driver		= {
-> +		.name	= "imx-dwc3",
-> +		.pm	= pm_ptr(&dwc3_imx_dev_pm_ops),
-> +		.of_match_table	= dwc3_imx_of_match,
-> +	},
-> +};
-> +
-> +module_platform_driver(dwc3_imx_driver);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_DESCRIPTION("DesignWare USB3 i.MX Glue Layer");
->
-> --
-> 2.34.1
->
+> 
+
+-- 
+Best wishes,
+Vladimir
 
