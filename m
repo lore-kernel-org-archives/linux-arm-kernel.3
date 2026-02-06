@@ -4,69 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2119EB28F4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 08:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C33EB28F4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 08:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MinFAbbVOdoR83Ltkm3t2nF+VJzZlX8cRHfFjmhcvVA=; b=nlGRxInfRfES8sxagpUxnb/BGe
-	fM5WU8qhw5aRsGpyckFq1oOWQDKG+D6crKKAjrYtiBPTVq5MCzkgFP8FZZQpIUmwF/tMYtnrp02T1
-	7mx/mZWMK4UtskBbd58K/wKL0KUHy/Uwo5w4qY0neVNen7ariLh11SZ4u6CVxu53gvt0rCyCaHx/J
-	bRk2JUN/c368NGMR/Z7BoCy5qxvNzTOpk/+Z3COmadRHnsFXSYtTaoe28jiuRA13icvbLKj1msvux
-	N4LGd4Pxo8t4cQ73IX7W6tQOmztpPhzhea1DHbDB/pDmSNToeV9oUfMervkEIlEjqBhgqAJZqIwr5
-	bLtfaZvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B5GgHRWcvUB1HdPVoO+S/fISfxcdTHvl3qADwmdFy0E=; b=hln81Sqn56BRVyRp5EXAYTDSQd
+	SzbHtR3KLdRLVGXg0NTO24ehpOM/++sojr3WOeVTSri0Rh+psWGhVKHb2wM5VMXMgRz/rAxaEZp35
+	zicsGxFuKCKyuw4E8uynmeHiDfM/F1bwADmalMpvYwKoqjcn4HQeKv7r2IYU7T1rTjiJMZ4ayOAkL
+	30MxKMgVhW2hqkrAb/3Dz1oDk1eM9dVuaFozImKvQf69BAf6hlgIUedRTK7GAa79qfM3ee7k5B1Gq
+	O3OC1iMycajTPTk+LQjK9t2b+kXKZxW2KgEeLGj4mGvW5I8T426SH3UjuTgfsgZamXnFDl8FtZ+aD
+	FXY6he9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voHYu-0000000B3eR-2oi4;
-	Fri, 06 Feb 2026 08:51:36 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1voHds-0000000B3sB-2zvU;
+	Fri, 06 Feb 2026 08:56:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voHYs-0000000B3e3-0RuV;
-	Fri, 06 Feb 2026 08:51:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1770367889;
-	bh=8cWuy2S8DaSwgYrlkHnpzPAslnN9oEH1hvc3lC/AbEU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=S8AZlDAuT2tMkIVDxejZ2ylBzw8HiUymsCvenm5Y7mbTxdH5oxHoRQjgfmPw5BXjM
-	 1emUHLByh6Ddnga8GY3MhAcLgsc+xfwjYAGWmz9K5nu8mijtlAa9bKirn25Pw6OQdC
-	 qljipE0581+rnnuWrJQLqgf40AWdy7WaUKOvidLL5t8dlI9qyTL0jXgMrsnftiUJlR
-	 P0AW6I6LVmqVslOT3T8tPTI9eRIjUGSwOKV3+Avnzq353IeJBCOlpPax5OGl53OThj
-	 T7g6Yjc5mxaFSNl0LaF7RFWyiL7mPRdHMp3yUEVrZCd00/TtzsqArmzZaNe2jsgJCm
-	 OofRdD7pvKQpg==
-Received: from eldfell (unknown [194.136.85.206])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: pq)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2C71117E001E;
-	Fri,  6 Feb 2026 09:51:29 +0100 (CET)
-Date: Fri, 6 Feb 2026 10:51:02 +0200
-From: Pekka Paalanen <pekka.paalanen@collabora.com>
-To: "=?UTF-8?B?TsOtY29sYXM=?= F. R. A. Prado" <nfraprado@collabora.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
- <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Chun-Kuang Hu
- <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, daniels@collabora.com,
- ariel.dalessandro@collabora.com, kernel@collabora.com
-Subject: Re: [PATCH 07/11] drm/colorop: Introduce HLG EOTF
-Message-ID: <20260206105102.1208fff9@eldfell>
-In-Reply-To: <20251223-mtk-ovl-pre-blend-colorops-v1-7-0cb99bd0ab33@collabora.com>
-References: <20251223-mtk-ovl-pre-blend-colorops-v1-0-0cb99bd0ab33@collabora.com>
-	<20251223-mtk-ovl-pre-blend-colorops-v1-7-0cb99bd0ab33@collabora.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+	id 1voHdp-0000000B3s1-2Tey
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Feb 2026 08:56:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9F11F600CB;
+	Fri,  6 Feb 2026 08:56:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 057FAC116C6;
+	Fri,  6 Feb 2026 08:56:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770368200;
+	bh=TJO2Jx1OTPRgQPSy16L8N1nVs3pn/NoxBeM4A1YYyLc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JnCNAXxkezd+sD2gME8aDy27P6uEeJEBf6VXTRBpO3/+m3e/z+5AmR3dwHjpzmsao
+	 yUO1gOtFNsWDreYTj5rese6k6nm/EcKe9bjsA9cBZoaCZbfy7KfF/rnv0lJG1NuF1N
+	 YUTQ7NZxKcpaAwo7jDd5XouQt6Ik8afqxaKKRiEoM3dYqbgazTGuEOwMBj7Lno5eNk
+	 9ElDh/RlvU4J4Zwg0ZCDmNIHsCUQFio2f2hJqy6SpRlyoHMb4e4A4dZkwYcSx9iFiJ
+	 9SJzV/St2T7Cp+rxnPd1QQ8wiHeBNWrc9XwdpmIQWSK72Mx6JExqtCZaVq4COaWwaa
+	 HkZcxeAuVftPw==
+Message-ID: <7c29f46c-aa27-4569-9170-53538785e029@kernel.org>
+Date: Fri, 6 Feb 2026 09:56:35 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/Z3McZGD/cduzL_hjq1GrAml";
- protocol="application/pgp-signature"; micalg=pgp-sha256
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_005134_326958_8B07A59A 
-X-CRM114-Status: GOOD (  18.12  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] arm64: dts: nuvoton: ma35d1: add display
+ controller support
+To: Joey Lu <a0987203069@gmail.com>
+Cc: airlied@gmail.com, simona@ffwll.ch, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, ychuang3@nuvoton.com,
+ schung@nuvoton.com, yclu4@nuvoton.com, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260129040532.382693-1-a0987203069@gmail.com>
+ <20260129040532.382693-3-a0987203069@gmail.com>
+ <20260205-tactful-warm-chicken-50bdc8@quoll>
+ <a0910eb7-4597-45a7-b538-f2feb021f389@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <a0910eb7-4597-45a7-b538-f2feb021f389@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,96 +121,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/Z3McZGD/cduzL_hjq1GrAml
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+On 06/02/2026 08:12, Joey Lu wrote:
+> 
+> On 2/5/2026 9:23 PM, Krzysztof Kozlowski wrote:
+>> On Thu, Jan 29, 2026 at 12:05:31PM +0800, Joey Lu wrote:
+>>>   &uart0 {
+>>> @@ -129,3 +165,23 @@ &uart16 {
+>>>   	pinctrl-0 = <&pinctrl_uart16>;
+>>>   	status = "okay";
+>>>   };
+>>> +
+>>> +&panel {
+>>> +	port {
+>>> +		panel_in: endpoint@0 {
+>>> +			remote-endpoint = <&dpi_out>;
+>>> +		};
+>>> +	};
+>>> +};
+>>> +
+>>> +&display {
+>> What sort of ordering rule is followed in Nuvoton? Why is it different
+>> than DTS coding style? Why do you choose other style?
+>>
+>>> +	pinctrl-names = "default";
+>>> +	pinctrl-0 = <&pinctrl_display>;
+>>> +	status = "okay";
+>>> +
+>>> +	port {
+>>> +		dpi_out: endpoint@0 {
+>>> +			remote-endpoint = <&panel_in>;
+>>> +		};
+>>> +	};
+>>> +};
+>>> diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+>>> index e51b98f5bdce..7d9d077f12b2 100644
+>>> --- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+>>> +++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+>>> @@ -379,5 +379,19 @@ uart16: serial@40880000 {
+>>>   			clocks = <&clk UART16_GATE>;
+>>>   			status = "disabled";
+>>>   		};
+>>> +
+>>> +		panel: panel {
+>> No, there is no way your SoC has a panel.
+>>
+>> Don't add fake stuff to your DTS.
+>>
+>> Best regards,
+>> Krzysztof
+> 
+> I'll move panel nodes out of dtsi into board dts.
 
-On Tue, 23 Dec 2025 16:44:48 -0300
-N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com> wrote:
-
-> Introduce definition of a hybrid log-gamma electro-optical transfer
-> function for 1D Curve colorops.
->=20
-> Signed-off-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> ---
->  drivers/gpu/drm/drm_colorop.c |  1 +
->  include/drm/drm_colorop.h     | 10 ++++++++++
->  2 files changed, 11 insertions(+)
->=20
-> diff --git a/drivers/gpu/drm/drm_colorop.c b/drivers/gpu/drm/drm_colorop.c
-> index fafe45b93ff8..a19e03fb9c7c 100644
-> --- a/drivers/gpu/drm/drm_colorop.c
-> +++ b/drivers/gpu/drm/drm_colorop.c
-> @@ -79,6 +79,7 @@ static const char * const colorop_curve_1d_type_names[]=
- =3D {
->  	[DRM_COLOROP_1D_CURVE_BT2020_OETF] =3D "BT.2020 OETF",
->  	[DRM_COLOROP_1D_CURVE_GAMMA22] =3D "Gamma 2.2",
->  	[DRM_COLOROP_1D_CURVE_GAMMA22_INV] =3D "Gamma 2.2 Inverse",
-> +	[DRM_COLOROP_1D_CURVE_HLG_EOTF] =3D "HLG",
->  };
-> =20
->  static const struct drm_prop_enum_list drm_colorop_lut1d_interpolation_l=
-ist[] =3D {
-> diff --git a/include/drm/drm_colorop.h b/include/drm/drm_colorop.h
-> index ee6454b08b2d..8ec98521607d 100644
-> --- a/include/drm/drm_colorop.h
-> +++ b/include/drm/drm_colorop.h
-> @@ -126,6 +126,16 @@ enum drm_colorop_curve_1d_type {
->  	 * The inverse of &DRM_COLOROP_1D_CURVE_GAMMA22
->  	 */
->  	DRM_COLOROP_1D_CURVE_GAMMA22_INV,
-> +
-> +	/**
-> +	 * @DRM_COLOROP_1D_CURVE_HLG_EOTF:
-> +	 *
-> +	 * enum string "HLG"
-> +	 *
-> +	 * Hybrid log-gamma transfer function.
-> +	 */
-> +	DRM_COLOROP_1D_CURVE_HLG_EOTF,
-> +
-
-Hi,
-
-if you read ITU-R BT.2100[1], you will see that the HLG EOTF has three
-parameters: the system gamma, the display nominal peak luminance, and
-the display black luminance. You cannot define a HLG EOTF or its
-inverse without these parameters. One might assume to derive the system
-gamma from the peak luminance, but I would like to leave that as a free
-parameter if possible, because I'm not convinced the formulas for it are
-universally applicable.
-
-The HLG OETF on the other hand is a fixed function. Did you mean that
-instead?
+You did not respond to several comments in total, it's fine, but if you
+just ignored them, then it would not be fine.
 
 
-[1]: https://gitlab.freedesktop.org/pq/color-and-hdr/-/blob/main/doc/specs.=
-md#itu-r-bt2100
-
-
-Thanks,
-pq
-
---Sig_/Z3McZGD/cduzL_hjq1GrAml
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCAAdFiEEJQjwWQChkWOYOIONI1/ltBGqqqcFAmmFq3YACgkQI1/ltBGq
-qqfkthAAl9JVF0BXYzyrmP1Q4T70bzj+epbVNcVjVbZlOwqrh+7gVLz7rrchimpN
-Sngz1zHLFa91+4ZkuzzGGPqxeCDOVhr0eraz6lrraMo0cWzQdtgfTkKLexw8t4ds
-67U5dv/QBYdDTfQRlxlMGM9hXtG044wNJk0QCzeQQvXSSY3sNNzCVf47JvW4VqW/
-/P3VfzkIP/VyPQqfeX+OFqthjrnMv0wZLR1e5JxzYtk+bXxV7b+KR249uLy61ddN
-4OGn3X2iufMMXyzY9WEq3nOMhhtWG4pzux2KE4OabdbwPRI+fsUadSnVMFQjs7eo
-nSD2mFTXG5DW4UNWnnrWeZKdZee74i+G2G8ojWS0zHqFZ9cRjr7WsAi50xbfl1du
-tLZKuHwOuX1kPgzEmMaNwrzlT/J1ROuSq/tRd3EXdXu6jqK4Abive/XDu1Nkltwt
-MwWkOqnuQ3gnVoGcsEw6Gk71EBl96JlQf1JFBE23FnaarllJXwYYZZVmDtwH1hMx
-LWb9YcDcFeKa+qcEsvvVrWZmP9umpN5h4BkJpLypuAKsq5+o6OnnUapHpc0EyLxD
-vqsVV/NZJyPXlMhyLcO/DUSefJHZKFZvShxZRXi+DRu7K3utFMvq8Qg9mZaJyByG
-CN7kNQAdDQM0ELz7I3pIEleHpeyC3HI80/AA94FgWoh1tdLgTQU=
-=jHqA
------END PGP SIGNATURE-----
-
---Sig_/Z3McZGD/cduzL_hjq1GrAml--
+Best regards,
+Krzysztof
 
