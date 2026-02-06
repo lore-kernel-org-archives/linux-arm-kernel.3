@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36DF8EE6B46
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 18:13:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8FFEEE6B4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 18:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d2ofjIyvWI7SYrlV1RzeV2oUOz3gOrrE6AU6yxfprIc=; b=d9/YUSkHAm8S601LpiZkZX6SQ0
-	AJHDnDUvidcIwtrriDyr27eMHT22eLR6aLaHMwtvpm/ZCK9pyHNLsTe+fXdhOmQHlTlCtL3dmPot6
-	/8mtVYbM1DSJz05YLXdCIBRZXNspjbG6gc25rQQOeTXg4ia40LckHNrVYvrduA7504Hz+bHJ/AS7g
-	smlYIHKSeMngweKghoX9959a4ydZnaEYk0WpPRY+U/1MBtx/Wt72OBFlviVkTgDNaQXwy4xiGBgH/
-	KwHCaILNbwQ/uc1ekYUXwqJ+MULJ/Ag164hxHK0ggdIyeD9n+/tFdYy1pZDIzqddtpJCEDGCZU5hh
-	1ToT4a3w==;
+	bh=/NTx5jVt3nnO6451xdzF23y8UlccdoPc3a8t65hXHOs=; b=x6I73vL8+4BfQRGAkivieU/MTG
+	OE2LabJvga73BHfc9UgzfSmCFTPiHYqBWZ8w89Eso610/adMreMJVnMGZbFTGG8WZUe0eLMsuKSh7
+	q8l01fkxXUkEztGx3Z5eG3s7juCvNA5dptV94vyiaLo9REDo81xQLhYKRPVZfYnyrNQkv4CKweaoO
+	2xf7Rq8O3StaLH5sZeBsXdoHt/QWOHU/sjHl0/zh3qtfyZGp3OZZH4rLqQsclNnU4sAqCmqQko6oT
+	e8p91gzq4Nbf+Ylyynk1TzhQCCOBjR9deuE/4SQWWzTeij13vtpU5lrN2vJ6gaLeps2wTDGOO3m6z
+	fSS1Jg9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voQKg-0000000Bel8-2gPO;
-	Fri, 06 Feb 2026 18:13:30 +0000
-Received: from mail-dy1-x1335.google.com ([2607:f8b0:4864:20::1335])
+	id 1voQKm-0000000Bero-2sQo;
+	Fri, 06 Feb 2026 18:13:36 +0000
+Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voQKd-0000000Bej2-3qq2
+	id 1voQKk-0000000Benp-0ApV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 18:13:29 +0000
-Received: by mail-dy1-x1335.google.com with SMTP id 5a478bee46e88-2b8392fb4dcso2474038eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Feb 2026 10:13:27 -0800 (PST)
+	Fri, 06 Feb 2026 18:13:35 +0000
+Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-2b71515d8adso2218436eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Feb 2026 10:13:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770401607; x=1771006407; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1770401613; x=1771006413; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=d2ofjIyvWI7SYrlV1RzeV2oUOz3gOrrE6AU6yxfprIc=;
-        b=aZaYmiO7G+OA8NhteCE0cCSOhjCAOCI+gODgkh+VZTc6tYT672d+FCB4UmiZjBYJ5r
-         JT7QpOPOqtDaKvbHyZiDWi8ImAkIY/Lbj7KbdEfmNqgn2rq+FZw3riTA5eZofk6SjTk2
-         Fn3/ztozc9HZNeCjt4jpjKOU/ZxZs3kESflrtwIlefxJnKeyda3l+Khuozgr1D6V6GB0
-         H0qPLEJtjABtPaIc3dQmRmYk1f04ech4hHxGvm1nN8pz58+uD6+qikyGHgzXcrmDYwxX
-         d+bZPkeqS2gpqDKUAzu65aNPE8eNuTBMlnD8xFnKg7Bg9iEDifWRGdWTyT6H216l+aeG
-         IdyA==
+        bh=/NTx5jVt3nnO6451xdzF23y8UlccdoPc3a8t65hXHOs=;
+        b=cWVFEpBVKTeZNHCtiSmx+SqsDl636XyEs9gR6TmuHVMzZru35zbE4mjB3GMijDBFcW
+         Iw4L+mcFeUvPTuP1LZlM+AJIZC/7UeKAhDu9SGrT+77f2oCJB6tIyXFT8eAvcPemQCDc
+         tBo5jKhx2Q0yyIPtqaDrnQwhQ8tvAy/FIUUUxT1Owv2s/5axTVA0+qXq0md/LFJEU3TL
+         nzfK47Wojf++9eXQZzkzG3UJtc7V+VwN7IztlhXQpa9373mHqx+xsBO52cVE0Qj0f8eF
+         HgED7J1tdVrK7T6rlxjCfyS20Fk9rzdC/x/BWUN+oFjBZKcVeNS0krsrYumfDAKUAVqS
+         THiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770401607; x=1771006407;
+        d=1e100.net; s=20230601; t=1770401613; x=1771006413;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=d2ofjIyvWI7SYrlV1RzeV2oUOz3gOrrE6AU6yxfprIc=;
-        b=ONHdNfWE5yIVmw2l+b1QrBXr/+0Zsy5z2chud+Q4gMTnQT5bU1GpOXE1PihfAA0Cmk
-         soVG9JuJiKM9eTv5WCQKgmRUfK6c9x463WpXCG/E87yXfq+tzWRxa5OEmmtMODKNARUf
-         UQATIKplSPE4knda8pWeIyQ4XZKY7CCljd8qGtKq4zhDQFIeelri6lE59TnzUEkG307d
-         3wON6zuKxp/g55EtxowzdjA+QbROifS9KoMzfPi6FJDWx7SFCN0t1Rb2A6soM8vrcIwJ
-         jK5/cCsZWVtlxT//Dm8ryTHE1eeI8uWgBlx6DXCIhwDsWlZGJq0LPFAAEU3s5dkAXhRc
-         xFtA==
-X-Forwarded-Encrypted: i=1; AJvYcCURYjawAQCcxgeobwop/BSwfMrR3+dq1uc+uI3Q/uqyQuGrsSiH7UcUgACdHPLEtF6tzrSm05tA8s0n5lBNWe0/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZe2ADfVjzpr9kQ+giyqYA11EApzg6EMASmUhNY4tazg0kTW9q
-	+bDGFO24wTdilT6yx7OpcfF/xyKrkF1TfQ6z25THYwtLR91dSTss6QWY
-X-Gm-Gg: AZuq6aJledZmitW8+hEgJr+K3FPGelZIwFsvUiHPdE7JhDwFc7PowCZnxr625KcelmO
-	XWVi0+AoCWFM9yOB2afu280S1vMcmdNSFHHPjZwDbPOXE/uq7GbMZQ5BlVwFtgPlZcYDlMKWH+b
-	GwWAYTD21/pz0nwOc82vor52n7JYzEiJmn+KbBW6mtWxDNRF/UXvWCpJqEGpIijshgSxb/qXdao
-	ZwulcE8CNDnxoWNBJjgDHirjQudSqsFtPzZZonZZbsKVR8eiqkTwc2Sqrsk0mgPGqiBi7RK89UH
-	sqp/h+EabQe6njyertam51B5cPbmurqDVJOBf4CjGhsjt/SIDSx7UNGN7PZ4rERapcJ2k7ynTp3
-	QF04Pg4aaa7Hd9nEWNPQtr3UEmvWhEFCjCczDGH4AWyncod0eHt21LVjc3h6E8ymO82HMgqJvKm
-	sJakn+zd6ta8FIUS/QdbWOuAuM
-X-Received: by 2002:a05:7300:d705:b0:2b7:30a4:8ce6 with SMTP id 5a478bee46e88-2b856722da2mr1562770eec.38.1770401606715;
-        Fri, 06 Feb 2026 10:13:26 -0800 (PST)
+        bh=/NTx5jVt3nnO6451xdzF23y8UlccdoPc3a8t65hXHOs=;
+        b=pDqaDW2QrzDMDggOBOVEExfDIrtoDxfDsNYzQwbTC9WimL1OZqy4qoSYBl6SwwaTsN
+         Ozr5NzhLGJH0DakzzhWQcnf2ERInh5K1BCFUcyOVZbFYkUFEclSIRFIijlhILbsjO/RR
+         teqxDJBDqfrgFuMyBxSqXrHDYVelv8yTbSCVrjp1Fg7L1x4DPhbiuLndJJ/pDy4AIrwK
+         33oyHNNBMQr79pmt/JqXCUFdDMS7vJuHj+SjxivgIa9nmILaSgqF4caixQEF5KecCLB2
+         HnGkM3FF8tKBY8PoCN7IXoTAL4c6T/sK528lUwvtpWsPjAF8xuKSm5aaHVMHAkh/Jonw
+         eWSw==
+X-Forwarded-Encrypted: i=1; AJvYcCXdyMUWmaEa+4qov8G/pIINYNv3FoEWL28CTnsYAwlB+At/5e2Nwns2bqZHnV1n5+eXjWNEuSl0Z4pAMylNt2r6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw765KCShx3J532my/XOnyRPjOwx0OR7u89SPV0CCXaPQbMaM7j
+	dr7Gl321+nuzvJYCuch1dBqHKklB2jsZWvi2LhSqXAiSlqCGMAY+W5ZT
+X-Gm-Gg: AZuq6aJBz6Qk7Xy1GB3mOHS266WuazX3Kli3k1rb92P46swoPDk6Po+1YOmziEP2N0M
+	fb9nOho5uved03Ff5e8VfadOeX9H4WxdbszbZdvyaOsmGFRSMQDwK8nHlEv8DRttvMorohpJIMh
+	5TB9zqudh9MIKC/F23l+ThyofSQUIpU1llPfmgl1AvzhLLQ494u8Mxe/XAW313v5QXltWQb+8ax
+	4WK78qaK2ewNdEAPSD9JA9/EmmoKRtBVRWqSEi5vP4owMH4Y/PETuxYZsTd6uXwYLOc9CVFQX66
+	1ZjSJslFJz0FIV+OIed1jWqLj06AIdxKLkpaduU5Z13DsYmP70FzX9dSEuOet7Zt3BT/Ys8X3mS
+	/jUnrcsy2rvXUT8XlTb1TWiDOBNjIcMUzyTznxin3mm0Tde/OFyh4GKW4bZOMZy2gpRLzpiD2y9
+	aPyAMil2RuLI/RmO2TaEYqEkMj
+X-Received: by 2002:a05:7300:f602:b0:2b8:209d:596c with SMTP id 5a478bee46e88-2b85683104amr1413189eec.29.1770401613072;
+        Fri, 06 Feb 2026 10:13:33 -0800 (PST)
 Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:44a3:2bb7:a035:fd7e])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1270433ab31sm2782500c88.11.2026.02.06.10.13.24
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1270433ab31sm2782500c88.11.2026.02.06.10.13.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Feb 2026 10:13:26 -0800 (PST)
+        Fri, 06 Feb 2026 10:13:32 -0800 (PST)
 From: Fabio Estevam <festevam@gmail.com>
 To: heiko@sntech.de
 Cc: robh@kernel.org,
@@ -78,18 +78,20 @@ Cc: robh@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	Fabio Estevam <festevam@nabladev.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Subject: [PATCH 02/11] dt-bindings: clk: rockchip: Add RV1103B clock header
-Date: Fri,  6 Feb 2026 15:13:00 -0300
-Message-Id: <20260206181309.2696095-3-festevam@gmail.com>
+	Linus Walleij <linusw@kernel.org>,
+	linux-gpio@vger.kernel.org
+Subject: [PATCH 04/11] dt-bindings: pinctrl: Add RV1103B pinctrl support
+Date: Fri,  6 Feb 2026 15:13:02 -0300
+Message-Id: <20260206181309.2696095-5-festevam@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260206181309.2696095-1-festevam@gmail.com>
 References: <20260206181309.2696095-1-festevam@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_101327_991082_39595236 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20260206_101334_098969_950D590D 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,509 +108,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Fabio Estevam <festevam@nabladev.com>
 
-Add the RV1103B clock and reset IDs.
+Document the compatible string for the RV1103B SoC.
 
-Cc: Stephen Boyd <sboyd@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>
+Cc: linux-gpio@vger.kernel.org
 Signed-off-by: Fabio Estevam <festevam@nabladev.com>
 ---
- .../dt-bindings/clock/rockchip,rv1103b-cru.h  | 488 ++++++++++++++++++
- 1 file changed, 488 insertions(+)
- create mode 100644 include/dt-bindings/clock/rockchip,rv1103b-cru.h
+ Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/include/dt-bindings/clock/rockchip,rv1103b-cru.h b/include/dt-bindings/clock/rockchip,rv1103b-cru.h
-new file mode 100644
-index 000000000000..92c994185354
---- /dev/null
-+++ b/include/dt-bindings/clock/rockchip,rv1103b-cru.h
-@@ -0,0 +1,488 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-+/*
-+ * Copyright (c) 2024 Rockchip Electronics Co. Ltd.
-+ * Author: Elaine Zhang <zhangqing@rock-chips.com>
-+ */
-+
-+#ifndef _DT_BINDINGS_CLK_ROCKCHIP_RV1103B_H
-+#define _DT_BINDINGS_CLK_ROCKCHIP_RV1103B_H
-+
-+/* pll clocks */
-+#define PLL_GPLL				1
-+#define ARMCLK					2
-+#define PLL_DPLL				3
-+
-+/* clk (clocks) */
-+#define XIN_OSC0_HALF				5
-+#define CLK_GPLL_DIV24				6
-+#define CLK_GPLL_DIV12				7
-+#define CLK_GPLL_DIV6				8
-+#define CLK_GPLL_DIV4				9
-+#define CLK_GPLL_DIV3				10
-+#define CLK_GPLL_DIV2P5				11
-+#define CLK_GPLL_DIV2				12
-+#define CLK_UART0_SRC				13
-+#define CLK_UART1_SRC				14
-+#define CLK_UART2_SRC				15
-+#define CLK_UART0_FRAC				16
-+#define CLK_UART1_FRAC				17
-+#define CLK_UART2_FRAC				18
-+#define CLK_SAI_SRC				19
-+#define CLK_SAI_FRAC				20
-+#define LSCLK_NPU_SRC				21
-+#define CLK_NPU_SRC				22
-+#define ACLK_VEPU_SRC				23
-+#define CLK_VEPU_SRC				24
-+#define ACLK_VI_SRC				25
-+#define CLK_ISP_SRC				26
-+#define DCLK_VICAP				27
-+#define CCLK_EMMC				28
-+#define CCLK_SDMMC0				29
-+#define SCLK_SFC_2X				30
-+#define LSCLK_PERI_SRC				31
-+#define ACLK_PERI_SRC				32
-+#define HCLK_HPMCU				33
-+#define SCLK_UART0				34
-+#define SCLK_UART1				35
-+#define SCLK_UART2				36
-+#define CLK_I2C_PMU				37
-+#define CLK_I2C_PERI				38
-+#define CLK_SPI0				39
-+#define CLK_PWM0_SRC				40
-+#define CLK_PWM1				41
-+#define CLK_PWM2				42
-+#define DCLK_DECOM_SRC				43
-+#define CCLK_SDMMC1				44
-+#define CLK_CORE_CRYPTO				45
-+#define CLK_PKA_CRYPTO				46
-+#define CLK_CORE_RGA				47
-+#define MCLK_SAI_SRC				48
-+#define CLK_FREQ_PWM0_SRC			49
-+#define CLK_COUNTER_PWM0_SRC			50
-+#define PCLK_TOP_ROOT				51
-+#define CLK_REF_MIPI0				52
-+#define CLK_MIPI0_OUT2IO			53
-+#define CLK_REF_MIPI1				54
-+#define CLK_MIPI1_OUT2IO			55
-+#define MCLK_SAI_OUT2IO				56
-+#define ACLK_NPU_ROOT				57
-+#define HCLK_RKNN				58
-+#define ACLK_RKNN				59
-+#define LSCLK_VEPU_ROOT				60
-+#define HCLK_VEPU				61
-+#define ACLK_VEPU				62
-+#define CLK_CORE_VEPU				63
-+#define PCLK_IOC_VCCIO3				64
-+#define PCLK_ACODEC				65
-+#define PCLK_USBPHY				66
-+#define LSCLK_VI_100M				67
-+#define LSCLK_VI_ROOT				68
-+#define HCLK_ISP				69
-+#define ACLK_ISP				70
-+#define CLK_CORE_ISP				71
-+#define ACLK_VICAP				72
-+#define HCLK_VICAP				73
-+#define ISP0CLK_VICAP				74
-+#define PCLK_CSI2HOST0				75
-+#define PCLK_CSI2HOST1				76
-+#define HCLK_EMMC				77
-+#define HCLK_SFC				78
-+#define HCLK_SFC_XIP				79
-+#define HCLK_SDMMC0				80
-+#define PCLK_CSIPHY				81
-+#define PCLK_GPIO1				82
-+#define DBCLK_GPIO1				83
-+#define PCLK_IOC_VCCIO47			84
-+#define LSCLK_DDR_ROOT				85
-+#define CLK_TIMER_DDRMON			86
-+#define LSCLK_PMU_ROOT				87
-+#define PCLK_PMU				88
-+#define XIN_RC_DIV				89
-+#define CLK_32K					90
-+#define PCLK_PMU_GPIO0				91
-+#define DBCLK_PMU_GPIO0				92
-+#define CLK_DDR_FAIL_SAFE			93
-+#define PCLK_PMU_HP_TIMER			94
-+#define CLK_PMU_32K_HP_TIMER			95
-+#define PCLK_PWM0				96
-+#define CLK_PWM0				97
-+#define CLK_OSC_PWM0				98
-+#define CLK_RC_PWM0				99
-+#define CLK_FREQ_PWM0				100
-+#define CLK_COUNTER_PWM0			101
-+#define PCLK_I2C0				102
-+#define CLK_I2C0				103
-+#define PCLK_UART0				104
-+#define PCLK_IOC_PMUIO0				105
-+#define CLK_REFOUT				106
-+#define CLK_PREROLL				107
-+#define CLK_PREROLL_32K				108
-+#define CLK_LPMCU_PMU				109
-+#define PCLK_SPI2AHB				110
-+#define HCLK_SPI2AHB				111
-+#define SCLK_SPI2AHB				112
-+#define PCLK_WDT_LPMCU				113
-+#define TCLK_WDT_LPMCU				114
-+#define HCLK_SFC_PMU1				115
-+#define HCLK_SFC_XIP_PMU1			116
-+#define SCLK_SFC_2X_PMU1			117
-+#define CLK_LPMCU				118
-+#define CLK_LPMCU_RTC				119
-+#define PCLK_LPMCU_MAILBOX			120
-+#define PCLK_IOC_PMUIO1				121
-+#define PCLK_CRU_PMU1				122
-+#define PCLK_PERI_ROOT				123
-+#define PCLK_RTC_ROOT				124
-+#define CLK_TIMER_ROOT				125
-+#define PCLK_TIMER				126
-+#define CLK_TIMER0				127
-+#define CLK_TIMER1				128
-+#define CLK_TIMER2				129
-+#define CLK_TIMER3				130
-+#define CLK_TIMER4				131
-+#define CLK_TIMER5				132
-+#define PCLK_STIMER				133
-+#define CLK_STIMER0				134
-+#define CLK_STIMER1				135
-+#define PCLK_WDT_NS				136
-+#define TCLK_WDT_NS				137
-+#define PCLK_WDT_S				138
-+#define TCLK_WDT_S				139
-+#define PCLK_WDT_HPMCU				140
-+#define TCLK_WDT_HPMCU				141
-+#define PCLK_I2C1				142
-+#define CLK_I2C1				143
-+#define PCLK_I2C2				144
-+#define CLK_I2C2				145
-+#define PCLK_I2C3				146
-+#define CLK_I2C3				147
-+#define PCLK_I2C4				148
-+#define CLK_I2C4				149
-+#define PCLK_SPI0				150
-+#define PCLK_PWM1				151
-+#define CLK_OSC_PWM1				152
-+#define PCLK_PWM2				153
-+#define CLK_OSC_PWM2				154
-+#define PCLK_UART2				155
-+#define PCLK_UART1				156
-+#define ACLK_RKDMA				157
-+#define PCLK_TSADC				158
-+#define CLK_TSADC				159
-+#define CLK_TSADC_TSEN				160
-+#define PCLK_SARADC				161
-+#define CLK_SARADC				162
-+#define PCLK_GPIO2				163
-+#define DBCLK_GPIO2				164
-+#define PCLK_IOC_VCCIO6				165
-+#define ACLK_USBOTG				166
-+#define CLK_REF_USBOTG				167
-+#define HCLK_SDMMC1				168
-+#define HCLK_SAI				169
-+#define MCLK_SAI				170
-+#define ACLK_CRYPTO				171
-+#define HCLK_CRYPTO				172
-+#define HCLK_RK_RNG_NS				173
-+#define HCLK_RK_RNG_S				174
-+#define PCLK_OTPC_NS				175
-+#define CLK_OTPC_ROOT_NS			176
-+#define CLK_SBPI_OTPC_NS			177
-+#define CLK_USER_OTPC_NS			178
-+#define PCLK_OTPC_S				179
-+#define CLK_OTPC_ROOT_S				180
-+#define CLK_SBPI_OTPC_S				181
-+#define CLK_USER_OTPC_S				182
-+#define CLK_OTPC_ARB				183
-+#define PCLK_OTP_MASK				184
-+#define HCLK_RGA				185
-+#define ACLK_RGA				186
-+#define ACLK_MAC				187
-+#define PCLK_MAC				188
-+#define CLK_MACPHY				189
-+#define ACLK_SPINLOCK				190
-+#define HCLK_CACHE				191
-+#define PCLK_HPMCU_MAILBOX			192
-+#define PCLK_HPMCU_INTMUX			193
-+#define CLK_HPMCU				194
-+#define CLK_HPMCU_RTC				195
-+#define DCLK_DECOM				196
-+#define ACLK_DECOM				197
-+#define PCLK_DECOM				198
-+#define ACLK_SYS_SRAM				199
-+#define PCLK_DMA2DDR				200
-+#define ACLK_DMA2DDR				201
-+#define PCLK_DCF				202
-+#define ACLK_DCF				203
-+#define MCLK_ACODEC_TX				204
-+#define SCLK_UART0_SRC				205
-+#define SCLK_UART1_SRC				206
-+#define SCLK_UART2_SRC				207
-+#define XIN_RC_SRC				208
-+#define CLK_UTMI_USBOTG				209
-+#define CLK_REF_USBPHY				230
-+
-+// PERICRU_SOFTRST_CON00(Offset:0xA00)
-+#define SRST_ARESETN_PERI_BIU			0x00000002
-+#define SRST_HRESETN_HPMCU_BIU			0x00000003
-+#define SRST_LSRESETN_PERI_BIU			0x00000004
-+#define SRST_PRESETN_PERI_BIU			0x00000005
-+#define SRST_PRESETN_RTC_BIU			0x00000006
-+#define SRST_HRESETN_BOOTROM			0x00000007
-+
-+// PERICRU_SOFTRST_CON01(Offset:0xA04)
-+#define SRST_PRESETN_TIMER			0x00000010
-+#define SRST_RESETN_TIMER0			0x00000011
-+#define SRST_RESETN_TIMER1			0x00000012
-+#define SRST_RESETN_TIMER2			0x00000013
-+#define SRST_RESETN_TIMER3			0x00000014
-+#define SRST_RESETN_TIMER4			0x00000015
-+#define SRST_RESETN_TIMER5			0x00000016
-+#define SRST_PRESETN_STIMER			0x00000017
-+#define SRST_RESETN_STIMER0			0x00000018
-+#define SRST_RESETN_STIMER1			0x00000019
-+
-+// PERICRU_SOFTRST_CON02(Offset:0xA08)
-+#define SRST_PRESETN_WDT_NS			0x00000020
-+#define SRST_TRESETN_WDT_NS			0x00000021
-+#define SRST_PRESETN_WDT_S			0x00000022
-+#define SRST_TRESETN_WDT_S			0x00000023
-+#define SRST_PRESETN_WDT_HPMCU			0x00000024
-+#define SRST_TRESETN_WDT_HPMCU			0x00000025
-+#define SRST_PRESETN_I2C1			0x00000026
-+#define SRST_RESETN_I2C1			0x00000027
-+#define SRST_PRESETN_I2C2			0x00000028
-+#define SRST_RESETN_I2C2			0x00000029
-+#define SRST_PRESETN_I2C3			0x0000002A
-+#define SRST_RESETN_I2C3			0x0000002B
-+#define SRST_PRESETN_I2C4			0x0000002C
-+#define SRST_RESETN_I2C4			0x0000002D
-+
-+// PERICRU_SOFTRST_CON03(Offset:0xA0C)
-+#define SRST_PRESETN_UART2			0x00000030
-+#define SRST_SRESETN_UART2			0x00000031
-+#define SRST_PRESETN_UART1			0x00000032
-+#define SRST_SRESETN_UART1			0x00000033
-+#define SRST_PRESETN_SPI0			0x0000003A
-+#define SRST_RESETN_SPI0			0x0000003B
-+
-+// PERICRU_SOFTRST_CON04(Offset:0xA10)
-+#define SRST_PRESETN_PWM1			0x00000046
-+#define SRST_RESETN_PWM1			0x00000047
-+#define SRST_PRESETN_PWM2			0x0000004C
-+#define SRST_RESETN_PWM2			0x0000004D
-+
-+// PERICRU_SOFTRST_CON05(Offset:0xA14)
-+#define SRST_ARESETN_RKDMA			0x00000058
-+#define SRST_PRESETN_TSADC			0x00000059
-+#define SRST_RESETN_TSADC			0x0000005A
-+#define SRST_PRESETN_SARADC			0x0000005C
-+#define SRST_RESETN_SARADC			0x0000005D
-+
-+// PERICRU_SOFTRST_CON06(Offset:0xA18)
-+#define SRST_RESETN_SARADC_PHY			0x00000060
-+#define SRST_PRESETN_RTC_TEST			0x00000061
-+#define SRST_PRESETN_GPIO2			0x00000063
-+#define SRST_DBRESETN_GPIO2			0x00000064
-+#define SRST_PRESETN_IOC_VCCIO6			0x00000065
-+#define SRST_PRESETN_PERI_SGRF			0x00000066
-+#define SRST_PRESETN_PERI_GRF			0x00000067
-+#define SRST_PRESETN_CRU_PERI			0x00000068
-+#define SRST_ARESETN_USBOTG			0x00000069
-+
-+// PERICRU_SOFTRST_CON07(Offset:0xA1C)
-+#define SRST_HRESETN_SDMMC1			0x00000070
-+#define SRST_HRESETN_SAI			0x00000071
-+#define SRST_MRESETN_SAI			0x00000072
-+
-+// PERICRU_SOFTRST_CON08(Offset:0xA20)
-+#define SRST_RESETN_CORE_CRYPTO			0x00000080
-+#define SRST_RESETN_PKA_CRYPTO			0x00000081
-+#define SRST_ARESETN_CRYPTO			0x00000082
-+#define SRST_HRESETN_CRYPTO			0x00000083
-+#define SRST_HRESETN_RK_RNG_NS			0x00000084
-+#define SRST_HRESETN_RK_RNG_S			0x00000085
-+#define SRST_PRESETN_OTPC_NS			0x00000086
-+#define SRST_RESETN_SBPI_OTPC_NS		0x00000088
-+#define SRST_RESETN_USER_OTPC_NS		0x00000089
-+#define SRST_PRESETN_OTPC_S			0x0000008A
-+#define SRST_RESETN_SBPI_OTPC_S			0x0000008C
-+#define SRST_RESETN_USER_OTPC_S			0x0000008D
-+#define SRST_RESETN_OTPC_ARB			0x0000008E
-+#define SRST_PRESETN_OTP_MASK			0x0000008F
-+
-+// PERICRU_SOFTRST_CON09(Offset:0xA24)
-+#define SRST_HRESETN_RGA			0x00000090
-+#define SRST_ARESETN_RGA			0x00000091
-+#define SRST_RESETN_CORE_RGA			0x00000092
-+#define SRST_ARESETN_MAC			0x00000093
-+#define SRST_RESETN_MACPHY			0x0000009B
-+
-+// PERICRU_SOFTRST_CON10(Offset:0xA28)
-+#define SRST_ARESETN_SPINLOCK			0x000000A0
-+#define SRST_HRESETN_CACHE			0x000000A1
-+#define SRST_PRESETN_HPMCU_MAILBOX		0x000000A2
-+#define SRST_PRESETN_HPMCU_INTMUX		0x000000A3
-+#define SRST_RESETN_HPMCU_FULL_CLUSTER		0x000000A4
-+#define SRST_RESETN_HPMCU_PWUP			0x000000A5
-+#define SRST_RESETN_HPMCU_ONLY_CORE		0x000000A6
-+#define SRST_TRESETN_HPMCU_JTAG			0x000000A7
-+
-+// PERICRU_SOFTRST_CON11(Offset:0xA2C)
-+#define SRST_DRESETN_DECOM			0x000000B0
-+#define SRST_ARESETN_DECOM			0x000000B1
-+#define SRST_PRESETN_DECOM			0x000000B2
-+#define SRST_ARESETN_SYS_SRAM			0x000000B3
-+#define SRST_PRESETN_DMA2DDR			0x000000B4
-+#define SRST_ARESETN_DMA2DDR			0x000000B5
-+#define SRST_PRESETN_DCF			0x000000B6
-+#define SRST_ARESETN_DCF			0x000000B7
-+#define SRST_RESETN_USBPHY_POR			0x000000BC
-+#define SRST_RESETN_USBPHY_OTG			0x000000BD
-+
-+// ======================= VEPUCRU module definition bank=1 =======================
-+// VEPUCRU_SOFTRST_CON00(Offset:0xA00)
-+#define SRST_ARESETN_VEPU_BIU			0x00040001
-+#define SRST_LSRESETN_VEPU_BIU			0x00040002
-+#define SRST_RESETN_REF_PVTPLL_VEPU		0x00040003
-+#define SRST_HRESETN_VEPU			0x00040004
-+#define SRST_ARESETN_VEPU			0x00040005
-+#define SRST_RESETN_CORE_VEPU			0x00040006
-+#define SRST_PRESETN_VEPU_PVTPLL		0x00040007
-+#define SRST_PRESETN_CRU_VEPU			0x00040008
-+#define SRST_PRESETN_VEPU_GRF			0x0004000A
-+#define SRST_PRESETN_IOC_VCCIO3			0x0004000B
-+#define SRST_PRESETN_ACODEC			0x0004000D
-+#define SRST_PRESETN_USBPHY			0x0004000E
-+
-+// ======================= NPUCRU module definition bank=2 ========================
-+// NPUCRU_SOFTRST_CON00(Offset:0xA00)
-+#define SRST_RESETN_REF_PVTPLL_NPU		0x00080000
-+#define SRST_ARESETN_NPU_BIU			0x00080002
-+#define SRST_LSRESETN_NPU_BIU			0x00080003
-+#define SRST_HRESETN_RKNN			0x00080004
-+#define SRST_ARESETN_RKNN			0x00080005
-+#define SRST_PRESETN_NPU_PVTPLL			0x00080006
-+#define SRST_PRESETN_CRU_NPU			0x00080007
-+#define SRST_PRESETN_NPU_GRF			0x00080009
-+
-+// ======================== VICRU module definition bank=3 ========================
-+// VICRU_SOFTRST_CON00(Offset:0xA00)
-+#define SRST_LSRESETN_VI_BIU			0x000c0001
-+#define SRST_ARESETN_VI_BIU			0x000c0002
-+#define SRST_RESETN_REF_PVTPLL_ISP		0x000c0003
-+#define SRST_RESETN_CORE_ISP			0x000c0006
-+
-+// VICRU_SOFTRST_CON01(Offset:0xA04)
-+#define SRST_DRESETN_VICAP			0x000c0010
-+#define SRST_ARESETN_VICAP			0x000c0012
-+#define SRST_HRESETN_VICAP			0x000c0013
-+#define SRST_ISP0RESETN_VICAP			0x000c0018
-+#define SRST_PRESETN_CSI2HOST0			0x000c0019
-+#define SRST_PRESETN_CSI2HOST1			0x000c001B
-+#define SRST_SRESETN_SFC_2X			0x000c001C
-+#define SRST_HRESETN_EMMC			0x000c001D
-+#define SRST_HRESETN_SFC			0x000c001E
-+#define SRST_HRESETN_SFC_XIP			0x000c001F
-+
-+// VICRU_SOFTRST_CON02(Offset:0xA08)
-+#define SRST_HRESETN_SDMMC0			0x000c0020
-+#define SRST_PRESETN_CSIPHY			0x000c0022
-+#define SRST_PRESETN_GPIO1			0x000c0023
-+#define SRST_DBRESETN_GPIO1			0x000c0024
-+#define SRST_PRESETN_IOC_VCCIO47		0x000c0025
-+#define SRST_PRESETN_VI_GRF			0x000c0026
-+#define SRST_PRESETN_CRU_VI			0x000c0028
-+#define SRST_PRESETN_VI_PVTPLL			0x000c0029
-+
-+// ======================= CORECRU module definition bank=4 =======================
-+// CORECRU_SOFTRST_CON00(Offset:0xA00)
-+#define SRST_RESETN_REF_PVTPLL_CORE		0x00100000
-+#define SRST_NCOREPORESET			0x00100001
-+#define SRST_NCORESET				0x00100002
-+#define SRST_NDBGRESET				0x00100003
-+#define SRST_NL2RESET				0x00100004
-+#define SRST_ARESETN_CORE_BIU			0x00100005
-+#define SRST_PRESETN_CORE_BIU			0x00100006
-+#define SRST_HRESETN_CORE_BIU			0x00100007
-+#define SRST_PRESETN_DBG			0x00100008
-+#define SRST_POTRESETN_DBG			0x00100009
-+#define SRST_NTRESETN_DBG			0x0010000A
-+
-+// ======================= DDRCRU module definition bank=5 ========================
-+// DDRCRU_SOFTRST_CON00(Offset:0xA00)
-+#define SRST_LSRESETN_DDR_BIU			0x00140001
-+#define SRST_PRESETN_DDRC			0x00140002
-+#define SRST_PRESETN_DDRMON			0x00140003
-+#define SRST_RESETN_TIMER_DDRMON		0x00140004
-+#define SRST_PRESETN_DFICTRL			0x00140005
-+#define SRST_PRESETN_DDR_GRF			0x00140006
-+#define SRST_PRESETN_CRU_DDR			0x00140007
-+#define SRST_HRESETN_DDRPHY			0x00140008
-+
-+// ====================== SUBDDRCRU module definition bank=6 ======================
-+// SUBDDRCRU_SOFTRST_CON00(Offset:0xA00)
-+#define SRST_RESETN_DDR_BIU			0x00160001
-+#define SRST_ARESETN_DDRSCH_CPU			0x00160002
-+#define SRST_ARESETN_DDRSCH_VI			0x00160004
-+#define SRST_ARESETN_DDRSCH_NPVD		0x00160005
-+#define SRST_RESETN_CORE_DDRC			0x00160006
-+#define SRST_RESETN_DDRMON			0x00160007
-+#define SRST_RESETN_DFICTRL			0x00160008
-+#define SRST_RESETN_DFI_SCRAMBLE		0x00160009
-+
-+// ======================= TOPCRU module definition bank=7 ========================
-+// TOPCRU_SOFTRST_CON00(Offset:0xA00)
-+#define SRST_PRESETN_CRU			0x00180000
-+#define SRST_PRESETN_CRU_BIU			0x00180001
-+#define SRST_RESETN_DDRPHY			0x0018000C
-+
-+//======================= PMUCRU module definition bank=8 ========================
-+// PMUCRU_SOFTRST_CON00(Offset:0xA00)
-+#define SRST_PRESETN_PMU_GPIO0			0x001c0004
-+#define SRST_DBRESETN_PMU_GPIO0			0x001c0005
-+#define SRST_RESETN_DDR_FAIL_SAFE		0x001c0008
-+#define SRST_PRESETN_PMU_HP_TIMER		0x001c0009
-+#define SRST_RESETN_PMU_HP_TIMER		0x001c000A
-+#define SRST_RESETN_PMU_32K_HP_TIMER		0x001c000B
-+#define SRST_PRESETN_I2C0			0x001c000C
-+#define SRST_RESETN_I2C0			0x001c000D
-+#define SRST_PRESETN_UART0			0x001c000E
-+#define SRST_SRESETN_UART0			0x001c000F
-+
-+// PMUCRU_SOFTRST_CON01(Offset:0xA04)
-+#define SRST_PRESETN_IOC_PMUIO0			0x001c0010
-+#define SRST_PRESETN_CRU_PMU			0x001c0011
-+#define SRST_PRESETN_PMU_GRF			0x001c0012
-+#define SRST_PRESETN_PMU_SGRF			0x001c0013
-+#define SRST_PRESETN_PMU_SGRF_REMAP		0x001c0014
-+#define SRST_RESETN_PREROLL			0x001c0016
-+#define SRST_RESETN_PREROLL_32K			0x001c0017
-+#define SRST_HRESETN_PMU_SRAM			0x001c0018
-+#define SRST_PRESETN_PWM0			0x001c0019
-+#define SRST_RESETN_PWM0			0x001c001A
-+
-+// PMUCRU_SOFTRST_CON02(Offset:0xA08)
-+#define SRST_RESETN_LPMCU			0x001c0020
-+#define SRST_RESETN_LPMCU_PWRUP			0x001c0021
-+#define SRST_RESETN_LPMCU_CPU			0x001c0022
-+#define SRST_TRESETN_LPMCU_CPU			0x001c0023
-+
-+// ======================= PMU1CRU module definition bank=9 =======================
-+// PMU1CRU_SOFTRST_CON00(Offset:0xA00)
-+#define SRST_PRESETN_SPI2AHB			0x00200000
-+#define SRST_HRESETN_SPI2AHB			0x00200001
-+#define SRST_SRESETN_SPI2AHB			0x00200002
-+#define SRST_LSRESETN_PMU_BIU			0x00200003
-+#define SRST_PRESETN_WDT_LPMCU			0x00200009
-+#define SRST_TRESETN_WDT_LPMCU			0x0020000A
-+#define SRST_HRESETN_SFC_PMU1			0x0020000C
-+#define SRST_HRESETN_SFC_XIP_PMU1		0x0020000D
-+#define SRST_SRESETN_SFC_2X_PMU1		0x0020000E
-+
-+// PMU1CRU_SOFTRST_CON01(Offset:0xA04)
-+#define SRST_PRESETN_LPMCU_MAILBOX		0x00200018
-+#define SRST_PRESETN_IOC_PMUIO1			0x00200019
-+#define SRST_PRESETN_CRU_PMU1			0x0020001A
-+
-+#define CLK_NR_SRST				(SRST_PRESETN_CRU_PMU1 + 1)
-+
-+#endif
+diff --git a/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
+index 76e607281716..9b3cbeb54fed 100644
+--- a/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
+@@ -50,6 +50,7 @@ properties:
+       - rockchip,rk3568-pinctrl
+       - rockchip,rk3576-pinctrl
+       - rockchip,rk3588-pinctrl
++      - rockchip,rv1103b-pinctrl
+       - rockchip,rv1108-pinctrl
+       - rockchip,rv1126-pinctrl
+ 
 -- 
 2.34.1
 
