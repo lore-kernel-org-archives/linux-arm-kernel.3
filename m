@@ -4,108 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B1AEE20B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 17:15:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AC81EE20B9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 17:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=80qjx/m6F2WLJITrDsFU3j/ICinm+UjTBErhjxUjs9c=; b=NYuY0ynx/c9QAOnU1ezpI6OS2S
-	1efmEpGo0pnDcVaOqf4eDvm5ljs2KbOrBWkNAVI91X68WaMECqeJm0SXi0hvm6l3LdIO3CiHVC6UQ
-	uOPt74eVYsrjF+d5YF6QRwZQpktqw0mJvue6++2xUaixS3Gpv5HV7oaFkRKKuazuDkiAWXSM0S3vo
-	RvXS0ys9PDcWLKg49PWhxv6RgQAcdrSsxVS+D3ojtgQX4Zth4KpHdm4ExlBl45lxOpwyP5olOfcko
-	H080T8GVezMpdWRMOCHbRAp+BKf+Pn014WkROG7kHpD5h3itZbhhtaBYHOC7+tkpgVXYANpQbGPKX
-	MFL9Oh+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hBz1B1ch3uij2mP5ItPRrEZrt2hOKNjok2/Z3SVVwAE=; b=wMX/zqxswVGRnX1ymNNZ/hKVZ2
+	FbOzeaCbeqkxNA/5WeAM1mU56eYAOFrdPjPlCMYG1WDhn3tUYtoPLxbSQbUlJtoL7tiBwcc3bReN2
+	eCgSEVHm99MELBMpnar7+2R927zCQzU5NzEyLOFTq36hvjtHMU7yapGbhm3LwAX4AMzlRl8CvYgxB
+	v8uBBPVQWJnzbkjOwko3SUN2X/g48akr2y7pS+zQNO5Me0HFwkGwhLr1dfm6PPt9d2M+jyoYmxOkG
+	UnXyozz6cN3sgb0+GoLhNyc8bkaSg63ebEu4jFv2jYyWDwukVzUfkzxUKw1X5pfTzoYXe6U19oZA1
+	urqC5r7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voPQb-0000000Bbw9-0a7N;
-	Fri, 06 Feb 2026 17:15:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1voPUV-0000000BcRv-2FKK;
+	Fri, 06 Feb 2026 17:19:35 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voPQY-0000000Bbvz-399D
+	id 1voPUS-0000000BcNu-3RMz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 17:15:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 30EE9600CB;
-	Fri,  6 Feb 2026 17:15:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 099C7C116C6;
-	Fri,  6 Feb 2026 17:15:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770398129;
-	bh=jgk3Qy5pCj51WisnVThu7SdiyeE4ZJeW4iTYC2hFevQ=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=QfiqMXr1KhqEP48PvulFeq6YReDxBA7Irtb0Xv7byemhM2uI2euFBd0QmYpIbOwVU
-	 Xoqx6oGvFJinAnkhxH/Wn5obm54T5dLuiFDNNpkSZ9IaG98SjKB3DSEyNzuZvT/1zx
-	 qY636nHhOgnjuDYtVVPP+NbBTGA7ueWZyVnmxlx+5IMVEjxMoj5NFGX513Id1fX+f8
-	 k4AaJYNYtIM8TppSLeZ8TdHTsMs9yZjUzEJxaD0OkxGQcslthwySIi2NlVgn+Utclh
-	 oABbAV6G5abWUdl3wdz4aMEfn7EE9ryoUDhcuK8KSiLrlWyY6zbbrzVx8HMFm/w5Ck
-	 OH3XYjcOux8xg==
-Message-ID: <7bec9ff0-29c8-4468-9d31-2d2b483e2aaf@kernel.org>
-Date: Fri, 6 Feb 2026 18:15:25 +0100
+	Fri, 06 Feb 2026 17:19:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=hBz1B1ch3uij2mP5ItPRrEZrt2hOKNjok2/Z3SVVwAE=; b=cGN2Nra3VKLwUUCu1C3ru68F7Q
+	430jBi13WUXglaqY7kKbPJYZW98oMB4ViXQ5DgjUo/P7nmDlc998GGuGK1J1DqCM5bAZUt49dq6AL
+	dpQ0rhg8Ja4WRD+0ArK/I1JbIugABP2uLpWzbder7O1IyIJ8SlTAB38hyofgs877cXt0gUPxhGOV0
+	VugmV3sWVWRk7iWzUcRJfFV5hh4ghVGUJXUyCxdaMLAxIgAsapt4X4xATqC7WRld0UUcbU0yWOH7Z
+	/mRNSV50+Ku0SB4w7klqAuhoots6cSVBn4YBUwMJwbyvmIEHnE9V+lSAm3RYWySwAOlFwcYoTgi1S
+	sCHa0wFA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:54818 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1voPUI-000000008Hl-1fh0;
+	Fri, 06 Feb 2026 17:19:22 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1voPUH-000000083ji-25FH;
+	Fri, 06 Feb 2026 17:19:21 +0000
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Sneh Shah <quic_snehshah@quicinc.com>,
+	Vinod Koul <vkoul@kernel.org>
+Subject: [PATCH net-next] net: stmmac: qcom-ethqos: fix
+ qcom_ethqos_serdes_powerup()
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/2] arm64: dts: Initial support for LG1215 TV SoC
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Chanho Min <chanho.min@lge.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kever Yang <kever.yang@rock-chips.com>, Kael D'Alcamo <dev@kael-k.io>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260112053421.3185738-1-chanho.min@lge.com>
- <aYFM+mHqhfCuWgRP@BRUNHILD> <af35d335-96f2-4404-a6e2-e85c68cb2757@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <af35d335-96f2-4404-a6e2-e85c68cb2757@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1voPUH-000000083ji-25FH@rmk-PC.armlinux.org.uk>
+Date: Fri, 06 Feb 2026 17:19:21 +0000
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260206_091933_142714_FA295B67 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,33 +90,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/02/2026 18:13, Krzysztof Kozlowski wrote:
-> On 03/02/2026 02:18, Chanho Min wrote:
->>>  .../devicetree/bindings/arm/lge.yaml          |   5 +
->>>  arch/arm64/boot/dts/lg/Makefile               |   1 +
->>>  arch/arm64/boot/dts/lg/lg1215-ref.dts         |  50 +++
->>>  arch/arm64/boot/dts/lg/lg1215.dtsi            | 290 ++++++++++++++++++
->>>  4 files changed, 346 insertions(+)
->>>  create mode 100644 arch/arm64/boot/dts/lg/lg1215-ref.dts
->>>  create mode 100644 arch/arm64/boot/dts/lg/lg1215.dtsi
->> Hi,
->>
->> Gentle ping on the LG1215 series (v3) — Acked-by received, but still not picked up.
->> Any update or is it waiting in a queue somewhere?
-> 
-> 
-> Why are you pinging yourself?
+Add cleanup for failure paths in qcom_ethqos_serdes_powerup(). This
+was missing calling phy_exit() and phy_power_off() at appropriate
+failure points.
 
-Sent a bit too fast... I meant:
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c  | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-*  # email/list and role:stats
-*  1 Chanho Min <chanho.min@lge.com>
-     maintainer:ARM/LG1K ARCHITECTURE
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+index 869f924f3cde..af8204c0e188 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+@@ -659,10 +659,18 @@ static int qcom_ethqos_serdes_powerup(struct net_device *ndev, void *priv)
+ 		return ret;
+ 
+ 	ret = phy_power_on(ethqos->serdes_phy);
+-	if (ret)
++	if (ret) {
++		phy_exit(ethqos->serdes_phy);
+ 		return ret;
++	}
+ 
+-	return phy_set_speed(ethqos->serdes_phy, ethqos->serdes_speed);
++	ret = phy_set_speed(ethqos->serdes_phy, ethqos->serdes_speed);
++	if (ret) {
++		phy_power_off(ethqos->serdes_phy);
++		phy_exit(ethqos->serdes_phy);
++	}
++
++	return ret;
+ }
+ 
+ static void qcom_ethqos_serdes_powerdown(struct net_device *ndev, void *priv)
+-- 
+2.47.3
 
-so if you are not taking the patches, no one else is going to and
-platform should be removed from the kernel. Please confirm your choice
-(I can prepare the patch to remove LG).
-
-Best regards,
-Krzysztof
 
