@@ -4,190 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DEA4EB28E9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 08:23:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C762EB28F4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 08:48:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HGiqsJ3YYdcu1HU2VkhXeOL9E4lKp4z07ZLAyzmvsVE=; b=iX+4kOF2yN9cl2XVGU8u4dYDr9
-	Phflg8r5/WQyrxkU/1B0oRapbAuwGas9rH99F/DIpHQCJLS9QTD3a5kVxpfMZLooddU0y7rYBePpi
-	Y3FrrKGfE3ew/4tszEtiWz7wfw4wa0oIqeAw3zzDPYWwa6+XaHs4aD2g++Ho3uTgwq7Spl2ygQ0NU
-	N3aGRe9fpnG5lxvMKwYxHSrj5ZKfnuunL9myxr96cVFVPvu3bb7SaUaOIfo2iEItw78Hk/uvJx5hl
-	e3lgzSgZvsosCQiNQaJH+C0tztVxYB1lO37ZmQZUFEJYOSTzh/Zc4SUJW+WfuMM66LY/IA2GnH+UY
-	Of7+i4PA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9yI5iPRvOz4GiAAEW95s++/YJ1LQZqNt5ccoaPzrCZw=; b=jAn8Tw+M+NKiEzp82HQS9ZyoDD
+	+rvl8V4bi9XI8cZ5ufHM22lDNlwOHSfljcV59SXHD55Xal8gmYm6hRoaz9xGpyxe3tHDHhpbP50nB
+	j+HF5BQUdKY9mGnUt2zclKQc0iaC71+vjm/QVUGwLmWclzIqxHKUndyNKmuHNU0A7QERdKNs5UW11
+	w7Y9Nv9LELGHd0juz7Y7i5ZGfNRFn7WYvBP2No/KB3XbOkPBzDBvT1l3LyI2YIHMkI0oD4dDrOqqi
+	tVrfwhuplmABcqFiOcruz7Zf9dM7HN2kDN/e1R0O3uluu/CMvk8N8EwmsA9jiAdtzylDMy9TojCWy
+	U48oC4Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voH7o-0000000B2Jz-1J4p;
-	Fri, 06 Feb 2026 08:23:39 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1voHVd-0000000B3Tm-3TFe;
+	Fri, 06 Feb 2026 08:48:13 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voH7m-0000000B2Ct-16wo;
-	Fri, 06 Feb 2026 08:23:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eQprZne0zoVZJfTdIavI/ZbSTNxqvXL0ZpHDgz9NXUFzYrnUEV4QaOvHPJX4rMVOLMXsO+TeBmOqhrG3Jr3UeLPOeCx4e0lOeEVazeTo3YU4yJKKOWPGOwZrxzjrZBU0cybUNdo2pVRxo8rCd93xx6JfcqM/vtIFl0SeuO6iP6AiagkEL752TOMzqAXrEhnaIzSgpZjHcmzkGDFgauEFssSVugQt28QQLXgMjqjC89TNqWLQZ0XstR1HgMlJeEKT07ylcj0qINu4Wc604bY8BnCnZFev3CeqrAO4o+G53Yoy4TG87P58xhntTLlZXyBOWL0+F1YoFSi3wA+vxjod6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HGiqsJ3YYdcu1HU2VkhXeOL9E4lKp4z07ZLAyzmvsVE=;
- b=AwIp1UE2iFLfTXUz7LG6rPMALs4ILHp7IfzFhr36Zq9+1u8eFDeyKhMd+YHfrbYlGV3VQsQXN9SlyGTHJxnCktm4josxxXnFk1yPI8JRFx9n0VNB1L6dKZcxoBdtx9KYZ/x5/vo1LF7vrDV2meamVjuJGth6RcQBV3bRZ0Ei3mbz9gMmTJBH65+ba8LPMeQiVjvmY6sOtNY5S74eQyHzXz2v244BbhHt/EKUVRaZFNhMwMcpNmItzTrAQuQrIHjRE07/hPrG/AfuDIuXWvf/EZyTgBNKFP0D+HqtSEt/kN11AVq83UAhsT/IElx21w8hqpiU/fFbZJipxEKwer0QiA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
- dkim=pass header.d=axiado.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HGiqsJ3YYdcu1HU2VkhXeOL9E4lKp4z07ZLAyzmvsVE=;
- b=bSilDG2eeye+sdJiEFl35VHZHG95YLaSwKWudGtKu+Zp9b2vQnlycIl4vcA1qsiodWa5YWhAwLNHs+Yl8TXsim43Gr+Uio6GsjLNQWNx/+p9/r1tkVVcS+tnvQHzKM65wUfOotgFdvvYTCeB14zkI0kqU/8tkmUotJ1ujD4XJHieO7bGi8sN/s6RUN1cUhhFmEpL2pp4SxcDvXksQvyP1GZj71iupAYY6h3IRRgaaM3BLR8BEE0YqMOHwRvcxVtXyWCFYRrbpzKZNWP4vVVfqEYKSq6k/eP+PV85noKrTMqQ794fD//hViBqHqUCkx7dhqe9/jxGC0jvmn3NB0jGBw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received: from PH0PR18MB4558.namprd18.prod.outlook.com (2603:10b6:510:ac::13)
- by DM6PR18MB3667.namprd18.prod.outlook.com (2603:10b6:5:2ae::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.15; Fri, 6 Feb
- 2026 08:23:16 +0000
-Received: from PH0PR18MB4558.namprd18.prod.outlook.com
- ([fe80::7a75:75a5:694b:2311]) by PH0PR18MB4558.namprd18.prod.outlook.com
- ([fe80::7a75:75a5:694b:2311%7]) with mapi id 15.20.9587.013; Fri, 6 Feb 2026
- 08:23:16 +0000
-From: Tzu-Hao Wei <twei@axiado.com>
-Date: Fri, 06 Feb 2026 16:23:08 +0800
-Subject: [PATCH v3 2/2] mmc: sdhci-of-arasan: add support on Axiado AX3000
- SoC
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260206-axiado-ax3000-add-emmc-host-driver-support-v3-2-ef83b09325be@axiado.com>
-References: <20260206-axiado-ax3000-add-emmc-host-driver-support-v3-0-ef83b09325be@axiado.com>
-In-Reply-To: <20260206-axiado-ax3000-add-emmc-host-driver-support-v3-0-ef83b09325be@axiado.com>
-To: SriNavmani A <srinavmani@axiado.com>, 
- Prasad Bolisetty <pbolisetty@axiado.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- Michal Simek <michal.simek@amd.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-mmc@vger.kernel.org, openbmc@lists.ozlabs.org, 
- Tzu-Hao Wei <twei@axiado.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1508; i=twei@axiado.com;
- h=from:subject:message-id; bh=I4Vo8Qn3Sj3LishM2f+4R8M1+J3i/RSYnBRaMawYJSc=;
- b=owEB7QES/pANAwAKAXgQMF3EWvHXAcsmYgBphaTyJFUmFKFNC13l8wrbKalG+9sVHGZvpjGHU
- FtPlVSaCMyJAbMEAAEKAB0WIQSZyWINOowtFmDvdYF4EDBdxFrx1wUCaYWk8gAKCRB4EDBdxFrx
- 12KeDAC1ojpyHuZCXImhP9oKLwIpos60FlTT1c0ESdF0jEgjvDVP7h2U2PHtMBH0mg54gtL05RT
- AWM463BTTjop2oAJ6jpSKrwMbAHznLTxFRxxL4b3LZjUYZkbqPLvtS7l3u1VVI2OZpZOhSpnBq5
- u+Q3q3+fsxQlt0m1ofjFp01lRygZdCzSpV37vMaq47yJIzKkEHrv+ljTSir+DePkHaXz8gz2noN
- XrN7p3RanF8x7MTFpHI+VD0I8blK01QgNVnN0j2Ws3BqtUuIxmzWIeMewnkZui5PQZbSplVUqjO
- oC3AXVbCMQkRrFfxzahOvPeXqixKHCOPoi/xBIlu2Vz3FKrg5KG6E3EJsQykjDD3JrQoZNZ/pz7
- IggJFfNZDq2+dK2pqD3G1Pk5v1TmBNSUJX8lFR8T3JJW3EYpaHc8+mtjWb6ZBbU4aLGxFi/nmld
- NNcj74NKJEp4EvSb6IAEhKRH27nZ2XxkOcK9tNmP6S9T+J4/YtNkOWKAU7VnkhQaOJwQc=
-X-Developer-Key: i=twei@axiado.com; a=openpgp;
- fpr=99C9620D3A8C2D1660EF75817810305DC45AF1D7
-X-ClientProxiedBy: PH8PR22CA0016.namprd22.prod.outlook.com
- (2603:10b6:510:2d1::9) To PH0PR18MB4558.namprd18.prod.outlook.com
- (2603:10b6:510:ac::13)
+	id 1voHVa-0000000B3TQ-1RvV;
+	Fri, 06 Feb 2026 08:48:12 +0000
+Received: from localhost (unknown [124.16.138.129])
+	by APP-03 (Coremail) with SMTP id rQCowADH4Ne_qoVp5pDLBw--.24764S2;
+	Fri, 06 Feb 2026 16:47:59 +0800 (CST)
+From: Chen Ni <nichen@iscas.ac.cn>
+To: hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	damon.ding@rock-chips.com
+Cc: dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chen Ni <nichen@iscas.ac.cn>
+Subject: [PATCH] drm/rockchip: analogix_dp: Add missing error check for platform_get_resource()
+Date: Fri,  6 Feb 2026 16:42:20 +0800
+Message-Id: <20260206084220.543267-1-nichen@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR18MB4558:EE_|DM6PR18MB3667:EE_
-X-MS-Office365-Filtering-Correlation-Id: 92242437-ba68-4ecc-4ed2-08de6558fa2d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|1800799024|366016|42112799006|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UlpRMVlKNTRHL0lDb0NZMHZqdzdyVGhQVGdCRk9mMjdwNENuc3BHbEs5L21h?=
- =?utf-8?B?dUJzc3Fmc3hMRW9BcDZXN0M2MDdZd0lrNUJNMXRvUlFCT2R0SGRLWlRxWVpZ?=
- =?utf-8?B?S1A3d01vUThlcTBpdVpSZVVTbXc5YUs1RFRQRWRiN3lTVWJJTEV5eG0zYnor?=
- =?utf-8?B?a3lmWHlGUzVaMzByOWtUOVdNOGQ5Y28wSldic0UvOGxCOURXVUpKNzVtTXIw?=
- =?utf-8?B?UnVROXZ5TFJOZjltT25aNEtocDQrcllKdG94TlkrMkFwN0tPVUp5TXF3NGNp?=
- =?utf-8?B?YndqMS9ISHByYkMySjZBakVsSTJlVkxvVmU2M2czTDB6dmlOT3ZxQm54aytn?=
- =?utf-8?B?ODIwWFhsM1FXcjBVNWF5Nk5Na3Z4ekVsNDd0VUhJb0dUU2JrQ3RObXgrYjRx?=
- =?utf-8?B?YU51bGNiejBzc2trdkVVL1E5QWJrbHgxS3ArVGsvYlJMTGNFL1JEMnVhcEVM?=
- =?utf-8?B?WkhjTzAxT3RNZGRNQU0rS3pMV3BGbUdxSzRzY2lBelNsdDNTb3c5b2ZrL0xu?=
- =?utf-8?B?enZjMXdSZkF1SE5Tc1B2Q2cxSkU3T2JCUWdDMnNHMk9wNVFmRTNtaGlXUlpP?=
- =?utf-8?B?eC80c0xvM2pOcktGQ2t0QWdRZ05XTHBQSFF2emZEWWlmR1pRQmxBemJNUHpH?=
- =?utf-8?B?R3lRTkZaeW1sODJBbW44TXF6NEt3cjR3S2p6R0syQ2t4bGJaZXdoQ3FhVnFi?=
- =?utf-8?B?Wm80U0Q4aHpsa2ErWTdBalFHTVhnNndZZTY1WEhWOU9VS0p3bDR3QzlzK3E2?=
- =?utf-8?B?UFVsb21GOElZQmpGcmFWSSthalVRTnkxWTB4b3NMeWpqajB6dVNJN0N5aFVi?=
- =?utf-8?B?Y29pRjhsc2tIbUFia2hOU0FYTTlIckhnQU53UXJPZXZHbndGbGczZFdFVmhP?=
- =?utf-8?B?YmgwVjlhZVcvSGxJekQ2UDNIMEJ4MFdXZDJBcGluODE3aU4vdGhEWmhqeXdl?=
- =?utf-8?B?OFd0dmNyKzlscUNreFJ0SUNkL1FjSmZRYWExMmxSYzFPWHhMUFYxUUpMWUNr?=
- =?utf-8?B?OTBpNzRvS3FxWC96c1FZYUc3eDBuNU9sRERhWU01aGg4Y3pWQkU3TEpWR3pV?=
- =?utf-8?B?V01GSmdKckx3aTVBQ1d6b0xYb0REclVpN2RXTnhkTHhwT2xIbzdNYUwxQkdL?=
- =?utf-8?B?V3ZnMjJxMWFhUGpTLzQ5Tk1RcVRmUDhWamp4bzl6dDJ2YlllT1hWdjVBelpj?=
- =?utf-8?B?eDhqRXhYL3l3MktBL0xZN2hxRlNWMktrQjYxcFpxcmkvNnFEeGJBdUM2UWdo?=
- =?utf-8?B?R3BqVUtnUlQwa1kvZmEyaE0vUVRwRU04YW5jcnJnSWdWd3hLelRWYTR0Tm1s?=
- =?utf-8?B?TjljRi81MGE3bTRtY3hsOCtDV1FjWi9SMmM0czA2WFp5OWRaazVPc3lVeDVR?=
- =?utf-8?B?MWNEcFRkZE1iNHhab2ttUU44RFdzMUhkVi9CeTVMRWFTZ0h3WmViaFQyc0FF?=
- =?utf-8?B?K3RXMVJ6U2JNbTZQRFhoQnhFbnhPSElNa05yVkJpQmRFRmY0OEVHclhMb1hM?=
- =?utf-8?B?cFBlOENWMU83dzZuM29kRy93TXRHUVRUNGN6dCsvQ3VEZE5ZcmlZeVdCMmRU?=
- =?utf-8?B?WlZjMmFua2U2bDFENHB6UkxoclZ3VWVuek90Z2VqdWhQWXFRVktUbDBmOFA0?=
- =?utf-8?B?em8zMCt2VFdrZEZyQmRFRmRhV2M5U0FVUW8ybjNzRFczc0VyQlpVWHJVNEk2?=
- =?utf-8?B?L1IxUWh5WUdDZkk5UEUvNTU0UDdwVGZjRHFhV05KN0YxT0JoRHBkUCtqK245?=
- =?utf-8?B?ZUEvVUJqUjhCSEhkbUo0aUlJbDN1NU9JN2l5d2xpRWhsWWlTSk9LRTFWc0E3?=
- =?utf-8?B?VE00REdPY0hDa3dRdUtETlFUbU1OSzZuekoyb3dRYVlaR3ZMTXRBUWpzM2RC?=
- =?utf-8?B?RHdHNVNIWi94N0pHemw0NHdpQTlNZktXTTBzbEFUeTdGU2xyeUhaczVpNlV5?=
- =?utf-8?B?ajNiazI5U29uV1RJN3lSelpaUEgxU294cURjWEovTVh3WFhrWW9HY0RqcFBM?=
- =?utf-8?B?UXd5bkdhemkyYXJLamw0UkY2eFhvbFpjZFh3b2orZThZdFJRYlBPclVPZ1Rn?=
- =?utf-8?B?dWJlaFBkSCtKaC9aV0dwVEtvZVAxRU1jNktvOVJzQWp3ZGg1ZGhBUVZzVEg4?=
- =?utf-8?B?WE9XWERlYzA3SzVzWWQ4bkQ4TlZMWGJyVndBNG1pWWsxaTRnRUZ1Nmw0K1hO?=
- =?utf-8?Q?S8oPSWSiVOihBUhWV6AkGppO9SfC1u2zoJMHh74PT5dq?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR18MB4558.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(1800799024)(366016)(42112799006)(921020)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Tk5lY050Zk1qWjRFZmpxdzRxY1AzSmRFbTZJUzBFRVRFR0kxQUxka28wcTI0?=
- =?utf-8?B?WWFYTVEyb3JnRmFiMHAxTFdtVGFtOTJQUVh3V3JMUjRncmdqUDdmVUtJNXdJ?=
- =?utf-8?B?VFV6T3lIUjZlMUl5SVVRV1dKbmx5dzBVTmQ0aXpnRjE4ZjdJOFlEcVk3S2hJ?=
- =?utf-8?B?LzZOMkhES1JqVDl3UTJ6K3ovZW5RSzJ5bjhMKyt0UDh4bHpKSWsxTU0rZG15?=
- =?utf-8?B?bWxvRy9haXd5akZZUEZudHdVY2VkUHZ5ZWJJYTRtMlg4RDNNdVlndlI4SjBs?=
- =?utf-8?B?ZWtMVmY4ck8yRHpJVzE5YXV2SitsRjdEQWxDZ3hxbExUSTAvTjBmc1JmSDJo?=
- =?utf-8?B?Q2RRRmtJT0NjVEpjS2dDQUpWb1ZsSFErcGJsVU11alFZYTR2OTd6a29JekNT?=
- =?utf-8?B?Q1hrL0tVaHBsZnhmQWVpeDNwKzBWNFBCZVFVc1J6aC9aRDRFQkRLVGVHNmdN?=
- =?utf-8?B?S3ZaQkdpbjF3TWlSWG1wQkFXUGtrVkhKOCtLYTFLdG5UNEh4aGpKN3g4WGtQ?=
- =?utf-8?B?UXB3MXlUNUY1MzZQWkhtd0Y2bXZKZXl0bkMxSUJjb25xem54NWgySTd2b3dE?=
- =?utf-8?B?YWw2N2lmVE5FZitFTm9TM2d5REpPUjBaSHFWRlpkKy9xY0VWOXQ0Q1ltT3JG?=
- =?utf-8?B?WTF4ZEx2MFRrKzk4MUxyaHRxWnVKRHFXRmgwUnNPTGVGTERkNmlBZVNOS2hL?=
- =?utf-8?B?UkRPQ2hlRG12SzRrNzdsR01jVldNRXhNZ2pSQWl2UXFDR3BhaWZ2R3pRVEt1?=
- =?utf-8?B?MjlmN2tXUjZqdjhoSXVDeGd5Q1FkNkZHdGplbSswRnk4cXFZSnBKdW4ybVZX?=
- =?utf-8?B?MVVxb01YdGJSYVZUdUxzMk1CR0NTWGtJNmdpMmVXZmlXYTVpaUdqamVhcEtX?=
- =?utf-8?B?RzFGUFFmZUpUM2htT1o2MVZmMThnc2pqcDNVRlo0S2lzY3Fpc0NiQzVIVXRZ?=
- =?utf-8?B?SkROeC9pRjVvbmZLN0R1VnU5YUxnbnA1cXpPbE0wemljc2hkZ0k1Zk1QLy9V?=
- =?utf-8?B?RUhoVkdob0xveVQ2TmRPOHJDalFkeHpWajNCQzFFb09lbVQyNHRJeTZRcm9i?=
- =?utf-8?B?WWxsa0tsMXlleTdDU2JEczhsUFlTNTNidjZuZERGcHIwY3hUS013WUsxUGZn?=
- =?utf-8?B?WEtWT2R6KzBqYlZOZXZLaUFrR1Y4K0JEYjdpQVR5dCsxeis1Tk9TU050VWQ3?=
- =?utf-8?B?dzhmS3hrZUdVTTE2clRJRzQ0ZWY1V1NDSDkxZHdjOVh1VHZUSW5nako0RlA1?=
- =?utf-8?B?MTdnL3YycGNrTXQ2bFNQOGFoS2g1SXFHYjlnRy9IdXQyQ2p0b3h5a1R2VnIz?=
- =?utf-8?B?ZjEwcG1DaTJiVnJsamhrVmxneDBudHNBT244VGtOTnAraTBNSDNIRHpzMCt1?=
- =?utf-8?B?b0U5UjRZVHJTVGIwL0Y1TnJuM2ZqUmhBSnJWRlUrcmtINk82ekUvTVpPU053?=
- =?utf-8?B?blNSdFQwYldiNjJQK1VrRlQ3M0pGV0c3V2IyUThHVlJ1SzhadE9rMVlvdVRt?=
- =?utf-8?B?b3BNYkZmOVgyQStlSDE2cHIzd1hKMWZNOEVBR040c1pxcW1DWCtUY0ZMV2hY?=
- =?utf-8?B?YjhMcmsvOW1oK2gyRHVEM1ZHTHVSWFdJWmJiUy8yU1FoUGhHTDBJaEQ5S3p6?=
- =?utf-8?B?QTR6L25DOGZZb1E3VlBMWE1hTFhXRk9Iek9VUFRkdlphWmxVQlVDZ2tCWFVG?=
- =?utf-8?B?MVg1OHJBWUtOcmRULy8yZWlsZXdXcWFQU0tRVDJ4VElYUHJLcUlwWk1MK0JO?=
- =?utf-8?B?MzlzRXR1QXVwaWhWZFlHU25QTzFNNzk5V1hJbGIzSkNTNHJ1Yy94YzQ2Tmsw?=
- =?utf-8?B?Ym9QYzkvQVhoSjdYK1RFMjFZak1aV24rNnBZTHhQcERqdk1UUXRUQ2lPZ0Fw?=
- =?utf-8?B?blR1eXdnczRHSnNxWlFNby95eElOUVhDZG9YMGxGUm44L0hybGZuZnQzUURC?=
- =?utf-8?B?TTN6NkpyUHBlMEFCS3lSYmc3NjZjeFNHMCtRWTZXUWpXQ05pbnd3eFNiWmRh?=
- =?utf-8?B?Zng4dTVLRmEwRFplTmxWUjFFdXlnMEV0N3JFeWpEU0YrYjVHbzYzVExqVFVh?=
- =?utf-8?B?UFg3Z20vdmxDYkYyb2hGekRvTjBLcDdJNXFPOXBsVU0xOEFhTVNJbVJXOUtS?=
- =?utf-8?B?dDNsaEdHR1F4WXBsSWgvYVhwSnN3QzBGdlRCUjJzbWdLbzRtRVNaS05Tamxl?=
- =?utf-8?B?ODlQQUdRY2xZTGU4dFFONWc1N0FTaWtqUjJZQ043bHRidlNvQWpvMWNYYTBy?=
- =?utf-8?B?YnFHUUtMVkRSWUkyMklZZEZMNHJDWDA0dDU4VWZtUytKaEFoS2xOb2pMMzQy?=
- =?utf-8?Q?lW2+aQMuw4EK/gWXUr?=
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 92242437-ba68-4ecc-4ed2-08de6558fa2d
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR18MB4558.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2026 08:23:16.3044
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: J78/95Pftv/UAu+Efc1vSHLGDiLW1SHD3APqInTbteiEMEv6Ne1e9ZduCr220KAv
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR18MB3667
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowADH4Ne_qoVp5pDLBw--.24764S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtF43GFWDAw15AFW7JF4UCFg_yoWfurc_K3
+	WxXr43WF18ZrnYkw47A3y3uFZav3ZI9r4kWa1IqFZIyF1DJF18XFyFvr4F9ayUtF42yFZx
+	G3Wjvr4Y9F15CjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbTAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j
+	6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_GFyl42xK82IYc2Ij64vIr4
+	1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK
+	67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI
+	8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAv
+	wI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14
+	v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUe9NVDUUUU
+X-Originating-IP: [124.16.138.129]
+X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_002334_332759_D26FE98C 
-X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-CacheID: sfid-20260206_004810_770857_20ACF424 
+X-CRM114-Status: UNSURE (   8.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -203,52 +87,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: SriNavmani A <srinavmani@axiado.com>
+Add missing error check for platform_get_resource() return value to
+prevent NULL pointer dereference when memory resource is not available.
 
-Axiado AX3000 SoC eMMC controller is based on Arasan eMMC 5.1 host
-controller IP.
-
-Signed-off-by: SriNavmani A <srinavmani@axiado.com>
-Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
+Fixes: 718b3bb9c0ab ("drm/rockchip: analogix_dp: Expand device data to support multiple edp display")
+Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
 ---
- drivers/mmc/host/sdhci-of-arasan.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/mmc/host/sdhci-of-arasan.c b/drivers/mmc/host/sdhci-of-arasan.c
-index ab7f0ffe7b4f007a58eb0a26868b08b0b02b40f3..caf97238a58b487312d6cc2b7a868913ace60f22 100644
---- a/drivers/mmc/host/sdhci-of-arasan.c
-+++ b/drivers/mmc/host/sdhci-of-arasan.c
-@@ -1512,6 +1512,17 @@ static struct sdhci_arasan_of_data intel_keembay_sdio_data = {
- 	.clk_ops = &arasan_clk_ops,
- };
+diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+index fdab71d51e2a..3f5be14010c1 100644
+--- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+@@ -461,6 +461,8 @@ static int rockchip_dp_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
  
-+static const struct sdhci_pltfm_data sdhci_arasan_axiado_pdata = {
-+	.ops = &sdhci_arasan_ops,
-+	.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-+			SDHCI_QUIRK_BROKEN_CQE,
-+};
-+
-+static struct sdhci_arasan_of_data sdhci_arasan_axiado_data = {
-+	.pdata = &sdhci_arasan_axiado_pdata,
-+	.clk_ops = &arasan_clk_ops,
-+};
-+
- static const struct of_device_id sdhci_arasan_of_match[] = {
- 	/* SoC-specific compatible strings w/ soc_ctl_map */
- 	{
-@@ -1538,6 +1549,10 @@ static const struct of_device_id sdhci_arasan_of_match[] = {
- 		.compatible = "intel,keembay-sdhci-5.1-sdio",
- 		.data = &intel_keembay_sdio_data,
- 	},
-+	{
-+		.compatible = "axiado,ax3000-sdhci-5.1-emmc",
-+		.data = &sdhci_arasan_axiado_data,
-+	},
- 	/* Generic compatible below here */
- 	{
- 		.compatible = "arasan,sdhci-8.9a",
-
+ 	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	if (!res)
++		return -EINVAL;
+ 
+ 	i = 0;
+ 	while (dp_data[i].reg) {
 -- 
-2.34.1
+2.25.1
 
 
