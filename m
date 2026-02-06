@@ -4,90 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FDB6ECD9BE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 03:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DAA4E91297
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 03:32:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vTLlWgup/boAOL11HN9YevGJP11uRzIBi2lM6iUJUmI=; b=OroBezNNe4MGGBDc8BwYNRubSj
-	kxV6K4WkpUyTyH8iedYuybQhH1+psByNC4M8aLUG5GpmOe+27LsrM30aPmL6zIkGadtK/8azoPSzC
-	FXOB+l7gQSsC1L3lpToQA4Pn2w9yX8ZpmUhQ94c0OVF+gyWy5PVLbFGxnORwYrmljRVjQ+a73zJzf
-	juNX2DF2XG3m+g+Ma8ci1h4rOLnX33waThXm8Gm9tNbUpzAFHLHGmAYxm8RFMuwNuELbWc9/SCcim
-	nwkn5WETnGvBeLBpWA/aEiDxDHDE05HTPNqSdlI2yi7HMtQiV3EVFJ6KvrCQbY0i8LTZcr/WOhRCi
-	XFL/gwTA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uyZY47xyw0FpO/vvb+kG3CYBhV/+d4RzYVY6puc0EvE=; b=t+CAZJzAf4C/EULWe41xzjiUqB
+	gt+HZ6GRZFKpB3vvGmYT30Af8Y38k7bj5DAdfV+bhaTyUPt+I9Y1HizglxfWm1PpH71ErKgDn3iLv
+	YQYaHwnPu2vUbiZ8JHvCyrE0K47itONKh2lNBJlDOsqxzMpNrVMwFor2vC7CB127x5TvQRdTpHILL
+	ffqqRtiIlMKQDG13FCrZx7vOYlr+DXdT7NMpGODhDHARhtI3eejiyues4sC7k9ma6DxGF1HyVvnKi
+	rJQlPWshTZ2Z1KzmoXjPXXI9Lyq7yJlIRehNcpflzOVupXUZTt0zAE2evN2hWRjRmk4bHq2M0NK3Q
+	Q04F3OpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voCBw-0000000An7V-02ug;
-	Fri, 06 Feb 2026 03:07:32 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1voCZa-0000000Ao9V-2gRG;
+	Fri, 06 Feb 2026 03:31:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voCBr-0000000An6x-0IEU
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 03:07:30 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2a90055b9e9so8204185ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Feb 2026 19:07:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770347245; x=1770952045; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vTLlWgup/boAOL11HN9YevGJP11uRzIBi2lM6iUJUmI=;
-        b=buQs307Xf665mZwKfem6dYbAKv2VL0FpXx3t32A8Lmb5/s9CAp8vsjmQEFxIP9pSzE
-         wNKuC/CpSFJZPMyAYD6gCNBL/XQ6ZWphLmHhzaeg4mVBPr4zOVdnv+1ezEJ4qdn8kIt7
-         djIQCiGAjonFwdpFED5yeyErqeaqyt+h3LrznBzlfYov1JGG+zjrMTa5xE5i6zvW38gM
-         a08vi3rshkur+Io7YZcw44rMhQY9S1O8NdiOf8TAznyc+ounoxjOSwPYc4NeQOGUDmQW
-         hthIPy+lw7LnWAzcnpw8lA7lOpXpU32i0AKLxq/EzNL0mtpThWQ7Fm0+fFKOnhfJZJOV
-         72uA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770347245; x=1770952045;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=vTLlWgup/boAOL11HN9YevGJP11uRzIBi2lM6iUJUmI=;
-        b=MLRCU6f2pAWizZoULDnE4PT3Q0f4AuenRk5f0PXdUOgdVU8buHqHAsUsE/nB1yDxm9
-         5aNL4Ttwp2biZOJeQEYI4KeaXCbyEDm/ls1Wh5stChmmLvGkeBq21jdZhp4v9CeQCvck
-         F/xRb0rrMUwrKWL4rYoIvrZdv6lGFxIv/PH81+lEUTrMaqYVW7HyXu+j+bz5Gu9fvGbW
-         cS6R5EPzmng2S9cu5zkDz0mHqP1e2BmXJIjRWApRgUhh8ZEdgKsYzT1Dv0k0Ljzd9yLm
-         2JXpJyYeO1UId6LBMVHHhICBNOsK6c+p0NWPQlIn3+goqaecSd5OW+6BGWyh2+nOPP2k
-         EZGA==
-X-Forwarded-Encrypted: i=1; AJvYcCWLZ4AXIAWFhazqzVpI2MF+AOKrjnu7/YWnydnTP1u2SITARgTbo1zrbjdiQ3RjYMIfNjL6Ir0s1sAPSToxQZ8d@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx33YFnt/vXVrXFXXT6kupIBAqGt17iOUofcb6FiLMYHUcgwjiE
-	LauMvvOEPV2+u+eYIilf9uoyMBJF27eBGkAjJpEWi1e9dXGIn+OVKQ0v
-X-Gm-Gg: AZuq6aLpcmvQxO8OdxPNyNhngixVl4oLzk770/cbNAZyQkzAO1Qv1BWrOsQWXsI+IRh
-	jqW+dbVV8LuNNg5TIQtKU3VIPcCIUpOUrr7fwXQ6SXLjIVF4ax2xjZNzUAAN/hYrvy6kOpSZoFW
-	A0ZHmTLr1xX2AyBNmriASTIx0n8mmxQuP6C/GwBbCRfkJdnvSXhGSUyZ99wv7G/Wk2auTX+x5rj
-	DWL/BsOoCJ3aHRJ5P3IAoKVH+uge27VUc+7kvDU77f8yqc0D+LJbsRunyGUorngqi0Z5VUYTm6J
-	jjfup0mqHTm1CayfCYYNYNwXkSh9tOmPdowkMLsUwWQY3GFY67RI3y/NmELyq1ti+K+xHPE29ES
-	0V8J2H8SRYWki+dutXzKoIvAjgNQZiZ9sdHvi+HY1yCk5FBeRKcE4iIgMAtSCFKJkIb0+k0Gre6
-	PXBfuYcZLN9C4PSqdC8gpJgzlCHiUZJh/FK4P/A/HMev4=
-X-Received: by 2002:a17:902:db08:b0:2a7:d42f:7065 with SMTP id d9443c01a7336-2a9521689bbmr13706725ad.27.1770347245440;
-        Thu, 05 Feb 2026 19:07:25 -0800 (PST)
-Received: from localhost ([101.44.82.58])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a9521b9bebsm7512525ad.56.2026.02.05.19.07.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Feb 2026 19:07:25 -0800 (PST)
-Date: Fri, 6 Feb 2026 11:06:57 +0800
-From: DaiZhiyuan <jerry.zhiyuan.dai@gmail.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Zhiyuan Dai <daizhiyuan@phytium.com.cn>, will@kernel.org,
- joro@8bytes.org, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Restrict MMU-700 errata 2268618 and
- 2812531 to affected
-Message-ID: <20260206110657.000043f7@gmail.com>
-In-Reply-To: <3f22f7b8-449c-40d9-b4c8-fff3e520d563@arm.com>
-References: <20260205093356.4328-1-daizhiyuan@phytium.com.cn>
-	<3f22f7b8-449c-40d9-b4c8-fff3e520d563@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1voCZE-0000000Ao82-2pQG;
+	Fri, 06 Feb 2026 03:31:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 883F244357;
+	Fri,  6 Feb 2026 03:31:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06F58C4CEF7;
+	Fri,  6 Feb 2026 03:31:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770348694;
+	bh=hVVbQbgdE25lF5ghgQPEsPcAOupRTNJtJ71dyf69LX0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=odiN74dKqEcp90TApVdIFSTI2p/6fRoWtJB69yufrp0J9K/aT96NG11Z+MUW3D/Sq
+	 WPNqJiPKjte1J4jDxPdJeai3a1lahk+l0YtKlZoMP8tRgYOYJEiR9oCFxn8EKsE84Y
+	 687yVUmGZUapGZKzg5O82Z98Er1vZzo1QvhQXXi7gsf7bSOWCnmWFhYVQqLn2m1cPv
+	 Tnf3HGE0T/vN7zX+soxLC9sRHrKKisREpv80XTnP0Srbxyh8i52+fKKsK0Q2QEOdPO
+	 6bAtDiLddpi5y2M25DKSagHAcibJhA66OwTC6yTP/dgytZpLxIBhzmNT7rhNtWx4WM
+	 XRRr6DPdveEnw==
+From: Tzung-Bi Shih <tzungbi@kernel.org>
+To: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	tzungbi@kernel.org,
+	linux-remoteproc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v2] remoteproc: mediatek: Unprepare SCP clock during system suspend
+Date: Fri,  6 Feb 2026 03:30:33 +0000
+Message-ID: <20260206033034.3031781-1-tzungbi@kernel.org>
+X-Mailer: git-send-email 2.53.0.rc2.204.g2597b5adb4-goog
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_190727_141139_A294CA36 
-X-CRM114-Status: GOOD (  31.10  )
+X-CRM114-CacheID: sfid-20260205_193136_788274_192840FD 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,88 +74,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 5 Feb 2026 13:05:24 +0000
-Robin Murphy <robin.murphy@arm.com> wrote:
+Prior to commit d935187cfb27 ("remoteproc: mediatek: Break lock
+dependency to prepare_lock"), `scp->clk` was prepared and enabled only
+when it needs to communicate with the SCP.  The commit d935187cfb27
+moved the prepare operation to remoteproc's prepare(), keeping the clock
+prepared as long as the SCP is running.
 
-> On 05/02/2026 9:33 am, Zhiyuan Dai wrote:
-> > According to SDEN-1786925, Arm errata 2268618 and 2812531 are
-> > present in r0p0, r0p1, and r1p0, and fixed in r1p1.  
-> 
-> This is a bit fiddly, since these workarounds also overlap some other 
-> errata that IIRC were *not* fixed in r1p1 - it's been on my to-do
-> list to figure this out for a while now, sorry I haven't had a chance
-> to get to it.
+The power consumption due to the prolonged clock preparation can be
+negligible when the system is running, as SCP is designed to be a very
+power efficient processor.
 
-While checking the documentation, I noticed that in SDEN-1786925, 
-document version 19.0 describes the errata as fixed in r1p1.
+However, the clock remains prepared even when the system enters system
+suspend.  This prevents the underlying clock controller (and potentially
+the parent PLLs) from shutting down, which increases power consumption
+and may block the system from entering deep sleep states.
 
-> 
-> > Introduce this patch to avoid performance degradation caused by
-> > restricting features on unaffected revisions.  
-> 
-> I'm curious, can you clarify the performance impact? At the time I
-> was pretty sure that the ARM_SMMU_OPT_CMDQ_FORCE_SYNC was just for
-> safety and never likely to be hit in practice, since with range
-> invalidations any unmap should never end up with anywhere near 16
-> TLBIs in a single batch anyway. Is that no longer the case?
-> 
+Add suspend and resume callbacks.  Unprepare the clock in suspend() if
+it was active and re-prepare it in resume() to ensure the clock is
+properly disabled during system suspend, while maintaining the "always
+prepared" semantics while the system is active.  The driver doesn't
+implement .attach() callback, hence it only checks for RPROC_RUNNING.
 
-Based on the mailing list, the SMMUv3 implementation now fully supports 
-the Broadcast TLB Maintenance (BTM) feature as part of the Distributed 
-Virtual Memory (DVM) protocol. This allows CPU TLB invalidation instructions 
-to be received by the SMMUv3, which is highly beneficial when the SMMUv3 
-shares page tables with the CPU (e.g., in Guest SVA use cases).
+Fixes: d935187cfb27 ("remoteproc: mediatek: Break lock dependency to prepare_lock")
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Tzung-Bi Shih <tzungbi@kernel.org>
+---
+ drivers/remoteproc/mtk_scp.c | 39 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
-Additionally, while this aligns with the SDEN documentation, 
-please note that we do not have actual benchmark data at this time.
+diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
+index 4651311aeb07..bb6f6a16d895 100644
+--- a/drivers/remoteproc/mtk_scp.c
++++ b/drivers/remoteproc/mtk_scp.c
+@@ -1592,12 +1592,51 @@ static const struct of_device_id mtk_scp_of_match[] = {
+ };
+ MODULE_DEVICE_TABLE(of, mtk_scp_of_match);
+ 
++static int __maybe_unused scp_suspend(struct device *dev)
++{
++	struct mtk_scp *scp = dev_get_drvdata(dev);
++	struct rproc *rproc = scp->rproc;
++
++	/*
++	 * Only unprepare if the SCP is running and holding the clock.
++	 *
++	 * Note: `scp_ops` doesn't implement .attach() callback, hence
++	 * `rproc->state` can never be RPROC_ATTACHED.  Otherwise, it
++	 * should also be checked here.
++	 */
++	if (rproc->state == RPROC_RUNNING)
++		clk_unprepare(scp->clk);
++	return 0;
++}
++
++static int __maybe_unused scp_resume(struct device *dev)
++{
++	struct mtk_scp *scp = dev_get_drvdata(dev);
++	struct rproc *rproc = scp->rproc;
++
++	/*
++	 * Only prepare if the SCP was running and holding the clock.
++	 *
++	 * Note: `scp_ops` doesn't implement .attach() callback, hence
++	 * `rproc->state` can never be RPROC_ATTACHED.  Otherwise, it
++	 * should also be checked here.
++	 */
++	if (rproc->state == RPROC_RUNNING)
++		return clk_prepare(scp->clk);
++	return 0;
++}
++
++static const struct dev_pm_ops scp_pm_ops = {
++	SET_SYSTEM_SLEEP_PM_OPS(scp_suspend, scp_resume)
++};
++
+ static struct platform_driver mtk_scp_driver = {
+ 	.probe = scp_probe,
+ 	.remove = scp_remove,
+ 	.driver = {
+ 		.name = "mtk-scp",
+ 		.of_match_table = mtk_scp_of_match,
++		.pm = &scp_pm_ops,
+ 	},
+ };
+ 
+-- 
+2.53.0.rc2.204.g2597b5adb4-goog
 
-> > Signed-off-by: Zhiyuan Dai <daizhiyuan@phytium.com.cn>
-> > ---
-> >   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 12 +++++++-----
-> >   1 file changed, 7 insertions(+), 5 deletions(-)
-> > 
-> > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> > b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c index
-> > d16d35c78c06..7eadb27eb9be 100644 ---
-> > a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c +++
-> > b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c @@ -4272,11 +4272,13
-> > @@ static void arm_smmu_device_iidr_probe(struct arm_smmu_device
-> > *smmu) smmu->features &= ~ARM_SMMU_FEAT_NESTING; break;
-> >   		case IIDR_PRODUCTID_ARM_MMU_700:
-> > -			/* Arm erratum 2812531 */
-> > -			smmu->features &= ~ARM_SMMU_FEAT_BTM;
-> > -			smmu->options |=
-> > ARM_SMMU_OPT_CMDQ_FORCE_SYNC;
-> > -			/* Arm errata 2268618, 2812531 */
-> > -			smmu->features &= ~ARM_SMMU_FEAT_NESTING;
-> > +			if (variant <= 1 && revision < 0) {  
-> 
-> revision is unsigned, it cannot be < 0. This just breaks the
-> workarounds entirely.
-> 
-
-Logic error: if (variant <= 1 && revision < 0) should be updated to revision < 1.
-
-
-> Thanks,
-> Robin.
-> 
-> > +				/* Arm erratum 2812531 */
-> > +				smmu->features &=
-> > ~ARM_SMMU_FEAT_BTM;
-> > +				smmu->options |=
-> > ARM_SMMU_OPT_CMDQ_FORCE_SYNC;
-> > +				/* Arm errata 2268618, 2812531 */
-> > +				smmu->features &=
-> > ~ARM_SMMU_FEAT_NESTING;
-> > +			}
-> >   			break;
-> >   		}
-> >   		break;  
-> 
-> 
-
-Best regards,
-
-JerryDai.
 
