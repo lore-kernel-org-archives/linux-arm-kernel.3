@@ -4,75 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB3E7EE208C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 11:04:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A7CEE208F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 11:05:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hffRbNLZFl9uDUo0y6gSrfmxCTFy3pQga3bjflSdj4s=; b=CUB2pRibRsFJXJ8Skk6YZQI9le
-	NwSOa+88SCmSzI2GyYUkSONDd+KfBi2PgsPygIuronSp2Cr0slQ3CiQzeveZMDhNjfUtmLSfgKRY1
-	HeyttzcmWNGagx1/L+LVLB0zgKT8OD0jz4HHcXiAtcEA/m5Nb3S5jwxMlfAaCXRwIHpRhlP54QvBb
-	pnlxoq5jq2rdsllwGavNpKulbDz/ek5iNt1xD02tRiJDZ1qDffPmDXPOkKc9R9ZtDcDlbv5+RWDlw
-	knt4DFJUIeXvI3rfp8jVKY157a8znTd/b+fYilzVKSvQAp4ctCfrut6aSN1fBC47TONwzizgIS8l5
-	hTkUFEXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xC8l066xA0h1Ewf/yE8cwvsOmZDNrOUgUAkdoTm9jPs=; b=j5Txbh6zjHw6XvK0M4be0rIzMU
+	saHfUrLXPpJ8IiPbVGDeY4LZzf2oVHFyUre7gVvsm9/n4SXDSPeoAlrIDQIgaMQVbn9DrzGBLAtzi
+	x1a2NZyAyD8P5CrPpEeyq7yYdITt9cVfc6vFUEuEbOlVu5Z+qRlnpA0uNzPHHWbOZiL1PRQqTTuQP
+	BjNaofWvbqI/NFnAz2ITmi1444yNIi4aHJhi7NtYgqlm8ZeE0+y7asxRj/JcQzUucz3QmF4tQXuOm
+	Z2o7dl6VBwr88T5LRZmW8IZ4I10gvjy/L1YJwLRmnQfg/N5mquwvH5yR+ipZEoPVANo7mubsc0x2t
+	oPWJCruA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voJdY-0000000BDMe-0Kny;
-	Fri, 06 Feb 2026 11:04:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1voJeJ-0000000BDVV-3j2o;
+	Fri, 06 Feb 2026 11:05:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voJdV-0000000BDMX-2Q2F
+	id 1voJeH-0000000BDUW-04Bt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 11:04:30 +0000
+	Fri, 06 Feb 2026 11:05:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A719460051
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Feb 2026 11:04:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62069C19423
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Feb 2026 11:04:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 16E3040A20;
+	Fri,  6 Feb 2026 11:05:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8994C116C6;
+	Fri,  6 Feb 2026 11:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770375868;
-	bh=hffRbNLZFl9uDUo0y6gSrfmxCTFy3pQga3bjflSdj4s=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=o0ZR2OZ8ET+okN4dF12G54Fgx+7fWpcGE7D1bsf3+A0RUl9owzQXS5zpp3kKfDY/A
-	 D+2N5HirxoonxTHayAVJ2tlbvIikf40jJam3Z0318URN7KDOx3U/IcFMUKIHL7ok8S
-	 dWj7iO+PLNVEaxPxsE6+4a3rsUgInQDmXnxqaf1NnsNWg7or5MRcp2+BYI6v3bMYX1
-	 +OvWuvfNBr3VBWC+xo1ZtlKpQ3s0m69RvOSTVZikqlMC+DdnD3Fit7TLyLKGoOGFdv
-	 7c0YeTbv2ItXrzfavxUX7dXVAujAgfF5IOshhroNX6b6fjDpq3hE+8D2Smb3wPJh84
-	 wQQV8OIa0s1mg==
-Received: by mail-yx1-f52.google.com with SMTP id 956f58d0204a3-649e97f1e99so1717236d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Feb 2026 03:04:28 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWkzZ2exX4y/huVGJFIRYc98+6LsEyI9sMnOnhfLgIdGvxchB8A7YSMOuZJMDjSGlD2u4x2QFcNVw+zFBxYfjYL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/y0/wXpjOVs8mx8mIwByAegZyLaKb6OjTMiqJmrzAM7/OP4i4
-	rlZKOCNILiQhcjImu+8fh6hBVavFbBzjpSYaSK6GESQQ5kvYgT0DHzBFIF4p5LQgOoKLE3Sbhk9
-	QR7GpNyYXGc4XTgmJFxV6OOysRfBEeYs=
-X-Received: by 2002:a05:690e:191e:b0:649:df3b:318b with SMTP id
- 956f58d0204a3-64a0b8e072fmr1616388d50.7.1770375867660; Fri, 06 Feb 2026
- 03:04:27 -0800 (PST)
-MIME-Version: 1.0
-References: <20260123-upstream_pinctrl_single-v2-0-40f8063cc5a2@aspeedtech.com>
- <CAD++jL=OXJdJZpjbo0_C03vcgPe5btum-J0uifvSJkMaUWG-=w@mail.gmail.com>
- <OSQPR06MB725257E71F0B7F7F1013263D8B98A@OSQPR06MB7252.apcprd06.prod.outlook.com>
- <20260206042215.GA5376@atomide.com> <OSQPR06MB7252ADEF2CB075BC40AD7DB68B66A@OSQPR06MB7252.apcprd06.prod.outlook.com>
-In-Reply-To: <OSQPR06MB7252ADEF2CB075BC40AD7DB68B66A@OSQPR06MB7252.apcprd06.prod.outlook.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 6 Feb 2026 12:04:16 +0100
-X-Gmail-Original-Message-ID: <CAD++jLm2a1-G7QQBb+u68DH_RT6kc4=vpqZWQcirvWrcRjw+5Q@mail.gmail.com>
-X-Gm-Features: AZwV_QjiR7EqiS7wfW4pJq3UdcwSHA9nPaSiBx_Jimt1qmxk2Cn1f0Eh_W2TsUs
-Message-ID: <CAD++jLm2a1-G7QQBb+u68DH_RT6kc4=vpqZWQcirvWrcRjw+5Q@mail.gmail.com>
-Subject: Re: [PATCH v2 0/3] pinctrl: single: bit-per-mux DT flexibility, probe
- robustness, and consistent pinconf offsets
-To: Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: Tony Lindgren <tony@atomide.com>, Haojian Zhuang <haojian.zhuang@linaro.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-omap@vger.kernel.org" <linux-omap@vger.kernel.org>, 
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>, BMC-SW <BMC-SW@aspeedtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	s=k20201202; t=1770375915;
+	bh=25m2T55SWRbdR2cT8IrGffz1Yvd5445dsgakP4kraKQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Ax6teyx0JD00nfcomgRVjoGpqHZyfULPaaojJQWcJkWBQasIXfNd08th7Kpba7wMF
+	 gR+pG/Lu4pqKsiwx/W/YG3VXEPvyulto/h/Cf0PmQ/c82W46PYduGVf93rmV4l2v0y
+	 5r1R6cH3Fu1bCGdbsDaVJlAjJ0kXgzRcoMdQBLL537v+N+QfMl/jq2u79VPaKB5YJu
+	 sTJ7ZOBbgrHSLJapFrHzZUjSBSe2+nYgGpsmO+krz9P9HCseBH4uErvEphU5T4pSnX
+	 hkFEfCjT0JMFrmaYCjgdFn2on9uGcHyjg5F8E5zQU+90yUJHkRGGki3M0Aj076wA8C
+	 AYNDgFusrB61g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1voJeD-000000097M2-1U8N;
+	Fri, 06 Feb 2026 11:05:13 +0000
+Date: Fri, 06 Feb 2026 11:05:12 +0000
+Message-ID: <86ms1m9lp3.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zenghui Yu <zenghui.yu@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei
+ <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	wanghaibin.wang@huawei.com
+Subject: Re: [PATCH v3 02/16] KVM: arm64: nv: Implement nested Stage-2 page table walk logic
+In-Reply-To: <3f88cd49-68f1-4276-a067-b7c6beadb27c@linux.dev>
+References: <20240614144552.2773592-1-maz@kernel.org>
+	<20240614144552.2773592-3-maz@kernel.org>
+	<3f88cd49-68f1-4276-a067-b7c6beadb27c@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: zenghui.yu@linux.dev, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, james.morse@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, gankulkarni@os.amperecomputing.com, wanghaibin.wang@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260206_030517_094900_19DCAC7E 
+X-CRM114-Status: GOOD (  39.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,42 +96,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 6, 2026 at 8:24=E2=80=AFAM Billy Tsai <billy_tsai@aspeedtech.co=
-m> wrote:
+On Wed, 04 Feb 2026 08:28:57 +0000,
+Zenghui Yu <zenghui.yu@linux.dev> wrote:
+> 
+> Hi Marc,
+> 
+> [ chewing through the NV code.. ;-) ]
 
-> I understand the preference is to keep pinctrl-single minimal and move
-> the bit-per-mux handling into a separate, more targeted driver built on
-> top of the GENERIC_PINMUX/GENERIC_PINCONF helpers, rather than extending
-> pinctrl-single itself.
->
-> Based on that, I=E2=80=99ll look into refactoring this into a
-> pinctrl-single-bit style driver that covers bit-per-mux / bit-per-pin
-> layouts generically (including AST2700), while keeping pinctrl-single
-> focused on the simpler register models.
->
-> One additional point I=E2=80=99d like to raise is the handling of pre-res=
-erved
-> MMIO regions.
->
-> On AST2700 systems, the SCU register range containing the pinctrl
-> registers is commonly reserved by a top-level syscon node or by firmware.
-> In this setup, devm_request_mem_region() can return -EBUSY even though th=
-e
-> registers are valid and intended to be shared, which currently causes the
-> driver to fail probing and leaves pinmux unconfigured.
->
-> When moving to a separate targeted driver, would the preferred approach
-> be to treat this condition as a warning and continue probing, or is there
-> an alternative pattern you=E2=80=99d recommend for handling shared SCU-st=
-yle
-> register blocks in pinctrl drivers?
+You fool! :)
 
-Can't you just base this entire driver on syscon which uses regmap-mmio
-to abstract and solve this problem?
+> 
+> On 6/14/24 10:45 PM, Marc Zyngier wrote:
+> > From: Christoffer Dall <christoffer.dall@linaro.org>
+> > 
+> > Based on the pseudo-code in the ARM ARM, implement a stage 2 software
+> > page table walker.
+> 
+> [...]
+> 
+> > +static u32 compute_fsc(int level, u32 fsc)
+> > +{
+> > +	return fsc | (level & 0x3);
+> > +}
+> > +
+> > +static int get_ia_size(struct s2_walk_info *wi)
+> > +{
+> > +	return 64 - wi->t0sz;
+> > +}
+> > +
+> > +static int check_base_s2_limits(struct s2_walk_info *wi,
+> > +				int level, int input_size, int stride)
+> > +{
+> > +	int start_size, ia_size;
+> > +
+> > +	ia_size = get_ia_size(wi);
+> > +
+> > +	/* Check translation limits */
+> > +	switch (BIT(wi->pgshift)) {
+> > +	case SZ_64K:
+> > +		if (level == 0 || (level == 1 && ia_size <= 42))
+> 
+> It looks broken as the pseudocode checks the limits based on
+> *implemented PA size*, rather than on ia_size, which is essentially the
+> input address size (64 - T0SZ) programmed by L1 hypervisor. They're
+> different.
+>
+> We can probably get the implemented PA size by:
+> 
+> AArch64.PAMax()
+> {
+> 	parange = get_idreg_field_enum(kvm, ID_AA64MMFR0_EL1, PARANGE);
+> 	return id_aa64mmfr0_parange_to_phys_shift(parange);
+> }
+> 
+> Not sure if I've read the spec correctly.
 
-The syscon is entirely designed as a singleton owning all registers
-and handing them out to subdrivers.
+I think that's also the way I read AArch64_S2InvalidSL(), which more
+or less mirrors the above.
 
-Yours,
-Linus Walleij
+The question is what should we limit it to? Is it PARange, as you
+suggest? Or the IPA range defined by userspace at VM creation (the
+type argument, which ends up in kvm->arch.mmu.pgt->ia_bits)?
+
+I think this is the former, but we probably also need to handle the
+later on actual access (when reading the descriptor). Failure to read
+the descriptor (because it is outside of a memslot) should result in a
+SEA being injected in the guest.
+
+> 
+> > +			return -EFAULT;
+> > +		break;
+> > +	case SZ_16K:
+> > +		if (level == 0 || (level == 1 && ia_size <= 40))
+> > +			return -EFAULT;
+> > +		break;
+> > +	case SZ_4K:
+> > +		if (level < 0 || (level == 0 && ia_size <= 42))
+> > +			return -EFAULT;
+> > +		break;
+> > +	}
+> > +
+> > +	/* Check input size limits */
+> > +	if (input_size > ia_size)
+> 
+> This is always false for the current code. ;-)
+
+Yup. At least that doesn't introduce any extra bug! :)
+
+>
+> > +		return -EFAULT;
+> > +
+> > +	/* Check number of entries in starting level table */
+> > +	start_size = input_size - ((3 - level) * stride + wi->pgshift);
+> > +	if (start_size < 1 || start_size > stride + 4)
+> > +		return -EFAULT;
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +/* Check if output is within boundaries */
+> > +static int check_output_size(struct s2_walk_info *wi, phys_addr_t output)
+> > +{
+> > +	unsigned int output_size = wi->max_oa_bits;
+> > +
+> > +	if (output_size != 48 && (output & GENMASK_ULL(47, output_size)))
+> > +		return -1;
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +/*
+> > + * This is essentially a C-version of the pseudo code from the ARM ARM
+> > + * AArch64.TranslationTableWalk  function.  I strongly recommend looking at
+> > + * that pseudocode in trying to understand this.
+> > + *
+> > + * Must be called with the kvm->srcu read lock held
+> > + */
+> > +static int walk_nested_s2_pgd(phys_addr_t ipa,
+> > +			      struct s2_walk_info *wi, struct kvm_s2_trans *out)
+> > +{
+> > +	int first_block_level, level, stride, input_size, base_lower_bound;
+> > +	phys_addr_t base_addr;
+> > +	unsigned int addr_top, addr_bottom;
+> > +	u64 desc;  /* page table entry */
+> > +	int ret;
+> > +	phys_addr_t paddr;
+> > +
+> > +	switch (BIT(wi->pgshift)) {
+> > +	default:
+> > +	case SZ_64K:
+> > +	case SZ_16K:
+> > +		level = 3 - wi->sl;
+> > +		first_block_level = 2;
+> > +		break;
+> > +	case SZ_4K:
+> > +		level = 2 - wi->sl;
+> > +		first_block_level = 1;
+> > +		break;
+> > +	}
+> > +
+> > +	stride = wi->pgshift - 3;
+> > +	input_size = get_ia_size(wi);
+> > +	if (input_size > 48 || input_size < 25)
+> > +		return -EFAULT;
+> > +
+> > +	ret = check_base_s2_limits(wi, level, input_size, stride);
+> > +	if (WARN_ON(ret))
+> > +		return ret;
+> > +
+> > +	base_lower_bound = 3 + input_size - ((3 - level) * stride +
+> > +			   wi->pgshift);
+> > +	base_addr = wi->baddr & GENMASK_ULL(47, base_lower_bound);
+> > +
+> > +	if (check_output_size(wi, base_addr)) {
+> > +		out->esr = compute_fsc(level, ESR_ELx_FSC_ADDRSZ);
+> 
+> With a wrongly programmed base address, we should report the ADDRSZ
+> fault at level 0 (as per R_BFHQH and the pseudocode). It's easy to fix.
+>
+
+Yup. Although this rule describe S1 rather than S2 (we don't seem to
+have anything saying the same thing for S2), but I expect the
+behaviour to be exactly the same.
+
+> > +static void vtcr_to_walk_info(u64 vtcr, struct s2_walk_info *wi)
+> > +{
+> > +	wi->t0sz = vtcr & TCR_EL2_T0SZ_MASK;
+> > +
+> > +	switch (vtcr & VTCR_EL2_TG0_MASK) {
+> > +	case VTCR_EL2_TG0_4K:
+> > +		wi->pgshift = 12;	 break;
+> > +	case VTCR_EL2_TG0_16K:
+> > +		wi->pgshift = 14;	 break;
+> > +	case VTCR_EL2_TG0_64K:
+> > +	default:	    /* IMPDEF: treat any other value as 64k */
+> > +		wi->pgshift = 16;	 break;
+> > +	}
+> > +
+> > +	wi->sl = FIELD_GET(VTCR_EL2_SL0_MASK, vtcr);
+> > +	/* Global limit for now, should eventually be per-VM */
+> > +	wi->max_oa_bits = min(get_kvm_ipa_limit(),
+>                               ^^^
+> 
+> Should we use AArch64.PAMax() instead? As the output address size is
+> never larger than the implemented PA size.
+> 
+> Now I'm wondering if we can let kvm_get_pa_bits() just return PAMax for
+> (based on the exposed (to-L1) AA64MFR0.PARange value) and use it when
+> possible.
+
+Yes, that was the plan all along, but I got sidetracked.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
