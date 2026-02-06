@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D975EE6B6A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 23:10:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0AE1EE6B6C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 23:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qxmC+QqdYq1E18IaUVjr4WY+9tf/unNaTuXUIO478gM=; b=G49vKzxhE4CXy+5uyo9tfjrE7q
-	P8G+/npPINE4ZJWnXH2aSd/RHr+53mTTKA8BHd3iE/tYVEWyICkrESo7DoKVnE9hVvuF0juYwMHX3
-	JyHEgE81J2VUtbI1SjQvS4WaadAOhPCmeX7V0y2OBjXHr8dLU954qqLJe+/raaJ21lAiYvsYOzxQO
-	eaxeGbBLyNPwqA9Cdn2N4aTNNn+yhjmdTyUnRUNHamJvFZ2kOxXcafZswPyH8EA0X8zjTgzEk05Re
-	0EnyL2fPHzMWdtTZ0Ri+W5Mw8svGBVYHD1+o8e53SdM1CCTXwtZKob9u+j/ebKGvTRfrLYfgRc2Ht
-	9jze5F1w==;
+	bh=yrZrYkOk8NLj+eii96xbmkq0grMHjKkFkwmfBWotGS0=; b=d2BklFO8OnFegUYLMeePHkbLKA
+	gXR9b/lxPgkkYn2DTIP5yx2UMrpY/qzvRzIm5HITF7KMsx+8EX425900mRK0Dddl8jz8RQk9yWrUE
+	CxIzgdtEmSN8IDevPnAVe5Ve5rpECQhpyHAtcRYENtsXCK1zJ7SBZrPBvuntYbRu1aiBnAuTIFGN9
+	w6DEMy1jp6G49+ICok/ndHyAy9oKBS5/T/7hrwUNjhzLYLxztv2i+2j37y/wGaACDznZNeLVg0KrO
+	2vcIPaqetiKH19ZdH7+PYTmrutPR33c1tbxQ6oLV0dlN5oVfRcnbuW5WmQ8l/u5zwI7rB6165jLMK
+	RzG5BHxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voUxU-0000000BuAf-13sZ;
-	Fri, 06 Feb 2026 23:09:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1voVgP-0000000BvbT-2HNv;
+	Fri, 06 Feb 2026 23:56:17 +0000
+Received: from lgeamrelo13.lge.com ([156.147.23.53])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voUxS-0000000BuAZ-1nIt
+	id 1voVgL-0000000Bvb4-2ifx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 23:09:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7862A600AA;
-	Fri,  6 Feb 2026 23:09:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D5CBC116C6;
-	Fri,  6 Feb 2026 23:09:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770419389;
-	bh=vyqHlPcIjJzfjfUclMOSj5CAGDDQYLSQb6hr9O6C4tg=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=J/7s/ocrhVq758pfRLOV1vWxxtyoVXM/JUO5tDRHFoz6u9dIQSfgIu86xs7+3hFO6
-	 fhtwBO0B79e3mXTxdMAAy4C8fQ4sCACjcG46JHEdIFIqcTk9CHkOkZZWJWBbhkGTyr
-	 u1RAmCZCTwTIsK/Mlig38laDtzsOhFCuxC5KvwVxTKEqJVta54oodPgro/PsZA0T0y
-	 IQR+7dmBMoH+S0TpG8SIVCGX59zoepPryFhWEeVNrCMQlNFdf+8FCiBm77JtyEjHkE
-	 NdBpwV8Owc3RROqCo7OFAM5ENjkgkcDSIdU4Z3pZ6ik3DQeepvNTO5ppGCORwhCKCz
-	 D81SCq25MDZkA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 8553C3809A17;
-	Fri,  6 Feb 2026 23:09:47 +0000 (UTC)
-Subject: Re: [GIT PULL] pmdomain fixes for v6.19-rc9
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20260206110555.539300-1-ulf.hansson@linaro.org>
-References: <20260206110555.539300-1-ulf.hansson@linaro.org>
-X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
-X-PR-Tracked-Message-Id: <20260206110555.539300-1-ulf.hansson@linaro.org>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.19-rc3-3
-X-PR-Tracked-Commit-Id: e2c4c5b2bbd4f688a0f9f6da26cdf6d723c53478
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 0dbc3577107008883a9d4275e4b67cd3b4dfacf5
-Message-Id: <177041938605.1109628.5377895406191503833.pr-tracker-bot@kernel.org>
-Date: Fri, 06 Feb 2026 23:09:46 +0000
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Linus <torvalds@linux-foundation.org>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, linux-arm-kernel@lists.infradead.org
+	Fri, 06 Feb 2026 23:56:15 +0000
+Received: from unknown (HELO lgemrelse6q.lge.com) (156.147.1.121)
+	by 156.147.23.53 with ESMTP; 7 Feb 2026 08:56:03 +0900
+X-Original-SENDERIP: 156.147.1.121
+X-Original-MAILFROM: chanho.min@lge.com
+Received: from unknown (HELO BRUNHILD) (10.178.31.97)
+	by 156.147.1.121 with ESMTP; 7 Feb 2026 08:56:03 +0900
+X-Original-SENDERIP: 10.178.31.97
+X-Original-MAILFROM: chanho.min@lge.com
+Date: Sat, 7 Feb 2026 08:56:03 +0900
+From: Chanho Min <chanho.min@lge.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Kael D'Alcamo <dev@kael-k.io>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 0/2] arm64: dts: Initial support for LG1215 TV SoC
+Message-ID: <aYZ/k1SuZ4dTaV8u@BRUNHILD>
+References: <20260112053421.3185738-1-chanho.min@lge.com>
+ <aYFM+mHqhfCuWgRP@BRUNHILD>
+ <af35d335-96f2-4404-a6e2-e85c68cb2757@kernel.org>
+ <7bec9ff0-29c8-4468-9d31-2d2b483e2aaf@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <7bec9ff0-29c8-4468-9d31-2d2b483e2aaf@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260206_155613_974736_5BDB13AF 
+X-CRM114-Status: GOOD (  19.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,16 +76,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri,  6 Feb 2026 12:05:55 +0100:
+On Fri, Feb 06, 2026 at 06:15:25PM +0100, Krzysztof Kozlowski wrote:
+> On 06/02/2026 18:13, Krzysztof Kozlowski wrote:
+> > On 03/02/2026 02:18, Chanho Min wrote:
+> >>>  .../devicetree/bindings/arm/lge.yaml          |   5 +
+> >>>  arch/arm64/boot/dts/lg/Makefile               |   1 +
+> >>>  arch/arm64/boot/dts/lg/lg1215-ref.dts         |  50 +++
+> >>>  arch/arm64/boot/dts/lg/lg1215.dtsi            | 290 ++++++++++++++++++
+> >>>  4 files changed, 346 insertions(+)
+> >>>  create mode 100644 arch/arm64/boot/dts/lg/lg1215-ref.dts
+> >>>  create mode 100644 arch/arm64/boot/dts/lg/lg1215.dtsi
+> >> Hi,
+> >>
+> >> Gentle ping on the LG1215 series (v3) — Acked-by received, but still not picked up.
+> >> Any update or is it waiting in a queue somewhere?
+> > 
+> > 
+> > Why are you pinging yourself?
+> 
+> Sent a bit too fast... I meant:
+> 
+> *  # email/list and role:stats
+> *  1 Chanho Min <chanho.min@lge.com>
+>      maintainer:ARM/LG1K ARCHITECTURE
+> 
+> so if you are not taking the patches, no one else is going to and
+> platform should be removed from the kernel. Please confirm your choice
+> (I can prepare the patch to remove LG).
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.19-rc3-3
+Hi Krzysztof,
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/0dbc3577107008883a9d4275e4b67cd3b4dfacf5
+Sorry for pinging incorrectly.
 
-Thank you!
+I will take proper responsibility for the LG SoC patches going forward and
+handle this series appropriately.
+Please do not remove the platform.
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+Thanks again for the clear reminder,
+Chanho,
+
+
+
+
+> 
+> Best regards,
+> Krzysztof
 
