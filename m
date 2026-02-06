@@ -4,68 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50655EE2084
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 11:34:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C710EE208C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 11:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e88o2vkHKEQ7ct2edtyijEFQqfue9/krGUvH82zBYvA=; b=CCT3c+i/9GyA6j4XjcT+OyDtoS
-	Bl20qDNMws7oonVZpOjL+Z/xjvJOrH5CfZWzjNXAdIqKObW0Xicaf2woliNJ4Kt763dyDiSzJaOSB
-	LaTWN7PVHMbAWZ6gldUeZv8srjZCKX7zLTyYUKOiRHWQzX9zMM+sPcgw7uCXRsMNeZAtxg8z/bge8
-	rytWbQc9RX5478fyOHEA07EpPkRDHvEyh8bKTaLn5IHLdGe7esX+CzqBliy5LUDQKn0I0/9017jXq
-	fzsSXIsuuIlqBvNXN4Q87wVVIEKBaTeuv/roX+I28n3NHRWYucvNUOOc0TadDjPN2r4rk/YKuvnk/
-	HqjAgsSw==;
+	bh=2LYB2Xon2R1NhSTYudhZ6oaYCsDuHXlEc/WriJLn+QE=; b=zRR06ojXGhgHe2YB4asjVhM3+J
+	8KiOsM2lNwr3AXIKXqxQ6mtnDv7ERxCoPuJGGjnwONU1GaFtg4PijXn9AcuFB90hH9qrVpP6DKIIQ
+	Dp8cElMevkW/98QPHqO4qNZOTPyHraF2vOmSCu6GZiMkqbGoyN+xtIqLuJ6A1r5dEIIKRNXmxvA77
+	USqojcIHPSOp3+6h0L3km6TbGdDxKfCEWbwbX85ZXWqE3pj+mCXNce/Xk2vlkvSxn35NuP9cOyy6l
+	9ahnbKU7WtS4Glb+g8hrQVwFptuQPv+kL+tZg8UAOl/vL/SnFiavl2TZFvcxver2DZoK4NQinbqXf
+	j6nfC8Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voK6V-0000000BFVv-2FQy;
-	Fri, 06 Feb 2026 11:34:27 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1voK6y-0000000BFd8-3LTw;
+	Fri, 06 Feb 2026 11:34:56 +0000
+Received: from mail-koreacentralazon11023127.outbound.protection.outlook.com ([40.107.44.127] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voK6S-0000000BFVK-0kwD;
-	Fri, 06 Feb 2026 11:34:25 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1770377659;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=e88o2vkHKEQ7ct2edtyijEFQqfue9/krGUvH82zBYvA=;
-	b=GCxv/oCFt+944O66V6ahoJel5fXljNGqn5VedO4GLzHrg3pYabGiunu+7F059Wu3I5SXwV
-	zEdVj4FV0I5R0KYa1bRske29/qNpvMhozPQc3z73ZEUJw5IyMdiI2P0zKyB2lYg5rIzmuR
-	u8CgDNwl4dsgEYfdfVBazzi6sw2VlMGLlLu3LzFOHvz7dpKLomJGI8c4pKpllqSHf/C/qM
-	tSYGhSD2Gq6UnqyXjhnWm/gFgrss6z8pCN6xvZQP6Ev2Vj8VvpW7hqaZ1tOKE7p7lvBPIP
-	IKH5Sdvy4coKo6MjJqujjtaJq6gVjhhcN8A89IuKM0eRtvca8Z+sk4L5Yquaxg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1770377659;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=e88o2vkHKEQ7ct2edtyijEFQqfue9/krGUvH82zBYvA=;
-	b=RpSn/lhUuWmAbV1MUQJX3yCHQha5g4vDOU9oVTffdM/R68le4+t6oUetF554mlcFFGz50H
-	d7GDic+AypymrhDw==
-To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
- <andrew@codeconstruct.com.au>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert
- Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, Ryan Chen <ryan_chen@aspeedtech.com>
-Subject: Re: [PATCH 2/4] irqchip/ast2700-intcx: Add AST2700 INTC0/INTC1 support
-In-Reply-To: <20260205-irqchip-v1-2-b0310e06c087@aspeedtech.com>
-References: <20260205-irqchip-v1-0-b0310e06c087@aspeedtech.com>
- <20260205-irqchip-v1-2-b0310e06c087@aspeedtech.com>
-Date: Fri, 06 Feb 2026 12:34:18 +0100
-Message-ID: <87h5ru14xx.ffs@tglx>
+	id 1voK6w-0000000BFbt-1Utq
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Feb 2026 11:34:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qD+h0s2tYZmH85kFJZZn3v0J58PpkFPmuBmu0pHGBTEtnb+zpIODVYctCixKFkIgUzaAE38Wmwx2J4qeJE7CaMrRhV/aE+2ou5e7FZ9BUPQazUUZo6f/speKl1RVOzjqTfr8gFiqc3sV43cbYYDqLl2ODCRbWr5CxDk71PbKX5tlSTX9fRk4Pz/O2eR0qQyuxIuHurBEXEqUUZ3ivy/sYlCWDIFG4ybovOi2IKIrr0A4MVBUiVn7DizVMb49zN3aoOXXv+ROG517/ohw18LC0Vp9h0qKaASaPiSMDZHP6gX5cAycRuKgDsaUUIGLgLW/Sdt+pfRuS7MhsNXmRpYPVQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2LYB2Xon2R1NhSTYudhZ6oaYCsDuHXlEc/WriJLn+QE=;
+ b=FUZMnoZwKOEnl/h7wrnH4SM+wKPGYCTJj+nQJfSDhpALPkVGD94KFnyEQCjWkzCYgEjk2KTzzvAjJDylgzmQyaHwGWY4nwkrkMpp3histVEwHeViq5YmR2os9SVfFWZneSEQh04iA89vtog1Vv7YfgOIT6CC1i8FRWAjWAUanALpBryny9QXproZej9LaSZGb12GiHG36YlzRsw8eO44p8A4EoR9ygWBSYjBoUS2sKqbx4sdP6J+TgUHGFKthQgGMIQlbtFrLglANlpMfxhZ1WLQb9SgWZ+O2oyUdkIsclMGvOA7Or4j888XqiNnZBragNyOWqu0jDoNrPvY2YgB+g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2LYB2Xon2R1NhSTYudhZ6oaYCsDuHXlEc/WriJLn+QE=;
+ b=eW9M7J6AmOwEnuv5CtbKWzfQIPNMjwoUSSwVjGI3SyMEf19qh0+m+/ZwNNt2BOEpqo6hLZrHrgnlm9i7CL0vf9gdzXkbcTrXe7tQMjmWAljgrJBUFxn9pyATthksybo2fzBLEkaa9cj1vDUVGRh3PKNZKrnqheR11Ul5kqN3/SiFh771AIHA7mjvRtXV02jwcpwbPN55L5GhS0bmK16jo1oAwPscZO49Pz/LVY9oB645TdaDoLx8gU08RjMyCfIahYRuxvf9JF6brHeSA0CwxPFhwuiTOS8DLqfgJ3712I8WzL3LUqjPrk6ffeROkrbibIAp6PKW3QAJeHlV5k/b8g==
+Received: from OSQPR06MB7252.apcprd06.prod.outlook.com (2603:1096:604:29c::6)
+ by TYSPR06MB6290.apcprd06.prod.outlook.com (2603:1096:400:42a::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Fri, 6 Feb
+ 2026 11:34:47 +0000
+Received: from OSQPR06MB7252.apcprd06.prod.outlook.com
+ ([fe80::92af:c9d9:8779:d19]) by OSQPR06MB7252.apcprd06.prod.outlook.com
+ ([fe80::92af:c9d9:8779:d19%4]) with mapi id 15.20.9587.013; Fri, 6 Feb 2026
+ 11:34:47 +0000
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+To: Linus Walleij <linusw@kernel.org>
+CC: Tony Lindgren <tony@atomide.com>, Haojian Zhuang
+	<haojian.zhuang@linaro.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-omap@vger.kernel.org"
+	<linux-omap@vger.kernel.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "andrew@codeconstruct.com.au"
+	<andrew@codeconstruct.com.au>, BMC-SW <BMC-SW@aspeedtech.com>
+Subject: Re: [PATCH v2 0/3] pinctrl: single: bit-per-mux DT flexibility, probe
+ robustness, and consistent pinconf offsets
+Thread-Topic: [PATCH v2 0/3] pinctrl: single: bit-per-mux DT flexibility,
+ probe robustness, and consistent pinconf offsets
+Thread-Index: AQHcjBon++X4WP13bEy2OWyHfoxUrrVwK6aAgAH+4O+AAv2egIAAIat4gABOpwCAAAIPAg==
+Date: Fri, 6 Feb 2026 11:34:46 +0000
+Message-ID: <OSQPR06MB7252D5BCD40BDF2A91FF41438B66A@OSQPR06MB7252.apcprd06.prod.outlook.com>
+References: <20260123-upstream_pinctrl_single-v2-0-40f8063cc5a2@aspeedtech.com>
+ <CAD++jL=OXJdJZpjbo0_C03vcgPe5btum-J0uifvSJkMaUWG-=w@mail.gmail.com>
+ <OSQPR06MB725257E71F0B7F7F1013263D8B98A@OSQPR06MB7252.apcprd06.prod.outlook.com>
+ <20260206042215.GA5376@atomide.com>
+ <OSQPR06MB7252ADEF2CB075BC40AD7DB68B66A@OSQPR06MB7252.apcprd06.prod.outlook.com>
+ <CAD++jLm2a1-G7QQBb+u68DH_RT6kc4=vpqZWQcirvWrcRjw+5Q@mail.gmail.com>
+In-Reply-To: <CAD++jLm2a1-G7QQBb+u68DH_RT6kc4=vpqZWQcirvWrcRjw+5Q@mail.gmail.com>
+Accept-Language: en-US, zh-TW
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSQPR06MB7252:EE_|TYSPR06MB6290:EE_
+x-ms-office365-filtering-correlation-id: a13d407c-e9d0-4163-e5ff-08de6573bb3c
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|38070700021;
+x-microsoft-antispam-message-info: =?utf-8?B?ZStSUzNzQ2IxczVTdmcvTjZ3d1d0V2MrZEhsNXJqa3pxVkQzTGhrd1ByYU93?=
+ =?utf-8?B?b3Y1cGh4RUZQTEZxUmIzUFEyRklzdUhsdnlGcUpBMGtFYTdydlJPbG1YTWRK?=
+ =?utf-8?B?Zld0K1RFT2I2c2xkZmVyOENSZ3dFaXZJRldKTHdFc0NuNytKbG1wVWhTU1NO?=
+ =?utf-8?B?d04wbkNLanc3NFd4L3I4Y0VWU2tJdzRmZWdRMnlucTZHZ0FndDEyaGhQdlZ5?=
+ =?utf-8?B?Nlg5VVdUT054ZXNJbEloK2cwNmxXckNSN1NXa1BvL2JmWXRmZzF0dWdnNkpL?=
+ =?utf-8?B?L1pxSnc2MzlZbjZBemVWaGsvOXE3RE9mQUJXZWxkcVRIKzlzOXNJenluNkRG?=
+ =?utf-8?B?cEZuWHpVaDhnLy9jYmxkSVh1blNTcnpSZWc1WXZRdjcxK09tMUtMSWJGc1A0?=
+ =?utf-8?B?cGg3NTkyTWIySzF4YjhlcEhpRjRFb05kOE1NM21SSEk3Qks4eGk1Y1M0MUsw?=
+ =?utf-8?B?ZlA3dGFwWUdRS05lbThMSHJnZjR4a0FnTXlmNjlydDF4OFV1YUpUcEkwT2tv?=
+ =?utf-8?B?QnlXTUVORVVLMkdHYVBLeG91Uis2cDZlTlo2YlBXZFIvQUVZeHlZZ2wvNmpw?=
+ =?utf-8?B?WXRoelkyc2s0b2Y2UWxZRFBHa3lMaVE3Njl3SFQrbjNGUjNaTWhqOVdxczBp?=
+ =?utf-8?B?SXZoOWtwcjYvS01aVkNUZ1oyT3gwbUlWN1RJNnI2VEVpU2hjMklaY2xsYkxY?=
+ =?utf-8?B?bXozTk41MjM4ZnVMdUJxcGlSelBNWEFvRHhRUlh2SmFFTVdST2dYVkxJWmYr?=
+ =?utf-8?B?dy9wZE9KRlAwV3Z6RGdNN0Y3c1VXVzFxcUVXQks5RnRJVC9pcDNBaWtRall3?=
+ =?utf-8?B?Wk81ZkVBT0w4b0ViU1Npa2Y0c2wzVWdpdnZLRXZHRENkcjdMTDJXRnE4THBz?=
+ =?utf-8?B?M1lvTkRpQzdCSzFKUHRTeDRvNHp3ZEhzS00wTERLSVpiaFR0UE5iY0ZMaTFh?=
+ =?utf-8?B?VWI0R0VjZ2t0RHRuZVZrSG0vQ2R5c2l1K1lCSVpQVWRnaUM1Q05iblRKeVVj?=
+ =?utf-8?B?bWdQSXAzcmIzd1Z2NGVtUTJvTGRkRzBiUXZXYy9UcUphNmFaT3R3RVQxVHZl?=
+ =?utf-8?B?Q2FtU09NL3IwYmFma1Z4YWlvWTJoY1B1YlF5RklHelBQdjJ2UDhFb0hESkd1?=
+ =?utf-8?B?dUExVmFjSTJZQTRkNmkrTnZVbDZuMTB1RzJwV1Z0SFVJVWdncWVLSFBjZ3Fj?=
+ =?utf-8?B?M0V6UXlxZGtuRHlmVW9LN1VJL0xHSE5QZFl3T0RPYi80ZmFTWk81N0VETi9J?=
+ =?utf-8?B?eFhtY1lhMmRvL293UFZPTDdCdHRmM2ROV243WWNSZldpS1l0SndkNkxxZmxa?=
+ =?utf-8?B?dEhydFlSS2dPQ1pvUDFRN0p0aHc2ZGxWZkZjMFBLQVhxcHltNnE4cFFqZS82?=
+ =?utf-8?B?Q2MrMW1wekVyeE16aGdqZ1Jzc1FtU3JkcWJrazU4cFN5Zm9ta2c3N1FxL2pX?=
+ =?utf-8?B?TVhiLys4czY5SndqWjVZNHJOZ1dqbEMxbGFweWJ4Z2dyMGJHSXBHc3B6T1VE?=
+ =?utf-8?B?YjRHenFUblZhS0FDbVJjSXNscVBBckJDMzJJQlRQN1gzd0hFRkx4SWlqWDlu?=
+ =?utf-8?B?MU1BaUhSR0JFV1A5bkQzenpHYjlSWkN4bk9hNlVFOXF2aUtEWDJsS05KOG8z?=
+ =?utf-8?B?MDBWYk9sU2V4YitLSldORi9lWlNlOFVqMm9BMVZKSk8rRXp1WHFPVzdSN2R4?=
+ =?utf-8?B?Tmk0OUlpb0lBdFZBMWFPTDE2ZW4vOXhnS0VjWlR0TDVlWk55R0hNRm01OUFU?=
+ =?utf-8?B?TW9wdG5QUlJOZGVRSW1Ecy9iTG1oVk9VWXRhVGhYU01hSy8xdUJsR1pUVUtR?=
+ =?utf-8?B?WTNVRVhPbkl0ZkpiSjA3NDdwTnh0N2pTNGROUlVLQnJZOTFBb3JDU2lxYzEx?=
+ =?utf-8?B?MkZWSlNaeUY5NUtHVGREWnhnbWtiWE9WODVyUXVGNTk2dzI1WFBzWGVid1p4?=
+ =?utf-8?B?TUdLUGxFaWJmRGo5TUREaldlTVZDT21IaSs1U1o2Lzc4RTVreTlpVmR6WHA5?=
+ =?utf-8?B?V0xLV1lna3RYbDRoaEtuNGkwWDhvZk01NlpYY2tHVVJwMmVTSXdaODYzRTJK?=
+ =?utf-8?B?Zm5aekM3bkd4QjlTdEk4Sk93cWVJVFlhdytzMUxHZWV6VGNMY0h6RjYxK1JP?=
+ =?utf-8?B?WHhzSzVzMGV0MFhWYk00MHc4NmJUS3VnOWhCRVUxamsyOEsxS0J6cXNFb1dG?=
+ =?utf-8?Q?0OuaTAla9vg2+jZxzFEMpeU=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSQPR06MB7252.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?U3FkTDNpZHB1Unh5akhlWnNwUC8vdmlsS0o5eXAzSHI1N2Zqb1hwaExUN1Zu?=
+ =?utf-8?B?UDMrSm43R1BKem9IeDB4eEpqZERrVG8yMG8xNGNpSGc1aTlTU3l6aEZkWDZn?=
+ =?utf-8?B?cEZJSHp2VDgwenlqWEYwWlNTYitiVmY1L1UrQnJzSGxpbnUrcU44Y1BEL0kr?=
+ =?utf-8?B?U0hwZDNtMzd4T0g1TExaOGt2cEtzYTErN05tRlI5SWpPa25kQkpTQjBnSnlV?=
+ =?utf-8?B?RDlaQ0xIMFhLOVFwSkNLM1pDOGNROE9xKzVTQ0lHQU90Y05qcFZGU0ZKT2xL?=
+ =?utf-8?B?NEZ6Y0d6RW1NbWdIQ2NlMnNvVDhidFFSazA0WGNzVENXM213eHRiQmlQeHhv?=
+ =?utf-8?B?b1czWnNqblFrVmFuVkZVSGVhTUtHWEFQc3U0YTRFemRlMzdlTFBhU1hLRzll?=
+ =?utf-8?B?K3BGcnA3M3EvOFNTVmZyOGxXMTZQZ1I1MHNvV2ptdGYzRUM2TEdaWjdaaGFS?=
+ =?utf-8?B?ZkxHcVVESy84TVFaMEJLTXZzN3gvN0l6WkhxQ2Nqbkw5Tjg4MTAxNUlnc0Rj?=
+ =?utf-8?B?WUVLUGRTT0h1N01KZTZ1U2F0TnJ1clp3ZEp6RHpJMHllRDNHWndRYlhUWlk2?=
+ =?utf-8?B?b2FCNkJLU012c3d2ZktxRkhodHhZSDFzaUMzSnBGcW15eU40d3laY2hWUXNs?=
+ =?utf-8?B?U0V1MTdDZXlNbnZZVUFCYzR2clBYNmpuYU5HRjZISUNnaTVpVTkzVmd6YW41?=
+ =?utf-8?B?b2V0bzhHdURieCtkRUZwNWtPbitWSHRna1JYRjRQVW9wQXQ4Vzd1U2ZvM1h6?=
+ =?utf-8?B?T2xLS29aYzQvcDc5Wmt0STFpTjA1b3hOaUpuZE1rOUFzODRVYlA2eVFNOGtS?=
+ =?utf-8?B?RXNmOHI0NmdLcFJZMUY3KzB3Y0lLU2duRkVHd09PTUZoM05KM2FEYzJrVjBZ?=
+ =?utf-8?B?eWJIREdCOEhqRHNjeTJlVTJTSUx2anBrSGhEU00ycFJ2NXB6Q05jcTZiL2sr?=
+ =?utf-8?B?WFZjODNyZHMwK0lEanRLYnFzbjdCRXNheC94bWNRYlVtbkZ4OWh2ait3alkw?=
+ =?utf-8?B?eC9QeDdKNE0zdXlDUmphTVBTTmRlUGd4Vi9EeHplVlBhTmFYQndBdUoyZG5Q?=
+ =?utf-8?B?emxTeTlLT21hcENSKytJM2lqTWpYa0h1Z0RJamMvRU9GYkFRMjN3M2hoSThV?=
+ =?utf-8?B?MzA2Q2FrMEJNemlFUHBGK09FeCtLMHlwNmtPbUdyR2JhTlZtRFljRDhUVGpz?=
+ =?utf-8?B?WS9JazJBV0xPeXIrMzVLMlBtdGRMbmVRL3hHRXo2cW52WWVOVVFPazJ6a215?=
+ =?utf-8?B?M1c3YzU3M3dvakI3Vkt6ZksvMGVXb1pveVJIZXJPNjdvZUdUQjhEbTMwUzNo?=
+ =?utf-8?B?SnFITGVXczl6a2s0Nkt2S3Z4Z0U1YVV5QTNFNzRSWmVxMzBKYmsySmQzQ1N0?=
+ =?utf-8?B?NFErN0VOQkUxcXkzRUVwc0FaWWVEK1gxSSt4OVFnZGdyaGpSYVloYjJhcXNq?=
+ =?utf-8?B?SmxuVllYay8rTlV6eDBKb0RidmxwZWdyVkVDdyt4K0VEbTdNU0VvNFNLQkVP?=
+ =?utf-8?B?MGhvWVZtUnlpNzI4bkZkSWNuS3gxamZ0SjFnb21ocndXSkhraDUwdlNIUVUy?=
+ =?utf-8?B?bWdjZ1JjQWdXZWJJbkhrK01LamVTVnVqSndINWlCTWdpVzlORzZQSkZhYlBL?=
+ =?utf-8?B?TGJlbklzdERsNkh3UGVscW9qZDB2RVQ0V3h5K3lTVmdCbmFjeUtOc1RXNG02?=
+ =?utf-8?B?M1BOOHhLc1NKc3NXV1NiRU9BL2k4UUNXSXcrVFZTSkhTcVJDUWlKM3ZyazQv?=
+ =?utf-8?B?bkZ1VG02N1piYlFKalltbURKZnRqZ1pPZllYb1RKRjNiTDNpVGs2Q3cvdW5J?=
+ =?utf-8?B?RDhVSHFJR3BWNjBzTS9tTGRxZEJGSUxDZVhhZCtQWU1nSDMyNDFqYUJoMUNt?=
+ =?utf-8?B?ZXdIeDcySTU0N2p6Qlpway9iWjZLUG1LODlxbmNwWXhQZklRY2VOZUF2MjV0?=
+ =?utf-8?B?bnlYTkt6TzVKb05sVmtMdEs5T1haMGhQVVZJcE1CTjZCMEI5VkJjNy9wb0JC?=
+ =?utf-8?B?c3FNMWU5MmlNd2pISE9MVzczYTd2TU1Vem1QZUFFTjRWa21oVWRsTUZDREVP?=
+ =?utf-8?B?bmdRMlk2cGo5d2JHd2t4QTJqd1hlNUhzRG5MS2NsZjl5OHh6WTcwQ1VGR001?=
+ =?utf-8?B?dDU0VU9Uc2xzTitSUitkSDl2RFUrSmxkcWdwTW40dmEyOWF3Y042TC9GUGVk?=
+ =?utf-8?B?SlMrbWc4dUZqRkYwYmtxYXBPZ0QwTDNoaHhLL21DZU8xVlBISjArYTQzU0N4?=
+ =?utf-8?B?cllyZTYwUHBxNHNVdmN6QU1aeG9XQm83ajE2V3NyRy9YZUUwT0kwbFh1Ym9w?=
+ =?utf-8?B?cTBWVXhiT1dTNUZOWUh3bTdtbU9jd21pYkYxSVNyYTZKWTFzcUloZz09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSQPR06MB7252.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a13d407c-e9d0-4163-e5ff-08de6573bb3c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Feb 2026 11:34:47.0081
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: sZ0y7w2u2Bw+soOGpwXLC92RHjnlvc/+6q4GHtPJNh14HJIDOgb3f+zH8GDGHOs9Dy9dYm/62uOr+hjjLAomoNymGrHRTECS4J59HTKpYWY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB6290
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_033424_510156_D0D24298 
-X-CRM114-Status: GOOD (  37.16  )
+X-CRM114-CacheID: sfid-20260206_033454_701609_26489B9B 
+X-CRM114-Status: GOOD (  20.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,497 +196,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 05 2026 at 14:07, Ryan Chen wrote:
-> @@ -88,6 +88,7 @@ obj-$(CONFIG_MVEBU_PIC)			+= irq-mvebu-pic.o
->  obj-$(CONFIG_MVEBU_SEI)			+= irq-mvebu-sei.o
->  obj-$(CONFIG_LS_EXTIRQ)			+= irq-ls-extirq.o
->  obj-$(CONFIG_LS_SCFG_MSI)		+= irq-ls-scfg-msi.o
-> +obj-$(CONFIG_ASPEED_AST2700_INTC)	+= irq-ast2700.o irq-ast2700-intc0.o irq-ast2700-intc1.o
->  obj-$(CONFIG_ARCH_ASPEED)		+= irq-aspeed-vic.o irq-aspeed-i2c-ic.o irq-aspeed-scu-ic.o
->  obj-$(CONFIG_ARCH_ASPEED)		+= irq-aspeed-intc.o
->  obj-$(CONFIG_STM32MP_EXTI)		+= irq-stm32mp-exti.o
-> diff --git a/drivers/irqchip/irq-ast2700-intc0-test.c b/drivers/irqchip/irq-ast2700-intc0-test.c
-
-How is this kunit test supposed to be built?
-
-Also split this kunit thing out into a separate patch. It is not
-relevant for the functional part.
-
-> new file mode 100644
-> index 000000000000..d6bc19676b2e
-> --- /dev/null
-> +++ b/drivers/irqchip/irq-ast2700-intc0-test.c
-> @@ -0,0 +1,474 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + *  Copyright (C) 2026 Code Construct
-> + */
-> +#include <kunit/test.h>
-> +#include "irq-ast2700.h"
-> +
-> +static void aspeed_intc0_resolve_route_bad_args(struct kunit *test)
-> +{
-> +	static const struct aspeed_intc_interrupt_range c1ranges[] = { 0 };
-> +	static const aspeed_intc_output_t c1outs[] = { 0 };
-> +	struct aspeed_intc_interrupt_range resolved;
-> +	const struct irq_domain c0domain = { 0 };
-> +
-
-Pointless newline
-
-> +	int rc;
-> +
-> +	rc = aspeed_intc0_resolve_route(NULL, 0, c1outs, 0, c1ranges, NULL);
-> +	KUNIT_EXPECT_EQ(test, rc, -EINVAL);
-> +
-> +	rc = aspeed_intc0_resolve_route(&c0domain, 0, c1outs,
-> +					ARRAY_SIZE(c1ranges), c1ranges,
-> +					&resolved);
-> +	KUNIT_EXPECT_EQ(test, rc, -ENODEV);
-> +
-> +	rc = aspeed_intc0_resolve_route(&c0domain, ARRAY_SIZE(c1outs), c1outs,
-> +					0, c1ranges, &resolved);
-> +	KUNIT_EXPECT_EQ(test, rc, -ENODEV);
-> +}
-> +
-> +static int
-> +arm_gicv3_fwnode_read_string_array(const struct fwnode_handle *fwnode_handle,
-> +				   const char *propname, const char **val,
-> +				   size_t nval)
-
-Please use the full 100 character you have available and avoid extra
-line breaks. It fits nicely into two lines:
-
-static int arm_gicv3_fwnode_read_string_array(const struct fwnode_handle *fwnode_handle, 
-			                      const char *propname, const char **val, size_t nval)
-
-There is also no real point to have these overly long function and
-argument names.
-
-> +#include <asm-generic/errno.h>
-
-That's wrong. Include <linux/errno.h>
-
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +#include "irq-ast2700.h"
-
-Missing newline
-
-> +#define INT_NUM 480
-> +#define INTM_NUM 50
-> +#define SWINT_NUM 16
-> +
-> +#define INTM_BASE (INT_NUM)
-> +#define SWINT_BASE (INT_NUM + INTM_NUM)
-> +#define INT0_NUM (INT_NUM + INTM_NUM + SWINT_NUM)
-> +
-> +#define GIC_P2P_SPI_END 128
-> +
-> +#define INTC0_SWINT_IER 0x10
-> +#define INTC0_SWINT_ISR 0x14
-> +#define INTC0_INTBANKX_IER 0x1000
-> +#define INTC0_INTBANK_GROUPS 11
-> +#define INTC0_INTBANKS_PER_GRP 3
-> +#define INTC0_INTMX_IER 0x1b00
-> +#define INTC0_INTMX_ISR 0x1b04
-> +#define INTC0_INTM_BANK_NUM 3
-> +#define INTM_IRQS_PER_BANK 10
-
-If you make these defines tabular and they become readable:
-
-#define INT_NUM			480
-#define INTM_NUM		50
-...
-#define INTM_BASE 		(INT_NUM)
-...
-#define GIC_P2P_SPI_END		128
-...
-#define INTC0_SWINT_IER		0x10
-
-See?
-
-> +struct aspeed_intc0 {
-> +	struct device *dev;
-> +	void __iomem *base;
-> +	raw_spinlock_t intc_lock;
-> +	struct irq_domain *local;
-> +	struct device_node *parent;
-> +	struct aspeed_intc_interrupt_ranges ranges;
-> +};
-
-https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#struct-declarations-and-initializers
-
-I pointed you to that documentation before. Do I really have to remind
-you every couple of week?
-
-> +
-> +static void aspeed_swint_irq_mask(struct irq_data *data)
-> +{
-> +	struct aspeed_intc0 *intc0 = irq_data_get_irq_chip_data(data);
-> +	int bit = data->hwirq - SWINT_BASE;
-> +	unsigned int mask;
-> +
-> +	guard(raw_spinlock_irqsave)(&intc0->intc_lock);
-
-s/_irqsave// Interrupts are disabled when this is invoked.
-
-> +	mask = readl(intc0->base + INTC0_SWINT_IER) & ~BIT(bit);
-> +	writel(mask, intc0->base + INTC0_SWINT_IER);
-> +	irq_chip_mask_parent(data);
-> +}
-> +
-> +static void aspeed_swint_irq_unmask(struct irq_data *data)
-> +{
-> +	struct aspeed_intc0 *intc0 = irq_data_get_irq_chip_data(data);
-> +	int bit = data->hwirq - SWINT_BASE;
-> +	unsigned int unmask;
-> +
-> +	guard(raw_spinlock_irqsave)(&intc0->intc_lock);
-> +	unmask = readl(intc0->base + INTC0_SWINT_IER) | BIT(bit);
-
-These unmask/mask variable are simply not helpful. What's wrong with
-naming them 'ier' because that's what this is about. And while at it the
-data type for hardware related variables is u32 not unsigned int to make
-it clear.
-
-> +static struct irq_chip aspeed_swint_chip = {
-> +	.name = "ast2700-swint",
-> +	.irq_eoi = aspeed_swint_irq_eoi,
-> +	.irq_mask = aspeed_swint_irq_mask,
-> +	.irq_unmask = aspeed_swint_irq_unmask,
-> +	.irq_set_affinity = irq_chip_set_affinity_parent,
-> +	.flags = IRQCHIP_SET_TYPE_MASKED,
-
-See above
-
-> +
-> +#define INTC0_IN_NUM 480
-> +#define INTC0_ROUTE_NUM 5
-
-Those should be at the top of the file next to the other constants.
-
-> +static const aspeed_intc_output_t aspeed_intc0_routes[INTC0_IN_NUM / 32][INTC0_ROUTE_NUM] = {
-> +	[0] = {
-> +		[0b000] = 0,
-> +		[0b001] = 256,
-> +		[0b010] = 426,
-> +		[0b011] = AST2700_INTC_INVALID_ROUTE,
-> +		[0b100] = AST2700_INTC_INVALID_ROUTE,
-
-Seriously? What's the point of this binary notation and the insane
-amount of space this table occupies?
-
-	[0] = {   0, 256, 426, AST2700_INTC_INVALID_ROUTE, AST2700_INTC_INVALID_ROUTE },
-	[1] = {  32, 288, 458, AST2700_INTC_INVALID_ROUTE, AST2700_INTC_INVALID_ROUTE },
-	[4] = { 128, 384, 554, 160, 176 },
-        ...
-
-
-> +
-> +#define INTC0_INTM_NUM 50
-> +
-> +static const aspeed_intc_output_t
-> +	aspeed_intc0_intm_routes[INTC0_INTM_NUM / 10] = {
-
-pointless line break
-
-> +		[0] = 192, /* INTM00 ~ INTM09 */
-> +		[1] = 416, /* INTM10 ~ INTM19 */
-> +		[2] = 586, /* INTM20 ~ INTM29 */
-> +		[3] = 208, /* INTM30 ~ INTM39 */
-> +		[4] = 224, /* INTM40 ~ INTM49 */
-> +	};
-> +
-> +static bool range_contains_element(u32 start, u32 count, u32 value)
-
-in_range32() provides that already
-
-> +{
-> +	if (WARN_ON_ONCE((U32_MAX - count) < start))
-> +		return false;
-> +
-> +	return value >= start && value < start + count;
-> +}
-> +
-> +static int
-> +resolve_input_from_child_ranges(const struct aspeed_intc0 *intc0,
-> +				const struct aspeed_intc_interrupt_range *range,
-> +				u32 outpin, u32 *input)
-> +{
-> +	u32 offset;
-> +	u32 base;
-
-One line
-
-> +
-> +	if (!range_contains_element(range->start, range->count, outpin))
-> +		return -ENOENT;
-> +
-> +	if (range->upstream.param_count == 0)
-> +		return -EINVAL;
-> +
-> +	base = range->upstream.param[0];
-> +	offset = outpin - range->start;
-> +	if ((U32_MAX - offset) < base) {
-
-        if (!in_range32(...)
-
-
-> +		dev_warn(intc0->dev,
-> +			 "%s: Arithmetic overflow for input derivation: %u + %u\n",
-
-Pointless line break. Please fix them all over the place.
-
-> +			 __func__, base, offset);
-> +		return -EINVAL;
-> +	}
-> +
-> +	*input = base + offset;
-> +	return 0;
-> +static int resolve_parent_route_for_input(const struct aspeed_intc0 *intc0,
-> +					  const struct fwnode_handle *parent, u32 input,
-> +					  struct aspeed_intc_interrupt_range *resolved)
-> +{
-> +	aspeed_intc_output_t c0o;
-> +	int rc = -ENOENT;
-> +
-> +	if (input < INT_NUM) {
-> +		bool found;
-> +
-> +		dev_dbg(intc0->dev, "%s: Resolving parent route for linear input %u\n",
-> +			__func__, input);
-
-Do you really still need all those debug prints or are you trusting your
-code by now?
-
-If they still are considered valuable then shorten them in a sensible
-way so they nicely hide in the code instead of cluttering it to the
-point of making it unreadable.
-
-> +{
-> +	struct aspeed_intc0 *intc0;
-> +	struct fwnode_handle *parent_fwnode;
-> +	int ret;
-
-See Documentation about variable declarations...
-
-> +	for (size_t i = 0; i < nc1outs; i++) {
-> +		aspeed_intc_output_t c1o = c1outs[i];
-> +
-> +		if (c1o == AST2700_INTC_INVALID_ROUTE) {
-> +			dev_dbg(intc0->dev, "%s: Invalid output at route index %zu\n",
-> +				__func__, i);
-> +			continue;
-> +		}
-> +
-> +		dev_dbg(intc0->dev, "%s: Have output %u for route index %zu\n",
-> +			__func__, c1o, i);
-> +
-> +		for (size_t j = 0; j < nc1ranges; j++) {
-> +			struct aspeed_intc_interrupt_range c1r = c1ranges[j];
-> +			u32 input;
-> +
-> +			dev_dbg(intc0->dev,
-> +				"%s: Inspecting candidate range %zu starting at %u for %u\n",
-> +				__func__, j, c1r.start, c1r.count);
-> +
-> +			/*
-> +			 * Range match for intc1 output pin
-> +			 *
-> +			 * Assume a failed match is still a match for the purpose of testing,
-> +			 * saves a bunch of mess in the test fixtures
-> +			 */
-> +			if (!(c0domain == irq_find_matching_fwspec(&c1r.upstream,
-> +								   c0domain->bus_token) ||
-> +			      IS_ENABLED(CONFIG_ASPEED_AST2700_INTC_TEST))) {
-> +				dev_dbg(intc0->dev, "%s: Parent mismatch for candidate range %zu\n",
-> +					__func__, j);
-> +				continue;
-> +			}
-> +
-> +			ret = resolve_input_from_child_ranges(intc0, &c1r, c1o, &input);
-> +			if (ret) {
-> +				if (ret == -ENOENT)
-> +					dev_dbg(intc0->dev,
-> +						"%s: Output %u not in candidate range %zu starting at %u for %u\n",
-> +						__func__, c1o, j, c1r.start, c1r.count);
-> +				continue;
-
-All of this is unreadable and I told you about the bracket rules before, no?
-
-> +			}
-> +			dev_dbg(intc0->dev,
-> +				"%s: Resolved INTC0 input to %u using candidate range %zu: [%u, %u)\n",
-> +				__func__, input, j, c1r.start, c1r.start + c1r.count);
-> +
-> +			/*
-> +			 * INTC1 should never request routes for peripheral interrupt sources
-> +			 * directly attached to INTC0.
-> +			 */
-> +			if (input < GIC_P2P_SPI_END) {
-> +				dev_dbg(intc0->dev,
-> +					"%s: Invalid range specification at index %zu routed INTC1 output to unreachable INTC0 input\n",
-> +					__func__, j);
-> +				continue;
-> +			}
-> +
-> +			ret = resolve_parent_route_for_input(intc0, parent_fwnode, input, NULL);
-> +			if (ret < 0)
-> +				continue;
-> +
-> +			/* Route resolution succeeded */
-> +			resolved->start = c1o;
-> +			resolved->count = 1;
-> +			resolved->upstream = c1r.upstream;
-> +			resolved->upstream.param[0] = input;
-> +			dev_dbg(intc0->dev,
-> +				"%s: Route resolution selected INTC1 output %u via index %zu\n",
-> +				__func__, c1o, i);
-> +			/* Cast protected by prior test against nc1outs */
-> +			return (int)i;
-> +		}
-> +	}
-> +
-> +	ret = -EHOSTUNREACH;
-> +	return ret;
-
-Impressive.
-
-> +}
-> +EXPORT_SYMBOL_GPL(aspeed_intc0_resolve_route);
-
-What is this export for? All usage sites are built in, no?
-
-> +static int aspeed_intc0_irq_domain_map(struct irq_domain *domain,
-> +				       unsigned int irq, irq_hw_number_t hwirq)
-> +{
-> +	if (hwirq < GIC_P2P_SPI_END)
-> +		irq_set_chip_and_handler(irq, &linear_intr_irq_chip,
-> +					 handle_level_irq);
-
-Make this one line. Otherwise you need brackets.
-
-> +	else if (hwirq < INTM_BASE)
-> +		return -EINVAL;
-> +	else if (hwirq < SWINT_BASE)
-> +		irq_set_chip_and_handler(irq, &aspeed_intm_chip,
-> +					 handle_level_irq);
-> +	else if (hwirq < INT0_NUM)
-> +		irq_set_chip_and_handler(irq, &aspeed_swint_chip,
-> +					 handle_level_irq);
-> +	else
-> +		return -EINVAL;
-> +
-> +	irq_set_chip_data(irq, domain->host_data);
-> +	return 0;
-> +}
-
-> +static int aspeed_intc0_irq_domain_activate(struct irq_domain *domain,
-> +					    struct irq_data *data, bool reserve)
-> +{
-> +	struct aspeed_intc0 *intc0 = irq_data_get_irq_chip_data(data);
-> +
-> +	if (data->hwirq < INT_NUM) {
-> +		int bank = data->hwirq / 32;
-> +		int bit = data->hwirq % 32;
-> +		u32 mask = BIT(bit);
-> +		int route;
-> +
-> +		route = resolve_parent_route_for_input(intc0,
-> +						       intc0->local->parent->fwnode,
-> +						       data->hwirq, NULL);
-> +		if (route < 0)
-> +			return route;
-> +
-> +		guard(raw_spinlock_irqsave)(&intc0->intc_lock);
-> +		for (int i = 0; i < 3; i++) {
-> +			void __iomem *sel = intc0->base + 0x200 + bank * 4 + 0x100 * i;
-
-Magic constants 0x200 4 and 0x100. Use proper defines and a macro/inline
-to calculate the register address and not this incomprehensible garbage.
-
-> +			u32 reg = readl(sel);
-> +
-> +			if (route & BIT(i))
-> +				reg |= mask;
-> +			else
-> +				reg &= ~mask;
-> +
-> +			writel(reg, sel);
-> +			if (readl(sel) != reg)
-> +				return -EACCES;
-> +		}
-> +	} else if (data->hwirq < INT0_NUM) {
-> +		return 0;
-> +	} else {
-> +		return -EINVAL;
-> +	}
-
-If you rearrange those conditions you can avoid the indentation all
-together
-
-        if (in_range32(data->hwirq, INTM_BASE, INTM_NUM + SWINT_NUM))
-        	return 0;
-        if (data->hwirq >= INT_NUM)
-        	return -EINVAL;
-
-No?
-
-> +
-> +	return 0;
-> +}
-> +
-> +static void aspeed_intc0_disable_intbank(struct aspeed_intc0 *intc0)
-> +{
-> +	int i, j;
-> +
-> +	for (i = 0; i < INTC0_INTBANK_GROUPS; i++) {
-> +		for (j = 0; j < INTC0_INTBANKS_PER_GRP; j++) {
-
-Both i and j should be declared in the for () statement. Your coding
-style is so inconsistent it's not even funny anymore. 
-
-> +			u32 base = INTC0_INTBANKX_IER + (0x100 * i) + (0x10 * j);
-> +
-> +			writel(0, intc0->base + base);
-> +		}
-> +	}
-> +}
-> +IRQCHIP_PLATFORM_DRIVER_BEGIN(ast2700_intc0)
-> +IRQCHIP_MATCH("aspeed,ast2700-intc0-ic", aspeed_intc0_ic_probe)
-> +IRQCHIP_PLATFORM_DRIVER_END(ast2700_intc0)
-> +
-> +#ifdef CONFIG_ASPEED_AST2700_INTC_TEST
-> +#include "irq-ast2700-intc0-test.c"
-> +#endif
-
-Yikes. What's wrong with Makefile?
-
-> diff --git a/drivers/irqchip/irq-ast2700-intc1.c b/drivers/irqchip/irq-ast2700-intc1.c
-> +static void aspeed_intc1_ic_irq_handler(struct irq_desc *desc)
-> +{
-> +	struct aspeed_intc1 *intc1 = irq_desc_get_handler_data(desc);
-> +	struct irq_chip *chip = irq_desc_get_chip(desc);
-> +	unsigned long bit, status;
-> +
-> +	chained_irq_enter(chip, desc);
-> +
-> +	for (int bank = 0; bank < INTC1_BANK_NUM; bank++) {
-> +		status = readl(intc1->base + INTC1_ISR + (0x10 * bank));
-> +		if (!status)
-> +			continue;
-> +
-> +		for_each_set_bit(bit, &status, INTC1_IRQS_PER_BANK) {
-> +			generic_handle_domain_irq(intc1->local,
-> +						  (bank * INTC1_IRQS_PER_BANK) +
-> +							  bit);
-> +			writel(BIT(bit),
-> +			       intc1->base + INTC1_ISR + (0x10 * bank));
-
-My eyes bleed by now.
-
-Thanks,
-
-        tglx
+Ck9uIEZyaSwgRmViIDYsIDIwMjYgYXQgODoyNOKAr0FNIEJpbGx5IFRzYWkgPGJpbGx5X3RzYWlA
+YXNwZWVkdGVjaC5jb20+IHdyb3RlOgoKPiA+IEkgdW5kZXJzdGFuZCB0aGUgcHJlZmVyZW5jZSBp
+cyB0byBrZWVwIHBpbmN0cmwtc2luZ2xlIG1pbmltYWwgYW5kIG1vdmUKPiA+IHRoZSBiaXQtcGVy
+LW11eCBoYW5kbGluZyBpbnRvIGEgc2VwYXJhdGUsIG1vcmUgdGFyZ2V0ZWQgZHJpdmVyIGJ1aWx0
+IG9uCj4gPiB0b3Agb2YgdGhlIEdFTkVSSUNfUElOTVVYL0dFTkVSSUNfUElOQ09ORiBoZWxwZXJz
+LCByYXRoZXIgdGhhbiBleHRlbmRpbmcKPiA+IHBpbmN0cmwtc2luZ2xlIGl0c2VsZi4KPiA+Cj4g
+PiBCYXNlZCBvbiB0aGF0LCBJ4oCZbGwgbG9vayBpbnRvIHJlZmFjdG9yaW5nIHRoaXMgaW50byBh
+Cj4gPiBwaW5jdHJsLXNpbmdsZS1iaXQgc3R5bGUgZHJpdmVyIHRoYXQgY292ZXJzIGJpdC1wZXIt
+bXV4IC8gYml0LXBlci1waW4KPiA+IGxheW91dHMgZ2VuZXJpY2FsbHkgKGluY2x1ZGluZyBBU1Qy
+NzAwKSwgd2hpbGUga2VlcGluZyBwaW5jdHJsLXNpbmdsZQo+ID4gZm9jdXNlZCBvbiB0aGUgc2lt
+cGxlciByZWdpc3RlciBtb2RlbHMuCj4gPgo+ID4gT25lIGFkZGl0aW9uYWwgcG9pbnQgSeKAmWQg
+bGlrZSB0byByYWlzZSBpcyB0aGUgaGFuZGxpbmcgb2YgcHJlLXJlc2VydmVkCj4gPiBNTUlPIHJl
+Z2lvbnMuCj4gPgo+ID4gT24gQVNUMjcwMCBzeXN0ZW1zLCB0aGUgU0NVIHJlZ2lzdGVyIHJhbmdl
+IGNvbnRhaW5pbmcgdGhlIHBpbmN0cmwKPiA+IHJlZ2lzdGVycyBpcyBjb21tb25seSByZXNlcnZl
+ZCBieSBhIHRvcC1sZXZlbCBzeXNjb24gbm9kZSBvciBieSBmaXJtd2FyZS4KPiA+IEluIHRoaXMg
+c2V0dXAsIGRldm1fcmVxdWVzdF9tZW1fcmVnaW9uKCkgY2FuIHJldHVybiAtRUJVU1kgZXZlbiB0
+aG91Z2ggdGhlCj4gPiByZWdpc3RlcnMgYXJlIHZhbGlkIGFuZCBpbnRlbmRlZCB0byBiZSBzaGFy
+ZWQsIHdoaWNoIGN1cnJlbnRseSBjYXVzZXMgdGhlCj4gPiBkcml2ZXIgdG8gZmFpbCBwcm9iaW5n
+IGFuZCBsZWF2ZXMgcGlubXV4IHVuY29uZmlndXJlZC4KPiA+Cj4gPiBXaGVuIG1vdmluZyB0byBh
+IHNlcGFyYXRlIHRhcmdldGVkIGRyaXZlciwgd291bGQgdGhlIHByZWZlcnJlZCBhcHByb2FjaAo+
+ID4gYmUgdG8gdHJlYXQgdGhpcyBjb25kaXRpb24gYXMgYSB3YXJuaW5nIGFuZCBjb250aW51ZSBw
+cm9iaW5nLCBvciBpcyB0aGVyZQo+ID4gYW4gYWx0ZXJuYXRpdmUgcGF0dGVybiB5b3XigJlkIHJl
+Y29tbWVuZCBmb3IgaGFuZGxpbmcgc2hhcmVkIFNDVS1zdHlsZQo+ID4gcmVnaXN0ZXIgYmxvY2tz
+IGluIHBpbmN0cmwgZHJpdmVycz8KCj4gQ2FuJ3QgeW91IGp1c3QgYmFzZSB0aGlzIGVudGlyZSBk
+cml2ZXIgb24gc3lzY29uIHdoaWNoIHVzZXMgcmVnbWFwLW1taW8KPiB0byBhYnN0cmFjdCBhbmQg
+c29sdmUgdGhpcyBwcm9ibGVtPwoKPiBUaGUgc3lzY29uIGlzIGVudGlyZWx5IGRlc2lnbmVkIGFz
+IGEgc2luZ2xldG9uIG93bmluZyBhbGwgcmVnaXN0ZXJzCj4gYW5kIGhhbmRpbmcgdGhlbSBvdXQg
+dG8gc3ViZHJpdmVycy4KCkFncmVlZCB0aGF0IHN5c2Nvbi9yZWdtYXAgd291bGQgYmUgaWRlYWwu
+IFRoZSBtYWluIGlzc3VlIHdpdGgKcGluY3RybC1zaW5nbGUgaXMgdGhhdCBpdCBpcyBmdW5kYW1l
+bnRhbGx5IE1NSU8tYmFzZWQ6IGl0IGFsd2F5cwpyZXF1ZXN0cyBhbmQgaW9yZW1hcHMgdGhlIHJl
+Z2lzdGVyIHJhbmdlIGFuZCBwZXJmb3JtcyByYXcgTU1JTyBhY2Nlc3NlcywKd2l0aCBubyByZWdt
+YXAgaW50ZWdyYXRpb24uIEFkYXB0aW5nIGl0IHRvIGFjdCBhcyBhIHN5c2NvbiBjb25zdW1lciB3
+b3VsZApyZXF1aXJlIGEgbGFyZ2VyIGFyY2hpdGVjdHVyYWwgcmV3b3JrIG9mIHRoZSBkcml2ZXIu
+Cmh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L3RvcnZhbGRz
+L2xpbnV4LmdpdC90cmVlL2RyaXZlcnMvcGluY3RybC9waW5jdHJsLXNpbmdsZS5jP2g9djYuMTkt
+cmM2I24yMzAKClRoYW5rcywKQmlsbHk=
 
