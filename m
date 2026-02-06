@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AA60EE20B6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 17:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B1AEE20B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 17:15:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P4YfD//a+lsQ7zmMMYskYk8Lhangxv5V9vO0ZteJ5zc=; b=W5XQ0lH/HFrcLhdH70yELWegjf
-	jyZ3DPCdvMg8/3NcZpZRjgAKf5W4Xy3aKtE631FPkbe+N8QxGZLlqQPbasVUuk+Ayj8he6sQ5lODs
-	KP/0qsCKJ6SrMs8M3F2yPOwBpOtDlbljxPP8EwUdzVAWJEFO2oD7CrwCDDy4fpcnoCpHRB6YIOetO
-	0W7vjGkz5tn2osn6bBel0+yf8NEM8LXXW9gXU8jQ6b8/yefTWcxeegEojJYRJ/n+ndtXvrV6v7q+X
-	DS5yIJbW3izXkqeCv6bqiH+olWbbaUlnRq0ZCfg2zw9sQ/hJuPfLAaLm+PMSw5/mweyDumevl7w/t
-	iPe3wosA==;
+	bh=80qjx/m6F2WLJITrDsFU3j/ICinm+UjTBErhjxUjs9c=; b=NYuY0ynx/c9QAOnU1ezpI6OS2S
+	1efmEpGo0pnDcVaOqf4eDvm5ljs2KbOrBWkNAVI91X68WaMECqeJm0SXi0hvm6l3LdIO3CiHVC6UQ
+	uOPt74eVYsrjF+d5YF6QRwZQpktqw0mJvue6++2xUaixS3Gpv5HV7oaFkRKKuazuDkiAWXSM0S3vo
+	RvXS0ys9PDcWLKg49PWhxv6RgQAcdrSsxVS+D3ojtgQX4Zth4KpHdm4ExlBl45lxOpwyP5olOfcko
+	H080T8GVezMpdWRMOCHbRAp+BKf+Pn014WkROG7kHpD5h3itZbhhtaBYHOC7+tkpgVXYANpQbGPKX
+	MFL9Oh+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voPOr-0000000Bbm6-2mYa;
-	Fri, 06 Feb 2026 17:13:45 +0000
+	id 1voPQb-0000000Bbw9-0a7N;
+	Fri, 06 Feb 2026 17:15:33 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voPOq-0000000Bblz-0dCM
+	id 1voPQY-0000000Bbvz-399D
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 17:13:44 +0000
+	Fri, 06 Feb 2026 17:15:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 397B560010;
-	Fri,  6 Feb 2026 17:13:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 246A8C116C6;
-	Fri,  6 Feb 2026 17:13:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 30EE9600CB;
+	Fri,  6 Feb 2026 17:15:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 099C7C116C6;
+	Fri,  6 Feb 2026 17:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770398022;
-	bh=4JQ/VAyGxvToQCMgyKQgtA8Vl8Bqrz1gldYQ6Aw9eYg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ufy++o0bwlhON78Cv2rkzw+iX3oKC9aqUaMZJwHCKJ9huuyQjdB/H5belF7Sy3DWG
-	 Soa4YB/a1Wmo7Fwqcej7rwX7tp8YZ7Qvihjp9HBJ50lDqv3GCo+DWHNneS6Ha0nvBz
-	 ZIDqjTQ9+feWzAaZP8mJ4gh9n+vGDvz0Z0/M1KQBJaZKcGQj9o+8HYJQhj3Un3cqD4
-	 vmVcjkGZ1bL3ja7qac5G3gFS0XqhB55CDGXgh9ISnfXEjJjvT7Wk2yItc0pXo6VsdD
-	 vx0fX2D2PKmX+e8IQt9UX78JZh6nyw2arsUGmZ3WYMtgS3uD+y2C7A44VvLHMU9Tgp
-	 rNdpybdOjHEIQ==
-Message-ID: <af35d335-96f2-4404-a6e2-e85c68cb2757@kernel.org>
-Date: Fri, 6 Feb 2026 18:13:38 +0100
+	s=k20201202; t=1770398129;
+	bh=jgk3Qy5pCj51WisnVThu7SdiyeE4ZJeW4iTYC2hFevQ=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=QfiqMXr1KhqEP48PvulFeq6YReDxBA7Irtb0Xv7byemhM2uI2euFBd0QmYpIbOwVU
+	 Xoqx6oGvFJinAnkhxH/Wn5obm54T5dLuiFDNNpkSZ9IaG98SjKB3DSEyNzuZvT/1zx
+	 qY636nHhOgnjuDYtVVPP+NbBTGA7ueWZyVnmxlx+5IMVEjxMoj5NFGX513Id1fX+f8
+	 k4AaJYNYtIM8TppSLeZ8TdHTsMs9yZjUzEJxaD0OkxGQcslthwySIi2NlVgn+Utclh
+	 oABbAV6G5abWUdl3wdz4aMEfn7EE9ryoUDhcuK8KSiLrlWyY6zbbrzVx8HMFm/w5Ck
+	 OH3XYjcOux8xg==
+Message-ID: <7bec9ff0-29c8-4468-9d31-2d2b483e2aaf@kernel.org>
+Date: Fri, 6 Feb 2026 18:15:25 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 0/2] arm64: dts: Initial support for LG1215 TV SoC
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Chanho Min <chanho.min@lge.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
@@ -57,8 +58,7 @@ To: Chanho Min <chanho.min@lge.com>, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <20260112053421.3185738-1-chanho.min@lge.com>
- <aYFM+mHqhfCuWgRP@BRUNHILD>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <aYFM+mHqhfCuWgRP@BRUNHILD> <af35d335-96f2-4404-a6e2-e85c68cb2757@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -103,7 +103,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <aYFM+mHqhfCuWgRP@BRUNHILD>
+In-Reply-To: <af35d335-96f2-4404-a6e2-e85c68cb2757@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -120,21 +120,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/02/2026 02:18, Chanho Min wrote:
->>  .../devicetree/bindings/arm/lge.yaml          |   5 +
->>  arch/arm64/boot/dts/lg/Makefile               |   1 +
->>  arch/arm64/boot/dts/lg/lg1215-ref.dts         |  50 +++
->>  arch/arm64/boot/dts/lg/lg1215.dtsi            | 290 ++++++++++++++++++
->>  4 files changed, 346 insertions(+)
->>  create mode 100644 arch/arm64/boot/dts/lg/lg1215-ref.dts
->>  create mode 100644 arch/arm64/boot/dts/lg/lg1215.dtsi
-> Hi,
+On 06/02/2026 18:13, Krzysztof Kozlowski wrote:
+> On 03/02/2026 02:18, Chanho Min wrote:
+>>>  .../devicetree/bindings/arm/lge.yaml          |   5 +
+>>>  arch/arm64/boot/dts/lg/Makefile               |   1 +
+>>>  arch/arm64/boot/dts/lg/lg1215-ref.dts         |  50 +++
+>>>  arch/arm64/boot/dts/lg/lg1215.dtsi            | 290 ++++++++++++++++++
+>>>  4 files changed, 346 insertions(+)
+>>>  create mode 100644 arch/arm64/boot/dts/lg/lg1215-ref.dts
+>>>  create mode 100644 arch/arm64/boot/dts/lg/lg1215.dtsi
+>> Hi,
+>>
+>> Gentle ping on the LG1215 series (v3) — Acked-by received, but still not picked up.
+>> Any update or is it waiting in a queue somewhere?
 > 
-> Gentle ping on the LG1215 series (v3) — Acked-by received, but still not picked up.
-> Any update or is it waiting in a queue somewhere?
+> 
+> Why are you pinging yourself?
 
+Sent a bit too fast... I meant:
 
-Why are you pinging yourself?
+*  # email/list and role:stats
+*  1 Chanho Min <chanho.min@lge.com>
+     maintainer:ARM/LG1K ARCHITECTURE
+
+so if you are not taking the patches, no one else is going to and
+platform should be removed from the kernel. Please confirm your choice
+(I can prepare the patch to remove LG).
 
 Best regards,
 Krzysztof
