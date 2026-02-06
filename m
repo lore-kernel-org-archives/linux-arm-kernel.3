@@ -4,70 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 318C0EA795C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 05:02:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CACFEB28C0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 05:06:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iXjBRxizvi/lQAfqWRx15BpIKKNQ0pQJLDkNuOdZ/sE=; b=3af80zvhbleHNHt7oKl+jh7A3Y
-	h6zpcIsnUnb+sJe03JgHyyawBMpY7K1rRXbPIDB24Qi2DWS+ZjU7cVjN51xg/AAox54DbkhrlzYUj
-	4qgLBlM0vrQD1SvHAXy8SeOBJIdV2uTizBCL8EDGu/ues3CarjOecIx6GkoYqQf4jE8sTVmR0qbB2
-	8u8FPTdFv3THCAUDUzYVDzbZY5MpOnV2JwDVEs0Nkinu/xCqA4+EPrCdleJ26fxbg14293FuWYouy
-	cS54Qht4pGtyXFOtGymUP6Gai3VuxzG85bGu7oCu4AUy1OXuO70uPYuzb5z4imnl6XmHN2ZqHnCSu
-	t+ivJJZQ==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dSEUKr8r+GEpUfDg24nkd8tNuTgGGehmwCpNWmoPRsM=; b=M4fCooEMfmvsQfip0xnsVKgztB
+	LkEizK7IO19vPwgc0bYrLUKMHkjewcGNTIhWhRC05KTc+EZoCDdPXlNhiyeRwzbvnKc3DQpuZXUEy
+	2iLgTYmZ9k2NfuH3j64WyWY+LGfEgoJPP3S3fXF7qSgkWpuKagrPjdDtULqNB7aawJV142lZCfg42
+	NxRnLu5YABcJ8wQONDtjaIaJTeciGZNB2340NYfpplyjBLUckxvni4+lu8UWnpxAwuOaqTAqsewZw
+	6UYSAxqslSb/Vfn20Qu69hlu2OjTTMiVeKQo28LNinmZpetZS/8sP5mJpmhVgFkPyhtd8+c+8Sdf3
+	8moYQ75Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voDzF-0000000AsLa-0TMV;
-	Fri, 06 Feb 2026 05:02:33 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1voE2b-0000000Asa2-2uXf;
+	Fri, 06 Feb 2026 05:06:01 +0000
+Received: from mail-westus2azon11010033.outbound.protection.outlook.com ([52.101.46.33] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voDzB-0000000AsLB-3iOC
+	id 1voE2Y-0000000AsZZ-0LWE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 05:02:32 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-05 (Coremail) with SMTP id zQCowACXKAzedYVpLGOWBw--.8810S2;
-	Fri, 06 Feb 2026 13:02:22 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: p.zabel@pengutronix.de,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chen Ni <nichen@iscas.ac.cn>
-Subject: [PATCH v2] reset: imx7: Check return value of regmap_attach_dev() in imx7_reset_probe()
-Date: Fri,  6 Feb 2026 13:01:09 +0800
-Message-Id: <20260206050109.119348-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	Fri, 06 Feb 2026 05:05:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=v7F4F5bqtXiE0z0cwluDBGQg4KpJlEKNApgkUjBtzWuldd92YqcaA70NHDhC4C81otjX3TP8JEZaZwymYMqSlVe+4T0XBMvjmSaOXg1IL1UGXIWx8Omr24zwSB9HmZ2EmT+eKjdzvUHjlpl5bA+EYf1Rssm6k0j15vV/TSXE5jFXEgx33ObGw9QFexi0oY3qJ68b+yhXePMBH56Jnj/UPkg9RfEc07HEedP08S5ZYOl9pW2HwFKYr/X1LhXf0ENLDRSYBAisA4K0a5k2TrxaxqNQP4JPvojUHVO8yI6u/kdt6wcneNOZlTdh96FAPU57KYyaakTAaNJAr83bE69xuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dSEUKr8r+GEpUfDg24nkd8tNuTgGGehmwCpNWmoPRsM=;
+ b=UMbwa8t4/8oSzV3eE8wTnSsMsWHB2IjRgVDlY/CQ16vvOHJ2bKW1dQT30UGj19oDFhSwl0V6atKc4zowY4ImYFQL7J+8d/NwZQoTMoiRqD9LYYRD2Dc/vZlKW/R3KDHbby+NYEgR4XZm74JvFPV+BLhur01tYGcjrPSFRkLRf3vKMoqjDymN0TKWKalqWzjTwvBXPA/V91v452yvH9NyyvzWX/LUNn4JpfIGPVEPB4LcjieUgNu9NIbanxqbj1gRJ8IDWs8N+tuhsexUOG0bwEf9N4sHeCMuVX9jsbinHaKUN8OWH6gX9WrmA2hVi+CEVTkd45FbDSIXXG6mp1T6vA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dSEUKr8r+GEpUfDg24nkd8tNuTgGGehmwCpNWmoPRsM=;
+ b=NcVvwx/GEZ9lGuHyIclaVbq1AdIwaYFImEwUocthjf/bJmKxm14s4itlwb+kJyVgXpHbAME9bIvwr+7zjFv4gMj/IhruRqAIBSxYzTrsBWALMdySH9ErgchwkG0u5qp5XyMKyYebX58/BmzUbgAyT6JizOA3skFqw8nDH5InCCM=
+Received: from PH8P220CA0010.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:345::11)
+ by LV3PR10MB7793.namprd10.prod.outlook.com (2603:10b6:408:1b8::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Fri, 6 Feb
+ 2026 05:05:51 +0000
+Received: from SJ1PEPF000023D9.namprd21.prod.outlook.com
+ (2603:10b6:510:345:cafe::bb) by PH8P220CA0010.outlook.office365.com
+ (2603:10b6:510:345::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9587.15 via Frontend Transport; Fri,
+ 6 Feb 2026 05:05:47 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ SJ1PEPF000023D9.mail.protection.outlook.com (10.167.244.74) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9611.0 via Frontend Transport; Fri, 6 Feb 2026 05:05:50 +0000
+Received: from DLEE203.ent.ti.com (157.170.170.78) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 5 Feb
+ 2026 23:05:49 -0600
+Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE203.ent.ti.com
+ (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 5 Feb
+ 2026 23:05:47 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE209.ent.ti.com
+ (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 5 Feb 2026 23:05:47 -0600
+Received: from [172.24.231.152] (dhcp-172-24-231-152.dhcp.ti.com [172.24.231.152])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61655hUr556223;
+	Thu, 5 Feb 2026 23:05:43 -0600
+Message-ID: <30f02e83-8cb4-476d-a8a3-b21eb61f4355@ti.com>
+Date: Fri, 6 Feb 2026 10:35:42 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowACXKAzedYVpLGOWBw--.8810S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxJrW8Cw17JrW3CryDJryxZrb_yoW8GrW7pr
-	s8CF1jk3y3X3yfWan7t3ykZF13tw1fKa17CrW8X393Zw45tryDJFyayFW7JF95JF98WFWY
-	qas7WF48ZF4jyw7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvv14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
-	tVW8ZwCY02Avz4vE14v_GrWl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjfUYE_MDUUUU
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2] net: ti: icssg: Remove dedicated workqueue
+ for ndo_set_rx_mode callback
+To: Kevin Hao <haokexin@gmail.com>, <netdev@vger.kernel.org>
+CC: Roger Quadros <rogerq@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Meghana
+ Malladi" <m-malladi@ti.com>, Jacob Keller <jacob.e.keller@intel.com>, "Vadim
+ Fedorenko" <vadim.fedorenko@linux.dev>, Himanshu Mittal <h-mittal1@ti.com>,
+	Simon Horman <horms@kernel.org>, Byungchul Park <byungchul@sk.com>, "Markus
+ Elfring" <elfring@users.sourceforge.net>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260205-icssg-prueth-workqueue-v2-1-cf5cf97efb37@gmail.com>
+Content-Language: en-US
+From: MD Danish Anwar <danishanwar@ti.com>
+In-Reply-To: <20260205-icssg-prueth-workqueue-v2-1-cf5cf97efb37@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D9:EE_|LV3PR10MB7793:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2ef9389d-0faa-42af-3501-08de653d65a7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MGp1Y0FvcXpLTURIUDJTTTlXQkROOFprL1BzWnRBQUtJQ2tweVpTeVBTTE5R?=
+ =?utf-8?B?dzJlb0g3TjBtUnZrdm03Q043SklScHFZc0ZjV3hBZW5LZDJSMzNmRE94Ynov?=
+ =?utf-8?B?dk5SbkhpODljSHRqOVpTMUtpL3NKUzlZZGp0WDJWdmF6ZVNHSHpCT2ZzV0RK?=
+ =?utf-8?B?eXlDYUFSSmdKVGdscHJORHNJRnRJeFBLU3lQamVWbmYzQm8vdUVtWGZuc0hO?=
+ =?utf-8?B?aGt1Tk1Ham1MeFJEMU8vQzFBYUZEMVd6dnlzYlFPS1EwQ3Q5bmNkOHhLOHZn?=
+ =?utf-8?B?OVhweWlhaHdBb250MGhvYlJXa3d6Zyt6akFDcnVraEFiS2psbnU2OWhmWWtL?=
+ =?utf-8?B?dnlZWUlSbTRmZFlpZlR1akpicTBWTkVpWEo0WmRZblBJckI3NERZNDZBKyto?=
+ =?utf-8?B?ZzNjZUZNM0RJZnBtM3pEbWlJV1R2ZllQNUFTQ2o0eW5zRUkwR2xvait2N3Bq?=
+ =?utf-8?B?L2VwaGdXbi9IbS9BVnJSeFNrNGxkYnpSNWlpRmV5aTJuc20xM2R1TVMzeXdz?=
+ =?utf-8?B?WGlJeUJQQ2lhalNhcGJ5Vms3VWlNWHhYMHFpQ1hja25hckFLWTFqTWp5Wjli?=
+ =?utf-8?B?VGhETVlnSCthTXhpd3lGNzBHOXhuUyt5aVdLWkZCMU42NStUZVZoSEV0dWJF?=
+ =?utf-8?B?Vkd3VWtBdVI2QUNhdUVkYnl3TTJqd3ZhRFIxUC9sZm9CczZ6V2wwbTVhWFZF?=
+ =?utf-8?B?dnhjQUdsRTg1ak5FOG5sYzVtYTcvaEZOZ2tsMHZ1am94cTlEdDNTYk0ySkNR?=
+ =?utf-8?B?NUsyNGZYZ1BqamJQUHdIS3F0aUtuOStxTU9hWXIrY1ArL1l2SDlmQVdWYm0r?=
+ =?utf-8?B?RWliOHQzcXJJWGFoZTJzTTh5MzJqaUx5K1lycmU4Zkx3RlZmWFVtTUdCVW96?=
+ =?utf-8?B?Sm9GbHVKeDZiRVdENU9ZRUxCb3dITmtUSHZCQnF2R1NiRmFWL0hVNGVFTC9X?=
+ =?utf-8?B?V2lwTVlKU1o5VTU1dHNqK0E1NGM5aHc5L0JmditvaEkrUGhtZGhEYjdZREkz?=
+ =?utf-8?B?VUdkalhzWGlGeHljV2UzUjkvQktxMFc5K3BlV3dIR0VubmhHRDhUUXZhakw2?=
+ =?utf-8?B?TXI1UjZEZ2ZmU2t2bjlhKytsQU15UGNIYzhyWncxVEpTVVJzcW9UWnBXNEZt?=
+ =?utf-8?B?TG9UeWVoVm1tby9Ubk5sK3BYVlprMTB3Z0pnMUZnT0FDTWd6c2J6WXZvOVFH?=
+ =?utf-8?B?VkVoa1JGdk5qdXkrUFpTOE9teU9LNlZrdUZhMStqdEVwaE5jdC9PTlpnL1Aw?=
+ =?utf-8?B?T3BSdkxzSHR0U2lmRktlaU9UaGFJQW1IU2xiei9jYmRFUzl4Mm1aTURCdmcy?=
+ =?utf-8?B?aXNFTjZIa0tMODIzcTA2ZmRaUXRRd1Q1NjRMRGxwV1NTc0VtdFdIdU53Y2hz?=
+ =?utf-8?B?dzVnaXB4bFZ3Riswd2dabm85MExPUnd0UVo4cFIxWDNsWllCaWNLZSs3TFJz?=
+ =?utf-8?B?TGRkZUhJdEZKbDhhaVkwL3dpNTBKcWMwSkplN2FjUmxway82M2ZDNzg2YWFq?=
+ =?utf-8?B?OXpicm9sYTBCUFUvMW9YZzN4OWl6NGNYenYyQkkyYXQwRzNOVHY2MUZBMXlI?=
+ =?utf-8?B?TTI4VzhvQmRHR2h3YW5ybXVhQm5pR1hpd1pWR0NYaExNRFhaSE5kbDZSQzF2?=
+ =?utf-8?B?eXNzS3g2VStmV2xReVZFbEhDbTRMWElEMndmQUdXVnJDOHE5eXZGaHpRc3BD?=
+ =?utf-8?B?RGk1bU5tak9vUWhIMUZQcjVONkhzMEcyTEZWYUp2VkNGb3ZXekVMcENpUEIy?=
+ =?utf-8?B?S3ZSVjR3QjFIb3d6MkJBYXN6dTdia1dES3dXRC9hREZLaExqY05STUIwY1F3?=
+ =?utf-8?B?MkU5UkF1S3BKV2lFam5RbUFDcEdoSnBWUis4bEJRaTB0YzcrYzBQSXNBRHFK?=
+ =?utf-8?B?NE5WVzRTZkgvOUowRkQ2TWF4c1BIWDJtdUxSaDFWNVFJMVJERWxMaVhsRVMv?=
+ =?utf-8?B?L2ZFWTE4dzNTZHVrNkNmN281M1picHdCUnQvWmxYNmIwUStYdWtRQkYyMnpG?=
+ =?utf-8?B?UWIzeHAwVTM1aHBNY2k4K1hvTGowM2VZdlRobmJuL204b1I1dVhWQlMwSlZG?=
+ =?utf-8?B?ZStaZWZYK2haNG93YVY5UTR0L2VlRW9lVnFReGlWR1g0TVp3V1RuaHFPbHQw?=
+ =?utf-8?B?UUl2TXRmaFlSRzdqbjY3SUdETzFpME56VElveDh4bU5nV2RQSXB6UXpWS3Nw?=
+ =?utf-8?B?cWtTYVNVaE44ZSsySnE0TTl6V3BVamdRbmNHYVlpeXBsb3UyZXJ6d2xOVUxi?=
+ =?utf-8?B?akFFelg2dWZkclluK1ZOQWsrcDZ3PT0=?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 2yuk48yXPBRxz45LoPKisoCSkm5CCdoD/kMT5eQLIpTf439vpdWi64etGFtMYoBGnFEM24LWbprLqoJtsrk/qPauXd6hd4rNxcHl9AvpuU2Rv/Ly1V3QZU2UM71zaG6bS1PRZ1A55oHI111tur8zwuoZLGeqS1AWXnszsEK6BIGBbSehSC53LT3WlBjWDYKDpoYD9F3wGFqP7TOrInxrL30U+IluCspDYy68cA9mSiDDp80dRZZSJ4/AQgsOZ4S43D4nEI0udxqGnS0HHPDscAOkHEur7ZaVYLA9tizoZY9AAW2OhYA0uEeCfBsEabmx5M71zxM673P/m+SXFzrOS8fwziUg34g2grhCHoV7SsL/PIyk4+v5fYBQND/ch9Tuw5Tz5HIXyzRyOmz16ghQqprEu6zac0sSXixXAno27iUQ6CvNaj6xPvnPyOZPDQkh
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2026 05:05:50.4709
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2ef9389d-0faa-42af-3501-08de653d65a7
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D9.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR10MB7793
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_210230_322842_2219981F 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20260205_210558_130044_0D69FE16 
+X-CRM114-Status: UNSURE (   7.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,44 +175,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add error checking for regmap_attach_dev() call in imx7_reset_probe()
-function to ensure proper error propagation.
 
-Return the value of regmap_attach_dev() if it fails to prevent
-proceeding with an incomplete regmap setup.
 
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
----
-Changes in v2:
-- Simplify error handling
----
- drivers/reset/reset-imx7.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+On 05/02/26 11:55 am, Kevin Hao wrote:
+> Currently, both the icssg-prueth and icssg-prueth-sr1 drivers create
+> a dedicated 'emac->cmd_wq' workqueue.
+> 
+> In the icssg-prueth-sr1 driver, this workqueue is not utilized at all.
+> 
+> In the icssg-prueth driver, the workqueue is only used to execute the
+> actual processing of ndo_set_rx_mode. However, creating a dedicated
+> workqueue for such a simple use case is unnecessary. To simplify the
+> code, switch to using the system default workqueue instead.
+> 
+> Signed-off-by: Kevin Hao <haokexin@gmail.com>
 
-diff --git a/drivers/reset/reset-imx7.c b/drivers/reset/reset-imx7.c
-index dd01fe11c5cb..a1cca926085b 100644
---- a/drivers/reset/reset-imx7.c
-+++ b/drivers/reset/reset-imx7.c
-@@ -364,6 +364,7 @@ static int imx7_reset_probe(struct platform_device *pdev)
- 	struct device *dev = &pdev->dev;
- 	struct regmap_config config = { .name = "src" };
- 	const struct imx7_src_variant *variant = of_device_get_match_data(dev);
-+	int ret;
- 
- 	imx7src = devm_kzalloc(dev, sizeof(*imx7src), GFP_KERNEL);
- 	if (!imx7src)
-@@ -375,7 +376,9 @@ static int imx7_reset_probe(struct platform_device *pdev)
- 		dev_err(dev, "Unable to get imx7-src regmap");
- 		return PTR_ERR(imx7src->regmap);
- 	}
--	regmap_attach_dev(dev, imx7src->regmap, &config);
-+	ret = regmap_attach_dev(dev, imx7src->regmap, &config);
-+	if (ret)
-+		return ret;
- 
- 	imx7src->rcdev.owner     = THIS_MODULE;
- 	imx7src->rcdev.nr_resets = variant->signals_num;
+Reviewed-by: MD Danish Anwar <danishanwar@ti.com>
+
 -- 
-2.25.1
+Thanks and Regards,
+Danish
 
 
