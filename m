@@ -4,58 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B977EE6B56
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 20:28:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE92EE6B58
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 20:30:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=97VesbEH8XR91/gIJrfJrqaDUzCo+OCBznA8arwePuc=; b=LrPndp+eEMNota0VMnJKhJkYxl
-	7/jFsfNvQkZsf/ZXorE7ILZ4uNx+aXkwQcjvZe0hK8E8MiZ8rrbzTdDrzsL/M2Ixjzcm7WVGdAsqk
-	g9Q+iSYvXOSjAZ/C2zL++F35Aqo69hAXGc5yBpC4Su8Yj3lokMyfuQUMP0PXZWhoOoFviuqztPsNO
-	dDYYschPya2zYcAMiz444h44Hk5UanbfgmSEpwup/fDvCI8K7IHXj6sEV3eJ5RV0H1R8hLdTGHrxR
-	2WEzlOzw7Q0vf0n0bsngL/gFuKNy1o1k8RBRchXIUruwV0gBGYhGT7SKblXHHrLYk21Q1+rOj9S3X
-	mwfyi/+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4YHH0YAMAHnJ5UGh8pphcs9yAuxrmD7yQeFh/XrEM1k=; b=dKHIKPgX4CCnnThL+YYuDgiPwh
+	Dx2/0EJJIKn9xTttvFWxiKYbhXLPLUNya+EQByJIbfO/vGfBoswnwtJUlRcWqyMlDqX1tvp220PW8
+	AeokTE7kO53USye0IivawUIq6+wphj9c9d5ge207TwqafLBfCGGDO/sAT/vYycolg3SHackxWVjev
+	Y6iq7Iz3owpagP+DnH+z+2Isny1DFvQkR0Z7EmD9KiF4ByY25FfGzDJ9gdYB2WVbrGkV8q+QXdcnW
+	EEVF/aukHi3yIs6CQxikWR80fAumvIFXbOtkKtNOt64Pft3OTvGdSYt1eeM9SKtBAH4SIOg0F/ifa
+	RaMI58Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voSRL-0000000Bng5-1Kh9;
-	Fri, 06 Feb 2026 20:28:31 +0000
-Received: from [95.181.193.9] (helo=mail.auroraos.dev)
+	id 1voSTQ-0000000Bo8J-2zRU;
+	Fri, 06 Feb 2026 20:30:40 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voSRH-0000000Bndy-3kY9;
-	Fri, 06 Feb 2026 20:28:28 +0000
-Received: from [192.168.2.104] (213.87.156.77) by exch16.corp.auroraos.dev
- (10.189.209.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1847.3; Fri, 6 Feb 2026
- 23:28:24 +0300
-Message-ID: <a6d0fd86-a86f-4c8b-acbe-3c627889062b@auroraos.dev>
-Date: Fri, 6 Feb 2026 23:28:24 +0300
+	id 1voSTN-0000000Bo7s-2At7
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Feb 2026 20:30:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=4YHH0YAMAHnJ5UGh8pphcs9yAuxrmD7yQeFh/XrEM1k=; b=cUM2ujHWceUzMbW20cIxqA4llS
+	NkE8BDAwqzDmYlfweI9LHAUpWYlxzdrvLA5m1wdr0Z8+TZA5w10hCD+WxkQyEgPtUUEnq6GnJiU4O
+	wvjdWjQJfmNXBJtzVpEL8q07G8B+obm9lIEThmhNkdCtmQZUAGs0j8PRgQtQcGwV6VHukgdN4P25b
+	euMdVvZOmk2Z3Ol28RZgeWSFM2HOIFBjngDcaebtXbfDdzeloV790c2+Bj9G7f+PMqOWXBQQtPlVu
+	z9kyVPyVhCuw6ZoRtG+Uj33nOwDBjz95xY11XTce8Ny/irboMl+80x5OPmDmfd34eHK2NLxH/3c40
+	Rz9IKV0w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42876)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1voST3-000000008Oi-39Cq;
+	Fri, 06 Feb 2026 20:30:17 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1voSSy-000000007cx-01gv;
+	Fri, 06 Feb 2026 20:30:12 +0000
+Date: Fri, 6 Feb 2026 20:30:11 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jie Zhang <jzhang918@gmail.com>
+Cc: netdev@vger.kernel.org, jie.zhang@analog.com, horms@kernel.org,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2] net: stmmac: fix oops when split header is enabled
+Message-ID: <aYZPUx2WrIkPmvIU@shell.armlinux.org.uk>
+References: <20260206195643.11333-1-jie.zhang@analog.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/rockchip: vop: fix sloppy typing in
- vop_plane_atomic_update()
-To: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
-	<heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, <dri-devel@lists.freedesktop.org>,
-	<linux-rockchip@lists.infradead.org>
-CC: <linux-arm-kernel@lists.infradead.org>
-References: <20260206202346.57633-1-s.shtylyov@auroraos.dev>
-Content-Language: en-US
-From: Sergey Shtylyov <s.shtylyov@auroraos.dev>
-In-Reply-To: <20260206202346.57633-1-s.shtylyov@auroraos.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [213.87.156.77]
-X-ClientProxiedBy: exch16.corp.auroraos.dev (10.189.209.38) To
- exch16.corp.auroraos.dev (10.189.209.38)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260206195643.11333-1-jie.zhang@analog.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_122827_937097_6E947999 
-X-CRM114-Status: UNSURE (   7.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260206_123037_894537_00DD1B73 
+X-CRM114-Status: GOOD (  21.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,20 +89,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/6/26 11:23 PM, Sergey Shtylyov wrote:
-
-> In vop_plane_atomic_update(), the variable offset is needlessly typed as
-> *unsigned long* -- which is 32-bit type on the 32-bit arches and 64-bit
-> type on the 64-bit arches. I highly doubt that this variable can exceed
-> 4 GiB even on 64-bit arches, so let's redeclare it as *unsigned int*...
+On Fri, Feb 06, 2026 at 02:56:38PM -0500, Jie Zhang wrote:
+> For GMAC4, when split header is enabled, in some rare cases, the
+> hardware does not fill buf2 of the first descriptor with payload.
+> Thus we cannot assume buf2 is always fully filled if it is not
+> the last descriptor. Otherwise, the length of buf2 of the second
+> descriptor will be calculated wrong and cause an oops:
 > 
-> Found by Linux Verification Center (linuxtesting.org) with the Svace static
-> analysis tool.
+> Unable to handle kernel paging request at virtual address ffff00019246bfc0
+> ...
+> x2 : 0000000000000040 x1 : ffff00019246bfc0 x0 : ffff00009246c000
+> Call trace:
+>  dcache_inval_poc+0x28/0x58 (P)
+>  dma_direct_sync_single_for_cpu+0x38/0x6c
+>  __dma_sync_single_for_cpu+0x34/0x6c
+>  stmmac_napi_poll_rx+0x8f0/0xb60
+>  __napi_poll.constprop.0+0x30/0x144
+>  net_rx_action+0x160/0x274
+>  handle_softirqs+0x1b8/0x1fc
+> ...
 > 
-> Signed-off-by: Sergey Shtylyov <s.shtylyov@auroraos.dev>
+> To fix this, the PL bit-field in RDES3 register is used for all
+> descriptors, whether it is the last descriptor or not.
+> 
+> Fixes: ec222003bd94 ("net: stmmac: Prepare to add Split Header support")
+> Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+> Signed-off-by: Jie Zhang <jie.zhang@analog.com>
+> ---
+> v2:
+> 1. Update for the latest net HEAD
+> 2. Reduce crash dump message in commit message
+> 3. Add Fixes tag
+> v1 link: https://lore.kernel.org/all/20251202025421.4560-1-jie.zhang@analog.com/
 
-   Oops, I did forget to add that the patch is against the drm-misc-next branch
-of the drm/misc/kernel.git repo on gitlab.freedesktop.org.
+I was trying to work out whether this was a re-post of a patch that had
+already been merged and it was the result of someone inappropriately
+re-posting old patches, or whether it was something to take seriously.
 
-MBR, Sergey
+That is because of this in the patch:
+
+> +	/* Not GMAC4 and not last descriptor */
+> +	if (!priv->plat->has_gmac4 && (status & rx_not_ls))
+
+Commit 26ab9830beab ("net: stmmac: replace has_xxxx with core_type"):
+
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index 99022620457a..151c81c560c8 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+...
++       enum dwmac_core_type core_type;
+...
+-       int has_gmac4;
+
+So, has_gmac4 no longer exists, and hasn't done since October last
+year.
+
+Thus, it seems your patch has been generated against an old kernel.
+As you are submitting for netdev, it is a good idea to ensure that
+patches apply to the net-next tree and/or net tree depending on
+which one you are targetting, and have been tested against that
+tree.
+
+Thanks.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
