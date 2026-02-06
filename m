@@ -4,69 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 921D5EE20A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 15:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 517CFEE20B2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 15:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BXMbjWKKnQFTM8gP6MA21mYbY4TQiL2EEz6+u00QQgc=; b=SJvKuwlgq/tkFLOXK+NzGpc6Od
-	iwEyHQO8MarMRxMpAYDmJWdFQWKhqZuAJxI67A1+3581dCK5a8ZiigVdRrBZItWBghCwj1vKHrUB3
-	0oTYHUkWuVmXx5gXBgMehM3P9jQavUJ5lK5w4FEXZx7JC+eVq9FL1LutaXd1Z98/EjxCRjDYEmpkH
-	RH/PXM09UnshPsZbhEBJO767Kg4Xodwvd/cl6LI6Rw5mJ/LV199LzCi8ilaOYLTZA0B/wINNFyPbP
-	AW0J+qgYs6eAVNbY2zU/jBiOE8y/w4rK+YDoeruvvqM5XJgEfb9wu1vum5BeL4qpaD2LWYvvFzYW6
-	yQbKQbow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0yjH1xwS6DP3+UL07i6qcZr8mseC4Wz99aUWsL7U+ec=; b=UhMuLomzHvVrGiae2FBFLUQM9F
+	3OolMOiSj1neuyGpW46v4fYTnv+dJDxNnKHN+m11wrLFgXBFIC4hsyr4c92ponY2Q8dq90TOtSiaY
+	uzg9Q9hP+DcHgRGHGR1Ql6dLUX5vJkmGzQ+SjfKYd6Epj5i80Ws3cLZrRUnJf3byjvnVLIM7Pxa/d
+	EKS58Zu/wEiscYVrwEQZ+rQIBMASF46l7+zyOk/XGIK9HAFMh2sBoR8ez3DgnXkCKKNBamDJUISnJ
+	iswPBxsJ4RjwLtvAMMGKgH9DJsvNOwfEMi03JUbtcJJyDVTEznnZ/zYBbqT30HQlzla9HvN0q60LB
+	156wK6CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voO4H-0000000BWKb-1sh3;
-	Fri, 06 Feb 2026 15:48:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1voODb-0000000BWiz-38Hg;
+	Fri, 06 Feb 2026 15:58:03 +0000
+Received: from mail-westeuropeazon11011018.outbound.protection.outlook.com ([52.101.70.18] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voO4F-0000000BWKD-1dLZ
+	id 1voODX-0000000BWi4-3qRY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 15:48:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A77C1419DE;
-	Fri,  6 Feb 2026 15:48:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DCE1C19422;
-	Fri,  6 Feb 2026 15:48:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770392902;
-	bh=u0kXhBG7RKykT4a2plJUwV+qAtS+NbaloqTIo40MoRc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=oY0vaaiG77HJNetYFwAFKR1W7fx/9iZr6G410Djd7mCwWzY9pY0w6BHiW73xnVuGO
-	 yHHfdUEeUSCz85Vk3pUX5QZx2te+ICxuoOoKmiaUHFoTIXZ3HoF7wN1yC4hiPMEq6Q
-	 iPVG/XgcUEGHuPs0TzMPnpYyHcH0DMC9OfVWcrOx6gbx983HFT7qwnpLrKg/XuaZ2m
-	 MzKfWyN3ZTnbZxa3QRfFh/jZoesgng4kJD4sESkvrBA4bgy95M/gLKhuQ1PDs/+Cbr
-	 fCv7Ks5x1euNZGqEpaeqhcwN3R0biCIg9qTidgAC3h8FXKF1pV1AEKt5BpoXXL070G
-	 1WmWRszSmuIgQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1voO4B-00000009Bya-1fUT;
-	Fri, 06 Feb 2026 15:48:19 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Thomas Gleixner <tglx@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] irqchip/gic-v3-its: Limit number of per-device MSIs to the range the ITS supports
-Date: Fri,  6 Feb 2026 15:48:16 +0000
-Message-ID: <20260206154816.3582887-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-MIME-Version: 1.0
+	Fri, 06 Feb 2026 15:58:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SxV4s9GOd/txTaSgMhnV4+NJWNsYsHlbVXxz3B0xXwLQLn3bDK5hS6aZE8tMttdOIELmm5E0LR+xMlhmHifGrLFd/tTF/FY8wt84KuCzmwQj5gjsIL+OL8XUuT6sELHhwap/lyL9Sol3fnYVeONprOJby/JaDksVdmmLVYkpLyzv4snX988ZkvVoo8ac1wDtqpVwYA2BGg2uVlwbSzBJeWcrjGPiG12GUntvgbuzF/NN/5vxtRKGgIwTlabQ6ZXvflN+b7zXnyh7B9kwGgodOL8TghwbDf2tDTK1guwG1LuN6OlXq3xuEhSSOFdJZlpNPcwHzzjjhrYqdMTHiC/MOQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0yjH1xwS6DP3+UL07i6qcZr8mseC4Wz99aUWsL7U+ec=;
+ b=jaUwODetpbgAePx/OxUMVSgIEmdwKqPaNr/1x6tLeOynyt6ceYqyQzmXxr5xr0YtsBcrZwaRQvE4WR9p+45hGRxwp/Rmj6HGAsWwVl8+5aJTGfYhbD/QHSuOe0TCnOl2vS0U5x0eHxfnvMiHvxvqVL5Kas8Lx6ZBR5VbWHdZeCgbm7Yw6UQE46aEW/UVZkGB3cbilPMpJGsdyBJPKypokToXuydtqMoudOTnlb9DyU8maWGrpIjbDgm66CGMIfAy9Q8BdFdXc4yFCL1XqtcUwCA/2uL9M3Vgh34FCF3Af31WlXPixUJZx4KN3/K1DJuYJIJegBYmymR/KzhlEuIAjA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0yjH1xwS6DP3+UL07i6qcZr8mseC4Wz99aUWsL7U+ec=;
+ b=jUdqw8AjSoHSSHHVLOrCU0C7OaGTHQT09POdFUGNIKwI8xKLlSoTh/ktUdWO7lpBPRL5NBW6zrkTivQ8vKt4MQyUZi1BdaEFwnGW8C50ZVG9BlXrMutNZ5SWbq56gvTkPkeKEvFcw94QPnpJL6buJ2IdaeS6l6GAYryRkE+NSZd3RpLY1yZjcw2DMerjPyh8QOaYJmybWo7YkFxCepPszqS727Ob6pvjV4HCMl1PZ/kIU/AKmmpMDjdylGrUuk7Dds6oCkzAQqK1h1OA6efsZCvJWzLpoqlOcCC8mhAVm+Buh6tW6zfno+HgJ347sM8UQJk7vmzWm/lXpCWfPIPb/g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AS8PR04MB8055.eurprd04.prod.outlook.com (2603:10a6:20b:2a4::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Fri, 6 Feb
+ 2026 15:57:53 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9587.010; Fri, 6 Feb 2026
+ 15:57:53 +0000
+Date: Fri, 6 Feb 2026 10:57:40 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Li Jun <jun.li@nxp.com>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] usb: dwc3: add needs_full_reinit flag
+Message-ID: <aYYPdGKdMdVgfm6x@lizhi-Precision-Tower-5810>
+References: <20260206-add-flatten-dts-based-dwc3-imx-driver-v3-0-ebd9b9b77049@nxp.com>
+ <20260206-add-flatten-dts-based-dwc3-imx-driver-v3-2-ebd9b9b77049@nxp.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@kernel.org, robin.murphy@arm.com, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+In-Reply-To: <20260206-add-flatten-dts-based-dwc3-imx-driver-v3-2-ebd9b9b77049@nxp.com>
+X-ClientProxiedBy: BYAPR02CA0022.namprd02.prod.outlook.com
+ (2603:10b6:a02:ee::35) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB8055:EE_
+X-MS-Office365-Filtering-Correlation-Id: e9982c3c-7fda-48cf-f832-08de65987c55
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YmMzSisyU3VSTVlDVE5YaFRiWHQ1Tnp1R1NJcW8yMmFNdStsdTlCeG81R2J3?=
+ =?utf-8?B?QlVsVXpPdnVLa0dLK2FsSjVUREwyVVdqczRSNzhPZnNDOUt1ZHpOakNpSmdN?=
+ =?utf-8?B?K0pRMEFPOGhUWkFyZlc1d0Z4UkVsZU0vYys0WDB1S2xnalJuT0dKaHFHQWNE?=
+ =?utf-8?B?dThYczhiZURBU2JGRmY4NFRtck13YU9NMUttRGt0NEszMmJlK2JTNGVwQnZE?=
+ =?utf-8?B?dEtRTWRyVEJBQncxK3J2bUJkckJveU05cGd4aXhiOTU1akp3RWt5UDRZR25o?=
+ =?utf-8?B?bUFYbDRFSGtveGtzV1Y2b1dOdEFkamxQeDJVMThOME5JeXRDRlpLS1o2cXRy?=
+ =?utf-8?B?TG03bTZJRFZnUnBGRXk2Y1FSenByVXM1TTErLy9nNkxYcVJSY1lGcjJXQ2NF?=
+ =?utf-8?B?VXpSM1Y0RmdjU2ZjMTFqSUlIdWI2ZjFsNUtmZitkSmxQWWc5dTJWQUxYRUZC?=
+ =?utf-8?B?TDlJZXFMOWxHaGg1WW55ZTZkanRsZkpLdzhZRENwd0NMdlh4WnFMcmlLWits?=
+ =?utf-8?B?ejl3Y09oWHN6c01Gc0lXeTVqRHhUbXJUWnRYbERYKzNNR3JxeERQUG13K0k5?=
+ =?utf-8?B?bUNMeVVNK240cnF0V3lQQzJ2WGtEbDlwaHlybUYxMy9IaGZXaXFVZjNYNHZr?=
+ =?utf-8?B?bGhldGVJY3lEWjZrZTJyR2dBZTd1REpjZkp3d2cxS0hTbzRsVWNZaGk2dmVh?=
+ =?utf-8?B?YVZ6bVVkMTZ1Rm0zRDVYWDFjZGxhaWpnWDRzQXI3VGZhQ1RzRHc0dVN2a2tr?=
+ =?utf-8?B?YVVwbUxSR202d3dWZ3p4eFN5UjIybk9aZjhHWW50VHNGQkxxaGMvQWJtL2sw?=
+ =?utf-8?B?WXlNRmFzaE5yK0t1bWVHQVVBNVdJaWR0aUQ1K0d4ZW5jczVldG1kUk9YSGxO?=
+ =?utf-8?B?bE9xeFgycXQxUjJSalRuMWFoQVk3WTRtYnZxMTZiM0dxRlBBMkRFd3pRK1ZE?=
+ =?utf-8?B?WEEyV3o2ZmxicEZyNlI4ZWVnOWtGK0hrQk9xWHU4SVJlOExnZE1QelFxOVE0?=
+ =?utf-8?B?ZStSbS8yQXFMemVMV0ZvUVB2aE5xOE4rOVZDVlJjVUZsQ1I1OWdjVTFzVVFD?=
+ =?utf-8?B?UmpybWFkY1pTMGYvRjEwUjFGc2JpNjZZaStCUTN3K0kzcEpZM0hHdDg4ZDdW?=
+ =?utf-8?B?Nkp6THA3YUVMVERJbVlhY2ttQ2lRbDZUUjV1LzcwUndDU3o1VzlOT1gxdWE3?=
+ =?utf-8?B?eXc0dXNDQ21pQXBjSW0xK3paN3JLc08wOW9BaXBPemtobWhYTkhkaFRGN3RD?=
+ =?utf-8?B?elRZUFZHV29zWTZXTDdFVjlCbmtlU0gvc1orcjlYQUVUc0J2ZkZiNm9TV1NO?=
+ =?utf-8?B?dmE0NWErZ3B6b3d0eU5naWJBSUlaUlo2c2lYbnMvUWsxVncxYURheUs5d01t?=
+ =?utf-8?B?T1QyYWNxMmFhamorN2ZDNWlDWkxMYS9IN0tSa04raWRqaXhMbGFXbjh4dHRV?=
+ =?utf-8?B?aE1tMStRZzBZeWpIcWY4czdVOGxJdVVleThDM2w4RTRiR25ERitFOEJ1dm1n?=
+ =?utf-8?B?Sk95aEwxUHRJbk9rQVNIamtXNndER2t0MWozT3c1Smw0T1RRTWRzVTE3MERP?=
+ =?utf-8?B?K1o2V2ZGZlQ4cEpoNTdHTEhTMFJObjBiZThtTGVBRkx4SlpGV2ZoM1Nmakh1?=
+ =?utf-8?B?SjhBMnNRVEJXRFJzbFFBdG1PVFlaQzJCakUrajV2Nlh0NDkrSVd3cDdVY2w4?=
+ =?utf-8?B?NUZIQlpJTFY3ZlRzOFBkY0I1SzNZNkJMQUZoZVhONkQxdldKUE5JTEZVdFN2?=
+ =?utf-8?B?WWxsMTFGMU1kNUh6MS9kMlVyTHh3NkpZZmFxSThiTzdpbTdWUGtJc1hmU3JI?=
+ =?utf-8?B?akZjUVJETkFzWWxaZEpzSUtSU1p1WGFlenkwOTN5UnN4d1ZkUWwxSGdVSWMr?=
+ =?utf-8?B?a0ZtRENmbFhtSUovTU5zTTA1eEdzOW9POW0yRWUyUTMrdDNFd1ErTFBkQWd2?=
+ =?utf-8?B?aWgvVU9qZWtSN0lJVlYvSUQ2NXVOeS91Y2dvRzk2UTc2dy8rSGRmNnU1eGR1?=
+ =?utf-8?B?WGJYWUtuTXBKNVlXUjEwcVdXUzVjTGpaLzJvbVQ3aWR3T25WR1VOWTBzd0xT?=
+ =?utf-8?B?V05ZT0FySE5GbHJqT0ppd1o5Vis2QVR5WmlWaGhBSGpvbFZHSGdWSUxEdDdP?=
+ =?utf-8?B?bXdGN3pMRHBaK0pRMTY1Z0xieWVqNzFyb01DTmFub3NlN2tuU1hZZDZpWis4?=
+ =?utf-8?Q?j5OceyKp4+k/LVGrUdGmmEI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eGJ6eE96c3VvUEhvVjRiTGJDMnFwUzh3REVhMjAwUUVONFRXWWRPb0FCbU9s?=
+ =?utf-8?B?bDZyNGVCVW12T2NPTWdHalBVQ1JML3JGUzVQcWZyWWRpczdYb1dWMmFyZjUy?=
+ =?utf-8?B?a3VwRFFpZHFqQmdraXFFWGpHNS9iOXZiYmFBdmtGdDlVSXlWSUxrYkprUnBV?=
+ =?utf-8?B?RTBtVThCK1FGOGh6VGNnbFhoenFPZzJibk13Z1RpT282b3prSXdndFNQZG9p?=
+ =?utf-8?B?MHNidUFWWGN0S3RwMDNtckNXcy9EYmpaR2hmL3VKczgyQTd2bHRNUWphdVJo?=
+ =?utf-8?B?WHFmUjZUR0tQcGhPaXQ3S2d5ZUh0K1FoMEp1NWc5ams4ZzlMQTRpS3gyMk9I?=
+ =?utf-8?B?MnQ0cWNPUnh0YWhSSkt2TXA1WVVoTzVENmRKT3ZoN3IrWE1pWWRlNC80QW51?=
+ =?utf-8?B?bXNHMVdiUVUyODdSWDRSY2dpOCtPVTZnQTF5cXY4SytadWVVczdvbmdMRlNT?=
+ =?utf-8?B?VlJMb0xtTHo1MnhabTdSbGN1Q2VnUXd0M3BZREZiY0tldHZSTUZmb3JtamMz?=
+ =?utf-8?B?c0ZXeFp2Y3l1TWtRYnNpazl5VHEwN29sL3M1YUtBdmdXVkhaNWRuWWFzdmFq?=
+ =?utf-8?B?VGhDSVRTTTNjc2tabnVTWXA3ZnFjMFhWZ1MxMnhrSmpyUDA1VmNZUmVJNFdC?=
+ =?utf-8?B?dWFoOFZyWlpHZHlDOE5zWUs2ZDBBT0o1ZzRWY295ODIrbkhsbUdWMWNPMVVr?=
+ =?utf-8?B?UmRwS0lnQTRpMkl5R1lPWStzT1JOdnR4ODc0a2VzaXdIbkp1SnNtSGxWK1Zr?=
+ =?utf-8?B?Zk9iUnhqM1NmL21XNFZLeTFBNVhwQmphOFRIbnhWd2tqeHYycVVJVUZLekky?=
+ =?utf-8?B?ZndDNkd5TmpCcWJ3ZHNGb29OdklBU050R3Ayci9qS1lHY0xMcGdoYnZsWjFR?=
+ =?utf-8?B?RytCWlZWOXBaUURzM0RGNDNuQjl6MXN3UlJMcG1hSEg2Nk5naXd4NFp4WEVn?=
+ =?utf-8?B?Zjl5VzZFMTNaaVg3ODRtRnZaZVJ2TGNyOURHQTZnZC9YazZlTFpmMTdaRFE1?=
+ =?utf-8?B?T1hjdGxQdW1jSnNIQjFyaVZkbWlrd2RmdStJcVJpMnpNSGlITXVOVXhzM3hw?=
+ =?utf-8?B?OWMvYjF5RXE0NHkxc0VuY0NRSlZLZHNYakxWMDRHK0UyQktHM3BPcU0wWGF1?=
+ =?utf-8?B?Ly9DdjdmbGNXZ25jRFdwNnJFYWxWZDI2TXJMZFV5bVNmYmdLQVYwM1J6Yzl3?=
+ =?utf-8?B?REhoOUVmak5LUzhaT0J3OGMyeVVkaTBpb3ZPbHFERVE4cnVQeUIrclZHQ2VQ?=
+ =?utf-8?B?ODRENXZwbTRRSHJWbktEZVJGZG9DNGh3dHh1a2VtZGlKb3ZBUTVqWGplWElx?=
+ =?utf-8?B?OCsvaTdETTRLZkhxZUcvMHFUeXJRT0cyeFF6SU1zN1o1K0FCR3lxMWI4MUlF?=
+ =?utf-8?B?bWxsaU1ZYUJiaFE0cXBTYXhFRldHMnhPZXFaRFo1c2xVQ3Q3cTU2SDRNWkJi?=
+ =?utf-8?B?dzVIMW1SdWVJSGR1aFdFWm94eFBBNGQ0Tzk2VXFVcHdGTFhEd0NPeThLT1Z1?=
+ =?utf-8?B?alRnbzJkS0FiVWdhQ3FGM1N5NUN4aGxpQnZzUHBNTDhRUXpDZEFWdzB5NnJV?=
+ =?utf-8?B?QVozdjQvQnFqZVRkaTFEc0FiaHpXWWNRN09FY1ZKMlhDQmJjbFpZWGFVK2Fx?=
+ =?utf-8?B?RVlNZTZpUnAxb0dkeWtXcFdvSk9aYTJLbTdVK25lekhEcU1lcDZkTUNSMjFL?=
+ =?utf-8?B?eUNBU21kV1JmQ0xKdnVSTHBVZ0VDcUFTU25Da1ZGRTdxRVVRSFUyUHV6TVdH?=
+ =?utf-8?B?eCthUWNhRGI3dzM0MGUzVnZxQ0ZrWkhZbUxXb253OEd0VWdzVVZ3SjlxOFE2?=
+ =?utf-8?B?VGV5QkVXeVpNOTFRcm9aT2ViOTRWR3hKaWMyUElaRFlPVFk0MVRqd2g5RTVs?=
+ =?utf-8?B?cUJ3OFJlNzk4OXJ1QkdCWkdjNGZtL2sxOEtWdVFpaDFPVzgrcTVyRnpqTDAr?=
+ =?utf-8?B?a0M0Y05JNzJjUDVETlFZWktZbTlqVFpXM3VRWjdQRlZNMWRlZ0c2a3Z0cXA0?=
+ =?utf-8?B?SnZpanlnRGo4Ymh2UXUrQmwrZWxUcUlSYW9CTjh5dUdsY0JEVVJsTWpBVE8x?=
+ =?utf-8?B?UlppMWI4RmhjSVp0ZFBveWZCdU9Lc2crYlU5ZkFEcG9NOGdvQldZUmxIdTNi?=
+ =?utf-8?B?ZGFtNzc1eEpqK0xJMUIyTXlVLys1djIxUjVDcFVkMSs2MHIrMFlIRXl1eC9y?=
+ =?utf-8?B?WmRNbHJseVJKczlBMXk2VWduM3hJblJOZENtdS84bHlRNUxodmpkaFhtK3B4?=
+ =?utf-8?B?Qks3NXlRTjA1QlhOUFdTMlNDRGoxOHppSjk5K1hTRGx3Z0x5MDlrK25UMjYv?=
+ =?utf-8?Q?seolRwexw35tclJegj?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e9982c3c-7fda-48cf-f832-08de65987c55
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2026 15:57:53.0454
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3kZ85NOmMX15tpMHnDVYroi5Jkz+Mbitue+Db4q3B2uQ9/J6QH66ga3JR6MBv3PAeQsk+RfCV5DTZnxmfhkU4g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8055
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_074823_491487_B9D210F2 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20260206_075800_147707_F7BB4711 
+X-CRM114-Status: GOOD (  27.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,59 +189,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ITS driver blindly assumes that EventIDs are in abundant supply,
-to the point where it never checks how many the HW actually supports.
-
-It turns out that some pretty esoteric integrations make it so that
-only a few bits are available, all the way down to a. single. bit.
-
-Enforce the advertised limitation at the point of allocating the
-device structure, and hope that the endpoint driver can deal with
-such limitation.
-
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Cc: stable@vger.kernel.org
----
- drivers/irqchip/irq-gic-v3-its.c   | 4 ++++
- include/linux/irqchip/arm-gic-v3.h | 1 +
- 2 files changed, 5 insertions(+)
-
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 2988def30972b..a51e8e6a81819 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -3475,6 +3475,7 @@ static struct its_device *its_create_device(struct its_node *its, u32 dev_id,
- 	int lpi_base;
- 	int nr_lpis;
- 	int nr_ites;
-+	int id_bits;
- 	int sz;
- 
- 	if (!its_alloc_device_table(its, dev_id))
-@@ -3486,7 +3487,10 @@ static struct its_device *its_create_device(struct its_node *its, u32 dev_id,
- 	/*
- 	 * Even if the device wants a single LPI, the ITT must be
- 	 * sized as a power of two (and you need at least one bit...).
-+	 * Also honor the ITS's own EID limit.
- 	 */
-+	id_bits = FIELD_GET(GITS_TYPER_IDBITS, its->typer) + 1;
-+	nvecs = min_t(unsigned int, nvecs, BIT(id_bits));
- 	nr_ites = max(2, nvecs);
- 	sz = nr_ites * (FIELD_GET(GITS_TYPER_ITT_ENTRY_SIZE, its->typer) + 1);
- 	sz = max(sz, ITS_ITT_ALIGN);
-diff --git a/include/linux/irqchip/arm-gic-v3.h b/include/linux/irqchip/arm-gic-v3.h
-index 70c0948f978eb..0225121f30138 100644
---- a/include/linux/irqchip/arm-gic-v3.h
-+++ b/include/linux/irqchip/arm-gic-v3.h
-@@ -394,6 +394,7 @@
- #define GITS_TYPER_VLPIS		(1UL << 1)
- #define GITS_TYPER_ITT_ENTRY_SIZE_SHIFT	4
- #define GITS_TYPER_ITT_ENTRY_SIZE	GENMASK_ULL(7, 4)
-+#define GITS_TYPER_IDBITS		GENMASK_ULL(12, 8)
- #define GITS_TYPER_IDBITS_SHIFT		8
- #define GITS_TYPER_DEVBITS_SHIFT	13
- #define GITS_TYPER_DEVBITS		GENMASK_ULL(17, 13)
--- 
-2.47.3
-
+On Fri, Feb 06, 2026 at 06:18:50PM +0800, Xu Yang wrote:
+> The current design assumes that the controller remains powered when wakeup
+> is enabled. However, some SoCs provide wakeup capability even when the
+> controller itself is powered down, using separate dedicated wakeup logic.
+> This allows additional power savings, but requires the controller to be
+> fully re‑initialized after system resume.
+>
+> To support these SoCs, introduce a flag needs_full_reinit for the purpose.
+> And the glue layer needs to indicate if the controller needs this behavior
+> by setting a flag core_may_lose_power in dwc3_properties.
+>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>
+> ---
+> Changes in v3:
+>  - no changes
+> Changes in v2:
+>  - put core_may_lose_power into dwc3_properties and check it in
+>    dwc3_get_software_properties()
+>  - rename may_lose_power to needs_full_reinit
+> ---
+>  drivers/usb/dwc3/core.c | 9 +++++++--
+>  drivers/usb/dwc3/core.h | 3 +++
+>  drivers/usb/dwc3/glue.h | 3 +++
+>  3 files changed, 13 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
+> index c07ffe82c850..c5e0a1705b6f 100644
+> --- a/drivers/usb/dwc3/core.c
+> +++ b/drivers/usb/dwc3/core.c
+> @@ -1675,6 +1675,9 @@ static void dwc3_get_software_properties(struct dwc3 *dwc,
+>  	u16 gsbuscfg0_reqinfo;
+>  	int ret;
+>
+> +	if (properties->core_may_lose_power)
+> +		dwc->needs_full_reinit = true;
+> +
+>  	dwc->gsbuscfg0_reqinfo = DWC3_GSBUSCFG0_REQINFO_UNSPECIFIED;
+>
+>  	if (properties->gsbuscfg0_reqinfo !=
+> @@ -2462,7 +2465,8 @@ static int dwc3_suspend_common(struct dwc3 *dwc, pm_message_t msg)
+>  		dwc3_core_exit(dwc);
+>  		break;
+>  	case DWC3_GCTL_PRTCAP_HOST:
+> -		if (!PMSG_IS_AUTO(msg) && !device_may_wakeup(dwc->dev)) {
+> +		if (!PMSG_IS_AUTO(msg) &&
+> +		    (!device_may_wakeup(dwc->dev) || dwc->needs_full_reinit)) {
+>  			dwc3_core_exit(dwc);
+>  			break;
+>  		}
+> @@ -2525,7 +2529,8 @@ static int dwc3_resume_common(struct dwc3 *dwc, pm_message_t msg)
+>  		dwc3_gadget_resume(dwc);
+>  		break;
+>  	case DWC3_GCTL_PRTCAP_HOST:
+> -		if (!PMSG_IS_AUTO(msg) && !device_may_wakeup(dwc->dev)) {
+> +		if (!PMSG_IS_AUTO(msg) &&
+> +		    (!device_may_wakeup(dwc->dev) || dwc->needs_full_reinit)) {
+>  			ret = dwc3_core_init_for_resume(dwc);
+>  			if (ret)
+>  				return ret;
+> diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
+> index 08cc6f2b5c23..01d92d680ba4 100644
+> --- a/drivers/usb/dwc3/core.h
+> +++ b/drivers/usb/dwc3/core.h
+> @@ -1117,6 +1117,8 @@ struct dwc3_glue_ops {
+>   * @usb3_lpm_capable: set if hadrware supports Link Power Management
+>   * @usb2_lpm_disable: set to disable usb2 lpm for host
+>   * @usb2_gadget_lpm_disable: set to disable usb2 lpm for gadget
+> + * @needs_full_reinit: set to indicate the core may lose power and need full
+> +			initialization during system pm
+>   * @disable_scramble_quirk: set if we enable the disable scramble quirk
+>   * @u2exit_lfps_quirk: set if we enable u2exit lfps quirk
+>   * @u2ss_inp3_quirk: set if we enable P3 OK for U2/SS Inactive quirk
+> @@ -1369,6 +1371,7 @@ struct dwc3 {
+>  	unsigned		usb3_lpm_capable:1;
+>  	unsigned		usb2_lpm_disable:1;
+>  	unsigned		usb2_gadget_lpm_disable:1;
+> +	unsigned		needs_full_reinit:1;
+>
+>  	unsigned		disable_scramble_quirk:1;
+>  	unsigned		u2exit_lfps_quirk:1;
+> diff --git a/drivers/usb/dwc3/glue.h b/drivers/usb/dwc3/glue.h
+> index df86e14cb706..d4ea635c92fb 100644
+> --- a/drivers/usb/dwc3/glue.h
+> +++ b/drivers/usb/dwc3/glue.h
+> @@ -12,9 +12,12 @@
+>  /**
+>   * dwc3_properties: DWC3 core properties
+>   * @gsbuscfg0_reqinfo: Value to be programmed in the GSBUSCFG0.REQINFO field
+> + * @core_may_lose_power: indicate the controller may not remain power during
+> + *			 system pm
+>   */
+>  struct dwc3_properties {
+>  	u32 gsbuscfg0_reqinfo;
+> +	bool core_may_lose_power;
+>  };
+>
+>  #define DWC3_DEFAULT_PROPERTIES ((struct dwc3_properties){		\
+>
+> --
+> 2.34.1
+>
 
