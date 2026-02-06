@@ -4,112 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E749EB28D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 07:07:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8DD5EB28D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 07:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0A+j6iOWF0BWsOjBjxSmuNtipuUhQQQi/74q3YDEtgU=; b=V7/HYP27k+DDG/sn3fe/ElOQUK
-	p7KG16hVnlCniCpUH5K/Cb+KbYSEE/DSsKCSS1hG/vSNsN7d00WXICduFsYf5Oo6nqvqfDfkldzZE
-	PSSNtXKfWemRCzfOfX/5+bu5V9ix1PknMVKHgQ9vRbCFcyHY86yHaUlFQV6ccMV1hVsf7tYZmrn1x
-	c0IDA8T7I6qXra//Tyvh85r1nvTUwGozRA5t5Uv1zPoSsqXhYv4G1vTlTxMBJfYGhlu0pXSEa1J0m
-	ZgH9bq+DGzntsm6QpozIAnIJqwwi4tL4jaCYcgDFKo7X8VRqFH6YcJpOBn54odiwU0W8RLnxO6ZQ6
-	cxkCa5hw==;
+	bh=3UW7bwvIJSmR6JD5JewClPLgD/uZ6ndB7iEUdc/rSvY=; b=rX7osWmAAadN31rXAFOLIa6nYu
+	N48hyWLxbHbSekA5zfY4A1sUnBBibx88y1YEMQ+OHzrmJhZ5u1tVD+hPzj/I8zWBqKKoA/VApcT1J
+	URpvOhSO2A0NPxgrSus8S2tlFOowjReQrdaxDbd0q4Q+bubamJQvCH22bYpfxd9I4jtCb+I5A0LhY
+	pi2n3/WM/onvaxnQLacwUn4nWEwqg3vNjyZzq500H/Mjgvlo+gmT/JZ+WefkpIyJHnvpR7CUpw4C7
+	xGix8O1kRACE1mLte2xN6UZSHEq+XhmlAGA/mCTVi1tSNcSsGtCYjFCE3XnHoTxnnhnq2bYYSQwpo
+	/GBOLfrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voFvp-0000000Ay1R-0axG;
-	Fri, 06 Feb 2026 07:07:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1voG1X-0000000AyIU-41vf;
+	Fri, 06 Feb 2026 07:13:03 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voFvn-0000000Ay0e-0ZU5
+	id 1voG1V-0000000AyHV-1hva
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 07:07:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D3E00443A2;
-	Fri,  6 Feb 2026 07:07:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 027DDC116C6;
-	Fri,  6 Feb 2026 07:07:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770361625;
-	bh=WvZw8TZEb3SgW+/70HUmxFJO34AgPehjojDeWdDjWhI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Nq4wTOd+caqPrkzH9QxmqBvkYO1ADtEBtEyURjcb7Tp51nkrI/cZ0mNJiUWjTBYtz
-	 +2Us9GW6ejgWjko3lvVYkSPC708UEtQT8g0hFpAr1UopavX7aLCz7HeAX5MH3lJ/8r
-	 yaPzAhBEkYaHn99kUF0bBgq/+rlzW7fQbiuS2+xi5TT+QasMbx50sQs8nUZ7Fzfuoi
-	 sio6NS0lrRtSHyPn+6/sChkqHfpWqfVfUj9ZP6J2OOCCWAHbg2C5w3MLIkuPJMGdM4
-	 NUKp9Q+s7jFjCQPqP1PqFEXNwreOragKNqGD0T260B+EnVmiyArEI4+t02uq+k0Wvq
-	 P27yGe9ETMcrA==
-Message-ID: <36383e80-fcf2-4d7b-8036-58a1e72236cd@kernel.org>
-Date: Fri, 6 Feb 2026 08:07:01 +0100
+	Fri, 06 Feb 2026 07:13:02 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-3545cf80e1dso200150a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Feb 2026 23:13:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770361980; x=1770966780; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=3UW7bwvIJSmR6JD5JewClPLgD/uZ6ndB7iEUdc/rSvY=;
+        b=V0tvNd3S/V4C/J3rrcYTyKv9qSCiRaVOcfuA93vWou0pLnBbl2rWW06WIPBvsCP0ds
+         0IKxKRJOVwRsTPnAgQJenUco2M5wGUjOfIDEJzDCnbaiLqE1bHo6Miid7DO2dv0dA/5f
+         5bnNuH00pWmbv9aJTtUhUg331gT7rxSblMC7o7ULa03Vza1R+WuXuIX/eKyJ5o5r00vU
+         hT38P2+VLxsRtVDkKEpADtD654BrxOrX+K/xEpOeM+Q0c0IQJmIDXhA0tYSu4EgDIjqw
+         qcaU5tnM2s+wRJXL40az2riS0Ncxj6JFL8qtwumzjjRBwaJ7OmJ3OwQFFYHwN26CuXPU
+         CIXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770361980; x=1770966780;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3UW7bwvIJSmR6JD5JewClPLgD/uZ6ndB7iEUdc/rSvY=;
+        b=awcW2RX2l7arvcBe00PXCVAkv9ZWgYr9jon+Oo6CGzEW/l1pqg1OX0XF9gA0Gq1Nu2
+         phr0bZIAIBs/PAmx5t4bRjfNW/jcokOQs7gS8H+2RnFavkdVc2UMp4dgfc2NsLN9ZF33
+         uFx8d4xzM0WzebjnKxKiRcLyEAIf1Lc77eqRMtbbsWYm2joqWdyIIXmgPma/XTH6bJZJ
+         raMEi+dcd63KqboUtI4uILKqez4FMY4w+JbEp0TuiijiQriM3kje6+k9+YESeFA7FZEp
+         hfzBEIl39bpOtVnYrm1ktJQwSkUS/VVsNdMTlrqBS6R5MsPfQltneRFdJGke9VnhdCXb
+         UZ6g==
+X-Forwarded-Encrypted: i=1; AJvYcCWEiLSSs7mn4eBTU4zGAfdmH+ICKv3XguJ24FBw/hqQhi71kHur47Z/gDGu2d05M6f/XKdhz8pnJNLKa4N6FUpw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrqqEEebdF7PRoSq6nGzAY5kqYzvN7sruODgP5TD2NbatdDRWr
+	trOLZUZcfF3eeWOAMOx3SfY0Fja55kwg4/hMxTcHod7sAjKD3wZRoKW+
+X-Gm-Gg: AZuq6aJ5OYHiEL6DxdVq7AajVrT/0noNDFao98x4IibT8EVv/GG4pDqIW53kNrf+iSQ
+	lkpO36LxuuTCzFh834W4dexItc7z8l3vYvan3HzpQu8A/dZRSBcwqMyArNRqCgzsfSAtmYsxxjS
+	5xQDGHv8fp6KzveU3Zr5u3zbXQJry1852VTCbjOe67KYJVtCtmU+Gt4cwhdJpqdj9P2rozjKmVa
+	J8/hjg7K4Sh3z9CZ3N2TqCH3p2pGMFk5xdTDRlmEthNYRlUkVm4dGp9mkCF08tbtSnZySX3ES27
+	jUDYggJboCZK/mcuLV5eG90/GlXXNWh7qFrQwNa8nd0BVesRbdThaUSrEe2hJ/l61hbS5Q3gvwK
+	dTkc1+iCLDZNix6qOZr7LEVFE45byxVhOr7FXPyXGy11r7jKvweh/2rdQj4T+ng8YDnEVV/48on
+	vTepzWy8+RKyWwWgPUgzO3p2inh2KRJL1ZmE8n5YLAAf2qSmselFvHIduwA52BlxZb
+X-Received: by 2002:a17:90a:dfcb:b0:330:bca5:13d9 with SMTP id 98e67ed59e1d1-354b3e5e993mr1427756a91.32.1770361980362;
+        Thu, 05 Feb 2026 23:13:00 -0800 (PST)
+Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c6dcb52494bsm1411203a12.10.2026.02.05.23.12.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Feb 2026 23:13:00 -0800 (PST)
+Message-ID: <a0910eb7-4597-45a7-b538-f2feb021f389@gmail.com>
+Date: Fri, 6 Feb 2026 15:12:57 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2 v3] dt-bindings: arm: lg: Add compatible for LG1215
- SoC and reference board
-To: Chanho Min <chanho.min@lge.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kever Yang <kever.yang@rock-chips.com>, Kael D'Alcamo <dev@kael-k.io>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260112053421.3185738-2-chanho.min@lge.com>
- <20260112-agile-elite-tuatara-dea08d@quoll> <aYVnJKDO9PYiqje5@BRUNHILD>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v2 2/3] arm64: dts: nuvoton: ma35d1: add display
+ controller support
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: airlied@gmail.com, simona@ffwll.ch, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, ychuang3@nuvoton.com,
+ schung@nuvoton.com, yclu4@nuvoton.com, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260129040532.382693-1-a0987203069@gmail.com>
+ <20260129040532.382693-3-a0987203069@gmail.com>
+ <20260205-tactful-warm-chicken-50bdc8@quoll>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <aYVnJKDO9PYiqje5@BRUNHILD>
-Content-Type: text/plain; charset=UTF-8
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <20260205-tactful-warm-chicken-50bdc8@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_230707_310519_E939C699 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20260205_231301_459675_D516E48E 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,41 +108,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/02/2026 04:59, Chanho Min wrote:
-> On Mon, Jan 12, 2026 at 10:07:05AM +0100, Krzysztof Kozlowski wrote:
->> On Mon, Jan 12, 2026 at 02:34:20PM +0900, Chanho Min wrote:
->>> Add compatible strings for the LG1215 SoC and its reference board
->>> (lg,lg1215 and lg,lg1215-ref).
->>>
->>> This SoC is the next SoC following the LG1313 series, developed
->>> by LG Electronics.
->>>
->>> Signed-off-by: Chanho Min <chanho.min@lge.com>
->>> ---
->>>  Documentation/devicetree/bindings/arm/lge.yaml | 5 +++++
->>>  1 file changed, 5 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/arm/lge.yaml b/Documentation/devicetree/bindings/arm/lge.yaml
->>> index d983ef7fcbd6..0d0661470eaa 100644
->>> --- a/Documentation/devicetree/bindings/arm/lge.yaml
->>> +++ b/Documentation/devicetree/bindings/arm/lge.yaml
->>> @@ -24,5 +24,10 @@ properties:
->>>            - const: lge,lg1313-ref
->>>            - const: lge,lg1313
->>>  
->>> +      - description: Boards with LG1215 SoC
->>
->> 1215 < 1313, so this looks oddly sorted.
->>
->>
->> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> 
-> Hi, Krzysztof
-> 
-> Ping, Any update or is it waiting in a queue somewhere?
 
-You received my comment and review. It is waiting on you.
+On 2/5/2026 9:23 PM, Krzysztof Kozlowski wrote:
+> On Thu, Jan 29, 2026 at 12:05:31PM +0800, Joey Lu wrote:
+>>   &uart0 {
+>> @@ -129,3 +165,23 @@ &uart16 {
+>>   	pinctrl-0 = <&pinctrl_uart16>;
+>>   	status = "okay";
+>>   };
+>> +
+>> +&panel {
+>> +	port {
+>> +		panel_in: endpoint@0 {
+>> +			remote-endpoint = <&dpi_out>;
+>> +		};
+>> +	};
+>> +};
+>> +
+>> +&display {
+> What sort of ordering rule is followed in Nuvoton? Why is it different
+> than DTS coding style? Why do you choose other style?
+>
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&pinctrl_display>;
+>> +	status = "okay";
+>> +
+>> +	port {
+>> +		dpi_out: endpoint@0 {
+>> +			remote-endpoint = <&panel_in>;
+>> +		};
+>> +	};
+>> +};
+>> diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+>> index e51b98f5bdce..7d9d077f12b2 100644
+>> --- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+>> +++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+>> @@ -379,5 +379,19 @@ uart16: serial@40880000 {
+>>   			clocks = <&clk UART16_GATE>;
+>>   			status = "disabled";
+>>   		};
+>> +
+>> +		panel: panel {
+> No, there is no way your SoC has a panel.
+>
+> Don't add fake stuff to your DTS.
+>
+> Best regards,
+> Krzysztof
 
-Best regards,
-Krzysztof
+I'll move panel nodes out of dtsi into board dts.
+
+Joey
+
 
