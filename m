@@ -4,76 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2B38EE2084
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 12:08:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5FBEEE2091
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 12:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ayN1nEXbKph78i6N6fCvUEeK9hz4SxZBfGel9uBR0AU=; b=3B4CX76QVeeMGJcLZD0fe+mkRA
-	ooc0U/m9MX91w445TUdwnPhC36NPSx/nUtFWpT9B6P9x63bpqI6zj52RS/SOBQjfQvHTf8RT+0IbD
-	AwzNZ6x2B0z79h5fKyVOt5y5q8EBRA1R958UmzXeILWCcyAEnvmvWndZ5VUYQKDR0xKvjS9m85JbI
-	YO+7Y8u6SzC3jDzPNDj+24RuPfMoVfHrZCgDZy0n0rfJZKpFyIZY9iS8R/OHdHvRn9QMEFVZjile8
-	ltMLJXgoYh1KlpbVhZT9bNXfoAFQNeJ/aIdT4cjppVeR6mQQODnxvQDqJZi49XmLfJbcxpuYRJwH+
-	+ktwdA/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=24FWoAmlTh3laz6QYPrpxhNNCwjmzExpnfPP6EfBfic=; b=VP+LhR4CVeERdIjsKeB/9i0VF5
+	W9xD2IvMV9M5TZlyS1TuAAIKTcdVukLkjlx41cYKviBEAjCTai9hRLGXFT66CeZpxF26g6Go6+OiT
+	D6IvZaHZUFYcM7Ht5KldVX3Y0fd0AFkXYp0/eNbEaHAuQrUU/omMzHmuG3riZN4plR6SxbQ57iDmW
+	2cdel+kcnYReZLHn6QfTv9BG90Ab1SAf4nImXcS2snk9uHDPYYPFss7ljvTGBDd2PlCn+Ti8JrOC8
+	QRZnmnXkXc1sBQ44SO6htMXO4hxwQayP2Bts74YvFqFAgVP5gOu3T4KDP4uCTPfK+386pKdqP/MtL
+	GOEGTpXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voKdR-0000000BHZh-2Gmq;
-	Fri, 06 Feb 2026 12:08:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1voKvP-0000000BJ6h-2ido;
+	Fri, 06 Feb 2026 12:27:03 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voKdQ-0000000BHZa-1YvQ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 06 Feb 2026 12:08:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ayN1nEXbKph78i6N6fCvUEeK9hz4SxZBfGel9uBR0AU=; b=p8qefQw/Eickgxc6esDl688n+W
-	Tt68jXYOSLFmSpt+0+hy6EcBy2ljOHZvg6N80eyIYQNXFrI6KPGEcThiZIAjkUfbVBJoIuqorfL0W
-	tdCuQ+KvAlPZTElrCZL28HPmfI9jgYklHj35pAqr19O1znjmNEGx6++lRDDUpM4PPlhvc5JVslm4D
-	QzCAAkZXwmM2k+XzMGlANoBDESVO4UZ3XwtKJGHvCnVQ8OaiCism3MYZdyF4H9iqNCXMkx/cv9tC6
-	GyTdrz+32FEcEBCcUYM73trs6AKgazIl5SeurNvRK737+gDmYnGcBV7bHHB4b0Qpxq2vQ4dbri1IY
-	9GChF1nA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voKdM-00000003l9A-39uf
+	id 1voKvK-0000000BJ63-1PA0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 12:08:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 534AA339;
-	Fri,  6 Feb 2026 04:08:15 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 181903F632;
-	Fri,  6 Feb 2026 04:08:19 -0800 (PST)
-Date: Fri, 6 Feb 2026 12:08:17 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: Jinjiang Tu <tujinjiang@huawei.com>, akpm@linux-foundation.org,
-	david@kernel.org, zengheng4@huawei.com, ryan.roberts@arm.com,
-	anshuman.khandual@arm.com, wangkefeng.wang@huawei.com,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-Subject: Re: [PATCH v3] arm64: mm: fix pass user prot to ioremap_prot in
- generic_access_phys
-Message-ID: <aYXZsRpmQIb7q83D@arm.com>
-References: <20260130073807.99474-1-tujinjiang@huawei.com>
- <aYC6_lSm_eJeKIcn@willie-the-truck>
- <73396cda-e12c-484f-ab84-b09e7aab8bb0@huawei.com>
- <aYG-dGzR6MuPSQBK@willie-the-truck>
- <a4ee7faa-5b0d-4ffa-bc06-939d95ef7680@huawei.com>
- <aYSp0--x_QgyiUWL@arm.com>
- <aYTVAeMm5cFnuAL7@willie-the-truck>
- <aYTgoFQjEs_5WyC-@arm.com>
+	Fri, 06 Feb 2026 12:27:00 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-480706554beso6654475e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Feb 2026 04:26:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770380813; x=1770985613; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=24FWoAmlTh3laz6QYPrpxhNNCwjmzExpnfPP6EfBfic=;
+        b=mtUcyDe3WhoBYBGECPv7PfoPVhmmqyn3Bl8gcO7RRr+6qzY9k1Kr/7TqxJWdR4aFhh
+         EUkpDRxmZXj0kod0dt70YmCA83AmVFvDmOjH/uXbDqsRIMmdAmRtwLF8mI9o7cXBwQAz
+         2t9vaYV7f3SP0k2bam6KiUePVdXphG61aWHOldb1/aVI7F5ISgWdIiC9fHHDMsydeejB
+         CLINUJEyQyCeAZgrlqj7T7TW3eoG6yGdHZ6/GgWGoxzAXhbuW6EPDw4x/UemN6Hr6M6S
+         mc3+aa16glElKqX10SPfiYiIIJ7qa0sUt/Wf6sQ8SIKI0UUMlJbpClxX3+DTNAAoGhqt
+         fIzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770380813; x=1770985613;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=24FWoAmlTh3laz6QYPrpxhNNCwjmzExpnfPP6EfBfic=;
+        b=n//9yjm3qbba1O0v3mBsXXtc8RRzHGLTZV2BdYftFsqfe9VYpRUsxZ/U4SZn9MSEMi
+         i+18p7zUNVPgiYMGpIDFgo+v0eOxpuevSCQgR/nNwYrcwYE/Hrj81T1ii2m4X92CkhgN
+         ZI4OGWnU5uocTEcE8vPyrXOGGC0fDnwNu3AB4+/XPJmIn/ucvoiPDyULZKbikThKpPPu
+         gJhpwkTgQxRTCRNwIgASgMa8N8n3Y8UNPb+boSguQkCCtEFkndDho/rvWn/PSI1k2D90
+         ZeiE2SJ++UVSuQL6UKaROYZp3zq4kIp+betKtvg6mbr7diWA4G49TtXLqm6IKaqU5O8c
+         zDfg==
+X-Forwarded-Encrypted: i=1; AJvYcCXSzc0iQaSCBU219IWYQK1LohziN6RoLiE0TDnPUklVTYbJFmEMz+0K8uCXMu+4Q+BNgy21Yx6JQS2Ok/dGzA37@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxpm7FDa9uXt7WChulTg53zhhvdPed8v0TJc3zPLJX5+B8Fscja
+	ZjdpIbESJWgDVhqAx7e5Dfw4nb+iumz0xqAVz/FNYjf5QECuRkqzlOsW
+X-Gm-Gg: AZuq6aKW5D/LIxzSCkZ55QIgCAss40nN1ZbuP8+SIVhdI/wm4g6heFL29b1HM/G0Sf2
+	004tLysw9UhhHzofhXz71Qm1Lirf1XaQUgTi2KqFKJ/BkA1spwk2oxBKMUPw6CdkSA38QzelmMl
+	Xeu7oNfCQ4bXP8aBxn3ytTjtuglJRVsLNb0P/Uk0VAndq0Vzlpz5ebqLekr91d0N9pVGzg/3JAr
+	NFG+3NUh6rUqU+Q5UUes4u8aq4So/XN/2N6D6RR1i5m3x3kgJfOJcj9l3cPThbYi4X4Xp6u3JVE
+	cMOBjVGtOX0VD/6ai+mGHlP1lWbxGIoWOYdIgAF7lKvoopMKEzJb+GTTyDkQbBhG7BKlSPKkIBj
+	663cPqbwFBv6bguzMB/IGi4/1RCawQ2DRTMFLGQilPIdQOJWB2ryPSercVw8kOxlIffB00LJjQs
+	pShEucbdI=
+X-Received: by 2002:a05:600c:c16d:b0:475:dd89:acb with SMTP id 5b1f17b1804b1-48320216097mr35801865e9.22.1770380812676;
+        Fri, 06 Feb 2026 04:26:52 -0800 (PST)
+Received: from luca-vm.lan ([154.61.61.58])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48317d299bfsm114441375e9.2.2026.02.06.04.26.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Feb 2026 04:26:52 -0800 (PST)
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+To: linux-mediatek@lists.infradead.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Fabien Parent <fparent@baylibre.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] soc: mediatek: mtk-mmsys: Restore MT8167 routing masks lost during merge
+Date: Fri,  6 Feb 2026 12:26:23 +0000
+Message-ID: <20260206122623.670023-1-l.scorcia@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aYTgoFQjEs_5WyC-@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_120825_310764_C95BFEF4 
-X-CRM114-Status: GOOD (  32.95  )
+X-CRM114-CacheID: sfid-20260206_042658_832010_E68FA7C7 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,61 +99,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 05, 2026 at 06:25:36PM +0000, Catalin Marinas wrote:
-> On Thu, Feb 05, 2026 at 05:36:01PM +0000, Will Deacon wrote:
-> > On Thu, Feb 05, 2026 at 02:31:47PM +0000, Catalin Marinas wrote:
-> > > On Thu, Feb 05, 2026 at 03:23:27PM +0800, Jinjiang Tu wrote:
-> > > > 在 2026/2/3 17:23, Will Deacon 写道:
-> > > > > On Tue, Feb 03, 2026 at 11:38:15AM +0800, Jinjiang Tu wrote:
-> > > > > > 在 2026/2/2 22:55, Will Deacon 写道:
-> > > > > > > On Fri, Jan 30, 2026 at 03:38:07PM +0800, Jinjiang Tu wrote:
-> > > > > > > > +#define arch_mk_kernel_prot arch_mk_kernel_prot
-> > > > > > > > +static inline pgprot_t arch_mk_kernel_prot(pgprot_t user_prot)
-> > > > > > > > +{
-> > > > > > > > +	ptdesc_t mem_type = pgprot_val(user_prot) & PTE_ATTRINDX_MASK;
-> > > > > > > > +
-> > > > > > > > +	return __pgprot_modify(PAGE_KERNEL, PTE_ATTRINDX_MASK, mem_type);
-> > > > > > > > +}
-> > > > > > > 
-> > > > > > > Do we really need another arch helper here?
-> > > [...]
-> > > > > My point is that we already have the helper: ioremap_prot(). Just fix
-> > > > > that for arm64 and cc the other arch maintainers if you're not sure how
-> > > > > to fix it for them. What we don't need to do is add an additional helper.
-> > > > 
-> > > > ioremap_prot() may be called outside of arch/arm64 in the future, and I think
-> > > > most of the cases will not pass a user prot to ioremap_prot().
-> > > > 
-> > > > generic_access_phys() is a special case, so I want to limit the modification to
-> > > > generic_access_phys() only.
-> > > 
-> > > Or we can just have an ioremap_user_prot() (or some more meaningful
-> > > name), defined by default as ioremap_prot(). It's still introducing a
-> > > new macro though, unless we go and rename it on all architectures.
-> > 
-> > ioremap_prot() has exactly one caller outside of arch code and that is
-> > generic_access_phys(). We should just fix the arm64 implementation of
-> > ioremap_prot() and not introduce any new macros. If a new caller comes
-> > along later, we can figure out what to do then. We could shout if the
-> > prot isn't a user prot so we detect the problem.
-> 
-> I was more worried about out of tree drivers using it since it's an
-> EXPORT_SYMBOL(). We should remove the export anyway given that we have
-> only a fixed number of memory types programmed in MAIR and all have
-> corresponding ioremap wrappers already.
-> 
-> So yes, just fixing it in ioremap_prot() works for me if we also remove
-> the export, just in case there are dodgy drivers out there.
+The original patch at
+https://lore.kernel.org/all/20201027160631.608503-2-fparent@baylibre.com/
+included the values for the route masks, but they got lost during merge.
 
-Ah, removing the export would break KMI if backported (unless GKI won't
-merge it) since all the other ioremap_* macros use ioremap_prot(). Well,
-not a problem for stable/LTS in general, just for GKI.
+Fixes: 060f7875bd23 ("soc: mediatek: mmsys: Add support for MT8167 SoC")
 
-I would still introduce a new ioremap_user_prot() to make the intent
-clearer. In its implementation we could skip the ioremap_prot_hook().
-For generic_access_phys(), do we even care about encrypted/decrypted
-pgprot?
+Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+---
+ drivers/soc/mediatek/mt8167-mmsys.h | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
+diff --git a/drivers/soc/mediatek/mt8167-mmsys.h b/drivers/soc/mediatek/mt8167-mmsys.h
+index c468926561b4..eef14083c47b 100644
+--- a/drivers/soc/mediatek/mt8167-mmsys.h
++++ b/drivers/soc/mediatek/mt8167-mmsys.h
+@@ -10,24 +10,29 @@
+ #define MT8167_DISP_REG_CONFIG_DISP_RDMA0_SOUT_SEL_IN	0x06c
+ 
+ #define MT8167_DITHER_MOUT_EN_RDMA0			0x1
++#define MT8167_DITHER_MOUT_EN_MASK			0x7
++
+ #define MT8167_RDMA0_SOUT_DSI0				0x2
++#define MT8167_RDMA0_SOUT_MASK				0x3
++
+ #define MT8167_DSI0_SEL_IN_RDMA0			0x1
++#define MT8167_DSI0_SEL_IN_MASK				0x3
+ 
+ static const struct mtk_mmsys_routes mt8167_mmsys_routing_table[] = {
+ 	MMSYS_ROUTE(OVL0, COLOR0,
+ 		    MT8167_DISP_REG_CONFIG_DISP_OVL0_MOUT_EN, OVL0_MOUT_EN_COLOR0,
+ 		    OVL0_MOUT_EN_COLOR0),
+ 	MMSYS_ROUTE(DITHER0, RDMA0,
+-		    MT8167_DISP_REG_CONFIG_DISP_DITHER_MOUT_EN, MT8167_DITHER_MOUT_EN_RDMA0,
++		    MT8167_DISP_REG_CONFIG_DISP_DITHER_MOUT_EN, MT8167_DITHER_MOUT_EN_MASK,
+ 		    MT8167_DITHER_MOUT_EN_RDMA0),
+ 	MMSYS_ROUTE(OVL0, COLOR0,
+ 		    MT8167_DISP_REG_CONFIG_DISP_COLOR0_SEL_IN, COLOR0_SEL_IN_OVL0,
+ 		    COLOR0_SEL_IN_OVL0),
+ 	MMSYS_ROUTE(RDMA0, DSI0,
+-		    MT8167_DISP_REG_CONFIG_DISP_DSI0_SEL_IN, MT8167_DSI0_SEL_IN_RDMA0,
++		    MT8167_DISP_REG_CONFIG_DISP_DSI0_SEL_IN, MT8167_DSI0_SEL_IN_MASK,
+ 		    MT8167_DSI0_SEL_IN_RDMA0),
+ 	MMSYS_ROUTE(RDMA0, DSI0,
+-		    MT8167_DISP_REG_CONFIG_DISP_RDMA0_SOUT_SEL_IN, MT8167_RDMA0_SOUT_DSI0,
++		    MT8167_DISP_REG_CONFIG_DISP_RDMA0_SOUT_SEL_IN, MT8167_RDMA0_SOUT_MASK,
+ 		    MT8167_RDMA0_SOUT_DSI0),
+ };
+ 
 -- 
-Catalin
+2.43.0
+
 
