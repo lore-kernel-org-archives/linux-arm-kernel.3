@@ -4,84 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AFEBEA795E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 09:55:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21C7DEE2084
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 10:07:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gu9bfGiTnsVsicAoPuz+sw8fNtn60G7EWGkiUTQBVXA=; b=4w1apbvsSG9cQA6JBg2/mHW7Zl
-	/0ovI7Ae+RTi3xMiyTDS8NKwCSw42QnaP17l/tInmf3ZxTb0uxvCM/zB6LBRBrNGS2hIzcFznp1Qd
-	HuSiFtmra0r5+Gs7WDwTo9QS85jkQsKwezTQT+1ciqT6JbrYAh06LqKezgGL+ITdFkZzo9emKApid
-	gaRyaIX3Qu8GYtuqEQ1Ywf/fQ6RRcuYJwJGhq+QQvT1x097ws2xcYgYIOFIsU8/8bk5RPiAgCr7xK
-	LuSXrfg8zeHoZXEcePwDaz14ZXc7tA/3ryyWU1d/JyZlnrwhvToVDlgMv1vAXEVXpAPRWOPajWxLD
-	FjobTYtg==;
+	bh=LtPVpz8sOb9RUu3RhQTdJmlwmfVdOAUSMmi5lFGls/I=; b=WzFKnVkcpL2OgPXVM/nmN9mEje
+	HWFpECNK5JIrxrGNPSKZC6rgP7yG9ktcqj9DQ766pMLL6WxLmzON2ILsnq4UdGRc1qBTWZ7MsCdSD
+	s3GoA8priuec+rwPkGMbKbMbCQpnndzvhwmshr46hfL41r4uOipVU2B3a7sUBrkcmfiG9zMagsP6D
+	g8ftio9rZYjd38wB4eD8TpR48LvRb7+LGbLH4uvSY47vpkFz1FQr2s1Sjdc4gJaR7X8oz/Ta5/Wrp
+	HGhm80yi9iftF7Sfq20XQSXSCHB2C0Inbge1YidGAPWYw4E12QCne6dSACyvy3c//T0ejEkV6HWTJ
+	A7N2nz4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voIYQ-0000000B88m-0fcl;
-	Fri, 06 Feb 2026 09:55:10 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1voIkc-0000000B8zx-3Gn4;
+	Fri, 06 Feb 2026 10:07:46 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voIYN-0000000B884-0LUv
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 09:55:09 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Gu9bfGiTnsVsicAoPuz+sw8fNtn60G7EWGkiUTQBVXA=;
-	b=3Us5M4pVrs7fTsFbbgCbgEJjm87gD5Yowrm1cJ1hcMAYKyf66g9U3q7yknueqKxisZttPhCY9
-	7fS68Y61FSvKZLPm/E/Gojx7eJaDH9U9pMc9r1saN4PpxoU/sAKIv1TUOsAY0YYNrtDWLLldSvW
-	anRKz+/KTqRDMJjzNIV97qM=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4f6q8J5wtfz1K99C;
-	Fri,  6 Feb 2026 17:50:24 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id CDE5B402AB;
-	Fri,  6 Feb 2026 17:54:57 +0800 (CST)
-Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 6 Feb 2026 17:54:57 +0800
-Received: from [10.67.120.139] (10.67.120.139) by
- kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Fri, 6 Feb 2026 17:54:56 +0800
-Message-ID: <2a42c4d7-c453-45a7-b569-89a3a2ee7246@huawei.com>
-Date: Fri, 6 Feb 2026 17:54:55 +0800
+	id 1voIka-0000000B8zT-1pYA;
+	Fri, 06 Feb 2026 10:07:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1770372461;
+	bh=ckwfZZUnF8fL/Azdshxhj9PjExQ0BP9R3wAPGTU38so=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UORMtQGXRTSACpGjusbMGZrsOhPPSf+fHupMXtcLdE9yYoEIPjZJ3kI0B7xGfqg98
+	 iiJUxST4VfY77/VV3T3YKC3ZtuEGMCKGkfoboTdQCImVzQRuIQw3ozCAH0/2tfKw+K
+	 j7ecRqAVOoQZl1aBE5MgYYdQfEs7ics+yTchfbRC3kEjNnfhy5KETHr+2PjVd7zQoi
+	 LiNluujQwnQeNhcz3iGbv/n1mAwv4gEp55MYjcSAwZgSYRcsugztL7lTh4D9CSi7tQ
+	 9LujU2rJBe1T0kmmT5G06QcAI8SxsePLoePinMv/Iz76oKL2/tUNaJL+7bXBRXef8S
+	 BU3VnlWcdMoIw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E367B17E1428;
+	Fri,  6 Feb 2026 11:07:40 +0100 (CET)
+Message-ID: <55bcc926-a090-4f4c-9325-6599761d10c6@collabora.com>
+Date: Fri, 6 Feb 2026 11:07:40 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: wangyushan <wangyushan12@huawei.com>
-Subject: Re: [PATCH 1/3] soc cache: L3 cache driver for HiSilicon SoC
-To: Jonathan Cameron <jonathan.cameron@huawei.com>, Linus Walleij
-	<linusw@kernel.org>
-CC: <alexandre.belloni@bootlin.com>, <arnd@arndb.de>, <fustini@kernel.org>,
-	<krzk@kernel.org>, <linus.walleij@linaro.org>, <will@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<fanghao11@huawei.com>, <linuxarm@huawei.com>, <liuyonglong@huawei.com>,
-	<prime.zeng@hisilicon.com>, <wangzhou1@hisilicon.com>,
-	<xuwei5@hisilicon.com>, <linux-mm@vger.kernel.org>, SeongJae Park
-	<sj@kernel.org>, <reinette.chatre@intel.com>, <james.morse@arm.com>, "Zeng
- Heng" <zengheng4@huawei.com>, <ben.horgan@arm.com>, Tony Luck
-	<tony.luck@intel.com>, Dave Martin <Dave.Martin@arm.com>, Babu Moger
-	<babu.moger@amd.com>, Yushan Wang <wangyushan12@huawei.com>
-References: <20260203161843.649417-1-wangyushan12@huawei.com>
- <20260203161843.649417-2-wangyushan12@huawei.com>
- <CAD++jLn+TDfu-aQ+Kfm=unYp4Zjg=endP3GGzZcpuYFR=s1K1g@mail.gmail.com>
- <20260204134020.00002393@huawei.com>
- <CAD++jLkEtpiTxaNB6vfHnbmoV1PPB7W4T_04eQrwk2os_zpfpA@mail.gmail.com>
- <20260205101814.000072ec@huawei.com>
+Subject: Re: [PATCH 03/11] drm/mediatek: ovl: Add supports_plane_colorops flag
+To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ daniels@collabora.com, ariel.dalessandro@collabora.com, kernel@collabora.com
+References: <20251223-mtk-ovl-pre-blend-colorops-v1-0-0cb99bd0ab33@collabora.com>
+ <20251223-mtk-ovl-pre-blend-colorops-v1-3-0cb99bd0ab33@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20260205101814.000072ec@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
+In-Reply-To: <20251223-mtk-ovl-pre-blend-colorops-v1-3-0cb99bd0ab33@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.139]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemn100008.china.huawei.com (7.202.194.111)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_015507_729164_098069F8 
-X-CRM114-Status: GOOD (  33.30  )
+X-CRM114-CacheID: sfid-20260206_020744_649786_C9EC450D 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,89 +82,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Il 23/12/25 20:44, Nícolas F. R. A. Prado ha scritto:
+> Add a supports_plane_colorops flag to the driver data to allow SoCs that
+> support per-plane color operations to enable support for it in the
+> driver.
+> 
+> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
-On 2/5/2026 6:18 PM, Jonathan Cameron wrote:
-> On Thu, 5 Feb 2026 10:12:33 +0100
-> Linus Walleij <linusw@kernel.org> wrote:
->
->> But does the developer know if that hard kernel is importantest
->> taken into account all other processes running on the system,
->> and what happens if several processes say they have
->> such hard kernels? Who will arbitrate? That is usually the
->> kernels job.
->
-> Take the closest example to this which is resctl (mpam on arm).
-> This actually has a feature that smells a bit like this.
-> Pseudo-cache locking.
->
-> https://docs.kernel.org/filesystems/resctrl.html#cache-pseudo-locking
->
-> My understanding is that the semantics of that don't align perfectly
-> with what we have here.  Yushan can you add more on why we didn't
-> try to fit into that scheme?  Other than the obvious bit that more
-> general upstream support for the arch definitions of MPAM is a work in
-> progress and fitting vendor specific features on top will be tricky
-> for a while at least.  The hardware here is also independent of the
-> MPAM support.
+You should merge this patch [03/11] with [05/11] - so that you introduce the member
+in the same commit where you use it.
 
-Intel cache pseudo lock requires help of IA32_PQR_ASSOC MSR, according
-to [1], that register can save necessary information for processes acquired
-cache pseudo locks, but Arm64 does not have the equivalent register.
+This patch is a one-liner and it's not doing anything complicated at all :-)
 
-[1]: https://www.intel.com/content/www/us/en/developer/articles/technical/cache-allocation-technology-usage-models.html
+Cheers,
+Angelo
 
->
-> Resctl puts the control on resource allocation into the hands of
-> userspace (in that case via cgroups etc as it's process level controls).
-> The cache lockdown is a weird because you have go through a dance of
-> creating a temporary setup, demand fetching the lines into cache and
-> then rely on various operations not occuring that might push them out
-> again.
->
-> Resctl provides many footguns and is (I believe) used by administrators
-> who are very careful in how they use it.  Note that there are some guards
-> in this new code to only allow locking a portion of the l3. We also rely
-> somewhat on the uarch and cache design to ensure it is safe to do this
-> type of locking (other than reducing perf of other tasks).
-> I'm dancing around uarch details here that I would need to go seek
-> agreement to share more on.
->
->>
->>> I haven't yet come up with any plausible scheme by which the MM
->>> subsystem could do this.
->>
->> I find it kind of worrying if userspace knows which lines are most
->> performance-critical but the kernel MM subsystem does not.
->>
->> That strongly inidicates that if only userspace knows that, then
->> madvise() is the way to go. The MM might need and use this
->> information for other reasons than just locking down lines in
->> the L3 cache.
->
-> I agree that something like madvise() may well be more suitable.
-> We do need paths to know how many regions are left etc though so
-> it will need a few other bits of interface.
->
-> I'm also not sure what appetite there will be for an madvise()
-> for something that today we have no idea if anyone else actually
-> has hardware for.  If people do, then please shout and we can
-> look at how something like this can be generalized.
+> ---
+>   drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+> index 8e20b45411fc..46238c21b0ac 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+> @@ -150,6 +150,7 @@ struct mtk_disp_ovl_data {
+>   	const u32 *formats;
+>   	size_t num_formats;
+>   	bool supports_clrfmt_ext;
+> +	bool supports_plane_colorops;
+>   };
+>   
+>   /*
+> 
 
-Currently madvise() "only operates on whole pages", maybe
-madvise() will not be happy with the semantic change of
-page / cacheline.
-
-Cache size available for lock may be far less than the size
-madvise() can handle. Though madvise() can always speculatively call
-cache lock once appropriate and get back to original track if refused,
-but that's a hack that need more deep discussion.
-
-I think resctl is more suitable for this, as this serves the same
-purpose as MPAM etc, to save QoS of a task, and the way to achieve it,
-by tweaking hardware capability.
-
-Thanks,
-Yushan
 
 
 
