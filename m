@@ -4,76 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96E03EE20A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 14:04:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF11EE20A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 14:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d70krws98qMbryfn/12Zb3xwhE2iiVZ6JA0PmydolRU=; b=yR1n5M7cdOr3vZ5O+p5FgCjfWD
-	PkrK6V52cJcV/12YMyEImHQhjCEKf7B2/pAcZzGG00J6GlX3e42LbD3tNJ7bMNWPwl0XSzLW1VI4P
-	6uA+bhHq1KDmf2/jhgMvIFGpJNd6JfJcki43/ZX074w/kTGDRP6b946vW99lTpeIo05QyiYk3USq0
-	iKiTQcQDrqTa1Jvjb/5cKYBpmo+dDJHt6Tcl+xwoUXUmmXC9GJ7K/0MFWeofajSMR7ceI5/VMQhze
-	EGkh95X3Lmybz0Gz8/fZdIm2bIMeKIDJhxpmmR2tbW4D3HDJpCjNTdWCO907WblneHdH9KHp/x9cq
-	yfJGGUzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DXKmeV3DaVkBXi0Q3224U5nXBMx1CRsk0khqTA8jz+Y=; b=jgOKtprdcef2qHyggWWZcCa4Ml
+	lT9Igp5scbnqAaUFpwGAfRxrUoamiH5lChZ7w/jadClMl/wtfjejFfMHLordNeUTNflLbyXPRzNsZ
+	xBdL8got0pCqD9uHdYPgL2xtSuzTw4b0NiPLnIl7x9tVH8PR/fcyKue+Qf4eHHoPfR1cV8x364Zbo
+	ja5wV1hdmCihjWgXryNn5s9vnX/EJbjr9fDQGuOa2++j6Lh2lBWPrbgUrsG7Z8qG5tQqDJLyhlsPH
+	Uf5bq79WEyzZtX3+SVbo5JUQNH2EVc7NWwxyc6sYPhZ1Ev5ID27WwtP17hCicFrGWG0CQ3UPSbFTi
+	lZP31l1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voMRr-0000000BPH7-2s2h;
-	Fri, 06 Feb 2026 14:04:39 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1voMSQ-0000000BPOm-0RI5;
+	Fri, 06 Feb 2026 14:05:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voMRn-0000000BPGS-3bx6;
-	Fri, 06 Feb 2026 14:04:38 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id BEC9DC243B8;
-	Fri,  6 Feb 2026 14:04:36 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2F7B160729;
-	Fri,  6 Feb 2026 14:04:30 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 50438119D1929;
-	Fri,  6 Feb 2026 15:04:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1770386669; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=d70krws98qMbryfn/12Zb3xwhE2iiVZ6JA0PmydolRU=;
-	b=qPCZ4GhbgSvh7oc+x3hfb/WxEKcrK6O2VtHn9ZUnKHIWbmuwpDPS+JVzXwRZvJjY52JV/q
-	jRFNs9CU0xQoxAmTuVScqUmJr3RhJksmzPmC2iDxOIGOKozVtX3K0+pFhuAw87JTmlzOzO
-	Mx7asUoldGGsbCO1CxidWKqAh6wVT4SkqjyaR14D4D/lxH/+TnRz846TduWs57dgblA7K2
-	qq8aj5PKT39GkueFiEWEvJOcmHo1rod8gM8pqXd1pJ+UJU/zVu6F/+Oy2EP5MnYL2KIUVh
-	AJXEPBPb7T4XHikvoDSeE/Goj7h2+A7djgwt/yvu7WKYngnH526TrWO6uKX5cQ==
-Message-ID: <e6dd0f45-1d64-48b8-bc76-43cc29fabec2@bootlin.com>
-Date: Fri, 6 Feb 2026 15:04:51 +0100
+	id 1voMSO-0000000BPOA-3b2r;
+	Fri, 06 Feb 2026 14:05:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C4FEA6001A;
+	Fri,  6 Feb 2026 14:05:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEEE2C116C6;
+	Fri,  6 Feb 2026 14:05:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770386711;
+	bh=TaPvEsWxvpYYOThGeX1+fx1sD+0RPf/kwBUPBJTjDY4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IauM6qxASUz/Fo2EiCWex3fCTVey671ArIsYwK+3iWyqrXjBxzIIu0605avahH/xr
+	 bSczKKlSeMkMSaXRdtdNAm4UwaNkQISaJ4zChYTk8plrSLGlCORmAIB3y7aPZDe4W3
+	 OMLxLp8FrcOjYrrUT+1D4xG/ZcuP8aTy+c8DrQT5CEluNQJ8y+by7nO9V4JKFd8kDf
+	 gUyBwVFXjeV1lcwrd19xHwLadFcEVKvrpaQx8sJ5EyzqWQJtC6tjjnUlX2y38QsmVO
+	 NavvJ2C/rmXxkBKX2/nuo7Rir0p9ae99WqUXRqq6JjEHoeddDS8lKaqWyY5NfewNXW
+	 EeLaCc7mQMLFw==
+Date: Fri, 6 Feb 2026 15:05:08 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, kernel@collabora.com, 
+	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+	Andri Yngvason <andri@yngvason.is>, Werner Sembach <wse@tuxedocomputers.com>, 
+	Marius Vlad <marius.vlad@collabora.com>
+Subject: Re: [PATCH v7 02/22] drm: Add new general DRM property "color format"
+Message-ID: <20260206-deft-provocative-perch-6ca9bf@houat>
+References: <20260121-color-format-v7-0-ef790dae780c@collabora.com>
+ <20260121-color-format-v7-2-ef790dae780c@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 3/4] drm/vkms: Support setting custom background color
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Haneen Mohammed <hamohammed.sa@gmail.com>,
- Melissa Wen <melissa.srw@gmail.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- Diederik de Haas <diederik@cknow-tech.com>
-References: <20260204-rk3588-bgcolor-v7-0-78d1d01c5ca1@collabora.com>
- <20260204-rk3588-bgcolor-v7-3-78d1d01c5ca1@collabora.com>
-From: Louis Chauvet <louis.chauvet@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260204-rk3588-bgcolor-v7-3-78d1d01c5ca1@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_060436_043718_83BB57D3 
-X-CRM114-Status: GOOD (  17.03  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="tlakrgvje6y2sbf2"
+Content-Disposition: inline
+In-Reply-To: <20260121-color-format-v7-2-ef790dae780c@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,72 +86,56 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--tlakrgvje6y2sbf2
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v7 02/22] drm: Add new general DRM property "color format"
+MIME-Version: 1.0
 
-On 2/4/26 21:02, Cristian Ciocaltea wrote:
-> Make use of the BACKGROUND_COLOR CRTC property when filling the
-> background during blending.  It already defaults to solid black.
-> 
-> Since the internal representation of the pixel color in VKMS relies on
-> 16 bits of precision, use the newly introduced DRM_ARGB64_GET{R|G|B}()
-> helpers to access the individual components of the background color
-> property, which is compliant with DRM_FORMAT_ARGB16161616.
-> 
-> It's worth noting the alpha component is ignored, hence non-opaque
-> background colors are not supported.
-> 
-> Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+Hi,
 
-Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
-
-> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
->   drivers/gpu/drm/vkms/vkms_composer.c | 10 ++++++++--
->   drivers/gpu/drm/vkms/vkms_crtc.c     |  3 +++
->   2 files changed, 11 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/vkms/vkms_composer.c b/drivers/gpu/drm/vkms/vkms_composer.c
-> index cd85de4ffd03..83d217085ad0 100644
-> --- a/drivers/gpu/drm/vkms/vkms_composer.c
-> +++ b/drivers/gpu/drm/vkms/vkms_composer.c
-> @@ -475,8 +475,14 @@ static void blend(struct vkms_writeback_job *wb,
->   {
->   	struct vkms_plane_state **plane = crtc_state->active_planes;
->   	u32 n_active_planes = crtc_state->num_active_planes;
-> -
-> -	const struct pixel_argb_u16 background_color = { .a = 0xffff };
-> +	u64 bgcolor = crtc_state->base.background_color;
+On Wed, Jan 21, 2026 at 03:45:09PM +0100, Nicolas Frattaroli wrote:
+> diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+> index 7eaec37ae1c7..b5604dca728a 100644
+> --- a/include/drm/drm_connector.h
+> +++ b/include/drm/drm_connector.h
+> @@ -556,6 +556,16 @@ enum drm_colorspace {
+>  	DRM_MODE_COLORIMETRY_COUNT
+>  };
+> =20
+> +enum drm_color_format {
+> +	DRM_COLOR_FORMAT_AUTO			=3D 0,
+> +	DRM_COLOR_FORMAT_RGB444			=3D BIT(0),
+> +	DRM_COLOR_FORMAT_YCBCR444		=3D BIT(1),
+> +	DRM_COLOR_FORMAT_YCBCR422		=3D BIT(2),
+> +	DRM_COLOR_FORMAT_YCBCR420		=3D BIT(3),
+> +};
 > +
-> +	const struct pixel_argb_u16 background_color = {
-> +		.a = 0xffff,
-> +		.r = DRM_ARGB64_GETR(bgcolor),
-> +		.g = DRM_ARGB64_GETG(bgcolor),
-> +		.b = DRM_ARGB64_GETB(bgcolor),
-> +	};
->   
->   	int crtc_y_limit = crtc_state->base.mode.vdisplay;
->   	int crtc_x_limit = crtc_state->base.mode.hdisplay;
-> diff --git a/drivers/gpu/drm/vkms/vkms_crtc.c b/drivers/gpu/drm/vkms/vkms_crtc.c
-> index 9a7db1d51022..2514c367f710 100644
-> --- a/drivers/gpu/drm/vkms/vkms_crtc.c
-> +++ b/drivers/gpu/drm/vkms/vkms_crtc.c
-> @@ -4,6 +4,7 @@
->   
->   #include <drm/drm_atomic.h>
->   #include <drm/drm_atomic_helper.h>
-> +#include <drm/drm_blend.h>
->   #include <drm/drm_managed.h>
->   #include <drm/drm_print.h>
->   #include <drm/drm_probe_helper.h>
-> @@ -228,6 +229,8 @@ struct vkms_output *vkms_crtc_init(struct drm_device *dev, struct drm_plane *pri
->   
->   	drm_crtc_enable_color_mgmt(crtc, 0, false, VKMS_LUT_SIZE);
->   
-> +	drm_crtc_attach_background_color_property(crtc);
+> +#define DRM_COLOR_FORMAT_COUNT 5
 > +
->   	spin_lock_init(&vkms_out->lock);
->   	spin_lock_init(&vkms_out->composer_lock);
->   
-> 
 
+I don't really see a reason to expose an enum, with a bunch of values
+that are all mutually exclusive, as a bitmask. It's pretty inconsistent
+with most (all?) the other similar properties we have.
+
+I appreciate you did that to avoid fixing up every driver using those
+values, but then maybe we don't have to? We could create a userspace
+facing enum, and convert to DRM_COLOR_FORMAT internally.
+
+Maxime
+
+--tlakrgvje6y2sbf2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaYX1EAAKCRAnX84Zoj2+
+dm20AYC5qAkdhJdQsWaSZelEFrrJKVRqs5zBtYWPBOAMRObg77mefUoSO3ktgK9d
+TYXfpzUBgPXlGrYnILXs7XVYlFu//eO6ufmogZ3qIYuVKGT1yKooE8WKx/MfpzM3
+iY+f6mFzuA==
+=GGG7
+-----END PGP SIGNATURE-----
+
+--tlakrgvje6y2sbf2--
 
