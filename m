@@ -4,53 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AFCBEE20B2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 16:01:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE54EE20B2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 16:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M8ZxvKqgcRl77EMB3Z+WNqFFj5eaixRZwWVfZtLwmSU=; b=rD4phNtXiHU1n+Y7BDHCmYDpsB
-	INnEUau8/BCkOvOjA0GMjJpcdf4AE7TmNnAdl4HdGLBmkGhwIFisq8pd/yptTS2QXDcwSrgP+xd4a
-	G/3/ZT/jCkEuGyxz601Q66JoWcXCBT9ZWwHL9tkbaDhSqz7ZKCYEYMp7ZQxcfWv9YXlPUwWHjkk+5
-	5Xevh8rI/ibf0cmbH99bHrAfp/ljF6aY/rcbj99q9r/Fynu5Bbmy/MSnQMeJDOfIbBPhy5VPd5fgz
-	ARB8xQ0hkA7nE8adRvAnBxRfuMvphpai0ole8Dv394li+mwCD249zHnNyGD1SCx4bN/6Ds1r9IvnE
-	RiPP0eHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HOEJZRVPudm8f+CgXHv89P8iLoQHtMeP5j8jQ4S4oiM=; b=orVXp8XLwfBCHteNux5nLPrPBv
+	DehmUPbD/ZKx86qGG1+S014zwjX5xC8CdCtXy9LbrsYeLCPo3uDQP+H2mk1xE21EOY9Rpi3fTZ64T
+	yQ+3V4H4P16zXcZYAUIaE6D9yyLc+ya3AuFUzp9oM2LLT8fWzuRUhrZiup2b9xKl1FPOTrbSCiPMo
+	pyTGR5fDw2UGpoyxzQJ0rJJU/bTKhQEYRJT6eTWnuKdBwWuDDn18zztwcX+XatTBrA4z3rPgT2HbH
+	5UI12IvP6zM5qzIE9fMlYGRPBeBJwux45MA94aEIQngziMjaoQ/zVrp6fpWIY4qE6aTxJ7lYZb1W3
+	iylc8vBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voOH8-0000000BXGm-1xuG;
-	Fri, 06 Feb 2026 16:01:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voOH5-0000000BXGC-2v7Y
+	id 1voOPS-0000000BXdd-45NV;
+	Fri, 06 Feb 2026 16:10:18 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1voOPQ-0000000BXcz-1Dxw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 16:01:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 42C58339;
-	Fri,  6 Feb 2026 08:01:29 -0800 (PST)
-Received: from [10.57.54.83] (unknown [10.57.54.83])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C36A3F632;
-	Fri,  6 Feb 2026 08:01:34 -0800 (PST)
-Message-ID: <ea381264-5f8b-403d-85da-57a15ca944e5@arm.com>
-Date: Fri, 6 Feb 2026 16:01:31 +0000
+	Fri, 06 Feb 2026 16:10:17 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2a8a7269547so21001445ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Feb 2026 08:10:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1770394214; x=1770999014; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=HOEJZRVPudm8f+CgXHv89P8iLoQHtMeP5j8jQ4S4oiM=;
+        b=SwpUBIWlGLdrlPjH/lPPYs56sTfFc9PkCTf3Ctmnv3OBvxreDeKg3zWdoKcP0amOU5
+         BOkF5zx7zHZwSBe6vvP+v1XXTTl/6fR6RBy7+m2nG0HtPCgPt9cBGSbY/9dCwErJjK1L
+         TA15ihhysYtJYNqKmiBnvJ1UBGWJ9mR1s2pQulJvJ85W0uFkqsTO2vI2IxpfBQvbtJ5y
+         MLkdyZwJ7L5RfSlNGRDn/7x+egUK3Q4fI4jUO7t8mTeM0z2XWPkkEEAD0avDuVnuMe9M
+         gZmIgYZzfyuBW3kBLAfexw/8bSK67uTH6D7zWqZp++vrCzmHDAY7lVzZRU8CAsmylgC8
+         fTDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770394214; x=1770999014;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=HOEJZRVPudm8f+CgXHv89P8iLoQHtMeP5j8jQ4S4oiM=;
+        b=A38AyxT/WxnuyNsXRweLJh6YUJjI2MTQQFsFrCyYxeL7+5dN/xyaZOGak+wU5mjyU0
+         MeMfg6eXAnPZmVAZqMjebHV1wuipQMSTUmglywexOX9/CN3EvXSjoiMGBsCXAvdFpMSz
+         AAZjWEt4bXAhNw8FX1k9RWkv0TMHJWLuRYUWlGYAvjYdf9NZFCSe6y5dORk48Y52rxOa
+         Ktaanppaf69PtoWjDBqtWUXavWoIJvMXG+PdyKBsYVAG4AOiQyB7oXwZu4Pd2eib/DSl
+         r+fpeL21ZMvQWIAZZ29TDjic4ZtsmhrVDAAFJlt2W54NVy6eMiEAM7u+tPIm+8gG3jzH
+         aS2w==
+X-Forwarded-Encrypted: i=1; AJvYcCXRhYZi5B9GPmAmYeu6TeHJvUfbWuZt9wAHaPzybOHBsecz2HsZSLCvXJBkc+32Odye6WNqJACfIL2LE9v+qpsY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZw8MSgd0XJvkpb1jHxh4jjipHbAtesE1Zf+wfy60Vne9oQ9Vi
+	/n9PCuz8cF7OlcMa3pkYCkuFUqiqLlU0jJN3vne76N0vASZXaBMNEJ6Xpoy3P/9EoCwwNvqkbVO
+	sK7wkdJ0=
+X-Gm-Gg: AZuq6aJd7pi3D/wo5sz4NjJuloqd58SXBV9fvQo5zGgUzh6wEgN0YPrCK4blPVeyZqq
+	f9NALqrHy+wMovlnKGQzzZZ9u+AJEymw+XPitM/rB4Di1SuRggRGuo7MMKAg+HiWDyAPN3xR0sU
+	nxcAH7pXSD83+BZuaqgBnPRdouo2wtg0TtBX8EoAFeNIBn4aj+2Rr4ATKVfRBD+N0m72Y6X4Rn5
+	C5xvF/o76bBwSrE2+vOYfIr+yRKfyV5xfKX4lPEeuyhiTqHHUYVGDaWs7CUxjUvPbTGEJ9GxMqP
+	6xbtAUYRI8FbE6dB7KAjiclZ47NHN2p5SN2KRWcd5Q4GOA3B30IrPgxuUmTQ03Q5boywGIAaCBB
+	Pw9YzC0WWs1piYTWiE4APOlVtzhtHPtIoh/bRqFJ3ZG430P+JsoDkHW9LmhvOkFfnnsXHUUMGz6
+	JROHJEclcaEeYh
+X-Received: by 2002:a17:902:e5ca:b0:2a7:757b:35ad with SMTP id d9443c01a7336-2a95170b352mr36939965ad.42.1770394214292;
+        Fri, 06 Feb 2026 08:10:14 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:fa3:e3b4:3597:587a])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a951c722c3sm26045635ad.23.2026.02.06.08.10.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Feb 2026 08:10:13 -0800 (PST)
+Date: Fri, 6 Feb 2026 09:10:11 -0700
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Chen Ni <nichen@iscas.ac.cn>,
+	"andersson@kernel.org" <andersson@kernel.org>,
+	Frank Li <frank.li@nxp.com>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] remoteproc: imx_rproc: Check return value of
+ regmap_attach_dev() in imx_rproc_mmio_detect_mode()
+Message-ID: <aYYSY3Rn3702zk3S@p14s>
+References: <20260205050905.3031134-1-nichen@iscas.ac.cn>
+ <PAXPR04MB8459ABF483274720F6BB23188866A@PAXPR04MB8459.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] irqchip/gic-v3-its: Limit number of per-device MSIs to
- the range the ITS supports
-To: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Thomas Gleixner <tglx@kernel.org>, stable@vger.kernel.org
-References: <20260206154816.3582887-1-maz@kernel.org>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260206154816.3582887-1-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <PAXPR04MB8459ABF483274720F6BB23188866A@PAXPR04MB8459.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_080139_814947_84746D01 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20260206_081016_359768_CD95CDC2 
+X-CRM114-Status: GOOD (  22.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,60 +108,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-02-06 3:48 pm, Marc Zyngier wrote:
-> The ITS driver blindly assumes that EventIDs are in abundant supply,
-> to the point where it never checks how many the HW actually supports.
+On Fri, Feb 06, 2026 at 03:34:41AM +0000, Peng Fan wrote:
+> > Subject: [PATCH] remoteproc: imx_rproc: Check return value of
+> > regmap_attach_dev() in imx_rproc_mmio_detect_mode()
+> > 
+> > Add error checking for regmap_attach_dev() call in
+> > imx_rproc_mmio_detect_mode() function to ensure proper error
+> > propagation.
+> > 
+> > Return the value of regmap_attach_dev() if it fails to prevent
+> > proceeding with an incomplete regmap setup.
+> > 
+> > Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+> > ---
+> >  drivers/remoteproc/imx_rproc.c | 4 +++-
+> >  1 file changed, 3 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/remoteproc/imx_rproc.c
+> > b/drivers/remoteproc/imx_rproc.c index f5f916d67905..0e23f519c247
+> > 100644
+> > --- a/drivers/remoteproc/imx_rproc.c
+> > +++ b/drivers/remoteproc/imx_rproc.c
+> > @@ -1007,7 +1007,9 @@ static int
+> > imx_rproc_mmio_detect_mode(struct rproc *rproc)
+> >  	}
+> > 
+> >  	priv->regmap = regmap;
+> > -	regmap_attach_dev(dev, regmap, &config);
+> > +	ret = regmap_attach_dev(dev, regmap, &config);
+> > +	if (ret)
+> > +		return dev_err_probe(dev, ret, "regmap attach
+> > failed\n");
 > 
-> It turns out that some pretty esoteric integrations make it so that
-> only a few bits are available, all the way down to a. single. bit.
 > 
-> Enforce the advertised limitation at the point of allocating the
-> device structure, and hope that the endpoint driver can deal with
-> such limitation.
-
-Reviewed-by: Robin Murphy <robin.murphy@arm.com>
-
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> Cc: stable@vger.kernel.org
-> ---
->   drivers/irqchip/irq-gic-v3-its.c   | 4 ++++
->   include/linux/irqchip/arm-gic-v3.h | 1 +
->   2 files changed, 5 insertions(+)
+> In the main probe, there is already dev_err_probe for
+> detect_mode. So I would use below style as other error
+> return in imx_rproc_mmio_detect_mode():
+> dev_err("regmap attach failed\n");
+> return ret;
 > 
-> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-> index 2988def30972b..a51e8e6a81819 100644
-> --- a/drivers/irqchip/irq-gic-v3-its.c
-> +++ b/drivers/irqchip/irq-gic-v3-its.c
-> @@ -3475,6 +3475,7 @@ static struct its_device *its_create_device(struct its_node *its, u32 dev_id,
->   	int lpi_base;
->   	int nr_lpis;
->   	int nr_ites;
-> +	int id_bits;
->   	int sz;
->   
->   	if (!its_alloc_device_table(its, dev_id))
-> @@ -3486,7 +3487,10 @@ static struct its_device *its_create_device(struct its_node *its, u32 dev_id,
->   	/*
->   	 * Even if the device wants a single LPI, the ITT must be
->   	 * sized as a power of two (and you need at least one bit...).
-> +	 * Also honor the ITS's own EID limit.
->   	 */
-> +	id_bits = FIELD_GET(GITS_TYPER_IDBITS, its->typer) + 1;
-> +	nvecs = min_t(unsigned int, nvecs, BIT(id_bits));
->   	nr_ites = max(2, nvecs);
->   	sz = nr_ites * (FIELD_GET(GITS_TYPER_ITT_ENTRY_SIZE, its->typer) + 1);
->   	sz = max(sz, ITS_ITT_ALIGN);
-> diff --git a/include/linux/irqchip/arm-gic-v3.h b/include/linux/irqchip/arm-gic-v3.h
-> index 70c0948f978eb..0225121f30138 100644
-> --- a/include/linux/irqchip/arm-gic-v3.h
-> +++ b/include/linux/irqchip/arm-gic-v3.h
-> @@ -394,6 +394,7 @@
->   #define GITS_TYPER_VLPIS		(1UL << 1)
->   #define GITS_TYPER_ITT_ENTRY_SIZE_SHIFT	4
->   #define GITS_TYPER_ITT_ENTRY_SIZE	GENMASK_ULL(7, 4)
-> +#define GITS_TYPER_IDBITS		GENMASK_ULL(12, 8)
->   #define GITS_TYPER_IDBITS_SHIFT		8
->   #define GITS_TYPER_DEVBITS_SHIFT	13
->   #define GITS_TYPER_DEVBITS		GENMASK_ULL(17, 13)
+> Let's wait Mathieu's view.
+>
 
+I agreew with Peng's assessment.
+ 
+> Regards
+> Peng.
+> 
+> > 
+> >  	if (priv->gpr) {
+> >  		ret = regmap_read(priv->gpr, dcfg->gpr_reg, &val);
+> > --
+> > 2.25.1
+> > 
+> 
 
