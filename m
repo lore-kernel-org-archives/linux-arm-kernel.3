@@ -4,70 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83B1BEB28D4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 07:20:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FBF8EB28D4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 07:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6zxvmzGfn77oMv8f/L64ck9Alqnf3zfR2ACLTuFHnTY=; b=ITZIBT5zxAjX91efV2/etC+loQ
-	PJ/xYRIrR7Dtmis/j6a2fZIG4nJrQ+TEGflCzqH2AZn/8SF9xou1Vaf3Asm6ZqyQ0xpKrUleQlyGP
-	G/ktNbfFO4CQoJjs0K0kOvR88EfPYKpdShfgKg+0bN/Y5Uq7iIYAX39uZI7wUXrkXdETBMFKE9TnK
-	OZzh48oyaThV4X/WuVpnC0FPyvINcMzZXDAepKnWXNEfwaKctES6qJldtGX2DeFyF47A7kLrsfqBp
-	3QruZ86f5z7gDfR7mIOQ16oT1xEltU1+ZfwcDKe11ryTDlO1HyX8aOUyL5ZVGWUGAvK2F8CJC0Q7O
-	tPJqlk2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GlI/MBV6xozWTc1OM4u2SGSvVebdjrM1lCT9WkwRC+M=; b=q1w87eYT/Tr0/kn9V8njwb84qI
+	JFl7IGr2LhZHP6fjgWdbjzedlKWRsu+1A7qo+ka6EA7S2B11bTKCzQtDn31zQNFu8PeUmgFLOXucs
+	B+rISuLxL82Ftr6gcP05Xi6jVzQPk495uDv20laUsArVQP7f356isZZP85Z/ZqWMH6xoGbPSKwBNq
+	JPQ/o+PtD4wyXdN/48YNeRaPqNFqhu0FuO4lWDFqpm1BBHcboMKAWIm+tuRjKBIgJ7eSyAM5Efdtj
+	EstENdolr8h4HyfuFHItSFFgardKx6asdO3aR2G+giR8K6EHyRfsCzZSVpOtTEYv6P+6ruWj0IR/i
+	rOBGSl8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voG8L-0000000Aysl-35pW;
-	Fri, 06 Feb 2026 07:20:05 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1voGCE-0000000Az9i-2nPU;
+	Fri, 06 Feb 2026 07:24:06 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voG8I-0000000Ays3-3Agf;
-	Fri, 06 Feb 2026 07:20:04 +0000
+	id 1voGCC-0000000Az9M-1KBY
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Feb 2026 07:24:05 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2a7a9b8ed69so19202805ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Feb 2026 23:24:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1770362389;
-	bh=6zxvmzGfn77oMv8f/L64ck9Alqnf3zfR2ACLTuFHnTY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=XWfbtXZm184np09WhKFbaS0tWU1bijU/u7H3sLzCqp6rN9cBQBa9Welim19zq4OMT
-	 xNE/+2j79PCI3RUrr0jqrqIUlEEdMKYQciDfgz391kQPC/2+MDN/yUS/9tgkuy8BKE
-	 ZhNsoVLmBI54+0px9u9Foyq+j5pCq1zen8Bfll7lWOsgK/r65nDuZUbCQTJHGAyBSC
-	 XWt2G4aS1aKN4SfpWS0dBkC0gTwQS2YENwPCQIOT53goAVv0BA/YqUbgAO9YKk/W5Z
-	 jPPrMxwQ9I3vna6TtqmaxfZPhdmmnkvxUi/Gy1trFnzR6p+Ddy8+DDtGX2Bruf12uX
-	 12zv2rnFODgrw==
-Received: from [192.168.68.117] (unknown [180.150.112.60])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id B90EC6015A;
-	Fri,  6 Feb 2026 15:19:45 +0800 (AWST)
-Message-ID: <6de719dc84324166ed60bb8ec130cf2c9ef351f5.camel@codeconstruct.com.au>
-Subject: Re: [PATCH 0/4] Add AST2700 INTC0/INTC1 support
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Ryan Chen
- <ryan_chen@aspeedtech.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley	 <joel@jms.id.au>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt	 <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti	 <alex@ghiti.fr>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
- "devicetree@vger.kernel.org"	 <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"	
- <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"	
- <linux-aspeed@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"	
- <linux-riscv@lists.infradead.org>, Jeremy Kerr <jk@codeconstruct.com.au>
-Date: Fri, 06 Feb 2026 17:49:44 +1030
-In-Reply-To: <d5e45c9f-f3c7-4289-8991-02bd2c5b9587@kernel.org>
-References: <20260205-irqchip-v1-0-b0310e06c087@aspeedtech.com>
-	 <20260205-intrepid-vengeful-deer-14e2eb@quoll>
-	 <TY2PPF5CB9A1BE69B07F90DFB245FAB735DF299A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-	 <d5e45c9f-f3c7-4289-8991-02bd2c5b9587@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+        d=gmail.com; s=20230601; t=1770362643; x=1770967443; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=GlI/MBV6xozWTc1OM4u2SGSvVebdjrM1lCT9WkwRC+M=;
+        b=ATAM9KVuk3vV5Vpr6O56Eh936QufGM1ESJGjE1DyObo/xaXeOG1+ObgWtN4L79vQA7
+         1LEoQXrJECmpuQd5EsgfwN0qD/SgDsn1gipPaX5GpUs/+GjHhccZYA/M69w7ErAL+fb4
+         HdbmfRi+AVg7ZOYG3rxWGDXsacBXBwKgqJBOlQ2AyZXLzwXvWn+SoMv5g8KNaBUS3R7o
+         HileQI2blKrnrCNNsV/mVz7bZNGgirVBuDIKnZLKwqEukuQV2uFuzusUM5xG2NWeAQhT
+         wpwSqArlljl9IbUyYxbolXaQXQIuHDI9E/ei/bIJQP5vthFXrUicQQ/j5p5sODhRqdYa
+         ZU2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770362643; x=1770967443;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GlI/MBV6xozWTc1OM4u2SGSvVebdjrM1lCT9WkwRC+M=;
+        b=CyczEmbyr/l3J6Yd32+3sUL2oklYfMiIbvkyYDvMEPz533f2/0fKa0Y+Wke3dyN0r8
+         29mTXqEXo47PmmQhlmIgA4HDpAXpZkDR2rVex1ntWOtC6G2MeaxIwOmgH6rMw0G2EYyi
+         6YwVjmHd5NEGqaumc62e/itv4NqG5F2plVWh4lkippPz+Ki3piYYw8iLYVUoEHQ75zzL
+         iQdTLbE0mTS4ahgupjltM1lXhyISSpcuKK50dxD4t7PsqeCDXAxLKttCcRLr6TJZf+8R
+         us1XPOs9gEeY9Oi7pMWqDSF2y2sYk0s7RUo4YTe4PaC56wo2+q6psruwkwtlQyZUT3Im
+         P2Tw==
+X-Forwarded-Encrypted: i=1; AJvYcCWbLNo1V3rKuteyi06pobN5kXlODZtU2+N/IEgHFJpFGsY4qAHcIK1Psush7kk/flbpH3mcLCgpIWpKwnHlukPA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkcvJ5Sagi0UIFXe53RPJC9Frqz1JmAPF4jc8x3zxh1/gddHeu
+	7YVJOmpOna/zoTC1rGlwtW2Qv9+q6zeJbVoRt7UFN7X3YxFImg4KLdJX
+X-Gm-Gg: AZuq6aILsM2X3gv3HMUZnnkPz5bg7VvkaE93af0CszfE6cwU0kQK8mUUvkjycfLGpe4
+	fIKLcIc90I57gseCcYRbiz++L+LAIi8JWLZXfUqEbdXQkQTvQwG8OsUU10+ZU+zQdID+BVAsR6o
+	rWZIs/0Foij0vGsl+hiRhb/yhcr4FRIHw6SFOo5LCFEFzW9hbyWdJGOqB8+JOi3cCSmLOkfk6Qo
+	CMSP+UvpJZ7H0qL9fswBj3ALgZFgEqmoppyLrS755x5H1P4CylZ/WldJ+tzKS8dLRFq9JvF9IOS
+	1jwB8OBy1ulbTFkHP6IYfe0cRdniZ7asWbr7kHbtHtXyhhp55Z+i5Q5w7fWhI2RTv4veGDkOlKG
+	Pn/GJouuMsvnWC2Ul5vQGFUSZs2zqvZ6THXcqCNAUEtrTHPtFDdH65Pbw+oO3a0RN5tol1n1V/P
+	2LER5frM67tiBuMXd5pqVasGs/YulWQIkxmqqPL6WYfchY3olJsmydP/UAETsmu9Jl
+X-Received: by 2002:a17:903:ad0:b0:2a8:fbfa:e825 with SMTP id d9443c01a7336-2a95194693emr18851275ad.37.1770362643089;
+        Thu, 05 Feb 2026 23:24:03 -0800 (PST)
+Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a951c50206sm14481175ad.19.2026.02.05.23.24.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Feb 2026 23:24:02 -0800 (PST)
+Message-ID: <0a1a8f92-860f-4f4e-aad0-f743f099efc1@gmail.com>
+Date: Fri, 6 Feb 2026 15:23:59 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] drm/nuvoton: add MA35D1 display controller driver
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: airlied@gmail.com, simona@ffwll.ch, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, ychuang3@nuvoton.com,
+ schung@nuvoton.com, yclu4@nuvoton.com, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260129040532.382693-1-a0987203069@gmail.com>
+ <20260129040532.382693-4-a0987203069@gmail.com>
+ <20260205-classic-innocent-angelfish-5c3cd2@quoll>
+Content-Language: en-US
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <20260205-classic-innocent-angelfish-5c3cd2@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_232003_035904_56ACFF3F 
-X-CRM114-Status: GOOD (  36.43  )
+X-CRM114-CacheID: sfid-20260205_232404_390875_DCAA7654 
+X-CRM114-Status: GOOD (  22.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,165 +107,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
 
-I've been working with Ryan to address what I considered some
-shortcomings of the original approach. For reference, I outlined my
-concerns on v4 of the previous series[1].
+On 2/5/2026 9:22 PM, Krzysztof Kozlowski wrote:
+> On Thu, Jan 29, 2026 at 12:05:32PM +0800, Joey Lu wrote:
+>> Add DRM driver support for the Display Control Unit (DCU)
+>> found in Nuvoton MA35D1 SoCs.
+>>
+>> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+>> ---
+>>   drivers/gpu/drm/Kconfig                  |   1 +
+>>   drivers/gpu/drm/Makefile                 |   1 +
+>>   drivers/gpu/drm/nuvoton/Kconfig          |  21 +
+>>   drivers/gpu/drm/nuvoton/Makefile         |   7 +
+>>   drivers/gpu/drm/nuvoton/ma35_crtc.c      | 372 ++++++++++++++
+>>   drivers/gpu/drm/nuvoton/ma35_crtc.h      |  67 +++
+>>   drivers/gpu/drm/nuvoton/ma35_drm.c       | 371 ++++++++++++++
+>>   drivers/gpu/drm/nuvoton/ma35_drm.h       |  48 ++
+>>   drivers/gpu/drm/nuvoton/ma35_interface.c | 193 ++++++++
+>>   drivers/gpu/drm/nuvoton/ma35_interface.h |  30 ++
+>>   drivers/gpu/drm/nuvoton/ma35_plane.c     | 603 +++++++++++++++++++++++
+>>   drivers/gpu/drm/nuvoton/ma35_plane.h     | 115 +++++
+>>   drivers/gpu/drm/nuvoton/ma35_regs.h      |  88 ++++
+> No maintainers? Why would we want to take unmaintained code?
+I'll add an entry in MAINTAINERS file.
+>
+>> +static void ma35_mode_fini(struct ma35_drm *priv)
+>> +{
+>> +	struct drm_device *drm_dev = &priv->drm_dev;
+>> +
+>> +	drm_kms_helper_poll_fini(drm_dev);
+>> +}
+>> +
+>> +static int ma35_clocks_prepare(struct ma35_drm *priv)
+>> +{
+>> +	struct drm_device *drm_dev = &priv->drm_dev;
+>> +	struct device *dev = drm_dev->dev;
+>> +	int ret;
+>> +
+>> +	priv->dcuclk = devm_clk_get(dev, "dcu_gate");
+>> +	if (IS_ERR(priv->dcuclk)) {
+>> +		dev_err(dev, "Failed to get display core clock\n");
+> Don't spam logs on defers. Syntax is in entire probe path: return
+> dev_err_probe
+>
+>> +		return PTR_ERR(priv->dcuclk);
+>> +	}
+>> +
+>> +	ret = clk_prepare_enable(priv->dcuclk);
+> Why this cannot be devm_clk_get_enabled?
+I'll fix it.
+>> +	if (ret) {
+>> +		dev_err(dev, "Failed to enable display core clock\n");
+>> +		return ret;
+>> +	}
+>> +
+>> +	priv->dcupclk = devm_clk_get(dev, "dcup_div");
+>> +	if (IS_ERR(priv->dcupclk)) {
+>> +		dev_err(dev, "Failed to get display pixel clock\n");
+>> +		return PTR_ERR(priv->dcupclk);
+>> +	}
+>> +
+>> +	ret = clk_prepare_enable(priv->dcupclk);
+>> +	if (ret) {
+>> +		dev_err(dev, "Failed to enable display pixel clock\n");
+>> +		return ret;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int ma35_clocks_unprepare(struct ma35_drm *priv)
+>> +{
+>> +	struct clk **clocks[] = {
+>> +		&priv->dcuclk,
+>> +		&priv->dcupclk,
+>> +	};
+>> +	unsigned int i;
+>> +
+>> +	for (i = 0; i < ARRAY_SIZE(clocks); i++) {
+>> +		if (!*clocks[i])
+>> +			continue;
+>> +
+>> +		clk_disable_unprepare(*clocks[i]);
+>> +		*clocks[i] = NULL;
+> Huh, pretty complicated and pointless code. This should be devm and bulk
+> API...
+I'll use memory safe helpers instead.
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int ma35_drm_probe(struct platform_device *pdev)
+>> +{
+>> +	struct device *dev = &pdev->dev;
+>> +	struct ma35_drm *priv;
+>> +	struct drm_device *drm_dev;
+>> +	void __iomem *base;
+>> +	struct regmap *regmap = NULL;
+>> +	int irq;
+>> +	int ret;
+>> +
+>> +	ret = of_reserved_mem_device_init(dev);
+>> +	if (ret && ret != -ENODEV) {
+>> +		dev_err(dev, "Failed to get optional reserved memory: %d\n", ret);
+>> +		return ret;
+>> +	}
+>> +
+>> +	base = devm_platform_ioremap_resource(pdev, 0);
+>> +	if (IS_ERR(base)) {
+>> +		dev_err(dev, "Failed to map I/O base\n");
+> Why aren't you using dev_err_probe?
+>
+>> +		ret = PTR_ERR(base);
+>> +		goto error_reserved_mem;
+>> +	}
+>> +	regmap = devm_regmap_init_mmio(dev, base, &ma35_drm_regmap_config);
+>> +	if (IS_ERR(regmap)) {
+>> +		dev_err(dev, "Failed to create regmap for I/O\n");
+>> +		ret = PTR_ERR(regmap);
+>> +		goto error_reserved_mem;
+>> +	}
+>> +
+>> +	irq = platform_get_irq(pdev, 0);
+>> +	if (irq < 0) {
+>> +		ret = -ENODEV;
+>> +		goto error_reserved_mem;
+>> +	}
+>> +
+>> +	priv = devm_drm_dev_alloc(dev, &ma35_drm_driver,
+>> +				     struct ma35_drm, drm_dev);
+>> +	if (IS_ERR(priv)) {
+>> +		ret = PTR_ERR(priv);
+>> +		goto error_reserved_mem;
+>> +	}
+>> +
+>> +	platform_set_drvdata(pdev, priv);
+>> +	drm_dev = &priv->drm_dev;
+>> +	priv->regmap = regmap;
+>> +	INIT_LIST_HEAD(&priv->layers_list);
+>> +
+>> +	ret = ma35_clocks_prepare(priv);
+>> +	if (ret) {
+>> +		drm_err(drm_dev, "Failed to prepare clocks\n");
+> Why do you print error twice? Once in the function, second time here?
+>
+>> +		goto error_reserved_mem;
+>> +	}
+>> +
+>> +	ret = devm_request_irq(dev, irq, ma35_drm_irq_handler, 0,
+>> +			       dev_name(dev), priv);
+>> +	if (ret) {
+>> +		drm_err(drm_dev, "Failed to request IRQ\n");
+>> +		goto error_clocks;
+>> +	}
+>> +
+>> +	/* modeset */
+>> +	ret = ma35_mode_init(priv);
+>> +	if (ret) {
+>> +		drm_err(drm_dev, "Failed to initialize KMS\n");
+>> +		goto error_clocks;
+>> +	}
+>> +
+>> +	/* plane */
+>> +	ret = ma35_plane_init(priv);
+>> +	if (ret) {
+>> +		drm_err(drm_dev, "Failed to initialize layers\n");
+>> +		goto error_clocks;
+>> +	}
+>> +
+>> +	/* crtc */
+>> +	ret = ma35_crtc_init(priv);
+>> +	if (ret) {
+>> +		drm_err(drm_dev, "Failed to initialize CRTC\n");
+>> +		goto error_clocks;
+>> +	}
+>> +
+>> +	/* interface */
+>> +	ret = ma35_interface_init(priv);
+>> +	if (ret) {
+>> +		if (ret != -EPROBE_DEFER)
+>> +			drm_err(drm_dev, "Failed to initialize interface\n");
+>> +
+>> +		goto error_clocks;
+>> +	}
+>> +
+>> +	drm_mode_config_reset(drm_dev);
+>> +
+>> +	ret = drm_dev_register(drm_dev, 0);
+>> +	if (ret) {
+>> +		drm_err(drm_dev, "Failed to register DRM device\n");
+>> +		goto error_mode;
+>> +	}
+>> +
+>> +	drm_client_setup(drm_dev, NULL);
+> Best regards,
+> Krzysztof
 
-[1]: https://lore.kernel.org/all/1a2ca78746e00c2ec4bfc2953a897c48376ed36f.c=
-amel@codeconstruct.com.au/
+I'll  return raw error codes and let probe wrap them with dev_err_probe().
 
-That reply proposed the new DT structure, and this series is a
-refinement & implementation of those ideas
+Thanks for the review.
 
-With that context:
+Best regards,
 
-> On Thu, 2026-02-05 at 10:56 +0100, Krzysztof Kozlowski wrote:
-> On 05/02/2026 10:49, Ryan Chen wrote:
->=20
-> > Subject: Re: [PATCH 0/4] Add AST2700 INTC0/INTC1 support
-> >=20
-> > On Thu, Feb 05, 2026 at 02:07:18PM +0800, Ryan Chen wrote:
-> > > This series replaces the existing AST2700 interrupt controller bindin=
-g
-> > > and driver. The original implementation was focused on a narrow,
-> > > PSP-centric view and could not fully describe the complexity of the
-> > > AST2700 interrupt fabric:
-> > >=20
-> > > * It was focused primarily on the perspective of the Primary Service
-> > > > Processor (PSP).
-> > > * It could not handle interrupt route configuration.
-> > > * It could not handle interrupt register protection.
-> > >=20
-> > > By contrast, the new bindings and drivers describe the interrupt
-> > > controllers at the block-function level and provide a unified binding
-> > > design that can be used from the perspective of any of the four
-> > > integrated processors (the Primary, Secondary and Tertiary Service
-> > > Processors, and the Boot MCU):
-> > >=20
-> > > Where and how did you address last feedback given to you here:
-> > >=20
-> > > https://lore.kernel.org/all/20250814-auspicious-thundering-jaybird-b7=
-6f4f@ku
-> > > oka/
-
-At this point the answer is that there wasn't a direct response.
-
-I acknowledge that I'm not Ryan, and that it is important that he
-responds directly to queries on his own patches. However, with the goal
-of having an upstream binding that better represents the hardware
-(along with a capable driver), I've pulled the concerns out of your
-linked feedback for discussion below.
-
-> > +  +-----+   +---------+
-> > +  | GIC |---|  INTC0  |
-> > +  +-----+   +---------+
->=20
-> Same problem as last time. This tells me intc0 has not children...
-
-...
-
-> > +            +---------+
-> > +            |         |     +---------+
-> > +            | INTC0_11| +---| INTC1   |
-> > +            |         |     +---------+
->=20
-> ...This tells that inc1 has no children (only intc0_11, which you said
-> is aspeed,ast2700-intc-ic !!!)....
-> (keep scrolling)
-
-...
-
-> > +patternProperties:
-> > +  "^interrupt-controller@":
->=20
-> ... but this tells me that intc0 and intc1 has children.
-
-...
-
-> > +        intc0_11: interrupt-controller@1b00 {
-> > +          compatible =3D "aspeed,ast2700-intc-ic";
-> > +          reg =3D <0 0x12101b00 0 0x10>;
->=20
->=20
-> ... and that's quite wrong unit address. Also no resources in the
-> parent, so this entire split seems superficial and incorrect.
-
-This gets to the heart of it. I share the view that the split was
-superficial. It tried to recombine existing components to account for
-some change in hardware design between early revisions of the AST2700
-SoC. The original binding from Kevin was too fine-grained.
-
-I don't think the design of the diagrams helped the cause for
-understanding the proposed binding or the hardware architecture, and
-were misleading in the manner you outlined in the comments above.
-
-My reply at [1] above was an (indirect) attempt to address your
-concerns, though again I acknowledge I'm not Ryan and that review
-feedback needs direct responses from patch authors.
-
-The binding proposed in this series eliminates the subnodes and enables
-a complete implementation of routing for the hardware, as demonstrated
-by the proposed drivers. I think it better conforms to the documented
-DOs and DON'Ts for writing bindings by moving anything implied by the
-compatible to the driver implementation. I hadn't yet merged the base
-arch patches for the SoC because I had contentions with the already-
-accepted binding, and merging the arch patches would make an already
-difficult job of reversing that acceptance harder again.
-
-In essence, this is some pain, but I view it as pain on the path
-towards better DTS outcomes than we had for prior generations of ASPEED
-BMC SoCs.
-
-> > >=20
-> > > "This binding is not improving. You are not responding to REAL proble=
-ms
-> > > described to you. What's more, you send it in a way making our life
-> > > difficult, look:"
-> > >=20
-> > > So how did you make our life easier now?
-> >=20
-> > Hi Krzysztof,
-> >=20
-> > Thanks for your feedback.
-> >=20
-> > The series you commented on in Aug 2025 (v4 1/2) attempted to model
-> > The hardware by introducing parent compatibles (aspeed,ast2700-intc0 /
-> > aspeed,ast2700-intc1) with child "interrupt-controller@" nodes using
-> > aspeed,ast2700-intc-ic. In hindsight, that approach did not align well
-> > with the actual hardware structure and resulted in inconsistencies
-> > between the diagrams, the schema, and the register layout (including
-> > unit-address issues). It was also difficult to review in isolation.
->=20
-> Read my question again:
->=20
-> "So how did you make our life easier now?"
->=20
-> And then read the earlier comment - what I expected of you. Please
-> answer these after the "look:" part.
->=20
-> Answer these please. I am not going to review any of these because you
-> keep ignoring our process of handling patches and not really responding
-> to review comments.
-
-For what it's worth, Ryan has adopted b4 and so hopefully some of the
-expectations around the mechanics of patch review are less of a
-concern.
-
-In this specific case, because of the divergence in direction, we went
-with a separate series. The failure to link that earlier series in the
-cover letter was an unfortunate oversight. I'll take responsibility for
-that, as part of developing the series with Ryan.
-
-Sorry for causing you frustration.
-
-Is it acceptable if we take the following actions:
-
-   1. Do some b4 magic to transplant this series back onto [1]
-   2. Send a follow up revision with a link to this discussion in the
-      cover letter
-
-Andrew
+Joey
 
 
