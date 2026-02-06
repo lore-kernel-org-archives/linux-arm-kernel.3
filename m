@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C29DEE20A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 14:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A67BDEE20A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 14:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xvam5HJNIvasJ/2nIByj8E9UTXU+JTYDZ6M6R68d/EY=; b=Kg33hN6CNzDVHt6Fy3eBQ5PDay
-	gPpNvZuauuT+nrtimhYtj0t1mluGTY2Bxcz86uRK1q8DMhQE+k+ocQ+50QVLW/cXImC0hknf6qFQu
-	G9MG+OLEd9LvXiModasf/gEpO/lgqpN8bILPeH8PnwHwVFDQzT4ueRDIDbR+WUMoR03DnXmejOBn/
-	7a6JOM1jqqZrYKP5k1Oko25hdCjUKg/BS/Mq2uQcvmPwKP5s3fEQJBpYXkXw/GvKy5PHwXs/q3tvO
-	/CNtiYJWFCHi/mRtt43s8aCcyEctfiUdbOIZmYivzPfLdKLwEjfOuIOdS5t+b/uj7s+8ZZnIzpPWN
-	1CAS6Ulg==;
+	bh=yFYW/9A6G8N/uoChRyEGlzNbrIa3BkXK4UxbIuF+wWU=; b=pSownOrDK6RnSHN0+koQvd4GDN
+	RsPzuUVqw7RYpTywgkrLCIW5UA9P7CkFMJsAenIr9REPvV5t3mhAW8zr683CR/IOVitZSrY7ltbpQ
+	J2NsVVesZegRXyQf06HfWXxpCmux7lpCwh7/eWVp4suQrYQNtphFSIH0lNljiO+Lvh03Im5dBQF+7
+	EtFAQ1gflqAB6AiyKrcrAeH7wIz+admXkGX6bV0jsBdUPLWRsspwySK+zVce3NH19cfCcj4TgmhkL
+	q6Lhc2xNV6ksQWPe9lG3/8rqCv0sAcRtcmt0MpnXCz4Q2zK5UTlMlOsNsWPzqVNQuxwL97o//bRfE
+	IVTyVjIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voMaj-0000000BQGK-2p4u;
-	Fri, 06 Feb 2026 14:13:49 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1voMde-0000000BQTt-2qpS;
+	Fri, 06 Feb 2026 14:16:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voMag-0000000BQFP-3w8T;
-	Fri, 06 Feb 2026 14:13:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1770387214; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Gt+coUoet8QH0TDqiquTwhBLpKT89/Akykd/Qhjkz+jl4xNs7KMymHAUTG5im9Or4TqucZ2BmEn0njypAvlSnrU0vHer9kUO4mDd+YQvjAJ7xO9uQCQea4EUtbJmT4IS2Ig54a4+ca3NVm9fI/d3E+WQezSKM8A8Ja9lrkLGPzc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1770387214; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=xvam5HJNIvasJ/2nIByj8E9UTXU+JTYDZ6M6R68d/EY=; 
-	b=fUkZAKXTaUrhAz7q63XAWElVsPJYHqA+Hp0X7XdnlH632o2qI2OSov7SMd9nUGoF0PmMA/wqtpKjbE2HAkcHrxffcWcZnxTMpnzkxpOLwV7gSOSXYmcQQ4a3TWbPZxAXpOm04A0wG2pYjf3j0MTVCMGGFBFq3v0mEa0T0A0Y9vU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nfraprado@collabora.com;
-	dmarc=pass header.from=<nfraprado@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1770387214;
-	s=zohomail; d=collabora.com; i=nfraprado@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=xvam5HJNIvasJ/2nIByj8E9UTXU+JTYDZ6M6R68d/EY=;
-	b=f8S4RADjyViHt7femYhhlq9LTWkAFgUbqPBzyhXPNCt5x81+xJstzn2mZU0Dov8R
-	OWuvJTtRyW7N00h9PTXZOZkhVtCBeqk0nb56eVlWAo1aCoVPRqA1NeibY5I/GS5aafV
-	Kx0iTFB/RUyXh4pU5p/slXNB3oFcDjmaoP3h+Wnc=
-Received: by mx.zohomail.com with SMTPS id 1770387213516827.7987217683014;
-	Fri, 6 Feb 2026 06:13:33 -0800 (PST)
-Message-ID: <9849130a6c4da61bd7291f40a9a3d224d32ef08a.camel@collabora.com>
-Subject: Re: [PATCH 01/11] drm/mediatek: Introduce DDP plane_colorops_init()
- hook
-From: =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado" <nfraprado@collabora.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann	 <tzimmermann@suse.de>, David
- Airlie <airlied@gmail.com>, Simona Vetter	 <simona@ffwll.ch>, Chun-Kuang Hu
- <chunkuang.hu@kernel.org>, Philipp Zabel	 <p.zabel@pengutronix.de>,
- Matthias Brugger <matthias.bgg@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	daniels@collabora.com, ariel.dalessandro@collabora.com, kernel@collabora.com
-Date: Fri, 06 Feb 2026 09:13:31 -0500
-In-Reply-To: <8d043341-9099-47b2-a1fe-538502e40f99@collabora.com>
-References: <20251223-mtk-ovl-pre-blend-colorops-v1-0-0cb99bd0ab33@collabora.com>
-	 <20251223-mtk-ovl-pre-blend-colorops-v1-1-0cb99bd0ab33@collabora.com>
-	 <8d043341-9099-47b2-a1fe-538502e40f99@collabora.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-8 
+	id 1voMdd-0000000BQTk-0AHq;
+	Fri, 06 Feb 2026 14:16:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 50F406001A;
+	Fri,  6 Feb 2026 14:16:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 809F7C19422;
+	Fri,  6 Feb 2026 14:16:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770387408;
+	bh=MfIveAnEmTvNIhWdwWFVHgbqL0PUK4fowKip9CXPScQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RqAG13Ki/PxUK25l81q/gCxQQUhF5YZLzbsMjFAd9AD62JjQ0BP4KF/yQjIX1pCdj
+	 GEaQc7Vw3zC0OiUbJZUYWogj3DZDZaY7ZHRZxuuEaT0F20SQkdBr6bqqoAZD6KXEmr
+	 Wc6+06DvEl0ohNgz4FIOLKxMElgkIKBq/+RQI/LdpQlO9eZgvYsOPSJ4FML292n3gl
+	 LyfPybUivMrshDxho9PbqZN6QpaabH12EvmoeDA0pkcYcKqBkqIB6MT6EeavTbEmVk
+	 O3FEK0j8xWWU+OrFhnHZuetsvL99aeJAZPSb2JTanjNSNDGHESoZ35ZcvCaDeZkG6h
+	 zZ586z4h/v/lQ==
+Date: Fri, 6 Feb 2026 15:16:45 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, kernel@collabora.com, 
+	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v7 05/22] drm/display: hdmi-state-helper: Act on color
+ format DRM property
+Message-ID: <20260206-accurate-wealthy-badger-45b4a8@houat>
+References: <20260121-color-format-v7-0-ef790dae780c@collabora.com>
+ <20260121-color-format-v7-5-ef790dae780c@collabora.com>
 MIME-Version: 1.0
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_061347_124448_1FD052AD 
-X-CRM114-Status: UNSURE (   8.76  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="2cbwiwfic3gmdzk2"
+Content-Disposition: inline
+In-Reply-To: <20260121-color-format-v7-5-ef790dae780c@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,24 +84,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2026-02-06 at 11:07 +0100, AngeloGioacchino Del Regno wrote:
-> Il 23/12/25 20:44, N=C3=ADcolas F. R. A. Prado ha scritto:
-> > Introduce a plane_colorops_init() hook to allow DDP components to
-> > define
-> > how to initialize the color pipeline on their planes.
-> >=20
-> > Signed-off-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
+
+--2cbwiwfic3gmdzk2
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v7 05/22] drm/display: hdmi-state-helper: Act on color
+ format DRM property
+MIME-Version: 1.0
+
+On Wed, Jan 21, 2026 at 03:45:12PM +0100, Nicolas Frattaroli wrote:
+> With the introduction of the "color format" DRM property, which allows
+> userspace to request a specific color format, the HDMI state helper
+> should implement this.
 >=20
-> Just a nit for the commit description.
+> Implement it by checking whether the property is set and set to
+> something other than auto. If so, pass the requested color format, and
+> otherwise set RGB.
 >=20
-> In preparation for adding support for per-plane color pipelines,
-> introduce a new
-> plane_colorops_init() hook to allow [...etc]
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 12 +++++++++++-
+>  1 file changed, 11 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gp=
+u/drm/display/drm_hdmi_state_helper.c
+> index a1d16762ac7a..1ea3b9c93aa5 100644
+> --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> @@ -649,11 +649,21 @@ hdmi_compute_config(const struct drm_connector *con=
+nector,
+>  	unsigned int max_bpc =3D clamp_t(unsigned int,
+>  				       conn_state->max_bpc,
+>  				       8, connector->max_bpc);
+> +	enum hdmi_colorspace hdmi_colorspace =3D
+> +		drm_color_format_to_hdmi_colorspace(conn_state->color_format);
+>  	int ret;
+> =20
+>  	ret =3D hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc,
+> -				      HDMI_COLORSPACE_RGB);
+> +				      hdmi_colorspace);
 
-Will do in v2!
+I still think we shoud be more explicit there, with something like
 
---=20
-Thanks,
+if (conn_state->color_format !=3D DRM_COLOR_FORMAT_AUTO) {
+	return hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc, drm_c=
+olor_format_to_hdmi_colorspace(conn_state->color_format))
+}
 
-N=C3=ADcolas
+ret =3D hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc,
+    			      HDMI_COLORSPACE_RGB);
+
+Otherwise, it's pretty easy to get confused between the behaviour
+drm_color_format_to_hdmi_colorspace() to return RGB when it get AUTO...
+
+>  	if (ret) {
+> +		/* If a color format was explicitly requested, don't fall back */
+> +		if (conn_state->color_format) {
+
+=2E.. or that auto is actually 0 in that enum.
+
+Or between the auto and non-auto code path.
+
+Maxime
+
+--2cbwiwfic3gmdzk2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaYX3zAAKCRAnX84Zoj2+
+drVqAYD2nzrDJAH0F0tKkx6Xcr+H2Zmy7gmPm/i9E/xOmEWV2OyB+eO07FcK6njD
+RjLDZpQBgMFQ9IdOGUZJR8znQp3cHRX9Aenj9f8l6mh6cJupKXlHogjQrki2a8Ft
+pLSQR3GN1A==
+=LCPG
+-----END PGP SIGNATURE-----
+
+--2cbwiwfic3gmdzk2--
 
