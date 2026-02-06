@@ -4,109 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C33EB28F4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 08:56:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC78EB28F7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 09:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B5GgHRWcvUB1HdPVoO+S/fISfxcdTHvl3qADwmdFy0E=; b=hln81Sqn56BRVyRp5EXAYTDSQd
-	SzbHtR3KLdRLVGXg0NTO24ehpOM/++sojr3WOeVTSri0Rh+psWGhVKHb2wM5VMXMgRz/rAxaEZp35
-	zicsGxFuKCKyuw4E8uynmeHiDfM/F1bwADmalMpvYwKoqjcn4HQeKv7r2IYU7T1rTjiJMZ4ayOAkL
-	30MxKMgVhW2hqkrAb/3Dz1oDk1eM9dVuaFozImKvQf69BAf6hlgIUedRTK7GAa79qfM3ee7k5B1Gq
-	O3OC1iMycajTPTk+LQjK9t2b+kXKZxW2KgEeLGj4mGvW5I8T426SH3UjuTgfsgZamXnFDl8FtZ+aD
-	FXY6he9g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=e6Q5jFK43ZJ1Twf/eEHkLZQeVBspSGKtpQIWC0nWZzI=; b=zLn3igqX03qif4nYzSLX6oJkpy
+	CAiqqltu0qdoNrYJTgS+M1sFvR0XkwmumDgwR13X2ieR+vGnjEFy9URhdQHEDrrNV0CvnW1uyyiHc
+	lLBhG11PLPsy4Gg0C/3/iw+QKGlsP9M2HL2TL+rx5A7NoEwLjCt71ddrK+72+5L37Jfu7XwjLIbhs
+	x7ErMxH/Yjl0JwJNPYAozCfCjA3QfbNc0qkTDJgYsIMDE4HZV7eGHM7+TeNrKJwE89wk5NQjS7cut
+	IihYawITSvtDjmntr3J4irrjTodhgjm66mjm+4lGcWI7oBLg5vQW+hn7yGmM7PBGmZihFip1bo0DP
+	RLhVEVQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voHds-0000000B3sB-2zvU;
-	Fri, 06 Feb 2026 08:56:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1voHin-0000000B499-28Kx;
+	Fri, 06 Feb 2026 09:01:49 +0000
+Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voHdp-0000000B3s1-2Tey
+	id 1voHil-0000000B48l-1S4t
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 08:56:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9F11F600CB;
-	Fri,  6 Feb 2026 08:56:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 057FAC116C6;
-	Fri,  6 Feb 2026 08:56:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770368200;
-	bh=TJO2Jx1OTPRgQPSy16L8N1nVs3pn/NoxBeM4A1YYyLc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JnCNAXxkezd+sD2gME8aDy27P6uEeJEBf6VXTRBpO3/+m3e/z+5AmR3dwHjpzmsao
-	 yUO1gOtFNsWDreYTj5rese6k6nm/EcKe9bjsA9cBZoaCZbfy7KfF/rnv0lJG1NuF1N
-	 YUTQ7NZxKcpaAwo7jDd5XouQt6Ik8afqxaKKRiEoM3dYqbgazTGuEOwMBj7Lno5eNk
-	 9ElDh/RlvU4J4Zwg0ZCDmNIHsCUQFio2f2hJqy6SpRlyoHMb4e4A4dZkwYcSx9iFiJ
-	 9SJzV/St2T7Cp+rxnPd1QQ8wiHeBNWrc9XwdpmIQWSK72Mx6JExqtCZaVq4COaWwaa
-	 HkZcxeAuVftPw==
-Message-ID: <7c29f46c-aa27-4569-9170-53538785e029@kernel.org>
-Date: Fri, 6 Feb 2026 09:56:35 +0100
+	Fri, 06 Feb 2026 09:01:48 +0000
+Received: from phl-compute-08.internal (phl-compute-08.internal [10.202.2.48])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 91C687A0021;
+	Fri,  6 Feb 2026 04:01:41 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-08.internal (MEProxy); Fri, 06 Feb 2026 04:01:42 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=likewhatevs.io;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm2; t=1770368501; x=1770454901; bh=e6Q5jFK43Z
+	J1Twf/eEHkLZQeVBspSGKtpQIWC0nWZzI=; b=j/yR3RmcRCUQB3p3fOJmIVSMfN
+	l+iXWCqX6UvNAyb5hQVBeGVVMwciZbgRFYQjcM7dgneTs6unJEsdVMvxVwUEIoGz
+	Xyr59fxbOPg4HIgmA858d8ytVE0rSb2HlDdgYzvo2QNsogP5U7u2EgDEiDjvEO7n
+	9gGOd0O3jd1yJp0v8/yVuhWO+L6MGcXElD33Ktbz5/x3LOyLLRj4MXKmqgtY7Dpn
+	wWHtCOv287afDheS9TOyMmXPC8WYrL7+CXOfrx23Lm0gItc7J6K6pGoLVGSe0qeF
+	YXDEWZhzLZO6sU+n23nU5PFpL8d7CJ9ym51Qu+Jgi8M8lknjCIkFKzam2kaQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1770368501; x=1770454901; bh=e6Q5jFK43ZJ1Twf/eEHkLZQeVBspSGKtpQI
+	WC0nWZzI=; b=pjku9ZbLF9pgCVJ6NcW4j8i70bylRNpHUdSFQwiNkUOVzrvn9K0
+	L1zfywn23i8jHdH37inaSX3nxMLpal7/jV8dj3eiO9T11cWk1C74K1z24dWiQENm
+	dZfJcDNhbZv1GYTPkOcqy0cdaXyz368PshzBcLRg2ZUzYe+XByUu9iFRv7cDwMed
+	emok0U6Vdcccmyn88WQHmwC/5gcZgIdoEFun0oPCLH/dP56bgM+0oVPaUIQbINGm
+	xYWfe6ey5q9qFc2Bf4bu2phW5p09clR66mp8bkI/ENpwqF/Wp6t2yaqAOY2DJD8f
+	ppNCH3057Xh80k0nkbkWOaG5g4BpnBg9I1A==
+X-ME-Sender: <xms:9a2FaVp8IOx3GOl2FHnzwimgDZoVeQF4aVpIeO7SWcdtKNvqa0nlRw>
+    <xme:9a2Faf3e9yqur2x4TbczquCjtx1LGTIfe-fzhh460zijE_Y6z7HILnfzylSdQOusa
+    _LpN_toz0uBdVgVKCyeob37fmqCtUZOWq6svdJfaUgfvSyZUmfQtcQ>
+X-ME-Received: <xmr:9a2FadwBmH5Dw7Y36mBRQn76cprdMKr1n70wyzx5GY7pwVEu7L7i-Zo0dPkZCZERMn3gA-U5OO1gIg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddukeejjeeiucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhephffvvefufffkofgggfestdekredtredttdenucfhrhhomheprfgrthcuufhomhgr
+    rhhuuceophgrthhsoheslhhikhgvfihhrghtvghvshdrihhoqeenucggtffrrghtthgvrh
+    hnpeefveeiveeijefgueettdejleelieefvddtkeekudduveetveeutdehffeiueehuden
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehprghtsh
+    hosehlihhkvgifhhgrthgvvhhsrdhiohdpnhgspghrtghpthhtohepuddtpdhmohguvgep
+    shhmthhpohhuthdprhgtphhtthhopehtjheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
+    epshhvvghnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehjsehjrghnnhgruhdrnhgv
+    thdprhgtphhtthhopehvkhhouhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehnvg
+    grlhesghhomhhprgdruggvvhdprhgtphhtthhopegrshgrhhhisehlihhsthhsrdhlihhn
+    uhigrdguvghvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsth
+    hsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepughmrggvnhhgihhnvgesvhhg
+    vghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvh
+    hgvghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:9a2Fabj4rFlVceoykmXZ55DOWR_EXYQaBKOcAjsqhCH_khiu37X_2w>
+    <xmx:9a2FaQp6CWeQ8J7QU6WwbaOLg1I12bP7CIeQypKc_qZ1MF4GwUjOaw>
+    <xmx:9a2FaSjFyoYkl6vt8RKuIjEDRC5goa6Og3xPFASZKp1TAanN3Rbx7A>
+    <xmx:9a2FaSP9ItJ-9B6L8-X36eynNjlYQo0ikQqXmvksV1Z6apEsPlO6UA>
+    <xmx:9a2FaSK_1RCmuqsYENXBncnezyaQFNrmPH10evF_gX7DHebGJPyke9U->
+Feedback-ID: i7f194913:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 6 Feb 2026 04:01:40 -0500 (EST)
+From: Pat Somaru <patso@likewhatevs.io>
+To: Tejun Heo <tj@kernel.org>,
+	Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Vinod Koul <vkoul@kernel.org>
+Cc: Neal Gompa <neal@gompa.dev>,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Pat Somaru <patso@likewhatevs.io>
+Subject: [PATCH] dma: apple-admac: Convert from tasklet to BH workqueue
+Date: Fri,  6 Feb 2026 04:01:37 -0500
+Message-ID: <20260206090137.1127897-1-patso@likewhatevs.io>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] arm64: dts: nuvoton: ma35d1: add display
- controller support
-To: Joey Lu <a0987203069@gmail.com>
-Cc: airlied@gmail.com, simona@ffwll.ch, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, ychuang3@nuvoton.com,
- schung@nuvoton.com, yclu4@nuvoton.com, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260129040532.382693-1-a0987203069@gmail.com>
- <20260129040532.382693-3-a0987203069@gmail.com>
- <20260205-tactful-warm-chicken-50bdc8@quoll>
- <a0910eb7-4597-45a7-b538-f2feb021f389@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <a0910eb7-4597-45a7-b538-f2feb021f389@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260206_010147_501253_77A4E412 
+X-CRM114-Status: GOOD (  15.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,61 +116,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/02/2026 08:12, Joey Lu wrote:
-> 
-> On 2/5/2026 9:23 PM, Krzysztof Kozlowski wrote:
->> On Thu, Jan 29, 2026 at 12:05:31PM +0800, Joey Lu wrote:
->>>   &uart0 {
->>> @@ -129,3 +165,23 @@ &uart16 {
->>>   	pinctrl-0 = <&pinctrl_uart16>;
->>>   	status = "okay";
->>>   };
->>> +
->>> +&panel {
->>> +	port {
->>> +		panel_in: endpoint@0 {
->>> +			remote-endpoint = <&dpi_out>;
->>> +		};
->>> +	};
->>> +};
->>> +
->>> +&display {
->> What sort of ordering rule is followed in Nuvoton? Why is it different
->> than DTS coding style? Why do you choose other style?
->>
->>> +	pinctrl-names = "default";
->>> +	pinctrl-0 = <&pinctrl_display>;
->>> +	status = "okay";
->>> +
->>> +	port {
->>> +		dpi_out: endpoint@0 {
->>> +			remote-endpoint = <&panel_in>;
->>> +		};
->>> +	};
->>> +};
->>> diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
->>> index e51b98f5bdce..7d9d077f12b2 100644
->>> --- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
->>> +++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
->>> @@ -379,5 +379,19 @@ uart16: serial@40880000 {
->>>   			clocks = <&clk UART16_GATE>;
->>>   			status = "disabled";
->>>   		};
->>> +
->>> +		panel: panel {
->> No, there is no way your SoC has a panel.
->>
->> Don't add fake stuff to your DTS.
->>
->> Best regards,
->> Krzysztof
-> 
-> I'll move panel nodes out of dtsi into board dts.
+The only generic interface to execute asynchronously in the BH context
+is tasklet; however, it's marked deprecated and has some design flaws
+such as the execution code accessing the tasklet item after the
+execution is complete which can lead to subtle use-after-free in certain
+usage scenarios and less-developed flush and cancel mechanisms.
 
-You did not respond to several comments in total, it's fine, but if you
-just ignored them, then it would not be fine.
+To replace tasklets, BH workqueue support was recently added. A BH
+workqueue behaves similarly to regular workqueues except that the queued
+work items are executed in the BH context.
 
+This patch converts drivers/dma/apple-admac.c from tasklet to BH
+workqueue.
 
-Best regards,
-Krzysztof
+The Apple ADMAC driver uses a per-channel tasklet to invoke DMA
+completion callbacks for cyclic transactions. This conversion maintains
+the same execution semantics while using the modern BH workqueue
+infrastructure.
+
+This patch was tested by:
+    - Building with allmodconfig: no new warnings (compared to v6.18)
+    - Building with allyesconfig: no new warnings (compared to v6.18)
+    - Booting defconfig kernel via vng and running `uname -a`:
+    Linux virtme-ng 6.18.0-virtme #1 SMP PREEMPT_DYNAMIC 0 x86_64 GNU/Linux
+
+Semantically, this is an equivalent conversion and there shouldn't be
+any user-visible behavior changes. The BH workqueue implementation uses
+the same softirq infrastructure, and performance-critical networking
+conversions have shown no measurable performance impact.
+
+Maintainers can apply this directly to the DMA subsystem tree or ack it
+for the workqueue tree to carry.
+
+Signed-off-by: Pat Somaru <patso@likewhatevs.io>
+---
+ drivers/dma/apple-admac.c | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/dma/apple-admac.c b/drivers/dma/apple-admac.c
+index bd49f0374291..8a0e100d5aaf 100644
+--- a/drivers/dma/apple-admac.c
++++ b/drivers/dma/apple-admac.c
+@@ -16,6 +16,7 @@
+ #include <linux/reset.h>
+ #include <linux/spinlock.h>
+ #include <linux/interrupt.h>
++#include <linux/workqueue.h>
+ 
+ #include "dmaengine.h"
+ 
+@@ -89,7 +90,7 @@ struct admac_chan {
+ 	unsigned int no;
+ 	struct admac_data *host;
+ 	struct dma_chan chan;
+-	struct tasklet_struct tasklet;
++	struct work_struct work;
+ 
+ 	u32 carveout;
+ 
+@@ -522,8 +523,8 @@ static int admac_terminate_all(struct dma_chan *chan)
+ 		adchan->current_tx = NULL;
+ 	}
+ 	/*
+-	 * Descriptors can only be freed after the tasklet
+-	 * has been killed (in admac_synchronize).
++	 * Descriptors can only be freed after the work
++	 * has been cancelled (in admac_synchronize).
+ 	 */
+ 	list_splice_tail_init(&adchan->submitted, &adchan->to_free);
+ 	list_splice_tail_init(&adchan->issued, &adchan->to_free);
+@@ -543,7 +544,7 @@ static void admac_synchronize(struct dma_chan *chan)
+ 	list_splice_tail_init(&adchan->to_free, &head);
+ 	spin_unlock_irqrestore(&adchan->lock, flags);
+ 
+-	tasklet_kill(&adchan->tasklet);
++	cancel_work_sync(&adchan->work);
+ 
+ 	list_for_each_entry_safe(adtx, _adtx, &head, node) {
+ 		list_del(&adtx->node);
+@@ -662,7 +663,7 @@ static void admac_handle_status_desc_done(struct admac_data *ad, int channo)
+ 		tx->reclaimed_pos %= 2 * tx->buf_len;
+ 
+ 		admac_cyclic_write_desc(ad, channo, tx);
+-		tasklet_schedule(&adchan->tasklet);
++		queue_work(system_bh_wq, &adchan->work);
+ 	}
+ 	spin_unlock_irqrestore(&adchan->lock, flags);
+ }
+@@ -712,9 +713,9 @@ static irqreturn_t admac_interrupt(int irq, void *devid)
+ 	return IRQ_HANDLED;
+ }
+ 
+-static void admac_chan_tasklet(struct tasklet_struct *t)
++static void admac_chan_work(struct work_struct *work)
+ {
+-	struct admac_chan *adchan = from_tasklet(adchan, t, tasklet);
++	struct admac_chan *adchan = from_work(adchan, work, work);
+ 	struct admac_tx *adtx;
+ 	struct dmaengine_desc_callback cb;
+ 	struct dmaengine_result tx_result;
+@@ -886,7 +887,7 @@ static int admac_probe(struct platform_device *pdev)
+ 		INIT_LIST_HEAD(&adchan->issued);
+ 		INIT_LIST_HEAD(&adchan->to_free);
+ 		list_add_tail(&adchan->chan.device_node, &dma->channels);
+-		tasklet_setup(&adchan->tasklet, admac_chan_tasklet);
++		INIT_WORK(&adchan->work, admac_chan_work);
+ 	}
+ 
+ 	err = reset_control_reset(ad->rstc);
+-- 
+2.52.0
+
 
