@@ -4,74 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B2CEE209D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 13:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F95EE20A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 13:22:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qMSJm3r9QghaqsOLATICPq8S+PcfLWjkhMCydwvJ6a0=; b=FtVs+zswvFP9F6nVb8XDle8cbZ
-	HR3fynxDLvUdGxIK8H6kUZ5LbkDffU+tq+Dw1D9FsjabPtSQQvqeBSmc5qJeumtYgbO+dozrnjrg5
-	3UQdVUlw0JdXkniV6vQB8vOdmQLJkggQPN0ih1b9hLms3riY+Iwm4bnFL1ESiBAFx87aXtfSYxaDC
-	3DdixQsy2QC3RzP+pgT5SGCCHfe5fhw64jReVR0y9fUHTaONUVV82Qs+kv+xDj+vhoVP0Xc/hBoYV
-	ymBJ4wKmthvwgfJqleorRFnRZGPoLaOo4WcwEi8Wwn+Msy/BdHWVUzZUc8NOz1hVLpUWGdCvQMKTe
-	nIcxqY+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tyNERdnhwcJsB4+IZJTjocTy/p1a2PIJI9XlyIeVAK0=; b=TEHrjxmIQm1igPQhDdIgDbPFGI
+	Q857bgZNkt2Zd+7s/KEUyoKTMm9sCuP2bA2X1PsVSzRnqPR9mDbI2h997QhwXG0XQBYH0rATSe466
+	RJhjOoDsRUA1yq3cG8S92qHrs2NUaeUB/Ukic1Gct65WLdhghUCJ1iXpYUzdXkCkfcteEtf0Qq6P0
+	K80tzyG62DOb7bUa+gHg9yTeUqfdRbmW+Lyo2Vi1CqA8KUjIIw4N5TwS0vNywd6bVJCURgp8DwF/E
+	wL4fe9CaW334XK04yh4ZE/Vy/Xkz2HLguHN0ByzNWD8CbNS+uyyogy4GmI3/nJGJD1wBBaRCUnnAi
+	cfoWeo/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voLU0-0000000BKss-3Qz8;
-	Fri, 06 Feb 2026 13:02:48 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1voLnI-0000000BM8B-3G27;
+	Fri, 06 Feb 2026 13:22:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voLTy-0000000BKsR-1QhC
+	id 1voLnH-0000000BM83-2FWv
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 06 Feb 2026 13:22:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=tyNERdnhwcJsB4+IZJTjocTy/p1a2PIJI9XlyIeVAK0=; b=UpMD4gmBYD/lCGosYoVbRlc/eP
+	F3otGEX0B4dvevVSdgKQFB+icpqa61Du1b2h7NaTJQHBHfrozX+LBhTpvxDMEhr6y7UQLcf7AQPWX
+	9VwRLG5TwrTz9AEn3lFuYtSkpKTM/GNa8bJyr5c3VG00K5xLnmskc3Ob12Pale+KggApHRe07alya
+	zuqDywnmEoJnNdcx7gidzu23qVK8TDULKUmxaz8QSr/HlNEieEPAo8jC64AyU7kdvWxElZdn88T8a
+	lh6OsIkES9NGmnHfxwq7IatoVw8L6sykXEVrrtBRLR3T1as0P0XjNdzzn0D/rEwoOdkiJPfLzDMie
+	L17Pzc8w==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1voLnE-00000003qI4-0pKq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 13:02:47 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1770382961;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=qMSJm3r9QghaqsOLATICPq8S+PcfLWjkhMCydwvJ6a0=;
-	b=kgALjKzwuaFs+uVbmz5ktfLmKj1T86SzNiP+L4+huOrjYFx05ZK9NIfsf+cyZLpteOCUac
-	SNw+8vl8HRnEpd8c3kNgdvCeQhhY70zWNX17bfwhL8W3GP8EHLXGeCnEMcRyEp5Q+UjVPV
-	9CvgRftllhdaMBL6a1lOicU8YOCLraFU+VI5FbuhzHLsKsmeFahnaR7m/myf1X5OvhOVse
-	QaQqqw2iIIxJapVTXCK5ZAqIRL6Ov9uFp2lHxcBWiTkVzj/s3KvkfosRT53dQP0O1kPCsA
-	fWTgS9tz+Ch/2WLkfQQaytgxbw2lnwKCdP/Nv/1QNx1JpIgTjhdH1ReSzRVR6A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1770382961;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=qMSJm3r9QghaqsOLATICPq8S+PcfLWjkhMCydwvJ6a0=;
-	b=2JtHN8C12cuuMCKVnHfL1P9yfxGYvomBX7Ze0oZ5uL/sYh8y76IAr06+TFIWkM4wuTc52y
-	csTd5F3xxjkj+iCg==
-Date: Fri, 06 Feb 2026 14:02:38 +0100
-Subject: [PATCH v2] ARM: Implement ARCH_HAS_CC_CAN_LINK
+	Fri, 06 Feb 2026 13:22:41 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1voLn9-0001ty-3f; Fri, 06 Feb 2026 14:22:35 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1voLn8-004Pax-2n;
+	Fri, 06 Feb 2026 14:22:34 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1voLn8-000000006G1-0Vpa;
+	Fri, 06 Feb 2026 14:22:34 +0100
+Message-ID: <f88fc05d521800c95d281111fa7cf54219089258.camel@pengutronix.de>
+Subject: Re: [PATCH v2] reset: imx7: Check return value of
+ regmap_attach_dev() in imx7_reset_probe()
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Chen Ni <nichen@iscas.ac.cn>, Frank.Li@nxp.com, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com
+Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Date: Fri, 06 Feb 2026 14:22:33 +0100
+In-Reply-To: <20260206050109.119348-1-nichen@iscas.ac.cn>
+References: <20260206050109.119348-1-nichen@iscas.ac.cn>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260206-cc-can-link-arm-v2-1-290cbf369fb6@linutronix.de>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2WNzQrCMBCEX6Xs2ZUkhPpz8j2khzXd2kVNZVNLp
- eTdjQVPHr8Z5psFEqtwgmO1gPIkSYZYwG0qCD3FK6O0hcEZVxtrHIaAgSLeJd6Q9IGeOXTUOjL
- soayeyp3Mq/HcFO4ljYO+14PJftOf6/DnmixavOz8nh0R1VSfSvUadYgyb1uGJuf8AXOxLo2yA
- AAA
-X-Change-ID: 20260102-cc-can-link-arm-4eecfad2a0e4
-To: Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Arnd Bergmann <arnd@arndb.de>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770382960; l=1768;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=K0U9s1d9SAUAqd8e+w8kJvCum5qTFHSd7IwJFwm3VRM=;
- b=wzWwwQZ4H1aptd55kehWA0ChSnUrfXpCqZwXEEKGpya4F5ak1ELXWW0zW4bFYUIN4gSqdIY8T
- LY+HisbnYmaDcEJnPU9FiTxn88/le13yQqztP3kvXoCuuMY97eOhUxZ
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_050246_518666_885D24E8 
-X-CRM114-Status: UNSURE (   7.60  )
+X-CRM114-CacheID: sfid-20260206_132240_430361_8FB4BAEC 
+X-CRM114-Status: UNSURE (   7.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,59 +94,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic CC_CAN_LINK detection does not handle different byte orders.
-This may lead to userprogs which are not actually runnable on the target
-kernel.
+On Fr, 2026-02-06 at 13:01 +0800, Chen Ni wrote:
+> Add error checking for regmap_attach_dev() call in imx7_reset_probe()
+> function to ensure proper error propagation.
+>=20
+> Return the value of regmap_attach_dev() if it fails to prevent
+> proceeding with an incomplete regmap setup.
+>=20
+> Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
 
-Use architecture-specific logic supporting byte orders instead.
+Thank you,
 
-Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
----
-Changes in v2:
-- Handle BE8 vs BE32 platforms
-- Link to v1: https://lore.kernel.org/r/20260109-cc-can-link-arm-v1-1-b748e2aaa6a6@linutronix.de
----
- arch/arm/Kconfig | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index fa83c040ee2d..d5cb85d82dad 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -6,6 +6,7 @@ config ARM
- 	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE if HAVE_KRETPROBES && FRAME_POINTER && !ARM_UNWIND
- 	select ARCH_HAS_BINFMT_FLAT
- 	select ARCH_HAS_CACHE_LINE_SIZE if OF
-+	select ARCH_HAS_CC_CAN_LINK
- 	select ARCH_HAS_CPU_CACHE_ALIASING
- 	select ARCH_HAS_CPU_FINALIZE_INIT if MMU
- 	select ARCH_HAS_CURRENT_STACK_POINTER
-@@ -1715,6 +1716,18 @@ config KERNEL_MODE_NEON
- 
- endmenu
- 
-+config ARCH_CC_CAN_LINK
-+	bool
-+	default $(cc_can_link_user,-mlittle-endian) if CPU_LITTLE_ENDIAN
-+	default $(cc_can_link_user,-mbig-endian -mbe8) if CPU_ENDIAN_BE8
-+	default $(cc_can_link_user,-mbig-endian -mbe32) if CPU_ENDIAN_BE32
-+
-+config ARCH_USERFLAGS
-+	string
-+	default "-mlittle-endian" if CPU_LITTLE_ENDIAN
-+	default "-mbig-endian -mbe8" if CPU_ENDIAN_BE8
-+	default "-mbig-endian -mbe32" if CPU_ENDIAN_BE32
-+
- menu "Power management options"
- 
- source "kernel/power/Kconfig"
-
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20260102-cc-can-link-arm-4eecfad2a0e4
-
-Best regards,
--- 
-Thomas Weißschuh <thomas.weissschuh@linutronix.de>
-
+regards
+Philipp
 
