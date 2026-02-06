@@ -4,198 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 627ECEB28FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 09:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 946E0EB28FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 09:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q2nCGDmSB5kxFeYZKwYb/bVPCanKnDnSu7RuP4rgChs=; b=Z1ky21FS4Js6VC1pPG+u9+v0rr
-	r/seUVoggFQiD/jfEp648pefb0s72ImN766XnXdgKLm8vVwpIC+QK6rAoT5SNB5jYa793KLYkj6q/
-	rjEN4TdQ2AJFuCzRBYRiJ6QAgEDwVgmE3pzsbxJO4nhiARraBgLD0G8+CRY7Kdqyn7eyNcFyJID/o
-	yKHHdxmhUgoyj2u7QOatw1JdYcf2EBFOavWJu++7h+sbw+gbK4i3OR8mjRO3DAlav9lWQvmdfQbDB
-	Gg3PX7tnOQlZkJGJ9Nw2wPQNO9VumRY5lxzLtZ37pIpUzmo7v4fhbAAjeFjiMYXGC6sC/FOJdsqSk
-	lk6H0rRA==;
+	bh=81Nfnr+VgGFh1r1KxdRZ/fW91tng+mO/I9oWaPLw1M8=; b=vOdptzltQ0YsiUEX5YVEY6HfCa
+	OVQs6+P0eEZozlavqVsCQZgn1T6wwBhyW3mMfLoF0dCma737TEyuLz3barQRJC6xGLJCUwha8aIXx
+	0rsGMtssUZVdofX9hInnBUx1ZXDU5+x6doF6T0bTEidHUKWgL1nsZOCz6jfHbYnvU0GaifvpxzfOj
+	VcHaZKtAqDGH2NqlafiA5fdbdjri6cY26L7U+5IFGCOdltPCLMu01PRI6eqHhzKKdmIb+wma8Iq59
+	exd8W+cuWZ/uS2pEoKl4Kx70kEySPfbnwXgZyAlRP5YYeVpUwMRPQ6M4s2kjjD65eSflwg8Q9lmsX
+	5xnCiLJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voHmu-0000000B4hK-0dGA;
-	Fri, 06 Feb 2026 09:06:04 +0000
-Received: from mail-francesouthazon11011062.outbound.protection.outlook.com ([40.107.130.62] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1voHpx-0000000B51M-0KPh;
+	Fri, 06 Feb 2026 09:09:13 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voHmq-0000000B4fo-0x7y
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 09:06:02 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=Cle2zyMcEMmihGXbP6tuX5RQpgQBMaAqT4wCIXoYXcEFDTFzu2fmlU/w6bDwhNp/Ts/Q1fBtZeKK950DYmLxAI0+nBk1+NJ3YboIMGUfCinQ/yf/B4ymsbg2gb7jC956yselsDNUL0laRDsRs9osTovULFi+pZNNUpFBPU6TuivT86b5epvgSnw5Fr7NH8CoGGn6p0DoetRPtLA8Wj5BAqyMFbC2jgGAyKMwYiZqrI6LcvsZGBOg/zQuiIRnn2PMrftSGSFYeHxkzKxb1pNiXP3kV3qam/wALauinV5sPZf7BOHyGA0Bm1wiSFNTO7jbE9pS75BxkUfdgn0XxoQjKg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q2nCGDmSB5kxFeYZKwYb/bVPCanKnDnSu7RuP4rgChs=;
- b=Frq5JLbfAROFVMVrex94uGDyfjf46W8DpBcv5f8n2f5ShwzFVrCDbHC2HuGaNi6/HFhUzgswbL+1WdMRgNwI7yC073F1FgxDoyeXGtPIgICexQSTrO+fnQ6H+0HRhe8QMs1bUGSOwSTF/WkC4Bs00hvP8UQ1NIThXY/8GKcHwc8M+gBudZhoCa2EwCLTziEtyi4KPL4KkRzcZC6xf9FkuIbgINtmXqMymHdL3jcCpaqP3X0VL75d9JqbNyjIBKaSSOsYZw0jQbzBXMJJfghmDxBSANg/A4s9Kmiz4Ti9fuhgxVugP2KiPthTgI68TIRhRzaPGo7KK3S58djE+aqBaA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q2nCGDmSB5kxFeYZKwYb/bVPCanKnDnSu7RuP4rgChs=;
- b=pCZb/w6XUZEMV00mAQlv9HvwDqbUSzhkqaexdJRv845KpgPrZWjpqz9HNnSzcEL4rHUSrtzqcBPByIw5ZdsHqdDX76n918hok56DznS8hh2IPrhYvcB3HUqRbBXGMtaaXmz/RAAUP6C5NVn42b5skkwC+DwvcmOp/Rk3TM4b8tA=
-Received: from AM6PR01CA0071.eurprd01.prod.exchangelabs.com
- (2603:10a6:20b:e0::48) by AM8PR08MB6436.eurprd08.prod.outlook.com
- (2603:10a6:20b:365::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.15; Fri, 6 Feb
- 2026 09:05:51 +0000
-Received: from AM4PEPF00027A64.eurprd04.prod.outlook.com
- (2603:10a6:20b:e0:cafe::f4) by AM6PR01CA0071.outlook.office365.com
- (2603:10a6:20b:e0::48) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9587.15 via Frontend Transport; Fri,
- 6 Feb 2026 09:05:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM4PEPF00027A64.mail.protection.outlook.com (10.167.16.75) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9587.10
- via Frontend Transport; Fri, 6 Feb 2026 09:05:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pWG8ViwYrdH8Zy9is2rt7fqnT12bnMw70NVHx4KTA3riUO4c5i58xqBWw1m2FYoMtoIMMG1xHYZdgyi1pcbsfLQKs3nRS4GXqHETd6jA/eqIjERQpJrdccbOvnJqTsummvv+NbXYthzof2XGQ5iZCn3qfBrVE2nYGMso+i7XbvghJvxm14R8WYG6XnJyEoBMfO/CQAAZS8CaWnsOm39A7HzwwbCJY6uqwFaTiR8kDSH2Ux7LOa5J/HRXrNGAYF7cx91b+qf2axJ46/mHHF2ULp8fIQVKtYXfjLIQuavweKD6+YrmYCbLVbHYF+q9kWuFCcUrret1Vc6MQi9OD40wOg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q2nCGDmSB5kxFeYZKwYb/bVPCanKnDnSu7RuP4rgChs=;
- b=beHU18XO+poAPorW4hNDlpkRpXkJ9zM94HVna5gLH1S6ib1wHgdW5EwasDbDrzvlts5rI4pWROKgLkRWsVv8oTsH2cx0Maeod/f55BB+ihhT3CBDG58U18NV4ep+lmgS4g1S0l8cBRzDF+oCOQB0z1KIoLDaX/EQ6iVy/AKE689j3c9PgDnDmP3etxRqWhtOHYWP/OEIzTu+YfxcTa1rwA5mmI0J1GSjL2fJggaNybSjS4DFH1W3if2ot7ptIqu3lakMOdd/VUyi7eLf5RGfvtACtgxJP02De9H/rFJg6WkBHGlAuGaFAiomqAUYtwQ2WsqZAYmbxu5H7bv8IXyvDw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q2nCGDmSB5kxFeYZKwYb/bVPCanKnDnSu7RuP4rgChs=;
- b=pCZb/w6XUZEMV00mAQlv9HvwDqbUSzhkqaexdJRv845KpgPrZWjpqz9HNnSzcEL4rHUSrtzqcBPByIw5ZdsHqdDX76n918hok56DznS8hh2IPrhYvcB3HUqRbBXGMtaaXmz/RAAUP6C5NVn42b5skkwC+DwvcmOp/Rk3TM4b8tA=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by AS8PR08MB7338.eurprd08.prod.outlook.com
- (2603:10a6:20b:445::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.15; Fri, 6 Feb
- 2026 09:04:45 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::8c9b:58d2:2080:eb98]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::8c9b:58d2:2080:eb98%3]) with mapi id 15.20.9564.016; Fri, 6 Feb 2026
- 09:04:45 +0000
-Date: Fri, 6 Feb 2026 09:04:41 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	broonie@kernel.org, oliver.upton@linux.dev, miko.lenczewski@arm.com,
-	kevin.brodsky@arm.com, ardb@kernel.org, suzuki.poulose@arm.com,
-	lpieralisi@kernel.org, scott@os.amperecomputing.com,
-	joey.gouly@arm.com, yuzenghui@huawei.com, pbonzini@redhat.com,
-	shuah@kernel.org, mark.rutland@arm.com, arnd@arndb.de
-Subject: Re: [PATCH v12 0/7] support FEAT_LSUI
-Message-ID: <aYWuqTqM5MvudI5V@e129823.arm.com>
-References: <20260121190622.2218669-1-yeoreum.yun@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260121190622.2218669-1-yeoreum.yun@arm.com>
-X-ClientProxiedBy: LO4P123CA0454.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:1aa::9) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	id 1voHpu-0000000B50v-2MAe;
+	Fri, 06 Feb 2026 09:09:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1770368947;
+	bh=81Nfnr+VgGFh1r1KxdRZ/fW91tng+mO/I9oWaPLw1M8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Zeq14iJASuWMiCVaPM0Pq1VwmwDFxdyiFG+ZAxgtEY75PnbG9du504E8hcTbBT7aR
+	 ERjhnQPjndIHwksoMMDmEVPT4xW0SG4yU7b9Kt2wML+uSK8XwTpJY7aGhnf1sYREb4
+	 aDsdsN4D/aBFWNr3SY5PprTvRMKcznkaf6l/0g3muSFrXZ+KE6zHHYnFDChVkz8IWT
+	 kP8Udb2kwJm9E071SiJ9sA44iumwg8wIBoawYmxQpER9Y5fQ0COzRQWrFUYMw3iSjt
+	 UqkKrN0uGXhlsox06qmdQeKLADO8ehDkXDUOQXflk8w4xRcBdm+XjU7kGwMJkb6DbR
+	 YpdPjUXTBWUpg==
+Received: from eldfell (unknown [194.136.85.206])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: pq)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 837A117E1352;
+	Fri,  6 Feb 2026 10:09:06 +0100 (CET)
+Date: Fri, 6 Feb 2026 11:09:01 +0200
+From: Pekka Paalanen <pekka.paalanen@collabora.com>
+To: Harry Wentland <harry.wentland@amd.com>
+Cc: Shengyu Qu <wiagn233@outlook.com>, "=?UTF-8?B?TsOtY29sYXM=?= F. R. A.
+ Prado" <nfraprado@collabora.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, daniels@collabora.com,
+ ariel.dalessandro@collabora.com, kernel@collabora.com, xaver.hugl@gmail.com
+Subject: Re: [PATCH 00/11] Plane Color Pipeline support for MediaTek
+Message-ID: <20260206110901.660cf712@eldfell>
+In-Reply-To: <cdf6a704-88f8-414a-adf1-65ea7237337f@amd.com>
+References: <20251223-mtk-ovl-pre-blend-colorops-v1-0-0cb99bd0ab33@collabora.com>
+	<TY4PR01MB144323B0DDC18B05EE1472B5298BFA@TY4PR01MB14432.jpnprd01.prod.outlook.com>
+	<TY4PR01MB14432E7601C0BE848D25E80C398BAA@TY4PR01MB14432.jpnprd01.prod.outlook.com>
+	<cdf6a704-88f8-414a-adf1-65ea7237337f@amd.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|AS8PR08MB7338:EE_|AM4PEPF00027A64:EE_|AM8PR08MB6436:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7d7cdf86-2404-4b1f-d09c-08de655eec44
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?H85BW84MyFAWWvwMCVK+LtedMiTgsEALHlGTa8G5NWIZ4tWzaL8DN9kX9CWo?=
- =?us-ascii?Q?TBp/wQumGlPCKRPq+dZ4NOq4iqxHJcdy8ip0UIzC4KvPecDzjYFQtio4wHm5?=
- =?us-ascii?Q?dz8tWMH2Ds83Yzq3l7xVldehQa7YYu2UBtKy8G0ZnSorgPZ4/psvYL5K4O/o?=
- =?us-ascii?Q?VpTmxqbOsYc+/JTrA8HoJBISppICpQLi4KB+tywzInfHV3yrJ9j/YQQNYrqz?=
- =?us-ascii?Q?sj+Y62mxBdRK13qPxBb64QLYTWr9mNhsWIU33lj6MwX80q/+5Pz3lMzmRoJj?=
- =?us-ascii?Q?xlJ7MSROGiQnllo516zk+AVpRb9B9EPcNFgyaFZjFrntARDguHGgXI/iqx+p?=
- =?us-ascii?Q?L4YqP6SEukTHr3qCgczCcF9FKUEBIeW2SU/cg7nG5gobHz8aUSktGvpjK3Tm?=
- =?us-ascii?Q?m3aVXpcXS1xSdSFZuOrrfjVtnniEJTH8Z7MTXJuAMefuIGp6Uz2spcyVA5+T?=
- =?us-ascii?Q?C2G0QNcgqND+Rd8nlZjpeYxmNz0Np+cV3GWKMNSVUwSoFlAa002qyZ954x/d?=
- =?us-ascii?Q?9RkZHkqW3fk88jndaQ04XAXETylnZbTdAULWZODGBDzcH6v94M+u0AM5V8gx?=
- =?us-ascii?Q?4nkbrhwTbiljFtPvhuOmoC7s5xkp3BL57YHI+cruvBsiU2ybfRkLJ38vbl8g?=
- =?us-ascii?Q?JNnapWTQuTBnhNPak+rYikG0b5BqBtDIb41Wu9nIZ6EqEKtBzxKJ+vH+KkHp?=
- =?us-ascii?Q?Umqd39umfMV0bgBBX4Tn7ZqIud6kp0RiWHhlZxKoPaE1zpJZgh9I5b6a5cn2?=
- =?us-ascii?Q?jj16wjtqsc2RahvEJ6CJ5RLLkE/JQX9weti0nuDo/s3tkQbKk84rMwvmQVAU?=
- =?us-ascii?Q?Rw/vX+6e7/xY/fAYRCDvBXe9hU5pNm486y5AuwP2uFX9M/DV90f0uMzp+aKo?=
- =?us-ascii?Q?VKuyYO7peeuP7mVQfEXCQMRYTp1Rl16M5PcKja5E51lmw/hB/8qLNY4eo+wK?=
- =?us-ascii?Q?0nwYcBtMGUyGXT3JFukdk4rLWp6gk42cIusvZsFc/PkASn4geMctCVsdnbKG?=
- =?us-ascii?Q?oYB453XxSI55RtwWbvWzye15+uBe9DxhlpLHUiseCT/DomO+KEE+LPvPhQ+o?=
- =?us-ascii?Q?Dnr3umw6xSj4/y1u3ASoeJsgSzRMR4keLvJo5RylRj0PU0yLb//ceKvVB6hw?=
- =?us-ascii?Q?rxK+mQJ7s9OnIACvpZo58GkZAtjGmO01oqYPcTBfJJL47gGBFPeKJpj63tT1?=
- =?us-ascii?Q?6NKwiVz4PedshGys0BZlo81HIlIpW2alfy9T1y9yogIWx30MgyrzPHPF2kvB?=
- =?us-ascii?Q?ZYdiSfZlA5IxGXWhTxaGIi/7/YlpyDwBlUAHFXKciqefOYjU6AWAqFEHqmNe?=
- =?us-ascii?Q?3p0HMTETQnq2wlGQshGb/nhmHDvaHeWu9w0raZK2n9iQVN24MqUY4d/YTDu9?=
- =?us-ascii?Q?+c6U+TjXnhkuo6ZG/CVPZ+L49z/6e3L580oy+gTWcDd/LiIl59IBnBHbkq5Y?=
- =?us-ascii?Q?/vYgKW2S0RPeF7AY0jsqw9COx2Sf1BwCd4J00FsXq1WfJdOVntuiECW3Om2C?=
- =?us-ascii?Q?qC99Vmg8w362MxTE7bwP3gzfE61B360VK9t4H7jdwRuTIFPaFZDapXhk9eVf?=
- =?us-ascii?Q?omM9HshnipPkFjPtEk5537JcwnKIic4zsgMqhTDE?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB7338
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00027A64.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 513d1646-f7b5-43ab-4896-08de655ec568
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|35042699022|82310400026|1800799024|14060799003|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Gi//4bNvwUI2sKlm4S7JqwKh1s3vkENwxFH+HZkeYntIBlkkZMpdFFhCZmG7?=
- =?us-ascii?Q?GFmFD3NfHVaRmM/Q3JCnNLIj8v6yTqAWq0U/F+ysfkp0c32kLCwZO+zBE+8n?=
- =?us-ascii?Q?o0MgiTEyXD9OKWY33WLRcwyh/tX71e0vPhKfqNBmNRCeDcMfk1ThE+ERzGhP?=
- =?us-ascii?Q?8OsjJsxHptfT4kttdexQ2YSdBX7tHTfmCntQNq7iuaXJjGrbLhbGSn8fhxvx?=
- =?us-ascii?Q?Cfwd9wDDeZIgk6jX9ojnXE98GeR8gaKmAcXTJhp6wuirLEuHVaBly9ADgNBE?=
- =?us-ascii?Q?N7q7GkFXEn7XJMw+Iyc5vtAWe4pDR/DhHVuonDISK53ZquvlfKHQLeh0onLo?=
- =?us-ascii?Q?b+ttaBWk7oD1D0PPLXBC6LB/JzaS7Qc4VPcm7G1vXbgPXvMzQPnggtn7JIL2?=
- =?us-ascii?Q?4zaAAzqcu/NR7F0hl9ZPFrbsucNOzIYpSfx5qYlffixw8MeCjo+RYbWKCYm/?=
- =?us-ascii?Q?wz7/6AVXqXgkLCRkEibLSQBud+Rn86cDUHxH+GIJFzDEGSKPf1nGbgOcEyLs?=
- =?us-ascii?Q?bqtuDdsRCNrGa7ahHXqPuU9Dk+N/HA1tGnuKnrLUnRi7r2/C/Mr8+NmfOw18?=
- =?us-ascii?Q?/8/NcHjHG6/4swt1QZs/GMqXNpOvZ6j574D8XPl84XsYO01PGCdQ3utdVRMy?=
- =?us-ascii?Q?pE0QsZIiQEpf+PSC8/28Q8xyZNEmBv3cry1ks5bUuD9twrMBihlJkvXhA4gN?=
- =?us-ascii?Q?KS8vYpgQM8pYA6W32zvt3edP6vcyBY8wPoZOZr35hHWJhoc7i6bOQxElygMY?=
- =?us-ascii?Q?fNRL3j+q/mjnw33KnlZILO9iJqYmphMCNcyvUjiuLUHxbBKzqkt94ISzSay8?=
- =?us-ascii?Q?8WkxEPD27SlucsGmYdUttw9OIkdqDz0o7hwerG0T7yX/eeK0e0D2LyJlD2IC?=
- =?us-ascii?Q?FhevuwF7miRc3csq9TER9nAUpPg/qCiVyx0gNjArAoMqE+IMy4vb4g2eZTiJ?=
- =?us-ascii?Q?RdreM6dE2gJasqDzXrPtScIcpBdQ8Il++LmRmv6K5wDByfpS5AP69I5LnjSt?=
- =?us-ascii?Q?DHZCFzy8PUz5LyDE5+sgr+hBuXjdHSOAgFbP849aNrKXFhSdZvfysMv3J34h?=
- =?us-ascii?Q?Mpw2u3Iwad/YoUN8JcMCMBXOyuI6owGHOZPMa1m6WXIq4gOvKWnOLD5Yvd5G?=
- =?us-ascii?Q?oOzVJVNIwDkZKz1ruahJ1YVI27r2gKcdvyN9pxgNU53kgOmSIvvPSOlBpnMG?=
- =?us-ascii?Q?P4hlQveN/c44lXeustH48F680p2jhkd9113GstMqIUGfyYPp24Yj3eI+cWZg?=
- =?us-ascii?Q?90Ykn7NxkFo583sZTh9jm7qUE3fJVI17vlKmYGDiGtZdD0ELaNFTemt7zN4J?=
- =?us-ascii?Q?iS1+Dm/HsFkj2Lin38zsw+zh5UbhLl47gZ87ufEIQ36A62cpVQVEZ2S9jIqB?=
- =?us-ascii?Q?vhKmFlaun/dJmfZMknKuuu7UgAAEaxQA+6eAWEN/H5uczR7mzEIldHq5TKB/?=
- =?us-ascii?Q?Ddq64QDX+vMQ57hCxT/mu7KJeTfBfYTIvw8ezQJ+R5IACugM1kO/7ZQ1OQ/p?=
- =?us-ascii?Q?4Bul9xTYV4rSIXTof+gqUR1N6EqwIh8iMfOBQvFE8gqhw+tPZIQGAZK3Q3qR?=
- =?us-ascii?Q?9YigX40YWn4/Nch5AhDpX3U5n82qOks6M9NJPkrI96PngWBSrCb/HaObRPjZ?=
- =?us-ascii?Q?QRbk2tf2rh2diq7bcrvPzR4+U66DK9mb5DHkwhVsXVrD2MpVovc5b3n2hxwu?=
- =?us-ascii?Q?WoBhvg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(35042699022)(82310400026)(1800799024)(14060799003)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: UzlVToVb/q9xagyhR2+pwVl8PVXVcVVTd2/+LvbtHFOcamIVTD+Hpkc0X1v46sEFrmBSm+M11gEeoCag1ynFy+Ikm8XNNh1yWpZ4rzxz5juwWK6Bh3dMbzmuvLygn5vZsRRIvecG3Xu1CjTPPPeJIU0fHOzRGAA6K13ns+lc/XbatSJ8cE9PzR70OSivKUX5ezOcTOOgcgoGJpYccy5W5Hh3Xl4Pf3WeOm5xFkGOv45Jrl21T5jzPPczcBGdIzbpwksJ7zmURluPUc8/p6qix9P6jKyemuGWooblQ+hyeNNRfr1eJahDZ+dShnP1e/1lbbqul9ocVIPfNGBWfWr99JZQUpz1uu9Yxq99lBi9JH893nLX2gVLjgR/tbIDKWc5Ghdf9Gs6hxZ1wlBPwWZBIf7+otwBZOITXHPKKqguwMXh7PZcvLnXSP76Vl4h2Tom
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2026 09:05:49.7569
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7d7cdf86-2404-4b1f-d09c-08de655eec44
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A64.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR08MB6436
+Content-Type: multipart/signed; boundary="Sig_/hCOlWIbx7XSjDW26hBp0SP7";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_010600_511201_177F0B7F 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20260206_010910_785245_E2B3F64D 
+X-CRM114-Status: GOOD (  22.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -210,108 +85,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Gentle ping in case of forgotten.
+--Sig_/hCOlWIbx7XSjDW26hBp0SP7
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Jan 21, 2026 at 07:06:15PM +0000, Yeoreum Yun wrote:
-> Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
-> previleged level to access to access user memory without clearing
-> PSTATE.PAN bit.
->
-> This patchset support FEAT_LSUI and applies in futex atomic operation
-> and user_swpX emulation where can replace from ldxr/st{l}xr
-> pair implmentation with clearing PSTATE.PAN bit to correspondant
-> load/store unprevileged atomic operation without clearing PSTATE.PAN bit.
->
-> This patch based on v6.19-rc6
->
-> Patch History
-> ==============
-> from v11 to v12:
->   - rebase to v6.19-rc6
->   - add CONFIG_ARM64_LSUI
->   - enable LSUI when !CPU_BIG_ENDIAN and PAN presents.
->   - drop the swp emulation with LSUI insns instead, disable it
->     when LSUI presents.
->   - some of small fixes (useless prefix and suffix and etc).
->   - https://lore.kernel.org/all/20251214112248.901769-1-yeoreum.yun@arm.com/
->
-> from v10 to v11:
->   - rebase to v6.19-rc1
->   - use cast instruction to emulate deprecated swpb instruction
->   - https://lore.kernel.org/all/20251103163224.818353-1-yeoreum.yun@arm.com/
->
-> from v9 to v10:
->   - apply FEAT_LSUI to user_swpX emulation.
->   - add test coverage for LSUI bit in ID_AA64ISAR3_EL1
->   - rebase to v6.18-rc4
->   - https://lore.kernel.org/all/20250922102244.2068414-1-yeoreum.yun@arm.com/
->
-> from v8 to v9:
->   - refotoring __lsui_cmpxchg64()
->   - rebase to v6.17-rc7
->   - https://lore.kernel.org/all/20250917110838.917281-1-yeoreum.yun@arm.com/
->
-> from v7 to v8:
->   - implements futex_atomic_eor() and futex_atomic_cmpxchg() with casalt
->     with C helper.
->   - Drop the small optimisation on ll/sc futex_atomic_set operation.
->   - modify some commit message.
->   - https://lore.kernel.org/all/20250816151929.197589-1-yeoreum.yun@arm.com/
->
-> from v6 to v7:
->   - wrap FEAT_LSUI with CONFIG_AS_HAS_LSUI in cpufeature
->   - remove unnecessary addition of indentation.
->   - remove unnecessary mte_tco_enable()/disable() on LSUI operation.
->   - https://lore.kernel.org/all/20250811163635.1562145-1-yeoreum.yun@arm.com/
->
-> from v5 to v6:
->   - rebase to v6.17-rc1
->   - https://lore.kernel.org/all/20250722121956.1509403-1-yeoreum.yun@arm.com/
->
-> from v4 to v5:
->   - remove futex_ll_sc.h futext_lsui and lsui.h and move them to futex.h
->   - reorganize the patches.
->   - https://lore.kernel.org/all/20250721083618.2743569-1-yeoreum.yun@arm.com/
->
-> from v3 to v4:
->   - rebase to v6.16-rc7
->   - modify some patch's title.
->   - https://lore.kernel.org/all/20250617183635.1266015-1-yeoreum.yun@arm.com/
->
-> from v2 to v3:
->   - expose FEAT_LSUI to guest
->   - add help section for LSUI Kconfig
->   - https://lore.kernel.org/all/20250611151154.46362-1-yeoreum.yun@arm.com/
->
-> from v1 to v2:
->   - remove empty v9.6 menu entry
->   - locate HAS_LSUI in cpucaps in order
->   - https://lore.kernel.org/all/20250611104916.10636-1-yeoreum.yun@arm.com/
->
->
-> Yeoreum Yun (7):
->   arm64: Kconfig: add support for LSUI
->   arm64: cpufeature: add FEAT_LSUI
->   KVM: arm64: expose FEAT_LSUI to guest
->   KVM: arm64: kselftest: set_id_regs: add test for FEAT_LSUI
->   arm64: futex: refactor futex atomic operation
->   arm64: futex: support futex with FEAT_LSUI
->   arm64: armv8_deprecated: disable swp emulation when FEAT_LSUI present
->
->  arch/arm64/Kconfig                            |  20 ++
->  arch/arm64/include/asm/futex.h                | 322 +++++++++++++++---
->  arch/arm64/kernel/armv8_deprecated.c          |  16 +
->  arch/arm64/kernel/cpufeature.c                |  27 ++
->  arch/arm64/kvm/sys_regs.c                     |   3 +-
->  arch/arm64/tools/cpucaps                      |   1 +
->  .../testing/selftests/kvm/arm64/set_id_regs.c |   1 +
->  7 files changed, 339 insertions(+), 51 deletions(-)
->
-> --
-> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
->
+On Fri, 2 Jan 2026 13:40:21 -0500
+Harry Wentland <harry.wentland@amd.com> wrote:
 
---
-Sincerely,
-Yeoreum Yun
+> On 2026-01-01 07:37, Shengyu Qu wrote:
+> >=20
+> >=20
+> > =E5=9C=A8 2025/12/30 02:53, Shengyu Qu =E5=86=99=E9=81=93: =20
+> >>
+> >>
+> >> =E5=9C=A8 2025/12/24 3:44, N=C3=83 colas F. R. A. Prado =E5=86=99=E9=
+=81=93: =20
+
+> >>> Given the lack of support for writeback connectors on the
+> >>> MediaTek KMS driver, combined with limited hardware
+> >>> documentation, I haven't been able to verify the correctness of
+> >>> each curve, only that they were visually sane (gamma curves made
+> >>> the image on the display brighter, while inverse gamma made it
+> >>> darker). =20
+> >>
+> >> Hmmm I don't think this is acceptable. sRGB/scRGB has two transfer
+> >> functions mentioned in original specification[1]. To keep color
+> >> accuracy, we need someone from mediatek confirm whether this is
+> >> piece- wise or pure power 2.2 transfer function, this is already
+> >> done in original amdgpu color pipeline series, sRGB means
+> >> piece-wise while also dedicated power 2.2 function exists. =20
+>=20
+> Not sure what you mean with this not being acceptable. This is about
+> enabling HW support for this functionality. Not every HW has
+> writeback for testing. At some point you'll have to trust the driver
+> devs if you're going to use functionality of the driver. We're not
+> always going to get everything perfect, but if that's really such a
+> worry you can always use shaders to do precisely what you want.
+>=20
+
+Hi Harry,
+
+yes, but I understood that in this case, the hardware documentation
+available is so vague that it's impossible to say what it will actually
+do. There are no formulas given or referenced in the documentation, are
+there, N=C3=ADcolas?
+
+The "HLG EOTF" is probably a good example of that, referring to the
+reply I just sent on the patch adding "HLG" as a curve.
+
+
+Thanks,
+pq
+
+--Sig_/hCOlWIbx7XSjDW26hBp0SP7
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEJQjwWQChkWOYOIONI1/ltBGqqqcFAmmFr60ACgkQI1/ltBGq
+qqfVuBAAhRSCzEHvBUtrOp91RdRbG2YPSFu9qQcoCw3vhnQVW16yyqFIhyLIYYvh
+Wz+xqAHzjRwSlAQkt0tWCvLfQyOagIHc16qKV0ILgMhe9WS3L54kzGL8pusw+MFS
+e7N+hU/eTPG0ceOOBKvTB9iuWoMIMJFglSj3EX2B6NRoVeo1JxptRUoRrA4p3nh2
+IRGTOlqzOj75VbQkJRJZynwxiLiNoCj1qJzKzYsZpEx0mPUr283LiVujio0Awl/B
+iIfUbgczUS/hkENMjixJBEWkVX1V4iys6GLraJbLWqrdF5EgWEFkIOOO/iEg9rJv
+JKJZixdCs4TppDcs0lvBya5D/0gvMKJMFeZQGcqD6jNTZBuwdeoAXGcQcbuz0ljE
+R8K3V9nTHf10Mhwk2Qwp0zWAedcGM1rEIgZnlFZlTCizqcO0YCfc6iwNvat2jTUT
+oNuVbGQWXzWGb8cpGKlQ57ftrUEPdt2KCceJ+Cn3R5NAYTV2K4H1wN4aK+VGtXU0
+Wvq1Psx2H9VlualOEBWDuTCmH1EFz+UPaMXpFWnKDOhK8qgA0r0yUffyfJP7kXvh
+15d6L/2XOzbB0XnckisC/fAPX0usTGEOoNqaZVoJRGnIuYvWx26haI8R1gbmDz1G
+tdgfsmYrIdytlgiSFWzIF/9VlsBP8kOro+za0/Qt7w7surapmBA=
+=QU4T
+-----END PGP SIGNATURE-----
+
+--Sig_/hCOlWIbx7XSjDW26hBp0SP7--
 
