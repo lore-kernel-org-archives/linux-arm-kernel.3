@@ -4,161 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C686ECD9B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 00:11:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90DCBECD9AA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 00:17:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bfeRaD8GQllPFKvIVEUXK2m2msjCiurgcjviSoH1Xbo=; b=25JlKGAJEFzpuJ03HcZX39ogtf
-	v75XqeSzCojxZ4VQ3fQawtcMz7rouAAaIlDIYH32UDnv2cu2cET8ZsxVkfGh5ioXpSoQsZZnIkVgH
-	nMA0KKwRjiUViMhcfz5YusA2oU/7xhJP3UKqPdkPbJlc3svoWDRj9jTpumsXdx159xpaTNsDWzfRv
-	Or2qGj65lRIk67UMZ+YNLdZD0oAQOdM9/Lvu3CyouzWr/vfU3qLvBbtMK8t4ZDbndSjUCXZtDTWRB
-	xlsdBPNum79UZS3u+w/8ZygBsiA3QPmsHV13vuiZYiDqsxKSdmPZATTX2ToipdXxgXdLhUxBwXIZU
-	Lvkd52jA==;
+	bh=/Pdknl4VCBK0JqqyTqmHNyAtQCN1C5na3fDZ0S3uGH0=; b=ExD22pi5/a1LgLRI3M5vZocPBd
+	YwR9Yoem2BtI27rG3klPugW2OVhxeP7W5ZqSvOYqfqz1raQXzJCf92np1S2G9SdJMq9Hdbms9Xk+I
+	u1EjGl09WT5FM4UwIlXSE1/DIue5vXMPif5wWOuuZ2C1n7VP0p1ErsjycBQVBUMpbVt3JN9D2Brcl
+	rv0D/7pUtSteYUVE0Jjda8R3q6yaFWI85F+8Dx6SkeMRNBp5cwFpXSbN/QsLcfbIgU6W+y9kxPBLv
+	qCx4fZ8mKuetLgr4eqal9zhxaj+wu3+vIf88dTGLqH6+TJaU5FReVzXUusTBkZvTq7wyk5PWdlR9A
+	zCejCavA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo9RS-0000000Acy0-2c5k;
-	Fri, 06 Feb 2026 00:11:22 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vo9XD-0000000AdFb-2JbR;
+	Fri, 06 Feb 2026 00:17:19 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vo9RP-0000000Acwn-40hB
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 00:11:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ABms9RLC4paailqVS6/WVLBee0LpQAOEizM1J/Ak2ErjS32kMagtcTkeVMMww1oXQm5jPV9SaqL6u9Z2uTxjavMUWUmxKHtouLAJCtjkUgtxSBQNYY5Q23y9geyr7HiCb5XzzGqFlhnUpfi8y84ePbN3lkucEmgPqDZqdBjoR1CAoatubJeYNobPZTfhO9f6dRCJBISACxRAiBEE9xTTUEUYYh9NEnqdhqLdP+Zfb8+8EDQh0cGe8AGl6g2841e7Hbm1YG18mHwZgTTEDyL0Vc5QSjSlTvnUJFQ1XMglTw8m58fV6E4rd2nMQ6Qj3rVS4AgBTeAhCtGYMnNsG4rwvA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bfeRaD8GQllPFKvIVEUXK2m2msjCiurgcjviSoH1Xbo=;
- b=FM7eLQ15OmJSIx887R/K0DaNG2aoDaTjn3t9shnr9SijlJP861Hej6WFtvxDurmnXXOJa2paiyMOYHnA72IbY5Rr0Ucwru1ZuIbmxP0EI07ybGiNg6rrz9+uKB28sjIIWw+2YMqerVtoUPeYbQqMbAwvG5m3UBX7unSlUnVDY6GuYEv0D31DmMkIKMGogGdRmzqQzXGdR2YTTL2kZnhWvA72yLjZtv/h3g70lJdxU+XOLYfcJdlfqlKfpXB0sdfu9N6RBnVOjRajnKN4IlS9i9p1Rc5wDbsUETI6mZx6E2KxfdilY/itaC95kVIIUtM3Q3bL4p5FHhA7jMYYipqRLg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bfeRaD8GQllPFKvIVEUXK2m2msjCiurgcjviSoH1Xbo=;
- b=jH4KR77Tp30HIoPukq7rDJZlNdXpecSG8QAhVr+mzHWyV9A3Mds+XxF6S/ccZHvrNWg67SU2s/9QMiT7Bz1F/cimkcpA0vSl9V2TmXatEuwssnsrxJpcOwPbpOsKddztHlITQIuBbFQQUjR5rdqeNzJMaZuNX48gDwgpUvFEMyW90RpcX02qCcQtIp1bujoFcrCzDty0HKFMjnZjI83IJD4rcE8gx8LieN98kulkm301bEdikOZWut0ACIrjyw/58GP1tZQVSTJCrpRzUGrsns3SD56CVYzdsnF7CJyBvntLGz918f3WnlEr9BGsKHoO1RGGNocHN7aEWV5f43Hsow==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.15; Fri, 6 Feb
- 2026 00:11:13 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9587.013; Fri, 6 Feb 2026
- 00:11:13 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Felix Gu <ustc.gu@gmail.com>, Abel Vesa <abelvesa@kernel.org>, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Frank
- Li <frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	Lucas Stach <l.stach@pengutronix.de>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Akshay Bhat <akshay.bhat@timesys.com>, Ranjani Vaidyanathan
-	<ranjani.vaidyanathan@nxp.com>, Shawn Guo <shawnguo@kernel.org>
-CC: "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v3 0/2] clk: imx: imx6q: Fix device node reference leaks
-Thread-Topic: [PATCH v3 0/2] clk: imx: imx6q: Fix device node reference leaks
-Thread-Index: AQHclSS+QdwHmUB70keuaMcGCoIoEbV0z8tg
-Date: Fri, 6 Feb 2026 00:11:13 +0000
-Message-ID: <PAXPR04MB8459FEAF3D171751E3A8E0F28866A@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20260203-clk-imx6q-v3-0-6cd2696bb371@gmail.com>
-In-Reply-To: <20260203-clk-imx6q-v3-0-6cd2696bb371@gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AS8PR04MB8833:EE_
-x-ms-office365-filtering-correlation-id: 4ad9abfe-7149-4cd9-ea17-08de65143d63
-x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|19092799006|366016|38070700021|921020;
-x-microsoft-antispam-message-info: =?us-ascii?Q?d6DPtF2ip4Wn0vX3OXitKy4NwSk0Ukg9uf9+Qq29Vuzee5FWMePVAUkUFS2E?=
- =?us-ascii?Q?WiOGgx612oC1T6q4OyplYx90XZKUspkVG33DdF3CssMgJbjSxRWz2Ifd3LkS?=
- =?us-ascii?Q?bhin5moBLkeCkpD/kxp4wMis2eQikVYBB5TYy0SsfcNFGSkJyLuq0WI1MLVg?=
- =?us-ascii?Q?U/Ft0XyKeSlRwpbyiVsrVmiUHvqPcAT7piz5ISSTF8Eg7RTFmEEF3iH0SlVw?=
- =?us-ascii?Q?mB4NEE9jG8Ds+K5hf/zymeWPEYOpUEgkkt8IUC88enwyAOtBCWSVACOsf4LC?=
- =?us-ascii?Q?2Thfv5UG+mUBSWRVc431ZqNEKf15mTiaFLeJtaGLzAcjp97ROx7uZHFUfkzO?=
- =?us-ascii?Q?WfW+FxGmTD6W33ED1Mm1PMPb/SHJKuGSMeYk17itOvKQo35lKPoB6K926RWp?=
- =?us-ascii?Q?KVq5VpREciPLBT+X5zNld45jdcaAcZwFKWvSTlS3mQmu8x+9C6F5x3hEnHok?=
- =?us-ascii?Q?3nwcEfM2pERrBVZ8aKz3r6dWJZXWvBeO736+KkZmhdNrOQcgjMPZ2OnWqibG?=
- =?us-ascii?Q?r9XEEsAdtd+XteBad9VmwvxswstugM/DZsl+kKZr3eYAX/zlnl5gCWkoBb6O?=
- =?us-ascii?Q?KGBm3WWnuryNT05D0kuumM66rcn6kISfCxpHFK0PyhXuWo8gFO4HGra8B19a?=
- =?us-ascii?Q?/wO4ROzNrMZqqwKEJ885fl1VJMag1p1s+lvSQCbLAPVoXUKb6IptwWdnctws?=
- =?us-ascii?Q?dad6lHlHLKQpIOBTdLBncPWgSTUUGxCxF46qt8/jGRGfyohW9mYkst/tTQFs?=
- =?us-ascii?Q?D4JskQE7wn2nbpm+AYUhai52PTzLpK0EkPWQpHyLuKu2p2gB9YpeegejQN5o?=
- =?us-ascii?Q?w2dcuT6VDGteKpMmY/fjr7aGETgyvfiak55bGDH7th/noK5CYVWXCTksLQiw?=
- =?us-ascii?Q?dLn5FM7tq/sKATvVXFpybGa278Ji6C6vx0NZuwKT7Zp4XnNIgz9FtQ6h3Nnk?=
- =?us-ascii?Q?MQLzCxdewa6l9RPhLFrCBqCagcqIEL33SJAGkU09pCHY+b02jrrlf+Xj/zpY?=
- =?us-ascii?Q?9cE0Kst0SoNrV40zTgot0FRn3A8vkI3ZvPPF3SxJJjGvNXIowlLUMmIU0r7C?=
- =?us-ascii?Q?nD/c8Q4jqPrhqtpqbnJKVjpE7IoH030twNkk2cuP2JWNGzeIyt0NMUGhQSAc?=
- =?us-ascii?Q?yqHHYhEDSxnvNUYhrPaKUU4yWn4kIDpjzag8lW1Halj2U+TdfR3yyc2csXXa?=
- =?us-ascii?Q?D7rkcpQTUML9Ys2mT+XGP5Dd04l04gu0FHD75oErB+86LgI+d+LwRkNXczV9?=
- =?us-ascii?Q?8QtGxa1vHQZ5YP+8Mak1tf2y9eIt0ln21pMumg2cz20NkYBM2ujQxnXJkuFw?=
- =?us-ascii?Q?etpICfes5QX9kGPT3QZGwsPDtG20hpA2kr8VyuWVQ9gSsOG0rp5nEY5dgqUO?=
- =?us-ascii?Q?pS60uLV8iLS6vsh79gg9v+QClWhHVwSR/+jwERHiYY3T0v1vGrWdL7SqtRRT?=
- =?us-ascii?Q?TdAkjomHMnPeB20cJqjPqnf6c1D1jxk9q7Xth1Qy049547BmrUA2kgt32Hun?=
- =?us-ascii?Q?8hNBxgz3IReTTYEkM7uNTE9dftLFOwBcD8cydzHBVlIdIavXRMGb+lYT5lKQ?=
- =?us-ascii?Q?ciAvCJ98hXryxXTZx3ENeLdeAWHUP3sZNHnRq4Ld/+AzLqMyCtLPXtPVuZNd?=
- =?us-ascii?Q?V1aOta9wn7bTixxYhWrMm8H4iYx9XShOouGUDnt7aIqI?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(19092799006)(366016)(38070700021)(921020);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?R91iaReZgX0RUdlts9rgPmR1Nepps1G0zf/HEnVHuTVvTaQpTAsWYXJY81gq?=
- =?us-ascii?Q?Ti9xtZivVait0ByNu3as3w5iou+UwfZ3hDHAZqH7Rw/WyjYIOmmW9pB53eqt?=
- =?us-ascii?Q?7HlRk3CeLruobSQmPWf3rLschWLmUIFe6OpxozA1yrVjBTS/z5Yvs6Y6eoDw?=
- =?us-ascii?Q?7ykhv/hTE2ywYNoNBS9CGIRDS4QaOoQCQJNOPUHIPYXri7gjuJarb5iEdsg1?=
- =?us-ascii?Q?qFzt6Kb1pBBlLO/Aw11IiwNGVuuO9jvATFXcMWibZTTqhvDMX4XWGM839ufd?=
- =?us-ascii?Q?ia7BSsf36KPCAxwcmhjcPIIjXj704QGuiQBuKeGYS1AXOKf7yotRIewFlNfK?=
- =?us-ascii?Q?2xaIKF7K5UVKFw5Fyn1setzeyrx8ms1O1zlsIfLclrNt5RBJu32LjMfs8V50?=
- =?us-ascii?Q?RkXIJdMFkWqrlpJcvonSI2EPuVuJLp5mX8yUsygRMVlRvWiiWUZPIvuUsse6?=
- =?us-ascii?Q?45EDbQAvgBa/MOJtIRkyqzMDfStAGqU2/W5Es97/eRGmgxLzXR/Fu0QWDpy/?=
- =?us-ascii?Q?JlP4qf0cFstJ9ELysV5wUp59ZqjoCo5y4F8/M1kb+6B/GUUo/NLauT07QrEC?=
- =?us-ascii?Q?T/A1+WJ8ECuCzrdWcQE4bcQY6OmTFpPujQ+oPUFRJRMlmHQeqFTI3uxhuB3I?=
- =?us-ascii?Q?WfmNNmxbIm7nLLOsW/HiGnH8YkVNp1CW534M5EbuI6Y8CEcKt7YyDaMHoMHC?=
- =?us-ascii?Q?egRhuzTRWYJspUsgjrnF1r5k+6CDkPnPJcEQ46qzDsadrNtnDF829UIEcTSo?=
- =?us-ascii?Q?rH0ej+Z6r8PGx9yS+cCOmM7lABvCwu1rkc9BdJKmq+ozls5THL22evxiaxbn?=
- =?us-ascii?Q?udM3ycdg78gRYTr7Yy/fmc1YIbMJjyR8FTaWrb+GZSOOiT5dhrKSqu/apTiz?=
- =?us-ascii?Q?JIhDSRa/XwTI1Pc29bGDn3aXUxDng25qRwY75n4BoIJdhWIrq98wGOIQHyQd?=
- =?us-ascii?Q?+8EdnPbN/mfTgnkQomlMaueagUBmYCW2VSG/N/lhESLamOVbkPN2OC/EwKnj?=
- =?us-ascii?Q?1XStbrhiJWEclXQD/gIjy52fqVjJIiL+sr/qFQUlrdywpy9p1jRlEAyHhF5k?=
- =?us-ascii?Q?OdkPFAEKO98Yx5/lHZzJ9W25ozrbD3i9K7+oy7DdhTLgsvMN9/0ZXMhE8ngH?=
- =?us-ascii?Q?SeVHYx2xdpmVsrjSG5J2Daj7Ho/zJ9ib6QehLGNHuiwSXsnColaC91XxsN1l?=
- =?us-ascii?Q?/Ce/iOcmesJUEKvX6jMg8qAJF88+zs7AlMtzci9eKYGdkihee2qOxW94xD2N?=
- =?us-ascii?Q?2dU/s5365I3y4eWoGmxAPiqQ1Rr8F0t2M8pOili+lmB7+XxbSDpntS2815pP?=
- =?us-ascii?Q?pDLBPnTPv/Y4clHZlB5aCFm75bt432d+bdGtnxzWYbM5chd+vJ1WWj+kN+QP?=
- =?us-ascii?Q?fg7qr3QQW5R/8EQtuuiXJoB270u1MZb8FeTDfhD3HgQ9js9sp9HvhwAFZMBV?=
- =?us-ascii?Q?YW/MhPiX7pPwo0jLvJeLQXoplJBYHDE0ppqdX1a/HdEvj2lMMw2oVsGHjDTE?=
- =?us-ascii?Q?weZ7kFWD6infer9F7zSY+MxCD+apvaUROXcscSvkBqsEzKxOdniUjlV9YqPp?=
- =?us-ascii?Q?UsE0o7fhoqjiJEfEnoAlui1Pbn+maasLP/9U8ipKqskZU+px+LtdzXQ+1bJy?=
- =?us-ascii?Q?vcOwq4XRMpoRlsPH9EBnQZaN/jlEH/tMdOEuXZIZUWVMxISlI2TcWjk4sdhF?=
- =?us-ascii?Q?sMHEbODFt6guQf9Ben+5OBhtBzXmtKcyavUGOPW4S69eLa5H?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1vo9XA-0000000AdFB-099b;
+	Fri, 06 Feb 2026 00:17:17 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 46BB22E0;
+	Fri,  6 Feb 2026 01:16:27 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1770336987;
+	bh=+zx3CcSOxbuZHtxc0X/7I7ZXqnSEJs5fHZ7SfchUkVg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lDU34SVI83VfuujXi7Jgc/2zUau+FtyYoWl97hWYp0ZfASVbP6vI36yoQ6HfREtTG
+	 JmsifRHAd6tdUoBasOdn+V5ScTmDke8CqmeD+9yAxLiGT0OHDZ3utHiG/5aVXSI5vj
+	 Tclzixnxx05QksDcSk2lm5vOuzPhbQzpSdD0LRTM=
+Date: Fri, 6 Feb 2026 02:17:08 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Isaac Scott <isaac.scott@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, dafna@fastmail.com, mchehab@kernel.org,
+	heiko@sntech.de, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] media: rkisp1-isp: Set correct data mode for YUV
+ bypass
+Message-ID: <20260206001708.GD1376807@killaraus.ideasonboard.com>
+References: <20260205103207.4020959-1-isaac.scott@ideasonboard.com>
+ <20260205103207.4020959-2-isaac.scott@ideasonboard.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4ad9abfe-7149-4cd9-ea17-08de65143d63
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Feb 2026 00:11:13.6714
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Nl+cb2Yn2vtjcA+6/uyptgkdhTgKuxYa+I9YUsMpTqaY/NVekDykAwnGFiTMCHIu6imJqI6s2r+9Zwms3xozrw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8833
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260205103207.4020959-2-isaac.scott@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_161120_028268_0E156863 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20260205_161716_514055_E0C1640B 
+X-CRM114-Status: GOOD (  21.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,28 +68,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: [PATCH v3 0/2] clk: imx: imx6q: Fix device node reference
-> leaks
->=20
-> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
->=20
+Hi Isaac,
+
+Thank you for the patch.
+
+On Thu, Feb 05, 2026 at 10:32:06AM +0000, Isaac Scott wrote:
+> The rkisp1 features a 'bypass' mode for RAW and YUV formats. This
+> disables all ISP blocks, and makes the rkisp1 display input data from
+> the MIPI CSI receiver at the output, unmodified.
+> 
+> To determine whether we can activate bypass, we can detect whether both
+> the source and sink formats are YUV. If they are, we must configure the
+> ISP to expect a YUV input, interpreting H/VSYNC signals as data
+> enable / disable.
+> 
+> Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
+> 
 > ---
-> Felix Gu (2):
->       clk: imx: imx6q: Fix device node reference leak in pll6_bypassed()
->       clk: imx: imx6q: Fix device node reference leak in
-> of_assigned_ldb_sels()
-
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-
->=20
->  drivers/clk/imx/clk-imx6q.c | 12 +++++++++++-
->  1 file changed, 11 insertions(+), 1 deletion(-)
+> 
+> Changelog since v1:
+> - Removed in_bypass flag
+> - Renamed the patch to better represent the functionality of the patch
+> 
 > ---
-> base-commit: 33a647c659ffa5bdb94abc345c8c86768ff96215
-> change-id: 20260130-clk-imx6q-9c4b8835fc26
->=20
-> Best regards,
-> --
-> Felix Gu <ustc.gu@gmail.com>
+>  drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> index 2311672cedb1..21bfa0edbaf1 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> @@ -240,7 +240,9 @@ static int rkisp1_config_isp(struct rkisp1_isp *isp,
+>  		}
+>  	} else if (sink_fmt->pixel_enc == V4L2_PIXEL_ENC_YUV) {
+>  		acq_mult = 2;
+> -		if (mbus_type == V4L2_MBUS_CSI2_DPHY) {
+> +		if (src_fmt->pixel_enc == V4L2_PIXEL_ENC_YUV) {
+> +			isp_ctrl = RKISP1_CIF_ISP_CTRL_ISP_MODE_DATA_MODE;
+> +		} else if (mbus_type == V4L2_MBUS_CSI2_DPHY) {
+>  			isp_ctrl = RKISP1_CIF_ISP_CTRL_ISP_MODE_ITU601;
+>  		} else {
+>  			if (mbus_type == V4L2_MBUS_BT656)
 
+This doesn't seem right. If the sink format is YUV, then the source
+format has to be YUV too (the ISP can't produce Bayer from YUV). The
+source pixel encoding condition will always be true, the other branches
+will never be taken, most likely breaking parallel inputs.
+
+Also, the documentation states that in YCbCr bypass mode, ISP_MODE
+should be set to 2 (ITU-R BT.601), not 4 (data mode).
+
+-- 
+Regards,
+
+Laurent Pinchart
 
