@@ -4,104 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC78EB28F7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 09:01:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E318EB28FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 09:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=e6Q5jFK43ZJ1Twf/eEHkLZQeVBspSGKtpQIWC0nWZzI=; b=zLn3igqX03qif4nYzSLX6oJkpy
-	CAiqqltu0qdoNrYJTgS+M1sFvR0XkwmumDgwR13X2ieR+vGnjEFy9URhdQHEDrrNV0CvnW1uyyiHc
-	lLBhG11PLPsy4Gg0C/3/iw+QKGlsP9M2HL2TL+rx5A7NoEwLjCt71ddrK+72+5L37Jfu7XwjLIbhs
-	x7ErMxH/Yjl0JwJNPYAozCfCjA3QfbNc0qkTDJgYsIMDE4HZV7eGHM7+TeNrKJwE89wk5NQjS7cut
-	IihYawITSvtDjmntr3J4irrjTodhgjm66mjm+4lGcWI7oBLg5vQW+hn7yGmM7PBGmZihFip1bo0DP
-	RLhVEVQg==;
+	bh=ZgKz7HPp4QjyuxNJfzfCpjL5pzGtVKS4Dpr6le7LrjA=; b=BBoKMMv2B91GN2soivcbntgsYX
+	0huoqPilGo59Uo0vjQWR0iilE6ShYaoCVdjKc6kT/RxixDEKb3ytYl2vdAPx5MmTz2YHM2dZiI8ao
+	Tt8yAROXB4I+P3oSTx8yKgfSwoNQHHVB4VCyeX2bpxG0K1v3G+vXA+BfvroEa34GSnXdKhUzOjKug
+	2FDgw6gbVq3L8A6Vd4souo1NXO2Uy7FFi7gOotF/Ii21XNK/SBzj6lQzs1DtRl+yAcU3SH70rN+wa
+	di9GnMMkKnGDqieD5cUI+4fTrPqEULycdTnTcDEvpQa0cMcOklifTf4C7Sn+4fxELtpW6n3DkdE7G
+	6lNHN2tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voHin-0000000B499-28Kx;
-	Fri, 06 Feb 2026 09:01:49 +0000
-Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
+	id 1voHm0-0000000B4UW-0hnQ;
+	Fri, 06 Feb 2026 09:05:08 +0000
+Received: from m16.mail.126.com ([220.197.31.6])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voHil-0000000B48l-1S4t
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 09:01:48 +0000
-Received: from phl-compute-08.internal (phl-compute-08.internal [10.202.2.48])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 91C687A0021;
-	Fri,  6 Feb 2026 04:01:41 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-08.internal (MEProxy); Fri, 06 Feb 2026 04:01:42 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=likewhatevs.io;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to; s=fm2; t=1770368501; x=1770454901; bh=e6Q5jFK43Z
-	J1Twf/eEHkLZQeVBspSGKtpQIWC0nWZzI=; b=j/yR3RmcRCUQB3p3fOJmIVSMfN
-	l+iXWCqX6UvNAyb5hQVBeGVVMwciZbgRFYQjcM7dgneTs6unJEsdVMvxVwUEIoGz
-	Xyr59fxbOPg4HIgmA858d8ytVE0rSb2HlDdgYzvo2QNsogP5U7u2EgDEiDjvEO7n
-	9gGOd0O3jd1yJp0v8/yVuhWO+L6MGcXElD33Ktbz5/x3LOyLLRj4MXKmqgtY7Dpn
-	wWHtCOv287afDheS9TOyMmXPC8WYrL7+CXOfrx23Lm0gItc7J6K6pGoLVGSe0qeF
-	YXDEWZhzLZO6sU+n23nU5PFpL8d7CJ9ym51Qu+Jgi8M8lknjCIkFKzam2kaQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1770368501; x=1770454901; bh=e6Q5jFK43ZJ1Twf/eEHkLZQeVBspSGKtpQI
-	WC0nWZzI=; b=pjku9ZbLF9pgCVJ6NcW4j8i70bylRNpHUdSFQwiNkUOVzrvn9K0
-	L1zfywn23i8jHdH37inaSX3nxMLpal7/jV8dj3eiO9T11cWk1C74K1z24dWiQENm
-	dZfJcDNhbZv1GYTPkOcqy0cdaXyz368PshzBcLRg2ZUzYe+XByUu9iFRv7cDwMed
-	emok0U6Vdcccmyn88WQHmwC/5gcZgIdoEFun0oPCLH/dP56bgM+0oVPaUIQbINGm
-	xYWfe6ey5q9qFc2Bf4bu2phW5p09clR66mp8bkI/ENpwqF/Wp6t2yaqAOY2DJD8f
-	ppNCH3057Xh80k0nkbkWOaG5g4BpnBg9I1A==
-X-ME-Sender: <xms:9a2FaVp8IOx3GOl2FHnzwimgDZoVeQF4aVpIeO7SWcdtKNvqa0nlRw>
-    <xme:9a2Faf3e9yqur2x4TbczquCjtx1LGTIfe-fzhh460zijE_Y6z7HILnfzylSdQOusa
-    _LpN_toz0uBdVgVKCyeob37fmqCtUZOWq6svdJfaUgfvSyZUmfQtcQ>
-X-ME-Received: <xmr:9a2FadwBmH5Dw7Y36mBRQn76cprdMKr1n70wyzx5GY7pwVEu7L7i-Zo0dPkZCZERMn3gA-U5OO1gIg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddukeejjeeiucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhephffvvefufffkofgggfestdekredtredttdenucfhrhhomheprfgrthcuufhomhgr
-    rhhuuceophgrthhsoheslhhikhgvfihhrghtvghvshdrihhoqeenucggtffrrghtthgvrh
-    hnpeefveeiveeijefgueettdejleelieefvddtkeekudduveetveeutdehffeiueehuden
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehprghtsh
-    hosehlihhkvgifhhgrthgvvhhsrdhiohdpnhgspghrtghpthhtohepuddtpdhmohguvgep
-    shhmthhpohhuthdprhgtphhtthhopehtjheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
-    epshhvvghnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehjsehjrghnnhgruhdrnhgv
-    thdprhgtphhtthhopehvkhhouhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehnvg
-    grlhesghhomhhprgdruggvvhdprhgtphhtthhopegrshgrhhhisehlihhsthhsrdhlihhn
-    uhigrdguvghvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsth
-    hsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepughmrggvnhhgihhnvgesvhhg
-    vghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvh
-    hgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:9a2Fabj4rFlVceoykmXZ55DOWR_EXYQaBKOcAjsqhCH_khiu37X_2w>
-    <xmx:9a2FaQp6CWeQ8J7QU6WwbaOLg1I12bP7CIeQypKc_qZ1MF4GwUjOaw>
-    <xmx:9a2FaSjFyoYkl6vt8RKuIjEDRC5goa6Og3xPFASZKp1TAanN3Rbx7A>
-    <xmx:9a2FaSP9ItJ-9B6L8-X36eynNjlYQo0ikQqXmvksV1Z6apEsPlO6UA>
-    <xmx:9a2FaSK_1RCmuqsYENXBncnezyaQFNrmPH10evF_gX7DHebGJPyke9U->
-Feedback-ID: i7f194913:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 6 Feb 2026 04:01:40 -0500 (EST)
-From: Pat Somaru <patso@likewhatevs.io>
-To: Tejun Heo <tj@kernel.org>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Vinod Koul <vkoul@kernel.org>
-Cc: Neal Gompa <neal@gompa.dev>,
-	asahi@lists.linux.dev,
+	id 1voHlw-0000000B4TI-32r4;
+	Fri, 06 Feb 2026 09:05:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Zg
+	Kz7HPp4QjyuxNJfzfCpjL5pzGtVKS4Dpr6le7LrjA=; b=pMJase594freXt0FEJ
+	PoSfaIJy8LOHJ46oc439NAybVkxqDIzT1QFT5IWE39741coZXMzGHlmrtVHMXhG8
+	qUGrPr6rWBI1/k8jWTfTc7QpzuudVx863j5x6wGJx3xZZgzoAqZ+hxQ79nijBBM3
+	MiLS4gSCE1L8Qmr/RsEsdHbeY=
+Received: from neon.loongson.cn (unknown [])
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wD3VzK3roVpOSW_AA--.28653S2;
+	Fri, 06 Feb 2026 17:04:57 +0800 (CST)
+From: wming126@126.com
+To: linux-rockchip@lists.infradead.org
+Cc: heiko@sntech.de,
 	linux-arm-kernel@lists.infradead.org,
-	dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Pat Somaru <patso@likewhatevs.io>
-Subject: [PATCH] dma: apple-admac: Convert from tasklet to BH workqueue
-Date: Fri,  6 Feb 2026 04:01:37 -0500
-Message-ID: <20260206090137.1127897-1-patso@likewhatevs.io>
-X-Mailer: git-send-email 2.52.0
+	devicetree@vger.kernel.org,
+	Ming Wang <wangming5719@gmail.com>
+Subject: [PATCH] arm64: dts: rockchip: Fix Bluetooth stability on LCKFB TaiShan Pi
+Date: Fri,  6 Feb 2026 17:04:53 +0800
+Message-ID: <20260206090453.1041919-1-wming126@126.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3VzK3roVpOSW_AA--.28653S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7tFW8Wry8Wr1fXw1kXry3XFb_yoW8Xr43pw
+	4xC398Wr93WrWUX3Z8t3Z7XrZ8ua9agFs8ArWDua4FqFsxt3WDuF1ag3saya1DXFZ3Xw45
+	uF1Yqry7tF1ku3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UdgAcUUUUU=
+X-Originating-IP: [240e:404:6230:a101:2214:a5a9:da52:5257]
+X-CM-SenderInfo: xzpl0wqrswqiyswou0bp/xtbBshmV72mFrrkV6gAA3V
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_010147_501253_77A4E412 
-X-CRM114-Status: GOOD (  15.37  )
+X-CRM114-CacheID: sfid-20260206_010505_164660_BC161E5F 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,115 +72,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The only generic interface to execute asynchronously in the BH context
-is tasklet; however, it's marked deprecated and has some design flaws
-such as the execution code accessing the tasklet item after the
-execution is complete which can lead to subtle use-after-free in certain
-usage scenarios and less-developed flush and cancel mechanisms.
+From: Ming Wang <wangming5719@gmail.com>
 
-To replace tasklets, BH workqueue support was recently added. A BH
-workqueue behaves similarly to regular workqueues except that the queued
-work items are executed in the BH context.
+The AP6212 WiFi/BT module on the LCKFB TaiShan Pi (RK3566) is prone to
+communication timeouts and reset failures (error -110) when operating at
+3 Mbps.
 
-This patch converts drivers/dma/apple-admac.c from tasklet to BH
-workqueue.
+This patch stabilizes the Bluetooth interface by:
+1. Updating the compatible string to 'brcm,bcm43430a1-bt' to better reflect
+   the actual chip revision used in the AP6212 module.
+2. Lowering the maximum UART baud rate from 3,000,000 to 1,500,000 bps.
+   Tests show that 1.5 Mbps is the reliable upper limit for this board's
+   UART configuration, eliminating the initialization timeouts.
 
-The Apple ADMAC driver uses a per-channel tasklet to invoke DMA
-completion callbacks for cyclic transactions. This conversion maintains
-the same execution semantics while using the modern BH workqueue
-infrastructure.
-
-This patch was tested by:
-    - Building with allmodconfig: no new warnings (compared to v6.18)
-    - Building with allyesconfig: no new warnings (compared to v6.18)
-    - Booting defconfig kernel via vng and running `uname -a`:
-    Linux virtme-ng 6.18.0-virtme #1 SMP PREEMPT_DYNAMIC 0 x86_64 GNU/Linux
-
-Semantically, this is an equivalent conversion and there shouldn't be
-any user-visible behavior changes. The BH workqueue implementation uses
-the same softirq infrastructure, and performance-critical networking
-conversions have shown no measurable performance impact.
-
-Maintainers can apply this directly to the DMA subsystem tree or ack it
-for the workqueue tree to carry.
-
-Signed-off-by: Pat Somaru <patso@likewhatevs.io>
+Signed-off-by: Ming Wang <wangming5719@gmail.com>
 ---
- drivers/dma/apple-admac.c | 17 +++++++++--------
- 1 file changed, 9 insertions(+), 8 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3566-lckfb-tspi.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/dma/apple-admac.c b/drivers/dma/apple-admac.c
-index bd49f0374291..8a0e100d5aaf 100644
---- a/drivers/dma/apple-admac.c
-+++ b/drivers/dma/apple-admac.c
-@@ -16,6 +16,7 @@
- #include <linux/reset.h>
- #include <linux/spinlock.h>
- #include <linux/interrupt.h>
-+#include <linux/workqueue.h>
+diff --git a/arch/arm64/boot/dts/rockchip/rk3566-lckfb-tspi.dts b/arch/arm64/boot/dts/rockchip/rk3566-lckfb-tspi.dts
+index ed65d3120..18a560a6e 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3566-lckfb-tspi.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3566-lckfb-tspi.dts
+@@ -635,10 +635,10 @@ &uart1 {
+ 	status = "okay";
  
- #include "dmaengine.h"
- 
-@@ -89,7 +90,7 @@ struct admac_chan {
- 	unsigned int no;
- 	struct admac_data *host;
- 	struct dma_chan chan;
--	struct tasklet_struct tasklet;
-+	struct work_struct work;
- 
- 	u32 carveout;
- 
-@@ -522,8 +523,8 @@ static int admac_terminate_all(struct dma_chan *chan)
- 		adchan->current_tx = NULL;
- 	}
- 	/*
--	 * Descriptors can only be freed after the tasklet
--	 * has been killed (in admac_synchronize).
-+	 * Descriptors can only be freed after the work
-+	 * has been cancelled (in admac_synchronize).
- 	 */
- 	list_splice_tail_init(&adchan->submitted, &adchan->to_free);
- 	list_splice_tail_init(&adchan->issued, &adchan->to_free);
-@@ -543,7 +544,7 @@ static void admac_synchronize(struct dma_chan *chan)
- 	list_splice_tail_init(&adchan->to_free, &head);
- 	spin_unlock_irqrestore(&adchan->lock, flags);
- 
--	tasklet_kill(&adchan->tasklet);
-+	cancel_work_sync(&adchan->work);
- 
- 	list_for_each_entry_safe(adtx, _adtx, &head, node) {
- 		list_del(&adtx->node);
-@@ -662,7 +663,7 @@ static void admac_handle_status_desc_done(struct admac_data *ad, int channo)
- 		tx->reclaimed_pos %= 2 * tx->buf_len;
- 
- 		admac_cyclic_write_desc(ad, channo, tx);
--		tasklet_schedule(&adchan->tasklet);
-+		queue_work(system_bh_wq, &adchan->work);
- 	}
- 	spin_unlock_irqrestore(&adchan->lock, flags);
- }
-@@ -712,9 +713,9 @@ static irqreturn_t admac_interrupt(int irq, void *devid)
- 	return IRQ_HANDLED;
- }
- 
--static void admac_chan_tasklet(struct tasklet_struct *t)
-+static void admac_chan_work(struct work_struct *work)
- {
--	struct admac_chan *adchan = from_tasklet(adchan, t, tasklet);
-+	struct admac_chan *adchan = from_work(adchan, work, work);
- 	struct admac_tx *adtx;
- 	struct dmaengine_desc_callback cb;
- 	struct dmaengine_result tx_result;
-@@ -886,7 +887,7 @@ static int admac_probe(struct platform_device *pdev)
- 		INIT_LIST_HEAD(&adchan->issued);
- 		INIT_LIST_HEAD(&adchan->to_free);
- 		list_add_tail(&adchan->chan.device_node, &dma->channels);
--		tasklet_setup(&adchan->tasklet, admac_chan_tasklet);
-+		INIT_WORK(&adchan->work, admac_chan_work);
- 	}
- 
- 	err = reset_control_reset(ad->rstc);
+ 	bluetooth: bluetooth {
+-		compatible = "brcm,bcm43438-bt";
++		compatible = "brcm,bcm43430a1-bt";
+ 		clocks = <&rk809 1>;
+ 		clock-names = "lpo";
+-		max-speed = <3000000>;
++		max-speed = <1500000>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&bt_host_wake_l &bt_wake_l &bt_enable_h>;
+ 		shutdown-gpios = <&gpio2 RK_PB7 GPIO_ACTIVE_HIGH>;
 -- 
-2.52.0
+2.43.0
 
 
