@@ -4,79 +4,185 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC50CEE2080
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 10:08:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45845EE2082
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 10:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tt/apNU651co1/FFDBARgi66XwWLSw6qcjsHG+8hCXA=; b=vQWrqi6wiOWetDipV7wGwTrX6+
-	UvQxuIiBnbzCkKq+QOGhUEoiCRGYXyWPs+RK/7NLJBjfpCK9Vl+RQcxfnaCnroJ5CRdRJvT6JXrVb
-	/6H83l6bfNtUiDkf9fg3HpNogDJJDLq8h6sZNbXgy30D5a+eenQjzFQqY8SBylhoxIp1SuxIHLHjQ
-	YodtRa3Wmf96MAvJ1fzZge1KbAjpEmFV7urqjiXk+ofa+IYLghXtMSfEiBvUV17RflUEUsbnt0Fh7
-	tYhD9pNqjlg/x3n736I2+aZmkMt8WIgtLzZTKIUzvXnteJCJ/XHhixbsEXbshqPRJNRAgvQjpBzZ8
-	5jfg0YZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=j2b+vgeL6G0TcGcouXUpAbYj2gBw4J4Vz98xGNa6fso=; b=OeUZSPnuESyWIBymPxDutxCIQZ
+	6S1ZfGhmo6i6U7fkOKjEruTOo6nTBPwc4uRRfb5fVyFgWHOjDMqIB3Q0VWDbCG65ndHWQTuCMnesC
+	oufL9vzWLSA0OJzvRBF16zSr1NjozMJYHEFL9B6xc0p4Jl4ZsdW8kH91BZcWk4DF6Vpdz5ifyF8FT
+	rLn61mpHOrCmQhrlMouBfPEcJADPZ6N1ZXsDVzv8sDoRCgfEwzx3NA6SZvzYJLdqMLfmIaVgJxSX7
+	GSO4ic1f+/zNPlGuU47zQzDDGdBnyVM2zlxzLOpqOYiV6nQV2tfkK35UAzj+lAWMYm0DS491/FPq7
+	0G1kC35g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voIkt-0000000B9CE-0l9l;
-	Fri, 06 Feb 2026 10:08:03 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1voItz-0000000B9mm-1x5v;
+	Fri, 06 Feb 2026 10:17:27 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voIkp-0000000B99S-3mKc
+	id 1voItw-0000000B9mD-2yDg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 10:08:02 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=tt/apNU651co1/FFDBARgi66XwWLSw6qcjsHG+8hCXA=;
-	b=g0ZfPotUFYgfyMGRd9ZvMJ94EPrmBnyyyzf/2tUq+FbPqv7NNoHQi7IOhmzQaAJo0R/N+FwW6
-	PWbgcaHY//nD/aE78g5c/SkVs01zEJOlFVtyO+sCwj9QO7pJ71I5+blX3l8IusLX0BicDatvRwI
-	5iDLV1Pwb+xL7YqIu33oE5Y=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4f6qS41Rtyz12LCb;
-	Fri,  6 Feb 2026 18:04:04 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 36DF140363;
-	Fri,  6 Feb 2026 18:07:53 +0800 (CST)
-Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 6 Feb 2026 18:07:53 +0800
-Received: from [10.67.120.139] (10.67.120.139) by
- kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Fri, 6 Feb 2026 18:07:52 +0800
-Message-ID: <4c5eaf8f-2433-4971-b5d0-4f35acb2820e@huawei.com>
-Date: Fri, 6 Feb 2026 18:07:51 +0800
+	Fri, 06 Feb 2026 10:17:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kQuNSXWqTC+xmnSPF7iRt45iUp7VD/Vh8vpHYdxBax5ELsF8oPxUjqXgRPlq+jpASYH1pA2vuKZbrUz5lha6iM1rJttIYSJLV8wuF6ZGlpHTGefOCNHO3a9anD7Bxyb0QTgxE9xtN1P1Gn7clt9lp2F4X6a3QQ/AEux4Vo+QOED1RA8BwBF4PvYahYrG1s7eb2srho/fQZLLG6HrJ9wG2/RdGMayIfIjj2hAgobtu5gh22KOuapivdD/VJPnuSqbNaTZOixTcBeNLtEyCuS8zsT1QRs+48/Zd9ZGAzLALk+fWddMIy1HynkA5dgQuU+wZtBVvvcIclPKL2Hxh44BLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=j2b+vgeL6G0TcGcouXUpAbYj2gBw4J4Vz98xGNa6fso=;
+ b=nEPTSx6YPWPnxEPN1TKVPD3URlIsi1nqNOnYx1Bmh0W5xT2huCqQXZ7tZ4jxlZ+ylexSgFYaHj7miQ0K1uBHZC8lLJjjbGgPcp2rpIL8v8w/tr2abtPTsqEiQCa0jkASTh0TDjNm3RluYfj9UEjVZ7LFnpatQrnlc9XIG7MaDn2mXxsR3xD02DcjG+ZbG2odz0bKYc5K2mXzawh/T1INoojpLAudZneVSw3QOlHhaJ+jaGO1g2e733995wKKk/mhzSJtWOUaqN7vTwzeB4aZM0jfVibIh4jrfsNufyj14+a06ipkC4GlwUXMr7/F/c7h7FbXuYH4/TWYGbzy1kzPmw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=j2b+vgeL6G0TcGcouXUpAbYj2gBw4J4Vz98xGNa6fso=;
+ b=D8k+IMcm8t/ICWwnFlR54a+fOLk4VKxuQYi4EEmfeH4QNvPLVy0KMaqPsuyGJSd2kxrZwWBLBZr2biz6tE44FXDIixQ+dg9xashwfD8VDLPTraw6nFVelC/SAoB+0E4vYLsuyO0NP5v7Dgb1pDo1WVONNE2bHvAl+LM1CcVVVOwKkjNO2/Y8NDOMS4yL+aow6/1JpthLjkGwkrhBlZK5kX3iomstoHtOZgJ48F2pNitssX1mOKphoMXh2pCn+xrkv9g9fAUO9WiUvqkpbxaXP/GMrgidsiGToDnOvOt5vmIZYqDuVq6S983tvsL9gfCJ+zlzgAXrmU7jdfzyW2nBnQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8829.eurprd04.prod.outlook.com (2603:10a6:102:20c::17)
+ by AS1PR04MB9477.eurprd04.prod.outlook.com (2603:10a6:20b:4d9::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.14; Fri, 6 Feb
+ 2026 10:17:16 +0000
+Received: from PAXPR04MB8829.eurprd04.prod.outlook.com
+ ([fe80::52de:f9c9:8c2e:7dd5]) by PAXPR04MB8829.eurprd04.prod.outlook.com
+ ([fe80::52de:f9c9:8c2e:7dd5%5]) with mapi id 15.20.9587.010; Fri, 6 Feb 2026
+ 10:17:16 +0000
+From: Xu Yang <xu.yang_2@nxp.com>
+Subject: [PATCH v3 0/3] add DWC3 i.MX driver based on flatten devicetree
+Date: Fri, 06 Feb 2026 18:18:48 +0800
+Message-Id: <20260206-add-flatten-dts-based-dwc3-imx-driver-v3-0-ebd9b9b77049@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAjAhWkC/5XNTQ7CIBCG4as0rB0DFGpx5T2MCwpTS2J/AgRrm
+ t5d2o0udTPJO4vnW0hA7zCQc7EQj8kFNw45ykNBTKeHO4KzuQmnvKL5gLYW2oeOEQewMUCjA1q
+ wT1OC62ew3iX0oCoUWuhWyRMl2Zo8tm7ed6633J0LcfSvfTax7fvvQmJAwQihJSqmyppehnk6m
+ rEnm5/4tyl+NXk2LTeqkVrWhrKPua7rG21nN04sAQAA
+X-Change-ID: 20260202-add-flatten-dts-based-dwc3-imx-driver-96e4a4af9570
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
+ Li Jun <jun.li@nxp.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Xu Yang <xu.yang_2@nxp.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770373141; l=2225;
+ i=xu.yang_2@nxp.com; s=20250815; h=from:subject:message-id;
+ bh=Z+MJcc/fMGgrtMNbFvJsgjyDW3GRftktNNIZCBwM5HM=;
+ b=6TCv6dsKvwn4u0uOLO2oQCZh/fzRypZ7md1fmnkabW9jE8CCfUeC2cRkv1Czmlr/q73gN8duk
+ OTijgm43G2hDMzRMyGnFXA/RrJKeaU1ZE9SPnnvsqSsKHbOY3elVY9b
+X-Developer-Key: i=xu.yang_2@nxp.com; a=ed25519;
+ pk=5c2HwftfKxFlMJboUe40+xawMtfnp5F8iEiv5CiKS+4=
+X-ClientProxiedBy: SG2PR02CA0011.apcprd02.prod.outlook.com
+ (2603:1096:3:17::23) To PAXPR04MB8829.eurprd04.prod.outlook.com
+ (2603:10a6:102:20c::17)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: wangyushan <wangyushan12@huawei.com>
-Subject: Re: [PATCH 1/3] soc cache: L3 cache driver for HiSilicon SoC
-To: Jonathan Cameron <jonathan.cameron@huawei.com>, Linus Walleij
-	<linusw@kernel.org>
-CC: <alexandre.belloni@bootlin.com>, <arnd@arndb.de>, <fustini@kernel.org>,
-	<krzk@kernel.org>, <linus.walleij@linaro.org>, <will@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<fanghao11@huawei.com>, <linuxarm@huawei.com>, <liuyonglong@huawei.com>,
-	<prime.zeng@hisilicon.com>, <wangzhou1@hisilicon.com>,
-	<xuwei5@hisilicon.com>, <linux-mm@vger.kernel.org>, SeongJae Park
-	<sj@kernel.org>, Yushan Wang <wangyushan12@huawei.com>
-References: <20260203161843.649417-1-wangyushan12@huawei.com>
- <20260203161843.649417-2-wangyushan12@huawei.com>
- <CAD++jLn+TDfu-aQ+Kfm=unYp4Zjg=endP3GGzZcpuYFR=s1K1g@mail.gmail.com>
- <20260204134020.00002393@huawei.com>
-Content-Language: en-US
-In-Reply-To: <20260204134020.00002393@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.139]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemn100008.china.huawei.com (7.202.194.111)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8829:EE_|AS1PR04MB9477:EE_
+X-MS-Office365-Filtering-Correlation-Id: d9ab3c49-e0e0-4b72-5889-08de6568e708
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|19092799006|1800799024|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WWFyczJPUDZPRDBUSzNLblg2cThRVlgxREdmSmZKaXlDUkhqRUxlZFF6YkpB?=
+ =?utf-8?B?NUd0TmpiTWVwYURKNDhJUXNOZUZzWUZGcS80T0FTL2M3RkVXeXcvVEZrSWNN?=
+ =?utf-8?B?TXNBaHoyMTRMb3pvSVlSMjF1TllsbzRuTHJ4Zm1jR2lJazJCL2sxb2FzbVly?=
+ =?utf-8?B?ZC9vQnhyZDNXYm56a2VJZUI4YklWYlNPVndCL2pUSXVhWWtPV0JkK2VyZTFr?=
+ =?utf-8?B?N0FaWVluNElPdG5nbmhzUE1scnF0U0NFZ21zdWdUdzV0WlFEdmRYZ2hUU1NN?=
+ =?utf-8?B?UzhhaDNMc1NqY2dtVFEyNjJtcUUyQkxxMWEraWR0SWp1U2ovQWNxb0c1Z3VN?=
+ =?utf-8?B?bGFEQ3k4L1JJL3NuY2JuWGNrS0s1NWZQZWdTcjZxT1dqWkF3ZnErQ2o2S3Ry?=
+ =?utf-8?B?L2QrVlFiU0c3c0MxTmFyS3Jxc25yeno5M3J2dHc4U0dIT3VkdkNTaEhCZUNL?=
+ =?utf-8?B?eHdaYXBURWFQUDFLOFF4RHBmL25ZbXJXQjBmOUJYQWRQMld2Zys3dmRSb3py?=
+ =?utf-8?B?cnZXb1V1TVZSNUEyaGVvVHZxZWI4SkFnVm9xaFN3TjVLeFlFWWRESVhBb1FX?=
+ =?utf-8?B?TEhPVURYQU5RR1lJeDdyMXNOcWlKTG5wa0wwNHFpekRIVmw5bldkQnJFVlFW?=
+ =?utf-8?B?WlU0disyQU9XQTBpaEJwcFJEVFh0VWxjNDM3K251ekE3alhad0dPWjV5djdC?=
+ =?utf-8?B?YTVHdHk5cFdzYWJkWndWVFAyU3E4QnVDR2tPc0tPVURob3UvR1BPWUcxdUx3?=
+ =?utf-8?B?eUlGRmllL0ExSFJ2YWJTaU5tWEpnWnc2b213U2xmaXowbENrYmtvSERyQW9V?=
+ =?utf-8?B?bVBHaURNNjRtQ2xVVDM4ZVlleEpGSDU5LytOd2dxcFhTUjU1cGVmdzFlMysr?=
+ =?utf-8?B?WTJNTTBQOXE2WmFvQUFQNGtzU0JwOGpETlB4TDdybG1tZWtLSWVWUE4rNVRE?=
+ =?utf-8?B?M2hLMUZKSVlBbjluUTE5ZmhFQXVnQTVhR3FseTNpT0lpdkNCSjhWQTdqalVO?=
+ =?utf-8?B?WGZBMHB4VWlrWlhsTkY4TlFQS2JaemtiNzRnVUd4YzBmNjByVGJFZWx5b1oy?=
+ =?utf-8?B?cnNobDcwZUk4U3l6dmxBUWhYTlR3cGhlcnhlR0NUWWhuRVVZT2hIQSsrcFFs?=
+ =?utf-8?B?SVE4eVoyWGRLcDJ6bERLai9qcURuK2V2L2dSUC8vK2tzc2x5ZytxVTJCekhR?=
+ =?utf-8?B?aXI4UlVhM3BiZEJIVDZmOTFyM0Q5elU0Z2llcXk0Ny9NSmJKR2lwT0dXOERF?=
+ =?utf-8?B?N09sWFBOSS8yWXBDZEJQVHc2Z0d1bllQdmRua2wrenR0REFCZlZ1TUcyamo3?=
+ =?utf-8?B?azRXbHRJNHA4VDVDOVh3UHdZenRGNy9HUGJMWXpoU1ozUThLcEhaSStDL1ZX?=
+ =?utf-8?B?YmVOaFoxd2svYXpGM0tGQlYxaWo5VVVDT3dXK1Q4M3dMcEU4OGN5dXpodGJY?=
+ =?utf-8?B?V2RlL2tJd1RBUDdTcTFUeStvVjVnVkEzeWg3OGprZXlhbGUweVlSYy9VUTlS?=
+ =?utf-8?B?bklweEJiQWRoSEt1Mzk1MEx1NlhLeGFIa3dPUUR4VmZTQW1ybXU5U3ZSQVBG?=
+ =?utf-8?B?dDB0c2Q0LzFXMzliOEZRNGs2VWVhcDhudkozaW5OYVFOV01YU2NVR2xwUFFD?=
+ =?utf-8?B?eDJQQWVtOHlLQ2tzY1prUnN3azM4R2Rpa0FpbTM3VE5mVmZsY0dqYTlIVDQw?=
+ =?utf-8?B?MHZ5Uk9yUm9iRkpvQXV6L2dpWU1MN29BRXdVREFIU29BWi9VZFZGTWRlZDFP?=
+ =?utf-8?B?emRjbXhwKzhTUzR3QXJxY2ljaDRwaDdtWDFUVytFdUxra25IMzA3YjBpN2Ny?=
+ =?utf-8?B?dGJxVFBoSlR4RElFY3JOM0JIWHo1WndwbjNlYjEyZFEvZERmWGFOc3JzeTE4?=
+ =?utf-8?B?WmhOQkZwR0xUZzFEQnAxYnNnNlRIS3krL1JacXZRR0NDbWVacnZrS3RMRHVj?=
+ =?utf-8?B?ZThhbkFjVXlXSUZhOGk2ckZuaHVpSi9OYWhvVk1JY3NHT1I1L3hrMis0TDRq?=
+ =?utf-8?B?MGw2ZzhCQWxJcmx3Q29jU0RGdmRaODJRN01sdU9mbkxCeWR6QWpBS1NSS1la?=
+ =?utf-8?B?STlCQjVVRDdkeEh6TkVzTExLK0V6cm9INDljQWZqcTNLQ1E5Qm5VVzZ2RlVt?=
+ =?utf-8?B?bGUvTVV3MGRZN3Z1dEp1WmpvOHNCTVNQNHk5R2o3cy9WeW5lSXNkU29IeXpn?=
+ =?utf-8?Q?YqKiRgvl62kznGctdVBc9yxtj8/bs41mahCAbLqzhM1n?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8829.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(19092799006)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WVVIbDNFOGxLWlBZNitJdVlxeHhNdUpzZjUvUVNpaGxPaVJNODdFSXdXc3Ry?=
+ =?utf-8?B?SFIwT21aR1E5U3hjcWZLZDVuTzBBcXVNdytjbTVmQnY5ZmN5M2pZemtxWGVi?=
+ =?utf-8?B?OVNWOURIbzdGbTRMWHZ3aDd6M3ZIY0hSTkdtdDlSSWcvK2NXMHZucXZ5K0Ez?=
+ =?utf-8?B?enoyS3piREp3RTNNNWliSWtlUHQxVU5OblZUbkM5ZDFXOGFmNnBaY0FnQVpm?=
+ =?utf-8?B?YzVmcllyMnhEVllQTnh4cFF2eFVVdGZ0cUtZRFdRcFNOTUxEamh5dXUyWExP?=
+ =?utf-8?B?aURrMmQwQTF5bU9EZ3orQTREekNlQ0tiV1gwVThOeDBQKzdrYUo1bFh2ckQw?=
+ =?utf-8?B?SW1EVmpVeDIwekY5L2VCZVFudTBaK3VXNCt2amFnSW9wS3cxejRCd1RsN0Rs?=
+ =?utf-8?B?R0FFTTNsMHMxV2pmVWI0b2ZTdTVJN0diZXZNVGdaYnBrT01QdklvcVBQUi9F?=
+ =?utf-8?B?aU5EdFd2SVhYQmJyVjVsV0swS0w4UzFMRUI0Zkp0eit3Z0dhSnRlMzNjejB6?=
+ =?utf-8?B?b0diSHd0dWtVQnZWN0h5OHR2a2U4eldhTlR0RlMwVmcwRGo4TVhCcjZhR1Fo?=
+ =?utf-8?B?SFZ4KzBuYUhEOWo5dnBUNlhNSjJMckhKQWlCc2ZQK2tRVEJPVGhsTDk0cjV6?=
+ =?utf-8?B?Q1RZSzVMa3lqR1lEaDNhSWFZYURNem5lL3Rnbkc3TU9Ub25tQUcwUTdUaGdH?=
+ =?utf-8?B?WFdnRG5BaUZxOVJxYVVMSUx6cm1zeCtSYWN5RllQWEo3WGM3bTNaRTQ1RGN4?=
+ =?utf-8?B?WVJhQ1FXWXFRL1p6UjlWYU9CVlFtTXkydXBxY1l1YTZNd3E2ZmZ0T0JSbXQr?=
+ =?utf-8?B?R3hiRS81SHZsd0szTlcyQVBPc3ZPOHpUdHhPOC9jd3NaRTBnY1B1UnpBY0l6?=
+ =?utf-8?B?bDAzSDAxT2FiVnlrbHdxWVJZdWJjdGppM0pkb1FNTldhSG1vSnJFMnBLMzRU?=
+ =?utf-8?B?ZDFSV0hkVUJyUjBmTzQwcEZwTHM3ekg3SVRlaU5qMmVIMWlJckdaeFkrdm9C?=
+ =?utf-8?B?Wm0wRVlGSTFmdy9Db2xBeDcvVkdGdUx0NTVSR3FUSHZ0cWZxMG83OUdtTWlv?=
+ =?utf-8?B?VWVQRU8rSWxLeHRxdXJnSjRtUXM2ekM3ZzlVR05CRjQ3RjRKY2dQU2ZtYlE2?=
+ =?utf-8?B?Qk5tKzhzaks2a0lqUWdDOXEyR0IzUXk5OTBZNC9MYlYrcnp2RkFXa2tZd0x1?=
+ =?utf-8?B?WnJIcnVpY21aNXQ2UmUzSlFzK1J5MXZMWGM0VjJhV0NUcWEvR2JaTjFtdFF2?=
+ =?utf-8?B?ZHlWL2dKcnl5bTQ5cFpMZXBNUG5pSjJEUVhOdnB0eXBKVjB6L0gxWUYrNS9N?=
+ =?utf-8?B?bmJ5blY3TGtXR1I3clVscjQzSFhoYWRGa0FQbjgwVUc3WWViR016OFdWYkxM?=
+ =?utf-8?B?UXhIcTk1cDYrU0l3WVc3SW9JTlEzQmY4bndsRlpsekprY1BIUUpZSVJqbExq?=
+ =?utf-8?B?bkg0TUx4T2wvYmZxbWlxbWpMd3RYclExS0tEK2h0by9IM0VtMDNPcU5pOEJR?=
+ =?utf-8?B?bkZkRDZTWWRxZXhGNHBaUTFXK3RXVk1uZVVPYzBqVTRhaGR3dXJyRUhuZ1hZ?=
+ =?utf-8?B?MEt2ZjlobzYxcWN4R3RucElTOEhOeUw4UWM0Nko5MUtJN1VoZEcyWm5CS3pP?=
+ =?utf-8?B?Y1dmejdyMXBLRDdGdkwweEYxUmp6RmVDSTlDTG0wMk93aitDeW5Ed1lid0pP?=
+ =?utf-8?B?OGtlV2RnT0YzWExWbUk4bWh6Ty9yazJrSDUzdmJoT2xCWXptcnBIM0dDNnJW?=
+ =?utf-8?B?bmpxUzZBNGVOQ2xGaW1ES3A2cmVVZXprSDhWd2Izb0RTTmNxRjF1OGc0SWJs?=
+ =?utf-8?B?UlBZR1ZUSHE3S3NFZXVXdUcvdS9aL1JzaVBnNTU1VFE0OXVQZ1ArYlVOelFD?=
+ =?utf-8?B?ZFZFMmg3Wlc3ODRFWnFlam8xS0xxYnhXR0JrRzFTeWloQi9MS0I5Mi9JSFRY?=
+ =?utf-8?B?UzFhQ3JBcXNaLzY4cmt1LytVRFNhQnB4eEFQaWFkcEI1em5PZ3NVMkp1V2sr?=
+ =?utf-8?B?RWJJSW1iOTRyMVlyOExQR0pha2ZnM2REZ0NNalV3Q2dnaSs3UjloQUwvSFND?=
+ =?utf-8?B?eU9lVUtGMjMwNU1DQ1pIYXV5K0FVNFBSakQ2dTBicW9EZ1Z2YnpRWXFxaVlQ?=
+ =?utf-8?B?UkRrdm56WDdKb1pNV3RzZ3QzM3IrdTExWlBFRzduQkx4YnJZQlcrdnVYaHRk?=
+ =?utf-8?B?ZlF4Tk5QU3BnT0c2Wk0vU2liZXFrZFVORXVhR2JKcnBWaVUwQzJ6WjRLMFRZ?=
+ =?utf-8?B?V212dWdLbUtuSmhNbVRveWpuSGs4Tk1mVm5ZbXIyM1lGQ3hTTWRuRWhhU3Vm?=
+ =?utf-8?B?YlpRUnJVMGJtUUZoeE5sbUpnbU0vY2hFZDRTZ29DN3l3dE53dkloUT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d9ab3c49-e0e0-4b72-5889-08de6568e708
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8829.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2026 10:17:16.2061
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qaR/9B9BLoznZJeETis3DzzugDULDrBCfwW7rbW6F6uCOaCKkLIfhtkb1T7XAPluza1JGnUjUBYM+RGGPrB1QA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9477
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_020800_534279_D72B325C 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20260206_021724_765678_B7B67AA7 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,56 +197,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/4/2026 9:40 PM, Jonathan Cameron wrote:
-> On Wed, 4 Feb 2026 01:10:01 +0100
-> Linus Walleij <linusw@kernel.org> wrote:
->
->> Shouldn't the MM subsystem be in charge of determining, locking
->> down and freeing up hot regions in L3 cache?
->>
->> This looks more like userspace is going to determine that but
->> how exactly? By running DAMON? Then it's better to keep the
->> whole mechanism in the kernel where it belongs and let the
->> MM subsystem adapt locked L3 cache to the usage patterns.
-> I haven't yet come up with any plausible scheme by which the MM
-> subsystem could do this.
->
-> I think what we need here Yushan, is more detail on end to end
-> use cases for this.  Some examples etc as clearer motivation.
->
+The i.MX USB glue and DWC3 core are closely coupled. Describe the i.MX
+USB block in a single block will bring more benefits than a parent-
+child relation.
 
-Hi,
+Now DWC3 USB common driver already support to do more key jobs in glue
+driver, such as power management and core initialization. Now let's
+make a step and add a flatten devicetree based driver.
 
-Let me try to explain the use case here.
+The first one add a new "nxp,imx-dwc3.yaml" binding to describe all i.MX
+related USB controller.
 
-The idea is similar to this article:
-https://www.cl.cam.ac.uk/~rnw24/papers/201708-sigcomm-diskcryptnet.pdf
+Then, to support wakeup capability even when controller experienced
+power lost, a fix patch is added to make controller work after system
+resume back.
 
-Suppose we have data on SSD that need to be transferred through network.
-We have technologies like DDIO and IO stash to make data flow through
-L3 cache instead of DDR to avoid the influence of DDR bandwidth.
+---
+Changes in v3:
+- rename file name as nxp,imx-dwc3.yaml
+- rename compatible as nxp,imx*-dwc3
+- remove status property in example node
+- modify commit message
+- Link to v2: https://lore.kernel.org/r/20260204-add-flatten-dts-based-dwc3-imx-driver-v2-0-d2c9b5a58c01@nxp.com
 
-But if something is to be done to the data instead of merely copying,
-and cores needs to participate, we'd like to make data to climb a bit
-higher up through the memory hierarchy and stay there before data
-processing is done. That is, correct amount of data being fetched to
-L3 cache, and consumed just in time, then free L3 for next batch.
-It is more of a userspace defined pipeline that utilizes capability
-provided by kernel, where cache locks are allocated and freed quickly
-with batches.
+Changes in v2:
+- reorder compatible property
+- rename may_lose_power to needs_full_reinit
+- remove Frank review by tag due to some changes
+- fix code style in dwc3-imx.c
+- disable wakeup irq when register interrupt by default
+- remove runtime PM operations in dwc3_imx_remove()
+- Link to v1: https://lore.kernel.org/r/20260202-add-flatten-dts-based-dwc3-imx-driver-v1-0-c44a5e919380@nxp.com
 
-In above use case, C2C latency is chosen to avoid DDR latency, precisely
-which L3 cache to store the data is not required. (For this part maybe
-including steering tag as the hint to choose the correct L3 is a smarter
-way, like AMD SDCIAE).
+---
+Xu Yang (3):
+      dt-bindings: usb: introduce nxp,imx-dwc3
+      usb: dwc3: add needs_full_reinit flag
+      usb: dwc3: introduce flatten model driver of i.MX Soc
 
-Memory management is, in many way, independent to architecture and
-vendors, we might not want to take hardware specific feature into
-account when kernel makes decisions of, say, swapping a page or not,
-but we can control the hardware resource to lean more on a process,
-like resctl.
+ .../devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml   |   2 +
+ .../devicetree/bindings/usb/nxp,imx-dwc3.yaml      | 123 ++++++
+ drivers/usb/dwc3/Kconfig                           |  12 +
+ drivers/usb/dwc3/Makefile                          |   1 +
+ drivers/usb/dwc3/core.c                            |   9 +-
+ drivers/usb/dwc3/core.h                            |   3 +
+ drivers/usb/dwc3/dwc3-imx.c                        | 429 +++++++++++++++++++++
+ drivers/usb/dwc3/glue.h                            |   3 +
+ 8 files changed, 580 insertions(+), 2 deletions(-)
+---
+base-commit: 0a06917432a762d6233f88963c0b53e48dbac6b4
+change-id: 20260202-add-flatten-dts-based-dwc3-imx-driver-96e4a4af9570
 
-Thanks,
-Yushan
+Best regards,
+-- 
+Xu Yang <xu.yang_2@nxp.com>
 
 
