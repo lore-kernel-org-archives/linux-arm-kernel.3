@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE92EE6B58
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 20:30:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8876BEE6B58
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 20:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4YHH0YAMAHnJ5UGh8pphcs9yAuxrmD7yQeFh/XrEM1k=; b=dKHIKPgX4CCnnThL+YYuDgiPwh
-	Dx2/0EJJIKn9xTttvFWxiKYbhXLPLUNya+EQByJIbfO/vGfBoswnwtJUlRcWqyMlDqX1tvp220PW8
-	AeokTE7kO53USye0IivawUIq6+wphj9c9d5ge207TwqafLBfCGGDO/sAT/vYycolg3SHackxWVjev
-	Y6iq7Iz3owpagP+DnH+z+2Isny1DFvQkR0Z7EmD9KiF4ByY25FfGzDJ9gdYB2WVbrGkV8q+QXdcnW
-	EEVF/aukHi3yIs6CQxikWR80fAumvIFXbOtkKtNOt64Pft3OTvGdSYt1eeM9SKtBAH4SIOg0F/ifa
-	RaMI58Uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dWmLCHSX/zl5TXT9/CAx8lBKbFhSqb8YTbzRq8kmEq0=; b=ykCGU5ZaPMj3Oew1I7ES1oYbkg
+	xYcJh7dJBQAUGmxU2aKSOAd+H+4KNIGoQ3Vqx7a+gJSDKgWG5+5M0AoTQlhh2E8X1xmxtiT0JCilH
+	hQuSf3SpVhcnH4PAY/eF/SgOcGoAWgN2rEUP+SL6V4FN/KIxQeH11VFcT1ofBGZtM0L7z+CltzXsK
+	CeAdQ6qvp4m4fQeDvaAxyLZgmu0a988uebmrKU+zrl0aJ18at2K1BNwnrinUb/938cBXwhHidzokr
+	TpopOXmoMIrsCD54ZZHjqycOXrb5cA2hrveIVEVSQgIvzMUu6fhfivqVoPxt3AhNJibb1nj75sGY0
+	z22/oalw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voSTQ-0000000Bo8J-2zRU;
-	Fri, 06 Feb 2026 20:30:40 +0000
+	id 1voSTv-0000000BoCV-0ZQz;
+	Fri, 06 Feb 2026 20:31:11 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voSTN-0000000Bo7s-2At7
+	id 1voSTs-0000000BoBs-0KgX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 20:30:39 +0000
+	Fri, 06 Feb 2026 20:31:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=4YHH0YAMAHnJ5UGh8pphcs9yAuxrmD7yQeFh/XrEM1k=; b=cUM2ujHWceUzMbW20cIxqA4llS
-	NkE8BDAwqzDmYlfweI9LHAUpWYlxzdrvLA5m1wdr0Z8+TZA5w10hCD+WxkQyEgPtUUEnq6GnJiU4O
-	wvjdWjQJfmNXBJtzVpEL8q07G8B+obm9lIEThmhNkdCtmQZUAGs0j8PRgQtQcGwV6VHukgdN4P25b
-	euMdVvZOmk2Z3Ol28RZgeWSFM2HOIFBjngDcaebtXbfDdzeloV790c2+Bj9G7f+PMqOWXBQQtPlVu
-	z9kyVPyVhCuw6ZoRtG+Uj33nOwDBjz95xY11XTce8Ny/irboMl+80x5OPmDmfd34eHK2NLxH/3c40
-	Rz9IKV0w==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42876)
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=dWmLCHSX/zl5TXT9/CAx8lBKbFhSqb8YTbzRq8kmEq0=; b=ueVs8yE3A44c9vupcFdGhLYxOh
+	ROPCEf6Z4FYw076aNt16760QLDmoc/fa/pSwLM8l7pOXvQfsNMX4DiVon41rGE4ZHpLGt31e7fwNm
+	v3uqcrTSEJm9ycSNe5rrecAB3jO4/xgnVgT0QFQ9MQ+KFL6GsDhzY0NF36mAyEMpBRb98eRBLgAdh
+	Tpz0pD7lzWi6bUEg3RBPbSZT7DVUtj/TATmLvfOG3N7tW1ecFuSkDHUOaJsNJ5LBbFgMUmDHWyVEs
+	NMhX/3fwnQr+ZUAYLbrAVmtGOdHnF1vWGmuyP0L+QBrjqfnFDeuGlNi4B6Zotw0b6pv6rmWSYA8Ov
+	1CQdvJrA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:44050 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1voST3-000000008Oi-39Cq;
-	Fri, 06 Feb 2026 20:30:17 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1voSSy-000000007cx-01gv;
-	Fri, 06 Feb 2026 20:30:12 +0000
-Date: Fri, 6 Feb 2026 20:30:11 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jie Zhang <jzhang918@gmail.com>
-Cc: netdev@vger.kernel.org, jie.zhang@analog.com, horms@kernel.org,
-	Jacob Keller <jacob.e.keller@intel.com>,
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1voSTm-000000008P8-3Fkf;
+	Fri, 06 Feb 2026 20:31:03 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1voSTm-000000087qO-04ua;
+	Fri, 06 Feb 2026 20:31:02 +0000
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] net: stmmac: fix oops when split header is enabled
-Message-ID: <aYZPUx2WrIkPmvIU@shell.armlinux.org.uk>
-References: <20260206195643.11333-1-jie.zhang@analog.com>
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Vinod Koul <vkoul@kernel.org>
+Subject: [PATCH RFC net-next] net: stmmac: qcom-ethqos: convert register field
+ updates
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260206195643.11333-1-jie.zhang@analog.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1voSTm-000000087qO-04ua@rmk-PC.armlinux.org.uk>
+Date: Fri, 06 Feb 2026 20:31:02 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_123037_894537_00DD1B73 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20260206_123109_127442_A5F56880 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,71 +87,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 06, 2026 at 02:56:38PM -0500, Jie Zhang wrote:
-> For GMAC4, when split header is enabled, in some rare cases, the
-> hardware does not fill buf2 of the first descriptor with payload.
-> Thus we cannot assume buf2 is always fully filled if it is not
-> the last descriptor. Otherwise, the length of buf2 of the second
-> descriptor will be calculated wrong and cause an oops:
-> 
-> Unable to handle kernel paging request at virtual address ffff00019246bfc0
-> ...
-> x2 : 0000000000000040 x1 : ffff00019246bfc0 x0 : ffff00009246c000
-> Call trace:
->  dcache_inval_poc+0x28/0x58 (P)
->  dma_direct_sync_single_for_cpu+0x38/0x6c
->  __dma_sync_single_for_cpu+0x34/0x6c
->  stmmac_napi_poll_rx+0x8f0/0xb60
->  __napi_poll.constprop.0+0x30/0x144
->  net_rx_action+0x160/0x274
->  handle_softirqs+0x1b8/0x1fc
-> ...
-> 
-> To fix this, the PL bit-field in RDES3 register is used for all
-> descriptors, whether it is the last descriptor or not.
-> 
-> Fixes: ec222003bd94 ("net: stmmac: Prepare to add Split Header support")
-> Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-> Signed-off-by: Jie Zhang <jie.zhang@analog.com>
-> ---
-> v2:
-> 1. Update for the latest net HEAD
-> 2. Reduce crash dump message in commit message
-> 3. Add Fixes tag
-> v1 link: https://lore.kernel.org/all/20251202025421.4560-1-jie.zhang@analog.com/
+Convert the register field update values to something more recognisable
+to a human.
 
-I was trying to work out whether this was a re-post of a patch that had
-already been merged and it was the result of someone inappropriately
-re-posting old patches, or whether it was something to take seriously.
+For example, using (BIT(29) | BIT(27)) to update a register field that
+consists of bits 29:27 is just a way of obfuscating the constant so
+the bare constant doesn't attract review comments.
 
-That is because of this in the patch:
+Worse still is BIT(12) | GENMASK(9, 8), which is used to hide the
+decimal value 19 for the bitfield 16:8.
 
-> +	/* Not GMAC4 and not last descriptor */
-> +	if (!priv->plat->has_gmac4 && (status & rx_not_ls))
+Fix these, and a few others by using FIELD_PREP(). Yes, it means we
+have bare numeric constants, but that's way more preferable than
+having them obfuscated away.
 
-Commit 26ab9830beab ("net: stmmac: replace has_xxxx with core_type"):
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../stmicro/stmmac/dwmac-qcom-ethqos.c        | 23 ++++++++++++-------
+ 1 file changed, 15 insertions(+), 8 deletions(-)
 
-diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-index 99022620457a..151c81c560c8 100644
---- a/include/linux/stmmac.h
-+++ b/include/linux/stmmac.h
-...
-+       enum dwmac_core_type core_type;
-...
--       int has_gmac4;
-
-So, has_gmac4 no longer exists, and hasn't done since October last
-year.
-
-Thus, it seems your patch has been generated against an old kernel.
-As you are submitting for netdev, it is a good idea to ensure that
-patches apply to the net-next tree and/or net tree depending on
-which one you are targetting, and have been tested against that
-tree.
-
-Thanks.
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+index af8204c0e188..5ee2a6ee5840 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+@@ -361,10 +361,12 @@ static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
+ 			      SDCC_HC_REG_DLL_CONFIG2);
+ 
+ 		rgmii_updatel(ethqos, SDCC_DLL_CONFIG2_MCLK_FREQ_CALC,
+-			      0x1A << 10, SDCC_HC_REG_DLL_CONFIG2);
++			      FIELD_PREP(SDCC_DLL_CONFIG2_MCLK_FREQ_CALC, 26),
++			      SDCC_HC_REG_DLL_CONFIG2);
+ 
+ 		rgmii_updatel(ethqos, SDCC_DLL_CONFIG2_DDR_TRAFFIC_INIT_SEL,
+-			      BIT(2), SDCC_HC_REG_DLL_CONFIG2);
++			      FIELD_PREP(SDCC_DLL_CONFIG2_DDR_TRAFFIC_INIT_SEL,
++					 1), SDCC_HC_REG_DLL_CONFIG2);
+ 
+ 		rgmii_setmask(ethqos, SDCC_DLL_CONFIG2_DDR_TRAFFIC_INIT_SW,
+ 			      SDCC_HC_REG_DLL_CONFIG2);
+@@ -425,11 +427,13 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
+ 		if (ethqos->has_emac_ge_3) {
+ 			/* 0.9 ns */
+ 			rgmii_updatel(ethqos, SDCC_DDR_CONFIG_PRG_RCLK_DLY,
+-				      115, SDCC_HC_REG_DDR_CONFIG);
++				      FIELD_PREP(SDCC_DDR_CONFIG_PRG_RCLK_DLY,
++						 115), SDCC_HC_REG_DDR_CONFIG);
+ 		} else {
+ 			/* 1.8 ns */
+ 			rgmii_updatel(ethqos, SDCC_DDR_CONFIG_PRG_RCLK_DLY,
+-				      57, SDCC_HC_REG_DDR_CONFIG);
++				      FIELD_PREP(SDCC_DDR_CONFIG_PRG_RCLK_DLY,
++						 57), SDCC_HC_REG_DDR_CONFIG);
+ 		}
+ 		rgmii_setmask(ethqos, SDCC_DDR_CONFIG_PRG_DLY_EN,
+ 			      SDCC_HC_REG_DDR_CONFIG);
+@@ -451,7 +455,8 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
+ 		rgmii_updatel(ethqos, RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN,
+ 			      phase_shift, RGMII_IO_MACRO_CONFIG2);
+ 		rgmii_updatel(ethqos, RGMII_CONFIG_MAX_SPD_PRG_2,
+-			      BIT(6), RGMII_IO_MACRO_CONFIG);
++			      FIELD_PREP(RGMII_CONFIG_MAX_SPD_PRG_2, 1),
++			      RGMII_IO_MACRO_CONFIG);
+ 		rgmii_clrmask(ethqos, RGMII_CONFIG2_RSVD_CONFIG15,
+ 			      RGMII_IO_MACRO_CONFIG2);
+ 
+@@ -464,7 +469,8 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
+ 
+ 		/* Write 0x5 to PRG_RCLK_DLY_CODE */
+ 		rgmii_updatel(ethqos, SDCC_DDR_CONFIG_EXT_PRG_RCLK_DLY_CODE,
+-			      (BIT(29) | BIT(27)), SDCC_HC_REG_DDR_CONFIG);
++			      FIELD_PREP(SDCC_DDR_CONFIG_EXT_PRG_RCLK_DLY_CODE,
++					 5), SDCC_HC_REG_DDR_CONFIG);
+ 		rgmii_setmask(ethqos, SDCC_DDR_CONFIG_EXT_PRG_RCLK_DLY,
+ 			      SDCC_HC_REG_DDR_CONFIG);
+ 		rgmii_setmask(ethqos, SDCC_DDR_CONFIG_EXT_PRG_RCLK_DLY_EN,
+@@ -487,7 +493,7 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
+ 		rgmii_updatel(ethqos, RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN,
+ 			      phase_shift, RGMII_IO_MACRO_CONFIG2);
+ 		rgmii_updatel(ethqos, RGMII_CONFIG_MAX_SPD_PRG_9,
+-			      BIT(12) | GENMASK(9, 8),
++			      FIELD_PREP(RGMII_CONFIG_MAX_SPD_PRG_9, 19),
+ 			      RGMII_IO_MACRO_CONFIG);
+ 		rgmii_clrmask(ethqos, RGMII_CONFIG2_RSVD_CONFIG15,
+ 			      RGMII_IO_MACRO_CONFIG2);
+@@ -499,7 +505,8 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
+ 				      RGMII_IO_MACRO_CONFIG2);
+ 		/* Write 0x5 to PRG_RCLK_DLY_CODE */
+ 		rgmii_updatel(ethqos, SDCC_DDR_CONFIG_EXT_PRG_RCLK_DLY_CODE,
+-			      (BIT(29) | BIT(27)), SDCC_HC_REG_DDR_CONFIG);
++			      FIELD_PREP(SDCC_DDR_CONFIG_EXT_PRG_RCLK_DLY_CODE,
++					 5), SDCC_HC_REG_DDR_CONFIG);
+ 		rgmii_setmask(ethqos, SDCC_DDR_CONFIG_EXT_PRG_RCLK_DLY,
+ 			      SDCC_HC_REG_DDR_CONFIG);
+ 		rgmii_setmask(ethqos, SDCC_DDR_CONFIG_EXT_PRG_RCLK_DLY_EN,
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.47.3
+
 
