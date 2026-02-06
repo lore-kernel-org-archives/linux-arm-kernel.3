@@ -4,80 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 347D2EE6B60
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 20:59:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D1AEE6B68
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 21:48:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yHdXm9WWMmVE1P+5Cg1ses+ffyZGwlkBff9NrQgHMSg=; b=rc+1tw//NSmo0x9Nhk5EkTIohV
-	Mtv52EoDmaZ0OqT3rS+bgTYekPyVCGRzouVyn3GcuC3bB0UP+EKuGwMSH3L+++5U/8bDxt46GJDa7
-	J72fQWm99WJ1i8jVnRCcdHEWQbxFAhqeChbjut8VchcMYcXmas7NRUiTKhlZkVKeVmtHk7hNvRdmW
-	39n1NK2OxT6XhM536z7BsikRjWIOP0CGEH62cMh7JQuO3DgU0CF+qAOLMkldE2U/wZvqlh2vgDLWN
-	cauubqb7HZSoDOKqv9rT7ZdLRa/o7S91fk6LucDw6CkEoPfL7DxwSEKkDi/MVh+Ug8xRf84siV6n8
-	y1+8H1EA==;
+	bh=YCCtMzm6KqTbqKB92m3wtbBJnFEnWOwykIvs2rrsvJU=; b=aKHenA9gX2nNbgx6gPGUuXQ81y
+	54yTvWeeLOZUx8dkMHGcJ2pZgER7onr3Y5QwaF9GJPtSMnEnP5d/PhX8ZCJfRRQcQNRw8BtTOvGk6
+	1G14zMTT3MCF8+qUo6SEacPIGyiiN1AuQAtXohSfP9c5imsnhFpv/nSgeBsY9HKETf+ZwAONdIDy7
+	uyP1j2nQMZ1cNxTi/d+cYROWdsum/q2jeEK3RS5bHmTseCfeg0c2XX2ePPEbkyvceZI4hS4TWouLr
+	4n2cD3C9QjzUh8GPJH1I1w3vKTNHC8NFqqKRpQB6w+dJvcVjwZmyF6LftBRrKLLR+cDbltk47slkr
+	9c0xSIpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voSvf-0000000BpPQ-46LA;
-	Fri, 06 Feb 2026 20:59:51 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1voTg7-0000000BqwH-32nV;
+	Fri, 06 Feb 2026 21:47:51 +0000
+Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voSvd-0000000BpOr-0SFR;
-	Fri, 06 Feb 2026 20:59:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1770411585;
-	bh=jXqEJEGiXPhD7zWPLuNoLbQ/40GXnh/bGuHL6XDHfek=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=TdpfGr1olNIIlB9hGxiPuShvtxZDAHT7HAWgwZoTmZai4SeKIGTo7dtrysq9o7ktp
-	 e0ALbI/bUt62nKdexqz3rUhKjTT+YE+vjtYx5RDiqtUPIlZMqc+d2OPDLJNPXCjEvD
-	 D3EWlm9fSeyhNhjs+ABoWFsatKPpAbRHiA/DZ837Y66j7Sy5MtCMzU9QrmdsKFHsAU
-	 YnHHKFDXKWUFLfhb6iUqIqWwzH92K0TzoCXCr2cMWXKasQ1dBtB7Px7zntmzrd84Wu
-	 2K8GWgbzDr94dTxQ7BTy68PUTQ0vHO6ukpHC2IpBb+O7O/tBC0U4aRhGZ0ykvXExpU
-	 ncrLNdfHPsrIA==
-Received: from [IPv6:2606:6d00:15:210e::5ac] (unknown [IPv6:2606:6d00:15:210e::5ac])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 00CFA17E1013;
-	Fri,  6 Feb 2026 21:59:43 +0100 (CET)
-Message-ID: <600cc65678331b0c419d0b517d6c9003481223b8.camel@collabora.com>
-Subject: Re: [PATCH] media: rkvdec: Improve handling missing short/long term
- RPS
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>, 
-	linux-kernel@vger.kernel.org
-Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, Christian
- Hewitt	 <christianshewitt@gmail.com>, Jonas Karlman <jonas@kwiboo.se>
-Date: Fri, 06 Feb 2026 15:59:42 -0500
-In-Reply-To: <20260123192244.1441637-1-detlev.casanova@collabora.com>
-References: <20260123192244.1441637-1-detlev.casanova@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-897AqV6kq3AaBnl4pheR"
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+	id 1voTg4-0000000Bqvv-28Pw;
+	Fri, 06 Feb 2026 21:47:49 +0000
+Received: from phl-compute-08.internal (phl-compute-08.internal [10.202.2.48])
+	by mailfout.stl.internal (Postfix) with ESMTP id 5832D1D000BD;
+	Fri,  6 Feb 2026 16:47:46 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-08.internal (MEProxy); Fri, 06 Feb 2026 16:47:46 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1770414466; x=1770500866; bh=YCCtMzm6Kq
+	TbqKB92m3wtbBJnFEnWOwykIvs2rrsvJU=; b=kBQMKStbaWizfGcsqaYCUVeRXl
+	18X6KsqsYCwdpcMGjEciTdsbb+yLhV9StQFwvmZosvG/P6OG+IMl7r2mTqHSls5o
+	SKzgMtNB+AhrHKJsdJGclfX9LceKyB6GkPZl/GFjBv++gaIS+1U/UMGs5DRjFCeg
+	o258xWxh4WFB79d5LuPbUc+8s8UlQuC4uonTBO5wUwbSxCWampFCCqHeGJJmqgwd
+	uqqRl2hV1IPLXy9YZwB3duueonLr6fi74MZCjyUYZFNp25OV6qKb2uQtGWeyTBdf
+	z+6SyQ8q3IolX9WuIDMQFE3tAznkr5BrPSQVxb18rpwsyCb3+r9+2jOLCFJA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1770414466; x=1770500866; bh=YCCtMzm6KqTbqKB92m3wtbBJnFEnWOwykIv
+	s2rrsvJU=; b=uKzF/cEA0hrhle1IQzAyKhFNvHnu3cNQNBLimuBgyrLki+C6Mha
+	0oL+fhAiF/06EF9H9N11ubEOzgNzS7ib4evZ6tNAT/M479ICnqaELWYSe4joj7EC
+	pyZmp1Sb21xIN2htTSW4bkUIKuZRQiyMTZKZ+votcc4bSRdCUR5Q67chqKTeb9rv
+	b9eBimOJnsIyReMk7HMBPmHXmW1BiVIjHBeTwt+0EcehmnqCfmjwExFIzq89Pl9c
+	m3EWZ210r3ltFrcvBC8znQ+PE8wSZanCCc6tA08GM7zLN9lhBYUR7HAs63lgHL+K
+	/VxQW7VI22zIsUebStq25Hjy4rAiOtbqhvQ==
+X-ME-Sender: <xms:gWGGaQY1U7LGf3qZzWqxMB6I7BXEs9a3VsDCRMr2Y2BE0JYevFhpcA>
+    <xme:gWGGad_XTPfw63MoMJcVpAJL2Pnj_oj21Eij9Zp-JIa6tLBg1tpDEPEB2AQ_AI9LB
+    0iYE48Ss-6qV7L3x4XUM-OTFPQs8dKnyWbkYaeCFPRX4US6jEyn19o>
+X-ME-Received: <xmr:gWGGaekYXEBVsWx-Dg2pvdP2AuIdk9T_aHu5WUgwaDeKg1Ilz1RskqIMm_0tLG_efOmg4r69kaH5BLO6ZhuXEZJEkpM-Q-BDraw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddukeelvdelucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
+    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgud
+    euffelfeekgeeukedtheekjeettdfftddujefhvdehtefgiefgledtueefjeenucffohhm
+    rghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
+    hmpehmrghilhhfrhhomhepjhesjhgrnhhnrghurdhnvghtpdhnsggprhgtphhtthhopeek
+    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegurghnrdgtrghrphgvnhhtvghrse
+    hlihhnrghrohdrohhrghdprhgtphhtthhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhr
+    tghpthhtohepnhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtohepnhgvihhlrdgrrh
+    hmshhtrhhonhhgsehlihhnrghrohdrohhrghdprhgtphhtthhopegrshgrhhhisehlihhs
+    thhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvg
+    hlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidq
+    phhhhieslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuh
+    igqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:gWGGaaym8DcKTckLZWNLKcqul9MNG13j_q24zyRHxU3TTjtqp__j-g>
+    <xmx:gWGGaQ6vRVdNfE-kTbeISIjryQxEsIOI5qjA6TyPj5wHkEnyAbLTaw>
+    <xmx:gWGGaSXTe1oECI_g0b5H7x1K6oq-fFOzFaMc2B288fYl-a0BryAKQQ>
+    <xmx:gWGGaQIhj0tJru23BiEDnr314BKc2GesQL-k-3GjpLtCfTeehkgKbg>
+    <xmx:gmGGaVtWZYGpsm4aOjQ0c6w3flL9z-JlnOnH66XQ6Huu0lgX8oK8Tlno>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 6 Feb 2026 16:47:45 -0500 (EST)
+Date: Fri, 6 Feb 2026 22:47:43 +0100
+From: Janne Grunau <j@jannau.net>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Neil Armstrong <neil.armstrong@linaro.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	linux-kernel <linux-kernel@vger.kernel.org>
+Subject: Re: [bug report] phy: apple: Add Apple Type-C PHY
+Message-ID: <20260206214743.GA194367@robin.jannau.net>
+References: <caa37f28-a2e8-4e0a-a9ce-a365ce805e4b@stanley.mountain>
+ <aYXvX1bYOXtYCgfC@stanley.mountain>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aYXvX1bYOXtYCgfC@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_125949_326235_CFCD7E25 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20260206_134748_737728_84AB593D 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,76 +114,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Feb 06, 2026 at 04:40:47PM +0300, Dan Carpenter wrote:
+> [ Smatch checking is paused while we raise funding.  #SadFace
+>   https://lore.kernel.org/all/aTaiGSbWZ9DJaGo7@stanley.mountain/ -dan ]
 
---=-897AqV6kq3AaBnl4pheR
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+This is unfortunate, there have been useful bug reports.
 
-Le vendredi 23 janvier 2026 =C3=A0 14:22 -0500, Detlev Casanova a =C3=A9cri=
-t=C2=A0:
-> The values of ext_sps_st_rps and ext_sps_lt_rps in struct rkvdec_hevc_run
-> are not initialized when the respective controls are not set by userspace=
-.
->=20
-> When this is the case, set them to NULL so the rkvdec_hevc_run_preamble
-> function that parses controls does not access garbage data which leads to
-> a panic on unaccessible memory.
->=20
-> Fixes: c9a59dc2acc7 ("media: rkvdec: Add HEVC support for the VDPU381 var=
-iant")
-> Reported-by: Christian Hewitt <christianshewitt@gmail.com>
-> Suggested-by: Jonas Karlman <jonas@kwiboo.se>
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+> Commit 8e98ca1e74db ("phy: apple: Add Apple Type-C PHY") from Dec 14,
+> 2025 (linux-next), leads to the following Smatch static checker
+> warning:
+> 
+> 	drivers/phy/apple/atc.c:2209 atcphy_map_resources()
+> 	warn: 'resources[i]->addr' isn't an ERR_PTR
+> 
+> drivers/phy/apple/atc.c
+>     2191 static int atcphy_map_resources(struct platform_device *pdev, struct apple_atcphy *atcphy)
+>     2192 {
+>     2193         struct {
+>     2194                 const char *name;
+>     2195                 void __iomem **addr;
+>     2196                 struct resource **res;
+>     2197         } resources[] = {
+>     2198                 { "core", &atcphy->regs.core, &atcphy->res.core },
+>     2199                 { "lpdptx", &atcphy->regs.lpdptx, NULL },
+>     2200                 { "axi2af", &atcphy->regs.axi2af, &atcphy->res.axi2af },
+>     2201                 { "usb2phy", &atcphy->regs.usb2phy, NULL },
+>     2202                 { "pipehandler", &atcphy->regs.pipehandler, NULL },
+>     2203         };
+>     2204         struct resource *res;
+>     2205 
+>     2206         for (int i = 0; i < ARRAY_SIZE(resources); i++) {
+>     2207                 res = platform_get_resource_byname(pdev, IORESOURCE_MEM, resources[i].name);
+>     2208                 *resources[i].addr = devm_ioremap_resource(&pdev->dev, res);
+> --> 2209                 if (IS_ERR(resources[i].addr))
+> 
+> This is checking the wrong variable.  The * is missing.
+> if (IS_ERR(*resources[i].addr)) {
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+This issue was identified by testing and is fixed in next by commit
+7d55b44e2be1 ("phy: apple: atc: Actually check return value of
+devm_apple_tunable_parse").
 
-I'll pick this in fixes, so we don't release 6.20 (or 7) with that bug.
+https://lore.kernel.org/all/20260104-atcphy-tunable-fix-v2-1-84e5c2a57aaa@kernel.org/
 
-cheers,
-Nicolas
+Thanks for the report
 
-> ---
-> =C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c | 4 +++=
-+
-> =C2=A01 file changed, 4 insertions(+)
->=20
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c =
-b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
-> index 28267ee30190..3119f3bc9f98 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
-> @@ -500,11 +500,15 @@ void rkvdec_hevc_run_preamble(struct rkvdec_ctx *ct=
-x,
-> =C2=A0		ctrl =3D v4l2_ctrl_find(&ctx->ctrl_hdl,
-> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_CID_STATELESS_HEVC_EXT_SPS_=
-ST_RPS);
-> =C2=A0		run->ext_sps_st_rps =3D ctrl ? ctrl->p_cur.p : NULL;
-> +	} else {
-> +		run->ext_sps_st_rps =3D NULL;
-> =C2=A0	}
-> =C2=A0	if (ctx->has_sps_lt_rps) {
-> =C2=A0		ctrl =3D v4l2_ctrl_find(&ctx->ctrl_hdl,
-> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_CID_STATELESS_HEVC_EXT_SPS_=
-LT_RPS);
-> =C2=A0		run->ext_sps_lt_rps =3D ctrl ? ctrl->p_cur.p : NULL;
-> +	} else {
-> +		run->ext_sps_lt_rps =3D NULL;
-> =C2=A0	}
-> =C2=A0
-> =C2=A0	rkvdec_run_preamble(ctx, &run->base);
-
---=-897AqV6kq3AaBnl4pheR
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaYZWPgAKCRDZQZRRKWBy
-9JwhAP9UIkCMcg8W8+RHSrgDTGNgUiIycn2gGMavIcmqgcq98gEA3XieiwUqwRbW
-pkGqVq8rFrMMs18duyTlZ6hmGqQ4iw0=
-=cb/E
------END PGP SIGNATURE-----
-
---=-897AqV6kq3AaBnl4pheR--
+Janne
 
