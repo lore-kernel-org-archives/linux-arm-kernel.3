@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B47EE2091
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 12:45:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 186A5EE209C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 12:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bDiq+0d3D0Yh0TtokVVa4rN0HvOe1emmSsmHz5APNsw=; b=Of166hIrEM3t7sVmoM+vG1kOSz
-	qKfvxUunHMxR7q9HW7AKcEzQSkWPPcsyHKIz6FEsffKqnypaPm0ESySIu9lpw5A4TQrlnQeX0sUKd
-	StYGskkQx6OK2dB2V2nl82sLdejQ98gl/bcHWP6erMVmrRZRPwvS6KFfiq5bqBbu2K5x4KWh727xp
-	9FMuag1jUe5ACCayO4dhMUPnUU9MvNATNBX1+WucOI+/BY6Z8T/pooDHIV/vZzV4Mh8y7V3HtzKtF
-	MB6icq0ptidK1RMIiHe14nVgkY42yXhcxIuwTbXrkweuwxT/bxqvb9FMhSN5aeeNvbK4fUYLb1p/x
-	RPXp0HMQ==;
+	bh=v/19RVbcpuTIGxbuXeb4ZtmU7F+LfHpGctBk8u5FM8A=; b=T3sTAIuu9dTd4xZujy6GLmNnkE
+	JedoNRTEX+9rXydeZAdx5B9rJ6gOEVryNlDTp2qx+lP/D0EzKlRwdv27iBCAvwM9usWx61x+JdX18
+	cL25iweQkn4hdajyWOdZIgMu7fo3iDWzBBOft1tMNT/NxWn+p9IRuHZQvMbfKtv1VvJpdtAiN25r1
+	S+PlhyOqc+BX/ZuLQ/PSnvCYWzpe5A735KxfMtK2XRLXoysv5V8q7l11PlDL+b3q2f+sq2NJxLHa0
+	A3EWPMfNAFI7KjrMjULzMH/YWyxc6ikgpIrsl8yhQpHUU5Oqv9hDNwsWAj18jSKP52k+XNjX7wfSR
+	pVWDuxeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voLD2-0000000BJs6-19Ye;
-	Fri, 06 Feb 2026 12:45:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1voLIB-0000000BK5m-0Lwt;
+	Fri, 06 Feb 2026 12:50:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voLCz-0000000BJri-00lD
+	id 1voLI9-0000000BK5D-3lwr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 12:45:15 +0000
+	Fri, 06 Feb 2026 12:50:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3FDAA444B0
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Feb 2026 12:45:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21A80C2BCB0
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Feb 2026 12:45:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D1D916011F
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Feb 2026 12:50:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8446AC19422
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Feb 2026 12:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770381911;
-	bh=bDiq+0d3D0Yh0TtokVVa4rN0HvOe1emmSsmHz5APNsw=;
+	s=k20201202; t=1770382232;
+	bh=v/19RVbcpuTIGxbuXeb4ZtmU7F+LfHpGctBk8u5FM8A=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=D7iQgMSrfb8X5LrgDkoYgqcj8jN848P8JFQuK3dAC22+zbgJ+VhW/NsA+3UqqSg5a
-	 oz0tneyrhQggAcSa2ei1F1qpuiahxNWyXyuqUKIjYkKiv0o3gHoPyXrnKQbzo3ocW2
-	 +fJXboJnSu92gfyk9K6xq+IEjvkVWRH6gV7bs8IdUdwih8q7HFRv98MEqPLCPPAKuj
-	 4dPxuia5U5C3jsQqCFTDt8sQP/gpopd42YbsGCYsatSWqdXUQn2Ht0pdvq3rJLqnu8
-	 wTqp8dsR2O4ooQwZ7QWturXjllshjXZOd2FcA+Qn0jinU71seSIRNsR6Ae5KH5FfKJ
-	 /xrAM5yb5pO5Q==
-Received: by mail-yx1-f54.google.com with SMTP id 956f58d0204a3-649278a69c5so1780251d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Feb 2026 04:45:11 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWq/4lanuH55Mu7njIZ8luYODq4ATwDh/raJUjTEGCJUQ+cZ9QHERID2dIVBRsSNMEIx0wBbQBz10C+lTRFCAF5@lists.infradead.org
-X-Gm-Message-State: AOJu0YyyZn0Rj6MjQb1026ONgi/Pykalq5vSj0zdRC3IAMt/Z4k7nmSk
-	vR5YKd5jj6/c8HWttcRrn9zPxAPUomko/mCwwNgNM43I16qSbhx2Bsu2h0rfvzmhf+4IsRvuNDd
-	0bD1P0YcdEcF9axpRvoROXYgW8HIthXI=
-X-Received: by 2002:a05:690e:d89:b0:649:f002:582b with SMTP id
- 956f58d0204a3-649f1e9a146mr2416290d50.7.1770381910243; Fri, 06 Feb 2026
- 04:45:10 -0800 (PST)
+	b=CxWs6QdxzudD+cADgI9kk72SezQfAEZu887Psbqkxq/9h9EtSPi0xz0EQHY+Me2aR
+	 G+caqMzOWs7+a5VY9Mq/L/iJ/fmxylOrWLefczBR76QI4/B8FxMFDO02u3bbh1AKnm
+	 0Kq7UeSAHZPS/8PpyqYqdEco8yD0D5TdXlXsS/a2uNgXtlWMDBgTRO9gzpZuUHeAb5
+	 eDXy58knIoq7MyqhxJtHMG47KZ8NfgvdiNnJx2KpQKPhGZQKNDrNKFHndEq4Ye2sDp
+	 zxJ5cOhaALpaBhtylTz8vMWCDWXSOVqNcJwUQANeTcFACvB7FRkAvw0/q8a/q579+a
+	 cp0RChCm7tO8A==
+Received: by mail-yx1-f54.google.com with SMTP id 956f58d0204a3-649ba412cd4so2043862d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Feb 2026 04:50:32 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWdhg92kSdUYtIA0HgfV6P60ss1WeytHjoyi8Q4QZKzdYIisR6ElAM3pwlUE5lvdcdNROekyadgnli6NdmOGzGC@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiuAZ3uNNKt6v8AVOcK+v6iisKAqZEYv12H9svIzAkUh5dNpOo
+	14UNAnVPPtvG2U5+d4WaB/Ul0n+vfdW5zY87ks59P819Bk73cU6GNCgINQWAgVJ4ktW+KhBQJPn
+	6o7PAwQ+nhJ3Ef82f9+Dj0UDNTXkZor4=
+X-Received: by 2002:a05:690e:40f:b0:649:c36a:a9d5 with SMTP id
+ 956f58d0204a3-649f1ea5375mr1789712d50.32.1770382231852; Fri, 06 Feb 2026
+ 04:50:31 -0800 (PST)
 MIME-Version: 1.0
-References: <20260203161843.649417-1-wangyushan12@huawei.com>
- <20260203161843.649417-2-wangyushan12@huawei.com> <CAD++jLn+TDfu-aQ+Kfm=unYp4Zjg=endP3GGzZcpuYFR=s1K1g@mail.gmail.com>
- <20260204134020.00002393@huawei.com> <4c5eaf8f-2433-4971-b5d0-4f35acb2820e@huawei.com>
-In-Reply-To: <4c5eaf8f-2433-4971-b5d0-4f35acb2820e@huawei.com>
+References: <20260123-upstream_pinctrl_single-v2-0-40f8063cc5a2@aspeedtech.com>
+ <CAD++jL=OXJdJZpjbo0_C03vcgPe5btum-J0uifvSJkMaUWG-=w@mail.gmail.com>
+ <OSQPR06MB725257E71F0B7F7F1013263D8B98A@OSQPR06MB7252.apcprd06.prod.outlook.com>
+ <20260206042215.GA5376@atomide.com> <OSQPR06MB7252ADEF2CB075BC40AD7DB68B66A@OSQPR06MB7252.apcprd06.prod.outlook.com>
+ <CAD++jLm2a1-G7QQBb+u68DH_RT6kc4=vpqZWQcirvWrcRjw+5Q@mail.gmail.com> <OSQPR06MB7252D5BCD40BDF2A91FF41438B66A@OSQPR06MB7252.apcprd06.prod.outlook.com>
+In-Reply-To: <OSQPR06MB7252D5BCD40BDF2A91FF41438B66A@OSQPR06MB7252.apcprd06.prod.outlook.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 6 Feb 2026 13:44:59 +0100
-X-Gmail-Original-Message-ID: <CAD++jLkK9av2X4mufdTVA53yvt-yzfsLwF-R57JT3gXRBsAe3Q@mail.gmail.com>
-X-Gm-Features: AZwV_QgG2qCN21qfdFqp1_uUoU1snEr_v0VrvR5O7tyuWNyeNMKM9kSQmQYe5Q4
-Message-ID: <CAD++jLkK9av2X4mufdTVA53yvt-yzfsLwF-R57JT3gXRBsAe3Q@mail.gmail.com>
-Subject: Re: [PATCH 1/3] soc cache: L3 cache driver for HiSilicon SoC
-To: wangyushan <wangyushan12@huawei.com>
-Cc: Jonathan Cameron <jonathan.cameron@huawei.com>, alexandre.belloni@bootlin.com, 
-	arnd@arndb.de, fustini@kernel.org, krzk@kernel.org, linus.walleij@linaro.org, 
-	will@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, fanghao11@huawei.com, linuxarm@huawei.com, 
-	liuyonglong@huawei.com, prime.zeng@hisilicon.com, wangzhou1@hisilicon.com, 
-	xuwei5@hisilicon.com, linux-mm@vger.kernel.org, SeongJae Park <sj@kernel.org>, 
-	Ard Biesheuvel <ardb@kernel.org>, herbert@gondor.apana.org.au
+Date: Fri, 6 Feb 2026 13:50:21 +0100
+X-Gmail-Original-Message-ID: <CAD++jLkqpRrcgQ2JvbHJY3NQ=KHi8T91aOg2KvAmkVAXAEzH-A@mail.gmail.com>
+X-Gm-Features: AZwV_QjznRiO3R7PrXKwCTjHHZVk1DsnLknrKSsSuWnvcVQBwBcOJl2iW8ROiqE
+Message-ID: <CAD++jLkqpRrcgQ2JvbHJY3NQ=KHi8T91aOg2KvAmkVAXAEzH-A@mail.gmail.com>
+Subject: Re: [PATCH v2 0/3] pinctrl: single: bit-per-mux DT flexibility, probe
+ robustness, and consistent pinconf offsets
+To: Billy Tsai <billy_tsai@aspeedtech.com>
+Cc: Tony Lindgren <tony@atomide.com>, Haojian Zhuang <haojian.zhuang@linaro.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-omap@vger.kernel.org" <linux-omap@vger.kernel.org>, 
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>, BMC-SW <BMC-SW@aspeedtech.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_044514_322333_493C0818 
-X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,44 +88,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 6, 2026 at 11:08=E2=80=AFAM wangyushan <wangyushan12@huawei.com=
-> wrote:
+On Fri, Feb 6, 2026 at 12:34=E2=80=AFPM Billy Tsai <billy_tsai@aspeedtech.c=
+om> wrote:
+> On Fri, Feb 6, 2026 at 8:24=E2=80=AFAM Billy Tsai <billy_tsai@aspeedtech.=
+com> wrote:
+>
+> > > I understand the preference is to keep pinctrl-single minimal and mov=
+e
+> > > the bit-per-mux handling into a separate, more targeted driver built =
+on
+> > > top of the GENERIC_PINMUX/GENERIC_PINCONF helpers, rather than extend=
+ing
+> > > pinctrl-single itself.
+> > >
+> > > Based on that, I=E2=80=99ll look into refactoring this into a
+> > > pinctrl-single-bit style driver that covers bit-per-mux / bit-per-pin
+> > > layouts generically (including AST2700), while keeping pinctrl-single
+> > > focused on the simpler register models.
+> > >
+> > > One additional point I=E2=80=99d like to raise is the handling of pre=
+-reserved
+> > > MMIO regions.
+> > >
+> > > On AST2700 systems, the SCU register range containing the pinctrl
+> > > registers is commonly reserved by a top-level syscon node or by firmw=
+are.
+> > > In this setup, devm_request_mem_region() can return -EBUSY even thoug=
+h the
+> > > registers are valid and intended to be shared, which currently causes=
+ the
+> > > driver to fail probing and leaves pinmux unconfigured.
+> > >
+> > > When moving to a separate targeted driver, would the preferred approa=
+ch
+> > > be to treat this condition as a warning and continue probing, or is t=
+here
+> > > an alternative pattern you=E2=80=99d recommend for handling shared SC=
+U-style
+> > > register blocks in pinctrl drivers?
+>
+> > Can't you just base this entire driver on syscon which uses regmap-mmio
+> > to abstract and solve this problem?
+>
+> > The syscon is entirely designed as a singleton owning all registers
+> > and handing them out to subdrivers.
+>
+> Agreed that syscon/regmap would be ideal. The main issue with
+> pinctrl-single is that it is fundamentally MMIO-based: it always
+> requests and ioremaps the register range and performs raw MMIO accesses,
+> with no regmap integration. Adapting it to act as a syscon consumer would
+> require a larger architectural rework of the driver.
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/d=
+rivers/pinctrl/pinctrl-single.c?h=3Dv6.19-rc6#n230
 
-> Suppose we have data on SSD that need to be transferred through network.
-> We have technologies like DDIO and IO stash to make data flow through
-> L3 cache instead of DDR to avoid the influence of DDR bandwidth.
-[https://www.cl.cam.ac.uk/~rnw24/papers/201708-sigcomm-diskcryptnet.pdf]
+These comments were under the assumtion that you do what Tony & I
+suggested and create a completely new driver for these use cases.
 
-So as to decode, encrypt or run some AI training/inference stuff on the
-data, I get it.
-
-The paper immediately gives at hand a use case the Linux kernel
-(not userspace) could use: lock down the code and constants used
-by in-kernel cipher algorithms to reduce latency on encrypted disk
-or networks.
-
-[Added in Ard and Herbert who may be interested]
-
-Which means that if this could actually be used for these "hard
-kernels" in Linux the proper way to abstract this is to give the kernel
-a generic interface to request L3 cacheline lockdown no matter
-if that is employed by the kernel or userspace.
-
-> But if something is to be done to the data instead of merely copying,
-> and cores needs to participate,
-
-When you say this, is it "CPU cores" or others cores such as DSPs or
-GPU/NPUs you are thinking of, or any kind of data processing core
-(all of them)?
-
-This surely need to be abstracted in such a way that either of these
-can use it, Arnd mentions dma-buf which is a way devices think about
-data that the CPU cores doesn't necessarily (but may) touch,
-and resctrl could very well integrate into that I think.
-
-What I think is important is that the modeling in the kernel is consistent
-and that l3 cache lockdown is something any part of the kernel
-needing it can request.
+Sorry if it was unclear.
 
 Yours,
 Linus Walleij
