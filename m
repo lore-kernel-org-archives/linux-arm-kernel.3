@@ -4,160 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED466ECD9BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 03:34:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 616AEECD9BE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 03:36:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NM3xzMUDtPp5y9YfMTVb1sJu7YcNXN1qx/NZ9zirSgY=; b=RKl2x3Ni8jgSRpE3kWeZQaNeg7
-	Eh5WKGQ3LSEP4uhBlQYCB7Hkw+f64ZaOtko0NqUOM6MCXou0Bezon4K3xnTp05EyQnKLG6JJdUPBn
-	eje16DHIZmTJJ13IkXRgZ4/y/5DOve/q272pjlNDNlmSqvlZnB9bqgdQPkPPWcLSVUt+7NHWwbaos
-	beFS0IjKhc8uK24gSz3gJhWhOvj9uk1dDzaHDkB4pnu815oMsWvO0H1Tl660W/dqFG8mQI6MFUVoJ
-	5S7u3RJDrH7XuOxGt956VEw0w3S6TWdIbj+CZn+ZN6HEe9B7dz+PC2yBRZYYdbG57NKwPWAyEw2K1
-	6fAidKVg==;
+	bh=Q9PMDCR5M61UjnLo8qS3MJxI0E0obebtYNPar4LQ1dU=; b=bqCOEg+eEKu2YUOIm5MdZlOgvb
+	xNE3ibb9ih681QfCb27OUdUdKOGrK6XYBQpTGLhJ48cIh9n4OOCrFatg/LjD9rQTVlaqGcvaRhiw5
+	uZESTJPcYaGEOpoBlGsRWFpFciXlUGw7CmmlQEcWXptWppQUD4fbIiDo34CHC/DsgJkVhIxRXXnaw
+	UuTLShd2ukTa7eOg+x2BsE0rkLpfqSkZVKG5n4vwOtLfie1oV4J2zCGXjT57PpDP7nLmBi+ZXIvrf
+	x5IC56oOHE6uR/M2bMHRKawfsgmr/T8Hxl3bbp3FdXF2v+3z5CIDBXJTnJAdzGWW52o0fTKdKSzWL
+	4Ma7JA9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voCcL-0000000AoJy-1qZo;
-	Fri, 06 Feb 2026 03:34:49 +0000
-Received: from mail-northeuropeazon11011065.outbound.protection.outlook.com ([52.101.65.65] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1voCdx-0000000AoTX-1PUH;
+	Fri, 06 Feb 2026 03:36:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voCcJ-0000000AoJZ-3PB6
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 03:34:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=g5wbXLhA9iAnc8NOXUckxeVeBoUnHIMdmYmvxV/5Zw9KtDS86p2Kel17sFUlatBnpW178/MGe8hsNxSkhDm6QbyUUUYwDN/LsRcnxIUEmsM5ktCbdKdBEluk9BUUoE4t/QspYzqlqUSjzYdvtYkvdl0VMLXtLNKANPBbPha5sMwMTsCEUfbsHnJ5Wcys4ev+MdJveJnL4GqBIdbuU2OcXK5a7HqWVhgtRwdeY86981broDVx1cCjtkqnI6XBpYM1KogzCcuVk8mqyGn8HPONgIxagNp+T0qSn7tA6YAapgDcY0GUQomakz5ovXjBvHseLEyeWBVI6pPBwRg67qbbMQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NM3xzMUDtPp5y9YfMTVb1sJu7YcNXN1qx/NZ9zirSgY=;
- b=ubWopcHBsYUo6AHZpM28FGDTcyv0rVs3EXbBHeeiDVu4w3aOKVUueFWa20LEJ7mk7e3/bakoS36Pl9YP8kGl+6EwxyuTuJIjqzt0jubGN/u6834cgAhm+HpRzblashRaYR1Q0jfN00o78ncmmt7ewQ41Dj7KumCUV51cQ8pBF/asEnozGRqxKoBDd4rUuJuB+OpVuzos0Fb6mO9RMiPusLnx14uothuYJAavYMY1OZcif6KWPjO6Unre+lqmuN+50p0U889xO0Sdi0pHDd1PXqM212CujmvYK1YMoRAB2nBVGdSwdBAonVlh+pYgXHx6R0PrnlgDchC6t7X3jyRUmg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NM3xzMUDtPp5y9YfMTVb1sJu7YcNXN1qx/NZ9zirSgY=;
- b=M0UN56OOc08HWxqrkfxUjtlBN/zvIVAL+gIdCy5qHvEBE0LsDKaE+1V5ydn0NWkUDe0lWsZgyC7Vu0xiI7nxwcFcaXMlILXNJMFMWcGLdXEPVidFvu3lmXy1SRxHwnziHmkIt0Vl99OAjLqomDq6kxWRiEmCbZYaXujGuMQDoEpLHh5vzlFOFlutHmsAaHr51WYtkwPYFk1I0jrLfsfUb6/GhwAyT6ajt+PKQ14QaYY73FEbj1e0Ub9J3Eze1f3cxpLA1wlkG4H3kkeawvTL/ZZfx4bOE1KLeJPp2RMs7yoCP0DERtUFTyCdJEEiXD/3rjd2BBmQlVZbyeOJHXjREw==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PAXPR04MB8942.eurprd04.prod.outlook.com (2603:10a6:102:20d::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.14; Fri, 6 Feb
- 2026 03:34:42 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%7]) with mapi id 15.20.9587.013; Fri, 6 Feb 2026
- 03:34:41 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Chen Ni <nichen@iscas.ac.cn>, "andersson@kernel.org"
-	<andersson@kernel.org>, "mathieu.poirier@linaro.org"
-	<mathieu.poirier@linaro.org>, Frank Li <frank.li@nxp.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>
-CC: "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH] remoteproc: imx_rproc: Check return value of
- regmap_attach_dev() in imx_rproc_mmio_detect_mode()
-Thread-Topic: [PATCH] remoteproc: imx_rproc: Check return value of
- regmap_attach_dev() in imx_rproc_mmio_detect_mode()
-Thread-Index: AQHcll2pMFTvYKAP80u/OoIeFR6/IrV1BMzA
-Date: Fri, 6 Feb 2026 03:34:41 +0000
-Message-ID: <PAXPR04MB8459ABF483274720F6BB23188866A@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20260205050905.3031134-1-nichen@iscas.ac.cn>
-In-Reply-To: <20260205050905.3031134-1-nichen@iscas.ac.cn>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|PAXPR04MB8942:EE_
-x-ms-office365-filtering-correlation-id: 8f73d174-15e9-4552-953f-08de6530aa07
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|366016|1800799024|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?Go8LMSVYVkNZ/wAKOmGsaxqqZtrqHQWk84lHMrADsveva0Gp7srTbw89WklD?=
- =?us-ascii?Q?7VacG+du2SHJW0GYqQVG8U6VDx5J3ZSf83FK6kLr4NvuldPq40ojqmEr+2/5?=
- =?us-ascii?Q?mAGh5wRIkgQK0No2iBDiTGZvrmIUTR354fxUcqKL23sb/edUHSORlOWzIs5f?=
- =?us-ascii?Q?yeOh7Dypiy0rs43wcZIWg3rQ+1aVNUtITJflKpxpei0BExezw4QzpMY6Sq+Q?=
- =?us-ascii?Q?5RvJVAn6IsBaYoZldLmicDzUT09l6VwU+Z75KGryqHeuvtBWN3Abx396fgnm?=
- =?us-ascii?Q?8Q4xD3SnjbT161a0yHH2FpibgZhMi9xeu0RCa6h/wBd//cY0FP7JiV8k7z5W?=
- =?us-ascii?Q?EapLosu94OsOlRA0kP2teUfqytjULypBRpojmpFBZSaMIDOYW8pn6oEO1T+v?=
- =?us-ascii?Q?wiCUxc7gQGALqgqURXnjKIsl7CKzXtazflRV6dfmS8XE26j+hSgzwyRaW5HJ?=
- =?us-ascii?Q?b4gofrgMLp/iveDBmnAZUW5k4dWWWdfefT/0nrw8W1Gf7DuWcWPaeoCZhf6l?=
- =?us-ascii?Q?eTEk4yTs6fp6eVYC/7e6/BkfzkhABNfDzAY4zdMCc2yXITT46rw13u0Cyw5r?=
- =?us-ascii?Q?oYNsTXitaxYkuEhaxvUU6nHzhOMdTi4wzmdncMLuerXKypEv8tluQxmWJ4L9?=
- =?us-ascii?Q?oXH7Oj6ZF6i7bSrPhRxnhQOWS4esSyBtzsg0fr67JnGnfuB9r1iW4ANDdtAB?=
- =?us-ascii?Q?mUKON6h1O5TEmJDoAcTkHxhTQwEgCb71tUs3EaiLhhOJv9eaUIXn/rOVuG2C?=
- =?us-ascii?Q?joI/utgNG95AgSKguFXgijXgU/bSlKmQZU+KZ29TUMVWhD6Ft6dr/RP+Ehqd?=
- =?us-ascii?Q?o4big7dOXxu2QL9Lt66NI9RBs0bXPopVhU8A5TH6vq3qI8mnZQJNZnC3Vxd+?=
- =?us-ascii?Q?tVwWhhy+OSbc47p1ZUXBaI49tw151T/oAU/WGPZYj9dWB0n51o78RLE/AfqS?=
- =?us-ascii?Q?bsjG8oQiOamoUpJQXmFvhca3DWIRncB32wCFtO9qKNMRdlWMic+AUXtmPbAm?=
- =?us-ascii?Q?ZTkyMo16bloVlEALEZqrQy707E7gNKH9K2Y1mPmBM4Qirpqklti9swcDLm4e?=
- =?us-ascii?Q?pQImk2W4AFA0Doi7dmicc1mWbRTc1Z0akjmCXYsP0M0C5NqJ5QvJCtz8f11K?=
- =?us-ascii?Q?93qU+1EptGNIlaUT8Y62EmuwqDQoYT1Leceg1U5+4puRuHqnnCYy1/fH7Mzq?=
- =?us-ascii?Q?R4oQiZVg9QcUE9k3Y5rti+02hn8xUtRKmkQi6HMjBA+pHFz4McYVplnvj4gW?=
- =?us-ascii?Q?DJAlkLAWiJVuM470Qi568rfCYd02goJOJy8SOmRKBSac47f1jgFjSFGaUQUM?=
- =?us-ascii?Q?AxOIauGbfvkNwHGIDp5ySeHlAJCu0Ww4HnmrYiwgjolBxDkqcvyw0OA0YHsr?=
- =?us-ascii?Q?9qN+hJjyvKNtXEce1yRlBl7kyP+UdfRsLC7r9exppTYstO7GilWMzEVBFEWx?=
- =?us-ascii?Q?obMru/m87+JErOwdXt0y+2xR1o2ghj/04SQQeeu/jJIJoLKfzkyR1PHT0cPG?=
- =?us-ascii?Q?EqtefOTGRQx+2cizV1B9CHTAPlwAgeaOYm031toxs2pYmN04L+4G/MXu4vaK?=
- =?us-ascii?Q?A/fM1dhpk/Gagi2mI7rQlfkPuaV2XvZSAZ5L9b206eMiqOZAg9mF4/qVh6JH?=
- =?us-ascii?Q?I/D7RZ+h/CradxUWDvdNSsk=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(366016)(1800799024)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ipc+jHDqsFtNenWvBzYqBMao0Wla5dAgvxNSXCTJpYzFwzBzm2M8fdf+yJVH?=
- =?us-ascii?Q?JJb23w3GFWG41NyQJx/bLV7Do6D0yx4ja367OgXFiUFyTXZcaQESF2RFJdBJ?=
- =?us-ascii?Q?o24J0fCg98r26/U/E/wHwYrr3gRaqsJBitB+lq5dRcruTZYFHMk+Vzcp0com?=
- =?us-ascii?Q?eWEWpPvUP6yiAUJyZvxtrTTnKZ4lUETlbXY+gqx4vm1ngFKr2OfaNoJxqDQt?=
- =?us-ascii?Q?nc4R6aOhqH1BfH2yMHrzl82p+QNMiCmVnVOqosVqulZloDAb9tDGfYYVRtcX?=
- =?us-ascii?Q?1xC8mukQ+3IP3t8/ytdcdK9ZBxgoZZQJFSz2tKsBe9WbomW00Jo/hJCBkS+m?=
- =?us-ascii?Q?B42ZKUoDlncu5u8WNomCmpIe16GtUiArFh+rTec4LNzu1vkNuS/P5G/3LmNL?=
- =?us-ascii?Q?1JtzBjPlBv+Ydd2NcfxXHF6moolxtNBzH+cuc78SY8ABUrSGFHn0TPQtBFHz?=
- =?us-ascii?Q?G7PhIvSmTAFRnSHoGWTJwwhnY58MlK4I2fbaFlwb1vItK0qtre/nLD6vSJP8?=
- =?us-ascii?Q?eNmbkpl3nBAcZfhyvS/nRDBdPXoxHTylNlFcXKLWeNH1xXoDSgV8sYk53FQX?=
- =?us-ascii?Q?g9gachC79Hk2M/sK93ywMbqUU4PppffooA0+9SZe1hUZEWzOtJkzNJI1Osz9?=
- =?us-ascii?Q?znhdNG2Zjp0C5juXR5iF47oY8ZbGgJ1VdSJaLcojFnI0t1S59readyaUhdNA?=
- =?us-ascii?Q?hUhVGmXTteS+y/ZvHhPSBk7Tpz+90n/HplVjc8IcETYekB4Yb6t6n1JNcFlk?=
- =?us-ascii?Q?YrDM5W/QxkZh4A41iJzswSM4UK5v5clUocPYAlgV/wQ3/2WA1weJCZwOV2Gn?=
- =?us-ascii?Q?QbYCO/Dv5UEr0xnXWE27Ta7BtfQAcW+9nKjfNYww7IchdztCDKZ9qFlHgG5V?=
- =?us-ascii?Q?5qt1ENdvMDT2YwkP2u7cXMeZzNsZMAHXy0VVXcUAKPT+qIHmPtQWraXgTiOK?=
- =?us-ascii?Q?THvI0IaZ+PYI/n8ykhso7Y+1Riu6DwcKjxVsrUTPNGF51pnHBZV8kFGZyzFd?=
- =?us-ascii?Q?DoLdL8aZbkOUdNfKv/7az6TKZ+PstmZLLbSSFE2K1ij0LthXJLMfClOD1W4V?=
- =?us-ascii?Q?USdYRTVOjC4Wpf1IQX/U5YfqSAuHgTymxLGDoB3aHxYiKyo529dCErMrv9Ci?=
- =?us-ascii?Q?Y3xR6UKnTV7dPuV45/3ELn8g13HL/aidN5OrByUeFoiVAL0ab41qU06e74u7?=
- =?us-ascii?Q?yyqUl5eQcw4p67qrYkEqXsXjStgQVDULwM5AWMEkuO9Dh0NNanVXlDz2mlK8?=
- =?us-ascii?Q?g1SHvq9nm4kDoCYDvulUszOWFITTHmR62U9VfZ7FswZSTWgl4evy+wBEe9Py?=
- =?us-ascii?Q?FezNxvJ4shcXUt+YmXQiD4C56oALASj25wA/gFpwrQIcz6tu8F9HG8X6jiJP?=
- =?us-ascii?Q?8gTpckz2nYWB5KqoBy6PKeOVXX6D41S9wTk4kZR2VpRVNz+dskdmt4wyL90F?=
- =?us-ascii?Q?SptkKU1hQBN0OABwxQllgSahwLXMgrz14JOE/2d5vvkfJsSZZZuBzPvhQfaa?=
- =?us-ascii?Q?IvepdCwV8SBcO2AthsC5Vmg5hKIHMxlAO/Sd9Uvb3MkC3QafylJOOSoVoY81?=
- =?us-ascii?Q?31Dju1af68ZH/hiSW/zihDxNfmFjc5ECq5pTsJK6al4tIzcXSwjhhklAi7v4?=
- =?us-ascii?Q?Bhm9bppmbyTH7lJ12iQO22DWeYSx2goiEbn8KaQKj7YyXLUg1R8A1WyWbyfc?=
- =?us-ascii?Q?jJwd7un14lFGPyXAfQqtiD1S8EYV2Ho+AWTNGIzXvMcQcTyb?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1voCdv-0000000AoTM-2quC;
+	Fri, 06 Feb 2026 03:36:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B121B6001A;
+	Fri,  6 Feb 2026 03:36:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1939BC4CEF7;
+	Fri,  6 Feb 2026 03:36:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770348986;
+	bh=3MP4Io1FQNfw2qWLKxUuFzooJmPrZrW7egR2WNYgQyo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PcXWaXHnWXrMpP6QccpsnPpusgRX3HGIa99QmRQUCUv+oKnuQp+1HhS9WiqBG+rb8
+	 vUysoDmFr9SR+Fi11go0BDmC/XOByaUIyemB383sCfTC3d22nG2pfGv6W9VKeH7DLS
+	 QtKSzl+MLSNLEMczijA35dqvQhZeg7kadKGOgIg787Zo7fwfE5Z7fhni9BRmXYQZJB
+	 uVtGwLacLxoAq9zJcVA4ywpGg9bGcyRmFKDm4QNB0m0nrtpcWTRkhll8eJNzSDWYKV
+	 eKlhsUb7tYXmEGZa+/0PYmIk7NTxaevN14yQW7FPG7D+unaUU9HnNkUV8kUi4sXHwu
+	 v7ifhsY6UAs5g==
+Date: Fri, 6 Feb 2026 03:36:22 +0000
+From: Tzung-Bi Shih <tzungbi@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Chen-Yu Tsai <wenst@chromium.org>, linux-remoteproc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] remoteproc: mediatek: Unprepare SCP clock during system
+ suspend
+Message-ID: <aYVhtt_d0b22XxkV@google.com>
+References: <20260204085442.1822123-1-tzungbi@kernel.org>
+ <a880d5d9-348e-4777-ae7f-69bdf7794e58@collabora.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8f73d174-15e9-4552-953f-08de6530aa07
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Feb 2026 03:34:41.8386
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: WJFY26WH7/GhS6WCEFbbYcY4rSfetwyhGE6jmqmysxeUb98UiQ9jHPglCgq1XEgeXkEX/+nbEor+Lud+MQf9wg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8942
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260205_193447_871683_B1AE3AF8 
-X-CRM114-Status: GOOD (  18.04  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a880d5d9-348e-4777-ae7f-69bdf7794e58@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,54 +73,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: [PATCH] remoteproc: imx_rproc: Check return value of
-> regmap_attach_dev() in imx_rproc_mmio_detect_mode()
->=20
-> Add error checking for regmap_attach_dev() call in
-> imx_rproc_mmio_detect_mode() function to ensure proper error
-> propagation.
->=20
-> Return the value of regmap_attach_dev() if it fails to prevent
-> proceeding with an incomplete regmap setup.
->=20
-> Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
-> ---
->  drivers/remoteproc/imx_rproc.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/remoteproc/imx_rproc.c
-> b/drivers/remoteproc/imx_rproc.c index f5f916d67905..0e23f519c247
-> 100644
-> --- a/drivers/remoteproc/imx_rproc.c
-> +++ b/drivers/remoteproc/imx_rproc.c
-> @@ -1007,7 +1007,9 @@ static int
-> imx_rproc_mmio_detect_mode(struct rproc *rproc)
->  	}
->=20
->  	priv->regmap =3D regmap;
-> -	regmap_attach_dev(dev, regmap, &config);
-> +	ret =3D regmap_attach_dev(dev, regmap, &config);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "regmap attach
-> failed\n");
+On Thu, Feb 05, 2026 at 01:30:42PM +0100, AngeloGioacchino Del Regno wrote:
+> Il 04/02/26 09:54, Tzung-Bi Shih ha scritto:
+> > Prior to commit d935187cfb27 ("remoteproc: mediatek: Break lock
+> > dependency to prepare_lock"), `scp->clk` was prepared and enabled only
+> > when it needs to communicate with the SCP.  The commit d935187cfb27
+> > moved the prepare operation to remoteproc's prepare(), keeping the clock
+> > prepared as long as the SCP is running.
+> > 
+> > The power consumption due to the prolonged clock preparation can be
+> > negligible when the system is running, as SCP is designed to be a very
+> > power efficient processor.
+> > 
+> > However, the clock remains prepared even when the system enters system
+> > suspend.  This prevents the underlying clock controller (and potentially
+> > the parent PLLs) from shutting down, which increases power consumption
+> > and may block the system from entering deep sleep states.
+> > 
+> > Add suspend and resume callbacks.  Unprepare the clock in suspend() if
+> > it was active and re-prepare it in resume() to ensure the clock is
+> > properly disabled during system suspend, while maintaining the "always
+> > prepared" semantics while the system is active.
+> > 
+> > Fixes: d935187cfb27 ("remoteproc: mediatek: Break lock dependency to prepare_lock")
+> > Signed-off-by: Tzung-Bi Shih <tzungbi@kernel.org>
+> 
+> Would be great if you could mention that in this driver, at the moment of writing,
+> there is no .attach() callback, hence rproc->state can never be RPROC_ATTACHED (as
+> in case that would also leave the clock prepared).
 
+Thanks for your review.  Add it in the commit message and code comment in
+v2[1].
 
-In the main probe, there is already dev_err_probe for
-detect_mode. So I would use below style as other error
-return in imx_rproc_mmio_detect_mode():
-dev_err("regmap attach failed\n");
-return ret;
+[1] https://lore.kernel.org/all/20260206033034.3031781-1-tzungbi@kernel.org/
 
-Let's wait Mathieu's view.
+> > +#ifdef CONFIG_PM_SLEEP
+> 
+> ...you don't need this ifdef as when CONFIG_PM_SLEEP is not set the macro
+> SET_SYSTEM_SLEEP_PM_OPS is stubbed out (check pm.h).
+> 
+> After removing the ifdef, there'll be something to change, specifically:
+> 
+> > +static int scp_suspend(struct device *dev)
+> 
+> static int __maybe_unused scp_suspend(struct device *dev)
+> {
+> 
+> > +{
+> > +	struct mtk_scp *scp = dev_get_drvdata(dev);
+> > +	struct rproc *rproc = scp->rproc;
+> > +
+> > +	/* Only unprepare if the SCP is running and holding the clock */
+> > +	if (rproc->state == RPROC_RUNNING)
+> > +		clk_unprepare(scp->clk);
+> > +	return 0;
+> > +}
+> > +
+> > +static int scp_resume(struct device *dev)
+> 
+> static int __maybe_unused scp_resume(struct device *dev)
+> {
 
-Regards
-Peng.
-
->=20
->  	if (priv->gpr) {
->  		ret =3D regmap_read(priv->gpr, dcfg->gpr_reg, &val);
-> --
-> 2.25.1
->=20
-
+Fix them in v2 too.
 
