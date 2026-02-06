@@ -4,72 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E7EEEE6B66
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 22:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D975EE6B6A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 23:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fwjyN5rpDcNi8tXSt2MvaZ0hjN7yLCQAealBMMe+n+s=; b=xe3gsGsymHGQXvsd0TCOZeoFPq
-	5r04xOUdNQVTIeYUdHs3mvBY0vJzorfEN5ZzND/gDr+7SHVzer2UpWovGBMcPLy0DBDoXB5biRbFx
-	delkZHb4EkTL90Jp3g/5yOnGn285XMzHYCKVcftYWLKwwNdNmZbWyG4X5N5r4z9nZEag3gogvUwBj
-	V0B5/JUc5AOHCEla1iZ7eDlsU0pnMpSpa7KCswESv0R4z2jPkNapgfvXDnPaNX6txn59ErWFS6ZP+
-	15GOxo+jU/J4HxF/qj0Tao5c4qi/FUUoL40Eu7ib+ORU727UyRC7dDicSfM1Ys+w2KdFsKnXiLmzd
-	VBO/NBJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qxmC+QqdYq1E18IaUVjr4WY+9tf/unNaTuXUIO478gM=; b=G49vKzxhE4CXy+5uyo9tfjrE7q
+	P8G+/npPINE4ZJWnXH2aSd/RHr+53mTTKA8BHd3iE/tYVEWyICkrESo7DoKVnE9hVvuF0juYwMHX3
+	JyHEgE81J2VUtbI1SjQvS4WaadAOhPCmeX7V0y2OBjXHr8dLU954qqLJe+/raaJ21lAiYvsYOzxQO
+	eaxeGbBLyNPwqA9Cdn2N4aTNNn+yhjmdTyUnRUNHamJvFZ2kOxXcafZswPyH8EA0X8zjTgzEk05Re
+	0EnyL2fPHzMWdtTZ0Ri+W5Mw8svGBVYHD1+o8e53SdM1CCTXwtZKob9u+j/ebKGvTRfrLYfgRc2Ht
+	9jze5F1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voULL-0000000Bt1g-1acO;
-	Fri, 06 Feb 2026 22:30:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1voUxU-0000000BuAf-13sZ;
+	Fri, 06 Feb 2026 23:09:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voULJ-0000000Bt0q-1gCp
+	id 1voUxS-0000000BuAZ-1nIt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 22:30:26 +0000
+	Fri, 06 Feb 2026 23:09:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AB6E443D6B;
-	Fri,  6 Feb 2026 22:30:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86A29C116C6;
-	Fri,  6 Feb 2026 22:30:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7862A600AA;
+	Fri,  6 Feb 2026 23:09:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D5CBC116C6;
+	Fri,  6 Feb 2026 23:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770417024;
-	bh=Z+P7HrDrYZhvrXjWO/SCgx6Wkp8oj6hqSqLe9QpQvAM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=RZixVzDlQcmxliDsdgbBvba8CQr/38HpatiUFUEio41v7SzCNDKFkyw7r5mxlyWv2
-	 BFuYfwiRfCZiBi0NFPJyT5zx9heNWOJ1Q2q/gn38L195rvAEFzMWi2vEn+9AJnBfao
-	 +vjLEp+TI4VwQmYYm20rnp4aicmPAG1tiMlv6RAlJROYBBIZho71UEuEbrH8yCefLV
-	 f4NagEmymUmRFHjsOIL/j6P4Upw/DFHiUuSdmMtYbf57b02LGp6wxN2fWhsFaVTwH6
-	 NE0d17ppKXpdceoJc2URuqHFR7TR5XVR6jUxB9tsrKJIRvybfrjwjMFB+SuPpA1f4S
-	 0W9S+nSw6FI0Q==
-From: Kees Cook <kees@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Kees Cook <kees@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Alexander Potapenko <glider@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Keir Fraser <keirf@google.com>,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: [PATCH v2] KVM: arm64: vgic: Handle const qualifier from gic_kvm_info allocation type
-Date: Fri,  6 Feb 2026 14:30:23 -0800
-Message-Id: <20260206223022.it.052-kees@kernel.org>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1571; i=kees@kernel.org; h=from:subject:message-id; bh=Z+P7HrDrYZhvrXjWO/SCgx6Wkp8oj6hqSqLe9QpQvAM=; b=owGbwMvMwCVmps19z/KJym7G02pJDJlt2XXH+BYzTOSa/XXJ0Yj1H2MCn/2M2yqvucMk69/l5 YWT0sQ5OkpZGMS4GGTFFFmC7NzjXDzetoe7z1WEmcPKBDKEgYtTACbyKILhv/Pt5RPPBTXwM8wV nhicN3vj280Pa6e6sogzn/jy7ndLvzHDf693SgXyNXuSl138vm/+UYbU8w51X1lsDNb3/lgcLjT vKycA
-X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260206_143025_450428_4DBFFFC6 
-X-CRM114-Status: GOOD (  13.22  )
+	s=k20201202; t=1770419389;
+	bh=vyqHlPcIjJzfjfUclMOSj5CAGDDQYLSQb6hr9O6C4tg=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=J/7s/ocrhVq758pfRLOV1vWxxtyoVXM/JUO5tDRHFoz6u9dIQSfgIu86xs7+3hFO6
+	 fhtwBO0B79e3mXTxdMAAy4C8fQ4sCACjcG46JHEdIFIqcTk9CHkOkZZWJWBbhkGTyr
+	 u1RAmCZCTwTIsK/Mlig38laDtzsOhFCuxC5KvwVxTKEqJVta54oodPgro/PsZA0T0y
+	 IQR+7dmBMoH+S0TpG8SIVCGX59zoepPryFhWEeVNrCMQlNFdf+8FCiBm77JtyEjHkE
+	 NdBpwV8Owc3RROqCo7OFAM5ENjkgkcDSIdU4Z3pZ6ik3DQeepvNTO5ppGCORwhCKCz
+	 D81SCq25MDZkA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 8553C3809A17;
+	Fri,  6 Feb 2026 23:09:47 +0000 (UTC)
+Subject: Re: [GIT PULL] pmdomain fixes for v6.19-rc9
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20260206110555.539300-1-ulf.hansson@linaro.org>
+References: <20260206110555.539300-1-ulf.hansson@linaro.org>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <20260206110555.539300-1-ulf.hansson@linaro.org>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.19-rc3-3
+X-PR-Tracked-Commit-Id: e2c4c5b2bbd4f688a0f9f6da26cdf6d723c53478
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 0dbc3577107008883a9d4275e4b67cd3b4dfacf5
+Message-Id: <177041938605.1109628.5377895406191503833.pr-tracker-bot@kernel.org>
+Date: Fri, 06 Feb 2026 23:09:46 +0000
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Linus <torvalds@linux-foundation.org>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, linux-arm-kernel@lists.infradead.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,45 +74,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for making the kmalloc family of allocators type aware,
-we need to make sure that the returned type from the allocation matches
-the type of the variable being assigned. (Before, the allocator would
-always return "void *", which can be implicitly cast to any pointer type.)
+The pull request you sent on Fri,  6 Feb 2026 12:05:55 +0100:
 
-The assigned type is "struct gic_kvm_info", but the returned type,
-while matching, is const qualified. To get them exactly matching, just
-use the dereferenced pointer for the sizeof().
+> git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.19-rc3-3
 
-Signed-off-by: Kees Cook <kees@kernel.org>
----
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Zenghui Yu <yuzenghui@huawei.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Alexander Potapenko <glider@google.com>
-Cc: <linux-arm-kernel@lists.infradead.org>
-Cc: <kvmarm@lists.linux.dev>
----
- arch/arm64/kvm/vgic/vgic-init.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/0dbc3577107008883a9d4275e4b67cd3b4dfacf5
 
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-index 86c149537493..a53f93546aa0 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -654,7 +654,7 @@ static struct gic_kvm_info *gic_kvm_info;
- void __init vgic_set_kvm_info(const struct gic_kvm_info *info)
- {
- 	BUG_ON(gic_kvm_info != NULL);
--	gic_kvm_info = kmalloc(sizeof(*info), GFP_KERNEL);
-+	gic_kvm_info = kmalloc(sizeof(*gic_kvm_info), GFP_KERNEL);
- 	if (gic_kvm_info)
- 		*gic_kvm_info = *info;
- }
+Thank you!
+
 -- 
-2.34.1
-
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
