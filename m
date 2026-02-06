@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FCE0EE20AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 14:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B36E2EE20A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Feb 2026 15:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9o0rXBIMjuYc58NNeOxf/SRyJbI7MGZMyxyP2GQWsk4=; b=LxWJ+wQXL23ki9rPa7vBvOPGPN
-	b9Xn7QCXNgQkf4rU22TcqVCpXEOfGOBB/3uoQyeSR8WbrXVKQzZKxkrL7pZPTx5O6fY//8tGh4tPl
-	XB24kraXY9WixK2dyS76baM9jcIK8pP/Dgd87GNOYqfCW+rLnNK7PO3KGzBhooDxZuw8HgRiyhhL0
-	ZEradtpeZJ7w7+euetL/0iZAXhaoHCTDTwCXaBiBWas2ZK6AMqvKsujyvGNHRr9kYDA0nPcZ0mhi0
-	xGQF47lwDZx1OwVqYwkysYyxo4qikugc3dC2zkSmbrDDECAOxnLGsLVc+vX84KNer5aeDsOLFzy77
-	jNQIkh+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hltLeAMZ0MGv2jyqGqd/sbIGh8h5TiimQqd1cAy1Sfc=; b=u4uBWvkdJ0uWbGTmIDAkxWV2Zp
+	NgttrCxyGi42h8XPHGqX4GgOuP3QK77ivmzWG6OMuIDuFWRO76JlJNfnEHFYj08bw2S4XF7ZP8b77
+	iZLcqyPQm/YfN7qDV8pUu7U/VaNuZ3Dd31K5eFkQY4ZhWmn6oWbVpuriDZDVo9LgYRDm4yy9eK4vu
+	HuzG2cSI6VYJL3R4tMAbaIzGCptv3yqEw83lokxv0jjQM7nliNpuv/uAzO0YGTwUHqrZVwAJJqCM4
+	EnbTiaLQpQhLDrKLJPCCVObkSqDrEq0qgj+oUMLm9ZZa1GNJ4SmKUO3yYoqpt1qa/IYvhSBXXn74+
+	uFo1c2OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voN4X-0000000BSHk-1a0v;
-	Fri, 06 Feb 2026 14:44:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1voNT8-0000000BTfx-0eRZ;
+	Fri, 06 Feb 2026 15:10:02 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1voN4W-0000000BSHa-0Vmh
+	id 1voNT5-0000000BTdh-2itv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Feb 2026 14:44:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 057F560051;
-	Fri,  6 Feb 2026 14:44:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E1BAC116C6;
-	Fri,  6 Feb 2026 14:44:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770389074;
-	bh=WqpH7NpECmNqf7k95aSVChL/z7Nah2bI6O93+EyEo9Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ItY2jYQbzKhJiyfaUgZikEhxeI200qgma2/oQRBED77Nvb/Kwxg743/k0e1o3vpcU
-	 Ikh/o8uHonnwZ0wrJGjElk9/PWZlh3yc1YyIvOzD89H9caq2JDJpL8AeDv6LoQAYnZ
-	 H7+LtYuc28+rv+C3AoN+dshLZYL8CI1RpcognkYFmyx4ElSZBHMVvjaGsTvYOxIjGY
-	 O9Q/agczwnnUeP6i+Cv7nP9Wci1vJPdmsWFn17o6zGvBmmegESyrQlGVkYzsZSbKxy
-	 vGDYAuR6Qls8kKQFBp1Vjx8wY8EjsQ7x1obsWxkSt5gchtXRij0n/f87c4c6tFez0C
-	 GLoaC1Q+eSnfw==
-Message-ID: <0cc9bd0a-958b-4e63-b2ed-959a3ea43440@kernel.org>
-Date: Fri, 6 Feb 2026 15:44:30 +0100
+	Fri, 06 Feb 2026 15:10:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1770390592; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Vucqg/nRCu0CTslSpFEwf9TGCyNrxPJ6YpQrYq9HkxObSkOYPyKLA/ZVIaviXM+E8l0DtGdhmcFhkpB7JmHpqiyB0i1tYfk5i6vHXCaUgRulyRI4XKc+sx8oSBIANkIngrDaW2qYUEVmEcqBesFbuX7+A3lwcEOGg2v9/+WgbeU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1770390592; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=hltLeAMZ0MGv2jyqGqd/sbIGh8h5TiimQqd1cAy1Sfc=; 
+	b=g9kbUu7QRFJ3u/zd32pY41W6EnQ1UCHaWtGWK2XTl3kXEMCaxO+Lx5YLF4KdeygcqTyGXktTpJcsRekm6Amai5UxtVfKuggQvdc+LmI9oVcOYNY645Zx7z99sxlTSxpV2Lu3DxNqoMqEO4LJ/Eq/Yeb6a8gSMgzYRvkktiNfYSE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1770390592;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=hltLeAMZ0MGv2jyqGqd/sbIGh8h5TiimQqd1cAy1Sfc=;
+	b=Z3JPN1EgrL9EF/XTB2vEimuTisQUpwCZk5sxj191WCkuPfn9UNdyDS1nBpudmx1Q
+	lb+85+aKuhH+qk8hwmnao/OdHqbSdVcapuhEnSvLfX6uErpFAVpB+1gSeRskUVW2h2M
+	NisfgPRSZrBOXbO9dSMprBOgxR6gRn6FGGcispaweIgZeleBuLKVQh2O3rxotGX86OS
+	ZxnJoZAm7GOCBcLY0TrnOdC/npZu774zJ9Su+WuL4ctx1bfiDZ3ja/fxH1SW8rA63c+
+	JIiKk40v7kBR9AYI0vOu0uzArr8MguxE7Xbi8O0C9YzZ8d4lk6Yj5sZpWocGahdyZn6
+	Vc6Z0sN0zQ==
+Received: by mx.zohomail.com with SMTPS id 1770390589019803.0520420818741;
+	Fri, 6 Feb 2026 07:09:49 -0800 (PST)
+Message-ID: <8806eaf82fbef4cd51bb4e4bb44d60894b3504b4.camel@icenowy.me>
+Subject: Re: [PATCH v2 3/3] drm/nuvoton: add MA35D1 display controller driver
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Joey Lu <a0987203069@gmail.com>, airlied@gmail.com, simona@ffwll.ch, 
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+  robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
+	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Fri, 06 Feb 2026 23:09:38 +0800
+In-Reply-To: <20260129040532.382693-4-a0987203069@gmail.com>
+References: <20260129040532.382693-1-a0987203069@gmail.com>
+	 <20260129040532.382693-4-a0987203069@gmail.com>
+Organization: Anthon Open-Source Community
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.44.4 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: interrupt-controller: apple,aic2: Add
- AICv3
-To: Janne Grunau <j@jannau.net>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Neal Gompa <neal@gompa.dev>,
- Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20260128-irq-apple-aic3-v2-0-b4bc8e16c997@jannau.net>
- <20260128-irq-apple-aic3-v2-1-b4bc8e16c997@jannau.net>
- <20260205-pastoral-magnificent-cuscus-ce58ad@quoll>
- <8f506b2b-1309-4f9e-b8e6-4a73064ea2d0@kernel.org>
- <20260205221918.GA71415@robin.jannau.net>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20260205221918.GA71415@robin.jannau.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260206_070959_736740_1016BAE6 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,87 +86,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05.02.26 23:19, Janne Grunau wrote:
-> On Thu, Feb 05, 2026 at 07:01:51PM +0100, Sven Peter wrote:
->> Hi,
->>
->> On 05.02.26 13:50, Krzysztof Kozlowski wrote:
->>> On Wed, Jan 28, 2026 at 09:57:08AM +0100, Janne Grunau wrote:
->>>> AIC version 3 as found on the Apple M3 (t8122) is very similar to AICv2
->>>> in its base functionality. It can use the same device tree bindings as
->>>> AICv2 so add it to the AICv2 bindings.
->>>> This interrupt controller is used on all Apple SoCs starting with M3 up
->>>> to at least M5.
->>>> The only apparent difference is the increased IRQ config offset. Apple's
->>>> device tree codes this new offset as property of the "aic" node but the
->>>> value stayed constant for all SoCs with "aic,3". Since the SoC specific
->>>> compatible "apple,t8122-aic3" will be used in the driver this offset can
->>>> remain a driver implementation detail.
->>>>
->>>> Signed-off-by: Janne Grunau <j@jannau.net>
->>>> ---
->>>>    .../bindings/interrupt-controller/apple,aic2.yaml  | 45 +++++++++++++++++-----
->>>>    1 file changed, 36 insertions(+), 9 deletions(-)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
->>>> index ee5a0dfff437816056bda0de5523bf38be4f49ba..a6e2251fcc111340c0a27ab6912452f6b1255be2 100644
->>>> --- a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
->>>> +++ b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
->>>> @@ -4,10 +4,10 @@
->>>>    $id: http://devicetree.org/schemas/interrupt-controller/apple,aic2.yaml#
->>>>    $schema: http://devicetree.org/meta-schemas/core.yaml#
->>>>    
->>>> -title: Apple Interrupt Controller 2
->>>> +title: Apple Interrupt Controller 2 and 3
->>>>    
->>>>    maintainers:
->>>> -  - Hector Martin <marcan@marcan.st>
->>>> +  - Janne Grunau <j@jannau.net>
->>>>    
->>>>    description: |
->>>>      The Apple Interrupt Controller 2 is a simple interrupt controller present on
->>>> @@ -28,14 +28,24 @@ description: |
->>>>      which do not go through a discrete interrupt controller. It also handles
->>>>      FIQ-based Fast IPIs.
->>>>    
->>>> +  The Apple Interrupt Controller 3 is in its base functionality very similar to
->>>> +  the Apple Interrupt Controller 2 and uses the same device tree bindings. It is
->>>> +  found on Apple ARM SoCs platforms starting with t8122 (M3).
->>>> +
->>>>    properties:
->>>>      compatible:
->>>> -    items:
->>>> -      - enum:
->>>> -          - apple,t8112-aic
->>>> -          - apple,t6000-aic
->>>> -          - apple,t6020-aic
->>>> -      - const: apple,aic2
->>>> +    oneOf:
->>>> +      - items:
->>>> +          - enum:
->>>> +              - apple,t8112-aic
->>>> +              - apple,t6000-aic
->>>> +              - apple,t6020-aic
->>>
->>> If you are re-shuffling these, you can as well sort alphanumerically.
->>
->> I don't have a strong opinion here but the last time this came up we
->> agreed that we'd go with release order IIRC for consistency since that
->> order is used in every other binding for this platform.
-> 
-> The intended scheme as documented in some commit messages is first base
-> Mx SoCs in release order and then Mx Pro/Max/Ultra SoCs in release
-> order. This scheme isn't used consistently though. I think I fixed that
-> in one or two bindings already but there are other using a different
-> order.
-> I think these unecessarily complex rules are guaranteed to lead to
-> inconsistencies. I'll resort the entries alphabetically as that's the
-> only rule with a chance of consistent use.
-
-Sure, I'm totally fine with just using alphanumeric order everywhere as 
-well.
-
-
-Sven
+5ZyoIDIwMjYtMDEtMjnmmJ/mnJ/lm5vnmoQgMTI6MDUgKzA4MDDvvIxKb2V5IEx15YaZ6YGT77ya
+Cj4gPT09PT09PT09PSA4PCA9PT09PT09PT09PT0KPiArI2VuZGlmCj4gZGlmZiAtLWdpdCBhL2Ry
+aXZlcnMvZ3B1L2RybS9udXZvdG9uL21hMzVfcmVncy5oCj4gYi9kcml2ZXJzL2dwdS9kcm0vbnV2
+b3Rvbi9tYTM1X3JlZ3MuaAo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAw
+MDAwLi4wZjRhN2ExM2U3ZDgKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvZHJpdmVycy9ncHUvZHJt
+L251dm90b24vbWEzNV9yZWdzLmgKPiBAQCAtMCwwICsxLDg4IEBACj4gKy8qIFNQRFgtTGljZW5z
+ZS1JZGVudGlmaWVyOiBHUEwtMi4wKyAqLwo+ICsvKgo+ICsgKiBOdXZvdG9uIERSTSBkcml2ZXIK
+PiArICoKPiArICogQ29weXJpZ2h0IChDKSAyMDI2IE51dm90b24gVGVjaG5vbG9neSBDb3JwLgo+
+ICsgKgo+ICsgKiBBdXRob3I6IEpvZXkgTHUgPGEwOTg3MjAzMDY5QGdtYWlsLmNvbT4KPiArICov
+Cj4gKwo+ICsjaWZuZGVmIF9NQTM1X1JFR1NfSF8KPiArI2RlZmluZSBfTUEzNV9SRUdTX0hfCj4g
+Kwo+ICsjZGVmaW5lIE1BMzVfRlJBTUVCVUZGRVJfQ09ORklHwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgIDB4MTUxOAoKUGxlYXNlIGNoZWNrIG15IFZlcmlzaWxpY29uIERDODIw
+MCBkcml2ZXIsIHdoaWNoIGlzIGFscmVhZHkgcGFydCBvZgpkcm0tbWlzYy1uZXh0IG5vdy4KClRo
+ZSBkaXNwbGF5IGNvbnRyb2xsZXIgaGVyZSBzZWVtcyB0byBiZSBhIGVhcmxpZXIgb25lIGZyb20K
+VmVyaXNpbGljb24uaXQgbG9va3MgbGlrZSBhIERDODAwMCwgb3IgbWF5YmUgYSBtb3JlIGVhcmxp
+ZXIgb25lPwoKPiArI2RlZmluZSBNQTM1X0ZSQU1FQlVGRkVSX0FERFJFU1PCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgIDB4MTQwMAo+ICsjZGVmaW5lIE1BMzVfRlJBTUVCVUZGRVJf
+U1RSSURFwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDB4MTQwOAo+ICsjZGVm
+aW5lIE1BMzVfSERJU1BMQVnCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoCAweDE0MzAKPiArI2RlZmluZSBNQTM1X0hTWU5DwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgxNDM4
+Cj4gKyNkZWZpbmUgTUEzNV9WRElTUExBWcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDB4MTQ0MAo+ICsjZGVmaW5lIE1BMzVfVlNZTkPCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCAweDE0NDgKPiArI2RlZmluZSBNQTM1X1BBTkVMX0NPTkZJR8KgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDE0MTgKPiArI2RlZmluZSBNQTM1X0RQSV9D
+T05GSUfCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+IDB4MTRCOAo+ICsjZGVmaW5lIE1BMzVfQ1VSU09SX0FERFJFU1PCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDE0NkMKPiArI2RlZmluZSBNQTM1X0NVUlNPUl9D
+T05GSUfCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDB4MTQ2
+OAo+ICsjZGVmaW5lIE1BMzVfQ1VSU09SX0xPQ0FUSU9OwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgIDB4MTQ3MAo+ICsjZGVmaW5lIE1BMzVfQ1VSU09SX0JBQ0tHUk9V
+TkTCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDE0NzQKPiArI2RlZmlu
+ZSBNQTM1X0NVUlNPUl9GT1JFR1JPVU5EwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgMHgxNDc4Cj4gKyNkZWZpbmUgTUEzNV9GUkFNRUJVRkZFUl9VUExBTkFSX0FERFJFU1PC
+oMKgwqDCoMKgwqDCoMKgwqAgMHgxNTMwCj4gKyNkZWZpbmUgTUEzNV9GUkFNRUJVRkZFUl9WUExB
+TkFSX0FERFJFU1PCoMKgwqDCoMKgwqDCoMKgwqAgMHgxNTM4Cj4gKyNkZWZpbmUgTUEzNV9GUkFN
+RUJVRkZFUl9VU1RSSURFwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDE4MDAK
+PiArI2RlZmluZSBNQTM1X0ZSQU1FQlVGRkVSX1ZTVFJJREXCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIDB4MTgwOAo+ICsjZGVmaW5lIE1BMzVfSU5ERVhDT0xPUl9UQUJMRUlOREVY
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDB4MTgxOAo+ICsjZGVmaW5lIE1BMzVfSU5E
+RVhDT0xPUl9UQUJMRURBVEHCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDE4MjAK
+PiArI2RlZmluZSBNQTM1X0ZSQU1FQlVGRkVSX1NJWkXCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgIDB4MTgxMAo+ICsjZGVmaW5lIE1BMzVfRlJBTUVCVUZGRVJfU0NBTEVG
+QUNUT1JYwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDB4MTgyOAo+ICsjZGVmaW5lIE1BMzVfRlJB
+TUVCVUZGRVJfU0NBTEVGQUNUT1JZwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDB4MTgzMAo+ICsj
+ZGVmaW5lIE1BMzVfRlJBTUVCVUZGRVJfU0NBTEVGQ09ORklHwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgIDB4MTUyMAo+ICsjZGVmaW5lIE1BMzVfSE9SSUZJTFRFUl9LRVJORUxJTkRFWMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgxODM4Cj4gKyNkZWZpbmUgTUEzNV9IT1JJRklMVEVSX0tF
+Uk5FTMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDB4MUEwMAo+ICsjZGVm
+aW5lIE1BMzVfVkVSVElGSUxURVJfS0VSTkVMSU5ERVjCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCAweDFBMDgKPiArI2RlZmluZSBNQTM1X1ZFUlRJRklMVEVSX0tFUk5FTMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDFBMTAKPiArI2RlZmluZSBNQTM1X0ZSQU1FQlVGRkVS
+X0lOSVRJQUxPRkZTRVTCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDB4MUEyMAo+ICsjZGVmaW5lIE1B
+MzVfRlJBTUVCVUZGRVJfQ09MT1JLRVnCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAw
+eDE1MDgKPiArI2RlZmluZSBNQTM1X0ZSQU1FQlVGRkVSX0NPTE9SSElHSEtFWcKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoCAweDE1MTAKPiArI2RlZmluZSBNQTM1X0ZSQU1FQlVGRkVSX0JHQ09MT1LC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDB4MTUyOAo+ICsjZGVmaW5lIE1BMzVf
+RlJBTUVCVUZGRVJfQ0xFQVJWQUxVRcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgxQTE4
+Cj4gKyNkZWZpbmUgTUEzNV9ESVNQTEFZX0lOVFJFTkFCTEXCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqAgMHgxNDgwCj4gKyNkZWZpbmUgTUEzNV9JTlRfU1RBVEXCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgxNDdDCj4gKyNk
+ZWZpbmUgTUEzNV9QQU5FTF9ERVNUX0FERFJFU1PCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgMHgxNEYwCj4gKyNkZWZpbmUgTUEzNV9NRU1fREVTVF9BRERSRVNTwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDE0RTgKPiArI2RlZmluZSBNQTM1X0RF
+U1RfQ09ORklHwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqAgMHgxNEY4Cj4gKyNkZWZpbmUgTUEzNV9ERVNUX1NUUklERcKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDB4MTUwMAo+ICsjZGVmaW5lIE1BMzVfREJJ
+X0NPTkZJR8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqAgMHgxNDg4Cj4gKyNkZWZpbmUgTUEzNV9BUUhJQ0xPQ0tDT05UUk9MwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDAwMDAKPiArI2RlZmluZSBNQTM1X09WRVJMQVlf
+Q09ORklHwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgxNTQw
+Cj4gKyNkZWZpbmUgTUEzNV9PVkVSTEFZX1NUUklERcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgIDB4MTYwMAo+ICsjZGVmaW5lIE1BMzVfT1ZFUkxBWV9VU1RSSURF
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDB4MThDMAo+ICsjZGVm
+aW5lIE1BMzVfT1ZFUkxBWV9WU1RSSURFwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgIDB4MTkwMAo+ICsjZGVmaW5lIE1BMzVfT1ZFUkxBWV9UTMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgxNjQwCj4gKyNkZWZpbmUg
+TUEzNV9PVkVSTEFZX0JSwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoCAweDE2ODAKPiArI2RlZmluZSBNQTM1X09WRVJMQVlfQUxQSEFfQkxFTkRfQ09O
+RklHwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgxNTgwCj4gKyNkZWZpbmUgTUEzNV9PVkVSTEFZX1NS
+Q19HTE9CQUxfQ09MT1LCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgxNkMwCj4gKyNkZWZpbmUg
+TUEzNV9PVkVSTEFZX0RTVF9HTE9CQUxfQ09MT1LCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgx
+NzAwCj4gKyNkZWZpbmUgTUEzNV9PVkVSTEFZX0NMRUFSX1ZBTFVFwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoCAweDE5NDAKPiArI2RlZmluZSBNQTM1X09WRVJMQVlfU0laRcKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDE3QzAKPiArI2Rl
+ZmluZSBNQTM1X09WRVJMQVlfQ09MT1JfS0VZwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgMHgxNzQwCj4gKyNkZWZpbmUgTUEzNV9PVkVSTEFZX0NPTE9SX0tFWV9ISUdIwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDE3ODAKPiArI2RlZmluZSBNQTM1X09WRVJMQVlf
+QUREUkVTU8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDE1QzAK
+PiArI2RlZmluZSBNQTM1X09WRVJMQVlfVVBMQU5BUl9BRERSRVNTwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgMHgxODQwCj4gKyNkZWZpbmUgTUEzNV9PVkVSTEFZX1ZQTEFOQVJfQUREUkVTU8Kg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDB4MTg4MAo+ICsjZGVmaW5lIE1BMzVfT1ZFUkxBWV9T
+Q0FMRV9DT05GSUfCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDFDMDAKPiArI2Rl
+ZmluZSBNQTM1X09WRVJMQVlfU0NBTEVfRkFDVE9SX1jCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgIDB4MUE0MAo+ICsjZGVmaW5lIE1BMzVfT1ZFUkxBWV9TQ0FMRV9GQUNUT1JfWcKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqAgMHgxQTgwCj4gKyNkZWZpbmUgTUEzNV9PVkVSTEFZX0hPUklf
+RklMVEVSX0tFUk5FTF9JTkRFWMKgwqDCoMKgIDB4MUFDMAo+ICsjZGVmaW5lIE1BMzVfT1ZFUkxB
+WV9IT1JJX0ZJTFRFUl9LRVJORUzCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDFCMDAKPiArI2RlZmlu
+ZSBNQTM1X09WRVJMQVlfVkVSVElfRklMVEVSX0tFUk5FTF9JTkRFWMKgwqDCoCAweDFCNDAKPiAr
+I2RlZmluZSBNQTM1X09WRVJMQVlfVkVSVElfRklMVEVSX0tFUk5FTMKgwqDCoMKgwqDCoMKgwqDC
+oCAweDFCODAKPiArI2RlZmluZSBNQTM1X09WRVJMQVlfSU5JVElBTF9PRkZTRVTCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgIDB4MUJDMAo+ICsjZGVmaW5lIE1BMzVfR0FNTUFfRVhfSU5ERVjC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDFDRjAKPiArI2Rl
+ZmluZSBNQTM1X0dBTU1BX0VYX0RBVEHCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIDB4MUNGOAo+ICsjZGVmaW5lIE1BMzVfR0FNTUFfRVhfT05FX0RBVEHCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDFEODAKPiArI2RlZmluZSBNQTM1
+X0dBTU1BX0lOREVYwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgMHgxNDU4Cj4gKyNkZWZpbmUgTUEzNV9HQU1NQV9EQVRBwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDE0NjAKPiArI2RlZmluZSBNQTM1
+X0RJU1BMQVlfRElUSEVSX1RBQkxFX0xPV8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAweDE0MjAK
+PiArI2RlZmluZSBNQTM1X0RJU1BMQVlfRElUSEVSX1RBQkxFX0hJR0jCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgIDB4MTQyOAo+ICsjZGVmaW5lIE1BMzVfRElTUExBWV9ESVRIRVJfQ09ORklHwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDB4MTQxMAo+ICsjZGVmaW5lIE1BMzVfRElTUExBWV9D
+VVJSRU5UX0xPQ0FUSU9OwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDB4MTQ1MAo+ICsKPiArI2Vu
+ZGlmCgo=
 
 
