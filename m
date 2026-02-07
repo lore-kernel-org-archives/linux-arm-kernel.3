@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE30EE0AC3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Feb 2026 10:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CDE5EE0AC4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Feb 2026 10:59:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X2FzI1ff+ujgaVQEASy4b8+WPHPMyOmL9ldMURPmMfc=; b=cdYgSEH55JjPYcz4axhjvpufDc
-	SfHySAw/tksGM0lC0szPjXSYer2s4jYhgQWMkle/ylzUoW4DUzMdinTE4jQsH5Q6o25D5TkzEa7P8
-	WYg0vOly04Aqp1TPreddxaDAFUXXUnqPjlPbPa2gO03jKmkL7oBi3Eg7RK30F8c+2VXFJmRiNU9/z
-	5hPJowcwmztO6rbwCuKcykgNZ7FgV+UbCZ7py+kXQuBubIC2P1DgWz1rMJJyuby2wYE5d7NbbBiEj
-	6oJLEpK9Yqu0JovcHjDVSONA3pWciJKu3dalK4Nli/qCquT65sKdyWu5LwzdvALHPNE0fQXmLoBVt
-	1sM5NWxA==;
+	bh=f6O7AflaybuKGai49Ymb3p3ZZr0+AW82X/UMYB3R5b0=; b=GN8dBQB/sT559FtpefXTvHevfd
+	ppYDlhqahXIM6PF4hF+MP3suicgWtc0qO3RnEGpFOsAZPdthDaMoTuHSLvQXVz54NVZZ/d4qKtVny
+	Vd4Kr9hxRKVOyYmYHo+9cvN7EcKRuksgFYr0143lB1XO7JzrJfloRejWLUlCkaYhLCB2EMz87nz30
+	gqia+d4xL5vJoRBfn6OKuSHSIFcUCwMTSbLTkLKBdV1EPtdUvpXcAsVrWEvL4IFMNIvhw3nJcX2cf
+	n6OdMUGmHNMcyKqrnfTbtCRJ8spcM92FSnKRrQ+BFAeWajK3dUaYCag89Y0S+pa3YiPwldTUFUtCW
+	J5JQO6Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vog1W-0000000CNHQ-3D1S;
-	Sat, 07 Feb 2026 10:58:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vog1v-0000000CNMD-1b3g;
+	Sat, 07 Feb 2026 10:59:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vog1U-0000000CNHG-3xOo;
-	Sat, 07 Feb 2026 10:58:45 +0000
+	id 1vog1t-0000000CNLZ-0YOx;
+	Sat, 07 Feb 2026 10:59:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E43586001A;
-	Sat,  7 Feb 2026 10:58:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B348C116D0;
-	Sat,  7 Feb 2026 10:58:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5FEC444485;
+	Sat,  7 Feb 2026 10:59:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6999C116D0;
+	Sat,  7 Feb 2026 10:59:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770461923;
-	bh=SPqNGTq+eM7VowdELZ0DgvLNKF3CRsLVro+eJdw581M=;
+	s=k20201202; t=1770461948;
+	bh=LeBjoFE01jmavA3LFYkp2oQ2vFfSUBNi+LrOIhvp+ds=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aeD80O5KSxe0IVevxzzFnkxOO6F3QwE7HpTcA4kTYlhBhUK8VwnHHbMF2cIrKi14p
-	 99TAa+5a9gHnAbImSkF4L2mLwSXdw+Dbjn85lTW+CODUHlqCursAMcy1EeQM8VszSi
-	 69Qlu8Pmvb1lel1b81XkQ4eIlhKzEB7e8h4wka+qzhWtDQi5lHzlDJBAPDLEXifvoi
-	 urDNqTHH/+v1Dl89kZgFrCzn4T8P/2cD6lyb1TZAPRsG5a9X6Y/EqVBunoj09D5YXI
-	 9qJXXLxvnHMCsV3zqzw/Ki66Tu3/XupbcsX1sJ/TYZ23F402YBMZGQM/aj8shjGaEe
-	 0M7vNcjv/ASmg==
-Date: Sat, 7 Feb 2026 11:58:41 +0100
+	b=Jf5PEQ3t+kYsnrAn2zyWd2G0akmQiXmVc+mujySm79xEIhRvY40/aDOMW+lA0gFym
+	 Xt6GR1cxiICZ6YxYvLgI8xjK42eQtqU/gylzImiJlGH/zEkVRrlaOfQ0r3jd8SlvA8
+	 37XlDqRdElNWL8SEMX5EVlWkqWRGNcgajoxvzD9riUHW9j4V3B7FdLhm6plHgW1Cid
+	 RrZfoYkTapRnRLdT1WDp0Tz71V5kRG9EXAYZedP0+7Vl7gNMQAPioOQWAYeKh7g/m4
+	 JtjbHdx+lFTiTsFkzEsHaYHa3kh0qFyR/XYlzP0m1zRobGW+qSVWA0l7XzfQWOCswt
+	 G6HUx7XivFw4A==
+Date: Sat, 7 Feb 2026 11:59:06 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Fabio Estevam <festevam@gmail.com>
 Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, 
 	conor+dt@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-rockchip@lists.infradead.org, Fabio Estevam <festevam@nabladev.com>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, linux-mmc@vger.kernel.org
-Subject: Re: [PATCH 06/11] dt-bindings: mmc: rockchip-dw-mshc: Add compatible
- string for R1103B
-Message-ID: <20260207-nifty-hawk-of-fascination-acfff5@quoll>
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-serial@vger.kernel.org
+Subject: Re: [PATCH 07/11] dt-bindings: serial: snps-dw-apb-uart: Add support
+ for RV1103B
+Message-ID: <20260207-unselfish-gorgeous-duck-cfc1ce@quoll>
 References: <20260206181309.2696095-1-festevam@gmail.com>
- <20260206181309.2696095-7-festevam@gmail.com>
+ <20260206181309.2696095-8-festevam@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260206181309.2696095-7-festevam@gmail.com>
+In-Reply-To: <20260206181309.2696095-8-festevam@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260207_025909_192751_FD48BD47 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,30 +74,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 06, 2026 at 03:13:04PM -0300, Fabio Estevam wrote:
+On Fri, Feb 06, 2026 at 03:13:05PM -0300, Fabio Estevam wrote:
 > From: Fabio Estevam <festevam@nabladev.com>
 > 
-> The dw-mshc controller in the RV1103B is compatible to the one first found
-> in the RK3288 SoC, so add the RV1103B to the variant list.
+> The UART used in the RV1103B SoC is still the same dw-apb-uart compatible
+> type as on the SoCs that came before, so add the RV1103B to the list
+> of variants.
 > 
-> Cc: Ulf Hansson <ulf.hansson@linaro.org>
-> Cc: linux-mmc@vger.kernel.org
+> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> Cc: linux-serial@vger.kernel.org
+> Signed-off-by: Fabio Estevam <festevam@nabladev.com>
 
-Please drop the autogenerated scripts/get_maintainer.pl CC-entries from
-commit msg. There is no single need to store automated output of
-get_maintainers.pl in the git log. It can be easily re-created at any
-given time, thus its presence in the git history is redundant and
-obfuscates the log.
-
-If you need it for your own patch management purposes, keep it under the
---- separator.
-
-It's confusing way of new soc bringup. Maintainer receives one patch out
-of 11 and what has to do with it? Apply? Ack? Where is it explained?
-
-And before you answer that this is supposed to be applied by Rockchip,
-then NO, it was explained many times and is documented in bindings for
-years that it goes via MMC.
+Greg expressed MANY times that patches for him should be sent
+separately.
 
 Best regards,
 Krzysztof
