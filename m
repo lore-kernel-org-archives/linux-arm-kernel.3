@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF9C2EE0AD5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Feb 2026 11:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F6BEE0ADC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Feb 2026 12:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EFPak3nZF55Lllfit/e4M+oQqhsc7WuTjAOmQl878v0=; b=SfP8UQk5xQdkjZhnraHaMnwWUH
-	vgyM1GcCAJhTfl4MyWGUV5oKTBgA2DpyWPaiZbWmw/D+2ZmgExneUOcKCUUhe0KYfe9LEZc4fRxci
-	NFu/Ki3/PQC7QpFCEubjtVrxKP7OUEnfT11c+VBj4Q00rOWFuyFKluS7J3Si3h4ojuEXsPeJGSjsQ
-	leVlk+qu/Z3uKHPIpoCD6bHzJQNGIdYtbfpACeaxwLpa8vlS57iR00s2weLE3GruFD80k0ObFm9Y5
-	IsDmRrTTLx88fxS9cL7N+rNnIMrFUSJ9ljiuWwngqBcbRc4E+ABFw/vq9P5h265TaZxyeMa7fzv9s
-	vvGkb/Fg==;
+	bh=u7mw2REIi5YvReIN1++C/n4doj/HVhTauIRAe2doeMY=; b=1Hqks3ZYL6R5bFsAwwYaMZslHy
+	8jNDrbb8it2abInYPLCHD9bB57/Aaye5gvsdH3EWjucR7rRO7HAcCpfj+zawtE23SJq6BB4TBGSl0
+	ZHUdwcu1bVyK9ywy5WnePrFS4JysjzjGknTdyy5Oe1gQwQu7cHv3exyDyTWQtUKAjUOmR70tnSxVL
+	lKDWxg7CvibbuT8JdGL7wrNLPAOddfj66E3rDmegWd5zOPbD63QxkaXg0ietvB/gH6rQJBcrLiZmy
+	JgDmX9Ek1gsxfBGkD1Dt4Dp4TOfr+p2PHlfX5gfOT6sOjCdgQgfuezYW9S+wctBzGCQxFSAIagZ+x
+	XMv/amnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vogC8-0000000COAl-16C6;
-	Sat, 07 Feb 2026 11:09:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vohcF-0000000CRQ4-0mnj;
+	Sat, 07 Feb 2026 12:40:47 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vogC6-0000000COAJ-21eX;
-	Sat, 07 Feb 2026 11:09:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9331C44519;
-	Sat,  7 Feb 2026 11:09:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 177DDC116D0;
-	Sat,  7 Feb 2026 11:09:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1770462579;
-	bh=OIwmG7ylTwl4hisHz0Q19ZZnRiXWGfi075fX99Cag7w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PH1yYcKQkjUSbd3pr9eI9NKoJaKw8BegVjZtlwxIBX/jzcyRU3hJbX1yib0csIqFy
-	 wFeZ61PAxKsQp0DoaJukUvVQFaSnBA96kXEim6ymJkkHwgOZtbY7kiTdSd+K9wYJJJ
-	 bERHBSPsH51PXzMd1D6DR16eAS1aSG/HZ3waFlKs=
-Date: Sat, 7 Feb 2026 12:09:36 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>, heiko@sntech.de, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Fabio Estevam <festevam@nabladev.com>, linux-serial@vger.kernel.org
-Subject: Re: [PATCH 07/11] dt-bindings: serial: snps-dw-apb-uart: Add support
- for RV1103B
-Message-ID: <2026020723-despise-panoramic-2bef@gregkh>
-References: <20260206181309.2696095-1-festevam@gmail.com>
- <20260206181309.2696095-8-festevam@gmail.com>
- <20260207-unselfish-gorgeous-duck-cfc1ce@quoll>
+	id 1vohcD-0000000CRPb-11hs;
+	Sat, 07 Feb 2026 12:40:46 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1770468039;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=u7mw2REIi5YvReIN1++C/n4doj/HVhTauIRAe2doeMY=;
+	b=IHUEfbEs7jatAyG0QJUXYH7tn0JLEYfYurUxGzjGRBE5e/M9QAME/qZ7DMNVU5XfxXe65N
+	f9JmkBPSVMEEpywPQHJlcAHkoea0xia8FeK1YwmlHfg5SM/Q69haYUN/oIIUq+Y8TIifmg
+	O1e3UdPaw/6WwgB9BH2nDW+Vv8ZvdQ/NXAoAZ9GOBi1KpVg7uenYmJ+o77Dm4KJYRxK0a2
+	hD3R0XP6AmRTUpJIa+Fer1KHRIazZqiquew3rMZdN9FUwaTMu4Zwy0B3g2rFqAi8JxlzDr
+	YYYivOb1WjwDFuNz/lLzSxgeOyDgRBipZqqfA/B5NakR621s/EYifdFxOZzDZA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1770468039;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=u7mw2REIi5YvReIN1++C/n4doj/HVhTauIRAe2doeMY=;
+	b=QRPaRJuX/plnEzL6PBt2E45uECSGwK6YLL3plNVB/bNviWky8Y5y7+9Uu94qN9CMnFSj6E
+	XRbiA86rYYsGjXAA==
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
+ <andrew@codeconstruct.com.au>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert
+ Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+ <linux-aspeed@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
+ <linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH 2/4] irqchip/ast2700-intcx: Add AST2700 INTC0/INTC1 support
+In-Reply-To: <TY2PPF5CB9A1BE6CC5EEC90EBF13B083D1EF267A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+References: <20260205-irqchip-v1-0-b0310e06c087@aspeedtech.com>
+ <20260205-irqchip-v1-2-b0310e06c087@aspeedtech.com> <87h5ru14xx.ffs@tglx>
+ <TY2PPF5CB9A1BE6CC5EEC90EBF13B083D1EF267A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+Date: Sat, 07 Feb 2026 13:40:38 +0100
+Message-ID: <87sebczpyx.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260207-unselfish-gorgeous-duck-cfc1ce@quoll>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260207_030942_570657_F2C89EDA 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20260207_044045_461588_460660D7 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,20 +84,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 07, 2026 at 11:59:06AM +0100, Krzysztof Kozlowski wrote:
-> On Fri, Feb 06, 2026 at 03:13:05PM -0300, Fabio Estevam wrote:
-> > From: Fabio Estevam <festevam@nabladev.com>
-> > 
-> > The UART used in the RV1103B SoC is still the same dw-apb-uart compatible
-> > type as on the SoCs that came before, so add the RV1103B to the list
-> > of variants.
-> > 
-> > Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> > Cc: linux-serial@vger.kernel.org
-> > Signed-off-by: Fabio Estevam <festevam@nabladev.com>
-> 
-> Greg expressed MANY times that patches for him should be sent
-> separately.
+On Sat, Feb 07 2026 at 03:50, Ryan Chen wrote:
+>> -----Original Message-----
+>> From: Thomas Gleixner <tglx@linutronix.de>
+>> Sent: Friday, February 6, 2026 7:34 PM
+>> To: Ryan Chen <ryan_chen@aspeedtech.com>; Rob Herring <robh@kernel.org>;
+>> Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
+>> <conor+dt@kernel.org>; Joel Stanley <joel@jms.id.au>; Andrew Jeffery
+>> <andrew@codeconstruct.com.au>; Paul Walmsley <pjw@kernel.org>; Palmer
+>> Dabbelt <palmer@dabbelt.com>; Albert Ou <aou@eecs.berkeley.edu>;
+>> Alexandre Ghiti <alex@ghiti.fr>
+>> Cc: linux-kernel@vger.kernel.org; devicetree@vger.kernel.org;
+>> linux-arm-kernel@lists.infradead.org; linux-aspeed@lists.ozlabs.org;
+>> linux-riscv@lists.infradead.org; Ryan Chen <ryan_chen@aspeedtech.com>
+>> Subject: Re: [PATCH 2/4] irqchip/ast2700-intcx: Add AST2700 INTC0/INTC1
+>> support
 
-It's easy, I just ignore them now :)
+Please fix your email client to not copy all mail headers. If you can't
+fix it, remove them manually and replace it with the usual:
+
+On Fri, Feb 06 2026 at ...., Thomas Gleixner wrote:
+>> > +	guard(raw_spinlock_irqsave)(&intc0->intc_lock);
+>> 
+>> s/_irqsave// Interrupts are disabled when this is invoked.
+> Sorry, do you mean when this function been call.
+> Ther have desc->lock to do the raw_spin_lock_irqsave.
+
+The core always holds irq_desc::lock with interrupts disabled when it
+invokes those irqchip callbacks. So trying to disable interrupts in them
+again is a pointless exercise.
+
+
 
