@@ -4,67 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F482EE0ADC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Feb 2026 14:51:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC0EEE0AEE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Feb 2026 19:32:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g8RweSPsSx90HGKGWAf4fbdUjyVCzKHo/JKtMVQFa5s=; b=vY66k5wL0LYiGklcqumqadbyNi
-	JtSkQimU6qYn5hYZlPOO+/vmfF1XolbmdLRGRYOdLOGwMdZu4iKTEqjPnOAnLjyu0SKaPeiAfGssf
-	MiWzKdavi9JgE1aXklahSiCN00U+9NL40wF7AHKfevi/QAMZx3+PAz9lUyxl6dIBf/vjHJMoUQuJG
-	Zs4F1FbgL36SiWG+kObBJLTBAhtCNRQ6kaBWlBIXin2h1uJWvZr9H8lFB4+Km6bqLwD30hOHpxyQ3
-	/dr+VnnFYKmns+oBFPmEpzPaVjR9ah9IQJon0RVQmxXrawn9Cx6kkaC5YWOMWJ1O6kvelknzYZgUh
-	9+RXlyqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BWnnE4c8SQWwH+plB/G8amDEzU/xZKpBUTD5dL9L0SU=; b=2R7BKfrXwygMHUacaalxzidPWN
+	mQooCIaSqvUiKw8HNzHZ9qVPqlJMnqYganzZ9VIOdQv4TdklbRKQ7cy06xX9qoMZT/6/miRwC5VZl
+	OnkcAx1NspryN+yElNEScTvLorBO2/Qu+a7nSvm6dMdHbgcmMxQqWhGHfDtQMxvF8+I2wS6fA84E9
+	aFnOFsNA77aTsw6IlUkJIaFxMORXeM/4Jk1ESGeyI3ND4+5IOQg/WFeWVtOZGdreQK7IQhpoP4iN7
+	0sx+mvFXuUJ31YAeaMBjSuydxfqo8lrOibJCn5FsCD+SyTiB2rr4bTrzHyKjsjAUWVmMoJ17tj6LG
+	XyKeltMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vojec-0000000CYAb-2y2b;
-	Sat, 07 Feb 2026 14:51:22 +0000
-Received: from mx4.wp.pl ([212.77.101.11])
+	id 1voo2a-0000000CiOs-4Bem;
+	Sat, 07 Feb 2026 19:32:25 +0000
+Received: from sender4-pp-g120.zoho.com ([136.143.188.120])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vojeZ-0000000CYAH-1ah0
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Feb 2026 14:51:20 +0000
-Received: (wp-smtpd smtp.wp.pl 30724 invoked from network); 7 Feb 2026 15:51:16 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
-          t=1770475876; bh=g8RweSPsSx90HGKGWAf4fbdUjyVCzKHo/JKtMVQFa5s=;
-          h=From:To:Cc:Subject;
-          b=WyJj2duGCo2fZY760i4V2WxafPRpd8OLmZArPEyF5d43kqbdwL/o6IN7x1Dc3HAmp
-           af6BlUUfCbKRAD6jIFfnanEHS8hJ2wyVddBfPCFt/0X2Y8JLR8mlKW+5deYII2F/ss
-           ru7RkbsayF0ZgNuGCI1ApS99Kb2EFnlkeQ7Z0c7E/jf2zOxwi/rRUzqNsoK71SnxDu
-           9f4RqCq1IZcR0YjCStWlPuSfwbClwzx2FGKDQU9RU21wpe5YTPFPSig8OihRwq7VmG
-           cZNMJxgq1NsLptht3IH1aUj8ISW1d7Ck7QPFV20k656kfeQfSyg3A37y9EwxqpcRFL
-           M0S7hDUAgQF9A==
-Received: from 83.5.238.100.ipv4.supernova.orange.pl (HELO laptop-olek.lan) (olek2@wp.pl@[83.5.238.100])
-          (envelope-sender <olek2@wp.pl>)
-          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
-          for <herbert@gondor.apana.org.au>; 7 Feb 2026 15:51:16 +0100
-From: Aleksander Jan Bajkowski <olek2@wp.pl>
-To: herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	linux-crypto@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Aleksander Jan Bajkowski <olek2@wp.pl>
-Subject: [PATCH] crypto: testmgr - Add test vectors for authenc(hmac(md5),cbc(des))
-Date: Sat,  7 Feb 2026 15:51:03 +0100
-Message-ID: <20260207145113.375192-1-olek2@wp.pl>
-X-Mailer: git-send-email 2.47.3
+	id 1voo2Y-0000000CiOQ-2fVf;
+	Sat, 07 Feb 2026 19:32:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1770492691; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=RdYdF7c/7RKURWe83WyERwWuC0yeeolV/HdBzGsCxqcpxL0mkFACmfTt3/4NpZ3OPDinHq6e5n7zbReS59t8n4L15hQO7U4nS8Fn2tTltElnkncw44fcngP1AzCyfoM7c8XaQUiSPZqkbCiCu1DktWNekdpxcACDCAt59MRy8aI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1770492691; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=BWnnE4c8SQWwH+plB/G8amDEzU/xZKpBUTD5dL9L0SU=; 
+	b=Re6ehi0jHhfhcXeU5/Wcel1vSM/nbf3eUn4zLT2HuBpR8KwW09QN7DLyDHZbf6ijMUCiRxsF+PCikeRSy3usv/g319xt3au/Kl8FUvyYtHLKZtOGDNMFRu2qD7kpUxw8NRT2SKuuUMvUnFdxsfzPvDT5EKE3EJPl0JkSQmFBjik=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1770492691;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=BWnnE4c8SQWwH+plB/G8amDEzU/xZKpBUTD5dL9L0SU=;
+	b=evBJTQV48BJoXeW9eksUfGNDL8f9WrQ191uHnGjm27R4bEhAOi3K2P49kQH5poEp
+	yBkUs87eqn4KX7O6Iw+RewkgV9Vptiu/GBndvntL5vn5lDe9fPnEXqpBgml8bLsfbTW
+	4iwQ1sonD2B0Akv+l6dv8Hf85aL9HNlIGFgwCxX0=
+Received: by mx.zohomail.com with SMTPS id 1770492689402527.0990853831929;
+	Sat, 7 Feb 2026 11:31:29 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Andy Yan <andyshrk@163.com>
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
+ Rodrigo Siqueira <siqueira@igalia.com>,
+ Alex Deucher <alexander.deucher@amd.com>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Sandy Huang <hjc@rock-chips.com>,
+ Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Jani Nikula <jani.nikula@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, kernel@collabora.com,
+ amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org,
+ intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v7 10/22] drm/rockchip: vop2: Fix YUV444 output
+Date: Sat, 07 Feb 2026 20:31:21 +0100
+Message-ID: <1945994.tdWV9SEqCh@workhorse>
+In-Reply-To: <4c9ce287.fbb.19be87814b8.Coremail.andyshrk@163.com>
+References: <20260121-color-format-v7-0-ef790dae780c@collabora.com>
+ <6631107.DvuYhMxLoT@workhorse>
+ <4c9ce287.fbb.19be87814b8.Coremail.andyshrk@163.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-WP-DKIM-Status: good (id: wp.pl)                                                      
-X-WP-MailID: 48011265b9172d94413420b8c64bca8f
-X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 0000008 [ERv0]                               
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260207_065119_624709_6DC03CA6 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260207_113222_719003_41DE7DB6 
+X-CRM114-Status: GOOD (  33.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,103 +99,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Test vector was generated using a software implementation and then double
-checked on Mediatek MT7981 (safexcel) and NXP P2020 (talitos). Both
-platforms pass self-tests.
+Hi Andy,
 
-Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
----
- crypto/testmgr.c |  7 ++++++
- crypto/testmgr.h | 57 ++++++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 64 insertions(+)
+On Friday, 23 January 2026 02:29:02 Central European Standard Time Andy Yan=
+ wrote:
+>=20
+> Hello Nicolas,
+>=20
+> =E5=9C=A8 2026-01-22 20:59:41=EF=BC=8C"Nicolas Frattaroli" <nicolas.fratt=
+aroli@collabora.com> =E5=86=99=E9=81=93=EF=BC=9A
+> >On Thursday, 22 January 2026 09:28:54 Central European Standard Time And=
+y Yan wrote:
+> >>=20
+> >> Hello Nicolas=EF=BC=8C
+> >>=20
+> >> At 2026-01-21 22:45:17, "Nicolas Frattaroli" <nicolas.frattaroli@colla=
+bora.com> wrote:
+> >> >YUV444 (aka YCbCr444) output isn't working quite right on RK3588. The
+> >> >resulting image on the display, while identifying itself as YUV444, h=
+as
+> >> >some components swapped, even after adding the necessary DRM formats =
+to
+> >> >the conversion functions.
+> >> >
+> >> >Judging by downstream, this is because YUV444 also needs an rb swap
+> >> >performed in the AFBC case.
+> >> >
+> >> >Add the DRM formats to the appropriate switch statements, and add a
+> >> >function for checking whether an rb swap needs to be performed in the
+> >> >AFBC case.
+> >> >
+> >> >Fixes: 604be85547ce ("drm/rockchip: Add VOP2 driver")
+> >> >Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> >> >---
+> >> > drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 19 +++++++++++++++++++
+> >> > 1 file changed, 19 insertions(+)
+> >> >
+> >> >diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/g=
+pu/drm/rockchip/rockchip_drm_vop2.c
+> >> >index ec3b4fde10db..469c63dd97d5 100644
+> >> >--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> >> >+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> >> >@@ -176,6 +176,7 @@ static enum vop2_data_format vop2_convert_format(=
+u32 format)
+> >> > 	case DRM_FORMAT_ARGB2101010:
+> >> > 	case DRM_FORMAT_XBGR2101010:
+> >> > 	case DRM_FORMAT_ABGR2101010:
+> >> >+	case DRM_FORMAT_VUY101010:
+> >> > 		return VOP2_FMT_XRGB101010;
+> >> > 	case DRM_FORMAT_XRGB8888:
+> >> > 	case DRM_FORMAT_ARGB8888:
+> >> >@@ -184,6 +185,7 @@ static enum vop2_data_format vop2_convert_format(=
+u32 format)
+> >> > 		return VOP2_FMT_ARGB8888;
+> >> > 	case DRM_FORMAT_RGB888:
+> >> > 	case DRM_FORMAT_BGR888:
+> >> >+	case DRM_FORMAT_VUY888:
+> >> > 		return VOP2_FMT_RGB888;
+> >> > 	case DRM_FORMAT_RGB565:
+> >> > 	case DRM_FORMAT_BGR565:
+> >> >@@ -225,6 +227,7 @@ static enum vop2_afbc_format vop2_convert_afbc_fo=
+rmat(u32 format)
+> >> > 	case DRM_FORMAT_ARGB2101010:
+> >> > 	case DRM_FORMAT_XBGR2101010:
+> >> > 	case DRM_FORMAT_ABGR2101010:
+> >> >+	case DRM_FORMAT_VUY101010:
+> >> > 		return VOP2_AFBC_FMT_ARGB2101010;
+> >> > 	case DRM_FORMAT_XRGB8888:
+> >> > 	case DRM_FORMAT_ARGB8888:
+> >> >@@ -233,6 +236,7 @@ static enum vop2_afbc_format vop2_convert_afbc_fo=
+rmat(u32 format)
+> >> > 		return VOP2_AFBC_FMT_ARGB8888;
+> >> > 	case DRM_FORMAT_RGB888:
+> >> > 	case DRM_FORMAT_BGR888:
+> >> >+	case DRM_FORMAT_VUY888:
+> >>=20
+> >> How did you test this format? It seems tools like modetest don=E2=80=
+=99t support testing this pattern.
+> >>=20
+> >
+> >Hi Andy,
+> >
+> >using the rest of this series, which implements the "color format"
+> >DRM property, and the corresponding weston MR that makes use of it[1].
+> >
+> >I create a ~/.config/weston.ini with the following contents:
+> >
+> >    [output]
+> >    name=3DHDMI-A-1
+> >    color-format=3Dyuv444
+> >
+> >This will make Weston try to set the output format to 10-bit YUV444. To
+> >limit it to 8-bit, you can add `max-bpc=3D8`. The monitor's EDID needs to
+> >report YUV444 support, otherwise that Weston version won't let you set
+> >this property.
+> >
+>=20
+>=20
+> This looks a bit strange. Your commit message and the Weston configuratio=
+n here both target the output format,=20
+> but the patch modifies the functions vop2_convert_format and vop2_convert=
+_afbc_format, which are responsible for
+> converting the data formats of planes/framebuffers (fb)=E2=80=94these hav=
+e nothing to do with the output format.
 
-diff --git a/crypto/testmgr.c b/crypto/testmgr.c
-index 3d60d9ae9416..a14829b67894 100644
---- a/crypto/testmgr.c
-+++ b/crypto/testmgr.c
-@@ -4079,6 +4079,13 @@ static const struct alg_test_desc alg_test_descs[] = {
- 		.suite = {
- 			.aead = __VECS(aegis128_tv_template)
- 		}
-+	}, {
-+		.alg = "authenc(hmac(md5),cbc(des))",
-+		.generic_driver = "authenc(hmac-md5-lib,cbc(des-generic))",
-+		.test = alg_test_aead,
-+		.suite = {
-+			.aead = __VECS(hmac_md5_des_cbc_tv_temp)
-+		}
- 	}, {
- 		.alg = "authenc(hmac(md5),cbc(des3_ede))",
- 		.generic_driver = "authenc(hmac-md5-lib,cbc(des3_ede-generic))",
-diff --git a/crypto/testmgr.h b/crypto/testmgr.h
-index 92b54038d24a..971a1129236c 100644
---- a/crypto/testmgr.h
-+++ b/crypto/testmgr.h
-@@ -17509,6 +17509,63 @@ static const struct aead_testvec hmac_sha512_aes_cbc_tv_temp[] = {
- 	},
- };
- 
-+static const struct aead_testvec hmac_md5_des_cbc_tv_temp[] = {
-+	{ /*Generated with cryptopp*/
-+#ifdef __LITTLE_ENDIAN
-+		.key    = "\x08\x00"		/* rta length */
-+			  "\x01\x00"		/* rta type */
-+#else
-+		.key    = "\x00\x08"		/* rta length */
-+			  "\x00\x01"		/* rta type */
-+#endif
-+			  "\x00\x00\x00\x08"	/* enc key length */
-+			  "\x11\x22\x33\x44\x55\x66\x77\x88"
-+			  "\x99\xaa\xbb\xcc\xdd\xee\xff\x11"
-+			  "\xE9\xC0\xFF\x2E\x76\x0B\x64\x24",
-+		.klen	= 8 + 16 + 8,
-+		.iv	= "\x7D\x33\x88\x93\x0F\x93\xB2\x42",
-+		.assoc  = "\x00\x00\x43\x21\x00\x00\x00\x01"
-+			  "\x7D\x33\x88\x93\x0F\x93\xB2\x42",
-+		.alen   = 16,
-+		.ptext	= "\x6f\x54\x20\x6f\x61\x4d\x79\x6e"
-+			  "\x53\x20\x63\x65\x65\x72\x73\x74"
-+			  "\x54\x20\x6f\x6f\x4d\x20\x6e\x61"
-+			  "\x20\x79\x65\x53\x72\x63\x74\x65"
-+			  "\x20\x73\x6f\x54\x20\x6f\x61\x4d"
-+			  "\x79\x6e\x53\x20\x63\x65\x65\x72"
-+			  "\x73\x74\x54\x20\x6f\x6f\x4d\x20"
-+			  "\x6e\x61\x20\x79\x65\x53\x72\x63"
-+			  "\x74\x65\x20\x73\x6f\x54\x20\x6f"
-+			  "\x61\x4d\x79\x6e\x53\x20\x63\x65"
-+			  "\x65\x72\x73\x74\x54\x20\x6f\x6f"
-+			  "\x4d\x20\x6e\x61\x20\x79\x65\x53"
-+			  "\x72\x63\x74\x65\x20\x73\x6f\x54"
-+			  "\x20\x6f\x61\x4d\x79\x6e\x53\x20"
-+			  "\x63\x65\x65\x72\x73\x74\x54\x20"
-+			  "\x6f\x6f\x4d\x20\x6e\x61\x0a\x79",
-+		.plen	= 128,
-+		.ctext	= "\x70\xd6\xde\x64\x87\x17\xf1\xe8"
-+			  "\x54\x31\x85\x37\xed\x6b\x01\x8d"
-+			  "\xe3\xcc\xe0\x1d\x5e\xf3\xfe\xf1"
-+			  "\x41\xaa\x33\x91\xa7\x7d\x99\x88"
-+			  "\x4d\x85\x6e\x2f\xa3\x69\xf5\x82"
-+			  "\x3a\x6f\x25\xcb\x7d\x58\x1f\x9b"
-+			  "\xaa\x9c\x11\xd5\x76\x67\xce\xde"
-+			  "\x56\xd7\x5a\x80\x69\xea\x3a\x02"
-+			  "\xf0\xc7\x7c\xe3\xcb\x40\xe5\x52"
-+			  "\xd1\x10\x92\x78\x0b\x8e\x5b\xf1"
-+			  "\xe3\x26\x1f\xe1\x15\x41\xc7\xba"
-+			  "\x99\xdb\x08\x51\x1c\xd3\x01\xf4"
-+			  "\x87\x47\x39\xb8\xd2\xdd\xbd\xfb"
-+			  "\x66\x13\xdf\x1c\x01\x44\xf0\x7a"
-+			  "\x1a\x6b\x13\xf5\xd5\x0b\xb8\xba"
-+			  "\x53\xba\xe1\x76\xe3\x82\x07\x86"
-+			  "\x95\x9e\x7d\x37\x1e\x60\xaf\x7c"
-+			  "\x53\x12\x61\x68\xef\xb4\x47\xa6",
-+			  .clen	= 128 + 16,
-+	},
-+};
-+
- static const struct aead_testvec hmac_sha1_des_cbc_tv_temp[] = {
- 	{ /*Generated with cryptopp*/
- #ifdef __LITTLE_ENDIAN
--- 
-2.47.3
+Yep, I've now re-tested this in various ways and this commit doesn't do
+what I thought it did. I think when I authored it, this was still doing
+BCSH based conversion and may have depended on this at some stage. Also
+possible that I didn't do a clean test run of solely these changes to
+come to my conclusions.
+
+YUV444 primary planes aren't supported by RK3588 at all from what I gather,
+so I have no clue where I ran into this and how this fixed it.
+
+Testing on RK3576 without this, and also playing around with gbm-format,
+I also don't ever get into the situation where this is needed for correct
+output; it seems like EGLConfig always only exposes RGBA formats anyway,
+so Panfrost may still lack YUV format support for the buffers.
+
+I'll drop this patch on the next revision, but I'll keep the changes in
+mind if an atomic modesetting test workload that sets YUV plane formats
+ever comes to be.
+
+Thanks for the reviews!
+
+Kind regards,
+Nicolas Frattaroli
+
+>=20
+>=20
+> >Link: https://gitlab.freedesktop.org/wayland/weston/-/merge_requests/185=
+9 [1]
+> >
+> >Kind regards,
+> >Nicolas Frattaroli
+> >
+> >>=20
+> >>=20
+> >> > 		return VOP2_AFBC_FMT_RGB888;
+> >> > 	case DRM_FORMAT_RGB565:
+> >> > 	case DRM_FORMAT_BGR565:
+> >> >@@ -270,6 +274,19 @@ static bool vop2_win_rb_swap(u32 format)
+> >> > 	}
+> >> > }
+> >> >=20
+> >> >+static bool vop2_afbc_rb_swap(u32 format)
+> >> >+{
+> >> >+	switch (format) {
+> >> >+	case DRM_FORMAT_NV24:
+> >> >+	case DRM_FORMAT_NV30:
+> >> >+	case DRM_FORMAT_VUY888:
+> >> >+	case DRM_FORMAT_VUY101010:
+> >> >+		return true;
+> >> >+	default:
+> >> >+		return false;
+> >> >+	}
+> >> >+}
+> >> >+
+> >> > static bool vop2_afbc_uv_swap(u32 format)
+> >> > {
+> >> > 	switch (format) {
+> >> >@@ -1291,6 +1308,7 @@ static void vop2_plane_atomic_update(struct drm=
+_plane *plane,
+> >> > 		 /* It's for head stride, each head size is 16 byte */
+> >> > 		stride =3D ALIGN(stride, block_w) / block_w * 16;
+> >> >=20
+> >> >+		rb_swap =3D vop2_afbc_rb_swap(fb->format->format);
+> >> > 		uv_swap =3D vop2_afbc_uv_swap(fb->format->format);
+> >> > 		/*
+> >> > 		 * This is a workaround for crazy IC design, Cluster
+> >> >@@ -1308,6 +1326,7 @@ static void vop2_plane_atomic_update(struct drm=
+_plane *plane,
+> >> > 			vop2_win_write(win, VOP2_WIN_AFBC_ENABLE, 1);
+> >> > 		vop2_win_write(win, VOP2_WIN_AFBC_FORMAT, afbc_format);
+> >> > 		vop2_win_write(win, VOP2_WIN_AFBC_UV_SWAP, uv_swap);
+> >> >+		vop2_win_write(win, VOP2_WIN_AFBC_RB_SWAP, rb_swap);
+> >> > 		/*
+> >> > 		 * On rk3566/8, this bit is auto gating enable,
+> >> > 		 * but this function is not work well so we need
+> >> >
+> >>=20
+> >
+> >
+> >
+> >
+>=20
+
+
+
 
 
