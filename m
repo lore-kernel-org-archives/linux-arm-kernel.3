@@ -4,63 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D849FEF06E2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Feb 2026 10:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D59EEF06E3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Feb 2026 11:18:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JkPin0ayRbWV2bcMnyTq8ACbHp5CZQECHoTkeUwS6Lc=; b=afHgqm3JqsSQab6mmeftu4L8nR
-	tfwiaGzTVBEq6Zm+AcYvcJExmTeoEE4LdsGmn4JRkaFWRCYsowcOGmwgdNInCmaBD1z8vhAHyiRDR
-	AEQu14ZX6Xqw7I7vU5p5WoUroi64N+4IK8F94f9XTYDCTEYdvc3vFVZ6Ac2EuKnRIsNDCcnBDEfiR
-	5+hkX2q1Kt6kW0mzFNzPPTXIvy8dcdRes0kJNoSfqy2flMhLyi3Pks85EsnAl+3tK/SThblJ1OTIj
-	FI+KOU+7U7VGS/Ef2HmZY3np44qn4lA8VBGO27c8wPLv/Fe8exykbxA8vrk855KoIJatTZxvYJ8uw
-	I4QxQbrg==;
+	bh=NLj9JY3v7IxWsY6NHuRMWN3dfT18WLoyUjj/VCFKPrA=; b=dRj0n24R75+tZAMRD1+2xM3+An
+	iRIbo4MeR9kRRtBOu0ZFpYabXlzIB39fOofmrvUTieUH8yFa90TZAHczlNLYwEumMCJpHmPOs+pZo
+	KuoNO+TAhLdp5FLVBz3G5rLhjBRoILqs44n+CDWj7ABrF+AROF4t+5QPVigAStfckxMrcIBsubhj5
+	wD77KfMZY5tdqX6jRH2sRMSDRlML2zFD3anq+JTQ2SVfKiTOJvomfCVLqolGdPUHC0uhSRPNq5A7U
+	PzQEuG81gjc9nbmsqoZih3dzCZzPE5g/TpCR1wwFk2y+lDmqYIbSBrJvml62DRGREPEV5SM/h1Ta3
+	CH5+nA0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vp29z-0000000DER0-3ktQ;
-	Sun, 08 Feb 2026 10:36:59 +0000
+	id 1vp2nu-0000000DFqp-34H9;
+	Sun, 08 Feb 2026 11:18:14 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vp29x-0000000DEQs-3GXt
+	id 1vp2ns-0000000DFqd-3qgz
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Feb 2026 10:36:58 +0000
+	Sun, 08 Feb 2026 11:18:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D91AC60054;
-	Sun,  8 Feb 2026 10:36:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA43AC4CEF7;
-	Sun,  8 Feb 2026 10:36:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F0F2360054;
+	Sun,  8 Feb 2026 11:18:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD797C4CEF7;
+	Sun,  8 Feb 2026 11:18:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770547016;
-	bh=ZJcNQC83teh7+Vsu+y7dgbRiRrWJD7su7SWlEPJlW1M=;
+	s=k20201202; t=1770549491;
+	bh=NLj9JY3v7IxWsY6NHuRMWN3dfT18WLoyUjj/VCFKPrA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XyOb958dXTZfuEfbYtFB67DGgAvKYnFxNTUpXJ5cXTe4FROOCAA10L/6g9QQCDPeS
-	 UVgL5PPSTuQ1Sz+vJXaCAn0vZrISkIArThW+IsV+nTwWgDJVie63a6PSBw8x63QMZK
-	 pEwxYJEcSN5tqIIM/XZZWKN2kcjasw9ZhMyGJyyTmW0pBMmBh6WxaVMKPLkm13Icgk
-	 J9jCUEDAcV9z/rAmon3e1hQhJshqUUrTOr83uDlr0FPMppFo369wAljb9p+YvcfW4K
-	 NT50YceUpUTAel0mHUJGS2T9XNytu8o379k7AnUPlIk/mGHVhhAMiqijOYKO05dwfi
-	 FIbVo9IEltAkA==
-Message-ID: <a3504101-e516-461b-8ad3-8075e0edd879@kernel.org>
-Date: Sun, 8 Feb 2026 11:36:51 +0100
+	b=lwTs6gUqyZ6xYI6NBqd48OvHOuiapcAeHwd1KWiBNIsD83dYoA3PUCYMYgGvnCk/N
+	 OtDzkzdp33/F+P+GVXL8dmNU6GOXTOkyuWVG8xRIYEfTfrJFz3r163fR63bYI6aYNq
+	 F1G3IKfcz748vNOgoMQtSoNIdru+uIowkPCk8g81YvqPvZ4+4mDW0UbOGzll10VGv5
+	 icoScDxGRDj22R4i+9IYqfdeWqvr+MEcLyENe6Yg5Xcz6hR2xNL+36RHtDHj9f5MRl
+	 //0dGXwkKj6i+eHoXdhqhmI9BR+J4H4ol6kxQgZmXd2XMzJJJKtCQYKxu8ucn77THw
+	 xJT9rEnfbiYKw==
+Message-ID: <a3249d0f-17f2-496d-ad53-95ad5da26f5a@kernel.org>
+Date: Sun, 8 Feb 2026 12:18:05 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: mailbox: xlnx,zynqmp-ipi-mailbox: Document
- msg region requirement
-To: "T, Harini" <Harini.T@amd.com>
-Cc: "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "Simek, Michal" <michal.simek@amd.com>,
- "Datta, Shubhrajyoti" <shubhrajyoti.datta@amd.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "git (AMD-Xilinx)" <git@amd.com>
-References: <20251222044653.1757886-1-harini.t@amd.com>
- <20251222-funny-aspiring-seal-05c4ae@quoll>
- <LV5PR12MB980465BAF86F179E5638016A92B5A@LV5PR12MB9804.namprd12.prod.outlook.com>
+Subject: Re: [PATCH 8/8] arm64: defconfig: Enable NVIDIA TEGRA410 PMU
+To: Besar Wicaksono <bwicaksono@nvidia.com>, will@kernel.org,
+ suzuki.poulose@arm.com, robin.murphy@arm.com, ilkka@os.amperecomputing.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-tegra@vger.kernel.org, mark.rutland@arm.com, treding@nvidia.com,
+ jonathanh@nvidia.com, vsethi@nvidia.com, rwiley@nvidia.com,
+ sdonthineni@nvidia.com, skelley@nvidia.com, ywan@nvidia.com,
+ mochs@nvidia.com, nirmoyd@nvidia.com
+References: <20260126181155.2776097-1-bwicaksono@nvidia.com>
+ <20260126181155.2776097-9-bwicaksono@nvidia.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,7 +101,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <LV5PR12MB980465BAF86F179E5638016A92B5A@LV5PR12MB9804.namprd12.prod.outlook.com>
+In-Reply-To: <20260126181155.2776097-9-bwicaksono@nvidia.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -123,94 +118,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/12/2025 11:48, T, Harini wrote:
-> [Public]
+On 26/01/2026 19:11, Besar Wicaksono wrote:
+> Enable driver for NVIDIA TEGRA410 CMEM Latency and C2C PMU device.
 
-What? Fix your email client, so we wan't be dealing with your corporate
-rules.
-
-[Private]
-
-or rather let's mess with corporate systems:
-
-[Confidential]
-
-> 
-> Hi,
-> 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzk@kernel.org>
->> Sent: Monday, December 22, 2025 2:39 PM
->> To: T, Harini <Harini.T@amd.com>
->> Cc: jassisinghbrar@gmail.com; robh@kernel.org; krzk+dt@kernel.org;
->> conor+dt@kernel.org; Simek, Michal <michal.simek@amd.com>; Datta,
->> Shubhrajyoti <shubhrajyoti.datta@amd.com>; linux-kernel@vger.kernel.org;
->> devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org; git (AMD-
->> Xilinx) <git@amd.com>
->> Subject: Re: [PATCH] dt-bindings: mailbox: xlnx,zynqmp-ipi-mailbox:
->> Document msg region requirement
->>
->> Caution: This message originated from an External Source. Use proper caution
->> when opening attachments, clicking links, or responding.
->>
->>
->> On Mon, Dec 22, 2025 at 10:16:53AM +0530, Harini T wrote:
->>> Add description clarifying that for Versal IPI mailboxes, both host
->>> and remote agents must have the "msg" register region defined for
->>> successful message passing. Without both, only notification-based
->>> communication works.
->>>
->>> Signed-off-by: Harini T <harini.t@amd.com>
->>> ---
->>>  .../bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml           | 6 ++++++
->>>  1 file changed, 6 insertions(+)
->>>
->>> diff --git
->>> a/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.ya
->>> ml
->>> b/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.ya
->>> ml index 04d6473d666f..8fdf77c7935c 100644
->>> ---
->>> a/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.ya
->>> ml
->>> +++ b/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbo
->>> +++ x.yaml
->>> @@ -165,6 +165,12 @@ allOf:
->>>          reg-names: false
->>>
->>>      else:
->>> +      description:
->>
->> Else block cannot have description.
-> 
-> Can I remove the description from else block and move the clarifying text to the top-level description field?
-> 
->>
->>> +        For Versal IPI mailboxes, the "msg" register region is optional.
->>
->> So it is optional...
-> 
-> The schema marks "msg" as optional to support both notification-only and message-passing use-cases. In hardware, some mailbox channels may be designed for notification only (no buffer), while others support full message passing (with buffer). The schema allows both, but for message passing, "msg" is required on both ends
-
-This is not wrapped. Again, fix your email client.
-
-> 
->>
->>> +        However, for successful message passing via mailbox, both the
->>> + host IPI
->>
->> And it is not optional. If nothing works, then it is not optional.
->>
->> And why would it be optional in the first place? You generate your same IP
->> with different settings?
-> 
-> There are 2 types of IPI channels (Buffered and Buffer-less)
-> Some IPI channels are used only for notification (no message buffer, so "msg" is omitted).
-
-
-Confusing description then.
-
-> 
+Why? Why do we want it? Which *upstream board* uses it?
 
 
 Best regards,
