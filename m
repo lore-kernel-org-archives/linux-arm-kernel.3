@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 652DFEF06E2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CBA9EF06E3
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Feb 2026 04:05:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,79 +12,79 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SlwiE2/GmO3LoEyvjlAxI3xvPLTPdJVhsPeNQZFpN6E=; b=ZP3AJocMKQ7PGIrIG4gqcyt0+a
-	xRTEXLaZe3NyQx2OmvN7xikbjiri/k0iA8TiwsguOv80DApMvuf68rmOIpYPV6aEmvdM5aOsqFe/A
-	as3dWcsGpgY1crcMtpkhRB3rOEWjpXy/X9rZp80DcauR5C2vie8eKAwyyE7LTxoDJDX78IOECE84a
-	IasbJ80fv3BwgucofDdT4agxbTrdXvKY7o+mPsWJsYe+LTfXjulQ1qLhy072W2DEGbpGqhkIanAsQ
-	hdDvoX1G42aQTW0ca4sIaNJ++wgaKjQgqUiFjRq/bG7NH0enbjfia3O9BoLRqSi1OKKdgktowHoP7
-	n6DNMRwA==;
+	bh=X1WMZsabyRtxW/BORr83pHAp7XMgNG5LzmQLBp1LufE=; b=aqNwm2l92XmONrgmG+o85Cl1aT
+	KHp0e2SddFb4lIXYNZ6nbV7Uw5Cflg/bAMQ66cDWXBPIAyaR5l5ocTjBopza85R35iEiODzyCPEny
+	BNHaLH0iqLLAn/5vHl8aZGhqw9ORYiABdTEyOgJ+XZ6LCTaUGBNM+qHhOqQE0s1Nm8RoSDx68F5vf
+	WFmi0kY/5cHoQ3GDTJEjo7GF9DdO3eXxeJHxmJrQg8pWluL1jFokg6o+aHFug4Dh4ZGvfJQqFU+dh
+	JxYcbSMTsmzCWQw01sPdi4oIoKvItPw9qRVE4oj1/sENQHexvvF6kEzgtryG301pi5Pb2Hd1nEVYL
+	BcA9QVPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vow2X-0000000CzlI-2VMH;
-	Sun, 08 Feb 2026 04:04:53 +0000
-Received: from mail-dl1-x1235.google.com ([2607:f8b0:4864:20::1235])
+	id 1vow2Z-0000000CzmP-3oZZ;
+	Sun, 08 Feb 2026 04:04:55 +0000
+Received: from mail-dl1-x1231.google.com ([2607:f8b0:4864:20::1231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vow2T-0000000Czjf-40Gl
+	id 1vow2W-0000000CzkT-2KR7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Feb 2026 04:04:52 +0000
-Received: by mail-dl1-x1235.google.com with SMTP id a92af1059eb24-12460a7caa2so2240139c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Feb 2026 20:04:49 -0800 (PST)
+	Sun, 08 Feb 2026 04:04:53 +0000
+Received: by mail-dl1-x1231.google.com with SMTP id a92af1059eb24-124899ee9d3so2282376c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Feb 2026 20:04:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1770523489; x=1771128289; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1770523492; x=1771128292; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=SlwiE2/GmO3LoEyvjlAxI3xvPLTPdJVhsPeNQZFpN6E=;
-        b=Mt6eQHI6w/pbkaBoywAsUfgWr2ecLsPQhgEqQhm7ET0ctNkmsc1mou6F2ic/NuQqQi
-         7vnGdkQBva/nNTTN/Ufo9iKVA2UPiL9KdCYMPcUDZkbOZ0WeAEytCtPxG6B6geDUveXC
-         ePJ6tIdw70X7+2XmjkkLHqo/I34T5Fq6u3500=
+        bh=X1WMZsabyRtxW/BORr83pHAp7XMgNG5LzmQLBp1LufE=;
+        b=Ub/MCeistSqn/pcxdmgzN4FABLC75AfW9kcIUlL0QHfbumdHtdz/qsGEl0ItMTsO4S
+         9MFvGMqwz0mouTKzzL9lie00WfS0xNdH0Zdfi24iV1uYCuoGj2YfHyiu9Fu21XUHCtpW
+         6NGRyAPyWPyh3rah7edFxhV820k10wYshin34=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770523489; x=1771128289;
+        d=1e100.net; s=20230601; t=1770523492; x=1771128292;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=SlwiE2/GmO3LoEyvjlAxI3xvPLTPdJVhsPeNQZFpN6E=;
-        b=MrspKnN/qH6cx6UyyeqqV/ux7HM7hWk/d92Oq6TSTv4rf/bSiSMfDdWIahmm1f2I3S
-         YEhUWawxXJzE3kf7KJfEIpXbb6Z423BOBKmmrRMg7eXJ3aOwLVIUt5AFieEZ74BRrRpg
-         fEbDkXHlw8Do7EvAlNqk5qgVFhrIpKCByO3olF6rJFMrcczOLyneAbL9j/el4LK8ioyU
-         qh7tiugUKzLf2kzPQfuUixhaAay178edXQes16D/IJp1BEnVqrOgOiLFqo7Zhat4p591
-         wprOgoKHsoXa6y51L3bhblnWEz5djORQYkBc6Pq5Ykc6ZqWbhtXOxEomBw3kPfVALPX7
-         EInw==
-X-Forwarded-Encrypted: i=1; AJvYcCUZdaQSQx8rpdT4MWZC6nBY54jz07yDBWW2B6p28DRWV4OwUceU3cagbH3GPgyud1aZ45mCE1igYY4qscsaDFR6@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvrJf810bjbrUbXDnlYMVl+QU/LPj/BnvCsSiAqLEPFlvqaJ1J
-	Xa+mA8LZRjsDwhoOuaVGaoPMB0n8EfkG1UwX9X1/ZS3SUUEcrw3aNmTz+/vBh45nQw==
-X-Gm-Gg: AZuq6aIL7Iy/XKVlDPVwkJ5Miv/kzE9rbAPDZshMt94SftUYxupLvoq/ufrec5yl6ci
-	gv447oeeGJZVcjb1hrGZNbmKzMZjfBI+relwBbSvw9ksl30bz2vQ1077eJq75SLssQ143DF7Vjn
-	QFowuE5npB3Wr6FV2QOTO+cHu/VC+zZsoXCLt0PwlTAlbpxqyKP5qLPPgO5tlP2MqSHfs9LRyNe
-	dSBjrK7RnmvLgRzC8XOV+zEanKPzasReQxmmsK84nhAcarHHbZUJQCByIq7nA6MfK4k+NEmbCvw
-	IYQNQvlJ9ByI/2p/aF1yzk6vmaV8nSFMNsss1RoX9fDV8+AtC1d5d3csJkLgA+AW1Ce4w4RVqha
-	DkUQ0pGtDrv+KOj1Jafp3EyuyYPgToTmiBJszmGqhg822gURB45An40v1ixqbwAYeDGzRyy8ard
-	P6riftZYZtAXt98n50HAMFHqe7HrRa+yw3znkGSv2YJm99CBXI7S/Qiyfk+BKcIa9YpEw4u7y/Y
-	ndn4hbRyHI=
-X-Received: by 2002:a05:7022:697:b0:123:34e8:ae8e with SMTP id a92af1059eb24-127040147c5mr3631257c88.50.1770523488941;
-        Sat, 07 Feb 2026 20:04:48 -0800 (PST)
+        bh=X1WMZsabyRtxW/BORr83pHAp7XMgNG5LzmQLBp1LufE=;
+        b=wNiYdHZiFVeZrq6zhNHpG09CPzECVBfunYwL0AmUVx0xIKp3ea+UCB2CJ1dV+ZI5o1
+         gdwej4buQAKY/UoFAqG62koQFTDt9nyh8jDW2+omJWC81S+djTBV6YRpo/0WI1NbSqpX
+         oh4LrU4pl9g6ldr6CPjPYsZpsZFzOoH41V2gXyxCWh6Dy9cbr3gwv6A6PPm69qpCB/MR
+         GglN9LSISsTyUxNd20aHN7Bce7CPCKJYMB94nsYzdQxTHHbIm9D5ogZAUxOFmm2Ruqg8
+         czo/QmDXxJ+KhZABblPc11bIJGw+fe0nn4elXB5McIUU5Pi6bRjR++GLZogX7kcsXg8a
+         Y+0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU5eIkjqgrpPPHjRoF2E4YDZKPA7QMnq7if8Neu1/YqbSY1xrie5WKTEpXHhuckW5p2bIDBRm7xFjCreOKKOd5G@lists.infradead.org
+X-Gm-Message-State: AOJu0YxavS1XZEmnoIYAXFZHLrsp1mmI/Zalmfewzi7h12M4q5SH/LWg
+	wMGcwfgY4v2+ZXHWw6aPurn6uvKvF7NzK6jve/Oq3ynw09UQDm7lgtTNhQb4aanaSj5ltfo2G3G
+	wL6o=
+X-Gm-Gg: AZuq6aJnFp7f/lw8lyp+b+v1ijV83kp3eSDACZDmOaHUjhuqEGRsgssJfBe4YQoRip0
+	Zt08e+mHsbkBdrB/pL9aNVq7jAJWbd4ZqtHFIA7f5+7Iylt7mPN7zbvOd925y5eSp/x7o+Gm+fi
+	rJDB0b99xclJru4AIhtloyhwvGvrl+r1bJpdGQCJzB4KXcOZ/YsQDBd8adcu9deF/JBTzH+nW+6
+	euceDUhmbsJaF12cXnvpsacKnd+sepeyPSDOaT1XDnUEujJFszrh/xj4K+sB4ye/oVqFNR/MYd1
+	H1TOXk5V+MFmVi/DL8mkk0Ev4+G12UMf4o29QrzUbmnQz6z5yP8md6N6TJeGctcZhKQwnMWDevO
+	wHP0lMQvbQIMeyMwaM1DAuV8Ei66dDoVd9LzbRFR6PXPCTujcqRZiQLMEru6+g/P3sHAzO1PrAw
+	6g9AorYq7qcJwZl1jpBFFT7PchvHLn+8Htu0IM5TpaZGmcD0RRmDISAyCyhb67+1v4zGzyvBw=
+X-Received: by 2002:a05:7022:92c:b0:123:35cb:96d2 with SMTP id a92af1059eb24-12703fc6b75mr4209766c88.21.1770523491742;
+        Sat, 07 Feb 2026 20:04:51 -0800 (PST)
 Received: from dianders.sjc.corp.google.com ([2a00:79e0:2e7c:8:6d43:22d7:40eb:81e6])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-127041e61b9sm7085064c88.8.2026.02.07.20.04.46
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-127041e61b9sm7085064c88.8.2026.02.07.20.04.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 07 Feb 2026 20:04:47 -0800 (PST)
+        Sat, 07 Feb 2026 20:04:49 -0800 (PST)
 From: Douglas Anderson <dianders@chromium.org>
 To: jassisinghbrar@gmail.com
 Cc: Douglas Anderson <dianders@chromium.org>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
+	jay.buddhabhatti@amd.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	nm@ti.com
-Subject: [PATCH v2 14/15] soc: ti: wkup_m3_ipc: Use mbox_ring_doorbell() instead of NULL message
-Date: Sat,  7 Feb 2026 20:01:36 -0800
-Message-ID: <20260207200128.v2.14.I0334ef23106cca2014f28ae56930741ca9238105@changeid>
+	michal.simek@amd.com
+Subject: [PATCH v2 15/15] drivers: firmware: xilinx: Use mbox_ring_doorbell() instead of NULL message
+Date: Sat,  7 Feb 2026 20:01:37 -0800
+Message-ID: <20260207200128.v2.15.Ib15a93253dc4bf021c41036096b8e289702878ba@changeid>
 X-Mailer: git-send-email 2.53.0.rc2.204.g2597b5adb4-goog
 In-Reply-To: <20260208040240.1971442-1-dianders@chromium.org>
 References: <20260208040240.1971442-1-dianders@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260207_200450_961331_3444FB2C 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20260207_200452_596959_793C9119 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,50 +113,22 @@ Signed-off-by: Douglas Anderson <dianders@chromium.org>
 
 (no changes since v1)
 
- drivers/soc/ti/wkup_m3_ipc.c | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
+ drivers/soc/xilinx/zynqmp_power.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/soc/ti/wkup_m3_ipc.c b/drivers/soc/ti/wkup_m3_ipc.c
-index 5845fc652adc..9f74f2dfc217 100644
---- a/drivers/soc/ti/wkup_m3_ipc.c
-+++ b/drivers/soc/ti/wkup_m3_ipc.c
-@@ -328,9 +328,9 @@ static int wkup_m3_ping(struct wkup_m3_ipc *m3_ipc)
- 	 * the RX callback to avoid multiple interrupts being received
- 	 * by the CM3.
- 	 */
--	ret = mbox_send_message(m3_ipc->mbox, NULL);
-+	ret = mbox_ring_doorbell(m3_ipc->mbox);
- 	if (ret < 0) {
--		dev_err(dev, "%s: mbox_send_message() failed: %d\n",
-+		dev_err(dev, "%s: mbox_ring_doorbell() failed: %d\n",
- 			__func__, ret);
- 		return ret;
+diff --git a/drivers/soc/xilinx/zynqmp_power.c b/drivers/soc/xilinx/zynqmp_power.c
+index 9b7b2858b22a..7d8e311fcdc7 100644
+--- a/drivers/soc/xilinx/zynqmp_power.c
++++ b/drivers/soc/xilinx/zynqmp_power.c
+@@ -144,7 +144,7 @@ static void ipi_receive_callback(struct mbox_client *cl, void *data)
+ 			   &zynqmp_pm_init_suspend_work->callback_work);
+ 
+ 		/* Send NULL message to mbox controller to ack the message */
+-		ret = mbox_send_message(rx_chan, NULL);
++		ret = mbox_ring_doorbell(rx_chan);
+ 		if (ret)
+ 			pr_err("IPI ack failed. Error %d\n", ret);
  	}
-@@ -343,7 +343,6 @@ static int wkup_m3_ping(struct wkup_m3_ipc *m3_ipc)
- 		return -EIO;
- 	}
- 
--	mbox_client_txdone(m3_ipc->mbox, 0);
- 	return 0;
- }
- 
-@@ -358,14 +357,13 @@ static int wkup_m3_ping_noirq(struct wkup_m3_ipc *m3_ipc)
- 		return -EIO;
- 	}
- 
--	ret = mbox_send_message(m3_ipc->mbox, NULL);
-+	ret = mbox_ring_doorbell(m3_ipc->mbox);
- 	if (ret < 0) {
--		dev_err(dev, "%s: mbox_send_message() failed: %d\n",
-+		dev_err(dev, "%s: mbox_ring_doorbell() failed: %d\n",
- 			__func__, ret);
- 		return ret;
- 	}
- 
--	mbox_client_txdone(m3_ipc->mbox, 0);
- 	return 0;
- }
- 
 -- 
 2.53.0.rc2.204.g2597b5adb4-goog
 
