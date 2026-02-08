@@ -4,67 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71B06EF06EE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Feb 2026 22:15:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90017EF06F7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Feb 2026 22:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7dSjZHT2Dl4grmYJRUZgGDEO0U0HL5eO/bColsBuxcA=; b=S4uNMVnmoCHt9FqvHudrDtj4NO
-	LheE1bEE30/EaCm7xDr5RlzI//Ukk/7UERfa30xGZIWdRM/OOFCCaIjV1FVtiCTljR6OYma9Hgpwn
-	VDio1yFCaKAmUp41Gag/60O4X7jeLkXlAKWKti+kPHuC1GKvfh+ZxbVvEe9MBRvyD3Ecaw1WikOaX
-	lNsbpZuDCRd3g2JRsXMjd1hTfjwFLNZAUnUUyCal9SYwhwtjhDjlXqthWgFeFpbTOrQHk9BRRA3xc
-	rZq+1yKDRoODewiJdTpig0t3wIC4v0ceOpcj1U/2FAo74tWHfQD6PckIwjXGb60g5T3aoOp1HJbzh
-	AXPQkTfw==;
+	bh=0uOZ3iwE/BH17JAQBdLoZGWfaV+4xttczJXUuAySVK0=; b=xYdEGYqXsf6a6xE8NfD4gppPaY
+	KpNUYYbEQHrVTVfXiBnDubZ5ynw0vx0bECdIE0Hr6amr+War672LGsRjZy8Hev87LkxlDavbLQ+W5
+	Ga6G195MoSR6MKEgE5voZjtfi1PQsJPaXV2pD1zKghozXnUP56aCTie3ek4tdELJfV/GsTErtUQOz
+	btyaR0sL4MuTLg4fnpABZn/2hMyKyZvA4yaX5BkqzeCmxoTbclBMyzxJ87JK2bcglz++OX9HSHceC
+	y6KisJO8iBcZ6naSBqxneZuw5hvk49pa+X7n1R/wqjjyNOCtdlr0kD9ryJdAXhwl8jkt+wFyYjLkZ
+	HHAKnP1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpD3h-0000000EVeG-3URF;
-	Sun, 08 Feb 2026 22:15:13 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1vpD8z-0000000EW5n-2l1W;
+	Sun, 08 Feb 2026 22:20:41 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpD3d-0000000EVdO-2sse
+	id 1vpD8w-0000000EW54-3PUo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Feb 2026 22:15:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1770588908;
- bh=7dSjZHT2Dl4grmYJRUZgGDEO0U0HL5eO/bColsBuxcA=;
- b=fcXxGVyC47quyAk6Z8OSnJW0gPV2oJw+qvGrbjP5ZfWaGVh7yVBHdwt+Hy03IkEpGRoybKyUZ
- b6TFarIWyKtTT7xTpNOCe3xlaBiOSkKPnyRh4NJtBQ/bbUtwnxVrDB6C9k4h6kZd3S3T0TqSVXx
- ZpApDenFK/DxHdlbk6HJJAwTraYg7Xkn8aazk/MYScZHr0yJw6n8QXGzXSvm5XjoHiuLstKIxMz
- F2Losx/Ve9QIKWH39WACD/fCWMRe5AgE/z2M0+naWoTl/+9PNA6w8FLEMQREhwaOzwRYACb9B2k
- 6cy03VvguoWYQd3vWVKwSHCSvAQCNgsfNccVC1rMykfA==
-X-Forward-Email-ID: 69890ae4a6487c2810b18fa7
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 2.6.2
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <d41492a9-bb59-4999-8497-e28d03d3a13f@kwiboo.se>
-Date: Sun, 8 Feb 2026 23:14:57 +0100
+	Sun, 08 Feb 2026 22:20:40 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-382fb275271so24206201fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Feb 2026 14:20:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770589236; cv=none;
+        d=google.com; s=arc-20240605;
+        b=LE/MtQcpzxw2mmb9om89pLuicfyZUYPrIPZ3+BgmfLeOwVdgelOZqX3qvOhwaB2MDP
+         gS3TfiD/yvB/2bapE7zH1rQEsbbI7LSYjp/9ruS5cD2PfooV4licxCiiuosmsjgvpnQk
+         CeuMjuXGxMJidc/PSx+8cGLCEH2rDIdW2MmLTEpSsgEusGZUqHzxHwxMeHu7LdOnF6P3
+         NH3MnBQKGkKSS21lAqap2vP9O2Jlq7194tTBCzlSQ9NXy54KazHD5oSFal26MaZFAj2F
+         saJnGO+NOYvARToznvlHSjBEuq4cWbYYLns4y/7iQ+2NaFqGLFRQgHvuaMohVAgVrm+V
+         PTlA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=0uOZ3iwE/BH17JAQBdLoZGWfaV+4xttczJXUuAySVK0=;
+        fh=opuiXMxjM56jYAY433nmqTptFLMPFmV9f8ZfOZ+qZ+E=;
+        b=BOQUa5OErQNdwblU5tzgcGsHxjx+kvJrFPAtU0UFvDc0qdWPEBP/QA0hgkgY7rkhR3
+         E6Ro1DDPA3jYH/mikEsb081sUJBnC4ZhAkMOrqRuOY1JhkXs3K/TVzMpEol1J2H2CWcq
+         lTs8tRiQX0cPQIHecmBWv4kp/sie8RXVQzI0F156IRFeWQQJBVQkL7nEVcVGrTGWaQwT
+         qZ+FXQ8nzP4yx5oWQHpKzxYNQ9erm6o+pfuSxkhkS83FQyhVjEPZ6R1BduJML+HPOByW
+         vu5dWE2vLDzaaQ+H3GYl7EM4JHAdj9kfjm5th80dmmJhaUS1r4JDAazF3A4g+ZCJKRRK
+         TGQA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770589236; x=1771194036; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0uOZ3iwE/BH17JAQBdLoZGWfaV+4xttczJXUuAySVK0=;
+        b=G+M6OvwuRqtelmqqe5n/e/LRbc38jX5//yt2wmJgOdAZU+N03F5IuY5hcPK22ZDCdM
+         AmgxmAOzzB00qwuv4uXA9QP4/0RojGHKuar7dfxP9uqIVqlvIFwDYgA8aegWWoG3WaIt
+         Tw+O8dwlAMx9GaOXRWeiY8yyOxf8JsfCVLXATd6UKiZW7ceD1BBI7F+Tw4zGDF/9e3Cj
+         uqCQ0GS/us9OW++j/UOzqwpNJCoQcF3JkYX7ZSAL+OFvcqkkrfdeKiUzU8IYhFK1ojHW
+         RqZcMQDqAD8fs0qrucMc+mPQcDuwj3ujj5UrhXWzMDcIEgn3MI4WaBmrQ0uU3bE+ZGrR
+         nb6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770589236; x=1771194036;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=0uOZ3iwE/BH17JAQBdLoZGWfaV+4xttczJXUuAySVK0=;
+        b=oIBqR4JrGfgMXdXGkPeZi32zCOB2zY1SunIKICcuVmsL0X/aXH+P4wFX1VgZondIVz
+         +xp5E6Qc6at4inYC5Ek2R8qdZ/2SFDUjN4xXqLwCAsgVPuqBNfZUuHaYdIoxtneloIeT
+         sxBQIlx5pbqMZbPvrRXeWHB9P54dA7e1CeU3mUYrz9410Age4WHZpJ0Vj4ZOFr+vT7AM
+         haeNP2G8+pqoYvcCi91JDKGVMH6UEKuQvNFFIY/JkFAkmdqbq3rnwIVq6TuJpgks1s4P
+         //PybE0x6UoGYnRwTLSemBeyn69R6+9HchsA8P0nrtgloMgA3UQCDALze+U48ntQtrRJ
+         ZF/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXL7PV8uoYD/0jhcnEzLqWIpDUto6FBfHsLW8Yg2cZ8203oJ3SRH3iqs4XYJofZLz+Dn0vJqHYuhGs+xU4VSmg2@lists.infradead.org
+X-Gm-Message-State: AOJu0YypK7MraMQz2OGc07TduaQFY9YdTtEmZQK0ScBVXpK2/q4frS5L
+	N5ALcPnMgEsZITES6lFOONKrRiXf4cC0ZF58cmLi2EqoTm5jkhCuHre8CWfdlXQFqr0/d+TQ1Bq
+	BPdUOiz9CBfuV0OoBYyJDis0Knw56284=
+X-Gm-Gg: AZuq6aIlfSgPiP6ifbrlmxlZjS4Tic3lNWm/vzSN85uSYSfILW+Ua3tQLwaMWWeD3WZ
+	ilfDo96tP6E1zYL88WJVJFPJilG1QKOB2ozH4hDH3R5YMbr9Hgt2X/ZMyFoZYKJPd4ivW1GdcBx
+	5LQCG26BKIgbouG+E4+Riaklp9LSIjmMs3PDlUiN586s9wYqycIDLBSwdZ0UNkt9vHso9kx+saG
+	W4DZRekDHG1aOUSuSOSnVooWyM7vwWZ5mlA9juqYxNjYBWhjuF1/VKtclObSTL3kRO6oD/oFPUh
+	pY7iz8uEtnn4rYRA7+TGG3KrxLs=
+X-Received: by 2002:a05:651c:f06:b0:385:beca:f6dd with SMTP id
+ 38308e7fff4ca-386b517f034mr27231951fa.43.1770589235643; Sun, 08 Feb 2026
+ 14:20:35 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+References: <20260207131803.2834749-1-festevam@gmail.com> <20260207131803.2834749-4-festevam@gmail.com>
+ <d41492a9-bb59-4999-8497-e28d03d3a13f@kwiboo.se>
+In-Reply-To: <d41492a9-bb59-4999-8497-e28d03d3a13f@kwiboo.se>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Sun, 8 Feb 2026 19:20:24 -0300
+X-Gm-Features: AZwV_Qic1qNN5-FtSKayD_BHH8s4MiBnriT3eLhue_QE2OzlTzJvDwiSSLFVTIg
+Message-ID: <CAOMZO5CmKzrcaVdp6Su+F+uT+nAueroaJcBkKtO3O8N0MWZt6A@mail.gmail.com>
 Subject: Re: [PATCH v2 4/4] ARM: dts: rockchip: Add Onion RV1103B Omega4
-To: Fabio Estevam <festevam@gmail.com>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Fabio Estevam <festevam@nabladev.com>
-References: <20260207131803.2834749-1-festevam@gmail.com>
- <20260207131803.2834749-4-festevam@gmail.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20260207131803.2834749-4-festevam@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, Fabio Estevam <festevam@nabladev.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260208_141510_039885_19792050 
-X-CRM114-Status: GOOD (  22.24  )
+X-CRM114-CacheID: sfid-20260208_142038_856335_64FE4E05 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,177 +119,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fabio,
+Hi Jonas,
 
-On 2/7/2026 2:18 PM, Fabio Estevam wrote:
-> From: Fabio Estevam <festevam@nabladev.com>
-> 
-> Onion Omega4 board is a board based on the RV1103B SoC that has:
-> 
->  - 256 MB of RAM
->  - 256 MB of SPI-NAND
->  - Ethernet
->  - USB OTG
->  - Wifi
->  - SD card
->  - Camera connector
-> 
-> Add the initial support for this board so that it can fully boot into
-> Linux with the root file system stored in the SPI NAND.
-> 
-> Signed-off-by: Fabio Estevam <festevam@nabladev.com>
-> ---
-> Changes since v1:
-> - Removed memory node.
-> - Added serial0 alias and used stdout-path = "serial0:115200n8";
-> - Added color, function and pinctrl entries to the LED node.
-> - Used bootph-pre-ram and bootph-some-ram.
-> 
->  arch/arm/boot/dts/rockchip/Makefile           |   1 +
->  arch/arm/boot/dts/rockchip/rv1103b-omega4.dts | 106 ++++++++++++++++++
->  2 files changed, 107 insertions(+)
->  create mode 100644 arch/arm/boot/dts/rockchip/rv1103b-omega4.dts
-> 
-> diff --git a/arch/arm/boot/dts/rockchip/Makefile b/arch/arm/boot/dts/rockchip/Makefile
-> index 716f5540e438..d8cd5df138cc 100644
-> --- a/arch/arm/boot/dts/rockchip/Makefile
-> +++ b/arch/arm/boot/dts/rockchip/Makefile
-> @@ -1,5 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += \
-> +	rv1103b-omega4.dtb \
->  	rv1108-elgin-r1.dtb \
->  	rv1108-evb.dtb \
->  	rv1109-relfor-saib.dtb \
-> diff --git a/arch/arm/boot/dts/rockchip/rv1103b-omega4.dts b/arch/arm/boot/dts/rockchip/rv1103b-omega4.dts
-> new file mode 100644
-> index 000000000000..bcfc9b321dd6
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/rockchip/rv1103b-omega4.dts
-> @@ -0,0 +1,106 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright (c) 2022 Rockchip Electronics Co., Ltd.
-> + * Copyright (c) 2025 plan44.ch/luz
-> + * Copyright (c) 2025 Onion Corporation
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/leds/common.h>
-> +#include "rv1103b.dtsi"
-> +
-> +/ {
-> +	model = "Onion RV1103 Omega4 Board";
-> +	compatible = "onion,rv1103b-omega4", "rockchip,rv1103b";
+On Sun, Feb 8, 2026 at 7:15=E2=80=AFPM Jonas Karlman <jonas@kwiboo.se> wrot=
+e:
 
-Am I correct in that this is the Omega-4 Evaluation Board (EVB) [1] and
-that the Omega-4 is a System-on-Module?
+> Am I correct in that this is the Omega-4 Evaluation Board (EVB) [1] and
+> that the Omega-4 is a System-on-Module?
 
-The model should probably not mention the RV1103, as this is a RV1103B
-board. I also think this probably should be split up into a SOM dtsi and
-a board dts similar to how other Rockchip SOM boards are handled, e.g.
+No SoM is used on the Omega4 board.
 
-	model = "Onion Omega-4 Evaluation Board";
-	compatible = "onion,omega4-evb", "onion,omega4", "rockchip,rv1103b";
-
-and split into rv1103b-omega4.dtsi and rv1103b-omega4-evb.dts or similar?
-
-[1] https://documentation.onioniot.com/omega4/getting-started/
-
-Regards,
-Jonas
-
-> +
-> +	aliases {
-> +		serial0 = &uart0;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +	};
-> +
-> +	leds {
-> +		compatible = "gpio-leds";
-> +
-> +		led-0	{
-> +			pinctrl-names = "default";
-> +			pinctrl-0 = <&led_pin>;
-> +			gpios = <&gpio0 RK_PA2 GPIO_ACTIVE_HIGH>;
-> +			function = LED_FUNCTION_STATUS;
-> +			color = <LED_COLOR_ID_BLUE>;
-> +			label = "sys";
-> +			default-state = "on";
-> +		};
-> +	};
-> +};
-> +
-> +&fspi0 {
-> +	status = "okay";
-> +
-> +	flash@0 {
-> +		compatible = "spi-nand";
-> +		reg = <0>;
-> +		bootph-pre-ram;
-> +		bootph-some-ram;
-> +		spi-max-frequency = <75000000>;
-> +		spi-rx-bus-width = <4>;
-> +		spi-tx-bus-width = <1>;
-> +
-> +		partitions {
-> +			compatible = "fixed-partitions";
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +
-> +			partition@0 {
-> +				label = "env";
-> +				reg = <0x00000000 0x00040000>;
-> +			};
-> +
-> +			partition@40000 {
-> +				label = "idblock";
-> +				reg = <0x00040000 0x00100000>;
-> +				read-only;
-> +			};
-> +
-> +			partition@140000 {
-> +				label = "uboot";
-> +				reg = <0x00140000 0x00100000>;
-> +				read-only;
-> +			};
-> +
-> +			partition@240000 {
-> +				label = "boot";
-> +				reg = <0x00240000 0x00800000>;
-> +			};
-> +
-> +			partition@a40000 {
-> +				label = "ubi";
-> +				reg = <0x00a40000 0x0f5c0000>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&uart0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&uart0m0_xfer_pins>;
-> +	bootph-all;
-> +	status = "okay";
-> +};
-> +
-> +&wdt {
-> +	bootph-all;
-> +	status = "okay";
-> +};
-> +
-> +&pinctrl {
-> +	leds {
-> +		led_pin: led-pin {
-> +			rockchip,pins = <0 RK_PA2 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
-> +};
-
+Thanks for the review!
 
