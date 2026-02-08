@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04759EF06E8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Feb 2026 23:29:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57ADFEF06FA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Feb 2026 23:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=I3eTDhOT3VVO/9X5OS52a9phpzfRLRxP/m/YuSIRLRI=; b=btA1Sn4PUrzs5xhyjx3LHZ7iLh
-	d+WpTWi2EJKXbPO6xE5nQGFOuKGojo3L43u5t4T9sx+/1G38wFWQAh0oLwtzBoLbJYOQyDX7AmixG
-	6cSyMP9XwBf+UTGDMPpjNrVTcyfHJVPatD4TJKhbdqeurZEMqjp4Lgc5SzMOm9keONxZ4wsp5f/sW
-	RSbh90CN/TULsRdX3lviyrVyc9xfGuaYDH3q4j0qZ8+lyTan4Genqcq3+cPC+h3TUJzqASLpGBtl1
-	84qFqiY4iDpLFA5/ZAYlfA2+28O7HgEEodCkjv3/RG6jMP0JPKThYXrkjOrK+ZHpAQTdfBW2185eZ
-	3I2MhgkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wIFi9EpRnhwtDIqLczwRt4cw5x9CO68vcVFcvmpAQIQ=; b=v5fHnc4gsD55Vv+6sf+c6Ap/gJ
+	g+4ow+7Vgr/EuLGfYiqLVInpE8yS+4KKvH7pcUrVC7oLj0uQBtnI7XggR5nkORARVF5QR+L0tLMQx
+	e1MAKsGsfQ0lZVRWBftefOaGd8glNCUgqusGR5EbaCFQg9MhAWY8Ks9NFZLbojxjqfq5IFl5/DemW
+	1YZwt62WpG6Ig5nQ/H94nz/GG2r/1jAfUHKSNqwfaE1Wu2CyoAUjCsAl70cpsoxP8uxAoalOfpbxK
+	+HUWpsghEaTDiQ0xDmsFcjhMlCUwNNLivLyfuV7VgEKEcAQuzemYX63gkij1GVqnfYNGyi51gnuig
+	CuJBpa8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpEDm-0000000EZ0A-1OTp;
-	Sun, 08 Feb 2026 23:29:42 +0000
+	id 1vpEF1-0000000EZ7K-30Me;
+	Sun, 08 Feb 2026 23:30:59 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpEDi-0000000EYzR-2CkC
+	id 1vpEEz-0000000EZ6r-06mM
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Feb 2026 23:29:40 +0000
+	Sun, 08 Feb 2026 23:30:58 +0000
 Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 78BF482A;
-	Mon,  9 Feb 2026 00:28:47 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 4B5B582A;
+	Mon,  9 Feb 2026 00:30:10 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1770593327;
-	bh=mH6fkBrVmk8s3YSlBo4EGed5ZVvJQ4dDHwcKBDH+cTY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=DjfzPj3RcpnvkaE3H7PfYwTUxl7U9SB0YeIuKIMRUpzUretVgaKmFum2GTRwjDJ8F
-	 H1aQZlHmt0KH4hZaaNtwOt+oi5xt08Vruu9+q5AMk7u2mixW3zVPrcHUd1zLZl8Whv
-	 l3HhJ0wpInMqfQbHkJb2Rj41J3LAnhehEb1mUUs0=
+	s=mail; t=1770593410;
+	bh=BqBwXlW1DYlKifkNzuD8EgN86/kfJHvciyDW4WXpDPg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a/R3LPSpkb93wFdSWlOX+/jeCfLOWluI9DhYaiJ+yJSYViQVHcpq2vU/8sQbNM8KW
+	 OzgvhCQDj4C29gAhRIz/QUtDJkAZwZ1B0An2C4xXoRtexqrXdGpW4BkrBAeKi/GBLD
+	 X7uukJHcWOKAMAPGF88XW8kAiir3KJ3mnbQTR9/M=
+Date: Mon, 9 Feb 2026 01:30:54 +0200
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: netdev@vger.kernel.org,
-	imx@lists.linux.dev
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Ovidiu Panait <ovidiu.panait.oss@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
 	Clark Wang <xiaoning.wang@nxp.com>,
+	Daniel Scally <dan.scally@ideasonboard.com>,
 	"David S. Miller" <davem@davemloft.net>,
+	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
 	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@denx.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Heiko Schocher <hs@denx.de>,
+	Heiner Kallweit <hkallweit1@gmail.com>, imx@lists.linux.dev,
 	Jakub Kicinski <kuba@kernel.org>,
-	Joakim Zhang <qiangqing.zhang@nxp.com>,
-	Joy Zou <joy.zou@nxp.com>,
 	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Marcel Ziswiler <marcel.ziswiler@toradex.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Martyn Welch <martyn.welch@collabora.com>,
-	Mathieu Othacehe <othacehe@gnu.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Richard Hu <richard.hu@technexion.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
 	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Stefano Radaelli <stefano.radaelli21@gmail.com>,
-	Wei Fang <wei.fang@nxp.com>,
-	Xiaoliang Yang <xiaoliang.yang_1@nxp.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] net: stmmac: imx: Disable EEE
-Date: Mon,  9 Feb 2026 01:29:31 +0200
-Message-ID: <20260208232931.2272237-1-laurent.pinchart@ideasonboard.com>
-X-Mailer: git-send-email 2.52.0
+	Wei Fang <wei.fang@nxp.com>
+Subject: Re: [PATCH RFC net-next] net: stmmac: provide flag to disable EEE
+Message-ID: <20260208233054.GA1987960@killaraus.ideasonboard.com>
+References: <E1vNUjC-0000000FhjR-0h6P@rmk-PC.armlinux.org.uk>
+ <f95f73b9-d024-4697-bca1-02fb8bc044af@gmail.com>
+ <aYEj8VM5AfvcDHrl@shell.armlinux.org.uk>
+ <aYE-gvuZdv7ezm7X@shell.armlinux.org.uk>
+ <20260203231832.GB133801@killaraus>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260203231832.GB133801@killaraus>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260208_152939_034071_D3413C5C 
-X-CRM114-Status: GOOD (  15.20  )
+X-CRM114-CacheID: sfid-20260208_153057_231131_B3C713EA 
+X-CRM114-Status: GOOD (  24.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,72 +91,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The i.MX8MP suffers from an interrupt storm related to the stmmac and
-EEE. A long and tedious analysis ([1]) concluded that the SoC wires the
-stmmac lpi_intr_o signal to an OR gate along with the main dwmac
-interrupts, which causes an interrupt storm for two reasons.
+On Wed, Feb 04, 2026 at 01:18:33AM +0200, Laurent Pinchart wrote:
+> On Tue, Feb 03, 2026 at 12:17:06AM +0000, Russell King (Oracle) wrote:
+> > On Mon, Feb 02, 2026 at 10:23:45PM +0000, Russell King (Oracle) wrote:
+> > > On Mon, Feb 02, 2026 at 08:54:52PM +0200, Ovidiu Panait wrote:
+> > > > If not, maybe this patch could be merged to add the flag that disables
+> > > > EEE and I will just send a patch to disable EEE on our platforms as well.
+> > > 
+> > > We still need the flag to disable EEE for platforms where lpi_intr_o is
+> > > logically OR'd with the other interrupts, so there's no way to ignore
+> > > its persistent assertion.
+> > 
+> > I'll also state that we need both patches, but there's no point pushing
+> > my original patch (to allow EEE to be disabled) unless Laurent is going
+> > to also submit a patch to make use of the flag - the EEE disable and
+> > Laurent's patch needs to be part of a series. We don't merge stuff that
+> > adds facilities that have no users, because that's been proven time and
+> > time again to be a recipe for accumulating cruft.
+> 
+> Sorry for having dropped the ball on this. Your patch arrived just when
+> I travelled to Japan for a month, and then it got burried in my inbox.
+> Now that it has resurfaced, and that an issue that prevented i.MX8MP
+> from booting with v6.19-rc has been fixed, I'll rebase my kernel and
+> finally fix that problem.
 
-First, there's a race condition due to the interrupt deassertion being
-synchronous to the RX clock domain:
+Done. https://lore.kernel.org/r/20260208232931.2272237-1-laurent.pinchart@ideasonboard.com
 
-- When the PHY exits LPI mode, it restarts generating the RX clock
-  (clk_rx_i input signal to the GMAC).
-- The MAC detects exit from LPI, and asserts lpi_intr_o. This triggers
-  the ENET_EQOS interrupt.
-- Before the CPU has time to process the interrupt, the PHY enters LPI
-  mode again, and stops generating the RX clock.
-- The CPU processes the interrupt and reads the GMAC4_LPI_CTRL_STATUS
-  registers. This does not clear lpi_intr_o as there's no clk_rx_i.
+> Once again, thank you for all your help with this issue, you have been
+> extremely helpful and I'm very grateful.
+> 
+> > So, at the moment, "net: stmmac: provide flag to disable EEE" ain't
+> > going anywhere until there's a patch that makes use of the new flag.
 
-An attempt was made to fixing the issue by not stopping RX_CLK in Rx LPI
-state ([2]). This alleviates the symptoms but doesn't fix the issue.
-Since lpi_intr_o takes four RX_CLK cycles to clear, an interrupt storm
-can still occur during that window. In 1000T mode this is harder to
-notice, but slower receive clocks cause hundreds to thousands of
-spurious interrupts.
-
-Fix the issue by disabling EEE completely on i.MX8MP.
-
-[1] https://lore.kernel.org/all/20251026122905.29028-1-laurent.pinchart@ideasonboard.com/
-[2] https://lore.kernel.org/all/20251123053518.8478-1-laurent.pinchart@ideasonboard.com/
-
-Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
----
-This patch depends on https://lore.kernel.org/r/20251026122905.29028-1-laurent.pinchart@ideasonboard.com
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-index db288fbd5a4d..e8e6f325d92d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-@@ -317,8 +317,7 @@ static int imx_dwmac_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	if (data->flags & STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY)
--		plat_dat->flags |= STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY;
-+	plat_dat->flags |= data->flags;
- 
- 	/* Default TX Q0 to use TSO and rest TXQ for TBS */
- 	for (int i = 1; i < plat_dat->tx_queues_to_use; i++)
-@@ -355,7 +354,8 @@ static struct imx_dwmac_ops imx8mp_dwmac_data = {
- 	.addr_width = 34,
- 	.mac_rgmii_txclk_auto_adj = false,
- 	.set_intf_mode = imx8mp_set_intf_mode,
--	.flags = STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY,
-+	.flags = STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY
-+	       | STMMAC_FLAG_EEE_DISABLE,
- };
- 
- static struct imx_dwmac_ops imx8dxl_dwmac_data = {
-
-base-commit: 18f7fcd5e69a04df57b563360b88be72471d6b62
-prerequisite-patch-id: a3c3f8b08fd66ee3ccce632aad3f4a3c21c92718
 -- 
 Regards,
 
 Laurent Pinchart
-
 
