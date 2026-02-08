@@ -4,59 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D8F3EF06E1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Feb 2026 18:49:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7ADAEF06EF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Feb 2026 21:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hoJGcHFv/oYgr8ufHtoFHRJgFzkCO5vheTSp69h1m2U=; b=w9VnrJI/KJ7gEq3cvcqLjd5iJo
-	r53S9pRKHKbcvia4mgsuyLf3tUZ7hbAQJHmvECRVWGgpezcYhv+PAjs8XjfZMzMUbIRKHsoAm98is
-	30zyvPdi8mqIseuv3+r7XdrW+9BFLMUcldTD+J7i1w1o+ByYUhCAFyZfcKcACOVb3JemLQcwwNUfA
-	6Dm83gFwcgpGRpmh7ZiLIuwpFeFAxUS6byk8GGK4XvohztmepwktUccH162GZjmOVWq3HW+csI8AE
-	oHrqMD++Mslsqyp4IDgc4XKOhMnsu77GEJBINarBQKim+PWnpQwoG5/Ae7Cik/xMlDKc0RZm/Ytt4
-	huAhMsqA==;
+	bh=3BrKi9yIdPU93oR5n7QCpvPkIx8nOF7iBBagrv0ShfY=; b=cd1sTtBflOzNR8kIdRCEt43zRj
+	Dy2vRa7/TdzGNlXc6J2Un/lS0DADpW1AX1Lg2R1omaZyyqMCqquAGWtfUuFQy+yzhT38xSpX7QulK
+	p6bskMFmtOZHfiJSWl6zZ7OtuzJIdXhf/6hLnXQ6Lu2XS+xWJqhUcrgEcXlcH3gVl0UQBrMu5loQk
+	gIp3CwVcsedLSo1XdvrGgWzY4/LZ29Q5ltJMNwYxpqEIA72rMCeNWfdsy0K1T/idMOyElU27bo6KO
+	x29PWTeA5/CI90WbZR18xRcoTBOvi76VqYXvjwTII3RhempSS8+TX6L6JKP9+ACVbEb92Dg8UFkH9
+	omC2Tpdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vp9q2-0000000DYxo-0xFo;
-	Sun, 08 Feb 2026 18:48:54 +0000
-Received: from out-177.mta0.migadu.com ([91.218.175.177])
+	id 1vpCDp-0000000E1sv-2DAJ;
+	Sun, 08 Feb 2026 21:21:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vp9py-0000000DYxT-31eC
+	id 1vpCDm-0000000E1sV-3BR1
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Feb 2026 18:48:52 +0000
-Message-ID: <8d17a56c-63b5-4d5c-836c-dfc150dcbfc8@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1770576526;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hoJGcHFv/oYgr8ufHtoFHRJgFzkCO5vheTSp69h1m2U=;
-	b=AS1C9oKMelaYyhQD/dVCPvXRT8zQHMc4yG3Ce9ZPm/JO/DpKkhVEVb/nvOEts836Fi23oE
-	hXkTg4vKtFXjbnjq7JNZLi0ed3+MwcpyQRP2R7jL3YmsJbp7WT8OBzhANfW5MpEM5UJ6e1
-	ksSPr9TGlawPOVBXz0zhLOJAg8eE5p8=
-Date: Mon, 9 Feb 2026 02:48:41 +0800
+	Sun, 08 Feb 2026 21:21:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DA8F4440B4;
+	Sun,  8 Feb 2026 21:21:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16A8BC4CEF7;
+	Sun,  8 Feb 2026 21:21:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770585692;
+	bh=WniId9rylPyWCg6DYb8OFQ8yG1Mf1fld/+NjW0lsf8k=;
+	h=From:To:In-Reply-To:References:Subject:Date:From;
+	b=OL0cmPMGq5hb4ML2UnBGJ7XL+Cd2QuvbF2LHCwzNxbt2D5NdVfL1HUi1K2BJFm7qe
+	 FO6ErvhzO/VPNdM00QJdKkXJThRqPgNp7pgtPAQo/is0wG00tWKu3YsT/8AmKsB/1W
+	 Zi1lF6Y52pNAoJeqjcGO58ozFPqmmkB78ZPpN5gF7Rm4ov7vZt63BXQhH90d9GhH+x
+	 H91figU7ZpSIpGrvLTiHduM/rwS4K7YyONIs7mDupxe+jsBe89IhoDPyt9tfHYoH1B
+	 st2sf9XgeYYZK0mZpaXpkvQ6oZ9d6j8K+a05oJGBzVFy/Pwc3s2M24i/5M6I0M6eHX
+	 rdhZtuE3oXrrg==
+From: Mark Brown <broonie@kernel.org>
+To: lgirdwood@gmail.com, robh@kernel.org, krzk+dt@kernel.org, 
+ conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+ kernel@pengutronix.de, festevam@gmail.com, linux-sound@vger.kernel.org, 
+ devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, 
+ perex@perex.cz, tiwai@suse.com, linuxppc-dev@lists.ozlabs.org, 
+ Shengjiu Wang <shengjiu.wang@nxp.com>
+In-Reply-To: <20260206014805.3897764-1-shengjiu.wang@nxp.com>
+References: <20260206014805.3897764-1-shengjiu.wang@nxp.com>
+Subject: Re: [PATCH v4 0/4] ASoC: fsl_asrc: support the i.MX952 platform
+Message-Id: <177058568882.654564.1085917355716546232.b4-ty@kernel.org>
+Date: Sun, 08 Feb 2026 21:21:28 +0000
 MIME-Version: 1.0
-Subject: Re: [PATCH] irqchip/gic-v3-its: Limit number of per-device MSIs to
- the range the ITS supports
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Thomas Gleixner <tglx@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- stable@vger.kernel.org
-References: <20260206154816.3582887-1-maz@kernel.org>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Zenghui Yu <zenghui.yu@linux.dev>
-In-Reply-To: <20260206154816.3582887-1-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+X-Mailer: b4 0.15-dev-47773
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260208_104850_984678_DE14B65A 
-X-CRM114-Status: GOOD (  18.26  )
+X-CRM114-CacheID: sfid-20260208_132134_825288_857053B3 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,62 +77,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/6/26 11:48 PM, Marc Zyngier wrote:
-> The ITS driver blindly assumes that EventIDs are in abundant supply,
-> to the point where it never checks how many the HW actually supports.
+On Fri, 06 Feb 2026 09:48:01 +0800, Shengjiu Wang wrote:
+> Update dt binding document and update driver to suppot ASRC on i.MX952.
 > 
-> It turns out that some pretty esoteric integrations make it so that
-> only a few bits are available, all the way down to a. single. bit.
+> Changes in v4:
+> - add Reviewed-by from Daniel in patch 2/4, 3/4
+> - add Reviewed-by from Frank in patch 4/4
+> - update the commit message for patch 4/4
+> - remove 'retry' in patch 2/4, reduce the threshold for timeout.
 > 
-> Enforce the advertised limitation at the point of allocating the
-> device structure, and hope that the endpoint driver can deal with
-> such limitation.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> Cc: stable@vger.kernel.org
-> ---
->  drivers/irqchip/irq-gic-v3-its.c   | 4 ++++
->  include/linux/irqchip/arm-gic-v3.h | 1 +
->  2 files changed, 5 insertions(+)
-> 
-> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-> index 2988def30972b..a51e8e6a81819 100644
-> --- a/drivers/irqchip/irq-gic-v3-its.c
-> +++ b/drivers/irqchip/irq-gic-v3-its.c
-> @@ -3475,6 +3475,7 @@ static struct its_device *its_create_device(struct its_node *its, u32 dev_id,
->  	int lpi_base;
->  	int nr_lpis;
->  	int nr_ites;
-> +	int id_bits;
->  	int sz;
->  
->  	if (!its_alloc_device_table(its, dev_id))
-> @@ -3486,7 +3487,10 @@ static struct its_device *its_create_device(struct its_node *its, u32 dev_id,
->  	/*
->  	 * Even if the device wants a single LPI, the ITT must be
->  	 * sized as a power of two (and you need at least one bit...).
-> +	 * Also honor the ITS's own EID limit.
->  	 */
-> +	id_bits = FIELD_GET(GITS_TYPER_IDBITS, its->typer) + 1;
-> +	nvecs = min_t(unsigned int, nvecs, BIT(id_bits));
->  	nr_ites = max(2, nvecs);
->  	sz = nr_ites * (FIELD_GET(GITS_TYPER_ITT_ENTRY_SIZE, its->typer) + 1);
->  	sz = max(sz, ITS_ITT_ALIGN);
-> diff --git a/include/linux/irqchip/arm-gic-v3.h b/include/linux/irqchip/arm-gic-v3.h
-> index 70c0948f978eb..0225121f30138 100644
-> --- a/include/linux/irqchip/arm-gic-v3.h
-> +++ b/include/linux/irqchip/arm-gic-v3.h
-> @@ -394,6 +394,7 @@
->  #define GITS_TYPER_VLPIS		(1UL << 1)
->  #define GITS_TYPER_ITT_ENTRY_SIZE_SHIFT	4
->  #define GITS_TYPER_ITT_ENTRY_SIZE	GENMASK_ULL(7, 4)
-> +#define GITS_TYPER_IDBITS		GENMASK_ULL(12, 8)
->  #define GITS_TYPER_IDBITS_SHIFT		8
->  #define GITS_TYPER_DEVBITS_SHIFT	13
->  #define GITS_TYPER_DEVBITS		GENMASK_ULL(17, 13)
+> [...]
 
-Reviewed-by: Zenghui Yu <zenghui.yu@linux.dev>
+Applied to
+
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+
+Thanks!
+
+[1/4] ASoC: dt-bindings: fsl,imx-asrc: Add support for i.MX952 platform
+      commit: 37bb773b4a5a5107b92beda3447a7c6c0cfc1237
+[2/4] ASoC: fsl_asrc_m2m: Add option to start ASRC before DMA device for M2M
+      commit: 83447a38ba9abac52bc110566d3e117753899f69
+[3/4] ASoC: fsl_asrc: Add support for i.MX952 platform
+      commit: 6a8c6f5587337eceb387812b6f47bc16c125b883
+[4/4] ASoC: fsl_asrc_dma: allocate memory from dma device
+      commit: b010c782341b79edbeb80706360b772db908daa6
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
 Thanks,
-Zenghui
+Mark
+
 
