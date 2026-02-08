@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76BD6EF06E3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Feb 2026 10:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1E3BEF06E7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Feb 2026 10:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4hISCgcdk8vKZrQHMw76UV02W91s59F3RirlU6K3/TY=; b=B/pa23id6S4piNU4kmag8DmYEm
-	WMCvIIKkPUYoP2bwjEkJBOsOCX0Qv4HXDtswukjXFjsVnccEzQlq6dROSzZ9NvdoUN9FH2lbtO2J2
-	+9bL4eeQ7n7ouR+Ddbb6gUCEbHFADh9rRb+ba4rQ9PPAPQviilgBoEBEp7FdJHhaAYa7zZI4uWlSn
-	l4vIcxGCzDUHdfs0ATd7/zmiYH7BbBuvHb0ILOWBiMxLHSvua8blGzL18+02YevMFHMMbyA67DmEh
-	qM+fs4Jf6m8miWvYxx/V+A4yOUBlQtjseW8nvejX5t8kSZ9MHLSrJMLNe5alSvJOGPLh2B3BJrk3T
-	IeBCKgGQ==;
+	bh=YqmpNgnZCd+06OlS48fzpVkrltdVBlyR3usyVZ7mO0U=; b=DunR+2UEWb0Hl+2g/S21ZCgsJK
+	OnLTg1lxK/k7tvP94lhGH5D6apC4m3NIwvEm9gWs042ZiRrjxTd6sVXnj3SZ6sFjTRXDXrAlt1Eku
+	cTi4djRwN+7ZjZKQ37nJHfNbnO+MS2au7f8OIUy++8rI4arusi7SFe0/XSUiZjjAQ7mAvxR9kNSL/
+	WgEHQpGoOLJfOezfsfpfVOV7UUTFQHXaMDEDkqzwODDCR1B7zp7qbyyMy4ljf795NAQQ+VCDunsku
+	Ps+3fk8EmakX07y4nO2vEFvGuSQAxt11bAPdBeQvYDphezNJljaK7k/kG3jQye2Ey/ZrmkHC3l4sA
+	+HjPH5ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vp1xr-0000000DDvd-0KPy;
-	Sun, 08 Feb 2026 10:24:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vp24t-0000000DEBE-0C8v;
+	Sun, 08 Feb 2026 10:31:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vp1xp-0000000DDvW-0P6R
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Feb 2026 10:24:25 +0000
+	id 1vp24q-0000000DEAl-2LC4;
+	Sun, 08 Feb 2026 10:31:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2886460054;
-	Sun,  8 Feb 2026 10:24:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88D24C4CEF7;
-	Sun,  8 Feb 2026 10:24:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7385341E40;
+	Sun,  8 Feb 2026 10:31:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DB49C4CEF7;
+	Sun,  8 Feb 2026 10:31:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770546263;
-	bh=76L6sj/ZbLNs6H7pO+qSYRr0AEiBZoSRz3QqA2vnTPM=;
+	s=k20201202; t=1770546699;
+	bh=GUAXOcrm41ITrljNUEdNmAemB4EIj2N7q4Z7fBaiNO8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XT1TprO4NIV04qmfy/peL3F8iFiYcuZ2tRCT05h0CVQNo5fQyWrXaH4Be1LmrVY+X
-	 HWkyFSuBj3Q8YAEgalsYL1KJlg+v+M67MMVHjHtT+lu9MSPMYYGbBmcYQVPlwhCGsO
-	 HEbySIdLR/N4K5hwCf0gOVH5Ru+xyWewkL2vf+JC/EUMGH6S6gprjZa/eVSJV5v5n1
-	 0HLy0SGTufc+VVJKSZAHPOaLwVpk5DMZaMECePAVQnaQ38tDG+ZHfFUF3U/nbD8jiY
-	 w2liUTLFx7+pOOaffEauMGT4NiHHalQkSJ03FR8yLMOBPMjHOVZRl1GeGRqwXMh6mW
-	 oBdBxHLXxrwlQ==
-Message-ID: <04018e01-6aa0-4a7e-9c8b-59d868099f83@kernel.org>
-Date: Sun, 8 Feb 2026 11:24:18 +0100
+	b=cMW9J1f39HYiWlkvSNw8muEYC99v3zB8fCt98m2AF4bS1RHuIaBoxB1iwdQmbI/Pz
+	 RswStGsi0Y0GXhMOfRZHCj01Tw0stq5JXpLVZTUEoBy6QaIyimCZWQssKYHeP5DuE3
+	 R2nn1C/Hu+a3vqAybQLNCEegdNHEdqzD1bwJHinEugAf8v6QHwn58FUlQ8TmfokVAc
+	 kk8a36xFCZqHoymsmUgfkC2nLtFoEeIJPcJB+t2JzhN3gLvJ0gAV9jtnDdHSzGyjRk
+	 ysaP+eeR1pJ+12hOm9m/pB1qhacEkZwBUX/qlj7XiLiuYE1PR0B4nbzgwsinEYf7kf
+	 EOOkFCKoGsKDg==
+Message-ID: <b9e275cf-7c16-47cf-9699-82bc79aa7f90@kernel.org>
+Date: Sun, 8 Feb 2026 11:31:34 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] spi: dt-bindings: nxp,imx94-xspi: add nxp,imx952-xspi
-To: Frank Li <Frank.li@nxp.com>
-Cc: Haibo Chen <haibo.chen@nxp.com>, Han Xu <han.xu@nxp.com>,
- Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v4 7/7] ARM: dts: rockchip: rk3506: Add pinctrl and rmio
+ dtsi for rk3506
+To: Ye Zhang <ye.zhang@rock-chips.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, linux-spi@vger.kernel.org,
- imx@lists.linux.dev, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260114-xspi-imx952-v1-0-acc60a5a2a9d@nxp.com>
- <20260114-xspi-imx952-v1-1-acc60a5a2a9d@nxp.com>
- <c605c5f7-45b7-4e15-9d80-8bd224624b27@kernel.org>
- <aWlXLzBri8o4YQ1t@lizhi-Precision-Tower-5810>
+ <conor+dt@kernel.org>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ tao.huang@rock-chips.com
+References: <20251227114957.3287944-1-ye.zhang@rock-chips.com>
+ <20251227114957.3287944-8-ye.zhang@rock-chips.com>
+ <ebb720f6-4756-437f-a71a-d94f45d732e8@kernel.org>
+ <543e7200-2126-490a-a7a8-4898362a910d@rock-chips.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,9 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <aWlXLzBri8o4YQ1t@lizhi-Precision-Tower-5810>
+In-Reply-To: <543e7200-2126-490a-a7a8-4898362a910d@rock-chips.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260208_023140_788135_478A1E19 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,28 +124,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/01/2026 22:07, Frank Li wrote:
-> On Thu, Jan 15, 2026 at 09:55:57PM +0100, Krzysztof Kozlowski wrote:
->> On 14/01/2026 07:49, Haibo Chen wrote:
->>> Document i.MX952 XSPI compatible, which is derived from
->>> i.MX94 XSPI.
->>>
->>> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
->>> ---
->>>  Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml | 4 ++++
->>>  1 file changed, 4 insertions(+)
->>
+On 29/12/2025 10:00, Ye Zhang wrote:
+>>> +
+>>> +		/omit-if-no-ref/
+>>> +		rm_io28_sai0_sdi0: rm-io28-sai0-sdi0 {
+>>> +			rockchip,pins =
+>>> +				<1 RK_PC3 7 &pcfg_pull_none>;
+>>> +			rockchip,rmio-pins =
+>>> +				<0 28 54>;
+>>> +		};
+>> Why are you defining all pins? This is wrong, your driver has to do it,
+>> not DTS. All these definitions when not used are just pointless.
 > 
-> Krzysztof:
+> This file is auto-generated to provide a complete set of RMIO configurations.   Our intention is to offer a generic library for all future board developers, so they can simply pick the needed nodes by phandle without manually looking up register values in the datasheet every time.   This improves usability and standardization.
 > 
-> 	You sent an empty message here.
+> We also used the /omit-if-no-ref/ tag, so this will strictly not increase the size of the compiled DTB binary at all.
 > 
-> Frank
->>
+> Could you please reconsider if this  approach is acceptable given the usability benefits?
 
-Thanks, second try:
+What usability benefits? This is review and maintenance nightmare.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> 
+> If you still consider the ~25k lines of source code bloat unacceptable for upstream, we will have to drop this generic dtsi file and let users (and ourselves) manually define only the required nodes when adding board support."
+> 
+
+I see no point in having such code. Upstream is not your SDK.
 
 Best regards,
 Krzysztof
