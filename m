@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F60FEF06E2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Feb 2026 10:14:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76BD6EF06E3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Feb 2026 10:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G42+BqkQ46kaZ3rjlGmhlZAMGecN+LUJ0TItVBtkBzY=; b=UOs2Uo01/J8GqJxbtBesYkJu8d
-	r477qd86NrlDPENRjzDc+cipU4FzBiPdkvAnUDuMTihklGUdbubWOOGYbdtuhxdr/NB6CSK6flk12
-	27FJmM8gZSl/VknGO6bCvw+zzSFWjbC4v38e1xJl86BxgGIyt9zPtN+BxwIHbYZR3fu40G/UMsQ4l
-	9dBy4sNraoR9y2ctTxhGUqOYWum17O6RewzWzaLQ1n4wuIJobRtTvZTAp+a4Hl47b/caViwH8gdpy
-	lzK3AayuiFM9wGcVfn91edVMQQGz9nBdGPLNpMoo/19DOl11KueGzIEHAy3y6Wwne6AxTRa5xSHxD
-	AouJ0K/A==;
+	bh=4hISCgcdk8vKZrQHMw76UV02W91s59F3RirlU6K3/TY=; b=B/pa23id6S4piNU4kmag8DmYEm
+	WMCvIIKkPUYoP2bwjEkJBOsOCX0Qv4HXDtswukjXFjsVnccEzQlq6dROSzZ9NvdoUN9FH2lbtO2J2
+	+9bL4eeQ7n7ouR+Ddbb6gUCEbHFADh9rRb+ba4rQ9PPAPQviilgBoEBEp7FdJHhaAYa7zZI4uWlSn
+	l4vIcxGCzDUHdfs0ATd7/zmiYH7BbBuvHb0ILOWBiMxLHSvua8blGzL18+02YevMFHMMbyA67DmEh
+	qM+fs4Jf6m8miWvYxx/V+A4yOUBlQtjseW8nvejX5t8kSZ9MHLSrJMLNe5alSvJOGPLh2B3BJrk3T
+	IeBCKgGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vp1no-0000000DDNy-3aXz;
-	Sun, 08 Feb 2026 10:14:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vp1xr-0000000DDvd-0KPy;
+	Sun, 08 Feb 2026 10:24:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vp1nn-0000000DDNp-1YCx
+	id 1vp1xp-0000000DDvW-0P6R
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Feb 2026 10:14:03 +0000
+	Sun, 08 Feb 2026 10:24:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2CC39600BB;
-	Sun,  8 Feb 2026 10:14:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CDFEC116C6;
-	Sun,  8 Feb 2026 10:13:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2886460054;
+	Sun,  8 Feb 2026 10:24:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88D24C4CEF7;
+	Sun,  8 Feb 2026 10:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770545641;
-	bh=Z+qUZk92XMKNYKU4MRo7MRc1HzPCF+wu3gFTAcnax1E=;
+	s=k20201202; t=1770546263;
+	bh=76L6sj/ZbLNs6H7pO+qSYRr0AEiBZoSRz3QqA2vnTPM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fKGVWImEoyRjCjfXIhA1Yd7x/+38UVvzX3cwscXiZ6umwlS8ICOGBfMZHiJ9YCwoS
-	 4XwOqHD24Bju4M5HVwjAtujajbL4Oa9is6K/xJOl6Vs1qd78e/q8Taz4FM5VKmIgcq
-	 IcIsF4jGqumZJQ8ZaVhzRUzoN1c2xHQCVm0Wmf+A+2C+P5kTkSrO/pFejv0Pt531I7
-	 6u2iv6omPJtjOeIn4FrtRYS4hmNGuAmkx6F6PcTK/7m3AWiWz8QqVdz72SuRSjnuLH
-	 p98aOwGgqDKOF/+5mruRk50Fge3wvmqciJeIv6Wihot8j3N/WcFoYaXzOQoVv1Sqh+
-	 pjqL6w4H5cNtA==
-Message-ID: <9c852962-fe86-4f36-b7a5-651f43c4f338@kernel.org>
-Date: Sun, 8 Feb 2026 11:13:55 +0100
+	b=XT1TprO4NIV04qmfy/peL3F8iFiYcuZ2tRCT05h0CVQNo5fQyWrXaH4Be1LmrVY+X
+	 HWkyFSuBj3Q8YAEgalsYL1KJlg+v+M67MMVHjHtT+lu9MSPMYYGbBmcYQVPlwhCGsO
+	 HEbySIdLR/N4K5hwCf0gOVH5Ru+xyWewkL2vf+JC/EUMGH6S6gprjZa/eVSJV5v5n1
+	 0HLy0SGTufc+VVJKSZAHPOaLwVpk5DMZaMECePAVQnaQ38tDG+ZHfFUF3U/nbD8jiY
+	 w2liUTLFx7+pOOaffEauMGT4NiHHalQkSJ03FR8yLMOBPMjHOVZRl1GeGRqwXMh6mW
+	 oBdBxHLXxrwlQ==
+Message-ID: <04018e01-6aa0-4a7e-9c8b-59d868099f83@kernel.org>
+Date: Sun, 8 Feb 2026 11:24:18 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V6 2/5] arm64: dts: imx93: Extract common EVK description
- into shared dtsi
-To: Sherry Sun <sherry.sun@nxp.com>, Frank.Li@nxp.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, s.hauer@pengutronix.de,
- festevam@gmail.com, shawnguo@kernel.org, daniel.baluta@nxp.com,
- dario.binacchi@amarulasolutions.com, alexander.stein@ew.tq-group.com,
- Markus.Niebel@tq-group.com, matthias.schiffer@tq-group.com,
- y.moog@phytec.de, josua@solid-run.com, francesco.dolcini@toradex.com,
- primoz.fiser@norik.com
-Cc: imx@lists.linux.dev, kernel@pengutronix.de, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260204083551.2867263-1-sherry.sun@nxp.com>
- <20260204083551.2867263-3-sherry.sun@nxp.com>
+Subject: Re: [PATCH 1/3] spi: dt-bindings: nxp,imx94-xspi: add nxp,imx952-xspi
+To: Frank Li <Frank.li@nxp.com>
+Cc: Haibo Chen <haibo.chen@nxp.com>, Han Xu <han.xu@nxp.com>,
+ Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux-spi@vger.kernel.org,
+ imx@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260114-xspi-imx952-v1-0-acc60a5a2a9d@nxp.com>
+ <20260114-xspi-imx952-v1-1-acc60a5a2a9d@nxp.com>
+ <c605c5f7-45b7-4e15-9d80-8bd224624b27@kernel.org>
+ <aWlXLzBri8o4YQ1t@lizhi-Precision-Tower-5810>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,7 +106,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260204083551.2867263-3-sherry.sun@nxp.com>
+In-Reply-To: <aWlXLzBri8o4YQ1t@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -121,20 +123,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/02/2026 09:35, Sherry Sun wrote:
-> The i.MX93 Wireless EVK reuses most of the 11x11 EVK design. To avoid
-> duplication and DTS-to-DTS includes, extract the common parts into a new
-> imx93-11x11-evk-common.dtsi shared by both boards.
+On 15/01/2026 22:07, Frank Li wrote:
+> On Thu, Jan 15, 2026 at 09:55:57PM +0100, Krzysztof Kozlowski wrote:
+>> On 14/01/2026 07:49, Haibo Chen wrote:
+>>> Document i.MX952 XSPI compatible, which is derived from
+>>> i.MX94 XSPI.
+>>>
+>>> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+>>> ---
+>>>  Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml | 4 ++++
+>>>  1 file changed, 4 insertions(+)
+>>
 > 
-> Rename imx93-11x11-evk.dts to imx93-11x11-evk-common.dtsi and include it
-> from imx93-11x11-evk.dts.
+> Krzysztof:
 > 
-> Only structural changes are introduced, with no intended functional
-> impact.
+> 	You sent an empty message here.
 > 
-> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> ---
+> Frank
+>>
 
+Thanks, second try:
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
