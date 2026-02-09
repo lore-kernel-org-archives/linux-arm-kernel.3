@@ -4,67 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E763FE81BDA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 15:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5B46E81BD7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 15:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ThaQIr3JNpoVxnXPMSaLsN+fw1XVDahsQqIJe0btYaA=; b=YrIqt/hbklrl2Fq+xAi4evlkWq
-	i8OFOaeWRe1N5QqYYPYvfmwl5ksAsg33ZrlMPuOESPATPzw/5Q3RlTSQTLKxs+eDG0mhi3jGdNKMn
-	TAMarVjvPTdPApie12nvAIubcrQihbKpZnD3C5kIBwhHOQjaIoEhxMvsePRuyN17yDa2PIOHcTgBM
-	TAhc6J2GRYMsseOssZYJIik1W0nTL5QLnBwffDI4yDaO4AWN5y2JvPRZDCCVQ841BmzV8GLmlD9Xp
-	G2lfGzmX86bRIBdeNPAKXYYcxO/euGNxG+alX33uF0pvnC3LY48lLAcwbdx8mzTeXIW8e98n440Fv
-	JWlj9vnw==;
+	bh=vKzHYI5vMbjHA/3rwxZHIg3Fy+jwlFjsmBZEe4LPaK8=; b=sqyqMgNJNWmcsmeZHMmuX5YrbG
+	fYlnEzl1PHSQlNCQ6ZV8tYtVZg95qb6K0Fyfa+jYW8KYg6E6rVU/sqHN92LMAEmeLNXeZWs/8VAtZ
+	kpWDJHve4HdbtiYkoL7PTtb6g4vccmM0QaVU1agCpxF3YBhj/1Ze7C3bgkOcMDO0c3GwatRIbAbCl
+	w1UooW2aBAyctZI4CiUMTGxD2XcsNoqrqBxScOJac6YA8J2Gq6/b8SoHQemt9Iiv9LcF9kX9hzs/8
+	NAp+yaJzQGdWcPMzm/FNaLx3mBG9ZmHKWvVxT8fVb+5FSF0BqYtPbKHgXVhooZuDWHuigoscvoFC4
+	vIGOImow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpTRQ-0000000FdFS-23Lv;
-	Mon, 09 Feb 2026 15:44:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vpTWV-0000000FdfE-2ban;
+	Mon, 09 Feb 2026 15:50:03 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpTRO-0000000FdF8-2p0f
+	id 1vpTWS-0000000FdeR-491o
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 15:44:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A343060138;
-	Mon,  9 Feb 2026 15:44:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38CA3C116C6;
-	Mon,  9 Feb 2026 15:44:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770651885;
-	bh=GvM3s2O65gK18I39hGtyeztUQDYF3w7gL7m0UjnQuUU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Yg2EXP+ILq2Rn3fxB8/j/piTRYrTNUkCe+a83cTkPyC/FMaEilXcQdwkNVESBrANc
-	 +CdInaoIS/MEi5p3dfJ3ebMk2/T5IMoWCyUrKMVIj04Rq3O9+glJ9hnl6cVNjSXF1a
-	 oOR53ceZ6rAxbCL97uM5NF+OvseHqBDZ2G8xSUPWt50zgXUIvRPVrj+26TYdKfoKa4
-	 CbXq43fRfONLa4N/rneSu/jcaNFhR4QS5iVUJXNBftu2Yr1+44V/thLRp2t4CTrSLx
-	 RKzC5s64Tqlv9JQEdotMQAOrk9l6Q3sCsHARe2sp29lYyPvhunXwyBOvVi5+nR1dYk
-	 av29WcKbKYhSA==
-Date: Mon, 9 Feb 2026 15:44:39 +0000
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>
-Subject: Re: [PATCH v4 2/2] firmware: arm_scmi: Implement
- arm,no-completion-irq property
-Message-ID: <20260209-quixotic-offbeat-stork-f1d310@sudeepholla>
-References: <20260117010241.186685-1-marek.vasut+renesas@mailbox.org>
- <20260117010241.186685-2-marek.vasut+renesas@mailbox.org>
- <aW5ifVcxVf6uux3m@pluto>
- <9175b8aa-18c6-4dc1-8904-c26fa1dc7428@mailbox.org>
+	Mon, 09 Feb 2026 15:50:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MedymG7HbuX4TzBRWYg0dIJcsv7+9LNOuwVgUovzL0uILL4H8RuPoyTJAGWjf485v1Vjdv/3+edynOyFeIZg0SZlGP5UAEsHiT87NG4BPvMbuSteoGlkaCan1UPMd/kHN6vp6Ypi+Xqcn6fsCuB2j1brwtKo2Uaw1cQtPXv2NriaCum74/TKHGNtKJgEfLE21r8b1RMNZsFSFP60+0TA1SCJhPQBivMon7laizQzmTx8NHYsBfmoIp4yB8Fj0WcIbBy1fK8sIMYpXOUYma8EjUnTNz1L/aLEFauzRTs6V9V85SD37HJd5N2+PeZio3oqrRU2C6vXbrHA12WGG4dUxg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vKzHYI5vMbjHA/3rwxZHIg3Fy+jwlFjsmBZEe4LPaK8=;
+ b=zGFDIxGdUKKxlrDo4gxw1l7wTqn9Xv8HH85NgWsq9FkO6s5ImsGaZnuZHpmiHPO9zXqDRfow/+dpqVrRW0U3qlo9L5gejcVCIhK1v2u8VpsMKKvFCi/Cu5WpV7BmmZgI2AyrNBrp6SKHjIi+dR4y3hZ+j2SdabLNBEB79OjCOzfoqvgGa9yAui/GhFed0gESohFTFxT9QeTGZy7oTKllg3yBYq+kUT1wxEXqu/0SPl+2+UiY9gRmv5OV1gB5+M2IpW6Ne63N+4uDyRyOsJ8RYjf5CTkIwKJPMJtQ3WU0CGeGts7dIBhcyyHXUkzMhveeW9sVhf1rALoJc/DteFKBIg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vKzHYI5vMbjHA/3rwxZHIg3Fy+jwlFjsmBZEe4LPaK8=;
+ b=Lmb5tCijWtroZL2nM6EH+MNC6F7vft65FUw0E0UrlXe/imsIYhnioJIXIj6xCDAoZN2zYW++VM3WChuzADJk7ZP2NfjdfqiEJ7fIC6nCRozvOXsAqyvHrN1366fZET6UmgsK5N9oT+PHtpiJEh/kgGG9aeFK4asBqlC2EIU0sCMLwR0Ci+XZdRTC6KV1t7O10s3Tm1J85Bna5F26CESYNCgFs3PZZ7pKyBjqstwrimcd8K6zO8wL3DX+RL3deuXw8vOX5QsBDD67+RgafVxKUg8RbaclYlwPiK9itJjAjZcJSpWPiFIto/b1SZCrZZNzbSfYPur9HcaEyMvMMS4y0w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
+ by DU4PR04MB12083.eurprd04.prod.outlook.com (2603:10a6:10:63d::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.17; Mon, 9 Feb
+ 2026 15:49:54 +0000
+Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
+ ([fe80::e99:f504:ce75:9bed]) by AS8PR04MB8247.eurprd04.prod.outlook.com
+ ([fe80::e99:f504:ce75:9bed%3]) with mapi id 15.20.9587.010; Mon, 9 Feb 2026
+ 15:49:54 +0000
+Message-ID: <0cb344b1-2840-48ea-a36b-24dc8a0f1205@oss.nxp.com>
+Date: Mon, 9 Feb 2026 17:52:48 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 04/15] firmware: imx-dsp: Use mbox_ring_doorbell()
+ instead of NULL message
+To: Douglas Anderson <dianders@chromium.org>, jassisinghbrar@gmail.com
+Cc: Frank.Li@nxp.com, Sascha Hauer <s.hauer@pengutronix.de>,
+ festevam@gmail.com, imx@lists.linux.dev, kernel@pengutronix.de,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260208040240.1971442-1-dianders@chromium.org>
+ <20260207200128.v2.4.I4a571bdd344dfe8e819cfcba37ccd0ec29284e49@changeid>
+Content-Language: en-US
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+In-Reply-To: <20260207200128.v2.4.I4a571bdd344dfe8e819cfcba37ccd0ec29284e49@changeid>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AM0PR10CA0041.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:150::21) To AS8PR04MB8247.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3f2::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9175b8aa-18c6-4dc1-8904-c26fa1dc7428@mailbox.org>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|DU4PR04MB12083:EE_
+X-MS-Office365-Filtering-Correlation-Id: b9e9d8cb-d012-4036-1639-08de67f2ddfc
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|19092799006|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TFN1b3NjcmVrZklleHJmeWcrMjFyeGdRd0g2eGoyM0NKdjJMUmhLay9XSFBD?=
+ =?utf-8?B?MlYwSmJCODgyZklpcytBVU9xOTJwRTNTTUIxM1NvVWI4YjZJOGQ5Q3prRUZz?=
+ =?utf-8?B?SXJ2NW5uTUhtblNmUGJxb0xNWmJaRHh2K0QrTmRVM0MvNXZjZ29uSU1mVnJG?=
+ =?utf-8?B?Zkp3SjBsR2RPUEh0aUNMWS9KSHhNU0JPUndMNmdDc1JBOFNJV3NjQ2k4dWxH?=
+ =?utf-8?B?eEZkUFVkdDVZQnV4WUpTVjBHbHlST2Y4TUdPVmdwWGtGWmlpKy8vU1dYUlpK?=
+ =?utf-8?B?NC9pOHZMeWc3d3dtVEhOME4yWmEzcUZmV21lWDVBVEhJM0FOT2FmcDE2NlJJ?=
+ =?utf-8?B?MURkRlVjWjVvRUdEWGZ0bmsyQk1XS0cyeTdJWExWZS9JYTlqOG1UNlVZUUtq?=
+ =?utf-8?B?d21KTUVITnVWYUlpWHJCaTdjNmtJYmxMR0ZjVWFodzhiYjJTNC9lNHNFSGNY?=
+ =?utf-8?B?T2tkRVAwUENDZmdCZ2UzK0RaVEJyakVpZ0p0dHA4d0FtYmFNK3pXcnNHNTlU?=
+ =?utf-8?B?dEJMY1B2QzRHZFlQTXpKWHdFd2h5cUs0RjhXWEt5QmlkWkRJZVBRdEllUE1r?=
+ =?utf-8?B?Q25Td201Q1ROS0tNamlvYkJuUk9yVzNRbnJ1anZUQ1NWRUhvb0RqZEQxQkd2?=
+ =?utf-8?B?ZFZNY01FTG5OUWlGUTA4NW5ETS9yNW9GMFp1QmErTmtJbGdLbnR5aGdBQ1FB?=
+ =?utf-8?B?RENsV2I5RTVXdnNURkF0MnVkcGsvb3Zkeng2ZThwQzM1aml4Qm0wY2VMUDEv?=
+ =?utf-8?B?bXhPWHZmUkNXdjh2T2FaWDhtSFNDa05HdmdHOXdjMmNsY3VhbTAwSzFhcEZQ?=
+ =?utf-8?B?NUtvMEM0R3FCbEpRQUdTV0ltTXU1dW1LM1p4eFJsclpaZFI4YjNxaDFKMDBt?=
+ =?utf-8?B?bktyY1RKL1hkSFZjMWpYbDE5YTkvYXY0N0owT0ZORlRtdEhIalZXVWFNcC9x?=
+ =?utf-8?B?U2Y2c3R2TzNuTUpLbWJnSmV4ZkZRb0ZFSWRvQnYyaUx1Q2Z0T1VWWFlvbldO?=
+ =?utf-8?B?UE0vNU1SUDRScm5HTmthRWlOb21qOTloMGtYZnFKOHRPQkp5YjNSNkVZekw3?=
+ =?utf-8?B?Y0IvNUMvcUh3NlVyNWN6UTBVVC96dWxuTUtnMTlxK2tsVFVZV3RTQXhpVHBZ?=
+ =?utf-8?B?ZFpWaWdXL2M4OElZYURTdjA1bm15TGd5QUlNQ2huSmFDVzZlTk00MFgvejB1?=
+ =?utf-8?B?MjZZb3FEdEFkek1zTlZnNXhHTU9GMUNRbWtSYWM4NDdjQjlYdHVxVVZQaVhT?=
+ =?utf-8?B?dDRFcGJpOXkreXFITVdjYWpIU2dPS3VFSHg3cmJ4M0IzNngxN1A5YmpKOW5P?=
+ =?utf-8?B?V2gxcGlGbDQ0VHJoY2ZacXhFNG5QNUVIWFBVT3NqdWNzR3lQMmJsdUt5VGlh?=
+ =?utf-8?B?eUxNTHhNOHJ0TFhDOTBGRFIrU1lzQU1GcjAzM2tRV0NNVXU5d0JsdkdVekUz?=
+ =?utf-8?B?bHJBSVFnN0ppYS9HMVFQb0xpdU1qZVVGMDFJNXhUYzNyc2tyRmc4a2Z5b09j?=
+ =?utf-8?B?Z2lGRnhuZHJJNTdHWkx5WWRnQ1I5OXR1NFZTTENxMDVwanhoVjZUelJMem9r?=
+ =?utf-8?B?Mmhvb1prSVdUTHRxRklBYWR5cGM5RUYybmU3RG91blVMSmYyT25qSStWaXYx?=
+ =?utf-8?B?U1NUQWswcnh1a0t5ZjZmUXZyZks4WFRMdzFTenR2d3dRdU5mQTlNYU9Ib3ZD?=
+ =?utf-8?B?SS80M3JGZ2VrQ1BuSFY5YVN1aitmZ05WOFg1bEpRNGxmc3lrbWVlWkloVENv?=
+ =?utf-8?B?T1dEbitqZmdSVGt0OFAwWTY2L2d3VmtWaUxkOUszMjA2eFNpYmxFbkQ5Tm1x?=
+ =?utf-8?B?V2lmYWNtWjJzcVo3allCZ3NsRk82WHRJaC94TDRkQnNZNlB2a2UxRDJiVkYy?=
+ =?utf-8?B?ckQ2eHhTVzVjWGY5ZS93WWV4R1VPSWwxYkVBZ1NSRE5rY1VCRkRXRi9lakFR?=
+ =?utf-8?B?a2FVZVB6em9qMFMrdFZjaC9DRThOR2d2WXhYWkFjcTRSTmh2SEI0WXYzeDdm?=
+ =?utf-8?B?NkpXdnFJQTA1cWhLVllIV2svU1NOSHNqWFA4cFlQN2NvMktZQmJlSFMvd1cz?=
+ =?utf-8?B?ZWNoSU5FUlRpbGZTbmJka1FnUEYyR3kwbWJPYStnbkdoR0FZTEhVb1lFdW5x?=
+ =?utf-8?Q?qS4o=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(19092799006)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K0N5YXJ5ODJMeStMSXBCUXo0YTBiMEh2c0k4VnJXMDBHSUxOSlcyMEtkbEpW?=
+ =?utf-8?B?ZVdCdUE0cWl5SHhubFI3L2ZYdkVwcmhONngzK0NxM3dpakgwbXgzamtIQjIz?=
+ =?utf-8?B?ZHdkKzFiRG1sV3Q0ekVFTEtnMzRsUWhKaExxL2hCOVBhOWtPTG9hbGJiQVVN?=
+ =?utf-8?B?WENMT2tLQmc0S1lCWjUreHIyaWp4c29RWGphVkZBQUtKUXRwWjlpUE4xRUJL?=
+ =?utf-8?B?WXdpam9zRi9BTEVUSEVwN1IxVUZ4VE9ieTUxaXUvS2dLRUVCbk0wUFd6Zklq?=
+ =?utf-8?B?WGF3enZmdG9jWTFuakduSG1NdmhJWVUzVnJSRHZ0ZGp1UmJlMEVDdUlUaVdT?=
+ =?utf-8?B?VDhCMytPQWZpbEtCRFZxdXRIMWtyaiszVW9QWW9YRk9DTy93OXR3VWhxR09S?=
+ =?utf-8?B?bjBPcjJLZG5JS0lHZzgyakNxK1F3U0krbGxJR0ZvdmxXajg4bzBBZDRoNkEz?=
+ =?utf-8?B?clpqR1NqWU01UmttQ2ttQ0xTcWxnMTRHbnkrclZTbEVxSmpiRDhpR2x1Zi9a?=
+ =?utf-8?B?NU5iOHpJcWdOd01LbVZTWkFPRWJIVThVMXRVWE40VkhqdHo0VkVlTmthditw?=
+ =?utf-8?B?Sjh0dHBPYWJVeTI2WGpCbEM4VkJMa0syYko0eEYrMjV5Yi9hMnNaWnNublBs?=
+ =?utf-8?B?MkhETnlxUUpDdkhXWElCZGF4Q1d4K3QwdndWcHNYNUZZK2FOWXozMnFjbjA0?=
+ =?utf-8?B?L2wrNDBVU2hBejAwYkNBbml6a0ZZOTN6NFpUTnN3blNVNkU3WWV3b25WL1Vq?=
+ =?utf-8?B?T253bnp1VVU3SkJtMVpWekxzNUgyT25wMUVabmtSNzZWY3g0NThtcEZlSzlK?=
+ =?utf-8?B?bTBaRzM1ZmhUbmxhMDZVY0dxejNGTC9hYU0zaG9Lb210NmZyNytsNEErenhu?=
+ =?utf-8?B?cVE1QVBnbklIdUlyellnYVlkQ2xDa3B2TkU3Z2ZRNUQyaG8yNGdRcTJxT0JZ?=
+ =?utf-8?B?UktaTU1zN2F2MXpzQjFHWXo0Q0NZWmxPSjllSlBjOTkwSkR4WXlEUkdiVEI3?=
+ =?utf-8?B?SWFOQ0QzMWszY0orS3dEYndQRGVxQUhxcTN4MzNjWTZvNXJPODhvekovcWZa?=
+ =?utf-8?B?a2ovZ29TM293dm9NbUhPQkZlSjdFditQWVJCcXVaZDh6MmhwUFhSVVpzWC83?=
+ =?utf-8?B?U253WjFHb0dxLzE2K3ZVR0hYTC9LdTdRdndHdVBMMjlETE1iR05ZVEErR0FY?=
+ =?utf-8?B?YXEvNDlxTGl5d1FyUHB1QlN0NzVSYzdHRHIzRlhhV05aMThGSnN0V3BqVzUr?=
+ =?utf-8?B?R29xb3lRVHVuT29jMGoxcmNBWFFscHhHb211NWFtT2pWWGJSTU9uWWZqSUta?=
+ =?utf-8?B?WGJtbHBia1RKTGJkQjhpendTWGxBcE0rL0kvVU94ZDloMUZrVGhwZjVpK3pP?=
+ =?utf-8?B?ZmpYR3p3R05qNHYyYi8vWSs5S0tsS3FNaWF1TjFCOEpQU282U3RWL3NKdjVq?=
+ =?utf-8?B?VDlGdTZjaDFraSt1VnVIZjJtaWsxdHI3aU5qMkYxRUxISXNzMC95eC9PU0Zp?=
+ =?utf-8?B?U0NackZEVEdnQ1BLbnpkckRpNjRuS0lDWjhZcWF0Um83ZmFwcmVaTWlDbjVO?=
+ =?utf-8?B?b0ZqWWdmUWV6TUlGeTBzYmVkMkxVZmRQK3kxVXF4SkVJTjFIczFlUGx4dGQ1?=
+ =?utf-8?B?a3dwdlpkdmIzZ2JPOWhXVDhPL3pLdzIrVFdNblM0djVkaFBHQzJ3NVhocWJS?=
+ =?utf-8?B?VHI1dVBVUzB3RmgxRlB5c3RsNFlsckVMVWpNZ3hYQnFEbDZuakZCSWZ3aGR1?=
+ =?utf-8?B?bFA4bXZyMGFqc0JSN3pYazJRTnVIRlhJZzlCZ09pcW80UGpmcFdhT2pPNVoy?=
+ =?utf-8?B?OGEzWUVRb1dLNnVXMUxjRy9rbFY1WXRhSlR5Y2U3UCsrWXkyY2lwZUc5V1Jt?=
+ =?utf-8?B?N1cxT0hseE9RNitaSWxYMW9CKzEyNW5QSytHTWhtNUtUT0YwOHZTR2VnVGZ3?=
+ =?utf-8?B?aXk4MjljMW5QbHZrT1ppY00rdHRIYkxISGsrN0RnbWQvNG1sem9MUldBL3Ix?=
+ =?utf-8?B?a2M4Q1o5KzBSdEpmQ29yeit6cmlYRFkxVklaemNJZHFiemVWYzFkbEk5b3FH?=
+ =?utf-8?B?UVBRcWdLcHl3MEtDSWF0T1h5eFV0SVFjZlRacmVOR2FZdFhwZ2NVZ0s4Y29Z?=
+ =?utf-8?B?RzJUSmYwZUdqMUNXRll3eXRRakc2L29CSWJZMmkvZnF5Tlhwcis4cVR5NWRZ?=
+ =?utf-8?B?MHg4NzVvNXJiNVNSNXpoNlM3eUI4VnF4VDdMajRMcWlvRlFnMVJTc3R6NHhK?=
+ =?utf-8?B?MHQxaDRMTWV6Tml5aVRLdzdLREFoNHBmTGpsZGZNb2tDdS9RcjdxcWU5aEFr?=
+ =?utf-8?B?anZ4NmovWXFsVm9jQWllVXhqaENyZThlUndzU3AyMzV2UXB3OUFRdz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b9e9d8cb-d012-4036-1639-08de67f2ddfc
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Feb 2026 15:49:53.9662
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: w/PId8+113CXsmvd8MvdrG6wHKhJVAvtTZmscRDf6rYd36ZdUNYsSf835O1AY1UGnuaMQ5j469976wm6VC1PWA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB12083
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260209_075001_074475_5E76E6AB 
+X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,97 +187,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 09, 2026 at 11:53:19AM +0100, Marek Vasut wrote:
-> On 1/19/26 5:57 PM, Cristian Marussi wrote:
-> > On Sat, Jan 17, 2026 at 02:02:29AM +0100, Marek Vasut wrote:
-> > > Implement new property arm,no-completion-irq, which sets all SCMI
-> > > operation into poll mode. This is meant to work around uncooperative
-> > > SCP implementations, which do not generate completion interrupts.
-> > > This applies to mbox/shmem based implementations.
-> > > 
-> > > With this property set, such implementations which do not generate
-> > > interrupts can be interacted with, until they are fixed to generate
-> > > interrupts properly.
-> > > 
-> > > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> > > ---
-> > > Cc: Conor Dooley <conor+dt@kernel.org>
-> > > Cc: Cristian Marussi <cristian.marussi@arm.com>
-> > > Cc: Florian Fainelli <florian.fainelli@broadcom.com>
-> > > Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> > > Cc: Rob Herring <robh@kernel.org>
-> > > Cc: Sudeep Holla <sudeep.holla@arm.com>
-> > > Cc: arm-scmi@vger.kernel.org
-> > > Cc: devicetree@vger.kernel.org
-> > > Cc: linux-arm-kernel@lists.infradead.org
-> > > Cc: linux-renesas-soc@vger.kernel.org
-> > > ---
-> > > V2: Drop no IRQ handling from SMC transport and update commit message
-> > > V3: Rename property from arm,poll-transport to arm,no-completion-irq
-> > > V4: No change
-> > > ---
-> > >   drivers/firmware/arm_scmi/common.h | 4 ++++
-> > >   drivers/firmware/arm_scmi/driver.c | 4 ++++
-> > >   2 files changed, 8 insertions(+)
-> > > 
-> > > diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-> > > index 7c35c95fddbaf..7c9617d080a02 100644
-> > > --- a/drivers/firmware/arm_scmi/common.h
-> > > +++ b/drivers/firmware/arm_scmi/common.h
-> > > @@ -235,6 +235,9 @@ struct scmi_transport_ops {
-> > >    *		      to have an execution latency lesser-equal to the threshold
-> > >    *		      should be considered for atomic mode operation: such
-> > >    *		      decision is finally left up to the SCMI drivers.
-> > > + * @no_completion_irq: Flag to indicate that this transport has no completion
-> > > + *		       interrupt and has to be polled. This is similar to the
-> > > + *		       force_polling below, except this is set via DT property.
-> > >    * @force_polling: Flag to force this whole transport to use SCMI core polling
-> > >    *		   mechanism instead of completion interrupts even if available.
-> > >    * @sync_cmds_completed_on_ret: Flag to indicate that the transport assures
-> > > @@ -254,6 +257,7 @@ struct scmi_desc {
-> > >   	int max_msg;
-> > >   	int max_msg_size;
-> > >   	unsigned int atomic_threshold;
-> > > +	bool no_completion_irq;
-> > >   	const bool force_polling;
-> > >   	const bool sync_cmds_completed_on_ret;
-> > >   	const bool atomic_enabled;
-> > > diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-> > > index 3e76a3204ba4f..f167194f7cf67 100644
-> > > --- a/drivers/firmware/arm_scmi/driver.c
-> > > +++ b/drivers/firmware/arm_scmi/driver.c
-> > > @@ -2735,6 +2735,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
-> > >   	cinfo->is_p2a = !tx;
-> > >   	cinfo->rx_timeout_ms = info->desc->max_rx_timeout_ms;
-> > >   	cinfo->max_msg_size = info->desc->max_msg_size;
-> > > +	cinfo->no_completion_irq = info->desc->no_completion_irq;
-> > >   	/* Create a unique name for this transport device */
-> > >   	snprintf(name, 32, "__scmi_transport_device_%s_%02X",
-> > > @@ -3150,6 +3151,9 @@ static const struct scmi_desc *scmi_transport_setup(struct device *dev)
-> > >   	if (ret && ret != -EINVAL)
-> > >   		dev_err(dev, "Malformed arm,max-msg DT property.\n");
-> > > +	trans->desc.no_completion_irq = of_property_read_bool(dev->of_node,
-> > > +							      "arm,no-completion-irq");
-> > > +
-> > >   	dev_info(dev,
-> > >   		 "SCMI max-rx-timeout: %dms / max-msg-size: %dbytes / max-msg: %d\n",
-> > >   		 trans->desc.max_rx_timeout_ms, trans->desc.max_msg_size,
-> > 
-> > LGTM.
-> > 
-> > Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-> 
-> Is there anything left to do with these patches, or can this now be picked
-> up ?
-> 
+On 2/8/26 06:01, Douglas Anderson wrote:
+> [You don't often get email from dianders@chromium.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> As per the patch ("mailbox: Deprecate NULL mbox messages; Introduce
+> mbox_ring_doorbell()"), we want to switch all users of NULL mailbox
+> messages to use mbox_ring_doorbell().
+>
+> This client only ever sent NULL messages, so the transition is
+> straightforward.
+>
+> Signed-off-by: Douglas Anderson <dianders@chromium.org>
 
-As I had mentioned here[1], I am happy with it and I will pick it up for
-v7.1 once I start collecting the patches after v7.0-rc1. It just came in after
-I had sent my PR to SoC team for v7.0
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
--- 
-Regards,
-Sudeep
-
-[1] https://lore.kernel.org/all/aW5jwtoYCFs-Pzpk@bogus/
 
