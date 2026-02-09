@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30AACE81BC1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 13:36:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB96E81BC4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 13:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UuNDF2Ns4f45baWz3NNbya0FvbLHCGIo26nT626VlzY=; b=KmEBLvLvO0pzOI96wnxER3+fi6
-	6BsrNz8vuyYGDYvETM1BGLyteG5gzAyC1bZ0+FEqVMKyK+B8+Q4kU4g6FmEaBv5Akhtt7DzguzAoI
-	JDmv+qxOKvdYY0XH881OqnDOEcfNclBv4SdFsCY7qltAYIikHgnzWJ5rNk6VUifu8mEaMkQavwwqM
-	aG6LbuD3+8QU2K6XKOZxyKdWiWZst5cEMtxiFJMEmbFla1pCTeLLNCYUZF9+e11hgWlgrRbGAk2RM
-	OuD2IHYmBclvg7sExnl+oOAdlttJHf6RZvWGD1pZs8YDIZEszS7dnu5J41k4p7zg9Upo199CPTxAd
-	BUgVxgEw==;
+	bh=dycbFrWAhPcOkjPNpIo4awhd8EjlL2+eJWV2u/HEJIY=; b=Dxa/8NbCPMD+Vazs67psg+lkkB
+	JV9EUCoZjqX1Iz54R20FxfFgNn6XH5DbdJcMd94eivZvzqqywWDR6ey5SCMd5J8k7M1Bovf8DsW39
+	UIPWXrboTBpEfNXE6EeOotB5DiQ/lOUoh23ZAEKrWbhi0pSmYUKbj04mQh5fZ24U4hpJcqQtqyN3z
+	UndZOl/Ad0nn5CxiLDa/LI5ifZuSPMWShkMQ9S8Dmw5m2UuQox/3Wmk5si3UhKwL+NgTnONQXSX8C
+	/HBzeyhDwDixSX1evmy4HZkKysbdtAGA+HkgV+nBOE5LUBcr11xG+P0HUQ8KCOAtjcuXBgtSVDdC6
+	n1piJEOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpRRA-0000000FRzD-0Zp9;
-	Mon, 09 Feb 2026 13:36:24 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vpRkA-0000000FSwf-1cZi;
+	Mon, 09 Feb 2026 13:56:02 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpRR7-0000000FRyk-1Rs3
+	id 1vpRk7-0000000FSum-01Pr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 13:36:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=UuNDF2Ns4f45baWz3NNbya0FvbLHCGIo26nT626VlzY=; b=5KfIBeHa12eR9WST/i3dzJb3w1
-	trBUsYby0QvUmhsY8JnlwBB1x0eL1byvWGyXwPtC7FVz8DZMYcs/+XqYWfYZPod3T6i8AhLKv2tQv
-	wJQ4C9LUBsIjXfW3+rCDAX96gGgs9PIvUAsgHbdEewsMGMJNtkPlgkE2KMly63kzblPM=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vpRQx-006j89-8v; Mon, 09 Feb 2026 14:36:11 +0100
-Date: Mon, 9 Feb 2026 14:36:11 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: lizhi2@eswincomputing.com
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	Mon, 09 Feb 2026 13:56:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1770645359; x=1802181359;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=8gsKrKfHzg5IhU75x8V2XqMYKKTj3V+aC4HJxoeX8nw=;
+  b=N06d+HDd7b7yBNpWmLk08or9ROGEwehRkbbUUViH64ggqSV+6bFoSr9J
+   F+R7NStLFU96NpD7ip6w1oihIQWKk+9lfQi5a3UPXy0cyXN67iEhifoIa
+   l2cEEhBtznDwJEitBcUAWMXKzFWK0e8Aom8Ie901CKBTfMKBrYPMbAe9m
+   VQeKziV+nAXUWJyYSF5tM3S/daAKWTLgNphBDo+DBHmhuYJsZKVNovudq
+   PBGDMlxh1xUxnsYaxWz5raiN4udqQa5SPB8TkOX7YK4YncQYFCL1bwP0w
+   6RVUNJ6TPhTzT8sxiUXq6sJ0kXSmE1unKB6zdXTSC/Yu8GgTKjIedFRzm
+   A==;
+X-CSE-ConnectionGUID: eeLBr8eST7qklvW9+IC3Qg==
+X-CSE-MsgGUID: auyjlImISYKfzUkBaxMARg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11696"; a="71937720"
+X-IronPort-AV: E=Sophos;i="6.21,282,1763452800"; 
+   d="scan'208";a="71937720"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Feb 2026 05:55:56 -0800
+X-CSE-ConnectionGUID: YCgsTqlTQdW9ogsWCrm0+A==
+X-CSE-MsgGUID: gvgRjmM0S8GJaxmUZrRvGg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,282,1763452800"; 
+   d="scan'208";a="211417610"
+Received: from igk-lkp-server01.igk.intel.com (HELO e5404a91d123) ([10.211.93.152])
+  by orviesa009.jf.intel.com with ESMTP; 09 Feb 2026 05:55:52 -0800
+Received: from kbuild by e5404a91d123 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vpRjx-000000000FV-1Wc1;
+	Mon, 09 Feb 2026 13:55:49 +0000
+Date: Mon, 9 Feb 2026 14:55:33 +0100
+From: kernel test robot <lkp@intel.com>
+To: Jie Zhang <jzhang918@gmail.com>, netdev@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, jzhang918@gmail.com,
+	jie.zhang@analog.com, horms@kernel.org,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	ningyu@eswincomputing.com, linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com, weishangjuan@eswincomputing.com
-Subject: Re: [PATCH v2 0/2] net: stmmac: eic7700: fix EIC7700 eth1 RX
- sampling timing
-Message-ID: <64bf6b40-b947-4ffa-8d48-4d6341931327@lunn.ch>
-References: <20260209094628.886-1-lizhi2@eswincomputing.com>
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2] net: stmmac: fix oops when split header is enabled
+Message-ID: <202602091406.tg5t31a5-lkp@intel.com>
+References: <20260206195643.11333-1-jie.zhang@analog.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260209094628.886-1-lizhi2@eswincomputing.com>
+In-Reply-To: <20260206195643.11333-1-jie.zhang@analog.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_053621_383112_A15C4668 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260209_055559_428139_7C6D2DB7 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,13 +99,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 09, 2026 at 05:46:28PM +0800, lizhi2@eswincomputing.com wrote:
-> From: Zhi Li <lizhi2@eswincomputing.com>
-> 
-> v1 -> v2:
+Hi Jie,
 
-For version 3, please include a patch to the SoC .dtsi file adding the
-Ethernet nodes. We like to see users of code being added.
+kernel test robot noticed the following build errors:
 
-	 Andrew
+[auto build test ERROR on net/main]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Jie-Zhang/net-stmmac-fix-oops-when-split-header-is-enabled/20260207-035916
+base:   net/main
+patch link:    https://lore.kernel.org/r/20260206195643.11333-1-jie.zhang%40analog.com
+patch subject: [PATCH net v2] net: stmmac: fix oops when split header is enabled
+config: x86_64-rhel-9.4-ltp (https://download.01.org/0day-ci/archive/20260209/202602091406.tg5t31a5-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260209/202602091406.tg5t31a5-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202602091406.tg5t31a5-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/net/ethernet/stmicro/stmmac/stmmac_main.c: In function 'stmmac_rx_buf2_len':
+>> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:5041:24: error: 'struct plat_stmmacenet_data' has no member named 'has_gmac4'
+    5041 |         if (!priv->plat->has_gmac4 && (status & rx_not_ls))
+         |                        ^~
+
+
+vim +5041 drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+
+  5014	
+  5015	static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
+  5016					       struct dma_desc *p,
+  5017					       int status, unsigned int len)
+  5018	{
+  5019		int coe = priv->hw->rx_csum;
+  5020		unsigned int plen = 0;
+  5021	
+  5022		/* Not split header, buffer is not available */
+  5023		if (!priv->sph_active)
+  5024			return 0;
+  5025	
+  5026		/* For GMAC4, when split header is enabled, in some rare cases, the
+  5027		 * hardware does not fill buf2 of the first descriptor with payload.
+  5028		 * Thus we cannot assume buf2 is always fully filled if it is not
+  5029		 * the last descriptor. Otherwise, the length of buf2 of the second
+  5030		 * descriptor will be calculated wrong and cause an oops.
+  5031		 *
+  5032		 * If this is the last descriptor, 'plen' is the length of the
+  5033		 * received packet that was transferred to system memory.
+  5034		 * Otherwise, it is the accumulated number of bytes that have been
+  5035		 * transferred for the current packet.
+  5036		 *
+  5037		 * Thus 'plen - len' always gives the correct length of buf2.
+  5038		 */
+  5039	
+  5040		/* Not GMAC4 and not last descriptor */
+> 5041		if (!priv->plat->has_gmac4 && (status & rx_not_ls))
+  5042			return priv->dma_conf.dma_buf_sz;
+  5043	
+  5044		/* GMAC4 or last descriptor */
+  5045		plen = stmmac_get_rx_frame_len(priv, p, coe);
+  5046	
+  5047		return plen - len;
+  5048	}
+  5049	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
