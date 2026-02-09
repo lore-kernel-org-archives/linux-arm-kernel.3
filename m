@@ -4,108 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F79E7E0C2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 10:49:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A150E7E0C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 10:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6FJ3pq0bPa4loGkjTlsa5xdiUrKynoZRmuuLaycpRtw=; b=DQ5Lc19FRXNBWLQ33KkUVPwg3o
-	0tiCbrzG8e5W16DGScUdeJbFCrHHFrXVKIa5OLRbFr06vNgO0DmN8Mn9ZA/nsEDgHmDc+tvWYpXIV
-	6CQY3VedbPLzuWdF5HlLwD0aQFyh1bfJ6r7iBSjYA7weVfv5kD3w/5kk1fl7A9WqkPigXKLbqKbq1
-	lN/EBLIF22vJ8EMjBd+pY+PbMVHd4EedlnF8u4zUdU3DeZ0Ppx6aXGYXpPK9jkHVpBdn3IE34RAvs
-	+X+xzmQaDLTsE6rQICO08R6+mOHDtIgIc0Ti86ACoVj7ETr1T3EF3iW3qqRa6t95eztzceKPutgjG
-	Nxs3it5g==;
+	bh=zydFrzJH+96vd0MZWYoBxPrLaZzn7gyZbiDZtRmiFmw=; b=cTpe80WsvYttASE0ZJMnn3kEUD
+	iXqm/4RxwDeZ4EdGN+OU8paySEdVU2GUdhiycioi2WA0yLjC5eBGl0MyfXZd2LG9vEzm2ArUq0ns2
+	0XfI6ZcbjXuaDqtVZK4t9jXC3lv6yUl6Uffs0sB76/yCTfX4q2LKUpXZTyeZun2PXAGt0satakfaI
+	oYep0JoePAF8/Na2LBrD5jw+Y7jISw3uPd5/bV7OmQdnuJo+zTIZS3lNzpy8eGbcF7Pm4vBsaCNJE
+	wD7Kvk4qSTyiIMmvU+0dtylIN30QF9Inu6TwBI2xFqdRznXJZyICdW9GvaCEpTLIsi4I1KgLPVwaE
+	bNa5Q1qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpOpT-0000000FFwF-2ST9;
-	Mon, 09 Feb 2026 10:49:19 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1vpOth-0000000FGG5-0YP6;
+	Mon, 09 Feb 2026 10:53:41 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpOpP-0000000FFvu-1Cgm
+	id 1vpOtd-0000000FGFd-42vz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 10:49:16 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-503bf474fdfso39590131cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Feb 2026 02:49:14 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770634153; cv=none;
-        d=google.com; s=arc-20240605;
-        b=FzHIg+QBbYmD07XIzH8+GNo3H6H4hLzSZ0LK3Vbg0qISvqjmHryK318gyWhyuaFFhs
-         J0wyyUEtIVKog+lmHLpGim+0hBgODh7HrCwDK51LV5SK6gIeR5QO9OralzVxoz/ki+JY
-         3Yg3TaHwybvYQ/hKf+EBRdSFH6gBP4X98d32Llh40Sh/LNOsXR3F0iUttqn+8kTsqcC/
-         2Fogu1gOuQDLkrxRYSSt3bzKr3ICtRftnKWL/UCzBoQini5DBIv6c3O+Dvz6ezdHTVwZ
-         RnyoZK7KA3K1PwenNoCioE+AEYmrcV49nKaqrIx1vvSeEBFLbTFMk3KqNor2dKWK9QO5
-         xYuA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=6FJ3pq0bPa4loGkjTlsa5xdiUrKynoZRmuuLaycpRtw=;
-        fh=3T3qTCdtvNo+gZAJdRv+VD63MgKzrxsLSLPb8uySbZ8=;
-        b=bfGO06dHTuk/teI9BhQbJ3VcdiXyAaH+PTiAVeeLkvHZZp1njmZ76EfoSyQd7jFZcf
-         8F2B69wIs6n4C3Ww0V3OdDHQQTkYoAuKECylt8STYfBdq96P/R/XqWlu9WOgnNb/F/6r
-         d7EBTav6Jzrx/QTwcnBtTI9zRhYXWCEvK1oa1t4tB59S0bvA4/ICvNyo4axDyIqYJL2g
-         tZR2rMnr5puPZLaCc4LftaAOrjin6yntNaclvSdy15LQgcDdenjd8UqxYhTB1wk363X0
-         8P3oFdYrN5ZPW1Nyx/kPSG6+5t1XqnY70kwz9kD+BxFABkfvsGENTK2kVwHdxw+/3tXY
-         8Iow==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770634153; x=1771238953; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6FJ3pq0bPa4loGkjTlsa5xdiUrKynoZRmuuLaycpRtw=;
-        b=ajezs0RJTPH51QaAl+S7y6IpSFe0XQ6pYR5jCP99pXWHoubZXSkUsAvXHg2Npzyi14
-         uDOwpJ1OJTaHIjdapZtTfK3afr4ONPlqW2vm22Igd1ywhfuGNx7qWLink2CYsx+LsEJk
-         bPXiFZBAHGKqT3gdZDdbDhv24Jp9IZQOdtkK9xJPaibmiOPEj3wrUscb1I9S5/IuypY1
-         IhrVM64W7lAWXuX/dCNlRSqPF1VhF61KRv65OetxE9ilcklziBYh6yE92YmL8g9qkxXC
-         jnOHjNHc37hz3KfJ+RjBbHQrR+x3jOI6+6HpHWRdw82x54m+vHk6lIfQUBmUQdICqruz
-         EULA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770634153; x=1771238953;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=6FJ3pq0bPa4loGkjTlsa5xdiUrKynoZRmuuLaycpRtw=;
-        b=CYWLXuebcOWtOSrgD2yamc6GWHxIz3JgwU784eb13QUrKIsgqJsSEGwQXes+5WUd7Q
-         KhR6MJcyHTn23OKQ8t317g2YwG4o17Ie1mmQDUjtGxYW1LzU9yCxAUuikc/0MDYtETvI
-         oxJ6XWP/7YoqRPAgpCsJdFDcJN12uxiO3BANH7XtBMBK6A5aqz31n+SzFCp2Q2juiKou
-         Z6jk9sVcIBDuIlkOp3vDusE4CNzXDQHKwDTB0ji7NmxtC0s/o2TO3QkgO5ShP5kjsOJi
-         DgvDgsSa7xVClxEl2E3/HgaIo1JYWxF/wf+6QiBtnXt9txTbeNhsOau3ByWBXNmz7cVD
-         1mVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVz+GNVoQu+B93tF+vMlJttD1W93T31r/LMXZYl8gKBFMLc1HzGQ4b69l+Nh4XYeHGMpUDfdXdiaoYHREg3H5/z@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeVkvN3J1MCcAOMKKgKBNR9GRgaOVPGebKeXyXxiV59HhkJCzN
-	4D9vP3HQUl0HNPRoFsBNO+xgtO8Q3IXrl/BV4uCWEDuJSdYae+Xak6wZ1f13pwjVuO5PXL/iYow
-	I8Lr1ZkSjfd/fJZl6YurgzpIfet46XYE=
-X-Gm-Gg: AZuq6aLJSnhDusz4yuUBbT0Hb0V/bo+4W8V85rYq9B2apa/prXhpqe3m6P6a9LMxGV3
-	eDYQTGsQe9DKRGiosS+y612lG96+BPA9+VNk6TuLsNIOcl9zEwCCrx2pcG4RREtIKaz1vTqZGj6
-	uHaIJP+VVONGYfPh7q8TivIoeoVN65kp092/ozASXrG/wr9lyITBqtt3JyRwKocZsGxCjjVx1wO
-	MtfbOwoAdk3CBBkM6ih3d+NITd6DosyzHhlKMzvfVaRAmpDc3knQbx4MkXkyGaLyIiQ8Q==
-X-Received: by 2002:ac8:5945:0:b0:4ff:c08a:52c4 with SMTP id
- d75a77b69052e-50639896af2mr154478041cf.18.1770634153220; Mon, 09 Feb 2026
- 02:49:13 -0800 (PST)
+	Mon, 09 Feb 2026 10:53:39 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4f8hPb5V7kz9thJ;
+	Mon,  9 Feb 2026 11:53:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1770634403;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zydFrzJH+96vd0MZWYoBxPrLaZzn7gyZbiDZtRmiFmw=;
+	b=uZQEmMMnqu+KKkZ6j/RoqENlHAYih92qjoTX2RaoOITAcMDFjc6Cln1dOivYcTvBwCo7Bx
+	/b2FwwI4Ib4T7smuNHNINr6GWzQXiRHenm3gDr52is6xKWqgnc53uE3ve6WudEEU/mbY7d
+	Wl75V0PZ4Mr53AD2oOnPvtMWnzskEdg3cby0JXhUQeZrXKayveXIz38/GYTpkK3rE4aEhs
+	NEaUbUZA9WNyf2DYt+1AgsV5FS6lm3Sb5lQuMy38SKERsrDTTUnabxV57I1YS+Tg8JHtlo
+	BFjD9OR+i411hQmxi436AgQqspwEZLlfOgLNLjJE+abCbisNU7+UVI9O8nxvVg==
+Message-ID: <9175b8aa-18c6-4dc1-8904-c26fa1dc7428@mailbox.org>
+Date: Mon, 9 Feb 2026 11:53:19 +0100
 MIME-Version: 1.0
-References: <142919ac14d3cf70cba370808d85debe089df7b4.1766631066.git.baolin.wang@linux.alibaba.com>
- <20260116162652.176054-1-baolin.wang@linux.alibaba.com> <e5175f66-56fd-437b-a183-b2ccc3f54f94@kernel.org>
-In-Reply-To: <e5175f66-56fd-437b-a183-b2ccc3f54f94@kernel.org>
-From: Barry Song <21cnbao@gmail.com>
-Date: Mon, 9 Feb 2026 18:49:01 +0800
-X-Gm-Features: AZwV_QhWVdqt_7RuXV7-kVSLDw48X3tEZAOO_6ZSqGLxObnJZ5IOCtH-TVz0o1s
-Message-ID: <CAGsJ_4w95tTGfanb0NdG5B+ajOUA4LaH7uh+Uxcq0ZNVaqK-Vg@mail.gmail.com>
-Subject: Re: [PATCH] mm: rmap: skip batched unmapping for UFFD vmas
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Baolin Wang <baolin.wang@linux.alibaba.com>, Liam.Howlett@oracle.com, 
-	akpm@linux-foundation.org, catalin.marinas@arm.com, dev.jain@arm.com, 
-	harry.yoo@oracle.com, jannh@google.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, lorenzo.stoakes@oracle.com, 
-	mhocko@suse.com, riel@surriel.com, rppt@kernel.org, ryan.roberts@arm.com, 
-	surenb@google.com, vbabka@suse.cz, will@kernel.org, willy@infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 2/2] firmware: arm_scmi: Implement
+ arm,no-completion-irq property
+To: Cristian Marussi <cristian.marussi@arm.com>,
+ Sudeep Holla <sudeep.holla@arm.com>
+Cc: arm-scmi@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>
+References: <20260117010241.186685-1-marek.vasut+renesas@mailbox.org>
+ <20260117010241.186685-2-marek.vasut+renesas@mailbox.org>
+ <aW5ifVcxVf6uux3m@pluto>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <aW5ifVcxVf6uux3m@pluto>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: cbaba4dbcdf869d6e0d
+X-MBO-RS-META: wetqpb4rrqtabw7urz9ywxbqnbzbkuq4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_024915_392020_57319A27 
-X-CRM114-Status: GOOD (  31.39  )
+X-CRM114-CacheID: sfid-20260209_025338_215822_073CC0EF 
+X-CRM114-Status: GOOD (  19.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,174 +85,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 9, 2026 at 5:54=E2=80=AFPM David Hildenbrand (Arm) <david@kerne=
-l.org> wrote:
->
-> On 1/16/26 17:26, Baolin Wang wrote:
-> > As Dev reported[1], it's not ready to support batched unmapping for uff=
-d case.
-> > Let's still fallback to per-page unmapping for the uffd case.
-> >
-> > [1] https://lore.kernel.org/linux-mm/20260116082721.275178-1-dev.jain@a=
-rm.com/
-> > Reported-by: Dev Jain <dev.jain@arm.com>
-> > Suggested-by: Barry Song <baohua@kernel.org>
-> > Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> > ---
-> >   mm/rmap.c | 3 +++
-> >   1 file changed, 3 insertions(+)
-> >
-> > diff --git a/mm/rmap.c b/mm/rmap.c
-> > index f13480cb9f2e..172643092dcf 100644
-> > --- a/mm/rmap.c
-> > +++ b/mm/rmap.c
-> > @@ -1953,6 +1953,9 @@ static inline unsigned int folio_unmap_pte_batch(=
-struct folio *folio,
-> >       if (pte_unused(pte))
-> >               return 1;
-> >
-> > +     if (userfaultfd_wp(vma))
-> > +             return 1;
-> > +
->
-> Interesting. I was just wondering why we didn't run into that with lazyfr=
-ee folios.
->
-> Staring at pte_install_uffd_wp_if_needed(), we never set the marker for
-> anonymous VMAs.
->
-> So, yeah, if one sets lazyfree on a uffd-wp PTE, the uffd-wp bit will jus=
-t get
-> zapped alongside. Just like MADV_DONTNEED.
->
->
-> I'm fine with that temporary fix. But I guess the non-hacky way to handle=
- this would be:
->
->
->  From 53d016d6e6f624425dbdbc2fb1dec7c91fbef15c Mon Sep 17 00:00:00 2001
-> From: "David Hildenbrand (Arm)" <david@kernel.org>
-> Date: Mon, 9 Feb 2026 10:52:59 +0100
-> Subject: [PATCH] tmp
->
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
-> ---
->   include/linux/mm_inline.h | 15 ++++++---------
->   mm/memory.c               | 21 +--------------------
->   mm/rmap.c                 |  2 +-
->   3 files changed, 8 insertions(+), 30 deletions(-)
->
-> diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
-> index fa2d6ba811b5..8a9a2c5f5ee3 100644
-> --- a/include/linux/mm_inline.h
-> +++ b/include/linux/mm_inline.h
-> @@ -566,9 +566,8 @@ static inline pte_marker copy_pte_marker(
->    *
->    * Returns true if an uffd-wp pte was installed, false otherwise.
->    */
-> -static inline bool
-> -pte_install_uffd_wp_if_needed(struct vm_area_struct *vma, unsigned long =
-addr,
-> -                             pte_t *pte, pte_t pteval)
-> +static inline bool install_uffd_wp_ptes_if_needed(struct vm_area_struct =
-*vma,
-> +               unsigned long addr, pte_t *pte, unsigned int nr, pte_t pt=
-eval)
->   {
->         bool arm_uffd_pte =3D false;
->
-> @@ -598,13 +597,11 @@ pte_install_uffd_wp_if_needed(struct vm_area_struct=
- *vma, unsigned long addr,
->         if (unlikely(pte_swp_uffd_wp_any(pteval)))
->                 arm_uffd_pte =3D true;
->
-> -       if (unlikely(arm_uffd_pte)) {
-> -               set_pte_at(vma->vm_mm, addr, pte,
-> -                          make_pte_marker(PTE_MARKER_UFFD_WP));
-> -               return true;
-> -       }
-> +       if (likely(!arm_uffd_pte))
-> +               return false;
->
-> -       return false;
-> +       set_ptes(vma->vm_mm, addr, pte, make_pte_marker(PTE_MARKER_UFFD_W=
-P), nr);
-> +       return true;
->   }
->
->   static inline bool vma_has_recency(const struct vm_area_struct *vma)
-> diff --git a/mm/memory.c b/mm/memory.c
-> index da360a6eb8a4..0a87d02a9a69 100644
-> --- a/mm/memory.c
-> +++ b/mm/memory.c
-> @@ -1592,29 +1592,10 @@ zap_install_uffd_wp_if_needed(struct vm_area_stru=
-ct *vma,
->                               unsigned long addr, pte_t *pte, int nr,
->                               struct zap_details *details, pte_t pteval)
->   {
-> -       bool was_installed =3D false;
-> -
-> -       if (!uffd_supports_wp_marker())
-> -               return false;
-> -
-> -       /* Zap on anonymous always means dropping everything */
-> -       if (vma_is_anonymous(vma))
-> -               return false;
-> -
->         if (zap_drop_markers(details))
->                 return false;
->
-> -       for (;;) {
-> -               /* the PFN in the PTE is irrelevant. */
-> -               if (pte_install_uffd_wp_if_needed(vma, addr, pte, pteval)=
-)
-> -                       was_installed =3D true;
-> -               if (--nr =3D=3D 0)
-> -                       break;
-> -               pte++;
-> -               addr +=3D PAGE_SIZE;
-> -       }
-> -
-> -       return was_installed;
-> +       return install_uffd_wp_ptes_if_needed(vma, addr, pte, nr, pteval)=
-;
->   }
->
->   static __always_inline void zap_present_folio_ptes(struct mmu_gather *t=
-lb,
-> diff --git a/mm/rmap.c b/mm/rmap.c
-> index 7b9879ef442d..f71aacf35925 100644
-> --- a/mm/rmap.c
-> +++ b/mm/rmap.c
-> @@ -2061,7 +2061,7 @@ static bool try_to_unmap_one(struct folio *folio, s=
-truct vm_area_struct *vma,
->                  * we may want to replace a none pte with a marker pte if
->                  * it's file-backed, so we don't lose the tracking info.
->                  */
-> -               pte_install_uffd_wp_if_needed(vma, address, pvmw.pte, pte=
-val);
-> +               install_uffd_wp_ptes_if_needed(vma, address, pvmw.pte, nr=
-_pages, pteval);
->
->                 /* Update high watermark before we lower rss */
->                 update_hiwater_rss(mm);
-> --
-> 2.43.0
->
->
->
-> Does somebody have time to look into that? We should also adjust the doc =
-of pte_install_uffd_wp_if_needed()
-> and turn it into some proper kerneldoc.
+On 1/19/26 5:57 PM, Cristian Marussi wrote:
+> On Sat, Jan 17, 2026 at 02:02:29AM +0100, Marek Vasut wrote:
+>> Implement new property arm,no-completion-irq, which sets all SCMI
+>> operation into poll mode. This is meant to work around uncooperative
+>> SCP implementations, which do not generate completion interrupts.
+>> This applies to mbox/shmem based implementations.
+>>
+>> With this property set, such implementations which do not generate
+>> interrupts can be interacted with, until they are fixed to generate
+>> interrupts properly.
+>>
+>> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+>> ---
+>> Cc: Conor Dooley <conor+dt@kernel.org>
+>> Cc: Cristian Marussi <cristian.marussi@arm.com>
+>> Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+>> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+>> Cc: Rob Herring <robh@kernel.org>
+>> Cc: Sudeep Holla <sudeep.holla@arm.com>
+>> Cc: arm-scmi@vger.kernel.org
+>> Cc: devicetree@vger.kernel.org
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-renesas-soc@vger.kernel.org
+>> ---
+>> V2: Drop no IRQ handling from SMC transport and update commit message
+>> V3: Rename property from arm,poll-transport to arm,no-completion-irq
+>> V4: No change
+>> ---
+>>   drivers/firmware/arm_scmi/common.h | 4 ++++
+>>   drivers/firmware/arm_scmi/driver.c | 4 ++++
+>>   2 files changed, 8 insertions(+)
+>>
+>> diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+>> index 7c35c95fddbaf..7c9617d080a02 100644
+>> --- a/drivers/firmware/arm_scmi/common.h
+>> +++ b/drivers/firmware/arm_scmi/common.h
+>> @@ -235,6 +235,9 @@ struct scmi_transport_ops {
+>>    *		      to have an execution latency lesser-equal to the threshold
+>>    *		      should be considered for atomic mode operation: such
+>>    *		      decision is finally left up to the SCMI drivers.
+>> + * @no_completion_irq: Flag to indicate that this transport has no completion
+>> + *		       interrupt and has to be polled. This is similar to the
+>> + *		       force_polling below, except this is set via DT property.
+>>    * @force_polling: Flag to force this whole transport to use SCMI core polling
+>>    *		   mechanism instead of completion interrupts even if available.
+>>    * @sync_cmds_completed_on_ret: Flag to indicate that the transport assures
+>> @@ -254,6 +257,7 @@ struct scmi_desc {
+>>   	int max_msg;
+>>   	int max_msg_size;
+>>   	unsigned int atomic_threshold;
+>> +	bool no_completion_irq;
+>>   	const bool force_polling;
+>>   	const bool sync_cmds_completed_on_ret;
+>>   	const bool atomic_enabled;
+>> diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+>> index 3e76a3204ba4f..f167194f7cf67 100644
+>> --- a/drivers/firmware/arm_scmi/driver.c
+>> +++ b/drivers/firmware/arm_scmi/driver.c
+>> @@ -2735,6 +2735,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+>>   	cinfo->is_p2a = !tx;
+>>   	cinfo->rx_timeout_ms = info->desc->max_rx_timeout_ms;
+>>   	cinfo->max_msg_size = info->desc->max_msg_size;
+>> +	cinfo->no_completion_irq = info->desc->no_completion_irq;
+>>   
+>>   	/* Create a unique name for this transport device */
+>>   	snprintf(name, 32, "__scmi_transport_device_%s_%02X",
+>> @@ -3150,6 +3151,9 @@ static const struct scmi_desc *scmi_transport_setup(struct device *dev)
+>>   	if (ret && ret != -EINVAL)
+>>   		dev_err(dev, "Malformed arm,max-msg DT property.\n");
+>>   
+>> +	trans->desc.no_completion_irq = of_property_read_bool(dev->of_node,
+>> +							      "arm,no-completion-irq");
+>> +
+>>   	dev_info(dev,
+>>   		 "SCMI max-rx-timeout: %dms / max-msg-size: %dbytes / max-msg: %d\n",
+>>   		 trans->desc.max_rx_timeout_ms, trans->desc.max_msg_size,
+> 
+> LGTM.
+> 
+> Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
 
-I'd nominate Dev, if he has the time, as he has been working on
-related changes and is already familiar with this area :-)
+Is there anything left to do with these patches, or can this now be 
+picked up ?
 
-https://lore.kernel.org/linux-mm/20260116082721.275178-1-dev.jain@arm.com/
-
-I assume this could be treated as a separate optimization, as
-the current temporary fix seems acceptable?
-
-Thanks
-Barry
+Thank you.
 
