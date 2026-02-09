@@ -4,77 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 953C5E7C706
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 08:09:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CFD7CA5FEB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 08:24:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h44us49OCY+Aqqi8FHfVgT4PgOs8rfwSyPhPjcy/Tf8=; b=zOT7paEWEdCKNURmAN5DZOySFP
-	y8CYEDOrY3mTiYgi68hd7xi5mWRneMFLl9568olIRFVu6RUUGtx847ZC/DemAFLGQ5pBRFLRgUdGP
-	CE1Q7FhCxJDWfVpvHa8kWsRp1LfzaqtKWsDx5yLweCeYFv9w7x4l979AhJKJe+9dpQFH9zTzNb4bK
-	2HBSyqI4/eZLGyStUvHD8mXa2y3iUx9IFlscLdnUwNH5vzs7DLKTycTEzA195xix3h3dPEq43kju7
-	gQlKmlkOM30P8oBfi45FphPdrsQnV6/8Fgt3IMUfqxRe9qopYJOf1n9m7v6oUylOsgcDQHDk/fxCi
-	IMn9jO+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nq/JqyhfXByHfXL8GoO6LZWvY0sLyzjjq/Mzx7/HhY4=; b=PYJc2OpbLZwj4BownQbXpU0Nq4
+	3TsIqsSr4z+04ScKJkNNSMuAGSXek1QptcO1F+Le5vQjvlPKXZM4IDt3GP/jr4+5ZnsIQY68ziKew
+	S3LqFRSjgHEOry6ZWkltnXGnbjnvlXTWFoEF3fLMwAYfxBza/R4VeO7hU8R/43DSkbWphryaMyVvy
+	WNsPHYPADeGWImpdyCeDDnyauVDfc94Jg6WXwWtIOz4rztPhTkn56pgAY3CEJHVLZJsnjaCsf36Ab
+	dZ3mMnixAAmjePnyeiJcO7t5PdfzHjcAks5At3eQosdH6R9laPY5nAl5GO6anAd1PHqstyh1RHh/G
+	AZXoHC4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpMKZ-0000000Ez7H-1B1Q;
-	Mon, 09 Feb 2026 08:09:15 +0000
-Received: from mail.thorsis.com ([217.92.40.78])
+	id 1vpMYh-0000000F086-2z85;
+	Mon, 09 Feb 2026 08:23:51 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpMKT-0000000Ez5T-2W6t
+	id 1vpMYe-0000000F07V-2aYi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 08:09:11 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CC952148DD11;
-	Mon,  9 Feb 2026 09:09:01 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1770624543; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=h44us49OCY+Aqqi8FHfVgT4PgOs8rfwSyPhPjcy/Tf8=;
-	b=d6Liw7qJZ3Ycos6ROe2kxvvXGOomIAdAhB3rdkL2ihEJ8pNKRFAXVVzWrL9xbooWELTicZ
-	bnDdxni4KVZwvanGpn3rhpDIEpy1ADE3lhn8dwex04jtqU6CJT575VXySBE06sy5DQFTvi
-	Rhqs+Nq3keLKX9Bz2QYdg7qMJwW23R6/AbhIdXqJ9CtjWokrZ0Gw2w0KljOUJSc5/9lG/d
-	QmhTNZof/JXXlTzPzZqhqtMYpkg3R9KQEpvazz3kSj+kLjkRtQKaFR1hf1h8NVFA4YooNO
-	oFhczojEq700YkPS0ohdDA5cjWNQHyaap4d0zXxHKLGeJYi5wzh1Ik7hVt9bRQ==
-Date: Mon, 9 Feb 2026 09:08:56 +0100
-From: Alexander Dahl <ada@thorsis.com>
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: Alexander Dahl <ada@thorsis.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Ryan Wanner <ryan.wanner@microchip.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH v3 03/19] dt-bindings: clock: at91: Allow referencing
- main rc oscillator in DT
-Message-ID: <20260209-amulet-customize-08ef8dfa1c38@thorsis.com>
-Mail-Followup-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Ryan Wanner <ryan.wanner@microchip.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-References: <20260120143759.904013-1-ada@thorsis.com>
- <20260120143759.904013-4-ada@thorsis.com>
- <b932cdfb-9197-462b-abb8-e7b4c7ecab6f@tuxon.dev>
+	Mon, 09 Feb 2026 08:23:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=U24rh/2e7X8/PbUxA6aD+gNkX81D8b6FjRo62oK6QmLBHs43z433NwzGo/T9K63Y53BNQ5tWw8JjIP/BxP6xfJc+x1Uz2tM+jQ770hb1A3Mn0xTx1vF6cmF43nMxr0q5Tbk52LY3ESmpFTsHiNa9dvNK3P/pe+fPf/cydol0vwVi3DtSBJKXmKCstYx/9eOUgdlx2f5/D748x1G1yPoChW7kCI5OmKbQrSyE6mOo6X7fhEk9ynUzqWyA3hS9GvqcXfMlpXeFze/Qu1e6Z0eeJzHlGuETTgkJn+rypVYP4pdiS+oygPf6Z1L9cyjpFK8MRtkOzsZYpMNuF1shA7J5HA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nq/JqyhfXByHfXL8GoO6LZWvY0sLyzjjq/Mzx7/HhY4=;
+ b=DeyxmhWbenCpLGPZTAxO0LMJdDU1ZOkO9M6kp5ZCmG34VK1Ev839H4inSmqLgkhfAlpxjzafaHi3WUG3yY+L5wlxn1i7RJ6YfQjFfTddEkCbWSm8qe24ASFDDezq1ctLWfZ+emKoEt1aqbOwp7VthbgDtqoXnkL9Q/MwTzY4kw0fPZj5+9syahCrV6DYf8ldaW0pN95l7JW6J8/F/cHENSXZV8+0hFRDPf/ZN4yH32tXN8NgyqdXrBAz+6yN42Mx2VuneXd1ybKxH1p3wxYggmihSL0PzS96ZZEC0u4O+a0YvgkPkAUd74HisAOuWBGbT5GlSCaoLLHOKeXhjFLQcw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nq/JqyhfXByHfXL8GoO6LZWvY0sLyzjjq/Mzx7/HhY4=;
+ b=RT2qZmQjnBZydW1RmKmYprNVzEmJpIggolE0ZGM7v5thXGZmAu6MHRl29y48+wlOjplNq8Vv9wkCNkSL6N0xL9xOtbayqG3pyU0HjLBvir3XhPx74Xpc6cKkFcvnJM01eTlvA03DBivyjUOkRkmWn9wvHlL0B0R8X9UCk5lOxyFp0O5ph705G59Ih/5ZUoQ3o0/r7CIoUtyCqKVwauZ5Jkt98DuvaectX9suSbaSnQMeniKyQ0rqgggU17H8Hms5KJ96M/dqk/Q20Pax4wFFRPTjot5R16aDSrK8tRha8n3WBENl8cUCNXx6dKolFm9cspQht/ZA5TPOywLQAyq7Aw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by PA4PR04MB9661.eurprd04.prod.outlook.com
+ (2603:10a6:102:273::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.18; Mon, 9 Feb
+ 2026 08:23:41 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994%5]) with mapi id 15.20.9587.010; Mon, 9 Feb 2026
+ 08:23:40 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: hongxing.zhu@nxp.com,
+	l.stach@pengutronix.de,
+	Frank.Li@nxp.com,
+	bhelgaas@google.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com,
+	will@kernel.org
+Cc: imx@lists.linux.dev,
+	kernel@pengutronix.de,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH V4 00/11] pci-imx6: Add support for parsing the reset property in new Root Port binding
+Date: Mon,  9 Feb 2026 16:24:43 +0800
+Message-Id: <20260209082454.2097628-1-sherry.sun@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SI2PR01CA0039.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:193::16) To VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b932cdfb-9197-462b-abb8-e7b4c7ecab6f@tuxon.dev>
-User-Agent: Mutt/2.2.13 (2024-03-09)
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|PA4PR04MB9661:EE_
+X-MS-Office365-Filtering-Correlation-Id: 24e30a8a-8470-40a4-058a-08de67b487f9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|1800799024|7416014|376014|366016|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SEdDU3NVNXlXd1NmQWxUZ1JldGlUaXJBT1Q4Y01lVHBnVURveVZaQmdIWEsr?=
+ =?utf-8?B?K291c0lPMVRDWUhCbnljZzZHVXFaZHVQNHZzdVBoK2NydUd6bnpRUGhWcmJq?=
+ =?utf-8?B?WElpQm9EZkJ3QThCUHpmRWJoWnN4OENPbGNRNjZhemRTbTJuK092bGVrQlE4?=
+ =?utf-8?B?TDdXeHgreDRqK2lYdFJnY3FCSnowdnpESkNlaDJvME1rNWI2SDcvWlpzcmFs?=
+ =?utf-8?B?aGRHVjRlbGgwZzY3YXRTdzFoZjVvT2VvbFdrbTU5R3o5NUwxOEtHNVlBaGJ3?=
+ =?utf-8?B?UEtqMnNTc1NDRmF3V3hBUDhYdTFNYjdZTTU1ajd2ZUhseEdhdWVpbG5GSVQ2?=
+ =?utf-8?B?aDhGNGVYbldTQUhka2JwM0doc3JtQmZrYXdNdWxUU2JWUCs0cGN0Z1lESk52?=
+ =?utf-8?B?eFNNZlJodnJONmJ6TlBudElrNkR3dnkrd3V6TUdlSWZDc2xUb29HZkVGTWhl?=
+ =?utf-8?B?OHFEZWJZbVh6bG1RRUZ1SE02NUtNZzR6S3BnZFUybjdrU0ttdU9XclhuWkhJ?=
+ =?utf-8?B?ZVl5YXdFcGw5M3JFbDRkd0l6dG93SFJKbStIeE0xc3hZNlZJNjJaOFowaFlF?=
+ =?utf-8?B?aURWTE55bVJ1b3B3UnZ4OGxLZXV4QWxWYjFIc3JlTlA2aEhVOUs4dHBrNFJp?=
+ =?utf-8?B?N0NRVFc4VndkU2lZUEZnRUJiMC9XOXdxU2lYRFFqM2FNRXgyeDN2NGJ0Sm56?=
+ =?utf-8?B?QWkrbGNrcHFtWnZZUjg0V0h0YUNuSmFKYzZ5dTZhS0VadFFYUDhPbmgrWWRY?=
+ =?utf-8?B?MXZ3Um83NFNTM05nUXk0RDJsS0FCT2t4MTV3NytTVDJad3BDQUs3N3VxVGlZ?=
+ =?utf-8?B?VisyVkRtQ1IyWFpEamhydjkwWkx0OGRjSHhSRnhqVk1kazVlTzBpYS9SMnRT?=
+ =?utf-8?B?SENEd1BBZG5BOXp1blcvd2RQYjNaWXZKZzNpYXJ5dysrT242a1E2MWozZVBF?=
+ =?utf-8?B?azk0YlU5VXN4a3R1Nnk4bzZiUDJmdnlzaSsvRU5NTWZkQjRPWGFqM3oyVkd0?=
+ =?utf-8?B?c0tVTnVRTnVXaUtuaDJPRERTbFdkSThRN1Jpc1JkMSs1aittZEROY21naVlG?=
+ =?utf-8?B?a1RKT0U1U3FaRjdtL3QrVXBoRmI3Zks0VWZYTUVpQ3E4cW52MGQ2YU5BWXJI?=
+ =?utf-8?B?U2NhQW12MS95WUNRKzl3alI2RXlBMFM1RngvcytuTFRnZUlFWEh6WnZuMWxC?=
+ =?utf-8?B?Y2FsOHhiQ2tmVktsTXdFdGF0UXg5bFFwUHVIU1JJNVZhSXIvYVE2R2p3a29R?=
+ =?utf-8?B?dFhMbWdRS2NzbWdqcTlxdFVZSWs4dkJkUXRWMHBkbWpERjZDRHlOUUJxbzJO?=
+ =?utf-8?B?T1ptWnJMUFhYQ3NKVkZnNGtRZTdTYWREU3d2TUd2NDVMVjRsR0FMNlZJM0gx?=
+ =?utf-8?B?SmtCdkRjZ1dDbDBuL29LVW1icjhQWE9rVDlkMFcwdElLdEVic3YxMzNPWm1n?=
+ =?utf-8?B?QnBEYk4vbk9FTXE4bkZlRmdYU201bDBUNm1BYk1ub2paS2xVVWNzUWM4SVhL?=
+ =?utf-8?B?VW1VRDdRRUwwWExqMmY0OU4rY1hBOVpodWdNVmpSdjlQL0pvRWFtNExtQVNw?=
+ =?utf-8?B?Vko2YUFJRzA5UjVndldyUjVrSVoyWEFiUUpZb1BtVVBkTUJuNnFCZnh3VXZw?=
+ =?utf-8?B?N01ENnU1K0haQ245b2tRbUpNYURSNEphY0JOSk1mMzJxdy9ZRVBRaDNYcmY3?=
+ =?utf-8?B?NHpWM2VaY0h2UDJtWDZOQ1QyUE8rMWJxODMrdnltMms5d09XaTBhVWkzS2Q5?=
+ =?utf-8?B?ZXdwaWNnSk5GaDRpWW0zWE5rYXdsejhCcjJMUktJY2JGQW9qMUFIeldORnNT?=
+ =?utf-8?B?Nkd4YUNSMmM1L3c3VDZFWTduYXJpRU9JMGpaT01YWVNMSTNzaTBBREVLMlY0?=
+ =?utf-8?B?d05UQmhYSnJ4TG1yekxYUThBekhrQkpCaU1DUHVUOTY0THlFS2FxTjB6Q2Vi?=
+ =?utf-8?B?Y0VIbGppQTdrZk1JWnZXZ21WOTIwOXQ5b3g2UlgrQ3dMb01XUlBKN1Q2WTJL?=
+ =?utf-8?B?L3c2Z3kwVlZ0UTVSQ1RNb1RvSlhITDdUU1UwVmlib3ZHOGZ1K0M1aml0dEJH?=
+ =?utf-8?B?bGRIYTEvMnpwWXdFV0lCRk9KTXF4Q0NVdllJU1RtYXQ5RzlQeUNCL1owT0FE?=
+ =?utf-8?B?Mk00NGdGV3NFSmUzeUI1VjBxR2xQckRkTUwxcWk2NDcrd1AydUI5THdFNno4?=
+ =?utf-8?Q?+d3rucbyAN7j16tmRJlNIS+/nICMLTydyEkw5KqdwlR+?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(1800799024)(7416014)(376014)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UnlzREJKVDQ3UTJINVgyMGdtV05NcWR5ajRZcjQ1OCs3MS9pOWQ0eldxRjBj?=
+ =?utf-8?B?Rk1USEFFMTFyNm5LRERZUWxFSE00T0Z3MTdsUzBmTUp2cSt2TmxxNExJeTlV?=
+ =?utf-8?B?R2lNQjdSQzNqNzVyTzZIWWRXNUZLZVJjNWVTRmE4b0NlWVJheTF1LzFqZG1Y?=
+ =?utf-8?B?V205ZUpyQUM1bHUvK1o4RVhTL3RLWmhxVFE4ZnRrN2dzTE03NUt0eFBkaDNT?=
+ =?utf-8?B?V28vRnltcDNKWUxxeDUxZng3VEU1YzU4ZjFJbjBIOGQzMzhGcitwRVprM3BP?=
+ =?utf-8?B?V25TNDNhT3pyTVc2YjcvSlhTRm0rQmR4YXF2RjdxS05WWS9HM1J4bEMyWlgw?=
+ =?utf-8?B?VGc5d1FZV3RxQURma2RKNkZnTmk1UjRFTHJMWVVMZlo1NzgxRk9TWjB3S1NY?=
+ =?utf-8?B?SHJRVXRibEZqR3pFaitzT2EydWc5UUR0RXdTU3Z1RjJqTmlJVHdqKzh6RHli?=
+ =?utf-8?B?dW9XaWg5WTVlQUpJOFE0cENJNGljTWxoQWlMZ0tOeUdFVWxIMTBoS08rZDQ2?=
+ =?utf-8?B?SWVSNEY1NXNmL3p6S2t5TjBvSExuN2pkMk03VHlLRXdEVGhsckxDNmd3OGZ0?=
+ =?utf-8?B?Q2hoYy82UWdTUjBNM0ErdmZVMkJTTktmSWc1MkMrYTFjaVhPdm1hQzBBZmRU?=
+ =?utf-8?B?d0FnSFhBamJqY3NFUmtCQktQLy9aNVdTazJEQ3ppVThnV1RxamdNUGxtUDVJ?=
+ =?utf-8?B?MHRuZEhITXlHWE1OcXhYTnFwSzFOdW1yLyt6NXdzN1p4MmpqS2JpdHJqdlJR?=
+ =?utf-8?B?K1doc0NFRkxJU1RveWlPeW4zREcxLzhhVVVPcUxyR2hYaGJoaE90elpxSnRi?=
+ =?utf-8?B?RE00ZjAxa0pFNXB4aDVva08zdUd0L0hkS3AwZDdreWl4VEl5NFNMVTJKUjRQ?=
+ =?utf-8?B?eFhVTXE4Rjd0VVpHTXpmeXFlS2JnZVBpMUNEcTg5bW8xQXJHVmhOM1ZrUjNW?=
+ =?utf-8?B?YndxOWNCUU9CM1JFZVBuZmNIZit4QWEybE1JZ2M3VmdkNlI3UXF5QStMR1lF?=
+ =?utf-8?B?eXNiUk9QVW9oaENRNUg4dUFLYllxcjZIaVV0em5BV09XQ1Jya09kb21vL1VZ?=
+ =?utf-8?B?QTg4SSt2TnpyVXJjUlBwMlpGcWpaaVAzV1FRVFJWMmRYbGhCYmRkZVRmYmto?=
+ =?utf-8?B?Z1dUT3dWVzUxN2ZVdDBubG5Ia2J1anFxc3BGZm9JZXBtUXhpd2ptS0hqaGxR?=
+ =?utf-8?B?ZWI2Yjg5aVB2MnA3T2dIOHhYc2lOUFBBaGxvV0Q4WmZEb084YXVKL3hzZmVi?=
+ =?utf-8?B?UFNUV3VhVDRDbmZUeUozTVljaDFIK25UVHlicE96Z1RNMjZLdFI0cXBiSHpN?=
+ =?utf-8?B?UXVXWWhMVDNuNGtmNFZOWis3emcrbTVBYzdtTWRRSU5wTVJiMFN5bWs5ZGh1?=
+ =?utf-8?B?TTZlNE1TVURCelFKMnZaT2JLWFVLS1pVaFNEbFAvVXl3UVcyRUpJa3pCOWlP?=
+ =?utf-8?B?VVprMFdiMHZmSWtzUUpWem52RjQrSk83Z1MxY292NDAyOWtQTTY1T2MveitF?=
+ =?utf-8?B?K1lwNXhIdU9GSWNMdjJWbllCL1U4QjJCM3RoeTUxLzBpLzVGMVFyR1pJdE1C?=
+ =?utf-8?B?SVRqakF5c0h4NGFwSmpSdWNrclVtcVBKWjR0S0dPOERKUktnL05jem1KUU1m?=
+ =?utf-8?B?azcyeFM2eXJkQnJkbEc4MkxQRnYwWHZ4bVVRYlFnR1UrWTV0dlRocWI4UjFS?=
+ =?utf-8?B?SHJxU2JZVFhXSnc4ZXp6MHFMSkQ4NDZ2RU1aTFRSSWx0TW5XS3doeDV0YW4r?=
+ =?utf-8?B?REtNRy9pNXUyYVNjOTYvYU0xSVAzTlF2a3ZFaWllNFo2ZHNsTCthK3Qyc0FP?=
+ =?utf-8?B?a2NEOEdZNWlsNTBNWVBjNlo5d2ZBaEJDeklnczkrZ3U3bmFYTU0zWFRxQ1ZQ?=
+ =?utf-8?B?MEFZTkNxZGs4T2ppdngwWkpwK3hjSnRNWG96NFNGczhRNnpwWlZQVjkzbVpv?=
+ =?utf-8?B?QWl1NVhSTVo5a3dIZzRSQWxYMnRsYTJUL3RRRW5CT0drWHd1WTZZd05uRzR1?=
+ =?utf-8?B?ZFB3TVFzWERUVTZFY1lYWTN2WFhucmtxNEpVZkFSQmZKZjc2cUZXTFF3dU9v?=
+ =?utf-8?B?SUdtUkp2SXJtT1A1K25Lb04vQ2xpQ0o4Q2w3ZGtKTUNxSEdUaExPblkrT2NN?=
+ =?utf-8?B?WHY0ODY3K2ZIYk5MRmJNbStxQUZhSDhzM2ZoSDJwNFVTRlhxSmVVUkhwUG5o?=
+ =?utf-8?B?R1FZQXhRQ3ZWRUJHL1BLb0Q5OTZCbTZiSGpQTDBiWFBVc043K3Q3MGtGUnRj?=
+ =?utf-8?B?U1h5Ukh0YVNjdXVTUk1COWhjQ1NlaWlMU0FVdWFkYW4wNjQxT2swWTd3dlRG?=
+ =?utf-8?B?cEZUalc1T0tqaFFtNXZqSHJvcmhuV2JBZndTQXIxU05Nd2Nwd1Bodz09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 24e30a8a-8470-40a4-058a-08de67b487f9
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Feb 2026 08:23:40.9007
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cm2dRxOoPXkyhlCyJ4ksBcXMkN6rvdbpNx9unHLH1W+QNXdJ1maivwqMLd30GieVvo3Mr3WMruK0kbo2Z4e+cA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9661
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_000910_287863_B2FFF87D 
-X-CRM114-Status: GOOD (  28.27  )
+X-CRM114-CacheID: sfid-20260209_002348_829215_7AA1CF83 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,130 +194,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Claudiu,
+This patch set adds support for parsing the reset property in new Root Port
+binding in pci-imx6 driver, similar to the implementation in the qcom pcie
+driver[1].
 
-Am Sat, Jan 31, 2026 at 05:44:18PM +0200 schrieb Claudiu Beznea:
-> Hi, Alexander,
-> 
-> On 1/20/26 16:37, Alexander Dahl wrote:
-> > The main rc oscillator will be needed for the OTPC to work properly.
-> > 
-> > The new index introduced here was not used on the four affected SoC
-> > clock drivers before, but for sama5d2 only (PMC_I2S1_MUX).
-> > 
-> > Link: https://lore.kernel.org/linux-devicetree/20250207-jailbird-circus-bcc04ee90e05@thorsis.com/T/#u
-> > Signed-off-by: Alexander Dahl <ada@thorsis.com>
-> > ---
-> > 
-> > Notes:
-> >      v3:
-> >      - adapt to different base changes, added lines are the same
-> >      v2:
-> >      - new patch, not present in v1
-> > 
-> >   include/dt-bindings/clock/microchip,sam9x60-pmc.h  | 1 +
-> >   include/dt-bindings/clock/microchip,sam9x7-pmc.h   | 1 +
-> >   include/dt-bindings/clock/microchip,sama7d65-pmc.h | 1 +
-> >   include/dt-bindings/clock/microchip,sama7g5-pmc.h  | 1 +
-> >   4 files changed, 4 insertions(+)
-> > 
-> > diff --git a/include/dt-bindings/clock/microchip,sam9x60-pmc.h b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
-> > index 91f8f863ea076..1f6bb51780d09 100644
-> > --- a/include/dt-bindings/clock/microchip,sam9x60-pmc.h
-> > +++ b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
-> > @@ -10,6 +10,7 @@
-> >   #define SAM9X60_PMC_MCK		1
-> >   #define SAM9X60_PMC_UTMI	2
-> >   #define SAM9X60_PMC_MAIN	3
-> > +#define SAM9X60_PMC_MAIN_RC	6
-> 
-> Why 6 and not another index? In theory, now, you should be able to define
-> here all the core clocks IDs (as these are known from the manuals) and
-> prepare the driver to allocate memory for all of them such that the driver
-> will have to be able to work with old and new device trees w/o further
-> changes.
+Also introduce generic helper functions to parse Root Port device tree
+nodes and extract common properties like reset GPIOs. This allows multiple
+PCI host controller drivers to share the same parsing logic.
 
-Was the first common free index for these four clocks.  Before split
-up would have been nice to have a common index, because it was all
-together in include/dt-bindings/clock/at91.h in one file.  After
-splitup one could just use the first free index, as Krzysztof already
-suggested.
+Define struct pci_host_port to hold common Root Port properties and add
+pci_host_common_parse_ports() to parse Root Port nodes from device tree,
+pci_host_common_delete_ports() to cleanup the port lists.
 
-From my reading of the SAM9X60 manual, there's no such thing as core
-clock IDs in the manual.  If there is a section in the manual, please
-point it out.
+The plan is to add the wake-gpio property to the root port in subsequent
+patches. Also, the vpcie-supply property will be moved to the root port
+node later based on the refactoring patch set for the PCI pwrctrl
+framework[2]. 
 
-From my interpretation for SAM9X60 these clocks are provided by the
-clock generator (section 40 in the manual):
+The initial idea is to adopt the Manivannan’s recent PCIe M.2 KeyE
+connector support patch set[3] and PCI power control framework patches[2],
+and extend them to the pcie-imx6 driver. Since the new M.2/pwrctrl model is
+implemented based on Root Ports and requires the pwrctrl driver to bind to
+a Root Port device, we need to introduce a Root Port child node on i.MX
+boards that provide an M.2 connector.
 
-- TD_SLCK
-- MD_SLCK
-- MAINCK
-- UPLLCK
-- PLLACK
+To follow a more standardized DT structure, it also makes sense to move
+the reset-gpios and wake-gpios properties into the Root Port node. These
+signals logically belong to the Root Port rather than the host bridge,
+and placing them there aligns with the new M.2/pwrctrl model.
 
-The "main rc oscillator" clock is somewhat internal here, but for OTPC
-we must be able to enable it.
+Regarding backward compatibility, as Frank suggested, I will not remove
+the old reset-gpio property from existing DTS files to avoid function
+break.
 
-MCK (not MAINCK) is generated in the Processor Clock Controller block
-of the PMC (section 41 in the manual) from one of the above clocks.
+For new i.MX platforms — such as the upcoming i.MX952-evk will add
+vpcie-supply, reset-gpios, and wake-gpios directly under the Root Port
+node.
+Therefore, driver updates are needed to support both the legacy
+properties and the new standardized Root Port based layout.
 
-So it's all mixed up from different blocks from Clock Generator and
-Power Management Controller already.  These indexes are
-arbitrary and just for the driver, right?  Or am I missing something?
+[1] https://lore.kernel.org/linux-pci/20250702-perst-v5-0-920b3d1f6ee1@qti.qualcomm.com/
+[2] https://lore.kernel.org/linux-pci/20260115-pci-pwrctrl-rework-v5-0-9d26da3ce903@oss.qualcomm.com/
+[3] https://lore.kernel.org/linux-pci/20260112-pci-m2-e-v4-0-eff84d2c6d26@oss.qualcomm.com/
 
-Besides, if it is renamed now anyway:
+Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+---
+Changes in V4:
+1. Add common helpers for parsing Root Port properties in pci-host-common.c in
+   patch#2.
+2. Call common pci_host_common_parse_ports() and pci_host_common_delete_ports()
+   in pci-imx6 driver.
+3. Use PCIE_T_PVPERL_MS and PCIE_RESET_CONFIG_WAIT_MS instead of magic number
+   100 in patch#3 as Manivannan suggested.
+4. Use "PERST#" instead of "PCIe reset" for the reset gpio lable in patch#3.
 
-- Why that PMC prefix? (most of these core clocks come from the
-  clock controller, not the pmc)
+Changes in V3:
+1. Improve the patch#2 commit message as Frank suggested.
+2. Add Reviewed-by tag for patch#1.
 
-- Why not rename PMC_UTMI to something like xyz_UPLLCK to match the
-  datasheet/manual (likewise for the other definitions)?
+Changes in V2:
+1. Improve the patch#1 commit message as Frank suggested.
+2. Also mark the reset-gpio-active-high property as deprecated in
+   imx6q-pcie DT binding as Rob suggested.
+3. The imx_pcie_delete_ports() has been moved up so that the
+   imx_pcie_parse_ports() can call this helper function in error handling.
+4. Keep the old reset-gpio property in the host bridge node for the
+   existing dts files and add comments to avoid confusion.
+---
 
-Greets
-Alex
+Sherry Sun (11):
+  dt-bindings: PCI: fsl,imx6q-pcie: Add reset GPIO in Root Port node
+  PCI: host-generic: Add common helpers for parsing Root Port properties
+  PCI: imx6: Add support for parsing the reset property in new Root Port
+    binding
+  arm: dts: imx6qdl: Add Root Port node and PERST property
+  arm: dts: imx6sx: Add Root Port node and PERST property
+  arm: dts: imx7d: Add Root Port node and PERST property
+  arm64: dts: imx8mm: Add Root Port node and PERST property
+  arm64: dts: imx8mp: Add Root Port node and PERST property
+  arm64: dts: imx8mq: Add Root Port node and PERST property
+  arm64: dts: imx8dxl/qm/qxp: Add Root Port node and PERST property
+  arm64: dts: imx95: Add Root Port node and PERST property
 
-> 
-> >   #define SAM9X60_PMC_PLLACK	7
-> >   #endif
-> > diff --git a/include/dt-bindings/clock/microchip,sam9x7-pmc.h b/include/dt-bindings/clock/microchip,sam9x7-pmc.h
-> > index e1dd41fe75046..657f32ce10071 100644
-> > --- a/include/dt-bindings/clock/microchip,sam9x7-pmc.h
-> > +++ b/include/dt-bindings/clock/microchip,sam9x7-pmc.h
-> > @@ -10,6 +10,7 @@
-> >   #define SAM9X7_PMC_MCK		1
-> >   #define SAM9X7_PMC_UTMI		2
-> >   #define SAM9X7_PMC_MAIN		3
-> > +#define SAM9X7_PMC_MAIN_RC	6
-> >   #define SAM9X7_PMC_PLLACK	7
-> >   #define SAM9X7_PMC_AUDIOPMCPLL	9
-> >   #define SAM9X7_PMC_AUDIOIOPLL	10
-> > diff --git a/include/dt-bindings/clock/microchip,sama7d65-pmc.h b/include/dt-bindings/clock/microchip,sama7d65-pmc.h
-> > index 09d152da6db44..ddcb236718978 100644
-> > --- a/include/dt-bindings/clock/microchip,sama7d65-pmc.h
-> > +++ b/include/dt-bindings/clock/microchip,sama7d65-pmc.h
-> > @@ -12,6 +12,7 @@
-> >   #define SAMA7D65_PMC_MAIN		3
-> >   #define SAMA7D65_PMC_CPUPLL		4
-> >   #define SAMA7D65_PMC_SYSPLL		5
-> > +#define SAMA7D65_PMC_MAIN_RC		6
-> 
-> E.g. 6 was previously reserved for DDR and IMG PLLs.
-> 
-> >   #define SAMA7D65_PMC_BAUDPLL		8
-> >   #define SAMA7D65_PMC_AUDIOPMCPLL	9
-> >   #define SAMA7D65_PMC_AUDIOIOPLL		10
-> > diff --git a/include/dt-bindings/clock/microchip,sama7g5-pmc.h b/include/dt-bindings/clock/microchip,sama7g5-pmc.h
-> > index 0303cae56f849..e891715a35173 100644
-> > --- a/include/dt-bindings/clock/microchip,sama7g5-pmc.h
-> > +++ b/include/dt-bindings/clock/microchip,sama7g5-pmc.h
-> > @@ -12,6 +12,7 @@
-> >   #define SAMA7G5_PMC_MAIN	3
-> >   #define SAMA7G5_PMC_CPUPLL	4
-> >   #define SAMA7G5_PMC_SYSPLL	5
-> > +#define SAMA7G5_PMC_MAIN_RC	6
-> >   #define SAMA7G5_PMC_AUDIOPMCPLL	9
-> >   #define SAMA7G5_PMC_AUDIOIOPLL	10
-> >   #define SAMA7G5_PMC_MCK1	13
-> 
+ .../bindings/pci/fsl,imx6q-pcie.yaml          | 32 ++++++++
+ .../arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi |  5 ++
+ arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi        | 11 +++
+ .../arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts |  5 ++
+ arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtsi     |  5 ++
+ arch/arm/boot/dts/nxp/imx/imx6sx.dtsi         | 11 +++
+ arch/arm/boot/dts/nxp/imx/imx7d-sdb.dts       |  5 ++
+ arch/arm/boot/dts/nxp/imx/imx7d.dtsi          | 11 +++
+ .../boot/dts/freescale/imx8-ss-hsio.dtsi      | 11 +++
+ arch/arm64/boot/dts/freescale/imx8dxl-evk.dts |  5 ++
+ arch/arm64/boot/dts/freescale/imx8mm-evk.dtsi |  5 ++
+ arch/arm64/boot/dts/freescale/imx8mm.dtsi     | 11 +++
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts  |  5 ++
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi     | 11 +++
+ arch/arm64/boot/dts/freescale/imx8mq-evk.dts  | 10 +++
+ arch/arm64/boot/dts/freescale/imx8mq.dtsi     | 22 ++++++
+ arch/arm64/boot/dts/freescale/imx8qm-mek.dts  | 10 +++
+ .../boot/dts/freescale/imx8qm-ss-hsio.dtsi    | 22 ++++++
+ arch/arm64/boot/dts/freescale/imx8qxp-mek.dts |  5 ++
+ .../boot/dts/freescale/imx95-15x15-evk.dts    |  5 ++
+ .../boot/dts/freescale/imx95-19x19-evk.dts    | 10 +++
+ arch/arm64/boot/dts/freescale/imx95.dtsi      | 22 ++++++
+ drivers/pci/controller/dwc/pci-imx6.c         | 69 +++++++++++++----
+ drivers/pci/controller/pci-host-common.c      | 75 +++++++++++++++++++
+ drivers/pci/controller/pci-host-common.h      | 17 +++++
+ 25 files changed, 386 insertions(+), 14 deletions(-)
+
+-- 
+2.37.1
+
 
