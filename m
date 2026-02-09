@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E554AE81BCC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 14:08:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F8E1E81BCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 14:08:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R4FAjNkrLVn5/fJXGkDg2151qhgfQnv8ILOdH8RvokU=; b=48rJfV6f3vg4v/w69DK0nZgwfT
-	R495uwAxUHFla51NFk2xxottpe+vfFu+Xv6e/0Dm2MEG3Qb92sAmm3prE81WqsE9jgXJXwx8MgzrW
-	QEJyIAXRbIcCz5Re/KoWMTP1Grp4smf0NeoqiOGuDj22K2k+dnkmMGOOp3mCJ4ALILjg+ctS8fEXI
-	aIn9sCwnkk9uFgWYdn2+ErVldvLnodjGMKzsnZHwl4wIqQlnwoDH+/oHTiGWgRP6YY46vtwFd9vix
-	85KJZH4KjSUWlbtqBlz+ogZc6JHBh9qVqmvqGbiD8l1LS7vYdYPoi7t287O3kq/h+Iq0smCSVMHzr
-	FSkEjVkw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=k1HUXViArmspO18Ot//s5xhWbkVXwA17QN0XfFUufik=; b=wslUQkYPQnDaDiXO7ajBVUKn42
+	Qx60r5GwvWFXAVMnZn49ynOkoHFWMQ4qM1yPuTKv0wlBzaIsRvtXODnZSMej9noBGKMRDCBauQlFV
+	cDJJy7dWdeyOZd+BijQspEGP2Jwpylp5bgYez41Yh0THJfduvXKY1Olw9At1Q4KEcWM2990NDO/D2
+	gpfEjzD2UMQ5h5CiMRXhay/aSOykpF/b3RBMwGNnmfYUSsKl0++23zAJ6Eo1uIom6rRqohRN4uVdP
+	iRhUwZncn7illbvM96tt5BNyZUHSDKEY6PUQGm6ka28LGTZauxyKeGXPGSySzFXovJnDfk9cM3i70
+	SjJ6+k6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpRvb-0000000FTtZ-3m3C;
-	Mon, 09 Feb 2026 14:07:51 +0000
-Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	id 1vpRvi-0000000FTwD-0yN4;
+	Mon, 09 Feb 2026 14:07:58 +0000
+Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpRvY-0000000FTqY-09yr
+	id 1vpRvd-0000000FTqO-3Rjb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 14:07:50 +0000
+	Mon, 09 Feb 2026 14:07:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1770646064; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=R4FAjNkrLVn5/fJXGkDg2151qhgfQnv8ILOdH8RvokU=;
-	b=qPCZqI93wdHRPv9OY2bM2s/3jFNAxXwP/f2EvKXZ3YsliQmWd2viHjbJZ47D4yPIFwJbyz5gUQbFWrGj1c6Vi3gEx3ODeRGpbv8KeeAC5ogh/Vq+WbYUo6OlIHL4+hUKn+EdRv7uCZVFJATZ495SFpjIO3EE0F+9H+khmeGXdoI=
-Received: from localhost(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0Wyt1CAg_1770646062 cluster:ay36)
+	t=1770646058; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=k1HUXViArmspO18Ot//s5xhWbkVXwA17QN0XfFUufik=;
+	b=oRdMfOyhmrBJ+saGIpSykLoQptpgrG4pXwbC8gPkqsfMcbVfEoJ9tNw3LW+PQAzXMjMTlvErZX/1prABNbApPosjaUApIO6K21xk0cv0pQGfCGIOsuCgd3Nwrt6UYFK8efWzmi4jp3DeiqTzKaWicQCdlIWYzI/DCAn+nrbsXZI=
+Received: from localhost(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WytOcor_1770646056 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Mon, 09 Feb 2026 22:07:43 +0800
+          Mon, 09 Feb 2026 22:07:37 +0800
 From: Baolin Wang <baolin.wang@linux.alibaba.com>
 To: akpm@linux-foundation.org,
 	david@kernel.org,
@@ -57,18 +57,15 @@ Cc: lorenzo.stoakes@oracle.com,
 	linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 4/5] arm64: mm: implement the architecture-specific clear_flush_young_ptes()
-Date: Mon,  9 Feb 2026 22:07:27 +0800
-Message-ID: <ce749fbae3e900e733fa104a16fcb3ca9fe4f9bd.1770645603.git.baolin.wang@linux.alibaba.com>
+Subject: [PATCH v6 0/5] support batch checking of references and unmapping for large folios
+Date: Mon,  9 Feb 2026 22:07:23 +0800
+Message-ID: <cover.1770645603.git.baolin.wang@linux.alibaba.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1770645603.git.baolin.wang@linux.alibaba.com>
-References: <cover.1770645603.git.baolin.wang@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_060749_073628_AE2714D4 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260209_060754_116514_419B3E56 
+X-CRM114-Status: GOOD (  13.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,55 +80,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the Arm64 architecture-specific clear_flush_young_ptes() to enable
-batched checking of young flags and TLB flushing, improving performance during
-large folio reclamation.
+Currently, folio_referenced_one() always checks the young flag for each PTE
+sequentially, which is inefficient for large folios. This inefficiency is
+especially noticeable when reclaiming clean file-backed large folios, where
+folio_referenced() is observed as a significant performance hotspot.
 
-Performance testing:
-Allocate 10G clean file-backed folios by mmap() in a memory cgroup, and try to
-reclaim 8G file-backed folios via the memory.reclaim interface. I can observe
-33% performance improvement on my Arm64 32-core server (and 10%+ improvement
-on my X86 machine). Meanwhile, the hotspot folio_check_references() dropped
-from approximately 35% to around 5%.
+Moreover, on Arm architecture, which supports contiguous PTEs, there is already
+an optimization to clear the young flags for PTEs within a contiguous range.
+However, this is not sufficient. We can extend this to perform batched operations
+for the entire large folio (which might exceed the contiguous range: CONT_PTE_SIZE).
 
-W/o patchset:
-real	0m1.518s
-user	0m0.000s
-sys	0m1.518s
+Similar to folio_referenced_one(), we can also apply batched unmapping for large
+file folios to optimize the performance of file folio reclamation. By supporting
+batched checking of the young flags, flushing TLB entries, and unmapping, I can
+observed a significant performance improvements in my performance tests for file
+folios reclamation. Please check the performance data in the commit message of
+each patch.
 
-W/ patchset:
-real	0m1.018s
-user	0m0.000s
-sys	0m1.018s
+Run stress-ng and mm selftests, no issues were found.
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
----
- arch/arm64/include/asm/pgtable.h | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+Patch 1: Add a new generic batched PTE helper that supports batched checks of
+the references for large folios.
+Patch 2 - 3: Preparation patches.
+patch 4: Implement the Arm64 arch-specific clear_flush_young_ptes().
+Patch 5: Support batched unmapping for file large folios.
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 3dabf5ea17fa..a17eb8a76788 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1838,6 +1838,17 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
- 	return contpte_clear_flush_young_ptes(vma, addr, ptep, 1);
- }
- 
-+#define clear_flush_young_ptes clear_flush_young_ptes
-+static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
-+					 unsigned long addr, pte_t *ptep,
-+					 unsigned int nr)
-+{
-+	if (likely(nr == 1 && !pte_cont(__ptep_get(ptep))))
-+		return __ptep_clear_flush_young(vma, addr, ptep);
-+
-+	return contpte_clear_flush_young_ptes(vma, addr, ptep, nr);
-+}
-+
- #define wrprotect_ptes wrprotect_ptes
- static __always_inline void wrprotect_ptes(struct mm_struct *mm,
- 				unsigned long addr, pte_t *ptep, unsigned int nr)
+Changes from v5:
+ - Collect reviewed tags from Ryan, Harry and David. Thanks.
+ - Fix some coding style issues (per David).
+ - Skip batched unmapping for uffd case, reported by Dev. Thanks.
+
+Changes from v4:
+ - Fix passing the incorrect 'CONT_PTES' for non-batched APIs.
+ - Rename ptep_clear_flush_young_notify() to clear_flush_young_ptes_notify() (per Ryan).
+ - Fix some coding style issues (per Ryan).
+ - Add reviewed tag from Ryan. Thanks.
+
+Changes from v3:
+ - Fix using an incorrect parameter in ptep_clear_flush_young_notify()
+   (per Liam).
+
+Changes from v2:
+ - Rearrange the patch set (per Ryan).
+ - Add pte_cont() check in clear_flush_young_ptes() (per Ryan).
+ - Add a helper to do contpte block alignment (per Ryan).
+ - Fix some coding style issues (per Lorenzo and Ryan).
+ - Add more comments and update the commit message (per Lorenzo and Ryan).
+ - Add acked tag from Barry. Thanks. 
+
+Changes from v1:
+ - Add a new patch to support batched unmapping for file large folios.
+ - Update the cover letter
+
+
+Baolin Wang (5):
+  mm: rmap: support batched checks of the references for large folios
+  arm64: mm: factor out the address and ptep alignment into a new helper
+  arm64: mm: support batch clearing of the young flag for large folios
+  arm64: mm: implement the architecture-specific
+    clear_flush_young_ptes()
+  mm: rmap: support batched unmapping for file large folios
+
+ arch/arm64/include/asm/pgtable.h | 23 ++++++++----
+ arch/arm64/mm/contpte.c          | 62 ++++++++++++++++++++------------
+ include/linux/mmu_notifier.h     |  9 ++---
+ include/linux/pgtable.h          | 35 ++++++++++++++++++
+ mm/rmap.c                        | 38 ++++++++++++++++----
+ 5 files changed, 129 insertions(+), 38 deletions(-)
+
 -- 
 2.47.3
 
