@@ -4,43 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF751E81BB2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 12:45:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94AB5E81BB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 12:45:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Eyavmj2qzvI7OoNmsQU9xLvqciYsK65cOziTZ9uq5IY=; b=xr0deeFFji5P1+Jngun2sy0X8J
-	2x4hAQNPYdfiJWL825/BEL8sEPXYLZzI2Vha07r85vW54XR0tBpwkA2m2gTyKQ1Fv6M+wPzycDNTa
-	f7lAyok39ifq6J1504UUkV44/oWLR6apWYmh4BEVmKcDa6qlkp6cFFaQ9wEE0uoktKO6GHK900lpb
-	pYjT2XUpURNYQ3DQcPT68Hw7QFuVMGetpi+fX/DDVCvdZnjyqvRQDZ0X0kti4NCkw2zYMUejNU8BQ
-	yTUTTwoEVTl/DMeg7gRTMUVk+vvnGrzFZPuYPIseef4dV7ZnJkvuDDeOdD5RoIlIy2EogWK9Tk9g1
-	MZC33pgw==;
+	bh=EHy4js6pF78K0GbO6uA2Kvjp8ZRBp6zZiFpV/hMune4=; b=hjsnXnI0o+JPgHY3A5qHRQC3ib
+	fXaK23wuQ+XaCCgyfebuDrqiK3/1iPzKzFXO4vDmtUYYrZxJF5N43FY/cvZdNzh3yOzPDxgYxDLY6
+	yidhkZAgOnl3e6nXpKGBjFTbzbpp7d7hKbZP+X5R1+5sbarHXr/BdYK+1UYYw6dtRI1ibnYVFsUXr
+	5rYr8SUi3EsTeWJw6+E1u4CaIKrJEwvkHUgJjkRAARxwJAsWPkIE9xX0JQASfP8OkJd4rYhPFu43r
+	8jWw7NpD0mgcsx5b7FaNqzgCPWqxkeqw1Vn8AuiW9iFVMsM6xZIwFCXShcR/oz3r4ERf/zeS5HG0s
+	QXAkt0fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpQdY-0000000FNQp-0EuQ;
-	Mon, 09 Feb 2026 12:45:08 +0000
+	id 1vpQdX-0000000FNQQ-30zv;
+	Mon, 09 Feb 2026 12:45:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpQdW-0000000FNP5-0T7o
+	id 1vpQdU-0000000FNNr-0Pmf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 12:45:07 +0000
+	Mon, 09 Feb 2026 12:45:05 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6079D1063;
-	Mon,  9 Feb 2026 04:44:58 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 524FE339;
+	Mon,  9 Feb 2026 04:44:56 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 01CF23F63F;
-	Mon,  9 Feb 2026 04:45:02 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E783F3F63F;
+	Mon,  9 Feb 2026 04:45:00 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 09 Feb 2026 12:44:38 +0000
-Subject: [PATCH v4 6/8] coresight: Move sink validation into
- etm_perf_add_symlink_sink()
+Date: Mon, 09 Feb 2026 12:44:37 +0000
+Subject: [PATCH v4 5/8] coresight: Refactor sysfs connection group cleanup
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260209-arm_coresight_refactor_dev_register-v4-6-62d6042f76f7@arm.com>
+Message-Id: <20260209-arm_coresight_refactor_dev_register-v4-5-62d6042f76f7@arm.com>
 References: <20260209-arm_coresight_refactor_dev_register-v4-0-62d6042f76f7@arm.com>
 In-Reply-To: <20260209-arm_coresight_refactor_dev_register-v4-0-62d6042f76f7@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -52,16 +51,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770641090; l=2524;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770641090; l=4077;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=coABnqyq1oTINu8iCGvzQoykcHtAiqRud0urihj1xFs=;
- b=5/ZlWN0eE9H+zol8YRoUgXvuR9NYSbRmiMCXaIyn0bARvu4MCq/A2wyAZQNDZ+o25J3kIatUi
- jdpgi8bbeKQDbnnDJsCJaEnrNzUuM3/VwEM1It9MuZchmtlA6d9mfMS
+ bh=OBdXySQ8UQDQ1ZgIwl+Chg0JhYZXzUx61++8OB8rDII=;
+ b=aJCAVy1+HHYfJIhsZghA69pvI1YEsP0i5hjoERvQ+RnFcgfbTX/xq+L01QmFcUvAqYAksKQAJ
+ O7bfCdNLYU9D+cnK/kX2g+VCVSBQvdO/KHItL0t4Mvc7sxCB0MEIKtc
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_044506_339540_5A2F91F0 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20260209_044504_246256_47F86ABD 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,68 +75,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the sink device type checks into etm_perf_add_symlink_sink(), and
-return -EOPNOTSUPP for unsupported devices.  This simplifies the
-registration flow to invoke etm_perf_add_symlink_sink() unconditionally.
+Move the sysfs connection group cleanup into coresight_remove_conns(),
+so that the driver removes connections and related sysfs resources in
+one go.
+
+As side effect, the csdev argument to coresight_release_platform_data()
+is no longer needed; adjust the code for this.
 
 Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c     | 23 +++++++++--------------
- drivers/hwtracing/coresight/coresight-etm-perf.c |  5 ++++-
- 2 files changed, 13 insertions(+), 15 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c     | 11 +++++------
+ drivers/hwtracing/coresight/coresight-platform.c |  2 +-
+ drivers/hwtracing/coresight/coresight-priv.h     |  3 +--
+ 3 files changed, 7 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index b3119832725c08a8375a3a55a11b3bda14b8a3e0..c694b4bea3d724464e97a4932ead584d59d8a69a 100644
+index 4b2cc1806c4f9cdd8a22dbce930973aef41f00c6..b3119832725c08a8375a3a55a11b3bda14b8a3e0 100644
 --- a/drivers/hwtracing/coresight/coresight-core.c
 +++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1383,21 +1383,16 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
- 		goto out_unlock;
+@@ -1200,6 +1200,8 @@ static void coresight_remove_conns(struct coresight_device *csdev)
+ 		coresight_remove_links(conn->src_dev, conn);
+ 		conn->dest_dev = NULL;
  	}
- 
--	if ((csdev->type == CORESIGHT_DEV_TYPE_SINK ||
--	     csdev->type == CORESIGHT_DEV_TYPE_LINKSINK) &&
--	    sink_ops(csdev)->alloc_buffer) {
--		ret = etm_perf_add_symlink_sink(csdev);
-+	ret = etm_perf_add_symlink_sink(csdev);
- 
--		if (ret) {
--			device_unregister(&csdev->dev);
--			/*
--			 * As with the above, all resources are free'd
--			 * explicitly via coresight_device_release() triggered
--			 * from put_device(), which is in turn called from
--			 * function device_unregister().
--			 */
--			goto out_unlock;
--		}
-+	/*
-+	 * As with the above, all resources are free'd explicitly via
-+	 * coresight_device_release() triggered from put_device(), which is in
-+	 * turn called from function device_unregister().
-+	 */
-+	if (ret && ret != -EOPNOTSUPP) {
-+		device_unregister(&csdev->dev);
-+		goto out_unlock;
- 	}
- 	/* Device is now registered */
- 	registered = true;
-diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-index 3c8a6f795094bc1da9d8b1d0fda8d58640c87489..3b2a62521396dda819011d336982e960a5bd3d0e 100644
---- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-+++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-@@ -902,7 +902,10 @@ int etm_perf_add_symlink_sink(struct coresight_device *csdev)
- 
- 	if (csdev->type != CORESIGHT_DEV_TYPE_SINK &&
- 	    csdev->type != CORESIGHT_DEV_TYPE_LINKSINK)
--		return -EINVAL;
-+		return -EOPNOTSUPP;
 +
-+	if (!sink_ops(csdev)->alloc_buffer)
-+		return -EOPNOTSUPP;
++	coresight_remove_conns_sysfs_group(csdev);
+ }
  
- 	if (csdev->ea != NULL)
- 		return -EINVAL;
+ /**
+@@ -1300,8 +1302,7 @@ void coresight_write64(struct coresight_device *csdev, u64 val, u32 offset)
+  * coresight_release_platform_data: Release references to the devices connected
+  * to the output port of this device.
+  */
+-void coresight_release_platform_data(struct coresight_device *csdev,
+-				     struct device *dev,
++void coresight_release_platform_data(struct device *dev,
+ 				     struct coresight_platform_data *pdata)
+ {
+ 	int i;
+@@ -1319,8 +1320,6 @@ void coresight_release_platform_data(struct coresight_device *csdev,
+ 	devm_kfree(dev, pdata->out_conns);
+ 	devm_kfree(dev, pdata->in_conns);
+ 	devm_kfree(dev, pdata);
+-	if (csdev)
+-		coresight_remove_conns_sysfs_group(csdev);
+ }
+ 
+ struct coresight_device *coresight_register(struct coresight_desc *desc)
+@@ -1423,7 +1422,7 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+ 	}
+ 
+ err_out:
+-	coresight_release_platform_data(NULL, desc->dev, desc->pdata);
++	coresight_release_platform_data(desc->dev, desc->pdata);
+ 	return ERR_PTR(ret);
+ }
+ EXPORT_SYMBOL_GPL(coresight_register);
+@@ -1438,7 +1437,7 @@ void coresight_unregister(struct coresight_device *csdev)
+ 	etm_perf_del_symlink_sink(csdev);
+ 	coresight_remove_conns(csdev);
+ 	coresight_clear_default_sink(csdev);
+-	coresight_release_platform_data(csdev, csdev->dev.parent, csdev->pdata);
++	coresight_release_platform_data(csdev->dev.parent, csdev->pdata);
+ 	device_unregister(&csdev->dev);
+ 	mutex_unlock(&coresight_mutex);
+ }
+diff --git a/drivers/hwtracing/coresight/coresight-platform.c b/drivers/hwtracing/coresight/coresight-platform.c
+index 0db64c5f499592e1985141161b4f90fa1f0410b4..0ca3bd762454350d33b5630244d0cfe638ee03fb 100644
+--- a/drivers/hwtracing/coresight/coresight-platform.c
++++ b/drivers/hwtracing/coresight/coresight-platform.c
+@@ -849,7 +849,7 @@ coresight_get_platform_data(struct device *dev)
+ error:
+ 	if (!IS_ERR_OR_NULL(pdata))
+ 		/* Cleanup the connection information */
+-		coresight_release_platform_data(NULL, dev, pdata);
++		coresight_release_platform_data(dev, pdata);
+ 	return ERR_PTR(ret);
+ }
+ EXPORT_SYMBOL_GPL(coresight_get_platform_data);
+diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
+index fd896ac07942ec0a4c7acff9f32421352c1efef2..1ea882dffd703b2873e41b4ce0c2564d2ce9bbad 100644
+--- a/drivers/hwtracing/coresight/coresight-priv.h
++++ b/drivers/hwtracing/coresight/coresight-priv.h
+@@ -239,8 +239,7 @@ static inline void *coresight_get_uci_data_from_amba(const struct amba_id *table
+ 	return NULL;
+ }
+ 
+-void coresight_release_platform_data(struct coresight_device *csdev,
+-				     struct device *dev,
++void coresight_release_platform_data(struct device *dev,
+ 				     struct coresight_platform_data *pdata);
+ struct coresight_device *
+ coresight_find_csdev_by_fwnode(struct fwnode_handle *r_fwnode);
 
 -- 
 2.34.1
