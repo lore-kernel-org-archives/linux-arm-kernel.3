@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44FF2CA5FEB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 07:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 953C5E7C706
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 08:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=z44YXzKmyMtQgvTiaKGbV8un2m5fsA276LfQu7lOjC0=; b=c+nnEQ6NavF7hA1c+U5WetZ9Fq
-	n8w12DOuS8IwyKkXBNZYT50fvR1r5dFscYwmocyiRMDOre+rKcMJpXpkq6Ogn6rXqK5WedLhWIuG/
-	JpPj3kxrxMqNYas3L1MVlSKC0HDyjc8E8Vr+PdIvuenjX/iOccEpXeN5v4ekPt0aICA9vsubWP5xW
-	FtyMbyHDkb48sXphJ9qlPT6I2SoqcdVaUW9VgUIW3/p9J9yZ5MxcbhbR6FSIjifsKVBDORvTm10gO
-	MNnA87wAE/6HicB06wffso2eSf9yU6GqWG/JZKEsEX5pf+ZQW4ipix0NgjSKa1ilItX76nAs1hZnf
-	LOX59Gyw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h44us49OCY+Aqqi8FHfVgT4PgOs8rfwSyPhPjcy/Tf8=; b=zOT7paEWEdCKNURmAN5DZOySFP
+	y8CYEDOrY3mTiYgi68hd7xi5mWRneMFLl9568olIRFVu6RUUGtx847ZC/DemAFLGQ5pBRFLRgUdGP
+	CE1Q7FhCxJDWfVpvHa8kWsRp1LfzaqtKWsDx5yLweCeYFv9w7x4l979AhJKJe+9dpQFH9zTzNb4bK
+	2HBSyqI4/eZLGyStUvHD8mXa2y3iUx9IFlscLdnUwNH5vzs7DLKTycTEzA195xix3h3dPEq43kju7
+	gQlKmlkOM30P8oBfi45FphPdrsQnV6/8Fgt3IMUfqxRe9qopYJOf1n9m7v6oUylOsgcDQHDk/fxCi
+	IMn9jO+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpMAj-0000000EyRn-0jPg;
-	Mon, 09 Feb 2026 07:59:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vpMKZ-0000000Ez7H-1B1Q;
+	Mon, 09 Feb 2026 08:09:15 +0000
+Received: from mail.thorsis.com ([217.92.40.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpMAg-0000000EyQU-3uWz
+	id 1vpMKT-0000000Ez5T-2W6t
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 07:59:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ACF4540A70;
-	Mon,  9 Feb 2026 07:59:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 80C45C116C6;
-	Mon,  9 Feb 2026 07:59:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770623941;
-	bh=EvZLo8yBPuNQ2ZWhWlIOFY5LAjRlRTBuCqsicIyWtNs=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=qZfUOlTnBdSEk5iVMZaxtqVbSDShf99WcsVyOJB1R3Spo6wkhqwHL1Bp7qYhmRe60
-	 nn6V5EVP6IeO0DirysjrtX6BcoxPO6HwUkGm2bVwY1CGiWXjJbI3gJ3ZdoqQkC9oN+
-	 StMtBgVJNamevWZ2eDjIjTc46vmKsg45faAF5zyytTndnfZSMvJyJcjwqZXIPLOUN4
-	 3b5EpSsEj2AoERT3A6RCyoQbtkTINk7z9PK/jK7JwpcuE3zRoXzxlNQ8NIleOiYO0b
-	 g9itA46W4LbnMaSFCtxsojx4dCRLdPALdZbB/ZNi3eira4KQ+4Wnap9WD/RA0V+uLn
-	 uaWNy1gjmq5UA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5436AEF0711;
-	Mon,  9 Feb 2026 07:59:01 +0000 (UTC)
-From: Dirk Chen via B4 Relay <devnull+dirkchen.amd.com@kernel.org>
-Date: Mon, 09 Feb 2026 15:58:53 +0800
-Subject: [PATCH v2] ARM: dts: aspeed: anacapa: Add retimer EEPROMs
+	Mon, 09 Feb 2026 08:09:11 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CC952148DD11;
+	Mon,  9 Feb 2026 09:09:01 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
+	t=1770624543; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=h44us49OCY+Aqqi8FHfVgT4PgOs8rfwSyPhPjcy/Tf8=;
+	b=d6Liw7qJZ3Ycos6ROe2kxvvXGOomIAdAhB3rdkL2ihEJ8pNKRFAXVVzWrL9xbooWELTicZ
+	bnDdxni4KVZwvanGpn3rhpDIEpy1ADE3lhn8dwex04jtqU6CJT575VXySBE06sy5DQFTvi
+	Rhqs+Nq3keLKX9Bz2QYdg7qMJwW23R6/AbhIdXqJ9CtjWokrZ0Gw2w0KljOUJSc5/9lG/d
+	QmhTNZof/JXXlTzPzZqhqtMYpkg3R9KQEpvazz3kSj+kLjkRtQKaFR1hf1h8NVFA4YooNO
+	oFhczojEq700YkPS0ohdDA5cjWNQHyaap4d0zXxHKLGeJYi5wzh1Ik7hVt9bRQ==
+Date: Mon, 9 Feb 2026 09:08:56 +0100
+From: Alexander Dahl <ada@thorsis.com>
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: Alexander Dahl <ada@thorsis.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Ryan Wanner <ryan.wanner@microchip.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v3 03/19] dt-bindings: clock: at91: Allow referencing
+ main rc oscillator in DT
+Message-ID: <20260209-amulet-customize-08ef8dfa1c38@thorsis.com>
+Mail-Followup-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Ryan Wanner <ryan.wanner@microchip.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+References: <20260120143759.904013-1-ada@thorsis.com>
+ <20260120143759.904013-4-ada@thorsis.com>
+ <b932cdfb-9197-462b-abb8-e7b4c7ecab6f@tuxon.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260209-b4-anacapa-dts-fix-v2-1-fe446a7038bf@amd.com>
-X-B4-Tracking: v=1; b=H4sIALyTiWkC/32NOw7CMBBErxJtzSLbmF8q7oFSrH/ERZzIjixQ5
- Luz5AA0I72R5s0GxefoC/TdBtnXWOKcGNShAztSenmMjhmUUBfBgUYjJbK0ELq1YIhvVOIagr/
- TyQgLPFyy53qXPgfmMZZ1zp/9o8pf+1dXJUp2Om2ElPp21g+a3NHOEwyttS/r+y4osgAAAA==
-X-Change-ID: 20260202-b4-anacapa-dts-fix-207ffe9a3b0c
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Dirk Chen <dirkchen@amd.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770623940; l=1517;
- i=dirkchen@amd.com; s=20260202; h=from:subject:message-id;
- bh=q1pvDHup26t2gWq6fHUSx5KhOyJaw4CQELJ2qKSf88g=;
- b=+d5clqSgm87rC1q9Ol08GoDm3+lw2SvRxI9fXdTjZLhpFf6cW2vjFrUdJO1WfZNI5XmE+g+Y/
- MM6fJ1mG6qvBV6X7Na2+2Ueg2+YOlKAL0bUl9n0YQWIk4i4HvpKoSGY
-X-Developer-Key: i=dirkchen@amd.com; a=ed25519;
- pk=NBIyLsVg/YYtGLruq9XLdLWx2PP/1MH4jDDQ1V+7wes=
-X-Endpoint-Received: by B4 Relay for dirkchen@amd.com/20260202 with
- auth_id=622
-X-Original-From: Dirk Chen <dirkchen@amd.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b932cdfb-9197-462b-abb8-e7b4c7ecab6f@tuxon.dev>
+User-Agent: Mutt/2.2.13 (2024-03-09)
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260208_235903_017482_2AFB7021 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260209_000910_287863_B2FFF87D 
+X-CRM114-Status: GOOD (  28.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,65 +86,133 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: dirkchen@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dirk Chen <dirkchen@amd.com>
+Hello Claudiu,
 
-The Anacapa board features Atmel 24C2048 EEPROMs on i2c0 and i2c1, which
-are used to store retimer configurations. Add the corresponding device
-tree nodes to support these components.
+Am Sat, Jan 31, 2026 at 05:44:18PM +0200 schrieb Claudiu Beznea:
+> Hi, Alexander,
+> 
+> On 1/20/26 16:37, Alexander Dahl wrote:
+> > The main rc oscillator will be needed for the OTPC to work properly.
+> > 
+> > The new index introduced here was not used on the four affected SoC
+> > clock drivers before, but for sama5d2 only (PMC_I2S1_MUX).
+> > 
+> > Link: https://lore.kernel.org/linux-devicetree/20250207-jailbird-circus-bcc04ee90e05@thorsis.com/T/#u
+> > Signed-off-by: Alexander Dahl <ada@thorsis.com>
+> > ---
+> > 
+> > Notes:
+> >      v3:
+> >      - adapt to different base changes, added lines are the same
+> >      v2:
+> >      - new patch, not present in v1
+> > 
+> >   include/dt-bindings/clock/microchip,sam9x60-pmc.h  | 1 +
+> >   include/dt-bindings/clock/microchip,sam9x7-pmc.h   | 1 +
+> >   include/dt-bindings/clock/microchip,sama7d65-pmc.h | 1 +
+> >   include/dt-bindings/clock/microchip,sama7g5-pmc.h  | 1 +
+> >   4 files changed, 4 insertions(+)
+> > 
+> > diff --git a/include/dt-bindings/clock/microchip,sam9x60-pmc.h b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
+> > index 91f8f863ea076..1f6bb51780d09 100644
+> > --- a/include/dt-bindings/clock/microchip,sam9x60-pmc.h
+> > +++ b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
+> > @@ -10,6 +10,7 @@
+> >   #define SAM9X60_PMC_MCK		1
+> >   #define SAM9X60_PMC_UTMI	2
+> >   #define SAM9X60_PMC_MAIN	3
+> > +#define SAM9X60_PMC_MAIN_RC	6
+> 
+> Why 6 and not another index? In theory, now, you should be able to define
+> here all the core clocks IDs (as these are known from the manuals) and
+> prepare the driver to allocate memory for all of them such that the driver
+> will have to be able to work with old and new device trees w/o further
+> changes.
 
-Signed-off-by: Dirk Chen <dirkchen@amd.com>
----
-Changes in v2:
-- Improved commit description to clarify that the change reflects
-  actual hardware as requested by the reviewer.
-- Removed mentions of other platforms to avoid confusion.
-- Link to v1: https://lore.kernel.org/r/20260202-b4-anacapa-dts-fix-v1-1-20d4b0114854@amd.com
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+Was the first common free index for these four clocks.  Before split
+up would have been nice to have a common index, because it was all
+together in include/dt-bindings/clock/at91.h in one file.  After
+splitup one could just use the first free index, as Krzysztof already
+suggested.
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-index 221af858cb6b..b8d248d99d7c 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-@@ -328,6 +328,12 @@ i2c0mux0ch3: i2c@3 {
- 			#size-cells = <0>;
- 		};
- 	};
-+
-+	eeprom@50 {
-+		compatible = "atmel,24c2048";
-+		reg = <0x50>;
-+		pagesize = <128>;
-+	};
- };
- 
- // R Bridge Board
-@@ -362,6 +368,12 @@ i2c1mux0ch3: i2c@3 {
- 			#size-cells = <0>;
- 		};
- 	};
-+
-+	eeprom@50 {
-+		compatible = "atmel,24c2048";
-+		reg = <0x50>;
-+		pagesize = <128>;
-+	};
- };
- 
- // MB - E1.S
+From my reading of the SAM9X60 manual, there's no such thing as core
+clock IDs in the manual.  If there is a section in the manual, please
+point it out.
 
----
-base-commit: 4c87cdd0328495759f6e9f9f4e1e53ef8032a76f
-change-id: 20260202-b4-anacapa-dts-fix-207ffe9a3b0c
+From my interpretation for SAM9X60 these clocks are provided by the
+clock generator (section 40 in the manual):
 
-Best regards,
--- 
-Dirk Chen <dirkchen@amd.com>
+- TD_SLCK
+- MD_SLCK
+- MAINCK
+- UPLLCK
+- PLLACK
 
+The "main rc oscillator" clock is somewhat internal here, but for OTPC
+we must be able to enable it.
 
+MCK (not MAINCK) is generated in the Processor Clock Controller block
+of the PMC (section 41 in the manual) from one of the above clocks.
+
+So it's all mixed up from different blocks from Clock Generator and
+Power Management Controller already.  These indexes are
+arbitrary and just for the driver, right?  Or am I missing something?
+
+Besides, if it is renamed now anyway:
+
+- Why that PMC prefix? (most of these core clocks come from the
+  clock controller, not the pmc)
+
+- Why not rename PMC_UTMI to something like xyz_UPLLCK to match the
+  datasheet/manual (likewise for the other definitions)?
+
+Greets
+Alex
+
+> 
+> >   #define SAM9X60_PMC_PLLACK	7
+> >   #endif
+> > diff --git a/include/dt-bindings/clock/microchip,sam9x7-pmc.h b/include/dt-bindings/clock/microchip,sam9x7-pmc.h
+> > index e1dd41fe75046..657f32ce10071 100644
+> > --- a/include/dt-bindings/clock/microchip,sam9x7-pmc.h
+> > +++ b/include/dt-bindings/clock/microchip,sam9x7-pmc.h
+> > @@ -10,6 +10,7 @@
+> >   #define SAM9X7_PMC_MCK		1
+> >   #define SAM9X7_PMC_UTMI		2
+> >   #define SAM9X7_PMC_MAIN		3
+> > +#define SAM9X7_PMC_MAIN_RC	6
+> >   #define SAM9X7_PMC_PLLACK	7
+> >   #define SAM9X7_PMC_AUDIOPMCPLL	9
+> >   #define SAM9X7_PMC_AUDIOIOPLL	10
+> > diff --git a/include/dt-bindings/clock/microchip,sama7d65-pmc.h b/include/dt-bindings/clock/microchip,sama7d65-pmc.h
+> > index 09d152da6db44..ddcb236718978 100644
+> > --- a/include/dt-bindings/clock/microchip,sama7d65-pmc.h
+> > +++ b/include/dt-bindings/clock/microchip,sama7d65-pmc.h
+> > @@ -12,6 +12,7 @@
+> >   #define SAMA7D65_PMC_MAIN		3
+> >   #define SAMA7D65_PMC_CPUPLL		4
+> >   #define SAMA7D65_PMC_SYSPLL		5
+> > +#define SAMA7D65_PMC_MAIN_RC		6
+> 
+> E.g. 6 was previously reserved for DDR and IMG PLLs.
+> 
+> >   #define SAMA7D65_PMC_BAUDPLL		8
+> >   #define SAMA7D65_PMC_AUDIOPMCPLL	9
+> >   #define SAMA7D65_PMC_AUDIOIOPLL		10
+> > diff --git a/include/dt-bindings/clock/microchip,sama7g5-pmc.h b/include/dt-bindings/clock/microchip,sama7g5-pmc.h
+> > index 0303cae56f849..e891715a35173 100644
+> > --- a/include/dt-bindings/clock/microchip,sama7g5-pmc.h
+> > +++ b/include/dt-bindings/clock/microchip,sama7g5-pmc.h
+> > @@ -12,6 +12,7 @@
+> >   #define SAMA7G5_PMC_MAIN	3
+> >   #define SAMA7G5_PMC_CPUPLL	4
+> >   #define SAMA7G5_PMC_SYSPLL	5
+> > +#define SAMA7G5_PMC_MAIN_RC	6
+> >   #define SAMA7G5_PMC_AUDIOPMCPLL	9
+> >   #define SAMA7G5_PMC_AUDIOIOPLL	10
+> >   #define SAMA7G5_PMC_MCK1	13
+> 
 
