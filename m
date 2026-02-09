@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A8B6E81BD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 15:40:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 444A8E81BDA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 15:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aDz8atvRGi+5zRwzB5e64TtukIkeyPA7/zgUTWBzFvU=; b=Iu0Pw6AYsTm3sMSw1bGaVmVtjW
-	JIw8uEkiRX3KCZ63VrwB56T0wOFfM6HkgkdV84UOxuApP4JKDz/yODBGivr2z8SCX57QlavGgwkGy
-	19vokI5T64PjeZuKvqUCB6kfneE4Uxcj7GLnwhHxa5ndIJ2XQPvFaBzgUStKugjfIP84uTyPohliI
-	99oB3wYKCy14BpthjGnvSLig9DsQv0EU3aygh8ez6FDcqhoG9mEt6FbnprDNof+aSWV3HUE4JucQs
-	+aILUzbPppoOeQ7ggywjC+HIB4ojIk+Q4jXPLoJXykLBK5VmmPAtIEtshdn19Exm0BijhUwnaOuUV
-	A5/B2EAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5VqpxsoivxoAEysOIEjzhEtCaEfoLPs/MzwZ/mDFB+I=; b=4Wnf2mQl29VVAqcGvJQE0ZjR+b
+	ERuKz4UcLMptxIWSkWMNc6T1/rr76aetyGEG+eD20Wc5wrtAjHz41j/uWdJEDziKrIyaxM1PEmTDf
+	IEqNrjChb0hGCcWD6ojwJTSvreSL9BUg4tRWZMf7al7mViVseDlQ5DGl5y+7jYbcXXXcmbv2U4oTz
+	+GvjrncZ7esMbiO1SCDUZoYCX8BMm2Z4hhZ/Jm+NTacO28CwMUU+sOBEnJSUYD66ru/tgYEBKmFU0
+	2E5bnbqAaAe53crvo1wsBhhqvMpRraa1v0b0sBURgGR+32/txzRom1/zKC9et8yvzzhoEQB9tggBo
+	zfnfStDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpTN8-0000000FctF-2HG0;
-	Mon, 09 Feb 2026 15:40:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpTN7-0000000Fct5-2Lqw
+	id 1vpTQw-0000000FdB1-3RtY;
+	Mon, 09 Feb 2026 15:44:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vpTQu-0000000Fd9b-37MO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 15:40:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8D15260008;
-	Mon,  9 Feb 2026 15:40:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3742C116C6;
-	Mon,  9 Feb 2026 15:40:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770651620;
-	bh=5DRu3dMpaADpDKLopx8dO5LEkVz+35Fl6LlXv05MFMY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=E3giKneRdTIS8o5HAfKsCgyA3Vk576TJHuj27G++WpF4bVwo8cqDkL6Qmv+VYPGZ8
-	 cuixX8S9UWdGdgfLNEhjWW+EobdUEmwbMpxPsUxHYKe2KuU+agUKPUb/oWYn35b27L
-	 +GtecYO4Men19p1sVRPAWK38hPds7C0lkC1Rq2OvR9enQA/5TK2AbLY7olteRNqLCq
-	 xJz0El8ZBaNm7AuLJLQxUx/LZGECtS+u6RnXBYid20/LgnxlvkWnspo+l0HdqD8tw6
-	 cj29zBhNWE9FTbRHQQ2HoCrzcD3K5DGDHNgsfMuP9tHFWAvFpfgDJ/z1ciUy6p6Lr2
-	 MqqCGfPCz2Nig==
-Date: Mon, 9 Feb 2026 09:40:15 -0600
-From: Bjorn Andersson <andersson@kernel.org>
-To: Douglas Anderson <dianders@chromium.org>
-Cc: jassisinghbrar@gmail.com, Frank.Li@nxp.com, arm-scmi@vger.kernel.org, 
-	cristian.marussi@arm.com, festevam@gmail.com, imx@lists.linux.dev, 
-	jay.buddhabhatti@amd.com, jonathanh@nvidia.com, kernel@pengutronix.de, 
-	konradybcio@kernel.org, krzk@kernel.org, lenb@kernel.org, linux-acpi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-remoteproc@vger.kernel.org, linux-tegra@vger.kernel.org, mathieu.poirier@linaro.org, 
-	michal.simek@amd.com, nm@ti.com, rafael@kernel.org, robh@kernel.org, 
-	s.hauer@pengutronix.de, shawn.guo@linaro.org, ssantosh@kernel.org, 
-	sudeep.holla@kernel.org, tglx@kernel.org, thierry.reding@gmail.com
-Subject: Re: [PATCH v2 01/15] mailbox: Deprecate NULL mbox messages;
- Introduce mbox_ring_doorbell()
-Message-ID: <yotr3aia3gra4jmlykqadqwi45lphhdyx7tt4n5cdwcungfpbd@gns6bb6m3vmz>
-References: <20260208040240.1971442-1-dianders@chromium.org>
- <20260207200128.v2.1.I600d04c0553f5c5ba39c2f92201da313aedfe746@changeid>
+	Mon, 09 Feb 2026 15:44:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 40567339;
+	Mon,  9 Feb 2026 07:44:05 -0800 (PST)
+Received: from [10.57.52.189] (unknown [10.57.52.189])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FF653F740;
+	Mon,  9 Feb 2026 07:44:09 -0800 (PST)
+Message-ID: <d129d0cd-ac01-40e5-92b7-77518bf32b3b@arm.com>
+Date: Mon, 9 Feb 2026 15:44:07 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260207200128.v2.1.I600d04c0553f5c5ba39c2f92201da313aedfe746@changeid>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] iommu/io-pgtable: Add support for Arm Mali v10+ GPUs
+ page table format
+To: Boris Brezillon <boris.brezillon@collabora.com>,
+ Liviu Dudau <liviu.dudau@arm.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Joerg Roedel <joro@8bytes.org>, Rob Clark <robin.clark@oss.qualcomm.com>,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ Karunika Choo <karunika.choo@arm.com>, Liviu Dudau <liviu@dudau.co.uk>
+References: <20260209112542.194140-1-liviu.dudau@arm.com>
+ <0af5b5f3-912a-4f16-a68b-032617576537@arm.com> <aYngwtq_GtBYGjOC@e142607>
+ <ac5c3df0-1d94-4a1c-9eec-a359096cfce5@arm.com> <aYn7obNImaI72MhK@e142607>
+ <20260209163534.45b0ec7a@fedora>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260209163534.45b0ec7a@fedora>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260209_074417_055164_EF0A8039 
+X-CRM114-Status: GOOD (  24.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,100 +72,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 07, 2026 at 08:01:23PM -0800, Douglas Anderson wrote:
-> The way the mailbox core behaves when you pass a NULL `mssg` parameter
-> to mbox_send_message() is a little questionable. Specifically, the
-> mailbox core stores the currently active message directly in its
-> `active_req` field. In at least two places it decides that if this
-> field is `NULL` then there is no active request. That means if `mssg`
-> is ever NULL it will cause the mailbox core to think is no active
-> request. The two places where it does this are:
+On 09/02/2026 15:35, Boris Brezillon wrote:
+> On Mon, 9 Feb 2026 15:22:09 +0000
+> Liviu Dudau <liviu.dudau@arm.com> wrote:
 > 
-> 1. When a client calls mbox_send_message(), if `active_req` is NULL
->    then it will call the mailbox controller to send the new message
->    even if the mailbox controller hasn't yet called mbox_chan_txdone()
->    on the previous (NULL) message.
-> 2. The mailbox core will never call the client's `tx_done()` callback
->    with a NULL message because `tx_tick()` returns early whenever the
->    message is NULL.
-> 
-> Though the above doesn't look like it was a conscious design choice,
-> it does have the benefit of providing a simple way to assert an
-> edge-triggered interrupt to the remote processor on the other side of
-> the mailbox. Specifically:
-> 
-> 1. Like a normal edge-triggered interrupt, if multiple edges arrive
->    before the interrupt is Acked they are coalesced.
-> 2. Like a normal edge-triggered interrupt, as long as the receiver
->    (the remote processor in this case) "Ack"s the interrupt _before_
->    checking for work and the sender (the mailbox client in this case)
->    posts the interrupt _after_ adding new work then we can always be
->    certain that new work will be noticed. This assumes that the
->    mailbox client and remote processor have some out-of-band way to
->    communicate work and the mailbox is just being used as an
->    interrupt.
-> 
-> Doing a `git grep -A1 mbox_send_message | grep NULL` shows 14 hits in
-> mainline today, but it's not 100% clear if all of those users are
-> relying on the benefits/quirks of the existing behavior.
-> 
-> Since the current NULL `mssg` behavior is a bit questionable but has
-> some benefits, let's:
-> 
-> 1. Deprecate the NULL behavior and print a warning.
-> 2. Add a new mbox_ring_doorbell() function that is very similar to the
->    existing NULL `mssg` case but a tad bit cleaner.
-> 
-> The design of the new mbox_ring_doorbell() will be to maximize
-> compatibility with the old NULL `mssg` behavior. Specifically:
-> 
-> * We'll still pass NULL to the mailbox controller to indicate a
->   doorbell.
-> * Doorbells will not be queued and won't have txdone.
-> * We'll call immediately into the mailbox controller when a doorbell
->   is posted.
-> 
-> With the above, any mailbox clients that don't mix doorbells and
-> normal messages are intended to see no change in behavior when
-> switching to the new API. Using the new API, which officiall documents
-> that mbox_client_txdone() shouldn't be called for doorbells, does
-> allow us to remove those calls.
-> 
-> There are two differences in behavior between the old sending a NULL
-> message and the new mbox_ring_doorbell():
-> 
-> 1. If the mailbox controller returned an error when trying to send a
->    NULL message, the old NULL message could have ended up being queued
->    up in the core's FIFO. Now we will just return the error.
-> 2. If a client rings a doorbell while a non-doorbell message is in
->    progress, previously NULL messages would have been "queued" in that
->    case and now doorbells will be immediately posted.
-> 
-> I'm hoping that nobody was relying on either of the two differences.
-> In general holding NULL messages in the mailbox core's queue has odd
-> behavior and is hard to reason about. Hopefully it's reasonable to
-> assume nobody was doing this.
-> 
-> As mentioned above, it should be noted that it's now documented that
-> "txdone" shouldn't be called (by both mailbox drivers and clients) for
-> doorbells. That being said, in most cases it won't hurt since the
-> mailbox core will ignore the bogus "txdone". The only case where it's
-> critical for a mailbox controller not to call "txdone" for a doorbell
-> is when a mailbox channel mixes normal messages and doorbells and
-> cares about the txdone callback. Specifically, when you ring a
-> doorbell and immediately send a normal message, if the controller
-> calls "txdone" for the doorbell it could look as if the normal message
-> finished before it should have. This issue also would have happened
-> with the old NULL `mssg`, though.
-> 
-> Signed-off-by: Douglas Anderson <dianders@chromium.org>
+>>>> Ultimately the role of this RFC is to start a discussion and to figure out a path
+>>>> forward for CSF GPUs where we want now to tighen a bit the formats we support and
+>>>> add PBHA and in the future we want to add support for v15+ page formats.  
+>>>
+>>> PBHA is definitely an area for discussion. AIUI there are out-of-tree
+>>> patches floating about for CPU support, but it hasn't been upstreamed. I
+>>> don't know if any serious attempt has been made to push it upstream, but
+>>> it's tricky because the architecture basically just says "IMPLEMENTATION
+>>> DEFINED" which means you are no longer coding to the architecture but a
+>>> specific implementation - and there's remarkably little documentation
+>>> about what PBHA is used for in practice.
+>>>
+>>> I haven't looked into the GPU situation with PBHA - again it would be
+>>> good to have more details on how the bits would be set.  
+>>
+>> I have a patch series that adds support in Panthor to apply some PBHA bits defined
+>> in the DT based on an ID also defined in the DT and passed along as a VM_BIND parameter
+>> if you want to play with it. However I have no direct knowledge on which PBHA values
+>> would make a difference on the supported platforms (RK3xxx for example).
 
-I like how this cleans up the logic hacks, but perhaps even more so how
-it takes a step towards cleaning up the mailbox API when it comes to
-expectations between client and provider implementations.
+So we need something better than a DT entry saying e.g. "ID 3 is bit
+pattern 0100". We need something that describes the actual behaviour of
+a PBHA value. Otherwise user space will end up needing to know the exact
+hardware platform it's running on to know what ID values mean.
 
-Reviewed-by: Bjorn Andersson <andersson@kernel.org>
+> I don't know if that's what it's going be used for, but one very
+> specific use case I'd like to see this PBHA extension backed by is
+> "read-zero/write-discard" behavior that's needed for sparse bindings.
+> Unfortunately, I've not heard on any HW-support for that in older
+> gens...
 
-Regards,
-Bjorn
+*This* is a good example of something useful that could be exposed. If
+the DT can describe that the hardware supports a
+"read-zero/write-discard" with a specific bit pattern, then we can
+advertise that to user space and provide a flag for VM_BIND which gives
+that behaviour. And user space can make good use of it.
+
+But from what I've heard the implementations tend to have something more
+like a hint-mechanism where it affects the behaviour of the caches but
+not the functional effect. This makes it much harder to expose to user
+space in a meaningful way because it's highly platform dependant what
+"don't allocate in the system level cache" actually means in terms of
+performance effects. But it's possible we could describe more of a usage
+based flag - i.e. "PBHA bits good for a tiler heap".
+
+Thanks,
+Steve
+
 
