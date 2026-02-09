@@ -4,71 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A15DEE7E0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 16:55:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A85E7E0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 17:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zz3AMZ0HmTG5KFhjHjUTlb4v4iJbRMJpAGoMJExp25U=; b=BHiBzgxJqRjg+vPX1sTVleD51W
-	aeuBG01hh5H9FX5oB6gPGrOC2UbZQ89JnkLgxaT0TnMgIamshfplqyapPFkgFPmSLt72mF49pPlgW
-	apt+Yrowa8wAxxIyvoP/YnnFZrReRYd4IdSFiJjT9CKPCZS2IXDh2yAbr5YkxepgD8WKojg+74XJ8
-	Qu3h18+EQATLChkc1C7TyKm+wtTu24+nUN9lzy7MoWJT0zkw+wgo1OkYOBOi+0v+lOtNpLz93EgIB
-	ois4ufUgPMDkzM9HGSeTQAA5erTCgtQ7UsYBXC+yYE9/ecBohBMZOyS7gKUXKovUb8yxu0JotEGYj
-	yG24gBZQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Lu184qV9euYKcp5XauGvcgF98v5627jKDTrjeXzM34c=; b=ne3wS5fX8iDZCBoFWHpL97KtGQ
+	rftynRSNzCPW5bWwExSC+tkMc8sCVEmThbjHwNSiwOoxfP/L6TEt2/GBFFP4SjiGRKJXPAhoZ3G1B
+	mOhtLgVkgouvn5NOYp1UWfBIimH8jvvdQUV6PtZXwmw9W1AVq3/vwFxKeKUE9kZgu/0c6PmMMxKQI
+	UnzCg5Sc9vCqXvGq1a/49LK3w6czykfay2z7F8UUMjzTMl/Atmiyl3bQ3R3ujirsvOKc9/0DbqE4X
+	J3N+r2XhOhcUR4xkvUIqvqPVArynB/1bOtGMiyBpTHqzbRo2AvS0Mwkn2gD0AFkv6kt2PSdwb5xqF
+	ohMmepEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpUXS-0000000FjHo-1yeh;
-	Mon, 09 Feb 2026 16:55:06 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1vpUfW-0000000FjuI-0onm;
+	Mon, 09 Feb 2026 17:03:26 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpUXO-0000000FjGa-0TwK
+	id 1vpUfR-0000000FjtF-3aTk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 16:55:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1770656100;
- bh=zz3AMZ0HmTG5KFhjHjUTlb4v4iJbRMJpAGoMJExp25U=;
- b=Hdbz3Ga5GBQ6D5YxtGkIPBwqng2bnKwOPdzZma8go18pdwvMa5oyAwBeqQLurLw1yHzvq6oKR
- qmeFyP24nBhZz8XADcSvNUMcgmKh1Aybo9pxdWnTsYHQxzhBfPYTDsXFPOsWOOZp7W/gfOMBbvG
- i7BAsowKXWggXVI9Is3iZYoQ2ldSn22nudPgXiU8qVT7Nl7VFgezcP+3ckvGYNXqHqoteA/mXdx
- 8UOW/j2CI2QmAWsLUhlTilN0a8pMGoTiWx3J1LmIiym8+hLtFjeYrXndsvp58jP2EGJNWSTLwNO
- YGem51ALlZJ5xRh27wpstjOYR4QI1UnQrsriLkKRt1VA==
-X-Forward-Email-ID: 698a115f438a0e4c5804a258
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 2.6.3
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <e58ebe6e-1de7-4b72-bf5e-e93cc19e69fd@kwiboo.se>
-Date: Mon, 9 Feb 2026 17:54:51 +0100
+	Mon, 09 Feb 2026 17:03:25 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-48336a6e932so10888515e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Feb 2026 09:03:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770656600; x=1771261400; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Lu184qV9euYKcp5XauGvcgF98v5627jKDTrjeXzM34c=;
+        b=K9PVT2PZANDS6U4+z6RNqlHhrmn5nRLK0grspiyr90SNICehUMYMiXB8T48TKwMM0O
+         JtpxMxCRIE17oQN59G/xl1qnYOK/T+m80tXFsW1Taok6OSWrlTmTnXNfCuNd1FNEEmUK
+         RzfGJaOnyGyCObsDPh8508lkg6VvrtLLFI0+0rH+pkNDVRLDjJZxe4SAqtKnFnF+7fIu
+         spAhxFVfTje8mKRcW6JdbQKxp/1IjyPufGEPPiccm5VGJPnjV3RVeYCMOjJ+BPZi/vwW
+         Tih7fpNCcdeXBeifPjmy2H5g6d/JP/ckH058Mh2PEbqFyoRC6jasYRUVkw/SV7p/Hg0K
+         klLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770656600; x=1771261400;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Lu184qV9euYKcp5XauGvcgF98v5627jKDTrjeXzM34c=;
+        b=KO0KB5sANFhSFNB0RuTLNYFp7FPdhpCrx8US9Yp/vQmGx0ud6jXKsqzLIAI/X0YAF5
+         0eOUekYszYrqCMBu+eO4/V+FoXsnorsPsDXDrasQeOf8pwtBa1sWNkhyIY1lkNvEAxK8
+         CBmJSjlx81Rh8ESL5rvEHIjqqpjw7mogypPKdmDDJjsk4WG9n5erNg4ABY2Sr3dxaYhK
+         IGFrx+/ijw7b/XtwNE+za1dUwUMCiKdbWNEFcHpp5G+nUl+R4IfKizkl143E14C4hLCS
+         3WimlxEzKOBLqgAg9DTNQqUZgyvix6cU6N6lxVBU8j9KdGdNrOQ94m/hhk2ZhDYGmdrG
+         /TiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWIaZK/gSWWn/+q8GZZsnSCjXuzDPQPnH4Gjm4W/rjRZf6CIVLReGBQ+3Z8bi12rU/ozZt6kjP2Spc7QkjhY7kb@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLfi2SIOUiwy+yKdxv47tVDFGkGKnx8JIMNNKYbXpLleKTqVxB
+	rig3VnTqrubHRK7JYAFnS5FDcPquhh7WQQGqIJK0C1jPhzoYGhkmCOPl
+X-Gm-Gg: AZuq6aKrR7V3CH3PN9cKps0Gpn8YLJ+rz/+ehF/8ZISiJ7bkELlTe0kN5loQpcuJ1e8
+	bw4I+Qjb+4jUKQccJp4TyMjaxiTuUSAkMq7uzBdLl6OOKV9B5YmD/qO82VlQQR9LXIJbg0pZAay
+	LslzJRzhCUfCnOsVxH0a9EpDq4bPrlTvQKnOMOXOuBc3MsHbIrtke5piXZXMgr/X9jHPMO7flWM
+	O3JBswkkf+HObE4+BO0tD32dKDbiU0t0hBbDzY2zRouIhQ2x4cs6QqfaxYVf/D+tvenY5ndUpAG
+	rGljrgeiBCJQtKxxK2ClB1rg3puXBSaedZD+VOnMtUNpycrYygi7YuV2x5esnngiaTimMj87aoy
+	Dgci4fECyzOfGcezI2SyWnGnarHdA62OSl80CDh73Y3qCEurz9m5S/VWneEoSafZw+q3Q9eRQ2X
+	2d17oOHapWRYP1c7DJU4z5dXIaX6e1vA==
+X-Received: by 2002:a05:600c:5489:b0:47d:3ead:7440 with SMTP id 5b1f17b1804b1-4832022918dmr156996825e9.32.1770656599449;
+        Mon, 09 Feb 2026 09:03:19 -0800 (PST)
+Received: from luca-vm.lan ([154.61.61.58])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4832096f127sm129870525e9.6.2026.02.09.09.03.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Feb 2026 09:03:19 -0800 (PST)
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+To: linux-mediatek@lists.infradead.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Fabien Parent <fparent@baylibre.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2] soc: mediatek: mtk-mmsys: Restore MT8167 routing masks lost during merge
+Date: Mon,  9 Feb 2026 17:01:50 +0000
+Message-ID: <20260209170149.419984-2-l.scorcia@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] arm64: dts: rockchip: Enable OTP controller for
- RK3562
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "kever.yang@rock-chips.com" <kever.yang@rock-chips.com>,
- "finley.xiao@rock-chips.com" <finley.xiao@rock-chips.com>,
- "w@1wt.eu" <w@1wt.eu>
-References: <20260205212347.490636-1-heiko@sntech.de>
- <20260205212347.490636-2-heiko@sntech.de>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20260205212347.490636-2-heiko@sntech.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_085502_468567_2357C55A 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20260209_090323_722351_79E16350 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,92 +99,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+The original patch that was sent to the mailing lists included the values for
+the route masks, but they got lost during merge: add back the full register
+masks where missing.
 
-Thanks for including my RK3528 patches :-)
+Fixes: 060f7875bd23 ("soc: mediatek: mmsys: Add support for MT8167 SoC")
 
-On 2/5/2026 10:23 PM, Heiko Stuebner wrote:
-> Enable the One Time Programmable Controller (OTPC) in RK3562 and add
-> an initial nvmem fixed layout.
-> 
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3562.dtsi | 46 ++++++++++++++++++++++++
->  1 file changed, 46 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3562.dtsi b/arch/arm64/boot/dts/rockchip/rk3562.dtsi
-> index f84676b47b27..07626dba21bf 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3562.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3562.dtsi
-> @@ -1093,6 +1093,52 @@ sdmmc1: mmc@ff890000 {
->  			status = "disabled";
->  		};
->  
-> +		otp: otp@ff930000 {
+Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+---
+ drivers/soc/mediatek/mt8167-mmsys.h | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
-I noticed that the node names is not consistent for all three patches in
-this series.
-
-A quick grep at Linux src also suggest that efuse@ being the most common
-node name used for similar otpc/efuse, efuse is also listed under
-2.2.2 Generic Names Recommendation in DT spec.
-
-Maybe the nodes should be renamed to use efuse@ or something else?
-
-I am mostly concerned on what the name ends up as and how that may
-affect U-Boot in a future dts/upstream sync. U-Boot currently have
-limited otp nodes in soc u-boot.dtsi files for these SoCs.
-
-Regards,
-Jonas
-
-> +			compatible = "rockchip,rk3562-otp";
-> +			reg = <0x0 0xff930000 0x0 0x4000>;
-> +			clocks = <&cru CLK_USER_OTPC_NS>, <&cru PCLK_OTPC_NS>,
-> +				 <&cru PCLK_OTPPHY>, <&cru CLK_SBPI_OTPC_NS>;
-> +			clock-names = "otp", "apb_pclk", "phy", "sbpi";
-> +			resets = <&cru SRST_USER_OTPC_NS>, <&cru SRST_P_OTPC_NS>,
-> +				 <&cru SRST_P_OTPPHY>, <&cru SRST_SBPI_OTPC_NS>;
-> +			reset-names = "otp", "apb", "phy", "sbpi";
-> +
-> +			nvmem-layout {
-> +				compatible = "fixed-layout";
-> +				#address-cells = <1>;
-> +				#size-cells = <1>;
-> +
-> +				cpu_code: cpu-code@2 {
-> +					reg = <0x02 0x2>;
-> +				};
-> +
-> +				otp_cpu_version: cpu-version@8 {
-> +					reg = <0x08 0x1>;
-> +					bits = <3 3>;
-> +				};
-> +
-> +				otp_id: id@a {
-> +					reg = <0x0a 0x10>;
-> +				};
-> +
-> +				cpu_leakage: cpu-leakage@1a {
-> +					reg = <0x1a 0x1>;
-> +				};
-> +
-> +				log_leakage: log-leakage@1b {
-> +					reg = <0x1b 0x1>;
-> +				};
-> +
-> +				npu_leakage: npu-leakage@1c {
-> +					reg = <0x1c 0x1>;
-> +				};
-> +
-> +				gpu_leakage: gpu-leakage@1d {
-> +					reg = <0x1d 0x1>;
-> +				};
-> +			};
-> +		};
-> +
->  		dmac: dma-controller@ff990000 {
->  			compatible = "arm,pl330", "arm,primecell";
->  			reg = <0x0 0xff990000 0x0 0x4000>;
+diff --git a/drivers/soc/mediatek/mt8167-mmsys.h b/drivers/soc/mediatek/mt8167-mmsys.h
+index c468926561b4..eef14083c47b 100644
+--- a/drivers/soc/mediatek/mt8167-mmsys.h
++++ b/drivers/soc/mediatek/mt8167-mmsys.h
+@@ -10,24 +10,29 @@
+ #define MT8167_DISP_REG_CONFIG_DISP_RDMA0_SOUT_SEL_IN	0x06c
+ 
+ #define MT8167_DITHER_MOUT_EN_RDMA0			0x1
++#define MT8167_DITHER_MOUT_EN_MASK			0x7
++
+ #define MT8167_RDMA0_SOUT_DSI0				0x2
++#define MT8167_RDMA0_SOUT_MASK				0x3
++
+ #define MT8167_DSI0_SEL_IN_RDMA0			0x1
++#define MT8167_DSI0_SEL_IN_MASK				0x3
+ 
+ static const struct mtk_mmsys_routes mt8167_mmsys_routing_table[] = {
+ 	MMSYS_ROUTE(OVL0, COLOR0,
+ 		    MT8167_DISP_REG_CONFIG_DISP_OVL0_MOUT_EN, OVL0_MOUT_EN_COLOR0,
+ 		    OVL0_MOUT_EN_COLOR0),
+ 	MMSYS_ROUTE(DITHER0, RDMA0,
+-		    MT8167_DISP_REG_CONFIG_DISP_DITHER_MOUT_EN, MT8167_DITHER_MOUT_EN_RDMA0,
++		    MT8167_DISP_REG_CONFIG_DISP_DITHER_MOUT_EN, MT8167_DITHER_MOUT_EN_MASK,
+ 		    MT8167_DITHER_MOUT_EN_RDMA0),
+ 	MMSYS_ROUTE(OVL0, COLOR0,
+ 		    MT8167_DISP_REG_CONFIG_DISP_COLOR0_SEL_IN, COLOR0_SEL_IN_OVL0,
+ 		    COLOR0_SEL_IN_OVL0),
+ 	MMSYS_ROUTE(RDMA0, DSI0,
+-		    MT8167_DISP_REG_CONFIG_DISP_DSI0_SEL_IN, MT8167_DSI0_SEL_IN_RDMA0,
++		    MT8167_DISP_REG_CONFIG_DISP_DSI0_SEL_IN, MT8167_DSI0_SEL_IN_MASK,
+ 		    MT8167_DSI0_SEL_IN_RDMA0),
+ 	MMSYS_ROUTE(RDMA0, DSI0,
+-		    MT8167_DISP_REG_CONFIG_DISP_RDMA0_SOUT_SEL_IN, MT8167_RDMA0_SOUT_DSI0,
++		    MT8167_DISP_REG_CONFIG_DISP_RDMA0_SOUT_SEL_IN, MT8167_RDMA0_SOUT_MASK,
+ 		    MT8167_RDMA0_SOUT_DSI0),
+ };
+ 
+-- 
+2.43.0
 
 
