@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AF93E7E0BB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 10:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5535E7E0BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 10:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SmkpHOSf+vtw8uWQ/8vbkjqK8buiMyqGtS9qqZCMvhQ=; b=CZeCYGYiBwL8IIEnlSolWYqA8m
-	OtQOpUGzw36eMwHeqk+X13St1nqQiEgupBFvEW2ismL26XkgD7kpsSl82ro+9Jkcj0IYN+lFhg44c
-	LH+ZOU/Kw3r8xNXkWRAde92hPIiQKoU4pLusulG6XJb+WB890z6pBDqCnbJt+ziA/qOQPhANEvf0e
-	GY9iF1dyaxzGVA5ddHpGuEaIFwg8cMeegW3bgULpkceZz4EFbRk1P/wfUWCINJszY/C3KJz9Woskx
-	O0FYzg4DkrIbKHpqz98wiro8VRj2775IesbH9ea/ICAlcl0Q00J0JgTkExhmbCjg1cNH2SKoQHLpV
-	Zja6Znow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KuHdmbMe8FhR6HcphPrJrW4PyN3G5yZpYJxJ7bkfPFc=; b=txlZh7DyBckTaaLK1WGqht5VqC
+	fKu3bITxVWMy+UsNTwdx04EOZqki46/LDZWoASBX+yhO8kjPD9MWf5jhgjKhiLxrst5uIHEyAh+po
+	wWvBhbbqeuK8adZiw2gigM/X3G48EhcCn2k7stsAqmNQ5npjdzZsS7EgaTCg1QasMNAdwpd979ZvT
+	3fGfdc1P6T4LJ6c8rW+8MopY3f9S/vu8a/KOvwoI8wrmj2u/X84O28Au5go6vEMn+S6+WaiIRSYli
+	42cFpw+1E0EnBVwS8ULNjLqFhzjZclbKjTGdC1Wj9c+0qZ0LL3+weV5yKQW2X8+bzMpzVNs7Zj742
+	cpBZSFfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpOFP-0000000FDv9-3sk7;
-	Mon, 09 Feb 2026 10:12:03 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vpOGx-0000000FE6o-2qAA;
+	Mon, 09 Feb 2026 10:13:39 +0000
+Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpOFM-0000000FDul-3fFP
+	id 1vpOGt-0000000FE5z-2FkJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 10:12:02 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vpOF8-00043y-LF; Mon, 09 Feb 2026 11:11:46 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vpOF8-004s58-30;
-	Mon, 09 Feb 2026 11:11:46 +0100
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vpOF8-00000000928-0izY;
-	Mon, 09 Feb 2026 11:11:46 +0100
-Message-ID: <f5de5c3dde62d8cb6f1b373c8dbc89ab31edc111.camel@pengutronix.de>
-Subject: Re: [PATCH v8 1/3] dt-bindings: soc: cix: document the simple-mfd
- syscon on Sky1 SoC
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Gary Yang <gary.yang@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, peter.chen@cixtech.com, unicorn_wang@outlook.com, 
-	inochiama@gmail.com, alchark@gmail.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, cix-kernel-upstream@cixtech.com
-Date: Mon, 09 Feb 2026 11:11:46 +0100
-In-Reply-To: <20260209093344.2013693-2-gary.yang@cixtech.com>
-References: <20260209093344.2013693-1-gary.yang@cixtech.com>
-	 <20260209093344.2013693-2-gary.yang@cixtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Mon, 09 Feb 2026 10:13:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1770632005; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=KuHdmbMe8FhR6HcphPrJrW4PyN3G5yZpYJxJ7bkfPFc=;
+	b=POAR/kR+itr8r9JLpdwzPTAGBZ/kh2Q1FZ/90OmjUOVv4GTuryNWkayM+tW2eUYSh5tdKPnFktFa1jw9lBvLTVkpM7f+yEbC2yd4C1JGQJpJpbOD+ASKwjfubR/P95lqKWS1mrsrJ8KOb2YtgbSkYt/5+d9luTksSkFNmf3nkKc=
+Received: from 30.74.144.127(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WyqmBGB_1770632001 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 09 Feb 2026 18:13:21 +0800
+Message-ID: <6817c7b9-e67c-46b6-b3b5-1bc3d9eed4a2@linux.alibaba.com>
+Date: Mon, 9 Feb 2026 18:13:19 +0800
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 4/5] arm64: mm: implement the architecture-specific
+ clear_flush_young_ptes()
+To: "David Hildenbrand (Arm)" <david@kernel.org>, Chris Mason <clm@meta.com>
+Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, will@kernel.org,
+ lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, Liam.Howlett@oracle.com,
+ vbabka@suse.cz, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+ riel@surriel.com, harry.yoo@oracle.com, jannh@google.com,
+ willy@infradead.org, baohua@kernel.org, dev.jain@arm.com,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1766631066.git.baolin.wang@linux.alibaba.com>
+ <9d866a2644051e13a41ef4d6ca3909c6e1f9e229.1766631066.git.baolin.wang@linux.alibaba.com>
+ <20260128114936.72280-1-clm@meta.com>
+ <de141225-a0c1-41fd-b3e1-bcab09827ddd@linux.alibaba.com>
+ <07d55759-a50a-457a-badd-85697174116f@kernel.org>
+ <280ae63e-d66e-438f-8045-6c870420fe76@linux.alibaba.com>
+ <16fb7985-ec0f-4b56-91e7-404c5114f899@kernel.org>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <16fb7985-ec0f-4b56-91e7-404c5114f899@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_021200_952727_03FDA97C 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20260209_021336_340006_CE89E0DF 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,59 +77,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mo, 2026-02-09 at 17:33 +0800, Gary Yang wrote:
-> There are two system control on Cix sky1 Soc. One is located in S0 domain=
-,
-> and the other is located in S0 and S5 domain. The system control contains
-> resets, usb typeC and more.
 
-What is "and more"? Does none of the remaining functionality besides
-resets require any bindings?
 
-> At this point, only the reset controller child
-> is described as usb typeC uses it by phandle.
+On 2/9/26 5:55 PM, David Hildenbrand (Arm) wrote:
+> On 2/9/26 10:36, Baolin Wang wrote:
+>>
+>>
+>> On 2/9/26 5:09 PM, David Hildenbrand (Arm) wrote:
+>>> On 1/29/26 02:42, Baolin Wang wrote:
+>>>>
+>>>>
+>>>>
+>>>> Indeed. I previously discussed with Ryan whether using pte_cont() 
+>>>> was enough, and we believed that invalid PTEs wouldn’t have the 
+>>>> PTE_CONT bit set. But we clearly missed the device-folio cases. 
+>>>> Thanks for reporting.
+>>>>
+>>>> Andrew, could you please squash the following fix into this patch? 
+>>>> If you prefer a new version, please let me know. Thanks.
+>>>
+>>> Isn't the real problem that we should never ever ever ever, try 
+>>> clearing the young bit on a non-present pte?
+>>>
+>>> See damon_ptep_mkold() how that is handled with the flushing/notify.
+>>>
+>>> There needs to be a pte_present() check in the caller.
+>>
+>> The handling of ZONE_DEVICE memory in check_pte() makes me me doubt my 
+>> earlier understanding. And I think you are right.
+>>
+>>      } else if (pte_present(ptent)) {
+>>          pfn = pte_pfn(ptent);
+>>      } else {
+>>          const softleaf_t entry = softleaf_from_pte(ptent);
+>>
+>>          /* Handle un-addressable ZONE_DEVICE memory */
+>>          if (!softleaf_is_device_private(entry) &&
+>>              !softleaf_is_device_exclusive(entry))
+>>              return false;
+>>
+>>          pfn = softleaf_to_pfn(entry);
+>>      }
+>>
+>>
+>>> BUT
+>>>
+>>> I recall that folio_referenced() should never apply to ZONE_DEVICE 
+>>> folios. folio_referenced() is only called from memory reclaim code, 
+>>> and ZONE_DEVICE pages never get reclaimed through vmscan.c
+>>
+>> Thanks for clarifying. So I can drop the pte valid check.
+> 
+> We should probably add a safety check in folio_referenced(), warning
+> if we would ever get a ZONE_DEVICE folio passed.
+> 
+> Can someone look into that ? :)
 
-What do you mean by "child"? There is no child node for the reset
-controller (which is correct).
-
-> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
-> ---
->  .../soc/cix/cix,sky1-system-control.yaml      |  42 +++++
->  include/dt-bindings/reset/cix,sky1-rst-fch.h  |  42 +++++
->  include/dt-bindings/reset/cix,sky1-rst.h      | 164 ++++++++++++++++++
->  3 files changed, 248 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/cix/cix,sky1-sy=
-stem-control.yaml
->  create mode 100644 include/dt-bindings/reset/cix,sky1-rst-fch.h
->  create mode 100644 include/dt-bindings/reset/cix,sky1-rst.h
->=20
-> diff --git a/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-co=
-ntrol.yaml b/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-cont=
-rol.yaml
-> new file mode 100644
-> index 000000000000..5507deb54ebd
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.y=
-aml
-> @@ -0,0 +1,42 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/cix/cix,sky1-system-control.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Cix Sky1 SoC system control register region
-> +
-> +maintainers:
-> +  - Gary Yang <gary.yang@cixtech.com>
-> +
-> +description:
-> +  An wide assortment of registers of the system controller on Sky1 SoC,
-> +  including resets, usb, wakeup sources and so on.
-
-Will any of this (usb, wakeup, "so on") require further additions to
-the binding documentation?
-
-regards
-Philipp
+Sure, I can take a close look and address that in my follow-up patchset.
 
