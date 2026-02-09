@@ -4,104 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98BF8E7E0B4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 09:42:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A344FE7E0AF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 09:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wHGvMSSs18lRjMFYAcYtEJUS545dbXR6FIikhhgtu7c=; b=ptrA4l8Iz3Gjvh+KmIbJAcvl9h
-	+9+FmVAhJjm1xfFVK9LOUrT7nvnxrpp+34npo83V13KJjwxhJYVBZULNpiHX5IbTVVMcnS+Q4jgHl
-	t4sfzbdz4utvJB/nVAaAPYGvTk3vBSs51pSkSIhVkuTEcWf+H6VgpV5y9CzYraidR5mNR3Ychak+u
-	I6ftnDmyv/SJB8w2CPpM75YhBZy3KHMOfEmK2eV7yVonHO6JJqZvF7i0QxG/NnKJDHeJaP8qT4WI/
-	L1vWZocLci0H7zEIg3tM6QVxyPyY5BGivUalcXKZCAPdsB06LLsZ8Jc+SPPTOtApmxq086Fg9Cbt+
-	e87I+fCw==;
+	bh=UBI+jRRyuRr+QajwiPV5bCA0PKZRJLu20S4RKTSvJt4=; b=MrtdYM9dFJRXPyK0OcUlUtSdyy
+	p2ETAtMVSFNbRwDeHMCMvkCcbETwy2AiNSnEjOGJDqoHBY2nXasOZRq3PeXpBTEoyovu0dKrtvxUQ
+	pe2XXRkoo/sg3CYM1dWRI2jSgbygti330DVHZeY8O4IkBLfwF0MFqShT0zs5ULHqHyBPWZorHACN4
+	g54cWh6LsV9k9sYJIyqBOnawBf5GWudfNomD22dGZHpUF7UfOJDS2Q7FjijqUygNROIcBYcabNTa5
+	KcY2Npu7kUmKVB+7xD9ftKl3Q/yBCqobGUia+1lwga+gp/QdvDWojqC/qcMbxsCG6fMK8PTKqQ3bS
+	jMp45lLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpNmw-0000000FA5Q-2wDF;
-	Mon, 09 Feb 2026 09:42:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vpNna-0000000FA7h-0K7Z;
+	Mon, 09 Feb 2026 09:43:18 +0000
+Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpNmv-0000000FA5I-2BpM
+	id 1vpNnW-0000000FA7I-1XbQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 09:42:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E1418600BB;
-	Mon,  9 Feb 2026 09:42:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C46B1C116C6;
-	Mon,  9 Feb 2026 09:42:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770630156;
-	bh=bk0Q2ASHvXAmqdokp35dxaM4a0S70yBrDPdOZ2ooHcc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uoh3XaKhFi20hbFAzpIh9gkGMnY/BzB5QkK3Yhji0dOpoiqeoSU4EQQdRIfg6XraK
-	 yPeLHLEc8yTNPuC80HBvdPbefVOQpHx/nYVd+ir062lUgIdVF0nyZvYtoDOIJ8QLQa
-	 4I9eUhMSwn5Z5bBtxYEJ6MDY18QhGdssn7VD9wDeRfQdrQrhY91ovo3TRuWmmPkUnr
-	 qTUHuDom61fkQ7zELApocK8TLEqQAZSp8CvcejNEY9ZPLBjYT6WRyq6hWDq4c1wF+u
-	 ksuOz2gofdJIcxkNSpQ5BUUS9Q25TA3e9SagfQHx8ydZS76jtkOcNHx6l0eDeMYRAD
-	 BCxxuEml3vZGA==
-Message-ID: <c218f45f-d3cd-4a72-8af5-91ef59ff6936@kernel.org>
-Date: Mon, 9 Feb 2026 10:42:33 +0100
+	Mon, 09 Feb 2026 09:43:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1770630190; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=UBI+jRRyuRr+QajwiPV5bCA0PKZRJLu20S4RKTSvJt4=;
+	b=HCkCStdbsRexAMVZkbvjIP2FuTJbOC3tM2BZmVEZl0XnyRfgfRUbKlDYBt1OIY8Tu5kybMHPAh6jAtWyukf3kpWcZwrB7/qY/vjrJ6SSowK4gTSVKTCKqpm5C4s0gduxGJZoBDygdqaHUkKd6bhD/xBVboob2CGWhwqsh2EKhXE=
+Received: from 30.74.144.127(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WyqXdyS_1770630184 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 09 Feb 2026 17:43:05 +0800
+Message-ID: <ddedb72a-d24f-48bc-88b2-f6f99f3d45ad@linux.alibaba.com>
+Date: Mon, 9 Feb 2026 17:43:04 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm: multi_v7_defconfig: Enable more OMAP related
- configs
-To: Beleswar Prasad Padhi <b-padhi@ti.com>, linux@armlinux.org.uk,
- arnd@arndb.de
-Cc: afd@ti.com, u-kumar1@ti.com, praneeth@ti.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250616082038.3241346-1-b-padhi@ti.com>
- <e58c3a53-0b46-4478-9f82-389a6332b9de@ti.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <e58c3a53-0b46-4478-9f82-389a6332b9de@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v5 5/5] mm: rmap: support batched unmapping for file large
+ folios
+To: "David Hildenbrand (Arm)" <david@kernel.org>, akpm@linux-foundation.org,
+ catalin.marinas@arm.com, will@kernel.org
+Cc: lorenzo.stoakes@oracle.com, ryan.roberts@arm.com,
+ Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com,
+ mhocko@suse.com, riel@surriel.com, harry.yoo@oracle.com, jannh@google.com,
+ willy@infradead.org, baohua@kernel.org, dev.jain@arm.com,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1766631066.git.baolin.wang@linux.alibaba.com>
+ <142919ac14d3cf70cba370808d85debe089df7b4.1766631066.git.baolin.wang@linux.alibaba.com>
+ <46d0b6bf-db7e-418f-a497-983db4d4d786@kernel.org>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <46d0b6bf-db7e-418f-a497-983db4d4d786@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260209_014314_831977_0A69DCC2 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,43 +73,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/02/2026 10:39, Beleswar Prasad Padhi wrote:
-> Hi all,
-> 
-> On 16/06/25 13:50, Beleswar Padhi wrote:
->> From: Sinthu Raja <sinthu.raja@ti.com>
+
+
+On 2/9/26 5:38 PM, David Hildenbrand (Arm) wrote:
+> On 12/26/25 07:07, Baolin Wang wrote:
+>> Similar to folio_referenced_one(), we can apply batched unmapping for 
+>> file
+>> large folios to optimize the performance of file folios reclamation.
 >>
->> This allows us to enable various peripherals in the TI OMAP family
->> platforms like AM571X-IDK, AM572X-IDK, AM574X-IDK, AM57XX-BEAGLE-X15,
->> AM57XX-EVM using the multi_v7_defconfig, instead of only with the
->> OMAP specific defconfigs.
-> 
-> 
-> [...]
-> 
+>> Barry previously implemented batched unmapping for lazyfree anonymous 
+>> large
+>> folios[1] and did not further optimize anonymous large folios or file- 
+>> backed
+>> large folios at that stage. As for file-backed large folios, the batched
+>> unmapping support is relatively straightforward, as we only need to clear
+>> the consecutive (present) PTE entries for file-backed large folios.
 >>
->> Signed-off-by: Sinthu Raja <sinthu.raja@ti.com>
->> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+>> Performance testing:
+>> Allocate 10G clean file-backed folios by mmap() in a memory cgroup, 
+>> and try to
+>> reclaim 8G file-backed folios via the memory.reclaim interface. I can 
+>> observe
+>> 75% performance improvement on my Arm64 32-core server (and 50%+ 
+>> improvement
+>> on my X86 machine) with this patch.
+>>
+>> W/o patch:
+>> real    0m1.018s
+>> user    0m0.000s
+>> sys     0m1.018s
+>>
+>> W/ patch:
+>> real    0m0.249s
+>> user    0m0.000s
+>> sys    0m0.249s
+>>
+>> [1] https://lore.kernel.org/ 
+>> all/20250214093015.51024-4-21cnbao@gmail.com/T/#u
+>> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+>> Acked-by: Barry Song <baohua@kernel.org>
+>> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
 >> ---
->> v2: Changelog:
->> Krzysztof:
->> 1. Updated commit message to call out which (and why) upstream boards
->> need these configs to be enabled.
->> 2. Used savedefconfig to correct the order of configs in the defconfig.
+>>   mm/rmap.c | 7 ++++---
+>>   1 file changed, 4 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/mm/rmap.c b/mm/rmap.c
+>> index 985ab0b085ba..e1d16003c514 100644
+>> --- a/mm/rmap.c
+>> +++ b/mm/rmap.c
+>> @@ -1863,9 +1863,10 @@ static inline unsigned int 
+>> folio_unmap_pte_batch(struct folio *folio,
+>>       end_addr = pmd_addr_end(addr, vma->vm_end);
+>>       max_nr = (end_addr - addr) >> PAGE_SHIFT;
+>> -    /* We only support lazyfree batching for now ... */
+>> -    if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
+>> +    /* We only support lazyfree or file folios batching for now ... */
+>> +    if (folio_test_anon(folio) && folio_test_swapbacked(folio))
+>>           return 1;
+> 
+> Right, the anon folio handling would require a bit more work in the
 > 
 > 
-> A gentle ping on this patch. All of the drivers are enabled as
-> modules in this patch and the existing review comments
-> have been addressed.
+>      } else if (folio_test_anon(folio)) {
 > 
-> Please help in a review/merge.
+> branch.
+> 
+> Do you intend to tackle that one as well?
+ >> I'll reply to the fixup.
 
-
-There are no full names next to the emails, so I cannot verify that you
-actually Cc-ed right people, but it just looks like you did not. If you
-do not Cc the intended maintainer, then the maintainer will not pick it
-up. Neither Arnd nor me are OMAP maintainers.
-
-Best regards,
-Krzysztof
+I'm not sure whether Barry has time to continue this work. If he does 
+not, I can take over. Barry?
 
