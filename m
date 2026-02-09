@@ -4,60 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 444A8E81BDA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 15:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E763FE81BDA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 15:44:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5VqpxsoivxoAEysOIEjzhEtCaEfoLPs/MzwZ/mDFB+I=; b=4Wnf2mQl29VVAqcGvJQE0ZjR+b
-	ERuKz4UcLMptxIWSkWMNc6T1/rr76aetyGEG+eD20Wc5wrtAjHz41j/uWdJEDziKrIyaxM1PEmTDf
-	IEqNrjChb0hGCcWD6ojwJTSvreSL9BUg4tRWZMf7al7mViVseDlQ5DGl5y+7jYbcXXXcmbv2U4oTz
-	+GvjrncZ7esMbiO1SCDUZoYCX8BMm2Z4hhZ/Jm+NTacO28CwMUU+sOBEnJSUYD66ru/tgYEBKmFU0
-	2E5bnbqAaAe53crvo1wsBhhqvMpRraa1v0b0sBURgGR+32/txzRom1/zKC9et8yvzzhoEQB9tggBo
-	zfnfStDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ThaQIr3JNpoVxnXPMSaLsN+fw1XVDahsQqIJe0btYaA=; b=YrIqt/hbklrl2Fq+xAi4evlkWq
+	i8OFOaeWRe1N5QqYYPYvfmwl5ksAsg33ZrlMPuOESPATPzw/5Q3RlTSQTLKxs+eDG0mhi3jGdNKMn
+	TAMarVjvPTdPApie12nvAIubcrQihbKpZnD3C5kIBwhHOQjaIoEhxMvsePRuyN17yDa2PIOHcTgBM
+	TAhc6J2GRYMsseOssZYJIik1W0nTL5QLnBwffDI4yDaO4AWN5y2JvPRZDCCVQ841BmzV8GLmlD9Xp
+	G2lfGzmX86bRIBdeNPAKXYYcxO/euGNxG+alX33uF0pvnC3LY48lLAcwbdx8mzTeXIW8e98n440Fv
+	JWlj9vnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpTQw-0000000FdB1-3RtY;
-	Mon, 09 Feb 2026 15:44:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpTQu-0000000Fd9b-37MO
+	id 1vpTRQ-0000000FdFS-23Lv;
+	Mon, 09 Feb 2026 15:44:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vpTRO-0000000FdF8-2p0f
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 15:44:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 40567339;
-	Mon,  9 Feb 2026 07:44:05 -0800 (PST)
-Received: from [10.57.52.189] (unknown [10.57.52.189])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FF653F740;
-	Mon,  9 Feb 2026 07:44:09 -0800 (PST)
-Message-ID: <d129d0cd-ac01-40e5-92b7-77518bf32b3b@arm.com>
-Date: Mon, 9 Feb 2026 15:44:07 +0000
+	Mon, 09 Feb 2026 15:44:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A343060138;
+	Mon,  9 Feb 2026 15:44:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38CA3C116C6;
+	Mon,  9 Feb 2026 15:44:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770651885;
+	bh=GvM3s2O65gK18I39hGtyeztUQDYF3w7gL7m0UjnQuUU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Yg2EXP+ILq2Rn3fxB8/j/piTRYrTNUkCe+a83cTkPyC/FMaEilXcQdwkNVESBrANc
+	 +CdInaoIS/MEi5p3dfJ3ebMk2/T5IMoWCyUrKMVIj04Rq3O9+glJ9hnl6cVNjSXF1a
+	 oOR53ceZ6rAxbCL97uM5NF+OvseHqBDZ2G8xSUPWt50zgXUIvRPVrj+26TYdKfoKa4
+	 CbXq43fRfONLa4N/rneSu/jcaNFhR4QS5iVUJXNBftu2Yr1+44V/thLRp2t4CTrSLx
+	 RKzC5s64Tqlv9JQEdotMQAOrk9l6Q3sCsHARe2sp29lYyPvhunXwyBOvVi5+nR1dYk
+	 av29WcKbKYhSA==
+Date: Mon, 9 Feb 2026 15:44:39 +0000
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>
+Subject: Re: [PATCH v4 2/2] firmware: arm_scmi: Implement
+ arm,no-completion-irq property
+Message-ID: <20260209-quixotic-offbeat-stork-f1d310@sudeepholla>
+References: <20260117010241.186685-1-marek.vasut+renesas@mailbox.org>
+ <20260117010241.186685-2-marek.vasut+renesas@mailbox.org>
+ <aW5ifVcxVf6uux3m@pluto>
+ <9175b8aa-18c6-4dc1-8904-c26fa1dc7428@mailbox.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] iommu/io-pgtable: Add support for Arm Mali v10+ GPUs
- page table format
-To: Boris Brezillon <boris.brezillon@collabora.com>,
- Liviu Dudau <liviu.dudau@arm.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Joerg Roedel <joro@8bytes.org>, Rob Clark <robin.clark@oss.qualcomm.com>,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- Karunika Choo <karunika.choo@arm.com>, Liviu Dudau <liviu@dudau.co.uk>
-References: <20260209112542.194140-1-liviu.dudau@arm.com>
- <0af5b5f3-912a-4f16-a68b-032617576537@arm.com> <aYngwtq_GtBYGjOC@e142607>
- <ac5c3df0-1d94-4a1c-9eec-a359096cfce5@arm.com> <aYn7obNImaI72MhK@e142607>
- <20260209163534.45b0ec7a@fedora>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260209163534.45b0ec7a@fedora>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_074417_055164_EF0A8039 
-X-CRM114-Status: GOOD (  24.74  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9175b8aa-18c6-4dc1-8904-c26fa1dc7428@mailbox.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,56 +79,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/02/2026 15:35, Boris Brezillon wrote:
-> On Mon, 9 Feb 2026 15:22:09 +0000
-> Liviu Dudau <liviu.dudau@arm.com> wrote:
+On Mon, Feb 09, 2026 at 11:53:19AM +0100, Marek Vasut wrote:
+> On 1/19/26 5:57 PM, Cristian Marussi wrote:
+> > On Sat, Jan 17, 2026 at 02:02:29AM +0100, Marek Vasut wrote:
+> > > Implement new property arm,no-completion-irq, which sets all SCMI
+> > > operation into poll mode. This is meant to work around uncooperative
+> > > SCP implementations, which do not generate completion interrupts.
+> > > This applies to mbox/shmem based implementations.
+> > > 
+> > > With this property set, such implementations which do not generate
+> > > interrupts can be interacted with, until they are fixed to generate
+> > > interrupts properly.
+> > > 
+> > > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> > > ---
+> > > Cc: Conor Dooley <conor+dt@kernel.org>
+> > > Cc: Cristian Marussi <cristian.marussi@arm.com>
+> > > Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+> > > Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> > > Cc: Rob Herring <robh@kernel.org>
+> > > Cc: Sudeep Holla <sudeep.holla@arm.com>
+> > > Cc: arm-scmi@vger.kernel.org
+> > > Cc: devicetree@vger.kernel.org
+> > > Cc: linux-arm-kernel@lists.infradead.org
+> > > Cc: linux-renesas-soc@vger.kernel.org
+> > > ---
+> > > V2: Drop no IRQ handling from SMC transport and update commit message
+> > > V3: Rename property from arm,poll-transport to arm,no-completion-irq
+> > > V4: No change
+> > > ---
+> > >   drivers/firmware/arm_scmi/common.h | 4 ++++
+> > >   drivers/firmware/arm_scmi/driver.c | 4 ++++
+> > >   2 files changed, 8 insertions(+)
+> > > 
+> > > diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+> > > index 7c35c95fddbaf..7c9617d080a02 100644
+> > > --- a/drivers/firmware/arm_scmi/common.h
+> > > +++ b/drivers/firmware/arm_scmi/common.h
+> > > @@ -235,6 +235,9 @@ struct scmi_transport_ops {
+> > >    *		      to have an execution latency lesser-equal to the threshold
+> > >    *		      should be considered for atomic mode operation: such
+> > >    *		      decision is finally left up to the SCMI drivers.
+> > > + * @no_completion_irq: Flag to indicate that this transport has no completion
+> > > + *		       interrupt and has to be polled. This is similar to the
+> > > + *		       force_polling below, except this is set via DT property.
+> > >    * @force_polling: Flag to force this whole transport to use SCMI core polling
+> > >    *		   mechanism instead of completion interrupts even if available.
+> > >    * @sync_cmds_completed_on_ret: Flag to indicate that the transport assures
+> > > @@ -254,6 +257,7 @@ struct scmi_desc {
+> > >   	int max_msg;
+> > >   	int max_msg_size;
+> > >   	unsigned int atomic_threshold;
+> > > +	bool no_completion_irq;
+> > >   	const bool force_polling;
+> > >   	const bool sync_cmds_completed_on_ret;
+> > >   	const bool atomic_enabled;
+> > > diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+> > > index 3e76a3204ba4f..f167194f7cf67 100644
+> > > --- a/drivers/firmware/arm_scmi/driver.c
+> > > +++ b/drivers/firmware/arm_scmi/driver.c
+> > > @@ -2735,6 +2735,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+> > >   	cinfo->is_p2a = !tx;
+> > >   	cinfo->rx_timeout_ms = info->desc->max_rx_timeout_ms;
+> > >   	cinfo->max_msg_size = info->desc->max_msg_size;
+> > > +	cinfo->no_completion_irq = info->desc->no_completion_irq;
+> > >   	/* Create a unique name for this transport device */
+> > >   	snprintf(name, 32, "__scmi_transport_device_%s_%02X",
+> > > @@ -3150,6 +3151,9 @@ static const struct scmi_desc *scmi_transport_setup(struct device *dev)
+> > >   	if (ret && ret != -EINVAL)
+> > >   		dev_err(dev, "Malformed arm,max-msg DT property.\n");
+> > > +	trans->desc.no_completion_irq = of_property_read_bool(dev->of_node,
+> > > +							      "arm,no-completion-irq");
+> > > +
+> > >   	dev_info(dev,
+> > >   		 "SCMI max-rx-timeout: %dms / max-msg-size: %dbytes / max-msg: %d\n",
+> > >   		 trans->desc.max_rx_timeout_ms, trans->desc.max_msg_size,
+> > 
+> > LGTM.
+> > 
+> > Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
 > 
->>>> Ultimately the role of this RFC is to start a discussion and to figure out a path
->>>> forward for CSF GPUs where we want now to tighen a bit the formats we support and
->>>> add PBHA and in the future we want to add support for v15+ page formats.  
->>>
->>> PBHA is definitely an area for discussion. AIUI there are out-of-tree
->>> patches floating about for CPU support, but it hasn't been upstreamed. I
->>> don't know if any serious attempt has been made to push it upstream, but
->>> it's tricky because the architecture basically just says "IMPLEMENTATION
->>> DEFINED" which means you are no longer coding to the architecture but a
->>> specific implementation - and there's remarkably little documentation
->>> about what PBHA is used for in practice.
->>>
->>> I haven't looked into the GPU situation with PBHA - again it would be
->>> good to have more details on how the bits would be set.  
->>
->> I have a patch series that adds support in Panthor to apply some PBHA bits defined
->> in the DT based on an ID also defined in the DT and passed along as a VM_BIND parameter
->> if you want to play with it. However I have no direct knowledge on which PBHA values
->> would make a difference on the supported platforms (RK3xxx for example).
+> Is there anything left to do with these patches, or can this now be picked
+> up ?
+> 
 
-So we need something better than a DT entry saying e.g. "ID 3 is bit
-pattern 0100". We need something that describes the actual behaviour of
-a PBHA value. Otherwise user space will end up needing to know the exact
-hardware platform it's running on to know what ID values mean.
+As I had mentioned here[1], I am happy with it and I will pick it up for
+v7.1 once I start collecting the patches after v7.0-rc1. It just came in after
+I had sent my PR to SoC team for v7.0
 
-> I don't know if that's what it's going be used for, but one very
-> specific use case I'd like to see this PBHA extension backed by is
-> "read-zero/write-discard" behavior that's needed for sparse bindings.
-> Unfortunately, I've not heard on any HW-support for that in older
-> gens...
+-- 
+Regards,
+Sudeep
 
-*This* is a good example of something useful that could be exposed. If
-the DT can describe that the hardware supports a
-"read-zero/write-discard" with a specific bit pattern, then we can
-advertise that to user space and provide a flag for VM_BIND which gives
-that behaviour. And user space can make good use of it.
-
-But from what I've heard the implementations tend to have something more
-like a hint-mechanism where it affects the behaviour of the caches but
-not the functional effect. This makes it much harder to expose to user
-space in a meaningful way because it's highly platform dependant what
-"don't allocate in the system level cache" actually means in terms of
-performance effects. But it's possible we could describe more of a usage
-based flag - i.e. "PBHA bits good for a tiler heap".
-
-Thanks,
-Steve
-
+[1] https://lore.kernel.org/all/aW5jwtoYCFs-Pzpk@bogus/
 
