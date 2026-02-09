@@ -4,81 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D07FAE81BD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 15:36:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A8B6E81BD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 15:40:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RZIZGvZ/o2HsETdnJ1Jt6Zc++Z0CCmxjUqsC4BXj3Is=; b=FQln2Zvvk+GVAE0ToTVmlqAoVn
-	wvSRJCkiBxQjgCaxTdahTiTsUzAJFHIUmNqIdjx3BhSI0zVclubMJVMS33358d4zCzgqFog9ST1tG
-	mnHouIaT1TCPIUYNe7RdME5uPQmWhweIFciEzbRM1Ksmc0BnzLCj7gfOUxP/OUovceoKqPwd8hDJe
-	4L769fjZdjwgxKMJ09j2mOp4qi3RmCDjHzpKo7PqaB6eyssFJJu9HRH2ruGuP1YijQnAA8m+uTzrb
-	OQCOss3Pr3+Tu4OG3GMHgCZHeSD5vBG7zW61WZrAlDw8GHvlLV+tG986hMYDVtj4wXQfBmrj9W+yi
-	UA5/gFEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aDz8atvRGi+5zRwzB5e64TtukIkeyPA7/zgUTWBzFvU=; b=Iu0Pw6AYsTm3sMSw1bGaVmVtjW
+	JIw8uEkiRX3KCZ63VrwB56T0wOFfM6HkgkdV84UOxuApP4JKDz/yODBGivr2z8SCX57QlavGgwkGy
+	19vokI5T64PjeZuKvqUCB6kfneE4Uxcj7GLnwhHxa5ndIJ2XQPvFaBzgUStKugjfIP84uTyPohliI
+	99oB3wYKCy14BpthjGnvSLig9DsQv0EU3aygh8ez6FDcqhoG9mEt6FbnprDNof+aSWV3HUE4JucQs
+	+aILUzbPppoOeQ7ggywjC+HIB4ojIk+Q4jXPLoJXykLBK5VmmPAtIEtshdn19Exm0BijhUwnaOuUV
+	A5/B2EAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpTJf-0000000Fca5-2ShU;
-	Mon, 09 Feb 2026 15:36:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vpTN8-0000000FctF-2HG0;
+	Mon, 09 Feb 2026 15:40:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpTJe-0000000FcZd-0kWZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 09 Feb 2026 15:36:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=RZIZGvZ/o2HsETdnJ1Jt6Zc++Z0CCmxjUqsC4BXj3Is=; b=IbbQTWcKwxxDSWHtfUa+HIvinj
-	JMoS2Mt7ka/5EZxO3g9o7r9BVE5USjMv2gUUkYHLk+tNjXlXfnPpEoUMiMalfoOiAogdgdMO5pamD
-	wn60bhTd4VhfNVXQnvN7iZ4u+FUJptt2oLoZaQmD/eM2dLPPsGMWTsTApQ4z+u3ZckRpnvVc7y8ny
-	c7TnfHcxueHlf07fML+Fht0jCjcApWulosFldaB66Um9Ot4KTH3adzhgV0b7sOtLQFjSDJZqmC2IS
-	Gu24fTaKHsKSXsslbD+Fc3hl9U+mkHu6ZGdBk48HkXi6kYi2mBrYZkdSJGZFxqVHi41ZDzWr3gHI9
-	sDoOC6sQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpTJa-0000000738U-24Ey
+	id 1vpTN7-0000000Fct5-2Lqw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 15:36:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 800B8339;
-	Mon,  9 Feb 2026 07:36:33 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 93DFE3F740;
-	Mon,  9 Feb 2026 07:36:34 -0800 (PST)
-Message-ID: <7a0953ff-6475-4311-b34c-47eed9d38cb1@arm.com>
-Date: Mon, 9 Feb 2026 15:36:32 +0000
+	Mon, 09 Feb 2026 15:40:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8D15260008;
+	Mon,  9 Feb 2026 15:40:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3742C116C6;
+	Mon,  9 Feb 2026 15:40:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770651620;
+	bh=5DRu3dMpaADpDKLopx8dO5LEkVz+35Fl6LlXv05MFMY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=E3giKneRdTIS8o5HAfKsCgyA3Vk576TJHuj27G++WpF4bVwo8cqDkL6Qmv+VYPGZ8
+	 cuixX8S9UWdGdgfLNEhjWW+EobdUEmwbMpxPsUxHYKe2KuU+agUKPUb/oWYn35b27L
+	 +GtecYO4Men19p1sVRPAWK38hPds7C0lkC1Rq2OvR9enQA/5TK2AbLY7olteRNqLCq
+	 xJz0El8ZBaNm7AuLJLQxUx/LZGECtS+u6RnXBYid20/LgnxlvkWnspo+l0HdqD8tw6
+	 cj29zBhNWE9FTbRHQQ2HoCrzcD3K5DGDHNgsfMuP9tHFWAvFpfgDJ/z1ciUy6p6Lr2
+	 MqqCGfPCz2Nig==
+Date: Mon, 9 Feb 2026 09:40:15 -0600
+From: Bjorn Andersson <andersson@kernel.org>
+To: Douglas Anderson <dianders@chromium.org>
+Cc: jassisinghbrar@gmail.com, Frank.Li@nxp.com, arm-scmi@vger.kernel.org, 
+	cristian.marussi@arm.com, festevam@gmail.com, imx@lists.linux.dev, 
+	jay.buddhabhatti@amd.com, jonathanh@nvidia.com, kernel@pengutronix.de, 
+	konradybcio@kernel.org, krzk@kernel.org, lenb@kernel.org, linux-acpi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-remoteproc@vger.kernel.org, linux-tegra@vger.kernel.org, mathieu.poirier@linaro.org, 
+	michal.simek@amd.com, nm@ti.com, rafael@kernel.org, robh@kernel.org, 
+	s.hauer@pengutronix.de, shawn.guo@linaro.org, ssantosh@kernel.org, 
+	sudeep.holla@kernel.org, tglx@kernel.org, thierry.reding@gmail.com
+Subject: Re: [PATCH v2 01/15] mailbox: Deprecate NULL mbox messages;
+ Introduce mbox_ring_doorbell()
+Message-ID: <yotr3aia3gra4jmlykqadqwi45lphhdyx7tt4n5cdwcungfpbd@gns6bb6m3vmz>
+References: <20260208040240.1971442-1-dianders@chromium.org>
+ <20260207200128.v2.1.I600d04c0553f5c5ba39c2f92201da313aedfe746@changeid>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 20/41] arm_mpam: resctrl: Add CDP emulation
-To: Fenghua Yu <fenghuay@nvidia.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
- zengheng4@huawei.com, linux-doc@vger.kernel.org,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-References: <20260203214342.584712-1-ben.horgan@arm.com>
- <20260203214342.584712-21-ben.horgan@arm.com>
- <2271224c-1796-4823-8c2c-6f529814e645@nvidia.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <2271224c-1796-4823-8c2c-6f529814e645@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_153642_918389_2AA4B8AB 
-X-CRM114-Status: GOOD (  22.89  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260207200128.v2.1.I600d04c0553f5c5ba39c2f92201da313aedfe746@changeid>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,128 +77,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fenghua,
-
-On 2/9/26 01:16, Fenghua Yu wrote:
-> Hi, Ben,
+On Sat, Feb 07, 2026 at 08:01:23PM -0800, Douglas Anderson wrote:
+> The way the mailbox core behaves when you pass a NULL `mssg` parameter
+> to mbox_send_message() is a little questionable. Specifically, the
+> mailbox core stores the currently active message directly in its
+> `active_req` field. In at least two places it decides that if this
+> field is `NULL` then there is no active request. That means if `mssg`
+> is ever NULL it will cause the mailbox core to think is no active
+> request. The two places where it does this are:
 > 
-> On 2/3/26 13:43, Ben Horgan wrote:
->> From: James Morse <james.morse@arm.com>
->>
->> Intel RDT's CDP feature allows the cache to use a different control value
->> depending on whether the accesses was for instruction fetch or a data
->> access. MPAM's equivalent feature is the other way up: the CPU assigns a
->> different partid label to traffic depending on whether it was instruction
->> fetch or a data access, which causes the cache to use a different control
->> value based solely on the partid.
->>
->> MPAM can emulate CDP, with the side effect that the alternative partid is
->> seen by all MSC, it can't be enabled per-MSC.
->>
->> Add the resctrl hooks to turn this on or off. Add the helpers that
->> match a
->> closid against a task, which need to be aware that the value written to
->> hardware is not the same as the one resctrl is using.
->>
->> Update the 'arm64_mpam_global_default' variable the arch code uses during
->> context switch to know when the per-cpu value should be used instead.
->> Also,
->> update these per-cpu values and sync the resulting mpam partid/pmg
->> configuration to hardware.
->>
->> Awkwardly, the MB controls don't implement CDP. To emulate this, the MPAM
->> equivalent needs programming twice by the resctrl glue, as resctrl
->> expects
->> the bandwidth controls to be applied independently for both data and
->> instruction-fetch.
->>
->> Tested-by: Gavin Shan <gshan@redhat.com>
->> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
->> Tested-by: Peter Newman <peternewman@google.com>
->> CC: Dave Martin <Dave.Martin@arm.com>
->> CC: Amit Singh Tomar <amitsinght@marvell.com>
->> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
->> Changes since rfc:
->> Fail cdp initialisation if there is only one partid
->> Correct data/code confusion
->>
->> Changes since v2:
->> Don't include unused header
->>
->> Changes since v3:
->> Update the per-cpu values and sync to h/w
->> ---
->>   arch/arm64/include/asm/mpam.h  |   1 +
->>   drivers/resctrl/mpam_resctrl.c | 117 +++++++++++++++++++++++++++++++++
->>   include/linux/arm_mpam.h       |   2 +
->>   3 files changed, 120 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/
->> mpam.h
->> index 05aa71200f61..70d396e7b6da 100644
->> --- a/arch/arm64/include/asm/mpam.h
->> +++ b/arch/arm64/include/asm/mpam.h
->> @@ -4,6 +4,7 @@
->>   #ifndef __ASM__MPAM_H
->>   #define __ASM__MPAM_H
->>   +#include <linux/arm_mpam.h>
->>   #include <linux/bitfield.h>
->>   #include <linux/jump_label.h>
->>   #include <linux/percpu.h>
->> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/
->> mpam_resctrl.c
->> index cd52ca279651..12017264530a 100644
->> --- a/drivers/resctrl/mpam_resctrl.c
->> +++ b/drivers/resctrl/mpam_resctrl.c
->> @@ -38,6 +38,10 @@ static DEFINE_MUTEX(domain_list_lock);
->>   static bool exposed_alloc_capable;
->>   static bool exposed_mon_capable;
->>   +/*
->> + * MPAM emulates CDP by setting different PARTID in the I/D fields of
->> MPAM0_EL1.
->> + * This applies globally to all traffic the CPU generates.
->> + */
->>   static bool cdp_enabled;
->>     bool resctrl_arch_alloc_capable(void)
->> @@ -50,6 +54,72 @@ bool resctrl_arch_mon_capable(void)
->>       return exposed_mon_capable;
->>   }
->>   +bool resctrl_arch_get_cdp_enabled(enum resctrl_res_level rid)
->> +{
->> +    switch (rid) {
->> +    case RDT_RESOURCE_L2:
->> +    case RDT_RESOURCE_L3:
->> +        return cdp_enabled;
->> +    case RDT_RESOURCE_MBA:
->> +    default:
->> +        /*
->> +         * x86's MBA control doesn't support CDP, so user-space doesn't
+> 1. When a client calls mbox_send_message(), if `active_req` is NULL
+>    then it will call the mailbox controller to send the new message
+>    even if the mailbox controller hasn't yet called mbox_chan_txdone()
+>    on the previous (NULL) message.
+> 2. The mailbox core will never call the client's `tx_done()` callback
+>    with a NULL message because `tx_tick()` returns early whenever the
+>    message is NULL.
 > 
-> s/x86's/ARM's/
-
-In CPUs supporting MPAM the instruction/data distinction is made at the
-CPU so doesn't depend on the specific control. The point this comment is
-trying to make is that as x86 doesn't support CDP on MBA, resctrl, which
-was initially x86 specific, expected CDP not to be supported on MBA and
-hence MPAM/ARM64 has to match this behaviour. Therefore, the MPAM driver
-doesn't support CDP on MBA either. In essence, the MPAM driver emulates
-the x86 CDP behaviour. Having said that, this comment relies on the
-reader knowing this historical context, and so I'll update it to not
-reference x86 and just mention that it is the expectation of the resctrl
-interface.
-
+> Though the above doesn't look like it was a conscious design choice,
+> it does have the benefit of providing a simple way to assert an
+> edge-triggered interrupt to the remote processor on the other side of
+> the mailbox. Specifically:
 > 
-> Thanks.
+> 1. Like a normal edge-triggered interrupt, if multiple edges arrive
+>    before the interrupt is Acked they are coalesced.
+> 2. Like a normal edge-triggered interrupt, as long as the receiver
+>    (the remote processor in this case) "Ack"s the interrupt _before_
+>    checking for work and the sender (the mailbox client in this case)
+>    posts the interrupt _after_ adding new work then we can always be
+>    certain that new work will be noticed. This assumes that the
+>    mailbox client and remote processor have some out-of-band way to
+>    communicate work and the mailbox is just being used as an
+>    interrupt.
 > 
-> -Fenghua
+> Doing a `git grep -A1 mbox_send_message | grep NULL` shows 14 hits in
+> mainline today, but it's not 100% clear if all of those users are
+> relying on the benefits/quirks of the existing behavior.
 > 
-> [SNIP]
+> Since the current NULL `mssg` behavior is a bit questionable but has
+> some benefits, let's:
+> 
+> 1. Deprecate the NULL behavior and print a warning.
+> 2. Add a new mbox_ring_doorbell() function that is very similar to the
+>    existing NULL `mssg` case but a tad bit cleaner.
+> 
+> The design of the new mbox_ring_doorbell() will be to maximize
+> compatibility with the old NULL `mssg` behavior. Specifically:
+> 
+> * We'll still pass NULL to the mailbox controller to indicate a
+>   doorbell.
+> * Doorbells will not be queued and won't have txdone.
+> * We'll call immediately into the mailbox controller when a doorbell
+>   is posted.
+> 
+> With the above, any mailbox clients that don't mix doorbells and
+> normal messages are intended to see no change in behavior when
+> switching to the new API. Using the new API, which officiall documents
+> that mbox_client_txdone() shouldn't be called for doorbells, does
+> allow us to remove those calls.
+> 
+> There are two differences in behavior between the old sending a NULL
+> message and the new mbox_ring_doorbell():
+> 
+> 1. If the mailbox controller returned an error when trying to send a
+>    NULL message, the old NULL message could have ended up being queued
+>    up in the core's FIFO. Now we will just return the error.
+> 2. If a client rings a doorbell while a non-doorbell message is in
+>    progress, previously NULL messages would have been "queued" in that
+>    case and now doorbells will be immediately posted.
+> 
+> I'm hoping that nobody was relying on either of the two differences.
+> In general holding NULL messages in the mailbox core's queue has odd
+> behavior and is hard to reason about. Hopefully it's reasonable to
+> assume nobody was doing this.
+> 
+> As mentioned above, it should be noted that it's now documented that
+> "txdone" shouldn't be called (by both mailbox drivers and clients) for
+> doorbells. That being said, in most cases it won't hurt since the
+> mailbox core will ignore the bogus "txdone". The only case where it's
+> critical for a mailbox controller not to call "txdone" for a doorbell
+> is when a mailbox channel mixes normal messages and doorbells and
+> cares about the txdone callback. Specifically, when you ring a
+> doorbell and immediately send a normal message, if the controller
+> calls "txdone" for the doorbell it could look as if the normal message
+> finished before it should have. This issue also would have happened
+> with the old NULL `mssg`, though.
+> 
+> Signed-off-by: Douglas Anderson <dianders@chromium.org>
 
-Thanks,
+I like how this cleans up the logic hacks, but perhaps even more so how
+it takes a step towards cleaning up the mailbox API when it comes to
+expectations between client and provider implementations.
 
-Ben
+Reviewed-by: Bjorn Andersson <andersson@kernel.org>
 
+Regards,
+Bjorn
 
