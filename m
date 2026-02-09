@@ -4,104 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DCCBE7E0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 16:46:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A15DEE7E0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 16:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cmy/Ly/aXsHQgzu/qcl33zGOHZYsPRhFpNl3iB5uL/U=; b=B3Hl63hqg2/ZaJObTp99wb4E+A
-	v2Ro13gS1YUgSmlKISbi+HT17gD1wJqoIybmHL+qVxSrQXZnTsxBuQHUFlN179tJeoKYnVUdYebuX
-	vvJzrDzrZDliwmyEb5JbaSjkkc/9fXnavS5cUqHK86IXsHw/03nQybipZNhcfZWJRldAgphe930ID
-	eISBsVxFFIsbj8BJ/6hOinTLXLsEHwW1YpW2gwvV6KJ8JPDycZtNgmkTo3TzvU+kX3H6QigpdNJKU
-	ARSmfLD22JEUDoAJLCCvPpsJZu3OXkSDATmnKYQMWo1CGoDmFeHBd3GHEkvXTfzEgFzNpmFqIQXxe
-	LJ3ERe+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zz3AMZ0HmTG5KFhjHjUTlb4v4iJbRMJpAGoMJExp25U=; b=BHiBzgxJqRjg+vPX1sTVleD51W
+	aeuBG01hh5H9FX5oB6gPGrOC2UbZQ89JnkLgxaT0TnMgIamshfplqyapPFkgFPmSLt72mF49pPlgW
+	apt+Yrowa8wAxxIyvoP/YnnFZrReRYd4IdSFiJjT9CKPCZS2IXDh2yAbr5YkxepgD8WKojg+74XJ8
+	Qu3h18+EQATLChkc1C7TyKm+wtTu24+nUN9lzy7MoWJT0zkw+wgo1OkYOBOi+0v+lOtNpLz93EgIB
+	ois4ufUgPMDkzM9HGSeTQAA5erTCgtQ7UsYBXC+yYE9/ecBohBMZOyS7gKUXKovUb8yxu0JotEGYj
+	yG24gBZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpUOs-0000000FiJz-1muW;
-	Mon, 09 Feb 2026 16:46:16 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1vpUXS-0000000FjHo-1yeh;
+	Mon, 09 Feb 2026 16:55:06 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpUOp-0000000FiI0-0hw7
+	id 1vpUXO-0000000FjGa-0TwK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 16:46:13 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b7cf4a975d2so625384466b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Feb 2026 08:46:10 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770655569; cv=none;
-        d=google.com; s=arc-20240605;
-        b=XliHZrpLtZIV1tpcFq4JBmBoADsRiWeA8X2NdJl7QZ8L9fhf/wXKB0TV43V3X4rmy0
-         9dv8B3FCSh73rGVaeDtSvKgeAtl4h6IkUO/l54ypVuGTmhiAhJP4Xgsj2KHRWW7pB2Rl
-         E+MqbXkkFP4XsScB5q5DMGjk8YfQDsSXP3/SYc11nC8Efih5qlFJt1QKTdHOMsHG14JM
-         A89r6w8YcF+W+VnryhBbF4fJXhNL14Qyqv78f9i0ic+WOZv/5Yi4wTqu9QE1rK6Z5MuU
-         rdZ87eO6OMK8+6jK9I0itFZtn5m1kQchkHOOMOoF5mz1jhouE91zyzBYHL+GdOPC6Yw8
-         K8SA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Cmy/Ly/aXsHQgzu/qcl33zGOHZYsPRhFpNl3iB5uL/U=;
-        fh=8Ntls/SAH5VY97BUrmMFPtaYIPHY0rQhbLzUY9aJYUA=;
-        b=LXb7k8PB09DbV0bhRGmB2VGtJi+SYxiUMT8JG/z8ftl6dyvTbYqtFqQoNI7aghUnMe
-         Os9MTSkPt+Sim+biCXv3mb1MD+UD62smtZmkamAHHDgLYIzAawrQwdzja6jEd138vT10
-         4QYVKDBuTrF9YAOwud1MA5Fx12r41UdWwlW061zANCu0uOmr/G4qD4PTvoBXf/XCdIXz
-         Z033o3YTBLXTi24Ed9ThFcIBy7nvyKjxN+45ZUrJLvS3haizfCptJfZj3uftg0mC4L6N
-         rFp/dRm8LCNvJicrw5n+34PMMTQCeSwq+qywU4v6SC5HgP7Q2mqMngHaK3AgbZ/QCVw9
-         VhpQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770655569; x=1771260369; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Cmy/Ly/aXsHQgzu/qcl33zGOHZYsPRhFpNl3iB5uL/U=;
-        b=H1CMJQpnVcXh32WGK4GUFbumBktkd5BKMY5uHpNURWL/7TL9BqB5NXXzLxzI6OcjYc
-         dSAleR4ATU9QzNveP37sFfYd7Mxl87ae5h/IdZglZLhSiCQ2hpgYJT1F5KlLanCkDl2W
-         j7vTaKRPihy8Q+mcmtYkAxFxsGqCRuL2vOTjrt1/Y7r3YqyjU8JtgK4P8DzKHJTJjoBa
-         jDF+O4Wzespn38qfmCLCFg7bs5F7M/TW9SFWvgt8uTZZTA2xH0yHgk89SxSDfF/wCpSw
-         GqP8Oh+ut8o6edRpnMB9DsEGzUJPdwhFpaPH0KpoOXbZs1VO5BFjp7454GYaTeMC7ocO
-         WWfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770655569; x=1771260369;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Cmy/Ly/aXsHQgzu/qcl33zGOHZYsPRhFpNl3iB5uL/U=;
-        b=VPG0zYWyFRNmwknu6L+9uAG58koJDacHIFy1/P6UIkGvcaj558QbA7vk/xywC1PdFz
-         YwKjkqBkKTru2kJufggT4uHBEDTn/HtCIQ7CZPuiX1PQQp30JUGgzzjP5DVDfNR+3YbB
-         sSJrff9DiI8FJNc3DFqdKhVO0VPHeFN/iFtM8qbezzGy9Oncyd04H8xT16CNB/9yeI1D
-         I/t1/EblfIN0ayQwwcxFZnjGx3Gso6n0+ctjiUt2POwa4X5YVv1+39LPnmHf6/kViUVv
-         EH82cwwrp6HBcaWSEnyu5ITMxKRuBVIN8rkDm+YUatJLQLd93q7qaS4s8UKY5tCbBF1Q
-         n3uw==
-X-Forwarded-Encrypted: i=1; AJvYcCVS6GYYxP9O5RjRfUMHzswM5kLg2PZVL26RTAzjj7bCwk+Zg84AJxP/5acELxtjI5aZP8ei6dUfAFcXVvQgfLOU@lists.infradead.org
-X-Gm-Message-State: AOJu0YykCWpK6Un9DsjEjmoI1EewTp4a3EG+bEC8q9Aec6PCCMry6dqn
-	/nIRq6BH0gdamYLt2rIgTrgKCJfGGmLNPAmApEMKXI9+ei6OVDIO9nWkzw/eQY4j6IDxfVTGjw0
-	U9zCj/KfiEM27MVnm65nj/LfkrfC70F1I6kQ7
-X-Gm-Gg: AZuq6aIvu1E6nrkDKbIanwPVV+mV5XWI8CQ7Ny35z/Ajz73E48taipk07iSuy+lXC6L
-	E+bGOO/JXzZ5qia81sTfYejH1TDSK3JHqWihczlRI9veD21QVOthd0Y/f74UD55PVzEV2nCLWhd
-	BxtSu5/UunooSdO6Lpl0BgKbSSqSTE9zUaO0SMqStJKPPCNNPy7uLbqMewrWV7Uh4IvqvzPfp1b
-	/coACp5TXJG/cmbmQC96v41eNBflGdfJyxmg0f3vucZeUCuUOS0uNEN9ePk+MxE/nYRxQ==
-X-Received: by 2002:a17:907:d94:b0:b88:73ea:a1d5 with SMTP id
- a640c23a62f3a-b8edf3ea285mr667122166b.51.1770655568900; Mon, 09 Feb 2026
- 08:46:08 -0800 (PST)
+	Mon, 09 Feb 2026 16:55:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1770656100;
+ bh=zz3AMZ0HmTG5KFhjHjUTlb4v4iJbRMJpAGoMJExp25U=;
+ b=Hdbz3Ga5GBQ6D5YxtGkIPBwqng2bnKwOPdzZma8go18pdwvMa5oyAwBeqQLurLw1yHzvq6oKR
+ qmeFyP24nBhZz8XADcSvNUMcgmKh1Aybo9pxdWnTsYHQxzhBfPYTDsXFPOsWOOZp7W/gfOMBbvG
+ i7BAsowKXWggXVI9Is3iZYoQ2ldSn22nudPgXiU8qVT7Nl7VFgezcP+3ckvGYNXqHqoteA/mXdx
+ 8UOW/j2CI2QmAWsLUhlTilN0a8pMGoTiWx3J1LmIiym8+hLtFjeYrXndsvp58jP2EGJNWSTLwNO
+ YGem51ALlZJ5xRh27wpstjOYR4QI1UnQrsriLkKRt1VA==
+X-Forward-Email-ID: 698a115f438a0e4c5804a258
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 2.6.3
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <e58ebe6e-1de7-4b72-bf5e-e93cc19e69fd@kwiboo.se>
+Date: Mon, 9 Feb 2026 17:54:51 +0100
 MIME-Version: 1.0
-References: <20260206122623.670023-1-l.scorcia@gmail.com> <e50c03af-309b-4a9e-99b9-048203e8acf8@collabora.com>
-In-Reply-To: <e50c03af-309b-4a9e-99b9-048203e8acf8@collabora.com>
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Date: Mon, 9 Feb 2026 17:45:57 +0100
-X-Gm-Features: AZwV_QiytXaAnMhcHoIRtNRAi7rG9xSgIkBTP_sI10eI0oNbM5rDJB87ycIrieI
-Message-ID: <CAORyz2+KLdn5YPOQ3LSj5tP3SdLTBEceFyah6tp62gjOAU230g@mail.gmail.com>
-Subject: Re: [PATCH] soc: mediatek: mtk-mmsys: Restore MT8167 routing masks
- lost during merge
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org, 
-	Matthias Brugger <matthias.bgg@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] arm64: dts: rockchip: Enable OTP controller for
+ RK3562
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "kever.yang@rock-chips.com" <kever.yang@rock-chips.com>,
+ "finley.xiao@rock-chips.com" <finley.xiao@rock-chips.com>,
+ "w@1wt.eu" <w@1wt.eu>
+References: <20260205212347.490636-1-heiko@sntech.de>
+ <20260205212347.490636-2-heiko@sntech.de>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20260205212347.490636-2-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_084611_294103_834A011D 
-X-CRM114-Status: UNSURE (   5.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260209_085502_468567_2357C55A 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,5 +83,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you! I'll post a V2 including the revised commit message.
+Hi Heiko,
+
+Thanks for including my RK3528 patches :-)
+
+On 2/5/2026 10:23 PM, Heiko Stuebner wrote:
+> Enable the One Time Programmable Controller (OTPC) in RK3562 and add
+> an initial nvmem fixed layout.
+> 
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3562.dtsi | 46 ++++++++++++++++++++++++
+>  1 file changed, 46 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3562.dtsi b/arch/arm64/boot/dts/rockchip/rk3562.dtsi
+> index f84676b47b27..07626dba21bf 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3562.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3562.dtsi
+> @@ -1093,6 +1093,52 @@ sdmmc1: mmc@ff890000 {
+>  			status = "disabled";
+>  		};
+>  
+> +		otp: otp@ff930000 {
+
+I noticed that the node names is not consistent for all three patches in
+this series.
+
+A quick grep at Linux src also suggest that efuse@ being the most common
+node name used for similar otpc/efuse, efuse is also listed under
+2.2.2 Generic Names Recommendation in DT spec.
+
+Maybe the nodes should be renamed to use efuse@ or something else?
+
+I am mostly concerned on what the name ends up as and how that may
+affect U-Boot in a future dts/upstream sync. U-Boot currently have
+limited otp nodes in soc u-boot.dtsi files for these SoCs.
+
+Regards,
+Jonas
+
+> +			compatible = "rockchip,rk3562-otp";
+> +			reg = <0x0 0xff930000 0x0 0x4000>;
+> +			clocks = <&cru CLK_USER_OTPC_NS>, <&cru PCLK_OTPC_NS>,
+> +				 <&cru PCLK_OTPPHY>, <&cru CLK_SBPI_OTPC_NS>;
+> +			clock-names = "otp", "apb_pclk", "phy", "sbpi";
+> +			resets = <&cru SRST_USER_OTPC_NS>, <&cru SRST_P_OTPC_NS>,
+> +				 <&cru SRST_P_OTPPHY>, <&cru SRST_SBPI_OTPC_NS>;
+> +			reset-names = "otp", "apb", "phy", "sbpi";
+> +
+> +			nvmem-layout {
+> +				compatible = "fixed-layout";
+> +				#address-cells = <1>;
+> +				#size-cells = <1>;
+> +
+> +				cpu_code: cpu-code@2 {
+> +					reg = <0x02 0x2>;
+> +				};
+> +
+> +				otp_cpu_version: cpu-version@8 {
+> +					reg = <0x08 0x1>;
+> +					bits = <3 3>;
+> +				};
+> +
+> +				otp_id: id@a {
+> +					reg = <0x0a 0x10>;
+> +				};
+> +
+> +				cpu_leakage: cpu-leakage@1a {
+> +					reg = <0x1a 0x1>;
+> +				};
+> +
+> +				log_leakage: log-leakage@1b {
+> +					reg = <0x1b 0x1>;
+> +				};
+> +
+> +				npu_leakage: npu-leakage@1c {
+> +					reg = <0x1c 0x1>;
+> +				};
+> +
+> +				gpu_leakage: gpu-leakage@1d {
+> +					reg = <0x1d 0x1>;
+> +				};
+> +			};
+> +		};
+> +
+>  		dmac: dma-controller@ff990000 {
+>  			compatible = "arm,pl330", "arm,primecell";
+>  			reg = <0x0 0xff990000 0x0 0x4000>;
+
 
