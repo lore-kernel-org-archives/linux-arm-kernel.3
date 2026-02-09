@@ -4,101 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 840ABE94615
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 22:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B08CE94617
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 23:00:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g+TvrkNSZE9ym2PFZpW4r5uQoR0rtxBqbUzuUkdsCDo=; b=1hI6gz8hLM+93WrAKSnDgEmVNe
-	835Gxjrh5j3oligWf1UklvR3n48cDeh5XnW7whWmuNXhl6siO52b/mzS3NikHsYh3zWvfe7ajhEXN
-	JhrMh8cI6kZ4M89P02RZIuNQJkSiUUZggQSwmxyAaFMvrr5Dowgn5fxTjQadbuThcybq7MwIxNeYH
-	Rwozb8hrzQztRZ1t0WIMKRvqV0jvOWtcE/2Y88WIw7eJDeDQmSZgW2dgboPJKHQE+ZDKqdlt2GP5A
-	rQI6OnB5mzRk9Zl9UM8Fz+fvj20fic52HJFxUpUfjAzsO38kQqlmlHZHjyXqW2jq30UWIshCjiQI0
-	QWr3Q+Mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iYW0SqMJNS4bRB896/eiQ4MkTxCi5/8qsUDejFpjIYg=; b=N4MdNAWPowSyGCu3Spiwt4MWxu
+	uXeyZ+TZvKSl8/zZiYT1SyG7NgnT0zLHoY7q27N8DzyfLgEOyn9Gpbuth3PMTsl0dhepBo5w8MEal
+	HJC0odJxzuv0A+YiQONIddv0MzEBeIU3wRMAjwUsepHLxf8hYxsTwacVDleYp27kjitAiSptTqkhK
+	irVFQB1Ye8/aye0gGmX9akmABm3xVRAP7ysc9Xh0yFHlNdBvJ9YRzssK662geUZ9yVS/5Bz4VybML
+	Zf5dj3k25fCKI9Sdi+L0ujelNN81Xl7BVN2KNQw4hHzYcEH8EYrQUc/0yIURb5GSMG8C43LS1tZvE
+	ZOVU5Y6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpa65-0000000G9dX-3ONk;
-	Mon, 09 Feb 2026 22:51:13 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1vpaFH-0000000GABO-2zQP;
+	Mon, 09 Feb 2026 23:00:43 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpa63-0000000G9d8-0BLE
+	id 1vpaFE-0000000GAAw-3pfa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 22:51:12 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-50145d27b4cso57908791cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Feb 2026 14:51:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770677469; x=1771282269; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=g+TvrkNSZE9ym2PFZpW4r5uQoR0rtxBqbUzuUkdsCDo=;
-        b=aHegG7AD1MmrHIg0NVsGegeJTD3bTNPXRgJHr5dv2JAOP9Hm9hnXhgErgEFRMk1Mpw
-         1RdHIxnJD/wq3aUDYbSIG7OuIZ6BZkRhY3Ph2KFWWAzDj4qaV9YlvpOmQSycwQcuv6ws
-         zd6F6v87eO8OJ2FnqEc5iaUidISi0xTwPB5CHSjrUQVQuNK1Ysye/A16FlK9B1PnFJJl
-         H2n/naA1LoXCkWWZfFIugJPrqGibDtP27uAZgtqiw+SN7sope4Nb84TB3lGsk7IN2b3H
-         oJ7SLTUpiDvCR+wQvYoq133YeTaZ93wLkNYYBYRH8iuxZL7yvCQhwDqR1ES2fd7QhGKy
-         9VcQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770677469; x=1771282269;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=g+TvrkNSZE9ym2PFZpW4r5uQoR0rtxBqbUzuUkdsCDo=;
-        b=MCQpdr/6HRCRtdPyp494eaMCNwouGznbYaKiV6RH73FmYKLjwWzJ9sCUDvPenOe7Yu
-         kvg+17kgHjEK7+uBeb00XXbWiai8Xoei9CwpG9OamKMcTQXe333h+a0iTjWjzNq/BKoI
-         b3/V7xnUeTeMu6EQye6qNiqJ+HLy+QKptnykVhkOx1MvcQbNzg/YSxctPhf8+4iopn+1
-         OH8hNzqDAB8dE2pKu6/qc6NsMIyVamQicuPrFY9nlfT1F4al4I8rIA7/D168dLQ+1Iuv
-         P5jFWi7qMkEgZREmhpkVeXgNkDgALlg+T89gaWST2CJT5VSJ5X4vIdz1efbjvi75nok8
-         g56Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUf+s6IKaXxKmp7MjrWbQYgMlTyjA+GKNKShQe5BHAVNc7z7UZPW4UKf/NOZoE+OH+/umHyzQu0gvCE70TP1uoP@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYyMCCnd+/ZnQLnv0hQmF62zxWmVD3SszIA/FLin0rxvUbol9a
-	IGtOJEpYtv9LURtk71HAQ1POQG4TQtuSAMr8WqfhsUIS4O17J0nePulW
-X-Gm-Gg: AZuq6aLMs/qgwYsArIDAhbbjsue4tDNt1IJmg6YDgJ/INWHpjFcSyWCuyQzh07XveC5
-	e7sr1gxLTP1ROlDGQD3buPzTDuZtpJuBV5Jabao4y/nsGs9ZMINGkxIJnXxvNTtBX07DXJzZ8/3
-	fLHA5Uj8qwc7WLeAWztfaVDbGn0bdK+DOJLJ1WKxPVdsBh/4qhdk+5HDY4K0s+XLwwdJo7i+9HI
-	aARCyFsyHAxJnHnPn0m0nJ7UjncCn6FmG6jI3k7KPDhmKHlJGLrrK0RZnIpER6u8V31mJy+mFZo
-	6czCdA8Lbbk45CBKqbGEeNSV7SER978UW3iuDhr5F7tl43REvFMzNoJva0+litjkFUuc5GonQqh
-	Mzw3lB9YhT8glL6ZdgFtns9atWQvuh9eTLqEJX7Y07H46qXNhVcpGrbQi9dPsxI8e1jBQK6sRqd
-	dHrrUN5aE8f/X379nZtCfaUkoAJfOt/ebsF7ShNyQA41LNdsQVtq7MGMNhn2GEBf1p8LMtRz+fu
-	6k=
-X-Received: by 2002:a05:622a:314:b0:4ee:4a8b:d9f6 with SMTP id d75a77b69052e-50639999b38mr165019831cf.59.1770677469375;
-        Mon, 09 Feb 2026 14:51:09 -0800 (PST)
-Received: from localhost.localdomain (h69-131-24-92.cntcnh.broadband.dynamic.tds.net. [69.131.24.92])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-50640c60b3csm87021861cf.8.2026.02.09.14.51.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Feb 2026 14:51:08 -0800 (PST)
-From: Jie Zhang <jzhang918@gmail.com>
-X-Google-Original-From: Jie Zhang <jie.zhang@analog.com>
-To: netdev@vger.kernel.org
-Cc: jzhang918@gmail.com,
-	jie.zhang@analog.com,
-	horms@kernel.org,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v3] net: stmmac: fix oops when split header is enabled
-Date: Mon,  9 Feb 2026 17:50:32 -0500
-Message-ID: <20260209225037.589130-1-jie.zhang@analog.com>
-X-Mailer: git-send-email 2.47.3
+	Mon, 09 Feb 2026 23:00:42 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 34B8363F;
+	Mon,  9 Feb 2026 23:59:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1770677992;
+	bh=aEa28yAFFKkaR2+a00Xs4xJ02fWqh/HxPq/wkNXx+xU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=A0D+n8k8HVrcAzI3CfEvd3K3M6OX18jdX2DjQrHqOzIeT+FO/s+ZcaC8S4QFCeODB
+	 8lVdwzRV9eJDfQwWVwwKbxl54po1kzRHm5VXUYzCtgBo0gvU07cDrckNlL8dWTmF+9
+	 UT1CJramAH5Xdt4jqbCOZhv4NArQOUnlvrZonuxY=
+Date: Tue, 10 Feb 2026 01:00:36 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Cc: Antoine Bouyer <antoine.bouyer@nxp.com>, julien.vuillaumier@nxp.com,
+	alexi.birlinger@nxp.com, daniel.baluta@nxp.com, peng.fan@nxp.com,
+	frank.li@nxp.com, mchehab@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [RFC v1 01/11] media: uapi: v4l2-isp: Add v4l2 ISP extensible
+ statistics definitions
+Message-ID: <20260209230036.GF2405149@killaraus.ideasonboard.com>
+References: <20260123080938.3367348-1-antoine.bouyer@nxp.com>
+ <20260123080938.3367348-2-antoine.bouyer@nxp.com>
+ <aYIb8ZIZDfCJZEZ9@zed>
+ <71b57f1c-be22-46a2-89a2-5abae11e0436@nxp.com>
+ <aYNEtmJwnAtYitHO@zed>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aYNEtmJwnAtYitHO@zed>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_145111_112848_CC99CAF2 
-X-CRM114-Status: GOOD (  17.83  )
+X-CRM114-CacheID: sfid-20260209_150041_124746_14189E62 
+X-CRM114-Status: GOOD (  61.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,79 +76,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For GMAC4, when split header is enabled, in some rare cases, the
-hardware does not fill buf2 of the first descriptor with payload.
-Thus we cannot assume buf2 is always fully filled if it is not
-the last descriptor. Otherwise, the length of buf2 of the second
-descriptor will be calculated wrong and cause an oops:
+On Wed, Feb 04, 2026 at 02:14:50PM +0100, Jacopo Mondi wrote:
+> On Wed, Feb 04, 2026 at 12:07:41PM +0100, Antoine Bouyer wrote:
+> > On 2/3/26 5:15 PM, Jacopo Mondi wrote:
+> > > On Fri, Jan 23, 2026 at 09:09:28AM +0100, Antoine Bouyer wrote:
+> > > > Extend the v4l2-isp extensible format introduced for isp parameters buffer
+> > > > to the statistics buffer as well.
+> > > >
+> > > > Like for ISP configuration purpose, that will help supporting various ISP
+> > > > hardware versions reporting different statistics data with less impact on
+> > > > userspace.
+> > > >
+> > > > The `v4l2_isp_stats_buffer` reuses the `v4l2_isp_params_buffer` container
+> > > > definitions, with similar header, versions and flags. V0 and V1 versions
+> > >
+> > > Why do you need two flags ?
+> > >
+> > > Params had to introduce two because we had two drivers already
+> > > mainlined using the pre-v4l2-isp version of extensible params which
+> > > had defined their version identifier as 1 and 0 and we didn't want to
+> > > break existing userspace using those identifiers. So we had to accept
+> > > both V0 and V1 as "first version of the v4l2-isp extensible parameters
+> > > format".
+> > >
+> > > For stats we don't have users, so I guess we can start with V1 == 0 ?
+> >
+> > I wanted to keep it aligned with params, so that any driver/userspace can
+> > use the same API version value for both params and stats buffers, and limit
+> > headache.
+> >
+> > > > are provided to match with params versions. On the other side, ENABLE and
+> > > > DISABLE flags are not really meaningfull for statistics purpose. So VALID
+> > > > and INVALID flags are introduced. Purpose is to force ISP driver to
+> > > > validate a statistics buffer, before it is consumed by userspace.
+> > >
+> > > Interesting. What do you mean with "validate a statistics buffer" ?
+> > > And if a driver has to do validation, why would it send upstream a
+> > > non-validated buffer ?
+> >
+> > Like for version, I wanted to keep same header structure, including flags.
+> > Since ENABLE/DISABLE is not relevant for statistics, I thought about using a
+> > "validation" flag, to force driver confirming statistics blocks are valid or
+> > not.
+> 
+> See the question on the documentation patches.
+> 
+> > If you feel it is useless, I'm fine with removing it. Should I keep a flag
+> > field anyway to stay aligned with params then ?
+> 
+> RkISP1 has support for both "legacy" and "extensible" formats because
+> it has been mainline for a long time with the legacy format only. We
+> couldn't simply replace the existing format with the new one because
+> we would break existing users.
+> 
+> All the other drivers that have been upstreamed with extensible only
+> (Amlogic C3 and Mali C55) do not expose a legacy format as there was
+> not prior version in mainline on which userspace might depend on.
+> 
+> Unless you have very convincing reason, I would certainly drop the
+> legacy format and only use extensible.
 
-Unable to handle kernel paging request at virtual address ffff00019246bfc0
-...
-x2 : 0000000000000040 x1 : ffff00019246bfc0 x0 : ffff00009246c000
-Call trace:
- dcache_inval_poc+0x28/0x58 (P)
- dma_direct_sync_single_for_cpu+0x38/0x6c
- __dma_sync_single_for_cpu+0x34/0x6c
- stmmac_napi_poll_rx+0x8f0/0xb60
- __napi_poll.constprop.0+0x30/0x144
- net_rx_action+0x160/0x274
- handle_softirqs+0x1b8/0x1fc
-...
+I agree with that, for upstream we shouldn't carry legacy formats in new
+drivers. I've read elsewhere in this thread that it won't cause issues,
+otherwise I would have recommended carrying an extra patch in the BSP
+kernel to implement legacy formats, and only use extensible formats
+upstream.
 
-To fix this, the PL bit-field in RDES3 register is used for all
-descriptors, whether it is the last descriptor or not.
+> > > > Signed-off-by: Antoine Bouyer <antoine.bouyer@nxp.com>
+> > > > ---
+> > > >   include/uapi/linux/media/v4l2-isp.h | 85 +++++++++++++++++++++++++++++
+> > > >   1 file changed, 85 insertions(+)
+> > > >
+> > > > diff --git a/include/uapi/linux/media/v4l2-isp.h b/include/uapi/linux/media/v4l2-isp.h
+> > > > index 779168f9058e..ed1279b86694 100644
+> > > > --- a/include/uapi/linux/media/v4l2-isp.h
+> > > > +++ b/include/uapi/linux/media/v4l2-isp.h
+> > > > @@ -99,4 +99,89 @@ struct v4l2_isp_params_buffer {
+> > > >        __u8 data[] __counted_by(data_size);
+> > > >   };
+> > > >
+> > > > +/**
+> > > > + * enum v4l2_isp_stats_version - V4L2 ISP statistics versioning
+> > > > + *
+> > > > + * @V4L2_ISP_STATS_VERSION_V0: First version of the V4L2 ISP statistics format
+> > > > + *                          (for compatibility)
+> > > > + * @V4L2_ISP_STATS_VERSION_V1: First version of the V4L2 ISP statistics format
+> > > > + *
+> > > > + * V0 and V1 are identical, and comply with V4l2 ISP parameters versions. So
+> > > > + * both V0 and V1 refers to the first version of the V4L2 ISP statistics
+> > > > + * format.
+> > > > + *
+> > > > + * Future revisions of the V4L2 ISP statistics format should start from the
+> > > > + * value of 2.
+> > > > + */
+> > > > +enum v4l2_isp_stats_version {
+> > > > +     V4L2_ISP_STATS_VERSION_V0 = 0,
+> > > > +     V4L2_ISP_STATS_VERSION_V1,
+> > >
+> > > As suggested I would make V1 == 0
+> > >
+> > > > +};
+> > > > +
+> > > > +#define V4L2_ISP_PARAMS_FL_BLOCK_VALID               (1U << 0)
+> > > > +#define V4L2_ISP_PARAMS_FL_BLOCK_INVALID     (1U << 1)
+> > > > +
+> > > > +/*
+> > > > + * Reserve the first 8 bits for V4L2_ISP_STATS_FL_* flag.
+> > > > + *
+> > > > + * Driver-specific flags should be defined as:
+> > > > + * #define DRIVER_SPECIFIC_FLAG0     ((1U << V4L2_ISP_STATS_FL_DRIVER_FLAGS(0))
+> > > > + * #define DRIVER_SPECIFIC_FLAG1     ((1U << V4L2_ISP_STATS_FL_DRIVER_FLAGS(1))
+> > > > + */
+> > > > +#define V4L2_ISP_STATS_FL_DRIVER_FLAGS(n)       ((n) + 8)
+> > >
+> > > Currently we have no users of V4L2_ISP_PARAMS_FL_DRIVER_FLAGS so we
+> > > could even consider making it a V4L2_ISP_FL_DRIVER_FLAGS
+> > >
+> > > Or do you think it is worth creating a new symbol ?
+> >
+> > To limit impact on potential on-going development, and future conflict,
+> > creating new symbol may be safer IMO. But I'm fine with using a single
+> > symbol if you prefer. Most probably this flag customization is not used yet
+> > by any driver.
+> >
+> > > > +
+> > > > +/**
+> > > > + * struct v4l2_isp_stats_block_header - V4L2 extensible statistics block header
+> > > > + * @type: The statistics block type (driver-specific)
+> > > > + * @flags: A bitmask of block flags (driver-specific)
+> > > > + * @size: Size (in bytes) of the statistics block, including this header
+> > > > + *
+> > > > + * This structure represents the common part of all the ISP statistics blocks.
+> > > > + * Each statistics block shall embed an instance of this structure type as its
+> > > > + * first member, followed by the block-specific statistics data.
+> > > > + *
+> > > > + * The @type field is an ISP driver-specific value that identifies the block
+> > > > + * type. The @size field specifies the size of the parameters block.
+> > > > + *
+> > > > + * The @flags field is a bitmask of per-block flags V4L2_STATS_ISP_FL_* and
+> > > > + * driver-specific flags specified by the driver header.
+> > > > + */
+> > > > +struct v4l2_isp_stats_block_header {
+> > > > +     __u16 type;
+> > > > +     __u16 flags;
+> > > > +     __u32 size;
+> > > > +} __attribute__((aligned(8)));
+> > > > +
+> > >
+> > > This is currently identical to v4l2_isp_params_block_header.
+> > >
+> > > Can we create a single header for both stats and params and provide a
+> > >
+> > > #define v4l2_isp_params_block_header v4l2_isp_block_header
+> > >
+> > > for maintaining compatibility with existing users ?
+> > >
+> > > Or do you expect stats and params to eventually need different headers ?
+> >
+> > Current approach is to use same structure definitions as for params. So I'm
+> > fine with creating a single header as suggested, and provide symbols to keep
+> > compatibility.
+> >
+> > > > +/**
+> > > > + * struct v4l2_isp_stats_buffer - V4L2 extensible statistics data
+> > > > + * @version: The statistics buffer version (driver-specific)
+> > > > + * @data_size: The statistics data effective size, excluding this header
+> > > > + * @data: The statistics data
+> > > > + *
+> > > > + * This structure contains the statistics information of the ISP hardware,
+> > > > + * serialized for userspace into a data buffer. Each statistics block is
+> > > > + * represented by a block-specific structure which contains a
+> > > > + * :c:type:`v4l2_isp_stats_block_header` entry as first member. Driver
+> > > > + * populates the @data buffer with statistics information of the ISP blocks it
+> > > > + * intends to share to userspace. As a consequence, the data buffer effective
+> > > > + * size changes according to the number of ISP blocks that driver intends to
+> > > > + * provide and is set by the driver in the @data_size field.
+> > > > + *
+> > > > + * The statistics buffer is versioned by the @version field to allow modifying
+> > > > + * and extending its definition. Driver shall populate the @version field to
+> > > > + * inform the userpsace about the version it intends to use. The userspace will
+> > > > + * parse and handle the @data buffer according to the data layout specific to
+> > > > + * the indicated version.
+> > > > + *
+> > > > + * For each ISP block that driver wants to report, a block-specific structure
+> > > > + * is appended to the @data buffer, one after the other without gaps in
+> > > > + * between. Driver shall populate the @data_size field with the effective
+> > > > + * size, in bytes, of the @data buffer.
+> > > > + */
+> > > > +struct v4l2_isp_stats_buffer {
+> > > > +     __u32 version;
+> > > > +     __u32 data_size;
+> > > > +     __u8 data[] __counted_by(data_size);
+> > > > +};
+> > > > +
+> > >
+> > > Same question. Should we introduce a struct v4l2_isp_buffer ?
+> >
+> > Yes, sounds reasonable.
 
-Fixes: ec222003bd94 ("net: stmmac: Prepare to add Split Header support")
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-Signed-off-by: Jie Zhang <jie.zhang@analog.com>
----
-v3:
-1. Fix build error
-v2:
-1. Update for the latest net HEAD
-2. Reduce crash dump message in commit message
-3. Add Fixes tag
-v1 link: https://lore.kernel.org/all/20251202025421.4560-1-jie.zhang@analog.com/
----
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 20 ++++++++++++++++---
- 1 file changed, 17 insertions(+), 3 deletions(-)
+That seems to make sense. Once we'll have a driver using
+v4l2_isp_stats_buffer the structure will become ABI. If it then is an
+exact copy of v4l2_isp_params_buffer, it would make sense to unify them.
+Let's see what will happen after a few review rounds, if we end up
+requiring separate fields in the stats buffer header.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index a379221b96a3..f98fd254315f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -5023,13 +5023,27 @@ static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
- 	if (!priv->sph_active)
- 		return 0;
- 
--	/* Not last descriptor */
--	if (status & rx_not_ls)
-+	/* For GMAC4, when split header is enabled, in some rare cases, the
-+	 * hardware does not fill buf2 of the first descriptor with payload.
-+	 * Thus we cannot assume buf2 is always fully filled if it is not
-+	 * the last descriptor. Otherwise, the length of buf2 of the second
-+	 * descriptor will be calculated wrong and cause an oops.
-+	 *
-+	 * If this is the last descriptor, 'plen' is the length of the
-+	 * received packet that was transferred to system memory.
-+	 * Otherwise, it is the accumulated number of bytes that have been
-+	 * transferred for the current packet.
-+	 *
-+	 * Thus 'plen - len' always gives the correct length of buf2.
-+	 */
-+
-+	/* Not GMAC4 and not last descriptor */
-+	if (priv->plat->core_type != DWMAC_CORE_GMAC4 && (status & rx_not_ls))
- 		return priv->dma_conf.dma_buf_sz;
- 
-+	/* GMAC4 or last descriptor */
- 	plen = stmmac_get_rx_frame_len(priv, p, coe);
- 
--	/* Last descriptor */
- 	return plen - len;
- }
- 
+It would also be nice to implement support for extensible stats in a
+second driver to test the API.
+
+> > > >   #endif /* _UAPI_V4L2_ISP_H_ */
+
 -- 
-2.47.3
+Regards,
 
+Laurent Pinchart
 
