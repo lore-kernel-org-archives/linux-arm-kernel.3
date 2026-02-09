@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47436E81BD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 14:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55BBFE81BD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 14:58:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pXk/RFXtqKy4JtiPBgMlsfT9eYOI8z9HAStJCbuiBzE=; b=34lFOirRCZq8vsxiocp13CgmZQ
-	N6iySZ2s0GrQe2dOS5zbkzwiKqqgiIY1ajl+s4p6+QTxn6Jv/ddS+1h3h3ULoU6SEb4g3J9lwKDUb
-	MyOMOIuisT/V89qqmI3+tTjzTwUn0cqMRxLyV9YQP4fOykv6LRN+azdQRIbk10mtcDgPBS4FM2Pub
-	h+AwjMLFyoPrcph2Zhrvhv8nt7N5D/FOunEhZQTR2Ql2aagOn5qoqVmtt1n36rkzHS4fJZoAv9wPn
-	0mvLjK+unHzoSWpLlZO4jq4F0Tu4CX6y+b7SYUFRId2a50fhut8LfjtDvV90aAbp4rKSAikqR3j4r
-	l2MAZ34g==;
+	bh=YiWnuQZWY7NenGu5J1mcaNlqJdD/4rhmAj8IYFTxjE4=; b=SyGpJP6CFh9Twno8HXozhbYgbs
+	wVGQmAqlbb4eFD5LKC0ja4+bIjdGAGD/PK2GXdI8I1yIro+q8WFK/xRf4CMh/SihukrMfyEe6B88A
+	1IC7dfoN5o/nz8WfZOPrLrW/FILP7B4XAAn0xfjyT8wZlFGb0BgV4ASHLVQjBCXOkOh0iVmbQOKp8
+	1RjL/zEdrVqwc0Mc12+i61KLI++NpqVm2f86sOlddEMk0HXBzE0iwoisTBz53Ulkg+nIA0qvmn3IV
+	npgP7QDmAaA1fZDdiFjBXS6b9nPprqOF0Nj+P4XoA2mY7Ichcq0abZh+s+c84TZdgMhVrXPFL9UTi
+	IK6zPEEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpShx-0000000FYF4-1MJY;
-	Mon, 09 Feb 2026 14:57:49 +0000
+	id 1vpSil-0000000FYVT-0QGY;
+	Mon, 09 Feb 2026 14:58:39 +0000
 Received: from verein.lst.de ([213.95.11.211])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpSht-0000000FYCx-44hM;
-	Mon, 09 Feb 2026 14:57:47 +0000
+	id 1vpSih-0000000FYTw-2Ajl;
+	Mon, 09 Feb 2026 14:58:37 +0000
 Received: by verein.lst.de (Postfix, from userid 2407)
-	id 444A168CFE; Mon,  9 Feb 2026 15:57:42 +0100 (CET)
-Date: Mon, 9 Feb 2026 15:57:41 +0100
+	id 43BDD68CFE; Mon,  9 Feb 2026 15:58:33 +0100 (CET)
+Date: Mon, 9 Feb 2026 15:58:32 +0100
 From: Christoph Hellwig <hch@lst.de>
 To: Yu Kuai <yukuai@fnnas.com>
 Cc: axboe@kernel.dk, kbusch@kernel.org, hch@lst.de, sagi@grimberg.me,
@@ -36,18 +36,18 @@ Cc: axboe@kernel.dk, kbusch@kernel.org, hch@lst.de, sagi@grimberg.me,
 	linux-nvme@lists.infradead.org, tj@kernel.org, nilay@linux.ibm.com,
 	ming.lei@redhat.com, neal@gompa.dev, asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/4] nvme-tcp: move blk_mq_update_nr_hw_queues after
+Subject: Re: [PATCH 3/4] nvme-apple: move blk_mq_update_nr_hw_queues after
  nvme_unfreeze
-Message-ID: <20260209145741.GB18315@lst.de>
-References: <20260209082953.3053721-1-yukuai@fnnas.com> <20260209082953.3053721-3-yukuai@fnnas.com>
+Message-ID: <20260209145832.GC18315@lst.de>
+References: <20260209082953.3053721-1-yukuai@fnnas.com> <20260209082953.3053721-4-yukuai@fnnas.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260209082953.3053721-3-yukuai@fnnas.com>
+In-Reply-To: <20260209082953.3053721-4-yukuai@fnnas.com>
 User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_065746_187351_9CEC4C81 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20260209_065835_696821_0557DE58 
+X-CRM114-Status: GOOD (  21.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,11 +62,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 09, 2026 at 04:29:51PM +0800, Yu Kuai wrote:
+On Mon, Feb 09, 2026 at 04:29:52PM +0800, Yu Kuai wrote:
 > blk_mq_update_nr_hw_queues() freezes and unfreezes queues internally.
-> When the queue is already frozen before this call, the freeze depth
-> becomes 2. The internal unfreeze only decrements it to 1, leaving the
-> queue still frozen when debugfs_create_files() is called.
+> When the queue is already frozen before this call (from nvme_start_freeze
+> in apple_nvme_disable), the freeze depth becomes 2. The internal unfreeze
+> only decrements it to 1, leaving the queue still frozen when
+> debugfs_create_files() is called.
 > 
 > This triggers WARN_ON_ONCE(q->mq_freeze_depth != 0) in
 > debugfs_create_files() and risks deadlock.
@@ -74,9 +75,26 @@ On Mon, Feb 09, 2026 at 04:29:51PM +0800, Yu Kuai wrote:
 > Fix this by moving nvme_unfreeze() before blk_mq_update_nr_hw_queues()
 > so the queue is unfrozen before the call, allowing the internal
 > freeze/unfreeze to work correctly.
+> 
+> Signed-off-by: Yu Kuai <yukuai@fnnas.com>
+> ---
+>  drivers/nvme/host/apple.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
+> index 15b3d07f8ccd..1835753ad91a 100644
+> --- a/drivers/nvme/host/apple.c
+> +++ b/drivers/nvme/host/apple.c
+> @@ -1202,8 +1202,8 @@ static void apple_nvme_reset_work(struct work_struct *work)
+>  
+>  	nvme_unquiesce_io_queues(&anv->ctrl);
+>  	nvme_wait_freeze(&anv->ctrl);
+> -	blk_mq_update_nr_hw_queues(&anv->tagset, 1);
+>  	nvme_unfreeze(&anv->ctrl);
+> +	blk_mq_update_nr_hw_queues(&anv->tagset, 1);
 
-Same comment as for rdma, otherwise:
+Looks good on it's own, but it would also good to align the
+apple driver with the PCI one here more.
 
 Reviewed-by: Christoph Hellwig <hch@lst.de>
-
 
