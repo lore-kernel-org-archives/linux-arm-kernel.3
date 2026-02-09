@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2628BEF070B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 05:18:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18A18EF06E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 05:30:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WKaXUq3DaiNK0DQDI2u2xtihsH2tJ5jcCt0V4tz36d4=; b=3/ppYfVaV33NaxNvsqvUkNiJSj
-	338oPpjUBks6w3+alXw5JWcLLVu7VsNoBPvhi624BLgcYDtx0v7dIsm3J/LJxac/bnED3N8mrFS0u
-	6CC5msxdaEFKZWTBFwBAYiH6jBytkD5TlxEgG5HxxVcBnhBfD7I8BHxyOANTYYJp0JJJi3YeMRL0P
-	Wlw1xywKGEYn8rvUUp+TEw8bZPLdPawdpBLLHxtM9S+neIkU85O9BhtWvOtcrWrn7aYpf7tk98slv
-	o+dF31CZQF0nd2HjiiKYP5+jGDW8GmEwRzJeejSPvzc5CcS44b/Pimomp0pANmMo0bIZvB4HzHgmu
-	/OAy7XXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6dmrWQTudHpALwT3TawG97teYoHjG5M4aiLA9OioLZY=; b=X4dKMWlwp4tE7kFUsKJ4an/Pp0
+	5jn7rP5m/K1SJKO5VCYS1incvoM2l/7EUfcuTi79pOQx0jgYEsv6iFzXT6hIMXcQXJk+3T/6jsQA4
+	+xsbiLw4VpvWb7+0TLivwbs3bUQdPbCrYGdU6asD/ML0vpoc/V0jgx2cGWfycC6rEvyxNdqNXHUA0
+	8rjeQDCpY6/cFJXHBvyQrGxUHja4ts7qdS0ZV5XbGJgBxi/moiV9mbAp7OPl0+ZXn/MNyLMtnwlDj
+	OCukFxOx5uV6UEKYnBJqwHeoRS/1gms6iJhU8G0pHuDsEuqZCz8heeRItwPwfoLdPZ9mncH9iJy8v
+	HaQ+1oQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpJfc-0000000EqWw-4AfV;
-	Mon, 09 Feb 2026 05:18:49 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vpJr0-0000000Eqsm-02Jk;
+	Mon, 09 Feb 2026 05:30:34 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpJfZ-0000000EqWV-22fx
+	id 1vpJqx-0000000EqsQ-2zgv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 05:18:48 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-01 (Coremail) with SMTP id qwCowADnjGgtbolp6gaCBw--.8544S2;
-	Mon, 09 Feb 2026 13:18:37 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: peng.fan@nxp.com
-Cc: andersson@kernel.org,
-	festevam@gmail.com,
-	frank.li@nxp.com,
-	imx@lists.linux.dev,
-	kernel@pengutronix.de,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org,
-	mathieu.poirier@linaro.org,
-	s.hauer@pengutronix.de,
-	Chen Ni <nichen@iscas.ac.cn>
-Subject: [PATCH v2] remoteproc: imx_rproc: Check return value of regmap_attach_dev() in imx_rproc_mmio_detect_mode()
-Date: Mon,  9 Feb 2026 13:14:07 +0800
-Message-Id: <20260209051407.1467660-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	Mon, 09 Feb 2026 05:30:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1770615029;
+	bh=6dmrWQTudHpALwT3TawG97teYoHjG5M4aiLA9OioLZY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=l/x8sllcZtMauYNiP7i2hFsaDm6Cf4hkRrM8IULcrqfkuZJ20brwg7LMhTDgbjxFa
+	 sY1GfpXZaGh0jzfG0fsDpyUS3Z2uRJKntB3NsBYrVKK9DUpNmz8b1FdeuttGWlxUrc
+	 sY24n13ylRuropENaRqlC3PbmhWJ6CbrxRYQh5vJSVVWWK8YRh6UMKccWGOs8V6lFN
+	 4ET+/+k5uai6rBDyZrBbTJ+6yWmrJvsttjaHo43dkiwGnhWCHOYETWMkQwK3+4sbjZ
+	 gYNIR0pCO2Nf99pKcYfhMaJvnB2sxIoiFTdh0t4+icdkwmuVhnqxig6K9Ig2cge0vJ
+	 QWpTv/ikTbJ0g==
+Received: from [192.168.68.117] (unknown [180.150.112.60])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id DFE816024E;
+	Mon,  9 Feb 2026 13:30:27 +0800 (AWST)
+Message-ID: <548c59f97704c934919e6d4f625579f17a350fac.camel@codeconstruct.com.au>
+Subject: Re: [PATCH 0/2] Add device tree for Asrock Paul IPMI Card
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Anirudh Srinivasan <anirudhsriniv@gmail.com>, Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley	 <joel@jms.id.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, Zev Weiss
+	 <zev@bewilderbeest.net>, Renze Nicolai <renze@rnplus.nl>
+Date: Mon, 09 Feb 2026 16:00:27 +1030
+In-Reply-To: <20260125-asrock-paul-v1-0-956085a4bd06@gmail.com>
+References: <20260125-asrock-paul-v1-0-956085a4bd06@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowADnjGgtbolp6gaCBw--.8544S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7Xw4fKFWkCFykWF4DJry3XFb_yoWkJFg_Ca
-	4akrW8X3W0vrW5C3WDZr4rAFWUtFy8ZF9Y9F4UtFZxJwn7XrnrAFWDZrnrZa1fXryqyr90
-	k34Svr47AFnrujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbTkFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW8WwCF04k20xvY0x0EwIxGrw
-	CFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE
-	14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
-	IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxK
-	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI
-	0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUBuWLUUUUU=
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260208_211845_923313_777D85CE 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20260208_213031_946903_18FB9D4D 
+X-CRM114-Status: UNSURE (   7.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,40 +74,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add error checking for regmap_attach_dev() call in
-imx_rproc_mmio_detect_mode() function to ensure proper error
-propagation.
+On Sun, 2026-01-25 at 15:00 -0600, Anirudh Srinivasan wrote:
+> Adds support for Asrock Paul IPMI Card [1], which is an AST2500 based
+> PCIe card that provides BMC functionality. The supported functionality
+> is similar to the Asus Kommando IPMI Card, support for which was sent
+> previously [2].
 
-Return the value of regmap_attach_dev() if it fails to prevent
-proceeding with an incomplete regmap setup.
+Due to ordering wrt other patches on the list this ended up with some
+minor conflicts in the binding and Makefile. I've fixed those up and
+applied it.
 
-Suggested-by: Peng Fan <peng.fan@nxp.com>
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
----
-Changes in v2:
-- Use dev_err() + return ret instead of dev_err_probe()
----
- drivers/remoteproc/imx_rproc.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Thanks,
 
-diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-index f5f916d67905..75baf905988b 100644
---- a/drivers/remoteproc/imx_rproc.c
-+++ b/drivers/remoteproc/imx_rproc.c
-@@ -1007,7 +1007,11 @@ static int imx_rproc_mmio_detect_mode(struct rproc *rproc)
- 	}
- 
- 	priv->regmap = regmap;
--	regmap_attach_dev(dev, regmap, &config);
-+	ret = regmap_attach_dev(dev, regmap, &config);
-+	if (ret) {
-+		dev_err(dev, "regmap attach failed\n");
-+		return ret;
-+	}
- 
- 	if (priv->gpr) {
- 		ret = regmap_read(priv->gpr, dcfg->gpr_reg, &val);
--- 
-2.25.1
-
+Andrew
 
