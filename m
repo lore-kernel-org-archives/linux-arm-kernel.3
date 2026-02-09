@@ -4,97 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AFCEF0702
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 03:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7E11EF0702
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 03:45:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TmldnmLhL9SqYkNgbH+pg//X2nCE1O776WGQ3GQgbFQ=; b=CceUOI5790hfnpftMmEI5cj6uB
-	iVWDZtNH3DU58R6uVrDgLZgFOLGFLwxVfna1ES5NGK2L/SDHk5TKWlOaMqFhQdiYY6his3WY8DWSB
-	crW11O2IgJyDmJEwYEC8qMUDx/bYlUIbLJWyRAQ0Phgnsk+b6USweF98FbCwX4gFOaC4HIIKbLDvb
-	tsmlFKwkkGEfxt7jcBvgKJEklKmfXSr5m0/LwASVdhapwa7dKwa/iquYPvgtG0sLHlzJnhFgwOa3x
-	yhCGkalzUZ1MIxsL7ArkxgsWYrQ3j1rL3dPjJwDIiUZHfkC0h+gnyFkJkN29cfY2qI6Ev7+0a/PfL
-	BtRit4JQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MaZdmBjGGNL4UWRwPlR/uxDmLMtlJHEPLeYzUdMSykg=; b=oyJe+E9pjs7BZttVoJZkaNHHWX
+	LnfZ0fpvrZk6oSlazOXLI/7zc37FEKteiCH7g5d1aL8ki5dgYYgNSRKmGknHRelUWQ7R6FehOU1r4
+	ztgpcFx2o3oVtH2U1hLJq7ofa4pW4zhTBNyjXpjDQDnOzPC4LYIkb9cQruaMjBBsYC7cZzeT0kxVn
+	ZRvaDmY44/QBIHBFm/lrqi1xrXW6+3enuJlRPQU14CS9awozGd17IJ/rKEgfkFMyN5D2c6d9lcgm4
+	dnDJY2aj/DpM6HSqU8UI+ZYRF8PmViIV9l69DcXcfuL5XIuoauUH71yIERJqhBHj2dvLghubGzz+M
+	H+s48JvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpI9M-0000000Emdt-3AgG;
-	Mon, 09 Feb 2026 03:41:24 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1vpID7-0000000Emst-2FFy;
+	Mon, 09 Feb 2026 03:45:17 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpI9J-0000000EmdC-2g4d
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 03:41:23 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-5029af2b4bcso20759871cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Feb 2026 19:41:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770608480; x=1771213280; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=TmldnmLhL9SqYkNgbH+pg//X2nCE1O776WGQ3GQgbFQ=;
-        b=mFPUn+Yrddwm2HN/jYal20SbFd4nyjMoLZsraNwBO1dhxnCHppBie+tnlijH5M3F/R
-         NG5qKrqY9SKjBF8wa0d7rcGScqdnYlxkPj6q15F2hy9QYLdi1NvtBVTgTiE2cPaIfV1y
-         rEmdHiNHTKtxjBGjO62cqy0Xg5l1Izp41skXgLpJ05mGq7BRnqcqL4pR8OgsT4FVM31E
-         O9tRYcNkHv4WLwvP5qaGdblatt9jPolhuZDmlDSeCt7SjQPFA+YswkypOe5SvJ3Za10H
-         0l+lVcNxHXjcYTiic9h80DybR1STdJIwpgtzNaS5oiqg0PDX/oUqft1Gfm6vDMs/NZ/I
-         0+hg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770608480; x=1771213280;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TmldnmLhL9SqYkNgbH+pg//X2nCE1O776WGQ3GQgbFQ=;
-        b=X41A6GJRNUFl71ka5v9M7NQ/QdPBeJm5q5uyQOMqqCiGjObAb+ogY88F/jWHr1skDH
-         6YrKtEzPKZrbY4L20Iaup/GH78ykbMSlcuLbuZnFEQUBUAio1d9YmSti7SZEQTO+CWKd
-         nmZ1dGpoKAnznELhrcwtg8RQ5K6VLPTaf3dfhL3Ori1z+YGII9SRocNp+Nq9h5aedYJB
-         TZErj9h5h8L15scjC3PYjE8G4RpZSj+I377BIBwfovKqRV928KbySHBDhVYH3MPiLXOS
-         /wvvxELNcy84Mvwtq3dCqe7rIWm1H9In+IVBJ7Z2Je59HvZm+c/E3UD6fhk/uR2BewUH
-         qfqA==
-X-Forwarded-Encrypted: i=1; AJvYcCUOqoQ9LittGiAf9359uHvp3CHgnaOvWNtnggkWMTlD9HgVvMFivuEr+kw2WqRjPTIV4ia9ezQLO86ypfX76Jok@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9I5+uRV0tFqYd7vIk7JGAeVxUKEIH/7oNBZ3XVcK2IytprhEF
-	DLk5GP0FcmhlQE8sTzSUYbKV5I+IyqOksuBPuwAWASx7OLfAbJw2zJzd
-X-Gm-Gg: AZuq6aKLp681tOAhMcvDu7X12/SOLwoYRK2xRjNW6shkfMVd0I4AY57KwCi3YiZj0Ph
-	BUBHBMm/nJj7k/z5T+21h06KSYpfShM05qjx66u0iZg66rlz1FJu4bgAJbkAjp2dOyRrtv22RR7
-	e+NK3PeVpkoxp5dTfTq6RDWH1T2qg2PlKB3NQZMfxTQPzXdSofFXrfLTOin3LQgfb8TUP+xu0rB
-	K52Sz4Tt7xoCNh67HTTmuBY2cimFw9Mrwo4rKWDjLbKV8ubytT6tE7v8YcD6DRMaGnesp0zZseC
-	7x6R9Kj8BOtPN/Q9EzazwVnOznHJiOO0+jGMHWPgAVtzp/sDgo98kbt9j7KExGY8jclp8zAND5H
-	oXh5DUfJOJM4sJTiqylA98V3QApswBBRhJhFhDeB/SAMRM70Wm92BVcMGEm2G3+sTVFgGN/eRAj
-	55xtCoa+eu90j6BbIIKJYq9WDZa68vGxuWEtmZtH0Qt6TDu1z17L++
-X-Received: by 2002:a05:622a:1386:b0:506:217e:b0e5 with SMTP id d75a77b69052e-50639675655mr130106381cf.0.1770608479777;
-        Sun, 08 Feb 2026 19:41:19 -0800 (PST)
-Received: from P5510 (h69-131-24-92.cntcnh.broadband.dynamic.tds.net. [69.131.24.92])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5063913ba7asm66837111cf.3.2026.02.08.19.41.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Feb 2026 19:41:19 -0800 (PST)
-Date: Sun, 8 Feb 2026 22:41:08 -0500
-From: Jie Zhang <jzhang918@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, jie.zhang@analog.com, horms@kernel.org,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] net: stmmac: fix oops when split header is enabled
-Message-ID: <aYlXVIqHfdOfcAAl@P5510>
-References: <20260206195643.11333-1-jie.zhang@analog.com>
- <aYZPUx2WrIkPmvIU@shell.armlinux.org.uk>
+	id 1vpICw-0000000Emrr-48H6;
+	Mon, 09 Feb 2026 03:45:16 +0000
+Received: from localhost (unknown [124.16.138.129])
+	by APP-05 (Coremail) with SMTP id zQCowABX7A85WIlpzTDbBw--.62243S2;
+	Mon, 09 Feb 2026 11:44:57 +0800 (CST)
+From: Chen Ni <nichen@iscas.ac.cn>
+To: dsimic@manjaro.org
+Cc: airlied@gmail.com,
+	andy.yan@rock-chips.com,
+	damon.ding@rock-chips.com,
+	dri-devel@lists.freedesktop.org,
+	heiko@sntech.de,
+	hjc@rock-chips.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	simona@ffwll.ch,
+	tzimmermann@suse.de,
+	Chen Ni <nichen@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] drm/rockchip: analogix_dp: Add missing error check for platform_get_resource()
+Date: Mon,  9 Feb 2026 11:31:23 +0800
+Message-Id: <20260209033123.1089370-1-nichen@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aYZPUx2WrIkPmvIU@shell.armlinux.org.uk>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowABX7A85WIlpzTDbBw--.62243S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtF43GFWDAw15AFWrKF4rXwb_yoWkGrX_K3
+	WxXr45Wr18ZrnYkw43Aw43uFZav3ZI9r4kWa10qFZ3tF1DJF15XFyFvr4Fva4Uta1xAFsx
+	G3WDXr4qgFnxAjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbf8FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
+	Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
+	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r48MxAIw28IcxkI7VAKI4
+	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
+	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjx
+	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20E
+	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
+	AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjm9aPUUUUU==
+X-Originating-IP: [124.16.138.129]
+X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260208_194121_691989_9C6C8E4A 
-X-CRM114-Status: GOOD (  36.25  )
+X-CRM114-CacheID: sfid-20260208_194507_402743_5AD0F345 
+X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,75 +89,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 06, 2026 at 08:30:11PM +0000, Russell King (Oracle) wrote:
-> On Fri, Feb 06, 2026 at 02:56:38PM -0500, Jie Zhang wrote:
-> > For GMAC4, when split header is enabled, in some rare cases, the
-> > hardware does not fill buf2 of the first descriptor with payload.
-> > Thus we cannot assume buf2 is always fully filled if it is not
-> > the last descriptor. Otherwise, the length of buf2 of the second
-> > descriptor will be calculated wrong and cause an oops:
-> > 
-> > Unable to handle kernel paging request at virtual address ffff00019246bfc0
-> > ...
-> > x2 : 0000000000000040 x1 : ffff00019246bfc0 x0 : ffff00009246c000
-> > Call trace:
-> >  dcache_inval_poc+0x28/0x58 (P)
-> >  dma_direct_sync_single_for_cpu+0x38/0x6c
-> >  __dma_sync_single_for_cpu+0x34/0x6c
-> >  stmmac_napi_poll_rx+0x8f0/0xb60
-> >  __napi_poll.constprop.0+0x30/0x144
-> >  net_rx_action+0x160/0x274
-> >  handle_softirqs+0x1b8/0x1fc
-> > ...
-> > 
-> > To fix this, the PL bit-field in RDES3 register is used for all
-> > descriptors, whether it is the last descriptor or not.
-> > 
-> > Fixes: ec222003bd94 ("net: stmmac: Prepare to add Split Header support")
-> > Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-> > Signed-off-by: Jie Zhang <jie.zhang@analog.com>
-> > ---
-> > v2:
-> > 1. Update for the latest net HEAD
-> > 2. Reduce crash dump message in commit message
-> > 3. Add Fixes tag
-> > v1 link: https://lore.kernel.org/all/20251202025421.4560-1-jie.zhang@analog.com/
-> 
-> I was trying to work out whether this was a re-post of a patch that had
-> already been merged and it was the result of someone inappropriately
-> re-posting old patches, or whether it was something to take seriously.
-> 
-> That is because of this in the patch:
-> 
-> > +	/* Not GMAC4 and not last descriptor */
-> > +	if (!priv->plat->has_gmac4 && (status & rx_not_ls))
-> 
-> Commit 26ab9830beab ("net: stmmac: replace has_xxxx with core_type"):
-> 
-> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-> index 99022620457a..151c81c560c8 100644
-> --- a/include/linux/stmmac.h
-> +++ b/include/linux/stmmac.h
-> ...
-> +       enum dwmac_core_type core_type;
-> ...
-> -       int has_gmac4;
-> 
-> So, has_gmac4 no longer exists, and hasn't done since October last
-> year.
-> 
-> Thus, it seems your patch has been generated against an old kernel.
-> As you are submitting for netdev, it is a good idea to ensure that
-> patches apply to the net-next tree and/or net tree depending on
-> which one you are targetting, and have been tested against that
-> tree.
-> 
-Thanks. This is a new version of the patch I sent last year. I tested
-the original version again the net tree. But I forgot to test the new
-version again. I just test it now on the latest net tree with other
-patches for our board. But Ethernet stops working. I'm trying to figure
-out what causes this new issue. After that I will send out a new version
-of this patch.
+Add missing error check for platform_get_resource() return value to
+prevent NULL pointer dereference when memory resource is not available.
 
-Jie
+Fixes: 718b3bb9c0ab ("drm/rockchip: analogix_dp: Expand device data to support multiple edp display")
+Cc: stable@vger.kernel.org
+Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+---
+Changes in v2:
+- Add Reviewed-by tag from Dragan Simic
+- Add Cc stable tag as suggested
+---
+ drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+index fdab71d51e2a..3f5be14010c1 100644
+--- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+@@ -461,6 +461,8 @@ static int rockchip_dp_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
+ 
+ 	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	if (!res)
++		return -EINVAL;
+ 
+ 	i = 0;
+ 	while (dp_data[i].reg) {
+-- 
+2.25.1
+
 
