@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F3A5E81BD9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 15:25:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4324BE81BD9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 15:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n4BzZkV7IZSA/6cO1gcoL8pcmNo5X2EanQn/RYhI+DQ=; b=OY0gbDMWhMpRJIlnp3onQ40GI6
-	OP+FSnPIsY53rktuULkBFK/LZESPjqayD9sqgBDqg4MpChbfJsOigeEcpqKts1m5K5lHcCJVvRvUh
-	x6WhA5gMqulrZUfOtIdPv9GEM8p4dYSNXBa1UpKEmOyPMFZy5WS9katMi/VqRUasDCeAjqfyVM/5V
-	5zf5tsXUqqCclBqgfUD16qAyv4kF29VzdxMLUz1+7JdCvUSm97OS74yaaD/oUgFkbOT03OhXYI3QR
-	Yqr9A0AB/X7EtSWrubZzdKt+yGjIgVV0S50fFt5oZzzu/p8+CNTpc6EhmAUrWzxPPOMXKz8yFw8x8
-	5VDJ++GA==;
+	bh=VKAxm9xBTz/eb5vio0bs+wXtV5RFUrrt3e+Gwjv2pKM=; b=b5S4gBvMFsn/6az7KjueDTba1T
+	lKQpwYzr6aNnh/oBrB13RMKpjfUXG8uRqFCSc35mypDeg0OmFOp1CIBZVN+4zy3BSNIgGWXIxYqcL
+	M7v0Wgu/r96sRYisRllpqQFf3b1W0vNcyU+fGdfyAe3e2Q3QCyd4oN8cwrQXqCWKRaADbPvzX6UG/
+	DfWmcXkp+e34F5TCwlDkA6K2dSDdIQ1V3yYFkNbdnui7r863xcbyMn/NIXNh+iKAjiM99CUkWR/dh
+	qOX88yPUpXa5qnsXbeWFsMFHya+ZpDS/FqYvScnAbaWv2PNxeBYtXhz9Vm4RA/2RP8QeIRNVh9w8m
+	5FuLCsag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpT91-0000000FbbL-45u2;
-	Mon, 09 Feb 2026 15:25:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vpTDZ-0000000Fbv4-2wlB;
+	Mon, 09 Feb 2026 15:30:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpT90-0000000FbbE-2xWx
+	id 1vpTDW-0000000Fbug-2isI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 15:25:46 +0000
+	Mon, 09 Feb 2026 15:30:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B294060131;
-	Mon,  9 Feb 2026 15:25:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67204C116C6;
-	Mon,  9 Feb 2026 15:25:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 03AAA43DAC;
+	Mon,  9 Feb 2026 15:30:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D09EC116C6;
+	Mon,  9 Feb 2026 15:30:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770650745;
-	bh=ma+Qb27JkLU5+aWKRXV2EHzborEgIJHMgEqcWWa8W+A=;
+	s=k20201202; t=1770651024;
+	bh=Syo2nfb/vozha/nQ+Z68XrYJGV/g5qSp+feAbh52S5c=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=seVIAz06FJ4S6JCLyie8xRn+U8cb0dC+kvxkBKZDdPdmuqerI9dlxrz9Fc73Lv9Iy
-	 ypwt9GfXGNmyLwO9XLvJvY6Yn6UM097mtI9XnJr70d0JWSHAuzqpePRqx8KvUonc4Z
-	 y9D6agHrhE0R4idt7VcL/E1JrZRuYb/shzlXsIK2IS+YGWaAE8FGU7gy5b9Jlu3ViD
-	 aFTIJ6m0Irb9C1p2tJrQNQsOkbOHr3EoXKjYX+koGcUcQlWcSWs6WYgDav03DyVZqD
-	 GZWjEY3lDVkOoBihyTt9zn3KfA51m4LczeE0W4M8YAMgZzU04Wzavb0jMoj6lBzwkW
-	 7TviaigilWwlw==
-Message-ID: <81cc2fb0-f6a6-45af-9463-c5138f742455@kernel.org>
-Date: Mon, 9 Feb 2026 16:25:35 +0100
+	b=SqdHMa6ZFYZMW0NCI/VHNQ+3jxq5oc3uR44Yls619P07hTcg6a1dhw/KkixDq0Sr5
+	 e8mHUOXynARMvuuKER6zcpH3G3iynnCyThJJqbhqpDXgLOIJczmXHKEMaTxwAflX3p
+	 hAwUsI92FpOd1FRHqOMpClOAjBgRsk239HIn1ryBntwXfQ68Ergt5NamWFz3W3ScFC
+	 UO+ku5KRR1u2jzVe2UTSX6c+cGs60PZqJAn2Y/tsd6n3KFR8ISRA7snvtMz7xpSDJl
+	 oNYWjoGFvVC2NKBr76yhLHc+gvEHDI5+OYwY9lGL36ZA0RZrjNrEcU6YATFpByrTnG
+	 2Vz7rH2ogi/Nw==
+Message-ID: <10f061c9-5c9a-4e8a-8790-a2a68b38ff33@kernel.org>
+Date: Mon, 9 Feb 2026 16:30:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/5] mm: rmap: support batched checks of the references
- for large folios
+Subject: Re: [PATCH v6 4/5] arm64: mm: implement the architecture-specific
+ clear_flush_young_ptes()
 To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org,
  catalin.marinas@arm.com, will@kernel.org
 Cc: lorenzo.stoakes@oracle.com, ryan.roberts@arm.com,
@@ -57,7 +57,7 @@ Cc: lorenzo.stoakes@oracle.com, ryan.roberts@arm.com,
  linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
 References: <cover.1770645603.git.baolin.wang@linux.alibaba.com>
- <12132694536834262062d1fb304f8f8a064b6750.1770645603.git.baolin.wang@linux.alibaba.com>
+ <ce749fbae3e900e733fa104a16fcb3ca9fe4f9bd.1770645603.git.baolin.wang@linux.alibaba.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -104,9 +104,12 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <12132694536834262062d1fb304f8f8a064b6750.1770645603.git.baolin.wang@linux.alibaba.com>
+In-Reply-To: <ce749fbae3e900e733fa104a16fcb3ca9fe4f9bd.1770645603.git.baolin.wang@linux.alibaba.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260209_073026_838045_F927DA90 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,32 +125,54 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 2/9/26 15:07, Baolin Wang wrote:
-> Currently, folio_referenced_one() always checks the young flag for each PTE
-> sequentially, which is inefficient for large folios. This inefficiency is
-> especially noticeable when reclaiming clean file-backed large folios, where
-> folio_referenced() is observed as a significant performance hotspot.
+> Implement the Arm64 architecture-specific clear_flush_young_ptes() to enable
+> batched checking of young flags and TLB flushing, improving performance during
+> large folio reclamation.
 > 
-> Moreover, on Arm64 architecture, which supports contiguous PTEs, there is already
-> an optimization to clear the young flags for PTEs within a contiguous range.
-> However, this is not sufficient. We can extend this to perform batched operations
-> for the entire large folio (which might exceed the contiguous range: CONT_PTE_SIZE).
+> Performance testing:
+> Allocate 10G clean file-backed folios by mmap() in a memory cgroup, and try to
+> reclaim 8G file-backed folios via the memory.reclaim interface. I can observe
+> 33% performance improvement on my Arm64 32-core server (and 10%+ improvement
+> on my X86 machine). Meanwhile, the hotspot folio_check_references() dropped
+> from approximately 35% to around 5%.
 > 
-> Introduce a new API: clear_flush_young_ptes() to facilitate batched checking
-> of the young flags and flushing TLB entries, thereby improving performance
-> during large folio reclamation. And it will be overridden by the architecture
-> that implements a more efficient batch operation in the following patches.
+> W/o patchset:
+> real	0m1.518s
+> user	0m0.000s
+> sys	0m1.518s
 > 
-> While we are at it, rename ptep_clear_flush_young_notify() to
-> clear_flush_young_ptes_notify() to indicate that this is a batch operation.
+> W/ patchset:
+> real	0m1.018s
+> user	0m0.000s
+> sys	0m1.018s
 > 
-> Reviewed-by: Harry Yoo <harry.yoo@oracle.com>
 > Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 > Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
 > ---
+>   arch/arm64/include/asm/pgtable.h | 11 +++++++++++
+>   1 file changed, 11 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 3dabf5ea17fa..a17eb8a76788 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -1838,6 +1838,17 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
+>   	return contpte_clear_flush_young_ptes(vma, addr, ptep, 1);
+>   }
+>   
+> +#define clear_flush_young_ptes clear_flush_young_ptes
+> +static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
+> +					 unsigned long addr, pte_t *ptep,
+> +					 unsigned int nr)
+> +{
+> +	if (likely(nr == 1 && !pte_cont(__ptep_get(ptep))))
+I guess similar cases where we should never end up with non-present ptes 
+should be updated accordingly.
 
-Thanks!
+ptep_test_and_clear_young(), for example, should never be called on 
+non-present ptes.
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
 Cheers,
