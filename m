@@ -4,68 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E98E9E7E0C3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 11:34:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEEE0E7E0CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 11:35:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GeaatGTazdImiT/XM1FnhJJRe6EeXeVkuzHwA/9Wk18=; b=P9tTthBq371/QZ4Zb4t7NBxTbd
-	t9uIUqk3buitKrVGVgzUeRobZ1tEInzj9YlzAJHGPBI3/WW7iuLuTb4cChN4l5clusTewKg6sBSvJ
-	q7UwF76SGhijSgN4VoG8F3XvynPb5rpVP90cLEjddDvxM2mpKJmFsas6kqeRoaPfKVLUVlahiAqkM
-	zuN8QgnZSMXL66tM2eGJhwq7e0e8JEha2ltL7EV21cRZGnTNP/h63TsQey6HVTTSSBwHl67mXUVKK
-	4EjzFRv42Keu2OFdr12rvbiIsgK9MJAztIj/G1uMGKoKNoBnwPErmf/fDYNdzU6sMz3w34Bhhsmv9
-	WKXuJSsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KAhQDNNsjcJwMAWm9FqeJTQdxQql2LGLlK6WWmFsjiI=; b=wn0d6bFnLt0nKSZowphpkenWAH
+	ELVvSNiP+TEXBDasay+DhOo8qZZ9AYvQbjpS814PKuZydKTxqn28ZDljs67HARBOYSqqpBWzBThuC
+	FHfrRLZ9+PisnEsMXF0BKg+1TFPVPiQhqj5a51XDr6MXzglw5+JKgBGuszHxU0Ctz0TiMBtfJFTgt
+	FxlrPl1dJYHNDcpSaHYvTU01MRtMcwBXSpeCCrTrJfh+4N+6uEwMnL3mRD7+YpUSJJQ17TCCAm5MY
+	IgsITgneFyQxxSORaFEhL5FOyu3EykrdY4c2hDcU4A4Q5/Y6QTEyP6APNy3iXAl33ziVUk2KhzQvF
+	4zyeYDdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpPXU-0000000FJ0G-29Bi;
-	Mon, 09 Feb 2026 11:34:48 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vpPYB-0000000FJ8P-0xYW;
+	Mon, 09 Feb 2026 11:35:31 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpPXS-0000000FIzX-1BBl;
-	Mon, 09 Feb 2026 11:34:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1770636883;
-	bh=4QrS573yngF8n4NJk1Mnael+xbLQy+ZP/mKMuKo0Ysc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WwrKdaXGqV2ja4v3TQhhSZpBckr3H70ZFVczJeL8EUXvlZNRaLuI6fQTTSG0CVVHW
-	 8lPe2ABwjsv3/lAwLiVYsRvnHYowhnbIKcImczfEuW9bQYiPha9vUAgel8vydBNojY
-	 MOjhtHgVXRPWHDWMw7/AP1BCtVv7+7RcIXv3oUfJZ9aytAHR+KC+iqdrfneufQf492
-	 2SxvFpjVn/4escftOJgZQO1kESdWPtZLsPBZjZ8PrfO60ABooWv6aPyA66ERArfUlJ
-	 qRIsqMwI+pXkBgU5j2WI203EaPGl1C4gYci4Rprc9CsNcN+xs2XDR7awRE/KMEXZ9w
-	 tbDXFgwbTrrfw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C60BA17E0699;
-	Mon,  9 Feb 2026 12:34:42 +0100 (CET)
-Message-ID: <3476c51b-9293-40f1-8b5c-9ac9802d7d97@collabora.com>
-Date: Mon, 9 Feb 2026 12:34:42 +0100
+	id 1vpPY8-0000000FJ7Z-1xsK
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Feb 2026 11:35:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1770636928; x=1802172928;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Xwaqb36Nvj3ZWe9RdJQ2KBhRmKitRe0XNRuCltuMInM=;
+  b=Ob+ZbWY+YsrUm2Qu+czKtC6KMzhtdVrzZ06lSWJ65LmVCTkTulANJF1O
+   8ape89+zVH9iR/Xfp9EB7ZkSVPlB/kt8PKNm7QyOnHbSdWzZ5oRVzTKLd
+   G/egh2TprWkxVv5eXzYMLqaIBCvWHJxkPZ2MpZC5p6UxCmHPmYFAIzu7a
+   AmH0NUyv4cpsraKEh9iEK6ikKmDozPWVGy2hbXAwz3dUaONVAsCRoHYdH
+   GFEnYP4D+jSYoSiOU8U8dKJclOIzQf5MtNq6F5gwggou7iPOAf6Lvf05U
+   iGEbtvDNznkjdSVw4tebMLKy0d101rRnwCHs7vDjd729D1OqFJrzXyKff
+   A==;
+X-CSE-ConnectionGUID: KT2ikYpUSgC/VMQvVOjUDA==
+X-CSE-MsgGUID: NugGstrEQz2M5pTidFjHPg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11695"; a="82388012"
+X-IronPort-AV: E=Sophos;i="6.21,282,1763452800"; 
+   d="scan'208";a="82388012"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Feb 2026 03:35:25 -0800
+X-CSE-ConnectionGUID: ZxoVSCP1Sv6TJkkP0NM1Qg==
+X-CSE-MsgGUID: XrdCgqgDQnK0u4xyIQwZog==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,282,1763452800"; 
+   d="scan'208";a="216051310"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.128])
+  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Feb 2026 03:35:17 -0800
+Date: Mon, 9 Feb 2026 13:35:14 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	linux-renesas-soc@vger.kernel.org,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Antonio Borneo <antonio.borneo@foss.st.com>,
+	Arnd Bergmann <arnd@arndb.de>, Boqun Feng <boqun.feng@gmail.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Konrad Dybcio <konradybcio@kernel.org>, Lee Jones <lee@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-iio@vger.kernel.org, linux-omap@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev, Mark Brown <broonie@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Waiman Long <longman@redhat.com>,
+	Wilken Gottwalt <wilken.gottwalt@posteo.net>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [RFC PATCH 0/4] hwspinlock: refactor headers into public
+ provider/consumer pair
+Message-ID: <aYnGcsK3jq2wrOHL@smile.fi.intel.com>
+References: <20260125184654.17843-6-wsa+renesas@sang-engineering.com>
+ <aXc7DxsqiCGdfzxi@smile.fi.intel.com>
+ <aXc-Zxw05XQLb1Dy@ninjato>
+ <aXdAB2bLTy6u8G8c@smile.fi.intel.com>
+ <aXdCBu6kzdw1NWay@ninjato>
+ <aXikZ5wc6bvgRqF6@ninjato>
+ <aYnBrN0JRCf9-UjB@ninjato>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: mfd: syscon: Add mt8516-syscfg
-To: Krzysztof Kozlowski <krzk@kernel.org>, Luca Weiss <luca@lucaweiss.eu>
-Cc: ~postmarketos/upstreaming@lists.sr.ht, Lee Jones <lee@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, phone-devel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20260206-mt8516-syscfg-syscon-v1-0-96dcb37acdb4@lucaweiss.eu>
- <20260206-mt8516-syscfg-syscon-v1-1-96dcb37acdb4@lucaweiss.eu>
- <20260207-tricky-strange-swan-6f11b0@quoll>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260207-tricky-strange-swan-6f11b0@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aYnBrN0JRCf9-UjB@ninjato>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_033446_490624_033112AC 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20260209_033528_564931_912ACA1D 
+X-CRM114-Status: GOOD (  21.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,59 +125,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 07/02/26 11:51, Krzysztof Kozlowski ha scritto:
-> On Fri, Feb 06, 2026 at 11:20:48AM +0100, Luca Weiss wrote:
->> Document the Mediatek mt8516-syscfg.
-> 
-> Which is what? What is syscfg block?
-> 
+On Mon, Feb 09, 2026 at 12:14:52PM +0100, Wolfram Sang wrote:
 
-Not sure this is really a SYSCFG block.
-
-This should be a GPIO controller range, which is split between IOCFG and EINT.
-Now, the legacy drivers are declaring the EINT iospace in the pinctrl node, and
-getting the GPIO controller (IOCFG) iospace from a regmap.
-
-I don't have any board with MT8516... but well, the really-right-thing to do
-would be to migrate that SoC off of the legacy driver, to the new-style one
-that *properly* takes two iospaces:
-"base" -> (0x10005000)
-"eint" -> (0x1000b000)
-
-Luca, if you've got such a board, could you please try to migrate this SoC out
-of the improper (but working good) driver and bindings?
-
-If not... well, I think this block is IOCFG, not SYSCFG...
-
-Cheers,
-Angelo
-
->>
->> Signed-off-by: Luca Weiss <luca@lucaweiss.eu>
->> ---
->>   Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
->>   1 file changed, 2 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
->> index e57add2bacd3..a67699f1faee 100644
->> --- a/Documentation/devicetree/bindings/mfd/syscon.yaml
->> +++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
->> @@ -91,6 +91,7 @@ select:
->>             - mediatek,mt8135-pctl-b-syscfg
->>             - mediatek,mt8173-pctl-a-syscfg
->>             - mediatek,mt8365-syscfg
->> +          - mediatek,mt8516-syscfg
+> > > > > Providers need it, especially the 'priv' member. Consumers won't see it.
+> > > > 
+> > > > But can't we make it opaque?
+> > > > 
+> > > > We may have getters and setters for the priv member...
+> > > 
+> > > I think we could do that.
+> > > 
+> > > Two drivers use the bank member, but only for the device
+> > > (lock->bank->dev). That can probably be refactored away, I'd guess.
+> > 
+> > I am willing to develop this series in the above direction. Before
+> > though, I'd like to know from hwspinlock maintainers if they agree to
+> > this refactoring in general.
 > 
-> Why aren't you placing it with all others mediatek,mt8516 syscons?
-> 
-> Why this is so generically called "syscfg", completely not looking like
-> a real name from datasheet unlike the others in this device.
-> 
-> You have entire commit msg to explain that.
-> 
-> Best regards,
-> Krzysztof
-> 
+> Moving maintainers from CC to To ;) Do you, in general, approve this
+> change to the headers? I think it is more modern and e.g. the mailbox
+> subsystem has a similar structure, a header for the client and a header
+> for the controller. And do you also prefer an opaque 'priv' member?
+
+I'm in To and I am fine with this change (but not sure if I'm anyhow
+a maintainer in the matter of the series).
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
 
