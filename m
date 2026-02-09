@@ -4,88 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2921FE94617
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 22:45:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 840ABE94615
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 22:51:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BFy5cWkNZY/+Xo/CLxFQ4IBzC+Kh2JxP1U3xs6wsvsc=; b=wIFwsxngRQ8HOfH8o45YUe4kZz
-	E2GoHeuQPmFCI6eny0oqbug5LgV3sY+pmh1Nb6Yrq6OuJJmU1iJ8EpvrMzDITxn/RDBYUy6pYXmSw
-	p+f7t2CVS/Y7muICLHg0/rboGFiudDYdtCfGUcWJHcsu/3V3qADV4ppQt/SzjenAqPiLWywI6Hx4n
-	3aeapf1BcBZ7f4hyv+42Ra1XJV7oO9v10+AlWTgqi6ZgRU/0MKNYAJKs6iVFBjrZTDYI8zTJRqSXy
-	yGyewv0yd3WKy3unNyMqKjjx7OBn5cj4dqp+YIWgEfD80ETQo9T4d7BatEMSm015zRRr6rEdNT89C
-	Rim8rBFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g+TvrkNSZE9ym2PFZpW4r5uQoR0rtxBqbUzuUkdsCDo=; b=1hI6gz8hLM+93WrAKSnDgEmVNe
+	835Gxjrh5j3oligWf1UklvR3n48cDeh5XnW7whWmuNXhl6siO52b/mzS3NikHsYh3zWvfe7ajhEXN
+	JhrMh8cI6kZ4M89P02RZIuNQJkSiUUZggQSwmxyAaFMvrr5Dowgn5fxTjQadbuThcybq7MwIxNeYH
+	Rwozb8hrzQztRZ1t0WIMKRvqV0jvOWtcE/2Y88WIw7eJDeDQmSZgW2dgboPJKHQE+ZDKqdlt2GP5A
+	rQI6OnB5mzRk9Zl9UM8Fz+fvj20fic52HJFxUpUfjAzsO38kQqlmlHZHjyXqW2jq30UWIshCjiQI0
+	QWr3Q+Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpa0I-0000000G9Gm-2nM2;
-	Mon, 09 Feb 2026 22:45:14 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1vpa65-0000000G9dX-3ONk;
+	Mon, 09 Feb 2026 22:51:13 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpa0F-0000000G9GF-1drm;
-	Mon, 09 Feb 2026 22:45:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1770677111; x=1802213111;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=tkWj3JgcbeYlPLHKSXUowNE5MSQz4gAoqclO6I2NS5M=;
-  b=jXu1ZV8e9zIY0ll8tAb5xyWlXTcpAATy8OdWPmfqKw4dpNq/O6w/gYmn
-   +2ta9sYUPVwNPvHuVmnn36+mRvrfkDl55IPN3Q91maXNWmDHSTdSOGSXl
-   fmJLzem3l/3B8M25iaBt3USgvmK15BNrcvtkZDRprvYqYdTkQKvAACYB8
-   kq9rL9EJ1OPutFsH6PIm7d8A9t1lcUt4VGscqJHnMMv/Yg3jQKwHLlD/c
-   bUFAKt8bZSZWcfGDMqt6kM8VAJPDqwftqxQpxkRHEqE/HR7hKBez9sovi
-   jUxBDV4MKQ/UikgdxFNgs4ZidlNypJA1uPY3tG/wAlJvAajQ3xO52zDDa
-   Q==;
-X-CSE-ConnectionGUID: 2NcZzyPmSTSazQDQI/HCKg==
-X-CSE-MsgGUID: 7ozHTBMtS7G4tCEQxFIHVQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11696"; a="89213180"
-X-IronPort-AV: E=Sophos;i="6.21,283,1763452800"; 
-   d="scan'208";a="89213180"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Feb 2026 14:45:06 -0800
-X-CSE-ConnectionGUID: hD8YfJwIQVewqJzeCu1T2w==
-X-CSE-MsgGUID: 0pEVhVq7QsGfJlBgGcnrwg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,283,1763452800"; 
-   d="scan'208";a="211031702"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 09 Feb 2026 14:45:01 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vpa03-00000000oNk-1EMJ;
-	Mon, 09 Feb 2026 22:44:59 +0000
-Date: Tue, 10 Feb 2026 06:44:17 +0800
-From: kernel test robot <lkp@intel.com>
-To: kyle-jk.liao@mediatek.com, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Quentin Perret <qperret@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	wsd_upstream@mediatek.com, rock.yeh@mediatek.com,
-	hungwen.chien@mediatek.com,
-	"kyle-jk.liao" <kyle-jk.liao@mediatek.com>
-Subject: Re: [PATCH] KVM: arm64: Allow module-owned pages in host stage-2
- range adjustment
-Message-ID: <202602100627.0HOjIqkT-lkp@intel.com>
-References: <20260209032421.1278325-1-kyle-jk.liao@mediatek.com>
+	id 1vpa63-0000000G9d8-0BLE
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Feb 2026 22:51:12 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-50145d27b4cso57908791cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Feb 2026 14:51:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770677469; x=1771282269; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=g+TvrkNSZE9ym2PFZpW4r5uQoR0rtxBqbUzuUkdsCDo=;
+        b=aHegG7AD1MmrHIg0NVsGegeJTD3bTNPXRgJHr5dv2JAOP9Hm9hnXhgErgEFRMk1Mpw
+         1RdHIxnJD/wq3aUDYbSIG7OuIZ6BZkRhY3Ph2KFWWAzDj4qaV9YlvpOmQSycwQcuv6ws
+         zd6F6v87eO8OJ2FnqEc5iaUidISi0xTwPB5CHSjrUQVQuNK1Ysye/A16FlK9B1PnFJJl
+         H2n/naA1LoXCkWWZfFIugJPrqGibDtP27uAZgtqiw+SN7sope4Nb84TB3lGsk7IN2b3H
+         oJ7SLTUpiDvCR+wQvYoq133YeTaZ93wLkNYYBYRH8iuxZL7yvCQhwDqR1ES2fd7QhGKy
+         9VcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770677469; x=1771282269;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=g+TvrkNSZE9ym2PFZpW4r5uQoR0rtxBqbUzuUkdsCDo=;
+        b=MCQpdr/6HRCRtdPyp494eaMCNwouGznbYaKiV6RH73FmYKLjwWzJ9sCUDvPenOe7Yu
+         kvg+17kgHjEK7+uBeb00XXbWiai8Xoei9CwpG9OamKMcTQXe333h+a0iTjWjzNq/BKoI
+         b3/V7xnUeTeMu6EQye6qNiqJ+HLy+QKptnykVhkOx1MvcQbNzg/YSxctPhf8+4iopn+1
+         OH8hNzqDAB8dE2pKu6/qc6NsMIyVamQicuPrFY9nlfT1F4al4I8rIA7/D168dLQ+1Iuv
+         P5jFWi7qMkEgZREmhpkVeXgNkDgALlg+T89gaWST2CJT5VSJ5X4vIdz1efbjvi75nok8
+         g56Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUf+s6IKaXxKmp7MjrWbQYgMlTyjA+GKNKShQe5BHAVNc7z7UZPW4UKf/NOZoE+OH+/umHyzQu0gvCE70TP1uoP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYyMCCnd+/ZnQLnv0hQmF62zxWmVD3SszIA/FLin0rxvUbol9a
+	IGtOJEpYtv9LURtk71HAQ1POQG4TQtuSAMr8WqfhsUIS4O17J0nePulW
+X-Gm-Gg: AZuq6aLMs/qgwYsArIDAhbbjsue4tDNt1IJmg6YDgJ/INWHpjFcSyWCuyQzh07XveC5
+	e7sr1gxLTP1ROlDGQD3buPzTDuZtpJuBV5Jabao4y/nsGs9ZMINGkxIJnXxvNTtBX07DXJzZ8/3
+	fLHA5Uj8qwc7WLeAWztfaVDbGn0bdK+DOJLJ1WKxPVdsBh/4qhdk+5HDY4K0s+XLwwdJo7i+9HI
+	aARCyFsyHAxJnHnPn0m0nJ7UjncCn6FmG6jI3k7KPDhmKHlJGLrrK0RZnIpER6u8V31mJy+mFZo
+	6czCdA8Lbbk45CBKqbGEeNSV7SER978UW3iuDhr5F7tl43REvFMzNoJva0+litjkFUuc5GonQqh
+	Mzw3lB9YhT8glL6ZdgFtns9atWQvuh9eTLqEJX7Y07H46qXNhVcpGrbQi9dPsxI8e1jBQK6sRqd
+	dHrrUN5aE8f/X379nZtCfaUkoAJfOt/ebsF7ShNyQA41LNdsQVtq7MGMNhn2GEBf1p8LMtRz+fu
+	6k=
+X-Received: by 2002:a05:622a:314:b0:4ee:4a8b:d9f6 with SMTP id d75a77b69052e-50639999b38mr165019831cf.59.1770677469375;
+        Mon, 09 Feb 2026 14:51:09 -0800 (PST)
+Received: from localhost.localdomain (h69-131-24-92.cntcnh.broadband.dynamic.tds.net. [69.131.24.92])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-50640c60b3csm87021861cf.8.2026.02.09.14.51.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Feb 2026 14:51:08 -0800 (PST)
+From: Jie Zhang <jzhang918@gmail.com>
+X-Google-Original-From: Jie Zhang <jie.zhang@analog.com>
+To: netdev@vger.kernel.org
+Cc: jzhang918@gmail.com,
+	jie.zhang@analog.com,
+	horms@kernel.org,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v3] net: stmmac: fix oops when split header is enabled
+Date: Mon,  9 Feb 2026 17:50:32 -0500
+Message-ID: <20260209225037.589130-1-jie.zhang@analog.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260209032421.1278325-1-kyle-jk.liao@mediatek.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_144511_526888_685FBE86 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20260209_145111_112848_CC99CAF2 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,83 +113,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+For GMAC4, when split header is enabled, in some rare cases, the
+hardware does not fill buf2 of the first descriptor with payload.
+Thus we cannot assume buf2 is always fully filled if it is not
+the last descriptor. Otherwise, the length of buf2 of the second
+descriptor will be calculated wrong and cause an oops:
 
-kernel test robot noticed the following build errors:
+Unable to handle kernel paging request at virtual address ffff00019246bfc0
+...
+x2 : 0000000000000040 x1 : ffff00019246bfc0 x0 : ffff00009246c000
+Call trace:
+ dcache_inval_poc+0x28/0x58 (P)
+ dma_direct_sync_single_for_cpu+0x38/0x6c
+ __dma_sync_single_for_cpu+0x34/0x6c
+ stmmac_napi_poll_rx+0x8f0/0xb60
+ __napi_poll.constprop.0+0x30/0x144
+ net_rx_action+0x160/0x274
+ handle_softirqs+0x1b8/0x1fc
+...
 
-[auto build test ERROR on kvmarm/next]
-[also build test ERROR on linus/master v6.19 next-20260209]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+To fix this, the PL bit-field in RDES3 register is used for all
+descriptors, whether it is the last descriptor or not.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/kyle-jk-liao-mediatek-com/KVM-arm64-Allow-module-owned-pages-in-host-stage-2-range-adjustment/20260209-112902
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git next
-patch link:    https://lore.kernel.org/r/20260209032421.1278325-1-kyle-jk.liao%40mediatek.com
-patch subject: [PATCH] KVM: arm64: Allow module-owned pages in host stage-2 range adjustment
-config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20260210/202602100627.0HOjIqkT-lkp@intel.com/config)
-compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260210/202602100627.0HOjIqkT-lkp@intel.com/reproduce)
+Fixes: ec222003bd94 ("net: stmmac: Prepare to add Split Header support")
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+Signed-off-by: Jie Zhang <jie.zhang@analog.com>
+---
+v3:
+1. Fix build error
+v2:
+1. Update for the latest net HEAD
+2. Reduce crash dump message in commit message
+3. Add Fixes tag
+v1 link: https://lore.kernel.org/all/20251202025421.4560-1-jie.zhang@analog.com/
+---
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 20 ++++++++++++++++---
+ 1 file changed, 17 insertions(+), 3 deletions(-)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202602100627.0HOjIqkT-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> arch/arm64/kvm/hyp/nvhe/mem_protect.c:513:53: error: use of undeclared identifier 'PKVM_MODULE_OWNED_PAGE'
-     513 |                         (state != PKVM_NOPAGE && state != (PKVM_NOPAGE | PKVM_MODULE_OWNED_PAGE)));
-         |                                                                          ^
-   1 error generated.
-
-
-vim +/PKVM_MODULE_OWNED_PAGE +513 arch/arm64/kvm/hyp/nvhe/mem_protect.c
-
-   492	
-   493	static int host_stage2_adjust_range(u64 addr, struct kvm_mem_range *range)
-   494	{
-   495		struct kvm_mem_range cur;
-   496		kvm_pte_t pte;
-   497		u64 granule;
-   498		s8 level;
-   499		int ret;
-   500		enum pkvm_page_state state;
-   501	
-   502		hyp_assert_lock_held(&host_mmu.lock);
-   503		ret = kvm_pgtable_get_leaf(&host_mmu.pgt, addr, &pte, &level);
-   504		if (ret)
-   505			return ret;
-   506	
-   507		if (kvm_pte_valid(pte))
-   508			return -EAGAIN;
-   509	
-   510		if (pte) {
-   511			state = get_host_state(hyp_phys_to_page(addr));
-   512			WARN_ON(addr_is_memory(addr) &&
- > 513				(state != PKVM_NOPAGE && state != (PKVM_NOPAGE | PKVM_MODULE_OWNED_PAGE)));
-   514			return -EPERM;
-   515		}
-   516	
-   517		for (; level <= KVM_PGTABLE_LAST_LEVEL; level++) {
-   518			if (!kvm_level_supports_block_mapping(level))
-   519				continue;
-   520			granule = kvm_granule_size(level);
-   521			cur.start = ALIGN_DOWN(addr, granule);
-   522			cur.end = cur.start + granule;
-   523			if (!range_included(&cur, range))
-   524				continue;
-   525			*range = cur;
-   526			return 0;
-   527		}
-   528	
-   529		WARN_ON(1);
-   530	
-   531		return -EINVAL;
-   532	}
-   533	
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index a379221b96a3..f98fd254315f 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -5023,13 +5023,27 @@ static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
+ 	if (!priv->sph_active)
+ 		return 0;
+ 
+-	/* Not last descriptor */
+-	if (status & rx_not_ls)
++	/* For GMAC4, when split header is enabled, in some rare cases, the
++	 * hardware does not fill buf2 of the first descriptor with payload.
++	 * Thus we cannot assume buf2 is always fully filled if it is not
++	 * the last descriptor. Otherwise, the length of buf2 of the second
++	 * descriptor will be calculated wrong and cause an oops.
++	 *
++	 * If this is the last descriptor, 'plen' is the length of the
++	 * received packet that was transferred to system memory.
++	 * Otherwise, it is the accumulated number of bytes that have been
++	 * transferred for the current packet.
++	 *
++	 * Thus 'plen - len' always gives the correct length of buf2.
++	 */
++
++	/* Not GMAC4 and not last descriptor */
++	if (priv->plat->core_type != DWMAC_CORE_GMAC4 && (status & rx_not_ls))
+ 		return priv->dma_conf.dma_buf_sz;
+ 
++	/* GMAC4 or last descriptor */
+ 	plen = stmmac_get_rx_frame_len(priv, p, coe);
+ 
+-	/* Last descriptor */
+ 	return plen - len;
+ }
+ 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.47.3
+
 
