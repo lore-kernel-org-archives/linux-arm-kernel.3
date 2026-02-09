@@ -4,54 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3605EF0702
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 03:06:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7666DEF06ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 03:26:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bi0BkSU0X7luO/eNKUDTo3OAk9c0hNwnUFQEUKPEsfw=; b=PP+K/CUNGWfPJImQrvQgzyQnhr
-	G8ItZ03A/dtGMquxJS6FB1nuZD14/49HmIzB+U4svqN3vZW0m7fpZSZMtmo9PdbvhkwbUlzndanhf
-	BCfGD0GgkayHVKgDcixQaMeQP/Ro2NwfyrpX1oDZnkbYRCnZnDy5A6YfjdW61pOmX1dBR2xFrNnfx
-	2xOd613tdBdkZhzTkHlW/V9KcX8hL0tRkDZczItX5IyHUPu6HophfFLNRXm6ngfZLhl0h6gpTN8RE
-	hvzjPXCAYPrWzvnuiPV1UUPxch/r1f/YXvxZslHoqmjBavnISvtGTqusOFcK67tGutqDK/5OzgpuW
-	YML140nQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zdf80m6iia5xIhe9PY6XN+0habe8icFkZYue+zSTHR4=; b=XVyviqbo/lRMZJ1siZhR1o8Z/l
+	Jpg755yohtJXDv9HSEoUR8lKFoUk8r/kKCR2h8L5bM1OFAn81zmm4oxRevheKrjuCzr//wYLmkV22
+	IERDOnq6iGEGY6sFNPLmCs7Yz4Zta8QdchLGlZYrcatXeNTknNWy48O8eDhBVsy/bNMC2Y2S82y2p
+	o3vTGOPAWPS4Q29C8NDoKCrdLR9t42qo7+7cEzKR+AXqrFJkNe6zDMunsDDXZw8LXksmRCCfFYtCS
+	RyUGGi5sjGHGAhX4O25GdzaKz+zmQVu6xBNlx3U0UhF4r2tkMXwA/24B8YvnTFVx+t/7et+f84lYV
+	TBnv6V8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpHau-0000000EkbM-1XJF;
-	Mon, 09 Feb 2026 03:05:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vpHuT-0000000Eluv-3ibA;
+	Mon, 09 Feb 2026 03:26:01 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpHas-0000000Ekb7-40nM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 03:05:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EFB1060008;
-	Mon,  9 Feb 2026 03:05:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C193C4CEF7;
-	Mon,  9 Feb 2026 03:05:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770606345;
-	bh=Bi0BkSU0X7luO/eNKUDTo3OAk9c0hNwnUFQEUKPEsfw=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
-	b=cG+sAeWyJWGwC/Aap7um1mW3FVa/saSM/1E0r2PdRfdLfatSgunijyvKcqeRKABt1
-	 9whi9FzkNVfIQ+TvxlYTn5HAgF+pnqN7B8G8sc+cq0+vrZ+IEjN+w4XE6xDPQAIE76
-	 VCBslV3UB40R6f+l6hQkpoi7dGX88W9ej+jud/nTyIyGgpW5ZUQ7/KHhJRu8mS6Qpp
-	 EnokLaUHyDKEkGtmoD/kh+zpbfxMklkxNIbByo8g1VXDH13xuzaw1WlHs/rN/ouozD
-	 p1xmIGCBlZlHOlA081oGTvSijWr3XLkgIlwuC/KeTiuT9PICZR1onuWPwB2nPtMzR5
-	 uvHk2B6DOXtIA==
-Content-Type: multipart/mixed; boundary="===============3409934204227450896=="
+	id 1vpHuR-0000000EluS-0Qcm;
+	Mon, 09 Feb 2026 03:26:00 +0000
+X-UUID: 082c0cba056711f1ad39f32c34db0b1c-20260208
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=zdf80m6iia5xIhe9PY6XN+0habe8icFkZYue+zSTHR4=;
+	b=HEwH8cDbsOEpF/LN5SZZNb0dhhP5j4F8rudHNj7qN21UmKhw/aN7zx0XxxVhUM74aK3D8SJ0AcAK3dmu5rS9nbQpDY7VH+QdeeJqYAV2dF3yG3maF6Vu6gNcMCsGiXl1FtH3BwuUWLvX/1tCI3rgN2N1+/BbR8UjyhFRcZVKLqo=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:8e93d860-8560-411d-a35b-16da45660f3e,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:89c9d04,CLOUDID:f765135b-a957-4259-bcca-d3af718d7034,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|123|836|888|898,TC:-5,Content:0|
+	15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 082c0cba056711f1ad39f32c34db0b1c-20260208
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
+	(envelope-from <kyle-jk.liao@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1702595252; Sun, 08 Feb 2026 20:25:50 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Mon, 9 Feb 2026 11:25:47 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Mon, 9 Feb 2026 11:25:47 +0800
+From: <kyle-jk.liao@mediatek.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey
+ Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Quentin
+ Perret <qperret@google.com>, Vincent Donnefort <vdonnefort@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>
+CC: <wsd_upstream@mediatek.com>, <rock.yeh@mediatek.com>,
+	<hungwen.chien@mediatek.com>, kyle-jk.liao <kyle-jk.liao@mediatek.com>
+Subject: [PATCH] KVM: arm64: Allow module-owned pages in host stage-2 range adjustment
+Date: Mon, 9 Feb 2026 11:24:13 +0800
+Message-ID: <20260209032421.1278325-1-kyle-jk.liao@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Message-Id: <7d3944c1d8ffe5ee6d52907d7227f8eb8b91f5aa2b705fe3eb0af23454b8b072@mail.kernel.org>
-In-Reply-To: <20260209023153.2661784-12-ankur.a.arora@oracle.com>
-References: <20260209023153.2661784-12-ankur.a.arora@oracle.com>
-Subject: Re: [PATCH v9 11/12] sched: add need-resched timed wait interface
-From: bot+bpf-ci@kernel.org
-To: ankur.a.arora@oracle.com,linux-kernel@vger.kernel.org,linux-arch@vger.kernel.org,linux-arm-kernel@lists.infradead.org,linux-pm@vger.kernel.org,bpf@vger.kernel.org
-Cc: arnd@arndb.de,catalin.marinas@arm.com,will@kernel.org,peterz@infradead.org,akpm@linux-foundation.org,mark.rutland@arm.com,harisokn@amazon.com,cl@gentwo.org,ast@kernel.org,rafael@kernel.org,daniel.lezcano@linaro.org,memxor@gmail.com,zhenglifeng1@huawei.com,xueshuai@linux.alibaba.com,joao.m.martins@oracle.com,boris.ostrovsky@oracle.com,konrad.wilk@oracle.com,ankur.a.arora@oracle.com,mingo@kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Mon,  9 Feb 2026 03:05:44 +0000 (UTC)
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260208_192559_160903_99F72CCE 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,39 +91,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============3409934204227450896==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+From: "kyle-jk.liao" <kyle-jk.liao@mediatek.com>
 
-> The wait is implemented via smp_cond_load_relaxed_timeout().
->
-> smp_cond_load_acquire_timeout() essentially provides the pattern used
-> in poll_idle() where we spin in a loop waiting for the flag to change
-> until a timeout occurs.
+The host_stage2_adjust_range() function triggers a WARN_ON when
+encountering pages marked as both PKVM_NOPAGE and PKVM_MODULE_OWNED_PAGE.
+This occurs when load_unaligned_zeropad() accesses memory that crosses
+page boundaries, where one of the pages is module-owned.
 
-This isn't a bug, but the commit message mentions smp_cond_load_acquire_timeout()
-when describing the poll_idle() pattern.
+Extend the check to accept pages with the PKVM_MODULE_OWNED_PAGE flag
+in addition to PKVM_NOPAGE, preventing spurious warnings during normal
+module memory access patterns.
 
-However, the code uses smp_cond_load_relaxed_timeout(), and the subsequent
-poll_idle() conversion (patch 12/12) also uses the relaxed variant via
-tif_need_resched_relaxed_wait().
-
-Should this say smp_cond_load_relaxed_timeout() instead of
-smp_cond_load_acquire_timeout() for consistency with the implementation?
-
-
+Signed-off-by: kyle-jk.liao <kyle-jk.liao@mediatek.com>
 ---
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/21810635323
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 49db32f3ddf7..baaabf4b5112 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -495,6 +495,7 @@ static int host_stage2_adjust_range(u64 addr, struct kvm_mem_range *range)
+ 	u64 granule;
+ 	s8 level;
+ 	int ret;
++	enum pkvm_page_state state;
+ 
+ 	hyp_assert_lock_held(&host_mmu.lock);
+ 	ret = kvm_pgtable_get_leaf(&host_mmu.pgt, addr, &pte, &level);
+@@ -505,8 +506,9 @@ static int host_stage2_adjust_range(u64 addr, struct kvm_mem_range *range)
+ 		return -EAGAIN;
+ 
+ 	if (pte) {
++		state = get_host_state(hyp_phys_to_page(addr));
+ 		WARN_ON(addr_is_memory(addr) &&
+-			get_host_state(hyp_phys_to_page(addr)) != PKVM_NOPAGE);
++			(state != PKVM_NOPAGE && state != (PKVM_NOPAGE | PKVM_MODULE_OWNED_PAGE)));
+ 		return -EPERM;
+ 	}
+ 
+-- 
+2.45.2
 
-AI-authorship-score: low
-AI-authorship-explanation: The commit follows standard kernel style with iterative improvements across 9 versions and reviewer feedback, consistent with human authorship.
-issues-found: 1
-issue-severity-score: low
-issue-severity-explanation: Minor commit message inaccuracy referencing wrong function name, no impact on code correctness or runtime behavior.
-
---===============3409934204227450896==--
 
