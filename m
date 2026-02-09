@@ -4,57 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FFE0E78D42
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 08:30:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43FE7E78D40
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 08:35:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D0Fx5A6x0QJXR2g7lvcn6Tcu3Z4Zu2XJjlnUcodUzHU=; b=2FUGxWj0wXiIoMtEPUjPKEBmtR
-	WWtCd2TF26a91GzoaU87aXU2bFs0FX9iJP/Cbbyl6CqaDFFGIQlwt+bdp+Z6nJRdbTm2P47ZfRu4s
-	cmOBucUdbTfTdA0t7l9qLKXX32Cno/KQuW/vHAWoRxu1amWiMF67YfwuninqAHrWbZpq4oGVpdlCG
-	fxHRz5at3rz4fl9M5zFPc9yT0ot/PpH70BS7f/SdOE3IqdJok9jkKCq9B9Ip6ZRyddpK6XNrcNeBD
-	vUGrk1QSYnd+bQaTfwvD8AlEUQeMUefWmoXKEEVkFsGMsGhY9o9AOUpdh3q8Bm6qEh8BTpJNqZZwP
-	sMJNUoag==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=o1b7RIKx9SG9rqe5Q+J+UEipoUBnibJMMTqbkHDlz+E=; b=pOBHi+kGouOd2AdLbxFbwEx1dv
+	FTfQgNjfcOK8SD4Xo65OPDQsNsa9bRrqbu1Oi9g1OnE1dEcs4CyjHcZ5r2DTRPC2Csb0BqX9NM+nB
+	vFNZ7tkp+9+40qtRqgTH8D/NtaB0Q6q6sIvalS9StN98Xdza4Q9XJeeMKK3eX0ix3ZgY8Nux6adfx
+	IVgPEwVRMP9JUw8xwCGGnk0nTHhPWoKeG3ZCi/V34XyX0CuvepY+dYit+kzt8MjVAP8ZcxZQg52Xn
+	e70ZvFHHoZ/blnRDQewr+LE9mp+xuHakPdqNoYYUFPxg7avpLfMoeo3ksW1ddXZRrjnP36f+sws4m
+	JZB+M78w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpMev-0000000F1qh-00wp;
-	Mon, 09 Feb 2026 08:30:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vpMjW-0000000F2p1-1Xw5;
+	Mon, 09 Feb 2026 08:35:02 +0000
+Received: from mail-pj1-x1041.google.com ([2607:f8b0:4864:20::1041])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpMet-0000000F1op-2Vhq;
-	Mon, 09 Feb 2026 08:30:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 07FAC600C4;
-	Mon,  9 Feb 2026 08:30:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B4E9C2BCB1;
-	Mon,  9 Feb 2026 08:30:11 +0000 (UTC)
-From: Yu Kuai <yukuai@fnnas.com>
-To: axboe@kernel.dk,
-	kbusch@kernel.org,
-	hch@lst.de,
-	sagi@grimberg.me,
-	sven@kernel.org,
-	j@jannau.net,
-	linux-block@vger.kernel.org,
-	linux-nvme@lists.infradead.org
-Cc: tj@kernel.org,
-	nilay@linux.ibm.com,
-	ming.lei@redhat.com,
-	neal@gompa.dev,
-	asahi@lists.linux.dev,
+	id 1vpMjU-0000000F2oA-2vCa
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Feb 2026 08:35:01 +0000
+Received: by mail-pj1-x1041.google.com with SMTP id 98e67ed59e1d1-354b20c1112so2048431a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Feb 2026 00:35:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770626099; x=1771230899; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=o1b7RIKx9SG9rqe5Q+J+UEipoUBnibJMMTqbkHDlz+E=;
+        b=M0nOxVZ1ldM+VEBl1WJ4xnuuIVa/LHM0AcrmTQM0fVFEYfGNy4S4z4zKrd9naUdSIQ
+         mlV2Ws3EfUuUEL9arc9KIkEwj2PWcpS+hX1NTXnY0tr4svds+fr6EPZeOYniJ4URxa27
+         gx7geL49guP21Dr2g340dlzG9q4yey5UByS6wTaw/sLvdZgF3vyVi2nvmnppnzNXFqpL
+         VGSdyUNXm38oHN6MHpLqDl/kudgUd6egDH/mJHVRQzNxNBx5qcc7dbw6O91o1lOKcYqx
+         FLTmtCVb8VSsuRtgbf7gHlHqkaSx2S7B0aQAW8tuQWLgYqS06N6/fzN/O7xmIdcauDat
+         Phhg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770626099; x=1771230899;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=o1b7RIKx9SG9rqe5Q+J+UEipoUBnibJMMTqbkHDlz+E=;
+        b=DErNmtOe7B6xEfB4KdXrXSxne55jCTOnuaE1egBMDkLPWKUtKCs2acdqk11wbrY3AB
+         nneFQJ0i1aEPKRd+HrC8w9Jr9m4dRa72Z234nU6cd9JmON7ckw1pewus+xMin6PEUK9z
+         5tzHi4VcfCyd9sun6qG6rGAKCLBt9Oigp+noeu3JOr+ruXt3Qb2DvxlOA2ScQtth1ub/
+         dKma5QIMB5UUwHS4zVQc/vzaaJpyYviHnST4qWv0W9YjEhxTvh3TDhdifcShC2m3qHK4
+         ycKcWdvreTvff4wp1ewPdV2Jynwz8hFOd9P7uVv133dMiQCfn0iwHiINukD7azQpVQJ1
+         8WoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVE4hjDRJYBu0a3wG6jFv7qe1tCeH70UEIaA7YiYwxKRoKO4lgleJVMTDdRdaJvEMKxJZCtjksOqMvI8Bl6UDiA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/bNJr+Aw8OircGRYeYyXjNSCNYfeWBk6p+VbdEgyHLTsCCkC5
+	JOIu9Qb5vyIFjHj/mxMXWyP8HttivXy6q4HtayEXSPnh7NZ7TcyVNVyb
+X-Gm-Gg: AZuq6aKYiUVq7vnc/sn7YatV77/6+kJd0op1jqyHfJZ0Sj33s3Z26Nwz+2oioZT3qwx
+	aaYG4og0kRg+EIoFqoV39FEB1LXqCFde+4TFUN2V/+FQoPcozJ0ihp6aaotPZSuaDrLII6VJvLi
+	/jYolPHnFxWpQ7UwAsVN/sCbFMV/dd9EUKMr/u4gWuyi9FK/HQpaKyciclS6I5C+wEg05k687FI
+	//T/QmJpaBqWN/ZIOu2BuV75iFrW/dXn1N5aykzPnDk1XJxk78XGuUeu62l4V2TkLusbkZwB1wQ
+	95ZK2UsUrtjjhMqFEFps5T1RNJ4+J0lUev2xEz79EMo8/8xEqSB0Ngev4WGQuRdmhrscqXYFQD1
+	Gan1GN7ka03Pf/1ZHLIz2xeZ98rh8sGuTC68J3vJcBJmRwJfku6HRjmhF3ZgdYGz2+Uba+1jntC
+	U=
+X-Received: by 2002:a17:90b:3811:b0:356:24f0:af0c with SMTP id 98e67ed59e1d1-35624f0b45bmr5484681a91.17.1770626099450;
+        Mon, 09 Feb 2026 00:34:59 -0800 (PST)
+Received: from wud ([111.4.10.77])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-354b21fbfabsm9748432a91.12.2026.02.09.00.34.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Feb 2026 00:34:59 -0800 (PST)
+From: Dylan Wu <fredwudi0305@gmail.com>
+To: Peter Chen <peter.chen@cixtech.com>,
+	Fugang Duan <fugang.duan@cixtech.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>
+Cc: cix-kernel-upstream@cixtech.com,
 	linux-arm-kernel@lists.infradead.org,
-	yukuai@fnnas.com
-Subject: [PATCH 4/4] blk-mq: use blk_queue_enter/exit to protect debugfs file creation
-Date: Mon,  9 Feb 2026 16:29:53 +0800
-Message-ID: <20260209082953.3053721-5-yukuai@fnnas.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260209082953.3053721-1-yukuai@fnnas.com>
-References: <20260209082953.3053721-1-yukuai@fnnas.com>
+	linux-kernel@vger.kernel.org,
+	fredwudi0305@gmail.com
+Subject: [PATCH] mailbox: cix: Add IRQF_NO_SUSPEND to mailbox interrupt
+Date: Mon,  9 Feb 2026 16:34:52 +0800
+Message-ID: <20260209083452.154983-1-fredwudi0305@gmail.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260209_003500_738193_2BF49711 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,58 +99,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace the freeze depth check with blk_queue_enter()/blk_queue_exit()
-which properly waits for the queue to be unfrozen and prevents new
-freezes while creating debugfs files. This provides correct
-synchronization without false warnings.
+During the system suspend process, device interrupts are masked in the
+noirq phase. However, SCMI often needs to exchange final messages with the
+firmware to complete the power-down transition. Without the IRQF_NO_SUSPEND
+flag, the mailbox ISR cannot run during this late stage, leading to SCMI
+communication timeouts and error messages like "SCMI protocol wait for
+resp timeout" during suspend.
 
-If the queue is dying (blk_queue_enter returns error), skip creating
-the debugfs files as the queue is being torn down anyway.
+Add the IRQF_NO_SUSPEND flag to the interrupt request to ensure the mailbox
+can continue to handle responses during the noirq stages of suspend and
+resume, thereby ensuring a reliable power state transition.
 
-Reported-by: Shinichiro Kawasaki <shinichiro.kawasaki@wdc.com>
-Closes: https://lore.kernel.org/all/aYWQR7CtYdk3K39g@shinmob/
-Signed-off-by: Yu Kuai <yukuai@fnnas.com>
+Signed-off-by: Dylan Wu <fredwudi0305@gmail.com>
 ---
- block/blk-mq-debugfs.c | 15 ++++++++++-----
- 1 file changed, 10 insertions(+), 5 deletions(-)
+ drivers/mailbox/cix-mailbox.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/block/blk-mq-debugfs.c b/block/blk-mq-debugfs.c
-index faeaa1fc86a7..03583d0d3972 100644
---- a/block/blk-mq-debugfs.c
-+++ b/block/blk-mq-debugfs.c
-@@ -613,11 +613,6 @@ static void debugfs_create_files(struct request_queue *q, struct dentry *parent,
- 				 const struct blk_mq_debugfs_attr *attr)
- {
- 	lockdep_assert_held(&q->debugfs_mutex);
--	/*
--	 * Creating new debugfs entries with queue freezed has the risk of
--	 * deadlock.
--	 */
--	WARN_ON_ONCE(q->mq_freeze_depth != 0);
- 	/*
- 	 * debugfs_mutex should not be nested under other locks that can be
- 	 * grabbed while queue is frozen.
-@@ -628,9 +623,19 @@ static void debugfs_create_files(struct request_queue *q, struct dentry *parent,
- 	if (IS_ERR_OR_NULL(parent))
- 		return;
+diff --git a/drivers/mailbox/cix-mailbox.c b/drivers/mailbox/cix-mailbox.c
+index 5bb1416c26a5..5e27c2bf3492 100644
+--- a/drivers/mailbox/cix-mailbox.c
++++ b/drivers/mailbox/cix-mailbox.c
+@@ -405,7 +405,7 @@ static int cix_mbox_startup(struct mbox_chan *chan)
+ 	int index = cp->index, ret;
+ 	u32 val;
  
-+	/*
-+	 * Avoid creating debugfs files while the queue is frozen, wait for
-+	 * the queue to be unfrozen and prevent new freeze while creating
-+	 * debugfs files.
-+	 */
-+	if (blk_queue_enter(q, 0))
-+		return;
-+
- 	for (; attr->name; attr++)
- 		debugfs_create_file_aux(attr->name, attr->mode, parent,
- 				    (void *)attr, data, &blk_mq_debugfs_fops);
-+
-+	blk_queue_exit(q);
- }
- 
- void blk_mq_debugfs_register(struct request_queue *q)
+-	ret = request_irq(priv->irq, cix_mbox_isr, 0,
++	ret = request_irq(priv->irq, cix_mbox_isr, IRQF_NO_SUSPEND,
+ 			  dev_name(priv->dev), chan);
+ 	if (ret) {
+ 		dev_err(priv->dev, "Unable to acquire IRQ %d\n", priv->irq);
 -- 
-2.51.0
+2.52.0
 
 
