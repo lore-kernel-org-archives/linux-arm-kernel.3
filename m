@@ -4,96 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B98CFE7E0C7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 11:15:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 360B0E7E0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 11:27:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hyJpfMLiM1wKpMBA2O+7vpAMxxFPZoy9mfo7m5xJgDI=; b=BPMvcyBgg09xtyzIYJplCbp7fA
-	YlD8V5hzqM8n/QoRl6bAKbM3KdogMORE+k57v/JqkEvBMkDLapT8G32Z3zmR7ttSfSvD5HxPUhJVk
-	ufVBeY2hqD08R8iW1Kf1ZiK1Pc2Q+b6Jw0sCIEdp1EvvFNvkI2U6ADI1ZrkdHGfQV5eCnfpTTSwtH
-	KqvjI1KwB9q9tgIgUN+Wg527LII9Dn9mib3zJs6xMcsXyvXVMNGCPnEcYydfzVe2NsNaDB5/jO/d0
-	YwRkCMg8RrS/WfFAh863biHOPrkYleb5Uc6EXXkuTCNeb3gxd5g8Sq631d6uX+YXxXJlW1q+QEagm
-	O8E+fDTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=84ms6hnyZ7UdoPV7dDYR0K2K/JXbDprMj6f0wjaO23o=; b=NSYAJomtH7zMQMfeE7FCv2cuSC
+	EeYTgDVjog7Pvc8HpNdeY2swWo7wwzsy6zGVWGiPM3cbvusrrxK9ylLA0WmAvUKlXWaUtF2pfyHrv
+	j62sYMeHo8T6co0z4cSKOlgtN1vZ3ezDFEULo0VUlqfnjgJ6u1FdFPR+eOv80CW5Vmyx9QYMc0noH
+	bhGl52hnWE9MO9Vbz0XkstCO3mBNk6dtfbLZFvkmsvHFHi2wSRz+qJAVKj2A3Tbk5jQaem1kwyZUb
+	scfakrk2GA+57l1azf6wcnqKiar7YigTkzhLuGMmw25iOJTZZRroO3jbXsesjb9LF/jDsfhTw+PWg
+	yJLk+zuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpPEK-0000000FHWR-1gdz;
-	Mon, 09 Feb 2026 11:15:00 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpPEG-0000000FHVx-46SC
+	id 1vpPQi-0000000FIR9-0LKP;
+	Mon, 09 Feb 2026 11:27:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vpPQf-0000000FIQk-1lEq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 11:14:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=hyJp
-	fMLiM1wKpMBA2O+7vpAMxxFPZoy9mfo7m5xJgDI=; b=k8VPT7hvskJ17pNTGk/p
-	OMUecbFTEQv8Q3W4Co99Lq0BZhs/NomreXe6Xrlxk2T42voNhbTUQl1jNoHJns8j
-	ehXryUyaUi3lJ+B4WVkq3K9s8XVt6QJlmVYeD4ngmlSojEp7lsJ/PLJsF4MsKDNj
-	bEve9pBnnmEn2pnjaOVhCUjCSXae0BJZYfhm7nu05rYE1vYq6Qh4hrmR9COFayUX
-	1YhnGJcKfaoMR00FaNv1ZG+r8cg5D2kUGIF2gBX+fqnYI2l0XrEAhOtfOgFIvAIG
-	0eybVyRgjShP2dHKMGSbwAQmGYaTB9ay5AXzTWOeEqOVDh94mir23iNibMod6Z+J
-	Nw==
-Received: (qmail 1143365 invoked from network); 9 Feb 2026 12:14:53 +0100
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 9 Feb 2026 12:14:53 +0100
-X-UD-Smtp-Session: l3s3148p1@2nmBP2JKPNgujnuv
-Date: Mon, 9 Feb 2026 12:14:52 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>
-Cc: linux-renesas-soc@vger.kernel.org,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Antonio Borneo <antonio.borneo@foss.st.com>,
-	Arnd Bergmann <arnd@arndb.de>, Boqun Feng <boqun.feng@gmail.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Konrad Dybcio <konradybcio@kernel.org>, Lee Jones <lee@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-omap@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev, Mark Brown <broonie@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Waiman Long <longman@redhat.com>,
-	Wilken Gottwalt <wilken.gottwalt@posteo.net>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [RFC PATCH 0/4] hwspinlock: refactor headers into public
- provider/consumer pair
-Message-ID: <aYnBrN0JRCf9-UjB@ninjato>
-References: <20260125184654.17843-6-wsa+renesas@sang-engineering.com>
- <aXc7DxsqiCGdfzxi@smile.fi.intel.com>
- <aXc-Zxw05XQLb1Dy@ninjato>
- <aXdAB2bLTy6u8G8c@smile.fi.intel.com>
- <aXdCBu6kzdw1NWay@ninjato>
- <aXikZ5wc6bvgRqF6@ninjato>
+	Mon, 09 Feb 2026 11:27:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 76DF9339;
+	Mon,  9 Feb 2026 03:27:33 -0800 (PST)
+Received: from e142607 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1D9553F740;
+	Mon,  9 Feb 2026 03:27:37 -0800 (PST)
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Boris Brezillon <boris.brezillon@collabora.com>,
+	Steven Price <steven.price@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	Karunika Choo <karunika.choo@arm.com>,
+	Liviu Dudau <liviu@dudau.co.uk>
+Subject: [RFC PATCH] iommu/io-pgtable: Add support for Arm Mali v10+ GPUs page table format
+Date: Mon,  9 Feb 2026 11:25:42 +0000
+Message-ID: <20260209112542.194140-1-liviu.dudau@arm.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aXikZ5wc6bvgRqF6@ninjato>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_031457_382248_D77A1DF3 
-X-CRM114-Status: GOOD (  16.69  )
+X-CRM114-CacheID: sfid-20260209_032745_542982_34D269B8 
+X-CRM114-Status: GOOD (  27.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,30 +69,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bjorn, Baolin Wang,
+From: Liviu Dudau <liviu@dudau.co.uk>
 
-> > > > Providers need it, especially the 'priv' member. Consumers won't see it.
-> > > 
-> > > But can't we make it opaque?
-> > > 
-> > > We may have getters and setters for the priv member...
-> > 
-> > I think we could do that.
-> > 
-> > Two drivers use the bank member, but only for the device
-> > (lock->bank->dev). That can probably be refactored away, I'd guess.
-> 
-> I am willing to develop this series in the above direction. Before
-> though, I'd like to know from hwspinlock maintainers if they agree to
-> this refactoring in general.
+The Arm Mali v10+ GPU drivers have been (ab)using the ARM_64_LPAE_S1
+format as they are mostly compatible with it and some of the gaps
+left in the code to allow for ARM_MALI_LPAE format (pre-v10 GPUs)
+is helping to paper over differences. In preparation for adding support
+for changes introduced in v15 GPUs, add a format specific for modern
+Mali GPUs.
 
-Moving maintainers from CC to To ;) Do you, in general, approve this
-change to the headers? I think it is more modern and e.g. the mailbox
-subsystem has a similar structure, a header for the client and a header
-for the controller. And do you also prefer an opaque 'priv' member?
+Signed-off-by: Liviu Dudau <liviu.dudau@arm.com>
+---
 
-Happy hacking,
+This patch is trying to gauge interest in adding proper support for Arm Mali
+CSF GPUs via the simple approach of extending the generic Arm page table code
+to add support for the PTE format of the GPUs. In order to test the changes
+I've decided to add the phba bits to the arm_lpae_s1_cfg struct to validate
+the allocation and setup of the page table entries, but in the end I'm
+targetting the specific arm_mali_csf_cfg structure that will support
+the GPUs PTEs.
 
-   Wolfram
+I'm interested to learn if this approach is considered sane and what I need to
+pay attention to when adding a new struct to the io_pgtable_cfg union. The patch
+is intentionally not complete with all the changes that switching to the new
+struct will entail as I didn't wanted to be dragged into a full code review, but
+I can add them if wanted.
+
+
+Best regards,
+Liviu
+
+---
+ drivers/iommu/io-pgtable-arm.c | 161 ++++++++++++++++++++++++++++++++-
+ drivers/iommu/io-pgtable.c     |   1 +
+ include/linux/io-pgtable.h     |  18 ++++
+ 3 files changed, 179 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
+index 05d63fe92e436..48aea598ab0c9 100644
+--- a/drivers/iommu/io-pgtable-arm.c
++++ b/drivers/iommu/io-pgtable-arm.c
+@@ -482,6 +482,7 @@ static arm_lpae_iopte arm_lpae_prot_to_pte(struct arm_lpae_io_pgtable *data,
+ 	arm_lpae_iopte pte;
+ 
+ 	if (data->iop.fmt == ARM_64_LPAE_S1 ||
++	    data->iop.fmt == ARM_MALI_CSF ||
+ 	    data->iop.fmt == ARM_32_LPAE_S1) {
+ 		pte = ARM_LPAE_PTE_nG;
+ 		if (!(prot & IOMMU_WRITE) && (prot & IOMMU_READ))
+@@ -569,6 +570,8 @@ static int arm_lpae_map_pages(struct io_pgtable_ops *ops, unsigned long iova,
+ 		return -EINVAL;
+ 
+ 	prot = arm_lpae_prot_to_pte(data, iommu_prot);
++	if (data->iop.fmt == ARM_MALI_CSF)
++		prot |= cfg->arm_lpae_s1_cfg.pbha;
+ 	ret = __arm_lpae_map(data, iova, paddr, pgsize, pgcount, prot, lvl,
+ 			     ptep, gfp, mapped);
+ 	/*
+@@ -864,7 +867,8 @@ static int arm_lpae_read_and_clear_dirty(struct io_pgtable_ops *ops,
+ 		return -EINVAL;
+ 	if (WARN_ON((iova + size - 1) & ~(BIT(cfg->ias) - 1)))
+ 		return -EINVAL;
+-	if (data->iop.fmt != ARM_64_LPAE_S1)
++	if (data->iop.fmt != ARM_64_LPAE_S1 ||
++	    data->iop.fmt != ARM_MALI_CSF)
+ 		return -EINVAL;
+ 
+ 	return __arm_lpae_iopte_walk(data, &walk_data, ptep, lvl);
+@@ -1236,6 +1240,155 @@ arm_mali_lpae_alloc_pgtable(struct io_pgtable_cfg *cfg, void *cookie)
+ 	return NULL;
+ }
+ 
++static struct io_pgtable *
++arm_mali_csf_alloc_pgtable(struct io_pgtable_cfg *cfg, void *cookie)
++{
++	unsigned int max_addr_bits = 48;
++	unsigned long granule, page_sizes;
++	struct arm_lpae_io_pgtable *data;
++	typeof(&cfg->arm_lpae_s1_cfg.tcr) tcr = &cfg->arm_lpae_s1_cfg.tcr;
++	int levels, va_bits, pg_shift;
++	u64 reg;
++
++	if (cfg->quirks & ~(IO_PGTABLE_QUIRK_ARM_TTBR1 |
++			    IO_PGTABLE_QUIRK_NO_WARN))
++		return NULL;
++
++	if (!(cfg->pgsize_bitmap & (SZ_4K | SZ_16K)))
++		return NULL;
++
++	if (cfg->pgsize_bitmap & PAGE_SIZE)
++		granule = PAGE_SIZE;
++	else if (cfg->pgsize_bitmap & ~PAGE_MASK)
++		granule = 1UL << __fls(cfg->pgsize_bitmap & ~PAGE_MASK);
++	else if (cfg->pgsize_bitmap & PAGE_MASK)
++		granule = 1UL << __ffs(cfg->pgsize_bitmap & PAGE_MASK);
++	else
++		granule = 0;
++
++	switch (granule) {
++	case SZ_4K:
++		page_sizes = (SZ_4K | SZ_2M | SZ_1G);
++		break;
++	case SZ_16K:
++		page_sizes = (SZ_16K | SZ_32M | SZ_64G);
++		break;
++	default:
++		page_sizes = 0;
++	}
++
++	cfg->pgsize_bitmap &= page_sizes;
++	cfg->ias = min(cfg->ias, max_addr_bits);
++	cfg->oas = min(cfg->oas, max_addr_bits);
++
++	data = kmalloc(sizeof(*data), GFP_KERNEL);
++	if (!data)
++		return NULL;
++
++	pg_shift = __ffs(cfg->pgsize_bitmap);
++	data->bits_per_level = pg_shift - ilog2(sizeof(arm_lpae_iopte));
++
++	va_bits = cfg->ias - pg_shift;
++	levels = DIV_ROUND_UP(va_bits, data->bits_per_level);
++	data->start_level = ARM_LPAE_MAX_LEVELS - levels;
++
++	/* Calculate the actual size of our pgd (without concatenation) */
++	data->pgd_bits = va_bits - (data->bits_per_level * (levels - 1));
++
++	data->iop.ops = (struct io_pgtable_ops) {
++		.map_pages	= arm_lpae_map_pages,
++		.unmap_pages	= arm_lpae_unmap_pages,
++		.iova_to_phys	= arm_lpae_iova_to_phys,
++		.read_and_clear_dirty = arm_lpae_read_and_clear_dirty,
++		.pgtable_walk	= arm_lpae_pgtable_walk,
++	};
++
++	/* TCR */
++	if (cfg->coherent_walk) {
++		tcr->sh = ARM_LPAE_TCR_SH_IS;
++		tcr->irgn = ARM_LPAE_TCR_RGN_WBWA;
++		tcr->orgn = ARM_LPAE_TCR_RGN_WBWA;
++		if (cfg->quirks & IO_PGTABLE_QUIRK_ARM_OUTER_WBWA)
++			goto out_free_data;
++	} else {
++		tcr->sh = ARM_LPAE_TCR_SH_OS;
++		tcr->irgn = ARM_LPAE_TCR_RGN_NC;
++		if (!(cfg->quirks & IO_PGTABLE_QUIRK_ARM_OUTER_WBWA))
++			tcr->orgn = ARM_LPAE_TCR_RGN_NC;
++		else
++			tcr->orgn = ARM_LPAE_TCR_RGN_WBWA;
++	}
++
++	switch (ARM_LPAE_GRANULE(data)) {
++	case SZ_4K:
++		tcr->tg = ARM_LPAE_TCR_TG0_4K;
++		break;
++	case SZ_16K:
++		tcr->tg = ARM_LPAE_TCR_TG0_16K;
++		break;
++	case SZ_64K:
++		tcr->tg = ARM_LPAE_TCR_TG0_64K;
++		break;
++	}
++
++	switch (cfg->oas) {
++	case 32:
++		tcr->ips = ARM_LPAE_TCR_PS_32_BIT;
++		break;
++	case 36:
++		tcr->ips = ARM_LPAE_TCR_PS_36_BIT;
++		break;
++	case 40:
++		tcr->ips = ARM_LPAE_TCR_PS_40_BIT;
++		break;
++	case 42:
++		tcr->ips = ARM_LPAE_TCR_PS_42_BIT;
++		break;
++	case 44:
++		tcr->ips = ARM_LPAE_TCR_PS_44_BIT;
++		break;
++	case 48:
++		tcr->ips = ARM_LPAE_TCR_PS_48_BIT;
++		break;
++	case 52:
++		tcr->ips = ARM_LPAE_TCR_PS_52_BIT;
++		break;
++	default:
++		goto out_free_data;
++	}
++
++	tcr->tsz = 64ULL - cfg->ias;
++
++	/* MAIRs */
++	reg = (ARM_LPAE_MAIR_ATTR_NC
++	       << ARM_LPAE_MAIR_ATTR_SHIFT(ARM_LPAE_MAIR_ATTR_IDX_NC)) |
++	      (ARM_LPAE_MAIR_ATTR_WBRWA
++	       << ARM_LPAE_MAIR_ATTR_SHIFT(ARM_LPAE_MAIR_ATTR_IDX_CACHE)) |
++	      (ARM_LPAE_MAIR_ATTR_DEVICE
++	       << ARM_LPAE_MAIR_ATTR_SHIFT(ARM_LPAE_MAIR_ATTR_IDX_DEV)) |
++	      (ARM_LPAE_MAIR_ATTR_INC_OWBRWA
++	       << ARM_LPAE_MAIR_ATTR_SHIFT(ARM_LPAE_MAIR_ATTR_IDX_INC_OCACHE));
++
++	cfg->arm_lpae_s1_cfg.mair = reg;
++
++	/* Looking good; allocate a pgd */
++	data->pgd = __arm_lpae_alloc_pages(ARM_LPAE_PGD_SIZE(data),
++					   GFP_KERNEL, cfg, cookie);
++	if (!data->pgd)
++		goto out_free_data;
++
++	/* Ensure the empty pgd is visible before any actual TTBR write */
++	wmb();
++
++	/* TTBR */
++	cfg->arm_lpae_s1_cfg.ttbr = virt_to_phys(data->pgd);
++	return &data->iop;
++
++out_free_data:
++	kfree(data);
++	return NULL;
++}
++
+ struct io_pgtable_init_fns io_pgtable_arm_64_lpae_s1_init_fns = {
+ 	.caps	= IO_PGTABLE_CAP_CUSTOM_ALLOCATOR,
+ 	.alloc	= arm_64_lpae_alloc_pgtable_s1,
+@@ -1265,3 +1418,9 @@ struct io_pgtable_init_fns io_pgtable_arm_mali_lpae_init_fns = {
+ 	.alloc	= arm_mali_lpae_alloc_pgtable,
+ 	.free	= arm_lpae_free_pgtable,
+ };
++
++struct io_pgtable_init_fns io_pgtable_arm_mali_csf_init_fns = {
++	.caps	= IO_PGTABLE_CAP_CUSTOM_ALLOCATOR,
++	.alloc	= arm_mali_csf_alloc_pgtable,
++	.free	= arm_lpae_free_pgtable,
++};
+diff --git a/drivers/iommu/io-pgtable.c b/drivers/iommu/io-pgtable.c
+index 843fec8e8a511..1f43f898a8121 100644
+--- a/drivers/iommu/io-pgtable.c
++++ b/drivers/iommu/io-pgtable.c
+@@ -20,6 +20,7 @@ io_pgtable_init_table[IO_PGTABLE_NUM_FMTS] = {
+ 	[ARM_64_LPAE_S1] = &io_pgtable_arm_64_lpae_s1_init_fns,
+ 	[ARM_64_LPAE_S2] = &io_pgtable_arm_64_lpae_s2_init_fns,
+ 	[ARM_MALI_LPAE] = &io_pgtable_arm_mali_lpae_init_fns,
++	[ARM_MALI_CSF] = &io_pgtable_arm_mali_csf_init_fns,
+ #endif
+ #ifdef CONFIG_IOMMU_IO_PGTABLE_DART
+ 	[APPLE_DART] = &io_pgtable_apple_dart_init_fns,
+diff --git a/include/linux/io-pgtable.h b/include/linux/io-pgtable.h
+index 7a1516011ccf7..fc9776f71a963 100644
+--- a/include/linux/io-pgtable.h
++++ b/include/linux/io-pgtable.h
+@@ -17,6 +17,7 @@ enum io_pgtable_fmt {
+ 	ARM_MALI_LPAE,
+ 	APPLE_DART,
+ 	APPLE_DART2,
++	ARM_MALI_CSF,
+ 	IO_PGTABLE_NUM_FMTS,
+ };
+ 
+@@ -148,6 +149,8 @@ struct io_pgtable_cfg {
+ 				u32	tsz:6;
+ 			}	tcr;
+ 			u64	mair;
++			/* ToDo: remove this when switching to arm_mali_csf_cfg struct */
++			u64	pbha;
+ 		} arm_lpae_s1_cfg;
+ 
+ 		struct {
+@@ -175,6 +178,20 @@ struct io_pgtable_cfg {
+ 			u64	memattr;
+ 		} arm_mali_lpae_cfg;
+ 
++		/* ToDo: switch to this structure for Mali CSF GPUs
++		  struct {
++			u64	transtab;
++			struct {
++				u32	pbha:4;
++				u32	ra:1;
++				u32	sh:2;
++				u32	memattr:2;
++				u32	mode:4;
++			} transcfg;
++			u64 memattr;
++		} arm_mali_csf_cfg;
++		*/
++
+ 		struct {
+ 			u64 ttbr[4];
+ 			u32 n_ttbrs;
+@@ -320,6 +337,7 @@ extern struct io_pgtable_init_fns io_pgtable_arm_64_lpae_s1_init_fns;
+ extern struct io_pgtable_init_fns io_pgtable_arm_64_lpae_s2_init_fns;
+ extern struct io_pgtable_init_fns io_pgtable_arm_v7s_init_fns;
+ extern struct io_pgtable_init_fns io_pgtable_arm_mali_lpae_init_fns;
++extern struct io_pgtable_init_fns io_pgtable_arm_mali_csf_init_fns;
+ extern struct io_pgtable_init_fns io_pgtable_amd_iommu_v1_init_fns;
+ extern struct io_pgtable_init_fns io_pgtable_amd_iommu_v2_init_fns;
+ extern struct io_pgtable_init_fns io_pgtable_apple_dart_init_fns;
+-- 
+2.52.0
 
 
