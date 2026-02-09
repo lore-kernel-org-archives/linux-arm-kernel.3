@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F8E1E81BCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 14:08:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1401E81BCD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 14:08:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=k1HUXViArmspO18Ot//s5xhWbkVXwA17QN0XfFUufik=; b=wslUQkYPQnDaDiXO7ajBVUKn42
-	Qx60r5GwvWFXAVMnZn49ynOkoHFWMQ4qM1yPuTKv0wlBzaIsRvtXODnZSMej9noBGKMRDCBauQlFV
-	cDJJy7dWdeyOZd+BijQspEGP2Jwpylp5bgYez41Yh0THJfduvXKY1Olw9At1Q4KEcWM2990NDO/D2
-	gpfEjzD2UMQ5h5CiMRXhay/aSOykpF/b3RBMwGNnmfYUSsKl0++23zAJ6Eo1uIom6rRqohRN4uVdP
-	iRhUwZncn7illbvM96tt5BNyZUHSDKEY6PUQGm6ka28LGTZauxyKeGXPGSySzFXovJnDfk9cM3i70
-	SjJ6+k6Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xtnCI5sMjOjZdukKqKEgSsDbixroOMT6jGSMxfo0RNQ=; b=UKuOr0gXs15GNA55IXiSArJuCO
+	8IiE2dhmYWGDgYklQJ5QoT2401x+OySEnxUxXLNgke4d9zr3BTIRC2WPF3a0sCCN1J/Oq2nWGnuA6
+	SiF4cHhtuI4XbQm3fFpHVsAXkZyF01TJg+PwTaXho339N4Wz0lH1ApRKQMnBXb4RmykbZrAbK64e3
+	aOUrZUlhWZ8LF57F0kEacikRkfNVdp0gy0KWJHSyXNWKDojpaSRkP7Iu7mEFCrnPC7Yffq4Gkl+jZ
+	eSV/GCiJj/E0/ZYFSEgObpcTiom38aZ+PE5ItY5JSdH/lcPYjNItXcMFvbYqy9SNLJbBShjcB1xNw
+	HRUzg7iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpRvi-0000000FTwD-0yN4;
-	Mon, 09 Feb 2026 14:07:58 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+	id 1vpRvh-0000000FTvw-3qpT;
+	Mon, 09 Feb 2026 14:07:57 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpRvd-0000000FTqO-3Rjb
+	id 1vpRvb-0000000FTqj-0jHV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 14:07:55 +0000
+	Mon, 09 Feb 2026 14:07:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1770646058; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=k1HUXViArmspO18Ot//s5xhWbkVXwA17QN0XfFUufik=;
-	b=oRdMfOyhmrBJ+saGIpSykLoQptpgrG4pXwbC8gPkqsfMcbVfEoJ9tNw3LW+PQAzXMjMTlvErZX/1prABNbApPosjaUApIO6K21xk0cv0pQGfCGIOsuCgd3Nwrt6UYFK8efWzmi4jp3DeiqTzKaWicQCdlIWYzI/DCAn+nrbsXZI=
-Received: from localhost(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WytOcor_1770646056 cluster:ay36)
+	t=1770646066; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=xtnCI5sMjOjZdukKqKEgSsDbixroOMT6jGSMxfo0RNQ=;
+	b=xMrHHPebhvoDQXtBpXZCQ1PusufVUV0AiO6W3ddUMZRuc987/sPaBbSOMTR+pMSEyF/aNfAYad6sh8fT9BRHhXmud6jU0Qk03Ec8XveeraxE/Tm0/c3BDxrsjEA4JNlHkYsrcWFJlAOz/6SHL/viRr4kwJedM1ylj6rJGvL9/EM=
+Received: from localhost(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0Wyt-ZaP_1770646064 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Mon, 09 Feb 2026 22:07:37 +0800
+          Mon, 09 Feb 2026 22:07:45 +0800
 From: Baolin Wang <baolin.wang@linux.alibaba.com>
 To: akpm@linux-foundation.org,
 	david@kernel.org,
@@ -57,15 +57,17 @@ Cc: lorenzo.stoakes@oracle.com,
 	linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 0/5] support batch checking of references and unmapping for large folios
-Date: Mon,  9 Feb 2026 22:07:23 +0800
-Message-ID: <cover.1770645603.git.baolin.wang@linux.alibaba.com>
+Subject: [PATCH v6 5/5] mm: rmap: support batched unmapping for file large folios
+Date: Mon,  9 Feb 2026 22:07:28 +0800
+Message-ID: <b53a16f67c93a3fe65e78092069ad135edf00eff.1770645603.git.baolin.wang@linux.alibaba.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1770645603.git.baolin.wang@linux.alibaba.com>
+References: <cover.1770645603.git.baolin.wang@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_060754_116514_419B3E56 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20260209_060751_449243_0E92BB46 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,74 +82,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, folio_referenced_one() always checks the young flag for each PTE
-sequentially, which is inefficient for large folios. This inefficiency is
-especially noticeable when reclaiming clean file-backed large folios, where
-folio_referenced() is observed as a significant performance hotspot.
+Similar to folio_referenced_one(), we can apply batched unmapping for file
+large folios to optimize the performance of file folios reclamation.
 
-Moreover, on Arm architecture, which supports contiguous PTEs, there is already
-an optimization to clear the young flags for PTEs within a contiguous range.
-However, this is not sufficient. We can extend this to perform batched operations
-for the entire large folio (which might exceed the contiguous range: CONT_PTE_SIZE).
+Barry previously implemented batched unmapping for lazyfree anonymous large
+folios[1] and did not further optimize anonymous large folios or file-backed
+large folios at that stage. As for file-backed large folios, the batched
+unmapping support is relatively straightforward, as we only need to clear
+the consecutive (present) PTE entries for file-backed large folios.
 
-Similar to folio_referenced_one(), we can also apply batched unmapping for large
-file folios to optimize the performance of file folio reclamation. By supporting
-batched checking of the young flags, flushing TLB entries, and unmapping, I can
-observed a significant performance improvements in my performance tests for file
-folios reclamation. Please check the performance data in the commit message of
-each patch.
+Note that it's not ready to support batched unmapping for uffd case, so
+let's still fallback to per-page unmapping for the uffd case.
 
-Run stress-ng and mm selftests, no issues were found.
+Performance testing:
+Allocate 10G clean file-backed folios by mmap() in a memory cgroup, and try to
+reclaim 8G file-backed folios via the memory.reclaim interface. I can observe
+75% performance improvement on my Arm64 32-core server (and 50%+ improvement
+on my X86 machine) with this patch.
 
-Patch 1: Add a new generic batched PTE helper that supports batched checks of
-the references for large folios.
-Patch 2 - 3: Preparation patches.
-patch 4: Implement the Arm64 arch-specific clear_flush_young_ptes().
-Patch 5: Support batched unmapping for file large folios.
+W/o patch:
+real    0m1.018s
+user    0m0.000s
+sys     0m1.018s
 
-Changes from v5:
- - Collect reviewed tags from Ryan, Harry and David. Thanks.
- - Fix some coding style issues (per David).
- - Skip batched unmapping for uffd case, reported by Dev. Thanks.
+W/ patch:
+real	0m0.249s
+user	0m0.000s
+sys	0m0.249s
 
-Changes from v4:
- - Fix passing the incorrect 'CONT_PTES' for non-batched APIs.
- - Rename ptep_clear_flush_young_notify() to clear_flush_young_ptes_notify() (per Ryan).
- - Fix some coding style issues (per Ryan).
- - Add reviewed tag from Ryan. Thanks.
+[1] https://lore.kernel.org/all/20250214093015.51024-4-21cnbao@gmail.com/T/#u
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Acked-by: Barry Song <baohua@kernel.org>
+Reviewed-by: Harry Yoo <harry.yoo@oracle.com>
+Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+---
+ mm/rmap.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
 
-Changes from v3:
- - Fix using an incorrect parameter in ptep_clear_flush_young_notify()
-   (per Liam).
-
-Changes from v2:
- - Rearrange the patch set (per Ryan).
- - Add pte_cont() check in clear_flush_young_ptes() (per Ryan).
- - Add a helper to do contpte block alignment (per Ryan).
- - Fix some coding style issues (per Lorenzo and Ryan).
- - Add more comments and update the commit message (per Lorenzo and Ryan).
- - Add acked tag from Barry. Thanks. 
-
-Changes from v1:
- - Add a new patch to support batched unmapping for file large folios.
- - Update the cover letter
-
-
-Baolin Wang (5):
-  mm: rmap: support batched checks of the references for large folios
-  arm64: mm: factor out the address and ptep alignment into a new helper
-  arm64: mm: support batch clearing of the young flag for large folios
-  arm64: mm: implement the architecture-specific
-    clear_flush_young_ptes()
-  mm: rmap: support batched unmapping for file large folios
-
- arch/arm64/include/asm/pgtable.h | 23 ++++++++----
- arch/arm64/mm/contpte.c          | 62 ++++++++++++++++++++------------
- include/linux/mmu_notifier.h     |  9 ++---
- include/linux/pgtable.h          | 35 ++++++++++++++++++
- mm/rmap.c                        | 38 ++++++++++++++++----
- 5 files changed, 129 insertions(+), 38 deletions(-)
-
+diff --git a/mm/rmap.c b/mm/rmap.c
+index 8807f8a7df28..43cb9ac6f523 100644
+--- a/mm/rmap.c
++++ b/mm/rmap.c
+@@ -1945,12 +1945,16 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
+ 	end_addr = pmd_addr_end(addr, vma->vm_end);
+ 	max_nr = (end_addr - addr) >> PAGE_SHIFT;
+ 
+-	/* We only support lazyfree batching for now ... */
+-	if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
++	/* We only support lazyfree or file folios batching for now ... */
++	if (folio_test_anon(folio) && folio_test_swapbacked(folio))
+ 		return 1;
++
+ 	if (pte_unused(pte))
+ 		return 1;
+ 
++	if (userfaultfd_wp(vma))
++		return 1;
++
+ 	return folio_pte_batch(folio, pvmw->pte, pte, max_nr);
+ }
+ 
+@@ -2313,7 +2317,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+ 			 *
+ 			 * See Documentation/mm/mmu_notifier.rst
+ 			 */
+-			dec_mm_counter(mm, mm_counter_file(folio));
++			add_mm_counter(mm, mm_counter_file(folio), -nr_pages);
+ 		}
+ discard:
+ 		if (unlikely(folio_test_hugetlb(folio))) {
 -- 
 2.47.3
 
