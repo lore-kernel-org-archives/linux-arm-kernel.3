@@ -4,59 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D082E7E0BA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 09:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AFD0E7E0B9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 09:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IrDoYLyiC3yn1nM6rKNC2iEmkXxrMHxQFeD9sl87gjA=; b=o/rqv7BHIofEsO33pex2sAoi+Q
-	Sc9n0nuUVCRbQOqydPVSNFqlh2Qs5Bwi81nTfYqHlm9BUrAieR+tiu5GIypAydUyb6PlDJ6Wm/YBn
-	Oi4d0P29Yu1JkdTFgvnVCZPl2tz214A9eajS85NJbOVi5JrjZdmsnTRz6y6B+E6f9ZplaQ6OTq7zi
-	IhD/2IIgGa6r56v8yOzm2W6scKrWtD29fICR3mWlD2XlC3muXp2Lq/gUChmB8RcQbDwkEHjkLoduG
-	tw1l2RCmuaVddG2tSg+CnVrBRhRGlg6ABMiq2F98odOoPAsgz55XjXp0tXO+B13YwmEUmUif6o+J9
-	AgAanUyw==;
+	bh=pWdUhgxDzRV7HRH4oVMdvkDRh1YzEzz4iZb5STB4kZI=; b=a2hus6CtGUc4BaF+qbXIQb45/x
+	iNAPFKVjbMyPxYTypBSE4oQWcwYUOAILD4ta9ajebIaP5i+HU8/RjHu/ng8W/ljID5ey4bfp9jOlD
+	Gyxk2JiuaXmmUWuD+SbqLnQtRXxiL034o8URljx0Xy313/fhArALOvlXJN+utsXC8N48TzRk2kq2O
+	cE6AuJhZs1lWPE5k4/WJoNWSuuy6m5rX4kGhoOJYFQZRvDNRn24iIYBgyuZYxlJhBj2XukHE/Y/Pv
+	4ZM9Z94EnyEBqY/lcSMo9m3eucgdBV+7RCyVDVYKegH8Rda2V5y+ncBDGZYsnuuQRHOSOIJLf/Kvo
+	Rk0Folcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpNyc-0000000FBsp-0ooF;
-	Mon, 09 Feb 2026 09:54:42 +0000
+	id 1vpNzc-0000000FC5L-0n8k;
+	Mon, 09 Feb 2026 09:55:44 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpNya-0000000FBsA-14hU
+	id 1vpNza-0000000FC55-1MIn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 09:54:40 +0000
+	Mon, 09 Feb 2026 09:55:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1E94B600B0;
-	Mon,  9 Feb 2026 09:54:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96E69C116C6;
-	Mon,  9 Feb 2026 09:54:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BF16260008;
+	Mon,  9 Feb 2026 09:55:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42CBCC116C6;
+	Mon,  9 Feb 2026 09:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770630878;
-	bh=3tBHDDvBJjbjVnORXt//tsMxH53+PSsCsTP84KGDkeY=;
+	s=k20201202; t=1770630941;
+	bh=/zeD3Z28iae7zRiVNaHCzegaAUapv7q/BPbPb39QLDM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ArfQZAocn3bNOTGiysPVyOMe587mUPIZxvyXEE2Xhmcgglt7QoDFMi/M9Nnt6wohk
-	 NZz+f8NBf1if+1TK9UQz0R+uY005AH8rYmZJ1LVKkvfd3l1qkxuPW78axr7gpZDBFH
-	 unUm/P6Pn1tIvbeUobFDZLSk0Na8iGT96+hqTFrtI81ETKk24v5akjOiN5K/0AjD5x
-	 rI5UN5k8mVbb6/owKbo4OdpIsSyd/dpXw9HnhaVopbDBBZqI93jE3ObIL9nkmGkUsC
-	 AZbFx67KRYSxPSVl7oipYgkgroohTjeJP63MEAOZHaaK1Pgn601KvrBFay8s6kkfU2
-	 Z28pnDyucyYaw==
-Message-ID: <e5175f66-56fd-437b-a183-b2ccc3f54f94@kernel.org>
-Date: Mon, 9 Feb 2026 10:54:29 +0100
+	b=Hp5YLrKCuRwe3favx/ifQ0p0b6aYrjP4n19amuwxse5OmQguLmG0YyNj3EnDwckEH
+	 9gSsvHLNMTyKsKOLr6E5wN0uXlhlukk7/c7an/eOOp5NWFdPwxmLSbUvY0uKBYXBTZ
+	 H72u0JBu6aQyLFRN7l5Ep3mhYeZVVKHcKFpMJJh3q4qEU2c4IdRSe22N5szVcld7Vx
+	 OTIoSM/6N4MRj2VSA/+zk74U8Vj3sjb6L/+7zb7Gi09a7wChNKpBHLKTdQyMEOassi
+	 QjMMp48JEp1KzyUZFDv5/0duWDZGMtj+N8vNh2sNh+HKUvR+TXZWP4YVmpz0v/C26w
+	 Re0sRKfsAFAsQ==
+Message-ID: <16fb7985-ec0f-4b56-91e7-404c5114f899@kernel.org>
+Date: Mon, 9 Feb 2026 10:55:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm: rmap: skip batched unmapping for UFFD vmas
-To: Baolin Wang <baolin.wang@linux.alibaba.com>
-Cc: Liam.Howlett@oracle.com, akpm@linux-foundation.org, baohua@kernel.org,
- catalin.marinas@arm.com, dev.jain@arm.com, harry.yoo@oracle.com,
- jannh@google.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- lorenzo.stoakes@oracle.com, mhocko@suse.com, riel@surriel.com,
- rppt@kernel.org, ryan.roberts@arm.com, surenb@google.com, vbabka@suse.cz,
- will@kernel.org, willy@infradead.org
-References: <142919ac14d3cf70cba370808d85debe089df7b4.1766631066.git.baolin.wang@linux.alibaba.com>
- <20260116162652.176054-1-baolin.wang@linux.alibaba.com>
+Subject: Re: [PATCH v5 4/5] arm64: mm: implement the architecture-specific
+ clear_flush_young_ptes()
+To: Baolin Wang <baolin.wang@linux.alibaba.com>, Chris Mason <clm@meta.com>
+Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, will@kernel.org,
+ lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, Liam.Howlett@oracle.com,
+ vbabka@suse.cz, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+ riel@surriel.com, harry.yoo@oracle.com, jannh@google.com,
+ willy@infradead.org, baohua@kernel.org, dev.jain@arm.com,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1766631066.git.baolin.wang@linux.alibaba.com>
+ <9d866a2644051e13a41ef4d6ca3909c6e1f9e229.1766631066.git.baolin.wang@linux.alibaba.com>
+ <20260128114936.72280-1-clm@meta.com>
+ <de141225-a0c1-41fd-b3e1-bcab09827ddd@linux.alibaba.com>
+ <07d55759-a50a-457a-badd-85697174116f@kernel.org>
+ <280ae63e-d66e-438f-8045-6c870420fe76@linux.alibaba.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -103,9 +108,9 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260116162652.176054-1-baolin.wang@linux.alibaba.com>
+In-Reply-To: <280ae63e-d66e-438f-8045-6c870420fe76@linux.alibaba.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,143 +125,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/16/26 17:26, Baolin Wang wrote:
-> As Dev reported[1], it's not ready to support batched unmapping for uffd case.
-> Let's still fallback to per-page unmapping for the uffd case.
+On 2/9/26 10:36, Baolin Wang wrote:
 > 
-> [1] https://lore.kernel.org/linux-mm/20260116082721.275178-1-dev.jain@arm.com/
-> Reported-by: Dev Jain <dev.jain@arm.com>
-> Suggested-by: Barry Song <baohua@kernel.org>
-> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> ---
->   mm/rmap.c | 3 +++
->   1 file changed, 3 insertions(+)
 > 
-> diff --git a/mm/rmap.c b/mm/rmap.c
-> index f13480cb9f2e..172643092dcf 100644
-> --- a/mm/rmap.c
-> +++ b/mm/rmap.c
-> @@ -1953,6 +1953,9 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
->   	if (pte_unused(pte))
->   		return 1;
->   
-> +	if (userfaultfd_wp(vma))
-> +		return 1;
-> +
+> On 2/9/26 5:09 PM, David Hildenbrand (Arm) wrote:
+>> On 1/29/26 02:42, Baolin Wang wrote:
+>>>
+>>>
+>>>
+>>> Indeed. I previously discussed with Ryan whether using pte_cont() was 
+>>> enough, and we believed that invalid PTEs wouldn’t have the PTE_CONT 
+>>> bit set. But we clearly missed the device-folio cases. Thanks for 
+>>> reporting.
+>>>
+>>> Andrew, could you please squash the following fix into this patch? If 
+>>> you prefer a new version, please let me know. Thanks.
+>>
+>> Isn't the real problem that we should never ever ever ever, try 
+>> clearing the young bit on a non-present pte?
+>>
+>> See damon_ptep_mkold() how that is handled with the flushing/notify.
+>>
+>> There needs to be a pte_present() check in the caller.
+> 
+> The handling of ZONE_DEVICE memory in check_pte() makes me me doubt my 
+> earlier understanding. And I think you are right.
+> 
+>      } else if (pte_present(ptent)) {
+>          pfn = pte_pfn(ptent);
+>      } else {
+>          const softleaf_t entry = softleaf_from_pte(ptent);
+> 
+>          /* Handle un-addressable ZONE_DEVICE memory */
+>          if (!softleaf_is_device_private(entry) &&
+>              !softleaf_is_device_exclusive(entry))
+>              return false;
+> 
+>          pfn = softleaf_to_pfn(entry);
+>      }
+> 
+> 
+>> BUT
+>>
+>> I recall that folio_referenced() should never apply to ZONE_DEVICE 
+>> folios. folio_referenced() is only called from memory reclaim code, 
+>> and ZONE_DEVICE pages never get reclaimed through vmscan.c
+> 
+> Thanks for clarifying. So I can drop the pte valid check.
 
-Interesting. I was just wondering why we didn't run into that with lazyfree folios.
+We should probably add a safety check in folio_referenced(), warning
+if we would ever get a ZONE_DEVICE folio passed.
 
-Staring at pte_install_uffd_wp_if_needed(), we never set the marker for
-anonymous VMAs.
-
-So, yeah, if one sets lazyfree on a uffd-wp PTE, the uffd-wp bit will just get
-zapped alongside. Just like MADV_DONTNEED.
-
-
-I'm fine with that temporary fix. But I guess the non-hacky way to handle this would be:
-
-
- From 53d016d6e6f624425dbdbc2fb1dec7c91fbef15c Mon Sep 17 00:00:00 2001
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Date: Mon, 9 Feb 2026 10:52:59 +0100
-Subject: [PATCH] tmp
-
-Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
----
-  include/linux/mm_inline.h | 15 ++++++---------
-  mm/memory.c               | 21 +--------------------
-  mm/rmap.c                 |  2 +-
-  3 files changed, 8 insertions(+), 30 deletions(-)
-
-diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
-index fa2d6ba811b5..8a9a2c5f5ee3 100644
---- a/include/linux/mm_inline.h
-+++ b/include/linux/mm_inline.h
-@@ -566,9 +566,8 @@ static inline pte_marker copy_pte_marker(
-   *
-   * Returns true if an uffd-wp pte was installed, false otherwise.
-   */
--static inline bool
--pte_install_uffd_wp_if_needed(struct vm_area_struct *vma, unsigned long addr,
--			      pte_t *pte, pte_t pteval)
-+static inline bool install_uffd_wp_ptes_if_needed(struct vm_area_struct *vma,
-+		unsigned long addr, pte_t *pte, unsigned int nr, pte_t pteval)
-  {
-  	bool arm_uffd_pte = false;
-  
-@@ -598,13 +597,11 @@ pte_install_uffd_wp_if_needed(struct vm_area_struct *vma, unsigned long addr,
-  	if (unlikely(pte_swp_uffd_wp_any(pteval)))
-  		arm_uffd_pte = true;
-  
--	if (unlikely(arm_uffd_pte)) {
--		set_pte_at(vma->vm_mm, addr, pte,
--			   make_pte_marker(PTE_MARKER_UFFD_WP));
--		return true;
--	}
-+	if (likely(!arm_uffd_pte))
-+		return false;
-  
--	return false;
-+	set_ptes(vma->vm_mm, addr, pte, make_pte_marker(PTE_MARKER_UFFD_WP), nr);
-+	return true;
-  }
-  
-  static inline bool vma_has_recency(const struct vm_area_struct *vma)
-diff --git a/mm/memory.c b/mm/memory.c
-index da360a6eb8a4..0a87d02a9a69 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -1592,29 +1592,10 @@ zap_install_uffd_wp_if_needed(struct vm_area_struct *vma,
-  			      unsigned long addr, pte_t *pte, int nr,
-  			      struct zap_details *details, pte_t pteval)
-  {
--	bool was_installed = false;
--
--	if (!uffd_supports_wp_marker())
--		return false;
--
--	/* Zap on anonymous always means dropping everything */
--	if (vma_is_anonymous(vma))
--		return false;
--
-  	if (zap_drop_markers(details))
-  		return false;
-  
--	for (;;) {
--		/* the PFN in the PTE is irrelevant. */
--		if (pte_install_uffd_wp_if_needed(vma, addr, pte, pteval))
--			was_installed = true;
--		if (--nr == 0)
--			break;
--		pte++;
--		addr += PAGE_SIZE;
--	}
--
--	return was_installed;
-+	return install_uffd_wp_ptes_if_needed(vma, addr, pte, nr, pteval);
-  }
-  
-  static __always_inline void zap_present_folio_ptes(struct mmu_gather *tlb,
-diff --git a/mm/rmap.c b/mm/rmap.c
-index 7b9879ef442d..f71aacf35925 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -2061,7 +2061,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
-  		 * we may want to replace a none pte with a marker pte if
-  		 * it's file-backed, so we don't lose the tracking info.
-  		 */
--		pte_install_uffd_wp_if_needed(vma, address, pvmw.pte, pteval);
-+		install_uffd_wp_ptes_if_needed(vma, address, pvmw.pte, nr_pages, pteval);
-  
-  		/* Update high watermark before we lower rss */
-  		update_hiwater_rss(mm);
--- 
-2.43.0
-
-
-
-Does somebody have time to look into that? We should also adjust the doc of pte_install_uffd_wp_if_needed()
-and turn it into some proper kerneldoc.
+Can someone look into that ? :)
 
 -- 
 Cheers,
