@@ -4,60 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABFB0EF06FF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 06:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5A2EEF0716
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 06:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=poCMUc6ncGDkSxtBbaNgSNy0CoVls03/5wrD6+V4Erw=; b=18OOpSLJmMtn5ioEtvZIIiKEdZ
-	NfY0fdsWJKnFvl6hS85+BvbVrv++AMvZvMvsnV3GUXq04gzhcL1xWLBvXw0alSM14LgWUSpLGB+P8
-	b1OPEeANnSS/y/8H0q10ZJqY6jL7dn8e5ZboDll5iSlLfzmfCk1SsfFEGwQBoLhSSUDLP14/0NIvq
-	OD+o/mqMeyMr5kuoCxthCYXSK/U3sLdIax4PBHu/DDszFD6evtbHHdMQyeCNr0BQOqvKufv1mka0/
-	zAQo2xv93TFSo8XbEFTsuGXkdv+W+eEVxfIqskWEDAPbA+7JHxM0GXq2ta/MoMsbVB1/W8nZRDPcy
-	4mxMKWmw==;
+	bh=DXnA0j3/Uan5NIBQI4I1W6jnHOtSk+oiYxhKLyk1rQs=; b=y7oitj/aUjpPYlAiaHpz0ZVpP0
+	fM8aaLEWL7fJIwmoPdYoOKWuTB5C02/fBb+mAMYvq0tCalW22soayzccMSPrvrtWOMhwAb/AwYhsE
+	SGU+7eLiU1O8+iiCwrDWL2M1y2P3Srsx7CF4GshYT0KzhyJR6lZesrZiivmdx6JrDF2Am48g7UpDk
+	hHTgr1cTHux1LtqueTc2SKu1Beovl3yATf3WgIZSGDt5wJli774X3Fa+cUkK3N6nqy7BE58v2STsG
+	leMLxZsX5yGYZYAzKyQInRZ1+OWpAXPCD15UK+IizpqzdhUFrtyyC2s0xTftNI0W7CEg6Wvuzqh36
+	S0F4g4Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpL6l-0000000EvSM-3Kbn;
-	Mon, 09 Feb 2026 06:50:55 +0000
+	id 1vpL8f-0000000Evba-1KmH;
+	Mon, 09 Feb 2026 06:52:53 +0000
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpL6j-0000000EvRw-2wR2
+	id 1vpL8c-0000000EvbC-0Dp0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 06:50:55 +0000
+	Mon, 09 Feb 2026 06:52:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1770619851;
-	bh=poCMUc6ncGDkSxtBbaNgSNy0CoVls03/5wrD6+V4Erw=;
+	d=codeconstruct.com.au; s=2022a; t=1770619967;
+	bh=DXnA0j3/Uan5NIBQI4I1W6jnHOtSk+oiYxhKLyk1rQs=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=O54HLMzRquZ8qKT0tjg0p5jbTItro6bjE/LGtpFHgxUinpjAojCiHCcFlJfOnyG3s
-	 96MRyX51rypqhITZbn0jgNmKHsLCvEIyKEGAwLyMiG3IpqtP2pMQhrAeOa/VDSfaTe
-	 Zsc8rlnnKE1Vl2Ua9AdSr1P0BOrltYHCisHca1BldzxM+KMVVqa6ZVjnzMTaBFNcos
-	 2aJ6AKRUSVMa6m3gjvQr2tUQTI1e4TrURYzrkiTe+2r820MwXSN64YQ26+JHp8TjcQ
-	 08tWfAg7FnZYmLoxTWiyKsVtTzXTxfMNyMGC8J3e30OuL8T1y7cxJSfsLCZi+ja1Cc
-	 r4gkrU3gdHeag==
+	b=ZczRkzXwsZb8Vw/Es5bl+YtLjtKWM8ggFl4VnyzivSXkJxsukfBKPb8BKjxgEaSw6
+	 W36H3pIY8DaDHOJcdoyF6GV6x/BgedWJJpWgZvXxpXL8WtJDlOSxCCYfd2FvwAWJgb
+	 FqU75z1xX1v/DSFsD2qONMNHJH/T63ZXMuOxNJUBhoNlLrO07QT77yZec17HF4tBa7
+	 ZTymBHYvEGEJiP3uGTYtbRGzlo9TQUnKhunR6bBH9a1AM2bBigMlp9on8u/kfJOgm9
+	 aWuB41PCIGSne8cqrcD0xTGrsZsys4L8ZHW5l7HvvYTFIrgW2F9WZaFklDEAfYXZO+
+	 ZV95GtEoFbRgw==
 Received: from [192.168.68.117] (unknown [180.150.112.60])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 5E95B602DE;
-	Mon,  9 Feb 2026 14:50:51 +0800 (AWST)
-Message-ID: <324adcf0cbf87ef1186c70f09ab0e0ee2e29017c.camel@codeconstruct.com.au>
-Subject: Re: [PATCH] ARM: dts: aspeed: anacapa: Add retimer EEPROMs
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 5679B602DE;
+	Mon,  9 Feb 2026 14:52:47 +0800 (AWST)
+Message-ID: <e7671063304f1bfdb66bc4e7d271c9e836bbe3cc.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v2 2/2] ARM: dts: aspeed: add Meta SanMiguel BMC
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: dirkchen@amd.com, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+To: Potin Lai <potin.lai.pt@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski
 	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	 <joel@jms.id.au>
+	 <joel@jms.id.au>, Patrick Williams <patrick@stwcx.xyz>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Date: Mon, 09 Feb 2026 17:20:51 +1030
-In-Reply-To: <20260202-b4-anacapa-dts-fix-v1-1-20d4b0114854@amd.com>
-References: <20260202-b4-anacapa-dts-fix-v1-1-20d4b0114854@amd.com>
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, Cosmo Chou
+	 <cosmo.chou@quantatw.com>, Mike Hsieh <Mike_Hsieh@quantatw.com>, Potin Lai
+	 <potin.lai@quantatw.com>, Roger Kan <Roger.Kan@quantatw.com>
+Date: Mon, 09 Feb 2026 17:22:47 +1030
+In-Reply-To: <20260203-sanmiguel_init_dts-v2-2-6a5682c32b38@gmail.com>
+References: <20260203-sanmiguel_init_dts-v2-0-6a5682c32b38@gmail.com>
+	 <20260203-sanmiguel_init_dts-v2-2-6a5682c32b38@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260208_225053_935538_3D357040 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20260208_225250_282854_0030ECBD 
+X-CRM114-Status: UNSURE (   5.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,62 +77,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2026-02-02 at 10:29 +0800, Dirk Chen via B4 Relay wrote:
-> From: Dirk Chen <dirkchen@amd.com>
+On Tue, 2026-02-03 at 17:48 +0800, Potin Lai wrote:
+> Add linux device tree entry for Meta (Facebook) SanMiguel compute-
+> tray
+> BMC using AT2620 SoC.
 >=20
-> Add Atmel 24C2048 EEPROMs on i2c0 and i2c1 to support retimer
-> configuration. Follow the same compatible string usage as the
-> Facebook Harma platform to maintain consistency across Meta boards.
+> Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
 
-This description seems surprising.
-
-Does the change reflect the hardware or not? What's the significance of
-the consistency comment if so?
+Ah, I missed that there was a v2, however my comments on the v1 DTS
+still appear to apply. Can you address them?
 
 Andrew
-
->=20
-> Signed-off-by: Dirk Chen <dirkchen@amd.com>
-> ---
-> =C2=A0arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts | 12
-> ++++++++++++
-> =C2=A01 file changed, 12 insertions(+)
->=20
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-> b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-> index 221af858cb6b..b8d248d99d7c 100644
-> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-> @@ -328,6 +328,12 @@ i2c0mux0ch3: i2c@3 {
-> =C2=A0			#size-cells =3D <0>;
-> =C2=A0		};
-> =C2=A0	};
-> +
-> +	eeprom@50 {
-> +		compatible =3D "atmel,24c2048";
-> +		reg =3D <0x50>;
-> +		pagesize =3D <128>;
-> +	};
-> =C2=A0};
-> =C2=A0
-> =C2=A0// R Bridge Board
-> @@ -362,6 +368,12 @@ i2c1mux0ch3: i2c@3 {
-> =C2=A0			#size-cells =3D <0>;
-> =C2=A0		};
-> =C2=A0	};
-> +
-> +	eeprom@50 {
-> +		compatible =3D "atmel,24c2048";
-> +		reg =3D <0x50>;
-> +		pagesize =3D <128>;
-> +	};
-> =C2=A0};
-> =C2=A0
-> =C2=A0// MB - E1.S
->=20
-> ---
-> base-commit: 4c87cdd0328495759f6e9f9f4e1e53ef8032a76f
-> change-id: 20260202-b4-anacapa-dts-fix-207ffe9a3b0c
->=20
-> Best regards,
 
