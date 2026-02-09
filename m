@@ -4,60 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356B5E78D74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 16:28:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79AA8E7E0BC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 16:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5IZQ4COQKPXn9DHaU1hZteGEj7qfkW1soHzUGkYDH58=; b=Ldr2IvRT3blUror9QxGfklKCWA
-	LwGQr0FFYM6LzJfuDOfAQ5AR8NOVATsf0S4bRcCq+qqkIQYw4/F34+4Wv/mCLjW4K6UNhw5kSOGPP
-	FXK5qwIJ1NqJdD4DFt5WhuaONoszk10Z5AnMpDw9NX0xh0PSjf033YRd2v/tYvCgb+WE6ESvZGRmO
-	vfrrJjwmIrKKP8Y6/V+FnLPBkjg3MoHedzQ6C3R4kQZ4dep5wCO8wOyBXHoSZ68lpIgIkZCsiwe3Z
-	34N7nqpWbX/4FXnRfSuNfL5hWaIeSBwTSM+VaWZAkGNwHHkwwwyRrMJuHf+X68jiyIp5MfloIRYsC
-	G4ZV4Chw==;
+	bh=BxIMIJWEETfVPRtJCxmPLE+EXDs0d33femYZLVwtdN4=; b=mZDsAGD780IA5rbxFWrZEIRZQO
+	V3GquFYg7hCQ6sREKMUurz/WTnCsxTAAFg53pCo4EGh9U0JAiDeUYFS4r2tuKmxtn5+1PRuvPF/wU
+	qzpGbbJgqXZpexErieOW8ZjrwMCU2Wr4Ntb7cn5D6E45EMCMuLzi/qblcKdnpNXbS8avjZkbrby7D
+	LbflKMBwBpne0vN+jRGfPZ5KkH8g/wrb2Iysg1BD0WNDb7e+HNGljWcBrUC8WDxe3bD6ydbab73yR
+	uJyZUViEmflHgWmslKG/s5E3EG8U2lifam7qVAuzKuEQR3/5rwJHLxPPXtihgY2ufj+N7AB0OmqV+
+	PZ0/q0kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpU7F-0000000Fgjw-3nMN;
-	Mon, 09 Feb 2026 16:28:01 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vpUDA-0000000Fh7C-46qv;
+	Mon, 09 Feb 2026 16:34:09 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpU7D-0000000FgjU-0Nvm;
-	Mon, 09 Feb 2026 16:28:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=5IZQ4COQKPXn9DHaU1hZteGEj7qfkW1soHzUGkYDH58=; b=oYif8k3yTZnZIcyM4COKRbCgoV
-	W3TYLbDNyqPT1CA6CQ7rIdUQOD7Mvp1SuqLSLkHh62A1fxd8wjYe148jCsoqzpjJPPirB7SZNthL1
-	lBCUfvEWMN+KtPbK9GGd0SsFQPSFudqZIncwSLImb9CPoLAKwpq5A3yAgAzelBEjwNNmrV5vyt+tC
-	s+sZ+h7CxmAdPaUqmY2zD5bWsHBECk/mmSSA5/1VwLqdJWoEtgIHIacmkWng2QxOmiYuCFPsVfGmz
-	Csp4vG66he2ip+9+C9kYPZPueO34rS5Y1//W7CjpQqHpQyv8WnF4G7RiXWTPssEz6OWRIXcagWOon
-	m/Pe0XBw==;
-Received: from i53875a32.versanet.de ([83.135.90.50] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vpU78-007nOC-2C; Mon, 09 Feb 2026 17:27:54 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH 3/3] arm64: dts: rockchip: add pinctrl for clk-generator GPIO on
- rk3588-tiger
-Date: Mon, 09 Feb 2026 17:27:51 +0100
-Message-ID: <5539724.6PsWsQAL7t@diego>
-In-Reply-To: <c8816ada-bb46-4c15-a3a8-a06dac5acdbd@cherry.de>
-References: <20260205102104.394991-1-heiko@sntech.de>
- <20260205102104.394991-4-heiko@sntech.de>
- <c8816ada-bb46-4c15-a3a8-a06dac5acdbd@cherry.de>
+	id 1vpUD8-0000000Fh6I-1pVO
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Feb 2026 16:34:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KHwwh0FYt4qr+KCFXVEN/ubgjMIrovrNO9nurasMznCQqOzBqUsEr7DuYqdFNFB4PgQRgdpdieue3VXYRPw8jrBOxGmnhm4fUlQw2Rr0ybeTslo0XdZVG4QjVTgKaoYl2sN2FxEqq5tnrzOlglmXaaQMVfFOsIgVCTIipB831bZobH8R0fKIa76PxO+tbxaDg65jBBxjcq4/3BJNV4FnRtJ4hsviJaBFvcZ5vhXsIgLv+PwOj+FULOvue7n5uLYqwUaypHbH1BplyKgTSpkKxNUYnGM1PNC3Hbnge8RaA3zWkOQ47KwTmYN2/d9SMynF5qkRSkYA54OWbuz9KqocGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BxIMIJWEETfVPRtJCxmPLE+EXDs0d33femYZLVwtdN4=;
+ b=L6dPFkwQvqS3JbG7ne83GpqG/VBIvpgfTWpdmUjpCnB47Gy6ENeROKb7QaQFrERMDu3/rHlwGHkR5N57pi0vqxXVeAu9DtZnJ2fseE6Mp5fFtyIgbUIbYL/dUqVVysmGSZfPglWijr3Q6v2IUzwmJBXhIUG8VZqU2a/Z66QyTr47Za4JSouuNuUVX+R2ludMbSAt6h4tKmpD2k5uy0IVD6w0uFSsjAeSbPoJkzuzFRMIyQbygU9MHV0PWu8Y06LBChEucaePYT632ukkWGToItguCsX1qTpoeVtQtRSJ6rFA1dKLeQUQ7WLJf8ft+mIcn+oeJuq+u1jOlyNJXvEYBw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BxIMIJWEETfVPRtJCxmPLE+EXDs0d33femYZLVwtdN4=;
+ b=Cy16EfwJf5UptWcAWoKgiG0jlkg+Kp1iDiLhb057kegwIZG9EO9XSgf+49tAUgFwEGopNnuXmFdIHHmitTx+TInKKwKEr+MFiAgkOcFg+GcDQANaST7/SLruXdD0C90maZcuRulupSgwagLdbGNLdcLbbwdvEC3w6ufcD1TUv7EkF9jXnVQzSq1f236MTWVW8lhwhMKFpZWehwB//U1XiXJMFpFHjxCWf6M3vFCbLZ2LAi0K4JuB5ZijkeAP4VrgdkGqy+PdmUKRKrkyRWJx3IPM5eASlKH4JjMVkg+Nv9nMNu3OwZsVDuGWlcPUKBpR/D8PnuXOOPjRMSRpMaN+kw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DU4PR04MB10575.eurprd04.prod.outlook.com (2603:10a6:10:585::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.19; Mon, 9 Feb
+ 2026 16:34:00 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9587.010; Mon, 9 Feb 2026
+ 16:34:00 +0000
+Date: Mon, 9 Feb 2026 11:33:51 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Sherry Sun <sherry.sun@nxp.com>
+Cc: hongxing.zhu@nxp.com, l.stach@pengutronix.de, bhelgaas@google.com,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	s.hauer@pengutronix.de, festevam@gmail.com, will@kernel.org,
+	imx@lists.linux.dev, kernel@pengutronix.de,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V4 02/11] PCI: host-generic: Add common helpers for
+ parsing Root Port properties
+Message-ID: <aYoMb89MeP44xV8N@lizhi-Precision-Tower-5810>
+References: <20260209082454.2097628-1-sherry.sun@nxp.com>
+ <20260209082454.2097628-3-sherry.sun@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260209082454.2097628-3-sherry.sun@nxp.com>
+X-ClientProxiedBy: PH8PR15CA0021.namprd15.prod.outlook.com
+ (2603:10b6:510:2d2::24) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU4PR04MB10575:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4f22c93d-ccd8-4788-35c9-08de67f90709
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|52116014|366016|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BATJd/mib5NvFqWQa/dUa/6a6S7LO4v94Xh2/NpEUMYOc1QMmHEFzVElXxG9?=
+ =?us-ascii?Q?yByxlbaVt1xhEFAejoR2x43DI+94SC8ITSL7Jzb9W/wJGLqxW6EHkoEuKXMe?=
+ =?us-ascii?Q?CbQ2Vp20fP7W8zn7dFdUMkcCX/YhwNcOV5P/XnxwZlqbI9gMVy5wewxsAKQJ?=
+ =?us-ascii?Q?d3OqwKRdRR7/clWKanu7cbSddRLKyYWe0n1GXQbZydG0eJi03zGMJ64W65bk?=
+ =?us-ascii?Q?nIz8LHFl4SBBd5HGEEQ3GZ9RdQEhg87kYxomMcMT2+dHPLc4e2G2YTjOaORl?=
+ =?us-ascii?Q?bNMT6HnPGJfR/sYlsvKt+u4rM686R8Nczpqh+o1qInjGr2E1N24sBqeBwiy4?=
+ =?us-ascii?Q?aN4li96E3ugiYdjV5l5pStB/jJ3Wd1F76aMZHVQRk0n58N2B4R+sSc/btfGy?=
+ =?us-ascii?Q?R2KBjjuKd2tA+jkPaWLvWAUn84yM8PjT2Q1R2tbfdXjQKNKLLBtEUeJwzm8t?=
+ =?us-ascii?Q?wDF3a4rHg9Al0UWJiF9eppm7UOojv8Tbj3gKf5GTzt/1K4OY4YOVZO3d/0a8?=
+ =?us-ascii?Q?GXHxOZQ2PssV0W18zr9cQ8BwcicTjxzxk+Mno+VxPt9WOfsKMKX69cHdSKte?=
+ =?us-ascii?Q?DIokLH3RN2qrtbcX49NgsjHhqqtJk9UZEflMbxQBMC46t/sxulPmEmpBCK5D?=
+ =?us-ascii?Q?Ao7wuoC3drVgXUI8lHeIFcvTE6f4kZS/6s/co14/vIaZUz4Sns7Tx64Svebw?=
+ =?us-ascii?Q?Fi84j33l/cmlDjoUgMakOBxKGdoVym2U7dbK4Di5BRxYC7psHrNqZakIc9J3?=
+ =?us-ascii?Q?GWkKH0mQhlrLrPeuByTDvOmpbICYxgxYkU9E5G7Y5T4+6bKh4roFKMRMkTHT?=
+ =?us-ascii?Q?hqj3l/qPMiRNTbHIuTB987qagWI177QBFUSH5fI3QCpvBBVxyY8anuYrj7mw?=
+ =?us-ascii?Q?fizU0hVnFJ0ef6v3aDrst1TepeCB4nA3q+v5sUsNOylU+8FNHysaJKMEm0Cs?=
+ =?us-ascii?Q?CzI64GmNNOS3zUEjM4bAoROucsNqCA6XrsVrnFRrxCzGxSzC6hLzVbVjLLYO?=
+ =?us-ascii?Q?DKZjMefFavSkgOUECBGKRgU5Kuf+UR2yHHLiy9WiFsqdbF11K15wRx5bf1as?=
+ =?us-ascii?Q?qhUC6LRlBdTD2Cxwb/1JSrD0UGzVv3a4HGSbnSzOffYQji0rvgohmjS7vCi8?=
+ =?us-ascii?Q?yMUcRJjQAH7llhYrhYVskQztQOKH5PGmIycLaqOjNni6lVHqr2lGqVZ0j6Us?=
+ =?us-ascii?Q?Sem8XbhpbXJxmIhVzg2WGJRw0LMBaNSEOzgDCuquaVKjaujzXeP6fxRuqEOI?=
+ =?us-ascii?Q?vKt10Um8k/VRJgjcT/wmxAaB8LXUjwWPZrUxc2tqIPW24zBK796fivQiJw6U?=
+ =?us-ascii?Q?FqZZyPCfU950opHqtRbs82C8eZ8WsuOnQ3o4ZTDMKUmvxD1ZC33A+cPn5o3h?=
+ =?us-ascii?Q?Gm5AIyliQ5VwHKy6A+mAyPT6mVZmu8FmxD5/apdpWA5ZHKd9IarTzqsXcMoa?=
+ =?us-ascii?Q?vr+zpvPFZNQo/pTPKcHvJ6tFgjznd7b9VQzBrSmGoeAgdWU9qp3pQJsMuOwk?=
+ =?us-ascii?Q?d+sCnzoPGp1+88fjnEVr1FQYu2tkwDv3xf40WFROXbuJA8atmVFucsEC9mhZ?=
+ =?us-ascii?Q?BKVm7zv9uok5VA9cpDetmI7qqmPptCkevQ6uPtUsbyi/7PNIax+4LyqwlutY?=
+ =?us-ascii?Q?2934XNJo83wLvLyXaK/6mFQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(52116014)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RPXO4LZr4I7QGt2tLfxdFd4Hp97qvCd0nwDZIgh/DmWpQ8hwUmhJZHaMwLJC?=
+ =?us-ascii?Q?QgRc2bxcQEZFuHbUW6Py68Wwki9cTjpaGqwKtnSE2gz5zMIh45no5pIfekYm?=
+ =?us-ascii?Q?PYMhoTjXf9JZNPZlI5z3vWDRGE5UyLDSTpwJMAGJCtX0LxojCH6WZvPtANYr?=
+ =?us-ascii?Q?dP3l1VzmR4t23KLHUo/pGcnN0k/2GMCPrW4tnxHP3f1w/p+Fm9SvK3eWUIXa?=
+ =?us-ascii?Q?Ez5hfDI4RMJc73ot+Y1fibv+kEqA8NHz1B4aeawPAnOIqoN7BQVHRHpQZK5K?=
+ =?us-ascii?Q?fuKLbFVltYheg/AlqAFUcTE/rK1+gw70Qpl9EbcKCMZOyS3nfYzCQzW4JY/A?=
+ =?us-ascii?Q?qz17L30E2cGsmnd5Shdqy3uBe+GDdrB2sxNR0t33VpYyCU2R9i9DbZm4s/3m?=
+ =?us-ascii?Q?xUvs/SDwkyXojuSZiYOV0IIBhMVfb5VAfs29UqLfr+AqpJrbObH9rZg5LgB8?=
+ =?us-ascii?Q?0yn+5uSCTG1XxWU6N4BjXwGbj1wCNqQdgDarnb8MoETr06eAUJyQ29IjOazZ?=
+ =?us-ascii?Q?9KuFW+gVb/17YHHykLN2hOJkX4Shv5+61L3aFlVjScjFTmvtyiD6GLacmZ6f?=
+ =?us-ascii?Q?Ac8kXKEGUud3PgdB4OSaALT1ahmRyK7gmZyEa1e5s+9ZbpetgXzeC5s1HhBK?=
+ =?us-ascii?Q?BcSyniHwvUjx0xWp03oP/8WLXeZ0TBTs4wIb3skRQtly1rhJBvDfX/FtiZzR?=
+ =?us-ascii?Q?IUSafxUcdGmZwQ2qKgIWA71oOkDHp8DYSi4EbysSBPeWKsDSKQIrdLjn/7+N?=
+ =?us-ascii?Q?fqgnAKvf2jZtQmGACrWNpdr0JYwsqXJ4G3h8CaG/DqUD3kq5wDf3DQca8Rcu?=
+ =?us-ascii?Q?kVAhwkwfHscsT7HUXitMFw72g9wox3+DmEoDAY2ErcujFvANIEDO7vx9pUeR?=
+ =?us-ascii?Q?9mauIzNQ2wyWQurv51FM8idz3W70o/y/cQJq2r64fMSn2TVkljrKG/j5BScs?=
+ =?us-ascii?Q?AV8OL1ZWu+0Glb7cEiVJ8peEwC+uf2k29Fmd6bYmB0El1gI+2h6UuXHtgMrq?=
+ =?us-ascii?Q?KhyKhDKrDxlZiXv51eLO2BmsS6zxQaN2DHk2YTAX7UlGCl1m1MFR1h2xCptb?=
+ =?us-ascii?Q?L/88a8b0r00+8fgmyhWnS4t/Ps/VenIByARS+NTPvqk1jy8iAiju4qoXdBr2?=
+ =?us-ascii?Q?7Rtn0UrXSkj29BjQ5K4i1J7PYfhCbOBUfeiJXcsON3pj9v/KXV7nX+MZaEld?=
+ =?us-ascii?Q?EigakSd9s25OMSLw77mYrbFty+YAvLHMh3zaeh7sXYd44sWVTO7kAZ2oVu4I?=
+ =?us-ascii?Q?WUzLyvNc1+A24YTO79foCMohnZUkLGFNq+J2pmcELag8bVPHTPQGbJ7X1jro?=
+ =?us-ascii?Q?yQWr4np8dKJxOqOfGzztUXBsccOJ1iI6s5XDk/lP6XCZAfz0sbVUFYQWJs6o?=
+ =?us-ascii?Q?niIksoK8wBoAcuSsvQjNMwuSKo8uJO171fmynauUteUKrAE3sYRnfDUElE8c?=
+ =?us-ascii?Q?IDS+0wvAZLvwbpFHRYtWDuIMc6Td4GIOpm5zhDrdd0jz16ymZuA3KYi+33XR?=
+ =?us-ascii?Q?4GO/vO81R82XihKn3u8eorOMIdEoUgOq0VpbiKTsYzYqVgcOcjGkKcDSPcOE?=
+ =?us-ascii?Q?uBLUmnMfDaimvuaJho9sB6YwuieXqSKMsiY0GGE//Cr0AlBaeRQuMIK1p0U/?=
+ =?us-ascii?Q?KdJ0yKeucPfTNleFPSQ99aa67Y4p3Ulgv8DkFisMS23/9ofh3nJGGaO2WP+u?=
+ =?us-ascii?Q?bS6ibs+MZ2N2V2hHFbFD9z1zQh1DL+m9d4GyEEsjsS5jIJAM?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4f22c93d-ccd8-4788-35c9-08de67f90709
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Feb 2026 16:34:00.0226
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0zDGAeXzcHHR46Ofw8MYZepEA67tj2N1etcJOcq9JYGYx5UTypaC5tJGcBcR7nmBdPBtSuV27Qwe2Xl8aSaqOQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10575
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_082759_211271_639714B5 
-X-CRM114-Status: GOOD (  27.25  )
+X-CRM114-CacheID: sfid-20260209_083406_504122_C44E5C64 
+X-CRM114-Status: GOOD (  24.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,77 +167,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 5. Februar 2026, 17:49:15 Mitteleurop=C3=A4ische Normalzeit =
-schrieb Quentin Schulz:
-> Hi Heiko,
->=20
-> On 2/5/26 11:21 AM, Heiko Stuebner wrote:
-> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> >=20
-> > While specific driver in the Linux-Kernel handles GPIOs gracefully with=
-out
-> > matching pinctrl entries, this might not be true for other operating
-> > systems. So having pinctrl entries makes the hardware-description
-> > more complete.
-> >=20
-> > The somewhat similar rk3588-jaguar board has a pinctrl entry already,
-> > so also add one for rk3588-tiger.
-> >=20
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> > ---
-> >   arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi | 8 ++++++++
-> >   1 file changed, 8 insertions(+)
-> >=20
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi b/arch/arm6=
-4/boot/dts/rockchip/rk3588-tiger.dtsi
-> > index 259fb125e13f..91057b166690 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
-> > @@ -58,6 +58,8 @@ pcie_refclk: pcie-clock-generator {
-> >   		clock-frequency =3D <100000000>;
-> >   		clock-output-names =3D "pcie3_refclk";
-> >   		enable-gpios =3D <&gpio4 RK_PB4 GPIO_ACTIVE_HIGH>; /* PCIE30X4_CLKR=
-EQN_M1_L */
-> > +		pinctrl-names =3D "default";
-> > +		pinctrl-0 =3D <&pcie30x4_clkreqn_m1_l>;
-> >   		vdd-supply =3D <&vcca_3v3_s0>;
-> >   	};
-> >  =20
-> > @@ -357,6 +359,12 @@ module_led_pin: module-led-pin {
-> >   		};
-> >   	};
-> >  =20
-> > +	pcie30x4 {
-> > +		pcie30x4_clkreqn_m1_l: pcie30x4-clkreqn-m1-l {
-> > +			rockchip,pins =3D <4 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
->=20
-> So this is interesting because it made me double-check the schematics=20
-> and I think we did a mistake on Jaguar.
->=20
-> This one here is fine as this SoC pin is connected to the PDn pin of the=
-=20
-> IC which has an internal Pull-Up, so the state is defined.
->=20
-> However, on Jaguar this signal controls a transistor and there's no=20
-> external Pull-Up or Pull-Down between the SoC and the transistor gate so=
-=20
-> we probably should not have pull_none for the pinconf. The default reset=
-=20
-> state of this pin in Pull-Up so maybe we should go with that such that=20
-> there's no difference between the reset default and the time between=20
-> application of the pinconf by the core and asserting of the pin by the=20
-> driver. What do you think?
+On Mon, Feb 09, 2026 at 04:24:45PM +0800, Sherry Sun wrote:
+> Introduce generic helper functions to parse Root Port device tree nodes
+> and extract common properties like reset GPIOs. This allows multiple
+> PCI host controller drivers to share the same parsing logic.
+>
+> Define struct pci_host_port to hold common Root Port properties and add
+> pci_host_common_parse_ports() to parse Root Port nodes from device tree,
+> pci_host_common_delete_ports() to cleanup the port lists.
+>
+> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> ---
+>  drivers/pci/controller/pci-host-common.c | 75 ++++++++++++++++++++++++
+>  drivers/pci/controller/pci-host-common.h | 17 ++++++
+>  2 files changed, 92 insertions(+)
+>
+> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+> index c473e7c03bac..287e92df0092 100644
+> --- a/drivers/pci/controller/pci-host-common.c
+> +++ b/drivers/pci/controller/pci-host-common.c
+> @@ -9,6 +9,7 @@
+>
+>  #include <linux/kernel.h>
+>  #include <linux/module.h>
+> +#include <linux/gpio/consumer.h>
+>  #include <linux/of.h>
+>  #include <linux/of_address.h>
+>  #include <linux/of_pci.h>
+> @@ -17,6 +18,80 @@
+>
+>  #include "pci-host-common.h"
+>
+> +/**
+> + * pci_host_common_delete_ports - Cleanup function for port list
+> + * @data: Pointer to the port list head
+> + */
+> +void pci_host_common_delete_ports(void *data)
+> +{
+> +	struct list_head *ports = data;
+> +	struct pci_host_port *port, *tmp;
+> +
+> +	list_for_each_entry_safe(port, tmp, ports, list)
+> +		list_del(&port->list);
+> +}
+> +EXPORT_SYMBOL_GPL(pci_host_common_delete_ports);
+> +
+> +/**
+> + * pci_host_common_parse_port - Parse a single Root Port node
+> + * @dev: Device pointer
+> + * @node: Device tree node of the Root Port
+> + * @ports: List head to add the parsed port to
+> + *
+> + * Returns: 0 on success, negative error code on failure
+> + */
+> +static int pci_host_common_parse_port(struct device *dev,
+> +				      struct device_node *node,
+> +				      struct list_head *ports)
+> +{
+> +	struct pci_host_port *port;
+> +	struct gpio_desc *reset;
+> +
+> +	reset = devm_fwnode_gpiod_get(dev, of_fwnode_handle(node),
+> +				      "reset", GPIOD_OUT_HIGH, "PERST#");
+> +	if (IS_ERR(reset))
+> +		return PTR_ERR(reset);
+> +
+> +	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
+> +	if (!port)
+> +		return -ENOMEM;
+> +
+> +	port->reset = reset;
+> +	INIT_LIST_HEAD(&port->list);
+> +	list_add_tail(&port->list, ports);
 
-Looking at the datasheet for the PI6C557-05B, both nPD and OE are
-described as having an "internal pull up resistor", so the pinconf side
-should not matter?
+Suppose need spin_lock for link list.
 
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * pci_host_common_parse_ports - Parse Root Port nodes from device tree
+> + * @dev: Device pointer
+> + * @ports: List head to store parsed ports
+> + *
+> + * This function iterates through child nodes of the host bridge and parses
+> + * Root Port properties (currently only reset GPIO).
+> + *
+> + * Returns: 0 on success, -ENOENT if no ports found, other negative error codes
+> + * on failure
+> + */
+> +int pci_host_common_parse_ports(struct device *dev, struct list_head *ports)
+> +{
+> +	int ret = -ENOENT;
+> +
+> +	for_each_available_child_of_node_scoped(dev->of_node, of_port) {
+> +		if (!of_node_is_type(of_port, "pci"))
+> +			continue;
+> +		ret = pci_host_common_parse_port(dev, of_port, ports);
+> +		if (ret) {
+> +			pci_host_common_delete_ports(ports);
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL_GPL(pci_host_common_parse_ports);
+> +
+>  static void gen_pci_unmap_cfg(void *ptr)
+>  {
+>  	pci_ecam_free((struct pci_config_window *)ptr);
+> diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
+> index b5075d4bd7eb..2c8df230886f 100644
+> --- a/drivers/pci/controller/pci-host-common.h
+> +++ b/drivers/pci/controller/pci-host-common.h
+> @@ -12,6 +12,23 @@
+>
+>  struct pci_ecam_ops;
+>
+> +/**
+> + * struct pci_host_port - Generic Root Port properties
+> + * @list: List node for linking multiple ports
+> + * @reset: GPIO descriptor for PERST# signal
+> + *
+> + * This structure contains common properties that can be parsed from
+> + * Root Port device tree nodes.
+> + */
+> +struct pci_host_port {
+> +	struct list_head	list;
+> +	struct gpio_desc	*reset;
+> +};
 
-> As for Tiger, this is fine, so:
->=20
-> Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+I think it should be include/linux/pci.h
 
-Heiko
+struct pci_host_bridge {
+	...
+	struct list_head ports_header;
+}
 
+So all API should pass down struct pci_host_bridge *.
 
+Frank
+> +
+> +void pci_host_common_delete_ports(void *data);
+> +int pci_host_common_parse_ports(struct device *dev,
+> +				struct list_head *ports);
+> +
+>  int pci_host_common_probe(struct platform_device *pdev);
+>  int pci_host_common_init(struct platform_device *pdev,
+>  			 struct pci_host_bridge *bridge,
+> --
+> 2.37.1
+>
 
