@@ -4,104 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6252E7E0D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 11:35:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 509F2E81BA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 11:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1NfdW7RoufMDrTJBdfceZq+EtM7fY+bvCPPK+bc1vKk=; b=fhazIp/YD3L7B5DWuR6OLauh5V
-	a+4gapAjwSgRHczsL56iYUNM/1fyLhnTp4jiw3dCSLQWxYpjWHgzfMNKvN148D0FpCHd6mL4WeeiA
-	sscXmfv657im3oghUmhfrBqR7EF8FL6WlL6mbKk7TRSgeADyK8luZ3E3JmPbDLHVBJo9cZGn/plwy
-	cBEZqz1VqUPdQMRDQJEiLsfG94tlfGGzPtLxzEv0zTKFT+6tgNVgDS+tRK3i+C3MXtL2UeHkZQARJ
-	6qdXD52fmVU11ewVRZwa0YNC7LIh6J0mq/uaNBCWd/n6VwWxIO46HpDzac7cH1Z250RypzU6UxEmh
-	nwI7Wiow==;
+	bh=1i4BXS21OZQO/srhwptAe3ZlZ7ke8GZKEhhBYlndKvc=; b=CmN4jg6oriNAVNRQJl0r21+7ZA
+	EHVcNtIDpMp8kIprhNZa1CWeZAFKcwe4VrbQEeCrblX8tkjOkD38AWaQPrWTPzMdKd//KNFaHmGRB
+	WjglbhqUT9Gc/EiuvBpN2UbsL1ij1rd+gov2/Ki/j1ux2m181ALd7xVyfgqYwnWjFbJSOy+KwnbPV
+	EZUqmKuNuorYAC8X3xx3GhJ6LgAPOyApa8txsbIKJfeFniMiKt534pxy3FRN2GAyFMzaNN7WDw2p6
+	Z6g1ubUyj3jygCnzBS0u798KqtZvF9MA5RHbsCd1WNg7LLBJhEkleWLks486SUB35IQ9FDtdFOejF
+	cQkIB20w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpPYD-0000000FJ92-2PdZ;
-	Mon, 09 Feb 2026 11:35:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vpPcq-0000000FJeo-0e88;
+	Mon, 09 Feb 2026 11:40:20 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpPYC-0000000FJ8g-13XD
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 11:35:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4354F600C4;
-	Mon,  9 Feb 2026 11:35:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31EE8C19423;
-	Mon,  9 Feb 2026 11:35:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770636931;
-	bh=2HmGK1FsgHNnDioYwrMsK1Bbaax/0z4nMO6vG8Dr6co=;
+	id 1vpPcn-0000000FJeF-3lL3;
+	Mon, 09 Feb 2026 11:40:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1770637213;
+	bh=YaTGcZwimloW1kgdEu8K+8Kr1kYVJjhPDsKxgwaC/PM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aGXi8a26Yb2UeXzJrISstLpRMdhmQ1hOBXbhJTqvUHbanE6MQr4caFXcX9c68UJH9
-	 dSqR0n2NKG1BJ8qjBDF4sDL/DBFCrV4gdNH/enfgyMbOMwcEmb+Sh6a4KFFksFfCBw
-	 0TE/wKUT4KI4bENIC8imrAirTvijkRlg4z6jIg3ylg0GEVshAF9wcHwYB/AWEDBA8q
-	 8ucrZ3diXB9e67eC5ntVRPzxtVSM/fgCoqRFQKKiJaC2K/3XJKPA/O8RV/MO792/89
-	 fb/hdjxKznnGCLZUTzPw/ZjWMHOuMp/aOqBiU36KarA4YmYZWo/l6Q29fy/Na3kO3x
-	 WojVmkc/T+F2Q==
-Message-ID: <656acb84-ed6d-4251-8f0d-ef5602d3bf19@kernel.org>
-Date: Mon, 9 Feb 2026 12:35:26 +0100
+	b=LsCNZmAyezhl3cvyfXrtT3fLv3wCWzZ9+ABlrTSDaHixCeCjjxhzsU2Ofp6WSAXOx
+	 lTbIG1xnRmaHn9+L82ux7AgGEQB7215cUmY8YwwMGZ6+QpWdjNngskX1QdUsnHtfvZ
+	 MOS8CdmxtKmMn6AaDExoUwNnLOiOOJEgpmIjvUProq0KvQrqCUZgmhdcPvBUM3434a
+	 8MsC44jgeZAi5LeDa2lrMuE64kprokKgDPFCcn+OZRCrprZefZgwOMDXyZQLT2rKT3
+	 gn5YhQcM1rv8yVHlBQC6JDzp5x6Xv5Rc37TFp/fKZKnuh8TxkaX8tsdXGuuFTxXm8d
+	 IvXe1leqXwmZQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7C1E117E13D5;
+	Mon,  9 Feb 2026 12:40:13 +0100 (CET)
+Message-ID: <5535ac41-efb8-4bf5-91bb-9b6f63517e8f@collabora.com>
+Date: Mon, 9 Feb 2026 12:40:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/3] reset: add Sky1 soc reset support
-To: Gary Yang <gary.yang@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, p.zabel@pengutronix.de, peter.chen@cixtech.com,
- unicorn_wang@outlook.com, inochiama@gmail.com, alchark@gmail.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, cix-kernel-upstream@cixtech.com
-References: <20260209093344.2013693-1-gary.yang@cixtech.com>
- <20260209093344.2013693-3-gary.yang@cixtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH] drm/mediatek: dsi: Store driver data before invoking
+ mipi_dsi_host_register
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+ linux-mediatek@lists.infradead.org
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260209090516.14369-1-l.scorcia@gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260209093344.2013693-3-gary.yang@cixtech.com>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20260209090516.14369-1-l.scorcia@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260209_034018_103816_A672EA97 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,38 +79,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/02/2026 10:33, Gary Yang wrote:
-> +static int sky1_system_control_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	const struct mfd_cell *cell =
-> +			(struct mfd_cell *)of_device_get_match_data(dev);
-> +
-> +	return mfd_add_devices(dev, PLATFORM_DEVID_NONE, cell, 1, NULL, 0, NULL);
-> +}
-> +
-> +static const struct of_device_id sky1_system_control_of_match[] = {
-> +	{ .compatible = "cix,sky1-system-control",
-> +	  .data = sky1_system_control_devs},
-> +	{ .compatible = "cix,sky1-s5-system-control",
-> +	  .data = sky1_s5_system_control_devs},
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, sky1_system_control_of_match);
-> +
-> +static struct platform_driver sky1_system_control_driver = {
-> +	.driver = {
-> +		.name = "sky1-system-control",
-> +		.of_match_table = sky1_system_control_of_match,
-> +	},
-> +	.probe = sky1_system_control_probe,
+Il 09/02/26 10:05, Luca Leonardo Scorcia ha scritto:
+> The call to mipi_dsi_host_register triggers a callback to mtk_dsi_bind,
+> which uses dev_get_drvdata to retrieve the mtk_dsi struct, so this
+> structure needs to be stored inside the driver data before invoking it.
+> 
+> As drvdata is currently uninitialized it leads to a crash when
+> registering the DSI DRM encoder right after acquiring
+> the mode_config.idr_mutex, blocking all subsequent DRM operations.
+> 
+> Fixes the following crash during mediatek-drm probe (tested on Xiaomi
+> Smart Clock x04g):
+> 
+> Unable to handle kernel NULL pointer dereference at virtual address
+>   0000000000000040
+> [...]
+> Modules linked in: mediatek_drm(+) drm_display_helper cec drm_client_lib
+>   drm_dma_helper drm_kms_helper panel_simple
+> [...]
+> Call trace:
+>   drm_mode_object_add+0x58/0x98 (P)
+>   __drm_encoder_init+0x48/0x140
+>   drm_encoder_init+0x6c/0xa0
+>   drm_simple_encoder_init+0x20/0x34 [drm_kms_helper]
+>   mtk_dsi_bind+0x34/0x13c [mediatek_drm]
+>   component_bind_all+0x120/0x280
+>   mtk_drm_bind+0x284/0x67c [mediatek_drm]
+>   try_to_bring_up_aggregate_device+0x23c/0x320
+>   __component_add+0xa4/0x198
+>   component_add+0x14/0x20
+>   mtk_dsi_host_attach+0x78/0x100 [mediatek_drm]
+>   mipi_dsi_attach+0x2c/0x50
+>   panel_simple_dsi_probe+0x4c/0x9c [panel_simple]
+>   mipi_dsi_drv_probe+0x1c/0x28
+>   really_probe+0xc0/0x3dc
+>   __driver_probe_device+0x80/0x160
+>   driver_probe_device+0x40/0x120
+>   __device_attach_driver+0xbc/0x17c
+>   bus_for_each_drv+0x88/0xf0
+>   __device_attach+0x9c/0x1cc
+>   device_initial_probe+0x54/0x60
+>   bus_probe_device+0x34/0xa0
+>   device_add+0x5b0/0x800
+>   mipi_dsi_device_register_full+0xdc/0x16c
+>   mipi_dsi_host_register+0xc4/0x17c
+>   mtk_dsi_probe+0x10c/0x260 [mediatek_drm]
+>   platform_probe+0x5c/0xa4
+>   really_probe+0xc0/0x3dc
+>   __driver_probe_device+0x80/0x160
+>   driver_probe_device+0x40/0x120
+>   __driver_attach+0xc8/0x1f8
+>   bus_for_each_dev+0x7c/0xe0
+>   driver_attach+0x24/0x30
+>   bus_add_driver+0x11c/0x240
+>   driver_register+0x68/0x130
+>   __platform_register_drivers+0x64/0x160
+>   mtk_drm_init+0x24/0x1000 [mediatek_drm]
+>   do_one_initcall+0x60/0x1d0
+>   do_init_module+0x54/0x240
+>   load_module+0x1838/0x1dc0
+>   init_module_from_file+0xd8/0xf0
+>   __arm64_sys_finit_module+0x1b4/0x428
+>   invoke_syscall.constprop.0+0x48/0xc8
+>   do_el0_svc+0x3c/0xb8
+>   el0_svc+0x34/0xe8
+>   el0t_64_sync_handler+0xa0/0xe4
+>   el0t_64_sync+0x198/0x19c
+> Code: 52800022 941004ab 2a0003f3 37f80040 (29005a80)
+> ---[ end trace 0000000000000000 ]---
+> 
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 
-I do not understand why do you need thish driver in the first place.
-It's completely empty - just spawns reset driver, so you only need a
-reset driver.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Layers of indirection are never helpful.
+... but wait, what have I just read? Xiaomi Smart Clock?! MT8167?
 
-Best regards,
-Krzysztof
+Are you running upstream on this device?
+If so, why don't you also contribute a nice devicetree to get this device finally
+upstream?!?! :-)
+
+Cheers,
+Angelo
+
+> ---
+>   drivers/gpu/drm/mediatek/mtk_dsi.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+> index 4c2983852596..2358407b8a6b 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+> @@ -1232,6 +1232,8 @@ static int mtk_dsi_probe(struct platform_device *pdev)
+>   
+>   	dsi->host.ops = &mtk_dsi_ops;
+>   	dsi->host.dev = dev;
+> +	platform_set_drvdata(pdev, dsi);
+> +
+>   	ret = mipi_dsi_host_register(&dsi->host);
+>   	if (ret < 0)
+>   		return dev_err_probe(dev, ret, "Failed to register DSI host\n");
+> @@ -1254,8 +1256,6 @@ static int mtk_dsi_probe(struct platform_device *pdev)
+>   
+>   	init_waitqueue_head(&dsi->irq_wait_queue);
+>   
+> -	platform_set_drvdata(pdev, dsi);
+> -
+>   	dsi->bridge.of_node = dev->of_node;
+>   	dsi->bridge.type = DRM_MODE_CONNECTOR_DSI;
+>   
+
+
 
