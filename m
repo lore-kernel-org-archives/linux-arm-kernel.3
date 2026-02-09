@@ -4,81 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCFDEE81BD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 16:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F6E5E81BDC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 16:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Zc/K/gfIjanjzTcYdjwTBkW9jcQgWshoxPvyi9BzHM=; b=mgtXq27aCeVsG4eCJqp2WXDvyd
-	lGMDGpOpGvzzhJQQMF5dV6RNGIYU8TH5BIPpEsbIOmAWF9yyuQbWTcpZc9nNvylyYpte6kWQ2/ECP
-	VlGAPjkawX+sjtbueSk5hcynRok9dIDX2SktslSulfArL+ite0szo2wW0Z+znhVW5MGnD2aYj4Sq9
-	uESw2RNwPI/PgkjbEmahNggwIUKCQHqzr6s26BytLU3LhmViOHe1hB7za1aJWDowTzk+x9qjAzg/M
-	PLjiKBfoVDPmXXU7hx4uat1PLcUe1Yewq0ZbLBO6R3lTIOJoCMhDErNK0mvCL6S4qgzEFtuYkSZFD
-	AlmBZA/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2aw0A1Q7+XXVhB8aaJQe16/jz0kJyMiPsKTBLCCHa3s=; b=G7a5SeODwol1pyy+ZqnICcEo6I
+	nafJwegOiDmocHkrJPWfmHdrzoYztnjwdHmngk4Dax9nRnZGqdPxwSoQUPJLLVnjLY5iYry91EsHk
+	ilRrW976X6NabGYDFvLs8VhQXMfOMZkMxxe7DByb5Tnd+lJxZxBhrByDMWJCAejYUKHS5A2cjSHi0
+	+9Ejbsr0uReDTeFJwQYbiPkUrKBVwjWsN84v2FJgm2d/yv4MsnmqzxAn/TAW8NAMGV9avCmn99n+n
+	tPwwFtarFnbLLnr7YC2IghnKkeuyNW5Hx5TYARXq09/A1IgG3hrprHuE6zgwt9SBadTYItANGT5Up
+	CcQPxWew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpTtj-0000000FfI1-2hC2;
-	Mon, 09 Feb 2026 16:14:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vpTwW-0000000FfTX-146f;
+	Mon, 09 Feb 2026 16:16:56 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpTti-0000000FfHq-18ck
+	id 1vpTwT-0000000FfSs-44Lt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 16:14:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4E61D60138;
-	Mon,  9 Feb 2026 16:14:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 632F9C16AAE;
-	Mon,  9 Feb 2026 16:13:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770653640;
-	bh=LOJcn+SmxysmVh2uPMIzBp5pbzxzu9seMnrYNsHRBSg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eUZjPza7FPFYtADnlPyrvUQeLkRIftNqUBdxCxWsmcAxTSEC7h1y3EogopI2EN5yo
-	 OHmOM4kRW0mWYsaSBWeGG94SFkrQlwoy9ERbFTMTpJ0Io+NbOKNgJNMpqw5vPFTiY6
-	 qwp352Vg3bCuD/ikfLM+KvmjcmjKBagsBMSXIrGiWJHNZaw4RYV4gPr0yrtQYiRF+s
-	 XbzUgmmGAWxnPB125eA5XmC+pOpdmCHQCX7Td/XoBgVqmJ4gjH0csPg+S7wNLwyOwO
-	 QrRRMXCGGZHPIJ2qZsnFaSW8sWMnKrw3L0+d4bXLpB3/vn47IMQEV+DuyQG5OfBMsM
-	 AqPkD6R2UBZ+g==
-Date: Mon, 9 Feb 2026 10:13:54 -0600
-From: Bjorn Andersson <andersson@kernel.org>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, linux-renesas-soc@vger.kernel.org, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andy Shevchenko <andy@kernel.org>, 
-	Antonio Borneo <antonio.borneo@foss.st.com>, Arnd Bergmann <arnd@arndb.de>, Boqun Feng <boqun.feng@gmail.com>, 
-	Chen-Yu Tsai <wens@kernel.org>, Chunyan Zhang <zhang.lyra@gmail.com>, 
-	Danilo Krummrich <dakr@kernel.org>, David Lechner <dlechner@baylibre.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ingo Molnar <mingo@redhat.com>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Jonathan Cameron <jic23@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Lee Jones <lee@kernel.org>, Linus Walleij <linusw@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org, linux-omap@vger.kernel.org, 
-	linux-remoteproc@vger.kernel.org, linux-spi@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, Mark Brown <broonie@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>, 
-	Orson Zhai <orsonzhai@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Samuel Holland <samuel@sholland.org>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Srinivas Kandagatla <srini@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Waiman Long <longman@redhat.com>, 
-	Wilken Gottwalt <wilken.gottwalt@posteo.net>, Will Deacon <will@kernel.org>
-Subject: Re: [RFC PATCH 0/4] hwspinlock: refactor headers into public
- provider/consumer pair
-Message-ID: <yl4bbbev7lgrmnqys2izkolo5egzg24faukvqar5eh26q5ra7p@42rcegfpqqt6>
-References: <20260125184654.17843-6-wsa+renesas@sang-engineering.com>
- <aXc7DxsqiCGdfzxi@smile.fi.intel.com>
- <aXc-Zxw05XQLb1Dy@ninjato>
- <aXdAB2bLTy6u8G8c@smile.fi.intel.com>
- <aXdCBu6kzdw1NWay@ninjato>
- <aXikZ5wc6bvgRqF6@ninjato>
- <aYnBrN0JRCf9-UjB@ninjato>
+	Mon, 09 Feb 2026 16:16:55 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2aaf59c4f7cso5011635ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Feb 2026 08:16:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770653812; x=1771258612; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=2aw0A1Q7+XXVhB8aaJQe16/jz0kJyMiPsKTBLCCHa3s=;
+        b=Krbw0Gd9Sqa6ux8JiUI6/OvPrq5E0tOOv/uyCPysayyM4YKwPv2pHYKDDPoGDToHr6
+         jmzpIrP0zPO5vyOVysqa+zsEzMO5Lv4A6driAQFIL3WfRRt6lVom/pptiICwHsfBbaMB
+         FttcdWO5R1d6+1+9axquaqVd93MW0PO6R1XnJIqzgKG5T8iMGRwZo1Gfazz8eBv8r7M/
+         0rCI+uXpp2If4jKKXYx94nrEdKoX6+7wD388BxhomeTpuIUhbxYgaRwbnHyxNLHNZ0ST
+         vTH/70cZpfgp7ViSjfG8Pc1swdIoA3RZxYGOjCzmBLR+7uiUpUh/sB+Jsy36+Poy7bCV
+         2vXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770653812; x=1771258612;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2aw0A1Q7+XXVhB8aaJQe16/jz0kJyMiPsKTBLCCHa3s=;
+        b=M8MGlEKCWrMHqQoFkDihsRsr7McKQccBqCmP4ek+x8C/AvjSUtTLElzHxJEyu08Ku2
+         cZoLCS83PJk3f2VR/f9bZDu9OZTh9M1IO2Antrco+796jcj6aRKElGh2taqIQ3mAMtDI
+         s3w/61glhLyJZU7noXpTHx0neCJjKsOlPTLA9f+pXJP0oTwvvkRK9M1TqT8apykYb4GO
+         6GY/QSvbuaRCrE38lSIh7LUWbDuwVtoPqs128OHoyZaRI0FZnTZjY3Ts2e+0UDbcIN0A
+         BKRAQq8sbxS19mOLChyPCqgbfwkMgFGOf1njzHYgaDnLA3DgBQdo24AeEkbn6vN5LMBc
+         v7tg==
+X-Forwarded-Encrypted: i=1; AJvYcCUgPbP80Zc26V3/I+VLMXbVIBQEtYd0A8Yz9Ve/YD3o1gu8QhpkEtJ5zH8QIK8itgpxkb/pvVjaeKrUi5FDD0Q9@lists.infradead.org
+X-Gm-Message-State: AOJu0YziHZr8KMNBBBRMu/G+OPL8njJCGZg9K9u900S3XE7nRp1oAqFT
+	OjBU+Ohoi+haadix4vJzl+HSYULDxdpVwG1UP4OBZ5I/uhNy555j8fiO
+X-Gm-Gg: AZuq6aLhZDkndXRDnAqO3MVMkw9ols0F7Zm2+nsE7c1fBiehkQdN3LKfOXqr2k5FHsI
+	jg3vzUd1sVqOQ+kvCcnQyNortNVbHMnrisYcJ3KghPfn8sgSy8WirQU5f/eu6jATbPxEEzcpGcJ
+	P2l4geyyS0LMs0nDW7SeivM6PWmUUnSEvCChc0wbsLAGc246svLKxV/J6Cr37emIdu1q3uNPlDZ
+	8hfmvY0k55Iga7V6ABWLOmuNbYfYeDnvGsp3wPn1m6pRRnn9q0hoK7FxCDDSSrugC2SpLGUbUN7
+	dlLSM2VXXrNeSmQ6QRb4y4d5WmT1Q/BVcDPWSb7Jm9gslscnE9gkzAOgPcKyYEtXh6Jsx7vTVsq
+	rO7iz+8Zv7qbVYWON9Sk1FbyxkgvUM/gN5TB+3yZaw+tb5TkKdZ0i/m+4jyqpT6ixQ8d2uq0XYa
+	ceV3lG+o+cbsDqgFbYfYSj5Xt+xXfGfFWq4iM6meUSrMu9ywFEfEuQhveAgA==
+X-Received: by 2002:a17:902:fc86:b0:2a0:e532:242e with SMTP id d9443c01a7336-2a951607ae3mr114928935ad.11.1770653812464;
+        Mon, 09 Feb 2026 08:16:52 -0800 (PST)
+Received: from localhost.localdomain (1-165-93-187.dynamic-ip.hinet.net. [1.165.93.187])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2aa3ec42e2asm110116805ad.53.2026.02.09.08.16.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Feb 2026 08:16:52 -0800 (PST)
+From: Hsieh Hung-En <hungen3108@gmail.com>
+To: Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>
+Cc: dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Hsieh Hung-En <hungen3108@gmail.com>
+Subject: [PATCH] drm/rockchip: vop2: Use drm_err_ratelimited() for wait timeouts
+Date: Tue, 10 Feb 2026 00:16:21 +0800
+Message-Id: <20260209161621.6136-1-hungen3108@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aYnBrN0JRCf9-UjB@ninjato>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260209_081653_998753_99B71687 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,56 +104,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 09, 2026 at 12:14:52PM +0100, Wolfram Sang wrote:
-> Hi Bjorn, Baolin Wang,
-> 
-> > > > > Providers need it, especially the 'priv' member. Consumers won't see it.
-> > > > 
-> > > > But can't we make it opaque?
-> > > > 
-> > > > We may have getters and setters for the priv member...
-> > > 
-> > > I think we could do that.
-> > > 
-> > > Two drivers use the bank member, but only for the device
-> > > (lock->bank->dev). That can probably be refactored away, I'd guess.
-> > 
-> > I am willing to develop this series in the above direction. Before
-> > though, I'd like to know from hwspinlock maintainers if they agree to
-> > this refactoring in general.
-> 
-> Moving maintainers from CC to To ;) Do you, in general, approve this
-> change to the headers?
+Replace deprecated DRM_DEV_ERROR() with drm_err_ratelimited() in the VOP2
+register wait timeout paths to align with current DRM logging helpers and
+avoid flooding the kernel log when timeouts repeat.
 
-Certainly, I don't think we should force unnatural slicing of drivers
-across the source tree.
+Signed-off-by: Hsieh Hung-En <hungen3108@gmail.com>
+---
+ drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-> I think it is more modern and e.g. the mailbox subsystem has a similar
-> structure, a header for the client and a header for the controller.
+diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+index f3950e8476a7..02a788a4dfdd 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
++++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+@@ -2106,8 +2106,8 @@ static void rk3568_vop2_wait_for_port_mux_done(struct vop2 *vop2)
+ 	ret = readx_poll_timeout_atomic(rk3568_vop2_read_port_mux, vop2, port_mux_sel,
+ 					port_mux_sel == vop2->old_port_sel, 10, 50 * 1000);
+ 	if (ret)
+-		DRM_DEV_ERROR(vop2->dev, "wait port_mux done timeout: 0x%x--0x%x\n",
+-			      port_mux_sel, vop2->old_port_sel);
++		drm_err_ratelimited(vop2->drm, "wait port_mux done timeout: 0x%x--0x%x\n",
++				    port_mux_sel, vop2->old_port_sel);
+ }
+ 
+ static u32 rk3568_vop2_read_layer_cfg(struct vop2 *vop2)
+@@ -2126,8 +2126,8 @@ static void rk3568_vop2_wait_for_layer_cfg_done(struct vop2 *vop2, u32 cfg)
+ 	ret = readx_poll_timeout_atomic(rk3568_vop2_read_layer_cfg, vop2, atv_layer_cfg,
+ 					atv_layer_cfg == cfg, 10, 50 * 1000);
+ 	if (ret)
+-		DRM_DEV_ERROR(vop2->dev, "wait layer cfg done timeout: 0x%x--0x%x\n",
+-			      atv_layer_cfg, cfg);
++		drm_err_ratelimited(vop2->drm, "wait layer cfg done timeout: 0x%x--0x%x\n",
++				    atv_layer_cfg, cfg);
+ }
+ 
+ static void rk3568_vop2_setup_layer_mixer(struct vop2_video_port *vp)
+-- 
+2.34.1
 
-gpio, regulators, resets to name a few more.
-
-> And do you also prefer an opaque 'priv' member?
-> 
-
-'priv' is already opaque, so I presume you're asking if we can make
-struct hwspinlock internal to hwspinlock_core.c?
-
-I can see the allure of making hwspinlock::lock internal to the core,
-but (luckily) I don't see it to be a matter of just slapping some OOP it
-and call it solved. It would have to come with a new model for how we
-create the hwspinlock in the first place - as this is currently
-allocated as a whole by the provider driver.
-
-I've always found the current model unergonomic, resolving this part
-might very well have the side effect that Andy is looking for (and I'd
-welcome that).
-
-Regards,
-Bjorn
-
-> Happy hacking,
-> 
->    Wolfram
-> 
 
