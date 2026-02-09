@@ -4,79 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57ADFEF06FA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Feb 2026 23:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ABA8EF06FA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 00:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wIFi9EpRnhwtDIqLczwRt4cw5x9CO68vcVFcvmpAQIQ=; b=v5fHnc4gsD55Vv+6sf+c6Ap/gJ
-	g+4ow+7Vgr/EuLGfYiqLVInpE8yS+4KKvH7pcUrVC7oLj0uQBtnI7XggR5nkORARVF5QR+L0tLMQx
-	e1MAKsGsfQ0lZVRWBftefOaGd8glNCUgqusGR5EbaCFQg9MhAWY8Ks9NFZLbojxjqfq5IFl5/DemW
-	1YZwt62WpG6Ig5nQ/H94nz/GG2r/1jAfUHKSNqwfaE1Wu2CyoAUjCsAl70cpsoxP8uxAoalOfpbxK
-	+HUWpsghEaTDiQ0xDmsFcjhMlCUwNNLivLyfuV7VgEKEcAQuzemYX63gkij1GVqnfYNGyi51gnuig
-	CuJBpa8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aY9si+Qc3iQ63j/sZrWnU9kx4PEb0vzzqrLQRO71lAc=; b=p+2+2sRULGTwDbz2HEZgWwPr8/
+	8RZ2ai9brCo2TQlb7L499XRxuJLZubPRPYptk82KPK5HEPdEweFHi/UfX8sAgP/bd2I4bt147ANwr
+	P/Id28qy+8173E+r/OCF7Bf5/tR/e+cZb721YxzJH2OxIzrg1aCR86BkEx4O7bDpt3PJhPbbxkq5Q
+	phk6JADUS9zVNcj+iMJIHZcKA4IBmzyoHb+K2veEi/dF2O2HYCtfVLxD6JZIfhyeWlAzaGnUC3JOR
+	dt8BqK/M1h6A3LhV4Z7CLzysozwZ/ZvU8rptDQzUDRdSozfCVvX6QmkjAJ2ZDbrjeD3Ly7MhuWV0Z
+	Xd/aRMtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpEF1-0000000EZ7K-30Me;
-	Sun, 08 Feb 2026 23:30:59 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vpFQ0-0000000EcCl-0TnR;
+	Mon, 09 Feb 2026 00:46:24 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpEEz-0000000EZ6r-06mM
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Feb 2026 23:30:58 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 4B5B582A;
-	Mon,  9 Feb 2026 00:30:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1770593410;
-	bh=BqBwXlW1DYlKifkNzuD8EgN86/kfJHvciyDW4WXpDPg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a/R3LPSpkb93wFdSWlOX+/jeCfLOWluI9DhYaiJ+yJSYViQVHcpq2vU/8sQbNM8KW
-	 OzgvhCQDj4C29gAhRIz/QUtDJkAZwZ1B0An2C4xXoRtexqrXdGpW4BkrBAeKi/GBLD
-	 X7uukJHcWOKAMAPGF88XW8kAiir3KJ3mnbQTR9/M=
-Date: Mon, 9 Feb 2026 01:30:54 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Ovidiu Panait <ovidiu.panait.oss@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	Clark Wang <xiaoning.wang@nxp.com>,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>, imx@lists.linux.dev,
-	Jakub Kicinski <kuba@kernel.org>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Wei Fang <wei.fang@nxp.com>
-Subject: Re: [PATCH RFC net-next] net: stmmac: provide flag to disable EEE
-Message-ID: <20260208233054.GA1987960@killaraus.ideasonboard.com>
-References: <E1vNUjC-0000000FhjR-0h6P@rmk-PC.armlinux.org.uk>
- <f95f73b9-d024-4697-bca1-02fb8bc044af@gmail.com>
- <aYEj8VM5AfvcDHrl@shell.armlinux.org.uk>
- <aYE-gvuZdv7ezm7X@shell.armlinux.org.uk>
- <20260203231832.GB133801@killaraus>
+	id 1vpFPx-0000000EcCL-1fnV;
+	Mon, 09 Feb 2026 00:46:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1770597981; x=1802133981;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=WiDvGdY9/hMNal5D7v3aKwx1iH+Txlyos/k45ceIkMs=;
+  b=mrNeixg56yPxOB1Gh0aHzto5mjzlBrY22U4IzwUMOFMI97rZVj2IHHLB
+   KCxE2waWt6Tnbx9rady9NKQe0O1qBQ5YAmS2JeCtis3ALflD490DzNDUF
+   977fOEFcyGor39ACVZaBRHRr1Op7PGhTqKfpcGsB7NXjt+PSRE89qQyFL
+   riYdJBkGRVnO6m89r1PLP/L2Rl/MNM8k0y/f5qR7sLU657esmEgfb0dos
+   kpnl9XoC3FEoikH7t30aQjg4fPbSTmMopDov1p8x3t5ermQroJKqCRjdb
+   9+HXvaxAEJO9UZQ0m8W7MiApStc9jO5I6U0qPviUA52kxz0JLMWkVrEbf
+   A==;
+X-CSE-ConnectionGUID: StNmmc40R6q4tE2lskWdeQ==
+X-CSE-MsgGUID: fVMkmU5MTmSli0vo9q4mLw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11695"; a="71773838"
+X-IronPort-AV: E=Sophos;i="6.21,281,1763452800"; 
+   d="scan'208";a="71773838"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Feb 2026 16:46:20 -0800
+X-CSE-ConnectionGUID: JaHt4qN4Tm2qb/1Ezcgd0Q==
+X-CSE-MsgGUID: h53wmeBVTmqur7ngxWel6w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,281,1763452800"; 
+   d="scan'208";a="242064508"
+Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.240.14]) ([10.124.240.14])
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Feb 2026 16:46:13 -0800
+Message-ID: <d406166d-27ff-413f-9b35-fa7aaec1b886@linux.intel.com>
+Date: Mon, 9 Feb 2026 08:46:11 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260203231832.GB133801@killaraus>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Patch v3 0/4] Perf tools: perf-regs bug fix and optimization
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+ James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>,
+ Guo Ren <guoren@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, linux-perf-users@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Zide Chen <zide.chen@intel.com>, Falcon Thomas <thomas.falcon@intel.com>,
+ Dapeng Mi <dapeng1.mi@intel.com>, Xudong Hao <xudong.hao@intel.com>
+References: <20260203024356.444942-1-dapeng1.mi@linux.intel.com>
+ <aYYGA_Mo1ppwdTH0@x1>
+Content-Language: en-US
+From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
+In-Reply-To: <aYYGA_Mo1ppwdTH0@x1>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260208_153057_231131_B3C713EA 
-X-CRM114-Status: GOOD (  24.25  )
+X-CRM114-CacheID: sfid-20260208_164621_455182_9CAAF717 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,40 +96,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 04, 2026 at 01:18:33AM +0200, Laurent Pinchart wrote:
-> On Tue, Feb 03, 2026 at 12:17:06AM +0000, Russell King (Oracle) wrote:
-> > On Mon, Feb 02, 2026 at 10:23:45PM +0000, Russell King (Oracle) wrote:
-> > > On Mon, Feb 02, 2026 at 08:54:52PM +0200, Ovidiu Panait wrote:
-> > > > If not, maybe this patch could be merged to add the flag that disables
-> > > > EEE and I will just send a patch to disable EEE on our platforms as well.
-> > > 
-> > > We still need the flag to disable EEE for platforms where lpi_intr_o is
-> > > logically OR'd with the other interrupts, so there's no way to ignore
-> > > its persistent assertion.
-> > 
-> > I'll also state that we need both patches, but there's no point pushing
-> > my original patch (to allow EEE to be disabled) unless Laurent is going
-> > to also submit a patch to make use of the flag - the EEE disable and
-> > Laurent's patch needs to be part of a series. We don't merge stuff that
-> > adds facilities that have no users, because that's been proven time and
-> > time again to be a recipe for accumulating cruft.
-> 
-> Sorry for having dropped the ball on this. Your patch arrived just when
-> I travelled to Japan for a month, and then it got burried in my inbox.
-> Now that it has resurfaced, and that an issue that prevented i.MX8MP
-> from booting with v6.19-rc has been fixed, I'll rebase my kernel and
-> finally fix that problem.
 
-Done. https://lore.kernel.org/r/20260208232931.2272237-1-laurent.pinchart@ideasonboard.com
+On 2/6/2026 11:17 PM, Arnaldo Carvalho de Melo wrote:
+> On Tue, Feb 03, 2026 at 10:43:52AM +0800, Dapeng Mi wrote:
+>> Changes:
+>>  v2 -> v3:
+>>   * Fix the abort issue for "-I" or "--user-regs" options. (Patch 1/4)
+>>   * Address Ian's comments.
+> Fixed up somme fuzz with powerpc, x86, riscv and s390  Build files wrt
+> removing perf_regs.o
 
-> Once again, thank you for all your help with this issue, you have been
-> extremely helpful and I'm very grateful.
-> 
-> > So, at the moment, "net: stmmac: provide flag to disable EEE" ain't
-> > going anywhere until there's a patch that makes use of the new flag.
+Thanks. 
 
--- 
-Regards,
-
-Laurent Pinchart
+>
+> Thanks, applied to perf-tools-next,
+>
+> - Arnaldo
+>  
+>>  v1 -> v2:
+>>   * Fixing "PERF_REG_EXTENDED_MASK" redefinition building error by
+>>     changing the "asm/perf_regs.h" header path to relative UAPI path.
+>>     (Patch 1/3)
+>>   * Spliting xxx_reg_mask() and xxx_sdt_arg_parse_op() conversion into 2
+>>     patches.
+>>
+>> This patch-set remove the below three architecture specific __weak
+>> functions and converted them into the general architecture specific
+>> functions which are dispatched base on "em_machine".
+>>
+>> uint64_t arch__intr_reg_mask(void);
+>> uint64_t arch__user_reg_mask(void);
+>> int arch_sdt_arg_parse_op(char *old_op, char **new_op);
+>>
+>> The advantage of this conversion is that these architectural functions
+>> can be called even for a different architecture with host instead of
+>> only called on the host architecture.
+>>
+>> Although the converted functions shown below can be called on any
+>> architecture, currently they are still only called for the host
+>> architecture (EM_HOST).
+>>
+>> int perf_sdt_arg_parse_op(uint16_t e_machine, char *old_op, char **new_op);
+>> uint64_t perf_intr_reg_mask(uint16_t e_machine);
+>> uint64_t perf_user_reg_mask(uint16_t e_machine);
+>>
+>> Tests:
+>>   * This patch-set is only tested on x86 platforms. No issues are found
+>>     for both intr-regs and user-regs options.
+>>   * Tests on other architectures are welcomed and appreciated.
+>>
+>> History:
+>>   v1: https://lore.kernel.org/all/20260123090938.2222960-1-dapeng1.mi@linux.intel.com/
+>>   v2: https://lore.kernel.org/all/20260127070259.2720468-1-dapeng1.mi@linux.intel.com/
+>>
+>> Dapeng Mi (4):
+>>   perf regs: Fix abort for "-I" or "--user-regs" options
+>>   perf arch: Update arch headers to use relative UAPI paths
+>>   perf regs: Remove __weak attributive arch__xxx_reg_mask() functions
+>>   perf regs: Remove __weak attributive arch_sdt_arg_parse_op() function
+>>
+>>  tools/perf/arch/arm/include/perf_regs.h       |   2 +-
+>>  tools/perf/arch/arm/util/Build                |   2 -
+>>  tools/perf/arch/arm/util/perf_regs.c          |  13 -
+>>  tools/perf/arch/arm64/include/perf_regs.h     |   2 +-
+>>  tools/perf/arch/arm64/util/Build              |   1 -
+>>  tools/perf/arch/arm64/util/perf_regs.c        | 141 ---------
+>>  tools/perf/arch/csky/Build                    |   1 -
+>>  tools/perf/arch/csky/include/perf_regs.h      |   2 +-
+>>  tools/perf/arch/csky/util/Build               |   1 -
+>>  tools/perf/arch/csky/util/perf_regs.c         |  13 -
+>>  tools/perf/arch/loongarch/include/perf_regs.h |   2 +-
+>>  tools/perf/arch/loongarch/util/Build          |   1 -
+>>  tools/perf/arch/loongarch/util/perf_regs.c    |  13 -
+>>  tools/perf/arch/mips/include/perf_regs.h      |   2 +-
+>>  tools/perf/arch/mips/util/Build               |   1 -
+>>  tools/perf/arch/mips/util/perf_regs.c         |  13 -
+>>  tools/perf/arch/powerpc/include/perf_regs.h   |   2 +-
+>>  tools/perf/arch/powerpc/util/Build            |   1 -
+>>  tools/perf/arch/powerpc/util/perf_regs.c      | 172 -----------
+>>  tools/perf/arch/riscv/include/perf_regs.h     |   9 +-
+>>  tools/perf/arch/riscv/util/Build              |   1 -
+>>  tools/perf/arch/riscv/util/perf_regs.c        |  13 -
+>>  tools/perf/arch/s390/include/perf_regs.h      |   2 +-
+>>  tools/perf/arch/s390/util/Build               |   1 -
+>>  tools/perf/arch/s390/util/perf_regs.c         |  13 -
+>>  tools/perf/arch/x86/include/perf_regs.h       |   2 +-
+>>  tools/perf/arch/x86/util/Build                |   1 -
+>>  tools/perf/arch/x86/util/perf_regs.c          | 283 ------------------
+>>  tools/perf/util/evsel.c                       |   4 +-
+>>  tools/perf/util/parse-regs-options.c          |  13 +-
+>>  .../util/perf-regs-arch/perf_regs_aarch64.c   | 139 ++++++++-
+>>  .../perf/util/perf-regs-arch/perf_regs_arm.c  |   7 +-
+>>  .../perf/util/perf-regs-arch/perf_regs_csky.c |   7 +-
+>>  .../util/perf-regs-arch/perf_regs_loongarch.c |   7 +-
+>>  .../perf/util/perf-regs-arch/perf_regs_mips.c |   7 +-
+>>  .../util/perf-regs-arch/perf_regs_powerpc.c   | 183 ++++++++++-
+>>  .../util/perf-regs-arch/perf_regs_riscv.c     |   7 +-
+>>  .../perf/util/perf-regs-arch/perf_regs_s390.c |   7 +-
+>>  .../perf/util/perf-regs-arch/perf_regs_x86.c  | 281 ++++++++++++++++-
+>>  tools/perf/util/perf_regs.c                   | 109 ++++++-
+>>  tools/perf/util/perf_regs.h                   |  27 +-
+>>  tools/perf/util/probe-file.c                  |   3 +-
+>>  42 files changed, 787 insertions(+), 724 deletions(-)
+>>  delete mode 100644 tools/perf/arch/arm/util/perf_regs.c
+>>  delete mode 100644 tools/perf/arch/arm64/util/perf_regs.c
+>>  delete mode 100644 tools/perf/arch/csky/Build
+>>  delete mode 100644 tools/perf/arch/csky/util/Build
+>>  delete mode 100644 tools/perf/arch/csky/util/perf_regs.c
+>>  delete mode 100644 tools/perf/arch/loongarch/util/perf_regs.c
+>>  delete mode 100644 tools/perf/arch/mips/util/perf_regs.c
+>>  delete mode 100644 tools/perf/arch/powerpc/util/perf_regs.c
+>>  delete mode 100644 tools/perf/arch/riscv/util/perf_regs.c
+>>  delete mode 100644 tools/perf/arch/s390/util/perf_regs.c
+>>  delete mode 100644 tools/perf/arch/x86/util/perf_regs.c
+>>
+>> -- 
+>> 2.34.1
+>>
 
