@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C4B8E7E0BB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 09:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68567E7E0BB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 10:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nJKyPjuDPh4JLzSakx8kFMwVPRpWytmyQiFUSPburUU=; b=vTjF03fNJfBaiomvMgEjTiRGJJ
-	pdyVC1jNy2bUeBRVDyLV7xdtMJHShXG18rAyONUO0gAiScw3VyBNR8nfw3laRrbWIfIAtEfVdegkP
-	PZCUKT/h4Wcg8eleTOKT49GeByTY8m5KfTHO9HCvdxvVfp1A4IIPpTW44IDeo0AZpHu3cSts3QjAJ
-	ZCLmLlKLYRDaw1+Rm7/pXVQdRRp2ju+D+DuHDJntfgUnJVmymj9tkhdy4ITVCQbt8Y5pQS5IZhUx0
-	Fipewefcsxb6nufXcEk5Q9ZiDUSpEkZ210d/oarF4MnMnNKiQaNs6aSYYGAw5dpw8Q0RPjkaNmJE9
-	1D7xVAYg==;
+	bh=0i6Utuu6JgKhE4d+9eKhjp/+AcsOBye70BAxNext3Kk=; b=Y7x0As2RVFkCxvTmAEaigwVW7D
+	930Z2h0L3lRg6QAr1DOK7Ig5C7Ma3Sa02juFUv744/6jYwk+ev/fxE9cOASKkO4AAn+aNxraaG3Nr
+	bRfcO6MgwsneP7wfbZ7MQinUZHOy7KUvlf3AMG/i+366QiV8z2vJX9Pwm81HslB3esEEvWLrDeMhj
+	p5qmdpXx4uVzUHe3pPtc468Nnybv6cRmNgbZ45VqA+BiiTEmWnv36NgGuPxFjpk5UegoEWIydajCD
+	eK2pYJhoqCB+VkxBspcqJQHJGHA4dbdCqqCky3UwOP7KSg4Izob9voPsKAwxYYSELw1+sukhSAguT
+	uRmBk39Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpO1r-0000000FCSI-3arO;
-	Mon, 09 Feb 2026 09:58:03 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpO1p-0000000FCPo-2nDo
+	id 1vpO7r-0000000FDOi-3N2T;
+	Mon, 09 Feb 2026 10:04:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vpO7o-0000000FDOJ-0fDd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 09:58:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1770631081; x=1802167081;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=zW32RwnIsEz7fOz8TD2RSEABIp8rSUUmOobwC1rnwYg=;
-  b=M3UoSARuZaK919soYpc8qwUA6WWgyLAa6PXsy2WRgJSKKMnxzCPQAxT6
-   /yFt5MFEfCdwh3dvrYqnkT0NmlELvTZp2ppduY+IlfWOXI3zOSf6NdRuN
-   IPzT7WLz6N8Uyo9IY4jSrGY++vKpMivPL0Ru57Ael9/vGvnHHV121e2jT
-   cAosDGi0a9AUSSa/66x7cZrLpIwSIYTb5zqjaC0voYTMk3moGAigPPKQU
-   dEB5UHPY+W+FrXaM7WRVdMfJzuHXi200RepaiOEJUVhCPt5XOacYZ7x8g
-   cyltxgX8AUqLiLnFgKQ+mkofeo/YbA5iHoJDFFQjQWR1Jf8YZWDtW25qt
-   A==;
-X-CSE-ConnectionGUID: JUF1BHzYQtCz97kxWhyeVQ==
-X-CSE-MsgGUID: OhKcCef3QZOr92KyPd34AA==
-X-IronPort-AV: E=Sophos;i="6.21,281,1763449200"; 
-   d="scan'208";a="220421100"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Feb 2026 02:57:58 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 9 Feb 2026 02:57:27 -0700
-Received: from ROU-LL-M19942.mpu32.int (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 9 Feb 2026 02:57:24 -0700
-From: Cyrille Pitchen <cyrille.pitchen@microchip.com>
-Date: Mon, 9 Feb 2026 10:56:48 +0100
-Subject: [PATCH v7 5/5] ARM: configs: at91_dt_defconfig: enable GFX2D
- driver
+	Mon, 09 Feb 2026 10:04:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 055A3339;
+	Mon,  9 Feb 2026 02:04:02 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 480D03F632;
+	Mon,  9 Feb 2026 02:04:03 -0800 (PST)
+Message-ID: <9a8a163e-887a-45fc-aae5-45e564360c8b@arm.com>
+Date: Mon, 9 Feb 2026 10:04:01 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 00/41] arm_mpam: Add KVM/arm64 and resctrl glue code
+To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+Cc: "amitsinght@marvell.com" <amitsinght@marvell.com>,
+ "baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
+ "baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
+ "carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
+ "dave.martin@arm.com" <dave.martin@arm.com>,
+ "david@kernel.org" <david@kernel.org>,
+ "dfustini@baylibre.com" <dfustini@baylibre.com>,
+ "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
+ "gshan@redhat.com" <gshan@redhat.com>,
+ "james.morse@arm.com" <james.morse@arm.com>,
+ "jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
+ "kobak@nvidia.com" <kobak@nvidia.com>,
+ "lcherian@marvell.com" <lcherian@marvell.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "peternewman@google.com" <peternewman@google.com>,
+ "punit.agrawal@oss.qualcomm.com" <punit.agrawal@oss.qualcomm.com>,
+ "quic_jiles@quicinc.com" <quic_jiles@quicinc.com>,
+ "reinette.chatre@intel.com" <reinette.chatre@intel.com>,
+ "rohit.mathew@arm.com" <rohit.mathew@arm.com>,
+ "scott@os.amperecomputing.com" <scott@os.amperecomputing.com>,
+ "sdonthineni@nvidia.com" <sdonthineni@nvidia.com>,
+ "xhao@linux.alibaba.com" <xhao@linux.alibaba.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>,
+ "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>,
+ "joey.gouly@arm.com" <joey.gouly@arm.com>,
+ "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+ "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+ "zengheng4@huawei.com" <zengheng4@huawei.com>,
+ "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
+References: <20260203214342.584712-1-ben.horgan@arm.com>
+ <OSZPR01MB87983A126E58D3FE8A73A98F8B65A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <OSZPR01MB87983A126E58D3FE8A73A98F8B65A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260209-cpitchen-mainline_gfx2d-v7-5-0c12e64a0950@microchip.com>
-References: <20260209-cpitchen-mainline_gfx2d-v7-0-0c12e64a0950@microchip.com>
-In-Reply-To: <20260209-cpitchen-mainline_gfx2d-v7-0-0c12e64a0950@microchip.com>
-To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
-	"Alexandre Belloni" <alexandre.belloni@bootlin.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>, Russell King <linux@armlinux.org.uk>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Cyrille Pitchen <cyrille.pitchen@microchip.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=806;
- i=cyrille.pitchen@microchip.com; h=from:subject:message-id;
- bh=zW32RwnIsEz7fOz8TD2RSEABIp8rSUUmOobwC1rnwYg=;
- b=owGbwMvMwCXmf6yzKqEsVIbxtFoSQ2bn+vwv7/Yc273Uah1D/qtDWa57zuyqnzNxfUzNhKe/7
- fc2/Zq/vqOUhUGMi0FWTJHl0JutvZnHXz22eyUqBTOHlQlkCAMXpwBMRNSPkWHFxOsPH/I7z/EM
- uDX1+3ft3EkX97wQmGjrbWcmNz1IOpiDkeHaF/fGhO/S0elVvLx8v2SvVio/niUlHJH+bH6eSW5
- AIDsA
-X-Developer-Key: i=cyrille.pitchen@microchip.com; a=openpgp;
- fpr=7A21115D7D6026585D0E183E0EF12AA1BFAC073D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_015801_772488_1E7684C4 
-X-CRM114-Status: UNSURE (   8.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260209_020412_342346_3F1F4057 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,29 +95,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GFX2D GPU is embedded in both SAM9X60 and SAM9X75; enable the
-driver to use it.
+Hi Shaopeng,
 
-Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
-Signed-off-by: Cyrille Pitchen <cyrille.pitchen@microchip.com>
----
- arch/arm/configs/at91_dt_defconfig | 1 +
- 1 file changed, 1 insertion(+)
+On 2/9/26 08:25, Shaopeng Tan (Fujitsu) wrote:
+> Hello Ben,
+> 
+>> This new version of the mpam missing pieces series has a few significant
+>> changes in the mpam driver part of the series. The heuristics for deciding
+>> if features should be exposed are tightened. This is to fix some
+>> inaccuracies and avoid overcommitting before needed - shout if this changes
+>> anything on your platform. The final patch adds documentation which
+>> explains which features you should expect. The ABMC emulation is dropped
+>> for the moment as it requires resctrl changes to support for MPAM without
+>> breaking the abi. The default 5% gap for min_bw is dropped in favour of a
+>> simple default (kept for grace). The series is based on x86/resctrl [1] as
+>> resctrl has telemetry patches queued which change the arch interface.
+> 
+> Could you please elaborate on why fs/resctrl changes are required to support only the counter assignment part of ABMC?
+> Currently, many SoC chips have an insufficient number of memory bandwidth monitors.
 
-diff --git a/arch/arm/configs/at91_dt_defconfig b/arch/arm/configs/at91_dt_defconfig
-index 4f1153098b16f4a93ff21f05ec73cc569f4ebe64..b38fb185670c05e74e09f6341128be5908c86451 100644
---- a/arch/arm/configs/at91_dt_defconfig
-+++ b/arch/arm/configs/at91_dt_defconfig
-@@ -144,6 +144,7 @@ CONFIG_VIDEO_OV2640=m
- CONFIG_VIDEO_OV7740=m
- CONFIG_DRM=y
- CONFIG_DRM_ATMEL_HLCDC=y
-+CONFIG_DRM_MICROCHIP_GFX2D=y
- CONFIG_DRM_MICROCHIP_LVDS_SERIALIZER=y
- CONFIG_DRM_PANEL_SIMPLE=y
- CONFIG_DRM_PANEL_EDP=y
+Sure. When the counter assignment mode is 'mbm_event; resctrl assumes the mbm events are configurable. 
+The 'event_filter' files at
+    info/L3_MON/event_configs/<event>/event_filter 
+are used to display and set this configuration.
 
--- 
-2.51.0
+In MPAM event configuration is not supported and so showing a read/writable 'event_filter' file is 
+misleading to the user and needs to be hidden for MPAM support.
+
+Just to give you a flavour of the change, here's a hack to show the correct thing for MPAM:
+
+--- a/fs/resctrl/rdtgroup.c
++++ b/fs/resctrl/rdtgroup.c
+@@ -2338,6 +2338,9 @@ static int resctrl_mkdir_event_configs(struct rdt_resource *r, struct kernfs_nod
+                if (ret)
+                        goto out;
+ 
++               if (!resctrl_arch_is_evt_configurable(mevt->evtid))
++                       continue;
++
+
+
+> We would be grateful if you could support the counter assignment part of ABMC.
+
+It is not a big change in resctrl but I thought it best to not gate the rest of this series on
+an additional change in another subsystem. I am current looking into this and hope to get the 
+patches on the list early in the next cycle.
+
+> 
+> Best regards,
+> Shaopeng TAN
+> 
+> 
+Thanks,
+
+Ben
 
 
