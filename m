@@ -4,76 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7E11EF0702
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 03:45:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD1ACEF06E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 04:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MaZdmBjGGNL4UWRwPlR/uxDmLMtlJHEPLeYzUdMSykg=; b=oyJe+E9pjs7BZttVoJZkaNHHWX
-	LnfZ0fpvrZk6oSlazOXLI/7zc37FEKteiCH7g5d1aL8ki5dgYYgNSRKmGknHRelUWQ7R6FehOU1r4
-	ztgpcFx2o3oVtH2U1hLJq7ofa4pW4zhTBNyjXpjDQDnOzPC4LYIkb9cQruaMjBBsYC7cZzeT0kxVn
-	ZRvaDmY44/QBIHBFm/lrqi1xrXW6+3enuJlRPQU14CS9awozGd17IJ/rKEgfkFMyN5D2c6d9lcgm4
-	dnDJY2aj/DpM6HSqU8UI+ZYRF8PmViIV9l69DcXcfuL5XIuoauUH71yIERJqhBHj2dvLghubGzz+M
-	H+s48JvA==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2EDJMPOdQUIkj7B+MtnJTuwRWWsGcynJpHj9KDB1EX4=; b=EF5A3J0eT2gQuU5uvaD5zIBCxM
+	toVspxkb88HqWapsuhSVjQS9KmreyaAB2B8KCuIv9/gNRaoh08TFyftlIVRnzkdpalf3bIP6SsioA
+	xZ1h3n6xHpVe84vlI2YNWO0Bjih2//yI2LG0BJQtJOeuSMn6lqRanPu8ZQ/5HN9vQD/+w/9iSQ6Ny
+	9zPM7M8LrvPNstN+bkBHyBwC9AVXopzRReyoIBXOfMeoOXvSiR50JPefoylfCt3Rwpi9LobMjCY4h
+	rdzFcQgpSF3LTxtVHubJKQsd2I3tBqzIKxPLHdOaxoz5OGQ7K3t3GR9FhgLK1EAPfFQgJWQrTi4Vh
+	YpSfifTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpID7-0000000Emst-2FFy;
-	Mon, 09 Feb 2026 03:45:17 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1vpJ7L-0000000Eox5-2fEl;
+	Mon, 09 Feb 2026 04:43:24 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpICw-0000000Emrr-48H6;
-	Mon, 09 Feb 2026 03:45:16 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-05 (Coremail) with SMTP id zQCowABX7A85WIlpzTDbBw--.62243S2;
-	Mon, 09 Feb 2026 11:44:57 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: dsimic@manjaro.org
-Cc: airlied@gmail.com,
-	andy.yan@rock-chips.com,
-	damon.ding@rock-chips.com,
-	dri-devel@lists.freedesktop.org,
-	heiko@sntech.de,
-	hjc@rock-chips.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	simona@ffwll.ch,
-	tzimmermann@suse.de,
-	Chen Ni <nichen@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] drm/rockchip: analogix_dp: Add missing error check for platform_get_resource()
-Date: Mon,  9 Feb 2026 11:31:23 +0800
-Message-Id: <20260209033123.1089370-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1vpJ7H-0000000Eowk-3x9b
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Feb 2026 04:43:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1770612185;
+	bh=2EDJMPOdQUIkj7B+MtnJTuwRWWsGcynJpHj9KDB1EX4=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=LM8TiHiwLMi4JpxMmygPXU2C3mwSlUbSkF43jtqGvY2th0eP04oho0fdrfmkx4mcq
+	 xcgN3b/mtuH2h2wFxPyNmvGSGK+WKhPzBcWkMKcuHXCdZ61nP3EUf79QvNuneU/+sf
+	 VjnRi5Ei0q+nYEorLZxdK05JaAEDAFLn/UyGklTE7GGSpLhnBWs+SqPiXWGIsCaqww
+	 ButJkpEb+LhtcV486396eGDPbQUQMtvhsVwlRROTMNP8cna4h1Ptka2z2Qm+b++PWN
+	 XEGLqThGTkVwBnMkCWIYNoIWpltFL1tsB0GVyQYXYNt1H+BonrTj69NeH66xgOG0U9
+	 WX+t4+RYVhRmA==
+Received: from [127.0.1.1] (unknown [180.150.112.60])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 72C846024E;
+	Mon,  9 Feb 2026 12:43:04 +0800 (AWST)
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Marc Olberding <molberding@nvidia.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260120-alt-128-v4-1-0e5c491a532c@nvidia.com>
+References: <20260120-alt-128-v4-1-0e5c491a532c@nvidia.com>
+Subject: Re: [PATCH v4] ARM: dts: aspeed: add an alt 128M flash layout
+Message-Id: <177061218409.863052.13158700639798064370.b4-ty@codeconstruct.com.au>
+Date: Mon, 09 Feb 2026 15:13:04 +1030
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowABX7A85WIlpzTDbBw--.62243S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrtF43GFWDAw15AFWrKF4rXwb_yoWkGrX_K3
-	WxXr45Wr18ZrnYkw43Aw43uFZav3ZI9r4kWa10qFZ3tF1DJF15XFyFvr4Fva4Uta1xAFsx
-	G3WDXr4qgFnxAjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbf8FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
-	Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
-	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r48MxAIw28IcxkI7VAKI4
-	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
-	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjx
-	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20E
-	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
-	AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjm9aPUUUUU==
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260208_194507_402743_5AD0F345 
-X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-CacheID: sfid-20260208_204320_179211_14681FE2 
+X-CRM114-Status: UNSURE (   9.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,35 +73,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing error check for platform_get_resource() return value to
-prevent NULL pointer dereference when memory resource is not available.
+On Tue, 20 Jan 2026 12:34:14 -0800, Marc Olberding wrote:
+> Add a 128M layout for the BMC flash chip we didn't boot from. Including
+> this allows the user to write to each partition on the alternate spi
+> chip. This dtsi follows the existing standard of using the same layout
+> as non alt version and prepending `alt` to each partition's name.
+> 
+> This patch also adds this alt spi flash layout to
+> aspeed-bmc-nvidia-msx4-bmc.dts
+> 
+> [...]
 
-Fixes: 718b3bb9c0ab ("drm/rockchip: analogix_dp: Expand device data to support multiple edp display")
-Cc: stable@vger.kernel.org
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
-Reviewed-by: Dragan Simic <dsimic@manjaro.org>
----
-Changes in v2:
-- Add Reviewed-by tag from Dragan Simic
-- Add Cc stable tag as suggested
----
- drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 2 ++
- 1 file changed, 2 insertions(+)
+Thanks, I've applied this to the BMC tree.
 
-diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-index fdab71d51e2a..3f5be14010c1 100644
---- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-@@ -461,6 +461,8 @@ static int rockchip_dp_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+	if (!res)
-+		return -EINVAL;
- 
- 	i = 0;
- 	while (dp_data[i].reg) {
 -- 
-2.25.1
+Andrew Jeffery <andrew@codeconstruct.com.au>
 
 
