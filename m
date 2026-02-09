@@ -4,92 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F6E5E81BDC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 16:17:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF227E81BDC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 16:20:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2aw0A1Q7+XXVhB8aaJQe16/jz0kJyMiPsKTBLCCHa3s=; b=G7a5SeODwol1pyy+ZqnICcEo6I
-	nafJwegOiDmocHkrJPWfmHdrzoYztnjwdHmngk4Dax9nRnZGqdPxwSoQUPJLLVnjLY5iYry91EsHk
-	ilRrW976X6NabGYDFvLs8VhQXMfOMZkMxxe7DByb5Tnd+lJxZxBhrByDMWJCAejYUKHS5A2cjSHi0
-	+9Ejbsr0uReDTeFJwQYbiPkUrKBVwjWsN84v2FJgm2d/yv4MsnmqzxAn/TAW8NAMGV9avCmn99n+n
-	tPwwFtarFnbLLnr7YC2IghnKkeuyNW5Hx5TYARXq09/A1IgG3hrprHuE6zgwt9SBadTYItANGT5Up
-	CcQPxWew==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mheOQ3ZsEitKxTfDWvElUu/CWXpGhuWicvtisrl9azA=; b=WRFZi6Nk6axdfRzDxkjYyPKjga
+	/eyONPu6GyCo9dGu/ojPD0JDrjko946Ohz63fV5d0yCAlgjvil1RBy9JQgZ5dgiaP9AMN0Zvus9ex
+	EY1mzjKJMe/d4kCkFNtS41TLdS8m5y046l2Rizo5ZoNBn4Cr3FwUWvZ9pAZEFDZmzfbgiHdWVajbU
+	0M9hCCJ6cbhMBW0NoIx6oW225MDjtZe09xk+8JHSthb14wo9ddUdooQ3S1p7z1d7tgiFUAT4uWYJi
+	3v0Bv7kClXjQyNOobztYv9n+i+/6Bu3911W0YmzFqPcc7e7DIYwF52BMQpKZIF8CTlw/1yHRRVQ1z
+	SKfkYe8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpTwW-0000000FfTX-146f;
-	Mon, 09 Feb 2026 16:16:56 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1vpTzj-0000000Ffyp-2wmV;
+	Mon, 09 Feb 2026 16:20:15 +0000
+Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpTwT-0000000FfSs-44Lt
+	id 1vpTzh-0000000Ffxu-0bSB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 16:16:55 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2aaf59c4f7cso5011635ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Feb 2026 08:16:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770653812; x=1771258612; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=2aw0A1Q7+XXVhB8aaJQe16/jz0kJyMiPsKTBLCCHa3s=;
-        b=Krbw0Gd9Sqa6ux8JiUI6/OvPrq5E0tOOv/uyCPysayyM4YKwPv2pHYKDDPoGDToHr6
-         jmzpIrP0zPO5vyOVysqa+zsEzMO5Lv4A6driAQFIL3WfRRt6lVom/pptiICwHsfBbaMB
-         FttcdWO5R1d6+1+9axquaqVd93MW0PO6R1XnJIqzgKG5T8iMGRwZo1Gfazz8eBv8r7M/
-         0rCI+uXpp2If4jKKXYx94nrEdKoX6+7wD388BxhomeTpuIUhbxYgaRwbnHyxNLHNZ0ST
-         vTH/70cZpfgp7ViSjfG8Pc1swdIoA3RZxYGOjCzmBLR+7uiUpUh/sB+Jsy36+Poy7bCV
-         2vXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770653812; x=1771258612;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2aw0A1Q7+XXVhB8aaJQe16/jz0kJyMiPsKTBLCCHa3s=;
-        b=M8MGlEKCWrMHqQoFkDihsRsr7McKQccBqCmP4ek+x8C/AvjSUtTLElzHxJEyu08Ku2
-         cZoLCS83PJk3f2VR/f9bZDu9OZTh9M1IO2Antrco+796jcj6aRKElGh2taqIQ3mAMtDI
-         s3w/61glhLyJZU7noXpTHx0neCJjKsOlPTLA9f+pXJP0oTwvvkRK9M1TqT8apykYb4GO
-         6GY/QSvbuaRCrE38lSIh7LUWbDuwVtoPqs128OHoyZaRI0FZnTZjY3Ts2e+0UDbcIN0A
-         BKRAQq8sbxS19mOLChyPCqgbfwkMgFGOf1njzHYgaDnLA3DgBQdo24AeEkbn6vN5LMBc
-         v7tg==
-X-Forwarded-Encrypted: i=1; AJvYcCUgPbP80Zc26V3/I+VLMXbVIBQEtYd0A8Yz9Ve/YD3o1gu8QhpkEtJ5zH8QIK8itgpxkb/pvVjaeKrUi5FDD0Q9@lists.infradead.org
-X-Gm-Message-State: AOJu0YziHZr8KMNBBBRMu/G+OPL8njJCGZg9K9u900S3XE7nRp1oAqFT
-	OjBU+Ohoi+haadix4vJzl+HSYULDxdpVwG1UP4OBZ5I/uhNy555j8fiO
-X-Gm-Gg: AZuq6aLhZDkndXRDnAqO3MVMkw9ols0F7Zm2+nsE7c1fBiehkQdN3LKfOXqr2k5FHsI
-	jg3vzUd1sVqOQ+kvCcnQyNortNVbHMnrisYcJ3KghPfn8sgSy8WirQU5f/eu6jATbPxEEzcpGcJ
-	P2l4geyyS0LMs0nDW7SeivM6PWmUUnSEvCChc0wbsLAGc246svLKxV/J6Cr37emIdu1q3uNPlDZ
-	8hfmvY0k55Iga7V6ABWLOmuNbYfYeDnvGsp3wPn1m6pRRnn9q0hoK7FxCDDSSrugC2SpLGUbUN7
-	dlLSM2VXXrNeSmQ6QRb4y4d5WmT1Q/BVcDPWSb7Jm9gslscnE9gkzAOgPcKyYEtXh6Jsx7vTVsq
-	rO7iz+8Zv7qbVYWON9Sk1FbyxkgvUM/gN5TB+3yZaw+tb5TkKdZ0i/m+4jyqpT6ixQ8d2uq0XYa
-	ceV3lG+o+cbsDqgFbYfYSj5Xt+xXfGfFWq4iM6meUSrMu9ywFEfEuQhveAgA==
-X-Received: by 2002:a17:902:fc86:b0:2a0:e532:242e with SMTP id d9443c01a7336-2a951607ae3mr114928935ad.11.1770653812464;
-        Mon, 09 Feb 2026 08:16:52 -0800 (PST)
-Received: from localhost.localdomain (1-165-93-187.dynamic-ip.hinet.net. [1.165.93.187])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2aa3ec42e2asm110116805ad.53.2026.02.09.08.16.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Feb 2026 08:16:52 -0800 (PST)
-From: Hsieh Hung-En <hungen3108@gmail.com>
-To: Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>
-Cc: dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Hsieh Hung-En <hungen3108@gmail.com>
-Subject: [PATCH] drm/rockchip: vop2: Use drm_err_ratelimited() for wait timeouts
-Date: Tue, 10 Feb 2026 00:16:21 +0800
-Message-Id: <20260209161621.6136-1-hungen3108@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 09 Feb 2026 16:20:14 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4f8qfb4c8Zz9vGT;
+	Mon,  9 Feb 2026 17:20:07 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1770654007;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mheOQ3ZsEitKxTfDWvElUu/CWXpGhuWicvtisrl9azA=;
+	b=ToSjreamnbDhZ+ckfkQfh7To3b50S/SvtMGUmX6pm93aFO5cwtHPAEq7Ts5dgluYhbTY8Y
+	2VxCSwxAGp94nVVd6Q+p02EU/8sLw31Ab7k0aqRGo4ggkVrjTloPJ09KSG4aKovphv1EJ8
+	GN8KZs0gOGr6PjHPSWBGQRYVPt2aRQdEH+uIRtA0YllZIqxGGHR5agfsl28sxLnnphgDwD
+	fYPtmrY/owxlbA0RD+VFvGFC9i/TCJckbK9WFQPAkIHrB2r4CxBbO2trjLpxXXtD+QimS4
+	gRDm8THR4YWrIHq50fdTUfChWdPvq9Z7W9te2KaiFVuVtMilnD6z8ZvXiLt8Eg==
+Message-ID: <6ba32e90-9db9-49ab-886b-966e0aa171c4@mailbox.org>
+Date: Mon, 9 Feb 2026 17:19:59 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v4 2/2] firmware: arm_scmi: Implement
+ arm,no-completion-irq property
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>
+References: <20260117010241.186685-1-marek.vasut+renesas@mailbox.org>
+ <20260117010241.186685-2-marek.vasut+renesas@mailbox.org>
+ <aW5ifVcxVf6uux3m@pluto> <9175b8aa-18c6-4dc1-8904-c26fa1dc7428@mailbox.org>
+ <20260209-quixotic-offbeat-stork-f1d310@sudeepholla>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <20260209-quixotic-offbeat-stork-f1d310@sudeepholla>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: e1q3d1hmpyss1sw191f8k6td7mfr1fpp
+X-MBO-RS-ID: aff92f44e05a52bfbda
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_081653_998753_99B71687 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20260209_082013_341981_B359C836 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,42 +86,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace deprecated DRM_DEV_ERROR() with drm_err_ratelimited() in the VOP2
-register wait timeout paths to align with current DRM logging helpers and
-avoid flooding the kernel log when timeouts repeat.
-
-Signed-off-by: Hsieh Hung-En <hungen3108@gmail.com>
----
- drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-index f3950e8476a7..02a788a4dfdd 100644
---- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-@@ -2106,8 +2106,8 @@ static void rk3568_vop2_wait_for_port_mux_done(struct vop2 *vop2)
- 	ret = readx_poll_timeout_atomic(rk3568_vop2_read_port_mux, vop2, port_mux_sel,
- 					port_mux_sel == vop2->old_port_sel, 10, 50 * 1000);
- 	if (ret)
--		DRM_DEV_ERROR(vop2->dev, "wait port_mux done timeout: 0x%x--0x%x\n",
--			      port_mux_sel, vop2->old_port_sel);
-+		drm_err_ratelimited(vop2->drm, "wait port_mux done timeout: 0x%x--0x%x\n",
-+				    port_mux_sel, vop2->old_port_sel);
- }
- 
- static u32 rk3568_vop2_read_layer_cfg(struct vop2 *vop2)
-@@ -2126,8 +2126,8 @@ static void rk3568_vop2_wait_for_layer_cfg_done(struct vop2 *vop2, u32 cfg)
- 	ret = readx_poll_timeout_atomic(rk3568_vop2_read_layer_cfg, vop2, atv_layer_cfg,
- 					atv_layer_cfg == cfg, 10, 50 * 1000);
- 	if (ret)
--		DRM_DEV_ERROR(vop2->dev, "wait layer cfg done timeout: 0x%x--0x%x\n",
--			      atv_layer_cfg, cfg);
-+		drm_err_ratelimited(vop2->drm, "wait layer cfg done timeout: 0x%x--0x%x\n",
-+				    atv_layer_cfg, cfg);
- }
- 
- static void rk3568_vop2_setup_layer_mixer(struct vop2_video_port *vp)
--- 
-2.34.1
-
+On 2/9/26 4:44 PM, Sudeep Holla wrote:
+> On Mon, Feb 09, 2026 at 11:53:19AM +0100, Marek Vasut wrote:
+>> On 1/19/26 5:57 PM, Cristian Marussi wrote:
+>>> On Sat, Jan 17, 2026 at 02:02:29AM +0100, Marek Vasut wrote:
+>>>> Implement new property arm,no-completion-irq, which sets all SCMI
+>>>> operation into poll mode. This is meant to work around uncooperative
+>>>> SCP implementations, which do not generate completion interrupts.
+>>>> This applies to mbox/shmem based implementations.
+>>>>
+>>>> With this property set, such implementations which do not generate
+>>>> interrupts can be interacted with, until they are fixed to generate
+>>>> interrupts properly.
+>>>>
+>>>> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+>>>> ---
+>>>> Cc: Conor Dooley <conor+dt@kernel.org>
+>>>> Cc: Cristian Marussi <cristian.marussi@arm.com>
+>>>> Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+>>>> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+>>>> Cc: Rob Herring <robh@kernel.org>
+>>>> Cc: Sudeep Holla <sudeep.holla@arm.com>
+>>>> Cc: arm-scmi@vger.kernel.org
+>>>> Cc: devicetree@vger.kernel.org
+>>>> Cc: linux-arm-kernel@lists.infradead.org
+>>>> Cc: linux-renesas-soc@vger.kernel.org
+>>>> ---
+>>>> V2: Drop no IRQ handling from SMC transport and update commit message
+>>>> V3: Rename property from arm,poll-transport to arm,no-completion-irq
+>>>> V4: No change
+>>>> ---
+>>>>    drivers/firmware/arm_scmi/common.h | 4 ++++
+>>>>    drivers/firmware/arm_scmi/driver.c | 4 ++++
+>>>>    2 files changed, 8 insertions(+)
+>>>>
+>>>> diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+>>>> index 7c35c95fddbaf..7c9617d080a02 100644
+>>>> --- a/drivers/firmware/arm_scmi/common.h
+>>>> +++ b/drivers/firmware/arm_scmi/common.h
+>>>> @@ -235,6 +235,9 @@ struct scmi_transport_ops {
+>>>>     *		      to have an execution latency lesser-equal to the threshold
+>>>>     *		      should be considered for atomic mode operation: such
+>>>>     *		      decision is finally left up to the SCMI drivers.
+>>>> + * @no_completion_irq: Flag to indicate that this transport has no completion
+>>>> + *		       interrupt and has to be polled. This is similar to the
+>>>> + *		       force_polling below, except this is set via DT property.
+>>>>     * @force_polling: Flag to force this whole transport to use SCMI core polling
+>>>>     *		   mechanism instead of completion interrupts even if available.
+>>>>     * @sync_cmds_completed_on_ret: Flag to indicate that the transport assures
+>>>> @@ -254,6 +257,7 @@ struct scmi_desc {
+>>>>    	int max_msg;
+>>>>    	int max_msg_size;
+>>>>    	unsigned int atomic_threshold;
+>>>> +	bool no_completion_irq;
+>>>>    	const bool force_polling;
+>>>>    	const bool sync_cmds_completed_on_ret;
+>>>>    	const bool atomic_enabled;
+>>>> diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+>>>> index 3e76a3204ba4f..f167194f7cf67 100644
+>>>> --- a/drivers/firmware/arm_scmi/driver.c
+>>>> +++ b/drivers/firmware/arm_scmi/driver.c
+>>>> @@ -2735,6 +2735,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+>>>>    	cinfo->is_p2a = !tx;
+>>>>    	cinfo->rx_timeout_ms = info->desc->max_rx_timeout_ms;
+>>>>    	cinfo->max_msg_size = info->desc->max_msg_size;
+>>>> +	cinfo->no_completion_irq = info->desc->no_completion_irq;
+>>>>    	/* Create a unique name for this transport device */
+>>>>    	snprintf(name, 32, "__scmi_transport_device_%s_%02X",
+>>>> @@ -3150,6 +3151,9 @@ static const struct scmi_desc *scmi_transport_setup(struct device *dev)
+>>>>    	if (ret && ret != -EINVAL)
+>>>>    		dev_err(dev, "Malformed arm,max-msg DT property.\n");
+>>>> +	trans->desc.no_completion_irq = of_property_read_bool(dev->of_node,
+>>>> +							      "arm,no-completion-irq");
+>>>> +
+>>>>    	dev_info(dev,
+>>>>    		 "SCMI max-rx-timeout: %dms / max-msg-size: %dbytes / max-msg: %d\n",
+>>>>    		 trans->desc.max_rx_timeout_ms, trans->desc.max_msg_size,
+>>>
+>>> LGTM.
+>>>
+>>> Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+>>
+>> Is there anything left to do with these patches, or can this now be picked
+>> up ?
+>>
+> 
+> As I had mentioned here[1], I am happy with it and I will pick it up for
+> v7.1 once I start collecting the patches after v7.0-rc1. It just came in after
+> I had sent my PR to SoC team for v7.0
+OK, thank you
 
