@@ -4,50 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BE18EF070A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 04:59:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B596EF06E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 05:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IZn+Un7x6aFWol1H9vbzKFNdVDxww8BeQerONjbIvuU=; b=xMIDGwwCDuuEY6tjGrfzcYpzH0
-	z6uGfcV8k9LXPMETGEkqFnNpjLOeuWta6rzEvIEKHbxKCPxDUKuuIAU/jh2to/abHib0CcDAGnbK3
-	b3afUvkJAKcL3YjThoFd35g9x6IdMA3jBWo3POZPYRmIs7+hZ9UU7LGZFpZ1F8c6G7KcCv8xjTSPJ
-	7+lVmyFn+ydsFOuzqiD5iiHQe42Pp50gVKe82mZyprxRUymCu3Wy7cOMkkjBuRa6T8ofKBzxDrySe
-	xAgl9f9VacAL9M1WwI/LTJuTHbFx+yzOntM6v/P7ZHO6gzuguW/EsN0nOR1DFE0xktJ8Bhro3zJVI
-	IhtVpT1g==;
+	bh=4SnKV8rhcT2ZNmnJKCkjYW6cLKKaFbPhTH5lMKC71Qg=; b=hMqgd20RFsCK0VA366dmGicQ20
+	FLR2ZXcSbG/8eUJadrGa3TCbd0cxAkE8To6TpH7k//X/CgM63lR7AwOXttXVZkYPeVJqVtZQJNt47
+	K8Ki6zmtxVmff91v7o/nKS+PBJw7EbchVgitAhojI5YpWIBwnCrBZdewRPhDJOthSLyxuXaPbP7UD
+	bCih8GwxYLnn88RZwRcvHjuHwZoz8v7cPQgXJttHosjvWfBs2KeFIRAA6bJ+2Fec+fJHywb5TAIp/
+	0kClltI/DzkIrSF597ThEOigD0xyKr3tdEAZw3+PBNG4fgja4dDgMR4aZasIAZvxuqYiBg7IZ5WYl
+	8jZsyP+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpJMm-0000000EpgJ-3KmD;
-	Mon, 09 Feb 2026 04:59:20 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpJMb-0000000Epeo-3M7E;
-	Mon, 09 Feb 2026 04:59:09 +0000
-Message-ID: <9c15a656-b7f0-4187-8e49-1c9e304e39ab@infradead.org>
-Date: Sun, 8 Feb 2026 20:59:08 -0800
+	id 1vpJdB-0000000EqB1-1kqm;
+	Mon, 09 Feb 2026 05:16:17 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vpJd8-0000000EqAe-3qFa
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Feb 2026 05:16:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1770614172;
+	bh=4SnKV8rhcT2ZNmnJKCkjYW6cLKKaFbPhTH5lMKC71Qg=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=bpEHbih1GKL8CIJ9fFpS11yPIkuEIjzwOyOaEu79fUx1bOiEmVcT0TNuTRHg0DMtG
+	 7v5m6mxyUC8T6fOHUkawaISBXOvtEn9eLuby54o7FCjlAr1f/R2civgd0vdggITMnC
+	 2YGbs+BsHW6+MLDJIM64I6Vy2u3cfNYDrVVDrWxoWi+uvWRZSglz2D9UTuVXxTWYVZ
+	 VLiC06XxYl5m2015lhJ5r4hyA/YMaB5YYNNNyuOE66C4IYF9DAmEbQGrlhvpB+2Wg+
+	 0GLayJy5ZjSvtjuv3iX3x4+rHT5b2ho8IpfgtorOuST+1Bk+pXGbodhWS22gHX277S
+	 ZNz1GsjrBnAxw==
+Received: from [127.0.1.1] (unknown [180.150.112.60])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id BCF016024E;
+	Mon,  9 Feb 2026 13:16:11 +0800 (AWST)
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Joel Stanley <joel@jms.id.au>, Potin Lai <potin.lai.pt@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+ linux-kernel@vger.kernel.org, Patrick Williams <patrick@stwcx.xyz>, 
+ Cosmo Chou <cosmo.chou@quantatw.com>, Potin Lai <potin.lai@quantatw.com>
+In-Reply-To: <20260122-soc_aspeed_name_fix-v1-1-33a847f2581c@gmail.com>
+References: <20260122-soc_aspeed_name_fix-v1-1-33a847f2581c@gmail.com>
+Subject: Re: [PATCH] soc: aspeed: soninfo: mask table entries for accurate
+ SoC ID matching
+Message-Id: <177061417170.926448.9969681893139297177.b4-ty@codeconstruct.com.au>
+Date: Mon, 09 Feb 2026 15:46:11 +1030
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 06/12] asm-generic: barrier: Add
- smp_cond_load_acquire_timeout()
-To: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-pm@vger.kernel.org, bpf@vger.kernel.org
-Cc: arnd@arndb.de, catalin.marinas@arm.com, will@kernel.org,
- peterz@infradead.org, akpm@linux-foundation.org, mark.rutland@arm.com,
- harisokn@amazon.com, cl@gentwo.org, ast@kernel.org, rafael@kernel.org,
- daniel.lezcano@linaro.org, memxor@gmail.com, zhenglifeng1@huawei.com,
- xueshuai@linux.alibaba.com, joao.m.martins@oracle.com,
- boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
-References: <20260209023153.2661784-1-ankur.a.arora@oracle.com>
- <20260209023153.2661784-7-ankur.a.arora@oracle.com>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20260209023153.2661784-7-ankur.a.arora@oracle.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260208_211615_157681_DB8DED6E 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,15 +73,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 22 Jan 2026 16:37:56 +0800, Potin Lai wrote:
+> The siliconid_to_name function currently masks the input silicon ID with
+> 0xff00ffff, but compares it against unmasked table entries. This causes
+> matching to fail if the table entries contain non-zero values in the
+> bits covered by the mask (bits 16-23).
+> 
+> Update the logic to apply the 0xff00ffff mask to the table entries
+> during comparison. This ensures that only the relevant model and
+> revision bits are considered, providing a consistent match across
+> different manufacturing batches.
+> 
+> [...]
 
-
-On 2/8/26 6:31 PM, Ankur Arora wrote:
-> + * @cond: boolean expression to wait for
-
-  @cond_expr:
-
+Thanks, I've applied this to the BMC tree.
 
 -- 
-~Randy
+Andrew Jeffery <andrew@codeconstruct.com.au>
 
 
