@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E468EE7E0BC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 18:01:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C43E81BD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 18:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Q8PXO+9UC+8xVkvE9v9jl+DyKnXIYvX5W1kHM6vXy0=; b=iAM2O4bKMNyhD/nIHdNuG4HJXf
-	prHXMrXsdOgHAyjLPld3vvRsI9Mq+qo1ce6SEFMdZi6ZFP16NUvAd3UrqdJ0KgRyqnM5bqmZyutBx
-	GVUnVOuEFI0J0BG+/C1EK9Ry655M6SmnvS0LF3R7BNR3/bt39gZqGUt5Cpq+EVxXcFkznYtTDi42U
-	G2UwupQZGMgtSoLNeQvD4REyf4iwR+kMhhfqfwqobYpkGia+pjjBUxEJRZ5G/Ub9cS5eM0gOX5i5E
-	6H506zsJo2YL/8C2UTAg7BVAnHlkVqZSr3lfUhVAFeeS8cIcr9WR6twMM7rG+tRpjwi3mRpoYxYbh
-	HwFZ3D6g==;
+	bh=+lOm32a0frBaEBEf+d6yBgnSH6VKYkezdysQFbGB1dM=; b=T9s2+Z8J45htme153kZhnL46y7
+	vnHQ2l56OatfTVATgcXujTja+S6XBb5wwk9rSAqjln0Io/yIWc2UXL/sq1FS6dQtIBGWSbtIJDRsm
+	tEe0N0Af6pQDuOxDXZc7GT1IpoDK6ZGpT7r5MJ9B66tRr5m6/YPs0o/dpU6Jb8eXyoi3T31YEctMX
+	4kv3CY2lM5Dof9pcfHQMp9c3mnu8eH9FUXsFK3Ff1tEVPL65YFiL3Ms1Tb8EjbxhBn4OQixOO4qVN
+	LlSMrwOLEOl7oQIS1DF2Y/PuQ/LjE38pvw9yxpEP3JZSaxKRfvV4yZYhwCw8lEEzW1kM7OuEvfBcz
+	Ty71BELg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpVZw-0000000Fp0h-3eBa;
-	Mon, 09 Feb 2026 18:01:44 +0000
+	id 1vpVZz-0000000Fp3Q-0p6t;
+	Mon, 09 Feb 2026 18:01:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpVZt-0000000Foxp-2atg
+	id 1vpVZw-0000000Fp0e-48gP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 18:01:42 +0000
+	Mon, 09 Feb 2026 18:01:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 73730339;
-	Mon,  9 Feb 2026 10:01:34 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C93DB339;
+	Mon,  9 Feb 2026 10:01:36 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C08EE3F63F;
-	Mon,  9 Feb 2026 10:01:38 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 224013F63F;
+	Mon,  9 Feb 2026 10:01:40 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 09 Feb 2026 18:01:16 +0000
-Subject: [PATCH 6/8] coresight: cti: Remove hw_powered flag
+Date: Mon, 09 Feb 2026 18:01:17 +0000
+Subject: [PATCH 7/8] coresight: cti: Remove hw_enabled flag
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260209-arm_coresight_cti_refactor_v1-v1-6-db71ab4d200b@arm.com>
+Message-Id: <20260209-arm_coresight_cti_refactor_v1-v1-7-db71ab4d200b@arm.com>
 References: <20260209-arm_coresight_cti_refactor_v1-v1-0-db71ab4d200b@arm.com>
 In-Reply-To: <20260209-arm_coresight_cti_refactor_v1-v1-0-db71ab4d200b@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -53,16 +53,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770660084; l=5818;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770660084; l=4107;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=s2izx/skdpjt43YiiPSi+hbG9caTa0Cbpq+GfQO2Hp8=;
- b=+L8RERsEZ4Dq5fpBoKvQPwu2wtcjYEujuquNX+Px0WCffL1JFgQo1ZaF8DHnE3JGXQ0P9SqET
- BRFSz9VQ1NbC5k/926anldx4HYXDm3D/myVW5YnLdmiGlIoM5NHIHVE
+ bh=WE0rZtazfPljyd7397maVHWXeoTMlfempk/Slh0zJdA=;
+ b=YZLPsn8CZxEZA8m5FCo7IQn5TncssFZztdsJY6Fqt5D+IfyccoqYb7hCdslN3J/NLp2dRhlzk
+ GqHWodaW3heC7L7eqDhx8om+rrAYuCmiw7RxRyqyiXVE8ukrfJi8vUK
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_100141_751450_959D754B 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20260209_100145_123026_D61CD299 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,150 +77,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the CPU PM code has been removed from the CTI driver and the device
-is enabled via runtime PM, pm_runtime_active() can be used to check
-whether the device is powered.
+The enable_req_count field already tracks whether the CTI device is
+enabled.  A non-zero value indicates that the device is active, the
+hw_enabled flag is redundant if so.
 
-As a result, the hw_powered flag is redundant, remove it.
+Remove hw_enabled and update cti_is_active() to check enable_req_count.
+Replace open-coded enable_req_count checks with cti_is_active().
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-cti-core.c  | 11 ++++-----
- drivers/hwtracing/coresight/coresight-cti-sysfs.c | 29 ++++++-----------------
- drivers/hwtracing/coresight/coresight-cti.h       |  6 ++---
- 3 files changed, 13 insertions(+), 33 deletions(-)
+ drivers/hwtracing/coresight/coresight-cti-core.c  | 11 ++---------
+ drivers/hwtracing/coresight/coresight-cti-sysfs.c |  2 +-
+ drivers/hwtracing/coresight/coresight-cti.h       |  4 +---
+ 3 files changed, 4 insertions(+), 13 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
-index 48db87e2fd0f1a669f2d20a0014108da215e26fd..3b3b851a018851a8656eba64e638c61f3d04b99f 100644
+index 3b3b851a018851a8656eba64e638c61f3d04b99f..a7acee27d0aa2c842733f62b7ff88a4c296b51cc 100644
 --- a/drivers/hwtracing/coresight/coresight-cti-core.c
 +++ b/drivers/hwtracing/coresight/coresight-cti-core.c
-@@ -89,8 +89,8 @@ static int cti_enable_hw(struct cti_drvdata *drvdata)
- 
+@@ -90,7 +90,7 @@ static int cti_enable_hw(struct cti_drvdata *drvdata)
  	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
  
--	/* no need to do anything if enabled or unpowered*/
--	if (config->hw_enabled || !config->hw_powered)
-+	/* no need to do anything if enabled */
-+	if (config->hw_enabled)
+ 	/* no need to do anything if enabled */
+-	if (config->hw_enabled)
++	if (cti_is_active(config))
  		goto cti_state_unchanged;
  
  	/* claim the device */
-@@ -123,8 +123,8 @@ static int cti_disable_hw(struct cti_drvdata *drvdata)
+@@ -100,8 +100,6 @@ static int cti_enable_hw(struct cti_drvdata *drvdata)
+ 
+ 	cti_write_all_hw_regs(drvdata);
+ 
+-	config->hw_enabled = true;
+-
+ cti_state_unchanged:
+ 	drvdata->config.enable_req_count++;
+ 	return 0;
+@@ -116,22 +114,17 @@ static int cti_disable_hw(struct cti_drvdata *drvdata)
+ 	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
+ 
+ 	/* don't allow negative refcounts, return an error */
+-	if (!drvdata->config.enable_req_count)
++	if (!cti_is_active(config))
+ 		return -EINVAL;
+ 
+ 	/* check refcount - disable on 0 */
  	if (--drvdata->config.enable_req_count > 0)
  		return 0;
  
--	/* no need to do anything if disabled or cpu unpowered */
--	if (!config->hw_enabled || !config->hw_powered)
-+	/* no need to do anything if disabled */
-+	if (!config->hw_enabled)
- 		return 0;
- 
- 	CS_UNLOCK(drvdata->base);
-@@ -725,9 +725,6 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
- 		return  PTR_ERR(pdata);
- 	}
- 
--	/* default to powered - could change on PM notifications */
--	drvdata->config.hw_powered = true;
+-	/* no need to do anything if disabled */
+-	if (!config->hw_enabled)
+-		return 0;
 -
- 	/* set up device name - will depend if cpu bound or otherwise */
- 	if (drvdata->ctidev.cpu >= 0)
- 		cti_desc.name = devm_kasprintf(dev, GFP_KERNEL, "cti_cpu%d",
+ 	CS_UNLOCK(drvdata->base);
+ 
+ 	/* disable CTI */
+ 	writel_relaxed(0, drvdata->base + CTICONTROL);
+-	config->hw_enabled = false;
+ 
+ 	coresight_disclaim_device_unlocked(csdev);
+ 	CS_LOCK(drvdata->base);
 diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-index a22cc9a2bee24eb6115e7adb61880cc86d03e12e..9ab586a5c9a4fd2a64c542aaaaa625e2299edd62 100644
+index 9ab586a5c9a4fd2a64c542aaaaa625e2299edd62..9ef44956ebdc7781717d773fa014165989df2048 100644
 --- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
 +++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-@@ -81,19 +81,12 @@ static ssize_t enable_show(struct device *dev,
- 			   char *buf)
- {
- 	int enable_req;
--	bool enabled, powered;
+@@ -84,7 +84,7 @@ static ssize_t enable_show(struct device *dev,
  	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
  
--	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock) {
-+	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock)
- 		enable_req = drvdata->config.enable_req_count;
--		powered = drvdata->config.hw_powered;
--		enabled = drvdata->config.hw_enabled;
--	}
+ 	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock)
+-		enable_req = drvdata->config.enable_req_count;
++		enable_req = cti_is_active(&drvdata->config);
  
--	if (powered)
--		return sprintf(buf, "%d\n", enabled);
--	else
--		return sprintf(buf, "%d\n", !!enable_req);
-+	return sprintf(buf, "%d\n", !!enable_req);
+ 	return sprintf(buf, "%d\n", !!enable_req);
  }
- 
- static ssize_t enable_store(struct device *dev,
-@@ -131,11 +124,7 @@ static ssize_t powered_show(struct device *dev,
- 			    struct device_attribute *attr,
- 			    char *buf)
- {
--	bool powered;
--	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
--
--	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock)
--		powered = drvdata->config.hw_powered;
-+	bool powered = pm_runtime_active(dev->parent);
- 
- 	return sprintf(buf, "%d\n", powered);
- }
-@@ -181,10 +170,8 @@ static ssize_t coresight_cti_reg_show(struct device *dev,
- 
- 	pm_runtime_get_sync(dev->parent);
- 
--	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock) {
--		if (drvdata->config.hw_powered)
--			val = cti_read_single_reg(drvdata, cti_attr->off);
--	}
-+	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock)
-+		val = cti_read_single_reg(drvdata, cti_attr->off);
- 
- 	pm_runtime_put_sync(dev->parent);
- 	return sysfs_emit(buf, "0x%x\n", val);
-@@ -204,10 +191,8 @@ static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
- 
- 	pm_runtime_get_sync(dev->parent);
- 
--	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock) {
--		if (drvdata->config.hw_powered)
--			cti_write_single_reg(drvdata, cti_attr->off, val);
--	}
-+	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock)
-+		cti_write_single_reg(drvdata, cti_attr->off, val);
- 
- 	pm_runtime_put_sync(dev->parent);
- 	return size;
 diff --git a/drivers/hwtracing/coresight/coresight-cti.h b/drivers/hwtracing/coresight/coresight-cti.h
-index 400c1545b22bfe631144d24faceb354ff2d49166..c858847a5b80036fb48180ff7fbbfe684028cb89 100644
+index c858847a5b80036fb48180ff7fbbfe684028cb89..fbb48eb5b0b6a571235d7fecb2c13fc294d8ba50 100644
 --- a/drivers/hwtracing/coresight/coresight-cti.h
 +++ b/drivers/hwtracing/coresight/coresight-cti.h
-@@ -122,7 +122,6 @@ struct cti_device {
+@@ -121,7 +121,6 @@ struct cti_device {
+  * @nr_ctm_channels: number of available CTM channels - from ID register.
   * @asicctl_impl: true if asicctl is implemented.
   * @enable_req_count: CTI is enabled alongside >=1 associated devices.
-  * @hw_enabled: true if hw is currently enabled.
-- * @hw_powered: true if associated cpu powered on, or no cpu.
+- * @hw_enabled: true if hw is currently enabled.
   * @trig_in_use: bitfield of in triggers registered as in use.
   * @trig_out_use: bitfield of out triggers registered as in use.
   * @trig_out_filter: bitfield of out triggers that are blocked if filter
-@@ -146,7 +145,6 @@ struct cti_config {
+@@ -144,7 +143,6 @@ struct cti_config {
+ 
  	/* cti enable control */
  	int enable_req_count;
- 	bool hw_enabled;
--	bool hw_powered;
+-	bool hw_enabled;
  
  	/* registered triggers and filtering */
  	u32 trig_in_use;
-@@ -237,10 +235,10 @@ struct coresight_platform_data *
- coresight_cti_get_platform_data(struct device *dev);
- const char *cti_plat_get_node_name(struct fwnode_handle *fwnode);
- 
--/* cti powered and enabled */
-+/* Check if a cti device is enabled */
+@@ -238,7 +236,7 @@ const char *cti_plat_get_node_name(struct fwnode_handle *fwnode);
+ /* Check if a cti device is enabled */
  static inline bool cti_is_active(struct cti_config *cfg)
  {
--	return cfg->hw_powered && cfg->hw_enabled;
-+	return cfg->hw_enabled;
+-	return cfg->hw_enabled;
++	return !!cfg->enable_req_count;
  }
  
  #endif  /* _CORESIGHT_CORESIGHT_CTI_H */
