@@ -4,67 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6184DE94605
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 20:47:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA78E94603
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 21:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lC/SYncgKW4XWLK8EoKHwDB7L/Xq+4HOQ9Bm5MSJPCY=; b=NM3MjPtxVHVVrj9bQkqSHpILmE
-	Tg7dHqHWIKbGya3IXXur6Xt7VxW1IRgi083T1qEf1UG9VJfYKBjHhrX5DlWSS7cNRMSo4e89cx35+
-	DPLX/nWE1sEW4rmJWJBsjGv0umRco34llFiDLtq+LQq8qt9ddZwqHV0ZOS6baV0G+7OB8MqbxTgbn
-	N4Lfx8ndsNtjqetVnzK49iCkWmMRvi0GoEpsqtXw34sZgV4fNvDtHO68ukleGBX+sBKFN7+Fcruul
-	x8ZLynqCNsAEoXtn7MBlcHdEqYXSaoDe3OldxtAjaqz/5q0LOfUNmU7M2Ni3V98WEa9+eCauvg6VB
-	sP/MLygA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gY+UaA5P0w/ezq5fU8Wq6QkhiYjloxkC/sCSCgFfkBc=; b=tEb9OnRzdIcPkNG44txu1gjfol
+	RY5oLjNWxqySi+LuO3i+CyX0vzMVE9YWQVHZG3BGwW3z7H0DRI1nlE+7Ina45L5qoMWajfPAF/hrk
+	V7UxR3wQraul3HOhSxss7XGA3PInPQCRJm68FIpcoMn4Fo+yltdHqgK1IMdIv8Alxoi0XeAdObhjO
+	2rLX5eRK9J2kVhng9Ls2Hu+GQ1yow8BPAhj6zaA/11irBvUA5N70ctGqXQlZ4iqU7q+l0p4vbs+Q9
+	XIsUlWH3SkGLR4Zr3ULfXQW5Mi8y23DfDgJxlM9RDml/4h4bPTLamdNH63nYQzJhIylZEtUJSwSvy
+	zFYhcxqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpY9z-0000000G0LU-0t30;
-	Mon, 09 Feb 2026 20:47:07 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1vpYxH-0000000G33y-0WSV;
+	Mon, 09 Feb 2026 21:38:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpY9w-0000000G0L3-2onN
+	id 1vpYxF-0000000G33g-3qQg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 20:47:05 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4B3F41102FD;
-	Mon,  9 Feb 2026 21:46:59 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1770670021;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=lC/SYncgKW4XWLK8EoKHwDB7L/Xq+4HOQ9Bm5MSJPCY=;
-	b=evR3W6HNNS3mhzOxyEsKLD0cLcuvyudT+EVXX+nAMe/QZ5QpotoCLi3jaGafks3BVG3tfV
-	yN6VkaaQ7Kt0CHKUz1h9mN3tjXkBQuXX8WrwapYJ3lUkxE97SwgA9ffOt5Tpf0XAjmZsAF
-	arqbAdTXW0679PFx1+gER01WG2ZKvP8FC0ZW93HPRwQc6HiU+a/UvKJRQFC5MaeuYSj7Rw
-	4GTsD2k4JH3IGtruZOgY/zL0kRfVMKiWDUZOxHK1gL9l9NVFFVcDRxQ3IeDZYHXzhNocii
-	6eiu8KHitFTcV+tzwRXuSg+BcMn8LR3A5+WCwz28eGNB8k3pK5jdlao96MzkHQ==
-Message-ID: <9760a129-ee03-4556-b98b-2625739b21fa@nabladev.com>
-Date: Mon, 9 Feb 2026 21:41:24 +0100
+	Mon, 09 Feb 2026 21:38:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6E4636013F;
+	Mon,  9 Feb 2026 21:38:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A991C116C6;
+	Mon,  9 Feb 2026 21:37:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770673080;
+	bh=V5k7yronzuPg2/sQDnDLiZPJmoREh3DS6In0CZNegm4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=R2/CxZyE7D7NuC7727GzKNmG8L0gFdn827lwUEFhrk1GcDYwfKzMWilh9KCwLySN2
+	 tDMTyIgjKpNBsz+CrnFUB8QrkqCqmuexDnRgYALsArlPL7MYxDDAkqQGMRry/iQQEz
+	 tXkZ9aLz2eqJBLP0lhFLwX/6MjqEStYuaBxUaPzS36VebR2KunZkZR9O1OXhOtXp8N
+	 y7WKLM3eEtcCOQ9wRj+umXbC0jg6B9FNMdR1WBBVMG3pafl6iUuxvb1YkCeBuik/q3
+	 twvcXwcELPoyngclQnEGLBF2iDgahBFNYk+KVc3S2d7b59tHFINf47IiCuGxldwxT1
+	 EqvORhp9jn0CQ==
+Date: Mon, 9 Feb 2026 15:37:54 -0600
+From: Bjorn Andersson <andersson@kernel.org>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, linux-renesas-soc@vger.kernel.org, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andy Shevchenko <andy@kernel.org>, 
+	Antonio Borneo <antonio.borneo@foss.st.com>, Arnd Bergmann <arnd@arndb.de>, Boqun Feng <boqun.feng@gmail.com>, 
+	Chen-Yu Tsai <wens@kernel.org>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+	Danilo Krummrich <dakr@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ingo Molnar <mingo@redhat.com>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Jonathan Cameron <jic23@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Lee Jones <lee@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org, linux-omap@vger.kernel.org, 
+	linux-remoteproc@vger.kernel.org, linux-spi@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, Mark Brown <broonie@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>, 
+	Orson Zhai <orsonzhai@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Srinivas Kandagatla <srini@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Waiman Long <longman@redhat.com>, 
+	Wilken Gottwalt <wilken.gottwalt@posteo.net>, Will Deacon <will@kernel.org>
+Subject: Re: [RFC PATCH 0/4] hwspinlock: refactor headers into public
+ provider/consumer pair
+Message-ID: <epechyewxhlkp2dgw7yxmz5duak3illbmjpeux5jgt2ewskc3j@cre3vpa5wnhy>
+References: <20260125184654.17843-6-wsa+renesas@sang-engineering.com>
+ <aXc7DxsqiCGdfzxi@smile.fi.intel.com>
+ <aXc-Zxw05XQLb1Dy@ninjato>
+ <aXdAB2bLTy6u8G8c@smile.fi.intel.com>
+ <aXdCBu6kzdw1NWay@ninjato>
+ <aXikZ5wc6bvgRqF6@ninjato>
+ <aYnBrN0JRCf9-UjB@ninjato>
+ <yl4bbbev7lgrmnqys2izkolo5egzg24faukvqar5eh26q5ra7p@42rcegfpqqt6>
+ <aYo60vooftdem4Lt@ninjato>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: imx6ull-dhcor: Handle both 1DX and 1YN WiFi on
- i.MX6ULL DHCOR
-To: Frank Li <Frank.li@nxp.com>
-Cc: linux-arm-kernel@lists.infradead.org,
- Christoph Niedermaier <cniedermaier@dh-electronics.com>,
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, kernel@dh-electronics.com, linux-kernel@vger.kernel.org
-References: <20260209170739.22379-1-marex@nabladev.com>
- <aYoyrqV2lSJetls5@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <aYoyrqV2lSJetls5@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_124704_935904_276D24CD 
-X-CRM114-Status: GOOD (  13.29  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aYo60vooftdem4Lt@ninjato>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,38 +95,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/9/26 8:17 PM, Frank Li wrote:
+On Mon, Feb 09, 2026 at 08:51:46PM +0100, Wolfram Sang wrote:
+> Hi Bjorn,
+> 
+> thanks for the reply!
+> 
+> > > Moving maintainers from CC to To ;) Do you, in general, approve this
+> > > change to the headers?
+> > 
+> > Certainly, I don't think we should force unnatural slicing of drivers
+> > across the source tree.
+> 
+> Cool, glad you like it.
+> 
+> > I've always found the current model unergonomic, resolving this part
+> > might very well have the side effect that Andy is looking for (and I'd
+> > welcome that).
+> 
+> Yeah probably, but frankly the task of redesigning hwlock-allocation is
+> a bit exceeding my bandwidth for this project. Can we make this a second
+> step on top of this series?
 
-Hello Frank,
+I'm okay with that. It's winter and the yak might need its fur.
 
->> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-dhcor-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-dhcor-som.dtsi
->> index 75486e1b0c15f..a0adcd3fe1229 100644
->> --- a/arch/arm/boot/dts/nxp/imx/imx6ull-dhcor-som.dtsi
->> +++ b/arch/arm/boot/dts/nxp/imx/imx6ull-dhcor-som.dtsi
->> @@ -201,7 +201,7 @@ &uart2 {
->>   	 * the speed can be increased accordingly.
->>   	 */
->>   	bluetooth: bluetooth {
->> -		compatible = "brcm,bcm43430a1-bt"; /* muRata 1DX */
->> +		compatible = "brcm,bcm4329-bt"; /* muRata 1DX or 1YN */
+> And if so, would be this series acceptable
+> as-is then (modulo the better include-sorting mentioned by Andy)?
 > 
-> in driver, brcm,bcm43430a1-bt and brcm,bcm4329-bt should be the same.
+
+Sounds good, I'll pick up your v2 once we get out of the merge window
+and share a immutable branch for the other subsystems.
+
+> Hope you are well,
 > 
->>   		max-speed = <3000000>;
->>   		vbat-supply = <&vcc_3v3>;
->>   		vddio-supply = <&vcc_3v3>;
->> @@ -222,7 +222,7 @@ &usdhc1 {
->>   	status = "okay";
->>
->>   	brcmf: wifi@1 {
->> -		compatible = "brcm,bcm43430a1-fmac", "brcm,bcm4329-fmac"; /* muRata 1DX */
->> +		compatible = "brcm,bcm4329-fmac"; /* muRata 1DX or 1YN */
+
+Likewise,
+Bjorn
+
+>    Wolfram
 > 
-> driver have not check "brcm,bcm43430a1-fmac".
-> 
-> Look like driver can work for both CHIP without modify dts.
-Sure, the driver can work even with the current DT, but the DT isn't 
-accurate as it describes compatible string specifically for the 1DX 
-part. This change makes the DT use more generic compatible which fits 
-both 1DX and 1YN parts. And it also fixes the comment accordingly.
 
