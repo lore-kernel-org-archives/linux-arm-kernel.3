@@ -4,145 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 891B7E7E0AD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 09:30:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB9B9E7E0B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 09:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+NwwBAoRxT7rtPAm6TEeI1TmrnhChLpvgCDZzXa1kq4=; b=2AeSqwpvngArJ/101uNzChCavP
-	vyy+Y0X8zongPhWFH8eHRIiCEgj4IRk7aqXTh7eE2vGZIJjMAAuPM8RVy5WPcl9Epi0Joy1OxEd8Y
-	GjFLjS0bQD3vTHuCMQVrkkC8IfoFMv9sVwoh8qRwXGivgJvEhwUFRWt0Q8Eaza1xXleVPlAe9FLvN
-	lnEoGr7GmxY1e9ynnYKfDXOjGUIepbf9PTjfkbzGA3tPxpI5X/p+U2+QRYS2EIX8zhMLkAEftb1mY
-	jVnNf6tL5exTSZ36Bq9oqhW057XQ7kzvWTXluEJLci0jvzAEEUS4BQiA/yfyh5XzCqvGG9fMBtJth
-	u2MWUt1g==;
+	bh=yuP4FFAcWSmwxVAI5XTLwQ1yoGc6U2KN8yNk+i62Ey0=; b=Hcok85fszHycKSEYBd/w70RxN9
+	DYvwJ08n5eaX+9sBXXrBuV0yTJt9CHePrYCz0RFVBMNJ2HcSayef3zQU4yy8wrMwZH+SEYChRu8jX
+	O1GAe2UnbawUFrfFHAKXizMaXe4ku4tsYTzdlCSLetEJfX0PmZNdKkvq8xYwLL2mvpgK7xIYK1XFl
+	kXx9Tedqf8Pmk9S2/9XvIqka/fEAxDbYeoOneK3YdPdQyecNRGhB+/mUNO5/jV+llXepmBqQggNe1
+	OaLiEsNUg3S1xToXEg7/fhUpVA8d2RTZCJ25iP8ls6m2CeFT8hHQACL2lqJpCZyjeFhD2a8UfDfqh
+	LsLN1ccQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpNbC-0000000F8dR-2Kvy;
-	Mon, 09 Feb 2026 09:30:30 +0000
-Received: from mail-centralusazon11010009.outbound.protection.outlook.com ([52.101.61.9] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1vpNeW-0000000F8uW-2hLh;
+	Mon, 09 Feb 2026 09:33:56 +0000
+Received: from mail-japaneastazon11023119.outbound.protection.outlook.com ([52.101.127.119] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpNb9-0000000F8d3-2SgC
+	id 1vpNeS-0000000F8sJ-15LR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 09:30:29 +0000
+	Mon, 09 Feb 2026 09:33:54 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uC7yv53XOE4Li6JBBd6Xgy175SfWJQ7YURjnJh/D+OwQQIa/W9lYWgfVeK+53Tn5lvE9nuutw7g++gErcK5w2MqcyBrvHut5jD2b3UkOEVyvqn/WdQvl+Ab43xoFXpyRLAsZjCu0OMBBEBKdJAg/vSbS0xJms3n0o93APRdXBj6dYmBqpQPCkwInGpQ5kQDWvca+DLtp0eExZMYnZvzpFITJiKGloLY28Oe9nNtnMMeLRyCx9Se92rQqMfreyZQ5jxyr1l0JgPbcVCcyOEKiGL23AYXDPZVkTAysEBihNJL4NoNhvIa5pdA5/dN7lXgxI3rzGaNz7+lU+oUnt+sMbw==
+ b=T1UmHWoPLmkIObthZmBiyVwkKx2JNXLiHS7A9BXdsB5S9AHCR9l9IChmh43ij9mN/Z8q1XO3zOmaS7DiBKKPgxc5T8dqioL4iACddVvJNhUsO5fAX4mru/L+482uvdPDWUXEucJsoFWsMRgQhkmqyzfq+ZOEIoiNsclQfoWedQos0yVdRSJdo0Q6HaajuNF2bbiUgOC0PZdQ/tC4Mjg4YYkaaPh8X2CsqrFz511+7mT7Vx8hrOfP4/AlNAXnDZurWW2pM8IBew64WQ/7OeenGe2HhLIhVDNxYgzWA5Kz2ElBwbHFYYwALyXrFk8J3lCq4MqoVu6by+qXyMmHu7BUwg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+NwwBAoRxT7rtPAm6TEeI1TmrnhChLpvgCDZzXa1kq4=;
- b=vanJoOXFmc/fDXBvP4ncNdk+OXiwKW64xuEnvBarGQh8KOYtQ9Bjrqy+MbMGwzvvse5ZmY8MjyghOeuMLiyTqGaHx/7KN2xnrzxLLl3hDwIZJ4w5oRx9SbiIQm1iCjS7fPYwEAFyxOFfEckGglYXlsl33hzkrfxzYk/DEB6wJuEP6+A6ootTyQBYNmN8eXmqvG4tlacekwmIH5UgpqGbAqLSTjJ6AXfGHiixSHVaqiPNs4zwWtwhfcGmf04AHUsZ+xZwvMy5csRp2bKfiytPPJ0ah4lUiIMXNOwjOP4ESg4KtV5039asVuj9H0oZxFbs69EU2jvqIlwcpp+i7ejA8g==
+ bh=yuP4FFAcWSmwxVAI5XTLwQ1yoGc6U2KN8yNk+i62Ey0=;
+ b=y12XfYxWwPvDKjTslgAqaSfB5v8iYjtLiDBqTxfdpeJs6gPNwCrtXHkHCCFGj92kVDp7ZXSGOs4c1Bt9Pf4janov0zrKGQKI2dKGM65gtwESDC8m5k6rORea0PiO+MMOXQPW7sNGx0Uq3wPuXVE+nJD4CPTC4cZ2xv/FwicB9gU+R0l2EoRUBRGTzaEkt6lZIcCKjA5e7jlnEZBVdygsuIVRAz33s0CvLLIXKhkL4yTBEqf/MNwgskDle9MuUs+i/6iX/l30wyq5YOQiAP1qw8gHu9un8QQGdzrQuLwn+Sk+O+h+YgVyjmrYiF4YaEKVXvquwLNmSRZ0jlMAw6Cc3w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+NwwBAoRxT7rtPAm6TEeI1TmrnhChLpvgCDZzXa1kq4=;
- b=ReI+8u9vZi+EKZ3z5oZ3wrDcpvu8AVp3soZmcDE1vkGFP0m/O+E2Vi0HUWzOHgPGqxPzbeWdtLtmh+xRoQWGnnHugN19r2br32oJ+FftJBcoldLDg8J3SptEDzSEb89Cof8wjvIC7SYekYTiLLOxiNz0s5e+g3MVUz5Ld1c/Kz0=
-Received: from BL1PR13CA0073.namprd13.prod.outlook.com (2603:10b6:208:2b8::18)
- by DS7PR10MB4863.namprd10.prod.outlook.com (2603:10b6:5:297::17) with
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SE2P216CA0014.KORP216.PROD.OUTLOOK.COM (2603:1096:101:117::11)
+ by TYPPR06MB8328.apcprd06.prod.outlook.com (2603:1096:405:396::19) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.17; Mon, 9 Feb
- 2026 09:30:22 +0000
-Received: from BL6PEPF0001AB58.namprd02.prod.outlook.com
- (2603:10b6:208:2b8:cafe::a1) by BL1PR13CA0073.outlook.office365.com
- (2603:10b6:208:2b8::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9611.6 via Frontend Transport; Mon, 9
- Feb 2026 09:30:19 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BL6PEPF0001AB58.mail.protection.outlook.com (10.167.241.10) with Microsoft
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.18; Mon, 9 Feb
+ 2026 09:33:46 +0000
+Received: from OSA0EPF000000C6.apcprd02.prod.outlook.com
+ (2603:1096:101:117:cafe::9c) by SE2P216CA0014.outlook.office365.com
+ (2603:1096:101:117::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9587.18 via Frontend Transport; Mon,
+ 9 Feb 2026 09:33:36 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000C6.mail.protection.outlook.com (10.167.240.52) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9587.10 via Frontend Transport; Mon, 9 Feb 2026 09:30:21 +0000
-Received: from DLEE207.ent.ti.com (157.170.170.95) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 9 Feb
- 2026 03:30:20 -0600
-Received: from DLEE215.ent.ti.com (157.170.170.118) by DLEE207.ent.ti.com
- (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 9 Feb
- 2026 03:30:20 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 9 Feb 2026 03:30:20 -0600
-Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.234.212])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6199UGra1756079;
-	Mon, 9 Feb 2026 03:30:16 -0600
-From: Beleswar Padhi <b-padhi@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>, <b-padhi@ti.com>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v2] arm64: dts: ti: k3-j7*-ti-ipc-firmware: Switch MCU R5F cluster to Split-mode
-Date: Mon, 9 Feb 2026 15:00:15 +0530
-Message-ID: <20260209093015.3454340-1-b-padhi@ti.com>
-X-Mailer: git-send-email 2.34.1
+ 15.20.9587.10 via Frontend Transport; Mon, 9 Feb 2026 09:33:45 +0000
+Received: from localhost.localdomain (unknown [172.16.64.196])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 8F82740A5BD7;
+	Mon,  9 Feb 2026 17:33:44 +0800 (CST)
+From: Gary Yang <gary.yang@cixtech.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	p.zabel@pengutronix.de,
+	peter.chen@cixtech.com,
+	unicorn_wang@outlook.com,
+	inochiama@gmail.com,
+	alchark@gmail.com
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	cix-kernel-upstream@cixtech.com,
+	Gary Yang <gary.yang@cixtech.com>
+Subject: [PATCH v8 0/3] Add support for Cix Sky1 resets
+Date: Mon,  9 Feb 2026 17:33:41 +0800
+Message-ID: <20260209093344.2013693-1-gary.yang@cixtech.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB58:EE_|DS7PR10MB4863:EE_
-X-MS-Office365-Filtering-Correlation-Id: c7049442-da66-4c6a-c58c-08de67bdd8c5
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000C6:EE_|TYPPR06MB8328:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: dec37069-2c5a-41e2-41b3-08de67be5254
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cdoMH/XGCsaTZyzV47yXZ5jLOX7Q4Dd+FgdPs9JYX2G+MwjDuNnh4jYIFl94?=
- =?us-ascii?Q?P1lQBmZD4OcYhIZracay7Ln29noP36P8QDxHsVkP2MapimcxPQTqex5sxLxQ?=
- =?us-ascii?Q?4NYfTHP6UR/H43WKIwcQ3oDkBhIsUtR3swf/aKoQ0ENU5LzDDELiu1d4CtGb?=
- =?us-ascii?Q?gcqlS7Fa7Mm6YT0oUSljp9E/zWwV12199PqTuIbFcgX+YAs//DR2EAmUke1n?=
- =?us-ascii?Q?APmsM0LPJEnelIAdCHX6rMq/ZsIMMSkoEBq3NuV+HVB86ZTq9VYdCmryNsWR?=
- =?us-ascii?Q?QpXnOQfPgF92QcxmGM3Yf7+Oe/HiNYo646DjMgXjkxDWvGjQsk4IDGmLh8UH?=
- =?us-ascii?Q?RpU0RxacvqEAJZKRF5Y6eWT4vsb9I2c7L1Iduq1xXH8JNeiI513qEuc387It?=
- =?us-ascii?Q?sIB/Ze7hP3I9KOCbHMsNjy63oLQh7e95cxY7WnoXDyVmqmXmRdjEj9XSFWPz?=
- =?us-ascii?Q?66s09u8txoWsTXgpgfZc7K7d1h/26e5IAjuEFvzrHV8wxuHjVpVDpZWuHxhj?=
- =?us-ascii?Q?9Ut7oHZLbHMpZGeo0aH/hlkZUTRpn+ZHNd6OR1w1jcHEGKVvEiLCTTi8uXtv?=
- =?us-ascii?Q?QZJPkZJQRavI65RWkezfp32ayIeXXJEDDa3+jaK6f7sPJdL8bIN5kbNAAZ4r?=
- =?us-ascii?Q?e0jy8q2etb9FRCqXpHHEBeHuSG7hoh19/bXJ1oMyVuluKZd58XDv6UTFP0fM?=
- =?us-ascii?Q?qlONHC5BHR2/6xxVYpsgxxrF3UtZ67DIeV2ktvpEYn5Bzatm6iIA+vqPK3kt?=
- =?us-ascii?Q?Y16pKuw8p1Rk3Y2kpguvAq/USb22jnETWL81zTQ8mzXFTyF/mAdMsA8PQk6k?=
- =?us-ascii?Q?6Q4lDQNccV4znxmw12p5TCSVnpJWiEMWj5jGZsstJG/WSuxbAlNlaHhPLXLg?=
- =?us-ascii?Q?WTrisz6GOfBrMzURA6fIiqqMwGeECzM5B0ELKFUAzu6Mh3p/Oef/4XOezST4?=
- =?us-ascii?Q?TDy1hcUVmRQ5ahTt2gCZ7DLdxmDwp8SLU2jpM1lZfFaTjG3D8XmIH6sM7yHM?=
- =?us-ascii?Q?sYERUcNzntIQ8mFUxxYjjpkeW/BCmeLm+Xl+jsUJ9M8Pi2Evx7lJsrUkS763?=
- =?us-ascii?Q?h+oFT3cIbOu5MUHXKm9HC1WsJ9z/+XNW7wKApMLFnVwH74aC3J7m4okq/cT/?=
- =?us-ascii?Q?2yRNaiHvU/5XI9wTHInz1TEtQP1JOTetoYHR1kMaHVmCbIjMrS6gzg76D56G?=
- =?us-ascii?Q?WwDpYKLryIH4IfY1Ha/MCh5VFoXIE/iNMUwJ4xR+SY6lQ51PateDJ8ptV6qz?=
- =?us-ascii?Q?HaXMUfbSk+HTUDcTMg99cgfPmSYSdhRv1T9Kll1nW9qi6dJegRXtaXQja54N?=
- =?us-ascii?Q?Hdrd52wW1jCnEyrn/l3O0sZjVoqD/9rRVL6mm5N7JxZ8OTgaiqi8vfQBMVgQ?=
- =?us-ascii?Q?t0AO289Xp1BUffcqQLl1at4JK+2qY8JkpO9rGZASXwXSFBttcUt5RBljCg+1?=
- =?us-ascii?Q?dLq4gcfPGAXwCnSdaRZCepLuDCN3tLpnrTHxdvoZi3gzPKKkoreKfiTa9mx1?=
- =?us-ascii?Q?uwbfMDSJp4stQFFQDlEqWE7GGT5h25JrIO2EsXI6awipsKBpQHw9c0vDZBmo?=
- =?us-ascii?Q?w+K5AJAfhAnfuwIlVkwSGuv6qFn0YjZG8utnUIkYXXsJUksttwKG1Pjq/tXj?=
- =?us-ascii?Q?qTphuNpVKWtGEDw3Fis/XtI+TEkMw5B7g+HH1yfjfmpVbeTJRW7ItTQMh4vG?=
- =?us-ascii?Q?zQgYf7fe/+uY16FZxTaSa99xGMc=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|36860700013|32650700017;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?uxbxEJRapnkHa4j9oVa2R2p4PCP8hGkUIQGqDfSo3C3JKUBu+GIf4Xx2DA9x?=
+ =?us-ascii?Q?Ttt0CUGc82Qbw0v2p50/bwaZ9BfXfuzT0i3xzxAWD8gSKH9mWrvzYEcIjkdH?=
+ =?us-ascii?Q?bGFtGe0AmDRUrGOWWkBr/VRlsDgBF3OWavzCMbTAgi7wDOKFJ5BpkCrzy/dj?=
+ =?us-ascii?Q?kX6gNZn02lewuJh8yTOmYwrc02ztAQaDEntHKUzag6aDFs6KkagBcm91Wg+J?=
+ =?us-ascii?Q?nec6lOsTZRni8G42EdvCbeu9KKamzARWpMghU5maAHSqUEMjZfrvBWebqSwK?=
+ =?us-ascii?Q?XA20wQZDEoztQ3Crsa8ge5CjC5eXapkN13s8pUok0nrf7NgXeK8ahDroSvHO?=
+ =?us-ascii?Q?k05cpZugQ8dj4ZolRE2enxTANoWGB0wUn0h2i14BxeTgoe8OFefl2ek1io8r?=
+ =?us-ascii?Q?ZT+9Z/ig/z5ZhtNbZ4O1sOE1dnIR7XGqxeI7fDhESKA5HUEXplrHn+ArSqOo?=
+ =?us-ascii?Q?q5iRbKBCNWpm1uCEa+1S5/EeCAwdX0k/Qu9IRUKzs0A8Oqcjgszg2/8EBHdH?=
+ =?us-ascii?Q?cYFrBlhbiPCfX1iV8OGQi56kR5sKs2Zrg827Bv5JktIJbiv0cSDxd3S6ZUbC?=
+ =?us-ascii?Q?xQEiajGLudmo8rilBYXF31KJdVmqRuIrtVz/tqWqy+fppHhEXeeHMyiBFIgh?=
+ =?us-ascii?Q?EmkP8YpXtimdJ/OZNP1T4Zc0JqYIovMN04qqEPoifO9yQ9wetYEV8CMAIKXJ?=
+ =?us-ascii?Q?wujPK03MMtpMRUdgWZxg4azbRMzuESlH1pcJCiX0+2nDkrHwA5cPrmGVU1Uc?=
+ =?us-ascii?Q?GRPUAd5VB6MAV+24jLhZxx5nd2/435biQKuTzrpOubrcP+yfse7yUCGFInMa?=
+ =?us-ascii?Q?WAOQ8reft4LqX6wGbfXIhy5ddGm7o8diQ62tQbdfjNUlcYxpdQwwoAetNChN?=
+ =?us-ascii?Q?7odWoKIeu259p73CLMaKSXrOmW2ihIJTktgnfU/642+7NMygo0NxY0VwpRNb?=
+ =?us-ascii?Q?d3iobOiqvQtnXexV4WFCJLO6mqdpis76x5AAD8cbkJKF2FB4We3Yu5DjHjUu?=
+ =?us-ascii?Q?9M9Nvs0HgGU849sAbDpWa5K9Qx+VNTiOan58Z0BZ1JQHHANPB4qgg1liziui?=
+ =?us-ascii?Q?Y86cKWn6d4uxGAfySeh497J9WiFXgCqdVFz51+N8ptSnpJcbiRG1RCcwWC8u?=
+ =?us-ascii?Q?IwVZoKbiwmv8JikXLFHUamFhdleKKYSrP/Z7mh9uWHL6cIL4x3vV2CHj0x7M?=
+ =?us-ascii?Q?sK9DynG95oXkzDuY9GvhuVQIolby7TelIiOf1CajfzOVdL+oaQwnmnfPLq7j?=
+ =?us-ascii?Q?/yhN0VgCavvgpO56DGMip2e2pRRvHnq+F5x3aJsGJFy57rDu0kpGbIJ5eCpu?=
+ =?us-ascii?Q?kPgMM2qBVL6TyZ037OcZqyFisblxSFIWtOJrGL/HRgw3/+WhKf7WQzsJ6wzb?=
+ =?us-ascii?Q?m13whE7wKDmn6fXKDhU5viDgTUBMiGOhKvy/hc0dVf6aVGkJS0hBi8nRvauu?=
+ =?us-ascii?Q?/mWV+WwyQ3dEoYM8/biSj/aGVpHI234mLON4H8X5z4Rs6gibytz71AHVSzTo?=
+ =?us-ascii?Q?ZOUmM3pP5mkSJi5z5UE+ebsnG7XTE+zkG1oRMvgXHNzIUzQ2tfHR1zDp17/s?=
+ =?us-ascii?Q?1jGY3302j83OLxzU4hOvF4AA2NdgtD46ps0JEg254i9uAusmcbLqTR4BLjBD?=
+ =?us-ascii?Q?DQuin7QnDyqHXfevKfBBIJeyiZqkdpyzsXJ5WJfUQfFS+2YZqB+rSVZXzrYO?=
+ =?us-ascii?Q?Yigq4Q=3D=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(36860700013)(32650700017);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 0Zt6ImTdqEkftAj+E4OV2AboM7+6+wFM+H++HDutfBGq77D07/d6KFocFPWDxRU3Prwa7ap3Vr+QQekCAf2W5sySh7R5WqgHH3UMSMyiVciAfn5zkML0AdzJb4jU8eu/lOxpX8f6Ps/JinIIKOPJ2RvShs3xQkMAwDc6FZY24/j0YXSbi8czPCOl1C0g5pCJWzO7Nl74/Sjb76AloxzGd5kVzpVOqtpATSLiiohfx32PL0XvXRBRTYrqz0q1nuo7lHtccEHUM9DZqXeHz6+0oZVOCD6mPVikDWs9DoatYoedYp79CFJJFAh6MKyUAQOvu0xF2xmYZ5bsUkZ7Ff6X3kGRPImvIwPARIcb5CaTBxEdrPSjS0hxUXJeFmYyAGDzpTwSP9XshjhYNz+6y9FUt3wQMBusCuA59QKa5SqjduSQHTo18AsIvlkgaX2/+Zwx
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Feb 2026 09:30:21.5251
+X-MS-Exchange-AntiSpam-MessageData-0: mSVbFmfjVY6f0KN07fcA/YC+uXHJvc2mldbcDjPbH/obqxaJBFOUqyWuj7kbp55Muw1D2GljcjNzNzhTOQiqpMND8a2BAFPcFwisirHeX3F7Cr1suO14OoMlE+u/kInEjmn4kYA6ERhbmNlDB/6+QO3AySaPfe/xlGcaiJurEuQvcQUDx7zrAoCFb1TMIaDnN/kYRRk0WF2Bac3pnJmU/VfZLMyFDFQfYRUDEmIv88ZodYnqoWZ7F03qjNDWESNeJqk0Npim+p2BrGk6et/Z0DHmN6EQPmKKCniBrZepaFJzAnWWK11fQb7leePB1wF1stWlW/IER35ZhVhp6yefW/0MIzUViHGvi+Z2V9MqokbmjFc3yY6QZ5IJjEsG6oHkCcA1j1prGpmBJcTZUtCRZAu3hI5RCXhTJYwv+zfL5YHtvefe8u1bgFrSWvc+2nxK
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Feb 2026 09:33:45.3819
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c7049442-da66-4c6a-c58c-08de67bdd8c5
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB58.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dec37069-2c5a-41e2-41b3-08de67be5254
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C6.apcprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR10MB4863
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYPPR06MB8328
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_013027_790644_82DE7552 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20260209_013352_317390_954ECB17 
+X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,99 +149,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Several TI K3 SoCs like J7200, J721E, J721S2, J784S4 and J742S2 have a
-R5F cluster in the MCU domain which is configured for LockStep mode at
-the moment. The necessary support to use MCU R5F cluster in split mode
-has been added in the bootloader. And the TI IPC firmware for the split
-processors is already available public.
+Patch 1: Add yaml file for Cix Sky1 resets
+Patch 2: Add driver codes for Cix Sky1 resets
+Patch 3: Add dts nodes for Cix Sky1 resets
 
-Now that the firmware dependent configs have been isolated out from
-board level DTS to the TI IPC Firmware DTSI since
-commit c5b645dbecd6 ("arm64: dts: ti: k3-j7200-ti-ipc-firmware: Refactor
-IPC cfg into new dtsi"), switch this R5F cluster to Split mode by
-default in all the boards using TI IPC Firmware config. This gives out
-an extra general purpose R5F core free to run any applications as
-required. Lockstep mode remains default in the SoC level dtsi, so
-downstream board dts which do not use TI IPC Firmware config should not
-be impacted by this switch.
+v8 changes:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-system-control.yaml
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+scripts/checkpatch.pl 000*.patch
+- refine reset driver
+- remove "simple-mfd" strings
 
-Users who prefer to use the fault-tolerant lockstep mode with TI IPC
-firmware config, can do that by setting `ti,cluster-mode` property to 1.
+v7 changes:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-system-control.yaml
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+scripts/checkpatch.pl 000*.patch
+- fix build warning
 
-Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
----
-v2: Changelog:
-[Andrew]:
- 1. Posted this as a separate patch from the DT refactoring series[0]
-[General]:
- 2. Updated commit message to indicate the refactoring series has been
-    merged, and now its time to switch the R5 Clusters into Split mode
-    in the TI IPC Firmware config.
+v6 changes:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-system-control.yaml
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+scripts/checkpatch.pl 000*.patch
+- refine reset driver
+- fix dt-bindings style
 
-Link to v1:
-https://lore.kernel.org/all/20250814223839.3256046-34-b-padhi@ti.com/
+v5 changes:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-rst.yaml
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-system-controller.yaml
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+scripts/checkpatch.pl 000*.patch
+- refine reset driver
+- fix dt-bindings style
 
-Testing Done:
-1. Tested that this patch does not introduce any new warnings/errors.
-2. Tested Split core functionality of MCU R5F Cluster in TI J784S4 EVM.
+v4 changes:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-rst.yaml
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+scripts/checkpatch.pl 000*.patch
+- add syscon
+- refine reset driver
+- fix dt-bindings style
 
-[0]: https://lore.kernel.org/all/32d4b3c2-4017-4ad2-8527-493b6d3b7ecb@ti.com
+v3 changes:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-rst.yaml
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+scripts/checkpatch.pl 000*.patch
+- remove syscon
 
- arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi             | 1 +
- arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi             | 1 +
- arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi            | 1 +
- .../boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi     | 1 +
- 4 files changed, 4 insertions(+)
+v2 changes:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-rst.yaml
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+scripts/checkpatch.pl 000*.patch
+- fix dt-bindings style
+- refine reset driver
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
-index 9477f1efbbc61..b66faa2543f71 100644
---- a/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
-@@ -94,6 +94,7 @@ &main_timer2 {
- 
- &mcu_r5fss0 {
- 	status = "okay";
-+	ti,cluster-mode = <0>;
- };
- 
- &mcu_r5fss0_core0 {
-diff --git a/arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi
-index 40c6cc99c4056..abd0d137d860d 100644
---- a/arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi
-@@ -211,6 +211,7 @@ &main_timer15 {
- };
- 
- &mcu_r5fss0 {
-+	ti,cluster-mode = <0>;
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-index ebab0cc580bbb..54ae8c86901ec 100644
---- a/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-@@ -183,6 +183,7 @@ &main_timer5 {
- };
- 
- &mcu_r5fss0 {
-+	ti,cluster-mode = <0>;
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi
-index 455397227d4a1..ff9a296b927a8 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi
-@@ -254,6 +254,7 @@ &main_timer9 {
- };
- 
- &mcu_r5fss0 {
-+	ti,cluster-mode = <0>;
- 	status = "okay";
- };
- 
+Gary Yang (3):
+  dt-bindings: soc: cix: document the simple-mfd syscon on Sky1 SoC
+  reset: add Sky1 soc reset support
+  arm64: dts: cix: add support for cix sky1 resets
+
+ .../soc/cix/cix,sky1-system-control.yaml      |  42 ++
+ arch/arm64/boot/dts/cix/sky1.dtsi             |  12 +
+ drivers/reset/Kconfig                         |   7 +
+ drivers/reset/Makefile                        |   1 +
+ drivers/reset/reset-sky1.c                    | 374 ++++++++++++++++++
+ drivers/soc/Kconfig                           |   1 +
+ drivers/soc/Makefile                          |   1 +
+ drivers/soc/cix/Kconfig                       |  11 +
+ drivers/soc/cix/Makefile                      |   1 +
+ drivers/soc/cix/sky1-system-control.c         |  47 +++
+ include/dt-bindings/reset/cix,sky1-rst-fch.h  |  42 ++
+ include/dt-bindings/reset/cix,sky1-rst.h      | 164 ++++++++
+ 12 files changed, 703 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
+ create mode 100644 drivers/reset/reset-sky1.c
+ create mode 100644 drivers/soc/cix/Kconfig
+ create mode 100644 drivers/soc/cix/Makefile
+ create mode 100644 drivers/soc/cix/sky1-system-control.c
+ create mode 100644 include/dt-bindings/reset/cix,sky1-rst-fch.h
+ create mode 100644 include/dt-bindings/reset/cix,sky1-rst.h
+
 -- 
-2.34.1
+2.49.0
 
 
