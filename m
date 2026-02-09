@@ -4,84 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C31E81BD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 17:55:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99503E81BD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 17:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xIb3LMlJ3ZAFCFQ8njzw9kDZpKj6O5d2TrHrGyskL2M=; b=ikgjlMuCzJ/BblY2a9UzHsgD5j
-	7OWw7FiGG8Mj9s8lu26v/PenrX+6NTwIFbL+gTAG1Ki6vU9ZckIC/Neztm0UpXCZSXJ+nuhp3niz8
-	6TZ66OXym9zmEMF5Ayh/cveJ8NaZXFEwfjHY7/+KuWIMlubQqxakZhMaD5Wgc7ylU8AqqR//kHrej
-	+TW/Vt55PBgiuyO0dEw5RZ9T8vKAiTqyUXV/Yx2GU5TwADthULa+32EI8fxe3tYMTpBAonwyWGyIU
-	UBr+NzoSRxzVHzseWapSnFf0WVtMDm7XxqyL+yymG9dw2ILBDC62OB+WldUDLUOJzUa5/kZePbslz
-	KKzebM2Q==;
+	bh=7CKgCxZAAUT1HusqPU+zj7XPVhCGxirQM1iuFr5+TFI=; b=SFiD/INJ4XwzE1QVkdPSjucLog
+	kawU1pxC+LVHz7bieI+ErMWNo+wixJvciZxcIqkAZBUv6WZc3IuZ9bY/6hMZYPEd4aXO44ACm5cR2
+	PP9u0LGa5Jtm71YyJ8PMdIHSo9s/scqrVDh53q5GLjgYZy3W8VUAKknU/+slIrOFeSs3I9u2q9Kvz
+	nHrIEMMcyPmkIHAkbylhyqm+KiPQQiG3jOTx12ffHRCmZ8mldvoy/gScziEKrur8VdeQFp1DhYWVJ
+	2PHtUiMZNZxdenIquPhbht0iGbi39+vkfPc/WRA1hqCQ+b5/mDymohKF5otnkTzPCJNbJNETjhyVI
+	GEHfIByw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpVTj-0000000FoC6-0Onu;
-	Mon, 09 Feb 2026 17:55:19 +0000
+	id 1vpVWn-0000000FobH-2exK;
+	Mon, 09 Feb 2026 17:58:29 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpVTg-0000000FoBa-38Vy;
-	Mon, 09 Feb 2026 17:55:17 +0000
+	id 1vpVWl-0000000Foau-0cBY
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Feb 2026 17:58:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 541E141AF0;
-	Mon,  9 Feb 2026 17:55:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02A6FC116C6;
-	Mon,  9 Feb 2026 17:55:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B726840BEC;
+	Mon,  9 Feb 2026 17:58:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 642C2C16AAE;
+	Mon,  9 Feb 2026 17:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770659715;
-	bh=EnTNUJHmSxT2WRAs+oWYX8bdwlK9D+48BwdN8Orgt7I=;
+	s=k20201202; t=1770659906;
+	bh=vxxNB6nWgY4FeC3V5k11CvbrJUV7Z/hmMTpSNLsLNYY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Zgj/maFW5QBdpanoskzhhOvikPz/Ns+ctuK+nd23tjE39S637yYBNIdYcQV1xLoEs
-	 MAvtPqQJ96P2MTGMIooSvlQ/HM7RAEIF6Ebj4eVEON3Qcz6FblOPFj9VpqMP6aVRq7
-	 1vHRNgEMLU+ttI8tLmoN9NC0AvbxXOfpWP7QTQtbtZ8SHlt5hcnvvKCGmOwxj/eNeL
-	 dk3FN6gNnj5XhTov798gmAT7dFgVNNx4CmaRUbCAQYA8dZF/zEebnM0aEt6UkXwQX1
-	 Isq8XWO/xVJxHsvlX+nERQP1BkQ8deSp40wNxcUcreLYay7zzYt4yRtGd/VRzOvIDW
-	 gZMmZjvQdNfLg==
-Date: Mon, 9 Feb 2026 11:55:14 -0600
+	b=TX3H99972Qth3fjJt7lnW+yMbsYjeoJojgZeRvCZ3IxPlw9u+b/Sn0ZG+byjFcPSi
+	 dOsp9XYpZKiDIeYjqmnoja08c4N+PSTVf2Aj4yhceOIFa8dp/rw7/jVP8X+fs12K+C
+	 vF59Dhb8oOkxuyeEBabgcYbX/vECmOnbFe33w28a+piwe5LMiAEOCN/7BZeNNVd3kI
+	 iBG1/uVHXUYsV8iQJe6WzTJcLFHYSNLjJ2eoyP8mYDv7hPcqu3+V9R1W4CUsElbFzD
+	 Q6hRPJ9WQVfk/xWGFZe+cIvSRfVQq88nJ65vr5l73m6XGpXjUgmaaV/PgVR/uxKVHH
+	 eQcmel4SSF71g==
+Date: Mon, 9 Feb 2026 11:58:25 -0600
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Yanteng Si <siyanteng@cqsoftware.com.cn>, devicetree@vger.kernel.org,
-	Jose Abreu <joabreu@synopsys.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	linux-riscv@lists.infradead.org,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, Yao Zi <ziyao@disroot.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, spacemit@lists.linux.dev,
-	Richard Cochran <richardcochran@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Zhi Li <lizhi2@eswincomputing.com>, Alexandre Ghiti <alex@ghiti.fr>,
-	Shangjuan Wei <weishangjuan@eswincomputing.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Longbin Li <looong.bin@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	linux-kernel@vger.kernel.org, Yixun Lan <dlan@gentoo.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, netdev@vger.kernel.org,
-	Chen-Yu Tsai <wens@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <pjw@kernel.org>
-Subject: Re: [PATCH net-next v4 1/3] dt-bindings: net: Add support for
- Spacemit K3 dwmac
-Message-ID: <177065971340.1488943.5040519418733629528.robh@kernel.org>
-References: <20260130022705.1059214-1-inochiama@gmail.com>
- <20260130022705.1059214-2-inochiama@gmail.com>
+To: Dominik Haller <d.haller@phytec.de>
+Cc: conor+dt@kernel.org, Laurent.pinchart@ideasonboard.com,
+	linux-arm-kernel@lists.infradead.org, adrien.grassein@gmail.com,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Andrzej Hajda <andrzej.hajda@intel.com>, upstream@lists.phytec.de,
+	David Airlie <airlied@gmail.com>, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Robert Foss <rfoss@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	devicetree@vger.kernel.org, krzk+dt@kernel.org,
+	jernej.skrabec@gmail.com, Maxime Ripard <mripard@kernel.org>,
+	Simona Vetter <simona@ffwll.ch>, onas@kwiboo.se
+Subject: Re: [PATCH 5/6] dt-bindings: display: bridge: lt8912b: Drop reset
+ gpio requirement
+Message-ID: <177065990345.1493489.15126893179740897544.robh@kernel.org>
+References: <20260130205820.83189-1-d.haller@phytec.de>
+ <20260130205820.83189-6-d.haller@phytec.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260130022705.1059214-2-inochiama@gmail.com>
+In-Reply-To: <20260130205820.83189-6-d.haller@phytec.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_095516_804530_2C196ED1 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20260209_095827_226744_2C96E5AE 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,20 +85,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 30 Jan 2026 10:27:02 +0800, Inochi Amaoto wrote:
-> The GMAC IP on Spacemit K3 is almost a standard Synopsys DesignWare
-> MAC (version 5.40a) with some extra clock.
+On Fri, 30 Jan 2026 12:58:15 -0800, Dominik Haller wrote:
+> Drop the gpio reset from the list of required properties. The bridge works
+> fine with a reset not managed by Linux. In the driver itself the gpio is
+> already flagged as optional.
 > 
-> Add necessary compatible string for this device.
-> 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> Signed-off-by: Dominik Haller <d.haller@phytec.de>
 > ---
->  .../devicetree/bindings/net/snps,dwmac.yaml   |   2 +
->  .../bindings/net/spacemit,k3-dwmac.yaml       | 103 ++++++++++++++++++
->  2 files changed, 105 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+>  .../devicetree/bindings/display/bridge/lontium,lt8912b.yaml      | 1 -
+>  1 file changed, 1 deletion(-)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Applied, thanks!
 
 
