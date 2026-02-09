@@ -4,71 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F1EE81BA8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 12:02:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED40E81BA9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 12:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9WfBFjVA09j4luMmRorBm/nSBpM5ERPntrmJhOsTzJk=; b=atzzyWagax14hd1mBtaJv6T9lo
-	Djqw+AU5JcIj9Oij1DW1f/TJaMS1lj6K4bw/Lg4e8dvpeL6b2Tzwyob23/1x6Az/LtDt8NG2268im
-	NnFy6GUXK0G0K0wCNzFCE40F2oy26jnEC3cMRqgn7bXF80cLdlG83RMhZJ1dJOZ63QDCoKt2Hm3NZ
-	qcrmh/XCKkOxG9xtXVAewWLWwFnTZAjC/wRH/xoF4P8AjyQdpvHymZCk5y/CIxCamAEx2Q360w0eO
-	rrCbWOjXtiURSeSu+22DJDrqAZCxy/1Rfbg+pfTacjL9wk34FCxblZ45VziBKdf3zlj/cNs0/p3yL
-	ucctnypg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pIEr3FfUcNtCt3V89SkmnuBFo3bFDJtj6FbOqiDCuBY=; b=aV4s8fiITBZCNMPOCF4qdHAfqI
+	d/MKzKSMKxducnB3NmCai805aGlGOXPZz668GcJrWPlk6XwLhUIbdYsBPuSQsIFKaTj9ybnaZNA7L
+	mQJKnciHF2n5RKinual4wDdQbW97FmFQOMo3TOJcr+6XGK/2aJYgqxdcIRT8ThFn33M16zDjXiJDF
+	xCnw+1z+6wuwBWWcNuPtiYct3oJkhys6JNM2ZZmgBFLQs8XDQ9tsTt6z4MVR2FYMReTEUXcFwfulW
+	lExGkzhzRO/orJqBYuECBPkqH3sYgKu/Bd243JWL8C36s///cbLda9HPaFQpYWfxljiksa7zVZPPe
+	Mt10JUTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpPyQ-0000000FLFL-0hZU;
-	Mon, 09 Feb 2026 12:02:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpPyN-0000000FLEZ-2PrK
+	id 1vpQQf-0000000FMYc-05b6;
+	Mon, 09 Feb 2026 12:31:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vpQQb-0000000FMYE-3IwC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 12:02:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3263C44382;
-	Mon,  9 Feb 2026 12:02:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07FACC116C6;
-	Mon,  9 Feb 2026 12:02:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770638554;
-	bh=GxBpqi2qXXbPzWl7ejHnIMQoFh9rAVUsvwOwbYG0E1w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BbZ3rNX3aA8++I13QCqbGeTnbz5fH0D7y8SozLNMmlauEZy2itXUAJLgU23vsXVQx
-	 3VuLwHkWF0qpOqgUcy3YpN3lQicG2IVF0J2fPEwCJjine9RdT4lUSkI+HLnFTnWykm
-	 E4gQLkkp3sgchOD89mi2GGLsstXHRo5Cn4XYM+M0WbymOzGpnw839OYR7ABTW20KNY
-	 Ww/gFxdLl68Q+B+28hnk+pjIMCk/dYTR7OmvOitacgLpFz9EWIw9fWP8RL6ZoiYBVX
-	 PUPRVGHxpK5dbv3dEYkMKODjP+a6rVJCRdwJsMdWRw59dB3qgkmUpIUEOcHT5FI2+b
-	 w2KQaTpWeFGGg==
-Date: Mon, 9 Feb 2026 12:02:28 +0000
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Jinjiang Tu <tujinjiang@huawei.com>, akpm@linux-foundation.org,
-	david@kernel.org, zengheng4@huawei.com, ryan.roberts@arm.com,
-	anshuman.khandual@arm.com, wangkefeng.wang@huawei.com,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-Subject: Re: [PATCH v3] arm64: mm: fix pass user prot to ioremap_prot in
- generic_access_phys
-Message-ID: <aYnM1A-9VZaOZoC_@willie-the-truck>
-References: <20260130073807.99474-1-tujinjiang@huawei.com>
- <aYC6_lSm_eJeKIcn@willie-the-truck>
- <73396cda-e12c-484f-ab84-b09e7aab8bb0@huawei.com>
- <aYG-dGzR6MuPSQBK@willie-the-truck>
- <a4ee7faa-5b0d-4ffa-bc06-939d95ef7680@huawei.com>
- <aYSp0--x_QgyiUWL@arm.com>
- <aYTVAeMm5cFnuAL7@willie-the-truck>
- <aYTgoFQjEs_5WyC-@arm.com>
- <aYXZsRpmQIb7q83D@arm.com>
+	Mon, 09 Feb 2026 12:31:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1C6F9339;
+	Mon,  9 Feb 2026 04:31:35 -0800 (PST)
+Received: from [10.57.52.189] (unknown [10.57.52.189])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CFAB33F63F;
+	Mon,  9 Feb 2026 04:31:38 -0800 (PST)
+Message-ID: <0af5b5f3-912a-4f16-a68b-032617576537@arm.com>
+Date: Mon, 9 Feb 2026 12:31:36 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aYXZsRpmQIb7q83D@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] iommu/io-pgtable: Add support for Arm Mali v10+ GPUs
+ page table format
+To: Liviu Dudau <liviu.dudau@arm.com>, Will Deacon <will@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+ Rob Clark <robin.clark@oss.qualcomm.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ Karunika Choo <karunika.choo@arm.com>, Liviu Dudau <liviu@dudau.co.uk>
+References: <20260209112542.194140-1-liviu.dudau@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260209112542.194140-1-liviu.dudau@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_040235_709604_2C549066 
-X-CRM114-Status: GOOD (  36.06  )
+X-CRM114-CacheID: sfid-20260209_043145_971683_2F367950 
+X-CRM114-Status: GOOD (  44.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,72 +69,332 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 06, 2026 at 12:08:17PM +0000, Catalin Marinas wrote:
-> On Thu, Feb 05, 2026 at 06:25:36PM +0000, Catalin Marinas wrote:
-> > On Thu, Feb 05, 2026 at 05:36:01PM +0000, Will Deacon wrote:
-> > > On Thu, Feb 05, 2026 at 02:31:47PM +0000, Catalin Marinas wrote:
-> > > > On Thu, Feb 05, 2026 at 03:23:27PM +0800, Jinjiang Tu wrote:
-> > > > > 在 2026/2/3 17:23, Will Deacon 写道:
-> > > > > > On Tue, Feb 03, 2026 at 11:38:15AM +0800, Jinjiang Tu wrote:
-> > > > > > > 在 2026/2/2 22:55, Will Deacon 写道:
-> > > > > > > > On Fri, Jan 30, 2026 at 03:38:07PM +0800, Jinjiang Tu wrote:
-> > > > > > > > > +#define arch_mk_kernel_prot arch_mk_kernel_prot
-> > > > > > > > > +static inline pgprot_t arch_mk_kernel_prot(pgprot_t user_prot)
-> > > > > > > > > +{
-> > > > > > > > > +	ptdesc_t mem_type = pgprot_val(user_prot) & PTE_ATTRINDX_MASK;
-> > > > > > > > > +
-> > > > > > > > > +	return __pgprot_modify(PAGE_KERNEL, PTE_ATTRINDX_MASK, mem_type);
-> > > > > > > > > +}
-> > > > > > > > 
-> > > > > > > > Do we really need another arch helper here?
-> > > > [...]
-> > > > > > My point is that we already have the helper: ioremap_prot(). Just fix
-> > > > > > that for arm64 and cc the other arch maintainers if you're not sure how
-> > > > > > to fix it for them. What we don't need to do is add an additional helper.
-> > > > > 
-> > > > > ioremap_prot() may be called outside of arch/arm64 in the future, and I think
-> > > > > most of the cases will not pass a user prot to ioremap_prot().
-> > > > > 
-> > > > > generic_access_phys() is a special case, so I want to limit the modification to
-> > > > > generic_access_phys() only.
-> > > > 
-> > > > Or we can just have an ioremap_user_prot() (or some more meaningful
-> > > > name), defined by default as ioremap_prot(). It's still introducing a
-> > > > new macro though, unless we go and rename it on all architectures.
-> > > 
-> > > ioremap_prot() has exactly one caller outside of arch code and that is
-> > > generic_access_phys(). We should just fix the arm64 implementation of
-> > > ioremap_prot() and not introduce any new macros. If a new caller comes
-> > > along later, we can figure out what to do then. We could shout if the
-> > > prot isn't a user prot so we detect the problem.
-> > 
-> > I was more worried about out of tree drivers using it since it's an
-> > EXPORT_SYMBOL(). We should remove the export anyway given that we have
-> > only a fixed number of memory types programmed in MAIR and all have
-> > corresponding ioremap wrappers already.
-> > 
-> > So yes, just fixing it in ioremap_prot() works for me if we also remove
-> > the export, just in case there are dodgy drivers out there.
+On 09/02/2026 11:25, Liviu Dudau wrote:
+> From: Liviu Dudau <liviu@dudau.co.uk>
 > 
-> Ah, removing the export would break KMI if backported (unless GKI won't
-> merge it) since all the other ioremap_* macros use ioremap_prot(). Well,
-> not a problem for stable/LTS in general, just for GKI.
+> The Arm Mali v10+ GPU drivers have been (ab)using the ARM_64_LPAE_S1
+> format as they are mostly compatible with it and some of the gaps
+> left in the code to allow for ARM_MALI_LPAE format (pre-v10 GPUs)
+> is helping to paper over differences. In preparation for adding support
+> for changes introduced in v15 GPUs, add a format specific for modern
+> Mali GPUs.
+> 
+> Signed-off-by: Liviu Dudau <liviu.dudau@arm.com>
+> ---
+> 
+> This patch is trying to gauge interest in adding proper support for Arm Mali
+> CSF GPUs via the simple approach of extending the generic Arm page table code
+> to add support for the PTE format of the GPUs. In order to test the changes
+> I've decided to add the phba bits to the arm_lpae_s1_cfg struct to validate
+> the allocation and setup of the page table entries, but in the end I'm
+> targetting the specific arm_mali_csf_cfg structure that will support
+> the GPUs PTEs.
 
-Upstream really shouldn't care about out-of-tree drivers or Android ABI
-guarantees.
+Other than the addition of the PBHA bits (which are part of the VMSAv8
+page table format anyway) what are we expecting to be different between
+the Mali format and the CPU architectural format?
 
-> I would still introduce a new ioremap_user_prot() to make the intent
-> clearer. In its implementation we could skip the ioremap_prot_hook().
+For Midgard GPUs the page table format was "inspired" by LPAE but was
+explicitly different in some cases - so a new format was required. But I
+can't actually spot any differences in the GPU format to what VMSAv8-64
+describes (albeit the GPU format is less flexible than all the options
+the CPU format describes).
 
-I still think this is unnecessary churn. You then end up with
-ioremap_prot() having no callers outside of arch/ and if core code just
-defines ioremap_user_prot() to ioremap_prot() for everybody apart from
-arm64 then the intent isn't clear at all.
+I can see why we might want more functionality (e.g. PBHA): I'm just not
+sure what the reason for having another special Mali format is - why
+can't this be in the generic code?
 
-> For generic_access_phys(), do we even care about encrypted/decrypted
-> pgprot?
+> 
+> I'm interested to learn if this approach is considered sane and what I need to
+> pay attention to when adding a new struct to the io_pgtable_cfg union. The patch
+> is intentionally not complete with all the changes that switching to the new
+> struct will entail as I didn't wanted to be dragged into a full code review, but
+> I can add them if wanted.
+> 
+> 
+> Best regards,
+> Liviu
+> 
+> ---
+>  drivers/iommu/io-pgtable-arm.c | 161 ++++++++++++++++++++++++++++++++-
+>  drivers/iommu/io-pgtable.c     |   1 +
+>  include/linux/io-pgtable.h     |  18 ++++
+>  3 files changed, 179 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
+> index 05d63fe92e436..48aea598ab0c9 100644
+> --- a/drivers/iommu/io-pgtable-arm.c
+> +++ b/drivers/iommu/io-pgtable-arm.c
+> @@ -482,6 +482,7 @@ static arm_lpae_iopte arm_lpae_prot_to_pte(struct arm_lpae_io_pgtable *data,
+>  	arm_lpae_iopte pte;
+>  
+>  	if (data->iop.fmt == ARM_64_LPAE_S1 ||
+> +	    data->iop.fmt == ARM_MALI_CSF ||
+>  	    data->iop.fmt == ARM_32_LPAE_S1) {
+>  		pte = ARM_LPAE_PTE_nG;
+>  		if (!(prot & IOMMU_WRITE) && (prot & IOMMU_READ))
+> @@ -569,6 +570,8 @@ static int arm_lpae_map_pages(struct io_pgtable_ops *ops, unsigned long iova,
+>  		return -EINVAL;
+>  
+>  	prot = arm_lpae_prot_to_pte(data, iommu_prot);
+> +	if (data->iop.fmt == ARM_MALI_CSF)
+> +		prot |= cfg->arm_lpae_s1_cfg.pbha;
+>  	ret = __arm_lpae_map(data, iova, paddr, pgsize, pgcount, prot, lvl,
+>  			     ptep, gfp, mapped);
+>  	/*
+> @@ -864,7 +867,8 @@ static int arm_lpae_read_and_clear_dirty(struct io_pgtable_ops *ops,
+>  		return -EINVAL;
+>  	if (WARN_ON((iova + size - 1) & ~(BIT(cfg->ias) - 1)))
+>  		return -EINVAL;
+> -	if (data->iop.fmt != ARM_64_LPAE_S1)
+> +	if (data->iop.fmt != ARM_64_LPAE_S1 ||
+> +	    data->iop.fmt != ARM_MALI_CSF)
+>  		return -EINVAL;
+>  
+>  	return __arm_lpae_iopte_walk(data, &walk_data, ptep, lvl);
+> @@ -1236,6 +1240,155 @@ arm_mali_lpae_alloc_pgtable(struct io_pgtable_cfg *cfg, void *cookie)
+>  	return NULL;
+>  }
+>  
+> +static struct io_pgtable *
+> +arm_mali_csf_alloc_pgtable(struct io_pgtable_cfg *cfg, void *cookie)
+> +{
+> +	unsigned int max_addr_bits = 48;
+> +	unsigned long granule, page_sizes;
+> +	struct arm_lpae_io_pgtable *data;
+> +	typeof(&cfg->arm_lpae_s1_cfg.tcr) tcr = &cfg->arm_lpae_s1_cfg.tcr;
+> +	int levels, va_bits, pg_shift;
+> +	u64 reg;
+> +
+> +	if (cfg->quirks & ~(IO_PGTABLE_QUIRK_ARM_TTBR1 |
+> +			    IO_PGTABLE_QUIRK_NO_WARN))
+> +		return NULL;
+> +
+> +	if (!(cfg->pgsize_bitmap & (SZ_4K | SZ_16K)))
+> +		return NULL;
 
-Dunno.
+This check should be moved down...
 
-Will
+> +
+> +	if (cfg->pgsize_bitmap & PAGE_SIZE)
+> +		granule = PAGE_SIZE;
+> +	else if (cfg->pgsize_bitmap & ~PAGE_MASK)
+> +		granule = 1UL << __fls(cfg->pgsize_bitmap & ~PAGE_MASK);
+> +	else if (cfg->pgsize_bitmap & PAGE_MASK)
+> +		granule = 1UL << __ffs(cfg->pgsize_bitmap & PAGE_MASK);
+> +	else
+> +		granule = 0;
+> +
+> +	switch (granule) {
+> +	case SZ_4K:
+> +		page_sizes = (SZ_4K | SZ_2M | SZ_1G);
+> +		break;
+> +	case SZ_16K:
+> +		page_sizes = (SZ_16K | SZ_32M | SZ_64G);
+> +		break;
+> +	default:
+> +		page_sizes = 0;
+> +	}
+> +
+> +	cfg->pgsize_bitmap &= page_sizes;
+
+... to after this line. Otherwise we can end up with cfg->pgsize_bitmap
+being zero and the function succeeding.
+
+Generally this is mostly just a copy of arm_lpae_alloc_pgtable() (with
+arm_lpae_restrict_pgsizes() inlined) - but with added bugs. Which is why
+I'm wary of adding another Mali-special unless there's good reason. It
+still refers to a whole bunch of _LPAE_ defines/functions - which means
+any refactor to LPAE would have to fix up this code too.
+
+Thanks,
+Steve
+
+> +	cfg->ias = min(cfg->ias, max_addr_bits);
+> +	cfg->oas = min(cfg->oas, max_addr_bits);
+> +
+> +	data = kmalloc(sizeof(*data), GFP_KERNEL);
+> +	if (!data)
+> +		return NULL;
+> +
+> +	pg_shift = __ffs(cfg->pgsize_bitmap);
+> +	data->bits_per_level = pg_shift - ilog2(sizeof(arm_lpae_iopte));
+> +
+> +	va_bits = cfg->ias - pg_shift;
+> +	levels = DIV_ROUND_UP(va_bits, data->bits_per_level);
+> +	data->start_level = ARM_LPAE_MAX_LEVELS - levels;
+> +
+> +	/* Calculate the actual size of our pgd (without concatenation) */
+> +	data->pgd_bits = va_bits - (data->bits_per_level * (levels - 1));
+> +
+> +	data->iop.ops = (struct io_pgtable_ops) {
+> +		.map_pages	= arm_lpae_map_pages,
+> +		.unmap_pages	= arm_lpae_unmap_pages,
+> +		.iova_to_phys	= arm_lpae_iova_to_phys,
+> +		.read_and_clear_dirty = arm_lpae_read_and_clear_dirty,
+> +		.pgtable_walk	= arm_lpae_pgtable_walk,
+> +	};
+> +
+> +	/* TCR */
+> +	if (cfg->coherent_walk) {
+> +		tcr->sh = ARM_LPAE_TCR_SH_IS;
+> +		tcr->irgn = ARM_LPAE_TCR_RGN_WBWA;
+> +		tcr->orgn = ARM_LPAE_TCR_RGN_WBWA;
+> +		if (cfg->quirks & IO_PGTABLE_QUIRK_ARM_OUTER_WBWA)
+> +			goto out_free_data;
+> +	} else {
+> +		tcr->sh = ARM_LPAE_TCR_SH_OS;
+> +		tcr->irgn = ARM_LPAE_TCR_RGN_NC;
+> +		if (!(cfg->quirks & IO_PGTABLE_QUIRK_ARM_OUTER_WBWA))
+> +			tcr->orgn = ARM_LPAE_TCR_RGN_NC;
+> +		else
+> +			tcr->orgn = ARM_LPAE_TCR_RGN_WBWA;
+> +	}
+> +
+> +	switch (ARM_LPAE_GRANULE(data)) {
+> +	case SZ_4K:
+> +		tcr->tg = ARM_LPAE_TCR_TG0_4K;
+> +		break;
+> +	case SZ_16K:
+> +		tcr->tg = ARM_LPAE_TCR_TG0_16K;
+> +		break;
+> +	case SZ_64K:
+> +		tcr->tg = ARM_LPAE_TCR_TG0_64K;
+> +		break;
+> +	}
+> +
+> +	switch (cfg->oas) {
+> +	case 32:
+> +		tcr->ips = ARM_LPAE_TCR_PS_32_BIT;
+> +		break;
+> +	case 36:
+> +		tcr->ips = ARM_LPAE_TCR_PS_36_BIT;
+> +		break;
+> +	case 40:
+> +		tcr->ips = ARM_LPAE_TCR_PS_40_BIT;
+> +		break;
+> +	case 42:
+> +		tcr->ips = ARM_LPAE_TCR_PS_42_BIT;
+> +		break;
+> +	case 44:
+> +		tcr->ips = ARM_LPAE_TCR_PS_44_BIT;
+> +		break;
+> +	case 48:
+> +		tcr->ips = ARM_LPAE_TCR_PS_48_BIT;
+> +		break;
+> +	case 52:
+> +		tcr->ips = ARM_LPAE_TCR_PS_52_BIT;
+> +		break;
+> +	default:
+> +		goto out_free_data;
+> +	}
+> +
+> +	tcr->tsz = 64ULL - cfg->ias;
+> +
+> +	/* MAIRs */
+> +	reg = (ARM_LPAE_MAIR_ATTR_NC
+> +	       << ARM_LPAE_MAIR_ATTR_SHIFT(ARM_LPAE_MAIR_ATTR_IDX_NC)) |
+> +	      (ARM_LPAE_MAIR_ATTR_WBRWA
+> +	       << ARM_LPAE_MAIR_ATTR_SHIFT(ARM_LPAE_MAIR_ATTR_IDX_CACHE)) |
+> +	      (ARM_LPAE_MAIR_ATTR_DEVICE
+> +	       << ARM_LPAE_MAIR_ATTR_SHIFT(ARM_LPAE_MAIR_ATTR_IDX_DEV)) |
+> +	      (ARM_LPAE_MAIR_ATTR_INC_OWBRWA
+> +	       << ARM_LPAE_MAIR_ATTR_SHIFT(ARM_LPAE_MAIR_ATTR_IDX_INC_OCACHE));
+> +
+> +	cfg->arm_lpae_s1_cfg.mair = reg;
+> +
+> +	/* Looking good; allocate a pgd */
+> +	data->pgd = __arm_lpae_alloc_pages(ARM_LPAE_PGD_SIZE(data),
+> +					   GFP_KERNEL, cfg, cookie);
+> +	if (!data->pgd)
+> +		goto out_free_data;
+> +
+> +	/* Ensure the empty pgd is visible before any actual TTBR write */
+> +	wmb();
+> +
+> +	/* TTBR */
+> +	cfg->arm_lpae_s1_cfg.ttbr = virt_to_phys(data->pgd);
+> +	return &data->iop;
+> +
+> +out_free_data:
+> +	kfree(data);
+> +	return NULL;
+> +}
+> +
+>  struct io_pgtable_init_fns io_pgtable_arm_64_lpae_s1_init_fns = {
+>  	.caps	= IO_PGTABLE_CAP_CUSTOM_ALLOCATOR,
+>  	.alloc	= arm_64_lpae_alloc_pgtable_s1,
+> @@ -1265,3 +1418,9 @@ struct io_pgtable_init_fns io_pgtable_arm_mali_lpae_init_fns = {
+>  	.alloc	= arm_mali_lpae_alloc_pgtable,
+>  	.free	= arm_lpae_free_pgtable,
+>  };
+> +
+> +struct io_pgtable_init_fns io_pgtable_arm_mali_csf_init_fns = {
+> +	.caps	= IO_PGTABLE_CAP_CUSTOM_ALLOCATOR,
+> +	.alloc	= arm_mali_csf_alloc_pgtable,
+> +	.free	= arm_lpae_free_pgtable,
+> +};
+> diff --git a/drivers/iommu/io-pgtable.c b/drivers/iommu/io-pgtable.c
+> index 843fec8e8a511..1f43f898a8121 100644
+> --- a/drivers/iommu/io-pgtable.c
+> +++ b/drivers/iommu/io-pgtable.c
+> @@ -20,6 +20,7 @@ io_pgtable_init_table[IO_PGTABLE_NUM_FMTS] = {
+>  	[ARM_64_LPAE_S1] = &io_pgtable_arm_64_lpae_s1_init_fns,
+>  	[ARM_64_LPAE_S2] = &io_pgtable_arm_64_lpae_s2_init_fns,
+>  	[ARM_MALI_LPAE] = &io_pgtable_arm_mali_lpae_init_fns,
+> +	[ARM_MALI_CSF] = &io_pgtable_arm_mali_csf_init_fns,
+>  #endif
+>  #ifdef CONFIG_IOMMU_IO_PGTABLE_DART
+>  	[APPLE_DART] = &io_pgtable_apple_dart_init_fns,
+> diff --git a/include/linux/io-pgtable.h b/include/linux/io-pgtable.h
+> index 7a1516011ccf7..fc9776f71a963 100644
+> --- a/include/linux/io-pgtable.h
+> +++ b/include/linux/io-pgtable.h
+> @@ -17,6 +17,7 @@ enum io_pgtable_fmt {
+>  	ARM_MALI_LPAE,
+>  	APPLE_DART,
+>  	APPLE_DART2,
+> +	ARM_MALI_CSF,
+>  	IO_PGTABLE_NUM_FMTS,
+>  };
+>  
+> @@ -148,6 +149,8 @@ struct io_pgtable_cfg {
+>  				u32	tsz:6;
+>  			}	tcr;
+>  			u64	mair;
+> +			/* ToDo: remove this when switching to arm_mali_csf_cfg struct */
+> +			u64	pbha;
+>  		} arm_lpae_s1_cfg;
+>  
+>  		struct {
+> @@ -175,6 +178,20 @@ struct io_pgtable_cfg {
+>  			u64	memattr;
+>  		} arm_mali_lpae_cfg;
+>  
+> +		/* ToDo: switch to this structure for Mali CSF GPUs
+> +		  struct {
+> +			u64	transtab;
+> +			struct {
+> +				u32	pbha:4;
+> +				u32	ra:1;
+> +				u32	sh:2;
+> +				u32	memattr:2;
+> +				u32	mode:4;
+> +			} transcfg;
+> +			u64 memattr;
+> +		} arm_mali_csf_cfg;
+> +		*/
+> +
+>  		struct {
+>  			u64 ttbr[4];
+>  			u32 n_ttbrs;
+> @@ -320,6 +337,7 @@ extern struct io_pgtable_init_fns io_pgtable_arm_64_lpae_s1_init_fns;
+>  extern struct io_pgtable_init_fns io_pgtable_arm_64_lpae_s2_init_fns;
+>  extern struct io_pgtable_init_fns io_pgtable_arm_v7s_init_fns;
+>  extern struct io_pgtable_init_fns io_pgtable_arm_mali_lpae_init_fns;
+> +extern struct io_pgtable_init_fns io_pgtable_arm_mali_csf_init_fns;
+>  extern struct io_pgtable_init_fns io_pgtable_amd_iommu_v1_init_fns;
+>  extern struct io_pgtable_init_fns io_pgtable_amd_iommu_v2_init_fns;
+>  extern struct io_pgtable_init_fns io_pgtable_apple_dart_init_fns;
+
 
