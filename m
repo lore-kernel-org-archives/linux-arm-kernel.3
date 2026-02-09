@@ -4,159 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFC50E7E0C3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 10:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F79E7E0C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 10:49:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=erx/ZEjxkO4i0vYuHvnB+2jO+nE+0KIWfrncJXZj4sg=; b=dO05+6/fBSDL85pOaOhjWrbI6e
-	vDWL7j89U1+IdCNjTfGYaOCbhx2rJYzAuky6gfGg0gUls4oSnOdYyy+xdEGgCx+afkXl2Tc7fAFOx
-	CO/FwmXV51Jv2yfJKmQy19x00Sa/J2rFWTTRM9u/E1hH18sIr2r58NLk0noqothhx3Lmc4OcKJLyq
-	KRYLFmoThSyuJV7Hqylcc4ZO8W0E0c9Hpi6xa6BNyRkuaBgjnPxC9kcftIfsd5i6D41mCNtTShNdI
-	bB6mJMdOfhun+KpEB/uQkZZ1OeRhRf2fNru0vEI29esP1jB8xpjFd1A7gyEVlKpXnYUfRJ2fbwjcN
-	h/8izeaQ==;
+	bh=6FJ3pq0bPa4loGkjTlsa5xdiUrKynoZRmuuLaycpRtw=; b=DQ5Lc19FRXNBWLQ33KkUVPwg3o
+	0tiCbrzG8e5W16DGScUdeJbFCrHHFrXVKIa5OLRbFr06vNgO0DmN8Mn9ZA/nsEDgHmDc+tvWYpXIV
+	6CQY3VedbPLzuWdF5HlLwD0aQFyh1bfJ6r7iBSjYA7weVfv5kD3w/5kk1fl7A9WqkPigXKLbqKbq1
+	lN/EBLIF22vJ8EMjBd+pY+PbMVHd4EedlnF8u4zUdU3DeZ0Ppx6aXGYXpPK9jkHVpBdn3IE34RAvs
+	+X+xzmQaDLTsE6rQICO08R6+mOHDtIgIc0Ti86ACoVj7ETr1T3EF3iW3qqRa6t95eztzceKPutgjG
+	Nxs3it5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpOfo-0000000FFQO-24QR;
-	Mon, 09 Feb 2026 10:39:20 +0000
-Received: from mail-westusazon11010044.outbound.protection.outlook.com ([52.101.85.44] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1vpOpT-0000000FFwF-2ST9;
+	Mon, 09 Feb 2026 10:49:19 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpOfl-0000000FFPs-2BGh
+	id 1vpOpP-0000000FFvu-1Cgm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 10:39:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CLuKL512ImLHNhpl9DpHSrH+4S8+lOQsj/YzZqvbHl8ZbAfGK2g6alHtZBV9WX/2xPFN/9Cx2087n9ukZo/6VW8azGunwqcsc3p5iwqoYTmBDOcHm5wOy7e0pbm7FFWUjVRXZNMViQxpbaH0vJAMct4NvOSU+zhGLvh7//a38zBtWkKda/WiuUfhEOlbd1BUIV8eJxi4rYZEi9jBPfZAV0N+ZzPzWtFiciRVn0VNMMH9FkFOAP5I8tVpJB9fSEvn7qlv2lKOFqwqxtmCs5zOkSsKkDDLzcGbwrqosFVJgTnJyixS7GIgAkJVQ9ideDNZaEKO98DORvr1RqJKFTUKRA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=erx/ZEjxkO4i0vYuHvnB+2jO+nE+0KIWfrncJXZj4sg=;
- b=ZPYykXFeqxbrdNfhCXbED1CajNrM9Nrd3q+sorWVtt57rUp8oEJmcVULsaGqFO1mrO3svHpyVPHQwK/GtLK3KEd9WYJOG6AHBdYEcNmxwZzJfhLISyGESZxiZh6h6yvUk4fSOUdNJDb3tSv7osH9w/AjyA0U3TnB5sa2iXktXr9NdglI9MX4OYf0XYKv0yzsoV32nTtPh4SM3iiGbDAvUYxxb34gglBiVutUc9zhMh2U8V4FduW9ffv2u3mhIgKvIGjg+zOg3ar1Uz5PEehPZmDfNm6pKFkwncMmzMNSEnhIwcEsePzfZPFoJ30WZucBX+VydzuLiE4thF9dK8PFww==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=erx/ZEjxkO4i0vYuHvnB+2jO+nE+0KIWfrncJXZj4sg=;
- b=je7MhpUPS39M06HcnACFy35RZSOb1GIcBeHTiiHdRxg6YP61MRfS57iPr5EFkuj3yQ8bz/cfaqL9GNYQmyowKPTHPKOIg5z/cNSZ/hp08iyPgqFbmhxCwOMcNSVUIOS/0xZJS7MKg8humgPOBowI9GJ23RDslipawMJe3NsWc2U=
-Received: from PH8P221CA0060.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:349::9)
- by SJ0PR10MB5663.namprd10.prod.outlook.com (2603:10b6:a03:3db::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.18; Mon, 9 Feb
- 2026 10:39:14 +0000
-Received: from CY4PEPF0000E9CE.namprd03.prod.outlook.com
- (2603:10b6:510:349:cafe::65) by PH8P221CA0060.outlook.office365.com
- (2603:10b6:510:349::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9587.19 via Frontend Transport; Mon,
- 9 Feb 2026 10:39:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- CY4PEPF0000E9CE.mail.protection.outlook.com (10.167.241.133) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9587.10 via Frontend Transport; Mon, 9 Feb 2026 10:39:13 +0000
-Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 9 Feb
- 2026 04:39:12 -0600
-Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE201.ent.ti.com
- (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 9 Feb
- 2026 04:39:12 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE205.ent.ti.com
- (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 9 Feb 2026 04:39:12 -0600
-Received: from [172.24.234.212] (uda0510294.dhcp.ti.com [172.24.234.212])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 619Ad9NC1850661;
-	Mon, 9 Feb 2026 04:39:10 -0600
-Message-ID: <f1f27a4f-c8d1-409d-9915-ec7476950bcc@ti.com>
-Date: Mon, 9 Feb 2026 16:09:09 +0530
+	Mon, 09 Feb 2026 10:49:16 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-503bf474fdfso39590131cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Feb 2026 02:49:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770634153; cv=none;
+        d=google.com; s=arc-20240605;
+        b=FzHIg+QBbYmD07XIzH8+GNo3H6H4hLzSZ0LK3Vbg0qISvqjmHryK318gyWhyuaFFhs
+         J0wyyUEtIVKog+lmHLpGim+0hBgODh7HrCwDK51LV5SK6gIeR5QO9OralzVxoz/ki+JY
+         3Yg3TaHwybvYQ/hKf+EBRdSFH6gBP4X98d32Llh40Sh/LNOsXR3F0iUttqn+8kTsqcC/
+         2Fogu1gOuQDLkrxRYSSt3bzKr3ICtRftnKWL/UCzBoQini5DBIv6c3O+Dvz6ezdHTVwZ
+         RnyoZK7KA3K1PwenNoCioE+AEYmrcV49nKaqrIx1vvSeEBFLbTFMk3KqNor2dKWK9QO5
+         xYuA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=6FJ3pq0bPa4loGkjTlsa5xdiUrKynoZRmuuLaycpRtw=;
+        fh=3T3qTCdtvNo+gZAJdRv+VD63MgKzrxsLSLPb8uySbZ8=;
+        b=bfGO06dHTuk/teI9BhQbJ3VcdiXyAaH+PTiAVeeLkvHZZp1njmZ76EfoSyQd7jFZcf
+         8F2B69wIs6n4C3Ww0V3OdDHQQTkYoAuKECylt8STYfBdq96P/R/XqWlu9WOgnNb/F/6r
+         d7EBTav6Jzrx/QTwcnBtTI9zRhYXWCEvK1oa1t4tB59S0bvA4/ICvNyo4axDyIqYJL2g
+         tZR2rMnr5puPZLaCc4LftaAOrjin6yntNaclvSdy15LQgcDdenjd8UqxYhTB1wk363X0
+         8P3oFdYrN5ZPW1Nyx/kPSG6+5t1XqnY70kwz9kD+BxFABkfvsGENTK2kVwHdxw+/3tXY
+         8Iow==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770634153; x=1771238953; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6FJ3pq0bPa4loGkjTlsa5xdiUrKynoZRmuuLaycpRtw=;
+        b=ajezs0RJTPH51QaAl+S7y6IpSFe0XQ6pYR5jCP99pXWHoubZXSkUsAvXHg2Npzyi14
+         uDOwpJ1OJTaHIjdapZtTfK3afr4ONPlqW2vm22Igd1ywhfuGNx7qWLink2CYsx+LsEJk
+         bPXiFZBAHGKqT3gdZDdbDhv24Jp9IZQOdtkK9xJPaibmiOPEj3wrUscb1I9S5/IuypY1
+         IhrVM64W7lAWXuX/dCNlRSqPF1VhF61KRv65OetxE9ilcklziBYh6yE92YmL8g9qkxXC
+         jnOHjNHc37hz3KfJ+RjBbHQrR+x3jOI6+6HpHWRdw82x54m+vHk6lIfQUBmUQdICqruz
+         EULA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770634153; x=1771238953;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=6FJ3pq0bPa4loGkjTlsa5xdiUrKynoZRmuuLaycpRtw=;
+        b=CYWLXuebcOWtOSrgD2yamc6GWHxIz3JgwU784eb13QUrKIsgqJsSEGwQXes+5WUd7Q
+         KhR6MJcyHTn23OKQ8t317g2YwG4o17Ie1mmQDUjtGxYW1LzU9yCxAUuikc/0MDYtETvI
+         oxJ6XWP/7YoqRPAgpCsJdFDcJN12uxiO3BANH7XtBMBK6A5aqz31n+SzFCp2Q2juiKou
+         Z6jk9sVcIBDuIlkOp3vDusE4CNzXDQHKwDTB0ji7NmxtC0s/o2TO3QkgO5ShP5kjsOJi
+         DgvDgsSa7xVClxEl2E3/HgaIo1JYWxF/wf+6QiBtnXt9txTbeNhsOau3ByWBXNmz7cVD
+         1mVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVz+GNVoQu+B93tF+vMlJttD1W93T31r/LMXZYl8gKBFMLc1HzGQ4b69l+Nh4XYeHGMpUDfdXdiaoYHREg3H5/z@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeVkvN3J1MCcAOMKKgKBNR9GRgaOVPGebKeXyXxiV59HhkJCzN
+	4D9vP3HQUl0HNPRoFsBNO+xgtO8Q3IXrl/BV4uCWEDuJSdYae+Xak6wZ1f13pwjVuO5PXL/iYow
+	I8Lr1ZkSjfd/fJZl6YurgzpIfet46XYE=
+X-Gm-Gg: AZuq6aLJSnhDusz4yuUBbT0Hb0V/bo+4W8V85rYq9B2apa/prXhpqe3m6P6a9LMxGV3
+	eDYQTGsQe9DKRGiosS+y612lG96+BPA9+VNk6TuLsNIOcl9zEwCCrx2pcG4RREtIKaz1vTqZGj6
+	uHaIJP+VVONGYfPh7q8TivIoeoVN65kp092/ozASXrG/wr9lyITBqtt3JyRwKocZsGxCjjVx1wO
+	MtfbOwoAdk3CBBkM6ih3d+NITd6DosyzHhlKMzvfVaRAmpDc3knQbx4MkXkyGaLyIiQ8Q==
+X-Received: by 2002:ac8:5945:0:b0:4ff:c08a:52c4 with SMTP id
+ d75a77b69052e-50639896af2mr154478041cf.18.1770634153220; Mon, 09 Feb 2026
+ 02:49:13 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm: multi_v7_defconfig: Enable more OMAP related
- configs
-To: Krzysztof Kozlowski <krzk@kernel.org>, <linux@armlinux.org.uk>,
-	<arnd@arndb.de>
-CC: <afd@ti.com>, <u-kumar1@ti.com>, <praneeth@ti.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250616082038.3241346-1-b-padhi@ti.com>
- <e58c3a53-0b46-4478-9f82-389a6332b9de@ti.com>
- <c218f45f-d3cd-4a72-8af5-91ef59ff6936@kernel.org>
-Content-Language: en-US
-From: Beleswar Prasad Padhi <b-padhi@ti.com>
-In-Reply-To: <c218f45f-d3cd-4a72-8af5-91ef59ff6936@kernel.org>
+References: <142919ac14d3cf70cba370808d85debe089df7b4.1766631066.git.baolin.wang@linux.alibaba.com>
+ <20260116162652.176054-1-baolin.wang@linux.alibaba.com> <e5175f66-56fd-437b-a183-b2ccc3f54f94@kernel.org>
+In-Reply-To: <e5175f66-56fd-437b-a183-b2ccc3f54f94@kernel.org>
+From: Barry Song <21cnbao@gmail.com>
+Date: Mon, 9 Feb 2026 18:49:01 +0800
+X-Gm-Features: AZwV_QhWVdqt_7RuXV7-kVSLDw48X3tEZAOO_6ZSqGLxObnJZ5IOCtH-TVz0o1s
+Message-ID: <CAGsJ_4w95tTGfanb0NdG5B+ajOUA4LaH7uh+Uxcq0ZNVaqK-Vg@mail.gmail.com>
+Subject: Re: [PATCH] mm: rmap: skip batched unmapping for UFFD vmas
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Baolin Wang <baolin.wang@linux.alibaba.com>, Liam.Howlett@oracle.com, 
+	akpm@linux-foundation.org, catalin.marinas@arm.com, dev.jain@arm.com, 
+	harry.yoo@oracle.com, jannh@google.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, lorenzo.stoakes@oracle.com, 
+	mhocko@suse.com, riel@surriel.com, rppt@kernel.org, ryan.roberts@arm.com, 
+	surenb@google.com, vbabka@suse.cz, will@kernel.org, willy@infradead.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9CE:EE_|SJ0PR10MB5663:EE_
-X-MS-Office365-Filtering-Correlation-Id: e6d6bc89-5960-45e2-41d4-08de67c77768
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MUxFbEkyYzJtS2ViaDNla3FDcml3cnE2bCtIenBlT1daYjV1eUJVT0xUWEI4?=
- =?utf-8?B?SjNWaGZ1a2ZJL2ordXFEbDNlRFZOSytwNkltMHVTRGg4SENiR1c3UjAwNGZa?=
- =?utf-8?B?SXZBNlNTK2tGTHR0OElGWWw1bE5qR2M3MlNxZHBMYVYrWHJPWngxelR5TWdN?=
- =?utf-8?B?QVdjT0t3ZVAzek0ramFEOTdiKzJLWG9NTkpGRE1HNWNPT1Vsbzd2UTJ0M2ll?=
- =?utf-8?B?VGlKaVNGU2tsbnFsdGR0aS9iU3pweTZSOVE3OUpaQUpSN0tDQXBKenlzMHlY?=
- =?utf-8?B?Q0xDcnhneDVUb2pFNWt6UzhFMHlsdjY2Zm85ZXovM3VQMDYvQTY3a09YOEVK?=
- =?utf-8?B?bDFFMXVDZGEwWWVXOUkyaUpPTlg4bjFlQ1JmeW9kWEZBdUQzaGZWWUFYdmZV?=
- =?utf-8?B?amVZOVFYZnorb3FXRUVQK2dxL3NqbVdSWGgva1NqTTJxWHZtUVRmWWpqck9o?=
- =?utf-8?B?TUFMSFlMa2hOc2gwWDU4SVR6UE9jbDZMeSthTkZzZVFRZE9INmJldnBNNTg2?=
- =?utf-8?B?akZEV1Z4bzF1M2V5Z1MzU1ZRcm51STlaTU05T01hdzhOSEVTTjk4MExlSXdR?=
- =?utf-8?B?NjhXSFZpSHV4UFJuVmhQYUtGMWlzbC9JUEl6VE1mejBXZHhFV2tsSzBSbTZw?=
- =?utf-8?B?NVhBNy9ERHN0VUpBUkk0c2EvQWRQWXlCRmcxcWRBeGlIdnNkcTRscVhTayt3?=
- =?utf-8?B?NE5XWHlvd2JTN0VnU0U1QmRleEZhWFNMR2xtQ21aS2NkaFlyOTdPODd2Zm9N?=
- =?utf-8?B?bFdPWVlJVTJJK1ZaaDY3UW96Q09PS2k4a3k0WDF6Ukt0SnhkaHZ0dnZmSVdT?=
- =?utf-8?B?V2pnQWZKaWgzeEE1QmZKa3U3TGNodFF6ZW1vZzcxNXVUZ2ZBNFRsYVVvbGhD?=
- =?utf-8?B?Y0VGczdmUC9acTBucWordmd5RW9hZEtzUzNOekpBei8zWHhXWE1GM1RRNkFO?=
- =?utf-8?B?NUdSa2NnVW9xMXdnQjh0MGdTcGpnNnNPa2RFMFB1djFvanZkTlc1YzhWT2Fk?=
- =?utf-8?B?YmJjOHEyYXZ5MXRaWnZwcVFEUEo2NVFydmJSRWk4THpIUUN5dmZvTEVqenBa?=
- =?utf-8?B?L204eXhLa3VSNG1mVHc5akdkSXZqK0diSjNwbndIWjFEaCs3QUJZQjNmeTJH?=
- =?utf-8?B?SFNYTnR6TlVpc2twa1R2Mkc5NjhzNWxLQnkxSSs2cVJaUUV3Uno5Q1Vna3lF?=
- =?utf-8?B?MVcvVHJRSXQydHhSbm5WVzRXQjhTalVSTmVRdWFVTitEZ1BiVmVRZ2tIRDdV?=
- =?utf-8?B?T3RuVmt2R05WNFhua2JXbGMveUlIMlBDYUxOOHp3RWo3bUFpZ1BOWk9zTmdS?=
- =?utf-8?B?bUVEdDBQc0xrUnRuMHlwMFNka3ZrVWxiVWFQcVBpV2h1ZFplV3pEcTA4TjVx?=
- =?utf-8?B?Ny9RWWxXVzA4RlowR0ZPU1d2OGhKNVEvamVVbWNxRlE1aG5KeFJBWi9GbDJs?=
- =?utf-8?B?Q094ajFnZit0dzY0VEI5UGorRjRnZ0dpQVZSeUI4aytnb2FPaTUvVnVVcVNX?=
- =?utf-8?B?R0tjdWxJaEp0Y2VLUVZLQytZRENIN2l0Zi9ISis0QytiUEdYaWVsOVhocEdi?=
- =?utf-8?B?ZWpHMTBYend5RHRGNHcyR2l0UGNWem1OMm10MjRCcUNUc3NMTzVwQmtVNit1?=
- =?utf-8?B?cGFpSWVWYlBkRVQwY0h6R0JMN2hqUGYvZTRRblNXN2N0WkdpblhQd0Z0NFV2?=
- =?utf-8?B?RUNaU3BwZVd6STJnT0RwYjhXWFhSMXBjUTJFeGhIaW8zK0cwNEd6eHQzS3Bp?=
- =?utf-8?B?VDQxMklJdTZ6SzhVZEN0d2sxSWdvRldia0dtaERhN1hWZkdqc0JEZHVTZTJS?=
- =?utf-8?B?TmwvVjJYblNaSTFWcEQvWlZUblBISVFkdW55bm9PUE1wMk9QQTNOa0d2YXFn?=
- =?utf-8?B?RUZxNU5FY2ZySTB0R0QzdS9VSEZaanc1aGxxc1JSWHRrbDF0Zi9vSzRpTGdN?=
- =?utf-8?B?Mk5VLytpRm9nemFUNkVJY1NUN211V2NTaGpENlNFUHFaMU1HcDZ4SHY1OWZa?=
- =?utf-8?B?Uno1U2xhcWpmVFNFOXZXZnJNdEpoazdEYlhTemh1U1dOZDU1QUI5THo3VWFQ?=
- =?utf-8?B?OVlJbU5LcU9rT0JvYXpveUhGS05jakdTcUhMUmphVDJMR0ltZmY1dGpsYWwr?=
- =?utf-8?B?TFdhS3laV2c3TmhGYjZVNkwxcXBIbUUyWWJqZmQ4ak9YSUdzTENKeG00aHF4?=
- =?utf-8?B?c0lqZXVaQ0V0VUxrbUR2YW5nRllkbUZGOWxKejkxVU8rOUZFZ2xxOXZ5WWdN?=
- =?utf-8?B?TTNDanVGK01xeXRENmNKVmxXbW9RPT0=?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700013);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: RAq4DWchY2m6yeKobh+aqx2LdL6pIg3pWz7kvGfFC+jjPVNluf6B/sz+VeAyHKgbF3q9PQsGEe/ckEsgFu0jl0v5YE+FHjoQWpLiaXLzaEkU5Y/D51FFcoPYnMsOcQu5M/O08leP+w15CZZ/Wi+ZxZXe/Ocdj4O+i89ajy5XTTWmLNw8ZVVPSuLJr/ibRRR4IVUPWqvEg1po5wbs+yLb7Wkt1vGYgt369cueFRTTMzxu+ITCFtP17idJAM+eSHh8N2Ir4tfAQIXMyjZ7buqWZ8RW4rADLQyhQiU2qSoV0ObhFIsjvxZyCaR235P/B1fLTLJIAiSdil/aBqxKSh3sl+pXWvQpLB/C+YhmSk4xmidG+0dFPubTO3dBP/U0JdIYgLsLibVyaOR9xv+9PkzcVYZEo/WnCokiZgMMb1HNYE178AOA/H6Y2zENO9NeBPOE
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Feb 2026 10:39:13.1767
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e6d6bc89-5960-45e2-41d4-08de67c77768
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9CE.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB5663
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_023917_646306_0D32BC3A 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20260209_024915_392020_57319A27 
+X-CRM114-Status: GOOD (  31.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,46 +120,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 09/02/26 15:12, Krzysztof Kozlowski wrote:
-> On 09/02/2026 10:39, Beleswar Prasad Padhi wrote:
->> Hi all,
->>
->> On 16/06/25 13:50, Beleswar Padhi wrote:
->>> From: Sinthu Raja <sinthu.raja@ti.com>
->>>
->>> This allows us to enable various peripherals in the TI OMAP family
->>> platforms like AM571X-IDK, AM572X-IDK, AM574X-IDK, AM57XX-BEAGLE-X15,
->>> AM57XX-EVM using the multi_v7_defconfig, instead of only with the
->>> OMAP specific defconfigs.
->>
->> [...]
->>
->>> Signed-off-by: Sinthu Raja <sinthu.raja@ti.com>
->>> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
->>> ---
->>> v2: Changelog:
->>> Krzysztof:
->>> 1. Updated commit message to call out which (and why) upstream boards
->>> need these configs to be enabled.
->>> 2. Used savedefconfig to correct the order of configs in the defconfig.
->>
->> A gentle ping on this patch. All of the drivers are enabled as
->> modules in this patch and the existing review comments
->> have been addressed.
->>
->> Please help in a review/merge.
+On Mon, Feb 9, 2026 at 5:54=E2=80=AFPM David Hildenbrand (Arm) <david@kerne=
+l.org> wrote:
 >
-> There are no full names next to the emails, so I cannot verify that you
-> actually Cc-ed right people, but it just looks like you did not. If you
-> do not Cc the intended maintainer, then the maintainer will not pick it
-> up. Neither Arnd nor me are OMAP maintainers.
+> On 1/16/26 17:26, Baolin Wang wrote:
+> > As Dev reported[1], it's not ready to support batched unmapping for uff=
+d case.
+> > Let's still fallback to per-page unmapping for the uffd case.
+> >
+> > [1] https://lore.kernel.org/linux-mm/20260116082721.275178-1-dev.jain@a=
+rm.com/
+> > Reported-by: Dev Jain <dev.jain@arm.com>
+> > Suggested-by: Barry Song <baohua@kernel.org>
+> > Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+> > ---
+> >   mm/rmap.c | 3 +++
+> >   1 file changed, 3 insertions(+)
+> >
+> > diff --git a/mm/rmap.c b/mm/rmap.c
+> > index f13480cb9f2e..172643092dcf 100644
+> > --- a/mm/rmap.c
+> > +++ b/mm/rmap.c
+> > @@ -1953,6 +1953,9 @@ static inline unsigned int folio_unmap_pte_batch(=
+struct folio *folio,
+> >       if (pte_unused(pte))
+> >               return 1;
+> >
+> > +     if (userfaultfd_wp(vma))
+> > +             return 1;
+> > +
+>
+> Interesting. I was just wondering why we didn't run into that with lazyfr=
+ee folios.
+>
+> Staring at pte_install_uffd_wp_if_needed(), we never set the marker for
+> anonymous VMAs.
+>
+> So, yeah, if one sets lazyfree on a uffd-wp PTE, the uffd-wp bit will jus=
+t get
+> zapped alongside. Just like MADV_DONTNEED.
+>
+>
+> I'm fine with that temporary fix. But I guess the non-hacky way to handle=
+ this would be:
+>
+>
+>  From 53d016d6e6f624425dbdbc2fb1dec7c91fbef15c Mon Sep 17 00:00:00 2001
+> From: "David Hildenbrand (Arm)" <david@kernel.org>
+> Date: Mon, 9 Feb 2026 10:52:59 +0100
+> Subject: [PATCH] tmp
+>
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> ---
+>   include/linux/mm_inline.h | 15 ++++++---------
+>   mm/memory.c               | 21 +--------------------
+>   mm/rmap.c                 |  2 +-
+>   3 files changed, 8 insertions(+), 30 deletions(-)
+>
+> diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
+> index fa2d6ba811b5..8a9a2c5f5ee3 100644
+> --- a/include/linux/mm_inline.h
+> +++ b/include/linux/mm_inline.h
+> @@ -566,9 +566,8 @@ static inline pte_marker copy_pte_marker(
+>    *
+>    * Returns true if an uffd-wp pte was installed, false otherwise.
+>    */
+> -static inline bool
+> -pte_install_uffd_wp_if_needed(struct vm_area_struct *vma, unsigned long =
+addr,
+> -                             pte_t *pte, pte_t pteval)
+> +static inline bool install_uffd_wp_ptes_if_needed(struct vm_area_struct =
+*vma,
+> +               unsigned long addr, pte_t *pte, unsigned int nr, pte_t pt=
+eval)
+>   {
+>         bool arm_uffd_pte =3D false;
+>
+> @@ -598,13 +597,11 @@ pte_install_uffd_wp_if_needed(struct vm_area_struct=
+ *vma, unsigned long addr,
+>         if (unlikely(pte_swp_uffd_wp_any(pteval)))
+>                 arm_uffd_pte =3D true;
+>
+> -       if (unlikely(arm_uffd_pte)) {
+> -               set_pte_at(vma->vm_mm, addr, pte,
+> -                          make_pte_marker(PTE_MARKER_UFFD_WP));
+> -               return true;
+> -       }
+> +       if (likely(!arm_uffd_pte))
+> +               return false;
+>
+> -       return false;
+> +       set_ptes(vma->vm_mm, addr, pte, make_pte_marker(PTE_MARKER_UFFD_W=
+P), nr);
+> +       return true;
+>   }
+>
+>   static inline bool vma_has_recency(const struct vm_area_struct *vma)
+> diff --git a/mm/memory.c b/mm/memory.c
+> index da360a6eb8a4..0a87d02a9a69 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -1592,29 +1592,10 @@ zap_install_uffd_wp_if_needed(struct vm_area_stru=
+ct *vma,
+>                               unsigned long addr, pte_t *pte, int nr,
+>                               struct zap_details *details, pte_t pteval)
+>   {
+> -       bool was_installed =3D false;
+> -
+> -       if (!uffd_supports_wp_marker())
+> -               return false;
+> -
+> -       /* Zap on anonymous always means dropping everything */
+> -       if (vma_is_anonymous(vma))
+> -               return false;
+> -
+>         if (zap_drop_markers(details))
+>                 return false;
+>
+> -       for (;;) {
+> -               /* the PFN in the PTE is irrelevant. */
+> -               if (pte_install_uffd_wp_if_needed(vma, addr, pte, pteval)=
+)
+> -                       was_installed =3D true;
+> -               if (--nr =3D=3D 0)
+> -                       break;
+> -               pte++;
+> -               addr +=3D PAGE_SIZE;
+> -       }
+> -
+> -       return was_installed;
+> +       return install_uffd_wp_ptes_if_needed(vma, addr, pte, nr, pteval)=
+;
+>   }
+>
+>   static __always_inline void zap_present_folio_ptes(struct mmu_gather *t=
+lb,
+> diff --git a/mm/rmap.c b/mm/rmap.c
+> index 7b9879ef442d..f71aacf35925 100644
+> --- a/mm/rmap.c
+> +++ b/mm/rmap.c
+> @@ -2061,7 +2061,7 @@ static bool try_to_unmap_one(struct folio *folio, s=
+truct vm_area_struct *vma,
+>                  * we may want to replace a none pte with a marker pte if
+>                  * it's file-backed, so we don't lose the tracking info.
+>                  */
+> -               pte_install_uffd_wp_if_needed(vma, address, pvmw.pte, pte=
+val);
+> +               install_uffd_wp_ptes_if_needed(vma, address, pvmw.pte, nr=
+_pages, pteval);
+>
+>                 /* Update high watermark before we lower rss */
+>                 update_hiwater_rss(mm);
+> --
+> 2.43.0
+>
+>
+>
+> Does somebody have time to look into that? We should also adjust the doc =
+of pte_install_uffd_wp_if_needed()
+> and turn it into some proper kerneldoc.
 
+I'd nominate Dev, if he has the time, as he has been working on
+related changes and is already familiar with this area :-)
 
-Thanks, you're right.. will resend the patch with OMAP
-maintainers.
+https://lore.kernel.org/linux-mm/20260116082721.275178-1-dev.jain@arm.com/
 
-Thanks,
-Beleswar
+I assume this could be treated as a separate optimization, as
+the current temporary fix seems acceptable?
 
+Thanks
+Barry
 
