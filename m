@@ -4,94 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2C6EE78D44
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 08:45:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6124EE78D45
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 08:49:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DmVyyltTZXCiISWlqL6e2pkka9bcBWHjYQjn85OjRHg=; b=wUJy3eVFHydI0TCKjSI/mCoaB7
-	Dfl3Vyeo0+J+FJWRjMiTG9C3GItlvPDlyghcZ6aR/rXpxeGaWewDVSSJpNcfgoMukIWrehYFAYrpW
-	2xGOA4p9gq5PkQR/mGygSO+bXjwUivRQegS/XvAYhhGMoYrcWXJrAx1YZHs20DB81qNiqk/ojgGoO
-	pkxnE2+HOofaohLtZrnTAWGHSa/L43cUBgoh1YPW9h+maqzWk4KJE1IEew1iWxsdRmhgmi5/8NtLk
-	FnNCthJ7N8xXX8OwqbHKgppTdJLAAVjDuvabUVOj9J6Rp7PhAGcQbG4Dt5oID4pGCGamXPKOHJwOz
-	O7/ZUcHA==;
+	bh=TGbTfLLZD/gDNQDsOqhyyqWwiZVtJ78GG3mOzthMJgA=; b=xWIENertlxqlyfBKFvskkbw8ns
+	zHDut2TC/Ppik7//iO+az7BxakEJB1tLNMQNwnWJxK+5+KMAQdP3M6SLS/PT2CIm16WOpI4fQWDt2
+	N7F8YpSTLXgEL6iIp0WF5LQ51FXQqb2Bi/lEUoLn/hfDnHMXVZSgyDpm3LY4z8jzVoYtyMTwNZl+x
+	BA5I2FFUwVBZg8zfjG72TGFpSagHdwgJYjnl2iZK1q077WIsGrtDm+BV8TgiPkhjFt8mXfIefJHsZ
+	CkFy2v3wrTvMe6YKHSadU5/v8q/VNOESzFAWciDizaWJtmlyfef7zJgG80EeR777mOkczMsLF2332
+	rWtLIyug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpMty-0000000F3fn-1qdg;
-	Mon, 09 Feb 2026 08:45:50 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1vpMxo-0000000F3uZ-2WKR;
+	Mon, 09 Feb 2026 08:49:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpMtw-0000000F3fG-00Wi
+	id 1vpMxm-0000000F3uD-0m9x
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 08:45:49 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-82318b640beso2128990b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Feb 2026 00:45:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770626746; x=1771231546; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=DmVyyltTZXCiISWlqL6e2pkka9bcBWHjYQjn85OjRHg=;
-        b=F9Npg2x8EAf3JxNAcLkOacdsJxQ5rBkcSXnuFgFHAg34HdQzxJXb7B3VZ/w2TP1Fj6
-         zLbGkSaednIq//1+MdiOp58LwZ5gknVAOCfbbGF6MPcyz4OLT9KGjGTpAxyQbtO5LqPa
-         C0O83kcmNf7eQzmi+A+EUH2mk1modnjGvimtxwCeAM71g3eFF8KrbQ2swmf7r0El4va6
-         GLd/A7fn08jMYNkVfSr7i/xDXKVyimo90wDSWxhhV96wjh6RrLFVk8CiFGX0BgXIQ73N
-         2X6iLse9mxUgpxKCmEWtq/Qfe05ske51vdaAS68FiwXfQReO4iLjC0vOUEh+yXORSrkD
-         1zKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770626746; x=1771231546;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DmVyyltTZXCiISWlqL6e2pkka9bcBWHjYQjn85OjRHg=;
-        b=cTMWYR39c+k8ersEk4VZsPd7oniVVcQdnJlq8zwawTK/LbggnUTAFuTHtOwH5c9ZiE
-         j6ihsmEuDj8l8s4ki6pBccA084jxlG+s8nKReFb+xDsLbM3Uym27PoMI4xsc+qQBwhv1
-         XFWych30leyLfwcEpjguhhWni4jU9GlqwhKi+iXnnqE6A4fVA/we8/ZkTh7FUrfvlupD
-         McWh4UCr5K4gOZjeeFGQj8ANljOOjt9sUCa+ObpfFx78n5tECPqf6OZBSdf1LN+Cdawq
-         JC/6bP3Rthbep5Ds2yl4iM3yU0WUDvhBlz+f57czWXJFzcPa2ZT/yWeNyM2zCYQaGATf
-         pXvw==
-X-Forwarded-Encrypted: i=1; AJvYcCXQ1c7bbS7NjK6XLEYd9gfVo7BRPDxd1Yf4JUlxBuz6f4vGFHgr0TTBuVdNfcgnNMCeoT6q2oRl1zklGrrIBVax@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmG/N4L8r1KIzXZmk25tdZ94lI5kgqTtbq/CM5DxRqFqNuX4Ur
-	LSDi/mRpCg2pxW3sG3hx/DnH02Ynw3fyftoRfbqojUd7y1jRJpAFB+WE
-X-Gm-Gg: AZuq6aLZXrUJPBgrw6XaBk61FayGXkZTm5ORTjXNAbq7z0O0fEculs89yvPIIyeT+oo
-	r1Um7BCg9hPuK/F+W7YenhrLm90jjIYNgEWsHEVZW3CjDFqoWMYnbQTl6BdevKn2fRPvnU9gz7o
-	iuW5Bj4064l3eRYerqZmWNhmOoTvDVBVUOh9ghLW64fm7UB4pMTeXXtsPYEtOHuvoOfPOOQVZJ7
-	auYeIJdoGdyA+YjkrZbLmeYL5r9rIg65zGrOGvGJhht9LhkEFSmu5DnlSJmsqRDwyzWUkTZEAME
-	V2IDugFS6mv+SIQuQnpfI6d8YutQNsw0b7iEpGjJzeBxBvpFV7iIfqrbcMxcoOBuNuIBxfM9cS1
-	UI8Lti4oTHofuq4sfe8rFgGbY9tyLPkJ4cM7dAwYIHvDHVM4bNAJ2sbrfaTfEh57RoNgxGKozqG
-	pE67PerbOxTOviLof4+5WppBWpdPaF9GkdqORvj9dFH1K3py0F/EyZ9ZT0RA8qSzdn
-X-Received: by 2002:a05:6a00:1949:b0:822:6830:5900 with SMTP id d2e1a72fcca58-82441609809mr8859019b3a.6.1770626746380;
-        Mon, 09 Feb 2026 00:45:46 -0800 (PST)
-Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82441695f7dsm10130745b3a.23.2026.02.09.00.45.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Feb 2026 00:45:45 -0800 (PST)
-Message-ID: <f556ef68-dac3-4652-ac21-ea4bbb4e912c@gmail.com>
-Date: Mon, 9 Feb 2026 16:45:40 +0800
+	Mon, 09 Feb 2026 08:49:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0B7C34417D;
+	Mon,  9 Feb 2026 08:49:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3BD6C116C6;
+	Mon,  9 Feb 2026 08:49:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770626984;
+	bh=hrBXFznTwdWmXs1zvNu9iVueNufa6xnW3w+yF3Djn+M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TPEOF6/3AguXyv7ybUXpRZLxt7s0hAp01KEaZscFtoVxo/QpUBu5lI2i5wOWi1+MD
+	 y3U6cc2RGmkB9FSiI4B7hmHsp1IL8xT63Pn3YuyW2x/hpjWR6c8Qbq046qN3rjaO+s
+	 1uyIAt1Y0cpjQIuZgNY8fK4XAb/2YVpFL8twI+jBtCyAjRVisoPkqfWFU1QYPTEsBd
+	 xKRXkoZZ046rUR0KjiGG4xOhZjl7TGeSSUY4Hh7Fkfr9ZlzH8MFG7IVAclUG4qTJlT
+	 QXbh0YG6qbH3Ohoxj4lT4SWHiIz0z9GBovH4Rc9J8C24vdVv4Vm4zfcyG8WJyWyjSG
+	 4MX0jadpTq1tQ==
+Message-ID: <3d5cb9a4-6604-4302-a110-3d8ff91baa56@kernel.org>
+Date: Mon, 9 Feb 2026 09:49:36 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] drm/nuvoton: add MA35D1 display controller driver
-To: Icenowy Zheng <uwu@icenowy.me>, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260129040532.382693-1-a0987203069@gmail.com>
- <20260129040532.382693-4-a0987203069@gmail.com>
- <8806eaf82fbef4cd51bb4e4bb44d60894b3504b4.camel@icenowy.me>
+Subject: Re: [PATCH v5 1/5] mm: rmap: support batched checks of the references
+ for large folios
+To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org,
+ catalin.marinas@arm.com, will@kernel.org
+Cc: lorenzo.stoakes@oracle.com, ryan.roberts@arm.com,
+ Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com,
+ mhocko@suse.com, riel@surriel.com, harry.yoo@oracle.com, jannh@google.com,
+ willy@infradead.org, baohua@kernel.org, dev.jain@arm.com,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1766631066.git.baolin.wang@linux.alibaba.com>
+ <18b3eb9c730d16756e5d23c7be22efe2f6219911.1766631066.git.baolin.wang@linux.alibaba.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
-From: Joey Lu <a0987203069@gmail.com>
-In-Reply-To: <8806eaf82fbef4cd51bb4e4bb44d60894b3504b4.camel@icenowy.me>
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <18b3eb9c730d16756e5d23c7be22efe2f6219911.1766631066.git.baolin.wang@linux.alibaba.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_004548_126883_C4BA3236 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20260209_004946_401039_37183FDA 
+X-CRM114-Status: GOOD (  37.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,120 +124,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 12/26/25 07:07, Baolin Wang wrote:
+> Currently, folio_referenced_one() always checks the young flag for each PTE
+> sequentially, which is inefficient for large folios. This inefficiency is
+> especially noticeable when reclaiming clean file-backed large folios, where
+> folio_referenced() is observed as a significant performance hotspot.
+> 
+> Moreover, on Arm64 architecture, which supports contiguous PTEs, there is already
+> an optimization to clear the young flags for PTEs within a contiguous range.
+> However, this is not sufficient. We can extend this to perform batched operations
+> for the entire large folio (which might exceed the contiguous range: CONT_PTE_SIZE).
+> 
+> Introduce a new API: clear_flush_young_ptes() to facilitate batched checking
+> of the young flags and flushing TLB entries, thereby improving performance
+> during large folio reclamation. And it will be overridden by the architecture
+> that implements a more efficient batch operation in the following patches.
+> 
+> While we are at it, rename ptep_clear_flush_young_notify() to
+> clear_flush_young_ptes_notify() to indicate that this is a batch operation.
+> 
+> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+> ---
+>   include/linux/mmu_notifier.h |  9 +++++----
+>   include/linux/pgtable.h      | 31 +++++++++++++++++++++++++++++++
+>   mm/rmap.c                    | 31 ++++++++++++++++++++++++++++---
+>   3 files changed, 64 insertions(+), 7 deletions(-)
+> 
+> diff --git a/include/linux/mmu_notifier.h b/include/linux/mmu_notifier.h
+> index d1094c2d5fb6..07a2bbaf86e9 100644
+> --- a/include/linux/mmu_notifier.h
+> +++ b/include/linux/mmu_notifier.h
+> @@ -515,16 +515,17 @@ static inline void mmu_notifier_range_init_owner(
+>   	range->owner = owner;
+>   }
+>   
+> -#define ptep_clear_flush_young_notify(__vma, __address, __ptep)		\
+> +#define clear_flush_young_ptes_notify(__vma, __address, __ptep, __nr)	\
+>   ({									\
+>   	int __young;							\
+>   	struct vm_area_struct *___vma = __vma;				\
+>   	unsigned long ___address = __address;				\
+> -	__young = ptep_clear_flush_young(___vma, ___address, __ptep);	\
+> +	unsigned int ___nr = __nr;					\
+> +	__young = clear_flush_young_ptes(___vma, ___address, __ptep, ___nr);	\
+>   	__young |= mmu_notifier_clear_flush_young(___vma->vm_mm,	\
+>   						  ___address,		\
+>   						  ___address +		\
+> -							PAGE_SIZE);	\
+> +						  ___nr * PAGE_SIZE);	\
+>   	__young;							\
+>   })
+>   
 
-On 2/6/2026 11:09 PM, Icenowy Zheng wrote:
-> 在 2026-01-29星期四的 12:05 +0800，Joey Lu写道：
->> ========== 8< ============
->> +#endif
->> diff --git a/drivers/gpu/drm/nuvoton/ma35_regs.h
->> b/drivers/gpu/drm/nuvoton/ma35_regs.h
->> new file mode 100644
->> index 000000000000..0f4a7a13e7d8
->> --- /dev/null
->> +++ b/drivers/gpu/drm/nuvoton/ma35_regs.h
->> @@ -0,0 +1,88 @@
->> +/* SPDX-License-Identifier: GPL-2.0+ */
->> +/*
->> + * Nuvoton DRM driver
->> + *
->> + * Copyright (C) 2026 Nuvoton Technology Corp.
->> + *
->> + * Author: Joey Lu <a0987203069@gmail.com>
->> + */
->> +
->> +#ifndef _MA35_REGS_H_
->> +#define _MA35_REGS_H_
->> +
->> +#define MA35_FRAMEBUFFER_CONFIG                   0x1518
-> Please check my Verisilicon DC8200 driver, which is already part of
-> drm-misc-next now.
->
-> The display controller here seems to be a earlier one from
-> Verisilicon.it looks like a DC8000, or maybe a more earlier one?
+Man that's ugly, Not your fault, but can this possibly be turned into an 
+inline function in a follow-up patch.
 
-The DCU is a Vivante DCUltra IP rather than a DC8000 series.
+[...]
 
-It's an earlier generation display controller and was customized for 
-Nuvoton, so it doesn't have a public model ID.
+>   
+> +#ifndef clear_flush_young_ptes
+> +/**
+> + * clear_flush_young_ptes - Clear the access bit and perform a TLB flush for PTEs
+> + *			    that map consecutive pages of the same folio.
 
-Because of that lineage, parts of the register layout and functionality 
-remain similar to older DC IPs.
+With clear_young_dirty_ptes() description in mind, this should probably 
+be "Mark PTEs that map consecutive pages of the same folio as clean and 
+flush the TLB" ?
 
-Please refer to MA35D1 datasheet for more details.
+> + * @vma: The virtual memory area the pages are mapped into.
+> + * @addr: Address the first page is mapped at.
+> + * @ptep: Page table pointer for the first entry.
+> + * @nr: Number of entries to clear access bit.
+> + *
+> + * May be overridden by the architecture; otherwise, implemented as a simple
+> + * loop over ptep_clear_flush_young().
+> + *
+> + * Note that PTE bits in the PTE range besides the PFN can differ. For example,
+> + * some PTEs might be write-protected.
+> + *
+> + * Context: The caller holds the page table lock.  The PTEs map consecutive
+> + * pages that belong to the same folio.  The PTEs are all in the same PMD.
+> + */
+> +static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
+> +					 unsigned long addr, pte_t *ptep,
+> +					 unsigned int nr)
 
->> +#define MA35_FRAMEBUFFER_ADDRESS                  0x1400
->> +#define MA35_FRAMEBUFFER_STRIDE                   0x1408
->> +#define MA35_HDISPLAY                             0x1430
->> +#define MA35_HSYNC                                0x1438
->> +#define MA35_VDISPLAY                             0x1440
->> +#define MA35_VSYNC                                0x1448
->> +#define MA35_PANEL_CONFIG                         0x1418
->> +#define MA35_DPI_CONFIG                           0x14B8
->> +#define MA35_CURSOR_ADDRESS                       0x146C
->> +#define MA35_CURSOR_CONFIG                        0x1468
->> +#define MA35_CURSOR_LOCATION                      0x1470
->> +#define MA35_CURSOR_BACKGROUND                    0x1474
->> +#define MA35_CURSOR_FOREGROUND                    0x1478
->> +#define MA35_FRAMEBUFFER_UPLANAR_ADDRESS          0x1530
->> +#define MA35_FRAMEBUFFER_VPLANAR_ADDRESS          0x1538
->> +#define MA35_FRAMEBUFFER_USTRIDE                  0x1800
->> +#define MA35_FRAMEBUFFER_VSTRIDE                  0x1808
->> +#define MA35_INDEXCOLOR_TABLEINDEX                0x1818
->> +#define MA35_INDEXCOLOR_TABLEDATA                 0x1820
->> +#define MA35_FRAMEBUFFER_SIZE                     0x1810
->> +#define MA35_FRAMEBUFFER_SCALEFACTORX             0x1828
->> +#define MA35_FRAMEBUFFER_SCALEFACTORY             0x1830
->> +#define MA35_FRAMEBUFFER_SCALEFCONFIG             0x1520
->> +#define MA35_HORIFILTER_KERNELINDEX               0x1838
->> +#define MA35_HORIFILTER_KERNEL                    0x1A00
->> +#define MA35_VERTIFILTER_KERNELINDEX              0x1A08
->> +#define MA35_VERTIFILTER_KERNEL                   0x1A10
->> +#define MA35_FRAMEBUFFER_INITIALOFFSET            0x1A20
->> +#define MA35_FRAMEBUFFER_COLORKEY                 0x1508
->> +#define MA35_FRAMEBUFFER_COLORHIGHKEY             0x1510
->> +#define MA35_FRAMEBUFFER_BGCOLOR                  0x1528
->> +#define MA35_FRAMEBUFFER_CLEARVALUE               0x1A18
->> +#define MA35_DISPLAY_INTRENABLE                   0x1480
->> +#define MA35_INT_STATE                            0x147C
->> +#define MA35_PANEL_DEST_ADDRESS                   0x14F0
->> +#define MA35_MEM_DEST_ADDRESS                     0x14E8
->> +#define MA35_DEST_CONFIG                          0x14F8
->> +#define MA35_DEST_STRIDE                          0x1500
->> +#define MA35_DBI_CONFIG                           0x1488
->> +#define MA35_AQHICLOCKCONTROL                     0x0000
->> +#define MA35_OVERLAY_CONFIG                       0x1540
->> +#define MA35_OVERLAY_STRIDE                       0x1600
->> +#define MA35_OVERLAY_USTRIDE                      0x18C0
->> +#define MA35_OVERLAY_VSTRIDE                      0x1900
->> +#define MA35_OVERLAY_TL                           0x1640
->> +#define MA35_OVERLAY_BR                           0x1680
->> +#define MA35_OVERLAY_ALPHA_BLEND_CONFIG           0x1580
->> +#define MA35_OVERLAY_SRC_GLOBAL_COLOR             0x16C0
->> +#define MA35_OVERLAY_DST_GLOBAL_COLOR             0x1700
->> +#define MA35_OVERLAY_CLEAR_VALUE                  0x1940
->> +#define MA35_OVERLAY_SIZE                         0x17C0
->> +#define MA35_OVERLAY_COLOR_KEY                    0x1740
->> +#define MA35_OVERLAY_COLOR_KEY_HIGH               0x1780
->> +#define MA35_OVERLAY_ADDRESS                      0x15C0
->> +#define MA35_OVERLAY_UPLANAR_ADDRESS              0x1840
->> +#define MA35_OVERLAY_VPLANAR_ADDRESS              0x1880
->> +#define MA35_OVERLAY_SCALE_CONFIG                 0x1C00
->> +#define MA35_OVERLAY_SCALE_FACTOR_X               0x1A40
->> +#define MA35_OVERLAY_SCALE_FACTOR_Y               0x1A80
->> +#define MA35_OVERLAY_HORI_FILTER_KERNEL_INDEX     0x1AC0
->> +#define MA35_OVERLAY_HORI_FILTER_KERNEL           0x1B00
->> +#define MA35_OVERLAY_VERTI_FILTER_KERNEL_INDEX    0x1B40
->> +#define MA35_OVERLAY_VERTI_FILTER_KERNEL          0x1B80
->> +#define MA35_OVERLAY_INITIAL_OFFSET               0x1BC0
->> +#define MA35_GAMMA_EX_INDEX                       0x1CF0
->> +#define MA35_GAMMA_EX_DATA                        0x1CF8
->> +#define MA35_GAMMA_EX_ONE_DATA                    0x1D80
->> +#define MA35_GAMMA_INDEX                          0x1458
->> +#define MA35_GAMMA_DATA                           0x1460
->> +#define MA35_DISPLAY_DITHER_TABLE_LOW             0x1420
->> +#define MA35_DISPLAY_DITHER_TABLE_HIGH            0x1428
->> +#define MA35_DISPLAY_DITHER_CONFIG                0x1410
->> +#define MA35_DISPLAY_CURRENT_LOCATION             0x1450
->> +
->> +#endif
+Two-tab alignment on second+ line like all similar functions here.
+
+> +{
+> +	int i, young = 0;
+> +
+> +	for (i = 0; i < nr; ++i, ++ptep, addr += PAGE_SIZE)
+> +		young |= ptep_clear_flush_young(vma, addr, ptep);
+> +
+
+Why don't we use a similar loop we use in clear_young_dirty_ptes() or 
+clear_full_ptes() etc? It's not only consistent but also optimizes out 
+the first check for nr.
+
+
+for (;;) {
+	young |= ptep_clear_flush_young(vma, addr, ptep);
+	if (--nr == 0)
+		break;
+	ptep++;
+	addr += PAGE_SIZE;
+}
+
+> +	return young;
+> +}
+> +#endif
+> +
+>   /*
+>    * On some architectures hardware does not set page access bit when accessing
+>    * memory page, it is responsibility of software setting this bit. It brings
+> diff --git a/mm/rmap.c b/mm/rmap.c
+> index e805ddc5a27b..985ab0b085ba 100644
+> --- a/mm/rmap.c
+> +++ b/mm/rmap.c
+> @@ -828,9 +828,11 @@ static bool folio_referenced_one(struct folio *folio,
+>   	struct folio_referenced_arg *pra = arg;
+>   	DEFINE_FOLIO_VMA_WALK(pvmw, folio, vma, address, 0);
+>   	int ptes = 0, referenced = 0;
+> +	unsigned int nr;
+>   
+>   	while (page_vma_mapped_walk(&pvmw)) {
+>   		address = pvmw.address;
+> +		nr = 1;
+>   
+>   		if (vma->vm_flags & VM_LOCKED) {
+>   			ptes++;
+> @@ -875,9 +877,24 @@ static bool folio_referenced_one(struct folio *folio,
+>   			if (lru_gen_look_around(&pvmw))
+>   				referenced++;
+>   		} else if (pvmw.pte) {
+> -			if (ptep_clear_flush_young_notify(vma, address,
+> -						pvmw.pte))
+> +			if (folio_test_large(folio)) {
+> +				unsigned long end_addr =
+> +					pmd_addr_end(address, vma->vm_end);
+> +				unsigned int max_nr =
+> +					(end_addr - address) >> PAGE_SHIFT;
+
+Good news: you can both fit into a single line as we are allowed to 
+exceed 80c if it aids readability.
+
+> +				pte_t pteval = ptep_get(pvmw.pte);
+> +
+> +				nr = folio_pte_batch(folio, pvmw.pte,
+> +						     pteval, max_nr);
+> +			}
+> +
+> +			ptes += nr;
+
+I'm not sure about whether we should mess with the "ptes" variable that 
+is so far only used for VM_LOCKED vmas. See below, maybe we can just 
+avoid that.
+
+> +			if (clear_flush_young_ptes_notify(vma, address,
+> +						pvmw.pte, nr))
+
+Could maybe fit that into a single line as well, whatever you prefer.
+
+>   				referenced++;
+> +			/* Skip the batched PTEs */
+> +			pvmw.pte += nr - 1;
+> +			pvmw.address += (nr - 1) * PAGE_SIZE;
+>   		} else if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE)) {
+>   			if (pmdp_clear_flush_young_notify(vma, address,
+>   						pvmw.pmd))
+> @@ -887,7 +904,15 @@ static bool folio_referenced_one(struct folio *folio,
+>   			WARN_ON_ONCE(1);
+>   		}
+>   
+> -		pra->mapcount--;
+> +		pra->mapcount -= nr;
+> +		/*
+> +		 * If we are sure that we batched the entire folio,
+> +		 * we can just optimize and stop right here.
+> +		 */
+> +		if (ptes == pvmw.nr_pages) {
+> +			page_vma_mapped_walk_done(&pvmw);
+> +			break;
+> +		}
+Why not check for !pra->mapcount? Then you can also drop the comment, 
+because it's exactly the same thing we check after the loop to indicate 
+what to return to the caller.
+
+And you will not have to mess with the "ptes" variable?
+
+
+
+Only minor stuff.
+
+-- 
+Cheers,
+
+David
 
