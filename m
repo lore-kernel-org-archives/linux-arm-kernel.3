@@ -4,102 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F40E8E81BCF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 14:36:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E94AAE81BCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 14:43:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nNqZ4azVDWNnIZl+k4NcxK2btx7/ux4KOp+IkAVL6dM=; b=Ih5WKerB2CxgOC3Gvyvytu1yEd
-	zJl/k/tTNhW3JkQ7O/DmbcARgpmaY2Yfb07hNcHM6sMnjlOLJ5Zmg5oabwYlbdFesjUebqKK4DcQi
-	UJ93r8A1+NuURHewkWBKJ8iO6/BkTNx1Ib5/6JwosOwFRuU+ZTIAtnff83PiGtsORivWIjd8DHdxe
-	Cf3LWBH20fTLpKop6LCjV+WKvDOa426RiCeSAzBdTUbkBnLIMH4KMY+xXHY6wEM/S9Pi2s8WnLV1Y
-	7kLU3hNCm8mzu+X5Rd0nEdE44DNpKmeHI/AhiCrjn0T5pzhn6eKv4A/6+K5yX9AGcYT5xa838VFEC
-	fq4fKFFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4FxxQ03X1gzBxYSKLZtWhzNIZ+YXshyZ4mRWxKUEphA=; b=0/91oh32avYGFw/kO9bIzD2QEW
+	7Ct6zNnwhT2gw81/rVM330Pc5mcbrf09RoTVzezTywzuRK0jm1G1hYSFTPcu3lQygTN017576ObMz
+	q37GXmhq8Ea16seVuO+KW/GzPs0nD7Q+FpJDervJ/xuoNdMcTK13MuUvoma+A7dCYiD/6o7CS9myk
+	cQoHJnjb1EFnFm7T1EBfFGGHpLmkqZs/gFYqVw6lamfu80JqAhvqJs7fqFw7L9OIARRqLUgM7juKF
+	ZZai3mgCOkkSVEFCX+vmqPOyTxBPndsZMQ1DDWzzTv7hl3kz//l0fcLmdFpdds1nfIZxa/ezZ9wuB
+	/KoRSXjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpSNc-0000000FWFu-0u1z;
-	Mon, 09 Feb 2026 14:36:48 +0000
-Received: from mx-relay164-hz1.antispameurope.com ([94.100.133.57])
+	id 1vpSTy-0000000FXIR-1CAn;
+	Mon, 09 Feb 2026 14:43:22 +0000
+Received: from mail5.25mail.st ([74.50.62.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpSNU-0000000FWCv-356q
+	id 1vpSTs-0000000FXGl-0r4L
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 14:36:42 +0000
-ARC-Authentication-Results: i=1; mx-gate164-hz1.hornetsecurity.com 1;
- spf=pass reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=nNqZ4azVDWNnIZl+k4NcxK2btx7/ux4KOp+IkAVL6dM=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1770647784;
- b=iz7LJAKbB/jF5KSRAByEtSUd66o6q2khJZjisZa1zMdK9dffKCBK16Z7GGnspVhlZMAX+AKS
- tdE8FU8e9xAXntWLOyGsakf5RQeBdTPvmfvkESAaziSAA4smK4HIv6LHyYt9yt0CpOctiHIkNJq
- R5styuvgMUJjTe0/PsNIfIh+lTtPbIngpQ+hhb6UWo/3Pmacxoqozj2qPXumDJkV/VnUkdkQ7e1
- DE7QC53YC0fBsQuR0Wa8C1sY2335xLBawXWSazxGU1RBxnoL4auT1LHzgn7UmuuW++3CWMXqLN9
- 234ILlmrgBjWYnJw8j8WC2uAz42fhkGWGpLMS4QEwPcVg==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1770647784;
- b=ehUi5HsLlrL2FQQD/qsT/PaNjlL7HcheP2CMK8bmbGep7mOleb8ebtnbxauXGsSDKDChiyuo
- sEMKjHOOgGhHQsJPvKUitVwTQyAdHdB+t6XwA222zL8qwj7x72mszYlfv3ueNjBqwwivFFPPLTe
- EWOdVhrwHGSkaST6JnaHHypuD6m9gXbu/F8M7mnUcjpb5fYFtYwEQQhMj3hX8S72vL0aAv5uJY7
- DWcBhplsxm7tsTB0e1lTzEXzg2aaTDHls3yGA/81JdwvS69Nx0BqpRiWvN+ltGjQHe/DWSMqQ1k
- v/x+rDnDhZJ5lDUUzw3pthcslDi4q1R7MQBdnMCUe3b+Q==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay164-hz1.antispameurope.com;
- Mon, 09 Feb 2026 15:36:23 +0100
-Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 41716220DA4;
-	Mon,  9 Feb 2026 15:36:06 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] arm64: dts: tqma8mpql-mba8mp-ras314: Configure multiple queues on eqos
-Date: Mon,  9 Feb 2026 15:35:53 +0100
-Message-ID: <20260209143555.202042-2-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260209143555.202042-1-alexander.stein@ew.tq-group.com>
-References: <20260209143555.202042-1-alexander.stein@ew.tq-group.com>
+	Mon, 09 Feb 2026 14:43:18 +0000
+Received: from localhost (84-231-236-236.elisa-mobile.fi [84.231.236.236])
+	by mail5.25mail.st (Postfix) with ESMTPSA id 653A6617D6;
+	Mon,  9 Feb 2026 14:42:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=atomide.com;
+	s=25mailst; t=1770648191;
+	bh=CsthQDxMaqbHWoPY9LcM4B7QQkY7QXBkgFtYZobMS/c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MPb+5w+p0ov7fKu9479y8r6ViGMAqbmyKP8Rbj+tw9o5rvAe2iWbOiKS12fkEwZVq
+	 +14ZwF8sqtMUSWMGGcO0kjXwMyBdpxA7fcS02OA13S7/MFlqneIHJxa5VbZFUcklqk
+	 IIRfFwoxI2Jv2Gfe3HTiWK7JxIJ4w0/YutSWgM4Xdxvtq+63MScVDJTT5a5sa/KagL
+	 WQmKdDSJIJ+a0Iu3XxP6EnCzcHTFp9zxq0Kf67KjiF3gr8NacMDxFLivNh42+gxkkZ
+	 y/vdtETnUeRouLV+JRk0AQBlg5x/K24NLkI+zm3vdYE6bb+btwObM/f11Detz8ziPD
+	 /Kg3+acK7mAJw==
+Date: Mon, 9 Feb 2026 16:42:50 +0200
+From: Tony Lindgren <tony@atomide.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Billy Tsai <billy_tsai@aspeedtech.com>,
+	Haojian Zhuang <haojian.zhuang@linaro.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-omap@vger.kernel.org" <linux-omap@vger.kernel.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+	BMC-SW <BMC-SW@aspeedtech.com>
+Subject: Re: [PATCH v2 0/3] pinctrl: single: bit-per-mux DT flexibility,
+ probe robustness, and consistent pinconf offsets
+Message-ID: <20260209144250.GC5376@atomide.com>
+References: <20260123-upstream_pinctrl_single-v2-0-40f8063cc5a2@aspeedtech.com>
+ <CAD++jL=OXJdJZpjbo0_C03vcgPe5btum-J0uifvSJkMaUWG-=w@mail.gmail.com>
+ <OSQPR06MB725257E71F0B7F7F1013263D8B98A@OSQPR06MB7252.apcprd06.prod.outlook.com>
+ <20260206042215.GA5376@atomide.com>
+ <OSQPR06MB7252ADEF2CB075BC40AD7DB68B66A@OSQPR06MB7252.apcprd06.prod.outlook.com>
+ <CAD++jLm2a1-G7QQBb+u68DH_RT6kc4=vpqZWQcirvWrcRjw+5Q@mail.gmail.com>
+ <OSQPR06MB7252D5BCD40BDF2A91FF41438B66A@OSQPR06MB7252.apcprd06.prod.outlook.com>
+ <CAD++jLkqpRrcgQ2JvbHJY3NQ=KHi8T91aOg2KvAmkVAXAEzH-A@mail.gmail.com>
+ <OSQPR06MB72520084144325D548E36AD78B65A@OSQPR06MB7252.apcprd06.prod.outlook.com>
+ <CAD++jLkB26XNAosUdD2BigLw+=Hd6+VBsmv0fHawQ25e8rQhrQ@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay164-hz1.antispameurope.com with 4f8nLZ6kgdz3xc54
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 489f5f296e1f10bc703973de13f918e5
-X-cloud-security: scantime:2.157
-DKIM-Signature: a=rsa-sha256;
- bh=nNqZ4azVDWNnIZl+k4NcxK2btx7/ux4KOp+IkAVL6dM=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1770647783; v=1;
- b=QJB6CSu5pXTM9yXjXiDFOSrLrSWXQLQPGjzpqnHMCchBdlpNcXewvt8sfExzlG1YIS/oIscd
- jJY4K5VZk25xJkNDjYsu0o4JGbNpo5qe1cqA/3/PN4ZLl3Cjs+iZVQfC2/StC1ujXGR7TwBwj7l
- CCjRr84bp7/TwcqKjNI+Ue+5UwuIl8mlRMcNSSZ0ZGYRNBgynEXdWhXfuI3M5rOB8pJdi1yTf3M
- GVpqFEIC8GmR0bV8oW+iPhhc9oMgTLlK6ZEfk9LkwNSogGXyPZfk1RoEZWD9E5SDfcWV8VFdLVn
- eOCUH0zGWJjNkrxV0O/hzLJXFyKXQ0dG/KQ2q8c9aWKfQ==
+In-Reply-To: <CAD++jLkB26XNAosUdD2BigLw+=Hd6+VBsmv0fHawQ25e8rQhrQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_063640_962180_EDF89C3C 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20260209_064316_833886_84FA1997 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,106 +86,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MBa8MP-RAS314 mainboard has an integrated PHY connected to the EQOS
-ethernet controller which can support up to five queues. Configure
-these queues in the same manor as done on the imx8mp-evk.
-Setting DMA to threas mode is necessary to prevent FIFO overflows, see
-commit 0bc3e333a0c82 ("arm64: dts: imx8mp-evk: configure multiple queues
-on eqos")
+* Linus Walleij <linusw@kernel.org> [260209 09:51]:
+> On Mon, Feb 9, 2026 at 3:25 AM Billy Tsai <billy_tsai@aspeedtech.com> wrote:
+> 
+> > To make sure I align with your expectations:
+> > 1) Would you prefer the new driver to be fully standalone (using the
+> >    GENERIC_PIN* helpers + syscon/regmap-mmio), rather than trying to
+> >    refactor/export helpers from pinctrl-single?
+> 
+> Yes. Conor improved these helpers so now it should be possible
+> to use these to do a very simple and slim driver for what you
+> want to do.
+> 
+> >    Action item: Introduce a new pinctrl-single-bit.c driver and DT
+> >    binding, which can also cover the existing bit-per-mux logic currently
+> >    in pinctrl-single.c.
+> 
+> Sounds about right.
+> 
+> > 2) For the syscon/regmap hookup, is it acceptable to add a syscon phandle
+> >    property in DT (e.g. "syscon = <&scu>;") for the new driver to obtain
+> >    the regmap, or do you prefer a different binding/property name?
+> 
+> This works for me.
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
-Changes in v2: None
+Great, sounds good to me too!
 
- .../imx8mp-tqma8mpql-mba8mp-ras314.dts        | 67 +++++++++++++++++++
- 1 file changed, 67 insertions(+)
+Thanks,
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-index b7f69c92b7748..04f4c2fdf2992 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-@@ -184,6 +184,9 @@ &eqos {
- 	pinctrl-0 = <&pinctrl_eqos>;
- 	phy-mode = "rgmii-id";
- 	phy-handle = <&ethphy3>;
-+	snps,force_thresh_dma_mode;
-+	snps,mtl-tx-config = <&mtl_tx_setup>;
-+	snps,mtl-rx-config = <&mtl_rx_setup>;
- 	status = "okay";
- 
- 	mdio {
-@@ -209,6 +212,70 @@ ethphy3: ethernet-phy@3 {
- 			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
- 		};
- 	};
-+
-+	mtl_tx_setup: tx-queues-config {
-+		snps,tx-queues-to-use = <5>;
-+
-+		queue0 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x1>;
-+		};
-+
-+		queue1 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x2>;
-+		};
-+
-+		queue2 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x4>;
-+		};
-+
-+		queue3 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x8>;
-+		};
-+
-+		queue4 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0xf0>;
-+		};
-+	};
-+
-+	mtl_rx_setup: rx-queues-config {
-+		snps,rx-queues-to-use = <5>;
-+		snps,rx-sched-sp;
-+
-+		queue0 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x1>;
-+			snps,map-to-dma-channel = <0>;
-+		};
-+
-+		queue1 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x2>;
-+			snps,map-to-dma-channel = <1>;
-+		};
-+
-+		queue2 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x4>;
-+			snps,map-to-dma-channel = <2>;
-+		};
-+
-+		queue3 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x8>;
-+			snps,map-to-dma-channel = <3>;
-+		};
-+
-+		queue4 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0xf0>;
-+			snps,map-to-dma-channel = <4>;
-+		};
-+	};
- };
- 
- &fec {
--- 
-2.43.0
-
+Tony
 
