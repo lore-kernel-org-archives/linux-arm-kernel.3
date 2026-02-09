@@ -4,108 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 842BAE7E0C3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 11:34:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E98E9E7E0C3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 11:34:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VV0n7GW1gP19XPjLcpF8hcS3wyG2567clPIfm+qbjrw=; b=p+a89Oj+OBQMedg6fS2PvLLIGq
-	GNWC58JTtaKAhxY/WjHZXkpgY3C8FvLF43gMiG9YLDa6IiTOAnS5lc40TChiRpL/1v8oZ9yuPzRoc
-	suvWwdM+F0Bu/3L2u15M9eGd8s9B0d8CoI/8UTx9d9+rExXACz5rs4KIH2i2LUEZYbYxzimA9AZUZ
-	3sQeHImVQULA488uQKj2WXddxMIgnyn59cG59FWgUh6dHeulGGC36/wecADHsGXz4BqW/Zh09m1Uh
-	qimhmlyH4VHE5ciCG/QGS/IG+jz9+NzDLTqKwDf+epH2elmsxMQo1AunOiCKGE2PAq6gfNuwpaxd0
-	dL8xR5Vg==;
+	bh=GeaatGTazdImiT/XM1FnhJJRe6EeXeVkuzHwA/9Wk18=; b=P9tTthBq371/QZ4Zb4t7NBxTbd
+	t9uIUqk3buitKrVGVgzUeRobZ1tEInzj9YlzAJHGPBI3/WW7iuLuTb4cChN4l5clusTewKg6sBSvJ
+	q7UwF76SGhijSgN4VoG8F3XvynPb5rpVP90cLEjddDvxM2mpKJmFsas6kqeRoaPfKVLUVlahiAqkM
+	zuN8QgnZSMXL66tM2eGJhwq7e0e8JEha2ltL7EV21cRZGnTNP/h63TsQey6HVTTSSBwHl67mXUVKK
+	4EjzFRv42Keu2OFdr12rvbiIsgK9MJAztIj/G1uMGKoKNoBnwPErmf/fDYNdzU6sMz3w34Bhhsmv9
+	WKXuJSsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpPWv-0000000FIwF-0gqf;
-	Mon, 09 Feb 2026 11:34:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vpPXU-0000000FJ0G-29Bi;
+	Mon, 09 Feb 2026 11:34:48 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpPWs-0000000FIvm-0kn0
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 11:34:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7C0F54167D;
-	Mon,  9 Feb 2026 11:34:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C82BC116C6;
-	Mon,  9 Feb 2026 11:34:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770636849;
-	bh=X6yNOQwbYOUkoo1kKUm66J3nA56iNKNoGdjuBQJtCuE=;
+	id 1vpPXS-0000000FIzX-1BBl;
+	Mon, 09 Feb 2026 11:34:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1770636883;
+	bh=4QrS573yngF8n4NJk1Mnael+xbLQy+ZP/mKMuKo0Ysc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gB2mR/o3ZpZ5n3+HFY29zJGHrtSPmXI4AekY4DM5Pckd3YV1BvisD+QwSbH5n+gYP
-	 hWZuwIebquN3Y7XdEb5ijPrcycmev1EIqsGsxqYalkY3NpF23A1IddqvCbm8/SG8L4
-	 1+H1AYaBUpi500UwyiI4S+S6XqP8bCnLm1Tg0nN9hwaK2LEGBSFSWcTImqbKBgn216
-	 cpz7JJlrxg1ZzH88eXFjIgxh8u1uIRa7tbGjvoBnLGh5Uyn3cRSeQ9pcbzeJR8UFrL
-	 BzkSSUhOyjYsreXRfe5X7ZRU55dLF6qXDh0/cU/bUhLpzLhTG0UAbaMF4a1ExhvBI8
-	 siFktagEYhcXQ==
-Message-ID: <4a26d89a-95ca-4888-aaea-876b9612d006@kernel.org>
-Date: Mon, 9 Feb 2026 12:34:04 +0100
+	b=WwrKdaXGqV2ja4v3TQhhSZpBckr3H70ZFVczJeL8EUXvlZNRaLuI6fQTTSG0CVVHW
+	 8lPe2ABwjsv3/lAwLiVYsRvnHYowhnbIKcImczfEuW9bQYiPha9vUAgel8vydBNojY
+	 MOjhtHgVXRPWHDWMw7/AP1BCtVv7+7RcIXv3oUfJZ9aytAHR+KC+iqdrfneufQf492
+	 2SxvFpjVn/4escftOJgZQO1kESdWPtZLsPBZjZ8PrfO60ABooWv6aPyA66ERArfUlJ
+	 qRIsqMwI+pXkBgU5j2WI203EaPGl1C4gYci4Rprc9CsNcN+xs2XDR7awRE/KMEXZ9w
+	 tbDXFgwbTrrfw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C60BA17E0699;
+	Mon,  9 Feb 2026 12:34:42 +0100 (CET)
+Message-ID: <3476c51b-9293-40f1-8b5c-9ac9802d7d97@collabora.com>
+Date: Mon, 9 Feb 2026 12:34:42 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 1/3] dt-bindings: soc: cix: document the simple-mfd
- syscon on Sky1 SoC
-To: Gary Yang <gary.yang@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, p.zabel@pengutronix.de, peter.chen@cixtech.com,
- unicorn_wang@outlook.com, inochiama@gmail.com, alchark@gmail.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, cix-kernel-upstream@cixtech.com
-References: <20260209093344.2013693-1-gary.yang@cixtech.com>
- <20260209093344.2013693-2-gary.yang@cixtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH 1/2] dt-bindings: mfd: syscon: Add mt8516-syscfg
+To: Krzysztof Kozlowski <krzk@kernel.org>, Luca Weiss <luca@lucaweiss.eu>
+Cc: ~postmarketos/upstreaming@lists.sr.ht, Lee Jones <lee@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, phone-devel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260206-mt8516-syscfg-syscon-v1-0-96dcb37acdb4@lucaweiss.eu>
+ <20260206-mt8516-syscfg-syscon-v1-1-96dcb37acdb4@lucaweiss.eu>
+ <20260207-tricky-strange-swan-6f11b0@quoll>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260209093344.2013693-2-gary.yang@cixtech.com>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20260207-tricky-strange-swan-6f11b0@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_033410_266676_8E10FE54 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20260209_033446_490624_033112AC 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,80 +80,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/02/2026 10:33, Gary Yang wrote:
-> There are two system control on Cix sky1 Soc. One is located in S0 domain,
-> and the other is located in S0 and S5 domain. The system control contains
-> resets, usb typeC and more. At this point, only the reset controller child
-> is described as usb typeC uses it by phandle.
+Il 07/02/26 11:51, Krzysztof Kozlowski ha scritto:
+> On Fri, Feb 06, 2026 at 11:20:48AM +0100, Luca Weiss wrote:
+>> Document the Mediatek mt8516-syscfg.
 > 
-> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
-
-Subject is not correct now. There is no simple-mfd. There should not be
-even syscon, because it is Linux term. Just use the name of this device.
-
-> ---
->  .../soc/cix/cix,sky1-system-control.yaml      |  42 +++++
->  include/dt-bindings/reset/cix,sky1-rst-fch.h  |  42 +++++
->  include/dt-bindings/reset/cix,sky1-rst.h      | 164 ++++++++++++++++++
->  3 files changed, 248 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
->  create mode 100644 include/dt-bindings/reset/cix,sky1-rst-fch.h
->  create mode 100644 include/dt-bindings/reset/cix,sky1-rst.h
+> Which is what? What is syscfg block?
 > 
-> diff --git a/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml b/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
-> new file mode 100644
-> index 000000000000..5507deb54ebd
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
-> @@ -0,0 +1,42 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/cix/cix,sky1-system-control.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Cix Sky1 SoC system control register region
-> +
-> +maintainers:
-> +  - Gary Yang <gary.yang@cixtech.com>
-> +
-> +description:
-> +  An wide assortment of registers of the system controller on Sky1 SoC,
-> +  including resets, usb, wakeup sources and so on.
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - cix,sky1-system-control
-> +          - cix,sky1-s5-system-control
-> +      - const: syscon
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  '#reset-cells':
-> +    const: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    syscon@16000000 {
-> +      compatible = "cix,sky1-s5-system-control", "syscon";
-> +      reg = <0x16000000 0x1000>;
-> +      #reset-cells = <1>;
-> +    };
-> diff --git a/include/dt-bindings/reset/cix,sky1-rst-fch.h b/include/dt-bindings/reset/cix,sky1-rst-fch.h
 
-Filename must match compatible.
+Not sure this is really a SYSCFG block.
 
-I am pretty sure I gave such feedback to Cix before....
+This should be a GPIO controller range, which is split between IOCFG and EINT.
+Now, the legacy drivers are declaring the EINT iospace in the pinctrl node, and
+getting the GPIO controller (IOCFG) iospace from a regmap.
 
-Best regards,
-Krzysztof
+I don't have any board with MT8516... but well, the really-right-thing to do
+would be to migrate that SoC off of the legacy driver, to the new-style one
+that *properly* takes two iospaces:
+"base" -> (0x10005000)
+"eint" -> (0x1000b000)
+
+Luca, if you've got such a board, could you please try to migrate this SoC out
+of the improper (but working good) driver and bindings?
+
+If not... well, I think this block is IOCFG, not SYSCFG...
+
+Cheers,
+Angelo
+
+>>
+>> Signed-off-by: Luca Weiss <luca@lucaweiss.eu>
+>> ---
+>>   Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
+>>   1 file changed, 2 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+>> index e57add2bacd3..a67699f1faee 100644
+>> --- a/Documentation/devicetree/bindings/mfd/syscon.yaml
+>> +++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+>> @@ -91,6 +91,7 @@ select:
+>>             - mediatek,mt8135-pctl-b-syscfg
+>>             - mediatek,mt8173-pctl-a-syscfg
+>>             - mediatek,mt8365-syscfg
+>> +          - mediatek,mt8516-syscfg
+> 
+> Why aren't you placing it with all others mediatek,mt8516 syscons?
+> 
+> Why this is so generically called "syscfg", completely not looking like
+> a real name from datasheet unlike the others in this device.
+> 
+> You have entire commit msg to explain that.
+> 
+> Best regards,
+> Krzysztof
+> 
+
+
 
