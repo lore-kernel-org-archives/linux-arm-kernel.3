@@ -4,108 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC44CE81BD7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 15:19:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AECA0E81BD7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 15:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e3bUDvDDCERCxLHccqCKh5cXslCrqGzgEb8uS+QsJ98=; b=ONXbzjqAX/pBNEBPWcxr8YqSBs
-	C2WsR1YWw4LG1aYaR1t5/K61feKFh+hi2WFzhBgeH7rg2Ggh6ev3q8xAoqojRbpDJSGHsFOJIIlu7
-	+QEES1LueF3kS4Yn7HYx9PirQ3aSU309YOxi+ujH172tUTWFQQCm8jqdl1J/lunoZXmrz/OsJynb/
-	3Em+v0tHCTgB+ORbNCjz/VwucUG3BkeuSMLA9w5Gy2Ll2eUKsmnezy1/QZs4T1iAngK6mwH+wKz7p
-	j3hbs7EYWremryVbWY7v4b+/QCkxlx+pgS0akDjZhT+f1LfFyIZdEUFdQHuHkKY+kUJKtSrmyMn38
-	QUqvmb3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YTzvCYXiRiQsNzIWAR8ywGvKHYp+IRPHv2CPPhaIo54=; b=xPgocSfsbfAuUkyzTQ7VIE0X5j
+	0H4tWO+wSBSpgYXDQ2HA1Sz6768kUDFoG+9Vfqg7pZqHBSt0ZD2Py5x4+A+BwNlh6uH7s5ILvnaKQ
+	JJVL2l5/QcooX329Cktq8dCLcULIaARIkbi1WhvTviryLwDwFXKEIE7SpINwrVkeXIq+YdVNTsvzj
+	L54AIuqZRE0dEL7wcQxYzbER/TSZVVM9Ya755FIc3yQ0HHEzJZ+QgpXY1lHTTTlyAgQKyDn59OdAc
+	EPQh1OZ060/wtiKoecZVhh6kZWznXf5FanaUG7SQNgwFaX1NQyJCJA3LO86RbxF/RXJTbIyePT5yv
+	c3fsQ7VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpT2U-0000000Fakl-0KQz;
-	Mon, 09 Feb 2026 15:19:02 +0000
-Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
+	id 1vpT3D-0000000Favz-29DB;
+	Mon, 09 Feb 2026 15:19:47 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpT2Q-0000000FajK-12Ts
+	id 1vpT38-0000000FatV-0epk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 15:18:59 +0000
-Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-7927b1620ddso64526397b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Feb 2026 07:18:57 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770650336; cv=none;
-        d=google.com; s=arc-20240605;
-        b=ObPwV0s8gDoF+/0WL2ArMsbSVafJdGkhHeS1Un9hGCXXyqRod5HN04NHtHxHEYR65E
-         /pywaD/TtovqKk0KeEnNCqDIm6G4bYzsGQ7Vs0Ms+wcFlBRohlO03M8HlrPxcyna1ivt
-         wYjAYf8YiVFHVFp+DuCkBZhOdJEeO2GK1hTdXqgWeRTFUsbXJHsb7kAaGqJ0IYgi6NFg
-         jKjRM1+4Wny2/NI1ej+IxUi+nJh+JYxB/mqxIhxArn6bn7fHRkEvEg6/DhHy+dNmTpb7
-         U2EGzoiiexFNakVIT84bY7RGgPbJXa9zH0lJDOCtORNCgQ4hlLMhDHUwzc5tKlJCf5p3
-         Xu/A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=e3bUDvDDCERCxLHccqCKh5cXslCrqGzgEb8uS+QsJ98=;
-        fh=SWz8dO1EAe0X4c6f5VJzUs/tlXNQ0mV0XixZvw/18i4=;
-        b=WEkyoKGcz5LgZS15lI185K6Up0Ge8t1/x3jK1LOzoG3kTvjIr4Ao/1aCac86pIChoq
-         cQBA2zB1hQcCy4b3TWTYiX4Zl9XadU3CGOPQ36SDxV3DVBqGjOC22i30yIl+gnHH4JvT
-         s358fmAFwH26k+aBchnabPp8/Xr7XfpnfQg0zU8HTIGwK4JcDRZQ8LuX3I6XsIEoJfFS
-         SLMAK2jCoE0DFzl4kwH2ylv6d+6XcfL5btdHSDfynqnCGeWKsdOUVCNIn7+FOzNCV90A
-         EPMPfGZvzpQGRsuDyUsxFTA890S/OFSczO0uYC2aTqNwoueLle3mvhcQvZCLH0qeQOli
-         2fUw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 09 Feb 2026 15:19:43 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-437696cc5a5so70927f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Feb 2026 07:19:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1770650336; x=1771255136; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=e3bUDvDDCERCxLHccqCKh5cXslCrqGzgEb8uS+QsJ98=;
-        b=lqUI7MsIicgfdjsxuGAcOzZGSzs3az7ZXSOTHgf1VBl/H9FKEhKDeRqtsu3wWdvJUz
-         eRoodvNAhTFPyIfFZcPgfeA+6R0F6i9TJsOg/6Nm8VROVA/erTmCTtzCDYxyVlra5T2x
-         Plf/ZIJ2SlGOYAUN7P4hE2oTAHAGmj27R2G5j4V9bFzPI87RVA2I8P06oZgfbH1piAv9
-         SdqnPxU5qvaXE3kdtMjh1x0BdConQ7FX8/vkJnCTVE9hT+XTUoLu9Y8X6u5CuQHtxlNW
-         9Nt0zXrpswbZZiaqcaM/w/Z9Jhnp82p8liU1F7fS4/Z+8ilB+ZaSEXcghifB+JNLTyjQ
-         WLVw==
+        d=gmail.com; s=20230601; t=1770650379; x=1771255179; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=YTzvCYXiRiQsNzIWAR8ywGvKHYp+IRPHv2CPPhaIo54=;
+        b=g1KM9thy7/ZRG7Q+0c2BpSM8zBceORF2xA4nfcMkkuhxggMb1pUBwY27sN4k6zwjqX
+         na+4ZOPiRGyoSgRu56s106Ga/qtaDiDnJFEXhWKUeMKm4WPyZodvO3xnMVnxK6hohWf6
+         Cj+igLmMBHMRRs0uX2cjVB8fyhstRU3cKbgwcVCq4nCRmrMjVYaLzwnCRFud2tLvfEsY
+         v9JCSCfRDrF1FRyCRw7jqztSqkR8r6ciGJXpTQARp3YjkdcfqBdDLQIqkimEb9URyJ/7
+         m9aFZ213Cvip1szWd/GloR788a7Rwe7YC32NUJd0GK2LPavyaD2eC7rhGFKNWDT6KwfD
+         NYxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770650336; x=1771255136;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1770650379; x=1771255179;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=e3bUDvDDCERCxLHccqCKh5cXslCrqGzgEb8uS+QsJ98=;
-        b=O/QTvK4z9OzBQFHNe3o/HQDnNQMXEup+Pn+3hUn5/7CRGDDRFunrJMbIwIKejXRmEQ
-         S7rBYrwKaXBxMSX/uf0vfHte65TJJnvlDgQEgbGxW/F4KbBC78GbLpjGVdrVkJb/b5Bu
-         HnxaYKG2Q5D0ACZDe88e5n9BxuLvSl4PtF7wnJ9yV8H/uQSbNkB/Fr8pQd7JXKp5FmMk
-         QKWuyR89wwA2aflluL4MtEr6v8ULCQCXbJpKta1cmhpJ/ebE71PMvmEiyW6zrF2Mcgte
-         kNFCCK1zuQfwABL/y9M3oY5eg5CfBCy2sZBlDpcUY1+fXyCic7fcpB+A9HkMth6vXWfj
-         bT0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUtzLts6R7uH7NY6qk72SgujYTj6X3ybO4v+/zcP9vjKzeQt+tNiKb2D1ohcg/+4vTTbkKKNGwnZhl7X3fCGD93@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz62U5Kdee9rl11196CSxcGBxQa84bLtrKOvZ/HrIg73K6JLVjh
-	n7qnBtjd/ai4ym4sZi5xzbP9v7Zge2OohP4gGRA/CkW2SczUShKaaqzAmO4EZZ54LQ2JNWGzBq6
-	Pd6HXIHiFuCOJ6YH23te5B4Ju2toSL0ninaaan6ag9A==
-X-Gm-Gg: AZuq6aLdu8nt9PW35cmGr4HUOkxapO0XCMeqWveJ0eMGZtOuBA9SDOzvqClIOHcFr0I
-	+mxle4edzpJYXiMk3Js9lrY01tLVtTzq1lAja1ajr3EqpENmQwsq5v0vbH2UMfkamUGwe7aP9O1
-	r/veaLlbikDx64G9wHcExPD8soykG1xX/DU/AdZl0qfv8jNSAF1GI3kllilp4s6f0WuYC+pzNlN
-	cWDFkm86ISCKIjkX8BjL+EU0CzMeAGCezqTTuNfBx2KOLrFNNzSToySorQMiFponkHwf0X0Tnxr
-	TYEg08o6znNqWzPrUCZ1iM/r5Osfs4jM/iE3rMHIWSHdd/+NLj0ssjg=
-X-Received: by 2002:a05:690c:e08:b0:794:87bf:76ef with SMTP id
- 00721157ae682-7952a63ec7amr99106367b3.7.1770650335943; Mon, 09 Feb 2026
- 07:18:55 -0800 (PST)
+        bh=YTzvCYXiRiQsNzIWAR8ywGvKHYp+IRPHv2CPPhaIo54=;
+        b=ghvjBhJ/Gs/qUFyR0o/z/VAuArtRcp3TJP3YruZJvGokjq7RmfbgIFQ7sXWoSst3vU
+         i8ytAw6dUTdt7p9ihJ8cPJJCRVOIlqp8EmCi5zALFSTM/YQotogip5xxLxlvsVrI/dVh
+         55gfZWDESBRIe71Aq3ArpA4pMxwuAGSAUvq1HqaxG4pG+HkM0sHPOE8mgzmBkOvb89W9
+         FrLisD1D2gSyMsFjMm/xE9kvJxpO+jkdKIxACfCRDCrHAFAoWAEJQYYvE9YMLi4Xa9pW
+         U04c3zKOWGO3urLYNQyhtfJe989+vy9b0JLwahsIbVJ7zWZLbzLvi3n5tEcxTa0swWAc
+         bvWw==
+X-Forwarded-Encrypted: i=1; AJvYcCWp00ckelrXwmWC3zbS4spNNG8flL8QdSiWJjkFs8IiLjNOZ+zX6nYposUhnMP/uHUNkdUcA2jIq91PulceK02s@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjRCjmiUvA/JcvDWiHFcI3gEv3d/1Bnzlyy5RuTI/dw8G5lzd3
+	Uj7PT7UOfTcVlCgsIhuKkQsPngWNLsW8RmjRVvT6dX2ICTVa7hDzD/gz
+X-Gm-Gg: AZuq6aIaH95TkO2xUEBwk/oXP3dJgwuMDLlJSuy1rkQdnq/icqEXNFGafI3THI6aYpc
+	LOwowRFQ7Oe2oTaNFd6KiU5WUo+A37KEM31XVZ9ai15Ydaalm/d6M25HDPrEiuNjB6Vk3U9YKpU
+	Rr8RYvmRQTwqqOM4bEFu0BydlyZtpbF/XFkmhH6L26xond3u4Hc5uSTS7QNq4gym/F/z/R+4/Uf
+	x/IDzLgTCi6yFYzbMu329iyeZuK1Tg98mzBoyqcsdO3Ql8XTZHOfrW8oMBm9tyQA05dBAftY/lV
+	U95QYThIpfE2XZODry/sL3cCrw9eV7uRiJxxdh+WsJUfhMFWKspoJTB/HLTHliuejBAw1FCSWl7
+	OXmmTEr+GVVBpf8kdIaVum+zHJT14Uc1nhNcHx37Rc5Fcw3GhliTnRclFR51CtHaOZBtTao+zt7
+	dn2EszBOC0xqspqvJlw394Zbvj9cr84IFS7/E9s/Pwfv8VJSnL7KTh2weA4hY5/XrLTUEu8uojF
+	gWwnTCP
+X-Received: by 2002:a05:6000:184b:b0:437:72ce:8954 with SMTP id ffacd0b85a97d-43772ce8a4dmr1977190f8f.6.1770650378901;
+        Mon, 09 Feb 2026 07:19:38 -0800 (PST)
+Received: from thomas-precision3591.paris.inria.fr (wifi-pro-83-213.paris.inria.fr. [128.93.83.213])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4376686130csm15122697f8f.1.2026.02.09.07.19.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Feb 2026 07:19:38 -0800 (PST)
+From: Thomas Fourier <fourier.thomas@gmail.com>
+To: 
+Cc: Thomas Fourier <fourier.thomas@gmail.com>,
+	stable@vger.kernel.org,
+	Felix Fietkau <nbd@nbd.name>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Sujuan Chen <sujuan.chen@mediatek.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net] net: mtk: wed: Fix dma_free_coherent() size mtk_wed_hwrro_free_buffer()
+Date: Mon,  9 Feb 2026 16:18:21 +0100
+Message-ID: <20260209151822.136934-2-fourier.thomas@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org> <20251223-kvm-arm64-sme-v9-10-8be3867cb883@kernel.org>
-In-Reply-To: <20251223-kvm-arm64-sme-v9-10-8be3867cb883@kernel.org>
-From: Peter Maydell <peter.maydell@linaro.org>
-Date: Mon, 9 Feb 2026 15:18:43 +0000
-X-Gm-Features: AZwV_Qj3JfZxsU8iVNrT9S4IUwlHEkuMD3WG7W3HRrHxULDnwFPH-_uH0mM-meA
-Message-ID: <CAFEAcA-nhHdwuQODmT4-dBCEuiut-jbHsCGVYByoMF77-UWbCg@mail.gmail.com>
-Subject: Re: [PATCH v9 10/30] KVM: arm64: Document the KVM ABI for SME
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>, 
-	Fuad Tabba <tabba@google.com>, Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, Eric Auger <eric.auger@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_071858_355628_7A9345F5 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20260209_071942_262084_CE73E7FC 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,27 +111,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Dec 2025 at 01:22, Mark Brown <broonie@kernel.org> wrote:
->
-> SME, the Scalable Matrix Extension, is an arm64 extension which adds
-> support for matrix operations, with core concepts patterned after SVE.
+The DMA buffer alloc'd in mtk_wed_hwrro_buffer_alloc() with size
+dev->wlan.rx_nbuf but is freed with size dev->hw_rro.size.
 
-A late reply, but I just noticed that the cover letter says:
+Change the dealloc size to match the one used in
+mtk_wed_hwrro_buffer_alloc().
 
-> Userspace access to ZA and (if configured) ZT0 is always available, they
-> will be zeroed when the guest runs if disabled in SVCR and the value
-> read will be zero if the guest stops with them disabled. This mirrors
-> the behaviour of the architecture, enabling access causes ZA and ZT0 to
-> be zeroed, while allowing access to SVCR, ZA and ZT0 to be performed in
-> any order.
+Fixes: 6757d345dd7d ("net: ethernet: mtk_wed: introduce hw_rro support for MT7988")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
+---
+ drivers/net/ethernet/mediatek/mtk_wed.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-but the doc patch itself says:
+diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
+index 1ed1f88dd7f8..455df564174d 100644
+--- a/drivers/net/ethernet/mediatek/mtk_wed.c
++++ b/drivers/net/ethernet/mediatek/mtk_wed.c
+@@ -879,7 +879,7 @@ mtk_wed_hwrro_free_buffer(struct mtk_wed_device *dev)
+ 		__free_page(page);
+ 	}
+ 
+-	dma_free_coherent(dev->hw->dev, dev->hw_rro.size * sizeof(*desc),
++	dma_free_coherent(dev->hw->dev, dev->wlan.rx_nbuf * sizeof(*desc),
+ 			  desc, dev->hw_rro.desc_phys);
+ 
+ free_pagelist:
+-- 
+2.43.0
 
-> +Access to the ZA and ZT0 registers is only available if SVCR.ZA is set
-> +to 1.
-
-Which one is the intention here ?
-
-thanks
--- PMM
 
