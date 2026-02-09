@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD1ACEF06E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 04:43:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B12EF070A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Feb 2026 04:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2EDJMPOdQUIkj7B+MtnJTuwRWWsGcynJpHj9KDB1EX4=; b=EF5A3J0eT2gQuU5uvaD5zIBCxM
-	toVspxkb88HqWapsuhSVjQS9KmreyaAB2B8KCuIv9/gNRaoh08TFyftlIVRnzkdpalf3bIP6SsioA
-	xZ1h3n6xHpVe84vlI2YNWO0Bjih2//yI2LG0BJQtJOeuSMn6lqRanPu8ZQ/5HN9vQD/+w/9iSQ6Ny
-	9zPM7M8LrvPNstN+bkBHyBwC9AVXopzRReyoIBXOfMeoOXvSiR50JPefoylfCt3Rwpi9LobMjCY4h
-	rdzFcQgpSF3LTxtVHubJKQsd2I3tBqzIKxPLHdOaxoz5OGQ7K3t3GR9FhgLK1EAPfFQgJWQrTi4Vh
-	YpSfifTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hl8nbIm2/95ld6KWiU1DcqjNMBN/B2bpYb926e78xTE=; b=YE+djPA5+W+xEp0Ysj9TR+/Ar+
+	4OazartBnGUl7HfoUzHT+Cr7w3oA+znF0lIAj5XCHTqZVI2sY7iwSY5xDNXIEIR+YvmHR3UgUsuha
+	OMS3dUHsSMrIJX8MPjB66b60WEgIC1SMBlwjIAhqscOTXGa03O4nkrEUwtIgFfS1QLnU2DcRpKI4X
+	nFlSH8XYX0qAj0KhK+PlSRRHODV3mLsgOiae0FBzRTjVYGCdkhx+x3CXwopKzmuZukJiRvnkvmoOQ
+	4fbMtfB7U2QFIf8IC88/oq85T60SdIV4fmVDuZDB16PWxXjzHlchljIOarKeFb26Fm2OpaU3RMN1z
+	PCxooQhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpJ7L-0000000Eox5-2fEl;
-	Mon, 09 Feb 2026 04:43:24 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1vpJEf-0000000EpI1-1mXr;
+	Mon, 09 Feb 2026 04:50:57 +0000
+Received: from lgeamrelo11.lge.com ([156.147.23.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpJ7H-0000000Eowk-3x9b
+	id 1vpJEb-0000000EpHE-3g2i
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Feb 2026 04:43:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1770612185;
-	bh=2EDJMPOdQUIkj7B+MtnJTuwRWWsGcynJpHj9KDB1EX4=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=LM8TiHiwLMi4JpxMmygPXU2C3mwSlUbSkF43jtqGvY2th0eP04oho0fdrfmkx4mcq
-	 xcgN3b/mtuH2h2wFxPyNmvGSGK+WKhPzBcWkMKcuHXCdZ61nP3EUf79QvNuneU/+sf
-	 VjnRi5Ei0q+nYEorLZxdK05JaAEDAFLn/UyGklTE7GGSpLhnBWs+SqPiXWGIsCaqww
-	 ButJkpEb+LhtcV486396eGDPbQUQMtvhsVwlRROTMNP8cna4h1Ptka2z2Qm+b++PWN
-	 XEGLqThGTkVwBnMkCWIYNoIWpltFL1tsB0GVyQYXYNt1H+BonrTj69NeH66xgOG0U9
-	 WX+t4+RYVhRmA==
-Received: from [127.0.1.1] (unknown [180.150.112.60])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 72C846024E;
-	Mon,  9 Feb 2026 12:43:04 +0800 (AWST)
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Marc Olberding <molberding@nvidia.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260120-alt-128-v4-1-0e5c491a532c@nvidia.com>
-References: <20260120-alt-128-v4-1-0e5c491a532c@nvidia.com>
-Subject: Re: [PATCH v4] ARM: dts: aspeed: add an alt 128M flash layout
-Message-Id: <177061218409.863052.13158700639798064370.b4-ty@codeconstruct.com.au>
-Date: Mon, 09 Feb 2026 15:13:04 +1030
+	Mon, 09 Feb 2026 04:50:56 +0000
+Received: from unknown (HELO lgemrelse6q.lge.com) (156.147.1.121)
+	by 156.147.23.51 with ESMTP; 9 Feb 2026 13:50:43 +0900
+X-Original-SENDERIP: 156.147.1.121
+X-Original-MAILFROM: chanho.min@lge.com
+Received: from unknown (HELO BRUNHILD) (10.178.31.97)
+	by 156.147.1.121 with ESMTP; 9 Feb 2026 13:50:43 +0900
+X-Original-SENDERIP: 10.178.31.97
+X-Original-MAILFROM: chanho.min@lge.com
+Date: Mon, 9 Feb 2026 13:50:43 +0900
+From: Chanho Min <chanho.min@lge.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Kael D'Alcamo <dev@kael-k.io>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 0/2] arm64: dts: Initial support for LG1215 TV SoC
+Message-ID: <aYlno8qlBo8enX4t@BRUNHILD>
+References: <20260112053421.3185738-1-chanho.min@lge.com>
+ <aYFM+mHqhfCuWgRP@BRUNHILD>
+ <af35d335-96f2-4404-a6e2-e85c68cb2757@kernel.org>
+ <7bec9ff0-29c8-4468-9d31-2d2b483e2aaf@kernel.org>
+ <aYZ/k1SuZ4dTaV8u@BRUNHILD>
+ <50acc90f-1efe-4bf1-8c87-a4d3b6fd825c@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <50acc90f-1efe-4bf1-8c87-a4d3b6fd825c@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260208_204320_179211_14681FE2 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260208_205054_240559_1184A1AB 
+X-CRM114-Status: GOOD (  23.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,20 +78,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 20 Jan 2026 12:34:14 -0800, Marc Olberding wrote:
-> Add a 128M layout for the BMC flash chip we didn't boot from. Including
-> this allows the user to write to each partition on the alternate spi
-> chip. This dtsi follows the existing standard of using the same layout
-> as non alt version and prepending `alt` to each partition's name.
+On Sat, Feb 07, 2026 at 10:39:57AM +0100, Krzysztof Kozlowski wrote:
+> On 07/02/2026 00:56, Chanho Min wrote:
+> > On Fri, Feb 06, 2026 at 06:15:25PM +0100, Krzysztof Kozlowski wrote:
+> >> On 06/02/2026 18:13, Krzysztof Kozlowski wrote:
+> >>> On 03/02/2026 02:18, Chanho Min wrote:
+> >>>>>  .../devicetree/bindings/arm/lge.yaml          |   5 +
+> >>>>>  arch/arm64/boot/dts/lg/Makefile               |   1 +
+> >>>>>  arch/arm64/boot/dts/lg/lg1215-ref.dts         |  50 +++
+> >>>>>  arch/arm64/boot/dts/lg/lg1215.dtsi            | 290 ++++++++++++++++++
+> >>>>>  4 files changed, 346 insertions(+)
+> >>>>>  create mode 100644 arch/arm64/boot/dts/lg/lg1215-ref.dts
+> >>>>>  create mode 100644 arch/arm64/boot/dts/lg/lg1215.dtsi
+> >>>> Hi,
+> >>>>
+> >>>> Gentle ping on the LG1215 series (v3) — Acked-by received, but still not picked up.
+> >>>> Any update or is it waiting in a queue somewhere?
+> >>>
+> >>>
+> >>> Why are you pinging yourself?
+> >>
+> >> Sent a bit too fast... I meant:
+> >>
+> >> *  # email/list and role:stats
+> >> *  1 Chanho Min <chanho.min@lge.com>
+> >>      maintainer:ARM/LG1K ARCHITECTURE
+> >>
+> >> so if you are not taking the patches, no one else is going to and
+> >> platform should be removed from the kernel. Please confirm your choice
+> >> (I can prepare the patch to remove LG).
+> > 
+> > Hi Krzysztof,
+> > 
+> > Sorry for pinging incorrectly.
+> > 
+> > I will take proper responsibility for the LG SoC patches going forward and
+> > handle this series appropriately.
 > 
-> This patch also adds this alt spi flash layout to
-> aspeed-bmc-nvidia-msx4-bmc.dts
+> maintainer-soc profile will have valuable guides and expectations.
+
+Hi Krzysztof,
+
+Thanks for the pointer — I'll review the maintainer-soc profile and follow the expectations.
+I confirm that I will continue maintaining the LG SoC patches and handle them properly going forward.
+
+Best regards,
+Chanho,
+
+
+
+
+
+
+
 > 
-> [...]
-
-Thanks, I've applied this to the BMC tree.
-
--- 
-Andrew Jeffery <andrew@codeconstruct.com.au>
-
+> Best regards,
+> Krzysztof
 
