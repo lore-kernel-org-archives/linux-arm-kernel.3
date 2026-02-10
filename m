@@ -4,134 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D856EB26E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 16:28:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 332D7EB26E4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 16:28:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nAVsEo8GmnBUTthGDjzzMOFlPvlLeck1eI358Mycbwo=; b=nRh9RyslQ2BD9R7uJ0lOA4EYZa
-	spiARWkvtk0mNWIEbLzhP3tx1oFtHvtPmSiE5T+wsKMdGVxKtrS7+Yux4L75lzOCLWutgGk1InzQg
-	o0y+8N1vHsgkS+lrZpwYMMjcLLm4ajMCxMZl5rLJMBTN9DSiWHLZ/Au4bECTme9zu+ECDumg6DfFG
-	SXlYEcu1M27Hiw1y7QTrEdlmUjszyL0B2KHckUfFkcfLlt+wQDAGApRTCur4V3ytwAcclxy6Kbpk/
-	dFGJOPmt/sCvVM5ld1UVB6UWPYFOfhKGGKUleES5NZbmZfq7dfn9nj2Gfpjme2Nd9nhHCt5lqlqbF
-	TltGobxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2RZd2m1rYBzhb6+CUkIcXbLtyHMbbg4kS3QJRa4t3tA=; b=QrgZ0SE4pLANnUbEVUs92ugile
+	qh+etomvO9aNpr9a5hqK1KwBzqYUVb1q5s6AbDLLgJ30UgSVvvlPBJ+GymN/YlyWwerpSrPy+yxxI
+	rSgm6oGrJkVzrYAnlD8PMHz0+TKEnZdk7i7AKehq709uoZMW8OysC5WD8PXgjQ1fVDq+S+LCsLs0K
+	JxjSpQdvmmzblGe3W5Kp6dzWrtjYi4+kC/fQr1PsqXH4wOYhmIh+M0FDL1Azt5I101ETnE5evOKFf
+	30IUkFXru5M2xCWWmOuh99ll8/8MFtaL2IAjDMnhJLz6V4Cf1nw6rSGso4G1wjHGiPgWoJXohN/pg
+	B3sETM4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqaz-0000000HEaR-429R;
-	Tue, 10 Feb 2026 16:28:13 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1vpqbG-0000000HEgk-2WhO;
+	Tue, 10 Feb 2026 16:28:30 +0000
+Received: from mta-64-225.siemens.flowmailer.net ([185.136.64.225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqaw-0000000HEZa-2XLN
+	id 1vpqbB-0000000HEd8-1mC3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 16:28:12 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 4EA0E3E712;
-	Tue, 10 Feb 2026 16:28:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1770740887; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nAVsEo8GmnBUTthGDjzzMOFlPvlLeck1eI358Mycbwo=;
-	b=ugm4qDQznhpOWKcyUIGTZHtVYaZM8SCUGsqKfy9U/oNutiefPjZuYeJJXouvdFS1PIC5dp
-	VG1duQEusSsTFBYwaCgQ8LXedBEGI7GyrQ6CIQzkqp7oRXVY7UXfSITUO7KYjAMOc7OKRQ
-	QtWWzB7mD7098ykplzK4zz4LJmSIJ18=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1770740887;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nAVsEo8GmnBUTthGDjzzMOFlPvlLeck1eI358Mycbwo=;
-	b=b7YKrMfvHozmd7LuRgInoCwFe/lFsljMEz8EVUYTaWY88c//gKTkKWgSfxZROXObFqB/MQ
-	2EOa+bGorSnHLYAQ==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=ugm4qDQz;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=b7YKrMfv
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1770740887; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nAVsEo8GmnBUTthGDjzzMOFlPvlLeck1eI358Mycbwo=;
-	b=ugm4qDQznhpOWKcyUIGTZHtVYaZM8SCUGsqKfy9U/oNutiefPjZuYeJJXouvdFS1PIC5dp
-	VG1duQEusSsTFBYwaCgQ8LXedBEGI7GyrQ6CIQzkqp7oRXVY7UXfSITUO7KYjAMOc7OKRQ
-	QtWWzB7mD7098ykplzK4zz4LJmSIJ18=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1770740887;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nAVsEo8GmnBUTthGDjzzMOFlPvlLeck1eI358Mycbwo=;
-	b=b7YKrMfvHozmd7LuRgInoCwFe/lFsljMEz8EVUYTaWY88c//gKTkKWgSfxZROXObFqB/MQ
-	2EOa+bGorSnHLYAQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 352B73EA62;
-	Tue, 10 Feb 2026 16:28:07 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id WTtZDJdci2nYdwAAD6G6ig
-	(envelope-from <dwagner@suse.de>); Tue, 10 Feb 2026 16:28:07 +0000
-Date: Tue, 10 Feb 2026 17:28:02 +0100
-From: Daniel Wagner <dwagner@suse.de>
-To: Keith Busch <kbusch@kernel.org>
-Cc: Christoph Hellwig <hch@lst.de>, Yu Kuai <yukuai@fnnas.com>, 
-	axboe@kernel.dk, sagi@grimberg.me, sven@kernel.org, j@jannau.net, 
-	linux-block@vger.kernel.org, linux-nvme@lists.infradead.org, tj@kernel.org, 
-	nilay@linux.ibm.com, ming.lei@redhat.com, neal@gompa.dev, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 3/4] nvme-apple: move blk_mq_update_nr_hw_queues after
- nvme_unfreeze
-Message-ID: <f3451ddd-96b6-4bc1-9d4c-964e361d56fc@flourine.local>
-References: <20260209082953.3053721-1-yukuai@fnnas.com>
- <20260209082953.3053721-4-yukuai@fnnas.com>
- <20260209145832.GC18315@lst.de>
- <aYn-xwFHCpd7sITJ@kbusch-mbp>
- <e3e7d95b-2712-4365-922d-731449e7193a@fnnas.com>
- <aYtKFNm-wRKn6l66@kbusch-mbp>
- <20260210154108.GB2484@lst.de>
- <aYtWSscg6L9xxlzc@kbusch-mbp>
+	Tue, 10 Feb 2026 16:28:28 +0000
+Received: by mta-64-225.siemens.flowmailer.net with ESMTPSA id 20260210162820ca0a966ff000020780
+        for <linux-arm-kernel@lists.infradead.org>;
+        Tue, 10 Feb 2026 17:28:20 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm2;
+ d=siemens.com; i=florian.bezdeka@siemens.com;
+ h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc:References:In-Reply-To;
+ bh=2RZd2m1rYBzhb6+CUkIcXbLtyHMbbg4kS3QJRa4t3tA=;
+ b=iMabUuweSHnhFWaYI+3wNaaJ+BRwEI/KPAbztyzS8JD3v4ZYDbtjHJb/7NlKj3SleKSbmm
+ Y1O23MoVjO5K4hU1Z8vfYIB3RMGHDf5bZfRw3hU6um2BPgwzTJAnBBAuLyx2vHy/bwIXXB90
+ qEtq4I6mHYhiDlrPOtMMxhpRNsRSXW01A+pI7dvHtsQJH0gjGRZp3b/Bz1ItDd+MU5OL0BX3
+ v11jJpgJXquLKC/JCLqvF6DMik9kIL126+fTQrtOzUHe0qO0mTpyVjomldQQPGbgGQP93jf2
+ 3AlMJ08R1RDQJGTuNWSQAohxPS6rFZ0dGyGyPB1yMC6dbUUywXlzLQfQ==;
+From: Florian Bezdeka <florian.bezdeka@siemens.com>
+Date: Tue, 10 Feb 2026 17:28:15 +0100
+Subject: [PATCH net-next 2/2] net: stmmac: Use cpumask_local_spread() for
+ IRQ spreading
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aYtWSscg6L9xxlzc@kbusch-mbp>
-X-Spamd-Result: default: False [-4.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	MISSING_XM_UA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[15];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+]
-X-Rspamd-Queue-Id: 4EA0E3E712
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260210-flo-net-stmmac-default-affinity-core-v1-2-4e76612444e1@siemens.com>
+References: <20260210-flo-net-stmmac-default-affinity-core-v1-0-4e76612444e1@siemens.com>
+In-Reply-To: <20260210-flo-net-stmmac-default-affinity-core-v1-0-4e76612444e1@siemens.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Ong Boon Leong <boon.leong.ong@intel.com>, 
+ Voon Weifeng <weifeng.voon@intel.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Florian Bezdeka <florian.bezdeka@siemens.com>
+X-Flowmailer-Platform: Siemens
+Feedback-ID: 519:519-68982:519-21489:flowmailer
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_082810_927359_63CD4476 
-X-CRM114-Status: GOOD (  20.74  )
+X-CRM114-CacheID: sfid-20260210_082826_080016_ABD562E2 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,33 +78,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 10, 2026 at 09:01:14AM -0700, Keith Busch wrote:
-> On Tue, Feb 10, 2026 at 04:41:08PM +0100, Christoph Hellwig wrote:
-> > On Tue, Feb 10, 2026 at 08:09:08AM -0700, Keith Busch wrote:
-> > > If you leave the queue quiesced, pending IO will form requests that are
-> > > entered and waiting in the block layer. You can't freeze a queue with
-> > > entered requests.
-> > > 
-> > > We unquiesce first to flush any pending IO that had entered during the
-> > > prior reset. It's not the best way to handle this situation. It would be
-> > > smarter to steal the bio's from all the entered requests, then end those
-> > > requests, then resubmit the bios after the hw queues are initialized. We
-> > > don't do that because no one's really complained, probably because the
-> > > queue counts don't usually change after a reset.
-> > 
-> > FYI, Daniel Wagner had been thinking about doing this reinsert for
-> > something (I forgot what exactly),
+The stmmac driver was previously implementing a self-made IRQ
+spreading mechanism based on num_online_cpus(). By migrating to
+cpumask_local_spread() the spreading gets NUMA aware.
 
-This feature would solve a tricky problem with isolation patches:
+In addition, most drivers seem to use cpumask_local_spread(),
+aligning / harmonizing a bit more.
 
-https://lore.kernel.org/linux-nvme/87cy7vrbc4.ffs@tglx/
+Signed-off-by: Florian Bezdeka <florian.bezdeka@siemens.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h      |  2 ++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 41 +++++++++++++++++++----
+ 2 files changed, 37 insertions(+), 6 deletions(-)
 
-Currently, it's not possible to take the cpu hotplug lock which would
-prevent races in the cpu-queue mapping. The current logic depends on
-making progress in the error case. If it would be possible to fail the
-in-flight request in the error handler and reinsert them in the block
-layer, progress could be guaranteed when holding the cpu hotplug lock.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index 012b0a477255df73b2e145b62e09eeb2133e827a..52b75df2b71239aab5b1d5138b78d6c5310b9c5b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -329,6 +329,8 @@ struct stmmac_priv {
+ 	int sfty_ue_irq;
+ 	int rx_irq[MTL_MAX_RX_QUEUES];
+ 	int tx_irq[MTL_MAX_TX_QUEUES];
++	cpumask_var_t rx_affinity[MTL_MAX_RX_QUEUES];
++	cpumask_var_t tx_affinity[MTL_MAX_TX_QUEUES];
+ 	/*irq name */
+ 	char int_name_mac[IFNAMSIZ + 9];
+ 	char int_name_wol[IFNAMSIZ + 9];
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index a379221b96a348e20f2afb0f44540cfba2f2477a..ddbfc0774143d0353c83988b2dfffa75132bd0ee 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -3739,6 +3739,8 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
+ 	enum request_irq_err irq_err;
+ 	int irq_idx = 0;
+ 	char *int_name;
++	int numa_node;
++	int cpu;
+ 	int ret;
+ 	int i;
+ 
+@@ -3845,6 +3847,7 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
+ 	}
+ 
+ 	/* Request Rx MSI irq */
++	numa_node = dev_to_node(&priv->dev->dev);
+ 	for (i = 0; i < priv->plat->rx_queues_to_use; i++) {
+ 		if (i >= MTL_MAX_RX_QUEUES)
+ 			break;
+@@ -3864,8 +3867,10 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
+ 			irq_idx = i;
+ 			goto irq_error;
+ 		}
+-		irq_set_affinity_hint(priv->rx_irq[i],
+-				      cpumask_of(i % num_online_cpus()));
++
++		cpu = cpumask_local_spread(i, numa_node);
++		cpumask_set_cpu(cpu, priv->rx_affinity[i]);
++		irq_set_affinity_hint(priv->rx_irq[i], priv->rx_affinity[i]);
+ 	}
+ 
+ 	/* Request Tx MSI irq */
+@@ -3888,8 +3893,10 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
+ 			irq_idx = i;
+ 			goto irq_error;
+ 		}
+-		irq_set_affinity_hint(priv->tx_irq[i],
+-				      cpumask_of(i % num_online_cpus()));
++
++		cpu = cpumask_local_spread(i, numa_node);
++		cpumask_set_cpu(cpu, priv->tx_affinity[i]);
++		irq_set_affinity_hint(priv->tx_irq[i], priv->tx_affinity[i]);
+ 	}
+ 
+ 	return 0;
+@@ -7653,6 +7660,14 @@ struct plat_stmmacenet_data *stmmac_plat_dat_alloc(struct device *dev)
+ }
+ EXPORT_SYMBOL_GPL(stmmac_plat_dat_alloc);
+ 
++static void stmmac_free_affinity(cpumask_var_t *m, unsigned int n)
++{
++	unsigned int i;
++
++	for (i = 0; i < n; i++)
++		free_cpumask_var(m[i]);
++}
++
+ static int __stmmac_dvr_probe(struct device *device,
+ 			      struct plat_stmmacenet_data *plat_dat,
+ 			      struct stmmac_resources *res)
+@@ -7699,10 +7714,21 @@ static int __stmmac_dvr_probe(struct device *device,
+ 	priv->sfty_irq = res->sfty_irq;
+ 	priv->sfty_ce_irq = res->sfty_ce_irq;
+ 	priv->sfty_ue_irq = res->sfty_ue_irq;
+-	for (i = 0; i < MTL_MAX_RX_QUEUES; i++)
++	for (i = 0; i < MTL_MAX_RX_QUEUES; i++) {
+ 		priv->rx_irq[i] = res->rx_irq[i];
+-	for (i = 0; i < MTL_MAX_TX_QUEUES; i++)
++		if (!zalloc_cpumask_var(&priv->rx_affinity[i], GFP_KERNEL)) {
++			stmmac_free_affinity(priv->rx_affinity, i);
++			return -ENOMEM;
++		}
++	}
++	for (i = 0; i < MTL_MAX_TX_QUEUES; i++) {
+ 		priv->tx_irq[i] = res->tx_irq[i];
++		if (!zalloc_cpumask_var(&priv->tx_affinity[i], GFP_KERNEL)) {
++			stmmac_free_affinity(priv->rx_affinity, MTL_MAX_RX_QUEUES);
++			stmmac_free_affinity(priv->tx_affinity, i);
++			return -ENOMEM;
++		}
++	}
+ 
+ 	if (!is_zero_ether_addr(res->mac))
+ 		eth_hw_addr_set(priv->dev, res->mac);
+@@ -8023,6 +8049,9 @@ void stmmac_dvr_remove(struct device *dev)
+ 	pm_runtime_disable(dev);
+ 	pm_runtime_put_noidle(dev);
+ 
++	stmmac_free_affinity(priv->rx_affinity, MTL_MAX_RX_QUEUES);
++	stmmac_free_affinity(priv->tx_affinity, MTL_MAX_TX_QUEUES);
++
+ 	if (priv->plat->exit)
+ 		priv->plat->exit(dev, priv->plat->bsp_priv);
+ }
 
-Unfortunatly, haven't found time to implement and test this idea so far.
-Sorry.
+-- 
+2.53.0
+
 
