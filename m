@@ -4,70 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 344CCEA3F2A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 09:54:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56849EA3F35
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 09:55:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xiRrYJ72zQo1WMZ9lVj3XZTV0dKHYq/gmc5+HrpHpm8=; b=p26nVhqp3MY85Q3oiX5Z61ZWie
-	bbnWH/2LvEOq1g4TAtdDJrwa8aBODJqxomx1LRW5ZcKyT+NrC3PFOOOVIY0QVORggzX4SMao/6ci7
-	Rz6H2DvEUvqS3419IQOasa6+8pYnoDa2fK9EC5NXltDVY0Pz4gU0PzS9RYTDyZHaVVlN/aNwVTXRs
-	4REK+4ebWqhGsrB39riq9HLjQjvkXitOsWc/FggtVOf77U6F4OBnz2plv5sDXbEGhJ9epNiEVrwDJ
-	1CosmGwFVD/dE7U7mLczx+fAqKSMwLtMLfyU7eVaX9DkftRR+8dG266lyBW/0c8VH4NBHOlYzuUnj
-	7LhSp0Bg==;
+	bh=t12lxM+brFyq0KY7Nz/qV0/1FHoQ9NnONI3XMskNk5E=; b=fW1x679tbZK8D9qzi1idnWFnPC
+	FWlmiFBusC4Lr2CwI/bl2ivHAilYG2KMEDP7sZi/Mku2msR0ZJ67qdutUTXT4x4qh2WLVz/cGsO7U
+	4FRqtW/6VvtupGpDVQdthtb5VZ/NsABJPr7HoyV1y4GCHhK3rbmH2szMSdcN7YZBDmaKVSu3fjzek
+	gg3xsyj/yh7lm56uYaDez/qMXD7xssB+gm9lMEMM5r633Aun9+KaxbcSF4Pqnp6YAp815K4HVEUdF
+	Y7Q40Qy20zSMzLJ1LjbiwJI6R0W2f3/ped6J8q8uthdyhrkm5/NS/0mlQNi+c96oXXTLZR3nkoOlE
+	JSsad6AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpkS3-0000000Gmla-46YK;
-	Tue, 10 Feb 2026 09:54:35 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vpkSg-0000000Gmr6-2KpO;
+	Tue, 10 Feb 2026 09:55:14 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpkS1-0000000Gmku-3JHZ
+	id 1vpkSc-0000000Gmph-1xv4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 09:54:35 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 479A3C8F1FE;
-	Tue, 10 Feb 2026 09:54:19 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 0877A606BD;
-	Tue, 10 Feb 2026 09:54:11 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B9975119D10B8;
-	Tue, 10 Feb 2026 10:54:05 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1770717250; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=xiRrYJ72zQo1WMZ9lVj3XZTV0dKHYq/gmc5+HrpHpm8=;
-	b=sh26Rq50pKO+hha3iylHdSe9ifBNiwrXtydKZ0jYK1V4jUREnbZoVLnl5pjvCqXKadU6Yw
-	OFHVH0UNkPJcGDbg2lcsrYmJnnU1jXsf9jPFu8XmKZ30omHJ05jfTAa7epIkHzSCP1p7hq
-	qLqYjeQ+1jtj35e/IB585nBYhHvbr4m1zgD2bkk8q8wwHr0d76DoLgtmiWWjxk0UZVuew5
-	ziioJ8kH1/FTcIg9y9aWTpy7C+P144MWiVh/Tz4vP80hf9iSHgtXTw8JN4ZOkLPdT3VhMH
-	yG7HIvhQgu7zni/fAtyYLmGRX4GsBjn6htrF1RZtT82PrL0ZvW7g0xu6RVDTzQ==
-Mime-Version: 1.0
+	Tue, 10 Feb 2026 09:55:12 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-59dd490be5fso6050505e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Feb 2026 01:55:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770717308; cv=none;
+        d=google.com; s=arc-20240605;
+        b=FLjT/R3OjzlWREBBO26TJ01SclUNI5fF7HQnffzL8Rody8QM5uRr+MEFIGDxy67OMq
+         dKmcg7WXgK7t2UueTe798K6iCCTUGxPBkE83YRgF8LSjg/yP1HvHqXveHtpBOX7N+jLK
+         3mOwgMpJSlCxHf+LiqC7V9l+ork6jXahOlD4iZTF2p+RYN3jOV6Mav6kywnZOBN3dMRo
+         i0Mf2aOS/G4wEp6GEniMj5dmWv5tAU64exGdf6vDQyDST6XFDCFld3DWxlGWaw/LHp8b
+         Mqc0FdRNvowx7WbxBs5XdMhZS0BVqFvymXV888dpR/yy3MxErBqTAvjz9cGhYamUb7Cn
+         2kHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=t12lxM+brFyq0KY7Nz/qV0/1FHoQ9NnONI3XMskNk5E=;
+        fh=GYZbPEbhXC+73Iae7POr+4AIP0ahvjgbzc8usfHnzcY=;
+        b=LUrKfYR4AmAI0ITOjTu5LLb4VPNV+/g4Oe57PyVWtozdyoiz218fqndPJRuWY1Rkwl
+         +DC9W/CHWH/4PB7HT00C4dnBQoB9Q1F8F7+FyrlmrRsOV1W1YHmMMc2zxi52bNj2uknu
+         nSO6YtpoyfofbkksN6sd1qOEDni65UKKw6fljy7NPKcs3zVrh4Gtq9s/9BnQETRKYZds
+         wfb4+C2mGXRl2qOVXP7kvcwaBUfUMdYfP4bBAJqO73fwENtqO5Vqtkpi8Nlj6RIOwgPx
+         Z7R9ViStjGu8YSS6na12BX1bi5fZ2aOGhciyzIcWhPxPVHnKywsmVtrhXlfYrerpAliW
+         OAOw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1770717308; x=1771322108; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=t12lxM+brFyq0KY7Nz/qV0/1FHoQ9NnONI3XMskNk5E=;
+        b=Lrw60HJD0O/qDsruRs+RA+frIxWkrSRwFhU3D6AK0G1p2t9VNUnsjv+7+X/eHi/WTR
+         KCn7oZe9Jarp2Z4NwT9DjELYhT68T5tCWIgkpqiyRfp/K+Q8gXLcPwDj6nXQyoLG9s70
+         C66O/oIkTweJqyr5PFp2mBHsJzuVoDwrtoDnQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770717308; x=1771322108;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=t12lxM+brFyq0KY7Nz/qV0/1FHoQ9NnONI3XMskNk5E=;
+        b=mabGz4VVwABbF6/v0fiX5NUUm/89WHgA8U6MbCH3uB6B1n25kZcn10LYePhxydyCWg
+         l2LLknBv0PChDMKCZWC65s3kX5jN5Uac2AN3JucqK3jWf510eNdtv3FW7RBaHPtEWctV
+         sVc8aeunvBcKOSsGL//8eD/jZdOis7yXmkDYaYxfCMfdvwJJWzJdMBBGUKmvIMKLdYm7
+         wCPG/9EJ8QOj6SqHkfm3ma0PBeZNiiHiYmTdb7sEu3L5veBd/1m0f4D1eR43MH4B20xV
+         lz1JrGQHT7D2PZCcE7Op8gI7IM9gMEMm8vQqFqLVgT7VlJR2xFDowxzCNwefhv8rywV4
+         l/5A==
+X-Forwarded-Encrypted: i=1; AJvYcCUgfzN78j/fEDJz2GgrUQtz8iQDHAP3h1XCj3ngyEk7mW3vfnBslllFhk5+OhiOAyZcWevMM2ULENzGI0zamXgf@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZ7PGspn/LHw3CvREZRxNvU18FHE0Y4C0JO4hx2LkEF+JT80X+
+	IUHR6KHBSjnCVOtCQKmAvi+aMnuOwNnEbO0qVKVOhsEHqRMnE+C307JPS+3Tk13HAKnOpUf/6TQ
+	XLE6lCM+I8MpkElD/ax7QzCb5lubWNNah0LOSu0KR
+X-Gm-Gg: AZuq6aJarWvfOC3N5b447ztm6qr3eBMSqFB+rzgrfGaJ1cxJ05i+7UtIuyndcJGtlNG
+	c1672gdcwvZM+29c0quV/anVDjH37TCt9qIfzjmCfyw2yrvODnaTraOyQHiy8Iv5Kj2cyh2b196
+	AenKv0FI8/ZYZ1C57SxjCySAh6BZTWppEKGuPNdtEvWvo4wZvYB2vFP/DhF6ZICmA5OJxkiSy9D
+	DDUpaSJTPosaKrtspvv/qMH6ADB01q/hJzCkle6zGiN00JX3NBy14z2HyHU2mDfmdlXhszH8xWU
+	Vj8VrWMB4d6vZKenv+lwfdP4xjcsBNMN3xEUdA==
+X-Received: by 2002:a05:6512:32c8:b0:59e:24e5:a3a5 with SMTP id
+ 2adb3069b0e04-59e55bd0c28mr479672e87.29.1770717308202; Tue, 10 Feb 2026
+ 01:55:08 -0800 (PST)
+MIME-Version: 1.0
+References: <20260210093333.5112-1-l.scorcia@gmail.com>
+In-Reply-To: <20260210093333.5112-1-l.scorcia@gmail.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Tue, 10 Feb 2026 17:54:57 +0800
+X-Gm-Features: AZwV_QhvCuo8DxUPuUh7S4r_8wwpmJqqu_YbBa1qxu1eyMYPq5mPl5vB5s7VIBQ
+Message-ID: <CAGXv+5Ep+YGsqZqWB3HXES07sFw8YtoTEPDxkq1yHQPJpFDTUw@mail.gmail.com>
+Subject: Re: [PATCH RFC] drm/mediatek: Remove all conflicting aperture devices
+ during probe
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 10 Feb 2026 10:54:04 +0100
-Message-Id: <DGB6VK7LC8N7.322SYGWZXPL5W@bootlin.com>
-Cc: "Nicolas Frattaroli" <frattaroli.nicolas@gmail.com>, "Liam Girdwood"
- <lgirdwood@gmail.com>, "Mark Brown" <broonie@kernel.org>, "Jaroslav Kysela"
- <perex@perex.cz>, "Takashi Iwai" <tiwai@suse.com>, "Heiko Stuebner"
- <heiko@sntech.de>, <linux-rockchip@lists.infradead.org>,
- <linux-sound@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <kernel@collabora.com>, <alexandre.belloni@bootlin.com>,
- <thomas.petazzoni@bootlin.com>
-To: "Detlev Casanova" <detlev.casanova@collabora.com>,
- <linux-kernel@vger.kernel.org>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: [REGRESSION] Re: [PATCH v1] ASoC: rockchip: i2s_tdm: Re-add the
- set_sysclk callback
-X-Mailer: aerc 0.20.1
-References: <20250117163102.65807-1-detlev.casanova@collabora.com>
-In-Reply-To: <20250117163102.65807-1-detlev.casanova@collabora.com>
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_015433_966944_C80F3B25 
-X-CRM114-Status: GOOD (  18.62  )
+X-CRM114-CacheID: sfid-20260210_015510_614498_CF6C4A5C 
+X-CRM114-Status: GOOD (  33.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,71 +118,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Detlev,
-
-On Fri Jan 17, 2025 at 5:31 PM CET, Detlev Casanova wrote:
-> In commit
-> 9e2ab4b18ebd ("ASoC: rockchip: i2s-tdm: Fix inaccurate sampling rates"),
-> the set_sysclk callback was removed as considered unused as the mclk rate
-> can be set in the hw_params callback.
-> The difference between hw_params and set_sysclk is that the former is
-> called with the audio sampling rate set in the params (e.g.: 48000 Hz)
-> while the latter is called with a clock rate already computed with
->   sampling_rate * mclk-fs (e.g.: 48000 * 256)
+On Tue, Feb 10, 2026 at 5:34=E2=80=AFPM Luca Leonardo Scorcia
+<l.scorcia@gmail.com> wrote:
 >
-> For HDMI audio using the Rockchip I2S TDM driver, the mclk-fs value must
-> be set to 128 instead of the default 256, and that value is set in the
-> device tree at the machine driver level (like a simple-audio-card
-> compatible node).
-> Therefore, the i2s_tdm driver has no idea that another mclk-fs value can
-> be configured and simply computes the mclk rate in the hw_params callback
-> with DEFAULT_MCLK_FS * params_rate(params), which is wrong for HDMI
-> audio.
+> If a device has a framebuffer available it might be already used as
+> display by simple-framebuffer or simpledrm when mediatek-drm is probed.
+> This is actually helpful when porting to a new device as
+> framebuffers are simple to setup in device trees and fbcon can be
+> used to monitor the kernel boot process.
 >
-> Re-add the set_sysclk callback so that the mclk rate is computed by the
-> machine driver which has the correct mclk-fs value set in its device tree
-> node.
+> When drm-mediatek loads a new fb device is initialized, however
+> fbcon remains attached to the initial framebuffer which is no longer
+> connected to the actual display - the early fb is never removed.
+>
+> We can gracefully transition from framebuffer handling to drm-managed
+> display by calling aperture_remove_all_conflicting_devices as we probe
+> mediatek-drm. This takes care of unloading other fb devices/drivers
+> and disconnects fbcon which then automatically reconnects to
+> mediatekdrmfb as soon as it's available.
+>
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+> ---
+> This patch has been tested on Xiaomi Mi Smart Clock, however
+> I'd like to get some feedback from more knowledgeable people,
+> especially about those points:
+> 1. Is aperture support on mtk-drm desired at all?
+> 2. mtk-drm does not know about the fb address therefore as far
+>    as I can see we can't use the more specific function
+>    aperture_remove_conflicting_devices. This means that all generic
+>    aperture drivers will be unloaded. It might not be a real world issue
+>    as I can't see why one might want to load mtk-drm while keeping
+>    other aperture  device drivers active, but my experience is very limit=
+ed.
 
-I'm afraid I just found this commit breaks audio capture on the RK3308.
+This is pretty much what all other platform drivers do. So that's fine.
 
-Using 'arecord -Vmono -d 2 -c 8 -f S16_LE -r 96000 /dev/null' I get:
+> Thanks!
+>
+>  drivers/gpu/drm/mediatek/mtk_drm_drv.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>
+> diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/med=
+iatek/mtk_drm_drv.c
+> index a94c51a83261..17e45b93fe49 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+> @@ -4,6 +4,7 @@
+>   * Author: YT SHEN <yt.shen@mediatek.com>
+>   */
+>
+> +#include <linux/aperture.h>
+>  #include <linux/component.h>
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+> @@ -1116,6 +1117,11 @@ static int mtk_drm_probe(struct platform_device *p=
+dev)
+>         if (!private->all_drm_private)
+>                 return -ENOMEM;
+>
+> +       /* Remove framebuffer owners, this will release fbcon if active *=
+/
+> +       ret =3D aperture_remove_all_conflicting_devices(DRIVER_NAME);
+> +       if (ret < 0)
+> +               dev_err(dev, "Failed to remove conflicting aperture devic=
+es (%d)", ret);
+> +
 
-  rockchip-i2s-tdm ff320000.i2s: ASoC error (-22): at snd_soc_dai_hw_params=
-() on ff320000.i2s
-   ff320000.i2s-rk3308-hifi: ASoC error (-22): at __soc_pcm_hw_params() on =
-ff320000.i2s-rk3308-hifi
+I believe this could be in mtk_drm_bind() just before drm_dev_register().
+The idea is you want to kick out the existing framebuffer as late as
+possible to reduce the time the screen is unresponsive.
 
-Tested on:
 
- * Radxa Rock Pi S
- * Upstream kernel
- * arm64 defconfig
+ChenYu
 
-Tested kernel versions:
-
- * v6.12 works
- * 5323186e2e8d (this commit) fails
- * 5323186e2e8d^ works
- * 21cfbeae7d7c (same patch on stable/linux-6.12.y) fails
- * 21cfbeae7d7c^ works
- * v6.19 fails
- * v6.19 + 'git revert 5323186e2e8d' works
-
-I don't have more information at the moment.
-
-> Fixes: 9e2ab4b18ebd ("ASoC: rockchip: i2s-tdm: Fix inaccurate sampling ra=
-tes")
-
-I'm the author of commit 9e2ab4b18ebd mentioned in the 'Fixes:' tag, so it
-would have been good to Cc me. I would have had the option of testing your
-patch and this regression could have been solved before getting in
-mainline. I think b4 does it automatically (and perhaps get_maintainers
-with appropriate flags).
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+>         /* Bringup ovl_adaptor */
+>         if (mtk_drm_find_mmsys_comp(private, DDP_COMPONENT_DRM_OVL_ADAPTO=
+R)) {
+>                 ovl_adaptor =3D platform_device_register_data(dev, "media=
+tek-disp-ovl-adaptor",
+> --
+> 2.43.0
+>
+>
 
