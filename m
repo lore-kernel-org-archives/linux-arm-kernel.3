@@ -4,91 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D9AEA3F2A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 09:10:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D85EA3F2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 09:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yf16a2cU+FS9KHXqo5I7X1GXUmDNyHD8tmwS7pIzZc4=; b=VNMXlk4SS7VTcOd1ErymFkfRF1
-	pyDuJQ4nTdnevCSQpHL9uf5w/SK5K69Wg4lGpbGtICz67xuLqxNEPXCCZyI1Sfu+WakDqsC5tHtO7
-	sQ6oFKIxF7vWYAfnTTyatOfAYMEg50fXsIcOqzhTte5vGAR/yzwycIREyxDxBRhJGquQe4LQJ8eOm
-	7DlsfeEGZGEIytz9scUVtosNqx9Tic8l50bQnB7Zr/6bns3LLBR4dNDg4NONpfMh2YOcQEyAOXmTH
-	D/XYid9NTJODT1EP95g6Io3KkAusrzXOSP/J8QKSP6hxianeU8tb3zGtX63zmuBVFMHyBBoKHkZez
-	VaPUrwxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=szkXnntPPaw/iZii5G+5XATrzVuI/KG7DFWma9HeAR8=; b=xg9KMKXDMloqThxPMf8S7blSLf
+	cFElZn4DT4xpz8ZVOZDbOVsVsbN007cVjmfACoXy1XAQJCoQo/7TFRPJG4FEAwZr3J8HT91sakBsr
+	1l/mAEg1Vc2bhjuM8Oy2sf0P+nBVlbgObzZLKJsaX/2/63+Z4a9YZj6qicaqekmcDkbLdWp10VpK3
+	Maf2uRtfkv9iNwxev2UjmBJBfSsQ6wq2r9yIoaZZYWoDfbsEyVgKVV5U1nBBqVxX4tGDXHJesCfp5
+	wOqt1lIAwl925nTwR+0FMRriQ4PXAul1gyw/MvY0DX/NPkMtK/YxaAKGSJjKcXoAB/YCC5UvtWv6h
+	7YPPckkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpjlc-0000000GjKL-376x;
-	Tue, 10 Feb 2026 09:10:44 +0000
-Received: from mail-m1973194.qiye.163.com ([220.197.31.94])
+	id 1vpjmy-0000000Gjbj-1zXD;
+	Tue, 10 Feb 2026 09:12:08 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpjlZ-0000000GjJV-2ILn;
-	Tue, 10 Feb 2026 09:10:43 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 33b9824fc;
-	Tue, 10 Feb 2026 17:10:31 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	inki.dae@samsung.com,
-	sw0312.kim@samsung.com,
-	kyungmin.park@samsung.com,
-	krzk@kernel.org,
-	alim.akhtar@samsung.com,
-	jingoohan1@gmail.com,
-	p.zabel@pengutronix.de,
-	hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	dmitry.baryshkov@oss.qualcomm.com,
-	dianders@chromium.org,
-	m.szyprowski@samsung.com,
-	luca.ceresoli@bootlin.com,
-	jani.nikula@intel.com,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v9 14/15] drm/bridge: analogix_dp: Remove bridge disabing and panel unpreparing in analogix_dp_unbind()
-Date: Tue, 10 Feb 2026 17:10:23 +0800
-Message-Id: <20260210091024.2732369-1-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260210071225.2566099-1-damon.ding@rock-chips.com>
-References: <20260210071225.2566099-1-damon.ding@rock-chips.com>
+	id 1vpjmv-0000000GjZw-3Y0p;
+	Tue, 10 Feb 2026 09:12:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=szkXnntPPaw/iZii5G+5XATrzVuI/KG7DFWma9HeAR8=; b=n05Y8xfYet9S8xJDuQsHgj4piC
+	ee31Csk//iNiTDywJaIpqYXUvQ1SJRh38fr4nArhiXJmu2Bxg+ZrTfhmm4+hm6vRg1pLoQ5T9zFT3
+	Bag9chsy4wtvp96lUZJByvC/yHFR0FIaqc4sk1OMqvWUTAEN7ABPrHqByNSGHlei6sPV7cuCO/A+t
+	4g/camxqrL4zVki8U7vMgru7o76RUR0ArIzD9aKRvYFEETI7bNFC242KXZltxjwYsrV+sQdJHtUlg
+	FbVIrjbUEvl8UxF+4RNRk812Tl7QORBWBT+tbUPMOVnn9DC/Gnvl6Um683Cpq/9zguhmxY3m0e9yt
+	Cb4BAFFg==;
+Received: from authenticated user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.94.2)
+	(envelope-from <leitao@debian.org>)
+	id 1vpjmc-00A9cQ-D8; Tue, 10 Feb 2026 09:11:46 +0000
+Date: Tue, 10 Feb 2026 01:11:41 -0800
+From: Breno Leitao <leitao@debian.org>
+To: akpm@linux-foundation.org, bhe@redhat.com
+Cc: linux-kernel@vger.kernel.org, kexec@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, dyoung@redhat.com, 
+	tony.luck@intel.com, xueshuai@linux.alibaba.com, vgoyal@redhat.com, 
+	zhiquan1.li@intel.com, olja@meta.com, kernel-team@meta.com
+Subject: Re: [PATCH v2 0/2] vmcoreinfo: Expose hardware error recovery
+ statistics via sysfs
+Message-ID: <aYr154HW4IiIw3PH@gmail.com>
+References: <20260202-vmcoreinfo_sysfs-v2-0-8f3b5308b894@debian.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9c46d10cb403a3kunm0d7fbd00b0725f
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUtOHVZDH09DQ0oYTEtLGkpWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=GZ5a1o4NAz0MOQLqXoDZBO9ZxZH9BQwn36FngQk5s1emKikHo2Hky7qZKyPrQwpv4WtqXlonehi508V9mPfrvof+Vi10bqbjUID8fNUTqVe4/09pNKjqGT4kW4a86PkG07SyfIrzUJ6zLGUkzhEvCT72LfHDE0fFvuEEWYkO2rY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=yf16a2cU+FS9KHXqo5I7X1GXUmDNyHD8tmwS7pIzZc4=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260202-vmcoreinfo_sysfs-v2-0-8f3b5308b894@debian.org>
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_011042_083944_76A1A7C9 
-X-CRM114-Status: UNSURE (   7.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260210_011205_885946_C6132357 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,40 +74,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The analogix_dp_unbind() should be balanced with analogix_dp_bind().
-There are no bridge enabling and panel preparing in analogix_dp_bind(),
-so it should be reasonable to remove the bridge disabing and panel
-unpreparing in analogix_dp_unbind().
+Hello Andrew,
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Tested-by: Heiko Stuebner <heiko@sntech.de> (on rk3588)
+On Mon, Feb 02, 2026 at 06:27:38AM -0800, Breno Leitao wrote:
+> The kernel already tracks recoverable hardware errors (CPU, memory, PCI,
+> CXL, etc.) in the hwerr_data array for vmcoreinfo crash dump analysis.
+> However, this data is only accessible after a crash.
+>
+> This series adds a sysfs directory at /sys/kernel/hwerr_recovery_stats/ to
+> expose these statistics at runtime, allowing monitoring tools to track
+> hardware health without requiring a kernel crash.
+>
+> The directory contains one file per error subsystem:
+>   /sys/kernel/hwerr_recovery_stats/{cpu, memory, pci, cxl, others}
+>
+> Each file contains a single integer representing the error count.
+>
+> This is useful for:
+> - Proactive detection of failing hardware components
+> - Time-series tracking of recoverable errors
+> - System health monitoring in cloud environments
 
------
+Is there a chance this could be included in the 6.20 merge window?
 
-Changes in v9:
-- Add Tested-by tag.
----
- drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 4 ----
- 1 file changed, 4 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index a6c5601e16ff..7e3e9d4f4ea2 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -1526,10 +1526,6 @@ EXPORT_SYMBOL_GPL(analogix_dp_bind);
- 
- void analogix_dp_unbind(struct analogix_dp_device *dp)
- {
--	analogix_dp_bridge_disable(&dp->bridge);
--
--	drm_panel_unprepare(dp->plat_data->panel);
--
- 	drm_dp_aux_unregister(&dp->aux);
- }
- EXPORT_SYMBOL_GPL(analogix_dp_unbind);
--- 
-2.34.1
-
+Thanks,
+--breno
 
