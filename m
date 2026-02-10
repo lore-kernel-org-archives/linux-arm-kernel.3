@@ -4,113 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A14C4E94626
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 00:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4432AE94626
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 00:39:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bf5IdcegF6twrrNNR7clze4xkdFwkIRE6sG++xaVg4U=; b=VFOHoNbnvFV5XBo08yBgPINPtb
-	98/+GKaTFIBxPQXm4OMTQkPd4/KWPx0nd11DlxXwP9ofEDtLBAWLy9e5lgv12JMbyY92TMr/7Yxil
-	LZcmD+oEGza2lDZdAEIFspqitoXbYy/UJcFcZ9kHWn7AncP2hV647sqxS60EWSSWjX0m8Kap5WXfv
-	rSJDeHSw26Teec4OcubZJEoGZIyOHtJOQTAZ3puweF+p+2V9JYCOz7PQ40XM0Pl4EMB8rEQKg9Shu
-	kLlZ+gb5s7kZwV36QSTr9rmeODuXNV+h61r2rBp2eVarfn6ufWpG/yswKvGyZaHqa8FXTyUqAGftt
-	3SQN8ksA==;
+	bh=qLzFv/iaTtm6O5tzZ+GpAratMNjp1TNVZjLH5IvnkwY=; b=MIg8LB7ipzN0eknm3ehb+gq8s/
+	SQv3pfduPxAtEkj4R/zT5q3uilBKj26HldXBTl+9pO1VU/dmHRJ4Tku+5RJXWkgYJh0pYxRFGwm3S
+	NeBsOZfQ7nKsse1Usn0Iq2UQA6y070ur+b3Fc4unkjZ64sMHh72JT+aRe0fSU3eUSZPk1MvwZrrKh
+	hV56mXYCcSsHl8YlMhaGXO1IPmkKXDba12e0TWssyUMlYyo2CjQxtQoLW8rectxuG6tNPZ+/GVCnc
+	tne5Ix4IyWy5IIY2tbVLLG6imyOvb/oZbvlNSRNOVVi7+t0sm+/zftjYudHh9sIFkZyBaweep9aYF
+	gOf6I1sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpbmb-0000000GEbJ-1li5;
-	Tue, 10 Feb 2026 00:39:13 +0000
-Received: from mail-oo1-xc2e.google.com ([2607:f8b0:4864:20::c2e])
+	id 1vpbnA-0000000GEfS-3CYg;
+	Tue, 10 Feb 2026 00:39:48 +0000
+Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpbmY-0000000GEao-3mgJ
+	id 1vpbn5-0000000GEeQ-0g2f
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 00:39:12 +0000
-Received: by mail-oo1-xc2e.google.com with SMTP id 006d021491bc7-66f343a30ddso1200793eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Feb 2026 16:39:10 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770683949; cv=none;
-        d=google.com; s=arc-20240605;
-        b=SXx3LCd74QmpdE86tqlFE07hSE6kCN1HmsyBZwSUQ72qOoSMOlqnpNZLVmxp2y4vc/
-         5r4/ZGiV+PfHPa6MMvsLk+JZCVELutYTwUfkPFdiDI/CMDRTv69f5oZkvkwTdY562OYt
-         pB1l7YJwal3nIGFfH2mk+OTA1XKRb4riOdY4JTQYD+xmx99v+xjiErwbzbEVMREjoDkA
-         //UQG8dZde6lVijvSB2RtZRpMSBflDnOv6Eln3BFcwZiwj5u1ihDUrQDDFFzidtReSQb
-         vzyB1TwMNufKpL0pp8kgZPgj6u25TsZw2Ghup/YoAmyLcEWDJ8xGFYrwzvbP5IB8oLQG
-         yJ2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Bf5IdcegF6twrrNNR7clze4xkdFwkIRE6sG++xaVg4U=;
-        fh=ReK487gLV3BuFQQQ+HgoZtKzLk1/BsjRnLTN9LbmwzQ=;
-        b=FsXW+HX5lYk4zQ/bhVh+iq/4GFr4hr4u/qI7g3GGaWZNiavgzx4pb2gX9BSVboZ7Q7
-         Sl/exWlG3oxZiCqc62AWewsNDqlmrdz6rfvSlLa7ay8Eo5mCe+l9U7nwVLvp0fOL1KXq
-         n1+UkRT2bCSNlpnPETMPv9YRIDhKgKU0XbF4MGmwevcyCblvtAXQBhowZERVSVQgZkae
-         yitFQtaxFzpPjWvYGG39evZ9lJgJIaz85GvHGa5K9f0bwsoxwTVZspmsJC8w5JYcxnXG
-         9rXHwSrxLNLVplY+WzqDiG/AyGBohlm8PwJBNyGDhX7f5R4WBoMu9j/4e3/iDSa3Pwgo
-         KBOw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 10 Feb 2026 00:39:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770683949; x=1771288749; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Bf5IdcegF6twrrNNR7clze4xkdFwkIRE6sG++xaVg4U=;
-        b=XkgVJP4ne9a04a0iUWYBkCNEwMulMywdws9BdLT/frCzraDMoG3QOwUs9NXHhqRZLm
-         pPJ6oDNTN5D1xStoZ0hbP6LN61B9gfk+6hekfOJKSdwzvImb4qAw/JvQkcmG2trBEx7s
-         XViQoxb74UX1e/9JQP6tP7vVR8emkRGLc8QXlMcPLqR8DsCz1ZidBjtblSYXKdUTV7/m
-         1kOpLNyNJa2eUXkOmTd6vxr+U+cUTBj4F57hffqFppcKzi43uRNUQpgkz8Nf6VzELU0S
-         edbVWDL8JKKtGL44/2Uux5J2TPZVNEXQyYEbakD9NkSvBeFHUwzkXlTuH7GlPeVuyfqu
-         zEvA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770683949; x=1771288749;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Bf5IdcegF6twrrNNR7clze4xkdFwkIRE6sG++xaVg4U=;
-        b=WLBRFGIIrxGGGCRt4yZ5XvWfy2FcXBMdHRqN8uzzXQWElnPYDbF3DOok+Qh8DxvWRk
-         yjhFB5pZBnPwVz2axHrhVI3naEDAMBKpvZ77hXIQe6oz359A4HuFXc/JKNIsIJHF3y1s
-         miDQlTcaDhSjQ5whjwsyBX6ufOQgMDxzJaOqJX4R2T/vZx87R1W8WdzqTKBs/ymmjnbC
-         36kFJJf5HIAy2glVNDPAQQOp3qwmCAms9nUt4xiuZjonyjeFkz7XyNNoOH8RYeBsJfDS
-         BHKR4Ov8WJfrcjoCgZBko6FLBH/3x+QW9Q18UA0Gw0DAAIskPrXU4DXgg9QPaPkoZOn1
-         TOAw==
-X-Forwarded-Encrypted: i=1; AJvYcCUdu1I8+mVbSZgrjz4r1bH3+hyx2wpc3jM5gArI1csEzcVl5InJPr82qt9MPbTfUQh8s4e1pMGTtXE1vH7BVs2q@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjfAzba/VcFI+zkWrsU9z7SrA7d4nbGgv8k/e3rFizRYOCTOOG
-	1WnlwaECMF7hUmtqx2AJLwcHFyqaJWaHkz1b4d5DB72j4iFXhAjSpjHPFCBQyW+yLs1EFP3/5ji
-	HpK6jhNlNlrIGdHMypVFehjnRRkUd0GE=
-X-Gm-Gg: AZuq6aLuM5lfH6I6oAab7UhB16oDiF9FG2YkffKw4rm0+3M82KM7CiP9v+SGoBBtE+d
-	d8rW6R/MVBjy78CDW4/4hjXhJZKZ+eLJwNRSTMQHQeIvjptEyWAD3WQhz9W6DQcKWauGLxkjbQC
-	cIw5wrHEOYbhGa/ndDiDRib61OT0BBo5Nopj/dV43Wvwzif7bfh9uDo/Oc22O2xbKcUTxSvO6Ck
-	ouUsxKjO6OEM3Fa7zAEsp9GMolbzXSniZiGh1crRw5z4KlmdNLdUf3b/8d3qtbDZWSFTAcVZXa6
-	ZEXYMfdI
-X-Received: by 2002:a4a:e908:0:b0:65b:257b:a898 with SMTP id
- 006d021491bc7-66d32fdac10mr3465078eaf.29.1770683949518; Mon, 09 Feb 2026
- 16:39:09 -0800 (PST)
+	d=linux.alibaba.com; s=default;
+	t=1770683978; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=qLzFv/iaTtm6O5tzZ+GpAratMNjp1TNVZjLH5IvnkwY=;
+	b=xkkAwuUOCWb0HtaYj3FZjc+9UyDITjc7u0w4eY++55f2XfizR6Kg63lKeuRRjCRJwtCxJbQRpjceV3zuyar8WU93SrAlZqargE0Y4xmoCTpwtuIU4jHdNAK3KZbCdPbqKybWHHfVmpf2K/rk2No8nagPBTLbEBnTIaLvkFy7WJQ=
+Received: from 30.74.144.109(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0Wyx2lhG_1770683976 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 10 Feb 2026 08:39:36 +0800
+Message-ID: <48e27f5e-d47a-4d53-bc64-6c6a22db9180@linux.alibaba.com>
+Date: Tue, 10 Feb 2026 08:39:35 +0800
 MIME-Version: 1.0
-References: <20260208040240.1971442-1-dianders@chromium.org> <20260207200128.v2.1.I600d04c0553f5c5ba39c2f92201da313aedfe746@changeid>
-In-Reply-To: <20260207200128.v2.1.I600d04c0553f5c5ba39c2f92201da313aedfe746@changeid>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Mon, 9 Feb 2026 18:38:58 -0600
-X-Gm-Features: AZwV_QhZe5s2jbJJnfFS4JALRsv_5-7Jio6ijB129QGrcufx887IYcSq_3ToyAU
-Message-ID: <CABb+yY2GbPcuPiVsE_-HCS8MbpBqvjgjDkoVLNSBDZq1bnfpEw@mail.gmail.com>
-Subject: Re: [PATCH v2 01/15] mailbox: Deprecate NULL mbox messages; Introduce mbox_ring_doorbell()
-To: Douglas Anderson <dianders@chromium.org>
-Cc: Frank.Li@nxp.com, andersson@kernel.org, arm-scmi@vger.kernel.org, 
-	cristian.marussi@arm.com, festevam@gmail.com, imx@lists.linux.dev, 
-	jay.buddhabhatti@amd.com, jonathanh@nvidia.com, kernel@pengutronix.de, 
-	konradybcio@kernel.org, krzk@kernel.org, lenb@kernel.org, 
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-remoteproc@vger.kernel.org, linux-tegra@vger.kernel.org, 
-	mathieu.poirier@linaro.org, michal.simek@amd.com, nm@ti.com, 
-	rafael@kernel.org, robh@kernel.org, s.hauer@pengutronix.de, 
-	shawn.guo@linaro.org, ssantosh@kernel.org, sudeep.holla@kernel.org, 
-	tglx@kernel.org, thierry.reding@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 4/5] arm64: mm: implement the architecture-specific
+ clear_flush_young_ptes()
+To: "David Hildenbrand (Arm)" <david@kernel.org>, akpm@linux-foundation.org,
+ catalin.marinas@arm.com, will@kernel.org
+Cc: lorenzo.stoakes@oracle.com, ryan.roberts@arm.com,
+ Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com,
+ mhocko@suse.com, riel@surriel.com, harry.yoo@oracle.com, jannh@google.com,
+ willy@infradead.org, baohua@kernel.org, dev.jain@arm.com,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1770645603.git.baolin.wang@linux.alibaba.com>
+ <ce749fbae3e900e733fa104a16fcb3ca9fe4f9bd.1770645603.git.baolin.wang@linux.alibaba.com>
+ <10f061c9-5c9a-4e8a-8790-a2a68b38ff33@kernel.org>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <10f061c9-5c9a-4e8a-8790-a2a68b38ff33@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_163910_946325_93D62135 
-X-CRM114-Status: GOOD (  15.42  )
+X-CRM114-CacheID: sfid-20260209_163944_354995_DE7769D1 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,48 +73,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Douglas,
 
-On Sat, Feb 7, 2026 at 10:04=E2=80=AFPM Douglas Anderson <dianders@chromium=
-.org> wrote:
-> @@ -249,6 +255,28 @@ int mbox_send_message(struct mbox_chan *chan, void *=
-mssg)
->         if (!chan || !chan->cl)
->                 return -EINVAL;
->
-> +       /*
-> +        * The mailbox core gets confused when mbox_send_message() is cal=
-led
-> +        * with NULL messages since the code directly stores messages in
-> +        * `active_req` and assumes that a NULL `active_req` means no req=
-uest
-> +        * is active. This causes the core to call the mailbox controller=
- a
-> +        * second time even if the previous message hasn't finished and a=
-lso
-> +        * means the client's tx_done() callback will never be called. Ho=
-wever,
-> +        * clients historically passed NULL anyway. Deprecate passing NUL=
-L
-> +        * here by adding a warning.
-> +        *
-> +        * Clients who don't have a message should switch to using
-> +        * mbox_ring_doorbell(), which explicitly documents the immediate
-> +        * sending of doorbells, the lack of txdone, and what happens if =
-you
-> +        * mix doorbells and normal messages.
-> +        *
-> +        * TODO: when it's certain that all clients have transitioned, co=
-nsider
-> +        * changing this to return -EINVAL.
-> +        */
-> +       if (!mssg)
-> +               dev_warn_once(chan->mbox->dev,
-> +                             "NULL mailbox messages are deprecated\n");
->
-Nit: maybe  "NULL mailbox messages are deprecated, use
-mbox_ring_doorbell instead" ?
 
-Thanks,
-Jassi
+On 2/9/26 11:30 PM, David Hildenbrand (Arm) wrote:
+> On 2/9/26 15:07, Baolin Wang wrote:
+>> Implement the Arm64 architecture-specific clear_flush_young_ptes() to 
+>> enable
+>> batched checking of young flags and TLB flushing, improving 
+>> performance during
+>> large folio reclamation.
+>>
+>> Performance testing:
+>> Allocate 10G clean file-backed folios by mmap() in a memory cgroup, 
+>> and try to
+>> reclaim 8G file-backed folios via the memory.reclaim interface. I can 
+>> observe
+>> 33% performance improvement on my Arm64 32-core server (and 10%+ 
+>> improvement
+>> on my X86 machine). Meanwhile, the hotspot folio_check_references() 
+>> dropped
+>> from approximately 35% to around 5%.
+>>
+>> W/o patchset:
+>> real    0m1.518s
+>> user    0m0.000s
+>> sys    0m1.518s
+>>
+>> W/ patchset:
+>> real    0m1.018s
+>> user    0m0.000s
+>> sys    0m1.018s
+>>
+>> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+>> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+>> ---
+>>   arch/arm64/include/asm/pgtable.h | 11 +++++++++++
+>>   1 file changed, 11 insertions(+)
+>>
+>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/ 
+>> asm/pgtable.h
+>> index 3dabf5ea17fa..a17eb8a76788 100644
+>> --- a/arch/arm64/include/asm/pgtable.h
+>> +++ b/arch/arm64/include/asm/pgtable.h
+>> @@ -1838,6 +1838,17 @@ static inline int ptep_clear_flush_young(struct 
+>> vm_area_struct *vma,
+>>       return contpte_clear_flush_young_ptes(vma, addr, ptep, 1);
+>>   }
+>> +#define clear_flush_young_ptes clear_flush_young_ptes
+>> +static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
+>> +                     unsigned long addr, pte_t *ptep,
+>> +                     unsigned int nr)
+>> +{
+>> +    if (likely(nr == 1 && !pte_cont(__ptep_get(ptep))))
+> I guess similar cases where we should never end up with non-present ptes 
+> should be updated accordingly.
+> 
+> ptep_test_and_clear_young(), for example, should never be called on non- 
+> present ptes.
+
+Yes. I already adrressed this in my follow-up patchset.
+
+> Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+
+Thanks.
 
