@@ -4,71 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91F06EB26E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 16:26:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D856EB26E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 16:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Je/5SAjKXUkI73lR7788g2aEvJPINff3OdEpueGEboQ=; b=T/yqLiDjlG11Fu15dyo8BcjmJM
-	Zi1XCcFw0OsXSX9uTtqTKXxdl9bjJAdnyCpu6FRrA81Wd7+lcgXW1+1Tr0B63ncJYmy/U1+HhVYZO
-	rb0Zxm8vAqYPT056owS/ZDt1ZzvB8ok3Mzp21EoH2B7tgT6D0qTtifkotLh6rQvr8/1reo2x2NsxV
-	DFXN1Q8H2Sc4x+aO9vLA2mYLPW84TgtCGbiwp9Gw332sYQY0tXDA8368LBYD1TThRNsrvBNKThhDb
-	iU5v9sbOLVzk595wHa81xkPsIrBFIYWar7TOeggPM/yMd1kudKgsq90w/Pe5XwqokufXyQyr7NPOt
-	7dZ8n5kA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nAVsEo8GmnBUTthGDjzzMOFlPvlLeck1eI358Mycbwo=; b=nRh9RyslQ2BD9R7uJ0lOA4EYZa
+	spiARWkvtk0mNWIEbLzhP3tx1oFtHvtPmSiE5T+wsKMdGVxKtrS7+Yux4L75lzOCLWutgGk1InzQg
+	o0y+8N1vHsgkS+lrZpwYMMjcLLm4ajMCxMZl5rLJMBTN9DSiWHLZ/Au4bECTme9zu+ECDumg6DfFG
+	SXlYEcu1M27Hiw1y7QTrEdlmUjszyL0B2KHckUfFkcfLlt+wQDAGApRTCur4V3ytwAcclxy6Kbpk/
+	dFGJOPmt/sCvVM5ld1UVB6UWPYFOfhKGGKUleES5NZbmZfq7dfn9nj2Gfpjme2Nd9nhHCt5lqlqbF
+	TltGobxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqYm-0000000HEKZ-3bFx;
-	Tue, 10 Feb 2026 16:25:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vpqaz-0000000HEaR-429R;
+	Tue, 10 Feb 2026 16:28:13 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqYj-0000000HEJg-3tvf;
-	Tue, 10 Feb 2026 16:25:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 325784397B;
-	Tue, 10 Feb 2026 16:25:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CD6EC116C6;
-	Tue, 10 Feb 2026 16:25:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770740753;
-	bh=/wir6iRl8M3VhbZ6x9JgtCsgH2vMDZx9252IMDQzJsc=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
-	b=HFM5+JoqsgG77iBMdOdDaGUaChBd4DkaiTuxtcwCNXsOJlfZxNiH7/xA2FGKMMEkt
-	 MdHFy/GjglpYvsoYBTKpLaMiw79YJbgRsBHLZltR7qorARTdCNYI55I3pJgBoPZVbR
-	 cF7DnyR0+nlwofqcqiaTYbYadSWXlNUWHkiJCopxrOkTR1N7nwKupyGLAyjdHeZ7d1
-	 ZfIatV62Ll4VjNbqYwn1sbWTvXfHCX0r8BTOmLGXC7W07YcquXNNnsqawQjoLPvoaQ
-	 ucgrKp3k4VqAHalOM+5w6u+ZVmSG7tOhe1fnmV3HieUjSTDKLRW3pqG1gWDDfAyDO1
-	 P2yz7cUfkHs+A==
-Message-ID: <f3f44bc5186c0b6f9ddeeae21809cef1@kernel.org>
-Date: Tue, 10 Feb 2026 16:25:50 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>
-Subject: Re: [PATCH v7 22/22] drm/bridge: Document bridge chain format
- selection
-In-Reply-To: <20260121-color-format-v7-22-ef790dae780c@collabora.com>
-References: <20260121-color-format-v7-22-ef790dae780c@collabora.com>
-Cc: amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, "Alex
- Deucher" <alexander.deucher@amd.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Andy
- Yan" <andy.yan@rock-chips.com>, =?utf-8?b?Q2hyaXN0aWFuIEvDtm5pZw==?= <christian.koenig@amd.com>, "David
- Airlie" <airlied@gmail.com>, "Dmitry Baryshkov" <lumag@kernel.org>, "Harry
- Wentland" <harry.wentland@amd.com>, =?utf-8?b?SGVpa28gU3TDvGJuZXI=?= <heiko@sntech.de>, "Jani
- Nikula" <jani.nikula@linux.intel.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Jonas
- Karlman" <jonas@kwiboo.se>, "Jonathan Corbet" <corbet@lwn.net>, "Joonas
- Lahtinen" <joonas.lahtinen@linux.intel.com>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Leo
- Li" <sunpeng.li@amd.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime
- Ripard" <mripard@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Rob
- Herring" <robh@kernel.org>, "Robert Foss" <rfoss@kernel.org>, "Rodrigo
- Siqueira" <siqueira@igalia.com>, "Rodrigo Vivi" <rodrigo.vivi@intel.com>, "Sandy
- Huang" <hjc@rock-chips.com>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Simona
- Vetter" <simona@ffwll.ch>, "Thomas Zimmermann" <tzimmermann@suse.de>, "Tvrtko
- Ursulin" <tursulin@ursulin.net>
-Content-Transfer-Encoding: 7bit
+	id 1vpqaw-0000000HEZa-2XLN
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Feb 2026 16:28:12 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 4EA0E3E712;
+	Tue, 10 Feb 2026 16:28:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1770740887; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nAVsEo8GmnBUTthGDjzzMOFlPvlLeck1eI358Mycbwo=;
+	b=ugm4qDQznhpOWKcyUIGTZHtVYaZM8SCUGsqKfy9U/oNutiefPjZuYeJJXouvdFS1PIC5dp
+	VG1duQEusSsTFBYwaCgQ8LXedBEGI7GyrQ6CIQzkqp7oRXVY7UXfSITUO7KYjAMOc7OKRQ
+	QtWWzB7mD7098ykplzK4zz4LJmSIJ18=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1770740887;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nAVsEo8GmnBUTthGDjzzMOFlPvlLeck1eI358Mycbwo=;
+	b=b7YKrMfvHozmd7LuRgInoCwFe/lFsljMEz8EVUYTaWY88c//gKTkKWgSfxZROXObFqB/MQ
+	2EOa+bGorSnHLYAQ==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=ugm4qDQz;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=b7YKrMfv
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1770740887; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nAVsEo8GmnBUTthGDjzzMOFlPvlLeck1eI358Mycbwo=;
+	b=ugm4qDQznhpOWKcyUIGTZHtVYaZM8SCUGsqKfy9U/oNutiefPjZuYeJJXouvdFS1PIC5dp
+	VG1duQEusSsTFBYwaCgQ8LXedBEGI7GyrQ6CIQzkqp7oRXVY7UXfSITUO7KYjAMOc7OKRQ
+	QtWWzB7mD7098ykplzK4zz4LJmSIJ18=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1770740887;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nAVsEo8GmnBUTthGDjzzMOFlPvlLeck1eI358Mycbwo=;
+	b=b7YKrMfvHozmd7LuRgInoCwFe/lFsljMEz8EVUYTaWY88c//gKTkKWgSfxZROXObFqB/MQ
+	2EOa+bGorSnHLYAQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 352B73EA62;
+	Tue, 10 Feb 2026 16:28:07 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id WTtZDJdci2nYdwAAD6G6ig
+	(envelope-from <dwagner@suse.de>); Tue, 10 Feb 2026 16:28:07 +0000
+Date: Tue, 10 Feb 2026 17:28:02 +0100
+From: Daniel Wagner <dwagner@suse.de>
+To: Keith Busch <kbusch@kernel.org>
+Cc: Christoph Hellwig <hch@lst.de>, Yu Kuai <yukuai@fnnas.com>, 
+	axboe@kernel.dk, sagi@grimberg.me, sven@kernel.org, j@jannau.net, 
+	linux-block@vger.kernel.org, linux-nvme@lists.infradead.org, tj@kernel.org, 
+	nilay@linux.ibm.com, ming.lei@redhat.com, neal@gompa.dev, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/4] nvme-apple: move blk_mq_update_nr_hw_queues after
+ nvme_unfreeze
+Message-ID: <f3451ddd-96b6-4bc1-9d4c-964e361d56fc@flourine.local>
+References: <20260209082953.3053721-1-yukuai@fnnas.com>
+ <20260209082953.3053721-4-yukuai@fnnas.com>
+ <20260209145832.GC18315@lst.de>
+ <aYn-xwFHCpd7sITJ@kbusch-mbp>
+ <e3e7d95b-2712-4365-922d-731449e7193a@fnnas.com>
+ <aYtKFNm-wRKn6l66@kbusch-mbp>
+ <20260210154108.GB2484@lst.de>
+ <aYtWSscg6L9xxlzc@kbusch-mbp>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aYtWSscg6L9xxlzc@kbusch-mbp>
+X-Spamd-Result: default: False [-4.51 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	MISSING_XM_UA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[15];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+]
+X-Rspamd-Queue-Id: 4EA0E3E712
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_082554_832367_D0B6B197 
-X-CRM114-Status: UNSURE (   5.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260210_082810_927359_63CD4476 
+X-CRM114-Status: GOOD (  20.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,17 +146,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 21 Jan 2026 15:45:29 +0100, Nicolas Frattaroli wrote:
-> The bridge chain format selection behaviour was, until now,
-> undocumented. With the addition of the "color format" DRM property, it's
-> not sufficiently complex enough that documentation is warranted,
-> especially for driver authors trying to do the right thing.
-> 
-> 
-> [ ... ]
+On Tue, Feb 10, 2026 at 09:01:14AM -0700, Keith Busch wrote:
+> On Tue, Feb 10, 2026 at 04:41:08PM +0100, Christoph Hellwig wrote:
+> > On Tue, Feb 10, 2026 at 08:09:08AM -0700, Keith Busch wrote:
+> > > If you leave the queue quiesced, pending IO will form requests that are
+> > > entered and waiting in the block layer. You can't freeze a queue with
+> > > entered requests.
+> > > 
+> > > We unquiesce first to flush any pending IO that had entered during the
+> > > prior reset. It's not the best way to handle this situation. It would be
+> > > smarter to steal the bio's from all the entered requests, then end those
+> > > requests, then resubmit the bios after the hw queues are initialized. We
+> > > don't do that because no one's really complained, probably because the
+> > > queue counts don't usually change after a reset.
+> > 
+> > FYI, Daniel Wagner had been thinking about doing this reinsert for
+> > something (I forgot what exactly),
 
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
+This feature would solve a tricky problem with isolation patches:
 
-Thanks!
-Maxime
+https://lore.kernel.org/linux-nvme/87cy7vrbc4.ffs@tglx/
+
+Currently, it's not possible to take the cpu hotplug lock which would
+prevent races in the cpu-queue mapping. The current logic depends on
+making progress in the error case. If it would be possible to fail the
+in-flight request in the error handler and reinsert them in the block
+layer, progress could be guaranteed when holding the cpu hotplug lock.
+
+Unfortunatly, haven't found time to implement and test this idea so far.
+Sorry.
 
