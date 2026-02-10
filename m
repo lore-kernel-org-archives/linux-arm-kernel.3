@@ -4,99 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CF0DEB26ED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 17:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ACFBEB26ED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 17:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1yt7+9/hWhwW7RRIAMqogVfC82dE8WQORTOA0VWGyLk=; b=NZD3YDuoxrVuhqSHMfM/LSId/S
-	G8sGN0uiq0JU8WnaLK8WmG+FnnqrJXmlQ2uBJdPlM98uDRkMm9tltZAcXTeSqvPUhZ1hsKj9iLWET
-	48gEFaa5DczxabfqPnhfT47Xc6TVVqS7brPgD3s+EN9DeLN/+DkApQ2PbrJmeuvvUQDXpgJcPgeG3
-	cBLm6rJ7/gFCHwWSGJD5sf8xu7OImea3SDQtBWZuxQjyeP+j9e2oGDrgb68mVkvgWEs/rsGE8fwBt
-	9JP8i0zhASCA2L7maaONxA0wZCJrNxKQR76EtxTm0vBdVYrz2toMpe72WXHDa7x6STGOAoEeWxLMZ
-	6eIr1YQw==;
+	bh=bX2DQRbalsF8Wb/C8iJmTAngSv9xluSkqN2qTxXuKAw=; b=juTHwd9s2DcnJ7ZsO4xfWSGBd4
+	wDc14BbeWCZNcgzGBnPQKhioefmIGvkxLwU8+ksWTz0Uo7sGcnrtwyTd6YD427txlGRInaMssdCqe
+	uMbkrHCDFvGpEfbu5pxox/diT9mKH8T4eyQPwDaztUzpnx8YD0ntt7CYwhz1TLhqrdZzMe8FMyfaD
+	Wj2qiM1AO6Y58CMWQRL1Z4/6E1lElv+AyvE3ZnUJWMaI435Kq3MllismGElC2WWOBftYi23FbcMTW
+	LsJwx7ZxYE1TCoeP4xgVqAZzc/0qjIX9O+fQJv/8/ojT9LeIWwqDM1ox6WnPtoydBeoqzm7s326VJ
+	j49UtrDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vprEX-0000000HJkz-1QAc;
-	Tue, 10 Feb 2026 17:09:05 +0000
-Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
+	id 1vprED-0000000HJZM-2epH;
+	Tue, 10 Feb 2026 17:08:45 +0000
+Received: from mail-norwayeastazon11013008.outbound.protection.outlook.com ([40.107.159.8] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vprET-0000000HJhf-2u57
+	id 1vprEA-0000000HJXx-1ybm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 17:09:03 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id EF12F7A00E8;
-	Tue, 10 Feb 2026 12:09:00 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Tue, 10 Feb 2026 12:09:01 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1770743340;
-	 x=1770829740; bh=1yt7+9/hWhwW7RRIAMqogVfC82dE8WQORTOA0VWGyLk=; b=
-	KkEwABZgOj+MemseN5C4rp29Q5JYmSNS5ggCHwUKrhojNq58YAYDtj7IUitGDpn3
-	4wLeRatcDY+X6P5itmMwULRMkWo99n7MTWDgqmhRWDpfmK0N7Q2Riix4h7syI/pm
-	xPSsp9zx2OvOJge/x0MokaHpDoh76XqPbMh2rWCsohS70l5JyOBPlx0nSt1+AnOg
-	s2tJ8LvimKBC5WISrA8N72SVGSiOWIQephr9/kQGpIkWRMAfq1nAmd3PY2+7CvPi
-	fKu5lKY9tWlhBUIA1dvXY0Rj4mwYyhSPx19bFQh5f4CLNFOAeYshYZD8+YHZHNF7
-	n1+ZLH0Kn+v8u3V2pejrpQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1770743340; x=
-	1770829740; bh=1yt7+9/hWhwW7RRIAMqogVfC82dE8WQORTOA0VWGyLk=; b=t
-	7sGMLCcYIjJXKxXCgp4BrumsDzm94qkYJ8lAgK/NUbl2azsmN7CCA7IMzZUO9Sok
-	L2GbBjX04YdHW6Q8uwIcoHKKPp0mwd7ynA7J/jGanI1BcuTrr586lS1DRuiXHc4K
-	O/EYzjzNJ5D5q6wvg0xGWrKqBzplvsmAS3IS1ikxT62AZQdvuNlgMfOgMzB7xqSG
-	yrvMXykM1ZgkYBaubpQDLtv7ZoX4pyyd/5q8boy9HfEjh19MfOVbWAF9kY1Y6UwD
-	PsaayCvsWTC+j6vnF6V3j47M92J5mfk0VTEE/EO87Cdp7a6BNkzJy8iwZgDWEIo0
-	QuDxNkSPB0p+CaWW9iEXg==
-X-ME-Sender: <xms:J2aLaR9A13RquMn6J-iE3Fumpe17Sb-K6QvETm55a0x1XA24EHPEeg>
-    <xme:J2aLaQj7ZP0CW_3sOb4i4bf4lbHdmVhdIyILQHNKCZ-fqFLz9MMlq0Clgraga1xdP
-    w7bCUNq5eCL7mF1UQlt2z85E27y-w4BnO4L_H5888c6t_r9hYL5JW4>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvtddtvdegucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepfefhheetffduvdfgieeghfejtedvkeetkeejfeekkeelffejteevvdeghffhiefh
-    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtne
-    curfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgt
-    phhtthhopeegpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehtohhrvhgrlhgush
-    eslhhinhhugidqfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheplhhinhhugidq
-    rghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpth
-    htohepshhotgeslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhig
-    qdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:J2aLaTrWdINvJvvvQdBs0cQ0SeAL_IEDt4WMX6avIULLx-4hp9aQnQ>
-    <xmx:J2aLaUg53NWH2f-Et9_IwzsPGnhy6R0BYadpC_0OOWR5-t5jgERyTw>
-    <xmx:J2aLaYimrctHlD7nlVB6m3G4SRjXmYu-aRj6RLuqk8r-r0GHNC1tNQ>
-    <xmx:J2aLaShCj7fxxymLqnodQHYY1qRk8O1cN307hWI0l71CKQHC00gf9g>
-    <xmx:LGaLaUwY51lyBV0tB9q9uMdtE1Zxmy1SRsZLZe_CpqXO2-gD1LKLnNIL>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id A4673700065; Tue, 10 Feb 2026 12:08:55 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: AYfK9ZjhzOaF
-Date: Tue, 10 Feb 2026 18:08:25 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: soc@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Message-Id: <8964e89c-0cf1-4184-920f-5cd852ba782a@app.fastmail.com>
-In-Reply-To: <a34ea40f-e0d3-459b-8233-9f87f6cd73e5@app.fastmail.com>
-References: <a34ea40f-e0d3-459b-8233-9f87f6cd73e5@app.fastmail.com>
-Subject: [GIT PULL 3/4] soc: arm platform code changes for 7.0
+	Tue, 10 Feb 2026 17:08:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KxViTU5TeM178gKavD4Q0oZ2lYd0/vczWqovSZkcJQqY8oPn39uvxp6wKDZizlZJH4LOGZniefuN6ukbrnfDmY+4lnEiz/vipnJHkZGh5Nwu/dnshpaLDknoPvNFlA6lKPAJH4yB1PXB23MHeNRM2qKEICt3KVT26qQuoNjD06LSsuwoB5AYefd+PAuPpYJd2iDraK34ydswZ5idlwz/Qhz2Py+AWSHCwRYbWCvzfucZPm5hfbnnUsMvu/8nz4mOP7jeQ7EPGxB6l5I3PaueXuXWXrywRSsTpsXIIHUS/bmM/q/MTa/tp2pGBw1NztCPcyx6chw0RzaqbAQ2OhgYVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bX2DQRbalsF8Wb/C8iJmTAngSv9xluSkqN2qTxXuKAw=;
+ b=NrMJcIwbyIdWTTscxB1jvcSRAJU+6qnnCZ+d+kxXvVL906LsJOijMEj3SApo7PG6UvyPOnVqWO/sspcklgR0SMsMK+JSrQUwXQzIbyQVqgXrujJRmdIpZQjT+SW2VMTqZwZcqOmr/aimIhOg/RWcXlS6yCGmZyeVM6HoibQ44X1nwoQ6A4pDpjDQpd28qCWUyxLLsUyZO+rGFlI3bl2GdHDd0huvME0N4pyQkd0yUNWRA0Mju/skQRhtM+eVsB6qK6/A2XR23W8M8p/cgVQQ3NG3ZjGgyt6jxwBz/W6w2s8iN1V70dMxMVpyDgMiUNWliW+6oUYJFS2u/nVbwMzT2A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bX2DQRbalsF8Wb/C8iJmTAngSv9xluSkqN2qTxXuKAw=;
+ b=O6W3dl/jg2UbKVvnDQygvlxfanOFJDwI5uUvMYZLyY9bqLwRt+L6HXNw9GZ8Ljrnd6XrA1UJZzC9T+erlLoDbT6+4UYce4gGD0tJoLZcdkloQLK2wwMq2BNiF90nK5fH5UI9qIY+CtFtgTtqmabdJatbvQIdGb0WloKr00mhMro6AxYPPHkZHW5Lu/xM5MM8+yhREhWnXOeZ/gK1L+0T8d8LfD6oBzC8SIXoUkGXUtIC0QGrKQ+rzcxpvRIgome2GqrOpDi91LBh3Z00JbbPlL0xaBPHmQds9cVJyEY0E5xEy7oBbuPaKYOZD1hzmxdY3rgDca90PMbqMkpZ5YAZgg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by FRWPR04MB11284.eurprd04.prod.outlook.com (2603:10a6:d10:19e::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.8; Tue, 10 Feb
+ 2026 17:08:40 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb%4]) with mapi id 15.20.9611.006; Tue, 10 Feb 2026
+ 17:08:40 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-imx@nxp.com,
+	arnaud.pouliquen@foss.st.com
+Subject: [PATCH v7 1/4] dt-bindings: remoteproc: imx_rproc: Add "rpmsg" subnode support
+Date: Tue, 10 Feb 2026 11:08:11 -0600
+Message-ID: <20260210170814.406883-2-shenwei.wang@nxp.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260210170814.406883-1-shenwei.wang@nxp.com>
+References: <20260210170814.406883-1-shenwei.wang@nxp.com>
+Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR05CA0121.namprd05.prod.outlook.com
+ (2603:10b6:a03:33d::6) To PAXPR04MB9185.eurprd04.prod.outlook.com
+ (2603:10a6:102:231::11)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9185:EE_|FRWPR04MB11284:EE_
+X-MS-Office365-Filtering-Correlation-Id: b0dcdc2a-52d0-4f8c-f332-08de68c7096b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|19092799006|366016|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vViof2Yqj+IYehvpgtN7ACg4vIMT3wta99e5yrrNVLALuyDk5laIvpo9sXLE?=
+ =?us-ascii?Q?oPydSPaqNKZKs6JYPN9ujPzjQcdZ10lq5ib1bXq7+rTUWwsw/UydpnPAUEv9?=
+ =?us-ascii?Q?3yTtpzcNG+vGK7miWYzs6NNmdo3sGZ3epnip/rM6KdNPMy52w2keA1qc3HUz?=
+ =?us-ascii?Q?VuY1AOpPebGt2FpSWR3V7AllfXa5/nK1EuHxrnDpo0bw61FKfCxVZMYteRBR?=
+ =?us-ascii?Q?ENTfm0eChhrIhkiCGLlBAGsTDYWx7BpgtQ4MVTquh3J/g8LAWc7QmQDHljlb?=
+ =?us-ascii?Q?xu2ZQEtxhf6fwvifLVXCj4/C7HZl2kuJ9eiTlEtaoV6AYvvB3Y28FW6DLT4q?=
+ =?us-ascii?Q?rwQAOPUHvtWNfOqfwg3demsSX5jgD9pWOtsEbEUTnMzcr6azDuZDiNB91hp/?=
+ =?us-ascii?Q?FPK1yMZmJNuRCA+NLHY3VNPA7jZiI95DNNXrLI/s3OLimmZCpmkkx+6jAaJN?=
+ =?us-ascii?Q?XVuLdOUD2eKea7g1wQW+20V9Jd9Sun/oZIFw8d9WGQGIvsFb2tVNQwfrsX9N?=
+ =?us-ascii?Q?Me/nk48CHhxOGFTcrL9GEtXTibtzhKQe0yrf3L8R0hsRTNqe0RBPLIbh63YK?=
+ =?us-ascii?Q?iOc/oY38NrM5VxkFXeiqfgLetsrpcH39ZrmrSCKMQ7dFOK8R3txooG8VJfvw?=
+ =?us-ascii?Q?BV4W+mzHO/2tD4dEZhhuHn1KSJWu/Mm3nE5sDIVncLOdoPLEceglW4bAEOZv?=
+ =?us-ascii?Q?lx42l/wvAKjvZygrELM3KJEPq0Cfrx6WlhgllQxf2/3OsgB8PSp8Au0W/hi1?=
+ =?us-ascii?Q?oR+d3raZ+GZqXDaau1r54kWrcr3IFzB4Xmb/hrFYTg+9wJTDoPOq55Q1XVZ1?=
+ =?us-ascii?Q?AsxAaheSHzdAGlSpOnY5hM27twnmdRIOaa92yBK6LH1CQ+nQ2mkfNLW74Lgv?=
+ =?us-ascii?Q?uO4DP788SfYfdMEVbg5iF2K66tnZpj5fL584kqkK8rPI+WnP3BlWdR9yJlXM?=
+ =?us-ascii?Q?Z9wU/YTDGfONRxMy9CvHj27j1XfmBTvGJq+Hz6k5nbH2klgI3I+yMYu2HpuY?=
+ =?us-ascii?Q?/gzaxMYVH0mbJ7zet2/z/C1evFTZznMCNsKbiBRxqt6/e3KlxtPH3FxUJiGg?=
+ =?us-ascii?Q?WHzGFGBuvdeKMjjmcf2u6SbDA1zl+fWqF+l0FGJn9mwCRZQELxu0AV0pWQjB?=
+ =?us-ascii?Q?x+GG9hG4wM55GAZV7A7wdXPj84JL54g11uryVECb2kAA5j972JfJuwqS0AfI?=
+ =?us-ascii?Q?57PPyi1GyqhvqjcVWuuIeM/aAfnKxii6CC58bJv8HuxN14opjkBXWRf+aSv2?=
+ =?us-ascii?Q?trYdMVq9ffAuUJGGxJAizUfNpxXeWFL1JTnFW95BgsHOs3YLUd6gjY2Oyx6l?=
+ =?us-ascii?Q?EdiNCVEQmoqDmFCKJE7DrFInFnqKggrd77cAvAEisdeFOtl7hAgOqNGxSY72?=
+ =?us-ascii?Q?BradVSs0XDoVJBU0Ms8W3K0TQoDwjdCh59RouQJbU3riSJaX9V19xRfa0PIW?=
+ =?us-ascii?Q?yZDHRSVZQwtb/uMD63VasA4MUoCwTohUY3TDyeNYpQ+xsYj/QopMtPGzGmzL?=
+ =?us-ascii?Q?Z3DwHvj7K1zsz+Dda3ARIRuo9NsQbDZXPnOJAosqt0ksnW6d0dI0QKNquD3o?=
+ =?us-ascii?Q?2vHb+lbjMbwpUaLpv50xUGTBIYQrZ5C2LAgkzZj94fdU6VQrfc5VRg40QFc3?=
+ =?us-ascii?Q?IDb1B6V6O6QuWzrLU7bRmDgEODqnfidQCis3twxKxjXw?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(19092799006)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dRGxDtAZYV70ne+MT3cWsnF0hjC0IcVQlx0scUGE7Lt4rp8+W+bbv7xPVkIE?=
+ =?us-ascii?Q?CvmiC+1WQaNoOJTcrNsUuomSOkS8Amqt7TMQ3KnKI/sx6KzNGt5tMuM29XY3?=
+ =?us-ascii?Q?f6OvUSYTCmysYFs+Wn6+UBM+idRnFI5iOvJ8Rzx0zsSb2cvQ0ctZByOK9SyL?=
+ =?us-ascii?Q?xKawUYjOKQYMkQpu82hYXhZuwrTjfe01kcIoEWx9WPSJwaygaAtBQB30EDLS?=
+ =?us-ascii?Q?6c5NXpeaLc97Hik7hXa1Od68CHvF/opUiHP4uKOznxl4BVos84bHi0N9uz+l?=
+ =?us-ascii?Q?n2/y2/jhKiVZYNTn2XykV+aMKX+HQWGLUlw6el7ehBVJvzirNRjGw8/m01WT?=
+ =?us-ascii?Q?fz18P4wmP8zSSscAtdomY1z8SyMVSUjoZKuGmTri4BqwQMj3P4zZbMrur0zK?=
+ =?us-ascii?Q?BHflSOnS5nViSMl2LLCirH08gJbjzql4omui/ptoVJOOElu1eWz4UPovDRkw?=
+ =?us-ascii?Q?mFPXhXwg00f/ASzrpJgFxqPy13lRcytBFm9t3qsNf2sSk4viVfnVynuY+A7F?=
+ =?us-ascii?Q?5BOY4+QejKSWlhucbCK7oL9N1eZ/TXMdxEEJOi5vN4ETgBI6JUmpyn4rsCIA?=
+ =?us-ascii?Q?tBxK67H6pBpr97iz/PtrjPaSANeSk73smdIa63jdKTNfaPtyNyLRhsjvfVH0?=
+ =?us-ascii?Q?e2Gi/oCL7Gg5tpg5iV3zUAfEQsN06HZ75Ch1uEsOIq9+rAyfGC4K+af1Djf2?=
+ =?us-ascii?Q?RPWrCb6kM6KD6PUbhsl4EJx7eitjU6p/zteCKzUYCC3736OY3nR2mPMqZ35z?=
+ =?us-ascii?Q?9sGGkr+bAcaaTTwsjhwyE8icUgKkjcmg14Xvn/sjgaZE2PrOK4OumJX/KcvL?=
+ =?us-ascii?Q?Ub6epydEvOu99OTn7HF2CONysZrLkAz92Lzvt+n/8Fm9gMX1B9E8vQ1Udqth?=
+ =?us-ascii?Q?0DSzRMI29TISOJoXstZV827lF3P1H4F7HW+WR8S5I8EOer5uL8FezYmWvd29?=
+ =?us-ascii?Q?lqUKQhoDdieNHO4KbwVpWs+CD2Zf4rFK5JjNrD7F9WT3TgMKFIeC9uNoI265?=
+ =?us-ascii?Q?S7sAr1EWGCBtLwbhHHBxrYZ9k7VsUG+/i1F2B5TeoB+PWxwnn+9Mr06ryT3F?=
+ =?us-ascii?Q?lvBQ1BtQf58EpMO7jBjr/T1smtcKJ6/BtujkR0np2/uAwjR57rSpNKz7S1Uh?=
+ =?us-ascii?Q?9Oo4Ab4LiekA9KS4ndzPV3WO/s2arSPI0fJbsrljOE8+aGAYIB/HSM0OdmDi?=
+ =?us-ascii?Q?r4am4cY+38uvY2aAmSkneGaFPfa6+HfoJYNwmLdaKKArFcN0wfRgVBxqVq5j?=
+ =?us-ascii?Q?YXAswsDZqUrYkbiyJs0Q2Xe/Al5X+lkZjPwErInifU8LPKb3zqaE7RxAV98s?=
+ =?us-ascii?Q?1SxtDCYolLuQjrGLrIpN9qhwRYpY+50GgPYy09s0dVCjQm2lAAOIwPsmhcZv?=
+ =?us-ascii?Q?4+GCPGCDOytiC5EsswDIaRWLECT6DEsVq8q+8cerSeDJzilcdTY81PENG80F?=
+ =?us-ascii?Q?ChoijNQhTJZ68LV22OsclIoHSTuIe9b7yUvo0R/WElBKlXQbyGznXZqxqsw9?=
+ =?us-ascii?Q?uqkHJNwfeUB3KLkcIndc39Y/FYlC5+GpOXf8WnhtakE1QkXkRZ40mklRSkRp?=
+ =?us-ascii?Q?mwZ8lvhxdG/F9TKG7H1Keg3nhYseYeLb8kk2Xy6jJGad+qXg2NlPx9Wr2wCM?=
+ =?us-ascii?Q?Uj/nhNHaB4DBJt++qa+93vEe3sz1chmM7Yi/TdVnjuUKeBPzIW7BLVPy/FYL?=
+ =?us-ascii?Q?Ajgo8rykQ4aPht+GdSUjgg28guXnWcnwAJTdo/EUy7iel9PZ4Jocs2XZqh/6?=
+ =?us-ascii?Q?um6sLmNeYQ=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b0dcdc2a-52d0-4f8c-f332-08de68c7096b
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2026 17:08:40.0595
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: l6iZuCpHaWunu+xK5JxtPpfr0QHsb2GzglsObGzofunmEFtaMVLK4Zx8T+eoyT3ovjL54t5T0dQygTPBAoYcdw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWPR04MB11284
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_090901_805466_97172356 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20260210_090842_507323_54F8CC10 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,337 +182,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit f8f9c1f4d0c7a64600e2ca312dec824a0bc2f1da:
+Remote processors may announce multiple GPIO controllers over an RPMSG
+channel. These GPIO controllers may require corresponding device tree
+nodes, especially when acting as providers, to supply phandles for their
+consumers.
 
-  Linux 6.19-rc3 (2025-12-28 13:24:26 -0800)
+Define an RPMSG node to work as a container for a group of RPMSG channels
+under the imx_rproc node. Each subnode within "rpmsg" represents an
+individual RPMSG channel. The name of each subnode corresponds to the
+channel name as defined by the remote processor.
 
-are available in the Git repository at:
+All remote devices associated with a given channel are defined as child
+nodes under the corresponding channel node.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-arm-7.0
+Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
+---
+ .../devicetree/bindings/gpio/gpio-rpmsg.yaml  | 55 +++++++++++++++++++
+ .../bindings/remoteproc/fsl,imx-rproc.yaml    | 53 ++++++++++++++++++
+ 2 files changed, 108 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
 
-for you to fetch changes up to 16868b35b915a8a0fc810cd14b3b4927a5fb2213:
+diff --git a/Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml b/Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
+new file mode 100644
+index 000000000000..6c78b6850321
+--- /dev/null
++++ b/Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
+@@ -0,0 +1,55 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/gpio/gpio-rpmsg.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Generic RPMSG GPIO Controller
++
++maintainers:
++  - Shenwei Wang <shenwei.wang@nxp.com>
++
++description:
++  On an AMP platform, some GPIO controllers are exposed by the remote processor
++  through the RPMSG bus. The RPMSG GPIO transport protocol defines the packet
++  structure and communication flow between Linux and the remote firmware. Those
++  controllers are managed via this transport protocol. For more details of the
++  protocol, check the document below.
++  Documentation/driver-api/gpio/gpio-rpmsg.rst
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++              - fsl,rpmsg-gpio
++          - const: rpmsg-gpio
++      - const: rpmsg-gpio
++
++  reg:
++    description:
++      The reg property represents the index of the GPIO controllers. Since
++      the driver manages controllers on a remote system, this index tells
++      the remote system which controller to operate.
++    maxItems: 1
++
++  "#gpio-cells":
++    const: 2
++
++  gpio-controller: true
++
++  interrupt-controller: true
++
++  "#interrupt-cells":
++    const: 2
++
++required:
++  - compatible
++  - reg
++  - "#gpio-cells"
++  - "#interrupt-cells"
++
++allOf:
++  - $ref: /schemas/gpio/gpio.yaml#
++
++unevaluatedProperties: false
+diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+index 57d75acb0b5e..2f9dca2b71f7 100644
+--- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
++++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+@@ -84,6 +84,34 @@ properties:
+       This property is to specify the resource id of the remote processor in SoC
+       which supports SCFW
+ 
++  rpmsg:
++    type: object
++    additionalProperties: false
++    description:
++      Represents the RPMSG bus between Linux and the remote system. Contains
++      a group of RPMSG channel devices running on the bus.
++
++    properties:
++      rpmsg-io-channel:
++        type: object
++        additionalProperties: false
++        properties:
++          '#address-cells':
++            const: 1
++
++          '#size-cells':
++            const: 0
++
++        patternProperties:
++          "gpio@[0-9a-f]+$":
++            type: object
++            $ref: /schemas/gpio/gpio-rpmsg.yaml#
++            unevaluatedProperties: false
++
++        required:
++          - '#address-cells'
++          - '#size-cells'
++
+ required:
+   - compatible
+ 
+@@ -146,5 +174,30 @@ examples:
+                 &mu 3 1>;
+       memory-region = <&vdev0buffer>, <&vdev0vring0>, <&vdev0vring1>, <&rsc_table>;
+       syscon = <&src>;
++
++      rpmsg {
++        rpmsg-io-channel {
++          #address-cells = <1>;
++          #size-cells = <0>;
++
++          gpio@0 {
++            compatible = "rpmsg-gpio";
++            reg = <0>;
++            gpio-controller;
++            #gpio-cells = <2>;
++            #interrupt-cells = <2>;
++            interrupt-controller;
++          };
++
++          gpio@1 {
++            compatible = "rpmsg-gpio";
++            reg = <1>;
++            gpio-controller;
++            #gpio-cells = <2>;
++            #interrupt-cells = <2>;
++            interrupt-controller;
++          };
++        };
++      };
+     };
+ ...
+-- 
+2.43.0
 
-  Merge tag 'omap-for-v6.20/soc-signed' of git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap into soc/arm (2026-01-29 10:06:55 +0100)
-
-----------------------------------------------------------------
-soc: arm platform code changes for 7.0
-
-These are mainly code cleanups, dropping some unneeded code,
-plus a reference counting leak fix.
-
-----------------------------------------------------------------
-Arnd Bergmann (2):
-      Merge tag 'at91-soc-6.20' of https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux into soc/arm
-      Merge tag 'omap-for-v6.20/soc-signed' of git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap into soc/arm
-
-Randy Dunlap (1):
-      ARM: omap1: drop unused Kconfig symbol
-
-Rob Herring (Arm) (2):
-      ARM: at91: Move PM init functions to .init_late hook
-      ARM: at91: remove unnecessary of_platform_default_populate calls
-
-Wentao Liang (1):
-      ARM: omap2: Fix reference count leaks in omap_control_init()
-
- arch/arm/mach-at91/at91rm9200.c | 12 +-----------
- arch/arm/mach-at91/at91sam9.c   | 12 +-----------
- arch/arm/mach-at91/sam9x60.c    | 12 +-----------
- arch/arm/mach-at91/sam9x7.c     | 12 +-----------
- arch/arm/mach-at91/sama5.c      | 21 +++------------------
- arch/arm/mach-at91/sama7.c      | 11 +----------
- arch/arm/mach-omap1/Kconfig     |  1 -
- arch/arm/mach-omap2/control.c   | 14 ++++++++++----
- 8 files changed, 18 insertions(+), 77 deletions(-)
-
-diff --git a/arch/arm/mach-at91/at91rm9200.c b/arch/arm/mach-at91/at91rm9200.c
-index 4f8186211619..d15997fff5d7 100644
---- a/arch/arm/mach-at91/at91rm9200.c
-+++ b/arch/arm/mach-at91/at91rm9200.c
-@@ -7,26 +7,16 @@
-  *                2012 Joachim Eastwood <manabian@gmail.com>
-  */
- 
--#include <linux/of.h>
--#include <linux/of_platform.h>
--
- #include <asm/mach/arch.h>
- 
- #include "generic.h"
- 
--static void __init at91rm9200_dt_device_init(void)
--{
--	of_platform_default_populate(NULL, NULL, NULL);
--
--	at91rm9200_pm_init();
--}
--
- static const char *const at91rm9200_dt_board_compat[] __initconst = {
- 	"atmel,at91rm9200",
- 	NULL
- };
- 
- DT_MACHINE_START(at91rm9200_dt, "Atmel AT91RM9200")
--	.init_machine	= at91rm9200_dt_device_init,
-+	.init_late	= at91rm9200_pm_init,
- 	.dt_compat	= at91rm9200_dt_board_compat,
- MACHINE_END
-diff --git a/arch/arm/mach-at91/at91sam9.c b/arch/arm/mach-at91/at91sam9.c
-index 7e572189a5eb..b9d2909d1b65 100644
---- a/arch/arm/mach-at91/at91sam9.c
-+++ b/arch/arm/mach-at91/at91sam9.c
-@@ -6,21 +6,11 @@
-  *                2011 Nicolas Ferre <nicolas.ferre@atmel.com>
-  */
- 
--#include <linux/of.h>
--#include <linux/of_platform.h>
--
- #include <asm/mach/arch.h>
- #include <asm/system_misc.h>
- 
- #include "generic.h"
- 
--static void __init at91sam9_init(void)
--{
--	of_platform_default_populate(NULL, NULL, NULL);
--
--	at91sam9_pm_init();
--}
--
- static const char *const at91_dt_board_compat[] __initconst = {
- 	"atmel,at91sam9",
- 	NULL
-@@ -28,6 +18,6 @@ static const char *const at91_dt_board_compat[] __initconst = {
- 
- DT_MACHINE_START(at91sam_dt, "Atmel AT91SAM9")
- 	/* Maintainer: Atmel */
--	.init_machine	= at91sam9_init,
-+	.init_late	= at91sam9_pm_init,
- 	.dt_compat	= at91_dt_board_compat,
- MACHINE_END
-diff --git a/arch/arm/mach-at91/sam9x60.c b/arch/arm/mach-at91/sam9x60.c
-index d8c739d25458..744bab2cbb92 100644
---- a/arch/arm/mach-at91/sam9x60.c
-+++ b/arch/arm/mach-at91/sam9x60.c
-@@ -7,21 +7,11 @@
-  * Author: Claudiu Beznea <claudiu.beznea@microchip.com>
-  */
- 
--#include <linux/of.h>
--#include <linux/of_platform.h>
--
- #include <asm/mach/arch.h>
- #include <asm/system_misc.h>
- 
- #include "generic.h"
- 
--static void __init sam9x60_init(void)
--{
--	of_platform_default_populate(NULL, NULL, NULL);
--
--	sam9x60_pm_init();
--}
--
- static const char *const sam9x60_dt_board_compat[] __initconst = {
- 	"microchip,sam9x60",
- 	NULL
-@@ -29,6 +19,6 @@ static const char *const sam9x60_dt_board_compat[] __initconst = {
- 
- DT_MACHINE_START(sam9x60_dt, "Microchip SAM9X60")
- 	/* Maintainer: Microchip */
--	.init_machine	= sam9x60_init,
-+	.init_late	= sam9x60_pm_init,
- 	.dt_compat	= sam9x60_dt_board_compat,
- MACHINE_END
-diff --git a/arch/arm/mach-at91/sam9x7.c b/arch/arm/mach-at91/sam9x7.c
-index e1ff30b5b09b..166c8625509d 100644
---- a/arch/arm/mach-at91/sam9x7.c
-+++ b/arch/arm/mach-at91/sam9x7.c
-@@ -7,20 +7,10 @@
-  * Author: Varshini Rajendran <varshini.rajendran@microchip.com>
-  */
- 
--#include <linux/of.h>
--#include <linux/of_platform.h>
--
- #include <asm/mach/arch.h>
- 
- #include "generic.h"
- 
--static void __init sam9x7_init(void)
--{
--	of_platform_default_populate(NULL, NULL, NULL);
--
--	sam9x7_pm_init();
--}
--
- static const char * const sam9x7_dt_board_compat[] __initconst = {
- 	"microchip,sam9x7",
- 	NULL
-@@ -28,6 +18,6 @@ static const char * const sam9x7_dt_board_compat[] __initconst = {
- 
- DT_MACHINE_START(sam9x7_dt, "Microchip SAM9X7")
- 	/* Maintainer: Microchip */
--	.init_machine	= sam9x7_init,
-+	.init_late	= sam9x7_pm_init,
- 	.dt_compat	= sam9x7_dt_board_compat,
- MACHINE_END
-diff --git a/arch/arm/mach-at91/sama5.c b/arch/arm/mach-at91/sama5.c
-index bf2b5c6a18c6..e56022f00800 100644
---- a/arch/arm/mach-at91/sama5.c
-+++ b/arch/arm/mach-at91/sama5.c
-@@ -6,9 +6,6 @@
-  *                2013 Ludovic Desroches <ludovic.desroches@atmel.com>
-  */
- 
--#include <linux/of.h>
--#include <linux/of_platform.h>
--
- #include <asm/hardware/cache-l2x0.h>
- #include <asm/mach/arch.h>
- #include <asm/mach/map.h>
-@@ -30,12 +27,6 @@ static void __init sama5_secure_cache_init(void)
- 		outer_cache.write_sec = sama5_l2c310_write_sec;
- }
- 
--static void __init sama5_dt_device_init(void)
--{
--	of_platform_default_populate(NULL, NULL, NULL);
--	sama5_pm_init();
--}
--
- static const char *const sama5_dt_board_compat[] __initconst = {
- 	"atmel,sama5",
- 	NULL
-@@ -43,7 +34,7 @@ static const char *const sama5_dt_board_compat[] __initconst = {
- 
- DT_MACHINE_START(sama5_dt, "Atmel SAMA5")
- 	/* Maintainer: Atmel */
--	.init_machine	= sama5_dt_device_init,
-+	.init_late	= sama5_pm_init,
- 	.dt_compat	= sama5_dt_board_compat,
- MACHINE_END
- 
-@@ -54,17 +45,11 @@ static const char *const sama5_alt_dt_board_compat[] __initconst = {
- 
- DT_MACHINE_START(sama5_alt_dt, "Atmel SAMA5")
- 	/* Maintainer: Atmel */
--	.init_machine	= sama5_dt_device_init,
-+	.init_late	= sama5_pm_init,
- 	.dt_compat	= sama5_alt_dt_board_compat,
- 	.l2c_aux_mask	= ~0UL,
- MACHINE_END
- 
--static void __init sama5d2_init(void)
--{
--	of_platform_default_populate(NULL, NULL, NULL);
--	sama5d2_pm_init();
--}
--
- static const char *const sama5d2_compat[] __initconst = {
- 	"atmel,sama5d2",
- 	NULL
-@@ -72,8 +57,8 @@ static const char *const sama5d2_compat[] __initconst = {
- 
- DT_MACHINE_START(sama5d2, "Atmel SAMA5")
- 	/* Maintainer: Atmel */
--	.init_machine	= sama5d2_init,
- 	.init_early	= sama5_secure_cache_init,
-+	.init_late	= sama5d2_pm_init,
- 	.dt_compat	= sama5d2_compat,
- 	.l2c_aux_mask	= ~0UL,
- MACHINE_END
-diff --git a/arch/arm/mach-at91/sama7.c b/arch/arm/mach-at91/sama7.c
-index bd43733ede18..f56828d61199 100644
---- a/arch/arm/mach-at91/sama7.c
-+++ b/arch/arm/mach-at91/sama7.c
-@@ -6,20 +6,11 @@
-  *
-  */
- 
--#include <linux/of.h>
--#include <linux/of_platform.h>
--
- #include <asm/mach/arch.h>
- #include <asm/system_misc.h>
- 
- #include "generic.h"
- 
--static void __init sama7_dt_device_init(void)
--{
--	of_platform_default_populate(NULL, NULL, NULL);
--	sama7_pm_init();
--}
--
- static const char *const sama7_dt_board_compat[] __initconst = {
- 	"microchip,sama7",
- 	NULL
-@@ -27,7 +18,7 @@ static const char *const sama7_dt_board_compat[] __initconst = {
- 
- DT_MACHINE_START(sama7_dt, "Microchip SAMA7")
- 	/* Maintainer: Microchip */
--	.init_machine	= sama7_dt_device_init,
-+	.init_late	= sama7_pm_init,
- 	.dt_compat	= sama7_dt_board_compat,
- MACHINE_END
- 
-diff --git a/arch/arm/mach-omap1/Kconfig b/arch/arm/mach-omap1/Kconfig
-index 08ec6bd84ada..b114f7ca2173 100644
---- a/arch/arm/mach-omap1/Kconfig
-+++ b/arch/arm/mach-omap1/Kconfig
-@@ -4,7 +4,6 @@ menuconfig ARCH_OMAP1
- 	depends on ARCH_MULTI_V4T || ARCH_MULTI_V5
- 	depends on CPU_LITTLE_ENDIAN
- 	depends on ATAGS
--	select ARCH_HAS_HOLES_MEMORYMODEL
- 	select ARCH_OMAP
- 	select CLKSRC_MMIO
- 	select FORCE_PCI if PCCARD
-diff --git a/arch/arm/mach-omap2/control.c b/arch/arm/mach-omap2/control.c
-index 79860b23030d..eb6fc7c61b6e 100644
---- a/arch/arm/mach-omap2/control.c
-+++ b/arch/arm/mach-omap2/control.c
-@@ -732,7 +732,7 @@ int __init omap2_control_base_init(void)
-  */
- int __init omap_control_init(void)
- {
--	struct device_node *np, *scm_conf;
-+	struct device_node *np, *scm_conf, *clocks_node;
- 	const struct of_device_id *match;
- 	const struct omap_prcm_init_data *data;
- 	int ret;
-@@ -753,16 +753,19 @@ int __init omap_control_init(void)
- 
- 			if (IS_ERR(syscon)) {
- 				ret = PTR_ERR(syscon);
--				goto of_node_put;
-+				goto err_put_scm_conf;
- 			}
- 
--			if (of_get_child_by_name(scm_conf, "clocks")) {
-+			clocks_node = of_get_child_by_name(scm_conf, "clocks");
-+			if (clocks_node) {
-+				of_node_put(clocks_node);
- 				ret = omap2_clk_provider_init(scm_conf,
- 							      data->index,
- 							      syscon, NULL);
- 				if (ret)
--					goto of_node_put;
-+					goto err_put_scm_conf;
- 			}
-+			of_node_put(scm_conf);
- 		} else {
- 			/* No scm_conf found, direct access */
- 			ret = omap2_clk_provider_init(np, data->index, NULL,
-@@ -780,6 +783,9 @@ int __init omap_control_init(void)
- 
- 	return 0;
- 
-+err_put_scm_conf:
-+	if (scm_conf)
-+		of_node_put(scm_conf);
- of_node_put:
- 	of_node_put(np);
- 	return ret;
 
