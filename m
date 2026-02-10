@@ -4,141 +4,216 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42127EB2700
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 22:41:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC81EA3F18
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 22:57:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7uiVQRlLKMe0cKr9/JttrZxKrjkYP81k6vYZ1ibHXjo=; b=htMCsCD3BhkGtnCiLp6a/SUz5g
-	i3pv5mGpPXRrA+7Gqo2S1nRcerfg7m3BlDLxCY2OgoCmXlegOb8NSwpjlHRUmVbxhtEHcuo+UADNr
-	bzrvpce5qPxPphfdV5r1d9N3d8/E7hVo1pddvdIkePNcOoH8NxtzJVyCDrIqJYe8uwCGCDrFMFzum
-	u+PoGtjA/PTg2OjLf1CvAmM+MAMCfxhUSxCLtpUQr/kKKhRUtZVoCBH6AiQXtlmjhqiOH9N4bx//Z
-	lDv4OPzChGUx5vUUUM33bmNHTQg468gFZqNN4K7Y8/XOetYwBH2HtLaxv/+zyy2N1LHlCeVAJERLc
-	sE/QCfOg==;
+	bh=ukxXm9pI4GFKzAntbf462BIcN3HnYBHiWeiAAtpmlCA=; b=mpvfaIISfWMIkswOlua6UNFG24
+	jk6JMuSd50ulJ8hyXkHw7fy8Q1M9jeSnHU9mXfNNxyBMAWo0Vl8NgI3Xyk2I1hiv4Nzy9UMx+c0BN
+	U3uRAVBaqo0MlYb6l2bHOSMMHuTBbOf+kp0EDwVSN1AAmQ70FwVv8941w1Q3irk9o19b/We2EgOeH
+	1zSIaCtgQOb10EBHAATedp9HVQ6xiSc7HF10Icz2X5D8KGdEnGW30ILJL+KmDzT+ttP+VTn3+P6aA
+	TPqbFo1HFQ+dtXAYDZaf+56yEL7ztTjN+l+quQbeX6Hgr8WuRk6d9ZPCm6Zgl+g8kV8L1dzHpqpDG
+	ktvcI33A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpwQH-0000000Ha6Y-2zar;
-	Tue, 10 Feb 2026 22:41:33 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1vpwfx-0000000HavI-0miC;
+	Tue, 10 Feb 2026 22:57:45 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpwQE-0000000Ha5c-2ixT
+	id 1vpwfu-0000000HauX-1bTP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 22:41:32 +0000
+	Tue, 10 Feb 2026 22:57:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1770764262; x=1802300262;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=QcSFS8ownbd1DjGoY2Vd6ClSvgrBP4vpQ9bVoenF+KE=;
+  b=kSrPIUNi+nO6A7g5Ar+sPjiimwLwPKszv/CrIq/nKQYrrT2VxTzxfoNZ
+   4trcXUWqp9U5IJdYJdZVb8Y+BMvoYGkAKH54hW6yZIz2gRfDVzSI9Ea4F
+   LmRqhWez9dDEqZy3KH4YOhRzt3zoGlJOQMCJnUiYdB/6Iz3fOwA3ECfU7
+   ZbID7zkUP87QljYunrlb0V/WCGrEWt2l+FKdM301m58xptWc5WH19Ygrx
+   ZezsZ82juAJtcQzB81OUso3tIepOAAudIQLnp06OVEBvtAB78hjCbFlFB
+   41nnoRl7BEaaZzJN/AKes7XPDJwux3hLEnztF7ysG8UNyTiEcLWJCAsmr
+   A==;
+X-CSE-ConnectionGUID: XTXqi4V0TSWrtF37FznlZA==
+X-CSE-MsgGUID: 5LOmsg0IQ56bvTg6kPuzRA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11697"; a="97362058"
+X-IronPort-AV: E=Sophos;i="6.21,283,1763452800"; 
+   d="scan'208";a="97362058"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Feb 2026 14:57:40 -0800
+X-CSE-ConnectionGUID: WqDsM5mcTnaftppYMBGqHQ==
+X-CSE-MsgGUID: UE+A0ctlQPWfUrAFJ3dsiA==
+X-ExtLoop1: 1
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Feb 2026 14:57:39 -0800
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.35; Tue, 10 Feb 2026 14:57:39 -0800
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.35 via Frontend Transport; Tue, 10 Feb 2026 14:57:39 -0800
+Received: from DM5PR21CU001.outbound.protection.outlook.com (52.101.62.6) by
+ edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.35; Tue, 10 Feb 2026 14:57:38 -0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ISUu4P/6kqv3RaRf7/AAbnU2TjfmGvGrfh7dM6mulxZNl4psJtobXXDk29zwKECf06DTMPzzi6q45lhFg/jb85aK9CymKp3d55WsSRMycEMQAFhtv14pyUhuC2hRmxHDpS5rREoSddv4203ajrg+QMIDnFoACW594xuc2LvX5NX1YP0HHGXBFCcUpuFF7tbd+RxK6N5KYkDswWdpr0niwCDyO3qYxqV5bqiXzXOKkJs68HVt90+c10QaWLSTUmmncSgJHz8rulW3sNufjXUKT7rJoI8fT6Sxt8iQAXlCdhXQk84FXRvV2Dd90105O3TSCa/KIFMGCDAYOgER3fl0gQ==
+ b=NwrR/nVYmxewYidmyY0WVZAZ/CA9oFQH1H32LqwWmrrJfOr0E1tT/dXOSMsL79g1E0V7BrSMkYYk4MUhUU0Xd/9dE50H6rJDiK13yBsttb3XNThxVObsTSLnBWBpkCbf/63AKzwFr1sCwEdHHyz9YT+2soglkTLiE8qpomIqNJIKhnARyqVty2nhVYv4BjXayCnsOhhlLbujhbpnpgx0uZe+nWkPGqwTr+UvCaNrWZEjDNbJg+SUzkaYpGh0TtC323LFHcMv5ePxVIgE27v2iomr5mwXJnm5HJcZrOTwYiMmnnZOWrQNYfyTNiHbAV14gwC5AsDuCOrzqlxCzpCaSQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7uiVQRlLKMe0cKr9/JttrZxKrjkYP81k6vYZ1ibHXjo=;
- b=b+wjyxxQxsvuuiAoEhd10hompUPMohpqHBzqkVTczTrcejIgF05hIRayFKZArGk0OxfalrQGA9frG3gfITlVOxClgbu092eyD9iRq1sCOQX0ObGFbUzfJKxzeJwV6bJE+9Dw/1QqOnw11denh+w9IjEY9TOw79YR0rzXGy5XKe0XYQgyx3rL8t0e2CZa6cceudVghqsJodH1QseolkgjYaklJfDxYAYK5qVL1FEyRF2p83fGCdMs+VQPBMVodymwGwWC747oQR8M1rZlD7g/j8lh98NG8ncKdMbzge1KrMky7zRbd03qXkQYiPdKfJQcrHod3BwJmr8Izrsrnm0REw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7uiVQRlLKMe0cKr9/JttrZxKrjkYP81k6vYZ1ibHXjo=;
- b=VSqmGfHBYFUx/cEgP0WgUffMTBUuKM388wmK93o3lCuSIa/VYiZf5SmOTBuXkZ62sY62z+adw8cQiofWTc/OerAQJVn8KJjPOsJQA4gh2AgMftsxwnMakCa24b5CtkJTw8kDeqHDHrpULe1zYAuZYXUwlmqrdpEiFujTKtdJXJwVGDBDIumJzcmaHounDDcFjz92pMb4XF5Lrz2zJyRtlFaxe9+iKb93GaVM+vXJwkAPT2GA9uK+LhiTKGCimmKMDHPIZOp1oTWqFn7H+PfNg/Nwh34vZy3bwa5aZF0IEXxz1FE0KlvbjJTOYCDf9zdI+Q5kfzjSHlHRREnxHMwDnQ==
-Received: from SA1P222CA0072.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:2c1::28)
- by DS7PR12MB5741.namprd12.prod.outlook.com (2603:10b6:8:70::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9587.13; Tue, 10 Feb 2026 22:41:21 +0000
-Received: from SA2PEPF00003AE4.namprd02.prod.outlook.com
- (2603:10b6:806:2c1:cafe::45) by SA1P222CA0072.outlook.office365.com
- (2603:10b6:806:2c1::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9611.8 via Frontend Transport; Tue,
- 10 Feb 2026 22:41:21 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SA2PEPF00003AE4.mail.protection.outlook.com (10.167.248.4) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9611.8 via Frontend Transport; Tue, 10 Feb 2026 22:41:20 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 10 Feb
- 2026 14:40:57 -0800
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Tue, 10 Feb 2026 14:40:57 -0800
-Received: from build-vvidwans-noble-20260107.internal (10.127.8.10) by
- mail.nvidia.com (10.126.190.180) with Microsoft SMTP Server id 15.2.2562.20
- via Frontend Transport; Tue, 10 Feb 2026 14:40:57 -0800
-From: Vedashree Vidwans <vvidwans@nvidia.com>
-To: <salman.nabi@arm.com>, <sudeep.holla@arm.com>, <andre.przywara@arm.com>,
-	<lpieralisi@kernel.org>, <mark.rutland@arm.com>,
-	<trilokkumar.soni@oss.qualcomm.com>
-Subject: [PATCH 2/2] firmware: smccc: register as platform driver
-Date: Tue, 10 Feb 2026 22:40:23 +0000
-Message-ID: <20260210224023.2341728-3-vvidwans@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260210224023.2341728-1-vvidwans@nvidia.com>
-References: <20260210224023.2341728-1-vvidwans@nvidia.com>
+ bh=ukxXm9pI4GFKzAntbf462BIcN3HnYBHiWeiAAtpmlCA=;
+ b=Sus/gR15tNCyjg01KhvQKfJqFfcAUkr8NqWCdPe9yNC89W22wOwDLr0BOLaBapC+Ak2MTdomx9dqlRB9xOC0aWTblqRKnw8HMJCiTN6uv0IWK2I9sTOb69iT+IAhJ6W0wC8OuEYqpARzToZp7DEFlq7fsVzBJ5vKa90Apf2cGViiAI20wh8oiDqddQ9NvD3nElxtRNhdWfF5hw/3rS6qaAiP2oRTl72KAK45EJqq7hyqVRsDdoJRuA5JI0Vy50nkh/tnjemQwVakM0f3b7zy8+kC+nSHHYcEaod5EgqPTN+cizPmQ5uWByF8hNeNzvbSq+xycAmAyR9gyH9CVChkPw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SJ2PR11MB7573.namprd11.prod.outlook.com (2603:10b6:a03:4d2::10)
+ by SN7PR11MB7439.namprd11.prod.outlook.com (2603:10b6:806:343::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.19; Tue, 10 Feb
+ 2026 22:57:33 +0000
+Received: from SJ2PR11MB7573.namprd11.prod.outlook.com
+ ([fe80::bfe:4ce1:556:4a9d]) by SJ2PR11MB7573.namprd11.prod.outlook.com
+ ([fe80::bfe:4ce1:556:4a9d%6]) with mapi id 15.20.9587.017; Tue, 10 Feb 2026
+ 22:57:33 +0000
+Message-ID: <f2951303-6fe9-4674-bd16-0dbef39cc1d4@intel.com>
+Date: Tue, 10 Feb 2026 14:57:29 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 13/41] arm_mpam: resctrl: Add boilerplate cpuhp and
+ domain allocation
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
+	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
+	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
+	<quic_jiles@quicinc.com>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<tan.shaopeng@fujitsu.com>, <xhao@linux.alibaba.com>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <corbet@lwn.net>,
+	<maz@kernel.org>, <oupton@kernel.org>, <joey.gouly@arm.com>,
+	<suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>, <zengheng4@huawei.com>,
+	<linux-doc@vger.kernel.org>, Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20260203214342.584712-1-ben.horgan@arm.com>
+ <20260203214342.584712-14-ben.horgan@arm.com>
+From: Reinette Chatre <reinette.chatre@intel.com>
+Content-Language: en-US
+In-Reply-To: <20260203214342.584712-14-ben.horgan@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW4PR04CA0366.namprd04.prod.outlook.com
+ (2603:10b6:303:81::11) To SJ2PR11MB7573.namprd11.prod.outlook.com
+ (2603:10b6:a03:4d2::10)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003AE4:EE_|DS7PR12MB5741:EE_
-X-MS-Office365-Filtering-Correlation-Id: e8cdb5cd-c290-42f7-6b53-08de68f5831f
+X-MS-TrafficTypeDiagnostic: SJ2PR11MB7573:EE_|SN7PR11MB7439:EE_
+X-MS-Office365-Filtering-Correlation-Id: f4cf65e5-21e2-4f52-20fa-08de68f7c69b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|7416014|82310400026|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Go62ldOXn/LWCiYUsG9zU80qTF3VplnvjMr8WhPNCgoJATG7jx6ezFCRSR1j?=
- =?us-ascii?Q?oj4NkGu4f9G/WpDHe3oyFkeuOh/IRPaqq00CePZWLSHEpkjts9UngyP8XXz0?=
- =?us-ascii?Q?jXyPj414t32CcOKogEEDHG8GjdByw27Z3H/01hOabN6imGzD5gMCaj6Ksbgk?=
- =?us-ascii?Q?S2CBq0rybzMGBUEZbOfVFUELBXWvb8gOBBk59xYkD+lVfWDw+dYscJhrH+wD?=
- =?us-ascii?Q?raipKbj/rKD8jW/0i2sWjwxihi/M+aKJH6lQEM2R1NE5BtDRkW2I0zrdtGF2?=
- =?us-ascii?Q?npoGUVB8r3sMzGiC6iRmz00gvPXH484yPrhZ0dp9RZuZ3sWyR01FgJPkVeWG?=
- =?us-ascii?Q?YkYRSWidbSlu3Rz7WiQkqSlagLXlwbR3T11lCKgBLRFBlP87i9tUoASTFHHu?=
- =?us-ascii?Q?Ik5dP8jbCgh1pMjsR8tGUX3W4poNtR48cEsj/L/JjY4ajm9YrXzws7Mbl5x+?=
- =?us-ascii?Q?SXINTlb86wMY2C2saEoWpIPvssRVl7kg3CnOOoMTcT/UNOXmcQR4Gp9z5rJT?=
- =?us-ascii?Q?RgOdiB7bUHxY6NG0Mqq/9zL3bdHLm6wAAsado+VrmTjNGvzKBT9Q1TWPbITS?=
- =?us-ascii?Q?IUHskCwzsJt1e5Og+8Nav3Lei/QjuPvj6V3KWnCB6ZguNb5Bw4U5HrKdEqzx?=
- =?us-ascii?Q?AE3rFNw8tx92LYyOIVzI5SKxh6JsqfqmJbzMoTA77zx3tgXVndOQyH0b7yQR?=
- =?us-ascii?Q?7ialfr/QVw12neV1mTqrbRF/ewVMVnaqbmg/tajRDqMqPXpsmgi4GNxygz0L?=
- =?us-ascii?Q?S0J8cHJIT3QfMiKD2RwwyYGj3JnuQWC3yebulHZpHqf1/k0Y+5ITsZRRYdRJ?=
- =?us-ascii?Q?1ACZ9DyhzfepWyeCKZjoc/ge9oHWI1Ok8/F/hh4R5tqoUNLFeY2uO1ToKrPX?=
- =?us-ascii?Q?5tNzaHg9/SoJH9JGCF3SPB5ZVoryKhloTdQ7A9/GCdbRFjsNXXnHec737aUy?=
- =?us-ascii?Q?yXFe6rXyaRGYQXIcV/bSPP3oG8gCJLq9gMDOZDNLuVacbKcWP6UEOPl+Bwwo?=
- =?us-ascii?Q?SvbLmAeA2QU4tz/zG0F54HxXYiGluIn4xYBW/uHi1zkKeABYll5mKNCAcDON?=
- =?us-ascii?Q?1JFlCeoktxu0hIl6l3yCe+9gNswaDW2sDcGxxranH+VEiq2wjMZWQ2Ddl16d?=
- =?us-ascii?Q?e8Mhd58PxFnbFkD38YnvCXYosFOvJSrniXonRO6+E5YKyg0Lj490eaq+O4qe?=
- =?us-ascii?Q?xjq71yAj9fo8tmUO3vj0ZHwR44gA/hU+y10WyjENrgTKnIZgbovTmWM3YmQC?=
- =?us-ascii?Q?1HY0SfbHN+ni9Rrf2z8NW+IctVKLhw35qIPXlAUqVf1zgUnV6umqQPEH+xry?=
- =?us-ascii?Q?DrISh2kUoiGV5j3Hl6csZLaykP/sQ59z+JFRdqox8R1jr06kWOIpPW3LJAh/?=
- =?us-ascii?Q?JDRnEvEMO1i09RlfdFMt/8TNrYRcn0W0Jx/W+JXoux1At3VXynIMcNA/erxT?=
- =?us-ascii?Q?q4TrTPFXxzoYCI3rzTVlcya/sY+KytQtHgzSGsfiD4tRWrX3FWlBtQTg2Ag+?=
- =?us-ascii?Q?Mg9WOPIf2IWHQ/WDbW8ckM9T/QIduYsqPOgaJyw7R0tgCLf0EGulSHeo4dC/?=
- =?us-ascii?Q?2s2dBYSAiRzyLyLlGaKDj+OeLKrVppf/fIPaVZhak0jQqqBlkOW++LtqhVLb?=
- =?us-ascii?Q?bZIdth89aJviPlYn8T0RfnHYbH0OaWyExD+7LC3MupU8PF+9WBKKRQyf6a69?=
- =?us-ascii?Q?q0v6Ng=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(7416014)(82310400026)(13003099007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eUZPME9YRFdLR090VVV5MHQ0amlHYzB4YStWSmI5K1NIb0hnUzRhcENNdVd0?=
+ =?utf-8?B?MnhyV2Vyck5GWTJvSUltMVBLTGJYN0gyWUtONlRtOFRjL2ZxaTQxVGJQdkdr?=
+ =?utf-8?B?ODkzT3ZQNzd3NXNxZ2FRYm14QWpncUF2SUc1ckJ6S09BNis3djQ5ei9reWZR?=
+ =?utf-8?B?Yjdxa2JmSFVkbm51bjJ6QURTdlY1aWhtT3hpSmxHYkZoZ0dDUEE1WHlUL2Z4?=
+ =?utf-8?B?a1o0SnFTNnh6N3IveVRIVlE5dmllY2tSWWR0N2pxZGIxUG5va3RFNS9uTGI0?=
+ =?utf-8?B?amZNRVFtekdZczl1WjVaTHFWNE5xWVNLd2YvUG9waXV1NHlCYWZlYUNycjIz?=
+ =?utf-8?B?SmxFM3ZwSUhVVlN1Mnk5MXJ0SDdKYzJ1SlhoekRQaUsyNlo3VU1rdFdGTkVT?=
+ =?utf-8?B?bUNwVndCVE1FV0ROMmRXTHhLVHBrZnc1U09saEVzR2M2eVF1TlB3OFZnd1hi?=
+ =?utf-8?B?WWJaM1l4bHpyZ3dmMytoSGIvc1JOT2g2bWVmQ2xha0k0a2RsVjd5SllaaTFz?=
+ =?utf-8?B?cXZ5b2xVckVXUVJaVVBqY2o4MytET1FlclEwbWFUNTZUUkZjN0trdndNZE5O?=
+ =?utf-8?B?TWwvVkYzTXY1d2QzU1N2UHBpc1p3K0RwSExOM0M2cCtFZXZXdHBZZVFQc0FU?=
+ =?utf-8?B?Qk0vZ2gyLzR4dDZZMWZoWkxIc0c1YmlEVUJJS2xWK2NrZjBpUUttZHZQN0hv?=
+ =?utf-8?B?MDVJdEZnUHRGZ3BmTFR2Y2NjOVRCZ2FXREllYVlWdWZFR2pQRm9zUG1PRkI2?=
+ =?utf-8?B?TmZSVFFnZVJSUC9VNXN3dHJVTWJKZ3RYeXNFSW50WXJKUWoyQVcxVlZSSVM5?=
+ =?utf-8?B?aG90N0pCZjZocndSRUNMamlxcEVzaDBQOVR0emxkM2NTcExXNnJSVGZYVDB6?=
+ =?utf-8?B?UEZmakthdXA1R0o1amhMU3BXUXlhRGoyc1hrcHl6OW4wYUdqeDV2cWkrUVJt?=
+ =?utf-8?B?MER0TzVyODZBMWdCQXkveVkweE1YQ3plV2JlRFZVdHA2M2ZYZGNpeHVVZ2RO?=
+ =?utf-8?B?aHRYTDdwL3lrTTRIbDQ2Tk1TNVNPUmhZL2hLVnRRdEE2dkE2UUtiMVNnRExz?=
+ =?utf-8?B?QUlpd2RuejFzUjVpRUxOT3M2WmJISTh3aVJiMmdhYTluSWNnUGtSMDFUV1l5?=
+ =?utf-8?B?Y1BEVXhWTUx1VzRjN09ZM0RFWHNUSVJWWldSZUxzTG52cjZtQkdiR3lRZWkz?=
+ =?utf-8?B?VXNJME5RblZRUXowcDZFRnFkMFo5RHBUaVUxc3hIbGRTd2FyU3hob0J2Ym1X?=
+ =?utf-8?B?eFM5RHNScmRHd04zeTJpdHhlMUpsMm9UdUZYWjBJdlVSVzN1YXo5Y0c5R2hl?=
+ =?utf-8?B?Sjhkb2tRemNKZjlyMmZLdlNsbmU2am9qWkpVQXgwTGxmN3N3RWVZL25FSjRh?=
+ =?utf-8?B?Rk9yK2lUL3VoT0dQcy9tUUJMQ0FKemFHbVFPYzFHZEREa3NiY1oxZUt6Rmw5?=
+ =?utf-8?B?dy9xc3FDSnZrdWlZaUMvSVQ4MG40S0l5Z0ZvRFdmUHowTHJmdVBVYnpWbFFr?=
+ =?utf-8?B?MHFRKy9oVE5kRUZQN1M3cjNYVWtIWEdTVlltZXlvV3VIUTZjb3I5cU1RcHUx?=
+ =?utf-8?B?S3dRM2szdDdIVnVPdkExY2RLdkJHUHZKVEhHdUlmenNqSkhMK2tQN2sxNUd0?=
+ =?utf-8?B?QklweGR6TU5hdnB5QnRjT0hqL1hnUmdNdHc0SmtoVEVQYkFxZDlxb3djcTVZ?=
+ =?utf-8?B?SmtramdYZjBYMmtXeC8yNGp6TGZQTHdVbXhvNzJSMjlOeG5rN2ZTS0FFYSsr?=
+ =?utf-8?B?TkZuWTVBSWZtTThuTG9HeEFqYmw1M2F4NGdTc2h1RmZrN1VrSC8wS1VaOVBD?=
+ =?utf-8?B?UjJrb08vV1phLzUzWUtFZzdaVTVpOXg1R2Q4QmNFNW1yVGhkWlJWUW9MWjJK?=
+ =?utf-8?B?U1d1MCtpTEpyRFZ1b0xKTlJpVkZzdGVKeklrd0cvc2hRbzJPZkJoc0o2TkVN?=
+ =?utf-8?B?MlIrdG5CeC9Od2Q5YWR0SDNnd0FrZllnck5QQjRHV0ZvZjFmRmV2OUk2VkFx?=
+ =?utf-8?B?blFtMTlvaStKVUJUYlNza0tyWW03ZzM0dFljaVNPc1hFMGlKTndwZFpkR3pP?=
+ =?utf-8?B?aXBUQTUzc0FCaHp1TFhUR1dTRnlJVU9TVEJyaW1LWnFmSElQOVlZbmlnUSty?=
+ =?utf-8?Q?pY2o=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB7573.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 4o776J7eWkz4mJU2YApzzPpXpLeHbwSSZjW9P+ynqaMSTOb99gqt6wpx4PzDNvb2nNZkPPu1sLdp3TzPC/q5bSHUllk988joRkABhexoDy11IfCvnTfsJYSn8VdvNvESB6F6eV7/5xZtLoXSnnly4HdGJdgFAR1ahE5jnT3tCQWIZz3sRkV2zRTpmiGm2IMAqcJBzA5L9VgDR0SdohXs7cIflHlKJszj8fHN/MeVprFUIb5m2ZnFc4oJPuK+7zBRyO89kQycwumWlSC+zsmX7Z2BLRzgvFIIXRkMk/zOEOTilUo7k0fRkE4U4PS/Y2hJpuuNHP6zRnI0aXBGvgRwpKj/kHXOlo9VkkIWRF3d8y+iSrUkutIxeJRrUd9vISf2O0wDU9ASVcsyroGNKjgZHFtXL+fNPfUZqNXTUz71DxIT5WKpwl4NOLjJh4Zbnk1M
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2026 22:41:20.8033
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RCtpY1lCQk1kejFDQU1jL25ORmV2Ymk3M0xVZGw3ejVyakIybVA5d0t1SER0?=
+ =?utf-8?B?alRvbXNsT2gwbFZlRU5uVmlyRkhsSXZmUkpZV0s3cHMxVWpXVlRrU0RpVnFP?=
+ =?utf-8?B?ZjcyZ1IxUGo2UERSR1JLY1gxakhUMTdqbWVHNk5VR0xrY1lTVUZramx0R0xv?=
+ =?utf-8?B?VllHT0RmTkxkZjhRYlJtVnJUckpmUUM2TEw4UU0zUHFvUDJXdXNTOStxTW5a?=
+ =?utf-8?B?cnVjTjJ3aW4zMHJoUXZoOTFxdS9XMWU5Y1dFSGdjMno0aWpWNXRkc0c0cExC?=
+ =?utf-8?B?MytDSUV3UUhsNlpzU1RyMGhtaUFRYW4vQXN4RGZjRGkxTDUyMmxuQ3RJSUVI?=
+ =?utf-8?B?aWZuUlB5Nkd0cTFKcjN2Z0FuaXZRVjRJbmM2c0p1TktwTHVnc09SWnhhZFlk?=
+ =?utf-8?B?RVFmWm5tcXc3YVUyNEU2K0ZZblE5cERSbFdnWDBFakMzZlFNVEw2RkFlVHV1?=
+ =?utf-8?B?dEtKY3FXaWpkQjhmVnBCOWw0bkRaOTVaSG9UWTd5NlcyeXNtcGFESTBsNW1n?=
+ =?utf-8?B?Zm0zeG5JNVV0NXBIMFVTbDQ1cElMUnVwVFdaSjAvYWhhNzkrMGJzVDJZMjhZ?=
+ =?utf-8?B?NU1jak55Mmg3QWFHUU9UYUpoSUZveWthT3d0MUFFRnBHMWo3MDVwb3FTN2t5?=
+ =?utf-8?B?SEp1T3V4UXJ1cHJLNUNPRm9WbXNpa3ViOUdyYlZiUHFQc09aamdWaGlLeWRl?=
+ =?utf-8?B?N0dHL1g4ZGdMNGdJaFF1MjJ4S0tXT3l1dFJJT3JMSjBUcy85VkpDS0hiSEVp?=
+ =?utf-8?B?a3NodjRkSXNBZmluMDQ2a0N3TTl3WnhnNnZpN216VWRSUmFaRk1heGQ0cFBw?=
+ =?utf-8?B?NzlwMDVVN3cvSHBkWG1mN2NsUVR5Zk1lZlkwNXZaNzF5cEhLSlh0czVaMTFy?=
+ =?utf-8?B?V3k0THdFSHZiajEyN2RvWDhBSnFaZE5NdDhaUkhoQnMwVTFuZmNScUtTQlFv?=
+ =?utf-8?B?amtrcU4zYzlKRlRYQnE0MTlkZ1lJRDJYK0NKM0daMzBldHl0K3NRTnlXVnl0?=
+ =?utf-8?B?WXdZODRFZHB4aXA5Z3VaUjltSHgvTzM1TUFWbzVhdnJwNjhSaGtab2MvWkVJ?=
+ =?utf-8?B?cTZ4OWRRSDZyZGFSNHNLL1k0Wjh4SDZZdDN3bkdNQmoxdmhueFFFcTYzd3Bz?=
+ =?utf-8?B?aHBqREdJUWlUZmlWd2VQL0hQL1I5elMwa1RxMENHNDFvTlU1UDYyQVlHckJu?=
+ =?utf-8?B?Y3JPdFBKaUw3Vnd2ZnN5UkZzVTRjY0dCeHhJSFMxSXFtNElJUnRmWm96R2pr?=
+ =?utf-8?B?Q0FWQ05RckVVUjdUR1VIakNiVm1hRC83VWxBOW1FNVVmS0FVUnBHeU5MTWRT?=
+ =?utf-8?B?YnhBbXpKd3lKK2tKMWRtRmdzNG4yRG1WNnJZc3pUODl5UUVZTE4zSkFoK1hz?=
+ =?utf-8?B?T2JwZE9lNmc5d0NOL0EwaUtSekhXdkFmVVBLamVpWTdsNDhjVDl6dWZac1gv?=
+ =?utf-8?B?ZkVSY1dFL2YrWUtZcHRNNTJUZVNOMndSbytWbC9UN1dZeVlNQkxBVUQwekpq?=
+ =?utf-8?B?eUdTUk9xT1FMWDlSa0lsSjdWR1MxeFNmemJvYTM4YnhkbkZtMzFndGJHZW9t?=
+ =?utf-8?B?ZUMzQVlMRHdWZ1ZDSS9iSTQ5L0lDT2tkWW96U3RWaFJpQ2lOaFdLNWpJL2dr?=
+ =?utf-8?B?TitpR25qNkZjblhvdC9JQVo0UFIwdkVCWnhYMTZZVHVNQ3dsRGJNcHI5Wjl4?=
+ =?utf-8?B?UWpQK01rZitpTFg0TG1oRXp3azdmYnhxaDBQeU45OC9iZzh1MFZUUnl3aExY?=
+ =?utf-8?B?cE8vR3JVcEkxRU0yUDB3OWdsM1lmUStORTNmUHJnRE5ua3FycmVqQzJRNERx?=
+ =?utf-8?B?aGxIT0VKUjA5NGJHVmNjLytOOWF1Nndib3VtbHgweG1TL2hLQ21YV3psb1hk?=
+ =?utf-8?B?R09QcUJCN0lTcWJpejhVVHdRVm0zZG9qNzVJMW5teXora2xQNWkvd0Y5aTlp?=
+ =?utf-8?B?Z2d2U2ZyeEJ5bHRCdTMyQ21TNmlFQU1sWldyWkNSWDhuSktMWkdTV0hJQWtx?=
+ =?utf-8?B?Tnpsd0tQYkZVdmh3VmRtRnBVa3NpQ1M1R0pzeVR0NHNIYUh0Vlh4NndmZEYv?=
+ =?utf-8?B?NnRxaXdtSEZwWVpPM1BvbGo2ZEU0T1pDaW9FQ2hnWUpWWUUwcENRZU40OStl?=
+ =?utf-8?B?UG5SbXN4OW8vRFVtM3djeEVEUzU3RkZabi8vUFI4cG44dlgzc1ZydFhPZXFS?=
+ =?utf-8?B?bHg0VDAwSkU1a0xSUHp3RmlBTmVYR0FBbHMvTGJKQzNXZTl0SzR1ZEVHbHV1?=
+ =?utf-8?B?RGlrc1loL1lGczVnNnRCZ21Zcmp3VWlPcGtwUkpwQi9yekQ1YjBWdEprbXpN?=
+ =?utf-8?B?dnJyVkFaTWErMnJRUWN2dDk4d0FzY0xMYU55c3c1QzltVGg2L0t1ZUQzOWha?=
+ =?utf-8?Q?myw/vJ4QyZGrhgoM=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4cf65e5-21e2-4f52-20fa-08de68f7c69b
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB7573.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2026 22:57:33.5265
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e8cdb5cd-c290-42f7-6b53-08de68f5831f
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003AE4.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5741
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UwmMy3kI+0zUOdY8H8OiSCvJECEB1ssrWpLdkg31X3v95Z7////4r3f08QQ/A4cNVvdWLcp179gXhupK4WAHqhZfsVLAxXiJEYlf4aCzv9o=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR11MB7439
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_144130_718533_8C6E9F34 
-X-CRM114-Status: GOOD (  24.58  )
+X-CRM114-CacheID: sfid-20260210_145742_447430_4ABAD49B 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,245 +225,238 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-kernel@vger.kernel.org, vwadekar@nvidia.com, sdonthineni@nvidia.com, vsethi@nvidia.com, linux-coco@lists.linux.dev, ardb@kernel.org, linux-arm-kernel@lists.infradead.org, chao.gao@intel.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- Register the LFA driver as a platform driver corresponding to
-'arml0003' ACPI device. The driver will be invoked when the device is
-detected on a platform. NOTE: current functionality only available for
-ACPI configuration.
-- Add functionality to register ACPI notify handler for LFA in the
-driver probe().
-- When notify handler is invoked, driver will query latest FW component
-details and trigger activation of capable and pending FW component in a
-loop until all FWs are activated.
+Hi Ben,
 
-ACPI node snippet from LFA spec[1]:
-Device (LFA0) {
-   Name (_HID, "ARML0003")
-   Name (_UID, 0)
-}
+On 2/3/26 1:43 PM, Ben Horgan wrote:
+...
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> new file mode 100644
+> index 000000000000..4c2248c92955
+> --- /dev/null
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -0,0 +1,343 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +// Copyright (C) 2025 Arm Ltd.
+> +
+> +#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
+> +
+> +#include <linux/arm_mpam.h>
+> +#include <linux/cacheinfo.h>
+> +#include <linux/cpu.h>
+> +#include <linux/cpumask.h>
+> +#include <linux/errno.h>
+> +#include <linux/list.h>
+> +#include <linux/printk.h>
+> +#include <linux/rculist.h>
+> +#include <linux/resctrl.h>
+> +#include <linux/slab.h>
+> +#include <linux/types.h>
+> +
+> +#include <asm/mpam.h>
+> +
+> +#include "mpam_internal.h"
+> +
+> +/*
+> + * The classes we've picked to map to resctrl resources, wrapped
+> + * in with their resctrl structure.
+> + * Class pointer may be NULL.
+> + */
+> +static struct mpam_resctrl_res mpam_resctrl_controls[RDT_NUM_RESOURCES];
+> +
+> +#define for_each_mpam_resctrl_control(res, rid)					\
+> +	for (rid = 0, res = &mpam_resctrl_controls[rid];			\
+> +	     rid < RDT_NUM_RESOURCES;						\
+> +	     rid++, res = &mpam_resctrl_controls[rid])
+> +
+> +/* The lock for modifying resctrl's domain lists from cpuhp callbacks. */
+> +static DEFINE_MUTEX(domain_list_lock);
+> +
+> +static bool exposed_alloc_capable;
+> +static bool exposed_mon_capable;
+> +
+> +bool resctrl_arch_alloc_capable(void)
+> +{
+> +	return exposed_alloc_capable;
+> +}
+> +
+> +bool resctrl_arch_mon_capable(void)
+> +{
+> +	return exposed_mon_capable;
+> +}
+> +
+> +/*
+> + * MSC may raise an error interrupt if it sees an out or range partid/pmg,
+> + * and go on to truncate the value. Regardless of what the hardware supports,
+> + * only the system wide safe value is safe to use.
+> + */
+> +u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
+> +{
+> +	return mpam_partid_max + 1;
+> +}
+> +
+> +struct rdt_resource *resctrl_arch_get_resource(enum resctrl_res_level l)
+> +{
+> +	if (l >= RDT_NUM_RESOURCES)
+> +		return NULL;
+> +
+> +	return &mpam_resctrl_controls[l].resctrl_res;
+> +}
+> +
+> +static int mpam_resctrl_control_init(struct mpam_resctrl_res *res)
+> +{
+> +	/* TODO: initialise the resctrl resources */
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
+> +{
+> +	struct mpam_class *class = comp->class;
+> +
+> +	if (class->type == MPAM_CLASS_CACHE)
+> +		return comp->comp_id;
+> +
+> +	/* TODO: repaint domain ids to match the L3 domain ids */
+> +	/* Otherwise, expose the ID used by the firmware table code. */
+> +	return comp->comp_id;
+> +}
+> +
+> +static void mpam_resctrl_domain_hdr_init(int cpu, struct mpam_component *comp,
+> +					 struct rdt_domain_hdr *hdr)
+> +{
+> +	lockdep_assert_cpus_held();
+> +
+> +	INIT_LIST_HEAD(&hdr->list);
+> +	hdr->id = mpam_resctrl_pick_domain_id(cpu, comp);
+> +	cpumask_set_cpu(cpu, &hdr->cpu_mask);
 
-[1] https://developer.arm.com/documentation/den0147/latest/
+One addition via the resctrl telemetry enabling is a new rdt_domain_hdr::rid
+used for some additional checks on the header.
+https://lore.kernel.org/all/20251217172121.12030-2-tony.luck@intel.com/
+I may be missing something here though since the additional checking that this
+new field supports should have complained loudly ... unless this was tested with
+only the L3 resource that happens to be 0.
 
-Signed-off-by: Vedashree Vidwans <vvidwans@nvidia.com>
----
- drivers/firmware/smccc/lfa_fw.c | 153 ++++++++++++++++++++++++++++----
- 1 file changed, 134 insertions(+), 19 deletions(-)
+...
 
-diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
-index b0ace6fc8dac..042de937bf83 100644
---- a/drivers/firmware/smccc/lfa_fw.c
-+++ b/drivers/firmware/smccc/lfa_fw.c
-@@ -20,7 +20,10 @@
- #include <linux/nmi.h>
- #include <linux/ktime.h>
- #include <linux/delay.h>
-+#include <linux/acpi.h>
-+#include <linux/platform_device.h>
- 
-+#define DRIVER_NAME	"ARM_LFA"
- #undef pr_fmt
- #define pr_fmt(fmt) "Arm LFA: " fmt
- 
-@@ -284,26 +287,7 @@ static int activate_fw_image(struct image_props *attrs)
- 		return lfa_cancel(attrs);
- 	}
- 
--	/*
--	 * Invalidate fw_seq_ids (-1) for all images as the seq_ids and the
--	 * number of firmware images in the LFA agent may change after a
--	 * successful activation attempt. Negate all image flags as well.
--	 */
--	attrs = NULL;
--	list_for_each_entry(attrs, &lfa_fw_images, image_node) {
--		set_image_flags(attrs, -1, 0b1000, 0, 0);
--	}
--
- 	update_fw_images_tree();
--
--	/*
--	 * Removing non-valid image directories at the end of an activation.
--	 * We can't remove the sysfs attributes while in the respective
--	 * _store() handler, so have to postpone the list removal to a
--	 * workqueue.
--	 */
--	INIT_WORK(&fw_images_update_work, remove_invalid_fw_images);
--	queue_work(fw_images_update_wq, &fw_images_update_work);
- 	mutex_unlock(&lfa_lock);
- 
- 	return ret;
-@@ -627,6 +611,7 @@ static int update_fw_images_tree(void)
- {
- 	struct arm_smccc_1_2_regs reg = { 0 };
- 	struct uuid_regs image_uuid;
-+	struct image_props *attrs;
- 	char image_id_str[40];
- 	int ret, num_of_components;
- 
-@@ -636,6 +621,15 @@ static int update_fw_images_tree(void)
- 		return -ENODEV;
- 	}
- 
-+	/*
-+	 * Invalidate fw_seq_ids (-1) for all images as the seq_ids and the
-+	 * number of firmware images in the LFA agent may change after a
-+	 * successful activation attempt. Negate all image flags as well.
-+	 */
-+	list_for_each_entry(attrs, &lfa_fw_images, image_node) {
-+		set_image_flags(attrs, -1, 0b1000, 0, 0);
-+	}
-+
- 	for (int i = 0; i < num_of_components; i++) {
- 		reg.a0 = LFA_1_0_FN_GET_INVENTORY;
- 		reg.a1 = i; /* fw_seq_id under consideration */
-@@ -653,9 +647,121 @@ static int update_fw_images_tree(void)
- 		}
- 	}
- 
-+	/*
-+	 * Removing non-valid image directories at the end of an activation.
-+	 * We can't remove the sysfs attributes while in the respective
-+	 * _store() handler, so have to postpone the list removal to a
-+	 * workqueue.
-+	 */
-+	INIT_WORK(&fw_images_update_work, remove_invalid_fw_images);
-+	queue_work(fw_images_update_wq, &fw_images_update_work);
-+
-+	return 0;
-+}
-+
-+#if defined(CONFIG_ACPI)
-+static void lfa_notify_handler(acpi_handle handle, u32 event, void *data)
-+{
-+	struct image_props *attrs = NULL;
-+	int ret;
-+	bool found_activable_image = false;
-+
-+	/* Get latest FW inventory */
-+	mutex_lock(&lfa_lock);
-+	ret = update_fw_images_tree();
-+	mutex_unlock(&lfa_lock);
-+	if (ret != 0) {
-+		pr_err("FW images tree update failed");
-+		return;
-+	}
-+
-+	/*
-+	 * Go through all FW images in a loop and trigger activation
-+	 * of all activable and pending images.
-+	 */
-+	do {
-+		/* Reset activable image flag */
-+		found_activable_image = false;
-+		list_for_each_entry(attrs, &lfa_fw_images, image_node) {
-+			if (attrs->fw_seq_id == -1)
-+				continue; /* Invalid FW component */
-+
-+			if ((!attrs->activation_capable) || (!attrs->activation_pending))
-+				continue; /* FW component is not activable */
-+
-+			/*
-+			 * Found an image that is activable.
-+			 * As the FW images tree is revised after activation, it is
-+			 * not ideal to invoke activation from inside
-+			 * list_for_each_entry() loop.
-+			 * So, set the flasg and exit loop.
-+			 */
-+			found_activable_image = true;
-+			break;
-+		}
-+
-+		if (found_activable_image) {
-+			ret = prime_fw_image(attrs);
-+			if (ret) {
-+				pr_err("Firmware prime failed: %s\n",
-+					lfa_error_strings[-ret]);
-+				return;
-+			}
-+
-+			ret = activate_fw_image(attrs);
-+			if (ret) {
-+				pr_err("Firmware activation failed: %s\n",
-+					lfa_error_strings[-ret]);
-+				return;
-+			}
-+
-+			pr_info("Firmware %s activation succeeded", attrs->image_name);
-+		}
-+	} while (found_activable_image);
-+}
-+
-+static int lfa_probe(struct platform_device *pdev)
-+{
-+	acpi_status status;
-+	acpi_handle handle = ACPI_HANDLE(&pdev->dev);
-+
-+	if (!handle)
-+		return -ENODEV;
-+
-+	/* Register notify handler that indicates if LFA updates are available */
-+	status = acpi_install_notify_handler(handle,
-+		ACPI_DEVICE_NOTIFY, lfa_notify_handler, pdev);
-+	if (ACPI_FAILURE(status))
-+		return -EIO;
-+
- 	return 0;
- }
- 
-+static void lfa_remove(struct platform_device *pdev)
-+{
-+	acpi_handle handle = ACPI_HANDLE(&pdev->dev);
-+
-+	if (handle)
-+		acpi_remove_notify_handler(handle,
-+			ACPI_DEVICE_NOTIFY, lfa_notify_handler);
-+}
-+
-+static const struct acpi_device_id lfa_acpi_ids[] = {
-+	{"ARML0003"},
-+	{},
-+};
-+MODULE_DEVICE_TABLE(acpi, lfa_acpi_ids);
-+
-+static struct platform_driver lfa_driver = {
-+	.probe = lfa_probe,
-+	.remove = lfa_remove,
-+	.driver = {
-+		.name = DRIVER_NAME,
-+		.acpi_match_table = ACPI_PTR(lfa_acpi_ids),
-+	},
-+};
-+#endif
-+
- static int __init lfa_init(void)
- {
- 	struct arm_smccc_1_2_regs reg = { 0 };
-@@ -679,6 +785,12 @@ static int __init lfa_init(void)
- 	pr_info("Live Firmware Activation: detected v%ld.%ld\n",
- 		reg.a0 >> 16, reg.a0 & 0xffff);
- 
-+#if defined(CONFIG_ACPI)
-+	err = platform_driver_register(&lfa_driver);
-+	if (err < 0)
-+		pr_err("Platform driver register failed");
-+#endif
-+
- 	lfa_dir = kobject_create_and_add("lfa", firmware_kobj);
- 	if (!lfa_dir)
- 		return -ENOMEM;
-@@ -703,6 +815,9 @@ static void __exit lfa_exit(void)
- 	mutex_unlock(&lfa_lock);
- 
- 	kobject_put(lfa_dir);
-+#if defined(CONFIG_ACPI)
-+	platform_driver_unregister(&lfa_driver);
-+#endif
- }
- module_exit(lfa_exit);
- 
--- 
-2.43.0
+> +static struct mpam_resctrl_dom *
+> +mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
+> +{
+> +	struct mpam_resctrl_dom *dom;
+> +	struct rdt_resource *r = &res->resctrl_res;
+> +
+> +	lockdep_assert_cpus_held();
+> +
+> +	list_for_each_entry_rcu(dom, &r->ctrl_domains, resctrl_ctrl_dom.hdr.list) {
+> +		if (cpumask_test_cpu(cpu, &dom->ctrl_comp->affinity))
+> +			return dom;
+> +	}
+
+I notice here that that only the ctrl_domains list is searched ...
+
+> +
+> +	return NULL;
+> +}
+> +
+> +int mpam_resctrl_online_cpu(unsigned int cpu)
+> +{
+> +	struct mpam_resctrl_res *res;
+> +	enum resctrl_res_level rid;
+> +
+> +	guard(mutex)(&domain_list_lock);
+> +	for_each_mpam_resctrl_control(res, rid) {
+> +		struct mpam_resctrl_dom *dom;
+> +
+> +		if (!res->class)
+> +			continue;	// dummy_resource;
+> +
+> +		dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
+
+Consider a system that only supports monitoring (exposed_alloc_capable == false,
+exposed_mon_capable == true). Since mpam_resctrl_get_domain_from_cpu() only
+searches control domains then it looks to me as though dom will always be false
+here?
+
+> +		if (!dom) {
+> +			dom = mpam_resctrl_alloc_domain(cpu, res);
+
+Would this (on hypothetical exposed_alloc_capable == false, exposed_mon_capable == true system)
+then cause a new domain to be allocated for each CPU with a single CPU in its cpumask
+instead of allocating a single monitoring domain with multiple CPUs in its mask?
+
+> +		} else {
+> +			if (exposed_alloc_capable) {
+> +				struct rdt_ctrl_domain *ctrl_d = &dom->resctrl_ctrl_dom;
+> +
+> +				mpam_resctrl_online_domain_hdr(cpu, &ctrl_d->hdr);
+> +			}
+> +			if (exposed_mon_capable) {
+> +				struct rdt_l3_mon_domain *mon_d = &dom->resctrl_mon_dom;
+> +
+> +				mpam_resctrl_online_domain_hdr(cpu, &mon_d->hdr);
+> +			}
+> +		}
+> +		if (IS_ERR(dom))
+> +			return PTR_ERR(dom);
+> +	}
+> +
+> +	resctrl_online_cpu(cpu);
+> +
+> +	return 0;
+> +}
+> +
+> +void mpam_resctrl_offline_cpu(unsigned int cpu)
+> +{
+> +	struct mpam_resctrl_res *res;
+> +	enum resctrl_res_level rid;
+> +
+> +	resctrl_offline_cpu(cpu);
+> +
+> +	guard(mutex)(&domain_list_lock);
+> +	for_each_mpam_resctrl_control(res, rid) {
+> +		struct mpam_resctrl_dom *dom;
+> +		struct rdt_l3_mon_domain *mon_d;
+> +		struct rdt_ctrl_domain *ctrl_d;
+> +		bool ctrl_dom_empty, mon_dom_empty;
+> +
+> +		if (!res->class)
+> +			continue;	// dummy resource
+> +
+> +		dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
+> +		if (WARN_ON_ONCE(!dom))
+
+Similar to above ... it looks to me as though this WARN may always be
+encountered on a system that only supports monitoring.
+
+> +			continue;
+> +
+> +		if (exposed_alloc_capable) {
+> +			ctrl_d = &dom->resctrl_ctrl_dom;
+> +			ctrl_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
+> +			if (ctrl_dom_empty)
+> +				resctrl_offline_ctrl_domain(&res->resctrl_res, ctrl_d);
+> +		} else {
+> +			ctrl_dom_empty = true;
+> +		}
+> +
+> +		if (exposed_mon_capable) {
+> +			mon_d = &dom->resctrl_mon_dom;
+> +			mon_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &mon_d->hdr);
+> +			if (mon_dom_empty)
+> +				resctrl_offline_mon_domain(&res->resctrl_res, &mon_d->hdr);
+> +		} else {
+> +			mon_dom_empty = true;
+> +		}
+> +
+> +		if (ctrl_dom_empty && mon_dom_empty)
+> +			kfree(dom);
+> +	}
+> +}
+> +
+
+Reinette
 
 
