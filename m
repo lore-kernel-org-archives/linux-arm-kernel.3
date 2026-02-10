@@ -4,66 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AF5EEA3F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 10:44:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E989EA3F3B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 10:44:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pL12hnKx97l4mmLUzjZArPUBq/RYNl/+tH9Khf8e7O8=; b=oD0U+URq/Uoq+I7+S9qVKgH43l
-	OyI+5KqWKB5t7/B/Ghqe99hJAD7WsCStZqYGAGW/fI7S7r9Pha9s/c5iqAfvcKvOUPGfsnbICyIkH
-	Z6ZwJwPA3aVVGTyh8TeLYyREPbUixxa9/06VWb6DYpw+qo0cdAXeaCOKn7DA6EbJucW5aHeH+GWNv
-	Muwg5GbiFp8/vVq+CSMioMasHX0YDfy084ZRsv78YFYWahrJeLRv/yT5TAHgNGItoyYXYUF6dh3il
-	DXzAx0WGqYKPM6SXR/GDKTPVExA/uhUUpY84U7hdwHwr5uL1YKelLNnik4RFzcxQxlgbuAfyCLQSs
-	2Pu3g6uQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VtWNb7NUdO5bUCDMyQfroR5tgGFvHUsvicqnxM22+PI=; b=xu6fsI3Fqk4gJbFQ5AeKa9Kytx
+	sdHyVs8HRVa5fplzTRhkBlcumtwJwcknnbDGchXLkNgreLYm22s/adZR6d+lCWXtfVMAxiRd3bW7p
+	zzXRoTIOK5+8xQ6Ca869f0U2oLZahApgkNdEzxGDThbtAeO8FpOstzsZE6zFvZzzvCN/lapUtVH9H
+	vT6X6wsgcOK9FobErbbMr6RY70ngOxG6ZQWvbnP4Bphh9ubXwCPGJrOteMP1Rf3hBRY+eoBrqvq3p
+	JlY+BDoaxbEj20U+Zpe9hgORHd9up3SxtlC/TbUwqb7mNm83VL6iXn/YgHCvpMry2zd0tzt4Ba+sF
+	D7pARWsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vplDv-0000000Gqbp-0zVk;
-	Tue, 10 Feb 2026 10:44:03 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vplER-0000000Gqgy-1V1i;
+	Tue, 10 Feb 2026 10:44:35 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vplDr-0000000GqbL-1cXM;
-	Tue, 10 Feb 2026 10:44:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1770720235;
-	bh=ER/8gr4RoUVdfizQ8j/kdz5+MTk5ljgSDabr+0ItIwU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bqBUewrPmvCSmtOo3kaGyv3RM6NK66niKu43LqJNXrRW91XBUq0uMtojRBqVMVssx
-	 0Ryc/sypCfCQhfi+6/8L+GozuMteI0VuoIMDGXQZmpeXx7VXsv8AR0N6XSYDwREGrX
-	 5V1WP6hIhuCDNnfUTMbFUeye8uKKBLJz4mZNOmEe8ggvrGbpkHCtfAhdx7GZi6us5h
-	 PSP3e1uErlOKptA190neVpPS2IH6OqlDA5DP56lcGAJ2UjS1dq9lu1/a8N+mx8fmmf
-	 PFIYFBqfL/0tG9QA83nwL+uSDhwLgBzj/FsNpX6qHUK/nnnaP2wjNq3YNRpF+gkTgW
-	 CWMuRMoFowixg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 55A2B17E0E6A;
-	Tue, 10 Feb 2026 11:43:55 +0100 (CET)
-Message-ID: <97a40011-5a7d-403c-aca0-873c7192dc4f@collabora.com>
-Date: Tue, 10 Feb 2026 11:43:54 +0100
+	id 1vplEN-0000000Gqfj-2Y5V
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Feb 2026 10:44:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=VtWN
+	b7NUdO5bUCDMyQfroR5tgGFvHUsvicqnxM22+PI=; b=Ygj+nx5zicnCg4B/9Jjo
+	ymkrXvds95xu+rHV423jWbmfMbIgr2ZgCTevfkAnWZ8IARilWWLpa4CK/wQVXM5x
+	4w0A8FpsGIvoAQxpkqhXdmYRN0qT43xKzlQ1ykfgou4qtX6Lg9tcBT3ocv3L+8df
+	n1pLf99ijj7d7hTzrn6bF6m7LtzBNM6u1fdqNKGnt5N+oJAYY99m8k/tzSvDYlQ4
+	ieOIPOpbfZEiorpZhGkdg4dr/vXBFAROteKjLAN1o94Fw3Oi3TQpMAt45wXG+YrD
+	sAp2VOd6rjRXGob9dobJIE+8tFEqCG9UtOAVzHE/ajBCVdIrcAnKfoW+0CsOnkMh
+	kQ==
+Received: (qmail 345109 invoked from network); 10 Feb 2026 11:44:25 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 10 Feb 2026 11:44:25 +0100
+X-UD-Smtp-Session: l3s3148p1@zQVt8HVKEroujnuT
+Date: Tue, 10 Feb 2026 11:44:25 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	linux-renesas-soc@vger.kernel.org,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Antonio Borneo <antonio.borneo@foss.st.com>,
+	Arnd Bergmann <arnd@arndb.de>, Boqun Feng <boqun.feng@gmail.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Konrad Dybcio <konradybcio@kernel.org>, Lee Jones <lee@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-iio@vger.kernel.org, linux-omap@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev, Mark Brown <broonie@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Waiman Long <longman@redhat.com>,
+	Wilken Gottwalt <wilken.gottwalt@posteo.net>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [RFC PATCH 0/4] hwspinlock: refactor headers into public
+ provider/consumer pair
+Message-ID: <aYsMCVf1qpLSCXTs@shikoro>
+References: <20260125184654.17843-6-wsa+renesas@sang-engineering.com>
+ <aXc7DxsqiCGdfzxi@smile.fi.intel.com>
+ <aXc-Zxw05XQLb1Dy@ninjato>
+ <aXdAB2bLTy6u8G8c@smile.fi.intel.com>
+ <aXdCBu6kzdw1NWay@ninjato>
+ <aXikZ5wc6bvgRqF6@ninjato>
+ <aYnBrN0JRCf9-UjB@ninjato>
+ <yl4bbbev7lgrmnqys2izkolo5egzg24faukvqar5eh26q5ra7p@42rcegfpqqt6>
+ <aYo60vooftdem4Lt@ninjato>
+ <aYrcVE9HsDNAwqIB@smile.fi.intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] soc: mediatek: mtk-mmsys: Restore MT8167 routing masks
- lost during merge
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
- linux-mediatek@lists.infradead.org
-Cc: Matthias Brugger <matthias.bgg@gmail.com>,
- Fabien Parent <fparent@baylibre.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260209170149.419984-2-l.scorcia@gmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260209170149.419984-2-l.scorcia@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aYrcVE9HsDNAwqIB@smile.fi.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_024401_291948_D292CA8E 
-X-CRM114-Status: UNSURE (   6.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260210_024432_527917_126176C2 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,15 +112,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 09/02/26 18:01, Luca Leonardo Scorcia ha scritto:
-> The original patch that was sent to the mailing lists included the values for
-> the route masks, but they got lost during merge: add back the full register
-> masks where missing.
-> 
-> Fixes: 060f7875bd23 ("soc: mediatek: mmsys: Add support for MT8167 SoC")
-> 
-> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Hi Andy,
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> > And if so, would be this series acceptable
+> > as-is then (modulo the better include-sorting mentioned by Andy)?
+> 
+> *From my experience it's not the Q "will they or not?", the Q is "when?"
+>  they start abusing it. I really prefer to hide as much as possible from
+
+I totally agree with you on that.
+
+>  day 1. Maybe the structure can be split to two? Currently IIO has a
+
+I also thought that keeping some internal header might provide that
+safety. When looking into it, I didn't see an obvious and somewhat
+elegant way. Even more, I got a better picture of why Bjorn named the
+current approach "unergonomic". I got some ideas which look doable in my
+time frame. I will try going the full route, after all.
+
+I'll start with some cleanup in some minutes.
+
+Happy hacking,
+
+   Wolfram
 
 
