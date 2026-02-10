@@ -4,94 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC676EB26FD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 19:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 791EDEB2700
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 19:33:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AiL2V5buxMCQLXQlQY5BGvtkymU241uAzWGqsPlvj1Y=; b=uZqN7P9nMPb730i+ZprHl+uTuc
-	7ZCYrWEvKh7QaQkCzlsaGIYPfcmllieq6r8IdpRQvGUgC6XKkLfUlKrTSy0jNR21NaPMp5q6hCqUC
-	IYItESdtMB9cTprGVo8Wx/OHW45m9n506haq7/FZOnYyomLjWFPqLLj+j3jKkeEyDQtDwy9G89n06
-	52RDDD21hPjOpzBMe9/tS+6szCzc/MSNC+wa3rZ7TCHmyNXY/iAxZAmx4M4pmXy426vEsDd9vTPb6
-	5bJJ3//rwhMQSaEJg+YAvi8hECbLQEXdvfYSmYk4Y1c9wMa4vl1rHVYetzTuSl2HzRqIgXWURPJmW
-	W8iUFnuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=erTmcC4BRsN72TnU7ILsQhSKr9ooULobI3aSeUy7isI=; b=bxP5VrEbIqx/t1
+	JhXN4ioWWuMvcxJFjI/TCpS6XEwv3BB49jAhvsaGU+q/AqynK8ONTGGZu5+pIc+G6s8d7QZJUswhO
+	4WpIcLn3vGIseJz78AcJ4GUw5xb60mUmSRs2so+B0kKzgFs/4d1nHxGDCFbvdH0WCru1L3jnzhrDO
+	m4jz/gNuZ2XFS4toOKIRrLx8OsHDFy7Eiz/kYB+JQPkqFqZXsggf7t11hagSnSKKPlaHGKrlAFN3D
+	ZX1eX0yhfsma17tL5rd6EKND7Tnhq6h9T5uXOJBnixeBIxQsstsZUeFFOFSijuY53TOmMUm1SeB+c
+	V9wlNQDAvANvyGSLjmrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpt3e-0000000HPxG-0iuN;
-	Tue, 10 Feb 2026 19:05:58 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1vptUN-0000000HRC1-1vHL;
+	Tue, 10 Feb 2026 19:33:35 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpt3b-0000000HPwM-1yS3
+	id 1vptUK-0000000HRB3-2BmZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 19:05:56 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-47edd6111b4so87640845e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Feb 2026 11:05:53 -0800 (PST)
+	Tue, 10 Feb 2026 19:33:33 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-4359249bbacso115553f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Feb 2026 11:33:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770750352; x=1771355152; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=AiL2V5buxMCQLXQlQY5BGvtkymU241uAzWGqsPlvj1Y=;
-        b=eyGhZvAIeze/aOy8ucToXddfw9L8ImJ3W73I+o1Bf0m3zfERc806d1jp1oEcgViEgN
-         6XnnC+nyVJIphqE8GkMSRjv4eZCpx866qUi5c8UBfy4lNUaBvlWmJ+lMqTI2M3VN/Bse
-         0XCGKQ8uRnjCtNvd1ss4PAW0ETAdSMhs5qN+kwFO/IQ/dKHPkQRNormTYVs27UGg+IF8
-         zfNl++p/PMIlSlEBdYToLQlzlgN5Krm3ZiKoWK46nvlqxs0tgJWB9Ga+0Zs5dXiXfNxk
-         flVpqVnwn2/LVd+56f+WCoBK6/2jXhzh6cy5Scfe59yrA2IMleCy2V80DttzSvkzFt40
-         RPPg==
+        d=gmail.com; s=20230601; t=1770752010; x=1771356810; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=erTmcC4BRsN72TnU7ILsQhSKr9ooULobI3aSeUy7isI=;
+        b=Nw6DNXpY8gy6xsrm26YEa4pPmdpft7QbexjTiwtnns6OnAYbMpe6E1weq6vQbWqLxB
+         p/KfkA6ShBJB4nBOibg59XyWhFml6429sA3Qz5tSTnf5uzCbjQNRqGOElp7Ff/rIRWfP
+         9cwa/bvyDj1VedHxtISGuIC8ZqXJld7+hHE/XMNEo6uwd0XV2HqIpnoS/IirLXvm+6ev
+         GLjVtNH8nTpjF7+Z1xhHQob+H8TtlUAE88vKUTX+Rqh9k3TbMs/FF0/udSRpI2ZgdUmf
+         o9WdEsePuL2nFL780TkK+/zIfYTFcLG0/RpFjmLzhxxRYa7WdvYrs/TjJZjZTZxDVzoE
+         /zXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770750352; x=1771355152;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1770752010; x=1771356810;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=AiL2V5buxMCQLXQlQY5BGvtkymU241uAzWGqsPlvj1Y=;
-        b=jckp7t2bvEPQDUQW8MeUgBnR1GAbf93UCFyG3I021RpO0ME+Ng7/GHFyEn4CfZm8vf
-         wXRyuaZDgNO7PVIyyAfn1Hy9HRj3WZ2eXBxogviecKdL5V1oEgE/fqygsideZLrr2cFc
-         DJuthbAHaH1vv6dGbvliUCUpwM8Qj38iEeOtHYqpP3Y8uKh7c3R6zp4PCzG7uWZ1zQY/
-         7pOnlesMDcFIx0YilHasD6belrSg1ORkZA3z0AiFCj0BUHDkI07Wuj/ATu0nwHMUW0kr
-         Z/NtcAZDvCTwcd8KszYs1PIEx9ghZJVS7j7DvtrBYcwhC6hb42CjQYNpLhR7dIv2xj1L
-         d6qQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU0cXgtVUKJttyRULhCXuGSgGNJOxXOqvwU7+VoHoAlf/Sgyvt5EROhww9Mo0bZnPJp0E2neLboMOrvjZakSPkA@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIt0sRazRq/XzNPk28C6ZcExuWadAGZjUBTrANJb7oighThz/q
-	5uqYRWylOoPCMBjJNOp8/5wqJ+op38UQ0lEfGWZhk1TcH3U76OO80ePu
-X-Gm-Gg: AZuq6aIwMcvbuTWfCCo3INdi+iGiLpfhReLEB03fNRg54PjCQPsdKh65b5HRdI1t/9Q
-	VrUGabhZ2LWsm6H1Ox7eowlSMJpNH5nwEtp0Viabc4jAk1MJ5z/+wz1UPmfB4ffIJKlW8VgHqce
-	v3GhD+SYj0j/UeNT7bPin3bwwoHZu+141RWammxdvOOs+DZY71hCuANtXHIUcBMMK5JN4Gm0oxK
-	O/vAuvJwqFm0iBmzqr/APvCLBwkWIdQbDsZo/TQ9W0WehbTKPOJQqbRfm72YXmQXK7TfQKqirUa
-	84hDDOMXj+7HeyGIeqjpDW5F1lW67IUypquBRUlIUQ+3IyB/NICN0GFECPk0WMbwO2sg+qrlVdi
-	tgmsyTEy39UzmjAX24+/apdiK0w6I2bM9zstlrfQsDVXJFe11+P2hS78DFg9qNAgWUVAsXR9Nk0
-	w76tKJnPH8ICV/nsVI8+zx+vJa2hUx2jy2lFaNhixvQCy/kX/q
-X-Received: by 2002:a05:600c:1f94:b0:47d:5e02:14e5 with SMTP id 5b1f17b1804b1-483507d018fmr45364095e9.5.1770750352032;
-        Tue, 10 Feb 2026 11:05:52 -0800 (PST)
+        bh=erTmcC4BRsN72TnU7ILsQhSKr9ooULobI3aSeUy7isI=;
+        b=Z9Zi9DTVdbCpLaih9pGiH9jNCeZVsCsJETP8811vKMycI86kbUc7NWCUBG5rvj2bQG
+         7xNvxiV7f80V4yFzQ8NlFIeP3s4yrkkEu4+BnhQHl/2drwTwQnhd7wQEGszka1fampNl
+         EJbFEuOEzOjXNlfyjEhG/Xu76dHe91xD6lqJL5ns4RI6jAjHG/47pKQ/uFW0tPUB8dPR
+         Dat3I5Nc3T0WdX1AbYDHBs0YcLLrNtmiUd6jsyBJnhRvTmA3iCqvGNyZ7KFC4v+dmHre
+         yXKYBRJR/J+rZgpWSkUi5elyTkUrQUaG+u3xN8uyum1z2JAGhUIXOEOHMhavIiS81s+W
+         y9EQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV1xUDdovF76D7DXZn7Bf2b9pTunju3cR2o9sV1BakEuEp+TiweSAtt26LiaWnGCdb76NRrIN5ubumekjdqoDHA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZLgYZpupup8gFEaymYUpfvLNmKSoNV5fD9XhT+WqxXvF2Ccve
+	k4kDylE7D+cdLKtSyUz/PqsVPyHD/nxtPl4d2DXVp/pQstJeFqvezZq7
+X-Gm-Gg: AZuq6aJkZhWijSYhOtYIGsJZ8v4ADJYuNYcTo+b2FaXpQVVZwa0e1OT1JUKmjF/kSaN
+	BzUMnYjNF1wyGhPOZRRkn82x4UL9dEnGhVH91eixv2B40LYVzssbpjQex5iIORnb6cvrPSKdeNy
+	nO9rbbg8cohXY5WdV4PRhG6KQKyRHnqRYdcjMGYVf/z3J6JVCrd3uFZqiqNDZj9Rgvum4yqsaCD
+	XV7pZuTmbF8Mk+8VHFfSFXexAsNxAMP9J8mPXU2NabyYcIkjHqNN/aYCy19NrdX2MydVzwOUq8a
+	JO1JYpxWjWp9Weh0Ve+dTKTyhBLweEUMjQSFvdjsPi9k0xuqWfF+H2CtNp2e+IE5TPE6r6Lv1F3
+	tWznt8GpOoe/syk8nDvASc9fNOjM0CastDKoYVYOMO+owaJMZC950xJ/WoQBW38gd43o+S5ofnH
+	UoDenMpBO6MsyujA10GJSjBFuEyI5rc+SdpAhlywze3p/2oA7f
+X-Received: by 2002:a05:6000:1847:b0:435:8dd5:ad4f with SMTP id ffacd0b85a97d-43779e433b6mr5594134f8f.9.1770752010474;
+        Tue, 10 Feb 2026 11:33:30 -0800 (PST)
 Received: from localhost (39.31.66.37.rev.sfr.net. [37.66.31.39])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4376bd5a074sm18458009f8f.11.2026.02.10.11.05.51
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4362972fc26sm34029966f8f.22.2026.02.10.11.33.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Feb 2026 11:05:51 -0800 (PST)
+        Tue, 10 Feb 2026 11:33:30 -0800 (PST)
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-Date: Tue, 10 Feb 2026 20:05:45 +0100
-Subject: [PATCH v8] bus: firewall: move stm32_firewall header file in
- include folder
+Subject: [PATCH v9 0/3] Register the STM32MP25 RCC driver as an access
+ controller.
+Date: Tue, 10 Feb 2026 20:32:51 +0100
+Message-Id: <20260210-b4-rcc-upstream-v9-0-17ca1db7613f@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260210-b4-firewall-upstream-v8-1-097c1e47af82@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNQQ6CMBBFr0Jm7RiKAqMr72FY1DKFSYCSFquGc
- HcrF3D5XvLfXyGwFw5wzVbwHCWImxLQIQPT66ljlDYxFHlR5hdV4eOMVjy/9DDgcw6LZz1ia5l
- KIl0oS5Cms2cr7z17bxL3EhbnP/tLrH/2TzDWqLDKT2Ss4kq1dOtGLcPRuBGabdu+/oNSpLgAA
- AA=
-X-Change-ID: 20250916-b4-firewall-upstream-dfe8588a21f8
-To: Gatien Chevallier <gatien.chevallier@foss.st.com>, 
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2WPQW7DIBBFr2KxLhVgwGOveo+qiwGGBCmOU3DcV
+ pHvXmovainLP9J7evNghXKiwobmwTItqaTpWkf/0jB/xuuJeAp1MyWUEb203Gmevef3W5kz4cg
+ BgbDFaFEEVqlbppi+N+P7x74zfd6reN6PzGEh7qdxTPPQCBM7gh5d37XSWBMAraLWmSDJK2E1G
+ CInHDsGDc0xJ6ZMX3i5/DeFSGAAUMkIwwLsr+Ocyjzln+3RpdtCdolSTz8tHRdcheg1CQlRi7f
+ TiOnyWqM3V1UeeP3MQ+Vdq4K2sZPYwpFf1/UXYDjcDnYBAAA=
+X-Change-ID: 20250916-b4-rcc-upstream-8a8ea3af6a0d
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
  Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-stm32@st-md-mailman.stormreply.com, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, 
- =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+ =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
+ =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
 X-Mailer: b4 0.15-dev-47773
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_110555_525891_CE0A7F8C 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20260210_113332_599598_A67F03E6 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,106 +112,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Clément Le Goffic <clement.legoffic@foss.st.com>
+The STM32MP25 RCC peripheral as an access controller is allowed to know
+whether the clocks are secured or not.
+The STM32MP25 RCC peripheral knows about the clock secure configuration
+of all non RIF-aware peripheral.
+In parallel all the RIF-aware peripheral configuration information
+are known by the RIFSC peripheral which is already an access
+controller.
 
-Other driver than RIFSC and ETZPC can implement firewall ops, such as
-RCC.
-In order for them to have access to the ops and type of this framework,
-we need to get the `stm32_firewall.h` file in the include/ folder.
-
-Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-Acked-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
-Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
----
-Changes in v8:
+Changes in v9:
 - Rebase on v6.19.0
-- Use uppercase for peripheral name in commit message.
-- Link to v7: https://lore.kernel.org/r/20250916-b4-firewall-upstream-v7-1-6038cf1e61d8@gmail.com
+- Add Gabriel Fernandez's Reviewed-by
+- Link to v8: https://lore.kernel.org/r/20250924-b4-rcc-upstream-v8-0-b32d46f71a38@gmail.com
 
-The v7 is a subset of the v6 and other prior versions, splited to simplify
+Changes in v8:
+- Use uppercase for peripheral name in commit message
+- Add the '#access-controller-cells' property to the RCC in
+  stm32mp231.dtsi
+- Link to v7: https://lore.kernel.org/r/20250922-b4-rcc-upstream-v7-0-2dfc4e018f40@gmail.com
+
+The v7 is a subset of the v6 and other prior versions, split to simplify
 the review and merging process.
 
 Changes in v7:
 - None
-- Link to v6: https://lore.kernel.org/all/20250909-b4-ddrperfm-upstream-v6-1-ce082cc801b5@gmail.com/
+- Link to v6: https://lore.kernel.org/all/20250909-b4-ddrperfm-upstream-v6-2-ce082cc801b5@gmail.com/
+
+Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
 ---
- drivers/bus/stm32_etzpc.c                       | 3 +--
- drivers/bus/stm32_firewall.c                    | 3 +--
- drivers/bus/stm32_rifsc.c                       | 3 +--
- {drivers => include/linux}/bus/stm32_firewall.h | 0
- 4 files changed, 3 insertions(+), 6 deletions(-)
+Clément Le Goffic (3):
+      dt-bindings: stm32: stm32mp25: add `#access-controller-cells` property
+      clk: stm32mp25: add firewall grant_access ops
+      arm64: dts: st: set RCC as an access-controller
 
-diff --git a/drivers/bus/stm32_etzpc.c b/drivers/bus/stm32_etzpc.c
-index 7fc0f16960be..4918a14e507e 100644
---- a/drivers/bus/stm32_etzpc.c
-+++ b/drivers/bus/stm32_etzpc.c
-@@ -5,6 +5,7 @@
- 
- #include <linux/bitfield.h>
- #include <linux/bits.h>
-+#include <linux/bus/stm32_firewall.h>
- #include <linux/device.h>
- #include <linux/err.h>
- #include <linux/init.h>
-@@ -16,8 +17,6 @@
- #include <linux/platform_device.h>
- #include <linux/types.h>
- 
--#include "stm32_firewall.h"
--
- /*
-  * ETZPC registers
-  */
-diff --git a/drivers/bus/stm32_firewall.c b/drivers/bus/stm32_firewall.c
-index 2fc9761dadec..ef4988054b44 100644
---- a/drivers/bus/stm32_firewall.c
-+++ b/drivers/bus/stm32_firewall.c
-@@ -5,6 +5,7 @@
- 
- #include <linux/bitfield.h>
- #include <linux/bits.h>
-+#include <linux/bus/stm32_firewall.h>
- #include <linux/bus/stm32_firewall_device.h>
- #include <linux/device.h>
- #include <linux/err.h>
-@@ -18,8 +19,6 @@
- #include <linux/types.h>
- #include <linux/slab.h>
- 
--#include "stm32_firewall.h"
--
- /* Corresponds to STM32_FIREWALL_MAX_EXTRA_ARGS + firewall ID */
- #define STM32_FIREWALL_MAX_ARGS		(STM32_FIREWALL_MAX_EXTRA_ARGS + 1)
- 
-diff --git a/drivers/bus/stm32_rifsc.c b/drivers/bus/stm32_rifsc.c
-index debeaf8ea1bd..65990ae8dd08 100644
---- a/drivers/bus/stm32_rifsc.c
-+++ b/drivers/bus/stm32_rifsc.c
-@@ -5,6 +5,7 @@
- 
- #include <linux/bitfield.h>
- #include <linux/bits.h>
-+#include <linux/bus/stm32_firewall.h>
- #include <linux/debugfs.h>
- #include <linux/device.h>
- #include <linux/err.h>
-@@ -17,8 +18,6 @@
- #include <linux/platform_device.h>
- #include <linux/types.h>
- 
--#include "stm32_firewall.h"
--
- /*
-  * RIFSC offset register
-  */
-diff --git a/drivers/bus/stm32_firewall.h b/include/linux/bus/stm32_firewall.h
-similarity index 100%
-rename from drivers/bus/stm32_firewall.h
-rename to include/linux/bus/stm32_firewall.h
-
+ .../bindings/clock/st,stm32mp25-rcc.yaml           |  7 ++++
+ arch/arm64/boot/dts/st/stm32mp231.dtsi             |  1 +
+ arch/arm64/boot/dts/st/stm32mp251.dtsi             |  1 +
+ drivers/clk/stm32/clk-stm32mp25.c                  | 40 +++++++++++++++++++++-
+ 4 files changed, 48 insertions(+), 1 deletion(-)
 ---
 base-commit: 05f7e89ab9731565d8a62e3b5d1ec206485eeb0b
-change-id: 20250916-b4-firewall-upstream-dfe8588a21f8
+change-id: 20250916-b4-rcc-upstream-8a8ea3af6a0d
+prerequisite-change-id: 20250916-b4-firewall-upstream-dfe8588a21f8:v8
+prerequisite-patch-id: e4a708d9c6df5725c9598fbd2169636e4e7dc46b
 
 Best regards,
 --  
