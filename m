@@ -4,92 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E192EF06ED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 11:38:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB03EE7E0DB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 11:46:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iJ/WctdqigD32PqEqv3ebe0jqlT5BVVf/tJqU8VMdkg=; b=G+mdCXaK6sW3Voda71Vf37I5Nn
-	fWP3CuDQHyErlMgzp0x6LXOriZodtL72ZdtPIgF5QGFPp++L3gSOr5cAtEv2GTq+PYWBTdSPQR0fB
-	e83Um+1L6cCEv+6QmNOG9Zs3VfUrg0+J6FER9MO5t8dVe2PQ21qSkCK0yjcSfYwIh1/M+zCTgiXfD
-	Th7l/avTEdvhML2lilkp/j8bwUe5hRsdo05d9bauqzlCcEJSOrmPHeNAbEIOWw/ObTD7/OB2R+R0I
-	UaSIgh+F75mYZn7SL+cU8ly8ARSYAv/AS63jvzY6U+/oRQNeg96GvM/dzPXMqJB1PjEH8kapsF2Cr
-	IFN9MzsQ==;
+	bh=zc5tflQ79bUhmMOCZPDFHjXYBcQcDGycOKsVYYk9oQQ=; b=Yeozc88dqkLDnvnJKvlJb8hwQE
+	Giq5utfX3axFFzX45SPbW9Gv5JvEdePh5zUpZ3ydagMMmfz0eAyRC/zaeJI1D1j1hDEtocHermUFg
+	Yvtdwhu6G0iXtzDya3ZpjU8qiSsOyBJ57y18NRszVHXlUZXV9OGzFL2+j0DmPH/+DTYq4FEMOsAWC
+	qQHEpMNUYR4rHTFAMIr2JYs7mwVCDtjW4RnNwJDDdXEkfrxhui5BIqUlHPdXtt40B/22wRY6dju+F
+	LHCDPzfP9bPQYV83WYF/4UO3o0Jt1BTpQM6SoF/yrCea9R3GedFAnx7RPT7j5KLdkqr5o753oNt3w
+	2n8njtnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpm4G-0000000GtVh-2Gt0;
-	Tue, 10 Feb 2026 11:38:08 +0000
-Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
+	id 1vpmCV-0000000GtqW-3ced;
+	Tue, 10 Feb 2026 11:46:39 +0000
+Received: from mail-ed1-x542.google.com ([2a00:1450:4864:20::542])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpm4D-0000000GtVM-477W
+	id 1vpmCT-0000000GtqB-0ea2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 11:38:07 +0000
-Received: by mail-wr1-x443.google.com with SMTP id ffacd0b85a97d-4359a302794so2591941f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Feb 2026 03:38:05 -0800 (PST)
+	Tue, 10 Feb 2026 11:46:38 +0000
+Received: by mail-ed1-x542.google.com with SMTP id 4fb4d7f45d1cf-65807298140so1081782a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Feb 2026 03:46:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1770723484; x=1771328284; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1770723995; x=1771328795; darn=lists.infradead.org;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=iJ/WctdqigD32PqEqv3ebe0jqlT5BVVf/tJqU8VMdkg=;
-        b=nsbCCDFtbPc3t7k43pwCGU7/aHCEoWip6QXlEjgfDGni+a2lxVSXq/Y6j0vT6G7XS0
-         FFMw9Vk3XIQP9kdItK/0z08Gtv1cnJtvInavzFcYS5hID/AlQpt0Chq7iGyA8aAy4+gq
-         NqJYGNqE9cf35cnpUlOsXB+idgpo2kzyRBp7g4rSjQrdyeYEvWmyVH+2tkScUc8HE+w6
-         CHNSU9UpUA6y2PiN7IBoBmCVYsBw/1APWq0M3DJ5HmLwALXb1trolZceduEihfss645o
-         3Bd8WyAI2tok0oRzgk6+47NOfV+PpXxZaHI3jtOeRFTOWz3zHdEJ0U6JeDjpwisGG9Nf
-         ikzQ==
+        bh=zc5tflQ79bUhmMOCZPDFHjXYBcQcDGycOKsVYYk9oQQ=;
+        b=b9nlVFPYls4H5UTXiGpUEHlZ6BGY5FqvZqMk7W+qYff4CCocXhwVhtquwkqgxAJgpO
+         9qw6ONeJJFXTgjHd8s10iRDMVOYH29Gi6KT9DdF4XQ7IKrCcNrAmpsBQQ3xX5siufpC1
+         /E0aSBj4fF/dI7nqeJ5mJHDap1hHh74V+2zx1ILPytQS0oyzba+pPffNFtv1wTdW3MYe
+         ft7LuKdtDf8PsrOcIwEUYkSbqwg7zm51SAJqj0D9KseevOfqSfYKSU5ddWsWK6iv91rr
+         pV+hhBN8vbgL87O1I6Jf4DTmmriwi1HfxZHcbKEgsF4vjoXPnJz6Oy+gvHj2F86jnrhC
+         fUsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770723484; x=1771328284;
+        d=1e100.net; s=20230601; t=1770723995; x=1771328795;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iJ/WctdqigD32PqEqv3ebe0jqlT5BVVf/tJqU8VMdkg=;
-        b=ctPUcy/w6sl3WY/8sj1qDAuXt4+64BqU973F2VaqBo4i15Ud63AhXJyTzXFdwGOR+4
-         E+6Y0uga1arENws59qC2cc1NptFigRxYRVGKF3HIrafJq/eB2TPBXx/aL6CHRQodU5sC
-         wwwtYEFvIEL9ZwTn/JFtKGaRDtFLpFIx57sAGPJz53FlrmlYGc1N769N72Ih43aGdNHu
-         z43TY0TY9JEoMQZayHdcMIY3FnoPvjzSB+39srLwFt8vTnlEGl6m9+fiIyA5XNLmFSd5
-         lyRw7toVkyIA8m08PDTcqx7ExX+FRN81465sgMeViAgb3QPh8znDRPKpFvzYW2DJrZSB
-         3Zdw==
-X-Forwarded-Encrypted: i=1; AJvYcCUWOG+3OZNUwqQG3h23zSIhLRgtMCj20teslO+u0wlbd8wWvz+oJjC5CxTe5ixQwRJJBNkbVIVN3MsSRdpfnLuS@lists.infradead.org
-X-Gm-Message-State: AOJu0YycqfyjaGB4dZLoXJNhAm4bifL5Y9nt4TuFp8ijxUr5tat52ut8
-	hkieI+VnCVr2iqfeZrULz4PXnUCy47MgXj+uHzJB24i1R4rQg2SiREfLkbwI9/mNfkE=
-X-Gm-Gg: AZuq6aJxq1YAwWA3Gm2rWWEVTT8Fm+IkjBx/0/AIXt8bc059HZXS9uq0/vQx7CPY41/
-	B852pWjmYOTNbEX/6K7J4zkruVyafWg0Nkh/39uPyevziYtnWSJmBtI5cTZOg8QXGCSp7O+2xg3
-	FoJlPqyUzFZjZtsmwkkyGEGIEEok+7GSoND3AIlUqX+KOZ/AznH0zE+In8eH/VNvrAR3gYQ9xhe
-	3s/OufdMseSB2ryWkW47F0YvIZicAk6+awSVE/i/1cTODTpMin0i/fbYzWhtK8G3m5vPWUYELni
-	BMy6reYndFcKB+nBsWkx9V0eR9nCovZqClK7tazvV02VzANPDHMvwc1GNdxSQPcwxeCY020x+N9
-	NICFKrpPaZC7l6+hakFFe2FaybfCU7DbopJMaJXaTcrIoYgJmHRk5fQ9XpEIdwkUMIVqMI60zr1
-	W7PvYG+vzQeFrQ6S3VyF6Avo4xOA6z4BC21WvWo3Yk
-X-Received: by 2002:a05:6000:2601:b0:435:d859:5cf with SMTP id ffacd0b85a97d-4362938a761mr23774127f8f.54.1770723483638;
-        Tue, 10 Feb 2026 03:38:03 -0800 (PST)
+        bh=zc5tflQ79bUhmMOCZPDFHjXYBcQcDGycOKsVYYk9oQQ=;
+        b=HtsGMQYIxDSp7LCadoJZ04s70cAKddVuSr+1TtjwuYJY9bOaRYRA7lDpUJRwShX3rz
+         zvIuKAdxbtp1LCJQ5+VXus4u34rtQvdoqWY/sDis4pCVQpoH3Wiec6+2Enj6qiXBTuOX
+         /g64ZeyetNV5sBbHURcvnQRV39ZmaOU8qzazLl3XAZuGRol2To3N9Vwapu3vEyfWMMtX
+         IYd+r7QcHX/sQft0AFaPa5Gd5rHbURJWmZ/9X82aFmpQO0U9TFV4mJhA1UORbqtPSe9J
+         WvwUHQwpRAQkc618xPyE8B6Rxc6KssUSU9niZbaN+ZLoC5UexBZz9AKcWaWi23k7B/QO
+         I2tQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXXRPcLmtYf4P6s5mpZL+OJZnbzQzfnEbIxzfrF5OUyRp623rTnCMENAyTQbAyYJFybdqsJjV+8SeqFmAjFvVu/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKIw/jTMLc5iHuU5zcUWorbHcVf5MgYLfNcFd2koB6ZZ2Uah/3
+	05+4nOGCVorwvtx80w/g/AGgVAdZuyBFCdoIXhTggL0mcsF6xcVlsY+z5yI0qqUh+wo=
+X-Gm-Gg: AZuq6aLyvuj740L0PVMrNE2oz7H1aH8+CjrgL7ykv26x8+7NG8mUk/LDs0F0TowqZ7t
+	eiaJQXFQ806eIKRKF6dGCEr33EbqVqAD3ZMLliQYhprP9nQMbxOBICUGrZxi0ny+pjxzDfiZKMH
+	009GvSI5UhW2fPNOSvafuklK33imyxME1n27kSeod31DNdRhS06Fa+595G8Wyb5qNyhzcGLxT8+
+	SuYL1HR3pnHcSYGuok4x2wenEhaHtm82z00DYRFuTtwgXPywtveWNa4rsCgh8kS/Gs+NLiMH0av
+	zBbizwbgmrv3NoJ1KRGSIclq3mVNBAXDIE9StYFh7lxX3eqMisHyVf3EsT607L9BVePVB81QTb+
+	TLuypfrD89jT+FJ6ZDc8sjgKEdNkJb+RBdLLK1M5I+sp/Kxpmg0OjL2AM1pqbZeytdnBeD7OCTJ
+	theTO8gRrCwVbQrp60Pfuz92jkxjmddQ==
+X-Received: by 2002:a17:907:a4c:b0:b88:637d:aa75 with SMTP id a640c23a62f3a-b8edf378326mr922391166b.30.1770723995271;
+        Tue, 10 Feb 2026 03:46:35 -0800 (PST)
 Received: from draszik.lan ([212.129.79.225])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43631c8d378sm27426330f8f.21.2026.02.10.03.38.02
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8edae3ae99sm530445566b.60.2026.02.10.03.46.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Feb 2026 03:38:03 -0800 (PST)
-Message-ID: <cf4073c76c2db84fd8fac3e1c2a63918bf9d45da.camel@linaro.org>
+        Tue, 10 Feb 2026 03:46:34 -0800 (PST)
+Message-ID: <81ef51394b2612368bceb81466dbb090260578e0.camel@linaro.org>
 Subject: Re: [PATCH v2] arm64: dts: exynos: gs101-pixel: add all S2MPG1x
  regulators
 From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus	
- <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Alim
- Akhtar	 <alim.akhtar@samsung.com>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
 Cc: Juan Yescas <jyescas@google.com>, kernel-team@android.com, 
 	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Tue, 10 Feb 2026 11:38:30 +0000
-In-Reply-To: <20260210-s2mpg1x-regulators-dts-v2-1-68783c9e0a32@linaro.org>
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Peter Griffin	
+ <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Rob
+ Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Alim Akhtar
+ <alim.akhtar@samsung.com>
+Date: Tue, 10 Feb 2026 11:47:02 +0000
+In-Reply-To: <cf4073c76c2db84fd8fac3e1c2a63918bf9d45da.camel@linaro.org>
 References: <20260210-s2mpg1x-regulators-dts-v2-1-68783c9e0a32@linaro.org>
+	 <cf4073c76c2db84fd8fac3e1c2a63918bf9d45da.camel@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.56.2-2+build4 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_033806_233012_0F65E250 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20260210_034637_347510_C06C2A3D 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,28 +105,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2026-02-10 at 11:30 +0000, Andr=C3=A9 Draszik wrote:
-> Most rails are the same between Pixel 6 and Pro, with the following
-> differences:
-> =C2=A0=C2=A0=C2=A0 * only Pro has UWB
-> =C2=A0=C2=A0=C2=A0 * Pro uses l2m, not l14m, for TCXO
-> =C2=A0=C2=A0=C2=A0 * Pro uses bucka, not l31m, for NFC
+On Tue, 2026-02-10 at 11:38 +0000, Andr=C3=A9 Draszik wrote:
+> On Tue, 2026-02-10 at 11:30 +0000, Andr=C3=A9 Draszik wrote:
+> > Most rails are the same between Pixel 6 and Pro, with the following
+> > differences:
+> > =C2=A0=C2=A0=C2=A0 * only Pro has UWB
+> > =C2=A0=C2=A0=C2=A0 * Pro uses l2m, not l14m, for TCXO
+> > =C2=A0=C2=A0=C2=A0 * Pro uses bucka, not l31m, for NFC
+> >=20
+> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> > ---
+> > Changes in v2:
+> > - add comments for board-specific and unused rails (Krzysztof)
+> > - link simple-framebuffer to display regulators
+> > - Link to v1: https://lore.kernel.org/r/20251113-s2mpg1x-regulators-dts=
+-v1-1-80a70ef42be1@linaro.org
+> > ---
+> > Please note that this patch depends on the bindings updates for S2MPG1x
+> > from
+> > https://lore.kernel.org/all/20260122-s2mpg1x-regulators-v7-0-3b1f9831ff=
+fd@linaro.org/
+> > for validation to succeed. Almost all of them are in linux-next, but
+> > patch 1 from that series is still to be applied.
 >=20
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> ---
-> Changes in v2:
-> - add comments for board-specific and unused rails (Krzysztof)
-> - link simple-framebuffer to display regulators
-> - Link to v1: https://lore.kernel.org/r/20251113-s2mpg1x-regulators-dts-v=
-1-1-80a70ef42be1@linaro.org
-> ---
-> Please note that this patch depends on the bindings updates for S2MPG1x
-> from
-> https://lore.kernel.org/all/20260122-s2mpg1x-regulators-v7-0-3b1f9831fffd=
-@linaro.org/
-> for validation to succeed. Almost all of them are in linux-next, but
-> patch 1 from that series is still to be applied.
+> =C2=A0 ^^^^^^^
+> patch 7
 
-  ^^^^^^^
-patch 7
+Krzysztof, could you take patch 7 of that series? I expected them all to go
+via mfd and/or regulator trees, but seems final decision was otherwise.
+
+Or what's the best thing to do?
+
+Cheers,
+Andre'
 
