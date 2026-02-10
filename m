@@ -4,225 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B865EA8105
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 12:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 545B0EA8109
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 12:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xKJl0QmFG0InHHy5CNJ3Z+1DVbvE1rB2Imx+kqwKvWI=; b=KKmXNrgA9XG7fX0Ss+0nCx02Td
-	M4oK5btCjJmSr3Xy9cWzvpm8dp49CkD5RMMWNUXoPuc9dVJPr/HoIyic4H7fboZJ7wj5sYizhE55k
-	7Nf8k7ShjhAmGPkQjK8OpSZ6lV7OQ6rlVreW3NRVteEIlVTbdp1XFXW0mlxi1SePqXaWkULlyzaYf
-	BInaGvPIGGzNtzrXP+tyCt+3WX4oXXVz0z+6bX8gb/QK4LAl8a4ExRqaDNhctbpmjKR1D4JlrkPqu
-	K0tf+p13ZSOIVvFiNSl4PIYSdrdHtYmvOSLhTHzcugRc9hPuFKUAjoaHrKO6Uaoj4nr9III+50AzL
-	mEpX9vHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kWvUhRqt1hN18rXGP932XQa3bmQweHVVpefpm4V28X0=; b=F7f/U4EvMNx82brPJZ58xodCyB
+	b4WfXRzjAB5GprpQPC+ui/JJ8lzlqruXmNbWQ4q1gKVBMZaPHxqktr5caukl1/a2qzNHZY1/neUpx
+	xunV+PRQp4ncj41nn2LHgwRJkJLxj6+LfoHssdbDwXy0rKyBpcNp0kUY/2Lm0pED2I6YPoKBjYBSJ
+	ywI2mI+gFkNFPeKE65fN0xsoyBuPBtZ3FS0JnOoKXcUyJmtu32Da08KuzyYLmWWqTQ0EHwU5fyQWA
+	pNkUKCuWfnrlUmlk7ID0mX1AE9dx4S51Yvspy89NelyDtNd2Cq91zZufueOUHx6ep5ee2dykYqgeL
+	2spDy1TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpmkl-0000000Gvrj-2y5G;
-	Tue, 10 Feb 2026 12:22:03 +0000
-Received: from mail-swedencentralazon11013020.outbound.protection.outlook.com ([52.101.83.20] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vpmmB-0000000Gw0P-3K86;
+	Tue, 10 Feb 2026 12:23:31 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpmkh-0000000GvrQ-41Ba
+	id 1vpmm8-0000000GvzX-17Dk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 12:22:02 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=KldZUfebb4Quao6ElrlaMh3WopdUyWKRaVAa2peyj5cUHDXH/O3a142YF1NSZHqTFBL/pFJvoWRRC0/ZBzeE41jOUAtSNWZau3Zx0MQpCQ39RZoFBzl0tFlmj35ea+SadMk6vRmBVNmJP67Yx+pPOQTVBd5k6I8lhuMCgQlDyTEEECA9zS1aa19VtNI7bUiKhrKeR3hk6RzTWfr4bnvDPmEGVQVWusIZrjeYyrtIVrW0a6XfRjJSWRRRNBGF9BGY882GFo2uVFLKYP7WGeztHv4dkbP++l+0yUKEUWvQyfJdCqtSLWg2HcF2zYE+EyvsaqiveQ0Herxldda+EXpAHw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xKJl0QmFG0InHHy5CNJ3Z+1DVbvE1rB2Imx+kqwKvWI=;
- b=jkPg4zsLwZ5Daaf8ydJBThB/c3qHT+SD0EEiaUdknPUzZdutmFGe9POj16b+bgZnfqaQpvN7gf3C4UqtzPCZhqNSCITGieou18Xp0N0MxUs8VcXwmcd8RfMP2ZyOVHy0CHpyLj5B2SS6AXu93Mpr5WRzUgZTWh+M6Z4qDjDBJSxHpYjR+7HtbyXVQkRgM35CEA/wl9PUGc1qlTALCQdE46H1JL2jfpoGzumyh+LzvpBjbxGojdRPmJKqxbbzL7NhOexjA7uospkGgt9cs+7a5jfxeYo8syycIiEAT3Zi6HHYao/FKc+foAjp7n/WstmxZ9fRn99Pm4I5088HQJw/ow==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=ideasonboard.com smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xKJl0QmFG0InHHy5CNJ3Z+1DVbvE1rB2Imx+kqwKvWI=;
- b=DT+PXhP71UkESCWLtijZa9yqwKlbvscHyAwAIny342NvUA5TaQnizTIJFpS1NepY4i5tHOGICLncXSvaRN7ZjIZasFKhLOD0PSX9o2WvTYYe/L17mi8W5l88UAP27ANPRCBFKsgGO3lAKa8c2nflWwYsvAt+0GgaR1BDgYad2TY=
-Received: from AM9P193CA0015.EURP193.PROD.OUTLOOK.COM (2603:10a6:20b:21e::20)
- by DB4PR08MB9240.eurprd08.prod.outlook.com (2603:10a6:10:3f8::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.19; Tue, 10 Feb
- 2026 12:21:52 +0000
-Received: from AM4PEPF00025F96.EURPRD83.prod.outlook.com
- (2603:10a6:20b:21e:cafe::a2) by AM9P193CA0015.outlook.office365.com
- (2603:10a6:20b:21e::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9587.19 via Frontend Transport; Tue,
- 10 Feb 2026 12:21:56 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM4PEPF00025F96.mail.protection.outlook.com (10.167.16.5) with Microsoft SMTP
- Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9632.0 via
- Frontend Transport; Tue, 10 Feb 2026 12:21:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NAXAoqS/oneaV8aduUi9fNuLrOWFw3zn81NdR+zfGhTo23uF8tzyN6rlVOUM1m4QFjI1lDP4Gb2HVeDtc4dq+S14vrRxNzmL3bKcYYTUzevp6se61F4S4kn9K1XrAYeh9+lDBcevF8b1b+n3M52+LL7AjJEXjPImUUCd08VQwLQ0up49Il/zrZMQNq3pkeLTqcbDJ6FvoZLX9lGo3d2Z3f3qG2t86CTCxkeXVXZzyZUuLMwYQqJTb/naxUnQSyAR5NHWbV8WGtPmwcSf6I7M4HMwVfM8b06L6rvkKCfJvHNym6qcLy3/nnjtLrVI98EP9FyB9OMdxih/MJjunq6aAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xKJl0QmFG0InHHy5CNJ3Z+1DVbvE1rB2Imx+kqwKvWI=;
- b=h+JI4V1oaXkpZ99COSQx+AqcGVeJqHUfKtZ13HxaWkjcC52zOUk8Rbi/2PR/E7KgrGO5ckGdjBHPd3aAUJZtXubb35XE/gaK+ZkrXVCx0vYKnyMzjubkfPDY2/akBCaFDMcwF+jzFmapeJY89vlUO1Y9sqA6rliqbpAOTMZIsCP8oe81CF69xruptma/M0f2M64VqqiABRcuYauHJdVlBoto5dHY9dwEh15tH9IwX7oVndFqhxEPq1nvTNDb6IhYlbe/JU+GSGiLJap8TGr0RhKIk+Al7jSEo2kEUDmjkkm/dqz5UEOziOdqn7KhFcB+Rj8UACd597lTxjvW+AyeUQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xKJl0QmFG0InHHy5CNJ3Z+1DVbvE1rB2Imx+kqwKvWI=;
- b=DT+PXhP71UkESCWLtijZa9yqwKlbvscHyAwAIny342NvUA5TaQnizTIJFpS1NepY4i5tHOGICLncXSvaRN7ZjIZasFKhLOD0PSX9o2WvTYYe/L17mi8W5l88UAP27ANPRCBFKsgGO3lAKa8c2nflWwYsvAt+0GgaR1BDgYad2TY=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from VI0PR08MB11797.eurprd08.prod.outlook.com (2603:10a6:800:313::6)
- by GV2PR08MB8631.eurprd08.prod.outlook.com (2603:10a6:150:b3::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.19; Tue, 10 Feb
- 2026 12:20:45 +0000
-Received: from VI0PR08MB11797.eurprd08.prod.outlook.com
- ([fe80::c4d3:baed:b106:2ba4]) by VI0PR08MB11797.eurprd08.prod.outlook.com
- ([fe80::c4d3:baed:b106:2ba4%6]) with mapi id 15.20.9587.017; Tue, 10 Feb 2026
- 12:20:44 +0000
-Message-ID: <2b64aa6c-b3d3-4b96-b603-1ceb3497dce2@arm.com>
-Date: Tue, 10 Feb 2026 12:20:42 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC v1 00/11] Add iMX95 neoisp driver
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Antoine Bouyer <antoine.bouyer@nxp.com>,
- Michael Riesch <michael.riesch@collabora.com>, julien.vuillaumier@nxp.com,
- alexi.birlinger@nxp.com, daniel.baluta@nxp.com, peng.fan@nxp.com,
- frank.li@nxp.com, mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- niklas soderlund <niklas.soderlund@ragnatech.se>
-References: <20260123080938.3367348-1-antoine.bouyer@nxp.com>
- <544a98f3-d451-4ca1-b7d0-0b0a1238f66a@collabora.com>
- <c8536c80-2f58-4eae-9336-436d772206df@nxp.com>
- <22b3916a-a12f-4ea2-8863-8ebd9cb498b0@collabora.com> <aYI0CrKLGeiZMlD8@zed>
- <aYN8v3UGFKfzkl4_@zed> <86109309-8200-464a-a167-ae9cef3f41b7@nxp.com>
- <aYRSMXHjFC0M_DM_@zed> <a4c62fb8-51f5-47eb-a1aa-ec0e4f6a9707@arm.com>
- <20260210002053.GJ2405149@killaraus.ideasonboard.com>
-Content-Language: en-GB
-From: Anthony McGivern <anthony.mcgivern@arm.com>
-In-Reply-To: <20260210002053.GJ2405149@killaraus.ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: LO4P265CA0214.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:33a::9) To VI0PR08MB11797.eurprd08.prod.outlook.com
- (2603:10a6:800:313::6)
+	Tue, 10 Feb 2026 12:23:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1770726205;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kWvUhRqt1hN18rXGP932XQa3bmQweHVVpefpm4V28X0=;
+	b=aqAKfLzX1zzHnLbN2H4e8//+ama2KNMvoXxj4k0WNKfx0o+kPxQF16wC9U+aoJhbM9c38H
+	M6U+qIMRXa6GNBoxUnY/mD36Hw14pIF03wSDj18Y8oNo53EI29Tk/MNBbnnQaNTV23K9qX
+	OXVgv4CGAq+2E4oDvsu9lOM+FwDDu9o=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-658-OsdPLmcGNzCSDwgja8J2SA-1; Tue, 10 Feb 2026 07:23:21 -0500
+X-MC-Unique: OsdPLmcGNzCSDwgja8J2SA-1
+X-Mimecast-MFC-AGG-ID: OsdPLmcGNzCSDwgja8J2SA_1770726200
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4832c4621c2so32489015e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Feb 2026 04:23:21 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770726200; x=1771331000;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kWvUhRqt1hN18rXGP932XQa3bmQweHVVpefpm4V28X0=;
+        b=Nyj2biD4bGj1qsImWTYH6rsK3mSvuCfgCf9QSAlT6UELvV+eU5wP2aFrhE3zYhsfNk
+         kSxTbeFWddOPenYpS2O6F4XaXhkL60iYDN5+VBgzfzb5lobR7Wh24wxGeCsiCxow77OL
+         adByxlcDfoFM8HO1JLqeLcO7g4Rx+vs464nBs5chywuf/nau76tEJtH2DmWcHZF0HhUW
+         OMSvNNsqJDSkUoNaRaREZ6oA3VDoEKx7eEjvSEMz7DNaEZNkf+pw1WnW1JOm/FoDFK9V
+         Nk2BfVMYfNutB0yWtA9el6PKIYpE0pNtGyBi5qkuhto1ZBIvchugTG0xgS/qbtQW2gXA
+         VjtA==
+X-Gm-Message-State: AOJu0Yxj2cE7ifqX1cscaMn9fnYrfBNv0uedvJrQO2/cMXe9lftZzxbZ
+	zoq6q/9iH513an6ltqN1ULVDCT3kvcKUNY04jvZnFQbxV9m7RTGotVmBU8uJLeVjSvFxp/z/Ecq
+	QsIWR5xDsI2mEfLLu8ohDDGWnIWsYPaADRru83Z3tbA75ChQgx0uvMYxQIzFK81cVKyp/hxOq63
+	JDT4Ie3wTZ
+X-Gm-Gg: AZuq6aJ86Zet39zWv6g6SpyusA/LumXtnlDPszIEMFZeLyOBYVnGUTG8sD6digrEHCS
+	HcluiOiOr5UXk1Rn+ifHTBn52r5ZhqrDhq+uu6WQGEWh3Rs747R1Z5Glb/kfFtiIER+sTBCaQJ0
+	MH11nI36KfLJMeHMztlwgWWpIsICZ/0DsLxDRu9ALIIre+A42IQ3slGlOxaHocEbPN1vQ7kuwsg
+	osuWH06psylckZgk3WWQHs7nRWGq7NYspSW87F5xGS3C3BkgAthIzUnkRXCKNj4+Qr0N8R0bszb
+	Xchv1QxRP6bwf5A+31hJcKGA8oul/QyAouT7SFzbMNQEMuRoEqo8Z3lOTpCeHN7VU88OMe4pgA+
+	iWrLbhS636RDlqBA2+xQUCqo=
+X-Received: by 2002:a05:600c:3487:b0:477:b0b9:3129 with SMTP id 5b1f17b1804b1-483507cff88mr28917855e9.3.1770726199933;
+        Tue, 10 Feb 2026 04:23:19 -0800 (PST)
+X-Received: by 2002:a05:600c:3487:b0:477:b0b9:3129 with SMTP id 5b1f17b1804b1-483507cff88mr28917395e9.3.1770726199404;
+        Tue, 10 Feb 2026 04:23:19 -0800 (PST)
+Received: from [192.168.88.32] ([150.228.25.31])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4834d82a4afsm120865445e9.11.2026.02.10.04.23.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 10 Feb 2026 04:23:18 -0800 (PST)
+Message-ID: <2b7263db-ac5e-4eda-a599-2535242be24a@redhat.com>
+Date: Tue, 10 Feb 2026 13:23:13 +0100
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: VI0PR08MB11797:EE_|GV2PR08MB8631:EE_|AM4PEPF00025F96:EE_|DB4PR08MB9240:EE_
-X-MS-Office365-Filtering-Correlation-Id: 979dbbde-cf8e-482d-960b-08de689ef8f0
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?cDB6VVF5OSs1YXJUYmRKa0N2RzBtUWNpVGFySlEyY3pWK214ZDlRNUdyckI4?=
- =?utf-8?B?OVlMRHo4NGkxMWZVY2UrK3RKc1F3TEFTaXIzZnhSMDhZWEdkSldlRlJNQkpO?=
- =?utf-8?B?MCs3dnVKUmU1R0svekc1R1NlaEpSM0puMzZUTnoyQmo2cWJqUWw2VFd5Q25u?=
- =?utf-8?B?WjdSVGtxRFYrRDY3SmxXZ3huZEQwOWUvUE93Y08wSmdrZkJCYmtrbjVYcE9Z?=
- =?utf-8?B?WG1pT2hocGMzcHhHNGtiKzE2Yll0QVhuVkJnMlM2R2VxbU9NOS9nY29yRkhC?=
- =?utf-8?B?bUc3Y25RTEYwZWJTSkpqQ2N5S3lYVTBvbHY3NktCYm02bUh1YUhCOHZKcklE?=
- =?utf-8?B?dlBEd3ZzOHkyS1FFam4yYXU0Ni8wTTdnL1RXa3ZDb2R2K3FBa1Rockd6bE5S?=
- =?utf-8?B?RXN1bkpZYk9NWjV3SG5UMTVEU0h4eDVKRE56OUZFbml6WlhjRSt6MDNRYkVM?=
- =?utf-8?B?NHowZzY5em9VRGxoaDAxMHJZOHRkdHVwK0N1ZWRHTXUzbEtCNW55aG4xUUJv?=
- =?utf-8?B?dUhWa3VBelQ0VEJPM1JqeDRBejhDdXYzQzdKdTRHMlRIZVZrMFZmYXM3SXVZ?=
- =?utf-8?B?MlMwYnB1U0ZYUWJyVTNDcjd0d3lhUUZ2dVJBRTFqV0NZT04yNDFpSjJQTGl0?=
- =?utf-8?B?WkpQUnlDY3ZtalZWRDJqbFRSa0RnMDlIY2JGbm1takVBS0VLa3JzUjlBMzlE?=
- =?utf-8?B?UDA4SDlXcFVlVHVLNTdlbUJ3UXVrMzNEWmRoSVU3azdlZHBSL0wvTmw2R083?=
- =?utf-8?B?eWovZHdUU3cwQVpUREQ5eVoyckRhZ1kzcjJMcVF4cXVaVWp6WGZuQ2MvSjNv?=
- =?utf-8?B?Snc1amJydDZ6TkpHbFVYN3FyMmtpVFhPamp2akkwUUxiYmIxK0ZRUElvNk14?=
- =?utf-8?B?dGdGclAva1JmYU5oVEdXQ2svTWd5ZG4vWWlFVDQrY2hnRXRQQ3RxR041cjFt?=
- =?utf-8?B?YS9mMEx2OHJzUTlaNHlhUFExL3E3dG1acFgwU0FyNFNEUlMxVllITGI0VXVD?=
- =?utf-8?B?TEVGaTBzL2dpcVA4Q0VTKzlLK2VKbkxLcXNNeE9UOE50NlJhVWNkM09XaXdn?=
- =?utf-8?B?QUV5YjJZekZqQ01sbE1IOUVpdkt4Y2R4eUdoYjRoaGYyS0dOdXNWeVJDV3Y1?=
- =?utf-8?B?aTVYaXN3YkdxYS9zZlRocVRoWFNjSHhRZ1ZEd2Q3UDFVY3BBNENIMXQvY2Ri?=
- =?utf-8?B?K1YzMU5vOWQxUHNlS3Y4aXdPYW4zcWFKdmx6Z05VaEhtWThCcEI0dkxkaUR4?=
- =?utf-8?B?N1pDQXk0MFBvU2NqcUNVbVpJcnNqYW9CRnZ6ckFQZ2I5anBydmJ6YjJkd0ZY?=
- =?utf-8?B?ZzFLS05aZmMxZWRqU2NtNDR0RlI2Vmtqbk1mZUFEbEEwUWhOQ0lvUnVNb2hP?=
- =?utf-8?B?czM0djhkVVVRb0x4cEdQQUVMZStxVStkTm1jMlhxVytyRDVPMW1QN3c4YXhV?=
- =?utf-8?B?WjhQVE96QVVEMjBDTHUxcm8zd2lZcUZwMmU2SkV5cHU4M0J2N25OTlQxbnlZ?=
- =?utf-8?B?eGxaU3JpS2p3aHU1ZWYzRTdKaHFFWkg4WkRhL1VOZ0kxVExGM3o4dm5mL29X?=
- =?utf-8?B?emdJcTNWTEhjWlRCY0t5cVFaQnZaQkUzTlh3bGdVTklvZ2taUWZWajRHeEJL?=
- =?utf-8?B?b1dweE15TjlyWk9xbU5JY1ZEcTJnTXhkS2N6U24rMXZ0N1NtTVJyZ3BCK2cx?=
- =?utf-8?B?WHhObXM5WkUzOTZlZS9nWUN6Wm9ST09ZOGs3ZW1sOHd6cXVrNVZOWGdLR0dm?=
- =?utf-8?B?ZmNXYzFWTkRZQVVhdFpjczlmRVdrRVBrNVJnOWw4NGxCTnJycTBTWWE1Umg0?=
- =?utf-8?B?dGtwNnZSZFlEajNsTU44M2JJZnRJcC9SOERyNkp3dEV5YmRUa2I5bVZZZHBC?=
- =?utf-8?B?RzY3NlJNWWUwMkd4VHdhU01LZ0NaOHp1OW5EcldaTG1rczdRNnA4dHJHTjhD?=
- =?utf-8?B?aE9aUDFHRjNDdy9BVzd6WjRxdndZaUtFcnVTdlFPYTh3SU1nNExwWnJjN0hS?=
- =?utf-8?B?R2VtTTF4UFFWWFJnQXJMM3BuUDkxTXJnei95UE1HV2JqTmVVZlk0RHZNWDRQ?=
- =?utf-8?Q?GOrONY?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR08MB11797.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8631
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00025F96.EURPRD83.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: e41eb229-60f1-48fd-3ff2-08de689ed0a6
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|14060799003|82310400026|376014|7416014|1800799024|35042699022;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?V3ZMSldVdUZ6TERoL3FXYnVkVVR4NFdOam5lOElSRkhOZ1QxRTI3L1NCQ0Nv?=
- =?utf-8?B?aXkxbU5oYUxFV1hjWGdLWUNJV0Z4anRvaXdDMHoyUU9LamwxQS9pWlQ2YTRL?=
- =?utf-8?B?TnRRMTdxY3VSZ0hYWEUrSmJHcmpiT3FlUDhiT1lPeVlsSklhVDBCQzFucUU3?=
- =?utf-8?B?ZDdvVzZLbFBjL1l1SzNXdEF0dWlrbmVNdDZyMExCcG1pdDZMZFpOQnlaYm9q?=
- =?utf-8?B?VzQwTU1nYjdwbTRsdWZrQlk0M2RJR0xESXIyc0JEdDJ4bEVUeUUzVHVCV1Vn?=
- =?utf-8?B?aW5QbmdqU1UxSFNCQW5DdW5FU3RNS0xNWUNsZzFacGxlZlNVL2xSWG5oWEhB?=
- =?utf-8?B?SWVxUmgyS0RjcWxKenpIaElmZ0NvODRLNUtlZXQ5R0lZUlhBRjVNOVIyMk95?=
- =?utf-8?B?ZTdCNFoxQWVENHBCK2x2d0ZqaDVaS1pDWWJqZkhzc09RYTJaTWY4OVhTZ2Ix?=
- =?utf-8?B?ZkdQeXVYK1RrWmM5S2JRQnV1Y3Nrc3dNVFBzc3pFTms1Q3ZWZjRLRDFhZzdO?=
- =?utf-8?B?VjhQOWpweVE3amlKRy8vSkJadEhiMVc1WWFuWmpydTQ3TUlNQU5GbWVyeTBR?=
- =?utf-8?B?UDRta2pxY2FmTTA2Tm80VTNabHY4SEZta0d5QlA3ZisxS0lYTWVDa2dHNENQ?=
- =?utf-8?B?YitCUzN3a2Q0cHIvbEs4QXRzakJqVklXYXI0WDlTZDN3dGZFR3ZBQit1WkVy?=
- =?utf-8?B?ejErc2txVm9yVFAzNTY5K2diSFpaTVpna0NISzloTTJYV0ZVeGJvdytnR2RO?=
- =?utf-8?B?Y1lzZURvL1lkVERKZ2NQQlpiSnNMZWFjUXZXSGM0dHVVcnEzbytiOFFrVk5o?=
- =?utf-8?B?UnU5My9oWU9PaFFEc0lMSEtqMFlPa2t2M3Y5Vk1iWFFORXJBSFA5S1FXMTYx?=
- =?utf-8?B?c2NyU282Q0JCZXpyREZDYWI5OXJQUHhuM2dVT3I1MXZUaS9iQ2JsWldtT1B2?=
- =?utf-8?B?U2M1WTRPbE0zNlMyam40UVo0RU1SVm5tVGJDQU1tVUFpUkxsZWd0Z1NzcWR0?=
- =?utf-8?B?MFZnc2wwNXRnNnBkUDJtUi9xQW1yYnNabllZaXBISEhPaVppQU5tanRNdGlh?=
- =?utf-8?B?MTZmWDhMN0puMmZxTS9jMVRDaHNnbzk2OUtteHV5bHhicE9kRzFVRWFjYmFU?=
- =?utf-8?B?R2tCZ2t6ZGVJTzZaWHJXdjh0TDhUei9zeVBSd2l2MXVRblZocWpxYzZoOHlr?=
- =?utf-8?B?YUtOeU9FZGs2WWFjUjI4RWp3M2NtU21KSGdiRjJtL202alRjUG9QeWhKaXlv?=
- =?utf-8?B?Z2hERkk1Vjl4dnVoN05XRC9qY0M2UVQ0ZU1TODBSUytTUzcrOXY0TG53RVJ2?=
- =?utf-8?B?TkRqUzlFelc1Y3p4cTZHaUR4aGt2UkRYZmJ5RkVkQUU2Z3BqMmJnZmtWbjFx?=
- =?utf-8?B?dWUwMkhoU1U2dVk0OEVRMWdZWjlBMlJtWUdmVGRZMUlpMjE5YjhINmM1UWRP?=
- =?utf-8?B?d3hQUkhTOU4rWmVsdnl3VXlaTFhETEVvK1dmbGppT0EwcHlEbDdoM3Nyam0z?=
- =?utf-8?B?cG9uVnhCTDlKMCtNdlNHT2JtOWM4M3drV2x4TXFBQXJnMWt0b0ZSYXh3SDNK?=
- =?utf-8?B?UjhMbUZpczljRWlPK09ZV1F0WU1GOVZKZDA5S0pVRWxJN1BnbytZMUZVakhw?=
- =?utf-8?B?c2g0K1d4SkdYREFFbGlOMVg3MkNlUDNWMnFILzNsZ29PbnNDdHlDajFKYUVE?=
- =?utf-8?B?NTE4OEU0ajVjalltZ1lyZWg4eTFsOHNSQnY4VTZjWUNXazhkNVFWMEowUG5M?=
- =?utf-8?B?cVBRTkNMRGVOUElwSklOMVZnaHhoYlhXaVFuUzJ1aC9lWHZwYk9iNXJPUWxI?=
- =?utf-8?B?bnZtWDF0WXhTeDljSWMzajNzQUs2UmpkSkNIekFxci9BMjdkaDFBM1JTYnA3?=
- =?utf-8?B?b2hyOGNWdkhMRnN0ait0Nml3VEptdjdMV1FLMUV6WWpvVG5IQW9lb1QzcmlJ?=
- =?utf-8?B?VFJmT2VaQ1ZhZ0o3RXFxWThlU0VvSkR6QXpuTGFJRXhYQ2VwUDdoZU96OGJT?=
- =?utf-8?B?NTFXMDgzdHdPS1JiSnI5ZHBkcWdzWm9QdFJDcTRTK0JOeE5mNGdtYkpBQ2Rh?=
- =?utf-8?B?dlVRS2hOUk5DOTVSUDRmek5BMGpPeTV2WEVsamkvdkUwcmFwU1ZDVW93cW5P?=
- =?utf-8?B?RE85UmxMRGhjL2lOVFYzOVNZcDM5MGRVaHdOSkEyUWF2Q3dBSVNwd3hDUXAz?=
- =?utf-8?Q?CNjYPC4uCf3RXWh1ZLeEeEE=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(14060799003)(82310400026)(376014)(7416014)(1800799024)(35042699022);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: I9zlOPPJIYJeMH8Jxp2Bc46x3lHvQX86mldvwomRVcYU1GCkZ+zQfu9t4gFrhmqj4S0rOkJdBbsLetyUq+D7DzZqBmXHOJnOOhkA+mbiZ0HelJKDQAhOj1Ks4uUM0Rijan35It+X+M60MiQHrtJGXDONGGyk8J52ylr76lXxldLdCOWOZuNd9+2a7J87rYU/KfVTYWtlMqhz2v4Dq8neVZV66Iu4pp3sjsQq2HDs0Ksu1TJo9lAlq4ZHTuODTqoqw/hU46FhPn18Q0n1p29HRXqnXClzRYRk45td6r7/vbTaE9650vuRiGBjkmkoJHnO7C1ShMlj8km1PC1R26vvNpQJ/mszZQps6PNkoKSQBn3PF1bgQcHz3w5dvKXoXwJIvRgCb8nC5NZav3vVAQKvOL7k7ZuNzB60iZhbKugefLw9RpsMWJ4c9HT8FD6j02T7
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2026 12:21:52.2923
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 979dbbde-cf8e-482d-960b-08de689ef8f0
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00025F96.EURPRD83.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB4PR08MB9240
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 1/2] net: ti: icssg-prueth: Add Frame
+ Preemption MAC Merge support
+To: Meghana Malladi <m-malladi@ti.com>, vadim.fedorenko@linux.dev,
+ jacob.e.keller@intel.com, horms@kernel.org, basharath@couthit.com,
+ parvathi@couthit.com, afd@ti.com, vladimir.oltean@nxp.com,
+ rogerq@kernel.org, danishanwar@ti.com, kuba@kernel.org, edumazet@google.com,
+ davem@davemloft.net, andrew+netdev@lunn.ch
+Cc: linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, srk@ti.com,
+ Vignesh Raghavendra <vigneshr@ti.com>
+References: <20260205184747.2451816-1-m-malladi@ti.com>
+ <20260205184747.2451816-2-m-malladi@ti.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20260205184747.2451816-2-m-malladi@ti.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: aXCpiHnyuafECCITST1yw8Y4CWjvdvWag22327sphwE_1770726200
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_042200_304353_89DDECE7 
-X-CRM114-Status: UNSURE (   8.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260210_042328_461252_A261D030 
+X-CRM114-Status: GOOD (  40.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -237,222 +117,350 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent,
+On 2/5/26 7:47 PM, Meghana Malladi wrote:
+> From: MD Danish Anwar <danishanwar@ti.com>
+> 
+> This patch introduces qos support for the icssg driver. This
+> includes adding support to configure mqprio qdisc and IET FPE.
+> By default all the queues are marked as express which can be
+> overwritten by the mqprio tc mask passed by tc qdisc.
+> 
+> icssg_config_ietfpe() work thread takes care of configuring
+> IET FPE in the firmware and triggering the verify state machine
+> based on the MAC Merge sublayer parameters set by the ethtool.
+> The firmware handles the cleanup after successful mac verification.
+> And in case the remote peer fails to respond to verify command
+> before the timeout (5secs), then FPE is disabled by firmware.
+> 
+> During link up/down, verify state machine gets triggered again
+> based on the state of fpe_enabled and fpe_active.
+> 
+> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+> ---
+> 
+> v3-v1:
+> - Move icssg_qos_link_up/down() to if-statement right above as suggested by
+> Vadim Fedorenko <vadim.fedorenko@linux.dev>
+> - Fix p_mqprio dereference without initialization as flagged by Simon Horman <horms@kernel.org>
+> - Following changes as suggested by Vladimir Oltean <vladimir.oltean@nxp.com>:
+> * Provide more detailed commit message
+> * Fix the ordering of the functions to avoid forward declarations
+> * Fix the bug w.r.t scheduling work: fpe_config_task without initialising it
+> * Fix the logic for icssg_iet_set_preempt_mask() - configure the queues based on user requests only.
+> * Remove prueth_mqprio_validate() as this duplicates what "caps->validate_queue_counts = true" does.
+> * Remove clearing PRE_EMPTION_ENABLE_TX on failure which is irrelevant - ACTIVE status never transitions to true.
+> * Fix handling of these flags: iet->configured<->iet->fpe_enabled and iet->fpe_enabled<->iet->fpe_active
+> * Schedule asynchronous work without waiting for any timeout
+> * Remove cancel_fpe_config argument from prueth_qos_iet structure - no reader
+> * Remove mentioning "priv flags" in the comments for prueth_qos_iet struct
+> 
+>  drivers/net/ethernet/ti/Makefile             |   2 +-
+>  drivers/net/ethernet/ti/icssg/icssg_config.h |   9 -
+>  drivers/net/ethernet/ti/icssg/icssg_prueth.c |   5 +
+>  drivers/net/ethernet/ti/icssg/icssg_prueth.h |   2 +
+>  drivers/net/ethernet/ti/icssg/icssg_qos.c    | 216 +++++++++++++++++++
+>  drivers/net/ethernet/ti/icssg/icssg_qos.h    |  58 +++++
+>  6 files changed, 282 insertions(+), 10 deletions(-)
+>  create mode 100644 drivers/net/ethernet/ti/icssg/icssg_qos.c
+>  create mode 100644 drivers/net/ethernet/ti/icssg/icssg_qos.h
+> 
+> diff --git a/drivers/net/ethernet/ti/Makefile b/drivers/net/ethernet/ti/Makefile
+> index 6da50f4b7c2e..6893baf47d46 100644
+> --- a/drivers/net/ethernet/ti/Makefile
+> +++ b/drivers/net/ethernet/ti/Makefile
+> @@ -35,7 +35,7 @@ ti-am65-cpsw-nuss-$(CONFIG_TI_K3_AM65_CPSW_SWITCHDEV) += am65-cpsw-switchdev.o
+>  obj-$(CONFIG_TI_K3_AM65_CPTS) += am65-cpts.o
+>  
+>  obj-$(CONFIG_TI_ICSSG_PRUETH) += icssg-prueth.o icssg.o
+> -icssg-prueth-y := icssg/icssg_prueth.o icssg/icssg_switchdev.o
+> +icssg-prueth-y := icssg/icssg_prueth.o icssg/icssg_switchdev.o icssg/icssg_qos.o
+>  
+>  obj-$(CONFIG_TI_ICSSG_PRUETH_SR1) += icssg-prueth-sr1.o icssg.o
+>  icssg-prueth-sr1-y := icssg/icssg_prueth_sr1.o
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.h b/drivers/net/ethernet/ti/icssg/icssg_config.h
+> index 60d69744ffae..1ac202f855ed 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_config.h
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.h
+> @@ -323,13 +323,4 @@ struct prueth_fdb_slot {
+>  	u8 fid;
+>  	u8 fid_c2;
+>  } __packed;
+> -
+> -enum icssg_ietfpe_verify_states {
+> -	ICSSG_IETFPE_STATE_UNKNOWN = 0,
+> -	ICSSG_IETFPE_STATE_INITIAL,
+> -	ICSSG_IETFPE_STATE_VERIFYING,
+> -	ICSSG_IETFPE_STATE_SUCCEEDED,
+> -	ICSSG_IETFPE_STATE_FAILED,
+> -	ICSSG_IETFPE_STATE_DISABLED
+> -};
+>  #endif /* __NET_TI_ICSSG_CONFIG_H */
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> index f65041662173..1e4bc5fd636e 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> @@ -374,9 +374,11 @@ static void emac_adjust_link(struct net_device *ndev)
+>  			spin_unlock_irqrestore(&emac->lock, flags);
+>  			icssg_config_set_speed(emac);
+>  			icssg_set_port_state(emac, ICSSG_EMAC_PORT_FORWARD);
+> +			icssg_qos_link_up(ndev);
+>  
+>  		} else {
+>  			icssg_set_port_state(emac, ICSSG_EMAC_PORT_DISABLE);
+> +			icssg_qos_link_down(ndev);
+>  		}
+>  	}
+>  
+> @@ -967,6 +969,8 @@ static int emac_ndo_open(struct net_device *ndev)
+>  	if (ret)
+>  		goto destroy_rxq;
+>  
+> +	icssg_qos_init(ndev);
+> +
+>  	/* start PHY */
+>  	phy_start(ndev->phydev);
+>  
+> @@ -1421,6 +1425,7 @@ static const struct net_device_ops emac_netdev_ops = {
+>  	.ndo_hwtstamp_get = icssg_ndo_get_ts_config,
+>  	.ndo_hwtstamp_set = icssg_ndo_set_ts_config,
+>  	.ndo_xsk_wakeup = prueth_xsk_wakeup,
+> +	.ndo_setup_tc = icssg_qos_ndo_setup_tc,
+>  };
+>  
+>  static int prueth_netdev_init(struct prueth *prueth,
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> index 10eadd356650..7a586038adf8 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> @@ -44,6 +44,7 @@
+>  #include "icssg_config.h"
+>  #include "icss_iep.h"
+>  #include "icssg_switch_map.h"
+> +#include "icssg_qos.h"
+>  
+>  #define PRUETH_MAX_MTU          (2000 - ETH_HLEN - ETH_FCS_LEN)
+>  #define PRUETH_MIN_PKT_SIZE     (VLAN_ETH_ZLEN)
+> @@ -255,6 +256,7 @@ struct prueth_emac {
+>  	struct bpf_prog *xdp_prog;
+>  	struct xdp_attachment_info xdpi;
+>  	int xsk_qid;
+> +	struct prueth_qos qos;
+>  };
+>  
+>  /* The buf includes headroom compatible with both skb and xdpf */
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.c b/drivers/net/ethernet/ti/icssg/icssg_qos.c
+> new file mode 100644
+> index 000000000000..8d17b28357f8
+> --- /dev/null
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_qos.c
+> @@ -0,0 +1,216 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/* Texas Instruments ICSSG PRUETH QoS submodule
+> + * Copyright (C) 2023 Texas Instruments Incorporated - http://www.ti.com/
+> + */
+> +
+> +#include "icssg_prueth.h"
+> +#include "icssg_switch_map.h"
+> +
+> +static void icssg_iet_set_preempt_mask(struct prueth_emac *emac, u8 preemptible_tcs)
+> +{
+> +	void __iomem *config = emac->dram.va + ICSSG_CONFIG_OFFSET;
+> +	struct prueth_qos_mqprio *p_mqprio = &emac->qos.mqprio;
+> +	struct tc_mqprio_qopt *qopt = &p_mqprio->mqprio.qopt;
+> +	int prempt_mask = 0, i;
+> +	u8 tc;
+> +
+> +	/* Configure the queues based on the preemptible tc map set by the user */
+> +	for (tc = 0; tc < p_mqprio->mqprio.qopt.num_tc; tc++) {
+> +		/* check if the tc is preemptive or not */
+> +		if (preemptible_tcs & BIT(tc)) {
+> +			for (i = qopt->offset[tc]; i < qopt->offset[tc] + qopt->count[tc]; i++) {
+> +				/* Set all the queues in this tc as preemptive queues */
+> +				writeb(BIT(4), config + EXPRESS_PRE_EMPTIVE_Q_MAP + i);
+> +				prempt_mask &= ~BIT(i);
+> +			}
+> +		} else {
+> +			/* Set all the queues in this tc as express queues */
+> +			for (i = qopt->offset[tc]; i < qopt->offset[tc] + qopt->count[tc]; i++) {
+> +				writeb(0, config + EXPRESS_PRE_EMPTIVE_Q_MAP + i);
+> +				prempt_mask |= BIT(i);
+> +			}
+> +		}
+> +		writeb(prempt_mask, config + EXPRESS_PRE_EMPTIVE_Q_MASK);
+> +		netdev_set_tc_queue(emac->ndev, tc, qopt->count[tc], qopt->offset[tc]);
+> +	}
+> +}
+> +
+> +static void icssg_config_ietfpe(struct work_struct *work)
+> +{
+> +	struct prueth_qos_iet *iet =
+> +		container_of(work, struct prueth_qos_iet, fpe_config_task);
+> +	void __iomem *config = iet->emac->dram.va + ICSSG_CONFIG_OFFSET;
+> +	struct prueth_qos_mqprio *p_mqprio =  &iet->emac->qos.mqprio;
+> +	bool enable = !!atomic_read(&iet->enable_fpe_config);
+> +	int ret;
+> +	u8 val;
+> +
+> +	if (!netif_running(iet->emac->ndev))
+> +		return;
+> +
+> +	/* Update FPE Tx enable bit (PRE_EMPTION_ACTIVE_TX) if
+> +	 * fpe_enabled is set to enable MM in Tx direction
+> +	 */
+> +	writeb(enable ? 1 : 0, config + PRE_EMPTION_ENABLE_TX);
+> +
+> +	/* If FPE is to be enabled, first configure MAC Verify state
+> +	 * machine in firmware as firmware kicks the Verify process
+> +	 * as soon as ICSSG_EMAC_PORT_PREMPT_TX_ENABLE command is
+> +	 * received.
+> +	 */
+> +	if (enable && iet->mac_verify_configure) {
+> +		writeb(1, config + PRE_EMPTION_ENABLE_VERIFY);
+> +		writew(iet->tx_min_frag_size, config + PRE_EMPTION_ADD_FRAG_SIZE_LOCAL);
+> +		writel(iet->verify_time_ms, config + PRE_EMPTION_VERIFY_TIME);
+> +	}
+> +
+> +	/* Send command to enable FPE Tx side. Rx is always enabled */
+> +	ret = icssg_set_port_state(iet->emac,
+> +				   enable ? ICSSG_EMAC_PORT_PREMPT_TX_ENABLE :
+> +					    ICSSG_EMAC_PORT_PREMPT_TX_DISABLE);
+> +	if (ret) {
+> +		netdev_err(iet->emac->ndev, "TX preempt %s command failed\n",
+> +			   str_enable_disable(enable));
+> +		writeb(0, config + PRE_EMPTION_ENABLE_VERIFY);
+> +		iet->verify_status = ICSSG_IETFPE_STATE_DISABLED;
+> +		return;
+> +	}
+> +
+> +	if (enable && iet->mac_verify_configure) {
+> +		ret = readb_poll_timeout(config + PRE_EMPTION_VERIFY_STATUS, iet->verify_status,
+> +					 (iet->verify_status == ICSSG_IETFPE_STATE_SUCCEEDED),
+> +					 USEC_PER_MSEC, 5 * USEC_PER_SEC);
+> +		if (ret) {
+> +			iet->verify_status = ICSSG_IETFPE_STATE_FAILED;
+> +			netdev_err(iet->emac->ndev,
+> +				   "timeout for MAC Verify: status %x\n",
+> +				   iet->verify_status);
+> +			return;
+> +		}
+> +	} else if (enable) {
+> +		/* Give f/w some time to update PRE_EMPTION_ACTIVE_TX state */
+> +		usleep_range(100, 200);
+> +	}
+> +
+> +	if (enable) {
+> +		val = readb(config + PRE_EMPTION_ACTIVE_TX);
+> +		if (val != 1) {
+> +			netdev_err(iet->emac->ndev,
+> +				   "F/w fails to activate IET/FPE\n");
+> +			return;
+> +		}
+> +		iet->fpe_active = true;
+> +	} else {
+> +		iet->fpe_active = false;
+> +	}
+> +
+> +	netdev_info(iet->emac->ndev, "IET FPE %s successfully\n",
+> +		    str_enable_disable(iet->fpe_active));
+> +	icssg_iet_set_preempt_mask(iet->emac, p_mqprio->preemptible_tcs);
+> +}
+> +
+> +void icssg_qos_init(struct net_device *ndev)
+> +{
+> +	struct prueth_emac *emac = netdev_priv(ndev);
+> +	struct prueth_qos_iet *iet = &emac->qos.iet;
+> +
+> +	/* Init work queue for IET MAC verify process */
+> +	iet->emac = emac;
+> +	INIT_WORK(&iet->fpe_config_task, icssg_config_ietfpe);
+> +}
+> +
+> +static int emac_tc_query_caps(struct net_device *ndev, void *type_data)
+> +{
+> +	struct tc_query_caps_base *base = type_data;
+> +
+> +	switch (base->type) {
+> +	case TC_SETUP_QDISC_MQPRIO: {
+> +		struct tc_mqprio_caps *caps = base->caps;
+> +
+> +		caps->validate_queue_counts = true;
+> +		return 0;
+> +	}
+> +	default:
+> +		return -EOPNOTSUPP;
+> +	}
+> +}
+> +
+> +static int emac_tc_setup_mqprio(struct net_device *ndev, void *type_data)
+> +{
+> +	struct tc_mqprio_qopt_offload *mqprio = type_data;
+> +	struct prueth_emac *emac = netdev_priv(ndev);
+> +	struct tc_mqprio_qopt *qopt = &mqprio->qopt;
+> +	struct prueth_qos_mqprio *p_mqprio;
+> +	u8 num_tc = mqprio->qopt.num_tc;
+> +	int tc, offset, count;
+> +
+> +	p_mqprio = &emac->qos.mqprio;
+> +
+> +	if (!num_tc) {
+> +		netdev_reset_tc(ndev);
+> +		p_mqprio->preemptible_tcs = 0;
+> +		goto reset_tcs;
+> +	}
+> +
+> +	memcpy(&p_mqprio->mqprio, mqprio, sizeof(*mqprio));
+> +	p_mqprio->preemptible_tcs = mqprio->preemptible_tcs;
+> +	netdev_set_num_tc(ndev, mqprio->qopt.num_tc);
+> +
+> +	for (tc = 0; tc < num_tc; tc++) {
+> +		count = qopt->count[tc];
+> +		offset = qopt->offset[tc];
+> +		netdev_set_tc_queue(ndev, tc, count, offset);
+> +	}
+> +
+> +reset_tcs:
+> +	icssg_iet_set_preempt_mask(emac, p_mqprio->preemptible_tcs);
+> +
+> +	return 0;
+> +}
+> +
+> +int icssg_qos_ndo_setup_tc(struct net_device *ndev, enum tc_setup_type type,
+> +			   void *type_data)
+> +{
+> +	switch (type) {
+> +	case TC_QUERY_CAPS:
+> +		return emac_tc_query_caps(ndev, type_data);
+> +	case TC_SETUP_QDISC_MQPRIO:
+> +		return emac_tc_setup_mqprio(ndev, type_data);
+> +	default:
+> +		return -EOPNOTSUPP;
+> +	}
+> +}
+> +EXPORT_SYMBOL_GPL(icssg_qos_ndo_setup_tc);
+> +
+> +void icssg_qos_link_up(struct net_device *ndev)
+> +{
+> +	struct prueth_emac *emac = netdev_priv(ndev);
+> +	struct prueth_qos_iet *iet = &emac->qos.iet;
+> +
+> +	/* Enable FPE if not active but fpe_enabled is true
+> +	 * and disable FPE if active but fpe_enabled is false
+> +	 */
+> +	if (!iet->fpe_active && iet->fpe_enabled) {
+> +		/* Schedule IET FPE IET FPE enable */
+> +		atomic_set(&iet->enable_fpe_config, 1);
+> +	} else if (iet->fpe_active && !iet->fpe_enabled) {
+> +		/* Schedule IET FPE IET FPE disable */
+> +		atomic_set(&iet->enable_fpe_config, 0);
+> +	} else {
+> +		return;
+> +	}
+> +	schedule_work(&iet->fpe_config_task);
 
-On 10/02/2026 00:20, Laurent Pinchart wrote:
-> Hi Anthony,
->
-> On Mon, Feb 09, 2026 at 01:19:43PM +0000, Anthony McGivern wrote:
->> On 05/02/2026 09:40, Jacopo Mondi wrote:
->>> On Wed, Feb 04, 2026 at 07:30:18PM +0100, Antoine Bouyer wrote:
->>>> Le 04/02/2026 à 18:12, Jacopo Mondi a écrit :
->>>>> On Tue, Feb 03, 2026 at 07:37:34PM +0100, Jacopo Mondi wrote:
->>>>>> On Thu, Jan 29, 2026 at 12:00:24AM +0100, Michael Riesch wrote:
->>>>>>> On 1/28/26 09:17, Antoine Bouyer wrote:
->>>>>>>> On 1/26/26 10:44 AM, Michael Riesch wrote:
->>>>>>>>> On 1/23/26 09:09, Antoine Bouyer wrote:
-> [snip]
->
->>>>>>>>>    - How many media devices are registered and which driver registers it
->>>>>>>>>      or them?
->>>>>>>> That will be part of the evaluation. My initial assumption is that
->>>>>>>> neoisp would be the appropriate component to register the media device
->>>>>>>> in this mode, since ISI is not involved, and ISI currently performs the
->>>>>>>> registration in the M2M configuration.
->>>>>> Isn't the ISP registering its own media graph ?
->>>> Yes, 8 copies of ISP media graph, that can be used with the 8 output video
->>>> devices of the ISI media graph.
->>> I suggest you do what RPi does. The mainline driver only registers one
->>> instance and they carry a little patch downstream that implements the
->>> for() loop where multiple instances are registered. Duplicating media graphs
->>> is not desirable (at least in mainline) as we can have ISPs with 256
->>> contexts, we don't want 256 media graphs.
->>>
->>> A framework level solution with proper priority handling and job
->>> scheduling is what is required and that's what the context work should
->>> end up being.
->> Our Mali-C720 ISP can support up to 16 contexts, each with over a dozen
->> subdevs and capture nodes. As we imagine this will not be feasible for
->> upstreaming :) So using  this framework is definitely the way we would
->> like to go. We are mainly limited by the lack of per-context graph/streams
->> configuration at this point.
->>
->>>>>> Can we get a copy of all media graphs on an i.MX95 system including
->>>>>> the ISI and the CSI-2 receiver ?
->>>> Here is an example with multiple sensors. Or do you need it in another
->>>> format ?
->>> No it's fine, thanks!
->>>
->>>> digraph board {
->>>>         rankdir=TB
->>>>         n00000001 [label="{{<port0> 0 | <port1> 1 | <port2> 2 | <port3> 3 | <port4> 4} | crossbar\n/dev/v4l-subdev8 | {<port5> 5 | <port6> 6 | <port7> 7 | <port8> 8 | <port9> 9 | <port10> 10 | <port11> 11 | <port12> 12}}", shape=Mrecord, style=filled, fillcolor=green]
->>>>         n00000001:port5 -> n0000000f:port0 [style=bold]
->>>>         n00000001:port6 -> n0000001a:port0 [style=bold]
->>>>         n00000001:port7 -> n00000025:port0 [style=bold]
->>>>         n00000001:port8 -> n00000030:port0 [style=bold]
->>>>         n00000001:port9 -> n0000003b:port0 [style=bold]
->>>>         n00000001:port10 -> n00000046:port0 [style=bold]
->>>>         n00000001:port11 -> n00000051:port0 [style=bold]
->>>>         n00000001:port12 -> n0000005c:port0 [style=bold]
->>>>         n0000000f [label="{{<port0> 0} | mxc_isi.0\n/dev/v4l-subdev9 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
->>>>         n0000000f:port1 -> n00000012 [style=bold]
->>>>         n00000012 [label="mxc_isi.0.capture\n/dev/video8", shape=box, style=filled, fillcolor=yellow]
->>>>         n0000001a [label="{{<port0> 0} | mxc_isi.1\n/dev/v4l-subdev10 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
->>>>         n0000001a:port1 -> n0000001d [style=bold]
->>>>         n0000001d [label="mxc_isi.1.capture\n/dev/video9", shape=box, style=filled, fillcolor=yellow]
->>>>         n00000025 [label="{{<port0> 0} | mxc_isi.2\n/dev/v4l-subdev11 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
->>>>         n00000025:port1 -> n00000028 [style=bold]
->>>>         n00000028 [label="mxc_isi.2.capture\n/dev/video10", shape=box, style=filled, fillcolor=yellow]
->>>>         n00000030 [label="{{<port0> 0} | mxc_isi.3\n/dev/v4l-subdev12 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
->>>>         n00000030:port1 -> n00000033 [style=bold]
->>>>         n00000033 [label="mxc_isi.3.capture\n/dev/video13", shape=box, style=filled, fillcolor=yellow]
->>>>         n0000003b [label="{{<port0> 0} | mxc_isi.4\n/dev/v4l-subdev13 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
->>>>         n0000003b:port1 -> n0000003e [style=bold]
->>>>         n0000003e [label="mxc_isi.4.capture\n/dev/video14", shape=box, style=filled, fillcolor=yellow]
->>>>         n00000046 [label="{{<port0> 0} | mxc_isi.5\n/dev/v4l-subdev14 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
->>>>         n00000046:port1 -> n00000049 [style=bold]
->>>>         n00000049 [label="mxc_isi.5.capture\n/dev/video21", shape=box, style=filled, fillcolor=yellow]
->>>>         n00000051 [label="{{<port0> 0} | mxc_isi.6\n/dev/v4l-subdev15 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
->>>>         n00000051:port1 -> n00000054 [style=bold]
->>>>         n00000054 [label="mxc_isi.6.capture\n/dev/video22", shape=box, style=filled, fillcolor=yellow]
->>>>         n0000005c [label="{{<port0> 0} | mxc_isi.7\n/dev/v4l-subdev16 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
->>>>         n0000005c:port1 -> n0000005f [style=bold]
->>>>         n0000005f [label="mxc_isi.7.capture\n/dev/video23", shape=box, style=filled, fillcolor=yellow]
->>>>         n00000067 [label="mxc_isi.output\n", shape=box, style=filled, fillcolor=yellow]
->>>>         n00000067 -> n00000001:port4 [style=bold]
->>>>         n0000006e [label="{{<port0> 0} | 4ac10000.syscon:formatter@20\n/dev/v4l-subdev17 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
->>>>         n0000006e:port1 -> n00000001:port2 [style=bold]
->>>>         n00000073 [label="{{<port0> 0} | csidev-4ad30000.csi\n/dev/v4l-subdev18 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
->>>>         n00000073:port1 -> n0000006e:port0 [style=bold]
->>>>         n00000078 [label="{{<port0> 0 | <port1> 1 | <port2> 2 | <port3> 3} | max96724 2-0027\n/dev/v4l-subdev19 | {<port4> 4 | <port5> 5}}", shape=Mrecord, style=filled, fillcolor=green]
->>>>         n00000078:port4 -> n00000073:port0 [style=dashed]
->>>>         n00000081 [label="{{} | mx95mbcam 8-0040\n/dev/v4l-subdev20 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
->>>>         n00000081:port0 -> n00000078:port0 [style=bold]
->>>>         n00000085 [label="{{} | mx95mbcam 9-0040\n/dev/v4l-subdev21 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
->>>>         n00000085:port0 -> n00000078:port1 [style=bold]
->>>>         n00000089 [label="{{} | mx95mbcam 10-0040\n/dev/v4l-subdev22 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
->>>>         n00000089:port0 -> n00000078:port2 [style=bold]
->>>>         n0000008d [label="{{} | mx95mbcam 11-0040\n/dev/v4l-subdev23 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
->>>>         n0000008d:port0 -> n00000078:port3 [style=bold]
->>>> }
->> This was an interesting point from our sides too regarding the context framework,
->> how would shared inputs be linked to independent contexts? For example, one input
->> port with 4 sensors where each is processed by a separate context.
-> If the multi-context ISP operates in M2M mode, the capture and ISP
-> pipelines will be disjoint (even if they're in the same media graphs).
-> Linking the two will be done by userspace, through memory buffers shared
-> between the pipelines.
+AFAICS the scheduled work could still be running at module removal time.
+If so, you need to cancel it properly to avoid possible UaF.
 
+/P
 
-In our ISP we don't have to operate in a pure M2M mode for multi-context.
-
-Instead, we have a time division mode for multiple inline sensors simultaneously.
-The context management unit writes incoming frames from multiple sensors to memory
-buffers and automatically schedule them for processing, injecting the buffer into
-the pipeline once it is available.
-In the driver we just configure the context, provide internally allocated DMA buffers
-and the scheduler automatically handles the rest. Of course we can get interrupts
-for these events if we have use for them.
-While we could do this through userspace, it doesn't make full use of the ISP's
-capabilities such as its hardware scheduling. From a media graph perspective, I
-think it should be considered as an inline ISP with the buffers simply acting as
-temporary storage while the ISP is busy.
-
-
-I guess my thought was the camera "frontend" would effectively have some shared
-state across all contexts, but the outputs from this would go to per context instances.
-Perhaps a similar thing would apply with this CSI-2 receiver and the ISI since they
-appear to deal with multiple sensors that are then divided across their 8 contexts?
-
-
->> As a test of multi-context with duplicated media graphs, we would segregate our
->> inputs between media devices, though this is less flexible as it strictly ties
->> one sensor to a particular context.
->>
->>>>>> If I'm not mistaken you'll have 8 copies of the ISP media graphs, and
->>>>>> that's exactly what we're working on with the context framework :)
->>>> Ok. Then I should have a look to context framework too ...
->>> Please, I hope to be able to resume working on it sooner or later
->>> given the right use case.
->>>
->>>>>>> ... since it is not, your assumption seems very reasonable.
->>>>>>>
->>>>>>>>>    - How can the user decide whether direct (csi2isp) or indirect
->>>>>>>>>      (mem2mem) streaming shall be used?
->>>>>>>> That will also be part of the evaluation. From dts would be my first
->>>>>>>> option, but may prevent using both modes on same platform then.
->>>>>>> Of course this depends what the hardware is able to do, but in case the
->>>>>>> HW is reconfigurable easily, I doubt that device tree is a good choice
->>>>>>> to solve that.
->>>>>>>
->>>>>>>>> While it is certainly OK to introduce this support only at a later
->>>>>>>>> stage, it makes sense to consider this right from the start to avoid
->>>>>>>>> some nasty changes e.g. in how this hardware is exposed to user space.
->>>>>>>>>
->>>>>>>>> Also, we are facing a similiar challenge with recent Rockchip ISP
->>>>>>>>> hardware (RK3588, RK3576, ...) and it would be great to hear your
->>>>>>>>> thoughts about that.
->>>>>>>> Is there an existing discussion thread available on this topic? I would
->>>>>>>> be very interested in following it.
->>>>>>> Not yet, I am afraid. But there should be one or two soon (TM) :-)
->>>>>> It's probably time to have one :)
->>>> Good. Please loop me in ;)
->>> You are in, this is the conversation ;)
->>>
->>> It might be a good discussion point for the media summit in Nice
->>> co-located with Embedded Recipes if people with interest in the topic
->>> will going the be there.
->>>
->>> I'm also adding Anthony from ARM as I know he's going through the same
->>> inline/m2m duality you're now facing.
->> We make the issue even more complex as individual contexts can run in either
->> inline or m2m mode simultaneously... Though in our case the ISP does not
->> have any external dependencies for this like with Mali-C55 + IVC.
-> Simultaneously ? Can a single ISP instance run in inline and offline
-> mode simultaneously ? How does that work ?
-
-
-Technically speaking the inline still require memory buffers but once configured
-the ISP can run without involvement from the driver. The buffering is effectively
-invisible at this point.
-The context management unit facilitates this through the aformentioned hardware
-scheduling. Each individual context may choose to use inline mode or M2M mode.
-In inline mode, that context is "schedulable" when it's input buffer isready,
-which occurs automatically once the image is fully written to memory.
-In M2M mode, the context is "schedulable" when the user triggers it via SW.
-
-
->> As a side note, was there any thought into how Libcamera may support a pure m2m
->> usecase, say by passing user provided frames rather than indirectly coming from
->> a sensor? Perhaps there is already something for this that I've missed.
-> https://lists.libcamera.org/pipermail/libcamera-devel/2025-December/055627.html
->
-> I expect more work to be needed before we can finalize an API, as I
-> think different people will have very different ideas of how this should
-> work.
-
-
-Ah nice thanks :)
-
-I took a quick skim through and it seems pretty good. When I have some time
-I will try pull this series to test on our side.
-
-
-Thanks,
-Anthony
->>>>>>>>>> This series is posted as RFC because extending the v4l2-isp interface may
->>>>>>>>>> overlap with ongoing work. If similar development already exists, I am
->>>>>>>>>> happy to rebase or adapt the series accordingly. If preferred, the series
->>>>>>>>>> can also be split into two parts: the v4l2-isp rework and the Neo ISP
->>>>>>>>>> driver introduction.
->>>>>>>>>>
->>>>>>>>>> A few checkpatch warnings in v4l2-ioctl.c remain intentionally to stay
->>>>>>>>>> consistent with the existing style in that file.
->>>>>>>>>>
->>>>>>>>>> Testing was performed on the i.MX95 EVK using the media/next kernel in
->>>>>>>>>> standalone M2M mode. End-to-end camera-to-ISP capture has been validated
->>>>>>>>>> using the downstream NXP kernel, as some hardware dependencies are not
->>>>>>>>>> yet upstreamed.
-> [snip]
->
 
