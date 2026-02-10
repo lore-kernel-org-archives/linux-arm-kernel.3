@@ -4,69 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5EBEA3F28
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 09:01:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CD9BEA3F2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 09:10:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xtXTW7IGCXG3bewc2ZEtlerGZ4w448nsa2fTUZPugL8=; b=NBSotq79dZpU23BBhfn7SRdTEg
-	DDMk78jjtGZr5mWicIof5ZHv2fiOeetGSseeoSqnDD5E8VMElyv/WCRYbvRelGz8/GkS9JrN8KuXm
-	ACUE+WroIMwE/Y2HXt9AfgHr7yt5ecPDdGRzRaS5CfntS8j20+z7HUalzniGtGTci7OfmEpl0xyF+
-	JqvNnB+iiI1CnjDFlnacZR4EM4Sa/2CjGXRz9ntITokPsr4zK3AUuQdE+KyMRJ6mRvzqUFnO4ikJT
-	jBLkbFJCNcF88XsEJmj0/KrPLpRpGydocDpu8QYEE6Sr6zbRe06711V8bBRs5q/GONkm9cdtJ02jA
-	6wVZG+AA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T+bGd3ua6CM30Mg2VXtf08LWh5BH559jUH485cw6AnM=; b=F0MFdesRREuyOL9FTZcqatNdvh
+	Hy6CyJSvPAqq/2wg9+wiaeGccTJBfAduTcp1tuVTyqWjJiyEevCI2rGlGm45R8kVfCv3h84q7JAXg
+	LP3guBu+cGz493lE2XHlsr5WVxPomh4tt+LWRiGCWyAhangnUIlaQXdMzPVSZnpjaUQdbWZa5L5fb
+	7JGlXPILWDIqL5P6I1sRLqWvhaIH+3jOq54wL/DC+7SLVHv+o1abx4rzb/56O/LAb6ogqAp/IwzLC
+	Gf9F2CFOaHhvRjwb6bcAQY8jUc5T8C4acwjRX4GeGn3WrNgJqjhSnFbNVX/a6fX92Ph71rjj4YY8q
+	RshZBY8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpjcO-0000000Gilh-3trB;
-	Tue, 10 Feb 2026 09:01:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vpjle-0000000GjKp-1I1h;
+	Tue, 10 Feb 2026 09:10:46 +0000
+Received: from mail-m19731115.qiye.163.com ([220.197.31.115])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpjcH-0000000Gikg-41z5;
-	Tue, 10 Feb 2026 09:01:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2DF5643C23;
-	Tue, 10 Feb 2026 09:01:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 861AFC116C6;
-	Tue, 10 Feb 2026 09:01:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770714063;
-	bh=1IgCLrreBz/N3YL81SnN8Md7AwrHBpXjhO7OoBiEfuE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Eoh7RfHs2d/lzXJGMj9r0vsZfjdss7xFmnLeHycQqrYwhzi0IkLaY9ygXkurLITKA
-	 OQ5hPL3QvPrjYDAf9fA4xo2WdJwPyjYgepZ8paEZVPm0SR//NdSG3Ab/UnRfeUeoAr
-	 pJ1lWDkIxt//QncVLThos3PphGWLFlGwINqm4lF/L4ObuhArMhub6IWTVO7Z4uNBnB
-	 jTBBySNPN7ZzrFPxP3DhnTolTyDyp2ubEg6pIki+e49dsalP/pYx9GCetWYq+IzLjs
-	 sRra9iC5eLbUN6dAHW47WhkLtuOjr47IEUa+WQnrKYd1wkQzAa+wBgNZsDcRtkw3wZ
-	 zJ7LGJgXI0SZQ==
-Date: Tue, 10 Feb 2026 10:01:00 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Thomas Fourier <fourier.thomas@gmail.com>
-Cc: stable@vger.kernel.org, Felix Fietkau <nbd@nbd.name>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sujuan Chen <sujuan.chen@mediatek.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net] net: mtk: wed: Fix dma_free_coherent() size
- mtk_wed_hwrro_free_buffer()
-Message-ID: <aYrzzEvl8IG1caxS@lore-desk>
-References: <20260209151822.136934-2-fourier.thomas@gmail.com>
+	id 1vpjlZ-0000000GjJZ-45cm;
+	Tue, 10 Feb 2026 09:10:43 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 33b982511;
+	Tue, 10 Feb 2026 17:10:34 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	inki.dae@samsung.com,
+	sw0312.kim@samsung.com,
+	kyungmin.park@samsung.com,
+	krzk@kernel.org,
+	alim.akhtar@samsung.com,
+	jingoohan1@gmail.com,
+	p.zabel@pengutronix.de,
+	hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	dmitry.baryshkov@oss.qualcomm.com,
+	dianders@chromium.org,
+	m.szyprowski@samsung.com,
+	luca.ceresoli@bootlin.com,
+	jani.nikula@intel.com,
+	linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v9 15/15] drm/bridge: analogix_dp: Apply panel_bridge helper
+Date: Tue, 10 Feb 2026 17:10:24 +0800
+Message-Id: <20260210091024.2732369-2-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260210091024.2732369-1-damon.ding@rock-chips.com>
+References: <20260210071225.2566099-1-damon.ding@rock-chips.com>
+ <20260210091024.2732369-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="5gUtC+mBewt4W4cJ"
-Content-Disposition: inline
-In-Reply-To: <20260209151822.136934-2-fourier.thomas@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9c46d119c903a3kunm0d7fbd00b0728b
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0pMTFZMTk0eSh4dS0JISRhWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
+	1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=OKtvtFXsqWlBYecb/9qXzGeTAlxfcIbetsEaqAvwUeNlTH8nh24vkAf5xgVZF4+NvYmI3FCgjs4U07oBIFB7GnvMsKqJMYqkNsOP8ck14wO6RAry0kQJ3joV/JF1pvLjM3wbNtnA/Kh4jGHCPBrWeIzRt0x9yL6FU/u20PCbqqM=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=T+bGd3ua6CM30Mg2VXtf08LWh5BH559jUH485cw6AnM=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_010106_042788_B201FF02 
-X-CRM114-Status: GOOD (  17.86  )
+X-CRM114-CacheID: sfid-20260210_011042_186262_4A3C606C 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,65 +103,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In order to unify the handling of the panel and bridge, apply
+panel_bridge helpers for Analogix DP driver. With this patch, the
+bridge support will also become available.
 
---5gUtC+mBewt4W4cJ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The following changes have ben made:
+- Apply plane_bridge helper to wrap the panel as the bridge.
+- Remove the explicit panel APIs calls, which can be replaced with
+  the automic bridge APIs calls wrapped by the panel.
+- Remove the unnecessary analogix_dp_bridge_get_modes().
 
-> The DMA buffer alloc'd in mtk_wed_hwrro_buffer_alloc() with size
-> dev->wlan.rx_nbuf but is freed with size dev->hw_rro.size.
->=20
-> Change the dealloc size to match the one used in
-> mtk_wed_hwrro_buffer_alloc().
->=20
-> Fixes: 6757d345dd7d ("net: ethernet: mtk_wed: introduce hw_rro support fo=
-r MT7988")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
-> ---
->  drivers/net/ethernet/mediatek/mtk_wed.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethern=
-et/mediatek/mtk_wed.c
-> index 1ed1f88dd7f8..455df564174d 100644
-> --- a/drivers/net/ethernet/mediatek/mtk_wed.c
-> +++ b/drivers/net/ethernet/mediatek/mtk_wed.c
-> @@ -879,7 +879,7 @@ mtk_wed_hwrro_free_buffer(struct mtk_wed_device *dev)
->  		__free_page(page);
->  	}
-> =20
-> -	dma_free_coherent(dev->hw->dev, dev->hw_rro.size * sizeof(*desc),
-> +	dma_free_coherent(dev->hw->dev, dev->wlan.rx_nbuf * sizeof(*desc),
->  			  desc, dev->hw_rro.desc_phys);
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Tested-by: Heiko Stuebner <heiko@sntech.de> (on rk3588)
 
-I think this problem is present even in the mtk git repo. I guess we should
-allocate DMA buffer using dev->hw_rro.size instead of using dev->wlan.rx_nb=
-uf
-directly.
+---
 
-@Sujuan: any input on it?
+Changes in v4:
+- Rename the &analogix_dp_plat_data.bridge to
+  &analogix_dp_plat_data.next_bridge.
 
-Regards,
-Lorenzo
+Changes in v5:
+- Move panel_bridge addition a little forward.
+- Move next_bridge attachment from Analogix side to Rockchip/Exynos
+  side.
 
-> =20
->  free_pagelist:
-> --=20
-> 2.43.0
->=20
+Changes in v6
+- Remove the unnecessary analogix_dp_bridge_get_modes().
+- Not to set DRM_BRIDGE_OP_MODES if the next is a panel.
+- Squash [PATCH v5 15/17]drm/bridge: analogix_dp: Remove panel
+  disabling and enabling in analogix_dp_set_bridge() into this
+  commit.
+- Fix the &drm_bridge->ops to DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT.
 
---5gUtC+mBewt4W4cJ
-Content-Type: application/pgp-signature; name=signature.asc
+Changes in v9:
+- Add Tested-by tag.
+---
+ .../drm/bridge/analogix/analogix_dp_core.c    | 41 +++++--------------
+ 1 file changed, 11 insertions(+), 30 deletions(-)
 
------BEGIN PGP SIGNATURE-----
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+index 7e3e9d4f4ea2..d2ea93e1c9a3 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+@@ -749,9 +749,6 @@ static int analogix_dp_commit(struct analogix_dp_device *dp)
+ {
+ 	int ret;
+ 
+-	/* Keep the panel disabled while we configure video */
+-	drm_panel_disable(dp->plat_data->panel);
+-
+ 	ret = analogix_dp_train_link(dp);
+ 	if (ret) {
+ 		dev_err(dp->dev, "unable to do link train, ret=%d\n", ret);
+@@ -771,9 +768,6 @@ static int analogix_dp_commit(struct analogix_dp_device *dp)
+ 		return ret;
+ 	}
+ 
+-	/* Safe to enable the panel now */
+-	drm_panel_enable(dp->plat_data->panel);
+-
+ 	/* Check whether panel supports fast training */
+ 	ret = analogix_dp_fast_link_train_detection(dp);
+ 	if (ret)
+@@ -858,17 +852,6 @@ static int analogix_dp_disable_psr(struct analogix_dp_device *dp)
+ 	return analogix_dp_send_psr_spd(dp, &psr_vsc, true);
+ }
+ 
+-static int analogix_dp_bridge_get_modes(struct drm_bridge *bridge, struct drm_connector *connector)
+-{
+-	struct analogix_dp_device *dp = to_dp(bridge);
+-	int num_modes = 0;
+-
+-	if (dp->plat_data->panel)
+-		num_modes += drm_panel_get_modes(dp->plat_data->panel, connector);
+-
+-	return num_modes;
+-}
+-
+ static const struct drm_edid *analogix_dp_bridge_edid_read(struct drm_bridge *bridge,
+ 							   struct drm_connector *connector)
+ {
+@@ -909,7 +892,7 @@ analogix_dp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *conne
+ 	struct analogix_dp_device *dp = to_dp(bridge);
+ 	enum drm_connector_status status = connector_status_disconnected;
+ 
+-	if (dp->plat_data->panel || dp->plat_data->next_bridge)
++	if (dp->plat_data->next_bridge)
+ 		return connector_status_connected;
+ 
+ 	if (!analogix_dp_detect_hpd(dp))
+@@ -995,8 +978,6 @@ static void analogix_dp_bridge_atomic_pre_enable(struct drm_bridge *bridge,
+ 	/* Don't touch the panel if we're coming back from PSR */
+ 	if (old_crtc_state && old_crtc_state->self_refresh_active)
+ 		return;
+-
+-	drm_panel_prepare(dp->plat_data->panel);
+ }
+ 
+ static int analogix_dp_set_bridge(struct analogix_dp_device *dp)
+@@ -1168,16 +1149,12 @@ static void analogix_dp_bridge_disable(struct drm_bridge *bridge)
+ 	if (dp->dpms_mode != DRM_MODE_DPMS_ON)
+ 		return;
+ 
+-	drm_panel_disable(dp->plat_data->panel);
+-
+ 	disable_irq(dp->irq);
+ 
+ 	analogix_dp_set_analog_power_down(dp, POWER_ALL, 1);
+ 
+ 	pm_runtime_put_sync(dp->dev);
+ 
+-	drm_panel_unprepare(dp->plat_data->panel);
+-
+ 	dp->fast_train_enable = false;
+ 	dp->psr_supported = false;
+ 	dp->dpms_mode = DRM_MODE_DPMS_OFF;
+@@ -1252,7 +1229,6 @@ static const struct drm_bridge_funcs analogix_dp_bridge_funcs = {
+ 	.atomic_post_disable = analogix_dp_bridge_atomic_post_disable,
+ 	.atomic_check = analogix_dp_bridge_atomic_check,
+ 	.attach = analogix_dp_bridge_attach,
+-	.get_modes = analogix_dp_bridge_get_modes,
+ 	.edid_read = analogix_dp_bridge_edid_read,
+ 	.detect = analogix_dp_bridge_detect,
+ };
+@@ -1498,17 +1474,22 @@ int analogix_dp_bind(struct analogix_dp_device *dp, struct drm_device *drm_dev)
+ 		return ret;
+ 	}
+ 
+-	if (dp->plat_data->panel)
+-		bridge->ops = DRM_BRIDGE_OP_MODES | DRM_BRIDGE_OP_DETECT;
+-	else
+-		bridge->ops = DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT;
+-
++	bridge->ops = DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT;
+ 	bridge->of_node = dp->dev->of_node;
+ 	bridge->type = DRM_MODE_CONNECTOR_eDP;
+ 	ret = devm_drm_bridge_add(dp->dev, &dp->bridge);
+ 	if (ret)
+ 		goto err_unregister_aux;
+ 
++	if (dp->plat_data->panel) {
++		dp->plat_data->next_bridge = devm_drm_panel_bridge_add(dp->dev,
++								       dp->plat_data->panel);
++		if (IS_ERR(dp->plat_data->next_bridge)) {
++			ret = PTR_ERR(bridge);
++			goto err_unregister_aux;
++		}
++	}
++
+ 	ret = drm_bridge_attach(dp->encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+ 	if (ret) {
+ 		DRM_ERROR("failed to create bridge (%d)\n", ret);
+-- 
+2.34.1
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaYrzzAAKCRA6cBh0uS2t
-rDvzAPkBX1YTfrEpUBYKFlg/hoAY2G+5Paz3zr1hmUyqY94m+AEAyhM0Q8sr8rB8
-DSN4g6RwZHsJPkjsBLlo+xDkFDbtFQA=
-=DElc
------END PGP SIGNATURE-----
-
---5gUtC+mBewt4W4cJ--
 
