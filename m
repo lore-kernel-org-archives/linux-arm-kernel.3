@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E4AE94625
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 01:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F3CE94627
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 01:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q6X2eZrDy7K1opEthf+NxHHHYVUEBQj2x/wKxFj90j8=; b=Ad/A81nRDYSTQjIERxdX2TziKq
-	T3SNwfsF88hTTH1zU+KrTAR12/r7+qFvtxznSqclQ42rxORjULadT7Gxe8pqkcuLkhu07bVxwjWPP
-	rM3OBCOKPRv33ujsyRIvCKXblY9m/z4DYchgC5Apqoh1ASthkg/wse1pwpxfDpT3HQvre54RAo1bU
-	U1LgStyd07i8qagm60PXUP5wmYYo3xvXIX+zrJqScA34Gt8319qv3PhM5GwJjzJhAiFmFvAKirjh2
-	80iQ9WdY+1pVpQ/quqQwJHeb+YpdAJlRDQPGNfBWrpgHi1ANxjxfzI50pjZ4c8tcWxFrf/KdJtOGk
-	C6MaVs5g==;
+	bh=4SwyUPTN929uhlcM7XienEVnbkg9PW4CdbU+Sqb82fY=; b=SlhpTq6xD2HTpkKZ5+LrYee3Bm
+	9f4u0UC9sYTTv+E/cWnJAAapcR9+54WCBZo3atwbjNvUg4vkPill/o+XfUcQTXhoYaZ5hnr1VgO/q
+	C62BHjZAqateFO9mpGJfAGJklMCHaVO2q6Xhrz5Rp0/wJEda1XsmLLsVl2J2sWNb7EOiuc82SVM6D
+	/qcOrdAMTApIkf5d0yPc6u2R/gDxhILefwExZ02YPLPVqHL/U/cGAbTCfmZtv8mAZ1gSdCGWYVTZX
+	Wfo4RyGIpw3jPcF2uSGFGxUmMLz6FriWo8qE1rqyMxunM8rEid8nN7DhbwpALNtom4LsR9URxsC95
+	sk0BpRlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpcVE-0000000GHFt-3kOa;
-	Tue, 10 Feb 2026 01:25:20 +0000
+	id 1vpcZJ-0000000GHUf-3T8u;
+	Tue, 10 Feb 2026 01:29:33 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpcVB-0000000GHFV-32eV;
-	Tue, 10 Feb 2026 01:25:19 +0000
+	id 1vpcZG-0000000GHUG-2kfF;
+	Tue, 10 Feb 2026 01:29:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1AD9443EB2;
-	Tue, 10 Feb 2026 01:25:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE4D8C116C6;
-	Tue, 10 Feb 2026 01:25:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 72E8142D57;
+	Tue, 10 Feb 2026 01:29:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9B6DC116C6;
+	Tue, 10 Feb 2026 01:29:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770686717;
-	bh=B/9xj49pyIQTxEOvUELh2afe3C9tpol8NILa2gk1YSs=;
+	s=k20201202; t=1770686967;
+	bh=vPtgEERLhI7QUhtgMm5j4VLfBY7NaUFPnI8j3SoVhu0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ovnT8SsyNnQ+DG1eYwtSMgsBCc8JamrCDvC4UtiJsyPB3+6hn4mi7PYlXUol2YCNz
-	 pCZ+pG5ce41/fIcphnS/ey4AkA+mfpDVy4ktoRUEUXxJW3O8FGTKc3petsUEwf5tD9
-	 H08GpUMaOs1BmuYv2/0d5dBlsJInRV6Dl2vdm02LXWZWD0BQaBYSmv/wn2kRFUbDUh
-	 UzrwfYuITxYTJiIPPicuHxTVzJhKJ5KUygCXWT5Q6+TaRkR+ne2m/fq2iJF36Sm/wt
-	 +rSbb7oUoqfPNpe2FyNzsywCablgYrVrV0SKCyW/B5CDKLUKiPGYLQQdBbPUwGeKMC
-	 t7JIkGst10tNw==
-Date: Mon, 9 Feb 2026 19:25:16 -0600
+	b=N/9YaCNww/VWJbyiYoqyRb2mg1WyMEGE331TuoF3q6kCtscpxoFiKym7AiVTaA3Ic
+	 kk0S4qsyjWPSS2mKxAomH7M3IofnkyDsiRxBHSVOlF+kkwpnmNRg0b0L2rFNzQfpPz
+	 s7o6Vj9NH6hf7e2QfCn/C/ziJ1M+NMWrQpMRCbXEsO/2JHYdgmocs92lp5wrUti6Gg
+	 sqtixfIpF7vjzADDCJOHXtgxyHquG+hcReZGEXAklmygby+9UiTgXSIG3Jmjmxmkst
+	 KWYNxWG/xNSABTeHxniwtMDSERXkFWnL5xDxaw3tbThZXBptRHhVkBQIXKLfSqXkQc
+	 gDs4jTdxv5Qmw==
+Date: Mon, 9 Feb 2026 19:29:26 -0600
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: conor+dt@kernel.org, linux-rockchip@lists.infradead.org,
-	kever.yang@rock-chips.com, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, srini@kernel.org,
-	linux-kernel@vger.kernel.org, finley.xiao@rock-chips.com,
-	krzk+dt@kernel.org, w@1wt.eu, jonas@kwiboo.se
-Subject: Re: [PATCH v4 2/6] dt-bindings: nvmem: rockchip,otp: Add compatible
- for RK3528
-Message-ID: <177068671576.2272495.16352349612961041838.robh@kernel.org>
-References: <20260205211901.490181-1-heiko@sntech.de>
- <20260205211901.490181-3-heiko@sntech.de>
+To: Tzu-Hao Wei <twei@axiado.com>
+Cc: openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+	Vinod Koul <vkoul@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Prasad Bolisetty <pbolisetty@axiado.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	SriNavmani A <srinavmani@axiado.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	linux-phy@lists.infradead.org, linux-mmc@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>
+Subject: Re: [PATCH v3 1/2] dt-bindings: mmc: arasan,sdhci: Add Axiado AX3000
+ SoC
+Message-ID: <177068696529.2278295.8145891834285711544.robh@kernel.org>
+References: <20260206-axiado-ax3000-add-emmc-host-driver-support-v3-0-ef83b09325be@axiado.com>
+ <20260206-axiado-ax3000-add-emmc-host-driver-support-v3-1-ef83b09325be@axiado.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260205211901.490181-3-heiko@sntech.de>
+In-Reply-To: <20260206-axiado-ax3000-add-emmc-host-driver-support-v3-1-ef83b09325be@axiado.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_172518_431238_697ED47B 
-X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-CacheID: sfid-20260209_172930_739038_3D88C7ED 
+X-CRM114-Status: UNSURE (   8.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,19 +83,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 05 Feb 2026 22:18:57 +0100, Heiko Stuebner wrote:
-> From: Jonas Karlman <jonas@kwiboo.se>
+On Fri, 06 Feb 2026 16:23:07 +0800, Tzu-Hao Wei wrote:
+> From: SriNavmani A <srinavmani@axiado.com>
 > 
-> Add compatible string for the OTP controller in RK3528. Compared to the
-> RK3562 and RK3568 the OTP in RK3528 does not have a phy clock or reset.
+> Add compatible strings for Axiado AX3000 SoC eMMC controller which
+> is based on Arasan eMMC controller.
 > 
-> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> Signed-off-by: SriNavmani A <srinavmani@axiado.com>
+> Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
 > ---
->  .../bindings/nvmem/rockchip,otp.yaml          | 25 +++++++++++++++++++
->  1 file changed, 25 insertions(+)
+>  Documentation/devicetree/bindings/mmc/arasan,sdhci.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
