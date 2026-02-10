@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DEC3EA3F16
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 07:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2E70EA3F13
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 07:51:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fdKDjKqv/FPh7Ib+nI9Rj9350WzZD59M6B14+7iUYOk=; b=XPTsG7+ADqgaGSDf45Xp1yzr8A
-	5xelPBYE/DxEiU+xChZj/AXlnd0M0FC+qM1+SioV3awxoM0e359eOK7KR3+7TZcnQPGmhTRhmV7f0
-	XCBJxCVWGLBdRIjHx+Mr1oSRREgwgnBMdxNhoCESWbtv4BGVtHtWEbARvRgj3aAvyV7syYblAkMqX
-	aXwZvq7VerhZGkq/GW4B/RZzsRoUTg0SEhqWW7x04vZthIxjMt5ms7JS7wXGRVwMaIXtIjnqMDpNl
-	Os5wxbCLpclvn8mNqqjqRhIH2h14p/VHYI6Zj92quycpGfxtncHvGSfB2R4y3pl1uRnMconcahePN
-	yDtnhRXA==;
+	bh=uIpTfl4ZEh8crY58oyH5A7KHoCNY/Ewt2ofJgPmPw6g=; b=bTovFt8/RPpNSxJuC9qMExjBF4
+	vPUB3j4m/hFoXBM7Vpwsc7pJEzi1YJ2kU2CXBg6LUVlmifcSItXapSDqk7dNY84M+51Remsu457kj
+	JmyTvvCOPUAGST3TWZczXN57UtKmCcdJ2o2Q9hkGq43u1iP4wLIadWFh1XTxTeiVPIkl0jk577NJK
+	dvBiEUJ/whrjRl9xI8fVCxdrIOQk22bAs4tG058Ky4Z1Ay9BcVERiaHMvc4G07F2NmeERsXRj44nh
+	uGb1k2jd89Di9hdYjKitKSirkf1131dpf/CDMEXu+kL9Bqa9GjmpxVuZca+nJ/rBIemwZO74AuY5u
+	NsbD5GxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpiVf-0000000GePv-4Br9;
-	Tue, 10 Feb 2026 07:50:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vpiWn-0000000GeWp-1pCy;
+	Tue, 10 Feb 2026 07:51:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpiVd-0000000GePQ-3dgR
+	id 1vpiWk-0000000GeWQ-1EKE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 07:50:10 +0000
+	Tue, 10 Feb 2026 07:51:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B72AF43487;
-	Tue, 10 Feb 2026 07:50:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E416C116C6;
-	Tue, 10 Feb 2026 07:50:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E76EC40AF5;
+	Tue, 10 Feb 2026 07:51:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 968F5C116C6;
+	Tue, 10 Feb 2026 07:51:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770709807;
-	bh=+ZTXiS+ZcMTGgYy8SoVJ6FkfY9w4a+b3rDvBpEBn/us=;
+	s=k20201202; t=1770709877;
+	bh=t/yxJur0l1ckNB4xh959uBHpohLupWtJRLc6AJ49G34=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=l30w6gqKg7Rv8Vf1hiseRRKwqaGxhGtarkCjPS8n6CsclScEuYs4eo4mMF6n3Nwfq
-	 bB5bVzDg0ObDkbNkKmP1X1I7k2oe+tX+wXwOXQSdfB8jrxnddL6YYTY/hbjQqu7OBQ
-	 WYP/oWWVQ7lZStORkpBaZMiVa9Sct9QAL1q9c2Bw/5lxEZxHYyFW4niHymkQ8Pbdod
-	 2DmMvbQnYzZbXzwEniMx1cwNtg5hAd1NR4SYMkLCIj9gm+YqfVkAUizK03gmJbpRZH
-	 iRhmhuV60E3tETqkK7+0Z1tPrig+P8HX71Bdn7TRHvgx3eKvZqNGZLEberigxLj6Uc
-	 Lul10l+yw3b0Q==
-Message-ID: <cbdea2e7-a419-483f-8d2a-f0d045737feb@kernel.org>
-Date: Tue, 10 Feb 2026 08:50:03 +0100
+	b=uEeDWG4/oTrutltqpZWXebUjgibLZ4do9nKiRhiS7ylbshyegaEvRHIoChfQ/w8fW
+	 12uRVenflZGD8MaxwOsWMnlAld6FRtYkQB8FWulIkrlaIzIwmpkOkLUwdPKkGcNj7M
+	 B8dv4LZ5IWz3/u+Qg9rmHBobN2XtEWKNho+/bVzxqT2S53yFPl/Nz9LQoUnbeENIsL
+	 1wZLSePADdExvX8tE+4UFJdNNDSh3tibeLRSIj3XxWTAbr4uMu8imvXoG5sWBQguGu
+	 bbgsw8cJRL5hHBOnUsF24Q4KMxnwvsldRzBHVA4IdNiQ+nZXTtSCdPMcAdyBolfm5L
+	 5Qq2GsgMy+ZTg==
+Message-ID: <c4212679-9e39-47d0-8a53-62427e2ef7aa@kernel.org>
+Date: Tue, 10 Feb 2026 08:51:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/7] soc: st: add RISAB dump debug driver
+Subject: Re: [PATCH 3/7] arm64: dts: st: add RISAB1/2/3/4/5/6 nodes to
+ stm32mp251.dtsi
 To: Gatien Chevallier <gatien.chevallier@foss.st.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
  Maxime Coquelin <mcoquelin.stm32@gmail.com>,
  Alexandre Torgue <alexandre.torgue@foss.st.com>
 Cc: devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Theo GOUREAU <theo.goureau-ext@st.com>
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20260209-stm32_risab-v1-0-ef0b2b6a7e0a@foss.st.com>
- <20260209-stm32_risab-v1-2-ef0b2b6a7e0a@foss.st.com>
+ <20260209-stm32_risab-v1-3-ef0b2b6a7e0a@foss.st.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,13 +102,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260209-stm32_risab-v1-2-ef0b2b6a7e0a@foss.st.com>
+In-Reply-To: <20260209-stm32_risab-v1-3-ef0b2b6a7e0a@foss.st.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_235009_963111_B5EAC499 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260209_235118_376213_045333C6 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,34 +123,29 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 09/02/2026 15:59, Gatien Chevallier wrote:
-> +
-> +static int stm32_risab_register_debugfs(struct risab_pdata *pdata)
-> +{
-> +	struct dentry *root = NULL;
-> +
-> +	root = debugfs_lookup("stm32_firewall", NULL);
-> +	if (!root)
-> +		root = debugfs_create_dir("stm32_firewall", NULL);
-> +
-> +	if (IS_ERR(root))
-> +		return PTR_ERR(root);
-> +
-> +	pdata->dbg_entry = debugfs_create_file(dev_name(pdata->dev), 0444,
-> +					       root, pdata, &stm32_risab_conf_dump_fops);
+> Add RISAB1/2/3/4/5/6 nodes to the stm32mp251.dtsi device tree SoC
+> file.
 
-soc drivers should not have any user-space interfaces. This was
-requested by Arnd many times in the past, nothing new, including about
-debugfs. Otherwise it opens cans of worms, because soc platform
-maintainer can dump here whatever the subsystem rejected.
+And what is RISAB?
 
-Find suitable subsystem and get its approval for such debugfs entry.
+> 
+> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+> ---
+>  arch/arm64/boot/dts/st/stm32mp251.dtsi | 48 ++++++++++++++++++++++++++++++++++
+>  1 file changed, 48 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> index a8e6e0f77b83..e9d8338b2017 100644
+> --- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> +++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> @@ -1733,6 +1733,54 @@ pcie@0,0 {
+>  			};
+>  		};
+>  
+> +		risab1: risab@420f0000 {
 
-Your commit msg is so vague it is another reason this is not mergeable.
-Explains nothing about the feature, nothing about the risk or impact on
-the system when user does (while (1); read stm32_risab_conf_dump_fops).
-
-Not mentioning that it does not explain WHY do we want this driver in
-the first place...
+It appears here as node name as well, so it must be a generic name, but
+I do not recall it in DT spec or my knowledge.
 
 Best regards,
 Krzysztof
