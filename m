@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2948BEB26EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 16:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 572ECEB26E9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 16:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OQXwaNe4psr2XNmq2suhAylWK2H2KTRKcPx7MaB8l+g=; b=0axOLBdAFkwEXUvzNBSB50G/7w
-	rZEnzeyrwIxMJ2QiVguZQC50/vGJm5u9Hj3GHFz8ajRg8FftYa9qM/E09it9UM89YTLELiPcOwxwc
-	yBenfAiGHk0ggT8orF7PTzdxS1Ry1nEgLr2MQoI0v4QdC66VnqnlQnGA2f7R+4sXBlbyFDgKubQr+
-	I/bmZoRgiKLfr6FjKwkBoVtrnYrniRtQ3SRFiLIo2Cn4mvgwCnn1HGR6Wig5nD8nopLS/VDlkIk3Z
-	zDxE6bfufxw9/D2L3KUVmsfGCSxWLOURc8MZwMYvNGJWQ4KuB9juDOiAiErG/PtGdGGXeR++CT9xn
-	5K4VbARg==;
+	bh=+lxd3scP7jcsaagvw0zIVL4XPwjP50VBQ+j0ddfmbvk=; b=AYe5Y7iKQfALuuZDTY3itvb7zr
+	/nuDwyoznXfNiDa8MNlHi/wXtLKxD91FpQ2EKE7+JIi+VJdbRJ0E4NQbqZyDJCX3XhQVhGNGWO8qx
+	ifoF+/S9A9CF61P8Nidz6Z/PCN5uYLkTSTH/Kldb6Eeu55ULLXfbemp6O/AYmvxLoF/05U4jyN5P/
+	hHB2dLcCnXQvzMC0zZxnPajaavY5gCfF6gnDndwXroD0FiDdITBw2HzVS6PwzHvD+SrSxc3xrhIya
+	DzKJlgDg44qCDZHwXfangxZBBaxyBBSHeuiL1rcb89181/vGVUpcvyxPyW5Imq9Bv+/C4rt+czLeS
+	aTh6JyVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqzv-0000000HH17-3Mnp;
-	Tue, 10 Feb 2026 16:53:59 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1vpr23-0000000HHC7-38Ud;
+	Tue, 10 Feb 2026 16:56:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqzs-0000000HH0N-2OZz
+	id 1vpr22-0000000HHC0-3ZCY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 16:53:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1770742434;
- bh=OQXwaNe4psr2XNmq2suhAylWK2H2KTRKcPx7MaB8l+g=;
- b=QQr2juHE2IYEiPCUbCf2imB8FGKCEnEmIBJE7a2W/SAKXqC9ulGcOafqnf+FtLAgyzVlpMq/s
- KQol6Y+yeJomAt9nK+M4B2qk0wJ39sJhcxiIub9q33l+gxE6g6wLFrFcn6m/NIqqyk/PrdzeMGB
- a1XNjvSI7gdu6riNJDcT7MssArDvtE5pYNWC8skhdSEwpZTi5dtAvliWRihdCuie4cVK4VwQHaf
- oxDABBkzZWhdVj6bOE2DkS73mJo1rrB/2/6ybn30oFSV3UOrQt6nBjc9RdcyrL5nykeKrLkaX1g
- ZOsxqEr1uTFEQ1D3RZD6fQkp2dKfsGkPuQ1WnDTRa8cw==
-X-Forward-Email-ID: 698b629fe8cd0604c09e7484
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 2.6.3
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <a8c1bac7-9f67-4476-81ad-5271ff239b91@kwiboo.se>
-Date: Tue, 10 Feb 2026 17:53:46 +0100
+	Tue, 10 Feb 2026 16:56:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3746560130
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Feb 2026 16:56:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E19FFC116C6
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Feb 2026 16:56:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770742568;
+	bh=mp18oumLYcbeEo35CqspzfgW3GZ3+0epzStLxKYcz3Y=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=dTwY86GRclL2KvfHFRfzZf6MITpa1VV8GvqjNdEc9tUxxPz33rlimMAE8P5KE3Tcu
+	 PE+PgHII5MaTO3cxT+5zpIsJUsTR+Jo4nweVkMgv6jqkF2Gm3cHQdTXlOStIpIqMCj
+	 /zbLKDJIPrXoQOpfLx8kKnyJ+OiwgFH6Ussce6dBIcyeEtAR24etvQJwcIo+XnEZq8
+	 cPHM0heeuCEdBHtszwEdf/HOIVnf5gKu2mBLYEW9Dd/N7GRfDBAzSzJJHufB1wRSJn
+	 p57dbyubp+8HRcp9rs8pEscTJu0rvaIyVDMXwoKGh0vmxNNBMM1zpUeL0EvxUrDvHU
+	 WTvVbogH05jtA==
+Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-40429b1d8baso1876230fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Feb 2026 08:56:08 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXT+y/RaYJrrOSv+A2EsADNtZUj5QGYqXEGPzxqi0NxkWuaofTaU+PdacXgMJoLuZwm7+S4zAOVJXPzjOGNcfyi@lists.infradead.org
+X-Gm-Message-State: AOJu0YxB5OXOlBC9YICV8VZY3ZhKIFagWmAY6T7AXwOTD93Ufq8JqaeV
+	iKSEcSw9Oa4LwbhtREIQGDmOm2L5hRotXs4O9bJxqPrOVQEl2R8Psq/pKUBi6NLAHbYo5qv+qBS
+	KBrgyq2oRwVe2fJA30ppXlh2iWFX5xPg=
+X-Received: by 2002:a05:6870:e98e:b0:409:e025:a467 with SMTP id
+ 586e51a60fabf-40e66987163mr1394689fac.56.1770742568025; Tue, 10 Feb 2026
+ 08:56:08 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/4] ARM: dts: rockchip: Add Onion Omega4 Evaluation
- Board
-To: Fabio Estevam <festevam@gmail.com>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Fabio Estevam <festevam@nabladev.com>
-References: <20260210144845.317048-1-festevam@gmail.com>
- <20260210144845.317048-4-festevam@gmail.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20260210144845.317048-4-festevam@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_085357_028598_4ADB833D 
-X-CRM114-Status: GOOD (  22.71  )
+References: <20260209023153.2661784-1-ankur.a.arora@oracle.com> <20260209023153.2661784-13-ankur.a.arora@oracle.com>
+In-Reply-To: <20260209023153.2661784-13-ankur.a.arora@oracle.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Tue, 10 Feb 2026 17:55:57 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0j_iXcbsOpkEFN=Qy0UMpa73eVfLLM42mNpx2E6JD1zHw@mail.gmail.com>
+X-Gm-Features: AZwV_Qg8i5FSICt8qHIV10FqvRMrMFr7XqGHKA8IPhFnZEOVrYzwGdBhqyez9Dg
+Message-ID: <CAJZ5v0j_iXcbsOpkEFN=Qy0UMpa73eVfLLM42mNpx2E6JD1zHw@mail.gmail.com>
+Subject: Re: [PATCH v9 12/12] cpuidle/poll_state: Wait for need-resched via tif_need_resched_relaxed_wait()
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
+	bpf@vger.kernel.org, arnd@arndb.de, catalin.marinas@arm.com, will@kernel.org, 
+	peterz@infradead.org, akpm@linux-foundation.org, mark.rutland@arm.com, 
+	harisokn@amazon.com, cl@gentwo.org, ast@kernel.org, rafael@kernel.org, 
+	daniel.lezcano@linaro.org, memxor@gmail.com, zhenglifeng1@huawei.com, 
+	xueshuai@linux.alibaba.com, joao.m.martins@oracle.com, 
+	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,192 +85,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fabio,
+On Mon, Feb 9, 2026 at 3:43=E2=80=AFAM Ankur Arora <ankur.a.arora@oracle.co=
+m> wrote:
+>
+> The inner loop in poll_idle() polls over the thread_info flags,
+> waiting to see if the thread has TIF_NEED_RESCHED set. The loop
+> exits once the condition is met, or if the poll time limit has
+> been exceeded.
+>
+> To minimize the number of instructions executed in each iteration,
+> the time check is rate-limited. In addition, each loop iteration
+> executes cpu_relax() which on certain platforms provides a hint to
+> the pipeline that the loop busy-waits, allowing the processor to
+> reduce power consumption.
+>
+> Switch over to tif_need_resched_relaxed_wait() instead, since that
+> provides exactly that.
+>
+> However, since we want to minimize power consumption in idle, building
+> of cpuidle/poll_state.c continues to depend on CONFIG_ARCH_HAS_CPU_RELAX
+> as that serves as an indicator that the platform supports an optimized
+> version of tif_need_resched_relaxed_wait() (via
+> smp_cond_load_acquire_timeout()).
+>
+> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
+> Cc: linux-pm@vger.kernel.org
+> Suggested-by: "Rafael J. Wysocki" <rafael@kernel.org>
+> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
 
-On 2/10/2026 3:48 PM, Fabio Estevam wrote:
-> From: Fabio Estevam <festevam@nabladev.com>
-> 
-> The Onion Omega4 Evaluation Board is based on the RV1103B SoC and has:
-> 
->  - 256 MB of RAM
->  - 256 MB of SPI-NAND
->  - Ethernet
->  - USB OTG
->  - Wifi
->  - SD card
->  - Camera connector
-> 
-> The details can be found at:
-> https://documentation.onioniot.com/omega4/getting-started/
-> 
-> Add the initial support for this board so that it can fully boot into
-> Linux with the root file system stored in the SPI NAND.
-> 
-> Signed-off-by: Fabio Estevam <festevam@nabladev.com>
+This is generally fine with me, of course depending on how
+tif_need_resched_relaxed_wait() will work, so conditional on reaching
+an agreement with the arch and scheduler folks feel free to add
+
+Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
+
+to this one.
+
 > ---
-> Changes since v3:
-> - Split it in the EVB and SoM dtsi.
-> 
->  arch/arm/boot/dts/rockchip/Makefile           |  1 +
->  .../boot/dts/rockchip/rv1103b-omega4-evb.dts  | 94 +++++++++++++++++++
->  .../arm/boot/dts/rockchip/rv1103b-omega4.dtsi | 21 +++++
->  3 files changed, 116 insertions(+)
->  create mode 100644 arch/arm/boot/dts/rockchip/rv1103b-omega4-evb.dts
->  create mode 100644 arch/arm/boot/dts/rockchip/rv1103b-omega4.dtsi
-> 
-> diff --git a/arch/arm/boot/dts/rockchip/Makefile b/arch/arm/boot/dts/rockchip/Makefile
-> index 716f5540e438..d0154fd7ff24 100644
-> --- a/arch/arm/boot/dts/rockchip/Makefile
-> +++ b/arch/arm/boot/dts/rockchip/Makefile
-> @@ -1,5 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += \
-> +	rv1103b-omega4-evb.dtb \
->  	rv1108-elgin-r1.dtb \
->  	rv1108-evb.dtb \
->  	rv1109-relfor-saib.dtb \
-> diff --git a/arch/arm/boot/dts/rockchip/rv1103b-omega4-evb.dts b/arch/arm/boot/dts/rockchip/rv1103b-omega4-evb.dts
-> new file mode 100644
-> index 000000000000..686f2dd28eab
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/rockchip/rv1103b-omega4-evb.dts
-> @@ -0,0 +1,94 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright (c) 2022 Rockchip Electronics Co., Ltd.
-> + * Copyright (c) 2025 plan44.ch/luz
-> + * Copyright (c) 2025 Onion Corporation
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/leds/common.h>
-> +#include "rv1103b-omega4.dtsi"
-> +
-> +/ {
-> +	model = "Onion Omega4 Evaluation Board";
-> +	compatible = "onion,rv1103b-omega4-evb", "onion,rv1103b-omega4", "rockchip,rv1103b";
-
-nit: Is rv1103b needed in all three compatible strings? The last one is
-already pointing out that this is the rv1103b soc, also the other Onion
-Omega boards in-tree use onion,omega and onion,omega2+.
-
-> +
-> +	aliases {
-> +		serial0 = &uart0;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +	};
-> +
-> +	leds {
-> +		compatible = "gpio-leds";
-> +
-> +		led-0	{
-> +			pinctrl-names = "default";
-> +			pinctrl-0 = <&led>;
-> +			gpios = <&gpio0 RK_PA2 GPIO_ACTIVE_HIGH>;
-> +			function = LED_FUNCTION_STATUS;
-> +			color = <LED_COLOR_ID_BLUE>;
-> +			label = "sys";
-> +			default-state = "on";
-> +		};
-> +	};
-> +};
-> +
-> +&fspi0 {
-> +	status = "okay";
-> +
-> +	spi_nand: flash@0 {
-> +		compatible = "spi-nand";
-> +		reg = <0>;
-> +		bootph-pre-ram;
-> +		bootph-some-ram;
-> +		spi-max-frequency = <75000000>;
-> +		spi-rx-bus-width = <4>;
-> +		spi-tx-bus-width = <1>;
-> +
-> +		partitions {
-> +			compatible = "fixed-partitions";
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +
-> +			partition@0 {
-> +				label = "env";
-> +				reg = <0x00000000 0x00040000>;
-> +			};
-> +
-> +			partition@40000 {
-> +				label = "idblock";
-> +				reg = <0x00040000 0x00100000>;
-> +				read-only;
-> +			};
-> +
-> +			partition@140000 {
-> +				label = "uboot";
-> +				reg = <0x00140000 0x00100000>;
-> +				read-only;
-> +			};
-> +
-> +			partition@240000 {
-> +				label = "boot";
-> +				reg = <0x00240000 0x00800000>;
-> +			};
-> +
-> +			partition@a40000 {
-> +				label = "ubi";
-> +				reg = <0x00a40000 0x0f5c0000>;
-> +			};
-> +		};
-> +	};
-> +};
-
-The getting started guide [1] list the NAND Flash as part of SOM, should
-probably be moved to som dtsi.
-
-[1] https://documentation.onioniot.com/omega4/getting-started/
-
-> +&pinctrl {
-> +	leds {
-> +		led: led {
-> +			rockchip,pins = <0 RK_PA2 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm/boot/dts/rockchip/rv1103b-omega4.dtsi b/arch/arm/boot/dts/rockchip/rv1103b-omega4.dtsi
-> new file mode 100644
-> index 000000000000..bf245b547ea2
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/rockchip/rv1103b-omega4.dtsi
-> @@ -0,0 +1,21 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright (c) 2022 Rockchip Electronics Co., Ltd.
-> + * Copyright (c) 2025 plan44.ch/luz
-> + * Copyright (c) 2025 Onion Corporation
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "rv1103b.dtsi"
-> +
-> +&uart0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&uart0m0_xfer>;
-> +	bootph-all;
-
-nit: Please sort bootph before pinctrl.
-
-Regards,
-Jonas
-
-> +	status = "okay";
-> +};
-> +
-> +&wdt {
-> +	status = "okay";
-> +};
-
+> Notes:
+>   - get rid of unnecessary variable assignments, casts etc
+>
+>  drivers/cpuidle/poll_state.c | 21 +--------------------
+>  1 file changed, 1 insertion(+), 20 deletions(-)
+>
+> diff --git a/drivers/cpuidle/poll_state.c b/drivers/cpuidle/poll_state.c
+> index c7524e4c522a..7443b3e971ba 100644
+> --- a/drivers/cpuidle/poll_state.c
+> +++ b/drivers/cpuidle/poll_state.c
+> @@ -6,41 +6,22 @@
+>  #include <linux/cpuidle.h>
+>  #include <linux/export.h>
+>  #include <linux/irqflags.h>
+> -#include <linux/sched.h>
+> -#include <linux/sched/clock.h>
+>  #include <linux/sched/idle.h>
+>  #include <linux/sprintf.h>
+>  #include <linux/types.h>
+>
+> -#define POLL_IDLE_RELAX_COUNT  200
+> -
+>  static int __cpuidle poll_idle(struct cpuidle_device *dev,
+>                                struct cpuidle_driver *drv, int index)
+>  {
+> -       u64 time_start;
+> -
+> -       time_start =3D local_clock_noinstr();
+> -
+>         dev->poll_time_limit =3D false;
+>
+>         raw_local_irq_enable();
+>         if (!current_set_polling_and_test()) {
+> -               unsigned int loop_count =3D 0;
+>                 u64 limit;
+>
+>                 limit =3D cpuidle_poll_time(drv, dev);
+>
+> -               while (!need_resched()) {
+> -                       cpu_relax();
+> -                       if (loop_count++ < POLL_IDLE_RELAX_COUNT)
+> -                               continue;
+> -
+> -                       loop_count =3D 0;
+> -                       if (local_clock_noinstr() - time_start > limit) {
+> -                               dev->poll_time_limit =3D true;
+> -                               break;
+> -                       }
+> -               }
+> +               dev->poll_time_limit =3D !tif_need_resched_relaxed_wait(l=
+imit);
+>         }
+>         raw_local_irq_disable();
+>
+> --
 
