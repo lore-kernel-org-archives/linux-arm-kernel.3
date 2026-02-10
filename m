@@ -4,114 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E908BEA3F1C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 08:11:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6103EA3F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 08:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yacUS/5xn+i90L0A/5qoKjfR29+LuPyeO9WE9hzFMkU=; b=qs/9zLLI553yIhqIo/DvjDw1k2
-	603BGxdHMSX3P/XgIqnEc0LNMtjMg4jQCp5EjxSgV7hxr+m/PVc+FURP50GIdOgd7UxWfPSvi4HrH
-	HOkI7tV3NIFyYhYydVmDeDxJZDR0VV8q7OP0f5Iyukg3WlPlmQkblHMb3Ghc/NAFvc873jzl5TEgV
-	pDKqyG0BqRww1/gfVHEt96QvkvZ3WGS2IdsdhSnvDkngbIoMveeWcGjn0k0XxEFDd87HRzqIf1lSy
-	zV3O59eN1OGP2i7+zvTf0NvxrGhQ3fUKObC1Er7VrOr5UL4EsHIwLJRaM9yJ5jVbgu21DJpiRJvPT
-	7gKxOfdQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/sNkNyR4LeB6XZD87ojCdw0gSbnTCBsHxlMfU2HF1zo=; b=buRvfXqnzpzs0ODb7VU6womCJ2
+	8MzJn3lB/zLuMeGxG52gVZvTabCSBrqkZxjMLkCQqCfsObD8qkvtAwFucZugH02GQ+lo9npK5v9Xm
+	QadvkYlF+uROR/+Qivq2VO436HK6G5Q1RpRQ4PPf/4wzIiGoP9wImLGaSZW2dfslJrlESKJ92vtR5
+	q5jJC6moUO8/TWIdfBhSnoL3ANV5iOOsQMQjX2r3UuSSLqaSoi7mM/WiwviszuOsLtvsgNOKChI5/
+	+ZLYavCJM94v/W9OmXdOB7FCIE1lOLddFnJYigbe88ffyBDsB1GgoWNegiAZ9+zfYD+PY06hGJp/g
+	ZZA9WwYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpiqK-0000000Gfw9-1uPX;
-	Tue, 10 Feb 2026 08:11:32 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1vpjNU-0000000GhX0-1F2U;
+	Tue, 10 Feb 2026 08:45:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpiqF-0000000GfvP-1qP8;
-	Tue, 10 Feb 2026 08:11:28 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 619FmaAC328612;
-	Tue, 10 Feb 2026 08:11:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=yacUS/
-	5xn+i90L0A/5qoKjfR29+LuPyeO9WE9hzFMkU=; b=V5eQnPx5KHdevGsjQRzfgA
-	6ctJ0DjHFjeWatIVZd0sNmA+NSam7A/wvZLenYylDJbAJnsq65C0dc3R0rPO562t
-	IUs5jP8+LLQQe7yF6jXsga/RqXWwnuqhH9J5cybCDwKWLSZpl376u4BYergfkaH3
-	iUqylLsrf8ezTSu/klEZeviykt92ATR0NkLkltmyjD4vMmqPmmAcVfufwbgnZZj+
-	Gen//NLVFka8WTgqj+V6DTugwDD8hoR3mLndBcsqPNqRlyy04gNkrPYUS65Cup9M
-	fr1qXmFa9ohttlBjFvN4uLPAGQIp+szSuFiBLCvVElqr/epyrVH+A7E4H1SdECxA
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4c696us7f5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Feb 2026 08:11:03 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 61A44FuT008400;
-	Tue, 10 Feb 2026 08:11:02 GMT
-Received: from smtprelay04.dal12v.mail.ibm.com ([172.16.1.6])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4c6g3y8jch-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Feb 2026 08:11:02 +0000
-Received: from smtpav04.wdc07v.mail.ibm.com (smtpav04.wdc07v.mail.ibm.com [10.39.53.231])
-	by smtprelay04.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 61A8B1xj27067108
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 10 Feb 2026 08:11:01 GMT
-Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 641E458045;
-	Tue, 10 Feb 2026 08:11:01 +0000 (GMT)
-Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A90DD58050;
-	Tue, 10 Feb 2026 08:10:56 +0000 (GMT)
-Received: from [9.109.198.160] (unknown [9.109.198.160])
-	by smtpav04.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 10 Feb 2026 08:10:56 +0000 (GMT)
-Message-ID: <ac55db2a-ab90-460d-9efa-e13c5a3f498d@linux.ibm.com>
-Date: Tue, 10 Feb 2026 13:40:54 +0530
+	id 1vpjNR-0000000GhVa-4AGd
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Feb 2026 08:45:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EE29760130;
+	Tue, 10 Feb 2026 08:45:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9DAE1C19425;
+	Tue, 10 Feb 2026 08:45:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770713144;
+	bh=TMkuw8+FgAZt93jTnnuCx3oBKloJogHnbWHJWDepE0I=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=LSXJBP8Qxnld7FR41Af9FUW3NUxsNuaUyAaouHPvM4q6PWFlstNDVzWIIHAOJwJGQ
+	 Mz6GcoPanza+X2Eq5XQcdACLm5AnAt3+qkFp3k7vkBbryFKgs+RKdK6S7/dz15/Mzn
+	 Jw76FAbtdsBYLI2gZUwML5fv8G2pEvQE0KmUkNTql+xGgUTvTG/CA+x2Q3EBaJQyFi
+	 3PyeKnWRPAF6itK4Wr1pnqoXx6KrxYh53iujwpMkJznzYGJFqXvNhymVGbmWkWCYtW
+	 //pTfvISYrwBnIocZh8wRnI9REBh8tQIfOqZqGrXtCRyaqcVrsxilLu9ugqnXngZf9
+	 EEBUYL72jAw6A==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8A16CEA3F15;
+	Tue, 10 Feb 2026 08:45:44 +0000 (UTC)
+From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
+Subject: [PATCH v7 0/5] arm64: dts: freescale: add support for the
+ GOcontroll Moduline IV/Mini
+Date: Tue, 10 Feb 2026 09:45:38 +0100
+Message-Id: <20260210-mini_iv-v7-0-a3ad8e7ddf0d@gocontroll.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] nvme-apple: move blk_mq_update_nr_hw_queues after
- nvme_unfreeze
-To: Keith Busch <kbusch@kernel.org>, Christoph Hellwig <hch@lst.de>
-Cc: Yu Kuai <yukuai@fnnas.com>, axboe@kernel.dk, sagi@grimberg.me,
-        sven@kernel.org, j@jannau.net, linux-block@vger.kernel.org,
-        linux-nvme@lists.infradead.org, tj@kernel.org, ming.lei@redhat.com,
-        neal@gompa.dev, asahi@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org
-References: <20260209082953.3053721-1-yukuai@fnnas.com>
- <20260209082953.3053721-4-yukuai@fnnas.com> <20260209145832.GC18315@lst.de>
- <aYn-xwFHCpd7sITJ@kbusch-mbp>
-Content-Language: en-US
-From: Nilay Shroff <nilay@linux.ibm.com>
-In-Reply-To: <aYn-xwFHCpd7sITJ@kbusch-mbp>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjEwMDA2NCBTYWx0ZWRfX3oGi64WxoWN/
- GBeaVWITmRzlY94+3+Mjrz5uMdVtO3PI/urzjfFFcclJigRcI1Vwjsh8VCHcaO+5v8Ns6UVnBQf
- 3m/iwm+LQ4Acb4l5RqpybHloQiOvW+al3Um1BHg6maUFfB3N5aTiK7V6b98KittQsAdBccQ82yx
- UD0euZe/6G+eFR4R4uILXRmEGVktqYlAsiGePEQAtop6AAyWVITc0v13+tPlT3VZ/YpoEvMzoqH
- w3DqLyVTMuLMsOmZVvVGS/j52BHMoo03uqNi0gu0f3qtb9YLRbqoNwgECsmZJisJQat0pPn62o1
- zgyn1jtY0/X3VKfxJ7Rgkh2E1RGZkzIdC4XrftUUAJQuvTgzGwknbVllzOteJtGEtBU9dQ9wirZ
- AXdYwTRN1qWqUiXlgQZosHjXnTgVJPWniFfdBiutTOLt058RP4EbVYKIYY/NHe960KwZC4Yrwfv
- 3Hj5mU7B6KhgIr83vVQ==
-X-Proofpoint-ORIG-GUID: AreZ9eDAwMrjE8TxGo49dw8sijoQhvpH
-X-Proofpoint-GUID: AreZ9eDAwMrjE8TxGo49dw8sijoQhvpH
-X-Authority-Analysis: v=2.4 cv=O+Y0fR9W c=1 sm=1 tr=0 ts=698ae817 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=tJLSzyRPAAAA:8
- a=TfStTScm9TuUUgMehrsA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=H0xsmVfZzgdqH4_HIfU3:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-09_01,2026-02-09_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 priorityscore=1501 phishscore=0 adultscore=0
- malwarescore=0 impostorscore=0 bulkscore=0 clxscore=1011 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
- definitions=main-2602100064
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_001127_628083_E2E65A0F 
-X-CRM114-Status: GOOD (  24.48  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23Q3WoDIRAF4FcJXtcyM/6s5qrvUUKxriZCshY3S
+ EPYd68bKAayl2fwO4xzZ3MoKcxsv7uzEmqaU55aGN52zJ/cdAw8jS0zAlIIYPklTekrVe5ABeX
+ JI5Fg7fVPCTH9Ppo+Dy2f0nzN5fYorrhOXzsqcuBRGGO9tCTV8HHMPk/Xks/nd58vbC2q9ISJO
+ qaGCVw00TrnUW5i8YQFdCwaDlFpL0cbCe0mlh0jDh3LhpVzWhhBUaHbxOofa0ASHat1bfsdIki
+ IJPQm1h0TqI71erDBj6OJxqB8/fOyLH87uL0J1AEAAA==
+X-Change-ID: 20251009-mini_iv-a05e5c2c1223
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Matti Vaittinen <mazziesaccount@gmail.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Maud Spierings <maudspierings@gocontroll.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770713143; l=2891;
+ i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
+ bh=TMkuw8+FgAZt93jTnnuCx3oBKloJogHnbWHJWDepE0I=;
+ b=pPKd1nrf00l+IxB1KFxO/9GJJc5zKSZt7iG9eoooIudyMddq4AuFRhEOLUrrS+Y12p/Cb/g2f
+ En9udq7n8KWCbOsqAr+Hwm31DbT6rAqCi/NMLZ/M7zBy10ANQDswvbt
+X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
+ pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
+X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
+ with auth_id=341
+X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,68 +92,80 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add initial support for the Moduline IV and Moduline Mini embedded
+controllers.
 
+These systems are powered by the Ka-Ro Electronics tx8m-1610 COM, which
+features an imx8mm SoC.
 
-On 2/9/26 9:05 PM, Keith Busch wrote:
-> On Mon, Feb 09, 2026 at 03:58:32PM +0100, Christoph Hellwig wrote:
->> On Mon, Feb 09, 2026 at 04:29:52PM +0800, Yu Kuai wrote:
->>> blk_mq_update_nr_hw_queues() freezes and unfreezes queues internally.
->>> When the queue is already frozen before this call (from nvme_start_freeze
->>> in apple_nvme_disable), the freeze depth becomes 2. The internal unfreeze
->>> only decrements it to 1, leaving the queue still frozen when
->>> debugfs_create_files() is called.
->>>
->>> This triggers WARN_ON_ONCE(q->mq_freeze_depth != 0) in
->>> debugfs_create_files() and risks deadlock.
->>>
->>> Fix this by moving nvme_unfreeze() before blk_mq_update_nr_hw_queues()
->>> so the queue is unfrozen before the call, allowing the internal
->>> freeze/unfreeze to work correctly.
->>>
->>> Signed-off-by: Yu Kuai <yukuai@fnnas.com>
->>> ---
->>>  drivers/nvme/host/apple.c | 2 +-
->>>  1 file changed, 1 insertion(+), 1 deletion(-)
->>>
->>> diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
->>> index 15b3d07f8ccd..1835753ad91a 100644
->>> --- a/drivers/nvme/host/apple.c
->>> +++ b/drivers/nvme/host/apple.c
->>> @@ -1202,8 +1202,8 @@ static void apple_nvme_reset_work(struct work_struct *work)
->>>  
->>>  	nvme_unquiesce_io_queues(&anv->ctrl);
->>>  	nvme_wait_freeze(&anv->ctrl);
->>> -	blk_mq_update_nr_hw_queues(&anv->tagset, 1);
->>>  	nvme_unfreeze(&anv->ctrl);
->>> +	blk_mq_update_nr_hw_queues(&anv->tagset, 1);
->>
->> Looks good on it's own, but it would also good to align the
->> apple driver with the PCI one here more.
-> 
-> I'm pretty sure this series would deadlock nvme-pci, as that driver
-> still leaves the queue frozen when calling blk_mq_update_nr_hw_queues.
-> 
-> We've left it frozen on purpose, though. The idea was to prevent new IO
-> from entering a hw context that's no longer backed by a hardware
-> resourse. Unfreezing prior opens that window up again. Maybe it's not a
-> big deal; I don't often encounter scenarios where the queue count
-> changes after a reset.
+Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+---
+Changes in v7:
+- Fix order in Makefile (Frank)
+- Link to v6: https://lore.kernel.org/r/20260205-mini_iv-v6-0-f7cdd8f88144@gocontroll.com
 
-If an I/O were to slip through during the brief window between unfreeze
-and the subsequent freeze inside blk_mq_update_nr_hw_queues(), wouldn’t
-it still fail because the NVMe queues have already been suspended earlier
-in the reset path? My understanding is that when the controller reset
-reduces the number of online NVMe queues, the queues that are no longer
-backed by hardware remain in the suspended state. As a result, any I/O
-that reaches them before nr_hw_queues is updated should be rejected in
-nvme_queue_rq(). And if that’s the case, then allowing a small unfreeze
-window before updating the nr_hw_queue count shouldn’t result in a deadlock.
-What do you think?
+Changes in v6:
+- Update trailers
+- Fix includes in the mini/iv dts patches (Frank)
+- Rebased on latest next
+- Link to v5: https://lore.kernel.org/r/20260123-mini_iv-v5-0-29bef040f236@gocontroll.com
 
-Thanks,
---Nilay
+Changes in v5:
+- Fixup aliases (remove usb ones) (Shawn)
+- Link to v4: https://lore.kernel.org/r/20251117-mini_iv-v4-0-5aa63832f51a@gocontroll.com
+
+Changes in v4:
+- Fix BUCK6 property order
+- Change the BUCK6 min/max voltage to match the dram specs (Lothar)
+- Make it clear that the two systems are based on a SoM in commit
+  message of the dt-bindings (Conor)
+- Drop merged PMIC fix (Matti, Mark)
+- Link to v3: https://lore.kernel.org/r/20251030-mini_iv-v3-0-ef56c4d9f219@gocontroll.com
+
+Changes in v3:
+- Add patch fixing the pmic driver
+- Use the proper feedback properties for BUCK6
+- Slightly rework the compatibles, acked by conor dropped
+- Add missing CAN interface supplies, remove the leftover comment
+- Add missing vled-supply
+- Add missing ethernet phy interrupt (doesn't work)
+- Fix the cs-gpios properties in all spi interfaces
+- Fix the order of properties in all spi interfaces
+- Remove unused labels for regulators of the PMIC
+- Link to v2: https://lore.kernel.org/r/20251022-mini_iv-v2-0-20af8f9aac14@gocontroll.com
+
+Changes in v2:
+- Fix allignment issue in imx8mm-tx8m-1610.dtsi (fec1)
+- Move phy-reset into fec (works better in barebox)
+- Make the gpio-line-names groups of four on every line
+- Link to v1: https://lore.kernel.org/r/20251009-mini_iv-v1-0-f3889c492457@gocontroll.com
+
+---
+Maud Spierings (5):
+      dt-bindings: arm: fsl: Add GOcontroll Moduline IV/Mini
+      arm64: dts: imx8mm: Add pinctrl config definitions
+      arm64: dts: freescale: add Ka-Ro Electronics tx8m-1610 COM
+      arm64: dts: freescale: Add the GOcontroll Moduline IV
+      arm64: dts: freescale: Add the GOcontroll Moduline Mini
+
+ Documentation/devicetree/bindings/arm/fsl.yaml     |   8 +
+ arch/arm64/boot/dts/freescale/Makefile             |   2 +
+ arch/arm64/boot/dts/freescale/imx8mm-pinfunc.h     |  33 +
+ .../imx8mm-tx8m-1610-moduline-iv-306-d.dts         | 799 +++++++++++++++++++++
+ .../imx8mm-tx8m-1610-moduline-mini-111.dts         | 687 ++++++++++++++++++
+ .../arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi | 444 ++++++++++++
+ 6 files changed, 1973 insertions(+)
+---
+base-commit: 0f8a890c4524d6e4013ff225e70de2aed7e6d726
+change-id: 20251009-mini_iv-a05e5c2c1223
+
+Best regards,
+-- 
+Maud Spierings <maudspierings@gocontroll.com>
+
 
 
