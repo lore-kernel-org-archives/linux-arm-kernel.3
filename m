@@ -4,99 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E13BEA3F22
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 16:18:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6DA0EF0702
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 16:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=L3mzE9q9JZeLiz5qheXEKidJ4W/5JZW1PBYdqCp5RPU=; b=YGO6W9xKk+A7MlmxmXLUWLZDjI
-	JwF5B2EyTIgllWWvj0YtrpnYQxkg68jXNaHhsHpjrdyjfWpv1/4qaJZUFKkHFQg1nsM4PJIZEFTmw
-	JxucOWvD/+NKQ/vRXlsveatdjmtpHnp3RVcLH6XqGJQTh7MQTqXoQb1bLhDkCqLLUHvKIx4dfUXl8
-	0nG1YM5dg0/+1paRrHvpWOVk3CzWzjXL7jBn4PwljNgfpEcr/JEsMCyWbJKdccWGr48tuC5O6Xify
-	sVXbCMwEFR2nfnf37fSRZ9E4Gi+tWUS/Eua5WuHeMabF9mxt5FXI30UJUA48Q4ZtIvaSc502FGDwP
-	eH9r3Spw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wtYKz9DZ9OmCr2jawKIcM7UjhwlVK2jwWRthCX3yHHc=; b=xB9l1UbVygdVOpWHm8saiwcY+m
+	vf7C0u9NL2rbMhWHkgQzQmJt7u8A4FmdQI4tcBW5hMiEp+KFfyny1nlmWylZMZ+RNplqaaBAAbjs7
+	kChXht7gQVhPTdcQGmAzexBm7q40jyNtgotx6AhdXSWzOGI0aupUPDz/uDLvUO+x7V1gD9B+LIotN
+	vUe1aoVel7A2RyZ9RbG8ZFA1XK2pCmAQX3FCJwKVaRM56ptUNLJUjSf5Y6q0+jDisOakwIAhHAH+B
+	0sweQTaykX04Z4f3WiEB/oh1QVtL93DlOHQN9l7C8oDSTnPGOCDaOiweuUPmPCqiyDKAkeiKJOcd2
+	tiJ8h2mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqRN-0000000HD8O-0phT;
-	Tue, 10 Feb 2026 16:18:17 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1vpqST-0000000HDMP-1fgQ;
+	Tue, 10 Feb 2026 16:19:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqRK-0000000HD7u-3bZ4
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 16:18:15 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-4376c0bffc1so1987523f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Feb 2026 08:18:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770740292; x=1771345092; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=L3mzE9q9JZeLiz5qheXEKidJ4W/5JZW1PBYdqCp5RPU=;
-        b=WTDj/8oldK6+aqbKd8bzIdNjjKGqATp6dkwVJrs6Hdmh6+jD/b1i3ZavWC4LIQkx28
-         xmQYOgxip9wSbWQJQiMj1ylkR9xTE/5iSvBt+IGFzycOTQGBeUJTT8fAJRS/v3gQQXtg
-         qJnrs6RhhQC27thPaL4rHAUED7tybL6aCDkBoofyOE6Xi098fFdiEittqtQuiP+rh7bK
-         17S4XqMhks25BRnDvbU+XqhlvCllCSpHusBN3hcD08RSDw52rC/ZJdbnm2MmwAuAITFQ
-         OGHkHOn4svmF6w4PbCZz/zQ5EtUQgKTEgs2/QNCGxUt/Ycuq+urlJo+oC6rabL1vlxUv
-         ne/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770740292; x=1771345092;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=L3mzE9q9JZeLiz5qheXEKidJ4W/5JZW1PBYdqCp5RPU=;
-        b=EyFTl1xCQuoLM5TAAN4YxvNill6EGZssH74dds/MVDlzLH1kkLLMOQOYlLwd9IF/l2
-         piXeBRK2wniS3VR+3m1pFSVn4obAuR0pq/+JSqYgk9EVABdSIddtUW4VfMHKpJpuhh5P
-         BWtOwStUHbzFozjw74XR1BBtqjRJi4oxuo+g8ZTqO1b6J65Uu/5RdlqNR+Bnu3hPddTH
-         rzj9dz0pxS0CejSJMKnXdyiagtaUOVqgbrIUVmxIUQ+3SLAW3gnrDJkuXVmL9JPcYizx
-         H2+FP+MfhjbPniGoQyXzVv0TTajpz8ssTp2UoyRSKE5Ktk0jkN8R2qUO5/j3pev5IlYa
-         gdsw==
-X-Forwarded-Encrypted: i=1; AJvYcCWGyvPxirMArSts4e/47x0DQVXv1mKSQBBE7RhSWU74Vp3cQfQcA0BSNQGEsynEHy9kqunrlhKi5wq/vbG34JVn@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYw2iUdvDCLO8z3zEzpfve80wFtA2I7M6F433q7gM/8sNEJITP
-	nzVOGCX4+gMR8mv0/Mu+Yw/VEWgnQXNEKnOEQjnqSHdFiZh+qcWfA+I=
-X-Gm-Gg: AZuq6aJs5W7aJL2wAQfYhGqDgtI6vKgSrtR0fwkq/keqBacwkHDUUvj7eO7xTJYOrmB
-	ChFHKZ7IJvtyDsd/rFDf60z2NC4BuPr1lVW4L1pAkOBncR8wRg4poftMLHO/oaRGbYvbSQv3MXN
-	SyFccenquZkXfK2PRYe9479EHi/uYYdnKnuz+VHhT0lBu8DwstnWtdGErRNd2brMV6VA1/sHScX
-	cHuN9qg9w9MLNRzCHOYTtq547mL2tyJK18ujjEFhJZaEjU+z3HApWvR2uncteDUYQo3xUjdVFQx
-	GqwSthKQXeWa+fdyKGLN7akq3mNEWJ09gs5QA05paCS5uNlz36sfCNQhJNYiK4dj3K4ijnmF8qX
-	Mz52rgv2iZIguispju0bbq6c2d33lzpD4ZdpFR8y1dHLjGCgxWw+e3cr8pM4vewVM/2mHJ7ygnz
-	Zzl0seyqNGnS3w8jJ7r+6RnexH1T50cAZNkWyCT73SPge3DNa2e2ZLON6p6vrELHanWf/ZPszJj
-	NxlDBt+XVa4Hg==
-X-Received: by 2002:a5d:5f54:0:b0:435:9ce0:f93c with SMTP id ffacd0b85a97d-4362969509amr24592397f8f.62.1770740291496;
-        Tue, 10 Feb 2026 08:18:11 -0800 (PST)
-Received: from [192.168.1.17] (host-79-19-172-190.retail.telecomitalia.it. [79.19.172.190])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4362972fa41sm39165771f8f.23.2026.02.10.08.18.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Feb 2026 08:18:10 -0800 (PST)
-From: Anna Maniscalco <anna.maniscalco2000@gmail.com>
-Date: Tue, 10 Feb 2026 17:17:38 +0100
-Subject: [PATCH] iommu: arm-smmu-qcom: Ensure smmu is powered up in
- set_ttbr0_cfg
+	id 1vpqSR-0000000HDLW-0IIV;
+	Tue, 10 Feb 2026 16:19:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6C70943DE1;
+	Tue, 10 Feb 2026 16:19:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A22C5C116C6;
+	Tue, 10 Feb 2026 16:19:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770740362;
+	bh=ZJqOCWTAIrRuyAoY45qHcqTE8451yB5SKL/tec9M0p0=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=PDKg51NqNRpnHna5J8H7l2Z7tf3hV15X62gj355S1cPdzhUbCiUzgeiNxctSsuuRR
+	 wmSuAX/kHbEdbwLx7OYeSGrLt9QrVelVytwH1aes4yLPxiGUAhmM/fNgKPulVR4Nwr
+	 x5+9kTeJn7lZ1CkJHa5TnR+Xa5cX2qbhZO673DcPT1GSgsSqH7d9RsqQbsKuGQ6bEg
+	 wa32/VXpIdCucOLuJYbrtqH+wtaBqydJH/GKyh/2/FdnBGNhVbIXbO6sHnnzcot3rW
+	 XtzNpRGmurIaCD2K0T8b9ojBJjD/VdYhsl09WqKsZR/zg+o0upVRkVjaMEsPxJSFTp
+	 fuuRGtzAVlYTw==
+From: Mark Brown <broonie@kernel.org>
+To: linux-mediatek@lists.infradead.org, Adam Ford <aford173@gmail.com>
+Cc: angelogioacchino.delregno@collabora.com, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ Ulf Hansson <ulf.hansson@linaro.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Laura Nao <laura.nao@collabora.com>, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org
+In-Reply-To: <20260210053708.17239-1-aford173@gmail.com>
+References: <20260210053708.17239-1-aford173@gmail.com>
+Subject: Re: (subset) [PATCH 1/5] pmdomain: mediatek: Fix power domain
+ count
+Message-Id: <177074035936.275824.8148864726689689381.b4-ty@kernel.org>
+Date: Tue, 10 Feb 2026 16:19:19 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260210-qcom_smmu_pmfix-v1-1-78b7143ac053@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MQQqAIBAAvyJ7TtAlOvSVCDHdag9aKUUg/j3pO
- AMzBTIlpgyjKJDo4cxHbKA7AW63cSPJvjGgwkGhVvJyRzA5hNucYeVXoiXrcbE9oYJWnYma/o/
- TXOsHqLYDBGEAAAA=
-X-Change-ID: 20260210-qcom_smmu_pmfix-2aead2ba4e20
-To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Anna Maniscalco <anna.maniscalco2000@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1770740289; l=2426;
- i=anna.maniscalco2000@gmail.com; s=20240815; h=from:subject:message-id;
- bh=VRL/E7nK1fyZMX83uu6bt4FiGrPrpeuaTEztrOQsu9U=;
- b=3pZgXNEhwfzftk2Cfw8XXJ8nneEtPReIYQm7FPKnhsBaAF4wvq6oc6yGwv56OjIaVfHmJkCqc
- mZihmSR2ywFBaJPn3/li3OAgz3sQw2TocZC9SOPytLYad1lKiiWdrfF
-X-Developer-Key: i=anna.maniscalco2000@gmail.com; a=ed25519;
- pk=0zicFb38tVla+iHRo4kWpOMsmtUrpGBEa7LkFF81lyY=
+X-Mailer: b4 0.15-dev-47773
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_081814_927723_F61A8838 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20260210_081923_147451_387BCD87 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,79 +78,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Previously the device was being accessed while potentially in a
-suspended state.
+On Mon, 09 Feb 2026 23:37:01 -0600, Adam Ford wrote:
+> The wrong value of the number of domains is wrong which leads to
+> failures when trying to enumerate nested power domains.
+> 
+>  PM: genpd_xlate_onecell: invalid domain index 0
+>  PM: genpd_xlate_onecell: invalid domain index 1
+>  PM: genpd_xlate_onecell: invalid domain index 3
+>  PM: genpd_xlate_onecell: invalid domain index 4
+>  PM: genpd_xlate_onecell: invalid domain index 5
+>  PM: genpd_xlate_onecell: invalid domain index 13
+>  PM: genpd_xlate_onecell: invalid domain index 14
+> 
+> [...]
 
-Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
----
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 27 +++++++++++++++++++++------
- 1 file changed, 21 insertions(+), 6 deletions(-)
+Applied to
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index 573085349df3..ca34b7a141e6 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -231,16 +231,27 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const void *cookie,
- 	struct io_pgtable *pgtable = io_pgtable_ops_to_pgtable(smmu_domain->pgtbl_ops);
- 	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
- 	struct arm_smmu_cb *cb = &smmu_domain->smmu->cbs[cfg->cbndx];
-+	int ret;
-+
-+	ret = pm_runtime_resume_and_get(smmu_domain->smmu->dev);
-+	if (ret < 0) {
-+		dev_err(smmu_domain->smmu->dev, "failed to get runtime PM: %d\n", ret);
-+		return -ENODEV;
-+	}
- 
- 	/* The domain must have split pagetables already enabled */
--	if (cb->tcr[0] & ARM_SMMU_TCR_EPD1)
--		return -EINVAL;
-+	if (cb->tcr[0] & ARM_SMMU_TCR_EPD1) {
-+		ret = -EINVAL;
-+		goto out;
-+	}
- 
- 	/* If the pagetable config is NULL, disable TTBR0 */
- 	if (!pgtbl_cfg) {
- 		/* Do nothing if it is already disabled */
--		if ((cb->tcr[0] & ARM_SMMU_TCR_EPD0))
--			return -EINVAL;
-+		if ((cb->tcr[0] & ARM_SMMU_TCR_EPD0)) {
-+			ret = -EINVAL;
-+			goto out;
-+		}
- 
- 		/* Set TCR to the original configuration */
- 		cb->tcr[0] = arm_smmu_lpae_tcr(&pgtable->cfg);
-@@ -249,8 +260,10 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const void *cookie,
- 		u32 tcr = cb->tcr[0];
- 
- 		/* Don't call this again if TTBR0 is already enabled */
--		if (!(cb->tcr[0] & ARM_SMMU_TCR_EPD0))
--			return -EINVAL;
-+		if (!(cb->tcr[0] & ARM_SMMU_TCR_EPD0)) {
-+			ret = -EINVAL;
-+			goto out;
-+		}
- 
- 		tcr |= arm_smmu_lpae_tcr(pgtbl_cfg);
- 		tcr &= ~(ARM_SMMU_TCR_EPD0 | ARM_SMMU_TCR_EPD1);
-@@ -262,6 +275,8 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const void *cookie,
- 
- 	arm_smmu_write_context_bank(smmu_domain->smmu, cb->cfg->cbndx);
- 
-+out:
-+	pm_runtime_put_autosuspend(smmu_domain->smmu->dev);
- 	return 0;
- }
- 
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
 
----
-base-commit: 50c4a49f7292b33b454ea1a16c4f77d6965405dc
-change-id: 20260210-qcom_smmu_pmfix-2aead2ba4e20
+Thanks!
 
-Best regards,
--- 
-Anna Maniscalco <anna.maniscalco2000@gmail.com>
+[4/5] regulator: mt6363: Fix interrmittent timeout
+      commit: 1a4b0c999101b2532723f9bd9818b70ffa7580f4
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
