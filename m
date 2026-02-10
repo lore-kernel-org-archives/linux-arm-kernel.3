@@ -4,195 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFE2BEA3F00
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 05:21:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9632AEA3F04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 05:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=k6A5+bY9YiRl5WoqbcZWt+EKqM5Lvu4Lx+OC4k4VZaA=; b=3WLqpn//nczn2R
-	aGz6RQOerDKRyjl68/BWuns76FJymPVhT/Qd071Ms5Flk0A+2BR3Y+qpXM/1H08d/13sRbfIwJIRU
-	Gf7P9R8k6J+kPKWopl0gmaRlm+QIY6KMDTV+20ssgw2jjhSv8nMxgt+QjPj7pWYMh1m0atCXsUw21
-	+TI/DErsQ9w5Vq9yxtUHl5kChWpMolTv/IhbwdmmPgGXHda/b6UqLWGn26OEUEs0UBig5qlH+oie0
-	/tPM+FqM0xNm3fpaZjTFmU4D9OcqEZR0JWs9fNFYxLszYv8LoMRnKwmUnIgsDToDlunEs3g86zwcZ
-	fNFgFTFotTyQtvjISM2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=slGvVNRI6DMwxYRFHCioIZD1AV/VPFPU5qKmLSzslyY=; b=L3K0sLP1JBhH1qAWOKviIJi2xH
+	HMgGHrW2QUHp9e4pFKZJn34eRYru6MU5OZixJhhmYNKg8zJyaH9OhHJGFwBrKWkASW76pOwgQkY38
+	oht8OK/+GFlXgabtXw/uGgU8KOn1wfSq+CPy7XgapTk7X5kXCVl4aXokhbAUbT0JGozSWWiAe+9/h
+	TqL3HyU+K1QsAYTNSXARbKPpiAH9DeZ5NLjrjXEJou8hSTKr82nMuL7xvSVirVuD2kHQ3rpMdN2jb
+	MrscwLpbOt5cJ14nqpibpK9P06TLIVmFgWAkClwdgy4gnwo7fC4O8K3kTNwJDZ7b2aCYlNEEmkW/9
+	uBSXeqXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpgBZ-0000000GSiR-3h4Z;
-	Tue, 10 Feb 2026 05:21:18 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1vpgCv-0000000GSqZ-1s3j;
+	Tue, 10 Feb 2026 05:22:41 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpgBW-0000000GSi3-1hn7
+	id 1vpgCt-0000000GSq8-1MSA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 05:21:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1770700874; x=1802236874;
-  h=date:from:to:cc:subject:message-id:in-reply-to:
-   mime-version;
-  bh=b7cz8dDI+huTP3PblTutpNqVd6a+knGyc/CeHDS6ojw=;
-  b=ArY+Rj8VJWpCCYX8vNMbEcc+ReglxdXvQ37Gi59ocafMdxGtuetHnP5b
-   htElQIJ0K5U88OK6J9Md4J2EJol6bYwbpAdA/7kV7eWvfNdY0dTgCBnWk
-   8NKcodFwho1RHakLN9AaHxqPnJ7Txd1JEnGl68DRsCl8I5SBaADikjrr+
-   iAWWKnBGZOEV+sddRWMVbpkROcVqG02+df8BdQDIe93pZNjdidWLIz5Qa
-   l4RLnGvYvX8zb3HvWWW6kHII2WQ66d4CNOBSyl2nidm/awl0UO+d6Sg3i
-   7DRy4aglXOQ/TsX9T4pnYPHyiUV2vU0fYuuzWWZM0DPugdI8IL97lMea6
-   Q==;
-X-CSE-ConnectionGUID: mEOFgzHMTVeb9m57rqSbEQ==
-X-CSE-MsgGUID: BXbGw/7JQX2l3Jo9PklRVA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11696"; a="82551201"
-X-IronPort-AV: E=Sophos;i="6.21,283,1763452800"; 
-   d="scan'208";a="82551201"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Feb 2026 21:21:13 -0800
-X-CSE-ConnectionGUID: DBfN/ShoTl6A2ld+pyYUhg==
-X-CSE-MsgGUID: id2y8Y1KSsisE9kggwLJrQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,283,1763452800"; 
-   d="scan'208";a="242422230"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by orviesa002.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Feb 2026 21:21:13 -0800
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.35; Mon, 9 Feb 2026 21:21:12 -0800
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.35 via Frontend Transport; Mon, 9 Feb 2026 21:21:12 -0800
-Received: from SN4PR0501CU005.outbound.protection.outlook.com (40.93.194.14)
- by edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.35; Mon, 9 Feb 2026 21:21:12 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Nbu/Hpvdz49ht4vcv9emYY2j/mDKFWOjwgGnVq3TGVGwSOhuaLUVO0nJJ9LYkaC69obcvztkWp1JhJbeCj3yWBC7JsPLCqRQ73Ra3lE/Yeux8yMDG212DsxYnQMRISOCWQ7+0DfP91SBRNfqHeeZ8wfJgkAI4c7mxy4R+q5FmtFAjT6fq6bqZRwnF5ENhuqAPkJ0zveKAvAJUN9Eo98adfVURoSIl43mziIb1pFv6Cj5i2xFEO6GkIpQgkHOq9lkKdD2hQEFERO5P7vOKv+8fadN0P+dzxRgW9Jj6F2ZgvpapqOrYfRyPSiYDxVE54WDm/FVlcUs4mFwpn1oZaepYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=k6A5+bY9YiRl5WoqbcZWt+EKqM5Lvu4Lx+OC4k4VZaA=;
- b=yAK5h2JbbVxVgCUrmS7eNMPXS6MIzdfcvxZZnsbq3H2wYjeFduN4ObdbnBuT8Th7iBi2DCVX1ogAtYbcKGVNX8ZAKUyIUqGJxz/HyWzd22exdE0ftTpd0CDyd668Chg9+zC6m5AWpGhnIofB+zmLvBex/u5E8kYlMjJpimtIi0F1rA02p/7MZ/qTYgRwgal8nwI/p5WcZapf9l7m/jmFOHuEnairS9ylezaD6f45XSf7EJNYB9son5L+o35ZmOe+IEewHMXkUcAv6qrDYwASQLoJPyaMMgSJ0M1gr/dXblHe5M8XMLXUuIcQv7VGDX7dPKw4joqt18F4bOHHzt+VtA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from CH3PR11MB8468.namprd11.prod.outlook.com (2603:10b6:610:1ba::19)
- by DS0PR11MB8050.namprd11.prod.outlook.com (2603:10b6:8:117::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.17; Tue, 10 Feb
- 2026 05:21:04 +0000
-Received: from CH3PR11MB8468.namprd11.prod.outlook.com
- ([fe80::8188:d688:bbca:2394]) by CH3PR11MB8468.namprd11.prod.outlook.com
- ([fe80::8188:d688:bbca:2394%5]) with mapi id 15.20.9587.017; Tue, 10 Feb 2026
- 05:21:04 +0000
-Date: Tue, 10 Feb 2026 13:20:49 +0800
-From: kernel test robot <lkp@intel.com>
-To: Colton Lewis <coltonlewis@google.com>, <kvm@vger.kernel.org>
-CC: <oe-kbuild-all@lists.linux.dev>, Alexandru Elisei
-	<alexandru.elisei@arm.com>, Paolo Bonzini <pbonzini@redhat.com>, "Jonathan
- Corbet" <corbet@lwn.net>, Russell King <linux@armlinux.org.uk>, "Catalin
- Marinas" <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Marc
- Zyngier" <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, "Mingwei
- Zhang" <mizhang@google.com>, Joey Gouly <joey.gouly@arm.com>, Suzuki K
- Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Mark
- Rutland <mark.rutland@arm.com>, Shuah Khan <skhan@linuxfoundation.org>,
-	"Ganapatrao Kulkarni" <gankulkarni@os.amperecomputing.com>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-perf-users@vger.kernel.org>, <linux-kselftest@vger.kernel.org>, Colton
- Lewis <coltonlewis@google.com>
-Subject: Re: [PATCH v6 08/19] KVM: arm64: Define access helpers for PMUSERENR
- and PMSELR
-Message-ID: <aYrAMRRwGwCuRONi@rli9-mobl>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260209221414.2169465-9-coltonlewis@google.com>
-X-ClientProxiedBy: SG2PR04CA0170.apcprd04.prod.outlook.com (2603:1096:4::32)
- To CH3PR11MB8468.namprd11.prod.outlook.com (2603:10b6:610:1ba::19)
+	Tue, 10 Feb 2026 05:22:40 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2a9057b2ec3so1902495ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Feb 2026 21:22:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770700958; x=1771305758; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=slGvVNRI6DMwxYRFHCioIZD1AV/VPFPU5qKmLSzslyY=;
+        b=ED7eZD9fVQgOmQWAeZ7xJOMvuUACU+t0PqG11vCCEtqPA3r8kEHYT7+T4bGTyf0FwG
+         ArmHDK+ISusYRqOJSr2kO1nW4g8SfKGLy8NSQsk5FKiQFRQNdGZDNgfqRNVwC1v6OptK
+         hb9/12WdyEuH5ywwiAHjliyMmq0HS3toR6klDWRq+kSegmLQv8EbYDRiJAs29usnlUch
+         HymtNo8HEae8gfeVv4oUS4XW6ZqkJSWBY9ZekkKXXaydcy6gwO8j8AKBqR35DsG92uKP
+         VQYu4ELZb7zl+1SBB4l2akcwALYm1B8FK7L00+20QIJZt3wOcBE9kmRTWl+Ugb7qL8JL
+         OAWg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770700958; x=1771305758;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=slGvVNRI6DMwxYRFHCioIZD1AV/VPFPU5qKmLSzslyY=;
+        b=C3xOqUWuUVCc2NnMxKmChMXbP0Yl75sctmBclYxJ64oe8RgzhvOycJr/ZNM4/ZOKBS
+         HZMxvmGGb2T9Wot46MbOPEWH/1kcoVpPQLD0UJXVp8CWhpaPQ1IJIUKZBH1+8GRoskrZ
+         qL2bxpHUz3c4TUyQgI4W8liJKzGG9fBd8+q8Grz0OheVM8Za/3BtjWUlTDFoH9CkBXa0
+         2CT6YOhF0HbpYNWDqBCjxIH/C+fCeBjQ2SQ0aLFU0HxHJRPX/rjsHZv2+vVrkYnNDPq/
+         x64hHDAXawhvprP2fyslpkI0Qo9jxAYSKxnNu5VH1IscTXRptRJmgfoG0W2/RUtze3ZW
+         RyGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXfksivbnsqkTEQDA5DDaKgB6SnqLudX4CFU77eKAEJr4Dow+0kLo/2TH8sV9UkNHL6NrlciYEKGFJhc+gbpS/o@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6SfaURQcFrv53VYb3g0lUFcdHCjLdjbynRusq19JXbXt8dAyY
+	Fj7GZQ5rfW+kJ2LPJC8+HPAUTgFm2LLvX+Qpwc7KPNSSjDss+31cDJrB
+X-Gm-Gg: AZuq6aJDYeM46HqW5Z53pMOVwJP5bR+etVHSsEChSkIreAZD+OjNGjdra8qqqhj/2Ru
+	tMnfTsdz+iFL//vbosa5te7H7tVU9UmwsWJR0qD5bfbxv4S3rdXxboVkK+mlcPC1dhJPdE1BUE0
+	9mlSDYjO+f6UGZ2RHaJQe0SFFhZTSkbAjVu6/LQX34m8jdET6vt/yoM67678T2aE0lTK8/LALi3
+	LDNISvUly71/ptccUmJOgH7Ydf659niCmJd0/90RI2CnKRYYvxyC53TcU/Z1g8fHlCzv9o1BUFy
+	W4FuuDNxciWX9wNEziYTjRHMmbBJXmH5C6y3IUIcxzkIOkWZ2s9blk3zi0EcO1CPQAkYxpLMSn6
+	qdto7/lFBEFuAZJudelEsCTQtijrgnT8UnJFNDresqd2Bi+L03zERzrjrXENdWeXSminZnFWa32
+	zhLSThkOoBQHNAMYwkhcrkWWEpWYyGTU/ejW1N1nFXq2+8HBjdEq7yQ6YXZ0EP0RyWKwEpBqCEw
+	VeEapiQWFG4
+X-Received: by 2002:a17:903:1a0e:b0:2a9:4450:abb7 with SMTP id d9443c01a7336-2a9516fcf6amr158575295ad.39.1770700958109;
+        Mon, 09 Feb 2026 21:22:38 -0800 (PST)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a951ca59f4sm122114275ad.43.2026.02.09.21.22.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Feb 2026 21:22:37 -0800 (PST)
+From: Joey Lu <a0987203069@gmail.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	richardcochran@gmail.com
+Cc: alexandre.torgue@foss.st.com,
+	joabreu@synopsys.com,
+	ychuang3@nuvoton.com,
+	schung@nuvoton.com,
+	yclu4@nuvoton.com,
+	peppe.cavallaro@st.com,
+	linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	openbmc@lists.ozlabs.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Joey Lu <a0987203069@gmail.com>
+Subject: [PATCH net-next v12 0/3] Add support for Nuvoton MA35D1 GMAC
+Date: Tue, 10 Feb 2026 13:22:23 +0800
+Message-ID: <20260210052226.3005666-1-a0987203069@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR11MB8468:EE_|DS0PR11MB8050:EE_
-X-MS-Office365-Filtering-Correlation-Id: fbf89c44-a3c6-498f-170f-08de68642ff8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qIPc2L+NJHWRfnfzSQtSTXo7O4LaI9T6KD5+ynmg59iSJqho6p/UWS+zWNoL?=
- =?us-ascii?Q?CLFw487eNZlAoroxnp3hx5Dn8K5qsATJ02EI09YYv1By8oeBxbW8HselsiIR?=
- =?us-ascii?Q?3iZVIsmn48uXVflxWR8LURyuu0SeQ0ZOIbUFWVMPqyaWPDRVmk79/jDVejKJ?=
- =?us-ascii?Q?zyxfDkMy1pqz3ZW4LxJI/Gv2f2aEa+Y//PBf61RrYXW6PLUDpjNoSX0mSdA0?=
- =?us-ascii?Q?1wbzTomMKQrN9M1AM0QWOPz/83todARfrtCqkMnU3786tdi6mOmwpZWbH6Ir?=
- =?us-ascii?Q?+uK5jgkwOu6F8BeZB1OvhhR9xT8QxLcG8wmk339Y62DRdEuuGPrucSgYfRAY?=
- =?us-ascii?Q?LEkg6FMTKeLALwDwDH0OIlGdb4kGt2kRnNSLJvF6oK1tq3AqEua8RRGDAZ4c?=
- =?us-ascii?Q?cIdgbxMOD8amXFzEJXDZyKUy+xgpm+wqSDNjJ8xbVLpTOA84J50R3P+ddWlX?=
- =?us-ascii?Q?4d88zXy1jDPgP+LyUlteYp6nNgf5GttxZalALitDp6lo0toSARwjUUs31vTv?=
- =?us-ascii?Q?rhh/dUVjcUjCHi81ffk3D0RBqS474xLKtQrZEAirGunMsBxgUiQzwtlCjvVX?=
- =?us-ascii?Q?RydDBC4zwvoyiXvIivM54Kg2vBEgQRwSpejyVl7kE5vErKAxmJAO/RoCYX/v?=
- =?us-ascii?Q?S/bxv81Pa3QEcWHJrdLQcopmylC+c5q/Tja79IwrBQDjK1EatVBjPEbSYNIP?=
- =?us-ascii?Q?o0fQAFgb1EO0R1SzYmiP5gZXIMgyQyETMyR31IBEgwJ1C8iBmsYzjwgo9oRI?=
- =?us-ascii?Q?0gnR7PYQdD3zqFFC0H91vTqvAV0lZz7edOmy3DLOHWnEAGzBKLdf0hQ+jLP2?=
- =?us-ascii?Q?KAJgaYmWpWf2g8C18hdiqN1FbnZs2VZATtzKlCVa5IOrVe2jiqnU2GGjDsyu?=
- =?us-ascii?Q?EnMF/KiJf+OsxEUOz6ToV110Ji41pmkmXr6XGehtidprwD0oxFYJ5u3Nxdq5?=
- =?us-ascii?Q?woTRpHUhkR7dXYz4m0X72nrmgQhsWGilf5Vtls2eTRdyy2Js48OcOYCgOzdd?=
- =?us-ascii?Q?wEypJmoLOAEWLo4cHOnwJRzpC0f98U6kTe/lSgsH95vqI8abycDlUtHit5gh?=
- =?us-ascii?Q?v1RFepONSD/vm8CMxkn9HDirIm54N1j9/ymic/WrJgiu8+tofN2/3842Fr9U?=
- =?us-ascii?Q?3KNHuWwQ3muaJhrDQs7n3Ps82zLMd5xiBub+6zdMErAxmuNYXRaBwZkJo0sy?=
- =?us-ascii?Q?fe4RuFQ9k346ELz4WVizo2kqVxBxkHLCEzXlNI8UxcynsE4NqItu6RjxSclU?=
- =?us-ascii?Q?umpPmwhLv5aB/MuADppd+iJvh5479avzkrJFzkYprUQOz97ABlkbWyar5LTt?=
- =?us-ascii?Q?ss0V0c6g5/7x0g6xQQpEdKODUakONze2rYFesx6Gb/A0T4x2Gf37AZK4LciF?=
- =?us-ascii?Q?x9HgkTm7bpkYfavn6oBxryJVXJYMXHQA/trXbx9PMdefY/NV+cHFK/YdvJyz?=
- =?us-ascii?Q?vYgMVnG8AkOjbCEAoGqei397KV7uwqU9pXDCs5opAo9g7wZK/JHB6igW98ue?=
- =?us-ascii?Q?BS25fObSpW60UhEuOD1bHSmiVd6r5OQjOqhoFzScSvvSTPIOqmggFM84qd6I?=
- =?us-ascii?Q?pI+L/Z+N8MHUUPhAhOfQfFR0EdJooYI+WoEluIej?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR11MB8468.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tLTWorCLxemqU3c54xTsiXxNsU13+cEGCyLQ9M8WfxsFuKjk7aFbzFUiJC51?=
- =?us-ascii?Q?RsIEF8PxMtiv+oamgtR1Qs5Xwq6c+/av5UZ5M8G40X0mA5BDK7w7aTkAWajA?=
- =?us-ascii?Q?p25jWcn0DVwiFzW18pnQInPBeqeWq56bo/ChZxbS5foBiBOJGpbuZmyNdtAQ?=
- =?us-ascii?Q?z2PEFt1dhPmywPl38j9T/bmq6H/SxvCSTYfVJHp8hTMUP4mkvm0R+voEej3m?=
- =?us-ascii?Q?ckPVOXEGqXcOfQKj7E0j+wyXP+3j0Wa5UfT3rnj/XycAT7REx0J82g9FS/UP?=
- =?us-ascii?Q?qD5zn0JVkiqNV+tf3EcH8+bz4PIHE4VTOJSoaKE51PvEl17gsd6gnZEjCG/0?=
- =?us-ascii?Q?xbBn/XQ5w7BlUg8zggnFcDweDnE7LjPYOZllNwajjZJQs/v/aRdKduF/Uvpq?=
- =?us-ascii?Q?N6csSoDP3WhnTg8r6Z7qRXaby4PgUUlBz0om1MeztDqiLMl9dzfNEJv0DFmB?=
- =?us-ascii?Q?y6CDqLH9hvIqin0dLoGuE3L5CCy9P5b6qXGLcvMDdWzRw/tKeiEP0fQcqQTg?=
- =?us-ascii?Q?em3f1Ngi61MrZg1U42qO4Kc1/2k1TA5K5265ClGPgTLPb4vDK1px+iyCdKVL?=
- =?us-ascii?Q?BGSFa7KIkeJqRAhtjj1xs8J8jyo4ntUsqkdn0oLL5QLBrRGOK2N/6a2/LzJ6?=
- =?us-ascii?Q?NlJHeYM6m1jrU4dqV8eYDocQ38ufFa2dso6JosisOODhdjh7cHWr+Y0UOdxl?=
- =?us-ascii?Q?no7JrzJ/jwLBbGIj2eDHLD1WsWZmB+8zoz9w78glL1zSF9rBWyzj/LJJkKc6?=
- =?us-ascii?Q?dIpolhRjFpmIjK283vIUMX/O3mM/1JbmCWQxXAXNg+UdknSYHhlc4S/ZHnR5?=
- =?us-ascii?Q?lr3LLoJGuDcuzJQjyrPNJ+LMrNoQLhysFi1+muDeXn7iCwmseWzgt/1KRa1k?=
- =?us-ascii?Q?i7ldP9kWkJRI1At1iQLYwlu1O/a7eyRqoS3WP+SC/T7QgVlDxo9oBzfG9Mi8?=
- =?us-ascii?Q?Qn/lMErAQktSuDO3xZGApXWkTx9OeCY6C/fFg6VA52W3SgFbfHz4jZS9VtEq?=
- =?us-ascii?Q?QZcnAnLjXgKXF9vP6L7ArCYu3bZk7KKTPLUV374m4s8+EKf8NuG+wssz4orA?=
- =?us-ascii?Q?zQkoB2Jvyz9OrBiuxJo3uRuz1nQb4V4kWKdi7M+nch243LgXraIjmHve0nNA?=
- =?us-ascii?Q?O01nozlTBuTw2JJVPWLbd3tKzoRWiTg/gML1pnm5UBEAREMrqg2IuJq74MNZ?=
- =?us-ascii?Q?ZQUiBUJyftDK9+IwxSXtscrqqTnPQ6d+Wi1D/Sm0cnHv/A6fYaY6cWJehq3B?=
- =?us-ascii?Q?LBn/nrFUlD/ihOgXZ6lQinytUEZjfUKm8p1McolSQRMRzdMuXbUuVpsJ26AG?=
- =?us-ascii?Q?KDqp4ybI/vzP+iVsRfmRbtvKHyNI1e35mUpilBtCtL1TG1Dg6RdhsvsVxKdX?=
- =?us-ascii?Q?qcm/xyEBe/1l7e2dvFb/OVoQdtCnqxI5XAFby+Fe5YDnpO+7SZJ7GE0gebel?=
- =?us-ascii?Q?lhI77r6QyRGrxP1BlPsFmtxiee3M+NT0M/AgqdO4TGuNmwbEm7l6Y6XSdbQq?=
- =?us-ascii?Q?Is/qB7p1DUirm0t6prztDBAl9XxU7gCPqrO0IxT8NDykPJXgx6kgLy9tFAC7?=
- =?us-ascii?Q?/jVuPm3WsYsKGvr3erC1J7vZ/5G23DS+h5miMx/sHGI+bv1jzURxPPgJi0G8?=
- =?us-ascii?Q?HwK6ttL0ztZYEQqpRHcSIY6FPaboppm+S71xrchFjyM0l2baDw/osURMpNEm?=
- =?us-ascii?Q?cKnQWunCSDOH+AJSy62YSDpBM2EirWV+64V/sIIx/BKaCjdcxk3VUefYK6yB?=
- =?us-ascii?Q?KgjT1RLtMw=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: fbf89c44-a3c6-498f-170f-08de68642ff8
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR11MB8468.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2026 05:21:04.7801
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DVOuVaukUnlL751W6GEI8PXbc01kNbVkioqnmzaAowB2HVing93jTs1MRZQ9Cm1QdHhWBcUnmGvzGflDtQtmkA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB8050
-X-OriginatorOrg: intel.com
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_212114_488904_DF575E0F 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260209_212239_367204_FA828A44 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -207,46 +116,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Colton,
+This patch series is submitted to add GMAC support for Nuvoton MA35D1
+SoC platform. This work involves implementing a GMAC driver glue layer
+based on Synopsys DWMAC driver framework to leverage MA35D1's dual GMAC
+interface capabilities.
 
-kernel test robot noticed the following build warnings:
+Overview:
+  1. Added a GMAC driver glue layer for MA35D1 SoC, providing support for
+  the platform's two GMAC interfaces.
+  2. Added device tree settings, with specific configurations for our
+  development boards:
+    a. SOM board: Configured for two RGMII interfaces.
+    b. IoT board: Configured with one RGMII and one RMII interface.
+  3. Added dt-bindings for the GMAC interfaces.
 
-[auto build test WARNING on 63804fed149a6750ffd28610c5c1c98cce6bd377]
+v12:
+  - Drop private structure nvt_priv_data
+  - Fix error propagation to preserve probe deferral
+  - Refactor internal delay handling into a dedicated helper
+  - Move FIFO and filter configuration from driver to Device Tree
+  - Update DT binding to include "snps,dwmac-3.70a" compatible
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Colton-Lewis/arm64-cpufeature-Add-cpucap-for-HPMN0/20260210-064939
-base:   63804fed149a6750ffd28610c5c1c98cce6bd377
-patch link:    https://lore.kernel.org/r/20260209221414.2169465-9-coltonlewis%40google.com
-patch subject: [PATCH v6 08/19] KVM: arm64: Define access helpers for PMUSERENR and PMSELR
-config: arm64-allnoconfig-bpf (https://download.01.org/0day-ci/archive/20260210/202602100555.etWxDEB0-lkp@intel.com/config)
-compiler: aarch64-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260210/202602100555.etWxDEB0-lkp@intel.com/reproduce)
+v11:
+  - Propagate syscon lookup errors to allow proper probe deferral.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/r/202602100555.etWxDEB0-lkp@intel.com/
+v10:
+  - Update DTS/DTSI files to follow proper hierarchy and port modeling
 
-All warnings (new ones prefixed by >>):
+v9:
+  - Fixed file permissions. (YAML, driver, DTS)
+  - Moved phy-handle and PHY-related properties from SoC dtsi to board dts.
 
-   In file included from ./arch/arm64/include/asm/kvm_host.h:38,
-                    from ./include/linux/kvm_host.h:45,
-                    from arch/arm64/kernel/asm-offsets.c:16:
->> ./include/kvm/arm_pmu.h:260:12: warning: 'kvm_vcpu_read_pmuserenr' defined but not used [-Wunused-function]
-     260 | static u64 kvm_vcpu_read_pmuserenr(struct kvm_vcpu *vcpu)
-         |            ^~~~~~~~~~~~~~~~~~~~~~~
+v8:
+  Changes since v7:
+  - Rebased onto the latest net-next.
+  - Removed unused symbol.
+  - stmmac parent driver now reads hardware features directly to support
+    Wake-on-LAN via magic packet, so PMT-related overrides in this driver
+    have been removed.
+  - Update dwmac-nuvoton driver:
+      - Update the license to GPL.
+      - Improve the description in Kconfig.
 
+v7:
+  - Update dwmac-nuvoton driver
+    - Update probe function to use stmmac_pltfr_probe instead.
 
-vim +/kvm_vcpu_read_pmuserenr +260 ./include/kvm/arm_pmu.h
+v6:
+  - Update dwmac-nuvoton driver
+    - Use NVT as the previx for all functions, structs, and defines.
+    - Remove unnecessary comments.
 
-2d3f843993bdd5 Colton Lewis 2026-02-09  259  
-2d3f843993bdd5 Colton Lewis 2026-02-09 @260  static u64 kvm_vcpu_read_pmuserenr(struct kvm_vcpu *vcpu)
-2d3f843993bdd5 Colton Lewis 2026-02-09  261  {
-2d3f843993bdd5 Colton Lewis 2026-02-09  262  	return 0;
-2d3f843993bdd5 Colton Lewis 2026-02-09  263  }
-2d3f843993bdd5 Colton Lewis 2026-02-09  264  
+v5:
+  - Update yaml
+    - Remove the properties already defined in snps dwmac.
+  - Update dwmac-nuvoton driver
+    - Add a comment to explain the override of PMT flag.
+
+v4:
+  - Update yaml
+    - Remove unnecessary property 'select'.
+    - Remove unnecessary compatible entries and fix items.
+    - Specify number of entries for 'reg'.
+    - Remove already defined property 'phy-handle'.
+    - Update example.
+    - Modify the property internal path delay to match the driver.
+  - Update dtsi
+    - Move 'status' to be the last property.
+  - Update dwmac-nuvoton driver
+    - Use remove instead of remove_new.
+    - Use dev_err_probe instead.
+
+v3:
+  - Update yaml
+    - Fix for dt_binding_check warnings & errors.
+    - Add compatible in snps dwmac.
+  - Update dtsi
+    - Update dtsi to follow examples in yaml.
+  - Update dwmac-nuvoton driver
+    - Fix for auto build test warnings.
+    - Invalid path delay arguments will be returned.
+
+v2:
+  - Update yaml
+    - Rename file to align with the compatible property.
+    - Add an argument to syscon to replace mac-id,
+      with corresponding descriptions.
+    - Use tx-internal-delay-ps and rx-internal-delay-ps properties for
+      configurable path delay with corresponding descriptions,
+      allowing selection between GMAC internal and PHY.
+    - Add all supported phy-mode options.
+    - Remove unused properties.
+  - Update dtsi
+    - Modify syscon configuration to include an argument for
+      GMAC interface selection.
+  - Update dwmac-nuvoton driver
+    - Remove redundant device information print statements.
+    - Remove non-global parameters.
+    - Retrieve GMAC interface selection from the syscon argument.
+    - Parse Tx and Rx path delays by correct properties.
+    - Update configurations to support Wake-on-LAN.
+
+Joey Lu (3):
+  dt-bindings: net: nuvoton: Add schema for Nuvoton MA35 family GMAC
+  arm64: dts: nuvoton: Add Ethernet nodes
+  net: stmmac: dwmac-nuvoton: Add dwmac glue for Nuvoton MA35 family
+
+ .../bindings/net/nuvoton,ma35d1-dwmac.yaml    | 133 +++++++++++++++++
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
+ .../boot/dts/nuvoton/ma35d1-iot-512m.dts      |  25 ++++
+ .../boot/dts/nuvoton/ma35d1-som-256m.dts      |  24 +++
+ arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       |  52 +++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-nuvoton.c   | 139 ++++++++++++++++++
+ 8 files changed, 387 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
 
 
