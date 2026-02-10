@@ -4,170 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23380EB26EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 17:06:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8BD8EB26ED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 17:07:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U3Z6Sl1hmnAVNbH8POuWCNQSscOH1M9kbu7yanKFppU=; b=09RbsqYF9jhA8yU2aISEr2zFjy
-	hAL1TtU5Rb9Fs7zOhroHBdH62bWgS31u/q0CxbNNAQ81wPGPnD1N9QaqAY6cODw/LLY6DUusHLhzw
-	mSC08gwls3dDtt9xCTw7NgtQG9KR+SVvZnjnVgAsf2wh2CrzqbdQB4OeCibL/A+lSV3sLgm8/NsiQ
-	+BFv5RU/gsrKDTSf2TGao86VoosCSkbynK6wqXl8uekdx1gyp9KXBNvM6wJbFzy3mqxLfobGk9H5x
-	e/OQGFxcQ5N0lyVFAS3tszGe45mJ5Yg0Jgkt0UETS4CWAQXdaCiIhsVU2IMVevBcFHNeLtsJNfx/D
-	prR/EUGw==;
+	bh=jQRYJLWI9gusykP4IzlVvgW6sgmr5P20wywr6S6Sr/4=; b=eNphTTwe5x7J8PwJWmA8L7qimQ
+	IQdgfKsnhF4eZRF3BhV/8MxdF7gqnotM5/t7N3r+CLivRXktxXPucdJguq1q5uN8aJPIXl8lOum3t
+	iOyzuvnOX7FoV2Q23w8S9VLLCCGSk8NZ6eNdg9o9u6ya1p2shhoJjrfhXh50uzadtbvmBtYKl/7bO
+	pDjf8iZMgSoJCxPoMKs0/XTwNwajblFWTGWieLTudcNgcAbTGt/LjuhgaveK2/xgeWsrff7cDVELU
+	ayR2KZMiMuusdv63pQJL+y4yMrTPnT4BJ+leasLgV7MMrNvBNRTLF8VoZV2gQxfZKABpA+Gt55RH5
+	BmHXc/Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vprBh-0000000HIpf-2Fg5;
-	Tue, 10 Feb 2026 17:06:09 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vprCZ-0000000HJDZ-25FS;
+	Tue, 10 Feb 2026 17:07:03 +0000
+Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vprBe-0000000HImS-1yA1
+	id 1vprCW-0000000HJCU-3vo0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 17:06:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cmRpRk06Y1NlPd3XRbqhmX/MEvXUWpyl0J3D51XsLRF2BdT9owzBsHNWs8TCjHGFV/S0PKzTV42Ime8Awd27rkbM63epSI/sjQbu+9AN/zfGoQDXe8cZhMot/8AefIN4N2wFpo1JPToxtuVrujFKNVjslpq5nf52PEowmoUuw2jDfha1UM4BmbR4U0QOaXtY7hfzVn107XgrXzO9HqUVKL5oGlm9C60rj1ttezNMGEz8eRDScmyX3C3qrNMyo/yJMBQFuTY4tiFzV3OBk2A/af9OZWXt7kN4ZNobRr8O9t5KcXUP47emVDHfaZqBJtTYLkSNY5UuVN49uJT/ntH4/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U3Z6Sl1hmnAVNbH8POuWCNQSscOH1M9kbu7yanKFppU=;
- b=LqdAl1Qgbb43UOwD8BR+haR3eWEvXYaq3H0IYWwi23tmODykmEPBRlZ3wPYtpRusHwY8f5qwQqwbKU1bOcaMAHFakZuSpRiWXK8YVoEJk/pPrFrDCzAq5kHdJhBOakdladqOGzHKFMXHQCj+AcVhX2zxFSKMbogAkEDKmvg0b29a6QJAqd9B4v3CjqEAc5xo/46LHJgwuZfb3LPwOZQsjbP/+IQdHPFep2HlWnvNtr/UIt2HIqcaSxf8ezegT8ZuFql2YBwsF4k9VILhxdDoj1BqMdCwIvEKcQQvB4IbAvEWzxdXUpVQDsilUqUaOhzKs/dLgNnnbb4M5+/i+ehmHQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U3Z6Sl1hmnAVNbH8POuWCNQSscOH1M9kbu7yanKFppU=;
- b=OiN11tUsFw7yhB0PQpQksSjEAsJlZFmuZ7tL4GkFEDmkmRjV4GunYkDl5OcGG4evK0etswSA+aJ/K/tkRJ/ImPB4MGAkIovtHpWWfjUB6uHgGM2zfGto/Byq6HsNO2MZhnIucOYVVsJ/beU5A/ukmdsmvH2dXybmj0m9o5bJLjEvHU1YwpeuifxULFypQaxSZFrNGYZ5yc8iE6T4Q6cjwoi3epSrCZtL3ngwjVh7kRmg/eXA1KM02O64SrrZT5HrepXihgEFbw77YXN6AxM72HBXLEx4mdhgh/I+fqBknITeb29Zd/8MXV/0fqxkqb4FuAHJfziHuFCYME5nn30ZHw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
- by DB9PR04MB8362.eurprd04.prod.outlook.com (2603:10a6:10:241::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.18; Tue, 10 Feb
- 2026 17:05:59 +0000
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb%4]) with mapi id 15.20.9611.006; Tue, 10 Feb 2026
- 17:05:59 +0000
-From: Shenwei Wang <shenwei.wang@nxp.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-imx@nxp.com,
-	arnaud.pouliquen@foss.st.com
-Subject: [PATCH v7 4/4] arm64: dts: imx8ulp: Add rpmsg node under imx_rproc
-Date: Tue, 10 Feb 2026 11:04:39 -0600
-Message-ID: <20260210170439.406513-6-shenwei.wang@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260210170439.406513-1-shenwei.wang@nxp.com>
-References: <20260210170439.406513-1-shenwei.wang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PH1PEPF000132FC.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:518:1::2d) To PAXPR04MB9185.eurprd04.prod.outlook.com
- (2603:10a6:102:231::11)
+	Tue, 10 Feb 2026 17:07:02 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id 271961D00060;
+	Tue, 10 Feb 2026 12:06:59 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Tue, 10 Feb 2026 12:06:59 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1770743219;
+	 x=1770829619; bh=jQRYJLWI9gusykP4IzlVvgW6sgmr5P20wywr6S6Sr/4=; b=
+	oP50BTjU2YdjO+WrbEZRyBDs+GwNQeQS3M8HNYwf54CniNQfRByNAxs7TnjoFu0c
+	9AAInZUNrbWt5sdyACt80YBnXBD1SQfV6uh4zhQ5iy+qiYX/2M5S1r+zjzQRnx3s
+	OjMeL7SlqEdGmL9Qb8AtGTeuIqcyps3woyVqgb4GfJfuCUxDegTuHBM8N3p2xmnO
+	oLRJSqTAZALOp3IcufE7rnsilRpEgGkL6duSKphQ90SN/AB4su54kh9/5Q6QATqY
+	puBfYMq3gw7F+2CKzUF3ZFwaCZU7sVO2IjezCPnIEK79O4fcaMgG2pv8L43PZ13O
+	nvYNkenkDWSj7Y67V791ng==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1770743219; x=
+	1770829619; bh=jQRYJLWI9gusykP4IzlVvgW6sgmr5P20wywr6S6Sr/4=; b=X
+	E25i4GytJsGWanufukRbntTiVNay1w01IPQxhiugQYmYR6/yeGjbRMQd5Qxhjgsa
+	5p84JX35ZcnpWehGMGhwB4IB7O6z0b5YVgjBbdnqXQz2NoylqSf2GGxmTYYfxbFB
+	PlbzfJYjQEVOsB9A8Tx3Rk4sYt6nzAKIarYhyCJJFaZlK1PHL3gi3NInJJNMvSGH
+	wRvNGTh8Qq5GPJW9YBOjEUG2+f2l5w4U+RBxtBtXeVEyvcrrl+lZ51gYXEoqk1rO
+	Py4vFarZDIgQ52PdAIIhV+5vMU+HcbqVyhHa8UenzkRY4QPIFQw/H/hAyaJNzhnJ
+	5py9h+3n9okGfcAdV/NDg==
+X-ME-Sender: <xms:smWLafhWwkJ3caUQURmjR4W180UElM-CdkEkJ5obiGZfl7t27lJdbg>
+    <xme:smWLaW2rEB_8nsS0mCduw1A4ndoQXvxrhGcfk24YsZhuZC3fhoi3zgYaWoNCymkLl
+    -twTnMvvdRTSyyChVpFnQRZI0pG1XzBgs-lTgS7WFvvV5eZCnH1U-I>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvtddtvdegucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhepfeffleeludehheeljedthfehgedtffehtdffieelheekteffvedtgeehudfhiedu
+    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpghhithhhuhgsrdgtohhmnecuvehluh
+    hsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhn
+    uggsrdguvgdpnhgspghrtghpthhtohepgedpmhhouggvpehsmhhtphhouhhtpdhrtghpth
+    htohepthhorhhvrghlughssehlihhnuhigqdhfohhunhgurghtihhonhdrohhrghdprhgt
+    phhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvg
+    grugdrohhrghdprhgtphhtthhopehsohgtsehlihhsthhsrdhlihhnuhigrdguvghvpdhr
+    tghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:smWLaZNNmQV3MsfeIoUlPMydCbsMVTwYH6PNCeyKMef06TA8bjyh2Q>
+    <xmx:smWLaS0AqTZcRXdDO_rISxZmUG7-lLu7fIxGcoggJEfvXh190na6FQ>
+    <xmx:smWLaQkUrO54a8iUQZnV0wIzBrcV7ni0QAFrw-2NVI5gzffVk8nRyg>
+    <xmx:smWLaRXIMQWLANZ3YFaL3rs8t5STQXKlZsPmB8o5ZmP5nHGk22_Jcg>
+    <xmx:s2WLacG8YBny2cE9aEEDHET0b1P9pzxIqFQMj33EE8yfup_nf2vr0iGJ>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id CDCF2700065; Tue, 10 Feb 2026 12:06:58 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9185:EE_|DB9PR04MB8362:EE_
-X-MS-Office365-Filtering-Correlation-Id: 710d16fb-d289-4ec6-3934-08de68c6a99a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|52116014|7416014|376014|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BTU+q9U1jKe6WYwSM0bThVcuHUAMMzzH1S//lmHmjIzyh9bVrQ6AEE72XUB2?=
- =?us-ascii?Q?ShJj+dn0Apt3dc6yd1hBe3uRVAlVM+51yvnMNvymMxseEyDGGtgwgmtNwMdg?=
- =?us-ascii?Q?+GUWg3DYpsbSQF/H+yqhzYmFahqSRPHy1Oa0cpT0epxyvJ9nghKvuDPpAtAC?=
- =?us-ascii?Q?Py50a5FfoLm6aG3/XUV3i2a/F64CdyB9hi5Rfja53o0TPtoqLUQWok/fuxJy?=
- =?us-ascii?Q?A10mF73fRlM8Q+1BwdeZKzjh18gKu6eMzil6RzNJTvML8k767Y4O61aFLxq3?=
- =?us-ascii?Q?FYlw1A+c1l8j49A+WbbOkQNx0ABX4VK2JFvDw+bL4pVlgfuo8w+q+BbHK+lv?=
- =?us-ascii?Q?l8aeR7eVAUNEbhzDIespCirpY2N15I6twT6p9V0Z0zs6vhfi2xQX15wmaxwm?=
- =?us-ascii?Q?w1u4DcUUzEWfXGynQQ0YAnhdBPX+r0rBJvfZ177CG58n80E9miUYZtH0ROA7?=
- =?us-ascii?Q?8ZNpcdISEO4+bBBx6RpmvmpYDgkyCbXsW+V1AgDMepV5Q4/WBZK+XUc94cpH?=
- =?us-ascii?Q?XjOLu+DSekZbkyiObJ7hbPczC8fWgNb32K8hMMgBSF+qnU2D1lcSwdCA5b1D?=
- =?us-ascii?Q?z5J4CiTC4xC9f2Q+fiJISLgAIAE5U1FuC+hCDKI9FxPBCrNGw1LtiTJ1XP82?=
- =?us-ascii?Q?5/vPvdOd0u8pb700/SqxXtpJ0LGSoeg3a9SC3GNSdp9bqNeDWQuPoxPUDpR+?=
- =?us-ascii?Q?OVOkICfo6UpOSQ8/pcoiQEbukkH07H55hmicOJXlJwg7yY/I+6N722w/Tb/g?=
- =?us-ascii?Q?PuZlu93MhRD51MNVneCFTgRJR1BeMnFIgozurlp+1hUgDcLD4bxrUPJrTcjN?=
- =?us-ascii?Q?b2jz8N4OxZ/VNgEMMQ+rfhKcodnO8XLlA8IAe8ioX4ocnj/YllB7H1HPRPkj?=
- =?us-ascii?Q?HNy7qpf2VrJNS5DncIXMdJcTCj4cJCcnblpj7qWqPUD7b6wk5J1hSpZWozhb?=
- =?us-ascii?Q?7X4n70uGKS6LE3Mw1A+oRsBsBa+Bphn/YQOv6+eKys4ouUUAxlDmH/FHgvt9?=
- =?us-ascii?Q?Z7PJJR3YrKKKqOSEWuCF4c6U6un5QAR2HLmmhFZAne9VPCDsEXVmWK29rKpv?=
- =?us-ascii?Q?41iqH3dZDHdrS9rrHo22yelCDXV8C/DW+H9y97sXWHFR5NGHnlwfMBFUfGVK?=
- =?us-ascii?Q?66u/umw7PhS4q7gVFKLDClzc6fRmFI3Wvmwyjecs0DaFVrRV86BwoLcLA7CP?=
- =?us-ascii?Q?yxdkd3LNEcGawYMMXH514LaN2R40mTS33KM9DPcktNYZOUCjNPZHtyNTCejN?=
- =?us-ascii?Q?tQ/kUwDPGvFF+niKEI5Oai2xKL7G0WQ7P8xC0Tf/CEO8gxUqEvtmVXLf1BYO?=
- =?us-ascii?Q?Vi7KfADlCBJn25eLwz21kibMJ8AlbSkVBvQreTQTPRkrcR2xuTEqyfbtWs2F?=
- =?us-ascii?Q?aD5lEvPKY7HonaJzNNJxtos+bQ9F3EvTnO69gtgTQ6wT8X48C9X2sPDSHLCd?=
- =?us-ascii?Q?zgKGQ/DWsIsQ9QfgcZ6Z6kgbHCbtLUm1foQv6Sdin4cjrOnoLxNhuVP5KTvI?=
- =?us-ascii?Q?Uq6sNoc5PPaS9JJZrkARmV8J0TdBxDTuoaop4Q8w+liYXSAVOK7F8TTSkON/?=
- =?us-ascii?Q?ZU8ghnx4ijVQraZB8gbFfJwzy5+ytndvtUvvowovKE+IO7LAvqnQB7ZIA44P?=
- =?us-ascii?Q?t3dW2CVFyv7J+slea1kh+Yvg7vfFB3hbfcRvki60SJAV?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(52116014)(7416014)(376014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PSqBAZ/jVb/Vn3xy4jg0BHrfmlukxktvLnndwC8dQJvk5/SN1cItFaiv0MMb?=
- =?us-ascii?Q?P+QV8bk2yk0u2x4NLrWVBkiXSQtcHQqiSXFt8cjh0fJuYEoQJfe32iGq+zZO?=
- =?us-ascii?Q?rIeBZTc19n5IL+UIuzHFIOZSbYN5xswImvhxMEkLr4L4V4eA7CftxzdTx4D+?=
- =?us-ascii?Q?BArAnINbl6C1s972r5ew4MpgZuW1qDgPY1wSKomLl+Rw8TtUcGQbVp/GY8Ji?=
- =?us-ascii?Q?+E5upsclpa4VkFK5+sdHUkb8mfJzjXgdp3vnxtfrsMbPEmvkJExMJCEPPoso?=
- =?us-ascii?Q?iQIgYldSRddbW8MiTai6Smx3lNR4Xtf6AYCeeRz2cx3ZWQuUA3GzKE/Z+78p?=
- =?us-ascii?Q?qBuS1J66g6fhxKbXBiHtvQdQ0Ayb9n1kQotZyesyocSmYTYmlG4vJeTyuFLk?=
- =?us-ascii?Q?ECK0iSUYLLugLMIN0yvxLak4U3kwNluz0gLbIawvtWyJzC8MZXUEWMdF9JfH?=
- =?us-ascii?Q?Jm9e6M+bmb15F2KNpoIuyUfj0XePDt+b2Qq82g/HmgfaXLOVshcDZMJlGJjW?=
- =?us-ascii?Q?AH/Dcwy0qScNPkqkULM7tMICQPPo2J6SYeVvUlL55+Zi0UMSOli32oMfdkVz?=
- =?us-ascii?Q?s2E8FPl1FctDeyKCOUHUKVWwbVWzIn6C9ebqOuF/OlGVFeHr2Pc5Tx8mu+Uz?=
- =?us-ascii?Q?UAdxWTY1OWayl1/zC5OQpC0FOeFIj3Nw2/g59vRqmh7VEVrTuKIQgPBkSN2W?=
- =?us-ascii?Q?WLf96OzekF2AIBvYoh/stkX8q5cELbyQ9P0UvDJNk61Fm+nCEYiokytYYHYu?=
- =?us-ascii?Q?ilc/u6ZxklSrMy+S0qLjGcnM9V0yraWzp0kEVw+nqVOAjzADYwVFOBc5gPql?=
- =?us-ascii?Q?hbV734qfCe/ud2bYjoWJ8+7+CZY/fvaG3vBtup4Ysh8mZWWyxsecUYU2Hqwz?=
- =?us-ascii?Q?f1n8nBHkzX0uKiBLnuUtgugP3LlQmqlBbpBKVQDNh74jb4oYcX8TvC8oYcCq?=
- =?us-ascii?Q?PA7D84CeRq5b04tdlIS0N8/bb5NfaM8KSzLgtCnU5GBGwa2DIH0HFknP5C4l?=
- =?us-ascii?Q?En/CnAMBB7U0a1004PrkE2ri2yVeRz3z5cjpki049etArF3QxX6SzTmoaEn+?=
- =?us-ascii?Q?TTmn3fMtZ3TnyJhXGcWvJn2dHEAJXnTMnUPV2c+DfTEiRWcm7q3pTWn1iZCT?=
- =?us-ascii?Q?aAq/jUY6es/SEPp4SmdpRTe6rugtRtMXsPTyW5o+5P63bA7jaWEnKgAKMMlF?=
- =?us-ascii?Q?vrbpmYrZjT7P4iGGw/E7HcrIuM5w9Yasqx9BdjTyfHolq9GcK2m2vX4zN2uM?=
- =?us-ascii?Q?9qBnIvPZwv2wOlpomCzfOh0S/bpVuY52YtkxtUAGstupe00YYw1Xr7yTPY43?=
- =?us-ascii?Q?vWuBufOZawiwYehmHWtp15kQ/1gia6IAZv3u812YK++1scOOllf6CyCh6Vas?=
- =?us-ascii?Q?OOwEaxQvISeNuYaBRWbqW7v0pSN8IZZqeRIenkP5kdmRqF6C9ephuGUgoQDb?=
- =?us-ascii?Q?Ebt/zXupSfJeH8TnSG79497Ya4iw7Xy2RUsZoQqjb55Pp4/SNNBF/+n12tD0?=
- =?us-ascii?Q?h0stbjCyZmzzn6pgI/7egoL05+InlM2TUEA4Vpv4RQLpDqDs7OLKevaIQjcj?=
- =?us-ascii?Q?VPphR+mdo33FwyiM4ZCUNEaVVeiT2U/XKlmQFl5os/yeebcN4LFPgSIA2yoS?=
- =?us-ascii?Q?meQGiRMkSe+n4s/U9CjybHTQ1RB9MANJXA1yeAxox4kAGxJBRpwZJfyd9dNG?=
- =?us-ascii?Q?SdPUOgXHrXI1bYZ513OuAl0PtGfMovif6kwB3KdZE94AGdSENokkfJp7A+xy?=
- =?us-ascii?Q?2OusW9jDfw=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 710d16fb-d289-4ec6-3934-08de68c6a99a
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2026 17:05:59.3475
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8W+riRnEJuTorWaGx6VZ8znJj0Rh9wsQalZwKAOnjiPAptswsmEMevzMLHgjstEtIKLRaEwDP32JzhXOgfMj+g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8362
+Date: Tue, 10 Feb 2026 18:06:28 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: soc@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Message-Id: <21a0711d-fd08-4c06-9de6-ecfa089ca723@app.fastmail.com>
+In-Reply-To: <a34ea40f-e0d3-459b-8233-9f87f6cd73e5@app.fastmail.com>
+References: <a34ea40f-e0d3-459b-8233-9f87f6cd73e5@app.fastmail.com>
+Subject: [GIT PULL 1/4] soc: defconfig updates for 7.0
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_090606_786740_7EDCC471 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20260210_090701_086654_C7C44CAE 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,56 +110,934 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the RPMSG bus node along with its GPIO subnodes to the device
-tree.
+The following changes since commit f8f9c1f4d0c7a64600e2ca312dec824a0bc2f1da:
 
-Enable remote device communication and GPIO control via RPMSG on
-the i.MX platform.
+  Linux 6.19-rc3 (2025-12-28 13:24:26 -0800)
 
-Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8ulp.dtsi | 27 ++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+are available in the Git repository at:
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-index 13b01f3aa2a4..93846435c6c1 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-@@ -191,6 +191,33 @@ scmi_sensor: protocol@15 {
- 	cm33: remoteproc-cm33 {
- 		compatible = "fsl,imx8ulp-cm33";
- 		status = "disabled";
-+
-+		rpmsg {
-+			rpmsg-io-channel {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				rpmsg_gpioa: gpio@0 {
-+					compatible = "rpmsg-gpio";
-+					reg = <0>;
-+					gpio-controller;
-+					#gpio-cells = <2>;
-+					#interrupt-cells = <2>;
-+					interrupt-controller;
-+					interrupt-parent = <&rpmsg_gpioa>;
-+				};
-+
-+				rpmsg_gpiob: gpio@1 {
-+					compatible = "rpmsg-gpio";
-+					reg = <1>;
-+					gpio-controller;
-+					#gpio-cells = <2>;
-+					#interrupt-cells = <2>;
-+					interrupt-controller;
-+					interrupt-parent = <&rpmsg_gpiob>;
-+				};
-+			};
-+		};
- 	};
- 
- 	soc: soc@0 {
--- 
-2.43.0
+  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-defconfig-7.0
 
+for you to fetch changes up to 6f3f1d83e511c8dbf36021805070caf08498641e:
+
+  Merge tag 'mtk-defconfig-for-v6.20' of https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux into soc/defconfig (2026-01-29 09:31:18 +0100)
+
+----------------------------------------------------------------
+soc: defconfig updates for 7.0
+
+These are the usual updates, enabling mode newly merged device drivers for
+various Arm and RISC-V based platforms in the defconfig files. The Renesas
+and NXP defconfig files also get a refresh for modified Kconfig options.
+
+----------------------------------------------------------------
+Alexander Stein (1):
+      ARM: imx_v6_v7_defconfig: Configure CONFIG_SND_SOC_FSL_ASOC_CARD as module
+
+Andreas Kemnade (1):
+      ARM: imx_v6_v7_defconfig: enable EPD regulator needed for Kobo Clara 2e
+
+Arnd Bergmann (9):
+      ARM: defconfig: move entries
+      ARM: defconfig: turn off CONFIG_EXPERT
+      Merge tag 'renesas-arm-defconfig-for-v6.20-tag1' of git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into soc/defconfig
+      Merge tag 'apple-soc-defconfig-6.20' of https://git.kernel.org/pub/scm/linux/kernel/git/sven/linux into soc/defconfig
+      Merge tag 'xilinx-defconfig-for-6.20' of https://github.com/Xilinx/linux-xlnx into soc/defconfig
+      Merge tag 'qcom-arm64-defconfig-for-6.20' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into soc/defconfig
+      Merge tag 'imx-defconfig-6.20' of https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux into soc/defconfig
+      Merge tag 'ti-k3-config-for-v6.20' of https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux into soc/defconfig
+      Merge tag 'mtk-defconfig-for-v6.20' of https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux into soc/defconfig
+
+Biju Das (1):
+      arm64: defconfig: Enable RZ/G3E USB3 PHY driver
+
+Claudiu Beznea (1):
+      arm64: defconfig: Enable PCIe for the Renesas RZ/G3S SoC
+
+Dmitry Baryshkov (1):
+      ARM: multi_v7_defconfig: enable DA9052 and MC13XXX
+
+Geert Uytterhoeven (1):
+      ARM: shmobile: defconfig: Refresh for v6.19-rc1
+
+Janne Grunau (1):
+      arm64: select APPLE_PMGR_PWRSTATE for ARCH_APPLE
+
+Jingyi Wang (1):
+      arm64: defconfig: enable clocks, interconnect and pinctrl for Qualcomm Kaanapali
+
+Josua Mayer (1):
+      ARM: imx_v4_v5_defconfig: update for v6.19-rc1
+
+Krzysztof Kozlowski (1):
+      arm64: defconfig: Enable EC drivers for Qualcomm-based laptops
+
+Lad Prabhakar (1):
+      arm64: defconfig: Drop duplicate CONFIG_OMAP_USB2 entry
+
+Louis-Alexis Eyraud (1):
+      arm64: defconfig: Enable Mediatek HDMIv2 driver
+
+Luca Weiss (1):
+      arm64: defconfig: Enable options for Qualcomm Milos SoC
+
+Michael Walle (1):
+      arm64: defconfig: Enable configurations for Kontron SMARC-sAM67
+
+Michal Simek (1):
+      arm64: defconfig: Enable missing AMD/Xilinx drivers
+
+Sven Peter (1):
+      arm64: defconfig: Enable Apple Silicon drivers
+
+Yixun Lan (1):
+      riscv: defconfig: spacemit: k3: enable clock support
+
+ arch/arm/configs/imx_v4_v5_defconfig | 12 +----
+ arch/arm/configs/imx_v6_v7_defconfig |  3 +-
+ arch/arm/configs/multi_v7_defconfig  | 51 ++++++++++++--------
+ arch/arm/configs/shmobile_defconfig  |  2 +-
+ arch/arm64/Kconfig.platforms         |  1 +
+ arch/arm64/configs/defconfig         | 90 ++++++++++++++++++++++++++++++++++++
+ arch/riscv/configs/defconfig         |  2 +-
+ 7 files changed, 130 insertions(+), 31 deletions(-)
+
+diff --git a/arch/arm/configs/imx_v4_v5_defconfig b/arch/arm/configs/imx_v4_v5_defconfig
+index 875c8cdbada7..9139d1784c70 100644
+--- a/arch/arm/configs/imx_v4_v5_defconfig
++++ b/arch/arm/configs/imx_v4_v5_defconfig
+@@ -29,9 +29,6 @@ CONFIG_INET=y
+ CONFIG_IP_MULTICAST=y
+ CONFIG_IP_PNP=y
+ CONFIG_IP_PNP_DHCP=y
+-# CONFIG_INET_XFRM_MODE_TRANSPORT is not set
+-# CONFIG_INET_XFRM_MODE_TUNNEL is not set
+-# CONFIG_INET_XFRM_MODE_BEET is not set
+ # CONFIG_INET_DIAG is not set
+ # CONFIG_IPV6 is not set
+ CONFIG_NETFILTER=y
+@@ -58,11 +55,9 @@ CONFIG_BLK_DEV_SD=y
+ CONFIG_ATA=y
+ CONFIG_PATA_IMX=y
+ CONFIG_NETDEVICES=y
+-CONFIG_CS89x0=y
+ CONFIG_CS89x0_PLATFORM=y
+ CONFIG_DM9000=y
+ CONFIG_SMC91X=y
+-CONFIG_SMC911X=y
+ CONFIG_SMSC911X=y
+ CONFIG_SMSC_PHY=y
+ CONFIG_INPUT_EVDEV=y
+@@ -78,6 +73,7 @@ CONFIG_SERIAL_8250=m
+ CONFIG_SERIAL_IMX=y
+ CONFIG_SERIAL_IMX_CONSOLE=y
+ # CONFIG_HW_RANDOM is not set
++CONFIG_I2C=y
+ CONFIG_I2C_CHARDEV=y
+ CONFIG_I2C_IMX=y
+ CONFIG_SPI=y
+@@ -100,12 +96,12 @@ CONFIG_REGULATOR_GPIO=y
+ CONFIG_REGULATOR_MC13783=y
+ CONFIG_REGULATOR_MC13892=y
+ CONFIG_MEDIA_SUPPORT=y
+-CONFIG_MEDIA_CAMERA_SUPPORT=y
+ CONFIG_V4L_PLATFORM_DRIVERS=y
+ CONFIG_V4L_MEM2MEM_DRIVERS=y
+ CONFIG_VIDEO_CODA=y
+ CONFIG_FB=y
+ CONFIG_FB_IMX=y
++CONFIG_LCD_CLASS_DEVICE=y
+ CONFIG_LCD_L4F00242T03=y
+ CONFIG_FRAMEBUFFER_CONSOLE=y
+ CONFIG_LOGO=y
+@@ -115,16 +111,12 @@ CONFIG_SND=y
+ # CONFIG_SND_SPI is not set
+ CONFIG_SND_SOC=y
+ CONFIG_SND_IMX_SOC=y
+-CONFIG_SND_SOC_MX27VIS_AIC32X4=y
+-CONFIG_SND_SOC_PHYCORE_AC97=y
+ CONFIG_SND_SOC_EUKREA_TLV320=y
+-CONFIG_SND_SOC_IMX_MC13783=y
+ CONFIG_SND_SOC_FSL_ASOC_CARD=y
+ CONFIG_SND_SOC_SGTL5000=y
+ CONFIG_USB_HID=m
+ CONFIG_USB=y
+ CONFIG_USB_EHCI_HCD=y
+-CONFIG_USB_EHCI_MXC=y
+ CONFIG_USB_STORAGE=y
+ CONFIG_USB_CHIPIDEA=y
+ CONFIG_USB_CHIPIDEA_UDC=y
+diff --git a/arch/arm/configs/imx_v6_v7_defconfig b/arch/arm/configs/imx_v6_v7_defconfig
+index 0d55056c6f82..ed588add8d31 100644
+--- a/arch/arm/configs/imx_v6_v7_defconfig
++++ b/arch/arm/configs/imx_v6_v7_defconfig
+@@ -251,6 +251,7 @@ CONFIG_REGULATOR_DA9052=y
+ CONFIG_REGULATOR_DA9062=y
+ CONFIG_REGULATOR_DA9063=y
+ CONFIG_REGULATOR_GPIO=y
++CONFIG_REGULATOR_FP9931=m
+ CONFIG_REGULATOR_LTC3676=y
+ CONFIG_REGULATOR_MC13783=y
+ CONFIG_REGULATOR_MC13892=y
+@@ -311,7 +312,7 @@ CONFIG_SND_IMX_SOC=y
+ CONFIG_SND_SOC_EUKREA_TLV320=y
+ CONFIG_SND_SOC_IMX_ES8328=y
+ CONFIG_SND_SOC_IMX_SGTL5000=y
+-CONFIG_SND_SOC_FSL_ASOC_CARD=y
++CONFIG_SND_SOC_FSL_ASOC_CARD=m
+ CONFIG_SND_SOC_AC97_CODEC=y
+ CONFIG_SND_SOC_CS42XX8_I2C=y
+ CONFIG_SND_SOC_SPDIF=y
+diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+index 7f1fa9dd88c9..4de55fd94a03 100644
+--- a/arch/arm/configs/multi_v7_defconfig
++++ b/arch/arm/configs/multi_v7_defconfig
+@@ -3,11 +3,12 @@ CONFIG_NO_HZ_IDLE=y
+ CONFIG_HIGH_RES_TIMERS=y
+ CONFIG_CGROUPS=y
+ CONFIG_BLK_DEV_INITRD=y
+-CONFIG_EXPERT=y
+ CONFIG_PERF_EVENTS=y
+ CONFIG_KEXEC=y
+ CONFIG_ARCH_VIRT=y
+ CONFIG_ARCH_AIROHA=y
++CONFIG_ARCH_HPE=y
++CONFIG_ARCH_HPE_GXP=y
+ CONFIG_ARCH_SUNPLUS=y
+ CONFIG_ARCH_UNIPHIER=y
+ CONFIG_ARCH_ACTIONS=y
+@@ -50,8 +51,6 @@ CONFIG_ARCH_HI3xxx=y
+ CONFIG_ARCH_HIP01=y
+ CONFIG_ARCH_HIP04=y
+ CONFIG_ARCH_HIX5HD2=y
+-CONFIG_ARCH_HPE=y
+-CONFIG_ARCH_HPE_GXP=y
+ CONFIG_ARCH_MXC=y
+ CONFIG_SOC_IMX50=y
+ CONFIG_SOC_IMX51=y
+@@ -163,7 +162,6 @@ CONFIG_BT_QCOMSMD=m
+ CONFIG_CFG80211=m
+ CONFIG_MAC80211=m
+ CONFIG_RFKILL=y
+-CONFIG_RFKILL_INPUT=y
+ CONFIG_RFKILL_GPIO=y
+ CONFIG_NFC=m
+ CONFIG_NFC_DIGITAL=m
+@@ -376,7 +374,6 @@ CONFIG_SERIAL_TEGRA=y
+ CONFIG_SERIAL_IMX=y
+ CONFIG_SERIAL_IMX_CONSOLE=y
+ CONFIG_SERIAL_SH_SCI=y
+-CONFIG_SERIAL_SH_SCI_NR_UARTS=20
+ CONFIG_SERIAL_MSM=y
+ CONFIG_SERIAL_MSM_CONSOLE=y
+ CONFIG_SERIAL_VT8500=y
+@@ -548,12 +545,12 @@ CONFIG_DEVFREQ_THERMAL=y
+ CONFIG_IMX_THERMAL=y
+ CONFIG_QORIQ_THERMAL=m
+ CONFIG_ROCKCHIP_THERMAL=y
+-CONFIG_RCAR_THERMAL=y
+ CONFIG_ARMADA_THERMAL=y
+ CONFIG_BCM2711_THERMAL=m
+ CONFIG_BCM2835_THERMAL=m
+ CONFIG_BRCMSTB_THERMAL=m
+ CONFIG_ST_THERMAL_MEMMAP=y
++CONFIG_RCAR_THERMAL=y
+ CONFIG_TEGRA_SOCTHERM=m
+ CONFIG_TEGRA30_TSENSOR=m
+ CONFIG_GENERIC_ADC_THERMAL=m
+@@ -598,7 +595,9 @@ CONFIG_MFD_BCM590XX=y
+ CONFIG_MFD_AC100=y
+ CONFIG_MFD_AXP20X_I2C=y
+ CONFIG_MFD_AXP20X_RSB=y
++CONFIG_MFD_DA9052_I2C=y
+ CONFIG_MFD_DA9063=m
++CONFIG_MFD_MC13XXX_I2C=m
+ CONFIG_MFD_MAX14577=y
+ CONFIG_MFD_MAX77686=y
+ CONFIG_MFD_MAX77693=m
+@@ -633,6 +632,7 @@ CONFIG_REGULATOR_AS3722=y
+ CONFIG_REGULATOR_AXP20X=y
+ CONFIG_REGULATOR_BCM590XX=y
+ CONFIG_REGULATOR_CPCAP=y
++CONFIG_REGULATOR_DA9052=m
+ CONFIG_REGULATOR_DA9210=y
+ CONFIG_REGULATOR_FAN53555=y
+ CONFIG_REGULATOR_GPIO=y
+@@ -676,6 +676,7 @@ CONFIG_REGULATOR_WM8994=m
+ CONFIG_CEC_SAMSUNG_S5P=m
+ CONFIG_CEC_STM32=m
+ CONFIG_MEDIA_SUPPORT=m
++# CONFIG_MEDIA_SUPPORT_FILTER is not set
+ CONFIG_MEDIA_USB_SUPPORT=y
+ CONFIG_USB_VIDEO_CLASS=m
+ CONFIG_V4L_PLATFORM_DRIVERS=y
+@@ -715,7 +716,6 @@ CONFIG_VIDEO_ADV7604_CEC=y
+ CONFIG_VIDEO_ML86V7667=m
+ CONFIG_IMX_IPUV3_CORE=m
+ CONFIG_DRM=y
+-CONFIG_DRM_I2C_NXP_TDA998X=m
+ CONFIG_DRM_NOUVEAU=m
+ # CONFIG_DRM_NOUVEAU_CH7006 is not set
+ # CONFIG_DRM_NOUVEAU_SIL164 is not set
+@@ -741,15 +741,16 @@ CONFIG_DRM_TEGRA=y
+ CONFIG_DRM_STM=m
+ CONFIG_DRM_STM_DSI=m
+ CONFIG_DRM_PANEL_LVDS=m
+-CONFIG_DRM_PANEL_SIMPLE=y
+-CONFIG_DRM_PANEL_EDP=y
+-CONFIG_DRM_PANEL_SAMSUNG_LD9040=m
+ CONFIG_DRM_PANEL_ORISETECH_OTM8009A=m
+ CONFIG_DRM_PANEL_RAYDIUM_RM68200=m
++CONFIG_DRM_PANEL_SAMSUNG_LD9040=m
+ CONFIG_DRM_PANEL_SAMSUNG_S6E63J0X03=m
+ CONFIG_DRM_PANEL_SAMSUNG_S6E8AA0=m
+ CONFIG_DRM_PANEL_SHARP_LQ101R1SX01=m
++CONFIG_DRM_PANEL_EDP=y
++CONFIG_DRM_PANEL_SIMPLE=y
+ CONFIG_DRM_DISPLAY_CONNECTOR=m
++CONFIG_DRM_I2C_NXP_TDA998X=m
+ CONFIG_DRM_LVDS_CODEC=m
+ CONFIG_DRM_NXP_PTN3460=m
+ CONFIG_DRM_PARADE_PS8622=m
+@@ -789,9 +790,9 @@ CONFIG_FRAMEBUFFER_CONSOLE=y
+ CONFIG_FRAMEBUFFER_CONSOLE_ROTATION=y
+ CONFIG_SOUND=m
+ CONFIG_SND=m
+-CONFIG_SND_HDA_TEGRA=m
+ CONFIG_SND_HDA_INPUT_BEEP=y
+ CONFIG_SND_HDA_PATCH_LOADER=y
++CONFIG_SND_HDA_TEGRA=m
+ CONFIG_SND_HDA_CODEC_REALTEK=m
+ CONFIG_SND_HDA_CODEC_REALTEK_LIB=m
+ CONFIG_SND_HDA_CODEC_ALC269=m
+@@ -814,6 +815,8 @@ CONFIG_SND_PXA910_SOC=m
+ CONFIG_SND_SOC_QCOM=m
+ CONFIG_SND_SOC_APQ8016_SBC=m
+ CONFIG_SND_SOC_ROCKCHIP=m
++CONFIG_SND_SOC_SH4_FSI=m
++CONFIG_SND_SOC_RCAR=m
+ CONFIG_SND_SOC_ROCKCHIP_SPDIF=m
+ CONFIG_SND_SOC_ROCKCHIP_MAX98090=m
+ CONFIG_SND_SOC_ROCKCHIP_RT5645=m
+@@ -824,8 +827,6 @@ CONFIG_SND_SOC_SNOW=m
+ CONFIG_SND_SOC_ODROID=m
+ CONFIG_SND_SOC_ARNDALE=m
+ CONFIG_SND_SOC_SAMSUNG_MIDAS_WM1811=m
+-CONFIG_SND_SOC_SH4_FSI=m
+-CONFIG_SND_SOC_RCAR=m
+ CONFIG_SND_SOC_STI=m
+ CONFIG_SND_SOC_STM32_SAI=m
+ CONFIG_SND_SOC_STM32_I2S=m
+@@ -859,6 +860,18 @@ CONFIG_SND_SOC_WM8960=m
+ CONFIG_SND_SOC_WM8962=m
+ CONFIG_SND_SOC_WM8978=m
+ CONFIG_SND_AUDIO_GRAPH_CARD=m
++# CONFIG_HID_A4TECH is not set
++# CONFIG_HID_APPLE is not set
++# CONFIG_HID_BELKIN is not set
++# CONFIG_HID_CHERRY is not set
++# CONFIG_HID_CHICONY is not set
++# CONFIG_HID_CYPRESS is not set
++# CONFIG_HID_EZKEY is not set
++# CONFIG_HID_ITE is not set
++# CONFIG_HID_KENSINGTON is not set
++# CONFIG_HID_REDRAGON is not set
++# CONFIG_HID_MICROSOFT is not set
++# CONFIG_HID_MONTEREY is not set
+ CONFIG_USB=y
+ CONFIG_USB_OTG=y
+ CONFIG_USB_XHCI_HCD=y
+@@ -1002,7 +1015,6 @@ CONFIG_RTC_DRV_MAX8997=m
+ CONFIG_RTC_DRV_MAX77686=y
+ CONFIG_RTC_DRV_RK808=m
+ CONFIG_RTC_DRV_RS5C372=m
+-CONFIG_RTC_DRV_PCF85063=m
+ CONFIG_RTC_DRV_PCF85363=m
+ CONFIG_RTC_DRV_BQ32K=m
+ CONFIG_RTC_DRV_TWL4030=y
+@@ -1013,6 +1025,7 @@ CONFIG_RTC_DRV_S35390A=m
+ CONFIG_RTC_DRV_RX8581=m
+ CONFIG_RTC_DRV_EM3027=y
+ CONFIG_RTC_DRV_S5M=m
++CONFIG_RTC_DRV_PCF85063=m
+ CONFIG_RTC_DRV_DA9063=m
+ CONFIG_RTC_DRV_EFI=m
+ CONFIG_RTC_DRV_DIGICOLOR=m
+@@ -1026,6 +1039,7 @@ CONFIG_RTC_DRV_RZN1=m
+ CONFIG_RTC_DRV_VT8500=y
+ CONFIG_RTC_DRV_SUNXI=y
+ CONFIG_RTC_DRV_MV=y
++CONFIG_RTC_DRV_MC13XXX=m
+ CONFIG_RTC_DRV_PM8XXX=m
+ CONFIG_RTC_DRV_TEGRA=y
+ CONFIG_RTC_DRV_ST_LPC=y
+@@ -1046,9 +1060,6 @@ CONFIG_OWL_DMA=y
+ CONFIG_PL330_DMA=y
+ CONFIG_STE_DMA40=y
+ CONFIG_ST_FDMA=m
+-CONFIG_STM32_DMA=y
+-CONFIG_STM32_DMAMUX=y
+-CONFIG_STM32_MDMA=y
+ CONFIG_TEGRA20_APB_DMA=y
+ CONFIG_UNIPHIER_MDMAC=y
+ CONFIG_XILINX_DMA=y
+@@ -1057,6 +1068,9 @@ CONFIG_DW_DMAC=y
+ CONFIG_RZN1_DMAMUX=m
+ CONFIG_RCAR_DMAC=y
+ CONFIG_RENESAS_USB_DMAC=m
++CONFIG_STM32_DMA=y
++CONFIG_STM32_DMAMUX=y
++CONFIG_STM32_MDMA=y
+ CONFIG_VIRTIO_PCI=y
+ CONFIG_VIRTIO_MMIO=y
+ CONFIG_STAGING=y
+@@ -1094,12 +1108,12 @@ CONFIG_TI_MESSAGE_MANAGER=y
+ CONFIG_QCOM_APCS_IPC=y
+ CONFIG_STM32_IPCC=m
+ CONFIG_QCOM_IPCC=y
++CONFIG_QCOM_IOMMU=y
+ CONFIG_OMAP_IOMMU=y
+ CONFIG_OMAP_IOMMU_DEBUG=y
+ CONFIG_ROCKCHIP_IOMMU=y
+ CONFIG_TEGRA_IOMMU_SMMU=y
+ CONFIG_EXYNOS_IOMMU=y
+-CONFIG_QCOM_IOMMU=y
+ CONFIG_REMOTEPROC=y
+ CONFIG_OMAP_REMOTEPROC=m
+ CONFIG_OMAP_REMOTEPROC_WATCHDOG=y
+@@ -1135,6 +1149,7 @@ CONFIG_ARCH_TEGRA_124_SOC=y
+ CONFIG_SOC_TI=y
+ CONFIG_KEYSTONE_NAVIGATOR_QMSS=y
+ CONFIG_KEYSTONE_NAVIGATOR_DMA=y
++CONFIG_TI_PRUSS=m
+ CONFIG_RASPBERRYPI_POWER=y
+ CONFIG_QCOM_CPR=y
+ CONFIG_QCOM_RPMHPD=y
+diff --git a/arch/arm/configs/shmobile_defconfig b/arch/arm/configs/shmobile_defconfig
+index 0085921833c3..ef487eab17cc 100644
+--- a/arch/arm/configs/shmobile_defconfig
++++ b/arch/arm/configs/shmobile_defconfig
+@@ -202,6 +202,7 @@ CONFIG_RZ_DMAC=y
+ CONFIG_ARM_GT_INITIAL_PRESCALER_VAL=1
+ # CONFIG_IOMMU_SUPPORT is not set
+ CONFIG_IIO=y
++CONFIG_RZN1_ADC=y
+ CONFIG_AK8975=y
+ CONFIG_PWM=y
+ CONFIG_PWM_RENESAS_RCAR=y
+@@ -218,7 +219,6 @@ CONFIG_NFS_V3_ACL=y
+ CONFIG_NFS_V4=y
+ CONFIG_NFS_V4_1=y
+ CONFIG_ROOT_NFS=y
+-# CONFIG_RPCSEC_GSS_KRB5 is not set
+ CONFIG_NLS_CODEPAGE_437=y
+ CONFIG_NLS_ISO8859_1=y
+ CONFIG_DMA_CMA=y
+diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+index fff14807c965..200e5067560e 100644
+--- a/arch/arm64/Kconfig.platforms
++++ b/arch/arm64/Kconfig.platforms
+@@ -36,6 +36,7 @@ config ARCH_ALPINE
+ config ARCH_APPLE
+ 	bool "Apple Silicon SoC family"
+ 	select APPLE_AIC
++	select APPLE_PMGR_PWRSTATE if PM
+ 	help
+ 	  This enables support for Apple's in-house ARM SoC family, such
+ 	  as the Apple M1.
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 45288ec9eaf7..35da07d2259a 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -100,6 +100,7 @@ CONFIG_CPU_FREQ_GOV_CONSERVATIVE=m
+ CONFIG_CPUFREQ_DT=y
+ CONFIG_ACPI_CPPC_CPUFREQ=m
+ CONFIG_ARM_ALLWINNER_SUN50I_CPUFREQ_NVMEM=m
++CONFIG_ARM_APPLE_SOC_CPUFREQ=m
+ CONFIG_ARM_ARMADA_37XX_CPUFREQ=y
+ CONFIG_ARM_SCPI_CPUFREQ=y
+ CONFIG_ARM_IMX_CPUFREQ_DT=m
+@@ -223,6 +224,7 @@ CONFIG_HOTPLUG_PCI_ACPI=y
+ CONFIG_PCI_AARDVARK=y
+ CONFIG_PCIE_ALTERA=y
+ CONFIG_PCIE_ALTERA_MSI=y
++CONFIG_PCIE_APPLE=m
+ CONFIG_PCIE_BRCMSTB=m
+ CONFIG_PCI_HOST_THUNDER_PEM=y
+ CONFIG_PCI_HOST_THUNDER_ECAM=y
+@@ -231,8 +233,14 @@ CONFIG_PCIE_MEDIATEK_GEN3=m
+ CONFIG_PCI_TEGRA=y
+ CONFIG_PCIE_RCAR_HOST=y
+ CONFIG_PCIE_RCAR_EP=y
++CONFIG_PCIE_RENESAS_RZG3S_HOST=y
+ CONFIG_PCIE_ROCKCHIP_HOST=m
+ CONFIG_PCI_XGENE=y
++CONFIG_PCIE_XILINX=y
++CONFIG_PCIE_XILINX_DMA_PL=y
++CONFIG_PCIE_XILINX_NWL=y
++CONFIG_PCIE_XILINX_CPM=y
++CONFIG_PCI_J721E_HOST=m
+ CONFIG_PCI_IMX6_HOST=y
+ CONFIG_PCI_LAYERSCAPE=y
+ CONFIG_PCI_HISI=y
+@@ -273,6 +281,7 @@ CONFIG_QCOM_QSEECOM=y
+ CONFIG_QCOM_QSEECOM_UEFISECAPP=y
+ CONFIG_EXYNOS_ACPM_PROTOCOL=m
+ CONFIG_TEGRA_BPMP=y
++CONFIG_ZYNQMP_FIRMWARE_DEBUG=y
+ CONFIG_GNSS=m
+ CONFIG_GNSS_MTK_SERIAL=m
+ CONFIG_MTD=y
+@@ -301,10 +310,12 @@ CONFIG_BLK_DEV_LOOP=y
+ CONFIG_BLK_DEV_NBD=m
+ CONFIG_VIRTIO_BLK=y
+ CONFIG_BLK_DEV_NVME=m
++CONFIG_NVME_APPLE=m
+ CONFIG_QCOM_COINCELL=m
+ CONFIG_QCOM_FASTRPC=m
+ CONFIG_SRAM=y
+ CONFIG_PCI_ENDPOINT_TEST=m
++CONFIG_XILINX_SDFEC=m
+ CONFIG_EEPROM_AT24=m
+ CONFIG_EEPROM_AT25=m
+ CONFIG_UACCE=m
+@@ -394,6 +405,7 @@ CONFIG_DWMAC_MEDIATEK=m
+ CONFIG_DWMAC_TEGRA=m
+ CONFIG_TI_K3_AM65_CPSW_NUSS=y
+ CONFIG_TI_ICSSG_PRUETH=m
++CONFIG_XILINX_AXI_EMAC=m
+ CONFIG_QCOM_IPA=m
+ CONFIG_MESON_GXL_PHY=m
+ CONFIG_AQUANTIA_PHY=y
+@@ -410,7 +422,9 @@ CONFIG_DP83867_PHY=y
+ CONFIG_DP83869_PHY=m
+ CONFIG_DP83TD510_PHY=y
+ CONFIG_VITESSE_PHY=y
++CONFIG_XILINX_GMII2RGMII=m
+ CONFIG_CAN_FLEXCAN=m
++CONFIG_CAN_XILINXCAN=m
+ CONFIG_CAN_M_CAN=m
+ CONFIG_CAN_M_CAN_PLATFORM=m
+ CONFIG_CAN_RCAR=m
+@@ -464,6 +478,7 @@ CONFIG_KEYBOARD_CROS_EC=y
+ CONFIG_KEYBOARD_MTK_PMIC=m
+ CONFIG_MOUSE_ELAN_I2C=m
+ CONFIG_INPUT_TOUCHSCREEN=y
++CONFIG_TOUCHSCREEN_APPLE_Z2=m
+ CONFIG_TOUCHSCREEN_ATMEL_MXT=m
+ CONFIG_TOUCHSCREEN_GOODIX=m
+ CONFIG_TOUCHSCREEN_GOODIX_BERLIN_SPI=m
+@@ -476,6 +491,7 @@ CONFIG_INPUT_BBNSM_PWRKEY=m
+ CONFIG_INPUT_PM8941_PWRKEY=y
+ CONFIG_INPUT_PM8XXX_VIBRATOR=m
+ CONFIG_INPUT_TPS65219_PWRBUTTON=m
++CONFIG_INPUT_TPS6594_PWRBUTTON=m
+ CONFIG_INPUT_PWM_BEEPER=m
+ CONFIG_INPUT_PWM_VIBRA=m
+ CONFIG_INPUT_RK805_PWRKEY=m
+@@ -551,6 +567,7 @@ CONFIG_I2C_MT65XX=y
+ CONFIG_I2C_MV64XXX=y
+ CONFIG_I2C_OMAP=y
+ CONFIG_I2C_OWL=y
++CONFIG_I2C_APPLE=m
+ CONFIG_I2C_PXA=y
+ CONFIG_I2C_QCOM_CCI=m
+ CONFIG_I2C_QCOM_GENI=m
+@@ -562,9 +579,11 @@ CONFIG_I2C_S3C2410=y
+ CONFIG_I2C_SH_MOBILE=y
+ CONFIG_I2C_TEGRA=y
+ CONFIG_I2C_UNIPHIER_F=y
++CONFIG_I2C_XILINX=m
+ CONFIG_I2C_RCAR=y
+ CONFIG_I2C_CROS_EC_TUNNEL=y
+ CONFIG_SPI=y
++CONFIG_SPI_APPLE=m
+ CONFIG_SPI_ARMADA_3700=y
+ CONFIG_SPI_BCM2835=m
+ CONFIG_SPI_BCM2835AUX=m
+@@ -599,9 +618,13 @@ CONFIG_SPI_STM32_OSPI=m
+ CONFIG_SPI_SUN6I=y
+ CONFIG_SPI_TEGRA210_QUAD=m
+ CONFIG_SPI_TEGRA114=m
++CONFIG_SPI_XILINX=m
++CONFIG_SPI_ZYNQMP_GQSPI=m
+ CONFIG_SPI_SPIDEV=m
+ CONFIG_SPMI=y
++CONFIG_SPMI_APPLE=m
+ CONFIG_SPMI_MTK_PMIF=m
++CONFIG_PINCTRL_APPLE_GPIO=m
+ CONFIG_PINCTRL_BRCMSTB=y
+ CONFIG_PINCTRL_BCM2712=y
+ CONFIG_PINCTRL_DA9062=m
+@@ -630,6 +653,7 @@ CONFIG_PINCTRL_IPQ5424=y
+ CONFIG_PINCTRL_IPQ8074=y
+ CONFIG_PINCTRL_IPQ6018=y
+ CONFIG_PINCTRL_IPQ9574=y
++CONFIG_PINCTRL_KAANAPALI=y
+ CONFIG_PINCTRL_MSM8916=y
+ CONFIG_PINCTRL_MSM8953=y
+ CONFIG_PINCTRL_MSM8976=y
+@@ -657,6 +681,7 @@ CONFIG_PINCTRL_SM6115=y
+ CONFIG_PINCTRL_SM6125=y
+ CONFIG_PINCTRL_SM6350=y
+ CONFIG_PINCTRL_SM6375=y
++CONFIG_PINCTRL_MILOS=y
+ CONFIG_PINCTRL_SM8150=y
+ CONFIG_PINCTRL_SM8250=y
+ CONFIG_PINCTRL_SM8350=y
+@@ -691,6 +716,8 @@ CONFIG_GPIO_WCD934X=m
+ CONFIG_GPIO_VF610=y
+ CONFIG_GPIO_XGENE=y
+ CONFIG_GPIO_XGENE_SB=y
++CONFIG_GPIO_XILINX=m
++CONFIG_GPIO_ZYNQ=m
+ CONFIG_GPIO_MAX732X=y
+ CONFIG_GPIO_PCA953X=y
+ CONFIG_GPIO_PCA953X_IRQ=y
+@@ -698,9 +725,11 @@ CONFIG_GPIO_ADP5585=m
+ CONFIG_GPIO_PCF857X=m
+ CONFIG_GPIO_TPIC2810=m
+ CONFIG_GPIO_BD9571MWV=m
++CONFIG_GPIO_MACSMC=m
+ CONFIG_GPIO_MAX77620=y
+ CONFIG_GPIO_SL28CPLD=m
+ CONFIG_GPIO_AGGREGATOR=m
++CONFIG_POWER_RESET_MACSMC=m
+ CONFIG_POWER_RESET_MSM=y
+ CONFIG_POWER_RESET_QCOM_PON=m
+ CONFIG_POWER_RESET_TORADEX_EC=m
+@@ -721,10 +750,12 @@ CONFIG_SENSORS_ARM_SCMI=y
+ CONFIG_SENSORS_ARM_SCPI=y
+ CONFIG_SENSORS_GPIO_FAN=m
+ CONFIG_SENSORS_JC42=m
++CONFIG_SENSORS_MACSMC_HWMON=m
+ CONFIG_SENSORS_LM75=m
+ CONFIG_SENSORS_LM90=m
+ CONFIG_SENSORS_PWM_FAN=m
+ CONFIG_SENSORS_RASPBERRYPI_HWMON=m
++CONFIG_SENSORS_SA67MCU=m
+ CONFIG_SENSORS_SL28CPLD=m
+ CONFIG_SENSORS_INA2XX=m
+ CONFIG_SENSORS_INA3221=m
+@@ -762,6 +793,8 @@ CONFIG_QCOM_LMH=m
+ CONFIG_UNIPHIER_THERMAL=y
+ CONFIG_KHADAS_MCU_FAN_THERMAL=m
+ CONFIG_WATCHDOG=y
++CONFIG_XILINX_WATCHDOG=m
++CONFIG_XILINX_WINDOW_WATCHDOG=m
+ CONFIG_SL28CPLD_WATCHDOG=m
+ CONFIG_ARM_SP805_WATCHDOG=y
+ CONFIG_ARM_SBSA_WATCHDOG=y
+@@ -782,6 +815,7 @@ CONFIG_RENESAS_RZG2LWDT=y
+ CONFIG_RENESAS_RZV2HWDT=y
+ CONFIG_UNIPHIER_WATCHDOG=y
+ CONFIG_PM8916_WATCHDOG=m
++CONFIG_APPLE_WATCHDOG=m
+ CONFIG_BCM2835_WDT=y
+ CONFIG_BCM7038_WDT=m
+ CONFIG_MFD_ADP5585=m
+@@ -789,6 +823,7 @@ CONFIG_MFD_ALTERA_SYSMGR=y
+ CONFIG_MFD_BD9571MWV=y
+ CONFIG_MFD_AXP20X_I2C=y
+ CONFIG_MFD_AXP20X_RSB=y
++CONFIG_MFD_MACSMC=m
+ CONFIG_MFD_DA9062=m
+ CONFIG_MFD_EXYNOS_LPASS=m
+ CONFIG_MFD_HI6421_PMIC=y
+@@ -946,6 +981,7 @@ CONFIG_DRM_TEGRA=m
+ CONFIG_DRM_PANEL_BOE_TV101WUM_NL6=m
+ CONFIG_DRM_PANEL_LVDS=m
+ CONFIG_DRM_PANEL_SIMPLE=m
++CONFIG_DRM_PANEL_SUMMIT=m
+ CONFIG_DRM_PANEL_EDP=m
+ CONFIG_DRM_PANEL_HIMAX_HX8279=m
+ CONFIG_DRM_PANEL_HIMAX_HX83112A=m
+@@ -999,6 +1035,7 @@ CONFIG_DRM_HISI_KIRIN=m
+ CONFIG_DRM_MEDIATEK=m
+ CONFIG_DRM_MEDIATEK_DP=m
+ CONFIG_DRM_MEDIATEK_HDMI=m
++CONFIG_DRM_MEDIATEK_HDMI_V2=m
+ CONFIG_DRM_MXSFB=m
+ CONFIG_DRM_IMX_LCDIF=m
+ CONFIG_DRM_MESON=m
+@@ -1007,11 +1044,14 @@ CONFIG_DRM_LIMA=m
+ CONFIG_DRM_PANFROST=m
+ CONFIG_DRM_PANTHOR=m
+ CONFIG_DRM_TIDSS=m
++CONFIG_DRM_ZYNQMP_DPSUB=m
++CONFIG_DRM_ZYNQMP_DPSUB_AUDIO=y
+ CONFIG_DRM_POWERVR=m
+ CONFIG_FB=y
+ CONFIG_FB_EFI=y
+ CONFIG_FB_MODE_HELPERS=y
+ CONFIG_BACKLIGHT_PWM=m
++CONFIG_BACKLIGHT_APPLE_DWI=m
+ CONFIG_BACKLIGHT_QCOM_WLED=m
+ CONFIG_BACKLIGHT_LP855X=m
+ CONFIG_LOGO=y
+@@ -1026,6 +1066,7 @@ CONFIG_SND_USB_AUDIO=m
+ CONFIG_SND_USB_AUDIO_QMI=m
+ CONFIG_SND_SOC=m
+ CONFIG_SND_SOC_USB=m
++CONFIG_SND_SOC_APPLE_MCA=m
+ CONFIG_SND_BCM2835_SOC_I2S=m
+ CONFIG_SND_SOC_FSL_ASRC=m
+ CONFIG_SND_SOC_FSL_MICFIL=m
+@@ -1093,6 +1134,9 @@ CONFIG_SND_SOC_TEGRA210_MIXER=m
+ CONFIG_SND_SOC_TEGRA_AUDIO_GRAPH_CARD=m
+ CONFIG_SND_SOC_DAVINCI_MCASP=m
+ CONFIG_SND_SOC_J721E_EVM=m
++CONFIG_SND_SOC_XILINX_I2S=m
++CONFIG_SND_SOC_XILINX_AUDIO_FORMATTER=m
++CONFIG_SND_SOC_XILINX_SPDIF=m
+ CONFIG_SND_SOC_AK4613=m
+ CONFIG_SND_SOC_AK4619=m
+ CONFIG_SND_SOC_DA7213=m
+@@ -1177,6 +1221,7 @@ CONFIG_USB_SERIAL_OPTION=m
+ CONFIG_USB_QCOM_EUD=m
+ CONFIG_USB_HSIC_USB3503=y
+ CONFIG_USB_ONBOARD_DEV=m
++CONFIG_USB_ONBOARD_DEV_USB5744=y
+ CONFIG_NOP_USB_XCEIV=y
+ CONFIG_USB_MXS_PHY=m
+ CONFIG_USB_GADGET=y
+@@ -1280,6 +1325,8 @@ CONFIG_LEDS_TRIGGER_PANIC=y
+ CONFIG_EDAC=y
+ CONFIG_EDAC_GHES=y
+ CONFIG_EDAC_LAYERSCAPE=m
++CONFIG_EDAC_ZYNQMP=m
++CONFIG_EDAC_VERSAL=m
+ CONFIG_RTC_CLASS=y
+ CONFIG_RTC_DRV_DS1307=m
+ CONFIG_RTC_DRV_HYM8563=m
+@@ -1300,6 +1347,7 @@ CONFIG_RTC_DRV_DS3232=y
+ CONFIG_RTC_DRV_PCF2127=m
+ CONFIG_RTC_DRV_DA9063=m
+ CONFIG_RTC_DRV_EFI=y
++CONFIG_RTC_DRV_ZYNQMP=m
+ CONFIG_RTC_DRV_CROS_EC=y
+ CONFIG_RTC_DRV_FSL_FTM_ALARM=m
+ CONFIG_RTC_DRV_S3C=y
+@@ -1316,7 +1364,9 @@ CONFIG_RTC_DRV_XGENE=y
+ CONFIG_RTC_DRV_TI_K3=m
+ CONFIG_RTC_DRV_RENESAS_RTCA3=m
+ CONFIG_RTC_DRV_NVIDIA_VRS10=m
++CONFIG_RTC_DRV_MACSMC=m
+ CONFIG_DMADEVICES=y
++CONFIG_APPLE_ADMAC=m
+ CONFIG_DMA_BCM2835=y
+ CONFIG_DMA_SUN6I=m
+ CONFIG_FSL_EDMA=y
+@@ -1329,6 +1379,9 @@ CONFIG_PL330_DMA=y
+ CONFIG_TEGRA186_GPC_DMA=y
+ CONFIG_TEGRA20_APB_DMA=y
+ CONFIG_TEGRA210_ADMA=m
++CONFIG_XILINX_DMA=m
++CONFIG_XILINX_ZYNQMP_DMA=m
++CONFIG_XILINX_ZYNQMP_DPDMA=m
+ CONFIG_MTK_UART_APDMA=m
+ CONFIG_QCOM_BAM_DMA=y
+ CONFIG_QCOM_GPI_DMA=m
+@@ -1362,6 +1415,11 @@ CONFIG_CROS_EC_RPMSG=m
+ CONFIG_CROS_EC_SPI=y
+ CONFIG_CROS_KBD_LED_BACKLIGHT=m
+ CONFIG_CROS_EC_CHARDEV=m
++CONFIG_COMMON_CLK_APPLE_NCO=m
++CONFIG_EC_ACER_ASPIRE1=m
++CONFIG_EC_HUAWEI_GAOKUN=m
++CONFIG_EC_LENOVO_YOGA_C630=m
++CONFIG_EC_LENOVO_THINKPAD_T14S=m
+ CONFIG_COMMON_CLK_RK808=y
+ CONFIG_COMMON_CLK_SCMI=y
+ CONFIG_COMMON_CLK_SCPI=y
+@@ -1397,6 +1455,8 @@ CONFIG_COMMON_CLK_MT8192_SCP_ADSP=y
+ CONFIG_COMMON_CLK_MT8192_VDECSYS=y
+ CONFIG_COMMON_CLK_MT8192_VENCSYS=y
+ CONFIG_COMMON_CLK_QCOM=y
++CONFIG_CLK_KAANAPALI_GCC=y
++CONFIG_CLK_KAANAPALI_TCSRCC=m
+ CONFIG_CLK_X1E80100_CAMCC=m
+ CONFIG_CLK_X1E80100_DISPCC=m
+ CONFIG_CLK_X1E80100_GCC=y
+@@ -1462,18 +1522,21 @@ CONFIG_SDM_DISPCC_845=y
+ CONFIG_SDM_LPASSCC_845=m
+ CONFIG_SDX_GCC_75=y
+ CONFIG_SM_CAMCC_6350=m
++CONFIG_SM_CAMCC_MILOS=m
+ CONFIG_SM_CAMCC_8250=m
+ CONFIG_SM_CAMCC_8550=m
+ CONFIG_SM_CAMCC_8650=m
+ CONFIG_SM_DISPCC_6115=m
+ CONFIG_SM_DISPCC_8250=y
+ CONFIG_SM_DISPCC_6350=m
++CONFIG_SM_DISPCC_MILOS=m
+ CONFIG_SM_DISPCC_8450=m
+ CONFIG_SM_DISPCC_8550=m
+ CONFIG_SM_DISPCC_8750=m
+ CONFIG_SM_GCC_4450=y
+ CONFIG_SM_GCC_6115=y
+ CONFIG_SM_GCC_6350=y
++CONFIG_SM_GCC_MILOS=y
+ CONFIG_SM_GCC_8350=y
+ CONFIG_SM_GCC_8450=y
+ CONFIG_SM_GCC_8550=y
+@@ -1481,6 +1544,7 @@ CONFIG_SM_GCC_8650=y
+ CONFIG_SM_GCC_8750=y
+ CONFIG_SM_GPUCC_6115=m
+ CONFIG_SM_GPUCC_6350=m
++CONFIG_SM_GPUCC_MILOS=m
+ CONFIG_SM_GPUCC_8150=y
+ CONFIG_SM_GPUCC_8250=y
+ CONFIG_SM_GPUCC_8350=m
+@@ -1492,6 +1556,7 @@ CONFIG_SM_TCSRCC_8650=y
+ CONFIG_SM_TCSRCC_8750=m
+ CONFIG_SA_VIDEOCC_8775P=m
+ CONFIG_SM_VIDEOCC_6350=m
++CONFIG_SM_VIDEOCC_MILOS=m
+ CONFIG_SM_VIDEOCC_8250=y
+ CONFIG_SM_VIDEOCC_8550=m
+ CONFIG_QCOM_HFPLL=y
+@@ -1501,6 +1566,8 @@ CONFIG_CLK_RCAR_USB2_CLOCK_SEL=y
+ CONFIG_CLK_RENESAS_VBATTB=m
+ CONFIG_EXYNOS_ACPM_CLK=m
+ CONFIG_CLK_SOPHGO_CV1800=y
++CONFIG_XILINX_VCU=m
++CONFIG_COMMON_CLK_XLNX_CLKWZRD=m
+ CONFIG_HWSPINLOCK=y
+ CONFIG_HWSPINLOCK_OMAP=m
+ CONFIG_HWSPINLOCK_QCOM=y
+@@ -1525,6 +1592,7 @@ CONFIG_ARM_SMMU=y
+ CONFIG_ARM_SMMU_V3=y
+ CONFIG_MTK_IOMMU=y
+ CONFIG_QCOM_IOMMU=y
++CONFIG_APPLE_DART=m
+ CONFIG_REMOTEPROC=y
+ CONFIG_IMX_REMOTEPROC=y
+ CONFIG_MTK_SCP=m
+@@ -1544,6 +1612,9 @@ CONFIG_RPMSG_QCOM_SMD=y
+ CONFIG_RPMSG_VIRTIO=y
+ CONFIG_SOUNDWIRE=m
+ CONFIG_SOUNDWIRE_QCOM=m
++CONFIG_APPLE_MAILBOX=m
++CONFIG_APPLE_RTKIT=m
++CONFIG_APPLE_SART=m
+ CONFIG_FSL_DPAA=y
+ CONFIG_FSL_MC_DPIO=y
+ CONFIG_FSL_RCPM=y
+@@ -1613,6 +1684,8 @@ CONFIG_RZT2H_ADC=m
+ CONFIG_SOPHGO_CV1800B_ADC=m
+ CONFIG_TI_ADS1015=m
+ CONFIG_TI_AM335X_ADC=m
++CONFIG_XILINX_XADC=m
++CONFIG_XILINX_AMS=m
+ CONFIG_IIO_CROS_EC_SENSORS_CORE=m
+ CONFIG_IIO_CROS_EC_SENSORS=m
+ CONFIG_IIO_ST_LSM6DSX=m
+@@ -1625,6 +1698,7 @@ CONFIG_IIO_CROS_EC_BARO=m
+ CONFIG_MPL3115=m
+ CONFIG_PWM=y
+ CONFIG_PWM_ADP5585=m
++CONFIG_PWM_APPLE=m
+ CONFIG_PWM_BCM2835=m
+ CONFIG_PWM_BRCMSTB=m
+ CONFIG_PWM_CROS_EC=m
+@@ -1645,7 +1719,9 @@ CONFIG_PWM_TEGRA=m
+ CONFIG_PWM_TIECAP=m
+ CONFIG_PWM_TIEHRPWM=m
+ CONFIG_PWM_VISCONTI=m
++CONFIG_PWM_XILINX=m
+ CONFIG_SL28CPLD_INTC=y
++CONFIG_XILINX_INTC=y
+ CONFIG_QCOM_PDC=y
+ CONFIG_QCOM_MPM=y
+ CONFIG_TI_SCI_INTR_IRQCHIP=y
+@@ -1694,6 +1770,7 @@ CONFIG_PHY_R8A779F0_ETHERNET_SERDES=y
+ CONFIG_PHY_RCAR_GEN3_PCIE=y
+ CONFIG_PHY_RCAR_GEN3_USB2=y
+ CONFIG_PHY_RCAR_GEN3_USB3=m
++CONFIG_PHY_RZ_G3E_USB3=m
+ CONFIG_PHY_ROCKCHIP_EMMC=y
+ CONFIG_PHY_ROCKCHIP_INNO_HDMI=m
+ CONFIG_PHY_ROCKCHIP_INNO_USB2=y
+@@ -1710,6 +1787,7 @@ CONFIG_PHY_UNIPHIER_USB3=y
+ CONFIG_PHY_TEGRA_XUSB=y
+ CONFIG_PHY_AM654_SERDES=m
+ CONFIG_PHY_J721E_WIZ=m
++CONFIG_PHY_XILINX_ZYNQMP=m
+ CONFIG_ARM_CCI_PMU=m
+ CONFIG_ARM_CCN=m
+ CONFIG_ARM_CMN=m
+@@ -1720,11 +1798,14 @@ CONFIG_QCOM_L2_PMU=y
+ CONFIG_QCOM_L3_PMU=y
+ CONFIG_ARM_SPE_PMU=m
+ CONFIG_ARM_DMC620_PMU=m
++CONFIG_APPLE_M1_CPU_PMU=y
+ CONFIG_HISI_PMU=y
+ CONFIG_ARM_CORESIGHT_PMU_ARCH_SYSTEM_PMU=m
+ CONFIG_NVIDIA_CORESIGHT_PMU_ARCH_SYSTEM_PMU=m
+ CONFIG_MESON_DDR_PMU=m
+ CONFIG_NVMEM_LAYOUT_SL28_VPD=m
++CONFIG_NVMEM_APPLE_EFUSES=m
++CONFIG_NVMEM_APPLE_SPMI=m
+ CONFIG_NVMEM_IMX_OCOTP=y
+ CONFIG_NVMEM_IMX_OCOTP_ELE=m
+ CONFIG_NVMEM_IMX_OCOTP_SCU=y
+@@ -1740,14 +1821,18 @@ CONFIG_NVMEM_SNVS_LPGPR=y
+ CONFIG_NVMEM_SPMI_SDAM=m
+ CONFIG_NVMEM_SUNXI_SID=y
+ CONFIG_NVMEM_UNIPHIER_EFUSE=y
++CONFIG_NVMEM_ZYNQMP=m
+ CONFIG_FPGA=y
+ CONFIG_FPGA_MGR_ALTERA_CVP=m
+ CONFIG_FPGA_MGR_STRATIX10_SOC=m
+ CONFIG_FPGA_BRIDGE=m
+ CONFIG_ALTERA_FREEZE_BRIDGE=m
++CONFIG_XILINX_PR_DECOUPLER=m
+ CONFIG_FPGA_REGION=m
+ CONFIG_OF_FPGA_REGION=m
+ CONFIG_OF_OVERLAY=y
++CONFIG_FPGA_MGR_ZYNQMP_FPGA=m
++CONFIG_FPGA_MGR_VERSAL_FPGA=m
+ CONFIG_TEE=y
+ CONFIG_OPTEE=y
+ CONFIG_MUX_GPIO=m
+@@ -1762,6 +1847,7 @@ CONFIG_INTERCONNECT_IMX8MN=m
+ CONFIG_INTERCONNECT_IMX8MQ=m
+ CONFIG_INTERCONNECT_IMX8MP=y
+ CONFIG_INTERCONNECT_QCOM=y
++CONFIG_INTERCONNECT_QCOM_KAANAPALI=y
+ CONFIG_INTERCONNECT_QCOM_MSM8916=m
+ CONFIG_INTERCONNECT_QCOM_MSM8953=y
+ CONFIG_INTERCONNECT_QCOM_MSM8996=y
+@@ -1780,6 +1866,7 @@ CONFIG_INTERCONNECT_QCOM_SDM845=y
+ CONFIG_INTERCONNECT_QCOM_SDX75=y
+ CONFIG_INTERCONNECT_QCOM_SM6115=y
+ CONFIG_INTERCONNECT_QCOM_SM6350=y
++CONFIG_INTERCONNECT_QCOM_MILOS=y
+ CONFIG_INTERCONNECT_QCOM_SM8150=y
+ CONFIG_INTERCONNECT_QCOM_SM8250=y
+ CONFIG_INTERCONNECT_QCOM_SM8350=y
+@@ -1842,6 +1929,9 @@ CONFIG_CRYPTO_DEV_FSL_DPAA2_CAAM=m
+ CONFIG_CRYPTO_DEV_QCE=m
+ CONFIG_CRYPTO_DEV_QCOM_RNG=m
+ CONFIG_CRYPTO_DEV_TEGRA=m
++CONFIG_CRYPTO_DEV_XILINX_TRNG=m
++CONFIG_CRYPTO_DEV_ZYNQMP_AES=m
++CONFIG_CRYPTO_DEV_ZYNQMP_SHA3=m
+ CONFIG_CRYPTO_DEV_CCREE=m
+ CONFIG_CRYPTO_DEV_HISI_SEC2=m
+ CONFIG_CRYPTO_DEV_HISI_ZIP=m
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index cd736a1d657e..6ce600081a6b 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -255,8 +255,8 @@ CONFIG_CLK_SOPHGO_CV1800=y
+ CONFIG_CLK_SOPHGO_SG2042_PLL=y
+ CONFIG_CLK_SOPHGO_SG2042_CLKGEN=y
+ CONFIG_CLK_SOPHGO_SG2042_RPGATE=y
+-CONFIG_SPACEMIT_CCU=y
+ CONFIG_SPACEMIT_K1_CCU=y
++CONFIG_SPACEMIT_K3_CCU=y
+ CONFIG_SUN8I_DE2_CCU=m
+ CONFIG_SUN50I_IOMMU=y
+ CONFIG_RPMSG_CHAR=y
 
