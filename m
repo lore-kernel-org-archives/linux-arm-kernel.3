@@ -4,97 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6021EB26EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 17:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD118EB26EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 17:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uS5dkroWDYoVr9gb0lK7EVf1IOyETk+czez2T6E0mRc=; b=a8UZGS900HMnYWjuqGvH/AuGf2
-	85HTORGD4AlL0R4sMnSsldNOBeakkGFvAPbWnlqcchv7pvxGHZAIY9myM1XTrwFpU0KvMt3cTs7uf
-	POYYx2vd+/7dJe/r5mroac9G+FzwGVQ/PQytmf5U5bLBfz9PF7zsjohguvNlKAXCw5PsdlH7Jz5JB
-	rUbqBhAzRRwSdpFRg6YyWUoT0QA/kogzhIPHbYXzMYXx/DyI5KkwUh01wxIp1jcd8IwwL4odwLtte
-	fJ2ejF7op3cSVzlh2epjNxhsbI2R2KSGMuOhyeEzF4FGjL+7OBpn2tEO9+OoHsd/WSwvtIVJa9dK9
-	it7ZxYEA==;
+	bh=wtbFpYrTdulEgD2DiQFMOvshLaHY6WPXpa/V5WFFW2w=; b=Q60ExcPTcL/dPH+PMwzdDUz6UU
+	5i05Z4UqbiKfcVLgfRHRMFwLHrmEK4CKpowcbT+0lJuZAXaFP7KOdGvQxtOs0zLsFNaEv27VERUws
+	aiKvN8OiCV9/Tg65SEwhA7sc4vp97YCqHef6KVBW7W/5AQZ712zeRvlcGIRso7466IPMM1yBtZOrf
+	1yR6lJsZAJWEB9m8v62dz6ze0iS1apQCgvugA8c83tLGEYqwec/LRhOXJyyIcEhaCtiKojkzFDcEI
+	BP1OqasGRLVp/KFzte6zBTL0S4LW02gqPg3YgrFv1BwYcm1j6hwMgIqb7zzjRCBTPx6s9wrXFwuh7
+	L3PdHDhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vprA8-0000000HIOC-2sAO;
-	Tue, 10 Feb 2026 17:04:32 +0000
-Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
+	id 1vprBJ-0000000HIXF-0dnQ;
+	Tue, 10 Feb 2026 17:05:45 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vprA6-0000000HINf-2jBi
+	id 1vprBF-0000000HIVX-356y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 17:04:31 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id ECF487A00EA;
-	Tue, 10 Feb 2026 12:04:26 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Tue, 10 Feb 2026 12:04:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm2; t=1770743066; x=1770829466; bh=uS
-	5dkroWDYoVr9gb0lK7EVf1IOyETk+czez2T6E0mRc=; b=L0+6dQfZW6kp7ZdOSr
-	zIQW+8Hoy9igWFIk+Zq9DYFsxLR5M6wyCVa27Zv0IwZt6mdFnYINNDG/Vuyo94lj
-	5D0hQ9boMFTElasP0En+24Cqe4Yuih+W6g5F4AEO49d7jKWLqW3fFr5q4csXZJ03
-	kyU993fOAElorchwhPD+2P5gMMWFvOkeM1klo+SkDIN6h/bdguVTGmM/Z3uCa0da
-	0C7uV9hyiYom2Bx+GVzLc6WFaN+6pVUN6rMZTLUn3qGdNvvThhzrwHbNqJv4+Cyi
-	9I10AFpMFKt8Y2qQ4RZSKrpC/JrC33iHlnta35WDFhHXEzjI1MMMADppkgnwXjCS
-	XdQA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm3; t=1770743066; x=1770829466; bh=uS5dkroWDYoVr9gb0lK7EVf1IOyE
-	Tk+czez2T6E0mRc=; b=E0udqLk9kuMXBOmsns4AW6z4dowYBs3os/+QDf29xJxX
-	NtcCgZoLkC86r7WLGJxWEhlpGDi7qlk8w9yNm8x5cP3mqHC1CX0u/xCQOHPAS5UH
-	pV9FJLdyUtjkuVh+axw+0Bd1LV2vkrnb6PhFH1DUOv4ePEXRTGT2JsmPAOxMdYs4
-	G04dX/jCGC+jzlB484b4Qv8anMyDz6b5jOTISoNhLTPYafr/rtDs1me5bBUBrijp
-	xsNZxaWIn6gQ1zjGbJ7tIYf2vpoIXCwlKFT4Ozrxqn/5ByOrJit/CGbygRfWSrm4
-	lEKruVncwx1a7VcXZ5YqAxqs+ATeFyFmW19jdbJ7Rg==
-X-ME-Sender: <xms:GmWLac2Vc5EU1a-OxWmhmduqF825zRzPM7xHVtEJ6HxlunMsXkcf-Q>
-    <xme:GmWLaR7KV4G37VC6ZN8MESSdxSkFtLvWzHorGvquuUM6GU6hW5g55S4rdkaUS4MCG
-    qDIIt2WpdC7xxFVnPi25-ZBmK5TFCYGMP0Eu4oC3DDWSvvM1mCBN3Y>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvtddtvdefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkffutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
-    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
-    epffffffehuefgfefhudevgfelieejkedtffefieejtdfhvefgieeiveejueetfedvnecu
-    vehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhguse
-    grrhhnuggsrdguvgdpnhgspghrtghpthhtohepgedpmhhouggvpehsmhhtphhouhhtpdhr
-    tghpthhtohepthhorhhvrghlughssehlihhnuhigqdhfohhunhgurghtihhonhdrohhrgh
-    dprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhr
-    rgguvggrugdrohhrghdprhgtphhtthhopehsohgtsehlihhsthhsrdhlihhnuhigrdguvg
-    hvpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdho
-    rhhg
-X-ME-Proxy: <xmx:GmWLaeiaA8O-Posj8_LG7AcD3NTOcakKFdShayuWFI-Ao2amcZzm6A>
-    <xmx:GmWLaV5Lwl4zKpIXg4MJQHnDh4KwM7IqLtTk5UPsXx9nxmqj8OaitA>
-    <xmx:GmWLaeYdK4rpngCRdVfonh28W28Zw8O6l2x77LfuPufNoIoiuN5BcQ>
-    <xmx:GmWLaS6J4Roj04gNQ0cQ-B6FAvxwH52NuWHqaASxS4ZmCxTfXnzoaw>
-    <xmx:GmWLaUKlxR3PxrCo4t-e-AhNtFauJW1FZ6GLENq-CZkL3apoyaYmzYGR>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 470E7700065; Tue, 10 Feb 2026 12:04:26 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: AYfK9ZjhzOaF
-Date: Tue, 10 Feb 2026 18:03:15 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: soc@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Message-Id: <a34ea40f-e0d3-459b-8233-9f87f6cd73e5@app.fastmail.com>
-Subject: [GIT PULL 0/4] soc updates for 7.0
+	Tue, 10 Feb 2026 17:05:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KiQZoINPybH2/EsQJQYtM8ymYY/82T3rJOA01PZmyfi4dRuN5tjiEzIk5PXTXO8x4bcUvVkrWepMxrAdGFmmKMevj3tHAXK9YAP/n4BC6cze3PwdccJ14k6v5JjSIOwUVwnZ2bxcLu54aRUNVAmPjUun3/uVk6s6uq4n+NayhU4vUIPoAChrtk6klt64dtVeYiVvzyFCr2rYWZ6/57JL0zuIYoNM0IUHmLZjy6NMhdzxXoJUvlyo8e6098NVUxkOexbV+ncsS/ZXlDywrIAXmLGnEMZHXxRz+lWCXbv3uPg95J3Zcw22Lh/l/QAr8fn94EkoxneGBAP5VaMRjEvAHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wtbFpYrTdulEgD2DiQFMOvshLaHY6WPXpa/V5WFFW2w=;
+ b=R+/FtphWlDKtdkC0RkN8ueQitvhGdTgdid89ZTqSqCyQppYRlKXrMrQ23Hr2sS8dtFJvze52tPHG1WNYvVRo5jyTVVoKMLQSazsci77Vl81f7CO6ySNSN80YaW2YTagXRCycAFTqC7PUOHQ44l3eVkxy9NnNbAWRkIJ+1c6Ef051KiBT/+LUp9f/4BT2WeCnwUYVbhfhpJCacnoPSea3dQ1BOI3OnINc5RqYYidiKjs58goY6qrpr+1BwkTiobI/TuOxllSrReYBL32Udk5HXaeU+EumQK60vn+bQChedrmb1JHq5oteJ2rbVm0oBNJONdNcyIRgq6fnF96FbEksLA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wtbFpYrTdulEgD2DiQFMOvshLaHY6WPXpa/V5WFFW2w=;
+ b=fEpHbwRFE+/ctH68dA7x7g9XFWKnKothTo1EnKs7N02naePFYBZeXzC5rOimRoROlXVyoPnKhCUAaUIsmwUPjHJSdzRWYOcJwYHbEg3aa7MSDkmo56Trd7fqdjv4V413vQcGt+tWdKG3YB7QpIsUagirGHe9dRqP8v5TRORcIcd8AfKmNljK7oBtlzeE7WkNsxLUI+cq7ttYqr+ty8wE7zdy0fX6Yvpmv4kDYy7b1VxYQYt/9ZwijEo9kZekuHhlTR/vpGd3q0XXqzixxKXn5QfhXZ26iSFEU8pagQ2Q7+sqrI6p5qctMpZBCP0E8GhM6whyJLcjRMLZp9EpPxVxtw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by DB9PR04MB8362.eurprd04.prod.outlook.com (2603:10a6:10:241::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.18; Tue, 10 Feb
+ 2026 17:05:35 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb%4]) with mapi id 15.20.9611.006; Tue, 10 Feb 2026
+ 17:05:34 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-imx@nxp.com,
+	arnaud.pouliquen@foss.st.com
+Subject: [PATCH v7 0/4] Enable Remote GPIO over RPMSG on i.MX Platform
+Date: Tue, 10 Feb 2026 11:04:34 -0600
+Message-ID: <20260210170439.406513-1-shenwei.wang@nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PH0PR07CA0052.namprd07.prod.outlook.com
+ (2603:10b6:510:e::27) To PAXPR04MB9185.eurprd04.prod.outlook.com
+ (2603:10a6:102:231::11)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9185:EE_|DB9PR04MB8362:EE_
+X-MS-Office365-Filtering-Correlation-Id: fa51869e-3ccb-4e57-9309-08de68c69b00
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|52116014|7416014|376014|1800799024|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EYBH8VRqWJ8NOIoBfLRq2z+7GQTiKxKW910Hfpz6Jhx1axXBMj1qxEKzx5rj?=
+ =?us-ascii?Q?SZzKgbJQnFbeSGydg3pckycaelMWimukQnL0DpA1NLn4iMerLgKxnV5irg6s?=
+ =?us-ascii?Q?OnaPidbbOP0PdX+XwxYdPomYyRwKcL0UehZL+UZ95jVPqxb4AssGvWRP8aDg?=
+ =?us-ascii?Q?p1jqWT0SLdIzA3hl0NBjGB4AvbELyccrm6q576cobo6pBtvVoPm0Ho40nOgN?=
+ =?us-ascii?Q?YDO33W1Z6yT+bXL0YIBy1eZsfavmeQKzXEi10GQfngL/XUgO+EuF4d8KQ2lS?=
+ =?us-ascii?Q?ldif9TXXuwYAiBAGi3FzJ6fkHWFKp/lkwG/nWosX35skG6BkNmrXXIvMtZSn?=
+ =?us-ascii?Q?RJY/+j59wx6NfodkiW1Xen7tnZtrc3tkh+RgdwdK/C/0FZ5PdRtMx2jKrULB?=
+ =?us-ascii?Q?fp44Hu7dpxtdKziNicyaLFSsCVxRwNxHHDKYXFQuj0zmoOUn3mnXqFaSgX5i?=
+ =?us-ascii?Q?t06Con5/vgICbVHm3fZadubuyCKfUeVk2ZTgN+Tu+a8yEgMLE/kTwc8NUyXe?=
+ =?us-ascii?Q?CgRZoCoMpczWhzdBAOGbdMj05MpWwq9Gn1vN0BJBcJxCMV7L+zxMe/2KhfRc?=
+ =?us-ascii?Q?uFTkgUt5vNi3F9aQadh5UGtN5tkrKsxEvEiQqXUWgMT/LU3r5gLBy2XxPH4J?=
+ =?us-ascii?Q?oSNXvStCJ7B3PxfSDj6ZWP+cC5SZnDZ6Wr5X344GAwc5s0kaxz9kXE0QZcoK?=
+ =?us-ascii?Q?IjBD5NHxq0+ZsRhw3DBcGsGjtl1eK8BRd+SowWewxNiNs8NC3TX3Jpsljzur?=
+ =?us-ascii?Q?XZ/xVCHf2LvPCdQDtDVCHnTI/Tl8m7sNhaAyTnSAitxVAkGVIvzIkTdvT+TQ?=
+ =?us-ascii?Q?q23SFfAHX7HpQ6pZhr9lzBZhNy6f43Si4b/PA2n/z9uw/R5Knhs/sFsNuGAG?=
+ =?us-ascii?Q?ZgYEPB7Uj+Wf3hb6t5O/vni+zw0iq2tvtM9sxe7aVow0u6GUN5U5zdOz3l7z?=
+ =?us-ascii?Q?KXE9vEk5b6GwAjimn4FO/yPnL8b3k9vowt1opirNijxTNe9SzYEel+cYiAge?=
+ =?us-ascii?Q?j83FV7ZkXyGG9sclT+VoCAJEPQVIO8ZCqzoelZ4kFnWYRsr0bUJXk9ZZ8BZw?=
+ =?us-ascii?Q?VXTqtWp3oatgSxc8eB3CsIeGUwHeWrh7uRBGGD/iGSD4f1tJePq3XS6vMtxN?=
+ =?us-ascii?Q?j/NZCVx7rjLxc9voiei6a5XyrlSe2Dl/caw1isGTHLxkTL3iLxBj/CEI9XK3?=
+ =?us-ascii?Q?egy4CyMZkBQbwa5wfeBteNBQAUBzNICjv+NZHMiZBKht/gLDeSdCd+9jl5Zp?=
+ =?us-ascii?Q?xvU52a1wovKPSk/gwIA6VJYUgSM20FRtBirNRUu0NDfZTSFPgiL0kxVqEQEl?=
+ =?us-ascii?Q?m14uRcLcN+rRl2cUfz9/4z3h0eQTDepKA0Pd9PgldQGiKm/7VEq4wTL8vn2O?=
+ =?us-ascii?Q?ozl6RRjusVkjZL4yeOX1VGSAMelonaOhlHhO636L5sQo+8SQtUnIB2Q20MsL?=
+ =?us-ascii?Q?WY1KBe7h+35qk7jxpmsg2ihnb784yn4208PRN04dZf+YiXG+jz9Gxmvb76Rs?=
+ =?us-ascii?Q?2hRGPue2daFwZd26z/GsbfcKcUVSI0YTBKj9C7IMDEpTV5vN1s5PySyEhpOP?=
+ =?us-ascii?Q?gY3xgJ0wi2Rm+6wYuVLRlJWVjrdWMd1Eqg6SVjqxDWlnOIn2bR8O1qvyw85S?=
+ =?us-ascii?Q?iKIy6Y+r4FW+p54eHwFyNPUSWvjjTKGoeJjwDnDRynVO?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(52116014)(7416014)(376014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HbJl5UhVgQ7eECfAaFkL7naX+LHgJF2OuXlCC8rT1klVKgZd3quZPtAnA4ZA?=
+ =?us-ascii?Q?6tw/WJVSL4uhwMPj3U6cGSW2iAo9JjcmtT9hW/QjacRx+G6qTBGctYheXt83?=
+ =?us-ascii?Q?rHzO2H/9odEJaXAu9Gl9HUY/UUrWsDyP5yis9L4KU2HnD0xjaj+qg1FvqBCR?=
+ =?us-ascii?Q?r5LTM2wK/BnblXBkvVVEWGuL9G+HJKusaG3EFeAp5ZIsz66TdvsrldNNQLf9?=
+ =?us-ascii?Q?UqNWYEZ8YnJ16WdejhHTXyy2DESAwUntAaHfmneHisdQ3pvGPCWm4DrpjyRL?=
+ =?us-ascii?Q?Xdy3YZ+3gKVidGWAZAznlVQ9SYyUD7OPFkXmLGrYCSdymaRKgLMfq6ENhRep?=
+ =?us-ascii?Q?Sw5yJvw4wIyE6pf5hraoPSZY3pLBxSZIkqrwVEwUpQjmpfdWVFYlwO84w4R7?=
+ =?us-ascii?Q?Jpdj5rQz2XtHVPPMVlDHy6eRShPsLjVbbAEyBmFcSNEPMe09gCwsjvSM1DpV?=
+ =?us-ascii?Q?ia1Q6oR492hq/rDwFxqEFRf+2VQqJKZf5gWrj7tsQ8OOc/oYLosNnhnxZCWc?=
+ =?us-ascii?Q?cVn1hjkcdu2dPFvQXwDwc9PW/AM/AieY4zPbjesKZqeioJWAZaxuDy53nXN5?=
+ =?us-ascii?Q?/MoR5SNLLUF2PN1oe+mqRZXlIw058AoQO4RplgpWT+Ui75cQfixf6k+GouAV?=
+ =?us-ascii?Q?UHXEEFMIe9ppPQWQgunxsoOXcJa/NRf1z0vaWIcjeukey46SDQh8bmit+QfZ?=
+ =?us-ascii?Q?B/7J33Eql3ptPqPaxIn8TUE2WJINDq5wCxKuHHGjVr5Wp7rekdrvINaSzOgP?=
+ =?us-ascii?Q?yD2PrLkrF45pDs9kSAD+Q1PdLGx78Wuk1N11Yv64CDZ5JqDGyMLRTlglU0n1?=
+ =?us-ascii?Q?svRCX4zZsab95AivvG0P7tQFYMWI4MirN0WNjJV9Ic2fmrxRAAhQjzBywM8t?=
+ =?us-ascii?Q?iZkYxifpzytb2uC8O/6ap9OwHqFb9MBWk9HfB2gERhxPrxn/VSPOhxqkrAFX?=
+ =?us-ascii?Q?kp9WFn7mL2DE+lhOqkTtGvTUe+DWNHRp3ZpsxsjvX7TMK0VKYCiKAY3ltF3o?=
+ =?us-ascii?Q?uWB89LZWe4tqEOC1zql6UoaO4TcRaYegYxzsdoSdj5PsIKfJCqinaDnVL7ox?=
+ =?us-ascii?Q?PSpy2cS1h5+hzs8jSuryyIKf1mbyHGVSqxle7SzoejfiPVdrACQnlTt+L72I?=
+ =?us-ascii?Q?0iafQu0HND/PRYdrv4bcLLYVeNaIZshDnbrRy9x+h7Vez1GKer5IQBU4cGZd?=
+ =?us-ascii?Q?QhKhUEq9S3yHqd0dgSgn8C4rhetClbGESjZKN5muYre37ScAFFJQhxBFEfAQ?=
+ =?us-ascii?Q?eFYFpuqAOF354DTYBaSgjWsUp3LS4GLtOPI2oO5pDsPncpIqrXUe0vwS8igo?=
+ =?us-ascii?Q?PGU4bTBzpzhwCWH2O+W1JLAkf6WFEBqzjmI1vpHB+UTNRWTcuA5ustgTBHfq?=
+ =?us-ascii?Q?vJaKXHQeH0xQNoCy8ZlvWqDN+uZiRU2iyHzT0AoxaOWPDo/kRXcIVLXHiaZQ?=
+ =?us-ascii?Q?TmaOS2cVS+8+f3dwaRJxnkX1yLxJ9+OcOf49ag9/HXLWU9u50nR0Q5nxIXMF?=
+ =?us-ascii?Q?7OLlKKlwTpnp8vV4zV7KVQlolsRvEPfMwxlJq+VbaCjTJu8MFhAI4sG4rsmJ?=
+ =?us-ascii?Q?W4NdOMzbwYrt6IJXNhTo8PJFQwc1/14ryBf3ZWZ4d73xDJqpPe1KwFGi6Wat?=
+ =?us-ascii?Q?vX+05MO5NQgeHeBO5Bw3tdR2ZpGD3fAN46Va3k4jzzi5MF7hDOKpUJSYd34O?=
+ =?us-ascii?Q?mjVJIdUxwD0vTY6irFmEwh522gkb+wDZeE9zQDrX9BhGd+t7Z3+mxYhHtMol?=
+ =?us-ascii?Q?yHbVTt1F/w=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa51869e-3ccb-4e57-9309-08de68c69b00
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2026 17:05:34.9067
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yxwoeOJ6nN58FJ12RvNnXRL7zbz6THeyw+ZUD+hwgEhc4JSuUHllMDbhzdTjeGZgjacftauVpVG0T34NCQX4Hw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8362
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_090430_732220_A1BC77EC 
-X-CRM114-Status: UNSURE (   5.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260210_090541_807511_B0C0C3CC 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,68 +180,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+Support the remote devices on the remote processor via the RPMSG bus on
+i.MX platform.
 
-The 7.0 merge window seems fairly quiet for the soc tree, with
-only 757 non-merge changesets throughout the tree, and three
-quarters of those being arm64 devicetree updates. A few new
-SoC models got merged, but fewer new machines normal.
+Changes in v7:
+ - Reworked the driver to use the rpmsg_driver framework instead of
+   platform_driver, based on feedback from Bjorn and Arnaud.
+ - Updated gpio-rpmsg.yaml and imx_rproc.yaml according to comments from
+   Rob and Arnaud.
+ - Further refinements to gpio-rpmsg.yaml per Arnaud's feedback.
 
-The most active developers this time by number of patches are
+Changes in v6:
+ - make the driver more generic with the actions below:
+     rename the driver file to gpio-rpmsg.c
+     remove the imx related info in the function and variable names
+     rename the imx_rpmsg.h to rpdev_info.h
+     create a gpio-rpmsg.yaml and refer it in imx_rproc.yaml
+ - update the gpio-rpmsg.rst according to the feedback from Andrew and
+   move the source file to driver-api/gpio
+ - fix the bug reported by Zhongqiu Han
+ - remove the I2C related info
 
-     37 Rob Herring (Arm)
-     35 Krzysztof Kozlowski
-     26 Lad Prabhakar
-     25 AngeloGioacchino Del Regno
-     18 Luca Weiss
-     15 Vladimir Zapolskiy
-     15 Heiko Stuebner
-     15 Guodong Xu
-     15 Cosmin Tanislav
-     15 Alexander Stein
-     14 Peng Fan
-     14 Alain Volmat
-     12 Frank Li
-     11 Patrice Chotard
-     11 Francesco Dolcini
-     11 Dmitry Baryshkov
-     10 Stefano Radaelli
+Changes in v5:
+ - move the gpio-rpmsg.rst from admin-guide to staging directory after
+   discussion with Randy Dunlap.
+ - add include files with some code improvements per Bartosz's comments.
 
-and this is the overall dirstat:
+Changes in v4:
+ - add a documentation to describe the transport protocol per Andrew's
+   comments.
+ - add a new handler to get the gpio direction.
 
-   0.5% Documentation/devicetree/bindings/arm/
-   0.3% Documentation/devicetree/bindings/mtd/
-   0.5% Documentation/devicetree/bindings/riscv/
-   0.5% Documentation/devicetree/bindings/
-   3.2% arch/arm/boot/dts/aspeed/
-   0.8% arch/arm/boot/dts/microchip/
-   0.6% arch/arm/boot/dts/nxp/imx/
-   0.2% arch/arm/boot/dts/nxp/lpc/
-   0.5% arch/arm/boot/dts/qcom/
-   0.5% arch/arm/boot/dts/renesas/
-   0.4% arch/arm/boot/dts/st/
-   0.6% arch/arm/boot/dts/ti/omap/
-   0.2% arch/arm/boot/dts/
-   0.2% arch/arm64/boot/dts/allwinner/
-   1.3% arch/arm64/boot/dts/amlogic/
-   3.2% arch/arm64/boot/dts/apple/
-   0.4% arch/arm64/boot/dts/broadcom/northstar2/
-   0.8% arch/arm64/boot/dts/broadcom/stingray/
-   0.3% arch/arm64/boot/dts/cavium/
-  22.5% arch/arm64/boot/dts/freescale/
-   0.5% arch/arm64/boot/dts/intel/
-   0.4% arch/arm64/boot/dts/marvell/
-   4.3% arch/arm64/boot/dts/mediatek/
-   0.2% arch/arm64/boot/dts/nvidia/
-  31.6% arch/arm64/boot/dts/qcom/
-   0.8% arch/arm64/boot/dts/realtek/
-   9.5% arch/arm64/boot/dts/renesas/
-   7.1% arch/arm64/boot/dts/rockchip/
-   0.3% arch/arm64/boot/dts/st/
-   1.0% arch/arm64/boot/dts/ti/
-   0.4% arch/arm64/boot/dts/
-   2.0% arch/riscv/boot/dts/sophgo/
-   2.4% arch/riscv/boot/dts/spacemit/
-   0.2% arch/riscv/boot/dts/
- 775 files changed, 52313 insertions(+), 5630 deletions(-)
+Changes in v3:
+ - fix various format issue and return value check per Peng 's review
+   comments.
+ - add the logic to also populate the subnodes which are not in the
+   device map per Arnaud's request. (in imx_rproc.c)
+ - update the yaml per Frank's review comments.
+
+Changes in v2:
+ - re-implemented the gpio driver per Linus Walleij's feedback by using
+   GPIOLIB_IRQCHIP helper library.
+ - fix various format issue per Mathieu/Peng 's review comments.
+ - update the yaml doc per Rob's feedback
+
+Shenwei Wang (4):
+  dt-bindings: remoteproc: imx_rproc: Add "rpmsg" subnode support
+  docs: driver-api: gpio: rpmsg gpio driver over rpmsg bus
+  gpio: rpmsg: add generic rpmsg GPIO driver
+  arm64: dts: imx8ulp: Add rpmsg node under imx_rproc
+
+ .../devicetree/bindings/gpio/gpio-rpmsg.yaml  |  55 ++
+ .../bindings/remoteproc/fsl,imx-rproc.yaml    |  53 ++
+ Documentation/driver-api/gpio/gpio-rpmsg.rst  | 236 +++++++
+ Documentation/driver-api/gpio/index.rst       |   1 +
+ arch/arm64/boot/dts/freescale/imx8ulp.dtsi    |  27 +
+ drivers/gpio/Kconfig                          |  16 +
+ drivers/gpio/Makefile                         |   1 +
+ drivers/gpio/gpio-rpmsg.c                     | 583 ++++++++++++++++++
+ 8 files changed, 972 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
+ create mode 100644 Documentation/driver-api/gpio/gpio-rpmsg.rst
+ create mode 100644 drivers/gpio/gpio-rpmsg.c
+
+--
+2.43.0
+
 
