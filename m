@@ -4,163 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A762BEA8130
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 16:05:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D894CE7E0DB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 16:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jFi1fdN5P7Uh4HK6pH0rfVlJBZyd1MMAPAWXxfyHR6E=; b=w3q1aM9D4lut9VmU82w0Qs3Bor
-	UxiSrmArHDWl+hD4zLM4cF/ujLRKEga1WWlLa2fBZlnsKFYoBaQ2Ldc8D+bHW7QI5I+oQ1kYSlnrn
-	8C5zYV8kijFyR8oi0lJXEY7zG6KEFUJOsVH979HtyL4+anBCU1IyYEQ6ImTvwSGaRCxz0TyPsEm76
-	kPRxY80m1JNhnPWoVSv08tdKGC1tA1wNxmxjOoeRng1VYG9/yPUozqXRYmWVtse0BlaLpljZhkSSc
-	L4QLbdTO349y+ybt6+IyUHBXbm6LIJvRjyRsuXt9ycCinxzPDK4LF6xkfpqvcVxv/h25MkNViBh+4
-	PcaMo+zA==;
+	bh=yzVrohlKmOVl9KcGb8GOspxcrf2KCInL6zlWQZlflVw=; b=RUK6EXbwFPg8sZqvGw8iJ9x1rL
+	Sngoe0HYFtDcZMqVxGLzlgdziYQwwR6Mk/2zTdyUztaeGBrDeKQYWp5JPEJ8ocbatLHtgM4evmBg0
+	y487J4tDQH2F4BB0ql1Gn/sZuo2VvKHZkCaWHVGMnqm2emsxq+XesZePNbUr+HDDfZNkF9+6GPO2D
+	IO8f9RdQ8p7wr/WAuO9WA5J8Bm42s0yHgquz1ovh/iqs8E01qRbcjfuJjDqlDeuB5lszwfxsOcZJW
+	xF7JKxcaTKcV8RZxl2Hj6KjyzNgNkPNzsNIn/nPl/zgC3YmA5Yduf2+QH9t1sSVtYV1u8GyzlvZny
+	bKiRCc8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqEc-0000000HBMn-2vFW;
-	Tue, 10 Feb 2026 16:05:06 +0000
-Received: from mail-westus2azon11012067.outbound.protection.outlook.com ([52.101.48.67] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1vpqEv-0000000HBRX-00ZW;
+	Tue, 10 Feb 2026 16:05:25 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqEU-0000000HBLR-3gNC;
-	Tue, 10 Feb 2026 16:05:04 +0000
+	id 1vpqEp-0000000HBPw-0Y52
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Feb 2026 16:05:24 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FbOvbGN0WJY6KVTVqq25rXWf6pf7/Y9P5zT40PVFlEaHY9dluUrc0KHKhXO3vP3JUFFcaRYm+tgVi+s2UAu5hZu4nF0qbsPezx05OaF+kojuIr5KwfWgWJLN5ee5JwVf1I5Avj5MsqqxH+6kxqgXYaSzX8WORZvtIaLfCC41Psm5jCbv9RZVOV8gqF8YZDUoHRLD7LvLsNjasUIEkjfgVc3upyP5GHMGHurvTVIHkucoo+OPpsumd9Z3aWcnUTEDj141IeoLspofZvxwuXMfXyUAuvJDXYB10hbJBqrLcsotczn0gw6kxgisEMNqOV1830MsrZuUK+SicNKyMv3G2g==
+ b=aQbj8tfqdoQVoLn9xnwqWILaT/8aBxc4TBBbkk+vQV97Qm7SnUBlwaS9AjT2asB5Jzrv3R7Y4hE4LVqbiVXOP0NXokhrtZFfskT0gpoeO8dAnXCvd1Lb2j/btQEM2bUtkuJQlZkTEvdHza/FYQYWIDE02TTB1d6EHECnl8I8FeVqdOVhxLfIReMu4LZ5c8LLVRnAIK9It/Off4VWObAnNgCZEPg1Gc3FbWF9zpoUUeCUg3xSjrMi0n2Tj/1YC1UFO0bJaoM/fAPjLkSYICJigLitXSIeGx1zEsYcBdAKJ42Bv2Xq2f6p5pehS09pxlAavLLsdSJeMww1RBOzAC8F6g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jFi1fdN5P7Uh4HK6pH0rfVlJBZyd1MMAPAWXxfyHR6E=;
- b=LkSYmNMInBVyYtQ7AhKpo7k2Hcvp1ULsjwaO/ZlcQ0F3ripO3KnhDkx3oAkh+/DAs2V5zW4+0abdVAexxWJt0lspGPJq1P+9F0tI5zfhUCJtZku+lLojaqUxav0WJpH1sJCO6QLj/bMjD/djwxDEG3d7v9tFEQQoLl5/+N+biEnRJ8jS84BIx0mxN34rxC04e3waxO2x0hu1U4CHvZ97W2Fe6bcV0o+ecj8JDeq/Pju4WoMgHfAjUoVWjWS0JHUJn58xfo/9fhxjlETfOlMA7miGh5e8lGtP6THsl5f+7ZgqsQCrMsOaVU+gtHVpnh4GPhmTZj6A7Id79oJYrWcKiw==
+ bh=yzVrohlKmOVl9KcGb8GOspxcrf2KCInL6zlWQZlflVw=;
+ b=vqt1LfFRiukvdc3f9i4DI9x7kWlAQz4av6yRxQEQ2Srhm5GkUpPkpbTbT8Dj708oJTJaXYZF+8dOTUNiVHfUBveu0eXYkmUXGddd5sf+ZeZCid8hMJUzxT8nOLNUXEMRYk0HlVtdTJ44ooUUXkX08/ZJGPV1/Ka9QLgEVa2L2g8IC2zZjZsmsZDEeHAmFpGHP0E3a17n/Rp/eS/hlP35/ZX/KEu59H5Wn3KYmT/bXOpQrmQtFTYZs0tOt/CvSYjFMtRRLxmlSrWezisjMVhU/bwkhRjuOgAkZUCrFpIkr/bi+DHnpemesKzoUkfBS9ZPxJhEiv3XQTtUBAWxgEhJqA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jFi1fdN5P7Uh4HK6pH0rfVlJBZyd1MMAPAWXxfyHR6E=;
- b=07n53dU6NEh2P75ePVppr4Y68dRvQ9UaAtTF3xTjlJ4iFKJapOpYFiPWUM3xjAaW98mNKR06VYgF0W5JaUIRQufkB0YqmzkreU6yJclBiP+vSesh0XNxCTDC+RC9B69Ncve2xAWUuSm1vur2LBwxbHVTjfgAmTDj8AO7Jt8Rf14=
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
- by MN0PR12MB6079.namprd12.prod.outlook.com (2603:10b6:208:3c9::13) with
+ bh=yzVrohlKmOVl9KcGb8GOspxcrf2KCInL6zlWQZlflVw=;
+ b=a97gAvWpnQA6LzEhmNcqyMPucoMwb1EByBUkNPLqngxoHaph3aNOBrxCm0ePis91Lch1ICPCR4cU8ISs/fnD5f9atm5vL5HuM+jbuNAClrc+tRrt9Bo3ZQ8z30JMtWeYNw2nwdSKy5gleOmIyChzLwgfZlyxQw8uDPSg1XjPIH+4hWTuV4KTdRar+xOekJWTr9OeaC5QOCDyW70U8Avap9E4S3wr1ye3yXI87dRmEnkoSmBlJeLtS9GwceygcPjA1HD/u25u8ZKNUdW8BkxgYL/RBkk21XpPYRfZo7ndUhsgxJ1Tx7he7uulc6tjTOS+edcNj1vRC9c+qCRM9NDoZA==
+Received: from SJ0PR12MB5676.namprd12.prod.outlook.com (2603:10b6:a03:42e::8)
+ by SA1PR12MB8842.namprd12.prod.outlook.com (2603:10b6:806:378::9) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.18; Tue, 10 Feb
- 2026 16:04:50 +0000
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d%4]) with mapi id 15.20.9611.006; Tue, 10 Feb 2026
- 16:04:50 +0000
-From: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
-To: Sean Anderson <sean.anderson@linux.dev>, Laurent Pinchart
-	<laurent.pinchart@ideasonboard.com>, Vinod Koul <vkoul@kernel.org>,
-	"linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>
-CC: =?iso-8859-2?Q?Krzysztof_Wilczy=F1ski?= <kwilczynski@kernel.org>, Lorenzo
- Pieralisi <lpieralisi@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "Simek, Michal" <michal.simek@amd.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Rob
- Herring <robh@kernel.org>, "Havalige, Thippeswamy"
-	<thippeswamy.havalige@amd.com>, Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>
-Subject: RE: [PATCH 4/8] phy: zynqmp: Calibrate ILL if necessary
-Thread-Topic: [PATCH 4/8] phy: zynqmp: Calibrate ILL if necessary
-Thread-Index: AQHclKMeLv3UjNcMAkSiPZrrY7iYUbV8H4tA
-Date: Tue, 10 Feb 2026 16:04:50 +0000
-Message-ID: <CY1PR12MB9697F67210064132883611A8B762A@CY1PR12MB9697.namprd12.prod.outlook.com>
-References: <20260203002128.935842-1-sean.anderson@linux.dev>
- <20260203002128.935842-5-sean.anderson@linux.dev>
-In-Reply-To: <20260203002128.935842-5-sean.anderson@linux.dev>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.8; Tue, 10 Feb
+ 2026 16:05:11 +0000
+Received: from SJ0PR12MB5676.namprd12.prod.outlook.com
+ ([fe80::a3fc:754b:9159:b13c]) by SJ0PR12MB5676.namprd12.prod.outlook.com
+ ([fe80::a3fc:754b:9159:b13c%4]) with mapi id 15.20.9587.017; Tue, 10 Feb 2026
+ 16:05:11 +0000
+From: Besar Wicaksono <bwicaksono@nvidia.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, "will@kernel.org"
+	<will@kernel.org>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>, "ilkka@os.amperecomputing.com"
+	<ilkka@os.amperecomputing.com>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "mark.rutland@arm.com" <mark.rutland@arm.com>,
+	Thierry Reding <treding@nvidia.com>, Jon Hunter <jonathanh@nvidia.com>,
+	Vikram Sethi <vsethi@nvidia.com>, Rich Wiley <rwiley@nvidia.com>, Shanker
+ Donthineni <sdonthineni@nvidia.com>, Sean Kelley <skelley@nvidia.com>, Yifei
+ Wan <YWan@nvidia.com>, Matt Ochs <mochs@nvidia.com>, Nirmoy Das
+	<nirmoyd@nvidia.com>
+Subject: RE: [PATCH 8/8] arm64: defconfig: Enable NVIDIA TEGRA410 PMU
+Thread-Topic: [PATCH 8/8] arm64: defconfig: Enable NVIDIA TEGRA410 PMU
+Thread-Index: AQHcju93VIQS/+1NU0G/as/VUXiQ2LV4u1GAgANz/3A=
+Date: Tue, 10 Feb 2026 16:05:10 +0000
+Message-ID: <SJ0PR12MB56762714BF94D1E67511C43DA062A@SJ0PR12MB5676.namprd12.prod.outlook.com>
+References: <20260126181155.2776097-1-bwicaksono@nvidia.com>
+ <20260126181155.2776097-9-bwicaksono@nvidia.com>
+ <a3249d0f-17f2-496d-ad53-95ad5da26f5a@kernel.org>
+In-Reply-To: <a3249d0f-17f2-496d-ad53-95ad5da26f5a@kernel.org>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Enabled=True;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SetDate=2026-02-10T16:02:26.0000000Z;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Name=Open
- Source;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_ContentBits=3;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Method=Privileged
 authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
 x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: CY1PR12MB9697:EE_|MN0PR12MB6079:EE_
-x-ms-office365-filtering-correlation-id: 187a1831-3bc2-488d-ff84-08de68be1ec0
+x-ms-traffictypediagnostic: SJ0PR12MB5676:EE_|SA1PR12MB8842:EE_
+x-ms-office365-filtering-correlation-id: 61cda2a3-25f8-49eb-9d9d-08de68be2b22
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700021;
-x-microsoft-antispam-message-info: =?iso-8859-2?Q?DwNuPcLdWDHJkDLfJQq/ZnRjyOOikhpJ5dpAR73bdscMJ3aYZwb2iq5JYi?=
- =?iso-8859-2?Q?71XFB0c5cmhY4pJRguDw+g1HjFxYPKgVAp+t8HNXhZlr1pYBMLfg8IiB7r?=
- =?iso-8859-2?Q?BUekB7ZxZMFkkTxhOMknn/llDjJ6cDFfD0QMrcpRP95X29Rn6Ihb9vu7yQ?=
- =?iso-8859-2?Q?RrZ/jSLoz1DJDn4w7pTsqz/0wukI0/k33ZyTM/hXSb7jGNJCihayEURuRK?=
- =?iso-8859-2?Q?aEvCmlhW009JtxYuQpNTFnj3nstD07m9mqMBMCzcjs9tqrJPcYPHqbuoze?=
- =?iso-8859-2?Q?vSlCrS3SylcVfAIcee8BDWF/b008egg/Dtpv59CZNK7Vg5SKLRQi8vyJfC?=
- =?iso-8859-2?Q?VK/TVqVjnxMcsCIqfZ6CVOdzZ8gcL50azgdlZyyQ0ScZG1KUqfwzDCai9h?=
- =?iso-8859-2?Q?Am+czd2cAjYKgFUlXpXhNHDGcxrlchNbUDKPP/3WBNcoedsx626EpHtfxb?=
- =?iso-8859-2?Q?Vic0AaDoJpVPZhcj/3l+Tr+A8HU8a0k89cw2wnSdOt9isD6roHZtr+UliC?=
- =?iso-8859-2?Q?fa/IIVHVqP4OvWiq5OOrG075g0DlkEU0qCpqpAdgUBSI0HNyNm019aT4oG?=
- =?iso-8859-2?Q?ayJR8Tw9XI16RzHztmCE8Nqn5/ifqfC98jTLRXrUgUH7z0fNmZ/RMwa7K+?=
- =?iso-8859-2?Q?SXDXnBAbx7XRP7KXqEY25cmGULHwwVm43/rydEcPAUCThXRP0AuN2pl+RC?=
- =?iso-8859-2?Q?h4mj5U/sfA4pWPy8JvZqtIUR++UymJeorDoZNUvl9WdQCXFYfpGsbGl7LR?=
- =?iso-8859-2?Q?OUstzc4iU/92GaOV/gR8NYozJM+2cPjg2J8AkkLCYzsVgwiG17PTkgTPX6?=
- =?iso-8859-2?Q?7we6XAWbo1T9irLc+VYVbMd6p0I2AbIU0RXKb02s7Z7uQJHyHiUryr/RQD?=
- =?iso-8859-2?Q?JeEU3AjDtHn5c8rMLsd9MBiedcz2HG4/fO5gerush7o5HU4rXQwJXUGUGI?=
- =?iso-8859-2?Q?Lj6QAtI6Fai8zc+FJkseLO8id4vN64IkPkgFjeRz6kBGrpjf6OEHTDerD9?=
- =?iso-8859-2?Q?HPUFU6WMlt/HMEjv6Ci8AqEDUJYYkApBV4r5msgl56/VP7jGI8KZgBYqcm?=
- =?iso-8859-2?Q?YHmy8xdvMBlWIdSrGzCYeMMKX1DxMfRAmUJC8f815wfVWSy2C1LMNEUr08?=
- =?iso-8859-2?Q?9CplE+fXW/EpGyjQZ61YCLbLVbxelUhD80wBH2ydqGzrNki6UBxpJjwbU6?=
- =?iso-8859-2?Q?2OaDVJfTX1wweVz32oXhWn8pkNAEXl9btIHPPLIvI7wqoPuRBNlSMFowh9?=
- =?iso-8859-2?Q?Z4kM60/IVH8/5LAX2/p40EMv5uDBFgHm3ZasG9x2dqGXC8sfrr9Wr/Q8e5?=
- =?iso-8859-2?Q?S212gv9F31f0BU8C7iCRrxyJeWV/D+o6KJjNGujQYeAFzAqODKCjAlVKQb?=
- =?iso-8859-2?Q?EWPXy3rTYjCvflt1dKDSgJPBoWBzvlB1ApwN2X69y1N/QoxlQCudcJeaso?=
- =?iso-8859-2?Q?zXOxA306jsw5aDXzbxaoA4osYflTbr0v85aOddkQ5vd6QsJfLNFgyFGRLA?=
- =?iso-8859-2?Q?JHyCRqggjeiYkFdHQPutN6Abbj2zUW8rrJnkqX5ZkIB/S3yMQSkM42sNMA?=
- =?iso-8859-2?Q?M4Z2orSlkk2uZvaYfeOelBXRYhw9EuwuabtrmivaL0+d8BaYe3J50KBQei?=
- =?iso-8859-2?Q?lDex8RO4jFdexZo1gFhMkXtiylPfE6I59J?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700021);DIR:OUT;SFP:1101;
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?yEv3F5wV7JO0kt4QiHZb5ht8a5RRvvLT3XqgV6n9gEkMJ31nvivxFcFNZUSD?=
+ =?us-ascii?Q?NiyUlUjNbcxOaqVRaOecNUFuWITHSy0xJqNmXLS1WurhkDz7NWJRRlsd3zFg?=
+ =?us-ascii?Q?UF1G79r4aJNbj3QzSgsV+xpMrm+dZNNtzreH3TBCRWBnZ86ThM7CUs42Ka6J?=
+ =?us-ascii?Q?FL0BjP2RESaXYEyl47SdWXWvbKA6tLq4zwDm6b8+s5r1hcgNX3VEqj2Yhyjw?=
+ =?us-ascii?Q?oIVLcgrkaf3wuuTRCTjl2/SPYGSXW1nf3J6wL3m5GfOhIP7ZrdxUpT734peF?=
+ =?us-ascii?Q?pGeClLzYO3tyYK+5+AHyJXRc3NZAhol9KIQKRKpB3V2wHW9GX9w9FSg2wx+e?=
+ =?us-ascii?Q?wfen/QKcdIczFfQ90UxI1QSOeluS/wgefbOqwQUj0/Fa469khvuadIxUH6g7?=
+ =?us-ascii?Q?RZ85hUkTGMBV6FU9qssz1Pi9M35mWNeMQ0zL+64mSuT/v1w2pKZIssKeNgfd?=
+ =?us-ascii?Q?OlZK84aN+3IP2KQA56YfAxFOBA/YEJ1eJPPlzOgzPT1XhQM5lOhZ8DvyHZxj?=
+ =?us-ascii?Q?m0AQyMdJBISBvoCfNeWs4srnX+gRwILr7oo+ypEpML4SCtGzAI45OZjl3vra?=
+ =?us-ascii?Q?fTj1i3o7/vtpIgPeUADTtVaLvRgzqxnuq7xx8ZV8U2UBlFnWY/hBnTVN9n0K?=
+ =?us-ascii?Q?GhukV+KEajTdUoeU4nt9CyOJtodiVpqDQryCfemB4b2gagpfRD0nSOf22FmP?=
+ =?us-ascii?Q?61ihYJu6Ewp7TPtKCX/leWgAe8C1d58fCbKMFwtSVGoIKKCvD1HwpKcGBKUT?=
+ =?us-ascii?Q?8IyvZDsYMBBJy1+OwzxMv6dn3L2pOx7UJtPQiqd1VzJJ6QXJETEml5nJZx+y?=
+ =?us-ascii?Q?dMEDtl1QnfbYozOaCpaSHkvNqnT60Kb1Pht8VCnyDdgqEi99tSyXFeIJcNgm?=
+ =?us-ascii?Q?GjQ13dagZnntNPyqfOUVkM03zLa2SCF4OBIhe+FVPXN3zVXz96aVfg7Pk/zg?=
+ =?us-ascii?Q?fE9Tu90Eg8AJxNTUzof84F6c8zZziwbb7FRI1XPh9tIONKxEXiH0kzqQR+po?=
+ =?us-ascii?Q?94IT0Grn/kXUuoaujlQ0BKSrYAk3yAUxJhkSiO9NwpSgr01JAFyJyoz97Kln?=
+ =?us-ascii?Q?XFmgJ6yuGeHyHhhrVozjEy2y+9EorHGqnqsvWR7G3LKABOudOwChsiLJzjpt?=
+ =?us-ascii?Q?XO1MOGBdB9U+l6omRWs8Yy9TG7Fh/s3r2Wn7JBHv33goBoFJRd93qX4ck7a5?=
+ =?us-ascii?Q?PnYykSA/Oxriuyuojaf+EX7pijpJaKc7/DVL2nBnZuvHINWKmBMryuauxWdW?=
+ =?us-ascii?Q?56mMcsr+JAmxXorpgb3R9ZeUsGqvrSM7PhNxlnsID/vQl86IX7Ck/kqFA+bh?=
+ =?us-ascii?Q?Wt6vr84MGT+tQ0fY+HaoJ1ZLf+qptHHztoB4a/ZfPwGaugPFXebtdkk5wVBP?=
+ =?us-ascii?Q?9QDKZte8un4ZDb4RQ0Su+fjnyw77QOWOe6VxfUTGSipNIngnnW/oABkT05tt?=
+ =?us-ascii?Q?Lv8zSA2Xk1TMR7xQev2+3jaDgWpLFjHqSzQ73vmfSSBk11bIt6GUAKylkx5N?=
+ =?us-ascii?Q?8ZJwrdukUNGt6v07G3MmLmG3qXVYjMKGq5zJWQkQRsW5GbJwRdZoFFlqfuNz?=
+ =?us-ascii?Q?83pWVtPho3AvBLB5U11LSDKTiWOnwxm1Pe7/unSzVzqiJG9oLO1zePDKTrZO?=
+ =?us-ascii?Q?TMED/P15ELQQFFxCDqHIf1U=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR12MB5676.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-2?Q?BncW9PoZ4vfHQLH0vuPuRjqwXAx5oLDufuZnjjagQ5FBeZU04is7sKC58s?=
- =?iso-8859-2?Q?UpgaBR/uJ+jaJzvFYB7k1r1MqIpbJoA5IWwjq8GQ2UXC1nrpFIfIgQ3OZl?=
- =?iso-8859-2?Q?TON8xZDKZe5EB/T3ytro8NahxvWsWcMv0+Gnq9dvR9KQ3+jMn/Ixw6IKHi?=
- =?iso-8859-2?Q?5+HAYiFL6DJonw/atC2qVnwH0YG6sUlZOrph+6E/JHiVenw0/jDO0ErcoE?=
- =?iso-8859-2?Q?m1QKMtrLpZNXBSE5YqcBrWaUsbs/r4OosVA2tIlACmRGpKoPpNEtRQMevZ?=
- =?iso-8859-2?Q?0pFk4tVDnn3mHoa050+9xLPlm+xD6JT5lySs+59jEpVLGnTI3bVHp1XBnk?=
- =?iso-8859-2?Q?0aB2tsSfGoNw45xZmtaYbHAn158BjMk7q6IN2/p1SRC4qu7En+j3WjkYt4?=
- =?iso-8859-2?Q?Sov5Gj3wjFPF1tJxGlb1JqDhZNUf4CazFwIUcI3G2d8VjPhWjz3xsbX+ua?=
- =?iso-8859-2?Q?OJLPPj4Q6MwmJ1FgwK4RzMTcLCm9TuyuE3f1wF5IyeIQ989xr3ta4FRnhp?=
- =?iso-8859-2?Q?R6iSNb8y8icu0lonBOis2SPkpayhxyXx6pI6CZEA8v4k6/+yU5zOvyUNZW?=
- =?iso-8859-2?Q?iLCk4QItZLjHjOUo7gV24eddr+/TY+RgnKOuE8LbF78bSSkItGexTj/Mrp?=
- =?iso-8859-2?Q?+DAo4rLBWtYJB64ISPYEvK7P9rgABcpqfd8fWRJgyDmTLzYtNSooOEj295?=
- =?iso-8859-2?Q?ebmMhH69FJYaJbG6rGnEk83q1DzmiLL+Jlzq5dyLstWh6X17dD4SSM/rYr?=
- =?iso-8859-2?Q?UkkLPGqIOVGZUgYcEMkhoKAltfaewDAwiramEP8hwUGK1nwEaI6TeJK/ZP?=
- =?iso-8859-2?Q?ZxEngTNH7td9AOeTtjJP5l6L6Fe8TtpQNEKtCtKJEPN/yu7RQ3SZFoQDAc?=
- =?iso-8859-2?Q?QF3FNqHMEgeZDV3CELQiPqnMgz/28iOD9mNxYzcbYRB+L94L5wu0P1u64V?=
- =?iso-8859-2?Q?mNpQQQBgVdgVqBvjWXZ9NOJU3cobd5IVhj/1N9GU9OP/LYCbG8MNCyaP4s?=
- =?iso-8859-2?Q?FApIjawJFHAZYHvCXWI1sQW/mpSi/kJrwSFhfhBFAC/Fqufhvd8AIxL9cf?=
- =?iso-8859-2?Q?M1Yc2oOLcmB1uFhA1hVGzsdXOscnTFbIc3Gz75F2i55Rsbaq3Z5N3tdH6+?=
- =?iso-8859-2?Q?1Gky2nusLLHYaWHoKdkUJn15Rx5zgQOaaYycMo6xmqvrpKaacLJfDXayya?=
- =?iso-8859-2?Q?Sdphpfuqx379BPqP7hCF69SYX69zQqy3yjVsSwoS2EJER0LZ6aF6gD5oZl?=
- =?iso-8859-2?Q?0IBsJ2A3LVAK8VP34fSyU3/wWUaHNLmEdHl/XpKBDqxjJorFitKsUJ6rHW?=
- =?iso-8859-2?Q?rz9v4TJx+SNjfHEWo53vPINmlc6Uh8D/xXqLr4Vt2Q7ZV63h4HttuY2F++?=
- =?iso-8859-2?Q?8WmC5IrHeBy+yAwT3pxaeE3SosoqkYedUWPWVHzhSsJUD1khoxuHcxkbP1?=
- =?iso-8859-2?Q?Gi8JNxu8q8SBO7pTjJdKlFSJYl82wc0GA6SsizcTu3ucE/cyVU8NV4lR25?=
- =?iso-8859-2?Q?8cichaazaiJxXCTzxmBj17A56n4L3iS51+l95aV+ZTyObTToXCU006VvIL?=
- =?iso-8859-2?Q?ovwk5V3aKFBrMYWp2cDl50kSuggG1C+hbrCTB5JMXHMcN12rT6twkqdVV2?=
- =?iso-8859-2?Q?k2pRjNCLh74zqlBH8mvLKXv53dFkOCy0+27omh7e40lPh+4nn50+rCaAQ8?=
- =?iso-8859-2?Q?9BEs9lDY/C9RRLtZczBGiNTE64du79y/v5GCaYDuoZ+q0EAnrLM9LG92yG?=
- =?iso-8859-2?Q?KHBfiynxrUbBub7dW/babe9lGzJfhF8HwkJq72/5Nh5rAK?=
-Content-Type: text/plain; charset="iso-8859-2"
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Hj9/8JcxGNuP73klVyjUEjvZKnR6YgGFs+BFfI0AmFjdLquEG80tcTHpIKIX?=
+ =?us-ascii?Q?9dDLG/vb3hoDRUMC/XIVGung9kCbknEkKmP7RuiJE9TmmYf6p8E10qKvHWpF?=
+ =?us-ascii?Q?QZulYzjd5Une8EOj8Qt0ekFtEcN88iCgz7YMkicuPyHMtCUspHasiof+d371?=
+ =?us-ascii?Q?P+gcx7HxFc4DjbQJpT+0X9FGEZALKQgzKYcQHXaFfxJGtD3uBbkRgJ0KJvfg?=
+ =?us-ascii?Q?HBJQ5AvAC3taWHQstaEAs4KTk7+nKevyX3u7r/8O6bdxMua5Rq75wLPldkH1?=
+ =?us-ascii?Q?DscJrCWWyzjKGBViiQdYX/KIXxHHoxBgDzYVWmukal3iuu+PfENrvA9oOgtA?=
+ =?us-ascii?Q?D9a0hhK/Yi9zdy/H3E8GPsSQT5f1L8qyRcFps5P3G+9NhWTXoRYgq///MB5G?=
+ =?us-ascii?Q?UIYHZuwI6sMOmD+YMairIdSHP2nIdCrCSSBXalZgvDXt6WqoJBmB4qIh8tLB?=
+ =?us-ascii?Q?n4x8BrlNIp3/Q1rNTv2PD7XpLzecwHtbGch8L8cC7KOBx5xmybB4MmJbH5sQ?=
+ =?us-ascii?Q?EkxlRv4v15Y108SxaeE5aUrvyfVRwcUTy4I1KuwXSmDp42BdYjukMUkiGj+5?=
+ =?us-ascii?Q?k8yCRYMzutfe0XK4UyGDWEA/fi1eeTuoW3Ct2vSGBXKzcqDi6xn1G6Dcdc7W?=
+ =?us-ascii?Q?+JjTI6B4qFt7kM08QuXYpGWZ4JL6fIPH7uMngrbaQVT4QnyFRL2QsgXfJ+7I?=
+ =?us-ascii?Q?mn8PmZ7IusgiJjdsA/dQHQz1yKBDFdJfq4O9seeUaSZbnxWw+z3MD9c/+B10?=
+ =?us-ascii?Q?EHY5QhG/vhhhVxqSTWYlWtJNnckjNZEdUiFhX2jngzhTvvO1UqwNpzfsa3AO?=
+ =?us-ascii?Q?XZ8wzdWI0J8r2As/6XrS9NsK5j1ZehIS7CS5QwGcJZ47JgthGzNt4IHQwJSH?=
+ =?us-ascii?Q?mRafeWs2NK0n6zPdRkvFBIcrXmyXsMHL0YjJwpd87xHzWcRZztrPzKvM9j4h?=
+ =?us-ascii?Q?CWkOK02e+mYX9Mdhd2N48IOgrzmVl+NC8Or3UMwfHM+V4SjpkF0mTkymIMGt?=
+ =?us-ascii?Q?H4/LDBYLtTEXlxeVXcp3FAMUuDayIb40SQGhf35bf0oHdGIWFrZvbpIQ+wZt?=
+ =?us-ascii?Q?IITeWcqSEKAqreV8dL6N9v1+TUMqKyxicSVzCqzAfLA931uA6ziKhSVegIPM?=
+ =?us-ascii?Q?OLPUsZLDfOx26hHDhwfRUKi0fyys09Zt8NO/DpbR/D70aTkP2XnXDaozGQzJ?=
+ =?us-ascii?Q?gvuxYZJz2o9scMljwc3RGy6IkMivMlT0BWtr5jVnIhg++6uYNOSS0Wl5ZR+K?=
+ =?us-ascii?Q?MgvvEfxZeVESrdEf3wO7W3KHfDZDUxwZgN/Keh1yGZH9xhG5o4B62HCBbShw?=
+ =?us-ascii?Q?fbOuIWpJJzk1yGXMPMxudgx4xm5Uq4AsTj5G4wSruKkHY3jS+coEeLvL8svN?=
+ =?us-ascii?Q?XoapEZhwTTIgGvCOsWw0Am4BqxFSZzOomBwTpZSsbcjHLwr0sgC0U0nVq9cR?=
+ =?us-ascii?Q?Ix8tJNWBia3InWNbPbg4SJsgfTic2eTWjx6/IJZUZW8U40gn4/kK8pQG/oU1?=
+ =?us-ascii?Q?ek9vO6MIN77virrWP35QyGd+uDqw2Cs8OAgBRUJRVpx7nZ6Ikh7PKiHkUzJc?=
+ =?us-ascii?Q?M13TImH7r2p9QgMwMuwxUglbNHVNjSxR3glIKGgFGOVADLarH6wbnKGZ0hrq?=
+ =?us-ascii?Q?Mp8LbBrxNvZrCdPQbQgSTb6+nPs65/z/7/xM73HqdvgU5IMB3Q+9rDXt66OC?=
+ =?us-ascii?Q?Lt6FZLPw0Ap/uChiYsFFBGU6EAoKwxvDE7hHUSDHRLJ9HgO5vAiB/jDDWS28?=
+ =?us-ascii?Q?ofyA17RBFg=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
+X-OriginatorOrg: Nvidia.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 187a1831-3bc2-488d-ff84-08de68be1ec0
-X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Feb 2026 16:04:50.1651
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR12MB5676.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 61cda2a3-25f8-49eb-9d9d-08de68be2b22
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Feb 2026 16:05:10.9815
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: QEMVN/4E1VVuLA+EB7XZ+dn3NsHLVrYTHLgR5eseSKs6/tqkdObEiUwV5AzZVuQ0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6079
+X-MS-Exchange-CrossTenant-userprincipalname: yIByKJu13qGlVNVM7onYZsJMMSHHmyhvwwDjBxyNMNOi1kWEIj/HYooB28mpPQqmvvgBuh9oCTVBH9ByVC4zKg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8842
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_080459_291435_718FA1B1 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20260210_080519_244432_58DEB6DD 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,663 +178,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[Public]
+
 
 > -----Original Message-----
-> From: Sean Anderson <sean.anderson@linux.dev>
-> Sent: Tuesday, February 3, 2026 5:51 AM
-> To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>; Vinod Koul
-> <vkoul@kernel.org>; linux-phy@lists.infradead.org
-> Cc: Krzysztof Wilczy=F1ski <kwilczynski@kernel.org>; Lorenzo Pieralisi
-> <lpieralisi@kernel.org>; Pandey, Radhey Shyam
-> <radhey.shyam.pandey@amd.com>; linux-kernel@vger.kernel.org; Simek, Micha=
-l
-> <michal.simek@amd.com>; linux-arm-kernel@lists.infradead.org; linux-
-> pci@vger.kernel.org; Neil Armstrong <neil.armstrong@linaro.org>; Rob Herr=
-ing
-> <robh@kernel.org>; Havalige, Thippeswamy <thippeswamy.havalige@amd.com>;
-> Manivannan Sadhasivam <mani@kernel.org>; Bjorn Helgaas
-> <bhelgaas@google.com>; Sean Anderson <sean.anderson@linux.dev>
-> Subject: [PATCH 4/8] phy: zynqmp: Calibrate ILL if necessary
->
-> init_serdes in psu_init_gpl is supposed to calibrate the ILL. However, th=
-is
-> may fail if the reference clock is not running, such as if the clock need=
-s
-> to be configured on boot. To work around this, add support for ILL
-> calibration in U-Boot. If the ILL is already calibrated (any non-zero
-> value) we skip calibration.
->
-> The algorithm is substantially the same as serdes_illcalib [1], but it ha=
-s
-> been updated for readability (and to remove all the "if (lane0_active)"
-> conditions). Due to the amount of register fields, many of which are
-> undocumented (especially the chicken bits), I have mostly used defines on=
-ly
-> for the register names. There are certainly areas where register writes a=
-re
-> superfluous, but I have left these in order to minimize deviation from th=
-e
-> procedure in serdes_illcalib.
+> From: Krzysztof Kozlowski <krzk@kernel.org>
+> Sent: Sunday, February 8, 2026 5:18 AM
+> To: Besar Wicaksono <bwicaksono@nvidia.com>; will@kernel.org;
+> suzuki.poulose@arm.com; robin.murphy@arm.com;
+> ilkka@os.amperecomputing.com
+> Cc: linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; l=
+inux-
+> tegra@vger.kernel.org; mark.rutland@arm.com; Thierry Reding
+> <treding@nvidia.com>; Jon Hunter <jonathanh@nvidia.com>; Vikram Sethi
+> <vsethi@nvidia.com>; Rich Wiley <rwiley@nvidia.com>; Shanker Donthineni
+> <sdonthineni@nvidia.com>; Sean Kelley <skelley@nvidia.com>; Yifei Wan
+> <ywan@nvidia.com>; Matt Ochs <mochs@nvidia.com>; Nirmoy Das
+> <nirmoyd@nvidia.com>
+> Subject: Re: [PATCH 8/8] arm64: defconfig: Enable NVIDIA TEGRA410 PMU
+>=20
+> External email: Use caution opening links or attachments
+>=20
+>=20
+> On 26/01/2026 19:11, Besar Wicaksono wrote:
+> > Enable driver for NVIDIA TEGRA410 CMEM Latency and C2C PMU device.
+>=20
+> Why? Why do we want it? Which *upstream board* uses it?
+>=20
 
-Please consider splitting the patch in introducing calibrate ILL functions
-and then subsequently using them.
+These are for NVIDIA Vera platform (Tegra410 SoC).
 
-How did you validate the changes? functional testing is one part
-but I think better to match register configuration done in psu_init vs
-this series? Have we tried running on multiple designs having
-different GT lane and protocol combinations .
-
-There are multiple magic numbers. Consider renaming it to
-meaningful defines.
-
->
-> [1] Example implementation; xpsgtr_phy_illcalib coresponds to
->     serdes_illcalib_pcie_gen1:
-> https://source.denx.de/u-boot/u-boot/-/blob/v2026.01/board/xilinx/zynqmp/=
-zynqmp-
-> zcu208-revA/psu_init_gpl.c?ref_type=3Dtags#L710
->
-> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-> ---
->
->  drivers/phy/xilinx/phy-zynqmp.c | 421 +++++++++++++++++++++++++++++++-
->  1 file changed, 420 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/phy/xilinx/phy-zynqmp.c b/drivers/phy/xilinx/phy-zyn=
-qmp.c
-> index 152af1702bbd..854b0ea04648 100644
-> --- a/drivers/phy/xilinx/phy-zynqmp.c
-> +++ b/drivers/phy/xilinx/phy-zynqmp.c
-> @@ -12,6 +12,7 @@
->   * PCIe should also work but that is experimental as of now.
->   */
->
-> +#include <linux/bitfield.h>
->  #include <linux/clk.h>
->  #include <linux/debugfs.h>
->  #include <linux/delay.h>
-> @@ -31,6 +32,7 @@
->   */
->
->  /* TX De-emphasis parameters */
-> +#define L0_TX_ANA_TM_3                       0x000c
->  #define L0_TX_ANA_TM_18                      0x0048
->  #define L0_TX_ANA_TM_118             0x01d8
->  #define L0_TX_ANA_TM_118_FORCE_17_0  BIT(0)
-> @@ -50,16 +52,49 @@
->  #define L0_TXPMD_TM_45_ENABLE_DP_POST2       BIT(5)
->
->  /* PCS control parameters */
-> +#define L0_TM_ANA_BYP_4                      0x1010
-> +#define L0_TM_ANA_BYP_7                      0x1018
->  #define L0_TM_DIG_6                  0x106c
-> +#define L0_TM_DIG_22                 0x10ac
->  #define L0_TM_DIS_DESCRAMBLE_DECODER 0x0f
->  #define L0_TX_DIG_61                 0x00f4
->  #define L0_TM_DISABLE_SCRAMBLE_ENCODER       0x0f
-> +#define L0_TM_AUX_0                  0x10cc
-> +#define L0_TM_MISC2                  0x189c
-> +#define L0_TM_MISC2_ILL_CAL_BYPASS   BIT(7)
-> +#define L0_TM_IQ_ILL1                        0x18f8
-> +#define L0_TM_IQ_ILL2                        0x18fc
-
-#define L0_TM_IQ_ILL3                   0x1900
-
-IQ_ILL(n) =3D 0x18f8 + (n - 1) * 4 ?
-
-Similarly for others  (when applicable)?
-
-> +#define L0_TM_ILL11                  0x198c
-> +#define L0_TM_ILL12                  0x1990
-> +#define L0_TM_E_ILL1                 0x1924
-> +#define L0_TM_E_ILL2                 0x1928
-> +#define L0_TM_IQ_ILL3                        0x1900
-> +#define L0_TM_E_ILL3                 0x192c
-> +#define L0_TM_IQ_ILL7                        0x1910
-> +#define L0_TM_E_ILL7                 0x193c
-> +#define L0_TM_ILL8                   0x1980
-> +#define L0_TM_IQ_ILL8                        0x1914
-> +#define L0_TM_IQ_ILL9                        0x1918
-> +#define L0_TM_EQ0                    0x194c
-> +#define L0_TM_EQ0_EQ_STG2_CTRL_BYP   BIT(5)
-> +#define L0_TM_EQ1                    0x1950
-> +#define L0_TM_EQ1_EQ_STG2_RL_PROG    GENMASK(1, 0)
-> +#define L0_TM_EQ1_EQ_STG2_PREAMP_MODE_VAL    BIT(2)
-> +#define L0_TM_E_ILL8                 0x1940
-> +#define L0_TM_E_ILL9                 0x1944
-> +#define L0_TM_ILL13                  0x1994
-> +#define L0_TM_CDR5                   0x1c14
-> +#define L0_TM_CDR5_FPHL_FSM_ACC_CYCLES       GENMASK(7, 5)
-> +#define L0_TM_CDR5_FFL_PH0_INT_GAIN  GENMASK(4, 0)
-> +#define L0_TM_CDR16                  0x1c40
->
->  /* PLL Test Mode register parameters */
-> +#define L0_TM_PLL_DIG_33             0x2084
->  #define L0_TM_PLL_DIG_37             0x2094
->  #define L0_TM_COARSE_CODE_LIMIT              0x10
->
->  /* PLL SSC step size offsets */
-> +#define L0_PLL_FBDIV_FRAC_3_MSB              0x2360
->  #define L0_PLL_SS_STEPS_0_LSB                0x2368
->  #define L0_PLL_SS_STEPS_1_MSB                0x236c
->  #define L0_PLL_SS_STEP_SIZE_0_LSB    0x2370
-> @@ -69,6 +104,7 @@
->  #define L0_PLL_STATUS_READ_1         0x23e4
->
->  /* SSC step size parameters */
-> +#define TM_FORCE_EN_FRAC             BIT(6)
->  #define STEP_SIZE_0_MASK             0xff
->  #define STEP_SIZE_1_MASK             0xff
->  #define STEP_SIZE_2_MASK             0xff
-> @@ -76,6 +112,7 @@
->  #define STEP_SIZE_SHIFT                      8
->  #define FORCE_STEP_SIZE                      0x10
->  #define FORCE_STEPS                  0x20
-> +#define TM_FORCE_EN                  BIT(7)
->  #define STEPS_0_MASK                 0xff
->  #define STEPS_1_MASK                 0x07
->
-> @@ -84,6 +121,32 @@
->  #define L0_REF_CLK_LCL_SEL           BIT(7)
->  #define L0_REF_CLK_SEL_MASK          0x9f
->
-> +/* Built-in self-test parameters */
-> +#define L0_BIST_CTRL_1                       0x3004
-> +#define L0_BIST_CTRL_2                       0x3008
-> +#define L0_BIST_RUN_LEN_L            0x300c
-> +#define L0_BIST_ERR_INJ_POINT_L              0x3010
-> +#define L0_BIST_RUNLEN_ERR_INJ_H     0x3014
-> +#define L0_BIST_IDLE_TIME            0x3018
-> +#define L0_BIST_MARKER_L             0x301c
-> +#define L0_BIST_IDLE_CHAR_L          0x3020
-> +#define L0_BIST_MARKER_IDLE_H                0x3024
-> +#define L0_BIST_LOW_PULSE_TIME               0x3028
-> +#define L0_BIST_TOTAL_PULSE_TIME     0x302c
-> +#define L0_BIST_TEST_PAT_1           0x3030
-> +#define L0_BIST_TEST_PAT_2           0x3034
-> +#define L0_BIST_TEST_PAT_3           0x3038
-> +#define L0_BIST_TEST_PAT_4           0x303c
-> +#define L0_BIST_TEST_PAT_MSBS                0x3040
-> +#define L0_BIST_PKT_NUM                      0x3044
-> +#define L0_BIST_FRM_IDLE_TIME                0x3048
-> +#define L0_BIST_PKT_CTR_L            0x304c
-> +#define L0_BIST_PKT_CTR_H            0x3050
-> +#define L0_BIST_ERR_CTR_L            0x3054
-> +#define L0_BIST_ERR_CTR_H            0x3058
-> +#define L0_BIST_FILLER_OUT           0x3068
-> +#define L0_BIST_FORCE_MK_RST         0x306c
-> +
->  /* Calibration digital logic parameters */
->  #define L3_TM_CALIB_DIG19            0xec4c
->  #define L3_CALIB_DONE_STATUS         0xef14
-> @@ -139,6 +202,9 @@ static const char *const xpsgtr_icm_str[] =3D {
->  #define TM_CMN_RST_SET                       0x2
->  #define TM_CMN_RST_MASK                      0x3
->
-> +#define LPBK_CTRL0                   0x10038
-> +#define LPBK_CTRL1                   0x1003c
-> +
->  /* Bus width parameters */
->  #define TX_PROT_BUS_WIDTH            0x10040
->  #define RX_PROT_BUS_WIDTH            0x10044
-> @@ -148,9 +214,13 @@ static const char *const xpsgtr_icm_str[] =3D {
->  #define PROT_BUS_WIDTH_SHIFT(n)              ((n) * 2)
->  #define PROT_BUS_WIDTH_MASK(n)               GENMASK((n) * 2 + 1, (n) * =
-2)
->
-> +#define UPHY_SPARE0                  0X10098
-> +
->  /* Number of GT lanes */
->  #define NUM_LANES                    4
->
-> +#define SIOU_ECO_0                   0x1c
-> +
->  /* SIOU SATA control register */
->  #define SATA_CONTROL_OFFSET          0x0100
->
-> @@ -338,6 +408,33 @@ static void xpsgtr_restore_lane_regs(struct xpsgtr_d=
-ev
-> *gtr_dev)
->                            gtr_dev->saved_regs[i]);
->  }
->
-> +static inline void xpsgtr_write_lanes(struct xpsgtr_dev *gtr_dev,
-> +                                  unsigned long *lanes, u32 reg, u32 val=
-ue)
-> +{
-> +     unsigned long lane;
-> +
-> +     for_each_set_bit(lane, lanes, NUM_LANES) {
-> +             void __iomem *addr =3D gtr_dev->serdes + lane * PHY_REG_OFF=
-SET
-> +                                  + reg;
-> +
-> +             writel(value, addr);
-> +     }
-> +}
-> +
-> +static inline void xpsgtr_clr_set_lanes(struct xpsgtr_dev *gtr_dev,
-> +                                    unsigned long *lanes, u32 reg, u32 c=
-lr,
-> +                                    u32 set)
-> +{
-> +     unsigned long lane;
-> +
-> +     for_each_set_bit(lane, lanes, NUM_LANES) {
-> +             void __iomem *addr =3D gtr_dev->serdes + lane * PHY_REG_OFF=
-SET
-> +                                  + reg;
-> +
-> +             writel((readl(addr) & ~clr) | set, addr);
-> +     }
-> +}
-> +
->  /*
->   * Hardware Configuration
->   */
-> @@ -351,7 +448,7 @@ static int xpsgtr_wait_pll_lock(struct phy *phy)
->       u8 protocol =3D gtr_phy->protocol;
->       int ret;
->
-> -     dev_dbg(gtr_dev->dev, "Waiting for PLL lock\n");
-> +     dev_vdbg(gtr_dev->dev, "Waiting for PLL lock\n");
-
-Unrelated change.
-
->
->       /*
->        * For DP and PCIe, only the instance 0 PLL is used. Switch to that=
- phy
-> @@ -520,6 +617,231 @@ static void xpsgtr_bypass_scrambler_8b10b(struct
-> xpsgtr_phy *gtr_phy)
->       xpsgtr_write_phy(gtr_phy, L0_TX_DIG_61,
-> L0_TM_DISABLE_SCRAMBLE_ENCODER);
->  }
->
-> +/* Enable or disable loopback */
-> +static void xpsgtr_phy_set_loopback(struct xpsgtr_phy *gtr_phy, bool ena=
-bled)
-> +{
-> +     struct xpsgtr_dev *gtr_dev =3D gtr_phy->dev;
-> +     u32 reg =3D gtr_phy->lane >=3D 2 ? LPBK_CTRL1 : LPBK_CTRL0;
-> +     u32 shift =3D gtr_phy->lane & 1 ? 4 : 0;
-> +
-> +     xpsgtr_clr_set(gtr_dev, reg, 7 << shift, (u32)enabled << shift);
-> +}
-> +
-> +static void xpsgtr_phy_set_ill(struct xpsgtr_phy *gtr_phy, u32 ill, bool=
- gen2)
-> +{
-> +     u32 val =3D 4 + ill * 8;
-> +
-> +     if (gen2) {
-> +             xpsgtr_write_phy(gtr_phy, L0_TM_E_ILL2, val & 0xff);
-> +             xpsgtr_clr_set_phy(gtr_phy, L0_TM_ILL12, 0x0f,
-> +                                1 << (val >> 8));
-> +     } else {
-> +             xpsgtr_write_phy(gtr_phy, L0_TM_E_ILL1, val & 0xff);
-> +             xpsgtr_clr_set_phy(gtr_phy, L0_TM_ILL12, 0xf0,
-> +                                (val >> 4) & 0x10);
-> +     }
-> +}
-> +
-> +static bool xpsgtr_ill_calibrated(struct xpsgtr_phy *gtr_phy)
-> +{
-> +     u32 ill1 =3D xpsgtr_read_phy(gtr_phy, L0_TM_E_ILL1);
-> +     u32 ill2 =3D xpsgtr_read_phy(gtr_phy, L0_TM_E_ILL2);
-> +     u32 ill12 =3D xpsgtr_read_phy(gtr_phy, L0_TM_ILL12);
-> +
-> +     dev_dbg(gtr_phy->dev->dev, "lane %u gen1 ILL was %u gen2 ILL was
-> %u\n",
-> +             gtr_phy->lane, ill1 / 8 + (ill12 & 0x10 ? 32 : 0),
-> +             ill2 / 8 + (ill12 & 0x02 ? 32 : 0));
-> +     return ill1 || ill2 || ill12;
-> +}
-> +
-> +static void xpsgtr_init_ill(struct xpsgtr_phy *gtr_phy)
-> +{
-> +     struct xpsgtr_dev *gtr_dev =3D gtr_phy->dev;
-> +     struct clk *clk =3D gtr_dev->clk[gtr_phy->refclk];
-> +     u32 ill123 =3D DIV_ROUND_CLOSEST(clk_get_rate(clk), 1000000);
-> +
-> +     xpsgtr_clr_set_phy(gtr_phy, L0_TM_MISC2, 0,
-> L0_TM_MISC2_ILL_CAL_BYPASS);
-> +     xpsgtr_write_phy(gtr_phy, L0_TM_IQ_ILL1, ill123);
-> +     xpsgtr_write_phy(gtr_phy, L0_TM_IQ_ILL2, ill123);
-> +     xpsgtr_write_phy(gtr_phy, L0_TM_IQ_ILL3, ill123);
-> +     xpsgtr_write_phy(gtr_phy, L0_TM_IQ_ILL7, 0xf3);
-> +     xpsgtr_write_phy(gtr_phy, L0_TM_E_ILL7, 0xf3);
-> +     xpsgtr_write_phy(gtr_phy, L0_TM_ILL8, 0xff);
-> +     xpsgtr_write_phy(gtr_phy, L0_TM_IQ_ILL8, 0xf3);
-> +     xpsgtr_write_phy(gtr_phy, L0_TM_E_ILL8, 0xf3);
-> +     xpsgtr_write_phy(gtr_phy, L0_TM_IQ_ILL9, 1);
-> +     xpsgtr_write_phy(gtr_phy, L0_TM_E_ILL9, 1);
-> +     xpsgtr_clr_set(gtr_dev, UPHY_SPARE0, BIT(5), 0);
-> +}
-> +
-> +static void xpsgtr_phy_illcalib(struct xpsgtr_dev *gtr_dev,
-> +                                  unsigned long *lanes, bool gen2)
-> +{
-> +     bool last_ok[NUM_LANES] =3D { 0 };
-> +     int pass[NUM_LANES] =3D { 0 }, altpass[NUM_LANES] =3D { 0 };
-> +     int best[NUM_LANES] =3D { 0 }, altbest[NUM_LANES] =3D { 0 };
-> +     unsigned long lane;
-> +     int i;
-> +
-> +     /* Initialize the BIST */
-> +     xpsgtr_clr_set_lanes(gtr_dev, lanes, L0_BIST_CTRL_1, 0xe0, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_FILLER_OUT, 1);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_FORCE_MK_RST, 1);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_TM_DIG_22, 0x20);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_CTRL_2, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_RUN_LEN_L, 0xf4);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_ERR_INJ_POINT_L, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_RUNLEN_ERR_INJ_H, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_IDLE_TIME, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_MARKER_L, 0xfb);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_IDLE_CHAR_L, 0xff);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_MARKER_IDLE_H, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_LOW_PULSE_TIME, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_TOTAL_PULSE_TIME, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_TEST_PAT_1, 0x4a);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_TEST_PAT_2, 0x4a);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_TEST_PAT_3, 0x4a);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_TEST_PAT_4, 0x4a);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_TEST_PAT_MSBS, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_PKT_NUM, 0x14);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_FRM_IDLE_TIME, 2);
-> +     xpsgtr_clr_set_lanes(gtr_dev, lanes, L0_BIST_CTRL_1, 0xe0, 0);
-> +
-> +     for (i =3D 0; i < 64; i++) {
-> +             bool ok[NUM_LANES];
-> +
-> +             for_each_set_bit(lane, lanes, NUM_LANES)
-> +                     xpsgtr_phy_set_ill(&gtr_dev->phys[lane], i, gen2);
-> +
-> +             /* Reset lanes */
-> +             xpsgtr_clr_set_lanes(gtr_dev, lanes, L0_TM_ANA_BYP_7, 0x20,
-> +                                  0x10);
-> +             xpsgtr_write(gtr_dev, UPHY_SPARE0, 0x00);
-> +             xpsgtr_write_lanes(gtr_dev, lanes, L0_TM_ANA_BYP_4, 0x40);
-> +             xpsgtr_write_lanes(gtr_dev, lanes, L0_TM_PLL_DIG_33, 0x80);
-> +             xpsgtr_write(gtr_dev, UPHY_SPARE0, 0x04);
-> +             udelay(50);
-> +             if (gen2)
-> +                     xpsgtr_write(gtr_dev, UPHY_SPARE0, 0x0e);
-> +             xpsgtr_write(gtr_dev, UPHY_SPARE0, 0x06);
-> +             if (gen2) {
-> +                     xpsgtr_write_lanes(gtr_dev, lanes, L0_TX_ANA_TM_3, =
-0x04);
-> +                     xpsgtr_write(gtr_dev, UPHY_SPARE0, 0x07);
-> +                     udelay(400);
-> +                     xpsgtr_write_lanes(gtr_dev, lanes, L0_TX_ANA_TM_3, =
-0x0c);
-> +                     udelay(15);
-> +                     xpsgtr_write(gtr_dev, UPHY_SPARE0, 0x0f);
-> +                     udelay(100);
-> +             }
-> +
-> +             if (xpsgtr_wait_pll_lock(gtr_dev->phys[0].phy)) {
-> +                     memset(last_ok, 0, sizeof(last_ok));
-> +                     continue;
-> +             }
-> +
-> +             udelay(50);
-> +             xpsgtr_write_lanes(gtr_dev, lanes, L0_TM_ANA_BYP_4, 0xc0);
-> +             xpsgtr_write_lanes(gtr_dev, lanes, L0_TM_ANA_BYP_4, 0x80);
-> +             xpsgtr_write_lanes(gtr_dev, lanes, L0_TM_PLL_DIG_33, 0xc0);
-> +             udelay(50);
-> +             xpsgtr_write_lanes(gtr_dev, lanes, L0_TM_PLL_DIG_33, 0x80);
-> +             udelay(50);
-> +             xpsgtr_write_lanes(gtr_dev, lanes, L0_TM_ANA_BYP_4, 0);
-> +             xpsgtr_write_lanes(gtr_dev, lanes, L0_TM_PLL_DIG_33, 0);
-> +             udelay(500);
-> +
-> +             /* Do the BIST */
-> +             for_each_set_bit(lane, lanes, NUM_LANES) {
-> +                     struct xpsgtr_phy *gtr_phy =3D &gtr_dev->phys[lane]=
-;
-> +                     u32 packets, errors;
-> +
-> +                     xpsgtr_phy_init_bus_width(gtr_phy, PROT_BUS_WIDTH_1=
-0);
-> +                     xpsgtr_phy_set_loopback(gtr_phy, true);
-> +                     xpsgtr_write_phy(gtr_phy, L0_TM_DIG_22, 0x20);
-> +                     xpsgtr_clr_set_phy(gtr_phy, L0_BIST_CTRL_1, 0, 1);
-> +
-> +                     udelay(200);
-> +                     xpsgtr_write_phy(gtr_phy, L0_BIST_CTRL_1, 0);
-> +                     packets =3D xpsgtr_read_phy(gtr_phy, L0_BIST_PKT_CT=
-R_L);
-> +                     packets |=3D xpsgtr_read_phy(gtr_phy, L0_BIST_PKT_C=
-TR_H)
-> << 8;
-> +                     errors =3D xpsgtr_read_phy(gtr_phy, L0_BIST_ERR_CTR=
-_L);
-> +                     errors |=3D xpsgtr_read_phy(gtr_phy, L0_BIST_ERR_CT=
-R_H)
-> << 8;
-> +                     ok[lane] =3D packets && !errors;
-> +
-> +                     dev_dbg(gtr_dev->dev,
-> +                             "lane %lu ILL %d packets %10u errors %10u\n=
-",
-> +                             lane, i, packets, errors);
-> +             }
-> +
-> +             xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_CTRL_1, 0);
-> +             xpsgtr_write(gtr_dev, UPHY_SPARE0, 0x00);
-> +             xpsgtr_write(gtr_dev, UPHY_SPARE0, 0x02);
-> +
-> +             for_each_set_bit(lane, lanes, NUM_LANES) {
-> +                     pass[lane] +=3D ok[lane] && last_ok[lane];
-> +                     if (pass[lane] < 4) {
-> +                             if (!ok[lane] && i > 2) {
-> +                                     if (altpass[lane] < pass[lane]) {
-> +                                             altpass[lane] =3D pass[lane=
-];
-> +                                             altbest[lane] =3D
-> +                                                     (i - 1) - (pass[lan=
-e] + 1) / 2;
-> +                                     }
-> +                                     pass[lane] =3D 0;
-> +                             }
-> +                     } else if (!best[lane] && (!ok[lane] || i =3D=3D 63=
-) &&
-> +                                last_ok[lane]) {
-> +                             best[lane] =3D (i - 1) - (pass[lane] + 1) /=
- 2;
-> +                     }
-> +             }
-> +
-> +             memcpy(last_ok, ok, sizeof(ok));
-> +     }
-> +
-> +     for_each_set_bit(lane, lanes, NUM_LANES) {
-> +             dev_dbg(gtr_dev->dev, "lane %lu ILL best %d alt best %d\n",
-> +                     lane, best[lane], altbest[lane]);
-> +
-> +             xpsgtr_phy_set_ill(&gtr_dev->phys[lane],
-> +                                best[lane] ?: altbest[lane], gen2);
-> +     }
-> +
-> +     /* Clean up */
-> +     xpsgtr_clr_set_lanes(gtr_dev, lanes, L0_TM_ANA_BYP_7, 0x30, 0);
-> +     xpsgtr_write(gtr_dev, UPHY_SPARE0, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_CTRL_1, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_CTRL_2, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_RUN_LEN_L, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_ERR_INJ_POINT_L, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_RUNLEN_ERR_INJ_H, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_IDLE_TIME, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_MARKER_L, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_IDLE_CHAR_L, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_MARKER_IDLE_H, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_LOW_PULSE_TIME, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_TOTAL_PULSE_TIME, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_TEST_PAT_1, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_TEST_PAT_2, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_TEST_PAT_3, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_TEST_PAT_4, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_TEST_PAT_MSBS, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_PKT_NUM, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_FRM_IDLE_TIME, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_PKT_CTR_L, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_PKT_CTR_H, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_ERR_CTR_L, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_ERR_CTR_H, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_FILLER_OUT, 1);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_BIST_FORCE_MK_RST, 0);
-> +     xpsgtr_write_lanes(gtr_dev, lanes, L0_TM_DIG_22, 0);
-> +
-> +     for_each_set_bit(lane, lanes, NUM_LANES) {
-> +             struct xpsgtr_phy *gtr_phy =3D &gtr_dev->phys[lane];
-> +
-> +             xpsgtr_phy_init_bus_width(gtr_phy, PROT_BUS_WIDTH_20);
-> +             xpsgtr_phy_set_loopback(gtr_phy, false);
-> +     }
-> +}
-> +
->  static int xpsgtr_common_init(struct xpsgtr_phy *gtr_phy)
->  {
->       int ret;
-> @@ -553,6 +875,37 @@ static void xpsgtr_phy_init_sata(struct xpsgtr_phy
-> *gtr_phy)
->  {
->       struct xpsgtr_dev *gtr_dev =3D gtr_phy->dev;
->
-> +     if (!xpsgtr_ill_calibrated(gtr_phy)) {
-> +             DECLARE_BITMAP(lanes, NUM_LANES) =3D { 0 };
-> +
-> +             xpsgtr_init_ill(gtr_phy);
-> +             xpsgtr_write_phy(gtr_phy, L0_TM_E_ILL3, 100);
-> +             xpsgtr_clr_set_phy(gtr_phy, L0_TM_ILL11, 0xf0, 0x20);
-> +
-> +             __set_bit(gtr_phy->lane, lanes);
-> +             xpsgtr_phy_illcalib(gtr_dev, lanes, false);
-> +             xpsgtr_phy_set_ill(gtr_phy, 7, true);
-> +     }
-> +
-> +     /* Disable SSC */
-> +     xpsgtr_write_phy(gtr_phy, L0_PLL_FBDIV_FRAC_3_MSB,
-> TM_FORCE_EN_FRAC);
-> +     xpsgtr_clr_set_phy(gtr_phy, L0_PLL_SS_STEP_SIZE_3_MSB, 0,
-> TM_FORCE_EN);
-> +
-> +     /* Disable Tx deemphasis */
-> +     xpsgtr_write_phy(gtr_phy, L0_TM_CDR5,
-> +                      FIELD_PREP(L0_TM_CDR5_FPHL_FSM_ACC_CYCLES,
-> 7) |
-> +                      FIELD_PREP(L0_TM_CDR5_FFL_PH0_INT_GAIN, 6));
-> +     xpsgtr_write_phy(gtr_phy, L0_TM_CDR16, 12);
-> +
-> +     /* Configure equalization */
-> +     xpsgtr_write_phy(gtr_phy, L0_TX_ANA_TM_118,
-> +                      L0_TX_ANA_TM_118_FORCE_17_0);
-> +     xpsgtr_clr_set_phy(gtr_phy, L0_TM_EQ0, 0,
-> L0_TM_EQ0_EQ_STG2_CTRL_BYP);
-> +     xpsgtr_clr_set_phy(gtr_phy, L0_TM_EQ1,
-> L0_TM_EQ1_EQ_STG2_RL_PROG,
-> +                        FIELD_PREP(L0_TM_EQ1_EQ_STG2_RL_PROG, 2) |
-> +                        L0_TM_EQ1_EQ_STG2_PREAMP_MODE_VAL);
-> +     xpsgtr_write_phy(gtr_phy, L0_TX_ANA_TM_18, 2); /* -3.5 dB deemphasi=
-s */
-> +
->       xpsgtr_bypass_scrambler_8b10b(gtr_phy);
->
->       writel(gtr_phy->lane, gtr_dev->siou + SATA_CONTROL_OFFSET);
-> @@ -565,6 +918,64 @@ static void xpsgtr_phy_init_sgmii(struct xpsgtr_phy
-> *gtr_phy)
->       xpsgtr_bypass_scrambler_8b10b(gtr_phy);
->  }
->
-> +/* PCIe-specific initialization. */
-> +static int xpsgtr_phy_init_pcie(struct xpsgtr_phy *gtr_phy)
-> +{
-> +     struct xpsgtr_dev *gtr_dev =3D gtr_phy->dev;
-> +     DECLARE_BITMAP(lanes, NUM_LANES) =3D { 0 };
-> +     unsigned long lane;
-> +     bool calibrated =3D false;
-> +
-> +     xpsgtr_clr_set_phy(gtr_phy, L0_TM_AUX_0, 0, 0x20);
-> +
-> +     for (lane =3D 0; lane < NUM_LANES; lane++) {
-> +             struct xpsgtr_phy *gtr_phy =3D &gtr_dev->phys[lane];
-> +
-> +             if (gtr_phy->protocol !=3D ICM_PROTOCOL_PCIE)
-> +                     continue;
-> +
-> +             __set_bit(lane, lanes);
-> +             calibrated =3D calibrated || xpsgtr_ill_calibrated(gtr_phy)=
-;
-> +     }
-> +
-> +     if (calibrated)
-> +             return 0;
-> +
-> +     /* Write default ILL config */
-> +     for_each_set_bit(lane, lanes, NUM_LANES) {
-> +             struct xpsgtr_phy *p =3D &gtr_dev->phys[lane];
-> +
-> +             if (lane !=3D gtr_phy->lane) {
-> +                     int ret =3D xpsgtr_common_init(p);
-> +
-> +                     if (ret)
-> +                             return ret;
-> +             }
-> +
-> +             xpsgtr_init_ill(p);
-> +             xpsgtr_write_phy(p, L0_TM_E_ILL3, 0);
-> +             xpsgtr_clr_set_phy(p, L0_TM_MISC2, 0,
-> +                                L0_TM_MISC2_ILL_CAL_BYPASS);
-> +     }
-> +
-> +     /* Perform the ILL calibration procedure */
-> +     xpsgtr_phy_illcalib(gtr_dev, lanes, false);
-> +     xpsgtr_phy_illcalib(gtr_dev, lanes, true);
-> +
-> +     /* Disable PCIe ECO */
-> +     writel(1, gtr_dev->siou + SIOU_ECO_0);
-> +     return 0;
-> +}
-> +
-> +/* USB-specific initialization. */
-> +static void xpsgtr_phy_init_usb(struct xpsgtr_phy *gtr_phy)
-> +{
-> +     xpsgtr_clr_set_phy(gtr_phy, L0_TM_AUX_0, 0, 0x20);
-> +     xpsgtr_write_phy(gtr_phy, L0_TM_IQ_ILL8, 0xf3);
-> +     xpsgtr_write_phy(gtr_phy, L0_TM_E_ILL8, 0xf3);
-> +     xpsgtr_phy_set_ill(gtr_phy, 7, false);
-> +}
-> +
->  /* Configure TX de-emphasis and margining for DP. */
->  static void xpsgtr_phy_configure_dp(struct xpsgtr_phy *gtr_phy, unsigned=
- int pre,
->                                   unsigned int voltage)
-> @@ -710,6 +1121,10 @@ static int xpsgtr_phy_init(struct phy *phy)
->               xpsgtr_phy_init_dp(gtr_phy);
->               break;
->
-> +     case ICM_PROTOCOL_PCIE:
-> +             ret =3D xpsgtr_phy_init_pcie(gtr_phy);
-> +             break;
-> +
->       case ICM_PROTOCOL_SATA:
->               xpsgtr_phy_init_sata(gtr_phy);
->               break;
-> @@ -717,6 +1132,10 @@ static int xpsgtr_phy_init(struct phy *phy)
->       case ICM_PROTOCOL_SGMII:
->               xpsgtr_phy_init_sgmii(gtr_phy);
->               break;
-> +
-> +     case ICM_PROTOCOL_USB:
-> +             xpsgtr_phy_init_usb(gtr_phy);
-> +             break;
->       }
->
->  out:
-> --
-> 2.35.1.1320.gc452695387.dirty
-
+Regards,
+Besar
 
