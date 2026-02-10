@@ -4,60 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 279DBE94626
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 02:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0136AE94627
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 02:25:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nQ50p2KNl3amfBot28o/Z8pfWvYK3Anb03Fg5LdckDw=; b=WraiNz076jQAF1kcxeMQxKQpAb
-	JnzDzhBCtWYEMa7R5FM1DPFsvUeUmSch3MBYaaymIgy+jRlCumn9UKhuRJeI3I9WSvJZ2EV/UGl4t
-	bn6gNYZf9XetriLRFJDEO57BRfBy0eON5cRumD90YJdgpgj9WjOCWFlrl7nQgrvEozydSfjtt82Vx
-	/JwnUYC7B2vJxL4JR5TheMLFV/ZJR6P+48NakziH+sNFph2RY2NUmZr/2o2/W/LO0yHMCVqMZfEJ7
-	OP2ttixCh6QDBH+LICdZm92l5GEWQ1nBfC34G7C0CXnu+W//U7Fh/8VQ4f/X63yVhQ7LG/4zhDInm
-	RSH33BXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f2A6Z+4V54PUBGvJkvXTcDCp1//Xt/2lpbnfpRZwod4=; b=JR/fKeEAZJ/AcvZZqcexvCI3Lg
+	Pe4fdG6j/GdvlfHXS13Y3HVHJiCSEa+FgqfrPxx6iKS9jyE0sYFYbPhm4Pr/izohzyRQSPCcl/sZZ
+	jcFrHnAH0vnm3auu+mk8lD+0KCHoDKtZaj7gGUs98zlBMycmkpLXsVzkiuObAXhBIB/iBVVT+MY5C
+	u0F0GTcCaFMh/5qs/XHYYEaTarGTpCxuaiLkcTzA3/YwGqQ3ekdcOkvg46q3zatPCNvStp3pZ/s7S
+	xH7OO8aDKNEHc/Y6yHvgLXHfd1KH3NbzsE0/N3PQghaZSgs9ct0kXBhtuWYnbPF+YQg4s3pRh1RZb
+	w9R1zezg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpd3x-0000000GItf-2lVu;
-	Tue, 10 Feb 2026 02:01:13 +0000
-Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
+	id 1vpdQx-0000000GKO5-3dUC;
+	Tue, 10 Feb 2026 02:24:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpd3t-0000000GIt3-1g46
+	id 1vpdQw-0000000GKNj-0NUc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 02:01:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1770688864; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=nQ50p2KNl3amfBot28o/Z8pfWvYK3Anb03Fg5LdckDw=;
-	b=RzZNqhju5pPL81zVsYOXc4q7plI9vLbPuEYCl/qFt68nrkpAd17x1RZ3apS/vRbRhzyVXz4r5sgF3BqUfjklTRnsZW0s67BzD3bNpDcIq+2F7DVwtYCLzlPqyQo9ei8Ksbdr12wlfKY7Frq8gSTCk25M8lnyoBkhFXJYhe3STas=
-Received: from 30.74.144.109(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WyxHdcT_1770688862 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 10 Feb 2026 10:01:03 +0800
-Message-ID: <de69443f-8e0f-4d83-9f29-0b349ff682c8@linux.alibaba.com>
-Date: Tue, 10 Feb 2026 10:01:02 +0800
+	Tue, 10 Feb 2026 02:24:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 69FC342A3D;
+	Tue, 10 Feb 2026 02:24:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D93AC116C6;
+	Tue, 10 Feb 2026 02:24:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770690297;
+	bh=qvzkgIsUupXyFBmx94KHEIrSTpQoQW9SEGt5veYFylE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VpUfiCWNb0vIktuuKWDP6Fl3XWl+f+zThcHDJq4SLtV6wjdRsodxX3StIrah3IjVS
+	 lLyr/fNF07JG/tVAe3JyNDP2l68nIHnCI29Y73uRuwfYi/M1xI/P4IOUx4WzRgu20e
+	 8jNRqleE6NsTtCQbEAkUggssnnhuL5fDWEq36grrGmUiivUIYhJzVTaEfMQor9D1ut
+	 +zXBzGcxexfCOSQcM5MCcLZJu3Sfrp6XkU80bj3OHmkI8Bbx0cDfu0RfDDNa6hfqC7
+	 NeozwEYjDFXg8tQA+dE3mf1zu4yfP9Mx3c1BLVHy3pSVSnIFKIsRNnjpLlyOiP1c7I
+	 uvZYNzwPcyA2w==
+Date: Mon, 9 Feb 2026 20:24:56 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: Frank Li <frank.li@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Li Jun <jun.li@nxp.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: Re: [PATCH v3 1/3] dt-bindings: usb: introduce nxp,imx-dwc3
+Message-ID: <177069029377.2355609.7155450591040552968.robh@kernel.org>
+References: <20260206-add-flatten-dts-based-dwc3-imx-driver-v3-0-ebd9b9b77049@nxp.com>
+ <20260206-add-flatten-dts-based-dwc3-imx-driver-v3-1-ebd9b9b77049@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/5] support batch checking of references and unmapping
- for large folios
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: david@kernel.org, catalin.marinas@arm.com, will@kernel.org,
- lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, Liam.Howlett@oracle.com,
- vbabka@suse.cz, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
- riel@surriel.com, harry.yoo@oracle.com, jannh@google.com,
- willy@infradead.org, baohua@kernel.org, dev.jain@arm.com,
- linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <cover.1770645603.git.baolin.wang@linux.alibaba.com>
- <20260209175316.2ef64ee244599765a74a6975@linux-foundation.org>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <20260209175316.2ef64ee244599765a74a6975@linux-foundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260206-add-flatten-dts-based-dwc3-imx-driver-v3-1-ebd9b9b77049@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_180110_066533_96DE3DD6 
-X-CRM114-Status: GOOD (  28.84  )
+X-CRM114-CacheID: sfid-20260209_182458_152797_D68B1797 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,134 +81,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On Fri, 06 Feb 2026 18:18:49 +0800, Xu Yang wrote:
+> The i.MX USB glue and DWC3 core are closely coupled. Describe the i.MX
+> USB block in a single block will bring more benefits than a parent-child
+> relation. The new binding is used to describe flattened usb controller
+> node. It's a copy of the legacy binding fsl,imx8mp-dwc3.yaml with the
+> needed modifications.
+> 
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> 
+> ---
+> Changes in v3:
+>  - rename file name as nxp,imx-dwc3.yaml
+>  - rename compatible as nxp,imx*-dwc3
+>  - remove status property in example node
+>  - remove select block
+>  - modify commit message
+> Changes in v2:
+>  - reorder compatible property
+> ---
+>  .../devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml   |   2 +
+>  .../devicetree/bindings/usb/nxp,imx-dwc3.yaml      | 123 +++++++++++++++++++++
+>  2 files changed, 125 insertions(+)
+> 
 
-On 2/10/26 9:53 AM, Andrew Morton wrote:
-> On Mon,  9 Feb 2026 22:07:23 +0800 Baolin Wang <baolin.wang@linux.alibaba.com> wrote:
-> 
->> Currently, folio_referenced_one() always checks the young flag for each PTE
->> sequentially, which is inefficient for large folios. This inefficiency is
->> especially noticeable when reclaiming clean file-backed large folios, where
->> folio_referenced() is observed as a significant performance hotspot.
->>
->> Moreover, on Arm architecture, which supports contiguous PTEs, there is already
->> an optimization to clear the young flags for PTEs within a contiguous range.
->> However, this is not sufficient. We can extend this to perform batched operations
->> for the entire large folio (which might exceed the contiguous range: CONT_PTE_SIZE).
->>
->> Similar to folio_referenced_one(), we can also apply batched unmapping for large
->> file folios to optimize the performance of file folio reclamation. By supporting
->> batched checking of the young flags, flushing TLB entries, and unmapping, I can
->> observed a significant performance improvements in my performance tests for file
->> folios reclamation. Please check the performance data in the commit message of
->> each patch.
->>
-> 
-> Thanks, I updated mm.git to this version.  Below is how v6 altered
-> mm.git.
-> 
-> I notice that this fix:
-> 
-> https://lore.kernel.org/all/de141225-a0c1-41fd-b3e1-bcab09827ddd@linux.alibaba.com/T/#u
-> 
-> was not carried forward.  Was this deliberate?
-
-Yes. After discussing with David[1], we believe the original patch is 
-correct, so the 'fix' is unnecessary.
-
-[1] 
-https://lore.kernel.org/all/280ae63e-d66e-438f-8045-6c870420fe76@linux.alibaba.com/
-
-The following diff looks good to me. Thanks.
-
-> Also, regarding the 80-column tricks in folio_referenced_one(): we're
-> allowed to do this ;)
-> 
-> 
-> 				unsigned long end_addr;
-> 				unsigned int max_nr;
-> 
-> 				end_addr = pmd_addr_end(address, vma->vm_end);
-> 				max_nr = (end_addr - address) >> PAGE_SHIFT;
-> 
-> 
-> 
-> 
->   arch/arm64/include/asm/pgtable.h |    2 +-
->   include/linux/pgtable.h          |   16 ++++++++++------
->   mm/rmap.c                        |    9 +++------
->   3 files changed, 14 insertions(+), 13 deletions(-)
-> 
-> --- a/arch/arm64/include/asm/pgtable.h~b
-> +++ a/arch/arm64/include/asm/pgtable.h
-> @@ -1843,7 +1843,7 @@ static inline int clear_flush_young_ptes
->   					 unsigned long addr, pte_t *ptep,
->   					 unsigned int nr)
->   {
-> -	if (likely(nr == 1 && !pte_valid_cont(__ptep_get(ptep))))
-> +	if (likely(nr == 1 && !pte_cont(__ptep_get(ptep))))
->   		return __ptep_clear_flush_young(vma, addr, ptep);
->   
->   	return contpte_clear_flush_young_ptes(vma, addr, ptep, nr);
-> --- a/include/linux/pgtable.h~b
-> +++ a/include/linux/pgtable.h
-> @@ -1070,8 +1070,8 @@ static inline void wrprotect_ptes(struct
->   
->   #ifndef clear_flush_young_ptes
->   /**
-> - * clear_flush_young_ptes - Clear the access bit and perform a TLB flush for PTEs
-> - *			    that map consecutive pages of the same folio.
-> + * clear_flush_young_ptes - Mark PTEs that map consecutive pages of the same
-> + *			    folio as old and flush the TLB.
->    * @vma: The virtual memory area the pages are mapped into.
->    * @addr: Address the first page is mapped at.
->    * @ptep: Page table pointer for the first entry.
-> @@ -1087,13 +1087,17 @@ static inline void wrprotect_ptes(struct
->    * pages that belong to the same folio.  The PTEs are all in the same PMD.
->    */
->   static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
-> -					 unsigned long addr, pte_t *ptep,
-> -					 unsigned int nr)
-> +		unsigned long addr, pte_t *ptep, unsigned int nr)
->   {
-> -	int i, young = 0;
-> +	int young = 0;
->   
-> -	for (i = 0; i < nr; ++i, ++ptep, addr += PAGE_SIZE)
-> +	for (;;) {
->   		young |= ptep_clear_flush_young(vma, addr, ptep);
-> +		if (--nr == 0)
-> +			break;
-> +		ptep++;
-> +		addr += PAGE_SIZE;
-> +	}
->   
->   	return young;
->   }
-> --- a/mm/rmap.c~b
-> +++ a/mm/rmap.c
-> @@ -963,10 +963,8 @@ static bool folio_referenced_one(struct
->   				referenced++;
->   		} else if (pvmw.pte) {
->   			if (folio_test_large(folio)) {
-> -				unsigned long end_addr =
-> -					pmd_addr_end(address, vma->vm_end);
-> -				unsigned int max_nr =
-> -					(end_addr - address) >> PAGE_SHIFT;
-> +				unsigned long end_addr = pmd_addr_end(address, vma->vm_end);
-> +				unsigned int max_nr = (end_addr - address) >> PAGE_SHIFT;
->   				pte_t pteval = ptep_get(pvmw.pte);
->   
->   				nr = folio_pte_batch(folio, pvmw.pte,
-> @@ -974,8 +972,7 @@ static bool folio_referenced_one(struct
->   			}
->   
->   			ptes += nr;
-> -			if (clear_flush_young_ptes_notify(vma, address,
-> -						pvmw.pte, nr))
-> +			if (clear_flush_young_ptes_notify(vma, address, pvmw.pte, nr))
->   				referenced++;
->   			/* Skip the batched PTEs */
->   			pvmw.pte += nr - 1;
-> _
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
