@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 005BAEA3F3A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 10:51:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD4C9EA3F3A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 11:01:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8xuJ5/oiqYogBObFdL4nrdhAJ9EDpplKb22GqFB6V8o=; b=H2ISjFl30GN8DdMVb80NpPw8Tn
-	oS5yjwph4YcU9OYQinvmQJTgxy4nGco1pK7CVs+T6G9k+ZolODGAOXk43zeAh62j+4gbY530xoYLB
-	vfsWbft6QsbowumvKktkC9ZavTUHQRGL6dIeWwmZWzCGq40ppApaFCzSRCvzrZkUo7YS1wuH7bAPx
-	Zw+KpnYDACzii/KbFIaPJuvhOSfaoaoko8Lwjw71i7OZwwuJRTDadg7YVsaAgyslfRuBM/FnSVTUo
-	9se5eGxYBRt4fTMU88xkBYA+fJ5XqwJfmIROSaYB0Bqj+UcLnZYHKv0Cj/W3AitwLu5LT//gE8Hqo
-	xkORqbbA==;
+	bh=wwshHZNadT8HUjInGzJyUY51Bs+OpL0yMVN+dJVHkmU=; b=UoQOCKJhaskC50zSrvEDcFYzLk
+	vRDSEydhQkxIY3I7Qk9F+R3TJ03ml0L100Ijl/W2072zK7refjohLlo/lGhYTN91ks5QLCQ5Y4e3Y
+	fWGF2ISkyATZKz+OdCZbE4apn+0hqRDY3qakf9cfgfqs7FdMm4BLX72darSBtlmgLy5eiMsiD6fvq
+	Pwidi7HGUIT9QLYpEuKw9D8chZSKXPNsBLry8xx2qeunJ2R46IJxJpM4SLzyGLf5SFqKAXxjPspVX
+	sNN/dqBaW1aWVDalX/MEr30B7K+AF9FTNQVGh7uLYxND8sNRpfNHmE/zbJ4Sjw/uyFSJPOH5Ha+Pq
+	ukzvPYeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vplL5-0000000GrE9-0yvF;
-	Tue, 10 Feb 2026 10:51:27 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vplUR-0000000GrdH-2I8N;
+	Tue, 10 Feb 2026 11:01:07 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vplL2-0000000GrDk-2n0w;
-	Tue, 10 Feb 2026 10:51:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1770720681;
-	bh=NTDQ2z46qy9D3IuLQd4Soj1UA8t+QmePoMymLDLGHS0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ORI+W7xILBNUuSSdr6XQ7zospIplxBB0gAiCi+7j+WjOg6OirC5t7D+Xl5O7l6U0P
-	 0HD2maqTImAwLwopKSirmVOZeShM031FZYVVgpHLke/6jK4BxMMu0ps9IYJAiVU7mJ
-	 DPkI4/W6XVDRMh6+5pcME+ypELxTR7UpIOY675gyM5/WE4WjDlffajsjni8nZUuueR
-	 XxgTBnTkrlvPFnk/DRWWENPmDN+lmWYtu9LWEMdMIEYX+QtAP5kHqaevrVTBqCC3ku
-	 tUTykaPPeNV8WofuxZySz/BeOHrhszS0BTziiskZQVZeGt1ORhiYtOxaHAmvupeBWQ
-	 n1OUnnD1am5mQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9846417E012E;
-	Tue, 10 Feb 2026 11:51:20 +0100 (CET)
-Message-ID: <296b000c-5970-4668-bd42-b99ca78d598f@collabora.com>
-Date: Tue, 10 Feb 2026 11:51:20 +0100
+	id 1vplUO-0000000GrcF-3iq3
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Feb 2026 11:01:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=from:to:cc:subject:date:message-id
+	:in-reply-to:references:mime-version:content-transfer-encoding;
+	 s=k1; bh=wwshHZNadT8HUjInGzJyUY51Bs+OpL0yMVN+dJVHkmU=; b=MU7kon
+	WCxEAs3u8KAZ6m5PnGDsM2e4nJbiS/mqLydPqTj/ytwLxnPZT2rL8L5QmiZ+hnXs
+	r8wiD/S85ZbCm2erZ2+EARpxQVeR3hBKCimCEwrymGi99yupyoLo0X8JoVKNi8DD
+	x2xpgpj8+n8Gmdh7r5tJHXuENfIs6YSkZlmsHI4LbaANXzJtVlO3f7FvPLGOGiUC
+	Mz1ceIPwvoUFFqTZhJXFbiwAE0fezHv3J2e1mzJ2T1+UvW5WNOc3QSTO+aVIYNG+
+	hunE3Rx8vbHbr6XcnClVdAFzKbbhecRe23lTz1SZ4071wtWdnMGkV+l+qB60pH2Z
+	DSh+FbjLMK1VIBFQ==
+Received: (qmail 353891 invoked from network); 10 Feb 2026 12:01:02 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 10 Feb 2026 12:01:02 +0100
+X-UD-Smtp-Session: l3s3148p1@K7TYK3ZKopkujnuT
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: linux-renesas-soc@vger.kernel.org
+Cc: Linus Walleij <linusw@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	linux-remoteproc@vger.kernel.org
+Subject: [PATCH 2/2] hwspinlock: remove now unused pdata from header file
+Date: Tue, 10 Feb 2026 12:00:56 +0100
+Message-ID: <20260210110057.10869-3-wsa+renesas@sang-engineering.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260210110057.10869-1-wsa+renesas@sang-engineering.com>
+References: <20260210110057.10869-1-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: mfd: syscon: Add mt8516-syscfg
-To: Luca Weiss <luca@lucaweiss.eu>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: ~postmarketos/upstreaming@lists.sr.ht, Lee Jones <lee@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, phone-devel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20260206-mt8516-syscfg-syscon-v1-0-96dcb37acdb4@lucaweiss.eu>
- <20260206-mt8516-syscfg-syscon-v1-1-96dcb37acdb4@lucaweiss.eu>
- <20260207-tricky-strange-swan-6f11b0@quoll>
- <3476c51b-9293-40f1-8b5c-9ac9802d7d97@collabora.com>
- <f1e1eeea-b246-42c8-84c9-0c1203706ddc@lucaweiss.eu>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <f1e1eeea-b246-42c8-84c9-0c1203706ddc@lucaweiss.eu>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_025124_882164_E371ABD5 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20260210_030105_204196_EB5D4206 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,93 +74,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 09/02/26 21:45, Luca Weiss ha scritto:
-> Hi AngeloGioacchino,
-> 
-> On 09-02-2026 12:34, AngeloGioacchino Del Regno wrote:
->> Il 07/02/26 11:51, Krzysztof Kozlowski ha scritto:
->>> On Fri, Feb 06, 2026 at 11:20:48AM +0100, Luca Weiss wrote:
->>>> Document the Mediatek mt8516-syscfg.
->>>
->>> Which is what? What is syscfg block?
->>>
->>
->> Not sure this is really a SYSCFG block.
->>
->> This should be a GPIO controller range, which is split between IOCFG and EINT.
->> Now, the legacy drivers are declaring the EINT iospace in the pinctrl node, and
->> getting the GPIO controller (IOCFG) iospace from a regmap.
->>
->> I don't have any board with MT8516... but well, the really-right-thing to do
->> would be to migrate that SoC off of the legacy driver, to the new-style one
->> that *properly* takes two iospaces:
->> "base" -> (0x10005000)
->> "eint" -> (0x1000b000)
->>
->> Luca, if you've got such a board, could you please try to migrate this SoC out
->> of the improper (but working good) driver and bindings?
->>
->> If not... well, I think this block is IOCFG, not SYSCFG...
-> 
-> Thanks for the suggestions. This is essentially my first Mediatek patch and while 
-> I'd say I have a good understanding of Qualcomm SoCs, Mediatek is very different, 
-> so I've got no clue about anything here really ;)
-> 
-> I'll try to decipher your comment and see what I can do about it, hopefully soon. 
-> Thanks!
-> 
+The last user turned out to be obsolete and was removed. Remove the
+unused struct now, too.
 
-Oh, okay. You want to check mt6795.dtsi - that's a SoC that has "more or less" the
-same generation of GPIO Controller IP as MT8516.
+Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+---
+ include/linux/hwspinlock.h | 28 ----------------------------
+ 1 file changed, 28 deletions(-)
 
-Also, useless to say, drivers/pinctrl/mediatek ... there's a pinctrl-moore and a
-pinctrl-paris; your SoC *should* be paris, but I don't really know - you want to
-definitely check if the register layout matches between the old-legacy-deprecated
-driver and the Paris IP.
+diff --git a/include/linux/hwspinlock.h b/include/linux/hwspinlock.h
+index f35b42e8c5de..74b91244fe0e 100644
+--- a/include/linux/hwspinlock.h
++++ b/include/linux/hwspinlock.h
+@@ -25,34 +25,6 @@ struct hwspinlock;
+ struct hwspinlock_device;
+ struct hwspinlock_ops;
+ 
+-/**
+- * struct hwspinlock_pdata - platform data for hwspinlock drivers
+- * @base_id: base id for this hwspinlock device
+- *
+- * hwspinlock devices provide system-wide hardware locks that are used
+- * by remote processors that have no other way to achieve synchronization.
+- *
+- * To achieve that, each physical lock must have a system-wide id number
+- * that is agreed upon, otherwise remote processors can't possibly assume
+- * they're using the same hardware lock.
+- *
+- * Usually boards have a single hwspinlock device, which provides several
+- * hwspinlocks, and in this case, they can be trivially numbered 0 to
+- * (num-of-locks - 1).
+- *
+- * In case boards have several hwspinlocks devices, a different base id
+- * should be used for each hwspinlock device (they can't all use 0 as
+- * a starting id!).
+- *
+- * This platform data structure should be used to provide the base id
+- * for each device (which is trivially 0 when only a single hwspinlock
+- * device exists). It can be shared between different platforms, hence
+- * its location.
+- */
+-struct hwspinlock_pdata {
+-	int base_id;
+-};
+-
+ #ifdef CONFIG_HWSPINLOCK
+ 
+ int hwspin_lock_register(struct hwspinlock_device *bank, struct device *dev,
+-- 
+2.51.0
 
-Check a bit; should you have any question, either reply here or shoot me an email,
-I'll do anything I can (though probably with late replies, as I'm usually a bit
-busy with work - but no worries about disturbing in any way!) to clarify things
-for you.
-
-Cheers,
-Angelo
-
-> Regards
-> Luca
-> 
->>
->> Cheers,
->> Angelo
->>
->>>>
->>>> Signed-off-by: Luca Weiss <luca@lucaweiss.eu>
->>>> ---
->>>>   Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
->>>>   1 file changed, 2 insertions(+)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/ 
->>>> Documentation/devicetree/bindings/mfd/syscon.yaml
->>>> index e57add2bacd3..a67699f1faee 100644
->>>> --- a/Documentation/devicetree/bindings/mfd/syscon.yaml
->>>> +++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
->>>> @@ -91,6 +91,7 @@ select:
->>>>             - mediatek,mt8135-pctl-b-syscfg
->>>>             - mediatek,mt8173-pctl-a-syscfg
->>>>             - mediatek,mt8365-syscfg
->>>> +          - mediatek,mt8516-syscfg
->>>
->>> Why aren't you placing it with all others mediatek,mt8516 syscons?
->>>
->>> Why this is so generically called "syscfg", completely not looking like
->>> a real name from datasheet unlike the others in this device.
->>>
->>> You have entire commit msg to explain that.
->>>
->>> Best regards,
->>> Krzysztof
->>>
->>
->>
-> 
 
