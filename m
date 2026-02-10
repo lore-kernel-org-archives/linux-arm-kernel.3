@@ -4,119 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3303EA813E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 16:15:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E13BEA3F22
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 16:18:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OV69+Uo343am1xlY7vZ24vp4ndhie2mnPf+a1G+z+xE=; b=XXxMspbv7jdwD3dbv65Sc+FaxC
-	boSqoGqmB4X/C0XwdY/uuI5Fwgp5CX8cZQiQC476IXBRX8NUM68mhtJw+DMDd3PBVMKTM0IWdgrBm
-	0Xfa9XRBkTHwEjfKNmAiUsg/ls87OUXsHoYAFI/nXOYbA8+YI93373o1EOfs0+ASM2k8Qk4ves9Cw
-	ENNcucXtkocwkWv85P86rvkpuP8T8OqljlAT/onKyrocMagHteoFPYArxnY1gptNXmMg5fzLV27zb
-	dufdmuGuPsItOT6/C3cHC1zbAaxnn4r/TA0LrK+y0UamEAOLu63507wSz/AzyCyW6FzQk9LyZyrcx
-	O6pCT0xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L3mzE9q9JZeLiz5qheXEKidJ4W/5JZW1PBYdqCp5RPU=; b=YGO6W9xKk+A7MlmxmXLUWLZDjI
+	JwF5B2EyTIgllWWvj0YtrpnYQxkg68jXNaHhsHpjrdyjfWpv1/4qaJZUFKkHFQg1nsM4PJIZEFTmw
+	JxucOWvD/+NKQ/vRXlsveatdjmtpHnp3RVcLH6XqGJQTh7MQTqXoQb1bLhDkCqLLUHvKIx4dfUXl8
+	0nG1YM5dg0/+1paRrHvpWOVk3CzWzjXL7jBn4PwljNgfpEcr/JEsMCyWbJKdccWGr48tuC5O6Xify
+	sVXbCMwEFR2nfnf37fSRZ9E4Gi+tWUS/Eua5WuHeMabF9mxt5FXI30UJUA48Q4ZtIvaSc502FGDwP
+	eH9r3Spw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqOY-0000000HCps-2gzr;
-	Tue, 10 Feb 2026 16:15:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vpqRN-0000000HD8O-0phT;
+	Tue, 10 Feb 2026 16:18:17 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqOW-0000000HCou-2ty1
+	id 1vpqRK-0000000HD7u-3bZ4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 16:15:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3616541704;
-	Tue, 10 Feb 2026 16:15:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 652B6C19424;
-	Tue, 10 Feb 2026 16:15:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770740120;
-	bh=L1pmb5eFz+mS8TWqibgKnYjCfMEDQsryux/Pc1Z3bV0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=T3HuF24IW2oD2uXdobOlXG1b+Plc4ugVWnbH9KUuE7EkGkSeczzduusVh194noUEz
-	 flz89NM6uJU3ZooFCJnkjA3K57lFP09Q/VIMCJFZkYh2aGGNaOUL35I46dQMwCRy9Q
-	 +Evj0XySlQ1HB1Jii1UooGH7ISuhM80pVhnfWdD+DK6yZjlMA3Sknd4vRlv0iTfVOb
-	 BVjRygEkpyi22yAIEBV954mnEIxveH9LQUYWdDsXOEA7ZtZVgWZK78f6cICdhjlD1v
-	 OtBzJB0+avagKV0vE8pni/hqrwKfVRP2njCKvUODRqtBWWWLZx+MI5pW6iqaYiBKhu
-	 UyJk0ggRBnx5A==
-Message-ID: <bd69c94c-51d0-4166-a059-e46b30cb83e0@kernel.org>
-Date: Tue, 10 Feb 2026 17:15:13 +0100
+	Tue, 10 Feb 2026 16:18:15 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-4376c0bffc1so1987523f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Feb 2026 08:18:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770740292; x=1771345092; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=L3mzE9q9JZeLiz5qheXEKidJ4W/5JZW1PBYdqCp5RPU=;
+        b=WTDj/8oldK6+aqbKd8bzIdNjjKGqATp6dkwVJrs6Hdmh6+jD/b1i3ZavWC4LIQkx28
+         xmQYOgxip9wSbWQJQiMj1ylkR9xTE/5iSvBt+IGFzycOTQGBeUJTT8fAJRS/v3gQQXtg
+         qJnrs6RhhQC27thPaL4rHAUED7tybL6aCDkBoofyOE6Xi098fFdiEittqtQuiP+rh7bK
+         17S4XqMhks25BRnDvbU+XqhlvCllCSpHusBN3hcD08RSDw52rC/ZJdbnm2MmwAuAITFQ
+         OGHkHOn4svmF6w4PbCZz/zQ5EtUQgKTEgs2/QNCGxUt/Ycuq+urlJo+oC6rabL1vlxUv
+         ne/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770740292; x=1771345092;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L3mzE9q9JZeLiz5qheXEKidJ4W/5JZW1PBYdqCp5RPU=;
+        b=EyFTl1xCQuoLM5TAAN4YxvNill6EGZssH74dds/MVDlzLH1kkLLMOQOYlLwd9IF/l2
+         piXeBRK2wniS3VR+3m1pFSVn4obAuR0pq/+JSqYgk9EVABdSIddtUW4VfMHKpJpuhh5P
+         BWtOwStUHbzFozjw74XR1BBtqjRJi4oxuo+g8ZTqO1b6J65Uu/5RdlqNR+Bnu3hPddTH
+         rzj9dz0pxS0CejSJMKnXdyiagtaUOVqgbrIUVmxIUQ+3SLAW3gnrDJkuXVmL9JPcYizx
+         H2+FP+MfhjbPniGoQyXzVv0TTajpz8ssTp2UoyRSKE5Ktk0jkN8R2qUO5/j3pev5IlYa
+         gdsw==
+X-Forwarded-Encrypted: i=1; AJvYcCWGyvPxirMArSts4e/47x0DQVXv1mKSQBBE7RhSWU74Vp3cQfQcA0BSNQGEsynEHy9kqunrlhKi5wq/vbG34JVn@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYw2iUdvDCLO8z3zEzpfve80wFtA2I7M6F433q7gM/8sNEJITP
+	nzVOGCX4+gMR8mv0/Mu+Yw/VEWgnQXNEKnOEQjnqSHdFiZh+qcWfA+I=
+X-Gm-Gg: AZuq6aJs5W7aJL2wAQfYhGqDgtI6vKgSrtR0fwkq/keqBacwkHDUUvj7eO7xTJYOrmB
+	ChFHKZ7IJvtyDsd/rFDf60z2NC4BuPr1lVW4L1pAkOBncR8wRg4poftMLHO/oaRGbYvbSQv3MXN
+	SyFccenquZkXfK2PRYe9479EHi/uYYdnKnuz+VHhT0lBu8DwstnWtdGErRNd2brMV6VA1/sHScX
+	cHuN9qg9w9MLNRzCHOYTtq547mL2tyJK18ujjEFhJZaEjU+z3HApWvR2uncteDUYQo3xUjdVFQx
+	GqwSthKQXeWa+fdyKGLN7akq3mNEWJ09gs5QA05paCS5uNlz36sfCNQhJNYiK4dj3K4ijnmF8qX
+	Mz52rgv2iZIguispju0bbq6c2d33lzpD4ZdpFR8y1dHLjGCgxWw+e3cr8pM4vewVM/2mHJ7ygnz
+	Zzl0seyqNGnS3w8jJ7r+6RnexH1T50cAZNkWyCT73SPge3DNa2e2ZLON6p6vrELHanWf/ZPszJj
+	NxlDBt+XVa4Hg==
+X-Received: by 2002:a5d:5f54:0:b0:435:9ce0:f93c with SMTP id ffacd0b85a97d-4362969509amr24592397f8f.62.1770740291496;
+        Tue, 10 Feb 2026 08:18:11 -0800 (PST)
+Received: from [192.168.1.17] (host-79-19-172-190.retail.telecomitalia.it. [79.19.172.190])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4362972fa41sm39165771f8f.23.2026.02.10.08.18.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Feb 2026 08:18:10 -0800 (PST)
+From: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+Date: Tue, 10 Feb 2026 17:17:38 +0100
+Subject: [PATCH] iommu: arm-smmu-qcom: Ensure smmu is powered up in
+ set_ttbr0_cfg
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 8/8] arm64: defconfig: Enable NVIDIA TEGRA410 PMU
-To: Besar Wicaksono <bwicaksono@nvidia.com>, "will@kernel.org"
- <will@kernel.org>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
- "robin.murphy@arm.com" <robin.murphy@arm.com>,
- "ilkka@os.amperecomputing.com" <ilkka@os.amperecomputing.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
- "mark.rutland@arm.com" <mark.rutland@arm.com>,
- Thierry Reding <treding@nvidia.com>, Jon Hunter <jonathanh@nvidia.com>,
- Vikram Sethi <vsethi@nvidia.com>, Rich Wiley <rwiley@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Sean Kelley
- <skelley@nvidia.com>, Yifei Wan <YWan@nvidia.com>,
- Matt Ochs <mochs@nvidia.com>, Nirmoy Das <nirmoyd@nvidia.com>
-References: <20260126181155.2776097-1-bwicaksono@nvidia.com>
- <20260126181155.2776097-9-bwicaksono@nvidia.com>
- <a3249d0f-17f2-496d-ad53-95ad5da26f5a@kernel.org>
- <SJ0PR12MB56762714BF94D1E67511C43DA062A@SJ0PR12MB5676.namprd12.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <SJ0PR12MB56762714BF94D1E67511C43DA062A@SJ0PR12MB5676.namprd12.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260210-qcom_smmu_pmfix-v1-1-78b7143ac053@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MQQqAIBAAvyJ7TtAlOvSVCDHdag9aKUUg/j3pO
+ AMzBTIlpgyjKJDo4cxHbKA7AW63cSPJvjGgwkGhVvJyRzA5hNucYeVXoiXrcbE9oYJWnYma/o/
+ TXOsHqLYDBGEAAAA=
+X-Change-ID: 20260210-qcom_smmu_pmfix-2aead2ba4e20
+To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Anna Maniscalco <anna.maniscalco2000@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770740289; l=2426;
+ i=anna.maniscalco2000@gmail.com; s=20240815; h=from:subject:message-id;
+ bh=VRL/E7nK1fyZMX83uu6bt4FiGrPrpeuaTEztrOQsu9U=;
+ b=3pZgXNEhwfzftk2Cfw8XXJ8nneEtPReIYQm7FPKnhsBaAF4wvq6oc6yGwv56OjIaVfHmJkCqc
+ mZihmSR2ywFBaJPn3/li3OAgz3sQw2TocZC9SOPytLYad1lKiiWdrfF
+X-Developer-Key: i=anna.maniscalco2000@gmail.com; a=ed25519;
+ pk=0zicFb38tVla+iHRo4kWpOMsmtUrpGBEa7LkFF81lyY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_081520_777307_D1CBD640 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260210_081814_927723_F61A8838 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,38 +111,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/02/2026 17:05, Besar Wicaksono wrote:
-> 
-> 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzk@kernel.org>
->> Sent: Sunday, February 8, 2026 5:18 AM
->> To: Besar Wicaksono <bwicaksono@nvidia.com>; will@kernel.org;
->> suzuki.poulose@arm.com; robin.murphy@arm.com;
->> ilkka@os.amperecomputing.com
->> Cc: linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; linux-
->> tegra@vger.kernel.org; mark.rutland@arm.com; Thierry Reding
->> <treding@nvidia.com>; Jon Hunter <jonathanh@nvidia.com>; Vikram Sethi
->> <vsethi@nvidia.com>; Rich Wiley <rwiley@nvidia.com>; Shanker Donthineni
->> <sdonthineni@nvidia.com>; Sean Kelley <skelley@nvidia.com>; Yifei Wan
->> <ywan@nvidia.com>; Matt Ochs <mochs@nvidia.com>; Nirmoy Das
->> <nirmoyd@nvidia.com>
->> Subject: Re: [PATCH 8/8] arm64: defconfig: Enable NVIDIA TEGRA410 PMU
->>
->> External email: Use caution opening links or attachments
->>
->>
->> On 26/01/2026 19:11, Besar Wicaksono wrote:
->>> Enable driver for NVIDIA TEGRA410 CMEM Latency and C2C PMU device.
->>
->> Why? Why do we want it? Which *upstream board* uses it?
->>
-> 
-> These are for NVIDIA Vera platform (Tegra410 SoC).
+Previously the device was being accessed while potentially in a
+suspended state.
 
-There is no such board (git grep), but anyway, don't explain it to me.
-Your commit should explain such stuff.
+Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+---
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 27 +++++++++++++++++++++------
+ 1 file changed, 21 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+index 573085349df3..ca34b7a141e6 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+@@ -231,16 +231,27 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const void *cookie,
+ 	struct io_pgtable *pgtable = io_pgtable_ops_to_pgtable(smmu_domain->pgtbl_ops);
+ 	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
+ 	struct arm_smmu_cb *cb = &smmu_domain->smmu->cbs[cfg->cbndx];
++	int ret;
++
++	ret = pm_runtime_resume_and_get(smmu_domain->smmu->dev);
++	if (ret < 0) {
++		dev_err(smmu_domain->smmu->dev, "failed to get runtime PM: %d\n", ret);
++		return -ENODEV;
++	}
+ 
+ 	/* The domain must have split pagetables already enabled */
+-	if (cb->tcr[0] & ARM_SMMU_TCR_EPD1)
+-		return -EINVAL;
++	if (cb->tcr[0] & ARM_SMMU_TCR_EPD1) {
++		ret = -EINVAL;
++		goto out;
++	}
+ 
+ 	/* If the pagetable config is NULL, disable TTBR0 */
+ 	if (!pgtbl_cfg) {
+ 		/* Do nothing if it is already disabled */
+-		if ((cb->tcr[0] & ARM_SMMU_TCR_EPD0))
+-			return -EINVAL;
++		if ((cb->tcr[0] & ARM_SMMU_TCR_EPD0)) {
++			ret = -EINVAL;
++			goto out;
++		}
+ 
+ 		/* Set TCR to the original configuration */
+ 		cb->tcr[0] = arm_smmu_lpae_tcr(&pgtable->cfg);
+@@ -249,8 +260,10 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const void *cookie,
+ 		u32 tcr = cb->tcr[0];
+ 
+ 		/* Don't call this again if TTBR0 is already enabled */
+-		if (!(cb->tcr[0] & ARM_SMMU_TCR_EPD0))
+-			return -EINVAL;
++		if (!(cb->tcr[0] & ARM_SMMU_TCR_EPD0)) {
++			ret = -EINVAL;
++			goto out;
++		}
+ 
+ 		tcr |= arm_smmu_lpae_tcr(pgtbl_cfg);
+ 		tcr &= ~(ARM_SMMU_TCR_EPD0 | ARM_SMMU_TCR_EPD1);
+@@ -262,6 +275,8 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const void *cookie,
+ 
+ 	arm_smmu_write_context_bank(smmu_domain->smmu, cb->cfg->cbndx);
+ 
++out:
++	pm_runtime_put_autosuspend(smmu_domain->smmu->dev);
+ 	return 0;
+ }
+ 
+
+---
+base-commit: 50c4a49f7292b33b454ea1a16c4f77d6965405dc
+change-id: 20260210-qcom_smmu_pmfix-2aead2ba4e20
 
 Best regards,
-Krzysztof
+-- 
+Anna Maniscalco <anna.maniscalco2000@gmail.com>
+
 
