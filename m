@@ -4,164 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B054EA8130
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 16:02:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8424FEA813A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 16:03:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=By4PdmS1kv7kqE4nixbGDCx6u1T6duRDq95l49lVN3Y=; b=TnFlwgKXbjlLTPF07RaMfau/AL
-	EYhCJBe+k2Pmp4xrj9vUTuEN2SpF57DeT0oQCNX4s7Qa0LyItIOWjIs9yg33ZiyJte1IaUmrDjhLh
-	/AVg/KZAsGC8bOybXC0ruNQmra/L8fl/l9/EBrGBB8ioTAJGgaGa+2x5RXP/mqbA2z8MjX3GyrQf/
-	MEdUBkmIlFfOcrARNZr2BX9lri/qSvXssgmJi+MjP6KjprGZqdZQd8Z7i8S92kF6XSrhtpDyvECGn
-	C+Dxt3SFt08iO4R2e0sfNmLoCD5ZD28lo15UD/QKYI1AjCM6azncwL3AjtFDNEY2Q8R5KeIbfxnx4
-	YbfVyvsA==;
+	bh=vpdpeURWAtQ/Es8iiFgxOkOH87ceLHFX9EODYogOvxk=; b=TgAxRXEoRRCD1LHPUhtoAuRfCP
+	K2pzOPYBSP1Wct3EkGWyVujifVlrMqbwaN29tWXR6vvPi2rOs76oVR/9gjax9cx9kkKnWi+EGaiwy
+	uu2IynJkTtEcCgv5N0iHjj9BKyxhi3hoxdJLdhcTq3SX7BFikOZ7+UXPpufhGnmQDw0QjsM0cxkLd
+	7bDX+mJP9kZkfI1N3lfaXX1n+QczmYJKrM6Qh1l8VmLkQ6n2IkHTGf10lOdIpLAb90RDfpeJxYSe3
+	/MR3BfKBWuOEcGZj9vBhSyZ7UZ0FVNk0GoIlv0O2QA4ZOhF4YZBUK6fRHtdNYlN31adGOWkOBtT67
+	pMHsH2lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqBf-0000000HB6s-0CAM;
-	Tue, 10 Feb 2026 16:02:03 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1vpqCW-0000000HBAx-25nY;
+	Tue, 10 Feb 2026 16:02:56 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpqBX-0000000HB68-40yk
+	id 1vpqCP-0000000HB9z-0NHT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 16:02:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hVJJmFQZO6Rkrl+A2DDkGKYebhlGD3kTDnhHjNXTws18n1zEH9hk3UkyumtmFLP8Nf2jNPr6Zx0kdRjofPRkSqcTsj0i1ZcIJ2fPRvQ0TpD1hRF9zHBNhmIlSjfqqlQcNM6jOnOtS94g8EHUzhzfEMBkcXL2fSC1X0JP8U6Da3G1K1RpmUnW7bbTb3D5hxJuGCXtwrJzSJNC2lZ4a4TrY21bEWJnBe+7eUYA4coAJYgrKr5DEmego1HOWUI7wdP0I8bbuHFA2WS575ZcPvEyE+nRKPsqTyLRV70V0/5XCEgLeimtXpU2gciU+W928/0OQp1xnIfrXsusS+tBqQSmKg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=By4PdmS1kv7kqE4nixbGDCx6u1T6duRDq95l49lVN3Y=;
- b=a4UYoWk8FLjHvH8eHCv6GjZHbsr+NoQKv0E/mnMC/WvZYah0PMBSLihhp6DERhPrmrCl5f2gfZzzW4cfedHMcVuQeo6myoW6RZpPY6zjbKScumbjrW4OdwpuZ27L9VrkKApKuFycFwidFGwYGAQo73kgnI4xZtciGKqEXUjp30GtIefdWHBrji88TM/9QgaKPnNMNlngn5mnlhJp+8yFs+9WsodNiHR39Zz2zrrV1TtUAtI9mergngWJdXdayvNbmepQqMrSrK8ejFtW5dZ36zm/8O9bH1YJf6dAj+9BAgno9+vusZDiUIdvDy70ynmx83bdBsxguqtW3S1kN42tbQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=By4PdmS1kv7kqE4nixbGDCx6u1T6duRDq95l49lVN3Y=;
- b=FY6g4E2M4LPz8zSHQ2Eh3C7HcbnuknJKpelCEbmzmZ0mdRo6qNUE0/tSBHwd5yTyDiTPiSFEWquVbcuqcUHjs8+6nxHePnyVmG6JNyx+la94epjI77vEZw7RP50yNwqyBMGa37sqz92Ys2FOeznDohmVkONzPqxRHj3gGjyPotxg4HUbKyhwT7QEnmWrBXjIptQw7mIAUQIFMcT9weLwqYdUlbSxGVLzyFUqgV5PhOQRKyI6+PInZVFqv6TqYSiO7Qx+ErXonyAtgdwgK+u751WkBr3dQoAm8QX99Lg6R8tVJb2xe8Kvzbgp28r6U/MrXO01/A5VI1e7FzxaJQBL3Q==
-Received: from SJ0PR12MB5676.namprd12.prod.outlook.com (2603:10b6:a03:42e::8)
- by DS0PR12MB7969.namprd12.prod.outlook.com (2603:10b6:8:146::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.19; Tue, 10 Feb
- 2026 16:01:45 +0000
-Received: from SJ0PR12MB5676.namprd12.prod.outlook.com
- ([fe80::a3fc:754b:9159:b13c]) by SJ0PR12MB5676.namprd12.prod.outlook.com
- ([fe80::a3fc:754b:9159:b13c%4]) with mapi id 15.20.9587.017; Tue, 10 Feb 2026
- 16:01:45 +0000
-From: Besar Wicaksono <bwicaksono@nvidia.com>
-To: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-CC: "will@kernel.org" <will@kernel.org>, "suzuki.poulose@arm.com"
-	<suzuki.poulose@arm.com>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "mark.rutland@arm.com" <mark.rutland@arm.com>,
-	Thierry Reding <treding@nvidia.com>, Jon Hunter <jonathanh@nvidia.com>,
-	Vikram Sethi <vsethi@nvidia.com>, Rich Wiley <rwiley@nvidia.com>, Shanker
- Donthineni <sdonthineni@nvidia.com>, Sean Kelley <skelley@nvidia.com>, Yifei
- Wan <YWan@nvidia.com>, Matt Ochs <mochs@nvidia.com>, Nirmoy Das
-	<nirmoyd@nvidia.com>
-Subject: RE: [PATCH 5/8] perf/arm_cspmu: nvidia: Add Tegra410 PCIE-TGT PMU
-Thread-Topic: [PATCH 5/8] perf/arm_cspmu: nvidia: Add Tegra410 PCIE-TGT PMU
-Thread-Index: AQHcju9ytzwrZVU+1E2Lwe05lOfHs7VpwqQAgBJsTPA=
-Date: Tue, 10 Feb 2026 16:01:45 +0000
-Message-ID: <SJ0PR12MB567646CFC7CBB6F114ACDAFDA062A@SJ0PR12MB5676.namprd12.prod.outlook.com>
-References: <20260126181155.2776097-1-bwicaksono@nvidia.com>
- <20260126181155.2776097-6-bwicaksono@nvidia.com>
- <409515ed-61bc-2cd5-ea9b-e9f246884c6e@os.amperecomputing.com>
-In-Reply-To: <409515ed-61bc-2cd5-ea9b-e9f246884c6e@os.amperecomputing.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SJ0PR12MB5676:EE_|DS0PR12MB7969:EE_
-x-ms-office365-filtering-correlation-id: 4faf88e8-53d3-4758-67cc-08de68bdb08e
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7053199007|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?taV3jloTmOayP9ElVVYxfjTIA5eItWw9ID5YBDmZZgbmj47Iw7vwFeHGihzY?=
- =?us-ascii?Q?qB+dVMhXmmVq9ywPQw9yaIOV1MhDMjkocltJ5B7SKbHgz6POXN8e3s+3ZL/h?=
- =?us-ascii?Q?WKPt5FlTcR9njziwJ52k0+M91XTyrooVIgkmUCG7bkzoty9l9uh8n4/xMapC?=
- =?us-ascii?Q?A5tM+FJClhj1JUqXzXLu//kqaZBKE2BIlCnYQhJi37hWJfZ6IvuVtf6oiejb?=
- =?us-ascii?Q?2h135+hiTfF9DPbUranxN32sy2/5aRqnWg3L2KY94HfvyfKqN4rH+jbNqaOm?=
- =?us-ascii?Q?wM4z5XbAuP9Dxs212pDvMbkL+SFhlwzXZY2P3wiIDgxBlAzjxlxZydoYuUHq?=
- =?us-ascii?Q?WcaQy5NLFHXPyjS8C27PC+XTAPzNy60r/ZU9ob8QqJW0jEB8lkgMwe91/f7Y?=
- =?us-ascii?Q?AP8aoVx92cvk9BGc9vP99NXB/DDlqoA/LYzESMXvLvjlxF71IVm0syVUYZML?=
- =?us-ascii?Q?pfyl3Ztzaf9qp1+WAny/IPXGRRG9H1Jhzrxu1v+GvwBVbub515BgUEjuuHHt?=
- =?us-ascii?Q?FYQBIznH7FbzU+YpMorSOEZ3zV7Z3vjHq0cukBHYHGZF0uqBH75E1A4fHMrX?=
- =?us-ascii?Q?QR2PGZXAbr2gDwMlPNa3pVQKh217gW4SnRbznZuC0mo7qXvFP4rJ+VFEDj+s?=
- =?us-ascii?Q?UFMSeajYK7M9VhIdCYc5Jmdxh5vyt1mqMdYr3hk+I/BJj8RgPgtN7IeWobn2?=
- =?us-ascii?Q?gdGWmVii5Vq1tqa9ZtMrQwDi1nW/zUOL8bmDL+TgUDwAgv5VmAzSdz76fTOD?=
- =?us-ascii?Q?+31dWmKb0bKf1B/AydfsYam4QzKTl3SS0uSxNDAYipjFJD8s+6UpTSo+UTBh?=
- =?us-ascii?Q?7qD9Yw7skVGSUWLiy62y4v1WDnQHdVP5x3tCsapGbLQbvtC6BlWdZDW0eJZj?=
- =?us-ascii?Q?dmBcIoYG1pzxytESLJJqHX/uSsB+kM2IQ+tDkLRYNGNyTSSBBw6uBIls6DfP?=
- =?us-ascii?Q?2C46O34pvoTbX0jyIm4QExZcyufd8+fciaFngJ42XvY2kNSdjCeNcIRdPQ5J?=
- =?us-ascii?Q?lqROPt4ZQuly7tqo6FS+yi1micM3qkizJkktvoOVjfox370l7kpua/+Kb+UN?=
- =?us-ascii?Q?WELI/1GZ9sDrGy3GeMAuKz1/iALsanOWeRADiyGgdqyTKmId+vii5kjhZVCN?=
- =?us-ascii?Q?Jwc1Ov6mp+AP++itrfYT1jehOWCQhSrONWC49v4zrT5ka4/sdomfGUcs0145?=
- =?us-ascii?Q?XlNc56h1aHPcVM2ct4i3AgphFpGB/Y1KKtBAak11kLE5xsJCcucFLGqP2BFo?=
- =?us-ascii?Q?zspoi3rbWVkure0QBKWQk8v6RfOtazECAiz06/k+BwdSR994h+nCMEDz3edw?=
- =?us-ascii?Q?qhVElpwVEN98kztUjanbWXCdH/zq0Td+yZep0TFIsDjPrjb/O8DI6K6fDolA?=
- =?us-ascii?Q?UAC9dWjToY1zMhufJH9by3l9gBp8JyNFMkHUUgwOtJExOobfTnP4pmce10AM?=
- =?us-ascii?Q?jn2msBmWa3pHIblvzjjb2dH5BgK02rfSJDUkynSUMlhRIIAYp1UjGnzMWMBm?=
- =?us-ascii?Q?8K/DABqdkYMrJ7EnE4VzhKynGnYM9nbVRjKI6+IUOq94tGV2F0iEc+D2Sd67?=
- =?us-ascii?Q?kZDcw7aAytI73GyK0cPCxN0vSme/uzmZCLsgjPndwZcmhQfx1HEqrt0v5cQG?=
- =?us-ascii?Q?26tq3GQcc5z6zyiqgv4abAw=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR12MB5676.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7053199007)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?NgzT2v1cAu9ezdnt323wcdHEafOUBWJHcCUWYQUAapNuei7sO5EheEVzovr6?=
- =?us-ascii?Q?C7PAffu3Xi0Dl0v5k2zDs19YSiw1FsRzJbsWj1D/rkzLN6V9lBeKHYh7k8KW?=
- =?us-ascii?Q?kTvO7XJdk4nZmx7tSNDilWe9KIVyRT7NQwoqEcEXsrdcu6EsdpH3QwGaCcHY?=
- =?us-ascii?Q?CxoXvFM27XIlfGsrj7Q7fY9wDv4D1R/JWW8BaL1fhK8yoghIjFLRoowTjbPI?=
- =?us-ascii?Q?Pu9q/D03T26fCf5foE5ppAYwHl4M+wA7vT8LA2mfZqvQa65IdCCGLZpnXxhr?=
- =?us-ascii?Q?HcjsA+Z1dgb8Xrj7d0HKkWSVEcBrkXyg1YGzh5HJTk4UrFmytdB85NTTBt3A?=
- =?us-ascii?Q?S6KXbesBzkza3fasp/+gcxXE3/Ky2rDWeFNWM102C/ngFxmIR1btEAGtbVmi?=
- =?us-ascii?Q?euK1afFguS5pl5X2K8NYXY0gzX1l+vYm9Q2Y2FqMv/oy+hfoi6qZPU4hYYZ1?=
- =?us-ascii?Q?RfYpTf06695yC59+E1j6tmnd3fqvfCwXuBBSRL6Z1dRqZoD1rZf2EbAveVv8?=
- =?us-ascii?Q?gqA6DpohPGhpS4oylJculFrztxhxWUc0wCHFpIDN7pKFcmbe1i2Fre7CJdkv?=
- =?us-ascii?Q?YkgJ9A1fQVqo3wkYkdzQgAScECoqgpHS/pn4mQMSXnUZl1A3T+8RgSNfRluF?=
- =?us-ascii?Q?a7jK8GyCGq63ZnBFHgTrdPjJY/7EaoF9l14rirtOAe6JlPotUO5c73JqZmcS?=
- =?us-ascii?Q?xqigYKw185owpas+xQcA5ok79dbM2GL/FaiPkhXqTeYqM2JMrjTx7+aeJZui?=
- =?us-ascii?Q?pATuOK7iH38V0HmFh0N6DA0IhCRzhDo0yoF+RD4hSSzL9jUjPbshGjZY4XRP?=
- =?us-ascii?Q?BWjuDAZUUuCCiKPMh7TP8Tl5f6jRJSa+j0CPK8qUbu/dfM8T6Xig1+JGRAL/?=
- =?us-ascii?Q?Vma12vIm5bRET7yTzuQi+TeTvsjq+CDJ4MDe8VXhQnqZIntMV8tOAVlCSNtF?=
- =?us-ascii?Q?H4EZ0zyvWhq8jZ4lnHENC0aZGv1qCKfMmP1BXLVZ0gQr6v8Ur37RcLF/4/DI?=
- =?us-ascii?Q?8Gs3bwMQS3EaAHrtWLhuI/VrKvYPH0AeRwPELq48PnaPTyjQ8CZbHPQC5AW6?=
- =?us-ascii?Q?/HEOvR5wcLzGoBUqyJ/rq8wcQoiiZ1B1mBJDWrBpWH2TkoN18x6opMOrgXUQ?=
- =?us-ascii?Q?9C2a5LLKmVu4OMKt1CpnJsm+HI/WtmE9TMcs4VgPHT8cqmEEspVOeLtfsmZ0?=
- =?us-ascii?Q?i7FndArtu2XTtLnm84FYaNuan/evpdQOMuw2lEaEW4Q5IZ+R21juGfOX41oX?=
- =?us-ascii?Q?8VjQjJPOV5gD5ZB4KAkoTqLPaSaF/aXRO8j6h/Gj0pIrv3GqWzr4AaV1uO/c?=
- =?us-ascii?Q?WpM/E/7jNfw3pwKv7/89vsuIooBU46Wut1Wf3Tg8hXdunRZwiMCPzEY7q9Rj?=
- =?us-ascii?Q?K5mrLXfHxw8uKAxr6Y2r0cPoUGIWT36MkEDPcKlACh6Zdds/s4/a4umU0KgT?=
- =?us-ascii?Q?5OdMADYD9B2ZP8nj6VETVddXPQJr4mQx/M8bDQ4PRjBI8yPhfSKpKYCaNmsz?=
- =?us-ascii?Q?Ra+g7UhPnJfisT1bPR/RusnEBn+evEp96y4xvxH+IFBR9D7r0veRmRgJk049?=
- =?us-ascii?Q?yg+uxbGr62v1YnS8wtDA2ShPDfRvnAIjpL5b4ojT6nJFD+gX5EVCZgy/kBno?=
- =?us-ascii?Q?g4mIBPyXmrk6yBpHJLgISAuhDqlY4Pj23WFbNP7fAn0q2orKPLZ7LyDT3tJU?=
- =?us-ascii?Q?o9i4Nkq/38MV5hs7jicDGGtdnQDMVylt3qwqf/7PuqDh+uvcq6rX2Edz5n5K?=
- =?us-ascii?Q?uZemD8+ixQ=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 10 Feb 2026 16:02:54 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id D8816454;
+	Tue, 10 Feb 2026 17:01:59 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1770739320;
+	bh=ALzULHo7sgR9xPvwqxjQVJXsK5fYs71iG1WLuNUL9hI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ml9ORTj6aXoMnJQggHea7K+MTJh1cSvqwIgkIBvKwcsyl6NPnnOeaHTCmuAmeytLh
+	 U9UGaEZGpO+o67eoB8HHUsfJ8Tehl/1qmrN7hrEnKQ48rrgVnv7Rl4uvE/q+rdrU0x
+	 gFw6PuilcMEeCR/inHi4+tOFsUZMC25NJMI0cwTY=
+Date: Tue, 10 Feb 2026 18:02:45 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Anthony McGivern <anthony.mcgivern@arm.com>
+Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Antoine Bouyer <antoine.bouyer@nxp.com>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	julien.vuillaumier@nxp.com, alexi.birlinger@nxp.com,
+	daniel.baluta@nxp.com, peng.fan@nxp.com, frank.li@nxp.com,
+	mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	niklas soderlund <niklas.soderlund@ragnatech.se>
+Subject: Re: [RFC v1 00/11] Add iMX95 neoisp driver
+Message-ID: <20260210160245.GN2405149@killaraus.ideasonboard.com>
+References: <544a98f3-d451-4ca1-b7d0-0b0a1238f66a@collabora.com>
+ <c8536c80-2f58-4eae-9336-436d772206df@nxp.com>
+ <22b3916a-a12f-4ea2-8863-8ebd9cb498b0@collabora.com>
+ <aYI0CrKLGeiZMlD8@zed>
+ <aYN8v3UGFKfzkl4_@zed>
+ <86109309-8200-464a-a167-ae9cef3f41b7@nxp.com>
+ <aYRSMXHjFC0M_DM_@zed>
+ <a4c62fb8-51f5-47eb-a1aa-ec0e4f6a9707@arm.com>
+ <20260210002053.GJ2405149@killaraus.ideasonboard.com>
+ <2b64aa6c-b3d3-4b96-b603-1ceb3497dce2@arm.com>
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR12MB5676.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4faf88e8-53d3-4758-67cc-08de68bdb08e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Feb 2026 16:01:45.2135
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: cb1BEs3FzelVy4YNUWoEF7MuahRGiSCl3c67HyaQXaKPnSres8qSBnJho3ZzrLmq2EzzlBnJFCDFslJ6yjfTbA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7969
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <2b64aa6c-b3d3-4b96-b603-1ceb3497dce2@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_080156_008373_F124F004 
-X-CRM114-Status: GOOD (  18.86  )
+X-CRM114-CacheID: sfid-20260210_080249_414092_7CF753E4 
+X-CRM114-Status: GOOD (  64.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,85 +85,255 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-> -----Original Message-----
-> From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-> Sent: Thursday, January 29, 2026 4:40 PM
-> To: Besar Wicaksono <bwicaksono@nvidia.com>
-> Cc: will@kernel.org; suzuki.poulose@arm.com; robin.murphy@arm.com;
-> ilkka@os.amperecomputing.com; linux-arm-kernel@lists.infradead.org; linux=
--
-> kernel@vger.kernel.org; linux-tegra@vger.kernel.org; mark.rutland@arm.com=
-;
-> Thierry Reding <treding@nvidia.com>; Jon Hunter <jonathanh@nvidia.com>;
-> Vikram Sethi <vsethi@nvidia.com>; Rich Wiley <rwiley@nvidia.com>; Shanker
-> Donthineni <sdonthineni@nvidia.com>; Sean Kelley <skelley@nvidia.com>;
-> Yifei Wan <ywan@nvidia.com>; Matt Ochs <mochs@nvidia.com>; Nirmoy Das
-> <nirmoyd@nvidia.com>
-> Subject: Re: [PATCH 5/8] perf/arm_cspmu: nvidia: Add Tegra410 PCIE-TGT
-> PMU
->=20
-> External email: Use caution opening links or attachments
->=20
->=20
-> Hi Besar,
->=20
-> On Mon, 26 Jan 2026, Besar Wicaksono wrote:
-> > Adds PCIE-TGT PMU support in Tegra410 SOC.
+On Tue, Feb 10, 2026 at 12:20:42PM +0000, Anthony McGivern wrote:
+> On 10/02/2026 00:20, Laurent Pinchart wrote:
+> > On Mon, Feb 09, 2026 at 01:19:43PM +0000, Anthony McGivern wrote:
+> >> On 05/02/2026 09:40, Jacopo Mondi wrote:
+> >>> On Wed, Feb 04, 2026 at 07:30:18PM +0100, Antoine Bouyer wrote:
+> >>>> Le 04/02/2026 à 18:12, Jacopo Mondi a écrit :
+> >>>>> On Tue, Feb 03, 2026 at 07:37:34PM +0100, Jacopo Mondi wrote:
+> >>>>>> On Thu, Jan 29, 2026 at 12:00:24AM +0100, Michael Riesch wrote:
+> >>>>>>> On 1/28/26 09:17, Antoine Bouyer wrote:
+> >>>>>>>> On 1/26/26 10:44 AM, Michael Riesch wrote:
+> >>>>>>>>> On 1/23/26 09:09, Antoine Bouyer wrote:
+> > 
+> > [snip]
 > >
-> > Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
-> > ---
-> > .../admin-guide/perf/nvidia-tegra410-pmu.rst  |  76 ++++
-> > drivers/perf/arm_cspmu/nvidia_cspmu.c         | 324 ++++++++++++++++++
-> > 2 files changed, 400 insertions(+)
+> >>>>>>>>>    - How many media devices are registered and which driver registers it
+> >>>>>>>>>      or them?
+> >>>>>>>> 
+> >>>>>>>> That will be part of the evaluation. My initial assumption is that
+> >>>>>>>> neoisp would be the appropriate component to register the media device
+> >>>>>>>> in this mode, since ISI is not involved, and ISI currently performs the
+> >>>>>>>> registration in the M2M configuration.
+> >>>>>> 
+> >>>>>> Isn't the ISP registering its own media graph ?
+> >>>> 
+> >>>> Yes, 8 copies of ISP media graph, that can be used with the 8 output video
+> >>>> devices of the ISI media graph.
+> >>> 
+> >>> I suggest you do what RPi does. The mainline driver only registers one
+> >>> instance and they carry a little patch downstream that implements the
+> >>> for() loop where multiple instances are registered. Duplicating media graphs
+> >>> is not desirable (at least in mainline) as we can have ISPs with 256
+> >>> contexts, we don't want 256 media graphs.
+> >>>
+> >>> A framework level solution with proper priority handling and job
+> >>> scheduling is what is required and that's what the context work should
+> >>> end up being.
+> >> 
+> >> Our Mali-C720 ISP can support up to 16 contexts, each with over a dozen
+> >> subdevs and capture nodes. As we imagine this will not be feasible for
+> >> upstreaming :) So using  this framework is definitely the way we would
+> >> like to go. We are mainly limited by the lack of per-context graph/streams
+> >> configuration at this point.
+> >>
+> >>>>>> Can we get a copy of all media graphs on an i.MX95 system including
+> >>>>>> the ISI and the CSI-2 receiver ?
+> >>>>
+> >>>> Here is an example with multiple sensors. Or do you need it in another
+> >>>> format ?
+> >>>
+> >>> No it's fine, thanks!
+> >>>
+> >>>> digraph board {
+> >>>>         rankdir=TB
+> >>>>         n00000001 [label="{{<port0> 0 | <port1> 1 | <port2> 2 | <port3> 3 | <port4> 4} | crossbar\n/dev/v4l-subdev8 | {<port5> 5 | <port6> 6 | <port7> 7 | <port8> 8 | <port9> 9 | <port10> 10 | <port11> 11 | <port12> 12}}", shape=Mrecord, style=filled, fillcolor=green]
+> >>>>         n00000001:port5 -> n0000000f:port0 [style=bold]
+> >>>>         n00000001:port6 -> n0000001a:port0 [style=bold]
+> >>>>         n00000001:port7 -> n00000025:port0 [style=bold]
+> >>>>         n00000001:port8 -> n00000030:port0 [style=bold]
+> >>>>         n00000001:port9 -> n0000003b:port0 [style=bold]
+> >>>>         n00000001:port10 -> n00000046:port0 [style=bold]
+> >>>>         n00000001:port11 -> n00000051:port0 [style=bold]
+> >>>>         n00000001:port12 -> n0000005c:port0 [style=bold]
+> >>>>         n0000000f [label="{{<port0> 0} | mxc_isi.0\n/dev/v4l-subdev9 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
+> >>>>         n0000000f:port1 -> n00000012 [style=bold]
+> >>>>         n00000012 [label="mxc_isi.0.capture\n/dev/video8", shape=box, style=filled, fillcolor=yellow]
+> >>>>         n0000001a [label="{{<port0> 0} | mxc_isi.1\n/dev/v4l-subdev10 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
+> >>>>         n0000001a:port1 -> n0000001d [style=bold]
+> >>>>         n0000001d [label="mxc_isi.1.capture\n/dev/video9", shape=box, style=filled, fillcolor=yellow]
+> >>>>         n00000025 [label="{{<port0> 0} | mxc_isi.2\n/dev/v4l-subdev11 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
+> >>>>         n00000025:port1 -> n00000028 [style=bold]
+> >>>>         n00000028 [label="mxc_isi.2.capture\n/dev/video10", shape=box, style=filled, fillcolor=yellow]
+> >>>>         n00000030 [label="{{<port0> 0} | mxc_isi.3\n/dev/v4l-subdev12 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
+> >>>>         n00000030:port1 -> n00000033 [style=bold]
+> >>>>         n00000033 [label="mxc_isi.3.capture\n/dev/video13", shape=box, style=filled, fillcolor=yellow]
+> >>>>         n0000003b [label="{{<port0> 0} | mxc_isi.4\n/dev/v4l-subdev13 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
+> >>>>         n0000003b:port1 -> n0000003e [style=bold]
+> >>>>         n0000003e [label="mxc_isi.4.capture\n/dev/video14", shape=box, style=filled, fillcolor=yellow]
+> >>>>         n00000046 [label="{{<port0> 0} | mxc_isi.5\n/dev/v4l-subdev14 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
+> >>>>         n00000046:port1 -> n00000049 [style=bold]
+> >>>>         n00000049 [label="mxc_isi.5.capture\n/dev/video21", shape=box, style=filled, fillcolor=yellow]
+> >>>>         n00000051 [label="{{<port0> 0} | mxc_isi.6\n/dev/v4l-subdev15 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
+> >>>>         n00000051:port1 -> n00000054 [style=bold]
+> >>>>         n00000054 [label="mxc_isi.6.capture\n/dev/video22", shape=box, style=filled, fillcolor=yellow]
+> >>>>         n0000005c [label="{{<port0> 0} | mxc_isi.7\n/dev/v4l-subdev16 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
+> >>>>         n0000005c:port1 -> n0000005f [style=bold]
+> >>>>         n0000005f [label="mxc_isi.7.capture\n/dev/video23", shape=box, style=filled, fillcolor=yellow]
+> >>>>         n00000067 [label="mxc_isi.output\n", shape=box, style=filled, fillcolor=yellow]
+> >>>>         n00000067 -> n00000001:port4 [style=bold]
+> >>>>         n0000006e [label="{{<port0> 0} | 4ac10000.syscon:formatter@20\n/dev/v4l-subdev17 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
+> >>>>         n0000006e:port1 -> n00000001:port2 [style=bold]
+> >>>>         n00000073 [label="{{<port0> 0} | csidev-4ad30000.csi\n/dev/v4l-subdev18 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
+> >>>>         n00000073:port1 -> n0000006e:port0 [style=bold]
+> >>>>         n00000078 [label="{{<port0> 0 | <port1> 1 | <port2> 2 | <port3> 3} | max96724 2-0027\n/dev/v4l-subdev19 | {<port4> 4 | <port5> 5}}", shape=Mrecord, style=filled, fillcolor=green]
+> >>>>         n00000078:port4 -> n00000073:port0 [style=dashed]
+> >>>>         n00000081 [label="{{} | mx95mbcam 8-0040\n/dev/v4l-subdev20 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
+> >>>>         n00000081:port0 -> n00000078:port0 [style=bold]
+> >>>>         n00000085 [label="{{} | mx95mbcam 9-0040\n/dev/v4l-subdev21 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
+> >>>>         n00000085:port0 -> n00000078:port1 [style=bold]
+> >>>>         n00000089 [label="{{} | mx95mbcam 10-0040\n/dev/v4l-subdev22 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
+> >>>>         n00000089:port0 -> n00000078:port2 [style=bold]
+> >>>>         n0000008d [label="{{} | mx95mbcam 11-0040\n/dev/v4l-subdev23 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
+> >>>>         n0000008d:port0 -> n00000078:port3 [style=bold]
+> >>>> }
+> >>
+> >> This was an interesting point from our sides too regarding the context framework,
+> >> how would shared inputs be linked to independent contexts? For example, one input
+> >> port with 4 sensors where each is processed by a separate context.
 > >
-> > diff --git a/drivers/perf/arm_cspmu/nvidia_cspmu.c
-> b/drivers/perf/arm_cspmu/nvidia_cspmu.c
-> > index 3a5531d1f94c..095d2f322c6f 100644
-> > --- a/drivers/perf/arm_cspmu/nvidia_cspmu.c
-> > +++ b/drivers/perf/arm_cspmu/nvidia_cspmu.c
->=20
-> <snip>
->=20
-> > +static void pcie_tgt_pmu_reset_ev_filter(struct arm_cspmu *cspmu,
-> > +                                  const struct perf_event *event)
-> > +{
-> > +     bool addr_filter_en;
-> > +     u64 base, mask;
-> > +     int idx;
-> > +
-> > +     addr_filter_en =3D pcie_tgt_pmu_addr_en(event);
-> > +     if (!addr_filter_en)
-> > +             return;
-> > +
-> > +     base =3D pcie_tgt_pmu_dst_addr_base(event);
-> > +     mask =3D pcie_tgt_pmu_dst_addr_mask(event);
-> > +     idx =3D pcie_tgt_find_addr_idx(cspmu, base, mask, true);
-> > +
-> > +     if (idx < 0) {
-> > +             dev_err(cspmu->dev,
-> > +                     "Unable to find the address filter slot to reset\=
-n");
-> > +             return;
-> > +     }
-> > +
-> > +     pcie_tgt_pmu_config_addr_filter(
-> > +                     cspmu, false, base, mask, idx);
->=20
-> I think you can fit the arguments in the same line with the function name
->=20
-> Otherwise, looks good to me.
->=20
->         Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
->=20
-> Cheers, Ilkka
->=20
+> > If the multi-context ISP operates in M2M mode, the capture and ISP
+> > pipelines will be disjoint (even if they're in the same media graphs).
+> > Linking the two will be done by userspace, through memory buffers shared
+> > between the pipelines.
+> 
+> In our ISP we don't have to operate in a pure M2M mode for multi-context.
+> 
+> Instead, we have a time division mode for multiple inline sensors simultaneously.
+> The context management unit writes incoming frames from multiple sensors to memory
+> buffers and automatically schedule them for processing, injecting the buffer into
+> the pipeline once it is available.
+> 
+> In the driver we just configure the context, provide internally allocated DMA buffers
+> and the scheduler automatically handles the rest. Of course we can get interrupts
+> for these events if we have use for them.
 
-Thanks Ilkka. I will incorporate your comments (on the other patches as wel=
-l)
-on V2.
+OK, so this is offline mode but with hardware (or firmware) scheduling.
 
+> While we could do this through userspace, it doesn't make full use of the ISP's
+> capabilities such as its hardware scheduling. From a media graph perspective, I
+> think it should be considered as an inline ISP with the buffers simply acting as
+> temporary storage while the ISP is busy.
+
+Given that userspace will still have to supply parameters for the ISP,
+as well as buffers for processed images, what would be the advantage of
+scheduling the raw buffers automatically ?
+
+> I guess my thought was the camera "frontend" would effectively have some shared
+> state across all contexts, but the outputs from this would go to per context instances.
+> Perhaps a similar thing would apply with this CSI-2 receiver and the ISI since they
+> appear to deal with multiple sensors that are then divided across their 8 contexts?
+
+With a media graph that spans sensors, CSI-2 receivers, ISI and ISP, the
+frontend part of the graph (sensors, CSI-2, ISI) would be handled with
+one pipeline (in kernel terms, not a libcamera pipeline handler) and the
+ISP with another pipeline. Those two pipelines would operate
+independently. The ISP pipeline would make use of the multi-context API
+while the frontend pipeline wouldn't.
+
+> >> As a test of multi-context with duplicated media graphs, we would segregate our
+> >> inputs between media devices, though this is less flexible as it strictly ties
+> >> one sensor to a particular context.
+> >>
+> >>>>>> If I'm not mistaken you'll have 8 copies of the ISP media graphs, and
+> >>>>>> that's exactly what we're working on with the context framework :)
+> >>>>
+> >>>> Ok. Then I should have a look to context framework too ...
+> >>>
+> >>> Please, I hope to be able to resume working on it sooner or later
+> >>> given the right use case.
+> >>>
+> >>>>>>> ... since it is not, your assumption seems very reasonable.
+> >>>>>>>
+> >>>>>>>>>    - How can the user decide whether direct (csi2isp) or indirect
+> >>>>>>>>>      (mem2mem) streaming shall be used?
+> >>>>>>>>
+> >>>>>>>> That will also be part of the evaluation. From dts would be my first
+> >>>>>>>> option, but may prevent using both modes on same platform then.
+> >>>>>>>
+> >>>>>>> Of course this depends what the hardware is able to do, but in case the
+> >>>>>>> HW is reconfigurable easily, I doubt that device tree is a good choice
+> >>>>>>> to solve that.
+> >>>>>>>
+> >>>>>>>>> While it is certainly OK to introduce this support only at a later
+> >>>>>>>>> stage, it makes sense to consider this right from the start to avoid
+> >>>>>>>>> some nasty changes e.g. in how this hardware is exposed to user space.
+> >>>>>>>>>
+> >>>>>>>>> Also, we are facing a similiar challenge with recent Rockchip ISP
+> >>>>>>>>> hardware (RK3588, RK3576, ...) and it would be great to hear your
+> >>>>>>>>> thoughts about that.
+> >>>>>>>> 
+> >>>>>>>> Is there an existing discussion thread available on this topic? I would
+> >>>>>>>> be very interested in following it.
+> >>>>>>> 
+> >>>>>>> Not yet, I am afraid. But there should be one or two soon (TM) :-)
+> >>>>>> 
+> >>>>>> It's probably time to have one :)
+> >>>> 
+> >>>> Good. Please loop me in ;)
+> >>> 
+> >>> You are in, this is the conversation ;)
+> >>>
+> >>> It might be a good discussion point for the media summit in Nice
+> >>> co-located with Embedded Recipes if people with interest in the topic
+> >>> will going the be there.
+> >>>
+> >>> I'm also adding Anthony from ARM as I know he's going through the same
+> >>> inline/m2m duality you're now facing.
+> >>> 
+> >> We make the issue even more complex as individual contexts can run in either
+> >> inline or m2m mode simultaneously... Though in our case the ISP does not
+> >> have any external dependencies for this like with Mali-C55 + IVC.
+> > 
+> > Simultaneously ? Can a single ISP instance run in inline and offline
+> > mode simultaneously ? How does that work ?
+> 
+> Technically speaking the inline still require memory buffers but once configured
+> the ISP can run without involvement from the driver. The buffering is effectively
+> invisible at this point.
+>
+> The context management unit facilitates this through the aformentioned hardware
+> scheduling. Each individual context may choose to use inline mode or M2M mode.
+> In inline mode, that context is "schedulable" when it's input buffer isready,
+> which occurs automatically once the image is fully written to memory.
+> In M2M mode, the context is "schedulable" when the user triggers it via SW.
+> 
+> >> As a side note, was there any thought into how Libcamera may support a pure m2m
+> >> usecase, say by passing user provided frames rather than indirectly coming from
+> >> a sensor? Perhaps there is already something for this that I've missed.
+> > 
+> > https://lists.libcamera.org/pipermail/libcamera-devel/2025-December/055627.html
+> >
+> > I expect more work to be needed before we can finalize an API, as I
+> > think different people will have very different ideas of how this should
+> > work.
+> 
+> Ah nice thanks :)
+> 
+> I took a quick skim through and it seems pretty good. When I have some time
+> I will try pull this series to test on our side.
+
+What are your use cases ?
+
+> >>>>>>>>>> This series is posted as RFC because extending the v4l2-isp interface may
+> >>>>>>>>>> overlap with ongoing work. If similar development already exists, I am
+> >>>>>>>>>> happy to rebase or adapt the series accordingly. If preferred, the series
+> >>>>>>>>>> can also be split into two parts: the v4l2-isp rework and the Neo ISP
+> >>>>>>>>>> driver introduction.
+> >>>>>>>>>>
+> >>>>>>>>>> A few checkpatch warnings in v4l2-ioctl.c remain intentionally to stay
+> >>>>>>>>>> consistent with the existing style in that file.
+> >>>>>>>>>>
+> >>>>>>>>>> Testing was performed on the i.MX95 EVK using the media/next kernel in
+> >>>>>>>>>> standalone M2M mode. End-to-end camera-to-ISP capture has been validated
+> >>>>>>>>>> using the downstream NXP kernel, as some hardware dependencies are not
+> >>>>>>>>>> yet upstreamed.
+> >
+> > [snip]
+
+-- 
 Regards,
-Besar
+
+Laurent Pinchart
 
