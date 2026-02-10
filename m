@@ -4,100 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E989EA3F3B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 10:44:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5BC1EA3F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 10:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VtWNb7NUdO5bUCDMyQfroR5tgGFvHUsvicqnxM22+PI=; b=xu6fsI3Fqk4gJbFQ5AeKa9Kytx
-	sdHyVs8HRVa5fplzTRhkBlcumtwJwcknnbDGchXLkNgreLYm22s/adZR6d+lCWXtfVMAxiRd3bW7p
-	zzXRoTIOK5+8xQ6Ca869f0U2oLZahApgkNdEzxGDThbtAeO8FpOstzsZE6zFvZzzvCN/lapUtVH9H
-	vT6X6wsgcOK9FobErbbMr6RY70ngOxG6ZQWvbnP4Bphh9ubXwCPGJrOteMP1Rf3hBRY+eoBrqvq3p
-	JlY+BDoaxbEj20U+Zpe9hgORHd9up3SxtlC/TbUwqb7mNm83VL6iXn/YgHCvpMry2zd0tzt4Ba+sF
-	D7pARWsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=g9NcS2rbP1n3EFiPPcjYew38wQqJRNGr0ZYLCWBneiA=; b=clXKUJYEQg19wY
+	bXZ2Ehhxy9aqExSmlHhQEbroIORFTPTFqypIRmTq27P2qasJfSJltnkfvbHLfRgF2O9NlAOSRgHZD
+	aUJ42I3IsFRpc68nZKr/8gx6yr12CcnjHSlV7emEzQoTSnTZrbIyZauvipf9S8aw7/0hMzzKo7sOU
+	icdnMnJB2XGc3MhzgTv+rd7cXA4cIH4utzzNMENU+zg3Gb3REqdtxtimigDTDzl/brdMlbhDzp7c2
+	+Qv2LB5Wl3YY6V1/P2fW5FhEJB0J3Nazx3+ZBsIpPxMX/QOUsostistX6uMlHrMZWtsNzkktlwtRO
+	Q4ykA3gOxtMHpJFifJIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vplER-0000000Gqgy-1V1i;
-	Tue, 10 Feb 2026 10:44:35 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1vplHx-0000000Gqtk-42et;
+	Tue, 10 Feb 2026 10:48:14 +0000
+Received: from inva020.nxp.com ([92.121.34.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vplEN-0000000Gqfj-2Y5V
+	id 1vplHu-0000000Gqsd-27cN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 10:44:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=VtWN
-	b7NUdO5bUCDMyQfroR5tgGFvHUsvicqnxM22+PI=; b=Ygj+nx5zicnCg4B/9Jjo
-	ymkrXvds95xu+rHV423jWbmfMbIgr2ZgCTevfkAnWZ8IARilWWLpa4CK/wQVXM5x
-	4w0A8FpsGIvoAQxpkqhXdmYRN0qT43xKzlQ1ykfgou4qtX6Lg9tcBT3ocv3L+8df
-	n1pLf99ijj7d7hTzrn6bF6m7LtzBNM6u1fdqNKGnt5N+oJAYY99m8k/tzSvDYlQ4
-	ieOIPOpbfZEiorpZhGkdg4dr/vXBFAROteKjLAN1o94Fw3Oi3TQpMAt45wXG+YrD
-	sAp2VOd6rjRXGob9dobJIE+8tFEqCG9UtOAVzHE/ajBCVdIrcAnKfoW+0CsOnkMh
-	kQ==
-Received: (qmail 345109 invoked from network); 10 Feb 2026 11:44:25 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 10 Feb 2026 11:44:25 +0100
-X-UD-Smtp-Session: l3s3148p1@zQVt8HVKEroujnuT
-Date: Tue, 10 Feb 2026 11:44:25 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	linux-renesas-soc@vger.kernel.org,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Antonio Borneo <antonio.borneo@foss.st.com>,
-	Arnd Bergmann <arnd@arndb.de>, Boqun Feng <boqun.feng@gmail.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Konrad Dybcio <konradybcio@kernel.org>, Lee Jones <lee@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-omap@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev, Mark Brown <broonie@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Waiman Long <longman@redhat.com>,
-	Wilken Gottwalt <wilken.gottwalt@posteo.net>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [RFC PATCH 0/4] hwspinlock: refactor headers into public
- provider/consumer pair
-Message-ID: <aYsMCVf1qpLSCXTs@shikoro>
-References: <20260125184654.17843-6-wsa+renesas@sang-engineering.com>
- <aXc7DxsqiCGdfzxi@smile.fi.intel.com>
- <aXc-Zxw05XQLb1Dy@ninjato>
- <aXdAB2bLTy6u8G8c@smile.fi.intel.com>
- <aXdCBu6kzdw1NWay@ninjato>
- <aXikZ5wc6bvgRqF6@ninjato>
- <aYnBrN0JRCf9-UjB@ninjato>
- <yl4bbbev7lgrmnqys2izkolo5egzg24faukvqar5eh26q5ra7p@42rcegfpqqt6>
- <aYo60vooftdem4Lt@ninjato>
- <aYrcVE9HsDNAwqIB@smile.fi.intel.com>
+	Tue, 10 Feb 2026 10:48:12 +0000
+Received: from inva020.nxp.com (localhost [127.0.0.1])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id B40F91A0AD5;
+	Tue, 10 Feb 2026 11:48:06 +0100 (CET)
+Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 5BFF11A0CDD;
+	Tue, 10 Feb 2026 11:48:06 +0100 (CET)
+Received: from lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com (lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com [10.52.9.11])
+	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id 0A5DE180007B;
+	Tue, 10 Feb 2026 18:48:03 +0800 (+08)
+From: Yanan Yang <yanan.yang@nxp.com>
+Subject: [PATCH v5 0/2] Add NXP FRDM-IMX91S board support
+Date: Tue, 10 Feb 2026 19:47:53 +0900
+Message-Id: <20260210-imx91s-frdm-v5-0-b3e9a67d2285@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aYrcVE9HsDNAwqIB@smile.fi.intel.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANkMi2kC/23OTQrCMBCG4atI1kYykyZ2XHkPcZHmR7NoK4mUi
+ vTupgWhFZffwPMyb5Z9ij6z0+7Nkh9ijn1XhtrvmL2b7uZ5dGUzFKgAheKxHQkyD8m1HK2U1Fi
+ LQQdWxCP5EMeldrmWfY/52afXEh9gvv7vDMAFN8Fp6wRYJDp34+Ng+5bNlQFXEn4kFlkfiXTjj
+ FFkt1J+pRYAeitlkVTrIzivK0K1ldVKotzKqkhoTCNkHYz3q2+nafoAx8tfp1IBAAA=
+X-Change-ID: 20251205-imx91s-frdm-2c339bcc2f6f
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ yanan.yang@nxp.com, qijian.guo@nxp.com, justin.jiang@nxp.com, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Daniel Baluta <daniel.baluta@nxp.com>, Lei Xu <lei.xu@nxp.com>, 
+ Xiaofeng Wei <xiaofeng.wei@nxp.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1770720483; l=2646;
+ i=yanan.yang@nxp.com; s=20251205; h=from:subject:message-id;
+ bh=WyoME0rioc0iFzgHeDWs0U5WkwpS1Sz1cMkqrrvJbyg=;
+ b=KKTvisPO/K4q/KoXFmsJsxmsxL5b6Sy1Epf2gMirbPvj5N9Nqmvj4eNwWtItpEC/ftMpli1eM
+ 1z56eaHfwDrDFTiHUeLa0dZJrjgxd53Ni8RPF7Ge3qi48YyLhowo/FF
+X-Developer-Key: i=yanan.yang@nxp.com; a=ed25519;
+ pk=d4hHTp5SW/PyyxexLEo/3c2RAaQDwym0zuYlifH95PI=
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_024432_527917_126176C2 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20260210_024810_851443_1D6DFB6D 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,28 +85,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+This patch set introduces DeviceTree support for the NXP FRDM-IMX91S
+development board based on the i.MX91 SoC. FRDM-IMX91S is a cost-optimized
+variant of FRDM-IMX91 and differs in several hardware aspects:
 
-> > And if so, would be this series acceptable
-> > as-is then (modulo the better include-sorting mentioned by Andy)?
-> 
-> *From my experience it's not the Q "will they or not?", the Q is "when?"
->  they start abusing it. I really prefer to hide as much as possible from
+- 512MB LPDDR4 (FRDM-IMX91 uses 1GB)
+- 256MB FlexSPI-NAND (FRDM-IMX91 uses 8GB eMMC)
+- Single GbE port (FRDM-IMX91 has dual GbE)
+- PMIC PF9453 (FRDM-IMX91 uses PCA9451A)
 
-I totally agree with you on that.
+This patch has been tested on FRDM-IMX91S board and verified for basic
+functionality.
 
->  day 1. Maybe the structure can be split to two? Currently IIO has a
+For more details about the FRDM-IMX91S board, see:
+https://www.nxp.com/design/design-center/development-boards-and-designs/FRDM-IMX91S
 
-I also thought that keeping some internal header might provide that
-safety. When looking into it, I didn't see an obvious and somewhat
-elegant way. Even more, I got a better picture of why Bjorn named the
-current approach "unergonomic". I got some ideas which look doable in my
-time frame. I will try going the full route, after all.
+Signed-off-by: Yanan Yang <yanan.yang@nxp.com>
+---
+Changes in v5:
+- Replace space with tabs in IOMUX
+- Rebase to latest linux-next tree
+- Link to v4: https://lore.kernel.org/r/20260123-imx91s-frdm-v4-0-1bab038faee9@nxp.com
 
-I'll start with some cleanup in some minutes.
+Changes in v4:
+- Remove the board-specific "fsl,imx6sx-sdb-mqs" compatible from the sound-mqs node
+- Remove redundant address and size cells from lpi2c2 node
+- Link to v3: https://lore.kernel.org/r/20260116-imx91s-frdm-v3-0-98671de64925@nxp.com
 
-Happy hacking,
+Changes in v3:
+- add bootph- property for nodes should be kept in bootloader phase
+- add code-review trailers
+- Link to v2: https://lore.kernel.org/r/20251215-imx91s-frdm-v2-0-87996bdaa59c@nxp.com
 
-   Wolfram
+Changes in v2:
+- Correct author name: removed extra period in "Yanan.Yang"
+- Removed aliases pointing to disabled nodes from DTS
+- Add "rtc0 = &pcf2131;" in aliases to make external RTC the primary device
+- Fix DT node name: change
+  "usdhc1_pwrseq: usdhc1_pwrseq" to "usdhc1_pwrseq: usdhc1-pwrseq"
+- Renamed LED node from 'status' to 'led-0' to comply with gpio-leds binding
+- Replace regulator-based transceiver (reg_can_stby) with CAN PHY (nxp,tja1051)
+- Replaced 'xceiver-supply' property with 'phys' in flexcan1 node
+- Adjusted alignment in fsl,pins property: used spaces between pin names and values for proper DTS style.
+- Refined commit message in dt binding patch to clarify board differences
+- Link to v1: https://lore.kernel.org/r/20251205-imx91s-frdm-v1-0-afd6cd01c299@nxp.com
+
+---
+Yanan Yang (2):
+      dt-bindings: arm: fsl: Add FRDM-IMX91S board
+      arm64: dts: freescale: add NXP FRDM-IMX91S board support
+
+ Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
+ arch/arm64/boot/dts/freescale/Makefile             |   1 +
+ .../boot/dts/freescale/imx91-11x11-frdm-s.dts      | 769 +++++++++++++++++++++
+ 3 files changed, 771 insertions(+)
+---
+base-commit: 9845cf73f7db6094c0d8419d6adb848028f4a921
+change-id: 20251205-imx91s-frdm-2c339bcc2f6f
+
+Best regards,
+-- 
+Yanan Yang <yanan.yang@nxp.com>
 
 
