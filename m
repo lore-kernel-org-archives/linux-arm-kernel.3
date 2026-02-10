@@ -4,78 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED58DEB26ED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 17:03:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6021EB26EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 17:04:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qdAaYOvJA2aGPFwYNbrLumz2J1tfwrnKYTbm1E8pQOw=; b=zk3dnyTi8Oo43M7fXApHaoueo3
-	eumdL3xewQyKS6OXWfZ/Y7W52ntAkaTjA9VbAdRYo5WEhxdCKk+1W/6yCU7wfXOdEjz1AwBrzCq4w
-	pCvjNdvJv+YobH19Q6BgkxdjbGmoXtg5L3StVHdVY31J2obyJvZ4aODcPlAfOmWD3+3+xoITTeS7l
-	NldpCGPB8E04v1gk/5mstrPwvggVeIGUqbvIv32S6yZR8dEunMUFxmyVwkuTfje7bFtXnOSqfXF50
-	/lby84u1YT9N1bhhTALtZcFvPdN0nwISV0NO1LE/bvdJ9atIFn14S6GiM4hAwbu4oOh7QXYFepZ+O
-	olchW+2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uS5dkroWDYoVr9gb0lK7EVf1IOyETk+czez2T6E0mRc=; b=a8UZGS900HMnYWjuqGvH/AuGf2
+	85HTORGD4AlL0R4sMnSsldNOBeakkGFvAPbWnlqcchv7pvxGHZAIY9myM1XTrwFpU0KvMt3cTs7uf
+	POYYx2vd+/7dJe/r5mroac9G+FzwGVQ/PQytmf5U5bLBfz9PF7zsjohguvNlKAXCw5PsdlH7Jz5JB
+	rUbqBhAzRRwSdpFRg6YyWUoT0QA/kogzhIPHbYXzMYXx/DyI5KkwUh01wxIp1jcd8IwwL4odwLtte
+	fJ2ejF7op3cSVzlh2epjNxhsbI2R2KSGMuOhyeEzF4FGjL+7OBpn2tEO9+OoHsd/WSwvtIVJa9dK9
+	it7ZxYEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpr96-0000000HIDK-2FAj;
-	Tue, 10 Feb 2026 17:03:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vprA8-0000000HIOC-2sAO;
+	Tue, 10 Feb 2026 17:04:32 +0000
+Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpr94-0000000HICe-1BBi;
-	Tue, 10 Feb 2026 17:03:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 54B7343C5F;
-	Tue, 10 Feb 2026 17:03:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAFE9C116C6;
-	Tue, 10 Feb 2026 17:03:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770743005;
-	bh=YLgcpRDnWTHgN5iEvcrgGHQykKQfZ6+q//x2uAoTL2Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UbiQl67KXho6dNAGklbzIoKY/CuPlIJmYXE2CfYzHTIJToITEXD9N+eJzfXKt3SHM
-	 lSwwfms3XZg5cG1604q/3nRhYxZODV132zqUHy30bF0Dh0anrvl14BTtczFIKaSiYm
-	 zJTXSfV6rqXSV50GwWyl6vA1rVF3ciiUruOnRDGq6DnYFjeRsSyoJqUWBM3Pbtn2jn
-	 LJJWnwEsxMQrAdj/juSXJYCtctRajep/Kh0DdrCh6UAdgmSTLXq5zrsB5ZVAJneeZu
-	 VtIJfcfdhuQmgZ/ahhSGGz/a0V5r6TH0Q5Q+pRphfFKzqvrlRShcEj+B874bueM1vH
-	 ii6vUvQ94znzA==
-Date: Tue, 10 Feb 2026 18:03:22 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
-	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, kernel@collabora.com, 
-	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org, 
-	Andri Yngvason <andri@yngvason.is>, Werner Sembach <wse@tuxedocomputers.com>, 
-	Marius Vlad <marius.vlad@collabora.com>
-Subject: Re: [PATCH v7 02/22] drm: Add new general DRM property "color format"
-Message-ID: <20260210-imported-ant-of-defiance-7cdb42@houat>
-References: <20260121-color-format-v7-0-ef790dae780c@collabora.com>
- <20260121-color-format-v7-2-ef790dae780c@collabora.com>
- <20260206-deft-provocative-perch-6ca9bf@houat>
- <6318997.lOV4Wx5bFT@workhorse>
+	id 1vprA6-0000000HINf-2jBi
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Feb 2026 17:04:31 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id ECF487A00EA;
+	Tue, 10 Feb 2026 12:04:26 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Tue, 10 Feb 2026 12:04:27 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm2; t=1770743066; x=1770829466; bh=uS
+	5dkroWDYoVr9gb0lK7EVf1IOyETk+czez2T6E0mRc=; b=L0+6dQfZW6kp7ZdOSr
+	zIQW+8Hoy9igWFIk+Zq9DYFsxLR5M6wyCVa27Zv0IwZt6mdFnYINNDG/Vuyo94lj
+	5D0hQ9boMFTElasP0En+24Cqe4Yuih+W6g5F4AEO49d7jKWLqW3fFr5q4csXZJ03
+	kyU993fOAElorchwhPD+2P5gMMWFvOkeM1klo+SkDIN6h/bdguVTGmM/Z3uCa0da
+	0C7uV9hyiYom2Bx+GVzLc6WFaN+6pVUN6rMZTLUn3qGdNvvThhzrwHbNqJv4+Cyi
+	9I10AFpMFKt8Y2qQ4RZSKrpC/JrC33iHlnta35WDFhHXEzjI1MMMADppkgnwXjCS
+	XdQA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm3; t=1770743066; x=1770829466; bh=uS5dkroWDYoVr9gb0lK7EVf1IOyE
+	Tk+czez2T6E0mRc=; b=E0udqLk9kuMXBOmsns4AW6z4dowYBs3os/+QDf29xJxX
+	NtcCgZoLkC86r7WLGJxWEhlpGDi7qlk8w9yNm8x5cP3mqHC1CX0u/xCQOHPAS5UH
+	pV9FJLdyUtjkuVh+axw+0Bd1LV2vkrnb6PhFH1DUOv4ePEXRTGT2JsmPAOxMdYs4
+	G04dX/jCGC+jzlB484b4Qv8anMyDz6b5jOTISoNhLTPYafr/rtDs1me5bBUBrijp
+	xsNZxaWIn6gQ1zjGbJ7tIYf2vpoIXCwlKFT4Ozrxqn/5ByOrJit/CGbygRfWSrm4
+	lEKruVncwx1a7VcXZ5YqAxqs+ATeFyFmW19jdbJ7Rg==
+X-ME-Sender: <xms:GmWLac2Vc5EU1a-OxWmhmduqF825zRzPM7xHVtEJ6HxlunMsXkcf-Q>
+    <xme:GmWLaR7KV4G37VC6ZN8MESSdxSkFtLvWzHorGvquuUM6GU6hW5g55S4rdkaUS4MCG
+    qDIIt2WpdC7xxFVnPi25-ZBmK5TFCYGMP0Eu4oC3DDWSvvM1mCBN3Y>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvtddtvdefucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkffutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
+    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
+    epffffffehuefgfefhudevgfelieejkedtffefieejtdfhvefgieeiveejueetfedvnecu
+    vehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhguse
+    grrhhnuggsrdguvgdpnhgspghrtghpthhtohepgedpmhhouggvpehsmhhtphhouhhtpdhr
+    tghpthhtohepthhorhhvrghlughssehlihhnuhigqdhfohhunhgurghtihhonhdrohhrgh
+    dprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhr
+    rgguvggrugdrohhrghdprhgtphhtthhopehsohgtsehlihhsthhsrdhlihhnuhigrdguvg
+    hvpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdho
+    rhhg
+X-ME-Proxy: <xmx:GmWLaeiaA8O-Posj8_LG7AcD3NTOcakKFdShayuWFI-Ao2amcZzm6A>
+    <xmx:GmWLaV5Lwl4zKpIXg4MJQHnDh4KwM7IqLtTk5UPsXx9nxmqj8OaitA>
+    <xmx:GmWLaeYdK4rpngCRdVfonh28W28Zw8O6l2x77LfuPufNoIoiuN5BcQ>
+    <xmx:GmWLaS6J4Roj04gNQ0cQ-B6FAvxwH52NuWHqaASxS4ZmCxTfXnzoaw>
+    <xmx:GmWLaUKlxR3PxrCo4t-e-AhNtFauJW1FZ6GLENq-CZkL3apoyaYmzYGR>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 470E7700065; Tue, 10 Feb 2026 12:04:26 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="bzvkctnspkvgvs72"
-Content-Disposition: inline
-In-Reply-To: <6318997.lOV4Wx5bFT@workhorse>
+X-ThreadId: AYfK9ZjhzOaF
+Date: Tue, 10 Feb 2026 18:03:15 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: soc@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Message-Id: <a34ea40f-e0d3-459b-8233-9f87f6cd73e5@app.fastmail.com>
+Subject: [GIT PULL 0/4] soc updates for 7.0
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_090326_361163_BB4846A3 
-X-CRM114-Status: GOOD (  32.20  )
+X-CRM114-CacheID: sfid-20260210_090430_732220_A1BC77EC 
+X-CRM114-Status: UNSURE (   5.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,112 +109,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Linus,
 
---bzvkctnspkvgvs72
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v7 02/22] drm: Add new general DRM property "color format"
-MIME-Version: 1.0
+The 7.0 merge window seems fairly quiet for the soc tree, with
+only 757 non-merge changesets throughout the tree, and three
+quarters of those being arm64 devicetree updates. A few new
+SoC models got merged, but fewer new machines normal.
 
-Hi,
+The most active developers this time by number of patches are
 
-On Fri, Feb 06, 2026 at 04:26:56PM +0100, Nicolas Frattaroli wrote:
-> On Friday, 6 February 2026 15:05:08 Central European Standard Time Maxime=
- Ripard wrote:
-> > On Wed, Jan 21, 2026 at 03:45:09PM +0100, Nicolas Frattaroli wrote:
-> > > diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
-> > > index 7eaec37ae1c7..b5604dca728a 100644
-> > > --- a/include/drm/drm_connector.h
-> > > +++ b/include/drm/drm_connector.h
-> > > @@ -556,6 +556,16 @@ enum drm_colorspace {
-> > >  	DRM_MODE_COLORIMETRY_COUNT
-> > >  };
-> > > =20
-> > > +enum drm_color_format {
-> > > +	DRM_COLOR_FORMAT_AUTO			=3D 0,
-> > > +	DRM_COLOR_FORMAT_RGB444			=3D BIT(0),
-> > > +	DRM_COLOR_FORMAT_YCBCR444		=3D BIT(1),
-> > > +	DRM_COLOR_FORMAT_YCBCR422		=3D BIT(2),
-> > > +	DRM_COLOR_FORMAT_YCBCR420		=3D BIT(3),
-> > > +};
-> > > +
-> > > +#define DRM_COLOR_FORMAT_COUNT 5
-> > > +
-> >=20
-> > I don't really see a reason to expose an enum, with a bunch of values
-> > that are all mutually exclusive, as a bitmask. It's pretty inconsistent
-> > with most (all?) the other similar properties we have.
-> >=20
-> > I appreciate you did that to avoid fixing up every driver using those
-> > values, but then maybe we don't have to? We could create a userspace
-> > facing enum, and convert to DRM_COLOR_FORMAT internally.
->=20
-> This is what the series did at v5 and earlier. IMHO it was kind of
-> counter-productive, because we then had two different things for the
-> same purpose, and some conversion logic between them. I think it's more
-> error prone to do it that way (think: mixing up the two), and doesn't
-> have a clear benefit. Just to give a picture of how bad things get:
->=20
-> 1. we have the HDMI color format (aka "HDMI_COLORSPACE")
-> 2. we have driver specific output color formats, e.g. the intel ones
-> 3. we have DRM_COLOR_FORMAT
-> 4. we have the bus formats (multiple per color format)
-> 5. we have the DRM plane formats (again, multiple per color format)
->=20
-> Adding a sixth into the mix feels a bit bad because we'll then need to
-> justify why we should have another layer of switch-case statements.
+     37 Rob Herring (Arm)
+     35 Krzysztof Kozlowski
+     26 Lad Prabhakar
+     25 AngeloGioacchino Del Regno
+     18 Luca Weiss
+     15 Vladimir Zapolskiy
+     15 Heiko Stuebner
+     15 Guodong Xu
+     15 Cosmin Tanislav
+     15 Alexander Stein
+     14 Peng Fan
+     14 Alain Volmat
+     12 Frank Li
+     11 Patrice Chotard
+     11 Francesco Dolcini
+     11 Dmitry Baryshkov
+     10 Stefano Radaelli
 
-Yeah, but they are all semantically different:
+and this is the overall dirstat:
 
-* The userspace one you want to introduce is going to be a superset of
-  all the valid output format for all the output busses we support (so,
-  HDMI + DP + etc.)
-
-* plane formats are the input format, we have much more variation there,
-  and we will never output these. We can ignore these.
-
-* bus formats are somewhat similar, they are more about the wiring
-  between bridges than anything else, and they are not exposed to
-  userspace. We can ignore these too.
-
-* DRM_COLOR_FORMAT are definitely redundant.
-
-* The intel color formats are also redundant, but also internal. I would
-  expect them to converge to whatever we come up here eventually (but
-  really don't expect you to do that work).
-
-* And HDMI_COLORSPACE is really mandated by the HDMI spec, and is only
-  about HDMI connectors. It will never fully overlap with what we come
-  up with here, if only because HDMI cares about things we don't.
-
-So we really have two formats in my opinion: the one exposed through the
-uapi, and the internal one exposed to driver.
-
-In my view, the internal -> uapi conversion is trivial because the uapi
-one is a superset of the internal one (if only for auto). The uapi ->
-internal one needs to deal and resolve what auto means, but your code
-already does that.
-
-I don't really care about the internal format, as long as drivers don't
-have to be smart about it, so auto shouldn't be exposed to drivers. As
-far as I'm concerned, DRM_COLOR_FORMAT would fit that bill if it wasn't
-for the fact that it's both a bitmask and an enum depending on the
-context, which makes it pretty weird and error prone to deal with.
-
-Maxime
-
---bzvkctnspkvgvs72
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaYtk1QAKCRAnX84Zoj2+
-dtH+AX9icXQp+NxFc1ZKirTjKLdjN/aWcl/dtMD8J4ci+mTqPt3KkSi4+FSK/s7a
-WNYTGwkBgOD8I055eaRKcNaaDGxQykXaPnfDkqAkw+xuNqdU6H6Fu+Om0bh+yw2H
-icXSLJ4gYw==
-=puI2
------END PGP SIGNATURE-----
-
---bzvkctnspkvgvs72--
+   0.5% Documentation/devicetree/bindings/arm/
+   0.3% Documentation/devicetree/bindings/mtd/
+   0.5% Documentation/devicetree/bindings/riscv/
+   0.5% Documentation/devicetree/bindings/
+   3.2% arch/arm/boot/dts/aspeed/
+   0.8% arch/arm/boot/dts/microchip/
+   0.6% arch/arm/boot/dts/nxp/imx/
+   0.2% arch/arm/boot/dts/nxp/lpc/
+   0.5% arch/arm/boot/dts/qcom/
+   0.5% arch/arm/boot/dts/renesas/
+   0.4% arch/arm/boot/dts/st/
+   0.6% arch/arm/boot/dts/ti/omap/
+   0.2% arch/arm/boot/dts/
+   0.2% arch/arm64/boot/dts/allwinner/
+   1.3% arch/arm64/boot/dts/amlogic/
+   3.2% arch/arm64/boot/dts/apple/
+   0.4% arch/arm64/boot/dts/broadcom/northstar2/
+   0.8% arch/arm64/boot/dts/broadcom/stingray/
+   0.3% arch/arm64/boot/dts/cavium/
+  22.5% arch/arm64/boot/dts/freescale/
+   0.5% arch/arm64/boot/dts/intel/
+   0.4% arch/arm64/boot/dts/marvell/
+   4.3% arch/arm64/boot/dts/mediatek/
+   0.2% arch/arm64/boot/dts/nvidia/
+  31.6% arch/arm64/boot/dts/qcom/
+   0.8% arch/arm64/boot/dts/realtek/
+   9.5% arch/arm64/boot/dts/renesas/
+   7.1% arch/arm64/boot/dts/rockchip/
+   0.3% arch/arm64/boot/dts/st/
+   1.0% arch/arm64/boot/dts/ti/
+   0.4% arch/arm64/boot/dts/
+   2.0% arch/riscv/boot/dts/sophgo/
+   2.4% arch/riscv/boot/dts/spacemit/
+   0.2% arch/riscv/boot/dts/
+ 775 files changed, 52313 insertions(+), 5630 deletions(-)
 
