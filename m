@@ -4,73 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6D89EA8121
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 14:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA681EA8121
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 14:20:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Odw3h2xXVkrcgCjrEBxTd6gG5L40NhU7zxaajIxkAsA=; b=Ntq/w+K5vQUI5BcRqhJodjsnkH
-	6P+IGZ9ZLGVhsWE+DpxTREC7ZDYCaxGR5Tg4Fhf6sfVS8Mhss2XX7Gb3GJUNgLzzXZzCXKbfRXlrG
-	OuhvYnrO9y/fnL22EGx51yr9Ml587TGeGgLnwrymk1Z27l/n2BwrO+ME58Jep6KW25HWpB1SP4HKa
-	6/PsoXlppw5DnSv/XI7Xe6yqKuqj1wgB51iuhRyELz4S/dkC9F30GowYFcrovJAWzlngbG5oMF1LH
-	a7W3YUFLb8fk9pMJnhaEW5+gd9ehC/hUaWsSpXyXZnak88pNza1rFKpZk70IY4EnchZLOBP5siWUL
-	AeQ7EUeQ==;
+	bh=HWAPDOPHGsIADIUA/tNycOqyhfgD2V6TuXz+MSfX++c=; b=smat5Rhz9rRXrmMmuDr5M244JK
+	+6l4nERaTKh+v1ALL1vbJEp+wnB68Rm5fYy5U8HVeuYfE8V7XsTbWiTCTXxKhwFEe62//E7NAH6Qh
+	WY4FdBo6UgvUZlJ6SrqxoEI9jF8O5H3MAq5sNNv6gDPBWi3S3KtjPKfkdViUDOoZ6TM8NrW8F4SNp
+	J4HZBqlAHW+oB4WVBkxmcYgi0MXloJezc/4cCxbyYHjM8nYQ0sU4pNdBHFK3wdCBz/Ju04D6TeDD0
+	J/B6X4ONLvnh3FvQ7NaXkBTfVVljrHtGaLAyfnxeGxtxPT3TIROUAN/ZkZkwkZxs0nbcc/v5frmnK
+	Kj9pzBtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpoaz-0000000H2Zi-3Pz1;
-	Tue, 10 Feb 2026 14:20:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vpob6-0000000H2b1-0op5;
+	Tue, 10 Feb 2026 14:20:12 +0000
+Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpoax-0000000H2ZJ-47Ko
+	id 1vpob3-0000000H2aN-1mpH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 14:20:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 76F75438F4
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Feb 2026 14:20:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 565E1C116C6
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Feb 2026 14:20:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770733201;
-	bh=Odw3h2xXVkrcgCjrEBxTd6gG5L40NhU7zxaajIxkAsA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Bh+T3j3iTWYfAVEB+OpSnFuBl7FTl9X1t7PcutsI3Q/B/GDgJjifvoWAJ2+gzXief
-	 vJM69hMd4FvOnqcEd/FihbVtkdycwE4EHu48Jdhmje8UVA9ZZR4ed2dKs/zBt0Aad3
-	 EUfyt0KYattmvr31qg31g04Nw+Dj2/tuYCsYtUsyoV3hOTjOglRokyfrNdFqIIEArr
-	 STv26k3KsuZ9uE2e2ike9TJflX4NT3S2CcOLWAvjMKrkuicUIFFfAS+n65KdL4I/aw
-	 PDcczD7NL3yo8+pSQ+ChJ37Emt7J+jZMysH34NuQzCmXoIxhUVlIWBndFw4hhh9SKC
-	 UhN0jo0iwG0sw==
-Received: by mail-yx1-f43.google.com with SMTP id 956f58d0204a3-649dbff9727so3576984d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Feb 2026 06:20:01 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCV0isuER1RujeF3tmmoY06VXSgC8d17JF3tBfUSdTG9rEiHGajYVrSWw7TZXT3yI5dBYFx/R7B/6gm4YuS0t1M7@lists.infradead.org
-X-Gm-Message-State: AOJu0YywV3TzgUHQbhkhGWSyTZsIzV6SNGFujBkx1k6jwBXcHLjWrJEw
-	CYZIStnBBQAmBoMfT2oS70Cwd/QNLUabHQHwGTMab+2GX5cGV6fBWX+ZeMVliKkmn15a2KNihTS
-	I0EgdPIPyg5FV1voU8/EJfrsOJBUjO6k=
-X-Received: by 2002:a05:690e:150b:b0:649:3e3d:327 with SMTP id
- 956f58d0204a3-649f1eb3d66mr13590998d50.40.1770733200730; Tue, 10 Feb 2026
- 06:20:00 -0800 (PST)
+	Tue, 10 Feb 2026 14:20:10 +0000
+Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-1271257ae53so1041699c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Feb 2026 06:20:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770733208; cv=none;
+        d=google.com; s=arc-20240605;
+        b=iy9cAKs/kbvCZnc0DZGsULzM+oRMnE4/VT7MUiSWErTD1nCXb5WVZohlPkSe2VTB4u
+         vpDcdfIIF+Ysrr5Iq3TJerj4W4UZNeMT081koOEEhVBBab5BkkAAFQ2UNo4SxvnbdaQQ
+         c9WuiIZv3kcjGasWerLQ7vAMm9WqiHzFSOfYgNxEGCaybc0nGU7ME+zPOPk3Q3izhnbE
+         PqsgRsU+YVzucRhN7FK1oREBygOf9t1eLWOivcIWCdAnkcFEhXr/1+JGcbGQXdnRv0WH
+         Clrd2idu4aEKuYA99vSUyIdPik7wX3TRdAFEuCrISu8X9jgNm7Rglp44Roei9qBFkZrr
+         DTVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=HWAPDOPHGsIADIUA/tNycOqyhfgD2V6TuXz+MSfX++c=;
+        fh=FLmNTjK2ShCssbSQmsLVsgEATxlahg6W/yY2XhkRbgw=;
+        b=BSPw6T+dPzncjQU0Kqe41WkvqyhkLm7WnW8gHeEUSjlTG1G2oU0wGKcTZQ9scaWZ/X
+         YKGRf8RE6uJPfemjV3YnyFEfIylr3lsViEAeo//3iq9+cdAufncSjIEqQso0wx1IZyne
+         csVr3pAdsjE5FoemERQ5a8R58BIwBka/feAimof1/35R98+A9qGS8dv//T/YnF+W7IRl
+         nuDMUj58aYu2fYh2M9NFdEQZqod2vATUlJX7AZt8Uw9KitXpYTTDWjiSD2aly215Ojk5
+         po2JB9djeYqrGLBdQu0piDVabv505zsSuFuBp6Usqbjb7NQmexsYng5/xxQs5/zRdkpb
+         cpSw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770733208; x=1771338008; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HWAPDOPHGsIADIUA/tNycOqyhfgD2V6TuXz+MSfX++c=;
+        b=Aqvxer/ymvu1FWg+FO0635gmtsLhm4k3E9hW5XL8eMhDMGh8NlgkBoUJRvJJ9afVlp
+         2CgXGS6ry0gjkBg/V/9QKeYZ8iyu3J5jf9JjJjKoWK4znDtKJpJSIrxGkzgwIYCTX7Ig
+         jOAmi4rfepf/Ekdq2/UW6jm6oz76YY8BMZGjM/WzXrqfgG/xWauRVgBpWw+fW9bbSc2h
+         t5jPNkeUw68vskvZd3lTK0SHZdqkf//AbuvnH/IFpI1GExGZnYmVXK/EY025jYCJW1Ss
+         fndxFKbzr1mnTtxHL4j55Ryo0Z17mjTk/WsZX885A+0brMjOLybqzi4ijJt8IBFqelot
+         wlfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770733208; x=1771338008;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=HWAPDOPHGsIADIUA/tNycOqyhfgD2V6TuXz+MSfX++c=;
+        b=DOSbdOsInAMThcnDTI/2ngbjIWPUeUB7nW9eEQRzCgD2OdA/iMB4hEc2UsZoRVM4VY
+         AkuBHSo2IwUBfCV7y1gVrweu3FtK88hSByWOq+xZhqKX9QMZfQbQlYtHxpsyQN2DwSc+
+         cQeC9kXhtRu49eMZW+Wo90PXmKEd0LQ0Hj3b2Q2ou8W+9d279JkcbYf8W5qRkap/+pQu
+         qcHuNHQEtf1bPu9nl3uqQfhK+A6cCboky3GgLxxOewhoKGrH/fl0PjUa7me4GYpwumIe
+         MqtR1Bpp6ZDFPjwwb1v8PPjhLDKWiDxImF967fvlKNN87BpP7CAzCEQsOu947RIGvfFt
+         Olkw==
+X-Forwarded-Encrypted: i=1; AJvYcCXp1lrGnJ3sbI6UqblONoaqLenDc8X+G8/y5pvbks3//PDNiLqO3Rn6xlXujU21aDih/pDs0hUcOQwNKAdaNdJg@lists.infradead.org
+X-Gm-Message-State: AOJu0YzG/Z7OqrzU4aW+C8wo9O4YaHVoqz+znsVssm5iHG7AC19q2Bg0
+	/KggNzB1h7yDX22ZH3t7Lh3/n8ySZgloN5BU+I0qPlSMULJXTK1LbRH2Rtkxds0R2c3Eibjf2pr
+	Ek/P9VVhNCRkBoDOBYr65m2uSqTjwtgg=
+X-Gm-Gg: AZuq6aJgQaU5KPTEee4q3Abg22WdJXuVgYBHK2lgbODA8TxehDnkGAKQHzJo6RCaoOz
+	10l5aS5JW5rHyxRb3sAWy1P5kY5G9mjOqvvxjrXqBIHu/BrcOvN9PyevbbSBxYNNrwgkEBrOw9Z
+	41KeIOjt0MtU7fcJQIsPxB2U4kMo3luVBLJyBWyh33rd2IUWSRWMvx7Wt2NK4on6Pnlo3uDyula
+	jNa05rXsxTG12NLcqQWfQmMR0I1ElarlL9rnIVE9oxfuviDDNzyQnrnSgfVBZu9QyP4iiSqplnB
+	UC7Nu3bbSHqFcn+c9SXKNudqaJ5rkmHrdZYIRbci9KjDDATXJOxBUNyrZKAxOBYGVpij7p71wcs
+	S3ek2umH6bcVmiDllqqp8kQ==
+X-Received: by 2002:a05:7022:699f:b0:11f:3483:bbb2 with SMTP id
+ a92af1059eb24-12704010c61mr6241858c88.12.1770733208182; Tue, 10 Feb 2026
+ 06:20:08 -0800 (PST)
 MIME-Version: 1.0
-References: <20260210110057.10869-1-wsa+renesas@sang-engineering.com>
-In-Reply-To: <20260210110057.10869-1-wsa+renesas@sang-engineering.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 10 Feb 2026 15:19:49 +0100
-X-Gmail-Original-Message-ID: <CAD++jLntW0QZ+Nt45Z-G2wbmqrL5jtnuy2B5_rRE6eS2w-1Nqg@mail.gmail.com>
-X-Gm-Features: AZwV_QjNXHFtXvNMF9TF_TvJtup1g1L8Eh_OBP9sLN0HF7Jz7nHdNO-AVIyYB00
-Message-ID: <CAD++jLntW0QZ+Nt45Z-G2wbmqrL5jtnuy2B5_rRE6eS2w-1Nqg@mail.gmail.com>
-Subject: Re: [PATCH 0/2] hwspinlock: remove platform_data from subsystem
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: linux-renesas-soc@vger.kernel.org, 
-	Andy Shevchenko <andriy.shevchenko@intel.com>, linux-arm-kernel@lists.infradead.org, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Bjorn Andersson <andersson@kernel.org>, 
-	linux-remoteproc@vger.kernel.org
+References: <20260210-imx91s-frdm-v5-0-b3e9a67d2285@nxp.com> <20260210-imx91s-frdm-v5-2-b3e9a67d2285@nxp.com>
+In-Reply-To: <20260210-imx91s-frdm-v5-2-b3e9a67d2285@nxp.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Tue, 10 Feb 2026 16:22:51 +0200
+X-Gm-Features: AZwV_Qi9nzL8plrh9S_oCJOUxLkKzuCBMraJPAzRuE6y3RzYD0VAbIX8BlC4J5w
+Message-ID: <CAEnQRZCXwJUz5rw0dWP_rVbjw=ianqADbjXaX=fPvmMY+C6KRg@mail.gmail.com>
+Subject: Re: [PATCH v5 2/2] arm64: dts: freescale: add NXP FRDM-IMX91S board support
+To: Yanan Yang <yanan.yang@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, qijian.guo@nxp.com, 
+	justin.jiang@nxp.com, Lei Xu <lei.xu@nxp.com>, Xiaofeng Wei <xiaofeng.wei@nxp.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_062004_039819_0F49081E 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20260210_062009_467549_A4A9E1E2 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,21 +122,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 10, 2026 at 12:01=E2=80=AFPM Wolfram Sang
-<wsa+renesas@sang-engineering.com> wrote:
+On Tue, Feb 10, 2026 at 12:49=E2=80=AFPM Yanan Yang <yanan.yang@nxp.com> wr=
+ote:
+>
+> Add DeviceTree support for the NXP FRDM-IMX91S development board based
+> on the i.MX91 SoC. FRDM-IMX91S is a cost-optimized variant of FRDM-IMX91
+> and differs in memory, storage, Ethernet, and PMIC configuration:
+>
+> - 512MB LPDDR4 (FRDM-IMX91 uses 1GB)
+> - 256MB FlexSPI-NAND (FRDM-IMX91 uses 8GB eMMC)
+> - Single GbE port (FRDM-IMX91 has dual GbE)
+> - PMIC PF9453 (FRDM-IMX91 uses PCA9451A)
+>
+> This DT enables:
+> - ADC1
+> - UART1 and UART5
+> - I2C bus and children nodes
+> - USB and related nodes
+> - uSDHC1 and uSDHC2
+> - FlexSPI NAND flash
+> - Watchdog3
+> - Ethernet (eqos)
+> - FlexCAN
+> - MQS
+>
+> Link: https://www.nxp.com/design/design-center/development-boards-and-des=
+igns/FRDM-IMX91S
+> (FRDM-IMX91S board page)
+> Link: https://www.nxp.com/design/design-center/development-boards-and-des=
+igns/FRDM-IMX91
+> (FRDM-IMX91 board page)
 
-[Page Mathieu who I think wrote this driver]
 
-> As stated in patch 1, the U8500 driver is clearly unused for more than a
-> decade. Removing it allows us to remove generic platform_data support.
-> Both removals make the upcoming refactoring (headers and lock
-> allocation) in the hwspinlock subsystem easier.
+Tested-by: Daniel Baluta <daniel.baluta@nxp.com>
 
-Fair enough, these hwsemaphores were only used when communicating
-with two DSPs that we never managed to support upstream.
-
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-
-Yours,
-Linus Walleij
+Used your patches on top of linux-next 20260209 and managed to boot the boa=
+rd
+using serial downloader and rootfs via nfs.
 
