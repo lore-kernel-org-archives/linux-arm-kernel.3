@@ -4,98 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8BD8EB26ED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 17:07:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA02EB26ED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 17:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jQRYJLWI9gusykP4IzlVvgW6sgmr5P20wywr6S6Sr/4=; b=eNphTTwe5x7J8PwJWmA8L7qimQ
-	IQdgfKsnhF4eZRF3BhV/8MxdF7gqnotM5/t7N3r+CLivRXktxXPucdJguq1q5uN8aJPIXl8lOum3t
-	iOyzuvnOX7FoV2Q23w8S9VLLCCGSk8NZ6eNdg9o9u6ya1p2shhoJjrfhXh50uzadtbvmBtYKl/7bO
-	pDjf8iZMgSoJCxPoMKs0/XTwNwajblFWTGWieLTudcNgcAbTGt/LjuhgaveK2/xgeWsrff7cDVELU
-	ayR2KZMiMuusdv63pQJL+y4yMrTPnT4BJ+leasLgV7MMrNvBNRTLF8VoZV2gQxfZKABpA+Gt55RH5
-	BmHXc/Aw==;
+	bh=wCrBezqLvu33yMrRkg/P5ZF1Mv+zbvsmIjtlzusdLeo=; b=4IunCpE4C8RZFDmvjG0Dq2C/oW
+	R+UJXZw5LYcS2rTxOOGR1cB0cX2h947aNQRd5FeAEQ65LVoK1KrTFa0E3YfaTu1E5v4D+DBVGiWzS
+	LPyjKo4yEKnJrtDD4Ow/lUuWVpIEvUtZuTwjMS3kXiEiYPOW82AY1S7Nec8bsaDMtAc69TrH1PyQd
+	ZZZkX/Zy6drwXB2Cvx3NQ6RGi8+qxpk4i0V1XqO65i46F09LNEJ5NWefQUQdXPH8B/4J4XiwZA+Ro
+	YRh4RdJuZ5iftrVy2gTOCbOnpuUFRkaXdO2oTJyp19PO9HEmKfa1YNXa9UqpdzMlfklnIdFyiniNH
+	h8PkWmOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vprCZ-0000000HJDZ-25FS;
-	Tue, 10 Feb 2026 17:07:03 +0000
-Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
+	id 1vprDM-0000000HJPk-1e2m;
+	Tue, 10 Feb 2026 17:07:52 +0000
+Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vprCW-0000000HJCU-3vo0
+	id 1vprDJ-0000000HJPI-2gYy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 17:07:02 +0000
+	Tue, 10 Feb 2026 17:07:51 +0000
 Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 271961D00060;
-	Tue, 10 Feb 2026 12:06:59 -0500 (EST)
+	by mailfhigh.stl.internal (Postfix) with ESMTP id BC56D7A00D9;
+	Tue, 10 Feb 2026 12:07:48 -0500 (EST)
 Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Tue, 10 Feb 2026 12:06:59 -0500
+  by phl-compute-04.internal (MEProxy); Tue, 10 Feb 2026 12:07:48 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1770743219;
-	 x=1770829619; bh=jQRYJLWI9gusykP4IzlVvgW6sgmr5P20wywr6S6Sr/4=; b=
-	oP50BTjU2YdjO+WrbEZRyBDs+GwNQeQS3M8HNYwf54CniNQfRByNAxs7TnjoFu0c
-	9AAInZUNrbWt5sdyACt80YBnXBD1SQfV6uh4zhQ5iy+qiYX/2M5S1r+zjzQRnx3s
-	OjMeL7SlqEdGmL9Qb8AtGTeuIqcyps3woyVqgb4GfJfuCUxDegTuHBM8N3p2xmnO
-	oLRJSqTAZALOp3IcufE7rnsilRpEgGkL6duSKphQ90SN/AB4su54kh9/5Q6QATqY
-	puBfYMq3gw7F+2CKzUF3ZFwaCZU7sVO2IjezCPnIEK79O4fcaMgG2pv8L43PZ13O
-	nvYNkenkDWSj7Y67V791ng==
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1770743268;
+	 x=1770829668; bh=wCrBezqLvu33yMrRkg/P5ZF1Mv+zbvsmIjtlzusdLeo=; b=
+	Un4xGzCN53aojPY1YqtY886KdLEN8OnqdEw6uhynObazdOKb6D+gFvwkp9gInqK8
+	uggmnIszMS1/BBpzexeoNZr2iqzs8iy5r7RbuIOYn8Af3VMqN6sFknEgEqr4S3Xd
+	92E9WLy+OCyG2KQZdZFg0QkiamEoPWhLziS83SyDXkGj3a8zTqlm5upEwrjzE+rP
+	SaIf0ekooMYHF3JvzXP0iRQQjR3qH3qxCn1R1Du+GgyTNfRRBqS57Ntel5Gjb5bG
+	HScmZh5GyopKQQRPIyAMcdYti6+mO5dE0pcnNE/Qi+u/1xRqI6xqzhmvs+lukilm
+	FRAlCoOIOOddDboNcruLcg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1770743219; x=
-	1770829619; bh=jQRYJLWI9gusykP4IzlVvgW6sgmr5P20wywr6S6Sr/4=; b=X
-	E25i4GytJsGWanufukRbntTiVNay1w01IPQxhiugQYmYR6/yeGjbRMQd5Qxhjgsa
-	5p84JX35ZcnpWehGMGhwB4IB7O6z0b5YVgjBbdnqXQz2NoylqSf2GGxmTYYfxbFB
-	PlbzfJYjQEVOsB9A8Tx3Rk4sYt6nzAKIarYhyCJJFaZlK1PHL3gi3NInJJNMvSGH
-	wRvNGTh8Qq5GPJW9YBOjEUG2+f2l5w4U+RBxtBtXeVEyvcrrl+lZ51gYXEoqk1rO
-	Py4vFarZDIgQ52PdAIIhV+5vMU+HcbqVyhHa8UenzkRY4QPIFQw/H/hAyaJNzhnJ
-	5py9h+3n9okGfcAdV/NDg==
-X-ME-Sender: <xms:smWLafhWwkJ3caUQURmjR4W180UElM-CdkEkJ5obiGZfl7t27lJdbg>
-    <xme:smWLaW2rEB_8nsS0mCduw1A4ndoQXvxrhGcfk24YsZhuZC3fhoi3zgYaWoNCymkLl
-    -twTnMvvdRTSyyChVpFnQRZI0pG1XzBgs-lTgS7WFvvV5eZCnH1U-I>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1770743268; x=
+	1770829668; bh=wCrBezqLvu33yMrRkg/P5ZF1Mv+zbvsmIjtlzusdLeo=; b=k
+	U5TpRNFRnEiPXUxkaMi8pdX1rqaqV0ik3oibL9A4BWrRIoUz7nak+nyVJ+2o5zTQ
+	brxIRd+4l8QsvJGZaNcXJir7HulV/DJ2I7eHo4wJOUqTxrfhqEWQyc5nkUfsfkZk
+	kDPPB4oZywf3L9a/s8BmnjAnOM8OUIIg+6nQOcHLcVBgU1tT9FolpY3Efv5YAG8a
+	uDvWbEaqQQZcQyHj1KJVf6PTrEoatl/cTdeQdi0M6RbxXM0eEiiq+r7vQ94tdsnw
+	KQqEavbs0aKhlclBmEkZvcsT2OUJjJt8+ctx7nK1fMHxczvND6d5dlUiStbpssPS
+	bRJcwe0g9UsFNYNxyHyHA==
+X-ME-Sender: <xms:5GWLaVby06xRQwiBisPqcyAvIZgZMp86hNBBtCyDY5-mo5AsBusfuA>
+    <xme:5GWLaXNGzth2neaCKYpJ2izvikFGspGAklxrOy1y4N-CAz3y8YLmplxuQAPKPvbZz
+    VYw7nYfTeTPdsPkq9d53fWUSvU_6qWtpPKNpUlIgwQr0PtVgDdiajwk>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvtddtvdegucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrnhgu
     uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepfeffleeludehheeljedthfehgedtffehtdffieelheekteffvedtgeehudfhiedu
-    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpghhithhhuhgsrdgtohhmnecuvehluh
-    hsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhn
-    uggsrdguvgdpnhgspghrtghpthhtohepgedpmhhouggvpehsmhhtphhouhhtpdhrtghpth
-    htohepthhorhhvrghlughssehlihhnuhigqdhfohhunhgurghtihhonhdrohhrghdprhgt
-    phhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvg
-    grugdrohhrghdprhgtphhtthhopehsohgtsehlihhsthhsrdhlihhnuhigrdguvghvpdhr
-    tghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:smWLaZNNmQV3MsfeIoUlPMydCbsMVTwYH6PNCeyKMef06TA8bjyh2Q>
-    <xmx:smWLaS0AqTZcRXdDO_rISxZmUG7-lLu7fIxGcoggJEfvXh190na6FQ>
-    <xmx:smWLaQkUrO54a8iUQZnV0wIzBrcV7ni0QAFrw-2NVI5gzffVk8nRyg>
-    <xmx:smWLaRXIMQWLANZ3YFaL3rs8t5STQXKlZsPmB8o5ZmP5nHGk22_Jcg>
-    <xmx:s2WLacG8YBny2cE9aEEDHET0b1P9pzxIqFQMj33EE8yfup_nf2vr0iGJ>
+    hrnhepjeefhfeliefgvedukeelkeekueejuedtieeggfevkedtjeeiffdugedtjeeuleeu
+    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpghhithhhuhgsrdgtohhmpdhpvghngh
+    huthhrohhnihigrdguvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgr
+    ihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeegpdhmoh
+    guvgepshhmthhpohhuthdprhgtphhtthhopehtohhrvhgrlhgusheslhhinhhugidqfhho
+    uhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvg
+    hlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepshhotgeslhhi
+    shhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvh
+    hgvghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:5GWLafHvodq5l4H-fT0f4Pclp_9ujfUi7eM8vJv63lqIQwrOvEqfUQ>
+    <xmx:5GWLaTOW3t9kG3JO297pbWck5534i_pkzCHqCc0nlpIQcmQDx2Rj9w>
+    <xmx:5GWLaZdYzqBgX2WJNqnrbygWOTR0e1-xmfGmhyBZ-lZGoHwF8nizOA>
+    <xmx:5GWLaYuMSP772_iA5VJYR6beSx1hOw6BQjErbohI9b-luMFKIBahtA>
+    <xmx:5GWLaacoOJHe0ByKT2PBIm-VOU7Y6DyYnZzOWyCIdYn0ZoYBAYNfJA85>
 Feedback-ID: i56a14606:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id CDCF2700065; Tue, 10 Feb 2026 12:06:58 -0500 (EST)
+	id 62A77700065; Tue, 10 Feb 2026 12:07:48 -0500 (EST)
 X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Date: Tue, 10 Feb 2026 18:06:28 +0100
+X-ThreadId: AYfK9ZjhzOaF
+Date: Tue, 10 Feb 2026 18:07:27 +0100
 From: "Arnd Bergmann" <arnd@arndb.de>
 To: "Linus Torvalds" <torvalds@linux-foundation.org>
 Cc: soc@lists.linux.dev, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
-Message-Id: <21a0711d-fd08-4c06-9de6-ecfa089ca723@app.fastmail.com>
+Message-Id: <0f7a14cd-de06-4b7c-b29b-cd827f688cb4@app.fastmail.com>
 In-Reply-To: <a34ea40f-e0d3-459b-8233-9f87f6cd73e5@app.fastmail.com>
 References: <a34ea40f-e0d3-459b-8233-9f87f6cd73e5@app.fastmail.com>
-Subject: [GIT PULL 1/4] soc: defconfig updates for 7.0
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Subject: [GIT PULL 2/4] soc: driver updates for 7.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_090701_086654_C7C44CAE 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20260210_090749_777947_578CCCC7 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,934 +112,587 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit f8f9c1f4d0c7a64600e2ca312dec824a0bc2f1da:
+The following changes since commit f8f9c1f4d0c7a64600e2ca312dec824a0bc2f=
+1da:
 
   Linux 6.19-rc3 (2025-12-28 13:24:26 -0800)
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-defconfig-7.0
+  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-d=
+rivers-7.0
 
-for you to fetch changes up to 6f3f1d83e511c8dbf36021805070caf08498641e:
+for you to fetch changes up to cfd00b7e26c8331e3bb0f03ca770888866c15ff4:
 
-  Merge tag 'mtk-defconfig-for-v6.20' of https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux into soc/defconfig (2026-01-29 09:31:18 +0100)
-
-----------------------------------------------------------------
-soc: defconfig updates for 7.0
-
-These are the usual updates, enabling mode newly merged device drivers for
-various Arm and RISC-V based platforms in the defconfig files. The Renesas
-and NXP defconfig files also get a refresh for modified Kconfig options.
+  Merge tag 'soc_fsl-6.20-1' of https://git.kernel.org/pub/scm/linux/ker=
+nel/git/chleroy/linux into soc/drivers (2026-02-04 08:41:49 +0100)
 
 ----------------------------------------------------------------
-Alexander Stein (1):
-      ARM: imx_v6_v7_defconfig: Configure CONFIG_SND_SOC_FSL_ASOC_CARD as module
+soc: driver updates for 7.0
 
-Andreas Kemnade (1):
-      ARM: imx_v6_v7_defconfig: enable EPD regulator needed for Kobo Clara 2e
+There are are a number of to firmware drivers, in particular the TEE
+subsystem:
 
-Arnd Bergmann (9):
-      ARM: defconfig: move entries
-      ARM: defconfig: turn off CONFIG_EXPERT
-      Merge tag 'renesas-arm-defconfig-for-v6.20-tag1' of git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into soc/defconfig
-      Merge tag 'apple-soc-defconfig-6.20' of https://git.kernel.org/pub/scm/linux/kernel/git/sven/linux into soc/defconfig
-      Merge tag 'xilinx-defconfig-for-6.20' of https://github.com/Xilinx/linux-xlnx into soc/defconfig
-      Merge tag 'qcom-arm64-defconfig-for-6.20' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into soc/defconfig
-      Merge tag 'imx-defconfig-6.20' of https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux into soc/defconfig
-      Merge tag 'ti-k3-config-for-v6.20' of https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux into soc/defconfig
-      Merge tag 'mtk-defconfig-for-v6.20' of https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux into soc/defconfig
+  - a bus callback for TEE firmware that device drivers can register to
+  - sysfs support for tee firmware information
+  - minor updates to platform specific TEE drivers for AMD, NXP, Qualcomm
+    and the generic optee driver
+  - ARM SCMI firmware refactoring to improve the protocol discover
+    among other fixes and cleanups
+  - ARM FF-A firmware interoperability improvements
 
-Biju Das (1):
-      arm64: defconfig: Enable RZ/G3E USB3 PHY driver
+The reset controller and memory controller subsystems gain support for
+additional hardware platforms from Mediatek, Renesas, NXP, Canaan and
+SpacemiT.
 
-Claudiu Beznea (1):
-      arm64: defconfig: Enable PCIe for the Renesas RZ/G3S SoC
+Most of the other changes are for random drivers/soc code. Among
+a number of cleanups and newly added hardware support, including:
+
+ - Mediatek MT8196 DVFS power management and mailbox support
+
+ - Qualcomm SCM firmware and MDT loader refactoring, as part of
+   the new Glymur platform support.
+
+ - NXP i.MX9 System Manager firmware support for accessing the
+   syslog
+
+ - Minor updates for TI, Renesas, Samsung, Apple, Marvell and AMD
+   SoCs.
+
+----------------------------------------------------------------
+Alexander Wilhelm (3):
+      soc: qcom: check QMI basic element error codes
+      soc: qcom: fix QMI encoding/decoding for basic elements
+      soc: qcom: preserve CPU endianness for QMI_DATA_LEN
+
+Ally Heev (1):
+      firmware: arm_scmi: Fix uninitialized pointers with __free attr
+
+AngeloGioacchino Del Regno (5):
+      soc: mediatek: mtk-dvfsrc: Change error check for DVFSRCv4 START c=
+md
+      soc: mediatek: mtk-dvfsrc: Add and propagate DVFSRC bandwidth type
+      soc: mediatek: mtk-dvfsrc: Add a new callback for calc_dram_bw
+      soc: mediatek: mtk-dvfsrc: Write bandwidth to EMI DDR if present
+      soc: mediatek: mtk-dvfsrc: Add support for DVFSRCv4 and MT8196
+
+Aristo Chen (2):
+      tee: add revision sysfs attribute
+      tee: optee: store OS revision for TEE core
+
+Arnd Bergmann (24):
+      Merge tag 'renesas-drivers-for-v6.20-tag1' of git://git.kernel.org=
+/pub/scm/linux/kernel/git/geert/renesas-devel into soc/drivers
+      Merge tag 'ffa-updates-7.0' of git://git.kernel.org/pub/scm/linux/=
+kernel/git/sudeep.holla/linux into soc/drivers
+      Merge tag 'scmi-updates-7.0' of git://git.kernel.org/pub/scm/linux=
+/kernel/git/sudeep.holla/linux into soc/drivers
+      Merge tag 'renesas-drivers-for-v6.20-tag2' of git://git.kernel.org=
+/pub/scm/linux/kernel/git/geert/renesas-devel into soc/drivers
+      Merge tag 'qcomtee-fixes-for-6.20' of git://git.kernel.org/pub/scm=
+/linux/kernel/git/jenswi/linux-tee into soc/drivers
+      Merge tag 'optee-update-for-6.20' of git://git.kernel.org/pub/scm/=
+linux/kernel/git/jenswi/linux-tee into soc/drivers
+      Merge tag 'tee-bus-callback-for-6.20' of git://git.kernel.org/pub/=
+scm/linux/kernel/git/jenswi/linux-tee into soc/drivers
+      Merge tag 'amdtee-update-for-6.20' of git://git.kernel.org/pub/scm=
+/linux/kernel/git/jenswi/linux-tee into soc/drivers
+      Merge tag 'tee-sysfs-for-6.20' of git://git.kernel.org/pub/scm/lin=
+ux/kernel/git/jenswi/linux-tee into soc/drivers
+      Merge tag 'samsung-drivers-6.20' of https://git.kernel.org/pub/scm=
+/linux/kernel/git/krzk/linux into soc/drivers
+      Merge tag 'tegra-for-6.20-soc' of git://git.kernel.org/pub/scm/lin=
+ux/kernel/git/tegra/linux into soc/drivers
+      Merge tag 'zynqmp-soc-for-6.20' of https://github.com/Xilinx/linux=
+-xlnx into soc/drivers
+      Merge tag 'imx-drivers-6.20' of https://git.kernel.org/pub/scm/lin=
+ux/kernel/git/shawnguo/linux into soc/drivers
+      Merge tag 'ti-driver-soc-for-v6.20' of https://git.kernel.org/pub/=
+scm/linux/kernel/git/ti/linux into soc/drivers
+      Merge tag 'qcom-drivers-for-6.20' of https://git.kernel.org/pub/sc=
+m/linux/kernel/git/qcom/linux into soc/drivers
+      Merge tag 'apple-soc-drivers-6.20' of https://git.kernel.org/pub/s=
+cm/linux/kernel/git/sven/linux into soc/drivers
+      Merge tag 'mtk-soc-for-v6.20' of https://git.kernel.org/pub/scm/li=
+nux/kernel/git/mediatek/linux into soc/drivers
+      Merge tag 'omap-for-v6.20/drivers-signed' of git://git.kernel.org/=
+pub/scm/linux/kernel/git/khilman/linux-omap into soc/drivers
+      Merge tag 'amlogic-drivers-for-v6.20' of https://git.kernel.org/pu=
+b/scm/linux/kernel/git/amlogic/linux into soc/drivers
+      Merge tag 'memory-controller-drv-6.20' of https://git.kernel.org/p=
+ub/scm/linux/kernel/git/krzk/linux-mem-ctrl into soc/drivers
+      Merge tag 'reset-for-v6.20' of https://git.pengutronix.de/git/pza/=
+linux into soc/drivers
+      Merge tag 'mvebu-arm-6.20-1' of git://git.kernel.org/pub/scm/linux=
+/kernel/git/gclement/mvebu into soc/drivers
+      Merge tag 'v6.20-rockchip-drivers1' of https://git.kernel.org/pub/=
+scm/linux/kernel/git/mmind/linux-rockchip into soc/drivers
+      Merge tag 'soc_fsl-6.20-1' of https://git.kernel.org/pub/scm/linux=
+/kernel/git/chleroy/linux into soc/drivers
+
+Artem Shimko (1):
+      firmware: arm_scmi: Refactor reset domain handling
+
+Bartosz Golaszewski (3):
+      reset: gpio: add the "compatible" property
+      reset: gpio: suppress bind attributes in sysfs
+      reset: gpio: check the return value of gpiod_set_value_cansleep()
+
+Bjorn Andersson (1):
+      Merge branch '20260105-kvmrprocv10-v10-0-022e96815380@oss.qualcomm=
+.com' into drivers-for-6.20
+
+Chen Ni (1):
+      soc: fsl: qe: qe_ports_ic: Consolidate chained IRQ handler install=
+/remove
+
+Christophe Leroy (CS GROUP) (2):
+      soc: fsl: qe: Add an interrupt controller for QUICC Engine Ports
+      dt-bindings: soc: fsl: qe: Add an interrupt controller for QUICC E=
+ngine Ports
+
+Claudiu Beznea (2):
+      reset: rzg2l-usbphy-ctrl: Propagate the return value of regmap_fie=
+ld_update_bits()
+      reset: rzg2l-usbphy-ctrl: Add suspend/resume support
+
+Cl=C3=A9ment Le Goffic (5):
+      dt-bindings: memory: factorise LPDDR props into SDRAM props
+      dt-bindings: memory: introduce DDR4
+      dt-bindings: memory: factorise LPDDR channel binding into SDRAM ch=
+annel
+      dt-bindings: memory: add DDR4 channel compatible
+      dt-bindings: memory: SDRAM channel: standardise node name
+
+Colin Ian King (1):
+      optee: make read-only array attr static const
+
+Cosmin Tanislav (1):
+      soc: renesas: Enable ICU support on RZ/N2H
+
+Cristian Marussi (2):
+      firmware: arm_scmi: Rework protocol version negotiation logic
+      firmware: arm_scmi: Remove legacy protocol versioning logic
+
+Dale Whinham (1):
+      firmware: qcom: scm: allow QSEECOM on Surface Pro 11
+
+Dan Carpenter (1):
+      firmware: arm_scmi: Move boiler plate code into the get info funct=
+ions
 
 Dmitry Baryshkov (1):
-      ARM: multi_v7_defconfig: enable DA9052 and MC13XXX
+      soc: qcom: ubwc: add missing include
 
 Geert Uytterhoeven (1):
-      ARM: shmobile: defconfig: Refresh for v6.19-rc1
+      MAINTAINERS: Mark the OP-TEE mailing list moderated
 
-Janne Grunau (1):
-      arm64: select APPLE_PMGR_PWRSTATE for ARCH_APPLE
+Gui-Dong Han (1):
+      bus: fsl-mc: fix use-after-free in driver_override_show()
 
-Jingyi Wang (1):
-      arm64: defconfig: enable clocks, interconnect and pinctrl for Qualcomm Kaanapali
+Guodong Xu (4):
+      dt-bindings: soc: spacemit: Add K3 reset support and IDs
+      reset: Create subdirectory for SpacemiT drivers
+      reset: spacemit: Extract common K1 reset code
+      reset: spacemit: Add SpacemiT K3 reset driver
 
-Josua Mayer (1):
-      ARM: imx_v4_v5_defconfig: update for v6.19-rc1
+Haotian Zhang (3):
+      clk: qcom: Return correct error code in qcom_cc_probe_by_index()
+      soc: qcom: cmd-db: Use devm_memremap() to fix memory leak in cmd_d=
+b_dev_probe
+      hwspinlock: omap: Handle devm_pm_runtime_enable() errors
 
-Krzysztof Kozlowski (1):
-      arm64: defconfig: Enable EC drivers for Qualcomm-based laptops
+Haoxiang Li (2):
+      firmware: arm_ffa: Unmap Rx/Tx buffers on init failure
+      bus: fsl-mc: fix an error handling in fsl_mc_device_add()
 
-Lad Prabhakar (1):
-      arm64: defconfig: Drop duplicate CONFIG_OMAP_USB2 entry
+Herve Codina (Schneider Electric) (5):
+      of/irq: Introduce for_each_of_imap_item
+      of: unittest: Add a test case for for_each_of_imap_item iterator
+      irqchip/ls-extirq: Use for_each_of_imap_item iterator
+      irqchip/renesas-rza1: Use for_each_of_imap_item iterator
+      soc: renesas: Add support for RZ/N1 GPIO Interrupt Multiplexer
+
+Jason-JH Lin (8):
+      mailbox: mtk-cmdq: Add cmdq private data to cmdq_pkt for generatin=
+g instruction
+      mailbox: mtk-cmdq: Add GCE hardware virtualization configuration
+      mailbox: mtk-cmdq: Add mminfra_offset configuration for DRAM trans=
+action
+      mailbox: mtk-cmdq: Add driver data to support for MT8196
+      soc: mediatek: mtk-cmdq: Add cmdq_get_mbox_priv() in cmdq_pkt_crea=
+te()
+      soc: mediatek: mtk-cmdq: Add pa_base parsing for hardware without =
+subsys ID support
+      soc: mediatek: mtk-cmdq: Extend cmdq_pkt_write API for SoCs withou=
+t subsys ID
+      soc: mediatek: mtk-cmdq: Add mminfra_offset adjustment for DRAM ad=
+dresses
+
+Jingyi Wang (2):
+      dt-bindings: interrupt-controller: qcom,pdc: Document Kaanapali Po=
+wer Domain Controller
+      dt-bindings: sram: Document qcom,kaanapali-imem and its child node
+
+Johan Hovold (7):
+      memory: mtk-smi: fix device leaks on common probe
+      memory: mtk-smi: fix device leak on larb probe
+      memory: mtk-smi: clean up device link creation
+      soc: ti: k3-socinfo: Fix compile testing
+      soc: ti: k3-socinfo: Fix regmap leak on probe failure
+      bus: omap-ocp2scp: fix OF populate on driver rebind
+      bus: omap-ocp2scp: enable compile testing
+
+Jorge Ramirez-Ortiz (1):
+      soc: qcom: smem: handle ENOMEM error during probe
+
+Julia Lawall (1):
+      optee: update outdated comment
+
+Junhui Liu (1):
+      reset: canaan: k230: drop OF dependency and enable by default
+
+Konrad Dybcio (1):
+      soc: qcom: pmic_glink_altmode: Consume TBT3/USB4 mode notifications
+
+Krzysztof Kozlowski (11):
+      bus: qcom-ebi2: Simplify with scoped for each OF child loop
+      tee: qcomtee: call: Fix confusing cleanup.h syntax
+      tee: qcomtee: mem: Fix confusing cleanup.h syntax
+      tee: qcomtee: user: Fix confusing cleanup.h syntax
+      soc: dove: pmu: Simplify with scoped for each OF child loop
+      soc: ti: knav_qmss: Remove ENOMEM printks
+      soc: ti: knav_dma: Remove ENOMEM printks
+      soc: ti: knav_dma: Simplify error messages in probe
+      soc: ti: knav: Simplify with scoped for each OF child loop
+      soc: ti: knav_dma: Simplify with scoped for each OF child loop
+      soc: fsl: qe: Simplify with scoped for each OF child loop
+
+Laurentiu Mihalcea (4):
+      reset: imx8mp-audiomix: Drop unneeded macros
+      reset: imx8mp-audiomix: Switch to using regmap API
+      reset: imx8mp-audiomix: Extend the driver usage
+      reset: imx8mp-audiomix: Support i.MX8ULP SIM LPAV
 
 Louis-Alexis Eyraud (1):
-      arm64: defconfig: Enable Mediatek HDMIv2 driver
+      soc: mediatek: mtk-socinfo: Add entry for MT8371AV/AZA Genio 520
 
-Luca Weiss (1):
-      arm64: defconfig: Enable options for Qualcomm Milos SoC
+Luca Weiss (2):
+      dt-bindings: crypto: qcom,prng: document Milos
+      dt-bindings: qcom,pdc: document the Milos Power Domain Controller
 
-Michael Walle (1):
-      arm64: defconfig: Enable configurations for Kontron SMARC-sAM67
+Marco Crivellari (1):
+      soc/xilinx: replace use of system_unbound_wq with system_dfl_wq
 
 Michal Simek (1):
-      arm64: defconfig: Enable missing AMD/Xilinx drivers
+      cpuidle: zynq: Switch Michal Simek's email to new one
+
+Mukesh Ojha (13):
+      dt-bindings: remoteproc: qcom,pas: Add iommus property
+      firmware: qcom_scm: Remove redundant piece of code
+      firmware: qcom_scm: Rename peripheral as pas_id
+      firmware: qcom_scm: Introduce PAS context allocator helper function
+      remoteproc: pas: Replace metadata context with PAS context structu=
+re
+      soc: qcom: mdtloader: Add PAS context aware qcom_mdt_pas_load() fu=
+nction
+      soc: qcom: mdtloader: Remove qcom_mdt_pas_init() from exported sym=
+bols
+      firmware: qcom_scm: Add a prep version of auth_and_reset function
+      firmware: qcom_scm: Refactor qcom_scm_pas_init_image()
+      firmware: qcom_scm: Add SHM bridge handling for PAS when running w=
+ithout QHEE
+      firmware: qcom_scm: Add qcom_scm_pas_get_rsc_table() to get resour=
+ce table
+      remoteproc: pas: Extend parse_fw callback to fetch resources via S=
+MC call
+      remoteproc: qcom: pas: Enable Secure PAS support with IOMMU manage=
+d by Linux
+
+Nick Xie (1):
+      soc: amlogic: meson-gx-socinfo: add new SoC id for S905Y4
+
+Nicolas Frattaroli (3):
+      dt-bindings: soc: mediatek: dvfsrc: Document clock
+      soc: mediatek: mtk-dvfsrc: Get and Enable DVFSRC clock
+      soc: mediatek: mtk-dvfsrc: Rework bandwidth calculations
+
+Pankaj Patil (3):
+      dt-bindings: cache: qcom,llcc: Document Glymur LLCC block
+      soc: qcom: llcc-qcom: Add support for Glymur
+      dt-bindings: cache: qcom,llcc: Remove duplicate llcc7_base for Gly=
+mur
+
+Peng Fan (6):
+      firmware: arm_scmi: imx: Support getting syslog of MISC protocol
+      firmware: imx: sm-misc: Dump syslog info
+      soc: imx: Use device-managed APIs for i.MX9
+      soc: imx: Use dev_err_probe() for i.MX9
+      soc: imx: Spport i.MX9[4,52]
+      soc: imx8m: Fix error handling for clk_prepare_enable()
+
+Philipp Zabel (1):
+      Merge tag 'spacemit-clkrst-v6.20-3' into reset/next
+
+Prathamesh Shete (1):
+      soc/tegra: pmc: Fix unsafe generic_handle_irq() call
+
+Randy Dunlap (1):
+      firmware: ti_sci.h: fix all kernel-doc warnings
+
+Rob Herring (Arm) (1):
+      dt-bindings: soc: samsung: exynos-pmu: Drop unnecessary select sch=
+ema
+
+Shawn Lin (2):
+      soc: rockchip: grf: Fix wrong RK3576_IOCGRF_MISC_CON definition
+      soc: rockchip: grf: Support multiple grf to be handled
+
+Sudeep Holla (2):
+      firmware: arm_ffa: Tie FF-A version checks to specific features
+      firmware: arm_ffa: Correct 32-bit response handling in NOTIFICATIO=
+N_INFO_GET
+
+SungMin Park (1):
+      dt-bindings: samsung: exynos-pmu: Add compatible for ARTPEC-9 SoC
 
 Sven Peter (1):
-      arm64: defconfig: Enable Apple Silicon drivers
+      soc: apple: rtkit: Add function to poweroff
 
-Yixun Lan (1):
-      riscv: defconfig: spacemit: k3: enable clock support
+Thierry Reding (10):
+      soc/tegra: pmc: Use contextual data instead of global variable
+      soc/tegra: pmc: Pass struct tegra_pmc to tegra_powergate_state()
+      soc/tegra: pmc: Store PMC context in clocks
+      soc/tegra: pmc: Embed reboot notifier in PMC context
+      soc/tegra: pmc: Pass PMC context via sys-off callback data
+      soc/tegra: pmc: Pass PMC context as debugfs data
+      soc/tegra: pmc: Use PMC context embedded in powergates
+      soc/tegra: pmc: Use driver-private data
+      soc/tegra: pmc: Do not rely on global variable
+      soc/tegra: pmc: Add PMC contextual functions
 
- arch/arm/configs/imx_v4_v5_defconfig | 12 +----
- arch/arm/configs/imx_v6_v7_defconfig |  3 +-
- arch/arm/configs/multi_v7_defconfig  | 51 ++++++++++++--------
- arch/arm/configs/shmobile_defconfig  |  2 +-
- arch/arm64/Kconfig.platforms         |  1 +
- arch/arm64/configs/defconfig         | 90 ++++++++++++++++++++++++++++++++++++
- arch/riscv/configs/defconfig         |  2 +-
- 7 files changed, 130 insertions(+), 31 deletions(-)
+Thorsten Blum (1):
+      tee: amdtee: Remove unused return variables
 
-diff --git a/arch/arm/configs/imx_v4_v5_defconfig b/arch/arm/configs/imx_v4_v5_defconfig
-index 875c8cdbada7..9139d1784c70 100644
---- a/arch/arm/configs/imx_v4_v5_defconfig
-+++ b/arch/arm/configs/imx_v4_v5_defconfig
-@@ -29,9 +29,6 @@ CONFIG_INET=y
- CONFIG_IP_MULTICAST=y
- CONFIG_IP_PNP=y
- CONFIG_IP_PNP_DHCP=y
--# CONFIG_INET_XFRM_MODE_TRANSPORT is not set
--# CONFIG_INET_XFRM_MODE_TUNNEL is not set
--# CONFIG_INET_XFRM_MODE_BEET is not set
- # CONFIG_INET_DIAG is not set
- # CONFIG_IPV6 is not set
- CONFIG_NETFILTER=y
-@@ -58,11 +55,9 @@ CONFIG_BLK_DEV_SD=y
- CONFIG_ATA=y
- CONFIG_PATA_IMX=y
- CONFIG_NETDEVICES=y
--CONFIG_CS89x0=y
- CONFIG_CS89x0_PLATFORM=y
- CONFIG_DM9000=y
- CONFIG_SMC91X=y
--CONFIG_SMC911X=y
- CONFIG_SMSC911X=y
- CONFIG_SMSC_PHY=y
- CONFIG_INPUT_EVDEV=y
-@@ -78,6 +73,7 @@ CONFIG_SERIAL_8250=m
- CONFIG_SERIAL_IMX=y
- CONFIG_SERIAL_IMX_CONSOLE=y
- # CONFIG_HW_RANDOM is not set
-+CONFIG_I2C=y
- CONFIG_I2C_CHARDEV=y
- CONFIG_I2C_IMX=y
- CONFIG_SPI=y
-@@ -100,12 +96,12 @@ CONFIG_REGULATOR_GPIO=y
- CONFIG_REGULATOR_MC13783=y
- CONFIG_REGULATOR_MC13892=y
- CONFIG_MEDIA_SUPPORT=y
--CONFIG_MEDIA_CAMERA_SUPPORT=y
- CONFIG_V4L_PLATFORM_DRIVERS=y
- CONFIG_V4L_MEM2MEM_DRIVERS=y
- CONFIG_VIDEO_CODA=y
- CONFIG_FB=y
- CONFIG_FB_IMX=y
-+CONFIG_LCD_CLASS_DEVICE=y
- CONFIG_LCD_L4F00242T03=y
- CONFIG_FRAMEBUFFER_CONSOLE=y
- CONFIG_LOGO=y
-@@ -115,16 +111,12 @@ CONFIG_SND=y
- # CONFIG_SND_SPI is not set
- CONFIG_SND_SOC=y
- CONFIG_SND_IMX_SOC=y
--CONFIG_SND_SOC_MX27VIS_AIC32X4=y
--CONFIG_SND_SOC_PHYCORE_AC97=y
- CONFIG_SND_SOC_EUKREA_TLV320=y
--CONFIG_SND_SOC_IMX_MC13783=y
- CONFIG_SND_SOC_FSL_ASOC_CARD=y
- CONFIG_SND_SOC_SGTL5000=y
- CONFIG_USB_HID=m
- CONFIG_USB=y
- CONFIG_USB_EHCI_HCD=y
--CONFIG_USB_EHCI_MXC=y
- CONFIG_USB_STORAGE=y
- CONFIG_USB_CHIPIDEA=y
- CONFIG_USB_CHIPIDEA_UDC=y
-diff --git a/arch/arm/configs/imx_v6_v7_defconfig b/arch/arm/configs/imx_v6_v7_defconfig
-index 0d55056c6f82..ed588add8d31 100644
---- a/arch/arm/configs/imx_v6_v7_defconfig
-+++ b/arch/arm/configs/imx_v6_v7_defconfig
-@@ -251,6 +251,7 @@ CONFIG_REGULATOR_DA9052=y
- CONFIG_REGULATOR_DA9062=y
- CONFIG_REGULATOR_DA9063=y
- CONFIG_REGULATOR_GPIO=y
-+CONFIG_REGULATOR_FP9931=m
- CONFIG_REGULATOR_LTC3676=y
- CONFIG_REGULATOR_MC13783=y
- CONFIG_REGULATOR_MC13892=y
-@@ -311,7 +312,7 @@ CONFIG_SND_IMX_SOC=y
- CONFIG_SND_SOC_EUKREA_TLV320=y
- CONFIG_SND_SOC_IMX_ES8328=y
- CONFIG_SND_SOC_IMX_SGTL5000=y
--CONFIG_SND_SOC_FSL_ASOC_CARD=y
-+CONFIG_SND_SOC_FSL_ASOC_CARD=m
- CONFIG_SND_SOC_AC97_CODEC=y
- CONFIG_SND_SOC_CS42XX8_I2C=y
- CONFIG_SND_SOC_SPDIF=y
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index 7f1fa9dd88c9..4de55fd94a03 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -3,11 +3,12 @@ CONFIG_NO_HZ_IDLE=y
- CONFIG_HIGH_RES_TIMERS=y
- CONFIG_CGROUPS=y
- CONFIG_BLK_DEV_INITRD=y
--CONFIG_EXPERT=y
- CONFIG_PERF_EVENTS=y
- CONFIG_KEXEC=y
- CONFIG_ARCH_VIRT=y
- CONFIG_ARCH_AIROHA=y
-+CONFIG_ARCH_HPE=y
-+CONFIG_ARCH_HPE_GXP=y
- CONFIG_ARCH_SUNPLUS=y
- CONFIG_ARCH_UNIPHIER=y
- CONFIG_ARCH_ACTIONS=y
-@@ -50,8 +51,6 @@ CONFIG_ARCH_HI3xxx=y
- CONFIG_ARCH_HIP01=y
- CONFIG_ARCH_HIP04=y
- CONFIG_ARCH_HIX5HD2=y
--CONFIG_ARCH_HPE=y
--CONFIG_ARCH_HPE_GXP=y
- CONFIG_ARCH_MXC=y
- CONFIG_SOC_IMX50=y
- CONFIG_SOC_IMX51=y
-@@ -163,7 +162,6 @@ CONFIG_BT_QCOMSMD=m
- CONFIG_CFG80211=m
- CONFIG_MAC80211=m
- CONFIG_RFKILL=y
--CONFIG_RFKILL_INPUT=y
- CONFIG_RFKILL_GPIO=y
- CONFIG_NFC=m
- CONFIG_NFC_DIGITAL=m
-@@ -376,7 +374,6 @@ CONFIG_SERIAL_TEGRA=y
- CONFIG_SERIAL_IMX=y
- CONFIG_SERIAL_IMX_CONSOLE=y
- CONFIG_SERIAL_SH_SCI=y
--CONFIG_SERIAL_SH_SCI_NR_UARTS=20
- CONFIG_SERIAL_MSM=y
- CONFIG_SERIAL_MSM_CONSOLE=y
- CONFIG_SERIAL_VT8500=y
-@@ -548,12 +545,12 @@ CONFIG_DEVFREQ_THERMAL=y
- CONFIG_IMX_THERMAL=y
- CONFIG_QORIQ_THERMAL=m
- CONFIG_ROCKCHIP_THERMAL=y
--CONFIG_RCAR_THERMAL=y
- CONFIG_ARMADA_THERMAL=y
- CONFIG_BCM2711_THERMAL=m
- CONFIG_BCM2835_THERMAL=m
- CONFIG_BRCMSTB_THERMAL=m
- CONFIG_ST_THERMAL_MEMMAP=y
-+CONFIG_RCAR_THERMAL=y
- CONFIG_TEGRA_SOCTHERM=m
- CONFIG_TEGRA30_TSENSOR=m
- CONFIG_GENERIC_ADC_THERMAL=m
-@@ -598,7 +595,9 @@ CONFIG_MFD_BCM590XX=y
- CONFIG_MFD_AC100=y
- CONFIG_MFD_AXP20X_I2C=y
- CONFIG_MFD_AXP20X_RSB=y
-+CONFIG_MFD_DA9052_I2C=y
- CONFIG_MFD_DA9063=m
-+CONFIG_MFD_MC13XXX_I2C=m
- CONFIG_MFD_MAX14577=y
- CONFIG_MFD_MAX77686=y
- CONFIG_MFD_MAX77693=m
-@@ -633,6 +632,7 @@ CONFIG_REGULATOR_AS3722=y
- CONFIG_REGULATOR_AXP20X=y
- CONFIG_REGULATOR_BCM590XX=y
- CONFIG_REGULATOR_CPCAP=y
-+CONFIG_REGULATOR_DA9052=m
- CONFIG_REGULATOR_DA9210=y
- CONFIG_REGULATOR_FAN53555=y
- CONFIG_REGULATOR_GPIO=y
-@@ -676,6 +676,7 @@ CONFIG_REGULATOR_WM8994=m
- CONFIG_CEC_SAMSUNG_S5P=m
- CONFIG_CEC_STM32=m
- CONFIG_MEDIA_SUPPORT=m
-+# CONFIG_MEDIA_SUPPORT_FILTER is not set
- CONFIG_MEDIA_USB_SUPPORT=y
- CONFIG_USB_VIDEO_CLASS=m
- CONFIG_V4L_PLATFORM_DRIVERS=y
-@@ -715,7 +716,6 @@ CONFIG_VIDEO_ADV7604_CEC=y
- CONFIG_VIDEO_ML86V7667=m
- CONFIG_IMX_IPUV3_CORE=m
- CONFIG_DRM=y
--CONFIG_DRM_I2C_NXP_TDA998X=m
- CONFIG_DRM_NOUVEAU=m
- # CONFIG_DRM_NOUVEAU_CH7006 is not set
- # CONFIG_DRM_NOUVEAU_SIL164 is not set
-@@ -741,15 +741,16 @@ CONFIG_DRM_TEGRA=y
- CONFIG_DRM_STM=m
- CONFIG_DRM_STM_DSI=m
- CONFIG_DRM_PANEL_LVDS=m
--CONFIG_DRM_PANEL_SIMPLE=y
--CONFIG_DRM_PANEL_EDP=y
--CONFIG_DRM_PANEL_SAMSUNG_LD9040=m
- CONFIG_DRM_PANEL_ORISETECH_OTM8009A=m
- CONFIG_DRM_PANEL_RAYDIUM_RM68200=m
-+CONFIG_DRM_PANEL_SAMSUNG_LD9040=m
- CONFIG_DRM_PANEL_SAMSUNG_S6E63J0X03=m
- CONFIG_DRM_PANEL_SAMSUNG_S6E8AA0=m
- CONFIG_DRM_PANEL_SHARP_LQ101R1SX01=m
-+CONFIG_DRM_PANEL_EDP=y
-+CONFIG_DRM_PANEL_SIMPLE=y
- CONFIG_DRM_DISPLAY_CONNECTOR=m
-+CONFIG_DRM_I2C_NXP_TDA998X=m
- CONFIG_DRM_LVDS_CODEC=m
- CONFIG_DRM_NXP_PTN3460=m
- CONFIG_DRM_PARADE_PS8622=m
-@@ -789,9 +790,9 @@ CONFIG_FRAMEBUFFER_CONSOLE=y
- CONFIG_FRAMEBUFFER_CONSOLE_ROTATION=y
- CONFIG_SOUND=m
- CONFIG_SND=m
--CONFIG_SND_HDA_TEGRA=m
- CONFIG_SND_HDA_INPUT_BEEP=y
- CONFIG_SND_HDA_PATCH_LOADER=y
-+CONFIG_SND_HDA_TEGRA=m
- CONFIG_SND_HDA_CODEC_REALTEK=m
- CONFIG_SND_HDA_CODEC_REALTEK_LIB=m
- CONFIG_SND_HDA_CODEC_ALC269=m
-@@ -814,6 +815,8 @@ CONFIG_SND_PXA910_SOC=m
- CONFIG_SND_SOC_QCOM=m
- CONFIG_SND_SOC_APQ8016_SBC=m
- CONFIG_SND_SOC_ROCKCHIP=m
-+CONFIG_SND_SOC_SH4_FSI=m
-+CONFIG_SND_SOC_RCAR=m
- CONFIG_SND_SOC_ROCKCHIP_SPDIF=m
- CONFIG_SND_SOC_ROCKCHIP_MAX98090=m
- CONFIG_SND_SOC_ROCKCHIP_RT5645=m
-@@ -824,8 +827,6 @@ CONFIG_SND_SOC_SNOW=m
- CONFIG_SND_SOC_ODROID=m
- CONFIG_SND_SOC_ARNDALE=m
- CONFIG_SND_SOC_SAMSUNG_MIDAS_WM1811=m
--CONFIG_SND_SOC_SH4_FSI=m
--CONFIG_SND_SOC_RCAR=m
- CONFIG_SND_SOC_STI=m
- CONFIG_SND_SOC_STM32_SAI=m
- CONFIG_SND_SOC_STM32_I2S=m
-@@ -859,6 +860,18 @@ CONFIG_SND_SOC_WM8960=m
- CONFIG_SND_SOC_WM8962=m
- CONFIG_SND_SOC_WM8978=m
- CONFIG_SND_AUDIO_GRAPH_CARD=m
-+# CONFIG_HID_A4TECH is not set
-+# CONFIG_HID_APPLE is not set
-+# CONFIG_HID_BELKIN is not set
-+# CONFIG_HID_CHERRY is not set
-+# CONFIG_HID_CHICONY is not set
-+# CONFIG_HID_CYPRESS is not set
-+# CONFIG_HID_EZKEY is not set
-+# CONFIG_HID_ITE is not set
-+# CONFIG_HID_KENSINGTON is not set
-+# CONFIG_HID_REDRAGON is not set
-+# CONFIG_HID_MICROSOFT is not set
-+# CONFIG_HID_MONTEREY is not set
- CONFIG_USB=y
- CONFIG_USB_OTG=y
- CONFIG_USB_XHCI_HCD=y
-@@ -1002,7 +1015,6 @@ CONFIG_RTC_DRV_MAX8997=m
- CONFIG_RTC_DRV_MAX77686=y
- CONFIG_RTC_DRV_RK808=m
- CONFIG_RTC_DRV_RS5C372=m
--CONFIG_RTC_DRV_PCF85063=m
- CONFIG_RTC_DRV_PCF85363=m
- CONFIG_RTC_DRV_BQ32K=m
- CONFIG_RTC_DRV_TWL4030=y
-@@ -1013,6 +1025,7 @@ CONFIG_RTC_DRV_S35390A=m
- CONFIG_RTC_DRV_RX8581=m
- CONFIG_RTC_DRV_EM3027=y
- CONFIG_RTC_DRV_S5M=m
-+CONFIG_RTC_DRV_PCF85063=m
- CONFIG_RTC_DRV_DA9063=m
- CONFIG_RTC_DRV_EFI=m
- CONFIG_RTC_DRV_DIGICOLOR=m
-@@ -1026,6 +1039,7 @@ CONFIG_RTC_DRV_RZN1=m
- CONFIG_RTC_DRV_VT8500=y
- CONFIG_RTC_DRV_SUNXI=y
- CONFIG_RTC_DRV_MV=y
-+CONFIG_RTC_DRV_MC13XXX=m
- CONFIG_RTC_DRV_PM8XXX=m
- CONFIG_RTC_DRV_TEGRA=y
- CONFIG_RTC_DRV_ST_LPC=y
-@@ -1046,9 +1060,6 @@ CONFIG_OWL_DMA=y
- CONFIG_PL330_DMA=y
- CONFIG_STE_DMA40=y
- CONFIG_ST_FDMA=m
--CONFIG_STM32_DMA=y
--CONFIG_STM32_DMAMUX=y
--CONFIG_STM32_MDMA=y
- CONFIG_TEGRA20_APB_DMA=y
- CONFIG_UNIPHIER_MDMAC=y
- CONFIG_XILINX_DMA=y
-@@ -1057,6 +1068,9 @@ CONFIG_DW_DMAC=y
- CONFIG_RZN1_DMAMUX=m
- CONFIG_RCAR_DMAC=y
- CONFIG_RENESAS_USB_DMAC=m
-+CONFIG_STM32_DMA=y
-+CONFIG_STM32_DMAMUX=y
-+CONFIG_STM32_MDMA=y
- CONFIG_VIRTIO_PCI=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_STAGING=y
-@@ -1094,12 +1108,12 @@ CONFIG_TI_MESSAGE_MANAGER=y
- CONFIG_QCOM_APCS_IPC=y
- CONFIG_STM32_IPCC=m
- CONFIG_QCOM_IPCC=y
-+CONFIG_QCOM_IOMMU=y
- CONFIG_OMAP_IOMMU=y
- CONFIG_OMAP_IOMMU_DEBUG=y
- CONFIG_ROCKCHIP_IOMMU=y
- CONFIG_TEGRA_IOMMU_SMMU=y
- CONFIG_EXYNOS_IOMMU=y
--CONFIG_QCOM_IOMMU=y
- CONFIG_REMOTEPROC=y
- CONFIG_OMAP_REMOTEPROC=m
- CONFIG_OMAP_REMOTEPROC_WATCHDOG=y
-@@ -1135,6 +1149,7 @@ CONFIG_ARCH_TEGRA_124_SOC=y
- CONFIG_SOC_TI=y
- CONFIG_KEYSTONE_NAVIGATOR_QMSS=y
- CONFIG_KEYSTONE_NAVIGATOR_DMA=y
-+CONFIG_TI_PRUSS=m
- CONFIG_RASPBERRYPI_POWER=y
- CONFIG_QCOM_CPR=y
- CONFIG_QCOM_RPMHPD=y
-diff --git a/arch/arm/configs/shmobile_defconfig b/arch/arm/configs/shmobile_defconfig
-index 0085921833c3..ef487eab17cc 100644
---- a/arch/arm/configs/shmobile_defconfig
-+++ b/arch/arm/configs/shmobile_defconfig
-@@ -202,6 +202,7 @@ CONFIG_RZ_DMAC=y
- CONFIG_ARM_GT_INITIAL_PRESCALER_VAL=1
- # CONFIG_IOMMU_SUPPORT is not set
- CONFIG_IIO=y
-+CONFIG_RZN1_ADC=y
- CONFIG_AK8975=y
- CONFIG_PWM=y
- CONFIG_PWM_RENESAS_RCAR=y
-@@ -218,7 +219,6 @@ CONFIG_NFS_V3_ACL=y
- CONFIG_NFS_V4=y
- CONFIG_NFS_V4_1=y
- CONFIG_ROOT_NFS=y
--# CONFIG_RPCSEC_GSS_KRB5 is not set
- CONFIG_NLS_CODEPAGE_437=y
- CONFIG_NLS_ISO8859_1=y
- CONFIG_DMA_CMA=y
-diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-index fff14807c965..200e5067560e 100644
---- a/arch/arm64/Kconfig.platforms
-+++ b/arch/arm64/Kconfig.platforms
-@@ -36,6 +36,7 @@ config ARCH_ALPINE
- config ARCH_APPLE
- 	bool "Apple Silicon SoC family"
- 	select APPLE_AIC
-+	select APPLE_PMGR_PWRSTATE if PM
- 	help
- 	  This enables support for Apple's in-house ARM SoC family, such
- 	  as the Apple M1.
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 45288ec9eaf7..35da07d2259a 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -100,6 +100,7 @@ CONFIG_CPU_FREQ_GOV_CONSERVATIVE=m
- CONFIG_CPUFREQ_DT=y
- CONFIG_ACPI_CPPC_CPUFREQ=m
- CONFIG_ARM_ALLWINNER_SUN50I_CPUFREQ_NVMEM=m
-+CONFIG_ARM_APPLE_SOC_CPUFREQ=m
- CONFIG_ARM_ARMADA_37XX_CPUFREQ=y
- CONFIG_ARM_SCPI_CPUFREQ=y
- CONFIG_ARM_IMX_CPUFREQ_DT=m
-@@ -223,6 +224,7 @@ CONFIG_HOTPLUG_PCI_ACPI=y
- CONFIG_PCI_AARDVARK=y
- CONFIG_PCIE_ALTERA=y
- CONFIG_PCIE_ALTERA_MSI=y
-+CONFIG_PCIE_APPLE=m
- CONFIG_PCIE_BRCMSTB=m
- CONFIG_PCI_HOST_THUNDER_PEM=y
- CONFIG_PCI_HOST_THUNDER_ECAM=y
-@@ -231,8 +233,14 @@ CONFIG_PCIE_MEDIATEK_GEN3=m
- CONFIG_PCI_TEGRA=y
- CONFIG_PCIE_RCAR_HOST=y
- CONFIG_PCIE_RCAR_EP=y
-+CONFIG_PCIE_RENESAS_RZG3S_HOST=y
- CONFIG_PCIE_ROCKCHIP_HOST=m
- CONFIG_PCI_XGENE=y
-+CONFIG_PCIE_XILINX=y
-+CONFIG_PCIE_XILINX_DMA_PL=y
-+CONFIG_PCIE_XILINX_NWL=y
-+CONFIG_PCIE_XILINX_CPM=y
-+CONFIG_PCI_J721E_HOST=m
- CONFIG_PCI_IMX6_HOST=y
- CONFIG_PCI_LAYERSCAPE=y
- CONFIG_PCI_HISI=y
-@@ -273,6 +281,7 @@ CONFIG_QCOM_QSEECOM=y
- CONFIG_QCOM_QSEECOM_UEFISECAPP=y
- CONFIG_EXYNOS_ACPM_PROTOCOL=m
- CONFIG_TEGRA_BPMP=y
-+CONFIG_ZYNQMP_FIRMWARE_DEBUG=y
- CONFIG_GNSS=m
- CONFIG_GNSS_MTK_SERIAL=m
- CONFIG_MTD=y
-@@ -301,10 +310,12 @@ CONFIG_BLK_DEV_LOOP=y
- CONFIG_BLK_DEV_NBD=m
- CONFIG_VIRTIO_BLK=y
- CONFIG_BLK_DEV_NVME=m
-+CONFIG_NVME_APPLE=m
- CONFIG_QCOM_COINCELL=m
- CONFIG_QCOM_FASTRPC=m
- CONFIG_SRAM=y
- CONFIG_PCI_ENDPOINT_TEST=m
-+CONFIG_XILINX_SDFEC=m
- CONFIG_EEPROM_AT24=m
- CONFIG_EEPROM_AT25=m
- CONFIG_UACCE=m
-@@ -394,6 +405,7 @@ CONFIG_DWMAC_MEDIATEK=m
- CONFIG_DWMAC_TEGRA=m
- CONFIG_TI_K3_AM65_CPSW_NUSS=y
- CONFIG_TI_ICSSG_PRUETH=m
-+CONFIG_XILINX_AXI_EMAC=m
- CONFIG_QCOM_IPA=m
- CONFIG_MESON_GXL_PHY=m
- CONFIG_AQUANTIA_PHY=y
-@@ -410,7 +422,9 @@ CONFIG_DP83867_PHY=y
- CONFIG_DP83869_PHY=m
- CONFIG_DP83TD510_PHY=y
- CONFIG_VITESSE_PHY=y
-+CONFIG_XILINX_GMII2RGMII=m
- CONFIG_CAN_FLEXCAN=m
-+CONFIG_CAN_XILINXCAN=m
- CONFIG_CAN_M_CAN=m
- CONFIG_CAN_M_CAN_PLATFORM=m
- CONFIG_CAN_RCAR=m
-@@ -464,6 +478,7 @@ CONFIG_KEYBOARD_CROS_EC=y
- CONFIG_KEYBOARD_MTK_PMIC=m
- CONFIG_MOUSE_ELAN_I2C=m
- CONFIG_INPUT_TOUCHSCREEN=y
-+CONFIG_TOUCHSCREEN_APPLE_Z2=m
- CONFIG_TOUCHSCREEN_ATMEL_MXT=m
- CONFIG_TOUCHSCREEN_GOODIX=m
- CONFIG_TOUCHSCREEN_GOODIX_BERLIN_SPI=m
-@@ -476,6 +491,7 @@ CONFIG_INPUT_BBNSM_PWRKEY=m
- CONFIG_INPUT_PM8941_PWRKEY=y
- CONFIG_INPUT_PM8XXX_VIBRATOR=m
- CONFIG_INPUT_TPS65219_PWRBUTTON=m
-+CONFIG_INPUT_TPS6594_PWRBUTTON=m
- CONFIG_INPUT_PWM_BEEPER=m
- CONFIG_INPUT_PWM_VIBRA=m
- CONFIG_INPUT_RK805_PWRKEY=m
-@@ -551,6 +567,7 @@ CONFIG_I2C_MT65XX=y
- CONFIG_I2C_MV64XXX=y
- CONFIG_I2C_OMAP=y
- CONFIG_I2C_OWL=y
-+CONFIG_I2C_APPLE=m
- CONFIG_I2C_PXA=y
- CONFIG_I2C_QCOM_CCI=m
- CONFIG_I2C_QCOM_GENI=m
-@@ -562,9 +579,11 @@ CONFIG_I2C_S3C2410=y
- CONFIG_I2C_SH_MOBILE=y
- CONFIG_I2C_TEGRA=y
- CONFIG_I2C_UNIPHIER_F=y
-+CONFIG_I2C_XILINX=m
- CONFIG_I2C_RCAR=y
- CONFIG_I2C_CROS_EC_TUNNEL=y
- CONFIG_SPI=y
-+CONFIG_SPI_APPLE=m
- CONFIG_SPI_ARMADA_3700=y
- CONFIG_SPI_BCM2835=m
- CONFIG_SPI_BCM2835AUX=m
-@@ -599,9 +618,13 @@ CONFIG_SPI_STM32_OSPI=m
- CONFIG_SPI_SUN6I=y
- CONFIG_SPI_TEGRA210_QUAD=m
- CONFIG_SPI_TEGRA114=m
-+CONFIG_SPI_XILINX=m
-+CONFIG_SPI_ZYNQMP_GQSPI=m
- CONFIG_SPI_SPIDEV=m
- CONFIG_SPMI=y
-+CONFIG_SPMI_APPLE=m
- CONFIG_SPMI_MTK_PMIF=m
-+CONFIG_PINCTRL_APPLE_GPIO=m
- CONFIG_PINCTRL_BRCMSTB=y
- CONFIG_PINCTRL_BCM2712=y
- CONFIG_PINCTRL_DA9062=m
-@@ -630,6 +653,7 @@ CONFIG_PINCTRL_IPQ5424=y
- CONFIG_PINCTRL_IPQ8074=y
- CONFIG_PINCTRL_IPQ6018=y
- CONFIG_PINCTRL_IPQ9574=y
-+CONFIG_PINCTRL_KAANAPALI=y
- CONFIG_PINCTRL_MSM8916=y
- CONFIG_PINCTRL_MSM8953=y
- CONFIG_PINCTRL_MSM8976=y
-@@ -657,6 +681,7 @@ CONFIG_PINCTRL_SM6115=y
- CONFIG_PINCTRL_SM6125=y
- CONFIG_PINCTRL_SM6350=y
- CONFIG_PINCTRL_SM6375=y
-+CONFIG_PINCTRL_MILOS=y
- CONFIG_PINCTRL_SM8150=y
- CONFIG_PINCTRL_SM8250=y
- CONFIG_PINCTRL_SM8350=y
-@@ -691,6 +716,8 @@ CONFIG_GPIO_WCD934X=m
- CONFIG_GPIO_VF610=y
- CONFIG_GPIO_XGENE=y
- CONFIG_GPIO_XGENE_SB=y
-+CONFIG_GPIO_XILINX=m
-+CONFIG_GPIO_ZYNQ=m
- CONFIG_GPIO_MAX732X=y
- CONFIG_GPIO_PCA953X=y
- CONFIG_GPIO_PCA953X_IRQ=y
-@@ -698,9 +725,11 @@ CONFIG_GPIO_ADP5585=m
- CONFIG_GPIO_PCF857X=m
- CONFIG_GPIO_TPIC2810=m
- CONFIG_GPIO_BD9571MWV=m
-+CONFIG_GPIO_MACSMC=m
- CONFIG_GPIO_MAX77620=y
- CONFIG_GPIO_SL28CPLD=m
- CONFIG_GPIO_AGGREGATOR=m
-+CONFIG_POWER_RESET_MACSMC=m
- CONFIG_POWER_RESET_MSM=y
- CONFIG_POWER_RESET_QCOM_PON=m
- CONFIG_POWER_RESET_TORADEX_EC=m
-@@ -721,10 +750,12 @@ CONFIG_SENSORS_ARM_SCMI=y
- CONFIG_SENSORS_ARM_SCPI=y
- CONFIG_SENSORS_GPIO_FAN=m
- CONFIG_SENSORS_JC42=m
-+CONFIG_SENSORS_MACSMC_HWMON=m
- CONFIG_SENSORS_LM75=m
- CONFIG_SENSORS_LM90=m
- CONFIG_SENSORS_PWM_FAN=m
- CONFIG_SENSORS_RASPBERRYPI_HWMON=m
-+CONFIG_SENSORS_SA67MCU=m
- CONFIG_SENSORS_SL28CPLD=m
- CONFIG_SENSORS_INA2XX=m
- CONFIG_SENSORS_INA3221=m
-@@ -762,6 +793,8 @@ CONFIG_QCOM_LMH=m
- CONFIG_UNIPHIER_THERMAL=y
- CONFIG_KHADAS_MCU_FAN_THERMAL=m
- CONFIG_WATCHDOG=y
-+CONFIG_XILINX_WATCHDOG=m
-+CONFIG_XILINX_WINDOW_WATCHDOG=m
- CONFIG_SL28CPLD_WATCHDOG=m
- CONFIG_ARM_SP805_WATCHDOG=y
- CONFIG_ARM_SBSA_WATCHDOG=y
-@@ -782,6 +815,7 @@ CONFIG_RENESAS_RZG2LWDT=y
- CONFIG_RENESAS_RZV2HWDT=y
- CONFIG_UNIPHIER_WATCHDOG=y
- CONFIG_PM8916_WATCHDOG=m
-+CONFIG_APPLE_WATCHDOG=m
- CONFIG_BCM2835_WDT=y
- CONFIG_BCM7038_WDT=m
- CONFIG_MFD_ADP5585=m
-@@ -789,6 +823,7 @@ CONFIG_MFD_ALTERA_SYSMGR=y
- CONFIG_MFD_BD9571MWV=y
- CONFIG_MFD_AXP20X_I2C=y
- CONFIG_MFD_AXP20X_RSB=y
-+CONFIG_MFD_MACSMC=m
- CONFIG_MFD_DA9062=m
- CONFIG_MFD_EXYNOS_LPASS=m
- CONFIG_MFD_HI6421_PMIC=y
-@@ -946,6 +981,7 @@ CONFIG_DRM_TEGRA=m
- CONFIG_DRM_PANEL_BOE_TV101WUM_NL6=m
- CONFIG_DRM_PANEL_LVDS=m
- CONFIG_DRM_PANEL_SIMPLE=m
-+CONFIG_DRM_PANEL_SUMMIT=m
- CONFIG_DRM_PANEL_EDP=m
- CONFIG_DRM_PANEL_HIMAX_HX8279=m
- CONFIG_DRM_PANEL_HIMAX_HX83112A=m
-@@ -999,6 +1035,7 @@ CONFIG_DRM_HISI_KIRIN=m
- CONFIG_DRM_MEDIATEK=m
- CONFIG_DRM_MEDIATEK_DP=m
- CONFIG_DRM_MEDIATEK_HDMI=m
-+CONFIG_DRM_MEDIATEK_HDMI_V2=m
- CONFIG_DRM_MXSFB=m
- CONFIG_DRM_IMX_LCDIF=m
- CONFIG_DRM_MESON=m
-@@ -1007,11 +1044,14 @@ CONFIG_DRM_LIMA=m
- CONFIG_DRM_PANFROST=m
- CONFIG_DRM_PANTHOR=m
- CONFIG_DRM_TIDSS=m
-+CONFIG_DRM_ZYNQMP_DPSUB=m
-+CONFIG_DRM_ZYNQMP_DPSUB_AUDIO=y
- CONFIG_DRM_POWERVR=m
- CONFIG_FB=y
- CONFIG_FB_EFI=y
- CONFIG_FB_MODE_HELPERS=y
- CONFIG_BACKLIGHT_PWM=m
-+CONFIG_BACKLIGHT_APPLE_DWI=m
- CONFIG_BACKLIGHT_QCOM_WLED=m
- CONFIG_BACKLIGHT_LP855X=m
- CONFIG_LOGO=y
-@@ -1026,6 +1066,7 @@ CONFIG_SND_USB_AUDIO=m
- CONFIG_SND_USB_AUDIO_QMI=m
- CONFIG_SND_SOC=m
- CONFIG_SND_SOC_USB=m
-+CONFIG_SND_SOC_APPLE_MCA=m
- CONFIG_SND_BCM2835_SOC_I2S=m
- CONFIG_SND_SOC_FSL_ASRC=m
- CONFIG_SND_SOC_FSL_MICFIL=m
-@@ -1093,6 +1134,9 @@ CONFIG_SND_SOC_TEGRA210_MIXER=m
- CONFIG_SND_SOC_TEGRA_AUDIO_GRAPH_CARD=m
- CONFIG_SND_SOC_DAVINCI_MCASP=m
- CONFIG_SND_SOC_J721E_EVM=m
-+CONFIG_SND_SOC_XILINX_I2S=m
-+CONFIG_SND_SOC_XILINX_AUDIO_FORMATTER=m
-+CONFIG_SND_SOC_XILINX_SPDIF=m
- CONFIG_SND_SOC_AK4613=m
- CONFIG_SND_SOC_AK4619=m
- CONFIG_SND_SOC_DA7213=m
-@@ -1177,6 +1221,7 @@ CONFIG_USB_SERIAL_OPTION=m
- CONFIG_USB_QCOM_EUD=m
- CONFIG_USB_HSIC_USB3503=y
- CONFIG_USB_ONBOARD_DEV=m
-+CONFIG_USB_ONBOARD_DEV_USB5744=y
- CONFIG_NOP_USB_XCEIV=y
- CONFIG_USB_MXS_PHY=m
- CONFIG_USB_GADGET=y
-@@ -1280,6 +1325,8 @@ CONFIG_LEDS_TRIGGER_PANIC=y
- CONFIG_EDAC=y
- CONFIG_EDAC_GHES=y
- CONFIG_EDAC_LAYERSCAPE=m
-+CONFIG_EDAC_ZYNQMP=m
-+CONFIG_EDAC_VERSAL=m
- CONFIG_RTC_CLASS=y
- CONFIG_RTC_DRV_DS1307=m
- CONFIG_RTC_DRV_HYM8563=m
-@@ -1300,6 +1347,7 @@ CONFIG_RTC_DRV_DS3232=y
- CONFIG_RTC_DRV_PCF2127=m
- CONFIG_RTC_DRV_DA9063=m
- CONFIG_RTC_DRV_EFI=y
-+CONFIG_RTC_DRV_ZYNQMP=m
- CONFIG_RTC_DRV_CROS_EC=y
- CONFIG_RTC_DRV_FSL_FTM_ALARM=m
- CONFIG_RTC_DRV_S3C=y
-@@ -1316,7 +1364,9 @@ CONFIG_RTC_DRV_XGENE=y
- CONFIG_RTC_DRV_TI_K3=m
- CONFIG_RTC_DRV_RENESAS_RTCA3=m
- CONFIG_RTC_DRV_NVIDIA_VRS10=m
-+CONFIG_RTC_DRV_MACSMC=m
- CONFIG_DMADEVICES=y
-+CONFIG_APPLE_ADMAC=m
- CONFIG_DMA_BCM2835=y
- CONFIG_DMA_SUN6I=m
- CONFIG_FSL_EDMA=y
-@@ -1329,6 +1379,9 @@ CONFIG_PL330_DMA=y
- CONFIG_TEGRA186_GPC_DMA=y
- CONFIG_TEGRA20_APB_DMA=y
- CONFIG_TEGRA210_ADMA=m
-+CONFIG_XILINX_DMA=m
-+CONFIG_XILINX_ZYNQMP_DMA=m
-+CONFIG_XILINX_ZYNQMP_DPDMA=m
- CONFIG_MTK_UART_APDMA=m
- CONFIG_QCOM_BAM_DMA=y
- CONFIG_QCOM_GPI_DMA=m
-@@ -1362,6 +1415,11 @@ CONFIG_CROS_EC_RPMSG=m
- CONFIG_CROS_EC_SPI=y
- CONFIG_CROS_KBD_LED_BACKLIGHT=m
- CONFIG_CROS_EC_CHARDEV=m
-+CONFIG_COMMON_CLK_APPLE_NCO=m
-+CONFIG_EC_ACER_ASPIRE1=m
-+CONFIG_EC_HUAWEI_GAOKUN=m
-+CONFIG_EC_LENOVO_YOGA_C630=m
-+CONFIG_EC_LENOVO_THINKPAD_T14S=m
- CONFIG_COMMON_CLK_RK808=y
- CONFIG_COMMON_CLK_SCMI=y
- CONFIG_COMMON_CLK_SCPI=y
-@@ -1397,6 +1455,8 @@ CONFIG_COMMON_CLK_MT8192_SCP_ADSP=y
- CONFIG_COMMON_CLK_MT8192_VDECSYS=y
- CONFIG_COMMON_CLK_MT8192_VENCSYS=y
- CONFIG_COMMON_CLK_QCOM=y
-+CONFIG_CLK_KAANAPALI_GCC=y
-+CONFIG_CLK_KAANAPALI_TCSRCC=m
- CONFIG_CLK_X1E80100_CAMCC=m
- CONFIG_CLK_X1E80100_DISPCC=m
- CONFIG_CLK_X1E80100_GCC=y
-@@ -1462,18 +1522,21 @@ CONFIG_SDM_DISPCC_845=y
- CONFIG_SDM_LPASSCC_845=m
- CONFIG_SDX_GCC_75=y
- CONFIG_SM_CAMCC_6350=m
-+CONFIG_SM_CAMCC_MILOS=m
- CONFIG_SM_CAMCC_8250=m
- CONFIG_SM_CAMCC_8550=m
- CONFIG_SM_CAMCC_8650=m
- CONFIG_SM_DISPCC_6115=m
- CONFIG_SM_DISPCC_8250=y
- CONFIG_SM_DISPCC_6350=m
-+CONFIG_SM_DISPCC_MILOS=m
- CONFIG_SM_DISPCC_8450=m
- CONFIG_SM_DISPCC_8550=m
- CONFIG_SM_DISPCC_8750=m
- CONFIG_SM_GCC_4450=y
- CONFIG_SM_GCC_6115=y
- CONFIG_SM_GCC_6350=y
-+CONFIG_SM_GCC_MILOS=y
- CONFIG_SM_GCC_8350=y
- CONFIG_SM_GCC_8450=y
- CONFIG_SM_GCC_8550=y
-@@ -1481,6 +1544,7 @@ CONFIG_SM_GCC_8650=y
- CONFIG_SM_GCC_8750=y
- CONFIG_SM_GPUCC_6115=m
- CONFIG_SM_GPUCC_6350=m
-+CONFIG_SM_GPUCC_MILOS=m
- CONFIG_SM_GPUCC_8150=y
- CONFIG_SM_GPUCC_8250=y
- CONFIG_SM_GPUCC_8350=m
-@@ -1492,6 +1556,7 @@ CONFIG_SM_TCSRCC_8650=y
- CONFIG_SM_TCSRCC_8750=m
- CONFIG_SA_VIDEOCC_8775P=m
- CONFIG_SM_VIDEOCC_6350=m
-+CONFIG_SM_VIDEOCC_MILOS=m
- CONFIG_SM_VIDEOCC_8250=y
- CONFIG_SM_VIDEOCC_8550=m
- CONFIG_QCOM_HFPLL=y
-@@ -1501,6 +1566,8 @@ CONFIG_CLK_RCAR_USB2_CLOCK_SEL=y
- CONFIG_CLK_RENESAS_VBATTB=m
- CONFIG_EXYNOS_ACPM_CLK=m
- CONFIG_CLK_SOPHGO_CV1800=y
-+CONFIG_XILINX_VCU=m
-+CONFIG_COMMON_CLK_XLNX_CLKWZRD=m
- CONFIG_HWSPINLOCK=y
- CONFIG_HWSPINLOCK_OMAP=m
- CONFIG_HWSPINLOCK_QCOM=y
-@@ -1525,6 +1592,7 @@ CONFIG_ARM_SMMU=y
- CONFIG_ARM_SMMU_V3=y
- CONFIG_MTK_IOMMU=y
- CONFIG_QCOM_IOMMU=y
-+CONFIG_APPLE_DART=m
- CONFIG_REMOTEPROC=y
- CONFIG_IMX_REMOTEPROC=y
- CONFIG_MTK_SCP=m
-@@ -1544,6 +1612,9 @@ CONFIG_RPMSG_QCOM_SMD=y
- CONFIG_RPMSG_VIRTIO=y
- CONFIG_SOUNDWIRE=m
- CONFIG_SOUNDWIRE_QCOM=m
-+CONFIG_APPLE_MAILBOX=m
-+CONFIG_APPLE_RTKIT=m
-+CONFIG_APPLE_SART=m
- CONFIG_FSL_DPAA=y
- CONFIG_FSL_MC_DPIO=y
- CONFIG_FSL_RCPM=y
-@@ -1613,6 +1684,8 @@ CONFIG_RZT2H_ADC=m
- CONFIG_SOPHGO_CV1800B_ADC=m
- CONFIG_TI_ADS1015=m
- CONFIG_TI_AM335X_ADC=m
-+CONFIG_XILINX_XADC=m
-+CONFIG_XILINX_AMS=m
- CONFIG_IIO_CROS_EC_SENSORS_CORE=m
- CONFIG_IIO_CROS_EC_SENSORS=m
- CONFIG_IIO_ST_LSM6DSX=m
-@@ -1625,6 +1698,7 @@ CONFIG_IIO_CROS_EC_BARO=m
- CONFIG_MPL3115=m
- CONFIG_PWM=y
- CONFIG_PWM_ADP5585=m
-+CONFIG_PWM_APPLE=m
- CONFIG_PWM_BCM2835=m
- CONFIG_PWM_BRCMSTB=m
- CONFIG_PWM_CROS_EC=m
-@@ -1645,7 +1719,9 @@ CONFIG_PWM_TEGRA=m
- CONFIG_PWM_TIECAP=m
- CONFIG_PWM_TIEHRPWM=m
- CONFIG_PWM_VISCONTI=m
-+CONFIG_PWM_XILINX=m
- CONFIG_SL28CPLD_INTC=y
-+CONFIG_XILINX_INTC=y
- CONFIG_QCOM_PDC=y
- CONFIG_QCOM_MPM=y
- CONFIG_TI_SCI_INTR_IRQCHIP=y
-@@ -1694,6 +1770,7 @@ CONFIG_PHY_R8A779F0_ETHERNET_SERDES=y
- CONFIG_PHY_RCAR_GEN3_PCIE=y
- CONFIG_PHY_RCAR_GEN3_USB2=y
- CONFIG_PHY_RCAR_GEN3_USB3=m
-+CONFIG_PHY_RZ_G3E_USB3=m
- CONFIG_PHY_ROCKCHIP_EMMC=y
- CONFIG_PHY_ROCKCHIP_INNO_HDMI=m
- CONFIG_PHY_ROCKCHIP_INNO_USB2=y
-@@ -1710,6 +1787,7 @@ CONFIG_PHY_UNIPHIER_USB3=y
- CONFIG_PHY_TEGRA_XUSB=y
- CONFIG_PHY_AM654_SERDES=m
- CONFIG_PHY_J721E_WIZ=m
-+CONFIG_PHY_XILINX_ZYNQMP=m
- CONFIG_ARM_CCI_PMU=m
- CONFIG_ARM_CCN=m
- CONFIG_ARM_CMN=m
-@@ -1720,11 +1798,14 @@ CONFIG_QCOM_L2_PMU=y
- CONFIG_QCOM_L3_PMU=y
- CONFIG_ARM_SPE_PMU=m
- CONFIG_ARM_DMC620_PMU=m
-+CONFIG_APPLE_M1_CPU_PMU=y
- CONFIG_HISI_PMU=y
- CONFIG_ARM_CORESIGHT_PMU_ARCH_SYSTEM_PMU=m
- CONFIG_NVIDIA_CORESIGHT_PMU_ARCH_SYSTEM_PMU=m
- CONFIG_MESON_DDR_PMU=m
- CONFIG_NVMEM_LAYOUT_SL28_VPD=m
-+CONFIG_NVMEM_APPLE_EFUSES=m
-+CONFIG_NVMEM_APPLE_SPMI=m
- CONFIG_NVMEM_IMX_OCOTP=y
- CONFIG_NVMEM_IMX_OCOTP_ELE=m
- CONFIG_NVMEM_IMX_OCOTP_SCU=y
-@@ -1740,14 +1821,18 @@ CONFIG_NVMEM_SNVS_LPGPR=y
- CONFIG_NVMEM_SPMI_SDAM=m
- CONFIG_NVMEM_SUNXI_SID=y
- CONFIG_NVMEM_UNIPHIER_EFUSE=y
-+CONFIG_NVMEM_ZYNQMP=m
- CONFIG_FPGA=y
- CONFIG_FPGA_MGR_ALTERA_CVP=m
- CONFIG_FPGA_MGR_STRATIX10_SOC=m
- CONFIG_FPGA_BRIDGE=m
- CONFIG_ALTERA_FREEZE_BRIDGE=m
-+CONFIG_XILINX_PR_DECOUPLER=m
- CONFIG_FPGA_REGION=m
- CONFIG_OF_FPGA_REGION=m
- CONFIG_OF_OVERLAY=y
-+CONFIG_FPGA_MGR_ZYNQMP_FPGA=m
-+CONFIG_FPGA_MGR_VERSAL_FPGA=m
- CONFIG_TEE=y
- CONFIG_OPTEE=y
- CONFIG_MUX_GPIO=m
-@@ -1762,6 +1847,7 @@ CONFIG_INTERCONNECT_IMX8MN=m
- CONFIG_INTERCONNECT_IMX8MQ=m
- CONFIG_INTERCONNECT_IMX8MP=y
- CONFIG_INTERCONNECT_QCOM=y
-+CONFIG_INTERCONNECT_QCOM_KAANAPALI=y
- CONFIG_INTERCONNECT_QCOM_MSM8916=m
- CONFIG_INTERCONNECT_QCOM_MSM8953=y
- CONFIG_INTERCONNECT_QCOM_MSM8996=y
-@@ -1780,6 +1866,7 @@ CONFIG_INTERCONNECT_QCOM_SDM845=y
- CONFIG_INTERCONNECT_QCOM_SDX75=y
- CONFIG_INTERCONNECT_QCOM_SM6115=y
- CONFIG_INTERCONNECT_QCOM_SM6350=y
-+CONFIG_INTERCONNECT_QCOM_MILOS=y
- CONFIG_INTERCONNECT_QCOM_SM8150=y
- CONFIG_INTERCONNECT_QCOM_SM8250=y
- CONFIG_INTERCONNECT_QCOM_SM8350=y
-@@ -1842,6 +1929,9 @@ CONFIG_CRYPTO_DEV_FSL_DPAA2_CAAM=m
- CONFIG_CRYPTO_DEV_QCE=m
- CONFIG_CRYPTO_DEV_QCOM_RNG=m
- CONFIG_CRYPTO_DEV_TEGRA=m
-+CONFIG_CRYPTO_DEV_XILINX_TRNG=m
-+CONFIG_CRYPTO_DEV_ZYNQMP_AES=m
-+CONFIG_CRYPTO_DEV_ZYNQMP_SHA3=m
- CONFIG_CRYPTO_DEV_CCREE=m
- CONFIG_CRYPTO_DEV_HISI_SEC2=m
- CONFIG_CRYPTO_DEV_HISI_ZIP=m
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index cd736a1d657e..6ce600081a6b 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -255,8 +255,8 @@ CONFIG_CLK_SOPHGO_CV1800=y
- CONFIG_CLK_SOPHGO_SG2042_PLL=y
- CONFIG_CLK_SOPHGO_SG2042_CLKGEN=y
- CONFIG_CLK_SOPHGO_SG2042_RPGATE=y
--CONFIG_SPACEMIT_CCU=y
- CONFIG_SPACEMIT_K1_CCU=y
-+CONFIG_SPACEMIT_K3_CCU=y
- CONFIG_SUN8I_DE2_CCU=m
- CONFIG_SUN50I_IOMMU=y
- CONFIG_RPMSG_CHAR=y
+Tudor Ambarus (6):
+      soc: samsung: exynos-chipid: use devm action to unregister soc dev=
+ice
+      soc: samsung: exynos-chipid: use dev_err_probe where appropiate
+      dt-bindings: nvmem: add google,gs101-otp
+      soc: samsung: exynos-chipid: rename method
+      soc: samsung: exynos-chipid: downgrade dev_info to dev_dbg for soc=
+ info
+      soc: samsung: exynos-chipid: add google,gs101-otp support
+
+Unnathi Chalicheemala (3):
+      firmware: qcom_scm: Add API to get waitqueue IRQ info
+      firmware: qcom_scm: Support multiple waitq contexts
+      firmware: qcom_scm: Use TASK_IDLE state in wait_for_wq_completion()
+
+Uwe Kleine-K=C3=B6nig (20):
+      bus: fsl-mc: Drop error message in probe function
+      bus: fsl-mc: Convert to bus callbacks
+      tee: Add some helpers to reduce boilerplate for tee client drivers
+      tee: Add probe, remove and shutdown bus callbacks to tee_client_dr=
+iver
+      tee: Adapt documentation to cover recent additions
+      rtc: optee: Migrate to use tee specific driver registration functi=
+on
+      rtc: optee: Make use of tee bus methods
+      hwrng: optee - Make use of module_tee_client_driver()
+      hwrng: optee - Make use of tee bus methods
+      efi: stmm: Make use of module_tee_client_driver()
+      efi: stmm: Make use of tee bus methods
+      firmware: arm_scmi: optee: Make use of module_tee_client_driver()
+      firmware: arm_scmi: Make use of tee bus methods
+      firmware: tee_bnxt: Make use of module_tee_client_driver()
+      firmware: tee_bnxt: Make use of tee bus methods
+      KEYS: trusted: Migrate to use tee specific driver registration fun=
+ction
+      KEYS: trusted: Make use of tee bus methods
+      tpm/tpm_ftpm_tee: Make use of tee specific driver registration
+      tpm/tpm_ftpm_tee: Make use of tee bus methods
+      tpm/tpm_ftpm_tee: Fix kdoc after function renames
+
+Vivek Aknurwar (1):
+      firmware: arm_scmi: Increase performance MAX_OPPS limit to 64
+
+Vladimir Zapolskiy (1):
+      ARM: s3c: remove a leftover hwmon-s3c.h header file
+
+Wentao Liang (1):
+      soc: ti: pruss: Fix double free in pruss_clk_mux_setup()
+
+Yixun Lan (4):
+      clk: spacemit: prepare common ccu header
+      reset: spacemit: fix auxiliary device id
+      Merge tags 'spacemit-clkrst-v6.20-1' and 'spacemit-clkrst-v6.20-2'=
+ into spacemit-clkrst-v6.20
+      clk: spacemit: k3: extract common header
+
+Zilin Guan (1):
+      soc: mediatek: svs: Fix memory leak in svs_enable_debug_write()
+
+ Documentation/ABI/testing/sysfs-class-tee          |  10 +
+ .../devicetree/bindings/cache/qcom,llcc.yaml       |  46 +-
+ .../devicetree/bindings/crypto/qcom,prng.yaml      |   1 +
+ .../interrupt-controller/fsl,qe-ports-ic.yaml      |  51 +++
+ .../bindings/interrupt-controller/qcom,pdc.yaml    |   2 +
+ .../memory-controllers/ddr/jedec,ddr4.yaml         |  34 ++
+ .../memory-controllers/ddr/jedec,lpddr-props.yaml  |  74 ---
+ .../memory-controllers/ddr/jedec,lpddr2.yaml       |   2 +-
+ .../memory-controllers/ddr/jedec,lpddr3.yaml       |   2 +-
+ .../memory-controllers/ddr/jedec,lpddr4.yaml       |   2 +-
+ .../memory-controllers/ddr/jedec,lpddr5.yaml       |   2 +-
+ ...lpddr-channel.yaml =3D> jedec,sdram-channel.yaml} |  40 +-
+ .../memory-controllers/ddr/jedec,sdram-props.yaml  |  94 ++++
+ .../bindings/nvmem/google,gs101-otp.yaml           |  61 +++
+ .../bindings/remoteproc/qcom,pas-common.yaml       |   3 +
+ .../soc/mediatek/mediatek,mt8183-dvfsrc.yaml       |   6 +
+ .../bindings/soc/samsung/exynos-pmu.yaml           |  23 +-
+ .../bindings/soc/spacemit/spacemit,k1-syscon.yaml  |   8 +-
+ Documentation/devicetree/bindings/sram/sram.yaml   |   2 +
+ Documentation/driver-api/tee.rst                   |  18 +-
+ MAINTAINERS                                        |   6 +-
+ drivers/bus/Kconfig                                |   2 +-
+ drivers/bus/fsl-mc/fsl-mc-bus.c                    |  89 ++--
+ drivers/bus/omap-ocp2scp.c                         |  13 +-
+ drivers/bus/qcom-ebi2.c                            |   7 +-
+ drivers/char/hw_random/optee-rng.c                 |  26 +-
+ drivers/char/tpm/tpm_ftpm_tee.c                    |  35 +-
+ drivers/clk/qcom/common.c                          |   2 +-
+ drivers/cpuidle/cpuidle-zynq.c                     |   2 +-
+ drivers/firmware/arm_ffa/driver.c                  |  48 +-
+ drivers/firmware/arm_scmi/base.c                   |  11 +-
+ drivers/firmware/arm_scmi/clock.c                  |  24 +-
+ drivers/firmware/arm_scmi/driver.c                 |  98 +++-
+ drivers/firmware/arm_scmi/perf.c                   |  59 +--
+ drivers/firmware/arm_scmi/pinctrl.c                | 120 ++---
+ drivers/firmware/arm_scmi/power.c                  |  18 +-
+ drivers/firmware/arm_scmi/powercap.c               |  21 +-
+ drivers/firmware/arm_scmi/protocols.h              |   9 +-
+ drivers/firmware/arm_scmi/reset.c                  |  68 +--
+ drivers/firmware/arm_scmi/sensors.c                |  22 +-
+ drivers/firmware/arm_scmi/shmem.c                  |   5 +-
+ drivers/firmware/arm_scmi/system.c                 |  14 +-
+ drivers/firmware/arm_scmi/transports/optee.c       |  32 +-
+ drivers/firmware/arm_scmi/vendors/imx/imx-sm-bbm.c |  10 +-
+ drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c |   9 +-
+ drivers/firmware/arm_scmi/vendors/imx/imx-sm-lmm.c |   9 +-
+ .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    |  93 +++-
+ drivers/firmware/arm_scmi/voltage.c                |  13 +-
+ drivers/firmware/broadcom/tee_bnxt_fw.c            |  30 +-
+ drivers/firmware/efi/stmm/tee_stmm_efi.c           |  25 +-
+ drivers/firmware/imx/sm-misc.c                     |  37 +-
+ drivers/firmware/qcom/qcom_scm.c                   | 507 ++++++++++++++=
+++++---
+ drivers/firmware/qcom/qcom_scm.h                   |   2 +
+ drivers/firmware/ti_sci.h                          |  29 +-
+ drivers/hwspinlock/omap_hwspinlock.c               |   4 +-
+ drivers/irqchip/irq-ls-extirq.c                    |  47 +-
+ drivers/irqchip/irq-renesas-rza1.c                 |  43 +-
+ drivers/mailbox/mtk-cmdq-mailbox.c                 |  74 ++-
+ drivers/memory/mtk-smi.c                           |  38 +-
+ drivers/of/irq.c                                   |  70 +++
+ drivers/of/unittest-data/tests-interrupts.dtsi     |   9 +
+ drivers/of/unittest.c                              | 116 +++++
+ drivers/remoteproc/qcom_q6v5_pas.c                 | 165 +++++--
+ drivers/reset/Kconfig                              |  14 +-
+ drivers/reset/Makefile                             |   2 +-
+ drivers/reset/core.c                               |   7 +-
+ drivers/reset/reset-gpio.c                         |   9 +-
+ drivers/reset/reset-imx8mp-audiomix.c              | 169 +++++--
+ drivers/reset/reset-rzg2l-usbphy-ctrl.c            | 110 ++++-
+ drivers/reset/spacemit/Kconfig                     |  36 ++
+ drivers/reset/spacemit/Makefile                    |   5 +
+ drivers/reset/spacemit/reset-spacemit-common.c     |  77 ++++
+ drivers/reset/spacemit/reset-spacemit-common.h     |  42 ++
+ .../reset-spacemit-k1.c}                           | 109 +----
+ drivers/reset/spacemit/reset-spacemit-k3.c         | 233 ++++++++++
+ drivers/rtc/rtc-optee.c                            |  27 +-
+ drivers/soc/amlogic/meson-gx-socinfo.c             |   1 +
+ drivers/soc/apple/rtkit.c                          |  16 +
+ drivers/soc/dove/pmu.c                             |   9 +-
+ drivers/soc/fsl/qe/Makefile                        |   2 +-
+ drivers/soc/fsl/qe/qe_ports_ic.c                   | 141 ++++++
+ drivers/soc/fsl/qe/qmc.c                           |  13 +-
+ drivers/soc/imx/soc-imx8m.c                        |   6 +-
+ drivers/soc/imx/soc-imx9.c                         |  46 +-
+ drivers/soc/mediatek/mtk-cmdq-helper.c             |  77 +++-
+ drivers/soc/mediatek/mtk-dvfsrc.c                  | 364 +++++++++++++--
+ drivers/soc/mediatek/mtk-socinfo.c                 |   1 +
+ drivers/soc/mediatek/mtk-svs.c                     |   5 +-
+ drivers/soc/qcom/cmd-db.c                          |   7 +-
+ drivers/soc/qcom/llcc-qcom.c                       | 207 +++++++++
+ drivers/soc/qcom/mdt_loader.c                      |  51 ++-
+ drivers/soc/qcom/pmic_glink_altmode.c              | 188 +++++++-
+ drivers/soc/qcom/qmi_encdec.c                      | 137 +++++-
+ drivers/soc/qcom/smem.c                            |   4 +-
+ drivers/soc/renesas/Kconfig                        |   5 +
+ drivers/soc/renesas/Makefile                       |   1 +
+ drivers/soc/renesas/rzn1_irqmux.c                  | 127 ++++++
+ drivers/soc/rockchip/grf.c                         |  57 ++-
+ drivers/soc/samsung/exynos-chipid.c                | 133 ++++--
+ drivers/soc/tegra/pmc.c                            | 425 +++++++++++++-=
+---
+ drivers/soc/ti/Kconfig                             |   2 +-
+ drivers/soc/ti/k3-socinfo.c                        |   2 +-
+ drivers/soc/ti/knav_dma.c                          |  21 +-
+ drivers/soc/ti/knav_qmss_queue.c                   |  25 +-
+ drivers/soc/ti/pruss.c                             |   6 +-
+ drivers/soc/xilinx/zynqmp_power.c                  |   6 +-
+ drivers/tee/amdtee/call.c                          |   8 +-
+ drivers/tee/optee/core.c                           |  23 +
+ drivers/tee/optee/ffa_abi.c                        |  54 ++-
+ drivers/tee/optee/optee_private.h                  |  19 +
+ drivers/tee/optee/rpc.c                            |   6 +-
+ drivers/tee/optee/smc_abi.c                        |  15 +-
+ drivers/tee/qcomtee/call.c                         |  17 +-
+ drivers/tee/qcomtee/mem_obj.c                      |   4 +-
+ drivers/tee/qcomtee/user_obj.c                     |   8 +-
+ drivers/tee/tee_core.c                             | 135 +++++-
+ include/dt-bindings/reset/spacemit,k3-resets.h     | 171 +++++++
+ include/linux/firmware/qcom/qcom_scm.h             |  30 +-
+ include/linux/mailbox/mtk-cmdq-mailbox.h           |  19 +
+ include/linux/of_irq.h                             |  41 +-
+ include/linux/platform_data/hwmon-s3c.h            |  36 --
+ include/linux/scmi_imx_protocol.h                  |   2 +
+ include/linux/soc/apple/rtkit.h                    |   7 +
+ include/linux/soc/mediatek/mtk-cmdq.h              |  93 ++++
+ include/linux/soc/qcom/llcc-qcom.h                 |   4 +
+ include/linux/soc/qcom/mdt_loader.h                |  22 +-
+ include/linux/soc/qcom/ubwc.h                      |   1 +
+ include/linux/tee_core.h                           |   9 +
+ include/linux/tee_drv.h                            |  12 +
+ include/soc/spacemit/ccu.h                         |  21 +
+ include/soc/spacemit/k1-syscon.h                   |  12 +-
+ include/soc/spacemit/k3-syscon.h                   | 273 +++++++++++
+ include/soc/tegra/pmc.h                            |  60 ++-
+ security/keys/trusted-keys/trusted_tee.c           |  17 +-
+ 134 files changed, 5124 insertions(+), 1462 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controll=
+er/fsl,qe-ports-ic.yaml
+ create mode 100644 Documentation/devicetree/bindings/memory-controllers=
+/ddr/jedec,ddr4.yaml
+ delete mode 100644 Documentation/devicetree/bindings/memory-controllers=
+/ddr/jedec,lpddr-props.yaml
+ rename Documentation/devicetree/bindings/memory-controllers/ddr/{jedec,=
+lpddr-channel.yaml =3D> jedec,sdram-channel.yaml} (76%)
+ create mode 100644 Documentation/devicetree/bindings/memory-controllers=
+/ddr/jedec,sdram-props.yaml
+ create mode 100644 Documentation/devicetree/bindings/nvmem/google,gs101=
+-otp.yaml
+ create mode 100644 drivers/reset/spacemit/Kconfig
+ create mode 100644 drivers/reset/spacemit/Makefile
+ create mode 100644 drivers/reset/spacemit/reset-spacemit-common.c
+ create mode 100644 drivers/reset/spacemit/reset-spacemit-common.h
+ rename drivers/reset/{reset-spacemit.c =3D> spacemit/reset-spacemit-k1.=
+c} (78%)
+ create mode 100644 drivers/reset/spacemit/reset-spacemit-k3.c
+ create mode 100644 drivers/soc/fsl/qe/qe_ports_ic.c
+ create mode 100644 drivers/soc/renesas/rzn1_irqmux.c
+ create mode 100644 include/dt-bindings/reset/spacemit,k3-resets.h
+ delete mode 100644 include/linux/platform_data/hwmon-s3c.h
+ create mode 100644 include/soc/spacemit/ccu.h
+ create mode 100644 include/soc/spacemit/k3-syscon.h
 
