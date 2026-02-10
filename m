@@ -4,99 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C417EA3F09
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 06:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C66EA3F0D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 06:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b56rULzaQmeMuoYAaEU4xGBS2qJkvIqeuKLdirVgvFA=; b=bRNF2bR0HIQBI9oll61125/zPM
-	WbUHadYST/iuh+SC0wNUAb6s9EraqLiwBE/2p/6oR5FaSS1gtzSxlAmxykjRuqlgoZ/L0f1Z792Jv
-	v8l9gaa06lyO5GHPqaEQTvugUmVAwljNgt1DfitTlRp+/+cJrxU7pCsesI4P0XumBJDQZJ43mQHpP
-	AuAFowJJIH7mJELuuT004/vom42P4keA5Mh99bmLZ3XDSLQAjq/9nKjRmjGZ5pKA4ixZ9ksHVXZZm
-	hphwH8cAUQ8M3wnjdAAff3Nz3NnuHm8WT75LAuefvK/teHlx7Z05+XE9Vav5B55suG4Q1Gfd8nKW5
-	fWLPNrKA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:From:References:
+	Content-Type:Message-Id:In-Reply-To:Date:Subject:Cc:Content-Transfer-Encoding
+	:Mime-Version:To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B8lLyQsuCZGvaPXxcEDtf7RNvxTLmSi8xokdUUVNsXM=; b=Nz7Mx+oz+ssRV9bylbLTqeLPxq
+	bn3EiEJWU8jQ37qoCL1hoRKD9zMZW+TYiSfOBdchYWSC5R1Fcz3pOV0Uzt2IwRKuXCdWd88RgDDUS
+	Ir8k7Z/RKVaBKYvZxyqbtTg16n04epR2B6CjzvevuJySLbV2NmiQN1t8mlGF2WgOURAR1WSNkoVAY
+	o7GmUKA3e4+0uhzx/ReNDY7Ax8fnusecKUtXIClRg1leYNzaj9dB6hOEQGheMFoGsMcs6c9UMUWX5
+	2rXWL/Hvfe5F+TGuz38F9Q+Pv8l4krMOWdFnKzdgwatBWxVT8D3fk4ffPc4MselwSguGpQk2QAv6s
+	Xvfp4aFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vphTJ-0000000GY7e-1Cg6;
-	Tue, 10 Feb 2026 06:43:41 +0000
-Received: from mx-relay36-hz1.antispameurope.com ([94.100.133.212])
+	id 1vphWq-0000000GYOC-3jBy;
+	Tue, 10 Feb 2026 06:47:21 +0000
+Received: from sg-1-19.ptr.blmpb.com ([118.26.132.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vphTC-0000000GY6b-3Ovy
+	id 1vphWn-0000000GYMf-1S1b
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 06:43:39 +0000
-ARC-Authentication-Results: i=1; mx-gate36-hz1.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out02-hz1.hornetsecurity.com;
- dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=b56rULzaQmeMuoYAaEU4xGBS2qJkvIqeuKLdirVgvFA=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1770705801;
- b=o2k4qI4dDjiPKzlbub6Vi0QdQ0wEwCXE7TmZQ9hf4KNvbVe91NAWHRYGE52apuDcoqKHiQ2W
- n5+tlFLbbw94AgsnlO2XIn8N9tOMIjTFkrXKtvb4/O7cf+qCFEl6vhZV2hwmcoBj3UiqsG3kPbC
- /I01IdndFiWwxrEWJe6Qcj/KQ3aXefVA0xixkdNdDF8SB82/NE/Nbh/bPPDLKrwn3USL6004sYr
- eP38SYf2SwwOacxACvoWcW4BKRp21OjSc+1n37Tk7zd4uxNN7+BHLUq07sMIWDQHsy28KfNdKhq
- 9Vq6NawjaKDrrQZFkJ2/OBWYE6SNvShTjeISOr9F61UbQ==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1770705801;
- b=n8Pme5ayOvJHfJua598lxPk38KZDpkW883ArGr7i/w1rvF3D6U4OJmxMuvavUsFwVz3yOE7y
- 45cMDCALqnDpWQEMkOyOWP5FkxAtAKYg80hxye7T04jRU91UWLCknA2fSo8Zjz/E6KoUUc5sNcs
- hGhd4+UF/Q5FDIhChh9flzw/4+0jWfh7e7TvcHO8t3O6c64KoTf8WLSW32BmRABqdQ2RRUsNqJB
- nb4YWJT7nKa5bz9PrFnlFHCu0+gcxWQE0LSC9AwYbUdw/JCDpMHeTWXDvSA6LZiz/1Cq89cCfuz
- 2nuoXqX16hNBTF5uAqZoKOW34FIc3d/vMouz+u/aujhLA==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay36-hz1.antispameurope.com;
- Tue, 10 Feb 2026 07:43:21 +0100
-Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by smtp-out02-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 907185A3005;
-	Tue, 10 Feb 2026 07:43:05 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Markus Niebel <Markus.Niebel@ew.tq-group.com>,
- Shawn Guo <shawnguo@kernel.org>, linux@ew.tq-group.com,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] arm64: dts: imx93-tqma9352: improve eMMC pad configuration
-Date: Tue, 10 Feb 2026 07:43:05 +0100
-Message-ID: <5085410.31r3eYUQgx@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <aYozeOpdHo21D8v8@lizhi-Precision-Tower-5810>
-References: <20260209155015.267008-1-alexander.stein@ew.tq-group.com>
- <20260209155015.267008-2-alexander.stein@ew.tq-group.com>
- <aYozeOpdHo21D8v8@lizhi-Precision-Tower-5810>
-MIME-Version: 1.0
+	Tue, 10 Feb 2026 06:47:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=fnnas-com.20200927.dkim.feishu.cn; t=1770706025;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=B8lLyQsuCZGvaPXxcEDtf7RNvxTLmSi8xokdUUVNsXM=;
+ b=THTV2M7jKe4aQpu+v+JWKmpgqac2BexFS/TquKhUs0M8JcLDUxtUemuSWDJCmE8GSVYjqp
+ tKEJYJNOmvB4ZQvCWwLT98fY7qEUPRny7z/+ljvGknIzrDrsrVYqSGwX/2K4oTgclbgR0L
+ nwnNum/zcJyJHE486QPhLFKZ9ix/H4Xw9dfDD7U0u217R+Gp1GO3A50LLdwUI/LfIvSGD9
+ hv4IJ6pJimN/s59KwTLNBXgWNxQo9EFYmrI5SBn1b1xYtdnwMQ4jElh4Wy1wNdcl/ZydCx
+ 5ZIYNwwyNOygzjjeVxGBjx3obBMcs4is35i1/tV6ZdX41wDbNzhMHqjeXG+K/g==
+To: "Keith Busch" <kbusch@kernel.org>, "Christoph Hellwig" <hch@lst.de>
+Mime-Version: 1.0
+X-Original-From: Yu Kuai <yukuai@fnnas.com>
+X-Lms-Return-Path: <lba+2698ad467+166bb1+lists.infradead.org+yukuai@fnnas.com>
+Content-Language: en-US
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay36-hz1.antispameurope.com with 4f9BpL2LgXz2HYn9
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 99e422220242feeb3b158eff7f537415
-X-cloud-security: scantime:2.145
-DKIM-Signature: a=rsa-sha256;
- bh=b56rULzaQmeMuoYAaEU4xGBS2qJkvIqeuKLdirVgvFA=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1770705800; v=1;
- b=LIVNZ3E7JG5PCTSn5A5XelSStyxUBT00giZeM8WzzGoEa70a6Wif+3fGESgqCzt2aPRhwuX0
- nK1aog3P8JKlkLSE60Z8nM6tNw/CtSotcqKi62G1okvYTxsU+z8WaW3fqOQ5Fjn7iVs0AOIVtTo
- Gp6fCA/b2IkryGvn1yJZDB6SrVXpVimNHBBRWisKOtVH9SETLjm/kDBfC0xXx8jasg94xxv5bu7
- dHvrxNL5A6Y3W7ptLUxC3SbUBvLbxrSYFQu5hS1fyCKyaCefd50xGhl3XNYOab71PFLAZ5tnS7a
- nKeqXmhrI+c13Sfivmu5r1RJYyUENB5lFR9g6Nb1Nux4g==
+Cc: <axboe@kernel.dk>, <sagi@grimberg.me>, <sven@kernel.org>, <j@jannau.net>, 
+	<linux-block@vger.kernel.org>, <linux-nvme@lists.infradead.org>, 
+	<tj@kernel.org>, <nilay@linux.ibm.com>, <ming.lei@redhat.com>, 
+	<neal@gompa.dev>, <asahi@lists.linux.dev>, 
+	<linux-arm-kernel@lists.infradead.org>, <yukuai@fnnas.com>
+Subject: Re: [PATCH 3/4] nvme-apple: move blk_mq_update_nr_hw_queues after nvme_unfreeze
+Date: Tue, 10 Feb 2026 14:47:00 +0800
+Received: from [192.168.1.104] ([39.182.0.137]) by smtp.feishu.cn with ESMTPS; Tue, 10 Feb 2026 14:47:02 +0800
+In-Reply-To: <aYn-xwFHCpd7sITJ@kbusch-mbp>
+Message-Id: <e3e7d95b-2712-4365-922d-731449e7193a@fnnas.com>
+Content-Type: text/plain; charset=UTF-8
+User-Agent: Mozilla Thunderbird
+References: <20260209082953.3053721-1-yukuai@fnnas.com> <20260209082953.3053721-4-yukuai@fnnas.com> <20260209145832.GC18315@lst.de> <aYn-xwFHCpd7sITJ@kbusch-mbp>
+From: "Yu Kuai" <yukuai@fnnas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_224335_101173_D9AECA61 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20260209_224718_435442_8C84DE0C 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,93 +71,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: yukuai@fnnas.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+Hi,
 
-Am Montag, 9. Februar 2026, 20:20:24 CET schrieb Frank Li:
-> On Mon, Feb 09, 2026 at 04:50:14PM +0100, Alexander Stein wrote:
-> > From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
-> >
-> > Use DSE x4 an PullUp for CMD an DAT, DSE x4 and PullDown for CLK.
-> > This improves stability and detection at low temperatures under -25=B0C.
->=20
-> Nit:
->=20
-> Use DSE x4 an PullUp for CMD an DAT, DSE x4 and PullDown for CLK to impro=
-ve
-> stability and detection at low temperatures under -25=B0C.
->=20
-> If you think it is okay, I can update it when apply it.
->=20
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+=E5=9C=A8 2026/2/9 23:35, Keith Busch =E5=86=99=E9=81=93:
+> On Mon, Feb 09, 2026 at 03:58:32PM +0100, Christoph Hellwig wrote:
+>> On Mon, Feb 09, 2026 at 04:29:52PM +0800, Yu Kuai wrote:
+>>> blk_mq_update_nr_hw_queues() freezes and unfreezes queues internally.
+>>> When the queue is already frozen before this call (from nvme_start_free=
+ze
+>>> in apple_nvme_disable), the freeze depth becomes 2. The internal unfree=
+ze
+>>> only decrements it to 1, leaving the queue still frozen when
+>>> debugfs_create_files() is called.
+>>>
+>>> This triggers WARN_ON_ONCE(q->mq_freeze_depth !=3D 0) in
+>>> debugfs_create_files() and risks deadlock.
+>>>
+>>> Fix this by moving nvme_unfreeze() before blk_mq_update_nr_hw_queues()
+>>> so the queue is unfrozen before the call, allowing the internal
+>>> freeze/unfreeze to work correctly.
+>>>
+>>> Signed-off-by: Yu Kuai <yukuai@fnnas.com>
+>>> ---
+>>>   drivers/nvme/host/apple.c | 2 +-
+>>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>>
+>>> diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
+>>> index 15b3d07f8ccd..1835753ad91a 100644
+>>> --- a/drivers/nvme/host/apple.c
+>>> +++ b/drivers/nvme/host/apple.c
+>>> @@ -1202,8 +1202,8 @@ static void apple_nvme_reset_work(struct work_str=
+uct *work)
+>>>  =20
+>>>   	nvme_unquiesce_io_queues(&anv->ctrl);
+>>>   	nvme_wait_freeze(&anv->ctrl);
+>>> -	blk_mq_update_nr_hw_queues(&anv->tagset, 1);
+>>>   	nvme_unfreeze(&anv->ctrl);
+>>> +	blk_mq_update_nr_hw_queues(&anv->tagset, 1);
+>> Looks good on it's own, but it would also good to align the
+>> apple driver with the PCI one here more.
+> I'm pretty sure this series would deadlock nvme-pci, as that driver
+> still leaves the queue frozen when calling blk_mq_update_nr_hw_queues.
 
-Thanks, this sounds even better. Feel free to amend it when applying.
+Yeah, thanks for the letting me know. It's true I didn't realize nvme-pci
+still leaves the queue frozen.
 
-Best regards,
-Alexander
+>
+> We've left it frozen on purpose, though. The idea was to prevent new IO
+> from entering a hw context that's no longer backed by a hardware
+> resourse. Unfreezing prior opens that window up again. Maybe it's not a
+> big deal; I don't often encounter scenarios where the queue count
+> changes after a reset.
 
-> >
-> > Fixes: 0b5fdfaa8e45 ("arm64: dts: freescale: imx93-tqma9352: set SION f=
-or cmd and data pad of USDHC")
-> > Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
-> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> > ---
-> >  .../boot/dts/freescale/imx93-tqma9352.dtsi    | 26 +++++++++----------
-> >  1 file changed, 13 insertions(+), 13 deletions(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi b/arch/a=
-rm64/boot/dts/freescale/imx93-tqma9352.dtsi
-> > index 3a23e2eb9febe..ce34a296495c4 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi
-> > +++ b/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi
-> > @@ -271,21 +271,21 @@ MX93_PAD_SD2_RESET_B__GPIO3_IO07	0x106
-> >  	/* enable SION for data and cmd pad due to ERR052021 */
-> >  	pinctrl_usdhc1: usdhc1grp {
-> >  		fsl,pins =3D <
-> > -			/* PD | FSEL 3 | DSE X5 */
-> > -			MX93_PAD_SD1_CLK__USDHC1_CLK		0x5be
-> > +			/* PD | FSEL 3 | DSE X4 */
-> > +			MX93_PAD_SD1_CLK__USDHC1_CLK		0x59e
-> >  			/* HYS | FSEL 0 | no drive */
-> >  			MX93_PAD_SD1_STROBE__USDHC1_STROBE	0x1000
-> > -			/* HYS | FSEL 3 | X5 */
-> > -			MX93_PAD_SD1_CMD__USDHC1_CMD		0x400011be
-> > -			/* HYS | FSEL 3 | X4 */
-> > -			MX93_PAD_SD1_DATA0__USDHC1_DATA0	0x4000119e
-> > -			MX93_PAD_SD1_DATA1__USDHC1_DATA1	0x4000119e
-> > -			MX93_PAD_SD1_DATA2__USDHC1_DATA2	0x4000119e
-> > -			MX93_PAD_SD1_DATA3__USDHC1_DATA3	0x4000119e
-> > -			MX93_PAD_SD1_DATA4__USDHC1_DATA4	0x4000119e
-> > -			MX93_PAD_SD1_DATA5__USDHC1_DATA5	0x4000119e
-> > -			MX93_PAD_SD1_DATA6__USDHC1_DATA6	0x4000119e
-> > -			MX93_PAD_SD1_DATA7__USDHC1_DATA7	0x4000119e
-> > +			/* HYS | PU | FSEL 3 | DSE X4 */
-> > +			MX93_PAD_SD1_CMD__USDHC1_CMD		0x4000139e
-> > +			/* HYS | PU | FSEL 3 | DSE X4 */
-> > +			MX93_PAD_SD1_DATA0__USDHC1_DATA0	0x4000139e
-> > +			MX93_PAD_SD1_DATA1__USDHC1_DATA1	0x4000139e
-> > +			MX93_PAD_SD1_DATA2__USDHC1_DATA2	0x4000139e
-> > +			MX93_PAD_SD1_DATA3__USDHC1_DATA3	0x4000139e
-> > +			MX93_PAD_SD1_DATA4__USDHC1_DATA4	0x4000139e
-> > +			MX93_PAD_SD1_DATA5__USDHC1_DATA5	0x4000139e
-> > +			MX93_PAD_SD1_DATA6__USDHC1_DATA6	0x4000139e
-> > +			MX93_PAD_SD1_DATA7__USDHC1_DATA7	0x4000139e
-> >  		>;
-> >  	};
-> >
-> > --
-> > 2.43.0
-> >
->=20
+Do you think if there are new IO coming between nvme_unfreeze() and
+blk_mq_update_nr_hw_queues(), will be any race problems? If so, will it
+be helpful to move nvme_unquiesce_io_queues() after
+blk_mq_update_nr_hw_queues() so that new IO won't be issued to driver
+during the race window.
 
+I'm not quite familiar with nvme drivers, details will be quite helpful. :)
 
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
-
+--=20
+Thansk,
+Kuai
 
