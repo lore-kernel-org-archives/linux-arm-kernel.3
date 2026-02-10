@@ -4,168 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD118EB26EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 17:05:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8EA6EB26EF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 17:05:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wtbFpYrTdulEgD2DiQFMOvshLaHY6WPXpa/V5WFFW2w=; b=Q60ExcPTcL/dPH+PMwzdDUz6UU
-	5i05Z4UqbiKfcVLgfRHRMFwLHrmEK4CKpowcbT+0lJuZAXaFP7KOdGvQxtOs0zLsFNaEv27VERUws
-	aiKvN8OiCV9/Tg65SEwhA7sc4vp97YCqHef6KVBW7W/5AQZ712zeRvlcGIRso7466IPMM1yBtZOrf
-	1yR6lJsZAJWEB9m8v62dz6ze0iS1apQCgvugA8c83tLGEYqwec/LRhOXJyyIcEhaCtiKojkzFDcEI
-	BP1OqasGRLVp/KFzte6zBTL0S4LW02gqPg3YgrFv1BwYcm1j6hwMgIqb7zzjRCBTPx6s9wrXFwuh7
-	L3PdHDhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9MVkB8lrQ34cNgWh1QfFiJOeYfoOLDuP+neEVhfWzFg=; b=QtSmcWW2icpmuZa8FlSLKfUsbL
+	HyTgTluMuSxNIXVfTN+7CfrY4YL33i98lwrbHNqK2arMw3nlPernJWPYoN+5Ctp8SKDglkHiv2Lz9
+	Agm3o3FqbcnzheHAzuPGvJD5/sxZYgYSM0h2Shv/wMKyrkZRd5MOOjV/jgaZsto03YhuUgv7F5F1n
+	5Fze3P4fM1uAjJCuY+kVWlFhpDYQJv+Bj3u+P6aw6bEFQVbx6YHungi7Csleg9dIb72hugxFWJC0e
+	dtCz6jZ+e9qO9dxth6HCY2dI+QH0Qoq2O529aZhUrWOVMgKhxTuKF56v8UL2/YKcGyBewMiBUYA8T
+	CMHzBp0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vprBJ-0000000HIXF-0dnQ;
+	id 1vprBJ-0000000HIXa-1uJB;
 	Tue, 10 Feb 2026 17:05:45 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vprBF-0000000HIVX-356y
+	id 1vprBF-0000000HIVu-2ezp
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 10 Feb 2026 17:05:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KiQZoINPybH2/EsQJQYtM8ymYY/82T3rJOA01PZmyfi4dRuN5tjiEzIk5PXTXO8x4bcUvVkrWepMxrAdGFmmKMevj3tHAXK9YAP/n4BC6cze3PwdccJ14k6v5JjSIOwUVwnZ2bxcLu54aRUNVAmPjUun3/uVk6s6uq4n+NayhU4vUIPoAChrtk6klt64dtVeYiVvzyFCr2rYWZ6/57JL0zuIYoNM0IUHmLZjy6NMhdzxXoJUvlyo8e6098NVUxkOexbV+ncsS/ZXlDywrIAXmLGnEMZHXxRz+lWCXbv3uPg95J3Zcw22Lh/l/QAr8fn94EkoxneGBAP5VaMRjEvAHA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wtbFpYrTdulEgD2DiQFMOvshLaHY6WPXpa/V5WFFW2w=;
- b=R+/FtphWlDKtdkC0RkN8ueQitvhGdTgdid89ZTqSqCyQppYRlKXrMrQ23Hr2sS8dtFJvze52tPHG1WNYvVRo5jyTVVoKMLQSazsci77Vl81f7CO6ySNSN80YaW2YTagXRCycAFTqC7PUOHQ44l3eVkxy9NnNbAWRkIJ+1c6Ef051KiBT/+LUp9f/4BT2WeCnwUYVbhfhpJCacnoPSea3dQ1BOI3OnINc5RqYYidiKjs58goY6qrpr+1BwkTiobI/TuOxllSrReYBL32Udk5HXaeU+EumQK60vn+bQChedrmb1JHq5oteJ2rbVm0oBNJONdNcyIRgq6fnF96FbEksLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wtbFpYrTdulEgD2DiQFMOvshLaHY6WPXpa/V5WFFW2w=;
- b=fEpHbwRFE+/ctH68dA7x7g9XFWKnKothTo1EnKs7N02naePFYBZeXzC5rOimRoROlXVyoPnKhCUAaUIsmwUPjHJSdzRWYOcJwYHbEg3aa7MSDkmo56Trd7fqdjv4V413vQcGt+tWdKG3YB7QpIsUagirGHe9dRqP8v5TRORcIcd8AfKmNljK7oBtlzeE7WkNsxLUI+cq7ttYqr+ty8wE7zdy0fX6Yvpmv4kDYy7b1VxYQYt/9ZwijEo9kZekuHhlTR/vpGd3q0XXqzixxKXn5QfhXZ26iSFEU8pagQ2Q7+sqrI6p5qctMpZBCP0E8GhM6whyJLcjRMLZp9EpPxVxtw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
- by DB9PR04MB8362.eurprd04.prod.outlook.com (2603:10a6:10:241::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.18; Tue, 10 Feb
- 2026 17:05:35 +0000
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb%4]) with mapi id 15.20.9611.006; Tue, 10 Feb 2026
- 17:05:34 +0000
-From: Shenwei Wang <shenwei.wang@nxp.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-imx@nxp.com,
-	arnaud.pouliquen@foss.st.com
-Subject: [PATCH v7 0/4] Enable Remote GPIO over RPMSG on i.MX Platform
-Date: Tue, 10 Feb 2026 11:04:34 -0600
-Message-ID: <20260210170439.406513-1-shenwei.wang@nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PH0PR07CA0052.namprd07.prod.outlook.com
- (2603:10b6:510:e::27) To PAXPR04MB9185.eurprd04.prod.outlook.com
- (2603:10a6:102:231::11)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1770743139;
+ bh=9MVkB8lrQ34cNgWh1QfFiJOeYfoOLDuP+neEVhfWzFg=;
+ b=wAl6ZGw1vdb/n3rOzDXKcRf9RYcYX1LUdsU4UAUXTt82maywGFjAL2Zb9efVGPmQ2I8gh9iWh
+ t3sGK1t17SRGaMEXixsYpS5ud3AxyCFTNjRUAb9DuAQcrWSmsSZ5K0jIc03ZcxMZfBCnKy0/ehX
+ wuXx87ekNYTjskrYilDQ7xuKwv6P4DI8eKLXHr53nBdTw9DZvz+ak6HphKITFBjTmjUwM2ISnry
+ WqfRT7KNCG5+cYJ+uF70vZPt9j3j5LMsddiIjhP64spEisHxSF5ZkQuBnWXqeUFJURAqnsuw++O
+ ibsNitIUkUhyin7h7AioPlPtA2I9zdFBbQpsTfcSGLEg==
+X-Forward-Email-ID: 698b6562e8cd0604c09e962b
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 2.6.3
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <5952b842-2ff5-4843-bf40-72364e2e4bec@kwiboo.se>
+Date: Tue, 10 Feb 2026 18:05:34 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9185:EE_|DB9PR04MB8362:EE_
-X-MS-Office365-Filtering-Correlation-Id: fa51869e-3ccb-4e57-9309-08de68c69b00
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|52116014|7416014|376014|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EYBH8VRqWJ8NOIoBfLRq2z+7GQTiKxKW910Hfpz6Jhx1axXBMj1qxEKzx5rj?=
- =?us-ascii?Q?SZzKgbJQnFbeSGydg3pckycaelMWimukQnL0DpA1NLn4iMerLgKxnV5irg6s?=
- =?us-ascii?Q?OnaPidbbOP0PdX+XwxYdPomYyRwKcL0UehZL+UZ95jVPqxb4AssGvWRP8aDg?=
- =?us-ascii?Q?p1jqWT0SLdIzA3hl0NBjGB4AvbELyccrm6q576cobo6pBtvVoPm0Ho40nOgN?=
- =?us-ascii?Q?YDO33W1Z6yT+bXL0YIBy1eZsfavmeQKzXEi10GQfngL/XUgO+EuF4d8KQ2lS?=
- =?us-ascii?Q?ldif9TXXuwYAiBAGi3FzJ6fkHWFKp/lkwG/nWosX35skG6BkNmrXXIvMtZSn?=
- =?us-ascii?Q?RJY/+j59wx6NfodkiW1Xen7tnZtrc3tkh+RgdwdK/C/0FZ5PdRtMx2jKrULB?=
- =?us-ascii?Q?fp44Hu7dpxtdKziNicyaLFSsCVxRwNxHHDKYXFQuj0zmoOUn3mnXqFaSgX5i?=
- =?us-ascii?Q?t06Con5/vgICbVHm3fZadubuyCKfUeVk2ZTgN+Tu+a8yEgMLE/kTwc8NUyXe?=
- =?us-ascii?Q?CgRZoCoMpczWhzdBAOGbdMj05MpWwq9Gn1vN0BJBcJxCMV7L+zxMe/2KhfRc?=
- =?us-ascii?Q?uFTkgUt5vNi3F9aQadh5UGtN5tkrKsxEvEiQqXUWgMT/LU3r5gLBy2XxPH4J?=
- =?us-ascii?Q?oSNXvStCJ7B3PxfSDj6ZWP+cC5SZnDZ6Wr5X344GAwc5s0kaxz9kXE0QZcoK?=
- =?us-ascii?Q?IjBD5NHxq0+ZsRhw3DBcGsGjtl1eK8BRd+SowWewxNiNs8NC3TX3Jpsljzur?=
- =?us-ascii?Q?XZ/xVCHf2LvPCdQDtDVCHnTI/Tl8m7sNhaAyTnSAitxVAkGVIvzIkTdvT+TQ?=
- =?us-ascii?Q?q23SFfAHX7HpQ6pZhr9lzBZhNy6f43Si4b/PA2n/z9uw/R5Knhs/sFsNuGAG?=
- =?us-ascii?Q?ZgYEPB7Uj+Wf3hb6t5O/vni+zw0iq2tvtM9sxe7aVow0u6GUN5U5zdOz3l7z?=
- =?us-ascii?Q?KXE9vEk5b6GwAjimn4FO/yPnL8b3k9vowt1opirNijxTNe9SzYEel+cYiAge?=
- =?us-ascii?Q?j83FV7ZkXyGG9sclT+VoCAJEPQVIO8ZCqzoelZ4kFnWYRsr0bUJXk9ZZ8BZw?=
- =?us-ascii?Q?VXTqtWp3oatgSxc8eB3CsIeGUwHeWrh7uRBGGD/iGSD4f1tJePq3XS6vMtxN?=
- =?us-ascii?Q?j/NZCVx7rjLxc9voiei6a5XyrlSe2Dl/caw1isGTHLxkTL3iLxBj/CEI9XK3?=
- =?us-ascii?Q?egy4CyMZkBQbwa5wfeBteNBQAUBzNICjv+NZHMiZBKht/gLDeSdCd+9jl5Zp?=
- =?us-ascii?Q?xvU52a1wovKPSk/gwIA6VJYUgSM20FRtBirNRUu0NDfZTSFPgiL0kxVqEQEl?=
- =?us-ascii?Q?m14uRcLcN+rRl2cUfz9/4z3h0eQTDepKA0Pd9PgldQGiKm/7VEq4wTL8vn2O?=
- =?us-ascii?Q?ozl6RRjusVkjZL4yeOX1VGSAMelonaOhlHhO636L5sQo+8SQtUnIB2Q20MsL?=
- =?us-ascii?Q?WY1KBe7h+35qk7jxpmsg2ihnb784yn4208PRN04dZf+YiXG+jz9Gxmvb76Rs?=
- =?us-ascii?Q?2hRGPue2daFwZd26z/GsbfcKcUVSI0YTBKj9C7IMDEpTV5vN1s5PySyEhpOP?=
- =?us-ascii?Q?gY3xgJ0wi2Rm+6wYuVLRlJWVjrdWMd1Eqg6SVjqxDWlnOIn2bR8O1qvyw85S?=
- =?us-ascii?Q?iKIy6Y+r4FW+p54eHwFyNPUSWvjjTKGoeJjwDnDRynVO?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(52116014)(7416014)(376014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HbJl5UhVgQ7eECfAaFkL7naX+LHgJF2OuXlCC8rT1klVKgZd3quZPtAnA4ZA?=
- =?us-ascii?Q?6tw/WJVSL4uhwMPj3U6cGSW2iAo9JjcmtT9hW/QjacRx+G6qTBGctYheXt83?=
- =?us-ascii?Q?rHzO2H/9odEJaXAu9Gl9HUY/UUrWsDyP5yis9L4KU2HnD0xjaj+qg1FvqBCR?=
- =?us-ascii?Q?r5LTM2wK/BnblXBkvVVEWGuL9G+HJKusaG3EFeAp5ZIsz66TdvsrldNNQLf9?=
- =?us-ascii?Q?UqNWYEZ8YnJ16WdejhHTXyy2DESAwUntAaHfmneHisdQ3pvGPCWm4DrpjyRL?=
- =?us-ascii?Q?Xdy3YZ+3gKVidGWAZAznlVQ9SYyUD7OPFkXmLGrYCSdymaRKgLMfq6ENhRep?=
- =?us-ascii?Q?Sw5yJvw4wIyE6pf5hraoPSZY3pLBxSZIkqrwVEwUpQjmpfdWVFYlwO84w4R7?=
- =?us-ascii?Q?Jpdj5rQz2XtHVPPMVlDHy6eRShPsLjVbbAEyBmFcSNEPMe09gCwsjvSM1DpV?=
- =?us-ascii?Q?ia1Q6oR492hq/rDwFxqEFRf+2VQqJKZf5gWrj7tsQ8OOc/oYLosNnhnxZCWc?=
- =?us-ascii?Q?cVn1hjkcdu2dPFvQXwDwc9PW/AM/AieY4zPbjesKZqeioJWAZaxuDy53nXN5?=
- =?us-ascii?Q?/MoR5SNLLUF2PN1oe+mqRZXlIw058AoQO4RplgpWT+Ui75cQfixf6k+GouAV?=
- =?us-ascii?Q?UHXEEFMIe9ppPQWQgunxsoOXcJa/NRf1z0vaWIcjeukey46SDQh8bmit+QfZ?=
- =?us-ascii?Q?B/7J33Eql3ptPqPaxIn8TUE2WJINDq5wCxKuHHGjVr5Wp7rekdrvINaSzOgP?=
- =?us-ascii?Q?yD2PrLkrF45pDs9kSAD+Q1PdLGx78Wuk1N11Yv64CDZ5JqDGyMLRTlglU0n1?=
- =?us-ascii?Q?svRCX4zZsab95AivvG0P7tQFYMWI4MirN0WNjJV9Ic2fmrxRAAhQjzBywM8t?=
- =?us-ascii?Q?iZkYxifpzytb2uC8O/6ap9OwHqFb9MBWk9HfB2gERhxPrxn/VSPOhxqkrAFX?=
- =?us-ascii?Q?kp9WFn7mL2DE+lhOqkTtGvTUe+DWNHRp3ZpsxsjvX7TMK0VKYCiKAY3ltF3o?=
- =?us-ascii?Q?uWB89LZWe4tqEOC1zql6UoaO4TcRaYegYxzsdoSdj5PsIKfJCqinaDnVL7ox?=
- =?us-ascii?Q?PSpy2cS1h5+hzs8jSuryyIKf1mbyHGVSqxle7SzoejfiPVdrACQnlTt+L72I?=
- =?us-ascii?Q?0iafQu0HND/PRYdrv4bcLLYVeNaIZshDnbrRy9x+h7Vez1GKer5IQBU4cGZd?=
- =?us-ascii?Q?QhKhUEq9S3yHqd0dgSgn8C4rhetClbGESjZKN5muYre37ScAFFJQhxBFEfAQ?=
- =?us-ascii?Q?eFYFpuqAOF354DTYBaSgjWsUp3LS4GLtOPI2oO5pDsPncpIqrXUe0vwS8igo?=
- =?us-ascii?Q?PGU4bTBzpzhwCWH2O+W1JLAkf6WFEBqzjmI1vpHB+UTNRWTcuA5ustgTBHfq?=
- =?us-ascii?Q?vJaKXHQeH0xQNoCy8ZlvWqDN+uZiRU2iyHzT0AoxaOWPDo/kRXcIVLXHiaZQ?=
- =?us-ascii?Q?TmaOS2cVS+8+f3dwaRJxnkX1yLxJ9+OcOf49ag9/HXLWU9u50nR0Q5nxIXMF?=
- =?us-ascii?Q?7OLlKKlwTpnp8vV4zV7KVQlolsRvEPfMwxlJq+VbaCjTJu8MFhAI4sG4rsmJ?=
- =?us-ascii?Q?W4NdOMzbwYrt6IJXNhTo8PJFQwc1/14ryBf3ZWZ4d73xDJqpPe1KwFGi6Wat?=
- =?us-ascii?Q?vX+05MO5NQgeHeBO5Bw3tdR2ZpGD3fAN46Va3k4jzzi5MF7hDOKpUJSYd34O?=
- =?us-ascii?Q?mjVJIdUxwD0vTY6irFmEwh522gkb+wDZeE9zQDrX9BhGd+t7Z3+mxYhHtMol?=
- =?us-ascii?Q?yHbVTt1F/w=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fa51869e-3ccb-4e57-9309-08de68c69b00
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Feb 2026 17:05:34.9067
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yxwoeOJ6nN58FJ12RvNnXRL7zbz6THeyw+ZUD+hwgEhc4JSuUHllMDbhzdTjeGZgjacftauVpVG0T34NCQX4Hw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8362
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/4] ARM: dts: rockchip: Add support for RV1103B
+To: Fabio Estevam <festevam@gmail.com>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Fabio Estevam <festevam@nabladev.com>
+References: <20260210144845.317048-1-festevam@gmail.com>
+ <20260210144845.317048-2-festevam@gmail.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20260210144845.317048-2-festevam@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_090541_807511_B0C0C3CC 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20260210_090541_802657_D29BD625 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,70 +79,364 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support the remote devices on the remote processor via the RPMSG bus on
-i.MX platform.
+Hi Fabio,
 
-Changes in v7:
- - Reworked the driver to use the rpmsg_driver framework instead of
-   platform_driver, based on feedback from Bjorn and Arnaud.
- - Updated gpio-rpmsg.yaml and imx_rproc.yaml according to comments from
-   Rob and Arnaud.
- - Further refinements to gpio-rpmsg.yaml per Arnaud's feedback.
+On 2/10/2026 3:48 PM, Fabio Estevam wrote:
+> From: Fabio Estevam <festevam@nabladev.com>
+> 
+> Add the initial RV1103B devicetree.
+> 
+> Based on the 5.10 Rockchip vendor kernel.
+> 
+> Signed-off-by: Fabio Estevam <festevam@nabladev.com>
+> ---
+> The <dt-bindings/clock/rockchip,rv1103b-cru.h> header comes from another
+> series:
+> 
+> https://lore.kernel.org/linux-devicetree/20260210022620.172570-1-festevam@gmail.com/
+> 
+> Maybe Heiko could apply the clock series as well?
+> 
+> Changes since v1:
+> - Pass /omit-if-no-ref/
+> - Removed redundant _pins suffix.
+> - Dd not merge all GRF region.
+> - Removed unnecessary clock rate from the UART nodes.
+> - Removed "normal" and "idle" pinctrl entries and used "default" instead.
+> - Added missing default pinctrl entries for emmc, sd and fspi.
+> - Removed gpio-ranges.
+>  
+>  .../boot/dts/rockchip/rv1103b-pinctrl.dtsi    | 962 ++++++++++++++++++
+>  arch/arm/boot/dts/rockchip/rv1103b.dtsi       | 250 +++++
+>  2 files changed, 1212 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/rockchip/rv1103b-pinctrl.dtsi
+>  create mode 100644 arch/arm/boot/dts/rockchip/rv1103b.dtsi
+> 
+> diff --git a/arch/arm/boot/dts/rockchip/rv1103b-pinctrl.dtsi b/arch/arm/boot/dts/rockchip/rv1103b-pinctrl.dtsi
+> new file mode 100644
+> index 000000000000..d859df6b6a97
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/rockchip/rv1103b-pinctrl.dtsi
+> @@ -0,0 +1,962 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (c) 2024 Rockchip Electronics Co., Ltd.
+> + */
+> +
+> +#include <dt-bindings/pinctrl/rockchip.h>
+> +#include <arm64/rockchip/rockchip-pinconf.dtsi>
+> +
+> +/*
+> + * This file is auto generated by pin2dts tool, please keep these code
+> + * by adding changes at end of this file.
+> + */
+> +&pinctrl {
+> +	cam_clk0 {
 
-Changes in v6:
- - make the driver more generic with the actions below:
-     rename the driver file to gpio-rpmsg.c
-     remove the imx related info in the function and variable names
-     rename the imx_rpmsg.h to rpdev_info.h
-     create a gpio-rpmsg.yaml and refer it in imx_rproc.yaml
- - update the gpio-rpmsg.rst according to the feedback from Andrew and
-   move the source file to driver-api/gpio
- - fix the bug reported by Zhongqiu Han
- - remove the I2C related info
+Node names should not contain _ (underscore), same for more pinctrl
+groups.
 
-Changes in v5:
- - move the gpio-rpmsg.rst from admin-guide to staging directory after
-   discussion with Randy Dunlap.
- - add include files with some code improvements per Bartosz's comments.
+> +		/omit-if-no-ref/
+> +		cam_clk0: cam-clk0 {
+> +			rockchip,pins =
+> +				/* cam_clk0_out */
+> +				<1 RK_PB5 1 &pcfg_pull_none>;
+> +		};
+> +	};
 
-Changes in v4:
- - add a documentation to describe the transport protocol per Andrew's
-   comments.
- - add a new handler to get the gpio direction.
+[snip]
 
-Changes in v3:
- - fix various format issue and return value check per Peng 's review
-   comments.
- - add the logic to also populate the subnodes which are not in the
-   device map per Arnaud's request. (in imx_rproc.c)
- - update the yaml per Frank's review comments.
+> +};
+> +
+> +/*
+> + * This part is edited manually.
 
-Changes in v2:
- - re-implemented the gpio driver per Linus Walleij's feedback by using
-   GPIOLIB_IRQCHIP helper library.
- - fix various format issue per Mathieu/Peng 's review comments.
- - update the yaml doc per Rob's feedback
+Why not merged with above? What is the pin2dts tool, is it some vendor
+script/tool?
 
-Shenwei Wang (4):
-  dt-bindings: remoteproc: imx_rproc: Add "rpmsg" subnode support
-  docs: driver-api: gpio: rpmsg gpio driver over rpmsg bus
-  gpio: rpmsg: add generic rpmsg GPIO driver
-  arm64: dts: imx8ulp: Add rpmsg node under imx_rproc
+> + */
+> +&pinctrl {
+> +	sdmmc0 {
+> +		/omit-if-no-ref/
+> +		sdmmc0_bus1: sdmmc0-bus1 {
+> +			rockchip,pins =
+> +				/* sdmmc0_d0 */
+> +				<1 RK_PB0 1 &pcfg_pull_up_drv_level_2>;
+> +		};
+> +	};
+> +
+> +	sdmmc1 {
+> +		sdmmc1_bus1: sdmmc1-bus1 {
+> +			rockchip,pins =
+> +				/* sdmmc1_d0 */
+> +				<2 RK_PA1 1 &pcfg_pull_up_drv_level_2>;
+> +		};
+> +	};
+> +};
+> diff --git a/arch/arm/boot/dts/rockchip/rv1103b.dtsi b/arch/arm/boot/dts/rockchip/rv1103b.dtsi
+> new file mode 100644
+> index 000000000000..c3de700ade46
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/rockchip/rv1103b.dtsi
+> @@ -0,0 +1,250 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (c) 2024 Rockchip Electronics Co., Ltd.
+> + */
+> +
+> +#include <dt-bindings/clock/rockchip,rv1103b-cru.h>
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/pinctrl/rockchip.h>
+> +#include <dt-bindings/soc/rockchip,boot-mode.h>
+> +
+> +/ {
+> +	#address-cells = <1>;
+> +	#size-cells = <1>;
+> +
+> +	compatible = "rockchip,rv1103b";
+> +
+> +	interrupt-parent = <&gic>;
+> +
+> +	arm-pmu {
+> +		compatible = "arm,cortex-a7-pmu";
+> +		interrupts = <GIC_SPI 127 IRQ_TYPE_LEVEL_HIGH>;
+> +		interrupt-affinity = <&cpu0>;
+> +	};
+> +
+> +	xin32k: oscillator-32k {
+> +		compatible = "fixed-clock";
+> +		clock-frequency = <32768>;
+> +		clock-output-names = "xin32k";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	xin24m: oscillator-24m {
+> +		compatible = "fixed-clock";
+> +		clock-frequency = <24000000>;
+> +		clock-output-names = "xin24m";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	cpus {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		cpu0: cpu@0 {
+> +			device_type = "cpu";
+> +			compatible = "arm,cortex-a7";
+> +			reg = <0x0>;
+> +			clocks = <&cru ARMCLK>;
+> +		};
+> +	};
+> +
+> +	timer {
+> +		compatible = "arm,armv7-timer";
+> +		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_HIGH)>,
+> +			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_HIGH)>;
+> +		clock-frequency = <24000000>;
+> +	};
+> +
+> +	cru: clock-controller@20000000 {
+> +		compatible = "rockchip,rv1103b-cru";
+> +		reg = <0x20000000 0x81000>;
+> +		#clock-cells = <1>;
+> +		#reset-cells = <1>;
+> +		bootph-all;
+> +	};
 
- .../devicetree/bindings/gpio/gpio-rpmsg.yaml  |  55 ++
- .../bindings/remoteproc/fsl,imx-rproc.yaml    |  53 ++
- Documentation/driver-api/gpio/gpio-rpmsg.rst  | 236 +++++++
- Documentation/driver-api/gpio/index.rst       |   1 +
- arch/arm64/boot/dts/freescale/imx8ulp.dtsi    |  27 +
- drivers/gpio/Kconfig                          |  16 +
- drivers/gpio/Makefile                         |   1 +
- drivers/gpio/gpio-rpmsg.c                     | 583 ++++++++++++++++++
- 8 files changed, 972 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
- create mode 100644 Documentation/driver-api/gpio/gpio-rpmsg.rst
- create mode 100644 drivers/gpio/gpio-rpmsg.c
+As mentioned in prior review, this and other nodes should be grouped
+under a soc node, please see e.g. rk3528, rk3562 or rk3576.dtsi.
 
---
-2.43.0
+> +	pmu_grf: syscon@20160000 {
+> +		compatible = "rockchip,rv1103b-pmu-grf", "syscon", "simple-mfd";
+> +		reg = <0x20160000 0x1000>;
+> +
+> +		reboot_mode: reboot-mode {
+> +			compatible = "syscon-reboot-mode";
+> +			offset = <0x200>;
+> +			mode-normal = <BOOT_NORMAL>;
+> +			mode-recovery = <BOOT_RECOVERY>;
+> +			mode-bootloader = <BOOT_FASTBOOT>;
+> +			mode-loader = <BOOT_BL_DOWNLOAD>;
+> +		};
+> +	};
+> +
+> +	ioc: syscon@20170000 {
+> +		compatible = "rockchip,rv1103b-ioc", "syscon";
+> +		reg = <0x20170000 0x60000>;
+> +	};
+> +
+> +	gic: interrupt-controller@20411000 {
+> +		compatible = "arm,gic-400";
+> +		interrupt-controller;
+> +		#interrupt-cells = <3>;
+> +		#address-cells = <0>;
+> +
+> +		reg = <0x20411000 0x1000>,
+> +		      <0x20412000 0x2000>,
+> +		      <0x20414000 0x2000>,
+> +		      <0x20416000 0x2000>;
+> +		interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_HIGH)>;
+> +	};
+> +
+> +	uart0: serial@20540000 {
+> +		compatible = "rockchip,rv1103b-uart", "snps,dw-apb-uart";
+> +		reg = <0x20540000 0x100>;
+> +		interrupts = <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
+> +		reg-shift = <2>;
+> +		reg-io-width = <4>;
+> +		clocks = <&cru SCLK_UART0>, <&cru PCLK_UART0>;
+> +		clock-names = "baudclk", "apb_pclk";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&uart0m0_xfer>;
+> +		status = "disabled";
+> +	};
+> +
+> +	sdmmc1: mmc@20650000 {
+> +		compatible = "rockchip,rv1103b-dw-mshc", "rockchip,rk3288-dw-mshc";
+> +		reg = <0x20650000 0x4000>;
+> +		interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
+> +		clocks = <&cru HCLK_SDMMC1>, <&cru CCLK_SDMMC1>;
+> +		clock-names = "biu", "ciu";
+> +		fifo-depth = <0x100>;
+> +		max-frequency = <150000000>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&sdmmc1_clk &sdmmc1_cmd &sdmmc1_bus4>;
+> +		status = "disabled";
+> +	};
+> +
+> +	uart1: serial@20870000 {
+> +		compatible = "rockchip,rv1103b-uart", "snps,dw-apb-uart";
+> +		reg = <0x20870000 0x100>;
+> +		interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
+> +		reg-shift = <2>;
+> +		reg-io-width = <4>;
+> +		clocks = <&cru SCLK_UART1>, <&cru PCLK_UART1>;
+> +		clock-names = "baudclk", "apb_pclk";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&uart1m0_xfer>;
+> +		status = "disabled";
+> +	};
+> +
+> +	uart2: serial@20880000 {
+> +		compatible = "rockchip,rv1103b-uart", "snps,dw-apb-uart";
+> +		reg = <0x20880000 0x100>;
+> +		interrupts = <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH>;
+> +		reg-shift = <2>;
+> +		reg-io-width = <4>;
+> +		clocks = <&cru SCLK_UART2>, <&cru PCLK_UART2>;
+> +		clock-names = "baudclk", "apb_pclk";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&uart2m0_xfer>;
+> +		status = "disabled";
+> +	};
+> +
+> +	wdt: watchdog@208d0000 {
+> +		compatible = "snps,dw-wdt";
+> +		reg = <0x208d0000 0x100>;
+> +		clocks = <&cru TCLK_WDT_NS>, <&cru PCLK_WDT_NS>;
+> +		clock-names = "tclk", "pclk";
+> +		interrupts = <GIC_SPI 29 IRQ_TYPE_LEVEL_HIGH>;
+> +		status = "disabled";
+> +	};
+> +
+> +	sdmmc0: mmc@20d20000 {
+> +		compatible = "rockchip,rv1103b-dw-mshc", "rockchip,rk3288-dw-mshc";
+> +		reg = <0x20d20000 0x4000>;
+> +		interrupts = <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>;
+> +		clocks = <&cru HCLK_SDMMC0>, <&cru CCLK_SDMMC0>;
+> +		clock-names = "biu", "ciu";
+> +		fifo-depth = <0x100>;
+> +		max-frequency = <150000000>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&sdmmc0_det &sdmmc0_clk &sdmmc0_cmd &sdmmc0_bus4>;
+> +		status = "disabled";
+> +	};
+> +
+> +	emmc: mmc@20d30000 {
+> +		compatible = "rockchip,rv1103b-dw-mshc", "rockchip,rk3288-dw-mshc";
+> +		reg = <0x20d30000 0x4000>;
+> +		interrupts = <GIC_SPI 51 IRQ_TYPE_LEVEL_HIGH>;
+> +		clocks = <&cru HCLK_EMMC>, <&cru CCLK_EMMC>;
+> +		clock-names = "biu", "ciu";
+> +		fifo-depth = <0x100>;
+> +		max-frequency = <150000000>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&emmc_clk &emmc_cmd &emmc_bus4>;
+> +		status = "disabled";
+> +	};
+> +
+> +	fspi0: spi@20d40000 {
+> +		compatible = "rockchip,sfc";
+> +		reg = <0x20d40000 0x4000>;
+> +		interrupts = <GIC_SPI 52 IRQ_TYPE_LEVEL_HIGH>;
+> +		clocks = <&cru SCLK_SFC_2X>, <&cru HCLK_SFC>;
+> +		clock-names = "clk_sfc", "hclk_sfc";
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&fspi_bus4 &fspi_cs0 &fspi_clk>;
+> +		status = "disabled";
+> +	};
+
+All nodes above should be grouped under the soc node. Unsure about the
+sram and pinctrl, check the other most recent RK SoCs dtsi files.
+
+Regards,
+Jonas
+
+> +	system_sram: sram@210f6000 {
+> +		compatible = "mmio-sram";
+> +		reg = <0x210f6000 0x8000>;
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		ranges = <0 0x210f6000 0x8000>;
+> +	};
+> +
+> +	pinctrl: pinctrl {
+> +		compatible = "rockchip,rv1103b-pinctrl";
+> +		rockchip,grf = <&ioc>;
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		ranges;
+> +
+> +		gpio0: gpio@20520000 {
+> +			compatible = "rockchip,gpio-bank";
+> +			reg = <0x20520000 0x200>;
+> +			interrupts = <GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&cru PCLK_PMU_GPIO0>, <&cru DBCLK_PMU_GPIO0>;
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			interrupt-controller;
+> +			#interrupt-cells = <2>;
+> +		};
+> +
+> +		gpio1: gpio@20d80000 {
+> +			compatible = "rockchip,gpio-bank";
+> +			reg = <0x20d80000 0x200>;
+> +			interrupts = <GIC_SPI 79 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&cru PCLK_GPIO1>, <&cru DBCLK_GPIO1>;
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			interrupt-controller;
+> +			#interrupt-cells = <2>;
+> +		};
+> +
+> +		gpio2: gpio@20840000 {
+> +			compatible = "rockchip,gpio-bank";
+> +			reg = <0x20840000 0x200>;
+> +			interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&cru PCLK_GPIO2>, <&cru DBCLK_GPIO2>;
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			interrupt-controller;
+> +			#interrupt-cells = <2>;
+> +		};
+> +	};
+> +};
+> +
+> +#include "rv1103b-pinctrl.dtsi"
 
 
