@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57F22EA8102
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 11:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18015EA8106
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 12:01:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0NWAU1Rgj+7j8yaUZF4MpiO+9Actr8LGdHetxcCk75c=; b=TiYReiQSGmy23grc9ZXDjCVuI3
-	PM9M6EAl/Yty6hGHgz2k4fDP1UGAeIhMX00lIXl8NVngTMdY3NFwCksujEX8Drn9zf9Y+8rDsedTo
-	RRgZPTA5AaOp32ZxWi8S/De3fBlTWSuuWfASqj6AzR+qtZYNjwoCObFKk1ZLaAodp3+A74MMTdyYt
-	Arun8+pAq7ECe5G7reBqaY+ptRkcZXPQHBHH46+hYRzmZVhPWX0dRkR+CiB/d+UNBMR99zi9IA9L/
-	kvD5CHvsDTtmdYdy9qOj4pN/xT5I3q6q4x4XCE4+M5l97kcP1VG6hUD40ILmwC/teWjkprp0oHR+V
-	+Q33R/nA==;
+	bh=1Ubwz3PJ5KFwF6j/mtmwUIbJPRZuOw2B/aSNEd0KC2Y=; b=U45HV5v1OKijvaw+8dtJarjYGj
+	V0i6unDAu37H7JUIVjMFX6/AdDzvDFvl9jk0T/ozYEBFgwnucem9Pn7CZayl+F4icwlwydIkSYRYx
+	pZb2lEg3DtMZw+1u0SeHTcbGWq8aDnth57/yHzTmJ2c+oFCIttSVybc8IIkzouLvSyzJ6NqjWcfQd
+	oeYCJQuR1F9GI+ZptDRqP1BXESasYG7ZGTuXI3aSFF+lJf4TcE17Il/teTL74vj/pZ4Nh/uYEM+Hg
+	Ke+YuormVrK0zTo29D38iDwhfh2Tge4BXT+fW32IpDtJl9FaacOvS/S1xgTeF6CqOhG8PbK5fxEMY
+	+OLGUb5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpmLt-0000000GuS0-1Szr;
-	Tue, 10 Feb 2026 11:56:21 +0000
-Received: from mail-m19731117.qiye.163.com ([220.197.31.117])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpmLp-0000000GuRQ-2YwD
+	id 1vpmR0-0000000GuiH-0hfw;
+	Tue, 10 Feb 2026 12:01:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vpmQx-0000000Guhl-1Vua
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 11:56:19 +0000
-Received: from albert-OptiPlex-7080.. (unknown [112.65.126.162])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 33be0945d;
-	Tue, 10 Feb 2026 19:56:07 +0800 (GMT+08:00)
-From: Albert Yang <yangzh0906@thundersoft.com>
-To: krzk@kernel.org
-Cc: adrian.hunter@intel.com,
-	arnd@arndb.de,
-	bst-upstream@bstai.top,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	gordon.ge@bst.ai,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	robh@kernel.org,
-	ulf.hansson@linaro.org,
-	yangzh0906@thundersoft.com
-Subject: Re: [PATCH v5 5/6] arm64: defconfig: enable BST SDHCI controller
-Date: Tue, 10 Feb 2026 19:56:06 +0800
-Message-ID: <20260210115606.270000-1-yangzh0906@thundersoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <93bff61b-ffc3-4b09-ac97-99f576e6d48f@kernel.org>
-References: <93bff61b-ffc3-4b09-ac97-99f576e6d48f@kernel.org>
+	Tue, 10 Feb 2026 12:01:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C1BA339;
+	Tue, 10 Feb 2026 04:01:24 -0800 (PST)
+Received: from [10.164.19.61] (unknown [10.164.19.61])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A7E63F632;
+	Tue, 10 Feb 2026 04:01:24 -0800 (PST)
+Message-ID: <ceece57f-e845-4557-8ec8-0f4935f8d03d@arm.com>
+Date: Tue, 10 Feb 2026 17:31:21 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm: rmap: skip batched unmapping for UFFD vmas
+To: Barry Song <21cnbao@gmail.com>, "David Hildenbrand (Arm)"
+ <david@kernel.org>
+Cc: Baolin Wang <baolin.wang@linux.alibaba.com>, Liam.Howlett@oracle.com,
+ akpm@linux-foundation.org, catalin.marinas@arm.com, harry.yoo@oracle.com,
+ jannh@google.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ lorenzo.stoakes@oracle.com, mhocko@suse.com, riel@surriel.com,
+ rppt@kernel.org, ryan.roberts@arm.com, surenb@google.com, vbabka@suse.cz,
+ will@kernel.org, willy@infradead.org
+References: <142919ac14d3cf70cba370808d85debe089df7b4.1766631066.git.baolin.wang@linux.alibaba.com>
+ <20260116162652.176054-1-baolin.wang@linux.alibaba.com>
+ <e5175f66-56fd-437b-a183-b2ccc3f54f94@kernel.org>
+ <CAGsJ_4w95tTGfanb0NdG5B+ajOUA4LaH7uh+Uxcq0ZNVaqK-Vg@mail.gmail.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <CAGsJ_4w95tTGfanb0NdG5B+ajOUA4LaH7uh+Uxcq0ZNVaqK-Vg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9c4768a8a609cckunm56c64d2736b8
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDQk9IVk9PSBlNT0weSklNGFYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSklVTU5VSklNVUpNSVlXWRYaDxIVHRRZQVlPS0hVSktJT09PSFVKS0
-	tVSkJLS1kG
-DKIM-Signature: a=rsa-sha256;
-	b=Dd/RXPqlOX5WnrutWKlnLu79gR1Tndka9KaC/J4akPCejzCdnVfB1Sb4vRcJ4SjhNHwNoch9Ko74te9rLzPayowwwKwEjylBa4bw9R4MZJzSCf617H6dLsXkBgAsanvJStWrXS/LrLQW6JkuySt/19W15a6jKyYAeqIwxgqIDus=; s=default; c=relaxed/relaxed; d=thundersoft.com; v=1;
-	bh=0NWAU1Rgj+7j8yaUZF4MpiO+9Actr8LGdHetxcCk75c=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_035618_242047_0F8B47D9 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260210_040135_500102_0B356114 
+X-CRM114-Status: GOOD (  23.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,36 +73,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 8 Feb 2026 at 12:38, Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> On 23/01/2026 10:53, Albert Yang wrote:
-> > diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> > index 45288ec9eaf7..7f4da3117329 100644
-> > --- a/arch/arm64/configs/defconfig
-> > +++ b/arch/arm64/configs/defconfig
-> > @@ -1222,6 +1222,7 @@ CONFIG_MMC_BLOCK_MINORS=32
-> >  CONFIG_MMC_ARMMMCI=y
-> >  CONFIG_MMC_SDHCI=y
-> >  CONFIG_MMC_SDHCI_ACPI=y
-> > +CONFIG_MMC_SDHCI_BST=y
-> 
-> This is still wrongly ordered. Look at your Kconfig. Run savedefconfig.
 
-Hi Krzysztof,
+On 09/02/26 4:19 pm, Barry Song wrote:
+> On Mon, Feb 9, 2026 at 5:54 PM David Hildenbrand (Arm) <david@kernel.org> wrote:
+>> On 1/16/26 17:26, Baolin Wang wrote:
+>>> As Dev reported[1], it's not ready to support batched unmapping for uffd case.
+>>> Let's still fallback to per-page unmapping for the uffd case.
+>>>
+>>> [1] https://lore.kernel.org/linux-mm/20260116082721.275178-1-dev.jain@arm.com/
+>>> Reported-by: Dev Jain <dev.jain@arm.com>
+>>> Suggested-by: Barry Song <baohua@kernel.org>
+>>> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+>>> ---
+>>>   mm/rmap.c | 3 +++
+>>>   1 file changed, 3 insertions(+)
+>>>
+>>> diff --git a/mm/rmap.c b/mm/rmap.c
+>>> index f13480cb9f2e..172643092dcf 100644
+>>> --- a/mm/rmap.c
+>>> +++ b/mm/rmap.c
+>>> @@ -1953,6 +1953,9 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
+>>>       if (pte_unused(pte))
+>>>               return 1;
+>>>
+>>> +     if (userfaultfd_wp(vma))
+>>> +             return 1;
+>>> +
+>> Interesting. I was just wondering why we didn't run into that with lazyfree folios.
+>>
+>> Staring at pte_install_uffd_wp_if_needed(), we never set the marker for
+>> anonymous VMAs.
+>>
+>> So, yeah, if one sets lazyfree on a uffd-wp PTE, the uffd-wp bit will just get
+>> zapped alongside. Just like MADV_DONTNEED.
+>>
+>>
+>> I'm fine with that temporary fix. But I guess the non-hacky way to handle this would be:
+>>
+>>
+>>  From 53d016d6e6f624425dbdbc2fb1dec7c91fbef15c Mon Sep 17 00:00:00 2001
+>> From: "David Hildenbrand (Arm)" <david@kernel.org>
+>> Date: Mon, 9 Feb 2026 10:52:59 +0100
+>> Subject: [PATCH] tmp
+>>
+>> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+>> ---
+>>   include/linux/mm_inline.h | 15 ++++++---------
+>>   mm/memory.c               | 21 +--------------------
+>>   mm/rmap.c                 |  2 +-
+>>   3 files changed, 8 insertions(+), 30 deletions(-)
+>>
+>> diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
+>> index fa2d6ba811b5..8a9a2c5f5ee3 100644
+>> --- a/include/linux/mm_inline.h
+>> +++ b/include/linux/mm_inline.h
+>> @@ -566,9 +566,8 @@ static inline pte_marker copy_pte_marker(
+>>    *
+>>    * Returns true if an uffd-wp pte was installed, false otherwise.
+>>    */
+>> -static inline bool
+>> -pte_install_uffd_wp_if_needed(struct vm_area_struct *vma, unsigned long addr,
+>> -                             pte_t *pte, pte_t pteval)
+>> +static inline bool install_uffd_wp_ptes_if_needed(struct vm_area_struct *vma,
+>> +               unsigned long addr, pte_t *pte, unsigned int nr, pte_t pteval)
+>>   {
+>>         bool arm_uffd_pte = false;
+>>
+>> @@ -598,13 +597,11 @@ pte_install_uffd_wp_if_needed(struct vm_area_struct *vma, unsigned long addr,
+>>         if (unlikely(pte_swp_uffd_wp_any(pteval)))
+>>                 arm_uffd_pte = true;
+>>
+>> -       if (unlikely(arm_uffd_pte)) {
+>> -               set_pte_at(vma->vm_mm, addr, pte,
+>> -                          make_pte_marker(PTE_MARKER_UFFD_WP));
+>> -               return true;
+>> -       }
+>> +       if (likely(!arm_uffd_pte))
+>> +               return false;
+>>
+>> -       return false;
+>> +       set_ptes(vma->vm_mm, addr, pte, make_pte_marker(PTE_MARKER_UFFD_WP), nr);
+>> +       return true;
+>>   }
+>>
+>>   static inline bool vma_has_recency(const struct vm_area_struct *vma)
+>> diff --git a/mm/memory.c b/mm/memory.c
+>> index da360a6eb8a4..0a87d02a9a69 100644
+>> --- a/mm/memory.c
+>> +++ b/mm/memory.c
+>> @@ -1592,29 +1592,10 @@ zap_install_uffd_wp_if_needed(struct vm_area_struct *vma,
+>>                               unsigned long addr, pte_t *pte, int nr,
+>>                               struct zap_details *details, pte_t pteval)
+>>   {
+>> -       bool was_installed = false;
+>> -
+>> -       if (!uffd_supports_wp_marker())
+>> -               return false;
+>> -
+>> -       /* Zap on anonymous always means dropping everything */
+>> -       if (vma_is_anonymous(vma))
+>> -               return false;
+>> -
+>>         if (zap_drop_markers(details))
+>>                 return false;
+>>
+>> -       for (;;) {
+>> -               /* the PFN in the PTE is irrelevant. */
+>> -               if (pte_install_uffd_wp_if_needed(vma, addr, pte, pteval))
+>> -                       was_installed = true;
+>> -               if (--nr == 0)
+>> -                       break;
+>> -               pte++;
+>> -               addr += PAGE_SIZE;
+>> -       }
+>> -
+>> -       return was_installed;
+>> +       return install_uffd_wp_ptes_if_needed(vma, addr, pte, nr, pteval);
+>>   }
+>>
+>>   static __always_inline void zap_present_folio_ptes(struct mmu_gather *tlb,
+>> diff --git a/mm/rmap.c b/mm/rmap.c
+>> index 7b9879ef442d..f71aacf35925 100644
+>> --- a/mm/rmap.c
+>> +++ b/mm/rmap.c
+>> @@ -2061,7 +2061,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+>>                  * we may want to replace a none pte with a marker pte if
+>>                  * it's file-backed, so we don't lose the tracking info.
+>>                  */
+>> -               pte_install_uffd_wp_if_needed(vma, address, pvmw.pte, pteval);
+>> +               install_uffd_wp_ptes_if_needed(vma, address, pvmw.pte, nr_pages, pteval);
+>>
+>>                 /* Update high watermark before we lower rss */
+>>                 update_hiwater_rss(mm);
+>> --
+>> 2.43.0
+>>
+>>
+>>
+>> Does somebody have time to look into that? We should also adjust the doc of pte_install_uffd_wp_if_needed()
+>> and turn it into some proper kerneldoc.
+> I'd nominate Dev, if he has the time, as he has been working on
+> related changes and is already familiar with this area :-)
+>
+> https://lore.kernel.org/linux-mm/20260116082721.275178-1-dev.jain@arm.com/
 
-Thank you for catching this again. Sorry for the repeated mistake.
+Indeed, I'll be taking a stab on the uffd batching, and the generic folio batching
+(meaning anon folios now).
 
-I incorrectly placed CONFIG_MMC_SDHCI_BST right after CONFIG_MMC_SDHCI_ACPI,
-but in Kconfig, MMC_SDHCI_BST is defined after MMC_SDHCI_BCM_KONA (much later
-than MMC_SDHCI_ACPI). I have now run savedefconfig and confirmed the correct
-position is between CONFIG_MMC_SDHCI_TEGRA and CONFIG_MMC_SDHCI_F_SDH30:
-
-  CONFIG_MMC_SDHCI_TEGRA=y
- +CONFIG_MMC_SDHCI_BST=y
-  CONFIG_MMC_SDHCI_F_SDH30=y
-
-Will fix this in v6 along with the DTS patch, which will be submitted to
-the SoC tree as per Ulf's direction.
-
-Best regards,
-Albert
+>
+> I assume this could be treated as a separate optimization, as
+> the current temporary fix seems acceptable?
+>
+> Thanks
+> Barry
 
