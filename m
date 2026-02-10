@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4432AE94626
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 00:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B02E94626
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Feb 2026 00:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qLzFv/iaTtm6O5tzZ+GpAratMNjp1TNVZjLH5IvnkwY=; b=MIg8LB7ipzN0eknm3ehb+gq8s/
-	SQv3pfduPxAtEkj4R/zT5q3uilBKj26HldXBTl+9pO1VU/dmHRJ4Tku+5RJXWkgYJh0pYxRFGwm3S
-	NeBsOZfQ7nKsse1Usn0Iq2UQA6y070ur+b3Fc4unkjZ64sMHh72JT+aRe0fSU3eUSZPk1MvwZrrKh
-	hV56mXYCcSsHl8YlMhaGXO1IPmkKXDba12e0TWssyUMlYyo2CjQxtQoLW8rectxuG6tNPZ+/GVCnc
-	tne5Ix4IyWy5IIY2tbVLLG6imyOvb/oZbvlNSRNOVVi7+t0sm+/zftjYudHh9sIFkZyBaweep9aYF
-	gOf6I1sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nxXI8l7mBhAHhtPsEqiS+zxwfTuuffsSQ4csGmQe5w4=; b=iKPjlXuhCcZ94sWGf9qSAvaorK
+	KBuqxXp87qtsDM/oWbOeQWn1g4z6auyQgDwSEJXCef9ieuXg7TKZ3q4ibRxIwIl1ZnSdwFfqTKQbw
+	BTMG/FxexytE0t68++POMpQqR5ehDxU9+kyjAo1bZOV6djodRfXZtVpoDC3AXtxUbee/iMs7fmI6R
+	yH9FYJZ247dHq/A7sTFXaC1RLtVxD6qxNX4EI0Uk659JAj/S4wcr5s5VlGEw0o/T6fQCh+zU3rZIk
+	LujX7fHi/9NNQcBGqKBcG49F9f17gKUb4FS/qsLNCF0S+qnTIlj1VPEhSZkDcGwFS4oXA/uIYQnV0
+	S36xEZOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpbnA-0000000GEfS-3CYg;
-	Tue, 10 Feb 2026 00:39:48 +0000
-Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	id 1vpbnc-0000000GEn4-2Wn4;
+	Tue, 10 Feb 2026 00:40:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpbn5-0000000GEeQ-0g2f
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Feb 2026 00:39:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1770683978; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=qLzFv/iaTtm6O5tzZ+GpAratMNjp1TNVZjLH5IvnkwY=;
-	b=xkkAwuUOCWb0HtaYj3FZjc+9UyDITjc7u0w4eY++55f2XfizR6Kg63lKeuRRjCRJwtCxJbQRpjceV3zuyar8WU93SrAlZqargE0Y4xmoCTpwtuIU4jHdNAK3KZbCdPbqKybWHHfVmpf2K/rk2No8nagPBTLbEBnTIaLvkFy7WJQ=
-Received: from 30.74.144.109(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0Wyx2lhG_1770683976 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 10 Feb 2026 08:39:36 +0800
-Message-ID: <48e27f5e-d47a-4d53-bc64-6c6a22db9180@linux.alibaba.com>
-Date: Tue, 10 Feb 2026 08:39:35 +0800
+	id 1vpbna-0000000GEm7-0E0q;
+	Tue, 10 Feb 2026 00:40:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AF4DA43B06;
+	Tue, 10 Feb 2026 00:40:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65425C19422;
+	Tue, 10 Feb 2026 00:40:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770684012;
+	bh=okG7UjQjG+NhkvALP4XREVKya0FPqfH1FHODxx8wyTo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RjLsI8v3e2pMavrZlMuLaQ6rPrgulHjdzXeEk3+UIUQj256jPEPqCsUsrNkxhJUIG
+	 KPmH6dxedINMg7ek2+SMmDBIBY8lsaGptkWi5i1n+OAsjJPM220O0+J+Tm2lUipNLV
+	 I6q20eXmWQPh1IFvijn7+23kQKiIF/Q0gTj6RlDb2gXIyUlFe0Djc+PykXjaoILObs
+	 3z7mVU1FRVYtyOUeCdiwx0a3Fzrgm4j5a8zF6pFdBU1CrVZkZsPjOKdchu0AxWF1iv
+	 14vF66+jTGxt9hryK+MNdGoLshhTRblMo7vFBLkMbM98OTF19VjY5vPGC+ieHYFyGk
+	 l3d3U8XwuoNuQ==
+Date: Mon, 9 Feb 2026 18:40:11 -0600
+From: Rob Herring <robh@kernel.org>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: vkoul@kernel.org, neil.armstrong@linaro.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, s32@nxp.com,
+	p.zabel@pengutronix.de, linux@armlinux.org.uk,
+	ghennadi.procopciuc@nxp.com, Ionut.Vicovan@nxp.com,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org, horms@kernel.org, Frank.li@nxp.com
+Subject: Re: [PATCH 1/4 v2] dt-bindings: serdes: s32g: Add NXP serdes
+ subsystem
+Message-ID: <20260210004011.GA2188625-robh@kernel.org>
+References: <20260203161917.1666696-1-vincent.guittot@linaro.org>
+ <20260203161917.1666696-2-vincent.guittot@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/5] arm64: mm: implement the architecture-specific
- clear_flush_young_ptes()
-To: "David Hildenbrand (Arm)" <david@kernel.org>, akpm@linux-foundation.org,
- catalin.marinas@arm.com, will@kernel.org
-Cc: lorenzo.stoakes@oracle.com, ryan.roberts@arm.com,
- Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com,
- mhocko@suse.com, riel@surriel.com, harry.yoo@oracle.com, jannh@google.com,
- willy@infradead.org, baohua@kernel.org, dev.jain@arm.com,
- linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <cover.1770645603.git.baolin.wang@linux.alibaba.com>
- <ce749fbae3e900e733fa104a16fcb3ca9fe4f9bd.1770645603.git.baolin.wang@linux.alibaba.com>
- <10f061c9-5c9a-4e8a-8790-a2a68b38ff33@kernel.org>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <10f061c9-5c9a-4e8a-8790-a2a68b38ff33@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260203161917.1666696-2-vincent.guittot@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260209_163944_354995_DE7769D1 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20260209_164014_131627_30EFC382 
+X-CRM114-Status: GOOD (  18.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,67 +77,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2/9/26 11:30 PM, David Hildenbrand (Arm) wrote:
-> On 2/9/26 15:07, Baolin Wang wrote:
->> Implement the Arm64 architecture-specific clear_flush_young_ptes() to 
->> enable
->> batched checking of young flags and TLB flushing, improving 
->> performance during
->> large folio reclamation.
->>
->> Performance testing:
->> Allocate 10G clean file-backed folios by mmap() in a memory cgroup, 
->> and try to
->> reclaim 8G file-backed folios via the memory.reclaim interface. I can 
->> observe
->> 33% performance improvement on my Arm64 32-core server (and 10%+ 
->> improvement
->> on my X86 machine). Meanwhile, the hotspot folio_check_references() 
->> dropped
->> from approximately 35% to around 5%.
->>
->> W/o patchset:
->> real    0m1.518s
->> user    0m0.000s
->> sys    0m1.518s
->>
->> W/ patchset:
->> real    0m1.018s
->> user    0m0.000s
->> sys    0m1.018s
->>
->> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
->> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
->> ---
->>   arch/arm64/include/asm/pgtable.h | 11 +++++++++++
->>   1 file changed, 11 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/ 
->> asm/pgtable.h
->> index 3dabf5ea17fa..a17eb8a76788 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -1838,6 +1838,17 @@ static inline int ptep_clear_flush_young(struct 
->> vm_area_struct *vma,
->>       return contpte_clear_flush_young_ptes(vma, addr, ptep, 1);
->>   }
->> +#define clear_flush_young_ptes clear_flush_young_ptes
->> +static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
->> +                     unsigned long addr, pte_t *ptep,
->> +                     unsigned int nr)
->> +{
->> +    if (likely(nr == 1 && !pte_cont(__ptep_get(ptep))))
-> I guess similar cases where we should never end up with non-present ptes 
-> should be updated accordingly.
+On Tue, Feb 03, 2026 at 05:19:14PM +0100, Vincent Guittot wrote:
+> Describe the serdes subsystem available on the S32G platforms.
 > 
-> ptep_test_and_clear_young(), for example, should never be called on non- 
-> present ptes.
+> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> ---
+>  .../bindings/phy/nxp,s32g-serdes.yaml         | 154 ++++++++++++++++++
+>  1 file changed, 154 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml b/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
+> new file mode 100644
+> index 000000000000..fad34bee2a4f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
+> @@ -0,0 +1,154 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/nxp,s32g-serdes.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: NXP S32G2xxx/S32G3xxx SerDes PHY subsystem
+> +
+> +maintainers:
+> +  - Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+> +
+> +description: |
+> +  The SerDes subsystem on S32G SoC Family includes two types of PHYs:
+> +    - One PCIe PHY: Supports various PCIe operation modes
+> +    - Two Ethernet Physical Coding Sublayer (XPCS) controllers
+> +
+> +  SerDes operation mode selects the enabled PHYs and speeds. Clock frequency
+> +  must be adapted accordingly. Below table describes all possible operation
+> +  modes.
+> +
+> +  Mode  PCIe	XPCS0		XPCS1		PHY clock	Description
+> +                SGMII		SGMII		  (MHz)
+> +  -------------------------------------------------------------------------
+> +  0	Gen3	N/A		N/A		100		Single PCIe
+> +  1	Gen2	1.25Gbps	N/A		100		PCIe/SGMII
+> +  2	Gen2	N/A		1.25Gbps	100		PCIe/SGMII
+> +  3	N/A	1.25Gbps	1.25Gbps	100,125		SGMII
+> +  4	N/A	3.125/1.25Gbps	3.125/1.25Gbps 	125		SGMII
+> +  5	Gen2	N/A	        3.125Gbps     	100		PCIe/SGMII
 
-Yes. I already adrressed this in my follow-up patchset.
+Mixed tabs and spaces. Drop the tabs.
 
-> Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+What's not clear to me is do you have 2 or 4 lanes?
 
-Thanks.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - enum:
+> +          - nxp,s32g2-serdes
+> +      - items:
+> +          - const: nxp,s32g3-serdes
+> +          - const: nxp,s32g2-serdes
+> +
+> +  reg:
+> +    maxItems: 4
+> +
+> +  reg-names:
+> +    items:
+> +      - const: ss_pcie
+> +      - const: pcie_phy
+> +      - const: xpcs0
+> +      - const: xpcs1
+> +
+> +  clocks:
+> +    minItems: 4
+> +    maxItems: 5
+> +
+> +  clock-names:
+> +    items:
+> +      - const: axi
+> +      - const: aux
+> +      - const: apb
+> +      - const: ref
+> +      - const: ext
+> +    minItems: 4
+> +
+> +  resets:
+> +    maxItems: 2
+> +
+> +  reset-names:
+> +    items:
+> +      - const: serdes
+> +      - const: pcie
+> +
+> +  nxp,sys-mode:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+
+       maximum: 5
+
+Though isn't this redundant with the child nodes? You could use the 
+standard 'phy-mode' property in each child.
+
+> +    description: |
+> +      SerDes operational mode. See above table for possible values.
+> +
+> +  '#address-cells':
+> +    const: 1
+> +
+> +  '#size-cells':
+> +    const: 0
+> +
+> +patternProperties:
+> +  '^serdes[0,1]_lane@[0,1]$':
+
+Do you need to support serdes0_lane@0 and serdes1_lane@0 (or similar 
+with "@1")? That's illegal as you have 2 nodes with the same address.
+
+> +    description:
+> +      Describe a serdes lane.
+> +    type: object
+> +
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - nxp,s32g2-serdes-pcie-phy
+> +          - nxp,s32g2-serdes-xpcs
+
+Seems like phy-mode would be sufficient. Are these separate blocks from 
+the parent?
+
+> +
+> +      reg:
+> +        maxItems: 1
+
+Just 'maximum: 1' instead.
+
+> +
+> +      '#phy-cells':
+> +        const: 0
+> +
+> +    required:
+> +      - reg
+> +      - compatible
+> +
+> +    unevaluatedProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - reset-names
+> +  - nxp,sys-mode
+> +  - '#address-cells'
+> +  - '#size-cells'
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    bus {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +        serdes0: serdes@40480000 {
+> +          compatible = "nxp,s32g3-serdes", "nxp,s32g2-serdes";
+> +            reg = <0x0 0x40480000 0x0 0x108>,
+> +                  <0x0 0x40483008 0x0 0x10>,
+> +                  <0x0 0x40482000 0x0 0x800>,
+> +                  <0x0 0x40482800 0x0 0x800>;
+> +            reg-names = "ss_pcie", "pcie_phy", "xpcs0", "xpcs1";
+> +            clocks = <&clks 1>,
+> +                     <&clks 2>,
+> +                     <&clks 3>,
+> +                     <&clks 4>,
+> +                     <&serdes_100_ext>;
+> +            clock-names = "axi", "aux", "apb", "ref", "ext";
+> +            resets = <&reset 9>,
+> +                     <&reset 8>;
+> +            reset-names = "serdes", "pcie";
+> +            nxp,sys-mode = <1>;
+> +            #address-cells = <1>;
+> +            #size-cells = <0>;
+> +            phy_pcie0: serdes0_lane@0 {
+> +              compatible = "nxp,s32g2-serdes-pcie-phy";
+> +              #phy-cells = <0>;
+> +              reg = <0>;
+> +            };
+> +            phy_xpcs0_0: serdes0_lane@1 {
+> +              compatible = "nxp,s32g2-serdes-xpcs";
+> +              reg = <0>;
+> +            };
+> +        };
+> +    };
+> -- 
+> 2.43.0
+> 
 
