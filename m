@@ -4,83 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EACA9EB5976
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 08:47:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADD2AEB597E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 09:08:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tbYZJPtzfNeGa4KqfQcB7C9ai7mWnC80SXxCFDp2yBE=; b=vUcRVCER2MJcM9kwckyGfPx15J
-	lLZZp3jum2L0dXl0589TQjyaxTqA53JbXBKMc8iLQS69xIToibJ/Dm/OJW9a646nfX/22uwkdHcUS
-	noH9wIMhF6TAq54k5iWp7fcBebbXI+mASRpuw4jzWSk3WEVqYEkxCeag5CVAQ2Rp4L3ViR923uCQ0
-	83gU2DlYrGYPU3CUUglq9+vL36eo2DP+f+8dU2bN9QOhXndAbVU3QWBVO1c4YYRKFjxxzb9x8aDue
-	jjJg3N9UgJOMAyiUA/xFcrNaVbCtn5zIvFOVn6IKZa5IGoITAVzO+1zygioqh3rTUGOVYOkVqyM8r
-	nuNESUNQ==;
+	bh=1QCKGQMBJpefZ4e5yK9+2w5vu5sQ26oBeLHe6vX8tFg=; b=QFoH7BIYfPHnOxvkud4O4kDpmK
+	hVW4IhpQJ9n5atLn7KhSV/tswHHbmbZy8bwLqoQjVhaXBaNtph80xVBrYPvkfnTpTVIyvzzIAAtCu
+	xKr1B0TM5SQsGINrqXVecqaghJfdRu3vFbnBmNl/PceZhGgymmiojuGQnRfN0Z6/7XbU4QlAyT4Zz
+	5WSosDuET2VmLgqkbK89ruFo3Ovgr3F+TKizC/7JtQ2cDSJ1sMDzRbAOVFk893z3hoYYxL/tDDQl3
+	mBBtf9fqGNGTj2THWHZHWiTgb2tz52MxwU2PpgGd1c1ELGx0ngxSF4s8MHz6+3HmfBgXln8z0DWWw
+	VmkYEz3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq5so-00000000P4S-0K8H;
-	Wed, 11 Feb 2026 08:47:38 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq5sk-00000000P3r-2MXI
+	id 1vq6DN-00000000PsU-21V0;
+	Wed, 11 Feb 2026 09:08:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vq6DK-00000000Ps6-2xUW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Feb 2026 08:47:37 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 7F656C653F4;
-	Wed, 11 Feb 2026 08:47:30 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id BB367606BE;
-	Wed, 11 Feb 2026 08:47:21 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 21F7B11948BAF;
-	Wed, 11 Feb 2026 09:47:09 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1770799640; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=tbYZJPtzfNeGa4KqfQcB7C9ai7mWnC80SXxCFDp2yBE=;
-	b=gc0koEG5d4I+4+aKeG0lyb0aKeJGcOJn57j88++ThKOX92rUt7VF+mraTBEGGzkA0yfFft
-	LYxOd154SeIqbQf84wbKvMqQsBBxcxQ7BSru9O/QNmowaRLBdj1iXD+Bqo9G1cwnYVQb2F
-	3nU2S1CZg1vRB6CWYTWmHXSfc7xuuwZQzqQ519IBxPwAa/A6A1kIIokPI34dm+DGeYdVvq
-	liq7NStumVbuS+enU3kolkGxbFLlrQgcVNq1dJMpuTH/Ri6CXiFz/6lPdWQKoF9PvpUgHH
-	dnPC0d6sSdtHTq9k3hJ5OlGwrKajBX6y6wHhnB/3CD5HqFFfjbhIUuDvBkEpyA==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Jyri Sarha <jyri.sarha@iki.fi>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Tony Lindgren <tony@atomide.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Cc: Markus Schneider-Pargmann <msp@baylibre.com>, 
- Bajjuri Praneeth <praneeth@ti.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Miguel Gazquez <miguel.gazquez@bootlin.com>, 
- Herve Codina <herve.codina@bootlin.com>, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260123-feature_tilcdc-v5-0-5a44d2aa3f6f@bootlin.com>
-References: <20260123-feature_tilcdc-v5-0-5a44d2aa3f6f@bootlin.com>
-Subject: Re: [PATCH v5 00/25] Clean and update tilcdc driver to support
- DRM_BRIDGE_ATTACH_NO_CONNECTOR
-Message-Id: <177079962986.1196687.11987437266199565774.b4-ty@bootlin.com>
-Date: Wed, 11 Feb 2026 09:47:09 +0100
+	Wed, 11 Feb 2026 09:08:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9CDAE339;
+	Wed, 11 Feb 2026 01:08:40 -0800 (PST)
+Received: from [192.168.178.73] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 201C83F740;
+	Wed, 11 Feb 2026 01:08:44 -0800 (PST)
+Message-ID: <c78bd0c3-6889-46f8-8b5a-e3490ce7b9c5@arm.com>
+Date: Wed, 11 Feb 2026 10:08:43 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] pinctrl: sunxi: add GPIO get_direction callback
+To: James Hilliard <james.hilliard1@gmail.com>, linux-sunxi@lists.linux.dev,
+ linux-gpio@vger.kernel.org
+Cc: Linus Walleij <linusw@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Bartosz Golaszewski <brgl@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260211033249.2770281-1-james.hilliard1@gmail.com>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260211033249.2770281-1-james.hilliard1@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_004734_893834_A0FACE59 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20260211_010850_904629_0D5372A4 
+X-CRM114-Status: GOOD (  21.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,76 +67,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi James,
 
-On Fri, 23 Jan 2026 17:12:18 +0100, Kory Maincent (TI.com) wrote:
-> The starting point for this work was adding support for the HDMI cape:
-> https://www.seeedstudio.com/Seeed-Studio-BeagleBone-Green-HDMI-Cape.html
-> This will be sent in a later series.
+On 2/11/26 04:32, James Hilliard wrote:
+> Implement sunxi_pinctrl_gpio_get_direction() and wire it into
+> the sunxi gpio_chip setup.
+
+thanks for taking care and sending a patch! I am still scratching my 
+head what this warning is about exactly and why we only see this now? I 
+never saw this, so what caused that? libgpiod accesses from userland?
+
+Regardless, can we hold back this patch, please? As part of the A733 
+pinctrl support (and as LinusW asked kindly about that) I was reworking 
+our driver to use the generic gpio interface, and I have a feeling this 
+would solve this problem automatically?
+The actual pinctrl conversion is done, I just need to plug in the IRQ 
+support. I ideally would have something in the next days to post, would 
+that be worth waiting for?
+
+Cheers,
+Andre
+
+
+
 > 
-> Initially, Miguel proposed modifying the ite-it66121 bridge to support
-> the legacy behavior without the DRM_BRIDGE_ATTACH_NO_CONNECTOR flag:
-> https://lore.kernel.org/lkml/20250909-it66121-fix-v1-1-bc79ca83df17@bootlin.com/
-> This patch was NAK'd as we don't want to add more legacy code. Maxime
-> requested that the tilcdc driver be updated to use
-> DRM_BRIDGE_ATTACH_NO_CONNECTOR instead.
+> The new callback reads the pin mux register and compares the mux
+> value against the pin descriptor gpio_in and gpio_out functions
+> to report GPIO_LINE_DIRECTION_IN or GPIO_LINE_DIRECTION_OUT.
+> If the pin is muxed to irq, report it as input.
 > 
-> [...]
-
-Applied, thanks!
-
-[01/25] dt-bindings: display: tilcdc: Convert to DT schema
-        commit: e88bb45cf742177a18d63d306be345a294b4c1db
-[02/25] dt-bindings: display: tilcdc: Mark panel binding as deprecated
-        commit: bc3f1e36d12969060c9068b9c7c14407f869270e
-[03/25] drm/tilcdc: Remove simulate_vesa_sync flag
-        commit: 332146d21d1d4211520957458973f4316a6c2fa7
-[04/25] drm/tilcdc: Add support for DRM bus flags and simplify panel config
-        commit: ca062af436593d66ce2afa4cd00a4cb2fb775755
-[05/25] drm/tilcdc: Convert legacy panel binding via DT overlay at boot time
-        commit: 0ff223d991477fa4677dcb0f1fb00065847e2212
-[06/25] drm/tilcdc: Remove tilcdc panel driver
-        commit: 8f1e1ab9c794a6efa7ab2b076405b4984319efec
-[07/25] drm/tilcdc: Remove component framework support
-        commit: b8c3fd741f02b79dceb0489dec49692d447015f9
-[08/25] drm/tilcdc: Remove tilcdc_panel_info structure
-        commit: 1184e7785d0fafd3b111b0eaf1caeaeec32ba88d
-[09/25] drm/tilcdc: Remove redundant #endif/#ifdef in debugfs code
-        commit: da4837fb7513db5da6be7fd32e8d8efe8bff673b
-[10/25] drm/tilcdc: Remove unused encoder and connector tracking arrays
-        commit: e9946e3a869406ed743f64c9fdf8fb5c6af739ba
-[11/25] drm/tilcdc: Rename external_encoder and external_connector to encoder and connector
-        commit: 9a49c20f3360699439035e0d8543292e4b028f04
-[12/25] drm/tilcdc: Rename tilcdc_external to tilcdc_encoder
-        commit: cb18dbb74f46bd0aa612aaae144dd191c548739c
-[13/25] drm/tilcdc: Remove the useless module list support
-        commit: 8fcc0eb34d79d2733ce617073a4c52b42ffeb00f
-[14/25] drm/tilcdc: Use drm_module_platform_driver() helper
-        commit: 87e66f60f63a746094134bc3e0ffdb6bd87afcb1
-[15/25] drm/tilcdc: Move tilcdc_init/fini closer to probe/remove
-        commit: e41591e7474920187be7af0404ec9ed63b5f4614
-[16/25] drm/tilcdc: Modernize driver initialization and cleanup paths
-        commit: 3301302060da8c2034e5e10dc231023ec98051fb
-[17/25] drm/tilcdc: Remove the use of drm_device private_data
-        commit: 968fefee98d80bedbf1765e48201746880bf7277
-[18/25] drm/tilcdc: Convert to DRM managed resources
-        commit: 323401c9a166ea5faa300778f3ca336c01d8835a
-[19/25] drm/tilcdc: Convert to drm_device-based logging helpers
-        commit: 2c6f1b1fa78acd5f3bd80e3519b6b23907ea9c2f
-[20/25] drm/tilcdc: Use devm_drm_of_get_bridge() helper
-        commit: 1b47ea9fddcf89e4b65045d233bc5a2ee7775df7
-[21/25] drm/bridge: tda998x: Remove component support
-        commit: d700fd0ff100f4c301dafeb6b944c7229d0adda7
-[22/25] drm/bridge: tda998x: Move tda998x_create/destroy into probe and remove
-        commit: 22b88deb83af2b94f0441075e5528d16d5dcf5b2
-[23/25] drm/bridge: tda998x: Remove useless tda998x_connector_destroy wrapper
-        commit: 8ab51f56fd711cd9aa3960916cb0cc4bbc978eb5
-[24/25] drm/bridge: tda998x: Add support for DRM_BRIDGE_ATTACH_NO_CONNECTOR
-        commit: c76a8be4feecebbb39095e3c012b67e0f939543d
-[25/25] drm/tilcdc: Add support for DRM_BRIDGE_ATTACH_NO_CONNECTOR
-        commit: 400a84e1f7a3681ef24d58d49b5d07e81c14f4e9
-
-Best regards,
--- 
-Luca Ceresoli <luca.ceresoli@bootlin.com>
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> ---
+>   drivers/pinctrl/sunxi/pinctrl-sunxi.c | 32 +++++++++++++++++++++++++++
+>   1 file changed, 32 insertions(+)
+> 
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> index 0fb057a07dcc..424f23be27b2 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> @@ -995,6 +995,37 @@ static int sunxi_pinctrl_gpio_direction_output(struct gpio_chip *chip,
+>   					    chip->base + offset, false);
+>   }
+>   
+> +static int sunxi_pinctrl_gpio_get_direction(struct gpio_chip *chip,
+> +					    unsigned int offset)
+> +{
+> +	struct sunxi_pinctrl *pctl = gpiochip_get_data(chip);
+> +	struct sunxi_desc_function *in, *out, *irq;
+> +	u32 reg, shift, mask, val;
+> +	u16 pin = chip->base + offset;
+> +
+> +	in = sunxi_pinctrl_desc_find_function_by_pin(pctl, pin, "gpio_in");
+> +	out = sunxi_pinctrl_desc_find_function_by_pin(pctl, pin, "gpio_out");
+> +	if (!in || !out)
+> +		return -EINVAL;
+> +
+> +	irq = sunxi_pinctrl_desc_find_function_by_pin(pctl, pin, "irq");
+> +
+> +	sunxi_mux_reg(pctl, offset, &reg, &shift, &mask);
+> +	val = (readl(pctl->membase + reg) & mask) >> shift;
+> +
+> +	if (val == in->muxval)
+> +		return GPIO_LINE_DIRECTION_IN;
+> +
+> +	if (val == out->muxval)
+> +		return GPIO_LINE_DIRECTION_OUT;
+> +
+> +	/* IRQ function is effectively input. */
+> +	if (irq && val == irq->muxval)
+> +		return GPIO_LINE_DIRECTION_IN;
+> +
+> +	return -EINVAL;
+> +}
+> +
+>   static int sunxi_pinctrl_gpio_of_xlate(struct gpio_chip *gc,
+>   				const struct of_phandle_args *gpiospec,
+>   				u32 *flags)
+> @@ -1603,6 +1634,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+>   	pctl->chip->set_config = gpiochip_generic_config;
+>   	pctl->chip->direction_input = sunxi_pinctrl_gpio_direction_input;
+>   	pctl->chip->direction_output = sunxi_pinctrl_gpio_direction_output;
+> +	pctl->chip->get_direction = sunxi_pinctrl_gpio_get_direction;
+>   	pctl->chip->get = sunxi_pinctrl_gpio_get;
+>   	pctl->chip->set = sunxi_pinctrl_gpio_set;
+>   	pctl->chip->of_xlate = sunxi_pinctrl_gpio_of_xlate;
 
 
