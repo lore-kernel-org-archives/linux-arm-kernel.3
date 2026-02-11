@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB604EB5979
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 08:07:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C44BEB597B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 08:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Mime-Version:To:In-Reply-To:Message-Id:Subject:Cc:
-	Date:References:Content-Type:From:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YpKc6yOuTbCEZVNyOdM6S6S4lGv43npX1qdpkXI0FR0=; b=kz7Dd1Gzal5yia+XvLCT8tdODb
-	EmUxq2f38bjTDCGG+Gji115FBV8jqvIo6AkuDAMkX5Nwt2iVpZe2x/f/H8IggaodY1qAwDbXzrmT1
-	gSi4Y6Zt+IyMYFakOf3JveK0XEL+S3/flCkm+zE6vztQS96hIKbdWDwJA3xBhYYcDhSws2b/YFJvB
-	GOqXIWpRnFYuvWF06+lFfmw2jfeifDuKr6Ls/e8K6oa2H4SYSIShxZB9UrEdByPPacUMX5t+wTs2d
-	hRRFVGmGR8Ug/4F7umOjnvoK9j/bDvcfELNpw4PLAF4gVp95Q0DcGWvovCDRu1rKrMjMbHQGPTgtW
-	k28PPIwg==;
+	bh=bXjw/O+uX2CXVpNEfA/L/HJ33sI0vnH/Bk/UaN91F4Q=; b=l64yMJiXUrwVCD+2nb9lFDbSqv
+	zd6mSvtza0d4myuVBXOr6dmFI33MT4Dl1MtSRhK+uiKmd5bfFfidLMzd38jLh5nDF5MFvrVKJ1muW
+	8r71PR90POABi5UXsqJ0PBBacs8ZP4GOyiGyvKnWtv2ungqW+nGa5hkdXIga3/SsGPOi41UAR4aYa
+	Yxy1aTSceav67eOe6RpdukrlJOoPPttkCEuKD43ITJJxkaPx3jSmalSCqRhCjqcXdGeHRz4dnb/pN
+	hHtKg9AAh360NRnNIYUuBvYOHqFSxq9d06J86atn7auRmS5KKTlUPkahieHJyw0tuFyOo54uzcTlZ
+	kNaUlj2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq5Fb-00000000N1i-1BC3;
-	Wed, 11 Feb 2026 08:07:07 +0000
-Received: from sg-1-30.ptr.blmpb.com ([118.26.132.30])
+	id 1vq5Ns-00000000NSw-21UY;
+	Wed, 11 Feb 2026 08:15:40 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq5FW-00000000N0w-2aKe
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Feb 2026 08:07:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=fnnas-com.20200927.dkim.feishu.cn; t=1770797210;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=YpKc6yOuTbCEZVNyOdM6S6S4lGv43npX1qdpkXI0FR0=;
- b=uxCW6gf7lFzK5h6En8xfFA8sizOV7wFk0LvmoAIanh3B4KWgjWR0IKkbRobLyKhqQasvWV
- cU1kkmsd43cbWKRlhbfEKnapbLouRtIcQeTffLTCplcCVjOrqwW02WkhjmzyTERRkxJhNd
- 05HwGx3vlzxM6dUN/A2w5lfJowEgSpTFd/aafPKOdf7hzJZP36DV0Q0oTYGci1pvcBHUWr
- e1WngX1xZ4CsPp49xlNfkNymFR7IbXDh3EfYNYwsUTpoJee7Oz5bS4e+wuOiyxkJa/NK06
- qSNY3TF+WPrJCX5nI5wxUOvd58FMj2ahcjwhjRrcZkv2uat9MDLxr9chkQzu0Q==
-From: "Yu Kuai" <yukuai@fnnas.com>
-Content-Type: text/plain; charset=UTF-8
-References: <20260209082953.3053721-1-yukuai@fnnas.com> <20260209082953.3053721-5-yukuai@fnnas.com> <f5da8810-84cd-408b-a1e6-8e80c8578168@linux.ibm.com>
-X-Original-From: Yu Kuai <yukuai@fnnas.com>
-Date: Wed, 11 Feb 2026 16:06:46 +0800
-X-Lms-Return-Path: <lba+2698c3899+155a77+lists.infradead.org+yukuai@fnnas.com>
-User-Agent: Mozilla Thunderbird
-Cc: <tj@kernel.org>, <ming.lei@redhat.com>, <neal@gompa.dev>, 
-	<asahi@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 4/4] blk-mq: use blk_queue_enter/exit to protect debugfs file creation
-Message-Id: <5c255e26-3108-4622-b500-486c1d68d498@fnnas.com>
-Received: from [192.168.1.104] ([39.182.0.137]) by smtp.feishu.cn with ESMTPS; Wed, 11 Feb 2026 16:06:48 +0800
-In-Reply-To: <f5da8810-84cd-408b-a1e6-8e80c8578168@linux.ibm.com>
-To: "Nilay Shroff" <nilay@linux.ibm.com>, <axboe@kernel.dk>, 
-	<kbusch@kernel.org>, <hch@lst.de>, <sagi@grimberg.me>, <sven@kernel.org>, 
-	<j@jannau.net>, <linux-block@vger.kernel.org>, 
-	<linux-nvme@lists.infradead.org>, <yukuai@fnnas.com>
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Language: en-US
+	id 1vq5Np-00000000NS7-1iJ4;
+	Wed, 11 Feb 2026 08:15:39 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id B1A5912D6;
+	Wed, 11 Feb 2026 09:14:44 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1770797684;
+	bh=S9Nngd5Ci9bMCWrJoyP4sJg8P5P3CQre1ZbUDiRpvZk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mGwYWPigmx0VdBS6cJ/3BU3eujbykhWplrGRhfHhbcS27MQWTDKnGAYvaa/+wyGpQ
+	 h2M4jryw0SnLwAiD/H2tTUsrH3oZ1cuCLXx9vBh0ufkcRR5Xu9XgWeUGoMDUGzfFMM
+	 Ny+RfNy4P9ShnDbMutXWAUEcZaH+fhfHo9G/eWJc=
+Date: Wed, 11 Feb 2026 10:15:30 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Xiaolei Wang <xiaolei.wang@windriver.com>
+Cc: tomi.valkeinen@ideasonboard.com, kernel-list@raspberrypi.com,
+	mchehab@kernel.org, florian.fainelli@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com, hverkuil@xs4all.nl,
+	sakari.ailus@linux.intel.com, linux-media@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: rp1-cfe: Fix double-free on video device
+ re-registration
+Message-ID: <20260211081530.GB2553356@killaraus.ideasonboard.com>
+References: <20260211034501.1815035-1-xiaolei.wang@windriver.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260211034501.1815035-1-xiaolei.wang@windriver.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_000703_539937_C6281BBA 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20260211_001537_912743_BF643FCC 
+X-CRM114-Status: GOOD (  22.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,83 +67,72 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: yukuai@fnnas.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Xiaolei,
 
-=E5=9C=A8 2026/2/11 15:20, Nilay Shroff =E5=86=99=E9=81=93:
->
-> On 2/9/26 1:59 PM, Yu Kuai wrote:
->> diff --git a/block/blk-mq-debugfs.c b/block/blk-mq-debugfs.c
->> index faeaa1fc86a7..03583d0d3972 100644
->> --- a/block/blk-mq-debugfs.c
->> +++ b/block/blk-mq-debugfs.c
->> @@ -613,11 +613,6 @@ static void debugfs_create_files(struct request_que=
-ue *q, struct dentry *parent,
->>   				 const struct blk_mq_debugfs_attr *attr)
->>   {
->>   	lockdep_assert_held(&q->debugfs_mutex);
->> -	/*
->> -	 * Creating new debugfs entries with queue freezed has the risk of
->> -	 * deadlock.
->> -	 */
->> -	WARN_ON_ONCE(q->mq_freeze_depth !=3D 0);
->>   	/*
->>   	 * debugfs_mutex should not be nested under other locks that can be
->>   	 * grabbed while queue is frozen.
->> @@ -628,9 +623,19 @@ static void debugfs_create_files(struct request_que=
-ue *q, struct dentry *parent,
->>   	if (IS_ERR_OR_NULL(parent))
->>   		return;
->>  =20
->> +	/*
->> +	 * Avoid creating debugfs files while the queue is frozen, wait for
->> +	 * the queue to be unfrozen and prevent new freeze while creating
->> +	 * debugfs files.
->> +	 */
->> +	if (blk_queue_enter(q, 0))
->> +		return;
->> +
->>   	for (; attr->name; attr++)
->>   		debugfs_create_file_aux(attr->name, attr->mode, parent,
->>   				    (void *)attr, data, &blk_mq_debugfs_fops);
->> +
->> +	blk_queue_exit(q);
->>   }
->>  =20
->>   void blk_mq_debugfs_register(struct request_queue *q)
-> I also noticed that we use other debugfs helpers such as debugfs_create_d=
-ir()
-> from some block paths, which could run into the same fs-reclaim recursion=
- issue.
-> So we may need to consider those call sites as well to ensure consistent =
-handling.
+On Wed, Feb 11, 2026 at 11:45:01AM +0800, Xiaolei Wang wrote:
+> When a sensor driver is unloaded and reloaded (e.g., rmmod/insmod ov5647),
+> the cfe_async_complete callback is invoked again, attempting to re-register
+> video nodes that are still registered. This causes multiple issues:
+> 
+> 1. KASAN double-free in kfree_const when dev_set_name tries to free the
+>    kobject name that was already freed during video_unregister_device
+> 2. "tried to init an initialized object" warnings because the video_device
+>    kobject is re-initialized before being fully released
+> 
+> Fix this by:
+> - Adding a check in cfe_probe_complete() to skip nodes already in
+>   NODE_REGISTERED state, preventing duplicate registration attempts
+> - Implementing cfe_async_unbind() callback to properly clear the
+>   source_sd pointer when the subdevice is unbound
 
-Yes, sounds correct.
+I think a better fix would be to register video nodes at probe time, not
+when sensors are bound.
 
->
-> On another note, instead of waiting for queue to be unfreezed, does it ma=
-kes sense to
-> wrap the debugfs code under NOIO context (as Christoph pointed in another=
- thread)?
-> IMO, if fs-reclaim recursion is the only issue here we would be better of=
-f using
-> NOIO context instead of blocking for queue to be unfrozen from other cont=
-exts.
+> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
+> ---
+>  drivers/media/platform/raspberrypi/rp1-cfe/cfe.c | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+> 
+> diff --git a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+> index 62dca76b468d..d3813c79316d 100644
+> --- a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+> +++ b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+> @@ -2152,6 +2152,9 @@ static int cfe_probe_complete(struct cfe_device *cfe)
+>  	cfe->v4l2_dev.notify = cfe_notify;
+>  
+>  	for (unsigned int i = 0; i < NUM_NODES; i++) {
+> +		if (check_state(cfe, NODE_REGISTERED, i))
+> +			continue;
+> +
+>  		ret = cfe_register_node(cfe, i);
+>  		if (ret) {
+>  			cfe_err(cfe, "Unable to register video node %u.\n", i);
+> @@ -2204,8 +2207,19 @@ static int cfe_async_complete(struct v4l2_async_notifier *notifier)
+>  	return cfe_probe_complete(cfe);
+>  }
+>  
+> +static void cfe_async_unbind(struct v4l2_async_notifier *notifier,
+> +			     struct v4l2_subdev *subdev,
+> +			     struct v4l2_async_connection *asd)
+> +{
+> +	struct cfe_device *cfe = to_cfe_device(notifier->v4l2_dev);
+> +
+> +	cfe->source_sd = NULL;
+> +	cfe_info(cfe, "Unbinding subdev %s\n", subdev->name);
+> +}
+> +
+>  static const struct v4l2_async_notifier_operations cfe_async_ops = {
+>  	.bound = cfe_async_bound,
+> +	.unbind = cfe_async_unbind,
+>  	.complete = cfe_async_complete,
+>  };
+>  
 
-I can try this. So far, debugfs_mutex related deadlocks are related to fs-r=
-eclaim,
-although I'm not that confident there won't be any other  implicit dependen=
-cy.
-Meanwhile, looks like the previous patches for nvme targets are not necessa=
-ry anymore.
+-- 
+Regards,
 
-> Thanks,
-> --Nilay
->
---=20
-Thansk,
-Kuai
+Laurent Pinchart
 
