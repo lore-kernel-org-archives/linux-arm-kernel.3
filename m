@@ -4,99 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A38ECD6C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 16:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55D33ECD6C1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 16:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kmv+l6I1Mmt7+27jK79akKLkt8N0f0Ri3uD6FgXaqIg=; b=N108eI3GyIXi3cotVraO8ATDJu
-	5XWbQoVAatIrXdK/RygA1tNbCAujffxlgU5Ix9I96uj9Dr3wVhxDOG1VdgexYFUg/ElxOEWO3RhF0
-	s3phHbiAmIq36jLIj8RxhS4sJ8DsHi1RBkNV3yO7qQ1m0vDuq2v7h53BoCw/jEmVAgS7+JotNqb4n
-	R7sZ6j+r8uXb9/aSFfhl6WdOw6nOqVp22yNSlObV0hRLvlex1sa5+dWlmNtbse3zbIxQOYGgd4Cgm
-	OdM/2b4wUvO+sAbenrkgMJQ28s/zcimo64VLo68FOKhfJp1gwyfj2BlqKyErDLiP5UdB++uQScxEM
-	uqrrqKgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bAMSBrvK4JW2RP64mGnR+pd6rmCnSQHvODMr9ePslO4=; b=hpI6d0Ag1F3/u1c6MegvvKjnQR
+	HcYX6QCzQ+5s1964xCmGku9Bb9k3ouhMJwxcTep82T4D6TdiO5Ui05KyTk5aPoh2o5j/Ch6zwrJo7
+	VjB1jtxRO/Q+54WZsj7ceKaWUVafcsnIAwbiJW7fkEWki935gGtzE4jDs48zs4P7Oyixn3rUofU0t
+	DibpGFQ7al/1fHhDa/Tn3uTDWZ087k98yvunJZJ/Uj73HrYPKX5JLQhnBSo9rF8eOxtD23zMQiKUr
+	9u3d8Pas3acKd1kBERTBSoTeJu77Z3b8BkH7vDhwlwvIvhJ+pgWnauhwVJtApPJrYWce6+CgVvLEE
+	Edw/0y6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqD8e-00000000qX3-01OX;
-	Wed, 11 Feb 2026 16:32:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vqDYt-00000000rhW-48H7;
+	Wed, 11 Feb 2026 16:59:35 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqD8c-00000000qWU-0J5p
+	id 1vqDYs-00000000rgi-0iEZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Feb 2026 16:32:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C6C95600AD;
-	Wed, 11 Feb 2026 16:32:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16DD6C19423;
-	Wed, 11 Feb 2026 16:32:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770827544;
-	bh=UfYFQzw9DizcfbI8UKrSjkCRJhieWEEOgyJ4SZyP2T0=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=S/bNigMyu2iHQT1xmPSL1Ve8BuSCqCHVgygJX4vATi4CZvzQGbzYfmaPYbG7nc1FC
-	 6wFSVby6yNrbScmQc+MBaF9w2K/lPqKAeOrSlHuT01xGUHmnQEdBPLhl7Vfk+kKfiL
-	 ljbr7gZkjv+Qq0Relds2bfCXHUdsVDymHdjjJFA+G3jQjsxkCzVmfKTozfomy/hSiC
-	 5p4DBggLkOTg3n0KkeeZJvvvoYUWaopaS510xkmTa0244iQiw9Ix4lUlX+jLW0Wh1h
-	 sCxhoU0YTKugEgHMQ9qRPgGIPSuOeap0JFcZoTCGZYaV3btBKxTNet6X7brTeiJxof
-	 LDb362ewehG9w==
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 0D873F40068;
-	Wed, 11 Feb 2026 11:32:23 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Wed, 11 Feb 2026 11:32:23 -0500
-X-ME-Sender: <xms:Fq-MaRo16QXgUMCriSisFkAv3XAHq6k42Zu8W0FlpXBtoHzfDbuLew>
-    <xme:Fq-MaefLh2XgGgDwiX4g049pSO82U6L78kIPzhisBoGb4DQ79Y7Dkhl1biTSSm2dk
-    Y5-N1cFbltak_o1HmML9YAwCTVbVmiLXtxfOaxHYOoeeb0wFRjJ1g>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvtdeftdegucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusehkvghrnhgvlhdrohhrgheqnecuggftrfgrth
-    htvghrnhepjeejffetteefteekieejudeguedvgfeffeeitdduieekgeegfeekhfduhfel
-    hfevnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrnhguodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduvdekhedujedtvdeg
-    qddvkeejtddtvdeigedqrghrnhgupeepkhgvrhhnvghlrdhorhhgsegrrhhnuggsrdguvg
-    dpnhgspghrtghpthhtohepuddupdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehl
-    ihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepthhonhihsegrth
-    homhhiuggvrdgtohhmpdhrtghpthhtohepughmihhtrhihrdhtohhrohhkhhhovhesghhm
-    rghilhdrtghomhdprhgtphhtthhopehjmhhkrhiihihsiihtsehgmhgrihhlrdgtohhmpd
-    hrtghpthhtoheprggrrhhordhkohhskhhinhgvnhesihhkihdrfhhipdhrtghpthhtohep
-    sghrghhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehhrghnshhgsehkvghrnhgvlh
-    drohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdr
-    ihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegsrghrthhoshiirdhgohhlrghsii
-    gvfihskhhisehoshhsrdhquhgrlhgtohhmmhdrtghomh
-X-ME-Proxy: <xmx:Fq-MaWhZObjCIHQbqjkDMsVOzq99p7RF3KwnZuT3zLVo_N-oZUX5dw>
-    <xmx:Fq-MafJSnb3sKne5HvwMxdWaOguH57HCdonGqBU4xF_XnQGr2hYfVQ>
-    <xmx:Fq-MadnKMjH8KHpIGOUfEpKZJTNJn3ac73bjuYykG_9RfDP0NG4tvQ>
-    <xmx:Fq-MafPSVRX-o06ho0W-hsHiPJT3oAYbkZUPXmXhb9dp6t9pnOo8JA>
-    <xmx:F6-Maf5EBeBZKj1ozTd2eOuD0sF5ZudExoifaYVc9kme0IsOaBfmcPNU>
-Feedback-ID: i36794607:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id D6A92700065; Wed, 11 Feb 2026 11:32:22 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 11 Feb 2026 16:59:35 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2aad8123335so102665ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Feb 2026 08:59:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1770829172; x=1771433972; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=bAMSBrvK4JW2RP64mGnR+pd6rmCnSQHvODMr9ePslO4=;
+        b=CbCpURwygP2k4FTDZ1pNs1m1oHwxIVFOU8yYkRL1Piu8Xl4AnA1xUl/exaOiDU4F20
+         gL+liO587hwGQ9GR/+3R9EbVDK3P2/OyYrNQS8PHdceDoqpq7xO4/1EMKBP0lPRY3XaZ
+         FoNXuuj3pn3Wuf52AYKf48Gs5qPWhQROKpQXK60e07kHR90NpIrGbGooDAv1IVDBEEz0
+         lerp/fNLuUV6fn/lYkNvtrs+WrGOGXZAn7w/ELY97wAOKfyYQworMip9sPNCIToqOjLm
+         EMK6ztfXy2/UPtISiFix+TDYt6UfrC9ooU5X7R7qCs5WgNdEr5Bga/TYzUEeOZoKColA
+         XVXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770829172; x=1771433972;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bAMSBrvK4JW2RP64mGnR+pd6rmCnSQHvODMr9ePslO4=;
+        b=bZc6pExxxXURL34GCPqvVhuJP18yyrewuaqgx7mb+sKChJXIzUa6Dtdr46XPoPjTha
+         qQVH3ld6M3kNCXtFAAyqyMms4ghxK7gF9YsXIqlzUkQAaPL7igi+uQrXTlETyifSZND1
+         AdZPDuzpkQKBQBAaOFWwS7sefL81OxnKA80rssic57FcXuHosdHjGJDIrBCG8NHXTflk
+         B+3gDVOuw36+NbRE905oGWeAlRJ6ubCJb46QCURaeTCytxD0DOp6m1PBPf2reDjo36wi
+         RO/cCEqLSz2VYIygC+v9GItorJcrytTR6sUJui6YgDar5wwHsmWSzFrvUcyFBHLdrs43
+         HRLA==
+X-Forwarded-Encrypted: i=1; AJvYcCV6JTOz97P2lbXAiSSpfARHOzXuUR5lnuW873TeA0oAiu5XZyhC2NLc3hrVAmuHf7cyx1p+xy+U2S3Eaekr98mV@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbB0avRunRzrzGIlrhTl8OZ+lxnpaMnYpURloHJTNrGln/29XU
+	6ZkXHOEhy3lPydqM4LJz7RUfAwxGifzjqPy/qJrGOdjnmdO1KPmxx1/PFCdCppb5Kg==
+X-Gm-Gg: AZuq6aK4ib8I934LMvKpJndxNCp5MGr3fRkWJc7Hwf8hpj4RjOcYYYEpkCZbLKJiIa4
+	PQfoJt5fCWuVAJ7u39FIiYGqPKrN6hqVNrSa9vsuZM/pPgVXSWApOoe4QV9RedrA5a24apACQQN
+	JFMA0QDc+pXSIvqNDFb5SAsEpYzaV4o1y5TCyyw1G3z60QIe3OoqnYJI+BAy96cXBvr8JOXaIEY
+	Ul14PmlhMdcLZvKbReOkTygZ1w3OPhsGTBwQ4Qb8zIJrgl7ZePSvHU+ofXVsfinGbGFmvqjelY/
+	H9/S4jYbC38N3Bj5ae/N/K8tuE5N6ut/lJZ3p33EDANYmWD3NScj14vj6VoWZpLSvE+gZ+MqdNk
+	oXBGh1hmVeafpdvoXxtn0yHGxmBr0uK8Q0ZkpaaXC42emuk8+BCvFTdfwfuOWlNzJ229Gn8qai5
+	BTsGF2bzOtN1JuC3ussIsrTBKpK4kIETWFCoKLqRukkc5HI1NLANVHPL+y3bJd
+X-Received: by 2002:a17:903:4765:b0:2a7:7ca1:8622 with SMTP id d9443c01a7336-2ab2967a7camr2352955ad.11.1770829171698;
+        Wed, 11 Feb 2026 08:59:31 -0800 (PST)
+Received: from google.com (222.245.187.35.bc.googleusercontent.com. [35.187.245.222])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c6e197d63besm2542439a12.16.2026.02.11.08.59.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Feb 2026 08:59:31 -0800 (PST)
+Date: Wed, 11 Feb 2026 16:59:26 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+Cc: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Connor Abbott <cwabbott0@gmail.com>, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+	Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
+Subject: Re: [PATCH] iommu/arm-smmu: Use pm_runtime in fault handlers
+Message-ID: <aYy1bmorEGWhduHU@google.com>
+References: <20260127-smmu-rpm-v1-1-2ef2f4c85305@oss.qualcomm.com>
+ <9fb8f661-a235-4f86-bc10-f80a21a8fa9d@arm.com>
+ <00fcbcf2-3f48-410d-88a3-88dc834c1ed7@oss.qualcomm.com>
+ <d6bc7f38-b41d-4e89-b484-0e699981b8b4@arm.com>
+ <aYEFop8CJiLYzhLw@google.com>
+ <7720d215-9f92-4f0f-83af-c992e1cbe531@oss.qualcomm.com>
+ <aYsvacmKoLroXlrZ@google.com>
+ <53c051f3-3a72-4d8d-917e-3b9d1537443e@oss.qualcomm.com>
 MIME-Version: 1.0
-X-ThreadId: AEuu_v-AJ7hw
-Date: Wed, 11 Feb 2026 17:31:52 +0100
-From: "Arnd Bergmann" <arnd@kernel.org>
-To: "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>,
- "Aaro Koskinen" <aaro.koskinen@iki.fi>,
- "Janusz Krzysztofik" <jmkrzyszt@gmail.com>,
- "Tony Lindgren" <tony@atomide.com>, "Russell King" <linux@armlinux.org.uk>,
- "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
- "Hans de Goede" <hansg@kernel.org>
-Cc: Linux-OMAP <linux-omap@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Bartosz Golaszewski" <brgl@kernel.org>
-Message-Id: <213b82de-fee8-4ebf-a8ee-d8ca783ce403@app.fastmail.com>
-In-Reply-To: <20260211131350.126966-1-bartosz.golaszewski@oss.qualcomm.com>
-References: <20260211131350.126966-1-bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [RFT PATCH v2] ARM: omap1: enable real software node lookup of GPIOs on
- Nokia 770
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <53c051f3-3a72-4d8d-917e-3b9d1537443e@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260211_085934_232480_36CC756D 
+X-CRM114-Status: GOOD (  28.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,49 +112,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 11, 2026, at 14:13, Bartosz Golaszewski wrote:
-> Currently the board file for Nokia 770 creates dummy software nodes not
-> attached in any way to the actual GPIO controller devices and uses the
-> fact that GPIOLIB matching swnode's name to the GPIO chip's label during
-> software node lookup. This behavior is wrong and we want to remove it.
-> To that end, we need to first convert all existing users to creating
-> actual fwnode links.
->
-> Create real software nodes for GPIO controllers on OMAP16xx and
-> reference them from the software nodes in the nokia board file.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> ---
-
-I don't see mistakes here, and I don't want to throw a wrench in
-this patch, but I wonder if there is a way to take this one step further:
-
-> @@ -244,6 +263,14 @@ static int __init omap16xx_gpio_init(void)
->  		iounmap(base);
+On Wed, Feb 11, 2026 at 09:40:29PM +0530, Prakash Gupta wrote:
 > 
->  		platform_device_register(omap16xx_gpio_dev[i]);
-> +
-> +		ret = device_add_software_node(&omap16xx_gpio_dev[i]->dev,
-> +					       omap16xx_gpio_swnodes[i]);
-> +
-> +		if (ret) {
-> +			dev_err(&pdev->dev, "Failed to add software node.\n");
-> +			return ret;
-> +		}
+> 
+> On 2/10/2026 6:45 PM, Pranjal Shrivastava wrote:
+> > On Tue, Feb 10, 2026 at 04:39:56PM +0530, Prakash Gupta wrote:
+> >>
+> >>
+> >> On 2/3/2026 1:44 AM, Pranjal Shrivastava wrote:
+> >>> On Wed, Jan 28, 2026 at 06:44:35PM +0000, Robin Murphy wrote:
+> >>>> [ +Pranjal as this might matter for v3 too... ]
+> >>>>
+> >>>
+> >>> Hi Robin,
+> >>>
+> >>> To weigh in from the arm-smmu-v3 side, we’ve attempted to address the
+> >>> "can of worms" regarding power races by leaning on these differences:
+> >>>
+> >>>  - Threaded IRQs for PRI/Events: In the recent series[1], the PRI and
+> >>>    event handlers are fully threaded. This allows us to call 
+> >>>    arm_smmu_rpm_get() safely, as the handler can sleep while waiting for
+> >>>    the hardware to resume.
+> >>>
+> >>>  - GERROR Handling: Since GERROR remains a hard IRQ, we handle any
+> >>>    pending gerrors in the suspend callback before the SMMU actually
+> >>>    powers down. Any GERROR interrupts received while the device was
+> >>>    suspended are treated as spurious and ignored.
+> >>>
+> >>> Thanks,
+> >>> Praan
+> >>
+> >> [1] refer to case where SMMU state is not retained during smmu device
+> >> power down, this I think is equally applicable for both context and
+> >> global faults.
+> >>
+> >> Since the ARM SMMU runtime resume triggers a device reset, any pending
+> >> faults would be cleared during resume. Here the solution can be to
+> >> handle both global and context faults before allowing the SMMU device to
+> >> suspend.
+> >> With this approach, any hard or threaded IRQ scheduled after the SMMU
+> >> device has suspended can be safely ignored.
+> >> One concern I see is iommu fault reporting to clients while handling
+> >> fault during smmu device suspend.
+> > 
+> > I believe by the time we've reached suspend it's safe to assume that all
+> > clients have been suspended. Thus, we could simply not report the error
+> > and instead scream by having a dev_warn_ratelimited about the situation.
+> > 
+> 
+> By reporting error I meant reporting the error to client with
+> report_iommu_fault(). I agree that if smmu device is being suspended the
+> dma devices should have suspended by now. If so, it should be safe to
+> just handle the fault excluding report_iommu_fault() in suspend path and
+> complete smmu device suspend. Will update in next patchset.
+> 
 
-I was planning to go through the remaining 'static struct platform_device'
-definitions in arch/arm/ after the planned board file removal and
-try to convert these to 'platform_device_info' or similar, using
-platform_device_register_full(). Since that function already contains
-code to dynamically allocate the software_node, I had hoped that
-a lot of this would just go away.
+Yes, that's what I meant, since the client is likely suspended, we can't
+call report_iommu_fault() because the client might've registered a
+handler which touches some MMIO (accesses registers) while the client
+is suspended. Thus, if we see a fault during suspend, we could
+potentially log it at an appropriate level and not call
+report_iommu_fault()..
 
-However, I see that your patch creates pointers to those software_node
-instances, so  think that would become a bit harder, but I have not
-actually tried it.
+Thanks,
+Praan
 
-Do you know if there is a good way to do this without using static
-platform devices?
-
-     Arnd
+> > 
+> >>
+> >> Thanks,
+> >> Prakash
+> >>
+> >> [1] https://lore.kernel.org/all/20260126151157.3418145-9-praan@google.com/
+> >>
+> 
 
