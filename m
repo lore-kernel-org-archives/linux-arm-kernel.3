@@ -4,95 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B70EB597B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 08:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EACA9EB5976
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 08:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=G1KvghMrg5FQLYtugCrRlvN5/+TeaaG+RNwvPgguvEY=; b=3EEF36G96NutMk
-	IkOz4CUfqdR3VppDhwYK1slrOciGdf2nrkVhT+Wm+pD18ARN2CdaisHv6lwQGWDqSZluL6kv+eHKB
-	a3Ou0Vr65XdMyzyAx8ZePP/DwKeyiTtyIpnTTtxZI8DFHpcpwgAt1oaaVWQfvzyHdgV+Yo/RKG54P
-	H9qqePgnbYBcnFeNtmqL8aSBg+4s0KRdy9mWaoEk1NKhVWj2FkOAvd2jpzFqytgzHJv+KHdb0p7lR
-	fD2HakqEOglJgcf4ZFPiPCJXsV+dSVx9ncb/Uyphh8y3pW59uSjeaqEvVJ4vcR/YCVBstkJNGBeny
-	vSNGZCXHsx4OIEr4e4ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tbYZJPtzfNeGa4KqfQcB7C9ai7mWnC80SXxCFDp2yBE=; b=vUcRVCER2MJcM9kwckyGfPx15J
+	lLZZp3jum2L0dXl0589TQjyaxTqA53JbXBKMc8iLQS69xIToibJ/Dm/OJW9a646nfX/22uwkdHcUS
+	noH9wIMhF6TAq54k5iWp7fcBebbXI+mASRpuw4jzWSk3WEVqYEkxCeag5CVAQ2Rp4L3ViR923uCQ0
+	83gU2DlYrGYPU3CUUglq9+vL36eo2DP+f+8dU2bN9QOhXndAbVU3QWBVO1c4YYRKFjxxzb9x8aDue
+	jjJg3N9UgJOMAyiUA/xFcrNaVbCtn5zIvFOVn6IKZa5IGoITAVzO+1zygioqh3rTUGOVYOkVqyM8r
+	nuNESUNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq5WB-00000000O0L-3A3I;
-	Wed, 11 Feb 2026 08:24:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vq5so-00000000P4S-0K8H;
+	Wed, 11 Feb 2026 08:47:38 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq5W8-00000000Nyw-1BIR
+	id 1vq5sk-00000000P3r-2MXI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Feb 2026 08:24:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1770798249;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=G1KvghMrg5FQLYtugCrRlvN5/+TeaaG+RNwvPgguvEY=;
-	b=RoLDxS1t2M1rg5JM2bTEhKw3w1PhNwBmcsmmYM1j4K4xBMqBRQ8a71LdKmRYISXWgHcwL5
-	ccoPWzgncTk4+03q5R1LLu2VGaUsXD/2ZTNL70o7ist8/4kWF20WeNxjP59WL/zKoSR/CX
-	CqbC7TLIdl5aN4/aruIVDio9hjMxSNA=
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com
- [209.85.214.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-524-2PWa6x9xNmOVzfxfcRvZ_g-1; Wed, 11 Feb 2026 03:24:07 -0500
-X-MC-Unique: 2PWa6x9xNmOVzfxfcRvZ_g-1
-X-Mimecast-MFC-AGG-ID: 2PWa6x9xNmOVzfxfcRvZ_g_1770798247
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2a946c0e441so20358625ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Feb 2026 00:24:07 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770798246; x=1771403046;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=G1KvghMrg5FQLYtugCrRlvN5/+TeaaG+RNwvPgguvEY=;
-        b=AUlFjtSqDA6G2mhhstcDiRw8XhamOdhdASr1Kk8x0T5q+XikMKw3mFdYdA4pyHeo0i
-         frdAX8hMzT1mP9jzeTlkELZqWXlGzW3wWCrwuqpUuOiusrXjRpl5JgEae1UBI7qFO5Jh
-         tHSyzPUBJ0SbruGQYCsE6aJY3S6tyQ/sJwTXCvmAQdogYhVjghgZCgag2MBSbWZ9CZ8+
-         dv+GNPWygH/VojwOu0wk6gpIA7D8z+DR0oj8iXfYS0PjYTimeJc7XFYsv2oU7X0n8HqC
-         o5D//OtBKwTux5QXKgvQ52dixxL8IIuu1zKj50Evf78IkVmxw4gU9/otdqbwXkYmOVWu
-         O3oQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVtBgaXYL+UvcI+HhFXWh13nrUqVUvB/BmxHq0l1y+rfVmOp4xcs60UH6JGPzMS2OFHcTQsZmX2KjCVFlOqBT9k@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3mQGPN8BOa8Tja1aFVTWasSFTJ8aGOLv69xCGmKBSRTZXEBMV
-	YfrIqgqILAL/L/C1WWYcZKHJz/Q/04RelTUg324PaTgQZHupFjbcvSyXUgzqWJNmQY3KTuB97am
-	MWFJzJL+0JM8/okb2KuhzRp8QssKkLa0qbQmY0BPiNLo/bD/DWGQUfFl4MEk0VRBkyEtf0dRbo5
-	mno+exEyNQz9w=
-X-Gm-Gg: AZuq6aK+YNzlzYN1DZK12VdcstHOcwGJwbeb6dyNDRzhotFdJIOYerMaIbS/yjCSsIl
-	RpHi3gZwFjmrCaRo1ErRFqC0jEOZ4Tru1eKFYnjHFTK13RBT8xVqZ3ktZGkzLGA0VTp4XQ1SgT1
-	H48j5rqnkst4SIeCj88KG8eRDLZVSTiz3rh18E1Hz4yPD381t2m3JZHzATRc6m3/if2BGhYcHAc
-	9yI6EuWRkNOy7gwL+p4H/DFJWlRvZalEqVG76i972L9lXCvOpk3u+xkFLGKARmnjgBLZ5e2e8Jf
-	DoJjNRxh87XDR1GyNxxiHPUqB3PFeRLaQgsrfRWypx5zJntUYk4AYEN/ceIgI3+YCR1f8YV/L+J
-	lWYU6BlUm6n6z
-X-Received: by 2002:a17:903:985:b0:2a9:cb10:42d with SMTP id d9443c01a7336-2a9cb100bcemr122999085ad.61.1770798246168;
-        Wed, 11 Feb 2026 00:24:06 -0800 (PST)
-X-Received: by 2002:a17:903:985:b0:2a9:cb10:42d with SMTP id d9443c01a7336-2a9cb100bcemr122998855ad.61.1770798245566;
-        Wed, 11 Feb 2026 00:24:05 -0800 (PST)
-Received: from localhost ([209.132.188.88])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ab2984ab0esm15186415ad.9.2026.02.11.00.24.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Feb 2026 00:24:05 -0800 (PST)
-From: Coiby Xu <coxu@redhat.com>
-To: kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v4 0/2] kdump: Enable LUKS-encrypted dump target support in ARM64 and PowerPC
-Date: Wed, 11 Feb 2026 16:23:58 +0800
-Message-ID: <20260211082401.2407853-1-coxu@redhat.com>
-X-Mailer: git-send-email 2.53.0
+	Wed, 11 Feb 2026 08:47:37 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 7F656C653F4;
+	Wed, 11 Feb 2026 08:47:30 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id BB367606BE;
+	Wed, 11 Feb 2026 08:47:21 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 21F7B11948BAF;
+	Wed, 11 Feb 2026 09:47:09 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1770799640; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=tbYZJPtzfNeGa4KqfQcB7C9ai7mWnC80SXxCFDp2yBE=;
+	b=gc0koEG5d4I+4+aKeG0lyb0aKeJGcOJn57j88++ThKOX92rUt7VF+mraTBEGGzkA0yfFft
+	LYxOd154SeIqbQf84wbKvMqQsBBxcxQ7BSru9O/QNmowaRLBdj1iXD+Bqo9G1cwnYVQb2F
+	3nU2S1CZg1vRB6CWYTWmHXSfc7xuuwZQzqQ519IBxPwAa/A6A1kIIokPI34dm+DGeYdVvq
+	liq7NStumVbuS+enU3kolkGxbFLlrQgcVNq1dJMpuTH/Ri6CXiFz/6lPdWQKoF9PvpUgHH
+	dnPC0d6sSdtHTq9k3hJ5OlGwrKajBX6y6wHhnB/3CD5HqFFfjbhIUuDvBkEpyA==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Jyri Sarha <jyri.sarha@iki.fi>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Tony Lindgren <tony@atomide.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
+Cc: Markus Schneider-Pargmann <msp@baylibre.com>, 
+ Bajjuri Praneeth <praneeth@ti.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Miguel Gazquez <miguel.gazquez@bootlin.com>, 
+ Herve Codina <herve.codina@bootlin.com>, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260123-feature_tilcdc-v5-0-5a44d2aa3f6f@bootlin.com>
+References: <20260123-feature_tilcdc-v5-0-5a44d2aa3f6f@bootlin.com>
+Subject: Re: [PATCH v5 00/25] Clean and update tilcdc driver to support
+ DRM_BRIDGE_ATTACH_NO_CONNECTOR
+Message-Id: <177079962986.1196687.11987437266199565774.b4-ty@bootlin.com>
+Date: Wed, 11 Feb 2026 09:47:09 +0100
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: jh9qqXETkR8Vo0f8z4g8q0yoa6zT7x4UbeFqp65HI7w_1770798247
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_002412_396459_91026268 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20260211_004734_893834_A0FACE59 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,60 +95,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CONFIG_CRASH_DM_CRYPT has been introduced to support LUKS-encrypted
-device dump target by addressing two challenges [1],
- - Kdump kernel may not be able to decrypt the LUKS partition. For some
-   machines, a system administrator may not have a chance to enter the
-   password to decrypt the device in kdump initramfs after the 1st kernel
-   crashes
 
- - LUKS2 by default use the memory-hard Argon2 key derivation function
-   which is quite memory-consuming compared to the limited memory reserved
-   for kdump.
+On Fri, 23 Jan 2026 17:12:18 +0100, Kory Maincent (TI.com) wrote:
+> The starting point for this work was adding support for the HDMI cape:
+> https://www.seeedstudio.com/Seeed-Studio-BeagleBone-Green-HDMI-Cape.html
+> This will be sent in a later series.
+> 
+> Initially, Miguel proposed modifying the ite-it66121 bridge to support
+> the legacy behavior without the DRM_BRIDGE_ATTACH_NO_CONNECTOR flag:
+> https://lore.kernel.org/lkml/20250909-it66121-fix-v1-1-bc79ca83df17@bootlin.com/
+> This patch was NAK'd as we don't want to add more legacy code. Maxime
+> requested that the tilcdc driver be updated to use
+> DRM_BRIDGE_ATTACH_NO_CONNECTOR instead.
+> 
+> [...]
 
-To also enable this feature for ARM64 and PowerPC, we only need to add a
-device tree property dmcryptkeys [2] as similar to elfcorehdr to pass the
-memory address of the stored info of dm-crypt keys to the kdump kernel.
+Applied, thanks!
 
-[1] https://lore.kernel.org/all/20250502011246.99238-1-coxu@redhat.com/
-[2] https://github.com/devicetree-org/dt-schema/pull/181
+[01/25] dt-bindings: display: tilcdc: Convert to DT schema
+        commit: e88bb45cf742177a18d63d306be345a294b4c1db
+[02/25] dt-bindings: display: tilcdc: Mark panel binding as deprecated
+        commit: bc3f1e36d12969060c9068b9c7c14407f869270e
+[03/25] drm/tilcdc: Remove simulate_vesa_sync flag
+        commit: 332146d21d1d4211520957458973f4316a6c2fa7
+[04/25] drm/tilcdc: Add support for DRM bus flags and simplify panel config
+        commit: ca062af436593d66ce2afa4cd00a4cb2fb775755
+[05/25] drm/tilcdc: Convert legacy panel binding via DT overlay at boot time
+        commit: 0ff223d991477fa4677dcb0f1fb00065847e2212
+[06/25] drm/tilcdc: Remove tilcdc panel driver
+        commit: 8f1e1ab9c794a6efa7ab2b076405b4984319efec
+[07/25] drm/tilcdc: Remove component framework support
+        commit: b8c3fd741f02b79dceb0489dec49692d447015f9
+[08/25] drm/tilcdc: Remove tilcdc_panel_info structure
+        commit: 1184e7785d0fafd3b111b0eaf1caeaeec32ba88d
+[09/25] drm/tilcdc: Remove redundant #endif/#ifdef in debugfs code
+        commit: da4837fb7513db5da6be7fd32e8d8efe8bff673b
+[10/25] drm/tilcdc: Remove unused encoder and connector tracking arrays
+        commit: e9946e3a869406ed743f64c9fdf8fb5c6af739ba
+[11/25] drm/tilcdc: Rename external_encoder and external_connector to encoder and connector
+        commit: 9a49c20f3360699439035e0d8543292e4b028f04
+[12/25] drm/tilcdc: Rename tilcdc_external to tilcdc_encoder
+        commit: cb18dbb74f46bd0aa612aaae144dd191c548739c
+[13/25] drm/tilcdc: Remove the useless module list support
+        commit: 8fcc0eb34d79d2733ce617073a4c52b42ffeb00f
+[14/25] drm/tilcdc: Use drm_module_platform_driver() helper
+        commit: 87e66f60f63a746094134bc3e0ffdb6bd87afcb1
+[15/25] drm/tilcdc: Move tilcdc_init/fini closer to probe/remove
+        commit: e41591e7474920187be7af0404ec9ed63b5f4614
+[16/25] drm/tilcdc: Modernize driver initialization and cleanup paths
+        commit: 3301302060da8c2034e5e10dc231023ec98051fb
+[17/25] drm/tilcdc: Remove the use of drm_device private_data
+        commit: 968fefee98d80bedbf1765e48201746880bf7277
+[18/25] drm/tilcdc: Convert to DRM managed resources
+        commit: 323401c9a166ea5faa300778f3ca336c01d8835a
+[19/25] drm/tilcdc: Convert to drm_device-based logging helpers
+        commit: 2c6f1b1fa78acd5f3bd80e3519b6b23907ea9c2f
+[20/25] drm/tilcdc: Use devm_drm_of_get_bridge() helper
+        commit: 1b47ea9fddcf89e4b65045d233bc5a2ee7775df7
+[21/25] drm/bridge: tda998x: Remove component support
+        commit: d700fd0ff100f4c301dafeb6b944c7229d0adda7
+[22/25] drm/bridge: tda998x: Move tda998x_create/destroy into probe and remove
+        commit: 22b88deb83af2b94f0441075e5528d16d5dcf5b2
+[23/25] drm/bridge: tda998x: Remove useless tda998x_connector_destroy wrapper
+        commit: 8ab51f56fd711cd9aa3960916cb0cc4bbc978eb5
+[24/25] drm/bridge: tda998x: Add support for DRM_BRIDGE_ATTACH_NO_CONNECTOR
+        commit: c76a8be4feecebbb39095e3c012b67e0f939543d
+[25/25] drm/tilcdc: Add support for DRM_BRIDGE_ATTACH_NO_CONNECTOR
+        commit: 400a84e1f7a3681ef24d58d49b5d07e81c14f4e9
 
-
-v4
-- Make arch-specific code more succinct by printing more logs in
-  arch-independent code [Will Deacon]  
-
-- Also use device tree for PowerPC to pass memory address of dm-crypt
-  keys info
-  - powerpc v2 patch that passes the dmcryptkeys kernel cmdline
-    parameter:
-    https://lore.kernel.org/all/20260106074039.564707-1-coxu@redhat.com/
-
-v3
-- Delete the property after reading it [Rob Herring]
-
-v2
-- Krzysztof
-  - Use imperative mood for commit message
-  - Add dt-schema ABI Documentation 
-    https://github.com/devicetree-org/dt-schema/pull/181
-- Don't print dm-crypt keys address via pr_debug
-
-Coiby Xu (2):
-  crash_dump/dm-crypt: Don't print in arch-specific code
-  arm64,ppc64le/kdump: pass dm-crypt keys to kdump kernel
-
- arch/arm64/kernel/machine_kexec_file.c |  4 ++++
- arch/powerpc/kexec/elf_64.c            |  4 ++++
- arch/x86/kernel/kexec-bzimage64.c      |  6 +-----
- drivers/of/fdt.c                       | 21 +++++++++++++++++++++
- drivers/of/kexec.c                     | 19 +++++++++++++++++++
- kernel/crash_dump_dm_crypt.c           |  7 +++++--
- 6 files changed, 54 insertions(+), 7 deletions(-)
-
-
-base-commit: 2619c62b7ef2f463bcbbb34af122689c09855c23
+Best regards,
 -- 
-2.53.0
+Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 
