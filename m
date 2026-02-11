@@ -4,91 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0916FE9E315
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 14:37:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49C19E9E319
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 14:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4bVWd0Jv44kl2wpkmuGZREDEAz0wrVkxyZwkUzpiiuU=; b=Nx9dZwtx/ewVSKv+7RAY8aKujg
-	B++5nNjBp/GYhn1upHnpitMWVmAfVgkWpLkx2RV8sRlIJqbPE/Ezy2ZIGzoukWQquaSbrIqW5sgQw
-	TQUZPKjSWolQmlYNhiP50Bx+W+9G7S5Up2kMENevfE4mrF5AeFRN7Cgxo32u9jB+YaEPtOtyGUzyA
-	IHM65FqRs+KgBqQuFs/yFXQ08iu9XkGd5SMvFVtubXlrl2OtWYIzOG9lQLRme2jgi/Sm7vKzIwNDv
-	NShmPsmGdW6Ibj1TUJI59K9O8461L+B/LvIjtt/rK2XO2+bI7CA0s41BM3D1atQpDPDaoMTScDT/S
-	oaAVyIjQ==;
+	bh=yYxQt2OGcmdSWshE3/Ad5apdbgodHOqiD6B7wlmUAZ4=; b=puW3gYGbvZHmk++ExdTtbBlTG6
+	LzriWzJ9jWrO7TGiPk7QL9BJZST2+sWY+VZmdn8lR8zKTYO6UR/U/IF+0lLGudots08ef6VcTn4O6
+	GZDHsgjUDCiNLA/2aH/pTCzSqQLXuy7ylcpLgoczTv7/p6b27KfzFfMi99vbevhdgGOpoTGCj9uKJ
+	iebVloFjpQ9LXxKPZLlFu/JDy5lsx70En7n3+jzGLDy8rAauAQt78OcSI/WYtNaEX5K0npEqkGXJg
+	4BND+K4FZEW0eoueDZ4CzZdP4mwigUO6lRTtH4d9Ui9au8g9o4IjN4pYN8R/Fyts2tcMwNoVFt+yk
+	q1mQsAoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqBLe-00000000jop-1Auv;
-	Wed, 11 Feb 2026 14:37:46 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1vqBRu-00000000k2q-0YTs;
+	Wed, 11 Feb 2026 14:44:14 +0000
+Received: from mx-relay27-hz2.antispameurope.com ([94.100.136.227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqBLb-00000000joQ-2Lt2
+	id 1vqBRo-00000000k2V-0RB4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Feb 2026 14:37:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1770820663; x=1802356663;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=6a6C1Oo2VXTtwxfCgh52YB7e/Bvv2ZnnllQSS7+LNqk=;
-  b=eY5lJ2qtamJtJNVrwH3HYNbvcYw5I+j6yaJEXPoZWyb/uUtJupHE5liL
-   2jxAAqqsiLpSXKsOVxElUmEySjwXHIfXPds1tTG3TRzJ3eIAEG7N+Z94n
-   Xdk146AWjgRilPqVOomQyc1yLAoTkZA1aiV81F3hf1aIUADu6Cjb1onGp
-   kJzSYzZM2oryQlat372nMR7uHhMGtUF3s0O1Kqco2NsV9Y3Huc9rDA8FI
-   FTh6u1vT9BEu9roudofFkSnfIrFuzkIRPwoDT53iMcPV26S874rCNG6BE
-   GAavgU7sNbeo+wamID2I+9hglJHcW9IG6fbQpHV/4IJpmQrnF8t90UXn/
-   g==;
-X-CSE-ConnectionGUID: Yy7mPQkMTDuF72S4NCsfCQ==
-X-CSE-MsgGUID: qn7vr6+QQlCGN9NxwGK4aQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11698"; a="83410597"
-X-IronPort-AV: E=Sophos;i="6.21,283,1763452800"; 
-   d="scan'208";a="83410597"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Feb 2026 06:37:40 -0800
-X-CSE-ConnectionGUID: 1olVpYRZQImHZO61gK3Adw==
-X-CSE-MsgGUID: WJelymD/S8WHbDyy+MdGww==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,283,1763452800"; 
-   d="scan'208";a="212094960"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 11 Feb 2026 06:37:34 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vqBLQ-00000000q4e-2HC3;
-	Wed, 11 Feb 2026 14:37:32 +0000
-Date: Wed, 11 Feb 2026 22:37:05 +0800
-From: kernel test robot <lkp@intel.com>
-To: Shenwei Wang <shenwei.wang@nxp.com>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>, Peng Fan <peng.fan@nxp.com>,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-imx@nxp.com,
-	arnaud.pouliquen@foss.st.com, Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v7 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-Message-ID: <202602112252.gWFirLCA-lkp@intel.com>
-References: <20260210170814.406883-4-shenwei.wang@nxp.com>
+	Wed, 11 Feb 2026 14:44:12 +0000
+ARC-Authentication-Results: i=1; mx-gate27-hz2.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out02-hz1.hornetsecurity.com;
+ dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=yYxQt2OGcmdSWshE3/Ad5apdbgodHOqiD6B7wlmUAZ4=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1770821033;
+ b=stKpsJFdLiKup+Zrcd+VJhgtHD77mj7tv2IewlW6dCJFLwGe2Ndz7vYe/v9wZEok1Pq1+r4q
+ pbfGBJXSAQaoVZdUfDlTY7AnMhk1s74AbTuUD9jHjbm7TlznRdsBaX7ktrPGaDrYRHM9ndpqvXj
+ j33VeW8pjR21i0q3kOdMYdNziSMPd3gPsnt8YPHSGkEyQSfSErbVuRUhR0z/rIe25RyUaQRMmqf
+ HB5N582jrIe/qbUqvKjEQIjdN3ExhGIsqgysvEv6NoHzv6RuTE6wR2R0w1qz2PDkFzlrMe7tJIq
+ 71vNtQSNV0US9JTByYXrqwY+yXAYReigmlxSlJ4OiXC0A==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1770821033;
+ b=gOANeUtIGErLM0Ff3j3mOyuogRjBUdanh7aV2KfozZ8YGdvxSsREOlyhR4aMswBzaV5Y3QxS
+ KkCHHoMTdMK23l2E/+n3dSoJOtGI053vONyYIZqejuTCrHUuhOfZgbki/6leNXJcB5CuLqSqXZr
+ YI/qU19/UIiIqz6NBwkGmUK5NrCHRUahWfupZTEfVXBJvk+ONY5vmdJ+TeGhVh9oqHBjDHCKfw2
+ 67SqEzFtIyBbLZ8n6VGipfrGjJkxmYsC7uJSNBoVpNraZ4MigmD25xWbQDUPQDrZ6CCd0KUCCXz
+ cPOJEBEfZosO9MEG8+KBnDiKQCmrMNU+TUkct/C6upG5A==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay27-hz2.antispameurope.com;
+ Wed, 11 Feb 2026 15:43:53 +0100
+Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by smtp-out02-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 7AD175A12E1;
+	Wed, 11 Feb 2026 15:43:34 +0100 (CET)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com,
+ sboyd@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, gregkh@linuxfoundation.org,
+ rafael@kernel.org, hanguidong02@gmail.com, Danilo Krummrich <dakr@kernel.org>
+Cc: driver-core@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Danilo Krummrich <dakr@kernel.org>
+Subject: Re: [PATCH] clk: scu/imx8qxp: do not register driver in probe()
+Date: Wed, 11 Feb 2026 15:43:34 +0100
+Message-ID: <10809444.nUPlyArG6x@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20260211142321.55404-1-dakr@kernel.org>
+References: <20260211142321.55404-1-dakr@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260210170814.406883-4-shenwei.wang@nxp.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay27-hz2.antispameurope.com with 4fB1QH3NLmz2Nm8r
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 8e7c20d949661fe4b3ede5b8a28db6ab
+X-cloud-security: scantime:2.326
+DKIM-Signature: a=rsa-sha256;
+ bh=yYxQt2OGcmdSWshE3/Ad5apdbgodHOqiD6B7wlmUAZ4=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1770821033; v=1;
+ b=V4x2tmZbLOoRgKqA7mvMnWILlHepZh37arhzafFf7LgCf4po1XKu1bm9kdlrcn/hbqvWPmJf
+ r/eU2leS+9aCxpU3k7ssNsC9TbTKoMfZ+Rxiw0l4RJ5QLMIXJejuALb7FdXf6aIZGg3vDDM8E/t
+ m8aNseo0PC2FuL19rX1X3Vn5I8F80ki/dG4e0CGqwxOTFZi2m9LGchK1dz3JVdQTq47UvDWTOBc
+ Xx46rMI4mIpTqTaLdmXepsh70UdnI94VsqpW1NDsW5LvXaj/t1nu1yUaHl9BnzWPxFuhGbvsCus
+ AoyC6CMzsJs05ucPzdx8DzK5PSvsGlSwwquCpEvpH262Q==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_063743_687392_3BDCABCE 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20260211_064408_588487_B6BE2872 
+X-CRM114-Status: GOOD (  27.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,36 +107,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shenwei,
+Hi Danilo,
 
-kernel test robot noticed the following build errors:
+Am Mittwoch, 11. Februar 2026, 15:23:16 CET schrieb Danilo Krummrich:
+> imx_clk_scu_init() registers the imx_clk_scu_driver while commonly being
+> called from IMX driver's probe() callbacks.
+>=20
+> However, it neither makes sense to register drivers from probe()
+> callbacks of other drivers, nor does the driver core allow registering
+> drivers with a device lock already being held.
+>=20
+> The latter was revealed by commit dc23806a7c47 ("driver core: enforce
+> device_lock for driver_match_device()") leading to a deadlock condition
+> described in [1].
+>=20
+> Additionally, nothing seems to unregister the imx_clk_scu_driver once
+> the corresponding driver module is unloaded, which leaves the
+> driver-core with a dangling pointer.
+>=20
+> Hence, register the imx_clk_scu_driver from module_init() and unregister
+> it in module_exit().
+>=20
+> Fixes: dc23806a7c47 ("driver core: enforce device_lock for driver_match_d=
+evice()")
+> Fixes: 220175cd3979 ("clk: imx: scu: fix build break when compiled as mod=
+ules")
+> Reported-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> Closes: https://lore.kernel.org/lkml/13955113.uLZWGnKmhe@steina-w/
+> Link: https://lore.kernel.org/lkml/DFU7CEPUSG9A.1KKGVW4HIPMSH@kernel.org/=
+ [1]
+> Signed-off-by: Danilo Krummrich <dakr@kernel.org>
 
-[auto build test ERROR on brgl/gpio/for-next]
-[also build test ERROR on robh/for-next remoteproc/rproc-next linus/master v6.19 next-20260210]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Thanks for the patch.
+Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com> # TQMa8x/MBa8x
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Shenwei-Wang/dt-bindings-remoteproc-imx_rproc-Add-rpmsg-subnode-support/20260211-011505
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git gpio/for-next
-patch link:    https://lore.kernel.org/r/20260210170814.406883-4-shenwei.wang%40nxp.com
-patch subject: [PATCH v7 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-config: sparc-randconfig-r133-20260211 (https://download.01.org/0day-ci/archive/20260211/202602112252.gWFirLCA-lkp@intel.com/config)
-compiler: sparc-linux-gcc (GCC) 13.4.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260211/202602112252.gWFirLCA-lkp@intel.com/reproduce)
+> ---
+> I plan to send the driver-core PR for 7.0-rc1 soon, which will also conta=
+in
+> commit dc23806a7c47 ("driver core: enforce device_lock for
+> driver_match_device()").
+>=20
+> It also contains an IOMMU commit similar to this one:
+> https://patch.msgid.link/20260121141215.29658-1-dakr@kernel.org
+>=20
+> The commit was originally scheduled for 6.19-rc7, but was deferred to 7.0=
+=2Drc1 in
+> case more of those cases pop up (which now happened).
+> ---
+>  drivers/clk/imx/clk-imx8qxp.c | 24 +++++++++++++++++++++++-
+>  drivers/clk/imx/clk-scu.c     | 12 +++++++++++-
+>  drivers/clk/imx/clk-scu.h     |  2 ++
+>  3 files changed, 36 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/clk/imx/clk-imx8qxp.c b/drivers/clk/imx/clk-imx8qxp.c
+> index 3ae162625bb1..d89a2f40771e 100644
+> --- a/drivers/clk/imx/clk-imx8qxp.c
+> +++ b/drivers/clk/imx/clk-imx8qxp.c
+> @@ -346,7 +346,29 @@ static struct platform_driver imx8qxp_clk_driver =3D=
+ {
+>  	},
+>  	.probe =3D imx8qxp_clk_probe,
+>  };
+> -module_platform_driver(imx8qxp_clk_driver);
+> +
+> +static int __init imx8qxp_init(void)
+> +{
+> +	int ret;
+> +
+> +	ret =3D platform_driver_register(&imx8qxp_clk_driver);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret =3D imx_clk_scu_module_init();
+> +	if (ret)
+> +		platform_driver_unregister(&imx8qxp_clk_driver);
+> +
+> +	return ret;
+> +}
+> +module_init(imx8qxp_init);
+> +
+> +static void __exit imx8qxp_exit(void)
+> +{
+> +	imx_clk_scu_module_exit();
+> +	platform_driver_unregister(&imx8qxp_clk_driver);
+> +}
+> +module_exit(imx8qxp_exit);
+> =20
+>  MODULE_AUTHOR("Aisheng Dong <aisheng.dong@nxp.com>");
+>  MODULE_DESCRIPTION("NXP i.MX8QXP clock driver");
+> diff --git a/drivers/clk/imx/clk-scu.c b/drivers/clk/imx/clk-scu.c
+> index 34c9dc1fb20e..c90d21e05f91 100644
+> --- a/drivers/clk/imx/clk-scu.c
+> +++ b/drivers/clk/imx/clk-scu.c
+> @@ -191,6 +191,16 @@ static bool imx_scu_clk_is_valid(u32 rsrc_id)
+>  	return p !=3D NULL;
+>  }
+> =20
+> +int __init imx_clk_scu_module_init(void)
+> +{
+> +	return platform_driver_register(&imx_clk_scu_driver);
+> +}
+> +
+> +void __exit imx_clk_scu_module_exit(void)
+> +{
+> +	return platform_driver_unregister(&imx_clk_scu_driver);
+> +}
+> +
+>  int imx_clk_scu_init(struct device_node *np,
+>  		     const struct imx_clk_scu_rsrc_table *data)
+>  {
+> @@ -215,7 +225,7 @@ int imx_clk_scu_init(struct device_node *np,
+>  		rsrc_table =3D data;
+>  	}
+> =20
+> -	return platform_driver_register(&imx_clk_scu_driver);
+> +	return 0;
+>  }
+> =20
+>  /*
+> diff --git a/drivers/clk/imx/clk-scu.h b/drivers/clk/imx/clk-scu.h
+> index af7b697f51ca..ca82f2cce897 100644
+> --- a/drivers/clk/imx/clk-scu.h
+> +++ b/drivers/clk/imx/clk-scu.h
+> @@ -25,6 +25,8 @@ extern const struct imx_clk_scu_rsrc_table imx_clk_scu_=
+rsrc_imx8dxl;
+>  extern const struct imx_clk_scu_rsrc_table imx_clk_scu_rsrc_imx8qxp;
+>  extern const struct imx_clk_scu_rsrc_table imx_clk_scu_rsrc_imx8qm;
+> =20
+> +int __init imx_clk_scu_module_init(void);
+> +void __exit imx_clk_scu_module_exit(void);
+>  int imx_clk_scu_init(struct device_node *np,
+>  		     const struct imx_clk_scu_rsrc_table *data);
+>  struct clk_hw *imx_scu_of_clk_src_get(struct of_phandle_args *clkspec,
+>=20
+> base-commit: 192c0159402e6bfbe13de6f8379546943297783d
+>=20
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202602112252.gWFirLCA-lkp@intel.com/
 
-All errors (new ones prefixed by >>):
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
-   sparc-linux-ld: drivers/gpio/gpio-rpmsg.o: in function `rpmsg_gpio_channel_probe':
->> gpio-rpmsg.c:(.text+0x788): undefined reference to `rproc_get_by_child'
->> sparc-linux-ld: gpio-rpmsg.c:(.text+0x834): undefined reference to `rproc_get_by_child'
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
