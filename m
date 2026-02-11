@@ -4,92 +4,206 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CA60ECD6D6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 22:37:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0929AECD6D6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 22:58:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Date:Message-ID:In-reply-to:Subject:Cc:To:From:References:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Eu5WXcIuBe88Xd8eCDaS+uTqxUL8W+UWJopLy1W8/I=; b=fk6nCCqz7wEr49TY1Os5iJSdgB
-	wBRtVKLz9jINYt7KC/qvD/oAo5FVNnDmnYvD3sICp2dxX2Ljw+aDSL5t8bSa8se/BoLUCCJvOvusn
-	A9nr6Tr00nUVm5qSE7rQAw9iAWhz+Ppf4utS4uHPQ4KWvT2L7Ajsj6rHqp8FbX+yvKzGfEF0MC3cx
-	P964F1oA2rshMrUx1e1XIwX8ALh8pdFntXPxDp6befSYIWVvbo6P25DVaJbbDpvHCPWgW4sExSvSb
-	yxYUQZ+wlSLXViPM4DGQsOjJx/mEuYbephRu6zo7vmw4YMAQyi7N9us6Z/pI3CrU0NoI/5ErJwh6B
-	wH0HA9lA==;
+	bh=2jCcXroO0SwX/hraobJKeKYxndJeX6JUNOHJqOSFafY=; b=hjdo36DKFEIqaG2sEE7wjsVAPi
+	TbO7qOgOb9YLBxCS4datzJVFXIzaACtBzWa0eeQb1E2ztk7EDiAWEqrdDmuIwmSfhLwVZq2ErcdHM
+	O6+h4zVFBUtsAFzOn4lyZ1cKh3Y3eg1tila0DHQxT+qGIQhprL7w9Cve1FjrK9DjmRPs55lzTq+Xu
+	cZ+JJtWQhJkKUc56SEe+8VIqcJwzG5/TXR24CJDA0w4F1U6zRt806+xo2jk1FHBvEGHsaRajHDs5J
+	hhnLY9m1b8lXEdcASvliccYLqIBEvv3yshKDPq7INu/5bS1gfyKyD3J1s17kFt1OtVgtyRa+wndhb
+	Crrb4C+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqIpT-000000018Yo-3wgG;
-	Wed, 11 Feb 2026 22:37:03 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1vqJ9p-000000019uW-28o3;
+	Wed, 11 Feb 2026 22:58:05 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqIpQ-000000018YA-3Rvo;
-	Wed, 11 Feb 2026 22:37:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1770849421; x=1802385421;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=5lBrMrSUEvT4lx29b/VzGz7vn6FI2f6WHH0Xp1tO82E=;
-  b=H9IFnpqib5B5sQaUWQazzfPAnodGsQHfyaN4C7EBwhanVSDCozvTM+ce
-   CAF3v27b0p0XkUqhwcv29wd+MoxtKQx6h3zXuH8GzjUlqzZLPdfaz0ndd
-   i8hcElhZrMDmnYMyl1gccgq9uw4AVyy/EEoGmj9Qk2Ersi+LqT3MIHnG4
-   DCAt/8OTck5zzG/RjI8mvpef2t8oSqv2Jv4uLspBkY+JRPODjJFd9zs6+
-   gPjyPutn4LVTpYw3DGUzAO5h+v27DPEAUgzjlsTONUdJbdA5nAUAi1whb
-   rbZSBUP0D1RMSUr8OgAReMmbn6/5pYzf/Cx63XyGVXpPsTeO7t9xPRXH6
-   Q==;
-X-CSE-ConnectionGUID: shQmGESnRPaJRrLZ8OCtoA==
-X-CSE-MsgGUID: rrsHFh4ETnmS1oW67Ermuw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11698"; a="71911091"
-X-IronPort-AV: E=Sophos;i="6.21,285,1763452800"; 
-   d="scan'208";a="71911091"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Feb 2026 14:36:59 -0800
-X-CSE-ConnectionGUID: ZabLUBVpQsqUdFupslNNvQ==
-X-CSE-MsgGUID: MSBEmk28TJaeA0OfdScegg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,285,1763452800"; 
-   d="scan'208";a="212403937"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa008.jf.intel.com with ESMTP; 11 Feb 2026 14:36:53 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vqIpH-00000000qRi-0j3G;
-	Wed, 11 Feb 2026 22:36:51 +0000
-Date: Thu, 12 Feb 2026 06:35:52 +0800
-From: kernel test robot <lkp@intel.com>
-To: Coiby Xu <coxu@redhat.com>, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	devicetree@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev,
-	Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>,
-	Baoquan he <bhe@redhat.com>, Dave Young <dyoung@redhat.com>,
-	Kairui Song <ryncsn@gmail.com>, Pingfan Liu <kernelfans@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Rob Herring <robh@kernel.org>, Thomas Staudt <tstaudt@de.ibm.com>,
-	Sourabh Jain <sourabhjain@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Saravana Kannan <saravanak@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/2] arm64,ppc64le/kdump: pass dm-crypt keys to kdump
- kernel
-Message-ID: <202602120648.RgQALnnI-lkp@intel.com>
-References: <20260211082401.2407853-3-coxu@redhat.com>
+	id 1vqJ9m-000000019u2-1TKP
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Feb 2026 22:58:03 +0000
+Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61BJUfcp1998041;
+	Wed, 11 Feb 2026 22:57:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2025-04-25; bh=2jCcXroO0SwX/hraob
+	JKeKYxndJeX6JUNOHJqOSFafY=; b=ZCl4ctd8XNw4ElZt53+xoayf4MB7GDfWDh
+	60mutMySwZecxV7Gfgxy7DyeJ8uFbGqh6gWdBWRu+IruCoKuzHFAlI+5ZIBwrxI7
+	EQuWbVeo80tYjh9I6UnGAhQFrK0cOiB8lPl5uW6yr3GSjWoX5ONHzacDeXtU4fT5
+	hB6N/XdpxMSZDd881dDLd1iuMyAEzeE2O+hBrEoo87Ur947xFgG1Y+sgzcW1WRGV
+	gREK3jPNAS0MQ5HMQxGWsh1+TUP+/M7JHzJ8AYB8NRlvnc8Iv9RzU/JVSOkrCSUa
+	Ljb0ix/dlDWAHmd2HGV0uXWRL+aXFM9kjzA7xBba3ye+nCBlHeSg==
+Received: from phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta01.appoci.oracle.com [138.1.114.2])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4c7s7rux1a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 11 Feb 2026 22:57:34 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 61BLceGE030205;
+	Wed, 11 Feb 2026 22:57:33 GMT
+Received: from bl2pr02cu003.outbound.protection.outlook.com (mail-eastusazon11011027.outbound.protection.outlook.com [52.101.52.27])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4c822a6ftk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 11 Feb 2026 22:57:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=knKTZbVN0FlCV3mWqCFI8KFWx0hLh++j4MZQqZC2E/rCmdYCo/kGjvFtMPkHAy4n3rur7zHWRPBta5DqdVb9ZlPuctf0Gb7UOnyoqd3oM1JbzceTgQgnkPIGV32WdaE8HWIWRZ/qCFgks9um890n+VHAHG5LzW/Nuw6xzqZWPyq83fMiUNXdtfY/shfKPevXu5BTwJYrwOGOurZRcgsLesLEtgbzVRmuyZjYqYEy4tR/RFyjrIWhi5Oz/cemgHnIWx3mJMXU4aqg18eI45atKsvXp2zC1GF0JHe4GY7YyaDqliCWRRA7I6733Jtc/5zRA2qpmuDA9rlVA5TZMTKWVQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2jCcXroO0SwX/hraobJKeKYxndJeX6JUNOHJqOSFafY=;
+ b=hvXMXTVG11FDPQON8soLRFY4oOdZ3EWyduWwouFU3GBSZfYNpOxs5/t0CLUe2vMUWaqf8tQL8rk7I+r1Yh2K0wqwDsPBQqq7wIXPfRDEj6b5ZmZj/jscfyfSvs4HAOMyV+4XzdVPdLauJ6I9H17XXS6VnQ0Y9i6JR/f+dmhavkLsddT1mpnAsXGHGo7ap1gZk492LNpv7elJlNAIdMM9DLjVH4i1ZfZm6qAfVSG0EQBPJDpFxkQSmrsOzqJzdpFy5JSEB+5C0vz50TzMMqSYwEawwXzSwgn+FbpVXhU2TsKxfJJhS4Gn3CFzgrJWWIRjtI2qP95IHUc6mUej9bQ6qA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2jCcXroO0SwX/hraobJKeKYxndJeX6JUNOHJqOSFafY=;
+ b=PZAb2sNg25XwI8fNbOvdPqKiQf8bA8FsiSJyWZH/BL4zHk38wT37IjeG4T9CjTNSXvy1oXpXHqqP8orQdrw0v7gqYuHlBpJN0eM51VQL+W2dQReIMk48VEby7vAyRuZuNAXD2jovMqYapn8oWcbBoMZmyOYBTRne8NvQatX0dX8=
+Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
+ by SA1PR10MB7553.namprd10.prod.outlook.com (2603:10b6:806:376::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.10; Wed, 11 Feb
+ 2026 22:57:26 +0000
+Received: from CO6PR10MB5409.namprd10.prod.outlook.com
+ ([fe80::3c92:21f3:96a:b574]) by CO6PR10MB5409.namprd10.prod.outlook.com
+ ([fe80::3c92:21f3:96a:b574%4]) with mapi id 15.20.9611.008; Wed, 11 Feb 2026
+ 22:57:24 +0000
+References: <20260209023153.2661784-1-ankur.a.arora@oracle.com>
+ <20260209023153.2661784-3-ankur.a.arora@oracle.com>
+ <aYymMze6Vchxe6jK@arm.com>
+User-agent: mu4e 1.4.10; emacs 27.2
+From: Ankur Arora <ankur.a.arora@oracle.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
+        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-pm@vger.kernel.org, bpf@vger.kernel.org, arnd@arndb.de,
+        will@kernel.org, peterz@infradead.org, akpm@linux-foundation.org,
+        mark.rutland@arm.com, harisokn@amazon.com, cl@gentwo.org,
+        ast@kernel.org, rafael@kernel.org, daniel.lezcano@linaro.org,
+        memxor@gmail.com, zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
+        joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
+        konrad.wilk@oracle.com
+Subject: Re: [PATCH v9 02/12] arm64: barrier: Support
+ smp_cond_load_relaxed_timeout()
+In-reply-to: <aYymMze6Vchxe6jK@arm.com>
+Message-ID: <87ecmq99d8.fsf@oracle.com>
+Date: Wed, 11 Feb 2026 14:57:23 -0800
+Content-Type: text/plain
+X-ClientProxiedBy: MW4PR03CA0335.namprd03.prod.outlook.com
+ (2603:10b6:303:dc::10) To CO6PR10MB5409.namprd10.prod.outlook.com
+ (2603:10b6:5:357::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260211082401.2407853-3-coxu@redhat.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|SA1PR10MB7553:EE_
+X-MS-Office365-Filtering-Correlation-Id: 50461840-2542-455f-2567-08de69c0ebba
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Z2ql/S7Rabi5ziZKLNd26etxA4JiwD9cjPIgqtyQmoJ42+KAYSRpxCV4FXwv?=
+ =?us-ascii?Q?aJiDSyrhBYhrK6zmIo5Qvy5DZ+IswJkU7F+XqfvZpvhEt6TIqW+xpmWI9und?=
+ =?us-ascii?Q?api0TIdzUuPaIL+Fd8HLGIWzuo9THV3OZ4KRNkymiINZYLv2Lls5X2nIO7og?=
+ =?us-ascii?Q?p3679WNhemUJ2B+h/CE5cd4D+ImFZ+UJoGXsJBtYkajQ/1VQVg9UqblrGvya?=
+ =?us-ascii?Q?peJocnMVNQMRzLSgrcHC34k+oB8aXnDxcUaLMCmZC2NIKH4zZe4kNGlZFLo+?=
+ =?us-ascii?Q?Zla+Z+G3zGJbBTu7z0vIoqxo1Ozf2nqW9zOwrb3TMWOSp53QG64KOTqlusrs?=
+ =?us-ascii?Q?6lLl++pgud1iV/FANh2Qnt4nNGxlelAUkkmW6jdWXLHdE+WtPQBXfuIXDUln?=
+ =?us-ascii?Q?N+w7jeqBaa6n0XVDvTgXgJFVG65IN23mfuVv7bB8+gzAkGnjdAt7HIzQpa1e?=
+ =?us-ascii?Q?N+j/jZXUz+Kls0BLuePrURfvgJDKH0vltrfR+eD4tjtM4NZACFnELBW4OsCF?=
+ =?us-ascii?Q?R7ylxk5e7st6u+12Z0Gy96YZzOzENYrHOnGd9QS6jp10xASODmGNHJav6J04?=
+ =?us-ascii?Q?AsGI66fXqvEkQ4CQUC6bInxsxSXOuwn3CWAu3Prhe3k/w5jg8O9BA95FLWIo?=
+ =?us-ascii?Q?XrWeiXY0VbuqK4nFYDj6r1aGH8HNtVgjEJkkcBbZ+4A9/iWPuWJjTLD/3cS0?=
+ =?us-ascii?Q?t5MJRK50mINw+T0wwMLLeeHqD1vz/Sw48RK7Dc0padNqpALTkzfH8/TTdfcg?=
+ =?us-ascii?Q?w9igkzKxq6Sf7DR5ynLWtyEWeh+9zdtRpBqxBLLTyCjHfNnoSenAVYBXFuzd?=
+ =?us-ascii?Q?Flk1ky/iiz9mIuCy2Y4DUrHXiw4hGCuvtV1yNZZSXqOL+YRPx4nOGeBrQjBI?=
+ =?us-ascii?Q?OFQ78uwVoZ3LdoTVTM+kDz3WTx/OeT1Y0eSxF5TPT7J//HgkuxW93AHJoTkA?=
+ =?us-ascii?Q?CMOHI2rRWyOuhPRFcO+3YXJVg4GkKsz3Bj2X7JM5DD6myD5+Ivv8VfFeOLVc?=
+ =?us-ascii?Q?Cuz+mlr3UES9QSqyyrX9N87ast018Fs+gLAATbMUtlc/ZCDbxuwfJfL0/xli?=
+ =?us-ascii?Q?WUyO3Pn8zVk/k8uHLsRU1z5qQXRrgu3Gqea6cskTslk+CiOgAYF+7m3399LA?=
+ =?us-ascii?Q?pH4aTldU9YnA27igYNc5tkYNG0B4VqvTIZdnYXqfQxekwzY4kUH9WBiUA/jo?=
+ =?us-ascii?Q?TA1cYkzp87FMKPkcSwMIrnB3njTi6yA3Lrjtra8Knd7b2FlxVvl0rt4qhdc+?=
+ =?us-ascii?Q?j2SG3K4rwXeEoBBKzorj9VFuLz5NGgok7NXAvXHZsWEutEse/K32UvVL7epF?=
+ =?us-ascii?Q?cQfEEkyC8Lsy0jNE39XPiACXXRTqK2NWdzxJOgcvJJHIrUTzE/jIpOw/unvi?=
+ =?us-ascii?Q?fDuIjNAKbuGIEATni19ljfdpmNhLsKWdxNsQOU92Blp8WRhT+CtiKLbWmq+z?=
+ =?us-ascii?Q?v3b7AkotpOJALUYbnfvbZSicYboqZ8lW5GPcsNL64Lt3VOLJkbwV0oFaR5Gb?=
+ =?us-ascii?Q?+/Z3ctV7n1AzqOIR7A3lN9YGXITCvnmKiLEfqYAqLhj7wHy9oKpC0IGUfl7u?=
+ =?us-ascii?Q?c6OJIidnQctujblmgrY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2BT9fBPdBlhcPgJyR32qAy01ajwPXTFc36bzuGMORByuXGdFdG4C027UbPpE?=
+ =?us-ascii?Q?QxHmH9mES+hEfx+HYCz9tbEW7po4cw9mZigdcflxiZGjPv7jmqlB2R9SePp9?=
+ =?us-ascii?Q?wWR0vWKqstTG1jcJno83tAw9JFNMdQrslukbDVmKPVLYvw7eYm6pj0dl6oFg?=
+ =?us-ascii?Q?5WpgVNrc+e9I5U6xMFMMgHK2Ic1m1dvjtrwshpIV+vYrUSGr7xvwp9L/rISI?=
+ =?us-ascii?Q?MrULYV0z5GDAXKg0jYI3EsnRxHidxTegM1E/+oIezAhfWg/5CGlaIbKAr6tz?=
+ =?us-ascii?Q?rtJn/cpWnpqqrtQueYxk1Zv3+lWnLe8THOwXPDBhkPbKEb+9xqP5qAj4YZBw?=
+ =?us-ascii?Q?OtD1G7nwJqPtUfZpStqpnhsElfGe6QaGBIlt52Xse9/wPWftfjiwRtIv85u/?=
+ =?us-ascii?Q?XHTX+Jgrkzs9N29w7V6FENWWbCbkg+5Zd1AmMNSxxVW9LFbXXdbQg1qcdWFC?=
+ =?us-ascii?Q?/OLfKsb/NkcaAXTH/zjFwciaDmUZo1bf2Qu02CODex5/1CREc+wYQL8a3GPz?=
+ =?us-ascii?Q?q2e12XoE1kd3dmMnEUUYjCn7VI+lmgrDCDc12K68loOam2Biv+T1SVw+X10f?=
+ =?us-ascii?Q?A/SMgXXmqTamoBvbRCJCL0sIa5YcBjSUzLH1sXHmA5pXOczWnBeToryLWB9R?=
+ =?us-ascii?Q?OqFhek/r7sn5Q/JCxzfbG18MkYxL6NycD8gj6Cgks3xk2EoTm2qfL6ztBvyR?=
+ =?us-ascii?Q?HB5UwlNPRTO8cI5auQn2zYjJidMjscMF7xC1unUQ+8hNVBd8giuKWYxj9dnU?=
+ =?us-ascii?Q?/pHY1ctvrWQd+G8Y3agd7D0eMJK+cTXRhBnarDQ9gW0CJh8jMYLi8kEVfZR6?=
+ =?us-ascii?Q?MtgwQ1gLyq4e5yQ5jB4tuQZW6O99RHEizeF7T0Rg8GEaMbafylhGG+Ni2gIo?=
+ =?us-ascii?Q?N1q/Ylfc5yh+oiC0HfGgqpxUvzgfaRvqaBXPk/xLM+KTrn9NigI2NZlfS7/Z?=
+ =?us-ascii?Q?yZqRFPpWaAvY9HASCI7fUIdSkQxipZhZnbY4cZATQN9D7JYodXbC7D6vPdtV?=
+ =?us-ascii?Q?UGFcZngTsFtJmFXxk34OBT1lCrmD7vwKXk8EeefyO4yRo5cLd7v36ilFywio?=
+ =?us-ascii?Q?cgFhmLToyGCddFsChv4BntyVlA9xlhxuGy2NEy3YxlwMvAEUbeY2Z1LcsEYS?=
+ =?us-ascii?Q?Ob4+mzjsMgz+1mSF7DWLtzAHC82JXFxPv+A9iQLgVk/EzKbb1/PS1uclUhKf?=
+ =?us-ascii?Q?HwJfF8sK9HAZlwyzNqtIiKys1O6m/AJ/9xOaX47Y+3YQlfETAxomYXRE1YDq?=
+ =?us-ascii?Q?Y+3He7tmZd3hl3CcM7pAuN/bMjuDL4EL69kDx8WB2zxiOB1Md0WQ/Fla9Nx/?=
+ =?us-ascii?Q?khARaI1EDm2Dyd5QY+mfcbivdOv/QWWw4CL1D+yM9byyNt+NC+lYAP4LU5Vg?=
+ =?us-ascii?Q?WZemC+9fFf37oZc1P2of1uFM9ZXYuhk6DlxQ8y33vV7weLqOdbsIGcR3V4VV?=
+ =?us-ascii?Q?I8ITQ1dYXSU1i4p449IHBGvmSQuoc3fwDSgEEZgsRfs9fsxnioem8m/xuvOw?=
+ =?us-ascii?Q?YkFoirURmNQYHks7gOFa+e3nk2G6dFKkpQcgE60D7ECCVFkZvOkHZX52sqwl?=
+ =?us-ascii?Q?x8deRZ0rCBGFeHDsqtQyGTSAiOQRQOpEUspJuynQIy3pspF/fJOBYAHR5/lN?=
+ =?us-ascii?Q?asUxPhgiADgBJ+hnGOaMmt1kwJmLl/6rX1wsqICoLffOV7TAgtBQWj8+TuWC?=
+ =?us-ascii?Q?N4T1a8+dtV+qkgN4e2ELQx20gJ0UKaIghUYJY57JmiukfzATJwfJHp54ztWq?=
+ =?us-ascii?Q?LsShj8om/VeGJYN0yfYE2AewUP1eTyM=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: wBiXwWGY68Qm/CDR7ylv2FKu+zc2+mLCaFc1oJ4vOw/GgXmMqwI6TXJ2+DPCnPK06B/Ngui7meG9qcQ9PjKzN/uv8Hl7zKjmccBkdCdF/djcxvxQG+bih1dX58aAeEdPS/5WmdaOczR0rvXEGOXOG3ckRUjxl9rEsukSEo6RS3gNIm9rfhgfxKlJU8RMWXvggeNFE0/2xhsNjHQUI86XsDzoPZxegovedA3aXb3RvTvA/uPXKT/oa5g76RUqpNWKy4QKatJsyxva5FIvVrGmpiF2BE8mXOcztFQuYVpYWgSJdfj0poKy1uKs8FBd8PewFh80wbNYtwJRxmdVDvv0pfQ9mQLFZo9PWrspPIK5+jUMDIl+4F1pIAetF6N+qRWnTT/Lnu+I1uxCYhPZIIcWOVoL4ramTVXtBeefcrF6wJHYz7ktdxjYkY3tJHPoMBnj7G8Fw+oiPMIV100dkjuGpBqC8lcUkufI3cXygoFXm38IDDKAfZDhSJ+p1HbJE8cJcAMfXp+8GsA5E7EytCTrFj+G7vK9qQh1uFWXaE8EANhR9+kfaQeVEd+Mrw8BFLqGfexA7eX6c7qw9KTlxQ5ZhWg9JaKh6A2Hhh4SLITZH/Q=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 50461840-2542-455f-2567-08de69c0ebba
+X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Feb 2026 22:57:24.4125
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: j/NzyxxNt+Dj6dLqbDBfEr/lDaJkfKdVg2Vbpz4YAcBO3O6Ef6KSyP7c8XSvZjy24tbuE3Yi6EGQ2fvKCizZ/NYXn2sQlYUg5RSc91G2xOE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB7553
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-11_03,2026-02-11_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 adultscore=0
+ mlxlogscore=999 malwarescore=0 phishscore=0 suspectscore=0 bulkscore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2601150000 definitions=main-2602110177
+X-Authority-Analysis: v=2.4 cv=PZbyRyhd c=1 sm=1 tr=0 ts=698d095e cx=c_pps
+ a=XiAAW1AwiKB2Y8Wsi+sD2Q==:117 a=XiAAW1AwiKB2Y8Wsi+sD2Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=HzLeVaNsDn8A:10
+ a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Mpw57Om8IfrbqaoTuvik:22
+ a=GgsMoib0sEa3-_RKJdDe:22 a=7CQSdrXTAAAA:8 a=7mqamtKPcH-GI9Xig8UA:9
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjExMDE3NyBTYWx0ZWRfX42NW2k82KTh4
+ sLWxaAC3OImM9nWSZYjNEHfT22ck706ihe02dbemYdHhxMugvTUbmtehNS/DtzJbW/5F/4wYZbo
+ RKL2A+u6YbUcYc6kfI0wt6kaxU/Lp6dTUR66FB5BHM0RJSxOapG9YckWjXmTfoLaviO+uU89ECI
+ c2bgrthHIKp7FZSpfaOqeZKEWhKw8wqNMY17pSPZv2mUyM/o25os58qNWhXEeRIAV2pkYXcUtnQ
+ Px/JGWhw8olF0FyPEbcBFr02q/wVRzWTAVtkbdJhYUfk0M0D739gn5msKPNbRSKxGS/DR/Oi8kV
+ kuvAyaI1HAk0YMhbSCdZrFcQs5o73uxHZXpyalwsUssQukzcJRlNKrSmt8Xno7Ed3x//Wo4R/6N
+ Jm3/2sVDGc55Hu+5rNuu4CP05S6DXRlt662SZfR+NIwGyaAXpRTjTLVW13qfoDAEjaNRSx1CUkD
+ 3OAagvWcrlDSDO6QnMw==
+X-Proofpoint-ORIG-GUID: Twk411wjypVN5b4WiJt7VWlPiX8MPxrO
+X-Proofpoint-GUID: Twk411wjypVN5b4WiJt7VWlPiX8MPxrO
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_143700_933993_FD5AFC58 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20260211_145802_516304_3121DB6C 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,176 +218,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Coiby,
 
-kernel test robot noticed the following build errors:
+Catalin Marinas <catalin.marinas@arm.com> writes:
 
-[auto build test ERROR on 2619c62b7ef2f463bcbbb34af122689c09855c23]
+> On Sun, Feb 08, 2026 at 06:31:43PM -0800, Ankur Arora wrote:
+>> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+>> index 93173f0a09c7..239fdca8e2cf 100644
+>> --- a/arch/arm64/Kconfig
+>> +++ b/arch/arm64/Kconfig
+>> @@ -22,6 +22,7 @@ config ARM64
+>>  	select ARCH_HAS_CACHE_LINE_SIZE
+>>  	select ARCH_HAS_CC_PLATFORM
+>>  	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+>> +	select ARCH_HAS_CPU_RELAX
+>
+> AFAICT, ARCH_HAS_CPU_RELAX is only defined for x86. You can't just
+> select it here. Either make the definition global somewhere or add this
+> to arm64 Kconfig:
+>
+> config ARCH_HAS_CPU_RELAX
+> 	def_bool y
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Coiby-Xu/crash_dump-dm-crypt-Don-t-print-in-arch-specific-code/20260211-162729
-base:   2619c62b7ef2f463bcbbb34af122689c09855c23
-patch link:    https://lore.kernel.org/r/20260211082401.2407853-3-coxu%40redhat.com
-patch subject: [PATCH v4 2/2] arm64,ppc64le/kdump: pass dm-crypt keys to kdump kernel
-config: powerpc64-randconfig-r111-20260212 (https://download.01.org/0day-ci/archive/20260212/202602120648.RgQALnnI-lkp@intel.com/config)
-compiler: powerpc64-linux-gcc (GCC) 11.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260212/202602120648.RgQALnnI-lkp@intel.com/reproduce)
+Ack. I had added config ARCH_HAS_CPU_RELAX in arch/Kconfig
+for my test builds but got rid of that when sending out the
+series. Will fix.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202602120648.RgQALnnI-lkp@intel.com/
+> Otherwise,
+>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
-All errors (new ones prefixed by >>):
+Thanks.
 
-   arch/powerpc/kexec/elf_64.c: In function 'elf64_load':
->> arch/powerpc/kexec/elf_64.c:82:23: error: implicit declaration of function 'crash_load_dm_crypt_keys' [-Werror=implicit-function-declaration]
-      82 |                 ret = crash_load_dm_crypt_keys(image);
-         |                       ^~~~~~~~~~~~~~~~~~~~~~~~
-   cc1: some warnings being treated as errors
-
-
-vim +/crash_load_dm_crypt_keys +82 arch/powerpc/kexec/elf_64.c
-
-    27	
-    28	static void *elf64_load(struct kimage *image, char *kernel_buf,
-    29				unsigned long kernel_len, char *initrd,
-    30				unsigned long initrd_len, char *cmdline,
-    31				unsigned long cmdline_len)
-    32	{
-    33		int ret;
-    34		unsigned long kernel_load_addr;
-    35		unsigned long initrd_load_addr = 0, fdt_load_addr;
-    36		void *fdt;
-    37		const void *slave_code;
-    38		struct elfhdr ehdr;
-    39		char *modified_cmdline = NULL;
-    40		struct crash_mem *rmem = NULL;
-    41		struct kexec_elf_info elf_info;
-    42		struct kexec_buf kbuf = { .image = image, .buf_min = 0,
-    43					  .buf_max = ppc64_rma_size };
-    44		struct kexec_buf pbuf = { .image = image, .buf_min = 0,
-    45					  .buf_max = ppc64_rma_size, .top_down = true,
-    46					  .mem = KEXEC_BUF_MEM_UNKNOWN };
-    47	
-    48		ret = kexec_build_elf_info(kernel_buf, kernel_len, &ehdr, &elf_info);
-    49		if (ret)
-    50			return ERR_PTR(ret);
-    51	
-    52		if (IS_ENABLED(CONFIG_CRASH_DUMP) && image->type == KEXEC_TYPE_CRASH) {
-    53			/* min & max buffer values for kdump case */
-    54			kbuf.buf_min = pbuf.buf_min = crashk_res.start;
-    55			kbuf.buf_max = pbuf.buf_max =
-    56					((crashk_res.end < ppc64_rma_size) ?
-    57					 crashk_res.end : (ppc64_rma_size - 1));
-    58		}
-    59	
-    60		ret = kexec_elf_load(image, &ehdr, &elf_info, &kbuf, &kernel_load_addr);
-    61		if (ret)
-    62			goto out;
-    63	
-    64		kexec_dprintk("Loaded the kernel at 0x%lx\n", kernel_load_addr);
-    65	
-    66		ret = kexec_load_purgatory(image, &pbuf);
-    67		if (ret) {
-    68			pr_err("Loading purgatory failed.\n");
-    69			goto out;
-    70		}
-    71	
-    72		kexec_dprintk("Loaded purgatory at 0x%lx\n", pbuf.mem);
-    73	
-    74		/* Load additional segments needed for panic kernel */
-    75		if (IS_ENABLED(CONFIG_CRASH_DUMP) && image->type == KEXEC_TYPE_CRASH) {
-    76			ret = load_crashdump_segments_ppc64(image, &kbuf);
-    77			if (ret) {
-    78				pr_err("Failed to load kdump kernel segments\n");
-    79				goto out;
-    80			}
-    81	
-  > 82			ret = crash_load_dm_crypt_keys(image);
-    83			if (ret)
-    84				goto out;
-    85	
-    86			/* Setup cmdline for kdump kernel case */
-    87			modified_cmdline = setup_kdump_cmdline(image, cmdline,
-    88							       cmdline_len);
-    89			if (!modified_cmdline) {
-    90				pr_err("Setting up cmdline for kdump kernel failed\n");
-    91				ret = -EINVAL;
-    92				goto out;
-    93			}
-    94			cmdline = modified_cmdline;
-    95		}
-    96	
-    97		if (initrd != NULL) {
-    98			kbuf.buffer = initrd;
-    99			kbuf.bufsz = kbuf.memsz = initrd_len;
-   100			kbuf.buf_align = PAGE_SIZE;
-   101			kbuf.top_down = false;
-   102			kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
-   103			ret = kexec_add_buffer(&kbuf);
-   104			if (ret)
-   105				goto out;
-   106			initrd_load_addr = kbuf.mem;
-   107	
-   108			kexec_dprintk("Loaded initrd at 0x%lx\n", initrd_load_addr);
-   109		}
-   110	
-   111		ret = get_reserved_memory_ranges(&rmem);
-   112		if (ret)
-   113			goto out;
-   114	
-   115		fdt = of_kexec_alloc_and_setup_fdt(image, initrd_load_addr,
-   116						   initrd_len, cmdline,
-   117						   kexec_extra_fdt_size_ppc64(image, rmem));
-   118		if (!fdt) {
-   119			pr_err("Error setting up the new device tree.\n");
-   120			ret = -EINVAL;
-   121			goto out;
-   122		}
-   123	
-   124		ret = setup_new_fdt_ppc64(image, fdt, rmem);
-   125		if (ret)
-   126			goto out_free_fdt;
-   127	
-   128		if (!IS_ENABLED(CONFIG_CRASH_HOTPLUG) || image->type != KEXEC_TYPE_CRASH)
-   129			fdt_pack(fdt);
-   130	
-   131		kbuf.buffer = fdt;
-   132		kbuf.bufsz = kbuf.memsz = fdt_totalsize(fdt);
-   133		kbuf.buf_align = PAGE_SIZE;
-   134		kbuf.top_down = true;
-   135		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
-   136		ret = kexec_add_buffer(&kbuf);
-   137		if (ret)
-   138			goto out_free_fdt;
-   139	
-   140		/* FDT will be freed in arch_kimage_file_post_load_cleanup */
-   141		image->arch.fdt = fdt;
-   142	
-   143		fdt_load_addr = kbuf.mem;
-   144	
-   145		kexec_dprintk("Loaded device tree at 0x%lx\n", fdt_load_addr);
-   146	
-   147		slave_code = elf_info.buffer + elf_info.proghdrs[0].p_offset;
-   148		ret = setup_purgatory_ppc64(image, slave_code, fdt, kernel_load_addr,
-   149					    fdt_load_addr);
-   150		if (ret)
-   151			pr_err("Error setting up the purgatory.\n");
-   152	
-   153		goto out;
-   154	
-   155	out_free_fdt:
-   156		kvfree(fdt);
-   157	out:
-   158		kfree(rmem);
-   159		kfree(modified_cmdline);
-   160		kexec_free_elf_info(&elf_info);
-   161	
-   162		return ret ? ERR_PTR(ret) : NULL;
-   163	}
-   164	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+--
+ankur
 
