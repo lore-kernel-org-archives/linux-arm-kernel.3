@@ -4,66 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15705E9E311
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 15:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5A4CE9E31B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 15:40:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0rjatVmGlhUSND0P6i1mmjKnBWQc8CLUs9MXwWYzfks=; b=MTiewag8nevsQmhUq5XjC60hUB
-	STI7sdH6RBe73oxW7eOk7lUR4VpNtN011E7OIEB45FaP/E86uLWwQlBQRecWUPyu5CbyqNk4JCnE2
-	DXHlkqJGO1Dn8KxJdOyU6UhTf0hjQoBNTShRPTeJds2l5q0u01CPAZHQqozcG85uzE2OaVGgepmhy
-	OrkKnyKGb/QH8RYao+vGlxL1bGi0nmXi6eM7ixz7PRK++YnSikLi3bkYBmpJlezZ69XwEWZb0FfaK
-	Yk40h4ekrBdViEOozB67jVypOzeRqJA4muE/rInnIJpkzr5eZTaqVhgqoWyoNPZ6/a7xjA6vdNGqH
-	1mDNUjEg==;
+	bh=bGSEUeAMENP4be6s2i3paIEHHNF6/whysqf6hjNnA/c=; b=eT629TCYBeR/+0RPMUsTAjrEBT
+	2BPpAWq1nWewg1B/BnoRdXnzIsCnnu368BGGiBjcNtKP7prBcDBndu8W/4887djK7cc4y24hX8Cgh
+	hDilgYhoRBkPPtG6k11twRnti9uL3E/EAwKMb8qZUkk64Uy+1Ljl2iN97lXuDIv3CnKgeT5lDUJnv
+	SoVEpsdLSJwMkddvrYq4TmwpdhAo0UjMZGHjDGX27yqknMuaAfY9ekLu/bsO36YC3gKHZ1hIVSfBT
+	YMEuJPFw9bDv1bk6sznsbc/+VZNxJdSQ8GdLk3zqDWwcVtsXtQvOErw5/Jb+Va+vb+8OdLuMV+fqj
+	oaFDU6IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqCGx-00000000nSz-4A8q;
-	Wed, 11 Feb 2026 15:37:00 +0000
+	id 1vqCJn-00000000ndS-0YxA;
+	Wed, 11 Feb 2026 15:39:55 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqCGu-00000000nSe-1YxL
+	id 1vqCJk-00000000ncW-2UOW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Feb 2026 15:36:58 +0000
+	Wed, 11 Feb 2026 15:39:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 34CA2339;
-	Wed, 11 Feb 2026 07:36:47 -0800 (PST)
-Received: from e134344.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 25FC83F63F;
-	Wed, 11 Feb 2026 07:36:48 -0800 (PST)
-Date: Wed, 11 Feb 2026 15:36:45 +0000
-From: Ben Horgan <ben.horgan@arm.com>
-To: Reinette Chatre <reinette.chatre@intel.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
-	dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
-	fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
-	jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	peternewman@google.com, punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com, rohit.mathew@arm.com,
-	scott@os.amperecomputing.com, sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com,
-	catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net,
-	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
-	zengheng4@huawei.com, linux-doc@vger.kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: Re: [PATCH v4 13/41] arm_mpam: resctrl: Add boilerplate cpuhp and
- domain allocation
-Message-ID: <aYyiDRD6u6p4a98h@e134344.arm.com>
-References: <20260203214342.584712-1-ben.horgan@arm.com>
- <20260203214342.584712-14-ben.horgan@arm.com>
- <f2951303-6fe9-4674-bd16-0dbef39cc1d4@intel.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A4F17497;
+	Wed, 11 Feb 2026 07:39:42 -0800 (PST)
+Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 45E503F63F;
+	Wed, 11 Feb 2026 07:39:45 -0800 (PST)
+Date: Wed, 11 Feb 2026 15:39:42 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	bpf@vger.kernel.org, arnd@arndb.de, will@kernel.org,
+	peterz@infradead.org, akpm@linux-foundation.org,
+	mark.rutland@arm.com, harisokn@amazon.com, cl@gentwo.org,
+	ast@kernel.org, rafael@kernel.org, daniel.lezcano@linaro.org,
+	memxor@gmail.com, zhenglifeng1@huawei.com,
+	xueshuai@linux.alibaba.com, joao.m.martins@oracle.com,
+	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
+Subject: Re: [PATCH v9 01/12] asm-generic: barrier: Add
+ smp_cond_load_relaxed_timeout()
+Message-ID: <aYyivg-6aYspHIHA@arm.com>
+References: <20260209023153.2661784-1-ankur.a.arora@oracle.com>
+ <20260209023153.2661784-2-ankur.a.arora@oracle.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <f2951303-6fe9-4674-bd16-0dbef39cc1d4@intel.com>
+In-Reply-To: <20260209023153.2661784-2-ankur.a.arora@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_073656_492617_61E23FD9 
-X-CRM114-Status: GOOD (  35.75  )
+X-CRM114-CacheID: sfid-20260211_073952_671651_4EFEBF7B 
+X-CRM114-Status: GOOD (  20.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,263 +71,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Reinette,
+On Sun, Feb 08, 2026 at 06:31:42PM -0800, Ankur Arora wrote:
+> Add smp_cond_load_relaxed_timeout(), which extends
+> smp_cond_load_relaxed() to allow waiting for a duration.
+> 
+> We loop around waiting for the condition variable to change while
+> peridically doing a time-check. The loop uses cpu_poll_relax() to slow
+> down the busy-waiting, which, unless overridden by the architecture
+> code, amounts to a cpu_relax().
+> 
+> Note that there are two ways for the time-check to fail: the usual
+> timeout case or, @time_expr_ns returning an invalid value (negative
+> or zero). The second failure mode allows for clocks attached to the
+> clock-domain of @cond_expr, which might cease to operate meaningfully
+> once some state internal to @cond_expr has changed.
+> 
+> Evaluation of @time_expr_ns: in the fastpath we want to keep the
+> performance close to smp_cond_load_relaxed(). To do that we defer
+> evaluation of the potentially costly @time_expr_ns to when we hit
+> the slowpath.
+> 
+> This also means that there will always be some hardware dependent
+> duration that has passed in cpu_poll_relax() iterations at the time of
+> first evaluation. Additionally cpu_poll_relax() is not guaranteed to
+> return at timeout boundary. In sum, expect timeout overshoot when we
+> exit due to expiration of the timeout.
+> 
+> The number of spin iterations before time-check, SMP_TIMEOUT_POLL_COUNT
+> is chosen to be 200 by default. With a cpu_poll_relax() iteration
+> taking ~20-30 cycles (measured on a variety of x86 platforms), we expect
+> a tim-check every ~4000-6000 cycles.
+> 
+> The outer limit of the overshoot is double that when working with the
+> parameters above. This might be higher or lower depending on the
+> implementation of cpu_poll_relax() across architectures.
+> 
+> Lastly, config option ARCH_HAS_CPU_RELAX indicates availability of a
+> cpu_poll_relax() that is cheaper than polling. This might be relevant
+> for cases with a prolonged timeout.
+> 
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: linux-arch@vger.kernel.org
+> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
 
-On Tue, Feb 10, 2026 at 02:57:29PM -0800, Reinette Chatre wrote:
-> Hi Ben,
-> 
-> On 2/3/26 1:43 PM, Ben Horgan wrote:
-> ...
-> > diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> > new file mode 100644
-> > index 000000000000..4c2248c92955
-> > --- /dev/null
-> > +++ b/drivers/resctrl/mpam_resctrl.c
-> > @@ -0,0 +1,343 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +// Copyright (C) 2025 Arm Ltd.
-> > +
-> > +#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
-> > +
-> > +#include <linux/arm_mpam.h>
-> > +#include <linux/cacheinfo.h>
-> > +#include <linux/cpu.h>
-> > +#include <linux/cpumask.h>
-> > +#include <linux/errno.h>
-> > +#include <linux/list.h>
-> > +#include <linux/printk.h>
-> > +#include <linux/rculist.h>
-> > +#include <linux/resctrl.h>
-> > +#include <linux/slab.h>
-> > +#include <linux/types.h>
-> > +
-> > +#include <asm/mpam.h>
-> > +
-> > +#include "mpam_internal.h"
-> > +
-> > +/*
-> > + * The classes we've picked to map to resctrl resources, wrapped
-> > + * in with their resctrl structure.
-> > + * Class pointer may be NULL.
-> > + */
-> > +static struct mpam_resctrl_res mpam_resctrl_controls[RDT_NUM_RESOURCES];
-> > +
-> > +#define for_each_mpam_resctrl_control(res, rid)					\
-> > +	for (rid = 0, res = &mpam_resctrl_controls[rid];			\
-> > +	     rid < RDT_NUM_RESOURCES;						\
-> > +	     rid++, res = &mpam_resctrl_controls[rid])
-> > +
-> > +/* The lock for modifying resctrl's domain lists from cpuhp callbacks. */
-> > +static DEFINE_MUTEX(domain_list_lock);
-> > +
-> > +static bool exposed_alloc_capable;
-> > +static bool exposed_mon_capable;
-> > +
-> > +bool resctrl_arch_alloc_capable(void)
-> > +{
-> > +	return exposed_alloc_capable;
-> > +}
-> > +
-> > +bool resctrl_arch_mon_capable(void)
-> > +{
-> > +	return exposed_mon_capable;
-> > +}
-> > +
-> > +/*
-> > + * MSC may raise an error interrupt if it sees an out or range partid/pmg,
-> > + * and go on to truncate the value. Regardless of what the hardware supports,
-> > + * only the system wide safe value is safe to use.
-> > + */
-> > +u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
-> > +{
-> > +	return mpam_partid_max + 1;
-> > +}
-> > +
-> > +struct rdt_resource *resctrl_arch_get_resource(enum resctrl_res_level l)
-> > +{
-> > +	if (l >= RDT_NUM_RESOURCES)
-> > +		return NULL;
-> > +
-> > +	return &mpam_resctrl_controls[l].resctrl_res;
-> > +}
-> > +
-> > +static int mpam_resctrl_control_init(struct mpam_resctrl_res *res)
-> > +{
-> > +	/* TODO: initialise the resctrl resources */
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
-> > +{
-> > +	struct mpam_class *class = comp->class;
-> > +
-> > +	if (class->type == MPAM_CLASS_CACHE)
-> > +		return comp->comp_id;
-> > +
-> > +	/* TODO: repaint domain ids to match the L3 domain ids */
-> > +	/* Otherwise, expose the ID used by the firmware table code. */
-> > +	return comp->comp_id;
-> > +}
-> > +
-> > +static void mpam_resctrl_domain_hdr_init(int cpu, struct mpam_component *comp,
-> > +					 struct rdt_domain_hdr *hdr)
-> > +{
-> > +	lockdep_assert_cpus_held();
-> > +
-> > +	INIT_LIST_HEAD(&hdr->list);
-> > +	hdr->id = mpam_resctrl_pick_domain_id(cpu, comp);
-> > +	cpumask_set_cpu(cpu, &hdr->cpu_mask);
-> 
-> One addition via the resctrl telemetry enabling is a new rdt_domain_hdr::rid
-> used for some additional checks on the header.
-> https://lore.kernel.org/all/20251217172121.12030-2-tony.luck@intel.com/
-> I may be missing something here though since the additional checking that this
-> new field supports should have complained loudly ... unless this was tested with
-> only the L3 resource that happens to be 0.
+This series evolved a bit since last time I looked, so going through it
+again:
 
-Hmmm, thanks for pointing this out. I think I've been getting away with this as
-in the resctrl common code checking for 'rid' only happens for monitors which we
-do keep on the L3 resource and the control checking is only in the x86.  I'll
-look into this a bit more and update for this change.
-
-> 
-> ...
-> 
-> > +static struct mpam_resctrl_dom *
-> > +mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
-> > +{
-> > +	struct mpam_resctrl_dom *dom;
-> > +	struct rdt_resource *r = &res->resctrl_res;
-> > +
-> > +	lockdep_assert_cpus_held();
-> > +
-> > +	list_for_each_entry_rcu(dom, &r->ctrl_domains, resctrl_ctrl_dom.hdr.list) {
-> > +		if (cpumask_test_cpu(cpu, &dom->ctrl_comp->affinity))
-> > +			return dom;
-> > +	}
-> 
-> I notice here that that only the ctrl_domains list is searched ...
-
-The monitor searching is added in:
- [PATCH v4 28/41] arm_mpam: resctrl: Pick classes for use as mbm counters
-This does seems like a bad code split. Even more so as csu counters are
-added before the mbm counters.
-
-> 
-> > +
-> > +	return NULL;
-> > +}
-> > +
-> > +int mpam_resctrl_online_cpu(unsigned int cpu)
-> > +{
-> > +	struct mpam_resctrl_res *res;
-> > +	enum resctrl_res_level rid;
-> > +
-> > +	guard(mutex)(&domain_list_lock);
-> > +	for_each_mpam_resctrl_control(res, rid) {
-> > +		struct mpam_resctrl_dom *dom;
-> > +
-> > +		if (!res->class)
-> > +			continue;	// dummy_resource;
-> > +
-> > +		dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
-> 
-> Consider a system that only supports monitoring (exposed_alloc_capable == false,
-> exposed_mon_capable == true). Since mpam_resctrl_get_domain_from_cpu() only
-> searches control domains then it looks to me as though dom will always be false
-> here?
-> 
-> > +		if (!dom) {
-> > +			dom = mpam_resctrl_alloc_domain(cpu, res);
-> 
-> Would this (on hypothetical exposed_alloc_capable == false, exposed_mon_capable == true system)
-> then cause a new domain to be allocated for each CPU with a single CPU in its cpumask
-> instead of allocating a single monitoring domain with multiple CPUs in its mask?
-> 
-> > +		} else {
-> > +			if (exposed_alloc_capable) {
-> > +				struct rdt_ctrl_domain *ctrl_d = &dom->resctrl_ctrl_dom;
-> > +
-> > +				mpam_resctrl_online_domain_hdr(cpu, &ctrl_d->hdr);
-> > +			}
-> > +			if (exposed_mon_capable) {
-> > +				struct rdt_l3_mon_domain *mon_d = &dom->resctrl_mon_dom;
-> > +
-> > +				mpam_resctrl_online_domain_hdr(cpu, &mon_d->hdr);
-> > +			}
-> > +		}
-> > +		if (IS_ERR(dom))
-> > +			return PTR_ERR(dom);
-> > +	}
-> > +
-> > +	resctrl_online_cpu(cpu);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +void mpam_resctrl_offline_cpu(unsigned int cpu)
-> > +{
-> > +	struct mpam_resctrl_res *res;
-> > +	enum resctrl_res_level rid;
-> > +
-> > +	resctrl_offline_cpu(cpu);
-> > +
-> > +	guard(mutex)(&domain_list_lock);
-> > +	for_each_mpam_resctrl_control(res, rid) {
-> > +		struct mpam_resctrl_dom *dom;
-> > +		struct rdt_l3_mon_domain *mon_d;
-> > +		struct rdt_ctrl_domain *ctrl_d;
-> > +		bool ctrl_dom_empty, mon_dom_empty;
-> > +
-> > +		if (!res->class)
-> > +			continue;	// dummy resource
-> > +
-> > +		dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
-> > +		if (WARN_ON_ONCE(!dom))
-> 
-> Similar to above ... it looks to me as though this WARN may always be
-> encountered on a system that only supports monitoring.
-
-I think monitor only systems, (exposed_alloc_capable == false,
-exposed_mon_capable == true), are handled properly from
-[PATCH v4 28/41] arm_mpam: resctrl: Pick classes for use as mbm counters
-onwards in the series.
-
-I'll look into making the division into commits better.
-
-> 
-> > +			continue;
-> > +
-> > +		if (exposed_alloc_capable) {
-> > +			ctrl_d = &dom->resctrl_ctrl_dom;
-> > +			ctrl_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
-> > +			if (ctrl_dom_empty)
-> > +				resctrl_offline_ctrl_domain(&res->resctrl_res, ctrl_d);
-> > +		} else {
-> > +			ctrl_dom_empty = true;
-> > +		}
-> > +
-> > +		if (exposed_mon_capable) {
-> > +			mon_d = &dom->resctrl_mon_dom;
-> > +			mon_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &mon_d->hdr);
-> > +			if (mon_dom_empty)
-> > +				resctrl_offline_mon_domain(&res->resctrl_res, &mon_d->hdr);
-> > +		} else {
-> > +			mon_dom_empty = true;
-> > +		}
-> > +
-> > +		if (ctrl_dom_empty && mon_dom_empty)
-> > +			kfree(dom);
-> > +	}
-> > +}
-> > +
-> 
-> Reinette
-> 
-> 
-
-Thanks,
-
-Ben
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
