@@ -4,94 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39433E9E30D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 14:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43F12E9E311
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 14:23:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=i2a0yu6RlT+zETdd3iQNLEBogdpR7mh/Nc5hRgZU3iE=; b=M5BaQpZE5vXu8XzkR0FeAYKe93
-	1ZahpLspHSkpDqv+qlS49WgU8KJf5Q0vovncdTndsIFoedabxSTKr9Uj+DnWb1OWJbDcQyAOR3iAM
-	yukggrHsgPZbz1zT0D6GE21afhu69b9++pLbHMDEGN5iZ69bxQw72T4tS3msiZ8CvIr4AxxW4bL5d
-	VWUmbrA3OKpW201OT/l5R6H65nmO3Dy/iumbhynqCRKKO0q3XZZg07+6jaNqZggruO8dRhU1rFZKy
-	t97s8syJjYkc8Rrz6LyXCMuUWD1aUe5NNJhOYroS49c9BuL1Nio1k51FcVETzLVyMWwrQBFB88LeF
-	G1bppHeQ==;
+	bh=jlZ+WLsAP4dfOcz06Izv7LZZ69lNoh9OB4/JpyJu788=; b=eYc77Uv8/Agg0YQmSyrNKFI/tw
+	V/lu5Xr7VyNDrngJy3TWhB8B0TD2qE76ZquZB9XZ5xgH01PR11+NE8fpRjaBilEPoLuZgxnXLwena
+	h4InUYcHuiqHFIbZBRtsEWJRiAdGfaBDQASLtRuYff+nWZa/daS81ZW38ohp8xC2SoRDvi83C12yk
+	AgC1If7WccQXAUwIIwlXA8TJalTXBYmGlAbxHx/f0UWg3fEw0YqqKFoKRTLA+rFNA6vA0/Kb43bSa
+	bbEsmTwc94YH6an8b1iNHkwID0PR8JARqXjGpv4ZUuqZibtN5bV6zl/uxhSSI3Ky2456XWC2Ul+V0
+	L52F+sjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqB7A-00000000j1m-10kT;
-	Wed, 11 Feb 2026 14:22:48 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1vqB7r-00000000j5x-2ePQ;
+	Wed, 11 Feb 2026 14:23:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqB77-00000000j1F-2Uun
+	id 1vqB7p-00000000j5N-45Y8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Feb 2026 14:22:46 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2aaf43014d0so22304715ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Feb 2026 06:22:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770819764; x=1771424564; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=i2a0yu6RlT+zETdd3iQNLEBogdpR7mh/Nc5hRgZU3iE=;
-        b=AGgj8Stqn+a/PVI4FzvvMpxaFEWJmXbyq2AtWQ+RHy864gQhm6RrVWN1tcPZnhIJPS
-         xLREUWCaoQHD+faGEOWas4Q6rg9Sj+9fYi1DGzaWLF+p8Pon9Iphl2J7+HsnpTf+RZjY
-         mR7Kit9DyoPYPnVXWr6RIjsl9kcIUE4Mf7XcP03XKQIH8o23uC+0Iolz09yiDSQBr8oQ
-         dy86Evkcxozpre9H1axczFf/Ck1UTmU86DSX6JxlZ2DS+Z6CMxsNyB5PNsE3wnHLGcrU
-         w0AOBte1L1riY2rSpLwGJ0gAntQ4qe4WS6xyLCw0bsx38ahqiLdeVfIahmkY4duLzu7f
-         EqUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770819764; x=1771424564;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=i2a0yu6RlT+zETdd3iQNLEBogdpR7mh/Nc5hRgZU3iE=;
-        b=wjPemS2UAzOQlHHKhSh4SaMfRULLrHrZySgP4QAuFc+NdNQ6C51BA3TS2EbkVslkk/
-         EEACVF5oMbhWuvBEeY/DnLNxmgeEmdyJeumejDJznN6dt/dcsITgW3tidkAD8PuIPSmg
-         3vIcRG11jJkSerYU4+VdO16HSqUODAL10b/EloOW3spPd9b6v98qcIgvfZRtcnK8pAIU
-         IEQUYtkxhR0G81G7EDcFSktrXyG0VjohZmml62r95n5r8IVEa8dFggX7OC81k3anuvA3
-         Bb1ZYePPZp2s3HkYmqzCkzoQt0jKnCcWdx72RAtCrTjHaYwtxuIejNaHaxmGAHEXQ4dQ
-         SpHg==
-X-Forwarded-Encrypted: i=1; AJvYcCXdW0/HEZB+ZRsJoM9lB43cbzTG4jusfP11b3NbxoT4p84PnqwyIyUn15CEzzE/u3DI//7+GXAgBJfJWYAWXitq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6AYNdlPtSAge9mVXkW2d6mT4iKV0jFmCy+IhbFt8/m8v9f4uV
-	UipjOkVWEWJVOymqGNtnP3LfITkA7gLcFCFewzt0Dyfy4vCJE1pTxvsM
-X-Gm-Gg: AZuq6aIyFaioedJYxarf4ENZLRlRhiqKWpLesa8F4v2rzuRGgZ955umzxg7Itf2LOYC
-	9/gEgJ60Z3QfdnQBUIs+JFiVeIO0XK43ilZyKG+myFbg7QlPfdYL/dSOtz/b0aVyWAJyCBY1Zin
-	rXj2gzL0HrLGFUsxZ0gUKLW5hAKwPJ7BcdMfDwzyOzY1T3zOSuo0ch/spIdg03vxtUMEWgNqRqf
-	3vgmnI7+5Xl2Fj7E6k+9xkDW/3WZFyZzLIH//i5OBQB41lQ0UwcyjULrDN0ijykshLMwcQdE1iQ
-	s3jXGrLEk/hbc93QOjV0TBIX4TAToeNP9UvgXtQxZBdVhRGeAsRjwmzVkKo9DczSkV68EIteH9V
-	8FkLbbqP5SIkHpBdnn7q5H2Azop7pn9oOh5611eTqpM/uQdZ3yLs128rI72z+KRFUUXRUhzKMYV
-	4oFfeTe1P/9KLp44I2iJxt3tV7VIglKbICOaVxFg==
-X-Received: by 2002:a17:903:198e:b0:2aa:e238:e219 with SMTP id d9443c01a7336-2ab2ad2b696mr23330115ad.58.1770819764167;
-        Wed, 11 Feb 2026 06:22:44 -0800 (PST)
-Received: from fedora ([2409:40c1:201e:40f6:5d2e:7e5f:8687:4ec9])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ab29998cd3sm23540505ad.85.2026.02.11.06.22.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Feb 2026 06:22:43 -0800 (PST)
-From: Rajveer Chaudhari <rajveer.chaudhari.linux@gmail.com>
-To: slongerbeam@gmail.com,
-	p.zabel@pengutronix.de,
+	Wed, 11 Feb 2026 14:23:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C2C584171F;
+	Wed, 11 Feb 2026 14:23:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FFC5C4CEF7;
+	Wed, 11 Feb 2026 14:23:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770819808;
+	bh=N/7eEnN+HiyL9etKEOczHnkDOPiApMWEXth+P0IHcyU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=IreDnOfU8XisToO2yxhMcnkzvWqHUyoBViMpgE/9jal42Kn+ZUIEAgi2nKXkW/88/
+	 dRdj8ELyE8z/Y6GuzzYVbexVNmWWdAst6GzenJsYlfOq1K2hFoKv/aVCpJK/FOiqJo
+	 AIOKpIo5VMhditCBAGF8TCgBvR9vtKIlV1EZeWxLKqmNcxq/t/0bk+h34VFvYJ7mG9
+	 2Pll2apcmkgt5zRGa8UfmgalkIEZu24yyA1yUWeMPKU+C2beE9gCwplHt24QNz5VeP
+	 X2bG8nczKZYsHio7irZnwhA6nWoTGqO/iSaQO4CzqOnYuZXEF/3gXWb+Z79bWk6d1B
+	 wrSAOMzLbkbcg==
+From: Danilo Krummrich <dakr@kernel.org>
+To: abelvesa@kernel.org,
+	peng.fan@nxp.com,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
 	Frank.Li@nxp.com,
-	mchehab@kernel.org,
 	s.hauer@pengutronix.de,
 	kernel@pengutronix.de,
 	festevam@gmail.com,
-	gregkh@linuxfoundation.org
-Cc: imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
+	gregkh@linuxfoundation.org,
+	rafael@kernel.org,
+	hanguidong02@gmail.com
+Cc: driver-core@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Rajveer Chaudhari <rajveer.chaudhari.linux@gmail.com>
-Subject: [PATCH] staging: media: imx: remove unused header includes
-Date: Wed, 11 Feb 2026 19:52:08 +0530
-Message-ID: <20260211142208.112033-1-rajveer.chaudhari.linux@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	linux-clk@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Danilo Krummrich <dakr@kernel.org>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: [PATCH] clk: scu/imx8qxp: do not register driver in probe()
+Date: Wed, 11 Feb 2026 15:23:16 +0100
+Message-ID: <20260211142321.55404-1-dakr@kernel.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_062245_659734_70088734 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20260211_062330_058237_FA18E33B 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,88 +84,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove unused header includes from
-imx-ic-prp.c
-imx-ic-prpencvf.c
-imx-media-capture.c
-imx-media-csc-scaler.c
-imx-media-dev.c
-to reduce unnecessary dependencies and improve compilation time.
+imx_clk_scu_init() registers the imx_clk_scu_driver while commonly being
+called from IMX driver's probe() callbacks.
 
-Signed-off-by: Rajveer Chaudhari <rajveer.chaudhari.linux@gmail.com>
+However, it neither makes sense to register drivers from probe()
+callbacks of other drivers, nor does the driver core allow registering
+drivers with a device lock already being held.
+
+The latter was revealed by commit dc23806a7c47 ("driver core: enforce
+device_lock for driver_match_device()") leading to a deadlock condition
+described in [1].
+
+Additionally, nothing seems to unregister the imx_clk_scu_driver once
+the corresponding driver module is unloaded, which leaves the
+driver-core with a dangling pointer.
+
+Hence, register the imx_clk_scu_driver from module_init() and unregister
+it in module_exit().
+
+Fixes: dc23806a7c47 ("driver core: enforce device_lock for driver_match_device()")
+Fixes: 220175cd3979 ("clk: imx: scu: fix build break when compiled as modules")
+Reported-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Closes: https://lore.kernel.org/lkml/13955113.uLZWGnKmhe@steina-w/
+Link: https://lore.kernel.org/lkml/DFU7CEPUSG9A.1KKGVW4HIPMSH@kernel.org/ [1]
+Signed-off-by: Danilo Krummrich <dakr@kernel.org>
 ---
- drivers/staging/media/imx/imx-ic-prp.c           | 1 -
- drivers/staging/media/imx/imx-ic-prpencvf.c      | 3 +--
- drivers/staging/media/imx/imx-media-capture.c    | 1 -
- drivers/staging/media/imx/imx-media-csc-scaler.c | 2 --
- drivers/staging/media/imx/imx-media-dev.c        | 1 -
- 5 files changed, 1 insertion(+), 7 deletions(-)
+I plan to send the driver-core PR for 7.0-rc1 soon, which will also contain
+commit dc23806a7c47 ("driver core: enforce device_lock for
+driver_match_device()").
 
-diff --git a/drivers/staging/media/imx/imx-ic-prp.c b/drivers/staging/media/imx/imx-ic-prp.c
-index 2b80d54006b3..bba125234769 100644
---- a/drivers/staging/media/imx/imx-ic-prp.c
-+++ b/drivers/staging/media/imx/imx-ic-prp.c
-@@ -11,7 +11,6 @@
- #include <linux/delay.h>
- #include <linux/interrupt.h>
- #include <linux/module.h>
--#include <linux/sched.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
- #include <linux/timer.h>
-diff --git a/drivers/staging/media/imx/imx-ic-prpencvf.c b/drivers/staging/media/imx/imx-ic-prpencvf.c
-index 77360bfe081a..1b9dc5d86926 100644
---- a/drivers/staging/media/imx/imx-ic-prpencvf.c
-+++ b/drivers/staging/media/imx/imx-ic-prpencvf.c
-@@ -9,9 +9,8 @@
-  * Copyright (c) 2012-2017 Mentor Graphics Inc.
-  */
- #include <linux/delay.h>
--#include <linux/interrupt.h>
- #include <linux/module.h>
--#include <linux/sched.h>
-+#include <linux/interrupt.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
- #include <linux/timer.h>
-diff --git a/drivers/staging/media/imx/imx-media-capture.c b/drivers/staging/media/imx/imx-media-capture.c
-index e9cef7af000a..860f93272bbf 100644
---- a/drivers/staging/media/imx/imx-media-capture.c
-+++ b/drivers/staging/media/imx/imx-media-capture.c
-@@ -5,7 +5,6 @@
-  * Copyright (c) 2012-2016 Mentor Graphics Inc.
-  */
- #include <linux/delay.h>
--#include <linux/fs.h>
- #include <linux/module.h>
- #include <linux/pinctrl/consumer.h>
- #include <linux/platform_device.h>
-diff --git a/drivers/staging/media/imx/imx-media-csc-scaler.c b/drivers/staging/media/imx/imx-media-csc-scaler.c
-index 0a27330f9790..d42652c51358 100644
---- a/drivers/staging/media/imx/imx-media-csc-scaler.c
-+++ b/drivers/staging/media/imx/imx-media-csc-scaler.c
-@@ -7,8 +7,6 @@
-  */
- #include <linux/module.h>
- #include <linux/delay.h>
--#include <linux/fs.h>
--#include <linux/sched.h>
- #include <linux/slab.h>
- #include <video/imx-ipu-v3.h>
- #include <video/imx-ipu-image-convert.h>
-diff --git a/drivers/staging/media/imx/imx-media-dev.c b/drivers/staging/media/imx/imx-media-dev.c
-index a08389b99d14..a8f39319bd8a 100644
---- a/drivers/staging/media/imx/imx-media-dev.c
-+++ b/drivers/staging/media/imx/imx-media-dev.c
-@@ -4,7 +4,6 @@
-  *
-  * Copyright (c) 2016-2019 Mentor Graphics Inc.
-  */
--#include <linux/fs.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
- #include <media/v4l2-async.h>
+It also contains an IOMMU commit similar to this one:
+https://patch.msgid.link/20260121141215.29658-1-dakr@kernel.org
+
+The commit was originally scheduled for 6.19-rc7, but was deferred to 7.0-rc1 in
+case more of those cases pop up (which now happened).
+---
+ drivers/clk/imx/clk-imx8qxp.c | 24 +++++++++++++++++++++++-
+ drivers/clk/imx/clk-scu.c     | 12 +++++++++++-
+ drivers/clk/imx/clk-scu.h     |  2 ++
+ 3 files changed, 36 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/clk/imx/clk-imx8qxp.c b/drivers/clk/imx/clk-imx8qxp.c
+index 3ae162625bb1..d89a2f40771e 100644
+--- a/drivers/clk/imx/clk-imx8qxp.c
++++ b/drivers/clk/imx/clk-imx8qxp.c
+@@ -346,7 +346,29 @@ static struct platform_driver imx8qxp_clk_driver = {
+ 	},
+ 	.probe = imx8qxp_clk_probe,
+ };
+-module_platform_driver(imx8qxp_clk_driver);
++
++static int __init imx8qxp_init(void)
++{
++	int ret;
++
++	ret = platform_driver_register(&imx8qxp_clk_driver);
++	if (ret)
++		return ret;
++
++	ret = imx_clk_scu_module_init();
++	if (ret)
++		platform_driver_unregister(&imx8qxp_clk_driver);
++
++	return ret;
++}
++module_init(imx8qxp_init);
++
++static void __exit imx8qxp_exit(void)
++{
++	imx_clk_scu_module_exit();
++	platform_driver_unregister(&imx8qxp_clk_driver);
++}
++module_exit(imx8qxp_exit);
+ 
+ MODULE_AUTHOR("Aisheng Dong <aisheng.dong@nxp.com>");
+ MODULE_DESCRIPTION("NXP i.MX8QXP clock driver");
+diff --git a/drivers/clk/imx/clk-scu.c b/drivers/clk/imx/clk-scu.c
+index 34c9dc1fb20e..c90d21e05f91 100644
+--- a/drivers/clk/imx/clk-scu.c
++++ b/drivers/clk/imx/clk-scu.c
+@@ -191,6 +191,16 @@ static bool imx_scu_clk_is_valid(u32 rsrc_id)
+ 	return p != NULL;
+ }
+ 
++int __init imx_clk_scu_module_init(void)
++{
++	return platform_driver_register(&imx_clk_scu_driver);
++}
++
++void __exit imx_clk_scu_module_exit(void)
++{
++	return platform_driver_unregister(&imx_clk_scu_driver);
++}
++
+ int imx_clk_scu_init(struct device_node *np,
+ 		     const struct imx_clk_scu_rsrc_table *data)
+ {
+@@ -215,7 +225,7 @@ int imx_clk_scu_init(struct device_node *np,
+ 		rsrc_table = data;
+ 	}
+ 
+-	return platform_driver_register(&imx_clk_scu_driver);
++	return 0;
+ }
+ 
+ /*
+diff --git a/drivers/clk/imx/clk-scu.h b/drivers/clk/imx/clk-scu.h
+index af7b697f51ca..ca82f2cce897 100644
+--- a/drivers/clk/imx/clk-scu.h
++++ b/drivers/clk/imx/clk-scu.h
+@@ -25,6 +25,8 @@ extern const struct imx_clk_scu_rsrc_table imx_clk_scu_rsrc_imx8dxl;
+ extern const struct imx_clk_scu_rsrc_table imx_clk_scu_rsrc_imx8qxp;
+ extern const struct imx_clk_scu_rsrc_table imx_clk_scu_rsrc_imx8qm;
+ 
++int __init imx_clk_scu_module_init(void);
++void __exit imx_clk_scu_module_exit(void);
+ int imx_clk_scu_init(struct device_node *np,
+ 		     const struct imx_clk_scu_rsrc_table *data);
+ struct clk_hw *imx_scu_of_clk_src_get(struct of_phandle_args *clkspec,
+
+base-commit: 192c0159402e6bfbe13de6f8379546943297783d
 -- 
-2.53.0
+2.52.0
 
 
