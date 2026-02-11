@@ -4,62 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9D7CEB594C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 01:57:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18545EB5946
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 02:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
-	Content-Transfer-Encoding:In-Reply-To:Content-Type:Date:To:References:Cc:
-	Message-Id:Mime-Version:From:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UG0mqORVxhaZ0a+OZCSMkiGFaCvU9+2moAIWtkDvylc=; b=AacpUxFGEzqSO+uC840oHB+rmf
-	aHAQi+rbgoYyTn7w7kr9EzUm6FiRa5XvjM9FEj+fPCOHFPGzjOkBRlQ3HjBclZ+Xlp2rvVSn/0vZI
-	hEFXEnQANAte0/Qn4KvrJayyEQTONwwcDbhvICHvH0YQ+4G2w51OheOWoSidWiWjD0USMShW+i2HO
-	dOZQyVXVMHyiG8IFjsRThZFeAPX61pANN79X0pjxhsRJKkJM4XQZKMheRvTmUF9S4Uw5SDlOn8++7
-	SdWrrLLDbWxCdF/hNA7d369ewNTWjQ4o/tQJf1oFSj0ov6rd/McuDC63EHoskpwy06cGzOFJc9mfU
-	oGUuDJIw==;
+	bh=l0WoVHm/wpm3VeRQ1Osn5LCFxSpKgojYv3/htjRdiuo=; b=R8jjAMjKgTvd3a/KtOLC5aCkcB
+	d+cZRfIT4JRAaDdaxLgt+iXUwi32qzw+wE/n88Vz98P6qxyJdcq7Zub91zaq2End2IcoKEleXYHnv
+	riVOPaSx0DQ4in/rga8AR9Zwk2TpE2D9a9GW5P+zvgLj/IciAc9fZLNbwVKq5j4N/JpThkHilxMX+
+	79lezgs9eKKIE4uSomwLunWz8uznoh0tBfO1I+jZo6ZgjYeVq7RFEigBfEtYKL/FtlbsRsb7GXVH2
+	fYYzhYUtNf7xlUxHhRMX9Bag6olo8kEGTX6RNLdb8QRSVK41EWbVGilzw+cd7SOql5UZYfoBXcVej
+	l1CP8C0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpzU7-000000006sc-4Buf;
-	Wed, 11 Feb 2026 01:57:44 +0000
-Received: from sg-1-18.ptr.blmpb.com ([118.26.132.18])
+	id 1vpzXe-000000007Bv-44Cv;
+	Wed, 11 Feb 2026 02:01:23 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpzU5-000000006rq-2sz6
+	id 1vpzXc-000000007BB-0pBz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Feb 2026 01:57:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=fnnas-com.20200927.dkim.feishu.cn; t=1770775051;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=UG0mqORVxhaZ0a+OZCSMkiGFaCvU9+2moAIWtkDvylc=;
- b=vqp1JWRc8DOOZsP7AMzTytrnJyLG3LxiYQvOCDXL8S8Zb2UyLbuelVmjdfEHw4rJmjh5Lw
- 8yYPelvrgUqQ/0l0gVK7TwqzLW6ySaPA3UjkHuBYcGMnBent6iPSF7/kbx/xLHR2w+WOnn
- UJpl1oGmnS56WXR6Spe6k2AB85Vb986jt5z9tPLi8QJt3b4cu6pt8VI4eLNoWIWyGyOfDG
- ua//Fq2A0iK4KMG1EUDp5c3ZokUjCqCiUCK28eNBgkhlKE3ZMWaYrQKxf8AJqNPaJ1hgU7
- jpVNbJ4GusObE2vYHKWBLvYLQgnqTgMC4dwULqc+2SDF7x6gzO92TdOfBtb3ew==
-From: "Yu Kuai" <yukuai@fnnas.com>
-Mime-Version: 1.0
-Received: from [192.168.1.104] ([39.182.0.137]) by smtp.feishu.cn with ESMTPS; Wed, 11 Feb 2026 09:57:28 +0800
-X-Original-From: Yu Kuai <yukuai@fnnas.com>
-X-Lms-Return-Path: <lba+2698be209+5d2abc+lists.infradead.org+yukuai@fnnas.com>
-Message-Id: <baa254f9-c41c-44f7-959a-8ce69e1768fa@fnnas.com>
-Cc: "Christoph Hellwig" <hch@lst.de>, <axboe@kernel.dk>, <sagi@grimberg.me>, 
-	<sven@kernel.org>, <j@jannau.net>, <linux-block@vger.kernel.org>, 
-	<linux-nvme@lists.infradead.org>, <tj@kernel.org>, <nilay@linux.ibm.com>, 
-	<ming.lei@redhat.com>, <neal@gompa.dev>, <asahi@lists.linux.dev>, 
-	<linux-arm-kernel@lists.infradead.org>, <yukuai@fnnas.com>
-Content-Language: en-US
-References: <20260209082953.3053721-1-yukuai@fnnas.com> <20260209082953.3053721-4-yukuai@fnnas.com> <20260209145832.GC18315@lst.de> <aYn-xwFHCpd7sITJ@kbusch-mbp> <e3e7d95b-2712-4365-922d-731449e7193a@fnnas.com> <aYtKFNm-wRKn6l66@kbusch-mbp> <20260210154108.GB2484@lst.de> <aYtWSscg6L9xxlzc@kbusch-mbp> <f3451ddd-96b6-4bc1-9d4c-964e361d56fc@flourine.local>
-To: "Daniel Wagner" <dwagner@suse.de>, "Keith Busch" <kbusch@kernel.org>
-Date: Wed, 11 Feb 2026 09:57:26 +0800
-Content-Type: text/plain; charset=UTF-8
-In-Reply-To: <f3451ddd-96b6-4bc1-9d4c-964e361d56fc@flourine.local>
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] nvme-apple: move blk_mq_update_nr_hw_queues after nvme_unfreeze
+	Wed, 11 Feb 2026 02:01:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1770775278;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=l0WoVHm/wpm3VeRQ1Osn5LCFxSpKgojYv3/htjRdiuo=;
+	b=L3gzn5vJ9RJZMN6asM/LCDHqTt8c2KcyKc/cew4vF+GsvKy2CiLRGHgLyBiMrbXrqeNG7q
+	+CFZbS5D3VaguvqbzUUy9yntNMUXnCPC7DqUxRB2ies+KXQLLAAOw3qeawls9vPtKXXCWr
+	Uh5+erv6zED0UGpZ995Egeyn80Tq99o=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-556-YPSwdpkMMt-d41HpU6MD2g-1; Tue,
+ 10 Feb 2026 21:01:15 -0500
+X-MC-Unique: YPSwdpkMMt-d41HpU6MD2g-1
+X-Mimecast-MFC-AGG-ID: YPSwdpkMMt-d41HpU6MD2g_1770775274
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 455D418003F5;
+	Wed, 11 Feb 2026 02:01:13 +0000 (UTC)
+Received: from localhost (unknown [10.72.112.131])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 18F421800464;
+	Wed, 11 Feb 2026 02:01:09 +0000 (UTC)
+Date: Wed, 11 Feb 2026 10:01:05 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Breno Leitao <leitao@debian.org>
+Cc: akpm@linux-foundation.org, linux-kernel@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org, dyoung@redhat.com, tony.luck@intel.com,
+	xueshuai@linux.alibaba.com, vgoyal@redhat.com,
+	zhiquan1.li@intel.com, olja@meta.com, kernel-team@meta.com
+Subject: Re: [PATCH v2 1/2] vmcoreinfo: expose hardware error recovery
+ statistics via sysfs
+Message-ID: <aYvi4Y_HNqk_u1-v@fedora>
+References: <20260202-vmcoreinfo_sysfs-v2-0-8f3b5308b894@debian.org>
+ <20260202-vmcoreinfo_sysfs-v2-1-8f3b5308b894@debian.org>
+MIME-Version: 1.0
+In-Reply-To: <20260202-vmcoreinfo_sysfs-v2-1-8f3b5308b894@debian.org>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+X-Mimecast-MFC-PROC-ID: DRCHqdnaxIr0v6HeaqeZ2u7c5w8AQ29pQXY5RIRdQz0_1770775274
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_175741_929839_5BC6F55F 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20260210_180120_312541_233C89E1 
+X-CRM114-Status: GOOD (  27.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,54 +86,134 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: yukuai@fnnas.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Breno,
 
-=E5=9C=A8 2026/2/11 0:28, Daniel Wagner =E5=86=99=E9=81=93:
-> On Tue, Feb 10, 2026 at 09:01:14AM -0700, Keith Busch wrote:
->> On Tue, Feb 10, 2026 at 04:41:08PM +0100, Christoph Hellwig wrote:
->>> On Tue, Feb 10, 2026 at 08:09:08AM -0700, Keith Busch wrote:
->>>> If you leave the queue quiesced, pending IO will form requests that ar=
-e
->>>> entered and waiting in the block layer. You can't freeze a queue with
->>>> entered requests.
->>>>
->>>> We unquiesce first to flush any pending IO that had entered during the
->>>> prior reset. It's not the best way to handle this situation. It would =
-be
->>>> smarter to steal the bio's from all the entered requests, then end tho=
-se
->>>> requests, then resubmit the bios after the hw queues are initialized. =
-We
->>>> don't do that because no one's really complained, probably because the
->>>> queue counts don't usually change after a reset.
->>> FYI, Daniel Wagner had been thinking about doing this reinsert for
->>> something (I forgot what exactly),
-> This feature would solve a tricky problem with isolation patches:
->
-> https://lore.kernel.org/linux-nvme/87cy7vrbc4.ffs@tglx/
->
-> Currently, it's not possible to take the cpu hotplug lock which would
-> prevent races in the cpu-queue mapping. The current logic depends on
-> making progress in the error case. If it would be possible to fail the
-> in-flight request in the error handler and reinsert them in the block
-> layer, progress could be guaranteed when holding the cpu hotplug lock.
->
-> Unfortunatly, haven't found time to implement and test this idea so far.
-> Sorry.
+On 02/02/26 at 06:27am, Breno Leitao wrote:
+> Add a sysfs directory at /sys/kernel/hwerr_recovery_stats/ to expose
+> hardware error recovery statistics that are already tracked by the
+> kernel. This allows userspace monitoring tools to track recovered
+> hardware errors without requiring kernel crashes.
+> 
+> This is useful to track recoverable hardware errors in a time series,
+> even if the host doesn't crash.
+> 
+> The sysfs directory contains one file per error subsystem:
+> 
+>   /sys/kernel/hwerr_recovery_stats/cpu     - CPU-related errors (MCE, ARM errors)
+>   /sys/kernel/hwerr_recovery_stats/memory  - Memory-related errors
+>   /sys/kernel/hwerr_recovery_stats/pci     - PCI/PCIe AER non-fatal errors
+>   /sys/kernel/hwerr_recovery_stats/cxl     - CXL errors
+>   /sys/kernel/hwerr_recovery_stats/others  - Other hardware errors
+> 
+> Each file contains a single integer representing the count of recovered
+> errors for that subsystem.
+> 
+> These statistics provide visibility into the health of the system's
+> hardware and can be used by system administrators to proactively detect
+> failing components before they cause system crashes.
+> 
+> Signed-off-by: Breno Leitao <leitao@debian.org>
+> ---
+>  kernel/vmcore_info.c | 55 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 55 insertions(+)
+> 
+> diff --git a/kernel/vmcore_info.c b/kernel/vmcore_info.c
+> index e2784038bbed7..b7fcd21be7c59 100644
+> --- a/kernel/vmcore_info.c
+> +++ b/kernel/vmcore_info.c
 
-Thanks all!
+Since we agreed hwerr_recovery_stats has nothing to do with vmcore, it
+seems inappropriate to put its sysfs handling code in
+kernel/vmcore_info.c. File kernel/vmcore_info.c is only used to build
+vmcore info for later vmcore dumping. And hwerr_log_error_type() should
+not be put in kernel/vmcore_info.c. either. I didn't check this
+carefully before, sorry. Please reconsider if these can be handled better.
 
-If I understand this correctly, it seems fine to make progress with this se=
-t,
-currently IO can return error during the race window, and this can be final=
-ly
-fixed with this reinsert.
+Thanks
+Baoquan
 
---=20
-Thansk,
-Kuai
+> @@ -6,6 +6,8 @@
+>  
+>  #include <linux/buildid.h>
+>  #include <linux/init.h>
+> +#include <linux/kobject.h>
+> +#include <linux/sysfs.h>
+>  #include <linux/utsname.h>
+>  #include <linux/vmalloc.h>
+>  #include <linux/sizes.h>
+> @@ -139,6 +141,56 @@ void hwerr_log_error_type(enum hwerr_error_type src)
+>  }
+>  EXPORT_SYMBOL_GPL(hwerr_log_error_type);
+>  
+> +/* sysfs interface for hardware error recovery statistics */
+> +#define HWERR_ATTR_RO(_name, _type)					\
+> +static ssize_t _name##_show(struct kobject *kobj,			\
+> +			    struct kobj_attribute *attr, char *buf)	\
+> +{									\
+> +	return sysfs_emit(buf, "%d\n",					\
+> +			  atomic_read(&hwerr_data[_type].count));	\
+> +}									\
+> +static struct kobj_attribute hwerr_##_name##_attr = __ATTR_RO(_name)
+> +
+> +HWERR_ATTR_RO(cpu, HWERR_RECOV_CPU);
+> +HWERR_ATTR_RO(memory, HWERR_RECOV_MEMORY);
+> +HWERR_ATTR_RO(pci, HWERR_RECOV_PCI);
+> +HWERR_ATTR_RO(cxl, HWERR_RECOV_CXL);
+> +HWERR_ATTR_RO(others, HWERR_RECOV_OTHERS);
+> +
+> +static struct attribute *hwerr_recovery_stats_attrs[] = {
+> +	&hwerr_cpu_attr.attr,
+> +	&hwerr_memory_attr.attr,
+> +	&hwerr_pci_attr.attr,
+> +	&hwerr_cxl_attr.attr,
+> +	&hwerr_others_attr.attr,
+> +	NULL,
+> +};
+> +
+> +static const struct attribute_group hwerr_recovery_stats_group = {
+> +	.attrs = hwerr_recovery_stats_attrs,
+> +};
+> +
+> +static struct kobject *hwerr_recovery_stats_kobj;
+> +
+> +static int __init hwerr_recovery_stats_init(void)
+> +{
+> +	hwerr_recovery_stats_kobj = kobject_create_and_add("hwerr_recovery_stats",
+> +							   kernel_kobj);
+> +	if (!hwerr_recovery_stats_kobj) {
+> +		pr_warn("Failed to create hwerr_recovery_stats kobject\n");
+> +		return -ENOMEM;
+> +	}
+> +
+> +	if (sysfs_create_group(hwerr_recovery_stats_kobj,
+> +			       &hwerr_recovery_stats_group)) {
+> +		kobject_put(hwerr_recovery_stats_kobj);
+> +		pr_warn("Failed to create hwerr_recovery_stats sysfs group\n");
+> +		return -ENOMEM;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static int __init crash_save_vmcoreinfo_init(void)
+>  {
+>  	vmcoreinfo_data = (unsigned char *)get_zeroed_page(GFP_KERNEL);
+> @@ -248,6 +300,9 @@ static int __init crash_save_vmcoreinfo_init(void)
+>  	arch_crash_save_vmcoreinfo();
+>  	update_vmcoreinfo_note();
+>  
+> +	/* Create /sys/kernel/hwerr_recovery_stats/ directory */
+> +	hwerr_recovery_stats_init();
+> +
+>  	return 0;
+>  }
+>  
+> 
+> -- 
+> 2.47.3
+> 
+
 
