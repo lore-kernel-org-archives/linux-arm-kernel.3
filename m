@@ -4,120 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B96A1EB5967
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 06:20:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCBFCEB5969
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 06:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mbuoyaEi27ypC38bOVqtSQgPO+GdRT62sley1benoJ4=; b=eVUFNXIDrzvVs6gk070CH5EmGs
-	J1taoZahFXkx1Y0exI6AGapzrRH2d+kD/ZoaB2cQAV6SC9VLNyaQXpgR99QiRokDBOYtTy3CGZ9Dr
-	SCkVYjbNgXI21KsQyfdBHN1mGCjo1nwopyfMCkX2u9iDpRi8FlR4YpcFXVHSuAp4m06w1sPD2L3l+
-	cf0i3GI7uaFxtSRokYn4LvbcB1xatXhHsRm7jV3MCsDj7pq8fdIInBhCLKLT8fbojd7JiC1uHVain
-	MQU59p8r5oY5IG2GDbLIwY0bRU3x+EnasDr6xu1piMAjT2kEeqNKfvgirxlko/uAfh5+9+MKLF0Hq
-	pUbEzi4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XddYwKWvWxeFWm2+5c3Jwb+Tiu5ZT9PPFTcLqhLE0PQ=; b=48b2tvqo2cnU4czrWTh5OoJktA
+	dvaFbHs+xoRL8ZmYJTtUdPr0fYZeXRaYVHT0x1wfqgNPXONfMhPSsdvj5kDXR1G6zpHuQswTy5AaX
+	z+BEIzAkiN5GINHrcukrz9Ugy2ha5iFmL1usP9rFhFDSm2GhRizc8xnOArGaIY3T7qvuCNusNQC9A
+	TdUx4U53OlMpC9krlNTjaSmNkEkyUl6eqzARgnurRyabqXnYJ5bkCDYRLk78FSewLbf3bDRV7xqjO
+	+2td4QDCP7QFtL/vnFIwfU8G4b8uJkIHq/3oPTbeG2bHCf4eZYvodb1t+l3lcrFboJHQ0GRyoGwSA
+	jJk+v8VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq3Zw-00000000Hj5-2AMF;
-	Wed, 11 Feb 2026 06:20:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vq3nD-00000000IHS-3tsP;
+	Wed, 11 Feb 2026 06:33:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq3Zt-00000000Hhf-1Nr0
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Feb 2026 06:19:58 +0000
+	id 1vq3nB-00000000IH3-1YGF;
+	Wed, 11 Feb 2026 06:33:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 87D9543DF4;
-	Wed, 11 Feb 2026 06:19:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90A2EC4CEF7;
-	Wed, 11 Feb 2026 06:19:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 01FEA43911;
+	Wed, 11 Feb 2026 06:33:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53300C4CEF7;
+	Wed, 11 Feb 2026 06:33:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770790796;
-	bh=7rgUId6mgMF3MTDeDSkGxit6/QsnD0ZWcZ2CxVpgb/A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QLdDjwpuyYpgZoJGl0ixYFS+MPPIvS4XNkwLxvfaM76yVTDKowRQZZPxCElPEdhuc
-	 FeIeQMee6o9cojI8ZQMwVWnSwcL6J+3nLNTrYkpdkyWKGQQ9XvQyboCgaVtfz6iXHZ
-	 125tLJmPCPVfvdkw8ToeV1f38kZekzRiXnvdg7CfzN6z/k5G4rgD+BgizGKbuLmbwI
-	 hqUUkfhX5EKw3hJVazYq22QaW7yeRJ55PlzWrf/3PS36/O680Ge7VbazHnKKco0pBM
-	 lkYeq52QcUwl9mlcDkjpOJ5wlujwYZWJUToOsB1SZ7RKTK9L0jfl9YQ0ceNg39th5a
-	 HVw/Dn6oSLpsw==
-Message-ID: <a04e5648-86c0-4930-ac2f-a824acb35941@kernel.org>
-Date: Wed, 11 Feb 2026 07:19:50 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 8/8] arm64: defconfig: Enable NVIDIA TEGRA410 PMU
-To: Besar Wicaksono <bwicaksono@nvidia.com>, "will@kernel.org"
- <will@kernel.org>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
- "robin.murphy@arm.com" <robin.murphy@arm.com>,
- "ilkka@os.amperecomputing.com" <ilkka@os.amperecomputing.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
- "mark.rutland@arm.com" <mark.rutland@arm.com>,
- Thierry Reding <treding@nvidia.com>, Jon Hunter <jonathanh@nvidia.com>,
- Vikram Sethi <vsethi@nvidia.com>, Rich Wiley <rwiley@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Sean Kelley
- <skelley@nvidia.com>, Yifei Wan <YWan@nvidia.com>,
- Matt Ochs <mochs@nvidia.com>, Nirmoy Das <nirmoyd@nvidia.com>
-References: <20260126181155.2776097-1-bwicaksono@nvidia.com>
- <20260126181155.2776097-9-bwicaksono@nvidia.com>
- <a3249d0f-17f2-496d-ad53-95ad5da26f5a@kernel.org>
- <SJ0PR12MB56762714BF94D1E67511C43DA062A@SJ0PR12MB5676.namprd12.prod.outlook.com>
- <bd69c94c-51d0-4166-a059-e46b30cb83e0@kernel.org>
- <SJ0PR12MB56763B5860CE8E93BEB4FF49A062A@SJ0PR12MB5676.namprd12.prod.outlook.com>
+	s=k20201202; t=1770791617;
+	bh=XddYwKWvWxeFWm2+5c3Jwb+Tiu5ZT9PPFTcLqhLE0PQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bhKSoC6G5WlZEUdcANoPXq2fz5kud/Cq6WxKGkb6dZE+EWaCSnTF+L5Qh60jNPILd
+	 k1HmeQj+di5yBVQQUlU5xiMeZDd9IOfF1GMVqSRl+6Am9t0edOy1bQyvyEPzNIzeMA
+	 qS0KfxWDGuyo/FhHUXoF7cuXoejU++AnfpaJ2yPrJlquaRHKcOiDKMhNhG1FSzYIis
+	 H7saib3OPyTwvo63AxAVqsL9X/o4+BASr54BUbUh2c1UqQK8GkyrtNhv5HyoI+TdXr
+	 q98cGxMgP9KDN2yg9UZbRWrXzCpVQ2FHxwfpOkRb52ZK+NS6R6eFZF8u56JYAVytCP
+	 yzErVmb+5egtQ==
+Date: Wed, 11 Feb 2026 07:33:35 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <SJ0PR12MB56763B5860CE8E93BEB4FF49A062A@SJ0PR12MB5676.namprd12.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: Yunfei Dong <yunfei.dong@mediatek.com>
+Cc: =?utf-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4=?= Prado <nfraprado@collabora.com>, 
+	Sebastian Fricke <sebastian.fricke@collabora.com>, Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+	Hans Verkuil <hverkuil-cisco@xs4all.nl>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+	Nathan Hebert <nhebert@chromium.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
+	Hsin-Yi Wang <hsinyi@chromium.org>, Fritz Koenig <frkoenig@chromium.org>, 
+	Daniel Vetter <daniel@ffwll.ch>, Steve Cho <stevecho@chromium.org>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [PATCH v3 01/14] dt-bindings: media: mediatek: vcodec: add
+ decoder dt-bindings for mt8196
+Message-ID: <20260211-premium-heavy-puma-bb8e7a@quoll>
+References: <20260211054149.27249-1-yunfei.dong@mediatek.com>
+ <20260211054149.27249-2-yunfei.dong@mediatek.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260211054149.27249-2-yunfei.dong@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_221957_446045_3435CFE2 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20260210_223341_430831_96FEC76C 
+X-CRM114-Status: UNSURE (   7.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,70 +81,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/02/2026 18:42, Besar Wicaksono wrote:
-> 
-> 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzk@kernel.org>
->> Sent: Tuesday, February 10, 2026 10:15 AM
->> To: Besar Wicaksono <bwicaksono@nvidia.com>; will@kernel.org;
->> suzuki.poulose@arm.com; robin.murphy@arm.com;
->> ilkka@os.amperecomputing.com
->> Cc: linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; linux-
->> tegra@vger.kernel.org; mark.rutland@arm.com; Thierry Reding
->> <treding@nvidia.com>; Jon Hunter <jonathanh@nvidia.com>; Vikram Sethi
->> <vsethi@nvidia.com>; Rich Wiley <rwiley@nvidia.com>; Shanker Donthineni
->> <sdonthineni@nvidia.com>; Sean Kelley <skelley@nvidia.com>; Yifei Wan
->> <YWan@nvidia.com>; Matt Ochs <mochs@nvidia.com>; Nirmoy Das
->> <nirmoyd@nvidia.com>
->> Subject: Re: [PATCH 8/8] arm64: defconfig: Enable NVIDIA TEGRA410 PMU
->>
->> External email: Use caution opening links or attachments
->>
->>
->> On 10/02/2026 17:05, Besar Wicaksono wrote:
->>>
->>>
->>>> -----Original Message-----
->>>> From: Krzysztof Kozlowski <krzk@kernel.org>
->>>> Sent: Sunday, February 8, 2026 5:18 AM
->>>> To: Besar Wicaksono <bwicaksono@nvidia.com>; will@kernel.org;
->>>> suzuki.poulose@arm.com; robin.murphy@arm.com;
->>>> ilkka@os.amperecomputing.com
->>>> Cc: linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
->> linux-
->>>> tegra@vger.kernel.org; mark.rutland@arm.com; Thierry Reding
->>>> <treding@nvidia.com>; Jon Hunter <jonathanh@nvidia.com>; Vikram Sethi
->>>> <vsethi@nvidia.com>; Rich Wiley <rwiley@nvidia.com>; Shanker
->> Donthineni
->>>> <sdonthineni@nvidia.com>; Sean Kelley <skelley@nvidia.com>; Yifei Wan
->>>> <ywan@nvidia.com>; Matt Ochs <mochs@nvidia.com>; Nirmoy Das
->>>> <nirmoyd@nvidia.com>
->>>> Subject: Re: [PATCH 8/8] arm64: defconfig: Enable NVIDIA TEGRA410 PMU
->>>>
->>>> External email: Use caution opening links or attachments
->>>>
->>>>
->>>> On 26/01/2026 19:11, Besar Wicaksono wrote:
->>>>> Enable driver for NVIDIA TEGRA410 CMEM Latency and C2C PMU device.
->>>>
->>>> Why? Why do we want it? Which *upstream board* uses it?
->>>>
->>>
->>> These are for NVIDIA Vera platform (Tegra410 SoC).
->>
->> There is no such board (git grep), but anyway, don't explain it to me.
->> Your commit should explain such stuff.
->>
-> 
-> This is a server platform. There is no upstream board using this device currently.
+On Wed, Feb 11, 2026 at 01:41:28PM +0800, Yunfei Dong wrote:
+> Add decoder document in dt-bindings yaml file for mt8196 platform.
 
-I don't understand why server or not server matters.
+Getting to bingo, two out of three redundant terms how to call DT
+bindings. Drop YAML.
 
-If there is no upstream user of this, it is wrong to add it to
-defconfig. This is upstream defconfig, not your distro.
+A nit, subject: drop second/last, redundant "dt-bindings". The
+"dt-bindings" prefix is already stating that these are dt-bindings.
+See also:
+https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
 
+Write concise messages. "DT bindings schema yaml text file in kernel" is
+not concise.
+
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
+
 
