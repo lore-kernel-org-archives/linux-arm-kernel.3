@@ -4,77 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18545EB5946
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 02:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F06EB595E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 03:33:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l0WoVHm/wpm3VeRQ1Osn5LCFxSpKgojYv3/htjRdiuo=; b=R8jjAMjKgTvd3a/KtOLC5aCkcB
-	d+cZRfIT4JRAaDdaxLgt+iXUwi32qzw+wE/n88Vz98P6qxyJdcq7Zub91zaq2End2IcoKEleXYHnv
-	riVOPaSx0DQ4in/rga8AR9Zwk2TpE2D9a9GW5P+zvgLj/IciAc9fZLNbwVKq5j4N/JpThkHilxMX+
-	79lezgs9eKKIE4uSomwLunWz8uznoh0tBfO1I+jZo6ZgjYeVq7RFEigBfEtYKL/FtlbsRsb7GXVH2
-	fYYzhYUtNf7xlUxHhRMX9Bag6olo8kEGTX6RNLdb8QRSVK41EWbVGilzw+cd7SOql5UZYfoBXcVej
-	l1CP8C0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lqL9RDMHFR3WoHQnRB4Y8oAV8tGCe4j0xxAYm/MQPvM=; b=nyJRJRihLpqqiwUeTBqkTi9a+5
+	bHUmzfpG0iT/xWDC0OnGmNzUAPpOaSU/ExNLp/XYo2ZQSjBFDUvZUOfBihjutJTPjZps9BpQyet9a
+	zlrDTO4xNmprO2QDnMvTlKmraCZglGRMB5q30xRCnzHEGUQYEUEDPEXJFAu48nJq/OlHYcMq+v0mY
+	0JELEbw7jl8/iQvnP2LtiDhd7qYuBFUPrBX5HiMBkCJyes5bcbqDbCCex3740ETxbK6r8QsPZkuEu
+	/1uC8MC4pXr5RhUjfkNTsoMxN95rJ86t8nStBJunKVKgzKoyV9wzQFwTGVISTYOIbj+JzkOikdTSu
+	fEpP6yWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpzXe-000000007Bv-44Cv;
-	Wed, 11 Feb 2026 02:01:23 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vq0yT-000000009v5-1XSj;
+	Wed, 11 Feb 2026 03:33:09 +0000
+Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vpzXc-000000007BB-0pBz
+	id 1vq0yR-000000009uO-0LTl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Feb 2026 02:01:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1770775278;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=l0WoVHm/wpm3VeRQ1Osn5LCFxSpKgojYv3/htjRdiuo=;
-	b=L3gzn5vJ9RJZMN6asM/LCDHqTt8c2KcyKc/cew4vF+GsvKy2CiLRGHgLyBiMrbXrqeNG7q
-	+CFZbS5D3VaguvqbzUUy9yntNMUXnCPC7DqUxRB2ies+KXQLLAAOw3qeawls9vPtKXXCWr
-	Uh5+erv6zED0UGpZ995Egeyn80Tq99o=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-556-YPSwdpkMMt-d41HpU6MD2g-1; Tue,
- 10 Feb 2026 21:01:15 -0500
-X-MC-Unique: YPSwdpkMMt-d41HpU6MD2g-1
-X-Mimecast-MFC-AGG-ID: YPSwdpkMMt-d41HpU6MD2g_1770775274
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 455D418003F5;
-	Wed, 11 Feb 2026 02:01:13 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.131])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 18F421800464;
-	Wed, 11 Feb 2026 02:01:09 +0000 (UTC)
-Date: Wed, 11 Feb 2026 10:01:05 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Breno Leitao <leitao@debian.org>
-Cc: akpm@linux-foundation.org, linux-kernel@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, dyoung@redhat.com, tony.luck@intel.com,
-	xueshuai@linux.alibaba.com, vgoyal@redhat.com,
-	zhiquan1.li@intel.com, olja@meta.com, kernel-team@meta.com
-Subject: Re: [PATCH v2 1/2] vmcoreinfo: expose hardware error recovery
- statistics via sysfs
-Message-ID: <aYvi4Y_HNqk_u1-v@fedora>
-References: <20260202-vmcoreinfo_sysfs-v2-0-8f3b5308b894@debian.org>
- <20260202-vmcoreinfo_sysfs-v2-1-8f3b5308b894@debian.org>
+	Wed, 11 Feb 2026 03:33:08 +0000
+Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-7d1890f7ee4so3961143a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Feb 2026 19:33:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770780785; x=1771385585; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lqL9RDMHFR3WoHQnRB4Y8oAV8tGCe4j0xxAYm/MQPvM=;
+        b=nR5oRWsfV53TaK6WqVz+Hfrs4kPSHGtft7LSMrGYiiWKIJhpHRNMsJ1/fAh9paFtEO
+         nrrvnJ5Z7kDKq2DKDCjXdaqa2QGrKdEJYCiqd5XGBaOv0+a0OHNaDx8gFNwczZ0vNTfk
+         pzsYhTob2b1t13Cv2reiuzG8FbehEbOgDLCnYsULYNaDsFQ5PFElPKz0xGdMR2UnWC44
+         eANFNUEUA6TpBtRQE7qR5MhWDfkEKUbCxmacQRcTXdKBPp01SkxOAnSSC463LbmfNWj0
+         Rqgbd+x/Akf62E2kODhRrhGek3jQnmrrrhLkgChB4+Y/cX15MXBX7NgvpJ/RYPpYPzQD
+         timQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770780785; x=1771385585;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lqL9RDMHFR3WoHQnRB4Y8oAV8tGCe4j0xxAYm/MQPvM=;
+        b=kbGBwvgGfkGkxyTvqzgdZ9m5Zb1SJlFtuY/jui11ma0GXA8KKK4NCQUGh1hpWkNk+R
+         1BMnFFRsHR2NiYCiWx7u32L1rdyWYlu66zQ3PbY1UvD+7ahjJ2/Fe6NnOBJvdgz2aPQV
+         PZb7n4+mLhI8dU0xtCCYUTTu5iIDQAoHhS6amCgx54P7T89dBVhXXPxw3WEwJqkUsMIg
+         SRkV93PlDsM1UbbqGXP3VmaJBjL+Na5q/kVEiOBpu9aki5ergDEeMiLSm2LStunTkUbv
+         ckcHJmsKP7kpIxaowry8Ww2IzMUNWWyBq98l2ItseXYP1XQ556y4pxt1pdOFmX8HVHnA
+         foGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUQJM/kbv3KQnkzmb8RjNm4xQmZyxlI2PDA8v71DowkNMD9vGqC2VkikveXd3MGpA6oopla4Gjj3pVqGApBDmvJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAHfe9UGU8UHlU7mFwNNdDGg403VUnxBoORwwha9zwKtKmUvoC
+	6SWOSdx0DsVJYgA03RBwoAeRAM0viNg25vstnaUCFqLdevLK2PYX+yZq
+X-Gm-Gg: AZuq6aKLBUX8b6JnHfi2FMPSj7FfxY01BD0vr7/A//lEX05lBduoNHo6VTPOaVwa1xa
+	0SrGinP9xGV02x5u4jFmCTsKSMMhYReO7xsppfKCQqbwcoAB6ildEen2jfRtPToFpQGz+gtLbY0
+	1NvHJ/5RozXZlK15HwKXSP7cGR14zSwxSLra93tVJcdNSGLKcurZTjJikWEBnOUtoD0dfwO9q3N
+	KxM14xUKMhYglemK2Fnwtmzy5Dmvk0uQ9X9YHMmfFx0TjewAK4CedZlC8tYb382fySN6HE4TZir
+	HBWeO0meXNbxWd3ux8vptd9QL3PubrTaPEsSalVUVoMHPPXXhDxwySuXuOld5bPAiNiJB9X5BDM
+	4qhNU5Y8FbgxvLCGyGSefcJqSoSK31jksO63ajNeorY8KQ/rUp2Y7tDpFVeqL3fHLq+B6aXl3hG
+	HXo/NaBnxkSBdVdAvaptq6Vwz/90U9B+tdwl/4C0s85v4Pfbgl/5WLDklcgTCQvdvM4j3f9v2xJ
+	J9/nO4km3sRjoHJ/MUWv1CPXz7EZtmUwy0m9INfCbenGu2M9nDSC4Vjt/iF5eE=
+X-Received: by 2002:a05:6830:4494:b0:7d1:586a:32a2 with SMTP id 46e09a7af769-7d4a73cc7c1mr381970a34.0.1770780785557;
+        Tue, 10 Feb 2026 19:33:05 -0800 (PST)
+Received: from james-x399.localdomain (71-218-105-26.hlrn.qwest.net. [71.218.105.26])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7d4a75309a6sm438236a34.3.2026.02.10.19.33.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Feb 2026 19:33:05 -0800 (PST)
+From: James Hilliard <james.hilliard1@gmail.com>
+To: linux-sunxi@lists.linux.dev,
+	linux-gpio@vger.kernel.org
+Cc: James Hilliard <james.hilliard1@gmail.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/1] pinctrl: sunxi: add GPIO get_direction callback
+Date: Tue, 10 Feb 2026 20:32:48 -0700
+Message-ID: <20260211033249.2770281-1-james.hilliard1@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-In-Reply-To: <20260202-vmcoreinfo_sysfs-v2-1-8f3b5308b894@debian.org>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-X-Mimecast-MFC-PROC-ID: DRCHqdnaxIr0v6HeaqeZ2u7c5w8AQ29pQXY5RIRdQz0_1770775274
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_180120_312541_233C89E1 
-X-CRM114-Status: GOOD (  27.53  )
+X-CRM114-CacheID: sfid-20260210_193307_183420_F372974A 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,131 +103,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Breno,
+Implement sunxi_pinctrl_gpio_get_direction() and wire it into
+the sunxi gpio_chip setup.
 
-On 02/02/26 at 06:27am, Breno Leitao wrote:
-> Add a sysfs directory at /sys/kernel/hwerr_recovery_stats/ to expose
-> hardware error recovery statistics that are already tracked by the
-> kernel. This allows userspace monitoring tools to track recovered
-> hardware errors without requiring kernel crashes.
-> 
-> This is useful to track recoverable hardware errors in a time series,
-> even if the host doesn't crash.
-> 
-> The sysfs directory contains one file per error subsystem:
-> 
->   /sys/kernel/hwerr_recovery_stats/cpu     - CPU-related errors (MCE, ARM errors)
->   /sys/kernel/hwerr_recovery_stats/memory  - Memory-related errors
->   /sys/kernel/hwerr_recovery_stats/pci     - PCI/PCIe AER non-fatal errors
->   /sys/kernel/hwerr_recovery_stats/cxl     - CXL errors
->   /sys/kernel/hwerr_recovery_stats/others  - Other hardware errors
-> 
-> Each file contains a single integer representing the count of recovered
-> errors for that subsystem.
-> 
-> These statistics provide visibility into the health of the system's
-> hardware and can be used by system administrators to proactively detect
-> failing components before they cause system crashes.
-> 
-> Signed-off-by: Breno Leitao <leitao@debian.org>
-> ---
->  kernel/vmcore_info.c | 55 ++++++++++++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 55 insertions(+)
-> 
-> diff --git a/kernel/vmcore_info.c b/kernel/vmcore_info.c
-> index e2784038bbed7..b7fcd21be7c59 100644
-> --- a/kernel/vmcore_info.c
-> +++ b/kernel/vmcore_info.c
+The new callback reads the pin mux register and compares the mux
+value against the pin descriptor gpio_in and gpio_out functions
+to report GPIO_LINE_DIRECTION_IN or GPIO_LINE_DIRECTION_OUT.
+If the pin is muxed to irq, report it as input.
 
-Since we agreed hwerr_recovery_stats has nothing to do with vmcore, it
-seems inappropriate to put its sysfs handling code in
-kernel/vmcore_info.c. File kernel/vmcore_info.c is only used to build
-vmcore info for later vmcore dumping. And hwerr_log_error_type() should
-not be put in kernel/vmcore_info.c. either. I didn't check this
-carefully before, sorry. Please reconsider if these can be handled better.
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c | 32 +++++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
-Thanks
-Baoquan
-
-> @@ -6,6 +6,8 @@
->  
->  #include <linux/buildid.h>
->  #include <linux/init.h>
-> +#include <linux/kobject.h>
-> +#include <linux/sysfs.h>
->  #include <linux/utsname.h>
->  #include <linux/vmalloc.h>
->  #include <linux/sizes.h>
-> @@ -139,6 +141,56 @@ void hwerr_log_error_type(enum hwerr_error_type src)
->  }
->  EXPORT_SYMBOL_GPL(hwerr_log_error_type);
->  
-> +/* sysfs interface for hardware error recovery statistics */
-> +#define HWERR_ATTR_RO(_name, _type)					\
-> +static ssize_t _name##_show(struct kobject *kobj,			\
-> +			    struct kobj_attribute *attr, char *buf)	\
-> +{									\
-> +	return sysfs_emit(buf, "%d\n",					\
-> +			  atomic_read(&hwerr_data[_type].count));	\
-> +}									\
-> +static struct kobj_attribute hwerr_##_name##_attr = __ATTR_RO(_name)
-> +
-> +HWERR_ATTR_RO(cpu, HWERR_RECOV_CPU);
-> +HWERR_ATTR_RO(memory, HWERR_RECOV_MEMORY);
-> +HWERR_ATTR_RO(pci, HWERR_RECOV_PCI);
-> +HWERR_ATTR_RO(cxl, HWERR_RECOV_CXL);
-> +HWERR_ATTR_RO(others, HWERR_RECOV_OTHERS);
-> +
-> +static struct attribute *hwerr_recovery_stats_attrs[] = {
-> +	&hwerr_cpu_attr.attr,
-> +	&hwerr_memory_attr.attr,
-> +	&hwerr_pci_attr.attr,
-> +	&hwerr_cxl_attr.attr,
-> +	&hwerr_others_attr.attr,
-> +	NULL,
-> +};
-> +
-> +static const struct attribute_group hwerr_recovery_stats_group = {
-> +	.attrs = hwerr_recovery_stats_attrs,
-> +};
-> +
-> +static struct kobject *hwerr_recovery_stats_kobj;
-> +
-> +static int __init hwerr_recovery_stats_init(void)
-> +{
-> +	hwerr_recovery_stats_kobj = kobject_create_and_add("hwerr_recovery_stats",
-> +							   kernel_kobj);
-> +	if (!hwerr_recovery_stats_kobj) {
-> +		pr_warn("Failed to create hwerr_recovery_stats kobject\n");
-> +		return -ENOMEM;
-> +	}
-> +
-> +	if (sysfs_create_group(hwerr_recovery_stats_kobj,
-> +			       &hwerr_recovery_stats_group)) {
-> +		kobject_put(hwerr_recovery_stats_kobj);
-> +		pr_warn("Failed to create hwerr_recovery_stats sysfs group\n");
-> +		return -ENOMEM;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  static int __init crash_save_vmcoreinfo_init(void)
->  {
->  	vmcoreinfo_data = (unsigned char *)get_zeroed_page(GFP_KERNEL);
-> @@ -248,6 +300,9 @@ static int __init crash_save_vmcoreinfo_init(void)
->  	arch_crash_save_vmcoreinfo();
->  	update_vmcoreinfo_note();
->  
-> +	/* Create /sys/kernel/hwerr_recovery_stats/ directory */
-> +	hwerr_recovery_stats_init();
-> +
->  	return 0;
->  }
->  
-> 
-> -- 
-> 2.47.3
-> 
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+index 0fb057a07dcc..424f23be27b2 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+@@ -995,6 +995,37 @@ static int sunxi_pinctrl_gpio_direction_output(struct gpio_chip *chip,
+ 					    chip->base + offset, false);
+ }
+ 
++static int sunxi_pinctrl_gpio_get_direction(struct gpio_chip *chip,
++					    unsigned int offset)
++{
++	struct sunxi_pinctrl *pctl = gpiochip_get_data(chip);
++	struct sunxi_desc_function *in, *out, *irq;
++	u32 reg, shift, mask, val;
++	u16 pin = chip->base + offset;
++
++	in = sunxi_pinctrl_desc_find_function_by_pin(pctl, pin, "gpio_in");
++	out = sunxi_pinctrl_desc_find_function_by_pin(pctl, pin, "gpio_out");
++	if (!in || !out)
++		return -EINVAL;
++
++	irq = sunxi_pinctrl_desc_find_function_by_pin(pctl, pin, "irq");
++
++	sunxi_mux_reg(pctl, offset, &reg, &shift, &mask);
++	val = (readl(pctl->membase + reg) & mask) >> shift;
++
++	if (val == in->muxval)
++		return GPIO_LINE_DIRECTION_IN;
++
++	if (val == out->muxval)
++		return GPIO_LINE_DIRECTION_OUT;
++
++	/* IRQ function is effectively input. */
++	if (irq && val == irq->muxval)
++		return GPIO_LINE_DIRECTION_IN;
++
++	return -EINVAL;
++}
++
+ static int sunxi_pinctrl_gpio_of_xlate(struct gpio_chip *gc,
+ 				const struct of_phandle_args *gpiospec,
+ 				u32 *flags)
+@@ -1603,6 +1634,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+ 	pctl->chip->set_config = gpiochip_generic_config;
+ 	pctl->chip->direction_input = sunxi_pinctrl_gpio_direction_input;
+ 	pctl->chip->direction_output = sunxi_pinctrl_gpio_direction_output;
++	pctl->chip->get_direction = sunxi_pinctrl_gpio_get_direction;
+ 	pctl->chip->get = sunxi_pinctrl_gpio_get;
+ 	pctl->chip->set = sunxi_pinctrl_gpio_set;
+ 	pctl->chip->of_xlate = sunxi_pinctrl_gpio_of_xlate;
+-- 
+2.43.0
 
 
