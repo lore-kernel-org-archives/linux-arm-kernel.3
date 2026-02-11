@@ -4,111 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCF7EEB5974
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 07:23:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F22ECEB597A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 07:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pbFbMGKGwczJGeughqgC+i4ifzpDtTy2cw00+qAm9iE=; b=IQza0a/eAX5RmVX3ZCanhdFLKi
-	r/7CXOJVDxe9+yDYfRelxPnSywuTuzlHlg2ktXkmNRJzRbCCax8Rk6tuxF/LKafrYfr3bx/lraUcR
-	MK6J5JeBjDQBiRBxgRsGnMgyf+ZlGU8S91grhLeOkXeEzvJtctk5CdnnS8GjjnfNw5sUE9EvitDdq
-	RUvApzmDSh70BUryWYHT7m6dyYrISH5iMtGdymbmh0y/k9lDSI9OkfY9F1rDieIpi7RhxZLI/LeV5
-	TQ/EEiXJtMcrJIeCqTh+ZtntlElnOU7L0WCVOe77GzcQFYEPvzZcBUHI9UOfhO+jgeeAI/GAdWVeV
-	oHXt4BdA==;
+	bh=46EU+tFy3Ts0yNqktVfrtEJe7o4+EAH4g4YMmHB1Lbk=; b=O2Xe9jpV45bE6qqZbgfRJ79yHi
+	3G8L1spB3Xe7uGE5oode86KcNNTHhKDwLcGnU4L5YJeppATMXGjjf3GRZLHgyVO4e1qsscnmfGhtu
+	e6Ltx4Hq93mgfcZN1iHf1Kh4SYUmLPRRkOpJBqXf6IlUsjV3O8T8v2GSHtb6mgwuMHp6WFMthIT9u
+	LiGyGaw1Gx/5lk4RU0RGufrc/rAEd4oA2n6dCFumjRy5aKghEIuTQWz0wB1h5N0kyAHCCdyAJH/ku
+	A5HaZePUH6DadTyQAQbkvFI2+aXnTXlJpjZ3uKyM1htAMOLqj5ATSMAYj6hYzY9G6jrZaxkifqr68
+	UEDe89Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq4Za-00000000KxA-0IxR;
-	Wed, 11 Feb 2026 07:23:42 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1vq4rh-00000000Lp7-0FxC;
+	Wed, 11 Feb 2026 07:42:25 +0000
+Received: from mail-southcentralusazon11011046.outbound.protection.outlook.com ([40.93.194.46] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq4ZW-00000000KvR-0WQy;
-	Wed, 11 Feb 2026 07:23:39 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 61B3siUm2909620;
-	Wed, 11 Feb 2026 07:23:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=pbFbMG
-	KGwczJGeughqgC+i4ifzpDtTy2cw00+qAm9iE=; b=XFMn8JDM4A+Yi+1l44nm83
-	N0aVEOkS53wgp3g/1NOQykjDnyMHJjwfJgu2M3O1aOSGs421bm2quFXoIDfTMLHE
-	4kdlT52Vdak4/LcxD963uHDBCDQA+PAsrd3UfjCT42cOMSZnWDD7wqiUwvd29uRt
-	xkOiZLYGQRH9GbyDeduBFZNE7bTONj5iklFbvK4f6mWgTkhJGFPwvIQFM8i2Gk33
-	wFyZfX3SyfIRZZgsrXfPsBgyaogGbt+ay/LRQ+JOY1NY1E83WxAg0QG/T3seL+MC
-	Erx884Ue8u4ahcFley7msdGK5Xzyxcou+qC4Q+wFComZhHuZ+TIWnlFiCUrV21Iw
-	==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4c696ug02m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 11 Feb 2026 07:23:22 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 61B2Trrk002567;
-	Wed, 11 Feb 2026 07:23:21 GMT
-Received: from smtprelay07.dal12v.mail.ibm.com ([172.16.1.9])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4c6fqsn1ek-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 11 Feb 2026 07:23:21 +0000
-Received: from smtpav02.dal12v.mail.ibm.com (smtpav02.dal12v.mail.ibm.com [10.241.53.101])
-	by smtprelay07.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 61B7NKTN20185818
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 11 Feb 2026 07:23:21 GMT
-Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D6D7558051;
-	Wed, 11 Feb 2026 07:23:20 +0000 (GMT)
-Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B40AB58066;
-	Wed, 11 Feb 2026 07:23:13 +0000 (GMT)
-Received: from [9.111.95.190] (unknown [9.111.95.190])
-	by smtpav02.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 11 Feb 2026 07:23:13 +0000 (GMT)
-Message-ID: <0a78d8d2-2774-4037-b18a-f0799637f92c@linux.ibm.com>
-Date: Wed, 11 Feb 2026 12:53:11 +0530
+	id 1vq4re-00000000Lom-0JeW
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Feb 2026 07:42:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kdKsQS13+If1GjddvHhI1yBsl/bfqBjUSA2eGfEkm24HXPleXV79suoE05vAJheyyMdCEDXdE86NtAnTvMM11wEOH9O8t2uAkpTtDU0iXrBAwdRrSp9JBDZnFGfCB6Hv5V8CavbwjS5F21eXiu8pIcG6zKVLD9Pp4FfPOfXYkfxtnyEsaoP/CVMojiZ1AetSz4Jx4z9AGjBJPDzKLgRPGQ5bS2LMOwOhWteICYNknHOoYFyq+fk6jPfeyteN95O7mKcXINcKqzaaE7Gr3VdXtjlj6eBrN0t5xswqEQnNCkdVhD4RVoTUiuUPsVzLcrgRg1Cj1XYfp5ZDt+tWXMGHhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=46EU+tFy3Ts0yNqktVfrtEJe7o4+EAH4g4YMmHB1Lbk=;
+ b=BO55UKkKFPj8PxdwRkS7Vgrkj3c3DOq5zSNrFpqz3i7jnOd+BCsO1e8AA4FOCXM5Mcxx7eWi2nejmer9dM9G98HwZpyha47C55rWUrJqD1eRi0KrbDlg2CHz5a/2VXFMN6Ix3vqjZjG68wfs22i3KVDPE1v95leMRj1SEACP1EUJesSbxF13TjZbaqaFLbek0lfWdsKs3Xk5O82WwJlPGNuXE872MYVt/DRYylFdN/gnkFB92JQUucc5H+qypmW/mOGuUS/Q6Me6uMbh8NuBJI4qd4rmNjJ1lXbn5C0rz0+BRy1qy/Oc4eapq7o+Rwc/eec/5t6O5uCYSRJ2pWTtLw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=46EU+tFy3Ts0yNqktVfrtEJe7o4+EAH4g4YMmHB1Lbk=;
+ b=Y8XG0X37IWEyy4LBrnAvNfqYBJfM+mO3Osp5JUWYpqxI/kJFD1FPdbGZdWcCMfEowLsJcyyG/U+VP1sCfMnMugTJB+WoHNhjuuehV76zIoD0YdCTEQN4ke5e6cdKWwECqimtw7wutxnLvzEbOg2RtfHmeoh/tOdkK31EVPePlMM=
+Received: from BL1PR13CA0333.namprd13.prod.outlook.com (2603:10b6:208:2c6::8)
+ by BN0PR10MB5160.namprd10.prod.outlook.com (2603:10b6:408:115::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.10; Wed, 11 Feb
+ 2026 07:42:17 +0000
+Received: from BL02EPF0002992D.namprd02.prod.outlook.com
+ (2603:10b6:208:2c6:cafe::1d) by BL1PR13CA0333.outlook.office365.com
+ (2603:10b6:208:2c6::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9587.15 via Frontend Transport; Wed,
+ 11 Feb 2026 07:42:23 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ BL02EPF0002992D.mail.protection.outlook.com (10.167.249.58) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9611.8 via Frontend Transport; Wed, 11 Feb 2026 07:42:16 +0000
+Received: from DFLE209.ent.ti.com (10.64.6.67) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 11 Feb
+ 2026 01:42:14 -0600
+Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE209.ent.ti.com
+ (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 11 Feb
+ 2026 01:42:14 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 11 Feb 2026 01:42:14 -0600
+Received: from [172.24.233.239] (uda0498651.dhcp.ti.com [172.24.233.239])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 61B7gAMT820689;
+	Wed, 11 Feb 2026 01:42:10 -0600
+Message-ID: <755e4576-584f-4753-9ec4-cadac42b2e91@ti.com>
+Date: Wed, 11 Feb 2026 13:12:09 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] nvme-apple: move blk_mq_update_nr_hw_queues after
- nvme_unfreeze
-To: Yu Kuai <yukuai@fnnas.com>, axboe@kernel.dk, kbusch@kernel.org, hch@lst.de,
-        sagi@grimberg.me, sven@kernel.org, j@jannau.net,
-        linux-block@vger.kernel.org, linux-nvme@lists.infradead.org
-Cc: tj@kernel.org, ming.lei@redhat.com, neal@gompa.dev, asahi@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org
-References: <20260209082953.3053721-1-yukuai@fnnas.com>
- <20260209082953.3053721-4-yukuai@fnnas.com>
+Subject: Re: [PATCH v4 19/19] dmaengine: ti: k3-udma: switch to synchronous
+ descriptor freeing
+To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>,
+	<ssantosh@kernel.org>, <dmaengine@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <vigneshr@ti.com>
+CC: <r-sharma3@ti.com>, <gehariprasath@ti.com>
+References: <20260130110159.359501-1-s-adivi@ti.com>
+ <20260130110159.359501-20-s-adivi@ti.com>
 Content-Language: en-US
-From: Nilay Shroff <nilay@linux.ibm.com>
-In-Reply-To: <20260209082953.3053721-4-yukuai@fnnas.com>
-Content-Type: text/plain; charset=UTF-8
+From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+In-Reply-To: <20260130110159.359501-20-s-adivi@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=YZiwJgRf c=1 sm=1 tr=0 ts=698c2e6a cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=IkcTkHD0fZMA:10 a=HzLeVaNsDn8A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=tJLSzyRPAAAA:8
- a=VnNF1IyMAAAA:8 a=FTURTjTvBs5KYphvcsoA:9 a=QEXdDO2ut3YA:10
- a=H0xsmVfZzgdqH4_HIfU3:22
-X-Proofpoint-ORIG-GUID: 0mjw6HA6xeDIK05M5H6xunoKZfVVQiBV
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjExMDA1OCBTYWx0ZWRfX+KMCqTIaCpW0
- pMowx0omGulSYcbN+6nnCRWNFFKfP037lMm61MrEJAh1tIZO4X7INlNs54qupzd26DrbwTnUbmB
- kV2Q6KfrLLqNNy4AfH6JUsiJE+1TyLXDy5r6iSL1s6T2kfFMEWldvhps0ge+O2rt44oMBcA8+Gh
- jTZRs1eTrjRHd5PFvu+GWiZ2Y9L7YpylYwOFz+rSPDaOtlv4QkYpJ+U6lN+DZSoiTxZ/XR5MpT4
- edJtb/Gen9SQFIDmsLvGZBtfraW6FZVz3CLjTklSB1Zzp8tSs498fabbCKJCgJowU8qqmGmzeWm
- KBvLVsCDxdSksZ0Z/Lm71gRIP2Y90Onf5fzZvQVB7pIfupL2hCOTDIP1lY8sy8HUMZgoyXLUjd1
- x1IkrEVgQ/HKPlJJtP3LEecp51pncUQi5b5mc2N++Wm4t90qxI4S7alEu7SAVRmwwED/rAaI9LE
- +jwU4V9Q8Wn01matSUQ==
-X-Proofpoint-GUID: 0mjw6HA6xeDIK05M5H6xunoKZfVVQiBV
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-02-10_03,2026-02-10_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 impostorscore=0 suspectscore=0 malwarescore=0
- phishscore=0 bulkscore=0 adultscore=0 clxscore=1015 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602110058
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF0002992D:EE_|BN0PR10MB5160:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2b8d0740-993b-4907-c090-08de694113f5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|82310400026|36860700013|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?M0daSGtXVFU1SEJMd1E2SUpnTERGZEVpbkY1VDJ2ZDBoWGc1UnJkeHpWZlZP?=
+ =?utf-8?B?TVNzcERGeHhPeDZ0emFMc09LZ2wxcC9mdzkxSDdHZkhhOVYvbjBTRU0zUGIv?=
+ =?utf-8?B?N2Nvbm9VWUd3cEtjekJHRGJLUllRbzlVTEFwUXdCcG80OVdJZHc3ay94MHVW?=
+ =?utf-8?B?VmROQk5nLzhPZnhXczRFWjRpWVR5RTQ0TVQ1S1IydHRaYmdVc0hPaEgvdXg2?=
+ =?utf-8?B?KzZSd1hieERCNktIdWJxWU5JWWxaNkFYRXgrUXdZUldhZVFwYjg0M2t6clYx?=
+ =?utf-8?B?R2dlL3hHNDZVeWQ1MHlrSGYrckNkZTlsQlpTWTZFOHJSem1EZFpoRHd2a3Rl?=
+ =?utf-8?B?QzU3YlNMbmtONEQ3M1prYnVYY1JlRnRYaCtuWmtOVmpERDJIOCthSUEya3Fr?=
+ =?utf-8?B?ZkZ4WmRjd05EMHY1eWxNcGxjekFjREFUSE5uSEpRcDdZclFDNkE1QU9qYnBH?=
+ =?utf-8?B?YW96ZlBCSnd0NVNDbWx0c01QODROcTJxRzIzTGptSEt4aTg1UTFaUzdjUFl6?=
+ =?utf-8?B?VnBFbzVnZWtDOW1QbDRSaGYvWHdrbTEwdjVqQmZVZ3Z3cjV2c1RXYS9wQWdY?=
+ =?utf-8?B?Q1l6SlkxeC8wYkt1UjVLeUp5WStqbDhDcVZPbExicUMzYkpCc2FnUTU2WEh5?=
+ =?utf-8?B?aDhwdU1PVndFM3UzalpTR0ROUUJ1VzBTMUswY0h5b3hWQzVHUGROUHZBY3h2?=
+ =?utf-8?B?VFJRM2tYVmxhV2pGbEErbWVDa1VzemtCVUtwbmk3R2RKbiswdzU2OExMMnZ0?=
+ =?utf-8?B?bUNHdEc2VE9yTUUyeUI2UTJMNmhoQWVKWi9LT29yMFdnNjNpUFF0cWJSaEFo?=
+ =?utf-8?B?M01xa2tSQUJtZGVUMkRRSmlyUXExMEJSV2NkZUJNeGNGSjFoY0Q0M1Jxbkpz?=
+ =?utf-8?B?N0s5dWloa3ZLeHcxT1pxSmdUVjFPczJzMjI1L3FlRlhUQ3dDNDRDaXRYa0hK?=
+ =?utf-8?B?YTkyWnpYVWtXYWFXR0YrSExvYnlJU1FnVHNKUFpmUnkzS1QxbWZzWXRoSjc5?=
+ =?utf-8?B?K0gyeHp4RVBtdTNIeFh5WWtBYWp3Z2Z5dmFMUjVMVk40ZGhhV3N3Z0JmZ1Bz?=
+ =?utf-8?B?OFFJdisrbFU3VHdkaXJaNUpEUTJabkw5a096dk44Zm5Wb1YzUjd3VTlzUGNy?=
+ =?utf-8?B?MTd2OWFtMktHbkMrVUsxZWZvSVV5eFNDVDE1NUZEZFA1TUw1eXg0S2lndklS?=
+ =?utf-8?B?cDJ2VTdkNENjWVdlOUFJMmJwOUs3L2JQbXhOSjZ1eHZXWWJQWFZsUFRPdFli?=
+ =?utf-8?B?L3ZUazRBbUhpeU9CZmZBbnZCZk5MakExdjVEMGJEUlcrK09jNzBGa21wQy9y?=
+ =?utf-8?B?dTZxVnRWOVdjWUV6WkFKMW9OcjhaUmsrNkNaeHE4OE8rUXhGYXU4My9VVVQ0?=
+ =?utf-8?B?Z2tJNk1kWWhzcEpLMUF6dXMweVRVd041dVc0YkNFcjl2aGxoaS9NWWJyY01Q?=
+ =?utf-8?B?N01LdHNWMXJDM3I1SlFtYXJsNUdEZGlwbEs1SzU1SFJiYTdEQzZVQ3plNnNw?=
+ =?utf-8?B?amF3MnU1UXpQdVV4TUs0Rlk1OE9hWm9tZk5kZGo0bWIrSkk5TlB1Si9yNmFq?=
+ =?utf-8?B?Z1I1azU0MlVPMUpuNzgzTk9WeklwKzg3Q1JrQzArU0IzY2NjWVFGL2pVUkw0?=
+ =?utf-8?B?Sml2dWxWOXFac01NWGQvaGZabitWY3EwcUpOODBQc2lyeXZoTlQxaWxFR0Uv?=
+ =?utf-8?B?UmJld2xQdG9YdThZSDduVXJNbFFmd3B6THhmZTVucTQ4UFpLdmxCVFRYajhI?=
+ =?utf-8?B?MC8vbXJTSVFXTFUwMXVPU1IxS2NNamU4SlRoVHZoMEhqRVFhWWJIYi9KWGJw?=
+ =?utf-8?B?TUxBemtjdGI1aHBkZC82UmF0Q2tZbHFsNVVUeU5na1JrejA4UENSalJCSXJ1?=
+ =?utf-8?B?cEZvZ1lwTnhySWhKTkNkcHE2dTl2eWNtSkI3bnQyVU94bStvRm1NNmZ1amUw?=
+ =?utf-8?B?S2pWbE5HR3ZRd3NFK1UxQUpEODBlTWZMRnMxa2Fjd1ZrQzRMeG9oU0hEN25J?=
+ =?utf-8?B?bUJXU2tmdkk3S09wSGFiOWxBcmIrVTZ5empGTzJjbWlZeXZUbk5DR1ZrMHFz?=
+ =?utf-8?B?eTlZUWMycXY2Z1E2NFFXTUlpNEhCQnNFL3dUV1hyVTh1U3hmRGtieWdlWkVO?=
+ =?utf-8?B?M0xDNVNDb2Uwc245NHRqMlpzd012UnRzL1pjcnQzVkJWamRDNmhiRHNVWjhW?=
+ =?utf-8?B?dlVCWXkyRWE3cGNCR2ZMcllFRFRPZ25BL2t3UE5ia1ZSREd2ZXBheFY5K1A5?=
+ =?utf-8?Q?hJj9Jxm+kXnWedUKdLOrQPdYGvENVQaDWlVbFAGVfQ=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(82310400026)(36860700013)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Ow+AY4bPV3EsUZg4KMTYpcI4Y76qfIckjADukjkKNjw32wzsA6QWm2DmBTHK6CUi2VdYwKfnk4fADFmuge92uDv+Z6wDtawWyT+5q4LkFlnJj9P2meoS2JPqJ9vRK8BYh6zWRFJxr1hoS2fsrmmAT2AaziUDg60v5WyBAyYQew/8tuJ2R0Ks4BS9yd9F/PAwcj5BbMUE8Nbf5ib8CDbWgKgyCXnO/EUmfPbTbpvgeon189Dvzfa2Ae6nlZY9xdY9J2zhDoq/vYNSp9MPp1LCjc0nK5Yyi9Gw2Iesu6FLYE7KEPIbKTsDCXrPBXYu4/kCLvWzYjGHuWf93NVrxQHNUDhucyvcb5+wSTwEq9yZhqQ6XyyPRNBGJvMJC6OUkTTydFVzWVlL3/bjcFK/oVteDvc81sBOxXzgwOS8WYPBFpRmTs0XenRGjBz1k+i1Fmyr
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Feb 2026 07:42:16.0614
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2b8d0740-993b-4907-c090-08de694113f5
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0002992D.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB5160
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_232338_175711_9F791A9E 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20260210_234222_387388_2DE45CCC 
+X-CRM114-Status: GOOD (  20.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,26 +173,155 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On 30/01/26 16:31, Sai Sree Kartheek Adivi wrote:
+> The driver currently uses a worker thread to free processed
+> descriptors. Under high load (e.g., CRYPTO_MANAGER_EXTRA_TESTS), the
+> descriptor allocation rate can significantly outpace the worker
+> thread's execution rate.
+>
+> This leads to false resource exhaustion where dma_alloc_coherent()
+> fails even though many descriptors are waiting in the purge queue to
+> be freed.
+>
+> Remove the lazy freeing mechanism (desc_to_purge list and worker) and
+> instead free the descriptors immediately in the completion callback.
+>
+> This eliminates the latency gap between hardware completion and
+> software reclaim, preventing the pool exhaustion during stress tests.
 
-On 2/9/26 1:59 PM, Yu Kuai wrote:
-> blk_mq_update_nr_hw_queues() freezes and unfreezes queues internally.
-> When the queue is already frozen before this call (from nvme_start_freeze
-> in apple_nvme_disable), the freeze depth becomes 2. The internal unfreeze
-> only decrements it to 1, leaving the queue still frozen when
-> debugfs_create_files() is called.
-> 
-> This triggers WARN_ON_ONCE(q->mq_freeze_depth != 0) in
-> debugfs_create_files() and risks deadlock.
-> 
-> Fix this by moving nvme_unfreeze() before blk_mq_update_nr_hw_queues()
-> so the queue is unfrozen before the call, allowing the internal
-> freeze/unfreeze to work correctly.
-> 
-> Signed-off-by: Yu Kuai <yukuai@fnnas.com>
+Please discard this patch.
+
+Further testing revealed that dma_free_coherent triggers a
+
+WARN_ON(irqs_disabled()) in this path due to atomic context.
+
+
+I'll send a v5 with valid fix. Apologies for the noise.
+
+>
+> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 > ---
->  drivers/nvme/host/apple.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-
-Looks good to me:
-Reviewed-by: Nilay Shroff <nilay@linux.ibm.com>
+>   drivers/dma/ti/k3-udma-common.c | 40 +++------------------------------
+>   drivers/dma/ti/k3-udma-v2.c     |  2 --
+>   drivers/dma/ti/k3-udma.c        |  2 --
+>   drivers/dma/ti/k3-udma.h        |  3 ---
+>   4 files changed, 3 insertions(+), 44 deletions(-)
+>
+> diff --git a/drivers/dma/ti/k3-udma-common.c b/drivers/dma/ti/k3-udma-common.c
+> index 05b2b6b962a06..f9da00298b60f 100644
+> --- a/drivers/dma/ti/k3-udma-common.c
+> +++ b/drivers/dma/ti/k3-udma-common.c
+> @@ -95,32 +95,6 @@ void udma_free_hwdesc(struct udma_chan *uc, struct udma_desc *d)
+>   	}
+>   }
+>   
+> -void udma_purge_desc_work(struct work_struct *work)
+> -{
+> -	struct udma_dev *ud = container_of(work, typeof(*ud), purge_work);
+> -	struct virt_dma_desc *vd, *_vd;
+> -	unsigned long flags;
+> -	LIST_HEAD(head);
+> -
+> -	spin_lock_irqsave(&ud->lock, flags);
+> -	list_splice_tail_init(&ud->desc_to_purge, &head);
+> -	spin_unlock_irqrestore(&ud->lock, flags);
+> -
+> -	list_for_each_entry_safe(vd, _vd, &head, node) {
+> -		struct udma_chan *uc = to_udma_chan(vd->tx.chan);
+> -		struct udma_desc *d = to_udma_desc(&vd->tx);
+> -
+> -		udma_free_hwdesc(uc, d);
+> -		list_del(&vd->node);
+> -		kfree(d);
+> -	}
+> -
+> -	/* If more to purge, schedule the work again */
+> -	if (!list_empty(&ud->desc_to_purge))
+> -		schedule_work(&ud->purge_work);
+> -}
+> -EXPORT_SYMBOL_GPL(udma_purge_desc_work);
+> -
+>   void udma_desc_free(struct virt_dma_desc *vd)
+>   {
+>   	struct udma_dev *ud = to_udma_dev(vd->tx.chan->device);
+> @@ -131,17 +105,9 @@ void udma_desc_free(struct virt_dma_desc *vd)
+>   	if (uc->terminated_desc == d)
+>   		uc->terminated_desc = NULL;
+>   
+> -	if (uc->use_dma_pool) {
+> -		udma_free_hwdesc(uc, d);
+> -		kfree(d);
+> -		return;
+> -	}
+> -
+> -	spin_lock_irqsave(&ud->lock, flags);
+> -	list_add_tail(&vd->node, &ud->desc_to_purge);
+> -	spin_unlock_irqrestore(&ud->lock, flags);
+> -
+> -	schedule_work(&ud->purge_work);
+> +	udma_free_hwdesc(uc, d);
+> +	kfree(d);
+> +	return;
+>   }
+>   EXPORT_SYMBOL_GPL(udma_desc_free);
+>   
+> diff --git a/drivers/dma/ti/k3-udma-v2.c b/drivers/dma/ti/k3-udma-v2.c
+> index 6761a079025ba..d33382cc0356a 100644
+> --- a/drivers/dma/ti/k3-udma-v2.c
+> +++ b/drivers/dma/ti/k3-udma-v2.c
+> @@ -1320,14 +1320,12 @@ static int udma_v2_probe(struct platform_device *pdev)
+>   	ud->psil_base = ud->match_data->psil_base;
+>   
+>   	INIT_LIST_HEAD(&ud->ddev.channels);
+> -	INIT_LIST_HEAD(&ud->desc_to_purge);
+>   
+>   	ch_count = setup_resources(ud);
+>   	if (ch_count <= 0)
+>   		return ch_count;
+>   
+>   	spin_lock_init(&ud->lock);
+> -	INIT_WORK(&ud->purge_work, udma_purge_desc_work);
+>   
+>   	ud->desc_align = 64;
+>   	if (ud->desc_align < dma_get_cache_alignment())
+> diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
+> index a8d01d955651a..34d458b4a0dbc 100644
+> --- a/drivers/dma/ti/k3-udma.c
+> +++ b/drivers/dma/ti/k3-udma.c
+> @@ -2704,14 +2704,12 @@ static int udma_probe(struct platform_device *pdev)
+>   	ud->psil_base = ud->match_data->psil_base;
+>   
+>   	INIT_LIST_HEAD(&ud->ddev.channels);
+> -	INIT_LIST_HEAD(&ud->desc_to_purge);
+>   
+>   	ch_count = setup_resources(ud);
+>   	if (ch_count <= 0)
+>   		return ch_count;
+>   
+>   	spin_lock_init(&ud->lock);
+> -	INIT_WORK(&ud->purge_work, udma_purge_desc_work);
+>   
+>   	ud->desc_align = 64;
+>   	if (ud->desc_align < dma_get_cache_alignment())
+> diff --git a/drivers/dma/ti/k3-udma.h b/drivers/dma/ti/k3-udma.h
+> index 3ae2400e67990..67de9feb9906b 100644
+> --- a/drivers/dma/ti/k3-udma.h
+> +++ b/drivers/dma/ti/k3-udma.h
+> @@ -353,8 +353,6 @@ struct udma_dev {
+>   
+>   	struct k3_ringacc *ringacc;
+>   
+> -	struct work_struct purge_work;
+> -	struct list_head desc_to_purge;
+>   	spinlock_t lock;
+>   
+>   	struct udma_rx_flush rx_flush;
+> @@ -596,7 +594,6 @@ static inline void udma_fetch_epib(struct udma_chan *uc, struct udma_desc *d)
+>   struct udma_desc *udma_udma_desc_from_paddr(struct udma_chan *uc,
+>   					    dma_addr_t paddr);
+>   void udma_free_hwdesc(struct udma_chan *uc, struct udma_desc *d);
+> -void udma_purge_desc_work(struct work_struct *work);
+>   void udma_desc_free(struct virt_dma_desc *vd);
+>   bool udma_desc_is_rx_flush(struct udma_chan *uc, dma_addr_t addr);
+>   bool udma_is_desc_really_done(struct udma_chan *uc, struct udma_desc *d);
 
