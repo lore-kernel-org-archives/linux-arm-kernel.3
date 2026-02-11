@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFF2CEB596B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 06:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A06EEB596E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 07:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O3i4QaJkd3AhcRjLw4R/fNEU4UqPrl/kFUJHQ9w/9VY=; b=qtW64bbzDrbWhEtvQXzYF99m0l
-	pmD69+l+mzL7SJ2HDoPFJ+WVL4wrEvz25t7AVcHfp4VgX8MECtC7I6tKOnV8NZ8FSXVvy1+PQ4haw
-	bCgrgWdIJ+bmDJeoQraragXGmI1wkwPdaXHVYwj2Fn4hwrkyHAz2nomoDGnL8gsG5a2Uh/1rmIZBO
-	NHfSNOqvgzv/WrUlQETTIii+NVYPU7uNMUgEyFO6JJj8+Y44UXUeSkloObeoqVYP+LHzV88zqRBH2
-	Ap8WhfP+5WWgtELfL9ObgNrvb48HBQdvIx/c8q4LZRBGOATnleD+wWp57PwRZW+GtuEAKZ5gMjcuF
-	/4x1zPFg==;
+	bh=ekwU2eOw8Ug7JuWGM23DP3Zt8xIe9aWbc8KSy6O2ZiA=; b=j3+rS4o/7eYKq4tEj/T2dVX5Em
+	7ef68KI2qzGTwfspP7Dt5UBSMBHtJ0qfe45PqUAu7RnqPvhTYCqieNvG2a4KsNlxDEHLc7nZl0dlJ
+	RyaAZtHzFMKNBbZn+auIjSLA9807If4mW34UUJtgHp5X/ZQZ5GbAYj6yxLseQ5D1tLTBw2x8HshBi
+	MQd+FyM6DUS6iDtPwQA0/KBDjz1RIHFGqALWTiQsodWHLX1fAEFnR35nxZ447oyncLCyGUIEGW6S+
+	ydYkl+m2yCClV9HSinSMToaKdLDVPJenqrA7ZhoKfvifkJwml0CP8jANCH5+So5b5vUOZEXHGwynZ
+	/t9LgUlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq40P-00000000Ifu-20uZ;
-	Wed, 11 Feb 2026 06:47:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vq4JZ-00000000JhR-3vLX;
+	Wed, 11 Feb 2026 07:07:09 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq40N-00000000IfV-0omj;
-	Wed, 11 Feb 2026 06:47:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 79EC4442E1;
-	Wed, 11 Feb 2026 06:47:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBAF5C4CEF7;
-	Wed, 11 Feb 2026 06:47:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770792438;
-	bh=D39DBVuYgmIqcUJ5WRCSy4xXOe9xyGcoG2v7vm14CAA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cKotFZScyMprPsBLEJTJD4lj3XdUBAZuOt4X13Iwha2YeV7f/pWZ0yuPc+JGGQc+Q
-	 maQUwcmbsTrwvpO7qBBOhEZ4Z4sH3xemDzfigZ8nxdO2mRQABtVMj4U25zYJNC95uO
-	 OMoRFCiHxYXzxcoQFK61Nf+DFQhxZ9M/0cb6Q2Aae6FtgNFaCX8iellA1cB/XIxtxo
-	 g1R6CGsl96a80EV48V58qtDlKl90vavUmEEqF/pwgpfTPssXHaOSf1McXnUAET6Xog
-	 0hS+hQPnk2N2ohDdb0GpGYfgr2RySSFxA1Aw29E+UBHtrvEi6baFjpK0rupG6lSkn+
-	 /DHGQLhVtEDHw==
-Date: Wed, 11 Feb 2026 07:47:15 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Michael Riesch <michael.riesch@collabora.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, Guoniu Zhou <guoniu.zhou@oss.nxp.com>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, imx@lists.linux.dev
-Subject: Re: [PATCH 5/6] media: dt-bindings: add NXP i.MX93 compatible string
-Message-ID: <20260211-notorious-crow-of-lightning-627b63@quoll>
-References: <20260210-imx93-dw-csi2-v1-0-69667bb86bfa@nxp.com>
- <20260210-imx93-dw-csi2-v1-5-69667bb86bfa@nxp.com>
+	id 1vq4JX-00000000JgT-2nDb
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Feb 2026 07:07:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1770793620;
+	bh=ekwU2eOw8Ug7JuWGM23DP3Zt8xIe9aWbc8KSy6O2ZiA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=P9M0s6tmcbwCi6R7qtb9G7n9zjrlhTdWDjrCSNhFhzlYolQSCANRFcMHilkBkkoOH
+	 8C5d/18JDioaWOfFnBe2EfO/xlBqrzgtBJAguPI3qj1EYxv7Dmr02z8pkSxyfXNGLT
+	 csWtmJ1Dc9ePK7bk/9tlbaS/74ddev/TnjVEHKUALXGsFrOS4S7plZBx++8fxXhrVN
+	 cyFEYZlQkcA+/xsPsE85UoTevoL6bMD6PQN9OJaBLQr65pYpJL5fJEtrpL5Hmov0wX
+	 KqSDB4BjiWyVO2czOwvkUksWj133s+z8bmHW8NTQFEEyaY5vfYClOdMHmHyQbM0L35
+	 /9wVgqf3VefZw==
+Received: from [192.168.68.117] (unknown [180.150.112.60])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id BEB226040B;
+	Wed, 11 Feb 2026 15:06:58 +0800 (AWST)
+Message-ID: <31a3283787df06b7b44796ef78cca3fd380ee18d.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v3 1/3] Add compatible strings for AST2700 pinctrl to
+ the SCU binding.
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Billy Tsai <billy_tsai@aspeedtech.com>, Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>
+Cc: Andrew Jeffery <andrew@aj.id.au>, Conor Dooley <conor+dt@kernel.org>, 
+ Joel Stanley <joel@jms.id.au>, Linus Walleij <linusw@kernel.org>, Bartosz
+ Golaszewski <brgl@kernel.org>,  Lee Jones <lee@kernel.org>, Rob Herring
+ <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org, 
+	linux-gpio@vger.kernel.org, bmc-sw@aspeedtech.com
+Date: Wed, 11 Feb 2026 17:36:57 +1030
+In-Reply-To: <459f84c56a5010910ecbf8b445c092674f060691.camel@codeconstruct.com.au>
+References: <20260120-upstream_pinctrl-v3-0-868fbf8413b5@aspeedtech.com>
+		 <20260120-upstream_pinctrl-v3-1-868fbf8413b5@aspeedtech.com>
+	 <459f84c56a5010910ecbf8b445c092674f060691.camel@codeconstruct.com.au>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260210-imx93-dw-csi2-v1-5-69667bb86bfa@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_224719_276627_15D69236 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20260210_230707_906955_599AAC12 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,22 +79,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 10, 2026 at 12:11:12PM -0500, Frank Li wrote:
-> The i.MX93 uses the DW CSI-2 RX controller, which is similar to the
-> Rockchip RK3568 implementation.
-> 
-> The i.MX93 variant provides one IRQ, two clocks, and no resets. Add the
-> "fsl,imx93-mipi-csi2" compatible string and keep the same constraints for
-> rk3568.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  .../bindings/media/rockchip,rk3568-mipi-csi2.yaml  | 47 +++++++++++++++++++++-
->  1 file changed, 45 insertions(+), 2 deletions(-)
+On Fri, 2026-01-23 at 17:03 +1030, Andrew Jeffery wrote:
+>=20
+> Going down this path for pinctrl to fix the SCU situation will require
+> some rework of what's already merged for the AST2700. However, we've
+> not yet merged either a DTS or DTSI using the compatibles (and by
+> extension, aren't using the AST2700 support from the drivers), so I
+> hope that allows us to do a course-correction without too much
+> collateral damage.
+>=20
+> A possible path forward is to:
+>=20
+> =C2=A0* Move AST2700 definitions out of mfd/aspeed,ast2x00-scu.yaml into =
+one
+> =C2=A0=C2=A0 of:
+> =C2=A0=C2=A0=C2=A0 - soc/aspeed/aspeed,ast2700-scu.yaml: Follow the examp=
+le of
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 mobileye,eyeq5-olb?
+> =C2=A0=C2=A0=C2=A0 - arm/aspeed/aspeed,ast2700-scu.yaml: We already have =
+e.g. the secure
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 boot controller documented under arm/aspee=
+d
+> =C2=A0* Retain compatible strings but require simple-mfd is not specified
+> =C2=A0* Rework AST2700 support introduced in:
+> =C2=A0=C2=A0=C2=A0 - drivers/irqchip/irq-aspeed-scu-ic.c
+> =C2=A0=C2=A0=C2=A0 - drivers/soc/aspeed/aspeed-socinfo.c
+>=20
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+... but perhaps that is too much churn for this stage.
 
-Best regards,
-Krzysztof
+Krzysztof: If you think the rework is worthwhile, let me know and we
+can look at that design, otherwise I think Billy can proceed by
+incorporating your current feedback for a v4.
 
+Andrew
 
