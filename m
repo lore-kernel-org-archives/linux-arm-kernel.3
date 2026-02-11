@@ -4,91 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6E59EB5961
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 05:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B96A1EB5967
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 06:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CyriNzmnvP4x40dvecSlAiy7TMRMrGedxIqh3u3rjNs=; b=kKTPnBy0MbJcjozIXGq5aQ2t5j
-	Y/xC4NohZ8u4rh+nC2BArtgLVMk9kcyzPAfeGZiS4dLwLmCxodjdMu+y94Ie8Z9pWMp5ne6iq0u9a
-	X20TRDHqWaarsYZ6+X/9p7gPkPoCnpY3TFp+f0gBomZbn/8kL7ie8bgUAPQuKhFlvYRuko2OQ6XkC
-	vxJmws9x9P1FqrP8xzJ4WXRqr+MKsno4eLo/IiCcEPRWO7ch2Y5qhplJdxnkgEcr/RNw6BuKUQZDF
-	eKIODmN9TaYM3+qDfECh9vo+EhOZv3xwcLpOsuu6yOtcmYDk3YPZXRHbUF6p/cjcBBpuX4SNvyrQk
-	6K1IoThg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mbuoyaEi27ypC38bOVqtSQgPO+GdRT62sley1benoJ4=; b=eVUFNXIDrzvVs6gk070CH5EmGs
+	J1taoZahFXkx1Y0exI6AGapzrRH2d+kD/ZoaB2cQAV6SC9VLNyaQXpgR99QiRokDBOYtTy3CGZ9Dr
+	SCkVYjbNgXI21KsQyfdBHN1mGCjo1nwopyfMCkX2u9iDpRi8FlR4YpcFXVHSuAp4m06w1sPD2L3l+
+	cf0i3GI7uaFxtSRokYn4LvbcB1xatXhHsRm7jV3MCsDj7pq8fdIInBhCLKLT8fbojd7JiC1uHVain
+	MQU59p8r5oY5IG2GDbLIwY0bRU3x+EnasDr6xu1piMAjT2kEeqNKfvgirxlko/uAfh5+9+MKLF0Hq
+	pUbEzi4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq3E6-00000000Gwb-2xXe;
-	Wed, 11 Feb 2026 05:57:26 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1vq3Zw-00000000Hj5-2AMF;
+	Wed, 11 Feb 2026 06:20:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq3E3-00000000Gw3-3vjR
+	id 1vq3Zt-00000000Hhf-1Nr0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Feb 2026 05:57:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1770789444; x=1802325444;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=WnpB/MHUvOu0MxaG9qXi+XunVyvMIMGcsZJjH30GK1s=;
-  b=hnl/ClR1nMMtjHQwrfc6367FH+n73M0zas8BjGUA6kRHBBgtx98HQFBI
-   I3IoMhe9rQ+ls+iXwZCSZPCkDzv34MuJoCxGJ0k9qBNnz7XphlINwcKYs
-   JhbnVFdhC+OBVRC38wES+o5j1fwwGSE0R1OZyK2EShiACj8ldcTypKIcK
-   5TCZLy4OvImOr5MMiBtZpnnsCw/YgwRLiw+aZLCM2ZhtKdW6onGjmUKDM
-   QWATL5TdAxs58ozNDNSq2y8hoKftktn50lVntDzbm/IW8SbfjHEg8Bi3U
-   ivPVZyIrwIuI+EX+jshs4TGUEHXL1RC8bsmu5QDs6F3rRb20lTcpPfukV
-   g==;
-X-CSE-ConnectionGUID: TZeOokoeSI6h8ybaps1nFQ==
-X-CSE-MsgGUID: gZzj4dWLS3WgOuncypilEQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11697"; a="94569684"
-X-IronPort-AV: E=Sophos;i="6.21,283,1763452800"; 
-   d="scan'208";a="94569684"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Feb 2026 21:57:21 -0800
-X-CSE-ConnectionGUID: Cp3x9V8wSLW7rubOh6WZ5A==
-X-CSE-MsgGUID: H3wgMnd3QcCarV66oRkcfg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,283,1763452800"; 
-   d="scan'208";a="212176563"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa008.jf.intel.com with ESMTP; 10 Feb 2026 21:57:15 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vq3Ds-00000000piq-4C4o;
-	Wed, 11 Feb 2026 05:57:13 +0000
-Date: Wed, 11 Feb 2026 13:56:41 +0800
-From: kernel test robot <lkp@intel.com>
-To: Shenwei Wang <shenwei.wang@nxp.com>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>, Peng Fan <peng.fan@nxp.com>,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-imx@nxp.com,
-	arnaud.pouliquen@foss.st.com, Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v7 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-Message-ID: <202602111320.C3eHRtNV-lkp@intel.com>
-References: <20260210170814.406883-4-shenwei.wang@nxp.com>
+	Wed, 11 Feb 2026 06:19:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 87D9543DF4;
+	Wed, 11 Feb 2026 06:19:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90A2EC4CEF7;
+	Wed, 11 Feb 2026 06:19:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770790796;
+	bh=7rgUId6mgMF3MTDeDSkGxit6/QsnD0ZWcZ2CxVpgb/A=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QLdDjwpuyYpgZoJGl0ixYFS+MPPIvS4XNkwLxvfaM76yVTDKowRQZZPxCElPEdhuc
+	 FeIeQMee6o9cojI8ZQMwVWnSwcL6J+3nLNTrYkpdkyWKGQQ9XvQyboCgaVtfz6iXHZ
+	 125tLJmPCPVfvdkw8ToeV1f38kZekzRiXnvdg7CfzN6z/k5G4rgD+BgizGKbuLmbwI
+	 hqUUkfhX5EKw3hJVazYq22QaW7yeRJ55PlzWrf/3PS36/O680Ge7VbazHnKKco0pBM
+	 lkYeq52QcUwl9mlcDkjpOJ5wlujwYZWJUToOsB1SZ7RKTK9L0jfl9YQ0ceNg39th5a
+	 HVw/Dn6oSLpsw==
+Message-ID: <a04e5648-86c0-4930-ac2f-a824acb35941@kernel.org>
+Date: Wed, 11 Feb 2026 07:19:50 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260210170814.406883-4-shenwei.wang@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 8/8] arm64: defconfig: Enable NVIDIA TEGRA410 PMU
+To: Besar Wicaksono <bwicaksono@nvidia.com>, "will@kernel.org"
+ <will@kernel.org>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+ "robin.murphy@arm.com" <robin.murphy@arm.com>,
+ "ilkka@os.amperecomputing.com" <ilkka@os.amperecomputing.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
+ "mark.rutland@arm.com" <mark.rutland@arm.com>,
+ Thierry Reding <treding@nvidia.com>, Jon Hunter <jonathanh@nvidia.com>,
+ Vikram Sethi <vsethi@nvidia.com>, Rich Wiley <rwiley@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Sean Kelley
+ <skelley@nvidia.com>, Yifei Wan <YWan@nvidia.com>,
+ Matt Ochs <mochs@nvidia.com>, Nirmoy Das <nirmoyd@nvidia.com>
+References: <20260126181155.2776097-1-bwicaksono@nvidia.com>
+ <20260126181155.2776097-9-bwicaksono@nvidia.com>
+ <a3249d0f-17f2-496d-ad53-95ad5da26f5a@kernel.org>
+ <SJ0PR12MB56762714BF94D1E67511C43DA062A@SJ0PR12MB5676.namprd12.prod.outlook.com>
+ <bd69c94c-51d0-4166-a059-e46b30cb83e0@kernel.org>
+ <SJ0PR12MB56763B5860CE8E93BEB4FF49A062A@SJ0PR12MB5676.namprd12.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <SJ0PR12MB56763B5860CE8E93BEB4FF49A062A@SJ0PR12MB5676.namprd12.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260210_215724_017992_E2BCEFBD 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20260210_221957_446045_3435CFE2 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,68 +132,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shenwei,
+On 10/02/2026 18:42, Besar Wicaksono wrote:
+> 
+> 
+>> -----Original Message-----
+>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>> Sent: Tuesday, February 10, 2026 10:15 AM
+>> To: Besar Wicaksono <bwicaksono@nvidia.com>; will@kernel.org;
+>> suzuki.poulose@arm.com; robin.murphy@arm.com;
+>> ilkka@os.amperecomputing.com
+>> Cc: linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; linux-
+>> tegra@vger.kernel.org; mark.rutland@arm.com; Thierry Reding
+>> <treding@nvidia.com>; Jon Hunter <jonathanh@nvidia.com>; Vikram Sethi
+>> <vsethi@nvidia.com>; Rich Wiley <rwiley@nvidia.com>; Shanker Donthineni
+>> <sdonthineni@nvidia.com>; Sean Kelley <skelley@nvidia.com>; Yifei Wan
+>> <YWan@nvidia.com>; Matt Ochs <mochs@nvidia.com>; Nirmoy Das
+>> <nirmoyd@nvidia.com>
+>> Subject: Re: [PATCH 8/8] arm64: defconfig: Enable NVIDIA TEGRA410 PMU
+>>
+>> External email: Use caution opening links or attachments
+>>
+>>
+>> On 10/02/2026 17:05, Besar Wicaksono wrote:
+>>>
+>>>
+>>>> -----Original Message-----
+>>>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>>>> Sent: Sunday, February 8, 2026 5:18 AM
+>>>> To: Besar Wicaksono <bwicaksono@nvidia.com>; will@kernel.org;
+>>>> suzuki.poulose@arm.com; robin.murphy@arm.com;
+>>>> ilkka@os.amperecomputing.com
+>>>> Cc: linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
+>> linux-
+>>>> tegra@vger.kernel.org; mark.rutland@arm.com; Thierry Reding
+>>>> <treding@nvidia.com>; Jon Hunter <jonathanh@nvidia.com>; Vikram Sethi
+>>>> <vsethi@nvidia.com>; Rich Wiley <rwiley@nvidia.com>; Shanker
+>> Donthineni
+>>>> <sdonthineni@nvidia.com>; Sean Kelley <skelley@nvidia.com>; Yifei Wan
+>>>> <ywan@nvidia.com>; Matt Ochs <mochs@nvidia.com>; Nirmoy Das
+>>>> <nirmoyd@nvidia.com>
+>>>> Subject: Re: [PATCH 8/8] arm64: defconfig: Enable NVIDIA TEGRA410 PMU
+>>>>
+>>>> External email: Use caution opening links or attachments
+>>>>
+>>>>
+>>>> On 26/01/2026 19:11, Besar Wicaksono wrote:
+>>>>> Enable driver for NVIDIA TEGRA410 CMEM Latency and C2C PMU device.
+>>>>
+>>>> Why? Why do we want it? Which *upstream board* uses it?
+>>>>
+>>>
+>>> These are for NVIDIA Vera platform (Tegra410 SoC).
+>>
+>> There is no such board (git grep), but anyway, don't explain it to me.
+>> Your commit should explain such stuff.
+>>
+> 
+> This is a server platform. There is no upstream board using this device currently.
 
-kernel test robot noticed the following build errors:
+I don't understand why server or not server matters.
 
-[auto build test ERROR on brgl/gpio/for-next]
-[also build test ERROR on robh/for-next remoteproc/rproc-next linus/master v6.19 next-20260210]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Shenwei-Wang/dt-bindings-remoteproc-imx_rproc-Add-rpmsg-subnode-support/20260211-011505
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git gpio/for-next
-patch link:    https://lore.kernel.org/r/20260210170814.406883-4-shenwei.wang%40nxp.com
-patch subject: [PATCH v7 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-config: nios2-randconfig-r054-20260211 (https://download.01.org/0day-ci/archive/20260211/202602111320.C3eHRtNV-lkp@intel.com/config)
-compiler: nios2-linux-gcc (GCC) 9.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260211/202602111320.C3eHRtNV-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202602111320.C3eHRtNV-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   nios2-linux-ld: drivers/gpio/gpio-rpmsg.o: in function `rpmsg_get_channel_ofnode':
->> drivers/gpio/gpio-rpmsg.c:473: undefined reference to `rproc_get_by_child'
->> drivers/gpio/gpio-rpmsg.c:473:(.text+0x454): relocation truncated to fit: R_NIOS2_CALL26 against `rproc_get_by_child'
-   nios2-linux-ld: drivers/gpio/gpio-rpmsg.o: in function `rpmsg_get_rproc_node_name':
-   drivers/gpio/gpio-rpmsg.c:450: undefined reference to `rproc_get_by_child'
-   drivers/gpio/gpio-rpmsg.c:450:(.text+0x4e0): relocation truncated to fit: R_NIOS2_CALL26 against `rproc_get_by_child'
+If there is no upstream user of this, it is wrong to add it to
+defconfig. This is upstream defconfig, not your distro.
 
 
-vim +473 drivers/gpio/gpio-rpmsg.c
-
-   466	
-   467	static struct device_node *
-   468	rpmsg_get_channel_ofnode(struct rpmsg_device *rpdev, char *chan_name)
-   469	{
-   470		struct device_node *np_chan = NULL, *np;
-   471		struct rproc *rproc;
-   472	
- > 473		rproc = rproc_get_by_child(&rpdev->dev);
-   474		if (!rproc)
-   475			return NULL;
-   476	
-   477		np = of_node_get(rproc->dev.of_node);
-   478		if (!np && rproc->dev.parent)
-   479			np = of_node_get(rproc->dev.parent->of_node);
-   480	
-   481		if (np) {
-   482			/* Balance the of_node_put() performed by of_find_node_by_name(). */
-   483			of_node_get(np);
-   484			np_chan = of_find_node_by_name(np, chan_name);
-   485			of_node_put(np);
-   486		}
-   487	
-   488		return np_chan;
-   489	}
-   490	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards,
+Krzysztof
 
