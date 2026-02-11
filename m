@@ -4,191 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D3A1E9E2E0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 10:47:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5C6BE9E2E0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 10:51:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GIIoZmsbWxwPDN8uE11bDhalnUGKLeH2haDFZ9USlGM=; b=MuPlkpuq7mrwEDBJfxpqrVOdE1
-	et8Ilg9ISwvWHV4ReqZMvnAjqhEwE7Q7lMQYv9LJ3wZq61s6L9GhyNsgW+Lu27x/Dd69v/MZUzG3S
-	e9N5zoPGYbLlVlng7wBNGMRbsXafAzO3OeZsoVm+iyeWSxbkM8deWDCB0wtzojueGq/Rhdyerz0lk
-	PwyvPreNEjuKYSTrroredz0w4q5WNTIvbn9SwwDRDLkWwJyTr5P+0Re8P+LJ3OWatIpuBggZQ9QL2
-	9y67eaCPwS9ycwQSpi/sqxBiMiyrlhAflQPtl9840S8MkhmoOeZJtmBj/Q++ixpMC/uRIN1R9O08b
-	vogn1LOg==;
+	bh=K0z0Y4at7iU0imbx5PZh3w9uUZRimxGgcL1Dub/w7i0=; b=L0giX6MdAV3797f9rZgXFRP09B
+	mkhdjckMNaZwDd6wIPtyaCv09bZsLn8rBRf0xrlvkt7OjEw3RDey9YvIOZ1ZEHAMtqz8w0pylg/FJ
+	Swk0f9kssO+bZiKGKOst3bhbcnYANP+1MKtcYZ1OH8xiJsb2/7QgecqmAMAdFqAP1+GDqY/tNk5Hw
+	AgcXk/iN/a4ptR0dnYmk1dDFhZ1z8TaGqjx9cKBw8/1DLarWvdleewvWaGKqNGjL3Ci2w/yrjLfZt
+	mm5nOOH73qtYTEqQTTFdDtvZ7iOPX9N6Kq35eO6b+Z987yE+Cjj/laRyt2CVm1PeTE5RkzElRNxAT
+	Il3/rzMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq7kv-00000000XMD-48dP;
-	Wed, 11 Feb 2026 10:47:37 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq7ku-00000000XLp-0V6S
+	id 1vq7oB-00000000XWF-2f4d;
+	Wed, 11 Feb 2026 10:51:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vq7o8-00000000XVt-28q9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Feb 2026 10:47:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BmMbRlvzTN5h5ElLrpYQ2CxlXFp2PCIPJiC+GOhiqPqaEIgN1V/iPudY2U2b8cUrEl96o+GMo3+NyUGrf7q4JDyJLIl9anMH3DiCuA/nQIQwPa5I61XSQP4Zd2QpBa8JliYFDxhiJyZ2eT1nQ7aWOPIV42jELVrcaHz9IhvxOUee3xk9YapaLASVm9PjfPUPtH1Arya0Lz6ueyiO9zKs7sE2PUM0n4w2fjo0kGEe3MAfss4J8Gpz6O1VSvORNXN2sSXIAEzyneB/4nfDSpNtwwLXJc69fl5La0nuvi6N6CC5EG7f5rue43Beg4H/MvKkw+cCbUAh9PA/HKhsqMWRGw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GIIoZmsbWxwPDN8uE11bDhalnUGKLeH2haDFZ9USlGM=;
- b=x+DP5Mg8ZiSRWlUKUKPAR23xPUmhmCNS9E2daoqA8NBr7pSWK40vNfjKBIkoCXrZdLJwgyD8g+trp/EJ6lANpdIv0zc9mN7p/ANTpTVMstwykQgg8BdjBGBORipijcMZXytrlF6zmhF8u/ITEvGdMRCV78LacTWVO60Qt7MouYkTPd6Yy/9yMlY+qDl42WjW3cqtkW8GAUeECzdsKLNWbalxE5QBk06CrRokh6htd4NkprEalefyhzmzXYaYpWmhpZSVh8Na8eydBrZ/pM7Q8VJndxR7mMDPxURLCnuolg9Z3wOHd97++VxAx6ahWobspMoC322jw26i7HbAEnrWyw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GIIoZmsbWxwPDN8uE11bDhalnUGKLeH2haDFZ9USlGM=;
- b=kdSSZ2G+UJP1kOCSka7TrgmVxBW/R3gfpSV+7srTJq0Gjt1LF118FYmeYCcvt5ICL5c9fZSfQqz4pNIx9ExpburA930RvSd0Ct2sPYJxYhHCF3Sj/LeIGHa07vvwh8khr0JD3ZFMAXWToTgOUgPwQIoC+k4hyIrPnqQgrZaHPqNrD5K8gNGpNejGbmiwj1LhgNSfVNrknzEAfPaZP6unA2zFdjXRaWLAvPkdEQwYi3NRTcsauwzJaP5SrTUWKLWRc0lDy3j4yY5c88i6GZkZVuUhsxcAodXNL1dBeXBvdi4PWTw1JhFn4Ie5BlMWtyKa+Y0mXXUcSpqI3PFbgDntnA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS2PR12MB9750.namprd12.prod.outlook.com (2603:10b6:8:2b0::12)
- by CYYPR12MB8964.namprd12.prod.outlook.com (2603:10b6:930:bc::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9611.10; Wed, 11 Feb
- 2026 10:47:27 +0000
-Received: from DS2PR12MB9750.namprd12.prod.outlook.com
- ([fe80::56a8:d6bf:e24c:b391]) by DS2PR12MB9750.namprd12.prod.outlook.com
- ([fe80::56a8:d6bf:e24c:b391%5]) with mapi id 15.20.9611.008; Wed, 11 Feb 2026
- 10:47:27 +0000
-Message-ID: <5546962c-6de0-4b92-9329-7e9b298ce2e1@nvidia.com>
-Date: Wed, 11 Feb 2026 10:47:22 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 8/8] arm64: defconfig: Enable NVIDIA TEGRA410 PMU
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Besar Wicaksono <bwicaksono@nvidia.com>, "will@kernel.org"
- <will@kernel.org>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
- "robin.murphy@arm.com" <robin.murphy@arm.com>,
- "ilkka@os.amperecomputing.com" <ilkka@os.amperecomputing.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
- "mark.rutland@arm.com" <mark.rutland@arm.com>,
- Thierry Reding <treding@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>,
- Rich Wiley <rwiley@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Sean Kelley <skelley@nvidia.com>, Yifei Wan <YWan@nvidia.com>,
- Matt Ochs <mochs@nvidia.com>, Nirmoy Das <nirmoyd@nvidia.com>
-References: <20260126181155.2776097-1-bwicaksono@nvidia.com>
- <20260126181155.2776097-9-bwicaksono@nvidia.com>
- <a3249d0f-17f2-496d-ad53-95ad5da26f5a@kernel.org>
- <SJ0PR12MB56762714BF94D1E67511C43DA062A@SJ0PR12MB5676.namprd12.prod.outlook.com>
- <bd69c94c-51d0-4166-a059-e46b30cb83e0@kernel.org>
- <SJ0PR12MB56763B5860CE8E93BEB4FF49A062A@SJ0PR12MB5676.namprd12.prod.outlook.com>
- <a04e5648-86c0-4930-ac2f-a824acb35941@kernel.org>
- <085ad06e-61fa-4f18-a7d4-d88554344553@nvidia.com>
- <05317721-54f6-422f-a6da-b332ea0423a7@kernel.org>
-From: Jon Hunter <jonathanh@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <05317721-54f6-422f-a6da-b332ea0423a7@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0685.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:37b::8) To DS2PR12MB9750.namprd12.prod.outlook.com
- (2603:10b6:8:2b0::12)
+	Wed, 11 Feb 2026 10:50:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E8171339;
+	Wed, 11 Feb 2026 02:50:45 -0800 (PST)
+Received: from e134344.arm.com (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D668F3F632;
+	Wed, 11 Feb 2026 02:50:46 -0800 (PST)
+Date: Wed, 11 Feb 2026 10:50:38 +0000
+From: Ben Horgan <ben.horgan@arm.com>
+To: Fenghua Yu <fenghuay@nvidia.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+	baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+	dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+	gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com,
+	kobak@nvidia.com, lcherian@marvell.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+	quic_jiles@quicinc.com, reinette.chatre@intel.com,
+	rohit.mathew@arm.com, scott@os.amperecomputing.com,
+	sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com,
+	xhao@linux.alibaba.com, catalin.marinas@arm.com, will@kernel.org,
+	corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+	zengheng4@huawei.com, linux-doc@vger.kernel.org,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Subject: Re: [PATCH v4 20/41] arm_mpam: resctrl: Add CDP emulation
+Message-ID: <aYxe_rFXLSru5p-J@e134344.arm.com>
+References: <20260203214342.584712-1-ben.horgan@arm.com>
+ <20260203214342.584712-21-ben.horgan@arm.com>
+ <2271224c-1796-4823-8c2c-6f529814e645@nvidia.com>
+ <7a0953ff-6475-4311-b34c-47eed9d38cb1@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PR12MB9750:EE_|CYYPR12MB8964:EE_
-X-MS-Office365-Filtering-Correlation-Id: c7221669-bbdc-488f-5d33-08de695af2b5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|10070799003|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dUNRN3hDRmtXdjhzMkVOeVB1WkRqcDFuOHVYaGNrL3dzQzd0NkE5bXJ6VSth?=
- =?utf-8?B?TWRlU3lpcTUzcFFDNUtySFVNMWNEQThLRVZEUWhTVnpjSkxEOGZiZm41andI?=
- =?utf-8?B?QW9QNE01WFlGbmQwMjVMSnp1dEhPRk5tQmVCSkVpaFBoVEVKSTJJcVgyUEFr?=
- =?utf-8?B?aG9rY3c1ZzZsYW9FcENLbFZCbGo0NUJEdXZTS2dIU0JyNE1ZWkkxV1o4ZlBu?=
- =?utf-8?B?R2JJa05RTjZqTjl4ZnE3dGppYnBlS0d5T2xYMkFQbmdmNmI2TU4yd0ZHYW90?=
- =?utf-8?B?TFZIVHpNamFBTTl1azFjTC9PNk4zVlB4T2w4M0pLVEJNeE1QYy9DMXM5UXMr?=
- =?utf-8?B?YWRLd053YytwLzZRdFlRQy83aWJZYlI0YnhBUVlsRDMxNjZmVGVCc0VlQk1k?=
- =?utf-8?B?YjhBa1d6aSt1eUVmdlN1S3o4aVBWaXhZS3ZEQUI3Y0VWL3kvZFJNaWE3YitR?=
- =?utf-8?B?ZUM0blFYM2l4S2Znd2crZ0FTc0xXM1k0T2tvZFk3TzdYOGF4cVRMSEpveVdv?=
- =?utf-8?B?RE90RWx3NHVRVDQ1OWRiZUFxbUh3VEdNd0wvQ0Nvd2RrREQ4a1pVZVc3NGU2?=
- =?utf-8?B?K3FDRTFvV2xFZWNkUjJKQTBROUkvZWRtbnUvbzRZY3I5b1JHUVo5VWdWeEZa?=
- =?utf-8?B?WUNBa0JQRGt0UWZRV2pXWFRtS1RFeEt6UUZIeGhqaWZra1BUeTZudlo5U0JF?=
- =?utf-8?B?T1NyUkpjTHFvaXk1SGxtY3luZDgxdHptTm9CbmRKb09sT042ajdmbWFDKzdU?=
- =?utf-8?B?MzNQc2poenU1NTJwMVo4YzVpelhpZ2tqT2hKM1pTa1lmdWtiL0lZcXRTajBL?=
- =?utf-8?B?Slp2T3B5ZU0zQTZLczB1a3N2QVFNU042dVBmRkVncCtQczhlV1owaGtLKzdU?=
- =?utf-8?B?YzJZN1c3VHBBaVB0SFZPSlJPUXRMSjJVQW5EZ0VDcTU5SjJSZzhlNmdPT0hH?=
- =?utf-8?B?WTMzZmFGS3RtaVV1Y2JMaEF3SE5sWldselRUVnF5R1VjSGthQ3ZPR2sxcFZq?=
- =?utf-8?B?Zk9tV0dMRmRsOEIrOEtmUWtHMnQ4ZlBFUjZoWDdTNTFRQTZRWGN4RHVYVWdk?=
- =?utf-8?B?T1ViT2F6bFZyNTRPcGwvNnZ5cW8zSVY5VGdmRjBYRDBsQll4N2RSU2ZqL0hh?=
- =?utf-8?B?QVRkNkRaRWpQTCtvekh6cFI3cHFVT3pDYXJYSmthMGxMOHdSek13bElESDIz?=
- =?utf-8?B?YlYxM01GUUdmUFpndmJ2N1pRQ3QwSmpuN3g1WWNmR2RrYWJNcWR4RERSVTQz?=
- =?utf-8?B?d0h2R0JMSjJrZ2N0NmVlVThEMUROQ2xEaGprN0o1NnRpZkROZDFUTlUzc2xu?=
- =?utf-8?B?Z2lodlZhWi83Y0JLQmhLcG5iYXBiN21Wd2lrdHBEZkplYUFvQXZtNkRrTjRm?=
- =?utf-8?B?cFFqN3ZzLzFPNE0yckZDZ3NFR01xMzhkcExCRWxHRUZOdFJVSUc2djZtejdn?=
- =?utf-8?B?RU1IQ2krTlhuVStYcFBjYlJFNC9mckF3bUNqMVAwU1lXbndyMFBuQ09NaTlT?=
- =?utf-8?B?clJvOTJVeUI2TGpyZFpVMGFONWRyd3Q4SmRUZUJqYTBsT3BEUlNuSVJDWW53?=
- =?utf-8?B?RkM3QWdhUVNGU01KSG9PUS9saTAwTGJDanMySVdNZUlaUDJtMGoxbU13ZDV4?=
- =?utf-8?B?THI4R1RnbGdOcCtPTFpuYU1qaUJ2WWd0N2JLYkJaaGVrZUtPOWpLSnhXb3h2?=
- =?utf-8?B?OW8xUm1ZVXBiZ3N5M3hhVzhJYzhqNUZpdHdsbXM1SncyaUh1UTROUittTk4y?=
- =?utf-8?B?UmhocUpqZXVqUExDejc0VEJrWUhLdkVqU1BxL3pCOTcyMGJ5OUkyOHhpWloz?=
- =?utf-8?B?MHFrL2k5TnVoQ3JJYUxvYUsxK3o0NWtMTGZwd2RCSmNQY3M4b0hLTEtZZXpt?=
- =?utf-8?B?MjNremR6SFk5a0I2dDVIa0dtNzJpTVpMRmYrODhtb0FyWDZTbThxdkhVcmcv?=
- =?utf-8?B?cWNvWVRSQVo0SXkvK3RSZWJ0bytUWlJvaHNTTzdOc2gzWFZzMzlQQzlWT0tt?=
- =?utf-8?B?cmptcjRMYlVzWWNoREQ2aGltN0RQSjlsTldRSGRWOWNSNlc2NFRnaFo3ZnVG?=
- =?utf-8?B?NkFGbS81Z0VtY3FHSDhsanc2MlFuTHRhN0dleEdLNDdLdkEyWnpXOStiT3lX?=
- =?utf-8?Q?c/Xo=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS2PR12MB9750.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(10070799003)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TVkyWjBSTWVjNzloYUZmZFdBVGpEQ0NPYUtRc2pOMTVCTGFSNFRSWkZsOXZJ?=
- =?utf-8?B?ZzltWXBoMVRMOFE2V0ZlR3BvTkY5Uk50RXg3QmxSYXV6T0ZmaXhMZVZtN2Q5?=
- =?utf-8?B?aTZHTzVBa0tieElzOVAwc2U5elBzcWxEaS9ucC9ISmY4SWc1TGsrZzA1RHFU?=
- =?utf-8?B?WXBmWmdBREVRWTkzQmd6TjVKckhlZFZKRkJ3RnlsTjNLaXlrL01BMGJRNEVF?=
- =?utf-8?B?a2RDYXdJZlpwdk90SnJMTG1mNGIyR0RMdis0OTltNEVPN3JLUWw2VzdsYzFV?=
- =?utf-8?B?NWNGdzRqRmxVQW1CUlA3aHl6VXBQVWE0MDdOMnA1bGpCa0ZpRUJaaG1yTUwz?=
- =?utf-8?B?aXF4RnpZdUU0NFd1bDRvOHI3SzZUR1BPaUthaHdJRWsyR0dHeHMwZEErSU1V?=
- =?utf-8?B?bXUwVXpPM0lFb3ZMMFVCMW5MNVozOWJhVjZKRFU4TzFhSml1MjlPTWZEaTgx?=
- =?utf-8?B?Zk96bU5ZWkxXMVpScWNMVjJpM1RoK3NjaEZLZ3VIQ0E0YmxGUHdCTmdxcEVr?=
- =?utf-8?B?VWVlVVRVeGxDanZFTDFJQTZJZnQrSDd6cU4zZFU5TXlSNU9JOHQrTnQ5bko0?=
- =?utf-8?B?SElTMk1SRS9FcTZqbm5lUTNWWlgvT2RtMklKY2N6ZGx5SzhzNEhtN3JpWGdr?=
- =?utf-8?B?ZHpTSEtpMGJLZEwwSE1DRk5zMjdtcURQZmZVY3VQUHQxMWhnbmJRQXpUeS9J?=
- =?utf-8?B?TktMMlBDbE9yQUxQbTdoSlRiWDB4S2hJN2ZJdWp2bTZHRWNldnhSQk8xdnJ5?=
- =?utf-8?B?cnRxNExNSWhqTXBjeldpRnN6Z3FSRmNOTkVpT0lGQUtmUEZWalkxcDRyN2Fk?=
- =?utf-8?B?NXEyTFFFSm1VdFk2ZTRONnhMcU1mamRacGM1ZW45OU03cENxZlNOajB4S29w?=
- =?utf-8?B?Q2p2bXFLRE9sZjNYcWtZcmdDUENHV3lCcG1iMllHUnFXQ2E4RHh6dzJLUGdP?=
- =?utf-8?B?bmlGSGVrR1Q5OWJad2dXTjk4dGpNNkkzKytTNC91ZWNsanlRdlpyWmFRLzdT?=
- =?utf-8?B?dlhYTXU5cmJvRlJub3hRQnZrOFYyY0I2ckZROTY2YktDNzFZYlB3RFUrVHdu?=
- =?utf-8?B?U0hOZkRUY1JGUUhlOG5OSHV2V3RkcnUvL3YwYyt3NC9rL0tsZUMyVkU5aHdw?=
- =?utf-8?B?VVN5MFBGcDEySGp3c1UrMGZQTFYxdlJuZ0NLeXlHS1hmeGxxbmtqUVRYQmh3?=
- =?utf-8?B?UjZmQlh1TVlvQkFGTC9qWFh4Yzl5VGdrRmVwTEVhcm0waHE4KzBKL3ZPcGEy?=
- =?utf-8?B?VXFwWTA1NmdPWGQrd0t4ZysrdzIvblBNNFpzV0draTFVMlpsS1p3QzdDQ2xX?=
- =?utf-8?B?ZG1pUEdqNmRmTTZXczcwWlFIcmE2eEVqN0pid2hYdmpyWUlNdkpXYVR0cnNI?=
- =?utf-8?B?NXdxTGdKaFBKdFpWM1ZXK0JPR3Y3UElqL3h6Yk1zdlhyR29mdHdBNW1QNGN5?=
- =?utf-8?B?ZGhMZ0lTdFlkMFpIQnR2TitZTzdUSjZsVm41RTVpZGlEWjh3WWJwakNEdElX?=
- =?utf-8?B?RDRGMWw1M3lXVEFrb1R6c2MwOFhiZkplQWVCb1FHQkZ6YmNuaEs5T1MzQ1F6?=
- =?utf-8?B?bTZKL25QMVQzVVdoZ3BMamt6WVdDb0pkR1lBTFN3YlFybW9ycjIzRzE5aHlz?=
- =?utf-8?B?aGcrcEVlYXRMWEdnSzhkcUFKKzlNMEZjL1FwbDdqTE0xSERxQ0I3ZUNlOFJm?=
- =?utf-8?B?VldxZWdQRUYyUWVhRU14YjV5OXRKQ2hXYXVJbDcybkRmMzMrNWQrTUwvTzBW?=
- =?utf-8?B?WXZOKzVVaXVRTWlxdlVPVFR6L0U4TnY2OTZ4WDdFODQxN053b0lsT0hxRVNP?=
- =?utf-8?B?WFNzcnV6NWdIOWZOckp4a3VYWThSSVlXb0huKzRsdUluYTFhNzE3bDdDeXBm?=
- =?utf-8?B?dlEvbWZWaC9HeW5UMnRxQ0JtSjRFcDU0N3g5TkNoL2RZTVJNY2oyanZqb0Zp?=
- =?utf-8?B?ak9mN1BaV0ZNWDFjOEI3NDFJZ0NnU3kySWhNN0xqNUplcVU2Q0N0L3lUU1JU?=
- =?utf-8?B?ME05ZmI3eGw2TTc5WFdvVm1FODE0RVo1cVB0dXJPaUpvMmlrK2pSS3NoRkxT?=
- =?utf-8?B?OU11K2dDd3JaaGhoNGxIUEo0aENRN3ZyazVxY0g5STloVTY1aUg5NVVmZjBD?=
- =?utf-8?B?QmNVaWVIK0pEMU5mQnZWYkJ0SFEzbEJXK3NabFpRRmxMZ0lkZERMcU9LMTYx?=
- =?utf-8?B?eldZWThNU3NxcVdTTWNjTEpya2hZRlI2b1ZHWUNmNmtqUGM2N3c1cEhTME53?=
- =?utf-8?B?VnBqOWxvbHZRSyszcjVsK1huWGlOTmcxVGNaM0JTZThTeUhYSEZBV2hyS2c5?=
- =?utf-8?B?OG44TGRkSm5Ra3Y4ZjN5dHEvSHRiL0NYS1JZbDUyVUZFNUhRL2U5anJveXRj?=
- =?utf-8?Q?cgIvJus1SUJPkJC72ex3jnXZezrPqsVc3DiYyuoP6ODzb?=
-X-MS-Exchange-AntiSpam-MessageData-1: 92L+9kF5wWxHng==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c7221669-bbdc-488f-5d33-08de695af2b5
-X-MS-Exchange-CrossTenant-AuthSource: DS2PR12MB9750.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Feb 2026 10:47:27.5125
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JFwgJQmZz3UD7McOs5N83LC7eTphgwxdX84AeF9FHAfOcE/39lKQDyLGgCAfSQklmzx0a4R5Fl8FCcCBTKAe8A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8964
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <7a0953ff-6475-4311-b34c-47eed9d38cb1@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_024736_164741_561CC933 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260211_025056_642051_A4221B94 
+X-CRM114-Status: GOOD (  41.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -203,39 +79,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 11/02/2026 10:41, Krzysztof Kozlowski wrote:
-> On 11/02/2026 11:36, Jon Hunter wrote:
->>
->> On 11/02/2026 06:19, Krzysztof Kozlowski wrote:
->>
->> ...
->>
->>>>>>>> Enable driver for NVIDIA TEGRA410 CMEM Latency and C2C PMU device.
->>>>>>>
->>>>>>> Why? Why do we want it? Which *upstream board* uses it?
->>>>>>>
->>>>>>
->>>>>> These are for NVIDIA Vera platform (Tegra410 SoC).
->>>>>
->>>>> There is no such board (git grep), but anyway, don't explain it to me.
->>>>> Your commit should explain such stuff.
->>>>>
->>>>
->>>> This is a server platform. There is no upstream board using this device currently.
->>>
->>> I don't understand why server or not server matters.
->>
->> We should probably say this is an ACPI based platform.
+On Mon, Feb 09, 2026 at 03:36:32PM +0000, Ben Horgan wrote:
+> Hi Fenghua,
 > 
-> Yeah, this would be fine so you have entire commit msg to explain why we
-> want this patch.
+> On 2/9/26 01:16, Fenghua Yu wrote:
+> > Hi, Ben,
+> > 
+> > On 2/3/26 13:43, Ben Horgan wrote:
+> >> From: James Morse <james.morse@arm.com>
+> >>
+> >> Intel RDT's CDP feature allows the cache to use a different control value
+> >> depending on whether the accesses was for instruction fetch or a data
+> >> access. MPAM's equivalent feature is the other way up: the CPU assigns a
+> >> different partid label to traffic depending on whether it was instruction
+> >> fetch or a data access, which causes the cache to use a different control
+> >> value based solely on the partid.
+> >>
+> >> MPAM can emulate CDP, with the side effect that the alternative partid is
+> >> seen by all MSC, it can't be enabled per-MSC.
+> >>
+> >> Add the resctrl hooks to turn this on or off. Add the helpers that
+> >> match a
+> >> closid against a task, which need to be aware that the value written to
+> >> hardware is not the same as the one resctrl is using.
+> >>
+> >> Update the 'arm64_mpam_global_default' variable the arch code uses during
+> >> context switch to know when the per-cpu value should be used instead.
+> >> Also,
+> >> update these per-cpu values and sync the resulting mpam partid/pmg
+> >> configuration to hardware.
+> >>
+> >> Awkwardly, the MB controls don't implement CDP. To emulate this, the MPAM
+> >> equivalent needs programming twice by the resctrl glue, as resctrl
+> >> expects
+> >> the bandwidth controls to be applied independently for both data and
+> >> instruction-fetch.
+> >>
+> >> Tested-by: Gavin Shan <gshan@redhat.com>
+> >> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> >> Tested-by: Peter Newman <peternewman@google.com>
+> >> CC: Dave Martin <Dave.Martin@arm.com>
+> >> CC: Amit Singh Tomar <amitsinght@marvell.com>
+> >> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> >> Signed-off-by: James Morse <james.morse@arm.com>
+> >> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> >> ---
+> >> Changes since rfc:
+> >> Fail cdp initialisation if there is only one partid
+> >> Correct data/code confusion
+> >>
+> >> Changes since v2:
+> >> Don't include unused header
+> >>
+> >> Changes since v3:
+> >> Update the per-cpu values and sync to h/w
+> >> ---
+> >>   arch/arm64/include/asm/mpam.h  |   1 +
+> >>   drivers/resctrl/mpam_resctrl.c | 117 +++++++++++++++++++++++++++++++++
+> >>   include/linux/arm_mpam.h       |   2 +
+> >>   3 files changed, 120 insertions(+)
+> >>
+> >> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/
+> >> mpam.h
+> >> index 05aa71200f61..70d396e7b6da 100644
+> >> --- a/arch/arm64/include/asm/mpam.h
+> >> +++ b/arch/arm64/include/asm/mpam.h
+> >> @@ -4,6 +4,7 @@
+> >>   #ifndef __ASM__MPAM_H
+> >>   #define __ASM__MPAM_H
+> >>   +#include <linux/arm_mpam.h>
+> >>   #include <linux/bitfield.h>
+> >>   #include <linux/jump_label.h>
+> >>   #include <linux/percpu.h>
+> >> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/
+> >> mpam_resctrl.c
+> >> index cd52ca279651..12017264530a 100644
+> >> --- a/drivers/resctrl/mpam_resctrl.c
+> >> +++ b/drivers/resctrl/mpam_resctrl.c
+> >> @@ -38,6 +38,10 @@ static DEFINE_MUTEX(domain_list_lock);
+> >>   static bool exposed_alloc_capable;
+> >>   static bool exposed_mon_capable;
+> >>   +/*
+> >> + * MPAM emulates CDP by setting different PARTID in the I/D fields of
+> >> MPAM0_EL1.
+> >> + * This applies globally to all traffic the CPU generates.
+> >> + */
+> >>   static bool cdp_enabled;
+> >>     bool resctrl_arch_alloc_capable(void)
+> >> @@ -50,6 +54,72 @@ bool resctrl_arch_mon_capable(void)
+> >>       return exposed_mon_capable;
+> >>   }
+> >>   +bool resctrl_arch_get_cdp_enabled(enum resctrl_res_level rid)
+> >> +{
+> >> +    switch (rid) {
+> >> +    case RDT_RESOURCE_L2:
+> >> +    case RDT_RESOURCE_L3:
+> >> +        return cdp_enabled;
+> >> +    case RDT_RESOURCE_MBA:
+> >> +    default:
+> >> +        /*
+> >> +         * x86's MBA control doesn't support CDP, so user-space doesn't
+> > 
+> > s/x86's/ARM's/
+> 
+> In CPUs supporting MPAM the instruction/data distinction is made at the
+> CPU so doesn't depend on the specific control. The point this comment is
+> trying to make is that as x86 doesn't support CDP on MBA, resctrl, which
+> was initially x86 specific, expected CDP not to be supported on MBA and
+> hence MPAM/ARM64 has to match this behaviour. Therefore, the MPAM driver
+> doesn't support CDP on MBA either. In essence, the MPAM driver emulates
+> the x86 CDP behaviour. Having said that, this comment relies on the
+> reader knowing this historical context, and so I'll update it to not
+> reference x86 and just mention that it is the expectation of the resctrl
+> interface.
 
-Ha! A good commit message always helps indeed!
+Looking a bit deeper into CDP I notice a couple of issues here that will make
+code change. The resctrl mount options for L2 and L3 cdp are separate and so
+they need to be considered separately here too.  Secondly, as 'CDP' in MPAM is
+controlled at the cpu interface rather than the component it needs to be hidden
+for the resources that it's not enabled for. (In MPAM, when 'CDP' is enabled
+PARTID_D and PARTID_I to different values in MPAMx_ELy and they take the same
+value when disabled.) As mbw_max is a per-partid maximum setting the same
+configuration for 2 partids is not the same as setting the value for a single
+partid. Furthermore, there is no way to pretend convincingly that the 2 partids
+are a a single partid. Hence, in MPAM the MBA resource can't hide CDP and needs
+to be disabled when MBA is enabled.
 
-Jon
+In the future, a resctrl mount option to enable CDP for the MBA resource could
+be considered. Some more thought is needed here though as it's not obvious how
+this would work with the software controller and would likely not work on other
+architectures.
 
--- 
-nvpublic
-
+> 
+> > 
+> > Thanks.
+> > 
+> > -Fenghua
+> > 
+> > [SNIP]
+> 
+> Thanks,
+> 
+> Ben
+> 
+> 
 
