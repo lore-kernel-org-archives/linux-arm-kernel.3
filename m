@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C3CEB5961
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBAE3EB596A
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Feb 2026 05:18:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,54 +12,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bN/6B2lYjShD172LfoEUFCwrkEfdQQzS6q5j9EsCz90=; b=mjTwXeT0p+rV60GLNFNT0hYB0w
-	5TwZ3D91fx3JGM0DXgChCnlV9bfJBrX3IEtpDbRaYThuI6p8RVUNWEj/EFU3Vzuot/cJOTECooPJj
-	F4SGCa4EMIm+oq4hXxA45l9yiTl5pJZhWh+Q7eJ1qGCE9tyPSBPZESsYt7ML3EnXwu0nSVtkuVYdc
-	+QZ785HjzFv+pq9jleCTtDSpCJii6dMipOAAkROxOomn2Pup3yJAmtoU+q662jh6hD0c2O4gL2OjJ
-	MJ+N0t7Ma5DNlELGGv9+s/fEKN3Ah8Ub4eG+KW586gIyrTooWg01uUjpKdqGfySGoL9vNz9A+R9Rj
-	Z3HyfUeQ==;
+	bh=uUXD9Z6h7Lwhv3JgNotJSRKPPKE+CRau0hjngLuMj44=; b=Eg8SmHy5rB3qigFaPoNeB1FBYt
+	GWCOxl3p224H7o53UsfjCnmcHbGC7qd5cRybZ2NNsKq5kHMqVOt8NncuNUNg/B4D3jdpTYCyzives
+	+Cs69QAHXF387RGXsAUU9/SeW6vIVpW9txAxqMYtixIqaWMPlxvLhoaEArn747aPAvvkU/6QsLfgE
+	+2DBE0OfZCvaVCV+/R1InjlDSQ40fHNe3kh6/sYo3yxdClmUQjdeel25D22ameqqz+PfGULwCyvWJ
+	vW2ZT10YqQ5cZWkFSqUUOKZOL76iAOx7HSGGEz8NFkhmIk/gEmVSIvmjwcn5IYmIdWrnswobK4QAs
+	gk9+KtKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq2cZ-00000000Dtb-3Qis;
-	Wed, 11 Feb 2026 05:18:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vq2ca-00000000Dtr-0WKd;
+	Wed, 11 Feb 2026 05:18:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vq2cY-00000000Dsl-2OPV
+	id 1vq2cX-00000000DsI-2Gze
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 11 Feb 2026 05:18:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 019A46013D;
-	Wed, 11 Feb 2026 05:18:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABDCAC4CEF7;
-	Wed, 11 Feb 2026 05:18:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4FAE041904;
+	Wed, 11 Feb 2026 05:18:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34DA5C4CEF7;
+	Wed, 11 Feb 2026 05:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770787117;
-	bh=HGKpmO3WORsOmpGiepKUWk2K7vzNd7+196hKvaikgeI=;
+	s=k20201202; t=1770787116;
+	bh=gatPfKzn6P1pNeuog7ca9NEDlY7DRIhZVUjzFTPEURU=;
 	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=CQFexxlqoulQf34KxsdXUAjO0isxEHkmImPb3vaPHbKRMxNzTOjjdLYOwOiuP4vnx
-	 z4H4jekGLWphMCbQ+vwxZiuuOpHKtCr2bTmck3wrt0OCvdEA6rhmHjjl/k8Ddq7Pg+
-	 qq2XMnEL7eixvSYzF39K9GUat10KivIFpMDTUZzXVTUr9ZlpUs3UjXGSZihJrBlfjO
-	 WdQ+ipR40KowEG0iYm70zoz3k39BJyOWT0NRD6p/c+cKjR/t3Aur9RJKYIV4eB/WK3
-	 vHFIcknY9DZ9bnbAoGCy3UuYE+KJu7tPps4Lg5RwgLIoP/f/OMYB3pyHvaCnk3nShs
-	 vtCcKu0qSoDuw==
+	b=buqx5UrTyeyN9fiYHQD02jbtBZa9OYPMq/HUyy4VWxB7Bnu6xiHu6N9p9FNTYOXWH
+	 T7akkCZGfFX45/a0lmS+y15tI6/aypSuLZIjshrBIRVvQn3WMkcaYP7guyNqPbMet/
+	 ZgvN/PBdrIvItjfjVI5v3Aq23r6PvM9vnp97/ZfSsGhaXpVdCIcL03VCmtsn+9I9ci
+	 nYJaFCSqc37M0pD/xRCm6A/rbb+xSbdYk969yoRePJ9Js1Wqi1mxtNnBBK0L/+6efU
+	 ALqdv3fUaotIg2dcknxiz/00ZCFQ8HOg9HG+k9GHIz9BKl5iGOQrmV4w58yoKSf1ng
+	 QU9Mc0IVQT7lQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 0AEED380AA50;
-	Wed, 11 Feb 2026 05:18:34 +0000 (UTC)
-Subject: Re: [GIT PULL 3/4] soc: arm platform code changes for 7.0
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 84FD3380AA50;
+	Wed, 11 Feb 2026 05:18:32 +0000 (UTC)
+Subject: Re: [GIT PULL 2/4] soc: driver updates for 7.0
 From: pr-tracker-bot@kernel.org
-In-Reply-To: <8964e89c-0cf1-4184-920f-5cd852ba782a@app.fastmail.com>
-References: <a34ea40f-e0d3-459b-8233-9f87f6cd73e5@app.fastmail.com> <8964e89c-0cf1-4184-920f-5cd852ba782a@app.fastmail.com>
+In-Reply-To: <0f7a14cd-de06-4b7c-b29b-cd827f688cb4@app.fastmail.com>
+References: <a34ea40f-e0d3-459b-8233-9f87f6cd73e5@app.fastmail.com> <0f7a14cd-de06-4b7c-b29b-cd827f688cb4@app.fastmail.com>
 X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
-X-PR-Tracked-Message-Id: <8964e89c-0cf1-4184-920f-5cd852ba782a@app.fastmail.com>
-X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-arm-7.0
-X-PR-Tracked-Commit-Id: 16868b35b915a8a0fc810cd14b3b4927a5fb2213
+X-PR-Tracked-Message-Id: <0f7a14cd-de06-4b7c-b29b-cd827f688cb4@app.fastmail.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-drivers-7.0
+X-PR-Tracked-Commit-Id: cfd00b7e26c8331e3bb0f03ca770888866c15ff4
 X-PR-Merge-Tree: torvalds/linux.git
 X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 60dc45dde44e0b5c433d8db574daf86b59eb6dc3
-Message-Id: <177078711271.18664.13401446700095291121.pr-tracker-bot@kernel.org>
-Date: Wed, 11 Feb 2026 05:18:32 +0000
+X-PR-Merge-Commit-Id: bdbddf72a2ab1cfea699959795d70df3931eefe7
+Message-Id: <177078711120.18664.11712890111989648418.pr-tracker-bot@kernel.org>
+Date: Wed, 11 Feb 2026 05:18:31 +0000
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260210_211837_603975_2748D6E3 
+X-CRM114-Status: UNSURE (   4.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,12 +78,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Tue, 10 Feb 2026 18:08:25 +0100:
+The pull request you sent on Tue, 10 Feb 2026 18:07:27 +0100:
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-arm-7.0
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-drivers-7.0
 
 has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/60dc45dde44e0b5c433d8db574daf86b59eb6dc3
+https://git.kernel.org/torvalds/c/bdbddf72a2ab1cfea699959795d70df3931eefe7
 
 Thank you!
 
