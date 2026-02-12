@@ -4,58 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5290FEB48F7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 10:37:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0C52EB48F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 10:58:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I45cYCySq4DITv5hSNSApr8kPzBDBWNX7/ycIqTH6V0=; b=VK66Ovvf683etZtV0TjI6NZZwE
-	NWKeC2PA8hMgdPrudixtQRa02+5K+jtSnsrR6M8j/U81wIwY2/ijy5715Xq58lmlVwlDElz/1q/XM
-	h6YdZ4c18f1I8iy5I5tO9iw3Gxe2/z3HwUqPOF6ScLLb9Zt4YuXhA5rmMWSq9eolNFAJzZQttHI+k
-	rbnxQYdeiLi3u5avF/jHc0gbw7sw/e7uoTI/PV0l3cTzUb1rgE3zruuOXbb1CXUBckZ+hQLkxVjwy
-	lfwN626vqkfMiPPpwJMBRDJFEUXMryy0/YOdNqUZmgNa/ZbcSBFccgLjqLIrm3d9oCv/knegC1Wvf
-	fkOqeWgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JRq1KBMHuWFpRbH1vR3X7AEScEe+bqwM6DDNGjCkCAg=; b=P6Eor+NWM1Db3PKhSbZy/qOEnI
+	MCdkbdf58P8JFRogrYR5wj3mba6Znis5O0ol3pWmCAhmXj69Bd0i474M/5QM38+Bcia8Mw0L+v7zf
+	yMogbfQklgVRyy3q7zO3iL9E1dM/CTtdBm5E6bKqxCPh5/0To58pg4t+ih6bWr1VlhD8/xDSM1DVn
+	qFnYNsSNiVs22+yP2Sk55CdBJcHGsEh4lZbKVE+bt3wzhBkaTDir5iQrtT3VrQ54/mAUT2gxWhle/
+	T+3ftterMJkiu2N3s3Cp1RjTMvse6DY+wvosGbu4ZhGVQrau4WUUYRXy3/epukOcSsRaRCtrESJGQ
+	PWOmDSpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqU4j-00000001wov-1REG;
-	Thu, 12 Feb 2026 10:37:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqU4g-00000001woQ-2fpC
+	id 1vqUOb-00000001xqU-3GHo;
+	Thu, 12 Feb 2026 10:58:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vqUOZ-00000001xq9-0Rb8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 10:37:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F3CE8339;
-	Thu, 12 Feb 2026 02:37:19 -0800 (PST)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 286023F632;
-	Thu, 12 Feb 2026 02:37:22 -0800 (PST)
-Date: Thu, 12 Feb 2026 10:37:19 +0000
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v2 14/35] KVM: arm64: Handle aborts from protected VMs
-Message-ID: <aY2tX6V0pCqwGth5@raptor>
-References: <20260119124629.2563-1-will@kernel.org>
- <20260119124629.2563-15-will@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260119124629.2563-15-will@kernel.org>
+	Thu, 12 Feb 2026 10:58:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6E19243347;
+	Thu, 12 Feb 2026 10:58:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09EF2C4CEF7;
+	Thu, 12 Feb 2026 10:57:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770893882;
+	bh=a10gybJK/rglyWHCmyBwBN8EflBOeOZkgZ5xBklxWGE=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
+	b=GzKFBSxgykC0qt/3n9plxUDNDHJJHjV6L5z37PAXqjd/B7Ep1XKSfD1faRoke3gIY
+	 Y4CRX1UbfJ59/w+AUfPT9nAKyCHmSGB9igBhNEsRULaAeYfDjYfZ4huGbHD71p4quE
+	 yOdDZiwuK/yAQlP07y7wa4cOc50ejAe0FmyjEUwW8QrhQEg5FSy8EjS5+FW7fDKFh1
+	 k8Kw81xtMrzmv7GdRhXd6kq4GymfZFiX+DeeTAkDrDwFUdmL76c5eBmMn8E0tJ+wMv
+	 n02Cc1XYoMXu9f5RoenP84OkDyz+YQg3r8vWgw9Rz7Krw4RuQZIZgSS7Asyi7PtBxC
+	 +Fmdop0DMe7qQ==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 12 Feb 2026 11:57:56 +0100
+Message-Id: <DGCXHJSE6HF8.1UVG9WV27XEK@kernel.org>
+Subject: Re: [PATCH] clk: scu/imx8qxp: do not register driver in probe()
+Cc: "Alexander Stein" <alexander.stein@ew.tq-group.com>,
+ <abelvesa@kernel.org>, <peng.fan@nxp.com>, <mturquette@baylibre.com>,
+ <sboyd@kernel.org>, <Frank.Li@nxp.com>, <s.hauer@pengutronix.de>,
+ <kernel@pengutronix.de>, <festevam@gmail.com>,
+ <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
+ <hanguidong02@gmail.com>, <driver-core@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+ <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
+To: "Daniel Baluta" <daniel.baluta@oss.nxp.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20260211142321.55404-1-dakr@kernel.org>
+ <10809444.nUPlyArG6x@steina-w>
+ <9e33e5e5-76cd-4395-acb4-e2e03e436bf5@oss.nxp.com>
+In-Reply-To: <9e33e5e5-76cd-4395-acb4-e2e03e436bf5@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_023730_777080_AAA5CD7D 
-X-CRM114-Status: GOOD (  32.77  )
+X-CRM114-CacheID: sfid-20260212_025803_210289_0F8AD7CF 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,151 +79,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+On Wed Feb 11, 2026 at 3:59 PM CET, Daniel Baluta wrote:
+> On 2/11/26 16:43, Alexander Stein wrote:
+>> Am Mittwoch, 11. Februar 2026, 15:23:16 CET schrieb Danilo Krummrich:
+>>> imx_clk_scu_init() registers the imx_clk_scu_driver while commonly bein=
+g
+>>> called from IMX driver's probe() callbacks.
+>>>
+>>> However, it neither makes sense to register drivers from probe()
+>>> callbacks of other drivers, nor does the driver core allow registering
+>>> drivers with a device lock already being held.
+>>>
+>>> The latter was revealed by commit dc23806a7c47 ("driver core: enforce
+>>> device_lock for driver_match_device()") leading to a deadlock condition
+>>> described in [1].
+>>>
+>>> Additionally, nothing seems to unregister the imx_clk_scu_driver once
+>>> the corresponding driver module is unloaded, which leaves the
+>>> driver-core with a dangling pointer.
 
-On Mon, Jan 19, 2026 at 12:46:07PM +0000, Will Deacon wrote:
-> Introduce a new abort handler for resolving stage-2 page faults from
-> protected VMs by pinning and donating anonymous memory. This is
-> considerably simpler than the infamous user_mem_abort() as we only have
-> to deal with translation faults at the pte level.
-> 
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/kvm/mmu.c | 89 ++++++++++++++++++++++++++++++++++++++++----
->  1 file changed, 81 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index a23a4b7f108c..b21a5bf3d104 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1641,6 +1641,74 @@ static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  	return ret != -EAGAIN ? ret : 0;
->  }
->  
-> +static int pkvm_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
-> +		struct kvm_memory_slot *memslot, unsigned long hva)
-> +{
-> +	unsigned int flags = FOLL_HWPOISON | FOLL_LONGTERM | FOLL_WRITE;
-> +	struct kvm_pgtable *pgt = vcpu->arch.hw_mmu->pgt;
-> +	struct mm_struct *mm = current->mm;
-> +	struct kvm *kvm = vcpu->kvm;
-> +	void *hyp_memcache;
-> +	struct page *page;
-> +	int ret;
-> +
-> +	ret = prepare_mmu_memcache(vcpu, true, &hyp_memcache);
-> +	if (ret)
-> +		return -ENOMEM;
-> +
-> +	ret = account_locked_vm(mm, 1, true);
-> +	if (ret)
-> +		return ret;
-> +
-> +	mmap_read_lock(mm);
-> +	ret = pin_user_pages(hva, 1, flags, &page);
-> +	mmap_read_unlock(mm);
+Actually, this fixes a third bug: If there are multiple matching devices fo=
+r the
+imx8qxp_clk_driver, imx8qxp_clk_probe() calls imx_clk_scu_init() multiple t=
+imes.
+However, any subsequent call after the first one will fail, since the drive=
+r
+core does not allow to register the same struct platform_driver multiple ti=
+mes.
 
-If the page is part of a large folio, the entire folio gets pinned here, not
-just the page returned by pin_user_pages(). Do you reckon that should be
-considered when calling account_locked_vm()?
+>>> diff --git a/drivers/clk/imx/clk-imx8qxp.c b/drivers/clk/imx/clk-imx8qx=
+p.c
+>>> index 3ae162625bb1..d89a2f40771e 100644
+>>> --- a/drivers/clk/imx/clk-imx8qxp.c
+>>> +++ b/drivers/clk/imx/clk-imx8qxp.c
+>>> @@ -346,7 +346,29 @@ static struct platform_driver imx8qxp_clk_driver =
+=3D {
+>>>  	},
+>>>  	.probe =3D imx8qxp_clk_probe,
+>>>  };
+>>> -module_platform_driver(imx8qxp_clk_driver);
+>>> +
+>>> +static int __init imx8qxp_init(void)
+>>>
+>>>
+> I would call this imx8qxp_clk_init. Same for=C2=A0imx8qxp_exit.
 
-> +
-> +	if (ret == -EHWPOISON) {
-> +		kvm_send_hwpoison_signal(hva, PAGE_SHIFT);
-> +		ret = 0;
-> +		goto dec_account;
-> +	} else if (ret != 1) {
-> +		ret = -EFAULT;
-> +		goto dec_account;
-> +	} else if (!folio_test_swapbacked(page_folio(page))) {
-> +		/*
-> +		 * We really can't deal with page-cache pages returned by GUP
-> +		 * because (a) we may trigger writeback of a page for which we
-> +		 * no longer have access and (b) page_mkclean() won't find the
-> +		 * stage-2 mapping in the rmap so we can get out-of-whack with
-> +		 * the filesystem when marking the page dirty during unpinning
-> +		 * (see cc5095747edf ("ext4: don't BUG if someone dirty pages
-> +		 * without asking ext4 first")).
+Sure.
 
-I've been trying to wrap my head around this. Would you mind providing a few
-more hints about what the issue is? I'm sure the approach is correct, it's
-likely just me not being familiar with the code.
+>>> +{
+>>> +	int ret;
+>>> +
+>>> +	ret =3D platform_driver_register(&imx8qxp_clk_driver);
+>>> +	if (ret)
+>>> +		return ret;
+>>> +
+>>> +	ret =3D imx_clk_scu_module_init();
+>>> +	if (ret)
+>>> +		platform_driver_unregister(&imx8qxp_clk_driver);
+>>> +
+>>> +	return ret;
+>>>
+> Also, because the logical flow is that CLK driver is uing SCU for calls I=
+ would first call
+> imx_clk_scu_module_init and then register the imx8qxp_clk driver.=20
+>
+> But there is no functionality issues your your approach too, just a bette=
+r logical flow.
 
-> +		 *
-> +		 * Ideally we'd just restrict ourselves to anonymous pages, but
-> +		 * we also want to allow memfd (i.e. shmem) pages, so check for
-> +		 * pages backed by swap in the knowledge that the GUP pin will
-> +		 * prevent try_to_unmap() from succeeding.
-> +		 */
-> +		ret = -EIO;
-> +		goto unpin;
-> +	}
-> +
-> +	write_lock(&kvm->mmu_lock);
-> +	ret = pkvm_pgtable_stage2_map(pgt, fault_ipa, PAGE_SIZE,
-> +				      page_to_phys(page), KVM_PGTABLE_PROT_RWX,
-> +				      hyp_memcache, 0);
-> +	write_unlock(&kvm->mmu_lock);
-> +	if (ret) {
-> +		if (ret == -EAGAIN)
-> +			ret = 0;
-> +		goto unpin;
-> +	}
-
-This looks correct to me, there's no need to check for the notifier sequence
-number if the MMU notifiers are ignored. And concurrent faults on the same page
-are handled by treating -EAGAIN as success.
-
-> +
-> +	return 0;
-> +unpin:
-> +	unpin_user_pages(&page, 1);
-> +dec_account:
-> +	account_locked_vm(mm, 1, false);
-> +	return ret;
-> +}
-> +
->  static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  			  struct kvm_s2_trans *nested,
->  			  struct kvm_memory_slot *memslot, unsigned long hva,
-> @@ -2190,15 +2258,20 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->  		goto out_unlock;
->  	}
->  
-> -	VM_WARN_ON_ONCE(kvm_vcpu_trap_is_permission_fault(vcpu) &&
-> -			!write_fault && !kvm_vcpu_trap_is_exec_fault(vcpu));
-> +	if (kvm_vm_is_protected(vcpu->kvm)) {
-> +		ret = pkvm_mem_abort(vcpu, fault_ipa, memslot, hva);
-
-I guess the reason this comes after handling an access fault is because you want
-the WARN_ON() to trigger in pkvm_pgtable_stage2_mkyoung().
+Sure, I will send a v2 shortly, as it would be good to get this into an ear=
+ly
+-fixes PR.
 
 Thanks,
-Alex
-
-> +	} else {
-> +		VM_WARN_ON_ONCE(kvm_vcpu_trap_is_permission_fault(vcpu) &&
-> +				!write_fault &&
-> +				!kvm_vcpu_trap_is_exec_fault(vcpu));
->  
-> -	if (kvm_slot_has_gmem(memslot))
-> -		ret = gmem_abort(vcpu, fault_ipa, nested, memslot,
-> -				 esr_fsc_is_permission_fault(esr));
-> -	else
-> -		ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, hva,
-> -				     esr_fsc_is_permission_fault(esr));
-> +		if (kvm_slot_has_gmem(memslot))
-> +			ret = gmem_abort(vcpu, fault_ipa, nested, memslot,
-> +					 esr_fsc_is_permission_fault(esr));
-> +		else
-> +			ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, hva,
-> +					     esr_fsc_is_permission_fault(esr));
-> +	}
->  	if (ret == 0)
->  		ret = 1;
->  out:
-> -- 
-> 2.52.0.457.g6b5491de43-goog
-> 
-> 
+Danilo
 
