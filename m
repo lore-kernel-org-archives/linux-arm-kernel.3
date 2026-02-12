@@ -4,78 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6CCEB48EA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 09:03:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAFF0EB48EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 09:08:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cyyYRiwc6FqhQlyFBFLg66ihDNCGyZfWrA54Edi64Eg=; b=UtfEOmsflSuonXpc7zfE5BepUm
-	q+8iuDLRn+ipx8vCow9onWKE/0elD+t6JuxV2hZu0yryJFfYhmoPiDn9VVyh4O4+nJHjTXnPrGKtU
-	QjHBNj2WzlRMzEQrgNTJufw/zxr7QVmu+sXYDUMwQrBHMILKQ2liZH+vGmnUE30JO5XoxNzEu6+1o
-	Z10a0eFM6P69DmYPf9EcuvI2wNfaHXkDhHZ1Cw8txC4YHw0S3nFelcKW0btzmQc0PWD0Wlmx7ztfh
-	djBi1JATUwjMLYBj7ZY5IMTueUuVnT6QYwUqJVnYQwvSRe4kU/mNGmCChHC0FUQ97ZIIBnDkPRBrG
-	uoZ3iiPA==;
+	bh=M3rRBPh1NU1rz28xZUR6Fl9Vl+cGy/NzeVFSpVgXAxg=; b=lYWFNHcKtcZizWf+bjJcNiDSCJ
+	PeWHp/IvjqQbkRJl4Hl9jxa6hvt6z2D40lodWdZgsPLX4/lMH+OgseKWVx18yw2DKjp4bVuvPEIvi
+	FaNKrLhINDDKwzSWg+wxafxcbLRPWkPxAP0QuuRzWiMYA6kw9lQu24U5AA3gwT1dJYodIWypih7xf
+	jxh3TCNCw3vOWYMgFSPYpHi+45TIdK7CPmKxX/BAqB/xb3sTumvXEKFJqeglYgCTR18+X70eyTA4e
+	AOvA42U65ztg7VyIPOn4eNwB6PN8Ypk4cY2pmjCV4eK/qzwzzzgzbEf/2QtyPKfZKpSEBf4SLa5qx
+	V8F6QSrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqSbN-00000001njT-205v;
-	Thu, 12 Feb 2026 09:03:09 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1vqSg1-00000001oOc-1VS9;
+	Thu, 12 Feb 2026 09:07:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqSbD-00000001neW-1YQI
+	id 1vqSfz-00000001oOH-034H
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 09:03:05 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-48071615686so25099345e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 01:02:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1770886976; x=1771491776; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cyyYRiwc6FqhQlyFBFLg66ihDNCGyZfWrA54Edi64Eg=;
-        b=3LrlNIgxKtNi2tsdOvJo2E4BnN0D6zyrA2fS1D0SPv0HkmDPHi9fScVF55umVedq5i
-         q01OT1kP5In1FHm/ZygkdNtrPlzV0LHTXY7koOPgDAzcdajfLi0MkxJluicCnAc820KP
-         msWKi8UH1lP3ipvoZEg0gv4h4pd6GzmsbQ24GCmzZHlhg9RacG7NwFPwD3j/oLZp16Gr
-         NmCLwptqy7bsKDoA83qSquoPomddiZFuB+KbFXOonQy1TbQlkPV0M5yRdEGnRxyvQVKL
-         CMQXepbrCUosNUD/YODSfhbzhuALDqeBZkd5vLkjqdiwNfKrP4808vJNsG2U/M6mXTwB
-         F9iw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770886976; x=1771491776;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cyyYRiwc6FqhQlyFBFLg66ihDNCGyZfWrA54Edi64Eg=;
-        b=NRGjDqlqgpttSb/ojkS7onrvQYv9cDpGALz7l9FNv3ZDuYIxvR7vIGwopAM9dF1JXu
-         yfZHO3mTGlDcc/Qvjv35HEjszTTFW7Px5d7o9LqFu7IkCHWxAAtRIm6NvItH0febrLPj
-         G/AiKYQsvh5A+qYm7fqfbkBkXes/e/tNK+6OBelQ/53NQHdr2ohPswWVLd2aBIFDKB/h
-         rFH5hXtYkJG8JYY57s4+Ll/Hk74gdCBnKJL5tKy4ynuK+FaUFHno+9PXHkCxJECrfU+u
-         yVrljfnSMXHpVtuLMZsDZuJ+nYQ6LWMmJRsbCovXzbKQk4Fc5qC3EA1C/fJ04mhkS9cx
-         F0Ag==
-X-Forwarded-Encrypted: i=1; AJvYcCVLJlFbzYE6jLNznYX+Q8gmRlys/xM5hJTGNVyP2dbse6IFPc7O4UurU3prSpLkA/tV3E/UIIl0Fu3/q8N86MDF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxz93VF5cn7e5NPRthjUrMpO4Fq8oQWVwKTzPYICYPQK1PVfcIJ
-	/k+bOFQWAU2Gd42TWscwAGvBeEfNN/fs5Hp1CaKWZubeUyltSd8iHjvceHJt5RXB32b33M393b4
-	/mg==
-X-Received: from wmqu17.prod.google.com ([2002:a05:600c:19d1:b0:483:29f4:26b8])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:608b:b0:47d:8479:78d5
- with SMTP id 5b1f17b1804b1-4836710a0afmr20458865e9.7.1770886976534; Thu, 12
- Feb 2026 01:02:56 -0800 (PST)
-Date: Thu, 12 Feb 2026 09:02:52 +0000
-In-Reply-To: <20260212090252.158689-1-tabba@google.com>
-Mime-Version: 1.0
-References: <20260212090252.158689-1-tabba@google.com>
-X-Mailer: git-send-email 2.53.0.239.g8d8fc8a987-goog
-Message-ID: <20260212090252.158689-4-tabba@google.com>
-Subject: [PATCH v1 3/3] KVM: arm64: Remove redundant kern_hyp_va() in unpin_host_sve_state()
-From: Fuad Tabba <tabba@google.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, tabba@google.com, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 12 Feb 2026 09:07:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3BE4144031;
+	Thu, 12 Feb 2026 09:07:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1428BC4CEF7;
+	Thu, 12 Feb 2026 09:07:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1770887274;
+	bh=7X/ZE+464SFMrcWXG+fw9L92P1t1gtPIejSOE1mm8Sg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=SRDzJd4y7pdwghuIRwEX+milR/vWqoeZRao4cczsY/oRSB7rXxGuJLbC8pO7iCSw4
+	 /1fHpKlD9QC8Pr36ty9iBxiTNpXaDNYp9kxfY175hoKc70tInFruadKyuacdByotDw
+	 giDuJK9Yv4AbMPDUN5IleiHk09y0vDFg4IFOf1Va0BfXrwqu9s3EcPhdfYle0DOYSg
+	 Po0zabmL17OlVZC5nq6r8y/4vDgWU5l1/ykpkYYbjQp+nF7oNrOcToyCcJwcrWAWRT
+	 TlUDUSJIbuvgS7XUw4PVNj+qOU1x9wo3jckCVZzmRgQeTQjpQnhNQht/dATAuEMT5X
+	 Wv6weRnqIFc7A==
+Received: from [185.219.108.64] (helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vqSfv-0000000AYzI-2Zos;
+	Thu, 12 Feb 2026 09:07:51 +0000
+Date: Thu, 12 Feb 2026 09:07:33 +0000
+Message-ID: <86ldgyba96.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: kvm@vger.kernel.org,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Mingwei Zhang <mizhang@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-perf-users@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v6 09/19] KVM: arm64: Write fast path PMU register handlers
+In-Reply-To: <20260209221414.2169465-10-coltonlewis@google.com>
+References: <20260209221414.2169465-1-coltonlewis@google.com>
+	<20260209221414.2169465-10-coltonlewis@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: coltonlewis@google.com, kvm@vger.kernel.org, alexandru.elisei@arm.com, pbonzini@redhat.com, corbet@lwn.net, linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, mizhang@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, shuah@kernel.org, gankulkarni@os.amperecomputing.com, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_010259_417320_55BECB3C 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20260212_010755_145106_297AB5D8 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,33 +103,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The `sve_state` pointer in `hyp_vcpu->vcpu.arch` is initialized as a
-hypervisor virtual address during vCPU initialization in
-`pkvm_vcpu_init_sve()`.
+On Mon, 09 Feb 2026 22:14:04 +0000,
+Colton Lewis <coltonlewis@google.com> wrote:
+> 
+> We may want a partitioned PMU but not have FEAT_FGT to untrap the
+> specific registers that would normally be untrapped. Add a handler for
+> those registers in the fast path so we can still get a performance
+> boost from partitioning.
+> 
+> The idea is to handle traps for all the PMU registers quickly by
+> writing directly to the hardware when possible instead of hooking into
+> the emulated vPMU as the standard handlers in sys_regs.c do.
 
-`unpin_host_sve_state()` calls `kern_hyp_va()` on this address. Since
-`kern_hyp_va()` is idempotent, it's not a bug. However, it is
-unnecessary and potentially confusing. Remove the redundant conversion.
+This seems extremely premature. My assumption is that PMU traps are
+rare, and that doing a full exit should be acceptable. Until you
+demonstrate the contrary, I don't want this sort of massive bloat in
+the most performance-critical path.
 
-Signed-off-by: Fuad Tabba <tabba@google.com>
----
- arch/arm64/kvm/hyp/nvhe/pkvm.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+"Start walking before you try to run".
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 267854ed29c8..8b9e027ec86a 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -393,7 +393,7 @@ static void unpin_host_sve_state(struct pkvm_hyp_vcpu *hyp_vcpu)
- 	if (!vcpu_has_feature(&hyp_vcpu->vcpu, KVM_ARM_VCPU_SVE))
- 		return;
- 
--	sve_state = kern_hyp_va(hyp_vcpu->vcpu.arch.sve_state);
-+	sve_state = hyp_vcpu->vcpu.arch.sve_state;
- 	hyp_unpin_shared_mem(sve_state,
- 			     sve_state + vcpu_sve_state_size(&hyp_vcpu->vcpu));
- }
+	M.
+
 -- 
-2.53.0.239.g8d8fc8a987-goog
-
+Without deviation from the norm, progress is not possible.
 
