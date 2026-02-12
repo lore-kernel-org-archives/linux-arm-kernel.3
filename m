@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C9BEE36A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 16:24:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F3DEE369E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 16:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YE4nOSN25cC0jbMRz9qsd2mgMTVySWaV4grdmeHTWi4=; b=e+AB9msdnxt0XGttBwOyE8yRjE
-	TxgH0zOAEX+3Bz1RvzJrcTj2I840s3cJwKMWOGO3gj0IOgntU5tPGWsP68RQE2Lvfc6a9OrQgjQ2U
-	ADHXd1U0FYvkLq9kRBcTbTAd+PHn0L7awQQMIOak16z/Q1kQqMP+QKGOjQW0SWy7IhT/Cg6RoMiLb
-	zLtd5Yf61IEFCe7ymHnsHfRPMRLHm1U5C0uks8W9EvYw/2BMRvU5LejLNmWKt1ECzKhXTcXc6Stvw
-	kGbubXxnl4H2TrAgISyB55ii+WZTM9AvuUsoa4Cmb1Sd1Joh08u+f5UfVcU+95rCVowik1Wp/ByDV
-	b/clXc4g==;
+	bh=sQapTiIJ3CHY18T4DTZhSXOL+q5hWHY0T2lb28eNHXY=; b=P4NeqNhb2Ns6rPkZbu4AedxdoT
+	jfVfcCC5Mn+2jW1md1wgTeEn8P6N14THqG+0h+rBBMa7P6+s1iafDDj9OJDIZejaSZEsvYxO8jgBF
+	2ePtWbfqfs75G33SGFAKbQInx3USq5gdFO7gBP0ywdKMRH32bHctsK/xtpxXl95OuifYb7Dyt6lhE
+	i1gIxzIER/+B1coXcPom7ZXmlvxevePqueHyZjJI8wMJJviVEiKnEhUHiTzUKb7HjgXDzmV9Tbefx
+	6p1SLFrRZxReM+t6PUOIIBJ4mByqSYZUi5DMj6GIAfwoPgoA0LEtcOwQhGaLLwnzSBwxnSpEIp02g
+	pfNA05Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqZTw-00000002LHF-2pj2;
-	Thu, 12 Feb 2026 16:23:56 +0000
+	id 1vqZU3-00000002LQ6-02Hu;
+	Thu, 12 Feb 2026 16:24:03 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqZTs-00000002LAZ-1qYZ;
-	Thu, 12 Feb 2026 16:23:55 +0000
+	id 1vqZTy-00000002LIY-42Jt;
+	Thu, 12 Feb 2026 16:24:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1770913429;
-	bh=GPRnpO6ypKwBjVC/4+7i47pgavRgC7x0EB0ZX75Yx/Y=;
+	s=mail; t=1770913436;
+	bh=CNPGkgh1aCeZicbL4rsaMSb6kfUJwjblUeoZ09BjmZU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TH92q0R7arPb5lPCI6xl495DygaAbp7yi7f8ei8mpIjh9La5ILbqeVjmrCBmAwjQC
-	 X6plCBGn8KV5KhRLqxZ67SiClZJFhyiwJOR42vAWfOOnApT7PLmEg0cASLNG2gP1tG
-	 +Nax2PBoUBZ18L6SLeg/qz2NFeibXTgEjNijUf0p8jG9WIozf1r+b0iyn8fTPrMNXm
-	 wpY+iundXBj0sQwSAOZlY72LW+BHeCGX1T99wG1aEqpiB6jMI4LGAzDy2TB71iH2Jn
-	 fCz75EK0+HlB4chqVD1TL4R7waUHWb/d/J9Eob+fOhGeZGr2sXebaVDpNgQuZQZ9Gi
-	 SoGp4mAaSF/VQ==
+	b=TiKf1fF3dLt0EX0gPlR/ePU7JPDnOvco6iYuLn0enaPYN1HdYqaZ9v9ntWTt1afBF
+	 uc4IbjFkX43yE/146xSYo2ZIUgzkgSsQsgkAm8cEMdJLsRA1aktmHuoolFLbeD2xro
+	 M5XwIcJtcQxiakGqJdAuV+/n1pIgbY93XMpx80i2O8pnF0NdJaN5gb2J0dZSugQm5e
+	 x+akfJnhpLDwNmwM5q+V38ikt6mcD4sjvrdNXf4LzCZgn5E+UOZ8C0PMg7zrbDkxgm
+	 No4Ii9WYdpq596ZYoQCq/lgB3ncu3QD5KlfWYZQjAc6iysA/Pf/ycvwyWtneya2OK0
+	 lKfvOudsGq/WQ==
 Received: from trenzalore (modemcable014.2-22-96.mc.videotron.ca [96.22.2.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5417C17E0E6A;
-	Thu, 12 Feb 2026 17:23:46 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4443D17E1144;
+	Thu, 12 Feb 2026 17:23:53 +0100 (CET)
 From: Detlev Casanova <detlev.casanova@collabora.com>
 To: linux-kernel@vger.kernel.org
 Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
@@ -70,17 +70,17 @@ Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-trace-kernel@vger.kernel.org,
 	kernel@collabora.com
-Subject: [PATCH 04/11] media: Add tgid and fd to the v4l2-requests trace fields
-Date: Thu, 12 Feb 2026 11:23:21 -0500
-Message-ID: <20260212162328.192217-5-detlev.casanova@collabora.com>
+Subject: [PATCH 06/11] media: Trace the stateless controls when set in v4l2-ctrls-core.c
+Date: Thu, 12 Feb 2026 11:23:23 -0500
+Message-ID: <20260212162328.192217-7-detlev.casanova@collabora.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260212162328.192217-1-detlev.casanova@collabora.com>
 References: <20260212162328.192217-1-detlev.casanova@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_082353_094387_D576870A 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20260212_082359_324174_F48CE62B 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,1245 +95,327 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With these fields, userspace can better track which trace event matches
-with a given stream.
+Also remove the trace from visl as the generic v4l2-requests traces can
+now be used instead.
 
-Even though the trace shows the PID (based on current->tgid), trace
-functions could be called from other contexts, therefore showing the wrong
-PID, or none at all.
-
-These will ensure that the trace event can be matched with the PID/FD that
-opened and configured the video device file.
+It allows all stateless drivers to inherit traceability, with just a small
+overhead when disabled in userspace.
 
 Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
- drivers/media/test-drivers/visl/visl-dec.c |  68 +--
- include/trace/events/v4l2_requests.h       | 622 +++++++++++++--------
- 2 files changed, 439 insertions(+), 251 deletions(-)
+ drivers/media/test-drivers/visl/visl-dec.c |  74 -------------
+ drivers/media/v4l2-core/v4l2-ctrls-api.c   |  10 ++
+ drivers/media/v4l2-core/v4l2-ctrls-core.c  | 114 +++++++++++++++++++++
+ include/media/v4l2-ctrls.h                 |  15 +++
+ 4 files changed, 139 insertions(+), 74 deletions(-)
 
 diff --git a/drivers/media/test-drivers/visl/visl-dec.c b/drivers/media/test-drivers/visl/visl-dec.c
-index d49208e83726..fc216da17048 100644
+index fc216da17048..9517830fb3e8 100644
 --- a/drivers/media/test-drivers/visl/visl-dec.c
 +++ b/drivers/media/test-drivers/visl/visl-dec.c
-@@ -489,67 +489,71 @@ static void visl_tpg_fill(struct visl_ctx *ctx, struct visl_run *run)
- static void visl_trace_ctrls(struct visl_ctx *ctx, struct visl_run *run)
- {
- 	int i;
-+	struct v4l2_fh *fh = &ctx->fh;
+@@ -12,7 +12,6 @@
+ #include <linux/workqueue.h>
+ #include <media/v4l2-mem2mem.h>
+ #include <media/tpg/v4l2-tpg.h>
+-#include <trace/events/v4l2_requests.h>
  
- 	switch (ctx->current_codec) {
- 	default:
- 	case VISL_CODEC_NONE:
- 		break;
- 	case VISL_CODEC_FWHT:
--		trace_v4l2_ctrl_fwht_params(run->fwht.params);
-+		trace_v4l2_ctrl_fwht_params(fh->tgid, fh->fd, run->fwht.params);
- 		break;
- 	case VISL_CODEC_MPEG2:
--		trace_v4l2_ctrl_mpeg2_sequence(run->mpeg2.seq);
--		trace_v4l2_ctrl_mpeg2_picture(run->mpeg2.pic);
--		trace_v4l2_ctrl_mpeg2_quantisation(run->mpeg2.quant);
-+		trace_v4l2_ctrl_mpeg2_sequence(fh->tgid, fh->fd, run->mpeg2.seq);
-+		trace_v4l2_ctrl_mpeg2_picture(fh->tgid, fh->fd, run->mpeg2.pic);
-+		trace_v4l2_ctrl_mpeg2_quantisation(fh->tgid, fh->fd, run->mpeg2.quant);
- 		break;
- 	case VISL_CODEC_VP8:
--		trace_v4l2_ctrl_vp8_frame(run->vp8.frame);
--		trace_v4l2_ctrl_vp8_entropy(run->vp8.frame);
-+		trace_v4l2_ctrl_vp8_frame(fh->tgid, fh->fd, run->vp8.frame);
-+		trace_v4l2_ctrl_vp8_entropy(fh->tgid, fh->fd, run->vp8.frame);
- 		break;
- 	case VISL_CODEC_VP9:
--		trace_v4l2_ctrl_vp9_frame(run->vp9.frame);
--		trace_v4l2_ctrl_vp9_compressed_hdr(run->vp9.probs);
--		trace_v4l2_ctrl_vp9_compressed_coeff(run->vp9.probs);
--		trace_v4l2_vp9_mv_probs(&run->vp9.probs->mv);
-+		trace_v4l2_ctrl_vp9_frame(fh->tgid, fh->fd, run->vp9.frame);
-+		trace_v4l2_ctrl_vp9_compressed_hdr(fh->tgid, fh->fd, run->vp9.probs);
-+		trace_v4l2_ctrl_vp9_compressed_coeff(fh->tgid, fh->fd, run->vp9.probs);
-+		trace_v4l2_vp9_mv_probs(fh->tgid, fh->fd, &run->vp9.probs->mv);
- 		break;
- 	case VISL_CODEC_H264:
--		trace_v4l2_ctrl_h264_sps(run->h264.sps);
--		trace_v4l2_ctrl_h264_pps(run->h264.pps);
--		trace_v4l2_ctrl_h264_scaling_matrix(run->h264.sm);
--		trace_v4l2_ctrl_h264_slice_params(run->h264.spram);
-+		trace_v4l2_ctrl_h264_sps(fh->tgid, fh->fd, run->h264.sps);
-+		trace_v4l2_ctrl_h264_pps(fh->tgid, fh->fd, run->h264.pps);
-+		trace_v4l2_ctrl_h264_scaling_matrix(fh->tgid, fh->fd, run->h264.sm);
-+		trace_v4l2_ctrl_h264_slice_params(fh->tgid, fh->fd, run->h264.spram);
- 
- 		for (i = 0; i < ARRAY_SIZE(run->h264.spram->ref_pic_list0); i++)
--			trace_v4l2_h264_ref_pic_list0(&run->h264.spram->ref_pic_list0[i], i);
-+			trace_v4l2_h264_ref_pic_list0(fh->tgid, fh->fd,
-+						      &run->h264.spram->ref_pic_list0[i], i);
- 		for (i = 0; i < ARRAY_SIZE(run->h264.spram->ref_pic_list0); i++)
--			trace_v4l2_h264_ref_pic_list1(&run->h264.spram->ref_pic_list1[i], i);
-+			trace_v4l2_h264_ref_pic_list1(fh->tgid, fh->fd,
-+						      &run->h264.spram->ref_pic_list1[i], i);
- 
--		trace_v4l2_ctrl_h264_decode_params(run->h264.dpram);
-+		trace_v4l2_ctrl_h264_decode_params(fh->tgid, fh->fd, run->h264.dpram);
- 
- 		for (i = 0; i < ARRAY_SIZE(run->h264.dpram->dpb); i++)
--			trace_v4l2_h264_dpb_entry(&run->h264.dpram->dpb[i], i);
-+			trace_v4l2_h264_dpb_entry(fh->tgid, fh->fd, &run->h264.dpram->dpb[i], i);
- 
--		trace_v4l2_ctrl_h264_pred_weights(run->h264.pwht);
-+		trace_v4l2_ctrl_h264_pred_weights(fh->tgid, fh->fd, run->h264.pwht);
- 		break;
- 	case VISL_CODEC_HEVC:
--		trace_v4l2_ctrl_hevc_sps(run->hevc.sps);
--		trace_v4l2_ctrl_hevc_pps(run->hevc.pps);
--		trace_v4l2_ctrl_hevc_slice_params(run->hevc.spram);
--		trace_v4l2_ctrl_hevc_scaling_matrix(run->hevc.sm);
--		trace_v4l2_ctrl_hevc_decode_params(run->hevc.dpram);
-+		trace_v4l2_ctrl_hevc_sps(fh->tgid, fh->fd, run->hevc.sps);
-+		trace_v4l2_ctrl_hevc_pps(fh->tgid, fh->fd, run->hevc.pps);
-+		trace_v4l2_ctrl_hevc_slice_params(fh->tgid, fh->fd, run->hevc.spram);
-+		trace_v4l2_ctrl_hevc_scaling_matrix(fh->tgid, fh->fd, run->hevc.sm);
-+		trace_v4l2_ctrl_hevc_decode_params(fh->tgid, fh->fd, run->hevc.dpram);
- 
- 		for (i = 0; i < ARRAY_SIZE(run->hevc.dpram->dpb); i++)
--			trace_v4l2_hevc_dpb_entry(&run->hevc.dpram->dpb[i]);
-+			trace_v4l2_hevc_dpb_entry(fh->tgid, fh->fd, &run->hevc.dpram->dpb[i]);
- 
--		trace_v4l2_hevc_pred_weight_table(&run->hevc.spram->pred_weight_table);
--		trace_v4l2_ctrl_hevc_ext_sps_lt_rps(run->hevc.rps_lt);
--		trace_v4l2_ctrl_hevc_ext_sps_st_rps(run->hevc.rps_st);
- 
-+		trace_v4l2_hevc_pred_weight_table(fh->tgid, fh->fd,
-+						  &run->hevc.spram->pred_weight_table);
-+		trace_v4l2_ctrl_hevc_ext_sps_lt_rps(fh->tgid, fh->fd, run->hevc.rps_lt);
-+		trace_v4l2_ctrl_hevc_ext_sps_st_rps(fh->tgid, fh->fd, run->hevc.rps_st);
- 		break;
- 	case VISL_CODEC_AV1:
--		trace_v4l2_ctrl_av1_sequence(run->av1.seq);
--		trace_v4l2_ctrl_av1_frame(run->av1.frame);
--		trace_v4l2_ctrl_av1_film_grain(run->av1.grain);
--		trace_v4l2_ctrl_av1_tile_group_entry(run->av1.tge);
-+		trace_v4l2_ctrl_av1_sequence(fh->tgid, fh->fd, run->av1.seq);
-+		trace_v4l2_ctrl_av1_frame(fh->tgid, fh->fd, run->av1.frame);
-+		trace_v4l2_ctrl_av1_film_grain(fh->tgid, fh->fd, run->av1.grain);
-+		trace_v4l2_ctrl_av1_tile_group_entry(fh->tgid, fh->fd, run->av1.tge);
- 		break;
+ #define LAST_BUF_IDX (V4L2_AV1_REF_LAST_FRAME - V4L2_AV1_REF_LAST_FRAME)
+ #define LAST2_BUF_IDX (V4L2_AV1_REF_LAST2_FRAME - V4L2_AV1_REF_LAST_FRAME)
+@@ -486,78 +485,6 @@ static void visl_tpg_fill(struct visl_ctx *ctx, struct visl_run *run)
  	}
  }
-diff --git a/include/trace/events/v4l2_requests.h b/include/trace/events/v4l2_requests.h
-index 34f4a74df5ea..ab6718f40e28 100644
---- a/include/trace/events/v4l2_requests.h
-+++ b/include/trace/events/v4l2_requests.h
-@@ -10,12 +10,18 @@
  
- /* AV1 controls */
- DECLARE_EVENT_CLASS(v4l2_ctrl_av1_seq_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_av1_sequence *s),
--	TP_ARGS(s),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_av1_sequence, s)),
--	TP_fast_assign(__entry->s = *s;),
--	TP_printk("flags = %s, seq_profile = %u, order_hint_bits = %u, bit_depth = %u, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_av1_sequence *s),
-+	TP_ARGS(tgid, fd, s),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_av1_sequence, s)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->s = *s;),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "flags = %s, seq_profile = %u, order_hint_bits = %u, bit_depth = %u, "
- 		  "max_frame_width_minus_1 = %u, max_frame_height_minus_1 = %u",
-+		  __entry->tgid, __entry->fd,
- 		  __print_flags(__entry->s.flags, "|",
- 		  {V4L2_AV1_SEQUENCE_FLAG_STILL_PICTURE, "STILL_PICTURE"},
- 		  {V4L2_AV1_SEQUENCE_FLAG_USE_128X128_SUPERBLOCK, "USE_128X128_SUPERBLOCK"},
-@@ -46,11 +52,17 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_av1_seq_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_av1_tge_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_av1_tile_group_entry *t),
--	TP_ARGS(t),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_av1_tile_group_entry, t)),
--	TP_fast_assign(__entry->t = *t;),
--	TP_printk("tile_offset = %u, tile_size = %u, tile_row = %u, tile_col = %u",
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_av1_tile_group_entry *t),
-+	TP_ARGS(tgid, fd, t),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_av1_tile_group_entry, t)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->t = *t;),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "tile_offset = %u, tile_size = %u, tile_row = %u, tile_col = %u",
-+		  __entry->tgid, __entry->fd,
- 		  __entry->t.tile_offset,
- 		  __entry->t.tile_size,
- 		  __entry->t.tile_row,
-@@ -59,11 +71,16 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_av1_tge_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_av1_frame_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_av1_frame *f),
--	TP_ARGS(f),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_av1_frame, f)),
--	TP_fast_assign(__entry->f = *f;),
--	TP_printk("tile_info.flags = %s, tile_info.context_update_tile_id = %u, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_av1_frame *f),
-+	TP_ARGS(tgid, fd, f),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_av1_frame, f)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->f = *f;),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "tile_info.flags = %s, tile_info.context_update_tile_id = %u, "
- 		  "tile_info.tile_cols = %u, tile_info.tile_rows = %u, "
- 		  "tile_info.mi_col_starts = %s, tile_info.mi_row_starts = %s, "
- 		  "tile_info.width_in_sbs_minus_1 = %s, tile_info.height_in_sbs_minus_1 = %s, "
-@@ -87,6 +104,7 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_av1_frame_tmpl,
- 		  "render_width_minus_1 = %u, render_height_minus_1 = %u, current_frame_id = %u, "
- 		  "buffer_removal_time = %s, order_hints = %s, reference_frame_ts = %s, "
- 		  "ref_frame_idx = %s, refresh_frame_flags = %u",
-+		  __entry->tgid, __entry->fd,
- 		  __print_flags(__entry->f.tile_info.flags, "|",
- 		  {V4L2_AV1_TILE_INFO_FLAG_UNIFORM_TILE_SPACING, "UNIFORM_TILE_SPACING"}),
- 		  __entry->f.tile_info.context_update_tile_id,
-@@ -222,11 +240,16 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_av1_frame_tmpl,
- 
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_av1_film_grain_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_av1_film_grain *f),
--	TP_ARGS(f),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_av1_film_grain, f)),
--	TP_fast_assign(__entry->f = *f;),
--	TP_printk("flags = %s, cr_mult = %u, grain_seed = %u, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_av1_film_grain *f),
-+	TP_ARGS(tgid, fd, f),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_av1_film_grain, f)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->f = *f;),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "flags = %s, cr_mult = %u, grain_seed = %u, "
- 		  "film_grain_params_ref_idx = %u, num_y_points = %u, point_y_value = %s, "
- 		  "point_y_scaling = %s, num_cb_points = %u, point_cb_value = %s, "
- 		  "point_cb_scaling = %s, num_cr_points = %u, point_cr_value = %s, "
-@@ -235,6 +258,7 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_av1_film_grain_tmpl,
- 		  "ar_coeffs_cr_plus_128 = %s, ar_coeff_shift_minus_6 = %u, "
- 		  "grain_scale_shift = %u, cb_mult = %u, cb_luma_mult = %u, cr_luma_mult = %u, "
- 		  "cb_offset = %u, cr_offset = %u",
-+		  __entry->tgid, __entry->fd,
- 		  __print_flags(__entry->f.flags, "|",
- 		  {V4L2_AV1_FILM_GRAIN_FLAG_APPLY_GRAIN, "APPLY_GRAIN"},
- 		  {V4L2_AV1_FILM_GRAIN_FLAG_UPDATE_GRAIN, "UPDATE_GRAIN"},
-@@ -287,31 +311,32 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_av1_film_grain_tmpl,
- )
- 
- DEFINE_EVENT(v4l2_ctrl_av1_seq_tmpl, v4l2_ctrl_av1_sequence,
--	TP_PROTO(const struct v4l2_ctrl_av1_sequence *s),
--	TP_ARGS(s)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_av1_sequence *s),
-+	TP_ARGS(tgid, fd, s)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_av1_frame_tmpl, v4l2_ctrl_av1_frame,
--	TP_PROTO(const struct v4l2_ctrl_av1_frame *f),
--	TP_ARGS(f)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_av1_frame *f),
-+	TP_ARGS(tgid, fd, f)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_av1_tge_tmpl, v4l2_ctrl_av1_tile_group_entry,
--	TP_PROTO(const struct v4l2_ctrl_av1_tile_group_entry *t),
--	TP_ARGS(t)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_av1_tile_group_entry *t),
-+	TP_ARGS(tgid, fd, t)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_av1_film_grain_tmpl, v4l2_ctrl_av1_film_grain,
--	TP_PROTO(const struct v4l2_ctrl_av1_film_grain *f),
--	TP_ARGS(f)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_av1_film_grain *f),
-+	TP_ARGS(tgid, fd, f)
- );
- 
- /* FWHT controls */
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_fwht_params_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_fwht_params *p),
--	TP_ARGS(p),
--	TP_STRUCT__entry(
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_fwht_params *p),
-+	TP_ARGS(tgid, fd, p),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
- 			 __field(u64, backward_ref_ts)
- 			 __field(u32, version)
- 			 __field(u32, width)
-@@ -322,7 +347,8 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_fwht_params_tmpl,
- 			 __field(u32, ycbcr_enc)
- 			 __field(u32, quantization)
- 			 ),
--	TP_fast_assign(
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
- 		       __entry->backward_ref_ts = p->backward_ref_ts;
- 		       __entry->version = p->version;
- 		       __entry->width = p->width;
-@@ -333,7 +359,8 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_fwht_params_tmpl,
- 		       __entry->ycbcr_enc = p->ycbcr_enc;
- 		       __entry->quantization = p->quantization;
- 		       ),
--	TP_printk("backward_ref_ts = %llu, "
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "backward_ref_ts = %llu, "
- 		  "version = %u, "
- 		  "width = %u, "
- 		  "height = %u, "
-@@ -342,6 +369,7 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_fwht_params_tmpl,
- 		  "xfer_func = %u, "
- 		  "ycbcr_enc = %u, "
- 		  "quantization = %u",
-+		  __entry->tgid, __entry->fd,
- 		  __entry->backward_ref_ts, __entry->version, __entry->width, __entry->height,
- 		  __print_flags(__entry->flags, "|",
- 		  {V4L2_FWHT_FL_IS_INTERLACED, "IS_INTERLACED"},
-@@ -361,18 +389,23 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_fwht_params_tmpl,
- );
- 
- DEFINE_EVENT(v4l2_ctrl_fwht_params_tmpl, v4l2_ctrl_fwht_params,
--	TP_PROTO(const struct v4l2_ctrl_fwht_params *p),
--	TP_ARGS(p)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_fwht_params *p),
-+	TP_ARGS(tgid, fd, p)
- );
- 
- /* H264 controls */
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_h264_sps_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_h264_sps *s),
--	TP_ARGS(s),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_h264_sps, s)),
--	TP_fast_assign(__entry->s = *s),
--	TP_printk("profile_idc = %u, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_h264_sps *s),
-+	TP_ARGS(tgid, fd, s),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_h264_sps, s)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->s = *s),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "profile_idc = %u, "
- 		  "constraint_set_flags = %s, "
- 		  "level_idc = %u, "
- 		  "seq_parameter_set_id = %u, "
-@@ -390,6 +423,7 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_h264_sps_tmpl,
- 		  "pic_width_in_mbs_minus1 = %u, "
- 		  "pic_height_in_map_units_minus1 = %u, "
- 		  "flags = %s",
-+		  __entry->tgid, __entry->fd,
- 		  __entry->s.profile_idc,
- 		  __print_flags(__entry->s.constraint_set_flags, "|",
- 		  {V4L2_H264_SPS_CONSTRAINT_SET0_FLAG, "CONSTRAINT_SET0_FLAG"},
-@@ -427,11 +461,16 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_h264_sps_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_h264_pps_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_h264_pps *p),
--	TP_ARGS(p),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_h264_pps, p)),
--	TP_fast_assign(__entry->p = *p),
--	TP_printk("pic_parameter_set_id = %u, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_h264_pps *p),
-+	TP_ARGS(tgid, fd, p),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_h264_pps, p)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->p = *p),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "pic_parameter_set_id = %u, "
- 		  "seq_parameter_set_id = %u, "
- 		  "num_slice_groups_minus1 = %u, "
- 		  "num_ref_idx_l0_default_active_minus1 = %u, "
-@@ -442,6 +481,7 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_h264_pps_tmpl,
- 		  "chroma_qp_index_offset = %d, "
- 		  "second_chroma_qp_index_offset = %d, "
- 		  "flags = %s",
-+		  __entry->tgid, __entry->fd,
- 		  __entry->p.pic_parameter_set_id,
- 		  __entry->p.seq_parameter_set_id,
- 		  __entry->p.num_slice_groups_minus1,
-@@ -465,11 +505,17 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_h264_pps_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_h264_scaling_matrix_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_h264_scaling_matrix *s),
--	TP_ARGS(s),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_h264_scaling_matrix, s)),
--	TP_fast_assign(__entry->s = *s),
--	TP_printk("scaling_list_4x4 = {%s}, scaling_list_8x8 = {%s}",
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_h264_scaling_matrix *s),
-+	TP_ARGS(tgid, fd, s),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_h264_scaling_matrix, s)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->s = *s),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "scaling_list_4x4 = {%s}, scaling_list_8x8 = {%s}",
-+		  __entry->tgid, __entry->fd,
- 		  __print_hex_dump("", DUMP_PREFIX_NONE, 32, 1,
- 				   __entry->s.scaling_list_4x4,
- 				   sizeof(__entry->s.scaling_list_4x4),
-@@ -482,11 +528,16 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_h264_scaling_matrix_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_h264_pred_weights_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_h264_pred_weights *p),
--	TP_ARGS(p),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_h264_pred_weights, p)),
--	TP_fast_assign(__entry->p = *p),
--	TP_printk("luma_log2_weight_denom = %u, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_h264_pred_weights *p),
-+	TP_ARGS(tgid, fd, p),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_h264_pred_weights, p)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->p = *p),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "luma_log2_weight_denom = %u, "
- 		  "chroma_log2_weight_denom = %u, "
- 		  "weight_factor[0].luma_weight = %s, "
- 		  "weight_factor[0].luma_offset = %s, "
-@@ -496,6 +547,7 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_h264_pred_weights_tmpl,
- 		  "weight_factor[1].luma_offset = %s, "
- 		  "weight_factor[1].chroma_weight = {%s}, "
- 		  "weight_factor[1].chroma_offset = {%s}",
-+		  __entry->tgid, __entry->fd,
- 		  __entry->p.luma_log2_weight_denom,
- 		  __entry->p.chroma_log2_weight_denom,
- 		  __print_array(__entry->p.weight_factors[0].luma_weight,
-@@ -530,11 +582,16 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_h264_pred_weights_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_h264_slice_params_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_h264_slice_params *s),
--	TP_ARGS(s),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_h264_slice_params, s)),
--	TP_fast_assign(__entry->s = *s),
--	TP_printk("header_bit_size = %u, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_h264_slice_params *s),
-+	TP_ARGS(tgid, fd, s),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_h264_slice_params, s)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->s = *s),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "header_bit_size = %u, "
- 		  "first_mb_in_slice = %u, "
- 		  "slice_type = %s, "
- 		  "colour_plane_id = %u, "
-@@ -548,6 +605,7 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_h264_slice_params_tmpl,
- 		  "num_ref_idx_l0_active_minus1 = %u, "
- 		  "num_ref_idx_l1_active_minus1 = %u, "
- 		  "flags = %s",
-+		  __entry->tgid, __entry->fd,
- 		  __entry->s.header_bit_size,
- 		  __entry->s.first_mb_in_slice,
- 		  __print_symbolic(__entry->s.slice_type,
-@@ -573,12 +631,18 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_h264_slice_params_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_h264_reference_tmpl,
--	TP_PROTO(const struct v4l2_h264_reference *r, int i),
--	TP_ARGS(r, i),
--	TP_STRUCT__entry(__field_struct(struct v4l2_h264_reference, r)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_h264_reference *r, int i),
-+	TP_ARGS(tgid, fd, r, i),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_h264_reference, r)
- 			 __field(int, i)),
--	TP_fast_assign(__entry->r = *r; __entry->i = i;),
--	TP_printk("[%d]: fields = %s, index = %u",
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->r = *r; __entry->i = i;),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "[%d]: fields = %s, index = %u",
-+		  __entry->tgid, __entry->fd,
- 		  __entry->i,
- 		  __print_flags(__entry->r.fields, "|",
- 		  {V4L2_H264_TOP_FIELD_REF, "TOP_FIELD_REF"},
-@@ -589,11 +653,16 @@ DECLARE_EVENT_CLASS(v4l2_h264_reference_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_h264_decode_params_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_h264_decode_params *d),
--	TP_ARGS(d),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_h264_decode_params, d)),
--	TP_fast_assign(__entry->d = *d),
--	TP_printk("nal_ref_idc = %u, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_h264_decode_params *d),
-+	TP_ARGS(tgid, fd, d),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_h264_decode_params, d)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->d = *d),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "nal_ref_idc = %u, "
- 		  "frame_num = %u, "
- 		  "top_field_order_cnt = %d, "
- 		  "bottom_field_order_cnt = %d, "
-@@ -606,6 +675,7 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_h264_decode_params_tmpl,
- 		  "pic_order_cnt_bit_size = %u, "
- 		  "slice_group_change_cycle = %u, "
- 		  "flags = %s",
-+		  __entry->tgid, __entry->fd,
- 		  __entry->d.nal_ref_idc,
- 		  __entry->d.frame_num,
- 		  __entry->d.top_field_order_cnt,
-@@ -628,13 +698,19 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_h264_decode_params_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_h264_dpb_entry_tmpl,
--	TP_PROTO(const struct v4l2_h264_dpb_entry *e, int i),
--	TP_ARGS(e, i),
--	TP_STRUCT__entry(__field_struct(struct v4l2_h264_dpb_entry, e)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_h264_dpb_entry *e, int i),
-+	TP_ARGS(tgid, fd, e, i),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_h264_dpb_entry, e)
- 			 __field(int, i)),
--	TP_fast_assign(__entry->e = *e; __entry->i = i;),
--	TP_printk("[%d]: reference_ts = %llu, pic_num = %u, frame_num = %u, fields = %s "
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->e = *e; __entry->i = i;),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "[%d]: reference_ts = %llu, pic_num = %u, frame_num = %u, fields = %s, "
- 		  "top_field_order_cnt = %d, bottom_field_order_cnt = %d, flags = %s",
-+		  __entry->tgid, __entry->fd,
- 		  __entry->i,
- 		  __entry->e.reference_ts,
- 		  __entry->e.pic_num,
-@@ -654,58 +730,63 @@ DECLARE_EVENT_CLASS(v4l2_h264_dpb_entry_tmpl,
- );
- 
- DEFINE_EVENT(v4l2_ctrl_h264_sps_tmpl, v4l2_ctrl_h264_sps,
--	TP_PROTO(const struct v4l2_ctrl_h264_sps *s),
--	TP_ARGS(s)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_h264_sps *s),
-+	TP_ARGS(tgid, fd, s)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_h264_pps_tmpl, v4l2_ctrl_h264_pps,
--	TP_PROTO(const struct v4l2_ctrl_h264_pps *p),
--	TP_ARGS(p)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_h264_pps *p),
-+	TP_ARGS(tgid, fd, p)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_h264_scaling_matrix_tmpl, v4l2_ctrl_h264_scaling_matrix,
--	TP_PROTO(const struct v4l2_ctrl_h264_scaling_matrix *s),
--	TP_ARGS(s)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_h264_scaling_matrix *s),
-+	TP_ARGS(tgid, fd, s)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_h264_pred_weights_tmpl, v4l2_ctrl_h264_pred_weights,
--	TP_PROTO(const struct v4l2_ctrl_h264_pred_weights *p),
--	TP_ARGS(p)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_h264_pred_weights *p),
-+	TP_ARGS(tgid, fd, p)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_h264_slice_params_tmpl, v4l2_ctrl_h264_slice_params,
--	TP_PROTO(const struct v4l2_ctrl_h264_slice_params *s),
--	TP_ARGS(s)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_h264_slice_params *s),
-+	TP_ARGS(tgid, fd, s)
- );
- 
- DEFINE_EVENT(v4l2_h264_reference_tmpl, v4l2_h264_ref_pic_list0,
--	TP_PROTO(const struct v4l2_h264_reference *r, int i),
--	TP_ARGS(r, i)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_h264_reference *r, int i),
-+	TP_ARGS(tgid, fd, r, i)
- );
- 
- DEFINE_EVENT(v4l2_h264_reference_tmpl, v4l2_h264_ref_pic_list1,
--	TP_PROTO(const struct v4l2_h264_reference *r, int i),
--	TP_ARGS(r, i)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_h264_reference *r, int i),
-+	TP_ARGS(tgid, fd, r, i)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_h264_decode_params_tmpl, v4l2_ctrl_h264_decode_params,
--	TP_PROTO(const struct v4l2_ctrl_h264_decode_params *d),
--	TP_ARGS(d)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_h264_decode_params *d),
-+	TP_ARGS(tgid, fd, d)
- );
- 
- DEFINE_EVENT(v4l2_h264_dpb_entry_tmpl, v4l2_h264_dpb_entry,
--	TP_PROTO(const struct v4l2_h264_dpb_entry *e, int i),
--	TP_ARGS(e, i)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_h264_dpb_entry *e, int i),
-+	TP_ARGS(tgid, fd, e, i)
- );
- 
- /* HEVC controls */
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_sps_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_hevc_sps *s),
--	TP_ARGS(s),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_hevc_sps, s)),
--	TP_fast_assign(__entry->s = *s),
--	TP_printk("video_parameter_set_id = %u, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_hevc_sps *s),
-+	TP_ARGS(tgid, fd, s),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_hevc_sps, s)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->s = *s),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "video_parameter_set_id = %u, "
- 		  "seq_parameter_set_id = %u, "
- 		  "pic_width_in_luma_samples = %u, "
- 		  "pic_height_in_luma_samples = %u, "
-@@ -730,6 +811,7 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_sps_tmpl,
- 		  "chroma_format_idc = %u, "
- 		  "sps_max_sub_layers_minus1 = %u, "
- 		  "flags = %s",
-+		  __entry->tgid, __entry->fd,
- 		  __entry->s.video_parameter_set_id,
- 		  __entry->s.seq_parameter_set_id,
- 		  __entry->s.pic_width_in_luma_samples,
-@@ -770,11 +852,16 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_sps_tmpl,
- 
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_pps_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_hevc_pps *p),
--	TP_ARGS(p),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_hevc_pps, p)),
--	TP_fast_assign(__entry->p = *p),
--	TP_printk("pic_parameter_set_id = %u, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_hevc_pps *p),
-+	TP_ARGS(tgid, fd, p),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_hevc_pps, p)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->p = *p),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "pic_parameter_set_id = %u, "
- 		  "num_extra_slice_header_bits = %u, "
- 		  "num_ref_idx_l0_default_active_minus1 = %u, "
- 		  "num_ref_idx_l1_default_active_minus1 = %u, "
-@@ -790,6 +877,7 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_pps_tmpl,
- 		  "pps_tc_offset_div2 = %d, "
- 		  "log2_parallel_merge_level_minus2 = %u, "
- 		  "flags = %s",
-+		  __entry->tgid, __entry->fd,
- 		  __entry->p.pic_parameter_set_id,
- 		  __entry->p.num_extra_slice_header_bits,
- 		  __entry->p.num_ref_idx_l0_default_active_minus1,
-@@ -837,11 +925,16 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_pps_tmpl,
- 
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_slice_params_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_hevc_slice_params *s),
--	TP_ARGS(s),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_hevc_slice_params, s)),
--	TP_fast_assign(__entry->s = *s),
--	TP_printk("bit_size = %u, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_hevc_slice_params *s),
-+	TP_ARGS(tgid, fd, s),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_hevc_slice_params, s)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->s = *s),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "bit_size = %u, "
- 		  "data_byte_offset = %u, "
- 		  "num_entry_point_offsets = %u, "
- 		  "nal_unit_type = %u, "
-@@ -868,6 +961,7 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_slice_params_tmpl,
- 		  "short_term_ref_pic_set_size = %u, "
- 		  "long_term_ref_pic_set_size = %u, "
- 		  "flags = %s",
-+		  __entry->tgid, __entry->fd,
- 		  __entry->s.bit_size,
- 		  __entry->s.data_byte_offset,
- 		  __entry->s.num_entry_point_offsets,
-@@ -914,11 +1008,16 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_slice_params_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_hevc_pred_weight_table_tmpl,
--	TP_PROTO(const struct v4l2_hevc_pred_weight_table *p),
--	TP_ARGS(p),
--	TP_STRUCT__entry(__field_struct(struct v4l2_hevc_pred_weight_table, p)),
--	TP_fast_assign(__entry->p = *p),
--	TP_printk("delta_luma_weight_l0 = %s, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_hevc_pred_weight_table *p),
-+	TP_ARGS(tgid, fd, p),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_hevc_pred_weight_table, p)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->p = *p),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "delta_luma_weight_l0 = %s, "
- 		  "luma_offset_l0 = %s, "
- 		  "delta_chroma_weight_l0 = {%s}, "
- 		  "chroma_offset_l0 = {%s}, "
-@@ -928,6 +1027,7 @@ DECLARE_EVENT_CLASS(v4l2_hevc_pred_weight_table_tmpl,
- 		  "chroma_offset_l1 = {%s}, "
- 		  "luma_log2_weight_denom = %d, "
- 		  "delta_chroma_log2_weight_denom = %d",
-+		  __entry->tgid, __entry->fd,
- 		  __print_array(__entry->p.delta_luma_weight_l0,
- 				ARRAY_SIZE(__entry->p.delta_luma_weight_l0),
- 				sizeof(__entry->p.delta_luma_weight_l0[0])),
-@@ -962,16 +1062,22 @@ DECLARE_EVENT_CLASS(v4l2_hevc_pred_weight_table_tmpl,
- 	))
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_scaling_matrix_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_hevc_scaling_matrix *s),
--	TP_ARGS(s),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_hevc_scaling_matrix, s)),
--	TP_fast_assign(__entry->s = *s),
--	TP_printk("scaling_list_4x4 = {%s}, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_hevc_scaling_matrix *s),
-+	TP_ARGS(tgid, fd, s),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_hevc_scaling_matrix, s)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->s = *s),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "scaling_list_4x4 = {%s}, "
- 		  "scaling_list_8x8 = {%s}, "
- 		  "scaling_list_16x16 = {%s}, "
- 		  "scaling_list_32x32 = {%s}, "
- 		  "scaling_list_dc_coef_16x16 = %s, "
- 		  "scaling_list_dc_coef_32x32 = %s",
-+		  __entry->tgid, __entry->fd,
- 		  __print_hex_dump("", DUMP_PREFIX_NONE, 32, 1,
- 				   __entry->s.scaling_list_4x4,
- 				   sizeof(__entry->s.scaling_list_4x4),
-@@ -997,11 +1103,16 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_scaling_matrix_tmpl,
- 	))
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_decode_params_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_hevc_decode_params *d),
--	TP_ARGS(d),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_hevc_decode_params, d)),
--	TP_fast_assign(__entry->d = *d),
--	TP_printk("pic_order_cnt_val = %d, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_hevc_decode_params *d),
-+	TP_ARGS(tgid, fd, d),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_hevc_decode_params, d)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->d = *d),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "pic_order_cnt_val = %d, "
- 		  "short_term_ref_pic_set_size = %u, "
- 		  "long_term_ref_pic_set_size = %u, "
- 		  "num_active_dpb_entries = %u, "
-@@ -1012,6 +1123,7 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_decode_params_tmpl,
- 		  "poc_st_curr_after = %s, "
- 		  "poc_lt_curr = %s, "
- 		  "flags = %s",
-+		  __entry->tgid, __entry->fd,
- 		  __entry->d.pic_order_cnt_val,
- 		  __entry->d.short_term_ref_pic_set_size,
- 		  __entry->d.long_term_ref_pic_set_size,
-@@ -1036,12 +1148,18 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_decode_params_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_ext_sps_lt_rps_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_hevc_ext_sps_lt_rps *lt),
--	TP_ARGS(lt),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_hevc_ext_sps_lt_rps, lt)),
--	TP_fast_assign(__entry->lt = *lt),
--	TP_printk("flags = %s, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_hevc_ext_sps_lt_rps *lt),
-+	TP_ARGS(tgid, fd, lt),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_hevc_ext_sps_lt_rps, lt)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->lt = *lt),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "flags = %s, "
- 		  "lt_ref_pic_poc_lsb_sps = %x",
-+		  __entry->tgid, __entry->fd,
- 		  __print_flags(__entry->lt.flags, "|",
- 		  {V4L2_HEVC_EXT_SPS_LT_RPS_FLAG_USED_LT, "USED_LT"}
- 		  ),
-@@ -1050,11 +1168,16 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_ext_sps_lt_rps_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_ext_sps_st_rps_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_hevc_ext_sps_st_rps *st),
--	TP_ARGS(st),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_hevc_ext_sps_st_rps, st)),
--	TP_fast_assign(__entry->st = *st),
--	TP_printk("flags = %s, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_hevc_ext_sps_st_rps *st),
-+	TP_ARGS(tgid, fd, st),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_hevc_ext_sps_st_rps, st)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->st = *st),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "flags = %s, "
- 		  "delta_idx_minus1 = %u, "
- 		  "delta_rps_sign = %u, "
- 		  "abs_delta_rps_minus1 = %u, "
-@@ -1064,6 +1187,7 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_ext_sps_st_rps_tmpl,
- 		  "use_delta_flag = %08x, "
- 		  "delta_poc_s0_minus1 = %s, "
- 		  "delta_poc_s1_minus1 = %s",
-+		  __entry->tgid, __entry->fd,
- 		  __print_flags(__entry->st.flags, "|",
- 		  {V4L2_HEVC_EXT_SPS_ST_RPS_FLAG_INTER_REF_PIC_SET_PRED, "INTER_REF_PIC_SET_PRED"}
- 		  ),
-@@ -1084,14 +1208,20 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_ext_sps_st_rps_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_hevc_dpb_entry_tmpl,
--	TP_PROTO(const struct v4l2_hevc_dpb_entry *e),
--	TP_ARGS(e),
--	TP_STRUCT__entry(__field_struct(struct v4l2_hevc_dpb_entry, e)),
--	TP_fast_assign(__entry->e = *e),
--	TP_printk("timestamp = %llu, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_hevc_dpb_entry *e),
-+	TP_ARGS(tgid, fd, e),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_hevc_dpb_entry, e)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->e = *e),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "timestamp = %llu, "
- 		  "flags = %s, "
- 		  "field_pic = %u, "
- 		  "pic_order_cnt_val = %d",
-+		  __entry->tgid, __entry->fd,
- 		__entry->e.timestamp,
- 		__print_flags(__entry->e.flags, "|",
- 		{V4L2_HEVC_DPB_ENTRY_LONG_TERM_REFERENCE, "LONG_TERM_REFERENCE"}
-@@ -1101,59 +1231,65 @@ DECLARE_EVENT_CLASS(v4l2_hevc_dpb_entry_tmpl,
- 	))
- 
- DEFINE_EVENT(v4l2_ctrl_hevc_sps_tmpl, v4l2_ctrl_hevc_sps,
--	TP_PROTO(const struct v4l2_ctrl_hevc_sps *s),
--	TP_ARGS(s)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_hevc_sps *s),
-+	TP_ARGS(tgid, fd, s)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_hevc_pps_tmpl, v4l2_ctrl_hevc_pps,
--	TP_PROTO(const struct v4l2_ctrl_hevc_pps *p),
--	TP_ARGS(p)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_hevc_pps *p),
-+	TP_ARGS(tgid, fd, p)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_hevc_slice_params_tmpl, v4l2_ctrl_hevc_slice_params,
--	TP_PROTO(const struct v4l2_ctrl_hevc_slice_params *s),
--	TP_ARGS(s)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_hevc_slice_params *s),
-+	TP_ARGS(tgid, fd, s)
- );
- 
- DEFINE_EVENT(v4l2_hevc_pred_weight_table_tmpl, v4l2_hevc_pred_weight_table,
--	TP_PROTO(const struct v4l2_hevc_pred_weight_table *p),
--	TP_ARGS(p)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_hevc_pred_weight_table *p),
-+	TP_ARGS(tgid, fd, p)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_hevc_scaling_matrix_tmpl, v4l2_ctrl_hevc_scaling_matrix,
--	TP_PROTO(const struct v4l2_ctrl_hevc_scaling_matrix *s),
--	TP_ARGS(s)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_hevc_scaling_matrix *s),
-+	TP_ARGS(tgid, fd, s)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_hevc_decode_params_tmpl, v4l2_ctrl_hevc_decode_params,
--	TP_PROTO(const struct v4l2_ctrl_hevc_decode_params *d),
--	TP_ARGS(d)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_hevc_decode_params *d),
-+	TP_ARGS(tgid, fd, d)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_hevc_ext_sps_lt_rps_tmpl, v4l2_ctrl_hevc_ext_sps_lt_rps,
--	TP_PROTO(const struct v4l2_ctrl_hevc_ext_sps_lt_rps *lt),
--	TP_ARGS(lt)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_hevc_ext_sps_lt_rps *lt),
-+	TP_ARGS(tgid, fd, lt)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_hevc_ext_sps_st_rps_tmpl, v4l2_ctrl_hevc_ext_sps_st_rps,
--	TP_PROTO(const struct v4l2_ctrl_hevc_ext_sps_st_rps *st),
--	TP_ARGS(st)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_hevc_ext_sps_st_rps *st),
-+	TP_ARGS(tgid, fd, st)
- );
- 
- DEFINE_EVENT(v4l2_hevc_dpb_entry_tmpl, v4l2_hevc_dpb_entry,
--	TP_PROTO(const struct v4l2_hevc_dpb_entry *e),
--	TP_ARGS(e)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_hevc_dpb_entry *e),
-+	TP_ARGS(tgid, fd, e)
- );
- 
- /* MPEG2 controls */
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_mpeg2_seq_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_mpeg2_sequence *s),
--	TP_ARGS(s),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_mpeg2_sequence, s)),
--	TP_fast_assign(__entry->s = *s;),
--	TP_printk("horizontal_size = %u, vertical_size = %u, vbv_buffer_size = %u, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_mpeg2_sequence *s),
-+	TP_ARGS(tgid, fd, s),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_mpeg2_sequence, s)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->s = *s;),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "horizontal_size = %u, vertical_size = %u, vbv_buffer_size = %u, "
- 		  "profile_and_level_indication = %u, chroma_format = %u, flags = %s",
-+		  __entry->tgid, __entry->fd,
- 		  __entry->s.horizontal_size,
- 		  __entry->s.vertical_size,
- 		  __entry->s.vbv_buffer_size,
-@@ -1165,12 +1301,18 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_mpeg2_seq_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_mpeg2_pic_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_mpeg2_picture *p),
--	TP_ARGS(p),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_mpeg2_picture, p)),
--	TP_fast_assign(__entry->p = *p;),
--	TP_printk("backward_ref_ts = %llu, forward_ref_ts = %llu, flags = %s, f_code = {%s}, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_mpeg2_picture *p),
-+	TP_ARGS(tgid, fd, p),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_mpeg2_picture, p)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->p = *p;),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "backward_ref_ts = %llu, forward_ref_ts = %llu, flags = %s, f_code = {%s}, "
- 		  "picture_coding_type = %u, picture_structure = %u, intra_dc_precision = %u",
-+		  __entry->tgid, __entry->fd,
- 		  __entry->p.backward_ref_ts,
- 		  __entry->p.forward_ref_ts,
- 		  __print_flags(__entry->p.flags, "|",
-@@ -1193,12 +1335,18 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_mpeg2_pic_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_mpeg2_quant_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_mpeg2_quantisation *q),
--	TP_ARGS(q),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_mpeg2_quantisation, q)),
--	TP_fast_assign(__entry->q = *q;),
--	TP_printk("intra_quantiser_matrix = %s, non_intra_quantiser_matrix = %s, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_mpeg2_quantisation *q),
-+	TP_ARGS(tgid, fd, q),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_mpeg2_quantisation, q)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->q = *q;),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "intra_quantiser_matrix = %s, non_intra_quantiser_matrix = %s, "
- 		  "chroma_intra_quantiser_matrix = %s, chroma_non_intra_quantiser_matrix = %s",
-+		  __entry->tgid, __entry->fd,
- 		  __print_array(__entry->q.intra_quantiser_matrix,
- 				ARRAY_SIZE(__entry->q.intra_quantiser_matrix),
- 				sizeof(__entry->q.intra_quantiser_matrix[0])),
-@@ -1215,31 +1363,37 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_mpeg2_quant_tmpl,
- )
- 
- DEFINE_EVENT(v4l2_ctrl_mpeg2_seq_tmpl, v4l2_ctrl_mpeg2_sequence,
--	TP_PROTO(const struct v4l2_ctrl_mpeg2_sequence *s),
--	TP_ARGS(s)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_mpeg2_sequence *s),
-+	TP_ARGS(tgid, fd, s)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_mpeg2_pic_tmpl, v4l2_ctrl_mpeg2_picture,
--	TP_PROTO(const struct v4l2_ctrl_mpeg2_picture *p),
--	TP_ARGS(p)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_mpeg2_picture *p),
-+	TP_ARGS(tgid, fd, p)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_mpeg2_quant_tmpl, v4l2_ctrl_mpeg2_quantisation,
--	TP_PROTO(const struct v4l2_ctrl_mpeg2_quantisation *q),
--	TP_ARGS(q)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_mpeg2_quantisation *q),
-+	TP_ARGS(tgid, fd, q)
- );
- 
- /* VP8 controls */
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_vp8_entropy_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_vp8_frame *f),
--	TP_ARGS(f),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_vp8_frame, f)),
--	TP_fast_assign(__entry->f = *f;),
--	TP_printk("entropy.coeff_probs = {%s}, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_vp8_frame *f),
-+	TP_ARGS(tgid, fd, f),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_vp8_frame, f)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->f = *f;),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "entropy.coeff_probs = {%s}, "
- 		  "entropy.y_mode_probs = %s, "
- 		  "entropy.uv_mode_probs = %s, "
- 		  "entropy.mv_probs = {%s}",
-+		  __entry->tgid, __entry->fd,
- 		  __print_hex_dump("", DUMP_PREFIX_NONE, 32, 1,
- 				   __entry->f.entropy.coeff_probs,
- 				   sizeof(__entry->f.entropy.coeff_probs),
-@@ -1258,11 +1412,16 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_vp8_entropy_tmpl,
- )
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_vp8_frame_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_vp8_frame *f),
--	TP_ARGS(f),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_vp8_frame, f)),
--	TP_fast_assign(__entry->f = *f;),
--	TP_printk("segment.quant_update = %s, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_vp8_frame *f),
-+	TP_ARGS(tgid, fd, f),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_vp8_frame, f)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->f = *f;),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "segment.quant_update = %s, "
- 		  "segment.lf_update = %s, "
- 		  "segment.segment_probs = %s, "
- 		  "segment.flags = %s, "
-@@ -1297,6 +1456,7 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_vp8_frame_tmpl,
- 		  "golden_frame_ts = %llu, "
- 		  "alt_frame_ts = %llu, "
- 		  "flags = %s",
-+		  __entry->tgid, __entry->fd,
- 		  __print_array(__entry->f.segment.quant_update,
- 				ARRAY_SIZE(__entry->f.segment.quant_update),
- 				sizeof(__entry->f.segment.quant_update[0])),
-@@ -1361,23 +1521,28 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_vp8_frame_tmpl,
- );
- 
- DEFINE_EVENT(v4l2_ctrl_vp8_frame_tmpl, v4l2_ctrl_vp8_frame,
--	TP_PROTO(const struct v4l2_ctrl_vp8_frame *f),
--	TP_ARGS(f)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_vp8_frame *f),
-+	TP_ARGS(tgid, fd, f)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_vp8_entropy_tmpl, v4l2_ctrl_vp8_entropy,
--	TP_PROTO(const struct v4l2_ctrl_vp8_frame *f),
--	TP_ARGS(f)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_vp8_frame *f),
-+	TP_ARGS(tgid, fd, f)
- );
- 
- /* VP9 controls */
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_vp9_frame_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_vp9_frame *f),
--	TP_ARGS(f),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_vp9_frame, f)),
--	TP_fast_assign(__entry->f = *f;),
--	TP_printk("lf.ref_deltas = %s, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_vp9_frame *f),
-+	TP_ARGS(tgid, fd, f),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_vp9_frame, f)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->f = *f;),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "lf.ref_deltas = %s, "
- 		  "lf.mode_deltas = %s, "
- 		  "lf.level = %u, "
- 		  "lf.sharpness = %u, "
-@@ -1410,6 +1575,7 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_vp9_frame_tmpl,
- 		  "tile_cols_log2 = %u, "
- 		  "tile_rows_log_2 = %u, "
- 		  "reference_mode = %s",
-+		  __entry->tgid, __entry->fd,
- 		  __print_array(__entry->f.lf.ref_deltas,
- 				ARRAY_SIZE(__entry->f.lf.ref_deltas),
- 				sizeof(__entry->f.lf.ref_deltas[0])),
-@@ -1490,11 +1656,16 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_vp9_frame_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_vp9_compressed_hdr_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_vp9_compressed_hdr *h),
--	TP_ARGS(h),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_vp9_compressed_hdr, h)),
--	TP_fast_assign(__entry->h = *h;),
--	TP_printk("tx_mode = %s, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_vp9_compressed_hdr *h),
-+	TP_ARGS(tgid, fd, h),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_vp9_compressed_hdr, h)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->h = *h;),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "tx_mode = %s, "
- 		  "tx8 = {%s}, "
- 		  "tx16 = {%s}, "
- 		  "tx32 = {%s}, "
-@@ -1508,6 +1679,7 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_vp9_compressed_hdr_tmpl,
- 		  "y_mode = {%s}, "
- 		  "uv_mode = {%s}, "
- 		  "partition = {%s}",
-+		  __entry->tgid, __entry->fd,
- 		  __print_symbolic(__entry->h.tx_mode,
- 		  {V4L2_VP9_TX_MODE_ONLY_4X4, "TX_MODE_ONLY_4X4"},
- 		  {V4L2_VP9_TX_MODE_ALLOW_8X8, "TX_MODE_ALLOW_8X8"},
-@@ -1566,11 +1738,17 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_vp9_compressed_hdr_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_ctrl_vp9_compressed_coef_tmpl,
--	TP_PROTO(const struct v4l2_ctrl_vp9_compressed_hdr *h),
--	TP_ARGS(h),
--	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_vp9_compressed_hdr, h)),
--	TP_fast_assign(__entry->h = *h;),
--	TP_printk("coef = {%s}",
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_vp9_compressed_hdr *h),
-+	TP_ARGS(tgid, fd, h),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_ctrl_vp9_compressed_hdr, h)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->h = *h;),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "coef = {%s}",
-+		  __entry->tgid, __entry->fd,
- 		  __print_hex_dump("", DUMP_PREFIX_NONE, 32, 1,
- 				   __entry->h.coef,
- 				   sizeof(__entry->h.coef),
-@@ -1579,11 +1757,16 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_vp9_compressed_coef_tmpl,
- );
- 
- DECLARE_EVENT_CLASS(v4l2_vp9_mv_probs_tmpl,
--	TP_PROTO(const struct v4l2_vp9_mv_probs *p),
--	TP_ARGS(p),
--	TP_STRUCT__entry(__field_struct(struct v4l2_vp9_mv_probs, p)),
--	TP_fast_assign(__entry->p = *p;),
--	TP_printk("joint = %s, "
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_vp9_mv_probs *p),
-+	TP_ARGS(tgid, fd, p),
-+	TP_STRUCT__entry(__field(u32, tgid)
-+			 __field(u32, fd)
-+			 __field_struct(struct v4l2_vp9_mv_probs, p)),
-+	TP_fast_assign(__entry->tgid = tgid;
-+		       __entry->fd = fd;
-+		       __entry->p = *p;),
-+	TP_printk("tgid = %u, fd = %u, "
-+		  "joint = %s, "
- 		  "sign = %s, "
- 		  "classes = {%s}, "
- 		  "class0_bit = %s, "
-@@ -1592,6 +1775,7 @@ DECLARE_EVENT_CLASS(v4l2_vp9_mv_probs_tmpl,
- 		  "fr = {%s}, "
- 		  "class0_hp = %s, "
- 		  "hp = %s",
-+		  __entry->tgid, __entry->fd,
- 		  __print_array(__entry->p.joint,
- 				ARRAY_SIZE(__entry->p.joint),
- 				sizeof(__entry->p.joint[0])),
-@@ -1627,24 +1811,24 @@ DECLARE_EVENT_CLASS(v4l2_vp9_mv_probs_tmpl,
- );
- 
- DEFINE_EVENT(v4l2_ctrl_vp9_frame_tmpl, v4l2_ctrl_vp9_frame,
--	TP_PROTO(const struct v4l2_ctrl_vp9_frame *f),
--	TP_ARGS(f)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_vp9_frame *f),
-+	TP_ARGS(tgid, fd, f)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_vp9_compressed_hdr_tmpl, v4l2_ctrl_vp9_compressed_hdr,
--	TP_PROTO(const struct v4l2_ctrl_vp9_compressed_hdr *h),
--	TP_ARGS(h)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_vp9_compressed_hdr *h),
-+	TP_ARGS(tgid, fd, h)
- );
- 
- DEFINE_EVENT(v4l2_ctrl_vp9_compressed_coef_tmpl, v4l2_ctrl_vp9_compressed_coeff,
--	TP_PROTO(const struct v4l2_ctrl_vp9_compressed_hdr *h),
--	TP_ARGS(h)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_ctrl_vp9_compressed_hdr *h),
-+	TP_ARGS(tgid, fd, h)
- );
- 
- 
- DEFINE_EVENT(v4l2_vp9_mv_probs_tmpl, v4l2_vp9_mv_probs,
--	TP_PROTO(const struct v4l2_vp9_mv_probs *p),
--	TP_ARGS(p)
-+	TP_PROTO(u32 tgid, u32 fd, const struct v4l2_vp9_mv_probs *p),
-+	TP_ARGS(tgid, fd, p)
- );
- 
- #endif /* if !defined(_TRACE_V4L2_REQUESTS_H_) || defined(TRACE_HEADER_MULTI_READ) */
+-static void visl_trace_ctrls(struct visl_ctx *ctx, struct visl_run *run)
+-{
+-	int i;
+-	struct v4l2_fh *fh = &ctx->fh;
+-
+-	switch (ctx->current_codec) {
+-	default:
+-	case VISL_CODEC_NONE:
+-		break;
+-	case VISL_CODEC_FWHT:
+-		trace_v4l2_ctrl_fwht_params(fh->tgid, fh->fd, run->fwht.params);
+-		break;
+-	case VISL_CODEC_MPEG2:
+-		trace_v4l2_ctrl_mpeg2_sequence(fh->tgid, fh->fd, run->mpeg2.seq);
+-		trace_v4l2_ctrl_mpeg2_picture(fh->tgid, fh->fd, run->mpeg2.pic);
+-		trace_v4l2_ctrl_mpeg2_quantisation(fh->tgid, fh->fd, run->mpeg2.quant);
+-		break;
+-	case VISL_CODEC_VP8:
+-		trace_v4l2_ctrl_vp8_frame(fh->tgid, fh->fd, run->vp8.frame);
+-		trace_v4l2_ctrl_vp8_entropy(fh->tgid, fh->fd, run->vp8.frame);
+-		break;
+-	case VISL_CODEC_VP9:
+-		trace_v4l2_ctrl_vp9_frame(fh->tgid, fh->fd, run->vp9.frame);
+-		trace_v4l2_ctrl_vp9_compressed_hdr(fh->tgid, fh->fd, run->vp9.probs);
+-		trace_v4l2_ctrl_vp9_compressed_coeff(fh->tgid, fh->fd, run->vp9.probs);
+-		trace_v4l2_vp9_mv_probs(fh->tgid, fh->fd, &run->vp9.probs->mv);
+-		break;
+-	case VISL_CODEC_H264:
+-		trace_v4l2_ctrl_h264_sps(fh->tgid, fh->fd, run->h264.sps);
+-		trace_v4l2_ctrl_h264_pps(fh->tgid, fh->fd, run->h264.pps);
+-		trace_v4l2_ctrl_h264_scaling_matrix(fh->tgid, fh->fd, run->h264.sm);
+-		trace_v4l2_ctrl_h264_slice_params(fh->tgid, fh->fd, run->h264.spram);
+-
+-		for (i = 0; i < ARRAY_SIZE(run->h264.spram->ref_pic_list0); i++)
+-			trace_v4l2_h264_ref_pic_list0(fh->tgid, fh->fd,
+-						      &run->h264.spram->ref_pic_list0[i], i);
+-		for (i = 0; i < ARRAY_SIZE(run->h264.spram->ref_pic_list0); i++)
+-			trace_v4l2_h264_ref_pic_list1(fh->tgid, fh->fd,
+-						      &run->h264.spram->ref_pic_list1[i], i);
+-
+-		trace_v4l2_ctrl_h264_decode_params(fh->tgid, fh->fd, run->h264.dpram);
+-
+-		for (i = 0; i < ARRAY_SIZE(run->h264.dpram->dpb); i++)
+-			trace_v4l2_h264_dpb_entry(fh->tgid, fh->fd, &run->h264.dpram->dpb[i], i);
+-
+-		trace_v4l2_ctrl_h264_pred_weights(fh->tgid, fh->fd, run->h264.pwht);
+-		break;
+-	case VISL_CODEC_HEVC:
+-		trace_v4l2_ctrl_hevc_sps(fh->tgid, fh->fd, run->hevc.sps);
+-		trace_v4l2_ctrl_hevc_pps(fh->tgid, fh->fd, run->hevc.pps);
+-		trace_v4l2_ctrl_hevc_slice_params(fh->tgid, fh->fd, run->hevc.spram);
+-		trace_v4l2_ctrl_hevc_scaling_matrix(fh->tgid, fh->fd, run->hevc.sm);
+-		trace_v4l2_ctrl_hevc_decode_params(fh->tgid, fh->fd, run->hevc.dpram);
+-
+-		for (i = 0; i < ARRAY_SIZE(run->hevc.dpram->dpb); i++)
+-			trace_v4l2_hevc_dpb_entry(fh->tgid, fh->fd, &run->hevc.dpram->dpb[i]);
+-
+-
+-		trace_v4l2_hevc_pred_weight_table(fh->tgid, fh->fd,
+-						  &run->hevc.spram->pred_weight_table);
+-		trace_v4l2_ctrl_hevc_ext_sps_lt_rps(fh->tgid, fh->fd, run->hevc.rps_lt);
+-		trace_v4l2_ctrl_hevc_ext_sps_st_rps(fh->tgid, fh->fd, run->hevc.rps_st);
+-		break;
+-	case VISL_CODEC_AV1:
+-		trace_v4l2_ctrl_av1_sequence(fh->tgid, fh->fd, run->av1.seq);
+-		trace_v4l2_ctrl_av1_frame(fh->tgid, fh->fd, run->av1.frame);
+-		trace_v4l2_ctrl_av1_film_grain(fh->tgid, fh->fd, run->av1.grain);
+-		trace_v4l2_ctrl_av1_tile_group_entry(fh->tgid, fh->fd, run->av1.tge);
+-		break;
+-	}
+-}
+-
+ void visl_device_run(void *priv)
+ {
+ 	struct visl_ctx *ctx = priv;
+@@ -634,7 +561,6 @@ void visl_device_run(void *priv)
+ 		      run.dst->sequence, run.dst->vb2_buf.timestamp);
+ 
+ 	visl_tpg_fill(ctx, &run);
+-	visl_trace_ctrls(ctx, &run);
+ 
+ 	if (bitstream_trace_frame_start > -1 &&
+ 	    run.dst->sequence >= bitstream_trace_frame_start &&
+diff --git a/drivers/media/v4l2-core/v4l2-ctrls-api.c b/drivers/media/v4l2-core/v4l2-ctrls-api.c
+index 0078a04c5445..8a814eec7a30 100644
+--- a/drivers/media/v4l2-core/v4l2-ctrls-api.c
++++ b/drivers/media/v4l2-core/v4l2-ctrls-api.c
+@@ -524,6 +524,12 @@ int v4l2_g_ext_ctrls(struct v4l2_ctrl_handler *hdl, struct video_device *vdev,
+ }
+ EXPORT_SYMBOL(v4l2_g_ext_ctrls);
+ 
++static void trace_ext_ctrl(struct v4l2_fh *fh, const struct v4l2_ctrl *ctrl)
++{
++	if (ctrl->type_ops->trace)
++		ctrl->type_ops->trace(fh, ctrl, ctrl->p_cur);
++}
++
+ /* Validate a new control */
+ static int validate_new(const struct v4l2_ctrl *ctrl, union v4l2_ctrl_ptr p_new)
+ {
+@@ -713,6 +719,10 @@ int try_set_ext_ctrls_common(struct v4l2_fh *fh,
+ 				idx = helpers[idx].next;
+ 			} while (!ret && idx);
+ 		}
++
++		if (set)
++			trace_ext_ctrl(fh, master);
++
+ 		v4l2_ctrl_unlock(master);
+ 	}
+ 
+diff --git a/drivers/media/v4l2-core/v4l2-ctrls-core.c b/drivers/media/v4l2-core/v4l2-ctrls-core.c
+index 79a157975f70..6165e36d8879 100644
+--- a/drivers/media/v4l2-core/v4l2-ctrls-core.c
++++ b/drivers/media/v4l2-core/v4l2-ctrls-core.c
+@@ -10,8 +10,11 @@
+ #include <linux/slab.h>
+ #include <media/v4l2-ctrls.h>
+ #include <media/v4l2-event.h>
++#include <media/v4l2-fh.h>
+ #include <media/v4l2-fwnode.h>
+ 
++#include <trace/events/v4l2_requests.h>
++
+ #include "v4l2-ctrls-priv.h"
+ 
+ static const union v4l2_ctrl_ptr ptr_null;
+@@ -1462,12 +1465,123 @@ int v4l2_ctrl_type_op_validate(const struct v4l2_ctrl *ctrl,
+ }
+ EXPORT_SYMBOL(v4l2_ctrl_type_op_validate);
+ 
++void v4l2_ctrl_type_op_trace(const struct v4l2_fh *fh,
++				    const struct v4l2_ctrl *ctrl, union v4l2_ctrl_ptr ptr)
++{
++	int i = 0;
++
++	switch ((u32)ctrl->type) {
++	case V4L2_CTRL_TYPE_FWHT_PARAMS:
++		trace_v4l2_ctrl_fwht_params(fh->tgid, fh->fd, ptr.p_fwht_params);
++		break;
++	case V4L2_CTRL_TYPE_MPEG2_SEQUENCE:
++		trace_v4l2_ctrl_mpeg2_sequence(fh->tgid, fh->fd, ptr.p_mpeg2_sequence);
++		break;
++	case V4L2_CTRL_TYPE_MPEG2_PICTURE:
++		trace_v4l2_ctrl_mpeg2_picture(fh->tgid, fh->fd, ptr.p_mpeg2_picture);
++		break;
++	case V4L2_CTRL_TYPE_MPEG2_QUANTISATION:
++		trace_v4l2_ctrl_mpeg2_quantisation(fh->tgid, fh->fd, ptr.p_mpeg2_quantisation);
++		break;
++	case V4L2_CTRL_TYPE_VP8_FRAME:
++		trace_v4l2_ctrl_vp8_frame(fh->tgid, fh->fd, ptr.p_vp8_frame);
++		trace_v4l2_ctrl_vp8_entropy(fh->tgid, fh->fd, ptr.p_vp8_frame);
++		break;
++	case V4L2_CTRL_TYPE_VP9_FRAME:
++		trace_v4l2_ctrl_vp9_frame(fh->tgid, fh->fd, ptr.p_vp9_frame);
++		break;
++	case V4L2_CTRL_TYPE_VP9_COMPRESSED_HDR:
++		trace_v4l2_ctrl_vp9_compressed_hdr(fh->tgid, fh->fd,
++						   ptr.p_vp9_compressed_hdr_probs);
++		trace_v4l2_ctrl_vp9_compressed_coeff(fh->tgid, fh->fd,
++						     ptr.p_vp9_compressed_hdr_probs);
++		trace_v4l2_vp9_mv_probs(fh->tgid, fh->fd, &ptr.p_vp9_compressed_hdr_probs->mv);
++		break;
++	case V4L2_CTRL_TYPE_H264_SPS:
++		trace_v4l2_ctrl_h264_sps(fh->tgid, fh->fd, ptr.p_h264_sps);
++		break;
++	case V4L2_CTRL_TYPE_H264_PPS:
++		trace_v4l2_ctrl_h264_pps(fh->tgid, fh->fd, ptr.p_h264_pps);
++		break;
++	case V4L2_CTRL_TYPE_H264_SCALING_MATRIX:
++		trace_v4l2_ctrl_h264_scaling_matrix(fh->tgid, fh->fd, ptr.p_h264_scaling_matrix);
++		break;
++	case V4L2_CTRL_TYPE_H264_SLICE_PARAMS:
++	{
++		struct v4l2_ctrl_h264_slice_params *sp = ptr.p_h264_slice_params;
++
++		trace_v4l2_ctrl_h264_slice_params(fh->tgid, fh->fd, sp);
++
++		for (i = 0; i < ARRAY_SIZE(sp->ref_pic_list0); i++)
++			trace_v4l2_h264_ref_pic_list0(fh->tgid, fh->fd, &sp->ref_pic_list0[i], i);
++		for (i = 0; i < ARRAY_SIZE(sp->ref_pic_list1); i++)
++			trace_v4l2_h264_ref_pic_list1(fh->tgid, fh->fd, &sp->ref_pic_list1[i], i);
++
++		break;
++	}
++	case V4L2_CTRL_TYPE_H264_DECODE_PARAMS:
++	{
++		struct v4l2_ctrl_h264_decode_params *dp = ptr.p_h264_decode_params;
++
++		trace_v4l2_ctrl_h264_decode_params(fh->tgid, fh->fd, dp);
++
++		for (i = 0; i < ARRAY_SIZE(dp->dpb); i++)
++			trace_v4l2_h264_dpb_entry(fh->tgid, fh->fd, &dp->dpb[i], i);
++
++		break;
++	}
++	case V4L2_CTRL_TYPE_H264_PRED_WEIGHTS:
++		trace_v4l2_ctrl_h264_pred_weights(fh->tgid, fh->fd, ptr.p_h264_pred_weights);
++		break;
++	case V4L2_CTRL_TYPE_HEVC_SPS:
++		trace_v4l2_ctrl_hevc_sps(fh->tgid, fh->fd, ptr.p_hevc_sps);
++		break;
++	case V4L2_CTRL_TYPE_HEVC_PPS:
++		trace_v4l2_ctrl_hevc_pps(fh->tgid, fh->fd, ptr.p_hevc_pps);
++		break;
++	case V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS:
++		trace_v4l2_ctrl_hevc_slice_params(fh->tgid, fh->fd, ptr.p_hevc_slice_params);
++		trace_v4l2_hevc_pred_weight_table(fh->tgid, fh->fd,
++						  &ptr.p_hevc_slice_params->pred_weight_table);
++		break;
++	case V4L2_CTRL_TYPE_HEVC_SCALING_MATRIX:
++		trace_v4l2_ctrl_hevc_scaling_matrix(fh->tgid, fh->fd, ptr.p_hevc_scaling_matrix);
++		break;
++	case V4L2_CTRL_TYPE_HEVC_DECODE_PARAMS:
++	{
++		struct v4l2_ctrl_hevc_decode_params *dp = ptr.p_hevc_decode_params;
++
++		trace_v4l2_ctrl_hevc_decode_params(fh->tgid, fh->fd, dp);
++
++		for (i = 0; i < ARRAY_SIZE(dp->dpb); i++)
++			trace_v4l2_hevc_dpb_entry(fh->tgid, fh->fd, &dp->dpb[i]);
++
++		break;
++	}
++	case V4L2_CTRL_TYPE_AV1_SEQUENCE:
++		trace_v4l2_ctrl_av1_sequence(fh->tgid, fh->fd, ptr.p_av1_sequence);
++		break;
++	case V4L2_CTRL_TYPE_AV1_FRAME:
++		trace_v4l2_ctrl_av1_frame(fh->tgid, fh->fd, ptr.p_av1_frame);
++		break;
++	case V4L2_CTRL_TYPE_AV1_FILM_GRAIN:
++		trace_v4l2_ctrl_av1_film_grain(fh->tgid, fh->fd, ptr.p_av1_film_grain);
++		break;
++	case V4L2_CTRL_TYPE_AV1_TILE_GROUP_ENTRY:
++		trace_v4l2_ctrl_av1_tile_group_entry(fh->tgid, fh->fd, ptr.p_av1_tile_group_entry);
++		break;
++	}
++
++}
++EXPORT_SYMBOL(v4l2_ctrl_type_op_trace);
++
+ static const struct v4l2_ctrl_type_ops std_type_ops = {
+ 	.equal = v4l2_ctrl_type_op_equal,
+ 	.init = v4l2_ctrl_type_op_init,
+ 	.minimum = v4l2_ctrl_type_op_minimum,
+ 	.maximum = v4l2_ctrl_type_op_maximum,
+ 	.log = v4l2_ctrl_type_op_log,
++	.trace = v4l2_ctrl_type_op_trace,
+ 	.validate = v4l2_ctrl_type_op_validate,
+ };
+ 
+diff --git a/include/media/v4l2-ctrls.h b/include/media/v4l2-ctrls.h
+index a2b4c96a9a6f..57c4bb999b7b 100644
+--- a/include/media/v4l2-ctrls.h
++++ b/include/media/v4l2-ctrls.h
+@@ -140,6 +140,7 @@ struct v4l2_ctrl_ops {
+  * @minimum: set the value to the minimum value of the control.
+  * @maximum: set the value to the maximum value of the control.
+  * @log: log the value.
++ * @trace: trace the value of the control with Ftrace.
+  * @validate: validate the value for ctrl->new_elems array elements.
+  *	Return 0 on success and a negative value otherwise.
+  */
+@@ -153,6 +154,8 @@ struct v4l2_ctrl_type_ops {
+ 	void (*maximum)(const struct v4l2_ctrl *ctrl, u32 idx,
+ 			union v4l2_ctrl_ptr ptr);
+ 	void (*log)(const struct v4l2_ctrl *ctrl);
++	void (*trace)(const struct v4l2_fh *fh,
++		      const struct v4l2_ctrl *ctrl, union v4l2_ctrl_ptr ptr);
+ 	int (*validate)(const struct v4l2_ctrl *ctrl, union v4l2_ctrl_ptr ptr);
+ };
+ 
+@@ -1627,6 +1630,18 @@ void v4l2_ctrl_type_op_init(const struct v4l2_ctrl *ctrl, u32 from_idx,
+  */
+ void v4l2_ctrl_type_op_log(const struct v4l2_ctrl *ctrl);
+ 
++/**
++ * v4l2_ctrl_type_op_trace - Default v4l2_ctrl_type_ops trace callback.
++ *
++ * @fh: The v4l2_fh of the current context.
++ * @ctrl: The v4l2_ctrl pointer.
++ * @ptr: The v4l2 control value.
++ *
++ * Return: void
++ */
++void v4l2_ctrl_type_op_trace(const struct v4l2_fh *fh,
++			     const struct v4l2_ctrl *ctrl, union v4l2_ctrl_ptr ptr);
++
+ /**
+  * v4l2_ctrl_type_op_validate - Default v4l2_ctrl_type_ops validate callback.
+  *
 -- 
 2.53.0
 
