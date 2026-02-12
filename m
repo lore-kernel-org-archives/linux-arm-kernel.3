@@ -4,67 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0C52EB48F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 10:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F3AEB4901
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 11:03:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JRq1KBMHuWFpRbH1vR3X7AEScEe+bqwM6DDNGjCkCAg=; b=P6Eor+NWM1Db3PKhSbZy/qOEnI
-	MCdkbdf58P8JFRogrYR5wj3mba6Znis5O0ol3pWmCAhmXj69Bd0i474M/5QM38+Bcia8Mw0L+v7zf
-	yMogbfQklgVRyy3q7zO3iL9E1dM/CTtdBm5E6bKqxCPh5/0To58pg4t+ih6bWr1VlhD8/xDSM1DVn
-	qFnYNsSNiVs22+yP2Sk55CdBJcHGsEh4lZbKVE+bt3wzhBkaTDir5iQrtT3VrQ54/mAUT2gxWhle/
-	T+3ftterMJkiu2N3s3Cp1RjTMvse6DY+wvosGbu4ZhGVQrau4WUUYRXy3/epukOcSsRaRCtrESJGQ
-	PWOmDSpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kJErz88cjkJTbzorRwwmcYfG/Jy0KYwM8UfnC0/jEBg=; b=L/k1Q5+wa0PPyfU8FsmEC0kZqy
+	9izT60yk8mrYZGy+12otWDdv7CPcw0CbJmNbu4QxDvVH1CdmgPBEiQX0Kp1qmEw68uUNt4S+dzarR
+	o+XhUNVIBFuRNcd5WrgCCMAWnrCmoUTq01YGenGsLPyyCQdAUDnWjw/8Yv2w9bcuFwIhcpTbyHCwY
+	Y+GEHTfw3IV6U2ZAu2j++bBBHXvWvCnCKwfr9EgsUeJ8EF4bM3X3hO4Hc1pEbAdTwwHEXSuG5QGZG
+	f7Y3pcOc2Iicw3XPu0tY4ZdyMq0jy/Ye+o00Gg/2cqm64cp/guoTO4xQdu6CjE9zx8Rd9pN8KxQ0J
+	k7d6ti3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqUOb-00000001xqU-3GHo;
-	Thu, 12 Feb 2026 10:58:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vqUTc-00000001y62-3gcW;
+	Thu, 12 Feb 2026 11:03:16 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqUOZ-00000001xq9-0Rb8
+	id 1vqUTa-00000001y5A-1rQt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 10:58:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6E19243347;
-	Thu, 12 Feb 2026 10:58:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09EF2C4CEF7;
-	Thu, 12 Feb 2026 10:57:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770893882;
-	bh=a10gybJK/rglyWHCmyBwBN8EflBOeOZkgZ5xBklxWGE=;
-	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
-	b=GzKFBSxgykC0qt/3n9plxUDNDHJJHjV6L5z37PAXqjd/B7Ep1XKSfD1faRoke3gIY
-	 Y4CRX1UbfJ59/w+AUfPT9nAKyCHmSGB9igBhNEsRULaAeYfDjYfZ4huGbHD71p4quE
-	 yOdDZiwuK/yAQlP07y7wa4cOc50ejAe0FmyjEUwW8QrhQEg5FSy8EjS5+FW7fDKFh1
-	 k8Kw81xtMrzmv7GdRhXd6kq4GymfZFiX+DeeTAkDrDwFUdmL76c5eBmMn8E0tJ+wMv
-	 n02Cc1XYoMXu9f5RoenP84OkDyz+YQg3r8vWgw9Rz7Krw4RuQZIZgSS7Asyi7PtBxC
-	 +Fmdop0DMe7qQ==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 12 Feb 2026 11:57:56 +0100
-Message-Id: <DGCXHJSE6HF8.1UVG9WV27XEK@kernel.org>
-Subject: Re: [PATCH] clk: scu/imx8qxp: do not register driver in probe()
-Cc: "Alexander Stein" <alexander.stein@ew.tq-group.com>,
- <abelvesa@kernel.org>, <peng.fan@nxp.com>, <mturquette@baylibre.com>,
- <sboyd@kernel.org>, <Frank.Li@nxp.com>, <s.hauer@pengutronix.de>,
- <kernel@pengutronix.de>, <festevam@gmail.com>,
- <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
- <hanguidong02@gmail.com>, <driver-core@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
-To: "Daniel Baluta" <daniel.baluta@oss.nxp.com>
-From: "Danilo Krummrich" <dakr@kernel.org>
-References: <20260211142321.55404-1-dakr@kernel.org>
- <10809444.nUPlyArG6x@steina-w>
- <9e33e5e5-76cd-4395-acb4-e2e03e436bf5@oss.nxp.com>
-In-Reply-To: <9e33e5e5-76cd-4395-acb4-e2e03e436bf5@oss.nxp.com>
+	Thu, 12 Feb 2026 11:03:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1770894194; x=1802430194;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=lvhfM1RcsuG2yW1jVLZ0HWMlZZkBniMMzCrnQtl85qE=;
+  b=v/sIaGkZpZkXm+R3/4wpadKV3OME6nx3t7b3Scn2YGK3cVx9uHQeAjye
+   qZdOIyz8Wet11PuKzMDzB/UGCVZ7jpvaVfyeiLrsmhDGns0TFNfaZIhUD
+   Ndlg4EGru8Ik/FXlGmocB5LuALFxP/LHa7j+FTYS4Mhp08dKn8kwwSyHt
+   NVEhFizjO0Nar2opFknwq6oErAws47gYjG5l7/a0QztGvbgqm7HfLP0WB
+   2Ob4pcvoQCvJLxep3ghDYHJU5Gw/sfnqAJ2DjzvblhwFFRR2n+B+L6eTU
+   Q5uHQlrg+Q9e+n2bfLzRB+zrE4JiHOZc6oOaWIawAG8vjy7Ey0UGLETNL
+   g==;
+X-CSE-ConnectionGUID: Yy0qGjpOT4qWCWFiT3Tmhg==
+X-CSE-MsgGUID: f4Kq8AOCR5SFzIM1w1Ugyw==
+X-IronPort-AV: E=Sophos;i="6.21,286,1763449200"; 
+   d="scan'208";a="52581677"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Feb 2026 04:03:11 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Thu, 12 Feb 2026 04:02:41 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Thu, 12 Feb 2026 04:02:39 -0700
+From: Daniel Machon <daniel.machon@microchip.com>
+Date: Thu, 12 Feb 2026 12:02:30 +0100
+Subject: [PATCH net] net: sparx5/lan969x: fix PTP clock max_adj value
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260212-sparx5-ptp-max-adj-v2-v1-1-06b200e50ce3@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAEWzjWkC/x3MQQqAIBBA0avErBtQKYmuEi2mnGqCTDRCiO6et
+ HyL/x9IHIUT9NUDkW9JcvoCXVcwb+RXRnHFYJSxymiNKVDMLYYr4EEZye14G2ybmaeOnJ2IoLQ
+ h8iL5/w7g+YLxfT89sFuQbAAAAA==
+X-Change-ID: 20260211-sparx5-ptp-max-adj-v2-54ceb8ad6baa
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
+	<Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, "Richard
+ Cochran" <richardcochran@gmail.com>, Horatiu Vultur
+	<horatiu.vultur@microchip.com>
+CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_025803_210289_0F8AD7CF 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20260212_030314_670147_9AC53C81 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,77 +91,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Feb 11, 2026 at 3:59 PM CET, Daniel Baluta wrote:
-> On 2/11/26 16:43, Alexander Stein wrote:
->> Am Mittwoch, 11. Februar 2026, 15:23:16 CET schrieb Danilo Krummrich:
->>> imx_clk_scu_init() registers the imx_clk_scu_driver while commonly bein=
-g
->>> called from IMX driver's probe() callbacks.
->>>
->>> However, it neither makes sense to register drivers from probe()
->>> callbacks of other drivers, nor does the driver core allow registering
->>> drivers with a device lock already being held.
->>>
->>> The latter was revealed by commit dc23806a7c47 ("driver core: enforce
->>> device_lock for driver_match_device()") leading to a deadlock condition
->>> described in [1].
->>>
->>> Additionally, nothing seems to unregister the imx_clk_scu_driver once
->>> the corresponding driver module is unloaded, which leaves the
->>> driver-core with a dangling pointer.
+The max_adj field in ptp_clock_info tells userspace how much the PHC
+clock frequency can be adjusted. ptp4l reads this and will never request
+a correction larger than max_adj.
 
-Actually, this fixes a third bug: If there are multiple matching devices fo=
-r the
-imx8qxp_clk_driver, imx8qxp_clk_probe() calls imx_clk_scu_init() multiple t=
-imes.
-However, any subsequent call after the first one will fail, since the drive=
-r
-core does not allow to register the same struct platform_driver multiple ti=
-mes.
+On both sparx5 and lan969x the clock offset may never converge because
+the servo needs a frequency correction larger than the current max_adj
+of 200000 (200 ppm) allows. The servo rails at the max and the offset
+stays in the tens of microseconds.
 
->>> diff --git a/drivers/clk/imx/clk-imx8qxp.c b/drivers/clk/imx/clk-imx8qx=
-p.c
->>> index 3ae162625bb1..d89a2f40771e 100644
->>> --- a/drivers/clk/imx/clk-imx8qxp.c
->>> +++ b/drivers/clk/imx/clk-imx8qxp.c
->>> @@ -346,7 +346,29 @@ static struct platform_driver imx8qxp_clk_driver =
-=3D {
->>>  	},
->>>  	.probe =3D imx8qxp_clk_probe,
->>>  };
->>> -module_platform_driver(imx8qxp_clk_driver);
->>> +
->>> +static int __init imx8qxp_init(void)
->>>
->>>
-> I would call this imx8qxp_clk_init. Same for=C2=A0imx8qxp_exit.
+The hardware has no inherent max adjustment limit; frequency correction
+is done by writing a 64-bit clock period increment to CLK_PER_CFG, and
+the register has plenty of range. The 200000 value was just an overly
+conservative software limit. The max_adj is shared between sparx5 and
+lan969x, and the increased value is safe for both.
 
-Sure.
+Fix this by increasing max_adj to 10000000 (10000 ppm), giving the
+servo sufficient headroom.
 
->>> +{
->>> +	int ret;
->>> +
->>> +	ret =3D platform_driver_register(&imx8qxp_clk_driver);
->>> +	if (ret)
->>> +		return ret;
->>> +
->>> +	ret =3D imx_clk_scu_module_init();
->>> +	if (ret)
->>> +		platform_driver_unregister(&imx8qxp_clk_driver);
->>> +
->>> +	return ret;
->>>
-> Also, because the logical flow is that CLK driver is uing SCU for calls I=
- would first call
-> imx_clk_scu_module_init and then register the imx8qxp_clk driver.=20
->
-> But there is no functionality issues your your approach too, just a bette=
-r logical flow.
+Fixes: 0933bd04047c ("net: sparx5: Add support for ptp clocks")
+Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+---
+ drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Sure, I will send a v2 shortly, as it would be good to get this into an ear=
-ly
--fixes PR.
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c b/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
+index 2f168700f63c..8b2e07821a95 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
+@@ -576,7 +576,7 @@ static int sparx5_ptp_adjtime(struct ptp_clock_info *ptp, s64 delta)
+ static struct ptp_clock_info sparx5_ptp_clock_info = {
+ 	.owner		= THIS_MODULE,
+ 	.name		= "sparx5 ptp",
+-	.max_adj	= 200000,
++	.max_adj	= 10000000,
+ 	.gettime64	= sparx5_ptp_gettime64,
+ 	.settime64	= sparx5_ptp_settime64,
+ 	.adjtime	= sparx5_ptp_adjtime,
 
-Thanks,
-Danilo
+---
+base-commit: 83310d613382f74070fc8b402f3f6c2af8439ead
+change-id: 20260211-sparx5-ptp-max-adj-v2-54ceb8ad6baa
+
+Best regards,
+-- 
+Daniel Machon <daniel.machon@microchip.com>
+
 
