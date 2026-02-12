@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1609FEDF021
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 03:08:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F38EDF021
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 03:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q6QqEkBL7DgFsxQZDQrwC/3ZGjpQLYXS1PTCxfCJq3I=; b=gRXRLci6ctv8OyyIsTZeFXhl1u
-	XFNXzuU9iEeu5xbejUcJkV+N+slGD5jP6TjrcMCBOxyVOZ+o1o5DZImFFn7tfHj6LPyw486MGaP4p
-	4WezPadYAMp4YdW2Vh/UM5K9J3zCwZIwvd16IZRyVuKuvM25xPgtWcF2BHa62+1o96OaXSRO6K6bG
-	mm+Kw6eQsYdN+tMazxg96X5892lB5ReT40FcQ2lOOIQkYpHQ1OHxMVnrlNHh4fe/iCki8inAwoWAJ
-	GXx/NqWGNuziY/8vFuVjwZviYiWa3ZQRQo8XA08BNVBpZP9OrGlpS7O+zeTkbqponBcmO4DuQ81m9
-	hJ5WukiA==;
+	bh=SigH3qhT1W02fti+ozYpcWAH5G7ujZMQz/JJay17EIY=; b=PEYIRo9eO+zpI8mahgul8JMjMa
+	V1HbDvfNIFiq/IbD23PIlVomn8VGDSHqMt0YZmlq+OgB8xCKbRZUNmwYQatoiiyo/BODgePb80NMU
+	R7Vp3knQ+o+Juifvw46i+EAaOj74z604L89r5NE32nA9RJXIhencu0LvQk2XV21TPrY1GBBSBqvzM
+	R9FKXoer8vGwEGV17WTO4LuvBYDILDQN0ig/QlkK38H7ngG6sjP6dNKo1yZwhDMlLM7IIioFk3h4f
+	ntTg4YHjjOQ0Nk5Y5ZXUTGpwaak4G4zYTtfJG6Q1A9zmcR8pi2NpAelJoiLe4+k7EhtcKwb2cehnz
+	WcDprA0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqN3s-00000001UQg-1nnm;
-	Thu, 12 Feb 2026 03:08:12 +0000
-Received: from pdx-out-008.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.42.203.116])
+	id 1vqN47-00000001UWo-3AAC;
+	Thu, 12 Feb 2026 03:08:27 +0000
+Received: from pdx-out-009.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.155.198.111])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqN3q-00000001UPR-1WCD
+	id 1vqN45-00000001UVL-2tl1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 03:08:11 +0000
+	Thu, 12 Feb 2026 03:08:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1770865690; x=1802401690;
+  t=1770865705; x=1802401705;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=q6QqEkBL7DgFsxQZDQrwC/3ZGjpQLYXS1PTCxfCJq3I=;
-  b=bjoHl2cECDeHQgcPAaOPjzEfdL+xgmS3Cyoj95hOzTUXE5wY7WT31LVG
-   Vqfc69Lbm2oKSqepY28hQMzk6azYW5PyzUHgFlgsthAp2PpfqbZdMtj8D
-   cj8ZR2sqaDaTbh+4rSr6J0Oo8+o/gdPrfrWbuJdCAAqq6DHkgntEFKHLm
-   DtbQNGmpK+RSWlpaNWPPSg26s446YfKm84uNzzID/xpgaiB21BB5otL0Y
-   Ino0jhuZEl9otiySf16npDOELD+KA8h7OfED7sl7Ibpz3A2UOjKlBmGEr
-   tYvUZALQ0S43++SsKmG/btHXscMPJW6IT48gxCYa0C5r5/xS5hd10Ri6w
-   A==;
-X-CSE-ConnectionGUID: IJnGLnGSS2uS35ymSHEjsA==
-X-CSE-MsgGUID: uh6X7aJgRYqtNT60kNNJnw==
+  bh=SigH3qhT1W02fti+ozYpcWAH5G7ujZMQz/JJay17EIY=;
+  b=tHvqE7zoIq31JJfDaL29A4WW6FVuHMWpbo1WbCY2k9Sd98JXLy7zvrCQ
+   SFHXKpDT/KyL89zrE9l4rebvu2BXDTV/RgkMEESEu2z7vDJs0iPQZqngk
+   WpVCcUp6urwm4iIHOJAzumdeTgtuEqPuAf4WutNFi4JSTYbaOPeFIlB8R
+   3vnbTG5qWfr+X47J1FfOFRoJotSpDStJLMLKM8OZ/jP4fYcA1PsWuRq69
+   QZLoWwHx6AjYC6Sgk07H0JTxm5IMMwkVRfepBdlVsd0bm6etL8OHjqwHR
+   HWEEE8HLPRv6wQY+g0QSf4+Zc5xPw/+/fu18HRonqLLfPMnTSczyl5tpK
+   g==;
+X-CSE-ConnectionGUID: 2OidXK/+TVq3rTmdDfU9ag==
+X-CSE-MsgGUID: v/sxFuY8Riu4Q9629OZE9w==
 X-IronPort-AV: E=Sophos;i="6.21,285,1763424000"; 
-   d="scan'208";a="12913987"
-Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
-  by internal-pdx-out-008.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 03:08:09 +0000
-Received: from EX19MTAUWB002.ant.amazon.com [205.251.233.111:1536]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.39.165:2525] with esmtp (Farcaster)
- id a8ce263f-2af6-42be-aaea-cdcc071f605a; Thu, 12 Feb 2026 03:08:09 +0000 (UTC)
-X-Farcaster-Flow-ID: a8ce263f-2af6-42be-aaea-cdcc071f605a
+   d="scan'208";a="12803833"
+Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
+  by internal-pdx-out-009.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 03:08:24 +0000
+Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.234:22822]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.42.95:2525] with esmtp (Farcaster)
+ id 25d80b04-d4d0-460b-89b9-632ebe728b0c; Thu, 12 Feb 2026 03:08:24 +0000 (UTC)
+X-Farcaster-Flow-ID: 25d80b04-d4d0-460b-89b9-632ebe728b0c
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
+ EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 12 Feb 2026 03:08:09 +0000
+ Thu, 12 Feb 2026 03:08:24 +0000
 Received: from dev-dsk-wanjay-2c-d25651b4.us-west-2.amazon.com (172.19.198.4)
  by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 12 Feb 2026 03:08:08 +0000
+ Thu, 12 Feb 2026 03:08:24 +0000
 From: Jay Wang <wanjay@amazon.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
 	<davem@davemloft.net>, <linux-crypto@vger.kernel.org>
@@ -70,9 +70,9 @@ CC: Jay Wang <jay.wang.upstream@gmail.com>, Vegard Nossum
 	<nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
 	<linux-kbuild@vger.kernel.org>, <linux-modules@vger.kernel.org>
-Subject: [PATCH 080/106] crypto: convert exported crypto symbol into pluggable interface for CONFIG_CRYPTO_KRB5ENC crypto
-Date: Thu, 12 Feb 2026 02:46:56 +0000
-Message-ID: <20260212024725.11264-81-wanjay@amazon.com>
+Subject: [PATCH 081/106] crypto: convert exported crypto symbol into pluggable interface for CONFIG_CRYPTO_LZ4 and CONFIG_CRYPTO_LZ4HC crypto
+Date: Thu, 12 Feb 2026 02:46:57 +0000
+Message-ID: <20260212024725.11264-82-wanjay@amazon.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260212024725.11264-1-wanjay@amazon.com>
 References: <20260212024725.11264-1-wanjay@amazon.com>
@@ -80,11 +80,11 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-Originating-IP: [172.19.198.4]
-X-ClientProxiedBy: EX19D042UWB003.ant.amazon.com (10.13.139.135) To
+X-ClientProxiedBy: EX19D046UWB002.ant.amazon.com (10.13.139.181) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_190810_448746_AFF5AB26 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20260211_190825_781842_1A740374 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,79 +100,61 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Apply Crypto API wrappers to the exported crypto symbol in
-CONFIG_CRYPTO_KRB5ENC-related crypto to convert them into pluggable
-interface.
+CONFIG_CRYPTO_LZ4- and CONFIG_CRYPTO_LZ4HC-related crypto to convert
+them into pluggable interface.
 
 Signed-off-by: Jay Wang <wanjay@amazon.com>
 ---
- crypto/Makefile              |  2 +-
- crypto/fips140/fips140-api.c | 10 ++++++++++
- crypto/krb5enc.c             |  4 ++--
- include/crypto/authenc.h     |  6 ++++--
- 4 files changed, 17 insertions(+), 5 deletions(-)
+ crypto/Makefile | 4 ++--
+ crypto/lz4.c    | 4 ++--
+ crypto/lz4hc.c  | 4 ++--
+ 3 files changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/crypto/Makefile b/crypto/Makefile
-index 6d332c55fd4e..61fdf39dc1ec 100644
+index 61fdf39dc1ec..665299fd5a5a 100644
 --- a/crypto/Makefile
 +++ b/crypto/Makefile
-@@ -156,7 +156,7 @@ crc32c-cryptoapi-y := crc32c.o
- crypto-objs-$(CONFIG_CRYPTO_CRC32) += crc32-cryptoapi.o
- crc32-cryptoapi-y := crc32.o
+@@ -158,8 +158,8 @@ crc32-cryptoapi-y := crc32.o
  crypto-objs-$(CONFIG_CRYPTO_AUTHENC) += authenc.o authencesn.o
--obj-$(CONFIG_CRYPTO_KRB5ENC) += krb5enc.o
-+crypto-objs-$(CONFIG_CRYPTO_KRB5ENC) += krb5enc.o
+ crypto-objs-$(CONFIG_CRYPTO_KRB5ENC) += krb5enc.o
  crypto-objs-$(CONFIG_CRYPTO_LZO) += lzo.o lzo-rle.o
- obj-$(CONFIG_CRYPTO_LZ4) += lz4.o
- obj-$(CONFIG_CRYPTO_LZ4HC) += lz4hc.o
-diff --git a/crypto/fips140/fips140-api.c b/crypto/fips140/fips140-api.c
-index e6d2e3680792..70b57939c753 100644
---- a/crypto/fips140/fips140-api.c
-+++ b/crypto/fips140/fips140-api.c
-@@ -775,3 +775,13 @@ DEFINE_CRYPTO_API_STUB(aria_encrypt);
- DEFINE_CRYPTO_API_STUB(aria_decrypt);
- 
- #endif
-+/*
-+ * crypto/krb5enc.c
-+ */
-+#if IS_BUILTIN(CONFIG_CRYPTO_KRB5ENC)
-+
-+#include <crypto/authenc.h>
-+
-+DEFINE_CRYPTO_API_STUB(crypto_krb5enc_extractkeys);
-+
-+#endif
-diff --git a/crypto/krb5enc.c b/crypto/krb5enc.c
-index a1de55994d92..5688f8916fd0 100644
---- a/crypto/krb5enc.c
-+++ b/crypto/krb5enc.c
-@@ -496,8 +496,8 @@ static void __exit crypto_krb5enc_module_exit(void)
- 	crypto_unregister_template(&crypto_krb5enc_tmpl);
+-obj-$(CONFIG_CRYPTO_LZ4) += lz4.o
+-obj-$(CONFIG_CRYPTO_LZ4HC) += lz4hc.o
++crypto-objs-$(CONFIG_CRYPTO_LZ4) += lz4.o
++crypto-objs-$(CONFIG_CRYPTO_LZ4HC) += lz4hc.o
+ obj-$(CONFIG_CRYPTO_XXHASH) += xxhash_generic.o
+ obj-$(CONFIG_CRYPTO_842) += 842.o
+ crypto-objs-$(CONFIG_CRYPTO_RNG2) += rng.o
+diff --git a/crypto/lz4.c b/crypto/lz4.c
+index 57b713516aef..e0aa6f465627 100644
+--- a/crypto/lz4.c
++++ b/crypto/lz4.c
+@@ -91,8 +91,8 @@ static void __exit lz4_mod_fini(void)
+ 	crypto_unregister_scomp(&scomp);
  }
  
--module_init(crypto_krb5enc_module_init);
--module_exit(crypto_krb5enc_module_exit);
-+crypto_module_init(crypto_krb5enc_module_init);
-+crypto_module_exit(crypto_krb5enc_module_exit);
+-module_init(lz4_mod_init);
+-module_exit(lz4_mod_fini);
++crypto_module_init(lz4_mod_init);
++crypto_module_exit(lz4_mod_fini);
  
  MODULE_LICENSE("GPL");
- MODULE_DESCRIPTION("Simple AEAD wrapper for Kerberos 5 RFC3961");
-diff --git a/include/crypto/authenc.h b/include/crypto/authenc.h
-index 4871b7bdcd8e..710e0976b295 100644
---- a/include/crypto/authenc.h
-+++ b/include/crypto/authenc.h
-@@ -30,7 +30,9 @@ struct crypto_authenc_keys {
- DECLARE_CRYPTO_API(CONFIG_CRYPTO_AUTHENC, crypto_authenc_extractkeys, int,
- 	(struct crypto_authenc_keys *keys, const u8 *key, unsigned int keylen),
- 	(keys, key, keylen));
--int crypto_krb5enc_extractkeys(struct crypto_authenc_keys *keys, const u8 *key,
--			       unsigned int keylen);
-+
-+DECLARE_CRYPTO_API(CONFIG_CRYPTO_KRB5ENC, crypto_krb5enc_extractkeys, int,
-+	(struct crypto_authenc_keys *keys, const u8 *key, unsigned int keylen),
-+	(keys, key, keylen));
+ MODULE_DESCRIPTION("LZ4 Compression Algorithm");
+diff --git a/crypto/lz4hc.c b/crypto/lz4hc.c
+index bb84f8a68cb5..5365a0a8477d 100644
+--- a/crypto/lz4hc.c
++++ b/crypto/lz4hc.c
+@@ -89,8 +89,8 @@ static void __exit lz4hc_mod_fini(void)
+ 	crypto_unregister_scomp(&scomp);
+ }
  
- #endif	/* _CRYPTO_AUTHENC_H */
+-module_init(lz4hc_mod_init);
+-module_exit(lz4hc_mod_fini);
++crypto_module_init(lz4hc_mod_init);
++crypto_module_exit(lz4hc_mod_fini);
+ 
+ MODULE_LICENSE("GPL");
+ MODULE_DESCRIPTION("LZ4HC Compression Algorithm");
 -- 
 2.47.3
 
