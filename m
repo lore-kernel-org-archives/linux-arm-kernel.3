@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F1FEDF023
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 03:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD884EDF021
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 03:12:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r4gBE91GqNXtVWfJI7PG4CFBpAoCdUPRS6agT7qUgnI=; b=3JViEwTDvLQdTGAfyGlTQTxajY
-	/yqQcyFFOMWko61dUVS2QzofqPOZha4AFhGX/GpNuJ1ULo+3hpmAVpph//aXJJSHtu8CvO0nrGWSc
-	HBFDwt48T3Y9VDEW981AJi+NbQ0KbFAK0YMLZa0vXTILsJ1URWlwlVeU51Kwm+BLyHOzEtnBHBBni
-	ByQitiPDmHQo6CjUa+5QZJAs8PQdqNU8UWSMdPgJdiyKUDNPxRLnPvGoB0QeAlqPFAEHBUvxG+zih
-	UijqDMWSqTXrOiHnxNCF6xO9gTyI6Ss46LJz06WsR26CMk8rBRP4+YsW6lEdK5qfe/Zlr7Ffa9+Oh
-	TLL7M3ZA==;
+	bh=SO+/ZqK/Z/wAT3DBtC8iE9tyUyavUTI84Oy20JmjxKU=; b=CbV/yvlV4K8iyauXueFFNY8tKR
+	nwlGSJEmuVAWfau4BchNw40E6qzRLg6hQ3CEU5tkhJZTya3VryxmJRQvodaklvfFiWt3aqzNI7nJR
+	N+Mx37Pq23VsMJtG6nQtbvgCgS3n98QB6WM4PM35aPEb70gXR8bBeoXHbH0CE9QOZJOZjHrDIIZW2
+	KHWEooTD6nVbpdUSPK8QBWjbFlj/ajueEEtq4+MNxIEXwOEmrzwfxNt1SGrtwjJWRZlNDnVLtFIF4
+	BF73MaYTlD/NCUBQ71+16JelhH6Wkql7Aowz7ozltoa/1NFuhEf8NQsUgk2fCK6ubRClfmQpwLZDN
+	brILFEkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqN7f-00000001VwV-0Sgb;
-	Thu, 12 Feb 2026 03:12:07 +0000
-Received: from pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com ([50.112.246.219])
+	id 1vqN7u-00000001W4k-48bN;
+	Thu, 12 Feb 2026 03:12:23 +0000
+Received: from pdx-out-011.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.35.192.45])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqN7b-00000001Vux-03yT
+	id 1vqN7r-00000001W1k-2cQ3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 03:12:04 +0000
+	Thu, 12 Feb 2026 03:12:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1770865923; x=1802401923;
+  t=1770865939; x=1802401939;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=r4gBE91GqNXtVWfJI7PG4CFBpAoCdUPRS6agT7qUgnI=;
-  b=eU6sr4wfp8D5Xt5SyDiUJYuunk1+XOCxbbA90czNNkuk64rOIe4vetEc
-   62OzvRkBl754h7IsKy4RIbw4KzQe3ZUMAuhmDwiUljZc9/vVb1ObinymZ
-   LbF43T8gF8ysnOie6TfTP8FvKQUOI5XLNqP2h2WI09W/mKO32ypFDANBw
-   1irvLt8wb2R0MTw5mH6OPeYzXKF+vjdmB/Bxrk1U/x8NskOZ6QbBC1UJZ
-   OiKefBKETTc5XYW4nu0StJvP05aupBpY3M2xdpYTcrOpIYQAumoK7Nzpw
-   krB0H9tYnyJHwfoEq0Yim2LV4lggc6QSCvQvIJeYEJ4UZevSoAD2SwYKq
+  bh=SO+/ZqK/Z/wAT3DBtC8iE9tyUyavUTI84Oy20JmjxKU=;
+  b=i3XkjAxd2/sV6N4sWSofSBU+Bt8oyuYYLhtK4dlVRcvxJjSG6QkPGFVK
+   Rq1a3qn9oyVg6Dee42xxC3pd8qiNb0GAJ9S9Tyw5oBDyqAKBfzD4d4Ntj
+   aZp+LSRIhUxdpJfD6JogG0C6AX9oUQCh6Vqcyw6bSauPKNRlQxgGJTx6w
+   kdIp+2gO2nxXQb7SGPXt65l+xDgBaCbVzProXmjSeklvy9LJGZR7yW2ki
+   gBoAfqpUyX+K/Lli+OnT+uqypMHA96xl3nxD3sZm5a2jMl19GlrBi/Szs
+   9KRhVDcFSQ4hUQ7IuPxf9hWe8ZynSdKslfA+dMhptOiYFiUgUZVzRJfyD
    Q==;
-X-CSE-ConnectionGUID: SJ8swN36RTe80JixRX9yJA==
-X-CSE-MsgGUID: CU4uHtGQTUijsNTFfqC8IA==
+X-CSE-ConnectionGUID: tiTPjnSdTl6JfuF6oPW3PQ==
+X-CSE-MsgGUID: 75CT+RXGQX2uRWxUjjJ5ww==
 X-IronPort-AV: E=Sophos;i="6.21,285,1763424000"; 
-   d="scan'208";a="12744675"
-Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
-  by internal-pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 03:12:02 +0000
-Received: from EX19MTAUWA001.ant.amazon.com [205.251.233.236:24969]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.31.238:2525] with esmtp (Farcaster)
- id fef52040-0c5a-4462-8c63-0beab6c32bb9; Thu, 12 Feb 2026 03:12:02 +0000 (UTC)
-X-Farcaster-Flow-ID: fef52040-0c5a-4462-8c63-0beab6c32bb9
+   d="scan'208";a="12698906"
+Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
+  by internal-pdx-out-011.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 03:12:18 +0000
+Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.105:6538]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.61.62:2525] with esmtp (Farcaster)
+ id 829ec723-a681-4660-97af-06c3ee38fd23; Thu, 12 Feb 2026 03:12:18 +0000 (UTC)
+X-Farcaster-Flow-ID: 829ec723-a681-4660-97af-06c3ee38fd23
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWA001.ant.amazon.com (10.250.64.204) with Microsoft SMTP Server
+ EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 12 Feb 2026 03:12:02 +0000
+ Thu, 12 Feb 2026 03:12:17 +0000
 Received: from dev-dsk-wanjay-2c-d25651b4.us-west-2.amazon.com (172.19.198.4)
  by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 12 Feb 2026 03:12:01 +0000
+ Thu, 12 Feb 2026 03:12:17 +0000
 From: Jay Wang <wanjay@amazon.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
 	<davem@davemloft.net>, <linux-crypto@vger.kernel.org>
@@ -70,9 +70,9 @@ CC: Jay Wang <jay.wang.upstream@gmail.com>, Vegard Nossum
 	<nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
 	<linux-kbuild@vger.kernel.org>, <linux-modules@vger.kernel.org>
-Subject: [PATCH 095/106] crypto: convert exported crypto symbol into pluggable interface for CONFIG_ASYNC_MEMCPY crypto
-Date: Thu, 12 Feb 2026 02:47:11 +0000
-Message-ID: <20260212024725.11264-96-wanjay@amazon.com>
+Subject: [PATCH 096/106] crypto: convert exported crypto symbol into pluggable interface for CONFIG_ASYNC_XOR crypto
+Date: Thu, 12 Feb 2026 02:47:12 +0000
+Message-ID: <20260212024725.11264-97-wanjay@amazon.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260212024725.11264-1-wanjay@amazon.com>
 References: <20260212024725.11264-1-wanjay@amazon.com>
@@ -80,11 +80,11 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-Originating-IP: [172.19.198.4]
-X-ClientProxiedBy: EX19D035UWB002.ant.amazon.com (10.13.138.97) To
+X-ClientProxiedBy: EX19D045UWC004.ant.amazon.com (10.13.139.203) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_191203_108976_3C680F33 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20260211_191219_721761_460E5B49 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,67 +100,86 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Apply Crypto API wrappers to the exported crypto symbol in
-CONFIG_ASYNC_MEMCPY-related crypto to convert them into pluggable
+CONFIG_ASYNC_XOR-related crypto to convert them into pluggable
 interface.
 
 Signed-off-by: Jay Wang <wanjay@amazon.com>
 ---
  crypto/async_tx/Makefile     |  2 +-
- crypto/fips140/fips140-api.c | 10 ++++++++++
- include/linux/async_tx.h     |  7 +++----
- 3 files changed, 14 insertions(+), 5 deletions(-)
+ crypto/fips140/fips140-api.c | 12 ++++++++++++
+ include/linux/async_tx.h     | 21 +++++++++------------
+ 3 files changed, 22 insertions(+), 13 deletions(-)
 
 diff --git a/crypto/async_tx/Makefile b/crypto/async_tx/Makefile
-index 2cfa2dc1947d..9de69630d930 100644
+index 9de69630d930..3ceb7c8d7598 100644
 --- a/crypto/async_tx/Makefile
 +++ b/crypto/async_tx/Makefile
-@@ -1,6 +1,6 @@
+@@ -1,7 +1,7 @@
  # SPDX-License-Identifier: GPL-2.0
  crypto-objs-$(CONFIG_ASYNC_CORE) += async_tx.o
--obj-$(CONFIG_ASYNC_MEMCPY) += async_memcpy.o
-+crypto-objs-$(CONFIG_ASYNC_MEMCPY) += async_memcpy.o
- obj-$(CONFIG_ASYNC_XOR) += async_xor.o
+ crypto-objs-$(CONFIG_ASYNC_MEMCPY) += async_memcpy.o
+-obj-$(CONFIG_ASYNC_XOR) += async_xor.o
++crypto-objs-$(CONFIG_ASYNC_XOR) += async_xor.o
  obj-$(CONFIG_ASYNC_PQ) += async_pq.o
  obj-$(CONFIG_ASYNC_RAID6_RECOV) += async_raid6_recov.o
+ obj-$(CONFIG_ASYNC_RAID6_TEST) += raid6test.o
 diff --git a/crypto/fips140/fips140-api.c b/crypto/fips140/fips140-api.c
-index ff58e8946821..6644fce6555a 100644
+index 6644fce6555a..67e7b03e4dc4 100644
 --- a/crypto/fips140/fips140-api.c
 +++ b/crypto/fips140/fips140-api.c
-@@ -809,6 +809,16 @@ DEFINE_CRYPTO_API_STUB(async_tx_submit);
- DEFINE_CRYPTO_API_STUB(async_trigger_callback);
- DEFINE_CRYPTO_API_STUB(async_tx_quiesce);
+@@ -819,6 +819,18 @@ DEFINE_CRYPTO_API_STUB(async_tx_quiesce);
+ 
+ DEFINE_CRYPTO_API_STUB(async_memcpy);
  
 +#endif
 +/*
-+ * crypto/async_tx/async_memcpy.c
++ * crypto/async_tx/async_xor.c
 + */
-+#if IS_BUILTIN(CONFIG_ASYNC_MEMCPY)
++#if IS_BUILTIN(CONFIG_ASYNC_XOR)
 +
 +#include <linux/async_tx.h>
 +
-+DEFINE_CRYPTO_API_STUB(async_memcpy);
++DEFINE_CRYPTO_API_STUB(async_xor);
++DEFINE_CRYPTO_API_STUB(async_xor_offs);
++DEFINE_CRYPTO_API_STUB(async_xor_val_offs);
 +
  #endif
  /*
   * crypto/ecdh_helper.c
 diff --git a/include/linux/async_tx.h b/include/linux/async_tx.h
-index 25dfd3750859..194228a8d1c4 100644
+index 194228a8d1c4..36bcc93c6944 100644
 --- a/include/linux/async_tx.h
 +++ b/include/linux/async_tx.h
-@@ -176,10 +176,9 @@ async_xor_val_offs(struct page *dest, unsigned int offset,
- 		int src_cnt, size_t len, enum sum_check_flags *result,
- 		struct async_submit_ctl *submit);
+@@ -161,20 +161,17 @@ DECLARE_CRYPTO_API(CONFIG_ASYNC_CORE, async_tx_submit, void,
+ 	(struct dma_chan *chan, struct dma_async_tx_descriptor *tx, struct async_submit_ctl *submit),
+ 	(chan, tx, submit));
  
 -struct dma_async_tx_descriptor *
--async_memcpy(struct page *dest, struct page *src, unsigned int dest_offset,
--	     unsigned int src_offset, size_t len,
--	     struct async_submit_ctl *submit);
-+DECLARE_CRYPTO_API(CONFIG_ASYNC_MEMCPY, async_memcpy, struct dma_async_tx_descriptor *,
-+	(struct page *dest, struct page *src, unsigned int dest_offset, unsigned int src_offset, size_t len, struct async_submit_ctl *submit),
-+	(dest, src, dest_offset, src_offset, len, submit));
+-async_xor(struct page *dest, struct page **src_list, unsigned int offset,
+-	  int src_cnt, size_t len, struct async_submit_ctl *submit);
++DECLARE_CRYPTO_API(CONFIG_ASYNC_XOR, async_xor, struct dma_async_tx_descriptor *,
++	(struct page *dest, struct page **src_list, unsigned int offset, int src_cnt, size_t len, struct async_submit_ctl *submit),
++	(dest, src_list, offset, src_cnt, len, submit));
  
- DECLARE_CRYPTO_API(CONFIG_ASYNC_CORE, async_trigger_callback, struct dma_async_tx_descriptor *,
- 	(struct async_submit_ctl *submit),
+-struct dma_async_tx_descriptor *
+-async_xor_offs(struct page *dest, unsigned int offset,
+-		struct page **src_list, unsigned int *src_offset,
+-		int src_cnt, size_t len, struct async_submit_ctl *submit);
++DECLARE_CRYPTO_API(CONFIG_ASYNC_XOR, async_xor_offs, struct dma_async_tx_descriptor *,
++	(struct page *dest, unsigned int offset, struct page **src_list, unsigned int *src_offset, int src_cnt, size_t len, struct async_submit_ctl *submit),
++	(dest, offset, src_list, src_offset, src_cnt, len, submit));
+ 
+-struct dma_async_tx_descriptor *
+-async_xor_val_offs(struct page *dest, unsigned int offset,
+-		struct page **src_list, unsigned int *src_offset,
+-		int src_cnt, size_t len, enum sum_check_flags *result,
+-		struct async_submit_ctl *submit);
++DECLARE_CRYPTO_API(CONFIG_ASYNC_XOR, async_xor_val_offs, struct dma_async_tx_descriptor *,
++	(struct page *dest, unsigned int offset, struct page **src_list, unsigned int *src_offset, int src_cnt, size_t len, enum sum_check_flags *result, struct async_submit_ctl *submit),
++	(dest, offset, src_list, src_offset, src_cnt, len, result, submit));
+ 
+ DECLARE_CRYPTO_API(CONFIG_ASYNC_MEMCPY, async_memcpy, struct dma_async_tx_descriptor *,
+ 	(struct page *dest, struct page *src, unsigned int dest_offset, unsigned int src_offset, size_t len, struct async_submit_ctl *submit),
 -- 
 2.47.3
 
