@@ -4,107 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59AE6EEA84A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 18:53:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42DF6EEA845
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 19:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KxJxh9FSjNvMYBpkVXl2+9DScVhBboCfxSSFZplOIEM=; b=sUlIACbfBl9zpVRJyUsg7N+vfV
-	pvkFHe/wjLTijxDb6FqK2fDAB4T2pOCmPWGUsMCEvIWrlYrBZmXglnYZiBsx3u35jEZrigHNuqXe5
-	/gHtyh8zXdKzc20jN/Jlswhm5sqB0LA86zUQH2Qym0UXRL9m9NeJyfsleCbD6qjz2C2VlGiVUKfT2
-	DmDx/qk/jPJcLOQh/iVoCq1KAp7BTvOvCHEgnedTYfgxGzQVCq1k8xiP+NVSFvyA0Yg3H0VGyolzv
-	NIlsm0DmbYhIxWbN13PGMhdA+WJHI/eLN5K6/RgjUv/47wqPnuQe3sEEjympGo1xrEWr2SBSAC58/
-	3GwnXlFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HELERbfs/az4fHNRaoNWkJQLOU5+XYFGukZga0wOTcA=; b=v5WiJMRnOJsJo6kghn6Xh+Jjz4
+	YAKrNlPYQEgIYGAwXwt9CIRi1MfFo/KdY4intumlJP1FO4aYg/E2SSlilhBRJab6TAsMeADPEf8h9
+	VG0KyoylG9bcjyWbct4uR9L83ShQOrVRlFmxFcnaf3bLajk7b5hFINudyVxBPmMZRbSZjmSz0WoAU
+	/z3BJa85M9ZOCUtOzzFH6L1OEONtoSgBZw44sBsrKzcf9biv0n+RuuJ342Zq65Ae0RLnWZ4B0D+Ah
+	bSB3zfn5jJpZfN+yEDmO71TKv8uSsHME0zjCNa6XFPYfDUSPjMKTUyRlnhxfIGdzj/Hv4FIFby5/A
+	O21/UNnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqboy-00000002Y60-09i6;
-	Thu, 12 Feb 2026 18:53:48 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1vqc19-00000002Yk8-00IT;
+	Thu, 12 Feb 2026 19:06:23 +0000
+Received: from mout.gmx.net ([212.227.15.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqbou-00000002Y5G-0N5f
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 18:53:46 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-5069a785ed2so40021cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Feb 2026 10:53:43 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1770922423; cv=none;
-        d=google.com; s=arc-20240605;
-        b=CFtRbGDoxU/JYCWeaA/gDKLfOkKfTEY2t9L686h/cHaH5IYcf9BHRTIWZTQoNkR0iH
-         eY9IRZQ8AtFY2JurJ9GUe/kDXsO/CMOBHPXJ6iJouYd7Y6y9b2AmcujPHPm4Gy5U6j+H
-         p7JCaXlhOTNjZEOsanvrFrVLezPrVaCYSOkG3Th4P7q6TBGbnhoNtqT1QESAb3eEkrNv
-         OiPZrYRJBAeBeMVuuhb1km8BO5kS+cxTMH9pPwXMfXQJ1IVCEl2pEqY9zsTNI69NlOSd
-         LMUGAZeQhu4SGoA596B3vDFIDV+S6U6puNbfsm134GS64PkaFZK3XyEcsl9AZv/gaKHw
-         5AtA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=KxJxh9FSjNvMYBpkVXl2+9DScVhBboCfxSSFZplOIEM=;
-        fh=z0ogAZ2STDRPQvCfiddFWZK0Esf/5YYjWbwL/GxcB3I=;
-        b=WV7LXmzLc54QxQ7651yofaC6t4M0M0SB1Tt8LVzwrwDTfjOqKXOzpxFn5UMCsgYIFO
-         4StoV7MStuNKAbG7v+wfHOVgXwBUQUB+gnnvJwykwOOc6XMXVrRNAB+6hWSFkHlUqC+7
-         rY6okkSdzIStl4YCfynB3BnET7709m/UFMmyjQ/BHLU1T6+X7HruNPLV8MVjhc+QR7e6
-         dgy/1GZcBjRyL5+l0dwz+CKRQAuzvQek7uWtbaHyjdNVQjLhdQzuoBw8vx2tYvs83tqe
-         FeCpEFQX2HpjWkr+Dlsvy4BcW5m8b49ltTCkway4ta3izt7IIPqD8QRrPJn6CEHZrGQ/
-         7htg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1770922423; x=1771527223; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=KxJxh9FSjNvMYBpkVXl2+9DScVhBboCfxSSFZplOIEM=;
-        b=oekwOxn4PXSeFd9UpM3uvv16UgfmV5wjRahZCmBr2WjarIz+5A0XKMOy5B1rJJwGKu
-         uvGB2yrGtrr5Wd+GShQTdIB5TEZNXWcjB9VmJUi0d7AVPFcuCr83I6WDwN+8hoN/OE2X
-         hprkGU7+i9lQPSdPWr4IoA49YWBsEU4PNAetG5ffaUyAAdQR5hOLF3+gtz2mAvT1wMEj
-         Geh5Zd17gbZdGUR9/AxCk33KGYisajM4ADjgJTxAjVsnsy1UdMzhcts93+bdkj4SGAqa
-         9qYXcFNG1uDD2utiy8DsRGDjj2DECmWyxZ3o2XYZMFuCkURojzRe14KRjnxUACAesM1Z
-         xfCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770922423; x=1771527223;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KxJxh9FSjNvMYBpkVXl2+9DScVhBboCfxSSFZplOIEM=;
-        b=OreB5w5SbO0MpTTPAY/85HHDCBo8QYzyjTIfcifGuajZxkZGp1SzQlrLCyVDd9WHhS
-         pGmGIAc94WfraB4EPGkrdfz7PwbSeViU9+x8NVcKWFwPGoxDt/I7mZe1B9WXrkh7+kuA
-         bJOmuixadEr488bv6iLRqgK3iLNht+e72Incu4tzOAYxQM060sp6TyviyJY1eIuhSbCN
-         Lw2qPrCJ9fZmRFn14BnoKEy1WD8GWe+2wjur+U65/wdYAYlRFSy/Sun10aVWuAeeEQvP
-         bwj6v9GhKh+BR4/D6BNP8n/ybRs2r2Ep5J1FQXDvBHMEgL/bPK8oq6Xs8MsSdPujrU8e
-         uODQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXKDlbCA1d9Nawsu5zfjkrVKuspQcyicTMoyJhG+6E4jL0X31cazkmveJbZOxlJPx9PAj3t7IRnoQ5W6BIlgHHQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUt1y6bfa2mfwTyXr44XBqZ3qrkAGgTe/gnHYvn0SS6RNxhB2v
-	opKruFX/Wsf+bHsbtkdVOCerfsW15gNsK08jbT/V1au4SLdvDxxBuo3QRwDgZ6kp/lxt7/8iB1c
-	AmjTR6kiQgAX1Wg5N8zMIWmLssIpkg0wHDc+uIvwm
-X-Gm-Gg: AZuq6aL8j90VIPr1pU3OCqsBz30qWoHmL62IFDYZNM3D1oM/1eF7WrL+/FMX3gssVLi
-	t395yA9CnbEgALKKD4lEns8TMD/L/8F8o6fF2JT0rwV789e94BrRTG/mjSw+nCvL6uAmXUnVj5H
-	EgBzWhd/9yYgHS2qleDGTZeSNe1lQIY80j3YyfcjBQKlFbhvPFmO/egX2oXqMY/RZIYFxXAHPdv
-	qtUl3aZXKiLfFa3IfBMVWiaUCJFuhRYUWwP0nnZxXbNMPQdTfblPc8aMSu3HKQVv2z4EtUSCTXG
-	zfwPyCqblIKbq3lsLew=
-X-Received: by 2002:ac8:5ace:0:b0:503:2e98:7842 with SMTP id
- d75a77b69052e-506a5089fd7mr798601cf.4.1770922422056; Thu, 12 Feb 2026
- 10:53:42 -0800 (PST)
+	id 1vqc14-00000002Yj9-3a4O;
+	Thu, 12 Feb 2026 19:06:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1770923168; x=1771527968; i=wahrenst@gmx.net;
+	bh=HELERbfs/az4fHNRaoNWkJQLOU5+XYFGukZga0wOTcA=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=c5oE22p7ILxcnv2ENYB7Bhj2N09FUkGtVWa7rY89Q7OB222Fd5gv3ShPafJtHTk2
+	 WW3FC+STXixcz18quC+9g5B/nc8/2H1SxF87lbA3v54Oc6ordJq/JM5rA4coP3SAp
+	 6qTgva3rBHToQB6Vpf/Gvq2y2kKy3zkkN6M1+fNdVNp4Iq26ujeA9MrzKqCBTwjSp
+	 jp+eG8Lb5kPN/dhOA5emA480l0twxAc76gh8o2wNUMsu/00Q83MZdB+/wuLryI85V
+	 Bw6Sf6UFZcFpN/scd5Z38DimBb4/0ysLB/6BBXE0bg6wy7H+tpGX+jNTRPYOzQ5Zc
+	 OVZntQGzBCJ9lfx26w==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.156] ([91.41.209.202]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MGhyS-1w3FKn44Ha-007gKo; Thu, 12
+ Feb 2026 20:06:08 +0100
+Message-ID: <eeeaeb7e-55d1-47cb-ab36-1aaad396944e@gmx.net>
+Date: Thu, 12 Feb 2026 20:06:05 +0100
 MIME-Version: 1.0
-References: <20260212090252.158689-1-tabba@google.com> <20260212090252.158689-2-tabba@google.com>
- <86jywib98e.wl-maz@kernel.org> <CA+EHjTz-JU2gDfziCY2SguK9=6gGSCL5TN_U_C7FiZ5i0JTZqQ@mail.gmail.com>
- <86ikc2asa8.wl-maz@kernel.org>
-In-Reply-To: <86ikc2asa8.wl-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Thu, 12 Feb 2026 18:53:05 +0000
-X-Gm-Features: AZwV_QgjHAKlb2oJ6cTtVmiD8glUdVPUVPAc_uYr3UsDjUESaoBBPSZwwkWqYwc
-Message-ID: <CA+EHjTwLcxB1e_FZsw_Semoj8tjMBUKZFM8+Vbo+64+=T4GN-Q@mail.gmail.com>
-Subject: Re: [PATCH v1 1/3] KVM: arm64: Hide S1POE from guests when not
- supported by the host
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pmdomain: bcm: bcm2835-power: Fix broken reset status
+ read
+To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: linux-pm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, kernel-dev@igalia.com
+References: <20260212150039.67117-2-mcanal@igalia.com>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20260212150039.67117-2-mcanal@igalia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:R+ZH0FKQy9LzBT5qEgwX4469pkJUTo9fPMpzPXeXwbWrs6rTYM6
+ CSiS8da9IQKVlNElKy9hyaOvL7H2Nh2AvOuVRyD7npDrTtUIpMLA5zWST0zEkiIXPh7ieFi
+ Gbb1lni8nuzXj1rUtv2e/uXLkMssYSyXP4tPH9ZydWB5z3GU+B7ZE4jbi52BLVp7F5JQpI2
+ vfXqvssthTBytod/LnHJQ==
+UI-OutboundReport: notjunk:1;M01:P0:lDTjF3u9T6k=;PrbvH4MbN7y8QMJJqDtfx+53Met 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 Nc4xm/mKdAq/Ny9qAaVkl0He5bHuy
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_105345_835985_4905986A 
-X-CRM114-Status: GOOD (  38.44  )
+X-CRM114-CacheID: sfid-20260212_110619_251397_63E9D9C1 
+X-CRM114-Status: GOOD (  22.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,178 +95,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-/fuad
+Hi Ma=C3=ADra,
 
-On Thu, 12 Feb 2026 at 15:35, Marc Zyngier <maz@kernel.org> wrote:
+Am 12.02.26 um 15:49 schrieb Ma=C3=ADra Canal:
+> bcm2835_reset_status() has a misplaced parenthesis on every PM_READ()
+> call. Since PM_READ(reg) expands to readl(power->base + (reg)), the
+> expression:
 >
-> On Thu, 12 Feb 2026 09:41:22 +0000,
-> Fuad Tabba <tabba@google.com> wrote:
-> >
-> > Hi Marc,
-> >
-> > On Thu, 12 Feb 2026 at 09:29, Marc Zyngier <maz@kernel.org> wrote:
-> > >
-> > > Hi Fuad,
-> > >
-> > > On Thu, 12 Feb 2026 09:02:50 +0000,
-> > > Fuad Tabba <tabba@google.com> wrote:
-> > > >
-> > > > When CONFIG_ARM64_POE is disabled, KVM does not save/restore POR_EL1.
-> > > > However, ID_AA64MMFR3_EL1 sanitisation currently exposes the feature to
-> > > > guests whenever the hardware supports it, ignoring the host kernel
-> > > > configuration.
-> > >
-> > > This is the umpteenth time we get caught by this. PAN was the latest
-> > > instance until this one. Maybe an approach would be to have a default
-> > > override when a config option is not enabled, so that KVM is
-> > > consistent with the rest of the kernel?
-> >
-> > I spoke to Will about this, and one thing he'll look into is whether
-> > this value in `struct arm64_ftr_reg` can be made consistent with the
-> > cpu configuration itself (in cpufeature.c itself) . This would avoid
-> > the problem altogether if possible. The question is whether the kernel
-> > needs to somehow know that a certain feature exists even if it's
-> > disabled in the config...
-> >
-> > If he thinks it's not doable at that level, I'll look into
-> > alternatives to make it correct by construction.
+>      PM_READ(PM_GRAFX & PM_V3DRSTN)
 >
-> What I currently have for that is rather ugly:
+> computes the bitwise AND of the register offset PM_GRAFX with the
+> bitmask PM_V3DRSTN before using the result as a register offset, reading
+> from the wrong MMIO address instead of the intended PM_GRAFX register.
+> The same issue affects the PM_IMAGE cases.
 >
-> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> index 72f39cecce93a..3bde0ad5ea972 100644
-> --- a/arch/arm64/include/asm/cpufeature.h
-> +++ b/arch/arm64/include/asm/cpufeature.h
-> @@ -971,6 +971,7 @@ struct arm64_ftr_reg *get_arm64_ftr_reg(u32 sys_id);
->  extern struct arm64_ftr_override id_aa64mmfr0_override;
->  extern struct arm64_ftr_override id_aa64mmfr1_override;
->  extern struct arm64_ftr_override id_aa64mmfr2_override;
-> +extern struct arm64_ftr_override id_aa64mmfr3_override;
->  extern struct arm64_ftr_override id_aa64pfr0_override;
->  extern struct arm64_ftr_override id_aa64pfr1_override;
->  extern struct arm64_ftr_override id_aa64zfr0_override;
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 1a7eec542675b..32069da9651bf 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -778,6 +778,7 @@ static const struct arm64_ftr_bits ftr_raz[] = {
->  struct arm64_ftr_override __read_mostly id_aa64mmfr0_override;
->  struct arm64_ftr_override __read_mostly id_aa64mmfr1_override;
->  struct arm64_ftr_override __read_mostly id_aa64mmfr2_override;
-> +struct arm64_ftr_override __read_mostly id_aa64mmfr3_override;
->  struct arm64_ftr_override __read_mostly id_aa64pfr0_override;
->  struct arm64_ftr_override __read_mostly id_aa64pfr1_override;
->  struct arm64_ftr_override __read_mostly id_aa64zfr0_override;
-> @@ -850,7 +851,8 @@ static const struct __ftr_reg_entry {
->                                &id_aa64mmfr1_override),
->         ARM64_FTR_REG_OVERRIDE(SYS_ID_AA64MMFR2_EL1, ftr_id_aa64mmfr2,
->                                &id_aa64mmfr2_override),
-> -       ARM64_FTR_REG(SYS_ID_AA64MMFR3_EL1, ftr_id_aa64mmfr3),
-> +       ARM64_FTR_REG_OVERRIDE(SYS_ID_AA64MMFR3_EL1, ftr_id_aa64mmfr3,
-> +                              &id_aa64mmfr3_override),
->         ARM64_FTR_REG(SYS_ID_AA64MMFR4_EL1, ftr_id_aa64mmfr4),
+> Fix by moving the closing parenthesis so PM_READ() receives only the
+> register offset, and the bitmask is applied to the value returned by
+> the read.
 >
->         /* Op1 = 0, CRn = 10, CRm = 4 */
-> diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-> index 85bc629270bd9..202e165a4680c 100644
-> --- a/arch/arm64/kernel/image-vars.h
-> +++ b/arch/arm64/kernel/image-vars.h
-> @@ -51,6 +51,7 @@ PI_EXPORT_SYM(id_aa64isar2_override);
->  PI_EXPORT_SYM(id_aa64mmfr0_override);
->  PI_EXPORT_SYM(id_aa64mmfr1_override);
->  PI_EXPORT_SYM(id_aa64mmfr2_override);
-> +PI_EXPORT_SYM(id_aa64mmfr3_override);
->  PI_EXPORT_SYM(id_aa64pfr0_override);
->  PI_EXPORT_SYM(id_aa64pfr1_override);
->  PI_EXPORT_SYM(id_aa64smfr0_override);
-> diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
-> index e5ea280452c3b..b8dbe02e53171 100644
-> --- a/arch/arm64/kernel/pi/idreg-override.c
-> +++ b/arch/arm64/kernel/pi/idreg-override.c
-> @@ -24,10 +24,12 @@
->  static u64 __boot_status __initdata;
->
->  typedef bool filter_t(u64 val);
-> +typedef void cfg_override_t(struct arm64_ftr_override *);
->
->  struct ftr_set_desc {
->         char                            name[FTR_DESC_NAME_LEN];
->         PREL64(struct arm64_ftr_override, override);
-> +       PREL64(cfg_override_t,          cfg_override);
->         struct {
->                 char                    name[FTR_DESC_FIELD_LEN];
->                 u8                      shift;
-> @@ -106,6 +108,22 @@ static const struct ftr_set_desc mmfr2 __prel64_initconst = {
->         },
->  };
->
-> +static void __init cfg_mmfr3_override(struct arm64_ftr_override *override)
-> +{
-> +#ifndef CONFIG_ARM64_POE
-> +       override->mask |= ID_AA64MMFR3_EL1_S1POE_MASK;
-> +#endif
-> +}
-> +
-> +static const struct ftr_set_desc mmfr3 __prel64_initconst = {
-> +       .name           = "id_aa64mmfr3",
-> +       .override       = &id_aa64mmfr3_override,
-> +       .cfg_override   = cfg_mmfr3_override,
-> +       .fields         = {
-> +               {}
-> +       },
-> +};
-> +
->  static bool __init pfr0_sve_filter(u64 val)
->  {
->         /*
-> @@ -221,6 +239,7 @@ PREL64(const struct ftr_set_desc, reg) regs[] __prel64_initconst = {
->         { &mmfr0        },
->         { &mmfr1        },
->         { &mmfr2        },
-> +       { &mmfr3        },
->         { &pfr0         },
->         { &pfr1         },
->         { &isar1        },
-> @@ -398,14 +417,19 @@ void __init init_feature_override(u64 boot_status, const void *fdt,
->  {
->         struct arm64_ftr_override *override;
->         const struct ftr_set_desc *reg;
-> +       cfg_override_t *cfg_override;
->         int i;
->
->         for (i = 0; i < ARRAY_SIZE(regs); i++) {
->                 reg = prel64_pointer(regs[i].reg);
->                 override = prel64_pointer(reg->override);
-> +               cfg_override = prel64_pointer(reg->cfg_override);
->
->                 override->val  = 0;
->                 override->mask = 0;
-> +
-> +               if (cfg_override)
-> +                       cfg_override(override);
->         }
->
->         __boot_status = boot_status;
->
->
-> which works, but is not super friendly.
+> Fixes: 670c672608a1 ("soc: bcm: bcm2835-pm: Add support for power domain=
+s under a new binding.")
+> Signed-off-by: Ma=C3=ADra Canal <mcanal@igalia.com>
+Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
 
-Ouch! Yeah, no easy solutions here. For now, as a fix to be able to
-backport, would you like me to respin this without the change to
-kvm_has_s1poe(), or with that change as a separate patch?
+Nice catch
+> ---
+>
+> Hi,
+>
+> Most likely this bug went unnoticed as there is no in-tree driver
+> currently calling reset_control_status() on the BCM2835 reset
+> controller. Although I'm sending a fix to the .status callback, another
+> possibility would be removing the implementation of this callback
+> considering that (1) it's broken and (2) it's not used.
+>
+> I'd appreciate your feedback about the most suitable option.
+I'm fine with the patch.
 
-Cheers,
-/fuad
-> Looking at the arm64_ftr_reg structure, this could work if
-> FTR_VISIBLE_IF_IS_ENABLED() didn't simply put "HIDDEN" when the
-> feature is not present, but forced things to be disabled
-> altogether. The problem is that "HIDDEN" means not shown to userspace,
-> and that we have plenty of HIDDEN features that must make it into KVM.
+Best regards
 >
-> I'll have a think.
+> Best regards,
+> - Ma=C3=ADra
 >
->         M.
+> ---
 >
-> --
-> Without deviation from the norm, progress is not possible.
+>   drivers/pmdomain/bcm/bcm2835-power.c | 6 +++---
+>   1 file changed, 3 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/bcm=
+/bcm2835-power.c
+> index 1d29addfe036..0450202bbee2 100644
+> --- a/drivers/pmdomain/bcm/bcm2835-power.c
+> +++ b/drivers/pmdomain/bcm/bcm2835-power.c
+> @@ -580,11 +580,11 @@ static int bcm2835_reset_status(struct reset_contr=
+oller_dev *rcdev,
+>  =20
+>   	switch (id) {
+>   	case BCM2835_RESET_V3D:
+> -		return !PM_READ(PM_GRAFX & PM_V3DRSTN);
+> +		return !(PM_READ(PM_GRAFX) & PM_V3DRSTN);
+>   	case BCM2835_RESET_H264:
+> -		return !PM_READ(PM_IMAGE & PM_H264RSTN);
+> +		return !(PM_READ(PM_IMAGE) & PM_H264RSTN);
+>   	case BCM2835_RESET_ISP:
+> -		return !PM_READ(PM_IMAGE & PM_ISPRSTN);
+> +		return !(PM_READ(PM_IMAGE) & PM_ISPRSTN);
+>   	default:
+>   		return -EINVAL;
+>   	}
+
 
