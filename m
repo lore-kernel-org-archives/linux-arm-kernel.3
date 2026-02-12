@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19DBCEDF021
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 02:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A6ACEDF020
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 02:52:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IHc1xX6Ny/1KQete+3SBOc4q1ddi9Vs8bpEGEtoXe6U=; b=kEjDA02TMHJK/c7x4bj86kZq38
-	yy7lZUhOY3twNWFxvokMQYgugoNfEvgDONGNImWAE0BD/XqQKm/WMrChNCH/GyZ8rEOtCNgPP86Ef
-	0dh33eO7YvHtx/gWCaSMikI3ds2HqsCKN6ud3t1OyzxWQHmdxObNEy0U7hCoUocK/9LyoPJUB8xKs
-	vMEX0gOeq3l+ZIvtdEyjCbnbAMRRGzCJs6qx9nbHH8hcFyLJRXXQzVMZ3JEdXBCNC64lpImcoX0e6
-	Fe58nrNN97zOViutKoMVYah9OWccAHsg/Aldmq4yncUbXrO79e45cWg5ltYP4DkB0CKC4fJYhBuot
-	yX01snTA==;
+	bh=MEj/8o0di6SXzRDFr2QhB2FSCNXafB52iKdFDtnLQZw=; b=BlrRdzc5l+ktVMInhXBrRXXc76
+	LT59wcO2R3uv2WBW1CyxoeGz09hQLf3oBqRFYvddkcFknVw5pAnhzBIescfPws4gKhk3ecZRTDiyc
+	0GExuX2oKuQGHDusFC44I52RDqM//aXK35qkKxFDdhps/f1y5Ab562dZXZdM/v+j4hlxfpXSsVqXW
+	Y6o/z0DVHT7n2MrVlZuICvzOhF/7OXkieaLmMLLdfpFUr5ba5OB/23nHJ7ltOsaf9+yBXZoIiyxhJ
+	a62SMwXm9x8TJiUoHmZo4a6hGQpQblgxTo0+MsVEDfz4CyC+C9jY+vO3uU8gOwwQuam/1pbwhN9zw
+	2y+MCHWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqMob-00000001O3w-3TNA;
-	Thu, 12 Feb 2026 02:52:25 +0000
-Received: from pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com ([50.112.246.219])
+	id 1vqMos-00000001OBE-0dsn;
+	Thu, 12 Feb 2026 02:52:42 +0000
+Received: from pdx-out-006.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.26.1.71])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqMoY-00000001O2t-3MUc
+	id 1vqMoq-00000001OA1-1IUK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 02:52:23 +0000
+	Thu, 12 Feb 2026 02:52:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1770864742; x=1802400742;
+  t=1770864760; x=1802400760;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=IHc1xX6Ny/1KQete+3SBOc4q1ddi9Vs8bpEGEtoXe6U=;
-  b=Meytf1Ul+L6CcqgrgGocdPrkShAhqnlaRTFfC5uq4k10BtpCqL4VFH9k
-   AMZZZ9vIoHGONFQrEcF65d8A7d/yh0v75ZjgztcEDPcwYCi6zDSyAtxpY
-   Qvxf6etQapmU8S5YS/2rMRCZTol2EsiiYhzJmQgmlZXN8gElYB5+JINvN
-   M7I0mbJ0E1yBYVGcapr/HQdC8G826SbgMc+IUM8qwfg8997vRHYHoAYIO
-   FMuGDLAE43RQECF/pvMqDQ6wYOIB9v/ioMpZPfT3miifSvda1wyhmRA7x
-   TZR6p1oyf6k0GJAHeyK70kQrojb1KqgOTLJR0r3VD4KQVAjPguvKw1ys3
+  bh=MEj/8o0di6SXzRDFr2QhB2FSCNXafB52iKdFDtnLQZw=;
+  b=QyGW/4Z/wuY8ybOoylPPg2Knt/VNoUmA1ntwbDOTxkXL7oRJKrSDLmq4
+   ve1a+IOd3aK9XJMfhcXuCjxgqH6tfzDRTWnRVETxHiE5yRS1rxVPULuyy
+   nBvXjHqyWRiYyZu1sFkuF8K2Pmd8hyNeW/wisvaK2Hg6pPsZC73mfAb1j
+   q4FwtSMA6ip08D4+pPQNVdpNHt5kFdSvDijF/iLTxEUuMUAUh3RL8ocgj
+   4wBvGER13uhgMPf4VBZQQWj/thuR/SD5iTZkzNzjeECSyTbq6DMYC9C8B
+   82YKzOynUQGHD1ircozbEdbB+1EfjCNSusjLtgaZRaDBTykOKYb4QOczf
    Q==;
-X-CSE-ConnectionGUID: v9N6cePqQwi3BSYKvGOi0w==
-X-CSE-MsgGUID: sMTwPccuT7G3uzl4uzIUFQ==
+X-CSE-ConnectionGUID: n2pRfEDeR9yq1s+J/lHJJA==
+X-CSE-MsgGUID: RDLY3WP4Q6Wdc6L8NkI8bQ==
 X-IronPort-AV: E=Sophos;i="6.21,285,1763424000"; 
-   d="scan'208";a="12744052"
-Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
-  by internal-pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 02:52:22 +0000
-Received: from EX19MTAUWB002.ant.amazon.com [205.251.233.111:29933]
+   d="scan'208";a="12917961"
+Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
+  by internal-pdx-out-006.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 02:52:37 +0000
+Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.234:22788]
  by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.0.85:2525] with esmtp (Farcaster)
- id 052a295b-db9f-4b93-9d72-fea55f17e200; Thu, 12 Feb 2026 02:52:22 +0000 (UTC)
-X-Farcaster-Flow-ID: 052a295b-db9f-4b93-9d72-fea55f17e200
+ id 16e310c7-f260-4501-81d5-536019038d8f; Thu, 12 Feb 2026 02:52:37 +0000 (UTC)
+X-Farcaster-Flow-ID: 16e310c7-f260-4501-81d5-536019038d8f
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
+ EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 12 Feb 2026 02:52:21 +0000
+ Thu, 12 Feb 2026 02:52:37 +0000
 Received: from dev-dsk-wanjay-2c-d25651b4.us-west-2.amazon.com (172.19.198.4)
  by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 12 Feb 2026 02:52:21 +0000
+ Thu, 12 Feb 2026 02:52:36 +0000
 From: Jay Wang <wanjay@amazon.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
 	<davem@davemloft.net>, <linux-crypto@vger.kernel.org>
@@ -70,9 +70,9 @@ CC: Jay Wang <jay.wang.upstream@gmail.com>, Vegard Nossum
 	<nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
 	<linux-kbuild@vger.kernel.org>, <linux-modules@vger.kernel.org>
-Subject: [PATCH 019/106] crypto: convert exported crypto symbol into pluggable interface for CONFIG_CRYPTO_SHA512 crypto
-Date: Thu, 12 Feb 2026 02:45:55 +0000
-Message-ID: <20260212024725.11264-20-wanjay@amazon.com>
+Subject: [PATCH 020/106] crypto: convert exported crypto symbol into pluggable interface for CONFIG_CRYPTO_SHA3 crypto
+Date: Thu, 12 Feb 2026 02:45:56 +0000
+Message-ID: <20260212024725.11264-21-wanjay@amazon.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260212024725.11264-1-wanjay@amazon.com>
 References: <20260212024725.11264-1-wanjay@amazon.com>
@@ -80,11 +80,11 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-Originating-IP: [172.19.198.4]
-X-ClientProxiedBy: EX19D039UWB004.ant.amazon.com (10.13.138.57) To
+X-ClientProxiedBy: EX19D044UWB004.ant.amazon.com (10.13.139.134) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_185222_899115_BC4E5987 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20260211_185240_404360_85B6D70E 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,53 +99,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vegard Nossum <vegard.nossum@oracle.com>
-
 Apply Crypto API wrappers to the exported crypto symbol in
-CONFIG_CRYPTO_SHA512-related crypto to convert them into pluggable
+CONFIG_CRYPTO_SHA3-related crypto to convert them into pluggable
 interface.
 
-Signed-off-by: Vegard Nossum <vegard.nossum@oracle.com>
-[add sha512.o into crypto-objs-y; revise commit message]
+This patch is partially based on work by Vegard Nossum, with
+modifications. Unlike the original, we do not include
+DEFINE_CRYPTO_API since only one copy of the crypto symbols is
+kept, either in the crypto module or in the main kernel, and we ensure
+such wrapper do not have impact on crypto already chosen built as
+module.
+
+Co-developed-by: Vegard Nossum <vegard.nossum@oracle.com>
 Signed-off-by: Jay Wang <wanjay@amazon.com>
 ---
  crypto/Makefile | 2 +-
- crypto/sha512.c | 4 ++--
+ crypto/sha3.c   | 4 ++--
  2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/crypto/Makefile b/crypto/Makefile
-index 45e055a8c0f4..47ff0136c7c5 100644
+index 47ff0136c7c5..251b20fad9c2 100644
 --- a/crypto/Makefile
 +++ b/crypto/Makefile
-@@ -81,7 +81,7 @@ crypto-objs-$(CONFIG_CRYPTO_MD5) += md5.o
- obj-$(CONFIG_CRYPTO_RMD160) += rmd160.o
+@@ -82,7 +82,7 @@ obj-$(CONFIG_CRYPTO_RMD160) += rmd160.o
  obj-$(CONFIG_CRYPTO_SHA1) += sha1.o
  crypto-objs-$(CONFIG_CRYPTO_SHA256) += sha256.o
--obj-$(CONFIG_CRYPTO_SHA512) += sha512.o
-+crypto-objs-$(CONFIG_CRYPTO_SHA512) += sha512.o
- obj-$(CONFIG_CRYPTO_SHA3) += sha3.o
+ crypto-objs-$(CONFIG_CRYPTO_SHA512) += sha512.o
+-obj-$(CONFIG_CRYPTO_SHA3) += sha3.o
++crypto-objs-$(CONFIG_CRYPTO_SHA3) += sha3.o
  obj-$(CONFIG_CRYPTO_SM3_GENERIC) += sm3_generic.o
  obj-$(CONFIG_CRYPTO_STREEBOG) += streebog_generic.o
-diff --git a/crypto/sha512.c b/crypto/sha512.c
-index d320fe53913f..6e40932862d5 100644
---- a/crypto/sha512.c
-+++ b/crypto/sha512.c
-@@ -404,13 +404,13 @@ static int __init crypto_sha512_mod_init(void)
+ obj-$(CONFIG_CRYPTO_WP512) += wp512.o
+diff --git a/crypto/sha3.c b/crypto/sha3.c
+index 8f364979ec89..1aefb256dd72 100644
+--- a/crypto/sha3.c
++++ b/crypto/sha3.c
+@@ -145,13 +145,13 @@ static int __init crypto_sha3_mod_init(void)
  {
  	return crypto_register_shashes(algs, ARRAY_SIZE(algs));
  }
--module_init(crypto_sha512_mod_init);
-+crypto_module_init(crypto_sha512_mod_init);
+-module_init(crypto_sha3_mod_init);
++crypto_module_init(crypto_sha3_mod_init);
  
- static void __exit crypto_sha512_mod_exit(void)
+ static void __exit crypto_sha3_mod_exit(void)
  {
  	crypto_unregister_shashes(algs, ARRAY_SIZE(algs));
  }
--module_exit(crypto_sha512_mod_exit);
-+crypto_module_exit(crypto_sha512_mod_exit);
+-module_exit(crypto_sha3_mod_exit);
++crypto_module_exit(crypto_sha3_mod_exit);
  
  MODULE_LICENSE("GPL");
- MODULE_DESCRIPTION("Crypto API support for SHA-384, SHA-512, HMAC-SHA384, and HMAC-SHA512");
+ MODULE_DESCRIPTION("Crypto API support for SHA-3");
 -- 
 2.47.3
 
