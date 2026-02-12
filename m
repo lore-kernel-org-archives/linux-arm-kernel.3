@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B7B3EE369B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 15:40:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E265EE369B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 15:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NTco/kPWu55YLeIqPcq43kzrY4AuicCJ5cyuAeTIvuI=; b=g+dTG4zmK4cxPGxQqVx/D8SrtB
-	ytGkbpAW40rist9p/KUaLZuLxq+8Ziz7K0Edn8nL4AFBV/rbw0uIBW2ZtFNKF9Tzr46YqQwpnGaWm
-	bnRkEFgGmXKVlrfAiJ0yVV9jf+3VRhmXOmSG82Yahp/DstoFskHZ9iP/jktMcfWPfiR+gITjASM7x
-	R7LlEwLqqSSuNjgftDkQDeu0nN3NDUBdRbmDH9fyuHai7APJx9pP0SUq2Mjx/LHmEDy9S2Tf2C0MR
-	Tz3ffBQ03OmW+udXACinOkM8SlOm25gTnrhdl393cOb1EAu0zngLYyKSoqeWdBKU05X0i9nXBhwqT
-	cZlL1CJQ==;
+	bh=5VBHF9uCiqRs/sckzc5+nuH+GICUPyVzZM3kHWHNXeQ=; b=oz9o2DtJlBYAlcvK3EPPwsuA+P
+	E2wWDwZeOLekbtW7GcOLCE59ucGCiMVOUUd6G1KCKl45wmTUAMBfVRWOk1NtaBXZLyhyZN3A9Muf9
+	4PPSdSBzCRmoIWc8dXoLxMHHTBl23BIE7mIIk6LGSiyMAjWgUyq/uPZ+Jhsae+WJOZeh/IWW49ouI
+	PLZSi026lNrfhj+o5wKIs1FWTIRiqvYecCqYEVI1jJMe2diiXeuXhhF/5ZViUYlGhliRqhLDAaT4e
+	WAfSlvFrBkVrRGKUjfMZBZoWEs9oNm5fDcW02RleHjwLTLWb34iMojxZ98RIy6vtTI4OmXVRRPb/b
+	z6BVjJeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqYnp-00000002Hai-0fqm;
-	Thu, 12 Feb 2026 15:40:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vqYph-00000002Hlg-43kR;
+	Thu, 12 Feb 2026 15:42:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqYnm-00000002HaV-1Foq
+	id 1vqYpf-00000002HlG-2ZY5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 15:40:22 +0000
+	Thu, 12 Feb 2026 15:42:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 23E0860051;
-	Thu, 12 Feb 2026 15:40:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 651F3C4CEF7;
-	Thu, 12 Feb 2026 15:40:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9E2C0405D8;
+	Thu, 12 Feb 2026 15:42:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04F44C4CEF7;
+	Thu, 12 Feb 2026 15:42:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770910820;
-	bh=NTco/kPWu55YLeIqPcq43kzrY4AuicCJ5cyuAeTIvuI=;
+	s=k20201202; t=1770910938;
+	bh=bSi5CHEhH4PGPzVWKmIcnWr34ofLTq8JlxdhamPaFvM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OS8LzFH9JBFCiVG84P5G/4QroKij0LJJ2QlsgtUrabn05GDecJ/2taaOSXbcFfqOB
-	 LM6kmjAZL5VaCQ+hcJO2pqE0Ve4em8hWuCMiDaWDm8Rlgc1NQbphnT3ic5VZVbtnjY
-	 HuzCWYCBWt7iBiJvj4ltipZ5P4xyQVMt2MW/MtlVbiS/RNBNtLgteQWWciv7vPVWzT
-	 J6vS6oacuq41XNsc0zWM3kiyqHYXD8my8927m3mncW/Dzt7yGHjK+DQCD+ZtKc/3in
-	 NdrQ1Nu9XebwCEr38DF88zTmaiVUaOvLnP6xGu/03V3i2cq3y+W1rLhg5BQIoDFthh
-	 MtV7nPj6dU45A==
-Message-ID: <d786d817-e97d-4270-a3be-4778730df35e@kernel.org>
-Date: Thu, 12 Feb 2026 16:40:14 +0100
+	b=Z4LXr7MKEf8WXwuYLLuHmQOtEzIvwN9mupeTM8M0cwog5O6pBxyKN9VTJqtyJ5kb4
+	 TMBzUncfcedEXdcufdEhtnOFb5Kann6VCvn8dSYws5zjkc1POk+Ark9VyeXln6cAd5
+	 EYOniL7TfpblkplA3/mP6uBr2Wdf0y0O7CurTpYD4I7zT8TYIo522mei6wCjj0vmZv
+	 lIaYcPcLZP6viKmRNiwPq+6kpgv6jKG9zA47Z84LQPGcrI+UV1W959q16FbzoEAscI
+	 pvyEej4x6N2MvM1ZdtuY/4YGswAjA9A601qpHXGpEl4gZzewOHxcBV+6pKH2zvZcwP
+	 p5Jy18LpJ/LJw==
+Message-ID: <bfe9f164-ac90-4647-b194-2f9b2fef2901@kernel.org>
+Date: Thu, 12 Feb 2026 16:42:12 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/5] ARM: multi_v7_defconfig: Enable ITE IT66121 driver
+Subject: Re: [PATCH 1/5] ARM: dts: ti: Enable overlays for all DTB files
 To: "Kory Maincent (TI)" <kory.maincent@bootlin.com>,
  Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas Kemnade
  <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>,
@@ -62,7 +62,7 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
  Louis Chauvet <louis.chauvet@bootlin.com>
 References: <20260212-feature_bbge-v1-0-29014a212f35@bootlin.com>
- <20260212-feature_bbge-v1-4-29014a212f35@bootlin.com>
+ <20260212-feature_bbge-v1-1-29014a212f35@bootlin.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,9 +108,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260212-feature_bbge-v1-4-29014a212f35@bootlin.com>
+In-Reply-To: <20260212-feature_bbge-v1-1-29014a212f35@bootlin.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260212_074219_721541_4EE8BA5D 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,11 +130,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/02/2026 16:26, Kory Maincent (TI) wrote:
-> Enable the ITE IT66121 HDMI bridge driver to support HDMI output on
-> the BeagleBone Green with the Seeed Studio HDMI cape.
+> Allow overlays to be applied to any DTB. This adds around ~40% to the
+> total size of the DTB files on average.
+> 
+> Signed-off-by: Kory Maincent (TI) <kory.maincent@bootlin.com>
+> --
+> 
+> Enable overlays for all dtb similarly to what has been done for arch64
+> TI boards, but we could only enable overlays for Beagle Bone and
+> variant boards if required.
 
-This is not one option per patch. All three patches should be squashed,
-because are logically one change.
+You mixed changelog with commit with invalid separator thus there is no
+final SoB.
+
 
 Best regards,
 Krzysztof
