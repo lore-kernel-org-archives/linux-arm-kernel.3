@@ -4,88 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62C09EDF021
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 03:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36DA2EDF020
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 03:22:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FkQH6lR076Cv3HChv/fjJLbF2dz8iGJz4V6MPQQwk2g=; b=saQ4rnZW/YgkU6isPH4vEZUyPY
-	CQG0CCwSwqNm9lBp/0JQ2Li44/GNAHkFue2pxWdeeLAYlQOzuyAPgBfStTTsZZM12PXp2sEMihzXE
-	1J7TwsKOuvur1tXxAWLU6VipFY0DbiVLekp3d0nh/NPWYHwjDYceRcNmjq4NQAsMTYv7HjRcKO7E8
-	B7+BqqMsvMV/0A3oICWf4HCc2GtsFxSrC9ekSmcT/GN2hkm+dKZ95CmkBk4m9qLdAMy145Pr14qq8
-	AP58Y8w3hjDX4y1iobk4jzJ3XG6ldR8TYutKNZ/yYYj270qr2WxvlaZQwzAi5Q2/vNMVG6wTZJ2Eo
-	iLujyXNQ==;
+	bh=ZkDhwjOZrpamwSu22JI7M0uaHC9mk3y0opcfSDw/FVs=; b=XsdOSQ7g7ZoO/R6xJKQfF/zwvp
+	I+DOz0HIMwvf+O/1yChb3IliE8vX884lfGHiA8cADQ51jneKk7Wd88VyYjcygxpApvy+JpH/7sDPv
+	bGArUEr0fHCyMRVRiaShDf1zvBy4fztFywR7GyGB9wT0tOQx3UxPMn3y3bpzCEYPa/OX+MQ77PEgM
+	uQWrqyeIBdjLbtNe8o82Mi/CYyccyjMddBr7N/c2EyveLIuMrvSIgqsJQPXf0I79RHA0PFox93jTI
+	I2ioXuWNJtHzzjuUVDU0+y0CWd9RVG/ycH2vcdHYbqmlEpSUiaUtmSm3eyeVFEs6ySQrDv7mGvlL4
+	6UWgqJ5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqNHg-00000001aBo-2c6S;
-	Thu, 12 Feb 2026 03:22:28 +0000
-Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
+	id 1vqNHr-00000001aIs-45JT;
+	Thu, 12 Feb 2026 03:22:39 +0000
+Received: from pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.162.73.231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqNHa-00000001a7W-1Tsh
+	id 1vqNHo-00000001aFw-0VCv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 03:22:25 +0000
-Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-1270be4d125so6919119c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Feb 2026 19:22:21 -0800 (PST)
+	Thu, 12 Feb 2026 03:22:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1770866541; x=1771471341; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=FkQH6lR076Cv3HChv/fjJLbF2dz8iGJz4V6MPQQwk2g=;
-        b=OSbWMBgkh2X8vBoDpsmWBqayAWkeo087dU2M8l261Kb9hldaS4GEyY9JfmYf2Ww+ho
-         FeJzWFI/DPiU5THBWqS9s1vqIR+qDvWG1dSpUgohgv6InROdBSjhkBOdwbEUnQtdLZNe
-         PlJO1ZcmMTQ3S00Wb2UqAcFUaXZyxumWdTJi3osuj00ZznBMcWG9utshIdluOXet2qfE
-         qR0e/btZYr2p67/TPJ0kpzqk8gcYPvhSV+0m2x6g+EZoHD5L7kWC/HSOqI5oiiwuIkaw
-         XR3qpAa/umH6st+14G+A/bboNhoMsrFTIS0mmpfCXJn+6TftD24EcP/W/6WdHnJSNBdC
-         RCxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1770866541; x=1771471341;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FkQH6lR076Cv3HChv/fjJLbF2dz8iGJz4V6MPQQwk2g=;
-        b=oK6fi/ovsYhc1t8sTI2oEyAubCKL2Mc4tai8Y6xJ1XMshLu3fXqH3pkDD5BilU5uby
-         3d+5uAkL1AmCQTVmLBIbnI1FG4FMvand56kNyU30jdvWqcnuxMiYUIfeUY0o0SB6qnRx
-         FXJ4wjsn97360WsLRx5G8eA+EOnyqrTZeLQDgcMS6UCLwXokQJPnI6N0RFZUIYb+Ymhd
-         lAQzv1EZmmmRH/AxSltykY45mlGDucXY6WSu+sj5rr17Ss7SbPWm2i9uYI/gZ0RNePrB
-         4l84CqIPjsdIIhKm02O9RxRGBod24+NyDCkDAywJTcOHznE2COK2Ave0ZvbbnKKlRskk
-         iLLg==
-X-Forwarded-Encrypted: i=1; AJvYcCUAhbY1S5ErUmuzxSRg/qGr+mKojHLiiIt0Loz3Zwp/vJVc7ffCCRjHSwLsMvlm8g2Ph2bs+Q7TD90XY7N/iVex@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywk+ByToMkdsUd6snMYVy5AxFm1Iu67W/L+xGeE4H6spL7iMwnd
-	JGoJzTsxaJbChft7YRZ5cTNJIAiYmJc+RsSvBb77hqAzuqR/hoOQPlIpJpLexA==
-X-Gm-Gg: AZuq6aKHGmfP2h3W/bT610rZvTPQCG5L8CU6aWSbMSo3QIlH1OGGWU4goFkDevBiBDj
-	ixLyuJb2AScIYCgepvNF7Nd2epGotoWf2Xghz/OlauO2XKggRxcVJadYKJTYZOgEr9bo+4r9Aj3
-	WK7/p+je1hmHsTb5zbqeoNd7E8OGlfH32OgBuW7PHki6YxlPOP3NsQAE9LHRwiscK8BcAfrbVMR
-	UYT5y15Ob83WmFBmmTOl073Cowf8bKJyju1mRb+0ZnsCWFY97+uc/JLtIDKFkYJmDDWC/2rNLP2
-	uZ/LRKpkmN5HOqTm68aCcb4igI6qopDQToZZmviGcu+5fpRorZyhcz8CZQQY3oMUxfeuW8Ita8y
-	h+W+j6qf1+BDM31wn2vXcX1+3BTJt2jh+K5nz3DNc5gRa1d+P/AcrnJ6+KaOrT6ThxgEjJ28TJV
-	lDT3jhY69tpwGuKp/oFGXS4EFVRxfEuUb/ps2PfozTOWwg2UpnR4Qy7CC2GoLBBlM=
-X-Received: by 2002:a05:7022:513:b0:11f:1e59:4c2d with SMTP id a92af1059eb24-1272f73b92cmr628906c88.7.1770866541220;
-        Wed, 11 Feb 2026 19:22:21 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:f5e:c935:ddee:63d0])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1272a6fe357sm3507870c88.16.2026.02.11.19.22.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Feb 2026 19:22:20 -0800 (PST)
-Date: Wed, 11 Feb 2026 19:22:17 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Russell King <linux@armlinux.org.uk>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: tegra: paz00: use software nodes to describe GPIOs
- for WiFi rfkill
-Message-ID: <aY1GZQJLKAF0fsz6@google.com>
-References: <ZnzulZBukibZUXKM@google.com>
- <171958889447.2435101.5942373221568313704.b4-ty@nvidia.com>
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1770866556; x=1802402556;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=ZkDhwjOZrpamwSu22JI7M0uaHC9mk3y0opcfSDw/FVs=;
+  b=jeWnrQ0le5293rSMVLOxZApeNiFda27dLLyUnaoGH4LrsFnOGtQJw0Yn
+   liFOQXFcj+yJBXoytQ9mv2oFvnF56R+1UPUceZp6TjLAaXpQ0mjKGCkJ4
+   5GKJfmrQp8XKTNfA1V+ArPb92Bslk6d63vlXQUgNqC2JDBSOk0pAQ4Y9d
+   g11hiz2vmwmyjgLKELeiNw89HwgJjiP409TT+ZUyrZ/VBykqdp70jVSRQ
+   5bZrak3GCzdc0QA5m5q6XEJYLuXumo4LeXsyiNf8b7NYfDS9AlACGu0MS
+   310nzjOuRxsRZCRYEDNmXq8mtiUlsDBhdbiipfQmDA0QqnDqFNoXRxthd
+   Q==;
+X-CSE-ConnectionGUID: FisB0SiSR7WyV6EdV/ICtg==
+X-CSE-MsgGUID: kUlsHcQ6Q/e65OlTA1tOpw==
+X-IronPort-AV: E=Sophos;i="6.21,285,1763424000"; 
+   d="scan'208";a="12722696"
+Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
+  by internal-pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 03:22:35 +0000
+Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.234:30685]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.31.238:2525] with esmtp (Farcaster)
+ id 146075df-a5f9-46d8-a026-0166005e892d; Thu, 12 Feb 2026 03:22:35 +0000 (UTC)
+X-Farcaster-Flow-ID: 146075df-a5f9-46d8-a026-0166005e892d
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
+ Thu, 12 Feb 2026 03:22:35 +0000
+Received: from dev-dsk-wanjay-2c-d25651b4.us-west-2.amazon.com (172.19.198.4)
+ by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
+ Thu, 12 Feb 2026 03:22:34 +0000
+From: Jay Wang <wanjay@amazon.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
+	<davem@davemloft.net>, <linux-crypto@vger.kernel.org>
+CC: Jay Wang <jay.wang.upstream@gmail.com>, Vegard Nossum
+	<vegard.nossum@oracle.com>, Nicolai Stange <nstange@suse.de>, Ilia Okomin
+	<ilya.okomin@oracle.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Luis Chamberlain
+	<mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>, Nathan Chancellor
+	<nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
+	<linux-kbuild@vger.kernel.org>, <linux-modules@vger.kernel.org>
+Subject: [PATCH 05/12] arm64: crypto: convert exported crypto symbol into pluggable interface for CONFIG_CRYPTO_SM4_ARM64_CE_CCM crypto
+Date: Thu, 12 Feb 2026 03:21:05 +0000
+Message-ID: <20260212032117.9166-6-wanjay@amazon.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260212032117.9166-1-wanjay@amazon.com>
+References: <20260212032117.9166-1-wanjay@amazon.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <171958889447.2435101.5942373221568313704.b4-ty@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [172.19.198.4]
+X-ClientProxiedBy: EX19D041UWA004.ant.amazon.com (10.13.139.9) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_192223_732580_A9C42347 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20260211_192236_209608_F8676C76 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,30 +99,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thierry,
+Apply Crypto API wrappers to the exported crypto symbol in
+CONFIG_CRYPTO_SM4_ARM64_CE_CCM-related crypto to convert them into pluggable
+interface.
 
-On Fri, Jun 28, 2024 at 05:35:08PM +0200, Thierry Reding wrote:
-> From: Thierry Reding <treding@nvidia.com>
-> 
-> 
-> On Wed, 26 Jun 2024 21:46:13 -0700, Dmitry Torokhov wrote:
-> > Complete conversion of the WiFi rfkill device to use device
-> > properties/software nodes by utilizing PROPERTY_ENTRY_GPIO() instead of
-> > a lookup table.
-> > 
-> > 
-> 
-> Applied, thanks!
-> 
-> [1/1] ARM: tegra: paz00: use software nodes to describe GPIOs for WiFi rfkill
->       commit: 47ac458bb229f8c4864081d173adbcfc55c34880
+Signed-off-by: Jay Wang <wanjay@amazon.com>
+---
+ arch/arm64/crypto/Makefile          | 2 +-
+ arch/arm64/crypto/sm4-ce-ccm-glue.c | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-Do you know by any chance why paz00 does not simply configure rfkill
-switch via device tree? The driver (rfkill-gpio) seem to support device
-tree...
-
-Thanks.
-
+diff --git a/arch/arm64/crypto/Makefile b/arch/arm64/crypto/Makefile
+index 59e94f714ef9..f17d35591ab2 100644
+--- a/arch/arm64/crypto/Makefile
++++ b/arch/arm64/crypto/Makefile
+@@ -17,7 +17,7 @@ sm4-ce-cipher-y := sm4-ce-cipher-glue.o sm4-ce-cipher-core.o
+ crypto-objs-$(CONFIG_CRYPTO_SM4_ARM64_CE_BLK) += sm4-ce.o
+ sm4-ce-y := sm4-ce-glue.o sm4-ce-core.o
+ 
+-obj-$(CONFIG_CRYPTO_SM4_ARM64_CE_CCM) += sm4-ce-ccm.o
++crypto-objs-$(CONFIG_CRYPTO_SM4_ARM64_CE_CCM) += sm4-ce-ccm.o
+ sm4-ce-ccm-y := sm4-ce-ccm-glue.o sm4-ce-ccm-core.o
+ 
+ obj-$(CONFIG_CRYPTO_SM4_ARM64_CE_GCM) += sm4-ce-gcm.o
+diff --git a/arch/arm64/crypto/sm4-ce-ccm-glue.c b/arch/arm64/crypto/sm4-ce-ccm-glue.c
+index 332f02167a96..96e54d9c45fd 100644
+--- a/arch/arm64/crypto/sm4-ce-ccm-glue.c
++++ b/arch/arm64/crypto/sm4-ce-ccm-glue.c
+@@ -276,8 +276,8 @@ static void __exit sm4_ce_ccm_exit(void)
+ 	crypto_unregister_aead(&sm4_ccm_alg);
+ }
+ 
+-module_cpu_feature_match(SM4, sm4_ce_ccm_init);
+-module_exit(sm4_ce_ccm_exit);
++crypto_module_cpu_feature_match(SM4, sm4_ce_ccm_init);
++crypto_module_exit(sm4_ce_ccm_exit);
+ 
+ MODULE_DESCRIPTION("Synchronous SM4 in CCM mode using ARMv8 Crypto Extensions");
+ MODULE_ALIAS_CRYPTO("ccm(sm4)");
 -- 
-Dmitry
+2.47.3
+
 
