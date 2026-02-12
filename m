@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F775EB48F6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47254EB48F2
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 09:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FIjty/VgjHPruEii1TG7/km9lKPa6caaPuW2vracmdw=; b=gJl7lnek+0u1LzzkemgF4ZcDNc
-	7+4Acvuo2ikqQXLUqhD6hll7BvgSGThrM8TXdfdSYQxX7F72QwCORebzC80DuZwc/k8Not8F5PAcL
-	dchG9wESW0ZDbe05mI9V924lokuC4EFBcQ0o59r9di/4CUx1LDD842w5QO07xGRj+2bcT5g4Z3zih
-	9HDEooXqZvSA1Eh0lkhT4ygTSrdOK/5Xxl/jFkcV/+Bjv2F11fGnr7Aj+Z63KpkSuFxu2NagiJDQ2
-	eZ/DzM0UO6gOeohECkdxjg8DDP9Y84X6qFQMx1pEgW+PtWnAx2hi7BaBLYLCgyW5/j8ylQ/YgBoSo
-	c4FgkbFQ==;
+	bh=3NP7+ZHWsB6Psu3ILEUdw+NMZhY4b4eDcDPODDoBFXM=; b=DgzYyj6lghc436/scnKgKSKE9E
+	zU0/C6OTpTkRdMttTyeRfkraToCsyge9CNAxNoM/9XWmymjVoAeCRhGfgR4hL58tGZmvbuDx5rvJi
+	qyKXvg4nnmXnIwohcAZGMHiXrtH5ntK1BZwmnqTxWmjurVsaK/Let/Gl8mSgcRoui+oas2Ekivqzb
+	dp3wUWs7u/ZFZB0HH0yD+ECAj749eyOYwBXt73gfth2dr3qxn2dhQNvN+RLn52YtfCi1Sse0gTb8a
+	hUnZ+vGUu7oFfUi59kQi58oWUEnqXOCz8FhxLuTzwF+t/sORoSbYjo8JkAaCR4J1qwZoMCK1kTjIa
+	lfC6L3fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqTNJ-00000001raY-3Wv8;
-	Thu, 12 Feb 2026 09:52:41 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vqTNI-00000001rYl-32Fu;
+	Thu, 12 Feb 2026 09:52:40 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqTNG-00000001rVl-1zNO;
+	id 1vqTNF-00000001rV8-3RTn;
 	Thu, 12 Feb 2026 09:52:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1770889955;
-	bh=rcGXULORsTJ5y5lmca1iSvmzehk/aYsFmrEk4qqmX7c=;
+	s=mail; t=1770889951;
+	bh=2LumtwVT4QDDpuSP3HIIGZQ4HRZvYGsUCxRUalgpxrQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KgerlAYLA3xSJx0db21DfPBrLw2unTaw2Kzoi+TXiQt4NHVNpVrdnmEaaXLUX89RQ
-	 aAZX4HVsq7u9/7ehv2ITidjDbTN8/b/uGazbWpV7b+mF50JqifGhNUA8tXY+lYQzEt
-	 aBaviatdEU6Tnf5f1B3s237GaggtqoHUJ/eNRtG+YcdrpJbHSir+ZG+8kq35MwbM1x
-	 rcOkHMRg058tn7rNG2XNTD9hPkKNv59q4hhLWsphZo7+Vnm0LpOwvVyL2WZcmYfSXQ
-	 L94zOjsXKw51DhbKodInm5PTlGd5QpkoJH3BeIYBYcajTwXL317YgKBVJ/oXo5X2o7
-	 E8TjlU5Q65C/Q==
+	b=Hn/4weQHNFlsTBTqG4b29/rCqcdfBAKTztHzp3egMHeHcgipblJR9dpV0RfIaBvPu
+	 ZpJiecxTTfwDmZbEo/PNG9KJ85qhxxCE5kJiLLy2cAvJ3+BXGnFIf7s7whR6zhAXwg
+	 HfSbOiod8Va28YnMok6ituly8w7teaNNkwqCvK9UTjkNQ2X62uQZrlAygMDcQkRfax
+	 F0ZgVJvQiQ1OuLCdpPfyY6kd+gwQ9eNEoSAVEyFlZjFiJrCF+pZwIZUH3GxjK8gF5O
+	 7LO1eiGlGdCcsieU1fnxuLNBnER3kVOW/Ze//gbTd/B9ispcOyMRNJ55ACFzm6/44z
+	 BdXdK9vAOD7dA==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F41C717E1532;
-	Thu, 12 Feb 2026 10:52:34 +0100 (CET)
-Message-ID: <f37e4842-ad39-4529-aefa-eba16a28d7ee@collabora.com>
-Date: Thu, 12 Feb 2026 10:52:34 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7A6A617E1416;
+	Thu, 12 Feb 2026 10:52:30 +0100 (CET)
+Message-ID: <d62466ab-92d2-4bda-baeb-36786984f59f@collabora.com>
+Date: Thu, 12 Feb 2026 10:52:30 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/7] arm64: dts: mt8167: Add a specific watchdog dts node
+Subject: Re: [PATCH 2/7] dt-bindings: mediatek: Add reset controller constants
+ for mt8167
 To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
  linux-mediatek@lists.infradead.org
 Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
@@ -58,15 +59,15 @@ Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <cover.1770836189.git.l.scorcia@gmail.com>
- <228e74cc870ac01b223875e2a0dd7effa4137213.1770836190.git.l.scorcia@gmail.com>
+ <4786b688175eed89b899bdfd7e72505cafd7c3b0.1770836190.git.l.scorcia@gmail.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <228e74cc870ac01b223875e2a0dd7effa4137213.1770836190.git.l.scorcia@gmail.com>
+In-Reply-To: <4786b688175eed89b899bdfd7e72505cafd7c3b0.1770836190.git.l.scorcia@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_015238_660906_EBEC5490 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20260212_015238_011092_E145F233 
+X-CRM114-Status: GOOD (  23.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,49 +83,99 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 11/02/26 20:03, Luca Leonardo Scorcia ha scritto:
-> The watchdog driver for mt8167 relies on DT data, so the fallback
-> compatible mt8516 won't work, need to update watchdog device node
-> to sync with watchdog dt-binding document.
+> This file comes from the Lenovo Smart Clock kernel sources.
 > 
-
-Sorry, what are you talking about?
-You probably forgot to update the commit description after pulling this
-from some midstream tree of yours ;-)
-
-Please update the commit description.
-
 > Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 > ---
->   arch/arm64/boot/dts/mediatek/mt8167.dtsi | 7 +++++++
->   1 file changed, 7 insertions(+)
+>   include/dt-bindings/reset/mt8167-resets.h | 38 +++++++++++++++++++++++
+
+Please rename this to "mediatek,mt8167-resets.h"
+
+>   1 file changed, 38 insertions(+)
+>   create mode 100644 include/dt-bindings/reset/mt8167-resets.h
 > 
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8167.dtsi b/arch/arm64/boot/dts/mediatek/mt8167.dtsi
-> index fd17daa13dba..caf51f203dd3 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt8167.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt8167.dtsi
-> @@ -48,6 +48,13 @@ apmixedsys: apmixedsys@10018000 {
->   			#clock-cells = <1>;
->   		};
->   
-> +		watchdog@10007000 {
+> diff --git a/include/dt-bindings/reset/mt8167-resets.h b/include/dt-bindings/reset/mt8167-resets.h
+> new file mode 100644
+> index 000000000000..f77c2ca897cf
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/mt8167-resets.h
+> @@ -0,0 +1,38 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause) */
+> +/*
+> + * Copyright (c) 2015 MediaTek Inc.
+> + *
 
-All devicetree nodes must be ordered by mmio start (when they have one, or by
-name when they are not addressable).
+End the comment here; the extra text is redundant with the specified license
+identifier anyway.
 
-In this case, the watchdog node goes *after* the scpsys node, and before imgsys.
-
-Cheers,
-Angelo
-
-> +			compatible = "mediatek,mt8167-wdt";
-> +			reg = <0 0x10007000 0 0x1000>;
-> +			interrupts = <GIC_SPI 198 IRQ_TYPE_LEVEL_LOW>;
-> +			#reset-cells = <1>;
-> +		};
+> + * This program is free software; you can redistribute it and/or modify
+> + * it under the terms of the GNU General Public License version 2 as
+> + * published by the Free Software Foundation.
+> + *
+> + * This program is distributed in the hope that it will be useful,
+> + * but WITHOUT ANY WARRANTY; without even the implied warranty of
+> + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+> + * GNU General Public License for more details.
+> + */
 > +
->   		scpsys: syscon@10006000 {
->   			compatible = "mediatek,mt8167-scpsys", "syscon", "simple-mfd";
->   			reg = <0 0x10006000 0 0x1000>;
+> +#ifndef _DT_BINDINGS_RESET_CONTROLLER_MT8167
+> +#define _DT_BINDINGS_RESET_CONTROLLER_MT8167
+> +
+> +/* TOPRGU resets */
+> +#define MT8167_TOPRGU_DDRPHY_FLASH_RST		0 /* reset ddrphy and flash pad macro */
+
+Please remove all of the extra comments: they're stating the obvious anyway.
+
+> +#define MT8167_TOPRGU_AUD_PAD_RST		1 /* Write 1 to reset audio_tdm_in_pad,audio_tdm_pad,audio_fifo */
+> +#define MT8167_TOPRGU_MM_RST			2 /* Write 1 to reset MMSYS */
+> +#define MT8167_TOPRGU_MFG_RST			3 /* Write 1 to reset MFG */
+> +#define MT8167_TOPRGU_MDSYS_RST			4 /* Write 1 to reset INFRA_AO */
+> +#define MT8167_TOPRGU_CONN_RST			5 /* Write 1 to reset CONNSYS WDT reset */
+> +#define MT8167_TOPRGU_PAD2CAM_DIG_MIPI_RX_RST	6 /* Write 1 to reset MM and its related pad macro(DPI,MIPI_CFG,MIPI_TX) */
+> +#define MT8167_TOPRGU_DIG_MIPI_TX_RST		7 /* Write 1 to reset digi_mipi_tx */
+> +#define MT8167_TOPRGU_SPI_PAD_MACRO_RST		8 /* Write 1 to reset SPI_PAD_MACRO */
+
+You're missing reset N.9 - I'm mostly sure that 9 is
+
+MT8167_TOPRGU_INFRA_AO_RST
+
+> +#define MT8167_TOPRGU_APMIXED_RST		10 /* Write 1 to reset APMIXEDSYS */
+> +#define MT8167_TOPRGU_VDEC_RST			11 /* Write 1 to reset VDEC module */
+> +#define MT8167_TOPRGU_CONN_MCU_RST		12 /* Write 1 to reset CONNSYS */
+> +#define MT8167_TOPRGU_EFUSE_RST			13 /* Write 1 to reset efuse */
+> +#define MT8167_TOPRGU_PWRAP_SPICTL_RST		14 /* Write 1 to reset pwrap_spictl module */
+> +#define MT8167_TOPRGU_SW_RST_NUM		15
+> +
+> +/* MMSYS resets */
+> +#define MT8167_MMSYS_SW0_RST_B_DISP_DSI0	22
+
+That's not ok. All of the bindings must not be hardware specific, and I know
+that this "22" is bit(22) of MMSYS.
+
+The definitions must start from 0 and must have no holes (0 1 2 4 6 7 8 is not ok,
+but 0 1 2 3 4 5 is ok).
+If you have the entire list and it also matches 1:1 with the HW coincidentally,
+that'd be okay as well.
+
+Since I have a hunch that you don't actually have the entire list, you should
+at this point define your MT8167_SW0_RST_B_DISP_DSI0 as 0, and check the review
+on your mmsys patch for more hints.
+
+P.S.:
+
+#define MT8167_MMSYS_SW0_RST_B_SMI_COMMON	0
+#define MT8167_MMSYS_SW0_RST_B_SMI_LARB		1
+#define MT8167_MMSYS_SW0_RST_B_CAM_MDP		2
+#define MT8167_MMSYS_SW0_RST_B_MDP_RDMA0	3
+#define MT8167_MMSYS_SW0_RST_B_MDP_RSZ0		4
+#define MT8167_MMSYS_SW0_RST_B_MDP_RSZ1		5
+#define MT8167_MMSYS_SW0_RST_B_MDP_TDSHP0	6
+#define MT8167_MMSYS_SW0_RST_B_MDP_WDMA		7
+#define MT8167_MMSYS_SW0_RST_B_MDP_WROT0	8
+#define MT8167_MMSYS_SW0_RST_B_DISP_DSI0	9
+
+> +
+> +#endif  /* _DT_BINDINGS_RESET_CONTROLLER_MT8167 */
 
 
 
