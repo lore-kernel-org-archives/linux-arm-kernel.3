@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A931EDF021
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 03:02:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4210BEDF021
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 03:03:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zZLY2RdWFAnfhdQV4nMnvlY/DhIxSQaBwFJhqH+s+gw=; b=Iv2fKGI+p6YxQ8gkxQPwckeWPf
-	4lr9r9248XmucPv3FGZmvKQZ4H885jOSXnVha1+7YUfjN9T1GDNxxAIBLWW+n4ZoZqsgJWF3m1gI+
-	K5lfMoolNQSg47enKwe33+8zplTEB9p5HkK6A6BIBxaRGU/wzixL03tbFOtqe4Ado0YbolFQxqdFR
-	2bzct5g3mFVDmF0AR7W3JhC8yqnPdwH9sxU6uV2lZF5jYIJ7PQH9oPNEBSnm932b32FHEfH64HYec
-	TcY4utXPKS/469gq/S8vv33kMVf35Zr9sgHhRhTTSgnByfszBLKNJQRKV1EsZbVO12HAzTQMqUhaD
-	uqSM8p4g==;
+	bh=CXhuhgn4LhG1nenObyftggQvuPDsBve5odR969siNLw=; b=QJQpDfTLgzKYlZTuf80uGhlij1
+	2X7xEWiZYCPFxwlx8UiWMs2pLuyCuLm1h7mocUwXFJLY+gzTwyjyqGiAS0CGjKvQYnkQxAIy0PKnm
+	wDFmzGEXKlQCmuOH14k54XGzPqseeWu3u6alM1bVZmC0U0Vp89mmisln6VT6+e6b2Ef17NQvLvT0W
+	AbJ8sbG1nb4VGPvpJxeLM4YqSrKILtmJASMs6TnfrzCAFJ0J7yX9uVP7Hc+QNZpB9vHaJF9fv7HnB
+	cZDIvX5sg4kftJhBSbAhqhzzMMrw/NgQ1FA5e0cOktwvKfyZqDsL2Lgi9wcI8L1KdX6UwcfICSLre
+	/ORHNVRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqMyd-00000001SEH-14V1;
-	Thu, 12 Feb 2026 03:02:47 +0000
-Received: from pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.162.73.231])
+	id 1vqMyu-00000001SLB-2YyJ;
+	Thu, 12 Feb 2026 03:03:04 +0000
+Received: from pdx-out-008.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.42.203.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqMyZ-00000001SCb-2mtG
+	id 1vqMyq-00000001SJi-12XA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 03:02:45 +0000
+	Thu, 12 Feb 2026 03:03:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1770865363; x=1802401363;
+  t=1770865380; x=1802401380;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=zZLY2RdWFAnfhdQV4nMnvlY/DhIxSQaBwFJhqH+s+gw=;
-  b=O010gFeKj88yC/qsMrIXB+J+RxP/zjBUiYAwRK6q5Ll1vlng3dq54bUP
-   9kYD/uZ0zrg4pQGB0d1wRb+Rx/lLBkrgGuSKXTDHlOLqAfx7eJ45hhHJf
-   QmeBg58wF+/Dk9QoYjtL0dZz5C3foPN6lQjM5odXeOrnEjpJAq6HZ7JiM
-   3j/CzHbGP0r6GeTChF78VGfUCoG+nJiqkGohkSFWhb9IOpCe1160umZwT
-   +uYeed4o7Ri0NqzoXBOAPJgYctB4dMxXBVFCOwIss54U8BQJDrWCamZCJ
-   T9U/iRSaaJvFzy/Oqjf+gG53JWxyzc9kYWoKM0D0z4soPMkknnDAcmNJk
-   Q==;
-X-CSE-ConnectionGUID: pqsTA/wHTXqJut1X1+SSwQ==
-X-CSE-MsgGUID: CJwS5mjkSwGtxbS/dIDCVg==
+  bh=CXhuhgn4LhG1nenObyftggQvuPDsBve5odR969siNLw=;
+  b=odKYy1xW1PUhY6/9r2Z9qS2Xv2xhgQDYx4S1NIO+O7uvPz+LKWefGbt6
+   TeRVuxwUgStpaRyLU1841jRJIF2Z3eIzS8pZuXKQbMQJokTg7FxcPKl91
+   aQLoh1DdtTeKGHQpaNSk2HUizLGE6GxyDyVC8ZMECBMXVp3E0gMz8kHDI
+   Lh1lPJN6XKTcI9SwSGrDyT+GlS2V48Ml8Eh+tpUhseg3e1Vgi6AqHYJ5c
+   6soBrx9Lf0Jfnwgnl7QolxZY0VCziPVhbt4LKzJCXMqBxr8l34lCO0Djj
+   hfSdcYTNgNG/2fKytaWK6IU/YFP9TvDI9rUa54wSPJL/LFeUblp337ymx
+   w==;
+X-CSE-ConnectionGUID: zYZMISnLR2yYuApwrcj1zQ==
+X-CSE-MsgGUID: SVWKBc4xQheaXLf7zDrCPg==
 X-IronPort-AV: E=Sophos;i="6.21,285,1763424000"; 
-   d="scan'208";a="12721958"
-Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
-  by internal-pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 03:02:43 +0000
-Received: from EX19MTAUWC002.ant.amazon.com [205.251.233.51:8677]
+   d="scan'208";a="12913756"
+Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
+  by internal-pdx-out-008.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 03:02:59 +0000
+Received: from EX19MTAUWA001.ant.amazon.com [205.251.233.236:31552]
  by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.20.103:2525] with esmtp (Farcaster)
- id cdf3a59c-ab7a-4fbd-8af7-ab8a28d38c5c; Thu, 12 Feb 2026 03:02:42 +0000 (UTC)
-X-Farcaster-Flow-ID: cdf3a59c-ab7a-4fbd-8af7-ab8a28d38c5c
+ id da137e97-4179-46b9-b2c0-f964e01be049; Thu, 12 Feb 2026 03:02:58 +0000 (UTC)
+X-Farcaster-Flow-ID: da137e97-4179-46b9-b2c0-f964e01be049
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC002.ant.amazon.com (10.250.64.143) with Microsoft SMTP Server
+ EX19MTAUWA001.ant.amazon.com (10.250.64.217) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 12 Feb 2026 03:02:42 +0000
+ Thu, 12 Feb 2026 03:02:58 +0000
 Received: from dev-dsk-wanjay-2c-d25651b4.us-west-2.amazon.com (172.19.198.4)
  by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 12 Feb 2026 03:02:42 +0000
+ Thu, 12 Feb 2026 03:02:57 +0000
 From: Jay Wang <wanjay@amazon.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
 	<davem@davemloft.net>, <linux-crypto@vger.kernel.org>
@@ -70,9 +70,9 @@ CC: Jay Wang <jay.wang.upstream@gmail.com>, Vegard Nossum
 	<nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
 	<linux-kbuild@vger.kernel.org>, <linux-modules@vger.kernel.org>
-Subject: [PATCH 059/106] crypto: convert exported crypto symbol into pluggable interface for CONFIG_CRYPTO_PCRYPT crypto
-Date: Thu, 12 Feb 2026 02:46:35 +0000
-Message-ID: <20260212024725.11264-60-wanjay@amazon.com>
+Subject: [PATCH 060/106] crypto: convert exported crypto symbol into pluggable interface for CONFIG_CRYPTO_CRYPTD crypto
+Date: Thu, 12 Feb 2026 02:46:36 +0000
+Message-ID: <20260212024725.11264-61-wanjay@amazon.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260212024725.11264-1-wanjay@amazon.com>
 References: <20260212024725.11264-1-wanjay@amazon.com>
@@ -80,11 +80,11 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-Originating-IP: [172.19.198.4]
-X-ClientProxiedBy: EX19D041UWA001.ant.amazon.com (10.13.139.124) To
+X-ClientProxiedBy: EX19D044UWB002.ant.amazon.com (10.13.139.188) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_190243_752003_B79A1A16 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20260211_190300_339954_449A7100 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,48 +99,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vegard Nossum <vegard.nossum@oracle.com>
-
 Apply Crypto API wrappers to the exported crypto symbol in
-CONFIG_CRYPTO_PCRYPT-related crypto to convert them into pluggable
+CONFIG_CRYPTO_CRYPTD-related crypto to convert them into pluggable
 interface.
 
-Signed-off-by: Vegard Nossum <vegard.nossum@oracle.com>
-[add pcrypt.o into crypto-objs-y; revise commit message]
+This patch is partially based on work by Vegard Nossum, with
+modifications. Unlike the original, we do not include
+DEFINE_CRYPTO_API since only one copy of the crypto symbols is
+kept, either in the crypto module or in the main kernel, and we ensure
+such wrapper do not have impact on crypto already chosen built as
+module.
+
+Co-developed-by: Vegard Nossum <vegard.nossum@oracle.com>
 Signed-off-by: Jay Wang <wanjay@amazon.com>
 ---
- crypto/Makefile | 2 +-
- crypto/pcrypt.c | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ crypto/Makefile              |  2 +-
+ crypto/cryptd.c              |  4 +--
+ crypto/fips140/fips140-api.c | 22 ++++++++++++++
+ include/crypto/cryptd.h      | 56 +++++++++++++++++++++++++-----------
+ 4 files changed, 65 insertions(+), 19 deletions(-)
 
 diff --git a/crypto/Makefile b/crypto/Makefile
-index cb1761303151..b371a8788d39 100644
+index b371a8788d39..f029e0decaa1 100644
 --- a/crypto/Makefile
 +++ b/crypto/Makefile
-@@ -124,7 +124,7 @@ endif
- # Enable <arm_neon.h>
+@@ -125,7 +125,7 @@ endif
  CFLAGS_aegis128-neon-inner.o += -isystem $(shell $(CC) -print-file-name=include)
  
--obj-$(CONFIG_CRYPTO_PCRYPT) += pcrypt.o
-+crypto-objs-$(CONFIG_CRYPTO_PCRYPT) += pcrypt.o
- obj-$(CONFIG_CRYPTO_CRYPTD) += cryptd.o
+ crypto-objs-$(CONFIG_CRYPTO_PCRYPT) += pcrypt.o
+-obj-$(CONFIG_CRYPTO_CRYPTD) += cryptd.o
++crypto-objs-$(CONFIG_CRYPTO_CRYPTD) += cryptd.o
  obj-$(CONFIG_CRYPTO_DES) += des_generic.o
  obj-$(CONFIG_CRYPTO_FCRYPT) += fcrypt.o
-diff --git a/crypto/pcrypt.c b/crypto/pcrypt.c
-index c3a9d4f2995c..b9cf7df64c4e 100644
---- a/crypto/pcrypt.c
-+++ b/crypto/pcrypt.c
-@@ -378,8 +378,8 @@ static void __exit pcrypt_exit(void)
- 	kset_unregister(pcrypt_kset);
+ obj-$(CONFIG_CRYPTO_BLOWFISH) += blowfish_generic.o
+diff --git a/crypto/cryptd.c b/crypto/cryptd.c
+index cd38f4676176..8b1ba67d752c 100644
+--- a/crypto/cryptd.c
++++ b/crypto/cryptd.c
+@@ -1145,8 +1145,8 @@ static void __exit cryptd_exit(void)
+ 	crypto_unregister_template(&cryptd_tmpl);
  }
  
--module_init(pcrypt_init);
--module_exit(pcrypt_exit);
-+crypto_module_init(pcrypt_init);
-+crypto_module_exit(pcrypt_exit);
+-module_init(cryptd_init);
+-module_exit(cryptd_exit);
++crypto_module_init(cryptd_init);
++crypto_module_exit(cryptd_exit);
  
  MODULE_LICENSE("GPL");
- MODULE_AUTHOR("Steffen Klassert <steffen.klassert@secunet.com>");
+ MODULE_DESCRIPTION("Software async crypto daemon");
+diff --git a/crypto/fips140/fips140-api.c b/crypto/fips140/fips140-api.c
+index 3c6dfcac5db5..1452439319cc 100644
+--- a/crypto/fips140/fips140-api.c
++++ b/crypto/fips140/fips140-api.c
+@@ -622,3 +622,25 @@ DEFINE_CRYPTO_API_STUB(ecc_point_is_zero);
+ DEFINE_CRYPTO_API_STUB(ecc_point_mult_shamir);
+ 
+ #endif
++/*
++ * crypto/cryptd.c
++ */
++#if IS_BUILTIN(CONFIG_CRYPTO_CRYPTD)
++
++#include <crypto/cryptd.h>
++
++DEFINE_CRYPTO_API_STUB(cryptd_alloc_skcipher);
++DEFINE_CRYPTO_API_STUB(cryptd_skcipher_child);
++DEFINE_CRYPTO_API_STUB(cryptd_skcipher_queued);
++DEFINE_CRYPTO_API_STUB(cryptd_free_skcipher);
++DEFINE_CRYPTO_API_STUB(cryptd_alloc_ahash);
++DEFINE_CRYPTO_API_STUB(cryptd_ahash_child);
++DEFINE_CRYPTO_API_STUB(cryptd_shash_desc);
++DEFINE_CRYPTO_API_STUB(cryptd_ahash_queued);
++DEFINE_CRYPTO_API_STUB(cryptd_free_ahash);
++DEFINE_CRYPTO_API_STUB(cryptd_alloc_aead);
++DEFINE_CRYPTO_API_STUB(cryptd_aead_child);
++DEFINE_CRYPTO_API_STUB(cryptd_aead_queued);
++DEFINE_CRYPTO_API_STUB(cryptd_free_aead);
++
++#endif
+diff --git a/include/crypto/cryptd.h b/include/crypto/cryptd.h
+index 796d986e58e1..35b4d06e41f5 100644
+--- a/include/crypto/cryptd.h
++++ b/include/crypto/cryptd.h
+@@ -13,6 +13,7 @@
+ #ifndef _CRYPTO_CRYPT_H
+ #define _CRYPTO_CRYPT_H
+ 
++#include <crypto/api.h>
+ #include <linux/types.h>
+ 
+ #include <crypto/aead.h>
+@@ -24,12 +25,19 @@ struct cryptd_skcipher {
+ };
+ 
+ /* alg_name should be algorithm to be cryptd-ed */
+-struct cryptd_skcipher *cryptd_alloc_skcipher(const char *alg_name,
+-					      u32 type, u32 mask);
+-struct crypto_skcipher *cryptd_skcipher_child(struct cryptd_skcipher *tfm);
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_CRYPTD, cryptd_alloc_skcipher, struct cryptd_skcipher *,
++	(const char *alg_name, u32 type, u32 mask),
++	(alg_name, type, mask));
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_CRYPTD, cryptd_skcipher_child, struct crypto_skcipher *,
++	(struct cryptd_skcipher *tfm),
++	(tfm));
+ /* Must be called without moving CPUs. */
+-bool cryptd_skcipher_queued(struct cryptd_skcipher *tfm);
+-void cryptd_free_skcipher(struct cryptd_skcipher *tfm);
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_CRYPTD, cryptd_skcipher_queued, bool,
++	(struct cryptd_skcipher *tfm),
++	(tfm));
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_CRYPTD, cryptd_free_skcipher, void,
++	(struct cryptd_skcipher *tfm),
++	(tfm));
+ 
+ struct cryptd_ahash {
+ 	struct crypto_ahash base;
+@@ -42,13 +50,22 @@ static inline struct cryptd_ahash *__cryptd_ahash_cast(
+ }
+ 
+ /* alg_name should be algorithm to be cryptd-ed */
+-struct cryptd_ahash *cryptd_alloc_ahash(const char *alg_name,
+-					u32 type, u32 mask);
+-struct crypto_shash *cryptd_ahash_child(struct cryptd_ahash *tfm);
+-struct shash_desc *cryptd_shash_desc(struct ahash_request *req);
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_CRYPTD, cryptd_alloc_ahash, struct cryptd_ahash *,
++	(const char *alg_name, u32 type, u32 mask),
++	(alg_name, type, mask));
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_CRYPTD, cryptd_ahash_child, struct crypto_shash *,
++	(struct cryptd_ahash *tfm),
++	(tfm));
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_CRYPTD, cryptd_shash_desc, struct shash_desc *,
++	(struct ahash_request *req),
++	(req));
+ /* Must be called without moving CPUs. */
+-bool cryptd_ahash_queued(struct cryptd_ahash *tfm);
+-void cryptd_free_ahash(struct cryptd_ahash *tfm);
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_CRYPTD, cryptd_ahash_queued, bool,
++	(struct cryptd_ahash *tfm),
++	(tfm));
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_CRYPTD, cryptd_free_ahash, void,
++	(struct cryptd_ahash *tfm),
++	(tfm));
+ 
+ struct cryptd_aead {
+ 	struct crypto_aead base;
+@@ -60,13 +77,20 @@ static inline struct cryptd_aead *__cryptd_aead_cast(
+ 	return (struct cryptd_aead *)tfm;
+ }
+ 
+-struct cryptd_aead *cryptd_alloc_aead(const char *alg_name,
+-					  u32 type, u32 mask);
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_CRYPTD, cryptd_alloc_aead, struct cryptd_aead *,
++	(const char *alg_name, u32 type, u32 mask),
++	(alg_name, type, mask));
+ 
+-struct crypto_aead *cryptd_aead_child(struct cryptd_aead *tfm);
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_CRYPTD, cryptd_aead_child, struct crypto_aead *,
++	(struct cryptd_aead *tfm),
++	(tfm));
+ /* Must be called without moving CPUs. */
+-bool cryptd_aead_queued(struct cryptd_aead *tfm);
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_CRYPTD, cryptd_aead_queued, bool,
++	(struct cryptd_aead *tfm),
++	(tfm));
+ 
+-void cryptd_free_aead(struct cryptd_aead *tfm);
++DECLARE_CRYPTO_API(CONFIG_CRYPTO_CRYPTD, cryptd_free_aead, void,
++	(struct cryptd_aead *tfm),
++	(tfm));
+ 
+ #endif
 -- 
 2.47.3
 
