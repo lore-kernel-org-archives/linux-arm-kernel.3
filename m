@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B4C8EB48F3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 10:02:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE27AEB48EB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 10:02:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=89a03Krz2WgPBmxyubNEI/AG0SeyfV8Q49MHoEG2zP0=; b=R3ti17YKJMiDMUcAWQzmwBLlbl
-	ubNkL7e6VP6PS3kkIzP29Tw1JyaFxfil+aIcv4oiObHKtFcenfqGf8VjBSGg/psF1LDnfVyjiWD4Q
-	KO6VIkyJN/Iy7UgoPGiHqjZj2kyi/10jv906ZnDPXxnI6kxiUzikTlmvPIz7rkiv8jwnwnsIfglsW
-	sB7EDVF5/+ePZuTw94VE+aEpfAYgI4IrRq7mBwxMTKVbXZ4XDOy8SSUTuMVDwsM2hZ11FYf9A4RAQ
-	Hj7ociLNhpy9lzFqHw+EnSuh93xvcJTVAnc7TlteTOXh7HO0eEhdbBJZqsgy0fXhC6ZBr9T0rOxVl
-	BHD8Ok+Q==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jGv/+L04zyZJagXf8w5imf0y8azihWDdO31bhtz5hn8=; b=Xc/5x8fuimsyDyk4bOGX9/gYgB
+	/iWE9SGotj+I+ipthW2JBrCdt9QCAJQ/yY8jctkrX4h2LELQWgfgu85f3JO/QtgRsDDrVhQRMPr3O
+	UTwZJHxS9TdeAQCublybxjos3lu6P7OmMLUQz5I/B1RNTf1K6x21TRoUFwVqK/mc8R3+otjfX530Q
+	A7skU3Qbsc2dQDZOegjbaHJDqg38BPpqwjwNSO+2XRXSTFNSb9oizs0Q24TRKm3KCYQr9yJFm2LPf
+	SAGYv2nU4hjlHpJlJ2faN2mq8NrqiyrwPE/ZNU/wbGw8Ae2tYGUy6KxMLoePHwX8RrRXdDtpQN6fJ
+	Cx0CB0fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqTWd-00000001tHW-2JzD;
-	Thu, 12 Feb 2026 10:02:19 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1vqTX1-00000001tUx-29dM;
+	Thu, 12 Feb 2026 10:02:43 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqTWa-00000001tFB-1JPF
+	id 1vqTWz-00000001tTW-0lLi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 10:02:18 +0000
+	Thu, 12 Feb 2026 10:02:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1770890535; x=1802426535;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=+XSdePmIxMkVcvmbkbSmvnwKwABGab5j+b7WmP5kNz4=;
-  b=MFS3Zcfzf2ke4gKxaunwif6Iui8WgF/MxSf+BVFJHJix5hFSeO2OJzSh
-   t5kjsxVBSqmWi8LWkIQdoOXQDAocF9KjgR1m52uXbsTPP+9dryQayo862
-   bGJeXcuxhVGx/Fz5M8UfCBm2h68kXtNLyA0Lu8IZKolyhIH1p9iFyQs27
-   oySi9VrzesLsm2xRC5xiY2fpyF9XCG0C3y1YCgDyaertmRyDRgfL+zGGQ
-   OLZTifj1+ZTINy1YquYJnpy06jt/sJxc0Nuac8dYRdmHQ4anFoOTKhE8h
-   8lbvj5Y7NF4v/pIkfTqoViz9KEILCkVf/c8NtYFhMo8wKJRXtcqbH7Zho
+  t=1770890559; x=1802426559;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=RgPLsEAvEIhX+x4fiqob1zN/Jh2A9AFXuJ2U8zEAWpM=;
+  b=uQqtrE9/XD2I6V3xhrYDDmyE+THoPihGLd2E9bQITOjrWCkF5ojHggkk
+   NT36KJs8JXNYdrLWAd6grIEGuZsC64pDVvhRn7DkGZXz6O8SpsYVJH+j0
+   8sqN6zOP+6cYqMN81fp3xp64/WVgHQzmyBgcWXzJvtX6PSaOeyFExZbqS
+   ZARCbaYUJG48fuZ2KxTmEGJRiho7mv0GBZC3EeO9l6pyyV7i17QnC9d77
+   2yUW8AB05b9Bxm6+NafHsSFywmLOUcUqWWUKY/wwgzG6BiZWKCE47KY1W
+   RKCqXndybdC89e5Vipl7Jp9XL/mQ5PoDMx6Gy4i8Pt7gFlaY66FyfKiq0
    A==;
-X-CSE-ConnectionGUID: 9SO/Vbq8Qbun3JrOdaYeIg==
-X-CSE-MsgGUID: hTJwjBEdSdK+h8m/oRJOZw==
+X-CSE-ConnectionGUID: MLyYTqveRP6xRNiALHFvrA==
+X-CSE-MsgGUID: SQ2Xuz9nT8yug6mqergzPw==
 X-IronPort-AV: E=Sophos;i="6.21,286,1763449200"; 
-   d="scan'208";a="60606622"
+   d="scan'208";a="220596017"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Feb 2026 03:02:14 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 03:02:38 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
+ chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Thu, 12 Feb 2026 03:02:07 -0700
+ 15.2.2562.35; Thu, 12 Feb 2026 03:02:19 -0700
 Received: from archlinux.mchp-main.com (10.10.85.11) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Thu, 12 Feb 2026 03:02:04 -0700
+ 15.1.2507.58 via Frontend Transport; Thu, 12 Feb 2026 03:02:16 -0700
 From: Mihai Sain <mihai.sain@microchip.com>
 To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
 	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
@@ -63,16 +63,18 @@ To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
 CC: <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<ryan.wanner@microchip.com>, Mihai Sain <mihai.sain@microchip.com>
-Subject: [PATCH v2 0/4] Update gmac clocks and devicetree for sam9x7 mpu
-Date: Thu, 12 Feb 2026 12:01:43 +0200
-Message-ID: <20260212100147.5007-1-mihai.sain@microchip.com>
+Subject: [PATCH v2 3/4] clk: at91: sam9x7: Add gmac generic clock entry with ID 24
+Date: Thu, 12 Feb 2026 12:01:46 +0200
+Message-ID: <20260212100147.5007-4-mihai.sain@microchip.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260212100147.5007-1-mihai.sain@microchip.com>
+References: <20260212100147.5007-1-mihai.sain@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_020216_405170_7B8538F9 
-X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-CacheID: sfid-20260212_020241_288948_4F7A2D9B 
+X-CRM114-Status: UNSURE (   9.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,28 +90,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series updates the GMAC clock configuration for the
-SAM9X7 family. The current clock definitions contain inconsistencies
-around the GMAC peripheral and its associated generic clock IDs, which
-lead to incorrect wiring in both the clock driver and the devicetree.
+According with datasheet table 12.1 the instance ID 24 is used
+for gmac generic clock.
+This change adds the gmac_gclk entry in SAM9X7 clock description
+table.
 
-Changelog:
+Signed-off-by: Mihai Sain <mihai.sain@microchip.com>
+---
+ drivers/clk/at91/sam9x7.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-v1 -> v2:
-- Add only one patch for devicetree with detailed description
-
-Mihai Sain (4):
-  clk: at91: sam9x7: Remove gmac peripheral and generic clock entries with ID 67
-  clk: at91: sam9x7: Rename macb0_clk to gmac_clk
-  clk: at91: sam9x7: Add gmac generic clock entry with ID 24
-  ARM: dts: microchip: sam9x7: fix GMAC clock configuration
-
- arch/arm/boot/dts/microchip/sam9x7.dtsi |  6 +++---
- drivers/clk/at91/sam9x7.c               | 21 ++++++++++-----------
- 2 files changed, 13 insertions(+), 14 deletions(-)
-
-
-base-commit: 37a93dd5c49b5fda807fd204edf2547c3493319c
+diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
+index 68e569bd70f5..8b52da194849 100644
+--- a/drivers/clk/at91/sam9x7.c
++++ b/drivers/clk/at91/sam9x7.c
+@@ -568,6 +568,15 @@ static const struct {
+ 		.pp_chg_id = INT_MIN,
+ 	},
+ 
++	{
++		.n = "gmac_gclk",
++		.id = 24,
++		.pp = { "audiopll_divpmcck", "plla_div2pmcck", },
++		.pp_mux_table = { 6, 8, },
++		.pp_count = 2,
++		.pp_chg_id = INT_MIN,
++	},
++
+ 	{
+ 		.n = "lcd_gclk",
+ 		.id = 25,
 -- 
 2.53.0
 
