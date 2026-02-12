@@ -4,108 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C1EEE3695
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 16:30:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C77EE3698
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 16:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pyv4s4rmJqqWtjAiZNS8LktfZssUDapZ7Tjv3KU7sQA=; b=QXAQ/jGJoPR6j8vjzNyYeDKrDI
-	w4rWUdB4EXA5BVfxFqJUAoyJCH1KQzY/V1eeh3/tNTfpvNcoVQZF8UsJ0FnXBEA4D8kujOeEv52Zl
-	MLwvj5Hqi2lge93xUUjzZIyY1D/9ZYykTQCwyEr8rKQeqwDHPQkl56UE3CHNwnC/ZqzeisXEUGgyO
-	M/Oj0rXNApTsnwWX9c8pCPmqTZflEAwyEr4H2S+7gBFXPs5mToV4C5Uv5mvv2YZah5FjqwlSstX1a
-	gGQ3ENePSPehgictKwDB2H+WemdRQ+YkacocaruC5z6sUBe8BtUnh+wxYstzQHhNBiO5F8ydfYxd0
-	mGCi9gRg==;
+	bh=545wPjcAu5b4eUfWWgzfH5f+xPToJque93C0kExRh8c=; b=T0f4/9C04CD0XS5ZBDWW0QCRPU
+	Q6bK++W1C6xXvWjY3kZqqyuJk/j3leRZia5Fb4Qa5wGMKhwaDIUp0tj77ceblhrOsupmEODkSOpGX
+	UaHGwRzySu0svBBRQUIl17/DB22WsrHQQjjCrKNm5QsY67/pmAz5w777sw44Z2S1mRKDkA/9RVvr7
+	/Ootz9DeFpXGPQV9Hs+yrwZcFEbIanGv4IpQ6c48jI+W9Z651vtcxkRVKJUtx8Mq1QXM6tVvJAhFb
+	3HUltjId1jTYSZBCIeLmMDeJiHJn2NYCynEum5aJonC0NcSJeX2HBDPwIX1JqW6hU1ZFiMngPmnxV
+	4sgRgnLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqZaB-00000002N3I-0FDL;
-	Thu, 12 Feb 2026 16:30:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vqZrQ-00000002O8I-0Ooy;
+	Thu, 12 Feb 2026 16:48:12 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqZa9-00000002N38-3C8C
+	id 1vqZrM-00000002O3c-43Eg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 16:30:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC46F60010;
-	Thu, 12 Feb 2026 16:30:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F475C4CEF7;
-	Thu, 12 Feb 2026 16:30:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770913820;
-	bh=3ourdlWMcx/lqvoPyJvXSxAb1D6cN3WZIh4zW83XQOQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GxvGO/rtzFiEwlUZQM43TkOkGSSud/30IikXC/1d8pQYnEnfJHn6u+ah12etCKKnb
-	 KeRvOTm2WlzJUm9Lx6v5JrEaBlTpBbnxNd63O/oikW0CP+rAEKNNoP8IG97Mvkz793
-	 lA9aS8O6+3YQHAybA5GBm1TRbKysKoAMwuPzJA/GK90YpDgC3H6WpWXCipDs6DeAr2
-	 Kmyw2h5ALdu9lIJRWMh/a5UtO69bkfr04h6+yH4mWnFEbjaXx5vAfV7BAu1IY0Cp2w
-	 bJIX+XYZb099ZIK2uYyeqEATafO0+wiABSufaxa54DzQbc1Uv3GkEZBjVhmeWlxWP4
-	 FzDRWs6bvjEVw==
-Message-ID: <f8012f1e-9d4a-48b1-8520-6577af60f81d@kernel.org>
-Date: Thu, 12 Feb 2026 17:30:12 +0100
+	Thu, 12 Feb 2026 16:48:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=545wPjcAu5b4eUfWWgzfH5f+xPToJque93C0kExRh8c=; b=nsimCLxxy2uNPv3OPg/1vANP2M
+	PaJ/pIr9duqcN8UIiRhhMa/QdD4Tkva+uTFZRxeX2GVWACowhYeQrpN2PsuLn9lm4tEfO2eFb2LXE
+	sRrsl+JNgYuKHEr3eakfCQY0YoTHeIPByhltH5nu/C3JNLZhQXQGe9upoFwy2xzP5/kfSVdtLAb0j
+	6SVgGhzg3a53cKEinPRllo8rHFiiWdos1AOMu8JUMV8Dj+R1bjwZ6yL/ICVoAWayUy1MgQp9wuVf4
+	l7dXxyzzQrnWk5pbGCQHFdoV+Vn67IjpOAV7GoPrVmqWTXHrFijY70+XQrcRCossrzUk8ct7fEyl9
+	Gozkp9NA==;
+Date: Thu, 12 Feb 2026 17:47:18 +0100
+From: Andreas Kemnade <andreas@kemnade.info>
+To: "H. Nikolaus Schaller" <hns@goldelico.com>
+Cc: "Kory Maincent (TI)" <kory.maincent@bootlin.com>, Aaro Koskinen
+ <aaro.koskinen@iki.fi>, Kevin Hilman <khilman@baylibre.com>, Roger Quadros
+ <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>, Thomas
+ Petazzoni <thomas.petazzoni@bootlin.com>, linux-omap@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, Luca
+ Ceresoli <luca.ceresoli@bootlin.com>, Bajjuri Praneeth <praneeth@ti.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Louis
+ Chauvet <louis.chauvet@bootlin.com>
+Subject: Re: [PATCH 1/5] ARM: dts: ti: Enable overlays for all DTB files
+Message-ID: <20260212174718.7daccb70@kemnade.info>
+In-Reply-To: <B3366A17-641F-4E02-A5D4-978F525E0A96@goldelico.com>
+References: <20260212-feature_bbge-v1-0-29014a212f35@bootlin.com>
+	<20260212-feature_bbge-v1-1-29014a212f35@bootlin.com>
+	<B3366A17-641F-4E02-A5D4-978F525E0A96@goldelico.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/7] dt-bindings: dmaengine: xilinx_dma: Move
- xlnx,irq-delay to common AXI DMA and MCDMA section
-To: Srinivas Neeli <srinivas.neeli@amd.com>, vkoul@kernel.org
-Cc: michal.simek@amd.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, suraj.gupta2@amd.com, abin.joseph@amd.com,
- radhey.shyam.pandey@amd.com, dev@folker-schwesinger.de,
- thomas.gessler@brueckmann-gmbh.de, tomi.valkeinen@ideasonboard.com,
- dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- git@amd.com
-References: <20260212135146.1185416-1-srinivas.neeli@amd.com>
- <20260212135146.1185416-3-srinivas.neeli@amd.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260212135146.1185416-3-srinivas.neeli@amd.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260212_084809_024918_88C3A9F6 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,20 +79,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/02/2026 14:51, Srinivas Neeli wrote:
-> xlnx,irq-delay property is applicable to both AXI DMA and MCDMA
-> designs. Move it from "Optional properties for AXI DMA" to "Optional
-> properties for AXI DMA and MCDMA" section to correctly reflect its usage.
+On Thu, 12 Feb 2026 16:49:43 +0100
+"H. Nikolaus Schaller" <hns@goldelico.com> wrote:
+
+> > Am 12.02.2026 um 16:26 schrieb Kory Maincent (TI) <kory.maincent@bootlin.com>:
+> > 
+> > Allow overlays to be applied to any DTB. This adds around ~40% to the
+> > total size of the DTB files on average.  
 > 
-> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
-> ---
->  Documentation/devicetree/bindings/dma/xilinx/xilinx_dma.txt | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+> Is this unconditionally enabled or can it be turned off by some CONFIG? We have
+> our own defconfig so I would not worry if if is enabled in omap2plus_defconfig
+> and disabled in ours.
 > 
+> We have several devices where the boot loader can't handle overlays (never touch
+> a working boot-loader :) So this seems to only contribute to build and load time
+> without benefit.
+> 
+As long as you do not add overlays, the bootloader does not care. I would
+like to simply carry around the 1-bit mmc overlay for one broken board.
+That would help me. So I think there is a benefit but nobody forces
+you to use it.
 
-
-First convert the binding, then make changes to it.
-
-Best regards,
-Krzysztof
+Regards,
+Andreas
 
