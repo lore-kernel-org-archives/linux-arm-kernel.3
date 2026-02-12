@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C89AEE3698
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 15:28:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC800EE369B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 15:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UYzg7H8r28NuknnaHMhGKeY25Sfx8KUmF5qRI7gC69A=; b=mGDjGgj+AWMbGhZ0zSjPQeB6+P
-	9OFidTIlnJKOSIpIleO4xb97QiTwWdyDavun7zRqkAQ7u2dtxmvzPvFcBQ1hJPHCh2iiUFwgHJGz4
-	gaSTwc4ADGgrY/MHVv3LFEYV5m6O8JSkz7tTPHDneMVKmvNH7RrjunoqYbmqUfTBkeLEuphkipsXb
-	j/tCgL7P8ackVhBnXd5nlVcJW02tfnEpoDdI8AoHG7IxaFn3ilNNas6nnYRGQKuEI4tlMHNwA/nUw
-	VhlDGojU+tAe0YFbBLiUrNKYV+T0qCbmz7zMYJerzBacjQ1nQ+xR6zs5kyy8PFk80jiCQjUIrzSX0
-	im329Wxw==;
+	bh=thbPNnRijTLf9gzZkZqQPZn2GPekIDtSoeywreYAt34=; b=tDZYBdXyc8i4giRNUOqtcV9T6Q
+	M7EFHedrBdHQwjRbsMhiDlnsrm+f65e+aPzFCoF2TMNiL9eiL+N5P3WZLUxajl3dTdydOJP9Xr5v3
+	Mwg6MCZY0ruqSXLJ6DOnHWTU97Dkih9xdFnsmfZmQ9cazTcya5gx3shN48eeBx6rB69PHVPM/9Zq/
+	4ns6Tf5eOV8RiltOXIcyQpjyPBkwsqgeVk1ARhPSxvJB4k2S+u0Tq7lYC1R/F2RPWSnVdhhCtscQS
+	D4yDS9SOEWzj4YBl6b+URlJOQaOtqkajIsJom/AJGVuDZPa3U6SOkoWz29VMyQ+u5ik2nwwBzaRaP
+	JfTcKMjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqYc6-00000002GUB-24C9;
-	Thu, 12 Feb 2026 15:28:18 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vqYcC-00000002GWu-3GYu;
+	Thu, 12 Feb 2026 15:28:24 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqYc3-00000002GS7-3fGs
+	id 1vqYcA-00000002GV6-1P8p
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 15:28:17 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id A3A7B1A0E5D;
-	Thu, 12 Feb 2026 15:28:13 +0000 (UTC)
+	Thu, 12 Feb 2026 15:28:23 +0000
+Received: from smtpout-01.galae.net (unknown [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 53BA7C23DA8;
+	Thu, 12 Feb 2026 15:28:26 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 78636606CE;
-	Thu, 12 Feb 2026 15:28:13 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2378411971B05;
-	Thu, 12 Feb 2026 16:28:09 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1799D606CA;
+	Thu, 12 Feb 2026 15:28:07 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3788111971B05;
+	Thu, 12 Feb 2026 16:28:03 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1770910091; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1770910084; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=UYzg7H8r28NuknnaHMhGKeY25Sfx8KUmF5qRI7gC69A=;
-	b=aVG3NlYRlV0UEBW+qN0P3U0+aqIMVCKcvcl/zWf7zV+6RUAhKpJujdxe88CtuvANV++96n
-	O4fU4uQ85lmrNh72DjeDDMOezvMjpGr18OZ+cACRGiwirFwViEnULg/WSyNXxIxywEahM3
-	uRe2WQLZRmkfP8C3v504Zz+1WlHRLvtKoHo/RSHpchq+pQl4icJBoZcXR8x+xg6qwpsVI3
-	BhhcVprWBxyWNJclEBKU+tAyD61OanHsAD6x7//XhqfcjhQinUCivuuPGRA9Ea2XBfn9dk
-	vuiFIrCOI23s0lXiBbyeJ/5h7rrw2S4FMVPiTCY2Rwx+UHDCEWnDcXuTD4zuSg==
+	bh=thbPNnRijTLf9gzZkZqQPZn2GPekIDtSoeywreYAt34=;
+	b=v9+M6EXS3+KSQIsQQmNwLg6DbjW0+wRqi7o6sBQLkugxgmlxHiRjyjMZnQfsGKVFsch8gq
+	xrsyBnl3hIiRFDhaffNj48tX7Zn13JLAWPhGwpOKZOLz9F5qk5RAmDzJZ9fEYbaR867j/Y
+	CTgGtnfUXfNvy0H/CXjRqFKiIufEzQeQAoGdyz1kJBvEP7C/BaDm1PPStw5g2P6+Qbx+m0
+	1j7tT8+XaZ8QlaETs6XZtAu96wivAvVy5dxnHAZCxPgRujZ+GPYiBqTwgwYsf/Z0j6fH6y
+	hsn6povRGcFrpw0/oR9y1IMsO5xBeNQOEpDwL/QR3ViSXx9yNlxc+dDvslrXSg==
 From: "Kory Maincent (TI)" <kory.maincent@bootlin.com>
-Date: Thu, 12 Feb 2026 16:26:18 +0100
-Subject: [PATCH 4/5] ARM: multi_v7_defconfig: Enable ITE IT66121 driver
+Date: Thu, 12 Feb 2026 16:26:16 +0100
+Subject: [PATCH 2/5] ARM: multi_v7_defconfig: Enable TILCDC DRM driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260212-feature_bbge-v1-4-29014a212f35@bootlin.com>
+Message-Id: <20260212-feature_bbge-v1-2-29014a212f35@bootlin.com>
 References: <20260212-feature_bbge-v1-0-29014a212f35@bootlin.com>
 In-Reply-To: <20260212-feature_bbge-v1-0-29014a212f35@bootlin.com>
 To: Aaro Koskinen <aaro.koskinen@iki.fi>, 
@@ -71,8 +71,8 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14-dev-d4707
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260212_072816_066756_5A2F18A2 
-X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-CacheID: sfid-20260212_072822_520941_E05A461F 
+X-CRM114-Status: UNSURE (   7.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,8 +88,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the ITE IT66121 HDMI bridge driver to support HDMI output on
-the BeagleBone Green with the Seeed Studio HDMI cape.
+Enable CONFIG_DRM_TILCDC as a module to provide display support for
+TI AM335x-based SoCs in the multi_v7 kernel configuration.
 
 Signed-off-by: Kory Maincent (TI) <kory.maincent@bootlin.com>
 ---
@@ -97,17 +97,17 @@ Signed-off-by: Kory Maincent (TI) <kory.maincent@bootlin.com>
  1 file changed, 1 insertion(+)
 
 diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index 196b6872ca463..2c9587855f044 100644
+index 7f1fa9dd88c92..196b6872ca463 100644
 --- a/arch/arm/configs/multi_v7_defconfig
 +++ b/arch/arm/configs/multi_v7_defconfig
-@@ -751,6 +751,7 @@ CONFIG_DRM_PANEL_SAMSUNG_S6E63J0X03=m
- CONFIG_DRM_PANEL_SAMSUNG_S6E8AA0=m
- CONFIG_DRM_PANEL_SHARP_LQ101R1SX01=m
- CONFIG_DRM_DISPLAY_CONNECTOR=m
-+CONFIG_DRM_ITE_IT66121=m
- CONFIG_DRM_LVDS_CODEC=m
- CONFIG_DRM_NXP_PTN3460=m
- CONFIG_DRM_PARADE_PS8622=m
+@@ -735,6 +735,7 @@ CONFIG_DRM_RCAR_DU=m
+ CONFIG_DRM_SUN4I=m
+ CONFIG_DRM_OMAP=m
+ CONFIG_OMAP5_DSS_HDMI=y
++CONFIG_DRM_TILCDC=m
+ CONFIG_DRM_MSM=m
+ CONFIG_DRM_FSL_DCU=m
+ CONFIG_DRM_TEGRA=y
 
 -- 
 2.43.0
