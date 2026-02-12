@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C31CEDF021
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 03:14:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E71F6EDF021
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 03:14:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BhYhP9Nwc0ZhnGAnRt+3Lc67Lhm35xrT4r4Ii6JFG0I=; b=NBJFawjX/+cZIsT2tghiTz855f
-	RTwzNvZ8BBKDZ2tRBDwjsAmQ/8bkVlltM5AGkAbLymIZhUErmuIm6KUqERzXJixgAyMaJtE0ebcXZ
-	TThAUxOxB+yvmpKYQJPc1PNhD+8lVbe4vNtD12dbWCNsupYR8hA8BkF4BP8kzXowZSjfVlL/kf8KH
-	N869is1YQ7gbwgyCuqqxwGotK9HFPqHjUA/cDoccWvk1a4jV1E64rQCuApLNbsNHb8mM/PsidiB4T
-	O3L3fZzx5B++XS2L3vQo2T4/C0n3IpBvdCb2kME0Npc5tomsEHHotJuo2YPBgMK+zNNbJ6tUDKvv0
-	+Jt/ESqw==;
+	bh=W6R44s4v9WVLvSIfHCSXPI7VL9RaLX8DW5Ij3cTn/Eo=; b=AmwmDfTS5asdcvZBgiflOyOq0g
+	jXl6uweZ6Fh9I4mo93dWAcodVMwFriOGbhlEzFXL0O/PNtpIC9zCxfYEMB0HiofFS85BIXcozBg6U
+	ozCpTBvUKWblp7V+YVyyDZhPzDqsEC/j7iyTH2FhazmDZgOCtnBpvUqcC8xLJeimXAMFeLg0KaG/G
+	y0rUAPonJM/YeQ0aAzW/knN+WIi24n177SN4H1NtABeEYl59fODOx7jZvbq7v4zQrqhvOMq3yYlRU
+	n9mbqYm/iHuAnRPqdfPRD/o8D4HGQWJGHifsegvtaxJ5jUBp7ymY5F8iCnbApbSFSY4bZD2Nxrn0Z
+	6WrctN2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqN9f-00000001Wor-1EzM;
-	Thu, 12 Feb 2026 03:14:11 +0000
-Received: from pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com ([34.218.115.239])
+	id 1vqN9v-00000001Wvz-2hOn;
+	Thu, 12 Feb 2026 03:14:27 +0000
+Received: from pdx-out-003.esa.us-west-2.outbound.mail-perimeter.amazon.com ([44.246.68.102])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqN9c-00000001Wmw-01OY
+	id 1vqN9r-00000001WuH-3QLS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 03:14:09 +0000
+	Thu, 12 Feb 2026 03:14:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1770866048; x=1802402048;
+  t=1770866063; x=1802402063;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=BhYhP9Nwc0ZhnGAnRt+3Lc67Lhm35xrT4r4Ii6JFG0I=;
-  b=juUwVSLICWEIZNcsc8VKd9YoOTkIfytQinmLDYH8LRl+8giMIUsZ/3lq
-   CQvgqa22g1jn3ps9bVIDlxoHAohrL9TlorK0mEaTDa06LZWbuF4d6jmY9
-   003ubLzkO2FIsd8+YWTeSVWQmJl7limZyIkPi1fagnAc2Np2Am2512ZfE
-   xYrTZtib2TfAMpvjfRVe2ARbLyE9rWw7d7PAHOlFG5MIMHIbKpT3DwSFC
-   4b1WIKxNJQp33LOtLO4KGDw1VTSCXN+h5UrN0aO01gYo8eFHNLmS873Go
-   KNDLgDB5OcuEh/6HqovyVg2rFfZfjG++DzNEUHEiAuA1lTFNlMkOTWpqv
-   Q==;
-X-CSE-ConnectionGUID: K2SFhIq/Tw6BQcpYkbJqNw==
-X-CSE-MsgGUID: +PseZSO7QA6C1V1vO05c+g==
+  bh=W6R44s4v9WVLvSIfHCSXPI7VL9RaLX8DW5Ij3cTn/Eo=;
+  b=Cb9bCHQA/BMCpTsaaV+934yhJbTkka4/NwFyZca/SzdTno5jYafWtnGC
+   7eSLYRDdIdOPrnPWTbQwITEcgfc0kiiq7sPfSPl4HMjaf2CPpl8YOn7Ln
+   0dQCBY8GQNJoIhh0S0FU1WplBmj8Y/h86379rTKHFIMdIYw17a1kBZ0Ae
+   QSg/4aqJYO2ecVJCsimRTSAw4p96MKKW6XhSbgqJYKwiima35Nuv2nVeR
+   YURNXaBs7EoG8KhfNxRgX/hQ72uIDBJZ0B18X34tHfN1eHJsTXREpM1+I
+   QXF3JKI5U517uy2AhlH6MyVCdugAT4JBLTMBqvZTGGdn0CNSkWnIJuiHY
+   g==;
+X-CSE-ConnectionGUID: Vud3MRZcRDSTzz/yAOFHnw==
+X-CSE-MsgGUID: V6L8O722RviEhSTMo6bCjg==
 X-IronPort-AV: E=Sophos;i="6.21,285,1763424000"; 
-   d="scan'208";a="12727739"
-Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
-  by internal-pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 03:14:07 +0000
-Received: from EX19MTAUWC002.ant.amazon.com [205.251.233.51:5626]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.3.19:2525] with esmtp (Farcaster)
- id a23d19c4-fc7d-406e-8c39-56ceed057616; Thu, 12 Feb 2026 03:14:07 +0000 (UTC)
-X-Farcaster-Flow-ID: a23d19c4-fc7d-406e-8c39-56ceed057616
+   d="scan'208";a="12926118"
+Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
+  by internal-pdx-out-003.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2026 03:14:23 +0000
+Received: from EX19MTAUWA001.ant.amazon.com [205.251.233.236:30299]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.54.219:2525] with esmtp (Farcaster)
+ id 15d95859-e0c4-49db-ad14-cd74426d3494; Thu, 12 Feb 2026 03:14:23 +0000 (UTC)
+X-Farcaster-Flow-ID: 15d95859-e0c4-49db-ad14-cd74426d3494
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC002.ant.amazon.com (10.250.64.143) with Microsoft SMTP Server
+ EX19MTAUWA001.ant.amazon.com (10.250.64.204) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 12 Feb 2026 03:14:06 +0000
+ Thu, 12 Feb 2026 03:14:21 +0000
 Received: from dev-dsk-wanjay-2c-d25651b4.us-west-2.amazon.com (172.19.198.4)
  by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.35;
- Thu, 12 Feb 2026 03:14:05 +0000
+ Thu, 12 Feb 2026 03:14:21 +0000
 From: Jay Wang <wanjay@amazon.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
 	<davem@davemloft.net>, <linux-crypto@vger.kernel.org>
@@ -70,9 +70,9 @@ CC: Jay Wang <jay.wang.upstream@gmail.com>, Vegard Nossum
 	<nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
 	<linux-kbuild@vger.kernel.org>, <linux-modules@vger.kernel.org>
-Subject: [PATCH 103/106] crypto: convert exported crypto symbol into pluggable interface for CONFIG_PKCS7_TEST_KEY crypto
-Date: Thu, 12 Feb 2026 02:47:19 +0000
-Message-ID: <20260212024725.11264-104-wanjay@amazon.com>
+Subject: [PATCH 104/106] crypto: convert exported crypto symbol into pluggable interface for CONFIG_SIGNED_PE_FILE_VERIFICATION crypto
+Date: Thu, 12 Feb 2026 02:47:20 +0000
+Message-ID: <20260212024725.11264-105-wanjay@amazon.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260212024725.11264-1-wanjay@amazon.com>
 References: <20260212024725.11264-1-wanjay@amazon.com>
@@ -80,11 +80,11 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-Originating-IP: [172.19.198.4]
-X-ClientProxiedBy: EX19D046UWA003.ant.amazon.com (10.13.139.18) To
+X-ClientProxiedBy: EX19D040UWB002.ant.amazon.com (10.13.138.89) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_191408_104213_16949DD2 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20260211_191423_910883_9C97FA32 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,50 +100,86 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Apply Crypto API wrappers to the exported crypto symbol in
-CONFIG_PKCS7_TEST_KEY-related crypto to convert them into pluggable
-interface.
+CONFIG_SIGNED_PE_FILE_VERIFICATION-related crypto to convert them into
+pluggable interface.
 
 Signed-off-by: Jay Wang <wanjay@amazon.com>
 ---
- crypto/asymmetric_keys/Makefile         | 2 +-
- crypto/asymmetric_keys/pkcs7_key_type.c | 6 +++---
- 2 files changed, 4 insertions(+), 4 deletions(-)
+ crypto/asymmetric_keys/Makefile        |  2 +-
+ crypto/asymmetric_keys/verify_pefile.c |  1 +
+ crypto/fips140/fips140-api.c           | 10 ++++++++++
+ include/linux/verification.h           |  8 +++++---
+ 4 files changed, 17 insertions(+), 4 deletions(-)
 
 diff --git a/crypto/asymmetric_keys/Makefile b/crypto/asymmetric_keys/Makefile
-index 3fdd11ea399a..6a17f563c359 100644
+index 6a17f563c359..bccf6952e0e5 100644
 --- a/crypto/asymmetric_keys/Makefile
 +++ b/crypto/asymmetric_keys/Makefile
-@@ -63,7 +63,7 @@ $(obj)/pkcs7.asn1.o: $(obj)/pkcs7.asn1.c $(obj)/pkcs7.asn1.h
+@@ -70,7 +70,7 @@ pkcs7_test_key-y := \
  #
- # PKCS#7 parser testing key
+ # Signed PE binary-wrapped key handling
  #
--obj-$(CONFIG_PKCS7_TEST_KEY) += pkcs7_test_key.o
-+crypto-objs-$(CONFIG_PKCS7_TEST_KEY) += pkcs7_test_key.o
- pkcs7_test_key-y := \
- 	pkcs7_key_type.o
+-obj-$(CONFIG_SIGNED_PE_FILE_VERIFICATION) += verify_signed_pefile.o
++crypto-objs-$(CONFIG_SIGNED_PE_FILE_VERIFICATION) += verify_signed_pefile.o
  
-diff --git a/crypto/asymmetric_keys/pkcs7_key_type.c b/crypto/asymmetric_keys/pkcs7_key_type.c
-index b930d3bbf1af..a6921222ced1 100644
---- a/crypto/asymmetric_keys/pkcs7_key_type.c
-+++ b/crypto/asymmetric_keys/pkcs7_key_type.c
-@@ -4,8 +4,8 @@
-  * Copyright (C) 2014 Red Hat, Inc. All Rights Reserved.
-  * Written by David Howells (dhowells@redhat.com)
-  */
--
- #define pr_fmt(fmt) "PKCS7key: "fmt
-+#include <crypto/api.h>
- #include <linux/key.h>
- #include <linux/err.h>
- #include <linux/module.h>
-@@ -91,5 +91,5 @@ static void __exit pkcs7_key_cleanup(void)
- 	unregister_key_type(&key_type_pkcs7);
+ verify_signed_pefile-y := \
+ 	verify_pefile.o \
+diff --git a/crypto/asymmetric_keys/verify_pefile.c b/crypto/asymmetric_keys/verify_pefile.c
+index 1f3b227ba7f2..15e4e51f9f35 100644
+--- a/crypto/asymmetric_keys/verify_pefile.c
++++ b/crypto/asymmetric_keys/verify_pefile.c
+@@ -454,3 +454,4 @@ int verify_pefile_signature(const void *pebuf, unsigned pelen,
+ 	kfree_sensitive(ctx.digest);
+ 	return ret;
  }
++EXPORT_SYMBOL(verify_pefile_signature);
+\ No newline at end of file
+diff --git a/crypto/fips140/fips140-api.c b/crypto/fips140/fips140-api.c
+index 3e4203dd2aeb..74eae8815067 100644
+--- a/crypto/fips140/fips140-api.c
++++ b/crypto/fips140/fips140-api.c
+@@ -903,4 +903,14 @@ DEFINE_CRYPTO_API_STUB(crypto_ecdh_key_len);
+ DEFINE_CRYPTO_API_STUB(crypto_ecdh_encode_key);
+ DEFINE_CRYPTO_API_STUB(crypto_ecdh_decode_key);
  
--module_init(pkcs7_key_init);
--module_exit(pkcs7_key_cleanup);
-+crypto_module_init(pkcs7_key_init);
-+crypto_module_exit(pkcs7_key_cleanup);
++#endif
++/*
++ * crypto/asymmetric_keys/verify_pefile.c
++ */
++#if IS_BUILTIN(CONFIG_SIGNED_PE_FILE_VERIFICATION)
++
++#include <linux/verification.h>
++
++DEFINE_CRYPTO_API_STUB(verify_pefile_signature);
++
+ #endif
+\ No newline at end of file
+diff --git a/include/linux/verification.h b/include/linux/verification.h
+index dec7f2beabfd..b050da314117 100644
+--- a/include/linux/verification.h
++++ b/include/linux/verification.h
+@@ -8,6 +8,8 @@
+ #ifndef _LINUX_VERIFICATION_H
+ #define _LINUX_VERIFICATION_H
+ 
++#include <crypto/api.h>
++
+ #include <linux/errno.h>
+ #include <linux/types.h>
+ 
+@@ -63,9 +65,9 @@ extern int verify_pkcs7_message_sig(const void *data, size_t len,
+ 				    void *ctx);
+ 
+ #ifdef CONFIG_SIGNED_PE_FILE_VERIFICATION
+-extern int verify_pefile_signature(const void *pebuf, unsigned pelen,
+-				   struct key *trusted_keys,
+-				   enum key_being_used_for usage);
++DECLARE_CRYPTO_API(CONFIG_SIGNED_PE_FILE_VERIFICATION, verify_pefile_signature, int,
++	(const void *pebuf, unsigned pelen, struct key *trusted_keys, enum key_being_used_for usage),
++	(pebuf, pelen, trusted_keys, usage));
+ #endif
+ 
+ #endif /* CONFIG_SYSTEM_DATA_VERIFICATION */
 -- 
 2.47.3
 
