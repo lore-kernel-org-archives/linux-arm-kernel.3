@@ -4,103 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86884EDF04C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 06:58:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45890EDF04C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Feb 2026 07:09:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NhXdclisZldz/8hc7S0vRX9vNEprTfI4c73aw/csD7U=; b=x49gKXdLO4bE6cfuP9OIn1MyWc
-	baNbKOmYEjbkVvPTMfUbfVVFZ1nshc8VWErD02W3cNWwVht4284+wM73BoMvvp2gftpdp1AkN4xYZ
-	YsR6B7LgeZKoeaoumDo2vo26fv5E6fm62LpV4K9wGcEGcCbOV9f2QtTwgACNjPyDA2SDZVtWbQyfg
-	KenaoW5QzY6hyAHgPEaidnWCYTUkTm/sh9eSGmlQT4gurrioV7KA64kWYjkr00PUfsmC9KsBWoB1b
-	7oBKt3SUvoY4iyp/EOqtTdC1QVZL82KJAIhc+V4AC+VI2UHI2/mnp+z0YtuqTr55YuX+wk1mI+2Xp
-	q24pAiKg==;
+	bh=Fs5C+REHQEO0fnXAJqU+7UtASftmJuMuGkq66Fx7Ru8=; b=Ya9nleIoknqw41vNe/3OSnKCUp
+	Aksnqqrt0FBiSkJm/1kRjRYWR3hcXmS1PkmjxS+06CCV6rQ70p00FHjnCc45kZEC/HT4OUMb5+N3M
+	p7MbfIjmsva6cQmFUbjzK/++EqaTeHGltHh+bpskgX+TvMBKqVzEymqNiBS9g7bpijobMxrq9tbGV
+	NprL6erK2PKwnnBhTnOVkc78lKFR77wAo5LSjEtvd284d0J8r/YYZAIvbxO9hKwK+rLtQOB7hP0+i
+	PqdzlWxGM2Fi1pXQIs5Ong4abnBjw3XSYJ9kAigyUbmKgjRW9CA+e4v0au9I2oDWG3UV4cvJH7VlU
+	M9norsCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqQeC-00000001hGw-44cr;
-	Thu, 12 Feb 2026 06:57:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vqQpf-00000001hZu-0dKf;
+	Thu, 12 Feb 2026 07:09:47 +0000
+Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vqQeA-00000001hGa-2qDT
+	id 1vqQpb-00000001hZV-3enV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Feb 2026 06:57:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8426744528;
-	Thu, 12 Feb 2026 06:57:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1B14C19424;
-	Thu, 12 Feb 2026 06:57:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1770879472;
-	bh=TC4eT9vxiJeyFGCLPEWq5zI0trLgVLJ88LrdbbGyqFE=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=SHA2H4LGm2F4PFoDwpVUf8egI2XeSE59XvMXXiFZObN/kPYhjb2a6KxqMKsDYcDTa
-	 DnzaIxuOH/79N630Muea1AePBhc174GPKn06qfo19ItyrVA5G2ugecoK2RiFjUABcc
-	 05kTMY6aKXhoVF2nVWtbTPru4EQK+S+bXKCrH0jn6JF5Bm0FDAyRdZ5Ct/HGbO7cFo
-	 B6yQY/BJ9Lc3uNE2L7/AI6+Ul1WBwHmJVURcRxBO935qz6gyTrZ9NCGnuM4eg+up4X
-	 HxmCNbD57orEtW+5H4aW69CJvOAd/ztirYZ7TtzVhBAn8iLcx/rXs6vylEZbj92PF2
-	 gDE23Rt9CvVKQ==
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 689AEF40068;
-	Thu, 12 Feb 2026 01:57:50 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Thu, 12 Feb 2026 01:57:50 -0500
-X-ME-Sender: <xms:7nmNaS9MYDJG58U1RO4QSYPFO2jutu1K_REc9O7OE2dyiXTTy9YpEQ>
-    <xme:7nmNadh9VdCSyF8p5VmytvT3FWJSNN7By9TyMjvSg-CkPUa7sQLnAcDSn6ZIKNZ5P
-    6JTvqEqdjR3lDq20tIzVl8sB25FuB2w8i-LOlZl5ntgPDqmz3-j8to>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvtdegjeefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusehkvghrnhgvlhdrohhrgheqnecuggftrfgrth
-    htvghrnhepjeejffetteefteekieejudeguedvgfeffeeitdduieekgeegfeekhfduhfel
-    hfevnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrnhguodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduvdekhedujedtvdeg
-    qddvkeejtddtvdeigedqrghrnhgupeepkhgvrhhnvghlrdhorhhgsegrrhhnuggsrdguvg
-    dpnhgspghrtghpthhtohepuddupdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehl
-    ihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepthhonhihsegrth
-    homhhiuggvrdgtohhmpdhrtghpthhtohepughmihhtrhihrdhtohhrohhkhhhovhesghhm
-    rghilhdrtghomhdprhgtphhtthhopehjmhhkrhiihihsiihtsehgmhgrihhlrdgtohhmpd
-    hrtghpthhtoheprggrrhhordhkohhskhhinhgvnhesihhkihdrfhhipdhrtghpthhtohep
-    sghrghhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehhrghnshhgsehkvghrnhgvlh
-    drohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdr
-    ihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegsrghrthhoshiirdhgohhlrghsii
-    gvfihskhhisehoshhsrdhquhgrlhgtohhmmhdrtghomh
-X-ME-Proxy: <xmx:7nmNaXtS7qpTXHbv1NpxLGFXciifOEPLDnCV2OQZ8yC6DCDNNs2H2Q>
-    <xmx:7nmNaS6ukGL5S6VXbN2s-GQ32_2QoHwHAnDsScZnFxcL51RgAyRRgw>
-    <xmx:7nmNaST86bzoOaY8oewwG7S1Seh6XaUty9COozNXZZ3ArrXjRCYjoA>
-    <xmx:7nmNadvUSM5dgGwUyc6IsL5anL-9RuhVjd7snlXle5KL_NuPdjlz5Q>
-    <xmx:7nmNac8Ckc3dIPfqFdD5WKQlibMILvCutuJ35LX54qZwcrt_M4zryh-F>
-Feedback-ID: i36794607:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 397B6700065; Thu, 12 Feb 2026 01:57:50 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 12 Feb 2026 07:09:45 +0000
+Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-124a1b4dd40so1912003c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Feb 2026 23:09:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770880182; cv=none;
+        d=google.com; s=arc-20240605;
+        b=DcfVDhHrKMIEkX0GD/v2FJe9uQ+KraXB2W0UvSUVHtbAU0StbtMjavuRuutMU3AYVP
+         aSKmR9nqHb7lHyBLFLgN+rHGawjL4DZVHNSD9zEMPvrVZzWUU2C1He36dSwJrNJKYJQs
+         J1qYO8nO0k+tT4+CIaZiY83xJm63djOTk0Zk5IUfzwirwMAjYEsBWvTUBkHBty5B6snJ
+         vHG/BreBUTzeBpmxMbdRRAzEbsUlIZ4V1j80ooBpWuOjMRF11PNCvDslmaNi9j7kswNd
+         gsUmV7BxXgkXfVo0Y5LOL0oWxIoNx5bGzMur4Wiwxon3wEKnbvP4VWh27lFDRt1+ywsR
+         q28A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Fs5C+REHQEO0fnXAJqU+7UtASftmJuMuGkq66Fx7Ru8=;
+        fh=Mc+SnluobJmTen6mN4XJVTQglAsL2l16Xb0xVQctDUc=;
+        b=Lgy48IggvMA4JaZ2HzmSSyLGI7nHQAtZBdfa87i8SSVzB0q+Ebj3Fa7CMByyQcA9EI
+         E1Y3Ou41HWzr+yUos391kV0JlPL0f2kboVlWayqsFENdHoKifXUzVMDGpKq8ngsDwizm
+         A8tvtZhBkCChMpZZgRM49vbhqJP38mqimPvhBgcOipfo4KwCj6shieRFBP1twN4AJ0o1
+         z42QuY3E6ZoCC4rOIBP8IyIfC9gpm1z5hcozlD43NAkz4AdOIVzsU+A1chJRVc8qtAWB
+         WRGJw3l84uw/EIxkzteX1PlTyGiFyoO3byM+oa2zqswnoxgfz0wyZQFIJyxkyCQD84Lf
+         CD8Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770880182; x=1771484982; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Fs5C+REHQEO0fnXAJqU+7UtASftmJuMuGkq66Fx7Ru8=;
+        b=ARTlaNiWUKf+MtD9PgGaCgKfz20wrnmJviO7TAEY2CTFkFddaNM5wLonwWaEvS+914
+         skEArAUUTg9CH4BzhRa1k/RSk665sLucuAllBPrCSFQ7HbiquESvl5yKuZW2s4RZVuip
+         KBYvQj4M5GJwy3Jf86KpyR1fsNtTS3x8SG/6BM96wzUwOhVM8kYGvQK8K7dt2smcHCH/
+         7MeJo/m4W/xw1tnLgpUqKkWOi0ahkDVTk+LjSXpgwzSyO6RE02Efz/ztBpyapdZ6N73a
+         ZVJnHRrSpZPkkaA/LHuxGFsfxpt7Z7sjs06Wu0qbKsNCixyhDS5feRL3DbUU87WEeA+n
+         v89w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770880182; x=1771484982;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Fs5C+REHQEO0fnXAJqU+7UtASftmJuMuGkq66Fx7Ru8=;
+        b=ZUpZmMp/dWugMQ6yW1NLL/EXl5xS+VW34re2Bo2qg0nuW+GpCGc4RsL+FzDNQEX2Wt
+         wdXh3699S19KAL/Wxdm3uAvFh4Sm6dN/117AJW+CRKsmy/AUY7wgbOTpOB/F/muZ98vH
+         +5vidrqYulDlglIM+uzQkQNuCNI4iah+ZVGnnCjUZI8zMj/nqIVHGHW9tAsc0EV6qH1j
+         mfhyMSWF8vsTTqVlJVLUa9kx1hbU4xXfXaXxz5g2dJ+hAOdOAcSrztNlospLrjbOHE9b
+         /g67OpiGTEXy3hcCLL5DYyBmdoIZefWtj3NEC1snDHvfTwsn67ZcZMUGFJVies/2OlKH
+         ck5g==
+X-Forwarded-Encrypted: i=1; AJvYcCUQx/Aqs6n1VjnvoHyyZ97CCBpqE9Wx7SRvKHyOs+qLkT15S/rpbXTAhaG1WQkFeVh+On5wHBnU/IDpJMAtBtsJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywz77LbbdXYZC90Ejs1SO3d1uSU6zV7gYVp4w6kNRB5DsSncjFR
+	h2NFmw6km88YerNESTI6nARncZ3ml2ldKFrStc0YkNGoamtSDqwEsxQgTXpSo/Ze7XUYkRCl25t
+	bYaJ3ReiFUIrNpga0iDHelmBdqFo0+MQ=
+X-Gm-Gg: AZuq6aIhPGg6zTy8T4bLprym8bkCjHX1nYs4yT1GzLEC3/FTNYKQIk3tQaIi++BksD7
+	ukYENtH2UFlL1AyX4AoE07pQPCBhj4CQcruuBqsVfN/5zYzR/4RhnnVzmIAUrQIEaaybRxAq6xj
+	ymf7icxd02FNYVNIOQ72eWRT6Z8f8R5tW9PYg4iA73tzLzQ7aoxw7KnVho5H24kNB9ud8WlzO3K
+	a6j24kCY7Gp3LLgTP1Vzuu/Lf3LiLiNzTk2NXfCv890YvY2oPjQn454gK1JC9X30KqXkGonrO+R
+	5IF7ql9D8QJ4Jou5nmbeYXzAXqLSa5Qv8HokB7ctqe3mRTfSif5OPpPor8PG7qaOSdutG9vbLZD
+	zfv+nHauiSVSRBZqXnHSjNg==
+X-Received: by 2002:a05:7022:61a1:b0:11b:ca88:c4f7 with SMTP id
+ a92af1059eb24-1272f796ad2mr846334c88.40.1770880182309; Wed, 11 Feb 2026
+ 23:09:42 -0800 (PST)
 MIME-Version: 1.0
-X-ThreadId: AEuu_v-AJ7hw
-Date: Thu, 12 Feb 2026 07:57:28 +0100
-From: "Arnd Bergmann" <arnd@kernel.org>
-To: "Dmitry Torokhov" <dmitry.torokhov@gmail.com>
-Cc: "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>,
- "Aaro Koskinen" <aaro.koskinen@iki.fi>,
- "Janusz Krzysztofik" <jmkrzyszt@gmail.com>,
- "Tony Lindgren" <tony@atomide.com>, "Russell King" <linux@armlinux.org.uk>,
- "Hans de Goede" <hansg@kernel.org>, Linux-OMAP <linux-omap@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Bartosz Golaszewski" <brgl@kernel.org>
-Message-Id: <356b1997-ef0b-44f6-beeb-65f3cbed8681@app.fastmail.com>
-In-Reply-To: <aY0oY-1rbLL3ract@google.com>
-References: <20260211131350.126966-1-bartosz.golaszewski@oss.qualcomm.com>
- <213b82de-fee8-4ebf-a8ee-d8ca783ce403@app.fastmail.com>
- <aYz2_pE53G67vv0v@google.com> <aY0oY-1rbLL3ract@google.com>
-Subject: Re: [RFT PATCH v2] ARM: omap1: enable real software node lookup of GPIOs on
- Nokia 770
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <20260212053036.2581083-1-chancel.liu@nxp.com>
+In-Reply-To: <20260212053036.2581083-1-chancel.liu@nxp.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Thu, 12 Feb 2026 09:12:24 +0200
+X-Gm-Features: AZwV_QherBboHyGiDA8CJURenUrUDzC_HZm3EldthyJ-DQtvEc8-3hgQOSJYk0c
+Message-ID: <CAEnQRZBTHt7XjCqDzavdRw+kjSCJ3YyK9rW_Xqg5xUuckOkV5g@mail.gmail.com>
+Subject: Re: [PATCH] ASoC: dt-bindings: imx-card: Add dsp_a DAI format
+To: Chancel Liu <chancel.liu@nxp.com>
+Cc: lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com, 
+	shengjiu.wang@gmail.com, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260211_225754_783864_55071A55 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20260211_230943_935935_CC574D46 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,53 +121,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 12, 2026, at 02:12, Dmitry Torokhov wrote:
-> On Wed, Feb 11, 2026 at 01:40:44PM -0800, Dmitry Torokhov wrote:
->> On Wed, Feb 11, 2026 at 05:31:52PM +0100, Arnd Bergmann wrote:
->> > 
->> > Do you know if there is a good way to do this without using static
->> > platform devices?
->> 
->> I wonder if something like below will help reducing boilerplate...
+On Thu, Feb 12, 2026 at 7:31=E2=80=AFAM Chancel Liu <chancel.liu@nxp.com> w=
+rote:
 >
-> And then we can change the gpio16xx like this (on top of Bartosz
-> changes):
+> This machine driver can parse DAI format from format property. Add
+> "dsp_a" because it's one of the DAI formats this driver can support.
 
-> @@ -49,27 +49,27 @@ static struct omap_gpio_reg_offs omap16xx_mpuio_regs = {
->  	.irqctrl	= OMAP_MPUIO_GPIO_INT_EDGE,
->  };
-> 
-> -static struct omap_gpio_platform_data omap16xx_mpu_gpio_config = {
-> +static const struct omap_gpio_platform_data omap16xx_mpu_gpio_config 
-> __initconst = {
->  	.is_mpuio		= true,
->  	.bank_width		= 16,
->  	.bank_stride		= 1,
->  	.regs                   = &omap16xx_mpuio_regs,
->  };
-> 
-> -const struct software_node omap16xx_mpu_gpio_swnode = { };
-> +static const struct software_node omap16xx_mpu_gpio_swnode;
-> 
-> -static struct platform_device omap16xx_mpu_gpio = {
-> -	.name           = "omap_gpio",
-> -	.id             = 0,
-> -	.dev            = {
-> -		.platform_data = &omap16xx_mpu_gpio_config,
-> -	},
-> -	.num_resources = ARRAY_SIZE(omap16xx_mpu_gpio_resources),
-> -	.resource = omap16xx_mpu_gpio_resources,
-> +static const struct platform_device_info omap16xx_mpu_gpio_info __initconst = {
-> +	.name = "omap_gpio",
-> +	.id = 0,
-> +	.data = &omap16xx_mpu_gpio_config,
-> +	.size_data = sizeof(omap16xx_mpu_gpio_config),
-> +	.res = omap16xx_mpu_gpio_resources,
-> +	.num_res = ARRAY_SIZE(omap16xx_mpu_gpio_resources),
-> +	.swnode = &omap16xx_mpu_gpio_swnode,
->  };
+Hi Chancel,
 
-Yes, that looks really nice!
+Are there any other supported formats?
 
-     Arnd
+Possible variants are:
+
+        - i2s
+        - right_j
+        - left_j
+        - dsp_a
+        - dsp_b
+        - ac97
+        - pdm
+        - msb
+        - lsb
+
+Can you also add more explanation on the scenario for which this patch
+is needed?
+
+Thanks,
+Daniel.
 
